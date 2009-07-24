@@ -1,0 +1,13 @@
+#!/bin/bash
+
+. /etc/default/playsms
+
+SMSD_FILE=`mktemp -q $PLAYSMS_SPOOL/ERR.in.XXXXXX`
+
+touch $SMSD_FILE
+
+chmod 666 $SMSD_FILE
+
+echo -e "$2\n$1" > $SMSD_FILE
+
+cat >> $SMSD_FILE

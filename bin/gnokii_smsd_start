@@ -1,0 +1,8 @@
+#!/bin/bash
+
+. /etc/default/playsms
+
+CWD=`pwd`
+cd $PLAYSMS_BIN
+./gnokii_smsd_checker >/dev/null 2>&1 &
+cd $CWD

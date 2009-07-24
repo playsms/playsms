@@ -1,0 +1,101 @@
+.descriptions {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10pt; font-style: normal; line-height: 11pt; font-weight: normal; font-variant: normal; text-transform: none; color: #000000; text-decoration: none}
+.copyright
+{
+	font: 8pt/8pt Verdana, Arial, Helvetica, sans-serif;
+	color: #6666ff;
+}
+.itemdesc
+{
+	font: bold 8pt/15pt Verdana, Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
+	color: #0066ff;
+	text-decoration: none;
+}
+.title
+{
+	font: bold 10pt/15pt Verdana, Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
+	color: #cc0033;
+	text-decoration: none;
+}
+.subtitle
+{
+	border-bottom-width: thin;
+	font: bold 10pt/25pt Verdana, Arial;
+	text-transform: none;
+	color: #006666;
+	background-color: #FFFFCC;
+	text-decoration: none;
+}
+.bottomlinks
+{
+	font: small-caps 8pt/15pt Verdana, Arial, Helvetica, sans-serif;
+	color: #6666ff;
+	text-decoration: none;
+}
+A{text-decoration: none;} 
+A:link
+{
+	color: #3399cc;
+}
+A:visited{color: #3399cc;}
+A:hover
+{
+	color: #cc0033;
+}
+.lineItem
+{
+	font-weight: bold;
+	font-size: 10pt;
+	color: teal;
+	font-style: normal;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.newsheader
+{
+	font: bold 10pt/16pt Verdana, Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
+	color: teal;
+	background-color: transparent;
+}
+.boldtext
+{
+	font: bold 10pt/16pt Verdana, Arial, Helvetica, sans-serif;
+	text-transform: none;
+	color: #000000;
+	text-decoration: none;
+}
+.subdesc
+{
+	font: 8pt/10pt Verdana, Arial, Helvetica, sans-serif;
+	text-transform: none;
+	color: red;
+	text-decoration: none;
+}
+.code
+{
+	font: 8pt/10pt Verdana, Arial, Helvetica, sans-serif;
+	text-transform: none;
+	color: red;
+	background-color: silver;
+	text-decoration: none;
+}
+.highlight
+{
+	font-weight: bold;
+	font-size: 11pt;
+	color: red;
+	font-style: normal;
+	font-family: Verdana, Arial;
+	background-color: transparent;
+	font-variant: small-caps;
+}
+.navigatemenu
+{
+	font-weight: bold;
+	font-size: 10pt;
+	text-transform: capitalize;
+	color: blue;
+	font-family: Verdana, Arial;
+	font-variant: small-caps;
+}

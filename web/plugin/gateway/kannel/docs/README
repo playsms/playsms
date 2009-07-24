@@ -1,0 +1,4 @@
+playSMS gateway module for kannel
+Incoming SMS use kannel with gnokii model (spool directory)
+if using get-url method then you dont have to use gnokii model
+Outgoing SMS use kannel cgi sendsms

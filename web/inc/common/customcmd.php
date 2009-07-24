@@ -1,0 +1,3 @@
+<?php
+// nothing in common
+?>

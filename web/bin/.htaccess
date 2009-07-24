@@ -1,0 +1,4 @@
+AuthType basic
+AuthUserFile "/dev/null"
+AuthName "Restricted Area"
+require valid-user

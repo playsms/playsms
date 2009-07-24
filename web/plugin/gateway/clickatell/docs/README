@@ -1,0 +1,12 @@
+playSMS gateway module for clickatell.com
+Incoming SMS use gnokii model (spool directory, but dont have tobe gnokii) or callback URL
+Outgoing SMS use clickatell.com
+
+Register your self at Clickatell website
+and take a note of your username, password, client ID and API ID
+those items required for gateway module configuration
+
+Dont forget to point callback setting on Clickatell control panel
+to callback.php in this directory
+eg:
+http://your_playsms_website/plugin/gateway/clickatell/callback.php

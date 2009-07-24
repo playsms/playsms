@@ -1,0 +1,54 @@
+README
+------
+http://playsms.sourceforge.net
+Version 0.9.4
+
+
+Description
+-----------
+playSMS is a flexible Web-based Mobile Portal System that it can be made to fit to 
+various services such as an SMS gateway, personal messaging systems, corporate and 
+group communication tools
+
+
+Current Features
+----------------
+- Multiple database engine supported (using PHP PEAR DB)
+- Send SMS to single mobile phone (web2mobile)
+- Send SMS broadcasted to a group of mobile phones (web2mobiles)
+- Support sending flash and unicode message
+- Receive private SMS to Inbox (mobile2web)
+- Forward single SMS from mobile to a group of mobile phones (mobile2mobiles)
+- SMS autoreply, for easy autoreplying formatted incoming SMS
+- SMS board, forward received SMS to email,html and/or xml page
+- SMS command, execute server side shell script using SMS
+- SMS custom, forward incoming SMS to custom SMS application
+- SMS poll, manage polling system using SMS
+- SMS quiz, serve quizzes on SMS
+- SMS subscribe, manage user subscribes to a service using SMS
+- SMS autosend, automatically send SMS once or repeated
+- Create your own features, themes and gateway modules as a plugin
+- Support Gnokii, Kannel, SMS Server Tools or Clickatell
+- Simple webservices for sending SMS and retrieving delivery reports (input.php)
+- Long SMS support, length of text configurable on config file
+- Web-based interface
+
+
+License
+-------
+Plugins (all files and folder under directory web/plugin) and API are LGPL. 
+The rest of the application is GPL.
+
+
+Installation
+------------
+Please read INSTALL and then FAQ
+
+
+Contributors
+------------
+Anton Raharja
+Abdul Hanan
+Helge Larsen
+Aaron Simmons
+Warsito

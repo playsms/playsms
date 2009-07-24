@@ -1,0 +1,40 @@
+INSTALL SMS SERVER TOOLS
+------------------------
+
+Per date this manual written, we're using SMS Server Tools version 3.1.3:
+http://smstools3.kekekasvi.com/packages/smstools3-3.1.3.tar.gz
+
+This manual also compatible with original SMS Server Tools:
+http://smstools.meinemullemaus.de/
+
+Step by step how to install SMS Server Tools for playSMS as follows:
+1.  Extract SMS Server Tools source package somewhere (eg: /usr/local/src)
+	# tar -zxvf smstools3-3.1.3.tar.gz
+2.  Enter the extracted source codes directory and execute make to compile followed
+    by installing smstools3
+	# cd smstools3
+	# make
+	# make install
+4.  Back to playSMS source directory, copy smsd.conf from contrib/smstools/ to /etc
+	# cd <playsms source codes directory>
+	# cp contrib/smstools/smsd.conf /etc/
+5.  Make changes on /etc/smsd.conf if you're not using iTegno 3000 USB gsm modem
+6.  Create some important directories for smstools3
+	# mkdir -p /var/spool/sms/checked
+	# mkdir -p /var/spool/sms/failed
+	# mkdir -p /var/spool/sms/incoming
+	# mkdir -p /var/spool/sms/outgoing
+	# mkdir -p /var/spool/sms/sent
+	# mkdir -p /var/log/sms
+7.  Change permissions on some directories so that web server user can write files on it
+	# chmod -R 777 /var/spool/sms
+	or
+	# chown -R www-data /var/spool/sms
+8.  Enter playSMS from web and login as administrator user and activate Gateway smstools
+
+Note if you are using Ubuntu or Debian and alike:
+- To get smstools3 running automatically on every boot, type this command:
+    # update-rc.d sms3 defaults
+  For smstools, type following command:
+    # update-rc.d sms defaults
+

@@ -1,0 +1,97 @@
+DESCRIPTION
+-----------
+This document explain about howto install or setup playSMS
+
+
+REQUIREMENT
+-----------
+Minimum Required Hardware
+- Web server capable hardware
+
+Minimum Required Software
+- Operating System Linux
+- Web Server (Apache)
+- Database Server MySQL 4.x.x or latest stable release
+- PHP 4.4.x or latest stable release with mysql module enabled and CGI/CLI version
+- PHP PEAR DB (this is a must, most admins forgot this requirement)
+- Access to SMTP server (playSMS will use this to send email)
+- lynx, a console web browser
+
+Minimum Required Server Administrator (or Developer)
+- Understand howto make sure installed PHP has MySQL module enabled/loaded
+- Understand howto create/drop MySQL database
+- Understand howto insert SQL statements into created database
+- Basic knowledges to operate and manage Linux
+
+
+UPGRADE
+-------
+We do not provide a way to upgrade until version 1.0. But anyway, simply copying new files from 
+this package into old playsms installation, replacing old files, should do the trick.
+
+   
+INSTALLATION on Linux
+---------------------
+Note:
+- I assumed that you have root priviledge. If you dont, understand that im trying to 
+  guide you to install playSMS on /var/www/playsms under user 'playsms'. You may use your own
+  username, your own home directory or any preferred directory.
+- This installation instructions might be working for *other NIX based operating system, 
+  I know someone installing playSMS on FreeBSD and it work just fine.
+
+playSMS Web Interface:
+1.  It is important to meet all minimum requiments above
+2.  Setup a system user named 'playsms' to manage playSMS
+    # adduser playsms
+    # passwd playsms
+    Note: on some Linux distributions adduser and passwd combined (Debian, Ubuntu and maybe others)
+3.  On most Linux distributions actions (2) will create system user and group named 'playsms'
+    with home directory /home/playsms, but you will install playSMS in different directory
+4.  Create playSMS web root, spool and log and set ownership to user www-data or web server user
+    # mkdir -p /var/www/playsms
+    # mkdir -p /var/spool/playsms
+    # mkdir -p /var/log/playsms
+    # chown -R www-data /var/www/playsms
+    # chown -R www-data /var/spool/playsms
+    # chown -R www-data /var/log/playsms
+5.  Extract playSMS package somewhere (Usually in /usr/local/src)
+    # tar -zxvf playsms-x.x.x.tar.gz -C /usr/local/src
+    Note: x.x.x may vary according to the package name you've download
+6.  Copy files and directories inside 'web' directory to playSMS web root and set ownership again to 
+    user www-data or apache web server user
+    # cd /usr/local/src/playsms-x.x.x/web
+    # cp -rR * /var/www/playsms
+    # chown -R www-data /var/www/playsms
+    Note: assumed your web server user is www-data
+7.  Setup database (import database)
+    # mysqladmin -u root -p create playsms
+    # mysql -u root -p playsms < /usr/local/src/playsms-x.x.x/db/playsms.sql
+    Note: you dont need to use MySQL root access nor this method to setup playSMS
+    database, but this is beyond our scope, you should read MySQL manual's for custom
+    installation method or howto insert SQL statements into existing database
+8.  Copy config-dist.php to config.php and edit config.php
+    # cd /var/www/playsms
+    # cp config-dist.php config.php
+    # mcedit config.php
+    or 
+    # vi config.php
+    Note: please read and fill all required fields with coutious
+9.  Enter bin directory, copy playsms, playsmsd, playsmsd.php, playsmsd_start to directory default
+    # cd /usr/local/src/playsms-x.x.x/bin
+    # cp playsmsd playsmsd.php playsmsd_start /usr/local/bin/
+    # cp playsms /etc/default/
+    Note: please note the different between playsms and playsmsd
+10. Look for rc.local on /etc and its subdirectories (usualy /etc, /etc/init.d or /etc/rc.d/init.d)
+    Edit rc.local and put: 
+    "/usr/local/bin/playsmsd_start" (without quotes)
+    on the bottom of the file (before exit if theres exit command). This way playsmsd_start 
+    will start automatically on boot. 
+    Note: you need 'root' access to do this
+11  Browse http://localhost/playsms/ and login using default administrator user
+    username: admin
+    password: admin
+12. At this point you should be able to login to playSMS web interface and manage playSMS
+
+Please continue to follow INSTALL_GNOKII if you want to use gnokii as your gateway module, 
+or INSTALL_SMSSERVERTOOLS to use SMS Server Tools, or INSTALL_KANNEL if you want to use 
+kannel instead.

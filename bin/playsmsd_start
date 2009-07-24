@@ -1,0 +1,8 @@
+#!/bin/bash
+
+. /etc/default/playsms
+
+CWD=`pwd`
+cd $PLAYSMS_BIN
+./playsmsd $PLAYSMS_PATH >/dev/null 2>&1 &
+cd $CWD

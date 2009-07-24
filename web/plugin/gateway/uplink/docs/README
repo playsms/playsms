@@ -1,0 +1,7 @@
+Template for playSMS gateway module 'Neighbour playSMS'
+Your playSMS send sms by using other playSMS somewhere (Master)
+Receive SMS using gnokii
+
+Send SMS flow:
+IP Network ---> [ Your playSMS ] ---> [ Master playSMS] ---> GSM Network
+

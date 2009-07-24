@@ -1,0 +1,75 @@
+INSTALL GNOKII
+--------------
+If you want to use default gateway module (gnokii), then you must install gnokii on the 
+same server where playSMS installed. 
+
+There are 2 choices how to install gnokii, first using apt-get and secondly by downloading 
+the source and compile it. Choose one easiest.
+
+I.  Gnokii installation in Ubuntu (and Debian) using apt-get:
+
+1.  Install gnokii using apt-get:
+    # apt-get install gnokii gnokii-smsd
+2.  Edit /etc/gnokiirc
+    # mcedit /etc/gnokiirc
+    or
+    # vi /etc/gnokiirc
+    Note: usually you only need to edit the port and model part only
+3.  Test your gnokii, plug in your cellphone/gsm modem cable to the computer, or
+    connect via IrDA, and then type:
+    # gnokii --identify
+    Note: you should see gnokii identified your cellphone/gsm modem, if you dont
+    see it, update your ~/.gnokiirc to suit your need
+4.  Back to playSMS source directory, enter bin directory and copy gnokii_smsd_checker, 
+    gnokii_smsd_incoming and gnokii_smsd_start to default directory
+    # cd /usr/local/src/playsms-x.x.x/bin
+    # cp gnokii_smsd_checker gnokii_smsd_incoming gnokii_smsd_start /usr/local/bin/
+5.  Look for rc.local on /etc and its subdirectories (usualy /etc, /etc/init.d or /etc/rc.d/init.d)
+    Edit rc.local and put: 
+    "/usr/local/bin/gnokii_smsd_start" (without quotes)
+    on the bottom of the file (before exit if theres exit command). This way gnokii_smsd_start 
+    will start automatically on boot. 
+    Note: you need 'root' access to do this
+
+
+II  Gnokii installation from source:
+
+1.  Extract gnokii source package somewhere (eg: /usr/local/src)
+2.  Configure it to make sure installation path is in /usr/local
+    # ./configure --prefix=/usr/local
+3.  Make and make install, these actions will install gnokii to /usr/local
+    # make
+    # make install
+4.  Enter directory named 'smsd' in gnokii source directory, compile and install smsd
+    Note: if you use gnokii version < 0.6.0 you'll have to make libfile.so not libfile.la
+    # cd smsd
+    # make
+    # make libfile.la
+    # make install
+    # ln -s /usr/local/bin/smsd /usr/sbin/smsd
+    Note: for those whose having trouble compiling smsd will have to edit the
+    Makefile file manually, insert comments mark on libmysql.so and libpq.so part,
+    another important note is to link (ln -s) /usr/local/bin/smsd to /usr/sbin/smsd
+5.  Copy Docs/gnokiirc to /etc/gnokiirc, and edit it:
+    # cd ../Docs/
+    # cp gnokiirc /etc/gnokiirc
+    # mcedit /etc/gnokiirc
+    or
+    # vi /etc/gnokiirc
+    Note: usually you only need to edit the port and model part only
+6.  Test your gnokii, plug in your cellphone/gsm modem cable to the computer, or
+    connect via IrDA, and then type:
+    # gnokii --identify
+    Note: you should see gnokii identified your cellphone/gsm modem, if you dont
+    see it, update your ~/.gnokiirc to suit your need
+7.  Back to playSMS source directory, enter bin directory and copy gnokii_smsd_checker, 
+    gnokii_smsd_incoming and gnokii_smsd_start to default directory
+    # cd /usr/local/src/playsms-x.x.x/bin
+    # cp gnokii_smsd_checker gnokii_smsd_incoming gnokii_smsd_start /usr/local/bin/
+8.  Look for rc.local on /etc and its subdirectories (usualy /etc, /etc/init.d or /etc/rc.d/init.d)
+    Edit rc.local and put: 
+    "/usr/local/bin/gnokii_smsd_start" (without quotes)
+    on the bottom of the file (before exit if theres exit command). This way gnokii_smsd_start 
+    will start automatically on boot. 
+    Note: you need 'root' access to do this
+

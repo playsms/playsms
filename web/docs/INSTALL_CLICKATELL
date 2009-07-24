@@ -1,0 +1,5 @@
+INSTALL CLICKATELL
+------------------
+If you want to use clickatell gateway module, please register your self at Clickatell's website.
+
+And then read the README file in $apps_path[base]/plugin/gateway/clickatell

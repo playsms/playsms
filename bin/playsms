@@ -1,0 +1,5 @@
+PLAYSMS_PATH=/var/www/playsms
+PLAYSMS_BIN=/usr/local/bin
+PLAYSMS_SMSD=/usr/sbin
+PLAYSMS_LOG=/var/log/playsms
+PLAYSMS_SPOOL=/var/spool/playsms
