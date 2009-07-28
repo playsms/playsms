@@ -1,6 +1,6 @@
 Version 0.9.4 - 080713
 - on themes, add loginpage.php and rename welcome.php to default.php
-- remove bin/kannel_incoming.sh, 
+- remove bin/kannel_incoming.sh
 - kannel can only pass MOs to playSMS using geturl method, see contrib/kannel/kannel.conf
 - remove PlaySMS Web URL and Kannel Incoming Path, kannel gateway, kannel.php
 - change delivery mechanism, now using file_get_contents instead of fsockopen, kannel gateway
