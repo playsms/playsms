@@ -1,7 +1,7 @@
 <?
 if(!valid()){forcenoaccess();};
 
-$slid = $_GET[slid];
+$slid = $_REQUEST[slid];
 
 switch ($op)
 {

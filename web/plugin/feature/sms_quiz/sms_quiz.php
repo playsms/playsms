@@ -5,7 +5,7 @@ if (!valid()) {
 
 switch ($op) {
 	case "sms_answer_view" :
-		$quiz_id = $_GET[quiz_id];
+		$quiz_id = $_REQUEST[quiz_id];
 		$quiz_answer_query = "SELECT quiz_keyword,quiz_answer FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_id = '$quiz_id'";
 		$db_answer_result = dba_query($quiz_answer_query);
 		$db_answer_row = dba_fetch_array($db_answer_result);
@@ -56,8 +56,8 @@ switch ($op) {
 		break;
 
 	case "sms_answer_del" :
-		$quiz_id = $_GET[quiz_id];
-		$answer_id = $_GET[answer_id];
+		$quiz_id = $_REQUEST[quiz_id];
+		$answer_id = $_REQUEST[answer_id];
 		$db_query = "SELECT answer_id FROM " . _DB_PREF_ . "_featureQuiz_log WHERE answer_id='$answer_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
@@ -130,7 +130,7 @@ switch ($op) {
 		break;
 
 	case "sms_quiz_edit" :
-		$quiz_id = $_GET[quiz_id];
+		$quiz_id = $_REQUEST[quiz_id];
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_id='$quiz_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
@@ -213,8 +213,8 @@ switch ($op) {
 		break;
 
 	case "sms_quiz_status" :
-		$quiz_id = $_GET[quiz_id];
-		$ps = $_GET[ps];
+		$quiz_id = $_REQUEST[quiz_id];
+		$ps = $_REQUEST[ps];
 		$db_query = "UPDATE " . _DB_PREF_ . "_featureQuiz SET c_timestamp='" . mktime() . "',quiz_enable='$ps' WHERE quiz_id='$quiz_id'";
 		$db_result = @ dba_affected_rows($db_query);
 		if ($db_result > 0) {
@@ -224,7 +224,7 @@ switch ($op) {
 		break;
 
 	case "sms_quiz_del" :
-		$quiz_id = $_GET[quiz_id];
+		$quiz_id = $_REQUEST[quiz_id];
 		$db_query = "SELECT quiz_keyword FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_id='$quiz_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);

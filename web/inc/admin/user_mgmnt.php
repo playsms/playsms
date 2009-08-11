@@ -79,7 +79,7 @@ switch ($op)
 	";
 	break;
     case "user_del":
-	$uname = $_GET[uname];
+	$uname = $_REQUEST[uname];
 	$del_uid = username2uid($uname);
 	$error_string = "Fail to delete user `$uname`!";
 	if (($del_uid > 1) && ($del_uid != $uid))
@@ -101,7 +101,7 @@ switch ($op)
 	header ("Location: menu.php?inc=user_mgmnt&op=user_list&err=".urlencode($error_string));
 	break;
     case "user_edit":
-	$uname = $_GET[uname];
+	$uname = $_REQUEST[uname];
 	$uid = username2uid($uname);
 	$mobile = username2mobile($uname);
 	$email = username2email($uname);

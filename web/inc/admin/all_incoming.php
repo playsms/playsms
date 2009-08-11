@@ -112,7 +112,7 @@ switch ($op)
 	break;
     case "all_incoming_del":
 	$error_string = "Fail to delete incoming SMS";
-	if ($in_id = $_GET[inid])
+	if ($in_id = $_REQUEST[inid])
 	{
 	    $db_query = "UPDATE "._DB_PREF_."_tblSMSIncoming SET c_timestamp='".mktime()."',flag_deleted='1' WHERE in_id='$in_id'";
 	    $db_result = dba_affected_rows($db_query);

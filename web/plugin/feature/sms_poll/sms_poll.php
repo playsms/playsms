@@ -63,7 +63,7 @@ switch ($op)
 	";
 	break;
     case "sms_poll_view":
-	$poll_id = $_GET[poll_id];
+	$poll_id = $_REQUEST[poll_id];
 	$db_query = "SELECT poll_keyword FROM "._DB_PREF_."_featurePoll WHERE poll_id='$poll_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -71,7 +71,7 @@ switch ($op)
 	header ("Location: output.php?show=poll&keyword=$poll_keyword");
 	break;
     case "sms_poll_edit":
-	$poll_id = $_GET[poll_id];
+	$poll_id = $_REQUEST[poll_id];
 	$db_query = "SELECT * FROM "._DB_PREF_."_featurePoll WHERE poll_id='$poll_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -190,8 +190,8 @@ switch ($op)
 	header ("Location: menu.php?inc=feature_sms_poll&op=sms_poll_edit&poll_id=$edit_poll_id&err=".urlencode($error_string));
 	break;
     case "sms_poll_status":
-	$poll_id = $_GET[poll_id];
-	$ps = $_GET[ps];
+	$poll_id = $_REQUEST[poll_id];
+	$ps = $_REQUEST[ps];
 	$db_query = "UPDATE "._DB_PREF_."_featurePoll SET c_timestamp='".mktime()."',poll_enable='$ps' WHERE poll_id='$poll_id'";
 	$db_result = @dba_affected_rows($db_query);
 	if ($db_result > 0)
@@ -201,7 +201,7 @@ switch ($op)
 	header ("Location: menu.php?inc=feature_sms_poll&op=sms_poll_edit&poll_id=$poll_id&err=".urlencode($error_string));
 	break;
     case "sms_poll_del":
-	$poll_id = $_GET[poll_id];
+	$poll_id = $_REQUEST[poll_id];
 	$db_query = "SELECT poll_title FROM "._DB_PREF_."_featurePoll WHERE poll_id='$poll_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -248,8 +248,8 @@ switch ($op)
 	header ("Location: menu.php?inc=feature_sms_poll&op=sms_poll_edit&poll_id=$poll_id&err=".urlencode($error_string));
 	break;
     case "sms_poll_choice_del":
-	$poll_id = $_GET[poll_id];
-	$choice_id = $_GET[choice_id];
+	$poll_id = $_REQUEST[poll_id];
+	$choice_id = $_REQUEST[choice_id];
 	$db_query = "SELECT choice_keyword FROM "._DB_PREF_."_featurePoll_choice WHERE poll_id='$poll_id' AND choice_id='$choice_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);

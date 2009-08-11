@@ -12,7 +12,7 @@ $content = "
     <hr size=1>
 ";
 
-$get = ( $_GET['get'] ? $_GET['get'] : 1 );
+$get = ( $_REQUEST['get'] ? $_REQUEST['get'] : 1 );
 switch ($get)
 {
     case 1: $read = "README"; break;

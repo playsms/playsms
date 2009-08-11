@@ -1,7 +1,7 @@
 <?
 if(!valid()){forcenoaccess();};
 
-$gpid = $_GET[gpid];
+$gpid = $_REQUEST[gpid];
 
 switch ($op)
 {

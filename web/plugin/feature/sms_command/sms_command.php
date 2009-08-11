@@ -60,7 +60,7 @@ switch ($op)
 	";
 	break;
     case "sms_command_edit":
-	$command_id = $_GET[command_id];
+	$command_id = $_REQUEST[command_id];
 	$db_query = "SELECT * FROM "._DB_PREF_."_featureCommand WHERE command_id='$command_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -116,7 +116,7 @@ switch ($op)
 	header ("Location: menu.php?inc=feature_sms_command&op=sms_command_edit&command_id=$edit_command_id&err=".urlencode($error_string));
 	break;
     case "sms_command_del":
-	$command_id = $_GET[command_id];
+	$command_id = $_REQUEST[command_id];
 	$db_query = "SELECT command_keyword FROM "._DB_PREF_."_featureCommand WHERE command_id='$command_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);

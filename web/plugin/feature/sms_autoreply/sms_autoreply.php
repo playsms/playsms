@@ -57,7 +57,7 @@ switch ($op)
 	";
 	break;
     case "sms_autoreply_manage":
-	$autoreply_id = $_GET[autoreply_id];
+	$autoreply_id = $_REQUEST[autoreply_id];
 	if (!isadmin())
 	{
 	    $query_user_only = "AND uid='$uid'";
@@ -121,7 +121,7 @@ switch ($op)
 	echo $content;
 	break;
     case "sms_autoreply_del":
-	$autoreply_id = $_GET[autoreply_id];
+	$autoreply_id = $_REQUEST[autoreply_id];
 	$db_query = "SELECT autoreply_keyword FROM "._DB_PREF_."_featureAutoreply WHERE autoreply_id='$autoreply_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -185,8 +185,8 @@ switch ($op)
 	
     // scenario
     case "sms_autoreply_scenario_del":
-	$autoreply_scenario_id = $_GET[autoreply_scenario_id];
-	$autoreply_id = $_GET[autoreply_id];
+	$autoreply_scenario_id = $_REQUEST[autoreply_scenario_id];
+	$autoreply_id = $_REQUEST[autoreply_id];
 	$db_query = "SELECT autoreply_scenario_keyword FROM "._DB_PREF_."_featureAutoreply_scenario WHERE autoreply_scenario_id='$autoreply_scenario_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -206,7 +206,7 @@ switch ($op)
 	header ("Location: menu.php?inc=feature_sms_autoreply&op=sms_autoreply_scenario_list&err=".urlencode($error_string));
 	break;
     case "sms_autoreply_scenario_add":
-	$autoreply_id = $_GET[autoreply_id];
+	$autoreply_id = $_REQUEST[autoreply_id];
 	$db_query = "SELECT * FROM "._DB_PREF_."_featureAutoreply WHERE autoreply_id='$autoreply_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -278,8 +278,8 @@ switch ($op)
 	header ("Location: menu.php?inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=$autoreply_id&err=".urlencode($error_string));
 	break;
     case "sms_autoreply_scenario_edit":
-	$autoreply_scenario_id = $_GET[autoreply_scenario_id];
-	$autoreply_id = $_GET[autoreply_id];
+	$autoreply_scenario_id = $_REQUEST[autoreply_scenario_id];
+	$autoreply_id = $_REQUEST[autoreply_id];
 	$db_query = "SELECT * FROM "._DB_PREF_."_featureAutoreply WHERE autoreply_id='$autoreply_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);

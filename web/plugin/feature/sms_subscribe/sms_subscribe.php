@@ -69,7 +69,7 @@ switch ($op) {
 		break;
 
 	case "msg_list" :
-		$subscribe_id = $_GET[subscribe_id];
+		$subscribe_id = $_REQUEST[subscribe_id];
 		$db_query = "SELECT subscribe_keyword FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id = '$subscribe_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
@@ -121,8 +121,8 @@ switch ($op) {
 		break;
 
 	case "msg_view" :
-		$subscribe_id = $_GET[subscribe_id];
-		$msg_id = $_GET[msg_id];
+		$subscribe_id = $_REQUEST[subscribe_id];
+		$msg_id = $_REQUEST[msg_id];
 
 		$db_query = "SELECT subscribe_keyword FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id = '$subscribe_id'";
 		$db_result = dba_query($db_query);
@@ -159,8 +159,8 @@ switch ($op) {
 		break;
 
 	case "msg_edit" :
-		$subscribe_id = $_GET[subscribe_id];
-		$msg_id = $_GET[msg_id];
+		$subscribe_id = $_REQUEST[subscribe_id];
+		$msg_id = $_REQUEST[msg_id];
 
 		$db_query = "SELECT subscribe_keyword FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id = '$subscribe_id'";
 		$db_result = dba_query($db_query);
@@ -257,7 +257,7 @@ switch ($op) {
 		break;
 
 	case "mbr_list" :
-		$subscribe_id = $_GET[subscribe_id];
+		$subscribe_id = $_REQUEST[subscribe_id];
 		$db_query = "SELECT subscribe_keyword FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id = '$subscribe_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
@@ -302,8 +302,8 @@ switch ($op) {
 		break;
 
 	case "mbr_del" :
-		$subscribe_id = $_GET[subscribe_id];
-		$mbr_id = $_GET[mbr_id];
+		$subscribe_id = $_REQUEST[subscribe_id];
+		$mbr_id = $_REQUEST[mbr_id];
 		if ($mbr_id) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE member_id='$mbr_id'";
 			if (@ dba_affected_rows($db_query)) {
@@ -314,7 +314,7 @@ switch ($op) {
 		break;
 
 	case "sms_subscribe_edit" :
-		$subscribe_id = $_GET[subscribe_id];
+		$subscribe_id = $_REQUEST[subscribe_id];
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id='$subscribe_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
@@ -387,8 +387,8 @@ switch ($op) {
 		break;
 
 	case "sms_subscribe_status" :
-		$subscribe_id = $_GET[subscribe_id];
-		$ps = $_GET[ps];
+		$subscribe_id = $_REQUEST[subscribe_id];
+		$ps = $_REQUEST[ps];
 		$db_query = "UPDATE " . _DB_PREF_ . "_featureSubscribe SET c_timestamp='" . mktime() . "',subscribe_enable='$ps' WHERE subscribe_id='$subscribe_id'";
 		$db_result = @ dba_affected_rows($db_query);
 		if ($db_result > 0) {
@@ -398,7 +398,7 @@ switch ($op) {
 		break;
 
 	case "sms_subscribe_del" :
-		$subscribe_id = $_GET[subscribe_id];
+		$subscribe_id = $_REQUEST[subscribe_id];
 		$db_query = "SELECT subscribe_keyword FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id='$subscribe_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
@@ -419,8 +419,8 @@ switch ($op) {
 		break;
 
 	case "msg_del" :
-		$subscribe_id = $_GET[subscribe_id];
-		$msg_id = $_GET[msg_id];
+		$subscribe_id = $_REQUEST[subscribe_id];
+		$msg_id = $_REQUEST[msg_id];
 		if ($msg_id) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE msg_id='$msg_id'";
 			if (@ dba_affected_rows($db_query)) {
@@ -478,7 +478,7 @@ switch ($op) {
 		break;
 
 	case "sms_subscribe_mbr_msg_add" :
-		$subscribe_id = $_GET[subscribe_id];
+		$subscribe_id = $_REQUEST[subscribe_id];
 		if ($err) {
 			$content = "<p><font color=red>$err</font><p>";
 		}

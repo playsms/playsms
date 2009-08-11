@@ -4,13 +4,13 @@ include "init.php";
 include "$apps_path[libs]/function.php";
 chdir("plugin/gateway/clickatell/");
 
-$cb_from = $_GET[from];
-$cb_to = $_GET[to];
-$cb_timestamp = $_GET[timestamp];
-$cb_text = $_GET[text];
-$cb_status = $_GET[status];
-$cb_charge = $_GET[charge];
-$cb_apimsgid = $_GET[apiMsgId];
+$cb_from = $_REQUEST[from];
+$cb_to = $_REQUEST[to];
+$cb_timestamp = $_REQUEST[timestamp];
+$cb_text = $_REQUEST[text];
+$cb_status = $_REQUEST[status];
+$cb_charge = $_REQUEST[charge];
+$cb_apimsgid = $_REQUEST[apiMsgId];
 
 /*
 $fc = "from: $cb_from - to: $cb_to - timestamp: $cb_timestamp - text: $cb_text - status: $cb_status - charge: $cb_charge - apimsgid: $cb_apimsgid\n";

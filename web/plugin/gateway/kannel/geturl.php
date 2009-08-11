@@ -10,9 +10,9 @@ if ($remote_addr != $kannel_param['bearerbox_host'])
     die();
 }
 
-$t = trim($_GET['t']); 	// sms_datetime
-$q = trim($_GET['q']); 	// sms_sender
-$a = trim($_GET['a']); 	// message
+$t = trim($_REQUEST['t']); 	// sms_datetime
+$q = trim($_REQUEST['q']); 	// sms_sender
+$a = trim($_REQUEST['a']); 	// message
 
 if ($t && $q && $a)
 {

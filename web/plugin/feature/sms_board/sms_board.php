@@ -57,7 +57,7 @@ switch ($op)
 	";
 	break;
     case "sms_board_view":
-	$board_id = $_GET[board_id];
+	$board_id = $_REQUEST[board_id];
 	$db_query = "SELECT board_keyword FROM "._DB_PREF_."_featureBoard WHERE board_id='$board_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -65,7 +65,7 @@ switch ($op)
 	header ("Location: output.php?keyword=$board_keyword");
 	break;
     case "sms_board_edit":
-	$board_id = $_GET[board_id];
+	$board_id = $_REQUEST[board_id];
 	$db_query = "SELECT * FROM "._DB_PREF_."_featureBoard WHERE board_id='$board_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -131,7 +131,7 @@ switch ($op)
 	header ("Location: menu.php?inc=feature_sms_board&op=sms_board_edit&board_id=$edit_board_id&err=".urlencode($error_string));
 	break;
     case "sms_board_del":
-	$board_id = $_GET[board_id];
+	$board_id = $_REQUEST[board_id];
 	$db_query = "SELECT board_keyword FROM "._DB_PREF_."_featureBoard WHERE board_id='$board_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);

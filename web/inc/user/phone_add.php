@@ -4,7 +4,7 @@ if(!valid()){forcenoaccess();};
 switch ($op)
 {
     case "add":
-	$phone = urlencode($_GET[phone]);
+	$phone = urlencode($_REQUEST[phone]);
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblUserGroupPhonebook WHERE uid='$uid'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result))

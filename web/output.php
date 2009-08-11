@@ -2,8 +2,8 @@
 include "init.php";
 include "$apps_path[libs]/function.php";
 
-$refresh = strtoupper($_GET[refresh]);
-$backagain = strtoupper($_GET[backagain]);
+$refresh = strtoupper($_REQUEST[refresh]);
+$backagain = strtoupper($_REQUEST[backagain]);
 if (($refresh=="YES") && ($backagain!="YES"))
 {
     $url = base64_encode($_SERVER[REQUEST_URI]."&backagain=yes");
@@ -11,13 +11,13 @@ if (($refresh=="YES") && ($backagain!="YES"))
     die();
 }
 
-$show = $_GET[show];
+$show = $_REQUEST[show];
 
 switch ($show)
 {
     case "vote":
     case "poll":
-	$keyword = $_GET[keyword];
+	$keyword = $_REQUEST[keyword];
 	$db_query = "SELECT poll_id,poll_title FROM "._DB_PREF_."_featurePoll WHERE poll_keyword='$keyword'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -27,8 +27,8 @@ switch ($show)
 	$total_voters = @dba_num_rows($db_query);
 	if ($poll_id)
 	{
-	    $mult = $_GET[mult];
-	    $bodybgcolor = $_GET[bodybgcolor];
+	    $mult = $_REQUEST[mult];
+	    $bodybgcolor = $_REQUEST[bodybgcolor];
 	    if (!isset($mult)) 
 	    {
 		$mult = "2";
@@ -93,16 +93,16 @@ switch ($show)
     case "board":
     default:
 	// Use keyword, tag deprecated
-	$keyword = $_GET[keyword];
+	$keyword = $_REQUEST[keyword];
 	if (!$keyword)
 	{	
-	    $keyword = $_GET[tag];
+	    $keyword = $_REQUEST[tag];
 	}
 	if ($keyword)
 	{
 	    $keyword = strtoupper($keyword);
-	    $line = $_GET[line];
-	    $type = $_GET[type];
+	    $line = $_REQUEST[line];
+	    $type = $_REQUEST[type];
 	    switch ($type)
 	    {
 		case "xml":
@@ -113,9 +113,9 @@ switch ($show)
 		    break;
 		case "html":
 		default:
-		    $bodybgcolor = $_GET[bodybgcolor];
-		    $oddbgcolor = $_GET[oddbgcolor];
-		    $evenbgcolor = $_GET[evenbgcolor];
+		    $bodybgcolor = $_REQUEST[bodybgcolor];
+		    $oddbgcolor = $_REQUEST[oddbgcolor];
+		    $evenbgcolor = $_REQUEST[evenbgcolor];
 		    $content = outputtohtml($keyword,$line,$bodybgcolor,$oddbgcolor,$evenbgcolor);
 		    echo $content;
 	    }

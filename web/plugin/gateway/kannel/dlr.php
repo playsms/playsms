@@ -10,9 +10,9 @@ if ($remote_addr != $kannel_param['bearerbox_host'])
     die();
 }
 
-$type = $_GET['type'];
-$slid = $_GET['slid'];
-$uid = $_GET['uid'];
+$type = $_REQUEST['type'];
+$slid = $_REQUEST['slid'];
+$uid = $_REQUEST['uid'];
 
 if ($type && $slid && $uid)
 {

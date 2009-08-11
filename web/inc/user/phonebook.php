@@ -301,7 +301,7 @@ switch ($op)
 	die();
 	break;
     case "share_this_group":
-	$gpid = $_GET['gpid'];
+	$gpid = $_REQUEST['gpid'];
 	if ($gpid)
 	{
 	    $db_query = "DELETE FROM "._DB_PREF_."_tblUserGroupPhonebook_public WHERE gpid='$gpid' AND uid='$uid'";
@@ -319,8 +319,8 @@ switch ($op)
 	die();
 	break;
     case "hide_from_public":
-	$pp = $_GET['pp'];
-	$gpid = $_GET['gpid'];
+	$pp = $_REQUEST['pp'];
+	$gpid = $_REQUEST['gpid'];
 	if ($gpid)
 	{
 	    $gpname = gpid2gpname($gpid);

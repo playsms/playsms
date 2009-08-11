@@ -85,7 +85,7 @@ switch ($op) {
 		break;
 
 	case "sms_autosend_view" :
-		$autosend_id = $_GET[autosend_id];
+		$autosend_id = $_REQUEST[autosend_id];
 		if ($err) {
 			$content = "<p><font color=red>$err</font><p>";
 		}
@@ -140,7 +140,7 @@ switch ($op) {
 		break;
 
 	case "sms_autosend_edit" :
-		$autosend_id = $_GET[autosend_id];
+		$autosend_id = $_REQUEST[autosend_id];
 
 		$db_query = "SELECT uid,time_id," . _DB_PREF_ . "_featureAutosend.autosend_id, autosend_message,autosend_number,autosend_time
 									FROM " . _DB_PREF_ . "_featureAutosend
@@ -254,8 +254,8 @@ switch ($op) {
 		break;
 
 	case "sms_autosend_status" :
-		$autosend_id = $_GET[autosend_id];
-		$ps = $_GET[ps];
+		$autosend_id = $_REQUEST[autosend_id];
+		$ps = $_REQUEST[ps];
 		$db_query = "UPDATE " . _DB_PREF_ . "_featureAutosend SET c_timestamp='" . mktime() . "',autosend_enable='$ps' WHERE autosend_id='$autosend_id'";
 		$db_result = @ dba_affected_rows($db_query);
 		if ($db_result > 0) {
@@ -265,7 +265,7 @@ switch ($op) {
 		break;
 
 	case "sms_autosend_del" :
-		$autosend_id = $_GET[autosend_id];
+		$autosend_id = $_REQUEST[autosend_id];
 		$db_query = "SELECT autosend_id FROM " . _DB_PREF_ . "_featureAutosend WHERE autosend_id='$autosend_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);

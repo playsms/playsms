@@ -57,7 +57,7 @@ switch ($op)
 	";
 	break;
     case "sms_custom_edit":
-	$custom_id = $_GET[custom_id];
+	$custom_id = $_REQUEST[custom_id];
 	$db_query = "SELECT * FROM "._DB_PREF_."_featureCustom WHERE custom_id='$custom_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -109,7 +109,7 @@ switch ($op)
 	header ("Location: menu.php?inc=feature_sms_custom&op=sms_custom_edit&custom_id=$edit_custom_id&err=".urlencode($error_string));
 	break;
     case "sms_custom_del":
-	$custom_id = $_GET[custom_id];
+	$custom_id = $_REQUEST[custom_id];
 	$db_query = "SELECT custom_keyword FROM "._DB_PREF_."_featureCustom WHERE custom_id='$custom_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);

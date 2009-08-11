@@ -1,8 +1,8 @@
 <?
 if(!valid()){forcenoaccess();};
 
-$gpid = $_GET[gpid];
-$pid = $_GET[pid];
+$gpid = $_REQUEST[gpid];
+$pid = $_REQUEST[pid];
 
 switch ($op)
 {

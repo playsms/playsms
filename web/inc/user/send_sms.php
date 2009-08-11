@@ -1,13 +1,13 @@
 <?
 if(!valid()){forcenoaccess();};
 
-$dst_p_num = urlencode($_GET[dst_p_num]);
-$dst_gp_code = urlencode($_GET[dst_gp_code]);
+$dst_p_num = urlencode($_REQUEST[dst_p_num]);
+$dst_gp_code = urlencode($_REQUEST[dst_gp_code]);
 
 switch ($op)
 {
     case "sendsmstopv":
-	$message = $_GET[message];
+	$message = $_REQUEST[message];
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE uid='$uid' ORDER BY p_desc";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result))
@@ -184,7 +184,7 @@ switch ($op)
 	}
 	break;
     case "sendsmstogr":
-	$message = $_GET[message];
+	$message = $_REQUEST[message];
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblUserGroupPhonebook WHERE uid='$uid' ORDER BY gp_name";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result))
