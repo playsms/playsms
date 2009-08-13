@@ -36,7 +36,7 @@ Note:
 - I assumed that you have root priviledge. If you dont, understand that im trying to 
   guide you to install playSMS on /var/www/playsms under user 'playsms'. You may use your own
   username, your own home directory or any preferred directory.
-- This installation instructions might be working for *other NIX based operating system, 
+- This installation instructions might be working for other *NIX based operating system, 
   I know someone installing playSMS on FreeBSD and it work just fine.
 
 playSMS Web Interface:
