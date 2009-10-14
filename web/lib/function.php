@@ -1,5 +1,7 @@
 <?
 
+if(_NOT_SECURE_){die('NOT SECURE');};
+
 // main functions
 include "$apps_path[libs]/fn_logger.php";
 include "$apps_path[libs]/fn_auth.php";

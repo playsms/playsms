@@ -1,3 +1,6 @@
+Version 0.9.5-svn - unknown
+- fix RFI LFI bug, http://www.securityfocus.com/bid/33138
+
 Version 0.9.4 - 080713
 - on themes, add loginpage.php and rename welcome.php to default.php
 - remove bin/kannel_incoming.sh
