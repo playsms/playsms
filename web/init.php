@@ -2,7 +2,7 @@
 include "config.php";
 
 // security, checked by essential files under subdir
-define('_NOT_SECURE_', 1);
+define('_SECURE_', 1);
 
 if (!$DAEMON_PROCESS)
 {

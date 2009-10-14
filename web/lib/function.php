@@ -1,6 +1,6 @@
 <?
 
-if(_NOT_SECURE_){die('NOT SECURE');};
+if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 // main functions
 include "$apps_path[libs]/fn_logger.php";
