@@ -1,4 +1,5 @@
 Version 0.9.5-svn - unknown
+- fix kannel gateway, missing bearerbox host and sendsms port, plugin/gateway/kannel/fn.php
 - fix RFI LFI bug, http://www.securityfocus.com/bid/33138
 
 Version 0.9.4 - 080713
