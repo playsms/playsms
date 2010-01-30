@@ -63,10 +63,10 @@ for ($c=0;$c<count($core_config['themeslist']);$c++)
     }
 }
 
-// init global variables
+// init global variables after plugins
 include "$apps_path[libs]/lib_init2.php";
 
-// custom functions before plugins loading
+// custom functions after plugins loaded
 include "$apps_path[libs]/fn_custom2.php";
 
 ?>

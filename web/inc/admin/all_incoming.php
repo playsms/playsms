@@ -63,7 +63,7 @@ switch ($op)
 	    $in_message = $db_row[in_message];
 	    $in_datetime = $db_row[in_datetime];
 	    $in_feature = $db_row[in_feature];
-	    $in_status = ( $db_row[in_status] == 1 ? '<font color=green>success</font>' : ' <font color=red>fail</font>' );
+	    $in_status = ( $db_row[in_status] == 1 ? '<font color=green>handled</font>' : ' <font color=red>unhandled</font>' );
 	    $i--;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";	    
 	    $content .= "

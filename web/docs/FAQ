@@ -91,6 +91,11 @@ C. RECEIVE SMS
     Answer:
     No, your SMS will be ignored
 
+5.  What happened to the received/incoming SMS without keyword PV ?
+    Answer:
+    They will only be shown (logged) on All Incoming SMS menu as an unhandled SMS.
+    Only admin have access to it.
+
 
 D. SMS BOARD
 ------------

@@ -1,4 +1,6 @@
 Version 0.9.5-svn - unknown
+- change label success to handled and fail to unhandled, status on incoming SMS
+- fix dlr-url misformed, plugin/gateway/kannel/fn.php
 - fix kannel gateway, missing bearerbox host and sendsms port, plugin/gateway/kannel/fn.php
 - fix RFI LFI bug, http://www.securityfocus.com/bid/33138
 
