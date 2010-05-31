@@ -37,7 +37,7 @@ switch ($op)
 		<td>Global Sender</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_global_sender value=\"".$kannel_param[global_sender]."\"> (Max. 16 numeric or 11 alphanumeric char. empty to disable)</td>
 	    </tr>	    
 	    <tr>
-		<td>Bearerbox IP</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_bearerbox_host value=\"".$kannel_param[bearerbox_host]."\"> (Kannel specific)</td>
+		<td>Bearerbox hostname or IP</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_bearerbox_host value=\"".$kannel_param[bearerbox_host]."\"> (Kannel specific)</td>
 	    </tr>	    
 	    <tr>
 		<td>Send SMS Port</td><td>:</td><td><input type=text size=10 maxlength=10 name=up_sendsms_port value=\"".$kannel_param[sendsms_port]."\"> (Kannel specific)</td>

@@ -34,12 +34,16 @@ function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
     
     $dlr_url = $http_path['base'] . "/plugin/gateway/kannel/dlr.php?type=%d&slid=$smslog_id&uid=$uid";
 
-    $URL = "http://".$kannel_param['bearerbox_host'].":".$kannel_param['sendsms_port'];
-    $URL .= "/cgi-bin/sendsms?username=".urlencode($kannel_param['username'])."&password=".urlencode($kannel_param['password']);
+    $URL = "/cgi-bin/sendsms?username=".urlencode($kannel_param['username'])."&password=".urlencode($kannel_param['password']);
     $URL .= "&from=".urlencode($sms_from)."&to=".urlencode($sms_to)."&text=".urlencode($sms_msg);
     $URL .= "&dlr-mask=31&dlr-url=".urlencode($dlr_url);
     $URL .= "&mclass=".$msg_type;
 
+    // srosa 20100531: Due to improper http response from Kannel, file_get_contents cannot be used.
+    // One issue is that Kannel responds with HTTP 202 whereas file_get_contents expect HTTP 200
+    // The other is that a missing CRLF at the end of Kannel's message forces file_get_contents to wait forever.
+    // reverting to previous way of doing things which works fine.
+    /*
     if ($rv = trim(file_get_contents("$URL"))) {
 	// old kannel responsed with Sent.
 	// new kannel with the other 2
@@ -50,7 +54,23 @@ function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
 	    setsmsdeliverystatus($smslog_id, $uid, $p_status);
 	}
     }
-
+    */
+    $connection = fsockopen($kannel_param['bearerbox_host'],$kannel_param['sendsms_port'],&$error_number,&$error_description,60);
+    if ($connection) {
+	socket_set_blocking($connection, false);
+	fputs($connection, "GET ".$URL." HTTP/1.0\r\n\r\n");
+	while (!feof($connection)) {
+	    $rv = fgets($connection, 128);
+	    if (($rv == "Sent.") || ($rv == "0: Accepted for delivery") || ($rv == "3: Queued for later delivery"))
+	    {
+		$ok = true;
+		// set pending
+		$p_status = 0;
+		setsmsdeliverystatus($smslog_id,$uid,$p_status);
+	    }
+	}
+	fclose ($connection);
+    }
     return $ok;
 }
 

@@ -2,7 +2,7 @@
 <head>
 <title><?=$web_title?></title>
 <meta name="author" content="http://playsms.sourceforge.net">
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
 

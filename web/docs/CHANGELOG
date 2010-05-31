@@ -1,8 +1,10 @@
 Version 0.9.5-svn - unknown
-- change label success to handled and fail to unhandled, status on incoming SMS
-- fix dlr-url misformed, plugin/gateway/kannel/fn.php
-- fix kannel gateway, missing bearerbox host and sendsms port, plugin/gateway/kannel/fn.php
-- fix RFI LFI bug, http://www.securityfocus.com/bid/33138
+- change label success to handled and fail to unhandled, status on incoming SMS (anton)
+- revert back kannel gateway, use fsockopen due to improper HTTP response from kannel (srosa)
+- fix kannel gateway, bearerbox to accept hostname, not only IP (srosa)
+- fix kannel gateway, missing bearerbox host and sendsms port, plugin/gateway/kannel/fn.php (anton)
+- fix dlr-url misformed, plugin/gateway/kannel/fn.php (anton)
+- fix RFI LFI bug, http://www.securityfocus.com/bid/33138 (anton)
 
 Version 0.9.4 - 080713
 - on themes, add loginpage.php and rename welcome.php to default.php
