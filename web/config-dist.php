@@ -45,7 +45,7 @@ $core_config['smsmaxlength']	= 2*153; // single text sms can be 160 char instead
 // plugin feature list
 $core_config['featurelist']	= array('sms_autoreply','sms_autosend','sms_board','sms_command','sms_custom','sms_poll','sms_quiz','sms_subscribe');
 
-// plugin feature list
+// plugin gateway list
 $core_config['gatewaylist']	= array('clickatell','gnokii','kannel','smstools','uplink');
 
 // plugin themes list

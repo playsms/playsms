@@ -199,12 +199,6 @@ function getsmsstatus()
     }
 }
 
-function execgwcustomcmd()
-{
-    global $gateway_module;
-    x_hook($gateway_module,'execgwcustomcmd');
-}
-
 function execcommoncustomcmd()
 {
     global $apps_path;
@@ -214,7 +208,7 @@ function execcommoncustomcmd()
 
 function playsmsd()
 {
-    global $core_config;
+    global $core_config, $gateway_module;
     // plugin tools
     for ($c=0;$c<count($core_config['toolslist']);$c++)
     {
@@ -225,6 +219,8 @@ function playsmsd()
     {
 	x_hook($core_config['featurelist'][$c],'playsmsd');
     }
+    // plugin gateway
+    x_hook($gateway_module,'playsmsd');
 }
 
 ?>

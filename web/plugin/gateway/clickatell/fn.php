@@ -12,7 +12,7 @@ function clickatell_hook_getsmsstatus($gp_code="",$uid="",$smslog_id="",$p_datet
     setsmsdeliverystatus($smslog_id,$uid,$p_status);
 }
 
-function clickatell_hook_execgwcustomcmd()
+function clickatell_hook_playsmsd()
 {
     // force check to clickatell.com for outgoing sms with status 0 or 1 (not yet 3)
     $db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status=0 OR p_status=1";

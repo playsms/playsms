@@ -46,7 +46,7 @@ function smstools_hook_getsmsstatus($gp_code="",$uid="",$smslog_id="",$p_datetim
     return;
 }
 
-function smstools_hook_execgwcustomcmd()
+function smstools_hook_playsmsd()
 {
     // nothing
 }

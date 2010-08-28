@@ -53,7 +53,7 @@ function gnokii_hook_getsmsstatus($gp_code="",$uid="",$smslog_id="",$p_datetime=
     return;
 }
 
-function gnokii_hook_execgwcustomcmd()
+function gnokii_hook_playsmsd()
 {
     // nothing
 }

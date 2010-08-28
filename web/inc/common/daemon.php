@@ -3,7 +3,6 @@
 playsmsd();
 getsmsinbox();
 getsmsstatus();
-execgwcustomcmd();
 execcommoncustomcmd();
 
 if ($_REQUEST[op]=='daemon')

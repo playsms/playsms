@@ -1,5 +1,5 @@
 <?
-function kannel_hook_execgwcustomcmd()
+function kannel_hook_playsmsd()
 {
     // nothing
 }

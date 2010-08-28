@@ -1,5 +1,5 @@
 <?
-function uplink_hook_execgwcustomcmd()
+function uplink_hook_playsmsd()
 {
     // nothing
 }
