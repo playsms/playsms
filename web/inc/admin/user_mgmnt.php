@@ -20,7 +20,9 @@ switch ($op)
         <td class=box_title width=25>*</td>
         <td class=box_title width=150>Username</td>
         <td class=box_title>Name</td>	
-        <td class=box_title width=150>Mobile</td>
+        <td class=box_title width=200>Email</td>
+        <td class=box_title width=200>Mobile</td>
+        <td class=box_title width=100>Credit</td>
         <td class=box_title width=75>Action</td>
     </tr>		    
 	";
@@ -36,7 +38,9 @@ switch ($op)
 	<td class=$td_class>&nbsp;$i.</td>
 	<td class=$td_class>$db_row[username]</td>
 	<td class=$td_class>$db_row[name]</td>
+	<td class=$td_class>$db_row[email]</td>	
 	<td class=$td_class>$db_row[mobile]</td>	
+	<td class=$td_class>$db_row[credit]</td>	
 	<td class=$td_class align=center>$action</td>
     </tr>
     ";
@@ -50,7 +54,9 @@ switch ($op)
         <td class=box_title width=25>*</td>
         <td class=box_title width=150>Username</td>
         <td class=box_title>Name</td>	
-        <td class=box_title width=150>Mobile</td>
+        <td class=box_title width=200>Email</td>
+        <td class=box_title width=200>Mobile</td>
+        <td class=box_title width=100>Credit</td>
         <td class=box_title width=75>Action</td>
     </tr>		    
 	";
@@ -66,7 +72,9 @@ switch ($op)
 	<td class=$td_class>&nbsp;$i.</td>
 	<td class=$td_class>$db_row[username]</td>
 	<td class=$td_class>$db_row[name]</td>
+	<td class=$td_class>$db_row[email]</td>	
 	<td class=$td_class>$db_row[mobile]</td>	
+	<td class=$td_class>$db_row[credit]</td>	
 	<td class=$td_class align=center>$action</td>
     </tr>
     ";
@@ -108,6 +116,7 @@ switch ($op)
 	$name = username2name($uname);
 	$status = username2status($uname);
 	$sender = username2sender($uname);
+	$credit = username2credit($uname);
 	if ($err)
 	{
 	    $content = "<p><font color=red>$err</font><p>";
@@ -147,6 +156,9 @@ switch ($op)
 		<td>Password</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_password> (Fill to change password for username `$uname`)</td>
 	    </tr>	    
 	    <tr>
+		<td>Credit</td><td>:</td><td><input type=text size=16 maxlength=30 name=up_credit value=\"$credit\"></td>
+	    </tr>	    
+	    <tr>
 		<td>User level</td><td>:</td><td><select name=up_status>$option_status</select></td>
 	    </tr>
 	</table>	    
@@ -163,11 +175,12 @@ switch ($op)
 	$up_sender = $_POST[up_sender];
 	$up_password = $_POST[up_password];
 	$up_status = $_POST[up_status];
+	$up_credit = $_POST[up_credit];
 //	$status = username2status($uname);
 	$error_string = "No changes made!";
 	if ($up_name && $up_mobile && $up_email)
 	{
-	    $db_query = "SELECT email FROM "._DB_PREF_."_tblUser WHERE email='$email' AND NOT username='$uname'";
+	    $db_query = "SELECT email FROM "._DB_PREF_."_tblUser WHERE email='$up_email' AND NOT username='$uname'";
 	    $db_result = dba_num_rows($db_query);
 	    if ($db_result > 0)
 	    {
@@ -179,7 +192,7 @@ switch ($op)
 		{
 		    $chg_pwd = ",password='$up_password'";
 		}
-		$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender',status='$up_status'".$chg_pwd." WHERE username='$uname'";
+		$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender',status='$up_status'".$chg_pwd.",credit='$up_credit' WHERE username='$uname'";
 		if (@dba_affected_rows($db_query))
 		{
 		    $error_string = "Preferences for user `$uname` has been saved";
@@ -232,6 +245,9 @@ switch ($op)
 		<td>Password</td><td>:</td><td><input type=text size=30 maxlength=30 name=add_password value=\"$add_password\"></td>
 	    </tr>
 	    <tr>
+		<td>Credit</td><td>:</td><td><input type=text size=16 maxlength=30 name=add_credit value=\"$add_credit\"></td>
+	    </tr>
+	    <tr>
 		<td>User level</td><td>:</td><td><select name=add_status>$option_status</select></td>
 	    </tr>
 	</table>	    
@@ -247,6 +263,7 @@ switch ($op)
 	$add_mobile = $_POST[add_mobile];
 	$add_sender = $_POST[add_sender];
 	$add_password = $_POST[add_password];
+	$add_credit = $_POST[add_credit];
 	$add_status = $_POST[add_status];
 	if (ereg("^(.+)(.+)\\.(.+)$",$add_email,$arr) && $add_email && $add_username && $add_name && $add_password)
 	{
@@ -259,8 +276,8 @@ switch ($op)
 	    else
 	    {
 		$db_query = "
-		    INSERT INTO "._DB_PREF_."_tblUser (status,username,password,name,mobile,email,sender)
-		    VALUES ('$add_status','$add_username','$add_password','$add_name','$add_mobile','$add_email','$add_sender')
+		    INSERT INTO "._DB_PREF_."_tblUser (status,username,password,name,mobile,email,sender,credit)
+		    VALUES ('$add_status','$add_username','$add_password','$add_name','$add_mobile','$add_email','$add_sender','$add_credit')
 		";
 		if ($new_uid = @dba_insert_id($db_query))
 		{

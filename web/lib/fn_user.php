@@ -35,6 +35,18 @@ function username2mobile($username)
     return $mobile;
 }
 
+function username2credit($username)
+{
+    if ($username)
+    {
+	$db_query = "SELECT credit FROM "._DB_PREF_."_tblUser WHERE username='$username'";
+	$db_result = dba_query($db_query);
+	$db_row = dba_fetch_array($db_result);
+	$credit = $db_row[credit];
+    }
+    return $credit;
+}
+
 function username2sender($username)
 {
     if ($username)

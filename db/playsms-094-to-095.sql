@@ -11,3 +11,5 @@ CREATE TABLE `playsms_tblRate` (
 
 ALTER TABLE `playsms_tblConfig_main` ADD `cfg_default_rate` FLOAT NOT NULL ;
 
+ALTER TABLE `playsms_tblUser` ADD `credit` DOUBLE NOT NULL ;
+
