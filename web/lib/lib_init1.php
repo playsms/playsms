@@ -51,10 +51,11 @@ ksort($arr_menu["My Account"]);
 if (isadmin())
 {
     // administrator menus
-    $arr_menu["Administration"][] = array("menu.php?inc=all_inbox&op=all_inbox", "All Inbox");
-    $arr_menu["Administration"][] = array("menu.php?inc=all_incoming&op=all_incoming", "All Incoming SMS");
-    $arr_menu["Administration"][] = array("menu.php?inc=all_outgoing&op=all_outgoing", "All Outgoing SMS");
+    $arr_menu["Administration"][] = array("menu.php?inc=all_inbox&op=all_inbox", "All inbox");
+    $arr_menu["Administration"][] = array("menu.php?inc=all_incoming&op=all_incoming", "All incoming SMS");
+    $arr_menu["Administration"][] = array("menu.php?inc=all_outgoing&op=all_outgoing", "All outgoing SMS");
     $arr_menu["Administration"][] = array("menu.php?inc=user_mgmnt&op=user_list", "Manage user");
+    $arr_menu["Administration"][] = array("menu.php?inc=rate_mgmnt&op=rate_list", "Manage SMS rate");
     $arr_menu["Administration"][] = array("menu.php?inc=main_config&op=main_config", "Main configuration");
     $arr_menu["Administration"][] = array("menu.php?inc=daemon&op=daemon", "Manual refresh");
     ksort($arr_menu["Administration"]);

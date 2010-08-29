@@ -167,7 +167,7 @@ switch ($op)
 	$error_string = "No changes made!";
 	if ($up_name && $up_mobile && $up_email)
 	{
-	    $db_query = "SELECT email FROM "._DB_PREF_."_tblUser WHERE email=$email' AND NOT username='$uname'";
+	    $db_query = "SELECT email FROM "._DB_PREF_."_tblUser WHERE email='$email' AND NOT username='$uname'";
 	    $db_result = dba_num_rows($db_query);
 	    if ($db_result > 0)
 	    {
