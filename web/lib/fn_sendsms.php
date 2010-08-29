@@ -16,15 +16,20 @@ function sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gp_code='PV',
     global $datetime_now, $gateway_module;
     $ok = false;
     $p_gpid = gpcode2gpid($uid,$gp_code);
-    $db_query = "
-        INSERT INTO "._DB_PREF_."_tblSMSOutgoing 
-        (uid,p_gpid,p_gateway,p_src,p_dst,p_footer,p_msg,p_datetime,p_sms_type,unicode) 
-        VALUES ('$uid','$p_gpid','$gateway_module','$mobile_sender','$sms_to','$sms_sender','$sms_msg','$datetime_now','$sms_type','$unicode')
-    ";
-    $smslog_id = @dba_insert_id($db_query);
-    if (x_hook($gateway_module, 'sendsms', array($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gp_code,$smslog_id,$sms_type,$unicode)))
-    {
-	$ok = true;
+    $username = uid2username($uid);
+    $credit = username2credit($username);
+    $maxrate = getmaxsmsrate();
+    if ($credit >= $maxrate) {
+	$db_query = "
+    	    INSERT INTO "._DB_PREF_."_tblSMSOutgoing 
+    	    (uid,p_gpid,p_gateway,p_src,p_dst,p_footer,p_msg,p_datetime,p_sms_type,unicode) 
+    	    VALUES ('$uid','$p_gpid','$gateway_module','$mobile_sender','$sms_to','$sms_sender','$sms_msg','$datetime_now','$sms_type','$unicode')
+	";
+	$smslog_id = @dba_insert_id($db_query);
+	if (x_hook($gateway_module, 'sendsms', array($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gp_code,$smslog_id,$sms_type,$unicode)))
+	{
+	    $ok = true;
+	}
     }
     $ret['status'] = $ok;
     $ret['smslog_id'] = $smslog_id;

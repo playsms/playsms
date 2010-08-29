@@ -31,6 +31,8 @@ Current Features
 - Support Gnokii, Kannel, SMS Server Tools or Clickatell
 - Simple webservices for sending SMS and retrieving delivery reports (input.php)
 - Long SMS support, length of text configurable on config file
+- Rate SMS by detination prefix
+- SMS credit system per user
 - Web-based interface
 
 

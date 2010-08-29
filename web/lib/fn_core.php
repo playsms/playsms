@@ -164,42 +164,6 @@ function setsmsdeliverystatus($smslog_id,$uid,$p_status)
     return $ok;
 }
 
-function setsmscredit($smslog_id) {
-    $db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
-    $db_result = dba_query($db_query);
-    $db_row = dba_fetch_array($db_result);
-    $p_dst = $db_row['p_dst'];
-    $p_msg = $db_row['p_msg'];
-    $uid = $db_row['uid'];
-    $count = ceil(strlen($p_msg) / 140);
-    $rate = getsmsrate($p_dst);
-    $username = uid2username($uid);
-    $credit = username2credit($username);
-    $remaining = $credit - ($rate*$count);
-    setusersmscredit($uid, $remaining);
-    return;
-}
-
-function setusersmscredit($uid, $remaining) {
-    $db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp=NOW(),credit='$remaining' WHERE uid='$uid'";
-    $db_result = @dba_affected_rows($db_query);
-}
-
-function getsmsrate($p_dst) {
-    $rate = 0;
-    $prefix = $p_dst;
-    for ($i=11;$i>0;$i--) {
-	$prefix = substr($prefix, 0, $i);
-	$db_query = "SELECT rate FROM "._DB_PREF_."_tblRate WHERE prefix LIKE '$prefix'";
-	$db_result = dba_query($db_query);
-	if ($db_row = dba_fetch_array($db_result)) {
-	    $rate = $db_row['rate'];
-	    break;
-	}
-    }
-    return $rate;
-}
-
 function q_sanitize($var)
 {
     $var = str_replace("/","",$var);

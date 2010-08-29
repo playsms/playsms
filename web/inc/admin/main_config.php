@@ -26,7 +26,7 @@ switch ($op)
 		<td>Gateway number</td><td>:</td><td><input type=text size=20 name=edit_gateway_number value=\"$gateway_number\"></td>
 	    </tr>
 	    <tr>
-		<td>Default rate</td><td>:</td><td><input type=text size=20 name=edit_default_rate value=\"$default_rate\"></td>
+		<td>Default SMS rate</td><td>:</td><td><input type=text size=20 name=edit_default_rate value=\"$default_rate\"></td>
 	    </tr>
 	    <tr>
 		<td>Activated gateway module</td><td>:</td><td>$gateway_module</td>
