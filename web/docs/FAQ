@@ -344,9 +344,31 @@ K. GATEWAY MODULE
     you can modify files in it to match your requirements
     If you write new gateway module, please send your work so we can have a look and 
     maybe put it on next releases
-    
 
-L. TELL US ABOUT IT
+
+L. SMS RATE AND CREDIT
+----------------------
+1.  What is Manage SMS rate menu in Administration drop-down menu ?
+    Answer:
+    It is where administrator can set rate by prefix
+2.  What is term rate means ?
+    Answer:
+    Rate is credit value per SMS sent
+3.  What is term credit means ?
+    Answer:
+    Credit is money value equivalent a user have on their balance
+4.  What if user send SMS to destination that is not configured in Manage SMS rate ?
+    Answer:
+    Default SMS rate in Main configuration menu will be used instead
+5.  How to change credit per user ?
+    Answer:
+    Go to Manage user menu in Administration drop-down menu and edit each user
+6.  What kind of SMS being rated ?
+    Answer:
+    Only sent SMS
+
+
+M. TELL US ABOUT IT
 -------------------        
 1.  Should I tell you guys when I install playSMS on my site?
     Answer:
@@ -362,7 +384,7 @@ L. TELL US ABOUT IT
     Please send it (as clear and as soon as possible) to the mailing list
 
 
-M. CONTACT
+N. CONTACT
 ----------    
 1.  Is there any place where I can discuss playSMS?
     Answer:
