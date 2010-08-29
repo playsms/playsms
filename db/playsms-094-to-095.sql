@@ -9,3 +9,5 @@ CREATE TABLE `playsms_tblRate` (
   UNIQUE KEY `prefix` (`prefix`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
+ALTER TABLE `playsms_tblConfig_main` ADD `cfg_default_rate` FLOAT NOT NULL ;
+

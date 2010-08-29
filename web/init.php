@@ -122,6 +122,7 @@ if ($db_row = dba_fetch_array($db_result))
     $email_footer = $db_row[cfg_email_footer];
     $gateway_module = ( $db_row[cfg_gateway_module] ? $db_row[cfg_gateway_module] : 'gnokii' );
     $gateway_number = $db_row[cfg_gateway_number];
+    $default_rate = $db_row[cfg_default_rate];
     $themes_module = ( $db_row[cfg_themes_module] ? $db_row[cfg_themes_module] : 'default' );
 }
 

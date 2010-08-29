@@ -26,6 +26,9 @@ switch ($op)
 		<td>Gateway number</td><td>:</td><td><input type=text size=20 name=edit_gateway_number value=\"$gateway_number\"></td>
 	    </tr>
 	    <tr>
+		<td>Default rate</td><td>:</td><td><input type=text size=20 name=edit_default_rate value=\"$default_rate\"></td>
+	    </tr>
+	    <tr>
 		<td>Activated gateway module</td><td>:</td><td>$gateway_module</td>
 	    </tr>
 	</table>	    
@@ -39,13 +42,15 @@ switch ($op)
 	$edit_email_service = $_POST[edit_email_service];
 	$edit_email_footer = $_POST[edit_email_footer];
 	$edit_gateway_number = $_POST[edit_gateway_number];
+	$edit_default_rate = $_POST[edit_default_rate];
 	$db_query = "
 	    UPDATE "._DB_PREF_."_tblConfig_main 
 	    SET c_timestamp='".mktime()."',
 		cfg_web_title='$edit_web_title',
 		cfg_email_service='$edit_email_service',
 		cfg_email_footer='$edit_email_footer',
-		cfg_gateway_number='$edit_gateway_number'
+		cfg_gateway_number='$edit_gateway_number',
+		cfg_default_rate='$edit_default_rate'
 	";
 	$db_result = dba_query($db_query);
 	$error_string = "Main configuration has been saved";
