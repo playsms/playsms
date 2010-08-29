@@ -147,13 +147,55 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message)
 function setsmsdeliverystatus($smslog_id,$uid,$p_status)
 {
     global $datetime_now;
+    // $p_status = 0 --> pending
+    // $p_status = 1 --> sent
+    // $p_status = 2 --> failed
+    // $p_status = 3 --> delivered
     $ok = false;
     $db_query = "UPDATE "._DB_PREF_."_tblSMSOutgoing SET c_timestamp='".mktime()."',p_update='$datetime_now',p_status='$p_status' WHERE smslog_id='$smslog_id' AND uid='$uid'";
     if ($aff_id = @dba_affected_rows($db_query))
     {
 	$ok = true;
+	// fixme anton - temporary modification and only reduce credit when $p_status=1
+	if ($p_status == 1) {
+	    setsmscredit($smslog_id);
+	}
     }
     return $ok;
+}
+
+function setsmscredit($smslog_id) {
+    $db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
+    $db_result = dba_query($db_query);
+    $db_row = dba_fetch_array($db_result);
+    $p_dst = $db_row['p_dst'];
+    $uid = $db_row['uid'];
+    $rate = getsmsrate($p_dst);
+    $username = uid2username($uid);
+    $credit = username2credit($username);
+    $remaining = $credit - $rate;
+    setusersmscredit($uid, $remaining);
+    return;
+}
+
+function setusersmscredit($uid, $remaining) {
+    $db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp=NOW(),credit='$remaining' WHERE uid='$uid'";
+    $db_result = @dba_affected_rows($db_query);
+}
+
+function getsmsrate($p_dst) {
+    $rate = 0;
+    $prefix = $p_dst;
+    for ($i=11;$i>0;$i--) {
+	$prefix = substr($prefix, 0, $i);
+	$db_query = "SELECT rate FROM "._DB_PREF_."_tblRate WHERE prefix LIKE '$prefix'";
+	$db_result = dba_query($db_query);
+	if ($db_row = dba_fetch_array($db_result)) {
+	    $rate = $db_row['rate'];
+	    break;
+	}
+    }
+    return $rate;
 }
 
 function q_sanitize($var)
