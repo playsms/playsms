@@ -169,11 +169,13 @@ function setsmscredit($smslog_id) {
     $db_result = dba_query($db_query);
     $db_row = dba_fetch_array($db_result);
     $p_dst = $db_row['p_dst'];
+    $p_msg = $db_row['p_msg'];
     $uid = $db_row['uid'];
+    $count = ceil(strlen($p_msg) / 140);
     $rate = getsmsrate($p_dst);
     $username = uid2username($uid);
     $credit = username2credit($username);
-    $remaining = $credit - $rate;
+    $remaining = $credit - ($rate*$count);
     setusersmscredit($uid, $remaining);
     return;
 }
