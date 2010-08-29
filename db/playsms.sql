@@ -609,6 +609,28 @@ INSERT INTO `playsms_tblConfig_main` VALUES (0,'playSMS','noreply@playsms.sf.net
 UNLOCK TABLES;
 
 --
+-- Table structure for table `playsms_tblRate`
+--
+
+DROP TABLE IF EXISTS `playsms_tblRate`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `playsms_tblRate` (
+  `c_timestamp` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dst` varchar(100) NOT NULL,
+  `prefix` varchar(20) NOT NULL,
+  `rate` float NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `prefix` (`prefix`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `playsms_tblRate`
+--
+
+--
 -- Table structure for table `playsms_tblSMSOutgoing`
 --
 
