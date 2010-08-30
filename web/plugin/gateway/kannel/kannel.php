@@ -34,13 +34,16 @@ switch ($op)
 		<td>Password</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_password value=\"".$kannel_param[password]."\"></td>
 	    </tr>
 	    <tr>
-		<td>Global Sender</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_global_sender value=\"".$kannel_param[global_sender]."\"> (Max. 16 numeric or 11 alphanumeric char. empty to disable)</td>
+		<td>Global sender</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_global_sender value=\"".$kannel_param[global_sender]."\"> (Max. 16 numeric or 11 alphanumeric char. empty to disable)</td>
 	    </tr>	    
 	    <tr>
 		<td>Bearerbox hostname or IP</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_bearerbox_host value=\"".$kannel_param[bearerbox_host]."\"> (Kannel specific)</td>
 	    </tr>	    
 	    <tr>
-		<td>Send SMS Port</td><td>:</td><td><input type=text size=10 maxlength=10 name=up_sendsms_port value=\"".$kannel_param[sendsms_port]."\"> (Kannel specific)</td>
+		<td>Send SMS port</td><td>:</td><td><input type=text size=10 maxlength=10 name=up_sendsms_port value=\"".$kannel_param[sendsms_port]."\"> (Kannel specific)</td>
+	    </tr>	    
+	    <tr>
+		<td>playSMS web URL</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_playsms_web value=\"".$kannel_param['playsms_web']."\"> (URL to playSMS, empty it to set it to base URL)</td>
 	    </tr>	    
 	</table>	    
 	    <!--
@@ -58,6 +61,7 @@ switch ($op)
 	$up_global_sender = $_POST['up_global_sender'];
 	$up_bearerbox_host = $_POST['up_bearerbox_host'];
 	$up_sendsms_port = $_POST['up_sendsms_port'];
+	$up_playsms_web = ( $_POST['up_playsms_web'] ? $_POST['up_playsms_web'] : $http_path['base'] );
 	$error_string = "No changes made!";
 	if ($up_username && $up_password && $up_bearerbox_host && $up_sendsms_port)
 	{
@@ -68,7 +72,8 @@ switch ($op)
 		    cfg_password='$up_password',
 		    cfg_global_sender='$up_global_sender',
 		    cfg_bearerbox_host='$up_bearerbox_host',
-		    cfg_sendsms_port='$up_sendsms_port'
+		    cfg_sendsms_port='$up_sendsms_port',
+		    cfg_playsms_web='$up_playsms_web'
 	    ";
 	    if (@dba_affected_rows($db_query))
 	    {

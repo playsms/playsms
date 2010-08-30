@@ -1,9 +1,11 @@
 Version 0.9.5-svn - unknown
-- add SMS rate by prefix (anton)
-- add SMS credit per user (anton)
 - rename execgwcustomcmd() to playsmsd() (anton)
 - change label success to handled and fail to unhandled, status on incoming SMS (anton)
 - revert back kannel gateway, use fsockopen due to improper HTTP response from kannel (srosa)
+- add SMS rate by prefix (anton)
+- add SMS credit per user (anton)
+- add playsms_web option in kannel gateway administration (emmanuel)
+- fix wrong dlr_url when Kannel and playSMS is not on the same location (emmanuel)
 - fix unable to save preferences from admin menu, manage user (anton)
 - fix allow \r and \n in SMS text, http://smstools3.kekekasvi.com/topic.php?id=328 (anton)
 - fix kannel gateway, bearerbox to accept hostname, not only IP (srosa)

@@ -32,7 +32,7 @@
 <TD WIDTH=15 background="<?=$http_path[themes]?>/<?=$themes_module?>/images/login_04.gif"><IMG SRC="<?=$http_path[themes]?>/<?=$themes_module?>/images/login_04.gif" WIDTH=15 HEIGHT=16></TD>
 </TR>
 <TR>
-    <TD COLSPAN=3><a href="http://playsms.sourceforge.org"><IMG SRC="<?=$http_path[themes]?>/<?=$themes_module?>/images/powered_by_playsms.gif" WIDTH=370 border=0></a></TD>
+    <TD COLSPAN=3><a href="http://playsms.sourceforge.net"><IMG SRC="<?=$http_path[themes]?>/<?=$themes_module?>/images/powered_by_playsms.gif" WIDTH=370 border=0></a></TD>
 </TR>
 </TABLE>
 </td>
