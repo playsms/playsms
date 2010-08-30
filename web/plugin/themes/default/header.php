@@ -10,7 +10,6 @@
 <script type="text/javascript" src="<?=$http_path[themes]?>/<?=$themes_module?>/jscss/common.js"></script>
 <script type="text/javascript" src="<?=$http_path[themes]?>/<?=$themes_module?>/jscss/dtree.js"></script>
 <script type="text/javascript" src="<?=$http_path[themes]?>/<?=$themes_module?>/jscss/sorttable.js"></script>
-<script type="text/javascript" src="<?=$http_path[themes]?>/<?=$themes_module?>/jscss/addfield.js"></script>
 
 <link rel="stylesheet" type="text/css" href="<?=$http_path[themes]?>/<?=$themes_module?>/jscss/common.css">
 <link rel="stylesheet" type="text/css" href="<?=$http_path[themes]?>/<?=$themes_module?>/jscss/dtree.css">
