@@ -1,4 +1,4 @@
-<?
+<?php
 function kannel_hook_playsmsd()
 {
     // nothing

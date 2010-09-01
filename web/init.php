@@ -1,4 +1,4 @@
-<?
+<?php
 include "config.php";
 
 // security, checked by essential files under subdir

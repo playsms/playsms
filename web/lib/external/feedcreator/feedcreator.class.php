@@ -588,8 +588,8 @@ class FeedCreator extends HtmlDescribable {
 	
 	function _createStylesheetReferences() {
 		$xml = "";
-		if ($this->cssStyleSheet) $xml .= "<?xml-stylesheet href=\"".$this->cssStyleSheet."\" type=\"text/css\"?>\n";
-		if ($this->xslStyleSheet) $xml .= "<?xml-stylesheet href=\"".$this->xslStyleSheet."\" type=\"text/xsl\"?>\n";
+		if ($this->cssStyleSheet) $xml .= "<?phpxml-stylesheet href=\"".$this->cssStyleSheet."\" type=\"text/css\"?>\n";
+		if ($this->xslStyleSheet) $xml .= "<?phpxml-stylesheet href=\"".$this->xslStyleSheet."\" type=\"text/xsl\"?>\n";
 		return $xml;
 	}
 	
@@ -805,7 +805,7 @@ class RSSCreator10 extends FeedCreator {
 	 * @return    string    the feed's complete text 
 	 */
 	function createFeed() {     
-		$feed = "<?xml version=\"1.0\" encoding=\"".$this->encoding."\"?>\n";
+		$feed = "<?phpxml version=\"1.0\" encoding=\"".$this->encoding."\"?>\n";
 		$feed.= $this->_createGeneratorComment();
 		if ($this->cssStyleSheet=="") {
 			$cssStyleSheet = "http://www.w3.org/2000/08/w3c-synd/style.css";
@@ -903,7 +903,7 @@ class RSSCreator091 extends FeedCreator {
 	 * @return    string    the feed's complete text 
 	 */
 	function createFeed() {
-		$feed = "<?xml version=\"1.0\" encoding=\"".$this->encoding."\"?>\n";
+		$feed = "<?phpxml version=\"1.0\" encoding=\"".$this->encoding."\"?>\n";
 		$feed.= $this->_createGeneratorComment();
 		$feed.= $this->_createStylesheetReferences();
 		$feed.= "<rss version=\"".$this->RSSVersion."\">\n"; 
@@ -1038,7 +1038,7 @@ class PIECreator01 extends FeedCreator {
 	}
     
 	function createFeed() {
-		$feed = "<?xml version=\"1.0\" encoding=\"".$this->encoding."\"?>\n";
+		$feed = "<?phpxml version=\"1.0\" encoding=\"".$this->encoding."\"?>\n";
 		$feed.= $this->_createStylesheetReferences();
 		$feed.= "<feed version=\"0.1\" xmlns=\"http://example.com/newformat#\">\n"; 
 		$feed.= "    <title>".FeedCreator::iTrunc(htmlspecialchars($this->title),100)."</title>\n";
@@ -1097,7 +1097,7 @@ class AtomCreator03 extends FeedCreator {
 	}
 	
 	function createFeed() {
-		$feed = "<?xml version=\"1.0\" encoding=\"".$this->encoding."\"?>\n";
+		$feed = "<?phpxml version=\"1.0\" encoding=\"".$this->encoding."\"?>\n";
 		$feed.= $this->_createGeneratorComment();
 		$feed.= $this->_createStylesheetReferences();
 		$feed.= "<feed version=\"0.3\" xmlns=\"http://purl.org/atom/ns#\"";
@@ -1251,7 +1251,7 @@ class OPMLCreator extends FeedCreator {
 	}
     
 	function createFeed() {     
-		$feed = "<?xml version=\"1.0\" encoding=\"".$this->encoding."\"?>\n";
+		$feed = "<?phpxml version=\"1.0\" encoding=\"".$this->encoding."\"?>\n";
 		$feed.= $this->_createGeneratorComment();
 		$feed.= $this->_createStylesheetReferences();
 		$feed.= "<opml xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n";

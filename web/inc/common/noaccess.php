@@ -1,4 +1,4 @@
-<?
+<?php
 
 $content = "";
 if ($err)

@@ -1,4 +1,4 @@
-<?
+<?php
 /*
  * test_smtp.php
  *

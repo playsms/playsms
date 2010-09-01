@@ -1,4 +1,4 @@
-<?
+<?php
 if(!valid()){forcenoaccess();};
 
 $item_count = $_POST[item_count];

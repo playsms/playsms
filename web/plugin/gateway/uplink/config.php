@@ -1,4 +1,4 @@
-<?
+<?php
 $db_query = "SELECT * FROM "._DB_PREF_."_gatewayUplink_config";
 $db_result = dba_query($db_query);
 if ($db_row = dba_fetch_array($db_result))

@@ -1,4 +1,4 @@
-<?
+<?php
 if(!isadmin()){forcenoaccess();};
 
 switch ($op)

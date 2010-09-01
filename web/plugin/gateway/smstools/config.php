@@ -1,4 +1,4 @@
-<?
+<?php
 $smstools_param[name] = "smstools";
 $smstools_param[path] = "/var/spool/sms";
 

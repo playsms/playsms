@@ -1,4 +1,4 @@
-<?
+<?php
 if(!isadmin()){forcenoaccess();};
 
 include "$apps_path[plug]/gateway/gnokii/config.php";

@@ -1,4 +1,4 @@
-<?
+<?php
 if(!valid()){forcenoaccess();};
 
 $dst_p_num = urlencode($_REQUEST[dst_p_num]);

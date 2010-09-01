@@ -1,4 +1,4 @@
-<?
+<?php
 include "init.php";
 include "$apps_path[libs]/function.php";
 
@@ -151,7 +151,7 @@ if ($ta)
 		}
 		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE uid='$uid' $query_last ORDER BY p_datetime DESC $query_limit";
 		$db_result = dba_query($db_query);
-		$content_xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+		$content_xml = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 		$content_csv = "";
 		while ($db_row = dba_fetch_array($db_result))
 		{

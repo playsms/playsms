@@ -1,4 +1,4 @@
-<?
+<?php
 if (!valid()) { forcelogout(); };
 
 $content = "

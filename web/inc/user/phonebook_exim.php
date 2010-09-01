@@ -1,4 +1,4 @@
-<?
+<?php
 if(!valid()){forcenoaccess();};
 
 $gpid = $_REQUEST[gpid];

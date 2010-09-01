@@ -1,4 +1,4 @@
-<?
+<?php
 function uplink_hook_playsmsd()
 {
     // nothing

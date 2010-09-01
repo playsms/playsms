@@ -1,4 +1,4 @@
-<?
+<?php
 // PHP PEAR DB compatible database engine: 
 // msql, mssql, mysql, oci8, odbc, pgsql, sqlite
 $db_param['type'] = 'mysql';		// database engine

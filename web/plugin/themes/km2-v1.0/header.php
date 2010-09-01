@@ -52,7 +52,7 @@
 <tr>
     
     <!-- left menu -->
-    <? if (valid()) { ?>
+    <?php if (valid()) { ?>
     <td style="vertical-align: top">
 	<table style="width:200px">
 	<tr>
@@ -64,7 +64,7 @@
 	</tr>
 	</table>
     </td>
-    <? } ?>
+    <?php } ?>
 
     <!-- content -->
     <td style="vertical-align: top; width: 100%;">

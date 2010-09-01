@@ -1,4 +1,4 @@
-<?
+<?php
 // hook_playsmsd
 // used by menu.php?inc=daemon to execute custom command
 function template_hook_playsmsd()

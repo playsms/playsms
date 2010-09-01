@@ -1,4 +1,4 @@
-<?
+<?php
 
 function gnokii_hook_getsmsstatus($gp_code="",$uid="",$smslog_id="",$p_datetime="",$p_update="")
 {
