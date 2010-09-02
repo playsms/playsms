@@ -8,6 +8,20 @@ switch ($op)
 	{
 	    $content = "<p><font color=red>$err</font><p>";
 	}
+	// get gateway options
+	for ($i=0;$i<count($core_config['gatewaylist']);$i++) {
+	    $gateway = $core_config['gatewaylist'][$i];
+	    if ($gateway == $gateway_module) $selected = "selected";
+	    $option_gateway_module .= "<option value=\"$gateway\" $selected>$gateway</option>";
+	    $selected = "";
+	}
+	// get themes options
+	for ($i=0;$i<count($core_config['themeslist']);$i++) {
+	    $themes = $core_config['themeslist'][$i];
+	    if ($themes == $themes_module) $selected = "selected";
+	    $option_themes_module .= "<option value=\"$themes\" $selected>$themes</option>";
+	    $selected = "";
+	}
 	$content .= "
 	    <h2>Main configuration</h2>
 	    <p>
@@ -29,7 +43,10 @@ switch ($op)
 		<td>Default SMS rate</td><td>:</td><td><input type=text size=20 name=edit_default_rate value=\"$default_rate\"></td>
 	    </tr>
 	    <tr>
-		<td>Activated gateway module</td><td>:</td><td>$gateway_module</td>
+		<td>Active gateway module</td><td>:</td><td><select name=edit_gateway_module>$option_gateway_module</select></td>
+	    </tr>
+	    <tr>
+		<td>Active themes</td><td>:</td><td><select name=edit_themes_module>$option_themes_module</select></td>
 	    </tr>
 	</table>	    
 	    <p><input type=submit class=button value=Save>
@@ -43,6 +60,8 @@ switch ($op)
 	$edit_email_footer = $_POST['edit_email_footer'];
 	$edit_gateway_number = $_POST['edit_gateway_number'];
 	$edit_default_rate = $_POST['edit_default_rate'];
+	$edit_gateway_module = $_POST['edit_gateway_module'];
+	$edit_themes_module = $_POST['edit_themes_module'];
 	$db_query = "
 	    UPDATE "._DB_PREF_."_tblConfig_main 
 	    SET c_timestamp='".mktime()."',
@@ -50,7 +69,9 @@ switch ($op)
 		cfg_email_service='$edit_email_service',
 		cfg_email_footer='$edit_email_footer',
 		cfg_gateway_number='$edit_gateway_number',
-		cfg_default_rate='$edit_default_rate'
+		cfg_default_rate='$edit_default_rate',
+		cfg_gateway_module='$edit_gateway_module',
+		cfg_themes_module='$edit_themes_module'
 	";
 	$db_result = dba_query($db_query);
 	$error_string = "Main configuration has been saved";
