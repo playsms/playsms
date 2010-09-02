@@ -52,10 +52,8 @@ $from	= trim($_REQUEST['from']);
 $type 	= trim($_REQUEST['type']);
 $form 	= trim(strtoupper($_REQUEST['form']));
 
-if ($u && $p)
-{
-    if (!validatelogin($u,$p))
-    {
+if ($u && $p) {
+    if (!validatelogin($u,$p)) {
 	echo "ERR 100";
 	die();
     }
@@ -145,7 +143,7 @@ if ($ta)
 	    {
 		if ($c) {
 		    $query_limit = " LIMIT 0,$c";
-		} else
+		} else {
 		    $query_limit = " LIMIT 0,100";
 		}
 		if ($last) {
