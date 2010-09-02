@@ -24,15 +24,20 @@ switch ($op)
 	    <h2>Manage ".$template_param['name']."</h2>
 	    <p>
 	    <form action=menu.php?inc=gateway_template&op=manage_save method=post>
-	    <p>Gateway Name: <b>".$template_param['name']."</b> $status_active
-	    <p>Template Path: <input type=text size=40 maxlength=250 name=up_path value=\"".$template_param['path']."\"> (No trailing slash \"/\")
+	    <table width=100% cellpadding=1 cellspacing=2 border=0>
+		<tr>
+		    <td width=150>Gateway Name</td><td width=5>:</td><td><b>".$template_param['name']."</b> $status_active</td>
+		</tr>
+		<tr>
+		    <td>Template Installation Path</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_path value=\"".$template_param['path']."\"> (No trailing slash \"/\")</td>
+		</tr>	    
+	    </table>	    
 	    <!--
 	    <p>Note:</br>
 	    <p><input type=checkbox name=up_trn $checked> Send SMS message without footer banner ($username) 
 	    -->
 	    <p><input type=submit class=button value=Save>
-	    </form>
-	";
+	    </form>";
 	echo $content;
 	break;
     case "manage_save":
