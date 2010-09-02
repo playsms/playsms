@@ -10,7 +10,7 @@ include $apps_path['libs']."/function.php";
 // 	bc = send broadcast
 // 	ds = delivery status
 // last : last SMS log ID (this number not included on result)
-// c	: number of delivery status retrived
+// c	: number of delivery status that will be retrieved
 // slid	: SMS Log ID (for ta=ds, when slid defined 'last' and 'c' has no effect)
 // to	: destination number (for ta=pv) or destination group code (for ta=bc)
 // msg	: message
@@ -59,6 +59,9 @@ if ($u && $p)
 	echo "ERR 100";
 	die();
     }
+} else {
+    echo "ERR 102";
+    die();
 }
 
 if ($ta)
@@ -140,12 +143,12 @@ if ($ta)
 	    }
 	    else
 	    {
-		if ($c)
-		{
+		if ($c) {
 		    $query_limit = " LIMIT 0,$c";
+		} else
+		    $query_limit = " LIMIT 0,100";
 		}
-		if ($last)
-		{
+		if ($last) {
 		    $query_last = "AND smslog_id>$last";
 		}
 		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE uid='$uid' $query_last ORDER BY p_datetime DESC $query_limit";
