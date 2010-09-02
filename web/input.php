@@ -149,10 +149,10 @@ if ($ta)
 		if ($last) {
 		    $query_last = "AND smslog_id>$last";
 		}
-		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE uid='$uid' $query_last ORDER BY p_datetime DESC $query_limit";
-		$db_result = dba_query($db_query);
 		$content_xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 		$content_csv = "";
+		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE uid='$uid' $query_last ORDER BY p_datetime DESC $query_limit";
+		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result))
 		{
 		    $smslog_id = $db_row['smslog_id'];
