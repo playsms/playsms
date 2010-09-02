@@ -100,9 +100,6 @@ $http_path['plug']	= $http_path['base'].'/plugin';
 $apps_path['themes']	= $apps_path['plug'].'/themes';
 $http_path['themes']	= $http_path['plug'].'/themes';
 
-// plugin configurations
-$plugin_config['feature']['sms_command']['bin']	= $apps_path['base'].'/bin';
-
 // plugins category
 $plugins_category = array('tools','feature','gateway','themes');
 
@@ -123,10 +120,26 @@ if ($db_row = dba_fetch_array($db_result))
     $web_title = $db_row['cfg_web_title'];
     $email_service = $db_row['cfg_email_service'];
     $email_footer = $db_row['cfg_email_footer'];
-    $gateway_module = ( $db_row['cfg_gateway_module'] ? $db_row['cfg_gateway_module'] : 'gnokii' );
     $gateway_number = $db_row['cfg_gateway_number'];
     $default_rate = $db_row['cfg_default_rate'];
-    $themes_module = ( $db_row['cfg_themes_module'] ? $db_row['cfg_themes_module'] : 'default' );
+    $tmp_gateway_module = $db_row['cfg_gateway_module'];
+    $tmp_themes_module = $db_row['cfg_themes_module'];
+}
+
+// verify selected gateway_module exists
+$fn1 = $apps_path['plug'].'/gateway/'.$tmp_gateway_module.'/config.php';
+$fn2 = $apps_path['plug'].'/gateway/'.$tmp_gateway_module.'/fn.php';
+$gateway_module = 'smstools';
+if (file_exists($fn1) && file_exists($fn2)) {
+    $gateway_module = $tmp_gateway_module;
+}
+
+// verify selected themes_module exists
+$fn1 = $apps_path['plug'].'/themes/'.$tmp_themes_module.'/config.php';
+$fn2 = $apps_path['plug'].'/themes/'.$tmp_themes_module.'/fn.php';
+$themes_module = 'default';
+if (file_exists($fn1) && file_exists($fn2)) {
+    $themes_module = $tmp_themes_module;
 }
 
 // set global variable

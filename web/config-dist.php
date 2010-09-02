@@ -42,19 +42,4 @@ $core_config['ishttps']		= false;
 // max sms text length
 $core_config['smsmaxlength']	= 2*153; // single text sms can be 160 char instead of 1*153
 
-// plugin tools list
-$core_config['toolslist']	= array('');
-
-// plugin feature list
-$core_config['featurelist']	= array('sms_autoreply','sms_autosend','sms_board','sms_command','sms_custom','sms_poll','sms_quiz','sms_subscribe');
-
-// plugin gateway list
-$core_config['gatewaylist']	= array('clickatell','gnokii','kannel','smstools','uplink');
-
-// plugin themes list
-$core_config['themeslist']	= array('default');
-
-// plugin tools list
-$core_config['toolslist']	= array();
-
 ?>

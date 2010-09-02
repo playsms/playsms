@@ -19,6 +19,7 @@ include $apps_path['libs']."/lib_init1.php";
 // custom functions before plugins loading
 include $apps_path['libs']."/fn_custom1.php";
 
+// load plugin's config and libraries
 for ($i=0;$i<count($plugins_category);$i++) {
     if ($pc = $plugins_category[$i]) {
 	// get plugins
@@ -33,7 +34,7 @@ for ($i=0;$i<count($plugins_category);$i++) {
 	    }
 	}
 	closedir();
-	// load plugin's config and libaries
+	// load each plugin's config and libaries
 	for ($c=0;$c<count($tmp_core_config[$pc.'list']);$c++)
 	{
 	    $c_fn1 = $dir.$tmp_core_config[$pc.'list'][$c]."/config.php";
