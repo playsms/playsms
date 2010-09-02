@@ -5,6 +5,8 @@ Version 0.9.5-svn - unknown
 - add SMS rate by prefix (anton)
 - add SMS credit per user (anton)
 - add playsms_web option in kannel gateway administration (emmanuel)
+- fix on all php files, close unterminated variables with single-quote (anton)
+- fix on all php files, replace <? with <?php (anton)
 - fix wrong dlr_url when Kannel and playSMS is not on the same location (emmanuel)
 - fix unable to save preferences from admin menu, manage user (anton)
 - fix allow \r and \n in SMS text, http://smstools3.kekekasvi.com/topic.php?id=328 (anton)

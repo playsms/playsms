@@ -159,7 +159,7 @@ E. SMS COMMAND
     Answer:
     Add new SMS command from Administrator menu, and then put command that will be executed.
     playSMS passes variables to the command. Command or shell script must be within directory 
-    $plugin_config['feature']['sms_command']['bin'] (read config-dist.php or config.php)
+    $plugin_config['feature']['sms_command']['bin'] (plugin/feature/sms_command/config.php)
     Variables:
     {SMSDATETIME} replaced by incoming SMS date/time
     {SMSSENDER} replaced by sender mobile phone number

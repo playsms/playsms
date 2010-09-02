@@ -103,6 +103,9 @@ $http_path['themes']	= $http_path['plug'].'/themes';
 // plugin configurations
 $plugin_config['feature']['sms_command']['bin']	= $apps_path['base'].'/bin';
 
+// plugins category
+$plugins_category = array('tools','feature','gateway','themes');
+
 // table's prefix
 define('_DB_PREF_',$db_param['pref']);
 
