@@ -69,10 +69,10 @@ function sms_board_handle($sms_datetime,$sms_sender,$board_keyword,$board_param=
 	    $db_query1 = "SELECT board_forward_email FROM "._DB_PREF_."_featureBoard WHERE board_keyword='$board_keyword'";
 	    $db_result1 = dba_query($db_query1);
 	    $db_row1 = dba_fetch_array($db_result1);
-	    $email = $db_row1[board_forward_email];
+	    $email = $db_row1['board_forward_email'];
 	    if ($email)
 	    {
-		$subject = "[SMSGW-$board_keyword] from $sms_sender";
+		$subject = "[SMSGW-".$board_keyword."] from $sms_sender";
 		$body = "Forward WebSMS ($web_title)\n\n";
 		$body .= "Date Time: $sms_datetime\n";
 		$body .= "Sender: $sms_sender\n";
@@ -90,7 +90,7 @@ function sms_board_handle($sms_datetime,$sms_sender,$board_keyword,$board_param=
 function outputtorss($keyword,$line="10")
 {
     global $apps_path,$web_title;
-    include_once "$apps_path[libs]/external/feedcreator/feedcreator.class.php";
+    include_once $apps_path['libs']."/external/feedcreator/feedcreator.class.php";
     $keyword = strtoupper($keyword);
     if (!$line) { $line = "10"; };
     $format_output = "RSS0.91";
@@ -99,9 +99,9 @@ function outputtorss($keyword,$line="10")
     $db_result1 = dba_query($db_query1);
     while ($db_row1 = dba_fetch_array($db_result1))
     {
-        $title = $db_row1[in_masked];
-        $description = $db_row1[in_msg];
-        $datetime = $db_row1[in_datetime];
+        $title = $db_row1['in_masked'];
+        $description = $db_row1['in_msg'];
+        $datetime = $db_row1['in_datetime'];
         $items = new FeedItem();
         $items->title = $title;
 	$items->description = $description;
@@ -126,7 +126,7 @@ function outputtohtml($keyword,$line="10",$pref_bodybgcolor="#E0D0C0",$pref_oddb
     $db_result = dba_query($db_query);
     if ($db_row = dba_fetch_array($db_result))
     {
-    	$template = $db_row[board_pref_template];
+    	$template = $db_row['board_pref_template'];
 	$db_query1 = "SELECT * FROM "._DB_PREF_."_featureBoard_log WHERE in_keyword='$keyword' ORDER BY in_datetime DESC LIMIT 0,$line";
 	$db_result1 = dba_query($db_query1);
 	$content = "<html>\n<head>\n<title>$web_title - Keyword: $keyword</title>\n<meta name=\"author\" content=\"http://playsms.sourceforge.net\">\n</head>\n<body bgcolor=\"$pref_bodybgcolor\" topmargin=\"0\" leftmargin=\"0\">\n<table width=100% cellpadding=2 cellspacing=2>\n";
@@ -134,9 +134,9 @@ function outputtohtml($keyword,$line="10",$pref_bodybgcolor="#E0D0C0",$pref_oddb
 	while ($db_row1 = dba_fetch_array($db_result1))
 	{
 	    $i++;
-	    $sender = $db_row1[in_masked];
-	    $datetime = $db_row1[in_datetime];
-	    $message = $db_row1[in_msg];
+	    $sender = $db_row1['in_masked'];
+	    $datetime = $db_row1['in_datetime'];
+	    $message = $db_row1['in_msg'];
 	    $tmp_template = $template;
 	    $tmp_template = str_replace("{SENDER}",$sender,$tmp_template);
 	    $tmp_template = str_replace("{DATETIME}",$datetime,$tmp_template);

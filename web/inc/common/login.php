@@ -1,8 +1,8 @@
 <?php
-$username = trim($_POST[username]);
-$password = trim($_POST[password]);
+$username = trim($_POST['username']);
+$password = trim($_POST['password']);
 
-if ($_POST[username] && $_POST[password])
+if ($_POST['username'] && $_POST['password'])
 {
     if ($ticket = validatelogin($username,$password))
     {
@@ -31,11 +31,11 @@ if ($_POST[username] && $_POST[password])
 
 if (isset($error_string))
 {
-    header("Location: ".$http_path[base]."/?err=".urlencode($error_string));
+    header("Location: ".$http_path['base']."/?err=".urlencode($error_string));
 }
 else
 {
-    header("Location: ".$http_path[base]);
+    header("Location: ".$http_path['base']);
 }
 
 die();

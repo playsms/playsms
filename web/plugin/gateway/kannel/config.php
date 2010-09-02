@@ -18,6 +18,6 @@ $gateway_number = $kannel_param['global_sender'];
 // insert to left menu array
 if (isadmin())
 {
-    $arr_menu["Gateway"][] = array("menu.php?inc=gateway_kannel&op=manage", "Manage kannel");
+    $arr_menu['Gateway'][] = array("menu.php?inc=gateway_kannel&op=manage", "Manage kannel");
 }
 ?>

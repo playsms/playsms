@@ -9,7 +9,7 @@ if (!valid()) {
 	forcenoaccess();
 };
 ?>
-<script type="text/javascript" src="<?=$http_path[themes]?>/<?=$themes_module?>/jscss/datetimepicker.js"></script>
+<script type="text/javascript" src="<?=$http_path['themes']?>/<?=$themes_module?>/jscss/datetimepicker.js"></script>
 <?php
 switch ($op) {
 	case "sms_autosend_list" :
@@ -43,13 +43,13 @@ switch ($op) {
 		while ($db_row = dba_fetch_array($db_result)) {
 			$i++;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-			$owner = uid2username($db_row[uid]);
+			$owner = uid2username($db_row['uid']);
 			$autosend_status = "<font color=red>Disable</font>";
-			$message = $db_row[autosend_message];
-			$send_to = $db_row[autosend_number];
-			$time = $db_row[autosend_time];
+			$message = $db_row['autosend_message'];
+			$send_to = $db_row['autosend_number'];
+			$time = $db_row['autosend_time'];
 
-			$db_query = "SELECT autosend_id FROM " . _DB_PREF_ . "_featureAutosend_time WHERE autosend_id = '$db_row[autosend_id]'";
+			$db_query = "SELECT autosend_id FROM " . _DB_PREF_ . "_featureAutosend_time WHERE autosend_id = '".$db_row['autosend_id']."'";
 			$num_rows = dba_num_rows($db_query);
 
 			if ($num_rows > "1") {
@@ -58,12 +58,12 @@ switch ($op) {
 				$repeat = "Once";
 			}
 
-			if ($db_row[autosend_enable]) {
+			if ($db_row['autosend_enable']) {
 				$autosend_status = "<font color=green>Enable</font>";
 			}
-			$action = "<a href=menu.php?inc=feature_sms_autosend&op=sms_autosend_view&autosend_id=$db_row[autosend_id]>$icon_view</a>&nbsp;";
-			$action .= "<a href=menu.php?inc=feature_sms_autosend&op=sms_autosend_edit&autosend_id=$db_row[autosend_id]>$icon_edit</a>&nbsp;";
-			$action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS autosend message ?','menu.php?inc=feature_sms_autosend&op=sms_autosend_del&autosend_id=$db_row[autosend_id]')\">$icon_delete</a>";
+			$action = "<a href=menu.php?inc=feature_sms_autosend&op=sms_autosend_view&autosend_id='".$db_row['autosend_id']."'>$icon_view</a>&nbsp;";
+			$action .= "<a href=menu.php?inc=feature_sms_autosend&op=sms_autosend_edit&autosend_id='".$db_row['autosend_id']."'>$icon_edit</a>&nbsp;";
+			$action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS autosend message ?','menu.php?inc=feature_sms_autosend&op=sms_autosend_del&autosend_id='".$db_row['autosend_id']."')\">$icon_delete</a>";
 			$content .= "
 							<tr>
 								<td class=$td_class>&nbsp;$i.</td>
@@ -85,7 +85,7 @@ switch ($op) {
 		break;
 
 	case "sms_autosend_view" :
-		$autosend_id = $_REQUEST[autosend_id];
+		$autosend_id = $_REQUEST['autosend_id'];
 		if ($err) {
 			$content = "<p><font color=red>$err</font><p>";
 		}
@@ -95,17 +95,17 @@ switch ($op) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutosend where autosend_id='$autosend_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$owner = uid2username($db_row[uid]);
-		$send_to = $db_row[autosend_number];
+		$owner = uid2username($db_row['uid']);
+		$send_to = $db_row['autosend_number'];
 
 		$autosend_status = "<font color=red>Disable</font>";
-		$message = $db_row[autosend_message];
+		$message = $db_row['autosend_message'];
 
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutosend_time where autosend_id='$autosend_id'";
 		$db_result = dba_query($db_query);
 		$num_rows = dba_num_rows($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$time = $db_row[autosend_time];
+		$time = $db_row['autosend_time'];
 
 		if ($num_rows > "1") {
 			$repeat = $num_rows;
@@ -131,7 +131,7 @@ switch ($op) {
 		$i = 1;
 		while ($db_row = dba_fetch_array($db_result)) {
 			$content .= "<tr>
-									<td>Time $i</td><td>:</td><td> $db_row[autosend_time]</td>		    
+									<td>Time $i</td><td>:</td><td> ".$db_row['autosend_time']."</td>		    
 									</tr>
 									";
 			$i++;
@@ -140,7 +140,7 @@ switch ($op) {
 		break;
 
 	case "sms_autosend_edit" :
-		$autosend_id = $_REQUEST[autosend_id];
+		$autosend_id = $_REQUEST['autosend_id'];
 
 		$db_query = "SELECT uid,time_id," . _DB_PREF_ . "_featureAutosend.autosend_id, autosend_message,autosend_number,autosend_time
 									FROM " . _DB_PREF_ . "_featureAutosend
@@ -152,10 +152,10 @@ switch ($op) {
 
 		$db_row = dba_fetch_array($db_result);
 		$num_rows = dba_num_rows($db_query);
-		$edit_autosend_message = $db_row[autosend_message];
-		$edit_autosend_number = $db_row[autosend_number];
-		$edit_time_id = $db_row[time_id];
-		$edit_autosend_time = $db_row[autosend_time];
+		$edit_autosend_message = $db_row['autosend_message'];
+		$edit_autosend_number = $db_row['autosend_number'];
+		$edit_time_id = $db_row['time_id'];
+		$edit_autosend_time = $db_row['autosend_time'];
 		if ($err) {
 			$content = "<p><font color=red>$err</font><p>";
 		}
@@ -180,10 +180,10 @@ switch ($op) {
 			$db_query = "SELECT time_id, autosend_time FROM " . _DB_PREF_ . "_featureAutosend_time WHERE autosend_id = '$autosend_id' order by time_id limit $a,1";
 			$db_result = dba_query($db_query);
 			$db_row = dba_fetch_array($db_result);
-			$edit_autosend_time = $db_row[autosend_time];
+			$edit_autosend_time = $db_row['autosend_time'];
 			$content .=	
 			"<tr>
-	  			<td>Sending time $j  </td><td>:</td><td><input type=hidden name=edit_time_id[$a] value=\"$db_row[time_id]\">
+	  			<td>Sending time $j  </td><td>:</td><td><input type=hidden name=edit_time_id[$a] value=\"".$db_row['time_id']."\">
 	  				<input type=\"text\" id=\"demo[$a]\" maxlength=\"25\" size=\"20\" name=edit_autosend_time[$a] value=\"$edit_autosend_time\"><a href=\"javascript:NewCal('demo[$a]','yyyymmdd',true,24,'arrow')\">$icon_calendar</a>
 	  			</td>
 			</tr>";	
@@ -199,7 +199,7 @@ switch ($op) {
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$autosend_status = "<font color=red><b>Disable</b></font>";
-		if ($db_row[autosend_enable]) {
+		if ($db_row['autosend_enable']) {
 			$autosend_status = "<font color=green><b>Enable</b></font>";
 		}
 		$content = "
@@ -215,11 +215,11 @@ switch ($op) {
 		break;
 
 	case "sms_autosend_edit_yes" :
-		$edit_autosend_id = $_POST[edit_autosend_id];
-		$edit_autosend_message = $_POST[edit_autosend_message];
-		$edit_autosend_number = $_POST[edit_autosend_number];
-		$edit_autosend_time = $_POST[edit_autosend_time];
-		$edit_time_id = $_POST[edit_time_id];
+		$edit_autosend_id = $_POST['edit_autosend_id'];
+		$edit_autosend_message = $_POST['edit_autosend_message'];
+		$edit_autosend_number = $_POST['edit_autosend_number'];
+		$edit_autosend_time = $_POST['edit_autosend_time'];
+		$edit_time_id = $_POST['edit_time_id'];
 		if ($edit_autosend_id && $edit_autosend_message && $edit_autosend_number) {
 			$db_query = "
 							        UPDATE " . _DB_PREF_ . "_featureAutosend
@@ -254,8 +254,8 @@ switch ($op) {
 		break;
 
 	case "sms_autosend_status" :
-		$autosend_id = $_REQUEST[autosend_id];
-		$ps = $_REQUEST[ps];
+		$autosend_id = $_REQUEST['autosend_id'];
+		$ps = $_REQUEST['ps'];
 		$db_query = "UPDATE " . _DB_PREF_ . "_featureAutosend SET c_timestamp='" . mktime() . "',autosend_enable='$ps' WHERE autosend_id='$autosend_id'";
 		$db_result = @ dba_affected_rows($db_query);
 		if ($db_result > 0) {
@@ -265,11 +265,11 @@ switch ($op) {
 		break;
 
 	case "sms_autosend_del" :
-		$autosend_id = $_REQUEST[autosend_id];
+		$autosend_id = $_REQUEST['autosend_id'];
 		$db_query = "SELECT autosend_id FROM " . _DB_PREF_ . "_featureAutosend WHERE autosend_id='$autosend_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$autosend_id = $db_row[autosend_id];
+		$autosend_id = $db_row['autosend_id'];
 		if ($autosend_id) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureAutosend WHERE autosend_id='$autosend_id'";
 			if (@ dba_affected_rows($db_query)) {
@@ -323,9 +323,9 @@ switch ($op) {
 		break;
 
 	case "sms_autosend_add_yes" :
-		$add_autosend_message = $_POST[add_autosend_message];
-		$add_autosend_number = $_POST[add_autosend_number];
-		$add_autosend_time = $_POST[add_autosend_time];
+		$add_autosend_message = $_POST['add_autosend_message'];
+		$add_autosend_number = $_POST['add_autosend_number'];
+		$add_autosend_time = $_POST['add_autosend_time'];
 		if ($add_autosend_message && $add_autosend_number && $add_autosend_time) {
 			$db_query = "
 									INSERT INTO " . _DB_PREF_ . "_featureAutosend (uid,autosend_message, autosend_number)
@@ -345,7 +345,7 @@ switch ($op) {
 				if ($insert) {
 					$error_string = "An SMS autosend has been added";
 				} else {
-					$db_query = "DELETE FROM " . _DB_PREF_ . "_featureAutosend WHERE autosend_id = '$db_row[autosend_id]'";
+					$db_query = "DELETE FROM " . _DB_PREF_ . "_featureAutosend WHERE autosend_id = '".$db_row['autosend_id']."'";
 					$delete = @ dba_affected_rows($db_query);
 				}
 

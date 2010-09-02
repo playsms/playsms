@@ -19,7 +19,7 @@ function dba_connect($username,$password,$dbname,$hostname,$port="",$persistant=
     {
 	$host = "$hostname:$port";
     }
-    $dsn = $db_param["type"]."://$access@$host/$dbname";
+    $dsn = $db_param['type']."://$access@$host/$dbname";
     $dba_object = DB::connect("$dsn","$persistant");
 
     if (DB::isError($dba_object))
@@ -189,7 +189,7 @@ function dba_insert_id($mystring)
     global $db_param, $dba_object, $dba_DB, $DBA_ROW_COUNTER, $DBA_LIMIT_FROM, $DBA_LIMIT_COUNT;
     if (dba_query ($mystring))
     {
-	switch ($db_param["type"])
+	switch ($db_param['type'])
 	{
 	    case "mysql":
     		$myquery = "SELECT @@IDENTITY";

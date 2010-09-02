@@ -73,7 +73,7 @@ function sms_autoreply_handle($sms_datetime,$sms_sender,$autoreply_keyword,$auto
     ";
     $db_result = dba_query($db_query);
     $db_row = dba_fetch_array($db_result);
-    if ($autoreply_scenario_result = $db_row[autoreply_scenario_result])
+    if ($autoreply_scenario_result = $db_row['autoreply_scenario_result'])
     {
         $db_query = "
 	    INSERT INTO "._DB_PREF_."_featureAutoreply_log
@@ -92,7 +92,7 @@ function sms_autoreply_handle($sms_datetime,$sms_sender,$autoreply_keyword,$auto
 	$db_query = "SELECT uid FROM "._DB_PREF_."_featureAutoreply WHERE autoreply_keyword='$autoreply_keyword'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$c_uid = $db_row[uid];
+	$c_uid = $db_row['uid'];
 	$c_username = uid2username($c_uid);
 	$smslog_id = websend2pv($c_username,$sms_sender,$autoreply_scenario_result);
 	if ($smslog_id)

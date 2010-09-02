@@ -37,7 +37,7 @@ function sms_quiz_hook_setsmsincomingaction($sms_datetime, $sms_sender, $quiz_ke
 	$db_query = "SELECT uid FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_keyword='$quiz_keyword'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
-		$c_uid = $db_row[uid];
+		$c_uid = $db_row['uid'];
 		if (sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $quiz_keyword, $quiz_param)) {
 			$ok = true;
 		}

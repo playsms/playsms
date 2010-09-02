@@ -49,19 +49,19 @@ switch ($op)
 	while ($db_row = dba_fetch_array($db_result))
 	{
 	    $j++;
-	    $in_id = $db_row[in_id];
-	    $in_sender = $db_row[in_sender];
+	    $in_id = $db_row['in_id'];
+	    $in_sender = $db_row['in_sender'];
 	    $p_desc = pnum2pdesc($in_sender);
 	    $current_sender = $in_sender;
 	    if ($p_desc) 
 	    {
 		$current_sender = "$in_sender<br>($p_desc)";
 	    }
-	    $in_keyword = $db_row[in_keyword];
-	    $in_message = $db_row[in_message];
-	    $in_datetime = $db_row[in_datetime];
-	    $in_feature = $db_row[in_feature];
-	    $in_status = ( $db_row[in_status] == 1 ? '<font color=green>handled</font>' : ' <font color=red>unhandled</font>' );
+	    $in_keyword = $db_row['in_keyword'];
+	    $in_message = $db_row['in_message'];
+	    $in_datetime = $db_row['in_datetime'];
+	    $in_feature = $db_row['in_feature'];
+	    $in_status = ( $db_row['in_status'] == 1 ? '<font color=green>handled</font>' : ' <font color=red>unhandled</font>' );
 	    $i--;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";	    
 	    $content .= "
@@ -108,7 +108,7 @@ switch ($op)
 	break;
     case "user_incoming_del":
 	$error_string = "Fail to delete incoming SMS";
-	if ($in_id = $_REQUEST[inid])
+	if ($in_id = $_REQUEST['inid'])
 	{
 	    $db_query = "UPDATE "._DB_PREF_."_tblSMSIncoming SET c_timestamp='".mktime()."',flag_deleted='1' WHERE in_uid='$uid' AND in_id='$in_id'";
 	    $db_result = dba_affected_rows($db_query);
@@ -120,12 +120,12 @@ switch ($op)
 	header("Location: menu.php?inc=user_incoming&op=user_incoming&err=".urlencode($error_string));
 	break;
     case "act_del":
-	$item_count = $_POST[item_count];
+	$item_count = $_POST['item_count'];
 	
 	for ($i=1;$i<=$item_count;$i++)
 	{
-	    $chkid = $_POST["chkid".$i];
-	    $inid = $_POST["inid".$i];
+	    $chkid = $_POST['chkid'.$i];
+	    $inid = $_POST['inid'.$i];
 	    
 	    if(($chkid=="on") && $inid)
 	    {

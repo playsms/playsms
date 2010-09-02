@@ -1,7 +1,7 @@
 <?php
 if(!valid()){forcenoaccess();};
 
-$gpid = $_REQUEST[gpid];
+$gpid = $_REQUEST['gpid'];
 
 switch ($op)
 {
@@ -19,7 +19,7 @@ switch ($op)
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result))
 	{
-    	    $content .= "\"$db_row[p_desc]\",\"$db_row[p_num]\",\"$db_row[p_email]\"\r\n";
+    	    $content .= "\"".$db_row['p_desc']."\",\"".$db_row['p_num']."\",\"".$db_row['p_email']."\"\r\n";
 	}
 	ob_end_clean();
 	header("Content-Type: application/octet-stream");
@@ -53,8 +53,8 @@ switch ($op)
 	break;
     case "import_confirmation":
 	$replace = $_POST['replace'];
-	$fnpb = $_FILES[fnpb];
-	$fnpb_tmpname = $_FILES[fnpb][tmp_name];
+	$fnpb = $_FILES['fnpb'];
+	$fnpb_tmpname = $_FILES['fnpb']['tmp_name'];
 	$content = "
 	    <h2>Import confirmation</h2>
 	    <p>
@@ -126,13 +126,13 @@ switch ($op)
 	}
 	break;
     case "import_yes":
-	$num = $_POST[num];
-	$replace = $_POST[replace];
+	$num = $_POST['num'];
+	$replace = $_POST['replace'];
 	for ($a=0;$a<$num;$a++)
 	{
-	    $Name[$a] = $_POST["Name".$a];
-	    $Number[$a] = $_POST["Number".$a];
-	    $Email[$a] = $_POST["Email".$a];
+	    $Name[$a] = $_POST['Name'.$a];
+	    $Number[$a] = $_POST['Number'.$a];
+	    $Email[$a] = $_POST['Email'.$a];
 	}
 	if ($replace=="ok")
 	{
@@ -142,8 +142,8 @@ switch ($op)
 	    while ($db_row=dba_fetch_array($db_result))
 	    {
 	        $j++;
-	        $pid[$j] = $db_row[pid];
-	        $pdesc[$j] = $db_row[p_desc];
+	        $pid[$j] = $db_row['pid'];
+	        $pdesc[$j] = $db_row['p_desc'];
 	    }
 	    for ($i=0;$i<$num;$i++)
 	    {

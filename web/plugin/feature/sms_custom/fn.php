@@ -58,7 +58,7 @@ function sms_custom_handle($sms_datetime,$sms_sender,$custom_keyword,$custom_par
     $db_query = "SELECT custom_url FROM "._DB_PREF_."_featureCustom WHERE custom_keyword='$custom_keyword'";
     $db_result = dba_query($db_query);
     $db_row = dba_fetch_array($db_result);
-    $custom_url = $db_row[custom_url];
+    $custom_url = $db_row['custom_url'];
     $custom_url = str_replace("{SMSDATETIME}",urlencode($sms_datetime),$custom_url);
     $custom_url = str_replace("{SMSSENDER}",urlencode($sms_sender),$custom_url);
     $custom_url = str_replace("{CUSTOMKEYWORD}",urlencode($custom_keyword),$custom_url);

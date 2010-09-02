@@ -20,7 +20,7 @@ function checkavailablekeyword($keyword)
     {
 	for ($c=0;$c<count($core_config['featurelist']);$c++)
 	{
-	    if (x_hook($core_config['featurelist'][$c],'checkavailablekeyword',array($keyword)))
+	    if (x_hook($core_config['featurelist']['$c'],'checkavailablekeyword',array($keyword)))
 	    {
 		$ok = false;
 		break;
@@ -79,7 +79,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message)
 	default:
 	    for ($c=0;$c<count($core_config['featurelist']);$c++)
 	    {
-		$c_feature = $core_config['featurelist'][$c];
+		$c_feature = $core_config['featurelist']['$c'];
 		$ret = x_hook($c_feature,'setsmsincomingaction',array($sms_datetime,$sms_sender,$target_keyword,$message));
 		if ($ok = $ret['status'])
 		{
@@ -116,9 +116,9 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message)
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result))
 	{
-	    $uid = $db_row[uid];
-	    $email = $db_row[email];
-	    $mobile = $db_row[mobile];
+	    $uid = $db_row['uid'];
+	    $email = $db_row['email'];
+	    $mobile = $db_row['mobile'];
 	    $db_query = "
 		INSERT INTO "._DB_PREF_."_tblUserInbox
 		(in_sender,in_uid,in_msg,in_datetime) 
@@ -197,11 +197,11 @@ function getsmsstatus()
     $db_result = dba_query($db_query);
     while ($db_row = dba_fetch_array($db_result))
     {
-	$uid = $db_row[uid];
-	$smslog_id = $db_row[smslog_id];
-	$p_datetime = $db_row[p_datetime];
-	$p_update = $db_row[p_update];
-	$gpid = $db_row[p_gpid];
+	$uid = $db_row['uid'];
+	$smslog_id = $db_row['smslog_id'];
+	$p_datetime = $db_row['p_datetime'];
+	$p_update = $db_row['p_update'];
+	$gpid = $db_row['p_gpid'];
 	$gp_code = gpid2gpcode($gpid);
 	x_hook($gateway_module,'getsmsstatus',array($gp_code,$uid,$smslog_id,$p_datetime,$p_update));
     }
@@ -210,7 +210,7 @@ function getsmsstatus()
 function execcommoncustomcmd()
 {
     global $apps_path;
-    @include $apps_path[incs]."/common/customcmd.php";
+    @include $apps_path['incs']."/common/customcmd.php";
 }
 
 
@@ -220,12 +220,12 @@ function playsmsd()
     // plugin tools
     for ($c=0;$c<count($core_config['toolslist']);$c++)
     {
-	x_hook($core_config['toolslist'][$c],'playsmsd');
+	x_hook($core_config['toolslist']['$c'],'playsmsd');
     }
     // plugin feature
     for ($c=0;$c<count($core_config['featurelist']);$c++)
     {
-	x_hook($core_config['featurelist'][$c],'playsmsd');
+	x_hook($core_config['featurelist']['$c'],'playsmsd');
     }
     // plugin gateway
     x_hook($gateway_module,'playsmsd');

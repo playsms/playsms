@@ -7,6 +7,6 @@
  */
  
  // insert to left menu array
-$arr_menu["Feature"][] = array("menu.php?inc=feature_sms_autosend&op=sms_autosend_list", "Manage autosend");
+$arr_menu['Feature'][] = array("menu.php?inc=feature_sms_autosend&op=sms_autosend_list", "Manage autosend");
  
 ?>

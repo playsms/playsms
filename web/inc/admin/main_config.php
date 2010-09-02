@@ -38,11 +38,11 @@ switch ($op)
 	echo $content;
 	break;
     case "main_config_save":
-	$edit_web_title = $_POST[edit_web_title];
-	$edit_email_service = $_POST[edit_email_service];
-	$edit_email_footer = $_POST[edit_email_footer];
-	$edit_gateway_number = $_POST[edit_gateway_number];
-	$edit_default_rate = $_POST[edit_default_rate];
+	$edit_web_title = $_POST['edit_web_title'];
+	$edit_email_service = $_POST['edit_email_service'];
+	$edit_email_footer = $_POST['edit_email_footer'];
+	$edit_gateway_number = $_POST['edit_gateway_number'];
+	$edit_default_rate = $_POST['edit_default_rate'];
 	$db_query = "
 	    UPDATE "._DB_PREF_."_tblConfig_main 
 	    SET c_timestamp='".mktime()."',

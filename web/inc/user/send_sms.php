@@ -1,18 +1,18 @@
 <?php
 if(!valid()){forcenoaccess();};
 
-$dst_p_num = urlencode($_REQUEST[dst_p_num]);
-$dst_gp_code = urlencode($_REQUEST[dst_gp_code]);
+$dst_p_num = urlencode($_REQUEST['dst_p_num']);
+$dst_gp_code = urlencode($_REQUEST['dst_gp_code']);
 
 switch ($op)
 {
     case "sendsmstopv":
-	$message = $_REQUEST[message];
+	$message = $_REQUEST['message'];
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE uid='$uid' ORDER BY p_desc";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result))
 	{
-	    $list_of_number .= "<option value=\"$db_row[p_num]\" $selected>$db_row[p_desc] $db_row[p_num]</option>";
+	    $list_of_number .= "<option value=\"".$db_row['p_num']."\" $selected>".$db_row['p_desc']." ".$db_row['p_num']."</option>";
 	}
 	// add numbers from public phonebook
 	$db_query = "
@@ -29,13 +29,13 @@ switch ($op)
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result))
 	{
-	    $c_gpid = $db_row[gpid];
+	    $c_gpid = $db_row['gpid'];
 	    $db_query1 = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE gpid='$c_gpid' ORDER BY p_desc";
 	    $db_result1 = dba_query($db_query1);
 	    $i = 0;
 	    while ($db_row1 = dba_fetch_array($db_result1))
 	    {
-		$list_of_number .= "<option value=\"$db_row1[p_num]\" $selected>$db_row1[p_desc] $db_row1[p_num]</option>";
+		$list_of_number .= "<option value=\"".$db_row1['p_num']."\" $selected>".$db_row1['p_desc']." ".$db_row1['p_num']."</option>";
 	    }
 	}
 	$max_length = $core_config['smsmaxlength'];
@@ -77,8 +77,8 @@ switch ($op)
 	while ($db_row = dba_fetch_array($db_result2))
 	{
 	    $j++;
-	    $option_values .= "<option value=\"".$db_row[t_text]."\">".$db_row[t_title]."</option>";
-	    $input_values .= "<input type=\"hidden\" name=\"content_$j\" value=\"".$db_row[t_text]."\">";
+	    $option_values .= "<option value=\"".$db_row['t_text']."\">".$db_row['t_title']."</option>";
+	    $input_values .= "<input type=\"hidden\" name=\"content_$j\" value=\"".$db_row['t_text']."\">";
 	}
 
 	// document.fm_sendsms.message.value = document.fm_smstemplate.content_num.value;
@@ -112,19 +112,19 @@ switch ($op)
 	    <tr>
 		<td nowrap>
 		    Phone number(s):<br>
-		    <select name=\"p_num_dump[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\">$list_of_number</select>
+		    <select name=\"p_num_dump[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form[p_num_dump[]],this.form[p_num[]])\">$list_of_number</select>
 		</td>
 		<td width=10>&nbsp;</td>
 		<td align=center valign=middle>
-		<input type=\"button\" class=\"button\" value=\"&gt;&gt;\" onclick=\"moveSelectedOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\"><br><br>
-		<input type=\"button\" class=\"button\" value=\"All &gt;&gt;\" onclick=\"moveAllOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\"><br><br>
-		<input type=\"button\" class=\"button\" value=\"&lt;&lt;\" onclick=\"moveSelectedOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\"><br><br>
-		<input type=\"button\" class=\"button\" value=\"All &lt;&lt;\" onclick=\"moveAllOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\">
+		<input type=\"button\" class=\"button\" value=\"&gt;&gt;\" onclick=\"moveSelectedOptions(this.form[p_num_dump[]],this.form[p_num[]])\"><br><br>
+		<input type=\"button\" class=\"button\" value=\"All &gt;&gt;\" onclick=\"moveAllOptions(this.form[p_num_dump[]],this.form[p_num[]])\"><br><br>
+		<input type=\"button\" class=\"button\" value=\"&lt;&lt;\" onclick=\"moveSelectedOptions(this.form[p_num[]],this.form[p_num_dump[]])\"><br><br>
+		<input type=\"button\" class=\"button\" value=\"All &lt;&lt;\" onclick=\"moveAllOptions(this.form[p_num[]],this.form[p_num_dump[]])\">
 		</td>		
 		<td width=10>&nbsp;</td>
 		<td nowrap>
 		    Send to:<br>
-		    <select name=\"p_num[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\"></select>
+		    <select name=\"p_num[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form[p_num[]],this.form[p_num_dump[]])\"></select>
 		</td>
 	    </tr>
 	    </table>
@@ -137,7 +137,7 @@ switch ($op)
 	    <br>Character left: <input value=\"$max_length\" type=\"text\" onKeyPress=\"if (window.event.keyCode == 13){return false;}\" onFocus=\"this.blur();\" size=\"3\" name=\"charNumberLeftOutput\" id=\"charNumberLeftOutput\">
 	    <p><input type=checkbox name=msg_flash> Send as flash message
 	    <p><input type=checkbox name=msg_unicode> Send as unicode message (http://www.unicode.org)
-	    <p><input type=submit class=button value=Send onClick=\"selectAllOptions(this.form['p_num[]'])\"> 
+	    <p><input type=submit class=button value=Send onClick=\"selectAllOptions(this.form[p_num[]])\"> 
 	    </form>
 	";
 	echo $content;
@@ -146,12 +146,12 @@ switch ($op)
 	$p_num = $_POST['p_num'];
 	if (!$p_num[0])
 	{
-	    $p_num = $_POST[p_num_text];
+	    $p_num = $_POST['p_num_text'];
 	}
 	$sms_to = $p_num;
-	$msg_flash = $_POST[msg_flash];
-	$msg_unicode = $_POST[msg_unicode];
-	$message = $_POST[message];
+	$msg_flash = $_POST['msg_flash'];
+	$msg_unicode = $_POST['msg_unicode'];
+	$message = $_POST['message'];
 	if (($p_num || $sms_to) && $message)
 	{
 	    $sms_type = "text";
@@ -184,12 +184,12 @@ switch ($op)
 	}
 	break;
     case "sendsmstogr":
-	$message = $_REQUEST[message];
+	$message = $_REQUEST['message'];
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblUserGroupPhonebook WHERE uid='$uid' ORDER BY gp_name";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result))
 	{
-	    $list_of_group .= "<option value=\"$db_row[gp_code]\" $selected>$db_row[gp_name] ($db_row[gp_code])</option>";
+	    $list_of_group .= "<option value=\"".$db_row['gp_code']."\" $selected>".$db_row['gp_name']." (".$db_row['gp_code'].")</option>";
 	}
 	// add shared group
 	$db_query = "
@@ -206,7 +206,7 @@ switch ($op)
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result))
 	{
-	    $list_of_group .= "<option value=\"$db_row[gp_code]\" $selected>$db_row[gp_name] ($db_row[gp_code])</option>";
+	    $list_of_group .= "<option value=\"".$db_row['gp_code']."\" $selected>".$db_row['gp_name']." (".$db_row['gp_code'].")</option>";
 	}
 	$max_length = $core_config['smsmaxlength'];
 	if ($sms_sender = username2sender($username))
@@ -237,8 +237,8 @@ switch ($op)
 	while ($db_row = dba_fetch_array($db_result2))
 	{
 	    $j++;
-	    $option_values .= "<option value=\"".$db_row[t_text]."\">".$db_row[t_title]."</option>";
-	    $input_values .= "<input type=\"hidden\" name=\"content_$j\" value=\"".$db_row[t_text]."\">";
+	    $option_values .= "<option value=\"".$db_row['t_text']."\">".$db_row['t_title']."</option>";
+	    $input_values .= "<input type=\"hidden\" name=\"content_$j\" value=\"".$db_row['t_text']."\">";
 	}
 
 	// document.fm_sendsms.message.value = document.fm_smstemplate.content_num.value;
@@ -274,19 +274,19 @@ switch ($op)
 	    <tr>
 		<td nowrap>
 		    Group(s):<br>
-		    <select name=\"gp_code_dump[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['gp_code_dump[]'],this.form['gp_code[]'])\">$list_of_group</select>
+		    <select name=\"gp_code_dump[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form[gp_code_dump[]],this.form[gp_code[]])\">$list_of_group</select>
 		</td>
 		<td width=10>&nbsp;</td>
 		<td align=center valign=middle>
-		<input type=\"button\" class=\"button\" value=\"&gt;&gt;\" onclick=\"moveSelectedOptions(this.form['gp_code_dump[]'],this.form['gp_code[]'])\"><br><br>
-		<input type=\"button\" class=\"button\" value=\"All &gt;&gt;\" onclick=\"moveAllOptions(this.form['gp_code_dump[]'],this.form['gp_code[]'])\"><br><br>
-		<input type=\"button\" class=\"button\" value=\"&lt;&lt;\" onclick=\"moveSelectedOptions(this.form['gp_code[]'],this.form['gp_code_dump[]'])\"><br><br>
-		<input type=\"button\" class=\"button\" value=\"All &lt;&lt;\" onclick=\"moveAllOptions(this.form['gp_code[]'],this.form['gp_code_dump[]'])\">
+		<input type=\"button\" class=\"button\" value=\"&gt;&gt;\" onclick=\"moveSelectedOptions(this.form[gp_code_dump[]],this.form[gp_code[]])\"><br><br>
+		<input type=\"button\" class=\"button\" value=\"All &gt;&gt;\" onclick=\"moveAllOptions(this.form[gp_code_dump[]],this.form[gp_code[]])\"><br><br>
+		<input type=\"button\" class=\"button\" value=\"&lt;&lt;\" onclick=\"moveSelectedOptions(this.form[gp_code[]],this.form[gp_code_dump[]])\"><br><br>
+		<input type=\"button\" class=\"button\" value=\"All &lt;&lt;\" onclick=\"moveAllOptions(this.form[gp_code[]],this.form[gp_code_dump[]])\">
 		</td>		
 		<td width=10>&nbsp;</td>
 		<td nowrap>
 		    Send to:<br>
-		    <select name=\"gp_code[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['gp_code[]'],this.form['gp_code_dump[]'])\"></select>
+		    <select name=\"gp_code[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form[gp_code[]],this.form[gp_code_dump[]])\"></select>
 		</td>
 	    </tr>
 	    </table>
@@ -299,19 +299,19 @@ switch ($op)
 	    <br><textarea cols=\"39\" rows=\"5\" onKeyUp=\"javascript: SmsCountKeyUp($max_length);\" onKeyDown=\"javascript: SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
 	    <br>Character left: <input value=\"$max_length\" type=\"text\" onKeyPress=\"if (window.event.keyCode == 13){return false;}\" onFocus=\"this.blur();\" size=\"3\" name=\"charNumberLeftOutput\" id=\"charNumberLeftOutput\">
 	    <p><input type=checkbox name=msg_flash> Send as flash message
-	    <p><input type=submit class=button value=Send onClick=\"selectAllOptions(this.form['gp_code[]'])\"> 
+	    <p><input type=submit class=button value=Send onClick=\"selectAllOptions(this.form[gp_code[]])\"> 
 	    </form>
 	";
 	echo $content;
 	break;
     case "sendsmstogr_yes":
-	$gp_code = $_POST[gp_code];
+	$gp_code = $_POST['gp_code'];
 	if (!$gp_code[0])
 	{
-	    $gp_code = $_POST[gp_code_text];
+	    $gp_code = $_POST['gp_code_text'];
 	}
-	$msg_flash = $_POST[msg_flash];
-	$message = $_POST[message];
+	$msg_flash = $_POST['msg_flash'];
+	$message = $_POST['message'];
 	if ($gp_code && $message)
 	{
 	    $sms_type = "text";

@@ -63,12 +63,12 @@ function sms_poll_handle($sms_datetime,$sms_sender,$poll_keyword,$poll_param='')
 	$db_query = "SELECT poll_id,poll_enable FROM "._DB_PREF_."_featurePoll WHERE poll_keyword='$poll_keyword'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$poll_id = $db_row[poll_id];
-	$poll_enable = $db_row[poll_enable];
+	$poll_id = $db_row['poll_id'];
+	$poll_enable = $db_row['poll_enable'];
 	$db_query = "SELECT choice_id FROM "._DB_PREF_."_featurePoll_choice WHERE choice_keyword='$target_choice' AND poll_id='$poll_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$choice_id = $db_row[choice_id];
+	$choice_id = $db_row['choice_id'];
 	if ($poll_id && $choice_id)
 	{
 	    $db_query = "SELECT result_id FROM "._DB_PREF_."_featurePoll_log WHERE poll_sender='$sms_sender' AND poll_id='$poll_id'";

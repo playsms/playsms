@@ -9,13 +9,13 @@ function gnokii_hook_getsmsstatus($gp_code="",$uid="",$smslog_id="",$p_datetime=
     // 2 = failed
     if ($gp_code)
     {
-        $fn = $gnokii_param[path]."/out.$gp_code.$uid.$smslog_id";
-        $efn = $gnokii_param[path]."/ERR.out.$gp_code.$uid.$smslog_id";
+        $fn = $gnokii_param['path']."/out.$gp_code.$uid.$smslog_id";
+        $efn = $gnokii_param['path']."/ERR.out.$gp_code.$uid.$smslog_id";
     }
     else
     {
-        $fn = $gnokii_param[path]."/out.PV.$uid.$smslog_id";
-        $efn = $gnokii_param[path]."/ERR.out.PV.$uid.$smslog_id";
+        $fn = $gnokii_param['path']."/out.PV.$uid.$smslog_id";
+        $efn = $gnokii_param['path']."/ERR.out.PV.$uid.$smslog_id";
     }
     // set delivered first
     $p_status = 1;
@@ -61,12 +61,12 @@ function gnokii_hook_playsmsd()
 function gnokii_hook_getsmsinbox()
 {
     global $gnokii_param;
-    $handle = @opendir($gnokii_param[path]);
+    $handle = @opendir($gnokii_param['path']);
     while ($sms_in_file = @readdir($handle))
     {
 	if (eregi("^ERR.in",$sms_in_file) && !eregi("^[.]",$sms_in_file))
 	{
-	    $fn = $gnokii_param[path]."/$sms_in_file";
+	    $fn = $gnokii_param['path']."/$sms_in_file";
 	    $tobe_deleted = $fn;
 	    $lines = @file ($fn);
 	    $sms_datetime = trim($lines[0]);
@@ -74,7 +74,7 @@ function gnokii_hook_getsmsinbox()
 	    $message = "";
 	    for ($lc=2;$lc<count($lines);$lc++)
 	    {
-		$message .= trim($lines[$lc]);
+		$message .= trim($lines['$lc']);
 	    }
 	    // collected:
 	    // $sms_datetime, $sms_sender, $message
@@ -98,7 +98,7 @@ function gnokii_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
 	$sms_msg = $sms_msg.$sms_sender;
     }
     $the_msg = "$sms_to\n$sms_msg";
-    $fn = $gnokii_param[path]."/out.$sms_id";
+    $fn = $gnokii_param['path']."/out.$sms_id";
     umask(0);
     $fd = @fopen($fn, "w+");
     @fputs($fd, $the_msg);

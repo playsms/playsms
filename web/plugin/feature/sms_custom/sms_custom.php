@@ -36,14 +36,14 @@ switch ($op)
 	{
 	    $i++;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-	    $owner = uid2username($db_row[uid]);
-	    $action = "<a href=menu.php?inc=feature_sms_custom&op=sms_custom_edit&custom_id=$db_row[custom_id]>$icon_edit</a>&nbsp;";
-	    $action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS custom keyword `$db_row[custom_keyword]` ?','menu.php?inc=feature_sms_custom&op=sms_custom_del&custom_id=$db_row[custom_id]')\">$icon_delete</a>";
-	    $custom_url = ( (strlen($db_row[custom_url]) > $maxlen) ? substr($db_row[custom_url],0,$maxlen)."..." : $db_row[custom_url] );
+	    $owner = uid2username($db_row['uid']);
+	    $action = "<a href=menu.php?inc=feature_sms_custom&op=sms_custom_edit&custom_id=".$db_row['custom_id'].">$icon_edit</a>&nbsp;";
+	    $action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS custom keyword `".$db_row['custom_keyword']."` ?','menu.php?inc=feature_sms_custom&op=sms_custom_del&custom_id=".$db_row['custom_id']."')\">$icon_delete</a>";
+	    $custom_url = ( (strlen($db_row['custom_url']) > $maxlen) ? substr($db_row['custom_url'],0,$maxlen)."..." : $db_row['custom_url'] );
 	    $content .= "
     <tr>
 	<td class=$td_class>&nbsp;$i.</td>
-	<td class=$td_class>$db_row[custom_keyword]</td>
+	<td class=$td_class>".$db_row['custom_keyword']."</td>
 	<td class=$td_class>".stripslashes($custom_url)."</td>
 	<td class=$td_class>$owner</td>	
 	<td class=$td_class align=center>$action</td>
@@ -57,12 +57,12 @@ switch ($op)
 	";
 	break;
     case "sms_custom_edit":
-	$custom_id = $_REQUEST[custom_id];
+	$custom_id = $_REQUEST['custom_id'];
 	$db_query = "SELECT * FROM "._DB_PREF_."_featureCustom WHERE custom_id='$custom_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$edit_custom_keyword = $db_row[custom_keyword];
-	$edit_custom_url = stripslashes($db_row[custom_url]);
+	$edit_custom_keyword = $db_row['custom_keyword'];
+	$edit_custom_url = stripslashes($db_row['custom_url']);
 	$edit_custom_url = str_replace($feat_custom_path['bin'],'',$edit_custom_url);
 	if ($err)
 	{
@@ -87,9 +87,9 @@ switch ($op)
 	echo $content;
 	break;
     case "sms_custom_edit_yes":
-	$edit_custom_id = $_POST[edit_custom_id];
-	$edit_custom_keyword = $_POST[edit_custom_keyword];
-	$edit_custom_url = $_POST[edit_custom_url];
+	$edit_custom_id = $_POST['edit_custom_id'];
+	$edit_custom_keyword = $_POST['edit_custom_keyword'];
+	$edit_custom_url = $_POST['edit_custom_url'];
 	if ($edit_custom_id && $edit_custom_keyword && $edit_custom_url)
 	{
 	    $db_query = "UPDATE "._DB_PREF_."_featureCustom SET c_timestamp='".mktime()."',custom_url='$edit_custom_url' WHERE custom_keyword='$edit_custom_keyword' AND uid='$uid'";
@@ -109,11 +109,11 @@ switch ($op)
 	header ("Location: menu.php?inc=feature_sms_custom&op=sms_custom_edit&custom_id=$edit_custom_id&err=".urlencode($error_string));
 	break;
     case "sms_custom_del":
-	$custom_id = $_REQUEST[custom_id];
+	$custom_id = $_REQUEST['custom_id'];
 	$db_query = "SELECT custom_keyword FROM "._DB_PREF_."_featureCustom WHERE custom_id='$custom_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$keyword_name = $db_row[custom_keyword];
+	$keyword_name = $db_row['custom_keyword'];
 	if ($keyword_name)
 	{
 	    $db_query = "DELETE FROM "._DB_PREF_."_featureCustom WHERE custom_keyword='$keyword_name'";
@@ -150,8 +150,8 @@ switch ($op)
 	echo $content;
 	break;
     case "sms_custom_add_yes":
-	$add_custom_keyword = strtoupper($_POST[add_custom_keyword]);
-	$add_custom_url = $_POST[add_custom_url];
+	$add_custom_keyword = strtoupper($_POST['add_custom_keyword']);
+	$add_custom_url = $_POST['add_custom_url'];
 	if ($add_custom_keyword && $add_custom_url)
 	{
 	    if (checkavailablekeyword($add_custom_keyword))

@@ -33,15 +33,15 @@ switch ($op)
 	{
 	    $i++;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-	    $owner = uid2username($db_row[uid]);
-	    $action = "<a href=menu.php?inc=feature_sms_board&op=sms_board_view&board_id=$db_row[board_id] target=_blank>$icon_view</a>&nbsp;";
-	    $action .= "<a href=menu.php?inc=feature_sms_board&op=sms_board_edit&board_id=$db_row[board_id]>$icon_edit</a>&nbsp;";
-	    $action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS board `$db_row[board_keyword]` with all its messages ?','menu.php?inc=feature_sms_board&op=sms_board_del&board_id=$db_row[board_id]')\">$icon_delete</a>";
+	    $owner = uid2username($db_row['uid']);
+	    $action = "<a href=menu.php?inc=feature_sms_board&op=sms_board_view&board_id=".$db_row['board_id']." target=_blank>$icon_view</a>&nbsp;";
+	    $action .= "<a href=menu.php?inc=feature_sms_board&op=sms_board_edit&board_id=".$db_row['board_id'].">$icon_edit</a>&nbsp;";
+	    $action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS board `".$db_row['board_keyword']."` with all its messages ?','menu.php?inc=feature_sms_board&op=sms_board_del&board_id=".$db_row['board_id']."')\">$icon_delete</a>";
 	    $content .= "
     <tr>
 	<td class=$td_class>&nbsp;$i.</td>
-	<td class=$td_class>$db_row[board_keyword]</td>
-	<td class=$td_class>$db_row[board_forward_email]</td>
+	<td class=$td_class>".$db_row['board_keyword']."</td>
+	<td class=$td_class>".$db_row['board_forward_email']."</td>
 	<td class=$td_class>$owner</td>	
 	<td class=$td_class align=center>$action</td>
     </tr>";
@@ -57,21 +57,21 @@ switch ($op)
 	";
 	break;
     case "sms_board_view":
-	$board_id = $_REQUEST[board_id];
+	$board_id = $_REQUEST['board_id'];
 	$db_query = "SELECT board_keyword FROM "._DB_PREF_."_featureBoard WHERE board_id='$board_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$board_keyword = $db_row[board_keyword];
+	$board_keyword = $db_row['board_keyword'];
 	header ("Location: output.php?keyword=$board_keyword");
 	break;
     case "sms_board_edit":
-	$board_id = $_REQUEST[board_id];
+	$board_id = $_REQUEST['board_id'];
 	$db_query = "SELECT * FROM "._DB_PREF_."_featureBoard WHERE board_id='$board_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$edit_board_keyword = $db_row[board_keyword];
-	$edit_email = $db_row[board_forward_email];
-	$edit_template = $db_row[board_pref_template];
+	$edit_board_keyword = $db_row['board_keyword'];
+	$edit_email = $db_row['board_forward_email'];
+	$edit_template = $db_row['board_pref_template'];
 	if ($err)
 	{
 	    $content = "<p><font color=red>$err</font><p>";
@@ -102,10 +102,10 @@ switch ($op)
 	echo $content;
 	break;
     case "sms_board_edit_yes":
-	$edit_board_id = $_POST[edit_board_id];
-	$edit_board_keyword = $_POST[edit_board_keyword];
-	$edit_email = $_POST[edit_email];
-	$edit_template = $_POST[edit_template];
+	$edit_board_id = $_POST['edit_board_id'];
+	$edit_board_keyword = $_POST['edit_board_keyword'];
+	$edit_email = $_POST['edit_email'];
+	$edit_template = $_POST['edit_template'];
 	if ($edit_board_id)
 	{
 	    if (!$edit_template)
@@ -131,11 +131,11 @@ switch ($op)
 	header ("Location: menu.php?inc=feature_sms_board&op=sms_board_edit&board_id=$edit_board_id&err=".urlencode($error_string));
 	break;
     case "sms_board_del":
-	$board_id = $_REQUEST[board_id];
+	$board_id = $_REQUEST['board_id'];
 	$db_query = "SELECT board_keyword FROM "._DB_PREF_."_featureBoard WHERE board_id='$board_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$board_keyword = $db_row[board_keyword];
+	$board_keyword = $db_row['board_keyword'];
 	if ($board_keyword)
 	{
 	    $db_query = "DELETE FROM "._DB_PREF_."_featureBoard WHERE board_keyword='$board_keyword'";
@@ -178,9 +178,9 @@ switch ($op)
 	echo $content;
 	break;
     case "sms_board_add_yes":
-	$add_board_keyword = strtoupper($_POST[add_board_keyword]);
-	$add_email = $_POST[add_email];
-	$add_template = $_POST[add_template];
+	$add_board_keyword = strtoupper($_POST['add_board_keyword']);
+	$add_email = $_POST['add_email'];
+	$add_template = $_POST['add_template'];
 	if ($add_board_keyword)
 	{
 	    if (checkavailablekeyword($add_board_keyword))

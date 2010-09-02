@@ -31,11 +31,11 @@ function array_add_slashes($array)
             {
         	$value = addslashes($value);
         	$key = addslashes($key);
-        	$new_arr[$key] = $value;
+        	$new_arr['$key'] = $value;
     	    }
             if (is_array($value))
             {
-        	$new_arr[$key] = array_add_slashes($value);
+        	$new_arr['$key'] = array_add_slashes($value);
             }
         }
     }
@@ -45,7 +45,7 @@ function array_add_slashes($array)
 function pl_addslashes($data)
 {
     global $db_param;
-    if ($db_param[type]=="mssql")
+    if ($db_param['type']=="mssql")
     {
 	$data = str_replace("'", "''", $data); 
     } 
@@ -68,10 +68,10 @@ end of init functions
 
 if (!get_magic_quotes_gpc())
 {
-    foreach($_GET as $key => $val){$_GET[$key]=pl_addslashes($_GET[$key]);}
-    foreach($_POST as $key => $val){$_POST[$key]=pl_addslashes($_POST[$key]);}
-    foreach($_COOKIE as $key => $val){$_COOKIE[$key]=pl_addslashes($_COOKIE[$key]);}
-    foreach($_SERVER as $key => $val){$_SERVER[$key]=pl_addslashes($_SERVER[$key]);}
+    foreach($_GET as $key => $val){$_GET['$key']=pl_addslashes($_GET['$key']);}
+    foreach($_POST as $key => $val){$_POST['$key']=pl_addslashes($_POST['$key']);}
+    foreach($_COOKIE as $key => $val){$_COOKIE['$key']=pl_addslashes($_COOKIE['$key']);}
+    foreach($_SERVER as $key => $val){$_SERVER['$key']=pl_addslashes($_SERVER['$key']);}
 }
 
 $c_script_filename = __FILE__;
@@ -79,10 +79,10 @@ $c_php_self = $_SERVER['PHP_SELF'];
 $c_http_host = $_SERVER['HTTP_HOST'];
 
 // base application directory
-$apps_path[base]        = dirname($c_script_filename);
+$apps_path['base']        = dirname($c_script_filename);
     
 // base application http path
-$http_path[base]        = ( $core_config['ishttps'] ? "https://" : "http://" ).$c_http_host.( dirname($c_php_self)=='/' ? $c_php_self : dirname($c_php_self) );
+$http_path['base']        = ( $core_config['ishttps'] ? "https://" : "http://" ).$c_http_host.( dirname($c_php_self)=='/' ? $c_php_self : dirname($c_php_self) );
 
 // libraries directory
 $apps_path['libs']	= $apps_path['base'].'/lib';
@@ -110,20 +110,20 @@ define('_DB_PREF_',$db_param['pref']);
 include_once $apps_path['libs']."/dba.php";
 
 // connect to database
-$dba_object = dba_connect($db_param[user],$db_param[pass],$db_param[name],$db_param[host],$db_param[port]);
+$dba_object = dba_connect($db_param['user'],$db_param['pass'],$db_param['name'],$db_param['host'],$db_param['port']);
 
 // get main config
 $db_query = "SELECT * FROM "._DB_PREF_."_tblConfig_main";
 $db_result = dba_query($db_query);
 if ($db_row = dba_fetch_array($db_result))
 {
-    $web_title = $db_row[cfg_web_title];
-    $email_service = $db_row[cfg_email_service];
-    $email_footer = $db_row[cfg_email_footer];
-    $gateway_module = ( $db_row[cfg_gateway_module] ? $db_row[cfg_gateway_module] : 'gnokii' );
-    $gateway_number = $db_row[cfg_gateway_number];
-    $default_rate = $db_row[cfg_default_rate];
-    $themes_module = ( $db_row[cfg_themes_module] ? $db_row[cfg_themes_module] : 'default' );
+    $web_title = $db_row['cfg_web_title'];
+    $email_service = $db_row['cfg_email_service'];
+    $email_footer = $db_row['cfg_email_footer'];
+    $gateway_module = ( $db_row['cfg_gateway_module'] ? $db_row['cfg_gateway_module'] : 'gnokii' );
+    $gateway_number = $db_row['cfg_gateway_number'];
+    $default_rate = $db_row['cfg_default_rate'];
+    $themes_module = ( $db_row['cfg_themes_module'] ? $db_row['cfg_themes_module'] : 'default' );
 }
 
 // set global variable

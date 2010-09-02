@@ -1,16 +1,16 @@
 <?php
 chdir("../../../");
 include "init.php";
-include "$apps_path[libs]/function.php";
+include $apps_path['libs']."/function.php";
 chdir("plugin/gateway/clickatell/");
 
-$cb_from = $_REQUEST[from];
-$cb_to = $_REQUEST[to];
-$cb_timestamp = $_REQUEST[timestamp];
-$cb_text = $_REQUEST[text];
-$cb_status = $_REQUEST[status];
-$cb_charge = $_REQUEST[charge];
-$cb_apimsgid = $_REQUEST[apiMsgId];
+$cb_from = $_REQUEST['from'];
+$cb_to = $_REQUEST['to'];
+$cb_timestamp = $_REQUEST['timestamp'];
+$cb_text = $_REQUEST['text'];
+$cb_status = $_REQUEST['status'];
+$cb_charge = $_REQUEST['charge'];
+$cb_apimsgid = $_REQUEST['apiMsgId'];
 
 /*
 $fc = "from: $cb_from - to: $cb_to - timestamp: $cb_timestamp - text: $cb_text - status: $cb_status - charge: $cb_charge - apimsgid: $cb_apimsgid\n";
@@ -44,8 +44,8 @@ if ($cb_status && $cb_apimsgid)
     ";
     $db_result = dba_query($db_query);
     $db_row = dba_fetch_array($db_result);
-    $uid = $db_row[uid];
-    $smslog_id = $db_row[smslog_id];
+    $uid = $db_row['uid'];
+    $smslog_id = $db_row['smslog_id'];
     if ($uid && $smslog_id)
     {
 	$c_sms_status = 0;

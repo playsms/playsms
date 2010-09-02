@@ -1,6 +1,6 @@
 <?php
 
 // insert to left menu array
-$arr_menu["Feature"][] = array("menu.php?inc=feature_sms_command&op=sms_command_list", "Manage command");
+$arr_menu['Feature'][] = array("menu.php?inc=feature_sms_command&op=sms_command_list", "Manage command");
 
 ?>

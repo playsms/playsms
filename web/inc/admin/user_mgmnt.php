@@ -31,16 +31,16 @@ switch ($op)
 	{
 	    $i++;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-	    $action = "<a href=menu.php?inc=user_mgmnt&op=user_edit&uname=$db_row[username]>$icon_edit</a>";
-	    $action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete user `$db_row[username]` ?','menu.php?inc=user_mgmnt&op=user_del&uname=$db_row[username]')\">$icon_delete</a>";
+	    $action = "<a href=menu.php?inc=user_mgmnt&op=user_edit&uname=".$db_row['username'].">$icon_edit</a>";
+	    $action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete user `".$db_row['username']."` ?','menu.php?inc=user_mgmnt&op=user_del&uname=".$db_row['username']."')\">$icon_delete</a>";
 	    $content .= "
     <tr>
 	<td class=$td_class>&nbsp;$i.</td>
-	<td class=$td_class>$db_row[username]</td>
-	<td class=$td_class>$db_row[name]</td>
-	<td class=$td_class>$db_row[email]</td>	
-	<td class=$td_class>$db_row[mobile]</td>	
-	<td class=$td_class>$db_row[credit]</td>	
+	<td class=$td_class>".$db_row['username']."</td>
+	<td class=$td_class>".$db_row['name']."</td>
+	<td class=$td_class>".$db_row['email']."</td>	
+	<td class=$td_class>".$db_row['mobile']."</td>	
+	<td class=$td_class>".$db_row['credit']."</td>	
 	<td class=$td_class align=center>$action</td>
     </tr>
     ";
@@ -65,16 +65,16 @@ switch ($op)
 	{
 	    $i++;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-	    $action = "<a href=menu.php?inc=user_mgmnt&op=user_edit&uname=$db_row[username]>$icon_edit</a>";
-	    $action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete user `$db_row[username]` ?','menu.php?inc=user_mgmnt&op=user_del&uname=$db_row[username]')\">$icon_delete</a>";
+	    $action = "<a href=menu.php?inc=user_mgmnt&op=user_edit&uname=".$db_row['username'].">$icon_edit</a>";
+	    $action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete user `".$db_row['username']."` ?','menu.php?inc=user_mgmnt&op=user_del&uname=".$db_row['username']."')\">$icon_delete</a>";
 	    $content .= "
     <tr>
 	<td class=$td_class>&nbsp;$i.</td>
-	<td class=$td_class>$db_row[username]</td>
-	<td class=$td_class>$db_row[name]</td>
-	<td class=$td_class>$db_row[email]</td>	
-	<td class=$td_class>$db_row[mobile]</td>	
-	<td class=$td_class>$db_row[credit]</td>	
+	<td class=$td_class>".$db_row['username']."</td>
+	<td class=$td_class>".$db_row['name']."</td>
+	<td class=$td_class>".$db_row['email']."</td>	
+	<td class=$td_class>".$db_row['mobile']."</td>	
+	<td class=$td_class>".$db_row['credit']."</td>	
 	<td class=$td_class align=center>$action</td>
     </tr>
     ";
@@ -87,7 +87,7 @@ switch ($op)
 	";
 	break;
     case "user_del":
-	$uname = $_REQUEST[uname];
+	$uname = $_REQUEST['uname'];
 	$del_uid = username2uid($uname);
 	$error_string = "Fail to delete user `$uname`!";
 	if (($del_uid > 1) && ($del_uid != $uid))
@@ -109,7 +109,7 @@ switch ($op)
 	header ("Location: menu.php?inc=user_mgmnt&op=user_list&err=".urlencode($error_string));
 	break;
     case "user_edit":
-	$uname = $_REQUEST[uname];
+	$uname = $_REQUEST['uname'];
 	$uid = username2uid($uname);
 	$mobile = username2mobile($uname);
 	$email = username2email($uname);
@@ -168,14 +168,14 @@ switch ($op)
 	echo $content;
 	break;
     case "user_edit_save":
-	$uname = $_POST[uname];
-	$up_name = $_POST[up_name];
-	$up_email = $_POST[up_email];
-	$up_mobile = $_POST[up_mobile];
-	$up_sender = $_POST[up_sender];
-	$up_password = $_POST[up_password];
-	$up_status = $_POST[up_status];
-	$up_credit = $_POST[up_credit];
+	$uname = $_POST['uname'];
+	$up_name = $_POST['up_name'];
+	$up_email = $_POST['up_email'];
+	$up_mobile = $_POST['up_mobile'];
+	$up_sender = $_POST['up_sender'];
+	$up_password = $_POST['up_password'];
+	$up_status = $_POST['up_status'];
+	$up_credit = $_POST['up_credit'];
 //	$status = username2status($uname);
 	$error_string = "No changes made!";
 	if ($up_name && $up_mobile && $up_email)
@@ -257,21 +257,21 @@ switch ($op)
 	echo $content;
 	break;
     case "user_add_yes":
-	$add_email = $_POST[add_email];
-	$add_username = $_POST[add_username];
-	$add_name = $_POST[add_name];
-	$add_mobile = $_POST[add_mobile];
-	$add_sender = $_POST[add_sender];
-	$add_password = $_POST[add_password];
-	$add_credit = $_POST[add_credit];
-	$add_status = $_POST[add_status];
+	$add_email = $_POST['add_email'];
+	$add_username = $_POST['add_username'];
+	$add_name = $_POST['add_name'];
+	$add_mobile = $_POST['add_mobile'];
+	$add_sender = $_POST['add_sender'];
+	$add_password = $_POST['add_password'];
+	$add_credit = $_POST['add_credit'];
+	$add_status = $_POST['add_status'];
 	if (ereg("^(.+)(.+)\\.(.+)$",$add_email,$arr) && $add_email && $add_username && $add_name && $add_password)
 	{
 	    $db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE username='$add_username'";
 	    $db_result = dba_query($db_query);
 	    if ($db_row = dba_fetch_array($db_result))
 	    {
-		$error_string = "User with username `$db_row[username]` already exists!";
+		$error_string = "User with username `".$db_row['username']."` already exists!";
 	    }
 	    else
 	    {

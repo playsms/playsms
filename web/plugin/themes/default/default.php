@@ -22,7 +22,7 @@ switch ($get)
     case 5: $read = "LICENSE"; break;
 }
 
-$fn = $apps_path[base]."/docs/".$read;
+$fn = $apps_path['base']."/docs/".$read;
 $fd = @fopen($fn, "r");
 $fc = @fread($fd, filesize($fn));
 @fclose($fd);

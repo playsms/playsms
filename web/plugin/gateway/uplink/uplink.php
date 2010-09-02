@@ -1,9 +1,9 @@
 <?php
 if(!isadmin()){forcenoaccess();};
 
-include "$apps_path[plug]/gateway/uplink/config.php";
+include $apps_path['plug']."/gateway/uplink/config.php";
 
-if ($gateway_module == $uplink_param[name])
+if ($gateway_module == $uplink_param['name'])
 {
     $status_active = "(<font color=green><b>Active</b></font>)";
 }
@@ -21,27 +21,27 @@ switch ($op)
 	    $content = "<p><font color=red>$err</font><p>";
 	}
 	$content .= "
-	    <h2>Manage ".$uplink_param[name]."</h2>
+	    <h2>Manage ".$uplink_param['name']."</h2>
 	    <p>
 	    <form action=menu.php?inc=gateway_uplink&op=manage_save method=post>
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
-		<td width=150>Gateway Name:</td><td width=5>:</td><td><b>".$uplink_param[name]."</b> $status_active</td>
+		<td width=150>Gateway Name:</td><td width=5>:</td><td><b>".$uplink_param['name']."</b> $status_active</td>
 	    </tr>
 	    <tr>
-		<td>Master URL</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_master value=\"".$uplink_param[master]."\"></td>
+		<td>Master URL</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_master value=\"".$uplink_param['master']."\"></td>
 	    </tr>
 	    <tr>
-		<td>Username</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_username value=\"".$uplink_param[username]."\"></td>
+		<td>Username</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_username value=\"".$uplink_param['username']."\"></td>
 	    </tr>	    	    
 	    <tr>
-		<td>Password</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_password value=\"".$uplink_param[password]."\"></td>
+		<td>Password</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_password value=\"".$uplink_param['password']."\"></td>
 	    </tr>	    
 	    <tr>
-		<td>Global Sender</td><td>:</td><td><input type=text size=11 maxlength=11 name=up_global_sender value=\"".$uplink_param[global_sender]."\"> (Max. 16 numeric or 11 alphanumeric char. empty to disable)</td>
+		<td>Global Sender</td><td>:</td><td><input type=text size=11 maxlength=11 name=up_global_sender value=\"".$uplink_param['global_sender']."\"> (Max. 16 numeric or 11 alphanumeric char. empty to disable)</td>
 	    </tr>
 	    <tr>
-		<td>Uplink Incoming Path</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_incoming_path value=\"".$uplink_param[path]."\"> (No trailing slash \"/\")</td>
+		<td>Uplink Incoming Path</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_incoming_path value=\"".$uplink_param['path']."\"> (No trailing slash \"/\")</td>
 	    </tr>	    	    
 	</table>
 	    <!--

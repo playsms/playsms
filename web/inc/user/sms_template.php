@@ -1,9 +1,9 @@
 <?php
 if(!valid()){forcenoaccess();};
 
-$gpid = $_REQUEST[gpid];
-$pid = $_REQUEST[pid];
-$tid = $_REQUEST[tid];
+$gpid = $_REQUEST['gpid'];
+$pid = $_REQUEST['pid'];
+$tid = $_REQUEST['tid'];
 
 switch ($op)
 {
@@ -34,9 +34,9 @@ switch ($op)
 	while ($db_row = dba_fetch_array($db_result))
 	{
 	    $i++;
-	    $tid = $db_row[tid];
-	    $temp_title = $db_row[t_title];
-	    $temp_text = $db_row[t_text];
+	    $tid = $db_row['tid'];
+	    $temp_title = $db_row['t_title'];
+	    $temp_text = $db_row['t_text'];
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";	    	    
 	    $content .= "
 		<tr>
@@ -86,8 +86,8 @@ switch ($op)
 	echo $content;
 	break;
     case "add_yes":
-	$t_title = $_POST[t_title];
-	$t_text = $_POST[t_text];
+	$t_title = $_POST['t_title'];
+	$t_text = $_POST['t_text'];
 	$db_query = "INSERT INTO "._DB_PREF_."_tblSMSTemplate (uid,t_title,t_text) VALUES ('$uid','$t_title','$t_text')";
 	$db_result = dba_insert_id($db_query);
 	if ($db_result > 0)
@@ -110,10 +110,10 @@ switch ($op)
 	    <form action=\"menu.php?inc=sms_template&op=edit_yes&tid=$tid\" method=\"post\">
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
-		<td width=150>Message template name</td><td width=5>:</td><td><input type=\"text\" maxlength=\"100\" name=\"t_title\" value=\"".$db_row[t_title]."\"></td>
+		<td width=150>Message template name</td><td width=5>:</td><td><input type=\"text\" maxlength=\"100\" name=\"t_title\" value=\"".$db_row['t_title']."\"></td>
 	    </tr>
 	    <tr>
-		<td>Message template content</td><td>:</td><td><input type=text name=t_text size=60 value=\"".$db_row[t_text]."\"></td>
+		<td>Message template content</td><td>:</td><td><input type=text name=t_text size=60 value=\"".$db_row['t_text']."\"></td>
 	    </tr>	    
 	</table>
 	    <p><input type=\"submit\" class=\"button\" value=\"Save Template\">
@@ -125,8 +125,8 @@ switch ($op)
 	echo $content;
 	break;
     case "edit_yes":
-	$t_title = $_POST[t_title];
-	$t_text = $_POST[t_text];
+	$t_title = $_POST['t_title'];
+	$t_text = $_POST['t_text'];
 	$db_query = "UPDATE "._DB_PREF_."_tblSMSTemplate SET c_timestamp='".mktime()."',t_title='$t_title', t_text='$t_text' WHERE tid='$tid'";
 	$db_result = dba_affected_rows($db_query);
 	if ($db_result > 0)
@@ -140,11 +140,11 @@ switch ($op)
 	header ("Location: menu.php?inc=sms_template&op=list&err=".urlencode($error_string));
 	break;
     case "delete":    
-	$item_count = $_POST[item_count];
+	$item_count = $_POST['item_count'];
 	for ($i=1;$i<=$item_count;$i++)
 	{
-	    ${"tid".$i} = $_POST["tid".$i];
-	    ${"chkid".$i} = $_POST["chkid".$i];
+	    ${"tid".$i} = $_POST['tid'.$i];
+	    ${"chkid".$i} = $_POST['chkid'.$i];
 	}
 	$content = "
 	    <h2>Delete message template</h2>
@@ -170,8 +170,8 @@ switch ($op)
 		$content .= "
 		    <tr>
 	    		<td class=\"$td_class\">&nbsp;$j&nbsp;</td>
-	    		<td class=\"$td_class\">&nbsp;".$db_row[t_title]."</td>
-	    		<td class=\"$td_class\">&nbsp;".$db_row[t_text]."</td>
+	    		<td class=\"$td_class\">&nbsp;".$db_row['t_title']."</td>
+	    		<td class=\"$td_class\">&nbsp;".$db_row['t_text']."</td>
 	    		<input type=\"hidden\" name=\"tid".$j."\" value=\"".${"tid".$i}."\">
 		    </tr>
 		";
@@ -188,10 +188,10 @@ switch ($op)
 	echo $content;
 	break;
     case "delete_yes":
-	$item_count = $_POST[item_count];
+	$item_count = $_POST['item_count'];
 	for ($i=1;$i<=$item_count;$i++)
 	{
-	    ${"tid".$i} = $_POST["tid".$i];
+	    ${"tid".$i} = $_POST['tid'.$i];
 	}
 	for ($i=1;$i<=$item_count;$i++)
 	{

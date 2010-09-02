@@ -5,7 +5,7 @@ if (!valid()) {
 
 switch ($op) {
 	case "sms_answer_view" :
-		$quiz_id = $_REQUEST[quiz_id];
+		$quiz_id = $_REQUEST['quiz_id'];
 		$quiz_answer_query = "SELECT quiz_keyword,quiz_answer FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_id = '$quiz_id'";
 		$db_answer_result = dba_query($quiz_answer_query);
 		$db_answer_row = dba_fetch_array($db_answer_result);
@@ -13,7 +13,7 @@ switch ($op) {
 			$content = "<p><font color=red>$err</font><p>";
 		}
 		$content .= "
-				<h2>Received Answer List for [ $db_answer_row[quiz_keyword] ]</h2>			
+				<h2>Received Answer List for [ ".$db_answer_row['quiz_keyword']." ]</h2>			
 				";
 
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureQuiz_log WHERE quiz_id = '$quiz_id' ORDER BY in_datetime DESC";
@@ -34,19 +34,19 @@ switch ($op) {
 			$i++;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 
-			if ($db_row[quiz_answer] == $db_answer_row[quiz_answer]) {
+			if ($db_row['quiz_answer'] == $db_answer_row['quiz_answer']) {
 				$iscorrect = "<font color=green>Correct</font>";
 			} else {
 				$iscorrect = "<font color=red>Incorrect</font>";
 			}
-			$action = "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS this answer?','menu.php?inc=feature_sms_quiz&op=sms_answer_del&quiz_id=$quiz_id&answer_id=$db_row[answer_id]')\">$icon_delete</a>";
+			$action = "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS this answer?','menu.php?inc=feature_sms_quiz&op=sms_answer_del&quiz_id=$quiz_id&answer_id=".$db_row['answer_id']."')\">$icon_delete</a>";
 
 			$content .= "
 				<tr>
 					<td class=$td_class>&nbsp;$i.</td>
-					<td class=$td_class>$db_row[in_datetime]</td>
-					<td class=$td_class>$db_row[quiz_sender]</td>
-					<td class=$td_class>$db_row[quiz_answer]</td>
+					<td class=$td_class>".$db_row['in_datetime']."</td>
+					<td class=$td_class>".$db_row['quiz_sender']."</td>
+					<td class=$td_class>".$db_row['quiz_answer']."</td>
 					<td class=$td_class>$iscorrect</td>
 					<td class=$td_class>$action</td>	
 				</tr>";
@@ -56,12 +56,12 @@ switch ($op) {
 		break;
 
 	case "sms_answer_del" :
-		$quiz_id = $_REQUEST[quiz_id];
-		$answer_id = $_REQUEST[answer_id];
+		$quiz_id = $_REQUEST['quiz_id'];
+		$answer_id = $_REQUEST['answer_id'];
 		$db_query = "SELECT answer_id FROM " . _DB_PREF_ . "_featureQuiz_log WHERE answer_id='$answer_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$answer_id = $db_row[answer_id];
+		$answer_id = $db_row['answer_id'];
 		if ($answer_id) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureQuiz_log WHERE answer_id='$answer_id'";
 			if (@ dba_affected_rows($db_query)) {
@@ -102,20 +102,20 @@ switch ($op) {
 		while ($db_row = dba_fetch_array($db_result)) {
 			$i++;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-			$owner = uid2username($db_row[uid]);
+			$owner = uid2username($db_row['uid']);
 			$quiz_status = "<font color=red>Disable</font>";
-			if ($db_row[quiz_enable]) {
+			if ($db_row['quiz_enable']) {
 				$quiz_status = "<font color=green>Enable</font>";
 			}
-			$action = "<a href=menu.php?inc=feature_sms_quiz&op=sms_answer_view&quiz_id=$db_row[quiz_id]>$icon_view</a>&nbsp;";
-			$action .= "<a href=menu.php?inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=$db_row[quiz_id]>$icon_edit</a>&nbsp;";
-			$action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS quiz keyword `$db_row[quiz_keyword]` with all its choices and votes ?','menu.php?inc=feature_sms_quiz&op=sms_quiz_del&quiz_id=$db_row[quiz_id]')\">$icon_delete</a>";
+			$action = "<a href=menu.php?inc=feature_sms_quiz&op=sms_answer_view&quiz_id=".$db_row['quiz_id'].">$icon_view</a>&nbsp;";
+			$action .= "<a href=menu.php?inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=".$db_row['quiz_id'].">$icon_edit</a>&nbsp;";
+			$action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS quiz keyword `".$db_row['quiz_keyword']."` with all its choices and votes ?','menu.php?inc=feature_sms_quiz&op=sms_quiz_del&quiz_id=".$db_row['quiz_id']."')\">$icon_delete</a>";
 			$content .= "
 					<tr>
 						<td class=$td_class>&nbsp;$i.</td>
-						<td class=$td_class>$db_row[quiz_keyword]</td>
-						<td class=$td_class>$db_row[quiz_question]</td>
-						<td class=$td_class>$db_row[quiz_answer]</td>
+						<td class=$td_class>".$db_row['quiz_keyword']."</td>
+						<td class=$td_class>".$db_row['quiz_question']."</td>
+						<td class=$td_class>".$db_row['quiz_answer']."</td>
 						<td class=$td_class>$owner</td>
 						<td class=$td_class>$quiz_status</td>		
 						<td class=$td_class align=center>$action</td>
@@ -130,15 +130,15 @@ switch ($op) {
 		break;
 
 	case "sms_quiz_edit" :
-		$quiz_id = $_REQUEST[quiz_id];
+		$quiz_id = $_REQUEST['quiz_id'];
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_id='$quiz_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$edit_quiz_keyword = $db_row[quiz_keyword];
-		$edit_quiz_question = $db_row[quiz_question];
-		$edit_quiz_answer = $db_row[quiz_answer];
-		$edit_quiz_msg_correct = $db_row[quiz_msg_correct];
-		$edit_quiz_msg_incorrect = $db_row[quiz_msg_incorrect];
+		$edit_quiz_keyword = $db_row['quiz_keyword'];
+		$edit_quiz_question = $db_row['quiz_question'];
+		$edit_quiz_answer = $db_row['quiz_answer'];
+		$edit_quiz_msg_correct = $db_row['quiz_msg_correct'];
+		$edit_quiz_msg_incorrect = $db_row['quiz_msg_incorrect'];
 		if ($err) {
 			$content = "<p><font color=red>$err</font><p>";
 		}
@@ -175,7 +175,7 @@ switch ($op) {
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$quiz_status = "<font color=red><b>Disable</b></font>";
-		if ($db_row[quiz_enable]) {
+		if ($db_row['quiz_enable']) {
 			$quiz_status = "<font color=green><b>Enable</b></font>";
 		}
 		$content = "
@@ -191,12 +191,12 @@ switch ($op) {
 		break;
 
 	case "sms_quiz_edit_yes" :
-		$edit_quiz_id = $_POST[edit_quiz_id];
-		$edit_quiz_keyword = $_POST[edit_quiz_keyword];
-		$edit_quiz_question = $_POST[edit_quiz_question];
-		$edit_quiz_answer = $_POST[edit_quiz_answer];
-		$edit_quiz_msg_correct = $_POST[edit_quiz_msg_correct];
-		$edit_quiz_msg_incorrect = $_POST[edit_quiz_msg_incorrect];
+		$edit_quiz_id = $_POST['edit_quiz_id'];
+		$edit_quiz_keyword = $_POST['edit_quiz_keyword'];
+		$edit_quiz_question = $_POST['edit_quiz_question'];
+		$edit_quiz_answer = $_POST['edit_quiz_answer'];
+		$edit_quiz_msg_correct = $_POST['edit_quiz_msg_correct'];
+		$edit_quiz_msg_incorrect = $_POST['edit_quiz_msg_incorrect'];
 		if ($edit_quiz_id && $edit_quiz_answer && $edit_quiz_question && $edit_quiz_keyword && $edit_quiz_msg_correct && $edit_quiz_msg_incorrect) {
 			$db_query = "
 						UPDATE " . _DB_PREF_ . "_featureQuiz
@@ -213,8 +213,8 @@ switch ($op) {
 		break;
 
 	case "sms_quiz_status" :
-		$quiz_id = $_REQUEST[quiz_id];
-		$ps = $_REQUEST[ps];
+		$quiz_id = $_REQUEST['quiz_id'];
+		$ps = $_REQUEST['ps'];
 		$db_query = "UPDATE " . _DB_PREF_ . "_featureQuiz SET c_timestamp='" . mktime() . "',quiz_enable='$ps' WHERE quiz_id='$quiz_id'";
 		$db_result = @ dba_affected_rows($db_query);
 		if ($db_result > 0) {
@@ -224,11 +224,11 @@ switch ($op) {
 		break;
 
 	case "sms_quiz_del" :
-		$quiz_id = $_REQUEST[quiz_id];
+		$quiz_id = $_REQUEST['quiz_id'];
 		$db_query = "SELECT quiz_keyword FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_id='$quiz_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$quiz_keyword = $db_row[quiz_keyword];
+		$quiz_keyword = $db_row['quiz_keyword'];
 		if ($quiz_keyword) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_keyword='$quiz_keyword'";
 			if (@ dba_affected_rows($db_query)) {
@@ -270,11 +270,11 @@ switch ($op) {
 		break;
 
 	case "sms_quiz_add_yes" :
-		$add_quiz_keyword = strtoupper($_POST[add_quiz_keyword]);
-		$add_quiz_question = $_POST[add_quiz_question];
-		$add_quiz_answer = strtoupper($_POST[add_quiz_answer]);
-		$add_quiz_msg_correct = $_POST[add_quiz_msg_correct];
-		$add_quiz_msg_incorrect = $_POST[add_quiz_msg_incorrect];
+		$add_quiz_keyword = strtoupper($_POST['add_quiz_keyword']);
+		$add_quiz_question = $_POST['add_quiz_question'];
+		$add_quiz_answer = strtoupper($_POST['add_quiz_answer']);
+		$add_quiz_msg_correct = $_POST['add_quiz_msg_correct'];
+		$add_quiz_msg_incorrect = $_POST['add_quiz_msg_incorrect'];
 		if ($add_quiz_keyword && $add_quiz_answer) {
 			if (checkavailablekeyword($add_quiz_keyword)) {
 				$db_query = "

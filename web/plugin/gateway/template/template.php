@@ -1,9 +1,9 @@
 <?php
 if(!isadmin()){forcenoaccess();};
 
-include "$apps_path[plug]/gateway/template/config.php";
+include $apps_path['plug']."/gateway/template/config.php";
 
-if ($gateway_module == $template_param[name])
+if ($gateway_module == $template_param['name'])
 {
     $status_active = "(<font color=green><b>Active</b></font>)";
 }
@@ -21,11 +21,11 @@ switch ($op)
 	    $content = "<p><font color=red>$err</font><p>";
 	}
 	$content .= "
-	    <h2>Manage ".$template_param[name]."</h2>
+	    <h2>Manage ".$template_param['name']."</h2>
 	    <p>
 	    <form action=menu.php?inc=gateway_template&op=manage_save method=post>
-	    <p>Gateway Name: <b>".$template_param[name]."</b> $status_active
-	    <p>Template Path: <input type=text size=40 maxlength=250 name=up_path value=\"".$template_param[path]."\"> (No trailing slash \"/\")
+	    <p>Gateway Name: <b>".$template_param['name']."</b> $status_active
+	    <p>Template Path: <input type=text size=40 maxlength=250 name=up_path value=\"".$template_param['path']."\"> (No trailing slash \"/\")
 	    <!--
 	    <p>Note:</br>
 	    <p><input type=checkbox name=up_trn $checked> Send SMS message without footer banner ($username) 
@@ -36,7 +36,7 @@ switch ($op)
 	echo $content;
 	break;
     case "manage_save":
-	$up_path = $_POST[up_path];
+	$up_path = $_POST['up_path'];
 	$error_string = "No changes made!";
 	if ($up_path)
 	{

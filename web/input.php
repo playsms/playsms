@@ -1,6 +1,5 @@
-<?php
-include "init.php";
-include "$apps_path[libs]/function.php";
+<?php include "init.php"; 
+include $apps_path['libs']."/function.php";
 
 // -----------------------------------------------------------------------------
 // query string: 
@@ -41,17 +40,17 @@ include "$apps_path[libs]/function.php";
 // 3 = delivered
 // ----------------------------------------------------------------------------
 
-$u 	= trim($_REQUEST[u]);
-$p 	= trim($_REQUEST[p]);
-$ta	= trim(strtoupper($_REQUEST[ta]));
-$last	= trim($_REQUEST[last]);
-$c	= trim($_REQUEST[c]);
-$slid	= trim($_REQUEST[slid]);
-$to 	= trim(strtoupper($_REQUEST[to]));
-$msg 	= trim($_REQUEST[msg]);
-$from	= trim($_REQUEST[from]);
-$type 	= trim($_REQUEST[type]);
-$form 	= trim(strtoupper($_REQUEST[form]));
+$u 	= trim($_REQUEST['u']);
+$p 	= trim($_REQUEST['p']);
+$ta	= trim(strtoupper($_REQUEST['ta']));
+$last	= trim($_REQUEST['last']);
+$c	= trim($_REQUEST['c']);
+$slid	= trim($_REQUEST['slid']);
+$to 	= trim(strtoupper($_REQUEST['to']));
+$msg 	= trim($_REQUEST['msg']);
+$from	= trim($_REQUEST['from']);
+$type 	= trim($_REQUEST['type']);
+$form 	= trim(strtoupper($_REQUEST['form']));
 
 if ($u && $p)
 {
@@ -130,7 +129,7 @@ if ($ta)
 		$db_result = dba_query($db_query);
 		if ($db_row = dba_fetch_array($db_result))
 		{
-		    $p_status = $db_row[p_status];
+		    $p_status = $db_row['p_status'];
 		    echo $p_status;
 		}
 		else
@@ -155,12 +154,12 @@ if ($ta)
 		$content_csv = "";
 		while ($db_row = dba_fetch_array($db_result))
 		{
-		    $smslog_id = $db_row[smslog_id];
-		    $p_src = $db_row[p_src];
-		    $p_dst = $db_row[p_dst];
-		    $p_datetime = $db_row[p_datetime];
-		    $p_update = $db_row[p_update];
-		    $p_status = $db_row[p_status];
+		    $smslog_id = $db_row['smslog_id'];
+		    $p_src = $db_row['p_src'];
+		    $p_dst = $db_row['p_dst'];
+		    $p_datetime = $db_row['p_datetime'];
+		    $p_update = $db_row['p_update'];
+		    $p_status = $db_row['p_status'];
 		    $content_xml .= "<ds id=\"".$smslog_id."\" src=\"".$p_src."\" dst=\"".$p_dst."\" datetime=\"".$p_datetime."\" update=\"".$p_update."\" status=\"".$p_status."\"></ds>\n";
 		    $content_csv .= "\"$smslog_id\";\"$p_src\";\"$p_dst\";\"$p_datetime\";\"$p_update\";\"$p_status\";\n";
 		}

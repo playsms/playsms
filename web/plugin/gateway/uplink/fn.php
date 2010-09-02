@@ -43,8 +43,8 @@ function uplink_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
     }
     if ($sms_to && $sms_msg)
     {
-	$query_string = "input.php?u=".$uplink_param[username]."&p=".$uplink_param[password]."&ta=pv&to=".urlencode($sms_to)."&from=".urlencode($sms_from)."&type=$sms_type&msg=".urlencode($sms_msg);
-	$url = $uplink_param[master]."/".$query_string;
+	$query_string = "input.php?u=".$uplink_param['username']."&p=".$uplink_param['password']."&ta=pv&to=".urlencode($sms_to)."&from=".urlencode($sms_from)."&type=$sms_type&msg=".urlencode($sms_msg);
+	$url = $uplink_param['master']."/".$query_string;
 	$fd = @implode ('', file ($url));
 	if ($fd)
 	{
@@ -93,10 +93,10 @@ function uplink_hook_getsmsstatus($gp_code="",$uid="",$smslog_id="",$p_datetime=
     $db_result = dba_query($db_query);
     while ($db_row = dba_fetch_array($db_result))
     {
-	$local_slid = $db_row[up_local_slid];
-	$remote_slid = $db_row[up_remote_slid];
-	$query_string = "input.php?u=".$uplink_param[username]."&p=".$uplink_param[password]."&ta=ds&slid=".$remote_slid;
-	$url = $uplink_param[master]."/".$query_string;
+	$local_slid = $db_row['up_local_slid'];
+	$remote_slid = $db_row['up_remote_slid'];
+	$query_string = "input.php?u=".$uplink_param['username']."&p=".$uplink_param['password']."&ta=ds&slid=".$remote_slid;
+	$url = $uplink_param['master']."/".$query_string;
 	$response = @implode ('', file ($url));
 	switch ($response)
 	{
@@ -129,12 +129,12 @@ function uplink_hook_getsmsinbox()
     // you must retrieve all informations needed by setsmsincomingaction()
     // from incoming sms, have a look uplink gateway module
     global $uplink_param;
-    $handle = @opendir($uplink_param[path]);
+    $handle = @opendir($uplink_param['path']);
     while ($sms_in_file = @readdir($handle))
     {
 	if (eregi("^ERR.in",$sms_in_file) && !eregi("^[.]",$sms_in_file))
 	{
-	    $fn = $uplink_param[path]."/$sms_in_file";
+	    $fn = $uplink_param['path']."/$sms_in_file";
 	    $tobe_deleted = $fn;
 	    $lines = @file ($fn);
 	    $sms_datetime = trim($lines[0]);
@@ -142,7 +142,7 @@ function uplink_hook_getsmsinbox()
 	    $message = "";
 	    for ($lc=2;$lc<count($lines);$lc++)
 	    {
-		$message .= trim($lines[$lc]);
+		$message .= trim($lines['$lc']);
 	    }
 	    // collected:
 	    // $sms_datetime, $sms_sender, $message

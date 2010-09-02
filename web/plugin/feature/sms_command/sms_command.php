@@ -36,14 +36,14 @@ switch ($op)
 	{
 	    $i++;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-	    $owner = uid2username($db_row[uid]);
-	    $action = "<a href=menu.php?inc=feature_sms_command&op=sms_command_edit&command_id=$db_row[command_id]>$icon_edit</a>&nbsp;";
-	    $action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS command keyword `$db_row[command_keyword]` ?','menu.php?inc=feature_sms_command&op=sms_command_del&command_id=$db_row[command_id]')\">$icon_delete</a>";
-	    $command_exec = ( (strlen($db_row[command_exec]) > $maxlen) ? substr($db_row[command_exec],0,$maxlen)."..." : $db_row[command_exec] );
+	    $owner = uid2username($db_row['uid']);
+	    $action = "<a href=menu.php?inc=feature_sms_command&op=sms_command_edit&command_id=".$db_row['command_id'].">$icon_edit</a>&nbsp;";
+	    $action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS command keyword `".$db_row['command_keyword']."` ?','menu.php?inc=feature_sms_command&op=sms_command_del&command_id=".$db_row['command_id']."')\">$icon_delete</a>";
+	    $command_exec = ( (strlen($db_row['command_exec']) > $maxlen) ? substr($db_row['command_exec'],0,$maxlen)."..." : $db_row['command_exec'] );
 	    $content .= "
     <tr>
 	<td class=$td_class>&nbsp;$i.</td>
-	<td class=$td_class>$db_row[command_keyword]</td>
+	<td class=$td_class>".$db_row['command_keyword']."</td>
 	<td class=$td_class>".stripslashes($command_exec)."</td>
 	<td class=$td_class>$owner</td>	
 	<td class=$td_class align=center>$action</td>
@@ -60,12 +60,12 @@ switch ($op)
 	";
 	break;
     case "sms_command_edit":
-	$command_id = $_REQUEST[command_id];
+	$command_id = $_REQUEST['command_id'];
 	$db_query = "SELECT * FROM "._DB_PREF_."_featureCommand WHERE command_id='$command_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$edit_command_keyword = $db_row[command_keyword];
-	$edit_command_exec = stripslashes($db_row[command_exec]);
+	$edit_command_keyword = $db_row['command_keyword'];
+	$edit_command_exec = stripslashes($db_row['command_exec']);
 	$edit_command_exec = str_replace($plugin_config['feature']['sms_command']['bin']."/",'',$edit_command_exec);
 	if ($err)
 	{
@@ -91,9 +91,9 @@ switch ($op)
 	echo $content;
 	break;
     case "sms_command_edit_yes":
-	$edit_command_id = $_POST[edit_command_id];
-	$edit_command_keyword = $_POST[edit_command_keyword];
-	$edit_command_exec = $_POST[edit_command_exec];
+	$edit_command_id = $_POST['edit_command_id'];
+	$edit_command_keyword = $_POST['edit_command_keyword'];
+	$edit_command_exec = $_POST['edit_command_exec'];
 	if ($edit_command_id && $edit_command_keyword && $edit_command_exec)
 	{
 	    $edit_command_exec = str_replace("/","",$edit_command_exec);
@@ -116,11 +116,11 @@ switch ($op)
 	header ("Location: menu.php?inc=feature_sms_command&op=sms_command_edit&command_id=$edit_command_id&err=".urlencode($error_string));
 	break;
     case "sms_command_del":
-	$command_id = $_REQUEST[command_id];
+	$command_id = $_REQUEST['command_id'];
 	$db_query = "SELECT command_keyword FROM "._DB_PREF_."_featureCommand WHERE command_id='$command_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$keyword_name = $db_row[command_keyword];
+	$keyword_name = $db_row['command_keyword'];
 	if ($keyword_name)
 	{
 	    $db_query = "DELETE FROM "._DB_PREF_."_featureCommand WHERE command_keyword='$keyword_name'";
@@ -158,8 +158,8 @@ switch ($op)
 	echo $content;
 	break;
     case "sms_command_add_yes":
-	$add_command_keyword = strtoupper($_POST[add_command_keyword]);
-	$add_command_exec = $_POST[add_command_exec];
+	$add_command_keyword = strtoupper($_POST['add_command_keyword']);
+	$add_command_exec = $_POST['add_command_exec'];
 	if ($add_command_keyword && $add_command_exec)
 	{
 	    $add_command_exec = $add_command_exec;

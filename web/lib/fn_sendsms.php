@@ -118,7 +118,7 @@ function websend2group($username,$gp_code,$message,$sms_type='text')
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result))
 	{
-	    $p_num = $db_row[p_num];
+	    $p_num = $db_row['p_num'];
 	    $sms_to = $p_num;
 	    $sms_msg = $message;
 	    
@@ -157,16 +157,16 @@ function send2group($mobile_sender,$gp_code,$message)
 	$db_query = "SELECT uid,username,sender FROM "._DB_PREF_."_tblUser WHERE mobile='$mobile_sender'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$uid = $db_row[uid];
-	$username = $db_row[username];
-	$sms_sender = $db_row[sender];
+	$uid = $db_row['uid'];
+	$username = $db_row['username'];
+	$sms_sender = $db_row['sender'];
 	if ($uid && $username)
 	{
 	    $gp_code = strtoupper($gp_code);
 	    $db_query = "SELECT * FROM "._DB_PREF_."_tblUserGroupPhonebook WHERE uid='$uid' AND gp_code='$gp_code'";
 	    $db_result = dba_query($db_query);		
 	    $db_row = dba_fetch_array($db_result);
-	    $gpid = $db_row[gpid];
+	    $gpid = $db_row['gpid'];
 	    if ($gpid && $message)
 	    {
 	        $db_query = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE gpid='$gpid' AND uid='$uid'";
@@ -174,7 +174,7 @@ function send2group($mobile_sender,$gp_code,$message)
 		$c=0;
 	        while ($db_row = dba_fetch_array($db_result))
 	        {
-	    	    $p_num = $db_row[p_num];
+	    	    $p_num = $db_row['p_num'];
 		    $sms_to = $p_num;
 		    $max_length = $core_config['smsmaxlength'] - strlen($sms_sender) - 3;
 		    if (strlen($message)>$max_length)

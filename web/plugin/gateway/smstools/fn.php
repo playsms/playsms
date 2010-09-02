@@ -9,13 +9,13 @@ function smstools_hook_getsmsstatus($gp_code="",$uid="",$smslog_id="",$p_datetim
     // 2 = failed
     if ($gp_code)
     {
-        $fn = $smstools_param[path]."/sent/out.$gp_code.$uid.$smslog_id";
-        $efn = $smstools_param[path]."/failed/out.$gp_code.$uid.$smslog_id";
+        $fn = $smstools_param['path']."/sent/out.$gp_code.$uid.$smslog_id";
+        $efn = $smstools_param['path']."/failed/out.$gp_code.$uid.$smslog_id";
     }
     else
     {
-        $fn = $smstools_param[path]."/sent/out.PV.$uid.$smslog_id";
-        $efn = $smstools_param[path]."/failed/out.PV.$uid.$smslog_id";
+        $fn = $smstools_param['path']."/sent/out.PV.$uid.$smslog_id";
+        $efn = $smstools_param['path']."/failed/out.PV.$uid.$smslog_id";
     }
     $p_datetime_stamp = strtotime($p_datetime);
     $p_update_stamp = strtotime($p_update);
@@ -54,16 +54,16 @@ function smstools_hook_playsmsd()
 function smstools_hook_getsmsinbox()
 {
     global $smstools_param;
-    $handle = @opendir($smstools_param[path]."/incoming");
+    $handle = @opendir($smstools_param['path']."/incoming");
     while ($sms_in_file = @readdir($handle))
     {
-	$fn = $smstools_param[path]."/incoming/$sms_in_file";
+	$fn = $smstools_param['path']."/incoming/$sms_in_file";
 	$tobe_deleted = $fn;
 	$lines = @file ($fn);
 	$start = 0;
 	for ($c=0;$c<count($lines);$c++)
 	{
-	    $c_line = $lines[$c];
+	    $c_line = $lines['$c'];
 	    if (ereg('^From: ',$c_line))
 	    {
 		$sms_sender = '+'.trim(str_replace('From: ','',trim($c_line)));
@@ -81,7 +81,7 @@ function smstools_hook_getsmsinbox()
 	    $message = "";
 	    for ($lc=$start;$lc<count($lines);$lc++)
 	    {
-		$message .= trim($lines[$lc]);
+		$message .= trim($lines['$lc']);
 	    }
 	    // collected:
 	    // $sms_datetime, $sms_sender, $message
@@ -121,7 +121,7 @@ function smstools_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=
 	// $sms_msg = str2hex($sms_msg);
     }
     $the_msg .= "\n$sms_msg";
-    $fn = $smstools_param[path]."/outgoing/out.$sms_id";
+    $fn = $smstools_param['path']."/outgoing/out.$sms_id";
     umask(0);
     $fd = @fopen($fn, "w+");
     @fputs($fd, $the_msg);

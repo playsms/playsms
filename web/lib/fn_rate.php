@@ -6,7 +6,7 @@ function dst2rate($dst)
 	$db_query = "SELECT rate FROM "._DB_PREF_."_tblRate WHERE dst='$dst'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$rate = $db_row[rate];
+	$rate = $db_row['rate'];
     }
     return $rate;
 }
@@ -18,7 +18,7 @@ function prefix2rate($prefix)
 	$db_query = "SELECT rate FROM "._DB_PREF_."_tblRate WHERE prefix='$prefix'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$rate = $db_row[rate];
+	$rate = $db_row['rate'];
     }
     return $rate;
 }
@@ -30,7 +30,7 @@ function rateid2dst($id)
 	$db_query = "SELECT dst FROM "._DB_PREF_."_tblRate WHERE id='$id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$dst = $db_row[dst];
+	$dst = $db_row['dst'];
     }
     return $dst;
 }
@@ -42,7 +42,7 @@ function rateid2prefix($id)
 	$db_query = "SELECT prefix FROM "._DB_PREF_."_tblRate WHERE id='$id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$prefix = $db_row[prefix];
+	$prefix = $db_row['prefix'];
     }
     return $prefix;
 }
@@ -54,7 +54,7 @@ function rateid2rate($id)
 	$db_query = "SELECT rate FROM "._DB_PREF_."_tblRate WHERE id='$id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$rate = $db_row[rate];
+	$rate = $db_row['rate'];
     }
     return $rate;
 }

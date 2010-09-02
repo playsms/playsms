@@ -1,9 +1,9 @@
 <?php
 if(!isadmin()){forcenoaccess();};
 
-include "$apps_path[plug]/gateway/kannel/config.php";
+include $apps_path['plug']."/gateway/kannel/config.php";
 
-if ($gateway_module == $kannel_param[name])
+if ($gateway_module == $kannel_param['name'])
 {
     $status_active = "(<font color=green><b>Active</b></font>)";
 }
@@ -20,27 +20,27 @@ switch ($op)
 	    $content = "<p><font color=red>$err</font><p>";
 	}
 	$content .= "
-	    <h2>Manage ".$kannel_param[name]."</h2>
+	    <h2>Manage ".$kannel_param['name']."</h2>
 	    <p>
 	    <form action=menu.php?inc=gateway_kannel&op=manage_save method=post>
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
-		<td width=150>Gateway Name</td><td width=5>:</td><td><b>".$kannel_param[name]."</b> $status_active</td>
+		<td width=150>Gateway Name</td><td width=5>:</td><td><b>".$kannel_param['name']."</b> $status_active</td>
 	    </tr>
 	    <tr>
-		<td>Username</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_username value=\"".$kannel_param[username]."\"></td>
+		<td>Username</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_username value=\"".$kannel_param['username']."\"></td>
 	    </tr>	    
 	    <tr>
-		<td>Password</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_password value=\"".$kannel_param[password]."\"></td>
+		<td>Password</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_password value=\"".$kannel_param['password']."\"></td>
 	    </tr>
 	    <tr>
-		<td>Global sender</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_global_sender value=\"".$kannel_param[global_sender]."\"> (Max. 16 numeric or 11 alphanumeric char. empty to disable)</td>
+		<td>Global sender</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_global_sender value=\"".$kannel_param['global_sender']."\"> (Max. 16 numeric or 11 alphanumeric char. empty to disable)</td>
 	    </tr>	    
 	    <tr>
-		<td>Bearerbox hostname or IP</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_bearerbox_host value=\"".$kannel_param[bearerbox_host]."\"> (Kannel specific)</td>
+		<td>Bearerbox hostname or IP</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_bearerbox_host value=\"".$kannel_param['bearerbox_host']."\"> (Kannel specific)</td>
 	    </tr>	    
 	    <tr>
-		<td>Send SMS port</td><td>:</td><td><input type=text size=10 maxlength=10 name=up_sendsms_port value=\"".$kannel_param[sendsms_port]."\"> (Kannel specific)</td>
+		<td>Send SMS port</td><td>:</td><td><input type=text size=10 maxlength=10 name=up_sendsms_port value=\"".$kannel_param['sendsms_port']."\"> (Kannel specific)</td>
 	    </tr>	    
 	    <tr>
 		<td>playSMS web URL</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_playsms_web value=\"".$kannel_param['playsms_web']."\"> (URL to playSMS, empty it to set it to base URL)</td>

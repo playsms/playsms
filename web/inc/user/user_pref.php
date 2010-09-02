@@ -13,17 +13,17 @@ switch ($op)
 	$daily = 0;
 	if ($db_row = dba_fetch_array($db_result))
 	{
-	    $daily = $db_row[dailysms];
-	    $gender = $db_row[gender];
-	    $address = $db_row[address];
-	    $city = $db_row[city];
-	    $state = $db_row[state];
-	    $country = $db_row[country];
-	    $marital = $db_row[marital];
-	    $education = $db_row[education];
-	    $zipcode = $db_row[zipcode];
-	    $sender = $db_row[sender];
-	    $credit = $db_row[credit];
+	    $daily = $db_row['dailysms'];
+	    $gender = $db_row['gender'];
+	    $address = $db_row['address'];
+	    $city = $db_row['city'];
+	    $state = $db_row['state'];
+	    $country = $db_row['country'];
+	    $marital = $db_row['marital'];
+	    $education = $db_row['education'];
+	    $zipcode = $db_row['zipcode'];
+	    $sender = $db_row['sender'];
+	    $credit = $db_row['credit'];
 	}
 	/*
 	// get gender option
@@ -66,8 +66,8 @@ switch ($op)
 	$option_country = "<option value=\"0\">Please Select</option>\n";
 	while ($db_row = dba_fetch_array($db_result))
 	{
-	    $country_id = $db_row[country_id];
-	    $country_name = $db_row[country_name];
+	    $country_id = $db_row['country_id'];
+	    $country_name = $db_row['country_name'];
 	    $selected = "";
 	    if ($country_id == $country)
 	    {
@@ -112,22 +112,22 @@ switch ($op)
 	echo $content;
 	break;
     case "user_pref_save":
-	$up_name = $_POST[up_name];
-	$up_email = $_POST[up_email];
-	$up_gender = $_POST[up_gender];
-	$up_address = $_POST[up_address];
-	$up_city = $_POST[up_city];
-	$up_state = $_POST[up_state];
-	$up_country = $_POST[up_country];
-	$up_mobile = $_POST[up_mobile];
-	$up_sender = $_POST[up_sender];
-	$up_daily = intval(trim($_POST[up_daily]));
-	$up_password = $_POST[up_password];
-	$up_password_conf = $_POST[up_password_conf];
-	$up_marital = $_POST[up_marital];
-	$up_education = $_POST[up_education];
-	$up_zipcode = $_POST[up_zipcode];
-	$up_trn = $_POST[up_trn];
+	$up_name = $_POST['up_name'];
+	$up_email = $_POST['up_email'];
+	$up_gender = $_POST['up_gender'];
+	$up_address = $_POST['up_address'];
+	$up_city = $_POST['up_city'];
+	$up_state = $_POST['up_state'];
+	$up_country = $_POST['up_country'];
+	$up_mobile = $_POST['up_mobile'];
+	$up_sender = $_POST['up_sender'];
+	$up_daily = intval(trim($_POST['up_daily']));
+	$up_password = $_POST['up_password'];
+	$up_password_conf = $_POST['up_password_conf'];
+	$up_marital = $_POST['up_marital'];
+	$up_education = $_POST['up_education'];
+	$up_zipcode = $_POST['up_zipcode'];
+	$up_trn = $_POST['up_trn'];
 	$db_query = "SELECT photo1,photo2,photo3 FROM "._DB_PREF_."_tblUser WHERE uid='$uid'";
 	$db_result = dba_query($db_query);
 	$error_string = "No changes made!";

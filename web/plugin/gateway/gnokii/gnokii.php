@@ -1,9 +1,9 @@
 <?php
 if(!isadmin()){forcenoaccess();};
 
-include "$apps_path[plug]/gateway/gnokii/config.php";
+include $apps_path['plug']."/gateway/gnokii/config.php";
 
-if ($gateway_module == $gnokii_param[name])
+if ($gateway_module == $gnokii_param['name'])
 {
     $status_active = "(<font color=green><b>Active</b></font>)";
 }
@@ -20,15 +20,15 @@ switch ($op)
 	    $content = "<p><font color=red>$err</font><p>";
 	}
 	$content .= "
-	    <h2>Manage ".$gnokii_param[name]."</h2>
+	    <h2>Manage ".$gnokii_param['name']."</h2>
 	    <p>
 	    <form action=menu.php?inc=gateway_gnokii&op=manage_save method=post>
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
-		<td width=150>Gateway Name</td><td width=5>:</td><td><b>".$gnokii_param[name]."</b> $status_active</td>
+		<td width=150>Gateway Name</td><td width=5>:</td><td><b>".$gnokii_param['name']."</b> $status_active</td>
 	    </tr>
 	    <tr>
-		<td>Gnokii Installation Path</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_path value=\"".$gnokii_param[path]."\"> (No trailing slash \"/\")</td>
+		<td>Gnokii Installation Path</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_path value=\"".$gnokii_param['path']."\"> (No trailing slash \"/\")</td>
 	    </tr>	    
 	</table>	    
 	    <!--
@@ -41,7 +41,7 @@ switch ($op)
 	echo $content;
 	break;
     case "manage_save":
-	$up_path = $_POST[up_path];
+	$up_path = $_POST['up_path'];
 	$error_string = "No changes made!";
 	if ($up_path)
 	{

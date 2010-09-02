@@ -1,9 +1,9 @@
 <?php
 if(!isadmin()){forcenoaccess();};
 
-include "$apps_path[plug]/gateway/smstools/config.php";
+include $apps_path['plug']."/gateway/smstools/config.php";
 
-if ($gateway_module == $smstools_param[name])
+if ($gateway_module == $smstools_param['name'])
 {
     $status_active = "(<font color=green><b>Active</b></font>)";
 }
@@ -20,11 +20,11 @@ switch ($op)
 	    $content = "<p><font color=red>$err</font><p>";
 	}
 	$content .= "
-	    <h2>Manage ".$smstools_param[name]."</h2>
+	    <h2>Manage ".$smstools_param['name']."</h2>
 	    <p>
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
-		<td width=150>Gateway Name</td><td width=5>:</td><td><b>".$smstools_param[name]."</b> $status_active</td>
+		<td width=150>Gateway Name</td><td width=5>:</td><td><b>".$smstools_param['name']."</b> $status_active</td>
 	    </tr>
 	</table>	    
 	";

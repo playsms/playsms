@@ -21,11 +21,11 @@ function clickatell_hook_playsmsd()
     {
 	$gpid = "";
 	$gp_code = "";
-	$uid = $db_row[uid];
-	$smslog_id = $db_row[smslog_id];
-	$p_datetime = $db_row[p_datetime];
-	$p_update = $db_row[p_update];
-	$gpid = $db_row[p_gpid];
+	$uid = $db_row['uid'];
+	$smslog_id = $db_row['smslog_id'];
+	$p_datetime = $db_row['p_datetime'];
+	$p_update = $db_row['p_update'];
+	$gpid = $db_row['p_gpid'];
 	$gp_code = gpid2gpcode($gpid);
 	x_hook('clickatell','getsmsstatus',array($gp_code,$uid,$smslog_id,$p_datetime,$p_update));
     }
@@ -57,18 +57,18 @@ function clickatell_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$ui
 	case "text": 
 	default: $sms_type = "SMS_TEXT";
     }
-    // $query_string = "sendmsg?api_id=".$clickatell_param[api_id]."&user=".$clickatell_param[username]."&password=".$clickatell_param[password]."&to=$sms_to&msg_type=$sms_type&text=".rawurlencode($sms_msg)."&deliv_ack=1&callback=3&unicode=$unicode&concat=3&from=".rawurlencode($sms_from);
+    // $query_string = "sendmsg?api_id=".$clickatell_param['api_id']."&user=".$clickatell_param['username']."&password=".$clickatell_param['password']."&to=$sms_to&msg_type=$sms_type&text=".rawurlencode($sms_msg)."&deliv_ack=1&callback=3&unicode=$unicode&concat=3&from=".rawurlencode($sms_from);
     // no concat
     if ($unicode)
     {
 	$sms_msg = utf8_to_unicode($sms_msg);
-	$query_string = "sendmsg?api_id=".$clickatell_param[api_id]."&user=".$clickatell_param[username]."&password=".$clickatell_param[password]."&to=$sms_to&msg_type=$sms_type&text=$sms_msg&deliv_ack=1&callback=3&unicode=$unicode&from=".rawurlencode($sms_from);
+	$query_string = "sendmsg?api_id=".$clickatell_param['api_id']."&user=".$clickatell_param['username']."&password=".$clickatell_param['password']."&to=$sms_to&msg_type=$sms_type&text=$sms_msg&deliv_ack=1&callback=3&unicode=$unicode&from=".rawurlencode($sms_from);
     }
     else
     {
-	$query_string = "sendmsg?api_id=".$clickatell_param[api_id]."&user=".$clickatell_param[username]."&password=".$clickatell_param[password]."&to=$sms_to&msg_type=$sms_type&text=".rawurlencode($sms_msg)."&deliv_ack=1&callback=3&unicode=$unicode&from=".rawurlencode($sms_from);
+	$query_string = "sendmsg?api_id=".$clickatell_param['api_id']."&user=".$clickatell_param['username']."&password=".$clickatell_param['password']."&to=$sms_to&msg_type=$sms_type&text=".rawurlencode($sms_msg)."&deliv_ack=1&callback=3&unicode=$unicode&from=".rawurlencode($sms_from);
     }
-    $url = $clickatell_param[send_url]."/".$query_string;
+    $url = $clickatell_param['send_url']."/".$query_string;
     $fd = @implode ('', file ($url));
     $ok = false;
     // failed
@@ -106,12 +106,12 @@ function clickatell_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$ui
 function clickatell_hook_getsmsinbox()
 {
     global $clickatell_param;
-    $handle = @opendir($clickatell_param[incoming_path]);
+    $handle = @opendir($clickatell_param['incoming_path']);
     while ($sms_in_file = @readdir($handle))
     {
 	if (eregi("^ERR.in",$sms_in_file) && !eregi("^[.]",$sms_in_file))
 	{
-	    $fn = $clickatell_param[incoming_path]."/$sms_in_file";
+	    $fn = $clickatell_param['incoming_path']."/$sms_in_file";
 	    $tobe_deleted = $fn;
 	    $lines = @file ($fn);
 	    $sms_datetime = trim($lines[0]);
@@ -119,7 +119,7 @@ function clickatell_hook_getsmsinbox()
 	    $message = "";
 	    for ($lc=2;$lc<count($lines);$lc++)
 	    {
-		$message .= trim($lines[$lc]);
+		$message .= trim($lines['$lc']);
 	    }
 	    // collected:
 	    // $sms_datetime, $sms_sender, $message
@@ -137,10 +137,10 @@ function clickatell_getsmsstatus($smslog_id)
     $db_query = "SELECT apimsgid FROM "._DB_PREF_."_gatewayClickatell_apidata WHERE smslog_id='$smslog_id'";
     $db_result = dba_query($db_query);
     $db_row = dba_fetch_array($db_result);
-    if ($apimsgid = $db_row[apimsgid])
+    if ($apimsgid = $db_row['apimsgid'])
     {
-	$query_string = "getmsgcharge?api_id=".$clickatell_param[api_id]."&user=".$clickatell_param[username]."&password=".$clickatell_param[password]."&apimsgid=$apimsgid";
-	$url = $clickatell_param[send_url]."/".$query_string;
+	$query_string = "getmsgcharge?api_id=".$clickatell_param['api_id']."&user=".$clickatell_param['username']."&password=".$clickatell_param['password']."&apimsgid=$apimsgid";
+	$url = $clickatell_param['send_url']."/".$query_string;
 	$fd = @implode ('', file ($url));
 	if ($fd)
 	{

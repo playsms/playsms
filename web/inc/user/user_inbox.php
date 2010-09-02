@@ -46,16 +46,16 @@ switch ($op)
 	while ($db_row = dba_fetch_array($db_result))
 	{
 	    $j++;
-	    $in_id = $db_row[in_id];
-	    $in_sender = $db_row[in_sender];
+	    $in_id = $db_row['in_id'];
+	    $in_sender = $db_row['in_sender'];
 	    $p_desc = pnum2pdesc($in_sender);
 	    $current_sender = $in_sender;
 	    if ($p_desc) 
 	    {
 		$current_sender = "$in_sender<br>($p_desc)";
 	    }
-	    $in_msg = $db_row[in_msg];
-	    $in_datetime = $db_row[in_datetime];
+	    $in_msg = $db_row['in_msg'];
+	    $in_datetime = $db_row['in_datetime'];
 	    $i--;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";	    
 	    $content .= "
@@ -100,7 +100,7 @@ switch ($op)
 	break;
     case "user_inbox_del":
 	$error_string = "Fail to delete incoming SMS";
-	if ($in_id = $_REQUEST[inid])
+	if ($in_id = $_REQUEST['inid'])
 	{
 	    $db_query = "UPDATE "._DB_PREF_."_tblUserInbox SET c_timestamp='".mktime()."',in_hidden='1' WHERE in_id='$in_id' AND in_uid='$uid'";
 	    $db_result = dba_affected_rows($db_query);
@@ -112,12 +112,12 @@ switch ($op)
 	header("Location: menu.php?inc=user_inbox&op=user_inbox&err=".urlencode($error_string));
 	break;
     case "act_del":
-	$item_count = $_POST[item_count];
+	$item_count = $_POST['item_count'];
 	
 	for ($i=1;$i<=$item_count;$i++)
 	{
-	    $chkid = $_POST["chkid".$i];
-	    $inid = $_POST["inid".$i];
+	    $chkid = $_POST['chkid'.$i];
+	    $inid = $_POST['inid'.$i];
 	    
 	    if(($chkid=="on") && $inid)
 	    {

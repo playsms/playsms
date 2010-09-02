@@ -28,14 +28,14 @@ switch ($op)
 	{
 	    $i++;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-	    $action = "<a href=menu.php?inc=rate_mgmnt&op=rate_edit&rateid=$db_row[id]>$icon_edit</a>";
-	    $action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete rate for destination `$db_row[dst]` with prefix `$db_row[prefix]` ?','menu.php?inc=rate_mgmnt&op=rate_del&rateid=$db_row[id]')\">$icon_delete</a>";
+	    $action = "<a href=menu.php?inc=rate_mgmnt&op=rate_edit&rateid=".$db_row['id'].">$icon_edit</a>";
+	    $action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete rate for destination `".$db_row['dst']."` with prefix `".$db_row['prefix']."` ?','menu.php?inc=rate_mgmnt&op=rate_del&rateid=".$db_row['id']."')\">$icon_delete</a>";
 	    $content .= "
     <tr>
 	<td class=$td_class>&nbsp;$i.</td>
-	<td class=$td_class>$db_row[dst]</td>
-	<td class=$td_class>$db_row[prefix]</td>	
-	<td class=$td_class>$db_row[rate]</td>	
+	<td class=$td_class>".$db_row['dst']."</td>
+	<td class=$td_class>".$db_row['prefix']."</td>	
+	<td class=$td_class>".$db_row['rate']."</td>	
 	<td class=$td_class align=center>$action</td>
     </tr>
     ";
@@ -48,7 +48,7 @@ switch ($op)
 	";
 	break;
     case "rate_del":
-	$rateid = $_REQUEST[rateid];
+	$rateid = $_REQUEST['rateid'];
 	$dst = rateid2dst($rateid);
 	$prefix = rateid2prefix($rateid);
 	$error_string = "Fail to delete destination `$dst` with prefix `$prefix` !";
@@ -60,7 +60,7 @@ switch ($op)
 	header ("Location: menu.php?inc=rate_mgmnt&op=rate_list&err=".urlencode($error_string));
 	break;
     case "rate_edit":
-	$rateid = $_REQUEST[rateid];
+	$rateid = $_REQUEST['rateid'];
 	$dst = rateid2dst($rateid);
 	$prefix = rateid2prefix($rateid);
 	$rate = rateid2rate($rateid);
@@ -90,10 +90,10 @@ switch ($op)
 	echo $content;
 	break;
     case "rate_edit_save":
-	$rateid = $_POST[rateid];
-	$up_dst = $_POST[up_dst];
-	$up_prefix = $_POST[up_prefix];
-	$up_rate = $_POST[up_rate];
+	$rateid = $_POST['rateid'];
+	$up_dst = $_POST['up_dst'];
+	$up_prefix = $_POST['up_prefix'];
+	$up_rate = $_POST['up_rate'];
 	$error_string = "No changes made!";
 	if ($rateid && $up_dst && $up_prefix && $up_rate)
 	{
@@ -139,16 +139,16 @@ switch ($op)
 	echo $content;
 	break;
     case "rate_add_yes":
-	$add_dst = $_POST[add_dst];
-	$add_prefix = $_POST[add_prefix];
-	$add_rate = $_POST[add_rate];
+	$add_dst = $_POST['add_dst'];
+	$add_prefix = $_POST['add_prefix'];
+	$add_rate = $_POST['add_rate'];
 	if ($add_dst && $add_prefix && $add_rate && ($add_rate >= 0))
 	{
 	    $db_query = "SELECT * FROM "._DB_PREF_."_tblRate WHERE prefix='$add_prefix'";
 	    $db_result = dba_query($db_query);
 	    if ($db_row = dba_fetch_array($db_result))
 	    {
-		$error_string = "Rate to destination `$db_row[dst]` with prefix `$db_row[prefix]` already exists!";
+		$error_string = "Rate to destination `".$db_row['dst']."` with prefix `".$db_row['prefix']."` already exists!";
 	    }
 	    else
 	    {

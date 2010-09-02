@@ -4,7 +4,7 @@ function validatelogin($username,$password)
     $db_query = "SELECT password FROM "._DB_PREF_."_tblUser WHERE username='$username'";
     $db_result = dba_query($db_query);
     $db_row = dba_fetch_array($db_result);
-    $res_password = trim($db_row[password]);
+    $res_password = trim($db_row['password']);
     if ($password && $res_password && ($password==$res_password))
     {
 	$ticket = md5(mktime().$username);
@@ -19,9 +19,9 @@ function validatelogin($username,$password)
 function valid($var_ticket="",$var_username="",$var_multilogin_id="")
 {
     global $core_config;
-    $ticket = $_COOKIE[vc1];
-    $username = $_COOKIE[vc2];
-    $multilogin_id = $_COOKIE[vc3];
+    $ticket = $_COOKIE['vc1'];
+    $username = $_COOKIE['vc2'];
+    $multilogin_id = $_COOKIE['vc3'];
     if ($var_ticket && $var_username && $var_multilogin_id)
     {
 	$ticket = $var_ticket;
@@ -33,7 +33,7 @@ function valid($var_ticket="",$var_username="",$var_multilogin_id="")
 	$db_query = "SELECT password FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	if ($multilogin_id && md5($username.$db_row[password]) || ($multilogin_id==md5($username.$db_row[password])))
+	if ($multilogin_id && md5($username.$db_row['password']) || ($multilogin_id==md5($username.$db_row['password'])))
 	{
 	    return true;
 	}
@@ -47,7 +47,7 @@ function valid($var_ticket="",$var_username="",$var_multilogin_id="")
 	$db_query = "SELECT ticket FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	if ($ticket && $db_row[ticket])
+	if ($ticket && $db_row['ticket'])
 	{
 	    return true;
 	}
@@ -61,9 +61,9 @@ function valid($var_ticket="",$var_username="",$var_multilogin_id="")
 function isadmin($var_ticket="",$var_username="",$var_multilogin_id="")
 {
     global $core_config;
-    $ticket = $_COOKIE[vc1];
-    $username = $_COOKIE[vc2];
-    $multilogin_id = $_COOKIE[vc3];
+    $ticket = $_COOKIE['vc1'];
+    $username = $_COOKIE['vc2'];
+    $multilogin_id = $_COOKIE['vc3'];
     if ($var_ticket && $var_username && $var_multilogin_id)
     {
 	$ticket = $var_ticket;
@@ -75,7 +75,7 @@ function isadmin($var_ticket="",$var_username="",$var_multilogin_id="")
 	$db_query = "SELECT status,password FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	if ($db_row[status] && ($db_row[status]==2) || ($multilogin_id==md5($username.$db_row[password])))
+	if ($db_row['status'] && ($db_row['status']==2) || ($multilogin_id==md5($username.$db_row['password'])))
 	{
 	    return true;
 	}
@@ -89,7 +89,7 @@ function isadmin($var_ticket="",$var_username="",$var_multilogin_id="")
 	$db_query = "SELECT status FROM "._DB_PREF_."_tblUser WHERE username='$username' AND ticket='$ticket'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	if ($db_row[status] && ($db_row[status]==2))
+	if ($db_row['status'] && ($db_row['status']==2))
 	{
 	    return true;
 	}
@@ -109,7 +109,7 @@ function forcelogout()
     setcookie("vc1");
     setcookie("vc2");
     setcookie("vc3");
-    header("Location: ".$http_path[base]."?err=".urlencode("You have been logged out!"));
+    header("Location: ".$http_path['base']."?err=".urlencode("You have been logged out!"));
     die();
 }
 

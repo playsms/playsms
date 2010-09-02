@@ -36,20 +36,20 @@ switch ($op)
 	{
 	    $i++;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-	    $owner = uid2username($db_row[uid]);
+	    $owner = uid2username($db_row['uid']);
 	    $poll_status = "<font color=red>Disable</font>";
-	    if ($db_row[poll_enable])
+	    if ($db_row['poll_enable'])
 	    {
 		$poll_status = "<font color=green>Enable</font>";
 	    }
-	    $action = "<a href=menu.php?inc=feature_sms_poll&op=sms_poll_view&poll_id=$db_row[poll_id] target=_blank>$icon_view</a>&nbsp;";
-	    $action .= "<a href=menu.php?inc=feature_sms_poll&op=sms_poll_edit&poll_id=$db_row[poll_id]>$icon_edit</a>&nbsp;";
-	    $action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS poll keyword `$db_row[poll_keyword]` with all its choices and votes ?','menu.php?inc=feature_sms_poll&op=sms_poll_del&poll_id=$db_row[poll_id]')\">$icon_delete</a>";
+	    $action = "<a href=menu.php?inc=feature_sms_poll&op=sms_poll_view&poll_id=".$db_row['poll_id']." target=_blank>$icon_view</a>&nbsp;";
+	    $action .= "<a href=menu.php?inc=feature_sms_poll&op=sms_poll_edit&poll_id=".$db_row['poll_id'].">$icon_edit</a>&nbsp;";
+	    $action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS poll keyword `".$db_row['poll_keyword']."` with all its choices and votes ?','menu.php?inc=feature_sms_poll&op=sms_poll_del&poll_id=".$db_row['poll_id']."')\">$icon_delete</a>";
 	    $content .= "
     <tr>
 	<td class=$td_class>&nbsp;$i.</td>
-	<td class=$td_class>$db_row[poll_keyword]</td>
-	<td class=$td_class>$db_row[poll_title]</td>
+	<td class=$td_class>".$db_row['poll_keyword']."</td>
+	<td class=$td_class>".$db_row['poll_title']."</td>
 	<td class=$td_class>$owner</td>	
 	<td class=$td_class>$poll_status</td>		
 	<td class=$td_class align=center>$action</td>
@@ -63,20 +63,20 @@ switch ($op)
 	";
 	break;
     case "sms_poll_view":
-	$poll_id = $_REQUEST[poll_id];
+	$poll_id = $_REQUEST['poll_id'];
 	$db_query = "SELECT poll_keyword FROM "._DB_PREF_."_featurePoll WHERE poll_id='$poll_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$poll_keyword = $db_row[poll_keyword];
+	$poll_keyword = $db_row['poll_keyword'];
 	header ("Location: output.php?show=poll&keyword=$poll_keyword");
 	break;
     case "sms_poll_edit":
-	$poll_id = $_REQUEST[poll_id];
+	$poll_id = $_REQUEST['poll_id'];
 	$db_query = "SELECT * FROM "._DB_PREF_."_featurePoll WHERE poll_id='$poll_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$edit_poll_title = $db_row[poll_title];
-	$edit_poll_keyword = $db_row[poll_keyword];
+	$edit_poll_title = $db_row['poll_title'];
+	$edit_poll_keyword = $db_row['poll_keyword'];
 	if ($err)
 	{
 	    $content = "<p><font color=red>$err</font><p>";
@@ -120,9 +120,9 @@ switch ($op)
 	{
 	    $i++;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-	    $choice_id = $db_row[choice_id];
-	    $choice_keyword = $db_row[choice_keyword];
-	    $choice_title = $db_row[choice_title];
+	    $choice_id = $db_row['choice_id'];
+	    $choice_keyword = $db_row['choice_keyword'];
+	    $choice_title = $db_row['choice_title'];
 	    $content .= "
     <tr>
 	<td class=$td_class>&nbsp;$i.</td>
@@ -152,7 +152,7 @@ switch ($op)
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$poll_status = "<font color=red><b>Disable</b></font>";
-	if ($db_row[poll_enable])
+	if ($db_row['poll_enable'])
 	{
 	    $poll_status = "<font color=green><b>Enable</b></font>";
 	}
@@ -168,9 +168,9 @@ switch ($op)
 	echo $content;
 	break;
     case "sms_poll_edit_yes":
-	$edit_poll_id = $_POST[edit_poll_id];
-	$edit_poll_keyword = $_POST[edit_poll_keyword];
-	$edit_poll_title = $_POST[edit_poll_title];
+	$edit_poll_id = $_POST['edit_poll_id'];
+	$edit_poll_keyword = $_POST['edit_poll_keyword'];
+	$edit_poll_title = $_POST['edit_poll_title'];
 	if ($edit_poll_id && $edit_poll_title && $edit_poll_keyword)
 	{
 	    $db_query = "
@@ -190,8 +190,8 @@ switch ($op)
 	header ("Location: menu.php?inc=feature_sms_poll&op=sms_poll_edit&poll_id=$edit_poll_id&err=".urlencode($error_string));
 	break;
     case "sms_poll_status":
-	$poll_id = $_REQUEST[poll_id];
-	$ps = $_REQUEST[ps];
+	$poll_id = $_REQUEST['poll_id'];
+	$ps = $_REQUEST['ps'];
 	$db_query = "UPDATE "._DB_PREF_."_featurePoll SET c_timestamp='".mktime()."',poll_enable='$ps' WHERE poll_id='$poll_id'";
 	$db_result = @dba_affected_rows($db_query);
 	if ($db_result > 0)
@@ -201,11 +201,11 @@ switch ($op)
 	header ("Location: menu.php?inc=feature_sms_poll&op=sms_poll_edit&poll_id=$poll_id&err=".urlencode($error_string));
 	break;
     case "sms_poll_del":
-	$poll_id = $_REQUEST[poll_id];
+	$poll_id = $_REQUEST['poll_id'];
 	$db_query = "SELECT poll_title FROM "._DB_PREF_."_featurePoll WHERE poll_id='$poll_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$poll_title = $db_row[poll_title];
+	$poll_title = $db_row['poll_title'];
 	if ($poll_title)
 	{
 	    $db_query = "DELETE FROM "._DB_PREF_."_featurePoll WHERE poll_title='$poll_title'";
@@ -217,9 +217,9 @@ switch ($op)
 	header ("Location: menu.php?inc=feature_sms_poll&op=sms_poll_list&err=".urlencode($error_string));
 	break;
     case "sms_poll_choice_add":
-	$poll_id = $_POST[poll_id];
-	$add_choice_title = $_POST[add_choice_title];
-	$add_choice_keyword = strtoupper($_POST[add_choice_keyword]);
+	$poll_id = $_POST['poll_id'];
+	$add_choice_title = $_POST['add_choice_title'];
+	$add_choice_keyword = strtoupper($_POST['add_choice_keyword']);
 	if ($poll_id && $add_choice_title && $add_choice_keyword)
 	{
 	    $db_query = "SELECT choice_id FROM "._DB_PREF_."_featurePoll_choice WHERE poll_id='$poll_id' AND choice_keyword='$add_choice_keyword'";
@@ -248,12 +248,12 @@ switch ($op)
 	header ("Location: menu.php?inc=feature_sms_poll&op=sms_poll_edit&poll_id=$poll_id&err=".urlencode($error_string));
 	break;
     case "sms_poll_choice_del":
-	$poll_id = $_REQUEST[poll_id];
-	$choice_id = $_REQUEST[choice_id];
+	$poll_id = $_REQUEST['poll_id'];
+	$choice_id = $_REQUEST['choice_id'];
 	$db_query = "SELECT choice_keyword FROM "._DB_PREF_."_featurePoll_choice WHERE poll_id='$poll_id' AND choice_id='$choice_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$choice_keyword = $db_row[choice_keyword];
+	$choice_keyword = $db_row['choice_keyword'];
 	$error_string = "Fail to delete SMS poll choice with keyword `$choice_keyword`!";
 	if ($poll_id && $choice_id && $choice_keyword)
 	{
@@ -290,8 +290,8 @@ switch ($op)
 	echo $content;
 	break;
     case "sms_poll_add_yes":
-	$add_poll_keyword = strtoupper($_POST[add_poll_keyword]);
-	$add_poll_title = $_POST[add_poll_title];
+	$add_poll_keyword = strtoupper($_POST['add_poll_keyword']);
+	$add_poll_title = $_POST['add_poll_title'];
 	if ($add_poll_title && $add_poll_keyword)
 	{
 	    if (checkavailablekeyword($add_poll_keyword))

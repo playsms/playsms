@@ -1,28 +1,28 @@
 <?php
 include "init.php";
-include "$apps_path[libs]/function.php";
+include $apps_path['libs']."/function.php";
 
 if (!($console = $_REQUEST['console']))
 {
-    include $apps_path[themes]."/".$themes_module."/header.php";
+    include $apps_path['themes']."/".$themes_module."/header.php";
 }
 
 // user
-$c_fn = $apps_path[incs]."/user/".$inc.".php";
+$c_fn = $apps_path['incs']."/user/".$inc.".php";
 if (file_exists($c_fn))
 {
     include $c_fn;
 }
 
 // admin
-$c_fn = $apps_path[incs]."/admin/".$inc.".php";
+$c_fn = $apps_path['incs']."/admin/".$inc.".php";
 if (file_exists($c_fn))
 {
     include $c_fn;
 }
 
 // common
-$c_fn = $apps_path[incs]."/common/".$inc.".php";
+$c_fn = $apps_path['incs']."/common/".$inc.".php";
 if (file_exists($c_fn))
 {
     include $c_fn;
@@ -72,7 +72,7 @@ for ($c=0;$c<count($core_config['gatewaylist']);$c++)
 
 if (!($console = $_REQUEST['console']))
 {
-    include $apps_path[themes]."/".$themes_module."/footer.php";
+    include $apps_path['themes']."/".$themes_module."/footer.php";
 }
 
 ?>

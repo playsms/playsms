@@ -37,7 +37,7 @@ function sms_subscribe_hook_setsmsincomingaction($sms_datetime, $sms_sender, $su
 	$db_query = "SELECT uid FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_keyword='$subscribe_keyword'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
-		$c_uid = $db_row[uid];
+		$c_uid = $db_row['uid'];
 		if (sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $subscribe_keyword, $subscribe_param)) {
 			$ok = true;
 		}
@@ -59,12 +59,12 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $subscribe_key
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_keyword='$subscribe_keyword'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$c_uid = $db_row[uid];
-	$subscribe_id = $db_row[subscribe_id];
+	$c_uid = $db_row['uid'];
+	$subscribe_id = $db_row['subscribe_id'];
 	$num_rows = dba_num_rows($db_query);
 	if ($num_rows) {
-		$msg1 = $db_row[subscribe_msg];
-		$msg2 = $db_row[unsubscribe_msg];
+		$msg1 = $db_row['subscribe_msg'];
+		$msg2 = $db_row['unsubscribe_msg'];
 
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE member_number='$sms_to' AND subscribe_id='$subscribe_id'";
 		$db_result = dba_query($db_query);

@@ -26,9 +26,9 @@
                     <tr>
             ";
 
-            $nav_pages .= "<td> <a href=$url&page=1&nav=1><img align=absmiddle src=".$http_path[themes]."/".$themes_module."/images/icon_start.gif border=0 /></a></td>";
+            $nav_pages .= "<td> <a href=$url&page=1&nav=1><img align=absmiddle src=".$http_path['themes']."/".$themes_module."/images/icon_start.gif border=0 /></a></td>";
             $nav_pages .= "<td>";        
-            $nav_pages .= ($start==$nav) ? "<img align=absmiddle src=".$http_path[themes]."/".$themes_module."/images/icon_prev.gif border=0 /> &nbsp;" : "<a href=$url&page=".((($nav-2)*$max_nav)+1)."&nav=".($nav-1)."><img src=".$http_path[themes]."/".$themes_module."/images/icon_prev.gif border=0 /></a>";
+            $nav_pages .= ($start==$nav) ? "<img align=absmiddle src=".$http_path['themes']."/".$themes_module."/images/icon_prev.gif border=0 /> &nbsp;" : "<a href=$url&page=".((($nav-2)*$max_nav)+1)."&nav=".($nav-1)."><img src=".$http_path['themes']."/".$themes_module."/images/icon_prev.gif border=0 /></a>";
             $nav_pages .= "</td>";   
             $nav_pages .= ($start==$nav) ? "<td>" : "<td> ... ";            
     
@@ -37,7 +37,7 @@
                 if($i>$num){ break; };
                 if ($i == $page)
                 {
-                    $nav_pages .= "[$i] ";
+                    $nav_pages .= "['$i'] ";
                 }
                 else
                 {
@@ -47,9 +47,9 @@
 
             $nav_pages .= ($end==$nav) ? "</td>" : " ... </td>";        
             $nav_pages .= "<td>";        
-            $nav_pages .= ($end==$nav) ? "<img align=absmiddle src=".$http_path[themes]."/".$themes_module."/images/icon_next.gif border=0 />&nbsp;" : "<a href=$url&page=".(($nav*$max_nav)+1)."&nav=".($nav+1)."> <img align=absmiddle src=".$http_path[themes]."/".$themes_module."/images/icon_next.gif border=0 /></a>";
+            $nav_pages .= ($end==$nav) ? "<img align=absmiddle src=".$http_path['themes']."/".$themes_module."/images/icon_next.gif border=0 />&nbsp;" : "<a href=$url&page=".(($nav*$max_nav)+1)."&nav=".($nav+1)."> <img align=absmiddle src=".$http_path['themes']."/".$themes_module."/images/icon_next.gif border=0 /></a>";
             $nav_pages .= "</td>";        
-            $nav_pages .= "<td><a href=$url&page=$num&nav=$end> <img align=absmiddle src=".$http_path[themes]."/".$themes_module."/images/icon_end.gif border=0 /> </a></td>";
+            $nav_pages .= "<td><a href=$url&page=$num&nav=$end> <img align=absmiddle src=".$http_path['themes']."/".$themes_module."/images/icon_end.gif border=0 /> </a></td>";
 
             $nav_pages .= "
                     </tr>
@@ -77,7 +77,7 @@
         {
             foreach($value as $sub_key1=>$sub_value1)
             {
-                $content_tree .= "\t\t d.add($tree_index,$tree_index_top,'$sub_value1[1]', '$sub_value1[0]', '', '$sub_value1[2]');\n";
+                $content_tree .= "\t\t d.add($tree_index,$tree_index_top,'".$sub_value1[1]."', '".$sub_value1[0]."', '', '".$sub_value1[2]."');\n";
                 $tree_index++;
             }
             $tree_index_top++;
@@ -87,7 +87,7 @@
             <script type=\"text/javascript\">
             <!--
             d = new dTree('d');
-            d.add(0,-1,'<b>Home</b>', '".$http_path[base]."', '', '_top');
+            d.add(0,-1,'<b>Home</b>', '".$http_path['base']."', '', '_top');
         $content_tree		
             d.add($tree_index_top,0,'Logout', 'menu.php?inc=logout', '', '_top');
             document.write(d);

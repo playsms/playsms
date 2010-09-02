@@ -4,15 +4,15 @@ function sendmail($mail_from,$mail_to,$mail_subject="",$mail_body="")
     global $apps_path;
     if (!class_exists(email_message_class))
     {
-	include_once $apps_path[libs]."/external/mimemessage/email_message.php";
+	include_once $apps_path['libs']."/external/mimemessage/email_message.php";
     }
     if (!class_exists(smtp_message_class))
     {
-	include_once $apps_path[libs]."/external/mimemessage/smtp_message.php";
+	include_once $apps_path['libs']."/external/mimemessage/smtp_message.php";
     }
     if (!class_exists(smtp_class))
     {
-	include_once $apps_path[libs]."/external/mimemessage/smtp/smtp.php";
+	include_once $apps_path['libs']."/external/mimemessage/smtp/smtp.php";
     }
 
     $from_name			= $mail_from_name;

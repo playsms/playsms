@@ -1,14 +1,14 @@
 <?php
 if(!valid()){forcenoaccess();};
 
-$item_count = $_POST[item_count];
+$item_count = $_POST['item_count'];
 for ($i=1;$i<=$item_count;$i++)
 {
-    ${"chkid".$i} = $_POST["chkid".$i];
-    ${"pid".$i} = $_POST["pid".$i];
-    ${"pdesc".$i} = $_POST["pdesc".$i];
-    ${"pnum".$i} = $_POST["pnum".$i];
-    ${"pemail".$i} = $_POST["pemail".$i];
+    ${"chkid".$i} = $_POST['chkid'.$i];
+    ${"pid".$i} = $_POST['pid'.$i];
+    ${"pdesc".$i} = $_POST['pdesc'.$i];
+    ${"pnum".$i} = $_POST['pnum'.$i];
+    ${"pemail".$i} = $_POST['pemail'.$i];
 }
 
 switch ($op)

@@ -4,12 +4,12 @@ if(!valid()){forcenoaccess();};
 switch ($op)
 {
     case "add":
-	$phone = urlencode($_REQUEST[phone]);
+	$phone = urlencode($_REQUEST['phone']);
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblUserGroupPhonebook WHERE uid='$uid'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result))
 	{
-	    $list_of_group .= "<option value=$db_row[gpid]>$db_row[gp_name] - code: $db_row[gp_code]</option>";
+	    $list_of_group .= "<option value=".$db_row['gpid'].">".$db_row['gp_name']." - code: ".$db_row['gp_code']."</option>";
 	}
 	if ($err)
 	{
@@ -39,12 +39,12 @@ switch ($op)
 	echo $content;
 	break;
     case "add_yes":
-	$gpid = $_POST[gpid];
-	$p_num = str_replace("\'","",$_POST[p_num]);
+	$gpid = $_POST['gpid'];
+	$p_num = str_replace("\'","",$_POST['p_num']);
 	$p_num = str_replace("\"","",$p_num);
-	$p_desc = str_replace("\'","",$_POST[p_desc]);
+	$p_desc = str_replace("\'","",$_POST['p_desc']);
 	$p_desc = str_replace("\"","",$p_desc);
-	$p_email = str_replace("\'","",$_POST[p_email]);
+	$p_email = str_replace("\'","",$_POST['p_email']);
 	$p_email = str_replace("\"","",$p_email);
 	if ($gpid && $p_num && $p_desc)
 	{
@@ -52,7 +52,7 @@ switch ($op)
 	    $db_result = dba_query($db_query);
 	    if ($db_row = dba_fetch_array($db_result))
 	    {
-		header("Location: menu.php?inc=phone_add&op=add&err=".urlencode("Number `$p_num` already registered owned by `$db_row[p_desc]`"));
+		header("Location: menu.php?inc=phone_add&op=add&err=".urlencode("Number `$p_num` already registered owned by `".$db_row['p_desc']."`"));
 		die();
 	    }
 	    else

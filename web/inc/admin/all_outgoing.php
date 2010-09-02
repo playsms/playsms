@@ -1,7 +1,7 @@
 <?php
 if(!isadmin()){forcenoaccess();};
 
-$slid = $_REQUEST[slid];
+$slid = $_REQUEST['slid'];
 
 switch ($op)
 {
@@ -48,9 +48,9 @@ switch ($op)
 	while ($db_row = dba_fetch_array($db_result))
 	{
 	    $j++;
-	    $current_slid = $db_row[smslog_id];
-	    $p_username = uid2username($db_row[uid]);
-	    $p_dst = $db_row[p_dst];
+	    $current_slid = $db_row['smslog_id'];
+	    $p_username = uid2username($db_row['uid']);
+	    $p_dst = $db_row['p_dst'];
 	    $p_desc = pnum2pdesc($p_dst);
 	    $current_p_dst = $p_dst;
 	    if ($p_desc) 
@@ -62,18 +62,18 @@ switch ($op)
 	    {
 		$hide_p_dst = "$p_dst ($p_desc)";
 	    }
-	    $p_sms_type = $db_row[p_sms_type];
+	    $p_sms_type = $db_row['p_sms_type'];
 	    $hide_p_dst = str_replace("\'","",$hide_p_dst);
 	    $hide_p_dst = str_replace("\"","",$hide_p_dst);
-	    $p_msg = $db_row[p_msg];
-	    if (($p_footer = $db_row[p_footer]) && (($p_sms_type == "text") || ($p_sms_type == "flash")))
+	    $p_msg = $db_row['p_msg'];
+	    if (($p_footer = $db_row['p_footer']) && (($p_sms_type == "text") || ($p_sms_type == "flash")))
 	    {
 		$p_msg = $p_msg." $p_footer";
 	    }
-	    $p_datetime = $db_row[p_datetime];
-	    $p_update = $db_row[p_update];
-	    $p_status = $db_row[p_status];
-	    $p_gpid = $db_row[p_gpid];
+	    $p_datetime = $db_row['p_datetime'];
+	    $p_update = $db_row['p_update'];
+	    $p_status = $db_row['p_status'];
+	    $p_gpid = $db_row['p_gpid'];
 	    // 0 = pending
 	    // 1 = sent
 	    // 2 = failed
@@ -99,7 +99,7 @@ switch ($op)
 		$db_query1 = "SELECT gp_code FROM "._DB_PREF_."_tblUserGroupPhonebook WHERE gpid='$p_gpid'";
 		$db_result1 = dba_query($db_query1);
 		$db_row1 = dba_fetch_array($db_result1);
-		$p_gpcode = strtoupper($db_row1[gp_code]);
+		$p_gpcode = strtoupper($db_row1['gp_code']);
 	    }
 	    else
 	    {
@@ -163,12 +163,12 @@ switch ($op)
 	header ("Location: menu.php?inc=all_outgoing&op=all_outgoing&err=".urlencode($err));
 	break;
     case "act_del":
-	$item_count = $_POST[item_count];
+	$item_count = $_POST['item_count'];
 	
 	for ($i=1;$i<=$item_count;$i++)
 	{
-	    $chkid = $_POST["chkid".$i];
-	    $slid = $_POST["slid".$i];
+	    $chkid = $_POST['chkid'.$i];
+	    $slid = $_POST['slid'.$i];
 	    
 	    if(($chkid=="on") && $slid)
 	    {

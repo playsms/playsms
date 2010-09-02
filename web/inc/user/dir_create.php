@@ -27,8 +27,8 @@ switch ($op)
 	echo $content;
 	break;
     case "create_yes":
-	$dir_name = $_POST[dir_name];
-	$dir_code = strtoupper(trim($_POST[dir_code]));
+	$dir_name = $_POST['dir_name'];
+	$dir_code = strtoupper(trim($_POST['dir_code']));
 	if ($dir_name && $dir_code)
 	{
 	    $db_query = "SELECT gp_code FROM "._DB_PREF_."_tblUserGroupPhonebook WHERE uid='$uid' AND gp_code='$dir_code'";
