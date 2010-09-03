@@ -12,7 +12,7 @@
 
     if (valid()) 
     {
-        include $apps_path['themes']."/".$themes_module."/default.php";
+        include $apps_path['themes']."/".$themes_module."/welcomepage.php";
     }
     else
     {
