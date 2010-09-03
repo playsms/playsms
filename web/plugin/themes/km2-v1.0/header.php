@@ -19,7 +19,7 @@
 <div id="wrap">
 
   <div id="top">
-    <img alt="Médi@com" src="http://www.mediacom.nc/wp-content/themes/corporate_10/images/top.gif">
+    <img alt="top" src="<?=$http_path['themes']?>/<?=$themes_module?>/images/top.gif">
   </div>
 
   <div id="header">

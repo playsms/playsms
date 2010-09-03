@@ -1,6 +1,8 @@
 <?php
 if (!valid()) { forcelogout(); };
 
+include $apps_path['themes']."/".$themes_module."/header.php";
+
 $content = "
     <h2>Welcome to playSMS</h2>
     <p>
@@ -29,4 +31,6 @@ $fc = @fread($fd, filesize($fn));
 $content .= "<pre>".htmlentities($fc)."</pre>";
 
 echo $content;
+
+include $apps_path['themes']."/".$themes_module."/footer.php";
 ?>

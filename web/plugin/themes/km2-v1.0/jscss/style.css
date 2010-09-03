@@ -25,7 +25,7 @@ body {
 	}
 	
 #wrap {
-	background: #FFFFFF url(images/wrap.gif);
+	background: #FFFFFF url(../images/wrap.gif);
 	width: 980px;
 	margin: 0px auto 0px;
 	padding: 0px;
@@ -33,7 +33,7 @@ body {
 	}
 
 #wraplogin {
-        background: #FFFFFF url(images/wrap.gif);
+        background: #FFFFFF url(../images/wrap.gif);
         width: 980px;
         margin: 100px auto 0px;
         padding: 0px;
@@ -70,7 +70,7 @@ a:focus, a:hover, a:active {
 ************************************************/
 
 #header {
-	background: #000000 url(images/header.jpg);
+	background: #000000 url(../images/header.jpg);
 	width: 960px;
 	height: 120px;
 	margin: 0px auto 0px;
@@ -149,7 +149,7 @@ a:focus, a:hover, a:active {
 ************************************************/
 
 #navbar {
-	background: #000000 url(images/navbar.gif);
+	background: #000000 url(../images/navbar.gif);
 	width: 960px;
 	height: 35px;
 	font-size: 12px;
@@ -192,7 +192,7 @@ a:focus, a:hover, a:active {
 	}
 
 #nav li a:hover, #nav li a:active {
-	background: #000000 url(images/navhov.gif);
+	background: #000000 url(../images/navhov.gif);
 	color: #FFFFFF;
 	}
 	
@@ -316,13 +316,13 @@ a:focus, a:hover, a:active {
 	}
 	
 #homepage ul li li {
-	background: url(images/icon.gif) no-repeat top left;
+	background: url(../images/icon.gif) no-repeat top left;
 	margin: 0px;
 	padding: 0px 0px 0px 18px;
 	}
 	
 #homepage ul li ul li {
-	background: url(images/icon.gif) no-repeat top left;
+	background: url(../images/icon.gif) no-repeat top left;
 	margin: 0px;
 	padding: 0px 0px 0px 18px;
 	}
@@ -562,13 +562,13 @@ a:focus, a:hover, a:active {
 	}
 	
 .postarea ul li {
-	background: url(images/arrow.gif) no-repeat top left;
+	background: url(../images/arrow.gif) no-repeat top left;
 	padding: 0px 0px 0px 15px;
 	margin: 0px 0px 5px 0px;
 	}
 	
 .postarea ul ul li {
-	background: url(images/arrow.gif) no-repeat top left;
+	background: url(../images/arrow.gif) no-repeat top left;
 	padding: 0px 0px 0px 15px;
 	margin: 0px 0px 5px 0px;
 	}
@@ -764,13 +764,13 @@ img.alignleft {
 	}
 	
 #sidebar ul li li {
-	background: url(images/icon.gif) no-repeat top left;
+	background: url(../images/icon.gif) no-repeat top left;
 	margin: 0px;
 	padding: 0px 0px 0px 18px;
 	}
 	
 #sidebar ul li ul li {
-	background: url(images/icon.gif) no-repeat top left;
+	background: url(../images/icon.gif) no-repeat top left;
 	margin: 0px;
 	padding: 0px 0px 0px 18px;
 	}
@@ -896,7 +896,7 @@ img.alignleft {
 	}
 	
 #subbutton {
-	background: #333333 url(images/homelink.png);
+	background: #333333 url(../images/homelink.png);
 	color: #FFFFFF;
 	-moz-border-radius: 5px;
 	-khtml-border-radius: 5px;
@@ -931,7 +931,7 @@ img.alignleft {
 	}
 	
 #searchbutton {
-	background: #000000 url(images/navbar.gif);
+	background: #000000 url(../images/navbar.gif);
 	-moz-border-radius: 3px;
     -webkit-border-radius: 3px;
 	color: #FFFFFF;
@@ -1197,7 +1197,7 @@ td,div {
 }
 
 .header{
-    background-image:url(images/header-login.jpg);
+    background-image:url(../images/header-login.jpg);
 }
 
 
