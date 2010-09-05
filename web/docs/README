@@ -38,8 +38,9 @@ Current Features
 
 License
 -------
-Plugins (all files and folder under directory web/plugin) and API are LGPL. 
-The rest of the application is GPL.
+playSMS plugins source codes (all files under directory web/plugin) are LGPL.
+playSMS libraries source codes (all files under directory web/lib) are LGPL.
+The rest of the playSMS source codes are licensed as GPLv2.
 
 
 Installation
@@ -50,10 +51,12 @@ Please read INSTALL and then FAQ
 Contributors
 ------------
 Anton Raharja (anton)
-Abdul Hanan
+Eugene Trotsan (eugene)
+Yoan Talagrand (yoan)
+Abdul Hanan (hanan)
 Helge Larsen
 Aaron Simmons
-Warsito
+Warsito (warsito)
 Stephane Rosa (srosa)
 Emmanuel Chanson (emmanuel)
 T.K Thapa (thapa)

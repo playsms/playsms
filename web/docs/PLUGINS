@@ -1,19 +1,32 @@
 PLUGINS
 -------
-
-
-Feature
--------
-
-
-Gateway
--------
-
-
-Themes
-------
+playSMS plugin's files and folders installed under directory web/plugins 
+and categorized into 4 different categories, they are:
+- tools
+- feature
+- gateway
+- themes
 
 
 Tools
 -----
+Here installed plugins with no specific SMS related features but used by playSMS.
+
+
+Feature
+-------
+Here installed plugins which contains specific SMS related features and directly handle
+incoming or outgoing SMSes.
+
+
+Gateway
+-------
+Here installed plugins which has ability to actually send and/or receive SMS, and directly
+connected to SMS gateway applications or services.
+
+
+Themes
+------
+Here installed playSMS's themes.
+
 
