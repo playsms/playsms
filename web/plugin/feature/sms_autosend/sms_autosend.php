@@ -61,9 +61,9 @@ switch ($op) {
 			if ($db_row['autosend_enable']) {
 				$autosend_status = "<font color=green>Enable</font>";
 			}
-			$action = "<a href=menu.php?inc=feature_sms_autosend&op=sms_autosend_view&autosend_id='".$db_row['autosend_id']."'>$icon_view</a>&nbsp;";
-			$action .= "<a href=menu.php?inc=feature_sms_autosend&op=sms_autosend_edit&autosend_id='".$db_row['autosend_id']."'>$icon_edit</a>&nbsp;";
-			$action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS autosend message ?','menu.php?inc=feature_sms_autosend&op=sms_autosend_del&autosend_id='".$db_row['autosend_id']."')\">$icon_delete</a>";
+			$action = "<a href=menu.php?inc=feature_sms_autosend&op=sms_autosend_view&autosend_id=".$db_row['autosend_id'].">$icon_view</a>&nbsp;";
+			$action .= "<a href=menu.php?inc=feature_sms_autosend&op=sms_autosend_edit&autosend_id=".$db_row['autosend_id'].">$icon_edit</a>&nbsp;";
+			$action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS autosend message ?','menu.php?inc=feature_sms_autosend&op=sms_autosend_del&autosend_id=".$db_row['autosend_id']."')\">$icon_delete</a>";
 			$content .= "
 							<tr>
 								<td class=$td_class>&nbsp;$i.</td>
