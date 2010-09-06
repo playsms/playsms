@@ -84,60 +84,6 @@ switch ($op)
 	// document.fm_sendsms.message.value = document.fm_smstemplate.content_num.value;
 	// New function introduce for long sms count and another field (SMS Character) added to send sms broadcast 
 	$content .= "
-	<!-- WWW -->
-	    <script language=\"javascript\">
-
-		function setTemplate()
-		{		    
-		    sellength = fm_sendsms.smstemplate.length;
-		    for ( i=0; i<sellength; i++)
-		    {
-			if (fm_sendsms.smstemplate.options[i].selected == true)
-			{
-			    fm_sendsms.message.value = fm_sendsms.smstemplate.options[i].value;
-			}
-		    }
-		}
-		function textCounter(field, maxlimit) 
-		{
-			var messagelen=1;
-			var mesagelenudh;
-			var messagelenudh1;
-			var result1;
-			var result2;
-			var hamm;
-			if (field.value.length > maxlimit)
-			{
-				if(maxlimit == 153)
-				{
-					messagelen = Math.ceil(field.value.length/maxlimit)*7;
-				}
-				else
-				{
-					messagelen = Math.ceil(field.value.length/maxlimit)*3;
-				}
-				messagelenudh1 = messagelen + field.value.length;
-				messagelenudh = Math.ceil(messagelenudh1/maxlimit);
-				hamm = 'SMS(es)';
-				result1 = field.value.length + ' char : ' + messagelenudh + ' SMS' ;
-				//return messagelenudh; 
-                                return result1;
-			}	
-			// otherwise, update 'characters left' counter
-			else
-			{ 
-		         result2 = field.value.length + ' char : 1 SMS' ;
-                        return result2;
-			//return  field.value.length;
-			}
-		}
-		function setCounter()
-		{
-			var ilen = textCounter(document.fm_sendsms.message,document.fm_sendsms.hiddcount.value );
-			document.fm_sendsms.txtcount.value  = ilen ;
-		}
-	    </script>
-
 	    <form name=\"fm_smstemplate\">
 	    $input_values
 	    </form>
@@ -170,9 +116,9 @@ switch ($op)
 	    <p>Or: <input type=text size=20 maxlength=13 name=p_num_text value=\"$dst_p_num\"> (International format e.g 2348055469187)
 	    <p>SMS Sender ID: $sms_sender
 	    <p>Message template: <select name=\"smstemplate\">$option_values</select>
-	    <p><input type=\"button\" onClick=\"javascript: setTemplate();\" name=\"nb\" value=\"Use Template\" class=\"button\">
+	    <p><input type=\"button\" onClick=\"javascript: SetSMSTemplate();\" name=\"nb\" value=\"Use Template\" class=\"button\">
 	    <p>Your message: 
-	    <br><textarea cols=\"39\" rows=\"5\" onKeyUp=\"javascript:setCounter();\" onClick=\"javascript:setCounter();\" onKeyUp=\"javascript: SmsCountKeyUp($max_length);\" onKeyDown=\"javascript: SmsCountKeyDown($max_length);\" onkeypress=\"javascript:setCounter();\" onblur=\"javascript:setCounter();\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
+	    <br><textarea cols=\"39\" rows=\"5\" onKeyUp=\"javascript:SMSSetCounter();\" onClick=\"javascript:SMSSetCounter();\" onKeyUp=\"javascript: SmsCountKeyUp($max_length);\" onKeyDown=\"javascript: SmsCountKeyDown($max_length);\" onkeypress=\"javascript:SMSSetCounter();\" onblur=\"javascript:SMSSetCounter();\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
 	    <!-- <br>Character left: <input value=\"$max_length\" style=\"font-weight:bold;\" type=\"text\" onKeyPress=\"if (window.event.keyCode == 13){return false;}\" onFocus=\"this.blur();\" size=\"3\" name=\"charNumberLeftOutput\" id=\"charNumberLeftOutput\"> -->
 	    <br>SMS Character: <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly> 
             <input type=\"hidden\" value=\"153\" name=\"hiddcount\"> 
@@ -287,57 +233,6 @@ switch ($op)
 	// document.fm_sendsms.message.value = document.fm_smstemplate.content_num.value;
 	// New function introduce for long sms count and another field (SMS Character) added to send sms broadcast 
 	$content .= "
-	<!-- WWW -->
-	    <script language=\"javascript\">
-
-		function setTemplate()
-		{		    
-		    sellength = fm_sendsms.smstemplate.length;
-		    for ( i=0; i<sellength; i++)
-		    {
-			if (fm_sendsms.smstemplate.options[i].selected == true)
-			{
-			    fm_sendsms.message.value = fm_sendsms.smstemplate.options[i].value;
-			}
-		    }
-		}
-		function textCounter(field, maxlimit)
-                {
-                        var messagelen=1;
-                        var mesagelenudh;
-                        var messagelenudh1;
-                        var result3;
-                        var result4;
-                        if (field.value.length > maxlimit)
-                        {
-                                if(maxlimit == 153)
-                                {
-                                        messagelen = Math.ceil(field.value.length/maxlimit)*7;
-                                }
-                                else
-                                {
-                                        messagelen = Math.ceil(field.value.length/maxlimit)*3;
-                                }
-                                messagelenudh1 = messagelen + field.value.length;
-                                messagelenudh = Math.ceil(messagelenudh1/maxlimit);
-                                result3 = field.value.length + ' char : ' + messagelenudh + ' SMS' ;
-                                return result3;
-                        }
-                        // otherwise, update 'characters left' counter
-                        else
-                        {
-                         result4 = field.value.length + ' char : 1 SMS' ;
-                        return result4;
-                        //return  field.value.length;
- 			}
-                }
-                function setCounter()
-                {
-                        var ilen = textCounter(document.fm_sendsms.message,document.fm_sendsms.hiddcount.value );
-                        document.fm_sendsms.txtcount.value  = ilen ;
-                }
-	    </script>
-
 	    <form name=\"fm_smstemplate\">
 	    $input_values
 	    </form>
@@ -373,9 +268,9 @@ switch ($op)
 	    <p>Or: <input type=text size=20 maxlength=20 name=gp_code_text value=\"$dst_gp_code\"> (Group name)
 	    <p>SMS Sender ID: $sms_sender 
 	    <p>Message template: <select name=\"smstemplate\">$option_values</select>
-	    <p><input type=\"button\" onClick=\"javascript: setTemplate();\" name=\"nb\" value=\"Use Template\" class=\"button\">
+	    <p><input type=\"button\" onClick=\"javascript: SetSMSTemplate();\" name=\"nb\" value=\"Use Template\" class=\"button\">
 	    <p>Your message: 
-	    <br><textarea cols=\"39\" rows=\"5\" onKeyUp=\"javascript:setCounter();\" onClick=\"javascript:setCounter();\" onblur=\"javascript:setCounter();\" onkeypress=\"javascript:setCounter();\" onKeyUp=\"javascript: SmsCountKeyUp($max_length);\" onKeyDown=\"javascript: SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
+	    <br><textarea cols=\"39\" rows=\"5\" onKeyUp=\"javascript:SMSSetCounter();\" onClick=\"javascript:SMSSetCounter();\" onblur=\"javascript:SMSSetCounter();\" onkeypress=\"javascript:SMSSetCounter();\" onKeyUp=\"javascript: SmsCountKeyUp($max_length);\" onKeyDown=\"javascript: SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
 	    <!-- <br>Character left: <input value=\"$max_length\" style=\"font-weight:bold;\" type=\"text\" onKeyPress=\"if (window.event.keyCode == 13){return false;}\" onFocus=\"this.blur();\" size=\"3\" name=\"charNumberLeftOutput\" id=\"charNumberLeftOutput\"> -->
 	    <br>SMS Character: <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
             <input type=\"hidden\" value=\"153\" name=\"hiddcount\">
