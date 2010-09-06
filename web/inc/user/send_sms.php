@@ -82,6 +82,7 @@ switch ($op)
 	}
 
 	// document.fm_sendsms.message.value = document.fm_smstemplate.content_num.value;
+	// New function introduce for long sms count and another field (SMS Character) added to send sms broadcast 
 	$content .= "
 	<!-- WWW -->
 	    <script language=\"javascript\">
@@ -96,6 +97,44 @@ switch ($op)
 			    fm_sendsms.message.value = fm_sendsms.smstemplate.options[i].value;
 			}
 		    }
+		}
+		function textCounter(field, maxlimit) 
+		{
+			var messagelen=1;
+			var mesagelenudh;
+			var messagelenudh1;
+			var result1;
+			var result2;
+			var hamm;
+			if (field.value.length > maxlimit)
+			{
+				if(maxlimit == 160)
+				{
+					messagelen = Math.ceil(field.value.length/maxlimit)*7;
+				}
+				else
+				{
+					messagelen = Math.ceil(field.value.length/maxlimit)*3;
+				}
+				messagelenudh1 = messagelen + field.value.length;
+				messagelenudh = Math.ceil(messagelenudh1/maxlimit);
+				hamm = 'SMS Message(s)';
+				result1 = field.value.length + ' : ' + messagelenudh + ' SMS Message(s)' ;
+				//return messagelenudh; 
+                                return result1;
+			}	
+			// otherwise, update 'characters left' counter
+			else
+			{ 
+		         result2 = field.value.length + ' : 1 SMS Message(s)' ;
+                        return result2;
+			//return  field.value.length;
+			}
+		}
+		function setCounter()
+		{
+			var ilen = textCounter(document.fm_sendsms.message,document.fm_sendsms.hiddcount.value );
+			document.fm_sendsms.txtcount.value  = ilen ;  	
 		}
 	    </script>
 
@@ -128,14 +167,16 @@ switch ($op)
 		</td>
 	    </tr>
 	    </table>
-	    <p>Or: <input type=text size=20 maxlength=20 name=p_num_text value=\"$dst_p_num\"> (International format)
+	    <p>Or: <input type=text size=20 maxlength=13 name=p_num_text value=\"$dst_p_num\"> (International format e.g 2348055469187)
 	    <p>SMS Sender ID: $sms_sender
 	    <p>Message template: <select name=\"smstemplate\">$option_values</select>
 	    <p><input type=\"button\" onClick=\"javascript: setTemplate();\" name=\"nb\" value=\"Use Template\" class=\"button\">
 	    <p>Your message: 
-	    <br><textarea cols=\"39\" rows=\"5\" onKeyUp=\"javascript: SmsCountKeyUp($max_length);\" onKeyDown=\"javascript: SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
-	    <br>Character left: <input value=\"$max_length\" type=\"text\" onKeyPress=\"if (window.event.keyCode == 13){return false;}\" onFocus=\"this.blur();\" size=\"3\" name=\"charNumberLeftOutput\" id=\"charNumberLeftOutput\">
-	    <p><input type=checkbox name=msg_flash> Send as flash message
+	    <br><textarea cols=\"39\" rows=\"5\" onKeyUp=\"javascript:setCounter();\" onClick=\"javascript:setCounter();\" onKeyUp=\"javascript: SmsCountKeyUp($max_length);\" onKeyDown=\"javascript: SmsCountKeyDown($max_length);\" onkeypress=\"javascript:setCounter();\" onblur=\"javascript:setCounter();\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
+	    <br>Character left: <input value=\"$max_length\" style=\"font-weight:bold;\" type=\"text\" onKeyPress=\"if (window.event.keyCode == 13){return false;}\" onFocus=\"this.blur();\" size=\"3\" name=\"charNumberLeftOutput\" id=\"charNumberLeftOutput\">
+	    <br>SMS Character: <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"\" size=\"25\" onFocus=\"document.frmSendSms.message.focus();\" readonly> 
+            <input type=\"hidden\" value=\"160\" name=\"hiddcount\"> 
+		<p><input type=checkbox name=msg_flash> Send as flash message
 	    <p><input type=checkbox name=msg_unicode> Send as unicode message (http://www.unicode.org)
 	    <p><input type=submit class=button value=Send onClick=\"selectAllOptions(this.form[p_num[]])\"> 
 	    </form>
@@ -169,14 +210,16 @@ switch ($op)
 	    {
 		if ($ok[$i])
 		{
-		    $error_string .= "Your SMS for `".$to[$i]."` has been delivered to queue<br>";
+		    $error_string .= "Your SMS has been delivered to queue<br>";
 		}
 		else
 		{
-		    $error_string .= "Fail to sent SMS to `".$to[$i]."`<br>";
+		    $error_string .= "Fail to sent SMS to <br>";
 	        }
 	    }
-	    header("Location: menu.php?inc=send_sms&op=sendsmstopv&message=".urlencode($message)."&err=".urlencode($error_string));
+		// This introduce to solve the time out error when sending many sms and also redisplay content of sms after sms has been sent
+	$message1="sent sms";
+    header("Location: menu.php?inc=send_sms&op=sendsmstopv&message=".urlencode($message1)."&err=".urlencode($error_string));
 	}
 	else
 	{
@@ -242,6 +285,7 @@ switch ($op)
 	}
 
 	// document.fm_sendsms.message.value = document.fm_smstemplate.content_num.value;
+	// New function introduce for long sms count and another field (SMS Character) added to send sms broadcast 
 	$content .= "
 	<!-- WWW -->
 	    <script language=\"javascript\">
@@ -257,6 +301,41 @@ switch ($op)
 			}
 		    }
 		}
+		function textCounter(field, maxlimit)
+                {
+                        var messagelen=1;
+                        var mesagelenudh;
+                        var messagelenudh1;
+                        var result3;
+                        var result4;
+                        if (field.value.length > maxlimit)
+                        {
+                                if(maxlimit == 160)
+                                {
+                                        messagelen = Math.ceil(field.value.length/maxlimit)*7;
+                                }
+                                else
+                                {
+                                        messagelen = Math.ceil(field.value.length/maxlimit)*3;
+                                }
+                                messagelenudh1 = messagelen + field.value.length;
+                                messagelenudh = Math.ceil(messagelenudh1/maxlimit);
+                                result3 = field.value.length + ' : ' + messagelenudh + ' SMS Message(s)' ;
+                                return result3;
+                        }
+                        // otherwise, update 'characters left' counter
+                        else
+                        {
+                         result4 = field.value.length + ' : 1 SMS Message(s)' ;
+                        return result4;
+                        //return  field.value.length;
+ 			}
+                }
+                function setCounter()
+                {
+                        var ilen = textCounter(document.fm_sendsms.message,document.fm_sendsms.hiddcount.value );
+                        document.fm_sendsms.txtcount.value  = ilen ;
+                }
 	    </script>
 
 	    <form name=\"fm_smstemplate\">
@@ -296,9 +375,11 @@ switch ($op)
 	    <p>Message template: <select name=\"smstemplate\">$option_values</select>
 	    <p><input type=\"button\" onClick=\"javascript: setTemplate();\" name=\"nb\" value=\"Use Template\" class=\"button\">
 	    <p>Your message: 
-	    <br><textarea cols=\"39\" rows=\"5\" onKeyUp=\"javascript: SmsCountKeyUp($max_length);\" onKeyDown=\"javascript: SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
-	    <br>Character left: <input value=\"$max_length\" type=\"text\" onKeyPress=\"if (window.event.keyCode == 13){return false;}\" onFocus=\"this.blur();\" size=\"3\" name=\"charNumberLeftOutput\" id=\"charNumberLeftOutput\">
-	    <p><input type=checkbox name=msg_flash> Send as flash message
+	    <br><textarea cols=\"39\" rows=\"5\" onKeyUp=\"javascript:setCounter();\" onClick=\"javascript:setCounter();\" onblur=\"javascript:setCounter();\" onkeypress=\"javascript:setCounter();\" onKeyUp=\"javascript: SmsCountKeyUp($max_length);\" onKeyDown=\"javascript: SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
+	    <br>Character left: <input value=\"$max_length\" style=\"font-weight:bold;\" type=\"text\" onKeyPress=\"if (window.event.keyCode == 13){return false;}\" onFocus=\"this.blur();\" size=\"3\" name=\"charNumberLeftOutput\" id=\"charNumberLeftOutput\">
+	   <br>SMS Character: <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"\" size=\"25\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
+            <input type=\"hidden\" value=\"160\" name=\"hiddcount\">
+			 <p><input type=checkbox name=msg_flash> Send as flash message
 	    <p><input type=submit class=button value=Send onClick=\"selectAllOptions(this.form[gp_code[]])\"> 
 	    </form>
 	";
@@ -324,14 +405,16 @@ switch ($op)
 	    {
 	        if ($ok[$i])
 	        {
-	    	    $error_string .= "Your SMS for `".$to[$i]."` has been delivered to queue<br>";
+	    	    $error_string .= "Your SMS for has been delivered to queue<br>";
 	        }
 	        else
 	        {
-	    	    $error_string .= "Fail to sent SMS to `".$to[$i]."`<br>";
+	    	    $error_string .= "Fail to sent SMS to <br>";
 		}
 	    }
-	    header("Location: menu.php?inc=send_sms&op=sendsmstogr&message=".urlencode($message)."&err=".urlencode($error_string));
+		// This introduce to solve the time out error when sending many sms and also not to redisplay content of sms after sms has been sent
+	 $message2="SMS Sent";
+       header("Location: menu.php?inc=send_sms&op=sendsmstogr&message=".urlencode($message1)."&err=".urlencode($error_string));
 	}
 	else
 	{

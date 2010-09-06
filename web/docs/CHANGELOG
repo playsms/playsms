@@ -10,6 +10,8 @@ Version 0.9.5-rc1 - unknown
 - add themes selection from web in main configuration (emmanuel)
 - add gateway module selection from web in main configuration (anton)
 - add limit 100 on getting delivery status via input.php (thapa)
+- add show js for how many SMS and characters has been composed (adetunjiha)
+- fix timeout issue when sending bulk account due to error_string too large (adetunjiha)
 - fix security in input.php, one can get data without proper auth (thapa)
 - fix on all php files, close unterminated variables with single-quote (anton)
 - fix on all php files, replace <? with <?php (anton)
