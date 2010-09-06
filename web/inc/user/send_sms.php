@@ -113,8 +113,8 @@ switch ($op)
 		</td>
 	    </tr>
 	    </table>
-	    <p>Or: <input type=text size=20 maxlength=13 name=p_num_text value=\"$dst_p_num\"> (International format e.g 2348055469187)
-	    <p>SMS Sender ID: $sms_sender
+	    <p>Or: <input type=text size=20 maxlength=13 name=p_num_text value=\"$dst_p_num\"> (International format)
+	    <p>SMS Sender ID (SMS footer): $sms_sender
 	    <p>Message template: <select name=\"smstemplate\">$option_values</select>
 	    <p><input type=\"button\" onClick=\"javascript: SetSMSTemplate();\" name=\"nb\" value=\"Use Template\" class=\"button\">
 	    <p>Your message: 
@@ -266,7 +266,7 @@ switch ($op)
 	    </table>
 	    -->
 	    <p>Or: <input type=text size=20 maxlength=20 name=gp_code_text value=\"$dst_gp_code\"> (Group name)
-	    <p>SMS Sender ID: $sms_sender 
+	    <p>SMS Sender ID (SMS footer): $sms_sender 
 	    <p>Message template: <select name=\"smstemplate\">$option_values</select>
 	    <p><input type=\"button\" onClick=\"javascript: SetSMSTemplate();\" name=\"nb\" value=\"Use Template\" class=\"button\">
 	    <p>Your message: 
