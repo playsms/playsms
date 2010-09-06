@@ -1,6 +1,6 @@
 Version 0.9.5-rc1 - unknown
-- rename execgwcustomcmd() to playsmsd() (anton)
-- change label success to handled and fail to unhandled, status on incoming SMS (anton)
+- rename *_execgwcustomcmd() to *_playsmsd() (anton)
+- change label "success" to "handled" and "fail" to "unhandled", status on incoming SMS (anton)
 - change default gateway module to smstools (anton)
 - revert back kannel gateway, use fsockopen due to improper HTTP response from kannel (srosa)
 - remove manually inserted plugins name in config.php, now load automatically (anton)
@@ -11,7 +11,7 @@ Version 0.9.5-rc1 - unknown
 - add gateway module selection from web in main configuration (anton)
 - add limit 100 on getting delivery status via input.php (thapa)
 - add show js for how many SMS and characters has been composed (adetunjiha)
-- fix timeout issue when sending bulk account due to error_string too large (adetunjiha)
+- fix timeout issue when sending bulk SMS due to HTTP posted too large (adetunjiha)
 - fix security in input.php, one can get data without proper auth (thapa)
 - fix on all php files, close unterminated variables with single-quote (anton)
 - fix on all php files, replace <? with <?php (anton)
