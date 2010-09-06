@@ -147,10 +147,10 @@ switch ($op)
 		<td>Full name</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_name value=\"$name\"></td>
 	    </tr>	    	    
 	    <tr>
-		<td>Mobile</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_mobile value=\"$mobile\"> (Max. 16 numeric or 11 alphanumeric char.)</td>
+		<td>Mobile (sender number)</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_mobile value=\"$mobile\"> (Max. 16 numeric or 11 alphanumeric char.)</td>
 	    </tr>
 	    <tr>
-		<td>SMS Sender ID</td><td>:</td><td><input type=text size=35 maxlength=30 name=up_sender value=\"$sender\"> (Max. 30 Alphanumeric char.)</td>
+		<td>SMS Sender ID (SMS footer)</td><td>:</td><td><input type=text size=35 maxlength=30 name=up_sender value=\"$sender\"> (Max. 30 Alphanumeric char.)</td>
 	    </tr>	    
 	    <tr>
 		<td>Password</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_password> (Fill to change password for username `$uname`)</td>
@@ -236,10 +236,10 @@ switch ($op)
 		<td>Full name</td><td>:</td><td><input type=text size=30 maxlength=30 name=add_name value=\"$add_name\"></td>
 	    </tr>
 	    <tr>
-		<td>Mobile</td><td>:</td><td><input type=text size=16 maxlength=16 name=add_mobile value=\"$add_mobile\"> (Max. 16 numeric char.)</td>
+		<td>Mobile (sender number)</td><td>:</td><td><input type=text size=16 maxlength=16 name=add_mobile value=\"$add_mobile\"> (Max. 16 numeric char.)</td>
 	    </tr>
 	    <tr>
-		<td>SMS Sender ID</td><td>:</td><td><input type=text size=35 maxlength=30 name=add_sender value=\"$add_sender\"> (Max. 30 Alphanumeric char.)</td>
+		<td>SMS Sender ID (SMS footer)</td><td>:</td><td><input type=text size=35 maxlength=30 name=add_sender value=\"$add_sender\"> (Max. 30 Alphanumeric char.)</td>
 	    </tr>	    	    	    
 	    <tr>
 		<td>Password</td><td>:</td><td><input type=text size=30 maxlength=30 name=add_password value=\"$add_password\"></td>

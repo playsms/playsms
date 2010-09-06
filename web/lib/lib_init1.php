@@ -40,7 +40,7 @@ $icon_sendsms = "<img src=\"".$http_path['themes']."/".$themes_module."/images/s
 // menus
 $arr_menu['My Account'][] = array("menu.php?inc=phonebook_list", "Phonebook");
 $arr_menu['My Account'][] = array("menu.php?inc=sms_template&op=list", "Message template");
-$arr_menu['My Account'][] = array("menu.php?inc=send_sms&op=sendsmstopv", "Send text SMS");
+$arr_menu['My Account'][] = array("menu.php?inc=send_sms&op=sendsmstopv", "Send SMS");
 $arr_menu['My Account'][] = array("menu.php?inc=send_sms&op=sendsmstogr", "Send broadcast SMS");
 $arr_menu['My Account'][] = array("menu.php?inc=user_inbox&op=user_inbox", "Inbox");
 $arr_menu['My Account'][] = array("menu.php?inc=user_incoming&op=user_incoming", "Incoming SMS");

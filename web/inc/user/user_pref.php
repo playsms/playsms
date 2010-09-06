@@ -100,8 +100,8 @@ switch ($op)
 	    <tr><td width=200>Zipcode</td><td>:</td><td><input type=text size=10 maxlength=10 name=up_zipcode value=\"$zipcode\"></td></tr>
 	    <tr><td colspan=3>&nbsp;</td></tr>
 	    <tr><td colspan=3><h2>Application Information</h2><hr></td></tr>
-	    <tr><td width=200>Mobile</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_mobile value=\"$mobile\"> (International format)</td></tr>
-	    <tr><td width=200>SMS Sender ID</td><td>:</td><td><input type=text size=35 maxlength=30 name=up_sender value=\"$sender\"> (Max. 30 Alphanumeric char.)</td></tr>
+	    <tr><td width=200>Mobile (sender number)</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_mobile value=\"$mobile\"> (International format)</td></tr>
+	    <tr><td width=200>SMS Sender ID (SMS footer)</td><td>:</td><td><input type=text size=35 maxlength=30 name=up_sender value=\"$sender\"> (Max. 30 Alphanumeric char.)</td></tr>
 	    <tr><td width=200>Credit</td><td>:</td><td><b>$credit</b></td></tr>
 	    <tr><td colspan=3>&nbsp;</td></tr>
 	    <tr><td colspan=3><hr></td></tr>

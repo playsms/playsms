@@ -108,7 +108,7 @@ switch ($op)
 			var hamm;
 			if (field.value.length > maxlimit)
 			{
-				if(maxlimit == 160)
+				if(maxlimit == 153)
 				{
 					messagelen = Math.ceil(field.value.length/maxlimit)*7;
 				}
@@ -118,15 +118,15 @@ switch ($op)
 				}
 				messagelenudh1 = messagelen + field.value.length;
 				messagelenudh = Math.ceil(messagelenudh1/maxlimit);
-				hamm = 'SMS Message(s)';
-				result1 = field.value.length + ' : ' + messagelenudh + ' SMS Message(s)' ;
+				hamm = 'SMS(es)';
+				result1 = field.value.length + ' char : ' + messagelenudh + ' SMS' ;
 				//return messagelenudh; 
                                 return result1;
 			}	
 			// otherwise, update 'characters left' counter
 			else
 			{ 
-		         result2 = field.value.length + ' : 1 SMS Message(s)' ;
+		         result2 = field.value.length + ' char : 1 SMS' ;
                         return result2;
 			//return  field.value.length;
 			}
@@ -134,7 +134,7 @@ switch ($op)
 		function setCounter()
 		{
 			var ilen = textCounter(document.fm_sendsms.message,document.fm_sendsms.hiddcount.value );
-			document.fm_sendsms.txtcount.value  = ilen ;  	
+			document.fm_sendsms.txtcount.value  = ilen ;
 		}
 	    </script>
 
@@ -142,7 +142,7 @@ switch ($op)
 	    $input_values
 	    </form>
 
-	    <h2>Send text SMS</h2>
+	    <h2>Send SMS</h2>
 	    <p>
 	    <form name=\"fm_sendsms\" id=\"fm_sendsms\" action=\"menu.php?inc=send_sms&op=sendsmstopv_yes\" method=\"POST\">
 	    <p>From: $sms_from
@@ -173,9 +173,9 @@ switch ($op)
 	    <p><input type=\"button\" onClick=\"javascript: setTemplate();\" name=\"nb\" value=\"Use Template\" class=\"button\">
 	    <p>Your message: 
 	    <br><textarea cols=\"39\" rows=\"5\" onKeyUp=\"javascript:setCounter();\" onClick=\"javascript:setCounter();\" onKeyUp=\"javascript: SmsCountKeyUp($max_length);\" onKeyDown=\"javascript: SmsCountKeyDown($max_length);\" onkeypress=\"javascript:setCounter();\" onblur=\"javascript:setCounter();\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
-	    <br>Character left: <input value=\"$max_length\" style=\"font-weight:bold;\" type=\"text\" onKeyPress=\"if (window.event.keyCode == 13){return false;}\" onFocus=\"this.blur();\" size=\"3\" name=\"charNumberLeftOutput\" id=\"charNumberLeftOutput\">
-	    <br>SMS Character: <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"\" size=\"25\" onFocus=\"document.frmSendSms.message.focus();\" readonly> 
-            <input type=\"hidden\" value=\"160\" name=\"hiddcount\"> 
+	    <!-- <br>Character left: <input value=\"$max_length\" style=\"font-weight:bold;\" type=\"text\" onKeyPress=\"if (window.event.keyCode == 13){return false;}\" onFocus=\"this.blur();\" size=\"3\" name=\"charNumberLeftOutput\" id=\"charNumberLeftOutput\"> -->
+	    <br>SMS Character: <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly> 
+            <input type=\"hidden\" value=\"153\" name=\"hiddcount\"> 
 		<p><input type=checkbox name=msg_flash> Send as flash message
 	    <p><input type=checkbox name=msg_unicode> Send as unicode message (http://www.unicode.org)
 	    <p><input type=submit class=button value=Send onClick=\"selectAllOptions(this.form[p_num[]])\"> 
@@ -310,7 +310,7 @@ switch ($op)
                         var result4;
                         if (field.value.length > maxlimit)
                         {
-                                if(maxlimit == 160)
+                                if(maxlimit == 153)
                                 {
                                         messagelen = Math.ceil(field.value.length/maxlimit)*7;
                                 }
@@ -320,13 +320,13 @@ switch ($op)
                                 }
                                 messagelenudh1 = messagelen + field.value.length;
                                 messagelenudh = Math.ceil(messagelenudh1/maxlimit);
-                                result3 = field.value.length + ' : ' + messagelenudh + ' SMS Message(s)' ;
+                                result3 = field.value.length + ' char : ' + messagelenudh + ' SMS' ;
                                 return result3;
                         }
                         // otherwise, update 'characters left' counter
                         else
                         {
-                         result4 = field.value.length + ' : 1 SMS Message(s)' ;
+                         result4 = field.value.length + ' char : 1 SMS' ;
                         return result4;
                         //return  field.value.length;
  			}
@@ -376,9 +376,9 @@ switch ($op)
 	    <p><input type=\"button\" onClick=\"javascript: setTemplate();\" name=\"nb\" value=\"Use Template\" class=\"button\">
 	    <p>Your message: 
 	    <br><textarea cols=\"39\" rows=\"5\" onKeyUp=\"javascript:setCounter();\" onClick=\"javascript:setCounter();\" onblur=\"javascript:setCounter();\" onkeypress=\"javascript:setCounter();\" onKeyUp=\"javascript: SmsCountKeyUp($max_length);\" onKeyDown=\"javascript: SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
-	    <br>Character left: <input value=\"$max_length\" style=\"font-weight:bold;\" type=\"text\" onKeyPress=\"if (window.event.keyCode == 13){return false;}\" onFocus=\"this.blur();\" size=\"3\" name=\"charNumberLeftOutput\" id=\"charNumberLeftOutput\">
-	   <br>SMS Character: <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"\" size=\"25\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
-            <input type=\"hidden\" value=\"160\" name=\"hiddcount\">
+	    <!-- <br>Character left: <input value=\"$max_length\" style=\"font-weight:bold;\" type=\"text\" onKeyPress=\"if (window.event.keyCode == 13){return false;}\" onFocus=\"this.blur();\" size=\"3\" name=\"charNumberLeftOutput\" id=\"charNumberLeftOutput\"> -->
+	    <br>SMS Character: <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
+            <input type=\"hidden\" value=\"153\" name=\"hiddcount\">
 			 <p><input type=checkbox name=msg_flash> Send as flash message
 	    <p><input type=submit class=button value=Send onClick=\"selectAllOptions(this.form[gp_code[]])\"> 
 	    </form>
