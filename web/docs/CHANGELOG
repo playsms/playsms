@@ -1,4 +1,9 @@
-Version 0.9.5-rc1 - unknown
+Version 0.9.5-rc2 - unknown
+- add show js for how many SMS and characters has been composed (adetunjiha)
+- fix timeout issue when sending bulk SMS due to HTTP posted too large (adetunjiha)
+- fix regression plugin autosend unable to edit or delete entry (emmanuel)
+
+Version 0.9.5-rc1 - 100903
 - rename *_execgwcustomcmd() to *_playsmsd() (anton)
 - change label "success" to "handled" and "fail" to "unhandled", status on incoming SMS (anton)
 - change default gateway module to smstools (anton)
@@ -10,8 +15,6 @@ Version 0.9.5-rc1 - unknown
 - add themes selection from web in main configuration (emmanuel)
 - add gateway module selection from web in main configuration (anton)
 - add limit 100 on getting delivery status via input.php (thapa)
-- add show js for how many SMS and characters has been composed (adetunjiha)
-- fix timeout issue when sending bulk SMS due to HTTP posted too large (adetunjiha)
 - fix security in input.php, one can get data without proper auth (thapa)
 - fix on all php files, close unterminated variables with single-quote (anton)
 - fix on all php files, replace <? with <?php (anton)
