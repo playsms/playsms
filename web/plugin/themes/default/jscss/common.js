@@ -88,7 +88,7 @@ function SureConfirm()
     if (confirm('Are you sure ?')) {return true;} else {return false;}
 }
 
-function SetSMSTemplate() {
+function SetSmsTemplate() {
     sellength = document.forms.fm_sendsms.smstemplate.length;
     for ( i=0; i<sellength; i++)
     {
@@ -99,7 +99,7 @@ function SetSMSTemplate() {
     }
 }
 
-function SMSTextCounter(field, maxlimit) {
+function SmsTextCounter(field, maxlimit) {
     var messagelen=1;
     var mesagelenudh;
     var messagelenudh1;
@@ -114,20 +114,20 @@ function SMSTextCounter(field, maxlimit) {
 	}
 	    messagelenudh1 = messagelen + field.value.length;
 	    messagelenudh = Math.ceil(messagelenudh1/maxlimit);
-	    hamm = 'SMS(es)';
-	    result1 = field.value.length + ' char : ' + messagelenudh + ' SMS' ;
+	    hamm = 'Sms(es)';
+	    result1 = field.value.length + ' char : ' + messagelenudh + ' Sms' ;
 	    //return messagelenudh; 
 	    return result1;
 	} else {
 	    // otherwise, update 'characters left' counter
-	    result2 = field.value.length + ' char : 1 SMS' ;
+	    result2 = field.value.length + ' char : 1 Sms' ;
 	    return result2;
 	    //return  field.value.length;
     }
 }
 
-function SMSSetCounter() {
-    var ilen = SMSTextCounter(document.fm_sendsms.message,document.fm_sendsms.hiddcount.value );
+function SmsSetCounter() {
+    var ilen = SmsTextCounter(document.fm_sendsms.message,document.fm_sendsms.hiddcount.value );
     document.fm_sendsms.txtcount.value  = ilen ;
 }
 
