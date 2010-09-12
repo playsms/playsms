@@ -133,7 +133,6 @@ function websend2group($username,$gp_code,$message,$sms_type='text')
 	    $sms_sender = str_replace("\"","",$sms_sender);
 	    $sms_to = str_replace("\'","",$sms_to);
 	    $sms_to = str_replace("\"","",$sms_to);
-	    $the_msg = "$sms_to\n$sms_msg";
 	    $to[$j] = $sms_to;
 	    $ok[$j] = 0;
 	    if ($ret = sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$c_gp_code,$sms_type,$unicode))
@@ -185,7 +184,6 @@ function send2group($mobile_sender,$gp_code,$message)
 		    $sms_msg = str_replace("\r","",$sms_msg);
 		    $sms_msg = str_replace("\n","",$sms_msg);
 		    $sms_msg = str_replace("\""," ",$sms_msg);
-		    $the_msg = "$sms_to\n$sms_msg";
 		    $mobile_sender = str_replace("\'","",$mobile_sender);
 		    $mobile_sender = str_replace("\"","",$mobile_sender);
 		    $sms_sender = str_replace("\'","",$sms_sender);

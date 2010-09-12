@@ -178,9 +178,9 @@ function q_sanitize($var)
 function x_hook($c_plugin, $c_function, $c_param=array())
 {
     $c_fn = $c_plugin.'_hook_'.$c_function;
-    if (function_exists($c_fn))
+    if ($c_plugin && $c_function && function_exists($c_fn))
     {
-	return call_user_func_array($c_fn,$c_param);
+	return call_user_func_array($c_fn, $c_param);
     }
 }
 
