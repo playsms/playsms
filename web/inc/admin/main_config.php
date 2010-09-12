@@ -22,6 +22,13 @@ switch ($op)
 	    $option_themes_module .= "<option value=\"$themes\" $selected>$themes</option>";
 	    $selected = "";
 	}
+	// get language options
+	for ($i=0;$i<count($core_config['languagelist']);$i++) {
+	    $language = $core_config['languagelist'][$i];
+	    if ($language == $language_module) $selected = "selected";
+	    $option_language_module .= "<option value=\"$language\" $selected>$language</option>";
+	    $selected = "";
+	}
 	$content .= "
 	    <h2>Main configuration</h2>
 	    <p>
@@ -47,6 +54,9 @@ switch ($op)
 	    </tr>
 	    <tr>
 		<td>Active themes</td><td>:</td><td><select name=edit_themes_module>$option_themes_module</select></td>
+	    </tr>
+	    <tr>
+		<td>Active language</td><td>:</td><td><select name=edit_language_module>$option_language_module</select></td>
 	    </tr>
 	</table>	    
 	    <p><input type=submit class=button value=Save>

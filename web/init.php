@@ -101,7 +101,7 @@ $apps_path['themes']	= $apps_path['plug'].'/themes';
 $http_path['themes']	= $http_path['plug'].'/themes';
 
 // plugins category
-$plugins_category = array('tools','feature','gateway','themes');
+$plugins_category = array('tools','feature','gateway','themes','language');
 
 // table's prefix
 define('_DB_PREF_',$db_param['pref']);
@@ -124,6 +124,7 @@ if ($db_row = dba_fetch_array($db_result))
     $default_rate = $db_row['cfg_default_rate'];
     $tmp_gateway_module = $db_row['cfg_gateway_module'];
     $tmp_themes_module = $db_row['cfg_themes_module'];
+    $tmp_language_module = $db_row['cfg_language_module'];
 }
 
 // verify selected gateway_module exists
@@ -141,6 +142,19 @@ $themes_module = 'default';
 if (file_exists($fn1) && file_exists($fn2)) {
     $themes_module = $tmp_themes_module;
 }
+
+// verify selected language_module exists
+$fn1 = $apps_path['plug'].'/language/'.$tmp_language_module.'/config.php';
+$fn2 = $apps_path['plug'].'/language/'.$tmp_language_module.'/fn.php';
+$language_module = 'en_US';
+if (file_exists($fn1) && file_exists($fn2)) {
+    $language_module = $tmp_language_module;
+}
+
+// multi-language init
+bindtextdomain('playsmstxt', $apps_path['plug'].'/language/');
+textdomain('playsmstxt');
+setlocale(LC_ALL, $language_module);
 
 // set global variable
 $date_format		= "Y-m-d";

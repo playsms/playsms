@@ -596,7 +596,8 @@ CREATE TABLE `playsms_tblConfig_main` (
   `cfg_gateway_module` varchar(20) default NULL,
   `cfg_gateway_number` varchar(100) default NULL,
   `cfg_themes_module` varchar(100) default NULL,
-  `cfg_default_rate` FLOAT NOT NULL
+  `cfg_default_rate` FLOAT NOT NULL,
+  `cfg_language_module` varchar(10) default 'en_US'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -605,7 +606,7 @@ CREATE TABLE `playsms_tblConfig_main` (
 
 LOCK TABLES `playsms_tblConfig_main` WRITE;
 /*!40000 ALTER TABLE `playsms_tblConfig_main` DISABLE KEYS */;
-INSERT INTO `playsms_tblConfig_main` VALUES (0,'playSMS','noreply@playsms.sf.net','powered by playSMS','gnokii','000','default',0);
+INSERT INTO `playsms_tblConfig_main` VALUES (0,'playSMS','noreply@playsms.sf.net','powered by playSMS','gnokii','000','default',0,'en_US');
 /*!40000 ALTER TABLE `playsms_tblConfig_main` ENABLE KEYS */;
 UNLOCK TABLES;
 

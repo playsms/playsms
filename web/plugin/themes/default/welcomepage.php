@@ -4,7 +4,7 @@ if (!valid()) { forcelogout(); };
 include $apps_path['themes']."/".$themes_module."/header.php";
 
 $content = "
-    <h2>Welcome to playSMS</h2>
+    <h2>"._('Welcome to playSMS')."</h2>
     <p>
     <input type=button value=\"About playSMS\" onClick=\"javascript:linkto('index.php?get=1')\" class=\"button\" />
     <input type=button value=\"Changelog\" onClick=\"javascript:linkto('index.php?get=2')\" class=\"button\" />

@@ -10,6 +10,7 @@ CREATE TABLE `playsms_tblRate` (
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 ALTER TABLE `playsms_tblConfig_main` ADD `cfg_default_rate` FLOAT NOT NULL ;
+ALTER TABLE `playsms_tblConfig_main` ADD `cfg_language_module` VARCHAR(10) DEFAULT 'en_US' ;
 
 ALTER TABLE `playsms_tblUser` ADD `credit` DOUBLE NOT NULL ;
 
