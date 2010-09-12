@@ -6,6 +6,7 @@ and categorized into 4 different categories, they are:
 - feature
 - gateway
 - themes
+- language
 
 
 Tools
@@ -28,5 +29,10 @@ connected to SMS gateway applications or services.
 Themes
 ------
 Here installed playSMS's themes.
+
+
+Language
+--------
+Here installed language database based on gettext
 
 

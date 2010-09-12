@@ -1,7 +1,7 @@
 Version 0.9.5-rc2 - unknown
 - add show js for how many SMS and characters has been composed (adetunjiha)
 - add logger_set_error_string() and logger_get_error_string() to handle long error_string (anton)
-- fix timeout issue when sending bulk SMS due to HTTP posted too large (adetunjiha)
+- add multi-language support using gettext (emmanuel)
 - fix regression plugin autosend unable to edit or delete entry (emmanuel)
 - fix regression js not working on send sms form (anton)
 
