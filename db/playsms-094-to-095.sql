@@ -13,3 +13,9 @@ ALTER TABLE `playsms_tblConfig_main` ADD `cfg_default_rate` FLOAT NOT NULL ;
 
 ALTER TABLE `playsms_tblUser` ADD `credit` DOUBLE NOT NULL ;
 
+DROP TABLE IF EXISTS `playsms_tblErrorString`;
+CREATE TABLE `playsms`.`playsms_tblErrorString` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `error_string` TEXT NOT NULL ,
+  PRIMARY KEY ( `id` )
+) ENGINE = MYISAM ;

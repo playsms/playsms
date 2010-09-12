@@ -6,6 +6,7 @@ $inc = q_sanitize($_REQUEST['inc']);
 $op = q_sanitize($_REQUEST['op']);
 
 $err = $_REQUEST['err'];
+$errid = $_REQUEST['errid'];
 $page = $_REQUEST['page'];
 $nav = $_REQUEST['nav'];
 

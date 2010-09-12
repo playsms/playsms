@@ -879,6 +879,21 @@ INSERT INTO `playsms_tblUser_country` VALUES (0,1,'Afghanistan',''),(0,2,'Albani
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
+--
+-- Table structure for table `playsms_tblErrorString`
+--
+
+DROP TABLE IF EXISTS `playsms_tblErrorString`;
+CREATE TABLE `playsms`.`playsms_tblErrorString` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `error_string` TEXT NOT NULL ,
+  PRIMARY KEY ( `id` )
+) ENGINE = MYISAM ;
+
+--
+-- Dumping data for table `playsms_tblErrorString`
+--
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;

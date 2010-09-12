@@ -47,10 +47,6 @@ switch ($op)
 	{
 	    $sms_sender = "<i>not set</i>";
 	}
-	if ($err)
-	{
-	    $content = "<p><font color=red>$err</font><p>";
-	}
 	for ($i=0;$i<=23;$i++)
 	{
 	    $c_i = sprintf("%02d",$i);
@@ -83,6 +79,12 @@ switch ($op)
 
 	// document.fm_sendsms.message.value = document.fm_smstemplate.content_num.value;
 	// New function introduce for long sms count and another field (SMS Character) added to send sms broadcast 
+	if ($errid) {
+	    $err = logger_get_error_string($errid);
+	}
+	if ($err) {
+	    $content = "<p><font color=red>$err</font><p>";
+	}
 	$content .= "
 	    <form name=\"fm_smstemplate\">
 	    $input_values
@@ -131,44 +133,33 @@ switch ($op)
 	break;
     case "sendsmstopv_yes":
 	$p_num = $_POST['p_num'];
-	if (!$p_num[0])
-	{
+	if (!$p_num[0]) {
 	    $p_num = $_POST['p_num_text'];
 	}
 	$sms_to = $p_num;
 	$msg_flash = $_POST['msg_flash'];
 	$msg_unicode = $_POST['msg_unicode'];
 	$message = $_POST['message'];
-	if (($p_num || $sms_to) && $message)
-	{
+	if (($p_num || $sms_to) && $message) {
 	    $sms_type = "text";
-	    if ($msg_flash == "on")
-	    {
+	    if ($msg_flash == "on") {
 		$sms_type = "flash";
 	    }
 	    $unicode = "0";
-	    if ($msg_unicode == "on")
-	    {
+	    if ($msg_unicode == "on") {
 		$unicode = "1";
 	    }
 	    list($ok,$to,$smslog_id) = websend2pv($username,$sms_to,$message,$sms_type,$unicode);
-	    for ($i=0;$i<count($ok);$i++)
-	    {
-		if ($ok[$i])
-		{
-		    $error_string .= "Your SMS has been delivered to queue<br>";
-		}
-		else
-		{
-		    $error_string .= "Fail to sent SMS to <br>";
+	    for ($i=0;$i<count($ok);$i++) {
+		if ($ok[$i]) {
+		    $error_string .= "Your SMS to `".$to[$i]."` has been delivered to queue<br>";
+		} else {
+		    $error_string .= "Fail to sent SMS to `".$to[$i]."`<br>";
 	        }
 	    }
-		// This introduce to solve the time out error when sending many sms and also redisplay content of sms after sms has been sent
-	$message1="sent sms";
-    header("Location: menu.php?inc=send_sms&op=sendsmstopv&message=".urlencode($message1)."&err=".urlencode($error_string));
-	}
-	else
-	{
+	    $errid = logger_set_error_string($error_string);
+	    header("Location: menu.php?inc=send_sms&op=sendsmstopv&message=".urlencode($message)."&errid=".$errid);
+	} else {
 	    header("Location: menu.php?inc=send_sms&op=sendsmstopv&message=".urlencode($message)."&err=".urlencode("You must select receiver and your message should not be empty"));
 	}
 	break;
@@ -206,10 +197,6 @@ switch ($op)
 	{
 	    $sms_sender = "<i>not set</i>";
 	}
-	if ($err)
-	{
-	    $content = "<p><font color=red>$err</font><p>";
-	}
 	if ($gateway_number)
 	{
 	    $sms_from = $gateway_number;
@@ -232,6 +219,12 @@ switch ($op)
 
 	// document.fm_sendsms.message.value = document.fm_smstemplate.content_num.value;
 	// New function introduce for long sms count and another field (SMS Character) added to send sms broadcast 
+	if ($errid) {
+	    $err = logger_get_error_string($errid);
+	}
+	if ($err) {
+	    $content = "<p><font color=red>$err</font><p>";
+	}
 	$content .= "
 	    <form name=\"fm_smstemplate\">
 	    $input_values
@@ -282,37 +275,27 @@ switch ($op)
 	break;
     case "sendsmstogr_yes":
 	$gp_code = $_POST['gp_code'];
-	if (!$gp_code[0])
-	{
+	if (!$gp_code[0]) {
 	    $gp_code = $_POST['gp_code_text'];
 	}
 	$msg_flash = $_POST['msg_flash'];
 	$message = $_POST['message'];
-	if ($gp_code && $message)
-	{
+	if ($gp_code && $message) {
 	    $sms_type = "text";
-	    if ($msg_flash == "on")
-	    {
+	    if ($msg_flash == "on") {
 		$sms_type = "flash";
 	    }
 	    list($ok,$to,$smslog_id) = websend2group($username,$gp_code,$message,$sms_type);
-	    for ($i=0;$i<count($ok);$i++)
-	    {
-	        if ($ok[$i])
-	        {
-	    	    $error_string .= "Your SMS for has been delivered to queue<br>";
-	        }
-	        else
-	        {
-	    	    $error_string .= "Fail to sent SMS to <br>";
+	    for ($i=0;$i<count($ok);$i++) {
+	        if ($ok[$i]) {
+	    	    $error_string .= "Your SMS to `".$to[$i]."` has been delivered to queue<br>";
+	        } else {
+	    	    $error_string .= "Fail to sent SMS to `".$to[$i]."`<br>";
 		}
 	    }
-		// This introduce to solve the time out error when sending many sms and also not to redisplay content of sms after sms has been sent
-	 $message2="SMS Sent";
-       header("Location: menu.php?inc=send_sms&op=sendsmstogr&message=".urlencode($message1)."&err=".urlencode($error_string));
-	}
-	else
-	{
+	    $errid = logger_set_error_string($error_string);
+	    header("Location: menu.php?inc=send_sms&op=sendsmstogr&message=".urlencode($message)."&errid=".$errid);
+	} else {
 	    header("Location: menu.php?inc=send_sms&op=sendsmstogr&message=".urlencode($message)."&err=".urlencode("You must select receiver group and your message should not be empty"));
 	}
 	break;
