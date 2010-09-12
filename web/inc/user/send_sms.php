@@ -97,34 +97,34 @@ switch ($op)
 	    <tr>
 		<td nowrap>
 		    Phone number(s):<br>
-		    <select name=\"p_num_dump[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form[p_num_dump[]],this.form[p_num[]])\">$list_of_number</select>
+		    <select name=\"p_num_dump[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\">$list_of_number</select>
 		</td>
 		<td width=10>&nbsp;</td>
 		<td align=center valign=middle>
-		<input type=\"button\" class=\"button\" value=\"&gt;&gt;\" onclick=\"moveSelectedOptions(this.form[p_num_dump[]],this.form[p_num[]])\"><br><br>
-		<input type=\"button\" class=\"button\" value=\"All &gt;&gt;\" onclick=\"moveAllOptions(this.form[p_num_dump[]],this.form[p_num[]])\"><br><br>
-		<input type=\"button\" class=\"button\" value=\"&lt;&lt;\" onclick=\"moveSelectedOptions(this.form[p_num[]],this.form[p_num_dump[]])\"><br><br>
-		<input type=\"button\" class=\"button\" value=\"All &lt;&lt;\" onclick=\"moveAllOptions(this.form[p_num[]],this.form[p_num_dump[]])\">
+		<input type=\"button\" class=\"button\" value=\"&gt;&gt;\" onclick=\"moveSelectedOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\"><br><br>
+		<input type=\"button\" class=\"button\" value=\"All &gt;&gt;\" onclick=\"moveAllOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\"><br><br>
+		<input type=\"button\" class=\"button\" value=\"&lt;&lt;\" onclick=\"moveSelectedOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\"><br><br>
+		<input type=\"button\" class=\"button\" value=\"All &lt;&lt;\" onclick=\"moveAllOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\">
 		</td>		
 		<td width=10>&nbsp;</td>
 		<td nowrap>
 		    Send to:<br>
-		    <select name=\"p_num[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form[p_num[]],this.form[p_num_dump[]])\"></select>
+		    <select name=\"p_num[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\"></select>
 		</td>
 	    </tr>
 	    </table>
 	    <p>Or: <input type=text size=20 maxlength=13 name=p_num_text value=\"$dst_p_num\"> (International format)
 	    <p>SMS Sender ID (SMS footer): $sms_sender
 	    <p>Message template: <select name=\"smstemplate\">$option_values</select>
-	    <p><input type=\"button\" onClick=\"javascript: SetSmsTemplate();\" name=\"nb\" value=\"Use Template\" class=\"button\">
+	    <p><input type=\"button\" onClick=\"SetSmsTemplate();\" name=\"nb\" value=\"Use Template\" class=\"button\">
 	    <p>Your message: 
-	    <br><textarea cols=\"39\" rows=\"5\" onKeyUp=\"javascript: SmsSetCounter();\" onClick=\"javascript: SmsSetCounter();\" onKeyUp=\"javascript: SmsCountKeyUp($max_length);\" onKeyDown=\"javascript: SmsCountKeyDown($max_length);\" onkeypress=\"javascript:SmsSetCounter();\" onblur=\"javascript:SmsSetCounter();\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
+	    <br><textarea cols=\"39\" rows=\"5\" onKeyUp=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onKeyUp=\"SmsCountKeyUp($max_length);\" onKeyDown=\"SmsCountKeyDown($max_length);\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
 	    <!-- <br>Character left: <input value=\"$max_length\" style=\"font-weight:bold;\" type=\"text\" onKeyPress=\"if (window.event.keyCode == 13){return false;}\" onFocus=\"this.blur();\" size=\"3\" name=\"charNumberLeftOutput\" id=\"charNumberLeftOutput\"> -->
 	    <br>SMS Character: <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
             <input type=\"hidden\" value=\"153\" name=\"hiddcount\"> 
 		<p><input type=checkbox name=msg_flash> Send as flash message
 	    <p><input type=checkbox name=msg_unicode> Send as unicode message (http://www.unicode.org)
-	    <p><input type=submit class=button value=Send onClick=\"selectAllOptions(this.form[p_num[]])\"> 
+	    <p><input type=submit class=button value=Send onClick=\"selectAllOptions(this.form['p_num[]'])\"> 
 	    </form>
 	";
 	echo $content;
@@ -268,9 +268,9 @@ switch ($op)
 	    <p>Or: <input type=text size=20 maxlength=20 name=gp_code_text value=\"$dst_gp_code\"> (Group name)
 	    <p>SMS Sender ID (SMS footer): $sms_sender 
 	    <p>Message template: <select name=\"smstemplate\">$option_values</select>
-	    <p><input type=\"button\" onClick=\"javascript: SetSmsTemplate();\" name=\"nb\" value=\"Use Template\" class=\"button\">
+	    <p><input type=\"button\" onClick=\"SetSmsTemplate();\" name=\"nb\" value=\"Use Template\" class=\"button\">
 	    <p>Your message: 
-	    <br><textarea cols=\"39\" rows=\"5\" onKeyUp=\"javascript: SmsSetCounter();\" onClick=\"javascript: SmsSetCounter();\" onblur=\"javascript:SmsSetCounter();\" onkeypress=\"javascript: SmsSetCounter();\" onKeyUp=\"javascript: SmsCountKeyUp($max_length);\" onKeyDown=\"javascript: SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
+	    <br><textarea cols=\"39\" rows=\"5\" onKeyUp=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onKeyUp=\"SmsCountKeyUp($max_length);\" onKeyDown=\"SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
 	    <!-- <br>Character left: <input value=\"$max_length\" style=\"font-weight:bold;\" type=\"text\" onKeyPress=\"if (window.event.keyCode == 13){return false;}\" onFocus=\"this.blur();\" size=\"3\" name=\"charNumberLeftOutput\" id=\"charNumberLeftOutput\"> -->
 	    <br>SMS Character: <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
             <input type=\"hidden\" value=\"153\" name=\"hiddcount\">

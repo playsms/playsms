@@ -22,7 +22,7 @@ td,div {
 	font-size: 8pt;
 	font-weight: normal;
 	color: #000000;
-	background-color: ;
+	/* background-color: ; */
 }
 
 h1 {
@@ -31,7 +31,7 @@ h1 {
 	font-weight: bold;
 	text-align: left;
 	color: #0E4C8C;
-	background-color: ;
+	/* background-color: ; */
 	margin-top: 0;
 	margin-bottom: 0;
 }
@@ -42,7 +42,7 @@ h2 {
 	font-weight: bold;
 	text-align: left;
 	color: #0E4C8C;
-	background-color: ;
+	/* background-color: ; */
 	margin-top: 0;
 	margin-bottom: 0;
 }
@@ -127,8 +127,8 @@ li {
 	font-weight: bold;
 	text-align: center;
 	color: #ffc000;
-	background-color: #ffffff;
-	border: 1 solid #3785E9;
+	/* background-color: ; */
+	/* border: 1 solid #3785E9; */
 }
 
 .box_title {
@@ -145,26 +145,26 @@ li {
 	font-size: 12pt;
 	font-weight: bold;
 	text-align: left;
-	color: ;
-	background-color: ;
+	/* color: ; */
+	/* background-color: ; */
 }
 
 .box_text {
 	font-family: Verdana, Helvetica, MS Sans Serif;
 	font-size: 8pt;
 	font-weight: normal;
-	text-align: ;
+	/* text-align: ; */
 	color: #000000;
-	background-color: ;
+	/* background-color: ; */
 }
 
 .boxItem {
-	background: ;
+	/* background: ; */
 	padding: 3px;
-	border-top: 1 solid #000000;
-	border-left: 1 solid #000000;
-	border-right: 1 solid #c0c0c0;
-	border-bottom: 1 solid #c0c0c0;
+	/* border-top: 1 solid #000000; */
+	/* border-left: 1 solid #000000; */
+	/* border-right: 1 solid #c0c0c0; */
+	/* border-bottom: 1 solid #c0c0c0; */
 }
 
 .box_text_odd {
