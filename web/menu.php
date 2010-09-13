@@ -28,44 +28,20 @@ if (file_exists($c_fn))
     include $c_fn;
 }
 
-// plugin tools
-for ($c=0;$c<count($core_config['toolslist']);$c++)
-{
-    if ($inc == 'feature_'.$core_config['toolslist'][$c])
-    {
-	$c_fn = $apps_path['plug'].'/tools/'.$core_config['toolslist'][$c].'/'.$core_config['toolslist'][$c].'.php';
-	if (file_exists($c_fn))
+// plugins
+for ($i=0;$i<count($plugins_category);$i++) {
+    if ($pc = $plugins_category[$i]) {
+	for ($c=0;$c<count($core_config[$pc.'list']);$c++)
 	{
-	    include $c_fn;
-	    break;
-	}
-    }
-}
-
-// plugin feature
-for ($c=0;$c<count($core_config['featurelist']);$c++)
-{
-    if ($inc == 'feature_'.$core_config['featurelist'][$c])
-    {
-	$c_fn = $apps_path['plug'].'/feature/'.$core_config['featurelist'][$c].'/'.$core_config['featurelist'][$c].'.php';
-	if (file_exists($c_fn))
-	{
-	    include $c_fn;
-	    break;
-	}
-    }
-}
-
-// plugin gateway
-for ($c=0;$c<count($core_config['gatewaylist']);$c++)
-{
-    if ($inc == 'gateway_'.$core_config['gatewaylist'][$c])
-    {
-	$c_fn = $apps_path['plug'].'/gateway/'.$core_config['gatewaylist'][$c].'/'.$core_config['gatewaylist'][$c].'.php';
-	if (file_exists($c_fn))
-	{
-	    include $c_fn;
-	    break;
+	    if ($inc == $pc.'_'.$core_config[$pc.'list'][$c])
+	    {
+		$c_fn = $apps_path['plug'].'/'.$pc.'/'.$core_config[$pc.'list'][$c].'/'.$core_config[$pc.'list'][$c].'.php';
+		if (file_exists($c_fn))
+		{
+		    include_once $c_fn;
+		    break;
+		}
+	    }
 	}
     }
 }
