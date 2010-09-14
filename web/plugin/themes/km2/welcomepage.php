@@ -15,18 +15,18 @@ $content .= "
 
 if($status == 2) {
 $content .= "
-    <input type=button value=\"About playSMS\" onClick=\"javascript:linkto('index.php?get=1')\" class=\"button\" />
-    <input type=button value=\"Changelog\" onClick=\"javascript:linkto('index.php?get=2')\" class=\"button\" />
-    <input type=button value=\"Installation Guide\" onClick=\"javascript:linkto('index.php?get=3')\" class=\"button\" />
-    <input type=button value=\"F.A.Q\" onClick=\"javascript:linkto('index.php?get=4')\" class=\"button\" />
-    <input type=button value=\"License\" onClick=\"javascript:linkto('index.php?get=5')\" class=\"button\" />
+    <input type=button value='"._('About playSMS')."' onClick=\"javascript:linkto('index.php?get=1')\" class='button' />
+    <input type=button value='"._('Changelog')."' onClick=\"javascript:linkto('index.php?get=2')\" class='button' />
+    <input type=button value='"._('Installation Guide')."' onClick=\"javascript:linkto('index.php?get=3')\" class='button' />
+    <input type=button value='"._('F.A.Q')."' onClick=\"javascript:linkto('index.php?get=4')\" class='button' />
+    <input type=button value='"._('License')."' onClick=\"javascript:linkto('index.php?get=5')\" class='button' />
 ";
 }
 
 $content .= "
-    <!-- input type=button value=\"FAQ Users\" onClick=\"javascript:linkto('index.php?get=6')\" class=\"button\" /-->";
+    <!-- input type=button value='"._('FAQ Users')."' onClick=\"javascript:linkto('index.php?get=6')\" class='button' /-->";
 
-    $content .= "<hr size=1>";
+    $content .= "<hr size='1'>";
 
 
 if($status == 2) {

@@ -10,37 +10,37 @@
 <body>
 <div id="wraplogin">
 <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
-<TR>
+<tr>
     <td align="center" valign="center" bgcolor="#666666">
-    <TABLE width=960px height=125px BORDER=0 CELLPADDING=0 CELLSPACING=0>
-    <TR>
+    <table width="960px" height="125px" border="0" cellpadding="0" cellspacing="0">
+    <tr>
         <!--td background="<?=$http_path['themes']?>/<?=$themes_module?>/images/header-4.png"-->
-        <td class='header' >
+        <td class="header" >
             <br />
             <table border="0" cellpadding="2" cellspacing="2">
 	      <tr>
-               <td colspan=2><?=$error_content?></td>
+               <td colspan="2"><?=$error_content?></td>
               </tr>
-            <form action=menu.php method=POST>
-              <input type=hidden name=inc value=login>
+            <form action="menu.php" method="POST">
+              <input type="hidden" name="inc" value="login">
               <tr>
-                <td width="90" align="right"><font color="white">Username &nbsp; </td>
-                <td>&nbsp;<input type=text name=username maxlength=100 size=20></td>
+                <td width="90" align="right"><font color="white"><?=_('Username ')?></td>
+                <td>&nbsp;<input type="text" name="username" maxlength="100" size="20"></td>
     	      </tr>
               <tr>
-               <td align="right"><font color="white">Password &nbsp; </font></td>
+               <td align="right"><font color="white"><?=_('Password ')?></font></td>
                <td>&nbsp;<input type=password name=password maxlength=100 size=20></td>
 	      </tr>
 	      <tr>
 		<td>&nbsp;</td>
-		<td>&nbsp;<input type=submit class=button value=Login></td>
+		<td>&nbsp;<input type="submit" class="button" value=<?=_('Login')?>></td>
 	      </tr>
 	    </form>          
 	    </table>
 	   <br />
 	</TD>
-    </TR>
-</TABLE>
+    </tr>
+</table>
 </td>
-</TR>
-</TABLE>
+</tr>
+</table>

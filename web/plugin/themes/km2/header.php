@@ -25,8 +25,8 @@
   <div id="header">
 
     <div class="headerleft">
-      <a href="http://www.mediacom.nc/">
-        <!--img src="https://192.168.0.46/plugin/themes/kmc-v1.0/images/header-3.png" alt="Revolution Two WordPress Themes" /-->
+      <a href="<?=$http_path['base']?>">
+        <!--img src="<?=$http_path['themes']?>/<?=$themes_module?>/images/your-logo.png" alt="Your logo" /-->
       </a>
     </div>
 
@@ -36,10 +36,10 @@
 <div id="navbar">
 
 	<ul id="nav">
-		<li><a href="./">Home</a></li>
-		<li class="page_item page-item-22"><a href="./menu.php?inc=user_pref&op=user_pref" title="Preferences">Preferences</a></li>
-		<li class="page_item page-item-22"><a href="./contact.php" title="Contact">Contact</a></li>
-		<li class="page_item page-item-22"><a href="./menu.php?inc=logout" title="Logout">Logout</a></li>
+		<li><a href="<?=$http_path['base']?>"><?=_('Home')?></a></li>
+		<li class="page_item page-item-22"><a href="./menu.php?inc=user_pref&op=user_pref" title="<?=_('Preferences')?>"><?=_('Preferences')?></a></li>
+		<li class="page_item page-item-22"><a href="./contact.php" title="<?=_('Contact')?>"><?=_('Contact')?></a></li>
+		<li class="page_item page-item-22"><a href="./menu.php?inc=logout" title="<?=_('Logout')?>"><?=_('Logout')?></a></li>
     
 </div>
 
@@ -48,7 +48,7 @@
 <div id="content">
 <div id="homepage">
 
-<table class="main" cellpadding="8" cellspacing="2" border="0" width=100%>
+<table class="main" cellpadding="8" cellspacing="2" border="0" width="100%">
 <tr>
     
     <!-- left menu -->

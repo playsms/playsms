@@ -1,3 +1,73 @@
-msgid "Welcome to playSMS"
-msgstr "Welcome to playSMS"
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-09-15 02:43+0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
 
+#: plugin/themes/default/welcomepage.php:7
+msgid "Welcome to playSMS"
+msgstr ""
+
+#: plugin/themes/km2/header.php:39
+msgid "Home"
+msgstr ""
+
+#: plugin/themes/km2/header.php:40
+msgid "Preferences"
+msgstr ""
+
+#: plugin/themes/km2/header.php:41
+msgid "Contact"
+msgstr ""
+
+#: plugin/themes/km2/header.php:42
+msgid "Logout"
+msgstr ""
+
+#: plugin/themes/km2/welcomepage.php:18
+msgid "About playSMS"
+msgstr ""
+
+#: plugin/themes/km2/welcomepage.php:19
+msgid "Changelog"
+msgstr ""
+
+#: plugin/themes/km2/welcomepage.php:20
+msgid "Installation Guide"
+msgstr ""
+
+#: plugin/themes/km2/welcomepage.php:21
+msgid "F.A.Q"
+msgstr ""
+
+#: plugin/themes/km2/welcomepage.php:22
+msgid "License"
+msgstr ""
+
+#: plugin/themes/km2/welcomepage.php:27
+msgid "FAQ Users"
+msgstr ""
+
+#: plugin/themes/km2/loginpage.php:27
+msgid "Username "
+msgstr ""
+
+#: plugin/themes/km2/loginpage.php:31
+msgid "Password "
+msgstr ""
+
+#: plugin/themes/km2/loginpage.php:36
+msgid "Login"
+msgstr ""
