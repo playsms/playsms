@@ -72,6 +72,7 @@ switch ($op)
 	$edit_default_rate = $_POST['edit_default_rate'];
 	$edit_gateway_module = $_POST['edit_gateway_module'];
 	$edit_themes_module = $_POST['edit_themes_module'];
+	$edit_language_module = $_POST['edit_language_module'];
 	$db_query = "
 	    UPDATE "._DB_PREF_."_tblConfig_main 
 	    SET c_timestamp='".mktime()."',
@@ -81,7 +82,8 @@ switch ($op)
 		cfg_gateway_number='$edit_gateway_number',
 		cfg_default_rate='$edit_default_rate',
 		cfg_gateway_module='$edit_gateway_module',
-		cfg_themes_module='$edit_themes_module'
+		cfg_themes_module='$edit_themes_module',
+		cfg_language_module='$edit_language_module'
 	";
 	$db_result = dba_query($db_query);
 	$error_string = "Main configuration has been saved";

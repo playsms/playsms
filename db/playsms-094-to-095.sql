@@ -15,7 +15,7 @@ ALTER TABLE `playsms_tblConfig_main` ADD `cfg_language_module` VARCHAR(10) DEFAU
 ALTER TABLE `playsms_tblUser` ADD `credit` DOUBLE NOT NULL ;
 
 DROP TABLE IF EXISTS `playsms_tblErrorString`;
-CREATE TABLE `playsms`.`playsms_tblErrorString` (
+CREATE TABLE `playsms_tblErrorString` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `error_string` TEXT NOT NULL ,
   PRIMARY KEY ( `id` )

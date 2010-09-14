@@ -885,7 +885,7 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `playsms_tblErrorString`;
-CREATE TABLE `playsms`.`playsms_tblErrorString` (
+CREATE TABLE `playsms_tblErrorString` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `error_string` TEXT NOT NULL ,
   PRIMARY KEY ( `id` )
