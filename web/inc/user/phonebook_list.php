@@ -12,7 +12,7 @@ while ($db_row = dba_fetch_array($db_result))
     $db_result1 = dba_query($db_query1);
     while ($db_row1 = dba_fetch_array($db_result1))
     {
-	$list_of_phonenumber .= "[<a href=\"javascript:ConfirmURL('Are you sure you want to delete mobiles number `".$db_row1['p_num']."` owned by `".$db_row1['p_desc']."` ?','menu.php?inc=phone_del&op=user&pid=".$db_row1['pid']."')\">x</a>'] <font size=-1>Number: <font color=darkgreen>".$db_row1['p_num']."</font> - Owner: <font color=darkgreen>".$db_row1['p_desc']."</font> ['<a href=\"javascript: PopupSendSms('PV','".$db_row1['p_num']."')\">send</a>]<br>\n";
+	$list_of_phonenumber .= "[<a href=\"javascript:ConfirmURL('Are you sure you want to delete mobiles number `".$db_row1['p_num']."` owned by `".$db_row1['p_desc']."` ?','menu.php?inc=phone_del&op=user&pid=".$db_row1['pid']."')\">x</a>'] <font size=-1>Number: <font color=darkgreen>".$db_row1['p_num']."</font> - Name: <font color=darkgreen>".$db_row1['p_desc']."</font> ['<a href=\"javascript: PopupSendSms('PV','".$db_row1['p_num']."')\">send</a>]<br>\n";
     }
     $list_of_phonenumber .= "<br>";
 }
@@ -48,7 +48,7 @@ while ($db_row = dba_fetch_array($db_result))
     <thead>
 	<tr>
 	    <th width=4>&nbsp;*&nbsp;</th>
-	    <th width=35%>Owner</th>
+	    <th width=35%>Name</th>
 	    <th width=25%>Number</th>
 	    <th width=40%>Email</th>
 	    <th width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.".$fm_name.")></td>
@@ -61,7 +61,7 @@ while ($db_row = dba_fetch_array($db_result))
     $i = 0;
     while ($db_row1 = dba_fetch_array($db_result1))
     {
-	// $list_of_phonenumber .= "[<a href=\"javascript:ConfirmURL('Are you sure you want to delete mobiles number `".$db_row1['p_num']."` owned by `".$db_row1['p_desc']."` ?','menu.php?inc=phone_del&op=user&pid=".$db_row1['pid']."')\">x</a>'] <font size=-1>Number: <font color=darkgreen>".$db_row1['p_num']."</font> - Owner: <font color=darkgreen>".$db_row1['p_desc']."</font> ['<a href=\"javascript: PopupSendSms('PV','".$db_row1['p_num']."')\">send</a>]<br>\n";
+	// $list_of_phonenumber .= "[<a href=\"javascript:ConfirmURL('Are you sure you want to delete mobiles number `".$db_row1['p_num']."` owned by `".$db_row1['p_desc']."` ?','menu.php?inc=phone_del&op=user&pid=".$db_row1['pid']."')\">x</a>'] <font size=-1>Number: <font color=darkgreen>".$db_row1['p_num']."</font> - Name: <font color=darkgreen>".$db_row1['p_desc']."</font> ['<a href=\"javascript: PopupSendSms('PV','".$db_row1['p_num']."')\">send</a>]<br>\n";
 	$i++;
         $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";	
 	$list_of_phonenumber .= "

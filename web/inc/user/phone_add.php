@@ -24,7 +24,7 @@ switch ($op)
 		<td width=150>Add number to group</td><td width=5>:</td><td><select name=gpid>$list_of_group</select></td>
 	    </tr>
 	    <tr>
-		<td>Owner of this number</td><td>:</td><td><input type=text name=p_desc size=50></td>
+		<td>Name</td><td>:</td><td><input type=text name=p_desc size=50></td>
 	    </tr>	    
 	    <tr>
 		<td>Mobile</td><td>:</td><td><input type=text name=p_num value=\"$phone\" size=20> (International format)</td>

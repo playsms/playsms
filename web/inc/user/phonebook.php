@@ -20,7 +20,7 @@ switch ($op)
 	    <input type=hidden name=op value=edit_yes>
 	    <tr>
 		<td class=box_title width=4>&nbsp;*&nbsp;</td>
-		<td class=box_title width='33%'>Edited Owner</td>
+		<td class=box_title width='33%'>Edited Name</td>
 		<td class=box_title width='33%'>Edited Number</td>
 		<td class=box_title width='33%'>Edited Email</td>
 	    </tr>
@@ -78,7 +78,7 @@ switch ($op)
 	    <input type=hidden name=op value=copy_yes>
 	    <tr>
 		<td class=box_title width=4>&nbsp;*&nbsp;</td>
-		<td class=box_title>Copied Owner</td>
+		<td class=box_title>Copied Name</td>
 		<td class=box_title>Copied Number</td>
 		<td class=box_title>Copied Email</td>
 		
@@ -144,7 +144,7 @@ switch ($op)
 	    <input type=hidden name=op value=delete_yes>
 	    <tr>
 		<td class=box_title width=4>&nbsp;*&nbsp;</td>
-		<td class=box_title>Deleted Owner</td>
+		<td class=box_title>Deleted Name</td>
 		<td class=box_title>Deleted Number</td>
 		<td class=box_title>Deleted Email</td>
 		
@@ -187,7 +187,7 @@ switch ($op)
 	    <input type=hidden name=op value=move_yes>
 	    <tr>
 		<td class=box_title width=4>&nbsp;*&nbsp;</td>
-		<td class=box_title>Moved Owner</td>
+		<td class=box_title>Moved Name</td>
 		<td class=box_title>Moved Number</td>
 		<td class=box_title>Moved Email</td>
 		
@@ -250,7 +250,7 @@ switch ($op)
 	    <input type=hidden name=op value=delete_yes>
 	    <tr>
 		<td class=box_title width=4>&nbsp;*&nbsp;</td>
-		<td class=box_title>Deleted Owner</td>
+		<td class=box_title>Deleted Name</td>
 		<td class=box_title>Deleted Number</td>
 		<td class=box_title>Deleted Email</td>
 		
