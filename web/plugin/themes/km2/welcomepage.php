@@ -4,7 +4,7 @@ if (!valid()) { forcelogout(); };
 include $apps_path['themes']."/".$themes_module."/header.php";
 
 $content = "
-    <h2>Welcome to PlaySMS</h2>
+    <h2>"._('Welcome to PlaySMS')."</h2>
     <p>";
 
 $status = username2status($username);

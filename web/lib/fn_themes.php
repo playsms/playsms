@@ -77,7 +77,7 @@
         {
             foreach($value as $sub_key1=>$sub_value1)
             {
-                $content_tree .= "\t\t d.add($tree_index,$tree_index_top,'".$sub_value1[1]."', '".$sub_value1[0]."', '', '".$sub_value1[2]."');\n";
+                $content_tree .= "\t\t d.add($tree_index,$tree_index_top,'".$sub_value1[1]."', '".$sub_value1[0]."', '', '');\n";
                 $tree_index++;
             }
             $tree_index_top++;
