@@ -7,8 +7,6 @@ $content = "
     <h2>"._('Welcome to PlaySMS')."</h2>
     <p>";
 
-$status = username2status($username);
-
 $content .= "
     <!--input type=button value=\"Vos statistiques\" onClick=\"javascript:linkto('menu.php?inc=user_home&op=user_stat')\" class=\"button\" /-->
 ";

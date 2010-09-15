@@ -22,20 +22,20 @@ switch ($op)
 	$limit = ($page-1)*$line_per_page;    
 	
 	$content = "
-	    <h2>All Outgoing SMS</h2>
+	    <h2>"._('All Outgoing SMS')."</h2>
 	    <p>$nav_pages</p>
 	    <form name=\"fm_outgoing\" action=\"menu.php?inc=all_outgoing&op=act_del\" method=post onSubmit=\"return SureConfirm()\">
 	    <table width=100% cellpadding=1 cellspacing=2 border=0 class=\"sortable\">
         <thead>
 	    <tr>
 	      <th align=center width=4>*</th>
-	      <th align=center width=20%>User</th>
-	      <th align=center width=20%>Time</th>
-	      <th align=center width=20%>Receiver</th>
-	      <th align=center width=30%>Message</th>
-	      <th align=center width=10%>Status</th>
-	      <th align=center width=4>Group</th>
-	      <th align=center width=4 class=\"sorttable_nosort\">Action</th>
+	      <th align=center width=20%>"._('User')."</th>
+	      <th align=center width=20%>"._('Time')."</th>
+	      <th align=center width=20%>"._('Receiver')."</th>
+	      <th align=center width=30%>"._('Message')."</th>
+	      <th align=center width=10%>"._('Status')."</th>
+	      <th align=center width=4>"._('Group')."</th>
+	      <th align=center width=4 class=\"sorttable_nosort\">"._('Action')."</th>
 	      <th width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_outgoing)></td>
 	    </tr>
         </thead>
@@ -80,19 +80,19 @@ switch ($op)
 	    // 3 = delivered
 	    if ($p_status == "1") 
 	    { 
-		$p_status = "<font color=green>Sent</font>"; 
+		$p_status = "<font color=green>"._('Sent')."</font>"; 
 	    } 
 	    else if ($p_status == "2")
 	    { 
-		$p_status = "<font color=red>Failed</font>"; 
+		$p_status = "<font color=red>"._('Failed')."</font>"; 
 	    }
 	    else if ($p_status == "3")
 	    {
-		$p_status = "<font color=green>Delivered</font>"; 
+		$p_status = "<font color=green>"._('Delivered')."</font>"; 
 	    }
 	    else
 	    { 
-		$p_status = "<font color=orange>Pending</font>"; 
+		$p_status = "<font color=orange>"._('Pending')."</font>"; 
 	    }
 	    if ($p_gpid) 
 	    { 
@@ -117,7 +117,7 @@ switch ($op)
 	          <td valign=top class=$td_class align=center>$p_status</td>
 	          <td valign=top class=$td_class align=center>$p_gpcode</td>
 	          <td valign=top class=$td_class align=center>
-		    <a href=\"javascript: ConfirmURL('Are you sure you want to delete outgoing SMS to `$hide_p_dst`, number $i ?','menu.php?inc=all_outgoing&op=all_outgoing_del&slid=$current_slid')\">$icon_delete</a>
+		    <a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete outgoing SMS ?')." ("._('to')." `$hide_p_dst`, "._('row')." $i)','menu.php?inc=all_outgoing&op=all_outgoing_del&slid=$current_slid')\">$icon_delete</a>
 		  </td>
 		<td class=$td_class width=4>
 		    <input type=hidden name=slid".$j." value=\"$current_slid\">
@@ -133,7 +133,7 @@ switch ($op)
 	<tr>
 	    <td width=100% colspan=2 align=right>
 		<input type=hidden name=item_count value=\"$item_count\">
-		<input type=submit value=\"Delete selection\" class=button />
+		<input type=submit value=\""._('Delete selection')."\" class=button />
 	    </td>
 	</tr>
 	</table>	
@@ -153,11 +153,11 @@ switch ($op)
 	    $db_result = dba_affected_rows($db_query);
 	    if ($db_result > 0)
 	    {
-		$err = "Selected outgoing SMS has been deleted";
+		$err = _('Selected outgoing SMS has been deleted');
 	    }
 	    else
 	    {
-		$err = "Fail to delete SMS";
+		$err = _('Fail to delete SMS');
 	    }
 	}
 	header ("Location: menu.php?inc=all_outgoing&op=all_outgoing&err=".urlencode($err));
@@ -176,7 +176,7 @@ switch ($op)
 		$db_result = dba_affected_rows($db_query);
 	    }
 	}
-	header ("Location: menu.php?inc=all_outgoing&op=all_outgoing&err=".urlencode("Selected outgoing SMS has been deleted"));
+	header ("Location: menu.php?inc=all_outgoing&op=all_outgoing&err=".urlencode(_('Selected outgoing SMS has been deleted')));
 	break;
 }
 
