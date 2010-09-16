@@ -9,9 +9,9 @@ switch ($op)
 	    $content = "<p><font color=red>$err</font><p>";
 	}
 	$content .= "
-	    <h2>Manage autoreply</h2>
+	    <h2>"._('Manage autoreply')."</h2>
 	    <p>
-	    <input type=button value=\"Add SMS autoreply\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_autoreply&op=sms_autoreply_add')\" class=\"button\" />
+	    <input type=button value=\""._('Add SMS autoreply')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_autoreply&op=sms_autoreply_add')\" class=\"button\" />
 	    <p>
 	";
 	if (!isadmin())
@@ -23,9 +23,9 @@ switch ($op)
     <table cellpadding=1 cellspacing=2 border=0 width=100%>
     <tr>
         <td class=box_title width=25>*</td>
-        <td class=box_title width=100>Keyword</td>
-        <td class=box_title>User</td>
-        <td class=box_title width=75>Action</td>
+        <td class=box_title width=100>"._('Keyword')."</td>
+        <td class=box_title>"._('User')."</td>
+        <td class=box_title width=75>"._('Action')."</td>
     </tr>	
 	";
 	$db_result = dba_query($db_query);
@@ -36,7 +36,7 @@ switch ($op)
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 	    $owner = uid2username($db_row['uid']);
 	    $action = "<a href=menu.php?inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=".$db_row['autoreply_id'].">$icon_manage</a>&nbsp;";
-	    $action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS autoreply keyword `".$db_row['autoreply_keyword']."` ?','menu.php?inc=feature_sms_autoreply&op=sms_autoreply_del&autoreply_id=".$db_row['autoreply_id']."')\">$icon_delete</a>";
+	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS autoreply ?')." ("._('keyword').": `".$db_row['autoreply_keyword']."`)','menu.php?inc=feature_sms_autoreply&op=sms_autoreply_del&autoreply_id=".$db_row['autoreply_id']."')\">$icon_delete</a>";
 	    $content .= "
     <tr>
 	<td class=$td_class>&nbsp;$i.</td>
@@ -53,7 +53,7 @@ switch ($op)
 	echo $content;
 	echo "
 	    <p>
-	    <input type=button value=\"Add SMS autoreply\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_autoreply&op=sms_autoreply_add')\" class=\"button\" />
+	    <input type=button value=\""._('Add SMS autoreply')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_autoreply&op=sms_autoreply_add')\" class=\"button\" />
 	";
 	break;
     case "sms_autoreply_manage":
@@ -72,19 +72,19 @@ switch ($op)
 	    $content = "<p><font color=red>$err</font><p>";
 	}
 	$content .= "
-	    <h2>Manage autoreply</h2>
+	    <h2>"._('Manage autoreply')."</h2>
 	    <p>
-	    <p>SMS autoreply keyword: <b>$manage_autoreply_keyword</b>
+	    <p>"._('SMS autoreply keyword').": <b>$manage_autoreply_keyword</b>
 	    <p>
-	    <input type=button value=\"Add SMS autoreply scenario\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=$autoreply_id')\" class=\"button\" />
+	    <input type=button value=\""._('Add SMS autoreply scenario')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=$autoreply_id')\" class=\"button\" />
 	    <p>
     <table cellpadding=1 cellspacing=2 border=0 width=100%>
     <tr>
         <td class=box_title width=25>*</td>
-        <td class=box_title width=100>Param</td>
-        <td class=box_title>Return</td>
-        <td class=box_title width=100>User</td>	
-        <td class=box_title width=75>Action</td>
+        <td class=box_title width=100>"._('Param')."</td>
+        <td class=box_title>"._('Return')."</td>
+        <td class=box_title width=100>"._('User')."</td>	
+        <td class=box_title width=75>"._('Action')."</td>
     </tr>		    
 	";
 	$db_query = "SELECT * FROM "._DB_PREF_."_featureAutoreply_scenario WHERE autoreply_id='$autoreply_id' ORDER BY autoreply_scenario_param1";
@@ -101,7 +101,7 @@ switch ($op)
 		$list_of_param .= $db_row['autoreply_scenario_param$i']."&nbsp;";
 	    }
 	    $action = "<a href=menu.php?inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit&autoreply_id=$autoreply_id&autoreply_scenario_id=".$db_row['autoreply_scenario_id'].">$icon_edit</a>";
-	    $action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete this SMS autoreply scenario ?','menu.php?inc=feature_sms_autoreply&op=sms_autoreply_scenario_del&autoreply_scenario_id=".$db_row['autoreply_scenario_id']."')\">$icon_delete</a>";
+	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this SMS autoreply scenario ?')."','menu.php?inc=feature_sms_autoreply&op=sms_autoreply_scenario_del&autoreply_scenario_id=".$db_row['autoreply_scenario_id']."')\">$icon_delete</a>";
 	    $content .= "
     <tr>
 	<td class=$td_class>&nbsp;$j.</td>
@@ -115,7 +115,7 @@ switch ($op)
 	$content .= "
     </table>
 	    <p>
-	    <input type=button value=\"Add SMS autoreply scenario\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=$autoreply_id')\" class=\"button\" />
+	    <input type=button value=\""._('Add SMS autoreply scenario')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=$autoreply_id')\" class=\"button\" />
 	    </form>
 	";
 	echo $content;
@@ -131,11 +131,11 @@ switch ($op)
 	    $db_query = "DELETE FROM "._DB_PREF_."_featureAutoreply WHERE autoreply_keyword='$keyword_name'";
 	    if (@dba_affected_rows($db_query))
 	    {
-		$error_string = "SMS autoreply keyword `$keyword_name` has been deleted!";
+		$error_string = _('SMS autoreply has been deleted')." ("._('keyword')." `$keyword_name`)";
 	    }
 	    else
 	    {
-		$error_string = "Fail to delete SMS autoreply keyword `$keyword_name`";
+		$error_string = _('Fail to delete SMS autoreply')." ("._('keyword')." `$keyword_name`";
 	    }
 	}
 	header ("Location: menu.php?inc=feature_sms_autoreply&op=sms_autoreply_list&err=".urlencode($error_string));
@@ -146,11 +146,11 @@ switch ($op)
 	    $content = "<p><font color=red>$err</font><p>";
 	}
 	$content .= "
-	    <h2>Add SMS autoreply</h2>
+	    <h2>"._('Add SMS autoreply')."</h2>
 	    <p>
 	    <form action=menu.php?inc=feature_sms_autoreply&op=sms_autoreply_add_yes method=post>
-	    <p>SMS autoreply keyword: <input type=text size=10 maxlength=10 name=add_autoreply_keyword value=\"$add_autoreply_keyword\">
-	    <p><input type=submit class=button value=Add>
+	    <p>"._('SMS autoreply keyword').": <input type=text size=10 maxlength=10 name=add_autoreply_keyword value=\"$add_autoreply_keyword\">
+	    <p><input type=submit class=button value="._('Add').">
 	    </form>
 	";
 	echo $content;
@@ -164,21 +164,21 @@ switch ($op)
 		$db_query = "INSERT INTO "._DB_PREF_."_featureAutoreply (uid,autoreply_keyword) VALUES ('$uid','$add_autoreply_keyword')";
 		if ($new_uid = @dba_insert_id($db_query))
 		{
-	    	    $error_string = "SMS autoreply keyword `$add_autoreply_keyword` has been added";
+	    	    $error_string = _('SMS autoreply keyword has been added')." ("._('keyword').": `$add_autoreply_keyword`)";
 		}
 		else
 		{
-	    	    $error_string = "Fail to add SMS autoreply keyword `$add_autoreply_keyword`";
+	    	    $error_string = _('Fail to add SMS autoreply')." ("._('keyword').": `$add_autoreply_keyword`)";
 		}
 	    }
 	    else
 	    {
-		$error_string = "SMS keyword `$add_autoreply_keyword` already exists, reserved or use by other feature!";
+		$error_string = _('SMS keyword already exists, reserved or use by other feature')." ("._('keyword').": `$add_autoreply_keyword`)";
 	    }
 	}
 	else
 	{
-	    $error_string = "You must fill all fields!";
+	    $error_string = _('You must fill all fields');
 	}
 	header ("Location: menu.php?inc=feature_sms_autoreply&op=sms_autoreply_add&err=".urlencode($error_string));
 	break;
@@ -196,11 +196,11 @@ switch ($op)
 	    $db_query = "DELETE FROM "._DB_PREF_."_featureAutoreply_scenario WHERE autoreply_id='$autoreply_id' AND autoreply_scenario_id='$autoreply_scenario_id'";
 	    if (@dba_affected_rows($db_query))
 	    {
-		$error_string = "SMS autoreply scenario keyword `$keyword_name` has been deleted!";
+		$error_string = _('SMS autoreply scenario has been deleted')." ("._('keyword')." `$keyword_name`)";
 	    }
 	    else
 	    {
-		$error_string = "Fail to delete SMS autoreply scenario keyword `$keyword_name`";
+		$error_string = _('Fail to delete SMS autoreply scenario')." ("._('keyword')." `$keyword_name`)";
 	    }
 	}
 	header ("Location: menu.php?inc=feature_sms_autoreply&op=sms_autoreply_scenario_list&err=".urlencode($error_string));
@@ -216,9 +216,9 @@ switch ($op)
 	    $content = "<p><font color=red>$err</font><p>";
 	}
 	$content .= "
-	    <h2>Add SMS autoreply scenario</h2>
+	    <h2>"._('Add SMS autoreply scenario')."</h2>
 	    <p>
-	    <p>SMS autoreply keyword: <b>$autoreply_keyword</b>
+	    <p>"._('SMS autoreply keyword').": <b>$autoreply_keyword</b>
 	    <p>
 	    <form action=menu.php?inc=feature_sms_autoreply&op=sms_autoreply_scenario_add_yes method=post>
 	    <input type=hidden name=autoreply_id value=\"$autoreply_id\">
@@ -228,16 +228,16 @@ switch ($op)
 	{
 	    $content .= "
 	    <tr>
-		<td width=190>SMS autoreply scenario param $i</td><td>:</td><td><input type=text size=20 maxlength=20 name=add_autoreply_scenario_param$i value=\"".${"add_autoreply_scenario_param".$i}."\">\n</td>
+		<td width=190>"._('SMS autoreply scenario parameter')." $i</td><td>:</td><td><input type=text size=20 maxlength=20 name=add_autoreply_scenario_param$i value=\"".${"add_autoreply_scenario_param".$i}."\">\n</td>
 	    </tr>";
 	}
 	$content .= "
 	    <tr>
-		<td>SMS autoreply scenario return</td><td>:</td><td><input type=text size=60 name=add_autoreply_scenario_result value=\"$add_autoreply_scenario_result\"></td>
+		<td>"._('SMS autoreply scenario replies with')."</td><td>:</td><td><input type=text size=60 name=add_autoreply_scenario_result value=\"$add_autoreply_scenario_result\"></td>
 	    </tr>	    
 	</table>
-	    <p><input type=submit class=button value=Add>
-	    <p><input type=button class=button value=Back onClick=javascript:linkto('menu.php?inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=$autoreply_id')>
+	    <p><input type=submit class=button value="._('Add').">
+	    <p><input type=button class=button value="._('Back')." onClick=javascript:linkto('menu.php?inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=$autoreply_id')>
 	    </form>
 	";
 	echo $content;
@@ -264,16 +264,16 @@ switch ($op)
 		(autoreply_id,".$autoreply_scenario_param_list."autoreply_scenario_result) VALUES ('$autoreply_id',$autoreply_scenario_keyword_param_entry'$add_autoreply_scenario_result')";
 	    if ($new_uid = dba_insert_id($db_query))
 	    {
-		$error_string = "SMS autoreply scenario has been added";
+		$error_string = _('SMS autoreply scenario has been added');
 	    }
 	    else
 	    {
-	        $error_string = "Fail to add SMS autoreply scenario";
+	        $error_string = _('Fail to add SMS autoreply scenario');
 	    }
 	}
 	else
 	{
-	    $error_string = "You must fill all fields!";
+	    $error_string = _('You must fill all fields');
 	}
 	header ("Location: menu.php?inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=$autoreply_id&err=".urlencode($error_string));
 	break;
@@ -289,9 +289,9 @@ switch ($op)
 	    $content = "<p><font color=red>$err</font><p>";
 	}
 	$content .= "
-	    <h2>Edit SMS autoreply scenario</h2>
+	    <h2>"._('Edit SMS autoreply scenario')."</h2>
 	    <p>
-	    <p>SMS autoreply keyword: <b>$autoreply_keyword</b>
+	    <p>"._('SMS autoreply keyword').": <b>$autoreply_keyword</b>
 	    <p>
 	    <form action=menu.php?inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit_yes method=post>
 	    <input type=hidden name=autoreply_id value=\"$autoreply_id\">
@@ -309,17 +309,17 @@ switch ($op)
 	{
 	    $content .= "
 	    <tr>
-		<td width=190>SMS autoreply scenario param $i</td><td>:</td><td><input type=text size=20 maxlength=20 name=edit_autoreply_scenario_param$i value=\"".${"edit_autoreply_scenario_param".$i}."\">\n</td>
+		<td width=190>"._('SMS autoreply scenario parameter')." $i</td><td>:</td><td><input type=text size=20 maxlength=20 name=edit_autoreply_scenario_param$i value=\"".${"edit_autoreply_scenario_param".$i}."\">\n</td>
 	    </tr>";
 	}
 	$edit_autoreply_scenario_result = $db_row['autoreply_scenario_result'];
 	$content .= "
 	    <tr>
-		<td>SMS autoreply scenario result</td><td>:</td><td><input type=text size=60 name=edit_autoreply_scenario_result value=\"$edit_autoreply_scenario_result\"></td>
+		<td>"._('SMS autoreply scenario replies with')."</td><td>:</td><td><input type=text size=60 name=edit_autoreply_scenario_result value=\"$edit_autoreply_scenario_result\"></td>
 	    </tr>	    	
 	    </table>
-	    <p><input type=submit class=button value=\"Save\">
-	    <p><input type=button class=button value=Back onClick=javascript:linkto('menu.php?inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=$autoreply_id')>
+	    <p><input type=submit class=button value=\""._('Save')."\">
+	    <p><input type=button class=button value="._('Back')." onClick=javascript:linkto('menu.php?inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=$autoreply_id')>
 	    </form>
 	";
 	echo $content;
@@ -345,16 +345,16 @@ switch ($op)
 	    ";
 	    if ($db_result = @dba_affected_rows($db_query))
 	    {
-		$error_string = "SMS autoreply scenario has been edited";
+		$error_string = _('SMS autoreply scenario has been edited');
 	    }
 	    else
 	    {
-	        $error_string = "Fail to edit SMS autoreply scenario";
+	        $error_string = _('Fail to edit SMS autoreply scenario');
 	    }
 	}
 	else
 	{
-	    $error_string = "You must fill all fields!";
+	    $error_string = _('You must fill all fields');
 	}
 	header ("Location: menu.php?inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit&autoreply_id=$autoreply_id&autoreply_scenario_id=$autoreply_scenario_id&err=".urlencode($error_string));
 	break;

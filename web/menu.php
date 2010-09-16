@@ -4,8 +4,11 @@ include $apps_path['libs']."/function.php";
 
 if (!($console = $_REQUEST['console']))
 {
-    include $apps_path['themes']."/".$themes_module."/header.php";
+    bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
+    include $apps_path['themes'].'/'.$themes_module.'/header.php';
 }
+
+bindtextdomain('messages', $apps_path['plug'].'/language/');
 
 // user
 $c_fn = $apps_path['incs']."/user/".$inc.".php";
@@ -35,9 +38,11 @@ for ($i=0;$i<count($plugins_category);$i++) {
 	{
 	    if ($inc == $pc.'_'.$core_config[$pc.'list'][$c])
 	    {
-		$c_fn = $apps_path['plug'].'/'.$pc.'/'.$core_config[$pc.'list'][$c].'/'.$core_config[$pc.'list'][$c].'.php';
+		$pn = $core_config[$pc.'list'][$c];
+		$c_fn = $apps_path['plug'].'/'.$pc.'/'.$pn.'/'.$pn.'.php';
 		if (file_exists($c_fn))
 		{
+		    bindtextdomain('messages', $apps_path['plug'].'/'.$pc.'/'.$pn.'/language/');
 		    include_once $c_fn;
 		    break;
 		}
@@ -48,7 +53,8 @@ for ($i=0;$i<count($plugins_category);$i++) {
 
 if (!($console = $_REQUEST['console']))
 {
-    include $apps_path['themes']."/".$themes_module."/footer.php";
+    bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
+    include $apps_path['themes'].'/'.$themes_module.'/footer.php';
 }
 
 ?>

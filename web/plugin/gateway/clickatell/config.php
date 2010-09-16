@@ -1,8 +1,7 @@
 <?php
 $db_query = "SELECT * FROM "._DB_PREF_."_gatewayClickatell_config";
 $db_result = dba_query($db_query);
-if ($db_row = dba_fetch_array($db_result))
-{
+if ($db_row = dba_fetch_array($db_result)) {
     $clickatell_param['name']		= $db_row['cfg_name'];
     $clickatell_param['api_id']		= $db_row['cfg_api_id'];
     $clickatell_param['username']		= $db_row['cfg_username'];
@@ -15,8 +14,7 @@ if ($db_row = dba_fetch_array($db_result))
 $gateway_number = $clickatell_param['sender'];
 
 // insert to left menu array
-if (isadmin())
-{
-    $arr_menu['Gateway'][] = array("menu.php?inc=gateway_clickatell&op=manage", "Manage clickatell");
+if (isadmin()) {
+    $arr_menu['Gateway'][] = array("menu.php?inc=gateway_clickatell&op=manage", _('Manage clickatell'));
 }
 ?>

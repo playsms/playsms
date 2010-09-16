@@ -1,0 +1,81 @@
+#: clickatell.php:8
+msgid "Active"
+msgstr "Active"
+
+#: clickatell.php:12
+msgid "Inactive"
+msgstr "Inactive"
+
+#: clickatell.php:12
+msgid "click here to activate"
+msgstr "click here to activate"
+
+#: clickatell.php:23 config.php:18
+msgid "Manage clickatell"
+msgstr "Manage clickatell"
+
+#: clickatell.php:28
+msgid "Gateway Name"
+msgstr ""
+
+#: clickatell.php:31
+msgid "API ID"
+msgstr ""
+
+#: clickatell.php:34
+msgid "Username"
+msgstr ""
+
+#: clickatell.php:37
+msgid "Password"
+msgstr ""
+
+#: clickatell.php:40
+msgid "Global Sender"
+msgstr ""
+
+#: clickatell.php:40
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+
+#: clickatell.php:43
+msgid "Clickatell API URL"
+msgstr ""
+
+#: clickatell.php:43 clickatell.php:46
+msgid "No trailing slash"
+msgstr ""
+
+#: clickatell.php:46
+msgid "Clickatell Incoming Path"
+msgstr ""
+
+#: clickatell.php:50
+msgid "Your callback URL is"
+msgstr ""
+
+#: clickatell.php:51
+msgid ""
+"If you are using callback URL to receive incoming sms you may ignore "
+"Clickatell Incoming Path"
+msgstr ""
+
+#: clickatell.php:52
+msgid "Send SMS message without footer banner"
+msgstr ""
+
+#: clickatell.php:53
+msgid "Save"
+msgstr ""
+
+#: clickatell.php:65
+msgid "No changes has been made"
+msgstr ""
+
+#: clickatell.php:80
+msgid "Gateway module configurations has been saved"
+msgstr ""
+
+#: clickatell.php:88
+msgid "Gateway has been activated"
+msgstr ""

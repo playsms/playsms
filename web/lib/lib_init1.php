@@ -39,26 +39,26 @@ $icon_unpublicphonebook = "<img src=\"".$http_path['themes']."/".$themes_module.
 $icon_sendsms = "<img src=\"".$http_path['themes']."/".$themes_module."/images/sendsms.gif\" alt=\"Export\" title=\"Send SMS\" border=0>";
 
 // menus
-$arr_menu['My Account'][] = array("menu.php?inc=phonebook_list", "Phonebook");
-$arr_menu['My Account'][] = array("menu.php?inc=sms_template&op=list", "Message template");
-$arr_menu['My Account'][] = array("menu.php?inc=send_sms&op=sendsmstopv", "Send SMS");
-$arr_menu['My Account'][] = array("menu.php?inc=send_sms&op=sendsmstogr", "Send broadcast SMS");
-$arr_menu['My Account'][] = array("menu.php?inc=user_inbox&op=user_inbox", "Inbox");
-$arr_menu['My Account'][] = array("menu.php?inc=user_incoming&op=user_incoming", "Incoming SMS");
-$arr_menu['My Account'][] = array("menu.php?inc=user_outgoing&op=user_outgoing", "Outgoing SMS");
-$arr_menu['My Account'][] = array("menu.php?inc=user_pref&op=user_pref", "Preferences");
+$arr_menu['My Account'][] = array("menu.php?inc=phonebook_list", _('Phonebook'));
+$arr_menu['My Account'][] = array("menu.php?inc=sms_template&op=list", _('Message template'));
+$arr_menu['My Account'][] = array("menu.php?inc=send_sms&op=sendsmstopv", _('Send SMS'));
+$arr_menu['My Account'][] = array("menu.php?inc=send_sms&op=sendsmstogr", _('Send broadcast SMS'));
+$arr_menu['My Account'][] = array("menu.php?inc=user_inbox&op=user_inbox", _('Inbox'));
+$arr_menu['My Account'][] = array("menu.php?inc=user_incoming&op=user_incoming", _('Incoming SMS'));
+$arr_menu['My Account'][] = array("menu.php?inc=user_outgoing&op=user_outgoing", _('Outgoing SMS'));
+$arr_menu['My Account'][] = array("menu.php?inc=user_pref&op=user_pref", _('Preferences'));
 ksort($arr_menu['My Account']);
 
 if (isadmin())
 {
     // administrator menus
-    $arr_menu['Administration'][] = array("menu.php?inc=all_inbox&op=all_inbox", "All inbox");
-    $arr_menu['Administration'][] = array("menu.php?inc=all_incoming&op=all_incoming", "All incoming SMS");
-    $arr_menu['Administration'][] = array("menu.php?inc=all_outgoing&op=all_outgoing", "All outgoing SMS");
-    $arr_menu['Administration'][] = array("menu.php?inc=user_mgmnt&op=user_list", "Manage user");
-    $arr_menu['Administration'][] = array("menu.php?inc=rate_mgmnt&op=rate_list", "Manage SMS rate");
-    $arr_menu['Administration'][] = array("menu.php?inc=main_config&op=main_config", "Main configuration");
-    $arr_menu['Administration'][] = array("menu.php?inc=daemon&op=daemon", "Manual refresh");
+    $arr_menu['Administration'][] = array("menu.php?inc=all_inbox&op=all_inbox", _('All inbox'));
+    $arr_menu['Administration'][] = array("menu.php?inc=all_incoming&op=all_incoming", _('All incoming SMS'));
+    $arr_menu['Administration'][] = array("menu.php?inc=all_outgoing&op=all_outgoing", _('All outgoing SMS'));
+    $arr_menu['Administration'][] = array("menu.php?inc=user_mgmnt&op=user_list", _('Manage user'));
+    $arr_menu['Administration'][] = array("menu.php?inc=rate_mgmnt&op=rate_list", _('Manage SMS rate'));
+    $arr_menu['Administration'][] = array("menu.php?inc=main_config&op=main_config", _('Main configuration'));
+    $arr_menu['Administration'][] = array("menu.php?inc=daemon&op=daemon", _('Manual refresh'));
     ksort($arr_menu['Administration']);
 }
 
