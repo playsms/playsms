@@ -82,7 +82,7 @@ $c_http_host = $_SERVER['HTTP_HOST'];
 $apps_path['base']        = dirname($c_script_filename);
     
 // base application http path
-$http_path['base']        = ( $core_config['ishttps'] ? "https://" : "http://" ).$c_http_host.( dirname($c_php_self)=='/' ? $c_php_self : dirname($c_php_self) );
+$http_path['base']        = ( $core_config['ishttps'] ? "https://" : "http://" ).$c_http_host.( dirname($c_php_self)=='/' ? '/' : dirname($c_php_self) );
 
 // libraries directory
 $apps_path['libs']	= $apps_path['base'].'/lib';
