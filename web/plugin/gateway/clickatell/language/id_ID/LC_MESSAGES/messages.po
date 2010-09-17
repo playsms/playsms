@@ -12,7 +12,7 @@ msgstr ""
 
 #: clickatell.php:23 config.php:18
 msgid "Manage clickatell"
-msgstr ""
+msgstr "Pengaturan clickatell"
 
 #: clickatell.php:28
 msgid "Gateway name"

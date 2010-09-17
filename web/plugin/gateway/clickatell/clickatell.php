@@ -48,7 +48,7 @@ switch ($op)
 	</table>	    
 	    <p>"._('Note').":<br>
 	    - "._('Your callback URL is')." <b>http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/plugin/gateway/clickatell/callback.php</b><br>
-	    - "._('If you are using callback URL to receive incoming sms you may ignore Clickatell Incoming Path')."<br>
+	    - "._('If you are using callback URL to receive incoming sms you may ignore Clickatell incoming path')."<br>
 	    <!-- <p><input type=checkbox name=up_trn $checked> "._('Send SMS message without footer banner')." -->
 	    <p><input type=submit class=button value="._('Save').">
 	    </form>

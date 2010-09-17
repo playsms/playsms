@@ -26,7 +26,7 @@ switch ($op)
 	    <form action=menu.php?inc=gateway_uplink&op=manage_save method=post>
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
-		<td width=150>"._('Gateway name').":</td><td width=5>:</td><td><b>uplink</b> $status_active</td>
+		<td width=150>"._('Gateway name')."</td><td width=5>:</td><td><b>uplink</b> $status_active</td>
 	    </tr>
 	    <tr>
 		<td>"._('Master URL')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_master value=\"".$uplink_param['master']."\"></td>
