@@ -1,19 +1,15 @@
 <?php
 
-function smstools_hook_getsmsstatus($gp_code="",$uid="",$smslog_id="",$p_datetime="",$p_update="")
-{
+function smstools_hook_getsmsstatus($gp_code="",$uid="",$smslog_id="",$p_datetime="",$p_update="") {
     global $smstools_param;
     // p_status :
     // 0 = pending
     // 1 = sent/delivered
     // 2 = failed
-    if ($gp_code)
-    {
+    if ($gp_code) {
         $fn = $smstools_param['path']."/sent/out.$gp_code.$uid.$smslog_id";
         $efn = $smstools_param['path']."/failed/out.$gp_code.$uid.$smslog_id";
-    }
-    else
-    {
+    } else {
         $fn = $smstools_param['path']."/sent/out.PV.$uid.$smslog_id";
         $efn = $smstools_param['path']."/failed/out.PV.$uid.$smslog_id";
     }
@@ -24,20 +20,17 @@ function smstools_hook_getsmsstatus($gp_code="",$uid="",$smslog_id="",$p_datetim
     $p_status = 0;
     setsmsdeliverystatus($smslog_id,$uid,$p_status);
     // set failed if its at least 2 days old
-    if ($p_delay >= 2)
-    {
+    if ($p_delay >= 2) {
 	$p_status = 2;
 	setsmsdeliverystatus($smslog_id,$uid,$p_status);
     }
     // set if its sent/delivered
-    if (file_exists($fn))
-    {
+    if (file_exists($fn)) {
 	$p_status = 1;
 	setsmsdeliverystatus($smslog_id,$uid,$p_status);
     }
     // set if its failed
-    if (file_exists($efn))
-    {
+    if (file_exists($efn)) {
         $p_status = 2;
         setsmsdeliverystatus($smslog_id,$uid,$p_status);
     }
@@ -46,41 +39,32 @@ function smstools_hook_getsmsstatus($gp_code="",$uid="",$smslog_id="",$p_datetim
     return;
 }
 
-function smstools_hook_playsmsd()
-{
+function smstools_hook_playsmsd() {
     // nothing
 }
 
-function smstools_hook_getsmsinbox()
-{
+function smstools_hook_getsmsinbox() {
     global $smstools_param;
     $handle = @opendir($smstools_param['path']."/incoming");
-    while ($sms_in_file = @readdir($handle))
-    {
+    while ($sms_in_file = @readdir($handle)) {
 	$fn = $smstools_param['path']."/incoming/$sms_in_file";
 	$tobe_deleted = $fn;
 	$lines = @file ($fn);
 	$start = 0;
-	for ($c=0;$c<count($lines);$c++)
-	{
+	for ($c=0;$c<count($lines);$c++) {
 	    $c_line = $lines['$c'];
-	    if (ereg('^From: ',$c_line))
-	    {
+	    if (ereg('^From: ',$c_line)) {
 		$sms_sender = '+'.trim(str_replace('From: ','',trim($c_line)));
-	    } else if (ereg('^Received: ',$c_line))
-	    {
+	    } else if (ereg('^Received: ',$c_line)) {
 		$sms_datetime = '20'.trim(str_replace('Received: ','',trim($c_line)));
-	    } else if ($c_line == "\n")
-	    {
+	    } else if ($c_line == "\n") {
 		$start = $c + 1;
 		break;
 	    }
 	}
-	if ($sms_sender && $sms_datetime && $start)
-	{
+	if ($sms_sender && $sms_datetime && $start) {
 	    $message = "";
-	    for ($lc=$start;$lc<count($lines);$lc++)
-	    {
+	    for ($lc=$start;$lc<count($lines);$lc++) {
 		$message .= trim($lines['$lc']);
 	    }
 	    // collected:
@@ -91,31 +75,25 @@ function smstools_hook_getsmsinbox()
     }
 }
 
-function smstools_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gp_code='PV',$smslog_id=0,$sms_type='text',$unicode=0)
-{
+function smstools_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gp_code='PV',$smslog_id=0,$sms_type='text',$unicode=0) {
     global $smstools_param;
     global $gateway_number;
     $sms_id = "$gp_code.$uid.$smslog_id";
-    if (empty($sms_id))
-    {
+    if (empty($sms_id)) {
 	$sms_id = mktime();
     }
-    if ($sms_sender)
-    {
+    if ($sms_sender) {
 	$sms_msg = $sms_msg.$sms_sender;
     }
     $the_msg = "From: $mobile_sender\n";
     $the_msg .= "To: $sms_to\n";
     $the_msg .= "Report: yes\n";
-    if ($msg_type=="flash")
-    {
+    if ($msg_type=="flash") {
 	$the_msg .= "Flash: yes\n";
     }
-    if ($unicode)
-    {
+    if ($unicode) {
 	$the_msg .= "Alphabet: UCS\n";
-	if (function_exists('mb_convert_encoding'))
-	{
+	if (function_exists('mb_convert_encoding')) {
 	    $sms_msg = mb_convert_encoding($sms_msg, "UCS-2BE", "auto");
 	}
 	// $sms_msg = str2hex($sms_msg);
@@ -127,8 +105,7 @@ function smstools_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=
     @fputs($fd, $the_msg);
     @fclose($fd);
     $ok = false;
-    if (file_exists($fn))
-    {
+    if (file_exists($fn)) {
 	$ok = true;
     }
     return $ok;

@@ -1,8 +1,7 @@
 <?php
 $db_query = "SELECT * FROM "._DB_PREF_."_gatewayKannel_config";
 $db_result = dba_query($db_query);
-if ($db_row = dba_fetch_array($db_result))
-{
+if ($db_row = dba_fetch_array($db_result)) {
     $kannel_param['name']		= $db_row['cfg_name'];
     $kannel_param['path']		= $db_row['cfg_incoming_path'];
     $kannel_param['username']		= $db_row['cfg_username'];
@@ -16,8 +15,7 @@ if ($db_row = dba_fetch_array($db_result))
 $gateway_number = $kannel_param['global_sender'];
 
 // insert to left menu array
-if (isadmin())
-{
-    $arr_menu['Gateway'][] = array("menu.php?inc=gateway_kannel&op=manage", "Manage kannel");
+if (isadmin()) {
+    $arr_menu['Gateway'][] = array("menu.php?inc=gateway_kannel&op=manage", _('Manage kannel'));
 }
 ?>

@@ -4,18 +4,18 @@ msgstr "Aktif"
 
 #: clickatell.php:12
 msgid "Inactive"
-msgstr "Tidak aktif"
+msgstr ""
 
 #: clickatell.php:12
 msgid "click here to activate"
-msgstr "klik disini untuk mengaktifkan"
+msgstr ""
 
 #: clickatell.php:23 config.php:18
 msgid "Manage clickatell"
-msgstr "Pengaturan clickatell"
+msgstr ""
 
 #: clickatell.php:28
-msgid "Gateway Name"
+msgid "Gateway name"
 msgstr ""
 
 #: clickatell.php:31
@@ -31,7 +31,7 @@ msgid "Password"
 msgstr ""
 
 #: clickatell.php:40
-msgid "Global Sender"
+msgid "Global sender"
 msgstr ""
 
 #: clickatell.php:40
@@ -47,7 +47,11 @@ msgid "No trailing slash"
 msgstr ""
 
 #: clickatell.php:46
-msgid "Clickatell Incoming Path"
+msgid "Clickatell incoming path"
+msgstr ""
+
+#: clickatell.php:49
+msgid "Note"
 msgstr ""
 
 #: clickatell.php:50

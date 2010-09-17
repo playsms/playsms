@@ -9,11 +9,12 @@ Minimum Required Hardware
 - Web server capable hardware
 
 Minimum Required Software
-- Operating System Linux
-- Web Server (Apache)
+- Operating System Linux (install on MS Windows or BSD is also possible)
+- Web Server (for example Apache2 or lighttpd)
 - Database Server MySQL 4.x.x or latest stable release
-- PHP 4.4.x or latest stable release with mysql module enabled and CGI/CLI version
+- PHP 4.4.x or latest stable release with mysql module enabled and CLI version available
 - PHP PEAR DB (this is a must, most admins forgot this requirement)
+- PHP gettext extension (this is a must for text translation)
 - Access to SMTP server (playSMS will use this to send email)
 - lynx, a console web browser
 
@@ -29,11 +30,11 @@ UPGRADE
 We do not provide a way to upgrade until version 1.0. But anyway, simply copying new files from 
 this package into old playsms installation, replacing old files, should do the trick.
 
-   
+
 INSTALLATION on Linux
 ---------------------
 Note:
-- I assumed that you have root priviledge. If you dont, understand that im trying to 
+- I assumed that you have root priviledge. If you dont, please understand that im trying to
   guide you to install playSMS on /var/www/playsms under user 'playsms'. You may use your own
   username, your own home directory or any preferred directory.
 - This installation instructions might be working for other *NIX based operating system, 
@@ -95,3 +96,7 @@ playSMS Web Interface:
 Please continue to follow INSTALL_GNOKII if you want to use gnokii as your gateway module, 
 or INSTALL_SMSSERVERTOOLS to use SMS Server Tools, or INSTALL_KANNEL if you want to use 
 kannel instead.
+
+
+--
+Anton Raharja

@@ -33,6 +33,9 @@ Here installed playSMS's themes.
 
 Language
 --------
-Here installed language database based on gettext
+Here installed language database based on gettext for core/main files only, plugin's language
+files are reside under each plugin's directory
 
 
+--
+Anton Raharja

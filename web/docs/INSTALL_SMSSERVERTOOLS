@@ -38,3 +38,6 @@ Note if you are using Ubuntu or Debian and alike:
   For smstools, type following command:
     # update-rc.d sms defaults
 
+
+--
+Anton Raharja

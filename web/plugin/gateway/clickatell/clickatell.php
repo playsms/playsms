@@ -25,7 +25,7 @@ switch ($op)
 	    <form action=menu.php?inc=gateway_clickatell&op=manage_save method=post>
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
-		<td width=150>"._('Gateway Name')."</td><td width=5>:</td><td><b>clickatell</b> $status_active</td>
+		<td width=150>"._('Gateway name')."</td><td width=5>:</td><td><b>clickatell</b> $status_active</td>
 	    </tr>
 	    <tr>
 		<td>"._('API ID')."</td><td>:</td><td><input type=text size=20 maxlength=20 name=up_api_id value=\"".$clickatell_param['api_id']."\"></td>
@@ -37,16 +37,16 @@ switch ($op)
 		<td>"._('Password')."</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_password value=\"".$clickatell_param['password']."\"></td>
 	    </tr>	    
 	    <tr>
-		<td>"._('Global Sender')."</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"".$clickatell_param['sender']."\"> ("._('Max. 16 numeric or 11 alphanumeric char. empty to disable').")</td>
+		<td>"._('Global sender')."</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"".$clickatell_param['sender']."\"> ("._('Max. 16 numeric or 11 alphanumeric char. empty to disable').")</td>
 	    </tr>	    
 	    <tr>
 		<td>"._('Clickatell API URL')."</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_send_url value=\"".$clickatell_param['send_url']."\"> ("._('No trailing slash')." \"/\")</td>
 	    </tr>
 	    <tr>
-		<td>"._('Clickatell Incoming Path')."</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_incoming_path value=\"".$clickatell_param['incoming_path']."\"> ("._('No trailing slash')." \"/\")</td>
+		<td>"._('Clickatell incoming path')."</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_incoming_path value=\"".$clickatell_param['incoming_path']."\"> ("._('No trailing slash')." \"/\")</td>
 	    </tr>	    
 	</table>	    
-	    <p>Note:<br>
+	    <p>"._('Note').":<br>
 	    - "._('Your callback URL is')." <b>http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/plugin/gateway/clickatell/callback.php</b><br>
 	    - "._('If you are using callback URL to receive incoming sms you may ignore Clickatell Incoming Path')."<br>
 	    <!-- <p><input type=checkbox name=up_trn $checked> "._('Send SMS message without footer banner')." -->

@@ -1,25 +1,19 @@
 <?php
-function kannel_hook_playsmsd()
-{
+function kannel_hook_playsmsd() {
     // nothing
 }
 
-function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gp_code='PV',$smslog_id=0,$sms_type='text',$unicode=0)
-{
+function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gp_code='PV',$smslog_id=0,$sms_type='text',$unicode=0) {
     global $kannel_param;
     global $gateway_number;
     global $http_path;
     $ok = false;
-    if ($gateway_number)
-    {
+    if ($gateway_number) {
 	$sms_from = $gateway_number;
-    }
-    else
-    {
+    } else {
 	$sms_from = $mobile_sender;
     }
-    if ($sms_sender)
-    {
+    if ($sms_sender) {
 	$sms_msg = $sms_msg.$sms_sender;
     }
     // set failed first
@@ -27,8 +21,7 @@ function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
     setsmsdeliverystatus($smslog_id,$uid,$p_status);
 
     $msg_type = 1; // text, default
-    if ($sms_type=="flash")
-    {
+    if ($sms_type=="flash") {
 	$msg_type = 0; //flash
     }
     
@@ -62,8 +55,7 @@ function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
 	fputs($connection, "GET ".$URL." HTTP/1.0\r\n\r\n");
 	while (!feof($connection)) {
 	    $rv = fgets($connection, 128);
-	    if (($rv == "Sent.") || ($rv == "0: Accepted for delivery") || ($rv == "3: Queued for later delivery"))
-	    {
+	    if (($rv == "Sent.") || ($rv == "0: Accepted for delivery") || ($rv == "3: Queued for later delivery")) {
 		$ok = true;
 		// set pending
 		$p_status = 0;
@@ -75,14 +67,12 @@ function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
     return $ok;
 }
 
-function kannel_hook_getsmsstatus($gp_code="",$uid="",$smslog_id="",$p_datetime="",$p_update="")
-{
+function kannel_hook_getsmsstatus($gp_code="",$uid="",$smslog_id="",$p_datetime="",$p_update="") {
     global $kannel_param;
     // not used, depend on kannel delivery status updater
 }
 
-function kannel_hook_getsmsinbox()
-{
+function kannel_hook_getsmsinbox() {
     global $kannel_param;
     // not used, playSMS will only received HTTP pushed values from kannel
     /*
