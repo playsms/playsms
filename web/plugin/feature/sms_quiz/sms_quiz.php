@@ -76,7 +76,7 @@ switch ($op) {
 			$content = "<p><font color=red>$err</font><p>";
 		}
 		$content .= "
-				<h2>"._('Manage SMS quiz')."</h2>
+				<h2>"._('Manage quiz')."</h2>
 				<p>
 				<input type=button value=\""._('Add SMS quiz')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_quiz&op=sms_quiz_add')\" class=\"button\" />
 				<p>

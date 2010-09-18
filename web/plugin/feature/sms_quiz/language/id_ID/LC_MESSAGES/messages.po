@@ -1,4 +1,4 @@
-#: config.php:4
+#: config.php:4 sms_quiz.php:79
 msgid "Manage quiz"
 msgstr "Pengaturan quiz"
 
@@ -40,10 +40,6 @@ msgstr ""
 
 #: sms_quiz.php:68
 msgid "SMS quiz answer messages has been deleted"
-msgstr ""
-
-#: sms_quiz.php:79
-msgid "Manage SMS quiz"
 msgstr ""
 
 #: sms_quiz.php:81 sms_quiz.php:128 sms_quiz.php:246

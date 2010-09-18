@@ -93,22 +93,22 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $subscribe_key
 					break;
 
 				case "OFF" :
-					$message = "You are not a member";
+					$message = _('You are not a member');
 					$ok = true;
 					break;
 
 				case "OUT" :
-					$message = "You are not a member";
+					$message = _('You are not a member');
 					$ok = true;
 					break;
 
 				case "UNREG" :
-					$message = "You are not a member";
+					$message = _('You are not a member');
 					$ok = true;
 					break;
 
 				default :
-					$message = "Unknown SMS format";
+					$message = _('Unknown SMS format');
 					$ok = true;
 					break;
 			}
@@ -141,22 +141,22 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $subscribe_key
 					break;
 
 				case "ON" :
-					$message = "You already a member";
+					$message = _('You already a member');
 					$ok = true;
 					break;
 
 				case "IN" :
-					$message = "You already a member";
+					$message = _('You already a member');
 					$ok = true;
 					break;
 
 				case "REG" :
-					$message = "You already a member";
+					$message = _('You already a member');
 					$ok = true;
 					break;
 
 				default :
-					$message = "Unknown sms format";
+					$message = _('Unknown sms format');
 					$ok = true;
 					break;
 			}

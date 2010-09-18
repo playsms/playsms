@@ -9,9 +9,9 @@ switch ($op) {
 			$content = "<p><font color=red>$err</font><p>";
 		}
 		$content .= "
-				<h2>Manage subscribe</h2>
+				<h2>"._('Manage subscribe')."</h2>
 				<p>
-				<input type=button value=\"Add SMS subscribe\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_subscribe&op=sms_subscribe_add')\" class=\"button\" />
+				<input type=button value=\""._('Add SMS subscribe')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_subscribe&op=sms_subscribe_add')\" class=\"button\" />
 				<p>
 			";
 		if (!isadmin()) {
@@ -23,11 +23,11 @@ switch ($op) {
 					<table cellpadding=1 cellspacing=2 border=0 width=100%>
 			<tr>
 			    <td class=box_title>*</td>
-			    <td class=box_title width=30%>Keyword</td>
-				<td class=box_title	width=30%>Total Members</td>
-			   	<td class=box_title width=20%>User</td>	
-			    <td class=box_title width=20%>Status</td>
-			    <td class=box_title>Action</td>
+			    <td class=box_title width=30%>"._('Keyword')."</td>
+				<td class=box_title	width=30%>"._('Total members')."</td>
+			   	<td class=box_title width=20%>"._('User')."</td>	
+			    <td class=box_title width=20%>"._('Status')."</td>
+			    <td class=box_title>"._('Action')."</td>
 			</tr>		
 			";
 		$i = 0;
@@ -35,25 +35,25 @@ switch ($op) {
 			$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id = '".$db_row['subscribe_id']."'";
 			$num_rows = dba_num_rows($db_query);
 			if (!$num_rows) {
-				$num_rows = "No";
+				$num_rows = "0";
 			}
 			$i++;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 			$owner = uid2username($db_row['uid']);
-			$subscribe_status = "<font color=red>Disable</font>";
+			$subscribe_status = "<font color=red>"._('Disabled')."</font>";
 			if ($db_row['subscribe_enable']) {
-				$subscribe_status = "<font color=green>Enable</font>";
+				$subscribe_status = "<font color=green>"._('Enabled')."</font>";
 			}
-			$action = "<a href=menu.php?inc=feature_sms_subscribe&op=mbr_list&subscribe_id=".$db_row['subscribe_id'].">$icon_view</a>&nbsp;";
-			$action .= "<a href=menu.php?inc=feature_sms_subscribe&op=msg_list&subscribe_id=".$db_row['subscribe_id'].">$icon_view</a>&nbsp;";
-			$action .= "<a href=menu.php?inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add&subscribe_id=".$db_row['subscribe_id'].">$icon_edit</a>&nbsp;";
+			$action = "<a href=menu.php?inc=feature_sms_subscribe&op=mbr_list&subscribe_id=".$db_row['subscribe_id'].">$subscribe_icon_view_members</a>&nbsp;";
+			$action .= "<a href=menu.php?inc=feature_sms_subscribe&op=msg_list&subscribe_id=".$db_row['subscribe_id'].">$subscribe_icon_view_messages</a>&nbsp;";
+			$action .= "<a href=menu.php?inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add&subscribe_id=".$db_row['subscribe_id'].">$subscribe_icon_add_message</a>&nbsp;";
 			$action .= "<a href=menu.php?inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=".$db_row['subscribe_id'].">$icon_edit</a>&nbsp;";
-			$action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS subscribe keyword `".$db_row['subscribe_keyword']."`?','menu.php?inc=feature_sms_subscribe&op=sms_subscribe_del&subscribe_id=".$db_row['subscribe_id']."')\">$icon_delete</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS subscribe ?')." ("._('keyword').": `".$db_row['subscribe_keyword']."`)','menu.php?inc=feature_sms_subscribe&op=sms_subscribe_del&subscribe_id=".$db_row['subscribe_id']."')\">$icon_delete</a>";
 			$content .= "
 					<tr>
 						<td class=$td_class>&nbsp;$i.</td>
 						<td class=$td_class>".$db_row['subscribe_keyword']."</td>
-						<td class=$td_class>$num_rows members</td>
+						<td class=$td_class>$num_rows</td>
 						<td class=$td_class>$owner</td>
 						<td class=$td_class>$subscribe_status</td>		
 						<td class=$td_class align=center>$action</td>
@@ -63,7 +63,7 @@ switch ($op) {
 		echo $content;
 		echo "
 				<p>
-				<input type=button value=\"Add SMS subscribe\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_subscribe&op=sms_subscribe_add')\" class=\"button\" />
+				<input type=button value=\""._('Add SMS subscribe')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_subscribe&op=sms_subscribe_add')\" class=\"button\" />
 				</p>
 				";
 		break;
@@ -81,19 +81,19 @@ switch ($op) {
 			$content = "<p><font color=red>$err</font><p>";
 		}
 		$content .= "
-		    <h2>Message List for [ $subscribe_name ]</h2>	    
+		    <h2>"._('SMS messages list for keyword')." $subscribe_name</h2>	    
 			";
 		$content .= "		
 				<p>
-				<input type=button value=\"Add Message\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add&&subscribe_id=$subscribe_id')\" class=\"button\" />
+				<input type=button value=\""._('Add Message')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add&&subscribe_id=$subscribe_id')\" class=\"button\" />
 				</p>
 				";
 		$content .= "
 	    	<table cellpadding=1 cellspacing=2 border=0 width=100%>
 				<tr>
 			    <td class=box_title width=4>*</td>
-				<td class=box_title width=100%>Message</td>
-				<td class=box_title>Action</td>      
+				<td class=box_title width=100%>"._('Message')."</td>
+				<td class=box_title>"._('Action')."</td>
 				</tr>
 			";
 		$i = 0;
@@ -103,7 +103,7 @@ switch ($op) {
 
 			$action = "<a href=menu.php?inc=feature_sms_subscribe&op=msg_view&subscribe_id=".$db_row['subscribe_id']."&msg_id=".$db_row['msg_id'].">$icon_view</a>&nbsp;";
 			$action .= "<a href=menu.php?inc=feature_sms_subscribe&op=msg_edit&subscribe_id=$subscribe_id&msg_id=".$db_row['msg_id'].">$icon_edit</a>&nbsp;";
-			$action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete this message?','menu.php?inc=feature_sms_subscribe&op=msg_del&subscribe_id=$subscribe_id&msg_id=".$db_row['msg_id']."')\">$icon_delete</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this message?')."','menu.php?inc=feature_sms_subscribe&op=msg_del&subscribe_id=$subscribe_id&msg_id=".$db_row['msg_id']."')\">$icon_delete</a>";
 			$content .= "
 		    		<tr>
 					<td class=$td_class>&nbsp;$i.</td>
@@ -115,7 +115,7 @@ switch ($op) {
 		echo $content;
 		echo "		
 				<p>
-				<input type=button value=\"Add Message\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add&&subscribe_id=$subscribe_id')\" class=\"button\" />
+				<input type=button value=\""._('Add Message')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add&&subscribe_id=$subscribe_id')\" class=\"button\" />
 				</p>
 				";
 		break;
@@ -138,21 +138,21 @@ switch ($op) {
 			$content = "<p><font color=red>$err</font><p>";
 		}
 		$content .= "
-			    <h2>Message Detail</h2>
+			    <h2>"._('Message detail')."</h2>
 				<form action=menu.php?inc=feature_sms_subscribe&op=sms_subscribe_msg_send method=post>
 				<input type=hidden value=$message name=msg>
 				<input type=hidden value=$subscribe_id name=subscribe_id>
 				<input type=hidden value=$msg_id name=msg_id>  		
 				<table border=0 width=100%> 
 				<tr>
-					<td width=150>Subscribe Keyword</td><td>:</td><td><b>$subscribe_name</b></td>
+					<td width=150>"._('SMS subscribe keyword')."</td><td>:</td><td><b>$subscribe_name</b></td>
 				</tr>
 				<tr>
-					<td>Message</td><td>:</td><td>$message</td>
+					<td>"._('Message')."</td><td>:</td><td>$message</td>
 				</tr>
 				</table>
-				<p>Send this message to all Members</p>
-				<input type=submit value=\"Send\" class=\"button\" />
+				<p>"._('Send this message to all members')."</p>
+				<input type=submit value=\""._('Send')."\" class=\"button\" />
 				</form>
 				";
 		echo $content;
@@ -183,17 +183,17 @@ switch ($op) {
 				<input type=hidden value=$msg_id name=msg_id>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 				<tr>
-				<td width=150>Subscribe Keyword</td><td width=5>:</td><td><b>$subscribe_name</b></td>
+				<td width=150>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$subscribe_name</b></td>
 				</tr>		
 				<tr>
 			<td colspan=3>
-			Message Body:
+			"._('Message body').":
 			<br><textarea name=edit_mbr_msg rows=5 cols=60>$edit_mbr_msg</textarea>		
 			</td>
 		    </tr>			
 			</table>
 			<p>
-			<input type=submit class=button value=Update>
+			<input type=submit class=button value=\""._('Edit')."\">
 			</form>
 			";
 		echo $content;
@@ -208,10 +208,10 @@ switch ($op) {
 						UPDATE " . _DB_PREF_ . "_featureSubscribe_msg set c_timestamp='" . mktime() . "', msg='$edit_mbr_msg'
 						WHERE msg_id ='$msg_id'";
 			if (@ dba_affected_rows($db_query)) {
-				$error_string = "Message has been updated";
+				$error_string = _('Message has been edited');
 			}
 		} else {
-			$error_string = "You must fill all fields!";
+			$error_string = _('You must fill all fields');
 		}
 		header("Location: menu.php?inc=feature_sms_subscribe&op=msg_edit&subscribe_id=$subscribe_id&msg_id=$msg_id&err=" . urlencode($error_string));
 		break;
@@ -243,15 +243,15 @@ switch ($op) {
 				for ($i = 0; $i < count($sms_to); $i++) {
 					$send = sendsms($mobile_sender, $sms_sender, $sms_to, $message, $c_uid);
 					if ($send) {
-						$error_string .= "Your SMS for `" . $sms_to . "` has been delivered to queue<br>";
+						$error_string .= _('Your SMS has been delivered to queue')." ("._('to').": `".$sms_to."`)<br>";
 					} else {
-						$error_string .= "Fail to sent SMS to `" . $sms_to . "`<br>";
+						$error_string .= _('Fail to send SMS')." ("._('to').": `" . $sms_to . "`)<br>";
 					}
 				}
 			}
 
 		} else {
-			$error_string = "Fail to send!";
+			$error_string = _('You must fill all fields');
 		}
 		header("Location: menu.php?inc=feature_sms_subscribe&op=msg_view&msg_id=$msg_id&subscribe_id=$subscribe_id&err=" . urlencode($error_string));
 		break;
@@ -270,16 +270,16 @@ switch ($op) {
 			$content = "<p><font color=red>$err</font><p>";
 		}
 		$content .= "
-		    <h2>Member List for [ $subscribe_name ]</h2>	    
+		    <h2>"._('Member list for keyword')." $subscribe_name</h2>
 			";
 
 		$content .= "
 	    	<table cellpadding=1 cellspacing=2 border=0 width=100%>
 	    	<tr>
 	        	<td class=box_title width=4>*</td>
-				<td class=box_title width=50%>Phone Number</td>
-				<td class=box_title width=50%>Member From</td>
-				<td class=box_title>Action</td>      
+				<td class=box_title width=50%>"._('Phone number')."</td>
+				<td class=box_title width=50%>"._('Member join datetime')."</td>
+				<td class=box_title>"._('Action')."</td>
 	    	</tr>
 			";
 		$i = 0;
@@ -287,7 +287,7 @@ switch ($op) {
 			$i++;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 
-			$action = "<a href=\"javascript: ConfirmURL('Are you sure you want to delete this member?','menu.php?inc=feature_sms_subscribe&op=mbr_del&subscribe_id=$subscribe_id&mbr_id=".$db_row['member_id']."')\">$icon_delete</a>";
+			$action = "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this member ?')."','menu.php?inc=feature_sms_subscribe&op=mbr_del&subscribe_id=$subscribe_id&mbr_id=".$db_row['member_id']."')\">$icon_delete</a>";
 
 			$content .= "
 		    		<tr>
@@ -307,7 +307,7 @@ switch ($op) {
 		if ($mbr_id) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE member_id='$mbr_id'";
 			if (@ dba_affected_rows($db_query)) {
-				$error_string = "Member has been deleted!";
+				$error_string =_('"Member has been deleted');
 			}
 		}
 		header("Location: menu.php?inc=feature_sms_subscribe&op=mbr_list&subscribe_id=$subscribe_id&err=" . urlencode($error_string));
@@ -325,23 +325,23 @@ switch ($op) {
 			$content = "<p><font color=red>$err</font><p>";
 		}
 		$content .= "
-		    <h2>Edit SMS subscribe</h2>
+		    <h2>"._('Edit SMS subscribe')."</h2>
 		    <p>
 		    <form action=menu.php?inc=feature_sms_subscribe&op=sms_subscribe_edit_yes method=post>
 		    <input type=hidden name=edit_subscribe_id value=\"$subscribe_id\">
 		    <input type=hidden name=edit_subscribe_keyword value=\"$edit_subscribe_keyword\">
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 		    	<tr>
-				<td width=150>SMS subscribe</td><td width=5>:</td><td><b>$edit_subscribe_keyword</b></td>
+				<td width=150>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$edit_subscribe_keyword</b></td>
 		    	</tr>
 				<tr>
-				<td>SMS subscribe reply</td><td>:</td><td><input type=text size=50 maxlength=200 name=edit_subscribe_msg value=\"$edit_subscribe_msg\"></td>
+				<td>"._('SMS subscribe reply')."</td><td>:</td><td><input type=text size=50 maxlength=200 name=edit_subscribe_msg value=\"$edit_subscribe_msg\"></td>
 		   		</tr>
 				<tr>
-				<td>SMS unsubscribe reply</td><td>:</td><td><input type=text size=50 maxlength=200 name=edit_unsubscribe_msg value=\"$edit_unsubscribe_msg\"></td>
+				<td>"._('SMS unsubscribe reply')."</td><td>:</td><td><input type=text size=50 maxlength=200 name=edit_unsubscribe_msg value=\"$edit_unsubscribe_msg\"></td>
 		   		</tr>		
 			</table>	    
-		    <p><input type=submit class=button value=\"Save Subscribe\">
+		    <p><input type=submit class=button value=\""._('Save')."\">
 		    </form>
 		    <br>
 			";
@@ -350,17 +350,17 @@ switch ($op) {
 		$db_query = "SELECT subscribe_enable FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id='$subscribe_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$subscribe_status = "<font color=red><b>Disable</b></font>";
+		$subscribe_status = "<font color=red><b>"._('Disabled')."</b></font>";
 		if ($db_row['subscribe_enable']) {
-			$subscribe_status = "<font color=green><b>Enable</b></font>";
+			$subscribe_status = "<font color=green><b>"._('Enabled')."</b></font>";
 		}
 		$content = "
-				<h2>Enable or disable this subscribe</h2>
+				<h2>"._('Enable or disable this subscribe')."</h2>
 				<p>
-				<p>Current status: $subscribe_status
-				<p>What do you want to do ?
-				<p>- <a href=\"menu.php?inc=feature_sms_subscribe&op=sms_subscribe_status&subscribe_id=$subscribe_id&ps=1\">I want to <b>enable</b> this subscribe</a>
-				<p>- <a href=\"menu.php?inc=feature_sms_subscribe&op=sms_subscribe_status&subscribe_id=$subscribe_id&ps=0\">I want to <b>disable</b> this subscribe</a>
+				<p>"._('Current status').": $subscribe_status
+				<p>"._('What do you want to do ?')."
+				<p>- <a href=\"menu.php?inc=feature_sms_subscribe&op=sms_subscribe_status&subscribe_id=$subscribe_id&ps=1\">"._('I want to enable this subscribe')."</a>
+				<p>- <a href=\"menu.php?inc=feature_sms_subscribe&op=sms_subscribe_status&subscribe_id=$subscribe_id&ps=0\">"._('I want to disable this subscribe')."</a>
 				<br>
 				";
 		echo $content;
@@ -378,10 +378,10 @@ switch ($op) {
 					WHERE subscribe_id='$edit_subscribe_id' AND uid='$uid'
 			    	";
 			if (@ dba_affected_rows($db_query)) {
-				$error_string = "SMS subscribe with keyword `$edit_subscribe_keyword` has been saved";
+				$error_string = _('SMS subscribe has been saved')." ("._('keyword').": `$edit_subscribe_keyword`)";
 			}
 		} else {
-			$error_string = "You must fill all fields!";
+			$error_string = _('You must fill all fields');
 		}
 		header("Location: menu.php?inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=$edit_subscribe_id&err=" . urlencode($error_string));
 		break;
@@ -392,7 +392,7 @@ switch ($op) {
 		$db_query = "UPDATE " . _DB_PREF_ . "_featureSubscribe SET c_timestamp='" . mktime() . "',subscribe_enable='$ps' WHERE subscribe_id='$subscribe_id'";
 		$db_result = @ dba_affected_rows($db_query);
 		if ($db_result > 0) {
-			$error_string = "This subscribe status has been changed!";
+			$error_string = _('SMS subscribe status has been changed');
 		}
 		header("Location: menu.php?inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=$subscribe_id&err=" . urlencode($error_string));
 		break;
@@ -410,9 +410,7 @@ switch ($op) {
 				$del_msg = dba_affected_rows($db_query);
 				$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id='$subscribe_id'";
 				$del_member = dba_affected_rows($db_query);
-				if ($del_msg && $del_member) {
-					$error_string = "SMS subscribe `$subscribe_keyword` with all its messages and members has been deleted!";
-				}
+				$error_string = _('SMS subscribe with all its messages and members has been deleted')." ("._('keyword').": `$subscribe_keyword`)";
 			}
 		}
 		header("Location: menu.php?inc=feature_sms_subscribe&op=sms_subscribe_list&err=" . urlencode($error_string));
@@ -424,7 +422,7 @@ switch ($op) {
 		if ($msg_id) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE msg_id='$msg_id'";
 			if (@ dba_affected_rows($db_query)) {
-				$error_string = "Message has been deleted!";
+				$error_string = _('Message has been deleted');
 			}
 		}
 		header("Location: menu.php?inc=feature_sms_subscribe&op=msg_view&subscribe_id=$subscribe_id&err=" . urlencode($error_string));
@@ -435,21 +433,21 @@ switch ($op) {
 			$content = "<p><font color=red>$err</font><p>";
 		}
 		$content .= "
-				<h2>Add SMS subscribe</h2>
+				<h2>"._('Add SMS subscribe')."</h2>
 		    <p>
 		    <form action=menu.php?inc=feature_sms_subscribe&op=sms_subscribe_add_yes method=post>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 				<tr>
-				<td width=150>SMS subscribe keyword</td><td width=5>:</td><td><input type=text size=8 maxlength=10 name=add_subscribe_keyword value=\"$add_subscribe_keyword\"></td>
+				<td width=150>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><input type=text size=8 maxlength=10 name=add_subscribe_keyword value=\"$add_subscribe_keyword\"></td>
 				</tr>
 				<tr>
-				<td>SMS subscribe reply</td><td>:</td><td><input type=text size=50 maxlength=200 name=add_subscribe_msg value=\"$add_subscribe_msg\"></td>
+				<td>"._('SMS subscribe reply')."</td><td>:</td><td><input type=text size=50 maxlength=200 name=add_subscribe_msg value=\"$add_subscribe_msg\"></td>
 				</tr>
 				<tr>
-				<td>SMS unsubscribe reply</td><td>:</td><td><input type=text size=50 maxlength=200 name=add_unsubscribe_msg value=\"$add_unsubscribe_msg\"></td>
+				<td>"._('SMS unsubscribe reply')."</td><td>:</td><td><input type=text size=50 maxlength=200 name=add_unsubscribe_msg value=\"$add_unsubscribe_msg\"></td>
 				</tr>
 			</table>
-				<p><input type=submit class=button value=Add>
+				<p><input type=submit class=button value=\""._('Add')."\">
 				</form>
 			";
 		echo $content;
@@ -466,13 +464,13 @@ switch ($op) {
 							VALUES ('$uid','$add_subscribe_keyword','$add_subscribe_msg','$add_unsubscribe_msg')
 							";
 				if ($new_uid = @ dba_insert_id($db_query)) {
-					$error_string = "SMS subscribe with keyword `$add_subscribe_keyword` has been added";
+					$error_string = _('SMS subscribe has been added')." ("._('keyword').": `$add_subscribe_keyword`)";
 				}
 			} else {
-				$error_string = "SMS keyword `$add_subscribe_keyword` already exists, reserved or use by other feature!";
+				$error_string = _('SMS subscribe already exists, reserved or use by other feature')." ("._('keyword').": `$add_subscribe_keyword`)";
 			}
 		} else {
-			$error_string = "You must fill all fields!";
+			$error_string = _('You must fill all fields');
 		}
 		header("Location: menu.php?inc=feature_sms_subscribe&op=sms_subscribe_add&err=" . urlencode($error_string));
 		break;
@@ -490,19 +488,19 @@ switch ($op) {
 				<h2>Add Message</h2>
 				<table width=100% cellpadding=1 cellspacing=2 border=0>	
 				<tr>
-				<td width=150>Subscribe name</td><td width=5>:</td><td><b>$subscribe_name</b></td>
+				<td width=150>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$subscribe_name</b></td>
 				</tr>
 				<form action=menu.php?inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add_yes method=post>
 				<input type=hidden value=$subscribe_id name=subscribe_id>
 				
 				<tr>
 				<td colspan=3>
-				Message Body:
+				"._('Message body').":
 				<br><textarea name=add_mbr_message rows=5 cols=60></textarea>		
 				</td>
 				</tr>					
 			</table>
-				<p><input type=submit class=button value=Add>
+				<p><input type=submit class=button value=\""._('Add')."\">
 				</form>
 			";
 		echo $content;
@@ -517,10 +515,10 @@ switch ($op) {
 						VALUES ('$subscribe_id','$add_mbr_message')
 					";
 			if ($new_uid = @ dba_insert_id($db_query)) {
-				$error_string = "Member message has been added";
+				$error_string = _('Member message has been added');
 			}
 		} else {
-			$error_string = "You must fill all fields!";
+			$error_string = _('You must fill all fields');
 		}
 		header("Location: menu.php?inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add&subscribe_id=$subscribe_id&err=" . urlencode($error_string));
 		break;
