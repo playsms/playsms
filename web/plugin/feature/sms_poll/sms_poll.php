@@ -25,10 +25,10 @@ switch ($op)
     <tr>
         <td class=box_title width=25>*</td>
         <td class=box_title width=150>"._('Keyword')."</td>
-        <td class=box_title>Title</td>
-        <td class=box_title width=150>User</td>	
-        <td class=box_title width=75>Status</td>
-        <td class=box_title width=75>Action</td>
+        <td class=box_title>"._('Title')."</td>
+        <td class=box_title width=150>"._('User')."</td>	
+        <td class=box_title width=75>"._('Status')."</td>
+        <td class=box_title width=75>"._('Action')."</td>
     </tr>
 	";	
 	$i=0;		
@@ -37,14 +37,14 @@ switch ($op)
 	    $i++;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 	    $owner = uid2username($db_row['uid']);
-	    $poll_status = "<font color=red>Disable</font>";
+	    $poll_status = "<font color=red>"._('Disabled')."</font>";
 	    if ($db_row['poll_enable'])
 	    {
-		$poll_status = "<font color=green>Enable</font>";
+		$poll_status = "<font color=green>"._('Enabled')."</font>";
 	    }
 	    $action = "<a href=menu.php?inc=feature_sms_poll&op=sms_poll_view&poll_id=".$db_row['poll_id']." target=_blank>$icon_view</a>&nbsp;";
 	    $action .= "<a href=menu.php?inc=feature_sms_poll&op=sms_poll_edit&poll_id=".$db_row['poll_id'].">$icon_edit</a>&nbsp;";
-	    $action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS poll keyword `".$db_row['poll_keyword']."` with all its choices and votes ?','menu.php?inc=feature_sms_poll&op=sms_poll_del&poll_id=".$db_row['poll_id']."')\">$icon_delete</a>";
+	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS poll with all its choices and votes ?')." ("._('keyword').": `".$db_row['poll_keyword']."`)','menu.php?inc=feature_sms_poll&op=sms_poll_del&poll_id=".$db_row['poll_id']."')\">$icon_delete</a>";
 	    $content .= "
     <tr>
 	<td class=$td_class>&nbsp;$i.</td>
@@ -59,7 +59,7 @@ switch ($op)
 	echo $content;
 	echo "
 	    <p>
-	    <input type=button value=\"Add SMS poll\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_poll&op=sms_poll_add')\" class=\"button\" />
+	    <input type=button value=\""._('Add SMS poll')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_poll&op=sms_poll_add')\" class=\"button\" />
 	";
 	break;
     case "sms_poll_view":
@@ -82,26 +82,26 @@ switch ($op)
 	    $content = "<p><font color=red>$err</font><p>";
 	}
 	$content .= "
-	    <h2>Edit SMS poll</h2>
+	    <h2>"._('Edit SMS poll')."</h2>
 	    <p>
 	    <form action=menu.php?inc=feature_sms_poll&op=sms_poll_edit_yes method=post>
 	    <input type=hidden name=edit_poll_id value=\"$poll_id\">
 	    <input type=hidden name=edit_poll_keyword value=\"$edit_poll_keyword\">
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
-		<td width=150>SMS poll keyword</td><td width=5>:</td><td><b>$edit_poll_keyword</b></td>
+		<td width=150>"._('SMS poll keyword')."</td><td width=5>:</td><td><b>$edit_poll_keyword</b></td>
 	    </tr>
 	    <tr>
-		<td>SMS poll title</td><td>:</td><td><input type=text size=60 maxlength=200 name=edit_poll_title value=\"$edit_poll_title\"></td>
+		<td>"._('SMS poll title')."</td><td>:</td><td><input type=text size=60 maxlength=200 name=edit_poll_title value=\"$edit_poll_title\"></td>
 	    </tr>	    
 	</table>	    
-	    <p><input type=submit class=button value=\"Save Poll\">
+	    <p><input type=submit class=button value=\""._('Save')."\">
 	    </form>
 	    <br>
 	";
 	echo $content;
 	$content = "
-	    <h2>Edit SMS poll choices</h2>
+	    <h2>"._('Edit SMS poll choices')."</h2>
 	    <p>
 	";
 	$db_query = "SELECT choice_id,choice_title,choice_keyword FROM "._DB_PREF_."_featurePoll_choice WHERE poll_id='$poll_id' ORDER BY choice_keyword";
@@ -110,9 +110,9 @@ switch ($op)
     <table cellpadding=1 cellspacing=2 border=0 width=100%>
     <tr>
         <td class=box_title width=25>*</td>
-        <td class=box_title width=150>Keyword</td>
-        <td class=box_title>title</td>
-        <td class=box_title width=75>Action</td>
+        <td class=box_title width=150>"._('Keyword')."</td>
+        <td class=box_title>"._('Title')."</td>
+        <td class=box_title width=75>"._('Action')."</td>
     </tr>
 	";
 	$i=0;	
@@ -128,41 +128,41 @@ switch ($op)
 	<td class=$td_class>&nbsp;$i.</td>
 	<td class=$td_class>$choice_keyword</td>
 	<td class=$td_class>$choice_title</td>
-	<td class=$td_class align=center><a href=\"javascript:ConfirmURL('Are you sure you want to delete choice titled `".$choice_title."` with keyword `".$choice_keyword."` ?','menu.php?inc=feature_sms_poll&op=sms_poll_choice_del&poll_id=$poll_id&choice_id=$choice_id');\">$icon_delete</a></td>
+	<td class=$td_class align=center><a href=\"javascript:ConfirmURL('"._('Are you sure you want to delete choice ?')." ("._('title').": `".$choice_title."`, "._('keyword').": `".$choice_keyword."`)','menu.php?inc=feature_sms_poll&op=sms_poll_choice_del&poll_id=$poll_id&choice_id=$choice_id');\">$icon_delete</a></td>
     </tr>";	    
 	}
 	$content .= "
     </table>
-	    <p><b>Add choice to this poll</b>
+	    <p><b>"._('Add choice to this poll')."</b>
 	    <form action=\"menu.php?inc=feature_sms_poll&op=sms_poll_choice_add\" method=post>
 	    <input type=hidden name=poll_id value=\"$poll_id\">
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
-		<td width=80>Choice Keyword</td><td width=5>:</td><td><input type=text size=3 maxlength=10 name=add_choice_keyword></td>
+		<td width=80>"._('Choice Keyword')."</td><td width=5>:</td><td><input type=text size=3 maxlength=10 name=add_choice_keyword></td>
 	    </tr>
 	    <tr>
-		<td>Choice Title</td><td>:</td><td><input type=text size=60 maxlength=250 name=add_choice_title></td>
+		<td>"._('Choice title')."</td><td>:</td><td><input type=text size=60 maxlength=250 name=add_choice_title></td>
 	    </tr>	    
 	</table>	    
-	    <p><input type=submit class=button value=\"Add Choice\">
+	    <p><input type=submit class=button value=\""._('Add')."\">
 	    </form>
 	    <br>";
 	echo $content;
 	$db_query = "SELECT poll_enable FROM "._DB_PREF_."_featurePoll WHERE poll_id='$poll_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$poll_status = "<font color=red><b>Disable</b></font>";
+	$poll_status = "<font color=red><b>"._('Disabled')."</b></font>";
 	if ($db_row['poll_enable'])
 	{
-	    $poll_status = "<font color=green><b>Enable</b></font>";
+	    $poll_status = "<font color=green><b>"._('Enabled')."</b></font>";
 	}
 	$content = "
-	    <h2>Enable or disable this poll</h2>
+	    <h2>"._('Enable or disable this poll')."</h2>
 	    <p>
-	    <p>Current status: $poll_status
-	    <p>What do you want to do ?
-	    <p>- <a href=\"menu.php?inc=feature_sms_poll&op=sms_poll_status&poll_id=$poll_id&ps=1\">I want to <b>enable</b> this poll</a>
-	    <p>- <a href=\"menu.php?inc=feature_sms_poll&op=sms_poll_status&poll_id=$poll_id&ps=0\">I want to <b>disable</b> this poll</a>
+	    <p>"._('Current status').": $poll_status
+	    <p>"._('What do you want to do ?')."
+	    <p>- <a href=\"menu.php?inc=feature_sms_poll&op=sms_poll_status&poll_id=$poll_id&ps=1\">"._('I want to enable this poll')."</a>
+	    <p>- <a href=\"menu.php?inc=feature_sms_poll&op=sms_poll_status&poll_id=$poll_id&ps=0\">"._('I want to disable this poll')."</a>
 	    <br>
 	";
 	echo $content;
@@ -180,12 +180,12 @@ switch ($op)
 	    ";
 	    if (@dba_affected_rows($db_query))
 	    {
-	        $error_string = "SMS poll with keyword `$edit_poll_keyword` has been saved";
+	        $error_string = _('SMS poll with has been saved')." ("._('keyword').": `$edit_poll_keyword`)";
 	    }
 	}
 	else
 	{
-	    $error_string = "You must fill all fields!";
+	    $error_string = _('You must fill all fields');
 	}
 	header ("Location: menu.php?inc=feature_sms_poll&op=sms_poll_edit&poll_id=$edit_poll_id&err=".urlencode($error_string));
 	break;
@@ -196,7 +196,7 @@ switch ($op)
 	$db_result = @dba_affected_rows($db_query);
 	if ($db_result > 0)
 	{
-	    $error_string = "This poll status has been changed!";
+	    $error_string = _('SMS poll status has been changed');
 	}
 	header ("Location: menu.php?inc=feature_sms_poll&op=sms_poll_edit&poll_id=$poll_id&err=".urlencode($error_string));
 	break;
@@ -211,7 +211,7 @@ switch ($op)
 	    $db_query = "DELETE FROM "._DB_PREF_."_featurePoll WHERE poll_title='$poll_title'";
 	    if (@dba_affected_rows($db_query))
 	    {
-		$error_string = "SMS poll `$poll_title` with all its messages has been deleted!";
+		$error_string = _('SMS poll with all its messages has been deleted')." ("._('title').": `$poll_title`)";
 	    }
 	}
 	header ("Location: menu.php?inc=feature_sms_poll&op=sms_poll_list&err=".urlencode($error_string));
@@ -233,17 +233,17 @@ switch ($op)
 		";
 		if ($db_result = @dba_insert_id($db_query))
 		{
-		    $error_string = "Choice with keyword `$add_choice_keyword` has been added";
+		    $error_string = _('Choice has been added')." ("._('keyword').": `$add_choice_keyword`)";
 		}
 	    }
 	    else
 	    {
-		$error_string = "Choice with keyword `$add_choice_keyword` already exists";
+		$error_string = _('Choice already exists')." ("._('keyword').": `$add_choice_keyword`)";
 	    }
 	}
 	else
 	{
-	    $error_string = "You must fill all fields!";	    
+	    $error_string = _('You must fill all fields');
 	}
 	header ("Location: menu.php?inc=feature_sms_poll&op=sms_poll_edit&poll_id=$poll_id&err=".urlencode($error_string));
 	break;
@@ -254,7 +254,7 @@ switch ($op)
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$choice_keyword = $db_row['choice_keyword'];
-	$error_string = "Fail to delete SMS poll choice with keyword `$choice_keyword`!";
+	$error_string = _('Fail to delete SMS poll choice')." ("._('keyword').": `$choice_keyword`)";
 	if ($poll_id && $choice_id && $choice_keyword)
 	{
 	    $db_query = "DELETE FROM "._DB_PREF_."_featurePoll_choice WHERE poll_id='$poll_id' AND choice_id='$choice_id'";
@@ -262,7 +262,7 @@ switch ($op)
 	    {
 		$db_query = "DELETE FROM "._DB_PREF_."_featurePoll_log WHERE poll_id='$poll_id' AND choice_id='$choice_id'";
 		dba_query($db_query);
-		$error_string = "SMS poll choice with keyword `$choice_keyword` and all its voters has been deleted!";
+		$error_string = _('SMS poll choice and all its voters has been deleted')." ("._('keyword').": `$choice_keyword`)";
 	    }
 	}
 	header ("Location: menu.php?inc=feature_sms_poll&op=sms_poll_edit&poll_id=$poll_id&err=".urlencode($error_string));
@@ -273,18 +273,18 @@ switch ($op)
 	    $content = "<p><font color=red>$err</font><p>";
 	}
 	$content .= "
-	    <h2>Add SMS poll</h2>
+	    <h2>"._('Add SMS poll')."</h2>
 	    <p>
 	    <form action=menu.php?inc=feature_sms_poll&op=sms_poll_add_yes method=post>
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
-		<td width=150>SMS poll keyword</td><td width=5>:</td><td><input type=text size=3 maxlength=10 name=add_poll_keyword value=\"$add_poll_keyword\"></td>
+		<td width=150>"._('SMS poll keyword')."</td><td width=5>:</td><td><input type=text size=3 maxlength=10 name=add_poll_keyword value=\"$add_poll_keyword\"></td>
 	    </tr>
 	    <tr>
-		<td>SMS poll title</td><td>:</td><td><input type=text size=60 maxlength=200 name=add_poll_title value=\"$add_poll_title\"></td>
+		<td>"._('SMS poll title')."</td><td>:</td><td><input type=text size=60 maxlength=200 name=add_poll_title value=\"$add_poll_title\"></td>
 	    </tr>	    
 	</table>
-	    <p><input type=submit class=button value=Add>
+	    <p><input type=submit class=button value=\""._('Add')."\">
 	    </form>
 	";
 	echo $content;
@@ -302,17 +302,17 @@ switch ($op)
 		";
 		if ($new_uid = @dba_insert_id($db_query))
 		{
-		    $error_string = "SMS poll with keyword `$add_poll_keyword` has been added";
+		    $error_string = _('SMS poll has been added')." ("._('keyword').": `$add_poll_keyword`)";
 		}
 	    }
 	    else
 	    {
-		$error_string = "SMS keyword `$add_poll_keyword` already exists, reserved or use by other feature!";
+		$error_string = _('SMS poll already exists, reserved or use by other feature')." ("._('keyword').": `$add_poll_keyword`)";
 	    }
 	}
 	else
 	{
-	    $error_string = "You must fill all fields!";
+	    $error_string = _('You must fill all fields');
 	}
 	header ("Location: menu.php?inc=feature_sms_poll&op=sms_poll_add&err=".urlencode($error_string));
 	break;

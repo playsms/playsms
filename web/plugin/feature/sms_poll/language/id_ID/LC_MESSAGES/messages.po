@@ -1,0 +1,150 @@
+#: config.php:4 sms_poll.php:12
+msgid "Manage poll"
+msgstr "Pengaturan poll"
+
+#: sms_poll.php:14 sms_poll.php:62 sms_poll.php:276
+msgid "Add SMS poll"
+msgstr ""
+
+#: sms_poll.php:27 sms_poll.php:113
+msgid "Keyword"
+msgstr ""
+
+#: sms_poll.php:28 sms_poll.php:114
+msgid "Title"
+msgstr ""
+
+#: sms_poll.php:29
+msgid "User"
+msgstr ""
+
+#: sms_poll.php:30
+msgid "Status"
+msgstr ""
+
+#: sms_poll.php:31 sms_poll.php:115
+msgid "Action"
+msgstr ""
+
+#: sms_poll.php:40 sms_poll.php:154
+msgid "Disabled"
+msgstr ""
+
+#: sms_poll.php:43 sms_poll.php:157
+msgid "Enabled"
+msgstr ""
+
+#: sms_poll.php:47
+msgid ""
+"Are you sure you want to delete SMS poll with all its choices and votes ?"
+msgstr ""
+
+#: sms_poll.php:47 sms_poll.php:131 sms_poll.php:183 sms_poll.php:236
+#: sms_poll.php:241 sms_poll.php:257 sms_poll.php:265 sms_poll.php:305
+#: sms_poll.php:310
+msgid "keyword"
+msgstr ""
+
+#: sms_poll.php:85
+msgid "Edit SMS poll"
+msgstr ""
+
+#: sms_poll.php:92 sms_poll.php:281
+msgid "SMS poll keyword"
+msgstr ""
+
+#: sms_poll.php:95 sms_poll.php:284
+msgid "SMS poll title"
+msgstr ""
+
+#: sms_poll.php:98
+msgid "Save"
+msgstr ""
+
+#: sms_poll.php:104
+msgid "Edit SMS poll choices"
+msgstr ""
+
+#: sms_poll.php:131
+msgid "Are you sure you want to delete choice ?"
+msgstr ""
+
+#: sms_poll.php:131 sms_poll.php:214
+msgid "title"
+msgstr ""
+
+#: sms_poll.php:136
+msgid "Add choice to this poll"
+msgstr ""
+
+#: sms_poll.php:141
+msgid "Choice Keyword"
+msgstr ""
+
+#: sms_poll.php:144
+msgid "Choice title"
+msgstr ""
+
+#: sms_poll.php:147 sms_poll.php:287
+msgid "Add"
+msgstr ""
+
+#: sms_poll.php:160
+msgid "Enable or disable this poll"
+msgstr ""
+
+#: sms_poll.php:162
+msgid "Current status"
+msgstr ""
+
+#: sms_poll.php:163
+msgid "What do you want to do ?"
+msgstr ""
+
+#: sms_poll.php:164
+msgid "I want to enable this poll"
+msgstr ""
+
+#: sms_poll.php:165
+msgid "I want to disable this poll"
+msgstr ""
+
+#: sms_poll.php:183
+msgid "SMS poll with has been saved"
+msgstr ""
+
+#: sms_poll.php:188 sms_poll.php:246 sms_poll.php:315
+msgid "You must fill all fields"
+msgstr ""
+
+#: sms_poll.php:199
+msgid "SMS poll status has been changed"
+msgstr ""
+
+#: sms_poll.php:214
+msgid "SMS poll with all its messages has been deleted"
+msgstr ""
+
+#: sms_poll.php:236
+msgid "Choice has been added"
+msgstr ""
+
+#: sms_poll.php:241
+msgid "Choice already exists"
+msgstr ""
+
+#: sms_poll.php:257
+msgid "Fail to delete SMS poll choice"
+msgstr ""
+
+#: sms_poll.php:265
+msgid "SMS poll choice and all its voters has been deleted"
+msgstr ""
+
+#: sms_poll.php:305
+msgid "SMS poll has been added"
+msgstr ""
+
+#: sms_poll.php:310
+msgid "SMS poll already exists, reserved or use by other feature"
+msgstr ""
