@@ -9,9 +9,9 @@ switch ($op)
 	    $content = "<p><font color=red>$err</font><p>";
 	}
 	$content .= "
-	    <h2>Manage poll</h2>
+	    <h2>"._('Manage poll')."</h2>
 	    <p>
-	    <input type=button value=\"Add SMS poll\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_poll&op=sms_poll_add')\" class=\"button\" />
+	    <input type=button value=\""._('Add SMS poll')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_poll&op=sms_poll_add')\" class=\"button\" />
 	    <p>
 	";
 	if (!isadmin())
@@ -24,7 +24,7 @@ switch ($op)
     <table cellpadding=1 cellspacing=2 border=0 width=100%>
     <tr>
         <td class=box_title width=25>*</td>
-        <td class=box_title width=150>Keyword</td>
+        <td class=box_title width=150>"._('Keyword')."</td>
         <td class=box_title>Title</td>
         <td class=box_title width=150>User</td>	
         <td class=box_title width=75>Status</td>

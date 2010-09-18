@@ -59,7 +59,12 @@ function rateid2rate($id)
     return $rate;
 }
 
-function setsmscredit($smslog_id) {
+function rate_setusercredit($uid, $remaining) {
+    $db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp=NOW(),credit='$remaining' WHERE uid='$uid'";
+    $db_result = @dba_affected_rows($db_query);
+}
+
+function rate_setcredit($smslog_id) {
     $db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
     $db_result = dba_query($db_query);
     $db_row = dba_fetch_array($db_result);
@@ -67,20 +72,15 @@ function setsmscredit($smslog_id) {
     $p_msg = $db_row['p_msg'];
     $uid = $db_row['uid'];
     $count = ceil(strlen($p_msg) / 140);
-    $rate = getsmsrate($p_dst);
+    $rate = rate_get($p_dst);
     $username = uid2username($uid);
     $credit = username2credit($username);
     $remaining = $credit - ($rate*$count);
-    setusersmscredit($uid, $remaining);
+    rate_setusercredit($uid, $remaining);
     return;
 }
 
-function setusersmscredit($uid, $remaining) {
-    $db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp=NOW(),credit='$remaining' WHERE uid='$uid'";
-    $db_result = @dba_affected_rows($db_query);
-}
-
-function getsmsrate($p_dst) {
+function rate_get($p_dst) {
     global $default_rate;
     $rate = $default_rate;
     $prefix = $p_dst;
@@ -97,7 +97,7 @@ function getsmsrate($p_dst) {
     return $rate;
 }
 
-function getmaxsmsrate() {
+function rate_getmax() {
     global $default_rate;
     $rate = 0;
     $db_query = "SELECT rate FROM "._DB_PREF_."_tblRate ORDER BY rate DESC LIMIT 1";

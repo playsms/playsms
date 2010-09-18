@@ -158,7 +158,7 @@ function setsmsdeliverystatus($smslog_id,$uid,$p_status)
 	$ok = true;
 	// fixme anton - temporary modification and only reduce credit when $p_status=1
 	if ($p_status == 1) {
-	    setsmscredit($smslog_id);
+	    rate_setcredit($smslog_id);
 	}
     }
     return $ok;
