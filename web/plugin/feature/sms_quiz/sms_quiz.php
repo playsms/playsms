@@ -13,7 +13,7 @@ switch ($op) {
 			$content = "<p><font color=red>$err</font><p>";
 		}
 		$content .= "
-				<h2>Received Answer List for [ ".$db_answer_row['quiz_keyword']." ]</h2>			
+				<h2>"._('Received answer list for keyword')." ".$db_answer_row['quiz_keyword']."</h2>			
 				";
 
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureQuiz_log WHERE quiz_id = '$quiz_id' ORDER BY in_datetime DESC";
@@ -22,11 +22,11 @@ switch ($op) {
 			<table cellpadding=1 cellspacing=2 border=0 width=100%>
 				<tr>
 				<td class=box_title width=4>*</td>
-				<td class=box_title width=30%>Datetime</td>
-				<td class=box_title width=30%>Sender</td>
-				<td class=box_title width=30%>Message</td>
-				<td class=box_title width=10%>Status</td>
-				<td class=box_title>Action</td>      
+				<td class=box_title width=30%>"._('Datetime')."</td>
+				<td class=box_title width=30%>"._('Sender')."</td>
+				<td class=box_title width=30%>"._('Message')."</td>
+				<td class=box_title width=10%>"._('Status')."</td>
+				<td class=box_title>"._('Action')."</td>
 			</tr>
 			";
 		$i = 0;
@@ -35,11 +35,11 @@ switch ($op) {
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 
 			if ($db_row['quiz_answer'] == $db_answer_row['quiz_answer']) {
-				$iscorrect = "<font color=green>Correct</font>";
+				$iscorrect = "<font color=green>"._('Correct')."</font>";
 			} else {
-				$iscorrect = "<font color=red>Incorrect</font>";
+				$iscorrect = "<font color=red>"._('Incorrect')."</font>";
 			}
-			$action = "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS this answer?','menu.php?inc=feature_sms_quiz&op=sms_answer_del&quiz_id=$quiz_id&answer_id=".$db_row['answer_id']."')\">$icon_delete</a>";
+			$action = "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this answer ?')."','menu.php?inc=feature_sms_quiz&op=sms_answer_del&quiz_id=$quiz_id&answer_id=".$db_row['answer_id']."')\">$icon_delete</a>";
 
 			$content .= "
 				<tr>
@@ -65,7 +65,7 @@ switch ($op) {
 		if ($answer_id) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureQuiz_log WHERE answer_id='$answer_id'";
 			if (@ dba_affected_rows($db_query)) {
-				$error_string = "SMS quiz answer messages has been deleted!";
+				$error_string = _('SMS quiz answer messages has been deleted');
 			}
 		}
 		header("Location: menu.php?inc=feature_sms_quiz&op=sms_answer_view&quiz_id=$quiz_id&err=" . urlencode($error_string));
@@ -76,9 +76,9 @@ switch ($op) {
 			$content = "<p><font color=red>$err</font><p>";
 		}
 		$content .= "
-				<h2>Manage quiz</h2>
+				<h2>"._('Manage SMS quiz')."</h2>
 				<p>
-				<input type=button value=\"Add SMS quiz\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_quiz&op=sms_quiz_add')\" class=\"button\" />
+				<input type=button value=\""._('Add SMS quiz')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_quiz&op=sms_quiz_add')\" class=\"button\" />
 				<p>
 				";
 		if (!isadmin()) {
@@ -90,12 +90,12 @@ switch ($op) {
 			<table cellpadding=1 cellspacing=2 border=0 width=100%>
 			<tr>
 			   	<td class=box_title>*</td>
-			    	<td class=box_title width=20%>Keyword</td>
-				<td class=box_title width=40%>Question</td>
-			    	<td class=box_title width=20%>Answer</td>
-			    	<td class=box_title width=10%>User</td>	
-			    	<td class=box_title width=10%>Status</td>
-			    	<td class=box_title>Action</td>
+			    	<td class=box_title width=20%>"._('Keyword')."</td>
+				<td class=box_title width=40%>"._('Question')."</td>
+			    	<td class=box_title width=20%>"._('Answer')."</td>
+			    	<td class=box_title width=10%>"._('User')."</td>	
+			    	<td class=box_title width=10%>"._('Status')."</td>
+			    	<td class=box_title>"._('Action')."</td>
 			</tr>
 			";
 		$i = 0;
@@ -103,13 +103,13 @@ switch ($op) {
 			$i++;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 			$owner = uid2username($db_row['uid']);
-			$quiz_status = "<font color=red>Disable</font>";
+			$quiz_status = "<font color=red>"._('Disabled')."</font>";
 			if ($db_row['quiz_enable']) {
-				$quiz_status = "<font color=green>Enable</font>";
+				$quiz_status = "<font color=green>"._('Enabled')."</font>";
 			}
 			$action = "<a href=menu.php?inc=feature_sms_quiz&op=sms_answer_view&quiz_id=".$db_row['quiz_id'].">$icon_view</a>&nbsp;";
 			$action .= "<a href=menu.php?inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=".$db_row['quiz_id'].">$icon_edit</a>&nbsp;";
-			$action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS quiz keyword `".$db_row['quiz_keyword']."` with all its choices and votes ?','menu.php?inc=feature_sms_quiz&op=sms_quiz_del&quiz_id=".$db_row['quiz_id']."')\">$icon_delete</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS quiz with all its choices and answers ?')." ("._('keyword').": `".$db_row['quiz_keyword']."`)','menu.php?inc=feature_sms_quiz&op=sms_quiz_del&quiz_id=".$db_row['quiz_id']."')\">$icon_delete</a>";
 			$content .= "
 					<tr>
 						<td class=$td_class>&nbsp;$i.</td>
@@ -125,7 +125,7 @@ switch ($op) {
 		echo $content;
 		echo "
 				<p>
-				<input type=button value=\"Add SMS quiz\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_quiz&op=sms_quiz_add')\" class=\"button\" />
+				<input type=button value=\""._('Add SMS quiz')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_quiz&op=sms_quiz_add')\" class=\"button\" />
 				";
 		break;
 
@@ -143,29 +143,29 @@ switch ($op) {
 			$content = "<p><font color=red>$err</font><p>";
 		}
 		$content .= "
-				<h2>Edit SMS quiz</h2>
+				<h2>"._('Edit SMS quiz')."</h2>
 				<p>
 				<form action=menu.php?inc=feature_sms_quiz&op=sms_quiz_edit_yes method=post>
 				<input type=hidden name=edit_quiz_id value=\"$quiz_id\">
 				<input type=hidden name=edit_quiz_keyword value=\"$edit_quiz_keyword\">
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 				<tr>
-				<td width=150>SMS quiz</td><td width=5>:</td><td><b>$edit_quiz_keyword</b></td>
+				<td width=150>"._('SMS quiz keyword')."</td><td width=5>:</td><td><b>$edit_quiz_keyword</b></td>
 				</tr>
 				<tr>
-				<td>SMS quiz question</td><td>:</td><td><input type=text size=40 maxlength=200 name=edit_quiz_question value=\"$edit_quiz_question\"></td>
+				<td>"._('SMS quiz question')."</td><td>:</td><td><input type=text size=40 maxlength=200 name=edit_quiz_question value=\"$edit_quiz_question\"></td>
 			   	</tr>
 				<tr>
-				<td>SMS quiz answer</td><td>:</td><td><input type=text size=10 maxlength=200 name=edit_quiz_answer value=\"$edit_quiz_answer\"></td>
+				<td>"._('SMS quiz answer')."</td><td>:</td><td><input type=text size=10 maxlength=200 name=edit_quiz_answer value=\"$edit_quiz_answer\"></td>
 			   	</tr>
 				<tr>
-				<td>Message if correct</td><td>:</td><td><input type=text size=40 maxlength=200 name=edit_quiz_msg_correct value=\"$edit_quiz_msg_correct\"></td>
+				<td>"._('Message when correct')."</td><td>:</td><td><input type=text size=40 maxlength=200 name=edit_quiz_msg_correct value=\"$edit_quiz_msg_correct\"></td>
 			   	</tr>
 				<tr>
-				<td>Message if incorrect</td><td>:</td><td><input type=text size=40 maxlength=200 name=edit_quiz_msg_incorrect value=\"$edit_quiz_msg_incorrect\"></td>
+				<td>"._('Message when incorrect')."</td><td>:</td><td><input type=text size=40 maxlength=200 name=edit_quiz_msg_incorrect value=\"$edit_quiz_msg_incorrect\"></td>
 			   	</tr>		   	    
 			</table>	    
-				<p><input type=submit class=button value=\"Save Quiz\">
+				<p><input type=submit class=button value=\""._('Save')."\">
 				</form>
 				<br>
 			";
@@ -174,17 +174,17 @@ switch ($op) {
 		$db_query = "SELECT quiz_enable FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_id='$quiz_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$quiz_status = "<font color=red><b>Disable</b></font>";
+		$quiz_status = "<font color=red><b>"._('Disabled')."</b></font>";
 		if ($db_row['quiz_enable']) {
-			$quiz_status = "<font color=green><b>Enable</b></font>";
+			$quiz_status = "<font color=green><b>"._('Enabled')."</b></font>";
 		}
 		$content = "
-				<h2>Enable or disable this quiz</h2>
+				<h2>"._('Enable or disable this quiz')."</h2>
 				<p>
-				<p>Current status: $quiz_status
-				<p>What do you want to do ?
-				<p>- <a href=\"menu.php?inc=feature_sms_quiz&op=sms_quiz_status&quiz_id=$quiz_id&ps=1\">I want to <b>enable</b> this quiz</a>
-				<p>- <a href=\"menu.php?inc=feature_sms_quiz&op=sms_quiz_status&quiz_id=$quiz_id&ps=0\">I want to <b>disable</b> this quiz</a>
+				<p>"._('Current status').": $quiz_status
+				<p>"._('What do you want to do ?')."
+				<p>- <a href=\"menu.php?inc=feature_sms_quiz&op=sms_quiz_status&quiz_id=$quiz_id&ps=1\">"._('I want to enable this quiz')."</a>
+				<p>- <a href=\"menu.php?inc=feature_sms_quiz&op=sms_quiz_status&quiz_id=$quiz_id&ps=0\">"._('I want to disable this quiz')."</a>
 				<br>
 			";
 		echo $content;
@@ -204,10 +204,10 @@ switch ($op) {
 						WHERE quiz_id='$edit_quiz_id' AND uid='$uid'
 						";
 			if (@ dba_affected_rows($db_query)) {
-				$error_string = "SMS quiz with keyword `$edit_quiz_keyword` has been saved";
+				$error_string = _('SMS quiz has been saved')." ("._('keyword').": `$edit_quiz_keyword`)";
 			}
 		} else {
-			$error_string = "You must fill all fields!";
+			$error_string = _('You must fill all field');
 		}
 		header("Location: menu.php?inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=$edit_quiz_id&err=" . urlencode($error_string));
 		break;
@@ -218,7 +218,7 @@ switch ($op) {
 		$db_query = "UPDATE " . _DB_PREF_ . "_featureQuiz SET c_timestamp='" . mktime() . "',quiz_enable='$ps' WHERE quiz_id='$quiz_id'";
 		$db_result = @ dba_affected_rows($db_query);
 		if ($db_result > 0) {
-			$error_string = "This quiz status has been changed!";
+			$error_string = _('SMS quiz status has been changed');
 		}
 		header("Location: menu.php?inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=$quiz_id&err=" . urlencode($error_string));
 		break;
@@ -232,7 +232,7 @@ switch ($op) {
 		if ($quiz_keyword) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_keyword='$quiz_keyword'";
 			if (@ dba_affected_rows($db_query)) {
-				$error_string = "SMS quiz `$quiz_keyword` with all its messages has been deleted!";
+				$error_string = _('SMS quiz with all its messages has been deleted')." ("._('keyword').": `$quiz_keyword`)";
 			}
 		}
 		header("Location: menu.php?inc=feature_sms_quiz&op=sms_quiz_list&err=" . urlencode($error_string));
@@ -243,27 +243,27 @@ switch ($op) {
 			$content = "<p><font color=red>$err</font><p>";
 		}
 		$content .= "
-				<h2>Add SMS quiz</h2>
+				<h2>"._('Add SMS quiz')."</h2>
 				<p>
 				<form action=menu.php?inc=feature_sms_quiz&op=sms_quiz_add_yes method=post>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 				<tr>
-				<td width=150>SMS quiz keyword</td><td width=5>:</td><td><input type=text size=3 maxlength=10 name=add_quiz_keyword value=\"$add_quiz_keyword\"></td>
+				<td width=150>"._('SMS quiz keyword')."</td><td width=5>:</td><td><input type=text size=3 maxlength=10 name=add_quiz_keyword value=\"$add_quiz_keyword\"></td>
 				</tr>
 				<tr>
-				<td>SMS quiz question</td><td>:</td><td><input type=text size=40 maxlength=200 name=add_quiz_question value=\"$add_quiz_question\"></td>
+				<td>"._('SMS quiz question')."</td><td>:</td><td><input type=text size=40 maxlength=200 name=add_quiz_question value=\"$add_quiz_question\"></td>
 				</tr>
 				<tr>
-				<td>SMS quiz answer</td><td>:</td><td><input type=text size=12 maxlength=200 name=add_quiz_answer value=\"$add_quiz_answer\"></td>
+				<td>"._('SMS quiz answer')."</td><td>:</td><td><input type=text size=12 maxlength=200 name=add_quiz_answer value=\"$add_quiz_answer\"></td>
 				</tr>
 				<tr>
-				<td>Message if correct</td><td>:</td><td><input type=text size=40 maxlength=200 name=add_quiz_msg_correct value=\"$add_quiz_msg_correct\"></td>
+				<td>"._('Message when correct')."</td><td>:</td><td><input type=text size=40 maxlength=200 name=add_quiz_msg_correct value=\"$add_quiz_msg_correct\"></td>
 				</tr>
 				<tr>
-				<td>Message if  incorrect</td><td>:</td><td><input type=text size=40 maxlength=200 name=add_quiz_msg_incorrect value=\"$add_quiz_msg_incorrect\"></td>
+				<td>"._('Message when incorrect')."</td><td>:</td><td><input type=text size=40 maxlength=200 name=add_quiz_msg_incorrect value=\"$add_quiz_msg_incorrect\"></td>
 				</tr>	    
 			</table>
-				<p><input type=submit class=button value=Add>
+				<p><input type=submit class=button value=\""._('Add')."\">
 				</form>
 			";
 		echo $content;
@@ -282,13 +282,13 @@ switch ($op) {
 							VALUES ('$uid','$add_quiz_keyword','$add_quiz_question','$add_quiz_answer','$add_quiz_msg_correct','$add_quiz_msg_incorrect')
 						";
 				if ($new_uid = @ dba_insert_id($db_query)) {
-					$error_string = "SMS quiz with keyword `$add_quiz_keyword` has been added";
+					$error_string = _('SMS quiz has been added')." ("._('keyword').": `$add_quiz_keyword`)";
 				}
 			} else {
-				$error_string = "SMS keyword `$add_quiz_keyword` already exists, reserved or use by other feature!";
+				$error_string = _('SMS quiz already exists, reserved or use by other feature')." ("._('keyword').": `$add_quiz_keyword`)";
 			}
 		} else {
-			$error_string = "You must fill all fields!";
+			$error_string = _('You must fill all field');
 		}
 		header("Location: menu.php?inc=feature_sms_quiz&op=sms_quiz_add&err=" . urlencode($error_string));
 		break;

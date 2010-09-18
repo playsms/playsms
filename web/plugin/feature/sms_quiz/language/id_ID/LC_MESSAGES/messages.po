@@ -1,0 +1,161 @@
+#: config.php:4
+msgid "Manage quiz"
+msgstr "Pengaturan quiz"
+
+#: sms_quiz.php:16
+msgid "Received answer list for keyword"
+msgstr ""
+
+#: sms_quiz.php:25
+msgid "Datetime"
+msgstr ""
+
+#: sms_quiz.php:26
+msgid "Sender"
+msgstr ""
+
+#: sms_quiz.php:27
+msgid "Message"
+msgstr ""
+
+#: sms_quiz.php:28 sms_quiz.php:97
+msgid "Status"
+msgstr ""
+
+#: sms_quiz.php:29 sms_quiz.php:98
+msgid "Action"
+msgstr ""
+
+#: sms_quiz.php:38
+msgid "Correct"
+msgstr ""
+
+#: sms_quiz.php:40
+msgid "Incorrect"
+msgstr ""
+
+#: sms_quiz.php:42
+msgid "Are you sure you want to delete this answer ?"
+msgstr ""
+
+#: sms_quiz.php:68
+msgid "SMS quiz answer messages has been deleted"
+msgstr ""
+
+#: sms_quiz.php:79
+msgid "Manage SMS quiz"
+msgstr ""
+
+#: sms_quiz.php:81 sms_quiz.php:128 sms_quiz.php:246
+msgid "Add SMS quiz"
+msgstr ""
+
+#: sms_quiz.php:93
+msgid "Keyword"
+msgstr ""
+
+#: sms_quiz.php:94
+msgid "Question"
+msgstr ""
+
+#: sms_quiz.php:95
+msgid "Answer"
+msgstr ""
+
+#: sms_quiz.php:96
+msgid "User"
+msgstr ""
+
+#: sms_quiz.php:106 sms_quiz.php:177
+msgid "Disabled"
+msgstr ""
+
+#: sms_quiz.php:108 sms_quiz.php:179
+msgid "Enabled"
+msgstr ""
+
+#: sms_quiz.php:112
+msgid ""
+"Are you sure you want to delete SMS quiz with all its choices and answers ?"
+msgstr ""
+
+#: sms_quiz.php:112 sms_quiz.php:207 sms_quiz.php:235 sms_quiz.php:285
+#: sms_quiz.php:288
+msgid "keyword"
+msgstr ""
+
+#: sms_quiz.php:146
+msgid "Edit SMS quiz"
+msgstr ""
+
+#: sms_quiz.php:153 sms_quiz.php:251
+msgid "SMS quiz keyword"
+msgstr ""
+
+#: sms_quiz.php:156 sms_quiz.php:254
+msgid "SMS quiz question"
+msgstr ""
+
+#: sms_quiz.php:159 sms_quiz.php:257
+msgid "SMS quiz answer"
+msgstr ""
+
+#: sms_quiz.php:162 sms_quiz.php:260
+msgid "Message when correct"
+msgstr ""
+
+#: sms_quiz.php:165 sms_quiz.php:263
+msgid "Message when incorrect"
+msgstr ""
+
+#: sms_quiz.php:168
+msgid "Save"
+msgstr ""
+
+#: sms_quiz.php:182
+msgid "Enable or disable this quiz"
+msgstr ""
+
+#: sms_quiz.php:184
+msgid "Current status"
+msgstr ""
+
+#: sms_quiz.php:185
+msgid "What do you want to do ?"
+msgstr ""
+
+#: sms_quiz.php:186
+msgid "I want to enable this quiz"
+msgstr ""
+
+#: sms_quiz.php:187
+msgid "I want to disable this quiz"
+msgstr ""
+
+#: sms_quiz.php:207
+msgid "SMS quiz has been saved"
+msgstr ""
+
+#: sms_quiz.php:210 sms_quiz.php:291
+msgid "You must fill all field"
+msgstr ""
+
+#: sms_quiz.php:221
+msgid "SMS quiz status has been changed"
+msgstr ""
+
+#: sms_quiz.php:235
+msgid "SMS quiz with all its messages has been deleted"
+msgstr ""
+
+#: sms_quiz.php:266
+msgid "Add"
+msgstr ""
+
+#: sms_quiz.php:285
+msgid "SMS quiz has been added"
+msgstr ""
+
+#: sms_quiz.php:288
+msgid "SMS quiz already exists, reserved or use by other feature"
+msgstr ""
