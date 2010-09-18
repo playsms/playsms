@@ -72,12 +72,12 @@ function sms_board_handle($sms_datetime,$sms_sender,$board_keyword,$board_param=
 	    $email = $db_row1['board_forward_email'];
 	    if ($email)
 	    {
-		$subject = "[SMSGW-".$board_keyword."] from $sms_sender";
-		$body = "Forward WebSMS ($web_title)\n\n";
-		$body .= "Date Time: $sms_datetime\n";
-		$body .= "Sender: $sms_sender\n";
-		$body .= "Keyword: $board_keyword\n\n";
-		$body .= "Message:\n$board_param\n\n";
+		$subject = "[SMSGW-".$board_keyword."] "._('from')." $sms_sender";
+		$body = _('Forward WebSMS')." ($web_title)\n\n";
+		$body .= _('Date and time').": $sms_datetime\n";
+		$body .= _('Sender').": $sms_sender\n";
+		$body .= _('Keyword').": $board_keyword\n\n";
+		$body .= _('Message').":\n$board_param\n\n";
 		$body .= $email_footer."\n\n";
 		sendmail($email_service,$email,$subject,$body);
 	    }
@@ -129,7 +129,7 @@ function outputtohtml($keyword,$line="10",$pref_bodybgcolor="#E0D0C0",$pref_oddb
     	$template = $db_row['board_pref_template'];
 	$db_query1 = "SELECT * FROM "._DB_PREF_."_featureBoard_log WHERE in_keyword='$keyword' ORDER BY in_datetime DESC LIMIT 0,$line";
 	$db_result1 = dba_query($db_query1);
-	$content = "<html>\n<head>\n<title>$web_title - Keyword: $keyword</title>\n<meta name=\"author\" content=\"http://playsms.sourceforge.net\">\n</head>\n<body bgcolor=\"$pref_bodybgcolor\" topmargin=\"0\" leftmargin=\"0\">\n<table width=100% cellpadding=2 cellspacing=2>\n";
+	$content = "<html>\n<head>\n<title>$web_title - "._('Keyword').": $keyword</title>\n<meta name=\"author\" content=\"http://playsms.sourceforge.net\">\n</head>\n<body bgcolor=\"$pref_bodybgcolor\" topmargin=\"0\" leftmargin=\"0\">\n<table width=100% cellpadding=2 cellspacing=2>\n";
 	$i = 0;
 	while ($db_row1 = dba_fetch_array($db_result1))
 	{
