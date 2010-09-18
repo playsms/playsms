@@ -9,10 +9,10 @@ switch ($op)
 	    $content = "<p><font color=red>$err</font><p>";
 	}
 	$content .= "
-	    <h2>Manage command</h2>
+	    <h2>"._('Manage command')."</h2>
 	    <p>
 	    <input type=button value=\"Add SMS command\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_command&op=sms_command_add')\" class=\"button\" />
-	    <p>SMS command exec path : <b>".$plugin_config['feature']['sms_command']['bin']."/</b>
+	    <p>"._('SMS command exec path')." : <b>".$plugin_config['feature']['sms_command']['bin']."/</b>
 	";
 	if (!isadmin())
 	{
@@ -24,10 +24,10 @@ switch ($op)
     <table cellpadding=1 cellspacing=2 border=0 width=100%>
     <tr>
         <td class=box_title width=25>*</td>
-        <td class=box_title width=100>Keyword</td>
-        <td class=box_title>Exec</td>
-        <td class=box_title width=100>User</td>	
-        <td class=box_title width=75>Action</td>
+        <td class=box_title width=100>"._('Keyword')."</td>
+        <td class=box_title>"._('Exec')."</td>
+        <td class=box_title width=100>"._('User')."</td>	
+        <td class=box_title width=75>"._('Action')."</td>
     </tr>	
 	";	
 	$i=0;		
@@ -38,7 +38,7 @@ switch ($op)
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 	    $owner = uid2username($db_row['uid']);
 	    $action = "<a href=menu.php?inc=feature_sms_command&op=sms_command_edit&command_id=".$db_row['command_id'].">$icon_edit</a>&nbsp;";
-	    $action .= "<a href=\"javascript: ConfirmURL('Are you sure you want to delete SMS command keyword `".$db_row['command_keyword']."` ?','menu.php?inc=feature_sms_command&op=sms_command_del&command_id=".$db_row['command_id']."')\">$icon_delete</a>";
+	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS command ?')." ("._('keyword').": `".$db_row['command_keyword']."`)','menu.php?inc=feature_sms_command&op=sms_command_del&command_id=".$db_row['command_id']."')\">$icon_delete</a>";
 	    $command_exec = ( (strlen($db_row['command_exec']) > $maxlen) ? substr($db_row['command_exec'],0,$maxlen)."..." : $db_row['command_exec'] );
 	    $content .= "
     <tr>
@@ -56,7 +56,7 @@ switch ($op)
 	echo $content;
 	echo "
 	    <p>
-	    <input type=button value=\"Add SMS command\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_command&op=sms_command_add')\" class=\"button\" />
+	    <input type=button value=\""._('Add SMS command')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_command&op=sms_command_add')\" class=\"button\" />
 	";
 	break;
     case "sms_command_edit":
@@ -72,20 +72,20 @@ switch ($op)
 	    $content = "<p><font color=red>$err</font><p>";
 	}
 	$content .= "
-	    <h2>Edit SMS command</h2>
+	    <h2>"._('Edit SMS command')."</h2>
 	    <p>
 	    <form action=menu.php?inc=feature_sms_command&op=sms_command_edit_yes method=post>
 	    <input type=hidden name=edit_command_id value=$command_id>
 	    <input type=hidden name=edit_command_keyword value=$edit_command_keyword>
-	    <p>SMS command keyword: <b>$edit_command_keyword</b>
-	    <p>Pass these parameter to command exec field:
-	    <p><b>{SMSDATETIME}</b> replaced by SMS incoming date/time
-	    <p><b>{SMSSENDER}</b> replaced by sender number
-	    <p><b>{COMMANDKEYWORD}</b> replaced by command keyword 
-	    <p><b>{COMMANDPARAM}</b> replaced by command parameter passed to server from SMS
-	    <p>SMS command exec path : <b>".$plugin_config['feature']['sms_command']['bin']."</b>
-	    <p>SMS command exec: <input type=text size=60 name=edit_command_exec value=\"$edit_command_exec\">
-	    <p><input type=submit class=button value=Save>
+	    <p>"._('SMS command keyword').": <b>$edit_command_keyword</b>
+	    <p>"._('Pass these parameter to command exec field').":
+	    <p><b>{SMSDATETIME}</b> "._('will be replaced by SMS incoming date/time')."
+	    <p><b>{SMSSENDER}</b> "._('will be replaced by sender number')."
+	    <p><b>{COMMANDKEYWORD}</b> "._('will be replaced by command keyword')."
+	    <p><b>{COMMANDPARAM}</b> "._('will be replaced by command parameter passed to server from SMS')."
+	    <p>"._('SMS command exec path').": <b>".$plugin_config['feature']['sms_command']['bin']."</b>
+	    <p>"._('SMS command exec').": <input type=text size=60 name=edit_command_exec value=\"$edit_command_exec\">
+	    <p><input type=submit class=button value=\""._('Save')."\">
 	    </form>
 	";
 	echo $content;
@@ -102,16 +102,16 @@ switch ($op)
 	    $db_query = "UPDATE "._DB_PREF_."_featureCommand SET c_timestamp='".mktime()."',command_exec='$edit_command_exec' WHERE command_keyword='$edit_command_keyword' AND uid='$uid'";
 	    if (@dba_affected_rows($db_query))
 	    {
-		$error_string = "SMS command keyword `$edit_command_keyword` has been saved";
+		$error_string = _('SMS command has been saved')." ("._('keyword').": `$edit_command_keyword`)";
 	    }
 	    else
 	    {
-	        $error_string = "Fail to save SMS command keyword `$edit_command_keyword`";
+	        $error_string = _('Fail to save SMS command')." ("._('keyword').": `$edit_command_keyword`)";
 	    }
 	}
 	else
 	{
-	    $error_string = "You must fill all fields!";
+	    $error_string = _('You must fill all fields');
 	}
 	header ("Location: menu.php?inc=feature_sms_command&op=sms_command_edit&command_id=$edit_command_id&err=".urlencode($error_string));
 	break;
@@ -126,11 +126,11 @@ switch ($op)
 	    $db_query = "DELETE FROM "._DB_PREF_."_featureCommand WHERE command_keyword='$keyword_name'";
 	    if (@dba_affected_rows($db_query))
 	    {
-		$error_string = "SMS command keyword `$keyword_name` has been deleted!";
+		$error_string = _('SMS command has been deleted')." ("._('keyword').": `$keyword_name`)";
 	    }
 	    else
 	    {
-		$error_string = "Fail to delete SMS command keyword `$keyword_name`";
+		$error_string = _('Fail to delete SMS command')." ("._('keyword').": `$keyword_name`)";
 	    }
 	}
 	header ("Location: menu.php?inc=feature_sms_command&op=sms_command_list&err=".urlencode($error_string));
@@ -141,18 +141,18 @@ switch ($op)
 	    $content = "<p><font color=red>$err</font><p>";
 	}
 	$content .= "
-	    <h2>Add SMS command</h2>
+	    <h2>"._('Add SMS command')."</h2>
 	    <p>
 	    <form action=menu.php?inc=feature_sms_command&op=sms_command_add_yes method=post>
-	    <p>SMS command keyword: <input type=text size=10 maxlength=10 name=add_command_keyword value=\"$add_command_keyword\">
-	    <p>Pass these parameter to command exec field:
-	    <p><b>{SMSDATETIME}</b> replaced by SMS incoming date/time
-	    <p><b>{SMSSENDER}</b> replaced by sender number
-	    <p><b>{COMMANDKEYWORD}</b> replaced by command keyword 
-	    <p><b>{COMMANDPARAM}</b> replaced by command parameter passed to server from SMS
-	    <p>SMS command binary path : <b>".$plugin_config['feature']['sms_command']['bin']."</b>
-	    <p>SMS command exec: <input type=text size=60 maxlength=200 name=add_command_exec value=\"$add_command_exec\">
-	    <p><input type=submit class=button value=Add>
+	    <p>"._('SMS command keyword').": <input type=text size=10 maxlength=10 name=add_command_keyword value=\"$add_command_keyword\">
+	    <p>"._('Pass these parameter to command exec field').":
+	    <p><b>{SMSDATETIME}</b> "._('will be replaced by SMS incoming date/time')."
+	    <p><b>{SMSSENDER}</b> "._('will be replaced by sender number')."
+	    <p><b>{COMMANDKEYWORD}</b> "._('will be replaced by command keyword')."
+	    <p><b>{COMMANDPARAM}</b> "._('will be replaced by command parameter passed to server from SMS')."
+	    <p>"._('SMS command exec path').": <b>".$plugin_config['feature']['sms_command']['bin']."</b>
+	    <p>"._('SMS command exec').": <input type=text size=60 maxlength=200 name=add_command_exec value=\"$add_command_exec\">
+	    <p><input type=submit class=button value=\""._('Add')."\">
 	    </form>
 	";
 	echo $content;
@@ -171,21 +171,21 @@ switch ($op)
 		$db_query = "INSERT INTO "._DB_PREF_."_featureCommand (uid,command_keyword,command_exec) VALUES ('$uid','$add_command_keyword','$add_command_exec')";
 		if ($new_uid = @dba_insert_id($db_query))
 		{
-	    	    $error_string = "SMS command keyword `$add_command_keyword` has been added";
+	    	    $error_string = _('SMS command has been added')." ("._('keyword')." `$add_command_keyword`)";
 		}
 		else
 		{
-	    	    $error_string = "Fail to add SMS command keyword `$add_command_keyword`";
+	    	    $error_string = _('Fail to add SMS command')." ("._('keyword').": `$add_command_keyword`)";
 		}
 	    }
 	    else
 	    {
-		$error_string = "SMS keyword `$add_command_keyword` already exists, reserved or use by other feature!";
+		$error_string = _('SMS command already exists, reserved or use by other feature')." ("._('keyword').": `$add_command_keyword`)";
 	    }
 	}
 	else
 	{
-	    $error_string = "You must fill all fields!";
+	    $error_string = _('You must fill all fields');
 	}
 	header ("Location: menu.php?inc=feature_sms_command&op=sms_command_add&err=".urlencode($error_string));
 	break;
