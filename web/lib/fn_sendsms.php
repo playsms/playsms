@@ -11,6 +11,15 @@ function str2hex($string)
     return $hex;
 }
 
+function getvalidsender($sender) {
+    $sender_arr = explode(" ", $sender);
+    $sender = preg_replace("/[^a-zA-Z0-9\+]/", "", $sender_arr[0]);
+    if (strlen($sender) > 20) {
+	$sender = substr($sender, 0, 20);
+    }
+    return $sender;
+}
+
 function sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gp_code='PV',$sms_type='text',$unicode=0)
 {
     global $datetime_now, $gateway_module;
@@ -19,6 +28,8 @@ function sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gp_code='PV',
     $username = uid2username($uid);
     $credit = username2credit($username);
     $maxrate = getmaxsmsrate();
+    $mobile_sender = getvalidsender($mobile_sender);
+    $sms_to = getvalidsender($sms_to);
     if ($credit >= $maxrate) {
 	$db_query = "
     	    INSERT INTO "._DB_PREF_."_tblSMSOutgoing 
