@@ -1,0 +1,104 @@
+#: config.php:4 sms_custom.php:12
+msgid "Manage custom"
+msgstr "Manage custom"
+
+#: sms_custom.php:14 sms_custom.php:56 sms_custom.php:137
+msgid "Add SMS custom"
+msgstr ""
+
+#: sms_custom.php:27
+msgid "Keyword"
+msgstr ""
+
+#: sms_custom.php:28
+msgid "Exec"
+msgstr ""
+
+#: sms_custom.php:29
+msgid "User"
+msgstr ""
+
+#: sms_custom.php:30
+msgid "Action"
+msgstr ""
+
+#: sms_custom.php:41
+msgid "Are you sure you want to delete SMS custom keyword ?"
+msgstr ""
+
+#: sms_custom.php:41 sms_custom.php:98 sms_custom.php:102 sms_custom.php:122
+#: sms_custom.php:126 sms_custom.php:162 sms_custom.php:166 sms_custom.php:171
+msgid "keyword"
+msgstr ""
+
+#: sms_custom.php:72
+msgid "Edit SMS custom"
+msgstr ""
+
+#: sms_custom.php:77 sms_custom.php:140
+msgid "SMS custom keyword"
+msgstr ""
+
+#: sms_custom.php:78 sms_custom.php:141
+msgid "Pass these parameter to custom URL field"
+msgstr ""
+
+#: sms_custom.php:79 sms_custom.php:142
+msgid "will be replaced by SMS incoming date/time"
+msgstr ""
+
+#: sms_custom.php:80 sms_custom.php:143
+msgid "will be replaced by sender number"
+msgstr ""
+
+#: sms_custom.php:81 sms_custom.php:144
+msgid "will be replaced by custom keyword"
+msgstr ""
+
+#: sms_custom.php:82 sms_custom.php:145
+msgid "will be replaced by custom parameter passed to server from SMS"
+msgstr ""
+
+#: sms_custom.php:83 sms_custom.php:146
+msgid "SMS custom URL"
+msgstr ""
+
+#: sms_custom.php:84
+msgid "Save"
+msgstr ""
+
+#: sms_custom.php:98
+msgid "SMS custom has been saved"
+msgstr ""
+
+#: sms_custom.php:102
+msgid "Fail to save SMS custom"
+msgstr ""
+
+#: sms_custom.php:107 sms_custom.php:176
+msgid "You must fill all fields"
+msgstr ""
+
+#: sms_custom.php:122
+msgid "SMS custom has been deleted"
+msgstr ""
+
+#: sms_custom.php:126
+msgid "Fail to delete SMS custom"
+msgstr ""
+
+#: sms_custom.php:147
+msgid "Add"
+msgstr ""
+
+#: sms_custom.php:162
+msgid "SMS custom has been added"
+msgstr ""
+
+#: sms_custom.php:166
+msgid "Fail to add SMS custom"
+msgstr ""
+
+#: sms_custom.php:171
+msgid "SMS custom already exists, reserved or use by other feature"
+msgstr ""
