@@ -10,6 +10,7 @@ if ($err) {
 // include $apps_path['themes']."/".$themes_module."/header.php";
 
 bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
+//textdomain('messages');
 
 if (valid()) {
     include $apps_path['themes']."/".$themes_module."/welcomepage.php";

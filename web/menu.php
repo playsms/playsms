@@ -5,10 +5,12 @@ include $apps_path['libs']."/function.php";
 if (!($console = $_REQUEST['console']))
 {
     bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
+    //textdomain('messages');
     include $apps_path['themes'].'/'.$themes_module.'/header.php';
 }
 
 bindtextdomain('messages', $apps_path['plug'].'/language/');
+//textdomain('messages');
 
 // user
 $c_fn = $apps_path['incs']."/user/".$inc.".php";
@@ -43,6 +45,7 @@ for ($i=0;$i<count($plugins_category);$i++) {
 		if (file_exists($c_fn))
 		{
 		    bindtextdomain('messages', $apps_path['plug'].'/'.$pc.'/'.$pn.'/language/');
+		    //textdomain('messages');
 		    include_once $c_fn;
 		    break;
 		}
@@ -54,6 +57,7 @@ for ($i=0;$i<count($plugins_category);$i++) {
 if (!($console = $_REQUEST['console']))
 {
     bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
+    //textdomain('messages');
     include $apps_path['themes'].'/'.$themes_module.'/footer.php';
 }
 
