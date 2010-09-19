@@ -7,7 +7,7 @@ CREATE TABLE `playsms_tblRate` (
   `rate` float NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `prefix` (`prefix`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 ALTER TABLE `playsms_tblConfig_main` ADD `cfg_default_rate` FLOAT NOT NULL ;
 ALTER TABLE `playsms_tblConfig_main` ADD `cfg_language_module` VARCHAR(10) DEFAULT 'en_US' ;
@@ -19,4 +19,4 @@ CREATE TABLE `playsms_tblErrorString` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `error_string` TEXT NOT NULL ,
   PRIMARY KEY ( `id` )
-) ENGINE = MYISAM ;
+) ENGINE=MYISAM DEFAULT CHARSET=utf8;

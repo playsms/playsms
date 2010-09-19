@@ -112,6 +112,9 @@ include_once $apps_path['libs']."/dba.php";
 // connect to database
 $dba_object = dba_connect($db_param['user'],$db_param['pass'],$db_param['name'],$db_param['host'],$db_param['port']);
 
+// set charset to UTF-8
+dba_query("SET NAMES utf8");
+
 // get main config
 $db_query = "SELECT * FROM "._DB_PREF_."_tblConfig_main";
 $db_result = dba_query($db_query);

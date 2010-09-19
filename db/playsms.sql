@@ -20,7 +20,7 @@ CREATE TABLE `playsms_featureAutoreply` (
   `uid` int(11) NOT NULL default '0',
   `autoreply_keyword` varchar(10) NOT NULL default '',
   PRIMARY KEY  (`autoreply_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_featureAutoreply`
@@ -44,7 +44,7 @@ CREATE TABLE `playsms_featureAutoreply_log` (
   `autoreply_log_keyword` varchar(10) NOT NULL default '',
   `autoreply_log_request` text NOT NULL,
   PRIMARY KEY  (`autoreply_log_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_featureAutoreply_log`
@@ -73,7 +73,7 @@ CREATE TABLE `playsms_featureAutoreply_scenario` (
   `autoreply_scenario_param7` varchar(20) NOT NULL default '',
   `autoreply_scenario_result` text NOT NULL,
   PRIMARY KEY  (`autoreply_scenario_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_featureAutoreply_scenario`
@@ -97,7 +97,7 @@ CREATE TABLE `playsms_featureBoard` (
   `board_forward_email` varchar(250) NOT NULL default '',
   `board_pref_template` text NOT NULL,
   PRIMARY KEY  (`board_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_featureBoard`
@@ -123,7 +123,7 @@ CREATE TABLE `playsms_featureBoard_log` (
   `in_msg` text NOT NULL,
   `in_datetime` varchar(20) NOT NULL default '0000-00-00 00:00:00',
   PRIMARY KEY  (`in_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_featureBoard_log`
@@ -146,7 +146,7 @@ CREATE TABLE `playsms_featureCommand` (
   `command_keyword` varchar(10) NOT NULL default '',
   `command_exec` text NOT NULL,
   PRIMARY KEY  (`command_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_featureCommand`
@@ -170,7 +170,7 @@ CREATE TABLE `playsms_featureCommand_log` (
   `command_log_keyword` varchar(10) NOT NULL default '',
   `command_log_exec` text NOT NULL,
   PRIMARY KEY  (`command_log_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_featureCommand_log`
@@ -193,7 +193,7 @@ CREATE TABLE `playsms_featureCustom` (
   `custom_keyword` varchar(10) NOT NULL default '',
   `custom_url` text NOT NULL,
   PRIMARY KEY  (`custom_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_featureCustom`
@@ -217,7 +217,7 @@ CREATE TABLE `playsms_featureCustom_log` (
   `custom_log_keyword` varchar(10) NOT NULL default '',
   `custom_log_url` text NOT NULL,
   PRIMARY KEY  (`custom_log_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_featureCustom_log`
@@ -241,7 +241,7 @@ CREATE TABLE `playsms_featurePoll` (
   `poll_keyword` varchar(10) NOT NULL default '',
   `poll_enable` int(11) NOT NULL default '0',
   PRIMARY KEY  (`poll_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_featurePoll`
@@ -264,7 +264,7 @@ CREATE TABLE `playsms_featurePoll_choice` (
   `choice_title` varchar(250) NOT NULL default '',
   `choice_keyword` varchar(10) NOT NULL default '',
   PRIMARY KEY  (`choice_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_featurePoll_choice`
@@ -287,7 +287,7 @@ CREATE TABLE `playsms_featurePoll_log` (
   `choice_id` int(11) NOT NULL default '0',
   `poll_sender` varchar(20) NOT NULL default '',
   PRIMARY KEY  (`result_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_featurePoll_log`
@@ -302,6 +302,7 @@ UNLOCK TABLES;
 -- Table structure for table `playsms_featureQuiz`
 -- 
 
+DROP TABLE IF EXISTS `playsms_featureQuiz`;
 CREATE TABLE IF NOT EXISTS `playsms_featureQuiz` (
   `c_timestamp` int(11) NOT NULL default '0',
   `quiz_id` int(11) NOT NULL auto_increment,
@@ -313,12 +314,13 @@ CREATE TABLE IF NOT EXISTS `playsms_featureQuiz` (
   `quiz_msg_incorrect` varchar(100) NOT NULL,
   `quiz_enable` int(11) NOT NULL default '0',
   PRIMARY KEY  (`quiz_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 
 -- Table structure for table `playsms_featureQuiz_log`
 -- 
 
+DROP TABLE IF EXISTS `playsms_featureQuiz_log`;
 CREATE TABLE IF NOT EXISTS `playsms_featureQuiz_log` (
   `c_timestamp` int(11) NOT NULL default '0',
   `answer_id` int(4) NOT NULL auto_increment,
@@ -327,11 +329,12 @@ CREATE TABLE IF NOT EXISTS `playsms_featureQuiz_log` (
   `quiz_sender` varchar(20) NOT NULL default '',
   `in_datetime` varchar(20) NOT NULL,
   PRIMARY KEY  (`answer_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=68 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=68 ;
 
 -- Table structure for table `playsms_featureSubscribe`
 --
 
+DROP TABLE IF EXISTS `playsms_featureSubscribe`;
 CREATE TABLE IF NOT EXISTS `playsms_featureSubscribe` (
   `c_timestamp` int(11) NOT NULL default '0',
   `subscribe_id` int(11) NOT NULL auto_increment,
@@ -341,12 +344,13 @@ CREATE TABLE IF NOT EXISTS `playsms_featureSubscribe` (
   `unsubscribe_msg` varchar(200) NOT NULL,
   `subscribe_enable` int(11) NOT NULL default '0',
   PRIMARY KEY  (`subscribe_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 
 -- Table structure for table `playsms_featureSubscribe_member`
 -- 
 
+DROP TABLE IF EXISTS `playsms_featureSubscribe_member`;
 CREATE TABLE IF NOT EXISTS `playsms_featureSubscribe_member` (
   `c_timestamp` int(11) NOT NULL default '0',
   `member_id` int(11) NOT NULL auto_increment,
@@ -354,23 +358,25 @@ CREATE TABLE IF NOT EXISTS `playsms_featureSubscribe_member` (
   `member_number` varchar(20) NOT NULL,
   `member_since` varchar(20) NOT NULL,
   PRIMARY KEY  (`member_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=64 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=64 ;
 
 -- Table structure for table `playsms_featureSubscribe_msg`
 
+DROP TABLE IF EXISTS `playsms_featureSubscribe_msg`;
 CREATE TABLE IF NOT EXISTS `playsms_featureSubscribe_msg` (
   `c_timestamp` int(11) NOT NULL default '0',
   `msg_id` int(11) NOT NULL auto_increment,
   `subscribe_id` int(11) NOT NULL,
   `msg` varchar(200) NOT NULL,
   PRIMARY KEY  (`msg_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;  
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;  
 
 
 -- 
 -- Table structure for table `playsms_featureAutosend`
 -- 
 
+DROP TABLE IF EXISTS `playsms_featureAutosend`;
 CREATE TABLE IF NOT EXISTS `playsms_featureAutosend` (
   `c_timestamp` int(11) NOT NULL default '0',
   `autosend_id` int(11) NOT NULL auto_increment,
@@ -379,13 +385,14 @@ CREATE TABLE IF NOT EXISTS `playsms_featureAutosend` (
   `autosend_number` varchar(20) NOT NULL,
   `autosend_enable` int(11) NOT NULL default '0',
   PRIMARY KEY  (`autosend_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
    
    
 -- 
 -- Table structure for table `playsms_featureAutosend_time`
 -- 
 
+DROP TABLE IF EXISTS `playsms_featureAutosend_time`;
 CREATE TABLE IF NOT EXISTS `playsms_featureAutosend_time` (
   `c_timestamp` int(11) NOT NULL default '0',
   `time_id` int(11) NOT NULL auto_increment,
@@ -393,7 +400,7 @@ CREATE TABLE IF NOT EXISTS `playsms_featureAutosend_time` (
   `autosend_time` varchar(20) NOT NULL,
   `sent` enum('1','0') NOT NULL default '0',
   PRIMARY KEY  (`time_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
 
   
 -- Table Structure for table 'playsms_gatewayClicatel_apidata'--
@@ -405,7 +412,7 @@ CREATE TABLE `playsms_gatewayClickatell_apidata` (
   `smslog_id` int(11) NOT NULL default '0',
   `apimsgid` varchar(100) NOT NULL default '',
   PRIMARY KEY  (`apidata_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_gatewayClickatell_apidata`
@@ -431,7 +438,7 @@ CREATE TABLE `playsms_gatewayClickatell_config` (
   `cfg_send_url` varchar(250) default NULL,
   `cfg_incoming_path` varchar(250) default NULL,
   `cfg_credit` int(11) NOT NULL default '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_gatewayClickatell_config`
@@ -452,7 +459,7 @@ CREATE TABLE `playsms_gatewayGnokii_config` (
   `c_timestamp` int(11) NOT NULL default '0',
   `cfg_name` varchar(20) NOT NULL default '',
   `cfg_path` varchar(250) NOT NULL default ''
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_gatewayGnokii_config`
@@ -479,7 +486,7 @@ CREATE TABLE `playsms_gatewayKannel_config` (
   `cfg_bearerbox_host` varchar(250) default NULL,
   `cfg_sendsms_port` varchar(10) default NULL,
   `cfg_playsms_web` varchar(250) default NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_gatewayKannel_config`
@@ -502,7 +509,7 @@ CREATE TABLE `playsms_gatewayKannel_dlr` (
   `smslog_id` int(11) NOT NULL default '0',
   `kannel_dlr_type` tinyint(4) NOT NULL default '0',
   PRIMARY KEY  (`kannel_dlr_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_gatewayKannel_dlr`
@@ -522,7 +529,7 @@ CREATE TABLE `playsms_gatewayTemplate_config` (
   `c_timestamp` int(11) NOT NULL default '0',
   `cfg_name` varchar(20) NOT NULL default '',
   `cfg_path` varchar(250) NOT NULL default ''
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_gatewayTemplate_config`
@@ -546,7 +553,7 @@ CREATE TABLE `playsms_gatewayUplink` (
   `up_remote_slid` int(11) NOT NULL default '0',
   `up_status` tinyint(4) NOT NULL default '0',
   PRIMARY KEY  (`up_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_gatewayUplink`
@@ -571,7 +578,7 @@ CREATE TABLE `playsms_gatewayUplink_config` (
   `cfg_password` varchar(100) default NULL,
   `cfg_global_sender` varchar(20) default NULL,
   `cfg_incoming_path` varchar(250) default NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_gatewayUplink_config`
@@ -598,7 +605,7 @@ CREATE TABLE `playsms_tblConfig_main` (
   `cfg_themes_module` varchar(100) default NULL,
   `cfg_default_rate` FLOAT NOT NULL,
   `cfg_language_module` varchar(10) default 'en_US'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_tblConfig_main`
@@ -614,9 +621,9 @@ UNLOCK TABLES;
 -- Table structure for table `playsms_tblRate`
 --
 
-DROP TABLE IF EXISTS `playsms_tblRate`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
+DROP TABLE IF EXISTS `playsms_tblRate`;
 CREATE TABLE `playsms_tblRate` (
   `c_timestamp` int(11) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -625,7 +632,7 @@ CREATE TABLE `playsms_tblRate` (
   `rate` float NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `prefix` (`prefix`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -655,7 +662,7 @@ CREATE TABLE `playsms_tblSMSOutgoing` (
   `p_sms_type` varchar(100) NOT NULL default '',
   `unicode` tinyint(4) NOT NULL default '0',
   PRIMARY KEY  (`smslog_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_tblSMSOutgoing`
@@ -684,7 +691,7 @@ CREATE TABLE `playsms_tblSMSIncoming` (
   `in_datetime` varchar(20) NOT NULL default '0000-00-00 00:00:00',
   `in_status` tinyint(4) NOT NULL default '0',
   PRIMARY KEY  (`in_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_tblSMSIncoming`
@@ -707,7 +714,7 @@ CREATE TABLE `playsms_tblSMSTemplate` (
   `t_title` varchar(100) NOT NULL default '',
   `t_text` text NOT NULL,
   PRIMARY KEY  (`tid`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_tblSMSTemplate`
@@ -730,7 +737,7 @@ CREATE TABLE `playsms_tblUser` (
   `status` tinyint(4) NOT NULL default '0',
   `ticket` varchar(100) NOT NULL default '',
   `username` varchar(100) NOT NULL default '',
-  `password` varchar(100) character set latin1 collate latin1_bin NOT NULL default '',
+  `password` varchar(100) character set utf8 collate utf8_bin NOT NULL default '',
   `name` varchar(100) NOT NULL default '',
   `mobile` varchar(100) NOT NULL default '',
   `email` varchar(250) NOT NULL default '',
@@ -749,7 +756,7 @@ CREATE TABLE `playsms_tblUser` (
   `junktimestamp` varchar(30) NOT NULL default '',
   `credit` DOUBLE NOT NULL,
   PRIMARY KEY  (`uid`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_tblUser`
@@ -773,7 +780,7 @@ CREATE TABLE `playsms_tblUserGroupPhonebook` (
   `gp_name` varchar(100) NOT NULL default '',
   `gp_code` varchar(10) NOT NULL default '',
   PRIMARY KEY  (`gpid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 PACK_KEYS=0;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_tblUserGroupPhonebook`
@@ -795,7 +802,7 @@ CREATE TABLE `playsms_tblUserGroupPhonebook_public` (
   `gpid` int(11) NOT NULL default '0',
   `uid` varchar(100) NOT NULL default '',
   PRIMARY KEY  (`gpidpublic`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 PACK_KEYS=0;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_tblUserGroupPhonebook_public`
@@ -820,7 +827,7 @@ CREATE TABLE `playsms_tblUserInbox` (
   `in_datetime` varchar(20) NOT NULL default '0000-00-00 00:00:00',
   `in_hidden` tinyint(4) NOT NULL default '0',
   PRIMARY KEY  (`in_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_tblUserInbox`
@@ -845,7 +852,7 @@ CREATE TABLE `playsms_tblUserPhonebook` (
   `p_desc` varchar(250) NOT NULL default '',
   `p_email` varchar(250) NOT NULL default '',
   PRIMARY KEY  (`pid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_tblUserPhonebook`
@@ -867,7 +874,7 @@ CREATE TABLE `playsms_tblUser_country` (
   `country_name` varchar(200) NOT NULL default '',
   `country_code` varchar(10) NOT NULL,
   PRIMARY KEY  (`country_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=335 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=335 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `playsms_tblUser_country`
@@ -889,7 +896,7 @@ CREATE TABLE `playsms_tblErrorString` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `error_string` TEXT NOT NULL ,
   PRIMARY KEY ( `id` )
-) ENGINE = MYISAM ;
+) ENGINE=MYISAM DEFAULT CHARSET=utf8 ;
 
 --
 -- Dumping data for table `playsms_tblErrorString`
