@@ -22,7 +22,9 @@ function uplink_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
     global $uplink_param;
     global $gateway_number;
     $ok = false;
-    if ($gateway_number) {
+    if ($uplink_param['global_sender']) {
+	$sms_from = $uplink_param['global_sender'];
+    } else if ($gateway_number) {
 	$sms_from = $gateway_number;
     } else {
 	$sms_from = $mobile_sender;

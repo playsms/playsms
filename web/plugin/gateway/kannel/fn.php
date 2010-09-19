@@ -8,7 +8,9 @@ function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
     global $gateway_number;
     global $http_path;
     $ok = false;
-    if ($gateway_number) {
+    if ($kannel_param['global_sender']) {
+	$sms_from = $kannel_param['global_sender'];
+    } else if ($gateway_number) {
 	$sms_from = $gateway_number;
     } else {
 	$sms_from = $mobile_sender;

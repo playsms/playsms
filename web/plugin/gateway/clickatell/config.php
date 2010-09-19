@@ -11,7 +11,7 @@ if ($db_row = dba_fetch_array($db_result)) {
     $clickatell_param['incoming_path']	= $db_row['cfg_incoming_path'];
 }
 
-$gateway_number = $clickatell_param['sender'];
+//$gateway_number = $clickatell_param['sender'];
 
 // insert to left menu array
 if (isadmin()) {

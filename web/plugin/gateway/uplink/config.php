@@ -10,7 +10,7 @@ if ($db_row = dba_fetch_array($db_result)) {
     $uplink_param['path']     		= $db_row['cfg_incoming_path'];
 }
 
-$gateway_number = $uplink_param['global_sender'];
+//$gateway_number = $uplink_param['global_sender'];
 
 // insert to left menu array
 if (isadmin()) {
