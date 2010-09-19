@@ -11,8 +11,9 @@ function clickatell_hook_getsmsstatus($gp_code="",$uid="",$smslog_id="",$p_datet
 }
 
 function clickatell_hook_playsmsd() {
-    // force check to clickatell.com for outgoing sms with status 0 or 1 (not yet 3)
-    $db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status=0 OR p_status=1";
+    // force to check p_status=1 (sent) as getsmsstatus only check for p_status=0 (pending)
+    //$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status=0 OR p_status=1";
+    $db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status='1' AND p_gateway='clickatell'";
     $db_result = dba_query($db_query);
     while ($db_row = dba_fetch_array($db_result)) {
 	$gpid = "";

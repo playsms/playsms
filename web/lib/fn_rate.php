@@ -71,7 +71,9 @@ function rate_setcredit($smslog_id) {
     $p_dst = $db_row['p_dst'];
     $p_msg = $db_row['p_msg'];
     $uid = $db_row['uid'];
-    $count = ceil(strlen($p_msg) / 140);
+    // here should be added a routine to check charset encoding
+    // utf8 devided by 140, ucs2 devided by 70
+    $count = ceil(strlen($p_msg) / 153);
     $rate = rate_get($p_dst);
     $username = uid2username($uid);
     $credit = username2credit($username);
