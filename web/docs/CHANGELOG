@@ -1,4 +1,4 @@
-Version 0.9.5-rc2 - unknown
+Version 0.9.5-rc2 - 100920
 - add new theme 'work2' to demonstrate dropdown menu (anton)
 - add show js for how many SMS and characters has been composed (adetunjiha)
 - add logger_set_error_string() and logger_get_error_string() to handle long error_string (anton)
