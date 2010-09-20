@@ -57,14 +57,16 @@ switch ($op)
 	    $c_i = sprintf("%02d",$i);
 	    $option_minute .= "<option value=\"$c_i\">$c_i</option>";
 	}
-	if ($gateway_number)
-	{
+
+	$global_sender = ${$gateway_module.'_param'}['global_sender'];
+	if ($global_sender) {
+	    $sms_from = $global_sender;
+	} else if ($gateway_number) {
 	    $sms_from = $gateway_number;
-	}
-	else
-	{
+	} else {
 	    $sms_from = $mobile;
 	}
+
 	// WWW
 	$db_query2 = "SELECT * FROM "._DB_PREF_."_tblSMSTemplate WHERE uid='$uid'";
 	$db_result2 = dba_query($db_query2);
@@ -197,14 +199,16 @@ switch ($op)
 	{
 	    $sms_sender = "<i>not set</i>";
 	}
-	if ($gateway_number)
-	{
+
+	$global_sender = ${$gateway_module.'_param'}['global_sender'];
+	if ($global_sender) {
+	    $sms_from = $global_sender;
+	} else if ($gateway_number) {
 	    $sms_from = $gateway_number;
-	}
-	else
-	{
+	} else {
 	    $sms_from = $mobile;
 	}
+
 	// WWW
 	$db_query2 = "SELECT * FROM "._DB_PREF_."_tblSMSTemplate WHERE uid='$uid'";
 	$db_result2 = dba_query($db_query2);

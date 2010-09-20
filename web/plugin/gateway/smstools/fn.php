@@ -77,7 +77,6 @@ function smstools_hook_getsmsinbox() {
 
 function smstools_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gp_code='PV',$smslog_id=0,$sms_type='text',$unicode=0) {
     global $smstools_param;
-    global $gateway_number;
     $sms_id = "$gp_code.$uid.$smslog_id";
     if (empty($sms_id)) {
 	$sms_id = mktime();

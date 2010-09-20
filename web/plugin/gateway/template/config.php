@@ -7,7 +7,7 @@ if ($db_row = dba_fetch_array($db_result)) {
     $template_param['global_sender'] = $db_row['cfg_global_sender'];
 }
 
-$gateway_number = $template_param['global_sender'];
+//$gateway_number = $template_param['global_sender'];
 
 // insert to left menu array
 if (isadmin()) {
