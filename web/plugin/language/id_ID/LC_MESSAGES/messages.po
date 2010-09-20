@@ -252,7 +252,7 @@ msgid "has been added"
 msgstr ""
 
 #: inc/admin/user_mgmnt.php:290
-msgid "You must fill all fields!"
+msgid "You must fill all fields"
 msgstr ""
 
 #: lib/lib_init1.php:42
