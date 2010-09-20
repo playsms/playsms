@@ -1,13 +1,16 @@
 Version 0.9.5-rc2 - unknown
+- add new theme 'work2' to demonstrate dropdown menu (anton)
 - add show js for how many SMS and characters has been composed (adetunjiha)
 - add logger_set_error_string() and logger_get_error_string() to handle long error_string (anton)
 - add multi-language support using gettext (emmanuel)
-- multi-language support will be per plugin bases (anton)
-- convert strings in plugins (gateways and features) into gettext format (anton)
 - fix regression plugin autosend unable to edit or delete entry (emmanuel)
 - fix regression js not working on send sms form (anton)
 - fix wrong path when using domain only to access playsms directory (anton)
 - fix send message to destination with space, allow only a-z, A-Z, 0-9, and + char (anton)
+- fix sender number is always PlaySMS, its coming from gateway template (anton)
+- multi-language support will be per plugin bases (anton)
+- convert strings in plugins (gateways and features) into gettext format (anton)
+- sender number priority is as follow: global sender -> gateway number -> mobile number (anton)
 
 Version 0.9.5-rc1 - 100903
 - rename *_execgwcustomcmd() to *_playsmsd() (anton)
