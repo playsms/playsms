@@ -30,36 +30,36 @@ switch ($op)
 	    $selected = "";
 	}
 	$content .= "
-	    <h2>Main configuration</h2>
+	    <h2>"._('Main configuration')."</h2>
 	    <p>
-	    <form action=menu.php?inc=main_config&op=main_config_save method=post>
-	<table width=100% cellpadding=1 cellspacing=2 border=0>
+	    <form action='menu.php?inc=main_config&op=main_config_save' method='post'>
+	<table width='100%' cellpadding='1' cellspacing='2' border='0'>
 	    <tr>
-		<td width=125>Website title</td><td width=5>:</td><td><input type=text size=50 name=edit_web_title value=\"$web_title\"></td>
+		<td width='125'>"._('Website title')."</td><td width='5'>:</td><td><input type='text' size='50' name='edit_web_title' value=\"$web_title\"></td>
 	    </tr>
 	    <tr>
-		<td>Website email</td><td>:</td><td><input type=text size=30 name=edit_email_service value=\"$email_service\"></td>
+		<td>"._('Website email')."</td><td>:</td><td><input type='text' size='30' name='edit_email_service' value=\"$email_service\"></td>
 	    </tr>
 	    <tr>
-		<td>Forwarded email footer</td><td>:</td><td><input type=text size=50 name=edit_email_footer value=\"$email_footer\"></td>
+		<td>"._('Forwarded email footer')."</td><td>:</td><td><input type='text' size='50' name='edit_email_footer' value=\"$email_footer\"></td>
 	    </tr>
 	    <tr>
-		<td>Gateway number</td><td>:</td><td><input type=text size=20 name=edit_gateway_number value=\"$gateway_number\"></td>
+		<td>"._('Gateway number')."</td><td>:</td><td><input type='text' size='20' name='edit_gateway_number' value=\"$gateway_number\"></td>
 	    </tr>
 	    <tr>
-		<td>Default SMS rate</td><td>:</td><td><input type=text size=20 name=edit_default_rate value=\"$default_rate\"></td>
+		<td>"._('Default SMS rate')."</td><td>:</td><td><input type='text' size='20' name='edit_default_rate' value=\"$default_rate\"></td>
 	    </tr>
 	    <tr>
-		<td>Active gateway module</td><td>:</td><td><select name=edit_gateway_module>$option_gateway_module</select></td>
+		<td>"._('Active gateway module')."</td><td>:</td><td><select name='edit_gateway_module'>$option_gateway_module</select></td>
 	    </tr>
 	    <tr>
-		<td>Active themes</td><td>:</td><td><select name=edit_themes_module>$option_themes_module</select></td>
+		<td>"._('Active themes')."</td><td>:</td><td><select name='edit_themes_module'>$option_themes_module</select></td>
 	    </tr>
 	    <tr>
-		<td>Active language</td><td>:</td><td><select name=edit_language_module>$option_language_module</select></td>
+		<td>"._('Active language')."</td><td>:</td><td><select name='edit_language_module'>$option_language_module</select></td>
 	    </tr>
 	</table>	    
-	    <p><input type=submit class=button value=Save>
+	    <p><input type='submit' class='button' value='"._('Save')."'>
 	    </form>
 	";
 	echo $content;
@@ -86,7 +86,7 @@ switch ($op)
 		cfg_language_module='$edit_language_module'
 	";
 	$db_result = dba_query($db_query);
-	$error_string = "Main configuration has been saved";
+	$error_string = _('Main configuration changes has been saved');
 	header ("Location: menu.php?inc=main_config&op=main_config&err=".urlencode($error_string));
 	break;
 }

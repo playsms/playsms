@@ -287,7 +287,7 @@ switch ($op)
 	}
 	else
 	{
-	    $error_string = _('You must fill all fields!');
+	    $error_string = _('You must fill all fields');
 	}
 	header ("Location: menu.php?inc=user_mgmnt&op=user_add&err=".urlencode($error_string));
 	break;

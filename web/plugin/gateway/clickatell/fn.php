@@ -50,14 +50,12 @@ function clickatell_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$ui
 	case "text": 
 	default: $sms_type = "SMS_TEXT";
     }
-    // $query_string = "sendmsg?api_id=".$clickatell_param['api_id']."&user=".$clickatell_param['username']."&password=".$clickatell_param['password']."&to=$sms_to&msg_type=$sms_type&text=".rawurlencode($sms_msg)."&deliv_ack=1&callback=3&unicode=$unicode&concat=3&from=".rawurlencode($sms_from);
-    // no concat
     if ($unicode) {
 	$sms_msg = utf8_to_unicode($sms_msg);
-	$query_string = "sendmsg?api_id=".$clickatell_param['api_id']."&user=".$clickatell_param['username']."&password=".$clickatell_param['password']."&to=$sms_to&msg_type=$sms_type&text=$sms_msg&deliv_ack=1&callback=3&unicode=$unicode&from=".rawurlencode($sms_from);
-    } else {
-	$query_string = "sendmsg?api_id=".$clickatell_param['api_id']."&user=".$clickatell_param['username']."&password=".$clickatell_param['password']."&to=$sms_to&msg_type=$sms_type&text=".rawurlencode($sms_msg)."&deliv_ack=1&callback=3&unicode=$unicode&from=".rawurlencode($sms_from);
     }
+    // no concat
+    // $query_string = "sendmsg?api_id=".$clickatell_param['api_id']."&user=".$clickatell_param['username']."&password=".$clickatell_param['password']."&to=$sms_to&msg_type=$sms_type&text=".rawurlencode($sms_msg)."&deliv_ack=1&callback=3&unicode=$unicode&concat=3&from=".rawurlencode($sms_from);
+    $query_string = "sendmsg?api_id=".$clickatell_param['api_id']."&user=".$clickatell_param['username']."&password=".$clickatell_param['password']."&to=$sms_to&msg_type=$sms_type&text=".rawurlencode($sms_msg)."&deliv_ack=1&callback=3&unicode=$unicode&from=".rawurlencode($sms_from);
     $url = $clickatell_param['send_url']."/".$query_string;
     $fd = @implode ('', file ($url));
     $ok = false;
