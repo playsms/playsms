@@ -28,25 +28,21 @@ switch ($op)
 	die();
 	break;
     case "import":
-	if ($gpid)
-	{
-	    if ($err)
-	    {
+	if ($gpid) {
+	    if ($err) {
 		$content = "<p><font color=red>$err</font><p>";
 	    }
 	    $content .= "
-		<h2>Import phonebook (Group code: ".gpid2gpcode($gpid).")</h2>
+		<h2>"._('Import phonebook')." ("._('Group code').": ".gpid2gpcode($gpid).")</h2>
 		<p>
 		<form action=\"menu.php?inc=phonebook_exim&op=import_confirmation&gpid=$gpid\" enctype=\"multipart/form-data\" method=\"post\">
-		    Please select CSV file for phonebook entries (format : Name,Mobile,Email)<br>
+		    "._('Please select CSV file for phonebook entries')." ("._('format : Name,Mobile,Email').")<br>
 		    <p><input type=\"file\" name=\"fnpb\">
-		    <p><input type=\"checkbox\" name=\"replace\" value=\"ok\"> Same item(s) will be replaced
-		    <p><input type=\"submit\" value=\"Import\" class=\"button\">
+		    <p><input type=\"checkbox\" name=\"replace\" value=\"ok\"> "._('Same item(s) will be replaced')."
+		    <p><input type=\"submit\" value=\""._('Import')."\" class=\"button\">
 		</form>
 	    ";
-	}
-	else
-	{
+	} else {
 	    // FIXME
 	}
 	echo $content;
@@ -56,14 +52,14 @@ switch ($op)
 	$fnpb = $_FILES['fnpb'];
 	$fnpb_tmpname = $_FILES['fnpb']['tmp_name'];
 	$content = "
-	    <h2>Import confirmation</h2>
+	    <h2>"._('Import confirmation')."</h2>
 	    <p>
 	    <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"1\">
 	    <tr>
 		<td class=\"box_title\" width=\"4\">*</td>
-		<td class=\"box_title\" width=\"40%\">Name</td>
-		<td class=\"box_title\" width=\"30%\">Mobile</td>
-		<td class=\"box_title\" width=\"30%\">Email</td>
+		<td class=\"box_title\" width=\"40%\">"._('Name')."</td>
+		<td class=\"box_title\" width=\"30%\">"._('Mobile')."</td>
+		<td class=\"box_title\" width=\"30%\">"._('Email')."</td>
 	    </tr>
 	";
 	if (file_exists($fnpb_tmpname))
@@ -99,29 +95,29 @@ switch ($op)
 	    }
 	    if ($replace=="ok")
 	    {
-		$rstatus = "Replace all entries in database";
+		$rstatus = _('Replace all entries in database');
 	    }
 	    else
 	    {
-		$rstatus = "Add all entries";
+		$rstatus = _('Add all entries');
 	    }
 	    $content .= "
 		</table>
-		<p>Import phonebook entries above ?
-		<p>Status : $rstatus
+		<p>"._('Import above phonebook entries ?')."
+		<p>"._('Status')." : $rstatus
 		<form action=\"menu.php?inc=phonebook_exim&op=import_yes&gpid=$gpid\" method=\"post\">
-		<input type=\"submit\" value=\"Import item(s)\" class=\"button\">
+		<input type=\"submit\" value=\""._('Import')."\" class=\"button\">
 		$phonebook_post
 		<input type=\"hidden\" name=\"replace\" value=\"$replace\">
 		<input type=\"hidden\" name=\"num\" value=\"$j\">
-		<p><input type=button class=button value=Back onClick=javascript:linkto('menu.php?inc=phonebook_exim&op=import&gpid=$gpid')>
+		<p><input type=button class=button value=\""._('Back')."\" onClick=javascript:linkto('menu.php?inc=phonebook_exim&op=import&gpid=$gpid')>
 		</form>
 	    ";
 	    echo $content;
 	}
 	else
 	{
-	    $error_string = "Fail to upload CSV file for phonebook";
+	    $error_string = _('Fail to upload CSV file for phonebook');
 	    header("Location: menu.php?inc=phonebook_exim&op=import&gpid=$gpid&err=".urlencode($error_string));
 	}
 	break;

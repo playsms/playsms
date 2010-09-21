@@ -1,23 +1,6 @@
 <?php
 if(!valid()){forcenoaccess();};
 
-/*
-$db_query = "SELECT * FROM "._DB_PREF_."_tblUserGroupPhonebook WHERE uid='$uid'";
-$db_result = dba_query($db_query);
-while ($db_row = dba_fetch_array($db_result))
-{
-    $gpid = $db_row['gpid'];
-    $list_of_phonenumber .= "<font size=+1>[<a href=\"javascript:ConfirmURL('Are you sure you want to delete group `".$db_row['gp_name']."` with all its members ?','menu.php?inc=phone_del&op=group&gpid=$gpid')\">x</a>'] Group: <font color=darkgreen>".$db_row['gp_name']."</font> - code: <font color=darkgreen>".$db_row['gp_code']."</font> ['<a href=\"javascript: PopupSendSms('BC','".$db_row['gp_code']."')\">send</a>]</font><br>\n";
-    $db_query1 = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE gpid='$gpid' AND uid='$uid'";
-    $db_result1 = dba_query($db_query1);
-    while ($db_row1 = dba_fetch_array($db_result1))
-    {
-	$list_of_phonenumber .= "[<a href=\"javascript:ConfirmURL('Are you sure you want to delete mobiles number `".$db_row1['p_num']."` owned by `".$db_row1['p_desc']."` ?','menu.php?inc=phone_del&op=user&pid=".$db_row1['pid']."')\">x</a>'] <font size=-1>Number: <font color=darkgreen>".$db_row1['p_num']."</font> - Name: <font color=darkgreen>".$db_row1['p_desc']."</font> ['<a href=\"javascript: PopupSendSms('PV','".$db_row1['p_num']."')\">send</a>]<br>\n";
-    }
-    $list_of_phonenumber .= "<br>";
-}
-*/
-
 $db_query = "
     SELECT 
 	"._DB_PREF_."_tblUserGroupPhonebook.gpid as gpid, 
@@ -48,7 +31,6 @@ while ($db_row = dba_fetch_array($db_result))
     $i = 0;
     while ($db_row1 = dba_fetch_array($db_result1))
     {
-	// $list_of_phonenumber .= "[<a href=\"javascript:ConfirmURL('Are you sure you want to delete mobiles number `".$db_row1['p_num']."` owned by `".$db_row1['p_desc']."` ?','menu.php?inc=phone_del&op=user&pid=".$db_row1['pid']."')\">x</a>'] <font size=-1>Number: <font color=darkgreen>".$db_row1['p_num']."</font> - Name: <font color=darkgreen>".$db_row1['p_desc']."</font> ['<a href=\"javascript: PopupSendSms('PV','".$db_row1['p_num']."')\">send</a>]<br>\n";
 	$i++;
         $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";	
 	$list_of_phonenumber .= "
