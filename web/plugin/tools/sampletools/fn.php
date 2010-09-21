@@ -1,6 +1,6 @@
 <?php
 
-function tools_sampletools_printout() {
+function sampletools_printout() {
     echo "Sample Tools";
 }
 
