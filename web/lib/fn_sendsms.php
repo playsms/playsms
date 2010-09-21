@@ -26,7 +26,7 @@ function sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gp_code='PV',
     $ok = false;
     $p_gpid = gpcode2gpid($uid,$gp_code);
     $username = uid2username($uid);
-    $credit = username2credit($username);
+    $credit = rate_getusercredit($username);
     $maxrate = rate_getmax();
     $mobile_sender = sendsms_getvalidnumber($mobile_sender);
     $sms_to = sendsms_getvalidnumber($sms_to);
@@ -164,12 +164,9 @@ function send2group($mobile_sender,$gp_code,$message)
     $ok = false;
     if ($mobile_sender && $gp_code && $message)
     {
-	$db_query = "SELECT uid,username,sender FROM "._DB_PREF_."_tblUser WHERE mobile='$mobile_sender'";
-	$db_result = dba_query($db_query);
-	$db_row = dba_fetch_array($db_result);
-	$uid = $db_row['uid'];
-	$username = $db_row['username'];
-	$sms_sender = $db_row['sender'];
+	$uid = mobile2uid($mobile_sender);
+	$username = uid2username($uid);
+	$sms_sender = username2sender($username);
 	if ($uid && $username)
 	{
 	    $gp_code = strtoupper($gp_code);

@@ -106,26 +106,19 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message)
     return $ok;
 }
 
-function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message)
-{
+function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message) {
     global $web_title,$email_service,$email_footer;
     $ok = false;
-    if ($sms_sender && $target_user && $message)
-    {
-	$db_query = "SELECT uid,email,mobile FROM "._DB_PREF_."_tblUser WHERE username='$target_user'";
-	$db_result = dba_query($db_query);
-	if ($db_row = dba_fetch_array($db_result))
-	{
-	    $uid = $db_row['uid'];
-	    $email = $db_row['email'];
-	    $mobile = $db_row['mobile'];
+    if ($sms_sender && $target_user && $message) {
+	if ($uid = username2uid($target_user)) {
+	    $email = username2email($target_user);
+	    $mobile = username2mobile($target_user);
 	    $db_query = "
 		INSERT INTO "._DB_PREF_."_tblUserInbox
 		(in_sender,in_uid,in_msg,in_datetime) 
 		VALUES ('$sms_sender','$uid','$message','$sms_datetime')
 	    ";
-	    if ($cek_ok = @dba_insert_id($db_query))
-	    {
+	    if ($cek_ok = @dba_insert_id($db_query)) {
 		if ($email)
 		{
 		    $subject = "[SMSGW-PV] from $sms_sender";

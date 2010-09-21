@@ -128,8 +128,6 @@ switch ($op)
 	$up_education = $_POST['up_education'];
 	$up_zipcode = $_POST['up_zipcode'];
 	$up_trn = $_POST['up_trn'];
-	$db_query = "SELECT photo1,photo2,photo3 FROM "._DB_PREF_."_tblUser WHERE uid='$uid'";
-	$db_result = dba_query($db_query);
 	$error_string = "No changes made!";
 	if ($up_name && $up_mobile && $up_email && $up_address && $up_country)
 	{

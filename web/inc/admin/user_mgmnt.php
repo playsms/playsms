@@ -116,7 +116,7 @@ switch ($op)
 	$name = username2name($uname);
 	$status = username2status($uname);
 	$sender = username2sender($uname);
-	$credit = username2credit($uname);
+	$credit = rate_getusercredit($uname);
 	if ($err)
 	{
 	    $content = "<p><font color='red'>$err</font><p>";

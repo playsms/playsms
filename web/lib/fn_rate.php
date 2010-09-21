@@ -1,4 +1,5 @@
 <?php
+
 function dst2rate($dst)
 {
     if ($dst)
@@ -59,11 +60,6 @@ function rateid2rate($id)
     return $rate;
 }
 
-function rate_setusercredit($uid, $remaining) {
-    $db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp=NOW(),credit='$remaining' WHERE uid='$uid'";
-    $db_result = @dba_affected_rows($db_query);
-}
-
 function rate_setcredit($smslog_id) {
     $db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
     $db_result = dba_query($db_query);
@@ -76,7 +72,7 @@ function rate_setcredit($smslog_id) {
     $count = ceil(strlen($p_msg) / 153);
     $rate = rate_get($p_dst);
     $username = uid2username($uid);
-    $credit = username2credit($username);
+    $credit = rate_getusercredit($username);
     $remaining = $credit - ($rate*$count);
     rate_setusercredit($uid, $remaining);
     return;
@@ -111,6 +107,23 @@ function rate_getmax() {
 	$rate = $default_rate;
     }
     return $rate;
+}
+
+function rate_setusercredit($uid, $remaining) {
+    $db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp=NOW(),credit='$remaining' WHERE uid='$uid'";
+    $db_result = @dba_affected_rows($db_query);
+}
+
+function rate_getusercredit($username)
+{
+    if ($username)
+    {
+	$db_query = "SELECT credit FROM "._DB_PREF_."_tblUser WHERE username='$username'";
+	$db_result = dba_query($db_query);
+	$db_row = dba_fetch_array($db_result);
+	$credit = $db_row['credit'];
+    }
+    return $credit;
 }
 
 ?>
