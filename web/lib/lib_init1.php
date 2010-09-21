@@ -56,7 +56,6 @@ if (isadmin())
     $arr_menu['Administration'][] = array("menu.php?inc=all_incoming&op=all_incoming", _('All incoming SMS'));
     $arr_menu['Administration'][] = array("menu.php?inc=all_outgoing&op=all_outgoing", _('All outgoing SMS'));
     $arr_menu['Administration'][] = array("menu.php?inc=user_mgmnt&op=user_list", _('Manage user'));
-    $arr_menu['Administration'][] = array("menu.php?inc=rate_mgmnt&op=rate_list", _('Manage SMS rate'));
     $arr_menu['Administration'][] = array("menu.php?inc=main_config&op=main_config", _('Main configuration'));
     $arr_menu['Administration'][] = array("menu.php?inc=daemon&op=daemon", _('Manual refresh'));
     ksort($arr_menu['Administration']);
