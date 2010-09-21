@@ -26,11 +26,9 @@ function sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gp_code='PV',
     $ok = false;
     $p_gpid = gpcode2gpid($uid,$gp_code);
     $username = uid2username($uid);
-    $credit = rate_getusercredit($username);
-    $maxrate = rate_getmax();
     $mobile_sender = sendsms_getvalidnumber($mobile_sender);
     $sms_to = sendsms_getvalidnumber($sms_to);
-    if ($credit >= $maxrate) {
+    if (rate_cansend($username)) {
 	$db_query = "
     	    INSERT INTO "._DB_PREF_."_tblSMSOutgoing 
     	    (uid,p_gpid,p_gateway,p_src,p_dst,p_footer,p_msg,p_datetime,p_sms_type,unicode) 

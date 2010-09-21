@@ -1,129 +1,122 @@
 <?php
 
-function dst2rate($dst)
-{
-    if ($dst)
-    {
-	$db_query = "SELECT rate FROM "._DB_PREF_."_tblRate WHERE dst='$dst'";
-	$db_result = dba_query($db_query);
-	$db_row = dba_fetch_array($db_result);
-	$rate = $db_row['rate'];
-    }
-    return $rate;
-}
-
-function prefix2rate($prefix)
-{
-    if ($prefix)
-    {
-	$db_query = "SELECT rate FROM "._DB_PREF_."_tblRate WHERE prefix='$prefix'";
-	$db_result = dba_query($db_query);
-	$db_row = dba_fetch_array($db_result);
-	$rate = $db_row['rate'];
-    }
-    return $rate;
-}
-
-function rateid2dst($id)
-{
-    if ($id)
-    {
-	$db_query = "SELECT dst FROM "._DB_PREF_."_tblRate WHERE id='$id'";
-	$db_result = dba_query($db_query);
-	$db_row = dba_fetch_array($db_result);
-	$dst = $db_row['dst'];
+function rate_getdst($id) {
+    global $core_config;
+    if ($id) {
+	for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	    if ($dst = x_hook($core_config['toolslist'][$c],'rate_getdst',array($id))) {
+		break;
+	    }
+	}
     }
     return $dst;
 }
 
-function rateid2prefix($id)
-{
-    if ($id)
-    {
-	$db_query = "SELECT prefix FROM "._DB_PREF_."_tblRate WHERE id='$id'";
-	$db_result = dba_query($db_query);
-	$db_row = dba_fetch_array($db_result);
-	$prefix = $db_row['prefix'];
+function rate_getprefix($id) {
+    global $core_config;
+    if ($id) {
+	for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	    if ($prefix = x_hook($core_config['toolslist'][$c],'rate_getprefix',array($id))) {
+		break;
+	    }
+	}
     }
     return $prefix;
 }
 
-function rateid2rate($id)
-{
-    if ($id)
-    {
-	$db_query = "SELECT rate FROM "._DB_PREF_."_tblRate WHERE id='$id'";
-	$db_result = dba_query($db_query);
-	$db_row = dba_fetch_array($db_result);
-	$rate = $db_row['rate'];
-    }
-    return $rate;
-}
-
-function rate_setcredit($smslog_id) {
-    $db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
-    $db_result = dba_query($db_query);
-    $db_row = dba_fetch_array($db_result);
-    $p_dst = $db_row['p_dst'];
-    $p_msg = $db_row['p_msg'];
-    $uid = $db_row['uid'];
-    // here should be added a routine to check charset encoding
-    // utf8 devided by 140, ucs2 devided by 70
-    $count = ceil(strlen($p_msg) / 153);
-    $rate = rate_get($p_dst);
-    $username = uid2username($uid);
-    $credit = rate_getusercredit($username);
-    $remaining = $credit - ($rate*$count);
-    rate_setusercredit($uid, $remaining);
-    return;
-}
-
-function rate_get($p_dst) {
-    global $default_rate;
-    $rate = $default_rate;
-    $prefix = $p_dst;
-    $m = ( strlen($prefix) > 10 ? 10 : strlen($prefix) );
-    for ($i=$m+1;$i>0;$i--) {
-	$prefix = substr($prefix, 0, $i);
-	$db_query = "SELECT rate FROM "._DB_PREF_."_tblRate WHERE prefix='$prefix'";
-	$db_result = dba_query($db_query);
-	if ($db_row = dba_fetch_array($db_result)) {
-	    $rate = $db_row['rate'];
-	    break;
+function rate_getbyid($id) {
+    global $core_config;
+    $rate = 0;
+    if ($id) {
+	for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	    if ($rate = x_hook($core_config['toolslist'][$c],'rate_getbyid',array($id))) {
+		break;
+	    }
 	}
     }
     return $rate;
 }
 
-function rate_getmax() {
-    global $default_rate;
+function rate_getbyprefix($p_dst) {
+    global $core_config;
     $rate = 0;
-    $db_query = "SELECT rate FROM "._DB_PREF_."_tblRate ORDER BY rate DESC LIMIT 1";
-    $db_result = dba_query($db_query);
-    if ($db_row = dba_fetch_array($db_result)) {
-	$rate = $db_row['rate'];
-    }
-    if ($default_rate > $rate) {
-	$rate = $default_rate;
+    if ($p_dst) {
+	for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	    if ($rate = x_hook($core_config['toolslist'][$c],'rate_getbyprefix',array($p_dst))) {
+		break;
+	    }
+	}
     }
     return $rate;
 }
 
-function rate_setusercredit($uid, $remaining) {
-    $db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp=NOW(),credit='$remaining' WHERE uid='$uid'";
-    $db_result = @dba_affected_rows($db_query);
+function rate_setusercredit($uid, $remaining=0) {
+    global $core_config;
+    $ok = false;
+    if ($uid) {
+	for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	    if (x_hook($core_config['toolslist'][$c],'rate_setusercredit',array($uid,$remaining))) {
+		$ok = true;
+		break;
+	    }
+	}
+    }
+    return $ok;
 }
 
 function rate_getusercredit($username)
 {
-    if ($username)
-    {
-	$db_query = "SELECT credit FROM "._DB_PREF_."_tblUser WHERE username='$username'";
-	$db_result = dba_query($db_query);
-	$db_row = dba_fetch_array($db_result);
-	$credit = $db_row['credit'];
+    global $core_config;
+    $credit = 0;
+    if ($username) {
+	for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	    if ($credit = x_hook($core_config['toolslist'][$c],'rate_getusercredit',array($username))) {
+		break;
+	    }
+	}
     }
     return $credit;
+}
+
+function rate_getmax($default="") {
+    global $core_config;
+    $rate = 0;
+    if ($username) {
+	for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	    if ($rate = x_hook($core_config['toolslist'][$c],'rate_getmax',array($default))) {
+		break;
+	    }
+	}
+    }
+    return $rate;
+}
+
+function rate_cansend($username, $default="") {
+    global $core_config;
+    $ok = false;
+    if ($username) {
+	for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	    if (x_hook($core_config['toolslist'][$c],'rate_cansend',array($username,$default))) {
+		$ok = true;
+		break;
+	    }
+	}
+    }
+    return $ok;
+}
+
+function rate_setcredit($smslog_id) {
+    global $core_config;
+    $ok = false;
+    if ($username) {
+	for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	    if (x_hook($core_config['toolslist'][$c],'rate_setcredit',array($smslog_id))) {
+		$ok = true;
+		break;
+	    }
+	}
+    }
+    return $ok;
 }
 
 ?>

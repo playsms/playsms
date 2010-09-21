@@ -52,7 +52,7 @@ function smstools_hook_getsmsinbox() {
 	$lines = @file ($fn);
 	$start = 0;
 	for ($c=0;$c<count($lines);$c++) {
-	    $c_line = $lines['$c'];
+	    $c_line = $lines[$c];
 	    if (ereg('^From: ',$c_line)) {
 		$sms_sender = '+'.trim(str_replace('From: ','',trim($c_line)));
 	    } else if (ereg('^Received: ',$c_line)) {

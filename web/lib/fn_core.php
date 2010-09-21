@@ -20,7 +20,7 @@ function checkavailablekeyword($keyword)
     {
 	for ($c=0;$c<count($core_config['featurelist']);$c++)
 	{
-	    if (x_hook($core_config['featurelist']['$c'],'checkavailablekeyword',array($keyword)))
+	    if (x_hook($core_config['featurelist'][$c],'checkavailablekeyword',array($keyword)))
 	    {
 		$ok = false;
 		break;
@@ -79,7 +79,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message)
 	default:
 	    for ($c=0;$c<count($core_config['featurelist']);$c++)
 	    {
-		$c_feature = $core_config['featurelist']['$c'];
+		$c_feature = $core_config['featurelist'][$c];
 		$ret = x_hook($c_feature,'setsmsincomingaction',array($sms_datetime,$sms_sender,$target_keyword,$message));
 		if ($ok = $ret['status'])
 		{
@@ -213,12 +213,12 @@ function playsmsd()
     // plugin tools
     for ($c=0;$c<count($core_config['toolslist']);$c++)
     {
-	x_hook($core_config['toolslist']['$c'],'playsmsd');
+	x_hook($core_config['toolslist'][$c],'playsmsd');
     }
     // plugin feature
     for ($c=0;$c<count($core_config['featurelist']);$c++)
     {
-	x_hook($core_config['featurelist']['$c'],'playsmsd');
+	x_hook($core_config['featurelist'][$c],'playsmsd');
     }
     // plugin gateway
     x_hook($gateway_module,'playsmsd');
@@ -227,13 +227,14 @@ function playsmsd()
 function sendmail($mail_from,$mail_to,$mail_subject="",$mail_body="")
 {
     global $core_config;
-    for ($c=0;$c<count($core_config['toolslist']);$c++)
-    {
-	if (x_hook($core_config['toolslist']['$c'],'sendmail',array($keyword))) {
-	    $ok = false;
+    $ok = false;
+    for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	if (x_hook($core_config['toolslist'][$c],'sendmail',array($mail_from,$mail_to,$mail_subject,$mail_body))) {
+	    $ok = true;
 	    break;
 	}
     }
+    return $ok;
 }
 
 ?>

@@ -49,8 +49,8 @@ switch ($op)
 	break;
     case "rate_del":
 	$rateid = $_REQUEST['rateid'];
-	$dst = rateid2dst($rateid);
-	$prefix = rateid2prefix($rateid);
+	$dst = rate_getdst($rateid);
+	$prefix = rate_getprefix($rateid);
 	$error_string = _('Fail to delete rate')." ("._('destination').": `$dst`, "._('prefix').": `$prefix`)";
 	$db_query = "DELETE FROM "._DB_PREF_."_tblRate WHERE id='$rateid'";
 	if (@dba_affected_rows($db_query))
@@ -61,9 +61,9 @@ switch ($op)
 	break;
     case "rate_edit":
 	$rateid = $_REQUEST['rateid'];
-	$dst = rateid2dst($rateid);
-	$prefix = rateid2prefix($rateid);
-	$rate = rateid2rate($rateid);
+	$dst = rate_getdst($rateid);
+	$prefix = rate_getprefix($rateid);
+	$rate = rate_getbyid($rateid);
 	if ($err)
 	{
 	    $content = "<p><font color='red'>$err</font><p>";
