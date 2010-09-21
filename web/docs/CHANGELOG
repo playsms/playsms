@@ -1,3 +1,10 @@
+Version 0.9.5-svn - unknown
+- sendmail now can be hooked (anton)
+- rate now can be hooked (anton)
+- add new tools, simplerate, to handle rate related features (anton)
+- add new tools, plainoldsendmail, to handle sendmail() (anton)
+- fix single quote preventing correct array reading, $array['$c'] should be $array[$c] (anton)
+
 Version 0.9.5-rc2 - 100920
 - add new theme 'work2' to demonstrate dropdown menu (anton)
 - add show js for how many SMS and characters has been composed (adetunjiha)
