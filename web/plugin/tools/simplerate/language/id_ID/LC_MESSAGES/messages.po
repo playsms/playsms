@@ -1,0 +1,81 @@
+#: config.php:3 simplerate.php:12
+msgid "Manage SMS rate"
+msgstr "Pengaturan tarif SMS"
+
+#: simplerate.php:14 simplerate.php:47 simplerate.php:122
+msgid "Add rate"
+msgstr ""
+
+#: simplerate.php:18 simplerate.php:78 simplerate.php:127
+msgid "Destination"
+msgstr ""
+
+#: simplerate.php:19 simplerate.php:81 simplerate.php:130
+msgid "Prefix"
+msgstr ""
+
+#: simplerate.php:20 simplerate.php:84 simplerate.php:133
+msgid "Rate"
+msgstr ""
+
+#: simplerate.php:21
+msgid "Action"
+msgstr ""
+
+#: simplerate.php:32
+msgid "Are you sure you want to delete rate ?"
+msgstr ""
+
+#: simplerate.php:32 simplerate.php:54 simplerate.php:58 simplerate.php:103
+#: simplerate.php:107 simplerate.php:151 simplerate.php:161
+msgid "destination"
+msgstr ""
+
+#: simplerate.php:32 simplerate.php:54 simplerate.php:58 simplerate.php:103
+#: simplerate.php:107 simplerate.php:151 simplerate.php:161
+msgid "prefix"
+msgstr ""
+
+#: simplerate.php:54
+msgid "Fail to delete rate"
+msgstr ""
+
+#: simplerate.php:58
+msgid "Rate has been deleted"
+msgstr ""
+
+#: simplerate.php:72
+msgid "Edit rate"
+msgstr ""
+
+#: simplerate.php:87
+msgid "Save"
+msgstr ""
+
+#: simplerate.php:97
+msgid "No changes made!"
+msgstr ""
+
+#: simplerate.php:103
+msgid "Rate has been saved"
+msgstr ""
+
+#: simplerate.php:107
+msgid "Fail to save rate"
+msgstr ""
+
+#: simplerate.php:112 simplerate.php:167
+msgid "You must fill all fields"
+msgstr ""
+
+#: simplerate.php:136
+msgid "Add"
+msgstr ""
+
+#: simplerate.php:151
+msgid "Rate is already exists"
+msgstr ""
+
+#: simplerate.php:161
+msgid "Rate has been added"
+msgstr ""

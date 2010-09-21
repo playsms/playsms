@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS `playsms_tblRate`;
-CREATE TABLE `playsms_tblRate` (
+DROP TABLE IF EXISTS `playsms_toolsSimplerate`;
+CREATE TABLE `playsms_toolsSimplerate` (
   `c_timestamp` int(11) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `dst` varchar(100) NOT NULL,

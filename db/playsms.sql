@@ -618,13 +618,13 @@ INSERT INTO `playsms_tblConfig_main` VALUES (0,'playSMS','noreply@playsms.sf.net
 UNLOCK TABLES;
 
 --
--- Table structure for table `playsms_tblRate`
+-- Table structure for table `playsms_toolsSimplerate`
 --
 
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-DROP TABLE IF EXISTS `playsms_tblRate`;
-CREATE TABLE `playsms_tblRate` (
+DROP TABLE IF EXISTS `playsms_toolsSimplerate`;
+CREATE TABLE `playsms_toolsSimplerate` (
   `c_timestamp` int(11) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `dst` varchar(100) NOT NULL,
@@ -636,7 +636,7 @@ CREATE TABLE `playsms_tblRate` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `playsms_tblRate`
+-- Dumping data for table `playsms_toolsSimplerate`
 --
 
 --

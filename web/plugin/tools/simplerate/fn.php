@@ -2,7 +2,7 @@
 
 function simplerate_hook_rate_getdst($id) {
     if ($id) {
-	$db_query = "SELECT dst FROM "._DB_PREF_."_tblRate WHERE id='$id'";
+	$db_query = "SELECT dst FROM "._DB_PREF_."_toolsSimplerate WHERE id='$id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$dst = $db_row['dst'];
@@ -12,7 +12,7 @@ function simplerate_hook_rate_getdst($id) {
 
 function simplerate_hook_rate_getprefix($id) {
     if ($id) {
-	$db_query = "SELECT prefix FROM "._DB_PREF_."_tblRate WHERE id='$id'";
+	$db_query = "SELECT prefix FROM "._DB_PREF_."_toolsSimplerate WHERE id='$id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$prefix = $db_row['prefix'];
@@ -22,7 +22,7 @@ function simplerate_hook_rate_getprefix($id) {
 
 function simplerate_hook_rate_getbyid($id) {
     if ($id) {
-	$db_query = "SELECT rate FROM "._DB_PREF_."_tblRate WHERE id='$id'";
+	$db_query = "SELECT rate FROM "._DB_PREF_."_toolsSimplerate WHERE id='$id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$rate = $db_row['rate'];
@@ -37,7 +37,7 @@ function simplerate_hook_rate_getbyprefix($p_dst) {
     $m = ( strlen($prefix) > 10 ? 10 : strlen($prefix) );
     for ($i=$m+1;$i>0;$i--) {
 	$prefix = substr($prefix, 0, $i);
-	$db_query = "SELECT rate FROM "._DB_PREF_."_tblRate WHERE prefix='$prefix'";
+	$db_query = "SELECT rate FROM "._DB_PREF_."_toolsSimplerate WHERE prefix='$prefix'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 	    $rate = $db_row['rate'];
@@ -71,7 +71,7 @@ function simplerate_hook_rate_getmax($default="") {
 	$default_rate = $default;
     }
     $rate = 0;
-    $db_query = "SELECT rate FROM "._DB_PREF_."_tblRate ORDER BY rate DESC LIMIT 1";
+    $db_query = "SELECT rate FROM "._DB_PREF_."_toolsSimplerate ORDER BY rate DESC LIMIT 1";
     $db_result = dba_query($db_query);
     if ($db_row = dba_fetch_array($db_result)) {
 	$rate = $db_row['rate'];

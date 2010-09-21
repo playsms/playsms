@@ -22,7 +22,7 @@ switch ($op)
     </tr>		    
 	";
 	$i=0;
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblRate ORDER BY dst";
+	$db_query = "SELECT * FROM "._DB_PREF_."_toolsSimplerate ORDER BY dst";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result))
 	{
@@ -52,7 +52,7 @@ switch ($op)
 	$dst = rate_getdst($rateid);
 	$prefix = rate_getprefix($rateid);
 	$error_string = _('Fail to delete rate')." ("._('destination').": `$dst`, "._('prefix').": `$prefix`)";
-	$db_query = "DELETE FROM "._DB_PREF_."_tblRate WHERE id='$rateid'";
+	$db_query = "DELETE FROM "._DB_PREF_."_toolsSimplerate WHERE id='$rateid'";
 	if (@dba_affected_rows($db_query))
 	{
 	    $error_string = _('Rate has been deleted')." ("._('destination').": `$dst`, "._('prefix').": `$prefix`)";
@@ -97,7 +97,7 @@ switch ($op)
 	$error_string = _('No changes made!');
 	if ($rateid && $up_dst && $up_prefix && $up_rate)
 	{
-	    $db_query = "UPDATE "._DB_PREF_."_tblRate SET c_timestamp='".mktime()."',dst='$up_dst',prefix='$up_prefix',rate='$up_rate' WHERE id='$rateid'";
+	    $db_query = "UPDATE "._DB_PREF_."_toolsSimplerate SET c_timestamp='".mktime()."',dst='$up_dst',prefix='$up_prefix',rate='$up_rate' WHERE id='$rateid'";
 	    if (@dba_affected_rows($db_query))
 	    {
 	        $error_string = _('Rate has been saved')." ("._('destination').": `$up_dst`, "._('prefix').": `$up_prefix`)";
@@ -144,7 +144,7 @@ switch ($op)
 	$add_rate = $_POST['add_rate'];
 	if ($add_dst && $add_prefix && $add_rate && ($add_rate >= 0))
 	{
-	    $db_query = "SELECT * FROM "._DB_PREF_."_tblRate WHERE prefix='$add_prefix'";
+	    $db_query = "SELECT * FROM "._DB_PREF_."_toolsSimplerate WHERE prefix='$add_prefix'";
 	    $db_result = dba_query($db_query);
 	    if ($db_row = dba_fetch_array($db_result))
 	    {
@@ -153,7 +153,7 @@ switch ($op)
 	    else
 	    {
 		$db_query = "
-		    INSERT INTO "._DB_PREF_."_tblRate (dst,prefix,rate)
+		    INSERT INTO "._DB_PREF_."_toolsSimplerate (dst,prefix,rate)
 		    VALUES ('$add_dst','$add_prefix','$add_rate')
 		";
 		if ($new_uid = @dba_insert_id($db_query))
