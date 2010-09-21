@@ -8,7 +8,6 @@ include $apps_path['libs']."/fn_auth.php";
 include $apps_path['libs']."/fn_user.php";
 include $apps_path['libs']."/fn_rate.php";
 include $apps_path['libs']."/fn_sendsms.php";
-include $apps_path['libs']."/fn_sendmail.php";
 include $apps_path['libs']."/fn_phonebook.php";
 include $apps_path['libs']."/fn_core.php";
 include $apps_path['libs']."/fn_themes.php";
