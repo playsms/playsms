@@ -28,7 +28,8 @@ for ($i=0;$i<count($plugins_category);$i++) {
 	$fd = opendir($dir);
 	while(false !== (${$pc} = readdir($fd)))
 	{
-	    if (is_dir($dir.${$pc}) && substr(${$pc},0,1) != "." ) {
+	    // plugin's dir prefixed with dot or underscore will not be loaded
+	    if (is_dir($dir.${$pc}) && substr(${$pc},0,1) != "." && substr(${$pc},0,1) != "_" ) {
 		$tmp_core_config[$pc.'list'][] = ${$pc};
 	    }
 	}

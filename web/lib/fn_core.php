@@ -121,12 +121,12 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message) {
 	    if ($cek_ok = @dba_insert_id($db_query)) {
 		if ($email)
 		{
-		    $subject = "[SMSGW-PV] from $sms_sender";
-		    $body = "Forward Private WebSMS ($web_title)\n\n";
-		    $body .= "Date Time: $sms_datetime\n";
-		    $body .= "Sender: $sms_sender\n";
-		    $body .= "Receiver: $mobile\n\n";
-		    $body .= "Message:\n$message\n\n";
+		    $subject = "[SMSGW-PV] "._('from')." $sms_sender";
+		    $body = _('Forward Private WebSMS')." ($web_title)\n\n";
+		    $body .= _('Date time').": $sms_datetime\n";
+		    $body .= _('Sender').": $sms_sender\n";
+		    $body .= _('Receiver').": $mobile\n\n";
+		    $body .= _('Message').":\n$message\n\n";
 		    $body .= $email_footer."\n\n";
 		    sendmail($email_service,$email,$subject,$body);
 		}

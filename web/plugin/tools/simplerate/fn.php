@@ -53,10 +53,8 @@ function simplerate_hook_rate_setusercredit($uid, $remaining=0) {
     return true;
 }
 
-function simplerate_hook_rate_getusercredit($username)
-{
-    if ($username)
-    {
+function simplerate_hook_rate_getusercredit($username) {
+    if ($username) {
 	$db_query = "SELECT credit FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
