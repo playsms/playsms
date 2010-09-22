@@ -1,5 +1,5 @@
 <?php
-if(!valid()){forcenoaccess();};
+if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 $gpid = $_REQUEST['gpid'];
 
@@ -13,7 +13,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Edit group')."</h2>
 	    <p>
-	    <form action=menu.php?inc=dir_edit&op=edit_yes&gpid=$gpid method=POST>
+	    <form action=menu.php?inc=tools_simplephonebook&route=dir_edit&op=edit_yes&gpid=$gpid method=POST>
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
 		<td width=75>"._('Group name')."</td><td width=5>:</td><td><input type=text name=dir_name value=\"".gpid2gpname($gpid)."\" size=50></td>
@@ -48,7 +48,7 @@ switch ($op)
 		die();
 	    }
 	}
-	header ("Location: menu.php?inc=dir_edit&op=edit&gpid=$gpid&err=".urlencode(_('You must fill all field')));
+	header ("Location: menu.php?inc=tools_simplephonebook&route=dir_edit&op=edit&gpid=$gpid&err=".urlencode(_('You must fill all field')));
 	break;
 }
 

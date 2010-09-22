@@ -27,7 +27,7 @@ while ($db_row = dba_fetch_array($db_result))
 	$option_public = "<a href=\"menu.php?inc=tools_simplephonebook&route=phonebook&op=share_this_group&gpid=$gpid\">$simplephonebook_icon_unpublish</a>";
     }
 
-    $option_group_edit = "<a href=\"menu.php?inc=dir_edit&op=edit&gpid=$gpid\">$icon_edit</a>";
+    $option_group_edit = "<a href=\"menu.php?inc=tools_simplephonebook&route=dir_edit&op=edit&gpid=$gpid\">$icon_edit</a>";
 
     $option_group_export = "<a href=\"menu.php?inc=tools_simplephonebook&route=phonebook_exim&op=export&gpid=$gpid\">$simplephonebook_icon_export</a>";
     $option_group_import = "<a href=\"menu.php?inc=tools_simplephonebook&route=phonebook_exim&op=import&gpid=$gpid\">$simplephonebook_icon_import</a>";
@@ -152,12 +152,12 @@ if ($err)
 }
 $content .= "
     <p>
-	<input type=button value=\""._('Create group')."\" onClick=\"javascript:linkto('menu.php?inc=dir_create&op=create')\" class=\"button\" />
+	<input type=button value=\""._('Create group')."\" onClick=\"javascript:linkto('menu.php?inc=tools_simplephonebook&route=dir_create&op=create')\" class=\"button\" />
 	<input type=button value=\""._('Add number to group')."\" onClick=\"javascript:linkto('menu.php?inc=tools_simplephonebook&route=phone_add&op=add')\" class=\"button\" />
 	<input type=button value=\""._('Export all')."\" onClick=\"javascript:linkto('menu.php?inc=tools_simplephonebook&route=phonebook_exim&op=export')\" class=\"button\" />
     <p>$list_of_phonenumber
     <p>
-	<input type=button value=\""._('Create group')."\" onClick=\"javascript:linkto('menu.php?inc=dir_create&op=create')\" class=\"button\" />
+	<input type=button value=\""._('Create group')."\" onClick=\"javascript:linkto('menu.php?inc=tools_simplephonebook&route=dir_create&op=create')\" class=\"button\" />
 	<input type=button value=\""._('Add number to group')."\" onClick=\"javascript:linkto('menu.php?inc=tools_simplephonebook&route=phone_add&op=add')\" class=\"button\" />
 	<input type=button value=\""._('Export all')."\" onClick=\"javascript:linkto('menu.php?inc=tools_simplephonebook&route=phonebook_exim&op=export')\" class=\"button\" />
 ";

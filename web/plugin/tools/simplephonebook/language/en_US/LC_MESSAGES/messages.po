@@ -18,8 +18,73 @@ msgstr ""
 msgid "Phonebook"
 msgstr "Phonebook"
 
-#: phone_add.php:12
+#: dir_create.php:12 simplephonebook.php:155 simplephonebook.php:160
+msgid "Create group"
+msgstr ""
+
+#: dir_create.php:17 dir_edit.php:19
+msgid "Group name"
+msgstr ""
+
+#: dir_create.php:20 dir_edit.php:22 phonebook_exim.php:36
+msgid "Group code"
+msgstr ""
+
+#: dir_create.php:20 dir_edit.php:22
+msgid "please use uppercase and make it short"
+msgstr ""
+
+#: dir_create.php:23 dir_edit.php:25
+msgid "Note"
+msgstr ""
+
+#: dir_create.php:23 dir_edit.php:25
+msgid "Group code used by keyword"
+msgstr ""
+
+#: dir_create.php:23 dir_edit.php:25
+msgid "broadcast SMS from single SMS"
+msgstr ""
+
+#: dir_create.php:24
+msgid "Create"
+msgstr ""
+
+#: dir_create.php:38
+msgid "Group code is already exists"
+msgstr ""
+
+#: dir_create.php:38 dir_create.php:45 dir_edit.php:47 phone_add.php:12
 msgid "code"
+msgstr ""
+
+#: dir_create.php:45
+msgid "Group code has been added"
+msgstr ""
+
+#: dir_create.php:45 dir_edit.php:47 phonebook.php:267 phonebook.php:272
+#: phonebook.php:284 phonebook.php:289
+msgid "group"
+msgstr ""
+
+#: dir_create.php:49 dir_edit.php:51 phone_add.php:66
+msgid "You must fill all field"
+msgstr ""
+
+#: dir_edit.php:14
+msgid "Edit group"
+msgstr ""
+
+#: dir_edit.php:26 phonebook.php:53
+msgid "Save"
+msgstr ""
+
+#: dir_edit.php:40
+msgid "No changes has been made"
+msgstr ""
+
+#: dir_edit.php:47
+msgid "Group has been edited"
 msgstr ""
 
 #: phone_add.php:19 phone_add.php:24 simplephonebook.php:156
@@ -65,16 +130,8 @@ msgstr ""
 msgid "Number has been added"
 msgstr ""
 
-#: phone_add.php:66
-msgid "You must fill all field"
-msgstr ""
-
 #: phonebook_exim.php:36
 msgid "Import phonebook"
-msgstr ""
-
-#: phonebook_exim.php:36
-msgid "Group code"
 msgstr ""
 
 #: phonebook_exim.php:39
@@ -127,10 +184,6 @@ msgstr ""
 
 #: phonebook.php:25
 msgid "Edited email"
-msgstr ""
-
-#: phonebook.php:53
-msgid "Save"
 msgstr ""
 
 #: phonebook.php:81
@@ -189,10 +242,6 @@ msgstr ""
 msgid "Fail to publish"
 msgstr ""
 
-#: phonebook.php:267 phonebook.php:272 phonebook.php:284 phonebook.php:289
-msgid "group"
-msgstr ""
-
 #: phonebook.php:272
 msgid "Group has been published"
 msgstr ""
@@ -227,10 +276,6 @@ msgstr ""
 
 #: simplephonebook.php:79
 msgid "Select action"
-msgstr ""
-
-#: simplephonebook.php:155 simplephonebook.php:160
-msgid "Create group"
 msgstr ""
 
 #: simplephonebook.php:157 simplephonebook.php:162

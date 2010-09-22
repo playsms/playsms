@@ -1,5 +1,5 @@
 <?php
-if(!valid()){forcenoaccess();};
+if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 switch ($op)
 {
@@ -11,7 +11,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Create group')."</h2>
 	    <p>
-	    <form action=menu.php?inc=dir_create&op=create_yes method=POST>
+	    <form action=menu.php?inc=tools_simplephonebook&route=dir_create&op=create_yes method=POST>
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
 		<td width=75>"._('Group name')."</td><td width=5>:</td><td><input type=text name=dir_name size=50></td>
@@ -35,18 +35,18 @@ switch ($op)
 	    $db_result = dba_query($db_query);
 	    if ($db_row = dba_fetch_array($db_result))
 	    {
-		header("Location: menu.php?inc=dir_create&op=create&err=".urlencode(_('Group code is already exists')." ("._('code').": `$dir_code`)"));
+		header("Location: menu.php?inc=tools_simplephonebook&route=dir_create&op=create&err=".urlencode(_('Group code is already exists')." ("._('code').": `$dir_code`)"));
 		die();
 	    }
 	    else
 	    {
 		$db_query = "INSERT INTO "._DB_PREF_."_tblUserGroupPhonebook (uid,gp_name,gp_code) VALUES ('$uid','$dir_name','$dir_code')";
 		$db_result = dba_query($db_query);
-		header("Location:  menu.php?inc=dir_create&op=create&err=".urlencode(_('Group code has been added')." ("._('group').": `$dir_name`, "._('code').": `$dir_code`)"));
+		header("Location:  menu.php?inc=tools_simplephonebook&route=dir_create&op=create&err=".urlencode(_('Group code has been added')." ("._('group').": `$dir_name`, "._('code').": `$dir_code`)"));
 		die();
 	    }
 	}
-	header ("Location: menu.php?inc=dir_create&op=create&err=".urlencode(_('You must fill all field')));
+	header ("Location: menu.php?inc=tools_simplephonebook&route=dir_create&op=create&err=".urlencode(_('You must fill all field')));
 	break;
 }
 
