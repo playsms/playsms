@@ -98,7 +98,8 @@ if ($ta)
 		{
 		    $transparent = true;
 		}
-		list($ok,$to,$smslog_id) = websend2group($u,$to,$msg);
+		$to_gpid = gpcode2gpid($u,$to);
+		list($ok,$to,$smslog_id) = websend2group($u,$to_gpid,$msg);
 		if ($ok[0])
 		{
 		    echo "OK";

@@ -25,19 +25,16 @@ while ($db_row = dba_fetch_array($db_result))
     $option_group_import = "<a href=\"menu.php?inc=phonebook_exim&op=import&gpid=$gpid\">$icon_import</a>";
 
     $list_of_phonenumber .= "
-	<form name=\"$fm_name\" action=\"menu.php?inc=phonebook\" method=post>
+	<form name=\"".strtolower($fm_name).$username."\" action=\"menu.php?inc=phonebook\" method=post>
 	<p><a href=\"javascript:ConfirmURL('Are you sure you want to delete group `".$db_row['gp_name']."` with all its members ?','menu.php?inc=phone_del&op=group&gpid=$gpid')\">$icon_delete</a> Group: ".$db_row['gp_name']." - code: ".$db_row['gp_code']." <!-- <a href=\"javascript: PopupSendSms('BC','".$db_row['gp_code']."')\">$icon_sendsms</a> -->$option_public $option_group_edit $option_group_export $option_group_import $option_public
 	<table width=100% cellpadding=1 cellspacing=2 border=0 class=\"sortable\">
-    <thead>
 	<tr>
-	    <th width=4>&nbsp;*&nbsp;</th>
-	    <th width=35%>Name</th>
-	    <th width=25%>Number</th>
-	    <th width=40%>Email</th>
-	    <th width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.".$fm_name.")></td>
+	    <td class=box_title width=4>&nbsp;*&nbsp;</td>
+	    <td class=box_title width=200>Name</td>
+	    <td class=box_title width=100>Number</td>
+	    <td class=box_title>Email</td>
+	    <td class=box_title width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.".strtolower($fm_name).$username.")></td>
 	</tr>
-    </thead>
-    <tbody>
     ";
     $db_query1 = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE gpid='$gpid' AND uid='$uid' ORDER BY p_desc";
     $db_result1 = dba_query($db_query1);
@@ -67,8 +64,6 @@ while ($db_row = dba_fetch_array($db_result))
     ";
     $item_count = $i;
     $list_of_phonenumber .= "
-    </tbody>
-    <tfoot></tfoot>
 	</table>
 	<table width=100% cellpadding=0 cellspacing=0 border=0>
 	<tr>
@@ -82,6 +77,62 @@ while ($db_row = dba_fetch_array($db_result))
 	<p>
     ";
 }
+
+// ----
+
+$db_query = "
+    SELECT 
+	"._DB_PREF_."_tblUserGroupPhonebook.gpid as gpid, 
+	"._DB_PREF_."_tblUserGroupPhonebook.gp_name as gp_name,
+	"._DB_PREF_."_tblUserGroupPhonebook.gp_code as gp_code,
+	"._DB_PREF_."_tblUserGroupPhonebook.uid as uid
+    FROM "._DB_PREF_."_tblUserGroupPhonebook,"._DB_PREF_."_tblUserGroupPhonebook_public 
+    WHERE 
+	"._DB_PREF_."_tblUserGroupPhonebook.gpid="._DB_PREF_."_tblUserGroupPhonebook_public.gpid AND
+	NOT ("._DB_PREF_."_tblUserGroupPhonebook.uid = '$uid')
+    ORDER BY gp_name
+";
+$db_result = dba_query($db_query);
+while ($db_row = dba_fetch_array($db_result))
+{
+    $gpid = $db_row['gpid'];
+    $fm_name = "fm_phonebook_".$db_row['gp_code'];
+    $c_uid = $db_row['uid'];
+    $c_username = uid2username($c_uid);
+    $list_of_phonenumber .= "
+	<p>By: ".$c_username." - group: ".$db_row['gp_name']." - code: ".$db_row['gp_code']." <!-- <a href=\"javascript: PopupSendSms('BC','".$db_row['gp_code']."')\">$icon_sendsms</a> -->
+	<table width=100% cellpadding=1 cellspacing=2 border=0 class=\"sortable\">
+	<tr>
+	    <td class=box_title width=4>&nbsp;*&nbsp;</td>
+	    <td class=box_title width=200>Name</td>
+	    <td class=box_title width=100>Number</td>
+	    <td class=box_title>Email</td>
+	</tr>
+    ";
+    $db_query1 = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE gpid='$gpid' ORDER BY p_desc";
+    $db_result1 = dba_query($db_query1);
+    $i = 0;
+    while ($db_row1 = dba_fetch_array($db_result1))
+    {
+	$i++;
+        $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";	
+	$list_of_phonenumber .= "
+	    <tr>
+		<td class=$td_class width=4>&nbsp;$i.&nbsp;</td>
+		<td class=$td_class width=35%>&nbsp;".$db_row1['p_desc']."</td>
+		<td class=$td_class width=25%>&nbsp;<!-- <a href=\"javascript: PopupSendSms('PV','".$db_row1['p_num']."')\"> --> ".$db_row1['p_num']." <!-- </a> --></td>
+		<td class=$td_class width=40%>&nbsp;".$db_row1['p_email']."</td>
+	    </tr>
+	";
+    }
+    $item_count = $i;
+    $list_of_phonenumber .= "
+	</table>
+	<p>
+    ";
+}
+
+// ----
 
 $content = "
     <h2>Phonebook</h2>

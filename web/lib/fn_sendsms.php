@@ -95,7 +95,7 @@ function websend2pv($username,$sms_to,$message,$sms_type='text',$unicode=0)
     return array($ok,$to,$smslog_id);
 }
 
-function websend2group($username,$gp_code,$message,$sms_type='text')
+function websend2group($username,$gpid,$message,$sms_type='text')
 {
     global $apps_path, $core_config;
     global $datetime_now, $gateway_module;
@@ -110,20 +110,19 @@ function websend2group($username,$gp_code,$message,$sms_type='text')
     {
         $message = substr ($message,0,$max_length-1);
     }
-    if (is_array($gp_code))
+    if (is_array($gpid))
     {
-	$array_gp_code = $gp_code;
+	$array_gpid = $gpid;
     }
     else
     {
-	$array_gp_code[0] = $gp_code;
+	$array_gpid[0] = $gpid;
     }
     $j=0;
-    for ($i=0;$i<count($array_gp_code);$i++)
+    for ($i=0;$i<count($array_gpid);$i++)
     {
-	$c_gp_code = strtoupper($array_gp_code[$i]);
-	$gpid = gpcode2gpid($uid,$c_gp_code);
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE gpid='$gpid'";
+	$c_gpid = strtoupper($array_gpid[$i]);
+	$db_query = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE gpid='$c_gpid'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result))
 	{

@@ -15,7 +15,7 @@ switch ($op)
 {
     case "edit":
 	$op_content = "
-	    <table cellpadding=1 cellspacing=2 border=0 width=100%>
+	    <table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
 	    <form action=\"menu.php?inc=phonebook\" method=post>
 	    <input type=hidden name=op value=edit_yes>
 	    <tr>
@@ -73,7 +73,7 @@ switch ($op)
 	break;
     case "copy":
 	$op_content = "
-	    <table cellpadding=1 cellspacing=2 border=0 width=100%>
+	    <table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
 	    <form action=\"menu.php?inc=phonebook\" method=post>
 	    <input type=hidden name=op value=copy_yes>
 	    <tr>
@@ -139,7 +139,7 @@ switch ($op)
 	break;
     case "move":
 	$op_content = "
-	    <table cellpadding=1 cellspacing=2 border=0 width=100%>
+	    <table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
 	    <form action=\"menu.php?inc=phonebook\" method=post>
 	    <input type=hidden name=op value=move_yes>
 	    <tr>
@@ -202,7 +202,7 @@ switch ($op)
 	break;
     case "delete":
 	$op_content = "
-	    <table cellpadding=1 cellspacing=2 border=0 width=100%>
+	    <table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
 	    <form action=\"menu.php?inc=phonebook\" method=post>
 	    <input type=hidden name=op value=delete_yes>
 	    <tr>

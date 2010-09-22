@@ -19,12 +19,12 @@ switch ($op)
 	    <p>
 	    <input type=button value=\"Add message template\" onClick=\"javascript:linkto('menu.php?inc=sms_template&op=add_template')\" class=\"button\" />
 	    <p>
-	    <table width=\"100%\" cellpadding=1 cellspacing=2 border=\"0\">
+	    <table width=\"100%\" cellpadding=1 cellspacing=2 border=\"0\" class=\"sortable\">
 	    <form name=\"$fm_name\" action=\"menu.php?inc=sms_template&op=delete\" method=post>
 	    <tr>
 		<td class=\"box_title\" width=\"4\">&nbsp;</td>
-		<td class=\"box_title\" width=\"40%\">&nbsp;Name</td>
-		<td class=\"box_title\" width=\"60%\">&nbsp;Content</td>
+		<td class=\"box_title\" width=\"40%\">&nbsp;"._('Name')."</td>
+		<td class=\"box_title\" width=\"60%\">&nbsp;"._('Content')."</td>
 		<td class=\"box_title\" width=\"\" align=\"center\"><input type=checkbox onclick=CheckUncheckAll(document.".$fm_name.")></td>
 	    </tr>
 	";
@@ -52,7 +52,7 @@ switch ($op)
 	$content .= "
 	    </table>
 	    <table width=\"100%\"><tr><td align=\"right\">
-		Select Action : <select name=\"action\">
+		"._('Select Action')." : <select name=\"action\">
 		    <option value=\"delete\">Delete Selections</option>
 		</select>
 		<input type=\"submit\" value=\"Go\" class=\"button\"></td></tr>
@@ -150,7 +150,7 @@ switch ($op)
 	    <h2>Delete message template</h2>
 	    <p>
 	    <form action=\"menu.php?inc=sms_template&op=delete_yes\" method=\"post\">
-	    <table width=\"100%\" cellpadding=\"1\" cellspacing=\"2\" border=\"0\">
+	    <table width=\"100%\" cellpadding=\"1\" cellspacing=\"2\" border=\"0\" class=\"sortable\">
 	    <tr>
 		<td class=\"box_title\" width=\"4\">&nbsp;*&nbsp;</td>
 		<td class=\"box_title\" width=\"40%\">&nbsp;Name</td>

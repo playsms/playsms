@@ -54,7 +54,7 @@ switch ($op)
 	$content = "
 	    <h2>"._('Import confirmation')."</h2>
 	    <p>
-	    <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"1\">
+	    <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"1\" class=\"sortable\">
 	    <tr>
 		<td class=\"box_title\" width=\"4\">*</td>
 		<td class=\"box_title\" width=\"40%\">"._('Name')."</td>

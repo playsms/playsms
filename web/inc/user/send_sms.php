@@ -19,8 +19,9 @@ switch ($op)
 	    SELECT 
 		"._DB_PREF_."_tblUserGroupPhonebook.gpid as gpid, 
 		"._DB_PREF_."_tblUserGroupPhonebook.gp_name as gp_name,
-		"._DB_PREF_."_tblUserGroupPhonebook.gp_code as gp_code
-	    FROM "._DB_PREF_."_tblUserGroupPhonebook,"._DB_PREF_."_tblUserGroupPhonebook_public 
+		"._DB_PREF_."_tblUserGroupPhonebook.gp_code as gp_code,
+		"._DB_PREF_."_tblUserGroupPhonebook.uid as uid
+	    FROM "._DB_PREF_."_tblUserGroupPhonebook,"._DB_PREF_."_tblUserGroupPhonebook_public
 	    WHERE 
 		"._DB_PREF_."_tblUserGroupPhonebook.gpid="._DB_PREF_."_tblUserGroupPhonebook_public.gpid AND
 		NOT ("._DB_PREF_."_tblUserGroupPhonebook_public.uid='$uid')
@@ -30,12 +31,14 @@ switch ($op)
 	while ($db_row = dba_fetch_array($db_result))
 	{
 	    $c_gpid = $db_row['gpid'];
+	    $c_uid = $db_row['uid'];
+	    $c_username = uid2username($c_uid);
 	    $db_query1 = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE gpid='$c_gpid' ORDER BY p_desc";
 	    $db_result1 = dba_query($db_query1);
 	    $i = 0;
 	    while ($db_row1 = dba_fetch_array($db_result1))
 	    {
-		$list_of_number .= "<option value=\"".$db_row1['p_num']."\" $selected>".$db_row1['p_desc']." ".$db_row1['p_num']."</option>";
+		$list_of_number .= "<option value=\"".$db_row1['p_num']."\" $selected>".$db_row1['p_desc']." ".$db_row1['p_num']." (by ".$c_username.")</option>";
 	    }
 	}
 	$max_length = $core_config['smsmaxlength'];
@@ -171,24 +174,29 @@ switch ($op)
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result))
 	{
-	    $list_of_group .= "<option value=\"".$db_row['gp_code']."\" $selected>".$db_row['gp_name']." (".$db_row['gp_code'].")</option>";
+	    $list_of_group .= "<option value=\"".$db_row['gpid']."\" $selected>".$db_row['gp_name']." (".$db_row['gp_code'].")</option>";
 	}
+
 	// add shared group
 	$db_query = "
 	    SELECT 
 		"._DB_PREF_."_tblUserGroupPhonebook.gpid as gpid, 
 		"._DB_PREF_."_tblUserGroupPhonebook.gp_name as gp_name,
-		"._DB_PREF_."_tblUserGroupPhonebook.gp_code as gp_code
+		"._DB_PREF_."_tblUserGroupPhonebook.gp_code as gp_code,
+		"._DB_PREF_."_tblUserGroupPhonebook.uid as uid
 	    FROM "._DB_PREF_."_tblUserGroupPhonebook,"._DB_PREF_."_tblUserGroupPhonebook_public 
 	    WHERE 
 		"._DB_PREF_."_tblUserGroupPhonebook.gpid="._DB_PREF_."_tblUserGroupPhonebook_public.gpid AND
 		NOT ("._DB_PREF_."_tblUserGroupPhonebook_public.uid='$uid')
 	    ORDER BY gp_name
 	";
+
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result))
 	{
-	    $list_of_group .= "<option value=\"".$db_row['gp_code']."\" $selected>".$db_row['gp_name']." (".$db_row['gp_code'].")</option>";
+	    $c_uid = $db_row['uid'];
+	    $c_username = uid2username($c_uid);
+	    $list_of_group .= "<option value=\"".$db_row['gpid']."\" $selected>".$db_row['gp_name']." (".$db_row['gp_code'].") - by ".$c_username."</option>";
 	}
 	$max_length = $core_config['smsmaxlength'];
 	if ($sms_sender = username2sender($username))
@@ -239,7 +247,8 @@ switch ($op)
 	    <form name=fm_sendsms id=fm_sendsms action=menu.php?inc=send_sms&op=sendsmstogr_yes method=POST>
 	    <p>From: $sms_from
 	    <p>
-	    <p>Send to group: <select name=\"gp_code\">$list_of_group</select>
+	    <p>Send to group: <select name=\"gpid\">$list_of_group</select>
+	    
 	    <!--
 	    <table cellpadding=1 cellspacing=0 border=0>
 	    <tr>
@@ -262,6 +271,7 @@ switch ($op)
 	    </tr>
 	    </table>
 	    -->
+	    
 	    <p>Or: <input type=text size=20 maxlength=20 name=gp_code_text value=\"$dst_gp_code\"> (Group name)
 	    <p>SMS Sender ID (SMS footer): $sms_sender 
 	    <p>Message template: <select name=\"smstemplate\">$option_values</select>
@@ -278,18 +288,20 @@ switch ($op)
 	echo $content;
 	break;
     case "sendsmstogr_yes":
-	$gp_code = $_POST['gp_code'];
-	if (!$gp_code[0]) {
-	    $gp_code = $_POST['gp_code_text'];
+	$gpid = $_POST['gpid'];
+	/*
+	if (!$gpid[0]) {
+	    $gpid = $_POST['gpid_text'];
 	}
+	*/
 	$msg_flash = $_POST['msg_flash'];
 	$message = $_POST['message'];
-	if ($gp_code && $message) {
+	if ($gpid && $message) {
 	    $sms_type = "text";
 	    if ($msg_flash == "on") {
 		$sms_type = "flash";
 	    }
-	    list($ok,$to,$smslog_id) = websend2group($username,$gp_code,$message,$sms_type);
+	    list($ok,$to,$smslog_id) = websend2group($username,$gpid,$message,$sms_type);
 	    for ($i=0;$i<count($ok);$i++) {
 	        if ($ok[$i]) {
 	    	    $error_string .= "Your SMS to `".$to[$i]."` has been delivered to queue<br>";
