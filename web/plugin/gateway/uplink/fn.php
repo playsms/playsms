@@ -39,6 +39,7 @@ function uplink_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
     if ($sms_to && $sms_msg) {
 	$query_string = "input.php?u=".$uplink_param['username']."&p=".$uplink_param['password']."&ta=pv&to=".urlencode($sms_to)."&from=".urlencode($sms_from)."&type=$sms_type&msg=".urlencode($sms_msg);
 	$url = $uplink_param['master']."/".$query_string;
+	logger_print($url, 3, "uplink outgoing");
 	$fd = @implode ('', file ($url));
 	if ($fd) {
 	    $response = split (" ", $fd);
@@ -55,6 +56,7 @@ function uplink_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
 		    }
 		}
 	    }
+	    logger_print("smslog_id:".$smslog_id." response:".$response[0]." ".$response[1], 3, "uplink outgoing");
 	}
     }
     if (!$ok) {
@@ -118,6 +120,7 @@ function uplink_hook_getsmsinbox() {
     while ($sms_in_file = @readdir($handle)) {
 	if (eregi("^ERR.in",$sms_in_file) && !eregi("^[.]",$sms_in_file)) {
 	    $fn = $uplink_param['path']."/$sms_in_file";
+	    logger_print("infile:".$fn, 3, "uplink incoming");
 	    $tobe_deleted = $fn;
 	    $lines = @file ($fn);
 	    $sms_datetime = trim($lines[0]);
@@ -129,6 +132,7 @@ function uplink_hook_getsmsinbox() {
 	    // collected:
 	    // $sms_datetime, $sms_sender, $message
 	    setsmsincomingaction($sms_datetime,$sms_sender,$message);
+	    logger_print("sender:".$sms_sender." dt:".$sms_datetime." msg:".$message, 3, "uplink incoming");
 	    @unlink($tobe_deleted);
 	}
     }

@@ -18,6 +18,7 @@ if ($remote_addr != $kannel_param['bearerbox_host'] && $remote_host != $kannel_p
 $t = trim($_REQUEST['t']); 	// sms_datetime
 $q = trim($_REQUEST['q']); 	// sms_sender
 $a = trim($_REQUEST['a']); 	// message
+logger_print("t=".$t." q=".$q." a=".$a, 3, "kannel incoming");
 
 if ($t && $q && $a)
 {

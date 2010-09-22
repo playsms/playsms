@@ -48,6 +48,7 @@ function smstools_hook_getsmsinbox() {
     $handle = @opendir($smstools_param['path']."/incoming");
     while ($sms_in_file = @readdir($handle)) {
 	$fn = $smstools_param['path']."/incoming/$sms_in_file";
+	logger_print("infile:".$fn, 3, "smstools incoming");
 	$tobe_deleted = $fn;
 	$lines = @file ($fn);
 	$start = 0;
@@ -71,6 +72,7 @@ function smstools_hook_getsmsinbox() {
 	    // $sms_datetime, $sms_sender, $message
 	    setsmsincomingaction($sms_datetime,$sms_sender,$message);
 	}
+	logger_print("sender:".$sms_sender." dt:".$sms_datetime." msg:".$message, 3, "smstools incoming");
 	@unlink($tobe_deleted);
     }
 }
@@ -99,6 +101,7 @@ function smstools_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=
     }
     $the_msg .= "\n$sms_msg";
     $fn = $smstools_param['path']."/outgoing/out.$sms_id";
+    logger_print("outfile:".$fn, 3, "smstools outgoing");
     umask(0);
     $fd = @fopen($fn, "w+");
     @fputs($fd, $the_msg);

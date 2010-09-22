@@ -54,6 +54,7 @@ function gnokii_hook_getsmsinbox() {
     while ($sms_in_file = @readdir($handle)) {
 	if (eregi("^ERR.in",$sms_in_file) && !eregi("^[.]",$sms_in_file)) {
 	    $fn = $gnokii_param['path']."/$sms_in_file";
+	    logger_print("infile:".$fn, 3, "gnokii incoming");
 	    $tobe_deleted = $fn;
 	    $lines = @file ($fn);
 	    $sms_datetime = trim($lines[0]);
@@ -65,6 +66,7 @@ function gnokii_hook_getsmsinbox() {
 	    // collected:
 	    // $sms_datetime, $sms_sender, $message
 	    setsmsincomingaction($sms_datetime,$sms_sender,$message);
+	    logger_print("sender:".$sms_sender." dt:".$sms_datetime." msg:".$message, 3, "gnokii incoming");
 	    @unlink($tobe_deleted);
 	}
     }
@@ -81,6 +83,7 @@ function gnokii_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
     }
     $the_msg = "$sms_to\n$sms_msg";
     $fn = $gnokii_param['path']."/out.$sms_id";
+    logger_print("outfile:".$fn, 3, "gnokii outgoing");
     umask(0);
     $fd = @fopen($fn, "w+");
     @fputs($fd, $the_msg);

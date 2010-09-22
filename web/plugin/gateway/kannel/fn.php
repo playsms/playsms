@@ -34,6 +34,7 @@ function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
     $URL .= "&from=".urlencode($sms_from)."&to=".urlencode($sms_to)."&text=".urlencode($sms_msg);
     $URL .= "&dlr-mask=31&dlr-url=".urlencode($dlr_url);
     $URL .= "&mclass=".$msg_type;
+    logger_print("http://".$kannel_param['bearerbox_host'].":".$kannel_param['sendsms_port'].$URL, 3, "kannel outgoing");
 
     // srosa 20100531: Due to improper http response from Kannel, file_get_contents cannot be used.
     // One issue is that Kannel responds with HTTP 202 whereas file_get_contents expect HTTP 200
@@ -57,6 +58,7 @@ function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
 	fputs($connection, "GET ".$URL." HTTP/1.0\r\n\r\n");
 	while (!feof($connection)) {
 	    $rv = fgets($connection, 128);
+	    logger_print("smslog_id:".$smslog_id." response:".$rv, 3, "kannel outgoing");
 	    if (($rv == "Sent.") || ($rv == "0: Accepted for delivery") || ($rv == "3: Queued for later delivery")) {
 		$ok = true;
 		// set pending

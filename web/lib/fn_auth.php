@@ -8,6 +8,7 @@ function validatelogin($username,$password)
     if ($password && $res_password && ($password==$res_password))
     {
 	$ticket = md5(mktime().$username);
+	logger_print("u:".$username." t:".$ticket." ip:".$_SERVER['REMOTE_ADDR'], 3, "login");
 	return $ticket;
     }
     else
@@ -106,6 +107,7 @@ function forcelogout()
     $db_query = "UPDATE "._DB_PREF_."_tblUser SET ticket='".md5(mktime())."' ".
     $db_query .= "WHERE username='".$_COOKIE['vc2']."' AND ticket='".$_COOKIE['vc1']."'";
     $db_result = dba_query($db_query);
+    logger_print("u:".$_COOKIE['vc2']." t:".$_COOKIE['vc1']." ip:".$_SERVER['REMOTE_ADDR'], 3, "logout");
     setcookie("vc1");
     setcookie("vc2");
     setcookie("vc3");

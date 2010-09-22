@@ -33,8 +33,9 @@ $http_path['logs']	= '';
 // on admin's computer
 $core_config['multilogin']	= 0;
 
-// true to enable debug or logging, false to disable
-$core_config['logstate']	= false;
+// log level: 0=disabled, 1=info, 2=warning, 3=debug
+// WARNING: log level 3 will also save sensitif information such as password for used gateway
+$core_config['logstate']	= 0;
 
 // are we using http or https ? the default is using http instead https
 $core_config['ishttps']		= false;
