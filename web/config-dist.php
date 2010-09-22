@@ -26,7 +26,6 @@ define('_SMTP_PORT_','25');
 
 // logs directories
 $apps_path['logs']	= '/var/log/playsms';
-$http_path['logs']	= '';
 
 // 0 for single session login; 1 for multi session login
 // multi session login is not secure because playsms leaves md5 crypted username and password
