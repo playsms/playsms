@@ -26,20 +26,13 @@ $reserved_keywords = array ("PV","BC");
 $icon_edit = "<img src=\"".$http_path['themes']."/".$themes_module."/images/edit_action.gif\" alt=\""._('Edit')."\" title=\""._('Edit')."\" border=0>";
 $icon_delete = "<img src=\"".$http_path['themes']."/".$themes_module."/images/delete_action.gif\" alt=\""._('Delete')."\" title=\""._('Delete')."\" border=0>";
 $icon_reply = "<img src=\"".$http_path['themes']."/".$themes_module."/images/reply_action.gif\" alt=\""._('Reply')."\" title=\""._('Reply')."\" border=0>";
-$icon_phonebook = "<img src=\"".$http_path['themes']."/".$themes_module."/images/phonebook_action.gif\" alt=\""._('Phonebook')."\" title=\""._('Phonebook')."\" border=0>";
 $icon_manage = "<img src=\"".$http_path['themes']."/".$themes_module."/images/manage_action.gif\" alt=\""._('Manage')."\" title=\""._('Manage')."\" border=0>";
 $icon_view = "<img src=\"".$http_path['themes']."/".$themes_module."/images/view_action.gif\" alt=\""._('View')."\" title=\""._('View')."\" border=0>";
 $icon_calendar = "<img src=\"".$http_path['themes']."/".$themes_module."/images/cal.gif\" alt=\""._('Pick Date & Time')."\" title=\""._('Pick Date & Time')."\" border=0>";
-
-// other icon
-$icon_export = "<img src=\"".$http_path['themes']."/".$themes_module."/images/export.gif\" alt=\""._('Export')."\" title=\""._('Export')."\" border=0>";
-$icon_import = "<img src=\"".$http_path['themes']."/".$themes_module."/images/import.gif\" alt=\""._('Import')."\" title=\""._('Import')."\" border=0>";
-$icon_publicphonebook = "<img src=\"".$http_path['themes']."/".$themes_module."/images/publicphonebook.gif\" alt=\""._('Publish')."\" title=\""._('Publish')."\" border=0>";
-$icon_unpublicphonebook = "<img src=\"".$http_path['themes']."/".$themes_module."/images/unpublicphonebook.gif\" alt=\""._('Unpublish')."\" title=\""._('Unpublish')."\" border=0>";
 $icon_sendsms = "<img src=\"".$http_path['themes']."/".$themes_module."/images/sendsms.gif\" alt=\""._('Send SMS')."\" title=\""._('Send SMS')."\" border=0>";
+$icon_phonebook = "<img src=\"".$http_path['themes']."/".$themes_module."/images/phonebook_action.gif\" alt=\""._('Phonebook')."\" title=\""._('Phonebook')."\" border=0>";
 
 // menus
-$arr_menu['My Account'][] = array("menu.php?inc=phonebook_list", _('Phonebook'));
 $arr_menu['My Account'][] = array("menu.php?inc=sms_template&op=list", _('Message template'));
 $arr_menu['My Account'][] = array("menu.php?inc=send_sms&op=sendsmstopv", _('Send SMS'));
 $arr_menu['My Account'][] = array("menu.php?inc=send_sms&op=sendsmstogr", _('Send broadcast SMS'));

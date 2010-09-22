@@ -1,0 +1,238 @@
+#: config.php:3
+msgid "Export"
+msgstr ""
+
+#: config.php:4 phonebook_exim.php:42 phonebook_exim.php:109
+msgid "Import"
+msgstr ""
+
+#: config.php:5
+msgid "Publish"
+msgstr ""
+
+#: config.php:6
+msgid "Unpublish"
+msgstr ""
+
+#: config.php:8 phonebook.php:298 simplephonebook.php:146
+msgid "Phonebook"
+msgstr "Phonebook"
+
+#: phone_add.php:12
+msgid "code"
+msgstr ""
+
+#: phone_add.php:19 phone_add.php:24 simplephonebook.php:156
+#: simplephonebook.php:161
+msgid "Add number to group"
+msgstr ""
+
+#: phone_add.php:27 phonebook_exim.php:60 simplephonebook.php:41
+#: simplephonebook.php:115
+msgid "Name"
+msgstr ""
+
+#: phone_add.php:30 phonebook_exim.php:61
+msgid "Mobile"
+msgstr ""
+
+#: phone_add.php:30
+msgid "International format"
+msgstr ""
+
+#: phone_add.php:33 phonebook_exim.php:62 simplephonebook.php:43
+#: simplephonebook.php:117
+msgid "Email"
+msgstr ""
+
+#: phone_add.php:36
+msgid "Add"
+msgstr ""
+
+#: phone_add.php:55
+msgid "Number is already exists"
+msgstr ""
+
+#: phone_add.php:55 phone_add.php:62
+msgid "number"
+msgstr ""
+
+#: phone_add.php:55 phone_add.php:62
+msgid "name"
+msgstr ""
+
+#: phone_add.php:62
+msgid "Number has been added"
+msgstr ""
+
+#: phone_add.php:66
+msgid "You must fill all field"
+msgstr ""
+
+#: phonebook_exim.php:36
+msgid "Import phonebook"
+msgstr ""
+
+#: phonebook_exim.php:36
+msgid "Group code"
+msgstr ""
+
+#: phonebook_exim.php:39
+msgid "Please select CSV file for phonebook entries"
+msgstr ""
+
+#: phonebook_exim.php:39
+msgid "format : Name,Mobile,Email"
+msgstr ""
+
+#: phonebook_exim.php:41
+msgid "Same item(s) will be replaced"
+msgstr ""
+
+#: phonebook_exim.php:55
+msgid "Import confirmation"
+msgstr ""
+
+#: phonebook_exim.php:98
+msgid "Replace all entries in database"
+msgstr ""
+
+#: phonebook_exim.php:102
+msgid "Add all entries"
+msgstr ""
+
+#: phonebook_exim.php:106
+msgid "Import above phonebook entries ?"
+msgstr ""
+
+#: phonebook_exim.php:107
+msgid "Status"
+msgstr ""
+
+#: phonebook_exim.php:113
+msgid "Back"
+msgstr ""
+
+#: phonebook_exim.php:120
+msgid "Fail to upload CSV file for phonebook"
+msgstr ""
+
+#: phonebook.php:23
+msgid "Edited name"
+msgstr ""
+
+#: phonebook.php:24
+msgid "Edited number"
+msgstr ""
+
+#: phonebook.php:25
+msgid "Edited email"
+msgstr ""
+
+#: phonebook.php:53
+msgid "Save"
+msgstr ""
+
+#: phonebook.php:81
+msgid "Copied name"
+msgstr ""
+
+#: phonebook.php:82
+msgid "Copied number"
+msgstr ""
+
+#: phonebook.php:83
+msgid "Copied email"
+msgstr ""
+
+#: phonebook.php:113
+msgid "Code"
+msgstr ""
+
+#: phonebook.php:118 phonebook.php:184
+msgid "Select destination group"
+msgstr ""
+
+#: phonebook.php:118 phonebook.php:184 simplephonebook.php:79
+msgid "Go"
+msgstr ""
+
+#: phonebook.php:147
+msgid "Moved name"
+msgstr ""
+
+#: phonebook.php:148
+msgid "Moved number"
+msgstr ""
+
+#: phonebook.php:149
+msgid "Moved email"
+msgstr ""
+
+#: phonebook.php:210
+msgid "Deleted name"
+msgstr ""
+
+#: phonebook.php:211
+msgid "Deleted number"
+msgstr ""
+
+#: phonebook.php:212
+msgid "Deleted email"
+msgstr ""
+
+#: phonebook.php:241
+msgid "Delete"
+msgstr ""
+
+#: phonebook.php:267
+msgid "Fail to publish"
+msgstr ""
+
+#: phonebook.php:267 phonebook.php:272 phonebook.php:284 phonebook.php:289
+msgid "group"
+msgstr ""
+
+#: phonebook.php:272
+msgid "Group has been published"
+msgstr ""
+
+#: phonebook.php:284
+msgid "Fail to unpublish"
+msgstr ""
+
+#: phonebook.php:289
+msgid "Group has been unpublished"
+msgstr ""
+
+#: simplephonebook.php:42 simplephonebook.php:116
+msgid "Number"
+msgstr ""
+
+#: simplephonebook.php:68
+msgid "Edit selections"
+msgstr ""
+
+#: simplephonebook.php:69
+msgid "Copy selections"
+msgstr ""
+
+#: simplephonebook.php:70
+msgid "Move selections"
+msgstr ""
+
+#: simplephonebook.php:71
+msgid "Delete selections"
+msgstr ""
+
+#: simplephonebook.php:79
+msgid "Select action"
+msgstr ""
+
+#: simplephonebook.php:155 simplephonebook.php:160
+msgid "Create group"
+msgstr ""
+
+#: simplephonebook.php:157 simplephonebook.php:162
+msgid "Export all"
+msgstr ""

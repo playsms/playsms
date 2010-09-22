@@ -12,7 +12,7 @@ switch ($op)
 	    <h2>"._('Manage SMS rate')."</h2>
 	    <p>
 	    <input type='button' value='"._('Add rate')."' onClick=\"javascript:linkto('menu.php?inc=tools_simplerate&op=simplerate_add')\" class='button' />
-    <table cellpadding='1' cellspacing='2' border='0' width='100%'>
+    <table cellpadding='1' cellspacing='2' border='0' width='100%' class=\"sortable\">
     <tr>
         <td class='box_title' width='5'>*</td>
         <td class='box_title' width='300'>"._('Destination')."</td>

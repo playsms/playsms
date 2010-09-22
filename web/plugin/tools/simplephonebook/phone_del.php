@@ -1,5 +1,5 @@
 <?php
-if(!valid()){forcenoaccess();};
+if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 $gpid = $_REQUEST['gpid'];
 $pid = $_REQUEST['pid'];
@@ -16,7 +16,7 @@ switch ($op)
 		$db_result = dba_query($db_query);
 	    }
 	}
-	header ("Location: menu.php?inc=phonebook_list");
+	header ("Location: menu.php?inc=tools_simplephonebook&op=simplephonebook_list");
 	break;
     case "user":
 	if ($pid)
@@ -24,7 +24,7 @@ switch ($op)
 	    $db_query = "DELETE FROM "._DB_PREF_."_tblUserPhonebook WHERE pid='$pid' AND uid='$uid'";
 	    $db_result = dba_query($db_query);
 	}
-	header ("Location: menu.php?inc=phonebook_list");
+	header ("Location: menu.php?inc=tools_simplephonebook&op=simplephonebook_list");
 	break;
 }
 

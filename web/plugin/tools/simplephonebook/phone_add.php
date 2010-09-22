@@ -1,5 +1,5 @@
 <?php
-if(!valid()){forcenoaccess();};
+if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 switch ($op)
 {
@@ -18,7 +18,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Add number to group')."</h2>
 	    <p>
-	    <form action=menu.php?inc=phone_add&op=add_yes name=fm_addphone method=POST>
+	    <form action=menu.php?inc=tools_simplephonebook&route=phone_add&op=add_yes name=fm_addphone method=POST>
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
 		<td width=150>"._('Add number to group')."</td><td width=5>:</td><td><select name=gpid>$list_of_group</select></td>
@@ -52,18 +52,18 @@ switch ($op)
 	    $db_result = dba_query($db_query);
 	    if ($db_row = dba_fetch_array($db_result))
 	    {
-		header("Location: menu.php?inc=phone_add&op=add&err=".urlencode(_('Number is already exists')." ("._('number').":`$p_num`, "._('name').": `".$db_row['p_desc']."`)"));
+		header("Location: menu.php?inc=tools_simplephonebook&route=phone_add&op=add&err=".urlencode(_('Number is already exists')." ("._('number').":`$p_num`, "._('name').": `".$db_row['p_desc']."`)"));
 		die();
 	    }
 	    else
 	    {
 		$db_query = "INSERT INTO "._DB_PREF_."_tblUserPhonebook (gpid,uid,p_num,p_desc,p_email) VALUES ('$gpid','$uid','$p_num','$p_desc','$p_email')";
 		$db_result = dba_query($db_query);
-		header("Location: menu.php?inc=phone_add&op=add&err=".urlencode(_('Number has been added')." ("._('number').": `$p_num`, "._('name').": `$p_desc`)"));
+		header("Location: menu.php?inc=tools_simplephonebook&route=phone_add&op=add&err=".urlencode(_('Number has been added')." ("._('number').": `$p_num`, "._('name').": `$p_desc`)"));
 		die();
 	    }
 	}
-	header("Location: menu.php?inc=phone_add&op=add&err=".urlencode(_('You must fill all field')));
+	header("Location: menu.php?inc=tools_simplephonebook&route=phone_add&op=add&err=".urlencode(_('You must fill all field')));
 	break;
 }
 
