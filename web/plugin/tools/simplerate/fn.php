@@ -1,6 +1,6 @@
 <?php
 
-function simplerate_hook_rate_getdst($id) {
+function simplerate_getdst($id) {
     if ($id) {
 	$db_query = "SELECT dst FROM "._DB_PREF_."_toolsSimplerate WHERE id='$id'";
 	$db_result = dba_query($db_query);
@@ -10,7 +10,7 @@ function simplerate_hook_rate_getdst($id) {
     return $dst;
 }
 
-function simplerate_hook_rate_getprefix($id) {
+function simplerate_getprefix($id) {
     if ($id) {
 	$db_query = "SELECT prefix FROM "._DB_PREF_."_toolsSimplerate WHERE id='$id'";
 	$db_result = dba_query($db_query);
@@ -20,7 +20,7 @@ function simplerate_hook_rate_getprefix($id) {
     return $prefix;
 }
 
-function simplerate_hook_rate_getbyid($id) {
+function simplerate_getbyid($id) {
     if ($id) {
 	$db_query = "SELECT rate FROM "._DB_PREF_."_toolsSimplerate WHERE id='$id'";
 	$db_result = dba_query($db_query);

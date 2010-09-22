@@ -1,42 +1,5 @@
 <?php
 
-function rate_getdst($id) {
-    global $core_config;
-    if ($id) {
-	for ($c=0;$c<count($core_config['toolslist']);$c++) {
-	    if ($dst = x_hook($core_config['toolslist'][$c],'rate_getdst',array($id))) {
-		break;
-	    }
-	}
-    }
-    return $dst;
-}
-
-function rate_getprefix($id) {
-    global $core_config;
-    if ($id) {
-	for ($c=0;$c<count($core_config['toolslist']);$c++) {
-	    if ($prefix = x_hook($core_config['toolslist'][$c],'rate_getprefix',array($id))) {
-		break;
-	    }
-	}
-    }
-    return $prefix;
-}
-
-function rate_getbyid($id) {
-    global $core_config;
-    $rate = 0;
-    if ($id) {
-	for ($c=0;$c<count($core_config['toolslist']);$c++) {
-	    if ($rate = x_hook($core_config['toolslist'][$c],'rate_getbyid',array($id))) {
-		break;
-	    }
-	}
-    }
-    return $rate;
-}
-
 function rate_getbyprefix($p_dst) {
     global $core_config;
     $rate = 0;
