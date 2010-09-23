@@ -78,10 +78,6 @@ function uplink_hook_getsmsstatus($gp_code="",$uid="",$smslog_id="",$p_datetime=
     // 1 = delivered
     // 2 = failed
     // setsmsdeliverystatus($smslog_id,$uid,$p_status);
-
-    		setsmsdeliverystatus($smslog_id,$uid,2);
-
-
     global $uplink_param;
     $db_query = "SELECT * FROM "._DB_PREF_."_gatewayUplink WHERE up_status='0' AND up_local_slid='$smslog_id'";
     $db_result = dba_query($db_query);

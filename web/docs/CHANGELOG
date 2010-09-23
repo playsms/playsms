@@ -1,6 +1,10 @@
 Version 0.9.5-svn - unknown
 - sendmail now can be hooked (anton)
 - rate now can be hooked (anton)
+- phonebook now can be hooked (anton)
+- add new core function billing and can be hooked (anton)
+- add new tools, simplephonebook, to handle phonebook related features (anton)
+- add new tools, simplebilling, to handle billing related features (anton)
 - add new tools, simplerate, to handle rate related features (anton)
 - add new tools, plainoldsendmail, to handle sendmail() (anton)
 - add logger_print level 3 on all gateways, log send/receive sms activities (anton)
