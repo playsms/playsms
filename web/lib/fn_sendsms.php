@@ -27,7 +27,8 @@ function sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gp_code='PV',
     $username = uid2username($uid);
     $mobile_sender = sendsms_getvalidnumber($mobile_sender);
     $sms_to = sendsms_getvalidnumber($sms_to);
-    if (rate_cansend($username)) {
+    logger_print("start", 3, "sendsms");
+    if (rate_cansend($username, $sms_to)) {
 	$db_query = "
     	    INSERT INTO "._DB_PREF_."_tblSMSOutgoing 
     	    (uid,p_gpid,p_gateway,p_src,p_dst,p_footer,p_msg,p_datetime,p_sms_type,unicode) 

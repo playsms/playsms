@@ -30,7 +30,7 @@ function simplerate_getbyid($id) {
     return $rate;
 }
 
-function simplerate_hook_rate_getbyprefix($p_dst) {
+function simplerate_getbyprefix($p_dst) {
     global $default_rate;
     $rate = $default_rate;
     $prefix = $p_dst;
@@ -47,10 +47,17 @@ function simplerate_hook_rate_getbyprefix($p_dst) {
     return $rate;
 }
 
+// -----------------------------------------------------------------------------------------
+
 function simplerate_hook_rate_setusercredit($uid, $remaining=0) {
+    $ok = false;
+    logger_print("saving uid:".$uid." remaining:".$remaining, 3, "simplerate setusercredit");
     $db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp=NOW(),credit='$remaining' WHERE uid='$uid'";
-    $db_result = @dba_affected_rows($db_query);
-    return true;
+    if ($db_result = @dba_affected_rows($db_query)) {
+	logger_print("saved uid:".$uid." remaining:".$remaining, 3, "simplerate setusercredit");
+	$ok = true;
+    }
+    return $ok;
 }
 
 function simplerate_hook_rate_getusercredit($username) {
@@ -63,46 +70,83 @@ function simplerate_hook_rate_getusercredit($username) {
     return $credit;
 }
 
-function simplerate_hook_rate_getmax($default="") {
+function simplerate_hook_rate_cansend($username, $sms_to) {
     global $default_rate;
-    if ($default && ($default > 0)) {
-	$default_rate = $default;
-    }
-    $rate = 0;
-    $db_query = "SELECT rate FROM "._DB_PREF_."_toolsSimplerate ORDER BY rate DESC LIMIT 1";
-    $db_result = dba_query($db_query);
-    if ($db_row = dba_fetch_array($db_result)) {
-	$rate = $db_row['rate'];
-    }
-    if ($default_rate > $rate) {
-	$rate = $default_rate;
-    }
-    return $rate;
-}
-
-function simplerate_hook_rate_cansend($username, $default="") {
     $credit = rate_getusercredit($username);
-    $maxrate = rate_getmax($default);
-    $ok = ( ($credit >= $maxrate) ? true : false );
+    $maxrate = simplerate_getbyprefix($sms_to);
+    if ($default_rate > $maxrate) {
+	$maxrate = $default_rate;
+    }
+    logger_print("check username:".$uid." sms_to:".$sms_to." credit:".$credit." maxrate:".$maxrate, 3, "simplerate cansend");
+    if ($ok = ( ($credit >= $maxrate) ? true : false )) {
+	logger_print("allowed username:".$uid." sms_to:".$sms_to." credit:".$credit." maxrate:".$maxrate, 3, "simplerate cansend");
+    }
     return $ok;
 }
 
-function simplerate_hook_rate_setcredit($smslog_id) {
-    $db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
+function simplerate_hook_rate_deduct($smslog_id) {
+    $ok = false;
+    logger_print("enter smslog_id:".$smslog_id, 3, "simplerate deduct");
+    $db_query = "SELECT p_dst,p_msg,uid FROM "._DB_PREF_."_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
     $db_result = dba_query($db_query);
-    $db_row = dba_fetch_array($db_result);
-    $p_dst = $db_row['p_dst'];
-    $p_msg = $db_row['p_msg'];
-    $uid = $db_row['uid'];
-    // here should be added a routine to check charset encoding
-    // utf8 devided by 140, ucs2 devided by 70
-    $count = ceil(strlen($p_msg) / 153);
-    $rate = rate_getbyprefix($p_dst);
-    $username = uid2username($uid);
-    $credit = rate_getusercredit($username);
-    $remaining = $credit - ($rate*$count);
-    rate_setusercredit($uid, $remaining);
-    return true;
+    if ($db_row = dba_fetch_array($db_result)) {
+	$p_dst = $db_row['p_dst'];
+	$p_msg = $db_row['p_msg'];
+	$uid = $db_row['uid'];
+	if ($p_dst && $p_msg && $uid) {
+	    // here should be added a routine to check charset encoding
+	    // utf8 devided by 140, ucs2 devided by 70
+	    $count = ceil(strlen($p_msg) / 153);
+	    $rate = simplerate_getbyprefix($p_dst);
+	    $charge = $count * $rate;
+	    $username = uid2username($uid);
+	    $credit = rate_getusercredit($username);
+	    $remaining = $credit - $charge;
+	    if (rate_setusercredit($uid, $remaining)) {
+		if (billing_post($smslog_id, $rate, $credit)) {
+		    $ok = true;
+		}
+	    }
+	}
+    }
+    return $ok;
+}
+
+function simplerate_hook_rate_refund($smslog_id) {
+    $ok = false;
+    logger_print("start smslog_id:".$smslog_id, 3, "simplerate refund");
+    // check in billing table smslog_id with status=1. status=2 is rolled-back
+    $db_query = "SELECT id FROM "._DB_PREF."_tblBilling WHERE status='1' AND smslog_id='$smslog_id'";
+    $db_result = dba_query($db_query);
+    if ($db_row = dba_fetch_array($db_result)) {
+	// fail sms will receive refund
+	$db_query = "SELECT p_dst,p_msg,uid FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status='2' AND smslog_id='$smslog_id'";
+	$db_result = dba_query($db_query);
+	if ($db_row = dba_fetch_array($db_result)) {
+	    $p_dst = $db_row['p_dst'];
+	    $p_msg = $db_row['p_msg'];
+	    $uid = $db_row['uid'];
+	    if ($p_dst && $p_msg && $uid) {
+		if (list($continue, $rate, $credit_at_that_time) = billing_roll($smslog_id)) {
+		    logger_print("rolled smslog_id:".$smslog_id, 3, "simplerate refund");
+		    if ($continue) {
+			// here should be added a routine to check charset encoding
+			// utf8 devided by 140, ucs2 devided by 70
+			$count = ceil(strlen($p_msg) / 153);
+			$charge = $count * $rate;
+			$username = uid2username($uid);
+			$credit = rate_getusercredit($username);
+			$remaining = $credit + $charge;
+			if (rate_setusercredit($uid, $remaining)) {
+			    logger_print("refund smslog_id:".$smslog_id, 3, "simplerate refund");
+			    $ok = true;
+			}
+		    }
+		}
+	    }
+	}
+    }
+    return $ok;
 }
 
 ?>

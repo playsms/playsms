@@ -1,18 +1,5 @@
 <?php
 
-function rate_getbyprefix($p_dst) {
-    global $core_config;
-    $rate = 0;
-    if ($p_dst) {
-	for ($c=0;$c<count($core_config['toolslist']);$c++) {
-	    if ($rate = x_hook($core_config['toolslist'][$c],'rate_getbyprefix',array($p_dst))) {
-		break;
-	    }
-	}
-    }
-    return $rate;
-}
-
 function rate_setusercredit($uid, $remaining=0) {
     global $core_config;
     $ok = false;
@@ -41,39 +28,12 @@ function rate_getusercredit($username)
     return $credit;
 }
 
-function rate_getmax($c_default_rate="") {
-    global $core_config;
-    $rate = 0;
-    if ($username) {
-	for ($c=0;$c<count($core_config['toolslist']);$c++) {
-	    if ($rate = x_hook($core_config['toolslist'][$c],'rate_getmax',array($c_default_rate))) {
-		break;
-	    }
-	}
-    }
-    return $rate;
-}
-
-function rate_cansend($username, $c_default_rate="") {
+function rate_cansend($username, $sms_to) {
     global $core_config;
     $ok = false;
     if ($username) {
 	for ($c=0;$c<count($core_config['toolslist']);$c++) {
-	    if (x_hook($core_config['toolslist'][$c],'rate_cansend',array($username,$c_default_rate))) {
-		$ok = true;
-		break;
-	    }
-	}
-    }
-    return $ok;
-}
-
-function rate_setcredit($smslog_id) {
-    global $core_config;
-    $ok = false;
-    if ($username) {
-	for ($c=0;$c<count($core_config['toolslist']);$c++) {
-	    if (x_hook($core_config['toolslist'][$c],'rate_setcredit',array($smslog_id))) {
+	    if (x_hook($core_config['toolslist'][$c],'rate_cansend',array($username,$sms_to))) {
 		$ok = true;
 		break;
 	    }
@@ -85,7 +45,7 @@ function rate_setcredit($smslog_id) {
 function rate_deduct($smslog_id) {
     global $core_config;
     $ok = false;
-    if ($username) {
+    if ($smslog_id) {
 	for ($c=0;$c<count($core_config['toolslist']);$c++) {
 	    if (x_hook($core_config['toolslist'][$c],'rate_deduct',array($smslog_id))) {
 		$ok = true;
@@ -99,7 +59,7 @@ function rate_deduct($smslog_id) {
 function rate_refund($smslog_id) {
     global $core_config;
     $ok = false;
-    if ($username) {
+    if ($smslog_id) {
 	for ($c=0;$c<count($core_config['toolslist']);$c++) {
 	    if (x_hook($core_config['toolslist'][$c],'rate_refund',array($smslog_id))) {
 		$ok = true;

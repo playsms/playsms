@@ -20,3 +20,16 @@ CREATE TABLE `playsms_tblErrorString` (
   `error_string` TEXT NOT NULL ,
   PRIMARY KEY ( `id` )
 ) ENGINE=MYISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `playsms_tblBilling`;
+CREATE TABLE `playsms_tblBilling` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `c_timestamp` INT NOT NULL ,
+  `post_datetime` VARCHAR( 20 ) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `smslog_id` INT NOT NULL ,
+  `rate` FLOAT NOT NULL ,
+  `credit` DOUBLE NOT NULL ,
+  `status` TINYINT NOT NULL ,
+  PRIMARY KEY ( `id` )
+) ENGINE=MYISAM DEFAULT CHARSET=utf8;
+

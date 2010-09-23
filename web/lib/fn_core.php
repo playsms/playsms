@@ -137,8 +137,7 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message) {
     return $ok;
 }
 
-function setsmsdeliverystatus($smslog_id,$uid,$p_status)
-{
+function setsmsdeliverystatus($smslog_id,$uid,$p_status) {
     global $datetime_now;
     // $p_status = 0 --> pending
     // $p_status = 1 --> sent
@@ -146,19 +145,16 @@ function setsmsdeliverystatus($smslog_id,$uid,$p_status)
     // $p_status = 3 --> delivered
     $ok = false;
     $db_query = "UPDATE "._DB_PREF_."_tblSMSOutgoing SET c_timestamp='".mktime()."',p_update='$datetime_now',p_status='$p_status' WHERE smslog_id='$smslog_id' AND uid='$uid'";
-    if ($aff_id = @dba_affected_rows($db_query))
-    {
-	$ok = true;
-	// fixme anton - temporary modification and only reduce credit when $p_status=1
-	if ($p_status == 1) {
-	    rate_setcredit($smslog_id);
+    if ($aff_id = @dba_affected_rows($db_query)) {
+	if ($p_status == '2') {
+	    rate_refund($smslog_id);
 	}
+	$ok = true;
     }
     return $ok;
 }
 
-function q_sanitize($var)
-{
+function q_sanitize($var) {
     $var = str_replace("/","",$var);
     $var = str_replace("|","",$var);
     $var = str_replace("\\","",$var);

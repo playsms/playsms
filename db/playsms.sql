@@ -902,6 +902,26 @@ CREATE TABLE `playsms_tblErrorString` (
 -- Dumping data for table `playsms_tblErrorString`
 --
 
+--
+-- Table structure for table `playsms_tblBilling`
+--
+
+DROP TABLE IF EXISTS `playsms_tblBilling`;
+CREATE TABLE `playsms_tblBilling` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `c_timestamp` INT NOT NULL ,
+  `post_datetime` VARCHAR( 20 ) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `smslog_id` INT NOT NULL ,
+  `rate` FLOAT NOT NULL ,
+  `credit` DOUBLE NOT NULL ,
+  `status` TINYINT NOT NULL ,
+  PRIMARY KEY ( `id` )
+) ENGINE=MYISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `playsms_tblBilling`
+--
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
