@@ -81,10 +81,6 @@ function gnokii_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
     if ($sms_sender) {
 	$sms_msg = $sms_msg.$sms_sender;
     }
-
-    // fixme anton - when magic_quotes_gpc disabled we didn't handle quotes very well, until we do this right this is how we fix it
-    $sms_msg = stripslashes($sms_msg);
-
     $the_msg = "$sms_to\n$sms_msg";
     $fn = $gnokii_param['path']."/out.$sms_id";
     logger_print("outfile:".$fn, 3, "gnokii outgoing");

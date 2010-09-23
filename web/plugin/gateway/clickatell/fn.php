@@ -55,7 +55,7 @@ function clickatell_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$ui
     }
     // no concat
     // $query_string = "sendmsg?api_id=".$clickatell_param['api_id']."&user=".$clickatell_param['username']."&password=".$clickatell_param['password']."&to=$sms_to&msg_type=$sms_type&text=".rawurlencode($sms_msg)."&deliv_ack=1&callback=3&unicode=$unicode&concat=3&from=".rawurlencode($sms_from);
-    $query_string = "sendmsg?api_id=".$clickatell_param['api_id']."&user=".$clickatell_param['username']."&password=".$clickatell_param['password']."&to=$sms_to&msg_type=$sms_type&text=".rawurlencode($sms_msg)."&deliv_ack=1&callback=3&unicode=$unicode&from=".rawurlencode($sms_from);
+    $query_string = "sendmsg?api_id=".$clickatell_param['api_id']."&user=".$clickatell_param['username']."&password=".$clickatell_param['password']."&to=".rawurlencode($sms_to)."&msg_type=$sms_type&text=".rawurlencode($sms_msg)."&deliv_ack=1&callback=3&unicode=$unicode&from=".rawurlencode($sms_from);
     $url = $clickatell_param['send_url']."/".$query_string;
     logger_print($url, 3, "clickatell outgoing");
     $fd = @implode ('', file ($url));

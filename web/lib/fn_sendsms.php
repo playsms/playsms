@@ -36,6 +36,9 @@ function sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gp_code='PV',
 	logger_print("saving:$uid,$p_gpid,$gateway_module,$mobile_sender,$sms_to,$sms_type,$unicode", 3, "sendsms");
 	if ($smslog_id = @dba_insert_id($db_query)) {
 	    logger_print("smslog_id:".$smslog_id." saved", 3, "sendsms");
+	    // fixme anton - when magic_quotes_gpc disabled we need to stripslashes sms_msg and sms_sender
+	    $sms_sender = stripslashes($sms_sender);
+	    $sms_msg = stripslashes($sms_msg);
 	    if (x_hook($gateway_module, 'sendsms', array($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gp_code,$smslog_id,$sms_type,$unicode))) {
 		$ok = true;
 	    }
