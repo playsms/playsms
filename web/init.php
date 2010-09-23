@@ -31,11 +31,11 @@ function array_add_slashes($array)
             {
         	$value = addslashes($value);
         	$key = addslashes($key);
-        	$new_arr['$key'] = $value;
+        	$new_arr[$key] = $value;
     	    }
             if (is_array($value))
             {
-        	$new_arr['$key'] = array_add_slashes($value);
+        	$new_arr[$key] = array_add_slashes($value);
             }
         }
     }
@@ -68,10 +68,10 @@ end of init functions
 
 if (!get_magic_quotes_gpc())
 {
-    foreach($_GET as $key => $val){$_GET['$key']=pl_addslashes($_GET['$key']);}
-    foreach($_POST as $key => $val){$_POST['$key']=pl_addslashes($_POST['$key']);}
-    foreach($_COOKIE as $key => $val){$_COOKIE['$key']=pl_addslashes($_COOKIE['$key']);}
-    foreach($_SERVER as $key => $val){$_SERVER['$key']=pl_addslashes($_SERVER['$key']);}
+    foreach($_GET as $key => $val){$_GET[$key]=pl_addslashes($_GET[$key]);}
+    foreach($_POST as $key => $val){$_POST[$key]=pl_addslashes($_POST[$key]);}
+    foreach($_COOKIE as $key => $val){$_COOKIE[$key]=pl_addslashes($_COOKIE[$key]);}
+    foreach($_SERVER as $key => $val){$_SERVER[$key]=pl_addslashes($_SERVER[$key]);}
 }
 
 $c_script_filename = __FILE__;

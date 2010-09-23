@@ -134,7 +134,9 @@ switch ($op)
 	    <p><input type=submit class=button value=Send onClick=\"selectAllOptions(this.form['p_num[]'])\"> 
 	    </form>
 	";
-	echo $content;
+	// fixme anton - if no magic_quote_gpc then the pl_addslashes in init.php will add \ in web ($message)
+	// echo $content;
+	echo stripslashes($content);
 	break;
     case "sendsmstopv_yes":
 	$p_num = $_POST['p_num'];
