@@ -81,8 +81,8 @@ function simplerate_hook_rate_getmax($default="") {
 }
 
 function simplerate_hook_rate_cansend($username, $default="") {
-    $credit = simplerate_hook_rate_getusercredit($username);
-    $maxrate = simplerate_hook_rate_getmax($default);
+    $credit = rate_getusercredit($username);
+    $maxrate = rate_getmax($default);
     $ok = ( ($credit >= $maxrate) ? true : false );
     return $ok;
 }
@@ -97,11 +97,11 @@ function simplerate_hook_rate_setcredit($smslog_id) {
     // here should be added a routine to check charset encoding
     // utf8 devided by 140, ucs2 devided by 70
     $count = ceil(strlen($p_msg) / 153);
-    $rate = simplerate_hook_rate_getbyprefix($p_dst);
+    $rate = rate_getbyprefix($p_dst);
     $username = uid2username($uid);
-    $credit = simplerate_hook_rate_getusercredit($username);
+    $credit = rate_getusercredit($username);
     $remaining = $credit - ($rate*$count);
-    simplerate_hook_rate_setusercredit($uid, $remaining);
+    rate_setusercredit($uid, $remaining);
     return true;
 }
 

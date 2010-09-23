@@ -33,7 +33,7 @@ switch ($op)
 	    {
 		$j++;
 		$c_pnum = pid2pnum($c_pid);
-		$c_pdesc = simplephonebook_hook_phonebook_number2name($c_pnum);
+		$c_pdesc = phonebook_number2name($c_pnum);
 		$c_pemail = pnum2pemail($c_pnum);
                 $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 		$op_content .= "
@@ -92,7 +92,7 @@ switch ($op)
 	    {
 		$j++;
 		$c_pnum = pid2pnum($c_pid);
-		$c_pdesc = simplephonebook_hook_phonebook_number2name($c_pnum);
+		$c_pdesc = phonebook_number2name($c_pnum);
 		$c_pemail = pnum2pemail($c_pnum);
                 $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";		
 		$op_content .= "
@@ -128,7 +128,7 @@ switch ($op)
 	    if ($c_pid)
 	    {
 		$c_pnum = pid2pnum($c_pid);
-		$c_pdesc = simplephonebook_hook_phonebook_number2name($c_pnum);
+		$c_pdesc = phonebook_number2name($c_pnum);
 		$c_pemail = pnum2pemail($c_pnum);
 		$db_query = "INSERT INTO "._DB_PREF_."_tblUserPhonebook (gpid,uid,p_num,p_desc,p_email) VALUES ('$gpid','$uid','$c_pnum','$c_pdesc','$c_pemail')";
 		$db_result = @dba_insert_id($db_query);
@@ -158,7 +158,7 @@ switch ($op)
 	    {
 		$j++;
 		$c_pnum = pid2pnum($c_pid);
-		$c_pdesc = simplephonebook_hook_phonebook_number2name($c_pnum);
+		$c_pdesc = phonebook_number2name($c_pnum);
 		$c_pemail = pnum2pemail($c_pnum);
                 $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";		
 		$op_content .= "
@@ -221,7 +221,7 @@ switch ($op)
 	    {
 		$j++;
 		$c_pnum = pid2pnum($c_pid);
-		$c_pdesc = simplephonebook_hook_phonebook_number2name($c_pnum);
+		$c_pdesc = phonebook_number2name($c_pnum);
 		$c_pemail = pnum2pemail($c_pnum);
                 $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";		
 		$op_content .= "

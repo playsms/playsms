@@ -19,7 +19,7 @@ switch ($op)
 		<td width=75>"._('Group name')."</td><td width=5>:</td><td><input type=text name=dir_name value=\"".gpid2gpname($gpid)."\" size=50></td>
 	    </tr>
 	    <tr>
-		<td>"._('Group code')."</td><td>:</td><td><input type=text name=dir_code value=\"".simplephonebook_hook_phonebook_groupid2code($gpid)."\" size=10> ("._('please use uppercase and make it short').")</td>
+		<td>"._('Group code')."</td><td>:</td><td><input type=text name=dir_code value=\"".phonebook_groupid2code($gpid)."\" size=10> ("._('please use uppercase and make it short').")</td>
 	    </tr>	    
 	</table>
 	    <p>"._('Note').": "._('Group code used by keyword')." BC ("._('broadcast SMS from single SMS').")
