@@ -99,6 +99,10 @@ function smstools_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=
 	}
 	// $sms_msg = str2hex($sms_msg);
     }
+
+    // fixme anton - when magic_quotes_gpc disabled we didn't handle quotes very well, until we do this right this is how we fix it
+    $sms_msg = stripslashes($sms_msg);
+
     $the_msg .= "\n$sms_msg";
     $fn = $smstools_param['path']."/outgoing/out.$sms_id";
     logger_print("outfile:".$fn, 3, "smstools outgoing");
