@@ -74,7 +74,7 @@
                 if($i>$num){ break; };
                 if ($i == $page)
                 {
-                    $nav_pages .= "['$i'] ";
+                    $nav_pages .= "[$i] ";
                 }
                 else
                 {
