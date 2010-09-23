@@ -28,7 +28,7 @@ function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
     }
     
     // $dlr_url = $http_path['base'] . "/plugin/gateway/kannel/dlr.php?type=%d&slid=$smslog_id&uid=$uid";
-    $dlr_url = $kannel_param['playsms_web'] . "/plugin/gateway/kannel/dlr.php?type=%d&slid=$smslog_id&uid=$uid";
+    $dlr_url = $kannel_param['playsms_web'] . "/plugin/gateway/kannel/dlr.php?type=%d&slid=".$smslog_id."&uid=".$uid;
 
     $URL = "/cgi-bin/sendsms?username=".urlencode($kannel_param['username'])."&password=".urlencode($kannel_param['password']);
     $URL .= "&from=".urlencode($sms_from)."&to=".urlencode($sms_to)."&text=".urlencode($sms_msg);
