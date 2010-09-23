@@ -41,12 +41,12 @@ function rate_getusercredit($username)
     return $credit;
 }
 
-function rate_getmax($default="") {
+function rate_getmax($c_default_rate="") {
     global $core_config;
     $rate = 0;
     if ($username) {
 	for ($c=0;$c<count($core_config['toolslist']);$c++) {
-	    if ($rate = x_hook($core_config['toolslist'][$c],'rate_getmax',array($default))) {
+	    if ($rate = x_hook($core_config['toolslist'][$c],'rate_getmax',array($c_default_rate))) {
 		break;
 	    }
 	}
@@ -54,12 +54,12 @@ function rate_getmax($default="") {
     return $rate;
 }
 
-function rate_cansend($username, $default="") {
+function rate_cansend($username, $c_default_rate="") {
     global $core_config;
     $ok = false;
     if ($username) {
 	for ($c=0;$c<count($core_config['toolslist']);$c++) {
-	    if (x_hook($core_config['toolslist'][$c],'rate_cansend',array($username,$default))) {
+	    if (x_hook($core_config['toolslist'][$c],'rate_cansend',array($username,$c_default_rate))) {
 		$ok = true;
 		break;
 	    }
@@ -74,6 +74,34 @@ function rate_setcredit($smslog_id) {
     if ($username) {
 	for ($c=0;$c<count($core_config['toolslist']);$c++) {
 	    if (x_hook($core_config['toolslist'][$c],'rate_setcredit',array($smslog_id))) {
+		$ok = true;
+		break;
+	    }
+	}
+    }
+    return $ok;
+}
+
+function rate_deduct($smslog_id) {
+    global $core_config;
+    $ok = false;
+    if ($username) {
+	for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	    if (x_hook($core_config['toolslist'][$c],'rate_deduct',array($smslog_id))) {
+		$ok = true;
+		break;
+	    }
+	}
+    }
+    return $ok;
+}
+
+function rate_refund($smslog_id) {
+    global $core_config;
+    $ok = false;
+    if ($username) {
+	for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	    if (x_hook($core_config['toolslist'][$c],'rate_refund',array($smslog_id))) {
 		$ok = true;
 		break;
 	    }

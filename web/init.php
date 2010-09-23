@@ -4,7 +4,9 @@ include "config.php";
 // security, checked by essential files under subdir
 define('_SECURE_', 1);
 
-if (!$DAEMON_PROCESS)
+$core_config['daemon_process'] = $DAEMON_PROCESS;
+
+if (!$core_config['daemon_process'])
 {
     if (trim($SERVER_PROTOCOL)=="HTTP/1.1")
     {

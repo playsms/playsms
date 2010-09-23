@@ -4,8 +4,6 @@ if(!isadmin()){forcenoaccess();};
 switch ($op)
 {
     case "user_list":
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE status='2' ORDER BY username";
-	$db_result = dba_query($db_query);
 	if ($err)
 	{
 	    $content = "<p><font color='red'>$err</font><p>";
@@ -27,6 +25,8 @@ switch ($op)
     </tr>		    
 	";
 	$i=0;
+	$db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE status='2' ORDER BY username";
+	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result))
 	{
 	    $i++;
@@ -40,14 +40,12 @@ switch ($op)
 	<td class='$td_class'>".$db_row['name']."</td>
 	<td class='$td_class'>".$db_row['email']."</td>	
 	<td class='$td_class'>".$db_row['mobile']."</td>	
-	<td class='$td_class'>".$db_row['credit']."</td>	
+	<td class='$td_class'>".rate_getusercredit($db_row['username'])."</td>	
 	<td class='$td_class' align='center'>$action</td>
     </tr>
     ";
 	}
 	$content .= "</table>";
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE status='3' ORDER BY username";
-	$db_result = dba_query($db_query);
 	$content .= "<p>Status: <b>Normal User</b><br>
     <table cellpadding='1' cellspacing='2' border='0' width='100%'>
     <tr>
@@ -61,6 +59,8 @@ switch ($op)
     </tr>		    
 	";
 	$i=0;	
+	$db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE status='3' ORDER BY username";
+	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result))
 	{
 	    $i++;
@@ -74,7 +74,7 @@ switch ($op)
 	<td class='$td_class'>".$db_row['name']."</td>
 	<td class='$td_class'>".$db_row['email']."</td>	
 	<td class='$td_class'>".$db_row['mobile']."</td>	
-	<td class='$td_class'>".$db_row['credit']."</td>	
+	<td class='$td_class'>".rate_getusercredit($db_row['username'])."</td>	
 	<td class='$td_class' align='center'>$action</td>
     </tr>
     ";
@@ -192,9 +192,11 @@ switch ($op)
 		{
 		    $chg_pwd = ",password='$up_password'";
 		}
-		$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender',status='$up_status'".$chg_pwd.",credit='$up_credit' WHERE username='$uname'";
+		$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender',status='$up_status'".$chg_pwd." WHERE username='$uname'";
 		if (@dba_affected_rows($db_query))
 		{
+		    $c_uid = username2uid($uname);
+		    rate_setusercredit($c_uid, $up_credit);
 		    $error_string = _('Preferences for user')." `$uname` "._('has been saved');
 		}
 		else
@@ -281,6 +283,7 @@ switch ($op)
 		";
 		if ($new_uid = @dba_insert_id($db_query))
 		{
+		    rate_setusercredit($new_uid, $add_credit);
 		    $error_string = _('User with username')." `$add_username` "._('has been added');
 		}
 	    }

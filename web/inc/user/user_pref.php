@@ -23,7 +23,8 @@ switch ($op)
 	    $education = $db_row['education'];
 	    $zipcode = $db_row['zipcode'];
 	    $sender = $db_row['sender'];
-	    $credit = $db_row['credit'];
+	    //$credit = $db_row['credit'];
+	    $credit = rate_getusercredit($username);
 	}
 	/*
 	// get gender option

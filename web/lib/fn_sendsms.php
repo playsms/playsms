@@ -40,6 +40,8 @@ function sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gp_code='PV',
 	    $sms_sender = stripslashes($sms_sender);
 	    $sms_msg = stripslashes($sms_msg);
 	    if (x_hook($gateway_module, 'sendsms', array($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gp_code,$smslog_id,$sms_type,$unicode))) {
+		// fixme anton - deduct user's credit as soon as gateway returns true
+		rate_deduct($smslog_id);
 		$ok = true;
 	    }
 	}
