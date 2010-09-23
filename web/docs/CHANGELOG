@@ -6,6 +6,7 @@ Version 0.9.5-svn - unknown
 - add logger_print level 3 on all gateways, log send/receive sms activities (anton)
 - fix single quote preventing correct array reading, $array['$c'] should be $array[$c] (anton)
 - fix logger, available logstate: 0=disabled, 1=info, 2=warning, 3=debug (anton)
+- fix regression quotes wrapping $key (init.php) causing error when magic_quotes_gpc disabled (anton)
 
 Version 0.9.5-rc2 - 100920
 - add new theme 'work2' to demonstrate dropdown menu (anton)

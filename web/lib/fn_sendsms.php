@@ -23,7 +23,7 @@ function sendsms_getvalidnumber($sender) {
 function sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gp_code='PV',$sms_type='text',$unicode=0) {
     global $datetime_now, $gateway_module;
     $ok = false;
-    $p_gpid = gpcode2gpid($uid,$gp_code);
+    $p_gpid = phonebook_groupcode2id($uid,$gp_code);
     $username = uid2username($uid);
     $mobile_sender = sendsms_getvalidnumber($mobile_sender);
     $sms_to = sendsms_getvalidnumber($sms_to);

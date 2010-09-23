@@ -9,7 +9,7 @@ switch ($op)
 	if ($gpid)
 	{
     	    $db_query = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE uid='$uid' AND gpid='$gpid'";
-	    $filename = "phonebook-".gpid2gpcode($gpid)."-".date(Ymd,time()).".csv";
+	    $filename = "phonebook-".simplephonebook_hook_phonebook_groupid2code($gpid)."-".date(Ymd,time()).".csv";
 	}
 	else
 	{
@@ -33,7 +33,7 @@ switch ($op)
 		$content = "<p><font color=red>$err</font><p>";
 	    }
 	    $content .= "
-		<h2>"._('Import phonebook')." ("._('Group code').": ".gpid2gpcode($gpid).")</h2>
+		<h2>"._('Import phonebook')." ("._('Group code').": ".simplephonebook_hook_phonebook_groupid2code($gpid).")</h2>
 		<p>
 		<form action=\"menu.php?inc=tools_simplephonebook&route=phonebook_exim&op=import_confirmation&gpid=$gpid\" enctype=\"multipart/form-data\" method=\"post\">
 		    "._('Please select CSV file for phonebook entries')." ("._('format : Name,Mobile,Email').")<br>

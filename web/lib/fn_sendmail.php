@@ -1,6 +1,5 @@
 <?php
-function sendmail($mail_from,$mail_to,$mail_subject="",$mail_body="")
-{
+function sendmail($mail_from,$mail_to,$mail_subject="",$mail_body="") {
     global $core_config;
     $ok = false;
     for ($c=0;$c<count($core_config['toolslist']);$c++) {

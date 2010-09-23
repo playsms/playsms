@@ -51,7 +51,7 @@ switch ($op)
 	    $current_slid = $db_row['smslog_id'];
 	    $p_username = uid2username($db_row['uid']);
 	    $p_dst = $db_row['p_dst'];
-	    $p_desc = pnum2pdesc($p_dst);
+	    $p_desc = phonebook_number2name($p_dst);
 	    $current_p_dst = $p_dst;
 	    if ($p_desc) 
 	    {

@@ -53,7 +53,7 @@ switch ($op)
 	    $in_id = $db_row['in_id'];
 	    $in_username = uid2username($db_row['in_uid']);
 	    $in_sender = $db_row['in_sender'];
-	    $p_desc = pnum2pdesc($in_sender);
+	    $p_desc = phonebook_number2name($in_sender);
 	    $current_sender = $in_sender;
 	    if ($p_desc) 
 	    {

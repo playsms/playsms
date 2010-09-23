@@ -98,7 +98,7 @@ if ($ta)
 		{
 		    $transparent = true;
 		}
-		$to_gpid = gpcode2gpid($u,$to);
+		$to_gpid = phonebook_groupcode2id($u,$to);
 		list($ok,$to,$smslog_id) = websend2group($u,$to_gpid,$msg);
 		if ($ok[0])
 		{

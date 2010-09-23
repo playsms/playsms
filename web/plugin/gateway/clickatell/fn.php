@@ -23,7 +23,7 @@ function clickatell_hook_playsmsd() {
 	$p_datetime = $db_row['p_datetime'];
 	$p_update = $db_row['p_update'];
 	$gpid = $db_row['p_gpid'];
-	$gp_code = gpid2gpcode($gpid);
+	$gp_code = phonebook_groupid2code($gpid);
 	x_hook('clickatell','getsmsstatus',array($gp_code,$uid,$smslog_id,$p_datetime,$p_update));
     }
 }
