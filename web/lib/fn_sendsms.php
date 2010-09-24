@@ -20,10 +20,9 @@ function sendsms_getvalidnumber($sender) {
     return $sender;
 }
 
-function sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gp_code='PV',$sms_type='text',$unicode=0) {
+function sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0) {
     global $datetime_now, $gateway_module;
     $ok = false;
-    $p_gpid = phonebook_groupcode2id($uid,$gp_code);
     $username = uid2username($uid);
     $mobile_sender = sendsms_getvalidnumber($mobile_sender);
     $sms_to = sendsms_getvalidnumber($sms_to);
@@ -32,15 +31,15 @@ function sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gp_code='PV',
 	$db_query = "
     	    INSERT INTO "._DB_PREF_."_tblSMSOutgoing 
     	    (uid,p_gpid,p_gateway,p_src,p_dst,p_footer,p_msg,p_datetime,p_sms_type,unicode) 
-    	    VALUES ('$uid','$p_gpid','$gateway_module','$mobile_sender','$sms_to','$sms_sender','$sms_msg','$datetime_now','$sms_type','$unicode')
+    	    VALUES ('$uid','$gpid','$gateway_module','$mobile_sender','$sms_to','$sms_sender','$sms_msg','$datetime_now','$sms_type','$unicode')
 	";
-	logger_print("saving:$uid,$p_gpid,$gateway_module,$mobile_sender,$sms_to,$sms_type,$unicode", 3, "sendsms");
+	logger_print("saving:$uid,$gpid,$gateway_module,$mobile_sender,$sms_to,$sms_type,$unicode", 3, "sendsms");
 	if ($smslog_id = @dba_insert_id($db_query)) {
 	    logger_print("smslog_id:".$smslog_id." saved", 3, "sendsms");
 	    // fixme anton - when magic_quotes_gpc disabled we need to stripslashes sms_msg and sms_sender
 	    $sms_sender = stripslashes($sms_sender);
 	    $sms_msg = stripslashes($sms_msg);
-	    if (x_hook($gateway_module, 'sendsms', array($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gp_code,$smslog_id,$sms_type,$unicode))) {
+	    if (x_hook($gateway_module, 'sendsms', array($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid,$smslog_id,$sms_type,$unicode))) {
 		// fixme anton - deduct user's credit as soon as gateway returns true
 		rate_deduct($smslog_id);
 		$ok = true;
@@ -92,8 +91,7 @@ function websend2pv($username,$sms_to,$message,$sms_type='text',$unicode=0)
 	$c_sms_to = str_replace("\"","",$array_sms_to[$i]);
 	$to[$i] = $c_sms_to;
 	$ok[$i] = false;
-	$gp_code = 'PV';
-	if ($ret = sendsms($mobile_sender,$sms_sender,$c_sms_to,$sms_msg,$uid,$gp_code,$sms_type,$unicode))
+	if ($ret = sendsms($mobile_sender,$sms_sender,$c_sms_to,$sms_msg,$uid,0,$sms_type,$unicode))
 	{
 	    $ok[$i] = $ret['status'];
 	    $smslog_id[$i] = $ret['smslog_id'];
@@ -150,7 +148,7 @@ function websend2group($username,$gpid,$message,$sms_type='text')
 	    $sms_to = str_replace("\"","",$sms_to);
 	    $to[$j] = $sms_to;
 	    $ok[$j] = 0;
-	    if ($ret = sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$c_gp_code,$sms_type,$unicode))
+	    if ($ret = sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$c_gpid,$sms_type,$unicode))
 	    {
 	        $ok[$j] = $ret['status'];
 		$smslog_id[$i] = $ret['smslog_id'];
@@ -202,7 +200,7 @@ function send2group($mobile_sender,$gp_code,$message)
 		    $sms_sender = str_replace("\"","",$sms_sender);
 		    $sms_to = str_replace("\'","",$sms_to);
 		    $sms_to = str_replace("\"","",$sms_to);
-		    if ($ret = sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gp_code))
+		    if ($ret = sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid))
 		    {
 		        $ok[$c] = $ret['status'];
 			$c++;

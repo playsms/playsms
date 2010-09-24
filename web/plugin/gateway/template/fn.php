@@ -13,11 +13,11 @@ function template_hook_playsmsd() {
 // $sms_to		: destination sms number
 // $sms_msg		: sms message tobe delivered
 // $uid			: sender User ID
-// $gp_code		: group phonebook code (optional)
+// $gpid		: group phonebook id (optional)
 // $smslog_id		: sms ID
 // $msg_type		: send flash message when the value is "flash"
 // $unicode		: send unicode character (16 bit)
-function template_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gp_code='PV',$smslog_id=0,$sms_type='text',$unicode=0) {
+function template_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
     // global $tmpl_param;   // global all variables needed, eg: varibles from config.php
     // ...
     // ...
@@ -30,7 +30,7 @@ function template_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=
 // no returns needed
 // $p_datetime	: first sms delivery datetime
 // $p_update	: last status update datetime
-function template_hook_getsmsstatus($gp_code="",$uid="",$smslog_id="",$p_datetime="",$p_update="") {
+function template_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="") {
     // global $tmpl_param;
     // p_status :
     // 0 = pending

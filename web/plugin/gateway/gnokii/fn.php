@@ -1,17 +1,17 @@
 <?php
 
-function gnokii_hook_getsmsstatus($gp_code="",$uid="",$smslog_id="",$p_datetime="",$p_update="") {
+function gnokii_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="") {
     global $gnokii_param;
     // p_status :
     // 0 = pending
     // 1 = delivered
     // 2 = failed
-    if ($gp_code) {
-        $fn = $gnokii_param['path']."/out.$gp_code.$uid.$smslog_id";
-        $efn = $gnokii_param['path']."/ERR.out.$gp_code.$uid.$smslog_id";
+    if ($gpid) {
+        $fn = $gnokii_param['path']."/out.$gpid.$uid.$smslog_id";
+        $efn = $gnokii_param['path']."/ERR.out.$gpid.$uid.$smslog_id";
     } else {
-        $fn = $gnokii_param['path']."/out.PV.$uid.$smslog_id";
-        $efn = $gnokii_param['path']."/ERR.out.PV.$uid.$smslog_id";
+        $fn = $gnokii_param['path']."/out.0.$uid.$smslog_id";
+        $efn = $gnokii_param['path']."/ERR.out.0.$uid.$smslog_id";
     }
     // set delivered first
     $p_status = 1;
@@ -72,9 +72,9 @@ function gnokii_hook_getsmsinbox() {
     }
 }
 
-function gnokii_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gp_code='PV',$smslog_id=0,$sms_type='text',$unicode=0) {
+function gnokii_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
     global $gnokii_param;
-    $sms_id = "$gp_code.$uid.$smslog_id";
+    $sms_id = "$gpid.$uid.$smslog_id";
     if (empty($sms_id)) {
 	$sms_id = mktime();
     }

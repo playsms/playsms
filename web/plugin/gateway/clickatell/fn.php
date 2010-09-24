@@ -1,5 +1,5 @@
 <?php
-function clickatell_hook_getsmsstatus($gp_code="",$uid="",$smslog_id="",$p_datetime="",$p_update="") {
+function clickatell_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="") {
     global $clickatell_param;
     list($c_sms_credit,$c_sms_status) = clickatell_getsmsstatus($smslog_id);
     // pending
@@ -16,19 +16,16 @@ function clickatell_hook_playsmsd() {
     $db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status='1' AND p_gateway='clickatell'";
     $db_result = dba_query($db_query);
     while ($db_row = dba_fetch_array($db_result)) {
-	$gpid = "";
-	$gp_code = "";
 	$uid = $db_row['uid'];
 	$smslog_id = $db_row['smslog_id'];
 	$p_datetime = $db_row['p_datetime'];
 	$p_update = $db_row['p_update'];
 	$gpid = $db_row['p_gpid'];
-	$gp_code = phonebook_groupid2code($gpid);
-	x_hook('clickatell','getsmsstatus',array($gp_code,$uid,$smslog_id,$p_datetime,$p_update));
+	x_hook('clickatell','getsmsstatus',array($gpid,$uid,$smslog_id,$p_datetime,$p_update));
     }
 }
 
-function clickatell_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gp_code='PV',$smslog_id=0,$sms_type='text',$unicode=0) {
+function clickatell_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
     global $clickatell_param;
     global $gateway_number;
     if ($clickatell_param['sender']) {

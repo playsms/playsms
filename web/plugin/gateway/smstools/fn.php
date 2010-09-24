@@ -1,17 +1,17 @@
 <?php
 
-function smstools_hook_getsmsstatus($gp_code="",$uid="",$smslog_id="",$p_datetime="",$p_update="") {
+function smstools_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="") {
     global $smstools_param;
     // p_status :
     // 0 = pending
     // 1 = sent/delivered
     // 2 = failed
-    if ($gp_code) {
-        $fn = $smstools_param['path']."/sent/out.$gp_code.$uid.$smslog_id";
-        $efn = $smstools_param['path']."/failed/out.$gp_code.$uid.$smslog_id";
+    if ($gpid) {
+        $fn = $smstools_param['path']."/sent/out.$gpid.$uid.$smslog_id";
+        $efn = $smstools_param['path']."/failed/out.$gpid.$uid.$smslog_id";
     } else {
-        $fn = $smstools_param['path']."/sent/out.PV.$uid.$smslog_id";
-        $efn = $smstools_param['path']."/failed/out.PV.$uid.$smslog_id";
+        $fn = $smstools_param['path']."/sent/out.0.$uid.$smslog_id";
+        $efn = $smstools_param['path']."/failed/out.0.$uid.$smslog_id";
     }
     $p_datetime_stamp = strtotime($p_datetime);
     $p_update_stamp = strtotime($p_update);
@@ -77,9 +77,9 @@ function smstools_hook_getsmsinbox() {
     }
 }
 
-function smstools_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gp_code='PV',$smslog_id=0,$sms_type='text',$unicode=0) {
+function smstools_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
     global $smstools_param;
-    $sms_id = "$gp_code.$uid.$smslog_id";
+    $sms_id = "$gpid.$uid.$smslog_id";
     if (empty($sms_id)) {
 	$sms_id = mktime();
     }

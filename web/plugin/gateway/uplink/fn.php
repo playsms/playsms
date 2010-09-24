@@ -10,10 +10,10 @@ function uplink_hook_playsmsd() {
 // $sms_sender		: sender sms footer or sms sender ID
 // $sms_to		: destination sms number
 // $sms_msg		: sms message tobe delivered
-// $gp_code		: group phonebook code (optional)
+// $gpid		: group phonebook id (optional)
 // $uid			: sender User ID
 // $smslog_id		: sms ID
-function uplink_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gp_code='PV',$smslog_id=0,$sms_type='text',$unicode=0) {
+function uplink_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
     // global $uplink_param;   // global all variables needed, eg: varibles from config.php
     // ...
     // ...
@@ -71,7 +71,7 @@ function uplink_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
 // no returns needed
 // $p_datetime	: first sms delivery datetime
 // $p_update	: last status update datetime
-function uplink_hook_getsmsstatus($gp_code="",$uid="",$smslog_id="",$p_datetime="",$p_update="") {
+function uplink_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="") {
     // global $uplink_param;
     // p_status :
     // 0 = pending

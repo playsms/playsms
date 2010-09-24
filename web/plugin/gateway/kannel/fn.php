@@ -3,7 +3,7 @@ function kannel_hook_playsmsd() {
     // nothing
 }
 
-function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gp_code='PV',$smslog_id=0,$sms_type='text',$unicode=0) {
+function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
     global $kannel_param;
     global $gateway_number;
     global $http_path;
@@ -71,7 +71,7 @@ function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
     return $ok;
 }
 
-function kannel_hook_getsmsstatus($gp_code="",$uid="",$smslog_id="",$p_datetime="",$p_update="") {
+function kannel_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="") {
     global $kannel_param;
     // not used, depend on kannel delivery status updater
 }
