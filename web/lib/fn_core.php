@@ -138,7 +138,7 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message) {
 }
 
 function setsmsdeliverystatus($smslog_id,$uid,$p_status) {
-    global $datetime_now;
+    global $core_config, $datetime_now;
     // $p_status = 0 --> pending
     // $p_status = 1 --> sent
     // $p_status = 2 --> failed
@@ -146,10 +146,16 @@ function setsmsdeliverystatus($smslog_id,$uid,$p_status) {
     $ok = false;
     $db_query = "UPDATE "._DB_PREF_."_tblSMSOutgoing SET c_timestamp='".mktime()."',p_update='$datetime_now',p_status='$p_status' WHERE smslog_id='$smslog_id' AND uid='$uid'";
     if ($aff_id = @dba_affected_rows($db_query)) {
-	if ($p_status == '2') {
-	    rate_refund($smslog_id);
-	}
 	$ok = true;
+	if ($p_status > 0) {
+	    for ($c=0;$c<count($core_config['toolslist']);$c++) {
+		x_hook($core_config['toolslist'][$c],'setsmsdeliverystatus',array($smslog_id,$uid,$p_status));
+	    }
+	    for ($c=0;$c<count($core_config['featurelist']);$c++) {
+		x_hook($core_config['featurelist'][$c],'setsmsdeliverystatus',array($smslog_id,$uid,$p_status));
+	    }
+	    x_hook($gateway_module,'setsmsdeliverystatus',array($smslog_id,$uid,$p_status));
+	}
     }
     return $ok;
 }
@@ -179,13 +185,11 @@ function getsmsinbox()
     x_hook($gateway_module,'getsmsinbox');
 }
 
-function getsmsstatus()
-{
+function getsmsstatus() {
     global $gateway_module;
     $db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status='0' AND p_gateway='$gateway_module'";
     $db_result = dba_query($db_query);
-    while ($db_row = dba_fetch_array($db_result))
-    {
+    while ($db_row = dba_fetch_array($db_result)) {
 	$uid = $db_row['uid'];
 	$smslog_id = $db_row['smslog_id'];
 	$p_datetime = $db_row['p_datetime'];
@@ -203,17 +207,14 @@ function execcommoncustomcmd()
 }
 
 
-function playsmsd()
-{
+function playsmsd() {
     global $core_config, $gateway_module;
     // plugin tools
-    for ($c=0;$c<count($core_config['toolslist']);$c++)
-    {
+    for ($c=0;$c<count($core_config['toolslist']);$c++) {
 	x_hook($core_config['toolslist'][$c],'playsmsd');
     }
     // plugin feature
-    for ($c=0;$c<count($core_config['featurelist']);$c++)
-    {
+    for ($c=0;$c<count($core_config['featurelist']);$c++) {
 	x_hook($core_config['featurelist'][$c],'playsmsd');
     }
     // plugin gateway
