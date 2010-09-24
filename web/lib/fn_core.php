@@ -51,12 +51,13 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message)
 	    $c_feature = 'core';
 	    $array_target_group = explode(" ",$message);
 	    $target_group = strtoupper(trim($array_target_group[0]));
+	    $c_gpid = phonebook_groupcode2id($c_uid, $target_group);
 	    $message = $array_target_group[1];
 	    for ($i=2;$i<count($array_target_group);$i++)
 	    {
 		$message .= " ".$array_target_group[$i];
 	    }
-	    if (send2group($sms_sender,$target_group,$message))
+	    if (send2group($sms_sender,$c_gpid,$message))
 	    {
 		$ok = true;
 	    }

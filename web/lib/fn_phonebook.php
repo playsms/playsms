@@ -35,4 +35,48 @@ function phonebook_number2name($p_num) {
     return $p_desc;
 }
 
+function phonebook_getdatabyid($gpid, $orderby="") {
+    global $core_config;
+    $ret = array();
+    for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	if ($ret = x_hook($core_config['toolslist'][$c],'phonebook_getdatabyid',array($gpid,$orderby))) {
+	    break;
+	}
+    }
+    return $ret;
+}
+
+function phonebook_getdatabyuid($uid, $orderby="") {
+    global $core_config;
+    $ret = array();
+    for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	if ($ret = x_hook($core_config['toolslist'][$c],'phonebook_getdatabyuid',array($uid,$orderby))) {
+	    break;
+	}
+    }
+    return $ret;
+}
+
+function phonebook_getsharedgroup($uid) {
+    global $core_config;
+    $ret = array();
+    for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	if ($ret = x_hook($core_config['toolslist'][$c],'phonebook_getsharedgroup',array($uid))) {
+	    break;
+	}
+    }
+    return $ret;
+}
+
+function phonebook_getgroupbyuid($uid, $orderby="") {
+    global $core_config;
+    $ret = array();
+    for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	if ($ret = x_hook($core_config['toolslist'][$c],'phonebook_getgroupbyuid',array($uid,$orderby))) {
+	    break;
+	}
+    }
+    return $ret;
+}
+
 ?>

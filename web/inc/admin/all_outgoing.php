@@ -96,10 +96,7 @@ switch ($op)
 	    }
 	    if ($p_gpid) 
 	    { 
-		$db_query1 = "SELECT gp_code FROM "._DB_PREF_."_tblUserGroupPhonebook WHERE gpid='$p_gpid'";
-		$db_result1 = dba_query($db_query1);
-		$db_row1 = dba_fetch_array($db_result1);
-		$p_gpcode = strtoupper($db_row1['gp_code']);
+		$p_gpcode = strtoupper(phonebook_groupid2code($p_gpid));
 	    }
 	    else
 	    {

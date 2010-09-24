@@ -8,36 +8,20 @@ switch ($op)
 {
     case "sendsmstopv":
 	$message = $_REQUEST['message'];
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE uid='$uid' ORDER BY p_desc";
-	$db_result = dba_query($db_query);
-	while ($db_row = dba_fetch_array($db_result))
-	{
+	$rows = phonebook_getdatabyuid($uid, "p_desc");
+	foreach ($rows as $key => $db_row) {
 	    $list_of_number .= "<option value=\"".$db_row['p_num']."\" $selected>".$db_row['p_desc']." ".$db_row['p_num']."</option>";
 	}
 	// add numbers from public phonebook
-	$db_query = "
-	    SELECT 
-		"._DB_PREF_."_tblUserGroupPhonebook.gpid as gpid, 
-		"._DB_PREF_."_tblUserGroupPhonebook.gp_name as gp_name,
-		"._DB_PREF_."_tblUserGroupPhonebook.gp_code as gp_code,
-		"._DB_PREF_."_tblUserGroupPhonebook.uid as uid
-	    FROM "._DB_PREF_."_tblUserGroupPhonebook,"._DB_PREF_."_tblUserGroupPhonebook_public
-	    WHERE 
-		"._DB_PREF_."_tblUserGroupPhonebook.gpid="._DB_PREF_."_tblUserGroupPhonebook_public.gpid AND
-		NOT ("._DB_PREF_."_tblUserGroupPhonebook_public.uid='$uid')
-	    ORDER BY gp_name
-	";
-	$db_result = dba_query($db_query);
-	while ($db_row = dba_fetch_array($db_result))
+	$rows = phonebook_getsharedgroup($uid);
+	foreach ($rows as $key => $db_row)
 	{
 	    $c_gpid = $db_row['gpid'];
 	    $c_uid = $db_row['uid'];
 	    $c_username = uid2username($c_uid);
-	    $db_query1 = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE gpid='$c_gpid' ORDER BY p_desc";
-	    $db_result1 = dba_query($db_query1);
 	    $i = 0;
-	    while ($db_row1 = dba_fetch_array($db_result1))
-	    {
+	    $rows = phonebook_getdatabyid($c_gpid);
+	    foreach ($rows as $key => $db_row1) {
 		$list_of_number .= "<option value=\"".$db_row1['p_num']."\" $selected>".$db_row1['p_desc']." ".$db_row1['p_num']." (by ".$c_username.")</option>";
 	    }
 	}
@@ -172,29 +156,15 @@ switch ($op)
 	break;
     case "sendsmstogr":
 	$message = $_REQUEST['message'];
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblUserGroupPhonebook WHERE uid='$uid' ORDER BY gp_name";
-	$db_result = dba_query($db_query);
-	while ($db_row = dba_fetch_array($db_result))
+	$rows = phonebook_getgroupbyuid($uid, "gp_name");
+	foreach ($rows as $key => $db_row)
 	{
 	    $list_of_group .= "<option value=\"".$db_row['gpid']."\" $selected>".$db_row['gp_name']." (".$db_row['gp_code'].")</option>";
 	}
 
 	// add shared group
-	$db_query = "
-	    SELECT 
-		"._DB_PREF_."_tblUserGroupPhonebook.gpid as gpid, 
-		"._DB_PREF_."_tblUserGroupPhonebook.gp_name as gp_name,
-		"._DB_PREF_."_tblUserGroupPhonebook.gp_code as gp_code,
-		"._DB_PREF_."_tblUserGroupPhonebook.uid as uid
-	    FROM "._DB_PREF_."_tblUserGroupPhonebook,"._DB_PREF_."_tblUserGroupPhonebook_public 
-	    WHERE 
-		"._DB_PREF_."_tblUserGroupPhonebook.gpid="._DB_PREF_."_tblUserGroupPhonebook_public.gpid AND
-		NOT ("._DB_PREF_."_tblUserGroupPhonebook_public.uid='$uid')
-	    ORDER BY gp_name
-	";
-
-	$db_result = dba_query($db_query);
-	while ($db_row = dba_fetch_array($db_result))
+	$rows = phonebook_getsharedgroup($uid);
+	foreach ($rows as $key => $db_row)
 	{
 	    $c_uid = $db_row['uid'];
 	    $c_username = uid2username($c_uid);

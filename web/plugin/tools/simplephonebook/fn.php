@@ -89,4 +89,64 @@ function simplephonebook_hook_phonebook_number2name($p_num) {
     return $p_desc;
 }
 
+function simplephonebook_hook_phonebook_getdatabyid($gpid, $orderby="") {
+    $ret = array();
+    $db_query = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE gpid='$gpid'";
+    if ($orderby) {
+	$db_query .= " ORDER BY ".$orderby;
+    }
+    $db_result = dba_query($db_query);
+    while ($db_row = dba_fetch_array($db_result)) {
+	$ret[] = $db_row;
+    }
+    return $ret;
+}
+
+function simplephonebook_hook_phonebook_getdatabyuid($uid, $orderby="") {
+    $ret = array();
+    $db_query = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE uid='$uid'";
+    if ($orderby) {
+	$db_query .= " ORDER BY ".$orderby;
+    }
+    $db_result = dba_query($db_query);
+    while ($db_row = dba_fetch_array($db_result)) {
+	$ret[] = $db_row;
+    }
+    return $ret;
+}
+
+function simplephonebook_hook_phonebook_getsharedgroup($uid) {
+    $ret = array();
+    $db_query = "
+	SELECT 
+	    "._DB_PREF_."_tblUserGroupPhonebook.gpid as gpid, 
+	    "._DB_PREF_."_tblUserGroupPhonebook.gp_name as gp_name,
+	    "._DB_PREF_."_tblUserGroupPhonebook.gp_code as gp_code,
+	    "._DB_PREF_."_tblUserGroupPhonebook.uid as uid
+	FROM "._DB_PREF_."_tblUserGroupPhonebook,"._DB_PREF_."_tblUserGroupPhonebook_public
+	WHERE 
+	    "._DB_PREF_."_tblUserGroupPhonebook.gpid="._DB_PREF_."_tblUserGroupPhonebook_public.gpid AND
+	    NOT ("._DB_PREF_."_tblUserGroupPhonebook_public.uid='$uid')
+	ORDER BY gp_name
+    ";
+    $db_result = dba_query($db_query);
+    while ($db_row = dba_fetch_array($db_result)) {
+	$ret[] = $db_row;
+    }
+    return $ret;
+}
+
+function simplephonebook_hook_phonebook_getgroupbyuid($uid, $orderby="") {
+    $ret = array();
+    $db_query = "SELECT * FROM "._DB_PREF_."_tblUserGroupPhonebook WHERE uid='$uid'";
+    if ($orderby) {
+	$db_query .= " ORDER BY ".$orderby;
+    }
+    $db_result = dba_query($db_query);
+    while ($db_row = dba_fetch_array($db_result)) {
+	$ret[] = $db_row;
+    }
+    return $ret;
+}
+
 ?>
