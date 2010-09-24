@@ -1,7 +1,9 @@
-Template for playSMS gateway module 'Neighbour playSMS'
 Your playSMS send sms by using other playSMS somewhere (Master)
-Receive SMS using gnokii
 
 Send SMS flow:
-IP Network ---> [ Your playSMS ] ---> [ Master playSMS] ---> GSM Network
+IP Network ---> [ Your playSMS ] ---> [ playSMS as master ] ---> Mobile Network
 
+Plugin	: Gateway Uplink for playSMS
+Author	: Anton Raharja
+Release	: 100925
+License	: GPL

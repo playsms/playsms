@@ -1,7 +1,8 @@
-Version 0.9.5-svn - unknown
+Version 0.9.5 - unknown
 - sendmail now can be hooked (anton)
 - rate now can be hooked (anton)
 - phonebook now can be hooked (anton)
+- db table names for phonebook related functions has been changed to toolsSimplephonebook* (anton)
 - add new core function billing and can be hooked (anton)
 - add new tools, simplephonebook, to handle phonebook related features (anton)
 - add new tools, simplebilling, to handle billing related features (anton)

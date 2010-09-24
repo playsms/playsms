@@ -10,3 +10,8 @@ Dont forget to point callback setting on Clickatell control panel
 to callback.php in this directory
 eg:
 http://your_playsms_website/plugin/gateway/clickatell/callback.php
+
+Plugin	: Gateway Clickatell for playSMS
+Author	: Anton Raharja
+Release	: 100925
+License	: GPL

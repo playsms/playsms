@@ -2,3 +2,7 @@ playSMS gateway module for kannel
 Incoming SMS is using Kannel's get-url method
 Outgoing SMS use kannel cgi sendsms
 
+Plugin	: Gateway Kannel for playSMS
+Author	: Anton Raharja
+Release	: 100925
+License	: GPL

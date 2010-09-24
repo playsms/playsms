@@ -1,7 +1,7 @@
 README
 ------
 http://playsms.sourceforge.net
-Version 0.9.5-svn
+Version 0.9.5
 
 
 Description
@@ -31,7 +31,7 @@ Current Features
 - Support Gnokii, Kannel, SMS Server Tools or Clickatell
 - Simple webservices for sending SMS and retrieving delivery reports (input.php)
 - Long SMS support, length of text configurable on config file
-- Rate SMS by detination prefix
+- Rate SMS by destination prefix
 - SMS credit system per user
 - Multi-language user interface supported
 - Web-based interface
@@ -39,9 +39,8 @@ Current Features
 
 License
 -------
-playSMS plugins source codes (all files under directory web/plugin) are LGPL.
-playSMS libraries source codes (all files under directory web/lib) are LGPL.
-The rest of the playSMS source codes are licensed as GPLv2.
+playSMS libraries source codes (all files under directory web/lib) are LGPL
+The rest of the playSMS source codes are licensed as GPL version 2
 
 
 Installation
@@ -58,8 +57,8 @@ T.K Thapa (thapa)
 Adeagbo Tunji (adetunjiha)
 
 
-Inactive Contributors
----------------------
+Past Contributors
+-----------------
 Eugene Trotsan (eugene)
 Yoan Talagrand (yoan)
 Abdul Hanan (hanan)
