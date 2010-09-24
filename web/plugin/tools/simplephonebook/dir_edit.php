@@ -33,7 +33,7 @@ switch ($op)
 	$dir_code = strtoupper(trim($_POST['dir_code']));
 	if ($dir_name && $dir_code)
 	{
-	    $db_query = "SELECT gp_code FROM "._DB_PREF_."_tblUserGroupPhonebook WHERE uid='$uid' AND gp_code='$dir_code' AND NOT gpid='$gpid'";
+	    $db_query = "SELECT gp_code FROM "._DB_PREF_."_toolsSimplephonebook_group WHERE uid='$uid' AND gp_code='$dir_code' AND NOT gpid='$gpid'";
 	    $db_result = dba_query($db_query);
 	    if ($db_row = dba_fetch_array($db_result))
 	    {
@@ -42,7 +42,7 @@ switch ($op)
 	    }
 	    else
 	    {
-		$db_query = "UPDATE "._DB_PREF_."_tblUserGroupPhonebook SET c_timestamp='".mktime()."',gp_name='$dir_name',gp_code='$dir_code' WHERE uid='$uid' AND gpid='$gpid'";
+		$db_query = "UPDATE "._DB_PREF_."_toolsSimplephonebook_group SET c_timestamp='".mktime()."',gp_name='$dir_name',gp_code='$dir_code' WHERE uid='$uid' AND gpid='$gpid'";
 		$db_result = dba_query($db_query);
 		header("Location:  menu.php?inc=phonebook_list&err=".urlencode(_('Group has been edited')." ("._('group').": `$dir_name`, "._('code')." `$dir_code`)"));
 		die();

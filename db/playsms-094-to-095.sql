@@ -33,3 +33,7 @@ CREATE TABLE `playsms_tblBilling` (
   PRIMARY KEY ( `id` )
 ) ENGINE=MYISAM DEFAULT CHARSET=utf8;
 
+RENAME TABLE `playsms_tblUserPhonebook`  TO `playsms_toolsSimplephonebook` ;
+RENAME TABLE `playsms_tblUserGroupPhonebook`  TO `playsms_toolsSimplephonebook_group` ;
+RENAME TABLE `playsms_tblUserGroupPhonebook_public`  TO `playsms_toolsSimplephonebook_group_public` ;
+

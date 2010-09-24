@@ -769,11 +769,11 @@ INSERT INTO `playsms_tblUser` VALUES (0,1,2,'bbde889a4de8ad9a9f1b1853a301486a','
 UNLOCK TABLES;
 
 --
--- Table structure for table `playsms_tblUserGroupPhonebook`
+-- Table structure for table `playsms_toolsSimplephonebook_group`
 --
 
-DROP TABLE IF EXISTS `playsms_tblUserGroupPhonebook`;
-CREATE TABLE `playsms_tblUserGroupPhonebook` (
+DROP TABLE IF EXISTS `playsms_toolsSimplephonebook_group`;
+CREATE TABLE `playsms_toolsSimplephonebook_group` (
   `c_timestamp` int(11) NOT NULL default '0',
   `gpid` int(11) NOT NULL auto_increment,
   `uid` int(11) NOT NULL default '0',
@@ -783,20 +783,20 @@ CREATE TABLE `playsms_tblUserGroupPhonebook` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `playsms_tblUserGroupPhonebook`
+-- Dumping data for table `playsms_toolsSimplephonebook_group`
 --
 
-LOCK TABLES `playsms_tblUserGroupPhonebook` WRITE;
-/*!40000 ALTER TABLE `playsms_tblUserGroupPhonebook` DISABLE KEYS */;
-/*!40000 ALTER TABLE `playsms_tblUserGroupPhonebook` ENABLE KEYS */;
+LOCK TABLES `playsms_toolsSimplephonebook_group` WRITE;
+/*!40000 ALTER TABLE `playsms_toolsSimplephonebook_group` DISABLE KEYS */;
+/*!40000 ALTER TABLE `playsms_toolsSimplephonebook_group` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `playsms_tblUserGroupPhonebook_public`
+-- Table structure for table `playsms_toolsSimplephonebook_group_public`
 --
 
-DROP TABLE IF EXISTS `playsms_tblUserGroupPhonebook_public`;
-CREATE TABLE `playsms_tblUserGroupPhonebook_public` (
+DROP TABLE IF EXISTS `playsms_toolsSimplephonebook_group_public`;
+CREATE TABLE `playsms_toolsSimplephonebook_group_public` (
   `c_timestamp` int(11) NOT NULL default '0',
   `gpidpublic` int(11) NOT NULL auto_increment,
   `gpid` int(11) NOT NULL default '0',
@@ -805,12 +805,12 @@ CREATE TABLE `playsms_tblUserGroupPhonebook_public` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `playsms_tblUserGroupPhonebook_public`
+-- Dumping data for table `playsms_toolsSimplephonebook_group_public`
 --
 
-LOCK TABLES `playsms_tblUserGroupPhonebook_public` WRITE;
-/*!40000 ALTER TABLE `playsms_tblUserGroupPhonebook_public` DISABLE KEYS */;
-/*!40000 ALTER TABLE `playsms_tblUserGroupPhonebook_public` ENABLE KEYS */;
+LOCK TABLES `playsms_toolsSimplephonebook_group_public` WRITE;
+/*!40000 ALTER TABLE `playsms_toolsSimplephonebook_group_public` DISABLE KEYS */;
+/*!40000 ALTER TABLE `playsms_toolsSimplephonebook_group_public` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -839,11 +839,11 @@ LOCK TABLES `playsms_tblUserInbox` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `playsms_tblUserPhonebook`
+-- Table structure for table `playsms_toolsSimplephonebook`
 --
 
-DROP TABLE IF EXISTS `playsms_tblUserPhonebook`;
-CREATE TABLE `playsms_tblUserPhonebook` (
+DROP TABLE IF EXISTS `playsms_toolsSimplephonebook`;
+CREATE TABLE `playsms_toolsSimplephonebook` (
   `c_timestamp` int(11) NOT NULL default '0',
   `pid` int(11) NOT NULL auto_increment,
   `gpid` int(11) NOT NULL default '0',
@@ -855,12 +855,12 @@ CREATE TABLE `playsms_tblUserPhonebook` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `playsms_tblUserPhonebook`
+-- Dumping data for table `playsms_toolsSimplephonebook`
 --
 
-LOCK TABLES `playsms_tblUserPhonebook` WRITE;
-/*!40000 ALTER TABLE `playsms_tblUserPhonebook` DISABLE KEYS */;
-/*!40000 ALTER TABLE `playsms_tblUserPhonebook` ENABLE KEYS */;
+LOCK TABLES `playsms_toolsSimplephonebook` WRITE;
+/*!40000 ALTER TABLE `playsms_toolsSimplephonebook` DISABLE KEYS */;
+/*!40000 ALTER TABLE `playsms_toolsSimplephonebook` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

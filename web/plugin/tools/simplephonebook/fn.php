@@ -4,7 +4,7 @@ function gpid2gpname($gpid)
 {
     if ($gpid)
     {
-	$db_query = "SELECT gp_name FROM "._DB_PREF_."_tblUserGroupPhonebook WHERE gpid='$gpid'";
+	$db_query = "SELECT gp_name FROM "._DB_PREF_."_toolsSimplephonebook_group WHERE gpid='$gpid'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$gp_name = $db_row['gp_name'];
@@ -16,7 +16,7 @@ function gpcode2gpname($uid,$gp_code)
 {
     if ($uid && $gp_code)
     {
-	$db_query = "SELECT gp_name FROM "._DB_PREF_."_tblUserGroupPhonebook WHERE uid='$uid' AND gp_code='$gp_code'";
+	$db_query = "SELECT gp_name FROM "._DB_PREF_."_toolsSimplephonebook_group WHERE uid='$uid' AND gp_code='$gp_code'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$gp_name = $db_row['gp_name'];
@@ -30,7 +30,7 @@ function pid2pnum($pid)
     if ($pid)
     {
 	$uid = username2uid($username);
-	$db_query = "SELECT p_num FROM "._DB_PREF_."_tblUserPhonebook WHERE pid='$pid' AND uid='$uid'";
+	$db_query = "SELECT p_num FROM "._DB_PREF_."_toolsSimplephonebook WHERE pid='$pid' AND uid='$uid'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$p_num = $db_row['p_num'];
@@ -44,7 +44,7 @@ function pnum2pemail($p_num)
     if ($p_num)
     {
 	$uid = username2uid($username);
-	$db_query = "SELECT p_email FROM "._DB_PREF_."_tblUserPhonebook WHERE p_num='$p_num' AND uid='$uid'";
+	$db_query = "SELECT p_email FROM "._DB_PREF_."_toolsSimplephonebook WHERE p_num='$p_num' AND uid='$uid'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$p_email = $db_row['p_email'];
@@ -56,7 +56,7 @@ function pnum2pemail($p_num)
 
 function simplephonebook_hook_phonebook_groupid2code($gpid) {
     if ($gpid) {
-	$db_query = "SELECT gp_code FROM "._DB_PREF_."_tblUserGroupPhonebook WHERE gpid='$gpid'";
+	$db_query = "SELECT gp_code FROM "._DB_PREF_."_toolsSimplephonebook_group WHERE gpid='$gpid'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$gp_code = $db_row['gp_code'];
@@ -66,7 +66,7 @@ function simplephonebook_hook_phonebook_groupid2code($gpid) {
 
 function simplephonebook_hook_phonebook_groupcode2id($uid,$gp_code) {
     if ($uid && $gp_code) {
-	$db_query = "SELECT gpid FROM "._DB_PREF_."_tblUserGroupPhonebook WHERE uid='$uid' AND gp_code='$gp_code'";
+	$db_query = "SELECT gpid FROM "._DB_PREF_."_toolsSimplephonebook_group WHERE uid='$uid' AND gp_code='$gp_code'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$gpid = $db_row['gpid'];
@@ -81,7 +81,7 @@ function simplephonebook_hook_phonebook_number2name($p_num) {
 	    $p_num = substr($p_num,1);
 	}
 	$uid = username2uid($username);
-	$db_query = "SELECT p_desc FROM "._DB_PREF_."_tblUserPhonebook WHERE p_num LIKE '%$p_num' AND uid='$uid'";
+	$db_query = "SELECT p_desc FROM "._DB_PREF_."_toolsSimplephonebook WHERE p_num LIKE '%$p_num' AND uid='$uid'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$p_desc = $db_row['p_desc'];
@@ -91,7 +91,7 @@ function simplephonebook_hook_phonebook_number2name($p_num) {
 
 function simplephonebook_hook_phonebook_getdatabyid($gpid, $orderby="") {
     $ret = array();
-    $db_query = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE gpid='$gpid'";
+    $db_query = "SELECT * FROM "._DB_PREF_."_toolsSimplephonebook WHERE gpid='$gpid'";
     if ($orderby) {
 	$db_query .= " ORDER BY ".$orderby;
     }
@@ -104,7 +104,7 @@ function simplephonebook_hook_phonebook_getdatabyid($gpid, $orderby="") {
 
 function simplephonebook_hook_phonebook_getdatabyuid($uid, $orderby="") {
     $ret = array();
-    $db_query = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE uid='$uid'";
+    $db_query = "SELECT * FROM "._DB_PREF_."_toolsSimplephonebook WHERE uid='$uid'";
     if ($orderby) {
 	$db_query .= " ORDER BY ".$orderby;
     }
@@ -119,14 +119,14 @@ function simplephonebook_hook_phonebook_getsharedgroup($uid) {
     $ret = array();
     $db_query = "
 	SELECT 
-	    "._DB_PREF_."_tblUserGroupPhonebook.gpid as gpid, 
-	    "._DB_PREF_."_tblUserGroupPhonebook.gp_name as gp_name,
-	    "._DB_PREF_."_tblUserGroupPhonebook.gp_code as gp_code,
-	    "._DB_PREF_."_tblUserGroupPhonebook.uid as uid
-	FROM "._DB_PREF_."_tblUserGroupPhonebook,"._DB_PREF_."_tblUserGroupPhonebook_public
+	    "._DB_PREF_."_toolsSimplephonebook_group.gpid as gpid, 
+	    "._DB_PREF_."_toolsSimplephonebook_group.gp_name as gp_name,
+	    "._DB_PREF_."_toolsSimplephonebook_group.gp_code as gp_code,
+	    "._DB_PREF_."_toolsSimplephonebook_group.uid as uid
+	FROM "._DB_PREF_."_toolsSimplephonebook_group,"._DB_PREF_."_toolsSimplephonebook_group_public
 	WHERE 
-	    "._DB_PREF_."_tblUserGroupPhonebook.gpid="._DB_PREF_."_tblUserGroupPhonebook_public.gpid AND
-	    NOT ("._DB_PREF_."_tblUserGroupPhonebook_public.uid='$uid')
+	    "._DB_PREF_."_toolsSimplephonebook_group.gpid="._DB_PREF_."_toolsSimplephonebook_group_public.gpid AND
+	    NOT ("._DB_PREF_."_toolsSimplephonebook_group_public.uid='$uid')
 	ORDER BY gp_name
     ";
     $db_result = dba_query($db_query);
@@ -138,7 +138,7 @@ function simplephonebook_hook_phonebook_getsharedgroup($uid) {
 
 function simplephonebook_hook_phonebook_getgroupbyuid($uid, $orderby="") {
     $ret = array();
-    $db_query = "SELECT * FROM "._DB_PREF_."_tblUserGroupPhonebook WHERE uid='$uid'";
+    $db_query = "SELECT * FROM "._DB_PREF_."_toolsSimplephonebook_group WHERE uid='$uid'";
     if ($orderby) {
 	$db_query .= " ORDER BY ".$orderby;
     }

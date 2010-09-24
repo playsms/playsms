@@ -5,7 +5,7 @@ switch ($op)
 {
     case "add":
 	$phone = urlencode($_REQUEST['phone']);
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblUserGroupPhonebook WHERE uid='$uid'";
+	$db_query = "SELECT * FROM "._DB_PREF_."_toolsSimplephonebook_group WHERE uid='$uid'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result))
 	{
@@ -48,7 +48,7 @@ switch ($op)
 	$p_email = str_replace("\"","",$p_email);
 	if ($gpid && $p_num && $p_desc)
 	{
-	    $db_query = "SELECT p_num,p_desc FROM "._DB_PREF_."_tblUserPhonebook WHERE uid='$uid' AND gpid='$gpid' AND p_num='$p_num'";
+	    $db_query = "SELECT p_num,p_desc FROM "._DB_PREF_."_toolsSimplephonebook WHERE uid='$uid' AND gpid='$gpid' AND p_num='$p_num'";
 	    $db_result = dba_query($db_query);
 	    if ($db_row = dba_fetch_array($db_result))
 	    {
@@ -57,7 +57,7 @@ switch ($op)
 	    }
 	    else
 	    {
-		$db_query = "INSERT INTO "._DB_PREF_."_tblUserPhonebook (gpid,uid,p_num,p_desc,p_email) VALUES ('$gpid','$uid','$p_num','$p_desc','$p_email')";
+		$db_query = "INSERT INTO "._DB_PREF_."_toolsSimplephonebook (gpid,uid,p_num,p_desc,p_email) VALUES ('$gpid','$uid','$p_num','$p_desc','$p_email')";
 		$db_result = dba_query($db_query);
 		header("Location: menu.php?inc=tools_simplephonebook&route=phone_add&op=add&err=".urlencode(_('Number has been added')." ("._('number').": `$p_num`, "._('name').": `$p_desc`)"));
 		die();

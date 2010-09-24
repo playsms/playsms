@@ -9,14 +9,14 @@ if ($route = $_REQUEST['route']) {
     }
 }
 
-$db_query = "SELECT * FROM "._DB_PREF_."_tblUserGroupPhonebook WHERE uid='$uid' ORDER BY gp_name";
+$db_query = "SELECT * FROM "._DB_PREF_."_toolsSimplephonebook_group WHERE uid='$uid' ORDER BY gp_name";
 $db_result = dba_query($db_query);
 while ($db_row = dba_fetch_array($db_result))
 {
     $gpid = $db_row['gpid'];
     $fm_name = "fm_phonebook_".$db_row['gp_code'];
 
-    $db_query1 = "SELECT gpidpublic FROM "._DB_PREF_."_tblUserGroupPhonebook_public WHERE uid='$uid' AND gpid='$gpid'";
+    $db_query1 = "SELECT gpidpublic FROM "._DB_PREF_."_toolsSimplephonebook_group_public WHERE uid='$uid' AND gpid='$gpid'";
     $db_result1 = dba_num_rows($db_query1);
     if ($db_result1 > 0)
     {
@@ -44,7 +44,7 @@ while ($db_row = dba_fetch_array($db_result))
 	    <td class=box_title width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.".strtolower($fm_name).$username.")></td>
 	</tr>
     ";
-    $db_query1 = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE gpid='$gpid' AND uid='$uid' ORDER BY p_desc";
+    $db_query1 = "SELECT * FROM "._DB_PREF_."_toolsSimplephonebook WHERE gpid='$gpid' AND uid='$uid' ORDER BY p_desc";
     $db_result1 = dba_query($db_query1);
     $i = 0;
     while ($db_row1 = dba_fetch_array($db_result1))
@@ -90,14 +90,14 @@ while ($db_row = dba_fetch_array($db_result))
 
 $db_query = "
     SELECT 
-	"._DB_PREF_."_tblUserGroupPhonebook.gpid as gpid, 
-	"._DB_PREF_."_tblUserGroupPhonebook.gp_name as gp_name,
-	"._DB_PREF_."_tblUserGroupPhonebook.gp_code as gp_code,
-	"._DB_PREF_."_tblUserGroupPhonebook.uid as uid
-    FROM "._DB_PREF_."_tblUserGroupPhonebook,"._DB_PREF_."_tblUserGroupPhonebook_public 
+	"._DB_PREF_."_toolsSimplephonebook_group.gpid as gpid, 
+	"._DB_PREF_."_toolsSimplephonebook_group.gp_name as gp_name,
+	"._DB_PREF_."_toolsSimplephonebook_group.gp_code as gp_code,
+	"._DB_PREF_."_toolsSimplephonebook_group.uid as uid
+    FROM "._DB_PREF_."_toolsSimplephonebook_group,"._DB_PREF_."_toolsSimplephonebook_group_public 
     WHERE 
-	"._DB_PREF_."_tblUserGroupPhonebook.gpid="._DB_PREF_."_tblUserGroupPhonebook_public.gpid AND
-	NOT ("._DB_PREF_."_tblUserGroupPhonebook.uid = '$uid')
+	"._DB_PREF_."_toolsSimplephonebook_group.gpid="._DB_PREF_."_toolsSimplephonebook_group_public.gpid AND
+	NOT ("._DB_PREF_."_toolsSimplephonebook_group.uid = '$uid')
     ORDER BY gp_name
 ";
 $db_result = dba_query($db_query);
@@ -117,7 +117,7 @@ while ($db_row = dba_fetch_array($db_result))
 	    <td class=box_title>"._('Email')."</td>
 	</tr>
     ";
-    $db_query1 = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE gpid='$gpid' ORDER BY p_desc";
+    $db_query1 = "SELECT * FROM "._DB_PREF_."_toolsSimplephonebook WHERE gpid='$gpid' ORDER BY p_desc";
     $db_result1 = dba_query($db_query1);
     $i = 0;
     while ($db_row1 = dba_fetch_array($db_result1))

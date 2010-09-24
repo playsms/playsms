@@ -8,12 +8,12 @@ switch ($op)
     case "export":
 	if ($gpid)
 	{
-    	    $db_query = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE uid='$uid' AND gpid='$gpid'";
+    	    $db_query = "SELECT * FROM "._DB_PREF_."_toolsSimplephonebook WHERE uid='$uid' AND gpid='$gpid'";
 	    $filename = "phonebook-".phonebook_groupid2code($gpid)."-".date(Ymd,time()).".csv";
 	}
 	else
 	{
-	    $db_query = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE uid='$uid'";
+	    $db_query = "SELECT * FROM "._DB_PREF_."_toolsSimplephonebook WHERE uid='$uid'";
 	    $filename = "phonebook-".date(Ymd,time()).".csv";
 	}
 	$db_result = dba_query($db_query);
@@ -132,7 +132,7 @@ switch ($op)
 	}
 	if ($replace=="ok")
 	{
-	    $db_query = "SELECT * FROM "._DB_PREF_."_tblUserPhonebook WHERE gpid='$gpid'";
+	    $db_query = "SELECT * FROM "._DB_PREF_."_toolsSimplephonebook WHERE gpid='$gpid'";
 	    $db_result = dba_query($db_query);
 	    $j = 0;
 	    while ($db_row=dba_fetch_array($db_result))
@@ -150,7 +150,7 @@ switch ($op)
 		    {
 			if ($Number[$i])
 			{
-			    $db_query1 = "UPDATE "._DB_PREF_."_tblUserPhonebook SET c_timestamp='".mktime()."',p_num='".$Number[$i]."',p_email='".$Email[$i]."' WHERE pid='".$pid[$k]."' AND gpid='$gpid'";
+			    $db_query1 = "UPDATE "._DB_PREF_."_toolsSimplephonebook SET c_timestamp='".mktime()."',p_num='".$Number[$i]."',p_email='".$Email[$i]."' WHERE pid='".$pid[$k]."' AND gpid='$gpid'";
 			    $db_result1 = dba_affected_rows($db_query1);
 			    if ($db_result1 > 0)
 			    {
@@ -169,7 +169,7 @@ switch ($op)
 		    if ($Name[$i] && $Number[$i])
 		    {
 			$db_query2 = "
-			    INSERT INTO "._DB_PREF_."_tblUserPhonebook (uid,p_desc,p_num,p_email,gpid)
+			    INSERT INTO "._DB_PREF_."_toolsSimplephonebook (uid,p_desc,p_num,p_email,gpid)
 			    VALUES ('$uid','".$Name[$i]."','".$Number[$i]."','".$Email[$i]."','$gpid')
 			";
 			$db_result2 = dba_insert_id($db_query2);
@@ -192,7 +192,7 @@ switch ($op)
 		if ($Name[$i] && $Number[$i])
 		{
 		    $db_query2 = "
-			INSERT INTO "._DB_PREF_."_tblUserPhonebook (uid,p_desc,p_num,p_email,gpid)
+			INSERT INTO "._DB_PREF_."_toolsSimplephonebook (uid,p_desc,p_num,p_email,gpid)
 			VALUES ('$uid','".$Name[$i]."','".$Number[$i]."','".$Email[$i]."','$gpid')
 		    ";
 		    $db_result2 = dba_insert_id($db_query2);

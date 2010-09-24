@@ -64,7 +64,7 @@ switch ($op)
 	    $c_pemail = ${"pemail".$i};
 	    if ($c_pid && $c_pdesc && $c_pnum)
 	    {
-		$db_query = "UPDATE "._DB_PREF_."_tblUserPhonebook SET c_timestamp='".mktime()."',p_desc='$c_pdesc',p_num='$c_pnum',p_email='$c_pemail' WHERE pid='$c_pid'";
+		$db_query = "UPDATE "._DB_PREF_."_toolsSimplephonebook SET c_timestamp='".mktime()."',p_desc='$c_pdesc',p_num='$c_pnum',p_email='$c_pemail' WHERE pid='$c_pid'";
 		$db_result = @dba_affected_rows($db_query);
 	    }
 	}
@@ -106,7 +106,7 @@ switch ($op)
 		";
 	    }
 	}
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblUserGroupPhonebook WHERE uid='$uid' ORDER BY gp_name";
+	$db_query = "SELECT * FROM "._DB_PREF_."_toolsSimplephonebook_group WHERE uid='$uid' ORDER BY gp_name";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result))
 	{
@@ -130,7 +130,7 @@ switch ($op)
 		$c_pnum = pid2pnum($c_pid);
 		$c_pdesc = phonebook_number2name($c_pnum);
 		$c_pemail = pnum2pemail($c_pnum);
-		$db_query = "INSERT INTO "._DB_PREF_."_tblUserPhonebook (gpid,uid,p_num,p_desc,p_email) VALUES ('$gpid','$uid','$c_pnum','$c_pdesc','$c_pemail')";
+		$db_query = "INSERT INTO "._DB_PREF_."_toolsSimplephonebook (gpid,uid,p_num,p_desc,p_email) VALUES ('$gpid','$uid','$c_pnum','$c_pdesc','$c_pemail')";
 		$db_result = @dba_insert_id($db_query);
 	    }
 	}
@@ -172,7 +172,7 @@ switch ($op)
 		";
 	    }
 	}
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblUserGroupPhonebook WHERE uid='$uid' ORDER BY gp_name";
+	$db_query = "SELECT * FROM "._DB_PREF_."_toolsSimplephonebook_group WHERE uid='$uid' ORDER BY gp_name";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result))
 	{
@@ -193,7 +193,7 @@ switch ($op)
 	    $c_pid = ${"pid".$i};
 	    if ($c_pid)
 	    {
-		$db_query = "UPDATE "._DB_PREF_."_tblUserPhonebook SET c_timestamp='".mktime()."',gpid='$gpid' WHERE pid='$c_pid'";
+		$db_query = "UPDATE "._DB_PREF_."_toolsSimplephonebook SET c_timestamp='".mktime()."',gpid='$gpid' WHERE pid='$c_pid'";
 		$db_result = @dba_affected_rows($db_query);
 	    }
 	}
@@ -250,7 +250,7 @@ switch ($op)
 	    $c_pid = ${"pid".$i};
 	    if ($c_pid)
 	    {
-		$db_query = "DELETE FROM "._DB_PREF_."_tblUserPhonebook WHERE pid='$c_pid'";
+		$db_query = "DELETE FROM "._DB_PREF_."_toolsSimplephonebook WHERE pid='$c_pid'";
 		$db_result = @dba_affected_rows($db_query);
 	    }
 	}
@@ -261,11 +261,11 @@ switch ($op)
 	$gpid = $_REQUEST['gpid'];
 	if ($gpid)
 	{
-	    $db_query = "DELETE FROM "._DB_PREF_."_tblUserGroupPhonebook_public WHERE gpid='$gpid' AND uid='$uid'";
+	    $db_query = "DELETE FROM "._DB_PREF_."_toolsSimplephonebook_group_public WHERE gpid='$gpid' AND uid='$uid'";
 	    $db_result = @dba_query($db_query);
 	    $gpname = gpid2gpname($gpid);
 	    $error_string = _('Fail to publish')." ("._('group').": `$gpname`)";
-	    $db_query = "INSERT INTO "._DB_PREF_."_tblUserGroupPhonebook_public (gpid,uid) VALUES ('$gpid','$uid')";
+	    $db_query = "INSERT INTO "._DB_PREF_."_toolsSimplephonebook_group_public (gpid,uid) VALUES ('$gpid','$uid')";
 	    $db_result = @dba_insert_id($db_query);
 	    if ($db_result > 0)
 	    {
@@ -282,7 +282,7 @@ switch ($op)
 	{
 	    $gpname = gpid2gpname($gpid);
 	    $error_string = _('Fail to unpublish')." ("._('group').": `$gpname`)";
-	    $db_query = "DELETE FROM "._DB_PREF_."_tblUserGroupPhonebook_public WHERE gpid='$gpid' AND uid='$uid'";
+	    $db_query = "DELETE FROM "._DB_PREF_."_toolsSimplephonebook_group_public WHERE gpid='$gpid' AND uid='$uid'";
 	    $db_result = @dba_affected_rows($db_query);
 	    if ($db_result > 0)
 	    {
