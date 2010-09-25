@@ -24,8 +24,8 @@
 	<table style="width:200px">
 	<tr>
 	    <td style="border:#B4B3B3 1px solid; background-color:#F8F8F8; vertical-align:top; padding:10px;">
-		<p><b>Logged in: <?=$username?></b></p>
-		<p><b>Status: <?=$userstatus?></b></p>
+		<p><b><?=_('Logged in')?>: <?=$username?></b></p>
+		<p><b><?=_('Status')?>: <?=$userstatus?></b></p>
 		<?=themes_get_menu_tree()?>
 	    </td>
 	</tr>

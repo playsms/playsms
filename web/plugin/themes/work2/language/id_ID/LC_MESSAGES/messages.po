@@ -1,14 +1,22 @@
+#: header.php:26
+msgid "Logged in"
+msgstr "Logged in"
+
+#: header.php:26
+msgid "Status"
+msgstr ""
+
 #: loginpage.php:19
 msgid "Username"
-msgstr "Username"
+msgstr ""
 
 #: loginpage.php:23
 msgid "Password"
-msgstr "Password"
+msgstr ""
 
 #: welcomepage.php:7
 msgid "Welcome to playSMS"
-msgstr "Selamat Datang di playSMS"
+msgstr "Selamat datang di playSMS"
 
 #: welcomepage.php:9
 msgid "About playSMS"

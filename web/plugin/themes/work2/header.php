@@ -23,7 +23,7 @@
     <!-- left menu -->
     <?php if (valid()) { ?>
     <td style="vertical-align: top">
-	<p><b>Logged in: <?=$username?></b> &nbsp; &nbsp; <b>Status: <?=$userstatus?></b></p>
+	<p><b><?=_('Logged in')?>: <?=$username?></b> &nbsp; &nbsp; <b><?=_('Status')?>: <?=$userstatus?></b></p>
 	<?=themes_work2_get_menu_dropdown()?>
     </td>
     <?php } ?>
