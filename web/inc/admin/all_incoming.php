@@ -22,7 +22,7 @@ switch ($op)
 	$limit = ($page-1)*$line_per_page;    
 	
 	$content = "
-	    <h2>"._('All Incoming SMS')."</h2>
+	    <h2>"._('All incoming SMS')."</h2>
 	    <p>$nav_pages</p>
 	    <form name=\"fm_incoming\" action=\"menu.php?inc=all_incoming&op=act_del\" method=post onSubmit=\"return SureConfirm()\">
 	    <table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">

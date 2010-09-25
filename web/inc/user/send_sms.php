@@ -22,7 +22,7 @@ switch ($op)
 	    $i = 0;
 	    $rows = phonebook_getdatabyid($c_gpid);
 	    foreach ($rows as $key => $db_row1) {
-		$list_of_number .= "<option value=\"".$db_row1['p_num']."\" $selected>".$db_row1['p_desc']." ".$db_row1['p_num']." (by ".$c_username.")</option>";
+		$list_of_number .= "<option value=\"".$db_row1['p_num']."\" $selected>".$db_row1['p_desc']." ".$db_row1['p_num']." ("._('shared by')." ".$c_username.")</option>";
 	    }
 	}
 	$max_length = $core_config['smsmaxlength'];
@@ -32,7 +32,7 @@ switch ($op)
 	}
 	else
 	{
-	    $sms_sender = "<i>not set</i>";
+	    $sms_sender = "<i>"._('not set')."</i>";
 	}
 	for ($i=0;$i<=23;$i++)
 	{
@@ -58,7 +58,7 @@ switch ($op)
 	$db_query2 = "SELECT * FROM "._DB_PREF_."_tblSMSTemplate WHERE uid='$uid'";
 	$db_result2 = dba_query($db_query2);
 	$j = 0;
-	$option_values = "<option value=\"\" default>--Please Select--</option>";
+	$option_values = "<option value=\"\" default>--"._('Please select')."--</option>";
 	while ($db_row = dba_fetch_array($db_result2))
 	{
 	    $j++;
@@ -67,7 +67,7 @@ switch ($op)
 	}
 
 	// document.fm_sendsms.message.value = document.fm_smstemplate.content_num.value;
-	// New function introduce for long sms count and another field (SMS Character) added to send sms broadcast 
+	// New function introduce for long sms count and another field (SMS character) added to send sms broadcast 
 	if ($errid) {
 	    $err = logger_get_error_string($errid);
 	}
@@ -79,15 +79,15 @@ switch ($op)
 	    $input_values
 	    </form>
 
-	    <h2>Send SMS</h2>
+	    <h2>"._('Send SMS')."</h2>
 	    <p>
 	    <form name=\"fm_sendsms\" id=\"fm_sendsms\" action=\"menu.php?inc=send_sms&op=sendsmstopv_yes\" method=\"POST\">
-	    <p>From: $sms_from
+	    <p>"._('From').": $sms_from
 	    <p>
 	    <table cellpadding=1 cellspacing=0 border=0>
 	    <tr>
 		<td nowrap>
-		    Phone number(s):<br>
+		    "._('Phone number(s)').":<br>
 		    <select name=\"p_num_dump[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\">$list_of_number</select>
 		</td>
 		<td width=10>&nbsp;</td>
@@ -99,23 +99,22 @@ switch ($op)
 		</td>		
 		<td width=10>&nbsp;</td>
 		<td nowrap>
-		    Send to:<br>
+		    "._('Send to').":<br>
 		    <select name=\"p_num[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\"></select>
 		</td>
 	    </tr>
 	    </table>
-	    <p>Or: <input type=text size=20 maxlength=13 name=p_num_text value=\"$dst_p_num\"> (International format)
-	    <p>SMS Sender ID (SMS footer): $sms_sender
-	    <p>Message template: <select name=\"smstemplate\">$option_values</select>
-	    <p><input type=\"button\" onClick=\"SetSmsTemplate();\" name=\"nb\" value=\"Use Template\" class=\"button\">
-	    <p>Your message: 
+	    <p>"._('Or').": <input type=text size=20 maxlength=13 name=p_num_text value=\"$dst_p_num\"> ("._('International format').")
+	    <p>"._('SMS Sender ID')." ("._('SMS footer')."): $sms_sender
+	    <p>"._('Message template').": <select name=\"smstemplate\">$option_values</select>
+	    <p><input type=\"button\" onClick=\"SetSmsTemplate();\" name=\"nb\" value=\""._('Use template')."\" class=\"button\">
+	    <p>"._('Your message').":
 	    <br><textarea cols=\"39\" rows=\"5\" onKeyUp=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onKeyUp=\"SmsCountKeyUp($max_length);\" onKeyDown=\"SmsCountKeyDown($max_length);\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
-	    <!-- <br>Character left: <input value=\"$max_length\" style=\"font-weight:bold;\" type=\"text\" onKeyPress=\"if (window.event.keyCode == 13){return false;}\" onFocus=\"this.blur();\" size=\"3\" name=\"charNumberLeftOutput\" id=\"charNumberLeftOutput\"> -->
-	    <br>SMS Character: <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
+	    <br>"._('SMS character').": <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
             <input type=\"hidden\" value=\"153\" name=\"hiddcount\"> 
-		<p><input type=checkbox name=msg_flash> Send as flash message
-	    <p><input type=checkbox name=msg_unicode> Send as unicode message (http://www.unicode.org)
-	    <p><input type=submit class=button value=Send onClick=\"selectAllOptions(this.form['p_num[]'])\"> 
+		<p><input type=checkbox name=msg_flash> "._('Send as flash message')."
+	    <p><input type=checkbox name=msg_unicode> "._('Send as unicode message (http://www.unicode.org)')."
+	    <p><input type=submit class=button value='"._('Send')."' onClick=\"selectAllOptions(this.form['p_num[]'])\"> 
 	    </form>
 	";
 	// fixme anton - if no magic_quote_gpc then the pl_addslashes in init.php will add \ in web ($message)
@@ -143,15 +142,15 @@ switch ($op)
 	    list($ok,$to,$smslog_id) = websend2pv($username,$sms_to,$message,$sms_type,$unicode);
 	    for ($i=0;$i<count($ok);$i++) {
 		if ($ok[$i]) {
-		    $error_string .= "Your SMS to `".$to[$i]."` has been delivered to queue<br>";
+		    $error_string .= _('Your SMS has been delivered to queue')." ("._('to').": ".$to[$i].")<br>";
 		} else {
-		    $error_string .= "Fail to sent SMS to `".$to[$i]."`<br>";
+		    $error_string .= _('Fail to sent SMS')." ("._('to').": `".$to[$i]."`)<br>";
 	        }
 	    }
 	    $errid = logger_set_error_string($error_string);
 	    header("Location: menu.php?inc=send_sms&op=sendsmstopv&message=".urlencode($message)."&errid=".$errid);
 	} else {
-	    header("Location: menu.php?inc=send_sms&op=sendsmstopv&message=".urlencode($message)."&err=".urlencode("You must select receiver and your message should not be empty"));
+	    header("Location: menu.php?inc=send_sms&op=sendsmstopv&message=".urlencode($message)."&err=".urlencode(_('You must select receiver and your message should not be empty')));
 	}
 	break;
     case "sendsmstogr":
@@ -177,7 +176,7 @@ switch ($op)
 	}
 	else
 	{
-	    $sms_sender = "<i>not set</i>";
+	    $sms_sender = "<i>"._('not set')."</i>";
 	}
 
 	$global_sender = ${$gateway_module.'_param'}['global_sender'];
@@ -193,7 +192,7 @@ switch ($op)
 	$db_query2 = "SELECT * FROM "._DB_PREF_."_tblSMSTemplate WHERE uid='$uid'";
 	$db_result2 = dba_query($db_query2);
 	$j = 0;
-	$option_values = "<option value=\"\" default>--Please Select--</option>";
+	$option_values = "<option value=\"\" default>--"._('Please select')."--</option>";
 	while ($db_row = dba_fetch_array($db_result2))
 	{
 	    $j++;
@@ -202,7 +201,7 @@ switch ($op)
 	}
 
 	// document.fm_sendsms.message.value = document.fm_smstemplate.content_num.value;
-	// New function introduce for long sms count and another field (SMS Character) added to send sms broadcast 
+	// New function introduce for long sms count and another field (SMS character) added to send sms broadcast 
 	if ($errid) {
 	    $err = logger_get_error_string($errid);
 	}
@@ -214,47 +213,22 @@ switch ($op)
 	    $input_values
 	    </form>
 
-	    <h2>Send broadcast SMS</h2>
+	    <h2>"._('Send broadcast SMS')."</h2>
 	    <p>
 	    <form name=fm_sendsms id=fm_sendsms action=menu.php?inc=send_sms&op=sendsmstogr_yes method=POST>
-	    <p>From: $sms_from
+	    <p>"._('From').": $sms_from
 	    <p>
-	    <p>Send to group: <select name=\"gpid\">$list_of_group</select>
-	    
-	    <!--
-	    <table cellpadding=1 cellspacing=0 border=0>
-	    <tr>
-		<td nowrap>
-		    Group(s):<br>
-		    <select name=\"gp_code_dump[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form[gp_code_dump[]],this.form[gp_code[]])\">$list_of_group</select>
-		</td>
-		<td width=10>&nbsp;</td>
-		<td align=center valign=middle>
-		<input type=\"button\" class=\"button\" value=\"&gt;&gt;\" onclick=\"moveSelectedOptions(this.form[gp_code_dump[]],this.form[gp_code[]])\"><br><br>
-		<input type=\"button\" class=\"button\" value=\"All &gt;&gt;\" onclick=\"moveAllOptions(this.form[gp_code_dump[]],this.form[gp_code[]])\"><br><br>
-		<input type=\"button\" class=\"button\" value=\"&lt;&lt;\" onclick=\"moveSelectedOptions(this.form[gp_code[]],this.form[gp_code_dump[]])\"><br><br>
-		<input type=\"button\" class=\"button\" value=\"All &lt;&lt;\" onclick=\"moveAllOptions(this.form[gp_code[]],this.form[gp_code_dump[]])\">
-		</td>		
-		<td width=10>&nbsp;</td>
-		<td nowrap>
-		    Send to:<br>
-		    <select name=\"gp_code[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form[gp_code[]],this.form[gp_code_dump[]])\"></select>
-		</td>
-	    </tr>
-	    </table>
-	    -->
-	    
-	    <p>Or: <input type=text size=20 maxlength=20 name=gp_code_text value=\"$dst_gp_code\"> (Group name)
-	    <p>SMS Sender ID (SMS footer): $sms_sender 
-	    <p>Message template: <select name=\"smstemplate\">$option_values</select>
-	    <p><input type=\"button\" onClick=\"SetSmsTemplate();\" name=\"nb\" value=\"Use Template\" class=\"button\">
-	    <p>Your message: 
+	    <p>"._('Send to group').": <select name=\"gpid\">$list_of_group</select>
+	    <p>"._('Or').": <input type=text size=20 maxlength=20 name=gp_code_text value=\"$dst_gp_code\"> ("._('Group code').")
+	    <p>"._('SMS Sender ID')." ("._('SMS footer')."): $sms_sender 
+	    <p>"._('Message template').": <select name=\"smstemplate\">$option_values</select>
+	    <p><input type=\"button\" onClick=\"SetSmsTemplate();\" name=\"nb\" value=\""._('Use template')."\" class=\"button\">
+	    <p>"._('Your message').":
 	    <br><textarea cols=\"39\" rows=\"5\" onKeyUp=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onKeyUp=\"SmsCountKeyUp($max_length);\" onKeyDown=\"SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
-	    <!-- <br>Character left: <input value=\"$max_length\" style=\"font-weight:bold;\" type=\"text\" onKeyPress=\"if (window.event.keyCode == 13){return false;}\" onFocus=\"this.blur();\" size=\"3\" name=\"charNumberLeftOutput\" id=\"charNumberLeftOutput\"> -->
-	    <br>SMS Character: <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
+	    <br>"._('SMS character').": <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
             <input type=\"hidden\" value=\"153\" name=\"hiddcount\">
-			 <p><input type=checkbox name=msg_flash> Send as flash message
-	    <p><input type=submit class=button value=Send onClick=\"selectAllOptions(this.form[gp_code[]])\"> 
+	    <p><input type=checkbox name=msg_flash> "._('Send as flash message')."
+	    <p><input type=submit class=button value='"._('Send')."' onClick=\"selectAllOptions(this.form[gp_code[]])\"> 
 	    </form>
 	";
 	echo $content;
@@ -276,15 +250,15 @@ switch ($op)
 	    list($ok,$to,$smslog_id) = websend2group($username,$gpid,$message,$sms_type);
 	    for ($i=0;$i<count($ok);$i++) {
 	        if ($ok[$i]) {
-	    	    $error_string .= "Your SMS to `".$to[$i]."` has been delivered to queue<br>";
+	    	    $error_string .= _('Your SMS has been delivered to queue')." ("._('to').": `".$to[$i]."`)<br>";
 	        } else {
-	    	    $error_string .= "Fail to sent SMS to `".$to[$i]."`<br>";
+	    	    $error_string .= _('Fail to sent SMS')." ("._('to').": `".$to[$i]."`)<br>";
 		}
 	    }
 	    $errid = logger_set_error_string($error_string);
 	    header("Location: menu.php?inc=send_sms&op=sendsmstogr&message=".urlencode($message)."&errid=".$errid);
 	} else {
-	    header("Location: menu.php?inc=send_sms&op=sendsmstogr&message=".urlencode($message)."&err=".urlencode("You must select receiver group and your message should not be empty"));
+	    header("Location: menu.php?inc=send_sms&op=sendsmstogr&message=".urlencode($message)."&err=".urlencode(_('You must select receiver group and your message should not be empty')));
 	}
 	break;
 }

@@ -22,20 +22,20 @@ switch ($op)
 	$limit = ($page-1)*$line_per_page;    
 	
 	$content = "
-	    <h2>Incoming SMS</h2>
+	    <h2>"._('Incoming SMS')."</h2>
 	    <p>$nav_pages</p>
 	    <form name=\"fm_incoming\" action=\"menu.php?inc=user_incoming&op=act_del\" method=post onSubmit=\"return SureConfirm()\">
 	    <table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
         <thead>
 	    <tr>
 	      <th align=center width=4>*</th>
-	      <th align=center width=15%>Time</th>
-	      <th align=center width=15%>Sender</th>
-	      <th align=center width=15%>Keyword</th>
-	      <th align=center width=30%>Content</th>
-	      <th align=center width=15%>Feature</th>
-	      <th align=center width=10%>Status</th>
-	      <th align=center class=\"sorttable_nosort\">Action</td>
+	      <th align=center width=15%>"._('Time')."</th>
+	      <th align=center width=15%>"._('Sender')."</th>
+	      <th align=center width=15%>"._('Keyword')."</th>
+	      <th align=center width=30%>"._('Content')."</th>
+	      <th align=center width=15%>"._('Feature')."</th>
+	      <th align=center width=10%>"._('Status')."</th>
+	      <th align=center class=\"sorttable_nosort\">"._('Action')."</td>
 	      <th width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_incoming)></td>
 	    </tr>
         </thead>
@@ -76,7 +76,7 @@ switch ($op)
 	          <td valign=top class=$td_class align=center nowrap>
 		    <a href=\"javascript: PopupReplySms('$current_sender', '".urlencode($in_message)."')\">$icon_reply</a>
 		    <a href=\"menu.php?inc=phone_add&op=add&phone=$current_sender\">$icon_phonebook</a>
-		    <a href=\"javascript: ConfirmURL('Are you sure you want to delete this SMS ?','menu.php?inc=user_incoming&op=user_incoming_del&inid=$in_id')\">$icon_delete</a>
+		    <a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this SMS ?')."','menu.php?inc=user_incoming&op=user_incoming_del&inid=$in_id')\">$icon_delete</a>
 		  </td>
 		<td class=$td_class width=4>
 		    <input type=hidden name=inid".$j." value=\"$in_id\">
@@ -93,7 +93,7 @@ switch ($op)
 	<tr>
 	    <td width=100% colspan=2 align=right>
 		<input type=hidden name=item_count value=\"$item_count\">
-		<input type=submit value=\"Delete selection\" class=button />
+		<input type=submit value=\""._('Delete selection')."\" class=button />
 	    </td>
 	</tr>
 	</table>	    
@@ -107,14 +107,14 @@ switch ($op)
 	echo $content;
 	break;
     case "user_incoming_del":
-	$error_string = "Fail to delete incoming SMS";
+	$error_string = _('Fail to delete incoming SMS');
 	if ($in_id = $_REQUEST['inid'])
 	{
 	    $db_query = "UPDATE "._DB_PREF_."_tblSMSIncoming SET c_timestamp='".mktime()."',flag_deleted='1' WHERE in_uid='$uid' AND in_id='$in_id'";
 	    $db_result = dba_affected_rows($db_query);
 	    if ($db_result > 0)
 	    {
-		$error_string = "Selected incoming SMS has been deleted";
+		$error_string = _('Selected incoming SMS has been deleted');
 	    }
 	}
 	header("Location: menu.php?inc=user_incoming&op=user_incoming&err=".urlencode($error_string));
@@ -133,7 +133,7 @@ switch ($op)
 		$db_result = dba_affected_rows($db_query);
 	    }
 	}
-	header ("Location: menu.php?inc=user_incoming&op=user_incoming&err=".urlencode("Selected incoming SMS has been deleted"));	
+	header ("Location: menu.php?inc=user_incoming&op=user_incoming&err=".urlencode(_('Selected incoming SMS has been deleted')));
 	break;
 }
 

@@ -95,16 +95,16 @@ switch ($op)
 	    $db_query = "DELETE FROM "._DB_PREF_."_tblUser WHERE uid='$del_uid'";
 	    if (@dba_affected_rows($db_query))
 	    {
-		$error_string = _('User')." `$uname` "._('has been deleted!');
+		$error_string = _('User has been deleted')" ("._('username').": `$uname`)";
 	    }
 	}
 	if (($del_uid == 1) || ($uname == "admin"))
 	{
-	    $error_string = _('User')." `$uname` "._('is immune to deletion!');
+	    $error_string = _('User is immune to deletion')." ("._('username')." `$uname`)";
 	}
 	else if ($del_uid == $uid)
 	{
-	    $error_string = _('Current logged in user is immune to deletion!');
+	    $error_string = _('Currently logged in user is immune to deletion');
 	}
 	header ("Location: menu.php?inc=user_mgmnt&op=user_list&err=".urlencode($error_string));
 	break;
@@ -121,15 +121,11 @@ switch ($op)
 	{
 	    $content = "<p><font color='red'>$err</font><p>";
 	}
-	// if ($status == 1) { $selected_1 = "selected"; }
 	if ($status == 2) { $selected_2 = "selected"; }
 	if ($status == 3) { $selected_3 = "selected"; }
 	$option_status = "
 	    <option value='2' $selected_2>"._('Administrator')."</option>
-	    <!--
-	    <option value='1' $selected_1>"._('Advertiser')."</option>
-	    -->
-	    <option value='3' $selected_3>"._('Normal User')."</option>
+	    <option value='3' $selected_3>"._('Normal user')."</option>
 	";
 	$content .= "
 	    <h2>"._('Preferences').": $uname</h2>
@@ -147,10 +143,10 @@ switch ($op)
 		<td>"._('Full name')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='up_name' value=\"$name\"></td>
 	    </tr>	    	    
 	    <tr>
-		<td>"._('Mobile (sender number').")</td><td>:</td><td><input type='text' size='16' maxlength='16' name='up_mobile' value=\"$mobile\"> "._('(Max. 16 numeric or 11 alphanumeric char.)')."</td>
+		<td>"._('Mobile')." ("._('sender number').")</td><td>:</td><td><input type='text' size='16' maxlength='16' name='up_mobile' value=\"$mobile\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td>
 	    </tr>
 	    <tr>
-		<td>"._('SMS Sender ID (SMS footer)')."</td><td>:</td><td><input type='text' size='35' maxlength='30' name='up_sender' value=\"$sender\"> "._('(Max. 30 Alphanumeric char.)')."</td>
+		<td>"._('SMS Sender ID')." ("._('SMS footer').")</td><td>:</td><td><input type='text' size='35' maxlength='30' name='up_sender' value=\"$sender\"> ("._('Max. 30 alphanumeric characters').")</td>
 	    </tr>	    
 	    <tr>
 		<td>"._('Password')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='up_password'> ("._('Fill to change password for username')." `$uname`)</td>
@@ -162,7 +158,7 @@ switch ($op)
 		<td>"._('User level')."</td><td>:</td><td><select name='up_status'>$option_status</select></td>
 	    </tr>
 	</table>	    
-	    <p><input type='submit' class='button' value='save'>
+	    <p><input type='submit' class='button' value='"._('Save')."'>
 	    </form>
 	";
 	echo $content;
@@ -177,14 +173,14 @@ switch ($op)
 	$up_status = $_POST['up_status'];
 	$up_credit = $_POST['up_credit'];
 //	$status = username2status($uname);
-	$error_string = _('No changes made!');
+	$error_string = _('No changes made');
 	if ($up_name && $up_mobile && $up_email)
 	{
-	    $db_query = "SELECT email FROM "._DB_PREF_."_tblUser WHERE email='$up_email' AND NOT username='$uname'";
-	    $db_result = dba_num_rows($db_query);
-	    if ($db_result > 0)
+	    $db_query = "SELECT username FROM "._DB_PREF_."_tblUser WHERE email='$up_email' AND NOT username='$uname'";
+	    $db_result = dba_query($db_query);
+	    if ($db_row = dba_fetch_array($db_result))
 	    {
-		$error_string = _('Email')." `$email` "._('already in use by other username');
+		$error_string = _('Email is already in use by other username')" ("._('email').": `$email`, "._('username').": `".$db_row['username']."`) ";
 	    }
 	    else
 	    {
@@ -197,17 +193,17 @@ switch ($op)
 		{
 		    $c_uid = username2uid($uname);
 		    rate_setusercredit($c_uid, $up_credit);
-		    $error_string = _('Preferences for user')." `$uname` "._('has been saved');
+		    $error_string = _('Preferences has been saved')." ("._('username').": `$uname`)";
 		}
 		else
 		{
-		    $error_string = _('Fail to save preferences for')." `$uname`";
+		    $error_string = _('Fail to save preferences')." ("._('username').": `$uname`)";
 		}
 	    }
 	}
 	else
 	{
-	    $error_string = _('Empty field is not allowed');
+	    $error_string = _('You must fill all field');
 	}
 	header ("Location: menu.php?inc=user_mgmnt&op=user_edit&uname=$uname&err=".urlencode($error_string));
 	break;
@@ -218,9 +214,6 @@ switch ($op)
 	}
 	$option_status = "
 	    <option value='2'>"._('Administrator')."</option>
-	    <!--
-	    <option value='1'>"._('Advertiser')."</option>
-	    -->
 	    <option value='3' selected>"._('Normal User')."</option>
 	";
 	$content .= "
@@ -238,10 +231,10 @@ switch ($op)
 		<td>"._('Full name')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='add_name' value=\"$add_name\"></td>
 	    </tr>
 	    <tr>
-		<td>"._('Mobile (sender number)')."</td><td>:</td><td><input type='text' size='16' maxlength='16' name='add_mobile' value=\"$add_mobile\"> (Max. 16 numeric char.)</td>
+		<td>"._('Mobile')." ("._('sender number').")</td><td>:</td><td><input type='text' size='16' maxlength='16' name='add_mobile' value=\"$add_mobile\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td>
 	    </tr>
 	    <tr>
-		<td>"._('SMS Sender ID (SMS footer)')."</td><td>:</td><td><input type='text' size='35' maxlength='30' name='add_sender' value=\"$add_sender\"> "._('(Max. 30 Alphanumeric char.)')."</td>
+		<td>"._('SMS Sender ID')." ("._('SMS footer').")</td><td>:</td><td><input type='text' size='35' maxlength='30' name='add_sender' value=\"$add_sender\"> ("._('Max. 30 alphanumeric characters').")</td>
 	    </tr>	    	    	    
 	    <tr>
 		<td>"._('Password')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='add_password' value=\"$add_password\"></td>
@@ -273,7 +266,7 @@ switch ($op)
 	    $db_result = dba_query($db_query);
 	    if ($db_row = dba_fetch_array($db_result))
 	    {
-		$error_string = "User with username `".$db_row['username']."` already exists!";
+		$error_string = _('User is already exists')." ("._('username').": `".$db_row['username']."`)";
 	    }
 	    else
 	    {
@@ -284,7 +277,7 @@ switch ($op)
 		if ($new_uid = @dba_insert_id($db_query))
 		{
 		    rate_setusercredit($new_uid, $add_credit);
-		    $error_string = _('User with username')." `$add_username` "._('has been added');
+		    $error_string = _('User has been added')." ("._('username').": `$add_username`)";
 		}
 	    }
 	}

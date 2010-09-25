@@ -111,13 +111,13 @@ function forcelogout()
     setcookie("vc1");
     setcookie("vc2");
     setcookie("vc3");
-    header("Location: ".$http_path['base']."?err=".urlencode("You have been logged out!"));
+    header("Location: ".$http_path['base']."?err=".urlencode(_('You have been logged out')));
     die();
 }
 
 function forcenoaccess()
 {
-    header("Location: menu.php?inc=noaccess&err=".urlencode("You have no access to this page!"));
+    header("Location: menu.php?inc=noaccess&err=".urlencode(_('You have no access to this page')));
     die();
 }
 

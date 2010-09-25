@@ -22,17 +22,17 @@ switch ($op)
 	$limit = ($page-1)*$line_per_page;    
 	
 	$content = "
-	    <h2>Inbox</h2>
+	    <h2>"._('Inbox')."</h2>
 	    <p>$nav_pages</p>
 	    <form name=\"fm_inbox\" action=\"menu.php?inc=user_inbox&op=act_del\" method=post onSubmit=\"return SureConfirm()\">
 	    <table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
         <thead>
 	    <tr>
 	      <th align=center width=4>*</th>
-	      <th align=center width=20%>Time</th>
-	      <th align=center width=20%>Sender</th>
-	      <th align=center width=60%>Message</th>
-	      <th align=center class=\"sorttable_nosort\">Action</td>
+	      <th align=center width=20%>"._('Time')."</th>
+	      <th align=center width=20%>"._('Sender')."</th>
+	      <th align=center width=60%>"._('Message')."</th>
+	      <th align=center class=\"sorttable_nosort\">"._('Action')."</td>
 	      <th width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></td>
 	    </tr>
         </thead>
@@ -67,7 +67,7 @@ switch ($op)
 	          <td valign=top class=$td_class align=center nowrap>
 		    <a href=\"javascript: PopupReplySms('$current_sender', '".urlencode($in_msg)."')\">$icon_reply</a>
 		    <a href=\"menu.php?inc=phone_add&op=add&phone=$current_sender\">$icon_phonebook</a>
-		    <a href=\"javascript: ConfirmURL('Are you sure you want to delete this SMS ?','menu.php?inc=user_inbox&op=user_inbox_del&inid=$in_id')\">$icon_delete</a>
+		    <a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this SMS ?')."','menu.php?inc=user_inbox&op=user_inbox_del&inid=$in_id')\">$icon_delete</a>
 		    
 		  </td>
 		<td class=$td_class width=4>
@@ -85,10 +85,10 @@ switch ($op)
 	<tr>
 	    <td width=100% colspan=2 align=right>
 		<input type=hidden name=item_count value=\"$item_count\">
-		<input type=submit value=\"Delete selection\" class=button />
+		<input type=submit value=\""._('Delete selection')."\" class=button />
 	    </td>
 	</tr>
-	</table>	    
+	</table>
     </form>
     <p>$nav_pages</p>
     ";
@@ -99,14 +99,14 @@ switch ($op)
 	echo $content;
 	break;
     case "user_inbox_del":
-	$error_string = "Fail to delete incoming SMS";
+	$error_string = _('Fail to delete incoming SMS');
 	if ($in_id = $_REQUEST['inid'])
 	{
 	    $db_query = "UPDATE "._DB_PREF_."_tblUserInbox SET c_timestamp='".mktime()."',in_hidden='1' WHERE in_id='$in_id' AND in_uid='$uid'";
 	    $db_result = dba_affected_rows($db_query);
 	    if ($db_result > 0)
 	    {
-		$error_string = "Selected incoming SMS has been deleted";
+		$error_string = _('Selected incoming SMS has been deleted');
 	    }
 	}
 	header("Location: menu.php?inc=user_inbox&op=user_inbox&err=".urlencode($error_string));
@@ -125,7 +125,7 @@ switch ($op)
 		$db_result = dba_affected_rows($db_query);
 	    }
 	}
-	header ("Location: menu.php?inc=user_inbox&op=user_inbox&err=".urlencode("Selected incoming SMS has been deleted"));	
+	header ("Location: menu.php?inc=user_inbox&op=user_inbox&err=".urlencode(_('Selected incoming SMS has been deleted')));
 	break;
 }
 

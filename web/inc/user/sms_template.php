@@ -14,10 +14,10 @@ switch ($op)
 	}
 	$fm_name = "fm_smstemp";
     	$content .= "
-	    <h2>Message template</h2>
+	    <h2>"._('Message template')."</h2>
 	    <p>
 	    <p>
-	    <input type=button value=\"Add message template\" onClick=\"javascript:linkto('menu.php?inc=sms_template&op=add_template')\" class=\"button\" />
+	    <input type=button value=\""._('Add message template')."\" onClick=\"javascript:linkto('menu.php?inc=sms_template&op=add_template')\" class=\"button\" />
 	    <p>
 	    <table width=\"100%\" cellpadding=1 cellspacing=2 border=\"0\" class=\"sortable\">
 	    <form name=\"$fm_name\" action=\"menu.php?inc=sms_template&op=delete\" method=post>
@@ -52,13 +52,13 @@ switch ($op)
 	$content .= "
 	    </table>
 	    <table width=\"100%\"><tr><td align=\"right\">
-		"._('Select Action')." : <select name=\"action\">
-		    <option value=\"delete\">Delete Selections</option>
+		"._('Select action')." : <select name=\"action\">
+		    <option value=\"delete\">"._('Delete selection')."</option>
 		</select>
-		<input type=\"submit\" value=\"Go\" class=\"button\"></td></tr>
+		<input type=\"submit\" value=\""._('Go')."\" class=\"button\"></td></tr>
 	    </table>
 	    <p>
-	    <input type=button value=\"Add message template\" onClick=\"javascript:linkto('menu.php?inc=sms_template&op=add_template')\" class=\"button\" />
+	    <input type=button value=\""._('Add message template')."\" onClick=\"javascript:linkto('menu.php?inc=sms_template&op=add_template')\" class=\"button\" />
 	    <p>
 	    <input type=\"hidden\" name=\"item_count\" value=\"$i\">
 	    </form>
@@ -67,20 +67,20 @@ switch ($op)
 	break;
     case "add_template":
 	$content = "
-	    <h2>Add message template</h2>
+	    <h2>"._('Add message template')."</h2>
 	    <p>
 	    <form action=\"menu.php?inc=sms_template&op=add_yes\" method=\"post\">
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
-		<td width=150>Message template name</td><td width=5>:</td><td><input type=\"text\" maxlength=\"100\" name=\"t_title\"></td>
+		<td width=150>"._('Message template name')."</td><td width=5>:</td><td><input type=\"text\" maxlength=\"100\" name=\"t_title\"></td>
 	    </tr>
 	    <tr>
-		<td>Message template content</td><td>:</td><td><input type=text name=t_text size=60></td>
+		<td>"._('Message template content')."</td><td>:</td><td><input type=text name=t_text size=60></td>
 	    </tr>	    
 	</table>	    
-	    <p><input type=\"submit\" class=\"button\" value=\"Save Template\">
+	    <p><input type=\"submit\" class=\"button\" value=\""._('Save template')."\">
 	    </form>
-	    <p><input type=button class=button value=Back onClick=javascript:linkto('menu.php?inc=sms_template&op=list')>
+	    <p><input type=button class=button value='"._('Back')."' onClick=javascript:linkto('menu.php?inc=sms_template&op=list')>
 	    </form>
 	";
 	echo $content;
@@ -92,7 +92,7 @@ switch ($op)
 	$db_result = dba_insert_id($db_query);
 	if ($db_result > 0)
 	{
-	    $error_string = "Message template is saved";
+	    $error_string = _('Message template has been saved');
 	}
 	else
 	{
@@ -105,21 +105,21 @@ switch ($op)
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$content = "
-	    <h2>Edit message template</h2>
+	    <h2>"._('Edit message template')."</h2>
 	    <p>
 	    <form action=\"menu.php?inc=sms_template&op=edit_yes&tid=$tid\" method=\"post\">
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
-		<td width=150>Message template name</td><td width=5>:</td><td><input type=\"text\" maxlength=\"100\" name=\"t_title\" value=\"".$db_row['t_title']."\"></td>
+		<td width=150>"._('Message template name')."</td><td width=5>:</td><td><input type=\"text\" maxlength=\"100\" name=\"t_title\" value=\"".$db_row['t_title']."\"></td>
 	    </tr>
 	    <tr>
-		<td>Message template content</td><td>:</td><td><input type=text name=t_text size=60 value=\"".$db_row['t_text']."\"></td>
+		<td>"._('Message template content')."</td><td>:</td><td><input type=text name=t_text size=60 value=\"".$db_row['t_text']."\"></td>
 	    </tr>	    
 	</table>
-	    <p><input type=\"submit\" class=\"button\" value=\"Save Template\">
+	    <p><input type=\"submit\" class=\"button\" value=\""._('Save template')."\">
 	    <input type=\"hidden\" name=\"item_count\" value=\"$i\">
 	    </form>
-	    <p><input type=button class=button value=Back onClick=javascript:linkto('menu.php?inc=sms_template&op=list')>
+	    <p><input type=button class=button value='"._('Back')."' onClick=javascript:linkto('menu.php?inc=sms_template&op=list')>
 	    </form>
 	";
 	echo $content;
@@ -131,15 +131,15 @@ switch ($op)
 	$db_result = dba_affected_rows($db_query);
 	if ($db_result > 0)
 	{
-	    $error_string = "Message template has been edited";
+	    $error_string = _('Message template has been edited');
 	}
 	else
 	{
-	    $error_string = "Fail to edit message template";
+	    $error_string = _('Fail to edit message template');
 	}
 	header ("Location: menu.php?inc=sms_template&op=list&err=".urlencode($error_string));
 	break;
-    case "delete":    
+    case "delete":
 	$item_count = $_POST['item_count'];
 	for ($i=1;$i<=$item_count;$i++)
 	{
@@ -147,14 +147,14 @@ switch ($op)
 	    ${"chkid".$i} = $_POST['chkid'.$i];
 	}
 	$content = "
-	    <h2>Delete message template</h2>
+	    <h2>"._('Delete message template')."</h2>
 	    <p>
 	    <form action=\"menu.php?inc=sms_template&op=delete_yes\" method=\"post\">
 	    <table width=\"100%\" cellpadding=\"1\" cellspacing=\"2\" border=\"0\" class=\"sortable\">
 	    <tr>
 		<td class=\"box_title\" width=\"4\">&nbsp;*&nbsp;</td>
-		<td class=\"box_title\" width=\"40%\">&nbsp;Name</td>
-		<td class=\"box_title\" width=\"60%\">&nbsp;Content</td>
+		<td class=\"box_title\" width=\"40%\">&nbsp;"._('Name')."</td>
+		<td class=\"box_title\" width=\"60%\">&nbsp;"._('Content')."</td>
 	    </tr>
 	";
 	$j = 0;
@@ -166,7 +166,7 @@ switch ($op)
 		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSTemplate WHERE tid='".${"tid".$i}."'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-        	$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";	    	    		
+        	$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 		$content .= "
 		    <tr>
 	    		<td class=\"$td_class\">&nbsp;$j&nbsp;</td>
@@ -180,9 +180,9 @@ switch ($op)
 	$content .= "
 	    </table>
 	    <input type=\"hidden\" name=\"item_count\" value=\"$j\">
-	    <p> Delete all templates ?
-	    <p><input type=\"submit\" value=\"Delete\" class=\"button\">
-	    <p><input type=button class=button value=Back onClick=javascript:linkto('menu.php?inc=sms_template&op=list')>
+	    <p>"._('Delete all templates ?')."
+	    <p><input type=\"submit\" value=\""._('Delete')."\" class=\"button\">
+	    <p><input type=button class=button value='"._('Back')."' onClick=javascript:linkto('menu.php?inc=sms_template&op=list')>
 	    </form>
 	";
 	echo $content;
@@ -198,7 +198,7 @@ switch ($op)
 	    $db_query = "DELETE FROM "._DB_PREF_."_tblSMSTemplate WHERE tid='".${"tid".$i}."'";
 	    $db_result = dba_affected_rows($db_query);
 	}
-	$error_string = "Selected message template has been deleted";
+	$error_string = _('Selected message template has been deleted');
 	header ("Location: menu.php?inc=sms_template&op=list&err=".urlencode($error_string));        
 	break;
 

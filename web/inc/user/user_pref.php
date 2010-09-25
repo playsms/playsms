@@ -23,48 +23,12 @@ switch ($op)
 	    $education = $db_row['education'];
 	    $zipcode = $db_row['zipcode'];
 	    $sender = $db_row['sender'];
-	    //$credit = $db_row['credit'];
 	    $credit = rate_getusercredit($username);
 	}
-	/*
-	// get gender option
-	$array_gender = array("Please Select","Male","Female");
-	for ($i=0;$i<=2;$i++)
-	{
-	    $selected = "";
-	    if ($i == $gender)
-	    {
-		$selected = "selected";
-	    }
-	    $option_gender .= "<option value=\"$i\" $selected>".$array_gender[$i]."</option>\n";
-	}
-	// get marital option
-	$array_marital = array("Please Select","Single","Divorced","Separated","Widowed","Married");
-	for ($i=0;$i<=5;$i++)
-	{
-	    $selected = "";
-	    if ($i == $marital)
-	    {
-		$selected = "selected";
-	    }
-	    $option_marital .= "<option value=\"$i\" $selected>".$array_marital[$i]."</option>\n";
-	}
-	// get education option
-	$array_education = array("Please Select","High School","College Student","College Graduate","Post Graduate");
-	for ($i=0;$i<=4;$i++)
-	{
-	    $selected = "";
-	    if ($i == $education)
-	    {
-		$selected = "selected";
-	    }
-	    $option_education .= "<option value=\"$i\" $selected>".$array_education[$i]."</option>\n";
-	}
-	*/	
 	// get country option
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblUser_country ORDER BY country_name";
 	$db_result = dba_query($db_query);
-	$option_country = "<option value=\"0\">Please Select</option>\n";
+	$option_country = "<option value=\"0\">--"._('Please select')."--</option>\n";
 	while ($db_row = dba_fetch_array($db_result))
 	{
 	    $country_id = $db_row['country_id'];
@@ -77,36 +41,31 @@ switch ($op)
 	    $option_country .= "<option value=\"$country_id\" $selected>$country_name</option>\n";
 	}
 	$content .= "
-	    <h2>Preferences</h2>
+	    <h2>"._('Preferences')."</h2>
 	    <p>
 	    <form action=menu.php?inc=user_pref&op=user_pref_save method=post enctype=\"multipart/form-data\">
 	    <table width=100% cellpadding=1 cellspacing=1 border=0>
-	    <tr><td colspan=3><h2>Login Information</h2><hr></td></tr>
-	    <tr><td width=200>Username</td><td>:</td><td><b>$username</b></td></tr>
-	    <tr><td width=200>Email $nd</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_email value=\"$email\"></td></tr>
-	    <tr><td width=200>Password</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password></td></tr>
-	    <tr><td width=200>Re-Type Password</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password_conf></td></tr>
+	    <tr><td colspan=3><h2>"._('Login information')."</h2><hr></td></tr>
+	    <tr><td width=200>"._('Username')."</td><td>:</td><td><b>$username</b></td></tr>
+	    <tr><td width=200>"._('Email')." $nd</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_email value=\"$email\"></td></tr>
+	    <tr><td width=200>"._('Password')."</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password></td></tr>
+	    <tr><td width=200>"._('Re-Type Password')."</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password_conf></td></tr>
 	    <tr><td colspan=3>&nbsp;</td></tr>
-	    <tr><td colspan=3><h2>Personal Information</h2><hr></td></tr>
-	    <tr><td width=200>Name $nd</td><td>:</td><td><input type=text size=40 maxlength=100 name=up_name value=\"$name\"></td></tr>
-	    <!--
-	    <tr><td width=200>Gender</td><td>:</td><td><select name=up_gender>$option_gender</select></td></tr>
-	    <tr><td width=200>Marital status</td><td>:</td><td><select name=up_marital>$option_marital</select></td></tr>
-	    <tr><td width=200>Education</td><td>:</td><td><select name=up_education>$option_education</select></td></tr>
-	    -->
-	    <tr><td width=200>Address $nd</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_address value=\"$address\"></td></tr>
-	    <tr><td width=200>City</td><td>:</td><td><input type=text size=40 maxlength=100 name=up_city value=\"$city\"></td></tr>
-	    <tr><td width=200>State/Province</td><td>:</td><td><input type=text size=40 maxlength=100 name=up_state value=\"$state\"></td></tr>
-	    <tr><td width=200>Country $nd</td><td>:</td><td><select name=up_country>$option_country</select></td></tr>
-	    <tr><td width=200>Zipcode</td><td>:</td><td><input type=text size=10 maxlength=10 name=up_zipcode value=\"$zipcode\"></td></tr>
+	    <tr><td colspan=3><h2>"._('Personal information')."</h2><hr></td></tr>
+	    <tr><td width=200>"._('Name')." $nd</td><td>:</td><td><input type=text size=40 maxlength=100 name=up_name value=\"$name\"></td></tr>
+	    <tr><td width=200>"._('Address')." $nd</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_address value=\"$address\"></td></tr>
+	    <tr><td width=200>"._('City')."</td><td>:</td><td><input type=text size=40 maxlength=100 name=up_city value=\"$city\"></td></tr>
+	    <tr><td width=200>"._('State or Province')."</td><td>:</td><td><input type=text size=40 maxlength=100 name=up_state value=\"$state\"></td></tr>
+	    <tr><td width=200>"._('Country')." $nd</td><td>:</td><td><select name=up_country>$option_country</select></td></tr>
+	    <tr><td width=200>"._('Zipcode')."</td><td>:</td><td><input type=text size=10 maxlength=10 name=up_zipcode value=\"$zipcode\"></td></tr>
 	    <tr><td colspan=3>&nbsp;</td></tr>
-	    <tr><td colspan=3><h2>Application Information</h2><hr></td></tr>
-	    <tr><td width=200>Mobile (sender number)</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_mobile value=\"$mobile\"> (International format)</td></tr>
-	    <tr><td width=200>SMS Sender ID (SMS footer)</td><td>:</td><td><input type=text size=35 maxlength=30 name=up_sender value=\"$sender\"> (Max. 30 Alphanumeric char.)</td></tr>
-	    <tr><td width=200>Credit</td><td>:</td><td><b>$credit</b></td></tr>
+	    <tr><td colspan=3><h2>"._('Application information')."</h2><hr></td></tr>
+	    <tr><td width=200>"._('Mobile')." ("._('sender number').")</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_mobile value=\"$mobile\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td></tr>
+	    <tr><td width=200>"._('SMS Sender ID')." ("._('SMS footer').")</td><td>:</td><td><input type=text size=35 maxlength=30 name=up_sender value=\"$sender\"> ("._('Max. 30 alphanumeric characters').")</td></tr>
+	    <tr><td width=200>"._('Credit')."</td><td>:</td><td><b>$credit</b></td></tr>
 	    <tr><td colspan=3>&nbsp;</td></tr>
 	    <tr><td colspan=3><hr></td></tr>
-	    <tr><td width=200><input type=submit class=button value=Save></td></tr>
+	    <tr><td width=200><input type=submit class=button value='"._('Save')."'></td></tr>
 	    </table>
 	    </form>
 	";
@@ -129,15 +88,15 @@ switch ($op)
 	$up_education = $_POST['up_education'];
 	$up_zipcode = $_POST['up_zipcode'];
 	$up_trn = $_POST['up_trn'];
-	$error_string = "No changes made!";
+	$error_string = _('No changes made');
 	if ($up_name && $up_mobile && $up_email && $up_address && $up_country)
 	{
 	    $up_uname = $username;
-	    $db_query = "SELECT email FROM "._DB_PREF_."_tblUser WHERE email='$up_email' AND NOT username='$up_uname'";
-	    $db_result = dba_num_rows($db_query);
-	    if ($db_result > 0)
+	    $db_query = "SELECT username FROM "._DB_PREF_."_tblUser WHERE email='$up_email' AND NOT username='$up_uname'";
+	    $db_result = dba_query($db_query);
+	    if ($db_row = dba_fetch_array($db_result))
 	    {
-		$error_string = "Email `$email` already in use by other username";
+		$error_string = _('Email is already in use by other username')." ("._('email').": `$email`)";
 	    }
 	    else
 	    {
@@ -157,22 +116,22 @@ switch ($op)
 		{
 		    if ($up_password && $up_password_conf && ($up_password == $up_password_conf))
 		    {
-			$error_string = "Preferences has been saved and password updated";
+			$error_string = _('Preferences has been saved and password updated');
 		    }
 		    else
 		    {
-			$error_string = "Preferences has been saved";
+			$error_string = _('Preferences has been saved');
 		    }
 		}
 		else
 		{
-		    $error_string = "Fail to save preferences for `$up_uname`";
+		    $error_string = _('Fail to save preferences');
 		}
 	    }
 	}
 	else
 	{
-	    $error_string = "Empty field is not allowed";
+	    $error_string = _('You must fill all field');
 	}
 	header ("Location: menu.php?inc=user_pref&op=user_pref&err=".urlencode($error_string));
 	break;
