@@ -1,0 +1,222 @@
+#: config.php:4 sms_subscribe.php:12
+msgid "Manage subscribe"
+msgstr "Manage subscribe"
+
+#: config.php:6
+msgid "Add message"
+msgstr ""
+
+#: config.php:7
+msgid "View members"
+msgstr ""
+
+#: config.php:8
+msgid "View messages"
+msgstr ""
+
+#: fn.php:96 fn.php:101 fn.php:106
+msgid "You are not a member"
+msgstr ""
+
+#: fn.php:111
+msgid "Unknown SMS format"
+msgstr ""
+
+#: fn.php:144 fn.php:149 fn.php:154
+msgid "You already a member"
+msgstr ""
+
+#: fn.php:159
+msgid "Unknown sms format"
+msgstr ""
+
+#: sms_subscribe.php:14 sms_subscribe.php:66 sms_subscribe.php:438
+msgid "Add SMS subscribe"
+msgstr ""
+
+#: sms_subscribe.php:26
+msgid "Keyword"
+msgstr ""
+
+#: sms_subscribe.php:27
+msgid "Total members"
+msgstr ""
+
+#: sms_subscribe.php:28
+msgid "User"
+msgstr ""
+
+#: sms_subscribe.php:29
+msgid "Status"
+msgstr ""
+
+#: sms_subscribe.php:30 sms_subscribe.php:96 sms_subscribe.php:282
+msgid "Action"
+msgstr ""
+
+#: sms_subscribe.php:43 sms_subscribe.php:353
+msgid "Disabled"
+msgstr ""
+
+#: sms_subscribe.php:45 sms_subscribe.php:355
+msgid "Enabled"
+msgstr ""
+
+#: sms_subscribe.php:51
+msgid "Are you sure you want to delete SMS subscribe ?"
+msgstr ""
+
+#: sms_subscribe.php:51 sms_subscribe.php:381 sms_subscribe.php:414
+#: sms_subscribe.php:469 sms_subscribe.php:472
+msgid "keyword"
+msgstr ""
+
+#: sms_subscribe.php:84
+msgid "SMS messages list for keyword"
+msgstr ""
+
+#: sms_subscribe.php:88 sms_subscribe.php:118
+msgid "Add Message"
+msgstr ""
+
+#: sms_subscribe.php:95 sms_subscribe.php:151
+msgid "Message"
+msgstr ""
+
+#: sms_subscribe.php:106
+msgid "Are you sure you want to delete this message?"
+msgstr ""
+
+#: sms_subscribe.php:141
+msgid "Message detail"
+msgstr ""
+
+#: sms_subscribe.php:148 sms_subscribe.php:186 sms_subscribe.php:335
+#: sms_subscribe.php:443 sms_subscribe.php:493
+msgid "SMS subscribe keyword"
+msgstr ""
+
+#: sms_subscribe.php:154
+msgid "Send this message to all members"
+msgstr ""
+
+#: sms_subscribe.php:155
+msgid "Send"
+msgstr ""
+
+#: sms_subscribe.php:190 sms_subscribe.php:500
+msgid "Message body"
+msgstr ""
+
+#: sms_subscribe.php:196
+msgid "Edit"
+msgstr ""
+
+#: sms_subscribe.php:211
+msgid "Message has been edited"
+msgstr ""
+
+#: sms_subscribe.php:214 sms_subscribe.php:254 sms_subscribe.php:384
+#: sms_subscribe.php:475 sms_subscribe.php:523
+msgid "You must fill all fields"
+msgstr ""
+
+#: sms_subscribe.php:246
+msgid "Your SMS has been delivered to queue"
+msgstr ""
+
+#: sms_subscribe.php:246 sms_subscribe.php:248
+msgid "to"
+msgstr ""
+
+#: sms_subscribe.php:248
+msgid "Fail to send SMS"
+msgstr ""
+
+#: sms_subscribe.php:273
+msgid "Member list for keyword"
+msgstr ""
+
+#: sms_subscribe.php:280
+msgid "Phone number"
+msgstr ""
+
+#: sms_subscribe.php:281
+msgid "Member join datetime"
+msgstr ""
+
+#: sms_subscribe.php:290
+msgid "Are you sure you want to delete this member ?"
+msgstr ""
+
+#: sms_subscribe.php:310
+msgid "\"Member has been deleted"
+msgstr ""
+
+#: sms_subscribe.php:328
+msgid "Edit SMS subscribe"
+msgstr ""
+
+#: sms_subscribe.php:338 sms_subscribe.php:446
+msgid "SMS subscribe reply"
+msgstr ""
+
+#: sms_subscribe.php:341 sms_subscribe.php:449
+msgid "SMS unsubscribe reply"
+msgstr ""
+
+#: sms_subscribe.php:344
+msgid "Save"
+msgstr ""
+
+#: sms_subscribe.php:358
+msgid "Enable or disable this subscribe"
+msgstr ""
+
+#: sms_subscribe.php:360
+msgid "Current status"
+msgstr ""
+
+#: sms_subscribe.php:361
+msgid "What do you want to do ?"
+msgstr ""
+
+#: sms_subscribe.php:362
+msgid "I want to enable this subscribe"
+msgstr ""
+
+#: sms_subscribe.php:363
+msgid "I want to disable this subscribe"
+msgstr ""
+
+#: sms_subscribe.php:381
+msgid "SMS subscribe has been saved"
+msgstr ""
+
+#: sms_subscribe.php:395
+msgid "SMS subscribe status has been changed"
+msgstr ""
+
+#: sms_subscribe.php:414
+msgid "SMS subscribe with all its messages and members has been deleted"
+msgstr ""
+
+#: sms_subscribe.php:427
+msgid "Message has been deleted"
+msgstr ""
+
+#: sms_subscribe.php:452 sms_subscribe.php:505
+msgid "Add"
+msgstr ""
+
+#: sms_subscribe.php:469
+msgid "SMS subscribe has been added"
+msgstr ""
+
+#: sms_subscribe.php:472
+msgid "SMS subscribe already exists, reserved or use by other feature"
+msgstr ""
+
+#: sms_subscribe.php:520
+msgid "Member message has been added"
+msgstr ""

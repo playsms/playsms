@@ -1,0 +1,51 @@
+#: config.php:14 template.php:24
+msgid "Manage template"
+msgstr "Manage template"
+
+#: template.php:8
+msgid "Active"
+msgstr ""
+
+#: template.php:12
+msgid "Inactive"
+msgstr ""
+
+#: template.php:12
+msgid "click here to activate"
+msgstr ""
+
+#: template.php:29
+msgid "Gateway name"
+msgstr ""
+
+#: template.php:32
+msgid "Template installation path"
+msgstr ""
+
+#: template.php:32
+msgid "No trailing slash"
+msgstr ""
+
+#: template.php:36
+msgid "Note"
+msgstr ""
+
+#: template.php:37
+msgid "Send SMS message without footer banner"
+msgstr ""
+
+#: template.php:39
+msgid "Save"
+msgstr ""
+
+#: template.php:45
+msgid "No changes has been made"
+msgstr ""
+
+#: template.php:54
+msgid "Gateway module configurations has been saved"
+msgstr ""
+
+#: template.php:62
+msgid "Gateway has been activated"
+msgstr ""

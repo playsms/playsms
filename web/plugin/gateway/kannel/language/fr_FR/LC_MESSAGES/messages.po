@@ -1,0 +1,79 @@
+#: config.php:19 kannel.php:23
+msgid "Manage kannel"
+msgstr "Manage kannel"
+
+#: kannel.php:8
+msgid "Active"
+msgstr ""
+
+#: kannel.php:12
+msgid "Inactive"
+msgstr ""
+
+#: kannel.php:12
+msgid "click here to activate"
+msgstr ""
+
+#: kannel.php:28
+msgid "Gateway name"
+msgstr ""
+
+#: kannel.php:31
+msgid "Username"
+msgstr ""
+
+#: kannel.php:34
+msgid "Password"
+msgstr ""
+
+#: kannel.php:37
+msgid "Global sender"
+msgstr ""
+
+#: kannel.php:37
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+
+#: kannel.php:40
+msgid "Bearerbox hostname or IP"
+msgstr ""
+
+#: kannel.php:40 kannel.php:43
+msgid "Kannel specific"
+msgstr ""
+
+#: kannel.php:43
+msgid "Send SMS port"
+msgstr ""
+
+#: kannel.php:46
+msgid "playSMS web URL"
+msgstr ""
+
+#: kannel.php:46
+msgid "URL to playSMS, empty it to set it to base URL"
+msgstr ""
+
+#: kannel.php:50
+msgid "Note"
+msgstr ""
+
+#: kannel.php:51
+msgid "Send SMS message without footer banner"
+msgstr ""
+
+#: kannel.php:53
+msgid "Save"
+msgstr ""
+
+#: kannel.php:65
+msgid "No changes has been made"
+msgstr ""
+
+#: kannel.php:80
+msgid "Gateway module configurations has been saved"
+msgstr ""
+
+#: kannel.php:88
+msgid "Gateway has been activated"
+msgstr ""
