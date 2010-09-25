@@ -167,7 +167,7 @@ switch ($op)
 	{
 	    $c_uid = $db_row['uid'];
 	    $c_username = uid2username($c_uid);
-	    $list_of_group .= "<option value=\"".$db_row['gpid']."\" $selected>".$db_row['gp_name']." (".$db_row['gp_code'].") - by ".$c_username."</option>";
+	    $list_of_group .= "<option value=\"".$db_row['gpid']."\" $selected>".$db_row['gp_name']." (".$db_row['gp_code'].") - "._('shared by')." ".$c_username."</option>";
 	}
 	$max_length = $core_config['smsmaxlength'];
 	if ($sms_sender = username2sender($username))

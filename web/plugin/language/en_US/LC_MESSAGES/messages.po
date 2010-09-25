@@ -1,7 +1,7 @@
 #: inc/user/sms_template.php:17 inc/user/send_sms.php:109
 #: inc/user/send_sms.php:224 lib/lib_init1.php:36
 msgid "Message template"
-msgstr ""
+msgstr "Message template"
 
 #: inc/user/sms_template.php:20 inc/user/sms_template.php:61
 #: inc/user/sms_template.php:70
@@ -83,7 +83,7 @@ msgstr ""
 msgid "Selected message template has been deleted"
 msgstr ""
 
-#: inc/user/send_sms.php:25
+#: inc/user/send_sms.php:25 inc/user/send_sms.php:170
 msgid "shared by"
 msgstr ""
 
