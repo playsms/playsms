@@ -108,7 +108,7 @@ while ($db_row = dba_fetch_array($db_result))
     $c_uid = $db_row['uid'];
     $c_username = uid2username($c_uid);
     $list_of_phonenumber .= "
-	<p>By: ".$c_username." - group: ".$db_row['gp_name']." - code: ".$db_row['gp_code']." <!-- <a href=\"javascript: PopupSendSms('BC','".$db_row['gp_code']."')\">$icon_sendsms</a> -->
+	<p>"._('Shared by').": ".$c_username." - group: ".$db_row['gp_name']." - code: ".$db_row['gp_code']." <!-- <a href=\"javascript: PopupSendSms('BC','".$db_row['gp_code']."')\">$icon_sendsms</a> -->
 	<table width=100% cellpadding=1 cellspacing=2 border=0 class=\"sortable\">
 	<tr>
 	    <td class=box_title width=4>&nbsp;*&nbsp;</td>

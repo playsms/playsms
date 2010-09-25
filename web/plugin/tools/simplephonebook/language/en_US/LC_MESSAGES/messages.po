@@ -278,6 +278,10 @@ msgstr ""
 msgid "Select action"
 msgstr ""
 
+#: simplephonebook.php:111
+msgid "Shared by"
+msgstr ""
+
 #: simplephonebook.php:157 simplephonebook.php:162
 msgid "Export all"
 msgstr ""
