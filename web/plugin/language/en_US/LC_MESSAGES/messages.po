@@ -1,7 +1,7 @@
 #: inc/user/sms_template.php:17 inc/user/send_sms.php:109
 #: inc/user/send_sms.php:224 lib/lib_init1.php:36
 msgid "Message template"
-msgstr "Message template"
+msgstr ""
 
 #: inc/user/sms_template.php:20 inc/user/sms_template.php:61
 #: inc/user/sms_template.php:70
@@ -514,7 +514,18 @@ msgstr ""
 msgid "Administrator"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:35 inc/admin/user_mgmnt.php:69
+#: inc/admin/user_mgmnt.php:35
+msgid "Are you sure you want to delete user ?"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:35 inc/admin/user_mgmnt.php:98
+#: inc/admin/user_mgmnt.php:103 inc/admin/user_mgmnt.php:183
+#: inc/admin/user_mgmnt.php:196 inc/admin/user_mgmnt.php:200
+#: inc/admin/user_mgmnt.php:269 inc/admin/user_mgmnt.php:280
+msgid "username"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:69
 msgid "Are you sure you want to delete user"
 msgstr ""
 
@@ -524,13 +535,6 @@ msgstr ""
 
 #: inc/admin/user_mgmnt.php:98
 msgid "User has been deleted"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:98 inc/admin/user_mgmnt.php:103
-#: inc/admin/user_mgmnt.php:183 inc/admin/user_mgmnt.php:196
-#: inc/admin/user_mgmnt.php:200 inc/admin/user_mgmnt.php:269
-#: inc/admin/user_mgmnt.php:280
-msgid "username"
 msgstr ""
 
 #: inc/admin/user_mgmnt.php:103

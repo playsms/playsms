@@ -32,7 +32,7 @@ switch ($op)
 	    $i++;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 	    $action = "<a href=menu.php?inc=user_mgmnt&op=user_edit&uname=".$db_row['username'].">$icon_edit</a>";
-	    $action .= "<a href=\"javascript: ConfirmURL("._('Are you sure you want to delete user')." `".$db_row['username']."` ?','menu.php?inc=user_mgmnt&op=user_del&uname=".$db_row['username']."')\">$icon_delete</a>";
+	    $action .= "<a href=\"javascript: ConfirmURL("._('Are you sure you want to delete user ?')." ("._('username').": `".$db_row['username']."`)','menu.php?inc=user_mgmnt&op=user_del&uname=".$db_row['username']."')\">$icon_delete</a>";
 	    $content .= "
     <tr>
 	<td class='$td_class'>&nbsp;$i.</td>
@@ -95,7 +95,7 @@ switch ($op)
 	    $db_query = "DELETE FROM "._DB_PREF_."_tblUser WHERE uid='$del_uid'";
 	    if (@dba_affected_rows($db_query))
 	    {
-		$error_string = _('User has been deleted')" ("._('username').": `$uname`)";
+		$error_string = _('User has been deleted')." ("._('username').": `$uname`)";
 	    }
 	}
 	if (($del_uid == 1) || ($uname == "admin"))
@@ -180,7 +180,7 @@ switch ($op)
 	    $db_result = dba_query($db_query);
 	    if ($db_row = dba_fetch_array($db_result))
 	    {
-		$error_string = _('Email is already in use by other username')" ("._('email').": `$email`, "._('username').": `".$db_row['username']."`) ";
+		$error_string = _('Email is already in use by other username')." ("._('email').": `$email`, "._('username').": `".$db_row['username']."`) ";
 	    }
 	    else
 	    {
