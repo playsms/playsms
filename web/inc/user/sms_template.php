@@ -25,7 +25,7 @@ switch ($op)
 		<td class=\"box_title\" width=\"4\">&nbsp;</td>
 		<td class=\"box_title\" width=\"40%\">&nbsp;"._('Name')."</td>
 		<td class=\"box_title\" width=\"60%\">&nbsp;"._('Content')."</td>
-		<td class=\"box_title\" width=\"\" align=\"center\"><input type=checkbox onclick=CheckUncheckAll(document.".$fm_name.")></td>
+		<td class=\"sorttable_nosort\" align=\"center\"><input type=checkbox onclick=CheckUncheckAll(document.".$fm_name.")></td>
 	    </tr>
 	";
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSTemplate WHERE uid='$uid'";
