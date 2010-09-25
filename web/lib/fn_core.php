@@ -1,27 +1,20 @@
 <?php
+if(!(defined('_SECURE_'))){die('Intruder alert');};
 
-function checkavailablekeyword($keyword)
-{
+function checkavailablekeyword($keyword) {
     global $reserved_keywords, $core_config;
     $ok = true;
     $reserved = false;
-    for ($i=0;$i<count($reserved_keywords);$i++)
-    {
-        if ($keyword == $reserved_keywords[$i])
-        {
+    for ($i=0;$i<count($reserved_keywords);$i++) {
+        if ($keyword == $reserved_keywords[$i]) {
     	    $reserved = true;
 	}
     }
-    if ($reserved)
-    {
+    if ($reserved) {
 	$ok = false;	
-    }
-    else
-    {
-	for ($c=0;$c<count($core_config['featurelist']);$c++)
-	{
-	    if (x_hook($core_config['featurelist'][$c],'checkavailablekeyword',array($keyword)))
-	    {
+    } else {
+	for ($c=0;$c<count($core_config['featurelist']);$c++) {
+	    if (x_hook($core_config['featurelist'][$c],'checkavailablekeyword',array($keyword))) {
 		$ok = false;
 		break;
 	    }
@@ -30,8 +23,7 @@ function checkavailablekeyword($keyword)
     return $ok;
 }
 
-function setsmsincomingaction($sms_datetime,$sms_sender,$message)
-{
+function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
     global $gateway_module, $core_config;
     $c_uid = 0;
     $c_feature = "";
@@ -40,12 +32,10 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message)
     $target_keyword = strtoupper(trim($array_target_keyword[0]));
     $message_full = $message;
     $message = $array_target_keyword[1];
-    for ($i=2;$i<count($array_target_keyword);$i++)
-    {
+    for ($i=2;$i<count($array_target_keyword);$i++) {
 	$message .= " ".$array_target_keyword[$i];
     }
-    switch ($target_keyword)
-    {
+    switch ($target_keyword) {
 	case "BC":
 	    $c_uid = mobile2uid($sms_sender);
 	    $c_feature = 'core';
@@ -53,12 +43,10 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message)
 	    $target_group = strtoupper(trim($array_target_group[0]));
 	    $c_gpid = phonebook_groupcode2id($c_uid, $target_group);
 	    $message = $array_target_group[1];
-	    for ($i=2;$i<count($array_target_group);$i++)
-	    {
+	    for ($i=2;$i<count($array_target_group);$i++) {
 		$message .= " ".$array_target_group[$i];
 	    }
-	    if (send2group($sms_sender,$c_gpid,$message))
-	    {
+	    if (send2group($sms_sender,$c_gpid,$message)) {
 		$ok = true;
 	    }
 	    break;
@@ -68,31 +56,25 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message)
 	    $target_user = strtoupper(trim($array_target_user[0]));
 	    $c_uid = username2uid($target_user);
 	    $message = $array_target_user[1];
-	    for ($i=2;$i<count($array_target_user);$i++)
-	    {
+	    for ($i=2;$i<count($array_target_user);$i++) {
 		$message .= " ".$array_target_user[$i];
 	    }
-	    if (insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message))
-	    {
+	    if (insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message)) {
 		$ok = true;
 	    }
 	    break;
 	default:
-	    for ($c=0;$c<count($core_config['featurelist']);$c++)
-	    {
+	    for ($c=0;$c<count($core_config['featurelist']);$c++) {
 		$c_feature = $core_config['featurelist'][$c];
 		$ret = x_hook($c_feature,'setsmsincomingaction',array($sms_datetime,$sms_sender,$target_keyword,$message));
-		if ($ok = $ret['status'])
-		{
+		if ($ok = $ret['status']) {
 		    $c_uid = $ret['uid'];
 		    break;
 		}
 	    }
     }
-
     $c_status = ( $ok ? 1 : 0 );
-    if ($c_status == 0)
-    {
+    if ($c_status == 0) {
 	$c_feature = '';
 	$target_keyword = '';
 	$message = $message_full;
@@ -171,17 +153,14 @@ function q_sanitize($var) {
     return $var;
 }
 			    
-function x_hook($c_plugin, $c_function, $c_param=array())
-{
+function x_hook($c_plugin, $c_function, $c_param=array()) {
     $c_fn = $c_plugin.'_hook_'.$c_function;
-    if ($c_plugin && $c_function && function_exists($c_fn))
-    {
+    if ($c_plugin && $c_function && function_exists($c_fn)) {
 	return call_user_func_array($c_fn, $c_param);
     }
 }
 
-function getsmsinbox()
-{
+function getsmsinbox() {
     global $gateway_module;
     x_hook($gateway_module,'getsmsinbox');
 }
@@ -200,8 +179,7 @@ function getsmsstatus() {
     }
 }
 
-function execcommoncustomcmd()
-{
+function execcommoncustomcmd() {
     global $apps_path;
     @include $apps_path['incs']."/common/customcmd.php";
 }

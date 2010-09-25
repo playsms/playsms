@@ -68,7 +68,9 @@ function sms_custom_handle($sms_datetime,$sms_sender,$custom_keyword,$custom_par
     {
 	$url['port'] = 80;
     }
-    $connection = fsockopen($url['host'],$url['port'],&$error_number,&$error_description,60);
+    // fixme anton -deprecated when using PHP5
+    //$connection = fsockopen($url['host'],$url['port'],&$error_number,&$error_description,60);
+    $connection = fsockopen($url['host'],$url['port'],$error_number,$error_description,60);
     if($connection) 
     {
 	socket_set_blocking($connection, false);

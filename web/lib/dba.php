@@ -1,4 +1,5 @@
 <?php
+if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 // DB.php is part of PHP PEAR-DB package, previously included in the package
 // but got removed since version 0.9.2, please install it manually
@@ -6,24 +7,20 @@ include_once "DB.php";
 
 // --------------------------------------------------------------------------//
 
-function dba_connect($username,$password,$dbname,$hostname,$port="",$persistant="true")
-{
+function dba_connect($username,$password,$dbname,$hostname,$port="",$persistant="true") {
     global $db_param, $apps_path;
     $access = $username;
-    if ($password)
-    {
+    if ($password) {
 	$access = "$username:$password";
     }
     $host = $hostname;
-    if ($port)
-    {
+    if ($port) {
 	$host = "$hostname:$port";
     }
     $dsn = $db_param['type']."://$access@$host/$dbname";
     $dba_object = DB::connect("$dsn","$persistant");
 
-    if (DB::isError($dba_object))
-    {
+    if (DB::isError($dba_object)) {
         // $error_msg = "DB Name: $dbname<br>DB Host: $host";
         ob_end_clean();
         die ("<p align=left>".$dba_object->getMessage()."<br>".$error_msg."<br>");
@@ -31,12 +28,10 @@ function dba_connect($username,$password,$dbname,$hostname,$port="",$persistant=
     return $dba_object;
 }
 
-function dba_query_simple($mystring)
-{
+function dba_query_simple($mystring) {
     global $dba_object, $dba_DB, $DBA_ROW_COUNTER, $DBA_LIMIT_FROM, $DBA_LIMIT_COUNT;
     $result = $dba_object->query($mystring);
-    if (DB::isError($dba_object))
-    {
+    if (DB::isError($dba_object)) {
         // ob_end_clean();
         // die ("<p align=left>".$dba_object->getMessage()."<br>".$dba_object->userinfo."<br>");
 	return "";
@@ -44,33 +39,28 @@ function dba_query_simple($mystring)
     return $result;
 }
 
-function dba_query($mystring, $from="0", $count="0")
-{
+function dba_query($mystring, $from="0", $count="0") {
     global $dba_object, $dba_DB, $DBA_ROW_COUNTER, $DBA_LIMIT_FROM, $DBA_LIMIT_COUNT;
 
     $DBA_ROW_COUNTER = 0;
 
-    if ($DBA_LIMIT_COUNT > 0)
-    {
+    if ($DBA_LIMIT_COUNT > 0) {
        $from = $DBA_LIMIT_FROM;
        $count = $DBA_LIMIT_COUNT;
     }
     $DBA_LIMIT_FROM = 0;
     $DBA_LIMIT_COUNT = 0;
 
-    if (($from == 0) && ($count == 0))
-    {
+    if (($from == 0) && ($count == 0)) {
        $result = dba_query_simple($mystring);
        return $result;
     }
 
     $is_special = false;
-    switch ($dba_DB)
-    {
+    switch ($dba_DB) {
        case "mssql":
           $limit = $from + $count;
-          if ($limit == $count)
-          {
+          if ($limit == $count) {
               $str_limit = "SELECT TOP $limit";
               $mystring = str_replace ("SELECT",$str_limit,$mystring);
               $is_special = true;
@@ -85,24 +75,19 @@ function dba_query($mystring, $from="0", $count="0")
           break;
     }
 
-    if ($is_special)
-    {
+    if ($is_special) {
         $result = $dba_object->query($mystring);
-    }
-    else
-    {
+    } else {
         $result = $dba_object->limitQuery($mystring, $from, $count);
     }
 
-    if (DB::isError($dba_object))
-    {
+    if (DB::isError($dba_object)) {
         // ob_end_clean();
         // die ("<p align=left>".$dba_object->getMessage()."<br>".$dba_object->userinfo."<br>");
 	return "";
     }
 
-    if (!$is_special)
-    {
+    if (!$is_special) {
         $result->limit_from = $from;
         $result->limit_count = $count;
     }
@@ -110,20 +95,16 @@ function dba_query($mystring, $from="0", $count="0")
     return $result;
 }
 
-function dba_fetch_array($myresult, $rownum=null)
-{
+function dba_fetch_array($myresult, $rownum=null) {
     global $DBA_ROW_COUNTER;
-    if (!$myresult)
-    {
+    if (!$myresult) {
 	return "";
     }
     
-    if (!$DBA_ROW_COUNTER)
-    {
+    if (!$DBA_ROW_COUNTER) {
        $DBA_ROW_COUNTER = $myresult->limit_from;
     }
-    if (DB::isError($myresult))
-    {
+    if (DB::isError($myresult)) {
         // ob_end_clean();
         // die ("<p align=left>".$myresult->getMessage()."<br>".$myresult->userinfo."<br>");
 	return "";
@@ -133,20 +114,16 @@ function dba_fetch_array($myresult, $rownum=null)
     return $result;
 }
 
-function dba_fetch_row($myresult, $rownum=null)
-{
+function dba_fetch_row($myresult, $rownum=null) {
     global $DBA_ROW_COUNTER;
-    if (!$myresult)
-    {
+    if (!$myresult) {
 	return "";
     }
 
-    if (!$DBA_ROW_COUNTER)
-    {
+    if (!$DBA_ROW_COUNTER) {
        $DBA_ROW_COUNTER = $myresult->limit_from;
     }
-    if (DB::isError($myresult))
-    {
+    if (DB::isError($myresult)) {
         // ob_end_clean();
         // die ("<p align=left>".$myresult->getMessage()."<br>".$myresult->userinfo."<br>");
 	return "";
@@ -156,12 +133,10 @@ function dba_fetch_row($myresult, $rownum=null)
     return $result;
 }
 
-function dba_num_rows($mystring)
-{
+function dba_num_rows($mystring) {
     global $dba_object, $dba_DB, $DBA_ROW_COUNTER, $DBA_LIMIT_FROM, $DBA_LIMIT_COUNT;
     $myresult = dba_query ($mystring);
-    if (DB::isError($myresult))
-    {
+    if (DB::isError($myresult)) {
         // ob_end_clean();
         // die ("<p align=left>".$myresult->getMessage()."<br>".$myresult->userinfo."<br>");
 	return 0;
@@ -170,12 +145,10 @@ function dba_num_rows($mystring)
     return 0;
 }
 
-function dba_affected_rows($mystring)
-{
+function dba_affected_rows($mystring) {
     global $dba_object, $dba_DB, $DBA_ROW_COUNTER, $DBA_LIMIT_FROM, $DBA_LIMIT_COUNT;
     $myresult = dba_query ($mystring);
-    if (DB::isError($myresult))
-    {
+    if (DB::isError($myresult)) {
         // ob_end_clean();
         // die ("<p align=left>".$myresult->getMessage()."<br>".$myresult->userinfo."<br>");
 	return 0;
@@ -184,13 +157,10 @@ function dba_affected_rows($mystring)
     return 0;
 }
 
-function dba_insert_id($mystring)
-{
+function dba_insert_id($mystring) {
     global $db_param, $dba_object, $dba_DB, $DBA_ROW_COUNTER, $DBA_LIMIT_FROM, $DBA_LIMIT_COUNT;
-    if (dba_query ($mystring))
-    {
-	switch ($db_param['type'])
-	{
+    if (dba_query ($mystring)) {
+	switch ($db_param['type']) {
 	    case "mysql":
     		$myquery = "SELECT @@IDENTITY";
     		$result_tmp = dba_query($myquery);
@@ -206,15 +176,11 @@ function dba_insert_id($mystring)
     return $result;
 }
 
-function dba_disconnect()
-{
+function dba_disconnect() {
     global $dba_object;
-    if ($dba_object->disconnect())
-    {
+    if ($dba_object->disconnect()) {
 	return 1;
-    }
-    else
-    {
+    } else {
 	return 0;
     }
 }

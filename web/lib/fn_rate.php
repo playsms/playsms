@@ -1,4 +1,5 @@
 <?php
+if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 function rate_setusercredit($uid, $remaining=0) {
     global $core_config;
@@ -14,8 +15,7 @@ function rate_setusercredit($uid, $remaining=0) {
     return $ok;
 }
 
-function rate_getusercredit($username)
-{
+function rate_getusercredit($username) {
     global $core_config;
     $credit = 0;
     if ($username) {

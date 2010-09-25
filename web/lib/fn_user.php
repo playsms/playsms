@@ -1,8 +1,8 @@
 <?php
-function uid2username($uid)
-{
-    if ($uid)
-    {
+if(!(defined('_SECURE_'))){die('Intruder alert');};
+
+function uid2username($uid) {
+    if ($uid) {
 	$db_query = "SELECT username FROM "._DB_PREF_."_tblUser WHERE uid='$uid'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -11,10 +11,8 @@ function uid2username($uid)
     return $username;
 }
 
-function username2uid($username)
-{
-    if ($username)
-    {
+function username2uid($username) {
+    if ($username) {
 	$db_query = "SELECT uid FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -23,10 +21,8 @@ function username2uid($username)
     return $uid;
 }
 
-function username2mobile($username)
-{
-    if ($username)
-    {
+function username2mobile($username) {
+    if ($username) {
 	$db_query = "SELECT mobile FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -35,10 +31,8 @@ function username2mobile($username)
     return $mobile;
 }
 
-function username2sender($username)
-{
-    if ($username)
-    {
+function username2sender($username) {
+    if ($username) {
 	$db_query = "SELECT sender FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -47,10 +41,8 @@ function username2sender($username)
     return $sender;
 }
 
-function username2email($username)
-{
-    if ($username)
-    {
+function username2email($username) {
+    if ($username) {
 	$db_query = "SELECT email FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -59,10 +51,8 @@ function username2email($username)
     return $email;
 }
 
-function username2name($username)
-{
-    if ($username)
-    {
+function username2name($username) {
+    if ($username) {
 	$db_query = "SELECT name FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -71,10 +61,8 @@ function username2name($username)
     return $name;
 }
 
-function username2status($username)
-{
-    if ($username)
-    {
+function username2status($username) {
+    if ($username) {
 	$db_query = "SELECT status FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -83,12 +71,9 @@ function username2status($username)
     return $status;
 }
 
-function mobile2uid($mobile)
-{
-    if ($mobile)
-    {
-	if (substr($mobile,0,1) == 0)
-	{
+function mobile2uid($mobile) {
+    if ($mobile) {
+	if (substr($mobile,0,1) == 0) {
 	    $mobile = substr($mobile,1);
 	}
 	$db_query = "SELECT uid FROM "._DB_PREF_."_tblUser WHERE mobile LIKE '%$mobile'";

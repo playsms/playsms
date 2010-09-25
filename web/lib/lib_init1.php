@@ -1,4 +1,5 @@
 <?php
+if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 // this file loaded before plugins
 
@@ -42,8 +43,7 @@ $arr_menu['My Account'][] = array("menu.php?inc=user_outgoing&op=user_outgoing",
 $arr_menu['My Account'][] = array("menu.php?inc=user_pref&op=user_pref", _('Preferences'));
 ksort($arr_menu['My Account']);
 
-if (isadmin())
-{
+if (isadmin()) {
     // administrator menus
     $arr_menu['Administration'][] = array("menu.php?inc=all_inbox&op=all_inbox", _('All inbox'));
     $arr_menu['Administration'][] = array("menu.php?inc=all_incoming&op=all_incoming", _('All incoming SMS'));

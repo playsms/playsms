@@ -1,4 +1,5 @@
 <?php
+if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 function billing_post($smslog_id,$rate,$credit) {
     global $core_config;

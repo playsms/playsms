@@ -1,7 +1,7 @@
 <?php
+if(!(defined('_SECURE_'))){die('Intruder alert');};
 
-function logger_print($log,$level=1,$label="default")
-{
+function logger_print($log,$level=1,$label="default") {
     global $apps_path, $datetime_now;
     $arr_log_type[1] = "INFO";
     $arr_log_type[2] = "WARNING";
@@ -20,14 +20,12 @@ function logger_print($log,$level=1,$label="default")
     }
 }
 
-function logger_get_level()
-{
+function logger_get_level() {
     global $core_config;
     return $core_config['logstate'];
 }
 
-function logger_set_level($level=0)
-{
+function logger_set_level($level=0) {
     global $core_config;
     $core_config['logstate'] = $level;
 }

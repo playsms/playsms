@@ -1,3 +1,6 @@
 <?php
-// custom functions loaded after plugins here
+if(!(defined('_SECURE_'))){die('Intruder alert');};
+
+// custom functions loaded AFTER plugins here
+
 ?>

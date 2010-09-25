@@ -1,19 +1,18 @@
 <?php
 include "config.php";
 
+//error_reporting(0);
+error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
+
 // security, checked by essential files under subdir
 define('_SECURE_', 1);
 
 $core_config['daemon_process'] = $DAEMON_PROCESS;
 
-if (!$core_config['daemon_process'])
-{
-    if (trim($SERVER_PROTOCOL)=="HTTP/1.1")
-    {
+if (!$core_config['daemon_process']) {
+    if (trim($SERVER_PROTOCOL)=="HTTP/1.1") {
 	header ("Cache-Control: no-cache, must-revalidate");
-    }
-    else
-    {
+    } else {
 	header ("Pragma: no-cache");
     }
     ob_start();
@@ -23,20 +22,15 @@ if (!$core_config['daemon_process'])
 start init functions
 protect from SQL injection when magic_quotes_gpc sets to "Off"
 */
-function array_add_slashes($array)
-{
-    if (is_array($array))
-    {
-	foreach ($array as $key => $value)
-        {
-            if (!is_array($value))
-            {
+function array_add_slashes($array) {
+    if (is_array($array)) {
+	foreach ($array as $key => $value) {
+            if (!is_array($value)) {
         	$value = addslashes($value);
         	$key = addslashes($key);
         	$new_arr[$key] = $value;
     	    }
-            if (is_array($value))
-            {
+            if (is_array($value)) {
         	$new_arr[$key] = array_add_slashes($value);
             }
         }
@@ -44,21 +38,14 @@ function array_add_slashes($array)
     return $new_arr;
 }
 
-function pl_addslashes($data)
-{
+function pl_addslashes($data) {
     global $db_param;
-    if ($db_param['type']=="mssql")
-    {
+    if ($db_param['type']=="mssql") {
 	$data = str_replace("'", "''", $data); 
-    } 
-    else
-    {
-	if (is_array($data))
-	{
+    } else {
+	if (is_array($data)) {
 	    $data = array_add_slashes($data);
-	}
-	else
-	{
+	} else {
 	    $data = addslashes($data);
 	}
     }
@@ -68,8 +55,7 @@ function pl_addslashes($data)
 end of init functions
 */
 
-if (!get_magic_quotes_gpc())
-{
+if (!get_magic_quotes_gpc()) {
     foreach($_GET as $key => $val){$_GET[$key]=pl_addslashes($_GET[$key]);}
     foreach($_POST as $key => $val){$_POST[$key]=pl_addslashes($_POST[$key]);}
     foreach($_COOKIE as $key => $val){$_COOKIE[$key]=pl_addslashes($_COOKIE[$key]);}
@@ -120,8 +106,7 @@ dba_query("SET NAMES utf8");
 // get main config
 $db_query = "SELECT * FROM "._DB_PREF_."_tblConfig_main";
 $db_result = dba_query($db_query);
-if ($db_row = dba_fetch_array($db_result))
-{
+if ($db_row = dba_fetch_array($db_result)) {
     $web_title = $db_row['cfg_web_title'];
     $email_service = $db_row['cfg_email_service'];
     $email_footer = $db_row['cfg_email_footer'];

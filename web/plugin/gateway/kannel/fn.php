@@ -52,7 +52,9 @@ function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
 	}
     }
     */
-    $connection = fsockopen($kannel_param['bearerbox_host'],$kannel_param['sendsms_port'],&$error_number,&$error_description,60);
+    // fixme anton - deprecated when using PHP5
+    //$connection = fsockopen($kannel_param['bearerbox_host'],$kannel_param['sendsms_port'],&$error_number,&$error_description,60);
+    $connection = fsockopen($kannel_param['bearerbox_host'],$kannel_param['sendsms_port'],$error_number,$error_description,60);
     if ($connection) {
 	socket_set_blocking($connection, false);
 	fputs($connection, "GET ".$URL." HTTP/1.0\r\n\r\n");
