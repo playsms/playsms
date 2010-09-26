@@ -9,9 +9,9 @@ switch ($op)
 	    $content = "<p><font color='red'>$err</font><p>";
 	}
 	$content .= "
-	    <h2>Manage user</h2>
+	    <h2>"._('Manage user')."</h2>
 	    <p>
-	    <input type='button' value=\""._('Add user')."\" onClick=\"javascript:linkto('menu.php?inc=user_mgmnt&op=user_add')\" class=\"button\" />
+	    <input type='button' value='"._('Add user')."' onClick=\"javascript:linkto('menu.php?inc=user_mgmnt&op=user_add')\" class=\"button\" />
 	    <p>"._('Status').": <b>"._('Administrator')."</b><br>
     <table cellpadding='1' cellspacing='2' border='0' width='100%'>
     <tr>
@@ -46,7 +46,7 @@ switch ($op)
     ";
 	}
 	$content .= "</table>";
-	$content .= "<p>Status: <b>Normal User</b><br>
+	$content .= "<p>"._('Status').": <b>"._('Normal user')."</b><br>
     <table cellpadding='1' cellspacing='2' border='0' width='100%'>
     <tr>
         <td class='box_title' width='25'>*</td>
@@ -83,7 +83,7 @@ switch ($op)
 	echo $content;
 	echo "
 	    <p>
-	    <input type=button value=\"Add user\" onClick=\"javascript:linkto('menu.php?inc=user_mgmnt&op=user_add')\" class=\"button\" />
+	    <input type=button value='"._('Add user')."' onClick=\"javascript:linkto('menu.php?inc=user_mgmnt&op=user_add')\" class=\"button\" />
 	";
 	break;
     case "user_del":
