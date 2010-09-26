@@ -1,3 +1,7 @@
+#: inc/user/send_sms.php:96 inc/user/send_sms.php:98
+msgid "All"
+msgstr ""
+
 #: inc/user/sms_template.php:17 inc/user/send_sms.php:109
 #: inc/user/send_sms.php:224 lib/lib_init1.php:36
 msgid "Message template"

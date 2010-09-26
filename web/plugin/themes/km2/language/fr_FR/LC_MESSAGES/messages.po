@@ -1,10 +1,10 @@
 #: header.php:39
 msgid "Home"
-msgstr "Home"
+msgstr "Accueil"
 
 #: header.php:40
 msgid "Preferences"
-msgstr "Preferences"
+msgstr "Préférences"
 
 #: header.php:41
 msgid "Contact"
@@ -12,44 +12,44 @@ msgstr "Contact"
 
 #: header.php:42
 msgid "Logout"
-msgstr "Logout"
+msgstr "Déconnexion"
 
 #: loginpage.php:27
 msgid "Username "
-msgstr ""
+msgstr "Pseudo"
 
 #: loginpage.php:31
 msgid "Password "
-msgstr ""
+msgstr "Mot de Passe"
 
 #: loginpage.php:36
 msgid "Login"
-msgstr ""
+msgstr "Déconnexion"
 
 #: welcomepage.php:7
 msgid "Welcome to PlaySMS"
-msgstr ""
+msgstr "Bienvenue dans PlaySMS"
 
 #: welcomepage.php:16
 msgid "About playSMS"
-msgstr ""
+msgstr "A propos de PlaySMS"
 
 #: welcomepage.php:17
 msgid "Changelog"
-msgstr ""
+msgstr "Versions"
 
 #: welcomepage.php:18
 msgid "Installation Guide"
-msgstr ""
+msgstr "Guide d`installation"
 
 #: welcomepage.php:19
 msgid "F.A.Q"
-msgstr ""
+msgstr "F.A.Q"
 
 #: welcomepage.php:20
 msgid "License"
-msgstr ""
+msgstr "License"
 
 #: welcomepage.php:25
 msgid "FAQ Users"
-msgstr ""
+msgstr "FAQ Utilisateurs"

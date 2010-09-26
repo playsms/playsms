@@ -1,104 +1,104 @@
 #: config.php:4 sms_board.php:12
 msgid "Manage board"
-msgstr "Manage board"
+msgstr "Service redirection"
 
 #: fn.php:75
 msgid "from"
-msgstr ""
+msgstr "de"
 
 #: fn.php:76
 msgid "Forward WebSMS"
-msgstr ""
+msgstr "Redirection SMS Web"
 
 #: fn.php:77
 msgid "Date and time"
-msgstr ""
+msgstr "Date & Heure"
 
 #: fn.php:78
 msgid "Sender"
-msgstr ""
+msgstr "Emetteur"
 
 #: fn.php:79 fn.php:132 sms_board.php:19
 msgid "Keyword"
-msgstr ""
+msgstr "Mot-clé"
 
 #: fn.php:80
 msgid "Message"
-msgstr ""
+msgstr "Message"
 
 #: sms_board.php:14 sms_board.php:155
 msgid "Add SMS board"
-msgstr ""
+msgstr "Ajouter un service de redirection"
 
 #: sms_board.php:20
 msgid "Forward"
-msgstr ""
+msgstr "Redirection"
 
 #: sms_board.php:21
 msgid "User"
-msgstr ""
+msgstr "Compte"
 
 #: sms_board.php:22
 msgid "Action"
-msgstr ""
+msgstr "Action"
 
 #: sms_board.php:39
 msgid "Are you sure you want to delete SMS board with all its messages ?"
-msgstr ""
+msgstr "Etes-vous certain de vouloir supprimer ce service avec tous ses messages ?"
 
 #: sms_board.php:39 sms_board.php:124 sms_board.php:144 sms_board.php:200
 #: sms_board.php:204 sms_board.php:209
 msgid "keyword"
-msgstr ""
+msgstr "mot-clé"
 
 #: sms_board.php:80
 msgid "Edit SMS board"
-msgstr ""
+msgstr "Editer le service de redirection"
 
 #: sms_board.php:87 sms_board.php:160
 msgid "SMS board keyword"
-msgstr ""
+msgstr "Mot-clé du service de redirection"
 
 #: sms_board.php:90 sms_board.php:166
 msgid "Forward to email"
-msgstr ""
+msgstr "Transmettre à l'adresse email"
 
 #: sms_board.php:94 sms_board.php:170
 msgid "Template"
-msgstr ""
+msgstr "Modèle"
 
 #: sms_board.php:99
 msgid "Save"
-msgstr ""
+msgstr "Sauvegarder"
 
 #: sms_board.php:124
 msgid "SMS board has been saved"
-msgstr ""
+msgstr "Le service de redirection a été sauvegardé"
 
 #: sms_board.php:129 sms_board.php:214
 msgid "You must fill all fields"
-msgstr ""
+msgstr "Vous devez remplir tous les champs"
 
 #: sms_board.php:144
 msgid "SMS board with all its messages has been deleted"
-msgstr ""
+msgstr "Le service avec tous ces messages a été supprimé"
 
 #: sms_board.php:163
 msgid "Leave them empty if you dont know what to fill in these boxes below"
-msgstr ""
+msgstr "Laisser vide si vous ne savez pas comment remplir les champs ci-dessous"
 
 #: sms_board.php:175
 msgid "Add"
-msgstr ""
+msgstr "Ajouter"
 
 #: sms_board.php:200
 msgid "SMS board has been added"
-msgstr ""
+msgstr "Le service de redirection a été ajouté"
 
 #: sms_board.php:204
 msgid "Fail to add SMS board"
-msgstr ""
+msgstr "Impossible d`ajouter un service de redirection"
 
 #: sms_board.php:209
 msgid "SMS keyword already exists, reserved or use by other feature"
-msgstr ""
+msgstr "Le mot-clé existe déjà, est réservé ou utilisé par un autre service"
