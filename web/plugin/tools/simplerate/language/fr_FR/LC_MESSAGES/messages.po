@@ -1,6 +1,6 @@
 #: config.php:3 simplerate.php:12
 msgid "Manage SMS rate"
-msgstr "Gérer les Tarifs SMS"
+msgstr "Gérer les tarifs SMS"
 
 #: simplerate.php:14 simplerate.php:47 simplerate.php:122
 msgid "Add rate"

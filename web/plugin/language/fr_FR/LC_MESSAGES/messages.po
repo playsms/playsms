@@ -1,6 +1,6 @@
 #: inc/user/send_sms.php:96 inc/user/send_sms.php:98
 msgid "All"
-msgstr ""
+msgstr "Tous"
 
 #: inc/user/sms_template.php:17 inc/user/send_sms.php:109
 #: inc/user/send_sms.php:224 lib/lib_init1.php:36
@@ -98,7 +98,7 @@ msgstr "non configuré"
 #: inc/user/send_sms.php:61 inc/user/send_sms.php:195
 #: inc/user/user_pref.php:31
 msgid "Please select"
-msgstr "Merci de sélectionner"
+msgstr "Sélectionnez"
 
 #: inc/user/send_sms.php:82 lib/lib_init1.php:32 lib/lib_init1.php:37
 msgid "Send SMS"
@@ -122,7 +122,7 @@ msgstr "Ou"
 
 #: inc/user/send_sms.php:107
 msgid "International format"
-msgstr "Format internationnal"
+msgstr "Format international"
 
 #: inc/user/send_sms.php:108 inc/user/send_sms.php:223
 #: inc/user/user_pref.php:64 inc/admin/user_mgmnt.php:149
@@ -325,7 +325,7 @@ msgstr "Préférences"
 
 #: inc/user/user_pref.php:48
 msgid "Login information"
-msgstr "Information de connexion"
+msgstr "Informations de connexion"
 
 #: inc/user/user_pref.php:49 inc/admin/user_mgmnt.php:19
 #: inc/admin/user_mgmnt.php:53 inc/admin/user_mgmnt.php:137
@@ -346,11 +346,11 @@ msgstr "Mot de passe"
 
 #: inc/user/user_pref.php:52
 msgid "Re-Type Password"
-msgstr "Retapper le mot de passe"
+msgstr "Retappez le mot de passe"
 
 #: inc/user/user_pref.php:54
 msgid "Personal information"
-msgstr "Information privée"
+msgstr "Informations privées"
 
 #: inc/user/user_pref.php:56
 msgid "Address"
@@ -374,7 +374,7 @@ msgstr "Code postal"
 
 #: inc/user/user_pref.php:62
 msgid "Application information"
-msgstr "Information lié à l`application"
+msgstr "Informations liées à l`application"
 
 #: inc/user/user_pref.php:63 inc/admin/user_mgmnt.php:22
 #: inc/admin/user_mgmnt.php:56 inc/admin/user_mgmnt.php:146
@@ -450,7 +450,7 @@ msgstr "Pseudo ou mot de passe incorrect"
 
 #: inc/admin/main_config.php:33 lib/lib_init1.php:52
 msgid "Main configuration"
-msgstr "Configuraton principale"
+msgstr "Configuration principale"
 
 #: inc/admin/main_config.php:38
 msgid "Website title"
@@ -458,11 +458,11 @@ msgstr "Titre du site"
 
 #: inc/admin/main_config.php:41
 msgid "Website email"
-msgstr "Contact email du site"
+msgstr "Contact email"
 
 #: inc/admin/main_config.php:44
 msgid "Forwarded email footer"
-msgstr "Signature email transféré"
+msgstr "Signature email"
 
 #: inc/admin/main_config.php:47
 msgid "Gateway number"
@@ -623,7 +623,7 @@ msgstr "Gérer les comptes"
 
 #: lib/lib_init1.php:53
 msgid "Manual refresh"
-msgstr "Rafraichir"
+msgstr "Rafraîchir"
 
 #: lib/fn_themes.php:38
 msgid "Home"

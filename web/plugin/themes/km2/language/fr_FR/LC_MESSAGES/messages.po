@@ -24,7 +24,7 @@ msgstr "Mot de Passe"
 
 #: loginpage.php:36
 msgid "Login"
-msgstr "Déconnexion"
+msgstr "Connexion"
 
 #: welcomepage.php:7
 msgid "Welcome to PlaySMS"
