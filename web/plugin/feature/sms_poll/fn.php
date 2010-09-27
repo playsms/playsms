@@ -41,7 +41,6 @@ function sms_poll_hook_setsmsincomingaction($sms_datetime,$sms_sender,$poll_keyw
     if ($db_row = dba_fetch_array($db_result))
     {
 	$c_uid = $db_row['uid'];
-	logger_print("sms_poll_hook_setsmsincomingaction sd=$sms_datetime ss=$sms_sender pk=$poll_keyword pp=$poll_param uid=$c_uid","debug");
 	if (sms_poll_handle($sms_datetime,$sms_sender,$poll_keyword,$poll_param))
 	{
 	    $ok = true;
@@ -59,7 +58,6 @@ function sms_poll_handle($sms_datetime,$sms_sender,$poll_keyword,$poll_param='')
     $target_choice = strtoupper($poll_param);
     if ($sms_sender && $poll_keyword && $target_choice)
     {
-	logger_print("sms_poll_handle ss=$sms_sender pl=$poll_keyword tc=$target_choice","debug");
 	$db_query = "SELECT poll_id,poll_enable FROM "._DB_PREF_."_featurePoll WHERE poll_keyword='$poll_keyword'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);

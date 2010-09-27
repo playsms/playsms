@@ -1,7 +1,7 @@
 PLUGINS
 -------
 playSMS plugin's files and folders installed under directory web/plugins 
-and categorized into 4 different categories, they are:
+and categorized into 5 different categories, they are:
 - tools
 - feature
 - gateway
@@ -13,17 +13,49 @@ Tools
 -----
 Here installed plugins with no specific SMS related features but used by playSMS.
 
+Core functions that you can 'hook' from tools plugins:
+- playsmsd()
+- billing_post($smslog_id,$rate,$credit)
+- billing_rollback($smslog_id)
+- billing_finalize($smslog_id)
+- billing_getdata($smslog_id)
+- phonebook_groupid2code($gpid)
+- phonebook_groupcode2id($uid,$gp_code)
+- phonebook_number2name($p_num)
+- phonebook_getdatabyid($gpid, $orderby="")
+- phonebook_getdatabyuid($uid, $orderby="")
+- phonebook_getsharedgroup($uid)
+- phonebook_getgroupbyuid($uid, $orderby="")
+- rate_setusercredit($uid, $remaining=0)
+- rate_getusercredit($username)
+- rate_cansend($username, $sms_to)
+- rate_deduct($smslog_id)
+- rate_refund($smslog_id)
+- setsmsdeliverystatus($smslog_id,$uid,$p_status)
+- sendmail($mail_from,$mail_to,$mail_subject="",$mail_body="")
+
 
 Feature
 -------
 Here installed plugins which contains specific SMS related features and directly handle
 incoming or outgoing SMSes.
 
+Core functions that you can 'hook' from feature plugins:
+- playsmsd()
+- checkavailablekeyword($keyword)
+- setsmsincomingaction($sms_datetime,$sms_sender,$keyword,$param='')
+
 
 Gateway
 -------
 Here installed plugins which has ability to actually send and/or receive SMS, and directly
 connected to SMS gateway applications or services.
+
+Core functions that you can 'hook' from gateway plugins:
+- playsmsd()
+- getsmsinbox()
+- getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="")
+- sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0)
 
 
 Themes
