@@ -23,7 +23,7 @@ switch ($op)
 	$content .= "
     <table cellpadding=1 cellspacing=2 border=0 width=100%>
     <tr>
-        <td class=box_title width=25>*</td>
+        <td class=box_title width=5>*</td>
         <td class=box_title width=100>"._('Keyword')."</td>
         <td class=box_title>"._('Exec')."</td>
         <td class=box_title width=100>"._('User')."</td>	

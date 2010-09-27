@@ -21,7 +21,7 @@ switch ($op) {
 		$content .= "
 			<table cellpadding=1 cellspacing=2 border=0 width=100%>
 				<tr>
-				<td class=box_title width=4>*</td>
+				<td class=box_title width=5>*</td>
 				<td class=box_title width=30%>"._('Datetime')."</td>
 				<td class=box_title width=30%>"._('Sender')."</td>
 				<td class=box_title width=30%>"._('Message')."</td>

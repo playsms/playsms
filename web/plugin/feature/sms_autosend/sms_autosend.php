@@ -30,7 +30,7 @@ switch ($op) {
 		$content .= "
 							<table cellpadding=1 cellspacing=2 border=0 width=100%>
 							<tr>
-							    <td class=box_title>*</td>
+							    <td class=box_title width=5>*</td>
 							    <td class=box_title width=40%>"._('Message')."</td>
 								<td class=box_title width=10%>"._('Repeat')."</td>
 							   	<td class=box_title width=10%>"._('User')."</td>	

@@ -8,10 +8,12 @@ Version 0.9.5 - unknown
 - add new tools, simplebilling, to handle billing related features (anton)
 - add new tools, simplerate, to handle rate related features (anton)
 - add new tools, plainoldsendmail, to handle sendmail() (anton)
+- add new language for core and plugins, fr_FR (emmanuel)
 - add logger_print level 3 on all gateways, log send/receive sms activities (anton)
 - fix single quote preventing correct array reading, $array['$c'] should be $array[$c] (anton)
 - fix logger, available logstate: 0=disabled, 1=info, 2=warning, 3=debug (anton)
 - fix regression quotes wrapping $key (init.php) causing error when magic_quotes_gpc disabled (anton)
+- fix regression unable to identify params due to single quote position in variables (emmanuel)
 
 Version 0.9.5-rc2 - 100920
 - add new theme 'work2' to demonstrate dropdown menu (anton)

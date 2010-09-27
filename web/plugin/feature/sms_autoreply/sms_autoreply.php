@@ -22,7 +22,7 @@ switch ($op)
 	$content .= "
     <table cellpadding=1 cellspacing=2 border=0 width=100%>
     <tr>
-        <td class=box_title width=25>*</td>
+        <td class=box_title width=5>*</td>
         <td class=box_title width=100>"._('Keyword')."</td>
         <td class=box_title>"._('User')."</td>
         <td class=box_title width=75>"._('Action')."</td>
@@ -80,7 +80,7 @@ switch ($op)
 	    <p>
     <table cellpadding=1 cellspacing=2 border=0 width=100%>
     <tr>
-        <td class=box_title width=25>*</td>
+        <td class=box_title width=5>*</td>
         <td class=box_title width=100>"._('Param')."</td>
         <td class=box_title>"._('Return')."</td>
         <td class=box_title width=100>"._('User')."</td>	
@@ -131,11 +131,11 @@ switch ($op)
 	    $db_query = "DELETE FROM "._DB_PREF_."_featureAutoreply WHERE autoreply_keyword='$keyword_name'";
 	    if (@dba_affected_rows($db_query))
 	    {
-		$error_string = _('SMS autoreply has been deleted')." ("._('keyword')." `$keyword_name`)";
+		$error_string = _('SMS autoreply has been deleted')." ("._('keyword').": `$keyword_name`)";
 	    }
 	    else
 	    {
-		$error_string = _('Fail to delete SMS autoreply')." ("._('keyword')." `$keyword_name`";
+		$error_string = _('Fail to delete SMS autoreply')." ("._('keyword').": `$keyword_name`";
 	    }
 	}
 	header ("Location: menu.php?inc=feature_sms_autoreply&op=sms_autoreply_list&err=".urlencode($error_string));
@@ -196,11 +196,11 @@ switch ($op)
 	    $db_query = "DELETE FROM "._DB_PREF_."_featureAutoreply_scenario WHERE autoreply_id='$autoreply_id' AND autoreply_scenario_id='$autoreply_scenario_id'";
 	    if (@dba_affected_rows($db_query))
 	    {
-		$error_string = _('SMS autoreply scenario has been deleted')." ("._('keyword')." `$keyword_name`)";
+		$error_string = _('SMS autoreply scenario has been deleted')." ("._('keyword').": `$keyword_name`)";
 	    }
 	    else
 	    {
-		$error_string = _('Fail to delete SMS autoreply scenario')." ("._('keyword')." `$keyword_name`)";
+		$error_string = _('Fail to delete SMS autoreply scenario')." ("._('keyword').": `$keyword_name`)";
 	    }
 	}
 	header ("Location: menu.php?inc=feature_sms_autoreply&op=sms_autoreply_scenario_list&err=".urlencode($error_string));
