@@ -98,7 +98,7 @@ switch ($op)
 	    $list_of_param = "";
 	    for ($i=1;$i<=7;$i++)
 	    { 
-		$list_of_param .= $db_row['autoreply_scenario_param$i']."&nbsp;";
+		$list_of_param .= $db_row['autoreply_scenario_param'.$i]."&nbsp;";
 	    }
 	    $action = "<a href=menu.php?inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit&autoreply_id=$autoreply_id&autoreply_scenario_id=".$db_row['autoreply_scenario_id'].">$icon_edit</a>";
 	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this SMS autoreply scenario ?')."','menu.php?inc=feature_sms_autoreply&op=sms_autoreply_scenario_del&autoreply_scenario_id=".$db_row['autoreply_scenario_id']."')\">$icon_delete</a>";
@@ -228,7 +228,7 @@ switch ($op)
 	{
 	    $content .= "
 	    <tr>
-		<td width=190>"._('SMS autoreply scenario parameter')." $i</td><td>:</td><td><input type=text size=20 maxlength=20 name=add_autoreply_scenario_param$i value=\"".${"add_autoreply_scenario_param".$i}."\">\n</td>
+		<td width=190>"._('SMS autoreply scenario parameter')." $i</td><td>:</td><td><input type=text size=20 maxlength=20 name=\"add_autoreply_scenario_param".$i."\" value=\"".${"add_autoreply_scenario_param".$i}."\">\n</td>
 	    </tr>";
 	}
 	$content .= "
@@ -247,7 +247,7 @@ switch ($op)
 	$add_autoreply_scenario_result = $_POST['add_autoreply_scenario_result'];
 	for ($i=1;$i<=7;$i++)
 	{
-	    ${"add_autoreply_scenario_param".$i} = strtoupper($_POST['add_autoreply_scenario_param$i']);
+	    ${"add_autoreply_scenario_param".$i} = strtoupper($_POST['add_autoreply_scenario_param'.$i]);
 	}
 	if ($add_autoreply_scenario_result)
 	{
@@ -303,7 +303,7 @@ switch ($op)
 	$db_row = dba_fetch_array($db_result);
 	for ($i=1;$i<=7;$i++)
 	{
-	    ${"edit_autoreply_scenario_param".$i} = $db_row['autoreply_scenario_param$i'];
+	    ${"edit_autoreply_scenario_param".$i} = $db_row['autoreply_scenario_param'.$i];
 	}
 	for ($i=1;$i<=7;$i++)
 	{
@@ -330,13 +330,13 @@ switch ($op)
 	$edit_autoreply_scenario_result = $_POST['edit_autoreply_scenario_result'];
 	for ($i=1;$i<=7;$i++)
 	{
-	    ${"edit_autoreply_scenario_param".$i} = strtoupper($_POST['edit_autoreply_scenario_param$i']);
+	    ${"edit_autoreply_scenario_param".$i} = strtoupper($_POST['edit_autoreply_scenario_param'.$i]);
 	}
 	if ($edit_autoreply_scenario_result)
 	{
 	    for ($i=1;$i<=7;$i++)
 	    {
-		$autoreply_scenario_param_list .= "autoreply_scenario_param$i='".${"edit_autoreply_scenario_param".$i}."',";
+		$autoreply_scenario_param_list .= "autoreply_scenario_param".$i."='".${"edit_autoreply_scenario_param".$i}."',";
 	    }
 	    $db_query = "
 		UPDATE "._DB_PREF_."_featureAutoreply_scenario 
