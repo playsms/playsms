@@ -1,109 +1,109 @@
 #: config.php:4 sms_command.php:12
 msgid "Manage command"
-msgstr "Manage command"
+msgstr "Service commande"
 
 #: sms_command.php:15 sms_command.php:86 sms_command.php:153
 msgid "SMS command exec path"
-msgstr ""
+msgstr "Répertoire d`exécution des scripts"
 
 #: sms_command.php:27
 msgid "Keyword"
-msgstr ""
+msgstr "Mot-clé"
 
 #: sms_command.php:28
 msgid "Exec"
-msgstr ""
+msgstr "Script exécuté"
 
 #: sms_command.php:29
 msgid "User"
-msgstr ""
+msgstr "Compte"
 
 #: sms_command.php:30
 msgid "Action"
-msgstr ""
+msgstr "Action"
 
 #: sms_command.php:41
 msgid "Are you sure you want to delete SMS command ?"
-msgstr ""
+msgstr "Etes-vous certain de vouloir supprimer ce service ?"
 
 #: sms_command.php:41 sms_command.php:105 sms_command.php:109
 #: sms_command.php:129 sms_command.php:133 sms_command.php:174
 #: sms_command.php:178 sms_command.php:183
 msgid "keyword"
-msgstr ""
+msgstr "mot-clé"
 
 #: sms_command.php:59 sms_command.php:144
 msgid "Add SMS command"
-msgstr ""
+msgstr "Ajouter un service"
 
 #: sms_command.php:75
 msgid "Edit SMS command"
-msgstr ""
+msgstr "Edition du service"
 
 #: sms_command.php:80 sms_command.php:147
 msgid "SMS command keyword"
-msgstr ""
+msgstr "Mot-clé du service"
 
 #: sms_command.php:81 sms_command.php:148
 msgid "Pass these parameter to command exec field"
-msgstr ""
+msgstr "Transmission de paramètres au script associé"
 
 #: sms_command.php:82 sms_command.php:149
 msgid "will be replaced by SMS incoming date/time"
-msgstr ""
+msgstr "sera remplacé par la date/heure du SMS reçu"
 
 #: sms_command.php:83 sms_command.php:150
 msgid "will be replaced by sender number"
-msgstr ""
+msgstr "sera remplacé par le numéro de l`émetteur"
 
 #: sms_command.php:84 sms_command.php:151
 msgid "will be replaced by command keyword"
-msgstr ""
+msgstr "sera remplacé par le mot-clé du service"
 
 #: sms_command.php:85 sms_command.php:152
 msgid "will be replaced by command parameter passed to server from SMS"
-msgstr ""
+msgstr "sera remplacé par le paramètre additionnel du SMS passé au serveur"
 
 #: sms_command.php:87 sms_command.php:154
 msgid "SMS command exec"
-msgstr ""
+msgstr "Script à exécuter"
 
 #: sms_command.php:88
 msgid "Save"
-msgstr ""
+msgstr "Sauvegarder"
 
 #: sms_command.php:105
 msgid "SMS command has been saved"
-msgstr ""
+msgstr "Le service a été sauvegardé"
 
 #: sms_command.php:109
 msgid "Fail to save SMS command"
-msgstr ""
+msgstr "Impossible de sauvegarder ce service"
 
 #: sms_command.php:114 sms_command.php:188
 msgid "You must fill all fields"
-msgstr ""
+msgstr "Vous devez remplir tous les champs"
 
 #: sms_command.php:129
 msgid "SMS command has been deleted"
-msgstr ""
+msgstr "Le service a été supprimé"
 
 #: sms_command.php:133
 msgid "Fail to delete SMS command"
-msgstr ""
+msgstr "Impossible de supprimer ce service"
 
 #: sms_command.php:155
 msgid "Add"
-msgstr ""
+msgstr "Ajouter"
 
 #: sms_command.php:174
 msgid "SMS command has been added"
-msgstr ""
+msgstr "Le service a été ajouté"
 
 #: sms_command.php:178
 msgid "Fail to add SMS command"
-msgstr ""
+msgstr "Impossible d`ajouter ce service"
 
 #: sms_command.php:183
 msgid "SMS command already exists, reserved or use by other feature"
-msgstr ""
+msgstr "Ce service existe déjà, est réservé ou utilisé par un autre service"

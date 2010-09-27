@@ -11,7 +11,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Manage command')."</h2>
 	    <p>
-	    <input type=button value=\"Add SMS command\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_command&op=sms_command_add')\" class=\"button\" />
+	    <input type=button value=\""._('Add SMS command')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_command&op=sms_command_add')\" class=\"button\" />
 	    <p>"._('SMS command exec path')." : <b>".$plugin_config['feature']['sms_command']['bin']."/</b>
 	";
 	if (!isadmin())
