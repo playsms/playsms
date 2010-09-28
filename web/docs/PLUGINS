@@ -69,5 +69,31 @@ Here installed language database based on gettext for core/main files only, plug
 files are reside under each plugin's directory
 
 
+Plugin Anatomy
+---------------
+Each plugin will need to have below structure:
+
+<playsms_web_root>/plugin/<category>/<plugin_name>/config.php
+                                                  /fn.php
+                                                  /docs/VERSION
+                                                  /docs/README
+                                                  /docs/CHANGELOG
+                                                  /lib
+                                                  <plugin_name>.php
+
+For example, plugin with purpose to serve connecting playsms to your own Content Provider, called 'mycp'.
+Since its a gateway, the category would be 'gateway'.
+
+The plugin structure will be:
+
+<playsms_web_root>/plugin/gateway/mycp/config.php
+                                      /fn.php
+                                      /docs/VERSION
+                                      /docs/README
+                                      /docs/CHANGELOG
+                                      /lib
+                                      mycp.php
+
+
 --
 Anton Raharja
