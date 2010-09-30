@@ -1,104 +1,104 @@
 #: config.php:4 sms_custom.php:12
 msgid "Manage custom"
-msgstr "Pengaturan custom"
+msgstr "Pengaturan penyesuaian SMS"
 
 #: sms_custom.php:14 sms_custom.php:56 sms_custom.php:137
 msgid "Add SMS custom"
-msgstr ""
+msgstr "Tambah penyesuaian SMS"
 
 #: sms_custom.php:27
 msgid "Keyword"
-msgstr ""
+msgstr "Kata kunci"
 
 #: sms_custom.php:28
 msgid "Exec"
-msgstr ""
+msgstr "Laksanakan"
 
 #: sms_custom.php:29
 msgid "User"
-msgstr ""
+msgstr "Pengguna"
 
 #: sms_custom.php:30
 msgid "Action"
-msgstr ""
+msgstr "Tindakan"
 
 #: sms_custom.php:41
 msgid "Are you sure you want to delete SMS custom keyword ?"
-msgstr ""
+msgstr "Anda yakin ingin menghapus kata kunci penyesuaian SMS"
 
 #: sms_custom.php:41 sms_custom.php:98 sms_custom.php:102 sms_custom.php:122
 #: sms_custom.php:126 sms_custom.php:162 sms_custom.php:166 sms_custom.php:171
 msgid "keyword"
-msgstr ""
+msgstr "kata kunci"
 
 #: sms_custom.php:72
 msgid "Edit SMS custom"
-msgstr ""
+msgstr "Ubah penyesuaian SMS"
 
 #: sms_custom.php:77 sms_custom.php:140
 msgid "SMS custom keyword"
-msgstr ""
+msgstr "kata kunci penyesuaian SMS"
 
 #: sms_custom.php:78 sms_custom.php:141
 msgid "Pass these parameter to custom URL field"
-msgstr ""
+msgstr "Masukkan parameter-parameter ini ke kolom penyesuaian URL"
 
 #: sms_custom.php:79 sms_custom.php:142
 msgid "will be replaced by SMS incoming date/time"
-msgstr ""
+msgstr "akan digantikan oleh waktu/tanggal SMS masuk"
 
 #: sms_custom.php:80 sms_custom.php:143
 msgid "will be replaced by sender number"
-msgstr ""
+msgstr "akan digantikan oleh nomor pengirim"
 
 #: sms_custom.php:81 sms_custom.php:144
 msgid "will be replaced by custom keyword"
-msgstr ""
+msgstr "akan digantikan oleh kata kunci penyesuaian SMS"
 
 #: sms_custom.php:82 sms_custom.php:145
 msgid "will be replaced by custom parameter passed to server from SMS"
-msgstr ""
+msgstr "akan diganti oleh parameter penyesuaian yang dikirim ke server dari SMS"
 
 #: sms_custom.php:83 sms_custom.php:146
 msgid "SMS custom URL"
-msgstr ""
+msgstr "URL penyesuaian SMS"
 
 #: sms_custom.php:84
 msgid "Save"
-msgstr ""
+msgstr "Simpan"
 
 #: sms_custom.php:98
 msgid "SMS custom has been saved"
-msgstr ""
+msgstr "penyesuaian SMS sudah disimpan"
 
 #: sms_custom.php:102
 msgid "Fail to save SMS custom"
-msgstr ""
+msgstr "Gagal menyimpan penyesuaian SMS"
 
 #: sms_custom.php:107 sms_custom.php:176
 msgid "You must fill all fields"
-msgstr ""
+msgstr "Anda harus mengisi semua kolom"
 
 #: sms_custom.php:122
 msgid "SMS custom has been deleted"
-msgstr ""
+msgstr "penyesuaian SMS sudah dihapus"
 
 #: sms_custom.php:126
 msgid "Fail to delete SMS custom"
-msgstr ""
+msgstr "Gagal menghapus penyesuaian SMS"
 
 #: sms_custom.php:147
 msgid "Add"
-msgstr ""
+msgstr "Tambah"
 
 #: sms_custom.php:162
 msgid "SMS custom has been added"
-msgstr ""
+msgstr "penyesuaian SMS telah ditambahkan"
 
 #: sms_custom.php:166
 msgid "Fail to add SMS custom"
-msgstr ""
+msgstr "Gagal menambah penyesuaian SMS"
 
 #: sms_custom.php:171
 msgid "SMS custom already exists, reserved or use by other feature"
-msgstr ""
+msgstr "penyesuaian SMS sudah dipesan atau digunakan oleh fitur lain."

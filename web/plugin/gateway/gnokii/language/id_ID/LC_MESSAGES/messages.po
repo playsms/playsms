@@ -4,44 +4,44 @@ msgstr "Pengaturan gnokii"
 
 #: gnokii.php:8
 msgid "Active"
-msgstr ""
+msgstr "Aktif"
 
 #: gnokii.php:12
 msgid "Inactive"
-msgstr ""
+msgstr "Nonaktif"
 
 #: gnokii.php:12
 msgid "click here to activate"
-msgstr ""
+msgstr "klik di sini untuk mengaktifkan"
 
 #: gnokii.php:28
 msgid "Gateway name"
-msgstr ""
+msgstr "nama gerbang"
 
 #: gnokii.php:31
 msgid "Gnokii installation path"
-msgstr ""
+msgstr "jalur instalasi Gnokii"
 
 #: gnokii.php:31
 msgid "No trailing slash"
-msgstr ""
+msgstr "Tanpa garis miring"
 
 #: gnokii.php:35
 msgid "Note"
-msgstr ""
+msgstr "Catatan"
 
 #: gnokii.php:36
 msgid "Send SMS message without footer banner"
-msgstr ""
+msgstr "Kirim SMS tanpa banner footer"
 
 #: gnokii.php:38
 msgid "Save"
-msgstr ""
+msgstr "Simpan"
 
 #: gnokii.php:54
 msgid "Gateway module configurations has been saved"
-msgstr ""
+msgstr "konfigurasi modul gerbang telah disimpan"
 
 #: gnokii.php:62
 msgid "Gateway has been activated"
-msgstr ""
+msgstr "gerbang telah diaktifkan"

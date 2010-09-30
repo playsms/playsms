@@ -39,13 +39,21 @@ Current Features
 
 License
 -------
-playSMS libraries source codes (all files under directory web/lib) are LGPL
-The rest of the playSMS source codes are licensed as GPL version 2
+playSMS libraries source codes (all files under directory web/lib) are LGPL and
+the rest of the playSMS source codes are licensed as GPL version 2
+
+Each plugins, modules or external applications linked through playSMS libraries
+and available for or installed with playSMS may have their own license
 
 
 Installation
 ------------
 Please read INSTALL and then FAQ
+
+
+Project Founder
+---------------
+Anton Raharja (anton)
 
 
 Active Contributors
@@ -67,6 +75,6 @@ Aaron Simmons
 
 Translators
 -----------
-fr_FR	: Emmanuel Chanson
-id_ID	: Anton Raharja
+fr_FR	: Emmanuel Chanson (emmanuel)
+id_ID	: Anton Raharja (anton)
 

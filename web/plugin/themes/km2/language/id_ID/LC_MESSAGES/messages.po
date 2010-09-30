@@ -16,40 +16,40 @@ msgstr "Keluar"
 
 #: loginpage.php:27
 msgid "Username "
-msgstr ""
+msgstr "Nama Pengguna"
 
 #: loginpage.php:31
 msgid "Password "
-msgstr ""
+msgstr "Kata Sandi"
 
 #: loginpage.php:36
 msgid "Login"
-msgstr ""
+msgstr "Masuk"
 
 #: welcomepage.php:7
 msgid "Welcome to PlaySMS"
-msgstr ""
+msgstr "Selamat datang di PlaySMS"
 
 #: welcomepage.php:16
 msgid "About playSMS"
-msgstr ""
+msgstr "Tentang playSMS"
 
 #: welcomepage.php:17
 msgid "Changelog"
-msgstr ""
+msgstr "Catatan Perubahan"
 
 #: welcomepage.php:18
 msgid "Installation Guide"
-msgstr ""
+msgstr "Panduan Instalasi"
 
 #: welcomepage.php:19
 msgid "F.A.Q"
-msgstr ""
+msgstr "F.A.Q"
 
 #: welcomepage.php:20
 msgid "License"
-msgstr ""
+msgstr "Lisensi"
 
 #: welcomepage.php:25
 msgid "FAQ Users"
-msgstr ""
+msgstr "Para Pengguna FAQ"

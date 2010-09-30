@@ -1,18 +1,18 @@
 #: header.php:26
 msgid "Logged in"
-msgstr "Logged in"
+msgstr "Masuk"
 
 #: header.php:26
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: loginpage.php:19
 msgid "Username"
-msgstr ""
+msgstr "Nama Pengguna"
 
 #: loginpage.php:23
 msgid "Password"
-msgstr ""
+msgstr "Kata Sandi"
 
 #: welcomepage.php:7
 msgid "Welcome to playSMS"
@@ -20,20 +20,20 @@ msgstr "Selamat datang di playSMS"
 
 #: welcomepage.php:9
 msgid "About playSMS"
-msgstr ""
+msgstr "Tentang playSMS"
 
 #: welcomepage.php:10
 msgid "Changelog"
-msgstr ""
+msgstr "Catatan Perubahan"
 
 #: welcomepage.php:11
 msgid "Installation Guide"
-msgstr ""
+msgstr "Panduan Instalasi"
 
 #: welcomepage.php:12
 msgid "F.A.Q"
-msgstr ""
+msgstr "F.A.Q"
 
 #: welcomepage.php:13
 msgid "License"
-msgstr ""
+msgstr "Lisensi"

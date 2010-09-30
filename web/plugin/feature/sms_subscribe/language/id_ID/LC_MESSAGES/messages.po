@@ -1,222 +1,222 @@
 #: config.php:4 sms_subscribe.php:12
 msgid "Manage subscribe"
-msgstr "Pengaturan subscribe"
+msgstr "Pengaturan SMS berlangganan"
 
 #: config.php:6
 msgid "Add message"
-msgstr ""
+msgstr "Tambah pesan"
 
 #: config.php:7
 msgid "View members"
-msgstr ""
+msgstr "Lihat anggota"
 
 #: config.php:8
 msgid "View messages"
-msgstr ""
+msgstr "Lihat pesan"
 
 #: fn.php:96 fn.php:101 fn.php:106
 msgid "You are not a member"
-msgstr ""
+msgstr "Anda bukan anggota"
 
 #: fn.php:111
 msgid "Unknown SMS format"
-msgstr ""
+msgstr "format SMS tidak dikenal"
 
 #: fn.php:144 fn.php:149 fn.php:154
 msgid "You already a member"
-msgstr ""
+msgstr "Anda sudah terdaftar sebagai anggota"
 
 #: fn.php:159
 msgid "Unknown sms format"
-msgstr ""
+msgstr "format SMS tidak dikenal"
 
 #: sms_subscribe.php:14 sms_subscribe.php:66 sms_subscribe.php:438
 msgid "Add SMS subscribe"
-msgstr ""
+msgstr "Tambah layanan SMS berlangganan"
 
 #: sms_subscribe.php:26
 msgid "Keyword"
-msgstr ""
+msgstr "Kata Kunci"
 
 #: sms_subscribe.php:27
 msgid "Total members"
-msgstr ""
+msgstr "Jumlah anggota"
 
 #: sms_subscribe.php:28
 msgid "User"
-msgstr ""
+msgstr "Pengguna"
 
 #: sms_subscribe.php:29
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: sms_subscribe.php:30 sms_subscribe.php:96 sms_subscribe.php:282
 msgid "Action"
-msgstr ""
+msgstr "Tindakan"
 
 #: sms_subscribe.php:43 sms_subscribe.php:353
 msgid "Disabled"
-msgstr ""
+msgstr "Nonaktif"
 
 #: sms_subscribe.php:45 sms_subscribe.php:355
 msgid "Enabled"
-msgstr ""
+msgstr "Aktif"
 
 #: sms_subscribe.php:51
 msgid "Are you sure you want to delete SMS subscribe ?"
-msgstr ""
+msgstr "Anda yakin ingin menghapus layanan SMS berlangganan?"
 
 #: sms_subscribe.php:51 sms_subscribe.php:381 sms_subscribe.php:414
 #: sms_subscribe.php:469 sms_subscribe.php:472
 msgid "keyword"
-msgstr ""
+msgstr "kata kunci"
 
 #: sms_subscribe.php:84
 msgid "SMS messages list for keyword"
-msgstr ""
+msgstr "kata kunci untuk daftar pesan SMS"
 
 #: sms_subscribe.php:88 sms_subscribe.php:118
 msgid "Add Message"
-msgstr ""
+msgstr "Tambah Pesan"
 
 #: sms_subscribe.php:95 sms_subscribe.php:151
 msgid "Message"
-msgstr ""
+msgstr "Pesan"
 
 #: sms_subscribe.php:106
 msgid "Are you sure you want to delete this message?"
-msgstr ""
+msgstr "Anda yakin ingin menghapus pesan ini?"
 
 #: sms_subscribe.php:141
 msgid "Message detail"
-msgstr ""
+msgstr "Rincian pesan"
 
 #: sms_subscribe.php:148 sms_subscribe.php:186 sms_subscribe.php:335
 #: sms_subscribe.php:443 sms_subscribe.php:493
 msgid "SMS subscribe keyword"
-msgstr ""
+msgstr "kata kunci SMS langganan"
 
 #: sms_subscribe.php:154
 msgid "Send this message to all members"
-msgstr ""
+msgstr "Kirim pesan ini ke semua anggota"
 
 #: sms_subscribe.php:155
 msgid "Send"
-msgstr ""
+msgstr "Kirim"
 
 #: sms_subscribe.php:190 sms_subscribe.php:500
 msgid "Message body"
-msgstr ""
+msgstr "Badan pesan"
 
 #: sms_subscribe.php:196
 msgid "Edit"
-msgstr ""
+msgstr "Ubah"
 
 #: sms_subscribe.php:211
 msgid "Message has been edited"
-msgstr ""
+msgstr "Pesan telah diubah"
 
 #: sms_subscribe.php:214 sms_subscribe.php:254 sms_subscribe.php:384
 #: sms_subscribe.php:475 sms_subscribe.php:523
 msgid "You must fill all fields"
-msgstr ""
+msgstr "Anda harus mengisi semua kolom"
 
 #: sms_subscribe.php:246
 msgid "Your SMS has been delivered to queue"
-msgstr ""
+msgstr "SMS anda telah dikirim ke antrian"
 
 #: sms_subscribe.php:246 sms_subscribe.php:248
 msgid "to"
-msgstr ""
+msgstr "untuk"
 
 #: sms_subscribe.php:248
 msgid "Fail to send SMS"
-msgstr ""
+msgstr "Gagal mengirim SMS"
 
 #: sms_subscribe.php:273
 msgid "Member list for keyword"
-msgstr ""
+msgstr "kata kunci untuk daftar anggota"
 
 #: sms_subscribe.php:280
 msgid "Phone number"
-msgstr ""
+msgstr "Nomor telepon"
 
 #: sms_subscribe.php:281
 msgid "Member join datetime"
-msgstr ""
+msgstr "Tanggal bergabung anggota"
 
 #: sms_subscribe.php:290
 msgid "Are you sure you want to delete this member ?"
-msgstr ""
+msgstr "Anda yakin ingin menghapus anggota ini?"
 
 #: sms_subscribe.php:310
 msgid "\"Member has been deleted"
-msgstr ""
+msgstr "Anggota telah dihapus"
 
 #: sms_subscribe.php:328
 msgid "Edit SMS subscribe"
-msgstr ""
+msgstr "Ubah langganan SMS"
 
 #: sms_subscribe.php:338 sms_subscribe.php:446
 msgid "SMS subscribe reply"
-msgstr ""
+msgstr "balas SMS berlangganan"
 
 #: sms_subscribe.php:341 sms_subscribe.php:449
 msgid "SMS unsubscribe reply"
-msgstr ""
+msgstr "balas SMS nonlangganan"
 
 #: sms_subscribe.php:344
 msgid "Save"
-msgstr ""
+msgstr "Simpan"
 
 #: sms_subscribe.php:358
 msgid "Enable or disable this subscribe"
-msgstr ""
+msgstr "Aktifkan atau nonaktifkan layanan SMS berlangganan ini"
 
 #: sms_subscribe.php:360
 msgid "Current status"
-msgstr ""
+msgstr "Status saat ini"
 
 #: sms_subscribe.php:361
 msgid "What do you want to do ?"
-msgstr ""
+msgstr "Apa yang ingin anda lakukan?"
 
 #: sms_subscribe.php:362
 msgid "I want to enable this subscribe"
-msgstr ""
+msgstr "Saya ingin mengaktifkan layanan SMS berlangganan ini"
 
 #: sms_subscribe.php:363
 msgid "I want to disable this subscribe"
-msgstr ""
+msgstr "Saya ingin menonaktifkan layanan SMS berlangganan ini"
 
 #: sms_subscribe.php:381
 msgid "SMS subscribe has been saved"
-msgstr ""
+msgstr "SMS berlangganan telah disimpan"
 
 #: sms_subscribe.php:395
 msgid "SMS subscribe status has been changed"
-msgstr ""
+msgstr "status SMS berlangganan telah diganti"
 
 #: sms_subscribe.php:414
 msgid "SMS subscribe with all its messages and members has been deleted"
-msgstr ""
+msgstr "SMS berlangganan beserta semua pesan dan anggotanya telah dihapus"
 
 #: sms_subscribe.php:427
 msgid "Message has been deleted"
-msgstr ""
+msgstr "Pesan telah dihapus"
 
 #: sms_subscribe.php:452 sms_subscribe.php:505
 msgid "Add"
-msgstr ""
+msgstr "Tambah"
 
 #: sms_subscribe.php:469
 msgid "SMS subscribe has been added"
-msgstr ""
+msgstr "SMS berlangganan telah ditambahkan"
 
 #: sms_subscribe.php:472
 msgid "SMS subscribe already exists, reserved or use by other feature"
-msgstr ""
+msgstr "layanan SMS berlangganan sudah ada, dipesa, atau digunakan oleh fitur lain"
 
 #: sms_subscribe.php:520
 msgid "Member message has been added"
-msgstr ""
+msgstr "pesan anggota telah ditambahkan"

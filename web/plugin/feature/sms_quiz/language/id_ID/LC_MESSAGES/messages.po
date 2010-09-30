@@ -1,157 +1,157 @@
 #: config.php:4 sms_quiz.php:79
 msgid "Manage quiz"
-msgstr "Pengaturan quiz"
+msgstr "Pengaturan kuis SMS"
 
 #: sms_quiz.php:16
 msgid "Received answer list for keyword"
-msgstr ""
+msgstr "Terima daftar jawaban untuk kata kunci"
 
 #: sms_quiz.php:25
 msgid "Datetime"
-msgstr ""
+msgstr "Waktu dan Tanggal"
 
 #: sms_quiz.php:26
 msgid "Sender"
-msgstr ""
+msgstr "Pengirim"
 
 #: sms_quiz.php:27
 msgid "Message"
-msgstr ""
+msgstr "Pesan"
 
 #: sms_quiz.php:28 sms_quiz.php:97
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: sms_quiz.php:29 sms_quiz.php:98
 msgid "Action"
-msgstr ""
+msgstr "Tindakan"
 
 #: sms_quiz.php:38
 msgid "Correct"
-msgstr ""
+msgstr "Benar"
 
 #: sms_quiz.php:40
 msgid "Incorrect"
-msgstr ""
+msgstr "Salah"
 
 #: sms_quiz.php:42
-msgid "Are you sure you want to delete this answer ?"
-msgstr ""
+msgid "Are you sure you want to delete this answer?"
+msgstr "Anda yakin ingin menghapus jawaban ini?"
 
 #: sms_quiz.php:68
 msgid "SMS quiz answer messages has been deleted"
-msgstr ""
+msgstr "pesan jawaban kuis SMS telah dihapus"
 
 #: sms_quiz.php:81 sms_quiz.php:128 sms_quiz.php:246
 msgid "Add SMS quiz"
-msgstr ""
+msgstr "Tambah kuis SMS"
 
 #: sms_quiz.php:93
 msgid "Keyword"
-msgstr ""
+msgstr "Kata Kunci"
 
 #: sms_quiz.php:94
 msgid "Question"
-msgstr ""
+msgstr "Pertanyaan"
 
 #: sms_quiz.php:95
 msgid "Answer"
-msgstr ""
+msgstr "Jawaban"
 
 #: sms_quiz.php:96
 msgid "User"
-msgstr ""
+msgstr "Pengguna"
 
 #: sms_quiz.php:106 sms_quiz.php:177
 msgid "Disabled"
-msgstr ""
+msgstr "Nonaktif"
 
 #: sms_quiz.php:108 sms_quiz.php:179
 msgid "Enabled"
-msgstr ""
+msgstr "Aktif"
 
 #: sms_quiz.php:112
 msgid ""
-"Are you sure you want to delete SMS quiz with all its choices and answers ?"
-msgstr ""
+"Are you sure you want to delete SMS quiz with all its choices and answers?"
+msgstr "Anda yakin ingin menghapus kuis SMS beserta semua pilihan dan jawabannya?"
 
 #: sms_quiz.php:112 sms_quiz.php:207 sms_quiz.php:235 sms_quiz.php:285
 #: sms_quiz.php:288
 msgid "keyword"
-msgstr ""
+msgstr "kata kunci"
 
 #: sms_quiz.php:146
 msgid "Edit SMS quiz"
-msgstr ""
+msgstr "Ubah kuis SMS"
 
 #: sms_quiz.php:153 sms_quiz.php:251
 msgid "SMS quiz keyword"
-msgstr ""
+msgstr "kata kunci kuis SMS"
 
 #: sms_quiz.php:156 sms_quiz.php:254
 msgid "SMS quiz question"
-msgstr ""
+msgstr "pertanyaan kuis SMS"
 
 #: sms_quiz.php:159 sms_quiz.php:257
 msgid "SMS quiz answer"
-msgstr ""
+msgstr "jawaban kuis SMS"
 
 #: sms_quiz.php:162 sms_quiz.php:260
 msgid "Message when correct"
-msgstr ""
+msgstr "Pesan ketika benar"
 
 #: sms_quiz.php:165 sms_quiz.php:263
 msgid "Message when incorrect"
-msgstr ""
+msgstr "Pesan ketika salah"
 
 #: sms_quiz.php:168
 msgid "Save"
-msgstr ""
+msgstr "Simpan"
 
 #: sms_quiz.php:182
 msgid "Enable or disable this quiz"
-msgstr ""
+msgstr "Aktif atau nonaktifkan kuis SMS ini"
 
 #: sms_quiz.php:184
 msgid "Current status"
-msgstr ""
+msgstr "status saat ini"
 
 #: sms_quiz.php:185
 msgid "What do you want to do ?"
-msgstr ""
+msgstr "Apa yang ingin anda lakukan?"
 
 #: sms_quiz.php:186
 msgid "I want to enable this quiz"
-msgstr ""
+msgstr "Saya ingin mengaktifkan kuis SMS ini"
 
 #: sms_quiz.php:187
 msgid "I want to disable this quiz"
-msgstr ""
+msgstr "Saya ingin menonaktifkan kuis SMS ini"
 
 #: sms_quiz.php:207
 msgid "SMS quiz has been saved"
-msgstr ""
+msgstr "kuis SMS telah disimpan"
 
 #: sms_quiz.php:210 sms_quiz.php:291
 msgid "You must fill all field"
-msgstr ""
+msgstr "Anda harus mengisi semua kolom"
 
 #: sms_quiz.php:221
 msgid "SMS quiz status has been changed"
-msgstr ""
+msgstr "status kuis SMS telah diganti"
 
 #: sms_quiz.php:235
 msgid "SMS quiz with all its messages has been deleted"
-msgstr ""
+msgstr "kuis SMS beserta semua pesannya telah dihapus"
 
 #: sms_quiz.php:266
 msgid "Add"
-msgstr ""
+msgstr "Tambah"
 
 #: sms_quiz.php:285
 msgid "SMS quiz has been added"
-msgstr ""
+msgstr "kuis SMS telah ditambahkan"
 
 #: sms_quiz.php:288
 msgid "SMS quiz already exists, reserved or use by other feature"
-msgstr ""
+msgstr "kuis SMS sudah ada, dipesan, atau digunakan oleh fitur lain"

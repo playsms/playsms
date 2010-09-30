@@ -4,69 +4,69 @@ msgstr "Pengaturan tarif SMS"
 
 #: simplerate.php:14 simplerate.php:47 simplerate.php:122
 msgid "Add rate"
-msgstr ""
+msgstr "Tambah tarif"
 
 #: simplerate.php:18 simplerate.php:78 simplerate.php:127
 msgid "Destination"
-msgstr ""
+msgstr "Tujuan"
 
 #: simplerate.php:19 simplerate.php:81 simplerate.php:130
 msgid "Prefix"
-msgstr ""
+msgstr "Awalan"
 
 #: simplerate.php:20 simplerate.php:84 simplerate.php:133
 msgid "Rate"
-msgstr ""
+msgstr "Tarif"
 
 #: simplerate.php:21
 msgid "Action"
-msgstr ""
+msgstr "Tindakan"
 
 #: simplerate.php:32
 msgid "Are you sure you want to delete rate ?"
-msgstr ""
+msgstr "Anda yakin ingin menghapus tarif?"
 
 #: simplerate.php:32 simplerate.php:54 simplerate.php:58 simplerate.php:103
 #: simplerate.php:107 simplerate.php:151 simplerate.php:161
 msgid "destination"
-msgstr ""
+msgstr "tujuan"
 
 #: simplerate.php:32 simplerate.php:54 simplerate.php:58 simplerate.php:103
 #: simplerate.php:107 simplerate.php:151 simplerate.php:161
 msgid "prefix"
-msgstr ""
+msgstr "awalan"
 
 #: simplerate.php:54
 msgid "Fail to delete rate"
-msgstr ""
+msgstr "Gagal menghapus tarif"
 
 #: simplerate.php:58
 msgid "Rate has been deleted"
-msgstr ""
+msgstr "Tarif telah dihapus"
 
 #: simplerate.php:72
 msgid "Edit rate"
-msgstr ""
+msgstr "Ubah tarif"
 
 #: simplerate.php:87
 msgid "Save"
-msgstr ""
+msgstr "Simpan"
 
 #: simplerate.php:97
 msgid "No changes made!"
-msgstr ""
+msgstr "Tidak ada perubahan yang dilakukan!"
 
 #: simplerate.php:103
 msgid "Rate has been saved"
-msgstr ""
+msgstr "Tarif telah disimpan"
 
 #: simplerate.php:107
 msgid "Fail to save rate"
-msgstr ""
+msgstr "Gagal menyimpan tarif"
 
 #: simplerate.php:112 simplerate.php:167
 msgid "You must fill all fields"
-msgstr ""
+msgstr "Anda harus mengisi semua kolom"
 
 #: simplerate.php:136
 msgid "Add"
@@ -74,8 +74,8 @@ msgstr ""
 
 #: simplerate.php:151
 msgid "Rate is already exists"
-msgstr ""
+msgstr "Tarif telah ada sebelumnya"
 
 #: simplerate.php:161
 msgid "Rate has been added"
-msgstr ""
+msgstr "Tarif telah ditambahkan"

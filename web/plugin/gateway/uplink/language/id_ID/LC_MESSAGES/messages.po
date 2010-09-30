@@ -4,68 +4,68 @@ msgstr "Pengaturan uplink"
 
 #: uplink.php:8
 msgid "Active"
-msgstr ""
+msgstr "Aktif"
 
 #: uplink.php:12
 msgid "Inactive"
-msgstr ""
+msgstr "Nonaktif"
 
 #: uplink.php:12
 msgid "click here to activate"
-msgstr ""
+msgstr "Klik di sini untuk mengaktifkan"
 
 #: uplink.php:29
 msgid "Gateway name"
-msgstr ""
+msgstr "Nama Gerbang"
 
 #: uplink.php:32
 msgid "Master URL"
-msgstr ""
+msgstr "URL Utama"
 
 #: uplink.php:35
 msgid "Username"
-msgstr ""
+msgstr "Nama Pengguna"
 
 #: uplink.php:38
 msgid "Password"
-msgstr ""
+msgstr "Kata Sandi"
 
 #: uplink.php:41
 msgid "Global sender"
-msgstr ""
+msgstr "Pengirim global"
 
 #: uplink.php:41
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
+msgstr "Maks. 16 karakter numerik atau 11 alfanumerik. kosongkan untuk menonaktifkan"
 
 #: uplink.php:44
 msgid "Uplink incoming path"
-msgstr ""
+msgstr "jalur masuk uplink"
 
 #: uplink.php:44
 msgid "No trailing slash"
-msgstr ""
+msgstr "Tanpa garis miring"
 
 #: uplink.php:48
 msgid "Note"
-msgstr ""
+msgstr "Catatan"
 
 #: uplink.php:49
 msgid "Send SMS message without footer banner"
-msgstr ""
+msgstr "Kirim SMS tanpa banner footer"
 
 #: uplink.php:51
 msgid "Save"
-msgstr ""
+msgstr "Simpan"
 
 #: uplink.php:62
 msgid "No changes has been made"
-msgstr ""
+msgstr "Tidak ada perubahan yang dilakukan"
 
 #: uplink.php:76
 msgid "Gateway module configurations has been saved"
-msgstr ""
+msgstr "Konfigurasi modul Gerbang telah disimpan"
 
 #: uplink.php:84
 msgid "Gateway has been activated"
-msgstr ""
+msgstr "Gerbang telah diaktifkan"

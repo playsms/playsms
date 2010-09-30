@@ -1,145 +1,145 @@
 #: config.php:4 sms_poll.php:12
 msgid "Manage poll"
-msgstr "Pengaturan poll"
+msgstr "Pengaturan layanan SMS pemungutan suara"
 
 #: sms_poll.php:14 sms_poll.php:62 sms_poll.php:276
 msgid "Add SMS poll"
-msgstr ""
+msgstr "Tambah layanan SMS pemungutan suara"
 
 #: sms_poll.php:27 sms_poll.php:113
 msgid "Keyword"
-msgstr ""
+msgstr "Kata kunci"
 
 #: sms_poll.php:28 sms_poll.php:114
 msgid "Title"
-msgstr ""
+msgstr "Judul"
 
 #: sms_poll.php:29
 msgid "User"
-msgstr ""
+msgstr "Pengguna"
 
 #: sms_poll.php:30
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: sms_poll.php:31 sms_poll.php:115
 msgid "Action"
-msgstr ""
+msgstr "Tindakan"
 
 #: sms_poll.php:40 sms_poll.php:154
 msgid "Disabled"
-msgstr ""
+msgstr "Mati"
 
 #: sms_poll.php:43 sms_poll.php:157
 msgid "Enabled"
-msgstr ""
+msgstr "Hidup"
 
 #: sms_poll.php:47
 msgid ""
 "Are you sure you want to delete SMS poll with all its choices and votes ?"
-msgstr ""
+msgstr "Anda yakin ingin menghapus layanan SMS pemungutan suara beserta semua pilihan dan suaranya?"
 
 #: sms_poll.php:47 sms_poll.php:131 sms_poll.php:183 sms_poll.php:236
 #: sms_poll.php:241 sms_poll.php:257 sms_poll.php:265 sms_poll.php:305
 #: sms_poll.php:310
 msgid "keyword"
-msgstr ""
+msgstr "kata kunci"
 
 #: sms_poll.php:85
 msgid "Edit SMS poll"
-msgstr ""
+msgstr "Ubah layanan SMS pemungutan suara"
 
 #: sms_poll.php:92 sms_poll.php:281
 msgid "SMS poll keyword"
-msgstr ""
+msgstr "kata kunci SMS pemungutan suara"
 
 #: sms_poll.php:95 sms_poll.php:284
 msgid "SMS poll title"
-msgstr ""
+msgstr "judul SMS pemungutan suara"
 
 #: sms_poll.php:98
 msgid "Save"
-msgstr ""
+msgstr "Simpan"
 
 #: sms_poll.php:104
 msgid "Edit SMS poll choices"
-msgstr ""
+msgstr "Ubah pilihan-pilihan dalam layanan SMS pemungutan suara?"
 
 #: sms_poll.php:131
 msgid "Are you sure you want to delete choice ?"
-msgstr ""
+msgstr "Anda yakin ingin menghapus pilihan?"
 
 #: sms_poll.php:131 sms_poll.php:214
 msgid "title"
-msgstr ""
+msgstr "judul"
 
 #: sms_poll.php:136
 msgid "Add choice to this poll"
-msgstr ""
+msgstr "Tambah pilihan ke dalam SMS pemungutan suara ini"
 
 #: sms_poll.php:141
 msgid "Choice Keyword"
-msgstr ""
+msgstr "Kata Kunci Pilihan"
 
 #: sms_poll.php:144
 msgid "Choice title"
-msgstr ""
+msgstr "judul Pilihan"
 
 #: sms_poll.php:147 sms_poll.php:287
 msgid "Add"
-msgstr ""
+msgstr "Tambah"
 
 #: sms_poll.php:160
 msgid "Enable or disable this poll"
-msgstr ""
+msgstr "Matikan atau Hidupkan SMS pemungutan suara ini"
 
 #: sms_poll.php:162
 msgid "Current status"
-msgstr ""
+msgstr "status saat ini"
 
 #: sms_poll.php:163
 msgid "What do you want to do ?"
-msgstr ""
+msgstr "Apa yang ingin anda lakukan?"
 
 #: sms_poll.php:164
 msgid "I want to enable this poll"
-msgstr ""
+msgstr "Saya ingin mengaktifkan SMS pemungutan suara ini"
 
 #: sms_poll.php:165
 msgid "I want to disable this poll"
-msgstr ""
+msgstr "Saya ingin menonaktifkan SMS pemungutan suara ini"
 
 #: sms_poll.php:183
 msgid "SMS poll with has been saved"
-msgstr ""
+msgstr "SMS pemungutan suara telah disimpan"
 
 #: sms_poll.php:188 sms_poll.php:246 sms_poll.php:315
 msgid "You must fill all fields"
-msgstr ""
+msgstr "Anda harus mengisi semua kolom"
 
 #: sms_poll.php:199
 msgid "SMS poll status has been changed"
-msgstr ""
+msgstr "status SMS pemungutan suara telah diganti"
 
 #: sms_poll.php:214
 msgid "SMS poll with all its messages has been deleted"
-msgstr ""
+msgstr "SMS pemungutan suara telah dihapus beserta semua pesannya"
 
 #: sms_poll.php:236
 msgid "Choice has been added"
-msgstr ""
+msgstr "Pilihan telah ditambahkan"
 
 #: sms_poll.php:241
 msgid "Choice already exists"
-msgstr ""
+msgstr "Pilihan sudah ada"
 
 #: sms_poll.php:257
 msgid "Fail to delete SMS poll choice"
-msgstr ""
+msgstr "Gagal menghapus pilihan SMS pemungutan suara"
 
 #: sms_poll.php:265
 msgid "SMS poll choice and all its voters has been deleted"
-msgstr ""
+msgstr "pilihan SMS pemungutan suara beserta semua pemilihnya telah dihapus"
 
 #: sms_poll.php:305
 msgid "SMS poll has been added"
@@ -147,4 +147,4 @@ msgstr ""
 
 #: sms_poll.php:310
 msgid "SMS poll already exists, reserved or use by other feature"
-msgstr ""
+msgstr "SMS pemungutan suara sudah ada, dipesan, atau digunakan oleh fitur lain."

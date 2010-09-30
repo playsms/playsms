@@ -1,51 +1,51 @@
 #: config.php:14 template.php:24
 msgid "Manage template"
-msgstr "Pengaturan template"
+msgstr "Pengaturan Pola"
 
 #: template.php:8
 msgid "Active"
-msgstr ""
+msgstr "Aktif"
 
 #: template.php:12
 msgid "Inactive"
-msgstr ""
+msgstr "Nonaktif"
 
 #: template.php:12
 msgid "click here to activate"
-msgstr ""
+msgstr "Klik di sini untuk mengaktifkan"
 
 #: template.php:29
 msgid "Gateway name"
-msgstr ""
+msgstr "Nama Gerbang"
 
 #: template.php:32
 msgid "Template installation path"
-msgstr ""
+msgstr "jalur instalasi Pola"
 
 #: template.php:32
 msgid "No trailing slash"
-msgstr ""
+msgstr "Tanpa garis miring"
 
 #: template.php:36
 msgid "Note"
-msgstr ""
+msgstr "Catatan"
 
 #: template.php:37
 msgid "Send SMS message without footer banner"
-msgstr ""
+msgstr "Kirim SMS tanpa banner footer"
 
 #: template.php:39
 msgid "Save"
-msgstr ""
+msgstr "Simpan"
 
 #: template.php:45
 msgid "No changes has been made"
-msgstr ""
+msgstr "Tidak ada perubahan yang dilakukan"
 
 #: template.php:54
 msgid "Gateway module configurations has been saved"
-msgstr ""
+msgstr "Konfigurasi modul Gerbang telah disimpan"
 
 #: template.php:62
 msgid "Gateway has been activated"
-msgstr ""
+msgstr "Gerbang telah diaktifkan"

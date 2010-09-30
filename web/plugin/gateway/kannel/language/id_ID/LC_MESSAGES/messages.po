@@ -4,76 +4,76 @@ msgstr "Pengaturan kannel"
 
 #: kannel.php:8
 msgid "Active"
-msgstr ""
+msgstr "Aktif"
 
 #: kannel.php:12
 msgid "Inactive"
-msgstr ""
+msgstr "Nonaktif"
 
 #: kannel.php:12
 msgid "click here to activate"
-msgstr ""
+msgstr "Klik di sini untuk mengaktifkan"
 
 #: kannel.php:28
 msgid "Gateway name"
-msgstr ""
+msgstr "nama gerbang"
 
 #: kannel.php:31
 msgid "Username"
-msgstr ""
+msgstr "nama Pengguna"
 
 #: kannel.php:34
 msgid "Password"
-msgstr ""
+msgstr "Kata Sandi"
 
 #: kannel.php:37
 msgid "Global sender"
-msgstr ""
+msgstr "pengirim global"
 
 #: kannel.php:37
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
+msgstr "Maks. 16 numerik atau 11 karakter alfanumerik. kosongkan untuk menonaktifkan"
 
 #: kannel.php:40
 msgid "Bearerbox hostname or IP"
-msgstr ""
+msgstr "nama induk Bearerbox atau IP"
 
 #: kannel.php:40 kannel.php:43
 msgid "Kannel specific"
-msgstr ""
+msgstr "Spesifikasi Kannel"
 
 #: kannel.php:43
 msgid "Send SMS port"
-msgstr ""
+msgstr "Kirim portal SMS"
 
 #: kannel.php:46
 msgid "playSMS web URL"
-msgstr ""
+msgstr "alamat web playSMS"
 
 #: kannel.php:46
 msgid "URL to playSMS, empty it to set it to base URL"
-msgstr ""
+msgstr "URL untuk playSMS, kosongkan untuk mengaturnya ke URL dasar"
 
 #: kannel.php:50
 msgid "Note"
-msgstr ""
+msgstr "Catatan"
 
 #: kannel.php:51
 msgid "Send SMS message without footer banner"
-msgstr ""
+msgstr "Kirim SMS tanpa banner footer"
 
 #: kannel.php:53
 msgid "Save"
-msgstr ""
+msgstr "Simpan"
 
 #: kannel.php:65
 msgid "No changes has been made"
-msgstr ""
+msgstr "Tidak ada perubahan yang terjadi"
 
 #: kannel.php:80
 msgid "Gateway module configurations has been saved"
-msgstr ""
+msgstr "Konfigurasi modul gerbang telah disimpan"
 
 #: kannel.php:88
 msgid "Gateway has been activated"
-msgstr ""
+msgstr "Gerbang telah diaktifkan"

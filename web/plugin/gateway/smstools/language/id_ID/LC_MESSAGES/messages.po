@@ -4,20 +4,20 @@ msgstr "Pengaturan smstools"
 
 #: smstools.php:8
 msgid "Active"
-msgstr ""
+msgstr "Aktif"
 
 #: smstools.php:12
 msgid "Inactive"
-msgstr ""
+msgstr "Nonaktif"
 
 #: smstools.php:12
 msgid "click here to activate"
-msgstr ""
+msgstr "Klik di sini untuk mengaktifkan"
 
 #: smstools.php:27
 msgid "Gateway name"
-msgstr ""
+msgstr "Nama Gerbang"
 
 #: smstools.php:36
 msgid "Gateway has been activated"
-msgstr ""
+msgstr "Gerbang telah diaktifkan"
