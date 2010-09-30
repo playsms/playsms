@@ -12,12 +12,12 @@ msgstr "Nonaktif"
 
 #: smstools.php:12
 msgid "click here to activate"
-msgstr "Klik di sini untuk mengaktifkan"
+msgstr "klik di sini untuk mengaktifkan"
 
 #: smstools.php:27
 msgid "Gateway name"
-msgstr "Nama Gerbang"
+msgstr "Nama gateway"
 
 #: smstools.php:36
 msgid "Gateway has been activated"
-msgstr "Gerbang telah diaktifkan"
+msgstr "Gateway telah diaktifkan"

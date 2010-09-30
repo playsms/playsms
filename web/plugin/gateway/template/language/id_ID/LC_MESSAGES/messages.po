@@ -1,6 +1,6 @@
 #: config.php:14 template.php:24
 msgid "Manage template"
-msgstr "Pengaturan Pola"
+msgstr "Pengaturan template"
 
 #: template.php:8
 msgid "Active"
@@ -12,15 +12,15 @@ msgstr "Nonaktif"
 
 #: template.php:12
 msgid "click here to activate"
-msgstr "Klik di sini untuk mengaktifkan"
+msgstr "klik di sini untuk mengaktifkan"
 
 #: template.php:29
 msgid "Gateway name"
-msgstr "Nama Gerbang"
+msgstr "Nama gateway"
 
 #: template.php:32
 msgid "Template installation path"
-msgstr "jalur instalasi Pola"
+msgstr "Jalur instalasi template"
 
 #: template.php:32
 msgid "No trailing slash"
@@ -44,8 +44,8 @@ msgstr "Tidak ada perubahan yang dilakukan"
 
 #: template.php:54
 msgid "Gateway module configurations has been saved"
-msgstr "Konfigurasi modul Gerbang telah disimpan"
+msgstr "Konfigurasi modul gateway telah disimpan"
 
 #: template.php:62
 msgid "Gateway has been activated"
-msgstr "Gerbang telah diaktifkan"
+msgstr "Gateway telah diaktifkan"

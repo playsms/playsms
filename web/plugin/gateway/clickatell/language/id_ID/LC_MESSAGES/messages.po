@@ -16,7 +16,7 @@ msgstr "Pengaturan clickatell"
 
 #: clickatell.php:28
 msgid "Gateway name"
-msgstr "nama gerbang"
+msgstr "Nama gateway"
 
 #: clickatell.php:31
 msgid "API ID"
@@ -24,7 +24,7 @@ msgstr "API ID"
 
 #: clickatell.php:34
 msgid "Username"
-msgstr "nama pengguna"
+msgstr "Nama pengguna"
 
 #: clickatell.php:37
 msgid "Password"
@@ -32,7 +32,7 @@ msgstr "Kata sandi"
 
 #: clickatell.php:40
 msgid "Global sender"
-msgstr "pengirim global"
+msgstr "Pengirim global"
 
 #: clickatell.php:40
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
@@ -48,7 +48,7 @@ msgstr "Tanpa garis miring"
 
 #: clickatell.php:46
 msgid "Clickatell incoming path"
-msgstr "jalur masuk Clickatell"
+msgstr "Jalur masuk Clickatell"
 
 #: clickatell.php:49
 msgid "Note"
@@ -78,8 +78,8 @@ msgstr "Tidak ada perubahan yang terjadi"
 
 #: clickatell.php:80
 msgid "Gateway module configurations has been saved"
-msgstr "konfigurasi modul gerbang telah disimpan"
+msgstr "Konfigurasi modul gateway telah disimpan"
 
 #: clickatell.php:88
 msgid "Gateway has been activated"
-msgstr "gerbang telah diaktifkan"
+msgstr "Gateway telah diaktifkan"

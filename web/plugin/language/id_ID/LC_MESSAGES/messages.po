@@ -1,7 +1,7 @@
 #: inc/user/sms_template.php:17 inc/user/send_sms.php:109
 #: inc/user/send_sms.php:224 lib/lib_init1.php:36
 msgid "Message template"
-msgstr "Pola Pesan"
+msgstr "Pola pesan"
 
 #: inc/user/sms_template.php:20 inc/user/sms_template.php:61
 #: inc/user/sms_template.php:70
@@ -278,7 +278,7 @@ msgstr "Kotak Keluar"
 
 #: inc/user/user_inbox.php:25 lib/lib_init1.php:39
 msgid "Inbox"
-msgstr "Kotak Masuk"
+msgstr "Kotak masuk"
 
 #: inc/user/user_inbox.php:33 inc/user/user_incoming.php:33
 #: inc/admin/all_inbox.php:34 inc/admin/all_incoming.php:34
@@ -446,31 +446,31 @@ msgstr "kata sandi atau nama pengguna tidak valid"
 
 #: inc/admin/main_config.php:33 lib/lib_init1.php:52
 msgid "Main configuration"
-msgstr "konfigurasi utama"
+msgstr "Konfigurasi utama"
 
 #: inc/admin/main_config.php:38
 msgid "Website title"
-msgstr "judul situs"
+msgstr "Judul situs"
 
 #: inc/admin/main_config.php:41
 msgid "Website email"
-msgstr "email situs"
+msgstr "Email situs"
 
 #: inc/admin/main_config.php:44
 msgid "Forwarded email footer"
-msgstr "footer email yang diteruskan"
+msgstr "Footer email yang diteruskan"
 
 #: inc/admin/main_config.php:47
 msgid "Gateway number"
-msgstr "nomor Gerbang"
+msgstr "Nomor gateway"
 
 #: inc/admin/main_config.php:50
 msgid "Default SMS rate"
-msgstr "tarif SMS Standar"
+msgstr "Tarif SMS standar"
 
 #: inc/admin/main_config.php:53
 msgid "Active gateway module"
-msgstr "Modul gerbang yang aktif"
+msgstr "Modul gateway yang aktif"
 
 #: inc/admin/main_config.php:56
 msgid "Active themes"
@@ -486,7 +486,7 @@ msgstr "Perubahan konfigurasi utama telah disimpan"
 
 #: inc/admin/all_inbox.php:25
 msgid "All Inbox"
-msgstr "Semua Kotak Masuk"
+msgstr "Semua kotak masuk"
 
 #: inc/admin/all_inbox.php:32 inc/admin/all_incoming.php:32
 #: inc/admin/all_outgoing.php:32
@@ -607,7 +607,7 @@ msgstr "Buku Telepon"
 
 #: lib/lib_init1.php:48
 msgid "All inbox"
-msgstr "Semua Kotak Masuk"
+msgstr "Semua kotak masuk"
 
 #: lib/lib_init1.php:50
 msgid "All outgoing SMS"
@@ -615,7 +615,7 @@ msgstr "Semua SMS keluar"
 
 #: lib/lib_init1.php:51
 msgid "Manage user"
-msgstr "Pengaturan Pengguna"
+msgstr "Pengaturan pengguna"
 
 #: lib/lib_init1.php:53
 msgid "Manual refresh"
@@ -639,7 +639,7 @@ msgstr "Teruskan WebSMS pribadi"
 
 #: lib/fn_core.php:127
 msgid "Date time"
-msgstr "Waktu Tanggal"
+msgstr "Waktu tanggal"
 
 #: lib/fn_auth.php:114
 msgid "You have been logged out"

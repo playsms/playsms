@@ -16,11 +16,11 @@ msgstr "klik di sini untuk mengaktifkan"
 
 #: gnokii.php:28
 msgid "Gateway name"
-msgstr "nama gerbang"
+msgstr "Nama gateway"
 
 #: gnokii.php:31
 msgid "Gnokii installation path"
-msgstr "jalur instalasi Gnokii"
+msgstr "Jalur instalasi Gnokii"
 
 #: gnokii.php:31
 msgid "No trailing slash"
@@ -40,8 +40,8 @@ msgstr "Simpan"
 
 #: gnokii.php:54
 msgid "Gateway module configurations has been saved"
-msgstr "konfigurasi modul gerbang telah disimpan"
+msgstr "Konfigurasi modul gateway telah disimpan"
 
 #: gnokii.php:62
 msgid "Gateway has been activated"
-msgstr "gerbang telah diaktifkan"
+msgstr "Gateway telah diaktifkan"
