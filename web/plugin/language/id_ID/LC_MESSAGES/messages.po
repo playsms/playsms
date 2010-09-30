@@ -177,7 +177,7 @@ msgstr "Anda harus memilih penerima dan pesan anda tidak boleh kosong"
 
 #: inc/user/send_sms.php:216 lib/lib_init1.php:38
 msgid "Send broadcast SMS"
-msgstr "Kirim SMS pengumuman"
+msgstr "Kirim banyak SMS"
 
 #: inc/user/send_sms.php:221
 msgid "Send to group"
@@ -458,7 +458,7 @@ msgstr "Email situs"
 
 #: inc/admin/main_config.php:44
 msgid "Forwarded email footer"
-msgstr "Footer email yang diteruskan"
+msgstr "Footer email"
 
 #: inc/admin/main_config.php:47
 msgid "Gateway number"
