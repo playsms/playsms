@@ -1,9 +1,5 @@
-#: inc/user/send_sms.php:96 inc/user/send_sms.php:98
-msgid "All"
-msgstr ""
-
 #: inc/user/sms_template.php:17 inc/user/send_sms.php:109
-#: inc/user/send_sms.php:224 lib/lib_init1.php:36
+#: inc/user/send_sms.php:224 lib/lib_init1.php:37
 msgid "Message template"
 msgstr "Message template"
 
@@ -79,7 +75,7 @@ msgstr ""
 msgid "Delete all templates ?"
 msgstr ""
 
-#: inc/user/sms_template.php:184 lib/lib_init1.php:27
+#: inc/user/sms_template.php:184 lib/lib_init1.php:28
 msgid "Delete"
 msgstr ""
 
@@ -100,7 +96,7 @@ msgstr ""
 msgid "Please select"
 msgstr ""
 
-#: inc/user/send_sms.php:82 lib/lib_init1.php:32 lib/lib_init1.php:37
+#: inc/user/send_sms.php:82 lib/lib_init1.php:33 lib/lib_init1.php:38
 msgid "Send SMS"
 msgstr ""
 
@@ -110,6 +106,10 @@ msgstr ""
 
 #: inc/user/send_sms.php:90
 msgid "Phone number(s)"
+msgstr ""
+
+#: inc/user/send_sms.php:96 inc/user/send_sms.php:98
+msgid "All"
 msgstr ""
 
 #: inc/user/send_sms.php:102
@@ -179,7 +179,7 @@ msgstr ""
 msgid "You must select receiver and your message should not be empty"
 msgstr ""
 
-#: inc/user/send_sms.php:216 lib/lib_init1.php:38
+#: inc/user/send_sms.php:216 lib/lib_init1.php:39
 msgid "Send broadcast SMS"
 msgstr ""
 
@@ -195,7 +195,7 @@ msgstr ""
 msgid "You must select receiver group and your message should not be empty"
 msgstr ""
 
-#: inc/user/user_outgoing.php:25 lib/lib_init1.php:41
+#: inc/user/user_outgoing.php:25 lib/lib_init1.php:42
 msgid "Outgoing SMS"
 msgstr ""
 
@@ -207,19 +207,20 @@ msgid "Time"
 msgstr ""
 
 #: inc/user/user_outgoing.php:33 inc/user/get_status.php:33
-#: inc/admin/all_outgoing.php:34 lib/fn_core.php:129
+#: inc/admin/all_outgoing.php:34 lib/fn_core.php:111
 msgid "Receiver"
 msgstr ""
 
 #: inc/user/user_outgoing.php:34 inc/user/get_status.php:34
 #: inc/user/user_inbox.php:34 inc/admin/all_inbox.php:35
-#: inc/admin/all_outgoing.php:35 lib/fn_core.php:130
+#: inc/admin/all_outgoing.php:35 lib/fn_core.php:112
 msgid "Message"
 msgstr ""
 
 #: inc/user/user_outgoing.php:35 inc/user/get_status.php:35
 #: inc/user/user_incoming.php:37 inc/admin/all_incoming.php:38
 #: inc/admin/all_outgoing.php:36 inc/admin/user_mgmnt.php:15
+#: inc/admin/user_mgmnt.php:49
 msgid "Status"
 msgstr ""
 
@@ -280,13 +281,13 @@ msgstr ""
 msgid "Outbox"
 msgstr ""
 
-#: inc/user/user_inbox.php:25 lib/lib_init1.php:39
+#: inc/user/user_inbox.php:25 lib/lib_init1.php:40
 msgid "Inbox"
 msgstr ""
 
 #: inc/user/user_inbox.php:33 inc/user/user_incoming.php:33
 #: inc/admin/all_inbox.php:34 inc/admin/all_incoming.php:34
-#: lib/fn_core.php:128
+#: lib/fn_core.php:110
 msgid "Sender"
 msgstr ""
 
@@ -307,7 +308,7 @@ msgstr ""
 msgid "Selected incoming SMS has been deleted"
 msgstr ""
 
-#: inc/user/user_incoming.php:25 lib/lib_init1.php:40
+#: inc/user/user_incoming.php:25 lib/lib_init1.php:41
 msgid "Incoming SMS"
 msgstr ""
 
@@ -319,7 +320,7 @@ msgstr ""
 msgid "Feature"
 msgstr ""
 
-#: inc/user/user_pref.php:44 inc/admin/user_mgmnt.php:131 lib/lib_init1.php:42
+#: inc/user/user_pref.php:44 inc/admin/user_mgmnt.php:131 lib/lib_init1.php:43
 msgid "Preferences"
 msgstr ""
 
@@ -509,7 +510,12 @@ msgstr ""
 msgid "row"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:14 inc/admin/user_mgmnt.php:220
+#: inc/admin/user_mgmnt.php:12 lib/lib_init1.php:51
+msgid "Manage user"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:14 inc/admin/user_mgmnt.php:86
+#: inc/admin/user_mgmnt.php:220
 msgid "Add user"
 msgstr ""
 
@@ -527,6 +533,10 @@ msgstr ""
 #: inc/admin/user_mgmnt.php:196 inc/admin/user_mgmnt.php:200
 #: inc/admin/user_mgmnt.php:269 inc/admin/user_mgmnt.php:280
 msgid "username"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:49 inc/admin/user_mgmnt.php:128
+msgid "Normal user"
 msgstr ""
 
 #: inc/admin/user_mgmnt.php:69
@@ -547,10 +557,6 @@ msgstr ""
 
 #: inc/admin/user_mgmnt.php:107
 msgid "Currently logged in user is immune to deletion"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:128
-msgid "Normal user"
 msgstr ""
 
 #: inc/admin/user_mgmnt.php:143 inc/admin/user_mgmnt.php:231
@@ -585,27 +591,27 @@ msgstr ""
 msgid "You must fill all fields"
 msgstr ""
 
-#: lib/lib_init1.php:26
+#: lib/lib_init1.php:27
 msgid "Edit"
 msgstr ""
 
-#: lib/lib_init1.php:28
+#: lib/lib_init1.php:29
 msgid "Reply"
 msgstr ""
 
-#: lib/lib_init1.php:29
+#: lib/lib_init1.php:30
 msgid "Manage"
 msgstr ""
 
-#: lib/lib_init1.php:30
+#: lib/lib_init1.php:31
 msgid "View"
 msgstr ""
 
-#: lib/lib_init1.php:31
+#: lib/lib_init1.php:32
 msgid "Pick Date & Time"
 msgstr ""
 
-#: lib/lib_init1.php:33
+#: lib/lib_init1.php:34
 msgid "Phonebook"
 msgstr ""
 
@@ -617,38 +623,34 @@ msgstr ""
 msgid "All outgoing SMS"
 msgstr ""
 
-#: lib/lib_init1.php:51
-msgid "Manage user"
-msgstr ""
-
 #: lib/lib_init1.php:53
 msgid "Manual refresh"
 msgstr ""
 
-#: lib/fn_themes.php:38
+#: lib/fn_themes.php:36
 msgid "Home"
 msgstr ""
 
-#: lib/fn_themes.php:40
+#: lib/fn_themes.php:38
 msgid "Logout"
 msgstr ""
 
-#: lib/fn_core.php:125
+#: lib/fn_core.php:107
 msgid "from"
 msgstr ""
 
-#: lib/fn_core.php:126
+#: lib/fn_core.php:108
 msgid "Forward Private WebSMS"
 msgstr ""
 
-#: lib/fn_core.php:127
+#: lib/fn_core.php:109
 msgid "Date time"
 msgstr ""
 
-#: lib/fn_auth.php:114
+#: lib/fn_auth.php:89
 msgid "You have been logged out"
 msgstr ""
 
-#: lib/fn_auth.php:120
+#: lib/fn_auth.php:94
 msgid "You have no access to this page"
 msgstr ""
