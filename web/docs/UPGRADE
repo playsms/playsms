@@ -1,0 +1,6 @@
+UPGRADE
+-------
+We do not provide a way to upgrade until version 1.0. But anyway, simply copying new files from 
+this package into old playsms installation, replacing old files, should do the trick.
+
+

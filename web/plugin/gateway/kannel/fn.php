@@ -27,13 +27,20 @@ function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
 	$msg_type = 0; //flash
     }
     
+    // fixme anton - if sms_from is not set in gateway_number and global number, we cannot pass it to clickatell
+    $set_sms_from = ( $sms_from == $mobile_sender ? '' : "&from=".urlencode($sms_from) );
+
     // $dlr_url = $http_path['base'] . "/plugin/gateway/kannel/dlr.php?type=%d&slid=$smslog_id&uid=$uid";
     $dlr_url = $kannel_param['playsms_web'] . "/plugin/gateway/kannel/dlr.php?type=%d&slid=".$smslog_id."&uid=".$uid;
 
     $URL = "/cgi-bin/sendsms?username=".urlencode($kannel_param['username'])."&password=".urlencode($kannel_param['password']);
-    $URL .= "&from=".urlencode($sms_from)."&to=".urlencode($sms_to)."&text=".urlencode($sms_msg);
+    $URL .= $set_sms_from."&to=".urlencode($sms_to)."&text=".urlencode($sms_msg);
     $URL .= "&dlr-mask=31&dlr-url=".urlencode($dlr_url);
     $URL .= "&mclass=".$msg_type;
+    
+    // fixme anton - patch 1.4.3, dlr requries smsc-id
+    //$URL .= "&smsc=gsm1";
+    
     logger_print("http://".$kannel_param['bearerbox_host'].":".$kannel_param['sendsms_port'].$URL, 3, "kannel outgoing");
 
     // srosa 20100531: Due to improper http response from Kannel, file_get_contents cannot be used.
@@ -60,11 +67,11 @@ function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
 	fputs($connection, "GET ".$URL." HTTP/1.0\r\n\r\n");
 	while (!feof($connection)) {
 	    $rv = fgets($connection, 128);
-	    logger_print("smslog_id:".$smslog_id." response:".$rv, 3, "kannel outgoing");
 	    if (($rv == "Sent.") || ($rv == "0: Accepted for delivery") || ($rv == "3: Queued for later delivery")) {
 		$ok = true;
 		// set pending
 		$p_status = 0;
+		logger_print("smslog_id:".$smslog_id." response:".$rv, 3, "kannel outgoing");
 		setsmsdeliverystatus($smslog_id,$uid,$p_status);
 	    }
 	}

@@ -39,10 +39,11 @@ Current Features
 
 License
 -------
-playSMS libraries source codes (all files under directory web/lib) are LGPL and
-the rest of the playSMS source codes are licensed as GPL version 2
+playSMS libraries source codes (all files under directory web/lib) wrote by 
+Anton Raharja and/or contributed/modified by contributors are LGPL, the rest 
+of the playSMS source codes are licensed as GPL version 2
 
-Each plugins, modules or external applications linked through playSMS libraries
+Each plugins, modules or external applications linked with playSMS libraries 
 and available for or installed with playSMS may have their own license
 
 

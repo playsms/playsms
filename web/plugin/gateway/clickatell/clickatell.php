@@ -34,7 +34,7 @@ switch ($op)
 		<td>"._('Username')."</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_username value=\"".$clickatell_param['username']."\"></td>
 	    </tr>
 	    <tr>
-		<td>"._('Password')."</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_password value=\"".$clickatell_param['password']."\"></td>
+		<td>"._('Password')."</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password value=\"".$clickatell_param['password']."\"></td>
 	    </tr>	    
 	    <tr>
 		<td>"._('Global sender')."</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"".$clickatell_param['sender']."\"> ("._('Max. 16 numeric or 11 alphanumeric char. empty to disable').")</td>
@@ -46,9 +46,11 @@ switch ($op)
 		<td>"._('Clickatell incoming path')."</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_incoming_path value=\"".$clickatell_param['incoming_path']."\"> ("._('No trailing slash')." \"/\")</td>
 	    </tr>	    
 	</table>	    
+	
 	    <p>"._('Note').":<br>
 	    - "._('Your callback URL is')." <b>http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/plugin/gateway/clickatell/callback.php</b><br>
 	    - "._('If you are using callback URL to receive incoming sms you may ignore Clickatell incoming path')."<br>
+	    - "._('Clickatell is a bulk SMS provider').", <a href=\"http://www.dpbolvw.net/click-4099975-10807974?sid=gwmodtext\" target=\"_blank\">"._('free credits are available for testing purposes')."</a><img src=\"http://www.lduhtrp.net/image-4099975-10807974\" width=\"1\" height=\"1\" border=\"0\"/>
 	    <!-- <p><input type=checkbox name=up_trn $checked> "._('Send SMS message without footer banner')." -->
 	    <p><input type=submit class=button value="._('Save').">
 	    </form>
