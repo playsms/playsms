@@ -32,7 +32,7 @@ switch ($op)
 	    $i++;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 	    $action = "<a href=menu.php?inc=user_mgmnt&op=user_edit&uname=".$db_row['username'].">$icon_edit</a>";
-	    $action .= "<a href=\"javascript: ConfirmURL("._('Are you sure you want to delete user ?')." ("._('username').": `".$db_row['username']."`)','menu.php?inc=user_mgmnt&op=user_del&uname=".$db_row['username']."')\">$icon_delete</a>";
+	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete user ?')." ("._('username').": `".$db_row['username']."`)','menu.php?inc=user_mgmnt&op=user_del&uname=".$db_row['username']."')\">$icon_delete</a>";
 	    $content .= "
     <tr>
 	<td class='$td_class'>&nbsp;$i.</td>
