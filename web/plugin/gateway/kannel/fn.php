@@ -27,14 +27,11 @@ function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
 	$msg_type = 0; //flash
     }
     
-    // fixme anton - if sms_from is not set in gateway_number and global number, we cannot pass it to clickatell
-    $set_sms_from = ( $sms_from == $mobile_sender ? '' : "&from=".urlencode($sms_from) );
-
     // $dlr_url = $http_path['base'] . "/plugin/gateway/kannel/dlr.php?type=%d&slid=$smslog_id&uid=$uid";
     $dlr_url = $kannel_param['playsms_web'] . "/plugin/gateway/kannel/dlr.php?type=%d&slid=".$smslog_id."&uid=".$uid;
 
     $URL = "/cgi-bin/sendsms?username=".urlencode($kannel_param['username'])."&password=".urlencode($kannel_param['password']);
-    $URL .= $set_sms_from."&to=".urlencode($sms_to)."&text=".urlencode($sms_msg);
+    $URL .= "&from=".urlencode($sms_from)."&to=".urlencode($sms_to)."&text=".urlencode($sms_msg);
     $URL .= "&dlr-mask=31&dlr-url=".urlencode($dlr_url);
     $URL .= "&mclass=".$msg_type;
     
