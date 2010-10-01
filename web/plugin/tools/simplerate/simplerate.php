@@ -93,6 +93,7 @@ switch ($op)
 	$rateid = $_POST['rateid'];
 	$up_dst = $_POST['up_dst'];
 	$up_prefix = $_POST['up_prefix'];
+	$up_prefix = ereg_replace("[^0-9]", "", $up_prefix);
 	$up_rate = $_POST['up_rate'];
 	$error_string = _('No changes made!');
 	if ($rateid && $up_dst && ($up_prefix >= 0) && ($up_rate >= 0))
@@ -141,6 +142,7 @@ switch ($op)
     case "simplerate_add_yes":
 	$add_dst = $_POST['add_dst'];
 	$add_prefix = $_POST['add_prefix'];
+	$add_prefix = ereg_replace("[^0-9]", "", $add_prefix);
 	$add_rate = $_POST['add_rate'];
 	if ($add_dst && ($add_prefix >= 0) && ($add_rate >= 0))
 	{
