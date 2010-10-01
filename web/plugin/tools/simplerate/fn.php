@@ -33,7 +33,7 @@ function simplerate_getbyid($id) {
 function simplerate_getbyprefix($p_dst) {
     global $default_rate;
     $rate = $default_rate;
-    $prefix = $p_dst;
+    $prefix = ereg_replace("[^0-9]", "", $p_dst);
     $m = ( strlen($prefix) > 10 ? 10 : strlen($prefix) );
     for ($i=$m+1;$i>0;$i--) {
 	$prefix = substr($prefix, 0, $i);
