@@ -31,7 +31,7 @@ switch ($op)
 		<td>"._('Username')."</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_username value=\"".$kannel_param['username']."\"></td>
 	    </tr>	    
 	    <tr>
-		<td>"._('Password')."</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_password value=\"".$kannel_param['password']."\"></td>
+		<td>"._('Password')."</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password value=\"".$kannel_param['password']."\"></td>
 	    </tr>
 	    <tr>
 		<td>"._('Global sender')."</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_global_sender value=\"".$kannel_param['global_sender']."\"> ("._('Max. 16 numeric or 11 alphanumeric char. empty to disable').")</td>
