@@ -95,7 +95,7 @@ switch ($op)
 	$up_prefix = $_POST['up_prefix'];
 	$up_rate = $_POST['up_rate'];
 	$error_string = _('No changes made!');
-	if ($rateid && $up_dst && $up_prefix && $up_rate)
+	if ($rateid && $up_dst && ($up_prefix >= 0) && ($up_rate >= 0))
 	{
 	    $db_query = "UPDATE "._DB_PREF_."_toolsSimplerate SET c_timestamp='".mktime()."',dst='$up_dst',prefix='$up_prefix',rate='$up_rate' WHERE id='$rateid'";
 	    if (@dba_affected_rows($db_query))
@@ -142,7 +142,7 @@ switch ($op)
 	$add_dst = $_POST['add_dst'];
 	$add_prefix = $_POST['add_prefix'];
 	$add_rate = $_POST['add_rate'];
-	if ($add_dst && $add_prefix && $add_rate && ($add_rate >= 0))
+	if ($add_dst && ($add_prefix >= 0) && ($add_rate >= 0))
 	{
 	    $db_query = "SELECT * FROM "._DB_PREF_."_toolsSimplerate WHERE prefix='$add_prefix'";
 	    $db_result = dba_query($db_query);
