@@ -73,6 +73,7 @@ function username2status($username) {
 
 function mobile2uid($mobile) {
     if ($mobile) {
+	$mobile = ereg_replace("[^0-9]", "", $mobile);
 	if (substr($mobile,0,1) == 0) {
 	    $mobile = substr($mobile,1);
 	}
