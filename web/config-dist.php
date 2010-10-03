@@ -1,20 +1,21 @@
 <?php
-// PHP PEAR DB compatible database engine: 
+// PHP PEAR DB compatible database engine:
 // msql, mssql, mysql, oci8, odbc, pgsql, sqlite
-$db_param['type'] = 'mysql';		// database engine
-$db_param['host'] = 'localhost';	// database host/server
-$db_param['port'] = '';			// database port
-$db_param['user'] = 'root';		// database username
-$db_param['pass'] = 'rootpassword';	// database password
-$db_param['name'] = 'playsms';		// database name
-$db_param['pref'] = 'playsms';		// table's prefix without trailing underscore
+$core_config['db']['type'] = 'mysql';		// database engine
+$core_config['db']['host'] = 'localhost';	// database host/server
+$core_config['db']['port'] = '';			// database port
+$core_config['db']['user'] = 'root';		// database username
+$core_config['db']['pass'] = 'rootpassword';	// database password
+$core_config['db']['name'] = 'playsms';		// database name
+$core_config['db']['pref'] = 'playsms';		// table's prefix without trailing underscore
 
-// SMTP sendmail
-define('_SMTP_RELM_','');
-define('_SMTP_USER_','');
-define('_SMTP_PASS_','');
-define('_SMTP_HOST_','localhost');
-define('_SMTP_PORT_','25');
+// SMTP configuration
+$core_config['smtp']['relm'] = ''; // yes, not realm, its relm
+$core_config['smtp']['user'] = '';
+$core_config['smtp']['pass'] = '';
+$core_config['smtp']['host'] = 'localhost';
+$core_config['smtp']['port'] = '';
+
 
 // Do not change anything below this line unless you know what to do
 // -----------------------------------------------------------------
@@ -22,8 +23,8 @@ define('_SMTP_PORT_','25');
 
 // you can turn on or off PHP error reporting
 // on production level you should turn off PHP error reporting, by default its on
-//error_reporting(0);
-error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
+error_reporting(0);
+//error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 
 // logs directories
 $apps_path['logs']	= '/var/log/playsms';

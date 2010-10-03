@@ -8,7 +8,7 @@ include_once "DB.php";
 // --------------------------------------------------------------------------//
 
 function dba_connect($username,$password,$dbname,$hostname,$port="",$persistant="true") {
-    global $db_param, $apps_path;
+    global $apps_path;
     $access = $username;
     if ($password) {
 	$access = "$username:$password";
@@ -17,7 +17,7 @@ function dba_connect($username,$password,$dbname,$hostname,$port="",$persistant=
     if ($port) {
 	$host = "$hostname:$port";
     }
-    $dsn = $db_param['type']."://$access@$host/$dbname";
+    $dsn = _DB_TYPE_."://$access@$host/$dbname";
     $dba_object = DB::connect("$dsn","$persistant");
 
     if (DB::isError($dba_object)) {
@@ -158,9 +158,9 @@ function dba_affected_rows($mystring) {
 }
 
 function dba_insert_id($mystring) {
-    global $db_param, $dba_object, $dba_DB, $DBA_ROW_COUNTER, $DBA_LIMIT_FROM, $DBA_LIMIT_COUNT;
+    global $dba_object, $dba_DB, $DBA_ROW_COUNTER, $DBA_LIMIT_FROM, $DBA_LIMIT_COUNT;
     if (dba_query ($mystring)) {
-	switch ($db_param['type']) {
+	switch (_DB_TYPE_) {
 	    case "mysql":
     		$myquery = "SELECT @@IDENTITY";
     		$result_tmp = dba_query($myquery);

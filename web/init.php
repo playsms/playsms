@@ -15,6 +15,22 @@ if (!$core_config['daemon_process']) {
     ob_start();
 }
 
+// DB config defines
+define('_DB_TYPE_', $core_config['db']['type']);
+define('_DB_HOST_', $core_config['db']['host']);
+define('_DB_PORT_', $core_config['db']['port']);
+define('_DB_USER_', $core_config['db']['user']);
+define('_DB_PASS_', $core_config['db']['pass']);
+define('_DB_NAME_', $core_config['db']['name']);
+define('_DB_PREF_', $core_config['db']['pref']);
+
+// SMTP config defines
+define('_SMTP_RELM_', $core_config['smtp']['relm']);
+define('_SMTP_USER_', $core_config['smtp']['user']);
+define('_SMTP_PASS_', $core_config['smtp']['pass']);
+define('_SMTP_HOST_', $core_config['smtp']['host']);
+define('_SMTP_PORT_', $core_config['smtp']['port']);
+
 /*
 start init functions
 protect from SQL injection when magic_quotes_gpc sets to "Off"
@@ -36,8 +52,8 @@ function array_add_slashes($array) {
 }
 
 function pl_addslashes($data) {
-    global $db_param;
-    if ($db_param['type']=="mssql") {
+    global $core_config;
+    if ($core_config['db']['type']=="mssql") {
 	$data = str_replace("'", "''", $data); 
     } else {
 	if (is_array($data)) {
@@ -85,17 +101,19 @@ $http_path['plug']	= $http_path['base'].'/plugin';
 $apps_path['themes']	= $apps_path['plug'].'/themes';
 $http_path['themes']	= $http_path['plug'].'/themes';
 
+// insert to global config
+$core_config['apps_path'] = $apps_path;
+$core_config['http_path'] = $http_path;
+
 // plugins category
 $plugins_category = array('tools','feature','gateway','themes','language');
-
-// table's prefix
-define('_DB_PREF_',$db_param['pref']);
+$core_config['plugins_category'] = $plugins_category;
 
 // include essential functions
 include_once $apps_path['libs']."/dba.php";
 
 // connect to database
-$dba_object = dba_connect($db_param['user'],$db_param['pass'],$db_param['name'],$db_param['host'],$db_param['port']);
+$dba_object = dba_connect(_DB_USER_,_DB_PASS_,_DB_NAME_,_DB_HOST_,_DB_PORT_);
 
 // set charset to UTF-8
 dba_query("SET NAMES utf8");
@@ -112,6 +130,7 @@ if ($db_row = dba_fetch_array($db_result)) {
     $tmp_gateway_module = $db_row['cfg_gateway_module'];
     $tmp_themes_module = $db_row['cfg_themes_module'];
     $tmp_language_module = $db_row['cfg_language_module'];
+    $core_config['main'] = $db_row;
 }
 
 // verify selected gateway_module exists
@@ -121,6 +140,7 @@ $gateway_module = 'smstools';
 if (file_exists($fn1) && file_exists($fn2)) {
     $gateway_module = $tmp_gateway_module;
 }
+$core_config['module']['gateway'] = $gateway_module;
 
 // verify selected themes_module exists
 $fn1 = $apps_path['plug'].'/themes/'.$tmp_themes_module.'/config.php';
@@ -129,6 +149,7 @@ $themes_module = 'default';
 if (file_exists($fn1) && file_exists($fn2)) {
     $themes_module = $tmp_themes_module;
 }
+$core_config['module']['themes'] = $themes_module;
 
 // verify selected language_module exists
 $fn1 = $apps_path['plug'].'/language/'.$tmp_language_module.'/config.php';
@@ -137,6 +158,7 @@ $language_module = 'en_US';
 if (file_exists($fn1) && file_exists($fn2)) {
     $language_module = $tmp_language_module;
 }
+$core_config['module']['language'] = $language_module;
 
 // multi-language init
 bindtextdomain('messages', $apps_path['plug'].'/language/');
@@ -151,5 +173,12 @@ $date_now		= date($date_format, time());
 $time_now		= date($time_format, time());
 $datetime_now		= date($datetime_format, time());
 $nd 			= "<font color=red>(*)</font>";
+
+$core_config['datetime']['date_now'] = $date_now;
+$core_config['datetime']['time_now'] = $time_now;
+$core_config['datetime']['datetime_now'] = $datetime_now;
+
+// fixme anton - uncomment this if you want to know what are available in $core_config
+//print_r($core_config); die();
 
 ?>
