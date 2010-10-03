@@ -7,16 +7,11 @@ if ($err) {
     $error_content .= "<p align=center><font color=red>$err</font></p>";
 }
 
-// include $apps_path['themes']."/".$themes_module."/header.php";
-
 bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
-//textdomain('messages');
 
 if (valid()) {
     include $apps_path['themes']."/".$themes_module."/welcomepage.php";
 } else {
     include $apps_path['themes']."/".$themes_module."/loginpage.php";
 }
-
-// include $apps_path['themes']."/".$themes_module."/footer.php";
 ?>

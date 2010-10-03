@@ -1,9 +1,6 @@
 <?php
 include "config.php";
 
-//error_reporting(0);
-error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
-
 // security, checked by essential files under subdir
 define('_SECURE_', 1);
 

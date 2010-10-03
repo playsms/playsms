@@ -4,8 +4,7 @@ include $apps_path['libs']."/function.php";
 
 $refresh = strtoupper($_REQUEST['refresh']);
 $backagain = strtoupper($_REQUEST['backagain']);
-if (($refresh=="YES") && ($backagain!="YES"))
-{
+if (($refresh=="YES") && ($backagain!="YES")) {
     $url = base64_encode($_SERVER['REQUEST_URI']."&backagain=yes");
     header("Location: menu.php?inc=daemon&url=$url");
     die();
@@ -13,8 +12,7 @@ if (($refresh=="YES") && ($backagain!="YES"))
 
 $show = $_REQUEST['show'];
 
-switch ($show)
-{
+switch ($show) {
     case "vote":
     case "poll":
 	$keyword = $_REQUEST['keyword'];
@@ -25,16 +23,13 @@ switch ($show)
 	$poll_title = $db_row['poll_title'];
 	$db_query = "SELECT result_id FROM "._DB_PREF_."_featurePoll_log WHERE poll_id='$poll_id'";
 	$total_voters = @dba_num_rows($db_query);
-	if ($poll_id)
-	{
+	if ($poll_id) {
 	    $mult = $_REQUEST['mult'];
 	    $bodybgcolor = $_REQUEST['bodybgcolor'];
-	    if (!isset($mult)) 
-	    {
+	    if (!isset($mult)) {
 		$mult = "2";
 	    }
-	    if (!isset($bodybgcolor))
-	    {
+	    if (!isset($bodybgcolor)) {
 		$bodybgcolor = "#FEFEFE";
 	    }
 	    $content = "
@@ -50,19 +45,15 @@ switch ($show)
 	    ";
 	    $db_query = "SELECT * FROM "._DB_PREF_."_featurePoll_choice WHERE poll_id='$poll_id' ORDER BY choice_keyword";
 	    $db_result = dba_query($db_query);
-	    while ($db_row = dba_fetch_array($db_result))
-	    {
+	    while ($db_row = dba_fetch_array($db_result)) {
 		$choice_id = $db_row['choice_id'];
 		$choice_title = $db_row['choice_title'];
 		$choice_keyword = $db_row['choice_keyword'];
 		$db_query1 = "SELECT result_id FROM "._DB_PREF_."_featurePoll_log WHERE poll_id='$poll_id' AND choice_id='$choice_id'";
 		$choice_voted = @dba_num_rows($db_query1);
-		if ($total_voters)
-		{
+		if ($total_voters) {
 		    $percentage = round(($choice_voted/$total_voters)*100);
-		}
-		else
-		{
+		} else {
 		    $percentage = "0";
 		}
 		$content .= "
@@ -92,19 +83,16 @@ switch ($show)
 	break;
     case "board":
     default:
-	// Use keyword, tag deprecated
+	// Use term 'keyword', term 'tag' deprecated
 	$keyword = $_REQUEST['keyword'];
-	if (!$keyword)
-	{	
+	if (!$keyword) {
 	    $keyword = $_REQUEST['tag'];
 	}
-	if ($keyword)
-	{
+	if ($keyword) {
 	    $keyword = strtoupper($keyword);
 	    $line = $_REQUEST['line'];
 	    $type = $_REQUEST['type'];
-	    switch ($type)
-	    {
+	    switch ($type) {
 		case "xml":
 		case "rss":
 		    $content = outputtorss($keyword,$line);
@@ -121,5 +109,4 @@ switch ($show)
 	    }
 	}
 }
-	
 ?>

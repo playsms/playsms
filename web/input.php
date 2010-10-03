@@ -1,4 +1,5 @@
-<?php include "init.php"; 
+<?php 
+include "init.php"; 
 include $apps_path['libs']."/function.php";
 
 // -----------------------------------------------------------------------------
@@ -62,55 +63,39 @@ if ($u && $p) {
     die();
 }
 
-if ($ta)
-{
-    switch ($ta)
-    {
+if ($ta) {
+    switch ($ta) {
 	case "PV":
-	    if ($to && $msg)
-	    {
+	    if ($to && $msg) {
 		$transparent = false;
-		if ($trn)
-		{
+		if ($trn) {
 		    $transparent = true;
 		}
 		list($ok,$to,$smslog_id) = websend2pv($u,$to,$msg);
-		if ($ok[0] && $smslog_id[0])
-		{
+		if ($ok[0] && $smslog_id[0]) {
 		    echo "OK ".$smslog_id[0];
-		}
-		else
-		{
+		} else {
 			echo "ERR 200";
 		}
-	    }
-	    else
-	    {
+	    } else {
 		echo "ERR 201";
 	    }
 	    die();
 	    break;
 	case "BC":
-	    if ($to && $msg)
-	    {
+	    if ($to && $msg) {
 		$transparent = false;
-		if ($trn)
-		{
+		if ($trn) {
 		    $transparent = true;
 		}
 		$to_gpid = phonebook_groupcode2id($u,$to);
 		list($ok,$to,$smslog_id) = websend2group($u,$to_gpid,$msg);
-		if ($ok[0])
-		{
+		if ($ok[0]) {
 		    echo "OK";
-		}
-		else
-		{
+		} else {
 		    echo "ERR 300";
 		}
-	    }
-	    else
-	    {
+	    } else {
 		echo "ERR 301";
 	    }
 	    die();
@@ -125,23 +110,17 @@ if ($ta)
 	    // 3 = delivered
 	    $uid = username2uid($u);
 	    $content = "";
-	    if ($slid)
-	    {
+	    if ($slid) {
 		$db_query = "SELECT p_status FROM "._DB_PREF_."_tblSMSOutgoing WHERE uid='$uid' AND smslog_id='$slid'";
 		$db_result = dba_query($db_query);
-		if ($db_row = dba_fetch_array($db_result))
-		{
+		if ($db_row = dba_fetch_array($db_result)) {
 		    $p_status = $db_row['p_status'];
 		    echo $p_status;
-		}
-		else
-		{
+		} else {
 		    echo "ERR 400";
 		}
 		die();
-	    }
-	    else
-	    {
+	    } else {
 		if ($c) {
 		    $query_limit = " LIMIT 0,$c";
 		} else {
@@ -154,8 +133,7 @@ if ($ta)
 		$content_csv = "";
 		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE uid='$uid' $query_last ORDER BY p_datetime DESC $query_limit";
 		$db_result = dba_query($db_query);
-		while ($db_row = dba_fetch_array($db_result))
-		{
+		while ($db_row = dba_fetch_array($db_result)) {
 		    $smslog_id = $db_row['smslog_id'];
 		    $p_src = $db_row['p_src'];
 		    $p_dst = $db_row['p_dst'];
@@ -165,20 +143,14 @@ if ($ta)
 		    $content_xml .= "<ds id=\"".$smslog_id."\" src=\"".$p_src."\" dst=\"".$p_dst."\" datetime=\"".$p_datetime."\" update=\"".$p_update."\" status=\"".$p_status."\"></ds>\n";
 		    $content_csv .= "\"$smslog_id\";\"$p_src\";\"$p_dst\";\"$p_datetime\";\"$p_update\";\"$p_status\";\n";
 		}
-		if ($content_csv)
-		{
-		    if ($form == "XML")
-		    {
+		if ($content_csv) {
+		    if ($form == "XML") {
 			header("Content-Type: text/xml");
 			echo $content_xml;
-		    }
-		    else
-		    {
+		    } else {
 			echo $content_csv;
 		    }
-		}
-		else
-		{
+		} else {
 		    echo "ERR 400";
 	        }
 		die();

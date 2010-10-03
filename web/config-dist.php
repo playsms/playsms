@@ -20,9 +20,10 @@ define('_SMTP_PORT_','25');
 // -----------------------------------------------------------------
 
 
-// you can turn off PHP error reporting by uncommenting below line
-// on production level you should turn off PHP error reporting
+// you can turn on or off PHP error reporting
+// on production level you should turn off PHP error reporting, by default its on
 //error_reporting(0);
+error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 
 // logs directories
 $apps_path['logs']	= '/var/log/playsms';
