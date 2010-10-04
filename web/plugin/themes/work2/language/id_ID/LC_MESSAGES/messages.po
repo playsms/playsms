@@ -8,11 +8,11 @@ msgstr "Status"
 
 #: loginpage.php:19
 msgid "Username"
-msgstr "Nama Pengguna"
+msgstr "Nama pengguna"
 
 #: loginpage.php:23
 msgid "Password"
-msgstr "Kata Sandi"
+msgstr "Kata sandi"
 
 #: welcomepage.php:7
 msgid "Welcome to playSMS"
@@ -24,11 +24,11 @@ msgstr "Tentang playSMS"
 
 #: welcomepage.php:10
 msgid "Changelog"
-msgstr "Catatan Perubahan"
+msgstr "Catatan perubahan"
 
 #: welcomepage.php:11
 msgid "Installation Guide"
-msgstr "Panduan Instalasi"
+msgstr "Panduan instalasi"
 
 #: welcomepage.php:12
 msgid "F.A.Q"

@@ -15,22 +15,22 @@ Current Features
 ----------------
 - Multiple database engine supported (using PHP PEAR DB)
 - Send SMS to single mobile phone (web2mobile)
-- Send SMS broadcasted to a group of mobile phones (web2mobiles)
+- Send SMS broadcasted to a group of mobile phones (web2mobiles, bulk SMS)
 - Support sending flash and unicode message
-- Receive private SMS to Inbox (mobile2web)
+- Receive private SMS to Inbox and forward it to email (mobile2web)
 - Forward single SMS from mobile to a group of mobile phones (mobile2mobiles)
 - SMS autoreply, for easy autoreplying formatted incoming SMS
-- SMS board, forward received SMS to email,html and/or xml page
+- SMS board, forward received SMS to email, html and/or xml page
 - SMS command, execute server side shell script using SMS
-- SMS custom, forward incoming SMS to custom SMS application
+- SMS custom, forward incoming SMS to custom application, locally or external URL
 - SMS poll, manage polling system using SMS
 - SMS quiz, serve quizzes on SMS
 - SMS subscribe, manage user subscribes to a service using SMS
 - SMS autosend, automatically send SMS once or repeated
-- Create your own features, themes and gateway modules as a plugin
-- Support Gnokii, Kannel, SMS Server Tools or Clickatell
-- Simple webservices for sending SMS and retrieving delivery reports (input.php)
-- Long SMS support, length of text configurable on config file
+- Create your own features, tools, themes and gateway modules as a plugin
+- By default support Gnokii, Kannel, SMS Server Tools and Clickatell
+- Simple webservices for sending SMS and retrieving delivery reports
+- Long SMS support, length of text is configurable
 - Rate SMS by destination prefix
 - SMS credit system per user
 - Multi-language user interface supported

@@ -59,10 +59,17 @@ msgid "Your callback URL is"
 msgstr "URL balasan anda adalah"
 
 #: clickatell.php:51
-msgid ""
-"If you are using callback URL to receive incoming sms you may ignore "
-"Clickatell Incoming Path"
-msgstr "Jika anda menggunakan URL balasan untuk menerima SMS masuk, anda dapat menghiraukan jalur masuk Clickatell"
+msgid "If you are using callback URL to receive incoming sms you may ignore "
+msgstr "Jika anda menggunakan URL callback untuk menerima SMS masuk, anda dapat menghiraukan ini"
+
+msgid "Clickatell Incoming Path"
+msgstr "Path untuk SMS masuk dari Clickatell"
+
+msgid "Clickatell is a bulk SMS provider"
+msgstr "Clickatell adalah penyedia SMS bulk"
+
+msgid "free credits are available for testing purposes"
+msgstr "pulsa gratis tersedia untuk tujuan tes"
 
 #: clickatell.php:52
 msgid "Send SMS message without footer banner"

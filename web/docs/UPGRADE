@@ -1,6 +1,12 @@
 UPGRADE
 -------
-We do not provide a way to upgrade until version 1.0. But anyway, simply copying new files from 
-this package into old playsms installation, replacing old files, should do the trick.
+We do not provide special way to upgrade until version 1.0. But anyway, simply copying new files 
+from this package into old playSMS installation, replacing old files, replace and re-apply old
+configuration to new config.php, should do the trick.
 
+We do provide database upgrade for playSMS 0.9.4 upgrade to version 0.9.5, please check the SQL 
+patch file: db/playsms-upgrade-094-to-095.sql
+
+# cd {playSMS 0.9.5 package directory}/db
+# mysql -u {database username} -p {playSMS 0.9.4 database name} < playsms-upgrade-094-to-095.sql
 

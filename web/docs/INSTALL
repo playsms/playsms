@@ -16,13 +16,13 @@ Minimum Required Software
 - PHP PEAR DB (this is a must, most admins forgot this requirement)
 - PHP gettext extension (this is a must for text translation)
 - Access to SMTP server (playSMS will use this to send email)
-- lynx, a console web browser
+- lynx, wget or curl, a console web browser (example scripts require lynx)
 
 Minimum Required Server Administrator (or Developer)
 - Understand howto make sure installed PHP has MySQL module enabled/loaded
 - Understand howto create/drop MySQL database
 - Understand howto insert SQL statements into created database
-- Basic knowledges to operate and manage Linux
+- Basic knowledges to operate and manage Linux (skill to navigate in console mode)
 
 
 INSTALLATION on Linux
@@ -90,6 +90,8 @@ playSMS Web Interface:
 Please continue to follow INSTALL_GNOKII if you want to use gnokii as your gateway module, 
 or INSTALL_SMSSERVERTOOLS to use SMS Server Tools, or INSTALL_KANNEL if you want to use 
 kannel instead.
+
+As of playSMS version 0.9.5 using SMS Server Tools (smstools3) or Kannel is preferrable.
 
 
 --

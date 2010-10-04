@@ -32,7 +32,7 @@ msgstr "Hapus pilihan"
 
 #: inc/user/sms_template.php:58
 msgid "Go"
-msgstr "Masukkan"
+msgstr "Jalankan"
 
 #: inc/user/sms_template.php:75 inc/user/sms_template.php:113
 msgid "Message template name"
@@ -81,7 +81,7 @@ msgstr "Hapus"
 
 #: inc/user/sms_template.php:201
 msgid "Selected message template has been deleted"
-msgstr "pola pesan telah dihapus"
+msgstr "Pola pesan telah dihapus"
 
 #: inc/user/send_sms.php:25 inc/user/send_sms.php:170
 msgid "shared by"
@@ -108,6 +108,11 @@ msgstr "Dari"
 msgid "Phone number(s)"
 msgstr "Nomor telepon"
 
+#: inc/user/send_sms.php:96 inc/user/send_sms.php:98
+msgid "All"
+msgstr "Semua"
+
+
 #: inc/user/send_sms.php:102
 msgid "Send to"
 msgstr "Kirim ke"
@@ -118,7 +123,7 @@ msgstr "Atau"
 
 #: inc/user/send_sms.php:107
 msgid "International format"
-msgstr "format Internasional"
+msgstr "Format internasional"
 
 #: inc/user/send_sms.php:108 inc/user/send_sms.php:223
 #: inc/user/user_pref.php:64 inc/admin/user_mgmnt.php:149
@@ -142,7 +147,7 @@ msgstr "Pesan anda"
 
 #: inc/user/send_sms.php:113 inc/user/send_sms.php:228
 msgid "SMS character"
-msgstr "karakter SMS"
+msgstr "Karakter SMS"
 
 #: inc/user/send_sms.php:115 inc/user/send_sms.php:230
 msgid "Send as flash message"
@@ -150,7 +155,7 @@ msgstr "Kirim sebagai pesan flash"
 
 #: inc/user/send_sms.php:116
 msgid "Send as unicode message (http://www.unicode.org)"
-msgstr "Kirim sebagai pesan unicode"
+msgstr "Kirim sebagai pesan unicode (http://www.unicode.org)"
 
 #: inc/user/send_sms.php:117 inc/user/send_sms.php:231
 msgid "Send"
@@ -245,7 +250,7 @@ msgstr "Gagal"
 #: inc/user/user_outgoing.php:89 inc/user/get_status.php:89
 #: inc/admin/all_outgoing.php:91
 msgid "Delivered"
-msgstr "Terkirim"
+msgstr "Diterima"
 
 #: inc/user/user_outgoing.php:93 inc/user/get_status.php:93
 #: inc/admin/all_outgoing.php:95
@@ -255,7 +260,7 @@ msgstr "Tertunda"
 #: inc/user/user_outgoing.php:114 inc/user/get_status.php:114
 #: inc/admin/all_outgoing.php:117
 msgid "Are you sure you want to delete outgoing SMS ?"
-msgstr "Anda yakin ingin menghapus SMS keluar?"
+msgstr "Anda yakin ingin menghapus SMS keluar ?"
 
 #: inc/user/user_outgoing.php:114 inc/user/get_status.php:114
 msgid "number"
@@ -289,7 +294,7 @@ msgstr "Pengirim"
 #: inc/user/user_inbox.php:70 inc/user/user_incoming.php:79
 #: inc/admin/all_inbox.php:73 inc/admin/all_incoming.php:82
 msgid "Are you sure you want to delete this SMS ?"
-msgstr "Anda yakin ingin menghapus SMS ini?"
+msgstr "Anda yakin ingin menghapus SMS ini ?"
 
 #: inc/user/user_inbox.php:102 inc/user/user_incoming.php:110
 #: inc/admin/all_inbox.php:105
@@ -309,7 +314,7 @@ msgstr "SMS masuk"
 
 #: inc/user/user_incoming.php:34 inc/admin/all_incoming.php:35
 msgid "Keyword"
-msgstr "Kata Kunci"
+msgstr "Kata kunci"
 
 #: inc/user/user_incoming.php:36 inc/admin/all_incoming.php:37
 msgid "Feature"
@@ -321,13 +326,13 @@ msgstr "Preferensi"
 
 #: inc/user/user_pref.php:48
 msgid "Login information"
-msgstr "Informasi Login"
+msgstr "Informasi login"
 
 #: inc/user/user_pref.php:49 inc/admin/user_mgmnt.php:19
 #: inc/admin/user_mgmnt.php:53 inc/admin/user_mgmnt.php:137
 #: inc/admin/user_mgmnt.php:225
 msgid "Username"
-msgstr "Nama Pengguna"
+msgstr "Nama pengguna"
 
 #: inc/user/user_pref.php:50 inc/admin/user_mgmnt.php:21
 #: inc/admin/user_mgmnt.php:55 inc/admin/user_mgmnt.php:140
@@ -338,7 +343,7 @@ msgstr "Email"
 #: inc/user/user_pref.php:51 inc/admin/user_mgmnt.php:152
 #: inc/admin/user_mgmnt.php:240
 msgid "Password"
-msgstr "Kata Sandi"
+msgstr "Kata sandi"
 
 #: inc/user/user_pref.php:52
 msgid "Re-Type Password"
@@ -346,7 +351,7 @@ msgstr "Ketik ulang kata sandi"
 
 #: inc/user/user_pref.php:54
 msgid "Personal information"
-msgstr "Informasi Pribadi"
+msgstr "Informasi pribadi"
 
 #: inc/user/user_pref.php:56
 msgid "Address"
@@ -366,11 +371,11 @@ msgstr "Negara"
 
 #: inc/user/user_pref.php:60
 msgid "Zipcode"
-msgstr "Kodepos"
+msgstr "Kode POS"
 
 #: inc/user/user_pref.php:62
 msgid "Application information"
-msgstr "Informasi Aplikasi"
+msgstr "Informasi aplikasi"
 
 #: inc/user/user_pref.php:63 inc/admin/user_mgmnt.php:22
 #: inc/admin/user_mgmnt.php:56 inc/admin/user_mgmnt.php:146
@@ -381,7 +386,7 @@ msgstr "Ponsel"
 #: inc/user/user_pref.php:63 inc/admin/user_mgmnt.php:146
 #: inc/admin/user_mgmnt.php:234
 msgid "sender number"
-msgstr "Nomor Pengirim"
+msgstr "nomor pengirim"
 
 #: inc/user/user_pref.php:63 inc/admin/user_mgmnt.php:146
 #: inc/admin/user_mgmnt.php:234
@@ -418,7 +423,7 @@ msgstr "email"
 
 #: inc/user/user_pref.php:119
 msgid "Preferences has been saved and password updated"
-msgstr "Preferensi sudah disimpan dan kata sandi sudah diperbarui"
+msgstr "Preferensi sudah disimpan dan kata sandi sudah diperbaharui"
 
 #: inc/user/user_pref.php:123 inc/admin/user_mgmnt.php:196
 msgid "Preferences has been saved"
@@ -438,11 +443,11 @@ msgstr "server playSMS telah sukses dimuat ulang"
 
 #: inc/common/login.php:16
 msgid "Unable to update login session"
-msgstr "Tidak dapat memperbarui sesi login"
+msgstr "Tidak dapat memperbaharui sesi login"
 
 #: inc/common/login.php:19
 msgid "Invalid username or password"
-msgstr "kata sandi atau nama pengguna tidak valid"
+msgstr "Kata sandi atau nama pengguna tidak valid"
 
 #: inc/admin/main_config.php:33 lib/lib_init1.php:52
 msgid "Main configuration"
@@ -466,7 +471,7 @@ msgstr "Nomor gateway"
 
 #: inc/admin/main_config.php:50
 msgid "Default SMS rate"
-msgstr "Tarif SMS standar"
+msgstr "Tarif standar SMS"
 
 #: inc/admin/main_config.php:53
 msgid "Active gateway module"
@@ -516,7 +521,7 @@ msgstr "Administrator"
 
 #: inc/admin/user_mgmnt.php:35
 msgid "Are you sure you want to delete user ?"
-msgstr "Anda yakin ingin menghapus pengguna?"
+msgstr "Anda yakin ingin menghapus pengguna ?"
 
 #: inc/admin/user_mgmnt.php:35 inc/admin/user_mgmnt.php:98
 #: inc/admin/user_mgmnt.php:103 inc/admin/user_mgmnt.php:183
@@ -527,7 +532,7 @@ msgstr "nama pengguna"
 
 #: inc/admin/user_mgmnt.php:69
 msgid "Are you sure you want to delete user"
-msgstr "Anda yakin ingin menghapus pengguna?"
+msgstr "Anda yakin ingin menghapus pengguna"
 
 #: inc/admin/user_mgmnt.php:92
 msgid "Fail to delete user"
@@ -547,11 +552,11 @@ msgstr "Pengguna saat ini kebal untuk dihapus"
 
 #: inc/admin/user_mgmnt.php:128
 msgid "Normal user"
-msgstr "Pengguna Normal"
+msgstr "Pengguna normal"
 
 #: inc/admin/user_mgmnt.php:143 inc/admin/user_mgmnt.php:231
 msgid "Full name"
-msgstr "Nama Lengkap"
+msgstr "Nama lengkap"
 
 #: inc/admin/user_mgmnt.php:152
 msgid "Fill to change password for username"
@@ -559,11 +564,11 @@ msgstr "Isi untuk mengganti kata sandi untuk nama penguna"
 
 #: inc/admin/user_mgmnt.php:158 inc/admin/user_mgmnt.php:246
 msgid "User level"
-msgstr "Tingkat Pengguna"
+msgstr "Tingkatan pengguna"
 
 #: inc/admin/user_mgmnt.php:217
 msgid "Normal User"
-msgstr "Pengguna Normal"
+msgstr "Pengguna normal"
 
 #: inc/admin/user_mgmnt.php:249
 msgid "Add"
@@ -599,11 +604,11 @@ msgstr "Tampil"
 
 #: lib/lib_init1.php:31
 msgid "Pick Date & Time"
-msgstr "Pilih Waktu & Tanggal"
+msgstr "Pilih waktu & tanggal"
 
 #: lib/lib_init1.php:33
 msgid "Phonebook"
-msgstr "Buku Telepon"
+msgstr "Buku telepon"
 
 #: lib/lib_init1.php:48
 msgid "All inbox"
@@ -639,7 +644,7 @@ msgstr "Teruskan WebSMS pribadi"
 
 #: lib/fn_core.php:127
 msgid "Date time"
-msgstr "Waktu tanggal"
+msgstr "Waktu & tanggal"
 
 #: lib/fn_auth.php:114
 msgid "You have been logged out"
