@@ -1,6 +1,17 @@
 <?php
 function uplink_hook_playsmsd() {
-    // nothing
+    // force to check p_status=1 (sent) as getsmsstatus only check for p_status=0 (pending)
+    //$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status=0 OR p_status=1";
+    $db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status='1' AND p_gateway='uplink'";
+    $db_result = dba_query($db_query);
+    while ($db_row = dba_fetch_array($db_result)) {
+	$uid = $db_row['uid'];
+	$smslog_id = $db_row['smslog_id'];
+	$p_datetime = $db_row['p_datetime'];
+	$p_update = $db_row['p_update'];
+	$gpid = $db_row['p_gpid'];
+	x_hook('uplink','getsmsstatus',array($gpid,$uid,$smslog_id,$p_datetime,$p_update));
+    }
 }
 
 // hook_sendsms 
@@ -86,7 +97,7 @@ function uplink_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$
     // 2 = failed
     // setsmsdeliverystatus($smslog_id,$uid,$p_status);
     global $uplink_param;
-    $db_query = "SELECT * FROM "._DB_PREF_."_gatewayUplink WHERE up_status='0' AND up_local_slid='$smslog_id'";
+    $db_query = "SELECT * FROM "._DB_PREF_."_gatewayUplink WHERE up_local_slid='$smslog_id'";
     $db_result = dba_query($db_query);
     while ($db_row = dba_fetch_array($db_result)) {
 	$local_slid = $db_row['up_local_slid'];
@@ -99,6 +110,12 @@ function uplink_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$
 		$p_status = 1;
     		setsmsdeliverystatus($local_slid,$uid,$p_status);
 		$db_query1 = "UPDATE "._DB_PREF_."_gatewayUplink SET c_timestamp='".mktime()."',up_status='1' WHERE up_remote_slid='$remote_slid'";
+		$db_result1 = dba_query($db_query1);
+		break;
+	    case "3":
+		$p_status = 3;
+    		setsmsdeliverystatus($local_slid,$uid,$p_status);
+		$db_query1 = "UPDATE "._DB_PREF_."_gatewayUplink SET c_timestamp='".mktime()."',up_status='3' WHERE up_remote_slid='$remote_slid'";
 		$db_result1 = dba_query($db_query1);
 		break;
 	    case "2":
