@@ -8,6 +8,7 @@ if ($db_row = dba_fetch_array($db_result)) {
     $uplink_param['password']		= $db_row['cfg_password'];
     $uplink_param['global_sender']	= $db_row['cfg_global_sender'];
     $uplink_param['path']     		= $db_row['cfg_incoming_path'];
+    $uplink_param['additional_param']	= $db_row['cfg_additional_param'];
 }
 
 //$gateway_number = $uplink_param['global_sender'];

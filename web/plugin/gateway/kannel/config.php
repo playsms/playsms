@@ -10,6 +10,11 @@ if ($db_row = dba_fetch_array($db_result)) {
     $kannel_param['bearerbox_host']	= $db_row['cfg_bearerbox_host'];
     $kannel_param['sendsms_port']	= $db_row['cfg_sendsms_port'];
     $kannel_param['playsms_web']	= $db_row['cfg_playsms_web'];
+    $kannel_param['additional_param']	= $db_row['cfg_additional_param'];
+}
+
+if (! $kannel_param['additional_param']) {
+    $kannel_param['additional_param'] = "smsc=default";
 }
 
 //$gateway_number = $kannel_param['global_sender'];

@@ -23,6 +23,10 @@ msgid "Master URL"
 msgstr ""
 
 #: uplink.php:35
+msgid "Additional URL parameter"
+msgstr ""
+
+#: uplink.php:35
 msgid "Username"
 msgstr ""
 

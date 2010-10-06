@@ -51,6 +51,10 @@ msgid "No trailing slash"
 msgstr "Tanpa garis miring"
 
 #: clickatell.php:46
+msgid "Additional URL parameter"
+msgstr "Parameter URL tambahan"
+
+#: clickatell.php:46
 msgid "Clickatell incoming path"
 msgstr "Jalur masuk Clickatell"
 

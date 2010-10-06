@@ -39,6 +39,13 @@ function uplink_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
     if ($sms_to && $sms_msg) {
 	$query_string = "input.php?u=".$uplink_param['username']."&p=".$uplink_param['password']."&ta=pv&to=".rawurlencode($sms_to)."&from=".rawurlencode($sms_from)."&type=$sms_type&msg=".rawurlencode($sms_msg);
 	$url = $uplink_param['master']."/".$query_string;
+
+	if ($additional_param = $uplink_param['additional_param']) {
+	    $additional_param = "&".$additional_param;
+	}
+	$url .= $additional_param;
+	$url = str_replace("&&", "&", $url);
+
 	logger_print($url, 3, "uplink outgoing");
 	$fd = @implode ('', file ($url));
 	if ($fd) {

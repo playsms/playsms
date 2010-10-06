@@ -35,8 +35,14 @@ function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
     $URL .= "&dlr-mask=31&dlr-url=".urlencode($dlr_url);
     $URL .= "&mclass=".$msg_type;
     
-    // fixme anton - patch 1.4.3, dlr requries smsc-id
-    //$URL .= "&smsc=gsm1";
+    // fixme anton - patch 1.4.3, dlr requries smsc-id, you should add at least smsc=<your smsc-id in kannel.conf> from web
+    if ($additional_param = $kannel_param['additional_param']) {
+	$additional_param = "&".$additional_param;
+    } else {
+	$additional_param = "&smsc=default";
+    }
+    $URL .= $additional_param;
+    $URL = str_replace("&&", "&", $URL);
     
     logger_print("http://".$kannel_param['bearerbox_host'].":".$kannel_param['sendsms_port'].$URL, 3, "kannel outgoing");
 

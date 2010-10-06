@@ -51,6 +51,10 @@ msgid "No trailing slash"
 msgstr ""
 
 #: clickatell.php:46
+msgid "Additional URL parameter"
+msgstr ""
+
+#: clickatell.php:46
 msgid "Clickatell incoming path"
 msgstr ""
 

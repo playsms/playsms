@@ -43,6 +43,9 @@ switch ($op)
 		<td>"._('Send SMS port')."</td><td>:</td><td><input type=text size=10 maxlength=10 name=up_sendsms_port value=\"".$kannel_param['sendsms_port']."\"> ("._('Kannel specific').")</td>
 	    </tr>	    
 	    <tr>
+		<td>"._('Additional URL parameter')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_additional_param value=\"".$kannel_param['additional_param']."\"></td>
+	    </tr>
+	    <tr>
 		<td>"._('playSMS web URL')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_playsms_web value=\"".$kannel_param['playsms_web']."\"> ("._('URL to playSMS, empty it to set it to base URL').")</td>
 	    </tr>	    
 	</table>	    
@@ -62,6 +65,7 @@ switch ($op)
 	$up_bearerbox_host = $_POST['up_bearerbox_host'];
 	$up_sendsms_port = $_POST['up_sendsms_port'];
 	$up_playsms_web = ( $_POST['up_playsms_web'] ? $_POST['up_playsms_web'] : $http_path['base'] );
+	$up_additional_param = ( $_POST['up_additional_param'] ? $_POST['up_additional_param'] : "smsc=default" );
 	$error_string = _('No changes has been made');
 	if ($up_username && $up_bearerbox_host && $up_sendsms_port)
 	{
@@ -76,7 +80,8 @@ switch ($op)
 		    cfg_global_sender='$up_global_sender',
 		    cfg_bearerbox_host='$up_bearerbox_host',
 		    cfg_sendsms_port='$up_sendsms_port',
-		    cfg_playsms_web='$up_playsms_web'
+		    cfg_playsms_web='$up_playsms_web',
+		    cfg_additional_param='$up_additional_param'
 	    ";
 	    if (@dba_affected_rows($db_query))
 	    {

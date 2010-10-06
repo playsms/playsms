@@ -43,6 +43,9 @@ switch ($op)
 		<td>"._('Clickatell API URL')."</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_send_url value=\"".$clickatell_param['send_url']."\"> ("._('No trailing slash')." \"/\")</td>
 	    </tr>
 	    <tr>
+		<td>"._('Additional URL parameter')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_additional_param value=\"".$clickatell_param['additional_param']."\"></td>
+	    </tr>
+	    <tr>
 		<td>"._('Clickatell incoming path')."</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_incoming_path value=\"".$clickatell_param['incoming_path']."\"> ("._('No trailing slash')." \"/\")</td>
 	    </tr>	    
 	</table>	    
@@ -64,6 +67,7 @@ switch ($op)
 	$up_sender = $_POST['up_sender'];
 	$up_send_url = $_POST['up_send_url'];
 	$up_incoming_path = $_POST['up_incoming_path'];
+	$up_additional_param = ( $_POST['up_additional_param'] ? $_POST['up_additional_param'] : "deliv_ack=1&callback=3" );
 	$error_string = _('No changes has been made');
 	if ($up_api_id && $up_username && $up_send_url)
 	{
@@ -78,6 +82,7 @@ switch ($op)
 		    ".$password_change."
 		    cfg_sender='$up_sender',
 		    cfg_send_url='$up_send_url',
+		    cfg_additional_param='$up_additional_param',
 		    cfg_incoming_path='$up_incoming_path'
 	    ";
 	    if (@dba_affected_rows($db_query))

@@ -51,6 +51,10 @@ msgid "Send SMS port"
 msgstr "Port HTTP d`envoi SMS"
 
 #: kannel.php:46
+msgid "Additional URL parameter"
+msgstr ""
+
+#: kannel.php:46
 msgid "playSMS web URL"
 msgstr "URL web de playSMS"
 

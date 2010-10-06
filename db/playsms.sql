@@ -437,7 +437,8 @@ CREATE TABLE `playsms_gatewayClickatell_config` (
   `cfg_sender` varchar(20) default NULL,
   `cfg_send_url` varchar(250) default NULL,
   `cfg_incoming_path` varchar(250) default NULL,
-  `cfg_credit` int(11) NOT NULL default '0'
+  `cfg_credit` int(11) NOT NULL default '0',
+  `cfg_additional_param` varchar(250) default NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -446,7 +447,7 @@ CREATE TABLE `playsms_gatewayClickatell_config` (
 
 LOCK TABLES `playsms_gatewayClickatell_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayClickatell_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayClickatell_config` VALUES (0,'clickatell','123456','playsms','playsms','PlaySMS','http://api.clickatell.com/http','/var/spool/playsms',10);
+INSERT INTO `playsms_gatewayClickatell_config` VALUES (0,'clickatell','123456','playsms','playsms','PlaySMS','http://api.clickatell.com/http','/var/spool/playsms',10,'');
 /*!40000 ALTER TABLE `playsms_gatewayClickatell_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -485,7 +486,8 @@ CREATE TABLE `playsms_gatewayKannel_config` (
   `cfg_global_sender` varchar(20) default NULL,
   `cfg_bearerbox_host` varchar(250) default NULL,
   `cfg_sendsms_port` varchar(10) default NULL,
-  `cfg_playsms_web` varchar(250) default NULL
+  `cfg_playsms_web` varchar(250) default NULL,
+  `cfg_additional_param` varchar(250) default NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -494,7 +496,7 @@ CREATE TABLE `playsms_gatewayKannel_config` (
 
 LOCK TABLES `playsms_gatewayKannel_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayKannel_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayKannel_config` VALUES (0,'kannel','/var/spool/playsms','playsms','playsms','','127.0.0.1','13131','http://localhost/playsms');
+INSERT INTO `playsms_gatewayKannel_config` VALUES (0,'kannel','/var/spool/playsms','playsms','playsms','','127.0.0.1','13131','http://localhost/playsms','');
 /*!40000 ALTER TABLE `playsms_gatewayKannel_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -577,7 +579,8 @@ CREATE TABLE `playsms_gatewayUplink_config` (
   `cfg_username` varchar(100) default NULL,
   `cfg_password` varchar(100) default NULL,
   `cfg_global_sender` varchar(20) default NULL,
-  `cfg_incoming_path` varchar(250) default NULL
+  `cfg_incoming_path` varchar(250) default NULL,
+  `cfg_additional_param` varchar(250) default NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -586,7 +589,7 @@ CREATE TABLE `playsms_gatewayUplink_config` (
 
 LOCK TABLES `playsms_gatewayUplink_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayUplink_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayUplink_config` VALUES (0,'uplink','http://playsms.master.url','playsms','playsms','','/var/spool/playsms');
+INSERT INTO `playsms_gatewayUplink_config` VALUES (0,'uplink','http://playsms.master.url','playsms','playsms','','/var/spool/playsms','');
 /*!40000 ALTER TABLE `playsms_gatewayUplink_config` ENABLE KEYS */;
 UNLOCK TABLES;
 

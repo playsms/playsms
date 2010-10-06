@@ -1,4 +1,4 @@
-#: config.php:19 kannel.php:23
+#: config.php:24 kannel.php:23
 msgid "Manage kannel"
 msgstr "Manage kannel"
 
@@ -51,33 +51,37 @@ msgid "Send SMS port"
 msgstr ""
 
 #: kannel.php:46
+msgid "Additional URL parameter"
+msgstr ""
+
+#: kannel.php:49
 msgid "playSMS web URL"
 msgstr ""
 
-#: kannel.php:46
+#: kannel.php:49
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr ""
 
-#: kannel.php:50
+#: kannel.php:53
 msgid "Note"
 msgstr ""
 
-#: kannel.php:51
+#: kannel.php:54
 msgid "Send SMS message without footer banner"
 msgstr ""
 
-#: kannel.php:53
+#: kannel.php:56
 msgid "Save"
 msgstr ""
 
-#: kannel.php:65
+#: kannel.php:69
 msgid "No changes has been made"
 msgstr ""
 
-#: kannel.php:83
+#: kannel.php:88
 msgid "Gateway module configurations has been saved"
 msgstr ""
 
-#: kannel.php:91
+#: kannel.php:96
 msgid "Gateway has been activated"
 msgstr ""

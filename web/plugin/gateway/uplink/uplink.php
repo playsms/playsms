@@ -32,6 +32,9 @@ switch ($op)
 		<td>"._('Master URL')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_master value=\"".$uplink_param['master']."\"></td>
 	    </tr>
 	    <tr>
+		<td>"._('Additional URL parameter')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_additional_param value=\"".$uplink_param['additional_param']."\"></td>
+	    </tr>
+	    <tr>
 		<td>"._('Username')."</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_username value=\"".$uplink_param['username']."\"></td>
 	    </tr>	    	    
 	    <tr>
@@ -55,6 +58,7 @@ switch ($op)
 	break;
     case "manage_save":
 	$up_master = $_POST['up_master'];
+	$up_additional_param = $_POST['up_additional_param'];
 	$up_username = $_POST['up_username'];
 	$up_password = $_POST['up_password'];
 	$up_global_sender = $_POST['up_global_sender'];
@@ -69,6 +73,7 @@ switch ($op)
 		UPDATE "._DB_PREF_."_gatewayUplink_config 
 		SET c_timestamp='".mktime()."',
 		    cfg_master='$up_master',
+		    cfg_additional_param='$up_additional_param',
 		    cfg_username='$up_username',
 		    ".$password_change."
 		    cfg_global_sender='$up_global_sender',

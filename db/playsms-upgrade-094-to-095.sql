@@ -38,3 +38,7 @@ RENAME TABLE `playsms_tblUserGroupPhonebook`  TO `playsms_toolsSimplephonebook_g
 RENAME TABLE `playsms_tblUserGroupPhonebook_public`  TO `playsms_toolsSimplephonebook_group_public` ;
 
 INSERT INTO `playsms_tblUser_country` (`country_id` , `country_name`) VALUES ('200', 'New Caledonia');
+
+ALTER TABLE `playsms_gatewayUplink_config` ADD `cfg_additional_param` VARCHAR(250) DEFAULT '' ;
+ALTER TABLE `playsms_gatewayKannel_config` ADD `cfg_additional_param` VARCHAR(250) DEFAULT '' ;
+ALTER TABLE `playsms_gatewayClickatell_config` ADD `cfg_additional_param` VARCHAR(250) DEFAULT '' ;
