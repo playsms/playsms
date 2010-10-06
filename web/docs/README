@@ -11,8 +11,8 @@ various services such as an SMS gateway, personal messaging systems, corporate a
 group communication tools
 
 
-Current Features
-----------------
+Feature Highlights
+------------------
 - Multiple database engine supported (using PHP PEAR DB)
 - Send SMS to single mobile phone (web2mobile)
 - Send SMS broadcasted to a group of mobile phones (web2mobiles, bulk SMS)
@@ -33,7 +33,8 @@ Current Features
 - Long SMS support, length of text is configurable
 - Rate SMS by destination prefix
 - SMS credit system per user
-- Multi-language user interface supported
+- Multi-language user interface (current: English, French and Bahasa Indonesia)
+- Easily add new language for user interface
 - Web-based interface
 
 
