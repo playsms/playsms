@@ -35,7 +35,7 @@ switch ($op)
 		<td>"._('Username')."</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_username value=\"".$uplink_param['username']."\"></td>
 	    </tr>	    	    
 	    <tr>
-		<td>"._('Password')."</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_password value=\"".$uplink_param['password']."\"></td>
+		<td>"._('Password')."</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password value=\"\"> ("._('Fill to change the password').")</td>
 	    </tr>	    
 	    <tr>
 		<td>"._('Global sender')."</td><td>:</td><td><input type=text size=11 maxlength=11 name=up_global_sender value=\"".$uplink_param['global_sender']."\"> ("._('Max. 16 numeric or 11 alphanumeric char. empty to disable').")</td>
@@ -60,14 +60,17 @@ switch ($op)
 	$up_global_sender = $_POST['up_global_sender'];
 	$up_incoming_path = $_POST['up_incoming_path'];
 	$error_string = _('No changes has been made');
-	if ($up_master && $up_username && $up_password && $up_incoming_path)
+	if ($up_master && $up_username && $up_incoming_path)
 	{
+	    if ($up_password) {
+		$password_change = "cfg_password='$up_password',";
+	    }
 	    $db_query = "
 		UPDATE "._DB_PREF_."_gatewayUplink_config 
 		SET c_timestamp='".mktime()."',
 		    cfg_master='$up_master',
 		    cfg_username='$up_username',
-		    cfg_password='$up_password',
+		    ".$password_change."
 		    cfg_global_sender='$up_global_sender',
 		    cfg_incoming_path='$up_incoming_path'
 	    ";

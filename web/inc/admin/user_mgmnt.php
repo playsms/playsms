@@ -149,7 +149,7 @@ switch ($op)
 		<td>"._('SMS Sender ID')." ("._('SMS footer').")</td><td>:</td><td><input type='text' size='35' maxlength='30' name='up_sender' value=\"$sender\"> ("._('Max. 30 alphanumeric characters').")</td>
 	    </tr>	    
 	    <tr>
-		<td>"._('Password')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='up_password'> ("._('Fill to change password for username')." `$uname`)</td>
+		<td>"._('Password')."</td><td>:</td><td><input type='password' size='30' maxlength='30' name='up_password'> ("._('Fill to change password for username')." `$uname`)</td>
 	    </tr>	    
 	    <tr>
 		<td>"._('Credit')."</td><td>:</td><td><input type='text' size='16' maxlength='30' name='up_credit' value=\"$credit\"></td>
@@ -237,7 +237,7 @@ switch ($op)
 		<td>"._('SMS Sender ID')." ("._('SMS footer').")</td><td>:</td><td><input type='text' size='35' maxlength='30' name='add_sender' value=\"$add_sender\"> ("._('Max. 30 alphanumeric characters').")</td>
 	    </tr>	    	    	    
 	    <tr>
-		<td>"._('Password')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='add_password' value=\"$add_password\"></td>
+		<td>"._('Password')."</td><td>:</td><td><input type='password' size='30' maxlength='30' name='add_password' value=\"$add_password\"></td>
 	    </tr>
 	    <tr>
 		<td>"._('Credit')."</td><td>:</td><td><input type='text' size='16' maxlength='30' name='add_credit' value=\"$add_credit\"></td>

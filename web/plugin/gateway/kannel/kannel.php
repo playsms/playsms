@@ -31,7 +31,7 @@ switch ($op)
 		<td>"._('Username')."</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_username value=\"".$kannel_param['username']."\"></td>
 	    </tr>	    
 	    <tr>
-		<td>"._('Password')."</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password value=\"".$kannel_param['password']."\"></td>
+		<td>"._('Password')."</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password value=\"\"> ("._('Fill to change the password').")</td>
 	    </tr>
 	    <tr>
 		<td>"._('Global sender')."</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_global_sender value=\"".$kannel_param['global_sender']."\"> ("._('Max. 16 numeric or 11 alphanumeric char. empty to disable').")</td>
@@ -63,13 +63,16 @@ switch ($op)
 	$up_sendsms_port = $_POST['up_sendsms_port'];
 	$up_playsms_web = ( $_POST['up_playsms_web'] ? $_POST['up_playsms_web'] : $http_path['base'] );
 	$error_string = _('No changes has been made');
-	if ($up_username && $up_password && $up_bearerbox_host && $up_sendsms_port)
+	if ($up_username && $up_bearerbox_host && $up_sendsms_port)
 	{
+	    if ($up_password) {
+		$password_change = "cfg_password='$up_password',";
+	    }
 	    $db_query = "
 		UPDATE "._DB_PREF_."_gatewayKannel_config 
 		SET c_timestamp='".mktime()."',
 		    cfg_username='$up_username',
-		    cfg_password='$up_password',
+		    ".$password_change."
 		    cfg_global_sender='$up_global_sender',
 		    cfg_bearerbox_host='$up_bearerbox_host',
 		    cfg_sendsms_port='$up_sendsms_port',

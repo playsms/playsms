@@ -26,6 +26,10 @@ msgstr "Pseudo"
 msgid "Password"
 msgstr "Mot de passe"
 
+#: kannel.php:34
+msgid "Fill to change the password"
+msgstr ""
+
 #: kannel.php:37
 msgid "Global sender"
 msgstr "Emetteur global"

@@ -1,6 +1,6 @@
 #: clickatell.php:8
 msgid "Active"
-msgstr "Active"
+msgstr ""
 
 #: clickatell.php:12
 msgid "Inactive"
@@ -12,7 +12,7 @@ msgstr ""
 
 #: clickatell.php:23 config.php:18
 msgid "Manage clickatell"
-msgstr ""
+msgstr "Manage clickatell"
 
 #: clickatell.php:28
 msgid "Gateway name"
@@ -28,6 +28,10 @@ msgstr ""
 
 #: clickatell.php:37
 msgid "Password"
+msgstr ""
+
+#: clickatell.php:37
+msgid "Fill to change the password"
 msgstr ""
 
 #: clickatell.php:40
@@ -50,36 +54,44 @@ msgstr ""
 msgid "Clickatell incoming path"
 msgstr ""
 
-#: clickatell.php:49
+#: clickatell.php:50
 msgid "Note"
 msgstr ""
 
-#: clickatell.php:50
+#: clickatell.php:51
 msgid "Your callback URL is"
 msgstr ""
 
-#: clickatell.php:51
+#: clickatell.php:52
 msgid ""
 "If you are using callback URL to receive incoming sms you may ignore "
-"Clickatell Incoming Path"
-msgstr ""
-
-#: clickatell.php:52
-msgid "Send SMS message without footer banner"
+"Clickatell incoming path"
 msgstr ""
 
 #: clickatell.php:53
+msgid "Clickatell is a bulk SMS provider"
+msgstr ""
+
+#: clickatell.php:53
+msgid "free credits are available for testing purposes"
+msgstr ""
+
+#: clickatell.php:54
+msgid "Send SMS message without footer banner"
+msgstr ""
+
+#: clickatell.php:55
 msgid "Save"
 msgstr ""
 
-#: clickatell.php:65
+#: clickatell.php:67
 msgid "No changes has been made"
 msgstr ""
 
-#: clickatell.php:80
+#: clickatell.php:85
 msgid "Gateway module configurations has been saved"
 msgstr ""
 
-#: clickatell.php:88
+#: clickatell.php:93
 msgid "Gateway has been activated"
 msgstr ""
