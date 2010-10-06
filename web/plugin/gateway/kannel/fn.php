@@ -31,9 +31,19 @@ function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
     $dlr_url = $kannel_param['playsms_web'] . "/plugin/gateway/kannel/dlr.php?type=%d&slid=".$smslog_id."&uid=".$uid;
 
     $URL = "/cgi-bin/sendsms?username=".urlencode($kannel_param['username'])."&password=".urlencode($kannel_param['password']);
-    $URL .= "&from=".urlencode($sms_from)."&to=".urlencode($sms_to)."&text=".urlencode($sms_msg);
+    $URL .= "&from=".urlencode($sms_from)."&to=".urlencode($sms_to);
     $URL .= "&dlr-mask=31&dlr-url=".urlencode($dlr_url);
     $URL .= "&mclass=".$msg_type;
+    
+    if ($unicode) {
+	if (function_exists('mb_convert_encoding')) {
+	    $sms_msg = mb_convert_encoding($sms_msg, "UCS-2BE", "auto");
+	    $URL .= "&charset=UTF-16BE";
+	}
+	$URL .= "&coding=2";
+    }
+
+    $URL .= "&text=".urlencode($sms_msg);
     
     // fixme anton - patch 1.4.3, dlr requries smsc-id, you should add at least smsc=<your smsc-id in kannel.conf> from web
     if ($additional_param = $kannel_param['additional_param']) {
