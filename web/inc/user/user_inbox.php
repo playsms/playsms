@@ -65,8 +65,8 @@ switch ($op)
 	          <td valign=top class=$td_class align=center width=20%>$current_sender</td>
 	          <td valign=top class=$td_class align=left width=60%>$in_msg</td>
 	          <td valign=top class=$td_class align=center nowrap>
-		    <a href=\"javascript: PopupReplySms('$current_sender', '".urlencode($in_msg)."')\">$icon_reply</a>
-		    <a href=\"menu.php?inc=phone_add&op=add&phone=$current_sender\">$icon_phonebook</a>
+		    <!-- <a href=\"javascript: PopupReplySms('$current_sender', '".urlencode($in_msg)."')\">$icon_reply</a> -->
+		    <!-- <a href=\"menu.php?inc=phone_add&op=add&phone=$current_sender\">$icon_phonebook</a> -->
 		    <a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this SMS ?')."','menu.php?inc=user_inbox&op=user_inbox_del&inid=$in_id')\">$icon_delete</a>
 		    
 		  </td>

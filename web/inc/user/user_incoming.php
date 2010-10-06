@@ -74,8 +74,8 @@ switch ($op)
 	          <td valign=top class=$td_class align=center>$in_feature</td>
 	          <td valign=top class=$td_class align=center>$in_status</td>
 	          <td valign=top class=$td_class align=center nowrap>
-		    <a href=\"javascript: PopupReplySms('$current_sender', '".urlencode($in_message)."')\">$icon_reply</a>
-		    <a href=\"menu.php?inc=phone_add&op=add&phone=$current_sender\">$icon_phonebook</a>
+		    <!-- <a href=\"javascript: PopupReplySms('$current_sender', '".urlencode($in_message)."')\">$icon_reply</a> -->
+		    <!-- <a href=\"menu.php?inc=phone_add&op=add&phone=$current_sender\">$icon_phonebook</a> -->
 		    <a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this SMS ?')."','menu.php?inc=user_incoming&op=user_incoming_del&inid=$in_id')\">$icon_delete</a>
 		  </td>
 		<td class=$td_class width=4>
