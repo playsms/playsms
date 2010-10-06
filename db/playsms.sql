@@ -616,7 +616,7 @@ CREATE TABLE `playsms_tblConfig_main` (
 
 LOCK TABLES `playsms_tblConfig_main` WRITE;
 /*!40000 ALTER TABLE `playsms_tblConfig_main` DISABLE KEYS */;
-INSERT INTO `playsms_tblConfig_main` VALUES (0,'playSMS','noreply@playsms.sf.net','powered by playSMS','gnokii','000','default',0,'en_US');
+INSERT INTO `playsms_tblConfig_main` VALUES (0,'playSMS','noreply@playsms.org','powered by playSMS','gnokii','000','default',0,'en_US');
 /*!40000 ALTER TABLE `playsms_tblConfig_main` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -767,7 +767,7 @@ CREATE TABLE `playsms_tblUser` (
 
 LOCK TABLES `playsms_tblUser` WRITE;
 /*!40000 ALTER TABLE `playsms_tblUser` DISABLE KEYS */;
-INSERT INTO `playsms_tblUser` VALUES (0,1,2,'bbde889a4de8ad9a9f1b1853a301486a','admin','admin','Administrator','+62000000000','noreply@playsms.sf.net',' - playSMS',0,0,38,'','','',132,'',0,0,'','',0);
+INSERT INTO `playsms_tblUser` VALUES (0,1,2,'bbde889a4de8ad9a9f1b1853a301486a','admin','admin','Administrator','+62000000000','noreply@playsms.org',' - playSMS',0,0,38,'','','',132,'',0,0,'','',0);
 /*!40000 ALTER TABLE `playsms_tblUser` ENABLE KEYS */;
 UNLOCK TABLES;
 

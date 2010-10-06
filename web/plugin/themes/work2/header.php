@@ -1,7 +1,7 @@
 <html>
 <head>
 <title><?=$web_title?></title>
-<meta name="author" content="http://playsms.sourceforge.net">
+<meta name="author" content="http://playsms.org">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>

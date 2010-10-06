@@ -36,7 +36,7 @@ switch ($show) {
 		<html>
 		<head>
 		<title>$web_title</title>
-		<meta name=\"author\" content=\"http://playsms.sourceforge.net\">
+		<meta name=\"author\" content=\"http://playsms.org\">
 		<link rel=\"stylesheet\" type=\"text/css\" href=\"".$http_path['themes']."/".$themes_module."/jscss/common.css\">
 		</head>
 		<body bgcolor=\"$bodybgcolor\" topmargin=\"0\" leftmargin\"0\">
