@@ -93,8 +93,8 @@ function smstools_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=
 	$the_msg .= "Flash: yes\n";
     }
     if ($unicode) {
-	$the_msg .= "Alphabet: UCS\n";
 	if (function_exists('mb_convert_encoding')) {
+	    $the_msg .= "Alphabet: UCS\n";
 	    $sms_msg = mb_convert_encoding($sms_msg, "UCS-2BE", "auto");
 	}
 	// $sms_msg = str2hex($sms_msg);

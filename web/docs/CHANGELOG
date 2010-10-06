@@ -13,6 +13,7 @@ Version 0.9.5 - 101010
 - add new language and translate it for core and plugins, id_ID (anton)
 - add logger_print level 3 on all gateways, log send/receive sms activities (anton)
 - add option to add additional URL parameter in gateway module clickatell, kannel and uplink (anton)
+- fix non-working unicode option in gateway module kannel (anton)
 - fix single quote preventing correct array reading, $array['$c'] should be $array[$c] (anton)
 - fix logger, available logstate: 0=disabled, 1=info, 2=warning, 3=debug (anton)
 - fix regression quotes wrapping $key (init.php) causing error when magic_quotes_gpc disabled (anton)
