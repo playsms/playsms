@@ -8,9 +8,14 @@ Steps to upgrade:
 3. Do the installation process for new playSMS version 0.9.5
 4. Read the old config.php from playSMS 0.9.4 and apply the configuration in new config.php
 5. Update database by inserting SQL patch file: db/playsms-upgrade-094-to-095.sql
+6. Highly recommended, to make sure that your database default charset is utf8
 
 # cd {playSMS 0.9.5 package directory}/db
 # mysql -u {database username} -p {playSMS 0.9.4 database name} < playsms-upgrade-094-to-095.sql
+
+Regarding point 6 above, my dummy-way was to SQL export/dump with drop tables to an SQL file, 
+and then edit that SQL file and replace latin1 (if its latin1) with utf8. Re-import SQL file 
+once replaced all with utf8.
 
 
 --

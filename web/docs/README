@@ -16,7 +16,7 @@ Feature Highlights
 - Multiple database engine supported (using PHP PEAR DB)
 - Send SMS to single mobile phone (web2mobile)
 - Send SMS broadcasted to a group of mobile phones (web2mobiles, bulk SMS)
-- Support sending flash and unicode message
+- Support sending text, flash and unicode message
 - Receive private SMS to Inbox and forward it to email (mobile2web)
 - Forward single SMS from mobile to a group of mobile phones (mobile2mobiles)
 - SMS autoreply, for easy autoreplying formatted incoming SMS
