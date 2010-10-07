@@ -4,20 +4,21 @@ include $apps_path['libs']."/function.php";
 
 // -----------------------------------------------------------------------------
 // query string: 
-// u	: username
-// p	: password
-// ta	: type of action 
-// 	pv = send private
-// 	bc = send broadcast
-// 	ds = delivery status
-// last : last SMS log ID (this number not included on result)
-// c	: number of delivery status that will be retrieved
-// slid	: SMS Log ID (for ta=ds, when slid defined 'last' and 'c' has no effect)
-// to	: destination number (for ta=pv) or destination group code (for ta=bc)
-// msg	: message
-// from	: sender mobile number
-// type : message type (1=flash, 2=text)
-// form : ds output format
+// u		: username
+// p		: password
+// ta		: type of action 
+// 		pv = send private
+// 		bc = send broadcast
+// 		ds = delivery status
+// last 	: last SMS log ID (this number not included on result)
+// c		: number of delivery status that will be retrieved
+// slid		: SMS Log ID (for ta=ds, when slid defined 'last' and 'c' has no effect)
+// to		: destination number (for ta=pv) or destination group code (for ta=bc)
+// msg		: message
+// from		: sender mobile number
+// type 	: message type (1=flash, 2=text)
+// unicode 	: whether message unicode or not (1=unicode, 0=not unicode)
+// form 	: ds output format
 // example: 
 // http://x.com/input.php?u=admin&p=rahasia&ta=bc&to=TI&msg=meeting+at+15.00+today!
 // -----------------------------------------------------------------------------
@@ -41,17 +42,18 @@ include $apps_path['libs']."/function.php";
 // 3 = delivered
 // ----------------------------------------------------------------------------
 
-$u 	= trim($_REQUEST['u']);
-$p 	= trim($_REQUEST['p']);
-$ta	= trim(strtoupper($_REQUEST['ta']));
-$last	= trim($_REQUEST['last']);
-$c	= trim($_REQUEST['c']);
-$slid	= trim($_REQUEST['slid']);
-$to 	= trim(strtoupper($_REQUEST['to']));
-$msg 	= trim($_REQUEST['msg']);
-$from	= trim($_REQUEST['from']);
-$type 	= trim($_REQUEST['type']);
-$form 	= trim(strtoupper($_REQUEST['form']));
+$u 	 = trim($_REQUEST['u']);
+$p 	 = trim($_REQUEST['p']);
+$ta	 = trim(strtoupper($_REQUEST['ta']));
+$last	 = trim($_REQUEST['last']);
+$c	 = trim($_REQUEST['c']);
+$slid	 = trim($_REQUEST['slid']);
+$to 	 = trim(strtoupper($_REQUEST['to']));
+$msg 	 = trim($_REQUEST['msg']);
+$from	 = trim($_REQUEST['from']);
+$type 	 = ( trim($_REQUEST['type']) ? trim($_REQUEST['type']) : 'text' );
+$unicode = ( trim($_REQUEST['unicode']) ? trim($_REQUEST['unicode']) : 0 );
+$form 	 = trim(strtoupper($_REQUEST['form']));
 
 if ($u && $p) {
     if (!validatelogin($u,$p)) {
@@ -71,7 +73,8 @@ if ($ta) {
 		if ($trn) {
 		    $transparent = true;
 		}
-		list($ok,$to,$smslog_id) = websend2pv($u,$to,$msg);
+		// websend2pv($username,$sms_to,$message,$sms_type='text',$unicode=0)
+		list($ok,$to,$smslog_id) = websend2pv($u,$to,$msg,$type,$unicode);
 		if ($ok[0] && $smslog_id[0]) {
 		    echo "OK ".$smslog_id[0];
 		} else {
@@ -89,7 +92,8 @@ if ($ta) {
 		    $transparent = true;
 		}
 		$to_gpid = phonebook_groupcode2id($u,$to);
-		list($ok,$to,$smslog_id) = websend2group($u,$to_gpid,$msg);
+		// websend2group($username,$gpid,$message,$sms_type='text',$unicode=0)
+		list($ok,$to,$smslog_id) = websend2group($u,$to_gpid,$msg,$type,$unicode);
 		if ($ok[0]) {
 		    echo "OK";
 		} else {

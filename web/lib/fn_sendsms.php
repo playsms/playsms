@@ -91,7 +91,7 @@ function websend2pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
     return array($ok,$to,$smslog_id);
 }
 
-function websend2group($username,$gpid,$message,$sms_type='text') {
+function websend2group($username,$gpid,$message,$sms_type='text',$unicode=0) {
     global $apps_path, $core_config;
     global $datetime_now, $gateway_module;
     $uid = username2uid($username);

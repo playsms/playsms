@@ -140,13 +140,32 @@ switch ($op)
 		$unicode = "1";
 	    }
 	    list($ok,$to,$smslog_id) = websend2pv($username,$sms_to,$message,$sms_type,$unicode);
-	    for ($i=0;$i<count($ok);$i++) {
-		if ($ok[$i]) {
-		    $error_string .= _('Your SMS has been delivered to queue')." ("._('to').": ".$to[$i].")<br>";
-		} else {
-		    $error_string .= _('Fail to sent SMS')." ("._('to').": `".$to[$i]."`)<br>";
-	        }
-	    }
+	    
+	    if (count($ok) <= 5) {
+		for ($i=0;$i<count($ok);$i++) {
+		    if ($ok[$i]) {
+			$error_string .= _('Your SMS has been delivered to queue')." ("._('to').": ".$to[$i].")<br>";
+		    } else {
+			$error_string .= _('Fail to sent SMS')." ("._('to').": `".$to[$i]."`)<br>";
+	    	    }
+		}
+	    } else {
+		// minimize delivery reports on web, actual status can be seen from outgoing SMS menu (emmanuel)
+		$sms_sent = 0;
+		$sms_failed = 0;
+		for ($i=0;$i<count($ok);$i++) {
+	    	    if ($ok[$i]) {
+	    		// $error_string .= _('Your SMS has been delivered to queue')." ("._('to').": `".$to[$i]."`)<br>";
+	    		$sms_sent++;
+	    	    } else {
+	    		// $error_string .= _('Fail to sent SMS')." ("._('to').": `".$to[$i]."`)<br>";
+	    		$sms_failed++;
+		    }
+		}
+		// fixme anton - we dont need to add new lang entry, just use available phrase
+		$error_string = _('Your SMS has been delivered to queue')." (".strtolower(_('Sent')).": ".$sms_sent.", ".strtolower(_('Failed')).": ".$sms_failed.")";
+            }
+            
 	    $errid = logger_set_error_string($error_string);
 	    header("Location: menu.php?inc=send_sms&op=sendsmstopv&message=".urlencode($message)."&errid=".$errid);
 	} else {
@@ -228,6 +247,7 @@ switch ($op)
 	    <br>"._('SMS character').": <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
             <input type=\"hidden\" value=\"153\" name=\"hiddcount\">
 	    <p><input type=checkbox name=msg_flash> "._('Send as flash message')."
+	    <p><input type=checkbox name=msg_unicode> "._('Send as unicode message (http://www.unicode.org)')."
 	    <p><input type=submit class=button value='"._('Send')."' onClick=\"selectAllOptions(this.form[gp_code[]])\"> 
 	    </form>
 	";
@@ -241,13 +261,18 @@ switch ($op)
 	}
 	*/
 	$msg_flash = $_POST['msg_flash'];
+	$msg_unicode = $_POST['msg_unicode'];
 	$message = $_POST['message'];
 	if ($gpid && $message) {
 	    $sms_type = "text";
 	    if ($msg_flash == "on") {
 		$sms_type = "flash";
 	    }
-	    list($ok,$to,$smslog_id) = websend2group($username,$gpid,$message,$sms_type);
+	    $unicode = "0";
+	    if ($msg_unicode == "on") {
+		$unicode = "1";
+	    }
+	    list($ok,$to,$smslog_id) = websend2group($username,$gpid,$message,$sms_type,$unicode);
 	    
 	    // minimize delivery reports on web, actual status can be seen from outgoing SMS menu (emmanuel)
 	    $sms_sent = 0;
