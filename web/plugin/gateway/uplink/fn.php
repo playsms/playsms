@@ -50,9 +50,12 @@ function uplink_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
     if ($sms_to && $sms_msg) {
 
 	if ($unicode) {
+	    // fixme anton - this isn't right, encoding should be done in master, not locally
+	    /*
 	    if (function_exists('mb_convert_encoding')) {
 		$sms_msg = mb_convert_encoding($sms_msg, "UCS-2BE", "auto");
 	    }
+	    */
 	    $unicode = 1;
 	}
 

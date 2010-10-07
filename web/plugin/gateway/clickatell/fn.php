@@ -52,6 +52,7 @@ function clickatell_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$ui
 	if (function_exists('mb_convert_encoding')) {
 	    $sms_msg = mb_convert_encoding($sms_msg, "UCS-2BE", "auto");
 	}
+	$sms_msg = str2hex($sms_msg);
 	$unicode = 1;
     }
     

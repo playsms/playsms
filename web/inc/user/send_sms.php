@@ -104,7 +104,7 @@ switch ($op)
 		</td>
 	    </tr>
 	    </table>
-	    <p>"._('Or').": <input type=text size=20 maxlength=13 name=p_num_text value=\"$dst_p_num\"> ("._('International format').")
+	    <p>"._('Or').": <input type=text size=20 maxlength=20 name=p_num_text value=\"$dst_p_num\"> ("._('International format').")
 	    <p>"._('SMS Sender ID')." ("._('SMS footer')."): $sms_sender
 	    <p>"._('Message template').": <select name=\"smstemplate\">$option_values</select>
 	    <p><input type=\"button\" onClick=\"SetSmsTemplate();\" name=\"nb\" value=\""._('Use template')."\" class=\"button\">
