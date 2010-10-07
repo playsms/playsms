@@ -12,9 +12,11 @@ Minimum Required Software
 - Operating System Linux (install on MS Windows or BSD is also possible)
 - Web Server (for example Apache2 or lighttpd)
 - Database Server MySQL 4.x.x or latest stable release
-- PHP 4.4.x or latest stable release with mysql module enabled and CLI version available
+- PHP 5.x.x or latest stable release with mysql module enabled and CLI version available
 - PHP PEAR DB (this is a must, most admins forgot this requirement)
 - PHP gettext extension (this is a must for text translation)
+- PHP multibyte string function (should be able to call mb_convert_encoding)
+- PHP option in php.ini should enable short_open_tag (short_open_tag=on)
 - Access to SMTP server (playSMS will use this to send email)
 - lynx, wget or curl, a console web browser (example scripts require lynx)
 
