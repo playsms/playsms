@@ -430,7 +430,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `playsms_gatewayClickatell_config`;
 CREATE TABLE `playsms_gatewayClickatell_config` (
   `c_timestamp` int(11) NOT NULL default '0',
-  `cfg_name` varchar(20) default 'gnokii',
+  `cfg_name` varchar(20) default 'clickatell',
   `cfg_api_id` varchar(20) default NULL,
   `cfg_username` varchar(100) default NULL,
   `cfg_password` varchar(100) default NULL,
@@ -458,7 +458,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `playsms_gatewayGnokii_config`;
 CREATE TABLE `playsms_gatewayGnokii_config` (
   `c_timestamp` int(11) NOT NULL default '0',
-  `cfg_name` varchar(20) NOT NULL default '',
+  `cfg_name` varchar(20) NOT NULL default 'gnokii',
   `cfg_path` varchar(250) NOT NULL default ''
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -479,7 +479,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `playsms_gatewayKannel_config`;
 CREATE TABLE `playsms_gatewayKannel_config` (
   `c_timestamp` int(11) NOT NULL default '0',
-  `cfg_name` varchar(20) default NULL,
+  `cfg_name` varchar(20) NOT NULL default 'kannel',
   `cfg_incoming_path` varchar(250) default NULL,
   `cfg_username` varchar(100) default NULL,
   `cfg_password` varchar(100) default NULL,
@@ -529,7 +529,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `playsms_gatewayTemplate_config`;
 CREATE TABLE `playsms_gatewayTemplate_config` (
   `c_timestamp` int(11) NOT NULL default '0',
-  `cfg_name` varchar(20) NOT NULL default '',
+  `cfg_name` varchar(20) NOT NULL default 'template',
   `cfg_path` varchar(250) NOT NULL default ''
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -574,7 +574,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `playsms_gatewayUplink_config`;
 CREATE TABLE `playsms_gatewayUplink_config` (
   `c_timestamp` int(11) NOT NULL default '0',
-  `cfg_name` varchar(20) default NULL,
+  `cfg_name` varchar(20) NOT NULL default 'uplink',
   `cfg_master` varchar(250) default NULL,
   `cfg_username` varchar(100) default NULL,
   `cfg_password` varchar(100) default NULL,
@@ -616,7 +616,7 @@ CREATE TABLE `playsms_tblConfig_main` (
 
 LOCK TABLES `playsms_tblConfig_main` WRITE;
 /*!40000 ALTER TABLE `playsms_tblConfig_main` DISABLE KEYS */;
-INSERT INTO `playsms_tblConfig_main` VALUES (0,'playSMS','noreply@playsms.org','powered by playSMS','gnokii','000','default',0,'en_US');
+INSERT INTO `playsms_tblConfig_main` VALUES (0,'playSMS','noreply@playsms.org','powered by playSMS','smstools','000','default',0,'en_US');
 /*!40000 ALTER TABLE `playsms_tblConfig_main` ENABLE KEYS */;
 UNLOCK TABLES;
 

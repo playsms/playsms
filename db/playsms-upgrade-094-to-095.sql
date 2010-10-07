@@ -9,7 +9,7 @@ CREATE TABLE `playsms_toolsSimplerate` (
   UNIQUE KEY `prefix` (`prefix`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-ALTER TABLE `playsms_tblConfig_main` ADD `cfg_default_rate` FLOAT NOT NULL ;
+ALTER TABLE `playsms_tblConfig_main` ADD `cfg_default_rate` FLOAT NOT NULL DEFAULT '0';
 ALTER TABLE `playsms_tblConfig_main` ADD `cfg_language_module` VARCHAR(10) DEFAULT 'en_US' ;
 
 ALTER TABLE `playsms_tblUser` ADD `credit` DOUBLE NOT NULL default '0';
@@ -27,8 +27,8 @@ CREATE TABLE `playsms_tblBilling` (
   `c_timestamp` INT NOT NULL ,
   `post_datetime` VARCHAR( 20 ) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `smslog_id` INT NOT NULL ,
-  `rate` FLOAT NOT NULL ,
-  `credit` DOUBLE NOT NULL default '0',
+  `rate` FLOAT NOT NULL DEFAULT '0',
+  `credit` DOUBLE NOT NULL DEFAULT '0',
   `status` TINYINT NOT NULL ,
   PRIMARY KEY ( `id` )
 ) ENGINE=MYISAM DEFAULT CHARSET=utf8;

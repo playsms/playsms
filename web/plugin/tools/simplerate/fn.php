@@ -27,6 +27,7 @@ function simplerate_getbyid($id) {
 	$db_row = dba_fetch_array($db_result);
 	$rate = $db_row['rate'];
     }
+    $rate = ( ($rate > 0) ? $rate : 0 );
     return $rate;
 }
 
@@ -44,6 +45,7 @@ function simplerate_getbyprefix($p_dst) {
 	    break;
 	}
     }
+    $rate = ( ($rate > 0) ? $rate : 0 );
     return $rate;
 }
 
@@ -67,6 +69,7 @@ function simplerate_hook_rate_getusercredit($username) {
 	$db_row = dba_fetch_array($db_result);
 	$credit = $db_row['credit'];
     }
+    $credit = ( $credit ? $credit : 0 );
     return $credit;
 }
 
