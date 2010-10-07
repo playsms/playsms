@@ -1,4 +1,14 @@
 Version 0.9.5 - 101010
+- remove js PopupReplySMS() and phone_add option from inbox and incoming pages (anton)
+- update HTML password field, should use type=password instead of type=text (anton)
+- update contrib/kannel/kannel.conf, an exampe of working kannel configuration (anton)
+- add cfg_additional_param (varchar 250) in clickatell, kannel and uplink db config (anton)
+- add check on php function mb_convert_encoding(), must be supported for unicode messages (anton)
+- add additional URL parameter for clickatell, kannel and uplink (anton)
+- add uplink to hook playsmsd(), it is possible master reports 'delivered', not just 'sent' (anton)
+- fix regression unable to send SMS, credit field should be defaulted to 0 (emmanuel)
+
+Version 0.9.5-rc3 - 101004
 - sendmail now can be hooked (anton)
 - rate now can be hooked (anton)
 - phonebook now can be hooked (anton)

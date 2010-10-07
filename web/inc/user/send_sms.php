@@ -248,13 +248,22 @@ switch ($op)
 		$sms_type = "flash";
 	    }
 	    list($ok,$to,$smslog_id) = websend2group($username,$gpid,$message,$sms_type);
+	    
+	    // minimize delivery reports on web, actual status can be seen from outgoing SMS menu (emmanuel)
+	    $sms_sent = 0;
+	    $sms_failed = 0;
 	    for ($i=0;$i<count($ok);$i++) {
 	        if ($ok[$i]) {
-	    	    $error_string .= _('Your SMS has been delivered to queue')." ("._('to').": `".$to[$i]."`)<br>";
+	    	    // $error_string .= _('Your SMS has been delivered to queue')." ("._('to').": `".$to[$i]."`)<br>";
+	    	    $sms_sent++;
 	        } else {
-	    	    $error_string .= _('Fail to sent SMS')." ("._('to').": `".$to[$i]."`)<br>";
+	    	    // $error_string .= _('Fail to sent SMS')." ("._('to').": `".$to[$i]."`)<br>";
+	    	    $sms_failed++;
 		}
 	    }
+	    // fixme anton - we dont need to add new lang entry, just use available phrase
+	    $error_string = _('Your SMS has been delivered to queue')." (".strtolower(_('Sent')).": ".$sms_sent.", ".strtolower(_('Failed')).": ".$sms_failed".)";
+	    
 	    $errid = logger_set_error_string($error_string);
 	    header("Location: menu.php?inc=send_sms&op=sendsmstogr&message=".urlencode($message)."&errid=".$errid);
 	} else {
