@@ -17,7 +17,6 @@ function rate_setusercredit($uid, $remaining=0) {
 
 function rate_getusercredit($username) {
     global $core_config;
-    $credit = 0;
     if ($username) {
 	for ($c=0;$c<count($core_config['toolslist']);$c++) {
 	    if ($credit = x_hook($core_config['toolslist'][$c],'rate_getusercredit',array($username))) {
@@ -25,6 +24,7 @@ function rate_getusercredit($username) {
 	    }
 	}
     }
+    $credit = ( $credit ? $credit : 0 );
     return $credit;
 }
 
