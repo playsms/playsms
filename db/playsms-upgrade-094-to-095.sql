@@ -12,7 +12,7 @@ CREATE TABLE `playsms_toolsSimplerate` (
 ALTER TABLE `playsms_tblConfig_main` ADD `cfg_default_rate` FLOAT NOT NULL ;
 ALTER TABLE `playsms_tblConfig_main` ADD `cfg_language_module` VARCHAR(10) DEFAULT 'en_US' ;
 
-ALTER TABLE `playsms_tblUser` ADD `credit` DOUBLE NOT NULL ;
+ALTER TABLE `playsms_tblUser` ADD `credit` DOUBLE NOT NULL default '0';
 
 DROP TABLE IF EXISTS `playsms_tblErrorString`;
 CREATE TABLE `playsms_tblErrorString` (
@@ -28,7 +28,7 @@ CREATE TABLE `playsms_tblBilling` (
   `post_datetime` VARCHAR( 20 ) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `smslog_id` INT NOT NULL ,
   `rate` FLOAT NOT NULL ,
-  `credit` DOUBLE NOT NULL ,
+  `credit` DOUBLE NOT NULL default '0',
   `status` TINYINT NOT NULL ,
   PRIMARY KEY ( `id` )
 ) ENGINE=MYISAM DEFAULT CHARSET=utf8;

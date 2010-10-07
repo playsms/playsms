@@ -757,7 +757,7 @@ CREATE TABLE `playsms_tblUser` (
   `education` tinyint(4) NOT NULL default '0',
   `zipcode` varchar(10) NOT NULL default '',
   `junktimestamp` varchar(30) NOT NULL default '',
-  `credit` DOUBLE NOT NULL,
+  `credit` DOUBLE NOT NULL default '0',
   PRIMARY KEY  (`uid`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
@@ -916,7 +916,7 @@ CREATE TABLE `playsms_tblBilling` (
   `post_datetime` VARCHAR( 20 ) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `smslog_id` INT NOT NULL ,
   `rate` FLOAT NOT NULL ,
-  `credit` DOUBLE NOT NULL ,
+  `credit` DOUBLE NOT NULL default '0',
   `status` TINYINT NOT NULL ,
   PRIMARY KEY ( `id` )
 ) ENGINE=MYISAM DEFAULT CHARSET=utf8;
