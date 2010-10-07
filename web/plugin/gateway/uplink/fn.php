@@ -48,6 +48,13 @@ function uplink_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
 	$sms_type = 1; // flash
     }
     if ($sms_to && $sms_msg) {
+
+	if ($unicode) {
+	    if (function_exists('mb_convert_encoding')) {
+		$sms_msg = mb_convert_encoding($sms_msg, "UCS-2BE", "auto");
+	    }
+	}
+
 	$query_string = "input.php?u=".$uplink_param['username']."&p=".$uplink_param['password']."&ta=pv&to=".rawurlencode($sms_to)."&from=".rawurlencode($sms_from)."&type=$sms_type&msg=".rawurlencode($sms_msg);
 	$url = $uplink_param['master']."/".$query_string;
 

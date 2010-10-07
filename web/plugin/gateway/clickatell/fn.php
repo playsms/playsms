@@ -47,10 +47,13 @@ function clickatell_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$ui
 	case "text": 
 	default: $sms_type = "SMS_TEXT";
     }
+
     if ($unicode) {
-	$sms_msg = utf8_to_unicode($sms_msg);
+	if (function_exists('mb_convert_encoding')) {
+	    $sms_msg = mb_convert_encoding($sms_msg, "UCS-2BE", "auto");
+	}
+	$unicode = 1;
     }
-    // no concat
     
     // fixme anton - if sms_from is not set in gateway_number and global number, we cannot pass it to clickatell
     $set_sms_from = ( $sms_from == $mobile_sender ? '' : "&from=".rawurlencode($sms_from) );
