@@ -16,15 +16,16 @@ while ($db_row = dba_fetch_array($db_result))
     $gpid = $db_row['gpid'];
     $fm_name = "fm_phonebook_".$db_row['gp_code'];
 
+    // published should show icon unpublish and the other way around (emmanuel)
     $db_query1 = "SELECT gpidpublic FROM "._DB_PREF_."_toolsSimplephonebook_group_public WHERE uid='$uid' AND gpid='$gpid'";
     $db_result1 = dba_num_rows($db_query1);
     if ($db_result1 > 0)
     {
-	$option_public = "<a href=\"menu.php?inc=tools_simplephonebook&route=phonebook&op=hide_from_public&gpid=$gpid\">$simplephonebook_icon_publish</a>";
+	$option_public = "<a href=\"menu.php?inc=tools_simplephonebook&route=phonebook&op=hide_from_public&gpid=$gpid\">$simplephonebook_icon_unpublish</a>";
     }
     else
     {
-	$option_public = "<a href=\"menu.php?inc=tools_simplephonebook&route=phonebook&op=share_this_group&gpid=$gpid\">$simplephonebook_icon_unpublish</a>";
+	$option_public = "<a href=\"menu.php?inc=tools_simplephonebook&route=phonebook&op=share_this_group&gpid=$gpid\">$simplephonebook_icon_publish</a>";
     }
 
     $option_group_edit = "<a href=\"menu.php?inc=tools_simplephonebook&route=dir_edit&op=edit&gpid=$gpid\">$icon_edit</a>";
