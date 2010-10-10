@@ -247,6 +247,14 @@ msgstr ""
 msgid "Failed"
 msgstr ""
 
+#: inc/user/send_sms.php:166 inc/user/send_sms.php:290
+msgid "sent"
+msgstr ""
+
+#: inc/user/send_sms.php:166 inc/user/send_sms.php:290
+msgid "failed"
+msgstr ""
+
 #: inc/user/user_outgoing.php:89 inc/user/get_status.php:89
 #: inc/admin/all_outgoing.php:91
 msgid "Delivered"

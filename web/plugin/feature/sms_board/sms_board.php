@@ -53,7 +53,7 @@ switch ($op)
 	echo $content;
 	echo "
 	    <p>
-	    <input type=button value=\"Add SMS board\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_board&op=sms_board_add')\" class=\"button\" />
+	    <input type=button value=\""._('Add SMS board')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_board&op=sms_board_add')\" class=\"button\" />
 	";
 	break;
     case "sms_board_view":

@@ -163,7 +163,7 @@ switch ($op)
 		    }
 		}
 		// fixme anton - we dont need to add new lang entry, just use available phrase
-		$error_string = _('Your SMS has been delivered to queue')." (".strtolower(_('Sent')).": ".$sms_sent.", ".strtolower(_('Failed')).": ".$sms_failed.")";
+		$error_string = _('Your SMS has been delivered to queue')." ("._('sent').": ".$sms_sent.", "._('failed').": ".$sms_failed.")";
             }
             
 	    $errid = logger_set_error_string($error_string);
@@ -287,7 +287,7 @@ switch ($op)
 		}
 	    }
 	    // fixme anton - we dont need to add new lang entry, just use available phrase
-	    $error_string = _('Your SMS has been delivered to queue')." (".strtolower(_('Sent')).": ".$sms_sent.", ".strtolower(_('Failed')).": ".$sms_failed.")";
+	    $error_string = _('Your SMS has been delivered to queue')." ("._('sent').": ".$sms_sent.", "._('failed').": ".$sms_failed.")";
 	    
 	    $errid = logger_set_error_string($error_string);
 	    header("Location: menu.php?inc=send_sms&op=sendsmstogr&message=".urlencode($message)."&errid=".$errid);
