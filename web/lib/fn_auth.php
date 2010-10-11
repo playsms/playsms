@@ -29,13 +29,13 @@ function valid($var_ticket="",$var_username="",$var_multilogin_id="") {
 	$db_query = "SELECT password FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	if ($multilogin_id && md5($username.$db_row['password']) || ($multilogin_id==md5($username.$db_row['password']))) {
+	if ($multilogin_id && md5($username.$db_row['password']) && ($multilogin_id==md5($username.$db_row['password']))) {
 	    return true;
 	} else {
 	    return false;
 	}
     } else {
-	$db_query = "SELECT ticket FROM "._DB_PREF_."_tblUser WHERE username='$username'";
+	$db_query = "SELECT ticket FROM "._DB_PREF_."_tblUser WHERE username='$username' AND ticket='$ticket'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	if ($ticket && $db_row['ticket']) {
@@ -60,7 +60,7 @@ function isadmin($var_ticket="",$var_username="",$var_multilogin_id="") {
 	$db_query = "SELECT status,password FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	if ($db_row['status'] && ($db_row['status']==2) || ($multilogin_id==md5($username.$db_row['password']))) {
+	if ($db_row['status'] && ($db_row['status']==2) && ($multilogin_id==md5($username.$db_row['password']))) {
 	    return true;
 	} else {
 	    return false;    
