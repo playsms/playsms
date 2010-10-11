@@ -42,6 +42,6 @@ $core_config['logstate']	= 0;
 $core_config['ishttps']		= false;
 
 // max sms text length
-$core_config['smsmaxlength']	= 2*153; // single text sms can be 160 char instead of 1*153
+$core_config['smsmaxlength']	= 3*153; // single text sms can be 160 char instead of 1*153
 
 ?>
