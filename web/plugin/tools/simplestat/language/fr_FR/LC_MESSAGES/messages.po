@@ -1,0 +1,27 @@
+#: config.php:3 simplestat.php:18
+msgid "Statistics"
+msgstr "Statistiques"
+
+#: simplestat.php:19 simplestat.php:26
+msgid "Sent SMS"
+msgstr "SMS Envoyés"
+
+#: simplestat.php:24
+msgid "User"
+msgstr "Compte"
+
+#: simplestat.php:25
+msgid "In queue SMS"
+msgstr "SMS En attente"
+
+#: simplestat.php:27
+msgid "Delivered SMS"
+msgstr "SMS Délivrés"
+
+#: simplestat.php:28
+msgid "Failed SMS"
+msgstr "SMS En échec"
+
+#: simplestat.php:110
+msgid "Total"
+msgstr "Total"

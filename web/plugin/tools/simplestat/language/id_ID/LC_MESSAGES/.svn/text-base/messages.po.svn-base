@@ -1,0 +1,81 @@
+#: config.php:3 simplerate.php:12
+msgid "Manage SMS rate"
+msgstr "Pengaturan tarif SMS"
+
+#: simplerate.php:14 simplerate.php:47 simplerate.php:122
+msgid "Add rate"
+msgstr "Tambah tarif"
+
+#: simplerate.php:18 simplerate.php:78 simplerate.php:127
+msgid "Destination"
+msgstr "Tujuan"
+
+#: simplerate.php:19 simplerate.php:81 simplerate.php:130
+msgid "Prefix"
+msgstr "Awalan"
+
+#: simplerate.php:20 simplerate.php:84 simplerate.php:133
+msgid "Rate"
+msgstr "Tarif"
+
+#: simplerate.php:21
+msgid "Action"
+msgstr "Tindakan"
+
+#: simplerate.php:32
+msgid "Are you sure you want to delete rate ?"
+msgstr "Anda yakin ingin menghapus tarif?"
+
+#: simplerate.php:32 simplerate.php:54 simplerate.php:58 simplerate.php:103
+#: simplerate.php:107 simplerate.php:151 simplerate.php:161
+msgid "destination"
+msgstr "tujuan"
+
+#: simplerate.php:32 simplerate.php:54 simplerate.php:58 simplerate.php:103
+#: simplerate.php:107 simplerate.php:151 simplerate.php:161
+msgid "prefix"
+msgstr "awalan"
+
+#: simplerate.php:54
+msgid "Fail to delete rate"
+msgstr "Gagal menghapus tarif"
+
+#: simplerate.php:58
+msgid "Rate has been deleted"
+msgstr "Tarif telah dihapus"
+
+#: simplerate.php:72
+msgid "Edit rate"
+msgstr "Ubah tarif"
+
+#: simplerate.php:87
+msgid "Save"
+msgstr "Simpan"
+
+#: simplerate.php:97
+msgid "No changes made!"
+msgstr "Tidak ada perubahan yang dilakukan!"
+
+#: simplerate.php:103
+msgid "Rate has been saved"
+msgstr "Tarif telah disimpan"
+
+#: simplerate.php:107
+msgid "Fail to save rate"
+msgstr "Gagal menyimpan tarif"
+
+#: simplerate.php:112 simplerate.php:167
+msgid "You must fill all fields"
+msgstr "Anda harus mengisi semua kolom"
+
+#: simplerate.php:136
+msgid "Add"
+msgstr ""
+
+#: simplerate.php:151
+msgid "Rate is already exists"
+msgstr "Tarif telah ada sebelumnya"
+
+#: simplerate.php:161
+msgid "Rate has been added"
+msgstr "Tarif telah ditambahkan"

@@ -23,7 +23,10 @@ function sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid=0,$sms_t
     global $datetime_now, $gateway_module;
     $ok = false;
     $username = uid2username($uid);
-    $mobile_sender = sendsms_getvalidnumber($mobile_sender);
+    
+    // fixme anton - mobile number can be anything, screened by gateway
+    // $mobile_sender = sendsms_getvalidnumber($mobile_sender);
+    
     $sms_to = sendsms_getvalidnumber($sms_to);
     logger_print("start", 3, "sendsms");
     if (rate_cansend($username, $sms_to)) {
