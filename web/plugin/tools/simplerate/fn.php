@@ -80,9 +80,9 @@ function simplerate_hook_rate_cansend($username, $sms_to) {
     if ($default_rate > $maxrate) {
 	$maxrate = $default_rate;
     }
-    logger_print("check username:".$uid." sms_to:".$sms_to." credit:".$credit." maxrate:".$maxrate, 3, "simplerate cansend");
+    logger_print("check username:".$username." sms_to:".$sms_to." credit:".$credit." maxrate:".$maxrate, 3, "simplerate cansend");
     if ($ok = ( ($credit >= $maxrate) ? true : false )) {
-	logger_print("allowed username:".$uid." sms_to:".$sms_to." credit:".$credit." maxrate:".$maxrate, 3, "simplerate cansend");
+	logger_print("allowed username:".$username." sms_to:".$sms_to." credit:".$credit." maxrate:".$maxrate, 3, "simplerate cansend");
     }
     return $ok;
 }

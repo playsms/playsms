@@ -70,7 +70,7 @@ function clickatell_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$ui
     $url .= $additional_param;
     $url = str_replace("&&", "&", $url);
 
-    logger_print($url, 3, "clickatell outgoing");
+    logger_print("url:".$url, 3, "clickatell outgoing");
     $fd = @implode ('', file ($url));
     $ok = false;
     // failed
@@ -92,7 +92,7 @@ function clickatell_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$ui
 		// sent
 		$p_status = 1;
 	    }
-	    logger_print("smslog_id:".$smslog_id." response:".$response[0]." ".$response[1], 3, "clickatell outgoing");
+	    logger_print("smslog_id:".$smslog_id." charge:".$c_sms_credit." sms_status:".$p_status." response:".$response[0]." ".$response[1], 3, "clickatell outgoing");
 	    setsmsdeliverystatus($smslog_id,$uid,$p_status);
 	}
 	$ok = true;
@@ -132,6 +132,7 @@ function clickatell_getsmsstatus($smslog_id) {
     if ($apimsgid = $db_row['apimsgid']) {
 	$query_string = "getmsgcharge?api_id=".$clickatell_param['api_id']."&user=".$clickatell_param['username']."&password=".$clickatell_param['password']."&apimsgid=$apimsgid";
 	$url = $clickatell_param['send_url']."/".$query_string;
+	logger_print("smslog_id:".$smslog_id." apimsgid:".$apimsgid." url:".$url, 3, "clickatell getsmsstatus");
 	$fd = @implode ('', file ($url));
 	if ($fd) {
     	    $response = split (" ", $fd);
@@ -158,6 +159,7 @@ function clickatell_getsmsstatus($smslog_id) {
 		    case "004": $c_sms_status = 3; break; // delivered
 		}
 	    }
+	    logger_print("smslog_id:".$smslog_id." apimsgid:".$apimsgid." charge:".$credit." status:".$status." sms_status:".$c_sms_status, 3, "clickatell getsmsstatus");
 	}
     }
     return array ($c_sms_credit, $c_sms_status);
