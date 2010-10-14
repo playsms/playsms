@@ -1,12 +1,11 @@
 <?php
-include "init.php";
-include $apps_path['libs']."/function.php";
+if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 $refresh = strtoupper($_REQUEST['refresh']);
 $backagain = strtoupper($_REQUEST['backagain']);
 if (($refresh=="YES") && ($backagain!="YES")) {
     $url = base64_encode($_SERVER['REQUEST_URI']."&backagain=yes");
-    header("Location: menu.php?inc=daemon&url=$url");
+    header("Location: index.php?app=menu&inc=daemon&url=$url");
     die();
 }
 

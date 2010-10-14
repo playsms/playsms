@@ -1,11 +1,5 @@
 <?php
-
-// fixme anton - no need to include when loaded from index
-$app = $_REQUEST['app'];
-if ($app != 'menu') {
-    include "init.php";
-    include $apps_path['libs']."/function.php";
-}
+if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 if (!($console = $_REQUEST['console'])) {
     bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
