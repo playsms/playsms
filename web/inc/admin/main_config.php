@@ -32,7 +32,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Main configuration')."</h2>
 	    <p>
-	    <form action='menu.php?inc=main_config&op=main_config_save' method='post'>
+	    <form action='index.php?app=menu&inc=main_config&op=main_config_save' method='post'>
 	<table width='100%' cellpadding='1' cellspacing='2' border='0'>
 	    <tr>
 		<td width='125'>"._('Website title')."</td><td width='5'>:</td><td><input type='text' size='50' name='edit_web_title' value=\"$web_title\"></td>
@@ -87,7 +87,7 @@ switch ($op)
 	";
 	$db_result = dba_query($db_query);
 	$error_string = _('Main configuration changes has been saved');
-	header ("Location: menu.php?inc=main_config&op=main_config&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=main_config&op=main_config&err=".urlencode($error_string));
 	break;
 }
 

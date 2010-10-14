@@ -15,6 +15,6 @@ if ($db_row = dba_fetch_array($db_result)) {
 
 // insert to left menu array
 if (isadmin()) {
-    $arr_menu['Gateway'][] = array("menu.php?inc=gateway_uplink&op=manage", _('Manage uplink'));
+    $arr_menu['Gateway'][] = array("index.php?app=menu&inc=gateway_uplink&op=manage", _('Manage uplink'));
 }
 ?>

@@ -20,6 +20,6 @@ if (! $clickatell_param['additional_param']) {
 
 // insert to left menu array
 if (isadmin()) {
-    $arr_menu['Gateway'][] = array("menu.php?inc=gateway_clickatell&op=manage", _('Manage clickatell'));
+    $arr_menu['Gateway'][] = array("index.php?app=menu&inc=gateway_clickatell&op=manage", _('Manage clickatell'));
 }
 ?>

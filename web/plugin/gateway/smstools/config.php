@@ -4,6 +4,6 @@ $smstools_param['path'] = "/var/spool/sms";
 
 // insert to left menu array
 if (isadmin()) {
-    $arr_menu['Gateway'][] = array("menu.php?inc=gateway_smstools&op=manage", _('Manage smstools'));
+    $arr_menu['Gateway'][] = array("index.php?app=menu&inc=gateway_smstools&op=manage", _('Manage smstools'));
 }
 ?>

@@ -21,7 +21,7 @@
 	      <tr>
                <td colspan="2"><?=$error_content?></td>
               </tr>
-            <form action="menu.php" method="POST">
+            <form action="index.php?app=menu" method="POST">
               <input type="hidden" name="inc" value="login">
               <tr>
                 <td width="90" align="right"><font color="white"><?=_('Username ')?></td>

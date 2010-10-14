@@ -43,7 +43,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Preferences')."</h2>
 	    <p>
-	    <form action=menu.php?inc=user_pref&op=user_pref_save method=post enctype=\"multipart/form-data\">
+	    <form action=index.php?app=menu&inc=user_pref&op=user_pref_save method=post enctype=\"multipart/form-data\">
 	    <table width=100% cellpadding=1 cellspacing=1 border=0>
 	    <tr><td colspan=3><h2>"._('Login information')."</h2><hr></td></tr>
 	    <tr><td width=200>"._('Username')."</td><td>:</td><td><b>$username</b></td></tr>
@@ -133,7 +133,7 @@ switch ($op)
 	{
 	    $error_string = _('You must fill all field');
 	}
-	header ("Location: menu.php?inc=user_pref&op=user_pref&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=user_pref&op=user_pref&err=".urlencode($error_string));
 	break;
 }
 

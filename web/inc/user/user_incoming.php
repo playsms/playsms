@@ -18,13 +18,13 @@ switch ($op)
 	$num_rows = $db_row['count'];
 
 	$pages = ceil($num_rows/$line_per_page);
-	$nav_pages = themes_navbar($pages, $nav, $max_nav, "menu.php?inc=user_incoming&op=user_incoming", $page);
+	$nav_pages = themes_navbar($pages, $nav, $max_nav, "index.php?app=menu&inc=user_incoming&op=user_incoming", $page);
 	$limit = ($page-1)*$line_per_page;    
 	
 	$content = "
 	    <h2>"._('Incoming SMS')."</h2>
 	    <p>$nav_pages</p>
-	    <form name=\"fm_incoming\" action=\"menu.php?inc=user_incoming&op=act_del\" method=post onSubmit=\"return SureConfirm()\">
+	    <form name=\"fm_incoming\" action=\"index.php?app=menu&inc=user_incoming&op=act_del\" method=post onSubmit=\"return SureConfirm()\">
 	    <table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
         <thead>
 	    <tr>
@@ -75,8 +75,8 @@ switch ($op)
 	          <td valign=top class=$td_class align=center>$in_status</td>
 	          <td valign=top class=$td_class align=center nowrap>
 		    <!-- <a href=\"javascript: PopupReplySms('$current_sender', '".urlencode($in_message)."')\">$icon_reply</a> -->
-		    <!-- <a href=\"menu.php?inc=phone_add&op=add&phone=$current_sender\">$icon_phonebook</a> -->
-		    <a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this SMS ?')."','menu.php?inc=user_incoming&op=user_incoming_del&inid=$in_id')\">$icon_delete</a>
+		    <!-- <a href=\"index.php?app=menu&inc=phone_add&op=add&phone=$current_sender\">$icon_phonebook</a> -->
+		    <a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this SMS ?')."','index.php?app=menu&inc=user_incoming&op=user_incoming_del&inid=$in_id')\">$icon_delete</a>
 		  </td>
 		<td class=$td_class width=4>
 		    <input type=hidden name=inid".$j." value=\"$in_id\">
@@ -117,7 +117,7 @@ switch ($op)
 		$error_string = _('Selected incoming SMS has been deleted');
 	    }
 	}
-	header("Location: menu.php?inc=user_incoming&op=user_incoming&err=".urlencode($error_string));
+	header("Location: index.php?app=menu&inc=user_incoming&op=user_incoming&err=".urlencode($error_string));
 	break;
     case "act_del":
 	$item_count = $_POST['item_count'];
@@ -133,7 +133,7 @@ switch ($op)
 		$db_result = dba_affected_rows($db_query);
 	    }
 	}
-	header ("Location: menu.php?inc=user_incoming&op=user_incoming&err=".urlencode(_('Selected incoming SMS has been deleted')));
+	header ("Location: index.php?app=menu&inc=user_incoming&op=user_incoming&err=".urlencode(_('Selected incoming SMS has been deleted')));
 	break;
 }
 

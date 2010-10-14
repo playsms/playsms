@@ -16,7 +16,7 @@ switch ($op)
     case "edit":
 	$op_content = "
 	    <table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
-	    <form action=\"menu.php?inc=tools_simplephonebook&route=phonebook\" method=post>
+	    <form action=\"index.php?app=menu&inc=tools_simplephonebook&route=phonebook\" method=post>
 	    <input type=hidden name=op value=edit_yes>
 	    <tr>
 		<td class=box_title width=4>&nbsp;*&nbsp;</td>
@@ -68,13 +68,13 @@ switch ($op)
 		$db_result = @dba_affected_rows($db_query);
 	    }
 	}
-	header("Location: menu.php?inc=tools_simplephonebook&op=simplephonebook_list");
+	header("Location: index.php?app=menu&inc=tools_simplephonebook&op=simplephonebook_list");
 	die();
 	break;
     case "copy":
 	$op_content = "
 	    <table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
-	    <form action=\"menu.php?inc=tools_simplephonebook&route=phonebook\" method=post>
+	    <form action=\"index.php?app=menu&inc=tools_simplephonebook&route=phonebook\" method=post>
 	    <input type=hidden name=op value=copy_yes>
 	    <tr>
 		<td class=box_title width=4>&nbsp;*&nbsp;</td>
@@ -134,13 +134,13 @@ switch ($op)
 		$db_result = @dba_insert_id($db_query);
 	    }
 	}
-	header("Location: menu.php?inc=tools_simplephonebook&op=simplephonebook_list");
+	header("Location: index.php?app=menu&inc=tools_simplephonebook&op=simplephonebook_list");
 	die();
 	break;
     case "move":
 	$op_content = "
 	    <table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
-	    <form action=\"menu.php?inc=tools_simplephonebook&route=phonebook\" method=post>
+	    <form action=\"index.php?app=menu&inc=tools_simplephonebook&route=phonebook\" method=post>
 	    <input type=hidden name=op value=move_yes>
 	    <tr>
 		<td class=box_title width=4>&nbsp;*&nbsp;</td>
@@ -197,13 +197,13 @@ switch ($op)
 		$db_result = @dba_affected_rows($db_query);
 	    }
 	}
-	header("Location: menu.php?inc=tools_simplephonebook&op=simplephonebook_list");
+	header("Location: index.php?app=menu&inc=tools_simplephonebook&op=simplephonebook_list");
 	die();
 	break;
     case "delete":
 	$op_content = "
 	    <table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
-	    <form action=\"menu.php?inc=tools_simplephonebook&route=phonebook\" method=post>
+	    <form action=\"index.php?app=menu&inc=tools_simplephonebook&route=phonebook\" method=post>
 	    <input type=hidden name=op value=delete_yes>
 	    <tr>
 		<td class=box_title width=4>&nbsp;*&nbsp;</td>
@@ -254,7 +254,7 @@ switch ($op)
 		$db_result = @dba_affected_rows($db_query);
 	    }
 	}
-	header("Location: menu.php?inc=tools_simplephonebook&op=simplephonebook_list");
+	header("Location: index.php?app=menu&inc=tools_simplephonebook&op=simplephonebook_list");
 	die();
 	break;
     case "share_this_group":
@@ -272,7 +272,7 @@ switch ($op)
 		$error_string = _('Group has been published')." ("._('group').": `$gpname`)";
 	    }
 	}
-	header ("Location: menu.php?inc=tools_simplephonebook&op=simplephonebook_list&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=tools_simplephonebook&op=simplephonebook_list&err=".urlencode($error_string));
 	die();
 	break;
     case "hide_from_public":
@@ -289,7 +289,7 @@ switch ($op)
 		$error_string = _('Group has been unpublished')." ("._('group').": `$gpname`)";
 	    }
 	}
-	header ("Location: menu.php?inc=tools_simplephonebook&op=simplephonebook_list&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=tools_simplephonebook&op=simplephonebook_list&err=".urlencode($error_string));
 	die();
 	break;
 }

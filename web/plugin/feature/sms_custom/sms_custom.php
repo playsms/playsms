@@ -11,7 +11,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Manage custom')."</h2>
 	    <p>
-	    <input type=button value=\""._('Add SMS custom')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_custom&op=sms_custom_add')\" class=\"button\" />
+	    <input type=button value=\""._('Add SMS custom')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_custom&op=sms_custom_add')\" class=\"button\" />
 	    <p>
 	";
 	if (!isadmin())
@@ -37,8 +37,8 @@ switch ($op)
 	    $i++;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 	    $owner = uid2username($db_row['uid']);
-	    $action = "<a href=menu.php?inc=feature_sms_custom&op=sms_custom_edit&custom_id=".$db_row['custom_id'].">$icon_edit</a>&nbsp;";
-	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS custom keyword ?')." ("._('keyword').": `".$db_row['custom_keyword']."`)','menu.php?inc=feature_sms_custom&op=sms_custom_del&custom_id=".$db_row['custom_id']."')\">$icon_delete</a>";
+	    $action = "<a href=index.php?app=menu&inc=feature_sms_custom&op=sms_custom_edit&custom_id=".$db_row['custom_id'].">$icon_edit</a>&nbsp;";
+	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS custom keyword ?')." ("._('keyword').": `".$db_row['custom_keyword']."`)','index.php?app=menu&inc=feature_sms_custom&op=sms_custom_del&custom_id=".$db_row['custom_id']."')\">$icon_delete</a>";
 	    $custom_url = ( (strlen($db_row['custom_url']) > $maxlen) ? substr($db_row['custom_url'],0,$maxlen)."..." : $db_row['custom_url'] );
 	    $content .= "
     <tr>
@@ -53,7 +53,7 @@ switch ($op)
 	echo $content;
 	echo "
 	    <p>
-	    <input type=button value=\""._('Add SMS custom')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_custom&op=sms_custom_add')\" class=\"button\" />
+	    <input type=button value=\""._('Add SMS custom')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_custom&op=sms_custom_add')\" class=\"button\" />
 	";
 	break;
     case "sms_custom_edit":
@@ -71,7 +71,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Edit SMS custom')."</h2>
 	    <p>
-	    <form action=menu.php?inc=feature_sms_custom&op=sms_custom_edit_yes method=post>
+	    <form action=index.php?app=menu&inc=feature_sms_custom&op=sms_custom_edit_yes method=post>
 	    <input type=hidden name=edit_custom_id value=$custom_id>
 	    <input type=hidden name=edit_custom_keyword value=$edit_custom_keyword>
 	    <p>"._('SMS custom keyword').": <b>$edit_custom_keyword</b>
@@ -106,7 +106,7 @@ switch ($op)
 	{
 	    $error_string = _('You must fill all fields');
 	}
-	header ("Location: menu.php?inc=feature_sms_custom&op=sms_custom_edit&custom_id=$edit_custom_id&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=feature_sms_custom&op=sms_custom_edit&custom_id=$edit_custom_id&err=".urlencode($error_string));
 	break;
     case "sms_custom_del":
 	$custom_id = $_REQUEST['custom_id'];
@@ -126,7 +126,7 @@ switch ($op)
 		$error_string = _('Fail to delete SMS custom')." ("._('keyword').": `$keyword_name`)";
 	    }
 	}
-	header ("Location: menu.php?inc=feature_sms_custom&op=sms_custom_list&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=feature_sms_custom&op=sms_custom_list&err=".urlencode($error_string));
 	break;
     case "sms_custom_add":
 	if ($err)
@@ -136,7 +136,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Add SMS custom')."</h2>
 	    <p>
-	    <form action=menu.php?inc=feature_sms_custom&op=sms_custom_add_yes method=post>
+	    <form action=index.php?app=menu&inc=feature_sms_custom&op=sms_custom_add_yes method=post>
 	    <p>"._('SMS custom keyword').": <input type=text size=10 maxlength=10 name=add_custom_keyword value=\"$add_custom_keyword\">
 	    <p>"._('Pass these parameter to custom URL field').":
 	    <p><b>{SMSDATETIME}</b> "._('will be replaced by SMS incoming date/time')."
@@ -175,7 +175,7 @@ switch ($op)
 	{
 	    $error_string = _('You must fill all fields');
 	}
-	header ("Location: menu.php?inc=feature_sms_custom&op=sms_custom_add&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=feature_sms_custom&op=sms_custom_add&err=".urlencode($error_string));
 	break;
 }
 

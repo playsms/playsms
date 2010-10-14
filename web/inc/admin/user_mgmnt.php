@@ -11,7 +11,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Manage user')."</h2>
 	    <p>
-	    <input type='button' value='"._('Add user')."' onClick=\"javascript:linkto('menu.php?inc=user_mgmnt&op=user_add')\" class=\"button\" />
+	    <input type='button' value='"._('Add user')."' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
 	    <p>"._('Status').": <b>"._('Administrator')."</b><br>
     <table cellpadding='1' cellspacing='2' border='0' width='100%'>
     <tr>
@@ -31,8 +31,8 @@ switch ($op)
 	{
 	    $i++;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-	    $action = "<a href=menu.php?inc=user_mgmnt&op=user_edit&uname=".$db_row['username'].">$icon_edit</a>";
-	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete user ?')." ("._('username').": `".$db_row['username']."`)','menu.php?inc=user_mgmnt&op=user_del&uname=".$db_row['username']."')\">$icon_delete</a>";
+	    $action = "<a href=index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=".$db_row['username'].">$icon_edit</a>";
+	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete user ?')." ("._('username').": `".$db_row['username']."`)','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=".$db_row['username']."')\">$icon_delete</a>";
 	    $content .= "
     <tr>
 	<td class='$td_class'>&nbsp;$i.</td>
@@ -65,8 +65,8 @@ switch ($op)
 	{
 	    $i++;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-	    $action = "<a href=menu.php?inc=user_mgmnt&op=user_edit&uname=".$db_row['username'].">$icon_edit</a>";
-	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete user')." `".$db_row['username']."` ?','menu.php?inc=user_mgmnt&op=user_del&uname=".$db_row['username']."')\">$icon_delete</a>";
+	    $action = "<a href=index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=".$db_row['username'].">$icon_edit</a>";
+	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete user')." `".$db_row['username']."` ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=".$db_row['username']."')\">$icon_delete</a>";
 	    $content .= "
     <tr>
 	<td class='$td_class'>&nbsp;$i.</td>
@@ -83,7 +83,7 @@ switch ($op)
 	echo $content;
 	echo "
 	    <p>
-	    <input type=button value='"._('Add user')."' onClick=\"javascript:linkto('menu.php?inc=user_mgmnt&op=user_add')\" class=\"button\" />
+	    <input type=button value='"._('Add user')."' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
 	";
 	break;
     case "user_del":
@@ -106,7 +106,7 @@ switch ($op)
 	{
 	    $error_string = _('Currently logged in user is immune to deletion');
 	}
-	header ("Location: menu.php?inc=user_mgmnt&op=user_list&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=user_mgmnt&op=user_list&err=".urlencode($error_string));
 	break;
     case "user_edit":
 	$uname = $_REQUEST['uname'];
@@ -130,7 +130,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Preferences').": $uname</h2>
 	    <p>
-	    <form action='menu.php?inc=user_mgmnt&op=user_edit_save' method='post'>
+	    <form action='index.php?app=menu&inc=user_mgmnt&op=user_edit_save' method='post'>
 	    <input type='hidden' name='uname' value=\"$uname\">
 	<table width='100%' cellpadding='1' cellspacing='2' border='0'>
 	    <tr>
@@ -205,7 +205,7 @@ switch ($op)
 	{
 	    $error_string = _('You must fill all field');
 	}
-	header ("Location: menu.php?inc=user_mgmnt&op=user_edit&uname=$uname&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=$uname&err=".urlencode($error_string));
 	break;
     case "user_add":
 	if ($err)
@@ -219,7 +219,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Add user')."</h2>
 	    <p>
-	    <form action='menu.php?inc=user_mgmnt&op=user_add_yes' method='post'>
+	    <form action='index.php?app=menu&inc=user_mgmnt&op=user_add_yes' method='post'>
 	<table width='100%' cellpadding='1' cellspacing='2' border='0'>
 	    <tr>
 		<td width='175'>"._('Username')."</td><td width='5'>:</td><td><input type='text' size='30' maxlength='30' name='add_username' value=\"$add_username\"></td>
@@ -285,7 +285,7 @@ switch ($op)
 	{
 	    $error_string = _('You must fill all fields');
 	}
-	header ("Location: menu.php?inc=user_mgmnt&op=user_add&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=user_mgmnt&op=user_add&err=".urlencode($error_string));
 	break;
 }
 

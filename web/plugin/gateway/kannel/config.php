@@ -21,6 +21,6 @@ if (! $kannel_param['additional_param']) {
 
 // insert to left menu array
 if (isadmin()) {
-    $arr_menu['Gateway'][] = array("menu.php?inc=gateway_kannel&op=manage", _('Manage kannel'));
+    $arr_menu['Gateway'][] = array("index.php?app=menu&inc=gateway_kannel&op=manage", _('Manage kannel'));
 }
 ?>

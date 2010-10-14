@@ -21,21 +21,21 @@ while ($db_row = dba_fetch_array($db_result))
     $db_result1 = dba_num_rows($db_query1);
     if ($db_result1 > 0)
     {
-	$option_public = "<a href=\"menu.php?inc=tools_simplephonebook&route=phonebook&op=hide_from_public&gpid=$gpid\">$simplephonebook_icon_unpublish</a>";
+	$option_public = "<a href=\"index.php?app=menu&inc=tools_simplephonebook&route=phonebook&op=hide_from_public&gpid=$gpid\">$simplephonebook_icon_unpublish</a>";
     }
     else
     {
-	$option_public = "<a href=\"menu.php?inc=tools_simplephonebook&route=phonebook&op=share_this_group&gpid=$gpid\">$simplephonebook_icon_publish</a>";
+	$option_public = "<a href=\"index.php?app=menu&inc=tools_simplephonebook&route=phonebook&op=share_this_group&gpid=$gpid\">$simplephonebook_icon_publish</a>";
     }
 
-    $option_group_edit = "<a href=\"menu.php?inc=tools_simplephonebook&route=dir_edit&op=edit&gpid=$gpid\">$icon_edit</a>";
+    $option_group_edit = "<a href=\"index.php?app=menu&inc=tools_simplephonebook&route=dir_edit&op=edit&gpid=$gpid\">$icon_edit</a>";
 
-    $option_group_export = "<a href=\"menu.php?inc=tools_simplephonebook&route=phonebook_exim&op=export&gpid=$gpid\">$simplephonebook_icon_export</a>";
-    $option_group_import = "<a href=\"menu.php?inc=tools_simplephonebook&route=phonebook_exim&op=import&gpid=$gpid\">$simplephonebook_icon_import</a>";
+    $option_group_export = "<a href=\"index.php?app=menu&inc=tools_simplephonebook&route=phonebook_exim&op=export&gpid=$gpid\">$simplephonebook_icon_export</a>";
+    $option_group_import = "<a href=\"index.php?app=menu&inc=tools_simplephonebook&route=phonebook_exim&op=import&gpid=$gpid\">$simplephonebook_icon_import</a>";
 
     $list_of_phonenumber .= "
-	<form name=\"".strtolower($fm_name).$username."\" action=\"menu.php?inc=tools_simplephonebook&route=phonebook\" method=post>
-	<p><a href=\"javascript:ConfirmURL('Are you sure you want to delete group `".$db_row['gp_name']."` with all its members ?','menu.php?inc=tools_simplephonebook&route=phone_del&op=group&gpid=$gpid')\">$icon_delete</a> Group: ".$db_row['gp_name']." - code: ".$db_row['gp_code']." <!-- <a href=\"javascript: PopupSendSms('BC','".$db_row['gp_code']."')\">$icon_sendsms</a> -->$option_public $option_group_edit $option_group_export $option_group_import
+	<form name=\"".strtolower($fm_name).$username."\" action=\"index.php?app=menu&inc=tools_simplephonebook&route=phonebook\" method=post>
+	<p><a href=\"javascript:ConfirmURL('Are you sure you want to delete group `".$db_row['gp_name']."` with all its members ?','index.php?app=menu&inc=tools_simplephonebook&route=phone_del&op=group&gpid=$gpid')\">$icon_delete</a> Group: ".$db_row['gp_name']." - code: ".$db_row['gp_code']." <!-- <a href=\"javascript: PopupSendSms('BC','".$db_row['gp_code']."')\">$icon_sendsms</a> -->$option_public $option_group_edit $option_group_export $option_group_import
 	<table width=100% cellpadding=1 cellspacing=2 border=0 class=\"sortable\">
 	<tr>
 	    <td class=box_title width=4>&nbsp;*&nbsp;</td>
@@ -153,14 +153,14 @@ if ($err)
 }
 $content .= "
     <p>
-	<input type=button value=\""._('Create group')."\" onClick=\"javascript:linkto('menu.php?inc=tools_simplephonebook&route=dir_create&op=create')\" class=\"button\" />
-	<input type=button value=\""._('Add number to group')."\" onClick=\"javascript:linkto('menu.php?inc=tools_simplephonebook&route=phone_add&op=add')\" class=\"button\" />
-	<input type=button value=\""._('Export all')."\" onClick=\"javascript:linkto('menu.php?inc=tools_simplephonebook&route=phonebook_exim&op=export')\" class=\"button\" />
+	<input type=button value=\""._('Create group')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=tools_simplephonebook&route=dir_create&op=create')\" class=\"button\" />
+	<input type=button value=\""._('Add number to group')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=tools_simplephonebook&route=phone_add&op=add')\" class=\"button\" />
+	<input type=button value=\""._('Export all')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=tools_simplephonebook&route=phonebook_exim&op=export')\" class=\"button\" />
     <p>$list_of_phonenumber
     <p>
-	<input type=button value=\""._('Create group')."\" onClick=\"javascript:linkto('menu.php?inc=tools_simplephonebook&route=dir_create&op=create')\" class=\"button\" />
-	<input type=button value=\""._('Add number to group')."\" onClick=\"javascript:linkto('menu.php?inc=tools_simplephonebook&route=phone_add&op=add')\" class=\"button\" />
-	<input type=button value=\""._('Export all')."\" onClick=\"javascript:linkto('menu.php?inc=tools_simplephonebook&route=phonebook_exim&op=export')\" class=\"button\" />
+	<input type=button value=\""._('Create group')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=tools_simplephonebook&route=dir_create&op=create')\" class=\"button\" />
+	<input type=button value=\""._('Add number to group')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=tools_simplephonebook&route=phone_add&op=add')\" class=\"button\" />
+	<input type=button value=\""._('Export all')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=tools_simplephonebook&route=phonebook_exim&op=export')\" class=\"button\" />
 ";
 
 echo $content;

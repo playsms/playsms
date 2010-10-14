@@ -18,13 +18,13 @@ switch ($op)
 	$num_rows = $db_row['count'];
 
 	$pages = ceil($num_rows/$line_per_page);
-	$nav_pages = themes_navbar($pages, $nav, $max_nav, "menu.php?inc=all_outgoing&op=all_outgoing", $page);
+	$nav_pages = themes_navbar($pages, $nav, $max_nav, "index.php?app=menu&inc=all_outgoing&op=all_outgoing", $page);
 	$limit = ($page-1)*$line_per_page;    
 	
 	$content = "
 	    <h2>"._('All Outgoing SMS')."</h2>
 	    <p>$nav_pages</p>
-	    <form name=\"fm_outgoing\" action=\"menu.php?inc=all_outgoing&op=act_del\" method=post onSubmit=\"return SureConfirm()\">
+	    <form name=\"fm_outgoing\" action=\"index.php?app=menu&inc=all_outgoing&op=act_del\" method=post onSubmit=\"return SureConfirm()\">
 	    <table width=100% cellpadding=1 cellspacing=2 border=0 class=\"sortable\">
         <thead>
 	    <tr>
@@ -114,7 +114,7 @@ switch ($op)
 	          <td valign=top class=$td_class align=center>$p_status</td>
 	          <td valign=top class=$td_class align=center>$p_gpcode</td>
 	          <td valign=top class=$td_class align=center>
-		    <a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete outgoing SMS ?')." ("._('to')." `$hide_p_dst`, "._('row')." $i)','menu.php?inc=all_outgoing&op=all_outgoing_del&slid=$current_slid')\">$icon_delete</a>
+		    <a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete outgoing SMS ?')." ("._('to')." `$hide_p_dst`, "._('row')." $i)','index.php?app=menu&inc=all_outgoing&op=all_outgoing_del&slid=$current_slid')\">$icon_delete</a>
 		  </td>
 		<td class=$td_class width=4>
 		    <input type=hidden name=slid".$j." value=\"$current_slid\">
@@ -157,7 +157,7 @@ switch ($op)
 		$err = _('Fail to delete SMS');
 	    }
 	}
-	header ("Location: menu.php?inc=all_outgoing&op=all_outgoing&err=".urlencode($err));
+	header ("Location: index.php?app=menu&inc=all_outgoing&op=all_outgoing&err=".urlencode($err));
 	break;
     case "act_del":
 	$item_count = $_POST['item_count'];
@@ -173,7 +173,7 @@ switch ($op)
 		$db_result = dba_affected_rows($db_query);
 	    }
 	}
-	header ("Location: menu.php?inc=all_outgoing&op=all_outgoing&err=".urlencode(_('Selected outgoing SMS has been deleted')));
+	header ("Location: index.php?app=menu&inc=all_outgoing&op=all_outgoing&err=".urlencode(_('Selected outgoing SMS has been deleted')));
 	break;
 }
 

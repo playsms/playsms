@@ -11,7 +11,7 @@ switch ($op) {
 		$content .= "
 				<h2>"._('Manage subscribe')."</h2>
 				<p>
-				<input type=button value=\""._('Add SMS subscribe')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_subscribe&op=sms_subscribe_add')\" class=\"button\" />
+				<input type=button value=\""._('Add SMS subscribe')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_add')\" class=\"button\" />
 				<p>
 			";
 		if (!isadmin()) {
@@ -44,11 +44,11 @@ switch ($op) {
 			if ($db_row['subscribe_enable']) {
 				$subscribe_status = "<font color=green>"._('Enabled')."</font>";
 			}
-			$action = "<a href=menu.php?inc=feature_sms_subscribe&op=mbr_list&subscribe_id=".$db_row['subscribe_id'].">$subscribe_icon_view_members</a>&nbsp;";
-			$action .= "<a href=menu.php?inc=feature_sms_subscribe&op=msg_list&subscribe_id=".$db_row['subscribe_id'].">$subscribe_icon_view_messages</a>&nbsp;";
-			$action .= "<a href=menu.php?inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add&subscribe_id=".$db_row['subscribe_id'].">$subscribe_icon_add_message</a>&nbsp;";
-			$action .= "<a href=menu.php?inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=".$db_row['subscribe_id'].">$icon_edit</a>&nbsp;";
-			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS subscribe ?')." ("._('keyword').": `".$db_row['subscribe_keyword']."`)','menu.php?inc=feature_sms_subscribe&op=sms_subscribe_del&subscribe_id=".$db_row['subscribe_id']."')\">$icon_delete</a>";
+			$action = "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=mbr_list&subscribe_id=".$db_row['subscribe_id'].">$subscribe_icon_view_members</a>&nbsp;";
+			$action .= "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id=".$db_row['subscribe_id'].">$subscribe_icon_view_messages</a>&nbsp;";
+			$action .= "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add&subscribe_id=".$db_row['subscribe_id'].">$subscribe_icon_add_message</a>&nbsp;";
+			$action .= "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=".$db_row['subscribe_id'].">$icon_edit</a>&nbsp;";
+			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS subscribe ?')." ("._('keyword').": `".$db_row['subscribe_keyword']."`)','index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_del&subscribe_id=".$db_row['subscribe_id']."')\">$icon_delete</a>";
 			$content .= "
 					<tr>
 						<td class=$td_class>&nbsp;$i.</td>
@@ -63,7 +63,7 @@ switch ($op) {
 		echo $content;
 		echo "
 				<p>
-				<input type=button value=\""._('Add SMS subscribe')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_subscribe&op=sms_subscribe_add')\" class=\"button\" />
+				<input type=button value=\""._('Add SMS subscribe')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_add')\" class=\"button\" />
 				</p>
 				";
 		break;
@@ -85,7 +85,7 @@ switch ($op) {
 			";
 		$content .= "		
 				<p>
-				<input type=button value=\""._('Add Message')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add&&subscribe_id=$subscribe_id')\" class=\"button\" />
+				<input type=button value=\""._('Add Message')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add&&subscribe_id=$subscribe_id')\" class=\"button\" />
 				</p>
 				";
 		$content .= "
@@ -101,9 +101,9 @@ switch ($op) {
 			$i++;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 
-			$action = "<a href=menu.php?inc=feature_sms_subscribe&op=msg_view&subscribe_id=".$db_row['subscribe_id']."&msg_id=".$db_row['msg_id'].">$icon_view</a>&nbsp;";
-			$action .= "<a href=menu.php?inc=feature_sms_subscribe&op=msg_edit&subscribe_id=$subscribe_id&msg_id=".$db_row['msg_id'].">$icon_edit</a>&nbsp;";
-			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this message?')."','menu.php?inc=feature_sms_subscribe&op=msg_del&subscribe_id=$subscribe_id&msg_id=".$db_row['msg_id']."')\">$icon_delete</a>";
+			$action = "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=msg_view&subscribe_id=".$db_row['subscribe_id']."&msg_id=".$db_row['msg_id'].">$icon_view</a>&nbsp;";
+			$action .= "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=msg_edit&subscribe_id=$subscribe_id&msg_id=".$db_row['msg_id'].">$icon_edit</a>&nbsp;";
+			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this message?')."','index.php?app=menu&inc=feature_sms_subscribe&op=msg_del&subscribe_id=$subscribe_id&msg_id=".$db_row['msg_id']."')\">$icon_delete</a>";
 			$content .= "
 		    		<tr>
 					<td class=$td_class>&nbsp;$i.</td>
@@ -115,7 +115,7 @@ switch ($op) {
 		echo $content;
 		echo "		
 				<p>
-				<input type=button value=\""._('Add Message')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add&&subscribe_id=$subscribe_id')\" class=\"button\" />
+				<input type=button value=\""._('Add Message')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add&&subscribe_id=$subscribe_id')\" class=\"button\" />
 				</p>
 				";
 		break;
@@ -139,7 +139,7 @@ switch ($op) {
 		}
 		$content .= "
 			    <h2>"._('Message detail')."</h2>
-				<form action=menu.php?inc=feature_sms_subscribe&op=sms_subscribe_msg_send method=post>
+				<form action=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_msg_send method=post>
 				<input type=hidden value=$message name=msg>
 				<input type=hidden value=$subscribe_id name=subscribe_id>
 				<input type=hidden value=$msg_id name=msg_id>  		
@@ -178,7 +178,7 @@ switch ($op) {
 		$content .= "
 				<h2>Edit message </h2>
 				<table width=100% border=0>
-				<form action=menu.php?inc=feature_sms_subscribe&op=msg_edit_yes method=post>
+				<form action=index.php?app=menu&inc=feature_sms_subscribe&op=msg_edit_yes method=post>
 				<input type=hidden value=$subscribe_id name=subscribe_id>
 				<input type=hidden value=$msg_id name=msg_id>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
@@ -213,7 +213,7 @@ switch ($op) {
 		} else {
 			$error_string = _('You must fill all fields');
 		}
-		header("Location: menu.php?inc=feature_sms_subscribe&op=msg_edit&subscribe_id=$subscribe_id&msg_id=$msg_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=msg_edit&subscribe_id=$subscribe_id&msg_id=$msg_id&err=" . urlencode($error_string));
 		break;
 
 	case "sms_subscribe_msg_send" :
@@ -253,7 +253,7 @@ switch ($op) {
 		} else {
 			$error_string = _('You must fill all fields');
 		}
-		header("Location: menu.php?inc=feature_sms_subscribe&op=msg_view&msg_id=$msg_id&subscribe_id=$subscribe_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=msg_view&msg_id=$msg_id&subscribe_id=$subscribe_id&err=" . urlencode($error_string));
 		break;
 
 	case "mbr_list" :
@@ -287,7 +287,7 @@ switch ($op) {
 			$i++;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 
-			$action = "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this member ?')."','menu.php?inc=feature_sms_subscribe&op=mbr_del&subscribe_id=$subscribe_id&mbr_id=".$db_row['member_id']."')\">$icon_delete</a>";
+			$action = "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this member ?')."','index.php?app=menu&inc=feature_sms_subscribe&op=mbr_del&subscribe_id=$subscribe_id&mbr_id=".$db_row['member_id']."')\">$icon_delete</a>";
 
 			$content .= "
 		    		<tr>
@@ -310,7 +310,7 @@ switch ($op) {
 				$error_string =_('"Member has been deleted');
 			}
 		}
-		header("Location: menu.php?inc=feature_sms_subscribe&op=mbr_list&subscribe_id=$subscribe_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=mbr_list&subscribe_id=$subscribe_id&err=" . urlencode($error_string));
 		break;
 
 	case "sms_subscribe_edit" :
@@ -327,7 +327,7 @@ switch ($op) {
 		$content .= "
 		    <h2>"._('Edit SMS subscribe')."</h2>
 		    <p>
-		    <form action=menu.php?inc=feature_sms_subscribe&op=sms_subscribe_edit_yes method=post>
+		    <form action=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_edit_yes method=post>
 		    <input type=hidden name=edit_subscribe_id value=\"$subscribe_id\">
 		    <input type=hidden name=edit_subscribe_keyword value=\"$edit_subscribe_keyword\">
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
@@ -359,8 +359,8 @@ switch ($op) {
 				<p>
 				<p>"._('Current status').": $subscribe_status
 				<p>"._('What do you want to do ?')."
-				<p>- <a href=\"menu.php?inc=feature_sms_subscribe&op=sms_subscribe_status&subscribe_id=$subscribe_id&ps=1\">"._('I want to enable this subscribe')."</a>
-				<p>- <a href=\"menu.php?inc=feature_sms_subscribe&op=sms_subscribe_status&subscribe_id=$subscribe_id&ps=0\">"._('I want to disable this subscribe')."</a>
+				<p>- <a href=\"index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_status&subscribe_id=$subscribe_id&ps=1\">"._('I want to enable this subscribe')."</a>
+				<p>- <a href=\"index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_status&subscribe_id=$subscribe_id&ps=0\">"._('I want to disable this subscribe')."</a>
 				<br>
 				";
 		echo $content;
@@ -383,7 +383,7 @@ switch ($op) {
 		} else {
 			$error_string = _('You must fill all fields');
 		}
-		header("Location: menu.php?inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=$edit_subscribe_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=$edit_subscribe_id&err=" . urlencode($error_string));
 		break;
 
 	case "sms_subscribe_status" :
@@ -394,7 +394,7 @@ switch ($op) {
 		if ($db_result > 0) {
 			$error_string = _('SMS subscribe status has been changed');
 		}
-		header("Location: menu.php?inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=$subscribe_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=$subscribe_id&err=" . urlencode($error_string));
 		break;
 
 	case "sms_subscribe_del" :
@@ -413,7 +413,7 @@ switch ($op) {
 				$error_string = _('SMS subscribe with all its messages and members has been deleted')." ("._('keyword').": `$subscribe_keyword`)";
 			}
 		}
-		header("Location: menu.php?inc=feature_sms_subscribe&op=sms_subscribe_list&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list&err=" . urlencode($error_string));
 		break;
 
 	case "msg_del" :
@@ -425,7 +425,7 @@ switch ($op) {
 				$error_string = _('Message has been deleted');
 			}
 		}
-		header("Location: menu.php?inc=feature_sms_subscribe&op=msg_view&subscribe_id=$subscribe_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=msg_view&subscribe_id=$subscribe_id&err=" . urlencode($error_string));
 		break;
 
 	case "sms_subscribe_add" :
@@ -435,7 +435,7 @@ switch ($op) {
 		$content .= "
 				<h2>"._('Add SMS subscribe')."</h2>
 		    <p>
-		    <form action=menu.php?inc=feature_sms_subscribe&op=sms_subscribe_add_yes method=post>
+		    <form action=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_add_yes method=post>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 				<tr>
 				<td width=150>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><input type=text size=8 maxlength=10 name=add_subscribe_keyword value=\"$add_subscribe_keyword\"></td>
@@ -472,7 +472,7 @@ switch ($op) {
 		} else {
 			$error_string = _('You must fill all fields');
 		}
-		header("Location: menu.php?inc=feature_sms_subscribe&op=sms_subscribe_add&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_add&err=" . urlencode($error_string));
 		break;
 
 	case "sms_subscribe_mbr_msg_add" :
@@ -490,7 +490,7 @@ switch ($op) {
 				<tr>
 				<td width=150>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$subscribe_name</b></td>
 				</tr>
-				<form action=menu.php?inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add_yes method=post>
+				<form action=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add_yes method=post>
 				<input type=hidden value=$subscribe_id name=subscribe_id>
 				
 				<tr>
@@ -520,7 +520,7 @@ switch ($op) {
 		} else {
 			$error_string = _('You must fill all fields');
 		}
-		header("Location: menu.php?inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add&subscribe_id=$subscribe_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add&subscribe_id=$subscribe_id&err=" . urlencode($error_string));
 		break;
 }
 ?>

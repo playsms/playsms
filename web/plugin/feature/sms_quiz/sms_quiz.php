@@ -39,7 +39,7 @@ switch ($op) {
 			} else {
 				$iscorrect = "<font color=red>"._('Incorrect')."</font>";
 			}
-			$action = "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this answer ?')."','menu.php?inc=feature_sms_quiz&op=sms_answer_del&quiz_id=$quiz_id&answer_id=".$db_row['answer_id']."')\">$icon_delete</a>";
+			$action = "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this answer ?')."','index.php?app=menu&inc=feature_sms_quiz&op=sms_answer_del&quiz_id=$quiz_id&answer_id=".$db_row['answer_id']."')\">$icon_delete</a>";
 
 			$content .= "
 				<tr>
@@ -68,7 +68,7 @@ switch ($op) {
 				$error_string = _('SMS quiz answer messages has been deleted');
 			}
 		}
-		header("Location: menu.php?inc=feature_sms_quiz&op=sms_answer_view&quiz_id=$quiz_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_quiz&op=sms_answer_view&quiz_id=$quiz_id&err=" . urlencode($error_string));
 		break;
 
 	case "sms_quiz_list" :
@@ -78,7 +78,7 @@ switch ($op) {
 		$content .= "
 				<h2>"._('Manage quiz')."</h2>
 				<p>
-				<input type=button value=\""._('Add SMS quiz')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_quiz&op=sms_quiz_add')\" class=\"button\" />
+				<input type=button value=\""._('Add SMS quiz')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add')\" class=\"button\" />
 				<p>
 				";
 		if (!isadmin()) {
@@ -107,9 +107,9 @@ switch ($op) {
 			if ($db_row['quiz_enable']) {
 				$quiz_status = "<font color=green>"._('Enabled')."</font>";
 			}
-			$action = "<a href=menu.php?inc=feature_sms_quiz&op=sms_answer_view&quiz_id=".$db_row['quiz_id'].">$icon_view</a>&nbsp;";
-			$action .= "<a href=menu.php?inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=".$db_row['quiz_id'].">$icon_edit</a>&nbsp;";
-			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS quiz with all its choices and answers ?')." ("._('keyword').": `".$db_row['quiz_keyword']."`)','menu.php?inc=feature_sms_quiz&op=sms_quiz_del&quiz_id=".$db_row['quiz_id']."')\">$icon_delete</a>";
+			$action = "<a href=index.php?app=menu&inc=feature_sms_quiz&op=sms_answer_view&quiz_id=".$db_row['quiz_id'].">$icon_view</a>&nbsp;";
+			$action .= "<a href=index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=".$db_row['quiz_id'].">$icon_edit</a>&nbsp;";
+			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS quiz with all its choices and answers ?')." ("._('keyword').": `".$db_row['quiz_keyword']."`)','index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_del&quiz_id=".$db_row['quiz_id']."')\">$icon_delete</a>";
 			$content .= "
 					<tr>
 						<td class=$td_class>&nbsp;$i.</td>
@@ -125,7 +125,7 @@ switch ($op) {
 		echo $content;
 		echo "
 				<p>
-				<input type=button value=\""._('Add SMS quiz')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_quiz&op=sms_quiz_add')\" class=\"button\" />
+				<input type=button value=\""._('Add SMS quiz')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add')\" class=\"button\" />
 				";
 		break;
 
@@ -145,7 +145,7 @@ switch ($op) {
 		$content .= "
 				<h2>"._('Edit SMS quiz')."</h2>
 				<p>
-				<form action=menu.php?inc=feature_sms_quiz&op=sms_quiz_edit_yes method=post>
+				<form action=index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_edit_yes method=post>
 				<input type=hidden name=edit_quiz_id value=\"$quiz_id\">
 				<input type=hidden name=edit_quiz_keyword value=\"$edit_quiz_keyword\">
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
@@ -183,8 +183,8 @@ switch ($op) {
 				<p>
 				<p>"._('Current status').": $quiz_status
 				<p>"._('What do you want to do ?')."
-				<p>- <a href=\"menu.php?inc=feature_sms_quiz&op=sms_quiz_status&quiz_id=$quiz_id&ps=1\">"._('I want to enable this quiz')."</a>
-				<p>- <a href=\"menu.php?inc=feature_sms_quiz&op=sms_quiz_status&quiz_id=$quiz_id&ps=0\">"._('I want to disable this quiz')."</a>
+				<p>- <a href=\"index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_status&quiz_id=$quiz_id&ps=1\">"._('I want to enable this quiz')."</a>
+				<p>- <a href=\"index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_status&quiz_id=$quiz_id&ps=0\">"._('I want to disable this quiz')."</a>
 				<br>
 			";
 		echo $content;
@@ -209,7 +209,7 @@ switch ($op) {
 		} else {
 			$error_string = _('You must fill all field');
 		}
-		header("Location: menu.php?inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=$edit_quiz_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=$edit_quiz_id&err=" . urlencode($error_string));
 		break;
 
 	case "sms_quiz_status" :
@@ -220,7 +220,7 @@ switch ($op) {
 		if ($db_result > 0) {
 			$error_string = _('SMS quiz status has been changed');
 		}
-		header("Location: menu.php?inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=$quiz_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=$quiz_id&err=" . urlencode($error_string));
 		break;
 
 	case "sms_quiz_del" :
@@ -235,7 +235,7 @@ switch ($op) {
 				$error_string = _('SMS quiz with all its messages has been deleted')." ("._('keyword').": `$quiz_keyword`)";
 			}
 		}
-		header("Location: menu.php?inc=feature_sms_quiz&op=sms_quiz_list&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list&err=" . urlencode($error_string));
 		break;
 
 	case "sms_quiz_add" :
@@ -245,7 +245,7 @@ switch ($op) {
 		$content .= "
 				<h2>"._('Add SMS quiz')."</h2>
 				<p>
-				<form action=menu.php?inc=feature_sms_quiz&op=sms_quiz_add_yes method=post>
+				<form action=index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add_yes method=post>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 				<tr>
 				<td width=150>"._('SMS quiz keyword')."</td><td width=5>:</td><td><input type=text size=3 maxlength=10 name=add_quiz_keyword value=\"$add_quiz_keyword\"></td>
@@ -290,7 +290,7 @@ switch ($op) {
 		} else {
 			$error_string = _('You must fill all field');
 		}
-		header("Location: menu.php?inc=feature_sms_quiz&op=sms_quiz_add&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add&err=" . urlencode($error_string));
 		break;
 }
 ?>

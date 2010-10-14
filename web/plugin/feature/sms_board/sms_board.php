@@ -11,7 +11,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Manage board')."</h2>
 	    <p>
-	    <input type=button value=\""._('Add SMS board')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_board&op=sms_board_add')\" class=\"button\" />
+	    <input type=button value=\""._('Add SMS board')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_board&op=sms_board_add')\" class=\"button\" />
 	    <p>
     <table cellpadding=1 cellspacing=2 border=0 width=100%>
     <tr>
@@ -34,9 +34,9 @@ switch ($op)
 	    $i++;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 	    $owner = uid2username($db_row['uid']);
-	    $action = "<a href=menu.php?inc=feature_sms_board&op=sms_board_view&board_id=".$db_row['board_id']." target=_blank>$icon_view</a>&nbsp;";
-	    $action .= "<a href=menu.php?inc=feature_sms_board&op=sms_board_edit&board_id=".$db_row['board_id'].">$icon_edit</a>&nbsp;";
-	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS board with all its messages ?')." ("._('keyword').": `".$db_row['board_keyword']."`)','menu.php?inc=feature_sms_board&op=sms_board_del&board_id=".$db_row['board_id']."')\">$icon_delete</a>";
+	    $action = "<a href=index.php?app=menu&inc=feature_sms_board&op=sms_board_view&board_id=".$db_row['board_id']." target=_blank>$icon_view</a>&nbsp;";
+	    $action .= "<a href=index.php?app=menu&inc=feature_sms_board&op=sms_board_edit&board_id=".$db_row['board_id'].">$icon_edit</a>&nbsp;";
+	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS board with all its messages ?')." ("._('keyword').": `".$db_row['board_keyword']."`)','index.php?app=menu&inc=feature_sms_board&op=sms_board_del&board_id=".$db_row['board_id']."')\">$icon_delete</a>";
 	    $content .= "
     <tr>
 	<td class=$td_class>&nbsp;$i.</td>
@@ -53,7 +53,7 @@ switch ($op)
 	echo $content;
 	echo "
 	    <p>
-	    <input type=button value=\""._('Add SMS board')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_board&op=sms_board_add')\" class=\"button\" />
+	    <input type=button value=\""._('Add SMS board')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_board&op=sms_board_add')\" class=\"button\" />
 	";
 	break;
     case "sms_board_view":
@@ -79,7 +79,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Edit SMS board')."</h2>
 	    <p>
-	    <form action=menu.php?inc=feature_sms_board&op=sms_board_edit_yes method=post>
+	    <form action=index.php?app=menu&inc=feature_sms_board&op=sms_board_edit_yes method=post>
 	    <input type=hidden name=edit_board_id value=$board_id>
 	    <input type=hidden name=edit_board_keyword value=$edit_board_keyword>
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
@@ -128,7 +128,7 @@ switch ($op)
 	{
 	    $error_string = _('You must fill all fields');
 	}
-	header ("Location: menu.php?inc=feature_sms_board&op=sms_board_edit&board_id=$edit_board_id&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=feature_sms_board&op=sms_board_edit&board_id=$edit_board_id&err=".urlencode($error_string));
 	break;
     case "sms_board_del":
 	$board_id = $_REQUEST['board_id'];
@@ -144,7 +144,7 @@ switch ($op)
 		$error_string = _('SMS board with all its messages has been deleted')." ("._('keyword').": `$board_keyword`)";
 	    }
 	}
-	header ("Location: menu.php?inc=feature_sms_board&op=sms_board_list&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=feature_sms_board&op=sms_board_list&err=".urlencode($error_string));
 	break;
     case "sms_board_add":
 	if ($err)
@@ -154,7 +154,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Add SMS board')."</h2>
 	    <p>
-	    <form action=menu.php?inc=feature_sms_board&op=sms_board_add_yes method=post>
+	    <form action=index.php?app=menu&inc=feature_sms_board&op=sms_board_add_yes method=post>
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
 		<td width=150>"._('SMS board keyword')."</td><td width=5>:</td><td><input type=text size=30 maxlength=30 name=add_board_keyword value=\"$add_board_keyword\"></td>
@@ -213,7 +213,7 @@ switch ($op)
 	{
 	    $error_string = _('You must fill all fields');
 	}
-	header ("Location: menu.php?inc=feature_sms_board&op=sms_board_add&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=feature_sms_board&op=sms_board_add&err=".urlencode($error_string));
 	break;
 }
 

@@ -17,10 +17,10 @@ switch ($op)
 	    <h2>"._('Message template')."</h2>
 	    <p>
 	    <p>
-	    <input type=button value=\""._('Add message template')."\" onClick=\"javascript:linkto('menu.php?inc=sms_template&op=add_template')\" class=\"button\" />
+	    <input type=button value=\""._('Add message template')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=sms_template&op=add_template')\" class=\"button\" />
 	    <p>
 	    <table width=\"100%\" cellpadding=1 cellspacing=2 border=\"0\" class=\"sortable\">
-	    <form name=\"$fm_name\" action=\"menu.php?inc=sms_template&op=delete\" method=post>
+	    <form name=\"$fm_name\" action=\"index.php?app=menu&inc=sms_template&op=delete\" method=post>
 	    <tr>
 		<td class=\"box_title\" width=\"4\">&nbsp;</td>
 		<td class=\"box_title\" width=\"40%\">&nbsp;"._('Name')."</td>
@@ -41,7 +41,7 @@ switch ($op)
 	    $content .= "
 		<tr>
 		    <td class=\"$td_class\">&nbsp;$i.&nbsp;</td>
-		    <td class=\"$td_class\">&nbsp;<a href=\"menu.php?inc=sms_template&op=edit_template&tid=$tid\">$temp_title</a></td>
+		    <td class=\"$td_class\">&nbsp;<a href=\"index.php?app=menu&inc=sms_template&op=edit_template&tid=$tid\">$temp_title</a></td>
 		    <td class=\"$td_class\">&nbsp;$temp_text</td>
 		    <td class=\"$td_class\" align=\"center\"><input type=hidden name=tid".$i." value=\"".$db_row['tid']."\"><input type=checkbox name=chkid".$i."></td>
             	    <input type=hidden name=tid".$i." value=\"".$db_row['tid']."\">
@@ -58,7 +58,7 @@ switch ($op)
 		<input type=\"submit\" value=\""._('Go')."\" class=\"button\"></td></tr>
 	    </table>
 	    <p>
-	    <input type=button value=\""._('Add message template')."\" onClick=\"javascript:linkto('menu.php?inc=sms_template&op=add_template')\" class=\"button\" />
+	    <input type=button value=\""._('Add message template')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=sms_template&op=add_template')\" class=\"button\" />
 	    <p>
 	    <input type=\"hidden\" name=\"item_count\" value=\"$i\">
 	    </form>
@@ -69,7 +69,7 @@ switch ($op)
 	$content = "
 	    <h2>"._('Add message template')."</h2>
 	    <p>
-	    <form action=\"menu.php?inc=sms_template&op=add_yes\" method=\"post\">
+	    <form action=\"index.php?app=menu&inc=sms_template&op=add_yes\" method=\"post\">
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
 		<td width=150>"._('Message template name')."</td><td width=5>:</td><td><input type=\"text\" maxlength=\"100\" name=\"t_title\"></td>
@@ -80,7 +80,7 @@ switch ($op)
 	</table>	    
 	    <p><input type=\"submit\" class=\"button\" value=\""._('Save template')."\">
 	    </form>
-	    <p><input type=button class=button value='"._('Back')."' onClick=javascript:linkto('menu.php?inc=sms_template&op=list')>
+	    <p><input type=button class=button value='"._('Back')."' onClick=javascript:linkto('index.php?app=menu&inc=sms_template&op=list')>
 	    </form>
 	";
 	echo $content;
@@ -98,7 +98,7 @@ switch ($op)
 	{
 	    // FIXME
 	}
-	header ("Location: menu.php?inc=sms_template&op=list&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=sms_template&op=list&err=".urlencode($error_string));
 	break;
     case "edit_template":
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSTemplate WHERE tid='$tid'";
@@ -107,7 +107,7 @@ switch ($op)
 	$content = "
 	    <h2>"._('Edit message template')."</h2>
 	    <p>
-	    <form action=\"menu.php?inc=sms_template&op=edit_yes&tid=$tid\" method=\"post\">
+	    <form action=\"index.php?app=menu&inc=sms_template&op=edit_yes&tid=$tid\" method=\"post\">
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
 		<td width=150>"._('Message template name')."</td><td width=5>:</td><td><input type=\"text\" maxlength=\"100\" name=\"t_title\" value=\"".$db_row['t_title']."\"></td>
@@ -119,7 +119,7 @@ switch ($op)
 	    <p><input type=\"submit\" class=\"button\" value=\""._('Save template')."\">
 	    <input type=\"hidden\" name=\"item_count\" value=\"$i\">
 	    </form>
-	    <p><input type=button class=button value='"._('Back')."' onClick=javascript:linkto('menu.php?inc=sms_template&op=list')>
+	    <p><input type=button class=button value='"._('Back')."' onClick=javascript:linkto('index.php?app=menu&inc=sms_template&op=list')>
 	    </form>
 	";
 	echo $content;
@@ -137,7 +137,7 @@ switch ($op)
 	{
 	    $error_string = _('Fail to edit message template');
 	}
-	header ("Location: menu.php?inc=sms_template&op=list&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=sms_template&op=list&err=".urlencode($error_string));
 	break;
     case "delete":
 	$item_count = $_POST['item_count'];
@@ -149,7 +149,7 @@ switch ($op)
 	$content = "
 	    <h2>"._('Delete message template')."</h2>
 	    <p>
-	    <form action=\"menu.php?inc=sms_template&op=delete_yes\" method=\"post\">
+	    <form action=\"index.php?app=menu&inc=sms_template&op=delete_yes\" method=\"post\">
 	    <table width=\"100%\" cellpadding=\"1\" cellspacing=\"2\" border=\"0\" class=\"sortable\">
 	    <tr>
 		<td class=\"box_title\" width=\"4\">&nbsp;*&nbsp;</td>
@@ -182,7 +182,7 @@ switch ($op)
 	    <input type=\"hidden\" name=\"item_count\" value=\"$j\">
 	    <p>"._('Delete all templates ?')."
 	    <p><input type=\"submit\" value=\""._('Delete')."\" class=\"button\">
-	    <p><input type=button class=button value='"._('Back')."' onClick=javascript:linkto('menu.php?inc=sms_template&op=list')>
+	    <p><input type=button class=button value='"._('Back')."' onClick=javascript:linkto('index.php?app=menu&inc=sms_template&op=list')>
 	    </form>
 	";
 	echo $content;
@@ -199,7 +199,7 @@ switch ($op)
 	    $db_result = dba_affected_rows($db_query);
 	}
 	$error_string = _('Selected message template has been deleted');
-	header ("Location: menu.php?inc=sms_template&op=list&err=".urlencode($error_string));        
+	header ("Location: index.php?app=menu&inc=sms_template&op=list&err=".urlencode($error_string));        
 	break;
 
 }

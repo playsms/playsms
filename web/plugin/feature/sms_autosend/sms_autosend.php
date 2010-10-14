@@ -19,7 +19,7 @@ switch ($op) {
 		$content .= "
 								<h2>"._('Manage autosend')."</h2>
 								<p>
-								<input type=button value=\""._('Add SMS autosend')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_autosend&op=sms_autosend_add')\" class=\"button\" />
+								<input type=button value=\""._('Add SMS autosend')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_add')\" class=\"button\" />
 								<p>
 							";
 		if (!isadmin()) {
@@ -61,9 +61,9 @@ switch ($op) {
 			if ($db_row['autosend_enable']) {
 				$autosend_status = "<font color=green>"._('Enabled')."</font>";
 			}
-			$action = "<a href=menu.php?inc=feature_sms_autosend&op=sms_autosend_view&autosend_id=".$db_row['autosend_id'].">$icon_view</a>&nbsp;";
-			$action .= "<a href=menu.php?inc=feature_sms_autosend&op=sms_autosend_edit&autosend_id=".$db_row['autosend_id'].">$icon_edit</a>&nbsp;";
-			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS autosend message ?')."','menu.php?inc=feature_sms_autosend&op=sms_autosend_del&autosend_id=".$db_row['autosend_id']."')\">$icon_delete</a>";
+			$action = "<a href=index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_view&autosend_id=".$db_row['autosend_id'].">$icon_view</a>&nbsp;";
+			$action .= "<a href=index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_edit&autosend_id=".$db_row['autosend_id'].">$icon_edit</a>&nbsp;";
+			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS autosend message ?')."','index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_del&autosend_id=".$db_row['autosend_id']."')\">$icon_delete</a>";
 			$content .= "
 							<tr>
 								<td class=$td_class>&nbsp;$i.</td>
@@ -79,7 +79,7 @@ switch ($op) {
 		echo $content;
 		echo "
 								<p>
-								<input type=button value=\""._('Add SMS autosend')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_autosend&op=sms_autosend_add')\" class=\"button\" />
+								<input type=button value=\""._('Add SMS autosend')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_add')\" class=\"button\" />
 								</p>
 								";
 		break;
@@ -159,7 +159,7 @@ switch ($op) {
 		}
 		$content .= "
 								<h2>"._('Edit SMS autosend')."</h2>
-						    <form action=menu.php?inc=feature_sms_autosend&op=sms_autosend_edit_yes method=post>
+						    <form action=index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_edit_yes method=post>
 						    	<input type=hidden name=edit_autosend_id value=$autosend_id>	
 							<table width=100% cellpadding=1 cellspacing=2 border=0>
 								<tr>
@@ -205,8 +205,8 @@ switch ($op) {
 							<p>
 							<p>"._('Current status').": $autosend_status
 							<p>"._('What do you want to do ?')."
-							<p>- <a href=\"menu.php?inc=feature_sms_autosend&op=sms_autosend_status&autosend_id=$autosend_id&ps=1\">"._('I want to enable this autosend')."</a>
-							<p>- <a href=\"menu.php?inc=feature_sms_autosend&op=sms_autosend_status&autosend_id=$autosend_id&ps=0\">"._('I want to disable this autosend')."</a>
+							<p>- <a href=\"index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_status&autosend_id=$autosend_id&ps=1\">"._('I want to enable this autosend')."</a>
+							<p>- <a href=\"index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_status&autosend_id=$autosend_id&ps=0\">"._('I want to disable this autosend')."</a>
 							<br>
 							";
 		echo $content;
@@ -248,7 +248,7 @@ switch ($op) {
 		} else {
 			$error_string = _('You must fill all fields');
 		}
-		header("Location: menu.php?inc=feature_sms_autosend&op=sms_autosend_edit&autosend_id=$edit_autosend_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_edit&autosend_id=$edit_autosend_id&err=" . urlencode($error_string));
 		break;
 
 	case "sms_autosend_status" :
@@ -259,7 +259,7 @@ switch ($op) {
 		if ($db_result > 0) {
 			$error_string = _('SMS autosend status has been changed');
 		}
-		header("Location: menu.php?inc=feature_sms_autosend&op=sms_autosend_edit&autosend_id=$autosend_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_edit&autosend_id=$autosend_id&err=" . urlencode($error_string));
 		break;
 
 	case "sms_autosend_del" :
@@ -277,7 +277,7 @@ switch ($op) {
 				}
 			}
 		}
-		header("Location: menu.php?inc=feature_sms_autosend&op=sms_autosend_list&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_list&err=" . urlencode($error_string));
 		break;
 
 	case "sms_autosend_add" :
@@ -289,7 +289,7 @@ switch ($op) {
 							<input type=button value=\""._('Add time field')."\" onClick=\"javascript:newField()\" class=\"button\" />
 							<p>								
 							<script language=\"javascript\" type=\"text/javascript\" src=\"datetime/datetimepicker.js\"></script>
-						    <form action=menu.php?inc=feature_sms_autosend&op=sms_autosend_add_yes method=post>
+						    <form action=index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_add_yes method=post>
 							<table width=100% cellpadding=1 cellspacing=2 border=0>
 								<tr>
 								<td width=150>"._('Message')."</td><td width=5>:</td><td><input type=text size=50 maxlength=200 name=add_autosend_message value=\"$add_autosend_message\"></td>
@@ -354,7 +354,7 @@ switch ($op) {
 		} else {
 			$error_string = _('You must fill all fields');
 		}
-		header("Location: menu.php?inc=feature_sms_autosend&op=sms_autosend_add&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_add&err=" . urlencode($error_string));
 		break;
 }
 ?>

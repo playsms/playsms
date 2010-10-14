@@ -96,7 +96,7 @@ function uplink_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
 }
 
 // hook_getsmsstatus
-// called by menu.php?inc=daemon (periodic daemon) to set sms status
+// called by index.php?app=menu&inc=daemon (periodic daemon) to set sms status
 // no returns needed
 // $p_datetime	: first sms delivery datetime
 // $p_update	: last status update datetime

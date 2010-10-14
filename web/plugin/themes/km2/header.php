@@ -37,9 +37,9 @@
 
 	<ul id="nav">
 		<li><a href="<?=$http_path['base']?>"><?=_('Home')?></a></li>
-		<li class="page_item page-item-22"><a href="./menu.php?inc=user_pref&op=user_pref" title="<?=_('Preferences')?>"><?=_('Preferences')?></a></li>
+		<li class="page_item page-item-22"><a href="./index.php?app=menu&inc=user_pref&op=user_pref" title="<?=_('Preferences')?>"><?=_('Preferences')?></a></li>
 		<li class="page_item page-item-22"><a href="./contact.php" title="<?=_('Contact')?>"><?=_('Contact')?></a></li>
-		<li class="page_item page-item-22"><a href="./menu.php?inc=logout" title="<?=_('Logout')?>"><?=_('Logout')?></a></li>
+		<li class="page_item page-item-22"><a href="./index.php?app=menu&inc=logout" title="<?=_('Logout')?>"><?=_('Logout')?></a></li>
     
 </div>
 

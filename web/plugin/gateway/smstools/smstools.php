@@ -9,7 +9,7 @@ if ($gateway_module == $smstools_param['name'])
 }
 else
 {
-    $status_active = "(<font color=red><b>"._('Inactive')."</b></font>) (<a href=\"menu.php?inc=gateway_smstools&op=manage_activate\">"._('click here to activate')."</a>)";
+    $status_active = "(<font color=red><b>"._('Inactive')."</b></font>) (<a href=\"index.php?app=menu&inc=gateway_smstools&op=manage_activate\">"._('click here to activate')."</a>)";
 }
 
 switch ($op)
@@ -34,7 +34,7 @@ switch ($op)
 	$db_query = "UPDATE "._DB_PREF_."_tblConfig_main SET c_timestamp='".mktime()."',cfg_gateway_module='smstools'";
 	$db_result = dba_query($db_query);
 	$error_string = _('Gateway has been activated');
-	header ("Location: menu.php?inc=gateway_smstools&op=manage&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=gateway_smstools&op=manage&err=".urlencode($error_string));
 	break;
 }
 

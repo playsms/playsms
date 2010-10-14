@@ -1,3 +1,6 @@
+Version 0.9.6 - unknown
+- fix simplerate_hook_cansend should print $username to logger_print instead $uid
+
 Version 0.9.5 - 101010
 - add multi-language support per plugin bases (anton)
 - add support unicode in uplink (anton)

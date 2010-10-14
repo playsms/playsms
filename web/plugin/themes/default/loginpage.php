@@ -13,7 +13,7 @@
             <br />
             <?=$error_content?>
             <table width="100%" border="0" cellpadding="2" cellspacing="2">
-            <form action=menu.php method=POST>
+            <form action="index.php?app=menu" method=POST>
             <input type=hidden name=inc value=login>
             <tr>
         <td width="140" align="right"><?=_('Username')?> &nbsp; </td>

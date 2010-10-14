@@ -8,7 +8,7 @@ $content = "
     <p>";
 
 $content .= "
-    <!--input type=button value=\"Vos statistiques\" onClick=\"javascript:linkto('menu.php?inc=user_home&op=user_stat')\" class=\"button\" /-->
+    <!--input type=button value=\"Vos statistiques\" onClick=\"javascript:linkto('index.php?app=menu&inc=user_home&op=user_stat')\" class=\"button\" /-->
 ";
 
 if($status == 2) {

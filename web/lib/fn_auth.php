@@ -91,7 +91,7 @@ function forcelogout() {
 }
 
 function forcenoaccess() {
-    header("Location: menu.php?inc=noaccess&err=".urlencode(_('You have no access to this page')));
+    header("Location: index.php?app=menu&inc=noaccess&err=".urlencode(_('You have no access to this page')));
     die();
 }
 

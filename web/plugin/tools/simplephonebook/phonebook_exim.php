@@ -35,7 +35,7 @@ switch ($op)
 	    $content .= "
 		<h2>"._('Import phonebook')." ("._('Group code').": ".phonebook_groupid2code($gpid).")</h2>
 		<p>
-		<form action=\"menu.php?inc=tools_simplephonebook&route=phonebook_exim&op=import_confirmation&gpid=$gpid\" enctype=\"multipart/form-data\" method=\"post\">
+		<form action=\"index.php?app=menu&inc=tools_simplephonebook&route=phonebook_exim&op=import_confirmation&gpid=$gpid\" enctype=\"multipart/form-data\" method=\"post\">
 		    "._('Please select CSV file for phonebook entries')." ("._('format : Name,Mobile,Email').")<br>
 		    <p><input type=\"file\" name=\"fnpb\">
 		    <p><input type=\"checkbox\" name=\"replace\" value=\"ok\"> "._('Same item(s) will be replaced')."
@@ -105,12 +105,12 @@ switch ($op)
 		</table>
 		<p>"._('Import above phonebook entries ?')."
 		<p>"._('Status')." : $rstatus
-		<form action=\"menu.php?inc=tools_simplephonebook&route=phonebook_exim&op=import_yes&gpid=$gpid\" method=\"post\">
+		<form action=\"index.php?app=menu&inc=tools_simplephonebook&route=phonebook_exim&op=import_yes&gpid=$gpid\" method=\"post\">
 		<input type=\"submit\" value=\""._('Import')."\" class=\"button\">
 		$phonebook_post
 		<input type=\"hidden\" name=\"replace\" value=\"$replace\">
 		<input type=\"hidden\" name=\"num\" value=\"$j\">
-		<p><input type=button class=button value=\""._('Back')."\" onClick=javascript:linkto('menu.php?inc=tools_simplephonebook&route=phonebook_exim&op=import&gpid=$gpid')>
+		<p><input type=button class=button value=\""._('Back')."\" onClick=javascript:linkto('index.php?app=menu&inc=tools_simplephonebook&route=phonebook_exim&op=import&gpid=$gpid')>
 		</form>
 	    ";
 	    echo $content;
@@ -118,7 +118,7 @@ switch ($op)
 	else
 	{
 	    $error_string = _('Fail to upload CSV file for phonebook');
-	    header("Location: menu.php?inc=tools_simplephonebook&route=phonebook_exim&op=import&gpid=$gpid&err=".urlencode($error_string));
+	    header("Location: index.php?app=menu&inc=tools_simplephonebook&route=phonebook_exim&op=import&gpid=$gpid&err=".urlencode($error_string));
 	}
 	break;
     case "import_yes":
@@ -207,7 +207,7 @@ switch ($op)
 		}
 	    }
 	}
-	header("Location: menu.php?inc=tools_simplephonebook&op=simplephonebook_list&err=".urlencode($error_string)."");
+	header("Location: index.php?app=menu&inc=tools_simplephonebook&op=simplephonebook_list&err=".urlencode($error_string)."");
     break;
 
 }

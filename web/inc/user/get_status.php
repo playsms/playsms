@@ -18,13 +18,13 @@ switch ($op)
 	$num_rows = $db_row['count'];
 
 	$pages = ceil($num_rows/$line_per_page);
-	$nav_pages = themes_navbar($pages, $nav, $max_nav, "menu.php?inc=get_status&op=get_status", $page);
+	$nav_pages = themes_navbar($pages, $nav, $max_nav, "index.php?app=menu&inc=get_status&op=get_status", $page);
 	$limit = ($page-1)*$line_per_page;    
 	
 	$content = "
 	    <h2>"._('Outbox')."</h2>
 	    <p>$nav_pages</p>
-	    <form name=\"fm_outbox\" action=\"menu.php?inc=get_status&op=act_del\" method=post onSubmit=\"return SureConfirm()\">
+	    <form name=\"fm_outbox\" action=\"index.php?app=menu&inc=get_status&op=act_del\" method=post onSubmit=\"return SureConfirm()\">
 	    <table width=100% cellpadding=1 cellspacing=2 border=0 class=\"sortable\">
         <thead>
 	    <tr>
@@ -111,7 +111,7 @@ switch ($op)
 	          <td valign=top class=$td_class align=center width=10%>$p_status</td>
 	          <td valign=top class=$td_class align=center width=4>$p_gpcode</td>
 	          <td valign=top class=$td_class align=center width=4>
-		    <a href=\"javascript: ConfirmURL("._('Are you sure you want to delete outgoing SMS ?')." ("._('to').": `$hide_p_dst`, "._('number').": $i)','menu.php?inc=get_status&op=del&slid=$current_slid')\">$icon_delete</a>
+		    <a href=\"javascript: ConfirmURL("._('Are you sure you want to delete outgoing SMS ?')." ("._('to').": `$hide_p_dst`, "._('number').": $i)','index.php?app=menu&inc=get_status&op=del&slid=$current_slid')\">$icon_delete</a>
 		  </td>
 		<td class=$td_class width=4>
 		    <input type=hidden name=slid".$j." value=\"$current_slid\">
@@ -154,7 +154,7 @@ switch ($op)
 		$err = _('Fail to delete SMS');
 	    }
 	}
-	header ("Location: menu.php?inc=get_status&op=get_status&err=".urlencode($err));
+	header ("Location: index.php?app=menu&inc=get_status&op=get_status&err=".urlencode($err));
 	break;
     case "act_del":
 	$item_count = $_POST['item_count'];
@@ -170,7 +170,7 @@ switch ($op)
 		$db_result = dba_affected_rows($db_query);
 	    }
 	}
-	header ("Location: menu.php?inc=get_status&op=get_status&err=".urlencode(_('Selected outgoing SMS has been deleted')));
+	header ("Location: index.php?app=menu&inc=get_status&op=get_status&err=".urlencode(_('Selected outgoing SMS has been deleted')));
 	break;
 }
 

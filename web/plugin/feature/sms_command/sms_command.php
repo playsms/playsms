@@ -11,7 +11,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Manage command')."</h2>
 	    <p>
-	    <input type=button value=\""._('Add SMS command')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_command&op=sms_command_add')\" class=\"button\" />
+	    <input type=button value=\""._('Add SMS command')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_command&op=sms_command_add')\" class=\"button\" />
 	    <p>"._('SMS command exec path')." : <b>".$plugin_config['feature']['sms_command']['bin']."/</b>
 	";
 	if (!isadmin())
@@ -37,8 +37,8 @@ switch ($op)
 	    $i++;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 	    $owner = uid2username($db_row['uid']);
-	    $action = "<a href=menu.php?inc=feature_sms_command&op=sms_command_edit&command_id=".$db_row['command_id'].">$icon_edit</a>&nbsp;";
-	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS command ?')." ("._('keyword').": `".$db_row['command_keyword']."`)','menu.php?inc=feature_sms_command&op=sms_command_del&command_id=".$db_row['command_id']."')\">$icon_delete</a>";
+	    $action = "<a href=index.php?app=menu&inc=feature_sms_command&op=sms_command_edit&command_id=".$db_row['command_id'].">$icon_edit</a>&nbsp;";
+	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS command ?')." ("._('keyword').": `".$db_row['command_keyword']."`)','index.php?app=menu&inc=feature_sms_command&op=sms_command_del&command_id=".$db_row['command_id']."')\">$icon_delete</a>";
 	    $command_exec = ( (strlen($db_row['command_exec']) > $maxlen) ? substr($db_row['command_exec'],0,$maxlen)."..." : $db_row['command_exec'] );
 	    $content .= "
     <tr>
@@ -56,7 +56,7 @@ switch ($op)
 	echo $content;
 	echo "
 	    <p>
-	    <input type=button value=\""._('Add SMS command')."\" onClick=\"javascript:linkto('menu.php?inc=feature_sms_command&op=sms_command_add')\" class=\"button\" />
+	    <input type=button value=\""._('Add SMS command')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_command&op=sms_command_add')\" class=\"button\" />
 	";
 	break;
     case "sms_command_edit":
@@ -74,7 +74,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Edit SMS command')."</h2>
 	    <p>
-	    <form action=menu.php?inc=feature_sms_command&op=sms_command_edit_yes method=post>
+	    <form action=index.php?app=menu&inc=feature_sms_command&op=sms_command_edit_yes method=post>
 	    <input type=hidden name=edit_command_id value=$command_id>
 	    <input type=hidden name=edit_command_keyword value=$edit_command_keyword>
 	    <p>"._('SMS command keyword').": <b>$edit_command_keyword</b>
@@ -113,7 +113,7 @@ switch ($op)
 	{
 	    $error_string = _('You must fill all fields');
 	}
-	header ("Location: menu.php?inc=feature_sms_command&op=sms_command_edit&command_id=$edit_command_id&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=feature_sms_command&op=sms_command_edit&command_id=$edit_command_id&err=".urlencode($error_string));
 	break;
     case "sms_command_del":
 	$command_id = $_REQUEST['command_id'];
@@ -133,7 +133,7 @@ switch ($op)
 		$error_string = _('Fail to delete SMS command')." ("._('keyword').": `$keyword_name`)";
 	    }
 	}
-	header ("Location: menu.php?inc=feature_sms_command&op=sms_command_list&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=feature_sms_command&op=sms_command_list&err=".urlencode($error_string));
 	break;
     case "sms_command_add":
 	if ($err)
@@ -143,7 +143,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Add SMS command')."</h2>
 	    <p>
-	    <form action=menu.php?inc=feature_sms_command&op=sms_command_add_yes method=post>
+	    <form action=index.php?app=menu&inc=feature_sms_command&op=sms_command_add_yes method=post>
 	    <p>"._('SMS command keyword').": <input type=text size=10 maxlength=10 name=add_command_keyword value=\"$add_command_keyword\">
 	    <p>"._('Pass these parameter to command exec field').":
 	    <p><b>{SMSDATETIME}</b> "._('will be replaced by SMS incoming date/time')."
@@ -187,7 +187,7 @@ switch ($op)
 	{
 	    $error_string = _('You must fill all fields');
 	}
-	header ("Location: menu.php?inc=feature_sms_command&op=sms_command_add&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=feature_sms_command&op=sms_command_add&err=".urlencode($error_string));
 	break;
 }
 

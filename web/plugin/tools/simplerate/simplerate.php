@@ -11,7 +11,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Manage SMS rate')."</h2>
 	    <p>
-	    <input type='button' value='"._('Add rate')."' onClick=\"javascript:linkto('menu.php?inc=tools_simplerate&op=simplerate_add')\" class='button' />
+	    <input type='button' value='"._('Add rate')."' onClick=\"javascript:linkto('index.php?app=menu&inc=tools_simplerate&op=simplerate_add')\" class='button' />
     <table cellpadding='1' cellspacing='2' border='0' width='100%' class=\"sortable\">
     <tr>
         <td class='box_title' width='5'>*</td>
@@ -28,8 +28,8 @@ switch ($op)
 	{
 	    $i++;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-	    $action = "<a href=menu.php?inc=tools_simplerate&op=simplerate_edit&rateid=".$db_row['id'].">$icon_edit</a>";
-	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete rate ?')." ("._('destination').": `".$db_row['dst']."`, "._('prefix').": `".$db_row['prefix']."`)','menu.php?inc=tools_simplerate&op=simplerate_del&rateid=".$db_row['id']."')\">$icon_delete</a>";
+	    $action = "<a href=index.php?app=menu&inc=tools_simplerate&op=simplerate_edit&rateid=".$db_row['id'].">$icon_edit</a>";
+	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete rate ?')." ("._('destination').": `".$db_row['dst']."`, "._('prefix').": `".$db_row['prefix']."`)','index.php?app=menu&inc=tools_simplerate&op=simplerate_del&rateid=".$db_row['id']."')\">$icon_delete</a>";
 	    $content .= "
     <tr>
 	<td class='$td_class'>&nbsp;$i.</td>
@@ -44,7 +44,7 @@ switch ($op)
 	echo $content;
 	echo "
 	    <p>
-	    <input type='button' value='"._('Add rate')."' onClick=\"javascript:linkto('menu.php?inc=tools_simplerate&op=simplerate_add')\" class='button' />
+	    <input type='button' value='"._('Add rate')."' onClick=\"javascript:linkto('index.php?app=menu&inc=tools_simplerate&op=simplerate_add')\" class='button' />
 	";
 	break;
     case "simplerate_del":
@@ -57,7 +57,7 @@ switch ($op)
 	{
 	    $error_string = _('Rate has been deleted')." ("._('destination').": `$dst`, "._('prefix').": `$prefix`)";
 	}
-	header ("Location: menu.php?inc=tools_simplerate&op=simplerate_list&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=tools_simplerate&op=simplerate_list&err=".urlencode($error_string));
 	break;
     case "simplerate_edit":
 	$rateid = $_REQUEST['rateid'];
@@ -71,7 +71,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Edit rate')."</h2>
 	    <p>
-	    <form action='menu.php?inc=tools_simplerate&op=simplerate_edit_save' method='post'>
+	    <form action='index.php?app=menu&inc=tools_simplerate&op=simplerate_edit_save' method='post'>
 	    <input type='hidden' name='rateid' value=\"$rateid\">
 	<table width='100%' cellpadding='1' cellspacing='2' border='0'>
 	    <tr>
@@ -112,7 +112,7 @@ switch ($op)
 	{
 	    $error_string = _('You must fill all fields');
 	}
-	header ("Location: menu.php?inc=tools_simplerate&op=simplerate_edit&rateid=$rateid&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=tools_simplerate&op=simplerate_edit&rateid=$rateid&err=".urlencode($error_string));
 	break;
     case "simplerate_add":
 	if ($err)
@@ -122,7 +122,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Add rate')."</h2>
 	    <p>
-	    <form action='menu.php?inc=tools_simplerate&op=simplerate_add_yes' method='post'>
+	    <form action='index.php?app=menu&inc=tools_simplerate&op=simplerate_add_yes' method='post'>
 	<table width='100%' cellpadding='1' cellspacing='2' border='0'>
 	    <tr>
 		<td width='175'>"._('Destination')."</td><td width='5'>:</td><td><input type='text' size='30' maxlength='30' name='add_dst' value=\"$add_dst\"></td>
@@ -168,7 +168,7 @@ switch ($op)
 	{
 	    $error_string = _('You must fill all fields');
 	}
-	header ("Location: menu.php?inc=tools_simplerate&op=simplerate_add&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=tools_simplerate&op=simplerate_add&err=".urlencode($error_string));
 	break;
 }
 

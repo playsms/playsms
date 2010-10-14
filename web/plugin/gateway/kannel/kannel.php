@@ -9,7 +9,7 @@ if ($gateway_module == $kannel_param['name'])
 }
 else
 {
-    $status_active = "(<font color=red><b>"._('Inactive')."</b></font>) (<a href=\"menu.php?inc=gateway_kannel&op=manage_activate\">"._('click here to activate')."</a>)";
+    $status_active = "(<font color=red><b>"._('Inactive')."</b></font>) (<a href=\"index.php?app=menu&inc=gateway_kannel&op=manage_activate\">"._('click here to activate')."</a>)";
 }
 
 switch ($op)
@@ -22,7 +22,7 @@ switch ($op)
 	$content .= "
 	    <h2>"._('Manage kannel')."</h2>
 	    <p>
-	    <form action=menu.php?inc=gateway_kannel&op=manage_save method=post>
+	    <form action=index.php?app=menu&inc=gateway_kannel&op=manage_save method=post>
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
 		<td width=150>"._('Gateway name')."</td><td width=5>:</td><td><b>kannel</b> $status_active</td>
@@ -88,13 +88,13 @@ switch ($op)
 		$error_string = _('Gateway module configurations has been saved');
 	    }
 	}
-	header ("Location: menu.php?inc=gateway_kannel&op=manage&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=gateway_kannel&op=manage&err=".urlencode($error_string));
 	break;
     case "manage_activate":
 	$db_query = "UPDATE "._DB_PREF_."_tblConfig_main SET c_timestamp='".mktime()."',cfg_gateway_module='kannel'";
 	$db_result = dba_query($db_query);
 	$error_string = _('Gateway has been activated');
-	header ("Location: menu.php?inc=gateway_kannel&op=manage&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=gateway_kannel&op=manage&err=".urlencode($error_string));
 	break;
 }
 

@@ -81,7 +81,7 @@ switch ($op)
 
 	    <h2>"._('Send SMS')."</h2>
 	    <p>
-	    <form name=\"fm_sendsms\" id=\"fm_sendsms\" action=\"menu.php?inc=send_sms&op=sendsmstopv_yes\" method=\"POST\">
+	    <form name=\"fm_sendsms\" id=\"fm_sendsms\" action=\"index.php?app=menu&inc=send_sms&op=sendsmstopv_yes\" method=\"POST\">
 	    <p>"._('From').": $sms_from
 	    <p>
 	    <table cellpadding=1 cellspacing=0 border=0>
@@ -167,9 +167,9 @@ switch ($op)
             }
             
 	    $errid = logger_set_error_string($error_string);
-	    header("Location: menu.php?inc=send_sms&op=sendsmstopv&message=".urlencode($message)."&errid=".$errid);
+	    header("Location: index.php?app=menu&inc=send_sms&op=sendsmstopv&message=".urlencode($message)."&errid=".$errid);
 	} else {
-	    header("Location: menu.php?inc=send_sms&op=sendsmstopv&message=".urlencode($message)."&err=".urlencode(_('You must select receiver and your message should not be empty')));
+	    header("Location: index.php?app=menu&inc=send_sms&op=sendsmstopv&message=".urlencode($message)."&err=".urlencode(_('You must select receiver and your message should not be empty')));
 	}
 	break;
     case "sendsmstogr":
@@ -234,7 +234,7 @@ switch ($op)
 
 	    <h2>"._('Send broadcast SMS')."</h2>
 	    <p>
-	    <form name=fm_sendsms id=fm_sendsms action=menu.php?inc=send_sms&op=sendsmstogr_yes method=POST>
+	    <form name=fm_sendsms id=fm_sendsms action=index.php?app=menu&inc=send_sms&op=sendsmstogr_yes method=POST>
 	    <p>"._('From').": $sms_from
 	    <p>
 	    <p>"._('Send to group').": <select name=\"gpid\">$list_of_group</select>
@@ -290,9 +290,9 @@ switch ($op)
 	    $error_string = _('Your SMS has been delivered to queue')." ("._('sent').": ".$sms_sent.", "._('failed').": ".$sms_failed.")";
 	    
 	    $errid = logger_set_error_string($error_string);
-	    header("Location: menu.php?inc=send_sms&op=sendsmstogr&message=".urlencode($message)."&errid=".$errid);
+	    header("Location: index.php?app=menu&inc=send_sms&op=sendsmstogr&message=".urlencode($message)."&errid=".$errid);
 	} else {
-	    header("Location: menu.php?inc=send_sms&op=sendsmstogr&message=".urlencode($message)."&err=".urlencode(_('You must select receiver group and your message should not be empty')));
+	    header("Location: index.php?app=menu&inc=send_sms&op=sendsmstogr&message=".urlencode($message)."&err=".urlencode(_('You must select receiver group and your message should not be empty')));
 	}
 	break;
 }

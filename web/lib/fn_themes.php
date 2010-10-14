@@ -35,7 +35,7 @@ function themes_buildmenu($arr_menu) {
         d = new dTree('d');
         d.add(0,-1,'<b>"._('Home')."</b>', '".$http_path['base']."', '', '_top');
         $content_tree		
-        d.add($tree_index_top,0,'"._('Logout')."', 'menu.php?inc=logout', '', '_top');
+        d.add($tree_index_top,0,'"._('Logout')."', 'index.php?app=menu&inc=logout', '', '_top');
         document.write(d);
         //-->
         </script>  
