@@ -8,7 +8,7 @@ switch ($op)
     case "edit":
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <h2>"._('Edit group')."</h2>

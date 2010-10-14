@@ -97,7 +97,7 @@ switch ($op)
     ";
 	if ($err)
 	{
-	    echo "<font color=red>$err</font><br><br>";
+	    echo "<div class=error_string>$err</div><br><br>";
 	}
 	echo $content;
 	break;

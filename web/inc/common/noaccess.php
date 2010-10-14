@@ -2,8 +2,8 @@
 
 $content = "";
 if ($err) {
-    $content .= "<p align=center><font color=red>$err</font></p>";
+    $content .= "<div class=error_string>$err</div>";
 }
-echo $content;
+echo "<div align=center>".$content."</div>";
 
 ?>

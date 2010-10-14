@@ -6,7 +6,7 @@ if (!valid()) {
 switch ($op) {
 	case "sms_subscribe_list" :
 		if ($err) {
-			$content = "<p><font color=red>$err</font><p>";
+			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
 				<h2>"._('Manage subscribe')."</h2>
@@ -78,7 +78,7 @@ switch ($op) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id = '$subscribe_id'";
 		$db_result = dba_query($db_query);
 		if ($err) {
-			$content = "<p><font color=red>$err</font><p>";
+			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
 		    <h2>"._('SMS messages list for keyword')." $subscribe_name</h2>	    
@@ -135,7 +135,7 @@ switch ($op) {
 		$message = $db_row['msg'];
 
 		if ($err) {
-			$content = "<p><font color=red>$err</font><p>";
+			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
 			    <h2>"._('Message detail')."</h2>
@@ -173,7 +173,7 @@ switch ($op) {
 		$edit_mbr_msg = $db_row['msg'];
 
 		if ($err) {
-			$content = "<p><font color=red>$err</font><p>";
+			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
 				<h2>Edit message </h2>
@@ -267,7 +267,7 @@ switch ($op) {
 		$db_result = dba_query($db_query);
 
 		if ($err) {
-			$content = "<p><font color=red>$err</font><p>";
+			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
 		    <h2>"._('Member list for keyword')." $subscribe_name</h2>
@@ -322,7 +322,7 @@ switch ($op) {
 		$edit_subscribe_msg = $db_row['subscribe_msg'];
 		$edit_unsubscribe_msg = $db_row['unsubscribe_msg'];
 		if ($err) {
-			$content = "<p><font color=red>$err</font><p>";
+			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
 		    <h2>"._('Edit SMS subscribe')."</h2>
@@ -350,9 +350,9 @@ switch ($op) {
 		$db_query = "SELECT subscribe_enable FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id='$subscribe_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$subscribe_status = "<font color=red><b>"._('Disabled')."</b></font>";
+		$subscribe_status = "<b><font color=red>"._('Disabled')."</font></b>";
 		if ($db_row['subscribe_enable']) {
-			$subscribe_status = "<font color=green><b>"._('Enabled')."</b></font>";
+			$subscribe_status = "<b><font color=green>"._('Enabled')."</font></b>";
 		}
 		$content = "
 				<h2>"._('Enable or disable this subscribe')."</h2>
@@ -430,7 +430,7 @@ switch ($op) {
 
 	case "sms_subscribe_add" :
 		if ($err) {
-			$content = "<p><font color=red>$err</font><p>";
+			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
 				<h2>"._('Add SMS subscribe')."</h2>
@@ -478,7 +478,7 @@ switch ($op) {
 	case "sms_subscribe_mbr_msg_add" :
 		$subscribe_id = $_REQUEST['subscribe_id'];
 		if ($err) {
-			$content = "<p><font color=red>$err</font><p>";
+			$content = "<div class=error_string>$err</div>";
 		}
 		$db_query = "SELECT subscribe_keyword FROM " . _DB_PREF_ . "_featureSubscribe where subscribe_id='$subscribe_id'";
 		$db_result = dba_query($db_query);

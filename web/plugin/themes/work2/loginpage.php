@@ -11,7 +11,7 @@
         <TD WIDTH=7 background="<?=$http_path['themes']?>/<?=$themes_module?>/images/login_02.gif"><IMG SRC="<?=$http_path['themes']?>/<?=$themes_module?>/images/login_02.gif" WIDTH=7 HEIGHT=16></TD>
         <TD WIDTH=348 bgcolor="#FDFCFC">
             <br />
-            <?=$error_content?>
+            <div align=center><?=$error_content?></div>
             <table width="100%" border="0" cellpadding="2" cellspacing="2">
             <form action="index.php?app=menu" method=POST>
             <input type=hidden name=inc value=login>

@@ -10,7 +10,7 @@ switch ($op)
     case "list":
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$fm_name = "fm_smstemp";
     	$content .= "

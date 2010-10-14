@@ -61,7 +61,7 @@ switch ($op)
 	    $in_message = $db_row['in_message'];
 	    $in_datetime = $db_row['in_datetime'];
 	    $in_feature = $db_row['in_feature'];
-	    $in_status = ( $db_row['in_status'] == 1 ? '<font color=green>handled</font>' : ' <font color=red>unhandled</font>' );
+	    $in_status = ( $db_row['in_status'] == 1 ? '<p><font color=green>handled</font></p>' : '<p><font color=red>unhandled</font></p>' );
 	    $i--;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";	    
 	    $content .= "
@@ -102,7 +102,7 @@ switch ($op)
     ";
 	if ($err)
 	{
-	    echo "<font color=red>$err</font><br><br>";
+	    echo "<div class=error_string>$err</div><br><br>";
 	}
 	echo $content;
 	break;

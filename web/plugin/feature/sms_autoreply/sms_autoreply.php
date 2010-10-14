@@ -6,7 +6,7 @@ switch ($op)
     case "sms_autoreply_list":
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <h2>"._('Manage autoreply')."</h2>
@@ -69,7 +69,7 @@ switch ($op)
 	$o_uid = $db_row['uid'];
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <h2>"._('Manage autoreply')."</h2>
@@ -143,7 +143,7 @@ switch ($op)
     case "sms_autoreply_add":
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <h2>"._('Add SMS autoreply')."</h2>
@@ -213,7 +213,7 @@ switch ($op)
 	$autoreply_keyword = $db_row['autoreply_keyword'];
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <h2>"._('Add SMS autoreply scenario')."</h2>
@@ -286,7 +286,7 @@ switch ($op)
 	$autoreply_keyword = $db_row['autoreply_keyword'];
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <h2>"._('Edit SMS autoreply scenario')."</h2>

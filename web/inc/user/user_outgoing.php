@@ -78,19 +78,19 @@ switch ($op)
 	    // 3 = delivered
 	    if ($p_status == "1") 
 	    { 
-		$p_status = "<font color=green>"._('Sent')."</font>"; 
+		$p_status = "<p><font color=green>"._('Sent')."</font></p>"; 
 	    } 
 	    else if ($p_status == "2")
 	    { 
-		$p_status = "<font color=red>"._('Failed')."</font>"; 
+		$p_status = "<p><font color=red>"._('Failed')."</font></p>"; 
 	    }
 	    else if ($p_status == "3")
 	    {
-		$p_status = "<font color=green>"._('Delivered')."</font>"; 
+		$p_status = "<p><font color=green>"._('Delivered')."</font></p>"; 
 	    }
 	    else
 	    { 
-		$p_status = "<font color=orange>"._('Pending')."</font>"; 
+		$p_status = "<p><font color=orange>"._('Pending')."</font></p>"; 
 	    }
 	    if ($p_gpid) 
 	    { 
@@ -136,7 +136,7 @@ switch ($op)
 	";
 	if ($err)
 	{
-	    echo "<font color=red>$err</font><br><br>";
+	    echo "<div class=error_string>$err</div><br><br>";
 	}
 	echo $content;
 	break;

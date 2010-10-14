@@ -5,11 +5,11 @@ include $apps_path['plug']."/gateway/smstools/config.php";
 
 if ($gateway_module == $smstools_param['name'])
 {
-    $status_active = "(<font color=green><b>"._('Active')."</b></font>)";
+    $status_active = "(<b><font color=green>"._('Active')."</font></b>)";
 }
 else
 {
-    $status_active = "(<font color=red><b>"._('Inactive')."</b></font>) (<a href=\"index.php?app=menu&inc=gateway_smstools&op=manage_activate\">"._('click here to activate')."</a>)";
+    $status_active = "(<b><font color=red>"._('Inactive')."</font></b>) (<a href=\"index.php?app=menu&inc=gateway_smstools&op=manage_activate\">"._('click here to activate')."</a>)";
 }
 
 switch ($op)
@@ -17,7 +17,7 @@ switch ($op)
     case "manage":
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <h2>"._('Manage smstools')."</h2>

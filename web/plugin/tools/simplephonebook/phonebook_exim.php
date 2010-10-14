@@ -30,7 +30,7 @@ switch ($op)
     case "import":
 	if ($gpid) {
 	    if ($err) {
-		$content = "<p><font color=red>$err</font><p>";
+		$content = "<div class=error_string>$err</div>";
 	    }
 	    $content .= "
 		<h2>"._('Import phonebook')." ("._('Group code').": ".phonebook_groupid2code($gpid).")</h2>

@@ -6,7 +6,7 @@ switch ($op)
     case "sms_poll_list":
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <h2>"._('Manage poll')."</h2>
@@ -79,7 +79,7 @@ switch ($op)
 	$edit_poll_keyword = $db_row['poll_keyword'];
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <h2>"._('Edit SMS poll')."</h2>
@@ -151,10 +151,10 @@ switch ($op)
 	$db_query = "SELECT poll_enable FROM "._DB_PREF_."_featurePoll WHERE poll_id='$poll_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$poll_status = "<font color=red><b>"._('Disabled')."</b></font>";
+	$poll_status = "<b><font color=red>"._('Disabled')."</font></b>";
 	if ($db_row['poll_enable'])
 	{
-	    $poll_status = "<font color=green><b>"._('Enabled')."</b></font>";
+	    $poll_status = "<b><font color=green>"._('Enabled')."</font></b>";
 	}
 	$content = "
 	    <h2>"._('Enable or disable this poll')."</h2>
@@ -270,7 +270,7 @@ switch ($op)
     case "sms_poll_add":
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <h2>"._('Add SMS poll')."</h2>

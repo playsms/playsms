@@ -6,7 +6,7 @@ switch ($op)
     case "simplerate_list":
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <h2>"._('Manage SMS rate')."</h2>

@@ -14,7 +14,7 @@ if (!valid()) {
 switch ($op) {
 	case "sms_autosend_list" :
 		if ($err) {
-			$content = "<p><font color=red>$err</font><p>";
+			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
 								<h2>"._('Manage autosend')."</h2>
@@ -87,7 +87,7 @@ switch ($op) {
 	case "sms_autosend_view" :
 		$autosend_id = $_REQUEST['autosend_id'];
 		if ($err) {
-			$content = "<p><font color=red>$err</font><p>";
+			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "<h2>"._('SMS autosend View')."</h2>";
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutosend where autosend_id='$autosend_id'";
@@ -155,7 +155,7 @@ switch ($op) {
 		$edit_time_id = $db_row['time_id'];
 		$edit_autosend_time = $db_row['autosend_time'];
 		if ($err) {
-			$content = "<p><font color=red>$err</font><p>";
+			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
 								<h2>"._('Edit SMS autosend')."</h2>
@@ -196,9 +196,9 @@ switch ($op) {
 		$db_query = "SELECT autosend_enable FROM " . _DB_PREF_ . "_featureAutosend WHERE autosend_id='$autosend_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$autosend_status = "<font color=red><b>"._('Disabled')."</b></font>";
+		$autosend_status = "<b><font color=red>"._('Disabled')."</font></b>";
 		if ($db_row['autosend_enable']) {
-			$autosend_status = "<font color=green><b>"._('Enabled')."</b></font>";
+			$autosend_status = "<b><font color=green>"._('Enabled')."</font></b>";
 		}
 		$content = "
 							<h2>"._('Enable or disable this autosend')."</h2>
@@ -282,7 +282,7 @@ switch ($op) {
 
 	case "sms_autosend_add" :
 		if ($err) {
-			$content = "<p><font color=red>$err</font><p>";
+			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
 							<h2>"._('Add SMS autosend')."</h2><p>

@@ -6,7 +6,7 @@ switch ($op)
     case "sms_board_list":
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <h2>"._('Manage board')."</h2>
@@ -74,7 +74,7 @@ switch ($op)
 	$edit_template = $db_row['board_pref_template'];
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <h2>"._('Edit SMS board')."</h2>
@@ -149,7 +149,7 @@ switch ($op)
     case "sms_board_add":
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <h2>"._('Add SMS board')."</h2>

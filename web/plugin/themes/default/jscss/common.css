@@ -182,3 +182,16 @@ li {
 	color: #000000;
 	background-color: #DBDCDD;
 }
+
+.error_string {
+	font-family: Verdana;
+	font-size: 12px;
+	font-weight: bold;
+	color: #ff0000;
+}
+
+.required {
+	color: #ff0000;
+	float: right;
+}
+

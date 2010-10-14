@@ -6,7 +6,7 @@ getsmsstatus();
 execcommoncustomcmd();
 
 if ($_REQUEST['op']=='daemon') {
-    echo "<h2><font color=green>"._('playSMS server successfully refreshed')."</font></h2>";
+    echo "<p><font color=green>"._('playSMS server successfully refreshed')."</font></p>";
     die();
 }
 

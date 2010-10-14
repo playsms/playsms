@@ -6,7 +6,7 @@ switch ($op)
     case "sms_custom_list":
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <h2>"._('Manage custom')."</h2>
@@ -66,7 +66,7 @@ switch ($op)
 	$edit_custom_url = str_replace($feat_custom_path['bin'],'',$edit_custom_url);
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <h2>"._('Edit SMS custom')."</h2>
@@ -131,7 +131,7 @@ switch ($op)
     case "sms_custom_add":
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <h2>"._('Add SMS custom')."</h2>

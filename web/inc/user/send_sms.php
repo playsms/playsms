@@ -72,7 +72,7 @@ switch ($op)
 	    $err = logger_get_error_string($errid);
 	}
 	if ($err) {
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <form name=\"fm_smstemplate\">
@@ -225,7 +225,7 @@ switch ($op)
 	    $err = logger_get_error_string($errid);
 	}
 	if ($err) {
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <form name=\"fm_smstemplate\">

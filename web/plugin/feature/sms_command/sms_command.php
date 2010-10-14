@@ -6,7 +6,7 @@ switch ($op)
     case "sms_command_list":
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <h2>"._('Manage command')."</h2>
@@ -69,7 +69,7 @@ switch ($op)
 	$edit_command_exec = str_replace($plugin_config['feature']['sms_command']['bin']."/",'',$edit_command_exec);
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <h2>"._('Edit SMS command')."</h2>
@@ -138,7 +138,7 @@ switch ($op)
     case "sms_command_add":
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$content .= "
 	    <h2>"._('Add SMS command')."</h2>

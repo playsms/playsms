@@ -172,7 +172,7 @@ $datetime_format 	= $date_format." ".$time_format;
 $date_now		= date($date_format, time());
 $time_now		= date($time_format, time());
 $datetime_now		= date($datetime_format, time());
-$nd 			= "<font color=red>(*)</font>";
+$nd 			= "<div class=required>(*)</div>";
 
 $core_config['datetime']['date_now'] = $date_now;
 $core_config['datetime']['time_now'] = $time_now;

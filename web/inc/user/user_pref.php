@@ -6,7 +6,7 @@ switch ($op)
     case "user_pref":
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE uid='$uid'";
 	$db_result = dba_query($db_query);

@@ -6,7 +6,7 @@ switch ($op)
     case "main_config":
 	if ($err)
 	{
-	    $content = "<p><font color=red>$err</font><p>";
+	    $content = "<div class=error_string>$err</div>";
 	}
 	// get gateway options
 	for ($i=0;$i<count($core_config['gatewaylist']);$i++) {

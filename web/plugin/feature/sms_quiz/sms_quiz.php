@@ -10,7 +10,7 @@ switch ($op) {
 		$db_answer_result = dba_query($quiz_answer_query);
 		$db_answer_row = dba_fetch_array($db_answer_result);
 		if ($err) {
-			$content = "<p><font color=red>$err</font><p>";
+			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
 				<h2>"._('Received answer list for keyword')." ".$db_answer_row['quiz_keyword']."</h2>			
@@ -73,7 +73,7 @@ switch ($op) {
 
 	case "sms_quiz_list" :
 		if ($err) {
-			$content = "<p><font color=red>$err</font><p>";
+			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
 				<h2>"._('Manage quiz')."</h2>
@@ -140,7 +140,7 @@ switch ($op) {
 		$edit_quiz_msg_correct = $db_row['quiz_msg_correct'];
 		$edit_quiz_msg_incorrect = $db_row['quiz_msg_incorrect'];
 		if ($err) {
-			$content = "<p><font color=red>$err</font><p>";
+			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
 				<h2>"._('Edit SMS quiz')."</h2>
@@ -174,9 +174,9 @@ switch ($op) {
 		$db_query = "SELECT quiz_enable FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_id='$quiz_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$quiz_status = "<font color=red><b>"._('Disabled')."</b></font>";
+		$quiz_status = "<b><font color=red>"._('Disabled')."</font></b>";
 		if ($db_row['quiz_enable']) {
-			$quiz_status = "<font color=green><b>"._('Enabled')."</b></font>";
+			$quiz_status = "<b><font color=green>"._('Enabled')."</font></b>";
 		}
 		$content = "
 				<h2>"._('Enable or disable this quiz')."</h2>
@@ -240,7 +240,7 @@ switch ($op) {
 
 	case "sms_quiz_add" :
 		if ($err) {
-			$content = "<p><font color=red>$err</font><p>";
+			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
 				<h2>"._('Add SMS quiz')."</h2>

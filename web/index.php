@@ -6,18 +6,23 @@ include $apps_path['libs']."/function.php";
 if ($app = $_REQUEST['app']) {
     switch ($app) {
 	case 'menu': 
-	    include $apps_path['incs'].'/app/menu.php'; 
+	    $fn = $apps_path['incs'].'/app/menu.php'; 
 	    break;
 	case 'ws':
-	    include $apps_path['incs'].'/app/webservices.php';
+	case 'webservice':
+	case 'webservices':
+	    $fn = $apps_path['incs'].'/app/webservices.php';
 	    break;
+    }
+    if (file_exists($fn)) {
+	include $fn;
     }
     exit();
 }
 
 $error_content = "";
 if ($err) {
-    $error_content .= "<p align=center><font color=red>$err</font></p>";
+    $error_content .= "<div class=error_string>$err</div>";
 }
 
 bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
