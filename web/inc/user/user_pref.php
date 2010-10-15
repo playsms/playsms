@@ -89,7 +89,7 @@ switch ($op)
 	$up_zipcode = $_POST['up_zipcode'];
 	$up_trn = $_POST['up_trn'];
 	$error_string = _('No changes made');
-	if ($up_name && $up_mobile && $up_email && $up_address && $up_country)
+	if ($up_name && $up_email && $up_address && $up_country)
 	{
 	    $up_uname = $username;
 	    $db_query = "SELECT username FROM "._DB_PREF_."_tblUser WHERE email='$up_email' AND NOT username='$up_uname'";
