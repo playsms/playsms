@@ -29,10 +29,10 @@ switch ($op)
         <thead>
 	    <tr>
 	      <th align=center width=4>*</th>
-	      <th align=center width=20%>"._('User')."</th>
+	      <th align=center width=10%>"._('User')."</th>
 	      <th align=center width=20%>"._('Time')."</th>
-	      <th align=center width=20%>"._('Sender')."</th>
-	      <th align=center width=40%>"._('Message')."</th>
+	      <th align=center width=10%>"._('Sender')."</th>
+	      <th align=center width=60%>"._('Message')."</th>
 	      <th align=center class=\"sorttable_nosort\">"._('Action')."</td>
 	      <th width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></td>
 	    </tr>

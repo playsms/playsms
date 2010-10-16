@@ -29,10 +29,11 @@ switch ($op)
         <thead>
 	    <tr>
 	      <th align=center width=4>*</th>
-	      <th align=center width=20%>"._('User')."</th>
+	      <th align=center width=10%>"._('User')."</th>
 	      <th align=center width=20%>"._('Time')."</th>
-	      <th align=center width=20%>"._('Receiver')."</th>
-	      <th align=center width=30%>"._('Message')."</th>
+	      <th align=center width=10%>"._('Gateway')."</th>
+	      <th align=center width=10%>"._('Receiver')."</th>
+	      <th align=center width=40%>"._('Message')."</th>
 	      <th align=center width=10%>"._('Status')."</th>
 	      <th align=center width=4>"._('Group')."</th>
 	      <th align=center width=4 class=\"sorttable_nosort\">"._('Action')."</th>
@@ -71,6 +72,7 @@ switch ($op)
 		$p_msg = $p_msg." $p_footer";
 	    }
 	    $p_datetime = $db_row['p_datetime'];
+	    $p_gateway = $db_row['p_gateway'];
 	    $p_update = $db_row['p_update'];
 	    $p_status = $db_row['p_status'];
 	    $p_gpid = $db_row['p_gpid'];
@@ -109,6 +111,7 @@ switch ($op)
 	          <td valign=top class=$td_class align=left>$i.</td>
 	          <td valign=top class=$td_class align=center>$p_username</td>
 	          <td valign=top class=$td_class align=center>$p_datetime</td>
+	          <td valign=top class=$td_class align=center>$p_gateway</td>
 	          <td valign=top class=$td_class align=center>$current_p_dst</td>
 	          <td valign=top class=$td_class align=left>$p_msg</td>
 	          <td valign=top class=$td_class align=center>$p_status</td>

@@ -29,11 +29,11 @@ switch ($op)
         <thead>
 	    <tr>
 	      <th align=center width=4>*</th>
-	      <th align=center width=15%>"._('Time')."</th>
-	      <th align=center width=15%>"._('Sender')."</th>
-	      <th align=center width=15%>"._('Keyword')."</th>
-	      <th align=center width=30%>"._('Content')."</th>
-	      <th align=center width=15%>"._('Feature')."</th>
+	      <th align=center width=20%>"._('Time')."</th>
+	      <th align=center width=10%>"._('Sender')."</th>
+	      <th align=center width=10%>"._('Keyword')."</th>
+	      <th align=center width=40%>"._('Content')."</th>
+	      <th align=center width=10%>"._('Feature')."</th>
 	      <th align=center width=10%>"._('Status')."</th>
 	      <th align=center>"._('Action')."</td>
 	      <th width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_incoming)></td>
