@@ -77,14 +77,27 @@ function simplephonebook_hook_phonebook_groupcode2id($uid,$gp_code) {
 function simplephonebook_hook_phonebook_number2name($p_num) {
     global $username;
     if ($p_num) {
-	if (substr($p_num,0,1) == 0) {
-	    $p_num = substr($p_num,1);
-	}
+	// remove +
+	$p_num = str_replace('+','',$p_num);
+	// remove first 3 digits if phone number length more than 7
+	if (strlen($p_num) > 7) { $p_num = substr($p_num,3); }
 	$uid = username2uid($username);
-	$db_query = "SELECT p_desc FROM "._DB_PREF_."_toolsSimplephonebook WHERE p_num LIKE '%$p_num' AND uid='$uid'";
+	$db_query = "SELECT p_desc FROM "._DB_PREF_."_toolsSimplephonebook WHERE p_num LIKE '%".$p_num."' AND uid='$uid'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$p_desc = $db_row['p_desc'];
+	if (! $p_desc) {
+	    $ret = phonebook_getsharedgroup($uid);
+	    for ($i=0;$i<count($ret);$i++) {
+		$c_gpid = $ret[$i]['gpid'];
+		$db_query = "SELECT p_desc FROM "._DB_PREF_."_toolsSimplephonebook WHERE p_num LIKE '%".$p_num."' AND gpid='$c_gpid'";
+		$db_result = dba_query($db_query);
+		$db_row = dba_fetch_array($db_result);
+		if ($p_desc = $db_row['p_desc']) {
+		    break;
+		}
+	    }
+	}
     }
     return $p_desc;
 }
