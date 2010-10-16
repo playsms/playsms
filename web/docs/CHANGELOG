@@ -1,7 +1,9 @@
-Version 0.9.6 - unknown
+Version 0.9.5.1 - 171010
 - fix simplerate_hook_cansend should print $username to logger_print instead $uid (anton)
 - fix message empty when handled by gnokii and smstools due to single quote in $lc (kendokar)
 - remove input.php and output.php and replace them with webservices, web/docs/WEBSERVICES (anton)
+- add interceptincomingsms() lib/fn_core.php, its hookable from plugin tools (anton)
+- add css class .error_string and .required, themes common.css (anton)
 
 Version 0.9.5 - 101010
 - add multi-language support per plugin bases (anton)
