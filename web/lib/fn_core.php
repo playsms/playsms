@@ -39,7 +39,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
     
     // incoming sms will be handled by plugin/tools/* first
     // and then plugin/feature/* only when $ret['stop'] = false
-    $ret = incomingsms($sms_datetime,$sms_sender,$message);
+    $ret = interceptincomingsms($sms_datetime,$sms_sender,$message);
     if ($ret['stop']) {
 	return true;
     }
