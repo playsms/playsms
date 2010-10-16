@@ -1,2 +1,6 @@
+Version 1.1
+- fix bug where PlaySMS was not centered on IE
+
 Version 1.0
 - changelog started
+

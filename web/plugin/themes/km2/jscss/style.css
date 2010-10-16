@@ -22,6 +22,7 @@ body {
 	font-family: Comic sans MS, Arial, Tahoma, Verdana;
 	margin: 0px auto 0px;
 	padding: 0px;
+	text-align: center;
 	}
 	
 #wrap {
@@ -29,15 +30,15 @@ body {
 	width: 980px;
 	margin: 0px auto 0px;
 	padding: 0px;
-	position: absolute;
 	}
 
 #wraplogin {
+	position: relative;
         background: #FFFFFF url(../images/wrap.gif);
         width: 980px;
-        margin: 100px auto 0px;
+	height: 100px;
+        margin: 100px auto;
         padding: 0px;
-        position: absolute;
         }
 
 	

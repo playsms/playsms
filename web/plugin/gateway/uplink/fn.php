@@ -162,7 +162,7 @@ function uplink_hook_getsmsinbox() {
 	    $sms_sender = trim($lines[1]);
 	    $message = "";
 	    for ($lc=2;$lc<count($lines);$lc++) {
-		$message .= trim($lines['$lc']);
+		$message .= trim($lines[$lc]);
 	    }
 	    // collected:
 	    // $sms_datetime, $sms_sender, $message

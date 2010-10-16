@@ -110,43 +110,37 @@ D. SMS BOARD
     Answer:
     Webpage for keyword INFO (thus we called SMS Board INFO) would be accessable
     trough this url: 
-    http://your_playsms_web_domain/output.php?keyword=INFO
+    http://your_playsms_web_domain/index.php?app=webservices&ta=sms_board&keyword=INFO
     Other parameter you can use:
     line	: show x line number of rows 
     bodybgcolor	: set body background color
     oddbgcolor	: set odd row backround color
     evenbgcolor	: set even row backround color
-    refresh=yes	: check latest incoming sms and refresh webpage output
     eg:
-    http://your_playsms_web_domain/output.php?keyword=INFO&line=15
-    using refresh link:
-    <a href="http://your_playsms_web_domain/output.php?keyword=INFO&line=15&refresh=yes">[ Refresh Board ]</a>
+    http://your_playsms_web_domain/index.php?app=webservices&ta=sms_board&keyword=INFO&line=15
     
 3.  Can I retrieve incoming SMS for that keyword INFO in XML format?
     Answer:
     Incoming SMS for that keyword INFO can also be retrieved in RSS 0.91 format trough this url:
-    http://your_playsms_web_domain/output.php?keyword=INFO&type=xml
+    http://your_playsms_web_domain/index.php?app=webservices&ta=sms_board&keyword=INFO&type=xml
     Other parameter you can use:
     line	: show x line number of rows in xml file
-    refresh=yes	: check latest incoming sms and refresh webpage output
     
 4.  Howto put that webpage on my main website?
     Answer:
     Use IFRAME html tag. Customize your IFRAME to match your main website look and feel.
     eg:
-	<IFRAME src="http://your_playsms_web_domain/output.php?keyword=INFO"></IFRAME>
+	<IFRAME src="http://your_playsms_web_domain/index.php?app=webservices&ta=sms_board&keyword=INFO">
+	</IFRAME>
 
-5.  Can I use my own form on other website to send SMS from this SMS Gateway?
+5.  Can I use my own application or 3rd party application to send SMS using playSMS?
     Answer:
-    Yes you can, more information how to use this feature can be read in input.php
-    Note: input.php receive input from given query string. Since input.php is currently 
-    intended for developer only, this FAQ will not discuss any further about it. 
-    Please read input.php
+    Yes you can, more information how to use this feature can be read in docs/WEBSERVICES
 
-6.  Can I retrieve delivery status remotely so I can process it from other website?
+6.  Can I retrieve delivery status remotely so I can process it from other application?
     Answer:
     Yes you can, delivery status retrieved in CSV or XML format, more information how to
-    use this feature can be read in input.php
+    use this feature can be read in docs/WEBSERVICES
 
 
 E. SMS COMMAND
@@ -178,8 +172,8 @@ E. SMS COMMAND
 4.  Howto make information retrieval system?
     Answer:
     Use SMS command so the gateway get informations from databases, and then setup
-    a script to use input.php to send informations back to your sender.
-    Read carefully input.php
+    a script to use playSMS webservices to send informations back to your sender.
+    Read carefully docs/WEBSERVICES
     Please have a look shell scripts on playSMS package directory web/bin/
 
 5.  Can I command server to shutdown/reboot?
@@ -217,8 +211,8 @@ F. SMS CUSTOM
 4.  Howto make information retrieval system with SMS custom?
     Answer:
     Use SMS custom so the server located in custom URL get informations from their database, 
-    and using input.php method send informations back to SMS sender.
-    Read carefully input.php
+    and using playSMS webservices method send informations back to SMS sender.
+    Read carefully docs/WEBSERVICES
 
 
 G. SMS POLL
@@ -237,13 +231,14 @@ G. SMS POLL
     Answer:
     For example polling with keyword PRES
     Webpage for poll named PRES would be accessable trough this url: 
-    http://your_playsms_web_domain/output.php?show=poll&keyword=PRES
+    http://your_playsms_web_domain/index.php?app=webservices&ta=sms_poll&keyword=PRES
     Other parameter you can use:
     bodybgcolor	: set body background color
     refresh=yes	: check latest incoming sms and refresh webpage output
     Use IFRAME html tag.
     eg:
-	<IFRAME src="http://your_playsms_web_domain/output.php?show=poll&keyword=PRES"></IFRAME>
+	<IFRAME src="http://your_playsms_web_domain/index.php?app=webservices&ta=sms_poll&keyword=PRES">
+	</IFRAME>
 
 
 H. SMS QUIZ

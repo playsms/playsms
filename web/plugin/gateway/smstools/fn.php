@@ -66,7 +66,7 @@ function smstools_hook_getsmsinbox() {
 	if ($sms_sender && $sms_datetime && $start) {
 	    $message = "";
 	    for ($lc=$start;$lc<count($lines);$lc++) {
-		$message .= trim($lines['$lc']);
+		$message .= trim($lines[$lc]);
 	    }
 	    // collected:
 	    // $sms_datetime, $sms_sender, $message

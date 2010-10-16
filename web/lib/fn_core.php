@@ -23,8 +23,26 @@ function checkavailablekeyword($keyword) {
     return $ok;
 }
 
+function incomingsms($sms_datetime,$sms_sender,$message) {
+    global $core_config;
+    $ret = array();
+    for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	$ret = x_hook($core_config['toolslist'][$c],'incomingsms',array($sms_datetime,$sms_sender,$message));
+    }
+    if (! $ret['stop']) { $ret['stop'] = false; };
+    return $ret;
+}
+
 function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
     global $gateway_module, $core_config;
+    
+    // incoming sms will be handled by plugin/tools/* first
+    // and then plugin/feature/* only when $ret['stop'] = false
+    $ret = incomingsms($sms_datetime,$sms_sender,$message);
+    if ($ret['stop']) {
+	return true;
+    }
+    
     $c_uid = 0;
     $c_feature = "";
     $ok = false;

@@ -87,10 +87,10 @@ function sms_board_handle($sms_datetime,$sms_sender,$board_keyword,$board_param=
     return $ok;
 }
 
-function outputtorss($keyword,$line="10")
+function sms_board_output_rss($keyword,$line="10")
 {
     global $apps_path,$web_title;
-    include_once $apps_path['libs']."/external/feedcreator/feedcreator.class.php";
+    include_once $apps_path['plug']."/feature/sms_board/lib/external/feedcreator/feedcreator.class.php";
     $keyword = strtoupper($keyword);
     if (!$line) { $line = "10"; };
     $format_output = "RSS0.91";
@@ -114,7 +114,7 @@ function outputtorss($keyword,$line="10")
 }
 
 // part of SMS board
-function outputtohtml($keyword,$line="10",$pref_bodybgcolor="#E0D0C0",$pref_oddbgcolor="#EEDDCC",$pref_evenbgcolor="#FFEEDD")
+function sms_board_output_html($keyword,$line="10",$pref_bodybgcolor="#E0D0C0",$pref_oddbgcolor="#EEDDCC",$pref_evenbgcolor="#FFEEDD")
 {
     global $apps_path,$web_title;
     $keyword = strtoupper($keyword);
@@ -154,6 +154,34 @@ function outputtohtml($keyword,$line="10",$pref_bodybgcolor="#E0D0C0",$pref_oddb
 	$content .= "</table>\n</body>\n</html>\n";
 	return $content;
     }
+}
+
+function sms_board_hook_webservices_output($ta,$requests) {
+    $keyword = $requests['keyword'];
+    if (!$keyword) {
+	$keyword = $requests['tag'];
+    }
+    if ($keyword) {
+	$keyword = strtoupper($keyword);
+	$line = $requests['line'];
+	$type = $requests['type'];
+	switch ($type) {
+	    case "xml":
+	    case "rss":
+		$content = sms_board_output_rss($keyword,$line);
+		header('Content-Type: text/xml');
+		$ret = $content;
+		break;
+	    case "html":
+	    default:
+		$bodybgcolor = $requests['bodybgcolor'];
+		$oddbgcolor = $requests['oddbgcolor'];
+		$evenbgcolor = $requests['evenbgcolor'];
+		$content = sms_board_output_html($keyword,$line,$bodybgcolor,$oddbgcolor,$evenbgcolor);
+		$ret = $content;
+	}
+    }
+    return $ret;
 }
 
 ?>
