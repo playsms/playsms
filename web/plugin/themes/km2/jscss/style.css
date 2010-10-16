@@ -1211,3 +1211,15 @@ td,div {
         background-color: #1C3E83;
 }
 
+.error_string {
+	font-family: Verdana;
+	font-size: 12px;
+	font-weight: bold;
+	color: #ff0000;
+}
+
+.required {
+	color: #ff0000;
+	float: right;
+}
+
