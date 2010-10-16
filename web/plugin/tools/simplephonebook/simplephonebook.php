@@ -143,14 +143,13 @@ while ($db_row = dba_fetch_array($db_result))
 
 // ----
 
-$content = "
+if ($err) {
+    $content = "<div class=error_string>$err</div>";
+}
+$content .= "
     <h2>"._('Phonebook')."</h2>
     <p>
 ";
-if ($err)
-{
-    $content .= "<div class=error_string>$err</div>";
-}
 $content .= "
     <p>
 	<input type=button value=\""._('Create group')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=tools_simplephonebook&route=dir_create&op=create')\" class=\"button\" />

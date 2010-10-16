@@ -67,13 +67,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
 		$message .= " ".$array_target_group[$i];
 	    }
 	    list($ok,$to,$smslog_id) = sendsms_bc($c_username,$c_gpid,$message);
-	    $ok = false;
-	    for ($i=0;$i<count($ok);$i++) {
-	        if ($ok[$i]) {
-	    	    $ok = true;
-	    	    break;
-		}
-	    }
+	    $ok = true;
 	    break;
 	case "PV":
 	    $c_feature = 'core';
