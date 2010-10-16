@@ -16,36 +16,45 @@ $type 	 = ( trim($_REQUEST['type']) ? trim($_REQUEST['type']) : 'text' );
 $unicode = ( trim($_REQUEST['unicode']) ? trim($_REQUEST['unicode']) : 0 );
 $form 	 = trim(strtoupper($_REQUEST['form']));
 
-if ($u && $p) {
-    if (!validatelogin($u,$p)) {
-	echo "ERR 100";
-	exit();
-    }
-} else {
-    echo "ERR 102";
-    exit();
-}
-
 $ret = "ERR 102";
 
 if ($op) { $ta = $op; };
 if ($ta) {
     switch ($ta) {
 	case "PV":
-	    $ret = webservices_pv($u,$to,$msg,$type,$unicode);
+	    if ($u && $p) {
+		if (validatelogin($u,$p)) {
+		    $ret = webservices_pv($u,$to,$msg,$type,$unicode);
+		} else {
+		    $ret = "ERR 100";
+		}
+	    }
 	    break;
 	case "BC":
-	    $ret = webservices_bc($u,$to,$msg,$type,$unicode);
+	    if ($u && $p) {
+		if (validatelogin($u,$p)) {
+		    $ret = webservices_bc($u,$to,$msg,$type,$unicode);
+		} else {
+		    $ret = "ERR 100";
+		}
+	    }
 	    break;
 	case "DS":
-	    if ($slid) {
-		$ret = webservices_ds_slid($username,$slid);
-	    } else {
-		$ret = webservices_ds_count($username,$c,$last);
+	    if ($u && $p) {
+		if (validatelogin($u,$p)) {
+		    if ($slid) {
+			$ret = webservices_ds_slid($u,$slid);
+		    } else {
+			$ret = webservices_ds_count($u,$c,$last);
+		    }
+		} else {
+		    $ret = "ERR 100";
+		}
 	    }
 	    break;
 	default:
 	    $ret = webservices_output($ta,$_REQUEST);
+    }
 }
 
 echo $ret;

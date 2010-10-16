@@ -1,10 +1,10 @@
 <?php
 if(!(defined('_SECURE_'))){die('Intruder alert');};
 
-function webservices_pv($username,$to,$msg,$type='text',$unicode=0) {
-    if ($username && $to && $msg) {
-	// websend2pv($username,$sms_to,$message,$sms_type='text',$unicode=0)
-	list($ok,$to,$smslog_id) = websend2pv($username,$to,$msg,$type,$unicode);
+function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
+    if ($c_username && $to && $msg) {
+	// websend2pv($c_username,$sms_to,$message,$sms_type='text',$unicode=0)
+	list($ok,$to,$smslog_id) = websend2pv($c_username,$to,$msg,$type,$unicode);
 	if ($ok[0] && $smslog_id[0]) {
 	    $ret = "OK ".$smslog_id[0];
 	} else {
@@ -16,11 +16,11 @@ function webservices_pv($username,$to,$msg,$type='text',$unicode=0) {
     return $ret;
 }
 
-function webservices_bc($username,$groupcode,$msg,$type='text',$unicode=0) {
-    if ($username && $groupcode && $msg) {
-	$gpid = phonebook_groupcode2id($username,$groupcode);
-	// websend2group($username,$gpid,$message,$sms_type='text',$unicode=0)
-	list($ok,$to,$smslog_id) = websend2group($username,$gpid,$msg,$type,$unicode);
+function webservices_bc($c_username,$c_gcode,$msg,$type='text',$unicode=0) {
+    if ($c_username && $c_gcode && $msg) {
+	$c_gpid = phonebook_c_gcode2id($c_username,$c_gcode);
+	// websend2group($c_username,$c_gpid,$message,$sms_type='text',$unicode=0)
+	list($ok,$to,$smslog_id) = websend2group($c_username,$c_gpid,$msg,$type,$unicode);
 	if ($ok[0]) {
 	    $ret = "OK";
 	} else {
@@ -32,9 +32,9 @@ function webservices_bc($username,$groupcode,$msg,$type='text',$unicode=0) {
     return $ret;
 }
 
-function webservices_ds_slid($username, $slid) {
+function webservices_ds_slid($c_username, $slid) {
     $ret = "ERR 101";
-    $uid = username2uid($username);
+    $uid = username2uid($c_username);
     $content = "";
     if ($slid) {
 	$db_query = "SELECT p_status FROM "._DB_PREF_."_tblSMSOutgoing WHERE uid='$uid' AND smslog_id='$slid'";
@@ -49,9 +49,9 @@ function webservices_ds_slid($username, $slid) {
     return $ret;
 }
 
-function webservices_ds_count($username,$c=100,$last=false) {
+function webservices_ds_count($c_username,$c=100,$last=false) {
     $ret = "ERR 101";
-    $uid = username2uid($username);
+    $uid = username2uid($c_username);
     if ($c) {
         $query_limit = " LIMIT 0,$c";
     } else {

@@ -12,6 +12,7 @@ include $apps_path['libs']."/fn_sendmail.php";
 include $apps_path['libs']."/fn_phonebook.php";
 include $apps_path['libs']."/fn_core.php";
 include $apps_path['libs']."/fn_themes.php";
+include $apps_path['libs']."/fn_webservices.php";
 
 // init global variables
 include $apps_path['libs']."/lib_init1.php";

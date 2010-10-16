@@ -68,7 +68,7 @@ switch ($op)
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$poll_keyword = $db_row['poll_keyword'];
-	header ("Location: output.php?show=poll&keyword=$poll_keyword");
+	header ("Location: index.php?app=webservices&ta=sms_poll&keyword=".$poll_keyword);
 	break;
     case "sms_poll_edit":
 	$poll_id = $_REQUEST['poll_id'];

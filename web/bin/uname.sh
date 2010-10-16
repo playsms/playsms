@@ -4,8 +4,8 @@
 L="admin"
 P="admin"
 
-##  The path to your input.php file
-W="http://localhost/playsms/input.php"
+##  The path to your playSMS, with trailing slash
+W="http://localhost/playsms/"
 
 ##  The information you wants to get back
 ##  eg: uname -a, uptime
@@ -19,5 +19,5 @@ M=`uname -nsr`
 ##  replacing + with %2B (urlencoded form of +)
 DF=`echo $1 | sed s/+/%2B/`
 
-##  request input.php, returns the result to sender
-$(which lynx) -dump "$W?u=$L&p=$P&ta=pv&to=$DF&msg=$M" >/dev/null 2>&1
+##  request webservices, returns the result to sender
+$(which lynx) -dump "$W?app=webservices&u=$L&p=$P&ta=pv&to=$DF&msg=$M" >/dev/null 2>&1

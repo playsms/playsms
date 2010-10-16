@@ -62,7 +62,7 @@ switch ($op)
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$board_keyword = $db_row['board_keyword'];
-	header ("Location: output.php?keyword=$board_keyword");
+	header ("Location: index.php?app=webservices&ta=sms_board&keyword=".$board_keyword);
 	break;
     case "sms_board_edit":
 	$board_id = $_REQUEST['board_id'];
