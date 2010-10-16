@@ -2,7 +2,9 @@
 include "init.php";
 include $apps_path['libs']."/function.php";
 
-// fixme anton - load menu and webservices from index
+bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
+
+// fixme anton - load app extensions from index, such as menu and webservices
 if ($app = $_REQUEST['app']) {
     switch ($app) {
 	case 'menu': 
@@ -20,12 +22,12 @@ if ($app = $_REQUEST['app']) {
     exit();
 }
 
+
+// frontpage
 $error_content = "";
 if ($err) {
     $error_content .= "<div class=error_string>$err</div>";
 }
-
-bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
 
 if (valid()) {
     include $apps_path['themes']."/".$themes_module."/welcomepage.php";

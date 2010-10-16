@@ -8,19 +8,19 @@ if (!($console = $_REQUEST['console'])) {
 
 bindtextdomain('messages', $apps_path['plug'].'/language/');
 
-// user
-$c_fn = $apps_path['incs']."/user/".$inc.".php";
-if (file_exists($c_fn)) {
-    include $c_fn;
-}
-
-// admin
+// core menus for admin users
 $c_fn = $apps_path['incs']."/admin/".$inc.".php";
 if (file_exists($c_fn)) {
     include $c_fn;
 }
 
-// common
+// core menus for non-admin or regular users
+$c_fn = $apps_path['incs']."/user/".$inc.".php";
+if (file_exists($c_fn)) {
+    include $c_fn;
+}
+
+// core menus for visitors (not user)
 $c_fn = $apps_path['incs']."/common/".$inc.".php";
 if (file_exists($c_fn)) {
     include $c_fn;

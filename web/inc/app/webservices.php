@@ -1,21 +1,26 @@
 <?php
 if(!(defined('_SECURE_'))){die('Intruder alert');};
 
-// all available parameters
+// parameters
 $u 	 = trim($_REQUEST['u']);
 $p 	 = trim($_REQUEST['p']);
+
+// type of action (ta) or operation (op), ta = op
 $ta	 = trim(strtoupper($_REQUEST['ta']));
 $op	 = trim(strtoupper($_REQUEST['op']));
-$last	 = trim($_REQUEST['last']);
-$c	 = trim($_REQUEST['c']);
-$slid	 = trim($_REQUEST['slid']);
+
+// PV and BC specifics
 $to 	 = trim(strtoupper($_REQUEST['to']));
 $msg 	 = trim($_REQUEST['msg']);
-$from	 = trim($_REQUEST['from']);
 $type 	 = ( trim($_REQUEST['type']) ? trim($_REQUEST['type']) : 'text' );
 $unicode = ( trim($_REQUEST['unicode']) ? trim($_REQUEST['unicode']) : 0 );
-$form 	 = trim(strtoupper($_REQUEST['form']));
 
+// DS specifics
+$slid	 = trim($_REQUEST['slid']);
+$c	 = trim($_REQUEST['c']);
+$last	 = trim($_REQUEST['last']);
+
+// default error return
 $ret = "ERR 102";
 
 if ($op) { $ta = $op; };
@@ -53,11 +58,11 @@ if ($ta) {
 	    }
 	    break;
 	default:
+	    // output do not require valid login
 	    $ret = webservices_output($ta,$_REQUEST);
     }
 }
 
 echo $ret;
-exit();
 
 ?>
