@@ -32,6 +32,7 @@ Core functions that you can 'hook' from tools plugins:
 - rate_deduct($smslog_id)
 - rate_refund($smslog_id)
 - setsmsdeliverystatus($smslog_id,$uid,$p_status)
+- interceptincomingsms($sms_datetime,$sms_sender,$message)
 - sendmail($mail_from,$mail_to,$mail_subject="",$mail_body="")
 
 

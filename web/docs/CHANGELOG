@@ -7,6 +7,8 @@ Version 0.9.5.1 - 171010
 - fix autoreply, sendsms_pv() returns array (anton)
 - fix simplerate_hook_cansend should print $username to logger_print instead $uid (anton)
 - fix message empty when handled by gnokii and smstools due to single quote in $lc (kendokar)
+- fix phonebook should be able to match numbers with entries from shared groups (anton)
+- fix phonebook number matching got better (anton)
 
 Version 0.9.5 - 101010
 - add multi-language support per plugin bases (anton)
