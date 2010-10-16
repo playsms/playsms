@@ -139,7 +139,7 @@ switch ($op)
 	    if ($msg_unicode == "on") {
 		$unicode = "1";
 	    }
-	    list($ok,$to,$smslog_id) = websend2pv($username,$sms_to,$message,$sms_type,$unicode);
+	    list($ok,$to,$smslog_id) = sendsms_pv($username,$sms_to,$message,$sms_type,$unicode);
 	    
 	    if (count($ok) <= 5) {
 		for ($i=0;$i<count($ok);$i++) {
@@ -272,7 +272,7 @@ switch ($op)
 	    if ($msg_unicode == "on") {
 		$unicode = "1";
 	    }
-	    list($ok,$to,$smslog_id) = websend2group($username,$gpid,$message,$sms_type,$unicode);
+	    list($ok,$to,$smslog_id) = sendsms_bc($username,$gpid,$message,$sms_type,$unicode);
 	    
 	    // minimize delivery reports on web, actual status can be seen from outgoing SMS menu (emmanuel)
 	    $sms_sent = 0;

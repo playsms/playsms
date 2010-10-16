@@ -1,15 +1,6 @@
 <?php
 if(!(defined('_SECURE_'))){die('Intruder alert');};
 
-function str2hex($string)  {
-    $hex = '';
-    $len = strlen($string);
-    for ($i = 0; $i < $len; $i++) {
-	$hex .= str_pad(dechex(ord($string[$i])), 2, 0, STR_PAD_LEFT);
-    }
-    return $hex;
-}
-
 function sendsms_getvalidnumber($sender) {
     $sender_arr = explode(" ", $sender);
     $sender = preg_replace("/[^a-zA-Z0-9\+]/", "", $sender_arr[0]);
@@ -53,7 +44,7 @@ function sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid=0,$sms_t
     return $ret;
 }
 
-function websend2pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
+function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
     global $apps_path, $core_config;
     global $datetime_now, $gateway_module;
     $uid = username2uid($username);
@@ -94,23 +85,36 @@ function websend2pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
     return array($ok,$to,$smslog_id);
 }
 
-function websend2group($username,$gpid,$message,$sms_type='text',$unicode=0) {
+function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
     global $apps_path, $core_config;
     global $datetime_now, $gateway_module;
     $uid = username2uid($username);
-    $mobile_sender = username2mobile($username);
     $max_length = $core_config['smsmaxlength'];
     if ($sms_sender = username2sender($username)) {
+	$sms_sender = str_replace("\'","",$sms_sender);
+	$sms_sender = str_replace("\"","",$sms_sender);
 	$max_length = $max_length - strlen($sms_sender) - 1; 
     }
     if (strlen($message)>$max_length) {
         $message = substr ($message,0,$max_length-1);
     }
+    $sms_msg = $message;
+    // \r and \n is ok - http://smstools3.kekekasvi.com/topic.php?id=328
+    //$sms_msg = str_replace("\r","",$sms_msg);
+    //$sms_msg = str_replace("\n","",$sms_msg);
+    $sms_msg = str_replace("\"","'",$sms_msg);
+	    
+    $mobile_sender = username2mobile($username);
+    $mobile_sender = str_replace("\'","",$mobile_sender);
+    $mobile_sender = str_replace("\"","",$mobile_sender);
+    
+    // destination group should be an array, if single then make it array of 1 member
     if (is_array($gpid)) {
 	$array_gpid = $gpid;
     } else {
 	$array_gpid[0] = $gpid;
     }
+
     $j=0;
     for ($i=0;$i<count($array_gpid);$i++) {
 	$c_gpid = strtoupper($array_gpid[$i]);
@@ -118,17 +122,6 @@ function websend2group($username,$gpid,$message,$sms_type='text',$unicode=0) {
 	foreach ($rows as $key => $db_row) {
 	    $p_num = $db_row['p_num'];
 	    $sms_to = $p_num;
-	    $sms_msg = $message;
-	    
-	    // \r and \n is ok - http://smstools3.kekekasvi.com/topic.php?id=328
-	    //$sms_msg = str_replace("\r","",$sms_msg);
-	    //$sms_msg = str_replace("\n","",$sms_msg);
-	    $sms_msg = str_replace("\"","'",$sms_msg);
-	    
-	    $mobile_sender = str_replace("\'","",$mobile_sender);
-	    $mobile_sender = str_replace("\"","",$mobile_sender);
-	    $sms_sender = str_replace("\'","",$sms_sender);
-	    $sms_sender = str_replace("\"","",$sms_sender);
 	    $sms_to = str_replace("\'","",$sms_to);
 	    $sms_to = str_replace("\"","",$sms_to);
 	    $to[$j] = $sms_to;
@@ -141,47 +134,6 @@ function websend2group($username,$gpid,$message,$sms_type='text',$unicode=0) {
 	}
     }
     return array($ok,$to,$smslog_id);
-}
-
-function send2group($mobile_sender,$gpid,$message) {
-    global $apps_path, $core_config;
-    global $datetime_now,$gateway_module;
-    $ok = false;
-    if ($mobile_sender && $gpid && $message) {
-	$uid = mobile2uid($mobile_sender);
-	$username = uid2username($uid);
-	$sms_sender = username2sender($username);
-	if ($uid && $username) {
-	    $c=0;
-	    $rows = phonebook_getdatabyid($gpid);
-	    foreach ($rows as $key => $db_row) {
-	    	$p_num = $db_row['p_num'];
-		$sms_to = $p_num;
-		$max_length = $core_config['smsmaxlength'] - strlen($sms_sender) - 3;
-		if (strlen($message)>$max_length) {
-		    $message = substr ($message,0,$max_length-1);
-		}
-		$sms_msg = $message;
-		$sms_msg = str_replace("\r","",$sms_msg);
-		$sms_msg = str_replace("\n","",$sms_msg);
-		$sms_msg = str_replace("\""," ",$sms_msg);
-		$mobile_sender = str_replace("\'","",$mobile_sender);
-		$mobile_sender = str_replace("\"","",$mobile_sender);
-		$sms_sender = str_replace("\'","",$sms_sender);
-		$sms_sender = str_replace("\"","",$sms_sender);
-		$sms_to = str_replace("\'","",$sms_to);
-		$sms_to = str_replace("\"","",$sms_to);
-		if ($ret = sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid)) {
-		    $ok[$c] = $ret['status'];
-		    $c++;
-		}
-	    }
-	}
-    }
-    for ($c=0;$c<count($ok);$c++) {
-	if ($ok[$c]) break;
-    }
-    return $ok[$c];
 }
 
 ?>

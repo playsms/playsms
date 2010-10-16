@@ -57,6 +57,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
     switch ($target_keyword) {
 	case "BC":
 	    $c_uid = mobile2uid($sms_sender);
+	    $c_username = uid2username($c_uid);
 	    $c_feature = 'core';
 	    $array_target_group = explode(" ",$message);
 	    $target_group = strtoupper(trim($array_target_group[0]));
@@ -65,8 +66,13 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
 	    for ($i=2;$i<count($array_target_group);$i++) {
 		$message .= " ".$array_target_group[$i];
 	    }
-	    if (send2group($sms_sender,$c_gpid,$message)) {
-		$ok = true;
+	    list($ok,$to,$smslog_id) = sendsms_bc($c_username,$c_gpid,$message);
+	    $ok = false;
+	    for ($i=0;$i<count($ok);$i++) {
+	        if ($ok[$i]) {
+	    	    $ok = true;
+	    	    break;
+		}
 	    }
 	    break;
 	case "PV":
@@ -216,6 +222,15 @@ function playsmsd() {
     }
     // plugin gateway
     x_hook($gateway_module,'playsmsd');
+}
+
+function str2hex($string)  {
+    $hex = '';
+    $len = strlen($string);
+    for ($i = 0; $i < $len; $i++) {
+	$hex .= str_pad(dechex(ord($string[$i])), 2, 0, STR_PAD_LEFT);
+    }
+    return $hex;
 }
 
 ?>

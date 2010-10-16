@@ -94,11 +94,8 @@ function sms_autoreply_handle($sms_datetime,$sms_sender,$autoreply_keyword,$auto
 	$db_row = dba_fetch_array($db_result);
 	$c_uid = $db_row['uid'];
 	$c_username = uid2username($c_uid);
-	$smslog_id = websend2pv($c_username,$sms_sender,$autoreply_scenario_result);
-	if ($smslog_id)
-	{
-	    $ok = true;
-	}
+	list($ok1,$to,$smslog_id) = sendsms_pv($c_username,$sms_sender,$autoreply_scenario_result);
+	$ok = $ok1[0];
     }
     return $ok;
 }

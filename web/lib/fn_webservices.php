@@ -3,8 +3,8 @@ if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
     if ($c_username && $to && $msg) {
-	// websend2pv($c_username,$sms_to,$message,$sms_type='text',$unicode=0)
-	list($ok,$to,$smslog_id) = websend2pv($c_username,$to,$msg,$type,$unicode);
+	// sendsms_pv($c_username,$sms_to,$message,$sms_type='text',$unicode=0)
+	list($ok,$to,$smslog_id) = sendsms_pv($c_username,$to,$msg,$type,$unicode);
 	if ($ok[0] && $smslog_id[0]) {
 	    $ret = "OK ".$smslog_id[0];
 	} else {
@@ -19,8 +19,8 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
 function webservices_bc($c_username,$c_gcode,$msg,$type='text',$unicode=0) {
     if ($c_username && $c_gcode && $msg) {
 	$c_gpid = phonebook_c_gcode2id($c_username,$c_gcode);
-	// websend2group($c_username,$c_gpid,$message,$sms_type='text',$unicode=0)
-	list($ok,$to,$smslog_id) = websend2group($c_username,$c_gpid,$msg,$type,$unicode);
+	// sendsms_bc($c_username,$c_gpid,$message,$sms_type='text',$unicode=0)
+	list($ok,$to,$smslog_id) = sendsms_bc($c_username,$c_gpid,$msg,$type,$unicode);
 	if ($ok[0]) {
 	    $ret = "OK";
 	} else {
