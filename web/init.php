@@ -161,8 +161,10 @@ if (file_exists($fn1) && file_exists($fn2)) {
 $core_config['module']['language'] = $language_module;
 
 // multi-language init
-bindtextdomain('messages', $apps_path['plug'].'/language/');
-textdomain('messages');
+if (function_exists('bindtextdomain')) {
+    bindtextdomain('messages', $apps_path['plug'].'/language/');
+    textdomain('messages');
+}
 setlocale(LC_ALL, $language_module, $language_module.'.utf8', $language_module.'.utf-8', $language_module.'.UTF8', $language_module.'.UTF-8');
 
 // set global variable

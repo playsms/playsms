@@ -2,11 +2,15 @@
 if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 if (!($console = $_REQUEST['console'])) {
-    bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
+    if (function_exists('bindtextdomain')) {
+	bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
+    }
     include $apps_path['themes'].'/'.$themes_module.'/header.php';
 }
 
-bindtextdomain('messages', $apps_path['plug'].'/language/');
+if (function_exists('bindtextdomain')) {
+    bindtextdomain('messages', $apps_path['plug'].'/language/');
+}
 
 // core menus for admin users
 $c_fn = $apps_path['incs']."/admin/".$inc.".php";
@@ -34,7 +38,9 @@ for ($i=0;$i<count($plugins_category);$i++) {
 		$pn = $core_config[$pc.'list'][$c];
 		$c_fn = $apps_path['plug'].'/'.$pc.'/'.$pn.'/'.$pn.'.php';
 		if (file_exists($c_fn)) {
-		    bindtextdomain('messages', $apps_path['plug'].'/'.$pc.'/'.$pn.'/language/');
+		    if (function_exists('bindtextdomain')) {
+			bindtextdomain('messages', $apps_path['plug'].'/'.$pc.'/'.$pn.'/language/');
+		    }
 		    include_once $c_fn;
 		    break;
 		}
@@ -44,7 +50,9 @@ for ($i=0;$i<count($plugins_category);$i++) {
 }
 
 if (!($console = $_REQUEST['console'])) {
-    bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
+    if (function_exists('bindtextdomain')) {
+	bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
+    }
     include $apps_path['themes'].'/'.$themes_module.'/footer.php';
 }
 

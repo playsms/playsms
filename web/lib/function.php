@@ -42,8 +42,9 @@ for ($i=0;$i<count($plugins_category);$i++) {
 	    $c_fn1 = $dir.$tmp_core_config[$pc.'list'][$c]."/config.php";
 	    if (file_exists($c_fn1))
 	    {
-		bindtextdomain('messages', $dir.$tmp_core_config[$pc.'list'][$c].'/language/');
-		//textdomain('messages');
+		if (function_exists('bindtextdomain')) {
+		    bindtextdomain('messages', $dir.$tmp_core_config[$pc.'list'][$c].'/language/');
+		}
 		include $c_fn1;
 		$c_fn2 = $dir.$tmp_core_config[$pc.'list'][$c]."/fn.php";
 		if (file_exists($c_fn2))
@@ -56,8 +57,9 @@ for ($i=0;$i<count($plugins_category);$i++) {
     }
 }
 
-bindtextdomain('messages', $apps_path['plug'].'/language/');
-//textdomain('messages');
+if (function_exists('bindtextdomain')) {
+    bindtextdomain('messages', $apps_path['plug'].'/language/');
+}
 
 // init global variables after plugins
 include $apps_path['libs']."/lib_init2.php";

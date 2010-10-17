@@ -2,7 +2,9 @@
 include "init.php";
 include $apps_path['libs']."/function.php";
 
-bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
+if (function_exists('bindtextdomain')) {
+    bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
+}
 
 // fixme anton - load app extensions from index, such as menu and webservices
 if ($app = $_REQUEST['app']) {
