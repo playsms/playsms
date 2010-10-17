@@ -51,7 +51,7 @@ function gammu_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p
     }
 
     // if file not found
-    if (! $the_fn) {
+    if (! file_exists($the_fn)) {
 	$p_datetime_stamp = strtotime($p_datetime);
 	$p_update_stamp = strtotime($p_update);
 	$p_delay = floor(($p_update_stamp - $p_datetime_stamp)/86400);
@@ -60,10 +60,11 @@ function gammu_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p
 	    $p_status = 2;
 	    setsmsdeliverystatus($smslog_id,$uid,$p_status);
 	}
+    } else {
+	// delete the file if exists
+	logger_print("smslog_id:".$smslog_id." unlink the_fn:".$the_fn." p_status:".$p_status, 3, "gammu getsmsstatus");
+	@unlink ($the_fn);
     }
-    
-    // delete the file if exists
-    @unlink ($the_fn);
     return;
 }
 
