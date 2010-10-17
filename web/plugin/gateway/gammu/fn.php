@@ -114,11 +114,15 @@ function gammu_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',
     if ($sms_sender) {
 	$sms_msg = $sms_msg.$sms_sender;
     }
+    // no need to do anything on unicoded messages since InboxFormat and OutboxFormat is already set to unicode
+    // meaning gammu will take care of it
+    /*
     if ($unicode) {
 	if (function_exists('mb_convert_encoding')) {
 	    $sms_msg = mb_convert_encoding($sms_msg, "UCS-2BE", "auto");
 	}
     }
+    */
     $fn = $gammu_param['path']."/outbox/OUT".$sms_id;
     logger_print("outfile:".$fn, 3, "gammu outgoing");
     umask(0);
