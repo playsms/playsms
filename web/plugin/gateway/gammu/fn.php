@@ -16,22 +16,25 @@ function gammu_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p
     $dir[1] = $gammu_param['path'].'/error/';
     
     // list all files in sent and error dir
+    $fn = array();
     for ($i=0;$i<count($dir);$i++) {
-	if ($handle = opendir($dir[$i])) {
-	    while (false !== ($file = readdir($handle))) {
+	$j=0;
+	if ($handle = @opendir($dir[$i])) {
+	    while ($file = @readdir($handle)) {
         	if ($file != "." && $file != "..") {
-        	    $fn[$i][] = $file;
+        	    $fn[$i][$j] = $file;
+        	    $j++;
         	}
     	    }
-    	    closedir($handle);
+    	    @closedir($handle);
 	}
     }
-    
+
     // check listed files above againts sms_id
     $the_fn = '';
     for ($i=0;$i<count($dir);$i++) {
-	for ($j=0;$j<count($fn);$j++) {
-	    if (preg_match("/".$sms_id."/i", $fn[$i][$j])) {
+	for ($j=0;$j<count($fn[$i]);$j++) {
+	    if (preg_match("/".$sms_id."/", $fn[$i][$j])) {
 		$the_fn = $fn[$i][$j];
 		if ($i==0) {
 		    // sms sent
@@ -46,7 +49,7 @@ function gammu_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p
 	    }
 	}
     }
-    
+
     // if file not found
     if (! $the_fn) {
 	$p_datetime_stamp = strtotime($p_datetime);
@@ -100,6 +103,7 @@ function gammu_hook_getsmsinbox() {
 	    @unlink($fn);
 	}
     }
+    @closedir($handle);
 }
 
 function gammu_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
