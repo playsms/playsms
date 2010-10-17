@@ -19,6 +19,14 @@ msgstr "Nama"
 msgid "Content"
 msgstr "Isi"
 
+#: inc/admin/user_incoming.php:64 inc/admin/all_incoming.php:66
+msgid "handled"
+msgstr "tertangani"
+
+#: inc/admin/user_incoming.php:64 inc/admin/all_incoming.php:66
+msgid "unhandled"
+msgstr "tidak tertangani"
+
 #: inc/user/sms_template.php:55
 msgid "Select action"
 msgstr "Pilih tindakan"

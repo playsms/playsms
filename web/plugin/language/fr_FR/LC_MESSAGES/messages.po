@@ -23,6 +23,14 @@ msgstr "Nom"
 msgid "Content"
 msgstr "Contenu"
 
+#: inc/admin/user_incoming.php:64 inc/admin/all_incoming.php:66
+msgid "handled"
+msgstr ""
+
+#: inc/admin/user_incoming.php:64 inc/admin/all_incoming.php:66
+msgid "unhandled"
+msgstr ""
+
 #: inc/user/sms_template.php:55
 msgid "Select action"
 msgstr "Sélectionner une action"
