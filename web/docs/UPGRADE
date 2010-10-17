@@ -8,5 +8,8 @@ Steps to upgrade:
 3. Do the installation process for new playSMS version 0.9.5.1
 4. Copy old config.php from playSMS 0.9.5 to playSMS 0.9.5.1 config.php
 
+Note: no database structure changes
+
+
 --
 Anton Raharja

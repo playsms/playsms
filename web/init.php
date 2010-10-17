@@ -161,6 +161,7 @@ if (file_exists($fn1) && file_exists($fn2)) {
 $core_config['module']['language'] = $language_module;
 
 // multi-language init
+// make sure that bindtextdomain is exists, server should have PHP gettext extension enabled
 if (function_exists('bindtextdomain')) {
     bindtextdomain('messages', $apps_path['plug'].'/language/');
     textdomain('messages');

@@ -54,3 +54,27 @@ SMS Status:
 2 = failed
 3 = delivered
 
+
+PROTOCOL
+--------
+
+1. Send SMS
+    ta		: pv
+    parameters	: u, p, to, msg, type, unicode
+    notes	: to parameter is a valid international formatted mobile number
+
+2. Send broadcast SMS
+    ta		: bc
+    parameters	: u, p, to, msg, type, unicode
+    notes:	: to parameter is group code
+
+3. Delivery reports
+    ta		: ds
+    parameters	: u, p, slid, c, last
+    notes	: slid retrieve 1 delivery report
+		  c retrieves as many as c value
+		  last retrieves from last ID
+
+
+--
+Anton Raharja
