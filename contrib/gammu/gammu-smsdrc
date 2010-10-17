@@ -1,0 +1,20 @@
+[gammu]
+port = /dev/ttyUSB0
+connection = at115200
+logfile = /var/log/gammu/gammu.log
+logformat = textall
+
+[smsd]
+Service = files
+InboxPath = /var/spool/gammu/inbox/
+OutboxPath = /var/spool/gammu/outbox/
+SentSMSPath = /var/spool/gammu/sent/
+ErrorSMSPath = /var/spool/gammu/error/
+InboxFormat = unicode
+OutboxFormat = unicode
+TransmitFormat = auto
+debugLevel = 1
+LogFile = /var/log/gammu/smsd.log
+DeliveryReport = sms
+DeliveryReportDelay = 7200
+CheckSecurity = 0

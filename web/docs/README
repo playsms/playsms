@@ -28,7 +28,7 @@ Feature Highlights
 - SMS subscribe, manage user subscribes to a service using SMS
 - SMS autosend, automatically send SMS once or repeated
 - Create your own features, tools, themes and gateway modules as a plugin
-- By default support Gnokii, Kannel, SMS Server Tools and Clickatell
+- By default support Gammu, Gnokii, Kannel, SMS Server Tools and Clickatell
 - Simple webservices for sending SMS and retrieving delivery reports
 - Long SMS support, length of text is configurable
 - Rate SMS by destination prefix

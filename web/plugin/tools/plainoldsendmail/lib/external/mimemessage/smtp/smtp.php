@@ -225,7 +225,9 @@ class smtp_class
 		for($host=0;;$host++)
 		{
 			$domain=$hosts[$host];
-			if(ereg('^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$',$domain))
+			// fixme anton - ereg is depreceted in php 5.3
+			// if(ereg('^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$',$domain))
+			if(preg_match('/^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/',$domain))
 				$ip=$domain;
 			else
 			{

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+. /etc/default/playsms
+
+GAMMU=`which gammu-smsd`
+
+killall -9 gammu-smsd >/dev/null 2>&1
+sleep 3
+
+CWD=`pwd`
+cd $PLAYSMS_LOG
+nohup $GAMMU >/dev/null 2>&1 &
+cd $CWD
+

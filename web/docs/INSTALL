@@ -91,7 +91,7 @@ playSMS Web Interface:
 
 Please continue to follow INSTALL_GNOKII if you want to use gnokii as your gateway module, 
 or INSTALL_SMSSERVERTOOLS to use SMS Server Tools, or INSTALL_KANNEL if you want to use 
-kannel instead.
+kannel, or INSTALL_GAMMU if you want to use gammu instead.
 
 As of playSMS version 0.9.5 using SMS Server Tools (smstools3) or Kannel is preferrable.
 

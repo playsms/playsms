@@ -1,33 +1,50 @@
-query string: 
+WEBSERVICES ACCESS
+------------------
+URL: http://playSMS_web_domain/index.php?app=webservices
+
+
+PARAMETERS
+----------
 u	: username
 p	: password
-ta	: type of action 
-	    pv = send private
-	    bc = send broadcast
-	    ds = delivery status
+
+ta	: type of action
+	  for example:
+	    pv 		: send private
+	    bc 		: send broadcast
+	    ds 		: delivery status
+	    sms_poll 	: poll results from plugin sms_poll
+	    sms_board 	: board results from plugin sms_board
+
+to	: destination number (for ta=pv) or destination group code (for ta=bc)
+msg	: message
+type 	: message type (1=flash, 2=text)
+unicode : whether message unicode or not (1=unicode, 0=not unicode)
+
 last 	: last SMS log ID (this number not included on result)
 c	: number of delivery status that will be retrieved
 slid	: SMS Log ID (for ta=ds, when slid defined 'last' and 'c' has no effect)
-to	: destination number (for ta=pv) or destination group code (for ta=bc)
-msg	: message
-from	: sender mobile number
-type 	: message type (1=flash, 2=text)
-unicode : whether message unicode or not (1=unicode, 0=not unicode)
-form 	: ds output format
 
-example: 
-http://x.com/index.php?app=webservices&u=admin&p=rahasia&ta=bc&to=TI&msg=meeting+at+15.00+today!
 
+ERROR RETURNS
+-------------
+ERR 100	: authentication failed
+ERR 101	: type of action not valid
+ERR 102	: one or more field empty
+ERR 200	: send private failed
+ERR 201	: destination number or message is empty
+ERR 300	: send broadcast failed
+ERR 301	: destination group or message is empty
+ERR 400	: no delivery status retrieved
+
+
+EXAMPLE
+-------
+http://x.com/index.php?app=webservices&ta=bc&u=admin&p=rahasia&to=TI&msg=meeting+at+15.00+today!
+
+User admin access playSMS webservices in x.com with type of action bc (broadcast)
 if succeded returns: OK SMS_LOG_ID (eg: OK 754)
-if error occured returns:
-	ERR 100	= authentication failed
-	ERR 101	= type of action not valid
-	ERR 102	= one or more field empty
-	ERR 200	= send private failed
-	ERR 201 = destination number or message is empty
-	ERR 300	= send broadcast failed
-	ERR 301 = destination group or message is empty
-	ERR 400 = no delivery status retrieved
+if error occured returns ERROR RETURNS
 
 output delivery status (for ta=ds) in CSV form:
 SMS log ID; Source number; Destination Number; Message; Delivery Time; Update Pending Status Time; SMS Status
@@ -36,3 +53,4 @@ SMS Status:
 1 = sent
 2 = failed
 3 = delivered
+

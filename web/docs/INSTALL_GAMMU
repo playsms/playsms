@@ -1,0 +1,57 @@
+INSTALL GAMMU
+-------------
+
+This is an example of Gammu installation in Ubuntu Desktop 10.4. Your have to install both playSMS and
+Gammu on the same server.
+
+1. Make sure you have root access
+    $ sudo su -
+    # 
+
+2. Install packages required for building Gammu from source in Ubuntu
+    # apt-get install libcurl4-openssl-dev libusb-1.0-0-dev libbluetooth-dev libmysqlclient15-dev cmake
+   In most cases below command will be sufficient
+    # apt-get install libusb-1.0-0-dev cmake
+
+3. Navigate to Gammu source file and extract
+   In this example you have downloaded gammu-1.28.0.tar.bz2 from http://wammu.eu and save it in /usr/local/src
+    # cd /usr/local/src
+    # tar -jxf gammu-1.28.0.tar.bz2
+
+4. Enter Gammu extracted source file directory and compile them
+    # cd gammu-1.28.0
+    # ./configure
+    # make
+    # make test
+    # make install
+
+5. Create required directories
+    # mkdir /var/log/gammu
+    # mkdir /var/log/gammu
+    # mkdir -p /var/spool/gammu/inbox
+    # mkdir -p /var/spool/gammu/outbox
+    # mkdir -p /var/spool/gammu/sent
+    # mkdir -p /var/spool/gammu/error
+
+6. Setup Gammu spool directories owner and permissions
+   In this example your webserver user and group is www-data
+    # chown www-data:www-data -R /var/spool/gammu/*
+    OR
+    # chmod 777 -R /var/spool/gammu/*
+
+7. Copy this_playsms_package/contrib/gammu/gammu-smsdrc to /etc/
+    # cp [this playsms package]/contrib/gammu/gammu-smsdrc /etc/
+   Note: Before continue to step 8 you might want to take a look /etc/gammu-smsdrc
+	 and edit the file accordingly. Do not change file or directory paths.
+
+8. Start gammu-smsd using example script gammu_smsd_start from playsms_package/bin
+    # cd [this playsms package]/bin
+    # cp gammu_smsd_start /usr/local/bin
+   Note: You might also want to put gammu_smsd_start in rc.local (/etc/rc.local)
+
+9. Run gammu_smsd_start to start gammu-smsd
+    # gammu_smsd_start
+
+
+--
+Anton Raharja

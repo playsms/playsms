@@ -1,0 +1,23 @@
+#: config.php:7 gammu.php:23
+msgid "Manage gammu"
+msgstr "Pengaturan gammu"
+
+#: gammu.php:8
+msgid "Active"
+msgstr "Aktif"
+
+#: gammu.php:12
+msgid "Inactive"
+msgstr "Nonaktif"
+
+#: gammu.php:12
+msgid "click here to activate"
+msgstr "klik di sini untuk mengaktifkan"
+
+#: gammu.php:27
+msgid "Gateway name"
+msgstr "Nama gateway"
+
+#: gammu.php:36
+msgid "Gateway has been activated"
+msgstr "Gateway telah diaktifkan"

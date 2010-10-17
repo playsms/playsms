@@ -1,4 +1,5 @@
 Version 0.9.5.1 - 171010
+- add new gateway module gammu, tested with backend FILES, gammu version 1.28.0 (anton)
 - add interceptincomingsms() lib/fn_core.php, its hookable from plugin tools (anton)
 - add css class .error_string and .required, themes common.css (anton)
 - change websend2pv() to sendsms_pv() and websend2group() to sendsms_bc(), lib/fn_sendsms.php (anton)
