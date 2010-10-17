@@ -9,7 +9,7 @@ if (!valid()) {
 	forcenoaccess();
 };
 ?>
-<script type="text/javascript" src="<?=$http_path['themes']?>/<?=$themes_module?>/jscss/datetimepicker.js"></script>
+<script type="text/javascript" src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/datetimepicker.js"></script>
 <?php
 switch ($op) {
 	case "sms_autosend_list" :

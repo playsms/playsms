@@ -1,4 +1,4 @@
-Version 0.9.5.1 - 171010
+Version 0.9.5.1 - 201010
 - add new gateway module gammu, tested with backend FILES, gammu version 1.28.0 (anton)
 - add interceptincomingsms() lib/fn_core.php, its hookable from plugin tools (anton)
 - add css class .error_string and .required, themes common.css (anton)
@@ -10,6 +10,7 @@ Version 0.9.5.1 - 171010
 - fix message empty when handled by gnokii and smstools due to single quote in $lc (kendokar)
 - fix phonebook should be able to match numbers with entries from shared groups (anton)
 - fix phonebook number matching got better (anton)
+- fix short_open_tag issue, now all short tags including <?= replaced with <?php (anton)
 
 Version 0.9.5 - 101010
 - add multi-language support per plugin bases (anton)

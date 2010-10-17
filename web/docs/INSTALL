@@ -16,7 +16,6 @@ Minimum Required Software
 - PHP PEAR DB (this is a must, most admins forgot this requirement)
 - PHP gettext extension (this is a must for text translation)
 - PHP multibyte string function (should be able to call mb_convert_encoding)
-- PHP option in php.ini should enable short_open_tag (short_open_tag=on)
 - Access to SMTP server (playSMS will use this to send email)
 - lynx, wget or curl, a console web browser (example scripts require lynx)
 
