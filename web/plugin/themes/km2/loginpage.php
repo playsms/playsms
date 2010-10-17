@@ -24,16 +24,16 @@
             <form action="index.php?app=menu" method="POST">
               <input type="hidden" name="inc" value="login">
               <tr>
-                <td width="90" align="right"><font color="white"><?php echo _('Username ')?></td>
+                <td width="90" align="right"><font color="white"><?php echo _('Username'); ?></td>
                 <td>&nbsp;<input type="text" name="username" maxlength="100" size="20"></td>
     	      </tr>
               <tr>
-               <td align="right"><font color="white"><?php echo _('Password ')?></font></td>
+               <td align="right"><font color="white"><?php echo _('Password'); ?></font></td>
                <td>&nbsp;<input type=password name=password maxlength=100 size=20></td>
 	      </tr>
 	      <tr>
 		<td>&nbsp;</td>
-		<td>&nbsp;<input type="submit" class="button" value=<?php echo _('Login')?>></td>
+		<td>&nbsp;<input type="submit" class="button" value=<?php echo _('Login'); ?>></td>
 	      </tr>
 	    </form>          
 	    </table>

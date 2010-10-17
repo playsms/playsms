@@ -15,11 +15,11 @@ msgid "Logout"
 msgstr "Déconnexion"
 
 #: loginpage.php:27
-msgid "Username "
+msgid "Username"
 msgstr "Pseudo"
 
 #: loginpage.php:31
-msgid "Password "
+msgid "Password"
 msgstr "Mot de Passe"
 
 #: loginpage.php:36

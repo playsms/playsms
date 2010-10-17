@@ -16,11 +16,11 @@
             <form action="index.php?app=menu" method=POST>
             <input type=hidden name=inc value=login>
             <tr>
-        <td width="140" align="right"><?php echo _('Username')?> &nbsp; </td>
+        <td width="140" align="right"><?php echo _('Username'); ?> &nbsp; </td>
         <td>&nbsp;<input type=text name=username maxlength=100 size=20></td>
     </tr>
     <tr>
-    <td align="right"><?php echo _('Password')?> &nbsp; </td>
+    <td align="right"><?php echo _('Password'); ?> &nbsp; </td>
     <td>&nbsp;<input type=password name=password maxlength=100 size=20></td>
 </tr>
 <tr>

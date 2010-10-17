@@ -15,11 +15,11 @@ msgid "Logout"
 msgstr "Logout"
 
 #: loginpage.php:27
-msgid "Username "
+msgid "Username"
 msgstr ""
 
 #: loginpage.php:31
-msgid "Password "
+msgid "Password"
 msgstr ""
 
 #: loginpage.php:36

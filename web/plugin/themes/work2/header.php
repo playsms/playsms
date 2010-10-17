@@ -23,8 +23,8 @@
     <!-- left menu -->
     <?php if (valid()) { ?>
     <td style="vertical-align: top">
-	<p><b><?php echo _('Logged in')?>: <?php echo $username; ?></b> &nbsp; &nbsp; <b><?php echo _('Status')?>: <?php echo $userstatus?></b></p>
-	<?php echo themes_work2_get_menu_dropdown()?>
+	<p><b><?php echo _('Logged in'); ?>: <?php echo $username; ?></b> &nbsp; &nbsp; <b><?php echo _('Status'); ?>: <?php echo $userstatus; ?></b></p>
+	<?php echo themes_work2_get_menu_dropdown(); ?>
     </td>
     <?php } ?>
 </tr>

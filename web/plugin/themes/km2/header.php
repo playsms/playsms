@@ -36,10 +36,10 @@
 <div id="navbar">
 
 	<ul id="nav">
-		<li><a href="<?php echo $http_path['base']; ?>"><?php echo _('Home')?></a></li>
-		<li class="page_item page-item-22"><a href="./index.php?app=menu&inc=user_pref&op=user_pref" title="<?php echo _('Preferences')?>"><?php echo _('Preferences')?></a></li>
-		<li class="page_item page-item-22"><a href="./contact.php" title="<?php echo _('Contact')?>"><?php echo _('Contact')?></a></li>
-		<li class="page_item page-item-22"><a href="./index.php?app=menu&inc=logout" title="<?php echo _('Logout')?>"><?php echo _('Logout')?></a></li>
+		<li><a href="<?php echo $http_path['base']; ?>"><?php echo _('Home'); ?></a></li>
+		<li class="page_item page-item-22"><a href="./index.php?app=menu&inc=user_pref&op=user_pref" title="<?php echo _('Preferences'); ?>"><?php echo _('Preferences'); ?></a></li>
+		<li class="page_item page-item-22"><a href="./contact.php" title="<?php echo _('Contact'); ?>"><?php echo _('Contact'); ?></a></li>
+		<li class="page_item page-item-22"><a href="./index.php?app=menu&inc=logout" title="<?php echo _('Logout'); ?>"><?php echo _('Logout'); ?></a></li>
     
 </div>
 
@@ -59,7 +59,7 @@
 	    <td style="border:#B4B3B3 1px solid; background-color:#F8F8F8; vertical-align:top; padding:10px;">
 		<p><b>Login: <?php echo $username ?></b></p>
 		<p><b>Status: <?php echo $userstatus ?></b></p>
-		<?php echo themes_get_menu_tree()?>
+		<?php echo themes_get_menu_tree(); ?>
 	    </td>
 	</tr>
 	</table>

@@ -15,11 +15,11 @@ msgid "Logout"
 msgstr "Keluar"
 
 #: loginpage.php:27
-msgid "Username "
+msgid "Username"
 msgstr "Nama pengguna"
 
 #: loginpage.php:31
-msgid "Password "
+msgid "Password"
 msgstr "Kata sandi"
 
 #: loginpage.php:36
