@@ -4,6 +4,10 @@ INSTALL GAMMU
 This is an example of Gammu installation in Ubuntu Desktop 10.4. Your have to install both playSMS and
 Gammu on the same server.
 
+There are 2 methods of installation, first is to install from source and secondly with apt-get.
+
+I. Install Gammu from source
+
 1. Make sure you have root access
     $ sudo su -
     # 
@@ -48,9 +52,42 @@ Gammu on the same server.
     # cd [this playsms package]/bin
     # cp gammu_smsd_start /usr/local/bin
    Note: You might also want to put gammu_smsd_start in rc.local (/etc/rc.local)
+         to get gammu-smsd started on boot
 
 9. Run gammu_smsd_start to start gammu-smsd
     # gammu_smsd_start
+
+II. Install with apt-get
+
+1. Make sure you have root access
+    $ sudo su -
+    # 
+
+2. Install Gammu with apt-get
+    # apt-get install gammu-smsd
+
+3. Create required directories
+    # mkdir /var/log/gammu
+    # mkdir /var/log/gammu
+    # mkdir -p /var/spool/gammu/inbox
+    # mkdir -p /var/spool/gammu/outbox
+    # mkdir -p /var/spool/gammu/sent
+    # mkdir -p /var/spool/gammu/error
+
+4. Setup Gammu spool directories owner and permissions
+   In this example your webserver user and group is www-data
+    # chown www-data:www-data -R /var/spool/gammu/*
+    OR
+    # chmod 777 -R /var/spool/gammu/*
+
+5. Copy this_playsms_package/contrib/gammu/gammu-smsdrc to /etc/
+    # cp [this playsms package]/contrib/gammu/gammu-smsdrc /etc/
+   Note: Before continue to step 8 you might want to take a look /etc/gammu-smsdrc
+	 and edit the file accordingly. Do not change file or directory paths.
+
+6. Run gammu-smsd
+    # /etc/init.d/gammu-smsd start
+   Note: You don't need to put the script in /etc/rc.local
 
 
 --
