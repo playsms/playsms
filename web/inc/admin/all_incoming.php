@@ -60,7 +60,7 @@ switch ($op)
 		$current_sender = "$in_sender<br>($p_desc)";
 	    }
 	    $in_keyword = $db_row['in_keyword'];
-	    $in_message = $db_row['in_message'];
+	    $in_message = htmlspecialchars($db_row['in_message']);
 	    $in_datetime = $db_row['in_datetime'];
 	    $in_feature = $db_row['in_feature'];
 	    $in_status = ( $db_row['in_status'] == 1 ? '<p><font color=green>'._('handled').'</font></p>' : '<p><font color=red>'._('unhandled').'</font></p>' );

@@ -66,7 +66,7 @@ switch ($op)
 	    $p_sms_type = $db_row['p_sms_type'];
 	    $hide_p_dst = str_replace("\'","",$hide_p_dst);
 	    $hide_p_dst = str_replace("\"","",$hide_p_dst);
-	    $p_msg = $db_row['p_msg'];
+	    $p_msg = htmlspecialchars($db_row['p_msg']);
 	    if (($p_footer = $db_row['p_footer']) && (($p_sms_type == "text") || ($p_sms_type == "flash")))
 	    {
 		$p_msg = $p_msg." $p_footer";
