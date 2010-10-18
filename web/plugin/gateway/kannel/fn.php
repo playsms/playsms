@@ -132,7 +132,7 @@ function kannel_hook_getsmsinbox() {
 }
 
 function kannel_hook_call($requests) {
-    global $apps_path;
+    global $apps_path, $http_path, $core_config, $kannel_param;
     $called_from_hook_call = true;
     $access = $requests['access'];
     if ($access == 'dlr') {

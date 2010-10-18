@@ -173,7 +173,7 @@ function clickatell_setsmsapimsgid($smslog_id,$apimsgid) {
 }
 
 function clickatell_hook_call($requests) {
-    global $apps_path;
+    global $apps_path, $http_path, $core_config, $clickatell_param;
     $called_from_hook_call = true;
     $access = $requests['access'];
     if ($access == 'callback') {
