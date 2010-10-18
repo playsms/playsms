@@ -30,6 +30,7 @@ function interceptincomingsms($sms_datetime,$sms_sender,$message) {
 	$ret = x_hook($core_config['toolslist'][$c],'interceptincomingsms',array($sms_datetime,$sms_sender,$message));
     }
     // $ret['stop'] true is given by hooking functions, so if its empty we should set it to false
+    // $ret['stop'] true will stop setsmsincomingaction process at this point
     if (! $ret['stop']) { $ret['stop'] = false; };
     return $ret;
 }
@@ -39,6 +40,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
     
     // incoming sms will be handled by plugin/tools/* first
     // and then plugin/feature/* only when $ret['stop'] = false
+    // by default $ret['stop'] = false
     $ret = interceptincomingsms($sms_datetime,$sms_sender,$message);
     if ($ret['stop']) {
 	return true;
@@ -108,8 +110,29 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
     return $ok;
 }
 
+function interceptsmstoinbox($sms_datetime,$sms_sender,$target_user,$message) {
+    global $core_config;
+    $ret = array();
+    for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	$ret = x_hook($core_config['toolslist'][$c],'interceptsmstoinbox',array($sms_datetime,$sms_sender,$target_user,$message));
+    }
+    // $ret['stop'] true is given by hooking functions, so if its empty we should set it to false
+    // $ret['stop'] true will stop insertsmstoinbox process at this point
+    if (! $ret['stop']) { $ret['stop'] = false; };
+    return $ret;
+}
+
 function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message) {
     global $web_title,$email_service,$email_footer;
+    
+    // sms to inbox will be handled by plugin/tools/* first
+    // and then normal process only when $ret['stop'] = false
+    // by default $ret['stop'] = false
+    $ret = interceptsmstoinbox($sms_datetime,$sms_sender,$target_user,$message);
+    if ($ret['stop']) {
+	return true;
+    }
+    
     $ok = false;
     if ($sms_sender && $target_user && $message) {
 	if ($uid = username2uid($target_user)) {
@@ -121,8 +144,7 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message) {
 		VALUES ('$sms_sender','$uid','$message','$sms_datetime')
 	    ";
 	    if ($cek_ok = @dba_insert_id($db_query)) {
-		if ($email)
-		{
+		if ($email) {
 		    $subject = "[SMSGW-PV] "._('from')." $sms_sender";
 		    $body = _('Forward Private WebSMS')." ($web_title)\n\n";
 		    $body .= _('Date time').": $sms_datetime\n";
