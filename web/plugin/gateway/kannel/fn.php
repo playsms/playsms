@@ -135,15 +135,17 @@ function kannel_hook_call($requests) {
     global $apps_path;
     $called_from_hook_call = true;
     $access = $requests['access'];
-    if ($access = 'dlr') {
-	logger_print("start dlr.php", 3, "kannel call");
-	include $apps_path['plug'].'/gateway/kannel/dlr.php';
-	logger_print("end dlr.php", 3, "kannel call");
+    if ($access == 'dlr') {
+	$fn = $apps_path['plug'].'/gateway/kannel/dlr.php';
+	logger_print("start load:".$fn, 3, "kannel call");
+	include $fn;
+	logger_print("end load dlr", 3, "kannel call");
     }
-    if ($access = 'geturl') {
-	logger_print("start geturl.php", 3, "kannel call");
-	include $apps_path['plug'].'/gateway/kannel/geturl.php';
-	logger_print("end geturl.php", 3, "kannel call");
+    if ($access == 'geturl') {
+	$fn = $apps_path['plug'].'/gateway/kannel/geturl.php';
+	logger_print("start load:".$fn, 3, "kannel call");
+	include $fn;
+	logger_print("end load geturl", 3, "kannel call");
     }
 }
 
