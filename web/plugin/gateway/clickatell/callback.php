@@ -1,16 +1,20 @@
 <?php
-chdir("../../../");
-include "init.php";
-include $apps_path['libs']."/function.php";
-chdir("plugin/gateway/clickatell/");
 
-$cb_from = $_REQUEST['from'];
-$cb_to = $_REQUEST['to'];
-$cb_timestamp = $_REQUEST['timestamp'];
-$cb_text = $_REQUEST['text'];
-$cb_status = $_REQUEST['status'];
-$cb_charge = $_REQUEST['charge'];
-$cb_apimsgid = $_REQUEST['apiMsgId'];
+if (! $called_from_hook_call) {
+    chdir("../../../");
+    include "init.php";
+    include $apps_path['libs']."/function.php";
+    chdir("plugin/gateway/clickatell/");
+    $requests = $_REQUEST;
+}
+
+$cb_from = $requests['from'];
+$cb_to = $requests['to'];
+$cb_timestamp = $requests['timestamp'];
+$cb_text = $requests['text'];
+$cb_status = $requests['status'];
+$cb_charge = $requests['charge'];
+$cb_apimsgid = $requests['apiMsgId'];
 
 /*
 $fc = "from: $cb_from - to: $cb_to - timestamp: $cb_timestamp - text: $cb_text - status: $cb_status - charge: $cb_charge - apimsgid: $cb_apimsgid\n";

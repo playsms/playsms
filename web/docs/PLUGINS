@@ -34,6 +34,7 @@ Core functions that you can 'hook' from tools plugins:
 - setsmsdeliverystatus($smslog_id,$uid,$p_status)
 - interceptincomingsms($sms_datetime,$sms_sender,$message)
 - sendmail($mail_from,$mail_to,$mail_subject="",$mail_body="")
+- call($_REQUEST)
 
 
 Feature
@@ -45,6 +46,7 @@ Core functions that you can 'hook' from feature plugins:
 - playsmsd()
 - checkavailablekeyword($keyword)
 - setsmsincomingaction($sms_datetime,$sms_sender,$keyword,$param='')
+- call($_REQUEST)
 
 
 Gateway
@@ -57,11 +59,14 @@ Core functions that you can 'hook' from gateway plugins:
 - getsmsinbox()
 - getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="")
 - sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0)
+- call($_REQUEST)
 
 
 Themes
 ------
 Here installed playSMS's themes.
+Core functions that you can 'hook' from themes plugins:
+- call($_REQUEST)
 
 
 Language
@@ -94,6 +99,46 @@ The plugin structure will be:
                                       /docs/CHANGELOG
                                       /lib
                                       mycp.php
+
+
+DIRECT ACCESS
+-------------
+Since version 0.9.5.1 playSMS will use single gate for all its routines.
+For example, prior to 0.9.5.1 accessing menus referenced to menu.php, now its changed.
+
+Access to menus, you will need to use URL index.php?app=menu
+Access to webservices, you will need to use URL index.php?app=webservices
+Access to callback functions, or functions in plugins, you will need to use index.php?app=call
+
+Notes:
+- access to menu.php has been replaced with index.php?app=menu
+- access to input.php and output.php has been replaced with index.php?app=webservices
+- access to callback.php, dlr.php and geturl.php has been replaced with 
+  index.php?app=call&cat=[plugin's category]&plugin=[plugin's name]
+- access to dlr.php in kannel will require additional parameter access=dlr
+- access to geturl.php in kannel will require additional parameter access=geturl
+
+For example:
+
+Prior to 0.9.5.1:
+http://localhost/playsms/menu.php?inc=user_outgoing&op=user_outgoing
+Since 0.9.5.1:
+http://localhost/playsms/index.php?app=menu&inc=user_outgoing&op=user_outgoing
+
+Prior to 0.9.5.1:
+http://localhost/playsms/input.php?u=admin&p=admin&ta=ds&last=100
+Since 0.9.5.1:
+http://localhost/playsms/index.php?app=webservices&u=admin&p=admin&ta=ds&last=100
+
+Prior to 0.9.5.1:
+http://localhost/playsms/plugin/gateway/clickatell/callback.php
+Since 0.9.5.1:
+http://localhost/playsms/index.php?app=call&cat=gateway&plugin=clickatell
+
+Prior to 0.9.5.1:
+http://localhost/playsms/plugin/gateway/kannel/geturl.php?t=%t&q=%q&a=%a
+Since 0.9.5.1:
+http://localhost/playsms/index.php?app=call&cat=gateway&plugin=kannel&access=geturl&t=%t&q=%q&a=%a
 
 
 --

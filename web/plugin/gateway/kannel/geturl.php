@@ -1,16 +1,19 @@
 <?php
-chdir ("../../../");
-include "init.php";
-include $apps_path['libs']."/function.php";
-chdir ("plugin/gateway/kannel");
+if (! $called_from_hook_call) {
+    chdir ("../../../");
+    include "init.php";
+    include $apps_path['libs']."/function.php";
+    chdir ("plugin/gateway/kannel");
+    $requests = $_REQUEST;
+}
 
 $remote_addr = $_SERVER['REMOTE_ADDR'];
 // srosa 20100531: added var below
 $remote_host = $_SERVER['HTTP_HOST'];
 
-$t = trim($_REQUEST['t']); 	// sms_datetime
-$q = trim($_REQUEST['q']); 	// sms_sender
-$a = trim($_REQUEST['a']); 	// message
+$t = trim($requests['t']); 	// sms_datetime
+$q = trim($requests['q']); 	// sms_sender
+$a = trim($requests['a']); 	// message
 
 logger_print("addr:".$remote_addr." host:".$remote_host." t:".$t." q:".$q." a:".$a, 3, "kannel incoming");
 

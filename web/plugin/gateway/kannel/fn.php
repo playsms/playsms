@@ -27,8 +27,13 @@ function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
 	$msg_type = 0; //flash
     }
     
+    // this doesn't work properly if kannel is not on the same server with playSMS
     // $dlr_url = $http_path['base'] . "/plugin/gateway/kannel/dlr.php?type=%d&slid=$smslog_id&uid=$uid";
-    $dlr_url = $kannel_param['playsms_web'] . "/plugin/gateway/kannel/dlr.php?type=%d&slid=".$smslog_id."&uid=".$uid;
+    
+    // prior to 0.9.5.1
+    // $dlr_url = $kannel_param['playsms_web'] . "/plugin/gateway/kannel/dlr.php?type=%d&slid=".$smslog_id."&uid=".$uid;
+    // since 0.9.5.1
+    $dlr_url = $kannel_param['playsms_web'] . "/index.php?app=call&cat=gateway&plugin=kannel&access=dlr&type=%d&slid=".$smslog_id."&uid=".$uid;
 
     $URL = "/cgi-bin/sendsms?username=".urlencode($kannel_param['username'])."&password=".urlencode($kannel_param['password']);
     $URL .= "&from=".urlencode($sms_from)."&to=".urlencode($sms_to);
@@ -124,6 +129,22 @@ function kannel_hook_getsmsinbox() {
 	}
     }
     */
+}
+
+function kannel_hook_call($requests) {
+    global $apps_path;
+    $called_from_hook_call = true;
+    $access = $requests['access'];
+    if ($access = 'dlr') {
+	logger_print("start dlr.php", 3, "kannel call");
+	include $apps_path['plug'].'/gateway/kannel/dlr.php';
+	logger_print("end dlr.php", 3, "kannel call");
+    }
+    if ($access = 'geturl') {
+	logger_print("start geturl.php", 3, "kannel call");
+	include $apps_path['plug'].'/gateway/kannel/geturl.php';
+	logger_print("end geturl.php", 3, "kannel call");
+    }
 }
 
 ?>

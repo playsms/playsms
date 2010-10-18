@@ -172,4 +172,15 @@ function clickatell_setsmsapimsgid($smslog_id,$apimsgid) {
     }
 }
 
+function clickatell_hook_call($requests) {
+    global $apps_path;
+    $called_from_hook_call = true;
+    $access = $requests['access'];
+    if ($access = 'callback') {
+	logger_print("start callback.php", 3, "clickatell call");
+	include $apps_path['plug'].'/gateway/clickatell/callback.php';
+	logger_print("end callback.php", 3, "clickatell call");
+    }
+}
+
 ?>

@@ -9,7 +9,10 @@ those items required for gateway module configuration
 Dont forget to point callback setting on Clickatell control panel
 to callback.php in this directory
 eg:
+prior to 0.9.5.1:
 http://your_playsms_website/plugin/gateway/clickatell/callback.php
+since 0.9.5.1:
+http://your_playsms_website/index.php?app=call&cat=gateway&plugin=clickatell&access=callback
 
 Plugin	: Gateway Clickatell for playSMS
 Author	: Anton Raharja

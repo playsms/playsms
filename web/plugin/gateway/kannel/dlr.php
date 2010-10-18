@@ -1,8 +1,11 @@
 <?php
-chdir ("../../../");
-include "init.php";
-include $apps_path['libs']."/function.php";
-chdir ("plugin/gateway/kannel");
+if (! $called_from_hook_call) {
+    chdir ("../../../");
+    include "init.php";
+    include $apps_path['libs']."/function.php";
+    chdir ("plugin/gateway/kannel");
+    $requests = $_REQUEST;
+}
 
 $remote_addr = $_SERVER['REMOTE_ADDR'];
 // srosa 20100531: added var below
@@ -13,9 +16,9 @@ if ($remote_addr != $kannel_param['bearerbox_host'] && $remote_host != $kannel_p
     die();
 }
 
-$type = $_REQUEST['type'];
-$slid = $_REQUEST['slid'];
-$uid = $_REQUEST['uid'];
+$type = $requests['type'];
+$slid = $requests['slid'];
+$uid = $requests['uid'];
 
 logger_print("addr:".$remote_addr." host:".$remote_host." type:".$type." slid:".$slid." uid:".$uid, 3, "kannel dlr");
 
