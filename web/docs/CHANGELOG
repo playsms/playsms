@@ -1,6 +1,7 @@
 Version 0.9.5.1 - 201010
 - MAJOR: gateway uplink will work only with master installed with playSMS >= 0.9.5.1 (anton)
 - MAJOR: fix message empty when handled by gnokii or smstools due to single quote in $lc (kendokar)
+- add htmlspecialchars to SMS messages shown in inbox, incoming and outgoing (anton)
 - add new gateway module gammu, tested using backend FILES with Gammu version 1.28.0 (anton)
 - add interceptincomingsms() lib/fn_core.php, its hookable from plugin tools (anton)
 - add css class .error_string and .required, themes common.css (anton)
