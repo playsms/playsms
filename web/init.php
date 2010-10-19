@@ -64,6 +64,15 @@ function pl_addslashes($data) {
     }
     return $data; 
 }
+
+// fixme anton
+// enforced to declare function _() for gettext replacement if no PHP gettext extension found
+// it is also possible to completely remove gettext and change multi-lang with translation array
+if (! file_exists('_')) {
+    function _($text) {
+	return $text;
+    }
+}
 /*
 end of init functions
 */
