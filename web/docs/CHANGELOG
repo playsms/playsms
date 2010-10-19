@@ -15,6 +15,8 @@ Version 0.9.5.1 - 201010
 - fix phonebook should be able to match numbers with entries from shared groups (anton)
 - fix phonebook number matching got better (anton)
 - fix short_open_tag issue, now all short tags including <?= replaced with <?php (anton)
+- fix length of p_footer in db table tblSMSOutgoing should be 30, not 11 (anton)
+- fix condition when PHP gettext not available or disabled, declare _() in init.php (anton)
 
 Version 0.9.5 - 101010
 - add multi-language support per plugin bases (anton)

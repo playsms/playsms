@@ -655,7 +655,7 @@ CREATE TABLE `playsms_tblSMSOutgoing` (
   `p_gateway` varchar(100) NOT NULL default '',
   `p_src` varchar(100) NOT NULL default '',
   `p_dst` varchar(100) NOT NULL default '',
-  `p_footer` varchar(11) NOT NULL default '',
+  `p_footer` varchar(30) NOT NULL default '',
   `p_msg` text NOT NULL,
   `p_datetime` varchar(20) NOT NULL default '0000-00-00 00:00:00',
   `p_update` varchar(20) NOT NULL default '0000-00-00 00:00:00',
