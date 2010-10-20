@@ -249,4 +249,30 @@ function str2hex($string)  {
     return $hex;
 }
 
+/*
+ * Format text for safe display on the web
+ * @param $text
+ *    original text
+ * @param $len
+ *    max. length of word in $text, split if more than $len
+ * @return
+ *    formatted text
+ */
+function core_display_text($text, $len=0) {
+    $text = htmlspecialchars($text);
+    if ($len) {
+	$arr = explode(" ",$text);
+	for ($i=0;$i<count($arr);$i++) {
+	    if (strlen($arr[$i]) > $len) {
+		$arr2 = str_split($arr[$i], $len);
+		$arr[$i] = '';
+		for ($j=0;$j<count($arr2);$j++) {
+		    $arr[$i] .= $arr2[$j]."\n";
+		}
+	    }
+	}
+	$text = implode(" ",$arr);
+    }
+    return $text;
+}
 ?>

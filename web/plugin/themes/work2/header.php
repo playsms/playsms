@@ -17,7 +17,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/rfnet.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/dropdown.css">
 
-<table cellpadding=8 cellspacing=2 border=0 width=100%>
+<table cellpadding=8 cellspacing=2 border=0 width=960>
 <tr>
     
     <!-- left menu -->

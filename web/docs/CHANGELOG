@@ -1,13 +1,13 @@
 Version 0.9.5.1 - 201010
 - MAJOR: gateway uplink will work only with master installed with playSMS >= 0.9.5.1 (anton)
 - MAJOR: fix message empty when handled by gnokii or smstools due to single quote in $lc (kendokar)
-- add htmlspecialchars to SMS messages shown in inbox, incoming and outgoing (anton)
 - add new gateway module gammu, tested using backend FILES with Gammu version 1.28.0 (anton)
 - add interceptincomingsms() lib/fn_core.php, in setsmsincomingaction(), hookable for tools (anton)
 - add interceptsmstoinbox() lib/fn_core.php, in insertsmstoinbox(), hookable for tools (anton)
 - add css class .error_string and .required, themes common.css (anton)
 - add index.php?app=call to run hookable function 'call', this will replace all direct access (anton)
 - change websend2pv() to sendsms_pv() and websend2group() to sendsms_bc(), lib/fn_sendsms.php (anton)
+- change length of main table in themes default and work2 to 960 instead of 100% (anton)
 - remove input.php and output.php and replace them with webservices, docs/WEBSERVICES (anton)
 - remove send2group() and replace it with sendsms_bc(), lib/fn_sendsms.php (anton)
 - fix autoreply, sendsms_pv() returns array (anton)
@@ -17,6 +17,8 @@ Version 0.9.5.1 - 201010
 - fix short_open_tag issue, now all short tags including <?= replaced with <?php (anton)
 - fix length of p_footer in db table tblSMSOutgoing should be 30, not 11 (anton)
 - fix condition when PHP gettext not available or disabled, declare _() in init.php (anton)
+- fix display unsafe text with htmlspecialchars in inbox, incoming and outgoing (anton)
+- fix long words in displayed SMS message on the web by splitting them 25 chars per word max (anton)
 
 Version 0.9.5 - 101010
 - add multi-language support per plugin bases (anton)

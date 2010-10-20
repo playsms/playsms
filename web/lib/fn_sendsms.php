@@ -21,15 +21,20 @@ function sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid=0,$sms_t
     $sms_to = sendsms_getvalidnumber($sms_to);
     logger_print("start", 3, "sendsms");
     if (rate_cansend($username, $sms_to)) {
+	// we save all info first and then process with gateway module
+	// the thing about this is that message saved may not be the same since gateway may not be able to process
+	// message with that length or certain characters in the message are not supported by the gateway
 	$db_query = "
     	    INSERT INTO "._DB_PREF_."_tblSMSOutgoing 
     	    (uid,p_gpid,p_gateway,p_src,p_dst,p_footer,p_msg,p_datetime,p_sms_type,unicode) 
     	    VALUES ('$uid','$gpid','$gateway_module','$mobile_sender','$sms_to','$sms_sender','$sms_msg','$datetime_now','$sms_type','$unicode')
 	";
 	logger_print("saving:$uid,$gpid,$gateway_module,$mobile_sender,$sms_to,$sms_type,$unicode", 3, "sendsms");
+	// continue to gateway only when save to db is true
 	if ($smslog_id = @dba_insert_id($db_query)) {
 	    logger_print("smslog_id:".$smslog_id." saved", 3, "sendsms");
 	    // fixme anton - when magic_quotes_gpc disabled we need to stripslashes sms_msg and sms_sender
+	    // it should not have any effect when magic_quotes_gpc enabled
 	    $sms_sender = stripslashes($sms_sender);
 	    $sms_msg = stripslashes($sms_msg);
 	    if (x_hook($gateway_module, 'sendsms', array($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid,$smslog_id,$sms_type,$unicode))) {
