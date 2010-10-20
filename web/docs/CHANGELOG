@@ -1,6 +1,7 @@
 Version 0.9.5.1 - 201010
 - MAJOR: gateway uplink will work only with master installed with playSMS >= 0.9.5.1 (anton)
 - MAJOR: fix message empty when handled by gnokii or smstools due to single quote in $lc (kendokar)
+- MAJOR: PHP PEAR DB re-included in the package, too complicated to install it manually (anton)
 - add new gateway module gammu, tested using backend FILES with Gammu version 1.28.0 (anton)
 - add interceptincomingsms() lib/fn_core.php, in setsmsincomingaction(), hookable for tools (anton)
 - add interceptsmstoinbox() lib/fn_core.php, in insertsmstoinbox(), hookable for tools (anton)
