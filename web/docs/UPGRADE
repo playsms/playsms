@@ -1,16 +1,23 @@
 UPGRADE
 -------
-Currently, upgrade only available for unmodified playSMS version 0.9.5.
+Currently, upgrade only available for unmodified playSMS version 0.9.4 and 0.9.5.
 
 Steps to upgrade:
-1. Backup your old playSMS 0.9.5 installation files, folders and database.
-2. Move your old playSMS 0.9.5 to another location (back it up)
-3. Install new playSMS version 0.9.5.1 (or extract 0.9.5.1 in the same path as old playSMS 0.9.5)
-4. Copy old config.php from playSMS 0.9.5 to playSMS 0.9.5.1 config.php
-5. Update database by inserting SQL patch file: db/playsms-upgrade-095-to-0951.sql
+1. Backup your old playSMS installation files, folders and database.
+2. Move your old playSMS to another location (back it up)
+3. Install this playSMS version (or extract it in the same path as old playSMS)
+4. Copy old config.php from old playSMS to new playSMS config.php
+5. Update database by inserting SQL patch file: 
+    db/playsms-upgrade-095-to-0951.sql if upgrade from playSMS 0.9.5
+    db/playsms-upgrade-094-to-0951.sql if upgrade from playSMS 0.9.4
+    
+    for example, upgrade from playSMS 0.9.5:
+    # cd [this playSMS package directory]/db
+    # mysql -u [database username] -p [old playSMS database name] < playsms-upgrade-095-to-0951.sql
 
-# cd [playSMS 0.9.5.1 package directory]/db
-# mysql -u [database username] -p [playSMS 0.9.5 database name] < playsms-upgrade-095-to-0951.sql
+    for example, upgrade from playSMS 0.9.4:
+    # cd [this playSMS package directory]/db
+    # mysql -u [database username] -p [old playSMS database name] < playsms-upgrade-094-to-0951.sql
 
 
 --
