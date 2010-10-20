@@ -1,6 +1,7 @@
     </td>
 </tr>
-</table>    
+</table>
+</div>
 
 <!-- kurakura cinta kamu.......sampai mati... -->
 
