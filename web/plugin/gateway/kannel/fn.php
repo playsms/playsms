@@ -18,6 +18,7 @@ function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
     if ($sms_sender) {
 	$sms_msg = $sms_msg.$sms_sender;
     }
+
     // set failed first
     $p_status = 2;
     setsmsdeliverystatus($smslog_id,$uid,$p_status);
@@ -89,11 +90,12 @@ function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
 		$ok = true;
 		// set pending
 		$p_status = 0;
-		logger_print("smslog_id:".$smslog_id." response:".$rv, 3, "kannel outgoing");
 		setsmsdeliverystatus($smslog_id,$uid,$p_status);
 	    }
 	}
 	fclose ($connection);
+	// good or bad, print it on the log
+	logger_print("smslog_id:".$smslog_id." response:".$rv, 3, "kannel outgoing");
     }
     return $ok;
 }
