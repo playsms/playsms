@@ -73,10 +73,10 @@ function username2status($username) {
 
 function mobile2uid($mobile) {
     if ($mobile) {
-	$mobile = ereg_replace("[^0-9]", "", $mobile);
-	if (substr($mobile,0,1) == 0) {
-	    $mobile = substr($mobile,1);
-	}
+	// remove +
+	$mobile = str_replace('+','',$mobile);
+	// remove first 3 digits if phone number length more than 7
+	if (strlen($mobile) > 7) { $mobile = substr($mobile,3); }
 	$db_query = "SELECT uid FROM "._DB_PREF_."_tblUser WHERE mobile LIKE '%$mobile'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
