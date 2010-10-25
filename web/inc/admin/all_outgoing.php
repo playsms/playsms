@@ -71,7 +71,7 @@ switch ($op)
 	    {
 		$p_msg = $p_msg." $p_footer";
 	    }
-	    $p_datetime = $db_row['p_datetime'];
+	    $p_datetime = core_display_datetime($db_row['p_datetime']);
 	    $p_gateway = $db_row['p_gateway'];
 	    $p_update = $db_row['p_update'];
 	    $p_status = $db_row['p_status'];

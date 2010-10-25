@@ -38,6 +38,9 @@ function interceptincomingsms($sms_datetime,$sms_sender,$message) {
 function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
     global $gateway_module, $core_config;
     
+    // make sure sms_datetime is in supported format
+    $sms_datetime = core_display_datetime($sms_datetime);
+    
     // incoming sms will be handled by plugin/tools/* first
     // and then plugin/feature/* only when $ret['stop'] = false
     // by default $ret['stop'] = false
@@ -281,4 +284,22 @@ function core_display_text($text, $len=0) {
     }
     return $text;
 }
+
+function core_datetime_offset($offset=0) {
+    $n = (int)$offset;
+    $m = $n % 100;
+    $h = ($n-$m) / 100;
+    $num = ($h * 3600) + ($m * 60);
+    return ( $num ? $num : 0 );
+}
+
+function core_display_datetime($time, $offset=0) {
+    global $datetime_format, $core_config;
+    $time = strtotime($time);
+    $off = core_datetime_offset($offset);
+    $display = $time + $off;
+    $display = date($datetime_format, $display);
+    return $display;
+}
+
 ?>

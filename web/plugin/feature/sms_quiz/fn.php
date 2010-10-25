@@ -56,19 +56,20 @@ function sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $quiz_keyword, $qui
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_keyword='$quiz_keyword'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-
-	if ($db_row['quiz_answer'] == strtoupper($quiz_param)) {
+	if ($db_row['quiz_enable'] == 1) {
+	    if ($db_row['quiz_answer'] == strtoupper($quiz_param)) {
 		$message = $db_row['quiz_msg_correct'];
-	} else {
+	    } else {
 		$message = $db_row['quiz_msg_incorrect'];
-	}
-	$quiz_id = $db_row['quiz_id'];
-	$answer = strtoupper($quiz_param);
-	$db_query = "INSERT INTO " . _DB_PREF_ . "_featureQuiz_log (quiz_id,quiz_answer,quiz_sender,in_datetime) VALUES ('$quiz_id','$answer','$sms_to',now())";
-	$logged = dba_query($db_query);
-	$ret = sendsms($mobile_sender, $sms_sender, $sms_to, $message, $c_uid);
-	if ($ret['status'] && $logged) {
+	    }
+	    $quiz_id = $db_row['quiz_id'];
+	    $answer = strtoupper($quiz_param);
+	    $db_query = "INSERT INTO " . _DB_PREF_ . "_featureQuiz_log (quiz_id,quiz_answer,quiz_sender,in_datetime) VALUES ('$quiz_id','$answer','$sms_to',now())";
+	    $logged = @dba_insert_id($db_query);
+	    $ret = sendsms($mobile_sender, $sms_sender, $sms_to, $message, $c_uid);
+	    if ($ret['status'] && $logged) {
 		$ok = true;
+	    }
 	}
 	return $ok;
 }

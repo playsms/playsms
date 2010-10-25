@@ -57,7 +57,7 @@ switch ($op)
 		$current_sender = "$in_sender<br>($p_desc)";
 	    }
 	    $in_msg = core_display_text($db_row['in_msg'], 25);
-	    $in_datetime = $db_row['in_datetime'];
+	    $in_datetime = core_display_datetime($db_row['in_datetime']);
 	    $i--;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";	    
 	    $content .= "
