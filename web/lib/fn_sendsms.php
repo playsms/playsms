@@ -21,7 +21,6 @@ function sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid=0,$sms_t
     $sms_to = sendsms_getvalidnumber($sms_to);
     logger_print("start", 3, "sendsms");
     if (rate_cansend($username, $sms_to)) {
-	if (!get_magic_quotes_gpc()) {
 	// fixme anton - its a total mess ! need another DBA
 	$sms_sender = addslashes($sms_sender);
 	$sms_msg = addslashes($sms_msg);
