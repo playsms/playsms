@@ -70,7 +70,13 @@ function sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $quiz_keyword, $qui
 	    if ($ret['status'] && $logged) {
 		$ok = true;
 	    }
+	} else if ($db_row['quiz_keyword'] == $quiz_keyword) {
+	    // returns true even if its logged as correct/incorrect answer
+	    // this situation happens when user answers a disabled quiz
+	    // returning false will make this SMS as unhandled SMS
+	    $ok = true;
 	}
 	return $ok;
 }
+
 ?>
