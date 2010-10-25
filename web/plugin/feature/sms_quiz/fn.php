@@ -51,8 +51,6 @@ function sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $quiz_keyword, $qui
 	$ok = false;
 	$username = uid2username($c_uid);
 	$sms_to = $sms_sender; // we are replying to this sender
-	$sms_sender = username2sender($username); // this is our sender id
-	$mobile_sender = username2mobile($username); // this is our sender number
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_keyword='$quiz_keyword'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -66,7 +64,7 @@ function sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $quiz_keyword, $qui
 	    $answer = strtoupper($quiz_param);
 	    $db_query = "INSERT INTO " . _DB_PREF_ . "_featureQuiz_log (quiz_id,quiz_answer,quiz_sender,in_datetime) VALUES ('$quiz_id','$answer','$sms_to',now())";
 	    $logged = @dba_insert_id($db_query);
-	    $ret = sendsms($mobile_sender, $sms_sender, $sms_to, $message, $c_uid);
+	    $ret = sendsms_pv($username, $sms_to, $message);
 	    if ($ret['status'] && $logged) {
 		$ok = true;
 	    }

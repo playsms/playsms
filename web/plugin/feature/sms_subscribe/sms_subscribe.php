@@ -230,8 +230,6 @@ switch ($op) {
 		$db_row = dba_fetch_array($db_result);
 		$c_uid = $db_row['uid'];
 		$username = uid2username($c_uid);
-		$sms_sender = username2sender($username);
-		$mobile_sender = username2mobile($username);
 
 		$db_query = "SELECT member_number FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id = '$subscribe_id'";
 		$db_result = dba_query($db_query);
@@ -241,7 +239,7 @@ switch ($op) {
 				$sms_to = $db_row['member_number'];
 
 				for ($i = 0; $i < count($sms_to); $i++) {
-					$send = sendsms($mobile_sender, $sms_sender, $sms_to, $message, $c_uid);
+					$send = sendsms_pv($username, $sms_to, $message);
 					if ($send) {
 						$error_string .= _('Your SMS has been delivered to queue')." ("._('to').": `".$sms_to."`)<br>";
 					} else {

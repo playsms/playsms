@@ -20,12 +20,10 @@ function sms_autosend_hook_playsmsd() {
 		$message = $db_row['autosend_message'];
 		$c_uid = $db_row['uid'];
 		$username = uid2username($c_uid);
-		$mobile_sender = username2mobile($username); //our sender number
-		$sms_sender = username2sender($username); //our sender id	
 		$sms_to = $db_row['autosend_number']; // we are sending to this number
 		$autosend_id = $db_row['autosend_id'];
 		$time_id = $db_row['time_id'];
-		$ret = sendsms($mobile_sender, $sms_sender, $sms_to, $message, $c_uid);
+		$ret = sendsms_pv($username, $sms_to, $message);
 		if ($ret) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureAutosend_time SET sent='1' WHERE time_id = '$time_id'";
 			$db_result = dba_affected_rows($db_query);

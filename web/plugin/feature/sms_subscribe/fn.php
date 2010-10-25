@@ -53,8 +53,6 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $subscribe_key
 	$subscribe_keyword = strtoupper($subscribe_keyword);
 	$username = uid2username($c_uid);
 	$sms_to = $sms_sender; // we are replying to this sender
-	$sms_sender = username2sender($username); //our sender id
-	$mobile_sender = username2mobile($username); //our sender number
 
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_keyword='$subscribe_keyword'";
 	$db_result = dba_query($db_query);
@@ -165,7 +163,7 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $subscribe_key
 		$ok = false;
 	}
 
-	$ret = sendsms($mobile_sender, $sms_sender, $sms_to, $message, $c_uid);
+	$ret = sendsms_pv($username, $sms_to, $message);
 
 	if ($ret['status'] && $logged) {
 		$ok = true;
