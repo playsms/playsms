@@ -239,8 +239,9 @@ switch ($op) {
 				$sms_to = $db_row['member_number'];
 
 				for ($i = 0; $i < count($sms_to); $i++) {
-					$send = sendsms_pv($username, $sms_to, $message);
-					if ($send) {
+					list($ok,$to,$smslog_id) = sendsms_pv($username, $sms_to, $message);
+					$ok = $ok[0];
+					if ($ok) {
 						$error_string .= _('Your SMS has been delivered to queue')." ("._('to').": `".$sms_to."`)<br>";
 					} else {
 						$error_string .= _('Fail to send SMS')." ("._('to').": `" . $sms_to . "`)<br>";

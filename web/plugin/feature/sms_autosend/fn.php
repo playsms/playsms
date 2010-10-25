@@ -23,10 +23,11 @@ function sms_autosend_hook_playsmsd() {
 		$sms_to = $db_row['autosend_number']; // we are sending to this number
 		$autosend_id = $db_row['autosend_id'];
 		$time_id = $db_row['time_id'];
-		$ret = sendsms_pv($username, $sms_to, $message);
-		if ($ret) {
+		list($ok,$to,$smslog_id) = sendsms_pv($username, $sms_to, $message);
+		$ok = $ok[0];
+		if ($ok) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureAutosend_time SET sent='1' WHERE time_id = '$time_id'";
-			$db_result = dba_affected_rows($db_query);
+			$db_result = @dba_affected_rows($db_query);
 		}
 	}
 }

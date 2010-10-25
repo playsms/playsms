@@ -63,10 +63,9 @@ function sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $quiz_keyword, $qui
 	    $quiz_id = $db_row['quiz_id'];
 	    $answer = strtoupper($quiz_param);
 	    $db_query = "INSERT INTO " . _DB_PREF_ . "_featureQuiz_log (quiz_id,quiz_answer,quiz_sender,in_datetime) VALUES ('$quiz_id','$answer','$sms_to',now())";
-	    $logged = @dba_insert_id($db_query);
-	    $ret = sendsms_pv($username, $sms_to, $message);
-	    if ($ret['status'] && $logged) {
-		$ok = true;
+	    if ($logged = @dba_insert_id($db_query)) {
+		list($ok,$to,$smslog_id) = sendsms_pv($username, $sms_to, $message);
+		$ok = $ok[0];
 	    }
 	} else if ($db_row['quiz_keyword'] == $quiz_keyword) {
 	    // returns true even if its logged as correct/incorrect answer

@@ -163,11 +163,8 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $subscribe_key
 		$ok = false;
 	}
 
-	$ret = sendsms_pv($username, $sms_to, $message);
-
-	if ($ret['status'] && $logged) {
-		$ok = true;
-	}
+	list($ok,$to,$smslog_id) = sendsms_pv($username, $sms_to, $message);
+	$ok = $ok[0];
 	return $ok;
 }
 ?>
