@@ -2,6 +2,7 @@
 
 function plainoldsendmail_hook_sendmail($mail_from,$mail_to,$mail_subject="",$mail_body="") {
     global $apps_path;
+    logger_print("start from:".$mail_from." to:".$mail_to." subject:".$mail_subject, 3, "plainoldsendmail");
     if (!class_exists(email_message_class)) {
 	include_once $apps_path['plug']."/tools/plainoldsendmail/lib/external/mimemessage/email_message.php";
     }
@@ -70,10 +71,14 @@ function plainoldsendmail_hook_sendmail($mail_from,$mail_to,$mail_subject="",$ma
      *  the message is sent to not bloat your scripts with too much error checking.
      */
     $error = $email_message->Send();
-    if (strcmp ($error, ""))
+    //print_r($email_message);
+    if (strcmp ($error, "")) {
+	logger_print("end with error:".$error, 3, "plainoldsendmail");
 	return false;
-    else
+    } else {
+	logger_print("end from:".$mail_from." to:".$mail_to." subject:".$mail_subject, 3, "plainoldsendmail");
 	return true;
+    }
 }
 
 ?>

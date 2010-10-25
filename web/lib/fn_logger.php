@@ -6,6 +6,7 @@ function logger_print($log,$level=1,$label="default") {
     $arr_log_type[1] = "INFO";
     $arr_log_type[2] = "WARNING";
     $arr_log_type[3] = "DEBUG";
+    $arr_log_type[4] = "VERBOSE";
     if (logger_get_level() >= $level) {
 	$type = $arr_log_type[$level];
 	$fn = $apps_path['logs'].'/playsms.log';

@@ -68,6 +68,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
 	    for ($i=2;$i<count($array_target_group);$i++) {
 		$message .= " ".$array_target_group[$i];
 	    }
+	    logger_print("username:".$c_username." gpid:".$c_gpid." message:".$message, 3, "setsmsincomingaction bc");
 	    list($ok,$to,$smslog_id) = sendsms_bc($c_username,$c_gpid,$message);
 	    $ok = true;
 	    break;
@@ -80,6 +81,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
 	    for ($i=2;$i<count($array_target_user);$i++) {
 		$message .= " ".$array_target_user[$i];
 	    }
+	    logger_print("datetime:".$sms_datetime." sender:".$sms_sender." target:".$target_user." message:".$message, 3, "setsmsincomingaction pv");
 	    if (insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message)) {
 		$ok = true;
 	    }
@@ -143,7 +145,9 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message) {
 		(in_sender,in_uid,in_msg,in_datetime) 
 		VALUES ('$sms_sender','$uid','$message','$sms_datetime')
 	    ";
+	    logger_print("saving sender:".$sms_sender." target:".$target_user, 3, "insertsmstoinbox");
 	    if ($cek_ok = @dba_insert_id($db_query)) {
+		logger_print("saved sender:".$sms_sender." target:".$target_user, 3, "insertsmstoinbox");
 		if ($email) {
 		    $subject = "[SMSGW-PV] "._('from')." $sms_sender";
 		    $body = _('Forward Private WebSMS')." ($web_title)\n\n";
@@ -152,7 +156,9 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message) {
 		    $body .= _('Receiver').": $mobile\n\n";
 		    $body .= _('Message').":\n$message\n\n";
 		    $body .= $email_footer."\n\n";
+		    logger_print("send email from:".$email_service." to:".$email, 3, "insertsmstoinbox");
 		    sendmail($email_service,$email,$subject,$body);
+		    logger_print("email sent from:".$email_service." to:".$email, 3, "insertsmstoinbox");
 		}
 		$ok = true;
 	    }

@@ -42,6 +42,11 @@ function dba_query_simple($mystring) {
 function dba_query($mystring, $from="0", $count="0") {
     global $dba_object, $dba_DB, $DBA_ROW_COUNTER, $DBA_LIMIT_FROM, $DBA_LIMIT_COUNT;
 
+    // log all db query
+    if (function_exists('logger_print')) {
+	logger_print("q:".$mystring, 4, "dba query");
+    }
+    
     $DBA_ROW_COUNTER = 0;
 
     if ($DBA_LIMIT_COUNT > 0) {

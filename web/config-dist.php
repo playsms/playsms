@@ -14,7 +14,7 @@ $core_config['smtp']['relm'] = ''; // yes, not realm, its relm
 $core_config['smtp']['user'] = '';
 $core_config['smtp']['pass'] = '';
 $core_config['smtp']['host'] = 'localhost';
-$core_config['smtp']['port'] = '';
+$core_config['smtp']['port'] = '25';
 
 
 // Do not change anything below this line unless you know what to do
@@ -34,8 +34,8 @@ $apps_path['logs']	= '/var/log/playsms';
 // on admin's computer
 $core_config['multilogin']	= 0;
 
-// log level: 0=disabled, 1=info, 2=warning, 3=debug
-// WARNING: log level 3 will also save sensitif information such as password for used gateway
+// log level: 0=disabled, 1=info, 2=warning, 3=debug, 4=verbose
+// WARNING: log level 3 and 4 will also save sensitif information such as password for used gateway
 $core_config['logstate']	= 0;
 
 // are we using http or https ? the default is using http instead https
