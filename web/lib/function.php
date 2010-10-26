@@ -57,6 +57,9 @@ for ($i=0;$i<count($plugins_category);$i++) {
     }
 }
 
+// load plugin's configs in $core_config
+$core_config['plugins'][$gateway_module] = ${$gateway_module.'_param'};
+
 if (function_exists('bindtextdomain')) {
     bindtextdomain('messages', $apps_path['plug'].'/language/');
 }

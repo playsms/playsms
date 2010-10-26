@@ -11,6 +11,9 @@ if ($db_row = dba_fetch_array($db_result)) {
     $uplink_param['additional_param']	= $db_row['cfg_additional_param'];
 }
 
+// save plugin's parameters or options in $core_config
+$core_config['plugin']['uplink'] = $uplink_param;
+
 //$gateway_number = $uplink_param['global_sender'];
 
 // insert to left menu array

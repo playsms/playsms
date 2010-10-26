@@ -16,6 +16,9 @@ if (! $clickatell_param['additional_param']) {
     $clickatell_param['additional_param'] = "deliv_ack=1&callback=3";
 }
 
+// save plugin's parameters or options in $core_config
+$core_config['plugin']['clickatell'] = $clickatell_param;
+
 //$gateway_number = $clickatell_param['sender'];
 
 // insert to left menu array

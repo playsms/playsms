@@ -38,8 +38,8 @@ function interceptincomingsms($sms_datetime,$sms_sender,$message) {
 function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
     global $gateway_module, $core_config;
     
-    // make sure sms_datetime is in supported format
-    $sms_datetime = core_display_datetime($sms_datetime);
+    // make sure sms_datetime is in supported format and in correct server timezone
+    $sms_datetime = core_adjust_datetime($sms_datetime);
     
     // incoming sms will be handled by plugin/tools/* first
     // and then plugin/feature/* only when $ret['stop'] = false
@@ -95,6 +95,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
 		$ret = x_hook($c_feature,'setsmsincomingaction',array($sms_datetime,$sms_sender,$target_keyword,$message));
 		if ($ok = $ret['status']) {
 		    $c_uid = $ret['uid'];
+		    logger_print("feature:".$c_feature." datetime:".$sms_datetime." sender:".$sms_sender." keyword:".$target_keyword." message:".$message, 3, "setsmsincomingaction");
 		    break;
 		}
 	    }
@@ -104,6 +105,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
 	$c_feature = '';
 	$target_keyword = '';
 	$message = $message_full;
+	logger_print("unhandled datetime:".$sms_datetime." sender:".$sms_sender." message:".$message, 3, "setsmsincomingaction");
     }
     $db_query = "
         INSERT INTO "._DB_PREF_."_tblSMSIncoming 
@@ -285,6 +287,13 @@ function core_display_text($text, $len=0) {
     return $text;
 }
 
+/*
+ * Calculate timezone string into number of seconds offset
+ * @param $offset
+ *    timezone
+ * @return
+ *    offset in number of seconds
+ */
 function core_datetime_offset($offset=0) {
     $n = (int)$offset;
     $m = $n % 100;
@@ -293,8 +302,45 @@ function core_datetime_offset($offset=0) {
     return ( $num ? $num : 0 );
 }
 
+/*
+ * Format and adjust date/time according to user's timezone for web display purposes
+ * @param $time
+ *    date/time
+ * @param $offset
+ *    timezone
+ * @return
+ *    formatted date/time with adjusted timezone
+ */
 function core_display_datetime($time, $offset=0) {
     global $datetime_format, $core_config;
+    if (! $offset) {
+	if (! ($offset = $core_config['user']['datetime_timezone'])) {
+	    $offset = $core_config['main']['datetime_timezone'];
+	}
+    }
+    $time = strtotime($time);
+    $off = core_datetime_offset($offset);
+    $display = $time + $off;
+    $display = date($datetime_format, $display);
+    return $display;
+}
+
+/*
+ * Format and adjust date/time according to server's timezone for log saving purposes
+ * @param $time
+ *    date/time
+ * @param $offset
+ *    timezone
+ * @return
+ *    formatted date/time with adjusted timezone
+ */
+function core_adjust_datetime($time, $offset=0) {
+    global $datetime_format, $core_config, $geteway_module;
+    if (! $offset) {
+	if (! ($offset = $core_config['plugin'][$gateway_module]['datetime_timezone'])) {
+	    $offset = $core_config['main']['datetime_display_offset'];
+	}
+    }
     $time = strtotime($time);
     $off = core_datetime_offset($offset);
     $display = $time + $off;

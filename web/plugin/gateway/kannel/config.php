@@ -17,6 +17,9 @@ if (! $kannel_param['additional_param']) {
     $kannel_param['additional_param'] = "smsc=default";
 }
 
+// save plugin's parameters or options in $core_config
+$core_config['plugin']['kannel'] = $kannel_param;
+
 //$gateway_number = $kannel_param['global_sender'];
 
 // insert to left menu array

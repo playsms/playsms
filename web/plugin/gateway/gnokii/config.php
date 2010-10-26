@@ -6,6 +6,9 @@ if ($db_row = dba_fetch_array($db_result)) {
     $gnokii_param['path'] = $db_row['cfg_path'];
 }
 
+// save plugin's parameters or options in $core_config
+$core_config['plugin']['gnokii'] = $gnokii_param;
+
 // insert to left menu array
 if (isadmin()) {
     $arr_menu['Gateway'][] = array("index.php?app=menu&inc=gateway_gnokii&op=manage", _('Manage gnokii'));
