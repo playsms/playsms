@@ -38,7 +38,7 @@ function clickatell_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$ui
     if ($sms_sender) {
 	$sms_msg = $sms_msg.$sms_sender;
     }
-    switch ($msg_type) {
+    switch ($sms_type) {
 	case "flash": $sms_type = "SMS_FLASH"; break;
 	case "logo": $sms_type = "SMS_NOKIA_OLOGO"; break;
 	case "picture": $sms_type = "SMS_NOKIA_PICTURE"; break;
