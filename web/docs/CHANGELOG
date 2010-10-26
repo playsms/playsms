@@ -1,3 +1,6 @@
+Version 0.9.5.2 - unknown
+- fix #3095609 - XSS issue (anton)
+
 Version 0.9.5.1 - 201010
 - MAJOR: gateway uplink will work only with master installed with playSMS >= 0.9.5.1 (anton)
 - MAJOR: fix message empty when handled by gnokii or smstools due to single quote in $lc (kendokar)

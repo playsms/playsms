@@ -5,11 +5,10 @@ if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 $inc = q_sanitize($_REQUEST['inc']);
 $op = q_sanitize($_REQUEST['op']);
-
-$err = $_REQUEST['err'];
-$errid = $_REQUEST['errid'];
-$page = $_REQUEST['page'];
-$nav = $_REQUEST['nav'];
+$err = q_sanitize($_REQUEST['err']);
+$errid = q_sanitize($_REQUEST['errid']);
+$page = q_sanitize($_REQUEST['page']);
+$nav = q_sanitize($_REQUEST['nav']);
 
 $username = $_COOKIE['vc2'];
 $uid = username2uid($username);

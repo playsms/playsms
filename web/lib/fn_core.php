@@ -202,6 +202,7 @@ function q_sanitize($var) {
     $var = str_replace("\"","",$var);
     $var = str_replace('\'',"",$var);
     $var = str_replace("..","",$var);
+    $var = strip_tags($var);
     return $var;
 }
 			    
