@@ -23,6 +23,7 @@ switch ($op)
 	    $education = $db_row['education'];
 	    $zipcode = $db_row['zipcode'];
 	    $sender = $db_row['sender'];
+	    $timezone = $db_row['datetime_timezone'];
 	    $credit = rate_getusercredit($username);
 	}
 	// get country option
@@ -60,6 +61,7 @@ switch ($op)
 	    <tr><td width=200>"._('Zipcode')."</td><td>:</td><td><input type=text size=10 maxlength=10 name=up_zipcode value=\"$zipcode\"></td></tr>
 	    <tr><td colspan=3>&nbsp;</td></tr>
 	    <tr><td colspan=3><h2>"._('Application information')."</h2><hr></td></tr>
+	    <tr><td width=200>"._('Timezone')."</td><td>:</td><td><input type=text size=5 maxlength=5 name=up_timezone value=\"$timezone\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td></tr>
 	    <tr><td width=200>"._('Mobile')." ("._('sender number').")</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_mobile value=\"$mobile\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td></tr>
 	    <tr><td width=200>"._('SMS Sender ID')." ("._('SMS footer').")</td><td>:</td><td><input type=text size=35 maxlength=30 name=up_sender value=\"$sender\"> ("._('Max. 30 alphanumeric characters').")</td></tr>
 	    <tr><td width=200>"._('Credit')."</td><td>:</td><td><b>$credit</b></td></tr>
@@ -88,6 +90,7 @@ switch ($op)
 	$up_education = $_POST['up_education'];
 	$up_zipcode = $_POST['up_zipcode'];
 	$up_trn = $_POST['up_trn'];
+	$up_timezone = $_POST['up_timezone'];
 	$error_string = _('No changes made');
 	if ($up_name && $up_email && $up_address && $up_country)
 	{
@@ -110,7 +113,8 @@ switch ($op)
 		    SET c_timestamp='".mktime()."',
 			name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender'$chg_pwd,
 			gender='$up_gender',address='$up_address',city='$up_city',state='$up_state',country='$up_country',
-			marital='$up_marital',education='$up_education',zipcode='$up_zipcode',junktimestamp='".mktime()."'
+			marital='$up_marital',education='$up_education',zipcode='$up_zipcode',junktimestamp='".mktime()."',
+			datetime_timezone='$up_timezone'
 		    WHERE uid='$uid'";
 		if (@dba_affected_rows($db_query))
 		{

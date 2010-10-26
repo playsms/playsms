@@ -289,13 +289,13 @@ function core_display_text($text, $len=0) {
 
 /*
  * Calculate timezone string into number of seconds offset
- * @param $offset
+ * @param $tz
  *    timezone
  * @return
  *    offset in number of seconds
  */
-function core_datetime_offset($offset=0) {
-    $n = (int)$offset;
+function core_datetime_offset($tz=0) {
+    $n = (int)$tz;
     $m = $n % 100;
     $h = ($n-$m) / 100;
     $num = ($h * 3600) + ($m * 60);
@@ -303,49 +303,53 @@ function core_datetime_offset($offset=0) {
 }
 
 /*
- * Format and adjust date/time according to user's timezone for web display purposes
+ * Format and adjust date/time from GMT+0 to user's timezone for web display purposes
  * @param $time
  *    date/time
- * @param $offset
+ * @param $tz
  *    timezone
  * @return
  *    formatted date/time with adjusted timezone
  */
-function core_display_datetime($time, $offset=0) {
+function core_display_datetime($time, $tz=0) {
     global $datetime_format, $core_config;
-    if (! $offset) {
-	if (! ($offset = $core_config['user']['datetime_timezone'])) {
-	    $offset = $core_config['main']['datetime_timezone'];
+    if (! $tz) {
+	if (! ($tz = $core_config['user']['datetime_timezone'])) {
+	    $tz = $core_config['main']['datetime_timezone'];
 	}
     }
     $time = strtotime($time);
-    $off = core_datetime_offset($offset);
-    $display = $time + $off;
-    $display = date($datetime_format, $display);
-    return $display;
+    $off = core_datetime_offset($tz);
+    // the difference between core_display_datetime() and core_adjust_datetime()
+    // core_display_datetime() will set to user's timezone (+offset)
+    $ret = $time + $off;
+    $ret = date($datetime_format, $ret);
+    return $ret;
 }
 
 /*
- * Format and adjust date/time according to server's timezone for log saving purposes
+ * Format and adjust date/time to GMT+0 for log or incoming SMS saving purposes
  * @param $time
  *    date/time
- * @param $offset
+ * @param $tz
  *    timezone
  * @return
  *    formatted date/time with adjusted timezone
  */
-function core_adjust_datetime($time, $offset=0) {
+function core_adjust_datetime($time, $tz=0) {
     global $datetime_format, $core_config, $geteway_module;
-    if (! $offset) {
-	if (! ($offset = $core_config['plugin'][$gateway_module]['datetime_timezone'])) {
-	    $offset = $core_config['main']['datetime_display_offset'];
+    if (! $tz) {
+	if (! ($tz = $core_config['plugin'][$gateway_module]['datetime_timezone'])) {
+	    $tz = $core_config['main']['datetime_timezone'];
 	}
     }
     $time = strtotime($time);
-    $off = core_datetime_offset($offset);
-    $display = $time + $off;
-    $display = date($datetime_format, $display);
-    return $display;
+    $off = core_datetime_offset($tz);
+    // the difference between core_display_datetime() and core_adjust_datetime()
+    // core_adjust_datetime() will set to GTM+0 (-offset)
+    $ret = $time - $off;
+    $ret = date($datetime_format, $ret);
+    return $ret;
 }
 
 ?>

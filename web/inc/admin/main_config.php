@@ -50,6 +50,9 @@ switch ($op)
 		<td>"._('Default SMS rate')."</td><td>:</td><td><input type='text' size='20' name='edit_default_rate' value=\"$default_rate\"></td>
 	    </tr>
 	    <tr>
+		<td>"._('Gateway timezone')."</td><td>:</td><td><input type='text' size='5' maxlength='5' name='edit_gateway_timezone' value=\"$gateway_timezone\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td>
+	    </tr>
+	    <tr>
 		<td>"._('Active gateway module')."</td><td>:</td><td><select name='edit_gateway_module'>$option_gateway_module</select></td>
 	    </tr>
 	    <tr>
@@ -70,6 +73,7 @@ switch ($op)
 	$edit_email_footer = $_POST['edit_email_footer'];
 	$edit_gateway_number = $_POST['edit_gateway_number'];
 	$edit_default_rate = $_POST['edit_default_rate'];
+	$edit_gateway_timezone = $_POST['edit_gateway_timezone'];
 	$edit_gateway_module = $_POST['edit_gateway_module'];
 	$edit_themes_module = $_POST['edit_themes_module'];
 	$edit_language_module = $_POST['edit_language_module'];
@@ -81,6 +85,7 @@ switch ($op)
 		cfg_email_footer='$edit_email_footer',
 		cfg_gateway_number='$edit_gateway_number',
 		cfg_default_rate='$edit_default_rate',
+		cfg_datetime_timezone='$edit_gateway_timezone',
 		cfg_gateway_module='$edit_gateway_module',
 		cfg_themes_module='$edit_themes_module',
 		cfg_language_module='$edit_language_module'

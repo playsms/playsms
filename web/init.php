@@ -136,6 +136,7 @@ if ($db_row = dba_fetch_array($db_result)) {
     $email_footer = $db_row['cfg_email_footer'];
     $gateway_number = $db_row['cfg_gateway_number'];
     $default_rate = $db_row['cfg_default_rate'];
+    $gateway_timezone = $db_row['cfg_datetime_timezone'];
     $tmp_gateway_module = $db_row['cfg_gateway_module'];
     $tmp_themes_module = $db_row['cfg_themes_module'];
     $tmp_language_module = $db_row['cfg_language_module'];

@@ -10,6 +10,7 @@ if ($db_row = dba_fetch_array($db_result)) {
     $clickatell_param['send_url']		= $db_row['cfg_send_url'];
     $clickatell_param['incoming_path']		= $db_row['cfg_incoming_path'];
     $clickatell_param['additional_param']	= $db_row['cfg_additional_param'];
+    $clickatell_param['datetime_timezone']	= $db_row['cfg_datetime_timezone'];
 }
 
 if (! $clickatell_param['additional_param']) {

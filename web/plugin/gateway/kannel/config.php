@@ -11,6 +11,7 @@ if ($db_row = dba_fetch_array($db_result)) {
     $kannel_param['sendsms_port']	= $db_row['cfg_sendsms_port'];
     $kannel_param['playsms_web']	= $db_row['cfg_playsms_web'];
     $kannel_param['additional_param']	= $db_row['cfg_additional_param'];
+    $kannel_param['datetime_timezone']	= $db_row['cfg_datetime_timezone'];
 }
 
 if (! $kannel_param['additional_param']) {
