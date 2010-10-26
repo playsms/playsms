@@ -176,7 +176,14 @@ if (function_exists('bindtextdomain')) {
     bindtextdomain('messages', $apps_path['plug'].'/language/');
     textdomain('messages');
 }
-setlocale(LC_ALL, $language_module, $language_module.'.utf8', $language_module.'.utf-8', $language_module.'.UTF8', $language_module.'.UTF-8');
+
+if (defined('LC_MESSAGES')) {
+    // linux
+    setlocale(LC_MESSAGES, $language_module, $language_module.'.utf8', $language_module.'.utf-8', $language_module.'.UTF8', $language_module.'.UTF-8');
+} else {
+    // windows
+    putenv("LC_ALL={$language_module}");
+}
 
 // set global variable
 $date_format		= "Y-m-d";
