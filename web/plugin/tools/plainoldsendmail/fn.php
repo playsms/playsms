@@ -38,6 +38,9 @@ function plainoldsendmail_hook_sendmail($mail_from,$mail_to,$mail_subject="",$ma
     $email_message->smtp_debug		= 0;
     $email_message->smtp_direct_delivery = 0;
 
+    // default charset sets to UTF-8 (emmanuel)
+    $email_message->default_charset	= "UTF-8";
+
     $email_message->SetEncodedEmailHeader("To",$to_address,$to_name);
     if ($cc_address)
 	$email_message->SetEncodedEmailHeader("Cc",$cc_address,$cc_name);
