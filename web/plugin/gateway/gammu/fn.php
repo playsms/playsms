@@ -95,13 +95,16 @@ function gammu_hook_getsmsinbox() {
 	    // message is in UTF-16, need to convert it to UTF-8
 	    $message = file_get_contents($fn);
 	    $message = mb_convert_encoding($message, "UTF-8", "UTF-16");
-	    if ($sms_sender && $sms_datetime) {
-		// collected:
-		// $sms_datetime, $sms_sender, $message
-		setsmsincomingaction($sms_datetime,$sms_sender,$message);
-	    }
-	    logger_print("sender:".$sms_sender." dt:".$sms_datetime." msg:".$message, 3, "gammu incoming");
 	    @unlink($fn);
+	    // continue process only when incoming sms file can be deleted
+	    if (! file_exists($fn)) {
+		if ($sms_sender && $sms_datetime) {
+		    // collected:
+		    // $sms_datetime, $sms_sender, $message
+		    setsmsincomingaction($sms_datetime,$sms_sender,$message);
+		}
+		logger_print("sender:".$sms_sender." dt:".$sms_datetime." msg:".$message, 3, "gammu incoming");
+	    }
 	}
     }
     @closedir($handle);
@@ -137,6 +140,7 @@ function gammu_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',
     $ok = false;
     if (file_exists($fn)) {
 	$ok = true;
+	logger_print("outfile saved", 3, "gammu outgoing");
     }
     return $ok;
 }

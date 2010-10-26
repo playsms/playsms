@@ -106,6 +106,8 @@ function clickatell_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$ui
 }
 
 function clickatell_hook_getsmsinbox() {
+    // fixme anton - clickatell will only receive incoming sms from callback url
+    /*
     global $clickatell_param;
     $handle = @opendir($clickatell_param['incoming_path']);
     while ($sms_in_file = @readdir($handle)) {
@@ -125,6 +127,7 @@ function clickatell_hook_getsmsinbox() {
 	    @unlink($tobe_deleted);
 	}
     }
+    */
 }
 
 function clickatell_getsmsstatus($smslog_id) {

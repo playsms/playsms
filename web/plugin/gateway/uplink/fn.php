@@ -158,6 +158,8 @@ function uplink_hook_getsmsinbox() {
     // setsmsincomingaction($sms_datetime,$sms_sender,$message)
     // you must retrieve all informations needed by setsmsincomingaction()
     // from incoming sms, have a look uplink gateway module
+    // fixme anton - uplink will receive incoming sms by using callback/push url
+    /*
     global $uplink_param;
     $handle = @opendir($uplink_param['path']);
     while ($sms_in_file = @readdir($handle)) {
@@ -179,6 +181,7 @@ function uplink_hook_getsmsinbox() {
 	    @unlink($tobe_deleted);
 	}
     }
+    */
 }
 
 ?>

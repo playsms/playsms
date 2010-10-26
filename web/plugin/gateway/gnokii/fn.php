@@ -63,11 +63,14 @@ function gnokii_hook_getsmsinbox() {
 	    for ($lc=2;$lc<count($lines);$lc++) {
 		$message .= trim($lines[$lc]);
 	    }
-	    // collected:
-	    // $sms_datetime, $sms_sender, $message
-	    setsmsincomingaction($sms_datetime,$sms_sender,$message);
-	    logger_print("sender:".$sms_sender." dt:".$sms_datetime." msg:".$message, 3, "gnokii incoming");
 	    @unlink($tobe_deleted);
+	    // continue process only when incoming sms file can be deleted
+	    if (! file_exists($tobe_deleted)) {
+		// collected:
+		// $sms_datetime, $sms_sender, $message
+		setsmsincomingaction($sms_datetime,$sms_sender,$message);
+		logger_print("sender:".$sms_sender." dt:".$sms_datetime." msg:".$message, 3, "gnokii incoming");
+	    }
 	}
     }
 }
@@ -91,6 +94,7 @@ function gnokii_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
     $ok = false;
     if (file_exists($fn)) {
 	$ok = true;
+	logger_print("outfile saved", 3, "gnokii outgoing");
     }
     return $ok;
 }

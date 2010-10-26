@@ -63,17 +63,20 @@ function smstools_hook_getsmsinbox() {
 		break;
 	    }
 	}
-	if ($sms_sender && $sms_datetime && $start) {
-	    $message = "";
-	    for ($lc=$start;$lc<count($lines);$lc++) {
-		$message .= trim($lines[$lc]);
-	    }
-	    // collected:
-	    // $sms_datetime, $sms_sender, $message
-	    setsmsincomingaction($sms_datetime,$sms_sender,$message);
-	}
-	logger_print("sender:".$sms_sender." dt:".$sms_datetime." msg:".$message, 3, "smstools incoming");
 	@unlink($tobe_deleted);
+	// continue process only when incoming sms file can be deleted
+	if (! file_exists($tobe_deleted)) {
+	    if ($sms_sender && $sms_datetime && $start) {
+		$message = "";
+		for ($lc=$start;$lc<count($lines);$lc++) {
+		    $message .= trim($lines[$lc]);
+		}
+		// collected:
+		// $sms_datetime, $sms_sender, $message
+		setsmsincomingaction($sms_datetime,$sms_sender,$message);
+	    }
+	    logger_print("sender:".$sms_sender." dt:".$sms_datetime." msg:".$message, 3, "smstools incoming");
+	}
     }
 }
 
