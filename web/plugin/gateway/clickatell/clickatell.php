@@ -40,19 +40,23 @@ switch ($op)
 		<td>"._('Global sender')."</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"".$clickatell_param['sender']."\"> ("._('Max. 16 numeric or 11 alphanumeric char. empty to disable').")</td>
 	    </tr>	    
 	    <tr>
+		<td>"._('Global timezone')."</td><td>:</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"".$clickatell_param['datetime_timezone']."\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td>
+	    </tr>
+	    <tr>
 		<td>"._('Clickatell API URL')."</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_send_url value=\"".$clickatell_param['send_url']."\"> ("._('No trailing slash')." \"/\")</td>
 	    </tr>
 	    <tr>
 		<td>"._('Additional URL parameter')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_additional_param value=\"".$clickatell_param['additional_param']."\"></td>
 	    </tr>
+	    <!--
 	    <tr>
 		<td>"._('Clickatell incoming path')."</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_incoming_path value=\"".$clickatell_param['incoming_path']."\"> ("._('No trailing slash')." \"/\")</td>
 	    </tr>	    
+	    -->
 	</table>	    
 	
 	    <p>"._('Note').":<br>
 	    - "._('Your callback URL is')." <b>http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/index.php?app=call&cat=gateway&plugin=clickatell&access=callback</b><br>
-	    - "._('If you are using callback URL to receive incoming sms you may ignore Clickatell incoming path')."<br>
 	    - "._('Clickatell is a bulk SMS provider').", <a href=\"http://www.dpbolvw.net/click-4099975-10807974?sid=gwmodtext\" target=\"_blank\">"._('free credits are available for testing purposes')."</a><img src=\"http://www.lduhtrp.net/image-4099975-10807974\" width=\"1\" height=\"1\" border=\"0\"/>
 	    <!-- <p><input type=checkbox name=up_trn $checked> "._('Send SMS message without footer banner')." -->
 	    <p><input type=submit class=button value="._('Save').">
@@ -65,6 +69,7 @@ switch ($op)
 	$up_username = $_POST['up_username'];
 	$up_password = $_POST['up_password'];
 	$up_sender = $_POST['up_sender'];
+	$up_global_timezone = $_POST['up_global_timezone'];
 	$up_send_url = $_POST['up_send_url'];
 	$up_incoming_path = $_POST['up_incoming_path'];
 	$up_additional_param = ( $_POST['up_additional_param'] ? $_POST['up_additional_param'] : "deliv_ack=1&callback=3" );
@@ -81,6 +86,7 @@ switch ($op)
 		    cfg_username='$up_username',
 		    ".$password_change."
 		    cfg_sender='$up_sender',
+		    cfg_datetime_timezone='$up_global_timezone',
 		    cfg_send_url='$up_send_url',
 		    cfg_additional_param='$up_additional_param',
 		    cfg_incoming_path='$up_incoming_path'

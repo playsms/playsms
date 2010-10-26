@@ -37,6 +37,9 @@ switch ($op)
 		<td>"._('Global sender')."</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_global_sender value=\"".$kannel_param['global_sender']."\"> ("._('Max. 16 numeric or 11 alphanumeric char. empty to disable').")</td>
 	    </tr>	    
 	    <tr>
+		<td>"._('Global timezone')."</td><td>:</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"".$kannel_param['datetime_timezone']."\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td>
+	    </tr>
+	    <tr>
 		<td>"._('Bearerbox hostname or IP')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_bearerbox_host value=\"".$kannel_param['bearerbox_host']."\"> ("._('Kannel specific').")</td>
 	    </tr>	    
 	    <tr>
@@ -62,6 +65,7 @@ switch ($op)
 	$up_username = $_POST['up_username'];
 	$up_password = $_POST['up_password'];
 	$up_global_sender = $_POST['up_global_sender'];
+	$up_global_timezone = $_POST['up_global_timezone'];
 	$up_bearerbox_host = $_POST['up_bearerbox_host'];
 	$up_sendsms_port = $_POST['up_sendsms_port'];
 	$up_playsms_web = ( $_POST['up_playsms_web'] ? $_POST['up_playsms_web'] : $http_path['base'] );
@@ -78,6 +82,7 @@ switch ($op)
 		    cfg_username='$up_username',
 		    ".$password_change."
 		    cfg_global_sender='$up_global_sender',
+		    cfg_datetime_timezone='$up_global_timezone',
 		    cfg_bearerbox_host='$up_bearerbox_host',
 		    cfg_sendsms_port='$up_sendsms_port',
 		    cfg_playsms_web='$up_playsms_web',

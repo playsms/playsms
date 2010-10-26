@@ -44,8 +44,13 @@ switch ($op)
 		<td>"._('Global sender')."</td><td>:</td><td><input type=text size=11 maxlength=11 name=up_global_sender value=\"".$uplink_param['global_sender']."\"> ("._('Max. 16 numeric or 11 alphanumeric char. empty to disable').")</td>
 	    </tr>
 	    <tr>
+		<td>"._('Global timezone')."</td><td>:</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"".$uplink_param['datetime_timezone']."\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td>
+	    </tr>
+	    <!--
+	    <tr>
 		<td>"._('Uplink incoming path')."</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_incoming_path value=\"".$uplink_param['path']."\"> ("._('No trailing slash')." \"/\")</td>
 	    </tr>	    	    
+	    -->
 	</table>
 	    <!--
 	    <p>"._('Note').":</br>
@@ -62,6 +67,7 @@ switch ($op)
 	$up_username = $_POST['up_username'];
 	$up_password = $_POST['up_password'];
 	$up_global_sender = $_POST['up_global_sender'];
+	$up_global_timezone = $_POST['up_global_timezone'];
 	$up_incoming_path = $_POST['up_incoming_path'];
 	$error_string = _('No changes has been made');
 	if ($up_master && $up_username && $up_incoming_path)
@@ -77,6 +83,7 @@ switch ($op)
 		    cfg_username='$up_username',
 		    ".$password_change."
 		    cfg_global_sender='$up_global_sender',
+		    cfg_datetime_timezone='$up_global_timezone',
 		    cfg_incoming_path='$up_incoming_path'
 	    ";
 	    if (@dba_affected_rows($db_query))
