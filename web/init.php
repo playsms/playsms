@@ -201,9 +201,10 @@ $time_now		= date($time_format, time());
 $datetime_now		= date($datetime_format, time());
 $nd 			= "<div class=required>(*)</div>";
 
-$core_config['datetime']['date_now'] = $date_now;
-$core_config['datetime']['time_now'] = $time_now;
-$core_config['datetime']['now'] = $datetime_now;
+$core_config['datetime']['date_now'] 	= $date_now;
+$core_config['datetime']['time_now'] 	= $time_now;
+$core_config['datetime']['now'] 	= $datetime_now;
+$core_config['datetime']['format'] 	= $datetime_format;
 
 // fixme anton - uncomment this if you want to know what are available in $core_config
 //print_r($core_config); die();

@@ -317,7 +317,7 @@ function core_datetime_offset($tz=0) {
  *    formatted date/time with adjusted timezone
  */
 function core_display_datetime($time, $tz=0) {
-    global $datetime_format, $core_config;
+    global $core_config;
     if (! $tz) {
 	if (! ($tz = $core_config['user']['datetime_timezone'])) {
 	    $tz = $core_config['main']['datetime_timezone'];
@@ -328,7 +328,7 @@ function core_display_datetime($time, $tz=0) {
     // the difference between core_display_datetime() and core_adjust_datetime()
     // core_display_datetime() will set to user's timezone (+offset)
     $ret = $time + $off;
-    $ret = date($datetime_format, $ret);
+    $ret = date($core_config['datetime']['format'], $ret);
     return $ret;
 }
 
@@ -342,7 +342,8 @@ function core_display_datetime($time, $tz=0) {
  *    formatted date/time with adjusted timezone
  */
 function core_adjust_datetime($time, $tz=0) {
-    global $datetime_format, $core_config, $geteway_module;
+    global $core_config;
+    $gateway_module = $core_config['module']['gateway'];
     if (! $tz) {
 	if (! ($tz = $core_config['plugin'][$gateway_module]['datetime_timezone'])) {
 	    $tz = $core_config['main']['datetime_timezone'];
@@ -353,7 +354,7 @@ function core_adjust_datetime($time, $tz=0) {
     // the difference between core_display_datetime() and core_adjust_datetime()
     // core_adjust_datetime() will set to GTM+0 (-offset)
     $ret = $time - $off;
-    $ret = date($datetime_format, $ret);
+    $ret = date($core_config['datetime']['format'], $ret);
     return $ret;
 }
 
