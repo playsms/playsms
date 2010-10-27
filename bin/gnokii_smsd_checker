@@ -4,7 +4,7 @@
 
 while true
 do
-    killall smsd >/dev/null 2>&1
+    killall -9 smsd >/dev/null 2>&1
     sleep 3
     CWD=`pwd`
     cd $PLAYSMS_LOG

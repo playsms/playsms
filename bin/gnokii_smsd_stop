@@ -1,0 +1,6 @@
+#!/bin/bash
+
+. /etc/default/playsms
+
+killall -9 smsd >/dev/null 2>&1
+killall -9 gnokii_smsd_checker >/dev/null 2>&1
