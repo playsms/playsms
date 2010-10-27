@@ -53,6 +53,9 @@ switch ($op)
 		<td>"._('Default SMS rate')."</td><td>:</td><td><input type='text' size='20' name='edit_default_rate' value=\"$default_rate\"></td>
 	    </tr>
 	    <tr>
+		<td>"._('Maximum SMS count')."</td><td>:</td><td><input type='text' size='2' maxlength='2' name='edit_sms_max_count' value=\"$sms_max_count\"></td>
+	    </tr>
+	    <tr>
 		<td>"._('Active gateway module')."</td><td>:</td><td><select name='edit_gateway_module'>$option_gateway_module</select></td>
 	    </tr>
 	    <tr>
@@ -77,6 +80,7 @@ switch ($op)
 	$edit_gateway_module = $_POST['edit_gateway_module'];
 	$edit_themes_module = $_POST['edit_themes_module'];
 	$edit_language_module = $_POST['edit_language_module'];
+	$edit_sms_max_count = $_POST['edit_sms_max_count'];
 	$db_query = "
 	    UPDATE "._DB_PREF_."_tblConfig_main 
 	    SET c_timestamp='".mktime()."',
@@ -88,7 +92,8 @@ switch ($op)
 		cfg_datetime_timezone='$edit_gateway_timezone',
 		cfg_gateway_module='$edit_gateway_module',
 		cfg_themes_module='$edit_themes_module',
-		cfg_language_module='$edit_language_module'
+		cfg_language_module='$edit_language_module',
+		cfg_sms_max_count='$edit_sms_max_count'
 	";
 	$db_result = dba_query($db_query);
 	$error_string = _('Main configuration changes has been saved');
