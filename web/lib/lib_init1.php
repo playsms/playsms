@@ -3,6 +3,11 @@ if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 // this file loaded before plugins
 
+// load user's data from user's DB table
+if (valid()) {
+    $core_config['user'] = user_getdatabyusername($_COOKIE['vc2']);
+}
+
 $inc = q_sanitize($_REQUEST['inc']);
 $op = q_sanitize($_REQUEST['op']);
 $err = q_sanitize($_REQUEST['err']);

@@ -1,6 +1,23 @@
 <?php
 if(!(defined('_SECURE_'))){die('Intruder alert');};
 
+function user_getdatabyuid($uid) {
+    $ret = array();
+    if ($uid) {
+	$db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE uid='$uid'";
+	$db_result = dba_query($db_query);
+	if ($db_row = dba_fetch_array($db_result)) {
+	    $ret = $db_row;
+	}
+    }
+    return $ret;
+}
+
+function user_getdatabyusername($username) {
+    $uid = username2uid($username);
+    return user_getdatabyuid($uid);
+}
+
 function uid2username($uid) {
     if ($uid) {
 	$db_query = "SELECT username FROM "._DB_PREF_."_tblUser WHERE uid='$uid'";
