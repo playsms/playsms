@@ -38,7 +38,7 @@ function interceptincomingsms($sms_datetime,$sms_sender,$message) {
 function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
     global $gateway_module, $core_config;
     
-    // make sure sms_datetime is in supported format and in correct server timezone
+    // make sure sms_datetime is in supported format and in GMT+0
     $sms_datetime = core_adjust_datetime($sms_datetime);
     
     // incoming sms will be handled by plugin/tools/* first
@@ -154,6 +154,10 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message) {
 	    if ($cek_ok = @dba_insert_id($db_query)) {
 		logger_print("saved sender:".$sms_sender." target:".$target_user, 3, "insertsmstoinbox");
 		if ($email) {
+		
+		    // make sure sms_datetime is in supported format and in user's timezone
+		    $sms_datetime = core_display_datetime($sms_datetime);
+		
 		    $subject = "[SMSGW-PV] "._('from')." $sms_sender";
 		    $body = _('Forward Private WebSMS')." ($web_title)\n\n";
 		    $body .= _('Date time').": $sms_datetime\n";

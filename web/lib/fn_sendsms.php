@@ -15,6 +15,9 @@ function sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid=0,$sms_t
     $ok = false;
     $username = uid2username($uid);
     
+    // make sure sms_datetime is in supported format and in GMT+0
+    $sms_datetime = core_adjust_datetime($datetime_now);
+    
     // fixme anton - mobile number can be anything, screened by gateway
     // $mobile_sender = sendsms_getvalidnumber($mobile_sender);
     
@@ -30,7 +33,7 @@ function sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid=0,$sms_t
 	$db_query = "
     	    INSERT INTO "._DB_PREF_."_tblSMSOutgoing 
     	    (uid,p_gpid,p_gateway,p_src,p_dst,p_footer,p_msg,p_datetime,p_sms_type,unicode) 
-    	    VALUES ('$uid','$gpid','$gateway_module','$mobile_sender','$sms_to','$sms_sender','$sms_msg','$datetime_now','$sms_type','$unicode')
+    	    VALUES ('$uid','$gpid','$gateway_module','$mobile_sender','$sms_to','$sms_sender','$sms_msg','$sms_datetime','$sms_type','$unicode')
 	";
 	logger_print("saving:$uid,$gpid,$gateway_module,$mobile_sender,$sms_to,$sms_type,$unicode", 3, "sendsms");
 	// continue to gateway only when save to db is true
