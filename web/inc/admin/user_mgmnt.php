@@ -16,11 +16,11 @@ switch ($op)
     <table cellpadding='1' cellspacing='2' border='0' width='100%'>
     <tr>
         <td class='box_title' width='25'>*</td>
-        <td class='box_title' width='150'>"._('Username')."</td>
-        <td class='box_title'>"._('Name')."</td>	
-        <td class='box_title' width='200'>"._('Email')."</td>
-        <td class='box_title' width='200'>"._('Mobile')."</td>
-        <td class='box_title' width='100'>"._('Credit')."</td>
+        <td class='box_title' width='100'>"._('Username')."</td>
+        <td class='box_title' width='125'>"._('Name')."</td>	
+        <td class='box_title' width='150'>"._('Email')."</td>
+        <td class='box_title' width='150'>"._('Mobile')."</td>
+        <td class='box_title' width='75'>"._('Credit')."</td>
         <td class='box_title' width='75'>"._('Action')."</td>
     </tr>		    
 	";
@@ -50,11 +50,11 @@ switch ($op)
     <table cellpadding='1' cellspacing='2' border='0' width='100%'>
     <tr>
         <td class='box_title' width='25'>*</td>
-        <td class='box_title' width='150'>"._('Username')."</td>
-        <td class='box_title'>"._('Name')."</td>	
-        <td class='box_title' width='200'>"._('Email')."</td>
-        <td class='box_title' width='200'>"._('Mobile')."</td>
-        <td class='box_title' width='100'>"._('Credit')."</td>
+        <td class='box_title' width='100'>"._('Username')."</td>
+        <td class='box_title' width='125'>"._('Name')."</td>	
+        <td class='box_title' width='150'>"._('Email')."</td>
+        <td class='box_title' width='150'>"._('Mobile')."</td>
+        <td class='box_title' width='75'>"._('Credit')."</td>
         <td class='box_title' width='75'>"._('Action')."</td>
     </tr>		    
 	";
