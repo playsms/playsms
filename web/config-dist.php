@@ -24,24 +24,22 @@ $core_config['smtp']['port'] = '25';
 // you can turn on or off PHP error reporting
 // on production level you should turn off PHP error reporting (set to 0), by default its on
 //error_reporting(0);
+//error_reporting(E_ALL ^ (E_NOTICE | E_WARNING | E_DEPRECATED));
 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 
 // logs directories
 $apps_path['logs']	= '/var/log/playsms';
+
+// log level: 0=disabled, 1=info, 2=warning, 3=debug, 4=verbose
+// WARNING: log level 3 and 4 will also save sensitif information such as password for used gateway
+$core_config['logstate']	= 0;
 
 // 0 for single session login; 1 for multi session login
 // multi session login is not secure because playsms leaves md5 crypted username and password
 // on admin's computer
 $core_config['multilogin']	= 0;
 
-// log level: 0=disabled, 1=info, 2=warning, 3=debug, 4=verbose
-// WARNING: log level 3 and 4 will also save sensitif information such as password for used gateway
-$core_config['logstate']	= 0;
-
 // are we using http or https ? the default is using http instead https
 $core_config['ishttps']		= false;
-
-// max sms text length
-$core_config['smsmaxlength']	= 3*153; // single text sms can be 160 char instead of 1*153
 
 ?>
