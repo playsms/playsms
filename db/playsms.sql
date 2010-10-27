@@ -438,7 +438,8 @@ CREATE TABLE `playsms_gatewayClickatell_config` (
   `cfg_send_url` varchar(250) default NULL,
   `cfg_incoming_path` varchar(250) default NULL,
   `cfg_credit` int(11) NOT NULL default '0',
-  `cfg_additional_param` varchar(250) default NULL
+  `cfg_additional_param` varchar(250) default NULL,
+  `cfg_datetime_timezone` varchar(30) NOT NULL default '+0700'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -487,7 +488,8 @@ CREATE TABLE `playsms_gatewayKannel_config` (
   `cfg_bearerbox_host` varchar(250) default NULL,
   `cfg_sendsms_port` varchar(10) default NULL,
   `cfg_playsms_web` varchar(250) default NULL,
-  `cfg_additional_param` varchar(250) default NULL
+  `cfg_additional_param` varchar(250) default NULL,
+  `cfg_datetime_timezone` varchar(30) NOT NULL default '+0700'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -580,7 +582,8 @@ CREATE TABLE `playsms_gatewayUplink_config` (
   `cfg_password` varchar(100) default NULL,
   `cfg_global_sender` varchar(20) default NULL,
   `cfg_incoming_path` varchar(250) default NULL,
-  `cfg_additional_param` varchar(250) default NULL
+  `cfg_additional_param` varchar(250) default NULL,
+  `cfg_datetime_timezone` varchar(30) NOT NULL default '+0700'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -607,7 +610,9 @@ CREATE TABLE `playsms_tblConfig_main` (
   `cfg_gateway_number` varchar(100) default NULL,
   `cfg_themes_module` varchar(100) default NULL,
   `cfg_default_rate` FLOAT NOT NULL,
-  `cfg_language_module` varchar(10) default 'en_US'
+  `cfg_language_module` varchar(10) default 'en_US',
+  `cfg_datetime_timezone` varchar(30) NOT NULL default '+0700',
+  `cfg_sms_max_count` tinyint(4) NOT NULL default '3'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -758,6 +763,7 @@ CREATE TABLE `playsms_tblUser` (
   `zipcode` varchar(10) NOT NULL default '',
   `junktimestamp` varchar(30) NOT NULL default '',
   `credit` DOUBLE NOT NULL default '0',
+  `datetime_timezone` varchar(30) NOT NULL default '+0700',
   PRIMARY KEY  (`uid`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 

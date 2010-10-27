@@ -116,6 +116,7 @@ switch ($op)
 	$name = username2name($uname);
 	$status = username2status($uname);
 	$sender = username2sender($uname);
+	$timezone = username2timezone($uname);
 	$credit = rate_getusercredit($uname);
 	if ($err)
 	{
@@ -132,7 +133,7 @@ switch ($op)
 	    <p>
 	    <form action='index.php?app=menu&inc=user_mgmnt&op=user_edit_save' method='post'>
 	    <input type='hidden' name='uname' value=\"$uname\">
-	<table width='100%' cellpadding='1' cellspacing='2' border='0'>
+	    <table width='100%' cellpadding='1' cellspacing='2' border='0'>
 	    <tr>
 		<td width='175'>"._('Username')."</td><td width='5'>:</td><td><b>$uname</b></td>
 	    </tr>
@@ -149,6 +150,9 @@ switch ($op)
 		<td>"._('SMS Sender ID')." ("._('SMS footer').")</td><td>:</td><td><input type='text' size='35' maxlength='30' name='up_sender' value=\"$sender\"> ("._('Max. 30 alphanumeric characters').")</td>
 	    </tr>	    
 	    <tr>
+		<td>"._('Timezone')."</td><td>:</td><td><input type='text' size='5' maxlength='5' name='up_timezone' value=\"$timezone\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td>
+	    </tr>
+	    <tr>
 		<td>"._('Password')."</td><td>:</td><td><input type='password' size='30' maxlength='30' name='up_password'> ("._('Fill to change password for username')." `$uname`)</td>
 	    </tr>	    
 	    <tr>
@@ -157,7 +161,7 @@ switch ($op)
 	    <tr>
 		<td>"._('User level')."</td><td>:</td><td><select name='up_status'>$option_status</select></td>
 	    </tr>
-	</table>	    
+	    </table>	    
 	    <p><input type='submit' class='button' value='"._('Save')."'>
 	    </form>
 	";
@@ -172,6 +176,7 @@ switch ($op)
 	$up_password = $_POST['up_password'];
 	$up_status = $_POST['up_status'];
 	$up_credit = $_POST['up_credit'];
+	$up_timezone = ( $_POST['up_timezone'] ? $_POST['up_timezone'] : $gateway_timezone );
 //	$status = username2status($uname);
 	$error_string = _('No changes made');
 	if ($up_name && $up_mobile && $up_email)
@@ -188,7 +193,7 @@ switch ($op)
 		{
 		    $chg_pwd = ",password='$up_password'";
 		}
-		$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender',status='$up_status'".$chg_pwd." WHERE username='$uname'";
+		$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender',datetime_timezone='$up_timezone',status='$up_status'".$chg_pwd." WHERE username='$uname'";
 		if (@dba_affected_rows($db_query))
 		{
 		    $c_uid = username2uid($uname);
@@ -212,6 +217,7 @@ switch ($op)
 	{
 	    $content = "<p><font color='red'>$err</font><p>";
 	}
+	$add_timezone = ( $add_timezone ? $add_timezone : $gateway_timezone );
 	$option_status = "
 	    <option value='2'>"._('Administrator')."</option>
 	    <option value='3' selected>"._('Normal User')."</option>
@@ -220,7 +226,7 @@ switch ($op)
 	    <h2>"._('Add user')."</h2>
 	    <p>
 	    <form action='index.php?app=menu&inc=user_mgmnt&op=user_add_yes' method='post'>
-	<table width='100%' cellpadding='1' cellspacing='2' border='0'>
+	    <table width='100%' cellpadding='1' cellspacing='2' border='0'>
 	    <tr>
 		<td width='175'>"._('Username')."</td><td width='5'>:</td><td><input type='text' size='30' maxlength='30' name='add_username' value=\"$add_username\"></td>
 	    </tr>
@@ -237,6 +243,9 @@ switch ($op)
 		<td>"._('SMS Sender ID')." ("._('SMS footer').")</td><td>:</td><td><input type='text' size='35' maxlength='30' name='add_sender' value=\"$add_sender\"> ("._('Max. 30 alphanumeric characters').")</td>
 	    </tr>	    	    	    
 	    <tr>
+		<td>"._('Timezone')."</td><td>:</td><td><input type='text' size='5' maxlength='5' name='add_timezone' value=\"$add_timezone\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td>
+	    </tr>
+	    <tr>
 		<td>"._('Password')."</td><td>:</td><td><input type='password' size='30' maxlength='30' name='add_password' value=\"$add_password\"></td>
 	    </tr>
 	    <tr>
@@ -245,7 +254,7 @@ switch ($op)
 	    <tr>
 		<td>"._('User level')."</td><td>:</td><td><select name='add_status'>$option_status</select></td>
 	    </tr>
-	</table>	    
+	    </table>	    
 	    <p><input type='submit' class='button' value='"._('Add')."'>
 	    </form>
 	";
@@ -260,6 +269,7 @@ switch ($op)
 	$add_password = $_POST['add_password'];
 	$add_credit = $_POST['add_credit'];
 	$add_status = $_POST['add_status'];
+	$add_timezone = $_POST['add_timezone'];
 	if (ereg("^(.+)(.+)\\.(.+)$",$add_email,$arr) && $add_email && $add_username && $add_name && $add_password)
 	{
 	    $db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE username='$add_username'";
@@ -271,8 +281,8 @@ switch ($op)
 	    else
 	    {
 		$db_query = "
-		    INSERT INTO "._DB_PREF_."_tblUser (status,username,password,name,mobile,email,sender,credit)
-		    VALUES ('$add_status','$add_username','$add_password','$add_name','$add_mobile','$add_email','$add_sender','$add_credit')
+		    INSERT INTO "._DB_PREF_."_tblUser (status,username,password,name,mobile,email,sender,credit,datetime_timezone)
+		    VALUES ('$add_status','$add_username','$add_password','$add_name','$add_mobile','$add_email','$add_sender','$add_credit','$add_timezone')
 		";
 		if ($new_uid = @dba_insert_id($db_query))
 		{

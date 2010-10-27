@@ -41,6 +41,16 @@ function username2sender($username) {
     return $sender;
 }
 
+function username2timezone($username) {
+    if ($username) {
+	$db_query = "SELECT datetime_timezone FROM "._DB_PREF_."_tblUser WHERE username='$username'";
+	$db_result = dba_query($db_query);
+	$db_row = dba_fetch_array($db_result);
+	$tz = $db_row['datetime_timezone'];
+    }
+    return $tz;
+}
+
 function username2email($username) {
     if ($username) {
 	$db_query = "SELECT email FROM "._DB_PREF_."_tblUser WHERE username='$username'";
