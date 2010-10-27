@@ -140,8 +140,15 @@ if ($db_row = dba_fetch_array($db_result)) {
     $tmp_gateway_module = $db_row['cfg_gateway_module'];
     $tmp_themes_module = $db_row['cfg_themes_module'];
     $tmp_language_module = $db_row['cfg_language_module'];
+    $sms_max_count = $db_row['cfg_sms_max_count'];
     $core_config['main'] = $db_row;
 }
+
+// max sms text length
+// single text sms can be 160 char instead of 1*153
+$sms_max_count = ( (int)$sms_max_count < 1 ? 1 : (int)$sms_max_count );
+$core_config['main']['cfg_sms_max_count'] = $sms_max_count;
+$core_config['smsmaxlength']	= $sms_max_count * ( $sms_max_count > 1 ? 153 : 160 );
 
 // verify selected gateway_module exists
 $fn1 = $apps_path['plug'].'/gateway/'.$tmp_gateway_module.'/config.php';
@@ -196,7 +203,7 @@ $nd 			= "<div class=required>(*)</div>";
 
 $core_config['datetime']['date_now'] = $date_now;
 $core_config['datetime']['time_now'] = $time_now;
-$core_config['datetime']['datetime_now'] = $datetime_now;
+$core_config['datetime']['now'] = $datetime_now;
 
 // fixme anton - uncomment this if you want to know what are available in $core_config
 //print_r($core_config); die();

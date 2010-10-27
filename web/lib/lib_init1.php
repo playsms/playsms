@@ -53,4 +53,7 @@ if (isadmin()) {
     ksort($arr_menu['Administration']);
 }
 
+// fixme anton - uncomment this if you want to know what are available in $core_config
+//print_r($core_config); die();
+
 ?>
