@@ -85,7 +85,7 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
     }
     for ($i=0;$i<count($array_sms_to);$i++) {
 	$c_sms_to = str_replace("\'","",$array_sms_to[$i]);
-	$c_sms_to = str_replace("\"","",$array_sms_to[$i]);
+	$c_sms_to = str_replace("\"","",$c_sms_to);
 	$to[$i] = $c_sms_to;
 	$ok[$i] = false;
 	if ($ret = sendsms($mobile_sender,$sms_sender,$c_sms_to,$sms_msg,$uid,0,$sms_type,$unicode)) {
