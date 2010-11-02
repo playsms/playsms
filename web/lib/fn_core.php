@@ -110,7 +110,13 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
 	$c_feature = '';
 	$target_keyword = '';
 	$message = $message_full;
-	logger_print("unhandled datetime:".$sms_datetime." sender:".$sms_sender." message:".$message, 3, "setsmsincomingaction");
+	// from interceptincomingsms()
+	if ($ret['handled']) {
+	    $c_status = 1;
+	    logger_print("intercepted datetime:".$sms_datetime." sender:".$sms_sender." message:".$message, 3, "setsmsincomingaction");
+	} else {
+	    logger_print("unhandled datetime:".$sms_datetime." sender:".$sms_sender." message:".$message, 3, "setsmsincomingaction");
+	}
     }
     $db_query = "
         INSERT INTO "._DB_PREF_."_tblSMSIncoming 
