@@ -48,6 +48,11 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
     if ($ret['stop']) {
 	return true;
     }
+    if ($ret['param_modified']) {
+	$sms_datetime = ( $ret['param']['sms_datetime'] ? $ret['param']['sms_datetime'] : $sms_datetime );
+	$sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
+	$message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
+    }
     
     $c_uid = 0;
     $c_feature = "";
@@ -138,6 +143,12 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message) {
     $ret = interceptsmstoinbox($sms_datetime,$sms_sender,$target_user,$message);
     if ($ret['stop']) {
 	return true;
+    }
+    if ($ret['param_modified']) {
+	$sms_datetime = ( $ret['param']['sms_datetime'] ? $ret['param']['sms_datetime'] : $sms_datetime );
+	$sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
+	$target_user = ( $ret['param']['target_user'] ? $ret['param']['target_user'] : $target_user );
+	$message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
     }
     
     $ok = false;
