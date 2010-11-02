@@ -1,5 +1,8 @@
 Version 0.9.5.2 - unknown
+- interceptincomingsms() and interceptsmstoinbox() may modify parents parameters (anton)
 - fix #3095609 - XSS issue (anton)
+- fix #3095660 should be switch() (anton)
+- fix #3097366 str_replace issue (anton)
 
 Version 0.9.5.1 - 201010
 - MAJOR: gateway uplink will work only with master installed with playSMS >= 0.9.5.1 (anton)
