@@ -1,5 +1,7 @@
 Version 0.9.5.2 - unknown
-- interceptincomingsms() and interceptsmstoinbox() may modify parents parameters (anton)
+- MAJOR: all SMS date/time will be adjusted to GMT+0 in database (anton)
+- add ability to modify parents parameters in interceptincomingsms() and interceptsmstoinbox() (anton)
+- add timezone settings (anton)
 - fix #3095609 - XSS issue (anton)
 - fix #3095660 should be switch() (anton)
 - fix #3097366 str_replace issue (anton)

@@ -1,7 +1,7 @@
 README
 ------
 http://playsms.org
-Version 0.9.5.1
+Version 0.9.5.2
 
 
 Description
@@ -33,6 +33,7 @@ Feature Highlights
 - Long SMS support, length of text is configurable
 - Rate SMS by destination prefix
 - SMS credit system per user
+- Timezone settings
 - Multi-language user interface (current: English, French and Bahasa Indonesia)
 - Easily add new language for user interface
 - Web-based interface

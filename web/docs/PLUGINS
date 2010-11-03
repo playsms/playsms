@@ -22,6 +22,7 @@ Core functions that you can 'hook' from tools plugins:
 - phonebook_groupid2code($gpid)
 - phonebook_groupcode2id($uid,$gp_code)
 - phonebook_number2name($p_num)
+- phonebook_getmembercountbyid($gpid)
 - phonebook_getdatabyid($gpid, $orderby="")
 - phonebook_getdatabyuid($uid, $orderby="")
 - phonebook_getsharedgroup($uid)

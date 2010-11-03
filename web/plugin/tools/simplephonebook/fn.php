@@ -102,6 +102,16 @@ function simplephonebook_hook_phonebook_number2name($p_num) {
     return $p_desc;
 }
 
+function simplephonebook_hook_phonebook_getmembercountbyid($gpid) {
+    $count = 0;
+    $db_query = "SELECT COUNT(*) as count FROM "._DB_PREF_."_toolsSimplephonebook WHERE gpid='$gpid'";
+    $db_result = dba_query($db_query);
+    if ($db_row = dba_fetch_array($db_result)) {
+	$count = $db_row['count'];
+    }
+    return $count;
+}
+
 function simplephonebook_hook_phonebook_getdatabyid($gpid, $orderby="") {
     $ret = array();
     $db_query = "SELECT * FROM "._DB_PREF_."_toolsSimplephonebook WHERE gpid='$gpid'";

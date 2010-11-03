@@ -37,6 +37,17 @@ function phonebook_number2name($p_num) {
     return $p_desc;
 }
 
+function phonebook_getmembercountbyid($gpid) {
+    global $core_config;
+    $count = 0;
+    for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	if ($count = x_hook($core_config['toolslist'][$c],'phonebook_getmembercountbyid',array($gpid))) {
+	    break;
+	}
+    }
+    return $count;
+}
+
 function phonebook_getdatabyid($gpid, $orderby="") {
     global $core_config;
     $ret = array();
