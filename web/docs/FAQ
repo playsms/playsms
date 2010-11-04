@@ -71,10 +71,14 @@ C. RECEIVE SMS
 2.  What should sender do to send me private SMS?
     Answer:
     Tell them to send SMS to your GSM Modem with format:
-    PV [your_username] [their message]
+        PV [your_username] [their message]
+    or this format (since playSMS 0.9.5.2):
+        @[your username] [their message]
     eg: 
 	PV devteam your application works!
 	pv devteam i want to help you developing this application :)
+	@devteam your application rocks!
+	@devteam I want to help but dunno wht todo, any idea?
 	
 3.  Can I forward SMS from my mobile phone to my group?
     Answer:
@@ -87,13 +91,9 @@ C. RECEIVE SMS
     Note: your mobile phone number must be sets on your Personal data written in
     international format
 
-4.  Can I forward SMS from my mobile phone to group belongs to someone else?
+4.  What happened to the received/incoming SMS without keyword PV or keyword with @ sign ?
     Answer:
-    No, your SMS will be ignored
-
-5.  What happened to the received/incoming SMS without keyword PV ?
-    Answer:
-    They will only be shown (logged) on All Incoming SMS menu as an unhandled SMS.
+    They will only be shown in All Incoming SMS menu as an 'unhandled' SMS.
     Only admin have access to it.
 
 
