@@ -3,7 +3,7 @@ Version 0.9.5.2 - unknown
 - add method to modify parameters in interceptincomingsms() and interceptsmstoinbox() (anton)
 - add timezone settings (anton)
 - add new tools pvat, replace keyword @<username> with PV <username> (anton)
-- fix #3095609 - XSS issue (anton)
+- fix #3095609 XSS issue (security hole) (anton)
 - fix #3095660 should be switch() (anton)
 - fix #3097366 str_replace issue (anton)
 

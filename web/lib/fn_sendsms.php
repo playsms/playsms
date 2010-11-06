@@ -16,7 +16,6 @@ function sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid=0,$sms_t
     $username = uid2username($uid);
     
     // make sure sms_datetime is in supported format and in GMT+0
-    //$sms_datetime = core_adjust_datetime($datetime_now);
     $sms_datetime = core_adjust_datetime($core_config['datetime']['now']);
     
     // fixme anton - mobile number can be anything, screened by gateway
