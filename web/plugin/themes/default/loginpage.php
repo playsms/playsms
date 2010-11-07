@@ -1,4 +1,12 @@
 <?php include $apps_path['themes']."/".$themes_module."/header.php"; ?>
+<?php
+if ($errid) {
+    $err = logger_get_error_string($errid);
+}
+if ($err) {
+    $error_content = "<div class=error_string>$err</div>";
+}
+?>
 
 <TABLE WIDTH="100%" height="100%" BORDER=0 CELLPADDING=0 CELLSPACING=0>
 <TR>
@@ -24,12 +32,22 @@
     <td>&nbsp;<input type=password name=password maxlength=100 size=20></td>
 </tr>
 <tr>
-<td>&nbsp;</td>
-<td>&nbsp;<input type=submit class=button value=Login></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;<input type=submit class=button value=Login></td>
 </tr>
 </form>          
+<tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;<?php echo "<a href='index.php?app=menu&inc=register'>"._('Register an account')."</a>"; ?></td>
+</tr>
+<tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;<?php echo "<a href='index.php?app=menu&inc=forgot'>"._('Forgot password')."</a>"; ?></td>
+</tr>
 </table>
+
 <br />
+
 </TD>
 <TD WIDTH=15 background="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/images/login_04.gif"><IMG SRC="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/images/login_04.gif" WIDTH=15 HEIGHT=16></TD>
 </TR>

@@ -1,3 +1,11 @@
+<?php
+if ($errid) {
+    $err = logger_get_error_string($errid);
+}
+if ($err) {
+    $error_content = "<div class=error_string>$err</div>";
+}
+?>
 <html>
 <head>
 <title><?php echo $web_title; ?></title>
@@ -19,7 +27,7 @@
             <br />
             <table border="0" cellpadding="2" cellspacing="2">
 	      <tr>
-               <td colspan="2"><?php echo $error_content?></td>
+               <td colspan="2"><?php echo $error_content; ?></td>
               </tr>
             <form action="index.php?app=menu" method="POST">
               <input type="hidden" name="inc" value="login">
@@ -36,6 +44,17 @@
 		<td>&nbsp;<input type="submit" class="button" value=<?php echo _('Login'); ?>></td>
 	      </tr>
 	    </form>          
+
+<!-- please fix this, thanks -->
+<tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;<?php echo "<a href='index.php?app=menu&inc=register'>"._('Register an account')."</a>"; ?></td>
+</tr>
+<tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;<?php echo "<a href='index.php?app=menu&inc=forgot'>"._('Forgot password')."</a>"; ?></td>
+</tr>
+
 	    </table>
 	   <br />
 	</TD>

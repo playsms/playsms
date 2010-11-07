@@ -77,8 +77,53 @@ function isadmin($var_ticket="",$var_username="",$var_multilogin_id="") {
     }
 }
 
-function forcelogout() {
-    global $http_path;
+function forcenoaccess() {
+    $error_string = _('You have no access to this page');
+    $errid = logger_set_error_string($error_string);
+    header("Location: index.php?app=menu&inc=noaccess&errid=".$errid);
+    exit();
+}
+
+/*
+ * Process login
+ *
+ */
+function auth_login() {
+    global $core_config;
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+    if ($username && $password) {
+        if ($ticket = validatelogin($username,$password)) {
+    	    $db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',ticket='$ticket' WHERE username='$username'";
+	    if (@dba_affected_rows($db_query)) {
+	        setcookie("vc1","$ticket");
+	        setcookie("vc2","$username");
+		if ($core_config['multilogin']) {
+		    $multilogin_id = md5($username.$password);
+		    setcookie("vc3","$multilogin_id");
+		}
+	    } else {
+		$error_string = _('Unable to update login session');
+	    }
+	} else {
+	    $error_string = _('Invalid username or password');
+	}
+    }
+    if (isset($error_string)) {
+	$errid = logger_set_error_string($error_string);
+	header("Location: ".$core_config['http_path']['base']."/?errid=".$errid);
+    } else {
+	header("Location: ".$core_config['http_path']['base']);
+    }
+    exit();
+}
+
+/*
+ * Process logout
+ *
+ */
+function auth_logout() {
+    global $core_config;
     $db_query = "UPDATE "._DB_PREF_."_tblUser SET ticket='".md5(mktime())."' ".
     $db_query .= "WHERE username='".$_COOKIE['vc2']."' AND ticket='".$_COOKIE['vc1']."'";
     $db_result = dba_query($db_query);
@@ -86,13 +131,27 @@ function forcelogout() {
     setcookie("vc1");
     setcookie("vc2");
     setcookie("vc3");
-    header("Location: ".$http_path['base']."?err=".urlencode(_('You have been logged out')));
-    die();
+    $error_string = _('You have been logged out');
+    $errid = logger_set_error_string($error_string);
+    header("Location: ".$core_config['http_path']['base']."?errid=".$errid);
+    exit();
 }
 
-function forcenoaccess() {
-    header("Location: index.php?app=menu&inc=noaccess&err=".urlencode(_('You have no access to this page')));
-    die();
+/*
+ * Process noaccess
+ *
+ */
+function auth_noaccess() {
+    $content = "";
+    $errid = $_REQUEST['errid'];
+    if ($errid) {
+	$err = logger_get_error_string($errid);
+    }
+    if ($err) {
+	$content = "<div class=error_string>$err</div>";
+    }
+    echo "<div align=center>".$content."</div>";
+    exit();
 }
 
 ?>

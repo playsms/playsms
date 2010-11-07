@@ -1,5 +1,5 @@
 <?php
-if (!valid()) { forcelogout(); };
+if (!valid()) { auth_logout(); };
 
 include $apps_path['themes']."/".$themes_module."/header.php";
 

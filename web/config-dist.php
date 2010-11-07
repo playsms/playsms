@@ -3,7 +3,7 @@
 // msql, mssql, mysql, oci8, odbc, pgsql, sqlite
 $core_config['db']['type'] = 'mysql';		// database engine
 $core_config['db']['host'] = 'localhost';	// database host/server
-$core_config['db']['port'] = '';			// database port
+$core_config['db']['port'] = '3306';		// database port
 $core_config['db']['user'] = 'root';		// database username
 $core_config['db']['pass'] = 'rootpassword';	// database password
 $core_config['db']['name'] = 'playsms';		// database name

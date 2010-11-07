@@ -8,6 +8,21 @@ if (!($console = $_REQUEST['console'])) {
     include $apps_path['themes'].'/'.$themes_module.'/header.php';
 }
 
+// login, logout, register, forgot password, noaccess
+switch ($inc) {
+    case 'login':
+    case 'logout':
+    case 'noaccess':
+    case 'register':
+    case 'forgot':
+	$fn = "auth_".$inc;
+	if (function_exists($fn)) {
+	    call_user_func($fn);
+	}
+	exit();
+	break;
+}
+
 if (function_exists('bindtextdomain')) {
     bindtextdomain('messages', $apps_path['plug'].'/language/');
 }
