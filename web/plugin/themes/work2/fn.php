@@ -26,7 +26,7 @@ function themes_work2_buildmenu($arr_menu) {
     $content = "<table><tr><td>";
     $content .= "<div id='dropdown_attach_menu_parent_".$i."' class='dropdown_attach'><a href='".$http_path['base']."'>Home</a></div>";
     $content .= "<div id='dropdown_attach_menu_child_".$i."'>";
-    $content .= "<a class='dropdown_attach' href='index.php?app=menu&inc=logout'>Logout</a>";
+    $content .= "<a class='dropdown_attach' href='index.php?app=page&op=auth_logout'>Logout</a>";
     $content .= "</div>";
     $content .= "<script type='text/javascript'>at_attach('dropdown_attach_menu_parent_".$i."', 'dropdown_attach_menu_child_".$i."', 'hover', 'y', 'pointer');</script>";
     $content .= "</td>";

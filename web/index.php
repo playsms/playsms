@@ -1,6 +1,6 @@
 <?php
-include "init.php";
-include $apps_path['libs']."/function.php";
+include 'init.php';
+include $apps_path['libs'].'/function.php';
 
 if (function_exists('bindtextdomain')) {
     bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
@@ -41,20 +41,39 @@ if ($app = $_REQUEST['app']) {
 	    }
 	    x_hook($plugin,'call',array($_REQUEST));
 	    break;
+	case 'page':
+	    // $app=page to access a page inside themes
+	    // by default this is used for displaying 'forgot password' page and 'register an account' page
+	    // login, logout, register, forgot password, noaccess
+	    switch ($op) {
+		case 'auth_login':
+		case 'auth_logout':
+		case 'auth_forgot':
+		case 'auth_register':
+		    if (function_exists($op)) {
+			call_user_func($op);
+		    }
+		    break;
+		default:
+            	    $fn = $core_config['apps_path']['themes'].'/'.$core_config['module']['themes'].'/page_'.$inc.'.php';
+		    if (file_exists($fn)) {
+			include $fn;
+		    }
+	    }
     }
     exit();
 }
 
 
 // frontpage
-$error_content = "";
+$error_content = '';
 if ($err) {
-    $error_content .= "<div class=error_string>$err</div>";
+    $error_content .= '<div class=error_string>'.$err.'</div>';
 }
 
 if (valid()) {
-    include $apps_path['themes']."/".$themes_module."/welcomepage.php";
+    include $core_config['apps_path']['themes'].'/'.$core_config['module']['themes'].'/page_welcome.php';
 } else {
-    include $apps_path['themes']."/".$themes_module."/loginpage.php";
+    include $core_config['apps_path']['themes'].'/'.$core_config['module']['themes'].'/page_login.php';
 }
 ?>

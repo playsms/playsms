@@ -29,32 +29,23 @@ if ($err) {
 	      <tr>
                <td colspan="2"><?php echo $error_content; ?></td>
               </tr>
-            <form action="index.php?app=menu" method="POST">
-              <input type="hidden" name="inc" value="login">
+            <form action="index.php" method="POST">
+              <input type="hidden" name="app" value="page">
+              <input type="hidden" name="inc" value="forgot">
+              <input type="hidden" name="op" value="auth_forgot">
               <tr>
                 <td width="90" align="right"><font color="white"><?php echo _('Username'); ?></td>
                 <td>&nbsp;<input type="text" name="username" maxlength="100" size="20"></td>
     	      </tr>
               <tr>
-               <td align="right"><font color="white"><?php echo _('Password'); ?></font></td>
-               <td>&nbsp;<input type=password name=password maxlength=100 size=20></td>
-	      </tr>
+                <td width="90" align="right"><font color="white"><?php echo _('Email'); ?></td>
+                <td>&nbsp;<input type="text" name="email" maxlength="100" size="20"></td>
+    	      </tr>
 	      <tr>
 		<td>&nbsp;</td>
-		<td>&nbsp;<input type="submit" class="button" value=<?php echo _('Login'); ?>></td>
+		<td>&nbsp;<input type="submit" class="button" value="<?php echo _('Recover password'); ?>"></td>
 	      </tr>
 	    </form>          
-
-<!-- please fix this, thanks -->
-<tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;<?php echo "<a href='index.php?app=menu&inc=register'>"._('Register an account')."</a>"; ?></td>
-</tr>
-<tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;<?php echo "<a href='index.php?app=menu&inc=forgot'>"._('Forgot password')."</a>"; ?></td>
-</tr>
-
 	    </table>
 	   <br />
 	</TD>

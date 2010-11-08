@@ -21,8 +21,10 @@ if ($err) {
             <br />
             <div align=center><?php echo $error_content?></div>
             <table width="100%" border="0" cellpadding="2" cellspacing="2">
-            <form action="index.php?app=menu" method=POST>
+            <form action="index.php" method=POST>
+            <input type=hidden name=app value=page>
             <input type=hidden name=inc value=login>
+            <input type=hidden name=op value=auth_login>
             <tr>
         <td width="140" align="right"><?php echo _('Username'); ?> &nbsp; </td>
         <td>&nbsp;<input type=text name=username maxlength=100 size=20></td>
@@ -32,20 +34,22 @@ if ($err) {
     <td>&nbsp;<input type=password name=password maxlength=100 size=20></td>
 </tr>
 <tr>
-<td>&nbsp;</td>
-<td>&nbsp;<input type=submit class=button value=Login></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;<input type=submit class=button value="<?php echo _('Login'); ?>"></td>
 </tr>
 </form>          
 <tr>
     <td>&nbsp;</td>
-    <td>&nbsp;<?php echo "<a href='index.php?app=menu&inc=register'>"._('Register an account')."</a>"; ?></td>
+    <td>&nbsp;<?php echo "<a href='index.php?app=page&inc=register'>"._('Register an account')."</a>"; ?></td>
 </tr>
 <tr>
     <td>&nbsp;</td>
-    <td>&nbsp;<?php echo "<a href='index.php?app=menu&inc=forgot'>"._('Forgot password')."</a>"; ?></td>
+    <td>&nbsp;<?php echo "<a href='index.php?app=page&inc=forgot'>"._('Forgot password')."</a>"; ?></td>
 </tr>
 </table>
+
 <br />
+
 </TD>
 <TD WIDTH=15 background="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/images/login_04.gif"><IMG SRC="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/images/login_04.gif" WIDTH=15 HEIGHT=16></TD>
 </TR>

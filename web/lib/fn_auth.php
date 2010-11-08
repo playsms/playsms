@@ -80,7 +80,7 @@ function isadmin($var_ticket="",$var_username="",$var_multilogin_id="") {
 function forcenoaccess() {
     $error_string = _('You have no access to this page');
     $errid = logger_set_error_string($error_string);
-    header("Location: index.php?app=menu&inc=noaccess&errid=".$errid);
+    header("Location: index.php?app=page&inc=noaccess&errid=".$errid);
     exit();
 }
 
@@ -90,8 +90,8 @@ function forcenoaccess() {
  */
 function auth_login() {
     global $core_config;
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
+    $username = trim($_REQUEST['username']);
+    $password = trim($_REQUEST['password']);
     if ($username && $password) {
         if ($ticket = validatelogin($username,$password)) {
     	    $db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',ticket='$ticket' WHERE username='$username'";
@@ -138,19 +138,34 @@ function auth_logout() {
 }
 
 /*
- * Process noaccess
+ * Process forgot password
  *
  */
-function auth_noaccess() {
-    $content = "";
-    $errid = $_REQUEST['errid'];
-    if ($errid) {
-	$err = logger_get_error_string($errid);
-    }
-    if ($err) {
-	$content = "<div class=error_string>$err</div>";
-    }
-    echo "<div align=center>".$content."</div>";
+function auth_forgot() {
+    global $core_config;
+    $username = trim($_REQUEST['username']);
+    $email = trim($_REQUEST['email']);
+    $error_string = _('Fail to recover password');
+    if ($username && $email) {
+	$db_query = "SELECT password FROM "._DB_PREF_."_tblUser WHERE username='$username' AND email='$email'";
+	$db_result = dba_query($db_query);
+	if ($db_row = dba_fetch_array($db_result)) {
+	    if ($password = $db_row['password']) {
+		$subject = "[SMSGW-recover-password] "._('for')." ".$username;
+		$body = _('Website')."\t: ".$core_config['http_path']['base']."\n";
+		$body .= _('Username')."\t: $username\n";
+		$body .= _('Password')."\t: $password\n\n";
+		$body .= $core_config['main']['cfg_email_footer']."\n\n";
+		if (sendmail($core_config['main']['cfg_email_service'],$email,$subject,$body)) {
+		    $error_string = _('Password has been sent to your email');
+		} else {
+		    $error_string = _('Fail to send email');
+		}
+	    }
+	}
+    }    
+    $errid = logger_set_error_string($error_string);
+    header("Location: ".$core_config['http_path']['base']."?errid=".$errid);
     exit();
 }
 

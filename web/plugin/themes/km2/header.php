@@ -39,7 +39,7 @@
 		<li><a href="<?php echo $http_path['base']; ?>"><?php echo _('Home'); ?></a></li>
 		<li class="page_item page-item-22"><a href="./index.php?app=menu&inc=user_pref&op=user_pref" title="<?php echo _('Preferences'); ?>"><?php echo _('Preferences'); ?></a></li>
 		<li class="page_item page-item-22"><a href="./contact.php" title="<?php echo _('Contact'); ?>"><?php echo _('Contact'); ?></a></li>
-		<li class="page_item page-item-22"><a href="./index.php?app=menu&inc=logout" title="<?php echo _('Logout'); ?>"><?php echo _('Logout'); ?></a></li>
+		<li class="page_item page-item-22"><a href="./index.php?app=page&op=auth_logout" title="<?php echo _('Logout'); ?>"><?php echo _('Logout'); ?></a></li>
     
 </div>
 
