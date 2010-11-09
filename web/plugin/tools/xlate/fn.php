@@ -26,7 +26,9 @@ function xlate_hook_interceptincomingsms($sms_datetime, $sms_sender, $message) {
 	    for ($i=1;$i<count($msg);$i++) {
 		$words .= $msg[$i]." ";
 	    }
+	    $words = trim($words);
 	    // contact google
+	    require_once($core_config['apps_path']['plug'].'/tools/xlate/lib/GoogleTranslate/JSON.php');
 	    require_once($core_config['apps_path']['plug'].'/tools/xlate/lib/GoogleTranslate/googleTranslate.class.php');
 	    if ($gt = new GoogleTranslateWrapper()) {
 		/* Translate */
@@ -43,7 +45,7 @@ function xlate_hook_interceptincomingsms($sms_datetime, $sms_sender, $message) {
 		}
 		// send reply SMS using admin account
 		// should add a web menu in xlate.php to choose which account will be used to send reply SMS
-		list($ok,$to,$smslog_id) = sendsms_pv('admin',$sms_sender,$reply,1,0);
+		list($ok,$to,$smslog_id) = sendsms_pv('admin',$sms_sender,$reply,'text',0);
 		// usualy here we inspect the result of sendsms_pv, but not this time
 	    } else {
 		// unable to load the class, set incoming sms unhandled
