@@ -18,6 +18,7 @@
  */
 function pvat_hook_interceptincomingsms($sms_datetime, $sms_sender, $message) {
     $msg = explode(" ", $message);
+    $ret = array();
     if (count($msg) > 1) {
 	$pv = trim($msg[0]);
 	if (substr($pv,0,1) == '@') {

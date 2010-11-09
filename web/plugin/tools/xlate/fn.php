@@ -1,11 +1,7 @@
 <?php
 
 /*
- * intercept incoming sms and look for keyword 'xlate'
- * this feature will replace: 
- *   @username <private message>
- * to:
- *   PV username <private message>
+ * intercept incoming sms and translate words
  *
  * @param $sms_datetime
  *   incoming SMS date/time
@@ -18,22 +14,42 @@
  */
 function xlate_hook_interceptincomingsms($sms_datetime, $sms_sender, $message) {
     $msg = explode(" ", $message);
+    $ret = array();
     if (count($msg) > 1) {
-	$pv = trim($msg[0]);
-	if (substr($pv,0,1) == '@') {
-	    $c_username = substr($pv,1);
-	    $new_message = "PV ".$c_username." ";
-	    if (username2uid($c_username)) {
-		for ($i=1;$i<count($msg);$i++) {
-		    $new_message .= $msg[$i]." ";
-		}
-		$new_message = substr($new_message,0,-1);
-		// set 1 to param_modified to let parent function modify param values
-		$ret['param_modified'] = 1;
-		// this time only message param changed
-		$ret['param']['message'] = $new_message;
-		logger_print("dt:".$sms_datetime." s:".$sms_sender." m:".$message." mod:".$ret['param']['message'],3,"xlate");
+	$keyword = trim($msg[0]);
+	if (substr($keyword,0,1) == '@') {
+	    $xlate = substr($keyword,1);
+	    $xlate = explode('2',$xlate);
+	    $xlate_from = $xlate[0];
+	    $xlate_to = $xlate[1];
+	    for ($i=1;$i<count($msg);$i++) {
+		$words .= $msg[$i]." ";
 	    }
+	    // contact google
+	    require_once($core_config['apps_path']['plug'].'/tools/xlate/lib/GoogleTranslate/googleTranslate.class.php');
+	    if ($gt = new GoogleTranslateWrapper()) {
+		/* Translate */
+		$xlate_words = $gt->translate($words, $xlate_to, $xlate_from);
+		// incoming sms is handled
+		$ret['handled'] = true;
+		/* Was translation successful */
+		if ($gt->isSuccess()) {
+		    $reply = 'xlate:'.$xlate_words;
+		    logger_print("success dt:".$sms_datetime." s:".$sms_sender." w:".$words." from:".$xlate_from." to:".$xlate_to." xlate:".$xlate_words,3,"xlate");
+		} else {
+		    $reply = _("Unable to translate").":".$words;
+		    logger_print("failed dt:".$sms_datetime." s:".$sms_sender." w:".$words." from:".$xlate_from." to:".$xlate_to,3,"xlate");
+		}
+		// send reply SMS using admin account
+		// should add a web menu in xlate.php to choose which account will be used to send reply SMS
+		list($ok,$to,$smslog_id) = sendsms_pv('admin',$sms_sender,$reply,1,0);
+		// usualy here we inspect the result of sendsms_pv, but not this time
+	    } else {
+		// unable to load the class, set incoming sms unhandled
+		$ret['handled'] = false;
+		logger_print("class not exists or fail to load",3,"xlate");
+	    }
+		
 	}
     }
     return $ret;
