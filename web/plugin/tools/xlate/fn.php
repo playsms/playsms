@@ -13,6 +13,7 @@
  *   array $ret
  */
 function xlate_hook_interceptincomingsms($sms_datetime, $sms_sender, $message) {
+    global $core_config;
     $msg = explode(" ", $message);
     $ret = array();
     if (count($msg) > 1) {
