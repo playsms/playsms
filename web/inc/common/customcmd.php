@@ -1,3 +1,3 @@
 <?php
-// nothing in common
+// by default no custom codes or commands need to be executed
 ?>
