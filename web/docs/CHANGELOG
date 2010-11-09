@@ -1,8 +1,13 @@
 Version 0.9.5.2 - unknown
 - MAJOR: all SMS date/time will be adjusted to GMT+0 in database (anton)
+- MAJOR: themes structure changed, for example loginpage.php to page_login.php (anton)
 - add method to modify parameters in interceptincomingsms() and interceptsmstoinbox() (anton)
+- add new $app handler 'page' to access certain (custom) pages from themes (anton)
 - add timezone settings (anton)
 - add new tools pvat, replace keyword @<username> with PV <username> (anton)
+- add new tools xlate, utilized google translate API to translate words (anton)
+- add new form, registration form page, allow public to register an account (anton)
+- add new form, forgot password form page, recover forgottent password (anton)
 - remove manual refresh, this menu may give unexpected results (anton)
 - fix #3095609 XSS issue (security hole) (anton)
 - fix #3095660 should be switch() (anton)
