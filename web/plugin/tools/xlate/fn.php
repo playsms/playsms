@@ -28,8 +28,10 @@ function xlate_hook_interceptincomingsms($sms_datetime, $sms_sender, $message) {
 	    }
 	    $words = trim($words);
 	    // contact google
-	    require_once($core_config['apps_path']['plug'].'/tools/xlate/lib/GoogleTranslate/JSON.php');
-	    require_once($core_config['apps_path']['plug'].'/tools/xlate/lib/GoogleTranslate/googleTranslate.class.php');
+	    $lib = $core_config['apps_path']['plug'].'/tools/xlate/lib/GoogleTranslate';
+	    // load JSON.php for PHP version lower than 5.2.x
+	    require_once($lib.'/JSON.php');
+	    require_once($lib.'/googleTranslate.class.php');
 	    if ($gt = new GoogleTranslateWrapper()) {
 		/* Translate */
 		$xlate_words = $gt->translate($words, $xlate_to, $xlate_from);
