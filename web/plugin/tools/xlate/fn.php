@@ -39,7 +39,7 @@ function xlate_hook_interceptincomingsms($sms_datetime, $sms_sender, $message) {
 		$ret['handled'] = true;
 		/* Was translation successful */
 		if ($gt->isSuccess()) {
-		    $reply = 'xlate:'.$xlate_words;
+		    $reply = '@'.$xlate_from.'2'.$xlate_to.' '.$words.'='.$xlate_words;
 		    logger_print("success dt:".$sms_datetime." s:".$sms_sender." w:".$words." from:".$xlate_from." to:".$xlate_to." xlate:".$xlate_words,3,"xlate");
 		} else {
 		    $reply = _("Unable to translate").":".$words;
