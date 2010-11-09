@@ -50,11 +50,11 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
     $sms_datetime = core_adjust_datetime($sms_datetime);
     
     // incoming sms will be handled by plugin/tools/* first
-    $ret = interceptincomingsms($sms_datetime,$sms_sender,$message);
-    if ($ret['modified']) {
-	$sms_datetime = ( $ret['param']['sms_datetime'] ? $ret['param']['sms_datetime'] : $sms_datetime );
-	$sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
-	$message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
+    $ret_intercept = interceptincomingsms($sms_datetime,$sms_sender,$message);
+    if ($ret_intercept['modified']) {
+	$sms_datetime = ( $ret_intercept['param']['sms_datetime'] ? $ret_intercept['param']['sms_datetime'] : $sms_datetime );
+	$sms_sender = ( $ret_intercept['param']['sms_sender'] ? $ret_intercept['param']['sms_sender'] : $sms_sender );
+	$message = ( $ret_intercept['param']['message'] ? $ret_intercept['param']['message'] : $message );
     }
     
     $c_uid = 0;
@@ -114,7 +114,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
 	$target_keyword = '';
 	$message = $message_full;
 	// from interceptincomingsms(), force status as 'handled'
-	if ($ret['hooked']) {
+	if ($ret_intercept['hooked']) {
 	    $c_status = 1;
 	    logger_print("intercepted datetime:".$sms_datetime." sender:".$sms_sender." message:".$message, 3, "setsmsincomingaction");
 	} else {
@@ -156,12 +156,12 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message) {
     global $web_title,$email_service,$email_footer;
     
     // sms to inbox will be handled by plugin/tools/* first
-    $ret = interceptsmstoinbox($sms_datetime,$sms_sender,$target_user,$message);
-    if ($ret['param_modified']) {
-	$sms_datetime = ( $ret['param']['sms_datetime'] ? $ret['param']['sms_datetime'] : $sms_datetime );
-	$sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
-	$target_user = ( $ret['param']['target_user'] ? $ret['param']['target_user'] : $target_user );
-	$message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
+    $ret_intercept = interceptsmstoinbox($sms_datetime,$sms_sender,$target_user,$message);
+    if ($ret_intercept['param_modified']) {
+	$sms_datetime = ( $ret_intercept['param']['sms_datetime'] ? $ret_intercept['param']['sms_datetime'] : $sms_datetime );
+	$sms_sender = ( $ret_intercept['param']['sms_sender'] ? $ret_intercept['param']['sms_sender'] : $sms_sender );
+	$target_user = ( $ret_intercept['param']['target_user'] ? $ret_intercept['param']['target_user'] : $target_user );
+	$message = ( $ret_intercept['param']['message'] ? $ret_intercept['param']['message'] : $message );
     }
     
     $ok = false;
