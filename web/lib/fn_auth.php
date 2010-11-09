@@ -151,8 +151,9 @@ function auth_forgot() {
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 	    if ($password = $db_row['password']) {
-		$subject = "[SMSGW-recover-password] "._('for')." ".$username;
-		$body = _('Website')."\t: ".$core_config['http_path']['base']."\n";
+		$subject = "[SMSGW] "._('Password recovery');
+		$body = $core_config['main']['cfg_web_title']."\n";
+		$body .= $core_config['http_path']['base']."\n\n";
 		$body .= _('Username')."\t: $username\n";
 		$body .= _('Password')."\t: $password\n\n";
 		$body .= $core_config['main']['cfg_email_footer']."\n\n";
@@ -205,8 +206,9 @@ function auth_register() {
 	}
 	if ($ok) {
 	    logger_print("u:".$username." email:".$email." ip:".$_SERVER['REMOTE_ADDR'], 3, "register");
-	    $subject = "[SMSGW-new-account] ".$username;
-	    $body = _('Website')."\t: ".$core_config['http_path']['base']."\n";
+	    $subject = "[SMSGW] "._('New account registration');
+	    $body = $core_config['main']['cfg_web_title']."\n";
+	    $body .= $core_config['http_path']['base']."\n\n";
 	    $body .= _('Username')."\t: $username\n";
 	    $body .= _('Password')."\t: $password\n\n";
 	    $body .= $core_config['main']['cfg_email_footer']."\n\n";
