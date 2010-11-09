@@ -42,7 +42,7 @@ function xlate_hook_interceptincomingsms($sms_datetime, $sms_sender, $message) {
 		    $reply = '@'.$xlate_from.'2'.$xlate_to.' '.$words.'='.$xlate_words;
 		    logger_print("success dt:".$sms_datetime." s:".$sms_sender." w:".$words." from:".$xlate_from." to:".$xlate_to." xlate:".$xlate_words,3,"xlate");
 		} else {
-		    $reply = '@'.$xlate_from.'2'.$xlate_to.' '._("unable to translate").": ".$words;
+		    $reply = '@'.$xlate_from.'2'.$xlate_to.' '._("unable to translate").': '.$words;
 		    logger_print("failed dt:".$sms_datetime." s:".$sms_sender." w:".$words." from:".$xlate_from." to:".$xlate_to,3,"xlate");
 		}
 		// send reply SMS using admin account
