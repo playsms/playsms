@@ -36,7 +36,7 @@ function xlate_hook_interceptincomingsms($sms_datetime, $sms_sender, $message) {
 		/* Translate */
 		$xlate_words = $gt->translate($words, $xlate_to, $xlate_from);
 		// incoming sms is handled
-		$ret['handled'] = true;
+		$ret['hooked'] = true;
 		/* Was translation successful */
 		if ($gt->isSuccess()) {
 		    $reply = '@'.$xlate_from.'2'.$xlate_to.' '.$words.'='.$xlate_words;
@@ -47,11 +47,13 @@ function xlate_hook_interceptincomingsms($sms_datetime, $sms_sender, $message) {
 		}
 		// send reply SMS using admin account
 		// should add a web menu in xlate.php to choose which account will be used to send reply SMS
-		list($ok,$to,$smslog_id) = sendsms_pv('admin',$sms_sender,$reply,'text',0);
-		// usualy here we inspect the result of sendsms_pv, but not this time
+		// usualy we inspect the result of sendsms_pv, but not this time
+		sendsms_pv('admin',$sms_sender,$reply,'text',0);
+		// do not forget to tell parent that this SMS has been hooked
+		$ret['hooked'] = true;
 	    } else {
 		// unable to load the class, set incoming sms unhandled
-		$ret['handled'] = false;
+		$ret['hooked'] = false;
 		logger_print("class not exists or fail to load",3,"xlate");
 	    }
 		

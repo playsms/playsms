@@ -30,10 +30,12 @@ function pvat_hook_interceptincomingsms($sms_datetime, $sms_sender, $message) {
 		}
 		$new_message = substr($new_message,0,-1);
 		// set 1 to param_modified to let parent function modify param values
-		$ret['param_modified'] = 1;
+		$ret['modified'] = true;
 		// this time only message param changed
 		$ret['param']['message'] = $new_message;
 		logger_print("dt:".$sms_datetime." s:".$sms_sender." m:".$message." mod:".$ret['param']['message'],3,"pvat");
+		// do not forget to tell parent that this SMS has been hooked
+		$ret['hooked'] = true;
 	    }
 	}
     }

@@ -26,13 +26,21 @@ function checkavailablekeyword($keyword) {
 function interceptincomingsms($sms_datetime,$sms_sender,$message) {
     global $core_config;
     $ret = array();
+    $ret_final = array();
     for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	if ($ret['modified']) {
+	    $ret_final['modified'] = $ret['modified'];
+	    $ret_final['param']['sms_datetime'] = $ret['param']['sms_datetime'];
+	    $ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
+	    $ret_final['param']['message'] = $ret['param']['message'];
+	    $sms_datetime = ( $ret['param']['sms_datetime'] ? $ret['param']['sms_datetime'] : $sms_datetime );
+	    $sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
+	    $message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
+	}
+	if ($ret['hooked']) { $ret_final['hooked'] = $ret['hooked']; };
 	$ret = x_hook($core_config['toolslist'][$c],'interceptincomingsms',array($sms_datetime,$sms_sender,$message));
     }
-    // $ret['stop'] true is given by hooking functions, so if its empty we should set it to false
-    // $ret['stop'] true will stop setsmsincomingaction process at this point
-    if (! $ret['stop']) { $ret['stop'] = false; };
-    return $ret;
+    return $ret_final;
 }
 
 function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
@@ -42,13 +50,8 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
     $sms_datetime = core_adjust_datetime($sms_datetime);
     
     // incoming sms will be handled by plugin/tools/* first
-    // and then plugin/feature/* only when $ret['stop'] = false
-    // by default $ret['stop'] = false
     $ret = interceptincomingsms($sms_datetime,$sms_sender,$message);
-    if ($ret['stop']) {
-	return true;
-    }
-    if ($ret['param_modified']) {
+    if ($ret['modified']) {
 	$sms_datetime = ( $ret['param']['sms_datetime'] ? $ret['param']['sms_datetime'] : $sms_datetime );
 	$sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
 	$message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
@@ -110,8 +113,8 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
 	$c_feature = '';
 	$target_keyword = '';
 	$message = $message_full;
-	// from interceptincomingsms()
-	if ($ret['handled']) {
+	// from interceptincomingsms(), force status as 'handled'
+	if ($ret['hooked']) {
 	    $c_status = 1;
 	    logger_print("intercepted datetime:".$sms_datetime." sender:".$sms_sender." message:".$message, 3, "setsmsincomingaction");
 	} else {
@@ -131,25 +134,29 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message) {
 function interceptsmstoinbox($sms_datetime,$sms_sender,$target_user,$message) {
     global $core_config;
     $ret = array();
+    $ret_final = array();
     for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	if ($ret['modified']) {
+	    $ret_final['modified'] = $ret['modified'];
+	    $ret_final['param']['sms_datetime'] = $ret['param']['sms_datetime'];
+	    $ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
+	    $ret_final['param']['target_user'] = $ret['param']['target_user'];
+	    $ret_final['param']['message'] = $ret['param']['message'];
+	    $sms_datetime = ( $ret['param']['sms_datetime'] ? $ret['param']['sms_datetime'] : $sms_datetime );
+	    $sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
+	    $target_user = ( $ret['param']['target_user'] ? $ret['param']['target_user'] : $target_user );
+	    $message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
+	}
 	$ret = x_hook($core_config['toolslist'][$c],'interceptsmstoinbox',array($sms_datetime,$sms_sender,$target_user,$message));
     }
-    // $ret['stop'] true is given by hooking functions, so if its empty we should set it to false
-    // $ret['stop'] true will stop insertsmstoinbox process at this point
-    if (! $ret['stop']) { $ret['stop'] = false; };
-    return $ret;
+    return $ret_final;
 }
 
 function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message) {
     global $web_title,$email_service,$email_footer;
     
     // sms to inbox will be handled by plugin/tools/* first
-    // and then normal process only when $ret['stop'] = false
-    // by default $ret['stop'] = false
     $ret = interceptsmstoinbox($sms_datetime,$sms_sender,$target_user,$message);
-    if ($ret['stop']) {
-	return true;
-    }
     if ($ret['param_modified']) {
 	$sms_datetime = ( $ret['param']['sms_datetime'] ? $ret['param']['sms_datetime'] : $sms_datetime );
 	$sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
