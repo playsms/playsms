@@ -46,10 +46,19 @@ function xlate_hook_interceptincomingsms($sms_datetime, $sms_sender, $message) {
 			$reply = '@'.$xlate_from.'2'.$xlate_to.' '._("unable to translate").': '.$words;
 			logger_print("failed dt:".$sms_datetime." s:".$sms_sender." w:".$words." from:".$xlate_from." to:".$xlate_to,3,"xlate");
 		    }
+		    // detect reply message, set unicode if not ASCII
+		    $unicode = 0;
+		    if (function_exists('mb_detect_encoding')) {
+			$encoding = mb_detect_encoding($reply, 'auto');
+			if ($encoding != 'ASCII') {
+			    $unicode = 1;
+			}
+		    }
 		    // send reply SMS using admin account
 		    // should add a web menu in xlate.php to choose which account will be used to send reply SMS
 		    // usualy we inspect the result of sendsms_pv, but not this time
-		    sendsms_pv('admin',$sms_sender,$reply,'text',0);
+		    logger_print("send reply encoding:".$encoding,3,"xlate");
+		    sendsms_pv('admin',$sms_sender,$reply,'text',$unicode);
 		    // do not forget to tell parent that this SMS has been hooked
 		    $ret['hooked'] = true;
 		} else {
