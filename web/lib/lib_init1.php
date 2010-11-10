@@ -3,11 +3,6 @@ if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 // this file loaded before plugins
 
-// load user's data from user's DB table
-if (valid()) {
-    $core_config['user'] = user_getdatabyusername($_COOKIE['vc2']);
-}
-
 $inc = q_sanitize($_REQUEST['inc']);
 $op = q_sanitize($_REQUEST['op']);
 $err = q_sanitize($_REQUEST['err']);
@@ -26,6 +21,12 @@ $userstatus = ( isadmin() ? 'Administrator' : ' Normal User' );
 
 // reserved important keywords
 $reserved_keywords = array ("PV","BC");
+$core_config['reserved_keywords'] = $reserved_keywords;
+
+// load user's data from user's DB table
+if (valid()) {
+    $core_config['user'] = user_getdatabyusername($username);
+}
 
 // action icon
 $icon_edit = "<img src=\"".$http_path['themes']."/".$themes_module."/images/edit_action.gif\" alt=\""._('Edit')."\" title=\""._('Edit')."\" border=0>";
