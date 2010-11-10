@@ -18,7 +18,7 @@ function sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid=0,$sms_t
     // make sure sms_datetime is in supported format and in GMT+0
     // timezone used for outgoing message is not module timezone, but gateway timezone
     // module gateway may have set already to +0000 (such kannel and clickatell)
-    $sms_datetime = core_adjust_datetime($core_config['datetime']['now'], $core_config['main']['datetime_timezone']);
+    $sms_datetime = core_adjust_datetime($core_config['datetime']['now'], $core_config['main']['cfg_datetime_timezone']);
     
     // fixme anton - mobile number can be anything, screened by gateway
     // $mobile_sender = sendsms_getvalidnumber($mobile_sender);
