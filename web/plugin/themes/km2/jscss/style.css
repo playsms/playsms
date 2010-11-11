@@ -50,7 +50,13 @@ a img {
 	border: none;
 	}
 	
+a {
+ 	color: #ffffff;
+	font-family: Verdana, Helvetica, MS Sans Serif;
+}
+
 a:focus, a:hover, a:active {
+	color: #fd581e;
 	outline: none 
 	}
 	

@@ -47,14 +47,9 @@ if ($err) {
 	      </tr>
 	    </form>          
 
-<!-- please fix this, thanks -->
 <tr>
     <td>&nbsp;</td>
-    <td>&nbsp;<?php echo "<a href='index.php?app=page&inc=register'>"._('Register an account')."</a>"; ?></td>
-</tr>
-<tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;<?php echo "<a href='index.php?app=page&inc=forgot'>"._('Forgot password')."</a>"; ?></td>
+    <td>&nbsp;<?php echo "<a href='index.php?app=page&inc=register'>"._('Register an account')."</a>"; ?>&nbsp;&nbsp;<?php echo "<a href='index.php?app=page&inc=forgot'>"._('Forgot password')."</a>"; ?></td>
 </tr>
 
 	    </table>

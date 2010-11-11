@@ -24,7 +24,7 @@ if ($err) {
     <tr>
         <!--td background="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/images/header-4.png"-->
         <td class="header" >
-            <br />
+            <!--br /-->
             <table border="0" cellpadding="2" cellspacing="2">
 	      <tr>
                <td colspan="2"><?php echo $error_content; ?></td>
@@ -51,7 +51,7 @@ if ($err) {
     	      </tr>
 	      <tr>
 		<td>&nbsp;</td>
-		<td>&nbsp;<input type="submit" class="button" value="<?php echo _('Recover password'); ?>"></td>
+		<td>&nbsp;<input type="submit" class="button" value="<?php echo _('Register'); ?>"></td>
 	      </tr>
 	    </form>          
 	    </table>

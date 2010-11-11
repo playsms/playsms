@@ -1,3 +1,8 @@
+Version 1.2
+- now compatible with new release 0.9.5.2 
+- fix page_login.php, page_register.php, page_forgot.php
+- fix style.css (header-login.jpg, font)
+
 Version 1.1
 - fix bug where PlaySMS was not centered on IE
 
