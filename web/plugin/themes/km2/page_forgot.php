@@ -1,11 +1,3 @@
-<?php
-if ($errid) {
-    $err = logger_get_error_string($errid);
-}
-if ($err) {
-    $error_content = "<div class=error_string>$err</div>";
-}
-?>
 <html>
 <head>
 <title><?php echo $web_title; ?></title>

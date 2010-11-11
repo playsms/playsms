@@ -1,12 +1,4 @@
 <?php include $apps_path['themes']."/".$themes_module."/header.php"; ?>
-<?php
-if ($errid) {
-    $err = logger_get_error_string($errid);
-}
-if ($err) {
-    $error_content = "<div class=error_string>$err</div>";
-}
-?>
 
 <TABLE WIDTH="100%" height="100%" BORDER=0 CELLPADDING=0 CELLSPACING=0>
 <TR>
