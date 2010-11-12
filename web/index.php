@@ -6,15 +6,6 @@ if (function_exists('bindtextdomain')) {
     bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
 }
 
-// error messages
-$error_content = '';
-if ($errid) {
-    $err = logger_get_error_string($errid);
-}
-if ($err) {
-    $error_content = "<div class=error_string>$err</div>";
-}
-
 // fixme anton
 // load app extensions from index, such as menu, webservices and callbacks
 // using $app you can do up to load another application from playSMS if you need to
@@ -64,6 +55,15 @@ if ($app = $_REQUEST['app']) {
 		    }
 		    break;
 		default:
+		    // error messages
+		    $error_content = '';
+		    if ($errid) {
+			$err = logger_get_error_string($errid);
+		    }
+		    if ($err) {
+			$error_content = "<div class=error_string>$err</div>";
+		    }
+		    // load page
             	    $fn = $core_config['apps_path']['themes'].'/'.$core_config['module']['themes'].'/page_'.$inc.'.php';
 		    if (file_exists($fn)) {
 			include $fn;
