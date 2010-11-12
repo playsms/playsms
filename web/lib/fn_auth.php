@@ -200,8 +200,8 @@ function auth_register() {
 		{
 		    // by default the status is 3 (normal user)
 		    $db_query = "
-			INSERT INTO "._DB_PREF_."_tblUser (status,username,password,name,mobile,email,sender)
-			VALUES ('3','$username','$password','$name','$mobile','$email','$sender')
+			INSERT INTO "._DB_PREF_."_tblUser (status,username,password,name,mobile,email,sender,credit)
+			VALUES ('3','$username','$password','$name','$mobile','$email','$sender','".$core_config['main']['cfg_default_credit']."')
 		    ";
 		    if ($new_uid = @dba_insert_id($db_query))
 		    {

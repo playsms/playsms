@@ -609,10 +609,13 @@ CREATE TABLE `playsms_tblConfig_main` (
   `cfg_gateway_module` varchar(20) default NULL,
   `cfg_gateway_number` varchar(100) default NULL,
   `cfg_themes_module` varchar(100) default NULL,
-  `cfg_default_rate` FLOAT NOT NULL,
+  `cfg_default_rate` FLOAT NOT NULL DEFAULT '0',
   `cfg_language_module` varchar(10) default 'en_US',
   `cfg_datetime_timezone` varchar(30) NOT NULL default '+0700',
-  `cfg_sms_max_count` tinyint(4) NOT NULL default '3'
+  `cfg_sms_max_count` tinyint(4) NOT NULL default '3',
+  `cfg_default_credit` FLOAT NOT NULL DEFAULT '0',
+  `cfg_enable_register` tinyint(4) NOT NULL default '0',
+  `cfg_enable_forgot` tinyint(4) NOT NULL default '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --

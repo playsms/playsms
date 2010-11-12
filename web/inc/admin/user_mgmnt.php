@@ -249,7 +249,7 @@ switch ($op)
 		<td>"._('Password')."</td><td>:</td><td><input type='password' size='30' maxlength='30' name='add_password' value=\"$add_password\"></td>
 	    </tr>
 	    <tr>
-		<td>"._('Credit')."</td><td>:</td><td><input type='text' size='16' maxlength='30' name='add_credit' value=\"$add_credit\"></td>
+		<td>"._('Credit')."</td><td>:</td><td><input type='text' size='16' maxlength='30' name='add_credit' value=\"".$core_config['main']['cfg_default_credit']."\"></td>
 	    </tr>
 	    <tr>
 		<td>"._('User level')."</td><td>:</td><td><select name='add_status'>$option_status</select></td>
