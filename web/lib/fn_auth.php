@@ -143,29 +143,33 @@ function auth_logout() {
  */
 function auth_forgot() {
     global $core_config;
-    $username = trim($_REQUEST['username']);
-    $email = trim($_REQUEST['email']);
-    $error_string = _('Fail to recover password');
-    if ($username && $email) {
-	$db_query = "SELECT password FROM "._DB_PREF_."_tblUser WHERE username='$username' AND email='$email'";
-	$db_result = dba_query($db_query);
-	if ($db_row = dba_fetch_array($db_result)) {
-	    if ($password = $db_row['password']) {
-		$subject = "[SMSGW] "._('Password recovery');
-		$body = $core_config['main']['cfg_web_title']."\n";
-		$body .= $core_config['http_path']['base']."\n\n";
-		$body .= _('Username')."\t: $username\n";
-		$body .= _('Password')."\t: $password\n\n";
-		$body .= $core_config['main']['cfg_email_footer']."\n\n";
-		if (sendmail($core_config['main']['cfg_email_service'],$email,$subject,$body)) {
-		    $error_string = _('Password has been sent to your email');
-		} else {
-		    $error_string = _('Fail to send email');
+    if ($core_config['main']['cfg_enable_forgot']) {
+	$username = trim($_REQUEST['username']);
+	$email = trim($_REQUEST['email']);
+	$error_string = _('Fail to recover password');
+	if ($username && $email) {
+	    $db_query = "SELECT password FROM "._DB_PREF_."_tblUser WHERE username='$username' AND email='$email'";
+	    $db_result = dba_query($db_query);
+	    if ($db_row = dba_fetch_array($db_result)) {
+		if ($password = $db_row['password']) {
+		    $subject = "[SMSGW] "._('Password recovery');
+		    $body = $core_config['main']['cfg_web_title']."\n";
+		    $body .= $core_config['http_path']['base']."\n\n";
+		    $body .= _('Username')."\t: $username\n";
+		    $body .= _('Password')."\t: $password\n\n";
+		    $body .= $core_config['main']['cfg_email_footer']."\n\n";
+		    if (sendmail($core_config['main']['cfg_email_service'],$email,$subject,$body)) {
+			$error_string = _('Password has been sent to your email');
+		    } else {
+			$error_string = _('Fail to send email');
+		    }
+		    logger_print("u:".$username." email:".$email." ip:".$_SERVER['REMOTE_ADDR'], 3, "forgot");
 		}
-		logger_print("u:".$username." email:".$email." ip:".$_SERVER['REMOTE_ADDR'], 3, "forgot");
 	    }
-	}
-    }    
+	}    
+    } else {
+	$error_string = _('Recover password disabled');
+    }
     $errid = logger_set_error_string($error_string);
     header("Location: ".$core_config['http_path']['base']."?errid=".$errid);
     exit();
@@ -178,49 +182,53 @@ function auth_forgot() {
 function auth_register() {
     global $core_config;
     $ok = false;
-    $username = trim($_REQUEST['username']);
-    $email = trim($_REQUEST['email']);
-    $name = trim($_REQUEST['name']);
-    $mobile = trim($_REQUEST['mobile']);
-    $error_string = _('Fail to register an account');
-    if ($username && $email && $name && $mobile) {
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE username='$username'";
-	$db_result = dba_query($db_query);
-	if ($db_row = dba_fetch_array($db_result)) {
-	    $error_string = _('User is already exists')." ("._('username').": `".$username."`)";
-	} else {
-	    $password = substr(md5(time()),0,6);
-	    $sender = ' - '.$username;
-	    if (ereg("^(.+)(.+)\\.(.+)$",$email,$arr))
-	    {
-		// by default the status is 3 (normal user)
-		$db_query = "
-		    INSERT INTO "._DB_PREF_."_tblUser (status,username,password,name,mobile,email,sender)
-		    VALUES ('3','$username','$password','$name','$mobile','$email','$sender')
-		";
-		if ($new_uid = @dba_insert_id($db_query))
+    if ($core_config['main']['cfg_enable_register']) {
+    	$username = trim($_REQUEST['username']);
+    	$email = trim($_REQUEST['email']);
+    	$name = trim($_REQUEST['name']);
+    	$mobile = trim($_REQUEST['mobile']);
+   	$error_string = _('Fail to register an account');
+    	if ($username && $email && $name && $mobile) {
+	    $db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE username='$username'";
+	    $db_result = dba_query($db_query);
+	    if ($db_row = dba_fetch_array($db_result)) {
+		$error_string = _('User is already exists')." ("._('username').": `".$username."`)";
+	    } else {
+		$password = substr(md5(time()),0,6);
+		$sender = ' - '.$username;
+		if (ereg("^(.+)(.+)\\.(.+)$",$email,$arr))
 		{
-		    $ok = true;
+		    // by default the status is 3 (normal user)
+		    $db_query = "
+			INSERT INTO "._DB_PREF_."_tblUser (status,username,password,name,mobile,email,sender)
+			VALUES ('3','$username','$password','$name','$mobile','$email','$sender')
+		    ";
+		    if ($new_uid = @dba_insert_id($db_query))
+		    {
+			$ok = true;
+		    }
 		}
 	    }
-	}
-	if ($ok) {
-	    logger_print("u:".$username." email:".$email." ip:".$_SERVER['REMOTE_ADDR'], 3, "register");
-	    $subject = "[SMSGW] "._('New account registration');
-	    $body = $core_config['main']['cfg_web_title']."\n";
-	    $body .= $core_config['http_path']['base']."\n\n";
-	    $body .= _('Username')."\t: $username\n";
-	    $body .= _('Password')."\t: $password\n\n";
-	    $body .= $core_config['main']['cfg_email_footer']."\n\n";
-	    $error_string = _('User has been added')." ("._('username').": `".$username."`)";
-	    $error_string .= "<br />";
-	    if (sendmail($core_config['main']['cfg_email_service'],$email,$subject,$body)) {
-		$error_string .= _('Password has been sent to your email');
-	    } else {
-		$error_string .= _('Fail to send email');
+	    if ($ok) {
+		logger_print("u:".$username." email:".$email." ip:".$_SERVER['REMOTE_ADDR'], 3, "register");
+		$subject = "[SMSGW] "._('New account registration');
+		$body = $core_config['main']['cfg_web_title']."\n";
+		$body .= $core_config['http_path']['base']."\n\n";
+		$body .= _('Username')."\t: $username\n";
+		$body .= _('Password')."\t: $password\n\n";
+		$body .= $core_config['main']['cfg_email_footer']."\n\n";
+		$error_string = _('User has been added')." ("._('username').": `".$username."`)";
+		$error_string .= "<br />";
+		if (sendmail($core_config['main']['cfg_email_service'],$email,$subject,$body)) {
+		    $error_string .= _('Password has been sent to your email');
+		} else {
+		    $error_string .= _('Fail to send email');
+		}
 	    }
-	}
-    }    
+	}    
+    } else {
+	$error_string = _('Public registration disabled');
+    }
     $errid = logger_set_error_string($error_string);
     header("Location: ".$core_config['http_path']['base']."?errid=".$errid);
     exit();

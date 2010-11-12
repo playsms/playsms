@@ -30,14 +30,21 @@
     <td>&nbsp;<input type=submit class=button value="<?php echo _('Login'); ?>"></td>
 </tr>
 </form>          
+
+<?php if ($core_config['main']['cfg_enable_register']) { ?>
 <tr>
     <td>&nbsp;</td>
     <td>&nbsp;<?php echo "<a href='index.php?app=page&inc=register'>"._('Register an account')."</a>"; ?></td>
 </tr>
+<?php } ?>
+
+<?php if ($core_config['main']['cfg_enable_forgot']) { ?>
 <tr>
     <td>&nbsp;</td>
     <td>&nbsp;<?php echo "<a href='index.php?app=page&inc=forgot'>"._('Forgot password')."</a>"; ?></td>
 </tr>
+<?php } ?>
+
 </table>
 
 <br />

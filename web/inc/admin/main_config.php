@@ -8,6 +8,16 @@ switch ($op)
 	{
 	    $content = "<div class=error_string>$err</div>";
 	}
+	// enable register yes-no option
+	if ($enable_register) { $selected1 = "selected"; } else { $selected2 = "selected"; };
+	$option_enable_register = "<option value=\"1\" $selected1>"._('yes')."</option>";
+	$option_enable_register .= "<option value=\"0\" $selected2>"._('no')."</option>";
+	$selected1 = ""; $selected2 = "";
+	// enable forgot yes-no option
+	if ($enable_forgot) { $selected1 = "selected"; } else { $selected2 = "selected"; };
+	$option_enable_forgot = "<option value=\"1\" $selected1>"._('yes')."</option>";
+	$option_enable_forgot .= "<option value=\"0\" $selected2>"._('no')."</option>";
+	$selected1 = ""; $selected2 = "";
 	// get gateway options
 	for ($i=0;$i<count($core_config['gatewaylist']);$i++) {
 	    $gateway = $core_config['gatewaylist'][$i];
@@ -56,6 +66,15 @@ switch ($op)
 		<td>"._('Maximum SMS count')."</td><td>:</td><td><input type='text' size='2' maxlength='2' name='edit_sms_max_count' value=\"$sms_max_count\"></td>
 	    </tr>
 	    <tr>
+		<td>"._('Default credit for user')."</td><td>:</td><td><input type='text' size='20' name='edit_default_credit' value=\"$default_credit\"></td>
+	    </tr>
+	    <tr>
+		<td>"._('Enable public registration')."</td><td>:</td><td><select name='edit_enable_register'>$option_enable_register</select></td>
+	    </tr>
+	    <tr>
+		<td>"._('Enable forgot password')."</td><td>:</td><td><select name='edit_enable_forgot'>$option_enable_forgot</select></td>
+	    </tr>
+	    <tr>
 		<td>"._('Active gateway module')."</td><td>:</td><td><select name='edit_gateway_module'>$option_gateway_module</select></td>
 	    </tr>
 	    <tr>
@@ -81,6 +100,9 @@ switch ($op)
 	$edit_themes_module = $_POST['edit_themes_module'];
 	$edit_language_module = $_POST['edit_language_module'];
 	$edit_sms_max_count = $_POST['edit_sms_max_count'];
+	$edit_default_credit = $_POST['edit_default_credit'];
+	$edit_enable_register = $_POST['edit_enable_register'];
+	$edit_enable_forgot = $_POST['edit_enable_forgot'];
 	$db_query = "
 	    UPDATE "._DB_PREF_."_tblConfig_main 
 	    SET c_timestamp='".mktime()."',
@@ -93,7 +115,10 @@ switch ($op)
 		cfg_gateway_module='$edit_gateway_module',
 		cfg_themes_module='$edit_themes_module',
 		cfg_language_module='$edit_language_module',
-		cfg_sms_max_count='$edit_sms_max_count'
+		cfg_sms_max_count='$edit_sms_max_count',
+		cfg_default_credit='$edit_default_credit',
+		cfg_enable_register='$edit_enable_register',
+		cfg_enable_forgot='$edit_enable_forgot'
 	";
 	$db_result = dba_query($db_query);
 	$error_string = _('Main configuration changes has been saved');

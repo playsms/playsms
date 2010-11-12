@@ -73,6 +73,14 @@ if ($app = $_REQUEST['app']) {
     exit();
 }
 
+// error messages
+$error_content = '';
+if ($errid) {
+    $err = logger_get_error_string($errid);
+}
+if ($err) {
+    $error_content = "<div class=error_string>$err</div>";
+}
 // frontpage
 if (valid()) {
     include $core_config['apps_path']['themes'].'/'.$core_config['module']['themes'].'/page_welcome.php';

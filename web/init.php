@@ -141,6 +141,9 @@ if ($db_row = dba_fetch_array($db_result)) {
     $tmp_themes_module = $db_row['cfg_themes_module'];
     $tmp_language_module = $db_row['cfg_language_module'];
     $sms_max_count = $db_row['cfg_sms_max_count'];
+    $default_credit = $db_row['cfg_default_credit'];
+    $enable_register = $db_row['cfg_enable_register'];
+    $enable_forgot = $db_row['cfg_enable_forgot'];
     $core_config['main'] = $db_row;
 }
 
