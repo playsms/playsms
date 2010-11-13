@@ -615,7 +615,7 @@ CREATE TABLE `playsms_tblConfig_main` (
   `cfg_sms_max_count` tinyint(4) NOT NULL default '3',
   `cfg_default_credit` FLOAT NOT NULL DEFAULT '0',
   `cfg_enable_register` tinyint(4) NOT NULL default '0',
-  `cfg_enable_forgot` tinyint(4) NOT NULL default '0'
+  `cfg_enable_forgot` tinyint(4) NOT NULL default '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --

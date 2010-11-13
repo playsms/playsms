@@ -1,4 +1,4 @@
-Version 0.9.5.2 - unknown
+Version 0.9.5.2 - 101115
 - MAJOR: all SMS date/time will be adjusted to GMT+0 in database (anton)
 - MAJOR: themes structure changed, for example loginpage.php to page_login.php (anton)
 - add method to modify parameters in interceptincomingsms() and interceptsmstoinbox() (anton)
@@ -8,12 +8,15 @@ Version 0.9.5.2 - unknown
 - add new tools xlate, utilized google translate API to translate words (anton)
 - add new form, registration form page, allow public to register an account (anton)
 - add new form, forgot password form page, recover forgottent password (anton)
+- add option in main configuration to disable/enable public registration (anton)
+- add option in main configuration to disable/enable recover password (anton)
+- add option in main configuration to fill default user credit for registration (anton)
 - remove manual refresh, this menu may give unexpected results (anton)
 - fix #3095609 XSS issue (security hole) (anton)
 - fix #3095660 should be switch() (anton)
 - fix #3097366 str_replace issue (anton)
 
-Version 0.9.5.1 - 201010
+Version 0.9.5.1 - 101020
 - MAJOR: gateway uplink will work only with master installed with playSMS >= 0.9.5.1 (anton)
 - MAJOR: fix message empty when handled by gnokii or smstools due to single quote in $lc (kendokar)
 - MAJOR: PHP PEAR DB re-included in the package, too complicated to install it manually (anton)
