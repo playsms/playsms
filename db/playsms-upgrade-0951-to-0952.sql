@@ -16,3 +16,6 @@ ALTER TABLE `playsms_tblConfig_main` ADD `cfg_default_credit` FLOAT NOT NULL DEF
 ADD `cfg_enable_register` TINYINT( 4 ) NOT NULL DEFAULT '0',
 ADD `cfg_enable_forgot` TINYINT( 4 ) NOT NULL DEFAULT '1' ;
 
+UPDATE `playsms_tblConfig_main` SET `cfg_default_credit`='0' ;
+UPDATE `playsms_tblConfig_main` SET `cfg_enable_register`='0' ;
+UPDATE `playsms_tblConfig_main` SET `cfg_enable_forgot`='1' ;
