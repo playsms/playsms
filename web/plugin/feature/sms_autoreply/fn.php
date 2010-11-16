@@ -41,7 +41,8 @@ function sms_autoreply_hook_setsmsincomingaction($sms_datetime,$sms_sender,$auto
     if ($db_row = dba_fetch_array($db_result))
     {
 	$c_uid = $db_row['uid'];
-	if (sms_autoreply_handle($sms_datetime,$sms_sender,$autoreply_keyword,$autoreply_param))
+	$autoreply_id = $db_row['autoreply_id'];
+	if (sms_autoreply_handle($sms_datetime,$sms_sender,$c_uid,$autoreply_id,$autoreply_keyword,$autoreply_param))
 	{
 	    $ok = true;
 	}
@@ -51,7 +52,7 @@ function sms_autoreply_hook_setsmsincomingaction($sms_datetime,$sms_sender,$auto
     return $ret;
 }
 
-function sms_autoreply_handle($sms_datetime,$sms_sender,$autoreply_keyword,$autoreply_param='')
+function sms_autoreply_handle($sms_datetime,$sms_sender,$c_uid,$autoreply_id,$autoreply_keyword,$autoreply_param='')
 {
     global $datetime_now;
     $ok = false;
@@ -60,16 +61,16 @@ function sms_autoreply_handle($sms_datetime,$sms_sender,$autoreply_keyword,$auto
     for ($i=0;$i<count($array_autoreply_request);$i++)
     {
 	$autoreply_part[$i] = trim($array_autoreply_request[$i]);
-	$tmp_autoreply_request .= $array_autoreply_request[$i]." ";
+	$tmp_autoreply_request .= trim($array_autoreply_request[$i])." ";
     }
     $autoreply_request = trim($tmp_autoreply_request);
-    for ($i=1;$i<8;$i++)
+    for ($i=1;$i<7;$i++)
     {
 	$autoreply_scenario_param_list .= "autoreply_scenario_param$i='".$autoreply_part[$i]."' AND ";
     }
     $db_query = "
 	SELECT autoreply_scenario_result FROM "._DB_PREF_."_featureAutoreply_scenario 
-	WHERE $autoreply_scenario_param_list 1=1
+	WHERE autoreply_id='$autoreply_id' AND $autoreply_scenario_param_list 1=1
     ";
     $db_result = dba_query($db_query);
     $db_row = dba_fetch_array($db_result);
@@ -89,10 +90,6 @@ function sms_autoreply_handle($sms_datetime,$sms_sender,$autoreply_keyword,$auto
     if ($ok)
     {
 	$ok = false;
-	$db_query = "SELECT uid FROM "._DB_PREF_."_featureAutoreply WHERE autoreply_keyword='$autoreply_keyword'";
-	$db_result = dba_query($db_query);
-	$db_row = dba_fetch_array($db_result);
-	$c_uid = $db_row['uid'];
 	$c_username = uid2username($c_uid);
 	list($ok,$to,$smslog_id) = sendsms_pv($c_username,$sms_sender,$autoreply_scenario_result);
 	$ok = $ok[0];
