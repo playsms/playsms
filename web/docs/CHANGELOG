@@ -1,3 +1,7 @@
+Version 0.9.6 - unknown
+- fix autoreply unable to delete scenario
+- fix #3109982 wrong autoreply result due to missing autoreply_id in db query
+
 Version 0.9.5.2 - 101115
 - MAJOR: all SMS date/time will be adjusted to GMT+0 in database (anton)
 - MAJOR: themes structure changed, for example loginpage.php to page_login.php (anton)

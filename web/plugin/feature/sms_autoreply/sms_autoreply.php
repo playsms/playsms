@@ -101,7 +101,7 @@ switch ($op)
 		$list_of_param .= $db_row['autoreply_scenario_param'.$i]."&nbsp;";
 	    }
 	    $action = "<a href=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit&autoreply_id=$autoreply_id&autoreply_scenario_id=".$db_row['autoreply_scenario_id'].">$icon_edit</a>";
-	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this SMS autoreply scenario ?')."','index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_del&autoreply_scenario_id=".$db_row['autoreply_scenario_id']."')\">$icon_delete</a>";
+	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this SMS autoreply scenario ?')."','index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_del&autoreply_id=$autoreply_id&autoreply_scenario_id=".$db_row['autoreply_scenario_id']."')\">$icon_delete</a>";
 	    $content .= "
     <tr>
 	<td class=$td_class>&nbsp;$j.</td>
@@ -125,12 +125,13 @@ switch ($op)
 	$db_query = "SELECT autoreply_keyword FROM "._DB_PREF_."_featureAutoreply WHERE autoreply_id='$autoreply_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$keyword_name = $db_row['autoreply_keyword'];
-	if ($keyword_name)
+	if ($keyword_name = $db_row['autoreply_keyword'])
 	{
 	    $db_query = "DELETE FROM "._DB_PREF_."_featureAutoreply WHERE autoreply_keyword='$keyword_name'";
 	    if (@dba_affected_rows($db_query))
 	    {
+	    	$db_query = "DELETE FROM "._DB_PREF_."_featureAutoreply_scenario WHERE autoreply_id='$autoreply_id'";
+	    	dba_query($db_query);
 		$error_string = _('SMS autoreply has been deleted')." ("._('keyword').": `$keyword_name`)";
 	    }
 	    else
@@ -185,25 +186,16 @@ switch ($op)
 	
     // scenario
     case "sms_autoreply_scenario_del":
-	$autoreply_scenario_id = $_REQUEST['autoreply_scenario_id'];
-	$autoreply_id = $_REQUEST['autoreply_id'];
-	$db_query = "SELECT autoreply_scenario_keyword FROM "._DB_PREF_."_featureAutoreply_scenario WHERE autoreply_scenario_id='$autoreply_scenario_id'";
-	$db_result = dba_query($db_query);
-	$db_row = dba_fetch_array($db_result);
-	$keyword_name = $db_row['autoreply_scenario_keyword'];
-	if ($keyword_name)
+	$error_string = _('Fail to delete SMS autoreply scenario');
+	if (($autoreply_id = $_REQUEST['autoreply_id']) && ($autoreply_scenario_id = $_REQUEST['autoreply_scenario_id']))
 	{
 	    $db_query = "DELETE FROM "._DB_PREF_."_featureAutoreply_scenario WHERE autoreply_id='$autoreply_id' AND autoreply_scenario_id='$autoreply_scenario_id'";
 	    if (@dba_affected_rows($db_query))
 	    {
-		$error_string = _('SMS autoreply scenario has been deleted')." ("._('keyword').": `$keyword_name`)";
-	    }
-	    else
-	    {
-		$error_string = _('Fail to delete SMS autoreply scenario')." ("._('keyword').": `$keyword_name`)";
+		$error_string = _('SMS autoreply scenario has been deleted');
 	    }
 	}
-	header ("Location: index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_list&err=".urlencode($error_string));
+	header ("Location: index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=".$autoreply_id."&err=".urlencode($error_string));
 	break;
     case "sms_autoreply_scenario_add":
 	$autoreply_id = $_REQUEST['autoreply_id'];
