@@ -10,19 +10,63 @@ function sendsms_getvalidnumber($sender) {
     return $sender;
 }
 
+function interceptsendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0) {
+    global $core_config;
+    $ret = array();
+    $ret_final = array();
+    for ($c=0;$c<count($core_config['toolslist']);$c++) {
+	if ($ret['modified']) {
+	    $ret_final['modified'] = $ret['modified'];
+	    $ret_final['param']['mobile_sender'] = $ret['param']['mobile_sender'];
+	    $mobile_sender = ( $ret['param']['mobile_sender'] ? $ret['param']['mobile_sender'] : $mobile_sender );
+	    $ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
+	    $sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
+	    $ret_final['param']['sms_to'] = $ret['param']['sms_to'];
+	    $sms_to = ( $ret['param']['sms_to'] ? $ret['param']['sms_to'] : $sms_to );
+	    $ret_final['param']['sms_msg'] = $ret['param']['sms_msg'];
+	    $sms_msg = ( $ret['param']['sms_msg'] ? $ret['param']['sms_msg'] : $sms_msg );
+	    $ret_final['param']['uid'] = $ret['param']['uid'];
+	    $uid = ( $ret['param']['uid'] ? $ret['param']['uid'] : $uid );
+	    $ret_final['param']['gpid'] = $ret['param']['gpid'];
+	    $gpid = ( $ret['param']['gpid'] ? $ret['param']['gpid'] : $gpid );
+	    $ret_final['param']['sms_type'] = $ret['param']['sms_type'];
+	    $sms_type = ( $ret['param']['sms_type'] ? $ret['param']['sms_type'] : $sms_type );
+	    $ret_final['param']['unicode'] = $ret['param']['unicode'];
+	    $unicode = ( $ret['param']['unicode'] ? $ret['param']['unicode'] : $unicode );
+	    $message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
+	}
+	$ret = x_hook($core_config['toolslist'][$c],'interceptsendsms',array($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode));
+    }
+    return $ret_final;
+}
+
+
 function sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0) {
     global $datetime_now, $core_config, $gateway_module;
-    $ok = false;
-    $username = uid2username($uid);
     
     // make sure sms_datetime is in supported format and in GMT+0
     // timezone used for outgoing message is not module timezone, but gateway timezone
     // module gateway may have set already to +0000 (such kannel and clickatell)
     $sms_datetime = core_adjust_datetime($core_config['datetime']['now'], $core_config['main']['cfg_datetime_timezone']);
     
+    // sent sms will be handled by plugin/tools/* first
+    $ret_intercept = interceptsendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode);
+    if ($ret_intercept['modified']) {
+	$mobile_sender = ( $ret_intercept['param']['mobile_sender'] ? $ret_intercept['param']['mobile_sender'] : $mobile_sender );
+	$sms_sender = ( $ret_intercept['param']['sms_sender'] ? $ret_intercept['param']['sms_sender'] : $sms_sender );
+	$sms_to = ( $ret_intercept['param']['sms_to'] ? $ret_intercept['param']['sms_to'] : $sms_to );
+	$sms_msg = ( $ret_intercept['param']['sms_msg'] ? $ret_intercept['param']['sms_msg'] : $sms_msg );
+	$uid = ( $ret_intercept['param']['uid'] ? $ret_intercept['param']['uid'] : $uid );
+	$gpid = ( $ret_intercept['param']['gpid'] ? $ret_intercept['param']['gpid'] : $gpid );
+	$sms_type = ( $ret_intercept['param']['sms_type'] ? $ret_intercept['param']['sms_type'] : $sms_type );
+	$unicode = ( $ret_intercept['param']['unicode'] ? $ret_intercept['param']['unicode'] : $unicode );
+    }
+    
     // fixme anton - mobile number can be anything, screened by gateway
     // $mobile_sender = sendsms_getvalidnumber($mobile_sender);
     
+    $ok = false;
+    $username = uid2username($uid);
     $sms_to = sendsms_getvalidnumber($sms_to);
     logger_print("start", 3, "sendsms");
     if (rate_cansend($username, $sms_to)) {
