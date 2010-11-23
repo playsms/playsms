@@ -53,10 +53,16 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $subscribe_key
 	$subscribe_keyword = strtoupper($subscribe_keyword);
 	$username = uid2username($c_uid);
 	$sms_to = $sms_sender; // we are replying to this sender
-
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_keyword='$subscribe_keyword'";
 	$db_result = dba_query($db_query);
-	$db_row = dba_fetch_array($db_result);
+	if ($db_row = dba_fetch_array($db_result)) {
+		if (! $db_row['subscribe_enable']) {
+			$message = _('Subscribe service inactive');
+			list($ok,$to,$smslog_id) = sendsms_pv($username, $sms_to, $message);
+			$ok = $ok[0];
+			return $ok;
+		}
+	}
 	$c_uid = $db_row['uid'];
 	$subscribe_id = $db_row['subscribe_id'];
 	$num_rows = dba_num_rows($db_query);
@@ -159,12 +165,11 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $subscribe_key
 					break;
 			}
 		}
+		list($ok,$to,$smslog_id) = sendsms_pv($username, $sms_to, $message);
+		$ok = $ok[0];
 	} else {
 		$ok = false;
 	}
-
-	list($ok,$to,$smslog_id) = sendsms_pv($username, $sms_to, $message);
-	$ok = $ok[0];
 	return $ok;
 }
 ?>
