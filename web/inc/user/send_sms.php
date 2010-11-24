@@ -257,6 +257,11 @@ switch ($op)
 	break;
     case "sendsmstogr_yes":
 	$gpid = $_POST['gpid'];
+	$gp_code = $_POST['gp_code_text'];
+	if ($gp_code) {
+	    $uid = username2uid($username);
+	    $gpid = phonebook_groupcode2id($uid, $gp_code);
+	}
 	/*
 	if (!$gpid[0]) {
 	    $gpid = $_POST['gpid_text'];
