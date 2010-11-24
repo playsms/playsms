@@ -65,7 +65,8 @@ PROTOCOL
 
 EXAMPLE
 -------
-http://x.com/index.php?app=webservices&ta=bc&u=admin&p=rahasia&to=TI&msg=meeting+at+15.00+today!
+http://playsms.org/trial/index.php?app=webservices&ta=pv&u=admin&p=rahasia&to=01234567890&msg=meeting+at+15.00+today!
+http://playsms.org/trial/index.php?app=webservices&ta=bc&u=admin&p=rahasia&to=TI&msg=meeting+at+15.00+today!
 
 User admin access playSMS webservices in x.com with type of action bc (broadcast)
 if succeded returns: OK SMS_LOG_ID (eg: OK 754)

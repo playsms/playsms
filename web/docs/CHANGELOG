@@ -1,6 +1,9 @@
-Version 0.9.6 - unknown
+Version 0.9.6-git - unknown
 - add new method interceptsendsms() to intercept sent SMS before handled by gateway (anton)
 - fix autoreply unable to delete scenario (anton)
+- fix sms subscribe, subscribing to disabled keyword should not happen (anton)
+- fix typo phonebook_groupcode2id() in webservices_bc() lib/fn_webservices.php (anton)
+- fix wrong group while sending broadcast sms to group when 'Or' field is filled (anton)
 - fix sms subscribe, subscribing to disabled keyword should not happen (anton)
 - fix #3109982 wrong autoreply result due to missing autoreply_id in db query (anton)
 
