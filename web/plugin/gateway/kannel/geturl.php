@@ -14,8 +14,9 @@ $remote_host = $_SERVER['HTTP_HOST'];
 $t = trim($requests['t']); 	// sms_datetime
 $q = trim($requests['q']); 	// sms_sender
 $a = trim($requests['a']); 	// message
+$Q = trim($requests['Q']); 	// sms_receiver
 
-logger_print("addr:".$remote_addr." host:".$remote_host." t:".$t." q:".$q." a:".$a, 3, "kannel incoming");
+logger_print("addr:".$remote_addr." host:".$remote_host." t:".$t." q:".$q." a:".$a." Q:".$Q, 3, "kannel incoming");
 
 // srosa 20100531: changed test below to allow hostname in bearerbox_host instead of ip
 // if ($remote_addr != $kannel_param['bearerbox_host'])
@@ -25,7 +26,7 @@ if ($remote_addr != $kannel_param['bearerbox_host'] && $remote_host != $kannel_p
 
 if ($t && $q && $a) {
     // collected:
-    // $sms_datetime, $sms_sender, $message
-    setsmsincomingaction($t,$q,$a);
+    // $sms_datetime, $sms_sender, $message, $sms_receiver
+    setsmsincomingaction($t, $q, $a, $Q);
 }
 ?>
