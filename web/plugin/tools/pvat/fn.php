@@ -13,10 +13,12 @@
  *   incoming SMS sender
  * @message
  *   incoming SMS message before interepted
+ * @param $sms_receiver
+ *   receiver number receiving incoming SMS
  * @return
  *   array $ret
  */
-function pvat_hook_interceptincomingsms($sms_datetime, $sms_sender, $message) {
+function pvat_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $sms_receiver) {
     $msg = explode(" ", $message);
     $ret = array();
     if (count($msg) > 1) {
@@ -33,7 +35,7 @@ function pvat_hook_interceptincomingsms($sms_datetime, $sms_sender, $message) {
 		$ret['modified'] = true;
 		// this time only message param changed
 		$ret['param']['message'] = $new_message;
-		logger_print("dt:".$sms_datetime." s:".$sms_sender." m:".$message." mod:".$ret['param']['message'],3,"pvat");
+		logger_print("dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." m:".$message." mod:".$ret['param']['message'],3,"pvat");
 		// do not forget to tell parent that this SMS has been hooked
 		$ret['hooked'] = true;
 	    }

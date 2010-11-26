@@ -9,10 +9,12 @@
  *   incoming SMS sender
  * @message
  *   incoming SMS message before interepted
+ * @param $sms_receiver
+ *   receiver number receiving incoming SMS
  * @return
  *   array $ret
  */
-function xlate_hook_interceptincomingsms($sms_datetime, $sms_sender, $message) {
+function xlate_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $sms_receiver) {
     global $core_config;
     $msg = explode(" ", $message);
     $ret = array();
@@ -41,10 +43,10 @@ function xlate_hook_interceptincomingsms($sms_datetime, $sms_sender, $message) {
 		    /* Was translation successful */
 		    if ($gt->isSuccess()) {
 			$reply = '@'.$xlate_from.'2'.$xlate_to.' '.$words.' => '.$xlate_words;
-			logger_print("success dt:".$sms_datetime." s:".$sms_sender." w:".$words." from:".$xlate_from." to:".$xlate_to." xlate:".$xlate_words,3,"xlate");
+			logger_print("success dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." w:".$words." from:".$xlate_from." to:".$xlate_to." xlate:".$xlate_words,3,"xlate");
 		    } else {
 			$reply = '@'.$xlate_from.'2'.$xlate_to.' '._("unable to translate").': '.$words;
-			logger_print("failed dt:".$sms_datetime." s:".$sms_sender." w:".$words." from:".$xlate_from." to:".$xlate_to,3,"xlate");
+			logger_print("failed dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." w:".$words." from:".$xlate_from." to:".$xlate_to,3,"xlate");
 		    }
 		    // detect reply message, set unicode if not ASCII
 		    $unicode = 0;
