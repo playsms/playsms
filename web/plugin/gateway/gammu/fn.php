@@ -100,10 +100,10 @@ function gammu_hook_getsmsinbox() {
 	    if (! file_exists($fn)) {
 		if ($sms_sender && $sms_datetime) {
 		    // collected:
-		    // $sms_datetime, $sms_sender, $message
-		    setsmsincomingaction($sms_datetime,$sms_sender,$message);
+		    // $sms_datetime, $sms_sender, $message, $sms_receiver
+		    setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
 		}
-		logger_print("sender:".$sms_sender." dt:".$sms_datetime." msg:".$message, 3, "gammu incoming");
+		logger_print("sender:".$sms_sender." receiver:".$sms_receiver." dt:".$sms_datetime." msg:".$message, 3, "gammu incoming");
 	    }
 	}
     }

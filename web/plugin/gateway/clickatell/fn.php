@@ -122,8 +122,8 @@ function clickatell_hook_getsmsinbox() {
 		$message .= trim($lines[$lc]);
 	    }
 	    // collected:
-	    // $sms_datetime, $sms_sender, $message
-	    setsmsincomingaction($sms_datetime,$sms_sender,$message);
+	    // $sms_datetime, $sms_sender, $message, $sms_receiver
+	    setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
 	    @unlink($tobe_deleted);
 	}
     }

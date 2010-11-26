@@ -30,10 +30,12 @@ function sms_autoreply_hook_checkavailablekeyword($keyword)
  *   check if keyword is for sms_autoreply
  * @param $autoreply_param
  *   get parameters from incoming sms
+ * @param $sms_receiver
+ *   receiver number that is receiving incoming sms
  * @return $ret
  *   array of keyword owner uid and status, TRUE if incoming sms handled
  */
-function sms_autoreply_hook_setsmsincomingaction($sms_datetime,$sms_sender,$autoreply_keyword,$autoreply_param='')
+function sms_autoreply_hook_setsmsincomingaction($sms_datetime,$sms_sender,$autoreply_keyword,$autoreply_param='',$sms_receiver='')
 {
     $ok = false;
     $db_query = "SELECT uid,autoreply_id FROM "._DB_PREF_."_featureAutoreply WHERE autoreply_keyword='$autoreply_keyword'";

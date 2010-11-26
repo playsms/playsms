@@ -36,7 +36,7 @@ if ($cb_timestamp && $cb_from && $cb_text)
     // collected:
     // $sms_datetime, $sms_sender, $message, $sms_receiver
     setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receiver);
-    logger_print("sender:".$sms_sender." receiver: ".$sms_receiver." dt:".$sms_datetime." msg:".$message, 3, "clickatell incoming");
+    logger_print("sender:".$sms_sender." receiver:".$sms_receiver." dt:".$sms_datetime." msg:".$message, 3, "clickatell incoming");
 }
 
 if ($cb_status && $cb_apimsgid)

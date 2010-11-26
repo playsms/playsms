@@ -30,10 +30,12 @@ function sms_command_hook_checkavailablekeyword($keyword)
  *   check if keyword is for sms_command
  * @param $command_param
  *   get parameters from incoming sms
+ * @param $sms_receiver
+ *   receiver number that is receiving incoming sms
  * @return $ret
  *   array of keyword owner uid and status, TRUE if incoming sms handled
  */
-function sms_command_hook_setsmsincomingaction($sms_datetime,$sms_sender,$command_keyword,$command_param='')
+function sms_command_hook_setsmsincomingaction($sms_datetime,$sms_sender,$command_keyword,$command_param='',$sms_receiver='')
 {
     $ok = false;
     $db_query = "SELECT uid,command_id FROM "._DB_PREF_."_featureCommand WHERE command_keyword='$command_keyword'";

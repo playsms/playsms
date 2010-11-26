@@ -29,10 +29,12 @@ function sms_subscribe_hook_checkavailablekeyword($keyword) {
  *   check if keyword is for sms_subscribe
  * @param $subscribe_param
  *   get parameters from incoming sms
+ * @param $sms_receiver
+ *   receiver number that is receiving incoming sms
  * @return $ret
  *   array of keyword owner uid and status, TRUE if incoming sms handled
  */
-function sms_subscribe_hook_setsmsincomingaction($sms_datetime, $sms_sender, $subscribe_keyword, $subscribe_param = '') {
+function sms_subscribe_hook_setsmsincomingaction($sms_datetime, $sms_sender, $subscribe_keyword, $subscribe_param = '', $sms_receiver = '') {
 	$ok = false;
 	$db_query = "SELECT uid FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_keyword='$subscribe_keyword'";
 	$db_result = dba_query($db_query);

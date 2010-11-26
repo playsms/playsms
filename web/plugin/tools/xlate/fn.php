@@ -10,7 +10,7 @@
  * @message
  *   incoming SMS message before interepted
  * @param $sms_receiver
- *   receiver number receiving incoming SMS
+ *   receiver number that is receiving incoming SMS
  * @return
  *   array $ret
  */

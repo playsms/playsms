@@ -72,10 +72,10 @@ function smstools_hook_getsmsinbox() {
 		    $message .= trim($lines[$lc]);
 		}
 		// collected:
-		// $sms_datetime, $sms_sender, $message
-		setsmsincomingaction($sms_datetime,$sms_sender,$message);
+		// $sms_datetime, $sms_sender, $message, $sms_receiver
+		setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
 	    }
-	    logger_print("sender:".$sms_sender." dt:".$sms_datetime." msg:".$message, 3, "smstools incoming");
+	    logger_print("sender:".$sms_sender." receiver:".$sms_receiver." dt:".$sms_datetime." msg:".$message, 3, "smstools incoming");
 	}
     }
 }

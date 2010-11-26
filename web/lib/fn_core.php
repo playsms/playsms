@@ -103,7 +103,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 	default:
 	    for ($c=0;$c<count($core_config['featurelist']);$c++) {
 		$c_feature = $core_config['featurelist'][$c];
-		$ret = x_hook($c_feature,'setsmsincomingaction',array($sms_datetime,$sms_sender,$target_keyword,$message));
+		$ret = x_hook($c_feature,'setsmsincomingaction',array($sms_datetime,$sms_sender,$target_keyword,$message,$sms_receiver));
 		if ($ok = $ret['status']) {
 		    $c_uid = $ret['uid'];
 		    logger_print("feature:".$c_feature." datetime:".$sms_datetime." sender:".$sms_sender." receiver:".$sms_receiver." keyword:".$target_keyword." message:".$message, 3, "setsmsincomingaction");

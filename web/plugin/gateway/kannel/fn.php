@@ -126,7 +126,7 @@ function kannel_hook_getsmsinbox() {
             }
 	    // collected:
 	    // $sms_datetime, $sms_sender, $message
-	    setsmsincomingaction($sms_datetime,$sms_sender,$message);
+	    setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
 	    @unlink($tobe_deleted);
 	}
     }

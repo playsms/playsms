@@ -67,9 +67,9 @@ function gnokii_hook_getsmsinbox() {
 	    // continue process only when incoming sms file can be deleted
 	    if (! file_exists($tobe_deleted)) {
 		// collected:
-		// $sms_datetime, $sms_sender, $message
-		setsmsincomingaction($sms_datetime,$sms_sender,$message);
-		logger_print("sender:".$sms_sender." dt:".$sms_datetime." msg:".$message, 3, "gnokii incoming");
+		// $sms_datetime, $sms_sender, $message, $sms_receiver
+		setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
+		logger_print("sender:".$sms_sender." receiver:".$sms_receiver." dt:".$sms_datetime." msg:".$message, 3, "gnokii incoming");
 	    }
 	}
     }

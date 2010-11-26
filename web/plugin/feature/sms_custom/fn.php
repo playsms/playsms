@@ -30,10 +30,12 @@ function sms_custom_hook_checkavailablekeyword($keyword)
  *   check if keyword is for sms_custom
  * @param $custom_param
  *   get parameters from incoming sms
+ * @param $sms_receiver
+ *   receiver number that is receiving incoming sms
  * @return $ret
  *   array of keyword owner uid and status, TRUE if incoming sms handled
  */
-function sms_custom_hook_setsmsincomingaction($sms_datetime,$sms_sender,$custom_keyword,$custom_param='')
+function sms_custom_hook_setsmsincomingaction($sms_datetime,$sms_sender,$custom_keyword,$custom_param='',$sms_receiver='')
 {
     $ok = false;
     $db_query = "SELECT uid,custom_id FROM "._DB_PREF_."_featureCustom WHERE custom_keyword='$custom_keyword'";
