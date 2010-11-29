@@ -18,8 +18,8 @@ function user_getall() {
     if ($uid) {
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblUser";
 	$db_result = dba_query($db_query);
-	if ($db_row = dba_fetch_array($db_result)) {
-	    $ret = $db_row;
+	while ($db_row = dba_fetch_array($db_result)) {
+	    $ret[] = $db_row;
 	}
     }
     return $ret;
@@ -30,8 +30,8 @@ function user_getallwithstatus($status) {
     if ($uid) {
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE status='$status'";
 	$db_result = dba_query($db_query);
-	if ($db_row = dba_fetch_array($db_result)) {
-	    $ret = $db_row;
+	while ($db_row = dba_fetch_array($db_result)) {
+	    $ret[] = $db_row;
 	}
     }
     return $ret;
