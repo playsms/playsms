@@ -47,10 +47,16 @@ switch ($op) {
 		for ($i=0;$i<count($data);$i++) {
 			$c_sid = $data[$i]['id'];
 			$c_status = $data[$i]['status'] ? "<a href='index.php?app=menu&inc=feature_sms_survey&op=disable&sid=".$c_sid."'><font color='green'>"._('enabled')."</font></a>" : "<a href='index.php?app=menu&inc=feature_sms_survey&op=enable&sid=".$c_sid."'><font color='red'>"._('disabled')."</font></a>";
+			if ($data[$i]['status']) {
+				$c_status = $data[$i]['running']==2 ? "<a href='index.php?app=menu&inc=feature_sms_survey&op=disable&sid=".$c_sid."'><font color='blue'>"._('completed')."</font></a>" : "<a href='index.php?app=menu&inc=feature_sms_survey&op=enable&sid=".$c_sid."'><font color='green'>"._('enabled')."</font></a>";
+			}
 			if ($data[$i]['started']) {
 				$c_status = _('N/A');
 			}
 			$c_started = $data[$i]['started'] ? "<a href='index.php?app=menu&inc=feature_sms_survey&op=stop&sid=".$c_sid."'><font color='green'>"._('yes')."</font></a>" : "<a href='index.php?app=menu&inc=feature_sms_survey&op=start&sid=".$c_sid."'><font color='red'>"._('no')."</font></a>";
+			if (! $data[$i]['started']) {
+				$c_started = $data[$i]['running']==2 ? "<a href='index.php?app=menu&inc=feature_sms_survey&op=start&sid=".$c_sid."'><font color='red'>"._('restart')."</font></a>" : "<a href='index.php?app=menu&inc=feature_sms_survey&op=start&sid=".$c_sid."'><font color='red'>"._('no')."</font></a>";
+			}
 			if (! $data[$i]['status']) {
 				$c_started = _('N/A');
 			}
@@ -171,7 +177,13 @@ switch ($op) {
 		$c_questions = count(sms_survey_getquestions($sid));
 		$c_questions = "<a href='index.php?app=menu&inc=feature_sms_survey&route=questions&op=questions&sid=".$sid."'>".$c_questions."</a>";
 		$c_status = $data['status'] ? "<font color='green'>"._('enabled')."</font>" : "<font color='red'>"._('disabled')."</font>";
+		if ($data['status']) {
+			$c_status = $data['running']==2 ? "<font color='blue'>"._('completed')."</font>" : "<font color='green'>"._('enabled')."</font>";
+		}
 		$c_started = $data['started'] ? "<font color='green'>"._('yes')."</font>" : "<font color='red'>"._('no')."</font>";
+		if (! $data['started']) {
+			$c_started = $data['running']==2 ? "<font color='red'>"._('restart')."</font>" : "<font color='red'>"._('no')."</font>";
+		}
 		$content .= "
 			<table cellpadding='1' cellspacing='2' border='0'>
 			<tr><td>"._('Keyword')."</td><td>:</td><td>".$keyword."</td></tr>
@@ -255,7 +267,13 @@ switch ($op) {
 		$c_questions = count(sms_survey_getquestions($sid));
 		$c_questions = "<a href='index.php?app=menu&inc=feature_sms_survey&route=questions&op=questions&sid=".$sid."'>".$c_questions."</a>";
 		$c_status = $data['status'] ? "<font color='green'>"._('enabled')."</font>" : "<font color='red'>"._('disabled')."</font>";
+		if ($data['status']) {
+			$c_status = $data['running']==2 ? "<font color='blue'>"._('completed')."</font>" : "<font color='green'>"._('enabled')."</font>";
+		}
 		$c_started = $data['started'] ? "<font color='green'>"._('yes')."</font>" : "<font color='red'>"._('no')."</font>";
+		if (! $data['started']) {
+			$c_started = $data['running']==2 ? "<font color='red'>"._('restart')."</font>" : "<font color='red'>"._('no')."</font>";
+		}
 		$content .= "
 			<table cellpadding='1' cellspacing='2' border='0'>
 			<tr><td>"._('Keyword')."</td><td>:</td><td>".$keyword."</td></tr>
@@ -307,7 +325,13 @@ switch ($op) {
 		$c_questions = count(sms_survey_getquestions($sid));
 		$c_questions = "<a href='index.php?app=menu&inc=feature_sms_survey&route=questions&op=questions&sid=".$sid."'>".$c_questions."</a>";
 		$c_status = $data['status'] ? "<font color='green'>"._('enabled')."</font>" : "<font color='red'>"._('disabled')."</font>";
+		if ($data['status']) {
+			$c_status = $data['running']==2 ? "<font color='blue'>"._('completed')."</font>" : "<font color='green'>"._('enabled')."</font>";
+		}
 		$c_started = $data['started'] ? "<font color='green'>"._('yes')."</font>" : "<font color='red'>"._('no')."</font>";
+		if (! $data['started']) {
+			$c_started = $data['running']==2 ? "<font color='red'>"._('restart')."</font>" : "<font color='red'>"._('no')."</font>";
+		}
 		$content .= "
 			<table cellpadding='1' cellspacing='2' border='0'>
 			<tr><td>"._('Keyword')."</td><td>:</td><td>".$keyword."</td></tr>

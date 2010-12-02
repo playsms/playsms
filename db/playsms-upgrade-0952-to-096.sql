@@ -12,7 +12,7 @@ CREATE TABLE `playsms_featureSurvey` (
 `status` TINYINT NOT NULL,
 `deleted` TINYINT NOT NULL,
 `started` TINYINT NOT NULL,
-`completed` TINYINT NOT NULL,
+`running` TINYINT NOT NULL,
 PRIMARY KEY ( `id` )
 ) ENGINE = MYISAM DEFAULT CHARSET=utf8 ;
 

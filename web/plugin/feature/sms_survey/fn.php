@@ -1,5 +1,39 @@
 <?php
 
+/* Implementations of hook playsmsd()
+ *
+ */
+function sms_survey_hook_playsmsd() {
+	$db_query = "SELECT * FROM "._DB_PREF_."_featureSurvey WHERE deleted='0' AND status='1' AND started='1' AND running='0'";
+	$db_result = dba_query($db_query);
+	while ($db_row = dba_fetch_array($db_result)) {
+		$c_sid = $db_row['id'];
+		$db_query1 = "UPDATE "._DB_PREF_."_featureSurvey SET running='1' WHERE id='$c_sid'";
+		if ($db_result1 = dba_affected_rows($db_query1)) {
+			$s = sms_survey_getdatabyid($c_sid);
+			$m = sms_survey_getmembers($c_sid);
+			$q = sms_survey_getquestions($c_sid);
+			$c_uid = $s['uid'];
+			$c_username = uid2username($c_uid);
+			$c_keyword = $s['keyword'];
+			$c_message = $q[0]['question'];
+			$c_sms_msg = $c_keyword." ".$c_message;
+			for ($i=0;$i<count($m);$i++) {
+				if ($c_sms_to = $m[$i]['mobile']) {
+					logger_print("playsmsd send start sid:".$c_sid." username:".$c_username." to:".$to[0]." msg:".$c_sms_msg, 3, "sms_survey");
+					if ($c_sms_to && $c_sms_msg && $c_username) {
+						$type = 'text';
+						$unicode = '0';
+						list($ok,$to,$smslog_id) = sendsms_pv($c_username,$c_sms_to,$c_sms_msg,$type,$unicode);
+						logger_print("playsmsd send finish sid:".$c_sid." smslog_id:".$smslog_id[0]." ok:".$ok[0], 3, "sms_survey");
+					}
+				}
+			}
+		}
+		$db_query2 = "UPDATE "._DB_PREF_."_featureSurvey SET status='1',started='0',running='2' WHERE id='$c_sid'";
+		$db_result2 = dba_affected_rows($db_query2);
+	}
+}
 
 /*
  * Implementations of hook checkavailablekeyword()
@@ -119,42 +153,42 @@ function sms_survey_datadel($sid) {
 
 // enable
 function sms_survey_dataenable($sid) {
-	$db_query = "UPDATE "._DB_PREF_."_featureSurvey SET c_timestamp='".mktime()."',status='1' WHERE deleted='0' AND id='$sid'";
+	$db_query = "UPDATE "._DB_PREF_."_featureSurvey SET c_timestamp='".mktime()."',status='1',started='0' WHERE deleted='0' AND id='$sid'";
 	$db_result = dba_affected_rows($db_query);
 	return $db_result;
 }
 
 // disable
 function sms_survey_datadisable($sid) {
-	$db_query = "UPDATE "._DB_PREF_."_featureSurvey SET c_timestamp='".mktime()."',status='0' WHERE deleted='0' AND id='$sid'";
+	$db_query = "UPDATE "._DB_PREF_."_featureSurvey SET c_timestamp='".mktime()."',status='0',started='0' WHERE deleted='0' AND id='$sid'";
 	$db_result = dba_affected_rows($db_query);
 	return $db_result;
 }
 
 // start
 function sms_survey_datastart($sid) {
-	$db_query = "UPDATE "._DB_PREF_."_featureSurvey SET c_timestamp='".mktime()."',status='1',started='1' WHERE deleted='0' AND id='$sid'";
+	$db_query = "UPDATE "._DB_PREF_."_featureSurvey SET c_timestamp='".mktime()."',status='1',started='1',running='0' WHERE deleted='0' AND id='$sid'";
 	$db_result = dba_affected_rows($db_query);
 	return $db_result;
 }
 
 // stop
 function sms_survey_datastop($sid) {
-	$db_query = "UPDATE "._DB_PREF_."_featureSurvey SET c_timestamp='".mktime()."',status='1',started='0' WHERE deleted='0' AND id='$sid'";
+	$db_query = "UPDATE "._DB_PREF_."_featureSurvey SET c_timestamp='".mktime()."',status='1',started='0',running='0' WHERE deleted='0' AND id='$sid'";
 	$db_result = dba_affected_rows($db_query);
 	return $db_result;
 }
 
-// get members
+// get members, all members in survey id
 function sms_survey_getmembers($id) {
 	$ret = array();
-	$db_query = "SELECT * FROM "._DB_PREF_."_featureSurvey_members WHERE sid='$id'";
+	$db_query = "SELECT * FROM "._DB_PREF_."_featureSurvey_members WHERE sid='$id' ORDER BY name";
 	$db_result = dba_query($db_query);
 	$i = 0;
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[$i]['id'] = $db_row['id'];
-		$ret[$i]['name'] = $db_row['name'];
 		$ret[$i]['mobile'] = $db_row['mobile'];
+		$ret[$i]['name'] = $db_row['name'];
 		$i++;
 	}
 	return $ret;
@@ -167,8 +201,8 @@ function sms_survey_getmemberbyid($id) {
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$ret['sid'] = $db_row['sid'];
-		$ret['name'] = $db_row['name'];
 		$ret['mobile'] = $db_row['mobile'];
+		$ret['name'] = $db_row['name'];
 	}
 	return $ret;
 }
@@ -178,11 +212,15 @@ function sms_survey_membersadd($sid, $mobile, $name) {
 	$ret = false;
 	$c_mobile = str_replace('+','',$mobile);
 	if (strlen($c_mobile) > 7) { $c_mobile = substr($mobile,3); }
-	$db_query = "SELECT id FROM "._DB_PREF_."_featureSurvey_members WHERE sid='$sid' AND mobile LIKE '%$c_mobile'";
+	$db_query = "SELECT * FROM "._DB_PREF_."_featureSurvey_members WHERE sid='$sid' AND mobile LIKE '%$c_mobile'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
-		$db_query1 = "UPDATE "._DB_PREF_."_featureSurvey_members SET name='$name',mobile='$mobile' WHERE id='".$db_row['id']."'";
-		$ret = dba_affected_rows($db_query1);
+		if (($name == $db_row['name']) && ($mobile == $db_row['mobile'])) {
+			$ret = true;
+		} else {
+			$db_query1 = "UPDATE "._DB_PREF_."_featureSurvey_members SET name='$name',mobile='$mobile' WHERE id='".$db_row['id']."'";
+			$ret = dba_affected_rows($db_query1);
+		}
 	} else {
 		$db_query = "INSERT INTO "._DB_PREF_."_featureSurvey_members (sid,mobile,name) VALUES ('$sid','$mobile','$name')";
 		$ret = dba_insert_id($db_query);
@@ -202,7 +240,7 @@ function sms_survey_membersdel($sid, $id) {
 	return $ret;
 }
 
-// get questions
+// get questions, all questions in survey id
 function sms_survey_getquestions($id) {
 	$ret = array();
 	$db_query = "SELECT * FROM "._DB_PREF_."_featureSurvey_questions WHERE sid='$id' ORDER BY id";

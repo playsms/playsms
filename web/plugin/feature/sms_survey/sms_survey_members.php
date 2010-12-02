@@ -27,7 +27,13 @@ switch ($op) {
 		$c_questions = count(sms_survey_getquestions($sid));
 		$c_questions = "<a href='index.php?app=menu&inc=feature_sms_survey&route=questions&op=questions&sid=".$sid."'>".$c_questions."</a>";
 		$c_status = $data['status'] ? "<font color='green'>"._('enabled')."</font>" : "<font color='red'>"._('disabled')."</font>";
+		if ($data['status']) {
+			$c_status = $data['running']==2 ? "<font color='blue'>"._('completed')."</font>" : "<font color='green'>"._('enabled')."</font>";
+		}
 		$c_started = $data['started'] ? "<font color='green'>"._('yes')."</font>" : "<font color='red'>"._('no')."</font>";
+		if (! $data['started']) {
+			$c_started = $data['running']==2 ? "<font color='red'>"._('restart')."</font>" : "<font color='red'>"._('no')."</font>";
+		}
 		if (! $data['status']) {
 			$buttons = "
 				<table cellpadding='1' cellspacing='2' border='0'>
@@ -100,7 +106,13 @@ switch ($op) {
 		$c_questions = count(sms_survey_getquestions($sid));
 		$c_questions = "<a href='index.php?app=menu&inc=feature_sms_survey&route=questions&op=questions&sid=".$sid."'>".$c_questions."</a>";
 		$c_status = $data['status'] ? "<font color='green'>"._('enabled')."</font>" : "<font color='red'>"._('disabled')."</font>";
+		if ($data['status']) {
+			$c_status = $data['running']==2 ? "<font color='blue'>"._('completed')."</font>" : "<font color='green'>"._('enabled')."</font>";
+		}
 		$c_started = $data['started'] ? "<font color='green'>"._('yes')."</font>" : "<font color='red'>"._('no')."</font>";
+		if (! $data['started']) {
+			$c_started = $data['running']==2 ? "<font color='red'>"._('restart')."</font>" : "<font color='red'>"._('no')."</font>";
+		}
 		$content .= "
 			<table cellpadding='1' cellspacing='2' border='0'>
 			<tr><td>"._('Keyword')."</td><td>:</td><td>".$keyword."</td></tr>
@@ -176,7 +188,13 @@ switch ($op) {
 		$c_questions = count(sms_survey_getquestions($sid));
 		$c_questions = "<a href='index.php?app=menu&inc=feature_sms_survey&route=questions&op=questions&sid=".$sid."'>".$c_questions."</a>";
 		$c_status = $data['status'] ? "<font color='green'>"._('enabled')."</font>" : "<font color='red'>"._('disabled')."</font>";
+		if ($data['status']) {
+			$c_status = $data['running']==2 ? "<font color='blue'>"._('completed')."</font>" : "<font color='green'>"._('enabled')."</font>";
+		}
 		$c_started = $data['started'] ? "<font color='green'>"._('yes')."</font>" : "<font color='red'>"._('no')."</font>";
+		if (! $data['started']) {
+			$c_started = $data['running']==2 ? "<font color='red'>"._('restart')."</font>" : "<font color='red'>"._('no')."</font>";
+		}
 		$content .= "
 			<table cellpadding='1' cellspacing='2' border='0'>
 			<tr><td>"._('Keyword')."</td><td>:</td><td>".$keyword."</td></tr>
