@@ -411,8 +411,9 @@ function sms_survey_savelog($arr) {
 		$fields = substr($fields,0,-1);
 		$values = substr($values,0,-1);
 		$db_query = "INSERT INTO "._DB_PREF_."_featureSurvey_log (".$fields.") ";
-		$db_query .= "(".$values.")";
+		$db_query .= "VALUES (".$values.")";
 		$log_in_id = dba_insert_id($db_query);
+		//logger_print("savelog q:".$db_query, 3, "sms_survey");
 	}
 	return $log_in_id;
 }
