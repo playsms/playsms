@@ -28,6 +28,7 @@ function sms_survey_hook_playsmsd() {
 						list($ok,$to,$smslog_id) = sendsms_pv($c_username,$c_sms_to,$c_sms_msg,$type,$unicode);
 						$ok = $ok[0] ? "true" : "false" ;
 						logger_print("playsmsd send finish sid:".$c_sid." smslog_id:".$smslog_id[0]." ok:".$ok, 3, "sms_survey");
+						$log = "";
 						$log['survey_id'] = $c_sid;
 						$log['question_id'] = $q[0]['id'];
 						$log['member_id'] = $m[$i]['id'];
@@ -104,6 +105,7 @@ function sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $s
 		// survey enabled, accept incoming answers
 		$sid = $data['id'];
 		if ($link_id = sms_survey_getlinkid($sid)) {
+			$log = "";
 			$log['incoming'] = 1;
 			$log['link_id'] = $link_id;
 			$log['in_datetime'] = $sms_datetime;
@@ -133,6 +135,7 @@ function sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $s
 							list($ok,$to,$smslog_id) = sendsms_pv($c_username,$c_sms_to,$c_sms_msg,$type,$unicode);
 							$ok = $ok[0] ? "true" : "false" ;
 							logger_print("playsmsd send finish sid:".$c_sid." smslog_id:".$smslog_id[0]." ok:".$ok, 3, "sms_survey");
+							$log = "";
 							$log['survey_id'] = $sid;
 							$log['question_id'] = $q[$q_id]['id'];
 							$log['member_id'] = $m[$i]['id'];
