@@ -14,7 +14,7 @@ CREATE TABLE `playsms_featureSurvey` (
 `started` TINYINT NOT NULL,
 `completed` TINYINT NOT NULL,
 PRIMARY KEY ( `id` )
-) ENGINE = MYISAM ;
+) ENGINE = MYISAM DEFAULT CHARSET=utf8 ;
 
 DROP TABLE IF EXISTS `playsms_featureSurvey_members` ;
 CREATE TABLE `playsms_featureSurvey_members` (
@@ -23,5 +23,4 @@ CREATE TABLE `playsms_featureSurvey_members` (
 `name` VARCHAR( 100 ) NOT NULL ,
 `mobile` VARCHAR( 20 ) NOT NULL ,
 PRIMARY KEY ( `id` )
-) ENGINE = MYISAM ;
-
+) ENGINE = MYISAM DEFAULT CHARSET=utf8 ;
