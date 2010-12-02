@@ -4,6 +4,7 @@
  *
  */
 function sms_survey_hook_playsmsd() {
+	global $core_config;
 	$db_query = "SELECT * FROM "._DB_PREF_."_featureSurvey WHERE deleted='0' AND status='1' AND started='1' AND running='0'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
@@ -20,12 +21,24 @@ function sms_survey_hook_playsmsd() {
 			$c_sms_msg = $c_keyword." ".$c_message;
 			for ($i=0;$i<count($m);$i++) {
 				if ($c_sms_to = $m[$i]['mobile']) {
-					logger_print("playsmsd send start sid:".$c_sid." username:".$c_username." to:".$to[0]." msg:".$c_sms_msg, 3, "sms_survey");
+					logger_print("playsmsd send start qn:1 sid:".$c_sid." username:".$c_username." to:".$c_sms_to." msg:".$c_sms_msg, 3, "sms_survey");
 					if ($c_sms_to && $c_sms_msg && $c_username) {
 						$type = 'text';
 						$unicode = '0';
 						list($ok,$to,$smslog_id) = sendsms_pv($c_username,$c_sms_to,$c_sms_msg,$type,$unicode);
-						logger_print("playsmsd send finish sid:".$c_sid." smslog_id:".$smslog_id[0]." ok:".$ok[0], 3, "sms_survey");
+						$ok = $ok[0] ? "true" : "false" ;
+						logger_print("playsmsd send finish sid:".$c_sid." smslog_id:".$smslog_id[0]." ok:".$ok, 3, "sms_survey");
+						$log['survey_id'] = $c_sid;
+						$log['question_id'] = $q[0]['id'];
+						$log['member_id'] = $m[$i]['id'];
+						$log['link_id'] = md5($c_sid.mktime());
+						$log['smslog_id'] = $smslog_id[0];
+						$log['name'] = $m[$i]['name'];
+						$log['mobile'] = $m[$i]['mobile'];
+						$log['question'] = $q[0]['question'];
+						$log['question_number'] = 1;
+						$log['creation_datetime'] = $core_config['datetime']['now'];
+						sms_survey_savelog($log);
 					}
 				}
 			}
@@ -74,7 +87,7 @@ function sms_survey_hook_setsmsincomingaction($sms_datetime, $sms_sender, $surve
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$c_uid = $db_row['uid'];
-		if (sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $survey_keyword, $survey_param)) {
+		if (sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $survey_keyword, $survey_param)) {
 			$ok = true;
 		}
 	}
@@ -84,28 +97,119 @@ function sms_survey_hook_setsmsincomingaction($sms_datetime, $sms_sender, $surve
 }
 
 // handle survey
-function sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $survey_keyword, $survey_param = '') {
+function sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $survey_keyword, $survey_param = '') {
 	$ok = false;
-	$username = uid2username($c_uid);
-	$sms_to = $sms_sender; // we are replying to this sender
-	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSurvey WHERE keyword='$survey_keyword'";
-	$db_result = dba_query($db_query);
-	$db_row = dba_fetch_array($db_result);
-	if ($db_row['status'] == 1) {
-		// later
-	} else if ($db_row['survey_keyword'] == $survey_keyword) {
-	    	// returns true even if its logged as correct/incorrect answer
-	    	// this situation happens when user answers a disabled survey
+	$data = sms_survey_getdatabykeyword($survey_keyword);
+	if ($data['status'] == 1) {
+		// survey enabled, accept incoming answers
+		$sid = $data['id'];
+		if ($link_id = sms_survey_getlinkid($sid)) {
+			$log['incoming'] = 1;
+			$log['link_id'] = $link_id;
+			$log['in_datetime'] = $sms_datetime;
+			$log['in_sender'] = $sms_sender;
+			$log['in_receiver'] = $sms_receiver;
+			$log['answer'] = $survey_param;
+			if (sms_survey_savelog($log)) {
+				// next question if any
+				$logs = sms_survey_getoutlogs($link_id);
+				$last = count($logs) - 1;
+				$logs = $logs[$last];
+				$last = $logs['question_number'];
+				$q_id = $last - 1;
+				$qn = $last + 1;
+				$q = sms_survey_getquestions($sid);
+				$c_username = uid2username($c_uid);
+				$c_keyword = $survey_keyword;
+				$c_message = $q[$q_id]['question'];
+				$c_sms_msg = $c_keyword." ".$c_message;
+				$m = sms_survey_getmembers($sid);
+				for ($i=0;$i<count($m);$i++) {
+					if ($c_sms_to = $m[$i]['mobile']) {
+						logger_print("playsmsd send start qn:".$qn." sid:".$c_sid." username:".$c_username." to:".$c_sms_to." msg:".$c_sms_msg, 3, "sms_survey");
+						if ($c_sms_to && $c_sms_msg && $c_username) {
+							$type = 'text';
+							$unicode = '0';
+							list($ok,$to,$smslog_id) = sendsms_pv($c_username,$c_sms_to,$c_sms_msg,$type,$unicode);
+							$ok = $ok[0] ? "true" : "false" ;
+							logger_print("playsmsd send finish sid:".$c_sid." smslog_id:".$smslog_id[0]." ok:".$ok, 3, "sms_survey");
+							$log['survey_id'] = $sid;
+							$log['question_id'] = $q[$q_id]['id'];
+							$log['member_id'] = $m[$i]['id'];
+							$log['link_id'] = md5($sid.mktime());
+							$log['smslog_id'] = $smslog_id[0];
+							$log['name'] = $m[$i]['name'];
+							$log['mobile'] = $m[$i]['mobile'];
+							$log['question'] = $q[$q_id]['question'];
+							$log['question_number'] = $qn;
+							$log['creation_datetime'] = $core_config['datetime']['now'];
+							sms_survey_savelog($log);
+                        			}
+                        		}
+                        	}
+				$ok = true;
+			}
+		}
+	} else {
+	    	// returns true even if its not handled since survey is disabled
 	    	// returning false will make this SMS as unhandled SMS
 	    	$ok = true;
 	}
 	return $ok;
 }
 
+// get link id
+function sms_survey_getlinkid($sid) {
+	$link_id = '';
+	$db_query = "SELECT link_id FROM "._DB_PREF_."_featureSurvey_log WHERE survey_id='$sid' ORDER BY id ASC LIMIT 1";
+	$db_result = dba_query($db_query);
+	if ($db_row = dba_fetch_array($db_result)) {
+		$link_id = $db_row['link_id'];
+	}
+	return $link_id;
+}
+
+// get logs for outgoing
+function sms_survey_getoutlogs($link_id) {
+	$ret = array();
+	$db_query = "SELECT * FROM "._DB_PREF_."_featureSurvey_log WHERE link_id='$link_id' AND incoming='0' ORDER BY id";
+	$db_result = dba_query($db_query);
+	$i = 0;
+	while ($db_row = dba_fetch_array($db_result)) {
+		$ret[$i] = $db_row;
+		$i++;
+	}
+	return $ret;
+}
+
+// get logs for incoming
+function sms_survey_getinlogs($link_id) {
+	$ret = array();
+	$db_query = "SELECT * FROM "._DB_PREF_."_featureSurvey_log WHERE link_id='$link_id' AND incoming='1' ORDER BY id";
+	$db_result = dba_query($db_query);
+	$i = 0;
+	while ($db_row = dba_fetch_array($db_result)) {
+		$ret[$i] = $db_row;
+		$i++;
+	}
+	return $ret;
+}
+
 // get data by id
 function sms_survey_getdatabyid($sid) {
 	$ret = array();
 	$db_query = "SELECT * FROM "._DB_PREF_."_featureSurvey WHERE deleted='0' AND id='$sid'";
+	$db_result = dba_query($db_query);
+	if ($db_row = dba_fetch_array($db_result)) {
+		$ret = $db_row;
+	}
+	return $ret;
+}
+
+// get data by keyword
+function sms_survey_getdatabykeyword($keyword) {
+	$ret = array();
+	$db_query = "SELECT * FROM "._DB_PREF_."_featureSurvey WHERE deleted='0' AND keyword='$keyword'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$ret = $db_row;
@@ -294,18 +398,23 @@ function sms_survey_questionsdel($sid, $id) {
 	return $ret;
 }
 
-function sms_survey_saveinlog($sid, $sms_datetime, $sms_sender, $keyword, $message, $sms_receiver) {
-	$db_query = "INSERT INTO "._DB_PREF_."_featureSurvey_log_in (sid,sms_datetime,sms_sender,keyword,message,sms_receiver) ";
-	$db_query .= "VALUES ('$sid','$sms_datetime','$sms_sender','$keyword','$message','$sms_receiver')";
-	$log_in_id = dba_insert_id($db_query);
+// save log
+function sms_survey_savelog($arr) {
+	$log_in_id = 0;
+	if (is_array($arr)) {
+		$fields = '';
+		$values = '';
+		foreach ($arr as $key => $val) {
+			$fields .= $key.",";
+			$values .= "'".$val."',";
+		}
+		$fields = substr($fields,0,-1);
+		$values = substr($values,0,-1);
+		$db_query = "INSERT INTO "._DB_PREF_."_featureSurvey_log (".$fields.") ";
+		$db_query .= "(".$values.")";
+		$log_in_id = dba_insert_id($db_query);
+	}
 	return $log_in_id;
-}
-
-function sms_survey_saveoutlog($log_in_id, $smslog_id, $questions, $uid) {
-	$db_query = "INSERT INTO "._DB_PREF_."_featureSurvey_log_out (log_in_id,smslog_id,questions,uid) ";
-	$db_query .= "VALUES ('$log_in_id','$smslog_id','$questions','$uid')";
-	$log_out_id = dba_insert_id($db_query);
-	return $log_out_id;
 }
 
 ?>
