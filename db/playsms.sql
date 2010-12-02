@@ -936,6 +936,30 @@ CREATE TABLE `playsms_tblBilling` (
 -- Dumping data for table `playsms_tblBilling`
 --
 
+DROP TABLE IF EXISTS `playsms_featureSurvey` ;
+CREATE TABLE `playsms_featureSurvey` (
+`c_timestamp` INT NOT NULL ,
+`id` INT NOT NULL AUTO_INCREMENT ,
+`uid` INT NOT NULL ,
+`creation_datetime` VARCHAR( 20 ) NOT NULL DEFAULT '0000-00-00 00:00:00' ,
+`keyword` VARCHAR( 20 ) NOT NULL ,
+`title` VARCHAR( 100 ) NOT NULL ,
+`status` TINYINT NOT NULL,
+`deleted` TINYINT NOT NULL,
+`started` TINYINT NOT NULL,
+`completed` TINYINT NOT NULL,
+PRIMARY KEY ( `id` )
+) ENGINE = MYISAM ;
+
+DROP TABLE IF EXISTS `playsms_featureSurvey_members` ;
+CREATE TABLE `playsms_featureSurvey_members` (
+`id` INT NOT NULL AUTO_INCREMENT ,
+`sid` INT NOT NULL ,
+`name` VARCHAR( 100 ) NOT NULL ,
+`mobile` VARCHAR( 20 ) NOT NULL ,
+PRIMARY KEY ( `id` )
+) ENGINE = MYISAM ;
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
@@ -943,3 +967,4 @@ CREATE TABLE `playsms_tblBilling` (
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
