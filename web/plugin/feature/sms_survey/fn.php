@@ -89,34 +89,6 @@ function sms_survey_getdataall() {
 	return $ret;
 }
 
-// get members
-function sms_survey_getmembers($id) {
-	$ret = array();
-	$db_query = "SELECT uid FROM "._DB_PREF_."_featureSurvey_members WHERE sid='$id'";
-	$db_result = dba_query($db_query);
-	$i = 0;
-	while ($db_row = dba_fetch_array($db_result)) {
-		$ret[$i]['name'] = $db_row['name'];
-		$ret[$i]['mobile'] = $data['mobile'];
-		$i++;
-	}
-	return $ret;
-}
-
-function sms_survey_getquestions($id) {
-	$ret = array();
-	$db_query = "SELECT uid FROM "._DB_PREF_."_featureSurvey_questions WHERE sid='$id'";
-	$db_result = dba_query($db_query);
-	$i = 0;
-	while ($db_row = dba_fetch_array($db_result)) {
-		$data = user_getdatabyuid($db_row['uid']);
-		$ret[$i]['uid'] = $db_row['uid'];
-		$ret[$i]['mobile'] = $data['mobile'];
-		$i++;
-	}
-	return $ret;
-}
-
 function sms_survey_saveinlog($sid, $sms_datetime, $sms_sender, $keyword, $message, $sms_receiver) {
 	$db_query = "INSERT INTO "._DB_PREF_."_featureSurvey_log_in (sid,sms_datetime,sms_sender,keyword,message,sms_receiver) ";
 	$db_query .= "VALUES ('$sid','$sms_datetime','$sms_sender','$keyword','$message','$sms_receiver')";
@@ -196,26 +168,71 @@ function sms_survey_datastop($sid) {
 	return $db_result;
 }
 
-function sms_survey_membersadd($sid, $uid) {
-	$ret = false;
-	$db_query = "SELECT id FROM "._DB_PREF_."_featureSurvey_members WHERE sid='$sid' AND uid='$uid'";
+// get members
+function sms_survey_getmembers($id) {
+	$ret = array();
+	$db_query = "SELECT * FROM "._DB_PREF_."_featureSurvey_members WHERE sid='$id'";
+	$db_result = dba_query($db_query);
+	$i = 0;
+	while ($db_row = dba_fetch_array($db_result)) {
+		$ret[$i]['id'] = $db_row['id'];
+		$ret[$i]['name'] = $db_row['name'];
+		$ret[$i]['mobile'] = $db_row['mobile'];
+		$i++;
+	}
+	return $ret;
+}
+
+// get member by id
+function sms_survey_getmemberbyid($id) {
+	$ret = array();
+	$db_query = "SELECT * FROM "._DB_PREF_."_featureSurvey_members WHERE id='$id'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
-		$ret = true;
+		$ret['sid'] = $db_row['sid'];
+		$ret['name'] = $db_row['name'];
+		$ret['mobile'] = $db_row['mobile'];
+	}
+	return $ret;
+}
+
+function sms_survey_membersadd($sid, $mobile, $name) {
+	$ret = false;
+	$c_mobile = str_replace('+','',$mobile);
+	if (strlen($c_mobile) > 7) { $c_mobile = substr($mobile,3); }
+	$db_query = "SELECT id FROM "._DB_PREF_."_featureSurvey_members WHERE sid='$sid' AND mobile LIKE '%$c_mobile'";
+	$db_result = dba_query($db_query);
+	if ($db_row = dba_fetch_array($db_result)) {
+		$db_query1 = "UPDATE "._DB_PREF_."_featureSurvey_members SET name='$name',mobile='$mobile' WHERE id='".$db_row['id']."'";
+		$ret = dba_affected_rows($db_query1);
 	} else {
-		$db_query = "INSERT INTO "._DB_PREF_."_featureSurvey_members (sid,uid) VALUES ('$sid','$uid')";
+		$db_query = "INSERT INTO "._DB_PREF_."_featureSurvey_members (sid,mobile,name) VALUES ('$sid','$mobile','$name')";
 		$ret = dba_insert_id($db_query);
 	}
 	return $ret;
 }
 
-function sms_survey_membersdel($sid, $uid) {
+function sms_survey_membersdel($sid, $id) {
 	$ret = false;
-	$db_query = "SELECT id FROM "._DB_PREF_."_featureSurvey_members WHERE sid='$sid' AND uid='$uid'";
+	$db_query = "SELECT id FROM "._DB_PREF_."_featureSurvey_members WHERE sid='$sid' AND id='$id'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
-		$db_query = "DELETE FROM "._DB_PREF_."_featureSurvey_members WHERE sid='$sid' AND uid='$uid'";
-		$ret = dba_affected_rows($db_query);
+		$db_query1 = "DELETE FROM "._DB_PREF_."_featureSurvey_members WHERE sid='$sid' AND id='".$db_row['id']."'";
+		$ret = dba_affected_rows($db_query1);
+	}
+	return $ret;
+}
+
+function sms_survey_getquestions($id) {
+	$ret = array();
+	$db_query = "SELECT uid FROM "._DB_PREF_."_featureSurvey_questions WHERE sid='$id'";
+	$db_result = dba_query($db_query);
+	$i = 0;
+	while ($db_row = dba_fetch_array($db_result)) {
+		$data = user_getdatabyuid($db_row['uid']);
+		$ret[$i]['uid'] = $db_row['uid'];
+		$ret[$i]['mobile'] = $data['mobile'];
+		$i++;
 	}
 	return $ret;
 }

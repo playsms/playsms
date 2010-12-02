@@ -34,8 +34,8 @@ switch ($op) {
 			<table width='100%' cellpadding='1' cellspacing='2' border='0' class='sortable'>
 			<tr>
 				<td class='box_title' width='4'>*</td>
-				<td class='box_title' width='20%'>"._('Survey keyword')."</td>
-				<td class='box_title' width='40%'>"._('Survey title')."</td>
+				<td class='box_title' width='15%'>"._('Keyword')."</td>
+				<td class='box_title' width='35%'>"._('Title')."</td>
 				<td class='box_title' width='10%'>"._('Members')."</td>
 				<td class='box_title' width='10%'>"._('Questions')."</td>
 				<td class='box_title' width='10%'>"._('Status')."</td>

@@ -955,8 +955,8 @@ DROP TABLE IF EXISTS `playsms_featureSurvey_members` ;
 CREATE TABLE `playsms_featureSurvey_members` (
 `id` INT NOT NULL AUTO_INCREMENT ,
 `sid` INT NOT NULL ,
-`name` VARCHAR( 100 ) NOT NULL ,
 `mobile` VARCHAR( 20 ) NOT NULL ,
+`name` VARCHAR( 100 ) NOT NULL ,
 PRIMARY KEY ( `id` )
 ) ENGINE = MYISAM DEFAULT CHARSET=utf8 ;
 
