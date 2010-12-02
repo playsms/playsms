@@ -1,4 +1,5 @@
 Version 0.9.6-git - unknown
+- add new plugin, feature, SMS survey (anton)
 - add new method interceptsendsms() to intercept sent SMS before handled by gateway (anton)
 - add new field, in_receiver, in db table tblUserInbox and tblSMSIncoming (anton)
 - add method to save receiver number, currently available only in kannel and clickatell (anton)

@@ -960,6 +960,14 @@ CREATE TABLE `playsms_featureSurvey_members` (
 PRIMARY KEY ( `id` )
 ) ENGINE = MYISAM DEFAULT CHARSET=utf8 ;
 
+DROP TABLE IF EXISTS `playsms_featureSurvey_questions` ;
+CREATE TABLE `playsms_featureSurvey_questions` (
+`id` INT NOT NULL AUTO_INCREMENT ,
+`sid` INT NOT NULL ,
+`question` VARCHAR( 140 ) NOT NULL ,
+PRIMARY KEY ( `id` )
+) ENGINE = MYISAM DEFAULT CHARSET=utf8;
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;

@@ -56,7 +56,7 @@ switch ($op) {
 			}
 			$c_members = count(sms_survey_getmembers($c_sid));
 			$c_members = "<a href='index.php?app=menu&inc=feature_sms_survey&route=members&op=members&sid=".$c_sid."'>".$c_members."</a>";
-			$c_questions = count(sms_survey_getquestions($sid));
+			$c_questions = count(sms_survey_getquestions($c_sid));
 			$c_questions = "<a href='index.php?app=menu&inc=feature_sms_survey&route=questions&op=questions&sid=".$c_sid."'>".$c_questions."</a>";
 			$c_action = "<a href='index.php?app=menu&inc=feature_sms_survey&op=edit&sid=".$c_sid."'>".$icon_edit."</a> ";
 			if (! $data[$i]['status']) {

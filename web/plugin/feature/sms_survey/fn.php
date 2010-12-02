@@ -49,6 +49,7 @@ function sms_survey_hook_setsmsincomingaction($sms_datetime, $sms_sender, $surve
 	return $ret;
 }
 
+// handle survey
 function sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $survey_keyword, $survey_param = '') {
 	$ok = false;
 	$username = uid2username($c_uid);
@@ -85,30 +86,6 @@ function sms_survey_getdataall() {
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[] = $db_row;
-	}
-	return $ret;
-}
-
-function sms_survey_saveinlog($sid, $sms_datetime, $sms_sender, $keyword, $message, $sms_receiver) {
-	$db_query = "INSERT INTO "._DB_PREF_."_featureSurvey_log_in (sid,sms_datetime,sms_sender,keyword,message,sms_receiver) ";
-	$db_query .= "VALUES ('$sid','$sms_datetime','$sms_sender','$keyword','$message','$sms_receiver')";
-	$log_in_id = dba_insert_id($db_query);
-	return $log_in_id;
-}
-
-function sms_survey_saveoutlog($log_in_id, $smslog_id, $questions, $uid) {
-	$db_query = "INSERT INTO "._DB_PREF_."_featureSurvey_log_out (log_in_id,smslog_id,questions,uid) ";
-	$db_query .= "VALUES ('$log_in_id','$smslog_id','$questions','$uid')";
-	$log_out_id = dba_insert_id($db_query);
-	return $log_out_id;
-}
-
-function sms_survey_dataexists($keyword) {
-	$ret = false;
-	$db_query = "SELECT id FROM "._DB_PREF_."_featureSurvey WHERE deleted='0' AND keyword='$keyword'";
-	$db_result = dba_query($db_query);
-	if ($db_row = dba_fetch_array($db_result)) {
-		$ret = true;
 	}
 	return $ret;
 }
@@ -196,6 +173,7 @@ function sms_survey_getmemberbyid($id) {
 	return $ret;
 }
 
+// member add
 function sms_survey_membersadd($sid, $mobile, $name) {
 	$ret = false;
 	$c_mobile = str_replace('+','',$mobile);
@@ -212,6 +190,7 @@ function sms_survey_membersadd($sid, $mobile, $name) {
 	return $ret;
 }
 
+// member del
 function sms_survey_membersdel($sid, $id) {
 	$ret = false;
 	$db_query = "SELECT id FROM "._DB_PREF_."_featureSurvey_members WHERE sid='$sid' AND id='$id'";
@@ -223,42 +202,72 @@ function sms_survey_membersdel($sid, $id) {
 	return $ret;
 }
 
+// get questions
 function sms_survey_getquestions($id) {
 	$ret = array();
-	$db_query = "SELECT uid FROM "._DB_PREF_."_featureSurvey_questions WHERE sid='$id'";
+	$db_query = "SELECT * FROM "._DB_PREF_."_featureSurvey_questions WHERE sid='$id' ORDER BY id";
 	$db_result = dba_query($db_query);
 	$i = 0;
 	while ($db_row = dba_fetch_array($db_result)) {
-		$data = user_getdatabyuid($db_row['uid']);
-		$ret[$i]['uid'] = $db_row['uid'];
-		$ret[$i]['mobile'] = $data['mobile'];
+		$ret[$i]['id'] = $db_row['id'];
+		$ret[$i]['question'] = $db_row['question'];
 		$i++;
 	}
 	return $ret;
 }
 
-function sms_survey_questionsadd($sid, $uid) {
-	$ret = false;
-	$db_query = "SELECT id FROM "._DB_PREF_."_featureSurvey_questions WHERE sid='$sid' AND uid='$uid'";
+// get question by id
+function sms_survey_getquestionbyid($id) {
+	$ret = array();
+	$db_query = "SELECT * FROM "._DB_PREF_."_featureSurvey_questions WHERE id='$id'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
-		$ret = true;
-	} else {
-		$db_query = "INSERT INTO "._DB_PREF_."_featureSurvey_questions (sid,uid) VALUES ('$sid','$uid')";
-		$ret = dba_insert_id($db_query);
+		$ret['sid'] = $db_row['sid'];
+		$ret['question'] = $db_row['question'];
 	}
 	return $ret;
 }
 
-function sms_survey_questionsdel($sid, $uid) {
+// question add
+function sms_survey_questionsadd($sid, $question) {
 	$ret = false;
-	$db_query = "SELECT id FROM "._DB_PREF_."_featureSurvey_questions WHERE sid='$sid' AND uid='$uid'";
+	$db_query = "INSERT INTO "._DB_PREF_."_featureSurvey_questions (sid,question) VALUES ('$sid','$question')";
+	$ret = dba_insert_id($db_query);
+	return $ret;
+}
+
+// question edit
+function sms_survey_questionsedit($sid, $id, $question) {
+	$ret = false;
+	$db_query = "UPDATE "._DB_PREF_."_featureSurvey_questions SET question='$question' WHERE sid='$sid' AND id='$id'";
+	$ret = dba_affected_rows($db_query);
+	return $ret;
+}
+
+// question del
+function sms_survey_questionsdel($sid, $id) {
+	$ret = false;
+	$db_query = "SELECT id FROM "._DB_PREF_."_featureSurvey_questions WHERE sid='$sid' AND id='$id'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
-		$db_query = "DELETE FROM "._DB_PREF_."_featureSurvey_questions WHERE sid='$sid' AND uid='$uid'";
-		$ret = dba_affected_rows($db_query);
+		$db_query1 = "DELETE FROM "._DB_PREF_."_featureSurvey_questions WHERE sid='$sid' AND id='".$db_row['id']."'";
+		$ret = dba_affected_rows($db_query1);
 	}
 	return $ret;
+}
+
+function sms_survey_saveinlog($sid, $sms_datetime, $sms_sender, $keyword, $message, $sms_receiver) {
+	$db_query = "INSERT INTO "._DB_PREF_."_featureSurvey_log_in (sid,sms_datetime,sms_sender,keyword,message,sms_receiver) ";
+	$db_query .= "VALUES ('$sid','$sms_datetime','$sms_sender','$keyword','$message','$sms_receiver')";
+	$log_in_id = dba_insert_id($db_query);
+	return $log_in_id;
+}
+
+function sms_survey_saveoutlog($log_in_id, $smslog_id, $questions, $uid) {
+	$db_query = "INSERT INTO "._DB_PREF_."_featureSurvey_log_out (log_in_id,smslog_id,questions,uid) ";
+	$db_query .= "VALUES ('$log_in_id','$smslog_id','$questions','$uid')";
+	$log_out_id = dba_insert_id($db_query);
+	return $log_out_id;
 }
 
 ?>

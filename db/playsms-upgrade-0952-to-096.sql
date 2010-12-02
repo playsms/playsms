@@ -24,3 +24,12 @@ CREATE TABLE `playsms_featureSurvey_members` (
 `name` VARCHAR( 100 ) NOT NULL ,
 PRIMARY KEY ( `id` )
 ) ENGINE = MYISAM DEFAULT CHARSET=utf8 ;
+
+DROP TABLE IF EXISTS `playsms_featureSurvey_questions` ;
+CREATE TABLE `playsms_featureSurvey_questions` (
+`id` INT NOT NULL AUTO_INCREMENT ,
+`sid` INT NOT NULL ,
+`question` VARCHAR( 140 ) NOT NULL ,
+PRIMARY KEY ( `id` )
+) ENGINE = MYISAM DEFAULT CHARSET=utf8;
+
