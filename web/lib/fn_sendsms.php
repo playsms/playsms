@@ -1,13 +1,13 @@
 <?php
 if(!(defined('_SECURE_'))){die('Intruder alert');};
 
-function sendsms_getvalidnumber($sender) {
-    $sender_arr = explode(" ", $sender);
-    $sender = preg_replace("/[^a-zA-Z0-9\+]/", "", $sender_arr[0]);
-    if (strlen($sender) > 20) {
-	$sender = substr($sender, 0, 20);
+function sendsms_getvalidnumber($number) {
+    $number_arr = explode(" ", $number);
+    $number = preg_replace("/[^0-9\+]/", "", $number_arr[0]);
+    if (strlen($number) > 20) {
+	$number = substr($number, 0, 20);
     }
-    return $sender;
+    return $number;
 }
 
 function interceptsendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0) {

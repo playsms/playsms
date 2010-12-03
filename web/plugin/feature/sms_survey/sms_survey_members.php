@@ -75,7 +75,7 @@ switch ($op) {
 		$members = sms_survey_getmembers($sid);
 		for ($i=0;$i<count($members);$i++) {
 			$c_mobile = $members[$i]['mobile'];
-			$c_name = $members[$i]['name'];
+			$c_name = htmlspecialchars($members[$i]['name']);
 			$td_class = (($i+1) % 2) ? "box_text_odd" : "box_text_even";
 			$content .= "
 				<tr class='".$td_class."'>
@@ -149,8 +149,8 @@ switch ($op) {
 					$error_string = "";
 					while (($data = fgetcsv($fd, $fs, ',')) !== FALSE) {
 						$c_keyword = trim(strtoupper($data[0]));
-						$c_mobile = trim($data[1]);
-						$c_name = trim($data[2]);
+						$c_mobile = sendsms_getvalidnumber(trim($data[1]));
+						$c_name = htmlspecialchars(trim($data[2]));
 						if (($keyword == $c_keyword) && $c_keyword && $c_mobile) {
 							if (sms_survey_membersadd($sid, $c_mobile, $c_name)) {
 								$error_string .= _('Member has been added')." ("._('Keyword').": ".$c_keyword.", "._('mobile').": ".$c_mobile.", "._('name').": ".$c_name." )<br />";

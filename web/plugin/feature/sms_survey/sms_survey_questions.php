@@ -139,7 +139,7 @@ switch ($op) {
 		$questions = sms_survey_getquestions($sid);
 		for ($i=0;$i<count($questions);$i++) {
 			$c_qid = $questions[$i]['id'];
-			$c_question = $questions[$i]['question'];
+			$c_question = htmlspecialchars($questions[$i]['question']);
 			if (! $data['status']) {
 				$c_action = "<a href='index.php?app=menu&inc=feature_sms_survey&route=questions&op=questions_edit&sid=".$sid."&qid=".$c_qid."'>".$icon_edit."</a> ";
 				$c_action .= "<a href='index.php?app=menu&inc=feature_sms_survey&route=questions&op=questions_del&sid=".$sid."&qid=".$c_qid."'>".$icon_delete."</a> ";
