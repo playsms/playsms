@@ -163,8 +163,8 @@ function sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $s
 						$log['member_id'] = $m['id'];
 						$log['link_id'] = $link_id;
 						$log['smslog_id'] = $smslog_id[0];
-						$log['name'] = $m[$i]['name'];
-						$log['mobile'] = $m[$i]['mobile'];
+						$log['name'] = $m['name'];
+						$log['mobile'] = $m['mobile'];
 						$log['question'] = $q[$qn]['question'];
 						$log['question_number'] = $next_qn;
 						$log['creation_datetime'] = $core_config['datetime']['now'];
