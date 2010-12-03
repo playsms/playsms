@@ -5,29 +5,38 @@
  */
 function sms_survey_hook_playsmsd() {
 	global $core_config;
+	// get enabled and started survey, but not running yet
 	$db_query = "SELECT * FROM "._DB_PREF_."_featureSurvey WHERE deleted='0' AND status='1' AND started='1' AND running='0'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$c_sid = $db_row['id'];
+		// set survey as running survey
 		$db_query1 = "UPDATE "._DB_PREF_."_featureSurvey SET running='1' WHERE id='$c_sid'";
 		if ($db_result1 = dba_affected_rows($db_query1)) {
+			// get current survey data
 			$s = sms_survey_getdatabyid($c_sid);
-			$m = sms_survey_getmembers($c_sid);
-			$q = sms_survey_getquestions($c_sid);
 			$c_uid = $s['uid'];
 			$c_username = uid2username($c_uid);
 			$c_keyword = $s['keyword'];
+			// get current survey questions, focus only on first question, index 0
+			$q = sms_survey_getquestions($c_sid);
 			$c_message = $q[0]['question'];
 			$c_sms_msg = $c_keyword." ".$c_message;
+			// get current survey members
+			$m = sms_survey_getmembers($c_sid);
 			for ($i=0;$i<count($m);$i++) {
+				// if member's mobile exists
 				if ($c_sms_to = $m[$i]['mobile']) {
 					logger_print("playsmsd send start qn:1 sid:".$c_sid." username:".$c_username." to:".$c_sms_to." msg:".$c_sms_msg, 3, "sms_survey");
+					// if member's mobile, question and username owned the survey exists
 					if ($c_sms_to && $c_sms_msg && $c_username) {
 						$type = 'text';
 						$unicode = '0';
+						// send message to member
 						list($ok,$to,$smslog_id) = sendsms_pv($c_username,$c_sms_to,$c_sms_msg,$type,$unicode);
 						$ok = $ok[0] ? "true" : "false" ;
 						logger_print("playsmsd send finish sid:".$c_sid." smslog_id:".$smslog_id[0]." ok:".$ok, 3, "sms_survey");
+						// save the log
 						$log = "";
 						$log['survey_id'] = $c_sid;
 						$log['question_id'] = $q[0]['id'];
@@ -44,6 +53,7 @@ function sms_survey_hook_playsmsd() {
 				}
 			}
 		}
+		// set survey as completed
 		$db_query2 = "UPDATE "._DB_PREF_."_featureSurvey SET status='1',started='0',running='2' WHERE id='$c_sid'";
 		$db_result2 = dba_affected_rows($db_query2);
 	}
@@ -100,56 +110,64 @@ function sms_survey_hook_setsmsincomingaction($sms_datetime, $sms_sender, $surve
 // handle survey
 function sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $survey_keyword, $survey_param = '') {
 	$ok = false;
+	// get survey data by keyword
 	$data = sms_survey_getdatabykeyword($survey_keyword);
 	if ($data['status'] == 1) {
 		// survey enabled, accept incoming answers
 		$sid = $data['id'];
+		// get link_id from log, link_id is used to link each questions and answers
 		if ($link_id = sms_survey_getlinkid($sid)) {
+			// get last question data from log
+			$outlogs = sms_survey_getoutlogs($link_id);
+			$logs = $outlogs[count($outlogs) - 1];
+			$qn = $outlogs['question_number'];
+			$next_qn = $qn + 1;
+			// save answer in log
 			$log = "";
 			$log['incoming'] = 1;
+			$log['question_number'] = $qn;
 			$log['link_id'] = $link_id;
 			$log['in_datetime'] = $sms_datetime;
 			$log['in_sender'] = $sms_sender;
 			$log['in_receiver'] = $sms_receiver;
 			$log['answer'] = $survey_param;
 			if (sms_survey_savelog($log)) {
-				// next question if any
-				$logs = sms_survey_getoutlogs($link_id);
-				$last = count($logs) - 1;
-				$logs = $logs[$last];
-				$last = $logs['question_number'];
-				$q_id = $last - 1;
-				$qn = $last + 1;
+				// get next question
 				$q = sms_survey_getquestions($sid);
+				$c_message = $q[$qn]['question'];
 				$c_username = uid2username($c_uid);
 				$c_keyword = $survey_keyword;
-				$c_message = $q[$q_id]['question'];
 				$c_sms_msg = $c_keyword." ".$c_message;
 				$m = sms_survey_getmembers($sid);
 				for ($i=0;$i<count($m);$i++) {
+					// if member's mobile exists
 					if ($c_sms_to = $m[$i]['mobile']) {
-						logger_print("playsmsd send start qn:".$qn." sid:".$c_sid." username:".$c_username." to:".$c_sms_to." msg:".$c_sms_msg, 3, "sms_survey");
+						logger_print("playsmsd send start qn:".$next_qn." sid:".$c_sid." username:".$c_username." to:".$c_sms_to." msg:".$c_sms_msg, 3, "sms_survey");
+						// if member's mobile, question and username owned the survey exists
 						if ($c_sms_to && $c_sms_msg && $c_username) {
 							$type = 'text';
 							$unicode = '0';
+							// send next question to member
 							list($ok,$to,$smslog_id) = sendsms_pv($c_username,$c_sms_to,$c_sms_msg,$type,$unicode);
 							$ok = $ok[0] ? "true" : "false" ;
 							logger_print("playsmsd send finish sid:".$c_sid." smslog_id:".$smslog_id[0]." ok:".$ok, 3, "sms_survey");
+							// save the log
 							$log = "";
 							$log['survey_id'] = $sid;
-							$log['question_id'] = $q[$q_id]['id'];
+							$log['question_id'] = $q[$qn]['id'];
 							$log['member_id'] = $m[$i]['id'];
 							$log['link_id'] = md5($sid.mktime());
 							$log['smslog_id'] = $smslog_id[0];
 							$log['name'] = $m[$i]['name'];
 							$log['mobile'] = $m[$i]['mobile'];
-							$log['question'] = $q[$q_id]['question'];
-							$log['question_number'] = $qn;
+							$log['question'] = $q[$qn]['question'];
+							$log['question_number'] = $next_qn;
 							$log['creation_datetime'] = $core_config['datetime']['now'];
 							sms_survey_savelog($log);
                         			}
                         		}
                         	}
+                        	// set handled
 				$ok = true;
 			}
 		}
@@ -234,12 +252,15 @@ function sms_survey_getdataall() {
 // data add
 function sms_survey_dataadd($keyword, $title) {
 	global $core_config;
-	$datetime_now = $core_config['datetime']['now'];
-	$uid = $core_config['user']['uid'];
-	$keyword = trim(strtoupper($keyword));
-	$db_query = "INSERT INTO "._DB_PREF_."_featureSurvey (uid,keyword,title,creation_datetime) ";
-	$db_query .= "VALUES ('$uid','$keyword','$title','$datetime_now')";
-	$id = dba_insert_id($db_query);
+	// check available keyword in the system, it will returns FALSE if available
+	if (! checkavailablekeyword($keyword)) {
+		$datetime_now = $core_config['datetime']['now'];
+		$uid = $core_config['user']['uid'];
+		$keyword = trim(strtoupper($keyword));
+		$db_query = "INSERT INTO "._DB_PREF_."_featureSurvey (uid,keyword,title,creation_datetime) ";
+		$db_query .= "VALUES ('$uid','$keyword','$title','$datetime_now')";
+		$id = dba_insert_id($db_query);
+	}
 	return $id;
 }
 
