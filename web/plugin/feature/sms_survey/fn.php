@@ -49,6 +49,7 @@ function sms_survey_hook_playsmsd() {
 						$log['question'] = $q[0]['question'];
 						$log['question_number'] = 1;
 						$log['creation_datetime'] = $core_config['datetime']['now'];
+						$log['session'] = $session;
 						sms_survey_savelog($log);
 					}
 				}
@@ -135,6 +136,7 @@ function sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $s
 			$log['in_sender'] = $sms_sender;
 			$log['in_receiver'] = $sms_receiver;
 			$log['answer'] = $survey_param;
+			$log['session'] = $session;
 			if (sms_survey_savelog($log)) {
 				// get next question
 				$q = sms_survey_getquestions($sid);
@@ -166,6 +168,7 @@ function sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $s
 						$log['question'] = $q[$qn]['question'];
 						$log['question_number'] = $next_qn;
 						$log['creation_datetime'] = $core_config['datetime']['now'];
+						$log['session'] = $session;
 						sms_survey_savelog($log);
 					}
                			}

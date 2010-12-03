@@ -978,6 +978,7 @@ CREATE TABLE `playsms_featureSurvey_log` (
 `member_id` INT NOT NULL ,
 `link_id` VARCHAR( 50 ) NOT NULL ,
 `smslog_id` BIGINT NOT NULL ,
+`session` VARCHAR( 50 ) NOT NULL,
 `creation_datetime` VARCHAR( 20 ) NOT NULL DEFAULT '0000-00-00 00:00:00' ,
 `name` VARCHAR( 100 ) NOT NULL ,
 `mobile` VARCHAR( 20 ) NOT NULL ,
