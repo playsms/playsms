@@ -11,7 +11,8 @@ function sms_survey_hook_playsmsd() {
 	while ($db_row = dba_fetch_array($db_result)) {
 		$c_sid = $db_row['id'];
 		// set survey as running survey
-		$db_query1 = "UPDATE "._DB_PREF_."_featureSurvey SET running='1' WHERE id='$c_sid'";
+		$session = md5($c_sid.mktime());
+		$db_query1 = "UPDATE "._DB_PREF_."_featureSurvey SET session='$session',running='1' WHERE id='$c_sid'";
 		if ($db_result1 = dba_affected_rows($db_query1)) {
 			// get current survey data
 			$s = sms_survey_getdatabyid($c_sid);
@@ -41,7 +42,7 @@ function sms_survey_hook_playsmsd() {
 						$log['survey_id'] = $c_sid;
 						$log['question_id'] = $q[0]['id'];
 						$log['member_id'] = $m[$i]['id'];
-						$log['link_id'] = sms_survey_getlinkid($sid, $m[$i]['id']);
+						$log['link_id'] = sms_survey_getlinkid($session, $c_sid, $m[$i]['id']);
 						$log['smslog_id'] = $smslog_id[0];
 						$log['name'] = $m[$i]['name'];
 						$log['mobile'] = $m[$i]['mobile'];
@@ -109,15 +110,17 @@ function sms_survey_hook_setsmsincomingaction($sms_datetime, $sms_sender, $surve
 
 // handle survey
 function sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $survey_keyword, $survey_param = '') {
+	global $core_config;
 	$ok = false;
 	// get survey data by keyword
 	$data = sms_survey_getdatabykeyword($survey_keyword);
 	if ($data['status'] == 1) {
 		// survey enabled, accept incoming answers
+		$session = $data['session'];
 		$sid = $data['id'];
 		$m = sms_survey_getmemberbymobile($sid, $sms_sender);
 		// link_id is used to link each questions and answers
-		if ($link_id = sms_survey_getlinkid($sid, $m['id'])) {
+		if ($link_id = sms_survey_getlinkid($session, $sid, $m['id'])) {
 			// get last question data from log
 			$l = sms_survey_getoutlogs($link_id);
 			$outlogs = $l[count($l) - 1];
@@ -135,33 +138,36 @@ function sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $s
 			if (sms_survey_savelog($log)) {
 				// get next question
 				$q = sms_survey_getquestions($sid);
-				$c_message = $q[$qn]['question']; // yes, not $next_qn, array questions start from 0
-				$c_username = uid2username($c_uid);
-				$c_keyword = $survey_keyword;
-				$c_sms_msg = $c_keyword." ".$c_message;
-				$c_sms_to = $sms_sender;
-				logger_print("playsmsd send start next qn:".$next_qn." sid:".$c_sid." username:".$c_username." to:".$c_sms_to." msg:".$c_sms_msg, 3, "sms_survey");
-				// if member's mobile, question and username owned the survey exists
-				if ($c_sms_to && $c_sms_msg && $c_username) {
-					$type = 'text';
-					$unicode = '0';
-					// send next question to member
-					list($ok,$to,$smslog_id) = sendsms_pv($c_username,$c_sms_to,$c_sms_msg,$type,$unicode);
-					$ok = $ok[0] ? "true" : "false" ;
-					logger_print("playsmsd send finish sid:".$c_sid." smslog_id:".$smslog_id[0]." ok:".$ok, 3, "sms_survey");
-					// save the log
-					$log = "";
-					$log['survey_id'] = $sid;
-					$log['question_id'] = $q[$qn]['id'];
-					$log['member_id'] = $m['id'];
-					$log['link_id'] = $link_id;
-					$log['smslog_id'] = $smslog_id[0];
-					$log['name'] = $m[$i]['name'];
-					$log['mobile'] = $m[$i]['mobile'];
-					$log['question'] = $q[$qn]['question'];
-					$log['question_number'] = $next_qn;
-					$log['creation_datetime'] = $core_config['datetime']['now'];
-					sms_survey_savelog($log);
+				// stop when ran out questions
+				if ($qn < count($q)) {
+					$c_message = $q[$qn]['question']; // yes, not $next_qn, array questions start from 0
+					$c_username = uid2username($c_uid);
+					$c_keyword = $survey_keyword;
+					$c_sms_msg = $c_keyword." ".$c_message;
+					$c_sms_to = $sms_sender;
+					logger_print("playsmsd send start next qn:".$next_qn." sid:".$c_sid." username:".$c_username." to:".$c_sms_to." msg:".$c_sms_msg, 3, "sms_survey");
+					// if member's mobile, question and username owned the survey exists
+					if ($c_sms_to && $c_sms_msg && $c_username) {
+						$type = 'text';
+						$unicode = '0';
+						// send next question to member
+						list($ok,$to,$smslog_id) = sendsms_pv($c_username,$c_sms_to,$c_sms_msg,$type,$unicode);
+						$ok = $ok[0] ? "true" : "false" ;
+						logger_print("playsmsd send finish sid:".$c_sid." smslog_id:".$smslog_id[0]." ok:".$ok, 3, "sms_survey");
+						// save the log
+						$log = "";
+						$log['survey_id'] = $sid;
+						$log['question_id'] = $q[$qn]['id'];
+						$log['member_id'] = $m['id'];
+						$log['link_id'] = $link_id;
+						$log['smslog_id'] = $smslog_id[0];
+						$log['name'] = $m[$i]['name'];
+						$log['mobile'] = $m[$i]['mobile'];
+						$log['question'] = $q[$qn]['question'];
+						$log['question_number'] = $next_qn;
+						$log['creation_datetime'] = $core_config['datetime']['now'];
+						sms_survey_savelog($log);
+					}
                			}
                         	// set handled
 				$ok = true;
@@ -176,8 +182,8 @@ function sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $s
 }
 
 // get link id
-function sms_survey_getlinkid($sid, $member_id) {
-	$link_id = $sid.'.'.$member_id;
+function sms_survey_getlinkid($session, $sid, $member_id) {
+	$link_id = $session.'.'.$sid.'.'.$member_id;
 	return $link_id;
 }
 

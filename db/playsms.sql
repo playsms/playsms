@@ -948,6 +948,7 @@ CREATE TABLE `playsms_featureSurvey` (
 `deleted` TINYINT NOT NULL,
 `started` TINYINT NOT NULL,
 `running` TINYINT NOT NULL,
+`session` VARCHAR( 50 ) NOT NULL,
 PRIMARY KEY ( `id` )
 ) ENGINE = MYISAM DEFAULT CHARSET=utf8 ;
 
