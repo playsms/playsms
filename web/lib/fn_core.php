@@ -233,6 +233,10 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 		
 		    // make sure sms_datetime is in supported format and in user's timezone
 		    $sms_datetime = core_display_datetime($sms_datetime);
+		    
+		    $sender_uid = mobile2uid($sms_sender);
+		    $sender = user_getdatabyuid($sender_uid);
+		    $sms_sender = $sender['name'] ? $sender['name'].' <'.$sms_sender.'>' : $sms_sender;
 		
 		    $subject = "[SMSGW-PV] "._('from')." $sms_sender";
 		    $body = _('Forward Private WebSMS')." ($web_title)\n\n";
