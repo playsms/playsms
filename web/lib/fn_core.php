@@ -1,12 +1,21 @@
 <?php
 if(!(defined('_SECURE_'))){die('Intruder alert');};
 
+/*
+ * Check available keyword or keyword that hasn't been added
+ *
+ * @param $keyword
+ *    keyword
+ * @return
+ *    TRUE if available, FALSE if already exists or not available
+ */
 function checkavailablekeyword($keyword) {
     global $reserved_keywords, $core_config;
-    $ok = false;
+    $ok = true;
     $reserved = false;
+    $keyword = trim(strtoupper($keyword));
     for ($i=0;$i<count($reserved_keywords);$i++) {
-        if (trim(strtoupper($keyword)) == trim(strtoupper($reserved_keywords[$i]))) {
+        if ($keyword == trim(strtoupper($reserved_keywords[$i]))) {
     	    $reserved = true;
 	}
     }
@@ -14,8 +23,10 @@ function checkavailablekeyword($keyword) {
 	$ok = false;	
     } else {
 	for ($c=0;$c<count($core_config['featurelist']);$c++) {
-	    if (x_hook($core_config['featurelist'][$c],'checkavailablekeyword',array($keyword))) {
-		$ok = true;
+	    // checkavailablekeyword() on hooks will return TRUE as well if keyword is available
+	    // so we're looking for FALSE value
+	    if (! (x_hook($core_config['featurelist'][$c],'checkavailablekeyword',array($keyword)))) {
+		$ok = false;
 		break;
 	    }
 	}
