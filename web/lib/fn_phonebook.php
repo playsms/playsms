@@ -25,11 +25,11 @@ function phonebook_groupcode2id($uid,$gp_code) {
     return $gpid;
 }
 
-function phonebook_number2name($p_num) {
+function phonebook_number2name($p_num, $c_username="") {
     global $core_config;
     if ($p_num) {
 	for ($c=0;$c<count($core_config['toolslist']);$c++) {
-	    if ($p_desc = x_hook($core_config['toolslist'][$c],'phonebook_number2name',array($p_num))) {
+	    if ($p_desc = x_hook($core_config['toolslist'][$c],'phonebook_number2name',array($p_num,$c_username))) {
 		break;
 	    }
 	}

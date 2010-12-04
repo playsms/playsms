@@ -74,14 +74,16 @@ function simplephonebook_hook_phonebook_groupcode2id($uid,$gp_code) {
     return $gpid;
 }
 
-function simplephonebook_hook_phonebook_number2name($p_num) {
+function simplephonebook_hook_phonebook_number2name($p_num, $c_username='') {
     global $username;
+    // if username supplied use it, else use global username
+    $d_username = $c_username ? $c_username : $username;
     if ($p_num) {
 	// remove +
 	$p_num = str_replace('+','',$p_num);
 	// remove first 3 digits if phone number length more than 7
 	if (strlen($p_num) > 7) { $p_num = substr($p_num,3); }
-	$uid = username2uid($username);
+	$uid = username2uid($d_username);
 	$db_query = "SELECT p_desc FROM "._DB_PREF_."_toolsSimplephonebook WHERE p_num LIKE '%".$p_num."' AND uid='$uid'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);

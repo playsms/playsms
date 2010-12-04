@@ -43,7 +43,7 @@ function sms_board_hook_setsmsincomingaction($sms_datetime,$sms_sender,$board_ke
     if ($db_row = dba_fetch_array($db_result))
     {
 	$c_uid = $db_row['uid'];
-	if (sms_board_handle($sms_datetime,$sms_sender,$board_keyword,$board_param))
+	if (sms_board_handle($c_uid, $sms_datetime,$sms_sender,$sms_receiver,$board_keyword,$board_param))
 	{
 	    $ok = true;
 	}
@@ -53,7 +53,7 @@ function sms_board_hook_setsmsincomingaction($sms_datetime,$sms_sender,$board_ke
     return $ret;
 }
 
-function sms_board_handle($sms_datetime,$sms_sender,$board_keyword,$board_param='')
+function sms_board_handle($c_uid, $sms_datetime,$sms_sender,$sms_receiver,$board_keyword,$board_param='')
 {
     global $web_title,$email_service,$email_footer,$gateway_module;
     $ok = false;
@@ -74,15 +74,16 @@ function sms_board_handle($sms_datetime,$sms_sender,$board_keyword,$board_param=
 	    $email = $db_row1['board_forward_email'];	   
 	    if ($email)
 	    {
-
-		$sender_uid = mobile2uid($sms_sender);
-		$sender = user_getdatabyuid($sender_uid);
-		$sms_sender = $sender['name'] ? $sender['name'].' <'.$sms_sender.'>' : $sms_sender;
+		// get name from c_uid's phonebook
+		$c_username = uid2username($c_uid);
+		$c_name = phonebook_number2name($sms_sender, $c_username);
+		$sms_sender = $c_name ? $c_name.' <'.$sms_sender.'>' : $sms_sender;
 	    
 		$subject = "[SMSGW-".$board_keyword."] "._('from')." $sms_sender";
 		$body = _('Forward WebSMS')." ($web_title)\n\n";
 		$body .= _('Date and time').": $sms_datetime\n";
 		$body .= _('Sender').": $sms_sender\n";
+		$body .= _('Receiver').": $sms_receiver\n";
 		$body .= _('Keyword').": $board_keyword\n\n";
 		$body .= _('Message').":\n$board_param\n\n";
 		$body .= $email_footer."\n\n";
