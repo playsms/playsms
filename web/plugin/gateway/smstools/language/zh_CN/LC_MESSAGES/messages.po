@@ -1,0 +1,23 @@
+#: config.php:7 smstools.php:23
+msgid "Manage smstools"
+msgstr "管理短信工具"
+
+#: smstools.php:8
+msgid "Active"
+msgstr "活跃"
+
+#: smstools.php:12
+msgid "Inactive"
+msgstr "不活跃"
+
+#: smstools.php:12
+msgid "click here to activate"
+msgstr "点击这里激活"
+
+#: smstools.php:27
+msgid "Gateway name"
+msgstr "网关名"
+
+#: smstools.php:36
+msgid "Gateway has been activated"
+msgstr "网关已激活"

@@ -1,0 +1,39 @@
+#: header.php:26
+msgid "Logged in"
+msgstr "登陆"
+
+#: header.php:26
+msgid "Status"
+msgstr "状态"
+
+#: loginpage.php:19
+msgid "Username"
+msgstr "用户名"
+
+#: loginpage.php:23
+msgid "Password"
+msgstr "密码"
+
+#: welcomepage.php:7
+msgid "Welcome to playSMS"
+msgstr "欢迎使用playSMS"
+
+#: welcomepage.php:9
+msgid "About playSMS"
+msgstr "关于playSMS"
+
+#: welcomepage.php:10
+msgid "Changelog"
+msgstr "更改日志"
+
+#: welcomepage.php:11
+msgid "Installation Guide"
+msgstr "安装指南"
+
+#: welcomepage.php:12
+msgid "F.A.Q"
+msgstr "常见问题"
+
+#: welcomepage.php:13
+msgid "License"
+msgstr "通行证"

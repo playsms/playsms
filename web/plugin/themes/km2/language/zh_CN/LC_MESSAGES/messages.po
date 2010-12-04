@@ -1,0 +1,83 @@
+#: header.php:39
+msgid "Home"
+msgstr "主页"
+
+#: header.php:40
+msgid "Preferences"
+msgstr "偏好"
+
+#: header.php:41
+msgid "Contact"
+msgstr "连接"
+
+#: header.php:42
+msgid "Logout"
+msgstr "注销"
+
+#: loginpage.php:27 page_forgot.php:37 page_register.php:41 page_login.php:37
+msgid "Username"
+msgstr "用户名"
+
+#: loginpage.php:31 page_login.php:41
+msgid "Password"
+msgstr "密码"
+
+#: loginpage.php:36 page_login.php:46
+msgid "Login"
+msgstr "登陆"
+
+#: welcomepage.php:7
+msgid "Welcome to PlaySMS"
+msgstr "欢迎使用playSMS"
+
+#: welcomepage.php:16
+msgid "About playSMS"
+msgstr "关于playSMS"
+
+#: welcomepage.php:17
+msgid "Changelog"
+msgstr "更改日志"
+
+#: welcomepage.php:18
+msgid "Installation Guide"
+msgstr "安装指南"
+
+#: welcomepage.php:19
+msgid "F.A.Q"
+msgstr "常见问题"
+
+#: welcomepage.php:20
+msgid "License"
+msgstr "通行证"
+
+#: welcomepage.php:25
+msgid "FAQ Users"
+msgstr "常见问题用户"
+
+#: page_forgot.php:41 page_register.php:49
+msgid "Email"
+msgstr "电子邮件"
+
+#: page_forgot.php:46
+msgid "Recover password"
+msgstr "找回密码"
+
+#:page_register.php:54
+msgid "Register"
+msgstr "注册"
+
+#: page_register.php:37
+msgid "Name"
+msgstr "姓名"
+
+#: page_register.php:45
+msgid "Mobile"
+msgstr "手机"
+
+#: page_login.php:52
+msgid "Register an account"
+msgstr "注册一个帐号"
+
+#: page_login.php:52
+msgid "Forgot password"
+msgstr "忘记密码"

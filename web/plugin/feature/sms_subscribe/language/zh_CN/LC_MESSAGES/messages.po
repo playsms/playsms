@@ -1,0 +1,222 @@
+#: config.php:4 sms_subscribe.php:12
+msgid "Manage subscribe"
+msgstr "管理订阅"
+
+#: config.php:6
+msgid "Add message"
+msgstr "增加"
+
+#: config.php:7
+msgid "View members"
+msgstr "浏览人数"
+
+#: config.php:8
+msgid "View messages"
+msgstr "浏览信息"
+
+#: fn.php:96 fn.php:101 fn.php:106
+msgid "You are not a member"
+msgstr "你还不是会员"
+
+#: fn.php:111
+msgid "Unknown SMS format"
+msgstr "未知短信格式"
+
+#: fn.php:144 fn.php:149 fn.php:154
+msgid "You already a member"
+msgstr "你已是会员"
+
+#: fn.php:159
+msgid "Unknown sms format"
+msgstr "未知短信格式"
+
+#: sms_subscribe.php:14 sms_subscribe.php:66 sms_subscribe.php:438
+msgid "Add SMS subscribe"
+msgstr "增加短信订阅"
+
+#: sms_subscribe.php:26
+msgid "Keyword"
+msgstr "关键字"
+
+#: sms_subscribe.php:27
+msgid "Total members"
+msgstr "总人数"
+
+#: sms_subscribe.php:28
+msgid "User"
+msgstr "用户"
+
+#: sms_subscribe.php:29
+msgid "Status"
+msgstr "状态"
+
+#: sms_subscribe.php:30 sms_subscribe.php:96 sms_subscribe.php:282
+msgid "Action"
+msgstr "行动"
+
+#: sms_subscribe.php:43 sms_subscribe.php:353
+msgid "Disabled"
+msgstr "禁用"
+
+#: sms_subscribe.php:45 sms_subscribe.php:355
+msgid "Enabled"
+msgstr "使用"
+
+#: sms_subscribe.php:51
+msgid "Are you sure you want to delete SMS subscribe ?"
+msgstr "确定删除短信订阅 ?"
+
+#: sms_subscribe.php:51 sms_subscribe.php:381 sms_subscribe.php:414
+#: sms_subscribe.php:469 sms_subscribe.php:472
+msgid "keyword"
+msgstr "关键字"
+
+#: sms_subscribe.php:84
+msgid "SMS messages list for keyword"
+msgstr "短信关键字列表"
+
+#: sms_subscribe.php:88 sms_subscribe.php:118
+msgid "Add Message"
+msgstr "增加信息"
+
+#: sms_subscribe.php:95 sms_subscribe.php:151
+msgid "Message"
+msgstr "信息"
+
+#: sms_subscribe.php:106
+msgid "Are you sure you want to delete this message?"
+msgstr "确定删除这条信息"
+
+#: sms_subscribe.php:141
+msgid "Message detail"
+msgstr "信息详情"
+
+#: sms_subscribe.php:148 sms_subscribe.php:186 sms_subscribe.php:335
+#: sms_subscribe.php:443 sms_subscribe.php:493
+msgid "SMS subscribe keyword"
+msgstr "短信订阅关键字"
+
+#: sms_subscribe.php:154
+msgid "Send this message to all members"
+msgstr "发送信息到全部会员"
+
+#: sms_subscribe.php:155
+msgid "Send"
+msgstr "发送"
+
+#: sms_subscribe.php:190 sms_subscribe.php:500
+msgid "Message body"
+msgstr "信息正文"
+
+#: sms_subscribe.php:196
+msgid "Edit"
+msgstr "编辑"
+
+#: sms_subscribe.php:211
+msgid "Message has been edited"
+msgstr "信息已编辑"
+
+#: sms_subscribe.php:214 sms_subscribe.php:254 sms_subscribe.php:384
+#: sms_subscribe.php:475 sms_subscribe.php:523
+msgid "You must fill all fields"
+msgstr "你必须填满全部空白"
+
+#: sms_subscribe.php:246
+msgid "Your SMS has been delivered to queue"
+msgstr "你的短信已在队列中"
+
+#: sms_subscribe.php:246 sms_subscribe.php:248
+msgid "to"
+msgstr "到"
+
+#: sms_subscribe.php:248
+msgid "Fail to send SMS"
+msgstr "发送短信失败"
+
+#: sms_subscribe.php:273
+msgid "Member list for keyword"
+msgstr "会员列表关键字"
+
+#: sms_subscribe.php:280
+msgid "Phone number"
+msgstr "电话号码"
+
+#: sms_subscribe.php:281
+msgid "Member join datetime"
+msgstr "会员加入日期时间"
+
+#: sms_subscribe.php:290
+msgid "Are you sure you want to delete this member ?"
+msgstr "确定删除这个会员 ?"
+
+#: sms_subscribe.php:310
+msgid "\"Member has been deleted"
+msgstr "\"会员已删除"
+
+#: sms_subscribe.php:328
+msgid "Edit SMS subscribe"
+msgstr "编辑短信订阅"
+
+#: sms_subscribe.php:338 sms_subscribe.php:446
+msgid "SMS subscribe reply"
+msgstr "短信订阅回复"
+
+#: sms_subscribe.php:341 sms_subscribe.php:449
+msgid "SMS unsubscribe reply"
+msgstr "短信未订阅回复"
+
+#: sms_subscribe.php:344
+msgid "Save"
+msgstr "保存"
+
+#: sms_subscribe.php:358
+msgid "Enable or disable this subscribe"
+msgstr "使用或禁用此订阅"
+
+#: sms_subscribe.php:360
+msgid "Current status"
+msgstr "当前状态"
+
+#: sms_subscribe.php:361
+msgid "What do you want to do ?"
+msgstr "你想要做什么 ?"
+
+#: sms_subscribe.php:362
+msgid "I want to enable this subscribe"
+msgstr "我要使用此订阅"
+
+#: sms_subscribe.php:363
+msgid "I want to disable this subscribe"
+msgstr "J我要禁用次订阅"
+
+#: sms_subscribe.php:381
+msgid "SMS subscribe has been saved"
+msgstr "短信订阅已保存"
+
+#: sms_subscribe.php:395
+msgid "SMS subscribe status has been changed"
+msgstr "短信订阅状态已改变"
+
+#: sms_subscribe.php:414
+msgid "SMS subscribe with all its messages and members has been deleted"
+msgstr "短信订阅和它的全部信息和会员已删除"
+
+#: sms_subscribe.php:427
+msgid "Message has been deleted"
+msgstr "信息已删除"
+
+#: sms_subscribe.php:452 sms_subscribe.php:505
+msgid "Add"
+msgstr "增加"
+
+#: sms_subscribe.php:469
+msgid "SMS subscribe has been added"
+msgstr "短信订阅已增加"
+
+#: sms_subscribe.php:472
+msgid "SMS subscribe already exists, reserved or use by other feature"
+msgstr "短信订阅已存在, 保留或其他功能的使用"
+
+#: sms_subscribe.php:520
+msgid "Member message has been added"
+msgstr "会员信息已增加"

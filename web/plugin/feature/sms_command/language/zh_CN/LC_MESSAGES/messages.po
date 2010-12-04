@@ -1,0 +1,109 @@
+#: config.php:4 sms_command.php:12
+msgid "Manage command"
+msgstr "管理指令"
+
+#: sms_command.php:15 sms_command.php:86 sms_command.php:153
+msgid "SMS command exec path"
+msgstr "短信指令执行路径"
+
+#: sms_command.php:27
+msgid "Keyword"
+msgstr "关键字"
+
+#: sms_command.php:28
+msgid "Exec"
+msgstr "执行"
+
+#: sms_command.php:29
+msgid "User"
+msgstr "用户"
+
+#: sms_command.php:30
+msgid "Action"
+msgstr "行动"
+
+#: sms_command.php:41
+msgid "Are you sure you want to delete SMS command ?"
+msgstr "确定删除短信指令 ?"
+
+#: sms_command.php:41 sms_command.php:105 sms_command.php:109
+#: sms_command.php:129 sms_command.php:133 sms_command.php:174
+#: sms_command.php:178 sms_command.php:183
+msgid "keyword"
+msgstr "关键字"
+
+#: sms_command.php:59 sms_command.php:144
+msgid "Add SMS command"
+msgstr "增加短信指令"
+
+#: sms_command.php:75
+msgid "Edit SMS command"
+msgstr "编辑短信指令"
+
+#: sms_command.php:80 sms_command.php:147
+msgid "SMS command keyword"
+msgstr "短信指令关键字"
+
+#: sms_command.php:81 sms_command.php:148
+msgid "Pass these parameter to command exec field"
+msgstr "通过这些参数命令执行领域"
+
+#: sms_command.php:82 sms_command.php:149
+msgid "will be replaced by SMS incoming date/time"
+msgstr "用短信收到日期/时间替换"
+
+#: sms_command.php:83 sms_command.php:150
+msgid "will be replaced by sender number"
+msgstr "被发件人数替换"
+
+#: sms_command.php:84 sms_command.php:151
+msgid "will be replaced by command keyword"
+msgstr "被指令关键字替换"
+
+#: sms_command.php:85 sms_command.php:152
+msgid "will be replaced by command parameter passed to server from SMS"
+msgstr "将被替换的短信传递到服务器的命令参数"
+
+#: sms_command.php:87 sms_command.php:154
+msgid "SMS command exec"
+msgstr "短信指令执行"
+
+#: sms_command.php:88
+msgid "Save"
+msgstr "保存"
+
+#: sms_command.php:105
+msgid "SMS command has been saved"
+msgstr "短信指令已保存"
+
+#: sms_command.php:109
+msgid "Fail to save SMS command"
+msgstr "保存短信指令失败"
+
+#: sms_command.php:114 sms_command.php:188
+msgid "You must fill all fields"
+msgstr "你必须填满全部空白"
+
+#: sms_command.php:129
+msgid "SMS command has been deleted"
+msgstr "短信指令已删除"
+
+#: sms_command.php:133
+msgid "Fail to delete SMS command"
+msgstr "删除短信指令失败"
+
+#: sms_command.php:155
+msgid "Add"
+msgstr "增加"
+
+#: sms_command.php:174
+msgid "SMS command has been added"
+msgstr "短信指令已增加"
+
+#: sms_command.php:178
+msgid "Fail to add SMS command"
+msgstr "增加短信指令失败"
+
+#: sms_command.php:183
+msgid "SMS command already exists, reserved or use by other feature"
+msgstr "短信指令已存在, 保留或其他功能的使用"

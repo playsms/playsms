@@ -1,0 +1,87 @@
+#: config.php:19 kannel.php:23
+msgid "Manage kannel"
+msgstr "管理kannel"
+
+#: kannel.php:8
+msgid "Active"
+msgstr "活跃"
+
+#: kannel.php:12
+msgid "Inactive"
+msgstr "不活跃"
+
+#: kannel.php:12
+msgid "click here to activate"
+msgstr "点击这里激活"
+
+#: kannel.php:28
+msgid "Gateway name"
+msgstr "网关名"
+
+#: kannel.php:31
+msgid "Username"
+msgstr "用户名"
+
+#: kannel.php:34
+msgid "Password"
+msgstr "密码"
+
+#: kannel.php:34
+msgid "Fill to change the password"
+msgstr "填写改变密码"
+
+#: kannel.php:37
+msgid "Global sender"
+msgstr "全球发件人"
+
+#: kannel.php:37
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "最多16个数字或11个字母，不可空"
+
+#: kannel.php:40
+msgid "Bearerbox hostname or IP"
+msgstr ""
+
+#: kannel.php:40 kannel.php:43
+msgid "Kannel specific"
+msgstr ""
+
+#: kannel.php:43
+msgid "Send SMS port"
+msgstr "发送短信端口"
+
+#: kannel.php:46
+msgid "Additional URL parameter"
+msgstr "附加链接参数"
+
+#: kannel.php:46
+msgid "playSMS web URL"
+msgstr "短信网络链接"
+
+#: kannel.php:46
+msgid "URL to playSMS, empty it to set it to base URL"
+msgstr ""
+
+#: kannel.php:50
+msgid "Note"
+msgstr "注意"
+
+#: kannel.php:51
+msgid "Send SMS message without footer banner"
+msgstr "发送无页脚横幅的短信"
+
+#: kannel.php:53
+msgid "Save"
+msgstr "发送"
+
+#: kannel.php:65
+msgid "No changes has been made"
+msgstr "没有做出改变"
+
+#: kannel.php:80
+msgid "Gateway module configurations has been saved"
+msgstr "网关模块的配置已保存"
+
+#: kannel.php:88
+msgid "Gateway has been activated"
+msgstr "网关已激活"

@@ -1,0 +1,287 @@
+#: config.php:3
+msgid "Export"
+msgstr "出口"
+
+#: config.php:4 phonebook_exim.php:42 phonebook_exim.php:109
+msgid "Import"
+msgstr "进口"
+
+#: config.php:5
+msgid "Publish"
+msgstr "发表"
+
+#: config.php:6
+msgid "Unpublish"
+msgstr "未发表"
+
+#: config.php:8 phonebook.php:298 simplephonebook.php:146
+msgid "Phonebook"
+msgstr "电话簿"
+
+#: dir_create.php:12 simplephonebook.php:155 simplephonebook.php:160
+msgid "Create group"
+msgstr "创建组"
+
+#: dir_create.php:17 dir_edit.php:19
+msgid "Group name"
+msgstr "组名"
+
+#: dir_create.php:20 dir_edit.php:22 phonebook_exim.php:36
+msgid "Group code"
+msgstr "组代码"
+
+#: dir_create.php:20 dir_edit.php:22
+msgid "please use uppercase and make it short"
+msgstr "请使用大写并且简练"
+
+#: dir_create.php:23 dir_edit.php:25
+msgid "Note"
+msgstr "注意"
+
+#: dir_create.php:23 dir_edit.php:25
+msgid "Group code used by keyword"
+msgstr "组代码使用关键字"
+
+#: dir_create.php:23 dir_edit.php:25
+msgid "broadcast SMS from single SMS"
+msgstr "从单一的短信广播短信"
+
+#: dir_create.php:24
+msgid "Create"
+msgstr "创建"
+
+#: dir_create.php:38
+msgid "Group code is already exists"
+msgstr "组代码已存在"
+
+#: dir_create.php:38 dir_create.php:45 dir_edit.php:47 phone_add.php:12
+msgid "code"
+msgstr "代码"
+
+#: dir_create.php:45
+msgid "Group code has been added"
+msgstr "组代码已增加"
+
+#: dir_create.php:45 dir_edit.php:47 phonebook.php:267 phonebook.php:272
+#: phonebook.php:284 phonebook.php:289
+msgid "group"
+msgstr "组"
+
+#: dir_create.php:49 dir_edit.php:51 phone_add.php:66
+msgid "You must fill all field"
+msgstr "你必须填满空白"
+
+#: dir_edit.php:14
+msgid "Edit group"
+msgstr "编辑组"
+
+#: dir_edit.php:26 phonebook.php:53
+msgid "Save"
+msgstr "保存"
+
+#: dir_edit.php:40
+msgid "No changes has been made"
+msgstr "没有做出改变"
+
+#: dir_edit.php:47
+msgid "Group has been edited"
+msgstr "组已编辑"
+
+#: phone_add.php:19 phone_add.php:24 simplephonebook.php:156
+#: simplephonebook.php:161
+msgid "Add number to group"
+msgstr "增加号码到组"
+
+#: phone_add.php:27 phonebook_exim.php:60 simplephonebook.php:41
+#: simplephonebook.php:115
+msgid "Name"
+msgstr "姓名"
+
+#: phone_add.php:30 phonebook_exim.php:61
+msgid "Mobile"
+msgstr "手机"
+
+#: phone_add.php:30
+msgid "International format"
+msgstr "国际模式"
+
+#: phone_add.php:33 phonebook_exim.php:62 simplephonebook.php:43
+#: simplephonebook.php:117
+msgid "Email"
+msgstr "电子信息"
+
+#: phone_add.php:36
+msgid "Add"
+msgstr "增加"
+
+#: phone_add.php:55
+msgid "Number is already exists"
+msgstr "号码已存在"
+
+#: phone_add.php:55 phone_add.php:62
+msgid "number"
+msgstr "号码"
+
+#: phone_add.php:55 phone_add.php:62
+msgid "name"
+msgstr "姓名"
+
+#: phone_add.php:62
+msgid "Number has been added"
+msgstr "号码已填加"
+
+#: phonebook_exim.php:36
+msgid "Import phonebook"
+msgstr "载入电话簿"
+
+#: phonebook_exim.php:39
+msgid "Please select CSV file for phonebook entries"
+msgstr "请选择电话簿条目CSV文件"
+
+#: phonebook_exim.php:39
+msgid "format : Name,Mobile,Email"
+msgstr "格式 : 姓名,电话,电子邮件"
+
+#: phonebook_exim.php:41
+msgid "Same item(s) will be replaced"
+msgstr "同一项目将被替换"
+
+#: phonebook_exim.php:55
+msgid "Import confirmation"
+msgstr "载入确认"
+
+#: phonebook_exim.php:98
+msgid "Replace all entries in database"
+msgstr "替换数据库中的所有条目"
+
+#: phonebook_exim.php:102
+msgid "Add all entries"
+msgstr "添加全部条目"
+
+#: phonebook_exim.php:106
+msgid "Import above phonebook entries ?"
+msgstr "载入以上电话簿条目 ?"
+
+#: phonebook_exim.php:107
+msgid "Status"
+msgstr "状态"
+
+#: phonebook_exim.php:113
+msgid "Back"
+msgstr "返回"
+
+#: phonebook_exim.php:120
+msgid "Fail to upload CSV file for phonebook"
+msgstr "上传CSV文件到电话簿失败"
+
+#: phonebook.php:23
+msgid "Edited name"
+msgstr "已编辑的姓名"
+
+#: phonebook.php:24
+msgid "Edited number"
+msgstr "已编辑的号码"
+
+#: phonebook.php:25
+msgid "Edited email"
+msgstr "已编辑的电子邮件"
+
+#: phonebook.php:81
+msgid "Copied name"
+msgstr "复制的名字"
+
+#: phonebook.php:82
+msgid "Copied number"
+msgstr "复制的号码"
+
+#: phonebook.php:83
+msgid "Copied email"
+msgstr "复制的电子邮件"
+
+#: phonebook.php:113
+msgid "Code"
+msgstr "代码"
+
+#: phonebook.php:118 phonebook.php:184
+msgid "Select destination group"
+msgstr "选择目标组"
+
+#: phonebook.php:118 phonebook.php:184 simplephonebook.php:79
+msgid "Go"
+msgstr "运行"
+
+#: phonebook.php:147
+msgid "Moved name"
+msgstr "移除的姓名"
+
+#: phonebook.php:148
+msgid "Moved number"
+msgstr "移除的号码"
+
+#: phonebook.php:149
+msgid "Moved email"
+msgstr "移除的电子邮件"
+
+#: phonebook.php:210
+msgid "Deleted name"
+msgstr "删除的姓名"
+
+#: phonebook.php:211
+msgid "Deleted number"
+msgstr "删除的号码"
+
+#: phonebook.php:212
+msgid "Deleted email"
+msgstr "删除的电子邮件"
+
+#: phonebook.php:241
+msgid "Delete"
+msgstr "删除"
+
+#: phonebook.php:267
+msgid "Fail to publish"
+msgstr "发表失败"
+
+#: phonebook.php:272
+msgid "Group has been published"
+msgstr "组已公布"
+
+#: phonebook.php:284
+msgid "Fail to unpublish"
+msgstr "未公布失败"
+
+#: phonebook.php:289
+msgid "Group has been unpublished"
+msgstr "组未公布"
+
+#: simplephonebook.php:42 simplephonebook.php:116
+msgid "Number"
+msgstr "号码"
+
+#: simplephonebook.php:68
+msgid "Edit selections"
+msgstr "编辑选项"
+
+#: simplephonebook.php:69
+msgid "Copy selections"
+msgstr "复制选项"
+
+#: simplephonebook.php:70
+msgid "Move selections"
+msgstr "移除选项"
+
+#: simplephonebook.php:71
+msgid "Delete selections"
+msgstr "删除选项"
+
+#: simplephonebook.php:79
+msgid "Select action"
+msgstr "选择行为"
+
+#: simplephonebook.php:111
+msgid "Shared by"
+msgstr "被分享"
+
+#: simplephonebook.php:157 simplephonebook.php:162
+msgid "Export all"
+msgstr "输出全部"

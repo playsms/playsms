@@ -1,0 +1,47 @@
+#: config.php:13 gnokii.php:23
+msgid "Manage gnokii"
+msgstr "管理gnokii"
+
+#: gnokii.php:8
+msgid "Active"
+msgstr "活跃"
+
+#: gnokii.php:12
+msgid "Inactive"
+msgstr "不活跃"
+
+#: gnokii.php:12
+msgid "click here to activate"
+msgstr "点击这里激活"
+
+#: gnokii.php:28
+msgid "Gateway name"
+msgstr "网关名"
+
+#: gnokii.php:31
+msgid "Gnokii installation path"
+msgstr "Gnokii安装路径"
+
+#: gnokii.php:31
+msgid "No trailing slash"
+msgstr "没有结尾的斜线"
+
+#: gnokii.php:35
+msgid "Note"
+msgstr "注意"
+
+#: gnokii.php:36
+msgid "Send SMS message without footer banner"
+msgstr "发送无页脚横幅的短信"
+
+#: gnokii.php:38
+msgid "Save"
+msgstr "保存"
+
+#: gnokii.php:54
+msgid "Gateway module configurations has been saved"
+msgstr "网关模块的配置已保存"
+
+#: gnokii.php:62
+msgid "Gateway has been activated"
+msgstr "网关已激活"

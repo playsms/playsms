@@ -1,0 +1,104 @@
+#: config.php:4 sms_custom.php:12
+msgid "Manage custom"
+msgstr "管理自定义"
+
+#: sms_custom.php:14 sms_custom.php:56 sms_custom.php:137
+msgid "Add SMS custom"
+msgstr "增加短信自定义"
+
+#: sms_custom.php:27
+msgid "Keyword"
+msgstr "关键字"
+
+#: sms_custom.php:28
+msgid "Exec"
+msgstr "执行"
+
+#: sms_custom.php:29
+msgid "User"
+msgstr "用户"
+
+#: sms_custom.php:30
+msgid "Action"
+msgstr "行动"
+
+#: sms_custom.php:41
+msgid "Are you sure you want to delete SMS custom keyword ?"
+msgstr "确定删除短信自定义关键字 ?"
+
+#: sms_custom.php:41 sms_custom.php:98 sms_custom.php:102 sms_custom.php:122
+#: sms_custom.php:126 sms_custom.php:162 sms_custom.php:166 sms_custom.php:171
+msgid "keyword"
+msgstr "关键字"
+
+#: sms_custom.php:72
+msgid "Edit SMS custom"
+msgstr "编辑短信自定义"
+
+#: sms_custom.php:77 sms_custom.php:140
+msgid "SMS custom keyword"
+msgstr "短信自定义关键字"
+
+#: sms_custom.php:78 sms_custom.php:141
+msgid "Pass these parameter to custom URL field"
+msgstr "通过这些参数自定义链接域"
+
+#: sms_custom.php:79 sms_custom.php:142
+msgid "will be replaced by SMS incoming date/time"
+msgstr "将被短信传入日期/时间替换"
+
+#: sms_custom.php:80 sms_custom.php:143
+msgid "will be replaced by sender number"
+msgstr "将被发件人数替换"
+
+#: sms_custom.php:81 sms_custom.php:144
+msgid "will be replaced by custom keyword"
+msgstr "将被自定义关键字替换"
+
+#: sms_custom.php:82 sms_custom.php:145
+msgid "will be replaced by custom parameter passed to server from SMS"
+msgstr "将被传向短信服务器的自定义参数取代"
+
+#: sms_custom.php:83 sms_custom.php:146
+msgid "SMS custom URL"
+msgstr "短信字定义链接"
+
+#: sms_custom.php:84
+msgid "Save"
+msgstr "保存"
+
+#: sms_custom.php:98
+msgid "SMS custom has been saved"
+msgstr "短信自定义已保存"
+
+#: sms_custom.php:102
+msgid "Fail to save SMS custom"
+msgstr "保存短信字定义失败"
+
+#: sms_custom.php:107 sms_custom.php:176
+msgid "You must fill all fields"
+msgstr "你必须填满全部空白"
+
+#: sms_custom.php:122
+msgid "SMS custom has been deleted"
+msgstr "短信自定义已删除"
+
+#: sms_custom.php:126
+msgid "Fail to delete SMS custom"
+msgstr "删除短信自定义失败"
+
+#: sms_custom.php:147
+msgid "Add"
+msgstr "增加"
+
+#: sms_custom.php:162
+msgid "SMS custom has been added"
+msgstr "端心自定义已增加"
+
+#: sms_custom.php:166
+msgid "Fail to add SMS custom"
+msgstr "增加短信自定义失败"
+
+#: sms_custom.php:171
+msgid "SMS custom already exists, reserved or use by other feature"
+msgstr "短信自定义已存在, 保留或其他功能的使用"

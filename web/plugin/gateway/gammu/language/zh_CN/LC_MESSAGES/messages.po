@@ -1,0 +1,23 @@
+#: config.php:7 gammu.php:23
+msgid "Manage gammu"
+msgstr "管理监务"
+
+#: gammu.php:8
+msgid "Active"
+msgstr "活跃"
+
+#: gammu.php:12
+msgid "Inactive"
+msgstr "不活跃"
+
+#: gammu.php:12
+msgid "click here to activate"
+msgstr "点击这里激活"
+
+#: gammu.php:27
+msgid "Gateway name"
+msgstr "网关名"
+
+#: gammu.php:36
+msgid "Gateway has been activated"
+msgstr "网关已激活"

@@ -1,0 +1,150 @@
+#: config.php:4 sms_poll.php:12
+msgid "Manage poll"
+msgstr "管理投票"
+
+#: sms_poll.php:14 sms_poll.php:62 sms_poll.php:276
+msgid "Add SMS poll"
+msgstr "增加短信投票"
+
+#: sms_poll.php:27 sms_poll.php:113
+msgid "Keyword"
+msgstr "关键字"
+
+#: sms_poll.php:28 sms_poll.php:114
+msgid "Title"
+msgstr "标题"
+
+#: sms_poll.php:29
+msgid "User"
+msgstr "用户"
+
+#: sms_poll.php:30
+msgid "Status"
+msgstr "状态"
+
+#: sms_poll.php:31 sms_poll.php:115
+msgid "Action"
+msgstr "行动"
+
+#: sms_poll.php:40 sms_poll.php:154
+msgid "Disabled"
+msgstr "禁用"
+
+#: sms_poll.php:43 sms_poll.php:157
+msgid "Enabled"
+msgstr "使用"
+
+#: sms_poll.php:47
+msgid ""
+"Are you sure you want to delete SMS poll with all its choices and votes ?"
+msgstr "确定删除短信投票和它的全部选择和选票 ?"
+
+#: sms_poll.php:47 sms_poll.php:131 sms_poll.php:183 sms_poll.php:236
+#: sms_poll.php:241 sms_poll.php:257 sms_poll.php:265 sms_poll.php:305
+#: sms_poll.php:310
+msgid "keyword"
+msgstr "关键字"
+
+#: sms_poll.php:85
+msgid "Edit SMS poll"
+msgstr "编辑短信投票"
+
+#: sms_poll.php:92 sms_poll.php:281
+msgid "SMS poll keyword"
+msgstr "短信投票关键字"
+
+#: sms_poll.php:95 sms_poll.php:284
+msgid "SMS poll title"
+msgstr "短信投票标题"
+
+#: sms_poll.php:98
+msgid "Save"
+msgstr "保存"
+
+#: sms_poll.php:104
+msgid "Edit SMS poll choices"
+msgstr "编辑短信投票选项"
+
+#: sms_poll.php:131
+msgid "Are you sure you want to delete choice ?"
+msgstr "确定删除选项 ?"
+
+#: sms_poll.php:131 sms_poll.php:214
+msgid "title"
+msgstr "标题"
+
+#: sms_poll.php:136
+msgid "Add choice to this poll"
+msgstr "增加选项到此投票"
+
+#: sms_poll.php:141
+msgid "Choice Keyword"
+msgstr "选项关键字"
+
+#: sms_poll.php:144
+msgid "Choice title"
+msgstr "选项标题"
+
+#: sms_poll.php:147 sms_poll.php:287
+msgid "Add"
+msgstr "增加"
+
+#: sms_poll.php:160
+msgid "Enable or disable this poll"
+msgstr "使用或禁用此投票"
+
+#: sms_poll.php:162
+msgid "Current status"
+msgstr "当前状态"
+
+#: sms_poll.php:163
+msgid "What do you want to do ?"
+msgstr "你想做什么 ?"
+
+#: sms_poll.php:164
+msgid "I want to enable this poll"
+msgstr "我要使用此投票"
+
+#: sms_poll.php:165
+msgid "I want to disable this poll"
+msgstr "我要禁用此投票"
+
+#: sms_poll.php:183
+msgid "SMS poll with has been saved"
+msgstr "短信投票已保存"
+
+#: sms_poll.php:188 sms_poll.php:246 sms_poll.php:315
+msgid "You must fill all fields"
+msgstr "你必须填满全部空白"
+
+#: sms_poll.php:199
+msgid "SMS poll status has been changed"
+msgstr "短信投票状态已改变"
+
+#: sms_poll.php:214
+msgid "SMS poll with all its messages has been deleted"
+msgstr "短信投票和它的全部信息已删除"
+
+#: sms_poll.php:236
+msgid "Choice has been added"
+msgstr "选项已增加"
+
+#: sms_poll.php:241
+msgid "Choice already exists"
+msgstr "选项已存在"
+
+#: sms_poll.php:257
+msgid "Fail to delete SMS poll choice"
+msgstr "删除短信投票选项失败"
+
+#: sms_poll.php:265
+msgid "SMS poll choice and all its voters has been deleted"
+msgstr "短信投票选项和它的全部选民已删除"
+
+#: sms_poll.php:305
+msgid "SMS poll has been added"
+msgstr "短信投票已增加"
+
+#: sms_poll.php:310
+msgid "SMS poll already exists, reserved or use by other feature"
+msgstr "短信投票已存在, 保留或其他功能的使用"
