@@ -19,13 +19,14 @@ function checkavailablekeyword($keyword) {
     	    $reserved = true;
 	}
     }
+    // if reserved returns not available, FALSE
     if ($reserved) {
 	$ok = false;	
     } else {
 	for ($c=0;$c<count($core_config['featurelist']);$c++) {
 	    // checkavailablekeyword() on hooks will return TRUE as well if keyword is available
 	    // so we're looking for FALSE value
-	    if (! (x_hook($core_config['featurelist'][$c],'checkavailablekeyword',array($keyword)))) {
+	    if (x_hook($core_config['featurelist'][$c],'checkavailablekeyword',array($keyword)) === FALSE) {
 		$ok = false;
 		break;
 	    }
