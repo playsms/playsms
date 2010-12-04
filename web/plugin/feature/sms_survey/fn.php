@@ -67,13 +67,13 @@ function sms_survey_hook_playsmsd() {
  * @param $keyword
  *   checkavailablekeyword() will insert keyword for checking to the hook here
  * @return 
- *   TRUE if keyword is NOT available
+ *   TRUE if keyword is available
  */
 function sms_survey_hook_checkavailablekeyword($keyword) {
-	$ok = false;
+	$ok = true;
 	$db_query = "SELECT id FROM " . _DB_PREF_ . "_featureSurvey WHERE keyword='$keyword'";
 	if ($db_result = dba_num_rows($db_query)) {
-		$ok = true;
+		$ok = false;
 	}
 	return $ok;
 }
@@ -252,8 +252,8 @@ function sms_survey_getdataall() {
 // data add
 function sms_survey_dataadd($keyword, $title) {
 	global $core_config;
-	// check available keyword in the system, it will returns FALSE if available
-	if (! checkavailablekeyword($keyword)) {
+	// check available keyword in the system, it will returns TRUE if available
+	if (checkavailablekeyword($keyword)) {
 		$datetime_now = $core_config['datetime']['now'];
 		$uid = $core_config['user']['uid'];
 		$keyword = trim(strtoupper($keyword));

@@ -3,10 +3,10 @@ if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 function checkavailablekeyword($keyword) {
     global $reserved_keywords, $core_config;
-    $ok = true;
+    $ok = false;
     $reserved = false;
     for ($i=0;$i<count($reserved_keywords);$i++) {
-        if ($keyword == $reserved_keywords[$i]) {
+        if (trim(strtoupper($keyword)) == trim(strtoupper($reserved_keywords[$i]))) {
     	    $reserved = true;
 	}
     }
@@ -15,7 +15,7 @@ function checkavailablekeyword($keyword) {
     } else {
 	for ($c=0;$c<count($core_config['featurelist']);$c++) {
 	    if (x_hook($core_config['featurelist'][$c],'checkavailablekeyword',array($keyword))) {
-		$ok = false;
+		$ok = true;
 		break;
 	    }
 	}
