@@ -1,5 +1,5 @@
 <?php
-if(!isadmin()){forcenoaccess();};
+if(!valid()){forcenoaccess();};
 
 // routing
 if (($route = $_REQUEST['route']) && ($route == 'members')) {

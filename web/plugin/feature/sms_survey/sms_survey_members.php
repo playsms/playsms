@@ -1,5 +1,5 @@
 <?php
-if(!isadmin()){forcenoaccess();};
+if(!valid()){forcenoaccess();};
 
 // error messages
 $error_content = '';
