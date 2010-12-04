@@ -768,6 +768,9 @@ CREATE TABLE `playsms_tblUser` (
   `junktimestamp` varchar(30) NOT NULL default '',
   `credit` DOUBLE NOT NULL default '0',
   `datetime_timezone` varchar(30) NOT NULL default '+0700',
+  `fwd_to_mobile` TINYINT( 4 ) NOT NULL DEFAULT '0',
+  `fwd_to_email` TINYINT( 4 ) NOT NULL DEFAULT '1',
+  `fwd_to_inbox` TINYINT( 4 ) NOT NULL DEFAULT '1',
   PRIMARY KEY  (`uid`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 

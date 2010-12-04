@@ -24,8 +24,38 @@ switch ($op)
 	    $zipcode = $db_row['zipcode'];
 	    $sender = $db_row['sender'];
 	    $timezone = $db_row['datetime_timezone'];
+	    $fwd_to_inbox = $db_row['fwd_to_inbox'];
+	    $fwd_to_email = $db_row['fwd_to_email'];
+	    $fwd_to_mobile = $db_row['fwd_to_mobile'];
 	    $credit = rate_getusercredit($username);
 	}
+	// select fwd_to_inbox
+	if ($fwd_to_inbox) {
+		$selected_1 = 'selected'; $selected_0 = '';
+	} else {
+		$selected_1 = ''; $selected_0 = 'selected';
+	}
+	$option_fwd_to_inbox = "<option value='1' ".$selected_1.">"._('yes')."</option>";
+	$option_fwd_to_inbox .= "<option value='0' ".$selected_0.">"._('no')."</option>";
+
+	// select fwd_to_email
+	if ($fwd_to_email) {
+		$selected_1 = 'selected'; $selected_0 = '';
+	} else {
+		$selected_1 = ''; $selected_0 = 'selected';
+	}
+	$option_fwd_to_email = "<option value='1' ".$selected_1.">"._('yes')."</option>";
+	$option_fwd_to_email .= "<option value='0' ".$selected_0.">"._('no')."</option>";
+
+	// select fwd_to_mobile
+	if ($fwd_to_mobile) {
+		$selected_1 = 'selected'; $selected_0 = '';
+	} else {
+		$selected_1 = ''; $selected_0 = 'selected';
+	}
+	$option_fwd_to_mobile = "<option value='1' ".$selected_1.">"._('yes')."</option>";
+	$option_fwd_to_mobile .= "<option value='0' ".$selected_0.">"._('no')."</option>";
+
 	// get country option
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblUser_country ORDER BY country_name";
 	$db_result = dba_query($db_query);
@@ -65,6 +95,9 @@ switch ($op)
 	    <tr><td width=200>"._('Mobile')." ("._('sender number').")</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_mobile value=\"$mobile\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td></tr>
 	    <tr><td width=200>"._('SMS Sender ID')." ("._('SMS footer').")</td><td>:</td><td><input type=text size=35 maxlength=30 name=up_sender value=\"$sender\"> ("._('Max. 30 alphanumeric characters').")</td></tr>
 	    <tr><td width=200>"._('Credit')."</td><td>:</td><td><b>$credit</b></td></tr>
+	    <tr><td width=200>"._('Forward PV to inbox')."</td><td>:</td><td><select name='up_fwd_to_inbox'>".$option_fwd_to_inbox."</select></td></tr>
+	    <tr><td width=200>"._('Forward PV to email')."</td><td>:</td><td><select name='up_fwd_to_email'>".$option_fwd_to_email."</select></td></tr>
+	    <tr><td width=200>"._('Forward PV to mobile')."</td><td>:</td><td><select name='up_fwd_to_mobile'>".$option_fwd_to_mobile."</select></td></tr>
 	    <tr><td colspan=3>&nbsp;</td></tr>
 	    <tr><td colspan=3><hr></td></tr>
 	    <tr><td width=200><input type=submit class=button value='"._('Save')."'></td></tr>
@@ -91,6 +124,9 @@ switch ($op)
 	$up_zipcode = $_POST['up_zipcode'];
 	$up_trn = $_POST['up_trn'];
 	$up_timezone = $_POST['up_timezone'];
+	$up_fwd_to_inbox = $_POST['up_fwd_to_inbox'];
+	$up_fwd_to_email = $_POST['up_fwd_to_email'];
+	$up_fwd_to_mobile = $_POST['up_fwd_to_mobile'];
 	$error_string = _('No changes made');
 	if ($up_name && $up_email && $up_address && $up_country)
 	{
@@ -114,7 +150,8 @@ switch ($op)
 			name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender'$chg_pwd,
 			gender='$up_gender',address='$up_address',city='$up_city',state='$up_state',country='$up_country',
 			marital='$up_marital',education='$up_education',zipcode='$up_zipcode',junktimestamp='".mktime()."',
-			datetime_timezone='$up_timezone'
+			datetime_timezone='$up_timezone',fwd_to_inbox='$up_fwd_to_inbox',fwd_to_email='$up_fwd_to_email',
+			fwd_to_mobile='$up_fwd_to_mobile'
 		    WHERE uid='$uid'";
 		if (@dba_affected_rows($db_query))
 		{

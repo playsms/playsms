@@ -1,6 +1,12 @@
 ALTER TABLE `playsms_tblUserInbox` ADD `in_receiver` VARCHAR( 20 ) NOT NULL AFTER `in_sender` ;
 ALTER TABLE `playsms_tblSMSIncoming` ADD `in_receiver` VARCHAR( 20 ) NOT NULL AFTER `in_sender` ;
 
+ALTER TABLE `playsms_tblUser` ADD `fwd_to_mobile` TINYINT( 4 ) NOT NULL DEFAULT '0',
+ADD `fwd_to_email` TINYINT( 4 ) NOT NULL DEFAULT '1',
+ADD `fwd_to_inbox` TINYINT( 4 ) NOT NULL DEFAULT '1' ;
+
+UPDATE `playsms_tblUser` SET `fwd_to_mobile`='0',`fwd_to_email`='1',`fwd_to_inbox`='1' ;
+
 DROP TABLE IF EXISTS `playsms_featureSurvey` ;
 CREATE TABLE `playsms_featureSurvey` (
 `c_timestamp` INT NOT NULL ,
