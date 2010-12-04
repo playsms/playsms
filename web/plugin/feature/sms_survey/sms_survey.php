@@ -34,8 +34,9 @@ switch ($op) {
 			<table width='100%' cellpadding='1' cellspacing='2' border='0' class='sortable'>
 			<tr>
 				<td class='box_title' width='4'>*</td>
-				<td class='box_title' width='15%'>"._('Keyword')."</td>
-				<td class='box_title' width='35%'>"._('Title')."</td>
+				<td class='box_title' width='10%'>"._('User')."</td>
+				<td class='box_title' width='10%'>"._('Keyword')."</td>
+				<td class='box_title' width='30%'>"._('Title')."</td>
 				<td class='box_title' width='10%'>"._('Members')."</td>
 				<td class='box_title' width='10%'>"._('Questions')."</td>
 				<td class='box_title' width='10%'>"._('Status')."</td>
@@ -72,6 +73,7 @@ switch ($op) {
 			$content .= "
 				<tr class='".$td_class."'>
 					<td align='center'>".($i+1).".</td>
+					<td align='center'>".uid2username($data[$i]['uid'])."</td>
 					<td align='center'>".$data[$i]['keyword']."</td>
 					<td align='center'>".$data[$i]['title']."</td>
 					<td align='center'>".$c_members."</td>

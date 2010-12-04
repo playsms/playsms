@@ -22,6 +22,7 @@ switch ($op) {
 		$data = sms_survey_getdatabyid($sid);
 		$keyword = $data['keyword'];
 		$title = $data['title'];
+		$c_user = uid2username($data['uid']);
 		$c_members = count(sms_survey_getmembers($sid));
 		$c_members = "<a href='index.php?app=menu&inc=feature_sms_survey&route=members&op=members&sid=".$sid."'>".$c_members."</a>";
 		$c_questions = count(sms_survey_getquestions($sid));
@@ -56,6 +57,7 @@ switch ($op) {
 		}
 		$content .= "
 			<table cellpadding='1' cellspacing='2' border='0'>
+			<tr><td>"._('User')."</td><td>:</td><td>".$c_user."</td></tr>
 			<tr><td>"._('Keyword')."</td><td>:</td><td>".$keyword."</td></tr>
 			<tr><td>"._('Title')."</td><td>:</td><td>".$title."</td></tr>
 			<tr><td>"._('Members')."</td><td>:</td><td>".$c_members."</td></tr>
@@ -101,6 +103,7 @@ switch ($op) {
 		$data = sms_survey_getdatabyid($sid);
 		$keyword = $data['keyword'];
 		$title = $data['title'];
+		$c_user = uid2username($data['uid']);
 		$c_members = count(sms_survey_getmembers($sid));
 		$c_members = "<a href='index.php?app=menu&inc=feature_sms_survey&route=members&op=members&sid=".$sid."'>".$c_members."</a>";
 		$c_questions = count(sms_survey_getquestions($sid));
@@ -115,6 +118,7 @@ switch ($op) {
 		}
 		$content .= "
 			<table cellpadding='1' cellspacing='2' border='0'>
+			<tr><td>"._('User')."</td><td>:</td><td>".$c_user."</td></tr>
 			<tr><td>"._('Keyword')."</td><td>:</td><td>".$keyword."</td></tr>
 			<tr><td>"._('Title')."</td><td>:</td><td>".$title."</td></tr>
 			<tr><td>"._('Members')."</td><td>:</td><td>".$c_members."</td></tr>
@@ -183,6 +187,7 @@ switch ($op) {
 		$data = sms_survey_getdatabyid($sid);
 		$keyword = $data['keyword'];
 		$title = $data['title'];
+		$c_user = uid2username($data['uid']);
 		$c_members = count(sms_survey_getmembers($sid));
 		$c_members = "<a href='index.php?app=menu&inc=feature_sms_survey&route=members&op=members&sid=".$sid."'>".$c_members."</a>";
 		$c_questions = count(sms_survey_getquestions($sid));
@@ -197,6 +202,7 @@ switch ($op) {
 		}
 		$content .= "
 			<table cellpadding='1' cellspacing='2' border='0'>
+			<tr><td>"._('User')."</td><td>:</td><td>".$c_user."</td></tr>
 			<tr><td>"._('Keyword')."</td><td>:</td><td>".$keyword."</td></tr>
 			<tr><td>"._('Title')."</td><td>:</td><td>".$title."</td></tr>
 			<tr><td>"._('Members')."</td><td>:</td><td>".$c_members."</td></tr>
