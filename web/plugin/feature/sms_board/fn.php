@@ -71,9 +71,14 @@ function sms_board_handle($sms_datetime,$sms_sender,$board_keyword,$board_param=
 	    $db_query1 = "SELECT board_forward_email FROM "._DB_PREF_."_featureBoard WHERE board_keyword='$board_keyword'";
 	    $db_result1 = dba_query($db_query1);
 	    $db_row1 = dba_fetch_array($db_result1);
-	    $email = $db_row1['board_forward_email'];
+	    $email = $db_row1['board_forward_email'];	   
 	    if ($email)
 	    {
+
+		$sender_uid = mobile2uid($sms_sender);
+		$sender = user_getdatabyuid($sender_uid);
+		$sms_sender = $sender['name'] ? $sender['name'].' <'.$sms_sender.'>' : $sms_sender;
+	    
 		$subject = "[SMSGW-".$board_keyword."] "._('from')." $sms_sender";
 		$body = _('Forward WebSMS')." ($web_title)\n\n";
 		$body .= _('Date and time').": $sms_datetime\n";
