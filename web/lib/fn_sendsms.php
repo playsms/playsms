@@ -14,6 +14,31 @@ function interceptsendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid
     global $core_config;
     $ret = array();
     $ret_final = array();
+    // feature list
+    for ($c=0;$c<count($core_config['featurelist']);$c++) {
+	if ($ret['modified']) {
+	    $ret_final['modified'] = $ret['modified'];
+	    $ret_final['param']['mobile_sender'] = $ret['param']['mobile_sender'];
+	    $mobile_sender = ( $ret['param']['mobile_sender'] ? $ret['param']['mobile_sender'] : $mobile_sender );
+	    $ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
+	    $sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
+	    $ret_final['param']['sms_to'] = $ret['param']['sms_to'];
+	    $sms_to = ( $ret['param']['sms_to'] ? $ret['param']['sms_to'] : $sms_to );
+	    $ret_final['param']['sms_msg'] = $ret['param']['sms_msg'];
+	    $sms_msg = ( $ret['param']['sms_msg'] ? $ret['param']['sms_msg'] : $sms_msg );
+	    $ret_final['param']['uid'] = $ret['param']['uid'];
+	    $uid = ( $ret['param']['uid'] ? $ret['param']['uid'] : $uid );
+	    $ret_final['param']['gpid'] = $ret['param']['gpid'];
+	    $gpid = ( $ret['param']['gpid'] ? $ret['param']['gpid'] : $gpid );
+	    $ret_final['param']['sms_type'] = $ret['param']['sms_type'];
+	    $sms_type = ( $ret['param']['sms_type'] ? $ret['param']['sms_type'] : $sms_type );
+	    $ret_final['param']['unicode'] = $ret['param']['unicode'];
+	    $unicode = ( $ret['param']['unicode'] ? $ret['param']['unicode'] : $unicode );
+	    $message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
+	}
+	$ret = x_hook($core_config['featurelist'][$c],'interceptsendsms',array($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode));
+    }
+    // tools list
     for ($c=0;$c<count($core_config['toolslist']);$c++) {
 	if ($ret['modified']) {
 	    $ret_final['modified'] = $ret['modified'];

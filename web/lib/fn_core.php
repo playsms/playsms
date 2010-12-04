@@ -39,6 +39,23 @@ function interceptincomingsms($sms_datetime,$sms_sender,$message,$sms_receiver="
     global $core_config;
     $ret = array();
     $ret_final = array();
+    // feature list
+    for ($c=0;$c<count($core_config['featurelist']);$c++) {
+	if ($ret['modified']) {
+	    $ret_final['modified'] = $ret['modified'];
+	    $ret_final['param']['sms_datetime'] = $ret['param']['sms_datetime'];
+	    $ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
+	    $ret_final['param']['message'] = $ret['param']['message'];
+	    $ret_final['param']['sms_receiver'] = $ret['param']['sms_receiver'];
+	    $sms_datetime = ( $ret['param']['sms_datetime'] ? $ret['param']['sms_datetime'] : $sms_datetime );
+	    $sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
+	    $message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
+	    $sms_receiver = ( $ret['param']['sms_receiver'] ? $ret['param']['sms_receiver'] : $sms_receiver );
+	}
+	if ($ret['hooked']) { $ret_final['hooked'] = $ret['hooked']; };
+	$ret = x_hook($core_config['featurelist'][$c],'interceptincomingsms',array($sms_datetime,$sms_sender,$message,$sms_receiver));
+    }
+    // tools list
     for ($c=0;$c<count($core_config['toolslist']);$c++) {
 	if ($ret['modified']) {
 	    $ret_final['modified'] = $ret['modified'];
@@ -150,6 +167,24 @@ function interceptsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sm
     global $core_config;
     $ret = array();
     $ret_final = array();
+    // feature list
+    for ($c=0;$c<count($core_config['featurelist']);$c++) {
+	if ($ret['modified']) {
+	    $ret_final['modified'] = $ret['modified'];
+	    $ret_final['param']['sms_datetime'] = $ret['param']['sms_datetime'];
+	    $ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
+	    $ret_final['param']['target_user'] = $ret['param']['target_user'];
+	    $ret_final['param']['message'] = $ret['param']['message'];
+	    $ret_final['param']['sms_receiver'] = $ret['param']['sms_receiver'];
+	    $sms_datetime = ( $ret['param']['sms_datetime'] ? $ret['param']['sms_datetime'] : $sms_datetime );
+	    $sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
+	    $target_user = ( $ret['param']['target_user'] ? $ret['param']['target_user'] : $target_user );
+	    $message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
+	    $sms_receiver = ( $ret['param']['sms_receiver'] ? $ret['param']['sms_receiver'] : $sms_receiver );
+	}
+	$ret = x_hook($core_config['featurelist'][$c],'interceptsmstoinbox',array($sms_datetime,$sms_sender,$target_user,$message,$sms_receiver));
+    }
+    // tools list
     for ($c=0;$c<count($core_config['toolslist']);$c++) {
 	if ($ret['modified']) {
 	    $ret_final['modified'] = $ret['modified'];
