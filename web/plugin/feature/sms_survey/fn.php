@@ -218,8 +218,13 @@ function sms_survey_getinlogs($link_id) {
 
 // get data by id
 function sms_survey_getdatabyid($sid) {
+	global $core_config;
 	$ret = array();
-	$db_query = "SELECT * FROM "._DB_PREF_."_featureSurvey WHERE deleted='0' AND id='$sid'";
+	$cred = '';
+	if (! ($core_config['user']['status'] == 2) {
+		$cred = " AND uid='".$core_config['user']['status']."'";
+	}
+	$db_query = "SELECT * FROM "._DB_PREF_."_featureSurvey WHERE deleted='0' AND id='$sid'".$cred;
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$ret = $db_row;
@@ -229,8 +234,13 @@ function sms_survey_getdatabyid($sid) {
 
 // get data by keyword
 function sms_survey_getdatabykeyword($keyword) {
+	global $core_config;
 	$ret = array();
-	$db_query = "SELECT * FROM "._DB_PREF_."_featureSurvey WHERE deleted='0' AND keyword='$keyword'";
+	$cred = '';
+	if (! ($core_config['user']['status'] == 2) {
+		$cred = " AND uid='".$core_config['user']['status']."'";
+	}
+	$db_query = "SELECT * FROM "._DB_PREF_."_featureSurvey WHERE deleted='0' AND keyword='$keyword'".$cred;
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$ret = $db_row;
@@ -240,8 +250,13 @@ function sms_survey_getdatabykeyword($keyword) {
 
 // get data all
 function sms_survey_getdataall() {
+	global $core_config;
 	$ret = array();
-	$db_query = "SELECT * FROM "._DB_PREF_."_featureSurvey WHERE deleted='0'";
+	$cred = '';
+	if (! ($core_config['user']['status'] == 2) {
+		$cred = " AND uid='".$core_config['user']['status']."'";
+	}
+	$db_query = "SELECT * FROM "._DB_PREF_."_featureSurvey WHERE deleted='0'".$cred;
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[] = $db_row;
@@ -266,43 +281,73 @@ function sms_survey_dataadd($keyword, $title) {
 
 // data edit
 function sms_survey_dataedit($sid, $keyword, $title) {
+	global $core_config;
+	$cred = '';
+	if (! ($core_config['user']['status'] == 2) {
+		$cred = " AND uid='".$core_config['user']['status']."'";
+	}
 	$keyword = trim(strtoupper($keyword));
-	$db_query = "UPDATE "._DB_PREF_."_featureSurvey SET c_timestamp='".mktime()."',keyword='$keyword',title='$title' WHERE deleted='0' AND id='$sid'";
+	$db_query = "UPDATE "._DB_PREF_."_featureSurvey SET c_timestamp='".mktime()."',keyword='$keyword',title='$title' WHERE deleted='0' AND id='$sid'".$cred;
 	$db_result = dba_affected_rows($db_query);
 	return $db_result;
 }
 
 // data del
 function sms_survey_datadel($sid) {
-	$db_query = "UPDATE "._DB_PREF_."_featureSurvey SET c_timestamp='".mktime()."',deleted='1' WHERE deleted='0' AND id='$sid'";
+	global $core_config;
+	$cred = '';
+	if (! ($core_config['user']['status'] == 2) {
+		$cred = " AND uid='".$core_config['user']['status']."'";
+	}
+	$db_query = "UPDATE "._DB_PREF_."_featureSurvey SET c_timestamp='".mktime()."',deleted='1' WHERE deleted='0' AND id='$sid'".$cred;
 	$db_result = dba_affected_rows($db_query);
 	return $db_result;
 }
 
 // enable
 function sms_survey_dataenable($sid) {
-	$db_query = "UPDATE "._DB_PREF_."_featureSurvey SET c_timestamp='".mktime()."',status='1',started='0' WHERE deleted='0' AND id='$sid'";
+	global $core_config;
+	$cred = '';
+	if (! ($core_config['user']['status'] == 2) {
+		$cred = " AND uid='".$core_config['user']['status']."'";
+	}
+	$db_query = "UPDATE "._DB_PREF_."_featureSurvey SET c_timestamp='".mktime()."',status='1',started='0' WHERE deleted='0' AND id='$sid'".$cred;
 	$db_result = dba_affected_rows($db_query);
 	return $db_result;
 }
 
 // disable
 function sms_survey_datadisable($sid) {
-	$db_query = "UPDATE "._DB_PREF_."_featureSurvey SET c_timestamp='".mktime()."',status='0',started='0' WHERE deleted='0' AND id='$sid'";
+	global $core_config;
+	$cred = '';
+	if (! ($core_config['user']['status'] == 2) {
+		$cred = " AND uid='".$core_config['user']['status']."'";
+	}
+	$db_query = "UPDATE "._DB_PREF_."_featureSurvey SET c_timestamp='".mktime()."',status='0',started='0' WHERE deleted='0' AND id='$sid'".$cred;
 	$db_result = dba_affected_rows($db_query);
 	return $db_result;
 }
 
 // start
 function sms_survey_datastart($sid) {
-	$db_query = "UPDATE "._DB_PREF_."_featureSurvey SET c_timestamp='".mktime()."',status='1',started='1',running='0' WHERE deleted='0' AND id='$sid'";
+	global $core_config;
+	$cred = '';
+	if (! ($core_config['user']['status'] == 2) {
+		$cred = " AND uid='".$core_config['user']['status']."'";
+	}
+	$db_query = "UPDATE "._DB_PREF_."_featureSurvey SET c_timestamp='".mktime()."',status='1',started='1',running='0' WHERE deleted='0' AND id='$sid'".$cred;
 	$db_result = dba_affected_rows($db_query);
 	return $db_result;
 }
 
 // stop
 function sms_survey_datastop($sid) {
-	$db_query = "UPDATE "._DB_PREF_."_featureSurvey SET c_timestamp='".mktime()."',status='1',started='0',running='0' WHERE deleted='0' AND id='$sid'";
+	global $core_config;
+	$cred = '';
+	if (! ($core_config['user']['status'] == 2) {
+		$cred = " AND uid='".$core_config['user']['status']."'";
+	}
+	$db_query = "UPDATE "._DB_PREF_."_featureSurvey SET c_timestamp='".mktime()."',status='1',started='0',running='0' WHERE deleted='0' AND id='$sid'".$cred;
 	$db_result = dba_affected_rows($db_query);
 	return $db_result;
 }
