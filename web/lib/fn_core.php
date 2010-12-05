@@ -219,18 +219,23 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
     
     $ok = false;
     if ($sms_sender && $target_user && $message) {
-	if ($uid = username2uid($target_user)) {
-	    $email = username2email($target_user);
-	    $db_query = "
-		INSERT INTO "._DB_PREF_."_tblUserInbox
-		(in_sender,in_receiver,in_uid,in_msg,in_datetime) 
-		VALUES ('$sms_sender','$sms_receiver','$uid','$message','$sms_datetime')
-	    ";
-	    logger_print("saving sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user, 3, "insertsmstoinbox");
-	    if ($cek_ok = @dba_insert_id($db_query)) {
-		logger_print("saved sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user, 3, "insertsmstoinbox");
-		if ($email) {
-		
+    	$user = user_getdatabyusername($target_user);
+	if ($uid = $user['uid']) {
+	    // forward to Inbox
+	    if ($fwd_to_inbox = $user['fwd_to_inbox']) {
+		$db_query = "
+		    INSERT INTO "._DB_PREF_."_tblUserInbox
+		    (in_sender,in_receiver,in_uid,in_msg,in_datetime) 
+		    VALUES ('$sms_sender','$sms_receiver','$uid','$message','$sms_datetime')
+		";
+		logger_print("saving sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user, 3, "insertsmstoinbox");
+		if ($cek_ok = @dba_insert_id($db_query)) {
+		    logger_print("saved sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user, 3, "insertsmstoinbox");
+		}
+	    }
+	    // forward to email
+	    if ($fwd_to_email = $user['fwd_to_email']) {
+		if ($email = $user['email']) {
 		    // make sure sms_datetime is in supported format and in user's timezone
 		    $sms_datetime = core_display_datetime($sms_datetime);
 		
@@ -247,10 +252,27 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 		    $body .= $email_footer."\n\n";
 		    logger_print("send email from:".$email_service." to:".$email, 3, "insertsmstoinbox");
 		    sendmail($email_service,$email,$subject,$body);
-		    logger_print("email sent from:".$email_service." to:".$email, 3, "insertsmstoinbox");
+		    logger_print("sent email from:".$email_service." to:".$email, 3, "insertsmstoinbox");
 		}
 		$ok = true;
 	    }
+	    // forward to mobile
+	    if ($fwd_to_mobile = $user['fwd_to_mobile']) {
+		if ($mobile = $user['mobile']) {
+		    $unicode = 0;
+		    if (function_exists('mb_detect_encoding')) {
+			$encoding = mb_detect_encoding($message, 'auto');
+			if ($encoding != 'ASCII') {
+			    $unicode = 1;
+			}
+		    }
+		    list($ok,$to,$smslog_id) = sendsms_pv($target_user,$mobile,$message,'text',$unicode);
+		    logger_print("send to sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user, 3, "insertsmstoinbox");
+		    if ($cek_ok = $ok[0]) {
+			logger_print("sent to sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user, 3, "insertsmstoinbox");
+		    }
+		}
+	    }	    
 	}
     }
     return $ok;
