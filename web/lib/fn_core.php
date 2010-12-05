@@ -241,12 +241,12 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 		
 		    // get name from target_user's phonebook			    
 		    $c_name = phonebook_number2name($sms_sender, $target_user);
-		    $sms_sender = $c_name ? $c_name.' <'.$sms_sender.'>' : $sms_sender;
+		    $sender = $c_name ? $c_name.' <'.$sms_sender.'>' : $sms_sender;
 		
 		    $subject = "[SMSGW-PV] "._('from')." $sms_sender";
 		    $body = _('Forward Private WebSMS')." ($web_title)\n\n";
 		    $body .= _('Date time').": $sms_datetime\n";
-		    $body .= _('Sender').": $sms_sender\n";
+		    $body .= _('Sender').": $sender\n";
 		    $body .= _('Receiver').": $sms_receiver\n\n";
 		    $body .= _('Message').":\n$message\n\n";
 		    $body .= $email_footer."\n\n";
@@ -266,6 +266,7 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 			    $unicode = 1;
 			}
 		    }
+		    $message = '@'.$sms_sender.' '.$message;
 		    list($ok,$to,$smslog_id) = sendsms_pv($target_user,$mobile,$message,'text',$unicode);
 		    logger_print("send to sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user, 3, "insertsmstoinbox");
 		    if ($cek_ok = $ok[0]) {
