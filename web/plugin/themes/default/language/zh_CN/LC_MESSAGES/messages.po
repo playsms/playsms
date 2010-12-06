@@ -1,31 +1,31 @@
 #: loginpage.php:19
 msgid "Username"
-msgstr "ÓÃ»§Ãû"
+msgstr "ç”¨æˆ·å"
 
 #: loginpage.php:23
 msgid "Password"
-msgstr "ÃÜÂë"
+msgstr "å¯†ç "
 
 #: welcomepage.php:7
 msgid "Welcome to playSMS"
-msgstr "»¶Ó­Ê¹ÓÃplaySMS"
+msgstr "æ¬¢è¿ä½¿ç”¨playSMS"
 
 #: welcomepage.php:9
 msgid "About playSMS"
-msgstr "¹ØÓÚplaySMS"
+msgstr "å…³äºplaySMS"
 
 #: welcomepage.php:10
 msgid "Changelog"
-msgstr "¸ü¸ÄÈÕÖ¾"
+msgstr "æ›´æ”¹æ—¥å¿—"
 
 #: welcomepage.php:11
 msgid "Installation Guide"
-msgstr "°²×°Ö¸ÄÏ"
+msgstr "å®‰è£…æŒ‡å—"
 
 #: welcomepage.php:12
 msgid "F.A.Q"
-msgstr ""
+msgstr "å¸¸è§é—®é¢˜"
 
 #: welcomepage.php:13
 msgid "License"
-msgstr "Í¨ĞĞÖ¤"
+msgstr "é€šè¡Œè¯"

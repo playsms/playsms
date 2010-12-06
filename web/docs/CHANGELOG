@@ -1,5 +1,5 @@
 Version 0.9.6-git - unknown
-- all intercepts, incomingsms, and sendsms, are hook-able from features plugin (anton)
+- all intercepts, are hook-able from features plugin (anton)
 - add new language zh_CN (fvancaen)
 - add new plugin, feature, SMS survey (anton)
 - add new method interceptsendsms() to intercept sent SMS before handled by gateway (anton)
