@@ -205,7 +205,7 @@ function interceptsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sm
 }
 
 function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_receiver="") {
-    global $web_title,$email_service,$email_footer;
+    global $core_config,$web_title,$email_service,$email_footer;
     
     // sms to inbox will be handled by plugin/tools/* first
     $ret_intercept = interceptsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_receiver);
@@ -271,10 +271,11 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 		    $c_username = $c_user['username'];
 		    $c_sender = $c_username ? $c_username : $sms_sender;
 		    $message = '@'.$c_sender.' '.$message;
-		    list($ok,$to,$smslog_id) = sendsms_pv($target_user,$mobile,$message,'text',$unicode);
-		    logger_print("send to sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user, 3, "insertsmstoinbox");
+		    // list($ok,$to,$smslog_id) = sendsms_pv($target_user,$mobile,$message,'text',$unicode);
+		    $ret = sendsms($core_config['main']['cfg_gateway_number'],'',$mobile,$message,$c_uid,0,'text',$unicode);
+		    logger_print("send to sender:".$c_sender." receiver:".$sms_receiver." target:".$target_user, 3, "insertsmstoinbox");
 		    if ($cek_ok = $ok[0]) {
-			logger_print("sent to sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user, 3, "insertsmstoinbox");
+			logger_print("sent to sender:".$c_sender." receiver:".$sms_receiver." target:".$target_user, 3, "insertsmstoinbox");
 		    }
 		}
 	    }	    

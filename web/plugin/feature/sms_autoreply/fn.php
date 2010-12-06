@@ -93,8 +93,17 @@ function sms_autoreply_handle($sms_datetime,$sms_sender,$c_uid,$autoreply_id,$au
     {
 	$ok = false;
 	$c_username = uid2username($c_uid);
-	list($ok,$to,$smslog_id) = sendsms_pv($c_username,$sms_sender,$autoreply_scenario_result);
-	$ok = $ok[0];
+	//list($ok,$to,$smslog_id) = sendsms_pv($c_username,$sms_sender,$autoreply_scenario_result);
+	//$ok = $ok[0];
+	$unicode = 0;
+	if (function_exists('mb_detect_encoding')) {
+		$encoding = mb_detect_encoding($message, 'auto');
+		if ($encoding != 'ASCII') {
+		    	$unicode = 1;
+		}
+	}
+	$ret = sendsms($core_config['main']['cfg_gateway_number'],'',$sms_sender,$autoreply_scenario_result,$c_uid,0,'text',$unicode);
+	$ok = $ret['status'];
     }
     return $ok;
 }

@@ -50,6 +50,7 @@ function sms_quiz_hook_setsmsincomingaction($sms_datetime, $sms_sender, $quiz_ke
 }
 
 function sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $quiz_keyword, $quiz_param = '') {
+	global $core_config;
 	$ok = false;
 	$username = uid2username($c_uid);
 	$sms_to = $sms_sender; // we are replying to this sender
@@ -66,8 +67,17 @@ function sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $quiz_keyword, $qui
 	    $answer = strtoupper($quiz_param);
 	    $db_query = "INSERT INTO " . _DB_PREF_ . "_featureQuiz_log (quiz_id,quiz_answer,quiz_sender,in_datetime) VALUES ('$quiz_id','$answer','$sms_to',now())";
 	    if ($logged = @dba_insert_id($db_query)) {
-		list($ok,$to,$smslog_id) = sendsms_pv($username, $sms_to, $message);
-		$ok = $ok[0];
+		//list($ok,$to,$smslog_id) = sendsms_pv($username, $sms_to, $message);
+		$unicode = 0;
+		if (function_exists('mb_detect_encoding')) {
+			$encoding = mb_detect_encoding($message, 'auto');
+			if ($encoding != 'ASCII') {
+			    	$unicode = 1;
+			}
+		}
+		$ret = sendsms($core_config['main']['cfg_gateway_number'],'',$sms_to,$message,$c_uid,0,'text',$unicode);
+		// $ok = $ok[0];
+		$ok = $ret['status'];
 	    }
 	} else if ($db_row['quiz_keyword'] == $quiz_keyword) {
 	    // returns true even if its logged as correct/incorrect answer

@@ -239,8 +239,17 @@ switch ($op) {
 				$sms_to = $db_row['member_number'];
 
 				for ($i = 0; $i < count($sms_to); $i++) {
-					list($ok,$to,$smslog_id) = sendsms_pv($username, $sms_to, $message);
-					$ok = $ok[0];
+					//list($ok,$to,$smslog_id) = sendsms_pv($username, $sms_to, $message);
+					//$ok = $ok[0];
+					$unicode = 0;
+					if (function_exists('mb_detect_encoding')) {
+						$encoding = mb_detect_encoding($message, 'auto');
+						if ($encoding != 'ASCII') {
+						    	$unicode = 1;
+						}
+					}
+					$ret = sendsms($core_config['main']['cfg_gateway_number'],'',$sms_to,$message,$c_uid,0,'text',$unicode);
+					$ok = $ret['status'];
 					if ($ok) {
 						$error_string .= _('Your SMS has been delivered to queue')." ("._('to').": `".$sms_to."`)<br>";
 					} else {

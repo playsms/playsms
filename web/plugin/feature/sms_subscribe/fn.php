@@ -50,6 +50,7 @@ function sms_subscribe_hook_setsmsincomingaction($sms_datetime, $sms_sender, $su
 }
 
 function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $subscribe_keyword, $subscribe_param = '') {
+	global $core_config;
 	$ok = false;
 	$subscribe_param = strtoupper($subscribe_param);
 	$subscribe_keyword = strtoupper($subscribe_keyword);
@@ -60,8 +61,17 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $subscribe_key
 	if ($db_row = dba_fetch_array($db_result)) {
 		if (! $db_row['subscribe_enable']) {
 			$message = _('Subscribe service inactive');
-			list($ok,$to,$smslog_id) = sendsms_pv($username, $sms_to, $message);
-			$ok = $ok[0];
+			//list($ok,$to,$smslog_id) = sendsms_pv($username, $sms_to, $message);
+			//$ok = $ok[0];
+			$unicode = 0;
+			if (function_exists('mb_detect_encoding')) {
+				$encoding = mb_detect_encoding($message, 'auto');
+				if ($encoding != 'ASCII') {
+				    	$unicode = 1;
+				}
+			}
+			$ret = sendsms($core_config['main']['cfg_gateway_number'],'',$sms_to,$message,$c_uid,0,'text',$unicode);
+			$ok = $ret['status'];
 			return $ok;
 		}
 	}
