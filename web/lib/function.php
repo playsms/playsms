@@ -28,14 +28,23 @@ for ($i=0;$i<count($plugins_category);$i++) {
 	unset($core_config[$pc.'list']);
 	unset($tmp_core_config[$pc.'list']);
 	$fd = opendir($dir);
+	$j = 0;
+	$pc_names = '';
 	while(false !== (${$pc} = readdir($fd)))
 	{
 	    // plugin's dir prefixed with dot or underscore will not be loaded
-	    if (is_dir($dir.${$pc}) && substr(${$pc},0,1) != "." && substr(${$pc},0,1) != "_" ) {
-		$tmp_core_config[$pc.'list'][] = ${$pc};
+	    if (substr(${$pc},0,1) != "." && substr(${$pc},0,1) != "_" ) {
+		$pc_names[$j] = ${$pc};
+		$j++;
 	    }
 	}
 	closedir();
+	sort($pc_names);
+	for ($k=0;$k<count($pc_names);$k++) {
+	    if (is_dir($dir.$pc_names[$k])) {
+		$tmp_core_config[$pc.'list'][] = $pc_names[$k];
+	    }
+	}
 	// load each plugin's config and libaries
 	for ($c=0;$c<count($tmp_core_config[$pc.'list']);$c++)
 	{

@@ -54,7 +54,7 @@ $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=user_inbox&op=u
 $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=user_incoming&op=user_incoming", _('Incoming SMS'));
 $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=user_outgoing&op=user_outgoing", _('Outgoing SMS'));
 $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=user_pref&op=user_pref", _('Preferences'));
-ksort($arr_menu[$menutab_my_account]);
+//ksort($arr_menu[$menutab_my_account]);
 
 $menutab_administration = $core_config['menu']['main_tab']['administration'];
 if (isadmin()) {
@@ -64,7 +64,7 @@ if (isadmin()) {
     $arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=all_outgoing&op=all_outgoing", _('All outgoing SMS'));
     $arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=user_mgmnt&op=user_list", _('Manage user'));
     $arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=main_config&op=main_config", _('Main configuration'));
-    ksort($arr_menu[$menutab_administration]);
+    //ksort($arr_menu[$menutab_administration]);
 }
 
 // fixme anton - uncomment this if you want to know what are available in $core_config
