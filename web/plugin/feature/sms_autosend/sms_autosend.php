@@ -219,10 +219,13 @@ switch ($op) {
 		$edit_autosend_time = $_POST['edit_autosend_time'];
 		$edit_time_id = $_POST['edit_time_id'];
 		if ($edit_autosend_id && $edit_autosend_message && $edit_autosend_number) {
+			if (!isadmin()) {
+				$query_user_only = "AND uid='$uid'";
+			}
 			$db_query = "
 							        UPDATE " . _DB_PREF_ . "_featureAutosend
 							        SET c_timestamp='" . mktime() . "',autosend_message='$edit_autosend_message',autosend_number='$edit_autosend_number'
-									WHERE autosend_id='$edit_autosend_id' AND uid='$uid'
+									WHERE autosend_id='$edit_autosend_id' $query_user_only
 							    	";
 			$update_msg = @ dba_affected_rows($db_query);
 			$i = 0;
@@ -231,7 +234,7 @@ switch ($op) {
 					$db_query = "UPDATE " . _DB_PREF_ . "_featureAutosend_time SET c_timestamp='" . mktime() . "',autosend_time='$edit_autosend_time[$i]' WHERE time_id = '$value'";
 					$update_time = @ dba_affected_rows($db_query);
 					if (!$edit_autosend_time[$i]) {
-						$db_query = "DELETE FROM " . _DB_PREF_ . "_featureAutosend_time WHERE time_id = '$value'";
+						$db_query = "DELETE FROM " . _DB_PREF_ . "_featureAutosend_time WHERE time_id = '$value' $query_user_only";
 						$delete = @dba_affected_rows($db_query);
 					}
 				} else

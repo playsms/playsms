@@ -10,6 +10,7 @@ Version 0.9.6-git - unknown
 - fix checkavailablekeyword() lib/fn_core.php to have hooks return TRUE if available (anton)
 - fix autoreply unable to delete scenario (anton)
 - fix sms subscribe, subscribing to disabled keyword should not happen (anton)
+- fix sms autosend, admin should have permission to edit all data (anton)
 - fix typo phonebook_groupcode2id() in webservices_bc() lib/fn_webservices.php (anton)
 - fix wrong group while sending broadcast sms to group when 'Or' field is filled (anton)
 - fix sms subscribe, subscribing to disabled keyword should not happen (anton)
