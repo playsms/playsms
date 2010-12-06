@@ -1,9 +1,10 @@
 Version 0.9.6-git - unknown
-- all intercepts, are hook-able from features plugin (anton)
+- add new option to allow/disallow forwards to inbox, email and mobile for each users (anton)
 - add new language zh_CN (fvancaen)
 - add new plugin, feature, SMS survey (anton)
 - add new method interceptsendsms() to intercept sent SMS before handled by gateway (anton)
 - add new field, in_receiver, in db table tblUserInbox and tblSMSIncoming (anton)
+- add all intercepts in features plugins, now hook-able from features plugin (anton)
 - add method to save receiver number, currently available only in kannel and clickatell (anton)
 - add sender name in email forwarded to user from PV or sms board (anton)
 - fix checkavailablekeyword() lib/fn_core.php to have hooks return TRUE if available (anton)
