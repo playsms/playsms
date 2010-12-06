@@ -24,6 +24,7 @@ $core_config['plugin']['clickatell'] = $clickatell_param;
 
 // insert to left menu array
 if (isadmin()) {
-    $arr_menu['Gateway'][] = array("index.php?app=menu&inc=gateway_clickatell&op=manage", _('Manage clickatell'));
+	$menutab_gateway = $core_config['menu']['main_tab']['gateway'];
+	$arr_menu[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_clickatell&op=manage", _('Manage clickatell'));
 }
 ?>

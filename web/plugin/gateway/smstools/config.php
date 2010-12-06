@@ -7,6 +7,7 @@ $core_config['plugin']['smstools'] = $smstools_param;
 
 // insert to left menu array
 if (isadmin()) {
-    $arr_menu['Gateway'][] = array("index.php?app=menu&inc=gateway_smstools&op=manage", _('Manage smstools'));
+	$menutab_gateway = $core_config['menu']['main_tab']['gateway'];
+	$arr_menu[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_smstools&op=manage", _('Manage smstools'));
 }
 ?>
