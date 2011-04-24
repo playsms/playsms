@@ -11,12 +11,14 @@ Version 0.9.5.3-git - unknown
 - sms autosend temporarily disabled, not removed, waiting for major changes (anton)
 - fix checkavailablekeyword() lib/fn_core.php to have hooks return TRUE if available (anton)
 - fix autoreply unable to delete scenario (anton)
-- fix sms subscribe, subscribing to disabled keyword should not happen (anton)
-- fix sms autosend, admin should have permission to edit all data (anton)
+- fix sms_survey unable to send sms due to accessing $core_config['user'] on playsmsd() (avudz)
+- fix sms subscribe subscribing to disabled keyword should not happen (anton)
+- fix sms autosend admin should have permission to edit all data (anton)
 - fix typo phonebook_groupcode2id() in webservices_bc() lib/fn_webservices.php (anton)
 - fix wrong group while sending broadcast sms to group when 'Or' field is filled (anton)
 - fix sms subscribe, subscribing to disabled keyword should not happen (anton)
 - fix #3109982 wrong autoreply result due to missing autoreply_id in db query (anton)
+- fix #3216652 the bar graph image on the poll results page is broken (jeremymueller)
 
 Version 0.9.5.2 - 101115
 - MAJOR: all SMS date/time will be adjusted to GMT+0 in database (anton)

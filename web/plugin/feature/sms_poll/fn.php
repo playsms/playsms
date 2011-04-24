@@ -89,6 +89,7 @@ function sms_poll_handle($sms_datetime,$sms_sender,$poll_keyword,$poll_param='')
 }
 
 function sms_poll_hook_webservices_output($ta,$requests) {
+    global $http_path, $themes_module;
     $keyword = $requests['keyword'];
     $db_query = "SELECT poll_id,poll_title FROM "._DB_PREF_."_featurePoll WHERE poll_keyword='$keyword'";
     $db_result = dba_query($db_query);
