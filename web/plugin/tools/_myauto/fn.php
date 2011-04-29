@@ -17,10 +17,22 @@
  */
 function myauto_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $sms_receiver) {
 	global $core_config;
-	$message = 'Thank you for your message';
+	// reply message
+	$reply = 'Thank you for your message';
+	// detect reply message, set unicode if not ASCII
+	$unicode = 0;
+	if (function_exists('mb_detect_encoding')) {
+		$encoding = mb_detect_encoding($reply, 'auto');
+		if ($encoding != 'ASCII') {
+			$unicode = 1;
+		}
+	}
+	// send reply with admin account
 	$c_uid = username2uid('admin');
-	sendsms($core_config['main']['cfg_gateway_number'],'',$sms_sender,$message,$c_uid,0,'text',$unicode);
-	logger_print("dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." m:".$message." autorespon:".$message,3,"myauto");
+	// send reply
+	sendsms($core_config['main']['cfg_gateway_number'],'',$sms_sender,$reply,$c_uid,0,'text',$unicode);
+	// log it
+	logger_print("dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." autorespon:".$reply,3,"myauto");
 }
 
 ?>
