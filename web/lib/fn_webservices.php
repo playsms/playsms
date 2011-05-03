@@ -4,7 +4,7 @@ if(!(defined('_SECURE_'))){die('Intruder alert');};
 function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
     $ret = '';
     $arr_to = explode(',', $to);
-    if ($arr_to[1]) {
+    if ($c_username && $arr_to[1] && $msg) {
         // multiple destination
 	list($ok,$to,$smslog_id) = sendsms_pv($c_username,$arr_to,$msg,$type,$unicode);
         for ($i=0;$i<count($arr_to);$i++) {
