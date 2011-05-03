@@ -2,14 +2,26 @@
 if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
-    if ($c_username && $to && $msg) {
-	// sendsms_pv($c_username,$sms_to,$message,$sms_type='text',$unicode=0)
-	list($ok,$to,$smslog_id) = sendsms_pv($c_username,$to,$msg,$type,$unicode);
-	if ($ok[0] && $smslog_id[0]) {
-	    $ret = "OK ".$smslog_id[0];
-	} else {
-	    $ret = "ERR 200";
-	}
+    $ret = '';
+    $arr_to = explode(',', $to);
+    if ($arr_to[1]) {
+        // multiple destination
+	list($ok,$to,$smslog_id) = sendsms_pv($c_username,$arr_to,$msg,$type,$unicode);
+        for ($i=0;$i<count($arr_to);$i++) {
+            if ($ok[$i] && $to[$i] && $smslog_id[$i]) {
+                $ret .= "OK SENT,".$to[$i].",".$smslog_id[$i]."\n";
+            } else {
+                $ret .= "OK FAIL,".$arr_to[$i]."\n";
+            }
+        }
+    } elseif ($c_username && $to && $msg) {
+        // single destination
+        list($ok,$to,$smslog_id) = sendsms_pv($c_username,$to,$msg,$type,$unicode);
+        if ($ok[0] && $smslog_id[0]) {
+            $ret = "OK ".$smslog_id[0];
+        } else {
+            $ret = "ERR 200";
+        }
     } else {
 	$ret = "ERR 201";
     }

@@ -10,7 +10,8 @@ if (function_exists('bindtextdomain')) {
 // load app extensions from index, such as menu, webservices and callbacks
 // using $app you can do up to load another application from playSMS if you need to
 // but the point is to make a single gate into playSMS, that is through index.php
-if ($app = $_REQUEST['app']) {
+$app = $_REQUEST['app'];
+if (isset($app)) {
     switch ($app) {
 	case 'mn':
 	case 'menu': 

@@ -130,7 +130,8 @@ dba_query("SET NAMES utf8");
 // get main config
 $db_query = "SELECT * FROM "._DB_PREF_."_tblConfig_main";
 $db_result = dba_query($db_query);
-if ($db_row = dba_fetch_array($db_result)) {
+$db_row = dba_fetch_array($db_result);
+if (isset($db_row)) {
     $web_title = $db_row['cfg_web_title'];
     $email_service = $db_row['cfg_email_service'];
     $email_footer = $db_row['cfg_email_footer'];
