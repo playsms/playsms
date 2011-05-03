@@ -9,9 +9,9 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
 	list($ok,$to,$smslog_id) = sendsms_pv($c_username,$arr_to,$msg,$type,$unicode);
         for ($i=0;$i<count($arr_to);$i++) {
             if ($ok[$i] && $to[$i] && $smslog_id[$i]) {
-                $ret .= "OK SENT,".$to[$i].",".$smslog_id[$i]."\n";
+                $ret .= "OK ".$to[$i].",".$smslog_id[$i]."\n";
             } else {
-                $ret .= "OK FAIL,".$arr_to[$i]."\n";
+                $ret .= "OK ".$arr_to[$i]."\n";
             }
         }
     } elseif ($c_username && $to && $msg) {
