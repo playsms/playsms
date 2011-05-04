@@ -7,6 +7,7 @@ Version 0.9.5.3-git - unknown
 - add all intercepts in features plugins, now hook-able from features plugin (anton)
 - add method to save receiver number, currently available only in kannel and clickatell (anton)
 - add sender name in email forwarded to user from PV or sms board (anton)
+- add multiple destinations capability when ta=pv on webservices (anton)
 - sms survey temporarily disabled, not removed, waiting for reporting parts (anton)
 - sms autosend temporarily disabled, not removed, waiting for major changes (anton)
 - fix checkavailablekeyword() lib/fn_core.php to have hooks return TRUE if available (anton)

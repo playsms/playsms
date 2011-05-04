@@ -11,8 +11,12 @@ to callback.php in this directory
 eg:
 prior to 0.9.5.1:
 http://your_playsms_website/plugin/gateway/clickatell/callback.php
-since 0.9.5.1:
+since 0.9.5.1 the URL should be:
 http://your_playsms_website/index.php?app=call&cat=gateway&plugin=clickatell&access=callback
+
+BUT, since Clickatell turns out to be not supporting inserting additional parameters to 
+the callback URL we have to use old style callback URL, which is the previous one:
+http://your_playsms_website/plugin/gateway/clickatell/callback.php
 
 Plugin	: Gateway Clickatell for playSMS
 Author	: Anton Raharja
