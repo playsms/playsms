@@ -65,12 +65,31 @@ function msgtoolbox_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$ui
 		logger_print($url, 3, "msgtoolbox outgoing");
 		$fd = @implode ('', file ($url));
 		if ($fd) {
-			logger_print("sent", 3, "msgtoolbox outgoing");
+			$response = split (",", $fd);
+			if (trim($response[0]) == "1") {
+				$remote_slid = trim($response[1]);
+				if ($remote_slid) {
+					// this is for callback, if callback not used then the status would be sent or failed only
+					// local_slid is local SMS log id (local smslog_id)
+					// remote_slid is remote SMS log id (in API doc its referred to smsid or messageid)			
+					$db_query = "
+						INSERT INTO "._DB_PREF_."_gatewayMsgtoolbox (local_slid,remote_slid,status)
+						VALUES ('$smslog_id','$remote_slid','0')
+					    ";
+					$id = @dba_insert_id($db_query);
+					if ($id) {
+						$ok = true;
+						$p_status = 1; // sms sent
+						setsmsdeliverystatus($smslog_id,$uid,$p_status);
+					}
+				}	
+			}
+			logger_print("sent smslog_id:".$smslog_id." response:".$fd, 3, "msgtoolbox outgoing");
 		} else {
 			// even when the response is not what we expected we still print it out for debug purposes
 			$fd = str_replace("\n", " ", $fd);
 			$fd = str_replace("\r", " ", $fd);
-			logger_print("smslog_id:".$smslog_id." response:".$fd, 3, "msgtoolbox outgoing");
+			logger_print("failed smslog_id:".$smslog_id." response:".$fd, 3, "msgtoolbox outgoing");
 		}
 	}
 	if (!$ok) {

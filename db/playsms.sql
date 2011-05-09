@@ -597,13 +597,27 @@ INSERT INTO `playsms_gatewayUplink_config` VALUES (0,'uplink','http://playsms.ma
 UNLOCK TABLES;
 
 --
+-- Table structure for table `playsms_gatewayMsgtoolbox`
+--
+
+DROP TABLE IF EXISTS `playsms_gatewayMsgtoolbox` ;
+CREATE TABLE `playsms_gatewayMsgtoolbox` (
+  `c_timestamp` int(11) NOT NULL DEFAULT '0',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `local_slid` int(11) NOT NULL DEFAULT '0',
+  `remote_slid` int(11) NOT NULL DEFAULT '0',
+  `status` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
+
+--
 -- Table structure for table `playsms_gatewayMsgtoolbox_config`
 --
 
 DROP TABLE IF EXISTS `playsms_gatewayMsgtoolbox_config`;
 CREATE TABLE `playsms_gatewayMsgtoolbox_config` (
   `c_timestamp` int(11) NOT NULL default '0',
-  `cfg_name` varchar(20) NOT NULL default 'uplink',
+  `cfg_name` varchar(20) NOT NULL default 'msgtoolbox',
   `cfg_url` varchar(250) default NULL,
   `cfg_route` varchar(5) default NULL,
   `cfg_username` varchar(100) default NULL,
