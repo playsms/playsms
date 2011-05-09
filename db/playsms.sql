@@ -597,6 +597,32 @@ INSERT INTO `playsms_gatewayUplink_config` VALUES (0,'uplink','http://playsms.ma
 UNLOCK TABLES;
 
 --
+-- Table structure for table `playsms_gatewayMsgtoolbox_config`
+--
+
+DROP TABLE IF EXISTS `playsms_gatewayMsgtoolbox_config`;
+CREATE TABLE `playsms_gatewayMsgtoolbox_config` (
+  `c_timestamp` int(11) NOT NULL default '0',
+  `cfg_name` varchar(20) NOT NULL default 'uplink',
+  `cfg_url` varchar(250) default NULL,
+  `cfg_route` varchar(5) default NULL,
+  `cfg_username` varchar(100) default NULL,
+  `cfg_password` varchar(100) default NULL,
+  `cfg_global_sender` varchar(20) default NULL,
+  `cfg_datetime_timezone` varchar(30) NOT NULL default '+0700'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `playsms_gatewayMsgtoolbox_config`
+--
+
+LOCK TABLES `playsms_gatewayMsgtoolbox_config` WRITE;
+/*!40000 ALTER TABLE `playsms_gatewayMsgtoolbox_config` DISABLE KEYS */;
+INSERT INTO `playsms_gatewayMsgtoolbox_config` VALUES (0,'msgtoolbox','http://serverX.msgtoolbox.com/api/current/send/message.php','1','playsms','password','playSMS','+0700');
+/*!40000 ALTER TABLE `playsms_gatewayMsgtoolbox_config` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `playsms_tblConfig_main`
 --
 

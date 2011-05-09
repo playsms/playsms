@@ -1,0 +1,79 @@
+#: config.php:18 uplink.php:24
+msgid "Manage uplink"
+msgstr "Manage uplink"
+
+#: uplink.php:8
+msgid "Active"
+msgstr ""
+
+#: uplink.php:12
+msgid "Inactive"
+msgstr ""
+
+#: uplink.php:12
+msgid "click here to activate"
+msgstr ""
+
+#: uplink.php:29
+msgid "Gateway name"
+msgstr ""
+
+#: uplink.php:32
+msgid "Master URL"
+msgstr ""
+
+#: uplink.php:35
+msgid "Additional URL parameter"
+msgstr ""
+
+#: uplink.php:38
+msgid "Username"
+msgstr ""
+
+#: uplink.php:41
+msgid "Password"
+msgstr ""
+
+#: uplink.php:41
+msgid "Fill to change the password"
+msgstr ""
+
+#: uplink.php:44
+msgid "Global sender"
+msgstr ""
+
+#: uplink.php:44
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+
+#: uplink.php:47
+msgid "Uplink incoming path"
+msgstr ""
+
+#: uplink.php:47
+msgid "No trailing slash"
+msgstr ""
+
+#: uplink.php:51
+msgid "Note"
+msgstr ""
+
+#: uplink.php:52
+msgid "Send SMS message without footer banner"
+msgstr ""
+
+#: uplink.php:54
+msgid "Save"
+msgstr ""
+
+#: uplink.php:66
+msgid "No changes has been made"
+msgstr ""
+
+#: uplink.php:84
+msgid "Gateway module configurations has been saved"
+msgstr ""
+
+#: uplink.php:92
+msgid "Gateway has been activated"
+msgstr ""
