@@ -3,12 +3,12 @@ if(!isadmin()){forcenoaccess();};
 
 switch ($op)
 {
-    case "user_list":
-	if ($err)
-	{
-	    $content = "<p><font color='red'>$err</font><p>";
-	}
-	$content .= "
+	case "user_list":
+		if ($err)
+		{
+			$content = "<p><font color='red'>$err</font><p>";
+		}
+		$content .= "
 	    <h2>"._('Manage user')."</h2>
 	    <p>
 	    <input type='button' value='"._('Add user')."' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
@@ -24,16 +24,16 @@ switch ($op)
         <td class='box_title' width='75'>"._('Action')."</td>
     </tr>		    
 	";
-	$i=0;
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE status='2' ORDER BY username";
-	$db_result = dba_query($db_query);
-	while ($db_row = dba_fetch_array($db_result))
-	{
-	    $i++;
-            $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-	    $action = "<a href=index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=".$db_row['username'].">$icon_edit</a>";
-	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete user ?')." ("._('username').": `".$db_row['username']."`)','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=".$db_row['username']."')\">$icon_delete</a>";
-	    $content .= "
+		$i=0;
+		$db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE status='2' ORDER BY username";
+		$db_result = dba_query($db_query);
+		while ($db_row = dba_fetch_array($db_result))
+		{
+			$i++;
+			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
+			$action = "<a href=index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=".$db_row['username'].">$icon_edit</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete user ?')." ("._('username').": `".$db_row['username']."`)','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=".$db_row['username']."')\">$icon_delete</a>";
+			$content .= "
     <tr>
 	<td class='$td_class'>&nbsp;$i.</td>
 	<td class='$td_class'>".$db_row['username']."</td>
@@ -44,9 +44,9 @@ switch ($op)
 	<td class='$td_class' align='center'>$action</td>
     </tr>
     ";
-	}
-	$content .= "</table>";
-	$content .= "<p>"._('Status').": <b>"._('Normal user')."</b><br>
+		}
+		$content .= "</table>";
+		$content .= "<p>"._('Status').": <b>"._('Normal user')."</b><br>
     <table cellpadding='1' cellspacing='2' border='0' width='100%'>
     <tr>
         <td class='box_title' width='25'>*</td>
@@ -58,16 +58,16 @@ switch ($op)
         <td class='box_title' width='75'>"._('Action')."</td>
     </tr>		    
 	";
-	$i=0;	
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE status='3' ORDER BY username";
-	$db_result = dba_query($db_query);
-	while ($db_row = dba_fetch_array($db_result))
-	{
-	    $i++;
-            $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-	    $action = "<a href=index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=".$db_row['username'].">$icon_edit</a>";
-	    $action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete user')." `".$db_row['username']."` ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=".$db_row['username']."')\">$icon_delete</a>";
-	    $content .= "
+		$i=0;
+		$db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE status='3' ORDER BY username";
+		$db_result = dba_query($db_query);
+		while ($db_row = dba_fetch_array($db_result))
+		{
+			$i++;
+			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
+			$action = "<a href=index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=".$db_row['username'].">$icon_edit</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete user')." `".$db_row['username']."` ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=".$db_row['username']."')\">$icon_delete</a>";
+			$content .= "
     <tr>
 	<td class='$td_class'>&nbsp;$i.</td>
 	<td class='$td_class'>".$db_row['username']."</td>
@@ -78,57 +78,57 @@ switch ($op)
 	<td class='$td_class' align='center'>$action</td>
     </tr>
     ";
-	}
-	$content .= "</table>";
-	echo $content;
-	echo "
+		}
+		$content .= "</table>";
+		echo $content;
+		echo "
 	    <p>
 	    <input type=button value='"._('Add user')."' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
 	";
-	break;
-    case "user_del":
-	$uname = $_REQUEST['uname'];
-	$del_uid = username2uid($uname);
-	$error_string = _('Fail to delete user')." `$uname`!";
-	if (($del_uid > 1) && ($del_uid != $uid))
-	{
-	    $db_query = "DELETE FROM "._DB_PREF_."_tblUser WHERE uid='$del_uid'";
-	    if (@dba_affected_rows($db_query))
-	    {
-		$error_string = _('User has been deleted')." ("._('username').": `$uname`)";
-	    }
-	}
-	if (($del_uid == 1) || ($uname == "admin"))
-	{
-	    $error_string = _('User is immune to deletion')." ("._('username')." `$uname`)";
-	}
-	else if ($del_uid == $uid)
-	{
-	    $error_string = _('Currently logged in user is immune to deletion');
-	}
-	header ("Location: index.php?app=menu&inc=user_mgmnt&op=user_list&err=".urlencode($error_string));
-	break;
-    case "user_edit":
-	$uname = $_REQUEST['uname'];
-	$uid = username2uid($uname);
-	$mobile = username2mobile($uname);
-	$email = username2email($uname);
-	$name = username2name($uname);
-	$status = username2status($uname);
-	$sender = username2sender($uname);
-	$timezone = username2timezone($uname);
-	$credit = rate_getusercredit($uname);
-	if ($err)
-	{
-	    $content = "<p><font color='red'>$err</font><p>";
-	}
-	if ($status == 2) { $selected_2 = "selected"; }
-	if ($status == 3) { $selected_3 = "selected"; }
-	$option_status = "
+		break;
+	case "user_del":
+		$uname = $_REQUEST['uname'];
+		$del_uid = username2uid($uname);
+		$error_string = _('Fail to delete user')." `$uname`!";
+		if (($del_uid > 1) && ($del_uid != $uid))
+		{
+			$db_query = "DELETE FROM "._DB_PREF_."_tblUser WHERE uid='$del_uid'";
+			if (@dba_affected_rows($db_query))
+			{
+				$error_string = _('User has been deleted')." ("._('username').": `$uname`)";
+			}
+		}
+		if (($del_uid == 1) || ($uname == "admin"))
+		{
+			$error_string = _('User is immune to deletion')." ("._('username')." `$uname`)";
+		}
+		else if ($del_uid == $uid)
+		{
+			$error_string = _('Currently logged in user is immune to deletion');
+		}
+		header ("Location: index.php?app=menu&inc=user_mgmnt&op=user_list&err=".urlencode($error_string));
+		break;
+	case "user_edit":
+		$uname = $_REQUEST['uname'];
+		$uid = username2uid($uname);
+		$mobile = username2mobile($uname);
+		$email = username2email($uname);
+		$name = username2name($uname);
+		$status = username2status($uname);
+		$sender = username2sender($uname);
+		$timezone = username2timezone($uname);
+		$credit = rate_getusercredit($uname);
+		if ($err)
+		{
+			$content = "<p><font color='red'>$err</font><p>";
+		}
+		if ($status == 2) { $selected_2 = "selected"; }
+		if ($status == 3) { $selected_3 = "selected"; }
+		$option_status = "
 	    <option value='2' $selected_2>"._('Administrator')."</option>
 	    <option value='3' $selected_3>"._('Normal user')."</option>
 	";
-	$content .= "
+		$content .= "
 	    <h2>"._('Preferences').": $uname</h2>
 	    <p>
 	    <form action='index.php?app=menu&inc=user_mgmnt&op=user_edit_save' method='post'>
@@ -165,64 +165,64 @@ switch ($op)
 	    <p><input type='submit' class='button' value='"._('Save')."'>
 	    </form>
 	";
-	echo $content;
-	break;
-    case "user_edit_save":
-	$uname = $_POST['uname'];
-	$up_name = $_POST['up_name'];
-	$up_email = $_POST['up_email'];
-	$up_mobile = $_POST['up_mobile'];
-	$up_sender = $_POST['up_sender'];
-	$up_password = $_POST['up_password'];
-	$up_status = $_POST['up_status'];
-	$up_credit = $_POST['up_credit'];
-	$up_timezone = ( $_POST['up_timezone'] ? $_POST['up_timezone'] : $gateway_timezone );
-//	$status = username2status($uname);
-	$error_string = _('No changes made');
-	if ($up_name && $up_mobile && $up_email)
-	{
-	    $db_query = "SELECT username FROM "._DB_PREF_."_tblUser WHERE email='$up_email' AND NOT username='$uname'";
-	    $db_result = dba_query($db_query);
-	    if ($db_row = dba_fetch_array($db_result))
-	    {
-		$error_string = _('Email is already in use by other username')." ("._('email').": `$email`, "._('username').": `".$db_row['username']."`) ";
-	    }
-	    else
-	    {
-		if ($up_password)
+		echo $content;
+		break;
+	case "user_edit_save":
+		$uname = $_POST['uname'];
+		$up_name = $_POST['up_name'];
+		$up_email = $_POST['up_email'];
+		$up_mobile = $_POST['up_mobile'];
+		$up_sender = $_POST['up_sender'];
+		$up_password = $_POST['up_password'];
+		$up_status = $_POST['up_status'];
+		$up_credit = $_POST['up_credit'];
+		$up_timezone = ( $_POST['up_timezone'] ? $_POST['up_timezone'] : $gateway_timezone );
+		//	$status = username2status($uname);
+		$error_string = _('No changes made');
+		if ($up_name && $up_mobile && $up_email)
 		{
-		    $chg_pwd = ",password='$up_password'";
-		}
-		$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender',datetime_timezone='$up_timezone',status='$up_status'".$chg_pwd." WHERE username='$uname'";
-		if (@dba_affected_rows($db_query))
-		{
-		    $c_uid = username2uid($uname);
-		    rate_setusercredit($c_uid, $up_credit);
-		    $error_string = _('Preferences has been saved')." ("._('username').": `$uname`)";
+			$db_query = "SELECT username FROM "._DB_PREF_."_tblUser WHERE email='$up_email' AND NOT username='$uname'";
+			$db_result = dba_query($db_query);
+			if ($db_row = dba_fetch_array($db_result))
+			{
+				$error_string = _('Email is already in use by other username')." ("._('email').": `$email`, "._('username').": `".$db_row['username']."`) ";
+			}
+			else
+			{
+				if ($up_password)
+				{
+					$chg_pwd = ",password='$up_password'";
+				}
+				$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender',datetime_timezone='$up_timezone',status='$up_status'".$chg_pwd." WHERE username='$uname'";
+				if (@dba_affected_rows($db_query))
+				{
+					$c_uid = username2uid($uname);
+					rate_setusercredit($c_uid, $up_credit);
+					$error_string = _('Preferences has been saved')." ("._('username').": `$uname`)";
+				}
+				else
+				{
+					$error_string = _('Fail to save preferences')." ("._('username').": `$uname`)";
+				}
+			}
 		}
 		else
 		{
-		    $error_string = _('Fail to save preferences')." ("._('username').": `$uname`)";
+			$error_string = _('You must fill all field');
 		}
-	    }
-	}
-	else
-	{
-	    $error_string = _('You must fill all field');
-	}
-	header ("Location: index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=$uname&err=".urlencode($error_string));
-	break;
-    case "user_add":
-	if ($err)
-	{
-	    $content = "<p><font color='red'>$err</font><p>";
-	}
-	$add_timezone = ( $add_timezone ? $add_timezone : $gateway_timezone );
-	$option_status = "
+		header ("Location: index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=$uname&err=".urlencode($error_string));
+		break;
+	case "user_add":
+		if ($err)
+		{
+			$content = "<p><font color='red'>$err</font><p>";
+		}
+		$add_timezone = ( $add_timezone ? $add_timezone : $gateway_timezone );
+		$option_status = "
 	    <option value='2'>"._('Administrator')."</option>
 	    <option value='3' selected>"._('Normal User')."</option>
 	";
-	$content .= "
+		$content .= "
 	    <h2>"._('Add user')."</h2>
 	    <p>
 	    <form action='index.php?app=menu&inc=user_mgmnt&op=user_add_yes' method='post'>
@@ -258,45 +258,45 @@ switch ($op)
 	    <p><input type='submit' class='button' value='"._('Add')."'>
 	    </form>
 	";
-	echo $content;
-	break;
-    case "user_add_yes":
-	$add_email = $_POST['add_email'];
-	$add_username = $_POST['add_username'];
-	$add_name = $_POST['add_name'];
-	$add_mobile = $_POST['add_mobile'];
-	$add_sender = $_POST['add_sender'];
-	$add_password = $_POST['add_password'];
-	$add_credit = $_POST['add_credit'];
-	$add_status = $_POST['add_status'];
-	$add_timezone = $_POST['add_timezone'];
-	if (ereg("^(.+)(.+)\\.(.+)$",$add_email,$arr) && $add_email && $add_username && $add_name && $add_password)
-	{
-	    $db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE username='$add_username'";
-	    $db_result = dba_query($db_query);
-	    if ($db_row = dba_fetch_array($db_result))
-	    {
-		$error_string = _('User is already exists')." ("._('username').": `".$db_row['username']."`)";
-	    }
-	    else
-	    {
-		$db_query = "
+		echo $content;
+		break;
+	case "user_add_yes":
+		$add_email = $_POST['add_email'];
+		$add_username = $_POST['add_username'];
+		$add_name = $_POST['add_name'];
+		$add_mobile = $_POST['add_mobile'];
+		$add_sender = $_POST['add_sender'];
+		$add_password = $_POST['add_password'];
+		$add_credit = $_POST['add_credit'];
+		$add_status = $_POST['add_status'];
+		$add_timezone = $_POST['add_timezone'];
+		if (ereg("^(.+)(.+)\\.(.+)$",$add_email,$arr) && $add_email && $add_username && $add_name && $add_password)
+		{
+			$db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE username='$add_username'";
+			$db_result = dba_query($db_query);
+			if ($db_row = dba_fetch_array($db_result))
+			{
+				$error_string = _('User is already exists')." ("._('username').": `".$db_row['username']."`)";
+			}
+			else
+			{
+				$db_query = "
 		    INSERT INTO "._DB_PREF_."_tblUser (status,username,password,name,mobile,email,sender,credit,datetime_timezone)
 		    VALUES ('$add_status','$add_username','$add_password','$add_name','$add_mobile','$add_email','$add_sender','$add_credit','$add_timezone')
 		";
-		if ($new_uid = @dba_insert_id($db_query))
-		{
-		    rate_setusercredit($new_uid, $add_credit);
-		    $error_string = _('User has been added')." ("._('username').": `$add_username`)";
+				if ($new_uid = @dba_insert_id($db_query))
+				{
+					rate_setusercredit($new_uid, $add_credit);
+					$error_string = _('User has been added')." ("._('username').": `$add_username`)";
+				}
+			}
 		}
-	    }
-	}
-	else
-	{
-	    $error_string = _('You must fill all fields');
-	}
-	header ("Location: index.php?app=menu&inc=user_mgmnt&op=user_add&err=".urlencode($error_string));
-	break;
+		else
+		{
+			$error_string = _('You must fill all fields');
+		}
+		header ("Location: index.php?app=menu&inc=user_mgmnt&op=user_add&err=".urlencode($error_string));
+		break;
 }
 
 ?>

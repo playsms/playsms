@@ -65,7 +65,7 @@ switch ($op) {
 		}
 
 		if ($op == 'questions_add') {
-		 	$add_question = "
+			$add_question = "
 				<p>&nbsp</p>
 				<form method='post' action='index.php?app=menu&inc=feature_sms_survey&route=questions&op=questions_add_submit'>
 				<input type='hidden' name='sid' value='$sid'>
@@ -77,12 +77,12 @@ switch ($op) {
 				<p>&nbsp</p>
 			";
 			$buttons = "";
-                }
+		}
 
 		if ($op == 'questions_edit') {
 			$qid = $_REQUEST['qid'];
 			$q = sms_survey_getquestionbyid($qid);
-		 	$edit_question = "
+			$edit_question = "
 				<p>&nbsp</p>
 				<form method='post' action='index.php?app=menu&inc=feature_sms_survey&route=questions&op=questions_edit_submit'>
 				<input type='hidden' name='sid' value='$sid'>
@@ -95,12 +95,12 @@ switch ($op) {
 				<p>&nbsp</p>
 			";
 			$buttons = "";
-                }
+		}
 
 		if ($op == 'questions_del') {
 			$qid = $_REQUEST['qid'];
 			$q = sms_survey_getquestionbyid($qid);
-		 	$edit_question = "
+			$edit_question = "
 				<p>&nbsp</p>
 				<form method='post' action='index.php?app=menu&inc=feature_sms_survey&route=questions&op=questions_del_submit'>
 				<input type='hidden' name='sid' value='$sid'>
@@ -113,7 +113,7 @@ switch ($op) {
 				<p>&nbsp</p>
 			";
 			$buttons = "";
-                }
+		}
 
 		$content .= "
 			<table cellpadding='1' cellspacing='2' border='0'>

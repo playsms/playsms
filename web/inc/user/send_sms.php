@@ -6,75 +6,75 @@ $dst_gp_code = urlencode($_REQUEST['dst_gp_code']);
 
 switch ($op)
 {
-    case "sendsmstopv":
-	$message = $_REQUEST['message'];
-	$rows = phonebook_getdatabyuid($uid, "p_desc");
-	foreach ($rows as $key => $db_row) {
-	    $list_of_number .= "<option value=\"".$db_row['p_num']."\" $selected>".$db_row['p_desc']." ".$db_row['p_num']."</option>";
-	}
-	// add numbers from public phonebook
-	$rows = phonebook_getsharedgroup($uid);
-	foreach ($rows as $key => $db_row)
-	{
-	    $c_gpid = $db_row['gpid'];
-	    $c_uid = $db_row['uid'];
-	    $c_username = uid2username($c_uid);
-	    $i = 0;
-	    $rows = phonebook_getdatabyid($c_gpid);
-	    foreach ($rows as $key => $db_row1) {
-		$list_of_number .= "<option value=\"".$db_row1['p_num']."\" $selected>".$db_row1['p_desc']." ".$db_row1['p_num']." ("._('shared by')." ".$c_username.")</option>";
-	    }
-	}
-	$max_length = $core_config['smsmaxlength'];
-	if ($sms_sender = username2sender($username))
-	{
-	    $max_length = $max_length - strlen($sms_sender);
-	}
-	else
-	{
-	    $sms_sender = "<i>"._('not set')."</i>";
-	}
-	for ($i=0;$i<=23;$i++)
-	{
-	    $c_i = sprintf("%02d",$i);
-	    $option_hour .= "<option value=\"$c_i\">$c_i</option>";
-	}
-	for ($i=0;$i<=59;$i++)
-	{
-	    $c_i = sprintf("%02d",$i);
-	    $option_minute .= "<option value=\"$c_i\">$c_i</option>";
-	}
+	case "sendsmstopv":
+		$message = $_REQUEST['message'];
+		$rows = phonebook_getdatabyuid($uid, "p_desc");
+		foreach ($rows as $key => $db_row) {
+			$list_of_number .= "<option value=\"".$db_row['p_num']."\" $selected>".$db_row['p_desc']." ".$db_row['p_num']."</option>";
+		}
+		// add numbers from public phonebook
+		$rows = phonebook_getsharedgroup($uid);
+		foreach ($rows as $key => $db_row)
+		{
+			$c_gpid = $db_row['gpid'];
+			$c_uid = $db_row['uid'];
+			$c_username = uid2username($c_uid);
+			$i = 0;
+			$rows = phonebook_getdatabyid($c_gpid);
+			foreach ($rows as $key => $db_row1) {
+				$list_of_number .= "<option value=\"".$db_row1['p_num']."\" $selected>".$db_row1['p_desc']." ".$db_row1['p_num']." ("._('shared by')." ".$c_username.")</option>";
+			}
+		}
+		$max_length = $core_config['smsmaxlength'];
+		if ($sms_sender = username2sender($username))
+		{
+			$max_length = $max_length - strlen($sms_sender);
+		}
+		else
+		{
+			$sms_sender = "<i>"._('not set')."</i>";
+		}
+		for ($i=0;$i<=23;$i++)
+		{
+			$c_i = sprintf("%02d",$i);
+			$option_hour .= "<option value=\"$c_i\">$c_i</option>";
+		}
+		for ($i=0;$i<=59;$i++)
+		{
+			$c_i = sprintf("%02d",$i);
+			$option_minute .= "<option value=\"$c_i\">$c_i</option>";
+		}
 
-	$global_sender = ${$gateway_module.'_param'}['global_sender'];
-	if ($global_sender) {
-	    $sms_from = $global_sender;
-	} else if ($gateway_number) {
-	    $sms_from = $gateway_number;
-	} else {
-	    $sms_from = $mobile;
-	}
+		$global_sender = ${$gateway_module.'_param'}['global_sender'];
+		if ($global_sender) {
+			$sms_from = $global_sender;
+		} else if ($gateway_number) {
+			$sms_from = $gateway_number;
+		} else {
+			$sms_from = $mobile;
+		}
 
-	// WWW
-	$db_query2 = "SELECT * FROM "._DB_PREF_."_tblSMSTemplate WHERE uid='$uid'";
-	$db_result2 = dba_query($db_query2);
-	$j = 0;
-	$option_values = "<option value=\"\" default>--"._('Please select')."--</option>";
-	while ($db_row = dba_fetch_array($db_result2))
-	{
-	    $j++;
-	    $option_values .= "<option value=\"".$db_row['t_text']."\">".$db_row['t_title']."</option>";
-	    $input_values .= "<input type=\"hidden\" name=\"content_$j\" value=\"".$db_row['t_text']."\">";
-	}
+		// WWW
+		$db_query2 = "SELECT * FROM "._DB_PREF_."_tblSMSTemplate WHERE uid='$uid'";
+		$db_result2 = dba_query($db_query2);
+		$j = 0;
+		$option_values = "<option value=\"\" default>--"._('Please select')."--</option>";
+		while ($db_row = dba_fetch_array($db_result2))
+		{
+			$j++;
+			$option_values .= "<option value=\"".$db_row['t_text']."\">".$db_row['t_title']."</option>";
+			$input_values .= "<input type=\"hidden\" name=\"content_$j\" value=\"".$db_row['t_text']."\">";
+		}
 
-	// document.fm_sendsms.message.value = document.fm_smstemplate.content_num.value;
-	// New function introduce for long sms count and another field (SMS character) added to send sms broadcast 
-	if ($errid) {
-	    $err = logger_get_error_string($errid);
-	}
-	if ($err) {
-	    $content = "<div class=error_string>$err</div>";
-	}
-	$content .= "
+		// document.fm_sendsms.message.value = document.fm_smstemplate.content_num.value;
+		// New function introduce for long sms count and another field (SMS character) added to send sms broadcast
+		if ($errid) {
+			$err = logger_get_error_string($errid);
+		}
+		if ($err) {
+			$content = "<div class=error_string>$err</div>";
+		}
+		$content .= "
 	    <form name=\"fm_smstemplate\">
 	    $input_values
 	    </form>
@@ -117,119 +117,119 @@ switch ($op)
 	    <p><input type=submit class=button value='"._('Send')."' onClick=\"selectAllOptions(this.form['p_num[]'])\"> 
 	    </form>
 	";
-	// fixme anton - if no magic_quote_gpc then the pl_addslashes in init.php will add \ in web ($message)
-	// echo $content;
-	echo stripslashes($content);
-	break;
-    case "sendsmstopv_yes":
-	$p_num = $_POST['p_num'];
-	if (!$p_num[0]) {
-	    $p_num = $_POST['p_num_text'];
-	}
-	$sms_to = $p_num;
-	$msg_flash = $_POST['msg_flash'];
-	$msg_unicode = $_POST['msg_unicode'];
-	$message = $_POST['message'];
-	if (($p_num || $sms_to) && $message) {
-	    $sms_type = "text";
-	    if ($msg_flash == "on") {
-		$sms_type = "flash";
-	    }
-	    $unicode = "0";
-	    if ($msg_unicode == "on") {
-		$unicode = "1";
-	    }
-	    list($ok,$to,$smslog_id) = sendsms_pv($username,$sms_to,$message,$sms_type,$unicode);
-	    
-	    if (count($ok) <= 5) {
-		for ($i=0;$i<count($ok);$i++) {
-		    if ($ok[$i]) {
-			$error_string .= _('Your SMS has been delivered to queue')." ("._('to').": ".$to[$i].")<br>";
-		    } else {
-			$error_string .= _('Fail to sent SMS')." ("._('to').": `".$to[$i]."`)<br>";
-	    	    }
+	    // fixme anton - if no magic_quote_gpc then the pl_addslashes in init.php will add \ in web ($message)
+	    // echo $content;
+	    echo stripslashes($content);
+	    break;
+	case "sendsmstopv_yes":
+		$p_num = $_POST['p_num'];
+		if (!$p_num[0]) {
+			$p_num = $_POST['p_num_text'];
 		}
-	    } else {
-		// minimize delivery reports on web, actual status can be seen from outgoing SMS menu (emmanuel)
-		$sms_sent = 0;
-		$sms_failed = 0;
-		for ($i=0;$i<count($ok);$i++) {
-	    	    if ($ok[$i]) {
-	    		// $error_string .= _('Your SMS has been delivered to queue')." ("._('to').": `".$to[$i]."`)<br>";
-	    		$sms_sent++;
-	    	    } else {
-	    		// $error_string .= _('Fail to sent SMS')." ("._('to').": `".$to[$i]."`)<br>";
-	    		$sms_failed++;
-		    }
+		$sms_to = $p_num;
+		$msg_flash = $_POST['msg_flash'];
+		$msg_unicode = $_POST['msg_unicode'];
+		$message = $_POST['message'];
+		if (($p_num || $sms_to) && $message) {
+			$sms_type = "text";
+			if ($msg_flash == "on") {
+				$sms_type = "flash";
+			}
+			$unicode = "0";
+			if ($msg_unicode == "on") {
+				$unicode = "1";
+			}
+			list($ok,$to,$smslog_id) = sendsms_pv($username,$sms_to,$message,$sms_type,$unicode);
+
+			if (count($ok) <= 5) {
+				for ($i=0;$i<count($ok);$i++) {
+					if ($ok[$i]) {
+						$error_string .= _('Your SMS has been delivered to queue')." ("._('to').": ".$to[$i].")<br>";
+					} else {
+						$error_string .= _('Fail to sent SMS')." ("._('to').": `".$to[$i]."`)<br>";
+					}
+				}
+			} else {
+				// minimize delivery reports on web, actual status can be seen from outgoing SMS menu (emmanuel)
+				$sms_sent = 0;
+				$sms_failed = 0;
+				for ($i=0;$i<count($ok);$i++) {
+					if ($ok[$i]) {
+						// $error_string .= _('Your SMS has been delivered to queue')." ("._('to').": `".$to[$i]."`)<br>";
+						$sms_sent++;
+					} else {
+						// $error_string .= _('Fail to sent SMS')." ("._('to').": `".$to[$i]."`)<br>";
+						$sms_failed++;
+					}
+				}
+				// fixme anton - we dont need to add new lang entry, just use available phrase
+				$error_string = _('Your SMS has been delivered to queue')." ("._('sent').": ".$sms_sent.", "._('failed').": ".$sms_failed.")";
+			}
+
+			$errid = logger_set_error_string($error_string);
+			header("Location: index.php?app=menu&inc=send_sms&op=sendsmstopv&message=".urlencode($message)."&errid=".$errid);
+		} else {
+			header("Location: index.php?app=menu&inc=send_sms&op=sendsmstopv&message=".urlencode($message)."&err=".urlencode(_('You must select receiver and your message should not be empty')));
 		}
-		// fixme anton - we dont need to add new lang entry, just use available phrase
-		$error_string = _('Your SMS has been delivered to queue')." ("._('sent').": ".$sms_sent.", "._('failed').": ".$sms_failed.")";
-            }
-            
-	    $errid = logger_set_error_string($error_string);
-	    header("Location: index.php?app=menu&inc=send_sms&op=sendsmstopv&message=".urlencode($message)."&errid=".$errid);
-	} else {
-	    header("Location: index.php?app=menu&inc=send_sms&op=sendsmstopv&message=".urlencode($message)."&err=".urlencode(_('You must select receiver and your message should not be empty')));
-	}
-	break;
-    case "sendsmstogr":
-	$message = $_REQUEST['message'];
-	$rows = phonebook_getgroupbyuid($uid, "gp_name");
-	foreach ($rows as $key => $db_row)
-	{
-	    $c_count = phonebook_getmembercountbyid($db_row['gpid']);
-	    $list_of_group .= "<option value=\"".$db_row['gpid']."\" $selected>".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.")</option>";
-	}
+		break;
+	case "sendsmstogr":
+		$message = $_REQUEST['message'];
+		$rows = phonebook_getgroupbyuid($uid, "gp_name");
+		foreach ($rows as $key => $db_row)
+		{
+			$c_count = phonebook_getmembercountbyid($db_row['gpid']);
+			$list_of_group .= "<option value=\"".$db_row['gpid']."\" $selected>".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.")</option>";
+		}
 
-	// add shared group
-	$rows = phonebook_getsharedgroup($uid);
-	foreach ($rows as $key => $db_row)
-	{
-	    $c_uid = $db_row['uid'];
-	    $c_username = uid2username($c_uid);
-	    $c_count = phonebook_getmembercountbyid($db_row['gpid']);
-	    $list_of_group .= "<option value=\"".$db_row['gpid']."\" $selected>".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.") - "._('shared by')." ".$c_username."</option>";
-	}
-	$max_length = $core_config['smsmaxlength'];
-	if ($sms_sender = username2sender($username))
-	{
-	    $max_length = $max_length - strlen($sms_sender);
-	}
-	else
-	{
-	    $sms_sender = "<i>"._('not set')."</i>";
-	}
+		// add shared group
+		$rows = phonebook_getsharedgroup($uid);
+		foreach ($rows as $key => $db_row)
+		{
+			$c_uid = $db_row['uid'];
+			$c_username = uid2username($c_uid);
+			$c_count = phonebook_getmembercountbyid($db_row['gpid']);
+			$list_of_group .= "<option value=\"".$db_row['gpid']."\" $selected>".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.") - "._('shared by')." ".$c_username."</option>";
+		}
+		$max_length = $core_config['smsmaxlength'];
+		if ($sms_sender = username2sender($username))
+		{
+			$max_length = $max_length - strlen($sms_sender);
+		}
+		else
+		{
+			$sms_sender = "<i>"._('not set')."</i>";
+		}
 
-	$global_sender = ${$gateway_module.'_param'}['global_sender'];
-	if ($global_sender) {
-	    $sms_from = $global_sender;
-	} else if ($gateway_number) {
-	    $sms_from = $gateway_number;
-	} else {
-	    $sms_from = $mobile;
-	}
+		$global_sender = ${$gateway_module.'_param'}['global_sender'];
+		if ($global_sender) {
+			$sms_from = $global_sender;
+		} else if ($gateway_number) {
+			$sms_from = $gateway_number;
+		} else {
+			$sms_from = $mobile;
+		}
 
-	// WWW
-	$db_query2 = "SELECT * FROM "._DB_PREF_."_tblSMSTemplate WHERE uid='$uid'";
-	$db_result2 = dba_query($db_query2);
-	$j = 0;
-	$option_values = "<option value=\"\" default>--"._('Please select')."--</option>";
-	while ($db_row = dba_fetch_array($db_result2))
-	{
-	    $j++;
-	    $option_values .= "<option value=\"".$db_row['t_text']."\">".$db_row['t_title']."</option>";
-	    $input_values .= "<input type=\"hidden\" name=\"content_$j\" value=\"".$db_row['t_text']."\">";
-	}
+		// WWW
+		$db_query2 = "SELECT * FROM "._DB_PREF_."_tblSMSTemplate WHERE uid='$uid'";
+		$db_result2 = dba_query($db_query2);
+		$j = 0;
+		$option_values = "<option value=\"\" default>--"._('Please select')."--</option>";
+		while ($db_row = dba_fetch_array($db_result2))
+		{
+			$j++;
+			$option_values .= "<option value=\"".$db_row['t_text']."\">".$db_row['t_title']."</option>";
+			$input_values .= "<input type=\"hidden\" name=\"content_$j\" value=\"".$db_row['t_text']."\">";
+		}
 
-	// document.fm_sendsms.message.value = document.fm_smstemplate.content_num.value;
-	// New function introduce for long sms count and another field (SMS character) added to send sms broadcast 
-	if ($errid) {
-	    $err = logger_get_error_string($errid);
-	}
-	if ($err) {
-	    $content = "<div class=error_string>$err</div>";
-	}
-	$content .= "
+		// document.fm_sendsms.message.value = document.fm_smstemplate.content_num.value;
+		// New function introduce for long sms count and another field (SMS character) added to send sms broadcast
+		if ($errid) {
+			$err = logger_get_error_string($errid);
+		}
+		if ($err) {
+			$content = "<div class=error_string>$err</div>";
+		}
+		$content .= "
 	    <form name=\"fm_smstemplate\">
 	    $input_values
 	    </form>
@@ -253,55 +253,55 @@ switch ($op)
 	    <p><input type=submit class=button value='"._('Send')."' onClick=\"selectAllOptions(this.form[gp_code[]])\"> 
 	    </form>
 	";
-	echo $content;
-	break;
-    case "sendsmstogr_yes":
-	$gpid = $_POST['gpid'];
-	$gp_code = $_POST['gp_code_text'];
-	if ($gp_code) {
-	    $uid = username2uid($username);
-	    $gpid = phonebook_groupcode2id($uid, $gp_code);
-	}
-	/*
-	if (!$gpid[0]) {
-	    $gpid = $_POST['gpid_text'];
-	}
-	*/
-	$msg_flash = $_POST['msg_flash'];
-	$msg_unicode = $_POST['msg_unicode'];
-	$message = $_POST['message'];
-	if ($gpid && $message) {
-	    $sms_type = "text";
-	    if ($msg_flash == "on") {
-		$sms_type = "flash";
-	    }
-	    $unicode = "0";
-	    if ($msg_unicode == "on") {
-		$unicode = "1";
-	    }
-	    list($ok,$to,$smslog_id) = sendsms_bc($username,$gpid,$message,$sms_type,$unicode);
-	    
-	    // minimize delivery reports on web, actual status can be seen from outgoing SMS menu (emmanuel)
-	    $sms_sent = 0;
-	    $sms_failed = 0;
-	    for ($i=0;$i<count($ok);$i++) {
-	        if ($ok[$i]) {
-	    	    // $error_string .= _('Your SMS has been delivered to queue')." ("._('to').": `".$to[$i]."`)<br>";
-	    	    $sms_sent++;
-	        } else {
-	    	    // $error_string .= _('Fail to sent SMS')." ("._('to').": `".$to[$i]."`)<br>";
-	    	    $sms_failed++;
+	    echo $content;
+	    break;
+	case "sendsmstogr_yes":
+		$gpid = $_POST['gpid'];
+		$gp_code = $_POST['gp_code_text'];
+		if ($gp_code) {
+			$uid = username2uid($username);
+			$gpid = phonebook_groupcode2id($uid, $gp_code);
 		}
-	    }
-	    // fixme anton - we dont need to add new lang entry, just use available phrase
-	    $error_string = _('Your SMS has been delivered to queue')." ("._('sent').": ".$sms_sent.", "._('failed').": ".$sms_failed.")";
-	    
-	    $errid = logger_set_error_string($error_string);
-	    header("Location: index.php?app=menu&inc=send_sms&op=sendsmstogr&message=".urlencode($message)."&errid=".$errid);
-	} else {
-	    header("Location: index.php?app=menu&inc=send_sms&op=sendsmstogr&message=".urlencode($message)."&err=".urlencode(_('You must select receiver group and your message should not be empty')));
-	}
-	break;
+		/*
+		 if (!$gpid[0]) {
+		 $gpid = $_POST['gpid_text'];
+		 }
+		 */
+		$msg_flash = $_POST['msg_flash'];
+		$msg_unicode = $_POST['msg_unicode'];
+		$message = $_POST['message'];
+		if ($gpid && $message) {
+			$sms_type = "text";
+			if ($msg_flash == "on") {
+				$sms_type = "flash";
+			}
+			$unicode = "0";
+			if ($msg_unicode == "on") {
+				$unicode = "1";
+			}
+			list($ok,$to,$smslog_id) = sendsms_bc($username,$gpid,$message,$sms_type,$unicode);
+
+			// minimize delivery reports on web, actual status can be seen from outgoing SMS menu (emmanuel)
+			$sms_sent = 0;
+			$sms_failed = 0;
+			for ($i=0;$i<count($ok);$i++) {
+				if ($ok[$i]) {
+					// $error_string .= _('Your SMS has been delivered to queue')." ("._('to').": `".$to[$i]."`)<br>";
+					$sms_sent++;
+				} else {
+					// $error_string .= _('Fail to sent SMS')." ("._('to').": `".$to[$i]."`)<br>";
+					$sms_failed++;
+				}
+			}
+			// fixme anton - we dont need to add new lang entry, just use available phrase
+			$error_string = _('Your SMS has been delivered to queue')." ("._('sent').": ".$sms_sent.", "._('failed').": ".$sms_failed.")";
+
+			$errid = logger_set_error_string($error_string);
+			header("Location: index.php?app=menu&inc=send_sms&op=sendsmstogr&message=".urlencode($message)."&errid=".$errid);
+		} else {
+			header("Location: index.php?app=menu&inc=send_sms&op=sendsmstogr&message=".urlencode($message)."&err=".urlencode(_('You must select receiver group and your message should not be empty')));
+		}
+		break;
 }
 
 ?>

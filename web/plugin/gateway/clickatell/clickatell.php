@@ -5,21 +5,21 @@ include $apps_path['plug']."/gateway/clickatell/config.php";
 
 if ($gateway_module == $clickatell_param['name'])
 {
-    $status_active = "(<b><font color=green>"._('Active')."</font></b>)";
+	$status_active = "(<b><font color=green>"._('Active')."</font></b>)";
 }
 else
 {
-    $status_active = "(<b><font color=red>"._('Inactive')."</font></b>) (<a href=\"index.php?app=menu&inc=gateway_clickatell&op=manage_activate\">"._('click here to activate')."</a>)";
+	$status_active = "(<b><font color=red>"._('Inactive')."</font></b>) (<a href=\"index.php?app=menu&inc=gateway_clickatell&op=manage_activate\">"._('click here to activate')."</a>)";
 }
 
 switch ($op)
 {
-    case "manage":
-	if ($err)
-	{
-	    $content = "<div class=error_string>$err</div>";
-	}
-	$content .= "
+	case "manage":
+		if ($err)
+		{
+			$content = "<div class=error_string>$err</div>";
+		}
+		$content .= "
 	    <h2>"._('Manage clickatell')."</h2>
 	    <p>
 	    <form action=index.php?app=menu&inc=gateway_clickatell&op=manage_save method=post>
@@ -62,24 +62,24 @@ switch ($op)
 	    <p><input type=submit class=button value="._('Save').">
 	    </form>
 	";
-	echo $content;
-	break;
-    case "manage_save":
-	$up_api_id = $_POST['up_api_id'];
-	$up_username = $_POST['up_username'];
-	$up_password = $_POST['up_password'];
-	$up_sender = $_POST['up_sender'];
-	$up_global_timezone = $_POST['up_global_timezone'];
-	$up_send_url = $_POST['up_send_url'];
-	$up_incoming_path = $_POST['up_incoming_path'];
-	$up_additional_param = ( $_POST['up_additional_param'] ? $_POST['up_additional_param'] : "deliv_ack=1&callback=3" );
-	$error_string = _('No changes has been made');
-	if ($up_api_id && $up_username && $up_send_url)
-	{
-	    if ($up_password) {
-		$password_change = "cfg_password='$up_password',";
-	    }
-	    $db_query = "
+		echo $content;
+		break;
+	case "manage_save":
+		$up_api_id = $_POST['up_api_id'];
+		$up_username = $_POST['up_username'];
+		$up_password = $_POST['up_password'];
+		$up_sender = $_POST['up_sender'];
+		$up_global_timezone = $_POST['up_global_timezone'];
+		$up_send_url = $_POST['up_send_url'];
+		$up_incoming_path = $_POST['up_incoming_path'];
+		$up_additional_param = ( $_POST['up_additional_param'] ? $_POST['up_additional_param'] : "deliv_ack=1&callback=3" );
+		$error_string = _('No changes has been made');
+		if ($up_api_id && $up_username && $up_send_url)
+		{
+			if ($up_password) {
+				$password_change = "cfg_password='$up_password',";
+			}
+			$db_query = "
 		UPDATE "._DB_PREF_."_gatewayClickatell_config 
 		SET c_timestamp='".mktime()."',
 		    cfg_api_id='$up_api_id',
@@ -91,19 +91,19 @@ switch ($op)
 		    cfg_additional_param='$up_additional_param',
 		    cfg_incoming_path='$up_incoming_path'
 	    ";
-	    if (@dba_affected_rows($db_query))
-	    {
-		$error_string = _('Gateway module configurations has been saved');
-	    }
-	}
-	header ("Location: index.php?app=menu&inc=gateway_clickatell&op=manage&err=".urlencode($error_string));
-	break;
-    case "manage_activate":
-	$db_query = "UPDATE "._DB_PREF_."_tblConfig_main SET c_timestamp='".mktime()."',cfg_gateway_module='clickatell'";
-	$db_result = dba_query($db_query);
-	$error_string = _('Gateway has been activated');
-	header ("Location: index.php?app=menu&inc=gateway_clickatell&op=manage&err=".urlencode($error_string));
-	break;
+			if (@dba_affected_rows($db_query))
+			{
+				$error_string = _('Gateway module configurations has been saved');
+			}
+		}
+		header ("Location: index.php?app=menu&inc=gateway_clickatell&op=manage&err=".urlencode($error_string));
+		break;
+	case "manage_activate":
+		$db_query = "UPDATE "._DB_PREF_."_tblConfig_main SET c_timestamp='".mktime()."',cfg_gateway_module='clickatell'";
+		$db_result = dba_query($db_query);
+		$error_string = _('Gateway has been activated');
+		header ("Location: index.php?app=menu&inc=gateway_clickatell&op=manage&err=".urlencode($error_string));
+		break;
 }
 
 ?>

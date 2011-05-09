@@ -25,7 +25,7 @@ $core_config['reserved_keywords'] = $reserved_keywords;
 
 // load user's data from user's DB table
 if (valid()) {
-    $core_config['user'] = user_getdatabyusername($username);
+	$core_config['user'] = user_getdatabyusername($username);
 }
 
 // action icon
@@ -58,13 +58,13 @@ $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=user_pref&op=us
 
 $menutab_administration = $core_config['menu']['main_tab']['administration'];
 if (isadmin()) {
-    // administrator menus
-    $arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=all_inbox&op=all_inbox", _('All inbox'));
-    $arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=all_incoming&op=all_incoming", _('All incoming SMS'));
-    $arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=all_outgoing&op=all_outgoing", _('All outgoing SMS'));
-    $arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=user_mgmnt&op=user_list", _('Manage user'));
-    $arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=main_config&op=main_config", _('Main configuration'));
-    //ksort($arr_menu[$menutab_administration]);
+	// administrator menus
+	$arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=all_inbox&op=all_inbox", _('All inbox'));
+	$arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=all_incoming&op=all_incoming", _('All incoming SMS'));
+	$arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=all_outgoing&op=all_outgoing", _('All outgoing SMS'));
+	$arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=user_mgmnt&op=user_list", _('Manage user'));
+	$arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=main_config&op=main_config", _('Main configuration'));
+	//ksort($arr_menu[$menutab_administration]);
 }
 
 // fixme anton - uncomment this if you want to know what are available in $core_config

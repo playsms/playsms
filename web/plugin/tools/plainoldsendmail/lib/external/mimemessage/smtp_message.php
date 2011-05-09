@@ -34,12 +34,12 @@ class smtp_message_class extends email_message_class
 			for($entry=0;$entry<count($parsed_addresses);$entry++)
 			{
 				if($parsed_addresses[$entry]->host==".SYNTAX-ERROR.")
-					return($parsed_addresses[$entry]->mailbox." ".$parsed_addresses[$entry]->host);
+				return($parsed_addresses[$entry]->mailbox." ".$parsed_addresses[$entry]->host);
 				$parsed_address=$parsed_addresses[$entry]->mailbox."@".$parsed_addresses[$entry]->host;
 				if(IsSet($addresses[$parsed_address]))
-					$addresses[$parsed_address]++;
+				$addresses[$parsed_address]++;
 				else
-					$addresses[$parsed_address]=1;
+				$addresses[$parsed_address]=1;
 			}
 		}
 		else
@@ -49,16 +49,16 @@ class smtp_message_class extends email_message_class
 			{
 				$match=split($this->email_address_pattern,strtolower(substr($address,$position)),2);
 				if(count($match)<2)
-					break;
+				break;
 				$position+=strlen($match[0]);
 				$next_position=$length-strlen($match[1]);
 				$found=substr($address,$position,$next_position-$position);
 				if(!strcmp($found,""))
-					break;
+				break;
 				if(IsSet($addresses[$found]))
-					$addresses[$found]++;
+				$addresses[$found]++;
 				else
-					$addresses[$found]=1;
+				$addresses[$found]=1;
 				$position=$next_position;
 			}
 		}
@@ -71,9 +71,9 @@ class smtp_message_class extends email_message_class
 		{
 			$address=Key($recipients);
 			if($this->smtp->SetRecipient($address))
-				$valid_recipients++;
+			$valid_recipients++;
 			else
-				$this->invalid_recipients[$address]=$this->smtp->error;
+			$this->invalid_recipients[$address]=$this->smtp->error;
 		}
 		return(1);
 	}
@@ -121,29 +121,29 @@ class smtp_message_class extends email_message_class
 					break;
 			}
 			if(strcmp($error,""))
-				return($this->OutputError($error));
+			return($this->OutputError($error));
 			if(strtolower($header_name)=="bcc")
-				continue;
+			continue;
 			$header_data.=$this->FormatHeader($header_name,$headers[$header_name]);
 		}
 		if(count($from)==0)
-			return($this->OutputError("it was not specified a valid From header"));
+		return($this->OutputError("it was not specified a valid From header"));
 		if(count($to)==0)
-			return($this->OutputError("it was not specified a valid To header"));
+		return($this->OutputError("it was not specified a valid To header"));
 		Reset($return_path);
 		Reset($from);
 		$this->invalid_recipients=array();
 		if(!$this->smtp->MailFrom(count($return_path) ? Key($return_path) : Key($from))
 		|| !$this->SetRecipients($to,$valid_recipients))
-			return($this->OutputError($this->smtp->error));
+		return($this->OutputError($this->smtp->error));
 		if($valid_recipients==0)
-			return($this->OutputError("it were not specified any valid recipients"));
+		return($this->OutputError("it were not specified any valid recipients"));
 		if(!$date_set)
-			$header_data.="Date: ".strftime("%a, %d %b %Y %H:%M:%S %Z")."\r\n";
+		$header_data.="Date: ".strftime("%a, %d %b %Y %H:%M:%S %Z")."\r\n";
 		if(!$this->SetRecipients($recipients,$valid_recipients)
 		|| !$this->smtp->StartData()
 		|| !$this->smtp->SendData("$header_data\r\n"))
-			return($this->OutputError($this->smtp->error));
+		return($this->OutputError($this->smtp->error));
 		return("");
 	}
 

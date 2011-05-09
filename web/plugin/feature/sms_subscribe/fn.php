@@ -6,7 +6,7 @@
  *
  * @param $keyword
  *   checkavailablekeyword() will insert keyword for checking to the hook here
- * @return 
+ * @return
  *   TRUE if keyword is available
  */
 function sms_subscribe_hook_checkavailablekeyword($keyword) {
@@ -67,7 +67,7 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $subscribe_key
 			if (function_exists('mb_detect_encoding')) {
 				$encoding = mb_detect_encoding($message, 'auto');
 				if ($encoding != 'ASCII') {
-				    	$unicode = 1;
+					$unicode = 1;
 				}
 			}
 			$ret = sendsms($core_config['main']['cfg_gateway_number'],'',$sms_to,$message,$c_uid,0,'text',$unicode);

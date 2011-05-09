@@ -39,7 +39,7 @@ function sms_survey_hook_playsmsd() {
 						if (function_exists('mb_detect_encoding')) {
 							$encoding = mb_detect_encoding($message, 'auto');
 							if ($encoding != 'ASCII') {
-							    	$unicode = 1;
+								$unicode = 1;
 							}
 						}
 						$ret = sendsms($core_config['main']['cfg_gateway_number'],'',$c_sms_to,$c_sms_msg,$c_uid,0,'text',$unicode);
@@ -75,7 +75,7 @@ function sms_survey_hook_playsmsd() {
  *
  * @param $keyword
  *   checkavailablekeyword() will insert keyword for checking to the hook here
- * @return 
+ * @return
  *   TRUE if keyword is available
  */
 function sms_survey_hook_checkavailablekeyword($keyword) {
@@ -180,15 +180,15 @@ function sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $s
 						$log['session'] = $session;
 						sms_survey_savelog($log);
 					}
-               			}
-                        	// set handled
+				}
+				// set handled
 				$ok = true;
 			}
 		}
 	} else {
-	    	// returns true even if its not handled since survey is disabled
-	    	// returning false will make this SMS as unhandled SMS
-	    	$ok = true;
+		// returns true even if its not handled since survey is disabled
+		// returning false will make this SMS as unhandled SMS
+		$ok = true;
 	}
 	return $ok;
 }

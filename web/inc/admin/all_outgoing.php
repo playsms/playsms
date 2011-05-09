@@ -5,23 +5,23 @@ $slid = $_REQUEST['slid'];
 
 switch ($op)
 {
-    case "all_outgoing":
-	if(!$page){$page = 1;}
-	if(!$nav){$nav = 1;}
-	
-	$line_per_page = 50;
-	$max_nav = 15;
+	case "all_outgoing":
+		if(!$page){$page = 1;}
+		if(!$nav){$nav = 1;}
 
-	$db_query = "SELECT count(*) as count FROM "._DB_PREF_."_tblSMSOutgoing WHERE flag_deleted='0'";
-	$db_result = dba_query($db_query);
-	$db_row = dba_fetch_array($db_result);
-	$num_rows = $db_row['count'];
+		$line_per_page = 50;
+		$max_nav = 15;
 
-	$pages = ceil($num_rows/$line_per_page);
-	$nav_pages = themes_navbar($pages, $nav, $max_nav, "index.php?app=menu&inc=all_outgoing&op=all_outgoing", $page);
-	$limit = ($page-1)*$line_per_page;    
-	
-	$content = "
+		$db_query = "SELECT count(*) as count FROM "._DB_PREF_."_tblSMSOutgoing WHERE flag_deleted='0'";
+		$db_result = dba_query($db_query);
+		$db_row = dba_fetch_array($db_result);
+		$num_rows = $db_row['count'];
+
+		$pages = ceil($num_rows/$line_per_page);
+		$nav_pages = themes_navbar($pages, $nav, $max_nav, "index.php?app=menu&inc=all_outgoing&op=all_outgoing", $page);
+		$limit = ($page-1)*$line_per_page;
+
+		$content = "
 	    <h2>"._('All Outgoing SMS')."</h2>
 	    <p>$nav_pages</p>
 	    <form name=\"fm_outgoing\" action=\"index.php?app=menu&inc=all_outgoing&op=act_del\" method=post onSubmit=\"return SureConfirm()\">
@@ -42,71 +42,71 @@ switch ($op)
         </thead>
         <tbody>
 	";
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE flag_deleted='0' ORDER BY smslog_id DESC LIMIT $limit,$line_per_page";
-	$db_result = dba_query($db_query);
-	$i = ($num_rows-($line_per_page*($page-1)))+1;
-	$j=0;
-	while ($db_row = dba_fetch_array($db_result))
-	{
-	    $j++;
-	    $current_slid = $db_row['smslog_id'];
-	    $p_username = uid2username($db_row['uid']);
-	    $p_dst = $db_row['p_dst'];
-	    $p_desc = phonebook_number2name($p_dst);
-	    $current_p_dst = $p_dst;
-	    if ($p_desc) 
-	    {
-		$current_p_dst = "$p_dst<br>($p_desc)";
-	    }
-	    $hide_p_dst = $p_dst;
-	    if ($p_desc) 
-	    {
-		$hide_p_dst = "$p_dst ($p_desc)";
-	    }
-	    $p_sms_type = $db_row['p_sms_type'];
-	    $hide_p_dst = str_replace("\'","",$hide_p_dst);
-	    $hide_p_dst = str_replace("\"","",$hide_p_dst);
-	    $p_msg = core_display_text($db_row['p_msg'], 25);
-	    if (($p_footer = $db_row['p_footer']) && (($p_sms_type == "text") || ($p_sms_type == "flash")))
-	    {
-		$p_msg = $p_msg." $p_footer";
-	    }
-	    $p_datetime = core_display_datetime($db_row['p_datetime']);
-	    $p_gateway = $db_row['p_gateway'];
-	    $p_update = $db_row['p_update'];
-	    $p_status = $db_row['p_status'];
-	    $p_gpid = $db_row['p_gpid'];
-	    // 0 = pending
-	    // 1 = sent
-	    // 2 = failed
-	    // 3 = delivered
-	    if ($p_status == "1") 
-	    { 
-		$p_status = "<p><font color=green>"._('Sent')."</font></p>"; 
-	    } 
-	    else if ($p_status == "2")
-	    { 
-		$p_status = "<p><font color=red>"._('Failed')."</font></p>"; 
-	    }
-	    else if ($p_status == "3")
-	    {
-		$p_status = "<p><font color=green>"._('Delivered')."</font></p>"; 
-	    }
-	    else
-	    { 
-		$p_status = "<p><font color=orange>"._('Pending')."</font></p>"; 
-	    }
-	    if ($p_gpid) 
-	    { 
-		$p_gpcode = strtoupper(phonebook_groupid2code($p_gpid));
-	    }
-	    else
-	    {
-		$p_gpcode = "&nbsp;";
-	    }
-	    $i--;
-	    $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";	    
-	    $content .= "
+		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE flag_deleted='0' ORDER BY smslog_id DESC LIMIT $limit,$line_per_page";
+		$db_result = dba_query($db_query);
+		$i = ($num_rows-($line_per_page*($page-1)))+1;
+		$j=0;
+		while ($db_row = dba_fetch_array($db_result))
+		{
+			$j++;
+			$current_slid = $db_row['smslog_id'];
+			$p_username = uid2username($db_row['uid']);
+			$p_dst = $db_row['p_dst'];
+			$p_desc = phonebook_number2name($p_dst);
+			$current_p_dst = $p_dst;
+			if ($p_desc)
+			{
+				$current_p_dst = "$p_dst<br>($p_desc)";
+			}
+			$hide_p_dst = $p_dst;
+			if ($p_desc)
+			{
+				$hide_p_dst = "$p_dst ($p_desc)";
+			}
+			$p_sms_type = $db_row['p_sms_type'];
+			$hide_p_dst = str_replace("\'","",$hide_p_dst);
+			$hide_p_dst = str_replace("\"","",$hide_p_dst);
+			$p_msg = core_display_text($db_row['p_msg'], 25);
+			if (($p_footer = $db_row['p_footer']) && (($p_sms_type == "text") || ($p_sms_type == "flash")))
+			{
+				$p_msg = $p_msg." $p_footer";
+			}
+			$p_datetime = core_display_datetime($db_row['p_datetime']);
+			$p_gateway = $db_row['p_gateway'];
+			$p_update = $db_row['p_update'];
+			$p_status = $db_row['p_status'];
+			$p_gpid = $db_row['p_gpid'];
+			// 0 = pending
+			// 1 = sent
+			// 2 = failed
+			// 3 = delivered
+			if ($p_status == "1")
+			{
+				$p_status = "<p><font color=green>"._('Sent')."</font></p>";
+			}
+			else if ($p_status == "2")
+			{
+				$p_status = "<p><font color=red>"._('Failed')."</font></p>";
+			}
+			else if ($p_status == "3")
+			{
+				$p_status = "<p><font color=green>"._('Delivered')."</font></p>";
+			}
+			else
+			{
+				$p_status = "<p><font color=orange>"._('Pending')."</font></p>";
+			}
+			if ($p_gpid)
+			{
+				$p_gpcode = strtoupper(phonebook_groupid2code($p_gpid));
+			}
+			else
+			{
+				$p_gpcode = "&nbsp;";
+			}
+			$i--;
+			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
+			$content .= "
 		<tr>
 	          <td valign=top class=$td_class align=left>$i.</td>
 	          <td valign=top class=$td_class align=center>$p_username</td>
@@ -125,9 +125,9 @@ switch ($op)
 		</td>		  
 		</tr>
 	    ";
-	}
-	$item_count = $j;
-	$content .= "
+		}
+		$item_count = $j;
+		$content .= "
 	</tbody></table>
 	<table width=100% cellpadding=0 cellspacing=0 border=0>
 	<tr>
@@ -140,44 +140,44 @@ switch ($op)
 	</form>
 	<p>$nav_pages</p>
 	";
-	if ($err)
-	{
-	    echo "<div class=error_string>$err</div><br><br>";
-	}
-	echo $content;
-	break;
-    case "all_outgoing_del":
-	if ($slid)
-	{
-	    $db_query = "UPDATE "._DB_PREF_."_tblSMSOutgoing SET c_timestamp='".mktime()."',flag_deleted='1' WHERE smslog_id='$slid'";
-	    $db_result = dba_affected_rows($db_query);
-	    if ($db_result > 0)
-	    {
-		$err = _('Selected outgoing SMS has been deleted');
-	    }
-	    else
-	    {
-		$err = _('Fail to delete SMS');
-	    }
-	}
-	header ("Location: index.php?app=menu&inc=all_outgoing&op=all_outgoing&err=".urlencode($err));
-	break;
-    case "act_del":
-	$item_count = $_POST['item_count'];
-	
-	for ($i=1;$i<=$item_count;$i++)
-	{
-	    $chkid = $_POST['chkid'.$i];
-	    $slid = $_POST['slid'.$i];
-	    
-	    if(($chkid=="on") && $slid)
-	    {
-		$db_query = "UPDATE "._DB_PREF_."_tblSMSOutgoing SET c_timestamp='".mktime()."',flag_deleted='1' WHERE smslog_id='$slid'";
-		$db_result = dba_affected_rows($db_query);
-	    }
-	}
-	header ("Location: index.php?app=menu&inc=all_outgoing&op=all_outgoing&err=".urlencode(_('Selected outgoing SMS has been deleted')));
-	break;
+		if ($err)
+		{
+			echo "<div class=error_string>$err</div><br><br>";
+		}
+		echo $content;
+		break;
+	case "all_outgoing_del":
+		if ($slid)
+		{
+			$db_query = "UPDATE "._DB_PREF_."_tblSMSOutgoing SET c_timestamp='".mktime()."',flag_deleted='1' WHERE smslog_id='$slid'";
+			$db_result = dba_affected_rows($db_query);
+			if ($db_result > 0)
+			{
+				$err = _('Selected outgoing SMS has been deleted');
+			}
+			else
+			{
+				$err = _('Fail to delete SMS');
+			}
+		}
+		header ("Location: index.php?app=menu&inc=all_outgoing&op=all_outgoing&err=".urlencode($err));
+		break;
+	case "act_del":
+		$item_count = $_POST['item_count'];
+
+		for ($i=1;$i<=$item_count;$i++)
+		{
+			$chkid = $_POST['chkid'.$i];
+			$slid = $_POST['slid'.$i];
+
+			if(($chkid=="on") && $slid)
+			{
+				$db_query = "UPDATE "._DB_PREF_."_tblSMSOutgoing SET c_timestamp='".mktime()."',flag_deleted='1' WHERE smslog_id='$slid'";
+				$db_result = dba_affected_rows($db_query);
+			}
+		}
+		header ("Location: index.php?app=menu&inc=all_outgoing&op=all_outgoing&err=".urlencode(_('Selected outgoing SMS has been deleted')));
+		break;
 }
 
 ?>

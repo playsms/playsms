@@ -12,7 +12,7 @@ $content .= "
 ";
 
 if($status == 2) {
-$content .= "
+	$content .= "
     <input type=button value='"._('About playSMS')."' onClick=\"javascript:linkto('index.php?get=1')\" class='button' />
     <input type=button value='"._('Changelog')."' onClick=\"javascript:linkto('index.php?get=2')\" class='button' />
     <input type=button value='"._('Installation Guide')."' onClick=\"javascript:linkto('index.php?get=3')\" class='button' />
@@ -24,27 +24,27 @@ $content .= "
 $content .= "
     <!-- input type=button value='"._('FAQ Users')."' onClick=\"javascript:linkto('index.php?get=6')\" class='button' /-->";
 
-    $content .= "<hr size='1'>";
+$content .= "<hr size='1'>";
 
 
 if($status == 2) {
-$get = ( $_GET['get'] ? $_GET['get'] : 1 );
-switch ($get)
-{
-    case 1: $read = "README"; break;
-    case 2: $read = "CHANGELOG"; break;
-    case 3: $read = "INSTALL"; break;
-    case 4: $read = "FAQ"; break;
-    case 5: $read = "LICENSE"; break;
-    case 6: $read = "FAQUSERS"; break;
-}
+	$get = ( $_GET['get'] ? $_GET['get'] : 1 );
+	switch ($get)
+	{
+		case 1: $read = "README"; break;
+		case 2: $read = "CHANGELOG"; break;
+		case 3: $read = "INSTALL"; break;
+		case 4: $read = "FAQ"; break;
+		case 5: $read = "LICENSE"; break;
+		case 6: $read = "FAQUSERS"; break;
+	}
 }
 else {
-$get = ( $_GET['get'] ? $_GET['get'] : 1 );
-switch ($get)
-{
-    case 6: $read = "FAQUSERS"; break;
-}
+	$get = ( $_GET['get'] ? $_GET['get'] : 1 );
+	switch ($get)
+	{
+		case 6: $read = "FAQUSERS"; break;
+	}
 }
 
 $fn = $apps_path['base']."/docs/".$read;

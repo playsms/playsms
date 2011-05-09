@@ -5,22 +5,22 @@ include $apps_path['plug']."/gateway/uplink/config.php";
 
 if ($gateway_module == $uplink_param['name'])
 {
-    $status_active = "(<b><font color=green>"._('Active')."</font></b>)";
+	$status_active = "(<b><font color=green>"._('Active')."</font></b>)";
 }
 else
 {
-    $status_active = "(<b><font color=red>"._('Inactive')."</font></b>) (<a href=\"index.php?app=menu&inc=gateway_uplink&op=manage_activate\">"._('click here to activate')."</a>)";
+	$status_active = "(<b><font color=red>"._('Inactive')."</font></b>) (<a href=\"index.php?app=menu&inc=gateway_uplink&op=manage_activate\">"._('click here to activate')."</a>)";
 }
 
 
 switch ($op)
 {
-    case "manage":
-	if ($err)
-	{
-	    $content = "<div class=error_string>$err</div>";
-	}
-	$content .= "
+	case "manage":
+		if ($err)
+		{
+			$content = "<div class=error_string>$err</div>";
+		}
+		$content .= "
 	    <h2>"._('Manage uplink')."</h2>
 	    <p>
 	    <form action=index.php?app=menu&inc=gateway_uplink&op=manage_save method=post>
@@ -59,23 +59,23 @@ switch ($op)
 	    <p><input type=submit class=button value=\""._('Save')."\">
 	    </form>
 	";
-	echo $content;
-	break;
-    case "manage_save":
-	$up_master = $_POST['up_master'];
-	$up_additional_param = $_POST['up_additional_param'];
-	$up_username = $_POST['up_username'];
-	$up_password = $_POST['up_password'];
-	$up_global_sender = $_POST['up_global_sender'];
-	$up_global_timezone = $_POST['up_global_timezone'];
-	$up_incoming_path = $_POST['up_incoming_path'];
-	$error_string = _('No changes has been made');
-	if ($up_master && $up_username && $up_incoming_path)
-	{
-	    if ($up_password) {
-		$password_change = "cfg_password='$up_password',";
-	    }
-	    $db_query = "
+		echo $content;
+		break;
+	case "manage_save":
+		$up_master = $_POST['up_master'];
+		$up_additional_param = $_POST['up_additional_param'];
+		$up_username = $_POST['up_username'];
+		$up_password = $_POST['up_password'];
+		$up_global_sender = $_POST['up_global_sender'];
+		$up_global_timezone = $_POST['up_global_timezone'];
+		$up_incoming_path = $_POST['up_incoming_path'];
+		$error_string = _('No changes has been made');
+		if ($up_master && $up_username && $up_incoming_path)
+		{
+			if ($up_password) {
+				$password_change = "cfg_password='$up_password',";
+			}
+			$db_query = "
 		UPDATE "._DB_PREF_."_gatewayUplink_config 
 		SET c_timestamp='".mktime()."',
 		    cfg_master='$up_master',
@@ -86,19 +86,19 @@ switch ($op)
 		    cfg_datetime_timezone='$up_global_timezone',
 		    cfg_incoming_path='$up_incoming_path'
 	    ";
-	    if (@dba_affected_rows($db_query))
-	    {
-		$error_string = _('Gateway module configurations has been saved');
-	    }
-	}
-	header ("Location: index.php?app=menu&inc=gateway_uplink&op=manage&err=".urlencode($error_string));
-	break;
-    case "manage_activate":
-	$db_query = "UPDATE "._DB_PREF_."_tblConfig_main SET c_timestamp='".mktime()."',cfg_gateway_module='uplink'";
-	$db_result = dba_query($db_query);
-	$error_string = _('Gateway has been activated');
-	header ("Location: index.php?app=menu&inc=gateway_uplink&op=manage&err=".urlencode($error_string));
-	break;
+			if (@dba_affected_rows($db_query))
+			{
+				$error_string = _('Gateway module configurations has been saved');
+			}
+		}
+		header ("Location: index.php?app=menu&inc=gateway_uplink&op=manage&err=".urlencode($error_string));
+		break;
+	case "manage_activate":
+		$db_query = "UPDATE "._DB_PREF_."_tblConfig_main SET c_timestamp='".mktime()."',cfg_gateway_module='uplink'";
+		$db_result = dba_query($db_query);
+		$error_string = _('Gateway has been activated');
+		header ("Location: index.php?app=menu&inc=gateway_uplink&op=manage&err=".urlencode($error_string));
+		break;
 }
 
 ?>

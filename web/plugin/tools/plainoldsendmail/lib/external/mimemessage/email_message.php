@@ -52,7 +52,7 @@ class email_message_class
 		for($character=0;$character<strlen($separator);$character++)
 		{
 			if(GetType($position=strpos($string,$separator[$character]))=="integer")
-				$found=(IsSet($found) ? min($found,$position) : $position);
+			$found=(IsSet($found) ? min($found,$position) : $position);
 		}
 		if(IsSet($found))
 		{
@@ -75,7 +75,7 @@ class email_message_class
 	{
 		if(strcmp($function=$this->debug,"")
 		&& strcmp($error,""))
-			$function($error);
+		$function($error);
 		return($this->error=$error);
 	}
 
@@ -97,18 +97,18 @@ class email_message_class
 			for($space=$position,$line_length=strlen($header_line);$space<$length;)
 			{
 				if(GetType($next=strpos($header_value," ",$space+1))!="integer")
-					$next=$length;
+				$next=$length;
 				if($next-$position+$line_length>$this->header_length_limit)
 				{
 					if($space==$position)
-						$space=$next;
+					$space=$next;
 					break;
 				}
 				$space=$next;
 			}
 			$header_data.=$header_line.substr($header_value,$position,$space-$position).$this->line_break;
 			if($space<$length)
-				$header_line="";
+			$header_line="";
 			$position=$space;
 		}
 		return($header_data);
@@ -131,11 +131,11 @@ class email_message_class
 			if(strlen($return_path))
 			{
 				if(!defined("PHP_OS"))
-					return($this->OutputError("it is not possible to set the Return-Path header with your PHP version"));
+				return($this->OutputError("it is not possible to set the Return-Path header with your PHP version"));
 				if(!strcmp(substr(PHP_OS,0,3),"WIN"))
-					return($this->OutputError("it is not possible to set the Return-Path header directly from a PHP script on Windows"));
+				return($this->OutputError("it is not possible to set the Return-Path header directly from a PHP script on Windows"));
 				if($this->GetPHPVersion()<4000005)
-					return($this->OutputError("it is not possible to set the Return-Path header in PHP version older than 4.0.5"));
+				return($this->OutputError("it is not possible to set the Return-Path header in PHP version older than 4.0.5"));
 			}
 		}
 		$success=(strlen($return_path) ? mail($to,$subject,$body,$headers,"-f".$return_path) : mail($to,$subject,$body,$headers));
@@ -145,7 +145,7 @@ class email_message_class
 	Function StartSendingMessage()
 	{
 		if(strcmp($this->delivery["State"],""))
-			return($this->OutputError("the message was already started to be sent"));
+		return($this->OutputError("the message was already started to be sent"));
 		$this->delivery=array("State"=>"SendingHeaders");
 		return("");
 	}
@@ -155,9 +155,9 @@ class email_message_class
 		if(strcmp($this->delivery["State"],"SendingHeaders"))
 		{
 			if(!strcmp($this->delivery["State"],""))
-				return($this->OutputError("the message was not yet started to be sent"));
+			return($this->OutputError("the message was not yet started to be sent"));
 			else
-				return($this->OutputError("the message headers were already sent"));
+			return($this->OutputError("the message headers were already sent"));
 		}
 		$this->delivery["Headers"]=$headers;
 		$this->delivery["State"]="SendingBody";
@@ -167,21 +167,21 @@ class email_message_class
 	Function SendMessageBody(&$data)
 	{
 		if(strcmp($this->delivery["State"],"SendingBody"))
-			return($this->OutputError("the message headers were not yet sent"));
+		return($this->OutputError("the message headers were not yet sent"));
 		if(IsSet($this->delivery["Body"]))
-			$this->delivery["Body"].=$data;
+		$this->delivery["Body"].=$data;
 		else
-			$this->delivery["Body"]=$data;
+		$this->delivery["Body"]=$data;
 		return("");
 	}
 
 	Function EndSendingMessage()
 	{
 		if(strcmp($this->delivery["State"],"SendingBody"))
-			return($this->OutputError("the message body data was not yet sent"));
+		return($this->OutputError("the message body data was not yet sent"));
 		if(!IsSet($this->delivery["Headers"])
 		|| count($this->delivery["Headers"])==0)
-			return($this->OutputError("message has no headers"));
+		return($this->OutputError("message has no headers"));
 		$line_break=((defined("PHP_OS") && !strcmp(substr(PHP_OS,0,3),"WIN")) ? "\r\n" : $this->line_break);
 		$headers=$this->delivery["Headers"];
 		for($return_path=$headers_text=$to=$subject="",$header=0,Reset($headers);$header<count($headers);Next($headers),$header++)
@@ -201,11 +201,11 @@ class email_message_class
 			}
 		}
 		if(!strcmp($to,""))
-			return($this->OutputError("it was not specified a valid To: header"));
+		return($this->OutputError("it was not specified a valid To: header"));
 		if(!strcmp($subject,""))
-			return($this->OutputError("it was not specified a valid Subject: header"));
+		return($this->OutputError("it was not specified a valid Subject: header"));
 		if(strcmp($error=$this->SendMail($to,$subject,$this->delivery["Body"],$headers_text,$return_path),""))
-			return($error);
+		return($error);
 		$this->delivery=array("State"=>"");
 		return("");
 	}
@@ -219,13 +219,13 @@ class email_message_class
 	Function GetPartBoundary($part)
 	{
 		if(!IsSet($this->parts[$part]["BOUNDARY"]))
-			$this->parts[$part]["BOUNDARY"]=md5(uniqid($part.time()));
+		$this->parts[$part]["BOUNDARY"]=md5(uniqid($part.time()));
 	}
 
 	Function GetPartHeaders(&$headers,$part)
 	{
 		if(!IsSet($this->parts[$part]["Content-Type"]))
-			return($this->OutputError("it was added a part without Content-Type: defined"));
+		return($this->OutputError("it was added a part without Content-Type: defined"));
 		$type=$this->Tokenize($full_type=strtolower($this->parts[$part]["Content-Type"]),"/");
 		$sub_type=$this->Tokenize("");
 		switch($type)
@@ -237,10 +237,10 @@ class email_message_class
 			case "application":
 				$headers["Content-Type"]=$full_type.(IsSet($this->parts[$part]["CHARSET"]) ? "; charset=".$this->parts[$part]["CHARSET"] : "").(IsSet($this->parts[$part]["NAME"]) ? "; name=\"".$this->parts[$part]["NAME"]."\"" : "");
 				if(IsSet($this->parts[$part]["Content-Transfer-Encoding"]))
-					$headers["Content-Transfer-Encoding"]=$this->parts[$part]["Content-Transfer-Encoding"];
+				$headers["Content-Transfer-Encoding"]=$this->parts[$part]["Content-Transfer-Encoding"];
 				if(IsSet($this->parts[$part]["DISPOSITION"])
 				&& strlen($this->parts[$part]["DISPOSITION"]))
-					$headers["Content-Disposition"]=$this->parts[$part]["DISPOSITION"].(IsSet($this->parts[$part]["NAME"]) ? "; filename=\"".$this->parts[$part]["NAME"]."\"" : "");
+				$headers["Content-Disposition"]=$this->parts[$part]["DISPOSITION"].(IsSet($this->parts[$part]["NAME"]) ? "; filename=\"".$this->parts[$part]["NAME"]."\"" : "");
 				break;
 			case "multipart":
 				switch($sub_type)
@@ -260,14 +260,14 @@ class email_message_class
 				return($this->OutputError("Content-Type: $full_type not yet supported"));
 		}
 		if(IsSet($this->parts[$part]["Content-ID"]))
-			$headers["Content-ID"]=$this->parts[$part]["Content-ID"];
+		$headers["Content-ID"]=$this->parts[$part]["Content-ID"];
 		return("");
 	}
 
 	Function GetPartBody(&$body,$part)
 	{
 		if(!IsSet($this->parts[$part]["Content-Type"]))
-			return($this->OutputError("it was added a part without Content-Type: defined"));
+		return($this->OutputError("it was added a part without Content-Type: defined"));
 		$type=$this->Tokenize($full_type=strtolower($this->parts[$part]["Content-Type"]),"/");
 		$sub_type=$this->Tokenize("");
 		$body="";
@@ -281,7 +281,7 @@ class email_message_class
 				if(IsSet($this->parts[$part]["FILENAME"]))
 				{
 					if(!($file=@fopen($this->parts[$part]["FILENAME"],"rb")))
-						return($this->OutputError("could not open part file"));
+					return($this->OutputError("could not open part file"));
 					while(!feof($file))
 					{
 						if(GetType($block=@fread($file,$this->file_buffer_length))!="string")
@@ -296,7 +296,7 @@ class email_message_class
 				else
 				{
 					if(!IsSet($this->parts[$part]["DATA"]))
-						return($this->OutputError("it was added a part without a body PART"));
+					return($this->OutputError("it was added a part without a body PART"));
 					$body=$this->parts[$part]["DATA"];
 				}
 				$encoding=(IsSet($this->parts[$part]["Content-Transfer-Encoding"]) ? strtolower($this->parts[$part]["Content-Transfer-Encoding"]) : "");
@@ -328,7 +328,7 @@ class email_message_class
 							$part_headers=array();
 							$sub_part=$this->parts[$part]["PARTS"][$multipart];
 							if(strlen($error=$this->GetPartHeaders($part_headers,$sub_part)))
-								return($error);
+							return($error);
 							for($part_header=0,Reset($part_headers);$part_header<count($part_headers);$part_header++,Next($part_headers))
 							{
 								$header=Key($part_headers);
@@ -336,7 +336,7 @@ class email_message_class
 							}
 							$body.=$this->line_break;
 							if(strlen($error=$this->GetPartBody($part_body,$sub_part)))
-								return($error);
+							return($error);
 							$body.=$part_body;
 						}
 						$body.=$boundary."--".$this->line_break;
@@ -369,10 +369,10 @@ class email_message_class
 				$code=Ord($text[$index]);
 				if($code<32
 				|| $code>127)
-					break;
+				break;
 			}
 			if($index>0)
-				return(substr($text,0,$index).$this->QuotedPrintableEncode(substr($text,$index),$header_charset,0));
+			return(substr($text,0,$index).$this->QuotedPrintableEncode(substr($text,$index),$header_charset,0));
 		}
 		for($whitespace=$encoded="",$line=0,$index=0;$index<$length;$index++)
 		{
@@ -392,9 +392,9 @@ class email_message_class
 					else
 					{
 						if(!strcmp($order,32))
-							$character="_";
+						$character="_";
 						else
-							$encode=1;
+						$encode=1;
 					}
 					break;
 				case 10:
@@ -423,7 +423,7 @@ class email_message_class
 					|| !strcmp($character,"_")
 					|| !strcmp($character,"(")
 					|| !strcmp($character,")"))))
-						$encode=1;
+					$encode=1;
 					break;
 			}
 			if(strcmp($whitespace,""))
@@ -446,7 +446,7 @@ class email_message_class
 					$encoded_length=3;
 				}
 				else
-					$encoded_length=1;
+				$encoded_length=1;
 				if($break_lines
 				&& $line+$encoded_length>75)
 				{
@@ -461,22 +461,22 @@ class email_message_class
 		{
 			if($break_lines
 			&& $line+3>75)
-				$encoded.="=".$this->line_break;
+			$encoded.="=".$this->line_break;
 			$encoded.=sprintf("=%02X",Ord($whitespace));
 		}
 		if(strcmp($header_charset,"")
 		&& strcmp($text,$encoded))
-			return("=?$header_charset?q?$encoded?=");
+		return("=?$header_charset?q?$encoded?=");
 		else
-			return($encoded);
+		return($encoded);
 	}
 
 	Function WrapText($text,$line_length=0,$line_break="",$line_prefix="")
 	{
 		if(strlen($line_break)==0)
-			$line_break=$this->line_break;
+		$line_break=$this->line_break;
 		if($line_length==0)
-			$line_length=$this->line_length;
+		$line_length=$this->line_length;
 		$lines=explode("\n",str_replace("\r","\n",str_replace("\r\n","\n",$text)));
 		for($wrapped="",$line=0;$line<count($lines);$line++)
 		{
@@ -505,14 +505,14 @@ class email_message_class
 	Function QuoteText($text,$quote_prefix="")
 	{
 		if(strlen($quote_prefix)==0)
-			$quote_prefix=$this->line_quote_prefix;
+		$quote_prefix=$this->line_quote_prefix;
 		return($this->WrapText($text,$line_length=0,$line_break="",$quote_prefix));
 	}
 
 	Function SetHeader($header,$value,$encoding_charset="")
 	{
 		if(strlen($this->error))
-			return($this->error);
+		return($this->error);
 		$this->headers["$header"]=(!strcmp($encoding_charset,"") ? "$value" : $this->QuotedPrintableEncode($value,$encoding_charset));
 		return("");
 	}
@@ -544,7 +544,7 @@ class email_message_class
 	{
 		$part=-1;
 		if(strlen($this->error))
-			return($this->error);
+		return($this->error);
 		if($this->total_free_parts)
 		{
 			$this->total_free_parts--;
@@ -563,19 +563,19 @@ class email_message_class
 	Function AddPart($part)
 	{
 		if(strlen($this->error))
-			return($this->error);
+		return($this->error);
 		switch($this->body_parts)
 		{
 			case 0;
-				$this->body=$part;
-				break;
+			$this->body=$part;
+			break;
 			case 1:
 				$parts=array(
-					$this->body,
-					$part
+				$this->body,
+				$part
 				);
 				if(strlen($error=$this->CreateMixedMultipart($parts,$body)))
-					return($error);
+				return($error);
 				$this->body=$body;
 				break;
 			default:
@@ -598,20 +598,20 @@ class email_message_class
 	{
 		if(strlen($error=$this->CreatePart($definition,$part))
 		|| strlen($error=$this->AddPart($part)))
-			return($error);
+		return($error);
 		return("");
 	}
 
 	Function CreatePlainTextPart($text,&$part,$charset="")
 	{
 		if(!strcmp($charset,""))
-			$charset=$this->default_charset;
+		$charset=$this->default_charset;
 		$definition=array(
 			"Content-Type"=>"text/plain",
 			"DATA"=>$text
 		);
 		if(strcmp(strtoupper($charset),"ASCII"))
-			$definition["CHARSET"]=$charset;
+		$definition["CHARSET"]=$charset;
 		return($this->CreatePart($definition,$part));
 	}
 
@@ -619,14 +619,14 @@ class email_message_class
 	{
 		if(strlen($error=$this->CreatePlainTextPart($text,$part,$charset))
 		|| strlen($error=$this->AddPart($part)))
-			return($error);
+		return($error);
 		return("");
 	}
 
 	Function CreateEncodedQuotedPrintableTextPart($text,$charset="",&$part)
 	{
 		if(!strcmp($charset,""))
-			$charset=$this->default_charset;
+		$charset=$this->default_charset;
 		$definition=array(
 			"Content-Type"=>"text/plain",
 			"Content-Transfer-Encoding"=>"quoted-printable",
@@ -640,7 +640,7 @@ class email_message_class
 	{
 		if(strlen($error=$this->CreateEncodedQuotedPrintableTextPart($text,$charset,$part))
 		|| strlen($error=$this->AddPart($part)))
-			return($error);
+		return($error);
 		return("");
 	}
 
@@ -657,7 +657,7 @@ class email_message_class
 	Function CreateHTMLPart($html,$charset,&$part)
 	{
 		if(!strcmp($charset,""))
-			$charset=$this->default_charset;
+		$charset=$this->default_charset;
 		$definition=array(
 			"Content-Type"=>"text/html",
 			"CHARSET"=>$charset,
@@ -670,14 +670,14 @@ class email_message_class
 	{
 		if(strlen($error=$this->CreateHTMLPart($html,$charset,$part))
 		|| strlen($error=$this->AddPart($part)))
-			return($error);
+		return($error);
 		return("");
 	}
 
 	Function CreateEncodedQuotedPrintableHTMLPart($html,$charset,&$part)
 	{
 		if(!strcmp($charset,""))
-			$charset=$this->default_charset;
+		$charset=$this->default_charset;
 		$definition=array(
 			"Content-Type"=>"text/html",
 			"Content-Transfer-Encoding"=>"quoted-printable",
@@ -691,7 +691,7 @@ class email_message_class
 	{
 		if(strlen($error=$this->CreateEncodedQuotedPrintableHTMLPart($html,$charset,$part))
 		|| strlen($error=$this->AddPart($part)))
-			return($error);
+		return($error);
 		return("");
 	}
 
@@ -709,16 +709,16 @@ class email_message_class
 	{
 		$name="";
 		if(IsSet($file["FileName"]))
-			$name=basename($file["FileName"]);
+		$name=basename($file["FileName"]);
 		else
 		{
 			if(!IsSet($file["Data"]))
-				return($this->OutputError("it was not specified the file part file name"));
+			return($this->OutputError("it was not specified the file part file name"));
 		}
 		if(IsSet($file["Name"]))
-			$name=$file["Name"];
+		$name=$file["Name"];
 		if(strlen($name)==0)
-			return($this->OutputError("it was not specified the file part name"));
+		return($this->OutputError("it was not specified the file part name"));
 		if(IsSet($file["Content-Type"]))
 		{
 			$content_type=$file["Content-Type"];
@@ -860,7 +860,7 @@ class email_message_class
 			}
 		}
 		else
-			$content_type="application/octet-stream";
+		$content_type="application/octet-stream";
 		$definition=array(
 			"Content-Type"=>$content_type,
 			"Content-Transfer-Encoding"=>"base64",
@@ -879,11 +879,11 @@ class email_message_class
 			$definition["DISPOSITION"]=$file["Disposition"];
 		}
 		if(IsSet($file["FileName"]))
-			$definition["FILENAME"]=$file["FileName"];
+		$definition["FILENAME"]=$file["FileName"];
 		else
 		{
 			if(IsSet($file["Data"]))
-				$definition["DATA"]=$file["Data"];
+			$definition["DATA"]=$file["Data"];
 		}
 		return($this->CreatePart($definition,$part));
 	}
@@ -892,7 +892,7 @@ class email_message_class
 	{
 		if(strlen($error=$this->CreateFilePart($file,$part))
 		|| strlen($error=$this->AddPart($part)))
-			return($error);
+		return($error);
 		return("");
 	}
 
@@ -909,7 +909,7 @@ class email_message_class
 	{
 		if(strlen($error=$this->CreateMultipart($parts,$part,$type))
 		|| strlen($error=$this->AddPart($part)))
-			return($error);
+		return($error);
 		return("");
 	}
 
@@ -956,7 +956,7 @@ class email_message_class
 	Function GetPartContentID($part)
 	{
 		if(!IsSet($this->parts[$part]))
-			return($path);
+		return($path);
 		if(!IsSet($this->parts[$part]["Content-ID"]))
 		{
 			$extension=(IsSet($this->parts[$part]["NAME"]) ? $this->GetFilenameExtension($this->parts[$part]["NAME"]) : "");
@@ -968,30 +968,30 @@ class email_message_class
 	Function Send()
 	{
 		if(strlen($this->error))
-			return($this->error);
+		return($this->error);
 		$headers=$this->headers;
 		if(strcmp($this->mailer,""))
-			$headers["X-Mailer"]=$this->mailer;
+		$headers["X-Mailer"]=$this->mailer;
 		$headers["MIME-Version"]="1.0";
 		if($this->body_parts==0)
-			return($this->OutputError("message has no body parts"));
+		return($this->OutputError("message has no body parts"));
 		if(strlen($error=$this->GetPartHeaders($headers,$this->body)))
-			return($error);
+		return($error);
 		if($this->cache_body
 		&& IsSet($this->body_cache[$this->body]))
-			$body=$this->body_cache[$this->body];
+		$body=$this->body_cache[$this->body];
 		else
 		{
 			if(strlen($error=$this->GetPartBody($body,$this->body)))
-				return($error);
+			return($error);
 			if($this->cache_body)
-				$this->body_cache[$this->body]=$body;
+			$this->body_cache[$this->body]=$body;
 		}
 		if(strcmp($error=$this->StartSendingMessage(),""))
-			return($error);
+		return($error);
 		if(strlen($error=$this->SendMessageHeaders($headers))==0
 		&& strlen($error=$this->SendMessageBody($body))==0)
-			$error=$this->EndSendingMessage();
+		$error=$this->EndSendingMessage();
 		$this->StopSendingMessage();
 		return($error);
 	}
@@ -1021,7 +1021,7 @@ class email_message_class
 				$content_type=$matches[2];
 			}
 			else
-				$this->SetHeader($matches[1],$matches[2]);
+			$this->SetHeader($matches[1],$matches[2]);
 		}
 		if(strlen($additional_parameters))
 		{
@@ -1046,7 +1046,7 @@ class email_message_class
 			}
 		}
 		if(strlen($content_type)==0)
-			$content_type="text/plain";
+		$content_type="text/plain";
 		$definition=array(
 			"Content-Type"=>$content_type,
 			"DATA"=>$message
@@ -1059,33 +1059,33 @@ class email_message_class
 	Function OpenMailing(&$mailing,&$mailing_properties)
 	{
 		if(strlen($this->error))
-			return($this->error);
+		return($this->error);
 		if(!IsSet($mailing_properties["Name"])
 		|| strlen($mailing_properties["Name"])==0)
-			return($this->OutputError("it was not specified a valid mailing Name"));
+		return($this->OutputError("it was not specified a valid mailing Name"));
 		if(!IsSet($mailing_properties["Return-Path"])
 		|| strlen($mailing_properties["Return-Path"])==0)
-			return($this->OutputError("it was not specified a valid mailing Return-Path"));
+		return($this->OutputError("it was not specified a valid mailing Return-Path"));
 		$separator="";
 		$directory_separator=(defined("DIRECTORY_SEPARATOR") ? DIRECTORY_SEPARATOR : ((defined("PHP_OS") && !strcmp(substr(PHP_OS,0,3),"WIN")) ? "\\" : "/"));
 		$length=strlen($this->mailing_path);
 		if($length)
 		{
 			if($this->mailing_path[$length-1]!=$directory_separator)
-				$separator=$directory_separator;
+			$separator=$directory_separator;
 		}
 		$base_path=$this->mailing_path.$separator.$mailing_properties["Name"];
 		if($this->body_parts==0)
-			return($this->OutputError("message has no body parts"));
+		return($this->OutputError("message has no body parts"));
 		$line_break="\n";
 		$headers=$this->headers;
 		if(strlen($this->mailer))
-			$headers["X-Mailer"]=$this->mailer;
+		$headers["X-Mailer"]=$this->mailer;
 		$headers["MIME-Version"]="1.0";
 		if(strlen($error=$this->GetPartHeaders($headers,$this->body)))
-			return($error);
+		return($error);
 		if(!($header_file=fopen($base_path.".h","wb")))
-			return($this->OutputError("could not open mailing headers file ".$base_path.".h"));
+		return($this->OutputError("could not open mailing headers file ".$base_path.".h"));
 		for($header=0,Reset($headers);$header<count($headers);Next($headers),$header++)
 		{
 			$header_name=Key($headers);
@@ -1147,28 +1147,28 @@ class email_message_class
 	Function AddMailingRecipient($mailing,&$recipient_properties)
 	{
 		if(strlen($this->error))
-			return($this->error);
+		return($this->error);
 		if(!IsSet($this->mailings[$mailing]))
-			return($this->OutputError("it was not specified a valid mailing"));
+		return($this->OutputError("it was not specified a valid mailing"));
 		if(!IsSet($recipient_properties["Address"])
 		|| strlen($recipient_properties["Address"])==0)
-			return($this->OutputError("it was not specified a valid mailing recipient Address"));
+		return($this->OutputError("it was not specified a valid mailing recipient Address"));
 		if(!@fwrite($this->mailings[$mailing]["Envelope"],"T".$recipient_properties["Address"].chr(0)))
-			return($this->OutputError("could not write recipient address to the mailing envelope file"));
+		return($this->OutputError("could not write recipient address to the mailing envelope file"));
 		return("");
 	}
 
 	Function EndMailing($mailing)
 	{
 		if(strlen($this->error))
-			return($this->error);
+		return($this->error);
 		if(!IsSet($this->mailings[$mailing]))
-			return($this->OutputError("it was not specified a valid mailing"));
+		return($this->OutputError("it was not specified a valid mailing"));
 		if(!IsSet($this->mailings[$mailing]["Envelope"]))
-			return($this->OutputError("the mailing was already ended"));
+		return($this->OutputError("the mailing was already ended"));
 		if(!@fwrite($this->mailings[$mailing]["Envelope"],chr(0))
 		|| !fflush($this->mailings[$mailing]["Envelope"]))
-			return($this->OutputError("could not end writing to the mailing envelope file"));
+		return($this->OutputError("could not end writing to the mailing envelope file"));
 		fclose($this->mailings[$mailing]["Envelope"]);
 		Unset($this->mailings[$mailing]["Envelope"]);
 		return("");
@@ -1177,22 +1177,22 @@ class email_message_class
 	Function SendMailing($mailing)
 	{
 		if(strlen($this->error))
-			return($this->error);
+		return($this->error);
 		if(!IsSet($this->mailings[$mailing]))
-			return($this->OutputError("it was not specified a valid mailing"));
+		return($this->OutputError("it was not specified a valid mailing"));
 		if(IsSet($this->mailings[$mailing]["Envelope"]))
-			return($this->OutputError("the mailing was not yet ended"));
+		return($this->OutputError("the mailing was not yet ended"));
 		$this->ResetMessage();
 		$base_path=$this->mailings[$mailing]["BasePath"];
 		if(GetType($header_lines=@File($base_path.".h"))!="array")
-			return($this->OutputError("could not read the mailing headers file ".$base_path.".h"));
+		return($this->OutputError("could not read the mailing headers file ".$base_path.".h"));
 		for($line=0;$line<count($header_lines);$line++)
 		{
 			$header_name=$this->Tokenize($header_lines[$line],": ");
 			$this->headers[$header_name]=trim($this->Tokenize("\n"));
 		}
 		if(!($envelope_file=fopen($base_path.".e","rb")))
-			return($this->OutputError("could not open the mailing envelope file ".$base_path.".e"));
+		return($this->OutputError("could not open the mailing envelope file ".$base_path.".e"));
 		for($bcc=$data="",$position=0;!feof($envelope_file) || strlen($data);)
 		{
 			if(GetType($break=strpos($data,chr(0),$position))!="integer")
@@ -1207,7 +1207,7 @@ class email_message_class
 				continue;
 			}
 			if($break==$position)
-				break;
+			break;
 			switch($data[$position])
 			{
 				case "F":
@@ -1223,10 +1223,10 @@ class email_message_class
 		}
 		fclose($envelope_file);
 		if(strlen($bcc)==0)
-			return($this->OutputError("the mailing envelop file ".$base_path.".e does not contain any recipients"));
+		return($this->OutputError("the mailing envelop file ".$base_path.".e does not contain any recipients"));
 		$this->headers["Bcc"]=$bcc;
 		if(!($body_file=fopen($base_path.".b","rb")))
-			return($this->OutputError("could not open the mailing body file ".$base_path.".b"));
+		return($this->OutputError("could not open the mailing body file ".$base_path.".b"));
 		for($data="";!feof($body_file);)
 		{
 			if(GetType($chunk=fread($body_file,$this->file_buffer_length))!="string")
@@ -1238,10 +1238,10 @@ class email_message_class
 		}
 		fclose($body_file);
 		if(strlen($error=$this->StartSendingMessage()))
-			return($error);
+		return($error);
 		if(strlen($error=$this->SendMessageHeaders($this->headers))==0
 		&& strlen($error=$this->SendMessageBody($data))==0)
-			$error=$this->EndSendingMessage();
+		$error=$this->EndSendingMessage();
 		$this->StopSendingMessage();
 		return($error);
 	}

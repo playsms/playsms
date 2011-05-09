@@ -5,21 +5,21 @@ include $apps_path['plug']."/gateway/gnokii/config.php";
 
 if ($gateway_module == $gnokii_param['name'])
 {
-    $status_active = "(<b><font color=green>"._('Active')."</font></b>)";
+	$status_active = "(<b><font color=green>"._('Active')."</font></b>)";
 }
 else
 {
-    $status_active = "(<b><font color=red>"._('Inactive')."</font></b>) (<a href=\"index.php?app=menu&inc=gateway_gnokii&op=manage_activate\">"._('click here to activate')."</a>)";
+	$status_active = "(<b><font color=red>"._('Inactive')."</font></b>) (<a href=\"index.php?app=menu&inc=gateway_gnokii&op=manage_activate\">"._('click here to activate')."</a>)";
 }
 
 switch ($op)
 {
-    case "manage":
-	if ($err)
-	{
-	    $content = "<div class=error_string>$err</div>";
-	}
-	$content .= "
+	case "manage":
+		if ($err)
+		{
+			$content = "<div class=error_string>$err</div>";
+		}
+		$content .= "
 	    <h2>"._('Manage gnokii')."</h2>
 	    <p>
 	    <form action=index.php?app=menu&inc=gateway_gnokii&op=manage_save method=post>
@@ -38,30 +38,30 @@ switch ($op)
 	    <p><input type=submit class=button value=\""._('Save')."\">
 	    </form>
 	";
-	echo $content;
-	break;
-    case "manage_save":
-	$up_path = $_POST['up_path'];
-	$error_string = _('No changes has been made');
-	if ($up_path)
-	{
-	    $db_query = "
+		echo $content;
+		break;
+	case "manage_save":
+		$up_path = $_POST['up_path'];
+		$error_string = _('No changes has been made');
+		if ($up_path)
+		{
+			$db_query = "
 		UPDATE "._DB_PREF_."_gatewayGnokii_config 
 		SET c_timestamp='".mktime()."',cfg_path='$up_path'
 	    ";
-	    if (@dba_affected_rows($db_query))
-	    {
-		$error_string = _('Gateway module configurations has been saved');
-	    }
-	}
-	header ("Location: index.php?app=menu&inc=gateway_gnokii&op=manage&err=".urlencode($error_string));
-	break;
-    case "manage_activate":
-	$db_query = "UPDATE "._DB_PREF_."_tblConfig_main SET c_timestamp='".mktime()."',cfg_gateway_module='gnokii'";
-	$db_result = dba_query($db_query);
-	$error_string = _('Gateway has been activated');
-	header ("Location: index.php?app=menu&inc=gateway_gnokii&op=manage&err=".urlencode($error_string));
-	break;
+			if (@dba_affected_rows($db_query))
+			{
+				$error_string = _('Gateway module configurations has been saved');
+			}
+		}
+		header ("Location: index.php?app=menu&inc=gateway_gnokii&op=manage&err=".urlencode($error_string));
+		break;
+	case "manage_activate":
+		$db_query = "UPDATE "._DB_PREF_."_tblConfig_main SET c_timestamp='".mktime()."',cfg_gateway_module='gnokii'";
+		$db_result = dba_query($db_query);
+		$error_string = _('Gateway has been activated');
+		header ("Location: index.php?app=menu&inc=gateway_gnokii&op=manage&err=".urlencode($error_string));
+		break;
 }
 
 ?>

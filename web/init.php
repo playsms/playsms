@@ -7,12 +7,12 @@ define('_SECURE_', 1);
 $core_config['daemon_process'] = $DAEMON_PROCESS;
 
 if (!$core_config['daemon_process']) {
-    if (trim($SERVER_PROTOCOL)=="HTTP/1.1") {
-	header ("Cache-Control: no-cache, must-revalidate");
-    } else {
-	header ("Pragma: no-cache");
-    }
-    ob_start();
+	if (trim($SERVER_PROTOCOL)=="HTTP/1.1") {
+		header ("Cache-Control: no-cache, must-revalidate");
+	} else {
+		header ("Pragma: no-cache");
+	}
+	ob_start();
 }
 
 // DB config defines
@@ -32,56 +32,56 @@ define('_SMTP_HOST_', $core_config['smtp']['host']);
 define('_SMTP_PORT_', $core_config['smtp']['port']);
 
 /*
-start init functions
-protect from SQL injection when magic_quotes_gpc sets to "Off"
-*/
+ start init functions
+ protect from SQL injection when magic_quotes_gpc sets to "Off"
+ */
 function array_add_slashes($array) {
-    if (is_array($array)) {
-	foreach ($array as $key => $value) {
-            if (!is_array($value)) {
-        	$value = addslashes($value);
-        	$key = addslashes($key);
-        	$new_arr[$key] = $value;
-    	    }
-            if (is_array($value)) {
-        	$new_arr[$key] = array_add_slashes($value);
-            }
-        }
-    }
-    return $new_arr;
+	if (is_array($array)) {
+		foreach ($array as $key => $value) {
+			if (!is_array($value)) {
+				$value = addslashes($value);
+				$key = addslashes($key);
+				$new_arr[$key] = $value;
+			}
+			if (is_array($value)) {
+				$new_arr[$key] = array_add_slashes($value);
+			}
+		}
+	}
+	return $new_arr;
 }
 
 function pl_addslashes($data) {
-    global $core_config;
-    if ($core_config['db']['type']=="mssql") {
-	$data = str_replace("'", "''", $data); 
-    } else {
-	if (is_array($data)) {
-	    $data = array_add_slashes($data);
+	global $core_config;
+	if ($core_config['db']['type']=="mssql") {
+		$data = str_replace("'", "''", $data);
 	} else {
-	    $data = addslashes($data);
+		if (is_array($data)) {
+			$data = array_add_slashes($data);
+		} else {
+			$data = addslashes($data);
+		}
 	}
-    }
-    return $data; 
+	return $data;
 }
 
 // fixme anton
 // enforced to declare function _() for gettext replacement if no PHP gettext extension found
 // it is also possible to completely remove gettext and change multi-lang with translation array
 if (! function_exists('_')) {
-    function _($text) {
-	return $text;
-    }
+	function _($text) {
+		return $text;
+	}
 }
 /*
-end of init functions
-*/
+ end of init functions
+ */
 
 if (!get_magic_quotes_gpc()) {
-    foreach($_GET as $key => $val){$_GET[$key]=pl_addslashes($_GET[$key]);}
-    foreach($_POST as $key => $val){$_POST[$key]=pl_addslashes($_POST[$key]);}
-    foreach($_COOKIE as $key => $val){$_COOKIE[$key]=pl_addslashes($_COOKIE[$key]);}
-    foreach($_SERVER as $key => $val){$_SERVER[$key]=pl_addslashes($_SERVER[$key]);}
+	foreach($_GET as $key => $val){$_GET[$key]=pl_addslashes($_GET[$key]);}
+	foreach($_POST as $key => $val){$_POST[$key]=pl_addslashes($_POST[$key]);}
+	foreach($_COOKIE as $key => $val){$_COOKIE[$key]=pl_addslashes($_COOKIE[$key]);}
+	foreach($_SERVER as $key => $val){$_SERVER[$key]=pl_addslashes($_SERVER[$key]);}
 }
 
 $c_script_filename = __FILE__;
@@ -90,7 +90,7 @@ $c_http_host = $_SERVER['HTTP_HOST'];
 
 // base application directory
 $apps_path['base']        = dirname($c_script_filename);
-    
+
 // base application http path
 $http_path['base']        = ( $core_config['ishttps'] ? "https://" : "http://" ).$c_http_host.( dirname($c_php_self)=='/' ? '/' : dirname($c_php_self) );
 
@@ -132,20 +132,20 @@ $db_query = "SELECT * FROM "._DB_PREF_."_tblConfig_main";
 $db_result = dba_query($db_query);
 $db_row = dba_fetch_array($db_result);
 if (isset($db_row)) {
-    $web_title = $db_row['cfg_web_title'];
-    $email_service = $db_row['cfg_email_service'];
-    $email_footer = $db_row['cfg_email_footer'];
-    $gateway_number = $db_row['cfg_gateway_number'];
-    $gateway_timezone = $db_row['cfg_datetime_timezone'];
-    $default_rate = $db_row['cfg_default_rate'];
-    $tmp_gateway_module = $db_row['cfg_gateway_module'];
-    $tmp_themes_module = $db_row['cfg_themes_module'];
-    $tmp_language_module = $db_row['cfg_language_module'];
-    $sms_max_count = $db_row['cfg_sms_max_count'];
-    $default_credit = $db_row['cfg_default_credit'];
-    $enable_register = $db_row['cfg_enable_register'];
-    $enable_forgot = $db_row['cfg_enable_forgot'];
-    $core_config['main'] = $db_row;
+	$web_title = $db_row['cfg_web_title'];
+	$email_service = $db_row['cfg_email_service'];
+	$email_footer = $db_row['cfg_email_footer'];
+	$gateway_number = $db_row['cfg_gateway_number'];
+	$gateway_timezone = $db_row['cfg_datetime_timezone'];
+	$default_rate = $db_row['cfg_default_rate'];
+	$tmp_gateway_module = $db_row['cfg_gateway_module'];
+	$tmp_themes_module = $db_row['cfg_themes_module'];
+	$tmp_language_module = $db_row['cfg_language_module'];
+	$sms_max_count = $db_row['cfg_sms_max_count'];
+	$default_credit = $db_row['cfg_default_credit'];
+	$enable_register = $db_row['cfg_enable_register'];
+	$enable_forgot = $db_row['cfg_enable_forgot'];
+	$core_config['main'] = $db_row;
 }
 
 // max sms text length
@@ -159,7 +159,7 @@ $fn1 = $apps_path['plug'].'/gateway/'.$tmp_gateway_module.'/config.php';
 $fn2 = $apps_path['plug'].'/gateway/'.$tmp_gateway_module.'/fn.php';
 $gateway_module = 'smstools';
 if (file_exists($fn1) && file_exists($fn2)) {
-    $gateway_module = $tmp_gateway_module;
+	$gateway_module = $tmp_gateway_module;
 }
 $core_config['module']['gateway'] = $gateway_module;
 
@@ -168,7 +168,7 @@ $fn1 = $apps_path['plug'].'/themes/'.$tmp_themes_module.'/config.php';
 $fn2 = $apps_path['plug'].'/themes/'.$tmp_themes_module.'/fn.php';
 $themes_module = 'default';
 if (file_exists($fn1) && file_exists($fn2)) {
-    $themes_module = $tmp_themes_module;
+	$themes_module = $tmp_themes_module;
 }
 $core_config['module']['themes'] = $themes_module;
 
@@ -177,23 +177,23 @@ $fn1 = $apps_path['plug'].'/language/'.$tmp_language_module.'/config.php';
 $fn2 = $apps_path['plug'].'/language/'.$tmp_language_module.'/fn.php';
 $language_module = 'en_US';
 if (file_exists($fn1) && file_exists($fn2)) {
-    $language_module = $tmp_language_module;
+	$language_module = $tmp_language_module;
 }
 $core_config['module']['language'] = $language_module;
 
 // multi-language init
 // make sure that bindtextdomain is exists, server should have PHP gettext extension enabled
 if (function_exists('bindtextdomain')) {
-    bindtextdomain('messages', $apps_path['plug'].'/language/');
-    textdomain('messages');
+	bindtextdomain('messages', $apps_path['plug'].'/language/');
+	textdomain('messages');
 }
 
 if (defined('LC_MESSAGES')) {
-    // linux
-    setlocale(LC_MESSAGES, $language_module, $language_module.'.utf8', $language_module.'.utf-8', $language_module.'.UTF8', $language_module.'.UTF-8');
+	// linux
+	setlocale(LC_MESSAGES, $language_module, $language_module.'.utf8', $language_module.'.utf-8', $language_module.'.UTF8', $language_module.'.UTF-8');
 } else {
-    // windows
-    putenv("LC_ALL={$language_module}");
+	// windows
+	putenv("LC_ALL={$language_module}");
 }
 
 // set global variable

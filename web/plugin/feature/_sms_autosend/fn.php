@@ -26,10 +26,10 @@ function sms_autosend_hook_playsmsd() {
 		$time_id = $db_row['time_id'];
 		$unicode = 0;
 		if (function_exists('mb_detect_encoding')) {
-		    $encoding = mb_detect_encoding($message, 'auto');
-		    if ($encoding != 'ASCII') {
-			$unicode = 1;
-		    }
+			$encoding = mb_detect_encoding($message, 'auto');
+			if ($encoding != 'ASCII') {
+				$unicode = 1;
+			}
 		}
 		// list($ok,$to,$smslog_id) = sendsms_pv($username, $sms_to, $message);
 		$ret = sendsms($core_config['main']['cfg_gateway_number'],'',$sms_to,$message,$c_uid,0,'text',$unicode);

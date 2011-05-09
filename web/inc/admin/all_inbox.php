@@ -3,25 +3,25 @@ if(!isadmin()){forcenoaccess();};
 
 switch ($op)
 {
-    case "all_inbox":
-	if(!$page){$page = 1;}
-	if(!$nav){$nav = 1;}
-	
-	$line_per_page = 50;
-	$max_nav = 15;
+	case "all_inbox":
+		if(!$page){$page = 1;}
+		if(!$nav){$nav = 1;}
 
-	$db_query = "";
+		$line_per_page = 50;
+		$max_nav = 15;
 
-	$db_query = "SELECT count(*) as count FROM "._DB_PREF_."_tblUserInbox WHERE in_hidden='0'";
-	$db_result = dba_query($db_query);
-	$db_row = dba_fetch_array($db_result);
-	$num_rows = $db_row['count'];
+		$db_query = "";
 
-	$pages = ceil($num_rows/$line_per_page);
-	$nav_pages = themes_navbar($pages, $nav, $max_nav, "index.php?app=menu&inc=all_inbox&op=all_inbox", $page);
-	$limit = ($page-1)*$line_per_page;    
-	
-	$content = "
+		$db_query = "SELECT count(*) as count FROM "._DB_PREF_."_tblUserInbox WHERE in_hidden='0'";
+		$db_result = dba_query($db_query);
+		$db_row = dba_fetch_array($db_result);
+		$num_rows = $db_row['count'];
+
+		$pages = ceil($num_rows/$line_per_page);
+		$nav_pages = themes_navbar($pages, $nav, $max_nav, "index.php?app=menu&inc=all_inbox&op=all_inbox", $page);
+		$limit = ($page-1)*$line_per_page;
+
+		$content = "
 	    <h2>"._('All Inbox')."</h2>
 	    <p>$nav_pages</p>
 	    <form name=\"fm_inbox\" action=\"index.php?app=menu&inc=all_inbox&op=act_del\" method=post onSubmit=\"return SureConfirm()\">
@@ -40,27 +40,27 @@ switch ($op)
         <tbody>
 	";
 
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblUserInbox WHERE in_hidden='0' ORDER BY in_id DESC LIMIT $limit,$line_per_page";
-	$db_result = dba_query($db_query);
-	$i = ($num_rows-($line_per_page*($page-1)))+1;
-	$j = 0;
-	while ($db_row = dba_fetch_array($db_result))
-	{
-	    $j++;
-	    $in_id = $db_row['in_id'];
-	    $in_username = uid2username($db_row['in_uid']);
-	    $in_sender = $db_row['in_sender'];
-	    $p_desc = phonebook_number2name($in_sender);
-	    $current_sender = $in_sender;
-	    if ($p_desc) 
-	    {
-		$current_sender = "$in_sender<br>($p_desc)";
-	    }
-	    $in_msg = core_display_text($db_row['in_msg'], 25);
-	    $in_datetime = core_display_datetime($db_row['in_datetime']);
-	    $i--;
-            $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";	    
-	    $content .= "
+		$db_query = "SELECT * FROM "._DB_PREF_."_tblUserInbox WHERE in_hidden='0' ORDER BY in_id DESC LIMIT $limit,$line_per_page";
+		$db_result = dba_query($db_query);
+		$i = ($num_rows-($line_per_page*($page-1)))+1;
+		$j = 0;
+		while ($db_row = dba_fetch_array($db_result))
+		{
+			$j++;
+			$in_id = $db_row['in_id'];
+			$in_username = uid2username($db_row['in_uid']);
+			$in_sender = $db_row['in_sender'];
+			$p_desc = phonebook_number2name($in_sender);
+			$current_sender = $in_sender;
+			if ($p_desc)
+			{
+				$current_sender = "$in_sender<br>($p_desc)";
+			}
+			$in_msg = core_display_text($db_row['in_msg'], 25);
+			$in_datetime = core_display_datetime($db_row['in_datetime']);
+			$i--;
+			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
+			$content .= "
 		<tr>
 	          <td valign=top class=$td_class align=left>$i.</td>
 	          <td valign=top class=$td_class align=center>$in_username</td>
@@ -79,9 +79,9 @@ switch ($op)
 		</td>		  
 		</tr>
 	    ";
-	}
-	$item_count = $j;
-	$content .= "
+		}
+		$item_count = $j;
+		$content .= "
     </tbody>
     </table>
 	<table width=100% cellpadding=0 cellspacing=0 border=0>
@@ -95,41 +95,41 @@ switch ($op)
     </form>
     <p>$nav_pages</p>
     ";
-	if ($err)
-	{
-	    echo "<div class=error_string>$err</div><br><br>";
-	}
-	echo $content;
-	break;
-    case "all_inbox_del":
-	$error_string = _('Fail to delete incoming SMS');
-	if ($in_id = $_REQUEST['inid'])
-	{
-	    $db_query = "UPDATE "._DB_PREF_."_tblUserInbox SET c_timestamp='".mktime()."',in_hidden='1' WHERE in_id='$in_id'";
-	    $db_result = dba_affected_rows($db_query);
-	    if ($db_result > 0)
-	    {
-		$error_string = _('Selected incoming SMS has been deleted');
-	    }
-	}
-	header("Location: index.php?app=menu&inc=all_inbox&op=all_inbox&err=".urlencode($error_string));
-	break;
-    case "act_del":
-	$item_count = $_POST['item_count'];
-	
-	for ($i=1;$i<=$item_count;$i++)
-	{
-	    $chkid = $_POST['chkid'.$i];
-	    $inid = $_POST['inid'.$i];
-	    
-	    if(($chkid=="on") && $inid)
-	    {
-		$db_query = "UPDATE "._DB_PREF_."_tblUserInbox SET c_timestamp='".mktime()."',in_hidden='1' WHERE in_id='$inid'";
-		$db_result = dba_affected_rows($db_query);
-	    }
-	}
-	header ("Location: index.php?app=menu&inc=all_inbox&op=all_inbox&err=".urlencode(_('Selected incoming SMS has been deleted')));	
-	break;
+		if ($err)
+		{
+			echo "<div class=error_string>$err</div><br><br>";
+		}
+		echo $content;
+		break;
+	case "all_inbox_del":
+		$error_string = _('Fail to delete incoming SMS');
+		if ($in_id = $_REQUEST['inid'])
+		{
+			$db_query = "UPDATE "._DB_PREF_."_tblUserInbox SET c_timestamp='".mktime()."',in_hidden='1' WHERE in_id='$in_id'";
+			$db_result = dba_affected_rows($db_query);
+			if ($db_result > 0)
+			{
+				$error_string = _('Selected incoming SMS has been deleted');
+			}
+		}
+		header("Location: index.php?app=menu&inc=all_inbox&op=all_inbox&err=".urlencode($error_string));
+		break;
+	case "act_del":
+		$item_count = $_POST['item_count'];
+
+		for ($i=1;$i<=$item_count;$i++)
+		{
+			$chkid = $_POST['chkid'.$i];
+			$inid = $_POST['inid'.$i];
+
+			if(($chkid=="on") && $inid)
+			{
+				$db_query = "UPDATE "._DB_PREF_."_tblUserInbox SET c_timestamp='".mktime()."',in_hidden='1' WHERE in_id='$inid'";
+				$db_result = dba_affected_rows($db_query);
+			}
+		}
+		header ("Location: index.php?app=menu&inc=all_inbox&op=all_inbox&err=".urlencode(_('Selected incoming SMS has been deleted')));
+		break;
 }
 
 ?>

@@ -145,8 +145,8 @@ switch ($op) {
 		$data = sms_survey_getdatabyid($sid);
 		$keyword = $data['keyword'];
 		if ($sid && $keyword) {
-			$filename = $_FILES['fncsv']['name'];		
-			$fn = $_FILES['fncsv']['tmp_name'];		
+			$filename = $_FILES['fncsv']['name'];
+			$fn = $_FILES['fncsv']['tmp_name'];
 			$fs = $_FILES['fncsv']['size'];
 			if (($fs == filesize($fn)) && file_exists($fn)) {
 				if (($fd = fopen($fn, 'r')) !== FALSE) {

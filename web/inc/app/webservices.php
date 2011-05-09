@@ -25,42 +25,42 @@ $ret = "ERR 102";
 
 if ($op) { $ta = $op; };
 if ($ta) {
-    switch ($ta) {
-	case "PV":
-	    if ($u && $p) {
-		if (validatelogin($u,$p)) {
-		    $ret = webservices_pv($u,$to,$msg,$type,$unicode);
-		} else {
-		    $ret = "ERR 100";
-		}
-	    }
-	    break;
-	case "BC":
-	    if ($u && $p) {
-		if (validatelogin($u,$p)) {
-		    $ret = webservices_bc($u,$to,$msg,$type,$unicode);
-		} else {
-		    $ret = "ERR 100";
-		}
-	    }
-	    break;
-	case "DS":
-	    if ($u && $p) {
-		if (validatelogin($u,$p)) {
-		    if ($slid) {
-			$ret = webservices_ds_slid($u,$slid);
-		    } else {
-			$ret = webservices_ds_count($u,$c,$last);
-		    }
-		} else {
-		    $ret = "ERR 100";
-		}
-	    }
-	    break;
-	default:
-	    // output do not require valid login
-	    $ret = webservices_output($ta,$_REQUEST);
-    }
+	switch ($ta) {
+		case "PV":
+			if ($u && $p) {
+				if (validatelogin($u,$p)) {
+					$ret = webservices_pv($u,$to,$msg,$type,$unicode);
+				} else {
+					$ret = "ERR 100";
+				}
+			}
+			break;
+		case "BC":
+			if ($u && $p) {
+				if (validatelogin($u,$p)) {
+					$ret = webservices_bc($u,$to,$msg,$type,$unicode);
+				} else {
+					$ret = "ERR 100";
+				}
+			}
+			break;
+		case "DS":
+			if ($u && $p) {
+				if (validatelogin($u,$p)) {
+					if ($slid) {
+						$ret = webservices_ds_slid($u,$slid);
+					} else {
+						$ret = webservices_ds_count($u,$c,$last);
+					}
+				} else {
+					$ret = "ERR 100";
+				}
+			}
+			break;
+		default:
+			// output do not require valid login
+			$ret = webservices_output($ta,$_REQUEST);
+	}
 }
 
 echo $ret;

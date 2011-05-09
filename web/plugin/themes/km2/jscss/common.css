@@ -127,8 +127,7 @@ li {
 	font-weight: bold;
 	text-align: center;
 	color: #ffc000;
-	/* background-color: ; */
-	/* border: 1 solid #3785E9; */
+	/* background-color: ; */ /* border: 1 solid #3785E9; */
 }
 
 .box_title {
@@ -145,8 +144,7 @@ li {
 	font-size: 12pt;
 	font-weight: bold;
 	text-align: left;
-	/* color: ; */
-	/* background-color: ; */
+	/* color: ; */ /* background-color: ; */
 }
 
 .box_text {
@@ -158,11 +156,9 @@ li {
 	/* background-color: ; */
 }
 
-.boxItem {
-	/* background: ; */
+.boxItem { /* background: ; */
 	padding: 3px;
-	/* border-top: 1 solid #000000; */
-	/* border-left: 1 solid #000000; */
+	/* border-top: 1 solid #000000; */ /* border-left: 1 solid #000000; */
 	/* border-right: 1 solid #c0c0c0; */
 	/* border-bottom: 1 solid #c0c0c0; */
 }
@@ -194,4 +190,3 @@ li {
 	color: #ff0000;
 	float: right;
 }
-

@@ -6,7 +6,7 @@
  *
  * @param $keyword
  *   checkavailablekeyword() will insert keyword for checking to the hook here
- * @return 
+ * @return
  *   TRUE if keyword is available
  */
 function sms_quiz_hook_checkavailablekeyword($keyword) {
@@ -58,32 +58,32 @@ function sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $quiz_keyword, $qui
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	if ($db_row['quiz_enable'] == 1) {
-	    if ($db_row['quiz_answer'] == strtoupper($quiz_param)) {
-		$message = $db_row['quiz_msg_correct'];
-	    } else {
-		$message = $db_row['quiz_msg_incorrect'];
-	    }
-	    $quiz_id = $db_row['quiz_id'];
-	    $answer = strtoupper($quiz_param);
-	    $db_query = "INSERT INTO " . _DB_PREF_ . "_featureQuiz_log (quiz_id,quiz_answer,quiz_sender,in_datetime) VALUES ('$quiz_id','$answer','$sms_to',now())";
-	    if ($logged = @dba_insert_id($db_query)) {
-		//list($ok,$to,$smslog_id) = sendsms_pv($username, $sms_to, $message);
-		$unicode = 0;
-		if (function_exists('mb_detect_encoding')) {
-			$encoding = mb_detect_encoding($message, 'auto');
-			if ($encoding != 'ASCII') {
-			    	$unicode = 1;
-			}
+		if ($db_row['quiz_answer'] == strtoupper($quiz_param)) {
+			$message = $db_row['quiz_msg_correct'];
+		} else {
+			$message = $db_row['quiz_msg_incorrect'];
 		}
-		$ret = sendsms($core_config['main']['cfg_gateway_number'],'',$sms_to,$message,$c_uid,0,'text',$unicode);
-		// $ok = $ok[0];
-		$ok = $ret['status'];
-	    }
+		$quiz_id = $db_row['quiz_id'];
+		$answer = strtoupper($quiz_param);
+		$db_query = "INSERT INTO " . _DB_PREF_ . "_featureQuiz_log (quiz_id,quiz_answer,quiz_sender,in_datetime) VALUES ('$quiz_id','$answer','$sms_to',now())";
+		if ($logged = @dba_insert_id($db_query)) {
+			//list($ok,$to,$smslog_id) = sendsms_pv($username, $sms_to, $message);
+			$unicode = 0;
+			if (function_exists('mb_detect_encoding')) {
+				$encoding = mb_detect_encoding($message, 'auto');
+				if ($encoding != 'ASCII') {
+					$unicode = 1;
+				}
+			}
+			$ret = sendsms($core_config['main']['cfg_gateway_number'],'',$sms_to,$message,$c_uid,0,'text',$unicode);
+			// $ok = $ok[0];
+			$ok = $ret['status'];
+		}
 	} else if ($db_row['quiz_keyword'] == $quiz_keyword) {
-	    // returns true even if its logged as correct/incorrect answer
-	    // this situation happens when user answers a disabled quiz
-	    // returning false will make this SMS as unhandled SMS
-	    $ok = true;
+		// returns true even if its logged as correct/incorrect answer
+		// this situation happens when user answers a disabled quiz
+		// returning false will make this SMS as unhandled SMS
+		$ok = true;
 	}
 	return $ok;
 }

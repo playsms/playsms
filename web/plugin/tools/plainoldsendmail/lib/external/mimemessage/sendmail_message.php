@@ -35,19 +35,19 @@ class sendmail_message_class extends email_message_class
 				return($this->OutputError("it was specified an unknown sendmail delivery mode"));
 		}
 		if($this->delivery_mode!=SENDMAIL_DELIVERY_DEFAULT)
-			$command.=" -O DeliveryMode=".$this->delivery_mode;
+		$command.=" -O DeliveryMode=".$this->delivery_mode;
 		if(strlen($return_path))
-			$command.=" -f '".ereg_replace("'", "'\\''",$return_path)."'";
+		$command.=" -f '".ereg_replace("'", "'\\''",$return_path)."'";
 		if(strlen($this->sendmail_arguments))
-			$command.=" ".$this->sendmail_arguments;
+		$command.=" ".$this->sendmail_arguments;
 		if(!($pipe=popen($command,"w")))
-			return($this->OutputError("it was not possible to open sendmail input pipe"));
+		return($this->OutputError("it was not possible to open sendmail input pipe"));
 		if(!fputs($pipe,"To: $to\n")
 		|| !fputs($pipe,"Subject: $subject\n")
 		|| ($headers!=""
 		&& !fputs($pipe,"$headers\n"))
 		|| !fputs($pipe,"\n$body"))
-			return($this->OutputError("it was not possible to write sendmail input pipe"));
+		return($this->OutputError("it was not possible to write sendmail input pipe"));
 		pclose($pipe);
 		return("");
 	}

@@ -5,18 +5,18 @@
  *
  * @param $keyword
  *   checkavailablekeyword() will insert keyword for checking to the hook here
- * @return 
+ * @return
  *   TRUE if keyword is available
  */
 function sms_autoreply_hook_checkavailablekeyword($keyword)
 {
-    $ok = true;
-    $db_query = "SELECT autoreply_id FROM "._DB_PREF_."_featureAutoreply WHERE autoreply_keyword='$keyword'";
-    if ($db_result = dba_num_rows($db_query))
-    {
-        $ok = false;
-    }
-    return $ok;
+	$ok = true;
+	$db_query = "SELECT autoreply_id FROM "._DB_PREF_."_featureAutoreply WHERE autoreply_keyword='$keyword'";
+	if ($db_result = dba_num_rows($db_query))
+	{
+		$ok = false;
+	}
+	return $ok;
 }
 
 /*
@@ -37,75 +37,75 @@ function sms_autoreply_hook_checkavailablekeyword($keyword)
  */
 function sms_autoreply_hook_setsmsincomingaction($sms_datetime,$sms_sender,$autoreply_keyword,$autoreply_param='',$sms_receiver='')
 {
-    $ok = false;
-    $db_query = "SELECT uid,autoreply_id FROM "._DB_PREF_."_featureAutoreply WHERE autoreply_keyword='$autoreply_keyword'";
-    $db_result = dba_query($db_query);
-    if ($db_row = dba_fetch_array($db_result))
-    {
-	$c_uid = $db_row['uid'];
-	$autoreply_id = $db_row['autoreply_id'];
-	if (sms_autoreply_handle($sms_datetime,$sms_sender,$c_uid,$autoreply_id,$autoreply_keyword,$autoreply_param))
+	$ok = false;
+	$db_query = "SELECT uid,autoreply_id FROM "._DB_PREF_."_featureAutoreply WHERE autoreply_keyword='$autoreply_keyword'";
+	$db_result = dba_query($db_query);
+	if ($db_row = dba_fetch_array($db_result))
 	{
-	    $ok = true;
+		$c_uid = $db_row['uid'];
+		$autoreply_id = $db_row['autoreply_id'];
+		if (sms_autoreply_handle($sms_datetime,$sms_sender,$c_uid,$autoreply_id,$autoreply_keyword,$autoreply_param))
+		{
+			$ok = true;
+		}
 	}
-    }
-    $ret['uid'] = $c_uid;
-    $ret['status'] = $ok;
-    return $ret;
+	$ret['uid'] = $c_uid;
+	$ret['status'] = $ok;
+	return $ret;
 }
 
 function sms_autoreply_handle($sms_datetime,$sms_sender,$c_uid,$autoreply_id,$autoreply_keyword,$autoreply_param='')
 {
-    global $datetime_now;
-    $ok = false;
-    $autoreply_request = $autoreply_keyword." ".$autoreply_param;
-    $array_autoreply_request = explode(" ",$autoreply_request);
-    for ($i=0;$i<count($array_autoreply_request);$i++)
-    {
-	$autoreply_part[$i] = trim($array_autoreply_request[$i]);
-	$tmp_autoreply_request .= trim($array_autoreply_request[$i])." ";
-    }
-    $autoreply_request = trim($tmp_autoreply_request);
-    for ($i=1;$i<7;$i++)
-    {
-	$autoreply_scenario_param_list .= "autoreply_scenario_param$i='".$autoreply_part[$i]."' AND ";
-    }
-    $db_query = "
+	global $datetime_now;
+	$ok = false;
+	$autoreply_request = $autoreply_keyword." ".$autoreply_param;
+	$array_autoreply_request = explode(" ",$autoreply_request);
+	for ($i=0;$i<count($array_autoreply_request);$i++)
+	{
+		$autoreply_part[$i] = trim($array_autoreply_request[$i]);
+		$tmp_autoreply_request .= trim($array_autoreply_request[$i])." ";
+	}
+	$autoreply_request = trim($tmp_autoreply_request);
+	for ($i=1;$i<7;$i++)
+	{
+		$autoreply_scenario_param_list .= "autoreply_scenario_param$i='".$autoreply_part[$i]."' AND ";
+	}
+	$db_query = "
 	SELECT autoreply_scenario_result FROM "._DB_PREF_."_featureAutoreply_scenario 
 	WHERE autoreply_id='$autoreply_id' AND $autoreply_scenario_param_list 1=1
     ";
-    $db_result = dba_query($db_query);
-    $db_row = dba_fetch_array($db_result);
-    if ($autoreply_scenario_result = $db_row['autoreply_scenario_result'])
-    {
-        $db_query = "
+	$db_result = dba_query($db_query);
+	$db_row = dba_fetch_array($db_result);
+	if ($autoreply_scenario_result = $db_row['autoreply_scenario_result'])
+	{
+		$db_query = "
 	    INSERT INTO "._DB_PREF_."_featureAutoreply_log
 	    (sms_sender,autoreply_log_datetime,autoreply_log_keyword,autoreply_log_request) 
 	    VALUES
 	    ('$sms_sender','$datetime_now','$autoreply_keyword','$autoreply_request')
 	";
-	if ($new_id = @dba_insert_id($db_query))
-	{
-	    $ok = true;
-	}
-    }
-    if ($ok)
-    {
-	$ok = false;
-	$c_username = uid2username($c_uid);
-	//list($ok,$to,$smslog_id) = sendsms_pv($c_username,$sms_sender,$autoreply_scenario_result);
-	//$ok = $ok[0];
-	$unicode = 0;
-	if (function_exists('mb_detect_encoding')) {
-		$encoding = mb_detect_encoding($message, 'auto');
-		if ($encoding != 'ASCII') {
-		    	$unicode = 1;
+		if ($new_id = @dba_insert_id($db_query))
+		{
+			$ok = true;
 		}
 	}
-	$ret = sendsms($core_config['main']['cfg_gateway_number'],'',$sms_sender,$autoreply_scenario_result,$c_uid,0,'text',$unicode);
-	$ok = $ret['status'];
-    }
-    return $ok;
+	if ($ok)
+	{
+		$ok = false;
+		$c_username = uid2username($c_uid);
+		//list($ok,$to,$smslog_id) = sendsms_pv($c_username,$sms_sender,$autoreply_scenario_result);
+		//$ok = $ok[0];
+		$unicode = 0;
+		if (function_exists('mb_detect_encoding')) {
+			$encoding = mb_detect_encoding($message, 'auto');
+			if ($encoding != 'ASCII') {
+				$unicode = 1;
+			}
+		}
+		$ret = sendsms($core_config['main']['cfg_gateway_number'],'',$sms_sender,$autoreply_scenario_result,$c_uid,0,'text',$unicode);
+		$ok = $ret['status'];
+	}
+	return $ok;
 }
 
 ?>

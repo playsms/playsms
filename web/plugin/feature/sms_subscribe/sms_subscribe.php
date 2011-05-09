@@ -83,7 +83,7 @@ switch ($op) {
 		$content .= "
 		    <h2>"._('SMS messages list for keyword')." $subscribe_name</h2>	    
 			";
-		$content .= "		
+		$content .= "
 				<p>
 				<input type=button value=\""._('Add Message')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add&&subscribe_id=$subscribe_id')\" class=\"button\" />
 				</p>
@@ -113,7 +113,7 @@ switch ($op) {
 		}
 		$content .= "</table>";
 		echo $content;
-		echo "		
+		echo "
 				<p>
 				<input type=button value=\""._('Add Message')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add&&subscribe_id=$subscribe_id')\" class=\"button\" />
 				</p>
@@ -245,7 +245,7 @@ switch ($op) {
 					if (function_exists('mb_detect_encoding')) {
 						$encoding = mb_detect_encoding($message, 'auto');
 						if ($encoding != 'ASCII') {
-						    	$unicode = 1;
+							$unicode = 1;
 						}
 					}
 					$ret = sendsms($core_config['main']['cfg_gateway_number'],'',$sms_to,$message,$c_uid,0,'text',$unicode);

@@ -46,7 +46,7 @@ class smtp_class
 		for($character=0;$character<strlen($separator);$character++)
 		{
 			if(GetType($position=strpos($string,$separator[$character]))=="integer")
-				$found=(IsSet($found) ? min($found,$position) : $position);
+			$found=(IsSet($found) ? min($found,$position) : $position);
 		}
 		if(IsSet($found))
 		{
@@ -87,7 +87,7 @@ class smtp_class
 			{
 				$line=substr($line,0,$length-2);
 				if($this->debug)
-					$this->OutputDebug("S $line");
+				$this->OutputDebug("S $line");
 				return($line);
 			}
 		}
@@ -96,7 +96,7 @@ class smtp_class
 	Function PutLine($line)
 	{
 		if($this->debug)
-			$this->OutputDebug("C $line");
+		$this->OutputDebug("C $line");
 		if(!fputs($this->connection,"$line\r\n"))
 		{
 			$this->error="it was not possible to write line to socket";
@@ -110,7 +110,7 @@ class smtp_class
 		if(strlen($data))
 		{
 			if($this->debug)
-				$this->OutputDebug("C $data");
+			$this->OutputDebug("C $data");
 			if(!fputs($this->connection,$data))
 			{
 				$this->error="it was not possible to write data to socket";
@@ -157,7 +157,7 @@ class smtp_class
 			}
 			$responses[]=$this->Tokenize("");
 			if(!strcmp($match_code,$this->Tokenize($line," ")))
-				return(1);
+			return(1);
 		}
 		return(-1);
 	}
@@ -167,13 +167,13 @@ class smtp_class
 		if($this->pending_sender)
 		{
 			if($this->VerifyResultLines("250",$responses)<=0)
-				return(0);
+			return(0);
 			$this->pending_sender=0;
 		}
 		for(;$this->pending_recipients;$this->pending_recipients--)
 		{
 			if($this->VerifyResultLines(array("250","251"),$responses)<=0)
-				return(0);
+			return(0);
 		}
 		return(1);
 	}
@@ -189,28 +189,28 @@ class smtp_class
 		if($this->direct_delivery)
 		{
 			if(strlen($domain)==0)
-				return(1);
+			return(1);
 			$hosts=$weights=$mxhosts=array();
 			$getmxrr=$this->getmxrr;
 			if(function_exists($getmxrr)
 			&& $getmxrr($domain,$hosts,$weights))
 			{
 				for($host=0;$host<count($hosts);$host++)
-					$mxhosts[$weights[$host]]=$hosts[$host];
+				$mxhosts[$weights[$host]]=$hosts[$host];
 				KSort($mxhosts);
 				for(Reset($mxhosts),$host=0;$host<count($mxhosts);Next($mxhosts),$host++)
-					$hosts[$host]=$mxhosts[Key($mxhosts)];
+				$hosts[$host]=$mxhosts[Key($mxhosts)];
 			}
 			else
 			{
 				if(strcmp(@gethostbyname($domain),$domain)!=0)
-					$hosts[]=$domain;
+				$hosts[]=$domain;
 			}
 		}
 		else
 		{
 			if(strlen($this->host_name))
-				$hosts[]=$this->host_name;
+			$hosts[]=$this->host_name;
 		}
 		if(count($hosts)==0)
 		{
@@ -228,13 +228,13 @@ class smtp_class
 			// fixme anton - ereg is depreceted in php 5.3
 			// if(ereg('^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$',$domain))
 			if(preg_match('/^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/',$domain))
-				$ip=$domain;
+			$ip=$domain;
 			else
 			{
 				if($this->debug)
-					$this->OutputDebug("Resolving SMTP server domain \"$domain\"...");
+				$this->OutputDebug("Resolving SMTP server domain \"$domain\"...");
 				if(!strcmp($ip=@gethostbyname($domain),$domain))
-					$ip="";
+				$ip="";
 			}
 			if(strlen($ip)==0
 			|| (strlen($this->exclude_address)
@@ -248,9 +248,9 @@ class smtp_class
 				continue;
 			}
 			if($this->debug)
-				$this->OutputDebug("Connecting to SMTP server ip \"$ip\"...");
+			$this->OutputDebug("Connecting to SMTP server ip \"$ip\"...");
 			if(($this->connection=($this->timeout ? fsockopen($ip,$this->host_port,$errno,$error,$this->timeout) : fsockopen($ip,$this->host_port))))
-				break;
+			break;
 			if($host==count($hosts)-1)
 			{
 				switch($this->timeout ? strval($error) : "??")
@@ -278,11 +278,11 @@ class smtp_class
 			}
 		}
 		if($this->debug)
-			$this->OutputDebug("Connected to SMTP server ip \"$ip\".");
+		$this->OutputDebug("Connected to SMTP server ip \"$ip\".");
 		if(!strcmp($localhost=$this->localhost,"")
 		&& !strcmp($localhost=getenv("SERVER_NAME"),"")
 		&& !strcmp($localhost=getenv("HOST"),""))
-			$localhost="localhost";
+		$localhost="localhost";
 		$success=0;
 		if($this->VerifyResultLines("220",$responses)>0)
 		{
@@ -318,13 +318,13 @@ class smtp_class
 					}
 				}
 				else
-					$fallback=0;
+				$fallback=0;
 			}
 			if($fallback)
 			{
 				if($this->PutLine("HELO $localhost")
 				&& $this->VerifyResultLines("250",$responses)>0)
-					$success=1;
+				$success=1;
 			}
 			if($success
 			&& strlen($this->user))
@@ -403,13 +403,13 @@ class smtp_class
 		}
 		$this->error="";
 		if(!$this->PutLine("MAIL FROM:<$sender>"))
-			return(0);
+		return(0);
 		if(!IsSet($this->esmtp_extensions["PIPELINING"])
 		&& $this->VerifyResultLines("250",$responses)<=0)
-			return(0);
+		return(0);
 		$this->state="SenderSet";
 		if(IsSet($this->esmtp_extensions["PIPELINING"]))
-			$this->pending_sender=1;
+		$this->pending_sender=1;
 		$this->pending_recipients=0;
 		return(1);
 	}
@@ -419,13 +419,13 @@ class smtp_class
 		if($this->direct_delivery)
 		{
 			if(GetType($at=strrpos($recipient,"@"))!="integer")
-				return("it was not specified a valid direct recipient");
+			return("it was not specified a valid direct recipient");
 			$domain=substr($recipient,$at+1);
 			switch($this->state)
 			{
 				case "Disconnected":
 					if(!$this->Connect($domain))
-						return(0);
+					return(0);
 					if(!$this->MailFrom(""))
 					{
 						$error=$this->error;
@@ -461,20 +461,20 @@ class smtp_class
 		}
 		$this->error="";
 		if(!$this->PutLine("RCPT TO:<$recipient>"))
-			return(0);
+		return(0);
 		if(IsSet($this->esmtp_extensions["PIPELINING"]))
 		{
 			$this->pending_recipients++;
 			if($this->pending_recipients>=$this->maximum_piped_recipients)
 			{
 				if(!$this->FlushRecipients())
-					return(0);
+				return(0);
 			}
 		}
 		else
 		{
 			if($this->VerifyResultLines(array("250","251"),$responses)<=0)
-				return(0);
+			return(0);
 		}
 		$this->state="RecipientSet";
 		return(1);
@@ -489,14 +489,14 @@ class smtp_class
 		}
 		$this->error="";
 		if(!$this->PutLine("DATA"))
-			return(0);
+		return(0);
 		if($this->pending_recipients)
 		{
 			if(!$this->FlushRecipients())
-				return(0);
+			return(0);
 		}
 		if($this->VerifyResultLines("354",$responses)<=0)
-			return(0);
+		return(0);
 		$this->state="SendingData";
 		return(1);
 	}
@@ -504,9 +504,9 @@ class smtp_class
 	Function PrepareData(&$data,&$output)
 	{
 		if(function_exists("preg_replace"))
-			$output=preg_replace(array("/(^|[^\r])\n/","/\r([^\n])/","/\\.(\r|\$)/"),array("\\1\r\n","\r\n\\1","..\\1"),$data);
+		$output=preg_replace(array("/(^|[^\r])\n/","/\r([^\n])/","/\\.(\r|\$)/"),array("\\1\r\n","\r\n\\1","..\\1"),$data);
 		else
-			$output=ereg_replace("\\.(\r|\$)","..\\1",ereg_replace("\r([^\n])","\r\n\\1",ereg_replace("(^|[^\r])\n","\\1\r\n",$data)));
+		$output=ereg_replace("\\.(\r|\$)","..\\1",ereg_replace("\r([^\n])","\r\n\\1",ereg_replace("(^|[^\r])\n","\\1\r\n",$data)));
 	}
 
 	Function SendData($data)
@@ -530,7 +530,7 @@ class smtp_class
 		$this->error="";
 		if(!$this->PutLine("\r\n.")
 		|| $this->VerifyResultLines("250",$responses)<=0)
-			return(0);
+		return(0);
 		$this->state="Connected";
 		return(1);
 	}
@@ -551,7 +551,7 @@ class smtp_class
 		$this->error="";
 		if(!$this->PutLine("RSET")
 		|| $this->VerifyResultLines("250",$responses)<=0)
-			return(0);
+		return(0);
 		$this->state="Connected";
 		return(1);
 	}
@@ -568,12 +568,12 @@ class smtp_class
 		&& $quit
 		&& (!$this->PutLine("QUIT")
 		|| $this->VerifyResultLines("221",$responses)<=0))
-			return(0);
+		return(0);
 		fclose($this->connection);
 		$this->connection=0;
 		$this->state="Disconnected";
 		if($this->debug)
-			$this->OutputDebug("Disconnected.");
+		$this->OutputDebug("Disconnected.");
 		return(1);
 	}
 
@@ -586,28 +586,28 @@ class smtp_class
 				for($recipient=0;$recipient<count($recipients);$recipient++)
 				{
 					if(!($success=$this->SetRecipient($recipients[$recipient])))
-						break;
+					break;
 				}
 				if($success
 				&& ($success=$this->StartData()))
 				{
 					for($header_data="",$header=0;$header<count($headers);$header++)
-						$header_data.=$headers[$header]."\r\n";
+					$header_data.=$headers[$header]."\r\n";
 					if(($success=$this->SendData($header_data."\r\n")))
 					{
 						$this->PrepareData($body,$body_data);
 						$success=$this->SendData($body_data);
 					}
 					if($success)
-						$success=$this->EndSendingData();
+					$success=$this->EndSendingData();
 				}
 			}
 			$error=$this->error;
 			$disconnect_success=$this->Disconnect($success);
 			if($success)
-				$success=$disconnect_success;
+			$success=$disconnect_success;
 			else
-				$this->error=$error;
+			$this->error=$error;
 		}
 		return($success);
 	}

@@ -1,10 +1,10 @@
 <?php
 if (! $called_from_hook_call) {
-    chdir ("../../../");
-    include "init.php";
-    include $apps_path['libs']."/function.php";
-    chdir ("plugin/gateway/kannel");
-    $requests = $_REQUEST;
+	chdir ("../../../");
+	include "init.php";
+	include $apps_path['libs']."/function.php";
+	chdir ("plugin/gateway/kannel");
+	$requests = $_REQUEST;
 }
 
 $remote_addr = $_SERVER['REMOTE_ADDR'];
@@ -21,12 +21,12 @@ logger_print("addr:".$remote_addr." host:".$remote_host." t:".$t." q:".$q." a:".
 // srosa 20100531: changed test below to allow hostname in bearerbox_host instead of ip
 // if ($remote_addr != $kannel_param['bearerbox_host'])
 if ($remote_addr != $kannel_param['bearerbox_host'] && $remote_host != $kannel_param['bearerbox_host']) {
-    die();
+	die();
 }
 
 if ($t && $q && $a) {
-    // collected:
-    // $sms_datetime, $sms_sender, $message, $sms_receiver
-    setsmsincomingaction($t, $q, $a, $Q);
+	// collected:
+	// $sms_datetime, $sms_sender, $message, $sms_receiver
+	setsmsincomingaction($t, $q, $a, $Q);
 }
 ?>

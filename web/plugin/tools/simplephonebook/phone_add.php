@@ -3,19 +3,19 @@ if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 switch ($op)
 {
-    case "add":
-	$phone = urlencode($_REQUEST['phone']);
-	$db_query = "SELECT * FROM "._DB_PREF_."_toolsSimplephonebook_group WHERE uid='$uid'";
-	$db_result = dba_query($db_query);
-	while ($db_row = dba_fetch_array($db_result))
-	{
-	    $list_of_group .= "<option value=".$db_row['gpid'].">".$db_row['gp_name']." - "._('code').": ".$db_row['gp_code']."</option>";
-	}
-	if ($err)
-	{
-	    $content = "<div class=error_string>$err</div>";
-	}
-	$content .= "
+	case "add":
+		$phone = urlencode($_REQUEST['phone']);
+		$db_query = "SELECT * FROM "._DB_PREF_."_toolsSimplephonebook_group WHERE uid='$uid'";
+		$db_result = dba_query($db_query);
+		while ($db_row = dba_fetch_array($db_result))
+		{
+			$list_of_group .= "<option value=".$db_row['gpid'].">".$db_row['gp_name']." - "._('code').": ".$db_row['gp_code']."</option>";
+		}
+		if ($err)
+		{
+			$content = "<div class=error_string>$err</div>";
+		}
+		$content .= "
 	    <h2>"._('Add number to group')."</h2>
 	    <p>
 	    <form action=index.php?app=menu&inc=tools_simplephonebook&route=phone_add&op=add_yes name=fm_addphone method=POST>
@@ -36,35 +36,35 @@ switch ($op)
 	    <p><input type=submit class=button value=\""._('Add')."\"> 
 	    </form>
 	";
-	echo $content;
-	break;
-    case "add_yes":
-	$gpid = $_POST['gpid'];
-	$p_num = str_replace("\'","",$_POST['p_num']);
-	$p_num = str_replace("\"","",$p_num);
-	$p_desc = str_replace("\'","",$_POST['p_desc']);
-	$p_desc = str_replace("\"","",$p_desc);
-	$p_email = str_replace("\'","",$_POST['p_email']);
-	$p_email = str_replace("\"","",$p_email);
-	if ($gpid && $p_num && $p_desc)
-	{
-	    $db_query = "SELECT p_num,p_desc FROM "._DB_PREF_."_toolsSimplephonebook WHERE uid='$uid' AND gpid='$gpid' AND p_num='$p_num'";
-	    $db_result = dba_query($db_query);
-	    if ($db_row = dba_fetch_array($db_result))
-	    {
-		header("Location: index.php?app=menu&inc=tools_simplephonebook&route=phone_add&op=add&err=".urlencode(_('Number is already exists')." ("._('number').":`$p_num`, "._('name').": `".$db_row['p_desc']."`)"));
-		die();
-	    }
-	    else
-	    {
-		$db_query = "INSERT INTO "._DB_PREF_."_toolsSimplephonebook (gpid,uid,p_num,p_desc,p_email) VALUES ('$gpid','$uid','$p_num','$p_desc','$p_email')";
-		$db_result = dba_query($db_query);
-		header("Location: index.php?app=menu&inc=tools_simplephonebook&route=phone_add&op=add&err=".urlencode(_('Number has been added')." ("._('number').": `$p_num`, "._('name').": `$p_desc`)"));
-		die();
-	    }
-	}
-	header("Location: index.php?app=menu&inc=tools_simplephonebook&route=phone_add&op=add&err=".urlencode(_('You must fill all field')));
-	break;
+		echo $content;
+		break;
+	case "add_yes":
+		$gpid = $_POST['gpid'];
+		$p_num = str_replace("\'","",$_POST['p_num']);
+		$p_num = str_replace("\"","",$p_num);
+		$p_desc = str_replace("\'","",$_POST['p_desc']);
+		$p_desc = str_replace("\"","",$p_desc);
+		$p_email = str_replace("\'","",$_POST['p_email']);
+		$p_email = str_replace("\"","",$p_email);
+		if ($gpid && $p_num && $p_desc)
+		{
+			$db_query = "SELECT p_num,p_desc FROM "._DB_PREF_."_toolsSimplephonebook WHERE uid='$uid' AND gpid='$gpid' AND p_num='$p_num'";
+			$db_result = dba_query($db_query);
+			if ($db_row = dba_fetch_array($db_result))
+			{
+				header("Location: index.php?app=menu&inc=tools_simplephonebook&route=phone_add&op=add&err=".urlencode(_('Number is already exists')." ("._('number').":`$p_num`, "._('name').": `".$db_row['p_desc']."`)"));
+				die();
+			}
+			else
+			{
+				$db_query = "INSERT INTO "._DB_PREF_."_toolsSimplephonebook (gpid,uid,p_num,p_desc,p_email) VALUES ('$gpid','$uid','$p_num','$p_desc','$p_email')";
+				$db_result = dba_query($db_query);
+				header("Location: index.php?app=menu&inc=tools_simplephonebook&route=phone_add&op=add&err=".urlencode(_('Number has been added')." ("._('number').": `$p_num`, "._('name').": `$p_desc`)"));
+				die();
+			}
+		}
+		header("Location: index.php?app=menu&inc=tools_simplephonebook&route=phone_add&op=add&err=".urlencode(_('You must fill all field')));
+		break;
 }
 
 ?>

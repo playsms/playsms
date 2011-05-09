@@ -17,11 +17,11 @@ $content = "
 $get = ( $_REQUEST['get'] ? $_REQUEST['get'] : 1 );
 switch ($get)
 {
-    case 1: $read = "README"; break;
-    case 2: $read = "CHANGELOG"; break;
-    case 3: $read = "INSTALL"; break;
-    case 4: $read = "FAQ"; break;
-    case 5: $read = "LICENSE"; break;
+	case 1: $read = "README"; break;
+	case 2: $read = "CHANGELOG"; break;
+	case 3: $read = "INSTALL"; break;
+	case 4: $read = "FAQ"; break;
+	case 5: $read = "LICENSE"; break;
 }
 
 $fn = $apps_path['base']."/docs/".$read;

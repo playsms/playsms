@@ -3,43 +3,43 @@ if(!isadmin()){forcenoaccess();};
 
 switch ($op)
 {
-    case "main_config":
-	if ($err)
-	{
-	    $content = "<div class=error_string>$err</div>";
-	}
-	// enable register yes-no option
-	if ($enable_register) { $selected1 = "selected"; } else { $selected2 = "selected"; };
-	$option_enable_register = "<option value=\"1\" $selected1>"._('yes')."</option>";
-	$option_enable_register .= "<option value=\"0\" $selected2>"._('no')."</option>";
-	$selected1 = ""; $selected2 = "";
-	// enable forgot yes-no option
-	if ($enable_forgot) { $selected1 = "selected"; } else { $selected2 = "selected"; };
-	$option_enable_forgot = "<option value=\"1\" $selected1>"._('yes')."</option>";
-	$option_enable_forgot .= "<option value=\"0\" $selected2>"._('no')."</option>";
-	$selected1 = ""; $selected2 = "";
-	// get gateway options
-	for ($i=0;$i<count($core_config['gatewaylist']);$i++) {
-	    $gateway = $core_config['gatewaylist'][$i];
-	    if ($gateway == $gateway_module) $selected = "selected";
-	    $option_gateway_module .= "<option value=\"$gateway\" $selected>$gateway</option>";
-	    $selected = "";
-	}
-	// get themes options
-	for ($i=0;$i<count($core_config['themeslist']);$i++) {
-	    $themes = $core_config['themeslist'][$i];
-	    if ($themes == $themes_module) $selected = "selected";
-	    $option_themes_module .= "<option value=\"$themes\" $selected>$themes</option>";
-	    $selected = "";
-	}
-	// get language options
-	for ($i=0;$i<count($core_config['languagelist']);$i++) {
-	    $language = $core_config['languagelist'][$i];
-	    if ($language == $language_module) $selected = "selected";
-	    $option_language_module .= "<option value=\"$language\" $selected>$language</option>";
-	    $selected = "";
-	}
-	$content .= "
+	case "main_config":
+		if ($err)
+		{
+			$content = "<div class=error_string>$err</div>";
+		}
+		// enable register yes-no option
+		if ($enable_register) { $selected1 = "selected"; } else { $selected2 = "selected"; };
+		$option_enable_register = "<option value=\"1\" $selected1>"._('yes')."</option>";
+		$option_enable_register .= "<option value=\"0\" $selected2>"._('no')."</option>";
+		$selected1 = ""; $selected2 = "";
+		// enable forgot yes-no option
+		if ($enable_forgot) { $selected1 = "selected"; } else { $selected2 = "selected"; };
+		$option_enable_forgot = "<option value=\"1\" $selected1>"._('yes')."</option>";
+		$option_enable_forgot .= "<option value=\"0\" $selected2>"._('no')."</option>";
+		$selected1 = ""; $selected2 = "";
+		// get gateway options
+		for ($i=0;$i<count($core_config['gatewaylist']);$i++) {
+			$gateway = $core_config['gatewaylist'][$i];
+			if ($gateway == $gateway_module) $selected = "selected";
+			$option_gateway_module .= "<option value=\"$gateway\" $selected>$gateway</option>";
+			$selected = "";
+		}
+		// get themes options
+		for ($i=0;$i<count($core_config['themeslist']);$i++) {
+			$themes = $core_config['themeslist'][$i];
+			if ($themes == $themes_module) $selected = "selected";
+			$option_themes_module .= "<option value=\"$themes\" $selected>$themes</option>";
+			$selected = "";
+		}
+		// get language options
+		for ($i=0;$i<count($core_config['languagelist']);$i++) {
+			$language = $core_config['languagelist'][$i];
+			if ($language == $language_module) $selected = "selected";
+			$option_language_module .= "<option value=\"$language\" $selected>$language</option>";
+			$selected = "";
+		}
+		$content .= "
 	    <h2>"._('Main configuration')."</h2>
 	    <p>
 	    <form action='index.php?app=menu&inc=main_config&op=main_config_save' method='post'>
@@ -87,23 +87,23 @@ switch ($op)
 	    <p><input type='submit' class='button' value='"._('Save')."'>
 	    </form>
 	";
-	echo $content;
-	break;
-    case "main_config_save":
-	$edit_web_title = $_POST['edit_web_title'];
-	$edit_email_service = $_POST['edit_email_service'];
-	$edit_email_footer = $_POST['edit_email_footer'];
-	$edit_gateway_number = $_POST['edit_gateway_number'];
-	$edit_gateway_timezone = $_POST['edit_gateway_timezone'];
-	$edit_default_rate = $_POST['edit_default_rate'];
-	$edit_gateway_module = $_POST['edit_gateway_module'];
-	$edit_themes_module = $_POST['edit_themes_module'];
-	$edit_language_module = $_POST['edit_language_module'];
-	$edit_sms_max_count = $_POST['edit_sms_max_count'];
-	$edit_default_credit = $_POST['edit_default_credit'];
-	$edit_enable_register = $_POST['edit_enable_register'];
-	$edit_enable_forgot = $_POST['edit_enable_forgot'];
-	$db_query = "
+		echo $content;
+		break;
+	case "main_config_save":
+		$edit_web_title = $_POST['edit_web_title'];
+		$edit_email_service = $_POST['edit_email_service'];
+		$edit_email_footer = $_POST['edit_email_footer'];
+		$edit_gateway_number = $_POST['edit_gateway_number'];
+		$edit_gateway_timezone = $_POST['edit_gateway_timezone'];
+		$edit_default_rate = $_POST['edit_default_rate'];
+		$edit_gateway_module = $_POST['edit_gateway_module'];
+		$edit_themes_module = $_POST['edit_themes_module'];
+		$edit_language_module = $_POST['edit_language_module'];
+		$edit_sms_max_count = $_POST['edit_sms_max_count'];
+		$edit_default_credit = $_POST['edit_default_credit'];
+		$edit_enable_register = $_POST['edit_enable_register'];
+		$edit_enable_forgot = $_POST['edit_enable_forgot'];
+		$db_query = "
 	    UPDATE "._DB_PREF_."_tblConfig_main 
 	    SET c_timestamp='".mktime()."',
 		cfg_web_title='$edit_web_title',
@@ -120,10 +120,10 @@ switch ($op)
 		cfg_enable_register='$edit_enable_register',
 		cfg_enable_forgot='$edit_enable_forgot'
 	";
-	$db_result = dba_query($db_query);
-	$error_string = _('Main configuration changes has been saved');
-	header ("Location: index.php?app=menu&inc=main_config&op=main_config&err=".urlencode($error_string));
-	break;
+		$db_result = dba_query($db_query);
+		$error_string = _('Main configuration changes has been saved');
+		header ("Location: index.php?app=menu&inc=main_config&op=main_config&err=".urlencode($error_string));
+		break;
 }
 
 ?>

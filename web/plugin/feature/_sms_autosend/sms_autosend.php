@@ -9,7 +9,9 @@ if (!valid()) {
 	forcenoaccess();
 };
 ?>
-<script type="text/javascript" src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/datetimepicker.js"></script>
+<script
+	type="text/javascript"
+	src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/datetimepicker.js"></script>
 <?php
 switch ($op) {
 	case "sms_autosend_list" :
@@ -179,7 +181,7 @@ switch ($op) {
 			$db_result = dba_query($db_query);
 			$db_row = dba_fetch_array($db_result);
 			$edit_autosend_time = $db_row['autosend_time'];
-			$content .=	
+			$content .=
 			"<tr>
 	  			<td>"._('Sending time')." $j  </td><td>:</td><td><input type=hidden name=edit_time_id[$a] value=\"".$db_row['time_id']."\">
 	  				<input type=\"text\" id=\"demo[$a]\" maxlength=\"25\" size=\"20\" name=edit_autosend_time[$a] value=\"$edit_autosend_time\"><a href=\"javascript:NewCal('demo[$a]','yyyymmdd',true,24,'arrow')\">$icon_calendar</a>
@@ -238,10 +240,10 @@ switch ($op) {
 						$delete = @dba_affected_rows($db_query);
 					}
 				} else
-					if ($edit_autosend_time[$i]) {
-						$db_query = "INSERT INTO " . _DB_PREF_ . "_featureAutosend_time (autosend_id,autosend_time) VALUES ('$edit_autosend_id','$edit_autosend_time[$i]')";
-						$insert = dba_insert_id($db_query);
-					}
+				if ($edit_autosend_time[$i]) {
+					$db_query = "INSERT INTO " . _DB_PREF_ . "_featureAutosend_time (autosend_id,autosend_time) VALUES ('$edit_autosend_id','$edit_autosend_time[$i]')";
+					$insert = dba_insert_id($db_query);
+				}
 				$i++;
 			}
 			if ($update_time | $insert) {
@@ -300,23 +302,23 @@ switch ($op) {
 								<tr>
 								<td>"._('Send to')."</td><td>:</td><td><input type=readonly name=add_autosend_number value=$add_autosend_number></td>
 								</tr>";
-										
-			$i = 0;
-			$j = 1;
-			while($i<4) {	
-			$content .=	
+
+		$i = 0;
+		$j = 1;
+		while($i<4) {
+			$content .=
 			"<tr>
 	  			<td>"._('Sending time')." $j</td><td>:</td><td>
 	  				<input onFocus=\"this.blur()\" type=\"text\" id=\"field[$i]\" maxlength=\"25\" size=\"20\" name=add_autosend_time[$i] value=$add_autosend_time[$i]><a href=\"javascript:NewCal('field[$i]','yyyymmdd',true,24,'arrow')\">$icon_calendar</a>
 	  			</td>
 			</tr>";	
-				$i++;
-				$j++;
-			}	
+			$i++;
+			$j++;
+		}
 
-																		
-										
-			$content 	.= "</table>
+
+
+		$content 	.= "</table>
 				<p><input type=submit class=button value="._('Add').">
 				</form>
 			";
