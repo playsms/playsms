@@ -74,7 +74,7 @@ function msgtoolbox_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$ui
 					// remote_slid is remote SMS log id (in API doc its referred to smsid or messageid)			
 					$db_query = "
 						INSERT INTO "._DB_PREF_."_gatewayMsgtoolbox (local_slid,remote_slid,status)
-						VALUES ('$smslog_id','$remote_slid','0')
+						VALUES ('$smslog_id','$remote_slid','10') // status=10 delivered to gateway
 					    ";
 					$id = @dba_insert_id($db_query);
 					if ($id) {
