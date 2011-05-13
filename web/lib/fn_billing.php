@@ -1,6 +1,13 @@
 <?php
 if(!(defined('_SECURE_'))){die('Intruder alert');};
 
+/**
+ * Post billing statement
+ * @param integer $smslog_id
+ * @param float $rate
+ * @param float $credit
+ * @return boolean TRUE if posted
+ */
 function billing_post($smslog_id,$rate,$credit) {
 	global $core_config;
 	$ok = false;
@@ -15,19 +22,30 @@ function billing_post($smslog_id,$rate,$credit) {
 	return $ok;
 }
 
+/**
+ * Rollback a posted billing statement
+ * @param integer $smslog_id SMS log ID
+ * @return boolean TRUE if rollback succeeded
+ */
 function billing_rollback($smslog_id) {
 	global $core_config;
-	$ret_array = array(0,0);
+	$ok = false;
 	if ($smslog_id) {
 		for ($c=0;$c<count($core_config['toolslist']);$c++) {
-			if ($ret_array = x_hook($core_config['toolslist'][$c],'billing_rollback',array($smslog_id))) {
+			if (x_hook($core_config['toolslist'][$c],'billing_rollback',array($smslog_id))) {
+				$ok = true;
 				break;
 			}
 		}
 	}
-	return $ret_array;
+	return $ok;
 }
 
+/**
+ * Set status that billing process is finalized, called from setsmsdeliverystatus
+ * @param integer $smslog_id SMS log ID
+ * @return boolean TRUE if finalization succeeded
+ */
 function billing_finalize($smslog_id) {
 	global $core_config;
 	$ok = false;
@@ -42,6 +60,11 @@ function billing_finalize($smslog_id) {
 	return $ok;
 }
 
+/**
+ * Get billing data or information for specific SMS log ID
+ * @param integer $smslog_id SMS log ID
+ * @return array Billing information
+ */
 function billing_getdata($smslog_id) {
 	global $core_config;
 	$ret = array();
