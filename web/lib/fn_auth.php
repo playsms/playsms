@@ -1,6 +1,12 @@
 <?php
 if(!(defined('_SECURE_'))){die('Intruder alert');};
 
+/**
+ * Validate username and password
+ * @param string $username Username
+ * @param password $password Password
+ * @return string|boolean Ticket or FALSE when validation failed
+ */
 function validatelogin($username,$password) {
 	$db_query = "SELECT password FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 	$db_result = dba_query($db_query);
@@ -14,6 +20,13 @@ function validatelogin($username,$password) {
 	}
 }
 
+/**
+ * Check if ticket is valid, that visitor has access or validated
+ * @param string $var_ticket Ticket
+ * @param string $var_username Username
+ * @param string $var_multilogin_id 1 for multi login and 0 for single login
+ * @return boolean TRUE if valid
+ */
 function valid($var_ticket="",$var_username="",$var_multilogin_id="") {
 	global $core_config;
 	$ticket = $_COOKIE['vc1'];
@@ -45,6 +58,13 @@ function valid($var_ticket="",$var_username="",$var_multilogin_id="") {
 	}
 }
 
+/**
+ * Check if visitor has admin access level
+ * @param string $var_ticket Ticket
+ * @param string $var_username Username
+ * @param string $var_multilogin_id 1 for multi login and 0 for single login
+ * @return boolean TRUE if valid and visitor has admin access level
+ */
 function isadmin($var_ticket="",$var_username="",$var_multilogin_id="") {
 	global $core_config;
 	$ticket = $_COOKIE['vc1'];
@@ -76,6 +96,9 @@ function isadmin($var_ticket="",$var_username="",$var_multilogin_id="") {
 	}
 }
 
+/**
+ * Force forward to noaccess page
+ */
 function forcenoaccess() {
 	$error_string = _('You have no access to this page');
 	$errid = logger_set_error_string($error_string);
@@ -83,7 +106,7 @@ function forcenoaccess() {
 	exit();
 }
 
-/*
+/**
  * Process login
  *
  */
@@ -118,7 +141,7 @@ function auth_login() {
 	exit();
 }
 
-/*
+/**
  * Process logout
  *
  */
@@ -137,7 +160,7 @@ function auth_logout() {
 	exit();
 }
 
-/*
+/**
  * Process forgot password
  *
  */
@@ -175,7 +198,7 @@ function auth_forgot() {
 	exit();
 }
 
-/*
+/**
  * Process register an account
  *
  */
