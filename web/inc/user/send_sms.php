@@ -1,4 +1,5 @@
 <?php
+if(!(defined('_SECURE_'))){die('Intruder alert');};
 if(!valid()){forcenoaccess();};
 
 $dst_p_num = urlencode($_REQUEST['dst_p_num']);

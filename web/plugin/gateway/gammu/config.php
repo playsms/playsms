@@ -1,4 +1,5 @@
 <?php
+if(!(defined('_SECURE_'))){die('Intruder alert');};
 $gammu_param['name'] = "gammu";
 $gammu_param['path'] = "/var/spool/gammu";
 

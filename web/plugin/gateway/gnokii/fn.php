@@ -1,4 +1,5 @@
 <?php
+if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 function gnokii_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="") {
 	global $gnokii_param;

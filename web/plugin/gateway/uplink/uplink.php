@@ -1,4 +1,5 @@
 <?php
+if(!(defined('_SECURE_'))){die('Intruder alert');};
 if(!isadmin()){forcenoaccess();};
 
 include $apps_path['plug']."/gateway/uplink/config.php";

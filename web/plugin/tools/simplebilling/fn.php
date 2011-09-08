@@ -1,3 +1,4 @@
+<?php if(!(defined('_SECURE_'))){die('Intruder alert');}; ?>
 <?php
 function simplebilling_hook_billing_post($smslog_id,$rate,$credit) {
 	global $datetime_now;

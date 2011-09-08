@@ -1,3 +1,4 @@
+<?php if(!(defined('_SECURE_'))){die('Intruder alert');}; ?>
 <?php
 
 function plainoldsendmail_hook_sendmail($mail_from,$mail_to,$mail_subject="",$mail_body="") {

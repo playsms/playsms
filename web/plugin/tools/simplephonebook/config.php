@@ -1,3 +1,4 @@
+<?php if(!(defined('_SECURE_'))){die('Intruder alert');}; ?>
 <?php
 
 $simplephonebook_icon_export = "<img src=\"".$http_path['themes']."/".$themes_module."/images/export.gif\" alt=\""._('Export')."\" title=\""._('Export')."\" border=0>";

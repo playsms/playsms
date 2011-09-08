@@ -1,3 +1,4 @@
+<?php if(!(defined('_SECURE_'))){die('Intruder alert');}; ?>
 <html>
 <head>
 <title><?php echo $web_title; ?></title>

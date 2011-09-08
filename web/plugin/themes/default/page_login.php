@@ -1,3 +1,4 @@
+<?php if(!(defined('_SECURE_'))){die('Intruder alert');}; ?>
 <?php include $apps_path['themes']."/".$themes_module."/header.php"; ?>
 
 <TABLE WIDTH="100%" height="100%" BORDER=0 CELLPADDING=0 CELLSPACING=0>

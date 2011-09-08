@@ -1,4 +1,5 @@
 <?php
+if(!(defined('_SECURE_'))){die('Intruder alert');};
 function uplink_hook_playsmsd() {
 	// force to check p_status=1 (sent) as getsmsstatus only check for p_status=0 (pending)
 	//$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status=0 OR p_status=1";
