@@ -1,4 +1,5 @@
-Version 0.9.5.3-git - unknown
+Version 0.9.5.3 - 110909
+- MAJOR: fix security hole RFI http://www.exploit-db.com/exploits/17792/ (anton)
 - add new option to allow/disallow forwards to inbox, email and mobile for each users (anton)
 - add new language zh_CN (fvancaen)
 - add new plugin, feature, SMS survey, half-way, the reporting parts are not finished (anton)
@@ -20,7 +21,6 @@ Version 0.9.5.3-git - unknown
 - fix sms subscribe, subscribing to disabled keyword should not happen (anton)
 - fix #3109982 wrong autoreply result due to missing autoreply_id in db query (anton)
 - fix #3216652 the bar graph image on the poll results page is broken (jeremymueller)
-- fix security hole RFI http://www.exploit-db.com/exploits/17792/ (anton)
 
 Version 0.9.5.2 - 101115
 - MAJOR: all SMS date/time will be adjusted to GMT+0 in database (anton)
