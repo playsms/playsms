@@ -20,6 +20,7 @@ Version 0.9.5.3-git - unknown
 - fix sms subscribe, subscribing to disabled keyword should not happen (anton)
 - fix #3109982 wrong autoreply result due to missing autoreply_id in db query (anton)
 - fix #3216652 the bar graph image on the poll results page is broken (jeremymueller)
+- fix security hole RFI http://www.exploit-db.com/exploits/17792/ (anton)
 
 Version 0.9.5.2 - 101115
 - MAJOR: all SMS date/time will be adjusted to GMT+0 in database (anton)
