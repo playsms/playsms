@@ -26,9 +26,8 @@ Feature Highlights
 - SMS poll, manage polling system using SMS
 - SMS quiz, serve quizzes on SMS
 - SMS subscribe, manage user subscribes to a service using SMS
-- SMS autosend, automatically send SMS once or repeated
 - Create your own features, tools, themes and gateway modules as a plugin
-- By default support Gammu, Gnokii, Kannel, SMS Server Tools and Clickatell
+- Supports Gammu, Gnokii, Kannel, SMS Server Tools, Msgtoolbox and Clickatell
 - Simple webservices for sending SMS and retrieving delivery reports
 - Long SMS support, length of text is configurable
 - Rate SMS by destination prefix
@@ -41,12 +40,12 @@ Feature Highlights
 
 License
 -------
-playSMS libraries source codes (all files under directory web/lib) wrote by 
+Source codes on playSMS libraries (all files under directory web/lib) wrote by 
 Anton Raharja and/or contributed/modified by contributors are LGPL, the rest 
 of the playSMS source codes are licensed as GPL version 2
 
 Each plugins, modules or external applications linked with playSMS libraries 
-and available for or installed with playSMS may have their own license
+and available for or installed with playSMS may have their own licenses
 
 
 Installation
