@@ -1,4 +1,4 @@
-Version 0.9.5.3 - 110909
+Version 0.9.5.3 - 110910
 - MAJOR: fix security hole RFI http://www.exploit-db.com/exploits/17792/ (anton)
 - add new option to allow/disallow forwards to inbox, email and mobile for each users (anton)
 - add new language zh_CN (fvancaen)

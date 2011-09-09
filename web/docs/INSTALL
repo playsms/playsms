@@ -39,9 +39,9 @@ playSMS Web Interface:
 2.  Setup a system user named 'playsms' to manage playSMS
     # adduser playsms
     # passwd playsms
-    Note: on some Linux distributions adduser and passwd combined (Debian, Ubuntu and maybe others)
+    Note: on some Linux distributions adduser and passwd are combined (eg: Debian and Ubuntu)
 3.  On most Linux distributions actions (2) will create system user and group named 'playsms'
-    with home directory /home/playsms, but you will install playSMS in different directory
+    with home directory /home/playsms (this directory does not mean anything to playSMS)
 4.  Create playSMS web root, spool and log and set ownership to user www-data or web server user
     # mkdir -p /var/www/playsms
     # mkdir -p /var/spool/playsms
@@ -61,7 +61,7 @@ playSMS Web Interface:
 7.  Setup database (import database)
     # mysqladmin -u root -p create playsms
     # mysql -u root -p playsms < /usr/local/src/playsms-x.x.x/db/playsms.sql
-    Note: you dont need to use MySQL root access nor this method to setup playSMS
+    Note: you don't need to use MySQL root access nor this method to setup playSMS
     database, but this is beyond our scope, you should read MySQL manual's for custom
     installation method or howto insert SQL statements into existing database
 8.  Copy config-dist.php to config.php and edit config.php
@@ -75,17 +75,27 @@ playSMS Web Interface:
     # cd /usr/local/src/playsms-x.x.x/bin
     # cp playsmsd playsmsd.php playsmsd_start /usr/local/bin/
     # cp playsms /etc/default/
-    Note: please note the different between playsms and playsmsd
-10. Look for rc.local on /etc and its subdirectories (usualy /etc, /etc/init.d or /etc/rc.d/init.d)
+    Note: please note the difference between playsms and playsmsd, one is a config file the other
+    is a script
+10. Just to make sure every paths are correct, please edit /etc/default/playsms
+    # vi /etc/default/playsms
+    Make sure that PLAYSMS_PATH is pointing to a correct playSMS installation path, and also make
+    sure that PLAYSMS_BIN is pointing to a correct playSMS scripts (playsmsd_start, playsmsd) path.
+11. Look for rc.local on /etc and its subdirectories (usualy /etc, /etc/init.d or /etc/rc.d/init.d)
     Edit rc.local and put: 
     "/usr/local/bin/playsmsd_start" (without quotes)
-    on the bottom of the file (before exit if theres exit command). This way playsmsd_start 
+    on the bottom of the file (before exit if theres an exit command). This way playsmsd_start 
     will start automatically on boot. 
     Note: you need 'root' access to do this
-11  Browse http://localhost/playsms/ and login using default administrator user
+12. Run playsmsd_start manually
+    # /usr/local/bin/playsmsd_start
+    Note:
+    - after that please do a ps -ax and see if ./playsmsd is running
+    - stop here and review your installation steps when playsmsd isn't running
+13. Browse http://localhost/playsms/ and login using default administrator user
     username: admin
     password: admin
-12. At this point you should be able to login to playSMS web interface and manage playSMS
+14. At this point you should be able to login to playSMS web interface and manage playSMS
 
 Please continue to follow INSTALL_GNOKII if you want to use gnokii as your gateway module, 
 or INSTALL_SMSSERVERTOOLS to use SMS Server Tools, or INSTALL_KANNEL if you want to use 
