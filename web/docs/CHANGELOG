@@ -1,3 +1,6 @@
+Version 0.9.6-git - unknown
+- add new plugin: send SMS from file (anton)
+
 Version 0.9.5.3 - 110910
 - MAJOR: fix security hole RFI http://www.exploit-db.com/exploits/17792/ (anton)
 - add new option to allow/disallow forwards to inbox, email and mobile for each users (anton)
