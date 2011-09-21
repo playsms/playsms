@@ -16,7 +16,9 @@ ta	: type of action
 	    sms_poll 	: poll results from plugin sms_poll
 	    sms_board 	: board results from plugin sms_board
 
-to	: destination number (for ta=pv) or destination group code (for ta=bc)
+to	: destination numbers (for ta=pv) or destination group code (for ta=bc)
+          multiple destination numbers (seperated by comma) can be used when ta=pv
+          
 msg	: message
 type 	: message type (1=flash, 2=text)
 unicode : whether message unicode or not (1=unicode, 0=not unicode)
@@ -66,11 +68,12 @@ PROTOCOL
 EXAMPLE
 -------
 http://playsms.org/trial/index.php?app=webservices&ta=pv&u=admin&p=rahasia&to=01234567890&msg=meeting+at+15.00+today!
+http://playsms.org/trial/index.php?app=webservices&ta=pv&u=admin&p=rahasia&to=01234567890,0134455667788&msg=meeting+today!
 http://playsms.org/trial/index.php?app=webservices&ta=bc&u=admin&p=rahasia&to=TI&msg=meeting+at+15.00+today!
 
 User admin access playSMS webservices in x.com with type of action bc (broadcast)
 if succeded returns: OK SMS_LOG_ID (eg: OK 754)
-if error occured returns ERROR RETURNS
+if error occured returns one of the ERROR RETURNS above
 
 
 --
