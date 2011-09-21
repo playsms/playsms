@@ -519,7 +519,7 @@ msgid "All incoming SMS"
 msgstr "全部收到的短信"
 
 #: inc/admin/all_outgoing.php:25
-msgid "All Outgoing SMS"
+msgid "All outgoing SMS"
 msgstr "全部发出的短信"
 
 #: inc/admin/all_outgoing.php:117

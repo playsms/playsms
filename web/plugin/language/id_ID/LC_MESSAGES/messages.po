@@ -519,7 +519,7 @@ msgid "All incoming SMS"
 msgstr "Semua SMS masuk"
 
 #: inc/admin/all_outgoing.php:25
-msgid "All Outgoing SMS"
+msgid "All outgoing SMS"
 msgstr "Semua SMS keluar"
 
 #: inc/admin/all_outgoing.php:117

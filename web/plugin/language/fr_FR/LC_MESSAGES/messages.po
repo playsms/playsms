@@ -518,7 +518,7 @@ msgid "All incoming SMS"
 msgstr "Tous les SMS reçus"
 
 #: inc/admin/all_outgoing.php:25
-msgid "All Outgoing SMS"
+msgid "All outgoing SMS"
 msgstr "Tous les SMS envoyés"
 
 #: inc/admin/all_outgoing.php:117
