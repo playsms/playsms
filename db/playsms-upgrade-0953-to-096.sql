@@ -7,5 +7,5 @@ CREATE TABLE `playsms_toolsSendfromfile` (
 `sms_to` VARCHAR( 50 ) NOT NULL ,
 `sms_msg` TEXT NOT NULL ,
 `sms_username` VARCHAR( 50 ) NOT NULL
-) ENGINE = MYISAM ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
