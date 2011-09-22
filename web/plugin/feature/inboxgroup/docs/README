@@ -1,6 +1,6 @@
-Plugin	: Send SMS from CSV File
+Plugin	: Receive incoming SMS sent to group Inbox and forward it to members Inbox
 Author	: Anton Raharja
-Release	: 110921
+Release	: 110922
 License	: GPL
 
 Development costs donated by Steven Delport (steven at linux.org.na).
