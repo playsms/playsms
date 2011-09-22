@@ -30,15 +30,20 @@ slid	: SMS Log ID (for ta=ds, when slid defined 'last' and 'c' has no effect)
 
 ERROR RETURNS
 -------------
-OK [SMS_LOG_ID]	: action successfully executed and returns an SMS Log ID
-ERR 100		: authentication failed
-ERR 101		: type of action not valid
-ERR 102		: one or more field empty
-ERR 200		: send private failed
-ERR 201		: destination number or message is empty
-ERR 300		: send broadcast failed
-ERR 301		: destination group or message is empty
-ERR 400		: no delivery status retrieved
+OK                       : action successfully executed and returns nothing
+                           this is only when "ta=bc"
+OK [SMS_LOG_ID]          : action successfully executed and returns an SMS Log ID
+OK [NUMBER],[SMS_LOG_ID] : action successfully executed and returns destination number
+                           this is only when "ta=pv" and "to" contains multiple destinations
+OK [CREDIT]              : action successfully executed and returns user's credit
+ERR 100                  : authentication failed
+ERR 101                  : type of action not valid
+ERR 102                  : one or more field empty
+ERR 200                  : send private failed
+ERR 201                  : destination number or message is empty
+ERR 300                  : send broadcast failed
+ERR 301                  : destination group or message is empty
+ERR 400                  : no delivery status retrieved
 
 
 PROTOCOL
@@ -64,12 +69,19 @@ PROTOCOL
 		  c retrieves as many as c value
 		  last retrieves from last SMS log ID
 
+4. User credits
+    ta          : cr
+    parameters  : u, p
+    returns     : user's credit
+
 
 EXAMPLE
 -------
 http://playsms.org/trial/index.php?app=webservices&ta=pv&u=admin&p=rahasia&to=01234567890&msg=meeting+at+15.00+today!
 http://playsms.org/trial/index.php?app=webservices&ta=pv&u=admin&p=rahasia&to=01234567890,0134455667788&msg=meeting+today!
 http://playsms.org/trial/index.php?app=webservices&ta=bc&u=admin&p=rahasia&to=TI&msg=meeting+at+15.00+today!
+http://playsms.org/trial/index.php?app=webservices&ta=ds&u=admin&p=rahasia&c=100
+http://playsms.org/trial/index.php?app=webservices&ta=cr&u=admin&p=rahasia
 
 User admin access playSMS webservices in x.com with type of action bc (broadcast)
 if succeded returns: OK SMS_LOG_ID (eg: OK 754)

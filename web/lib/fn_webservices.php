@@ -100,6 +100,13 @@ function webservices_ds_count($c_username,$c=100,$last=false) {
 	return $ret;
 }
 
+function webservices_cr($c_username) {
+        $credit = rate_getusercredit($c_username);
+        $credit = ( $credit ? $credit : '0' );
+        $ret = "OK ".$credit;
+        return $ret;
+}
+
 function webservices_output($ta,$requests) {
 	$ta = strtolower($ta);
 	$ret = x_hook($ta,'webservices_output',array($ta,$requests));

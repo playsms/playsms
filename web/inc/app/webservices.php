@@ -57,6 +57,15 @@ if ($ta) {
 				}
 			}
 			break;
+                case "CR":
+                        if ($u && $p) {
+                                if (validatelogin($u,$p)) {
+                                        $ret = webservices_cr($u);
+                                } else {
+                                        $ret = "ERR 100";
+                                }
+                        }
+                        break;
 		default:
 			// output do not require valid login
 			$ret = webservices_output($ta,$_REQUEST);
