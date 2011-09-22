@@ -1,5 +1,7 @@
 Version 0.9.6-git - unknown
-- add new plugin: send SMS from file (anton)
+- add new plugin: send SMS by uploading a list in a CSV file (anton)
+- add new plugin: inbox group (anton)
+- add webservices type of action (ta=cr) to get user's credit (anton)
 
 Version 0.9.5.3 - 110910
 - MAJOR: fix security hole RFI http://www.exploit-db.com/exploits/17792/ (anton)
