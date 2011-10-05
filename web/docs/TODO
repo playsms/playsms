@@ -1,0 +1,14 @@
+TODO
+----
+
+1. Search box for phonebook, incoming and outgoing SMS
+2. Install scripts, deb or rpm package for playSMS
+3. Virtual SMSC/gateway
+4. Outgoing SMS Route, enable multiple SMSC/gateway
+5. Incoming SMS Route, enable multiple SMSC/gateway
+6. Smart message template, eg: #NAME# will be replaced by destination name on phonebook
+7......
+
+
+--
+Anton Raharja
