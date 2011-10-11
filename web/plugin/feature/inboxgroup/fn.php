@@ -243,6 +243,10 @@ function inboxgroup_dataadd($in_receiver, $keywords, $description) {
 }
 
 function inboxgroup_dataedit($rid, $keywords, $description, $exclusive) {
+        $db_query = "SELECT keywords FROM "._DB_PREF_."_featureInboxgroup WHERE id='$rid'";
+        $db_result = dba_query($db_query);
+        $db_row = dba_fetch_array($db_result);
+        $orig_keywords = explode(',', $db_row['keywords']);
 	$exclusive = $exclusive ? 1 : 0 ; 
 	$keywords = str_replace(' ', '', $keywords);
 	$keywords = trim(strtoupper($keywords));
@@ -251,7 +255,13 @@ function inboxgroup_dataedit($rid, $keywords, $description, $exclusive) {
 	for ($i=0;$i<count($keywords);$i++) {
 		if (checkavailablekeyword($keywords[$i])) {
 			$k .= $keywords[$i].',';
-		}
+		} else {
+                        for ($j=0;$j<count($orig_keywords);$j++) {
+                                if ($keywords[$i] == $orig_keywords[$j]) {
+                                        $k .= $keywords[$i].',';
+                                }
+                        }
+                }
 	}
 	if ($keywords = substr($k, 0, -1)) {
 		$db_query = "UPDATE "._DB_PREF_."_featureInboxgroup SET c_timestamp='".mktime()."',keywords='$keywords',description='$description',exclusive='$exclusive' WHERE deleted='0' AND id='$rid'";
