@@ -56,7 +56,7 @@ function sms_board_hook_setsmsincomingaction($sms_datetime,$sms_sender,$board_ke
 
 function sms_board_handle($c_uid, $sms_datetime,$sms_sender,$sms_receiver,$board_keyword,$board_param='')
 {
-	global $web_title,$email_service,$email_footer,$gateway_module;
+	global $web_title,$email_service,$email_footer,$gateway_module, $datetime_now;
 	$ok = false;
 	if ($sms_sender && $board_keyword && $board_param)
 	{
@@ -65,7 +65,7 @@ function sms_board_handle($c_uid, $sms_datetime,$sms_sender,$sms_receiver,$board
 		$db_query = "
 	    INSERT INTO "._DB_PREF_."_featureBoard_log 
 	    (in_gateway,in_sender,in_masked,in_keyword,in_msg,in_datetime) 
-	    VALUES ('$gateway_module','$sms_sender','$masked_sender','$board_keyword','$board_param','$sms_datetime')
+	    VALUES ('$gateway_module','$sms_sender','$masked_sender','$board_keyword','$board_param','$datetime_now')
 	";
 		if ($cek_ok = @dba_insert_id($db_query))
 		{

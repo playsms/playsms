@@ -1,3 +1,7 @@
+-- plugin: sms_poll
+
+ALTER TABLE `playsms_featurePoll_log` ADD `in_datetime` VARCHAR( 20 ) NOT NULL DEFAULT '0000-00-00 00:00:00' AFTER `poll_sender` ;
+
 -- plugin: sendfromfile
 
 DROP TABLE IF EXISTS `playsms_toolsSendfromfile` ;

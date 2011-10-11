@@ -56,6 +56,7 @@ function sms_poll_hook_setsmsincomingaction($sms_datetime,$sms_sender,$poll_keyw
 
 function sms_poll_handle($sms_datetime,$sms_sender,$poll_keyword,$poll_param='')
 {
+        global $datetime_now;
 	$ok = false;
 	$poll_keyword = strtoupper($poll_keyword);
 	$target_choice = strtoupper($poll_param);
@@ -78,8 +79,8 @@ function sms_poll_handle($sms_datetime,$sms_sender,$poll_keyword,$poll_param='')
 			{
 				$db_query = "
 		    INSERT INTO "._DB_PREF_."_featurePoll_log 
-		    (poll_id,choice_id,poll_sender) 
-		    VALUES ('$poll_id','$choice_id','$sms_sender')
+		    (poll_id,choice_id,poll_sender,in_datetime) 
+		    VALUES ('$poll_id','$choice_id','$sms_sender','$datetime_now')
 		";
 				dba_query($db_query);
 			}
