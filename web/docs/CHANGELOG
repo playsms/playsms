@@ -1,4 +1,5 @@
 Version 0.9.6-git - unknown
+- add new plugin: message template, replace word templates with phonebook related data (anton)
 - add new plugin: send SMS by uploading a list in a CSV file (anton)
 - add new plugin: inbox group (anton)
 - add webservices type of action (ta=cr) to get user's credit (anton)
