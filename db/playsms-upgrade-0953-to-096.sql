@@ -1,3 +1,9 @@
+-- core
+
+ALTER TABLE `playsms_tblUser` CHANGE `sender` `footer` VARCHAR( 30 ) NOT NULL DEFAULT '' ;
+ALTER TABLE `playsms_tblUser` CHANGE `mobile` `mobile` VARCHAR( 16 ) NOT NULL DEFAULT '' ;
+ALTER TABLE `playsms_tblUser` ADD `sender` VARCHAR( 16 ) NOT NULL DEFAULT '' AFTER `email` ;
+
 -- plugin: sms_poll
 
 ALTER TABLE `playsms_featurePoll_log` ADD `in_datetime` VARCHAR( 20 ) NOT NULL DEFAULT '0000-00-00 00:00:00' AFTER `poll_sender` ;
