@@ -2,7 +2,9 @@ Version 0.9.6-git - unknown
 - add new plugin: message template, replace word templates with phonebook related data (anton)
 - add new plugin: send SMS by uploading a list in a CSV file (anton)
 - add new plugin: inbox group (anton)
+- add new plugin: simulator, for testing purposes (anton)
 - add webservices type of action (ta=cr) to get user's credit (anton)
+- fix SMS footer display on user and all outgoing page (anton)
 
 Version 0.9.5.3 - 110910
 - MAJOR: fix security hole RFI http://www.exploit-db.com/exploits/17792/ (anton)
