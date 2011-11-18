@@ -1,0 +1,4 @@
+Plugin	: Simulator, simulate incoming SMS by injecting a text into the system
+Author	: Anton Raharja
+Release	: 111014
+License	: GPL
