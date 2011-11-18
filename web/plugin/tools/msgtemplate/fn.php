@@ -4,9 +4,9 @@
 /*
  * intercept sendsms and replace certain word templates in $sms_msg
  *
- * @param $mobile_sender
- *   sender number
  * @param $sms_sender
+ *   sender number
+ * @param $sms_footer
  *   sender signiture/footer
  * @param $sms_to
  *   destination number
@@ -23,7 +23,7 @@
  * @return
  *   array $ret
  */
-function msgtemplate_hook_interceptsendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode) {
+function msgtemplate_hook_interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode) {
 	// parameters modified
 	$ret['modified'] = true;
 

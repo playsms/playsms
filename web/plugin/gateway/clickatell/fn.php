@@ -26,7 +26,7 @@ function clickatell_hook_playsmsd() {
 	}
 }
 
-function clickatell_hook_sendsms($mobile_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
+function clickatell_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
 	global $clickatell_param;
 	global $gateway_number;
 	if ($clickatell_param['sender']) {
@@ -34,7 +34,7 @@ function clickatell_hook_sendsms($mobile_sender,$sms_footer,$sms_to,$sms_msg,$ui
 	} else if ($gateway_number) {
 		$sms_from = $gateway_number;
 	} else {
-		$sms_from = $mobile_sender;
+		$sms_from = $sms_sender;
 	}
 	if ($sms_footer) {
 		$sms_msg = $sms_msg.$sms_footer;
@@ -58,7 +58,7 @@ function clickatell_hook_sendsms($mobile_sender,$sms_footer,$sms_to,$sms_msg,$ui
 	}
 
 	// fixme anton - if sms_from is not set in gateway_number and global number, we cannot pass it to clickatell
-	$set_sms_from = ( $sms_from == $mobile_sender ? '' : "&from=".urlencode($sms_from) );
+	$set_sms_from = ( $sms_from == $sms_sender ? '' : "&from=".urlencode($sms_from) );
 
 	$query_string = "sendmsg?api_id=".$clickatell_param['api_id']."&user=".$clickatell_param['username']."&password=".$clickatell_param['password']."&to=".urlencode($sms_to)."&msg_type=$sms_type&text=".urlencode($sms_msg)."&unicode=".$unicode.$set_sms_from;
 	$url = $clickatell_param['send_url']."/".$query_string;

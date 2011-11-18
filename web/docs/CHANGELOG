@@ -1,5 +1,6 @@
 Version 0.9.6-git - unknown
-- MAJOR: all 'sender' terms that are related to sending SMS are replaced by 'footer' (anton)
+- MAJOR: all 'mobile' terms that are related to sending SMS are replaced by 'sender' (anton)
+- MAJOR: all old 'sender' terms that are related to sending SMS are replaced by 'footer' (anton)
 - add new options in preferences: sender and footer (anton)
 - add new plugin: message template, replace word templates with phonebook related data (anton)
 - add new plugin: send SMS by uploading a list in a CSV file (anton)

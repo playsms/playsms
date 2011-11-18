@@ -7,14 +7,14 @@ function msgtoolbox_hook_playsmsd() {
 // hook_sendsms
 // called by main sms sender
 // return true for success delivery
-// $mobile_sender	: sender mobile number
+// $sms_sender	: sender mobile number
 // $sms_footer		: sender sms footer or sms sender ID
 // $sms_to		: destination sms number
 // $sms_msg		: sms message tobe delivered
 // $gpid		: group phonebook id (optional)
 // $uid			: sender User ID
 // $smslog_id		: sms ID
-function msgtoolbox_hook_sendsms($mobile_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
+function msgtoolbox_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
 	// global $msgtoolbox_param;   // global all variables needed, eg: varibles from config.php
 	// ...
 	// ...
@@ -28,7 +28,7 @@ function msgtoolbox_hook_sendsms($mobile_sender,$sms_footer,$sms_to,$sms_msg,$ui
 	} else if ($gateway_number) {
 		$sms_from = $gateway_number;
 	} else {
-		$sms_from = $mobile_sender;
+		$sms_from = $sms_sender;
 	}
 	if ($sms_footer) {
 		$sms_msg = $sms_msg.$sms_footer;

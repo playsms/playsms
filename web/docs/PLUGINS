@@ -36,7 +36,7 @@ Core functions that you can 'hook' from tools plugins:
 - setsmsdeliverystatus($smslog_id,$uid,$p_status)
 - interceptincomingsms($sms_datetime,$sms_sender,$message)
 - interceptsmstoinbox($sms_datetime,$sms_sender,$target_user,$message)
-- interceptsendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0)
+- interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0)
 - call($_REQUEST)
 
 
@@ -52,7 +52,7 @@ Core functions that you can 'hook' from feature plugins:
 - setsmsincomingaction($sms_datetime,$sms_sender,$keyword,$param='')
 - interceptincomingsms($sms_datetime,$sms_sender,$message)
 - interceptsmstoinbox($sms_datetime,$sms_sender,$target_user,$message)
-- interceptsendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0)
+- interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0)
 - call($_REQUEST)
 
 
@@ -65,7 +65,7 @@ Core functions that you can 'hook' from gateway plugins:
 - playsmsd()
 - getsmsinbox()
 - getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="")
-- sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0)
+- sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0)
 - setsmsdeliverystatus($smslog_id,$uid,$p_status)
 - call($_REQUEST)
 
