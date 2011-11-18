@@ -1,8 +1,8 @@
 -- core
 
 ALTER TABLE `playsms_tblUser` CHANGE `sender` `footer` VARCHAR( 30 ) NOT NULL DEFAULT '' ;
-ALTER TABLE `playsms_tblUser` CHANGE `mobile` `mobile` VARCHAR( 16 ) NOT NULL DEFAULT '' ;
-ALTER TABLE `playsms_tblUser` ADD `sender` VARCHAR( 16 ) NOT NULL DEFAULT '' AFTER `email` ;
+ALTER TABLE `playsms_tblUser` CHANGE `mobile` `sender` VARCHAR( 16 ) NOT NULL DEFAULT '' ;
+ALTER TABLE `playsms_tblUser` ADD `mobile` VARCHAR( 16 ) NOT NULL DEFAULT '' AFTER `email` ;
 
 -- plugin: sms_poll
 
