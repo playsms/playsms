@@ -33,6 +33,7 @@ function myauto_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, 
 	// send reply
 	sendsms($core_config['main']['cfg_gateway_number'],'',$sms_sender,$reply,$c_uid,0,'text',$unicode);
 	// log it
+	$sms_datetime = core_display_datetime($sms_datetime);
 	logger_print("dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." autorespon:".$reply,3,"myauto");
 }
 

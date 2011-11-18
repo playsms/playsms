@@ -79,6 +79,7 @@ function sms_board_handle($c_uid, $sms_datetime,$sms_sender,$sms_receiver,$board
 				$c_username = uid2username($c_uid);
 				$c_name = phonebook_number2name($sms_sender, $c_username);
 				$sms_sender = $c_name ? $c_name.' <'.$sms_sender.'>' : $sms_sender;
+				$sms_datetime = core_display_datetime($sms_datetime);
 					
 				$subject = "[SMSGW-".$board_keyword."] "._('from')." $sms_sender";
 				$body = _('Forward WebSMS')." ($web_title)\n\n";

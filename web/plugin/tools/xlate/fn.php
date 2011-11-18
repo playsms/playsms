@@ -42,6 +42,7 @@ function xlate_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $
 					// incoming sms is handled
 					$ret['hooked'] = true;
 					/* Was translation successful */
+					$sms_datetime = core_display_datetime($sms_datetime);
 					if ($gt->isSuccess()) {
 						$reply = '@'.$xlate_from.'2'.$xlate_to.' '.$words.' => '.$xlate_words;
 						logger_print("success dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." w:".$words." from:".$xlate_from." to:".$xlate_to." xlate:".$xlate_words,3,"xlate");

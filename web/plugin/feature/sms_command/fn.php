@@ -62,6 +62,7 @@ function sms_command_handle($sms_datetime,$sms_sender,$command_keyword,$command_
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$command_exec = $db_row['command_exec'];
+	$sms_datetime = core_display_datetime($sms_datetime);
 	$command_exec = str_replace("{SMSDATETIME}","\"$sms_datetime\"",$command_exec);
 	$command_exec = str_replace("{SMSSENDER}","\"$sms_sender\"",$command_exec);
 	$command_exec = str_replace("{COMMANDKEYWORD}","\"$command_keyword\"",$command_exec);
