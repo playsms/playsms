@@ -1,13 +1,16 @@
 Version 0.9.6-git - unknown
+- MAJOR: move SMS sender ID logic in sendsms() and its hooks to sendsms_get_sender() (anton)
 - MAJOR: all 'mobile' terms that are related to sending SMS are replaced by 'sender' (anton)
 - MAJOR: all old 'sender' terms that are related to sending SMS are replaced by 'footer' (anton)
+- add new function: sendsms_get_sender() to get effective SMS Sender ID (anton)
 - add new options in preferences: sender and footer (anton)
 - add new plugin: message template, replace word templates with phonebook related data (anton)
 - add new plugin: send SMS by uploading a list in a CSV file (anton)
 - add new plugin: inbox group (anton)
 - add webservices type of action (ta=cr) to get user's credit (anton)
-- replace $sms_datetime in several plugins to $datetime_now (anton)
 - regression: Clickatell's callback URL, should be direct to callback.php (anton)
+- replace $sms_datetime in several plugins to $datetime_now (anton)
+- sendsms() is considered low level, use sendsms_pv() on plugins
 - fix SMS footer display on user and all outgoing page (anton)
 - fix gateway msgtoolbox, unable to properly save message ID on incoming SMS (anton)
 - fix $sms_datetime for display purposes on some plugins using core_display_datetime() (anton)
