@@ -10,6 +10,7 @@ Version 0.9.6-git - unknown
 - regression: Clickatell's callback URL, should be direct to callback.php (anton)
 - fix SMS footer display on user and all outgoing page (anton)
 - fix gateway msgtoolbox, unable to properly save message ID on incoming SMS (anton)
+- fix $sms_datetime for display purposes on some plugins using core_display_datetime() (anton)
 - fix #3414232 sms_poll log table missing datetime field (anton)
 
 Version 0.9.5.3 - 110910
