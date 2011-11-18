@@ -139,11 +139,6 @@ Since 0.9.5.1:
 http://localhost/playsms/index.php?app=webservices&u=admin&p=admin&ta=ds&last=100
 
 Prior to 0.9.5.1:
-http://localhost/playsms/plugin/gateway/clickatell/callback.php
-Since 0.9.5.1:
-http://localhost/playsms/index.php?app=call&cat=gateway&plugin=clickatell
-
-Prior to 0.9.5.1:
 http://localhost/playsms/plugin/gateway/kannel/geturl.php?t=%t&q=%q&a=%a
 Since 0.9.5.1:
 http://localhost/playsms/index.php?app=call&cat=gateway&plugin=kannel&access=geturl&t=%t&q=%q&a=%a

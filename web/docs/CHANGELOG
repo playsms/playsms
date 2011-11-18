@@ -6,6 +6,7 @@ Version 0.9.6-git - unknown
 - add new plugin: inbox group (anton)
 - add webservices type of action (ta=cr) to get user's credit (anton)
 - replace $sms_datetime in several plugins to $datetime_now (anton)
+- regression: Clickatell's callback URL, should be direct to callback.php (anton)
 - fix SMS footer display on user and all outgoing page (anton)
 - fix gateway msgtoolbox, unable to properly save message ID on incoming SMS (anton)
 - fix #3414232 sms_poll log table missing datetime field (anton)
