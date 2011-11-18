@@ -4,9 +4,11 @@ Version 0.9.6-git - unknown
 - add new plugin: message template, replace word templates with phonebook related data (anton)
 - add new plugin: send SMS by uploading a list in a CSV file (anton)
 - add new plugin: inbox group (anton)
-- add new plugin: simulator, for testing purposes (anton)
 - add webservices type of action (ta=cr) to get user's credit (anton)
+- replace $sms_datetime in several plugins to $datetime_now (anton)
 - fix SMS footer display on user and all outgoing page (anton)
+- fix gateway msgtoolbox, unable to properly save message ID on incoming SMS (anton)
+- fix #3414232 sms_poll log table missing datetime field (anton)
 
 Version 0.9.5.3 - 110910
 - MAJOR: fix security hole RFI http://www.exploit-db.com/exploits/17792/ (anton)
