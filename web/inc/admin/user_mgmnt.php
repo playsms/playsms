@@ -116,7 +116,7 @@ switch ($op)
 		$email = username2email($uname);
 		$name = username2name($uname);
 		$status = username2status($uname);
-		$sender = username2sender($uname);
+		$footer = username2footer($uname);
 		$timezone = username2timezone($uname);
 		$credit = rate_getusercredit($uname);
 		if ($err)
@@ -148,7 +148,7 @@ switch ($op)
 		<td>"._('Mobile')." ("._('sender number').")</td><td>:</td><td><input type='text' size='16' maxlength='16' name='up_mobile' value=\"$mobile\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td>
 	    </tr>
 	    <tr>
-		<td>"._('SMS Sender ID')." ("._('SMS footer').")</td><td>:</td><td><input type='text' size='35' maxlength='30' name='up_sender' value=\"$sender\"> ("._('Max. 30 alphanumeric characters').")</td>
+		<td>"._('SMS Sender ID')." ("._('SMS footer').")</td><td>:</td><td><input type='text' size='35' maxlength='30' name='up_footer' value=\"$footer\"> ("._('Max. 30 alphanumeric characters').")</td>
 	    </tr>	    
 	    <tr>
 		<td>"._('Timezone')."</td><td>:</td><td><input type='text' size='5' maxlength='5' name='up_timezone' value=\"$timezone\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td>
@@ -173,7 +173,7 @@ switch ($op)
 		$up_name = $_POST['up_name'];
 		$up_email = $_POST['up_email'];
 		$up_mobile = $_POST['up_mobile'];
-		$up_sender = $_POST['up_sender'];
+		$up_footer = $_POST['up_footer'];
 		$up_password = $_POST['up_password'];
 		$up_status = $_POST['up_status'];
 		$up_credit = $_POST['up_credit'];
@@ -194,7 +194,7 @@ switch ($op)
 				{
 					$chg_pwd = ",password='$up_password'";
 				}
-				$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender',datetime_timezone='$up_timezone',status='$up_status'".$chg_pwd." WHERE username='$uname'";
+				$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',name='$up_name',email='$up_email',mobile='$up_mobile',footer='$up_footer',datetime_timezone='$up_timezone',status='$up_status'".$chg_pwd." WHERE username='$uname'";
 				if (@dba_affected_rows($db_query))
 				{
 					$c_uid = username2uid($uname);
@@ -241,7 +241,7 @@ switch ($op)
 		<td>"._('Mobile')." ("._('sender number').")</td><td>:</td><td><input type='text' size='16' maxlength='16' name='add_mobile' value=\"$add_mobile\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td>
 	    </tr>
 	    <tr>
-		<td>"._('SMS Sender ID')." ("._('SMS footer').")</td><td>:</td><td><input type='text' size='35' maxlength='30' name='add_sender' value=\"$add_sender\"> ("._('Max. 30 alphanumeric characters').")</td>
+		<td>"._('SMS Sender ID')." ("._('SMS footer').")</td><td>:</td><td><input type='text' size='35' maxlength='30' name='add_footer' value=\"$add_footer\"> ("._('Max. 30 alphanumeric characters').")</td>
 	    </tr>	    	    	    
 	    <tr>
 		<td>"._('Timezone')."</td><td>:</td><td><input type='text' size='5' maxlength='5' name='add_timezone' value=\"$add_timezone\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td>
@@ -266,7 +266,7 @@ switch ($op)
 		$add_username = $_POST['add_username'];
 		$add_name = $_POST['add_name'];
 		$add_mobile = $_POST['add_mobile'];
-		$add_sender = $_POST['add_sender'];
+		$add_footer = $_POST['add_footer'];
 		$add_password = $_POST['add_password'];
 		$add_credit = $_POST['add_credit'];
 		$add_status = $_POST['add_status'];
@@ -282,8 +282,8 @@ switch ($op)
 			else
 			{
 				$db_query = "
-		    INSERT INTO "._DB_PREF_."_tblUser (status,username,password,name,mobile,email,sender,credit,datetime_timezone)
-		    VALUES ('$add_status','$add_username','$add_password','$add_name','$add_mobile','$add_email','$add_sender','$add_credit','$add_timezone')
+		    INSERT INTO "._DB_PREF_."_tblUser (status,username,password,name,mobile,email,footer,credit,datetime_timezone)
+		    VALUES ('$add_status','$add_username','$add_password','$add_name','$add_mobile','$add_email','$add_footer','$add_credit','$add_timezone')
 		";
 				if ($new_uid = @dba_insert_id($db_query))
 				{

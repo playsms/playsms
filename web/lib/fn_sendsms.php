@@ -131,7 +131,7 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 	$uid = username2uid($username);
 	$mobile_sender = username2mobile($username);
 	$max_length = $core_config['smsmaxlength'];
-	if ($sms_footer = username2sender($username)) {
+	if ($sms_footer = username2footer($username)) {
 		$max_length = $max_length - strlen($sms_footer) - 1;
 	}
 	if (strlen($message)>$max_length) {
@@ -171,7 +171,7 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 	global $datetime_now, $gateway_module;
 	$uid = username2uid($username);
 	$max_length = $core_config['smsmaxlength'];
-	if ($sms_footer = username2sender($username)) {
+	if ($sms_footer = username2footer($username)) {
 		$sms_footer = str_replace("\'","",$sms_footer);
 		$sms_footer = str_replace("\"","",$sms_footer);
 		$max_length = $max_length - strlen($sms_footer) - 1;

@@ -27,7 +27,7 @@ switch ($op)
 			}
 		}
 		$max_length = $core_config['smsmaxlength'];
-		if ($sms_footer = username2sender($username))
+		if ($sms_footer = username2footer($username))
 		{
 			$max_length = $max_length - strlen($sms_footer);
 		}
@@ -192,7 +192,7 @@ switch ($op)
 			$list_of_group .= "<option value=\"".$db_row['gpid']."\" $selected>".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.") - "._('shared by')." ".$c_username."</option>";
 		}
 		$max_length = $core_config['smsmaxlength'];
-		if ($sms_footer = username2sender($username))
+		if ($sms_footer = username2footer($username))
 		{
 			$max_length = $max_length - strlen($sms_footer);
 		}

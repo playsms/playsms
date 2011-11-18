@@ -12,7 +12,7 @@ $nav = q_sanitize($_REQUEST['nav']);
 
 $username = $_COOKIE['vc2'];
 $uid = username2uid($username);
-$sender = username2sender($username);
+$footer = username2footer($username);
 $mobile = username2mobile($username);
 $email = username2email($username);
 $name = username2name($username);
