@@ -111,7 +111,7 @@ function gammu_hook_getsmsinbox() {
 	@closedir($handle);
 }
 
-function gammu_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
+function gammu_hook_sendsms($mobile_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
 	global $gammu_param;
 	$date = date('Ymd', time());
 	$time = date('Gis', time());
@@ -120,8 +120,8 @@ function gammu_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',
 	if ($msg_type=="flash") {
 		$sms_id .= 'f';
 	}
-	if ($sms_sender) {
-		$sms_msg = $sms_msg.$sms_sender;
+	if ($sms_footer) {
+		$sms_msg = $sms_msg.$sms_footer;
 	}
 	// no need to do anything on unicoded messages since InboxFormat and OutboxFormat is already set to unicode
 	// meaning gammu will take care of it

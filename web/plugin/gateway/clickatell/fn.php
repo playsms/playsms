@@ -26,7 +26,7 @@ function clickatell_hook_playsmsd() {
 	}
 }
 
-function clickatell_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
+function clickatell_hook_sendsms($mobile_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
 	global $clickatell_param;
 	global $gateway_number;
 	if ($clickatell_param['sender']) {
@@ -36,8 +36,8 @@ function clickatell_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$ui
 	} else {
 		$sms_from = $mobile_sender;
 	}
-	if ($sms_sender) {
-		$sms_msg = $sms_msg.$sms_sender;
+	if ($sms_footer) {
+		$sms_msg = $sms_msg.$sms_footer;
 	}
 	switch ($sms_type) {
 		case "flash": $sms_type = "SMS_FLASH"; break;

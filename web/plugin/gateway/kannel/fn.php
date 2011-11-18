@@ -4,7 +4,7 @@ function kannel_hook_playsmsd() {
 	// nothing
 }
 
-function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
+function kannel_hook_sendsms($mobile_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
 	global $kannel_param;
 	global $gateway_number;
 	global $http_path;
@@ -16,8 +16,8 @@ function kannel_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid=''
 	} else {
 		$sms_from = $mobile_sender;
 	}
-	if ($sms_sender) {
-		$sms_msg = $sms_msg.$sms_sender;
+	if ($sms_footer) {
+		$sms_msg = $sms_msg.$sms_footer;
 	}
 
 	// set failed first

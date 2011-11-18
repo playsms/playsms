@@ -81,14 +81,14 @@ function smstools_hook_getsmsinbox() {
 	}
 }
 
-function smstools_hook_sendsms($mobile_sender,$sms_sender,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
+function smstools_hook_sendsms($mobile_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
 	global $smstools_param;
 	$sms_id = "$gpid.$uid.$smslog_id";
 	if (empty($sms_id)) {
 		$sms_id = mktime();
 	}
-	if ($sms_sender) {
-		$sms_msg = $sms_msg.$sms_sender;
+	if ($sms_footer) {
+		$sms_msg = $sms_msg.$sms_footer;
 	}
 	$the_msg = "From: $mobile_sender\n";
 	$the_msg .= "To: $sms_to\n";

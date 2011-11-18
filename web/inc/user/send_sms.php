@@ -27,13 +27,13 @@ switch ($op)
 			}
 		}
 		$max_length = $core_config['smsmaxlength'];
-		if ($sms_sender = username2sender($username))
+		if ($sms_footer = username2sender($username))
 		{
-			$max_length = $max_length - strlen($sms_sender);
+			$max_length = $max_length - strlen($sms_footer);
 		}
 		else
 		{
-			$sms_sender = "<i>"._('not set')."</i>";
+			$sms_footer = "<i>"._('not set')."</i>";
 		}
 		for ($i=0;$i<=23;$i++)
 		{
@@ -106,7 +106,7 @@ switch ($op)
 	    </tr>
 	    </table>
 	    <p>"._('Or').": <input type=text size=20 maxlength=20 name=p_num_text value=\"$dst_p_num\"> ("._('International format').")
-	    <p>"._('SMS Sender ID')." ("._('SMS footer')."): $sms_sender
+	    <p>"._('SMS Sender ID')." ("._('SMS footer')."): $sms_footer
 	    <p>"._('Message template').": <select name=\"smstemplate\">$option_values</select>
 	    <p><input type=\"button\" onClick=\"SetSmsTemplate();\" name=\"nb\" value=\""._('Use template')."\" class=\"button\">
 	    <p>"._('Your message').":
@@ -192,13 +192,13 @@ switch ($op)
 			$list_of_group .= "<option value=\"".$db_row['gpid']."\" $selected>".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.") - "._('shared by')." ".$c_username."</option>";
 		}
 		$max_length = $core_config['smsmaxlength'];
-		if ($sms_sender = username2sender($username))
+		if ($sms_footer = username2sender($username))
 		{
-			$max_length = $max_length - strlen($sms_sender);
+			$max_length = $max_length - strlen($sms_footer);
 		}
 		else
 		{
-			$sms_sender = "<i>"._('not set')."</i>";
+			$sms_footer = "<i>"._('not set')."</i>";
 		}
 
 		$global_sender = ${$gateway_module.'_param'}['global_sender'];
@@ -242,7 +242,7 @@ switch ($op)
 	    <p>
 	    <p>"._('Send to group').": <select name=\"gpid\">$list_of_group</select>
 	    <p>"._('Or').": <input type=text size=20 maxlength=20 name=gp_code_text value=\"$dst_gp_code\"> ("._('Group code').")
-	    <p>"._('SMS Sender ID')." ("._('SMS footer')."): $sms_sender 
+	    <p>"._('SMS Sender ID')." ("._('SMS footer')."): $sms_footer 
 	    <p>"._('Message template').": <select name=\"smstemplate\">$option_values</select>
 	    <p><input type=\"button\" onClick=\"SetSmsTemplate();\" name=\"nb\" value=\""._('Use template')."\" class=\"button\">
 	    <p>"._('Your message').":
