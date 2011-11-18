@@ -83,7 +83,8 @@ switch ($op)
 	    <h2>"._('Send SMS')."</h2>
 	    <p>
 	    <form name=\"fm_sendsms\" id=\"fm_sendsms\" action=\"index.php?app=menu&inc=send_sms&op=sendsmstopv_yes\" method=\"POST\">
-	    <p>"._('From').": $sms_from
+	    <p>"._('SMS Sender ID').": $sms_from
+	    <p>"._('SMS footer').": $sms_footer
 	    <p>
 	    <table cellpadding=1 cellspacing=0 border=0>
 	    <tr>
@@ -106,7 +107,6 @@ switch ($op)
 	    </tr>
 	    </table>
 	    <p>"._('Or').": <input type=text size=20 maxlength=20 name=p_num_text value=\"$dst_p_num\"> ("._('International format').")
-	    <p>"._('SMS Sender ID')." ("._('SMS footer')."): $sms_footer
 	    <p>"._('Message template').": <select name=\"smstemplate\">$option_values</select>
 	    <p><input type=\"button\" onClick=\"SetSmsTemplate();\" name=\"nb\" value=\""._('Use template')."\" class=\"button\">
 	    <p>"._('Your message').":
@@ -238,11 +238,11 @@ switch ($op)
 	    <h2>"._('Send broadcast SMS')."</h2>
 	    <p>
 	    <form name=fm_sendsms id=fm_sendsms action=index.php?app=menu&inc=send_sms&op=sendsmstogr_yes method=POST>
-	    <p>"._('From').": $sms_from
+	    <p>"._('SMS Sender ID').": $sms_from
+	    <p>"._('SMS footer').": $sms_footer 
 	    <p>
 	    <p>"._('Send to group').": <select name=\"gpid\">$list_of_group</select>
 	    <p>"._('Or').": <input type=text size=20 maxlength=20 name=gp_code_text value=\"$dst_gp_code\"> ("._('Group code').")
-	    <p>"._('SMS Sender ID')." ("._('SMS footer')."): $sms_footer 
 	    <p>"._('Message template').": <select name=\"smstemplate\">$option_values</select>
 	    <p><input type=\"button\" onClick=\"SetSmsTemplate();\" name=\"nb\" value=\""._('Use template')."\" class=\"button\">
 	    <p>"._('Your message').":
