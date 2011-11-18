@@ -129,7 +129,7 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 	global $apps_path, $core_config;
 	global $datetime_now, $gateway_module;
 	$uid = username2uid($username);
-	$sms_sender = username2sender($username);
+	$sms_sender = sendsms_get_sender($username);
 	$max_length = $core_config['smsmaxlength'];
 	if ($sms_footer = username2footer($username)) {
 		$max_length = $max_length - strlen($sms_footer) - 1;
@@ -144,10 +144,6 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 	//$sms_msg = str_replace("\n","",$sms_msg);
 	$sms_msg = str_replace("\"","'",$sms_msg);
 
-	$sms_sender = str_replace("\'","",$sms_sender);
-	$sms_sender = str_replace("\"","",$sms_sender);
-	$sms_footer = str_replace("\'","",$sms_footer);
-	$sms_footer = str_replace("\"","",$sms_footer);
 	if (is_array($sms_to)) {
 		$array_sms_to = $sms_to;
 	} else {
@@ -170,24 +166,20 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 	global $apps_path, $core_config;
 	global $datetime_now, $gateway_module;
 	$uid = username2uid($username);
+	$sms_sender = sendsms_get_sender($username);
 	$max_length = $core_config['smsmaxlength'];
 	if ($sms_footer = username2footer($username)) {
-		$sms_footer = str_replace("\'","",$sms_footer);
-		$sms_footer = str_replace("\"","",$sms_footer);
 		$max_length = $max_length - strlen($sms_footer) - 1;
 	}
 	if (strlen($message)>$max_length) {
 		$message = substr ($message,0,$max_length-1);
 	}
 	$sms_msg = $message;
+
 	// \r and \n is ok - http://smstools3.kekekasvi.com/topic.php?id=328
 	//$sms_msg = str_replace("\r","",$sms_msg);
 	//$sms_msg = str_replace("\n","",$sms_msg);
 	$sms_msg = str_replace("\"","'",$sms_msg);
-
-	$sms_sender = username2sender($username);
-	$sms_sender = str_replace("\'","",$sms_sender);
-	$sms_sender = str_replace("\"","",$sms_sender);
 
 	// destination group should be an array, if single then make it array of 1 member
 	if (is_array($gpid)) {
@@ -215,6 +207,24 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 		}
 	}
 	return array($ok,$to,$smslog_id);
+}
+
+function sendsms_get_sender($username) {
+	global $core_config;
+	$gateway_module = $core_config['main']['cfg_gateway_module'];
+	$gateway_number = $core_config['main']['cfg_gateway_number'];
+	if ($gateway_module) {
+		if ($core_config['plugin'][$gateway_module]['global_sender']) {
+			$sms_sender = $core_config['plugin'][$gateway_module]['global_sender'];
+		} else if ($gateway_number) {
+			$sms_sender = $gateway_number;
+		} else {
+			$sms_sender = username2sender($username);
+		}
+	}
+	$sms_sender = str_replace("\'","",$sms_sender);
+	$sms_sender = str_replace("\"","",$sms_sender);
+	return $sms_sender;
 }
 
 ?>

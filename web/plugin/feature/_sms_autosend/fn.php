@@ -32,10 +32,7 @@ function sms_autosend_hook_playsmsd() {
 				$unicode = 1;
 			}
 		}
-		// list($ok,$to,$smslog_id) = sendsms_pv($username, $sms_to, $message);
-		$ret = sendsms($core_config['main']['cfg_gateway_number'],'',$sms_to,$message,$c_uid,0,'text',$unicode);
-		// $ok = $ok[0];
-		$ok = $ret['status'];
+		list($ok, $to, $smslog_id) = sendsms_pv($username, $sms_to, $message, 'text', $unicode);
 		if ($ok) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureAutosend_time SET sent='1' WHERE time_id = '$time_id'";
 			$db_result = @dba_affected_rows($db_query);

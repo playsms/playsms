@@ -26,6 +26,7 @@ switch ($op)
 				$list_of_number .= "<option value=\"".$db_row1['p_num']."\" $selected>".$db_row1['p_desc']." ".$db_row1['p_num']." ("._('shared by')." ".$c_username.")</option>";
 			}
 		}
+		$sms_from = sendsms_get_sender($username);
 		$max_length = $core_config['smsmaxlength'];
 		if ($sms_footer = username2footer($username))
 		{
@@ -45,16 +46,6 @@ switch ($op)
 			$c_i = sprintf("%02d",$i);
 			$option_minute .= "<option value=\"$c_i\">$c_i</option>";
 		}
-
-		$global_sender = ${$gateway_module.'_param'}['global_sender'];
-		if ($global_sender) {
-			$sms_from = $global_sender;
-		} else if ($gateway_number) {
-			$sms_from = $gateway_number;
-		} else {
-			$sms_from = $mobile;
-		}
-
 		// WWW
 		$db_query2 = "SELECT * FROM "._DB_PREF_."_tblSMSTemplate WHERE uid='$uid'";
 		$db_result2 = dba_query($db_query2);
@@ -191,6 +182,7 @@ switch ($op)
 			$c_count = phonebook_getmembercountbyid($db_row['gpid']);
 			$list_of_group .= "<option value=\"".$db_row['gpid']."\" $selected>".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.") - "._('shared by')." ".$c_username."</option>";
 		}
+		$sms_from = sendsms_get_sender($username);
 		$max_length = $core_config['smsmaxlength'];
 		if ($sms_footer = username2footer($username))
 		{
@@ -199,15 +191,6 @@ switch ($op)
 		else
 		{
 			$sms_footer = "<i>"._('not set')."</i>";
-		}
-
-		$global_sender = ${$gateway_module.'_param'}['global_sender'];
-		if ($global_sender) {
-			$sms_from = $global_sender;
-		} else if ($gateway_number) {
-			$sms_from = $gateway_number;
-		} else {
-			$sms_from = $mobile;
 		}
 
 		// WWW

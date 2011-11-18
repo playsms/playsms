@@ -6,16 +6,9 @@ function kannel_hook_playsmsd() {
 
 function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
 	global $kannel_param;
-	global $gateway_number;
 	global $http_path;
 	$ok = false;
-	if ($kannel_param['global_sender']) {
-		$sms_from = $kannel_param['global_sender'];
-	} else if ($gateway_number) {
-		$sms_from = $gateway_number;
-	} else {
-		$sms_from = $sms_sender;
-	}
+
 	if ($sms_footer) {
 		$sms_msg = $sms_msg.$sms_footer;
 	}

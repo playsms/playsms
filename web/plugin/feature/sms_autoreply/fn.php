@@ -103,8 +103,7 @@ function sms_autoreply_handle($sms_datetime,$sms_sender,$c_uid,$autoreply_id,$au
 				$unicode = 1;
 			}
 		}
-		$ret = sendsms($core_config['main']['cfg_gateway_number'],'',$sms_sender,$autoreply_scenario_result,$c_uid,0,'text',$unicode);
-		$ok = $ret['status'];
+		list($ok, $to, $smslog_id) = sendsms_pv($c_username, $sms_sender, $autoreply_scenario_result, 'text', $unicode);
 	}
 	return $ok;
 }

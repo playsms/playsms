@@ -76,9 +76,7 @@ function sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $quiz_keyword, $qui
 					$unicode = 1;
 				}
 			}
-			$ret = sendsms($core_config['main']['cfg_gateway_number'],'',$sms_to,$message,$c_uid,0,'text',$unicode);
-			// $ok = $ok[0];
-			$ok = $ret['status'];
+			list($ok, $to, $smslog_id) = sendsms_pv($username, $sms_to, $message, 'text', $unicode);
 		}
 	} else if ($db_row['quiz_keyword'] == $quiz_keyword) {
 		// returns true even if its logged as correct/incorrect answer

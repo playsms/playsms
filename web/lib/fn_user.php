@@ -85,6 +85,8 @@ function username2footer($username) {
 		$db_row = dba_fetch_array($db_result);
 		$footer = $db_row['footer'];
 	}
+	$footer = str_replace("\'","",$footer);
+	$footer = str_replace("\"","",$footer);
 	return $footer;
 }
 

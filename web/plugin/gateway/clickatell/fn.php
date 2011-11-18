@@ -28,14 +28,7 @@ function clickatell_hook_playsmsd() {
 
 function clickatell_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
 	global $clickatell_param;
-	global $gateway_number;
-	if ($clickatell_param['sender']) {
-		$sms_from = $clickatell_param['sender'];
-	} else if ($gateway_number) {
-		$sms_from = $gateway_number;
-	} else {
-		$sms_from = $sms_sender;
-	}
+	$sms_from = $sms_sender;
 	if ($sms_footer) {
 		$sms_msg = $sms_msg.$sms_footer;
 	}

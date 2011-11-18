@@ -249,8 +249,7 @@ switch ($op) {
 							$unicode = 1;
 						}
 					}
-					$ret = sendsms($core_config['main']['cfg_gateway_number'],'',$sms_to,$message,$c_uid,0,'text',$unicode);
-					$ok = $ret['status'];
+					list($ok, $to, $smslog_id) = sendsms_pv($username, $sms_to, $message, 'text', $unicode);
 					if ($ok) {
 						$error_string .= _('Your SMS has been delivered to queue')." ("._('to').": `".$sms_to."`)<br>";
 					} else {

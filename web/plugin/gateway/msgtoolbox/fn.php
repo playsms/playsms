@@ -21,15 +21,8 @@ function msgtoolbox_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='
 	// return true or false
 	// return $ok;
 	global $msgtoolbox_param;
-	global $gateway_number;
 	$ok = false;
-	if ($msgtoolbox_param['global_sender']) {
-		$sms_from = $msgtoolbox_param['global_sender'];
-	} else if ($gateway_number) {
-		$sms_from = $gateway_number;
-	} else {
-		$sms_from = $sms_sender;
-	}
+
 	if ($sms_footer) {
 		$sms_msg = $sms_msg.$sms_footer;
 	}

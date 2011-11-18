@@ -32,15 +32,8 @@ function uplink_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	// return true or false
 	// return $ok;
 	global $uplink_param;
-	global $gateway_number;
 	$ok = false;
-	if ($uplink_param['global_sender']) {
-		$sms_from = $uplink_param['global_sender'];
-	} else if ($gateway_number) {
-		$sms_from = $gateway_number;
-	} else {
-		$sms_from = $sms_sender;
-	}
+
 	if ($sms_footer) {
 		$sms_msg = $sms_msg.$sms_footer;
 	}

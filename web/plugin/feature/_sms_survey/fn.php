@@ -43,9 +43,8 @@ function sms_survey_hook_playsmsd() {
 								$unicode = 1;
 							}
 						}
-						$ret = sendsms($core_config['main']['cfg_gateway_number'],'',$c_sms_to,$c_sms_msg,$c_uid,0,'text',$unicode);
-						//$ok = $ok[0] ? "true" : "false" ;
-						$ok = $ret['status']? "true" : "false" ;
+						list($ok, $to, $smslog_id) = sendsms_pv($c_username, $c_sms_to, $c_sms_msg, 'text', $unicode);
+						$ok = $ok ? "true" : "false" ;
 						logger_print("playsmsd send finish sid:".$c_sid." smslog_id:".$smslog_id[0]." ok:".$ok, 3, "sms_survey");
 						// save the log
 						$log = "";

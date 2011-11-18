@@ -28,10 +28,8 @@ function myauto_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, 
 			$unicode = 1;
 		}
 	}
-	// send reply with admin account
-	$c_uid = username2uid('admin');
 	// send reply
-	sendsms($core_config['main']['cfg_gateway_number'],'',$sms_sender,$reply,$c_uid,0,'text',$unicode);
+	list($ok, $to, $smslog_id) = sendsms_pv('admin', $sms_sender, $reply, 'text', $unicode);
 	// log it
 	$sms_datetime = core_display_datetime($sms_datetime);
 	logger_print("dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." autorespon:".$reply,3,"myauto");
