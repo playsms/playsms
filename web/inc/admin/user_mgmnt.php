@@ -140,11 +140,11 @@ switch ($op)
 		<td width='175'>"._('Username')."</td><td width='5'>:</td><td><b>$uname</b></td>
 	    </tr>
 	    <tr>
-		<td>"._('Email')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='up_email' value=\"$email\"></td>
-	    </tr>
-	    <tr>
 		<td>"._('Full name')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='up_name' value=\"$name\"></td>
 	    </tr>	    	    
+	    <tr>
+		<td>"._('Email')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='up_email' value=\"$email\"></td>
+	    </tr>
 	    <tr>
 		<td>"._('Mobile')."</td><td>:</td><td><input type='text' size='16' maxlength='16' name='up_mobile' value=\"$mobile\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td>
 	    </tr>
@@ -152,7 +152,7 @@ switch ($op)
 		<td>"._('SMS Sender ID')."</td><td>:</td><td><input type='text' size='16' maxlength='16' name='up_sender' value=\"$sender\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td>
 	    </tr>
 	    <tr>
-		<td>"._('SMS footer')."</td><td>:</td><td><input type='text' size='35' maxlength='30' name='up_footer' value=\"$footer\"> ("._('Max. 30 alphanumeric characters').")</td>
+		<td>"._('SMS footer')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='up_footer' value=\"$footer\"> ("._('Max. 30 alphanumeric characters').")</td>
 	    </tr>	    
 	    <tr>
 		<td>"._('Timezone')."</td><td>:</td><td><input type='text' size='5' maxlength='5' name='up_timezone' value=\"$timezone\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td>
@@ -237,10 +237,10 @@ switch ($op)
 		<td width='175'>"._('Username')."</td><td width='5'>:</td><td><input type='text' size='30' maxlength='30' name='add_username' value=\"$add_username\"></td>
 	    </tr>
 	    <tr>
-		<td>"._('Email')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='add_email' value=\"$add_email\"></td>
+		<td>"._('Full name')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='add_name' value=\"$add_name\"></td>
 	    </tr>
 	    <tr>
-		<td>"._('Full name')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='add_name' value=\"$add_name\"></td>
+		<td>"._('Email')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='add_email' value=\"$add_email\"></td>
 	    </tr>
 	    <tr>
 		<td>"._('Mobile')."</td><td>:</td><td><input type='text' size='16' maxlength='16' name='add_mobile' value=\"$add_mobile\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td>
@@ -249,7 +249,7 @@ switch ($op)
 		<td>"._('SMS Sender ID')."</td><td>:</td><td><input type='text' size='16' maxlength='16' name='add_sender' value=\"$add_sender\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td>
 	    </tr>
 	    <tr>
-		<td>"._('SMS footer')."</td><td>:</td><td><input type='text' size='35' maxlength='30' name='add_footer' value=\"$add_footer\"> ("._('Max. 30 alphanumeric characters').")</td>
+		<td>"._('SMS footer')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='add_footer' value=\"$add_footer\"> ("._('Max. 30 alphanumeric characters').")</td>
 	    </tr>	    	    	    
 	    <tr>
 		<td>"._('Timezone')."</td><td>:</td><td><input type='text' size='5' maxlength='5' name='add_timezone' value=\"$add_timezone\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td>
