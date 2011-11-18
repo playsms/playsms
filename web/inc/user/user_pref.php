@@ -23,6 +23,7 @@ switch ($op)
 			$marital = $db_row['marital'];
 			$education = $db_row['education'];
 			$zipcode = $db_row['zipcode'];
+			$sender = $db_row['sender'];
 			$footer = $db_row['footer'];
 			$timezone = $db_row['datetime_timezone'];
 			$fwd_to_inbox = $db_row['fwd_to_inbox'];
@@ -93,8 +94,9 @@ switch ($op)
 	    <tr><td colspan=3>&nbsp;</td></tr>
 	    <tr><td colspan=3><h2>"._('Application information')."</h2><hr></td></tr>
 	    <tr><td width=200>"._('Timezone')."</td><td>:</td><td><input type=text size=5 maxlength=5 name=up_timezone value=\"$timezone\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td></tr>
-	    <tr><td width=200>"._('Mobile')." ("._('sender number').")</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_mobile value=\"$mobile\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td></tr>
-	    <tr><td width=200>"._('SMS Sender ID')." ("._('SMS footer').")</td><td>:</td><td><input type=text size=35 maxlength=30 name=up_footer value=\"$footer\"> ("._('Max. 30 alphanumeric characters').")</td></tr>
+	    <tr><td width=200>"._('Mobile')."</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_mobile value=\"$mobile\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td></tr>
+	    <tr><td width=200>"._('SMS Sender ID')."</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"$sender\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td></tr>
+	    <tr><td width=200>"._('SMS footer')."</td><td>:</td><td><input type=text size=35 maxlength=30 name=up_footer value=\"$footer\"> ("._('Max. 30 alphanumeric characters').")</td></tr>
 	    <tr><td width=200>"._('Credit')."</td><td>:</td><td><b>$credit</b></td></tr>
 	    <tr><td width=200>"._('Forward PV to inbox')."</td><td>:</td><td><select name='up_fwd_to_inbox'>".$option_fwd_to_inbox."</select></td></tr>
 	    <tr><td width=200>"._('Forward PV to email')."</td><td>:</td><td><select name='up_fwd_to_email'>".$option_fwd_to_email."</select></td></tr>
@@ -116,6 +118,7 @@ switch ($op)
 		$up_state = $_POST['up_state'];
 		$up_country = $_POST['up_country'];
 		$up_mobile = $_POST['up_mobile'];
+		$up_sender = $_POST['up_sender'];
 		$up_footer = $_POST['up_footer'];
 		$up_daily = intval(trim($_POST['up_daily']));
 		$up_password = $_POST['up_password'];
@@ -148,7 +151,7 @@ switch ($op)
 				$db_query = "
 		    UPDATE "._DB_PREF_."_tblUser 
 		    SET c_timestamp='".mktime()."',
-			name='$up_name',email='$up_email',mobile='$up_mobile',footer='$up_footer'$chg_pwd,
+			name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender',footer='$up_footer'$chg_pwd,
 			gender='$up_gender',address='$up_address',city='$up_city',state='$up_state',country='$up_country',
 			marital='$up_marital',education='$up_education',zipcode='$up_zipcode',junktimestamp='".mktime()."',
 			datetime_timezone='$up_timezone',fwd_to_inbox='$up_fwd_to_inbox',fwd_to_email='$up_fwd_to_email',

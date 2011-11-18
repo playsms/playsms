@@ -68,6 +68,16 @@ function username2mobile($username) {
 	return $mobile;
 }
 
+function username2sender($username) {
+	if ($username) {
+		$db_query = "SELECT sender FROM "._DB_PREF_."_tblUser WHERE username='$username'";
+		$db_result = dba_query($db_query);
+		$db_row = dba_fetch_array($db_result);
+		$sender = $db_row['sender'];
+	}
+	return $sender;
+}
+
 function username2footer($username) {
 	if ($username) {
 		$db_query = "SELECT footer FROM "._DB_PREF_."_tblUser WHERE username='$username'";
