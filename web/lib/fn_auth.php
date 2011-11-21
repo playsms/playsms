@@ -219,15 +219,13 @@ function auth_register() {
 			} else {
 				$password = substr(md5(time()),0,6);
 				$sender = ' - '.$username;
-				if (ereg("^(.+)(.+)\\.(.+)$",$email,$arr))
-				{
+				if (ereg("^(.+)(.+)\\.(.+)$",$email,$arr)) {
 					// by default the status is 3 (normal user)
 					$db_query = "
-			INSERT INTO "._DB_PREF_."_tblUser (status,username,password,name,mobile,email,sender,credit)
-			VALUES ('3','$username','$password','$name','$mobile','$email','$sender','".$core_config['main']['cfg_default_credit']."')
-		    ";
-					if ($new_uid = @dba_insert_id($db_query))
-					{
+						INSERT INTO "._DB_PREF_."_tblUser (status,username,password,name,mobile,email,sender,credit)
+						VALUES ('3','$username','$password','$name','$mobile','$email','$sender','".$core_config['main']['cfg_default_credit']."')
+					";
+					if ($new_uid = @dba_insert_id($db_query)) {
 						$ok = true;
 					}
 				}
