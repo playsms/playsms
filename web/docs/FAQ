@@ -1,76 +1,84 @@
 FAQ (Frequently Asked Questions)
 --------------------------------
 
-Q: Why the core licensed as GPL?
-A: So that commercial most SMS gateway forced tobe at least twice better than the GPL one, playSMS
+Q: Why the core codes are licensed as GPL version 2?
+A: So that all commercial SMS gateway software are forced tobe at least
+   twice better than the Free and Open Source one, playSMS.
 
-Q: Why plugins and API licensed as LGPL?
-A: So that you can create, modify, merge and/or sell your own playSMS plugins
+Q: Why plugins and API related codes are licensed as LGPL?
+A: So that you can create your own or modify from others a playSMS 
+   plugins and merge them with your propietary application comfortably.
 
 
 A. LOGIN
 --------
 1.  How to login for the first time after installation?
     Answer:
-    Please read INSTALL, INSTALLATION on Linux, playSMS Web Interface, step 11
+    Please read INSTALL, INSTALLATION on Linux, playSMS Web Interface, 
+    step 13th.
 
 2.  What should I do next after I logged in as Administrator?
     Answer:
-    Change your default password, add new normal user, setup main configuration, 
-    create group and add mobile phone number
+    Change your default password, add new normal users, setup main 
+    configuration, create group and add mobile phone number.
 
 3.  What should I do for the first time as Normal User?
     Answer:
-    Change your default password given by Administrator, create group and add 
-    mobile phone number
+    Change your default password given by Administrator, create group
+    and add mobile phone number to phonebook.
 
 
 B. SEND SMS
 -----------    
-1.  Howto send single SMS from web?
+1.  How to send one SMS from web?
     Answer:
-    Use Send SMS link, destination mobile listed on your group
+    Use Send SMS page.
 
-2.  Howto send group SMS from web?
+2.  How to send broadcast SMS from web?
     Answer:
-    Use Send broadcast SMS link, destination group defined previously
+    Use Send broadcast SMS page.
 
 3.  Is there any delivery status reported?
     Answer:
-    Yes! Follow Outgoing SMS link, you will found status for every SMS
-    Status "Failed" for failed attempt, "Pending" for queued SMS (on server),
-    "Sent" for SMS sent (sent to gateway) and "Delivered" for SMS delivered to phone
+    Yes. Go to Outgoing SMS page.
+    Status "Failed" is for failed attempt.
+    Status "Pending" is for queued SMS (on server).
+    Status "Sent" is for SMS sent (SMS sent to gateway).
+    Status "Delivered" is for SMS delivered to phone.
 
 4.  Can we delete Outgoing SMS?
     Answer:
-    Yes, but its not really deleted, its just permanently hidden from Outgoing SMS page
+    Yes, but its not really deleted, its just permanently hidden from
+    everyone's Outgoing SMS page (including from administrators).
 
 5.  Can we retrieve deleted Outgoing SMS?
     Answer:
-    No, not at the moment
+    No, not at the moment.
 
 6.  If we delete Outgoing SMS, is it affecting SMS transmission?
     Answer:
-    No
+    No, playSMS will keep trying to send the SMS.
 
-7.  How is my sent SMS looks like?
+7.  How is my sent SMS looks like at the recipient mobile phones?
     Answer:
-    If you set the Sender ID in your Personal data, than Sender ID will be added to the end of
-    your SMS, this is useful when using gateway module with no ability to set sender's number.
-    Gateway module which can sets sender's number is Kannel using direct SMSC or Clickatell.
-    Sender's number taken from field mobile in your Personal data
+    If you set the SMS footer in your Preferences, than the SMS footer
+    will be added to the end of your SMS, this is useful when using 
+    gateway module with no ability to set SMS Sender ID.
+    Gateway module which have the ability to set SMS Sender ID will 
+    set SMS Sender ID to the SMS.
     
 
 C. RECEIVE SMS
 --------------    
 1.  Can I receive SMS?
     Answer:
-    Yes you can, your incoming SMS are stored on Inbox and forwarded to your email
-    specified on Personal data
+    Yes, your incoming SMS are stored on your Inbox. Current version
+    have new feature to forward incoming SMS to your email and to your
+    mobile phone.
 
-2.  What should sender do to send me private SMS?
+2.  How do I receive SMS?
     Answer:
-    Tell them to send SMS to your GSM Modem with format:
+    Tell people to send SMS to your playSMS number with format:
         PV [your_username] [their message]
     or this format (since playSMS 0.9.5.2):
         @[your username] [their message]
@@ -79,145 +87,150 @@ C. RECEIVE SMS
 	pv devteam i want to help you developing this application :)
 	@devteam your application rocks!
 	@devteam I want to help but dunno wht todo, any idea?
+	@admin bro, please set me as admin too !!
 	
 3.  Can I forward SMS from my mobile phone to my group?
     Answer:
-    When you create a group from web, you must fill Group Code. Use that Group
-    Code as parameter to forward SMS to group. Send SMS to your GSM Modem with format:
-    BC [group code] [your message]
+    When you create a group you will be asked for a Group Code, Use
+    that Group Code as parameter to forward SMS to group.
+    Using special keyword BC you may forward SMS to your group:
+        BC [group code] [your message]
     eg: 
-	BC DEV thx for joining our crussade :p
+	BC DEV thx for joining our crussade :)
 	bc DEV dont forget to read function.php
-    Note: your mobile phone number must be sets on your Personal data written in
-    international format
+	Bc DEV testing only, sending this SMS to group code DEV
+    Note: playSMS will use Mobile number sets in user Preferences to
+    authenticate keyword BC
 
-4.  What happened to the received/incoming SMS without keyword PV or keyword with @ sign ?
+4.  What happened to the received/incoming SMS without keyword PV 
+    or keyword with @ sign ?
     Answer:
-    They will only be shown in All Incoming SMS menu as an 'unhandled' SMS.
-    Only admin have access to it.
+    They will only be shown in All Incoming SMS menu as an 'unhandled' 
+    SMS where only admin users have access to them.
 
 
-D. SMS BOARD
+D. WEBSERVICES
+--------------
+1.  Can I use my own application or 3rd party application to send SMS
+    using playSMS?
+    Answer:
+    Yes, more information how to use this feature can be read in 
+    docs/WEBSERVICES
+
+2.  Can I retrieve delivery status remotely so I can process it from
+    other application?
+    Answer:
+    Yes, delivery statuses are retrieved in CSV or XML format, more 
+    information how to use this feature can be read in docs/WEBSERVICES
+
+
+E. SMS BOARD
 ------------
-1.  What is SMS keyword?
+1.  What is SMS board?
     Answer:
-    Administrator can add new SMS keyword other than PV and BC which will be use
-    to accept and serve incoming SMS. Every keyword has their on webpage and can
-    be forwarded to their own specified email.
-    From version 0.4 this term will be replaced by new term, SMS board.
+    Administrator can add new SMS board with keyword other than PV and
+    BC. Incoming SMS with the specified keyword will be handled by SMS
+    board and be forwarded to a unique web page served by playSMS.
+    Incoming SMS will also be forwarded to an email specified in each
+    SMS board keywords.
 
-2.  If I add SMS keyword named INFO, howto access webpage for that keyword?
+2.  If I add SMS board, howto access web page for a keyword?
     Answer:
-    Webpage for keyword INFO (thus we called SMS Board INFO) would be accessable
-    trough this url: 
-    http://your_playsms_web_domain/index.php?app=webservices&ta=sms_board&keyword=INFO
-    Other parameter you can use:
+    For example you've added SMS board with keyword INFO. The web page 
+    for keyword INFO (referred as SMS board INFO) would be accessable
+    through this url: 
+    http://playsms/index.php?app=webservices&ta=sms_board&keyword=INFO
+    Other parameter you can use to refine the display:
     line	: show x line number of rows 
     bodybgcolor	: set body background color
     oddbgcolor	: set odd row backround color
     evenbgcolor	: set even row backround color
     eg:
-    http://your_playsms_web_domain/index.php?app=webservices&ta=sms_board&keyword=INFO&line=15
+	http://playsms/index.php?app=webservices&ta=sms_board&keyword=INFO&line=15
     
-3.  Can I retrieve incoming SMS for that keyword INFO in XML format?
+3.  Can I retrieve incoming SMS for that a keyword in XML format?
     Answer:
-    Incoming SMS for that keyword INFO can also be retrieved in RSS 0.91 format trough this url:
-    http://your_playsms_web_domain/index.php?app=webservices&ta=sms_board&keyword=INFO&type=xml
-    Other parameter you can use:
+    Yes, incoming SMS will be formatted in RSS 0.91, and accessible
+    trough this url:
+	http://playsms/index.php?app=webservices&ta=sms_board&keyword=INFO&type=xml
+    Other parameter you can use to refine the XML output:
     line	: show x line number of rows in xml file
-    
-4.  Howto put that webpage on my main website?
-    Answer:
-    Use IFRAME html tag. Customize your IFRAME to match your main website look and feel.
     eg:
-	<IFRAME src="http://your_playsms_web_domain/index.php?app=webservices&ta=sms_board&keyword=INFO">
+	http://playsms/index.php?app=webservices&ta=sms_board&keyword=INFO&type=xml&line=15
+    
+4.  How to put that web page on my main website?
+    Answer:
+    Use IFRAME html tag. Customize your IFRAME to match your main 
+    website look and feel.
+    eg:
+	<IFRAME src="http://playsms/index.php?app=webservices&ta=sms_board&keyword=INFO">
 	</IFRAME>
-
-5.  Can I use my own application or 3rd party application to send SMS using playSMS?
-    Answer:
-    Yes you can, more information how to use this feature can be read in docs/WEBSERVICES
-
-6.  Can I retrieve delivery status remotely so I can process it from other application?
-    Answer:
-    Yes you can, delivery status retrieved in CSV or XML format, more information how to
-    use this feature can be read in docs/WEBSERVICES
+    Note: other solution may be available.
 
 
-E. SMS COMMAND
+F. SMS COMMAND
 --------------    
 1.  Can I command server todo something?
     Answer:
-    Yes you can. Use SMS command feature from Administrator menu.
+    Yes. Login as admin user and configure SMS command feature.
 
-2.  Howto setup SMS command?
+2.  How to setup SMS command?
     Answer:
-    Add new SMS command from Administrator menu, and then put command that will be executed.
-    playSMS passes variables to the command. Command or shell script must be within directory 
-    $plugin_config['feature']['sms_command']['bin'] (plugin/feature/sms_command/config.php)
-    Variables:
-    {SMSDATETIME} replaced by incoming SMS date/time
-    {SMSSENDER} replaced by sender mobile phone number
-    {COMMANDKEYWORD} replaced by incoming SMS keyword
-    {COMMANDPARAM} replaced by incoming SMS parameter    
+    Add new SMS command and associate a command that will be executed
+    on incoming SMS that matched your keyword.
+    On incoming SMS, playSMS will pass variables to the command.
+    They are:
+    	{SMSDATETIME} replaced by incoming SMS date/time
+    	{SMSSENDER} replaced by sender mobile phone number
+    	{COMMANDKEYWORD} replaced by incoming SMS keyword
+    	{COMMANDPARAM} replaced by incoming SMS parameter    
 
-3.  Howto use defined SMS command?
+3.  How to utilized a defined SMS command?
     Answer:
-    Send SMS to your GSM Modem (or Nokia handset) with format:
-    [COMMAND KEYWORD] [COMMAND PARAM]
+    Send SMS to your playSMS with format:
+    	[COMMAND KEYWORD] [COMMAND PARAM]
     eg: 
 	reg email devteam@playsms.org
 	retr pop3 pop3.ngoprek.org devteam mypwd
 	uptime
 
-4.  Howto make information retrieval system?
-    Answer:
-    Use SMS command so the gateway get informations from databases, and then setup
-    a script to use playSMS webservices to send informations back to your sender.
-    Read carefully docs/WEBSERVICES
-    Please have a look shell scripts on playSMS package directory web/bin/
+4. What commands are available from SMS command?
+   Answer:
+   Any commands are available to be executed from SMS command.
+   
 
-5.  Can I command server to shutdown/reboot?
-    Answer:
-    Not that simple, but yes, you can.
-    You should understand that those commands is executed as web servers user
-
-
-F. SMS CUSTOM
+G. SMS CUSTOM
 -------------    
 1.  What is SMS custom?
     Answer:
-    Use this to process incoming SMS by passing it to other URL.
-    [sender] --GSM network-- [playSMS] --internet/LAN-- [other host processing SMS]
+    SMS custom is used to process incoming SMS by passing the SMS
+    information to another application in other server using HTTP.
+    [sender] --GSM-- [playSMS] --IP-- [other host processing SMS]
 
-2.  Howto setup SMS custom?
+2.  How to setup SMS custom?
     Answer:
-    Add new SMS custom from menu, and then set custom URL which handling SMS.
-    playSMS passes variables to custom URL. 
-    Variables:
-    {SMSDATETIME} replaced by SMS incoming date/time
-    {SMSSENDER} replaced by sender mobile phones number
-    {COMMANDKEYWORD} replaced by custom keyword
-    {COMMANDPARAM} replaced by custom parameter
+    Add new SMS custom from menu, and then set custom URL of the host
+    handling SMS.
+    On incoming SMS, playSMS will pass variables to the URL.
+    They are:
+    	{SMSDATETIME} replaced by SMS incoming date/time
+    	{SMSSENDER} replaced by sender mobile phones number
+    	{CUSTOMKEYWORD} replaced by custom keyword
+    	{CUSTOMPARAM} replaced by custom parameter
 
-3.  Howto use defined SMS custom?
+3.  How to utilized a defined SMS custom?
     Answer:
-    Send SMS to your GSM Modem (or Nokia handset) with format:
-    [CUSTOM KEYWORD] [CUSTOM PARAM]
+    Send SMS to your playSMS with format:
+    	[CUSTOM KEYWORD] [CUSTOM PARAM]
     eg: 
 	reg email devteam@playsms.org
 	retr pop3 pop3.ngoprek.org devteam mypwd
-	pres aminrais
-
-4.  Howto make information retrieval system with SMS custom?
-    Answer:
-    Use SMS custom so the server located in custom URL get informations from their database, 
-    and using playSMS webservices method send informations back to SMS sender.
-    Read carefully docs/WEBSERVICES
+	uptime
 
 
-G. SMS POLL
+I. SMS POLL
 -----------
-1.  Howto use SMS poll system?
+1.  How to use SMS poll system?
     Answer:
     Add new poll or list/edit/delete it. Write down poll keyword and each choice keyword 
     you defined.
@@ -241,7 +254,7 @@ G. SMS POLL
 	</IFRAME>
 
 
-H. SMS QUIZ
+J. SMS QUIZ
 -----------
 1.  What is SMS quiz system?
     Answer:
@@ -288,7 +301,7 @@ I. SMS SUBSCRIBE
     theclub off
     
 
-J. SMS AUTOSEND
+K. SMS AUTOSEND
 ---------------
 1.  What is SMS autosend system?
     Answer:
@@ -302,7 +315,7 @@ J. SMS AUTOSEND
     define your date and time with format "YYYY-mm-dd hh:mm:ss".
 	
 
-K. GATEWAY MODULE
+L. GATEWAY MODULE
 -----------------    
 1.  I've heard that from version 0.5 playSMS support any gateway other than gnokii.
     Is that true?
@@ -341,7 +354,7 @@ K. GATEWAY MODULE
     maybe put it on next releases
 
 
-L. SMS RATE AND CREDIT
+M. SMS RATE AND CREDIT
 ----------------------
 1.  What is Manage SMS rate menu in Administration drop-down menu ?
     Answer:
@@ -363,7 +376,7 @@ L. SMS RATE AND CREDIT
     Only sent SMS
 
 
-M. TELL US ABOUT IT
+N. TELL US ABOUT IT
 -------------------        
 1.  Should I tell you guys when I install playSMS on my site?
     Answer:
@@ -379,7 +392,7 @@ M. TELL US ABOUT IT
     Please send it (as clear and as soon as possible) to the mailing list
 
 
-N. CONTACT
+O. CONTACT
 ----------    
 1.  Is there any place where I can discuss playSMS?
     Answer:
