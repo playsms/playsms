@@ -1,0 +1,83 @@
+#: header.php:39
+msgid "Home"
+msgstr "Accueil"
+
+#: header.php:40
+msgid "Preferences"
+msgstr "Préférences"
+
+#: header.php:41
+msgid "Contact"
+msgstr "Contact"
+
+#: header.php:42
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: loginpage.php:27 page_forgot.php:37 page_register.php:41 page_login.php:37
+msgid "Username"
+msgstr "Pseudo"
+
+#: loginpage.php:31 page_login.php:41
+msgid "Password"
+msgstr "Mot de Passe"
+
+#: loginpage.php:36 page_login.php:46
+msgid "Login"
+msgstr "Connexion"
+
+#: welcomepage.php:7
+msgid "Welcome to PlaySMS"
+msgstr "Bienvenue dans PlaySMS"
+
+#: welcomepage.php:16
+msgid "About playSMS"
+msgstr "A propos de PlaySMS"
+
+#: welcomepage.php:17
+msgid "Changelog"
+msgstr "Versions"
+
+#: welcomepage.php:18
+msgid "Installation Guide"
+msgstr "Guide d`installation"
+
+#: welcomepage.php:19
+msgid "F.A.Q"
+msgstr "F.A.Q"
+
+#: welcomepage.php:20
+msgid "License"
+msgstr "License"
+
+#: welcomepage.php:25
+msgid "FAQ Users"
+msgstr "FAQ Utilisateurs"
+
+#: page_forgot.php:41 page_register.php:49
+msgid "Email"
+msgstr "Email"
+
+#: page_forgot.php:46
+msgid "Recover password"
+msgstr "Récupérer son mot de passe"
+
+#:page_register.php:54
+msgid "Register"
+msgstr "S'enregistrer"
+
+#: page_register.php:37
+msgid "Name"
+msgstr "Nom"
+
+#: page_register.php:45
+msgid "Mobile"
+msgstr "Mobile"
+
+#: page_login.php:52
+msgid "Register an account"
+msgstr "S'enregistrer"
+
+#: page_login.php:52
+msgid "Forgot password"
+msgstr "Mot de passe oublié ?"

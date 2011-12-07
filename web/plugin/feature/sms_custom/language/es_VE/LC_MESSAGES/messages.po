@@ -1,0 +1,104 @@
+#: config.php:4 sms_custom.php:12
+msgid "Manage custom"
+msgstr "Administración personalizada de URL"
+
+#: sms_custom.php:14 sms_custom.php:56 sms_custom.php:137
+msgid "Add SMS custom"
+msgstr "Añadir SMS personalizado"
+
+#: sms_custom.php:27
+msgid "Keyword"
+msgstr "Clave"
+
+#: sms_custom.php:28
+msgid "Exec"
+msgstr "Ejecutar URL"
+
+#: sms_custom.php:29
+msgid "User"
+msgstr "Usuario"
+
+#: sms_custom.php:30
+msgid "Action"
+msgstr "Acción"
+
+#: sms_custom.php:41
+msgid "Are you sure you want to delete SMS custom keyword ?"
+msgstr "Está Ud. seguro de querer eliminar esta clave SMS personalizado ?"
+
+#: sms_custom.php:41 sms_custom.php:98 sms_custom.php:102 sms_custom.php:122
+#: sms_custom.php:126 sms_custom.php:162 sms_custom.php:166 sms_custom.php:171
+msgid "keyword"
+msgstr "Clave"
+
+#: sms_custom.php:72
+msgid "Edit SMS custom"
+msgstr "Edición del servicio"
+
+#: sms_custom.php:77 sms_custom.php:140
+msgid "SMS custom keyword"
+msgstr "Clave de servicio SMS personalizado"
+
+#: sms_custom.php:78 sms_custom.php:141
+msgid "Pass these parameter to custom URL field"
+msgstr "Pasar este parámetro al campo personalizado de URL"
+
+#: sms_custom.php:79 sms_custom.php:142
+msgid "will be replaced by SMS incoming date/time"
+msgstr "será reemplazado por fecha/hora de SMS entrante"
+
+#: sms_custom.php:80 sms_custom.php:143
+msgid "will be replaced by sender number"
+msgstr "sera reemplazado por el celular emisor"
+
+#: sms_custom.php:81 sms_custom.php:144
+msgid "will be replaced by custom keyword"
+msgstr "seraá reemplado por la clave personalizada"
+
+#: sms_custom.php:82 sms_custom.php:145
+msgid "will be replaced by custom parameter passed to server from SMS"
+msgstr "será reemplazado por el parámetro personalizado pasado desde el servidor SMS"
+
+#: sms_custom.php:83 sms_custom.php:146
+msgid "SMS custom URL"
+msgstr "URL personalizado de SMS"
+
+#: sms_custom.php:84
+msgid "Save"
+msgstr "Guardar"
+
+#: sms_custom.php:98
+msgid "SMS custom has been saved"
+msgstr "SMS personalizado ha sido guardado"
+
+#: sms_custom.php:102
+msgid "Fail to save SMS custom"
+msgstr "Fallo al guardar el SMS personalizado"
+
+#: sms_custom.php:107 sms_custom.php:176
+msgid "You must fill all fields"
+msgstr "Ud. debe rellenar todos los campos"
+
+#: sms_custom.php:122
+msgid "SMS custom has been deleted"
+msgstr "SMS personalizado ha sido eliminado"
+
+#: sms_custom.php:126
+msgid "Fail to delete SMS custom"
+msgstr "Fallo al eliminar el SMS persoanlizado"
+
+#: sms_custom.php:147
+msgid "Add"
+msgstr "Añadir"
+
+#: sms_custom.php:162
+msgid "SMS custom has been added"
+msgstr "SMS personalizado ha sido añadido"
+
+#: sms_custom.php:166
+msgid "Fail to add SMS custom"
+msgstr "Fallo al añadir SMS personalizado"
+
+#: sms_custom.php:171
+msgid "SMS custom already exists, reserved or use by other feature"
+msgstr "SMS personalizado ya existe, está reservado o en uso por otra función"

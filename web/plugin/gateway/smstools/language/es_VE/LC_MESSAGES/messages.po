@@ -1,0 +1,23 @@
+#: config.php:7 smstools.php:23
+msgid "Manage smstools"
+msgstr "Manage smstools"
+
+#: smstools.php:8
+msgid "Active"
+msgstr ""
+
+#: smstools.php:12
+msgid "Inactive"
+msgstr ""
+
+#: smstools.php:12
+msgid "click here to activate"
+msgstr ""
+
+#: smstools.php:27
+msgid "Gateway name"
+msgstr ""
+
+#: smstools.php:36
+msgid "Gateway has been activated"
+msgstr ""

@@ -1,0 +1,104 @@
+#: config.php:4 sms_board.php:12
+msgid "Manage board"
+msgstr "Administrar pizarra"
+
+#: fn.php:75
+msgid "from"
+msgstr "de"
+
+#: fn.php:76
+msgid "Forward WebSMS"
+msgstr "Redirección SMS Web"
+
+#: fn.php:77
+msgid "Date and time"
+msgstr "Fecha & Hora"
+
+#: fn.php:78
+msgid "Sender"
+msgstr "Emisor"
+
+#: fn.php:79 fn.php:132 sms_board.php:19
+msgid "Keyword"
+msgstr "Clave"
+
+#: fn.php:80
+msgid "Message"
+msgstr "Mensaje"
+
+#: sms_board.php:14 sms_board.php:155
+msgid "Add SMS board"
+msgstr "Añadir pizarra SMS"
+
+#: sms_board.php:20
+msgid "Forward"
+msgstr "Reenvio"
+
+#: sms_board.php:21
+msgid "User"
+msgstr "Usuario"
+
+#: sms_board.php:22
+msgid "Action"
+msgstr "Acción"
+
+#: sms_board.php:39
+msgid "Are you sure you want to delete SMS board with all its messages ?"
+msgstr "Etes-vous certain de vouloir supprimer ce service avec tous ses messages ?"
+
+#: sms_board.php:39 sms_board.php:124 sms_board.php:144 sms_board.php:200
+#: sms_board.php:204 sms_board.php:209
+msgid "keyword"
+msgstr "Clave"
+
+#: sms_board.php:80
+msgid "Edit SMS board"
+msgstr "Editar servicio de pizarra"
+
+#: sms_board.php:87 sms_board.php:160
+msgid "SMS board keyword"
+msgstr "Clave de pizarra SMS"
+
+#: sms_board.php:90 sms_board.php:166
+msgid "Forward to email"
+msgstr "Reenviar a un correo electrónico"
+
+#: sms_board.php:94 sms_board.php:170
+msgid "Template"
+msgstr "Plantilla"
+
+#: sms_board.php:99
+msgid "Save"
+msgstr "Guardar"
+
+#: sms_board.php:124
+msgid "SMS board has been saved"
+msgstr "La pizarra SMS ha sido guardada"
+
+#: sms_board.php:129 sms_board.php:214
+msgid "You must fill all fields"
+msgstr "Ud. debe rellenar todos los campos"
+
+#: sms_board.php:144
+msgid "SMS board with all its messages has been deleted"
+msgstr "La pizarra SMS y todos sus mensajes ha sido borrada"
+
+#: sms_board.php:163
+msgid "Leave them empty if you dont know what to fill in these boxes below"
+msgstr "Déjas vacias si usted no sabe que rellenar en estos campos abajo"
+
+#: sms_board.php:175
+msgid "Add"
+msgstr "Añadir"
+
+#: sms_board.php:200
+msgid "SMS board has been added"
+msgstr "La pizarra SMS ha sido añadida"
+
+#: sms_board.php:204
+msgid "Fail to add SMS board"
+msgstr "Fallo al añadir la pizarra SMS"
+
+#: sms_board.php:209
+msgid "SMS keyword already exists, reserved or use by other feature"
+msgstr "La clave SMS ya existe, está reservada o en uso por otro proceso"

@@ -1,0 +1,39 @@
+#: header.php:26
+msgid "Logged in"
+msgstr "Conectado"
+
+#: header.php:26
+msgid "Status"
+msgstr "Estatus"
+
+#: loginpage.php:19
+msgid "Username"
+msgstr "Usuario"
+
+#: loginpage.php:23
+msgid "Password"
+msgstr "Contraseña"
+
+#: welcomepage.php:7
+msgid "Welcome to playSMS"
+msgstr "Bienvenido a VOXTEL-SMS"
+
+#: welcomepage.php:9
+msgid "About playSMS"
+msgstr "Sobre PlaySMS"
+
+#: welcomepage.php:10
+msgid "Changelog"
+msgstr ""
+
+#: welcomepage.php:11
+msgid "Installation Guide"
+msgstr "Guía de Instalación"
+
+#: welcomepage.php:12
+msgid "F.A.Q"
+msgstr "Preguntas frecuentes"
+
+#: welcomepage.php:13
+msgid "License"
+msgstr "Licencia"

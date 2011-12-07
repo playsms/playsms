@@ -1,0 +1,287 @@
+#: config.php:3
+msgid "Export"
+msgstr "Exportar"
+
+#: config.php:4 phonebook_exim.php:42 phonebook_exim.php:109
+msgid "Import"
+msgstr "Importar"
+
+#: config.php:5
+msgid "Publish"
+msgstr "¨ublicar"
+
+#: config.php:6
+msgid "Unpublish"
+msgstr "Eliminar publicación"
+
+#: config.php:8 phonebook.php:298 simplephonebook.php:146
+msgid "Phonebook"
+msgstr "Directorio"
+
+#: dir_create.php:12 simplephonebook.php:155 simplephonebook.php:160
+msgid "Create group"
+msgstr "Crear un grupo"
+
+#: dir_create.php:17 dir_edit.php:19
+msgid "Group name"
+msgstr "Nombre del grupo"
+
+#: dir_create.php:20 dir_edit.php:22 phonebook_exim.php:36
+msgid "Group code"
+msgstr "Código del grupo"
+
+#: dir_create.php:20 dir_edit.php:22
+msgid "please use uppercase and make it short"
+msgstr "Por favor utilize mayúsculas y hágalo breve"
+
+#: dir_create.php:23 dir_edit.php:25
+msgid "Note"
+msgstr "Nota"
+
+#: dir_create.php:23 dir_edit.php:25
+msgid "Group code used by keyword"
+msgstr "Código de grupo utilizado por una clave"
+
+#: dir_create.php:23 dir_edit.php:25
+msgid "broadcast SMS from single SMS"
+msgstr "Hacer un SMS masivo de un SMS simple"
+
+#: dir_create.php:24
+msgid "Create"
+msgstr "Crear"
+
+#: dir_create.php:38
+msgid "Group code is already exists"
+msgstr "Código de grupo ya existe "
+
+#: dir_create.php:38 dir_create.php:45 dir_edit.php:47 phone_add.php:12
+msgid "code"
+msgstr "código"
+
+#: dir_create.php:45
+msgid "Group code has been added"
+msgstr "Código de grupo ha sido añadido"
+
+#: dir_create.php:45 dir_edit.php:47 phonebook.php:267 phonebook.php:272
+#: phonebook.php:284 phonebook.php:289
+msgid "group"
+msgstr "grupo"
+
+#: dir_create.php:49 dir_edit.php:51 phone_add.php:66
+msgid "You must fill all field"
+msgstr "Ud. debe rellenar todos los campos"
+
+#: dir_edit.php:14
+msgid "Edit group"
+msgstr "Editar grupo"
+
+#: dir_edit.php:26 phonebook.php:53
+msgid "Save"
+msgstr "Guardar"
+
+#: dir_edit.php:40
+msgid "No changes has been made"
+msgstr "No se han efectuado cambios"
+
+#: dir_edit.php:47
+msgid "Group has been edited"
+msgstr "El grupo ha sido editado"
+
+#: phone_add.php:19 phone_add.php:24 simplephonebook.php:156
+#: simplephonebook.php:161
+msgid "Add number to group"
+msgstr "Añadir número al grupo"
+
+#: phone_add.php:27 phonebook_exim.php:60 simplephonebook.php:41
+#: simplephonebook.php:115
+msgid "Name"
+msgstr "Nombre"
+
+#: phone_add.php:30 phonebook_exim.php:61
+msgid "Mobile"
+msgstr "Celular"
+
+#: phone_add.php:30
+msgid "International format"
+msgstr "Formato internacional"
+
+#: phone_add.php:33 phonebook_exim.php:62 simplephonebook.php:43
+#: simplephonebook.php:117
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: phone_add.php:36
+msgid "Add"
+msgstr "Añadir"
+
+#: phone_add.php:55
+msgid "Number is already exists"
+msgstr "El número ya existe "
+
+#: phone_add.php:55 phone_add.php:62
+msgid "number"
+msgstr "número"
+
+#: phone_add.php:55 phone_add.php:62
+msgid "name"
+msgstr "nombre"
+
+#: phone_add.php:62
+msgid "Number has been added"
+msgstr "El número ha sido añadido"
+
+#: phonebook_exim.php:36
+msgid "Import phonebook"
+msgstr "Importar directorio"
+
+#: phonebook_exim.php:39
+msgid "Please select CSV file for phonebook entries"
+msgstr "Seleccione un archivo CSV para entradas de directorio"
+
+#: phonebook_exim.php:39
+msgid "format : Name,Mobile,Email"
+msgstr "Nombre,Celular,Correo Electrónico"
+
+#: phonebook_exim.php:41
+msgid "Same item(s) will be replaced"
+msgstr "Renglones iguales serán reemplazados"
+
+#: phonebook_exim.php:55
+msgid "Import confirmation"
+msgstr "Confirmación de la importación"
+
+#: phonebook_exim.php:98
+msgid "Replace all entries in database"
+msgstr "Reemplazar todos os contactos en la base de datos"
+
+#: phonebook_exim.php:102
+msgid "Add all entries"
+msgstr "Añadir todas las entradas"
+
+#: phonebook_exim.php:106
+msgid "Import above phonebook entries ?"
+msgstr "Importar las entradas de directorio de arriba ?"
+
+#: phonebook_exim.php:107
+msgid "Status"
+msgstr "Estatus"
+
+#: phonebook_exim.php:113
+msgid "Back"
+msgstr "Retornar"
+
+#: phonebook_exim.php:120
+msgid "Fail to upload CSV file for phonebook"
+msgstr "Fallo al cargar el archivo CSV para directorio"
+
+#: phonebook.php:23
+msgid "Edited name"
+msgstr "Nombre editado"
+
+#: phonebook.php:24
+msgid "Edited number"
+msgstr "Nombre editado"
+
+#: phonebook.php:25
+msgid "Edited email"
+msgstr "Correo editado"
+
+#: phonebook.php:81
+msgid "Copied name"
+msgstr "Nombre copiado"
+
+#: phonebook.php:82
+msgid "Copied number"
+msgstr "Número copiado"
+
+#: phonebook.php:83
+msgid "Copied email"
+msgstr "Correo copiado"
+
+#: phonebook.php:113
+msgid "Code"
+msgstr "Código"
+
+#: phonebook.php:118 phonebook.php:184
+msgid "Select destination group"
+msgstr "Seleccionar el grupo de destino"
+
+#: phonebook.php:118 phonebook.php:184 simplephonebook.php:79
+msgid "Go"
+msgstr "Ir"
+
+#: phonebook.php:147
+msgid "Moved name"
+msgstr "Nombre movido"
+
+#: phonebook.php:148
+msgid "Moved number"
+msgstr "Número movido"
+
+#: phonebook.php:149
+msgid "Moved email"
+msgstr "Correo Movido"
+
+#: phonebook.php:210
+msgid "Deleted name"
+msgstr "Nombre eliminado"
+
+#: phonebook.php:211
+msgid "Deleted number"
+msgstr "Número eliminado"
+
+#: phonebook.php:212
+msgid "Deleted email"
+msgstr "Correo eliminado"
+
+#: phonebook.php:241
+msgid "Delete"
+msgstr "Eliminar"
+
+#: phonebook.php:267
+msgid "Fail to publish"
+msgstr "Fallo al publicar"
+
+#: phonebook.php:272
+msgid "Group has been published"
+msgstr "Grupo ha sido publicado"
+
+#: phonebook.php:284
+msgid "Fail to unpublish"
+msgstr "Fallo al eliminar la publicación"
+
+#: phonebook.php:289
+msgid "Group has been unpublished"
+msgstr "Grupo ha sido eliminado de publicación"
+
+#: simplephonebook.php:42 simplephonebook.php:116
+msgid "Number"
+msgstr "Número"
+
+#: simplephonebook.php:68
+msgid "Edit selections"
+msgstr "Editar selección"
+
+#: simplephonebook.php:69
+msgid "Copy selections"
+msgstr "Copiar selección"
+
+#: simplephonebook.php:70
+msgid "Move selections"
+msgstr "Mover selección"
+
+#: simplephonebook.php:71
+msgid "Delete selections"
+msgstr "Suprimir selección"
+
+#: simplephonebook.php:79
+msgid "Select action"
+msgstr "Seleccionar acción"
+
+#: simplephonebook.php:111
+msgid "Shared by"
+msgstr "Compartido por"
+
+#: simplephonebook.php:157 simplephonebook.php:162
+msgid "Export all"
+msgstr "Exportar todo"

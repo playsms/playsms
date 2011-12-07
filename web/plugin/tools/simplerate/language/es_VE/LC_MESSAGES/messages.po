@@ -1,0 +1,81 @@
+#: config.php:3 simplerate.php:12
+msgid "Manage SMS rate"
+msgstr "Administración de tarifas deSMS"
+
+#: simplerate.php:14 simplerate.php:47 simplerate.php:122
+msgid "Add rate"
+msgstr "Añadir tarifa"
+
+#: simplerate.php:18 simplerate.php:78 simplerate.php:127
+msgid "Destination"
+msgstr "Destino"
+
+#: simplerate.php:19 simplerate.php:81 simplerate.php:130
+msgid "Prefix"
+msgstr "Prefijo"
+
+#: simplerate.php:20 simplerate.php:84 simplerate.php:133
+msgid "Rate"
+msgstr "Tarifa"
+
+#: simplerate.php:21
+msgid "Action"
+msgstr "Acción"
+
+#: simplerate.php:32
+msgid "Are you sure you want to delete rate ?"
+msgstr "Esta Ud. seguro de querer borrar esta tarifa ?"
+
+#: simplerate.php:32 simplerate.php:54 simplerate.php:58 simplerate.php:103
+#: simplerate.php:107 simplerate.php:151 simplerate.php:161
+msgid "destination"
+msgstr "destino"
+
+#: simplerate.php:32 simplerate.php:54 simplerate.php:58 simplerate.php:103
+#: simplerate.php:107 simplerate.php:151 simplerate.php:161
+msgid "prefix"
+msgstr "prefijo"
+
+#: simplerate.php:54
+msgid "Fail to delete rate"
+msgstr "Fallo al borrar la tarifa"
+
+#: simplerate.php:58
+msgid "Rate has been deleted"
+msgstr "La tarifa ha sido eliminada"
+
+#: simplerate.php:72
+msgid "Edit rate"
+msgstr "Editar tarifa"
+
+#: simplerate.php:87
+msgid "Save"
+msgstr "Guardar"
+
+#: simplerate.php:97
+msgid "No changes made!"
+msgstr "No se efectuaron cambios!"
+
+#: simplerate.php:103
+msgid "Rate has been saved"
+msgstr "La tarifa se ha guardado"
+
+#: simplerate.php:107
+msgid "Fail to save rate"
+msgstr "Fallo al eliminar la tarifa"
+
+#: simplerate.php:112 simplerate.php:167
+msgid "You must fill all fields"
+msgstr "Ud. debe rellenar todos los campos"
+
+#: simplerate.php:136
+msgid "Add"
+msgstr "Añadir"
+
+#: simplerate.php:151
+msgid "Rate is already exists"
+msgstr "Tarifa ya existe "
+
+#: simplerate.php:161
+msgid "Rate has been added"
+msgstr "La tarifa ha sido añadida"
