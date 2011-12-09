@@ -31,7 +31,7 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	$dlr_url = $kannel_param['playsms_web'] . "/index.php?app=call&cat=gateway&plugin=kannel&access=dlr&type=%d&slid=".$smslog_id."&uid=".$uid;
 
 	$URL = "/cgi-bin/sendsms?username=".urlencode($kannel_param['username'])."&password=".urlencode($kannel_param['password']);
-	$URL .= "&from=".urlencode($sms_from)."&to=".urlencode($sms_to);
+	$URL .= "&from=".urlencode($sms_sender)."&to=".urlencode($sms_to);
 	$URL .= "&dlr-mask=31&dlr-url=".urlencode($dlr_url);
 	$URL .= "&mclass=".$msg_type;
 
