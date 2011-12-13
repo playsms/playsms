@@ -266,12 +266,11 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 							$unicode = 1;
 						}
 					}
-					$mobile = username2mobile($target_user);
-					$message = '@'.$c_username.' '.$message;
-					logger_print("sending to mobile:".$mobile." user:".$target_user, 3, "insertsmstoinbox");
+					$message = $sender.' '.$message;
+					logger_print("send to mobile:".$mobile." from:".$sender." user:".$target_user, 3, "insertsmstoinbox");
 					list($ok, $to, $smslog_id) = sendsms_pv($target_user, $mobile, $message, 'text', $unicode);
-					if ($ok) {
-						logger_print("forwarded to:".$to." smslog_id:".$smslog_id." user:".$target_user, 3, "insertsmstoinbox");
+					if ($ok[0]) {
+                                                logger_print("sent to mobile:".$mobile." from:".$sender." user:".$target_user, 3, "insertsmstoinbox");
 					}
 				}
 			}
