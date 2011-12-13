@@ -87,10 +87,10 @@ switch ($op)
 	    <tr><td width=200>"._('Name')." $nd</td><td>:</td><td><input type=text size=30 maxlength=100 name=up_name value=\"$name\"></td></tr>
 	    <tr><td width=200>"._('Email')." $nd</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_email value=\"$email\"></td></tr>
 	    <tr><td width=200>"._('Mobile')."</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_mobile value=\"$mobile\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td></tr>
-	    <tr><td width=200>"._('Address')." $nd</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_address value=\"$address\"></td></tr>
+	    <tr><td width=200>"._('Address')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_address value=\"$address\"></td></tr>
 	    <tr><td width=200>"._('City')."</td><td>:</td><td><input type=text size=30 maxlength=100 name=up_city value=\"$city\"></td></tr>
 	    <tr><td width=200>"._('State or Province')."</td><td>:</td><td><input type=text size=30 maxlength=100 name=up_state value=\"$state\"></td></tr>
-	    <tr><td width=200>"._('Country')." $nd</td><td>:</td><td><select name=up_country>$option_country</select></td></tr>
+	    <tr><td width=200>"._('Country')."</td><td>:</td><td><select name=up_country>$option_country</select></td></tr>
 	    <tr><td width=200>"._('Zipcode')."</td><td>:</td><td><input type=text size=10 maxlength=10 name=up_zipcode value=\"$zipcode\"></td></tr>
 	    <tr><td colspan=3>&nbsp;</td></tr>
 	    <tr><td colspan=3><h2>"._('Application information')."</h2><hr></td></tr>
@@ -132,7 +132,7 @@ switch ($op)
 		$up_fwd_to_email = $_POST['up_fwd_to_email'];
 		$up_fwd_to_mobile = $_POST['up_fwd_to_mobile'];
 		$error_string = _('No changes made');
-		if ($up_name && $up_email && $up_address && $up_country)
+		if ($up_name && $up_email)
 		{
 			$up_uname = $username;
 			$db_query = "SELECT username FROM "._DB_PREF_."_tblUser WHERE email='$up_email' AND NOT username='$up_uname'";
