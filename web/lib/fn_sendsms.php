@@ -201,7 +201,7 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 			$ok[$j] = 0;
 			if ($ret = sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$c_gpid,$sms_type,$unicode)) {
 				$ok[$j] = $ret['status'];
-				$smslog_id[$i] = $ret['smslog_id'];
+				$smslog_id[$j] = $ret['smslog_id'];
 			}
 			$j++;
 		}
