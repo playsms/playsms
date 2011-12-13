@@ -95,9 +95,9 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 	$sms_to = sendsms_getvalidnumber($sms_to);
 	logger_print("start", 3, "sendsms");
 	if (rate_cansend($username, $sms_to)) {
-		// fixme anton - its a total mess ! need another DBA
-		$sms_footer = addslashes(trim($sms_footer));
-		$sms_msg = addslashes($sms_msg);
+		// fixme anton - its a total mess ! need another DBA - we dont need this anymore
+		//$sms_footer = addslashes(trim($sms_footer));
+		//$sms_msg = addslashes($sms_msg);
 		// we save all info first and then process with gateway module
 		// the thing about this is that message saved may not be the same since gateway may not be able to process
 		// message with that length or certain characters in the message are not supported by the gateway
@@ -142,7 +142,8 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 	// \r and \n is ok - http://smstools3.kekekasvi.com/topic.php?id=328
 	//$sms_msg = str_replace("\r","",$sms_msg);
 	//$sms_msg = str_replace("\n","",$sms_msg);
-	$sms_msg = str_replace("\"","'",$sms_msg);
+        
+	//$sms_msg = str_replace("\"","'",$sms_msg);
 
 	if (is_array($sms_to)) {
 		$array_sms_to = $sms_to;

@@ -243,6 +243,9 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 					$c_name = phonebook_number2name($sms_sender, $target_user);
 					$sender = $c_name ? $c_name.' <'.$sms_sender.'>' : $sms_sender;
 
+                                        // fixme anton - slash maddess
+                                        $message = stripslashes($message);
+                                        
 					$subject = "[SMSGW-PV] "._('from')." $sms_sender";
 					$body = _('Forward Private WebSMS')." ($web_title)\n\n";
 					$body .= _('Date time').": $sms_datetime\n";
