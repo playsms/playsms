@@ -2,12 +2,12 @@ FAQ (Frequently Asked Questions)
 --------------------------------
 
 Q: Why the core codes are licensed as GPL version 2?
-A: So that all commercial SMS gateway software are forced tobe at least
-   twice better than the Free and Open Source one, playSMS.
+A: So that all commercial SMS gateway software are forced to be at
+   least twice better than the Free and Open Source one, playSMS.
 
 Q: Why plugins and API related codes are licensed as LGPL?
 A: So that you can create your own or modify from others a playSMS 
-   plugins and merge them with your propietary application comfortably.
+   plugins and merge them with your proprietary software comfortably.
 
 
 A. LOGIN
@@ -121,7 +121,7 @@ D. WEBSERVICES
     other application?
     Answer:
     Yes, delivery statuses are retrieved in CSV or XML format, more 
-    information how to use this feature can be read in docs/WEBSERVICES
+    information about this feature can be read in docs/WEBSERVICES
 
 
 E. SMS BOARD
@@ -228,13 +228,14 @@ G. SMS CUSTOM
 	uptime
 
 
-I. SMS POLL
+H. SMS POLL
 -----------
 1.  How to use SMS poll system?
     Answer:
-    Add new poll or list/edit/delete it. Write down poll keyword and each choice keyword 
-    you defined.
-    Tell  voters to send SMS to playSMS SMS gateway mobile number with format:
+    Add new poll or list/edit/delete it. Write down poll keyword and 
+    each choice keyword you have defined.
+    Tell  voters to send SMS to playSMS SMS gateway mobile number with
+    format:
     [POLL KEYWORD] [CHOICE KEYWORD]
     eg:
     food chicken
@@ -254,45 +255,47 @@ I. SMS POLL
 	</IFRAME>
 
 
-J. SMS QUIZ
+I. SMS QUIZ
 -----------
 1.  What is SMS quiz system?
     Answer:
-    Administrator can add quiz keywords, questions and answers, and define message reply for 
-    participants. 
-    Once a participant send message with quiz keyword and quiz answer keyword, 
-    system will reply with a message to tell participant whether the answer is correct 
-    or incorrect.
+    Administrator can add quiz keywords, questions and answers, and 
+    define message reply for participants. 
+    Once a participant send message with quiz keyword and quiz answer
+    keyword, system will reply with a message to tell participant 
+    whether the answer is correct or incorrect.
 	
 2.  Howto use SMS quiz system?
     Answer:
-    Add new quiz or list/edit/delete it. Write down quiz keyword, quiz question, quiz answer 
-    and message to participants for correct and incorrect message.
-    Tell  participants to send SMS to playSMS SMS gateway mobile number with format:
+    Add new quiz or list/edit/delete it. Write down quiz keyword, quiz
+    question, quiz answer and message to participants for correct and 
+    incorrect message.
+    Tell  participants to send SMS to playSMS mobile number with 
+    format:
     [QUIZ KEYWORD] [ANSWER KEYWORD]
     eg:
     soccer germany
+   
     
-    If there is a quiz keyword "soccer" with "germany" as the answer keyword,
-    the answer is correct. 
-    
-    
-I. SMS SUBSCRIBE
+J. SMS SUBSCRIBE
 ----------------
 1.  What is SMS subscribe system?
     Answer:
-    Administrator can adds SMS keyword which people can subscribe to. Once a number
-    subscribed, administrator can send message to all subscribed number at once.
+    Administrator can add SMS keyword which people can subscribe to.
+    Once a number subscribed, administrator can send message to all 
+    subscribed number at once.
 	
 2.  Howto use SMS subscribe system?
     Answer:
-    Add new subscribe or list/edit/delete it. Write down subscribe keyword, subscribe message, 
-    and unsubscribe message.
-    When a number has subscribed the system will automatically send subscribe message, and
-    when a number has unsubscribed the system will automatically send unsubscribe message
-    defined by administrator. 
-    Add message to each subscribe keyword, this message will be sent to all subscribed number.    
-    Tell  people to send SMS to playSMS SMS gateway mobile number with format:
+    Add new subscribe or list/edit/delete it. Write down subscribe 
+    keyword, subscribe message, and unsubscribe message.
+    When a number has subscribed the system will automatically send 
+    a subscribe message, and when a number has unsubscribe the system 
+    will automatically send an unsubscribe message.
+    Add message to each subscribe keyword, this message will be sent 
+    to all subscribed number.    
+    Tell  people to send SMS to playSMS SMS gateway mobile number with
+    format:
     [SUBSCRIBE KEYWORD] [INSTRUCTION]
     eg:
     PLAYSMS REG
@@ -305,31 +308,35 @@ K. SMS AUTOSEND
 ---------------
 1.  What is SMS autosend system?
     Answer:
-    Administrator can adds messages which will automatically sent to defined number at defined 
-    date and time. This feature supports multiple date and time which means that the message 
-    will automatically sent at these date and time you've defined.
+    Administrator can add messages which will automatically be sent to
+    defined number at defined date and time. This feature supports 
+    multiple date and time which means that the message will 
+    automatically sent at these date and time you have defined.
 	
 2.  Howto use SMS subscribe system?
     Answer:
-    Add new autosend message or list/edit/delete it. Write down the message, destination number,  
-    define your date and time with format "YYYY-mm-dd hh:mm:ss".
+    Add new autosend message or list/edit/delete it. Write down the 
+    message, destination number, define your date and time with format
+    "YYYY-mm-dd hh:mm:ss".
 	
 
 L. GATEWAY MODULE
 -----------------    
-1.  I've heard that from version 0.5 playSMS support any gateway other than gnokii.
-    Is that true?
+1.  I've heard that from version 0.5 playSMS support any gateway other
+    than gnokii. Is this true?
     Answer:
-    Yes. From now on you can write gateway module and place it inside directory 
-    on $apps_path[plug]/gateway. Take a look gnokii and template gateway module.
+    Yes. From version 0.5 you can write a gateway module and place on 
+    $apps_path[plug]/gateway to load it.
 
-2.  So if I dont have GSM modem or nokia 5110, say I have access to SMSC or
-    Internet SMS Gateway like http://www.clickatell.com can I still use playSMS?
+2.  So if I don't have GSM modem or nokia 5110, say I have access to 
+    an SMSC or Internet SMS Gateway like http://www.clickatell.com can
+    I use playSMS?
     Answer:
-    Yes. Use gateway module kannel for connecting directly to providers SMSC
-    or use gateway module clickatell and uplink for connecting to other sms gateway/server
-    such as Clickatell or another playSMS SMS Gateway
-    Please see $apps_path[plug]/gateway/clickatell/ and $apps_path[plug]/gateway/uplink/
+    Yes. Use gateway module kannel for connecting directly to an SMSC
+    or use gateway module clickatell and uplink for connecting to 
+    other sms gateway/server such as Clickatell or another playSMS.
+    Please see $apps_path[plug]/gateway/clickatell/ for Clickatell and
+    $apps_path[plug]/gateway/uplink/ for Uplink.
         
 3.  Is kannel (http://kannel.org) supported by playSMS?
     Answer:
@@ -338,70 +345,68 @@ L. GATEWAY MODULE
 
 4.  How can I configure each gateway module?
     Answer: 
-    Starting from version 0.8 webbased control panel for gateway modules configurations
-    is available, you must login as Administrator
+    Starting from version 0.8 a web based control panel for gateway 
+    modules configurations is available for Administrator.
 
 5.  How can I setup which gateway module active?
     Answer:
-    Login as Adminsitrator and activate any gateway you want by clicking "Activate" menu on each 
-    gateway module configuration
+    Login as Administrator and activate the chosen gateway by clicking
+    "Activate" menu on each gateway module configuration.
 
 6.  Can I build my own gateway module ?
     Answer:
-    Yes, please have a look files in $apps_path[plug]/gateway/template/ 
-    you can modify files in it to match your requirements
-    If you write new gateway module, please send your work so we can have a look and 
-    maybe put it on next releases
+    Yes.
 
 
 M. SMS RATE AND CREDIT
 ----------------------
-1.  What is Manage SMS rate menu in Administration drop-down menu ?
+1.  What is Manage SMS rate menu in Administration drop-down menu?
     Answer:
-    It is where administrator can set rate by prefix
-2.  What is term rate means ?
+    It is where administrator can set rate by prefix.
+2.  What is term 'rate' means?
     Answer:
-    Rate is credit value per SMS sent
-3.  What is term credit means ?
+    Rate is credit value per SMS sent.
+3.  What is term 'credit' means?
     Answer:
     Credit is money value equivalent a user have on their balance
-4.  What if user send SMS to destination that is not configured in Manage SMS rate ?
+4.  What if user send SMS to destination that is not configured in 
+    Manage SMS rate?
     Answer:
-    Default SMS rate in Main configuration menu will be used instead
+    Default SMS rate in Main configuration menu will be used instead.
 5.  How to change credit per user ?
     Answer:
-    Go to Manage user menu in Administration drop-down menu and edit each user
+    Go to Manage user menu in Administration drop-down menu and edit 
+    each user.
 6.  What kind of SMS being rated ?
     Answer:
-    Only sent SMS
+    Only sent SMS.
 
 
-N. TELL US ABOUT IT
--------------------        
-1.  Should I tell you guys when I install playSMS on my site?
-    Answer:
-    Please send email to playSMS mailing list at playsms-devel@yahoogroups.com
-    
-2.  If I have wishes, what should I do?
-    Answer:
-    If its about playSMS, just throw it to the mailing list. If its about your life, 
-    you have to stay on your path, be brave and never give up!
-    
-3.  If I found bugs and/or security holes, what should I do?
-    Answer:
-    Please send it (as clear and as soon as possible) to the mailing list
-
-
-O. CONTACT
+N. CONTACT
 ----------    
-1.  Is there any place where I can discuss playSMS?
+1.  Is there any place where I can discuss playSMS matters?
     Answer:
-    Yes. playSMS mailing list. It is intended for general users but focus on developers.
-    Please join the group by sending empty email to playsms-devel-subscribe@yahoogroups.com
+    Yes. playSMS mailing list. It is intended for general users but
+    focus on developers. Please join the group by sending empty email
+    to playsms-devel-subscribe@yahoogroups.com
 
 2.  What is the official website for playSMS?
     Answer:
     http://www.playsms.org
+
+3.  Should I tell you guys when I install playSMS on my site?
+    Answer:
+    Please send email to the mailing list.
+    
+4.  If I have wishes, what should I do?
+    Answer:
+    If its about playSMS, please visit http://playsms.org/support
+    If its about your life, you have to stay on your path, be brave
+    and never give up!
+    
+5.  If I found bugs and/or security holes, what should I do?
+    Answer:
+    Please visit http://playsms.org/support
 
 
 --
