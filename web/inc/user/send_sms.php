@@ -30,7 +30,8 @@ switch ($op)
 		$max_length = $core_config['smsmaxlength'];
 		if ($sms_footer = username2footer($username))
 		{
-			$max_length = $max_length - strlen($sms_footer);
+                        // fixme anton - minus 1 for a space as sms_footer prefix
+			$max_length = $max_length - strlen($sms_footer) - 1;
 		}
 		else
 		{
@@ -186,7 +187,8 @@ switch ($op)
 		$max_length = $core_config['smsmaxlength'];
 		if ($sms_footer = username2footer($username))
 		{
-			$max_length = $max_length - strlen($sms_footer);
+                        // fixme anton - minus 1 for a space as sms_footer prefix
+			$max_length = $max_length - strlen($sms_footer) - 1;
 		}
 		else
 		{

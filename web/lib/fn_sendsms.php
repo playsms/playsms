@@ -96,7 +96,7 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 	logger_print("start", 3, "sendsms");
 	if (rate_cansend($username, $sms_to)) {
 		// fixme anton - its a total mess ! need another DBA
-		$sms_footer = addslashes($sms_footer);
+		$sms_footer = addslashes(trim($sms_footer));
 		$sms_msg = addslashes($sms_msg);
 		// we save all info first and then process with gateway module
 		// the thing about this is that message saved may not be the same since gateway may not be able to process
@@ -110,8 +110,8 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 		// continue to gateway only when save to db is true
 		if ($smslog_id = @dba_insert_id($db_query)) {
 			logger_print("smslog_id:".$smslog_id." saved", 3, "sendsms");
-			// fixme anton - another mess !
-			$sms_footer = stripslashes($sms_footer);
+			// fixme anton - another mess with slashes! also trim $sms_footer and prefix it with a space
+			$sms_footer = ' '.stripslashes(trim($sms_footer));
 			$sms_msg = stripslashes($sms_msg);
 			if (x_hook($gateway_module, 'sendsms', array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$smslog_id,$sms_type,$unicode))) {
 				// fixme anton - deduct user's credit as soon as gateway returns true

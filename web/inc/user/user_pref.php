@@ -119,7 +119,7 @@ switch ($op)
 		$up_country = $_POST['up_country'];
 		$up_mobile = $_POST['up_mobile'];
 		$up_sender = $_POST['up_sender'];
-		$up_footer = $_POST['up_footer'];
+		$up_footer = trim($_POST['up_footer']);
 		$up_daily = intval(trim($_POST['up_daily']));
 		$up_password = $_POST['up_password'];
 		$up_password_conf = $_POST['up_password_conf'];
