@@ -31,7 +31,7 @@ switch ($op)
 	    <tr>
 	      <th align=center width=4>*</th>
 	      <th align=center width=20%>"._('Time')."</th>
-	      <th align=center width=10%>"._('Receiver')."</th>
+	      <th align=center width=10%>"._('To')."</th>
 	      <th align=center width=60%>"._('Message')."</th>
 	      <th align=center width=10%>"._('Status')."</th>
 	      <th align=center width=4>"._('Group')."</th>
