@@ -104,6 +104,7 @@ function sms_autoreply_handle($sms_datetime,$sms_sender,$c_uid,$autoreply_id,$au
 			}
 		}
 		list($ok, $to, $smslog_id) = sendsms_pv($c_username, $sms_sender, $autoreply_scenario_result, 'text', $unicode);
+                $ok = $ok[0];
 	}
 	return $ok;
 }

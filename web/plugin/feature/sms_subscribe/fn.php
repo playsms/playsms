@@ -72,7 +72,7 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $subscribe_key
 				}
 			}
 			list($ok, $to, $smslog_id) = sendsms_pv($username, $sms_to, $message, 'text', $unicode);
-			return $ok;
+			return $ok[0];
 		}
 	}
 	$c_uid = $db_row['uid'];
