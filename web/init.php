@@ -152,7 +152,8 @@ if (isset($db_row)) {
 // single text sms can be 160 char instead of 1*153
 $sms_max_count = ( (int)$sms_max_count < 1 ? 1 : (int)$sms_max_count );
 $core_config['main']['cfg_sms_max_count'] = $sms_max_count;
-$core_config['smsmaxlength']	= $sms_max_count * ( $sms_max_count > 1 ? 153 : 160 );
+$core_config['smsmaxlength'] = $sms_max_count * ( $sms_max_count > 1 ? 153 : 160 );
+$core_config['smsmaxlength_unicode'] = $sms_max_count * ( $sms_max_count > 1 ? 63 : 70 );
 
 // verify selected gateway_module exists
 $fn1 = $apps_path['plug'].'/gateway/'.$tmp_gateway_module.'/config.php';

@@ -130,12 +130,12 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 	global $datetime_now, $gateway_module;
 	$uid = username2uid($username);
 	$sms_sender = sendsms_get_sender($username);
-	$max_length = $core_config['smsmaxlength'];
+	$max_length = ( $unicode ?  $core_config['smsmaxlength_unicode'] : $core_config['smsmaxlength'] );
 	if ($sms_footer = username2footer($username)) {
 		$max_length = $max_length - strlen($sms_footer) - 1;
 	}
 	if (strlen($message)>$max_length) {
-		$message = substr ($message,0,$max_length-1);
+		$message = substr ($message,0,$max_length);
 	}
 	$sms_msg = $message;
 
@@ -168,12 +168,12 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 	global $datetime_now, $gateway_module;
 	$uid = username2uid($username);
 	$sms_sender = sendsms_get_sender($username);
-	$max_length = $core_config['smsmaxlength'];
+	$max_length = ( $unicode ?  $core_config['smsmaxlength_unicode'] : $core_config['smsmaxlength'] );
 	if ($sms_footer = username2footer($username)) {
 		$max_length = $max_length - strlen($sms_footer) - 1;
 	}
 	if (strlen($message)>$max_length) {
-		$message = substr ($message,0,$max_length-1);
+		$message = substr ($message,0,$max_length);
 	}
 	$sms_msg = $message;
 
