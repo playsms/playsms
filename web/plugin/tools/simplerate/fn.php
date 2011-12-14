@@ -99,18 +99,31 @@ function simplerate_hook_rate_deduct($smslog_id) {
 		$p_msg = $db_row['p_msg'];
 		$uid = $db_row['uid'];
 		if ($p_dst && $p_msg && $uid) {
-			// here should be added a routine to check charset encoding
-			// utf8 devided by 140, ucs2 devided by 70
+
+                        // get sms_length based on charset
+                        $sms_length = 160;
+                        if (function_exists('mb_detect_encoding')) {
+                                $encoding = mb_detect_encoding($p_msg, 'auto');
+                                if ($encoding != 'ASCII') {
+                                        $sms_length = 70;
+                                }
+                                if (mb_detect_encoding($p_msg, 'UTF-8', true)) {
+                                        $sms_length = 140;
+                                }
+                        }
+                        
+                        // get sms count
                         $p_msg_len = strlen($p_msg);
                         $count = 1;
                         if ($core_config['main']['cfg_sms_max_count'] > 1) {
-                                if ($p_msg_len > 160) {
-                                        $count = ceil($p_msg_len / 153);
+                                if ($p_msg_len > $sms_length) {
+                                        $count = ceil($p_msg_len / ($sms_length - 7));
                                 } else {
                                         $count = 1;
                                 }
                         }
-			$rate = simplerate_getbyprefix($p_dst);
+
+                        $rate = simplerate_getbyprefix($p_dst);
 			$charge = $count * $rate;
 			$username = uid2username($uid);
 			$credit = rate_getusercredit($username);
