@@ -105,8 +105,9 @@ switch ($op)
 	    <br><textarea cols=\"39\" rows=\"5\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" onKeyUp=\"SmsCountKeyUp($max_length);\" onKeyDown=\"SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
 	    <br>"._('SMS character').": <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
             <input type=\"hidden\" value=\"".$core_config['smsmaxlength']."\" name=\"hiddcount\"> 
+            <input type=\"hidden\" value=\"".$core_config['smsmaxlength_unicode']."\" name=\"hiddcount_unicode\"> 
 		<p><input type=checkbox name=msg_flash> "._('Send as flash message')."
-	    <p><input type=checkbox name=msg_unicode> "._('Send as unicode message (http://www.unicode.org)')."
+	    <p><input type=checkbox name=msg_unicode onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\"> "._('Send as unicode message (http://www.unicode.org)')."
 	    <p><input type=submit class=button value='"._('Send')."' onClick=\"selectAllOptions(this.form['p_num[]'])\"> 
 	    </form>
 	";
@@ -234,8 +235,9 @@ switch ($op)
 	    <br><textarea cols=\"39\" rows=\"5\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" onKeyUp=\"SmsCountKeyUp($max_length);\" onKeyDown=\"SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
 	    <br>"._('SMS character').": <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
             <input type=\"hidden\" value=\"".$core_config['smsmaxlength']."\" name=\"hiddcount\"> 
+            <input type=\"hidden\" value=\"".$core_config['smsmaxlength_unicode']."\" name=\"hiddcount_unicode\"> 
 	    <p><input type=checkbox name=msg_flash> "._('Send as flash message')."
-	    <p><input type=checkbox name=msg_unicode> "._('Send as unicode message (http://www.unicode.org)')."
+	    <p><input type=checkbox name=msg_unicode onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\"> "._('Send as unicode message (http://www.unicode.org)')."
 	    <p><input type=submit class=button value='"._('Send')."' onClick=\"selectAllOptions(this.form[gp_code[]])\"> 
 	    </form>
 	";

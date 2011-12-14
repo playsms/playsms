@@ -103,35 +103,35 @@ function SmsCountKeyDown(maxChar)
         }
 }
 
-function SmsTextCounter(field, maxlimit) {
-        var messagelen=1;
+function SmsTextCounter() {
+        var msg = document.fm_sendsms.message;
+        var msg_unicode = document.fm_sendsms.msg_unicode;
+        var maxlimit = document.fm_sendsms.hiddcount.value;
+        var maxlimit_unicode = document.fm_sendsms.hiddcount_unicode.value;
+        var limit = maxlimit;
+        var devider = 160;
         var messagelenudh;
-        var messagelenudh1;
-        var result1;
-        var result2;
-        var hamm;
-        if (field.value.length > maxlimit) {
-                if(maxlimit == 153) {
-                        messagelen = Math.ceil(field.value.length/maxlimit)*7;
-                } else {
-                        messagelen = Math.ceil(field.value.length/maxlimit)*3;
-                }
-                messagelenudh1 = messagelen + field.value.length;
-                messagelenudh = Math.ceil(messagelenudh1/maxlimit);
-                hamm = 'Sms(es)';
-                result1 = field.value.length + ' char : ' + messagelenudh + ' Sms' ;
-                //return messagelenudh; 
-                return result1;
+        var result;
+        if (msg_unicode.checked) {
+                limit = maxlimit_unicode;
+                devider = 70;
+        }
+        if (msg.value.length > limit) {
+                msg.value = msg.value.substring(0, limit);
+        }
+        if (msg.value.length > devider) {
+                messagelenudh = Math.ceil(msg.value.length / (devider - 7));
+                result = msg.value.length + ' char : ' + messagelenudh + ' SMS' ;
+                return result;
         } else {
                 // otherwise, update 'characters left' counter
-                result2 = field.value.length + ' char : 1 Sms' ;
-                return result2;
-        //return  field.value.length;
+                result = msg.value.length + ' char : 1 SMS' ;
+                return result;
         }
 }
 
 function SmsSetCounter() {
-        var ilen = SmsTextCounter(document.fm_sendsms.message,document.fm_sendsms.hiddcount.value );
+        var ilen = SmsTextCounter();
         document.fm_sendsms.txtcount.value  = ilen ;
 }
 
