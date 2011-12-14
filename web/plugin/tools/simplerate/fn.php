@@ -92,27 +92,17 @@ function simplerate_hook_rate_deduct($smslog_id) {
         global $core_config;
 	$ok = false;
 	logger_print("enter smslog_id:".$smslog_id, 3, "simplerate deduct");
-	$db_query = "SELECT p_dst,p_msg,uid FROM "._DB_PREF_."_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
+	$db_query = "SELECT p_dst,p_msg,uid,unicode FROM "._DB_PREF_."_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$p_dst = $db_row['p_dst'];
 		$p_msg = $db_row['p_msg'];
 		$uid = $db_row['uid'];
+                $unicode = $db_row['unicode'];
 		if ($p_dst && $p_msg && $uid) {
-
-                        // get sms_length based on charset
-                        $sms_length = 160;
-                        if (function_exists('mb_detect_encoding')) {
-                                $encoding = mb_detect_encoding($p_msg, 'auto');
-                                if ($encoding != 'ASCII') {
-                                        $sms_length = 70;
-                                }
-                                if (mb_detect_encoding($p_msg, 'UTF-8', true)) {
-                                        $sms_length = 140;
-                                }
-                        }
                         
                         // get sms count
+                        $sms_length = ( $unicode ? 70 : 160 );
                         $p_msg_len = strlen($p_msg);
                         $count = 1;
                         if ($core_config['main']['cfg_sms_max_count'] > 1) {
