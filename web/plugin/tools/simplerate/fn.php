@@ -89,6 +89,7 @@ function simplerate_hook_rate_cansend($username, $sms_to) {
 }
 
 function simplerate_hook_rate_deduct($smslog_id) {
+        global $core_config;
 	$ok = false;
 	logger_print("enter smslog_id:".$smslog_id, 3, "simplerate deduct");
 	$db_query = "SELECT p_dst,p_msg,uid FROM "._DB_PREF_."_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
@@ -100,7 +101,15 @@ function simplerate_hook_rate_deduct($smslog_id) {
 		if ($p_dst && $p_msg && $uid) {
 			// here should be added a routine to check charset encoding
 			// utf8 devided by 140, ucs2 devided by 70
-			$count = ceil(strlen($p_msg) / 153);
+                        $p_msg_len = strlen($p_msg);
+                        $count = 1;
+                        if ($core_config['main']['cfg_sms_max_count'] > 1) {
+                                if ($p_msg_len > 160) {
+                                        $count = ceil($p_msg_len / 153);
+                                } else {
+                                        $count = 1;
+                                }
+                        }
 			$rate = simplerate_getbyprefix($p_dst);
 			$charge = $count * $rate;
 			$username = uid2username($uid);
