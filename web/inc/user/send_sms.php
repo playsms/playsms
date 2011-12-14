@@ -102,9 +102,9 @@ switch ($op)
 	    <p>"._('Message template').": <select name=\"smstemplate\">$option_values</select>
 	    <p><input type=\"button\" onClick=\"SetSmsTemplate();\" name=\"nb\" value=\""._('Use template')."\" class=\"button\">
 	    <p>"._('Your message').":
-	    <br><textarea cols=\"39\" rows=\"5\" onKeyUp=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onKeyUp=\"SmsCountKeyUp($max_length);\" onKeyDown=\"SmsCountKeyDown($max_length);\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
+	    <br><textarea cols=\"39\" rows=\"5\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" onKeyUp=\"SmsCountKeyUp($max_length);\" onKeyDown=\"SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
 	    <br>"._('SMS character').": <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
-            <input type=\"hidden\" value=\"153\" name=\"hiddcount\"> 
+            <input type=\"hidden\" value=\"".$core_config['smsmaxlength']."\" name=\"hiddcount\"> 
 		<p><input type=checkbox name=msg_flash> "._('Send as flash message')."
 	    <p><input type=checkbox name=msg_unicode> "._('Send as unicode message (http://www.unicode.org)')."
 	    <p><input type=submit class=button value='"._('Send')."' onClick=\"selectAllOptions(this.form['p_num[]'])\"> 
@@ -231,9 +231,9 @@ switch ($op)
 	    <p>"._('Message template').": <select name=\"smstemplate\">$option_values</select>
 	    <p><input type=\"button\" onClick=\"SetSmsTemplate();\" name=\"nb\" value=\""._('Use template')."\" class=\"button\">
 	    <p>"._('Your message').":
-	    <br><textarea cols=\"39\" rows=\"5\" onKeyUp=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onKeyUp=\"SmsCountKeyUp($max_length);\" onKeyDown=\"SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
+	    <br><textarea cols=\"39\" rows=\"5\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" onKeyUp=\"SmsCountKeyUp($max_length);\" onKeyDown=\"SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
 	    <br>"._('SMS character').": <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
-            <input type=\"hidden\" value=\"153\" name=\"hiddcount\">
+            <input type=\"hidden\" value=\"".$core_config['smsmaxlength']."\" name=\"hiddcount\"> 
 	    <p><input type=checkbox name=msg_flash> "._('Send as flash message')."
 	    <p><input type=checkbox name=msg_unicode> "._('Send as unicode message (http://www.unicode.org)')."
 	    <p><input type=submit class=button value='"._('Send')."' onClick=\"selectAllOptions(this.form[gp_code[]])\"> 

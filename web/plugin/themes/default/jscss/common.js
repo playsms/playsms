@@ -105,7 +105,7 @@ function SmsCountKeyDown(maxChar)
 
 function SmsTextCounter(field, maxlimit) {
         var messagelen=1;
-        var mesagelenudh;
+        var messagelenudh;
         var messagelenudh1;
         var result1;
         var result2;
