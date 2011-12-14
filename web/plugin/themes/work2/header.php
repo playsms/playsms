@@ -9,7 +9,7 @@
 <script type="text/javascript"
 	src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/selectbox.js"></script>
 <script type="text/javascript"
-	src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/common.js"></script>
+	src="<?php echo $http_path['themes']; ?>/default/jscss/common.js"></script>
 <script type="text/javascript"
 	src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/dtree.js"></script>
 <script type="text/javascript"
