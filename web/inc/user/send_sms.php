@@ -100,7 +100,7 @@ switch ($op)
 	    </table>
 	    <p>"._('Or').": <input type=text size=20 maxlength=20 name=p_num_text value=\"$dst_p_num\"> ("._('International format').")
 	    <p>"._('Message template').": <select name=\"smstemplate\">$option_values</select>
-	    <p><input type=\"button\" onClick=\"SetSmsTemplate();\" name=\"nb\" value=\""._('Use template')."\" class=\"button\">
+	    <p><input type=\"button\" onClick=\"SetSmsTemplate();SmsSetCounter();\" name=\"nb\" value=\""._('Use template')."\" class=\"button\">
 	    <p>"._('Your message').":
 	    <br><textarea cols=\"39\" rows=\"5\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" onKeyUp=\"SmsCountKeyUp($max_length);\" onKeyDown=\"SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
 	    <br>"._('SMS character').": <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
@@ -230,7 +230,7 @@ switch ($op)
 	    <p>"._('Send to group').": <select name=\"gpid\">$list_of_group</select>
 	    <p>"._('Or').": <input type=text size=20 maxlength=20 name=gp_code_text value=\"$dst_gp_code\"> ("._('Group code').")
 	    <p>"._('Message template').": <select name=\"smstemplate\">$option_values</select>
-	    <p><input type=\"button\" onClick=\"SetSmsTemplate();\" name=\"nb\" value=\""._('Use template')."\" class=\"button\">
+	    <p><input type=\"button\" onClick=\"SetSmsTemplate();SmsSetCounter();\" name=\"nb\" value=\""._('Use template')."\" class=\"button\">
 	    <p>"._('Your message').":
 	    <br><textarea cols=\"39\" rows=\"5\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" onKeyUp=\"SmsCountKeyUp($max_length);\" onKeyDown=\"SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
 	    <br>"._('SMS character').": <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
