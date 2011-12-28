@@ -18,7 +18,7 @@ I. Install Gammu from source
     # apt-get install libusb-1.0-0-dev cmake
 
 3. Navigate to Gammu source file and extract
-   In this example you have downloaded gammu-1.28.0.tar.bz2 from http://wammu.eu and save it in /usr/local/src
+   Please download gammu-1.28.0.tar.bz2 from http://wammu.eu and save it in /usr/local/src
     # cd /usr/local/src
     # tar -jxf gammu-1.28.0.tar.bz2
 
@@ -29,8 +29,7 @@ I. Install Gammu from source
     # make test
     # make install
 
-5. Create required directories
-    # mkdir /var/log/gammu
+5. Create required directories (case sensitive)
     # mkdir /var/log/gammu
     # mkdir -p /var/spool/gammu/inbox
     # mkdir -p /var/spool/gammu/outbox
@@ -43,13 +42,13 @@ I. Install Gammu from source
     OR
     # chmod 777 -R /var/spool/gammu/*
 
-7. Copy this_playsms_package/contrib/gammu/gammu-smsdrc to /etc/
-    # cp [this playsms package]/contrib/gammu/gammu-smsdrc /etc/
+7. Copy [this_playsms_package]/contrib/gammu/gammu-smsdrc to /etc/
+    # cp [this_playsms_package]/contrib/gammu/gammu-smsdrc /etc/
    Note: Before continue to step 8 you might want to take a look /etc/gammu-smsdrc
 	 and edit the file accordingly. Do not change file or directory paths.
 
-8. Start gammu-smsd using example script gammu_smsd_start from playsms_package/bin
-    # cd [this playsms package]/bin
+8. Start gammu-smsd using example script gammu_smsd_start from [this_playsms_package]/bin
+    # cd [this_playsms_package]/bin
     # cp gammu_smsd_start /usr/local/bin
    Note: You might also want to put gammu_smsd_start in rc.local (/etc/rc.local)
          to get gammu-smsd started on boot
@@ -68,7 +67,6 @@ II. Install with apt-get
 
 3. Create required directories
     # mkdir /var/log/gammu
-    # mkdir /var/log/gammu
     # mkdir -p /var/spool/gammu/inbox
     # mkdir -p /var/spool/gammu/outbox
     # mkdir -p /var/spool/gammu/sent
@@ -80,8 +78,8 @@ II. Install with apt-get
     OR
     # chmod 777 -R /var/spool/gammu/*
 
-5. Copy this_playsms_package/contrib/gammu/gammu-smsdrc to /etc/
-    # cp [this playsms package]/contrib/gammu/gammu-smsdrc /etc/
+5. Copy [this_playsms_package]/contrib/gammu/gammu-smsdrc to /etc/
+    # cp [this_playsms_package]/contrib/gammu/gammu-smsdrc /etc/
    Note: Before continue to step 8 you might want to take a look /etc/gammu-smsdrc
 	 and edit the file accordingly. Do not change file or directory paths.
 
