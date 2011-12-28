@@ -223,12 +223,30 @@ switch ($op)
 
 	    <h2>"._('Send broadcast SMS')."</h2>
 	    <p>
-	    <form name=fm_sendsms id=fm_sendsms action=index.php?app=menu&inc=send_sms&op=sendsmstogr_yes method=POST>
+	    <form name=\"fm_sendsms\" id=\"fm_sendsms\" action=\"index.php?app=menu&inc=send_sms&op=sendsmstogr_yes\" method=\"POST\">
 	    <p>"._('SMS Sender ID').": $sms_from
 	    <p>"._('SMS footer').": $sms_footer 
 	    <p>
-	    <p>"._('Send to group').": <select name=\"gpid\">$list_of_group</select>
-	    <p>"._('Or').": <input type=text size=20 maxlength=20 name=gp_code_text value=\"$dst_gp_code\"> ("._('Group code').")
+	    <table cellpadding=1 cellspacing=0 border=0>
+	    <tr>
+		<td nowrap>
+		    "._('Group List').":<br>
+		    <select name=\"gpid_dump[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['gpid_dump[]'],this.form['gpid[]'])\">$list_of_group</select>
+		</td>
+		<td width=10>&nbsp;</td>
+		<td align=center valign=middle>
+		<input type=\"button\" class=\"button\" value=\"&gt;&gt;\" onclick=\"moveSelectedOptions(this.form['gpid_dump[]'],this.form['gpid[]'])\"><br><br>
+		<input type=\"button\" class=\"button\" value=\""._('All')." &gt;&gt;\" onclick=\"moveAllOptions(this.form['gpid_dump[]'],this.form['gpid[]'])\"><br><br>
+		<input type=\"button\" class=\"button\" value=\"&lt;&lt;\" onclick=\"moveSelectedOptions(this.form['gpid[]'],this.form['gpid_dump[]'])\"><br><br>
+		<input type=\"button\" class=\"button\" value=\""._('All')." &lt;&lt;\" onclick=\"moveAllOptions(this.form['gpid[]'],this.form['gpid_dump[]'])\">
+		</td>		
+		<td width=10>&nbsp;</td>
+		<td nowrap>
+		    "._('Send to').":<br>
+		    <select name=\"gpid[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['gpid[]'],this.form['gpid_dump[]'])\"></select>
+		</td>
+	    </tr>
+	    </table>
 	    <p>"._('Message template').": <select name=\"smstemplate\">$option_values</select>
 	    <p><input type=\"button\" onClick=\"SetSmsTemplate();SmsSetCounter();\" name=\"nb\" value=\""._('Use template')."\" class=\"button\">
 	    <p>"._('Your message').":
@@ -238,18 +256,13 @@ switch ($op)
             <input type=\"hidden\" value=\"".$core_config['smsmaxlength_unicode']."\" name=\"hiddcount_unicode\"> 
 	    <p><input type=checkbox name=msg_flash> "._('Send as flash message')."
 	    <p><input type=checkbox name=msg_unicode onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\"> "._('Send as unicode message (http://www.unicode.org)')."
-	    <p><input type=submit class=button value='"._('Send')."' onClick=\"selectAllOptions(this.form[gp_code[]])\"> 
+	    <p><input type=submit class=button value='"._('Send')."' onClick=\"selectAllOptions(this.form['gpid[]'])\"> 
 	    </form>
 	";
 	    echo $content;
 	    break;
 	case "sendsmstogr_yes":
 		$gpid = $_POST['gpid'];
-		$gp_code = $_POST['gp_code_text'];
-		if ($gp_code) {
-			$uid = username2uid($username);
-			$gpid = phonebook_groupcode2id($uid, $gp_code);
-		}
 		/*
 		 if (!$gpid[0]) {
 		 $gpid = $_POST['gpid_text'];
