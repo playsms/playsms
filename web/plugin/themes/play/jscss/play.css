@@ -1,0 +1,12 @@
+#fm_smstemplate {
+	display: none;
+}
+
+#fm_sendsms td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+#fm_sendsms td[align="center"] input {
+    width: 100px;
+}

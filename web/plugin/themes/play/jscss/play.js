@@ -1,0 +1,6 @@
+$(function(){
+
+  $('.button')
+    .addClass('btn');
+
+});
