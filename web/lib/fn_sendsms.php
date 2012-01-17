@@ -95,9 +95,9 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 	$sms_to = sendsms_getvalidnumber($sms_to);
 	logger_print("start", 3, "sendsms");
 	if (rate_cansend($username, $sms_to)) {
-		// fixme anton - its a total mess ! need another DBA
-		$sms_footer = addslashes($sms_footer);
-		$sms_msg = addslashes($sms_msg);
+		// fixme anton - its a total mess ! need another DBA - we dont need this anymore
+		//$sms_footer = addslashes(trim($sms_footer));
+		//$sms_msg = addslashes($sms_msg);
 		// we save all info first and then process with gateway module
 		// the thing about this is that message saved may not be the same since gateway may not be able to process
 		// message with that length or certain characters in the message are not supported by the gateway
@@ -110,8 +110,8 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 		// continue to gateway only when save to db is true
 		if ($smslog_id = @dba_insert_id($db_query)) {
 			logger_print("smslog_id:".$smslog_id." saved", 3, "sendsms");
-			// fixme anton - another mess !
-			$sms_footer = stripslashes($sms_footer);
+			// fixme anton - another mess with slashes! also trim $sms_footer and prefix it with a space
+			$sms_footer = ' '.stripslashes(trim($sms_footer));
 			$sms_msg = stripslashes($sms_msg);
 			if (x_hook($gateway_module, 'sendsms', array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$smslog_id,$sms_type,$unicode))) {
 				// fixme anton - deduct user's credit as soon as gateway returns true
@@ -130,19 +130,20 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 	global $datetime_now, $gateway_module;
 	$uid = username2uid($username);
 	$sms_sender = sendsms_get_sender($username);
-	$max_length = $core_config['smsmaxlength'];
+	$max_length = ( $unicode ?  $core_config['smsmaxlength_unicode'] : $core_config['smsmaxlength'] );
 	if ($sms_footer = username2footer($username)) {
 		$max_length = $max_length - strlen($sms_footer) - 1;
 	}
 	if (strlen($message)>$max_length) {
-		$message = substr ($message,0,$max_length-1);
+		$message = substr ($message,0,$max_length);
 	}
 	$sms_msg = $message;
 
 	// \r and \n is ok - http://smstools3.kekekasvi.com/topic.php?id=328
 	//$sms_msg = str_replace("\r","",$sms_msg);
 	//$sms_msg = str_replace("\n","",$sms_msg);
-	$sms_msg = str_replace("\"","'",$sms_msg);
+        
+	//$sms_msg = str_replace("\"","'",$sms_msg);
 
 	if (is_array($sms_to)) {
 		$array_sms_to = $sms_to;
@@ -167,12 +168,12 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 	global $datetime_now, $gateway_module;
 	$uid = username2uid($username);
 	$sms_sender = sendsms_get_sender($username);
-	$max_length = $core_config['smsmaxlength'];
+	$max_length = ( $unicode ?  $core_config['smsmaxlength_unicode'] : $core_config['smsmaxlength'] );
 	if ($sms_footer = username2footer($username)) {
 		$max_length = $max_length - strlen($sms_footer) - 1;
 	}
 	if (strlen($message)>$max_length) {
-		$message = substr ($message,0,$max_length-1);
+		$message = substr ($message,0,$max_length);
 	}
 	$sms_msg = $message;
 
@@ -201,7 +202,7 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 			$ok[$j] = 0;
 			if ($ret = sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$c_gpid,$sms_type,$unicode)) {
 				$ok[$j] = $ret['status'];
-				$smslog_id[$i] = $ret['smslog_id'];
+				$smslog_id[$j] = $ret['smslog_id'];
 			}
 			$j++;
 		}

@@ -13,6 +13,18 @@ function gpid2gpname($gpid)
 	return $gp_name;
 }
 
+function gpname2gpid($gp_name)
+{
+    if ($gp_name)
+    {
+        $db_query = "SELECT gpid FROM "._DB_PREF_."_toolsSimplephonebook_group WHERE gp_name='$gp_name'";
+        $db_result = dba_query($db_query);
+        $db_row = dba_fetch_array($db_result);
+        $gpid = $db_row['gpid'];
+    }
+    return $gpid;
+}
+
 function gpcode2gpname($uid,$gp_code)
 {
 	if ($uid && $gp_code)

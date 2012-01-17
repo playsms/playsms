@@ -33,7 +33,7 @@ function sms_autosend_hook_playsmsd() {
 			}
 		}
 		list($ok, $to, $smslog_id) = sendsms_pv($username, $sms_to, $message, 'text', $unicode);
-		if ($ok) {
+		if ($ok[0]) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureAutosend_time SET sent='1' WHERE time_id = '$time_id'";
 			$db_result = @dba_affected_rows($db_query);
 		}

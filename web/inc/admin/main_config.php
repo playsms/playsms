@@ -100,7 +100,7 @@ switch ($op)
 		$edit_gateway_module = $_POST['edit_gateway_module'];
 		$edit_themes_module = $_POST['edit_themes_module'];
 		$edit_language_module = $_POST['edit_language_module'];
-		$edit_sms_max_count = $_POST['edit_sms_max_count'];
+		$edit_sms_max_count = ( $_POST['edit_sms_max_count'] > 1 ? $_POST['edit_sms_max_count'] : 1 );
 		$edit_default_credit = $_POST['edit_default_credit'];
 		$edit_enable_register = $_POST['edit_enable_register'];
 		$edit_enable_forgot = $_POST['edit_enable_forgot'];

@@ -137,13 +137,13 @@ switch ($op)
 	    <input type='hidden' name='uname' value=\"$uname\">
 	    <table width='100%' cellpadding='1' cellspacing='2' border='0'>
 	    <tr>
-		<td width='175'>"._('Username')."</td><td width='5'>:</td><td><b>$uname</b></td>
+		<td width='175'>"._('Username')." $nd</td><td width='5'>:</td><td><b>$uname</b></td>
 	    </tr>
 	    <tr>
-		<td>"._('Full name')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='up_name' value=\"$name\"></td>
+		<td>"._('Full name')." $nd</td><td>:</td><td><input type='text' size='30' maxlength='30' name='up_name' value=\"$name\"></td>
 	    </tr>	    	    
 	    <tr>
-		<td>"._('Email')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='up_email' value=\"$email\"></td>
+		<td>"._('Email')." $nd</td><td>:</td><td><input type='text' size='30' maxlength='30' name='up_email' value=\"$email\"></td>
 	    </tr>
 	    <tr>
 		<td>"._('Mobile')."</td><td>:</td><td><input type='text' size='16' maxlength='16' name='up_mobile' value=\"$mobile\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td>
@@ -185,7 +185,7 @@ switch ($op)
 		$up_timezone = ( $_POST['up_timezone'] ? $_POST['up_timezone'] : $gateway_timezone );
 		//	$status = username2status($uname);
 		$error_string = _('No changes made');
-		if ($up_name && $up_mobile && $up_email)
+		if ($up_name && $up_email)
 		{
 			$db_query = "SELECT username FROM "._DB_PREF_."_tblUser WHERE email='$up_email' AND NOT username='$uname'";
 			$db_result = dba_query($db_query);
@@ -234,13 +234,13 @@ switch ($op)
 	    <form action='index.php?app=menu&inc=user_mgmnt&op=user_add_yes' method='post'>
 	    <table width='100%' cellpadding='1' cellspacing='2' border='0'>
 	    <tr>
-		<td width='175'>"._('Username')."</td><td width='5'>:</td><td><input type='text' size='30' maxlength='30' name='add_username' value=\"$add_username\"></td>
+		<td width='175'>"._('Username')." $nd</td><td width='5'>:</td><td><input type='text' size='30' maxlength='30' name='add_username' value=\"$add_username\"></td>
 	    </tr>
 	    <tr>
-		<td>"._('Full name')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='add_name' value=\"$add_name\"></td>
+		<td>"._('Full name')." $nd</td><td>:</td><td><input type='text' size='30' maxlength='30' name='add_name' value=\"$add_name\"></td>
 	    </tr>
 	    <tr>
-		<td>"._('Email')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='add_email' value=\"$add_email\"></td>
+		<td>"._('Email')." $nd</td><td>:</td><td><input type='text' size='30' maxlength='30' name='add_email' value=\"$add_email\"></td>
 	    </tr>
 	    <tr>
 		<td>"._('Mobile')."</td><td>:</td><td><input type='text' size='16' maxlength='16' name='add_mobile' value=\"$add_mobile\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td>
@@ -255,7 +255,7 @@ switch ($op)
 		<td>"._('Timezone')."</td><td>:</td><td><input type='text' size='5' maxlength='5' name='add_timezone' value=\"$add_timezone\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td>
 	    </tr>
 	    <tr>
-		<td>"._('Password')."</td><td>:</td><td><input type='password' size='30' maxlength='30' name='add_password' value=\"$add_password\"></td>
+		<td>"._('Password')." $nd</td><td>:</td><td><input type='password' size='30' maxlength='30' name='add_password' value=\"$add_password\"></td>
 	    </tr>
 	    <tr>
 		<td>"._('Credit')."</td><td>:</td><td><input type='text' size='16' maxlength='30' name='add_credit' value=\"".$core_config['main']['cfg_default_credit']."\"></td>

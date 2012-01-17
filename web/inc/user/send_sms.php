@@ -30,7 +30,8 @@ switch ($op)
 		$max_length = $core_config['smsmaxlength'];
 		if ($sms_footer = username2footer($username))
 		{
-			$max_length = $max_length - strlen($sms_footer);
+                        // fixme anton - minus 1 for a space as sms_footer prefix
+			$max_length = $max_length - strlen($sms_footer) - 1;
 		}
 		else
 		{
@@ -101,11 +102,12 @@ switch ($op)
 	    <p>"._('Message template').": <select name=\"smstemplate\">$option_values</select>
 	    <p><input type=\"button\" onClick=\"SetSmsTemplate();\" name=\"nb\" value=\""._('Use template')."\" class=\"button\">
 	    <p>"._('Your message').":
-	    <br><textarea cols=\"39\" rows=\"5\" onKeyUp=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onKeyUp=\"SmsCountKeyUp($max_length);\" onKeyDown=\"SmsCountKeyDown($max_length);\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
+	    <br><textarea cols=\"39\" rows=\"5\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" onKeyUp=\"SmsCountKeyUp($max_length);\" onKeyDown=\"SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
 	    <br>"._('SMS character').": <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
-            <input type=\"hidden\" value=\"153\" name=\"hiddcount\"> 
+            <input type=\"hidden\" value=\"".$core_config['smsmaxlength']."\" name=\"hiddcount\"> 
+            <input type=\"hidden\" value=\"".$core_config['smsmaxlength_unicode']."\" name=\"hiddcount_unicode\"> 
 		<p><input type=checkbox name=msg_flash> "._('Send as flash message')."
-	    <p><input type=checkbox name=msg_unicode> "._('Send as unicode message (http://www.unicode.org)')."
+	    <p><input type=checkbox name=msg_unicode onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\"> "._('Send as unicode message (http://www.unicode.org)')."
 	    <p><input type=submit class=button value='"._('Send')."' onClick=\"selectAllOptions(this.form['p_num[]'])\"> 
 	    </form>
 	";
@@ -186,7 +188,8 @@ switch ($op)
 		$max_length = $core_config['smsmaxlength'];
 		if ($sms_footer = username2footer($username))
 		{
-			$max_length = $max_length - strlen($sms_footer);
+                        // fixme anton - minus 1 for a space as sms_footer prefix
+			$max_length = $max_length - strlen($sms_footer) - 1;
 		}
 		else
 		{
@@ -229,11 +232,12 @@ switch ($op)
 	    <p>"._('Message template').": <select name=\"smstemplate\">$option_values</select>
 	    <p><input type=\"button\" onClick=\"SetSmsTemplate();\" name=\"nb\" value=\""._('Use template')."\" class=\"button\">
 	    <p>"._('Your message').":
-	    <br><textarea cols=\"39\" rows=\"5\" onKeyUp=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onKeyUp=\"SmsCountKeyUp($max_length);\" onKeyDown=\"SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
+	    <br><textarea cols=\"39\" rows=\"5\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" onKeyUp=\"SmsCountKeyUp($max_length);\" onKeyDown=\"SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
 	    <br>"._('SMS character').": <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
-            <input type=\"hidden\" value=\"153\" name=\"hiddcount\">
+            <input type=\"hidden\" value=\"".$core_config['smsmaxlength']."\" name=\"hiddcount\"> 
+            <input type=\"hidden\" value=\"".$core_config['smsmaxlength_unicode']."\" name=\"hiddcount_unicode\"> 
 	    <p><input type=checkbox name=msg_flash> "._('Send as flash message')."
-	    <p><input type=checkbox name=msg_unicode> "._('Send as unicode message (http://www.unicode.org)')."
+	    <p><input type=checkbox name=msg_unicode onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\"> "._('Send as unicode message (http://www.unicode.org)')."
 	    <p><input type=submit class=button value='"._('Send')."' onClick=\"selectAllOptions(this.form[gp_code[]])\"> 
 	    </form>
 	";

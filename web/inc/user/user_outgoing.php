@@ -31,7 +31,7 @@ switch ($op)
 	    <tr>
 	      <th align=center width=4>*</th>
 	      <th align=center width=20%>"._('Time')."</th>
-	      <th align=center width=10%>"._('Receiver')."</th>
+	      <th align=center width=10%>"._('To')."</th>
 	      <th align=center width=60%>"._('Message')."</th>
 	      <th align=center width=10%>"._('Status')."</th>
 	      <th align=center width=4>"._('Group')."</th>
@@ -67,7 +67,7 @@ switch ($op)
 			$p_msg = core_display_text($db_row['p_msg'], 25);
 			if (($p_footer = $db_row['p_footer']) && (($p_sms_type == "text") || ($p_sms_type == "flash")))
 			{
-				$p_msg = $p_msg.$p_footer;
+				$p_msg = $p_msg.' '.$p_footer;
 			}
 			$p_datetime = core_display_datetime($db_row['p_datetime']);
 			$p_update = $db_row['p_update'];

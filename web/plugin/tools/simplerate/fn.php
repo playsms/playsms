@@ -89,19 +89,31 @@ function simplerate_hook_rate_cansend($username, $sms_to) {
 }
 
 function simplerate_hook_rate_deduct($smslog_id) {
+        global $core_config;
 	$ok = false;
 	logger_print("enter smslog_id:".$smslog_id, 3, "simplerate deduct");
-	$db_query = "SELECT p_dst,p_msg,uid FROM "._DB_PREF_."_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
+	$db_query = "SELECT p_dst,p_msg,uid,unicode FROM "._DB_PREF_."_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$p_dst = $db_row['p_dst'];
 		$p_msg = $db_row['p_msg'];
 		$uid = $db_row['uid'];
+                $unicode = $db_row['unicode'];
 		if ($p_dst && $p_msg && $uid) {
-			// here should be added a routine to check charset encoding
-			// utf8 devided by 140, ucs2 devided by 70
-			$count = ceil(strlen($p_msg) / 153);
-			$rate = simplerate_getbyprefix($p_dst);
+                        
+                        // get sms count
+                        $sms_length = ( $unicode ? 70 : 160 );
+                        $p_msg_len = strlen($p_msg);
+                        $count = 1;
+                        if ($core_config['main']['cfg_sms_max_count'] > 1) {
+                                if ($p_msg_len > $sms_length) {
+                                        $count = ceil($p_msg_len / ($sms_length - 7));
+                                } else {
+                                        $count = 1;
+                                }
+                        }
+
+                        $rate = simplerate_getbyprefix($p_dst);
 			$charge = $count * $rate;
 			$username = uid2username($uid);
 			$credit = rate_getusercredit($username);
