@@ -1,5 +1,4 @@
-
+.gitignore
 /web/config.php
 /.buildpath
 /.settings
-
