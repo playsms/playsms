@@ -43,7 +43,7 @@
 	<li class="page_item page-item-22"><a
 		href="./index.php?app=menu&inc=user_pref&op=user_pref"
 		title="<?php echo _('Preferences'); ?>"><?php echo _('Preferences'); ?></a></li>
-	<li class="page_item page-item-22"><a href="./contact.php"
+	<li class="page_item page-item-22"><a href="index.php?app=menu&inc=tools_simplephonebook&op=simplephonebook_list"
 		title="<?php echo _('Contact'); ?>"><?php echo _('Contact'); ?></a></li>
 	<li class="page_item page-item-22"><a
 		href="./index.php?app=page&op=auth_logout"
