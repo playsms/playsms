@@ -12,6 +12,7 @@ $content = "
     <input type=button value=\""._('Installation Guide')."\" onClick=\"javascript:linkto('index.php?get=3')\" class=\"button\" />
     <input type=button value=\""._('F.A.Q')."\" onClick=\"javascript:linkto('index.php?get=4')\" class=\"button\" />
     <input type=button value=\""._('License')."\" onClick=\"javascript:linkto('index.php?get=5')\" class=\"button\" />
+    <input type=button value=\""._('HTTP API')."\" onClick=\"javascript:linkto('index.php?get=6')\" class=\"button\" />
     <hr size=1>
 ";
 
@@ -23,6 +24,7 @@ switch ($get)
 	case 3: $read = "INSTALL"; break;
 	case 4: $read = "FAQ"; break;
 	case 5: $read = "LICENSE"; break;
+	case 6: $read = "WEBSERVICES"; break;
 }
 
 $fn = $apps_path['base']."/docs/".$read;
