@@ -100,6 +100,16 @@ function username2timezone($username) {
 	return $tz;
 }
 
+function username2lang($username) {
+        if ($username) {
+		$db_query = "SELECT language_module FROM "._DB_PREF_."_tblUser WHERE username='$username'";
+                $db_result = dba_query($db_query);
+                $db_row = dba_fetch_array($db_result);
+                $lang = $db_row['language_module'];
+        }
+        return $lang;
+}
+
 function username2email($username) {
 	if ($username) {
 		$db_query = "SELECT email FROM "._DB_PREF_."_tblUser WHERE username='$username'";

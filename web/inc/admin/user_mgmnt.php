@@ -119,6 +119,14 @@ switch ($op)
 		$sender = username2sender($uname);
 		$footer = username2footer($uname);
 		$timezone = username2timezone($uname);
+		$language_module = username2lang($uname);
+                // get language options
+                for ($i=0;$i<count($core_config['languagelist']);$i++) {
+                        $language = $core_config['languagelist'][$i];
+                        if ($language == $language_module) $selected = "selected";
+                        $option_language_module .= "<option value=\"$language\" $selected>$language</option>";
+                        $selected = "";
+                }
 		$credit = rate_getusercredit($uname);
 		if ($err)
 		{
@@ -166,6 +174,10 @@ switch ($op)
 	    <tr>
 		<td>"._('User level')."</td><td>:</td><td><select name='up_status'>$option_status</select></td>
 	    </tr>
+	    <tr>
+		<td>"._('Active language')."</td><td>:</td><td><select name='up_language_module'>$option_language_module</select></td>
+	    </tr>
+
 	    </table>	    
 	    <p><input type='submit' class='button' value='"._('Save')."'>
 	    </form>
@@ -183,6 +195,7 @@ switch ($op)
 		$up_status = $_POST['up_status'];
 		$up_credit = $_POST['up_credit'];
 		$up_timezone = ( $_POST['up_timezone'] ? $_POST['up_timezone'] : $gateway_timezone );
+		$up_language = $_POST['up_language_module'];
 		//	$status = username2status($uname);
 		$error_string = _('No changes made');
 		if ($up_name && $up_email)
@@ -199,7 +212,7 @@ switch ($op)
 				{
 					$chg_pwd = ",password='$up_password'";
 				}
-				$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender',footer='$up_footer',datetime_timezone='$up_timezone',status='$up_status'".$chg_pwd." WHERE username='$uname'";
+				$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender',footer='$up_footer',datetime_timezone='$up_timezone',language_module='$up_language',status='$up_status'".$chg_pwd." WHERE username='$uname'";
 				if (@dba_affected_rows($db_query))
 				{
 					$c_uid = username2uid($uname);
