@@ -448,7 +448,7 @@ CREATE TABLE `playsms_gatewayClickatell_config` (
 
 LOCK TABLES `playsms_gatewayClickatell_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayClickatell_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayClickatell_config` VALUES (0,'clickatell','123456','playsms','playsms','PlaySMS','http://api.clickatell.com/http','/var/spool/playsms',10,'','+0700');
+INSERT INTO `playsms_gatewayClickatell_config` VALUES (0,'clickatell','123456','playsms','playsms','PlaySMS','https://api.clickatell.com/http','/var/spool/playsms',10,'','+0700');
 /*!40000 ALTER TABLE `playsms_gatewayClickatell_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
