@@ -1,21 +1,24 @@
+Plugin	: Gateway Clickatell for playSMS
+Author	: Anton Raharja
+Release	: 100925
+License	: GPL
+
 playSMS gateway module for clickatell.com
-Incoming SMS use gnokii model (spool directory, but dont have tobe gnokii) or callback URL
-Outgoing SMS use clickatell.com
 
-Register yourself at Clickatell website, you have to create a new connection (clickatell
- allows different interacion systems), at this moment playsms works with "HTTP/S"
-After creating the Connection take note of your username, password, client ID and API ID
- since those items are required to configure the gateway module
+Incoming and outgoing SMS are done via HTTP API, an HTTP GET submitted to an HTTP/S URL
 
-Dont forget to point callback setting on Clickatell control panel, otherwise you won't
- be able to track the status of your messages
-eg:
+Register yourself at Clickatell's website, you have to create a new connection.
+
+After creating the connection take note of your username, password, client ID and API ID
+since those items are required to configure the gateway module.
+
+Dont forget to point callback setting on Clickatell control panel, otherwise you won't be
+able to track the status of your messages
+
+Example of callback URL:
+
 since 0.9.5.1 the URL should be:
 http://your_playsms_website/index.php?app=call&cat=gateway&plugin=clickatell&access=callback
 prior to 0.9.5.1:
 http://your_playsms_website/plugin/gateway/clickatell/callback.php
 
-Plugin	: Gateway Clickatell for playSMS
-Author	: Anton Raharja
-Release	: 100925
-License	: GPL
