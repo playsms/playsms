@@ -363,20 +363,25 @@ M. SMS RATE AND CREDIT
 1.  What is Manage SMS rate menu in Administration drop-down menu?
     Answer:
     It is where administrator can set rate by prefix.
+    
 2.  What is term 'rate' means?
     Answer:
     Rate is credit value per SMS sent.
+    
 3.  What is term 'credit' means?
     Answer:
     Credit is money value equivalent a user have on their balance
+    
 4.  What if user send SMS to destination that is not configured in 
     Manage SMS rate?
     Answer:
     Default SMS rate in Main configuration menu will be used instead.
+    
 5.  How to change credit per user ?
     Answer:
     Go to Manage user menu in Administration drop-down menu and edit 
     each user.
+    
 6.  What kind of SMS being rated ?
     Answer:
     Only sent SMS.
