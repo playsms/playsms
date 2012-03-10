@@ -75,3 +75,8 @@ CREATE TABLE `playsms_featureInboxgroup_log_out` (
 `uid` BIGINT NOT NULL ,
 PRIMARY KEY ( `id` )
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- plugin: clickatell
+
+UPDATE `playsms_gatewayClickatell_config` SET `cfg_send_url`='https://api.clickatell.com/http' ;
+
