@@ -177,7 +177,6 @@ switch ($op)
 	    <tr>
 		<td>"._('Active language')."</td><td>:</td><td><select name='up_language_module'>$option_language_module</select></td>
 	    </tr>
-
 	    </table>	    
 	    <p><input type='submit' class='button' value='"._('Save')."'>
 	    </form>
@@ -237,6 +236,13 @@ switch ($op)
 			$content = "<p><font color='red'>$err</font><p>";
 		}
 		$add_timezone = ( $add_timezone ? $add_timezone : $gateway_timezone );
+                // get language options
+                for ($i=0;$i<count($core_config['languagelist']);$i++) {
+                        $language = $core_config['languagelist'][$i];
+                        if ($language == $language_module) $selected = "selected";
+                        $option_language_module .= "<option value=\"$language\" $selected>$language</option>";
+                        $selected = "";
+                }
 		$option_status = "
 	    <option value='2'>"._('Administrator')."</option>
 	    <option value='3' selected>"._('Normal User')."</option>
@@ -276,6 +282,10 @@ switch ($op)
 	    <tr>
 		<td>"._('User level')."</td><td>:</td><td><select name='add_status'>$option_status</select></td>
 	    </tr>
+	    <tr>
+		<td>"._('Active language')."</td><td>:</td><td><select name='add_language_module'>$option_language_module</select></td>
+	    </tr>
+
 	    </table>	    
 	    <p><input type='submit' class='button' value='"._('Add')."'>
 	    </form>
@@ -293,6 +303,7 @@ switch ($op)
 		$add_credit = $_POST['add_credit'];
 		$add_status = $_POST['add_status'];
 		$add_timezone = $_POST['add_timezone'];
+		$add_language_module = $_POST['add_language_module'];
 		if (ereg("^(.+)(.+)\\.(.+)$",$add_email,$arr) && $add_email && $add_username && $add_name && $add_password)
 		{
 			$db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE username='$add_username'";
@@ -304,8 +315,8 @@ switch ($op)
 			else
 			{
 				$db_query = "
-		    INSERT INTO "._DB_PREF_."_tblUser (status,username,password,name,mobile,email,sender,footer,credit,datetime_timezone)
-		    VALUES ('$add_status','$add_username','$add_password','$add_name','$add_mobile','$add_email','$add_sender','$add_footer','$add_credit','$add_timezone')
+		    INSERT INTO "._DB_PREF_."_tblUser (status,username,password,name,mobile,email,sender,footer,credit,datetime_timezone,language_module)
+		    VALUES ('$add_status','$add_username','$add_password','$add_name','$add_mobile','$add_email','$add_sender','$add_footer','$add_credit','$add_timezone','$add_language_module')
 		";
 				if ($new_uid = @dba_insert_id($db_query))
 				{
