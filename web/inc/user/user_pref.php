@@ -26,6 +26,7 @@ switch ($op)
 			$sender = $db_row['sender'];
 			$footer = $db_row['footer'];
 			$timezone = $db_row['datetime_timezone'];
+			$language_module = $db_row['language_module'];
 			$fwd_to_inbox = $db_row['fwd_to_inbox'];
 			$fwd_to_email = $db_row['fwd_to_email'];
 			$fwd_to_mobile = $db_row['fwd_to_mobile'];
@@ -73,6 +74,13 @@ switch ($op)
 			}
 			$option_country .= "<option value=\"$country_id\" $selected>$country_name</option>\n";
 		}
+                // get language options
+                for ($i=0;$i<count($core_config['languagelist']);$i++) {
+                        $language = $core_config['languagelist'][$i];
+                        if ($language == $language_module) $selected = "selected";
+                        $option_language_module .= "<option value=\"$language\" $selected>$language</option>";
+                        $selected = "";
+                }
 		$content .= "
 	    <h2>"._('Preferences')."</h2>
 	    <p>
@@ -92,6 +100,7 @@ switch ($op)
 	    <tr><td width=200>"._('State or Province')."</td><td>:</td><td><input type=text size=30 maxlength=100 name=up_state value=\"$state\"></td></tr>
 	    <tr><td width=200>"._('Country')."</td><td>:</td><td><select name=up_country>$option_country</select></td></tr>
 	    <tr><td width=200>"._('Zipcode')."</td><td>:</td><td><input type=text size=10 maxlength=10 name=up_zipcode value=\"$zipcode\"></td></tr>
+	    <tr><td width=200>"._('Active language')."</td><td>:</td><td><select name=up_language_module>$option_language_module</select></td></tr>
 	    <tr><td colspan=3>&nbsp;</td></tr>
 	    <tr><td colspan=3><h2>"._('Application information')."</h2><hr></td></tr>
 	    <tr><td width=200>"._('Timezone')."</td><td>:</td><td><input type=text size=5 maxlength=5 name=up_timezone value=\"$timezone\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td></tr>
@@ -128,6 +137,7 @@ switch ($op)
 		$up_zipcode = $_POST['up_zipcode'];
 		$up_trn = $_POST['up_trn'];
 		$up_timezone = $_POST['up_timezone'];
+		$up_language_module = $_POST['up_language_module'];
 		$up_fwd_to_inbox = $_POST['up_fwd_to_inbox'];
 		$up_fwd_to_email = $_POST['up_fwd_to_email'];
 		$up_fwd_to_mobile = $_POST['up_fwd_to_mobile'];
@@ -154,7 +164,7 @@ switch ($op)
 			name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender',footer='$up_footer'$chg_pwd,
 			gender='$up_gender',address='$up_address',city='$up_city',state='$up_state',country='$up_country',
 			marital='$up_marital',education='$up_education',zipcode='$up_zipcode',junktimestamp='".mktime()."',
-			datetime_timezone='$up_timezone',fwd_to_inbox='$up_fwd_to_inbox',fwd_to_email='$up_fwd_to_email',
+			datetime_timezone='$up_timezone',language_module='$up_language_module',fwd_to_inbox='$up_fwd_to_inbox',fwd_to_email='$up_fwd_to_email',
 			fwd_to_mobile='$up_fwd_to_mobile'
 		    WHERE uid='$uid'";
 				if (@dba_affected_rows($db_query))
