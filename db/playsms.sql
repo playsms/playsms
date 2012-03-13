@@ -809,6 +809,7 @@ CREATE TABLE `playsms_tblUser` (
   `junktimestamp` varchar(30) NOT NULL default '',
   `credit` DOUBLE NOT NULL default '0',
   `datetime_timezone` varchar(30) NOT NULL default '+0700',
+  `language_module` varchar(10) NOT NULL DEFAULT 'en_US',
   `fwd_to_mobile` TINYINT( 4 ) NOT NULL DEFAULT '0',
   `fwd_to_email` TINYINT( 4 ) NOT NULL DEFAULT '1',
   `fwd_to_inbox` TINYINT( 4 ) NOT NULL DEFAULT '1',
