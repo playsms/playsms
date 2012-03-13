@@ -9,6 +9,8 @@ Version 0.9.6-git - unknown
 - add new plugin: send SMS by uploading a list in a CSV file (anton)
 - add new plugin: inbox group (anton)
 - add new theme 'play' (ajiwo)
+- add new option for user to select active language (aseques)
+- add new option for admin to select default language (aseques)
 - add gpname2gpid() in simplephonebook/fn.php (emmanuel)
 - add webservices type of action (ta=cr) to get user's credit (anton)
 - remove address and country from required field on user management (anton)
