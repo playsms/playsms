@@ -822,7 +822,7 @@ CREATE TABLE `playsms_tblUser` (
 
 LOCK TABLES `playsms_tblUser` WRITE;
 /*!40000 ALTER TABLE `playsms_tblUser` DISABLE KEYS */;
-INSERT INTO `playsms_tblUser` VALUES (0,1,2,'bbde889a4de8ad9a9f1b1853a301486a','admin','admin','Administrator','+62000000000','noreply@playsms.org','playSMS',' - playSMS',0,0,38,'','','',132,'',0,0,'','',0,'+0700',0,1,1);
+INSERT INTO `playsms_tblUser` VALUES (0,1,2,'bbde889a4de8ad9a9f1b1853a301486a','admin','admin','Administrator','+62000000000','noreply@playsms.org','playSMS','@admin',0,0,38,'','','',132,'',0,0,'','',0,'+0700','en_US',0,1,1);
 /*!40000 ALTER TABLE `playsms_tblUser` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -3,7 +3,7 @@
 ALTER TABLE `playsms_tblUser` CHANGE `sender` `footer` VARCHAR( 30 ) NOT NULL DEFAULT '' ;
 ALTER TABLE `playsms_tblUser` CHANGE `mobile` `sender` VARCHAR( 16 ) NOT NULL DEFAULT '' ;
 ALTER TABLE `playsms_tblUser` ADD `mobile` VARCHAR( 16 ) NOT NULL DEFAULT '' AFTER `email` ;
-ALTER TABLE  `playsms_tblUser` ADD  `language_module` VARCHAR( 10 ) NOT NULL AFTER  `datetime_timezone`
+ALTER TABLE `playsms_tblUser` ADD `language_module` VARCHAR( 10 ) NOT NULL DEFAULT 'en_US' AFTER `datetime_timezone` ;
 
 -- plugin: sms_poll
 
