@@ -635,10 +635,6 @@ msgstr ""
 msgid "All inbox"
 msgstr ""
 
-#: lib/lib_init1.php:50
-msgid "All outgoing SMS"
-msgstr ""
-
 #: lib/lib_init1.php:53
 msgid "Manual refresh"
 msgstr ""
