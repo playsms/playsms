@@ -1,672 +1,3272 @@
-#: inc/user/sms_template.php:17 inc/user/send_sms.php:109
-#: inc/user/send_sms.php:224 lib/lib_init1.php:37
-msgid "Message template"
-msgstr "Message template"
-
-#: inc/user/sms_template.php:20 inc/user/sms_template.php:61
-#: inc/user/sms_template.php:70
-msgid "Add message template"
-msgstr ""
-
-#: inc/user/sms_template.php:26 inc/user/sms_template.php:156
-#: inc/user/user_pref.php:55 inc/admin/user_mgmnt.php:20
-#: inc/admin/user_mgmnt.php:54
-msgid "Name"
-msgstr ""
-
-#: inc/user/sms_template.php:27 inc/user/sms_template.php:157
-#: inc/user/user_incoming.php:35 inc/admin/all_incoming.php:36
-msgid "Content"
-msgstr ""
-
-#: inc/admin/user_incoming.php:64 inc/admin/all_incoming.php:66
-msgid "handled"
-msgstr ""
-
-#: inc/admin/user_incoming.php:64 inc/admin/all_incoming.php:66
-msgid "unhandled"
-msgstr ""
-
-#: inc/user/sms_template.php:55
-msgid "Select action"
-msgstr ""
-
-#: inc/user/sms_template.php:56 inc/user/user_outgoing.php:130
-#: inc/user/get_status.php:130 inc/user/user_inbox.php:88
-#: inc/user/user_incoming.php:96 inc/admin/all_inbox.php:91
-#: inc/admin/all_incoming.php:100 inc/admin/all_outgoing.php:133
-msgid "Delete selection"
-msgstr ""
-
-#: inc/user/sms_template.php:58
-msgid "Go"
-msgstr ""
-
-#: inc/user/sms_template.php:75 inc/user/sms_template.php:113
-msgid "Message template name"
-msgstr ""
-
-#: inc/user/sms_template.php:78 inc/user/sms_template.php:116
-msgid "Message template content"
-msgstr ""
-
-#: inc/user/sms_template.php:81 inc/user/sms_template.php:119
-msgid "Save template"
-msgstr ""
-
-#: inc/user/sms_template.php:83 inc/user/sms_template.php:122
-#: inc/user/sms_template.php:185
-msgid "Back"
-msgstr ""
-
-#: inc/user/sms_template.php:95
-msgid "Message template has been saved"
-msgstr ""
-
-#: inc/user/sms_template.php:108
-msgid "Edit message template"
-msgstr ""
-
-#: inc/user/sms_template.php:134
-msgid "Message template has been edited"
-msgstr ""
-
-#: inc/user/sms_template.php:138
-msgid "Fail to edit message template"
-msgstr ""
-
-#: inc/user/sms_template.php:150
-msgid "Delete message template"
-msgstr ""
-
-#: inc/user/sms_template.php:183
-msgid "Delete all templates ?"
-msgstr ""
-
-#: inc/user/sms_template.php:184 lib/lib_init1.php:28
-msgid "Delete"
-msgstr ""
-
-#: inc/user/sms_template.php:201
-msgid "Selected message template has been deleted"
-msgstr ""
-
-#: inc/user/send_sms.php:25 inc/user/send_sms.php:170
-msgid "shared by"
-msgstr ""
-
-#: inc/user/send_sms.php:35 inc/user/send_sms.php:179
-msgid "not set"
-msgstr ""
-
-#: inc/user/send_sms.php:61 inc/user/send_sms.php:195
-#: inc/user/user_pref.php:31
-msgid "Please select"
-msgstr ""
-
-#: inc/user/send_sms.php:82 lib/lib_init1.php:33 lib/lib_init1.php:38
-msgid "Send SMS"
-msgstr ""
-
-#: inc/user/send_sms.php:85 inc/user/send_sms.php:219
-msgid "From"
-msgstr ""
-
-#: inc/user/send_sms.php:90
-msgid "Phone number(s)"
-msgstr ""
-
-#: inc/user/send_sms.php:96 inc/user/send_sms.php:98
-msgid "All"
-msgstr ""
-
-#: inc/user/send_sms.php:102
-msgid "Send to"
-msgstr ""
-
-#: inc/user/send_sms.php:107 inc/user/send_sms.php:222
-msgid "Or"
-msgstr ""
-
-#: inc/user/send_sms.php:107
-msgid "International format"
-msgstr ""
-
-#: inc/user/send_sms.php:108 inc/user/send_sms.php:223
-#: inc/user/user_pref.php:64 inc/admin/user_mgmnt.php:149
-#: inc/admin/user_mgmnt.php:237
-msgid "SMS Sender ID"
-msgstr ""
-
-#: inc/user/send_sms.php:108 inc/user/send_sms.php:223
-#: inc/user/user_pref.php:64 inc/admin/user_mgmnt.php:149
-#: inc/admin/user_mgmnt.php:237
-msgid "SMS footer"
-msgstr ""
-
-#: inc/user/send_sms.php:110 inc/user/send_sms.php:225
-msgid "Use template"
-msgstr ""
-
-#: inc/user/send_sms.php:111 inc/user/send_sms.php:226
-msgid "Your message"
-msgstr ""
-
-#: inc/user/send_sms.php:113 inc/user/send_sms.php:228
-msgid "SMS character"
-msgstr ""
-
-#: inc/user/send_sms.php:115 inc/user/send_sms.php:230
-msgid "Send as flash message"
-msgstr ""
-
-#: inc/user/send_sms.php:116
-msgid "Send as unicode message (http://www.unicode.org)"
-msgstr ""
-
-#: inc/user/send_sms.php:117 inc/user/send_sms.php:231
-msgid "Send"
-msgstr ""
-
-#: inc/user/send_sms.php:145 inc/user/send_sms.php:253
-msgid "Your SMS has been delivered to queue"
-msgstr ""
-
-#: inc/user/send_sms.php:145 inc/user/send_sms.php:147
-#: inc/user/send_sms.php:253 inc/user/send_sms.php:255
-#: inc/user/user_outgoing.php:114 inc/user/get_status.php:114
-#: inc/admin/all_outgoing.php:117
-msgid "to"
-msgstr ""
-
-#: inc/user/send_sms.php:147 inc/user/send_sms.php:255
-msgid "Fail to sent SMS"
-msgstr ""
-
-#: inc/user/send_sms.php:153
-msgid "You must select receiver and your message should not be empty"
-msgstr ""
-
-#: inc/user/send_sms.php:216 lib/lib_init1.php:39
-msgid "Send broadcast SMS"
-msgstr ""
-
-#: inc/user/send_sms.php:221
-msgid "Send to group"
-msgstr ""
-
-#: inc/user/send_sms.php:222
-msgid "Group code"
-msgstr ""
-
-#: inc/user/send_sms.php:261
-msgid "You must select receiver group and your message should not be empty"
-msgstr ""
-
-#: inc/user/user_outgoing.php:25 lib/lib_init1.php:42
-msgid "Outgoing SMS"
-msgstr ""
-
-#: inc/user/user_outgoing.php:32 inc/user/get_status.php:32
-#: inc/user/user_inbox.php:32 inc/user/user_incoming.php:32
-#: inc/admin/all_inbox.php:33 inc/admin/all_incoming.php:33
-#: inc/admin/all_outgoing.php:33
-msgid "Time"
-msgstr ""
-
-#: inc/user/user_outgoing.php:33 inc/user/get_status.php:33
-#: inc/admin/all_outgoing.php:34 lib/fn_core.php:111
-msgid "Receiver"
-msgstr ""
-
-#: inc/user/user_outgoing.php:34 inc/user/get_status.php:34
-#: inc/user/user_inbox.php:34 inc/admin/all_inbox.php:35
-#: inc/admin/all_outgoing.php:35 lib/fn_core.php:112
-msgid "Message"
-msgstr ""
-
-#: inc/user/user_outgoing.php:35 inc/user/get_status.php:35
-#: inc/user/user_incoming.php:37 inc/admin/all_incoming.php:38
-#: inc/admin/all_outgoing.php:36 inc/admin/user_mgmnt.php:15
-#: inc/admin/user_mgmnt.php:49
-msgid "Status"
-msgstr ""
-
-#: inc/user/user_outgoing.php:36 inc/user/get_status.php:36
-#: inc/admin/all_outgoing.php:37
-msgid "Group"
-msgstr ""
-
-#: inc/user/user_outgoing.php:37 inc/user/get_status.php:37
-#: inc/user/user_inbox.php:35 inc/user/user_incoming.php:38
-#: inc/admin/all_inbox.php:36 inc/admin/all_incoming.php:39
-#: inc/admin/all_outgoing.php:38 inc/admin/user_mgmnt.php:24
-#: inc/admin/user_mgmnt.php:58
-msgid "Action"
-msgstr ""
-
-#: inc/user/user_outgoing.php:81 inc/user/get_status.php:81
-#: inc/admin/all_outgoing.php:83
-msgid "Sent"
-msgstr ""
-
-#: inc/user/user_outgoing.php:85 inc/user/get_status.php:85
-#: inc/admin/all_outgoing.php:87
-msgid "Failed"
-msgstr ""
-
-#: inc/user/send_sms.php:166 inc/user/send_sms.php:290
-msgid "sent"
-msgstr ""
-
-#: inc/user/send_sms.php:166 inc/user/send_sms.php:290
-msgid "failed"
-msgstr ""
-
-#: inc/user/user_outgoing.php:89 inc/user/get_status.php:89
-#: inc/admin/all_outgoing.php:91
-msgid "Delivered"
-msgstr ""
-
-#: inc/user/user_outgoing.php:93 inc/user/get_status.php:93
-#: inc/admin/all_outgoing.php:95
-msgid "Pending"
-msgstr ""
-
-#: inc/user/user_outgoing.php:114 inc/user/get_status.php:114
-#: inc/admin/all_outgoing.php:117
-msgid "Are you sure you want to delete outgoing SMS ?"
-msgstr ""
-
-#: inc/user/user_outgoing.php:114 inc/user/get_status.php:114
-msgid "number"
-msgstr ""
-
-#: inc/user/user_outgoing.php:150 inc/user/user_outgoing.php:173
-#: inc/user/get_status.php:150 inc/user/get_status.php:173
-#: inc/admin/all_outgoing.php:153 inc/admin/all_outgoing.php:176
-msgid "Selected outgoing SMS has been deleted"
-msgstr ""
-
-#: inc/user/user_outgoing.php:154 inc/user/get_status.php:154
-#: inc/admin/all_outgoing.php:157
-msgid "Fail to delete SMS"
-msgstr ""
-
-#: inc/user/get_status.php:25
-msgid "Outbox"
-msgstr ""
-
-#: inc/user/user_inbox.php:25 lib/lib_init1.php:40
-msgid "Inbox"
-msgstr ""
-
-#: inc/user/user_inbox.php:33 inc/user/user_incoming.php:33
-#: inc/admin/all_inbox.php:34 inc/admin/all_incoming.php:34
-#: lib/fn_core.php:110
-msgid "Sender"
-msgstr ""
-
-#: inc/user/user_inbox.php:70 inc/user/user_incoming.php:79
-#: inc/admin/all_inbox.php:73 inc/admin/all_incoming.php:82
-msgid "Are you sure you want to delete this SMS ?"
-msgstr ""
-
-#: inc/user/user_inbox.php:102 inc/user/user_incoming.php:110
-#: inc/admin/all_inbox.php:105
-msgid "Fail to delete incoming SMS"
-msgstr ""
-
-#: inc/user/user_inbox.php:109 inc/user/user_inbox.php:128
-#: inc/user/user_incoming.php:117 inc/user/user_incoming.php:136
-#: inc/admin/all_inbox.php:112 inc/admin/all_inbox.php:131
-#: inc/admin/all_incoming.php:121 inc/admin/all_incoming.php:140
-msgid "Selected incoming SMS has been deleted"
-msgstr ""
-
-#: inc/user/user_incoming.php:25 lib/lib_init1.php:41
-msgid "Incoming SMS"
-msgstr ""
-
-#: inc/user/user_incoming.php:34 inc/admin/all_incoming.php:35
-msgid "Keyword"
-msgstr ""
-
-#: inc/user/user_incoming.php:36 inc/admin/all_incoming.php:37
-msgid "Feature"
-msgstr ""
-
-#: inc/user/user_pref.php:44 inc/admin/user_mgmnt.php:131 lib/lib_init1.php:43
-msgid "Preferences"
-msgstr ""
-
-#: inc/user/user_pref.php:48
-msgid "Login information"
-msgstr ""
-
-#: inc/user/user_pref.php:49 inc/admin/user_mgmnt.php:19
-#: inc/admin/user_mgmnt.php:53 inc/admin/user_mgmnt.php:137
-#: inc/admin/user_mgmnt.php:225
-msgid "Username"
-msgstr ""
-
-#: inc/user/user_pref.php:50 inc/admin/user_mgmnt.php:21
-#: inc/admin/user_mgmnt.php:55 inc/admin/user_mgmnt.php:140
-#: inc/admin/user_mgmnt.php:228
-msgid "Email"
-msgstr ""
-
-#: inc/user/user_pref.php:51 inc/admin/user_mgmnt.php:152
-#: inc/admin/user_mgmnt.php:240
-msgid "Password"
-msgstr ""
-
-#: inc/user/user_pref.php:52
-msgid "Re-Type Password"
-msgstr ""
-
-#: inc/user/user_pref.php:54
-msgid "Personal information"
-msgstr ""
-
-#: inc/user/user_pref.php:56
-msgid "Address"
-msgstr ""
-
-#: inc/user/user_pref.php:57
-msgid "City"
-msgstr ""
-
-#: inc/user/user_pref.php:58
-msgid "State or Province"
-msgstr ""
-
-#: inc/user/user_pref.php:59
-msgid "Country"
-msgstr ""
-
-#: inc/user/user_pref.php:60
-msgid "Zipcode"
-msgstr ""
-
-#: inc/user/user_pref.php:62
-msgid "Application information"
-msgstr ""
-
-#: inc/user/user_pref.php:63 inc/admin/user_mgmnt.php:22
-#: inc/admin/user_mgmnt.php:56 inc/admin/user_mgmnt.php:146
-#: inc/admin/user_mgmnt.php:234
-msgid "Mobile"
-msgstr ""
-
-#: inc/user/user_pref.php:63 inc/admin/user_mgmnt.php:146
-#: inc/admin/user_mgmnt.php:234
-msgid "sender number"
-msgstr ""
-
-#: inc/user/user_pref.php:63 inc/admin/user_mgmnt.php:146
-#: inc/admin/user_mgmnt.php:234
-msgid "Max. 16 numeric or 11 alphanumeric characters"
-msgstr ""
-
-#: inc/user/user_pref.php:64 inc/admin/user_mgmnt.php:149
-#: inc/admin/user_mgmnt.php:237
-msgid "Max. 30 alphanumeric characters"
-msgstr ""
-
-#: inc/user/user_pref.php:65 inc/admin/user_mgmnt.php:23
-#: inc/admin/user_mgmnt.php:57 inc/admin/user_mgmnt.php:155
-#: inc/admin/user_mgmnt.php:243
-msgid "Credit"
-msgstr ""
-
-#: inc/user/user_pref.php:68 inc/admin/main_config.php:62
-#: inc/admin/user_mgmnt.php:161
-msgid "Save"
-msgstr ""
-
-#: inc/user/user_pref.php:91 inc/admin/user_mgmnt.php:176
-msgid "No changes made"
-msgstr ""
-
-#: inc/user/user_pref.php:99 inc/admin/user_mgmnt.php:183
-msgid "Email is already in use by other username"
-msgstr ""
-
-#: inc/user/user_pref.php:99 inc/admin/user_mgmnt.php:183
-msgid "email"
-msgstr ""
-
-#: inc/user/user_pref.php:119
-msgid "Preferences has been saved and password updated"
-msgstr ""
-
-#: inc/user/user_pref.php:123 inc/admin/user_mgmnt.php:196
-msgid "Preferences has been saved"
-msgstr ""
-
-#: inc/user/user_pref.php:128 inc/admin/user_mgmnt.php:200
-msgid "Fail to save preferences"
-msgstr ""
-
-#: inc/user/user_pref.php:134 inc/admin/user_mgmnt.php:206
-msgid "You must fill all field"
-msgstr ""
-
-#: inc/common/daemon.php:9
-msgid "playSMS server successfully refreshed"
-msgstr ""
-
-#: inc/common/login.php:16
-msgid "Unable to update login session"
-msgstr ""
-
-#: inc/common/login.php:19
-msgid "Invalid username or password"
-msgstr ""
-
-#: inc/admin/main_config.php:33 lib/lib_init1.php:52
-msgid "Main configuration"
-msgstr ""
-
-#: inc/admin/main_config.php:38
-msgid "Website title"
-msgstr ""
-
-#: inc/admin/main_config.php:41
-msgid "Website email"
-msgstr ""
-
-#: inc/admin/main_config.php:44
-msgid "Forwarded email footer"
-msgstr ""
-
-#: inc/admin/main_config.php:47
-msgid "Gateway number"
-msgstr ""
-
-#: inc/admin/main_config.php:50
-msgid "Default SMS rate"
-msgstr ""
-
-#: inc/admin/main_config.php:53
-msgid "Active gateway module"
-msgstr ""
-
-#: inc/admin/main_config.php:56
-msgid "Active themes"
-msgstr ""
-
-#: inc/admin/main_config.php:59
-msgid "Active language"
-msgstr ""
-
-#: inc/admin/main_config.php:89
-msgid "Main configuration changes has been saved"
-msgstr ""
-
-#: inc/admin/all_inbox.php:25
+#: inc/admin/all_inbox.php:26
 msgid "All Inbox"
 msgstr ""
 
-#: inc/admin/all_inbox.php:32 inc/admin/all_incoming.php:32
-#: inc/admin/all_outgoing.php:32
+#: inc/admin/all_inbox.php:33 inc/admin/all_outgoing.php:33
+#: inc/admin/all_incoming.php:33
+#: plugin/feature/sms_autoreply/sms_autoreply.php:28
+#: plugin/feature/sms_autoreply/sms_autoreply.php:87
+#: plugin/feature/_sms_survey/sms_survey_members.php:61
+#: plugin/feature/_sms_survey/sms_survey_members.php:122
+#: plugin/feature/_sms_survey/sms_survey_members.php:206
+#: plugin/feature/_sms_survey/sms_survey.php:38
+#: plugin/feature/_sms_survey/sms_survey_questions.php:121
+#: plugin/feature/sms_custom/sms_custom.php:30
+#: plugin/feature/sms_subscribe/sms_subscribe.php:29
+#: plugin/feature/sms_board/sms_board.php:22
+#: plugin/feature/sms_poll/sms_poll.php:30
+#: plugin/feature/sms_quiz/sms_quiz.php:97
+#: plugin/feature/sms_command/sms_command.php:30
+#: plugin/feature/_sms_autosend/sms_autosend.php:39
 msgid "User"
 msgstr ""
 
-#: inc/admin/all_incoming.php:25 lib/lib_init1.php:49
-msgid "All incoming SMS"
+#: inc/admin/all_inbox.php:34 inc/admin/all_outgoing.php:34
+#: inc/admin/all_incoming.php:34 inc/user/user_inbox.php:33
+#: inc/user/user_outgoing.php:33 inc/user/user_incoming.php:33
+#: plugin/feature/_sms_autosend/sms_autosend.php:135
+msgid "Time"
 msgstr ""
 
-#: inc/admin/all_outgoing.php:25
+#: inc/admin/all_inbox.php:35 inc/admin/all_incoming.php:35
+#: inc/user/user_inbox.php:34 inc/user/user_incoming.php:34
+msgid "From"
+msgstr ""
+
+#: inc/admin/all_inbox.php:36 inc/admin/all_outgoing.php:37
+#: inc/user/user_inbox.php:35 inc/user/user_outgoing.php:35
+#: plugin/feature/sms_subscribe/sms_subscribe.php:96
+#: plugin/feature/sms_subscribe/sms_subscribe.php:152
+#: plugin/feature/sms_board/fn.php:90 plugin/feature/sms_quiz/sms_quiz.php:28
+#: plugin/feature/_sms_autosend/sms_autosend.php:37
+#: plugin/feature/_sms_autosend/sms_autosend.php:169
+#: plugin/feature/_sms_autosend/sms_autosend.php:301 lib/fn_core.php:254
+msgid "Message"
+msgstr ""
+
+#: inc/admin/all_inbox.php:37 inc/admin/all_outgoing.php:40
+#: inc/admin/user_mgmnt.php:25 inc/admin/user_mgmnt.php:59
+#: inc/admin/all_incoming.php:40 inc/user/user_inbox.php:36
+#: inc/user/user_outgoing.php:38 inc/user/user_incoming.php:39
+#: plugin/feature/inboxgroup/inboxgroup.php:43
+#: plugin/feature/sms_autoreply/sms_autoreply.php:29
+#: plugin/feature/sms_autoreply/sms_autoreply.php:88
+#: plugin/feature/_sms_survey/sms_survey.php:45
+#: plugin/feature/_sms_survey/sms_survey_questions.php:139
+#: plugin/feature/sms_custom/sms_custom.php:31
+#: plugin/feature/sms_subscribe/sms_subscribe.php:31
+#: plugin/feature/sms_subscribe/sms_subscribe.php:97
+#: plugin/feature/sms_subscribe/sms_subscribe.php:290
+#: plugin/feature/sms_board/sms_board.php:23
+#: plugin/feature/sms_poll/sms_poll.php:32
+#: plugin/feature/sms_poll/sms_poll.php:116
+#: plugin/feature/sms_quiz/sms_quiz.php:30
+#: plugin/feature/sms_quiz/sms_quiz.php:99
+#: plugin/feature/sms_command/sms_command.php:31
+#: plugin/feature/_sms_autosend/sms_autosend.php:42
+#: plugin/tools/simplerate/simplerate.php:22
+msgid "Action"
+msgstr ""
+
+#: inc/admin/all_inbox.php:74 inc/admin/all_incoming.php:83
+#: inc/user/user_inbox.php:71 inc/user/user_incoming.php:80
+msgid "Are you sure you want to delete this SMS ?"
+msgstr ""
+
+#: inc/admin/all_inbox.php:92 inc/admin/all_outgoing.php:137
+#: inc/admin/all_incoming.php:101 inc/user/sms_template.php:57
+#: inc/user/user_inbox.php:89 inc/user/user_outgoing.php:131
+#: inc/user/user_incoming.php:97
+msgid "Delete selection"
+msgstr ""
+
+#: inc/admin/all_inbox.php:106 inc/user/user_inbox.php:103
+#: inc/user/user_incoming.php:111
+msgid "Fail to delete incoming SMS"
+msgstr ""
+
+#: inc/admin/all_inbox.php:113 inc/admin/all_inbox.php:132
+#: inc/admin/all_incoming.php:122 inc/admin/all_incoming.php:141
+#: inc/user/user_inbox.php:110 inc/user/user_inbox.php:129
+#: inc/user/user_incoming.php:118 inc/user/user_incoming.php:137
+msgid "Selected incoming SMS has been deleted"
+msgstr ""
+
+#: inc/admin/main_config.php:14 inc/admin/main_config.php:19
+#: inc/user/user_pref.php:41 inc/user/user_pref.php:50
+#: inc/user/user_pref.php:59 plugin/feature/inboxgroup/inboxgroup.php:124
+#: plugin/feature/_sms_survey/sms_survey_members.php:35
+#: plugin/feature/_sms_survey/sms_survey_members.php:116
+#: plugin/feature/_sms_survey/sms_survey_members.php:200
+#: plugin/feature/_sms_survey/sms_survey.php:58
+#: plugin/feature/_sms_survey/sms_survey.php:186
+#: plugin/feature/_sms_survey/sms_survey.php:276
+#: plugin/feature/_sms_survey/sms_survey.php:334
+#: plugin/feature/_sms_survey/sms_survey_questions.php:48
+msgid "yes"
+msgstr ""
+
+#: inc/admin/main_config.php:15 inc/admin/main_config.php:20
+#: inc/user/user_pref.php:42 inc/user/user_pref.php:51
+#: inc/user/user_pref.php:60 plugin/feature/inboxgroup/inboxgroup.php:124
+#: plugin/feature/_sms_survey/sms_survey_members.php:35
+#: plugin/feature/_sms_survey/sms_survey_members.php:37
+#: plugin/feature/_sms_survey/sms_survey_members.php:116
+#: plugin/feature/_sms_survey/sms_survey_members.php:118
+#: plugin/feature/_sms_survey/sms_survey_members.php:200
+#: plugin/feature/_sms_survey/sms_survey_members.php:202
+#: plugin/feature/_sms_survey/sms_survey.php:58
+#: plugin/feature/_sms_survey/sms_survey.php:60
+#: plugin/feature/_sms_survey/sms_survey.php:186
+#: plugin/feature/_sms_survey/sms_survey.php:188
+#: plugin/feature/_sms_survey/sms_survey.php:276
+#: plugin/feature/_sms_survey/sms_survey.php:278
+#: plugin/feature/_sms_survey/sms_survey.php:334
+#: plugin/feature/_sms_survey/sms_survey.php:336
+#: plugin/feature/_sms_survey/sms_survey_questions.php:48
+#: plugin/feature/_sms_survey/sms_survey_questions.php:50
+msgid "no"
+msgstr ""
+
+#: inc/admin/main_config.php:44 lib/lib_init1.php:67
+msgid "Main configuration"
+msgstr ""
+
+#: inc/admin/main_config.php:49
+msgid "Website title"
+msgstr ""
+
+#: inc/admin/main_config.php:52
+msgid "Website email"
+msgstr ""
+
+#: inc/admin/main_config.php:55
+msgid "Forwarded email footer"
+msgstr ""
+
+#: inc/admin/main_config.php:58
+msgid "Gateway number"
+msgstr ""
+
+#: inc/admin/main_config.php:61
+msgid "Gateway timezone"
+msgstr ""
+
+#: inc/admin/main_config.php:61 inc/admin/user_mgmnt.php:166
+#: inc/admin/user_mgmnt.php:274 inc/user/user_pref.php:106
+#: plugin/gateway/kannel/kannel.php:41 plugin/gateway/uplink/uplink.php:48
+#: plugin/gateway/clickatell/clickatell.php:44
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:47
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+#: inc/admin/main_config.php:64
+msgid "Default SMS rate"
+msgstr ""
+
+#: inc/admin/main_config.php:67
+msgid "Maximum SMS count"
+msgstr ""
+
+#: inc/admin/main_config.php:70
+msgid "Default credit for user"
+msgstr ""
+
+#: inc/admin/main_config.php:73
+msgid "Enable public registration"
+msgstr ""
+
+#: inc/admin/main_config.php:76
+msgid "Enable forgot password"
+msgstr ""
+
+#: inc/admin/main_config.php:79
+msgid "Active gateway module"
+msgstr ""
+
+#: inc/admin/main_config.php:82
+msgid "Active themes"
+msgstr ""
+
+#: inc/admin/main_config.php:85
+msgid "Default language"
+msgstr ""
+
+#: inc/admin/main_config.php:88 inc/admin/user_mgmnt.php:181
+#: inc/user/user_pref.php:115 plugin/gateway/_template/template.php:40
+#: plugin/gateway/kannel/kannel.php:60 plugin/gateway/gnokii/gnokii.php:39
+#: plugin/gateway/uplink/uplink.php:60
+#: plugin/gateway/clickatell/clickatell.php:63
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:50
+#: plugin/feature/sms_autoreply/sms_autoreply.php:314
+#: plugin/feature/sms_custom/sms_custom.php:85
+#: plugin/feature/sms_subscribe/sms_subscribe.php:352
+#: plugin/feature/sms_board/sms_board.php:100
+#: plugin/feature/sms_poll/sms_poll.php:99
+#: plugin/feature/sms_quiz/sms_quiz.php:169
+#: plugin/feature/sms_command/sms_command.php:89
+#: plugin/tools/simplephonebook/dir_edit.php:26
+#: plugin/tools/simplephonebook/phonebook.php:53
+#: plugin/tools/simplerate/simplerate.php:88
+msgid "Save"
+msgstr ""
+
+#: inc/admin/main_config.php:125
+msgid "Main configuration changes has been saved"
+msgstr ""
+
+#: inc/admin/all_outgoing.php:26 lib/lib_init1.php:65
 msgid "All outgoing SMS"
 msgstr ""
 
-#: inc/admin/all_outgoing.php:117
+#: inc/admin/all_outgoing.php:35 lib/lib_init1.php:48
+msgid "Gateway"
+msgstr ""
+
+#: inc/admin/all_outgoing.php:36 inc/user/user_outgoing.php:34
+msgid "To"
+msgstr ""
+
+#: inc/admin/all_outgoing.php:38 inc/admin/user_mgmnt.php:16
+#: inc/admin/user_mgmnt.php:50 inc/admin/all_incoming.php:39
+#: inc/user/user_outgoing.php:36 inc/user/user_incoming.php:38
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:39
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:120
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:208
+#: plugin/feature/inboxgroup/inboxgroup_members.php:39
+#: plugin/feature/inboxgroup/inboxgroup_members.php:121
+#: plugin/feature/inboxgroup/inboxgroup_members.php:209
+#: plugin/feature/inboxgroup/inboxgroup.php:42
+#: plugin/feature/inboxgroup/inboxgroup.php:182
+#: plugin/feature/_sms_survey/sms_survey_members.php:66
+#: plugin/feature/_sms_survey/sms_survey_members.php:127
+#: plugin/feature/_sms_survey/sms_survey_members.php:211
+#: plugin/feature/_sms_survey/sms_survey.php:43
+#: plugin/feature/_sms_survey/sms_survey.php:196
+#: plugin/feature/_sms_survey/sms_survey.php:286
+#: plugin/feature/_sms_survey/sms_survey.php:344
+#: plugin/feature/_sms_survey/sms_survey_questions.php:126
+#: plugin/feature/sms_subscribe/sms_subscribe.php:30
+#: plugin/feature/sms_poll/sms_poll.php:31
+#: plugin/feature/sms_quiz/sms_quiz.php:29
+#: plugin/feature/sms_quiz/sms_quiz.php:98
+#: plugin/feature/_sms_autosend/sms_autosend.php:41
+#: plugin/tools/simplephonebook/phonebook_exim.php:107
+#: plugin/themes/work2/header.php:37 plugin/themes/default/header.php:37
+msgid "Status"
+msgstr ""
+
+#: inc/admin/all_outgoing.php:39 inc/user/user_outgoing.php:37
+msgid "Group"
+msgstr ""
+
+#: inc/admin/all_outgoing.php:86 inc/user/user_outgoing.php:82
+msgid "Sent"
+msgstr ""
+
+#: inc/admin/all_outgoing.php:90 inc/user/user_outgoing.php:86
+msgid "Failed"
+msgstr ""
+
+#: inc/admin/all_outgoing.php:94 inc/user/user_outgoing.php:90
+msgid "Delivered"
+msgstr ""
+
+#: inc/admin/all_outgoing.php:98 inc/user/user_outgoing.php:94
+msgid "Pending"
+msgstr ""
+
+#: inc/admin/all_outgoing.php:121 inc/user/user_outgoing.php:115
+msgid "Are you sure you want to delete outgoing SMS ?"
+msgstr ""
+
+#: inc/admin/all_outgoing.php:121 inc/user/send_sms.php:141
+#: inc/user/send_sms.php:143 inc/user/user_outgoing.php:115
+#: plugin/feature/sms_subscribe/sms_subscribe.php:254
+#: plugin/feature/sms_subscribe/sms_subscribe.php:256
+msgid "to"
+msgstr ""
+
+#: inc/admin/all_outgoing.php:121
 msgid "row"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:12 lib/lib_init1.php:51
+#: inc/admin/all_outgoing.php:157 inc/admin/all_outgoing.php:180
+#: inc/user/user_outgoing.php:151 inc/user/user_outgoing.php:174
+msgid "Selected outgoing SMS has been deleted"
+msgstr ""
+
+#: inc/admin/all_outgoing.php:161 inc/user/user_outgoing.php:155
+msgid "Fail to delete SMS"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:13 lib/lib_init1.php:66
 msgid "Manage user"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:14 inc/admin/user_mgmnt.php:86
-#: inc/admin/user_mgmnt.php:220
+#: inc/admin/user_mgmnt.php:15 inc/admin/user_mgmnt.php:87
+#: inc/admin/user_mgmnt.php:251
 msgid "Add user"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:15 inc/admin/user_mgmnt.php:127
-#: inc/admin/user_mgmnt.php:216
+#: inc/admin/user_mgmnt.php:16 inc/admin/user_mgmnt.php:138
+#: inc/admin/user_mgmnt.php:247
 msgid "Administrator"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:35
+#: inc/admin/user_mgmnt.php:20 inc/admin/user_mgmnt.php:54
+#: inc/admin/user_mgmnt.php:148 inc/admin/user_mgmnt.php:256
+#: inc/user/user_pref.php:90 plugin/gateway/kannel/kannel.php:32
+#: plugin/gateway/uplink/uplink.php:39
+#: plugin/gateway/clickatell/clickatell.php:35
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:38
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:58
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:174
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:176
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:261
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:263
+#: plugin/feature/inboxgroup/inboxgroup_members.php:58
+#: plugin/feature/inboxgroup/inboxgroup_members.php:175
+#: plugin/feature/inboxgroup/inboxgroup_members.php:177
+#: plugin/feature/inboxgroup/inboxgroup_members.php:262
+#: plugin/feature/inboxgroup/inboxgroup_members.php:264
+#: plugin/themes/work2/page_register.php:30
+#: plugin/themes/work2/page_login.php:25
+#: plugin/themes/work2/page_forgot.php:26
+#: plugin/themes/default/page_register.php:30
+#: plugin/themes/default/page_login.php:25
+#: plugin/themes/default/page_forgot.php:26
+#: plugin/themes/play/page_register.php:19
+#: plugin/themes/play/page_login.php:15 plugin/themes/play/page_forgot.php:13
+#: plugin/themes/km2/page_register.php:36 plugin/themes/km2/page_login.php:32
+#: plugin/themes/km2/page_forgot.php:31 lib/fn_auth.php:208
+#: lib/fn_auth.php:265
+msgid "Username"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:21 inc/admin/user_mgmnt.php:55
+#: inc/user/sms_template.php:27 inc/user/sms_template.php:157
+#: inc/user/user_pref.php:95
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:59
+#: plugin/feature/inboxgroup/inboxgroup_members.php:59
+#: plugin/feature/_sms_survey/sms_survey_members.php:75
+#: plugin/tools/simplephonebook/phone_add.php:27
+#: plugin/tools/simplephonebook/simplephonebook.php:43
+#: plugin/tools/simplephonebook/simplephonebook.php:117
+#: plugin/tools/simplephonebook/phonebook_exim.php:60
+#: plugin/themes/work2/page_register.php:26
+#: plugin/themes/default/page_register.php:26
+#: plugin/themes/play/page_register.php:13
+#: plugin/themes/km2/page_register.php:32
+msgid "Name"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:22 inc/admin/user_mgmnt.php:56
+#: inc/admin/user_mgmnt.php:154 inc/admin/user_mgmnt.php:262
+#: inc/user/user_pref.php:96 plugin/tools/simplephonebook/phone_add.php:33
+#: plugin/tools/simplephonebook/simplephonebook.php:45
+#: plugin/tools/simplephonebook/simplephonebook.php:119
+#: plugin/tools/simplephonebook/phonebook_exim.php:62
+#: plugin/themes/work2/page_register.php:39
+#: plugin/themes/work2/page_forgot.php:31
+#: plugin/themes/default/page_register.php:39
+#: plugin/themes/default/page_forgot.php:31
+#: plugin/themes/play/page_register.php:31
+#: plugin/themes/play/page_forgot.php:19
+#: plugin/themes/km2/page_register.php:46 plugin/themes/km2/page_forgot.php:36
+msgid "Email"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:23 inc/admin/user_mgmnt.php:57
+#: inc/admin/user_mgmnt.php:157 inc/admin/user_mgmnt.php:265
+#: inc/user/user_pref.php:97
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:60
+#: plugin/feature/inboxgroup/inboxgroup_members.php:60
+#: plugin/feature/_sms_survey/sms_survey_members.php:74
+#: plugin/feature/_sms_survey/sms_survey_members.php:263
+#: plugin/feature/_sms_survey/sms_survey_members.php:265
+#: plugin/tools/simplephonebook/phone_add.php:30
+#: plugin/tools/simplephonebook/phonebook_exim.php:61
+#: plugin/themes/work2/page_register.php:35
+#: plugin/themes/default/page_register.php:35
+#: plugin/themes/play/page_register.php:25
+#: plugin/themes/km2/page_register.php:41
+msgid "Mobile"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:24 inc/admin/user_mgmnt.php:58
+#: inc/admin/user_mgmnt.php:172 inc/admin/user_mgmnt.php:280
+#: inc/user/user_pref.php:109
+msgid "Credit"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:36
 msgid "Are you sure you want to delete user ?"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:35 inc/admin/user_mgmnt.php:98
-#: inc/admin/user_mgmnt.php:103 inc/admin/user_mgmnt.php:183
-#: inc/admin/user_mgmnt.php:196 inc/admin/user_mgmnt.php:200
-#: inc/admin/user_mgmnt.php:269 inc/admin/user_mgmnt.php:280
+#: inc/admin/user_mgmnt.php:36 inc/admin/user_mgmnt.php:99
+#: inc/admin/user_mgmnt.php:104 inc/admin/user_mgmnt.php:206
+#: inc/admin/user_mgmnt.php:219 inc/admin/user_mgmnt.php:223
+#: inc/admin/user_mgmnt.php:313 inc/admin/user_mgmnt.php:324
+#: lib/fn_auth.php:245 lib/fn_auth.php:268
 msgid "username"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:49 inc/admin/user_mgmnt.php:128
+#: inc/admin/user_mgmnt.php:50 inc/admin/user_mgmnt.php:139
 msgid "Normal user"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:69
+#: inc/admin/user_mgmnt.php:70
 msgid "Are you sure you want to delete user"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:92
+#: inc/admin/user_mgmnt.php:93
 msgid "Fail to delete user"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:98
+#: inc/admin/user_mgmnt.php:99
 msgid "User has been deleted"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:103
+#: inc/admin/user_mgmnt.php:104
 msgid "User is immune to deletion"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:107
+#: inc/admin/user_mgmnt.php:108
 msgid "Currently logged in user is immune to deletion"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:143 inc/admin/user_mgmnt.php:231
+#: inc/admin/user_mgmnt.php:142 inc/user/user_pref.php:85
+#: plugin/themes/km2/header.php:45 lib/lib_init1.php:57
+msgid "Preferences"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:151 inc/admin/user_mgmnt.php:259
 msgid "Full name"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:152
+#: inc/admin/user_mgmnt.php:157 inc/admin/user_mgmnt.php:160
+#: inc/admin/user_mgmnt.php:265 inc/admin/user_mgmnt.php:268
+#: inc/user/user_pref.php:97 inc/user/user_pref.php:107
+msgid "Max. 16 numeric or 11 alphanumeric characters"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:160 inc/admin/user_mgmnt.php:268
+#: inc/user/send_sms.php:78 inc/user/send_sms.php:227
+#: inc/user/user_pref.php:107
+msgid "SMS Sender ID"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:163 inc/admin/user_mgmnt.php:271
+#: inc/user/send_sms.php:79 inc/user/send_sms.php:228
+#: inc/user/user_pref.php:108
+msgid "SMS footer"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:163 inc/admin/user_mgmnt.php:271
+#: inc/user/user_pref.php:108
+msgid "Max. 30 alphanumeric characters"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:166 inc/admin/user_mgmnt.php:274
+#: inc/user/user_pref.php:106
+msgid "Timezone"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:169 inc/admin/user_mgmnt.php:277
+#: inc/user/user_pref.php:91 plugin/gateway/kannel/kannel.php:35
+#: plugin/gateway/uplink/uplink.php:42
+#: plugin/gateway/clickatell/clickatell.php:38
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:41
+#: plugin/themes/work2/page_login.php:30
+#: plugin/themes/default/page_login.php:30
+#: plugin/themes/play/page_login.php:21 plugin/themes/km2/page_login.php:37
+#: lib/fn_auth.php:209 lib/fn_auth.php:266
+msgid "Password"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:169
 msgid "Fill to change password for username"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:158 inc/admin/user_mgmnt.php:246
+#: inc/admin/user_mgmnt.php:175 inc/admin/user_mgmnt.php:283
 msgid "User level"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:217
+#: inc/admin/user_mgmnt.php:178 inc/admin/user_mgmnt.php:286
+#: inc/user/user_pref.php:103
+msgid "Active language"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:199 inc/user/user_pref.php:144
+msgid "No changes made"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:206 inc/user/user_pref.php:152
+msgid "Email is already in use by other username"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:206 inc/user/user_pref.php:152
+msgid "email"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:219 inc/user/user_pref.php:178
+msgid "Preferences has been saved"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:223 inc/user/user_pref.php:183
+msgid "Fail to save preferences"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:229 inc/user/user_pref.php:189
+#: plugin/feature/sms_quiz/sms_quiz.php:211
+#: plugin/feature/sms_quiz/sms_quiz.php:292
+#: plugin/tools/simplephonebook/phone_add.php:66
+#: plugin/tools/simplephonebook/dir_create.php:49
+#: plugin/tools/simplephonebook/dir_edit.php:51
+msgid "You must fill all field"
+msgstr ""
+
+#: inc/admin/user_mgmnt.php:248
 msgid "Normal User"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:249
+#: inc/admin/user_mgmnt.php:290
+#: plugin/feature/sms_autoreply/sms_autoreply.php:155
+#: plugin/feature/sms_autoreply/sms_autoreply.php:232
+#: plugin/feature/sms_custom/sms_custom.php:148
+#: plugin/feature/sms_subscribe/sms_subscribe.php:458
+#: plugin/feature/sms_subscribe/sms_subscribe.php:511
+#: plugin/feature/sms_board/sms_board.php:176
+#: plugin/feature/sms_poll/sms_poll.php:148
+#: plugin/feature/sms_poll/sms_poll.php:288
+#: plugin/feature/sms_quiz/sms_quiz.php:267
+#: plugin/feature/sms_command/sms_command.php:156
+#: plugin/feature/_sms_autosend/sms_autosend.php:323
+#: plugin/tools/simplephonebook/phone_add.php:36
+#: plugin/tools/simplerate/simplerate.php:138
 msgid "Add"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:269
+#: inc/admin/user_mgmnt.php:313 lib/fn_auth.php:245
 msgid "User is already exists"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:280
+#: inc/admin/user_mgmnt.php:324 lib/fn_auth.php:268
 msgid "User has been added"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:286
+#: inc/admin/user_mgmnt.php:330 plugin/feature/inboxgroup/inboxgroup.php:106
+#: plugin/feature/inboxgroup/inboxgroup.php:153
+#: plugin/feature/sms_autoreply/sms_autoreply.php:183
+#: plugin/feature/sms_autoreply/sms_autoreply.php:269
+#: plugin/feature/sms_autoreply/sms_autoreply.php:350
+#: plugin/feature/_sms_survey/sms_survey.php:123
+#: plugin/feature/_sms_survey/sms_survey.php:163
+#: plugin/feature/_sms_survey/sms_survey_questions.php:175
+#: plugin/feature/_sms_survey/sms_survey_questions.php:191
+#: plugin/feature/_sms_survey/sms_survey_questions.php:206
+#: plugin/feature/sms_custom/sms_custom.php:108
+#: plugin/feature/sms_custom/sms_custom.php:177
+#: plugin/feature/sms_subscribe/sms_subscribe.php:215
+#: plugin/feature/sms_subscribe/sms_subscribe.php:262
+#: plugin/feature/sms_subscribe/sms_subscribe.php:392
+#: plugin/feature/sms_subscribe/sms_subscribe.php:481
+#: plugin/feature/sms_subscribe/sms_subscribe.php:529
+#: plugin/feature/sms_board/sms_board.php:130
+#: plugin/feature/sms_board/sms_board.php:215
+#: plugin/feature/sms_poll/sms_poll.php:189
+#: plugin/feature/sms_poll/sms_poll.php:247
+#: plugin/feature/sms_poll/sms_poll.php:316
+#: plugin/feature/sms_command/sms_command.php:115
+#: plugin/feature/sms_command/sms_command.php:189
+#: plugin/feature/_sms_autosend/sms_autosend.php:255
+#: plugin/feature/_sms_autosend/sms_autosend.php:361
+#: plugin/tools/simplerate/simplerate.php:114
+#: plugin/tools/simplerate/simplerate.php:170
 msgid "You must fill all fields"
 msgstr ""
 
-#: lib/lib_init1.php:27
+#: inc/admin/all_incoming.php:26 lib/lib_init1.php:64
+msgid "All incoming SMS"
+msgstr ""
+
+#: inc/admin/all_incoming.php:36 inc/user/user_incoming.php:35
+#: plugin/feature/sms_autoreply/sms_autoreply.php:27
+#: plugin/feature/_sms_survey/sms_survey_members.php:62
+#: plugin/feature/_sms_survey/sms_survey_members.php:123
+#: plugin/feature/_sms_survey/sms_survey_members.php:161
+#: plugin/feature/_sms_survey/sms_survey_members.php:163
+#: plugin/feature/_sms_survey/sms_survey_members.php:167
+#: plugin/feature/_sms_survey/sms_survey_members.php:169
+#: plugin/feature/_sms_survey/sms_survey_members.php:207
+#: plugin/feature/_sms_survey/sms_survey.php:39
+#: plugin/feature/_sms_survey/sms_survey.php:105
+#: plugin/feature/_sms_survey/sms_survey.php:142
+#: plugin/feature/_sms_survey/sms_survey.php:192
+#: plugin/feature/_sms_survey/sms_survey.php:282
+#: plugin/feature/_sms_survey/sms_survey.php:340
+#: plugin/feature/_sms_survey/sms_survey_questions.php:122
+#: plugin/feature/sms_custom/sms_custom.php:28
+#: plugin/feature/sms_subscribe/sms_subscribe.php:27
+#: plugin/feature/sms_board/sms_board.php:20
+#: plugin/feature/sms_board/fn.php:89 plugin/feature/sms_board/fn.php:142
+#: plugin/feature/sms_poll/sms_poll.php:28
+#: plugin/feature/sms_poll/sms_poll.php:114
+#: plugin/feature/sms_quiz/sms_quiz.php:94
+#: plugin/feature/sms_command/sms_command.php:28
+msgid "Keyword"
+msgstr ""
+
+#: inc/admin/all_incoming.php:37 inc/user/sms_template.php:28
+#: inc/user/sms_template.php:158 inc/user/user_incoming.php:36
+msgid "Content"
+msgstr ""
+
+#: inc/admin/all_incoming.php:38 inc/user/user_incoming.php:37
+#: lib/lib_init1.php:46
+msgid "Feature"
+msgstr ""
+
+#: inc/admin/all_incoming.php:67 inc/user/user_incoming.php:65
+msgid "handled"
+msgstr ""
+
+#: inc/admin/all_incoming.php:67 inc/user/user_incoming.php:65
+msgid "unhandled"
+msgstr ""
+
+#: inc/user/sms_template.php:18 inc/user/send_sms.php:102
+#: inc/user/send_sms.php:232 lib/lib_init1.php:51
+msgid "Message template"
+msgstr ""
+
+#: inc/user/sms_template.php:21 inc/user/sms_template.php:62
+#: inc/user/sms_template.php:71
+msgid "Add message template"
+msgstr ""
+
+#: inc/user/sms_template.php:56
+#: plugin/tools/simplephonebook/simplephonebook.php:81
+msgid "Select action"
+msgstr ""
+
+#: inc/user/sms_template.php:59
+#: plugin/tools/simplephonebook/simplephonebook.php:81
+#: plugin/tools/simplephonebook/phonebook.php:118
+#: plugin/tools/simplephonebook/phonebook.php:184
+msgid "Go"
+msgstr ""
+
+#: inc/user/sms_template.php:76 inc/user/sms_template.php:114
+msgid "Message template name"
+msgstr ""
+
+#: inc/user/sms_template.php:79 inc/user/sms_template.php:117
+msgid "Message template content"
+msgstr ""
+
+#: inc/user/sms_template.php:82 inc/user/sms_template.php:120
+msgid "Save template"
+msgstr ""
+
+#: inc/user/sms_template.php:84 inc/user/sms_template.php:123
+#: inc/user/sms_template.php:186
+#: plugin/feature/sms_autoreply/sms_autoreply.php:233
+#: plugin/feature/sms_autoreply/sms_autoreply.php:315
+#: plugin/tools/simplephonebook/phonebook_exim.php:113
+msgid "Back"
+msgstr ""
+
+#: inc/user/sms_template.php:96
+msgid "Message template has been saved"
+msgstr ""
+
+#: inc/user/sms_template.php:109
+msgid "Edit message template"
+msgstr ""
+
+#: inc/user/sms_template.php:135
+msgid "Message template has been edited"
+msgstr ""
+
+#: inc/user/sms_template.php:139
+msgid "Fail to edit message template"
+msgstr ""
+
+#: inc/user/sms_template.php:151
+msgid "Delete message template"
+msgstr ""
+
+#: inc/user/sms_template.php:184
+msgid "Delete all templates ?"
+msgstr ""
+
+#: inc/user/sms_template.php:185
+#: plugin/tools/simplephonebook/phonebook.php:241 lib/lib_init1.php:34
+msgid "Delete"
+msgstr ""
+
+#: inc/user/sms_template.php:202
+msgid "Selected message template has been deleted"
+msgstr ""
+
+#: inc/user/user_inbox.php:26 lib/lib_init1.php:54
+msgid "Inbox"
+msgstr ""
+
+#: inc/user/send_sms.php:26 inc/user/send_sms.php:185
+msgid "shared by"
+msgstr ""
+
+#: inc/user/send_sms.php:38 inc/user/send_sms.php:196
+msgid "not set"
+msgstr ""
+
+#: inc/user/send_sms.php:54 inc/user/send_sms.php:203
+#: inc/user/user_pref.php:65
+msgid "Please select"
+msgstr ""
+
+#: inc/user/send_sms.php:75 lib/lib_init1.php:39 lib/lib_init1.php:52
+msgid "Send SMS"
+msgstr ""
+
+#: inc/user/send_sms.php:84
+msgid "Phone number(s)"
+msgstr ""
+
+#: inc/user/send_sms.php:90 inc/user/send_sms.php:92
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:146
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:148
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:233
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:235
+#: plugin/feature/inboxgroup/inboxgroup_members.php:147
+#: plugin/feature/inboxgroup/inboxgroup_members.php:149
+#: plugin/feature/inboxgroup/inboxgroup_members.php:234
+#: plugin/feature/inboxgroup/inboxgroup_members.php:236
+#: plugin/feature/_sms_survey/sms_survey_members.php:236
+#: plugin/feature/_sms_survey/sms_survey_members.php:238
+msgid "All"
+msgstr ""
+
+#: inc/user/send_sms.php:96 plugin/feature/_sms_autosend/sms_autosend.php:40
+#: plugin/feature/_sms_autosend/sms_autosend.php:175
+#: plugin/feature/_sms_autosend/sms_autosend.php:304
+msgid "Send to"
+msgstr ""
+
+#: inc/user/send_sms.php:101 inc/user/send_sms.php:231
+msgid "Or"
+msgstr ""
+
+#: inc/user/send_sms.php:101 plugin/tools/simplephonebook/phone_add.php:30
+msgid "International format"
+msgstr ""
+
+#: inc/user/send_sms.php:103 inc/user/send_sms.php:233
+msgid "Use template"
+msgstr ""
+
+#: inc/user/send_sms.php:104 inc/user/send_sms.php:234
+msgid "Your message"
+msgstr ""
+
+#: inc/user/send_sms.php:106 inc/user/send_sms.php:236
+msgid "SMS character"
+msgstr ""
+
+#: inc/user/send_sms.php:109 inc/user/send_sms.php:239
+msgid "Send as flash message"
+msgstr ""
+
+#: inc/user/send_sms.php:110 inc/user/send_sms.php:240
+msgid "Send as unicode message (http://www.unicode.org)"
+msgstr ""
+
+#: inc/user/send_sms.php:111 inc/user/send_sms.php:241
+#: plugin/feature/sms_subscribe/sms_subscribe.php:156
+msgid "Send"
+msgstr ""
+
+#: inc/user/send_sms.php:141 inc/user/send_sms.php:160
+#: inc/user/send_sms.php:285
+#: plugin/feature/sms_subscribe/sms_subscribe.php:254
+msgid "Your SMS has been delivered to queue"
+msgstr ""
+
+#: inc/user/send_sms.php:143
+msgid "Fail to sent SMS"
+msgstr ""
+
+#: inc/user/send_sms.php:160 inc/user/send_sms.php:285
+msgid "sent"
+msgstr ""
+
+#: inc/user/send_sms.php:160 inc/user/send_sms.php:285
+msgid "failed"
+msgstr ""
+
+#: inc/user/send_sms.php:166
+msgid "You must select receiver and your message should not be empty"
+msgstr ""
+
+#: inc/user/send_sms.php:224 lib/lib_init1.php:53
+msgid "Send broadcast SMS"
+msgstr ""
+
+#: inc/user/send_sms.php:230
+msgid "Send to group"
+msgstr ""
+
+#: inc/user/send_sms.php:231 plugin/tools/simplephonebook/dir_create.php:20
+#: plugin/tools/simplephonebook/phonebook_exim.php:36
+#: plugin/tools/simplephonebook/dir_edit.php:22
+msgid "Group code"
+msgstr ""
+
+#: inc/user/send_sms.php:290
+msgid "You must select receiver group and your message should not be empty"
+msgstr ""
+
+#: inc/user/user_outgoing.php:26 lib/lib_init1.php:56
+msgid "Outgoing SMS"
+msgstr ""
+
+#: inc/user/user_outgoing.php:115
+#: plugin/tools/simplephonebook/phone_add.php:55
+#: plugin/tools/simplephonebook/phone_add.php:62
+msgid "number"
+msgstr ""
+
+#: inc/user/user_incoming.php:26 lib/lib_init1.php:55
+msgid "Incoming SMS"
+msgstr ""
+
+#: inc/user/user_pref.php:89
+msgid "Login information"
+msgstr ""
+
+#: inc/user/user_pref.php:92
+msgid "Re-Type Password"
+msgstr ""
+
+#: inc/user/user_pref.php:94
+msgid "Personal information"
+msgstr ""
+
+#: inc/user/user_pref.php:98
+msgid "Address"
+msgstr ""
+
+#: inc/user/user_pref.php:99
+msgid "City"
+msgstr ""
+
+#: inc/user/user_pref.php:100
+msgid "State or Province"
+msgstr ""
+
+#: inc/user/user_pref.php:101
+msgid "Country"
+msgstr ""
+
+#: inc/user/user_pref.php:102
+msgid "Zipcode"
+msgstr ""
+
+#: inc/user/user_pref.php:105
+msgid "Application information"
+msgstr ""
+
+#: inc/user/user_pref.php:110
+msgid "Forward PV to inbox"
+msgstr ""
+
+#: inc/user/user_pref.php:111
+msgid "Forward PV to email"
+msgstr ""
+
+#: inc/user/user_pref.php:112
+msgid "Forward PV to mobile"
+msgstr ""
+
+#: inc/user/user_pref.php:174
+msgid "Preferences has been saved and password updated"
+msgstr ""
+
+#: plugin/gateway/smstools/smstools.php:9
+#: plugin/gateway/_template/template.php:9 plugin/gateway/gammu/gammu.php:9
+#: plugin/gateway/kannel/kannel.php:9 plugin/gateway/gnokii/gnokii.php:9
+#: plugin/gateway/uplink/uplink.php:9
+#: plugin/gateway/clickatell/clickatell.php:9
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:9
+msgid "Active"
+msgstr ""
+
+#: plugin/gateway/smstools/smstools.php:13
+#: plugin/gateway/_template/template.php:13 plugin/gateway/gammu/gammu.php:13
+#: plugin/gateway/kannel/kannel.php:13 plugin/gateway/gnokii/gnokii.php:13
+#: plugin/gateway/uplink/uplink.php:13
+#: plugin/gateway/clickatell/clickatell.php:13
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:13
+msgid "Inactive"
+msgstr ""
+
+#: plugin/gateway/smstools/smstools.php:13
+#: plugin/gateway/_template/template.php:13 plugin/gateway/gammu/gammu.php:13
+#: plugin/gateway/kannel/kannel.php:13 plugin/gateway/gnokii/gnokii.php:13
+#: plugin/gateway/uplink/uplink.php:13
+#: plugin/gateway/clickatell/clickatell.php:13
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:13
+msgid "click here to activate"
+msgstr ""
+
+#: plugin/gateway/smstools/smstools.php:24
+#: plugin/gateway/smstools/config.php:12
+msgid "Manage smstools"
+msgstr ""
+
+#: plugin/gateway/smstools/smstools.php:28
+#: plugin/gateway/_template/template.php:30 plugin/gateway/gammu/gammu.php:28
+#: plugin/gateway/kannel/kannel.php:29 plugin/gateway/gnokii/gnokii.php:29
+#: plugin/gateway/uplink/uplink.php:30
+#: plugin/gateway/clickatell/clickatell.php:29
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:30
+msgid "Gateway name"
+msgstr ""
+
+#: plugin/gateway/smstools/smstools.php:37
+#: plugin/gateway/_template/template.php:63 plugin/gateway/gammu/gammu.php:37
+#: plugin/gateway/kannel/kannel.php:102 plugin/gateway/gnokii/gnokii.php:63
+#: plugin/gateway/uplink/uplink.php:100
+#: plugin/gateway/clickatell/clickatell.php:105
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:88
+msgid "Gateway has been activated"
+msgstr ""
+
+#: plugin/gateway/_template/config.php:16
+#: plugin/gateway/_template/template.php:25
+msgid "Manage template"
+msgstr ""
+
+#: plugin/gateway/_template/template.php:33
+msgid "Template installation path"
+msgstr ""
+
+#: plugin/gateway/_template/template.php:33
+#: plugin/gateway/gnokii/gnokii.php:32 plugin/gateway/uplink/uplink.php:52
+#: plugin/gateway/clickatell/clickatell.php:47
+#: plugin/gateway/clickatell/clickatell.php:54
+msgid "No trailing slash"
+msgstr ""
+
+#: plugin/gateway/_template/template.php:37
+#: plugin/gateway/kannel/kannel.php:57 plugin/gateway/gnokii/gnokii.php:36
+#: plugin/gateway/uplink/uplink.php:57
+#: plugin/gateway/clickatell/clickatell.php:59
+#: plugin/tools/simplephonebook/dir_create.php:23
+#: plugin/tools/simplephonebook/dir_edit.php:25
+msgid "Note"
+msgstr ""
+
+#: plugin/gateway/_template/template.php:38
+#: plugin/gateway/kannel/kannel.php:58 plugin/gateway/gnokii/gnokii.php:37
+#: plugin/gateway/uplink/uplink.php:58
+#: plugin/gateway/clickatell/clickatell.php:62
+msgid "Send SMS message without footer banner"
+msgstr ""
+
+#: plugin/gateway/_template/template.php:46
+#: plugin/gateway/kannel/kannel.php:74 plugin/gateway/gnokii/gnokii.php:46
+#: plugin/gateway/uplink/uplink.php:73
+#: plugin/gateway/clickatell/clickatell.php:77
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:62
+#: plugin/tools/simplephonebook/dir_edit.php:40
+msgid "No changes has been made"
+msgstr ""
+
+#: plugin/gateway/_template/template.php:55
+#: plugin/gateway/kannel/kannel.php:94 plugin/gateway/gnokii/gnokii.php:55
+#: plugin/gateway/uplink/uplink.php:92
+#: plugin/gateway/clickatell/clickatell.php:97
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:80
+msgid "Gateway module configurations has been saved"
+msgstr ""
+
+#: plugin/gateway/gammu/config.php:12 plugin/gateway/gammu/gammu.php:24
+msgid "Manage gammu"
+msgstr ""
+
+#: plugin/gateway/kannel/config.php:30 plugin/gateway/kannel/kannel.php:24
+msgid "Manage kannel"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:35 plugin/gateway/uplink/uplink.php:42
+#: plugin/gateway/clickatell/clickatell.php:38
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:41
+msgid "Fill to change the password"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:38 plugin/gateway/uplink/uplink.php:45
+#: plugin/gateway/clickatell/clickatell.php:41
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:44
+msgid "Module sender"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:38 plugin/gateway/uplink/uplink.php:45
+#: plugin/gateway/clickatell/clickatell.php:41
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:44
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:41 plugin/gateway/uplink/uplink.php:48
+#: plugin/gateway/clickatell/clickatell.php:44
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:47
+msgid "Module timezone"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:44
+msgid "Bearerbox hostname or IP"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:44 plugin/gateway/kannel/kannel.php:47
+msgid "Kannel specific"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:47
+msgid "Send SMS port"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:50 plugin/gateway/uplink/uplink.php:36
+#: plugin/gateway/clickatell/clickatell.php:50
+msgid "Additional URL parameter"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:53
+msgid "playSMS web URL"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:53
+msgid "URL to playSMS, empty it to set it to base URL"
+msgstr ""
+
+#: plugin/gateway/gnokii/config.php:16 plugin/gateway/gnokii/gnokii.php:24
+msgid "Manage gnokii"
+msgstr ""
+
+#: plugin/gateway/gnokii/gnokii.php:32
+msgid "Gnokii installation path"
+msgstr ""
+
+#: plugin/gateway/uplink/config.php:24 plugin/gateway/uplink/uplink.php:25
+msgid "Manage uplink"
+msgstr ""
+
+#: plugin/gateway/uplink/uplink.php:33
+msgid "Master URL"
+msgstr ""
+
+#: plugin/gateway/uplink/uplink.php:52
+msgid "Uplink incoming path"
+msgstr ""
+
+#: plugin/gateway/clickatell/config.php:29
+#: plugin/gateway/clickatell/clickatell.php:24
+msgid "Manage clickatell"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:32
+msgid "API ID"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:47
+msgid "Clickatell API URL"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:54
+msgid "Clickatell incoming path"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:60
+msgid "Your callback URL is"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:61
+msgid "Clickatell is a bulk SMS provider"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:61
+msgid "free credits are available for testing purposes"
+msgstr ""
+
+#: plugin/gateway/msgtoolbox/config.php:23
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:25
+msgid "Manage msgtoolbox"
+msgstr ""
+
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:33
+msgid "msgtoolbox URL"
+msgstr ""
+
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:36
+msgid "Route"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:17
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:98
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:186
+#: plugin/feature/inboxgroup/inboxgroup_members.php:17
+#: plugin/feature/inboxgroup/inboxgroup_members.php:99
+#: plugin/feature/inboxgroup/inboxgroup_members.php:187
+#: plugin/feature/inboxgroup/inboxgroup.php:27
+#: plugin/feature/inboxgroup/inboxgroup.php:78
+#: plugin/feature/inboxgroup/inboxgroup.php:112
+#: plugin/feature/inboxgroup/inboxgroup.php:159
+msgid "Group Inbox"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:21
+msgid "Catch-all list"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:31
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:112
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:200
+#: plugin/feature/inboxgroup/inboxgroup_members.php:31
+#: plugin/feature/inboxgroup/inboxgroup_members.php:113
+#: plugin/feature/inboxgroup/inboxgroup_members.php:201
+#: plugin/feature/inboxgroup/inboxgroup.php:49
+#: plugin/feature/inboxgroup/inboxgroup.php:174
+#: plugin/feature/_sms_survey/sms_survey_members.php:31
+#: plugin/feature/_sms_survey/sms_survey_members.php:33
+#: plugin/feature/_sms_survey/sms_survey_members.php:112
+#: plugin/feature/_sms_survey/sms_survey_members.php:114
+#: plugin/feature/_sms_survey/sms_survey_members.php:196
+#: plugin/feature/_sms_survey/sms_survey_members.php:198
+#: plugin/feature/_sms_survey/sms_survey.php:51
+#: plugin/feature/_sms_survey/sms_survey.php:53
+#: plugin/feature/_sms_survey/sms_survey.php:182
+#: plugin/feature/_sms_survey/sms_survey.php:184
+#: plugin/feature/_sms_survey/sms_survey.php:272
+#: plugin/feature/_sms_survey/sms_survey.php:274
+#: plugin/feature/_sms_survey/sms_survey.php:330
+#: plugin/feature/_sms_survey/sms_survey.php:332
+#: plugin/feature/_sms_survey/sms_survey_questions.php:44
+#: plugin/feature/_sms_survey/sms_survey_questions.php:46
+msgid "enabled"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:31
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:112
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:200
+#: plugin/feature/inboxgroup/inboxgroup_members.php:31
+#: plugin/feature/inboxgroup/inboxgroup_members.php:113
+#: plugin/feature/inboxgroup/inboxgroup_members.php:201
+#: plugin/feature/inboxgroup/inboxgroup.php:49
+#: plugin/feature/inboxgroup/inboxgroup.php:174
+#: plugin/feature/_sms_survey/sms_survey_members.php:31
+#: plugin/feature/_sms_survey/sms_survey_members.php:112
+#: plugin/feature/_sms_survey/sms_survey_members.php:196
+#: plugin/feature/_sms_survey/sms_survey.php:51
+#: plugin/feature/_sms_survey/sms_survey.php:182
+#: plugin/feature/_sms_survey/sms_survey.php:272
+#: plugin/feature/_sms_survey/sms_survey.php:330
+#: plugin/feature/_sms_survey/sms_survey_questions.php:44
+msgid "disabled"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:34
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:115
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:203
+#: plugin/feature/inboxgroup/inboxgroup_members.php:34
+#: plugin/feature/inboxgroup/inboxgroup_members.php:116
+#: plugin/feature/inboxgroup/inboxgroup_members.php:204
+#: plugin/feature/inboxgroup/inboxgroup.php:38
+#: plugin/feature/inboxgroup/inboxgroup.php:86
+#: plugin/feature/inboxgroup/inboxgroup.php:129
+#: plugin/feature/inboxgroup/inboxgroup.php:177
+msgid "Receiver number"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:35
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:116
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:204
+#: plugin/feature/inboxgroup/inboxgroup_members.php:35
+#: plugin/feature/inboxgroup/inboxgroup_members.php:117
+#: plugin/feature/inboxgroup/inboxgroup_members.php:205
+#: plugin/feature/inboxgroup/inboxgroup.php:39
+#: plugin/feature/inboxgroup/inboxgroup.php:87
+#: plugin/feature/inboxgroup/inboxgroup.php:130
+#: plugin/feature/inboxgroup/inboxgroup.php:178
+msgid "Keywords"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:36
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:117
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:205
+#: plugin/feature/inboxgroup/inboxgroup_members.php:36
+#: plugin/feature/inboxgroup/inboxgroup_members.php:118
+#: plugin/feature/inboxgroup/inboxgroup_members.php:206
+#: plugin/feature/inboxgroup/inboxgroup.php:88
+#: plugin/feature/inboxgroup/inboxgroup.php:131
+#: plugin/feature/inboxgroup/inboxgroup.php:179
+msgid "Description"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:37
+#: plugin/feature/inboxgroup/inboxgroup_members.php:37
+#: plugin/feature/inboxgroup/inboxgroup_members.php:119
+#: plugin/feature/inboxgroup/inboxgroup_members.php:207
+#: plugin/feature/inboxgroup/inboxgroup.php:40
+#: plugin/feature/inboxgroup/inboxgroup.php:180
+#: plugin/feature/_sms_survey/sms_survey_members.php:64
+#: plugin/feature/_sms_survey/sms_survey_members.php:125
+#: plugin/feature/_sms_survey/sms_survey_members.php:209
+#: plugin/feature/_sms_survey/sms_survey.php:41
+#: plugin/feature/_sms_survey/sms_survey.php:194
+#: plugin/feature/_sms_survey/sms_survey.php:284
+#: plugin/feature/_sms_survey/sms_survey.php:342
+#: plugin/feature/_sms_survey/sms_survey_questions.php:124
+msgid "Members"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:38
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:119
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:207
+#: plugin/feature/inboxgroup/inboxgroup_members.php:38
+#: plugin/feature/inboxgroup/inboxgroup_members.php:120
+#: plugin/feature/inboxgroup/inboxgroup_members.php:208
+#: plugin/feature/inboxgroup/inboxgroup.php:41
+#: plugin/feature/inboxgroup/inboxgroup.php:181
+msgid "Catch-all"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:45
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:84
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:102
+msgid "Add catch-all"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:50
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:89
+msgid "Delete catch-all"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:118
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:206
+msgid "catchall"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:140
+#: plugin/feature/inboxgroup/inboxgroup_members.php:141
+msgid "All users"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:152
+#: plugin/feature/inboxgroup/inboxgroup_members.php:153
+msgid "Selected users"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:157
+msgid "Press submit button to add selected users to catch-all list"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:174
+msgid "Catch-all has been added"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:176
+msgid "Fail to add catch-all"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:180
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:267
+#: plugin/feature/inboxgroup/inboxgroup_members.php:181
+#: plugin/feature/inboxgroup/inboxgroup_members.php:268
+#: plugin/feature/inboxgroup/inboxgroup.php:206
+#: plugin/feature/inboxgroup/inboxgroup.php:222
+#: plugin/feature/inboxgroup/inboxgroup.php:238
+#: plugin/feature/_sms_survey/sms_survey_members.php:269
+msgid "Receiver number does not exists"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:190
+msgid "Remove catch-all"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:227
+msgid "Current catchall"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:239
+msgid "Selected catchall"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:244
+msgid "Press submit button to remove selected catchall from catch-all list"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:261
+msgid "Catch-all has been deleted"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:263
+msgid "Fail to delete catch-all"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_members.php:21
+#: plugin/feature/_sms_survey/sms_survey_members.php:21
+msgid "Member list"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_members.php:45
+#: plugin/feature/inboxgroup/inboxgroup_members.php:85
+#: plugin/feature/inboxgroup/inboxgroup_members.php:103
+#: plugin/feature/_sms_survey/sms_survey_members.php:45
+#: plugin/feature/_sms_survey/sms_survey_members.php:102
+msgid "Add member"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_members.php:50
+#: plugin/feature/inboxgroup/inboxgroup_members.php:90
+#: plugin/feature/_sms_survey/sms_survey_members.php:50
+msgid "Delete member"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_members.php:158
+msgid "Press submit button to add selected users to member list"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_members.php:175
+#: plugin/feature/_sms_survey/sms_survey_members.php:161
+msgid "Member has been added"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_members.php:177
+#: plugin/feature/_sms_survey/sms_survey_members.php:163
+msgid "Fail to add member"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_members.php:191
+#: plugin/feature/_sms_survey/sms_survey_members.php:186
+msgid "Remove member"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_members.php:228
+#: plugin/feature/_sms_survey/sms_survey_members.php:230
+msgid "Current members"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_members.php:240
+#: plugin/feature/_sms_survey/sms_survey_members.php:242
+msgid "Selected members"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_members.php:245
+#: plugin/feature/_sms_survey/sms_survey_members.php:247
+msgid "Press submit button to remove selected members from member list"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_members.php:262
+#: plugin/feature/_sms_survey/sms_survey_members.php:263
+msgid "Member has been deleted"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup_members.php:264
+#: plugin/feature/_sms_survey/sms_survey_members.php:265
+msgid "Fail to delete member"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:33
+#: plugin/feature/inboxgroup/inboxgroup.php:72
+#: plugin/feature/inboxgroup/inboxgroup.php:82
+msgid "Add receiver number"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:87
+#: plugin/feature/inboxgroup/inboxgroup.php:130
+msgid "Seperate with comma for multiple items"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:90
+#: plugin/feature/inboxgroup/inboxgroup.php:134
+#: plugin/feature/_sms_survey/sms_survey_members.php:139
+#: plugin/feature/_sms_survey/sms_survey.php:108
+#: plugin/feature/_sms_survey/sms_survey.php:145
+#: plugin/feature/_sms_survey/sms_survey_questions.php:76
+#: plugin/feature/_sms_survey/sms_survey_questions.php:94
+#: plugin/feature/_sms_survey/sms_survey_questions.php:112
+#: plugin/tools/_simulator/simulator.php:23
+msgid "Submit"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:101
+msgid "Receiver number has been added"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:101
+#: plugin/feature/inboxgroup/inboxgroup.php:103
+#: plugin/feature/inboxgroup/inboxgroup.php:148
+#: plugin/feature/inboxgroup/inboxgroup.php:150
+#: plugin/feature/inboxgroup/inboxgroup.php:201
+#: plugin/feature/inboxgroup/inboxgroup.php:203
+#: plugin/feature/inboxgroup/inboxgroup.php:217
+#: plugin/feature/inboxgroup/inboxgroup.php:219
+#: plugin/feature/inboxgroup/inboxgroup.php:233
+#: plugin/feature/inboxgroup/inboxgroup.php:235
+#: plugin/tools/simplephonebook/simplephonebook.php:44
+#: plugin/tools/simplephonebook/simplephonebook.php:118
+msgid "Number"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:103
+msgid "Fail to add receiver number"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:116
+msgid "Edit receiver number"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:132
+msgid "Exclusive"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:132
+msgid "Restrict sender to regular members or catch-all members only"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:148
+msgid "Receiver number has been edited"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:150
+msgid "Fail to edit receiver number"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:163
+msgid "Delete receiver number"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:184
+msgid "Are you sure you want to delete this receiver number ?"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:187
+#: plugin/feature/_sms_survey/sms_survey.php:202
+#: plugin/feature/_sms_survey/sms_survey.php:292
+#: plugin/feature/_sms_survey/sms_survey.php:350
+msgid "Yes"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:190
+#: plugin/feature/_sms_survey/sms_survey.php:205
+#: plugin/feature/_sms_survey/sms_survey.php:295
+#: plugin/feature/_sms_survey/sms_survey.php:353
+msgid "Cancel"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:201
+msgid "Receiver number has been deleted"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:203
+msgid "Fail to delete receiver number"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:217
+msgid "Receiver number has been enabled"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:219
+msgid "Fail to enable receiver number"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:233
+msgid "Receiver number has been disabled"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:235
+msgid "Fail to disable receiver number"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/config.php:6
+#: plugin/feature/sms_autoreply/sms_autoreply.php:13
+#: plugin/feature/sms_autoreply/sms_autoreply.php:76
+msgid "Manage autoreply"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:15
+#: plugin/feature/sms_autoreply/sms_autoreply.php:57
+#: plugin/feature/sms_autoreply/sms_autoreply.php:151
+msgid "Add SMS autoreply"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:40
+msgid "Are you sure you want to delete SMS autoreply ?"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:40
+#: plugin/feature/sms_autoreply/sms_autoreply.php:136
+#: plugin/feature/sms_autoreply/sms_autoreply.php:140
+#: plugin/feature/sms_autoreply/sms_autoreply.php:169
+#: plugin/feature/sms_autoreply/sms_autoreply.php:173
+#: plugin/feature/sms_autoreply/sms_autoreply.php:178
+#: plugin/feature/_sms_survey/sms_survey.php:118
+#: plugin/feature/_sms_survey/sms_survey.php:120
+#: plugin/feature/_sms_survey/sms_survey.php:158
+#: plugin/feature/_sms_survey/sms_survey.php:160
+#: plugin/feature/_sms_survey/sms_survey.php:216
+#: plugin/feature/_sms_survey/sms_survey.php:218
+#: plugin/feature/_sms_survey/sms_survey.php:232
+#: plugin/feature/_sms_survey/sms_survey.php:234
+#: plugin/feature/_sms_survey/sms_survey.php:248
+#: plugin/feature/_sms_survey/sms_survey.php:250
+#: plugin/feature/_sms_survey/sms_survey.php:306
+#: plugin/feature/_sms_survey/sms_survey.php:308
+#: plugin/feature/_sms_survey/sms_survey.php:364
+#: plugin/feature/_sms_survey/sms_survey.php:366
+#: plugin/feature/sms_custom/sms_custom.php:42
+#: plugin/feature/sms_custom/sms_custom.php:99
+#: plugin/feature/sms_custom/sms_custom.php:103
+#: plugin/feature/sms_custom/sms_custom.php:123
+#: plugin/feature/sms_custom/sms_custom.php:127
+#: plugin/feature/sms_custom/sms_custom.php:163
+#: plugin/feature/sms_custom/sms_custom.php:167
+#: plugin/feature/sms_custom/sms_custom.php:172
+#: plugin/feature/sms_subscribe/sms_subscribe.php:52
+#: plugin/feature/sms_subscribe/sms_subscribe.php:389
+#: plugin/feature/sms_subscribe/sms_subscribe.php:421
+#: plugin/feature/sms_subscribe/sms_subscribe.php:475
+#: plugin/feature/sms_subscribe/sms_subscribe.php:478
+#: plugin/feature/sms_board/sms_board.php:40
+#: plugin/feature/sms_board/sms_board.php:125
+#: plugin/feature/sms_board/sms_board.php:145
+#: plugin/feature/sms_board/sms_board.php:201
+#: plugin/feature/sms_board/sms_board.php:205
+#: plugin/feature/sms_board/sms_board.php:210
+#: plugin/feature/sms_poll/sms_poll.php:48
+#: plugin/feature/sms_poll/sms_poll.php:132
+#: plugin/feature/sms_poll/sms_poll.php:184
+#: plugin/feature/sms_poll/sms_poll.php:237
+#: plugin/feature/sms_poll/sms_poll.php:242
+#: plugin/feature/sms_poll/sms_poll.php:258
+#: plugin/feature/sms_poll/sms_poll.php:266
+#: plugin/feature/sms_poll/sms_poll.php:306
+#: plugin/feature/sms_poll/sms_poll.php:311
+#: plugin/feature/sms_quiz/sms_quiz.php:113
+#: plugin/feature/sms_quiz/sms_quiz.php:208
+#: plugin/feature/sms_quiz/sms_quiz.php:236
+#: plugin/feature/sms_quiz/sms_quiz.php:286
+#: plugin/feature/sms_quiz/sms_quiz.php:289
+#: plugin/feature/sms_command/sms_command.php:42
+#: plugin/feature/sms_command/sms_command.php:106
+#: plugin/feature/sms_command/sms_command.php:110
+#: plugin/feature/sms_command/sms_command.php:130
+#: plugin/feature/sms_command/sms_command.php:134
+#: plugin/feature/sms_command/sms_command.php:175
+#: plugin/feature/sms_command/sms_command.php:179
+#: plugin/feature/sms_command/sms_command.php:184
+msgid "keyword"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:78
+#: plugin/feature/sms_autoreply/sms_autoreply.php:154
+#: plugin/feature/sms_autoreply/sms_autoreply.php:214
+#: plugin/feature/sms_autoreply/sms_autoreply.php:287
+msgid "SMS autoreply keyword"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:80
+#: plugin/feature/sms_autoreply/sms_autoreply.php:119
+#: plugin/feature/sms_autoreply/sms_autoreply.php:212
+msgid "Add SMS autoreply scenario"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:85
+msgid "Param"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:86
+msgid "Return"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:105
+msgid "Are you sure you want to delete this SMS autoreply scenario ?"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:136
+msgid "SMS autoreply has been deleted"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:140
+msgid "Fail to delete SMS autoreply"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:169
+msgid "SMS autoreply keyword has been added"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:173
+msgid "Fail to add SMS autoreply"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:178
+#: plugin/feature/sms_board/sms_board.php:210
+msgid "SMS keyword already exists, reserved or use by other feature"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:190
+msgid "Fail to delete SMS autoreply scenario"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:196
+msgid "SMS autoreply scenario has been deleted"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:224
+#: plugin/feature/sms_autoreply/sms_autoreply.php:305
+msgid "SMS autoreply scenario parameter"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:229
+#: plugin/feature/sms_autoreply/sms_autoreply.php:311
+msgid "SMS autoreply scenario replies with"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:260
+msgid "SMS autoreply scenario has been added"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:264
+msgid "Fail to add SMS autoreply scenario"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:285
+msgid "Edit SMS autoreply scenario"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:341
+msgid "SMS autoreply scenario has been edited"
+msgstr ""
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:345
+msgid "Fail to edit SMS autoreply scenario"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_members.php:17
+#: plugin/feature/_sms_survey/sms_survey_members.php:98
+#: plugin/feature/_sms_survey/sms_survey_members.php:182
+#: plugin/feature/_sms_survey/sms_survey.php:27
+#: plugin/feature/_sms_survey/sms_survey.php:97
+#: plugin/feature/_sms_survey/sms_survey.php:129
+#: plugin/feature/_sms_survey/sms_survey.php:169
+#: plugin/feature/_sms_survey/sms_survey.php:259
+#: plugin/feature/_sms_survey/sms_survey.php:317
+#: plugin/feature/_sms_survey/sms_survey_questions.php:20
+msgid "SMS Survey"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_members.php:33
+#: plugin/feature/_sms_survey/sms_survey_members.php:114
+#: plugin/feature/_sms_survey/sms_survey_members.php:198
+#: plugin/feature/_sms_survey/sms_survey.php:53
+#: plugin/feature/_sms_survey/sms_survey.php:184
+#: plugin/feature/_sms_survey/sms_survey.php:274
+#: plugin/feature/_sms_survey/sms_survey.php:332
+#: plugin/feature/_sms_survey/sms_survey_questions.php:46
+msgid "completed"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_members.php:37
+#: plugin/feature/_sms_survey/sms_survey_members.php:118
+#: plugin/feature/_sms_survey/sms_survey_members.php:202
+#: plugin/feature/_sms_survey/sms_survey.php:60
+#: plugin/feature/_sms_survey/sms_survey.php:188
+#: plugin/feature/_sms_survey/sms_survey.php:278
+#: plugin/feature/_sms_survey/sms_survey.php:336
+#: plugin/feature/_sms_survey/sms_survey_questions.php:50
+msgid "restart"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_members.php:63
+#: plugin/feature/_sms_survey/sms_survey_members.php:124
+#: plugin/feature/_sms_survey/sms_survey_members.php:208
+#: plugin/feature/_sms_survey/sms_survey.php:40
+#: plugin/feature/_sms_survey/sms_survey.php:106
+#: plugin/feature/_sms_survey/sms_survey.php:143
+#: plugin/feature/_sms_survey/sms_survey.php:193
+#: plugin/feature/_sms_survey/sms_survey.php:283
+#: plugin/feature/_sms_survey/sms_survey.php:341
+#: plugin/feature/_sms_survey/sms_survey_questions.php:123
+#: plugin/feature/sms_poll/sms_poll.php:29
+#: plugin/feature/sms_poll/sms_poll.php:115
+msgid "Title"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_members.php:65
+#: plugin/feature/_sms_survey/sms_survey_members.php:126
+#: plugin/feature/_sms_survey/sms_survey_members.php:210
+#: plugin/feature/_sms_survey/sms_survey.php:42
+#: plugin/feature/_sms_survey/sms_survey.php:195
+#: plugin/feature/_sms_survey/sms_survey.php:285
+#: plugin/feature/_sms_survey/sms_survey.php:343
+#: plugin/feature/_sms_survey/sms_survey_questions.php:125
+msgid "Questions"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_members.php:67
+#: plugin/feature/_sms_survey/sms_survey_members.php:128
+#: plugin/feature/_sms_survey/sms_survey_members.php:212
+#: plugin/feature/_sms_survey/sms_survey.php:44
+#: plugin/feature/_sms_survey/sms_survey.php:197
+#: plugin/feature/_sms_survey/sms_survey.php:287
+#: plugin/feature/_sms_survey/sms_survey.php:345
+#: plugin/feature/_sms_survey/sms_survey_questions.php:127
+msgid "Started"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_members.php:136
+#: plugin/tools/sendfromfile/sendfromfile.php:26
+msgid "Please select CSV file"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_members.php:136
+msgid "format : keyword, mobile, name"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_members.php:138
+msgid "Press submit button to add members from CSV file"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_members.php:161
+#: plugin/feature/_sms_survey/sms_survey_members.php:163
+#: plugin/feature/_sms_survey/sms_survey_members.php:167
+#: plugin/feature/_sms_survey/sms_survey_members.php:169
+msgid "mobile"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_members.php:161
+#: plugin/feature/_sms_survey/sms_survey_members.php:163
+#: plugin/feature/_sms_survey/sms_survey_members.php:167
+#: plugin/feature/_sms_survey/sms_survey_members.php:169
+#: plugin/feature/_sms_survey/sms_survey_members.php:263
+#: plugin/feature/_sms_survey/sms_survey_members.php:265
+#: plugin/tools/simplephonebook/phone_add.php:55
+#: plugin/tools/simplephonebook/phone_add.php:62
+msgid "name"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_members.php:167
+msgid "Keyword does not match"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_members.php:169
+msgid "Mobile number not exists"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_members.php:176
+msgid "Keyword does not exists"
+msgstr ""
+
+#: plugin/feature/_sms_survey/config.php:6
+msgid "Manage survey"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:33
+#: plugin/feature/_sms_survey/sms_survey.php:91
+#: plugin/feature/_sms_survey/sms_survey.php:101
+msgid "Add survey"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:56
+#: plugin/feature/_sms_survey/sms_survey.php:63
+msgid "N/A"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:118
+msgid "Survey has been added"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:120
+msgid "Fail to add survey"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:133
+msgid "Edit survey"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:158
+msgid "Survey has been edited"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:160
+msgid "Fail to edit survey"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:173
+msgid "Delete survey"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:199
+msgid "Are you sure you want to delete this survey ?"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:216
+msgid "Survey has been deleted"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:218
+msgid "Fail to delete survey"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:221
+#: plugin/feature/_sms_survey/sms_survey.php:237
+#: plugin/feature/_sms_survey/sms_survey.php:253
+#: plugin/feature/_sms_survey/sms_survey.php:311
+#: plugin/feature/_sms_survey/sms_survey.php:369
+msgid "Survey does not exists"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:232
+msgid "Survey has been enabled"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:234
+msgid "Fail to enable survey"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:248
+msgid "Survey has been disabled"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:250
+msgid "Fail to disable survey"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:263
+msgid "Start survey"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:289
+msgid "Are you sure you want to start this survey ?"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:306
+msgid "Survey has been started"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:308
+msgid "Fail to start survey"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:321
+msgid "Stop survey"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:347
+msgid "Are you sure you want to stop this survey ?"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:364
+msgid "Survey has been stoped"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:366
+msgid "Fail to stop survey"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_questions.php:26
+#: plugin/feature/_sms_survey/sms_survey_questions.php:58
+msgid "Add question"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_questions.php:28
+msgid "Edit question"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_questions.php:30
+msgid "Delete question"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_questions.php:32
+msgid "Question list"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_questions.php:74
+#: plugin/feature/_sms_survey/sms_survey_questions.php:92
+#: plugin/feature/_sms_survey/sms_survey_questions.php:110
+#: plugin/feature/_sms_survey/sms_survey_questions.php:138
+#: plugin/feature/sms_quiz/sms_quiz.php:95
+msgid "Question"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_questions.php:170
+msgid "Question has been added"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_questions.php:172
+msgid "Fail to add question"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_questions.php:186
+msgid "Question has been edited"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_questions.php:188
+msgid "Fail to edit question"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_questions.php:201
+msgid "Question has been deleted"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey_questions.php:203
+msgid "Fail to delete question"
+msgstr ""
+
+#: plugin/feature/sms_custom/config.php:6
+#: plugin/feature/sms_custom/sms_custom.php:13
+msgid "Manage custom"
+msgstr ""
+
+#: plugin/feature/sms_custom/sms_custom.php:15
+#: plugin/feature/sms_custom/sms_custom.php:57
+#: plugin/feature/sms_custom/sms_custom.php:138
+msgid "Add SMS custom"
+msgstr ""
+
+#: plugin/feature/sms_custom/sms_custom.php:29
+#: plugin/feature/sms_command/sms_command.php:29
+msgid "Exec"
+msgstr ""
+
+#: plugin/feature/sms_custom/sms_custom.php:42
+msgid "Are you sure you want to delete SMS custom keyword ?"
+msgstr ""
+
+#: plugin/feature/sms_custom/sms_custom.php:73
+msgid "Edit SMS custom"
+msgstr ""
+
+#: plugin/feature/sms_custom/sms_custom.php:78
+#: plugin/feature/sms_custom/sms_custom.php:141
+msgid "SMS custom keyword"
+msgstr ""
+
+#: plugin/feature/sms_custom/sms_custom.php:79
+#: plugin/feature/sms_custom/sms_custom.php:142
+msgid "Pass these parameter to custom URL field"
+msgstr ""
+
+#: plugin/feature/sms_custom/sms_custom.php:80
+#: plugin/feature/sms_custom/sms_custom.php:143
+#: plugin/feature/sms_command/sms_command.php:83
+#: plugin/feature/sms_command/sms_command.php:150
+msgid "will be replaced by SMS incoming date/time"
+msgstr ""
+
+#: plugin/feature/sms_custom/sms_custom.php:81
+#: plugin/feature/sms_custom/sms_custom.php:144
+#: plugin/feature/sms_command/sms_command.php:84
+#: plugin/feature/sms_command/sms_command.php:151
+msgid "will be replaced by sender number"
+msgstr ""
+
+#: plugin/feature/sms_custom/sms_custom.php:82
+#: plugin/feature/sms_custom/sms_custom.php:145
+msgid "will be replaced by custom keyword"
+msgstr ""
+
+#: plugin/feature/sms_custom/sms_custom.php:83
+#: plugin/feature/sms_custom/sms_custom.php:146
+msgid "will be replaced by custom parameter passed to server from SMS"
+msgstr ""
+
+#: plugin/feature/sms_custom/sms_custom.php:84
+#: plugin/feature/sms_custom/sms_custom.php:147
+msgid "SMS custom URL"
+msgstr ""
+
+#: plugin/feature/sms_custom/sms_custom.php:99
+msgid "SMS custom has been saved"
+msgstr ""
+
+#: plugin/feature/sms_custom/sms_custom.php:103
+msgid "Fail to save SMS custom"
+msgstr ""
+
+#: plugin/feature/sms_custom/sms_custom.php:123
+msgid "SMS custom has been deleted"
+msgstr ""
+
+#: plugin/feature/sms_custom/sms_custom.php:127
+msgid "Fail to delete SMS custom"
+msgstr ""
+
+#: plugin/feature/sms_custom/sms_custom.php:163
+msgid "SMS custom has been added"
+msgstr ""
+
+#: plugin/feature/sms_custom/sms_custom.php:167
+msgid "Fail to add SMS custom"
+msgstr ""
+
+#: plugin/feature/sms_custom/sms_custom.php:172
+msgid "SMS custom already exists, reserved or use by other feature"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/fn.php:64
+msgid "Subscribe service inactive"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/fn.php:112
+#: plugin/feature/sms_subscribe/fn.php:117
+#: plugin/feature/sms_subscribe/fn.php:122
+msgid "You are not a member"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/fn.php:127
+msgid "Unknown SMS format"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/fn.php:160
+#: plugin/feature/sms_subscribe/fn.php:165
+#: plugin/feature/sms_subscribe/fn.php:170
+msgid "You already a member"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/fn.php:175
+msgid "Unknown sms format"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/config.php:6
+#: plugin/feature/sms_subscribe/sms_subscribe.php:13
+msgid "Manage subscribe"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/config.php:8
+msgid "Add message"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/config.php:9
+msgid "View members"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/config.php:10
+msgid "View messages"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:15
+#: plugin/feature/sms_subscribe/sms_subscribe.php:67
+#: plugin/feature/sms_subscribe/sms_subscribe.php:444
+msgid "Add SMS subscribe"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:28
+msgid "Total members"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:44
+#: plugin/feature/sms_subscribe/sms_subscribe.php:361
+#: plugin/feature/sms_poll/sms_poll.php:41
+#: plugin/feature/sms_poll/sms_poll.php:155
+#: plugin/feature/sms_quiz/sms_quiz.php:107
+#: plugin/feature/sms_quiz/sms_quiz.php:178
+#: plugin/feature/_sms_autosend/sms_autosend.php:50
+#: plugin/feature/_sms_autosend/sms_autosend.php:102
+#: plugin/feature/_sms_autosend/sms_autosend.php:202
+msgid "Disabled"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:46
+#: plugin/feature/sms_subscribe/sms_subscribe.php:363
+#: plugin/feature/sms_poll/sms_poll.php:44
+#: plugin/feature/sms_poll/sms_poll.php:158
+#: plugin/feature/sms_quiz/sms_quiz.php:109
+#: plugin/feature/sms_quiz/sms_quiz.php:180
+#: plugin/feature/_sms_autosend/sms_autosend.php:65
+#: plugin/feature/_sms_autosend/sms_autosend.php:204
+msgid "Enabled"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:52
+msgid "Are you sure you want to delete SMS subscribe ?"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:85
+msgid "SMS messages list for keyword"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:89
+#: plugin/feature/sms_subscribe/sms_subscribe.php:119
+msgid "Add Message"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:107
+msgid "Are you sure you want to delete this message?"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:142
+msgid "Message detail"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:149
+#: plugin/feature/sms_subscribe/sms_subscribe.php:187
+#: plugin/feature/sms_subscribe/sms_subscribe.php:343
+#: plugin/feature/sms_subscribe/sms_subscribe.php:449
+#: plugin/feature/sms_subscribe/sms_subscribe.php:499
+msgid "SMS subscribe keyword"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:155
+msgid "Send this message to all members"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:191
+#: plugin/feature/sms_subscribe/sms_subscribe.php:506
+msgid "Message body"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:197 lib/lib_init1.php:33
 msgid "Edit"
 msgstr ""
 
-#: lib/lib_init1.php:29
-msgid "Reply"
+#: plugin/feature/sms_subscribe/sms_subscribe.php:212
+msgid "Message has been edited"
 msgstr ""
 
-#: lib/lib_init1.php:30
-msgid "Manage"
+#: plugin/feature/sms_subscribe/sms_subscribe.php:256
+msgid "Fail to send SMS"
 msgstr ""
 
-#: lib/lib_init1.php:31
-msgid "View"
+#: plugin/feature/sms_subscribe/sms_subscribe.php:281
+msgid "Member list for keyword"
 msgstr ""
 
-#: lib/lib_init1.php:32
-msgid "Pick Date & Time"
+#: plugin/feature/sms_subscribe/sms_subscribe.php:288
+msgid "Phone number"
 msgstr ""
 
-#: lib/lib_init1.php:34
-msgid "Phonebook"
+#: plugin/feature/sms_subscribe/sms_subscribe.php:289
+msgid "Member join datetime"
 msgstr ""
 
-#: lib/lib_init1.php:48
-msgid "All inbox"
+#: plugin/feature/sms_subscribe/sms_subscribe.php:298
+msgid "Are you sure you want to delete this member ?"
 msgstr ""
 
-#: lib/lib_init1.php:50
-msgid "All outgoing SMS"
+#: plugin/feature/sms_subscribe/sms_subscribe.php:318
+msgid "\"Member has been deleted"
 msgstr ""
 
-#: lib/lib_init1.php:53
-msgid "Manual refresh"
+#: plugin/feature/sms_subscribe/sms_subscribe.php:336
+msgid "Edit SMS subscribe"
 msgstr ""
 
-#: lib/fn_themes.php:36
-msgid "Home"
+#: plugin/feature/sms_subscribe/sms_subscribe.php:346
+#: plugin/feature/sms_subscribe/sms_subscribe.php:452
+msgid "SMS subscribe reply"
 msgstr ""
 
-#: lib/fn_themes.php:38
-msgid "Logout"
+#: plugin/feature/sms_subscribe/sms_subscribe.php:349
+#: plugin/feature/sms_subscribe/sms_subscribe.php:455
+msgid "SMS unsubscribe reply"
 msgstr ""
 
-#: lib/fn_core.php:107
+#: plugin/feature/sms_subscribe/sms_subscribe.php:366
+msgid "Enable or disable this subscribe"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:368
+#: plugin/feature/sms_poll/sms_poll.php:163
+#: plugin/feature/sms_quiz/sms_quiz.php:185
+#: plugin/feature/_sms_autosend/sms_autosend.php:209
+msgid "Current status"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:369
+#: plugin/feature/sms_poll/sms_poll.php:164
+#: plugin/feature/sms_quiz/sms_quiz.php:186
+#: plugin/feature/_sms_autosend/sms_autosend.php:210
+msgid "What do you want to do ?"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:370
+msgid "I want to enable this subscribe"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:371
+msgid "I want to disable this subscribe"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:389
+msgid "SMS subscribe has been saved"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:403
+msgid "SMS subscribe status has been changed"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:421
+msgid "SMS subscribe with all its messages and members has been deleted"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:433
+msgid "Message has been deleted"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:475
+msgid "SMS subscribe has been added"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:478
+msgid "SMS subscribe already exists, reserved or use by other feature"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:526
+msgid "Member message has been added"
+msgstr ""
+
+#: plugin/feature/sms_board/sms_board.php:13
+#: plugin/feature/sms_board/config.php:6
+msgid "Manage board"
+msgstr ""
+
+#: plugin/feature/sms_board/sms_board.php:15
+#: plugin/feature/sms_board/sms_board.php:57
+#: plugin/feature/sms_board/sms_board.php:156
+msgid "Add SMS board"
+msgstr ""
+
+#: plugin/feature/sms_board/sms_board.php:21
+msgid "Forward"
+msgstr ""
+
+#: plugin/feature/sms_board/sms_board.php:40
+msgid "Are you sure you want to delete SMS board with all its messages ?"
+msgstr ""
+
+#: plugin/feature/sms_board/sms_board.php:81
+msgid "Edit SMS board"
+msgstr ""
+
+#: plugin/feature/sms_board/sms_board.php:88
+#: plugin/feature/sms_board/sms_board.php:161
+msgid "SMS board keyword"
+msgstr ""
+
+#: plugin/feature/sms_board/sms_board.php:91
+#: plugin/feature/sms_board/sms_board.php:167
+msgid "Forward to email"
+msgstr ""
+
+#: plugin/feature/sms_board/sms_board.php:95
+#: plugin/feature/sms_board/sms_board.php:171
+msgid "Template"
+msgstr ""
+
+#: plugin/feature/sms_board/sms_board.php:125
+msgid "SMS board has been saved"
+msgstr ""
+
+#: plugin/feature/sms_board/sms_board.php:145
+msgid "SMS board with all its messages has been deleted"
+msgstr ""
+
+#: plugin/feature/sms_board/sms_board.php:164
+msgid "Leave them empty if you dont know what to fill in these boxes below"
+msgstr ""
+
+#: plugin/feature/sms_board/sms_board.php:201
+msgid "SMS board has been added"
+msgstr ""
+
+#: plugin/feature/sms_board/sms_board.php:205
+msgid "Fail to add SMS board"
+msgstr ""
+
+#: plugin/feature/sms_board/fn.php:84 lib/fn_core.php:249
 msgid "from"
 msgstr ""
 
-#: lib/fn_core.php:108
-msgid "Forward Private WebSMS"
+#: plugin/feature/sms_board/fn.php:85
+msgid "Forward WebSMS"
 msgstr ""
 
-#: lib/fn_core.php:109
-msgid "Date time"
+#: plugin/feature/sms_board/fn.php:86
+msgid "Date and time"
 msgstr ""
 
-#: lib/fn_auth.php:89
+#: plugin/feature/sms_board/fn.php:87 plugin/feature/sms_quiz/sms_quiz.php:27
+#: lib/fn_core.php:252
+msgid "Sender"
+msgstr ""
+
+#: plugin/feature/sms_board/fn.php:88 lib/fn_core.php:253
+msgid "Receiver"
+msgstr ""
+
+#: plugin/feature/sms_poll/config.php:6
+#: plugin/feature/sms_poll/sms_poll.php:13
+msgid "Manage poll"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:15
+#: plugin/feature/sms_poll/sms_poll.php:63
+#: plugin/feature/sms_poll/sms_poll.php:277
+msgid "Add SMS poll"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:48
+msgid ""
+"Are you sure you want to delete SMS poll with all its choices and votes ?"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:86
+msgid "Edit SMS poll"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:93
+#: plugin/feature/sms_poll/sms_poll.php:282
+msgid "SMS poll keyword"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:96
+#: plugin/feature/sms_poll/sms_poll.php:285
+msgid "SMS poll title"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:105
+msgid "Edit SMS poll choices"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:132
+msgid "Are you sure you want to delete choice ?"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:132
+#: plugin/feature/sms_poll/sms_poll.php:215
+msgid "title"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:137
+msgid "Add choice to this poll"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:142
+msgid "Choice Keyword"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:145
+msgid "Choice title"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:161
+msgid "Enable or disable this poll"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:165
+msgid "I want to enable this poll"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:166
+msgid "I want to disable this poll"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:184
+msgid "SMS poll with has been saved"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:200
+msgid "SMS poll status has been changed"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:215
+msgid "SMS poll with all its messages has been deleted"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:237
+msgid "Choice has been added"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:242
+msgid "Choice already exists"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:258
+msgid "Fail to delete SMS poll choice"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:266
+msgid "SMS poll choice and all its voters has been deleted"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:306
+msgid "SMS poll has been added"
+msgstr ""
+
+#: plugin/feature/sms_poll/sms_poll.php:311
+msgid "SMS poll already exists, reserved or use by other feature"
+msgstr ""
+
+#: plugin/feature/sms_quiz/config.php:6
+#: plugin/feature/sms_quiz/sms_quiz.php:80
+msgid "Manage quiz"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:17
+msgid "Received answer list for keyword"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:26
+msgid "Datetime"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:39
+msgid "Correct"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:41
+msgid "Incorrect"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:43
+msgid "Are you sure you want to delete this answer ?"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:69
+msgid "SMS quiz answer messages has been deleted"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:82
+#: plugin/feature/sms_quiz/sms_quiz.php:129
+#: plugin/feature/sms_quiz/sms_quiz.php:247
+msgid "Add SMS quiz"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:96
+msgid "Answer"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:113
+msgid ""
+"Are you sure you want to delete SMS quiz with all its choices and answers ?"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:147
+msgid "Edit SMS quiz"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:154
+#: plugin/feature/sms_quiz/sms_quiz.php:252
+msgid "SMS quiz keyword"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:157
+#: plugin/feature/sms_quiz/sms_quiz.php:255
+msgid "SMS quiz question"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:160
+#: plugin/feature/sms_quiz/sms_quiz.php:258
+msgid "SMS quiz answer"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:163
+#: plugin/feature/sms_quiz/sms_quiz.php:261
+msgid "Message when correct"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:166
+#: plugin/feature/sms_quiz/sms_quiz.php:264
+msgid "Message when incorrect"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:183
+msgid "Enable or disable this quiz"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:187
+msgid "I want to enable this quiz"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:188
+msgid "I want to disable this quiz"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:208
+msgid "SMS quiz has been saved"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:222
+msgid "SMS quiz status has been changed"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:236
+msgid "SMS quiz with all its messages has been deleted"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:286
+msgid "SMS quiz has been added"
+msgstr ""
+
+#: plugin/feature/sms_quiz/sms_quiz.php:289
+msgid "SMS quiz already exists, reserved or use by other feature"
+msgstr ""
+
+#: plugin/feature/sms_command/config.php:6
+#: plugin/feature/sms_command/sms_command.php:13
+msgid "Manage command"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:15
+#: plugin/feature/sms_command/sms_command.php:60
+#: plugin/feature/sms_command/sms_command.php:145
+msgid "Add SMS command"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:16
+#: plugin/feature/sms_command/sms_command.php:87
+#: plugin/feature/sms_command/sms_command.php:154
+msgid "SMS command exec path"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:42
+msgid "Are you sure you want to delete SMS command ?"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:76
+msgid "Edit SMS command"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:81
+#: plugin/feature/sms_command/sms_command.php:148
+msgid "SMS command keyword"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:82
+#: plugin/feature/sms_command/sms_command.php:149
+msgid "Pass these parameter to command exec field"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:85
+#: plugin/feature/sms_command/sms_command.php:152
+msgid "will be replaced by command keyword"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:86
+#: plugin/feature/sms_command/sms_command.php:153
+msgid "will be replaced by command parameter passed to server from SMS"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:88
+#: plugin/feature/sms_command/sms_command.php:155
+msgid "SMS command exec"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:106
+msgid "SMS command has been saved"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:110
+msgid "Fail to save SMS command"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:130
+msgid "SMS command has been deleted"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:134
+msgid "Fail to delete SMS command"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:175
+msgid "SMS command has been added"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:179
+msgid "Fail to add SMS command"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:184
+msgid "SMS command already exists, reserved or use by other feature"
+msgstr ""
+
+#: plugin/feature/_sms_autosend/config.php:12
+#: plugin/feature/_sms_autosend/sms_autosend.php:23
+msgid "Manage autosend"
+msgstr ""
+
+#: plugin/feature/_sms_autosend/sms_autosend.php:25
+#: plugin/feature/_sms_autosend/sms_autosend.php:85
+#: plugin/feature/_sms_autosend/sms_autosend.php:294
+msgid "Add SMS autosend"
+msgstr ""
+
+#: plugin/feature/_sms_autosend/sms_autosend.php:38
+msgid "Repeat"
+msgstr ""
+
+#: plugin/feature/_sms_autosend/sms_autosend.php:61
+#: plugin/feature/_sms_autosend/sms_autosend.php:114
+msgid "Once"
+msgstr ""
+
+#: plugin/feature/_sms_autosend/sms_autosend.php:69
+msgid "Are you sure you want to delete SMS autosend message ?"
+msgstr ""
+
+#: plugin/feature/_sms_autosend/sms_autosend.php:95
+msgid "SMS autosend View"
+msgstr ""
+
+#: plugin/feature/_sms_autosend/sms_autosend.php:164
+msgid "Edit SMS autosend"
+msgstr ""
+
+#: plugin/feature/_sms_autosend/sms_autosend.php:172
+msgid "Repeat send"
+msgstr ""
+
+#: plugin/feature/_sms_autosend/sms_autosend.php:187
+#: plugin/feature/_sms_autosend/sms_autosend.php:312
+msgid "Sending time"
+msgstr ""
+
+#: plugin/feature/_sms_autosend/sms_autosend.php:195
+msgid "Update"
+msgstr ""
+
+#: plugin/feature/_sms_autosend/sms_autosend.php:207
+msgid "Enable or disable this autosend"
+msgstr ""
+
+#: plugin/feature/_sms_autosend/sms_autosend.php:211
+msgid "I want to enable this autosend"
+msgstr ""
+
+#: plugin/feature/_sms_autosend/sms_autosend.php:212
+msgid "I want to disable this autosend"
+msgstr ""
+
+#: plugin/feature/_sms_autosend/sms_autosend.php:251
+msgid "Autosend time has been saved"
+msgstr ""
+
+#: plugin/feature/_sms_autosend/sms_autosend.php:266
+msgid "SMS autosend status has been changed"
+msgstr ""
+
+#: plugin/feature/_sms_autosend/sms_autosend.php:282
+msgid "SMS autosend has been deleted"
+msgstr ""
+
+#: plugin/feature/_sms_autosend/sms_autosend.php:295
+msgid "Add time field"
+msgstr ""
+
+#: plugin/feature/_sms_autosend/sms_autosend.php:350
+msgid "SMS autosend has been added"
+msgstr ""
+
+#: plugin/feature/_sms_autosend/sms_autosend.php:357
+msgid "Fail to add SMS autosend"
+msgstr ""
+
+#: plugin/tools/xlate/fn.php:50
+msgid "unable to translate"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phone_add.php:12
+#: plugin/tools/simplephonebook/dir_create.php:38
+#: plugin/tools/simplephonebook/dir_create.php:45
+#: plugin/tools/simplephonebook/dir_edit.php:47
+msgid "code"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phone_add.php:19
+#: plugin/tools/simplephonebook/phone_add.php:24
+#: plugin/tools/simplephonebook/simplephonebook.php:157
+#: plugin/tools/simplephonebook/simplephonebook.php:162
+msgid "Add number to group"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phone_add.php:55
+msgid "Number is already exists"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phone_add.php:62
+msgid "Number has been added"
+msgstr ""
+
+#: plugin/tools/simplephonebook/dir_create.php:12
+#: plugin/tools/simplephonebook/simplephonebook.php:156
+#: plugin/tools/simplephonebook/simplephonebook.php:161
+msgid "Create group"
+msgstr ""
+
+#: plugin/tools/simplephonebook/dir_create.php:17
+#: plugin/tools/simplephonebook/dir_edit.php:19
+msgid "Group name"
+msgstr ""
+
+#: plugin/tools/simplephonebook/dir_create.php:20
+#: plugin/tools/simplephonebook/dir_edit.php:22
+msgid "please use uppercase and make it short"
+msgstr ""
+
+#: plugin/tools/simplephonebook/dir_create.php:23
+#: plugin/tools/simplephonebook/dir_edit.php:25
+msgid "Group code used by keyword"
+msgstr ""
+
+#: plugin/tools/simplephonebook/dir_create.php:23
+#: plugin/tools/simplephonebook/dir_edit.php:25
+msgid "broadcast SMS from single SMS"
+msgstr ""
+
+#: plugin/tools/simplephonebook/dir_create.php:24
+msgid "Create"
+msgstr ""
+
+#: plugin/tools/simplephonebook/dir_create.php:38
+msgid "Group code is already exists"
+msgstr ""
+
+#: plugin/tools/simplephonebook/dir_create.php:45
+msgid "Group code has been added"
+msgstr ""
+
+#: plugin/tools/simplephonebook/dir_create.php:45
+#: plugin/tools/simplephonebook/dir_edit.php:47
+#: plugin/tools/simplephonebook/phonebook.php:267
+#: plugin/tools/simplephonebook/phonebook.php:272
+#: plugin/tools/simplephonebook/phonebook.php:284
+#: plugin/tools/simplephonebook/phonebook.php:289
+msgid "group"
+msgstr ""
+
+#: plugin/tools/simplephonebook/config.php:4
+msgid "Export"
+msgstr ""
+
+#: plugin/tools/simplephonebook/config.php:5
+#: plugin/tools/simplephonebook/phonebook_exim.php:42
+#: plugin/tools/simplephonebook/phonebook_exim.php:109
+msgid "Import"
+msgstr ""
+
+#: plugin/tools/simplephonebook/config.php:6
+msgid "Publish"
+msgstr ""
+
+#: plugin/tools/simplephonebook/config.php:7
+msgid "Unpublish"
+msgstr ""
+
+#: plugin/tools/simplephonebook/config.php:10
+#: plugin/tools/simplephonebook/simplephonebook.php:151
+#: plugin/tools/simplephonebook/phonebook.php:298 lib/lib_init1.php:40
+msgid "Phonebook"
+msgstr ""
+
+#: plugin/tools/simplephonebook/simplephonebook.php:70
+msgid "Edit selections"
+msgstr ""
+
+#: plugin/tools/simplephonebook/simplephonebook.php:71
+msgid "Copy selections"
+msgstr ""
+
+#: plugin/tools/simplephonebook/simplephonebook.php:72
+msgid "Move selections"
+msgstr ""
+
+#: plugin/tools/simplephonebook/simplephonebook.php:73
+msgid "Delete selections"
+msgstr ""
+
+#: plugin/tools/simplephonebook/simplephonebook.php:113
+msgid "Shared by"
+msgstr ""
+
+#: plugin/tools/simplephonebook/simplephonebook.php:158
+#: plugin/tools/simplephonebook/simplephonebook.php:163
+msgid "Export all"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:36
+msgid "Import phonebook"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:39
+msgid "Please select CSV file for phonebook entries"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:39
+msgid "format : Name,Mobile,Email"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:41
+msgid "Same item(s) will be replaced"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:55
+msgid "Import confirmation"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:98
+msgid "Replace all entries in database"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:102
+msgid "Add all entries"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:106
+msgid "Import above phonebook entries ?"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:120
+msgid "Fail to upload CSV file for phonebook"
+msgstr ""
+
+#: plugin/tools/simplephonebook/dir_edit.php:14
+msgid "Edit group"
+msgstr ""
+
+#: plugin/tools/simplephonebook/dir_edit.php:47
+msgid "Group has been edited"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook.php:23
+msgid "Edited name"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook.php:24
+msgid "Edited number"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook.php:25
+msgid "Edited email"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook.php:81
+msgid "Copied name"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook.php:82
+msgid "Copied number"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook.php:83
+msgid "Copied email"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook.php:113
+msgid "Code"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook.php:118
+#: plugin/tools/simplephonebook/phonebook.php:184
+msgid "Select destination group"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook.php:147
+msgid "Moved name"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook.php:148
+msgid "Moved number"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook.php:149
+msgid "Moved email"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook.php:210
+msgid "Deleted name"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook.php:211
+msgid "Deleted number"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook.php:212
+msgid "Deleted email"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook.php:267
+msgid "Fail to publish"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook.php:272
+msgid "Group has been published"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook.php:284
+msgid "Fail to unpublish"
+msgstr ""
+
+#: plugin/tools/simplephonebook/phonebook.php:289
+msgid "Group has been unpublished"
+msgstr ""
+
+#: plugin/tools/simplerate/config.php:5
+#: plugin/tools/simplerate/simplerate.php:13
+msgid "Manage SMS rate"
+msgstr ""
+
+#: plugin/tools/simplerate/simplerate.php:15
+#: plugin/tools/simplerate/simplerate.php:48
+#: plugin/tools/simplerate/simplerate.php:124
+msgid "Add rate"
+msgstr ""
+
+#: plugin/tools/simplerate/simplerate.php:19
+#: plugin/tools/simplerate/simplerate.php:79
+#: plugin/tools/simplerate/simplerate.php:129
+msgid "Destination"
+msgstr ""
+
+#: plugin/tools/simplerate/simplerate.php:20
+#: plugin/tools/simplerate/simplerate.php:82
+#: plugin/tools/simplerate/simplerate.php:132
+msgid "Prefix"
+msgstr ""
+
+#: plugin/tools/simplerate/simplerate.php:21
+#: plugin/tools/simplerate/simplerate.php:85
+#: plugin/tools/simplerate/simplerate.php:135
+msgid "Rate"
+msgstr ""
+
+#: plugin/tools/simplerate/simplerate.php:33
+msgid "Are you sure you want to delete rate ?"
+msgstr ""
+
+#: plugin/tools/simplerate/simplerate.php:33
+#: plugin/tools/simplerate/simplerate.php:55
+#: plugin/tools/simplerate/simplerate.php:59
+#: plugin/tools/simplerate/simplerate.php:105
+#: plugin/tools/simplerate/simplerate.php:109
+#: plugin/tools/simplerate/simplerate.php:154
+#: plugin/tools/simplerate/simplerate.php:164
+msgid "destination"
+msgstr ""
+
+#: plugin/tools/simplerate/simplerate.php:33
+#: plugin/tools/simplerate/simplerate.php:55
+#: plugin/tools/simplerate/simplerate.php:59
+#: plugin/tools/simplerate/simplerate.php:105
+#: plugin/tools/simplerate/simplerate.php:109
+#: plugin/tools/simplerate/simplerate.php:154
+#: plugin/tools/simplerate/simplerate.php:164
+msgid "prefix"
+msgstr ""
+
+#: plugin/tools/simplerate/simplerate.php:55
+msgid "Fail to delete rate"
+msgstr ""
+
+#: plugin/tools/simplerate/simplerate.php:59
+msgid "Rate has been deleted"
+msgstr ""
+
+#: plugin/tools/simplerate/simplerate.php:73
+msgid "Edit rate"
+msgstr ""
+
+#: plugin/tools/simplerate/simplerate.php:99
+msgid "No changes made!"
+msgstr ""
+
+#: plugin/tools/simplerate/simplerate.php:105
+msgid "Rate has been saved"
+msgstr ""
+
+#: plugin/tools/simplerate/simplerate.php:109
+msgid "Fail to save rate"
+msgstr ""
+
+#: plugin/tools/simplerate/simplerate.php:154
+msgid "Rate is already exists"
+msgstr ""
+
+#: plugin/tools/simplerate/simplerate.php:164
+msgid "Rate has been added"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:12
+#: plugin/tools/sendfromfile/sendfromfile.php:68
+msgid "Send from file"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:26
+msgid "format : destination number, message, username"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:28
+msgid "Upload file"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:63
+msgid "Invalid CSV file"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:69
+msgid "Confirmation"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:70
+msgid "Uploaded file"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:73
+msgid "Found valid entries in uploaded file"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:73
+msgid "valid entries"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:74
+msgid "Valid entries"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:99
+msgid "Found invalid entries in uploaded file"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:99
+msgid "invalid entries"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:100
+msgid "Invalid entries"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:124
+msgid "Your choice"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:127
+msgid "Cancel send from file"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:131
+msgid "Send SMS to valid entries"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:139
+msgid "Send from file has been cancelled"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:141
+msgid "Fail to remove cancelled entries from database"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:144
+#: plugin/tools/sendfromfile/sendfromfile.php:167
+msgid "Invalid session ID"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:165
+msgid "SMS has been set to destination in uploaded file"
+msgstr ""
+
+#: plugin/tools/_simulator/simulator.php:16
+#: plugin/tools/_simulator/simulator.php:29
+msgid "Simulator"
+msgstr ""
+
+#: plugin/themes/work2/page_welcome.php:8
+#: plugin/themes/default/page_welcome.php:8
+#: plugin/themes/play/page_welcome.php:8
+msgid "Welcome to playSMS"
+msgstr ""
+
+#: plugin/themes/work2/page_welcome.php:10
+#: plugin/themes/default/page_welcome.php:10
+#: plugin/themes/play/page_welcome.php:9 plugin/themes/km2/page_welcome.php:17
+msgid "About playSMS"
+msgstr ""
+
+#: plugin/themes/work2/page_welcome.php:11
+#: plugin/themes/default/page_welcome.php:11
+#: plugin/themes/play/page_welcome.php:10
+#: plugin/themes/km2/page_welcome.php:18
+msgid "Changelog"
+msgstr ""
+
+#: plugin/themes/work2/page_welcome.php:12
+#: plugin/themes/default/page_welcome.php:12
+#: plugin/themes/play/page_welcome.php:11
+#: plugin/themes/km2/page_welcome.php:19
+msgid "Installation Guide"
+msgstr ""
+
+#: plugin/themes/work2/page_welcome.php:13
+#: plugin/themes/default/page_welcome.php:13
+#: plugin/themes/play/page_welcome.php:12
+#: plugin/themes/km2/page_welcome.php:20
+msgid "F.A.Q"
+msgstr ""
+
+#: plugin/themes/work2/page_welcome.php:14
+#: plugin/themes/default/page_welcome.php:14
+#: plugin/themes/play/page_welcome.php:13
+#: plugin/themes/km2/page_welcome.php:21
+msgid "License"
+msgstr ""
+
+#: plugin/themes/work2/page_register.php:45
+#: plugin/themes/work2/page_login.php:43
+#: plugin/themes/default/page_register.php:45
+#: plugin/themes/default/page_login.php:43
+#: plugin/themes/play/page_login.php:36 plugin/themes/play/page_forgot.php:35
+#: plugin/themes/km2/page_login.php:50
+msgid "Register an account"
+msgstr ""
+
+#: plugin/themes/work2/page_login.php:36
+#: plugin/themes/default/page_login.php:36
+#: plugin/themes/play/page_register.php:43
+#: plugin/themes/play/page_forgot.php:31 plugin/themes/km2/page_login.php:43
+msgid "Login"
+msgstr ""
+
+#: plugin/themes/work2/page_login.php:50
+#: plugin/themes/default/page_login.php:50
+#: plugin/themes/play/page_register.php:47
+#: plugin/themes/play/page_login.php:41 plugin/themes/km2/page_login.php:52
+msgid "Forgot password"
+msgstr ""
+
+#: plugin/themes/work2/header.php:36 plugin/themes/default/header.php:36
+#: plugin/themes/play/header.php:119
+msgid "Logged in"
+msgstr ""
+
+#: plugin/themes/work2/page_forgot.php:37
+#: plugin/themes/default/page_forgot.php:37
+#: plugin/themes/play/page_forgot.php:25 plugin/themes/km2/page_forgot.php:43
+msgid "Recover password"
+msgstr ""
+
+#: plugin/themes/default/page_welcome.php:15
+msgid "HTTP API"
+msgstr ""
+
+#: plugin/themes/km2/page_welcome.php:8
+msgid "Welcome to PlaySMS"
+msgstr ""
+
+#: plugin/themes/km2/page_welcome.php:26
+msgid "FAQ Users"
+msgstr ""
+
+#: plugin/themes/km2/page_register.php:53
+msgid "Register"
+msgstr ""
+
+#: plugin/themes/km2/header.php:42 lib/fn_themes.php:37 lib/lib_init1.php:43
+msgid "Home"
+msgstr ""
+
+#: plugin/themes/km2/header.php:47
+msgid "Contact"
+msgstr ""
+
+#: plugin/themes/km2/header.php:50 lib/fn_themes.php:39
+msgid "Logout"
+msgstr ""
+
+#: lib/fn_auth.php:130
+msgid "You have no access to this page"
+msgstr ""
+
+#: lib/fn_auth.php:156
+msgid "Unable to update login session"
+msgstr ""
+
+#: lib/fn_auth.php:159
+msgid "Invalid username or password"
+msgstr ""
+
+#: lib/fn_auth.php:184
 msgid "You have been logged out"
 msgstr ""
 
-#: lib/fn_auth.php:94
-msgid "You have no access to this page"
+#: lib/fn_auth.php:199
+msgid "Fail to recover password"
+msgstr ""
+
+#: lib/fn_auth.php:205
+msgid "Password recovery"
+msgstr ""
+
+#: lib/fn_auth.php:212 lib/fn_auth.php:271
+msgid "Password has been sent to your email"
+msgstr ""
+
+#: lib/fn_auth.php:214 lib/fn_auth.php:273
+msgid "Fail to send email"
+msgstr ""
+
+#: lib/fn_auth.php:221
+msgid "Recover password disabled"
+msgstr ""
+
+#: lib/fn_auth.php:240
+msgid "Fail to register an account"
+msgstr ""
+
+#: lib/fn_auth.php:262
+msgid "New account registration"
+msgstr ""
+
+#: lib/fn_auth.php:278
+msgid "Public registration disabled"
+msgstr ""
+
+#: lib/lib_init1.php:35
+msgid "Reply"
+msgstr ""
+
+#: lib/lib_init1.php:36
+msgid "Manage"
+msgstr ""
+
+#: lib/lib_init1.php:37
+msgid "View"
+msgstr ""
+
+#: lib/lib_init1.php:38
+msgid "Pick Date & Time"
+msgstr ""
+
+#: lib/lib_init1.php:44
+msgid "My Account"
+msgstr ""
+
+#: lib/lib_init1.php:45
+msgid "Administration"
+msgstr ""
+
+#: lib/lib_init1.php:47
+msgid "Tools"
+msgstr ""
+
+#: lib/lib_init1.php:63
+msgid "All inbox"
+msgstr ""
+
+#: lib/fn_core.php:250
+msgid "Forward Private WebSMS"
+msgstr ""
+
+#: lib/fn_core.php:251
+msgid "Date time"
 msgstr ""
