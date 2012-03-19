@@ -1,0 +1,24 @@
+TRANSLATING PLAYSMS
+--------------------
+
+To create a new tranlation of playsms, you will have copy the translation for english
+ to your destination language
+For example, to translate from english (en_US) to catalan (ca_ES) you should do the
+ following
+
+cp -a plugin/language/en_US plugin/language/ca_ES
+
+You will have to edit the following files:
+
+ - docs/README #this is the readme document with the authors of the translations
+ - LC_MESSAGES/message.po #is the file with the translations
+
+Once you have translated the .po file into your language of choice, you have
+ to convert the file into .mo (machine object), you can probably do it with
+ any translation software, if you want you can do it from the command line
+ by doing:
+
+msgfmt messages.po
+
+NOTE: 
+The messages.po file will have to be in plugin/language/ca_ES/LC_MESSAGES/
