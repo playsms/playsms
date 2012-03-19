@@ -630,10 +630,6 @@ msgstr "Buku telepon"
 msgid "All inbox"
 msgstr "Semua kotak masuk"
 
-#: lib/lib_init1.php:50
-msgid "All outgoing SMS"
-msgstr "Semua SMS keluar"
-
 #: lib/lib_init1.php:51
 msgid "Manage user"
 msgstr "Pengaturan pengguna"

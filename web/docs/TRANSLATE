@@ -37,6 +37,10 @@ Update the master .pot file with all the translations
 	find . -iname "*.php" -exec xgettext -j -o plugin/language/messages.pot {} \;
 3.- Merge the updated .pot file with the existant translations (keeping the updated strings)
 	cd plugin/language
-	for i in `ls -1 | grep -v '\.'` ; do echo "msgmerge $i/LC_MESSAGES/messages.po messages.pot >$i/LC_MESSAGES/messages.po" ; done
+	for i in `ls -1 | grep -v '\.'` ; do echo "msgmerge $i/LC_MESSAGES/messages.po messages.pot >$i/LC_MESSAGES/messages.po.new && mv -f $i/LC_MESSAGES/messages.po.new $i/LC_MESSAGES/messages.po" ; done
 4.- You can now translate the missing translations with you favourite editor and send them back
      to the developers so they can update the strings for the next version
+5.- For any time there are new .po files their correspondant .mo files need to be
+     generated, this is a simple way of doing it
+	cd /var/www/playsms/plugin/language
+	for i in `ls -1 | grep -v '\.'` ; do msgfmt -vv $i/LC_MESSAGES/messages.po -o $i/LC_MESSAGES/messages.mo  ; done
