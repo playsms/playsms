@@ -629,10 +629,6 @@ msgstr "Annuaire"
 msgid "All inbox"
 msgstr "Toutes les boîtes"
 
-#: lib/lib_init1.php:50
-msgid "All outgoing SMS"
-msgstr "Tous les SMS envoyés"
-
 #: lib/lib_init1.php:51
 msgid "Manage user"
 msgstr "Gérer les comptes"

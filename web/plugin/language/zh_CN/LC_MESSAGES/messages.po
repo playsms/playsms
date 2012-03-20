@@ -635,10 +635,6 @@ msgstr "电话簿"
 msgid "All inbox"
 msgstr "全部发件箱"
 
-#: lib/lib_init1.php:50
-msgid "All outgoing SMS"
-msgstr "全部发出的邮件"
-
 #: lib/lib_init1.php:53
 msgid "Manual refresh"
 msgstr "手册更新"
