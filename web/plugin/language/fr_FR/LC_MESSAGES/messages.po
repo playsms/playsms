@@ -1,3 +1,8 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 #: inc/user/send_sms.php:96 inc/user/send_sms.php:98
 msgid "All"
 msgstr "Tous"
