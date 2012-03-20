@@ -1,675 +1,784 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:16+0100\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: inc/user/send_sms.php:96 inc/user/send_sms.php:98
-msgid "All"
-msgstr "Tots"
-
-#: inc/user/sms_template.php:17 inc/user/send_sms.php:109
-#: inc/user/send_sms.php:224 lib/lib_init1.php:36
-msgid "Message template"
-msgstr "Plantilla de Missatge"
-
-#: inc/user/sms_template.php:20 inc/user/sms_template.php:61
-#: inc/user/sms_template.php:70
-msgid "Add message template"
-msgstr "Afegir Plantilla de Missatge"
-
-#: inc/user/sms_template.php:26 inc/user/sms_template.php:156
-#: inc/user/user_pref.php:55 inc/admin/user_mgmnt.php:20
-#: inc/admin/user_mgmnt.php:54
-msgid "Name"
-msgstr "Nom"
-
-#: inc/user/sms_template.php:27 inc/user/sms_template.php:157
-#: inc/user/user_incoming.php:35 inc/admin/all_incoming.php:36
-msgid "Content"
-msgstr "Contingut"
-
-#: inc/admin/user_incoming.php:64 inc/admin/all_incoming.php:66
-msgid "handled"
-msgstr "Processat"
-
-#: inc/admin/user_incoming.php:64 inc/admin/all_incoming.php:66
-msgid "unhandled"
-msgstr "No Processat"
-
-#: inc/user/sms_template.php:55
-msgid "Select action"
-msgstr "Seleccioni una acció"
-
-#: inc/user/sms_template.php:56 inc/user/user_outgoing.php:130
-#: inc/user/get_status.php:130 inc/user/user_inbox.php:88
-#: inc/user/user_incoming.php:96 inc/admin/all_inbox.php:91
-#: inc/admin/all_incoming.php:100 inc/admin/all_outgoing.php:133
-msgid "Delete selection"
-msgstr "Borrar la selecció"
-
-#: inc/user/sms_template.php:58
-msgid "Go"
-msgstr "Anar"
-
-#: inc/user/sms_template.php:75 inc/user/sms_template.php:113
-msgid "Message template name"
-msgstr "Nom de la Plantilla de Missatge"
-
-#: inc/user/sms_template.php:78 inc/user/sms_template.php:116
-msgid "Message template content"
-msgstr "Contingut de Plantilla de Missatge"
-
-#: inc/user/sms_template.php:81 inc/user/sms_template.php:119
-msgid "Save template"
-msgstr "Guardar Plantilla de Missatge"
-
-#: inc/user/sms_template.php:83 inc/user/sms_template.php:122
-#: inc/user/sms_template.php:185
-msgid "Back"
-msgstr "Enrere"
-
-#: inc/user/sms_template.php:95
-msgid "Message template has been saved"
-msgstr "La Plantilla de Missatge s'ha guardat"
-
-#: inc/user/sms_template.php:108
-msgid "Edit message template"
-msgstr "Editar la Plantilla de Missatge"
-
-#: inc/user/sms_template.php:134
-msgid "Message template has been edited"
-msgstr "La Plantilla de Mensaje ha estat editada"
-
-#: inc/user/sms_template.php:138
-msgid "Fail to edit message template"
-msgstr "Impossible editar la Plantilla de Missatge"
-
-#: inc/user/sms_template.php:150
-msgid "Delete message template"
-msgstr "Eliminar la Plantilla de Missatge"
-
-#: inc/user/sms_template.php:183
-msgid "Delete all templates ?"
-msgstr "Esborrar totes les Plantilles de Missatge ?"
-
-#: inc/user/sms_template.php:184 lib/lib_init1.php:27
-msgid "Delete"
-msgstr "Esborrar"
-
-#: inc/user/sms_template.php:201
-msgid "Selected message template has been deleted"
-msgstr "La Plantilla de Missatge seleccionada ha estat eliminada"
-
-#: inc/user/send_sms.php:25 inc/user/send_sms.php:170
-msgid "shared by"
-msgstr "Compartit per"
-
-#: inc/user/send_sms.php:35 inc/user/send_sms.php:179
-msgid "not set"
-msgstr "No configurat"
-
-#: inc/user/send_sms.php:61 inc/user/send_sms.php:195
-#: inc/user/user_pref.php:31
-msgid "Please select"
-msgstr "Si us plau seleccioni"
-
-#: inc/user/send_sms.php:82 lib/lib_init1.php:32 lib/lib_init1.php:37
-msgid "Send SMS"
-msgstr "Enviar SMS"
-
-#: inc/user/send_sms.php:85 inc/user/send_sms.php:219
-msgid "From"
-msgstr "De"
-
-#: inc/user/send_sms.php:90
-msgid "Phone number(s)"
-msgstr "Número(s) telefònic(s)"
-
-#: inc/user/send_sms.php:102
-msgid "Send to"
-msgstr "Enviar a "
-
-#: inc/user/send_sms.php:107 inc/user/send_sms.php:222
-msgid "Or"
-msgstr "O"
-
-#: inc/user/send_sms.php:107
-msgid "International format"
-msgstr "Format internacional"
-
-#: inc/user/send_sms.php:108 inc/user/send_sms.php:223
-#: inc/user/user_pref.php:64 inc/admin/user_mgmnt.php:149
-#: inc/admin/user_mgmnt.php:237
-msgid "SMS Sender ID"
-msgstr "ID Remitent del SMS"
-
-#: inc/user/send_sms.php:108 inc/user/send_sms.php:223
-#: inc/user/user_pref.php:64 inc/admin/user_mgmnt.php:149
-#: inc/admin/user_mgmnt.php:237
-msgid "SMS footer"
-msgstr "Firma del SMS"
-
-#: inc/user/send_sms.php:110 inc/user/send_sms.php:225
-msgid "Use template"
-msgstr "Utilitzar Plantilla de Missatge"
-
-#: inc/user/send_sms.php:111 inc/user/send_sms.php:226
-msgid "Your message"
-msgstr "El seu missatge"
-
-#: inc/user/send_sms.php:113 inc/user/send_sms.php:228
-msgid "SMS character"
-msgstr "Caràcters del SMS"
-
-#: inc/user/send_sms.php:115 inc/user/send_sms.php:230
-msgid "Send as flash message"
-msgstr "Enviar com a missatge ràpid"
-
-#: inc/user/send_sms.php:116
-msgid "Send as unicode message (http://www.unicode.org)"
-msgstr "Enviar en Unicode (http://www.unicode.org)"
-
-#: inc/user/send_sms.php:117 inc/user/send_sms.php:231
-msgid "Send"
-msgstr "Enviar"
-
-#: inc/user/send_sms.php:145 inc/user/send_sms.php:253
-msgid "Your SMS has been delivered to queue"
-msgstr "El seu missatge ha estat enviar a la cua de processament"
-
-#: inc/user/send_sms.php:145 inc/user/send_sms.php:147
-#: inc/user/send_sms.php:253 inc/user/send_sms.php:255
-#: inc/user/user_outgoing.php:114 inc/user/get_status.php:114
-#: inc/admin/all_outgoing.php:117
-msgid "to"
-msgstr "Per a"
-
-#: inc/user/send_sms.php:147 inc/user/send_sms.php:255
-msgid "Fail to sent SMS"
-msgstr "Impossible enviar el SMS"
-
-#: inc/user/send_sms.php:153
-msgid "You must select receiver and your message should not be empty"
-msgstr "ha de seleccionar un destinatari i/o el missatge no pot ser buit"
-
-#: inc/user/send_sms.php:216 lib/lib_init1.php:38
-msgid "Send broadcast SMS"
-msgstr "Enviar SMS Massiu"
-
-#: inc/user/send_sms.php:221
-msgid "Send to group"
-msgstr "Enviar a un grup"
-
-#: inc/user/send_sms.php:222
-msgid "Group code"
-msgstr "Codi del grup"
-
-#: inc/user/send_sms.php:261
-msgid "You must select receiver group and your message should not be empty"
-msgstr "Ha de seleccionar un grup destinatari i/o el seu missatbe no pot ser buit"
-
-#: inc/user/user_outgoing.php:25 lib/lib_init1.php:41
-msgid "Outgoing SMS"
-msgstr "SMS de sortida"
-
-#: inc/user/user_outgoing.php:32 inc/user/get_status.php:32
-#: inc/user/user_inbox.php:32 inc/user/user_incoming.php:32
-#: inc/admin/all_inbox.php:33 inc/admin/all_incoming.php:33
-#: inc/admin/all_outgoing.php:33
-msgid "Time"
-msgstr "Hora"
-
-#: inc/user/user_outgoing.php:33 inc/user/get_status.php:33
-#: inc/admin/all_outgoing.php:34 lib/fn_core.php:129
-msgid "Receiver"
-msgstr "Destinatari"
-
-#: inc/user/user_outgoing.php:34 inc/user/get_status.php:34
-#: inc/user/user_inbox.php:34 inc/admin/all_inbox.php:35
-#: inc/admin/all_outgoing.php:35 lib/fn_core.php:130
-msgid "Message"
-msgstr "Missatge"
-
-#: inc/user/user_outgoing.php:35 inc/user/get_status.php:35
-#: inc/user/user_incoming.php:37 inc/admin/all_incoming.php:38
-#: inc/admin/all_outgoing.php:36 inc/admin/user_mgmnt.php:15
-msgid "Status"
-msgstr "Estat"
-
-#: inc/user/user_outgoing.php:36 inc/user/get_status.php:36
-#: inc/admin/all_outgoing.php:37
-msgid "Group"
-msgstr "Grup"
-
-#: inc/user/user_outgoing.php:37 inc/user/get_status.php:37
-#: inc/user/user_inbox.php:35 inc/user/user_incoming.php:38
-#: inc/admin/all_inbox.php:36 inc/admin/all_incoming.php:39
-#: inc/admin/all_outgoing.php:38 inc/admin/user_mgmnt.php:24
-#: inc/admin/user_mgmnt.php:58
-msgid "Action"
-msgstr "Acció"
-
-#: inc/user/user_outgoing.php:81 inc/user/get_status.php:81
-#: inc/admin/all_outgoing.php:83
-msgid "Sent"
-msgstr "Enviat"
-
-#: inc/user/user_outgoing.php:85 inc/user/get_status.php:85
-#: inc/admin/all_outgoing.php:87
-msgid "Failed"
-msgstr "Fallit"
-
-#: inc/user/send_sms.php:166 inc/user/send_sms.php:290
-msgid "sent"
-msgstr "enviat"
-
-#: inc/user/send_sms.php:166 inc/user/send_sms.php:290
-msgid "failed"
-msgstr "fallit"
-
-#: inc/user/user_outgoing.php:89 inc/user/get_status.php:89
-#: inc/admin/all_outgoing.php:91
-msgid "Delivered"
-msgstr "Entregat"
-
-#: inc/user/user_outgoing.php:93 inc/user/get_status.php:93
-#: inc/admin/all_outgoing.php:95
-msgid "Pending"
-msgstr "Pendent"
-
-#: inc/user/user_outgoing.php:114 inc/user/get_status.php:114
-#: inc/admin/all_outgoing.php:117
-msgid "Are you sure you want to delete outgoing SMS ?"
-msgstr "Està segur de voler esborrar el SMS de sortida ?"
-
-#: inc/user/user_outgoing.php:114 inc/user/get_status.php:114
-msgid "number"
-msgstr "número"
-
-#: inc/user/user_outgoing.php:150 inc/user/user_outgoing.php:173
-#: inc/user/get_status.php:150 inc/user/get_status.php:173
-#: inc/admin/all_outgoing.php:153 inc/admin/all_outgoing.php:176
-msgid "Selected outgoing SMS has been deleted"
-msgstr "Els SMS Enviats seleccionats han estat eliminats"
-
-#: inc/user/user_outgoing.php:154 inc/user/get_status.php:154
-#: inc/admin/all_outgoing.php:157
-msgid "Fail to delete SMS"
-msgstr "Impossible borrar el SMS"
-
-#: inc/user/get_status.php:25
-msgid "Outbox"
-msgstr "Safata de sortida"
-
-#: inc/user/user_inbox.php:25 lib/lib_init1.php:39
-msgid "Inbox"
-msgstr "Safata d'Entrada"
-
-#: inc/user/user_inbox.php:33 inc/user/user_incoming.php:33
-#: inc/admin/all_inbox.php:34 inc/admin/all_incoming.php:34
-#: lib/fn_core.php:128
-msgid "Sender"
-msgstr "Emissor"
-
-#: inc/user/user_inbox.php:70 inc/user/user_incoming.php:79
-#: inc/admin/all_inbox.php:73 inc/admin/all_incoming.php:82
-msgid "Are you sure you want to delete this SMS ?"
-msgstr "Està segur de voler esborrar aquest SMS"
-
-#: inc/user/user_inbox.php:102 inc/user/user_incoming.php:110
-#: inc/admin/all_inbox.php:105
-msgid "Fail to delete incoming SMS"
-msgstr "Impossible borrar el SMS entrant"
-
-#: inc/user/user_inbox.php:109 inc/user/user_inbox.php:128
-#: inc/user/user_incoming.php:117 inc/user/user_incoming.php:136
-#: inc/admin/all_inbox.php:112 inc/admin/all_inbox.php:131
-#: inc/admin/all_incoming.php:121 inc/admin/all_incoming.php:140
-msgid "Selected incoming SMS has been deleted"
-msgstr "Els SMS entrants seleccionats han estat eliminats"
-
-#: inc/user/user_incoming.php:25 lib/lib_init1.php:40
-msgid "Incoming SMS"
-msgstr "SMS Entrants"
-
-#: inc/user/user_incoming.php:34 inc/admin/all_incoming.php:35
-msgid "Keyword"
-msgstr "Clau"
-
-#: inc/user/user_incoming.php:36 inc/admin/all_incoming.php:37
-msgid "Feature"
-msgstr "Servei"
-
-#: inc/user/user_pref.php:44 inc/admin/user_mgmnt.php:131 lib/lib_init1.php:42
-msgid "Preferences"
-msgstr "Preferències"
-
-#: inc/user/user_pref.php:48
-msgid "Login information"
-msgstr "Informació de la sessió"
-
-#: inc/user/user_pref.php:49 inc/admin/user_mgmnt.php:19
-#: inc/admin/user_mgmnt.php:53 inc/admin/user_mgmnt.php:137
-#: inc/admin/user_mgmnt.php:225
-msgid "Username"
-msgstr "Usuari"
-
-#: inc/user/user_pref.php:50 inc/admin/user_mgmnt.php:21
-#: inc/admin/user_mgmnt.php:55 inc/admin/user_mgmnt.php:140
-#: inc/admin/user_mgmnt.php:228
-msgid "Email"
-msgstr "Correu Electrònic"
-
-#: inc/user/user_pref.php:51 inc/admin/user_mgmnt.php:152
-#: inc/admin/user_mgmnt.php:240
-msgid "Password"
-msgstr "Contrasenya"
-
-#: inc/user/user_pref.php:52
-msgid "Re-Type Password"
-msgstr "Reescriviu la contrasenya"
-
-#: inc/user/user_pref.php:54
-msgid "Personal information"
-msgstr "Informació Personal"
-
-#: inc/user/user_pref.php:56
-msgid "Address"
-msgstr "Adreça"
-
-#: inc/user/user_pref.php:57
-msgid "City"
-msgstr "Ciutat"
-
-#: inc/user/user_pref.php:58
-msgid "State or Province"
-msgstr "Estat o provincia"
-
-#: inc/user/user_pref.php:59
-msgid "Country"
-msgstr "País"
-
-#: inc/user/user_pref.php:60
-msgid "Zipcode"
-msgstr "Codi postal"
-
-#: inc/user/user_pref.php:62
-msgid "Application information"
-msgstr "Informació del programa"
-
-#: inc/user/user_pref.php:63 inc/admin/user_mgmnt.php:22
-#: inc/admin/user_mgmnt.php:56 inc/admin/user_mgmnt.php:146
-#: inc/admin/user_mgmnt.php:234
-msgid "Mobile"
-msgstr "Mòbil"
-
-#: inc/user/user_pref.php:63 inc/admin/user_mgmnt.php:146
-#: inc/admin/user_mgmnt.php:234
-msgid "sender number"
-msgstr "número del remitent"
-
-#: inc/user/user_pref.php:63 inc/admin/user_mgmnt.php:146
-#: inc/admin/user_mgmnt.php:234
-msgid "Max. 16 numeric or 11 alphanumeric characters"
-msgstr "Max. 16 caràcters numèrics o 11 alfanumèrics"
-
-#: inc/user/user_pref.php:64 inc/admin/user_mgmnt.php:149
-#: inc/admin/user_mgmnt.php:237
-msgid "Max. 30 alphanumeric characters"
-msgstr "Max. 30 caràcters alfanumèricos"
-
-#: inc/user/user_pref.php:65 inc/admin/user_mgmnt.php:23
-#: inc/admin/user_mgmnt.php:57 inc/admin/user_mgmnt.php:155
-#: inc/admin/user_mgmnt.php:243
-msgid "Credit"
-msgstr "Crèdit"
-
-#: inc/user/user_pref.php:68 inc/admin/main_config.php:62
-#: inc/admin/user_mgmnt.php:161
-msgid "Save"
-msgstr "Guardar"
-
-#: inc/user/user_pref.php:91 inc/admin/user_mgmnt.php:176
-msgid "No changes made"
-msgstr "No s'han realitzat canvis"
-
-#: inc/user/user_pref.php:99 inc/admin/user_mgmnt.php:183
-msgid "Email is already in use by other username"
-msgstr "Correu electrònic ja en ús"
-
-#: inc/user/user_pref.php:99 inc/admin/user_mgmnt.php:183
-msgid "email"
-msgstr "Correu electrònic"
-
-#: inc/user/user_pref.php:119
-msgid "Preferences has been saved and password updated"
-msgstr "Les preferències s'han guardat i la contrasenya s'ha actualitzat"
-
-#: inc/user/user_pref.php:123 inc/admin/user_mgmnt.php:196
-msgid "Preferences has been saved"
-msgstr "Les preferències han estat guardades"
-
-#: inc/user/user_pref.php:128 inc/admin/user_mgmnt.php:200
-msgid "Fail to save preferences"
-msgstr "Impossible guardar les preferències"
-
-#: inc/user/user_pref.php:134 inc/admin/user_mgmnt.php:206
-msgid "You must fill all field"
-msgstr "Cal omplir tots els camps"
-
-#: inc/common/daemon.php:9
-msgid "playSMS server successfully refreshed"
-msgstr "El servidor PlaySMS ha estat recarregat satisfactòriament"
-
-#: inc/common/login.php:16
-msgid "Unable to update login session"
-msgstr "Impossible actualitzar la sessió de l'usuario"
-
-#: inc/common/login.php:19
-msgid "Invalid username or password"
-msgstr "Contrasenya o usuari incorrecte"
-
-#: inc/admin/main_config.php:33 lib/lib_init1.php:52
-msgid "Main configuration"
-msgstr "Configuració Principal"
-
-#: inc/admin/main_config.php:38
-msgid "Website title"
-msgstr "Títol del lloc WEB"
-
-#: inc/admin/main_config.php:41
-msgid "Website email"
-msgstr "Correu electrònic de contacte"
-
-#: inc/admin/main_config.php:44
-msgid "Forwarded email footer"
-msgstr "Firma del correu reenviat"
-
-#: inc/admin/main_config.php:47
-msgid "Gateway number"
-msgstr "Número de la plataforma"
-
-#: inc/admin/main_config.php:50
-msgid "Default SMS rate"
-msgstr "Tarifa per defecte per a SMS"
-
-#: inc/admin/main_config.php:53
-msgid "Active gateway module"
-msgstr "Plataforma activa"
-
-#: inc/admin/main_config.php:56
-msgid "Active themes"
-msgstr "Temes actius"
-
-#: inc/admin/main_config.php:59
-msgid "Active language"
-msgstr "Idioma actiu"
-
-#: inc/admin/main_config.php:89
-msgid "Main configuration changes has been saved"
-msgstr "La configuració principal ha estat guardada"
-
-#: inc/admin/all_inbox.php:25
-msgid "All Inbox"
-msgstr "Tots els d'entrada"
-
-#: inc/admin/all_inbox.php:32 inc/admin/all_incoming.php:32
-#: inc/admin/all_outgoing.php:32
-msgid "User"
-msgstr "Usuari"
-
-#: inc/admin/all_incoming.php:25 lib/lib_init1.php:49
-msgid "All incoming SMS"
-msgstr "Tots els SMS d'entrada"
-
-#: inc/admin/all_outgoing.php:25
-msgid "All Outgoing SMS"
-msgstr "Tots els SMS de sortida"
-
-#: inc/admin/all_outgoing.php:117
-msgid "row"
-msgstr "línia"
-
-#: inc/admin/user_mgmnt.php:14 inc/admin/user_mgmnt.php:220
-msgid "Add user"
-msgstr "Afegir usuari"
-
-#: inc/admin/user_mgmnt.php:15 inc/admin/user_mgmnt.php:127
-#: inc/admin/user_mgmnt.php:216
-msgid "Administrator"
-msgstr "Administrador"
-
-#: inc/admin/user_mgmnt.php:35
-msgid "Are you sure you want to delete user ?"
-msgstr "Està segur de voler esborrar l'usuari ?"
-
-#: inc/admin/user_mgmnt.php:35 inc/admin/user_mgmnt.php:98
-#: inc/admin/user_mgmnt.php:103 inc/admin/user_mgmnt.php:183
-#: inc/admin/user_mgmnt.php:196 inc/admin/user_mgmnt.php:200
-#: inc/admin/user_mgmnt.php:269 inc/admin/user_mgmnt.php:280
-msgid "username"
-msgstr "usuari"
-
-#: inc/admin/user_mgmnt.php:69
-msgid "Are you sure you want to delete user"
-msgstr "Està segur de voler esborrar l'usuari ?"
-
-#: inc/admin/user_mgmnt.php:92
-msgid "Fail to delete user"
-msgstr "Impossible esborrar l'usuari"
-
-#: inc/admin/user_mgmnt.php:98
-msgid "User has been deleted"
-msgstr "L'usuari ha estat eliminat"
-
-#: inc/admin/user_mgmnt.php:103
-msgid "User is immune to deletion"
-msgstr "L'usuari no pot ser eliminat"
-
-#: inc/admin/user_mgmnt.php:107
-msgid "Currently logged in user is immune to deletion"
-msgstr "Usuari en sessió activa, no pot ser eliminat"
-
-#: inc/admin/user_mgmnt.php:128
-msgid "Normal user"
-msgstr "Usuari normal"
-
-#: inc/admin/user_mgmnt.php:143 inc/admin/user_mgmnt.php:231
-msgid "Full name"
-msgstr "Nom complet"
-
-#: inc/admin/user_mgmnt.php:152
-msgid "Fill to change password for username"
-msgstr "Omplir per a canviar la contrasenya de l'usuari"
-
-#: inc/admin/user_mgmnt.php:158 inc/admin/user_mgmnt.php:246
-msgid "User level"
-msgstr "Privilegis d'usuari"
-
-#: inc/admin/user_mgmnt.php:217
-msgid "Normal User"
-msgstr "Usuari Normal"
-
-#: inc/admin/user_mgmnt.php:249
-msgid "Add"
-msgstr "Afegir"
-
-#: inc/admin/user_mgmnt.php:269
-msgid "User is already exists"
-msgstr "L'usuari ja existeix "
-
-#: inc/admin/user_mgmnt.php:280
-msgid "User has been added"
-msgstr "L'usuari ha estat afegit"
-
-#: inc/admin/user_mgmnt.php:286
-msgid "You must fill all fields"
-msgstr "Cal omplir tots els camps"
-
-#: lib/lib_init1.php:26
-msgid "Edit"
-msgstr "Editar"
-
-#: lib/lib_init1.php:28
-msgid "Reply"
-msgstr "Respondre"
-
-#: lib/lib_init1.php:29
-msgid "Manage"
-msgstr "Administrar"
-
-#: lib/lib_init1.php:30
-msgid "View"
-msgstr "Veure"
-
-#: lib/lib_init1.php:31
-msgid "Pick Date & Time"
-msgstr "Seleccionar data i hora"
-
-#: lib/lib_init1.php:33
-msgid "Phonebook"
-msgstr "Agenda"
-
-#: lib/lib_init1.php:48
-msgid "All inbox"
-msgstr "Tots els d'entrada"
-
-#: lib/lib_init1.php:50
-msgid "All outgoing SMS"
-msgstr "Tots els SMS de sortida"
-
-#: lib/lib_init1.php:51
-msgid "Manage user"
-msgstr "Administrar usuari"
-
-#: lib/lib_init1.php:53
-msgid "Manual refresh"
-msgstr "Recàrrega manual"
-
-#: lib/fn_themes.php:38
+#: lib/fn_themes.php:37 lib/lib_init1.php:43
 msgid "Home"
 msgstr "Principal"
 
-#: lib/fn_themes.php:40
+#: lib/fn_themes.php:39
 msgid "Logout"
 msgstr "Desconnectar"
 
-#: lib/fn_core.php:125
-msgid "from"
-msgstr "de"
+#: lib/fn_auth.php:130
+msgid "You have no access to this page"
+msgstr "No teniu accés a aquesta pàgina"
 
-#: lib/fn_core.php:126
-msgid "Forward Private WebSMS"
-msgstr "Reenviar WebSMS Privat"
+#: lib/fn_auth.php:156
+msgid "Unable to update login session"
+msgstr "Impossible actualitzar la sessió de l'usuario"
 
-#: lib/fn_core.php:127
-msgid "Date time"
-msgstr "Data hora"
+#: lib/fn_auth.php:159
+msgid "Invalid username or password"
+msgstr "Contrasenya o usuari incorrecte"
 
-#: lib/fn_auth.php:114
+#: lib/fn_auth.php:184
 msgid "You have been logged out"
 msgstr "Us heu desconnectat"
 
-#: lib/fn_auth.php:120
-msgid "You have no access to this page"
-msgstr "No teniu accés a aquesta pàgina"
+#: lib/fn_auth.php:199
+#, fuzzy
+msgid "Fail to recover password"
+msgstr "Contrasenya o usuari incorrecte"
+
+#: lib/fn_auth.php:205
+#, fuzzy
+msgid "Password recovery"
+msgstr "Contrasenya"
+
+#: lib/fn_auth.php:208 lib/fn_auth.php:265 inc/admin/user_mgmnt.php:20
+#: inc/admin/user_mgmnt.php:54 inc/admin/user_mgmnt.php:148
+#: inc/admin/user_mgmnt.php:256 inc/user/user_pref.php:90
+msgid "Username"
+msgstr "Usuari"
+
+#: lib/fn_auth.php:209 lib/fn_auth.php:266 inc/admin/user_mgmnt.php:169
+#: inc/admin/user_mgmnt.php:277 inc/user/user_pref.php:91
+msgid "Password"
+msgstr "Contrasenya"
+
+#: lib/fn_auth.php:212 lib/fn_auth.php:271
+msgid "Password has been sent to your email"
+msgstr ""
+
+#: lib/fn_auth.php:214 lib/fn_auth.php:273
+#, fuzzy
+msgid "Fail to send email"
+msgstr "Impossible enviar el SMS"
+
+#: lib/fn_auth.php:221
+msgid "Recover password disabled"
+msgstr ""
+
+#: lib/fn_auth.php:240
+msgid "Fail to register an account"
+msgstr ""
+
+#: lib/fn_auth.php:245 inc/admin/user_mgmnt.php:313
+msgid "User is already exists"
+msgstr "L'usuari ja existeix "
+
+#: lib/fn_auth.php:245 lib/fn_auth.php:268 inc/admin/user_mgmnt.php:36
+#: inc/admin/user_mgmnt.php:99 inc/admin/user_mgmnt.php:104
+#: inc/admin/user_mgmnt.php:206 inc/admin/user_mgmnt.php:219
+#: inc/admin/user_mgmnt.php:223 inc/admin/user_mgmnt.php:313
+#: inc/admin/user_mgmnt.php:324
+msgid "username"
+msgstr "usuari"
+
+#: lib/fn_auth.php:262
+msgid "New account registration"
+msgstr ""
+
+#: lib/fn_auth.php:268 inc/admin/user_mgmnt.php:324
+msgid "User has been added"
+msgstr "L'usuari ha estat afegit"
+
+#: lib/fn_auth.php:278
+msgid "Public registration disabled"
+msgstr ""
+
+#: lib/lib_init1.php:33
+msgid "Edit"
+msgstr "Editar"
+
+#: lib/lib_init1.php:34 inc/user/sms_template.php:185
+msgid "Delete"
+msgstr "Esborrar"
+
+#: lib/lib_init1.php:35
+msgid "Reply"
+msgstr "Respondre"
+
+#: lib/lib_init1.php:36
+msgid "Manage"
+msgstr "Administrar"
+
+#: lib/lib_init1.php:37
+msgid "View"
+msgstr "Veure"
+
+#: lib/lib_init1.php:38
+msgid "Pick Date & Time"
+msgstr "Seleccionar data i hora"
+
+#: lib/lib_init1.php:39 lib/lib_init1.php:52 inc/user/send_sms.php:75
+msgid "Send SMS"
+msgstr "Enviar SMS"
+
+#: lib/lib_init1.php:40
+msgid "Phonebook"
+msgstr "Agenda"
+
+#: lib/lib_init1.php:44
+msgid "My Account"
+msgstr ""
+
+#: lib/lib_init1.php:45
+#, fuzzy
+msgid "Administration"
+msgstr "Administrador"
+
+#: lib/lib_init1.php:46 inc/admin/all_incoming.php:38
+#: inc/user/user_incoming.php:37
+msgid "Feature"
+msgstr "Servei"
+
+#: lib/lib_init1.php:47
+msgid "Tools"
+msgstr ""
+
+#: lib/lib_init1.php:48 inc/admin/all_outgoing.php:35
+#, fuzzy
+msgid "Gateway"
+msgstr "Número de la plataforma"
+
+#: lib/lib_init1.php:51 inc/user/sms_template.php:18 inc/user/send_sms.php:102
+#: inc/user/send_sms.php:232
+msgid "Message template"
+msgstr "Plantilla de Missatge"
+
+#: lib/lib_init1.php:53 inc/user/send_sms.php:224
+msgid "Send broadcast SMS"
+msgstr "Enviar SMS Massiu"
+
+#: lib/lib_init1.php:54 inc/user/user_inbox.php:26
+msgid "Inbox"
+msgstr "Safata d'Entrada"
+
+#: lib/lib_init1.php:55 inc/user/user_incoming.php:26
+msgid "Incoming SMS"
+msgstr "SMS Entrants"
+
+#: lib/lib_init1.php:56 inc/user/user_outgoing.php:26
+msgid "Outgoing SMS"
+msgstr "SMS de sortida"
+
+#: lib/lib_init1.php:57 inc/admin/user_mgmnt.php:142 inc/user/user_pref.php:85
+msgid "Preferences"
+msgstr "Preferències"
+
+#: lib/lib_init1.php:63
+msgid "All inbox"
+msgstr "Tots els d'entrada"
+
+#: lib/lib_init1.php:64 inc/admin/all_incoming.php:26
+msgid "All incoming SMS"
+msgstr "Tots els SMS d'entrada"
+
+#: lib/lib_init1.php:65 inc/admin/all_outgoing.php:26
+msgid "All outgoing SMS"
+msgstr "Tots els SMS de sortida"
+
+#: lib/lib_init1.php:66 inc/admin/user_mgmnt.php:13
+msgid "Manage user"
+msgstr "Administrar usuari"
+
+#: lib/lib_init1.php:67 inc/admin/main_config.php:44
+msgid "Main configuration"
+msgstr "Configuració Principal"
+
+#: lib/fn_core.php:249
+msgid "from"
+msgstr "de"
+
+#: lib/fn_core.php:250
+msgid "Forward Private WebSMS"
+msgstr "Reenviar WebSMS Privat"
+
+#: lib/fn_core.php:251
+msgid "Date time"
+msgstr "Data hora"
+
+#: lib/fn_core.php:252
+msgid "Sender"
+msgstr "Emissor"
+
+#: lib/fn_core.php:253
+msgid "Receiver"
+msgstr "Destinatari"
+
+#: lib/fn_core.php:254 inc/admin/all_inbox.php:36
+#: inc/admin/all_outgoing.php:37 inc/user/user_inbox.php:35
+#: inc/user/user_outgoing.php:35
+msgid "Message"
+msgstr "Missatge"
+
+#: inc/admin/all_inbox.php:26
+msgid "All Inbox"
+msgstr "Tots els d'entrada"
+
+#: inc/admin/all_inbox.php:33 inc/admin/all_outgoing.php:33
+#: inc/admin/all_incoming.php:33
+msgid "User"
+msgstr "Usuari"
+
+#: inc/admin/all_inbox.php:34 inc/admin/all_outgoing.php:34
+#: inc/admin/all_incoming.php:34 inc/user/user_inbox.php:33
+#: inc/user/user_outgoing.php:33 inc/user/user_incoming.php:33
+msgid "Time"
+msgstr "Hora"
+
+#: inc/admin/all_inbox.php:35 inc/admin/all_incoming.php:35
+#: inc/user/user_inbox.php:34 inc/user/user_incoming.php:34
+msgid "From"
+msgstr "De"
+
+#: inc/admin/all_inbox.php:37 inc/admin/all_outgoing.php:40
+#: inc/admin/user_mgmnt.php:25 inc/admin/user_mgmnt.php:59
+#: inc/admin/all_incoming.php:40 inc/user/user_inbox.php:36
+#: inc/user/user_outgoing.php:38 inc/user/user_incoming.php:39
+msgid "Action"
+msgstr "Acció"
+
+#: inc/admin/all_inbox.php:74 inc/admin/all_incoming.php:83
+#: inc/user/user_inbox.php:71 inc/user/user_incoming.php:80
+msgid "Are you sure you want to delete this SMS ?"
+msgstr "Està segur de voler esborrar aquest SMS"
+
+#: inc/admin/all_inbox.php:92 inc/admin/all_outgoing.php:137
+#: inc/admin/all_incoming.php:101 inc/user/sms_template.php:57
+#: inc/user/user_inbox.php:89 inc/user/user_outgoing.php:131
+#: inc/user/user_incoming.php:97
+msgid "Delete selection"
+msgstr "Borrar la selecció"
+
+#: inc/admin/all_inbox.php:106 inc/user/user_inbox.php:103
+#: inc/user/user_incoming.php:111
+msgid "Fail to delete incoming SMS"
+msgstr "Impossible borrar el SMS entrant"
+
+#: inc/admin/all_inbox.php:113 inc/admin/all_inbox.php:132
+#: inc/admin/all_incoming.php:122 inc/admin/all_incoming.php:141
+#: inc/user/user_inbox.php:110 inc/user/user_inbox.php:129
+#: inc/user/user_incoming.php:118 inc/user/user_incoming.php:137
+msgid "Selected incoming SMS has been deleted"
+msgstr "Els SMS entrants seleccionats han estat eliminats"
+
+#: inc/admin/main_config.php:14 inc/admin/main_config.php:19
+#: inc/user/user_pref.php:41 inc/user/user_pref.php:50
+#: inc/user/user_pref.php:59
+msgid "yes"
+msgstr ""
+
+#: inc/admin/main_config.php:15 inc/admin/main_config.php:20
+#: inc/user/user_pref.php:42 inc/user/user_pref.php:51
+#: inc/user/user_pref.php:60
+msgid "no"
+msgstr ""
+
+#: inc/admin/main_config.php:49
+msgid "Website title"
+msgstr "Títol del lloc WEB"
+
+#: inc/admin/main_config.php:52
+msgid "Website email"
+msgstr "Correu electrònic de contacte"
+
+#: inc/admin/main_config.php:55
+msgid "Forwarded email footer"
+msgstr "Firma del correu reenviat"
+
+#: inc/admin/main_config.php:58
+msgid "Gateway number"
+msgstr "Número de la plataforma"
+
+#: inc/admin/main_config.php:61
+#, fuzzy
+msgid "Gateway timezone"
+msgstr "Número de la plataforma"
+
+#: inc/admin/main_config.php:61 inc/admin/user_mgmnt.php:166
+#: inc/admin/user_mgmnt.php:274 inc/user/user_pref.php:106
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+#: inc/admin/main_config.php:64
+msgid "Default SMS rate"
+msgstr "Tarifa per defecte per a SMS"
+
+#: inc/admin/main_config.php:67
+msgid "Maximum SMS count"
+msgstr ""
+
+#: inc/admin/main_config.php:70
+msgid "Default credit for user"
+msgstr ""
+
+#: inc/admin/main_config.php:73
+msgid "Enable public registration"
+msgstr ""
+
+#: inc/admin/main_config.php:76
+#, fuzzy
+msgid "Enable forgot password"
+msgstr "Contrasenya o usuari incorrecte"
+
+#: inc/admin/main_config.php:79
+msgid "Active gateway module"
+msgstr "Plataforma activa"
+
+#: inc/admin/main_config.php:82
+msgid "Active themes"
+msgstr "Temes actius"
+
+#: inc/admin/main_config.php:85
+#, fuzzy
+msgid "Default language"
+msgstr "Idioma actiu"
+
+#: inc/admin/main_config.php:88 inc/admin/user_mgmnt.php:181
+#: inc/user/user_pref.php:115
+msgid "Save"
+msgstr "Guardar"
+
+#: inc/admin/main_config.php:125
+msgid "Main configuration changes has been saved"
+msgstr "La configuració principal ha estat guardada"
+
+#: inc/admin/all_outgoing.php:36 inc/user/user_outgoing.php:34
+msgid "To"
+msgstr ""
+
+#: inc/admin/all_outgoing.php:38 inc/admin/user_mgmnt.php:16
+#: inc/admin/user_mgmnt.php:50 inc/admin/all_incoming.php:39
+#: inc/user/user_outgoing.php:36 inc/user/user_incoming.php:38
+msgid "Status"
+msgstr "Estat"
+
+#: inc/admin/all_outgoing.php:39 inc/user/user_outgoing.php:37
+msgid "Group"
+msgstr "Grup"
+
+#: inc/admin/all_outgoing.php:86 inc/user/user_outgoing.php:82
+msgid "Sent"
+msgstr "Enviat"
+
+#: inc/admin/all_outgoing.php:90 inc/user/user_outgoing.php:86
+msgid "Failed"
+msgstr "Fallit"
+
+#: inc/admin/all_outgoing.php:94 inc/user/user_outgoing.php:90
+msgid "Delivered"
+msgstr "Entregat"
+
+#: inc/admin/all_outgoing.php:98 inc/user/user_outgoing.php:94
+msgid "Pending"
+msgstr "Pendent"
+
+#: inc/admin/all_outgoing.php:121 inc/user/user_outgoing.php:115
+msgid "Are you sure you want to delete outgoing SMS ?"
+msgstr "Està segur de voler esborrar el SMS de sortida ?"
+
+#: inc/admin/all_outgoing.php:121 inc/user/send_sms.php:141
+#: inc/user/send_sms.php:143 inc/user/user_outgoing.php:115
+msgid "to"
+msgstr "Per a"
+
+#: inc/admin/all_outgoing.php:121
+msgid "row"
+msgstr "línia"
+
+#: inc/admin/all_outgoing.php:157 inc/admin/all_outgoing.php:180
+#: inc/user/user_outgoing.php:151 inc/user/user_outgoing.php:174
+msgid "Selected outgoing SMS has been deleted"
+msgstr "Els SMS Enviats seleccionats han estat eliminats"
+
+#: inc/admin/all_outgoing.php:161 inc/user/user_outgoing.php:155
+msgid "Fail to delete SMS"
+msgstr "Impossible borrar el SMS"
+
+#: inc/admin/user_mgmnt.php:15 inc/admin/user_mgmnt.php:87
+#: inc/admin/user_mgmnt.php:251
+msgid "Add user"
+msgstr "Afegir usuari"
+
+#: inc/admin/user_mgmnt.php:16 inc/admin/user_mgmnt.php:138
+#: inc/admin/user_mgmnt.php:247
+msgid "Administrator"
+msgstr "Administrador"
+
+#: inc/admin/user_mgmnt.php:21 inc/admin/user_mgmnt.php:55
+#: inc/user/sms_template.php:27 inc/user/sms_template.php:157
+#: inc/user/user_pref.php:95
+msgid "Name"
+msgstr "Nom"
+
+#: inc/admin/user_mgmnt.php:22 inc/admin/user_mgmnt.php:56
+#: inc/admin/user_mgmnt.php:154 inc/admin/user_mgmnt.php:262
+#: inc/user/user_pref.php:96
+msgid "Email"
+msgstr "Correu Electrònic"
+
+#: inc/admin/user_mgmnt.php:23 inc/admin/user_mgmnt.php:57
+#: inc/admin/user_mgmnt.php:157 inc/admin/user_mgmnt.php:265
+#: inc/user/user_pref.php:97
+msgid "Mobile"
+msgstr "Mòbil"
+
+#: inc/admin/user_mgmnt.php:24 inc/admin/user_mgmnt.php:58
+#: inc/admin/user_mgmnt.php:172 inc/admin/user_mgmnt.php:280
+#: inc/user/user_pref.php:109
+msgid "Credit"
+msgstr "Crèdit"
+
+#: inc/admin/user_mgmnt.php:36
+msgid "Are you sure you want to delete user ?"
+msgstr "Està segur de voler esborrar l'usuari ?"
+
+#: inc/admin/user_mgmnt.php:50 inc/admin/user_mgmnt.php:139
+msgid "Normal user"
+msgstr "Usuari normal"
+
+#: inc/admin/user_mgmnt.php:70
+msgid "Are you sure you want to delete user"
+msgstr "Està segur de voler esborrar l'usuari ?"
+
+#: inc/admin/user_mgmnt.php:93
+msgid "Fail to delete user"
+msgstr "Impossible esborrar l'usuari"
+
+#: inc/admin/user_mgmnt.php:99
+msgid "User has been deleted"
+msgstr "L'usuari ha estat eliminat"
+
+#: inc/admin/user_mgmnt.php:104
+msgid "User is immune to deletion"
+msgstr "L'usuari no pot ser eliminat"
+
+#: inc/admin/user_mgmnt.php:108
+msgid "Currently logged in user is immune to deletion"
+msgstr "Usuari en sessió activa, no pot ser eliminat"
+
+#: inc/admin/user_mgmnt.php:151 inc/admin/user_mgmnt.php:259
+msgid "Full name"
+msgstr "Nom complet"
+
+#: inc/admin/user_mgmnt.php:157 inc/admin/user_mgmnt.php:160
+#: inc/admin/user_mgmnt.php:265 inc/admin/user_mgmnt.php:268
+#: inc/user/user_pref.php:97 inc/user/user_pref.php:107
+msgid "Max. 16 numeric or 11 alphanumeric characters"
+msgstr "Max. 16 caràcters numèrics o 11 alfanumèrics"
+
+#: inc/admin/user_mgmnt.php:160 inc/admin/user_mgmnt.php:268
+#: inc/user/send_sms.php:78 inc/user/send_sms.php:227
+#: inc/user/user_pref.php:107
+msgid "SMS Sender ID"
+msgstr "ID Remitent del SMS"
+
+#: inc/admin/user_mgmnt.php:163 inc/admin/user_mgmnt.php:271
+#: inc/user/send_sms.php:79 inc/user/send_sms.php:228
+#: inc/user/user_pref.php:108
+msgid "SMS footer"
+msgstr "Firma del SMS"
+
+#: inc/admin/user_mgmnt.php:163 inc/admin/user_mgmnt.php:271
+#: inc/user/user_pref.php:108
+msgid "Max. 30 alphanumeric characters"
+msgstr "Max. 30 caràcters alfanumèricos"
+
+#: inc/admin/user_mgmnt.php:166 inc/admin/user_mgmnt.php:274
+#: inc/user/user_pref.php:106
+#, fuzzy
+msgid "Timezone"
+msgstr "Hora"
+
+#: inc/admin/user_mgmnt.php:169
+msgid "Fill to change password for username"
+msgstr "Omplir per a canviar la contrasenya de l'usuari"
+
+#: inc/admin/user_mgmnt.php:175 inc/admin/user_mgmnt.php:283
+msgid "User level"
+msgstr "Privilegis d'usuari"
+
+#: inc/admin/user_mgmnt.php:178 inc/admin/user_mgmnt.php:286
+#: inc/user/user_pref.php:103
+msgid "Active language"
+msgstr "Idioma actiu"
+
+#: inc/admin/user_mgmnt.php:199 inc/user/user_pref.php:144
+msgid "No changes made"
+msgstr "No s'han realitzat canvis"
+
+#: inc/admin/user_mgmnt.php:206 inc/user/user_pref.php:152
+msgid "Email is already in use by other username"
+msgstr "Correu electrònic ja en ús"
+
+#: inc/admin/user_mgmnt.php:206 inc/user/user_pref.php:152
+msgid "email"
+msgstr "Correu electrònic"
+
+#: inc/admin/user_mgmnt.php:219 inc/user/user_pref.php:178
+msgid "Preferences has been saved"
+msgstr "Les preferències han estat guardades"
+
+#: inc/admin/user_mgmnt.php:223 inc/user/user_pref.php:183
+msgid "Fail to save preferences"
+msgstr "Impossible guardar les preferències"
+
+#: inc/admin/user_mgmnt.php:229 inc/user/user_pref.php:189
+msgid "You must fill all field"
+msgstr "Cal omplir tots els camps"
+
+#: inc/admin/user_mgmnt.php:248
+msgid "Normal User"
+msgstr "Usuari Normal"
+
+#: inc/admin/user_mgmnt.php:290
+msgid "Add"
+msgstr "Afegir"
+
+#: inc/admin/user_mgmnt.php:330
+msgid "You must fill all fields"
+msgstr "Cal omplir tots els camps"
+
+#: inc/admin/all_incoming.php:36 inc/user/user_incoming.php:35
+msgid "Keyword"
+msgstr "Clau"
+
+#: inc/admin/all_incoming.php:37 inc/user/sms_template.php:28
+#: inc/user/sms_template.php:158 inc/user/user_incoming.php:36
+msgid "Content"
+msgstr "Contingut"
+
+#: inc/admin/all_incoming.php:67 inc/user/user_incoming.php:65
+msgid "handled"
+msgstr "Processat"
+
+#: inc/admin/all_incoming.php:67 inc/user/user_incoming.php:65
+msgid "unhandled"
+msgstr "No Processat"
+
+#: inc/user/sms_template.php:21 inc/user/sms_template.php:62
+#: inc/user/sms_template.php:71
+msgid "Add message template"
+msgstr "Afegir Plantilla de Missatge"
+
+#: inc/user/sms_template.php:56
+msgid "Select action"
+msgstr "Seleccioni una acció"
+
+#: inc/user/sms_template.php:59
+msgid "Go"
+msgstr "Anar"
+
+#: inc/user/sms_template.php:76 inc/user/sms_template.php:114
+msgid "Message template name"
+msgstr "Nom de la Plantilla de Missatge"
+
+#: inc/user/sms_template.php:79 inc/user/sms_template.php:117
+msgid "Message template content"
+msgstr "Contingut de Plantilla de Missatge"
+
+#: inc/user/sms_template.php:82 inc/user/sms_template.php:120
+msgid "Save template"
+msgstr "Guardar Plantilla de Missatge"
+
+#: inc/user/sms_template.php:84 inc/user/sms_template.php:123
+#: inc/user/sms_template.php:186
+msgid "Back"
+msgstr "Enrere"
+
+#: inc/user/sms_template.php:96
+msgid "Message template has been saved"
+msgstr "La Plantilla de Missatge s'ha guardat"
+
+#: inc/user/sms_template.php:109
+msgid "Edit message template"
+msgstr "Editar la Plantilla de Missatge"
+
+#: inc/user/sms_template.php:135
+msgid "Message template has been edited"
+msgstr "La Plantilla de Mensaje ha estat editada"
+
+#: inc/user/sms_template.php:139
+msgid "Fail to edit message template"
+msgstr "Impossible editar la Plantilla de Missatge"
+
+#: inc/user/sms_template.php:151
+msgid "Delete message template"
+msgstr "Eliminar la Plantilla de Missatge"
+
+#: inc/user/sms_template.php:184
+msgid "Delete all templates ?"
+msgstr "Esborrar totes les Plantilles de Missatge ?"
+
+#: inc/user/sms_template.php:202
+msgid "Selected message template has been deleted"
+msgstr "La Plantilla de Missatge seleccionada ha estat eliminada"
+
+#: inc/user/send_sms.php:26 inc/user/send_sms.php:185
+msgid "shared by"
+msgstr "Compartit per"
+
+#: inc/user/send_sms.php:38 inc/user/send_sms.php:196
+msgid "not set"
+msgstr "No configurat"
+
+#: inc/user/send_sms.php:54 inc/user/send_sms.php:203
+#: inc/user/user_pref.php:65
+msgid "Please select"
+msgstr "Si us plau seleccioni"
+
+#: inc/user/send_sms.php:84
+msgid "Phone number(s)"
+msgstr "Número(s) telefònic(s)"
+
+#: inc/user/send_sms.php:90 inc/user/send_sms.php:92
+msgid "All"
+msgstr "Tots"
+
+#: inc/user/send_sms.php:96
+msgid "Send to"
+msgstr "Enviar a "
+
+#: inc/user/send_sms.php:101 inc/user/send_sms.php:231
+msgid "Or"
+msgstr "O"
+
+#: inc/user/send_sms.php:101
+msgid "International format"
+msgstr "Format internacional"
+
+#: inc/user/send_sms.php:103 inc/user/send_sms.php:233
+msgid "Use template"
+msgstr "Utilitzar Plantilla de Missatge"
+
+#: inc/user/send_sms.php:104 inc/user/send_sms.php:234
+msgid "Your message"
+msgstr "El seu missatge"
+
+#: inc/user/send_sms.php:106 inc/user/send_sms.php:236
+msgid "SMS character"
+msgstr "Caràcters del SMS"
+
+#: inc/user/send_sms.php:109 inc/user/send_sms.php:239
+msgid "Send as flash message"
+msgstr "Enviar com a missatge ràpid"
+
+#: inc/user/send_sms.php:110 inc/user/send_sms.php:240
+msgid "Send as unicode message (http://www.unicode.org)"
+msgstr "Enviar en Unicode (http://www.unicode.org)"
+
+#: inc/user/send_sms.php:111 inc/user/send_sms.php:241
+msgid "Send"
+msgstr "Enviar"
+
+#: inc/user/send_sms.php:141 inc/user/send_sms.php:160
+#: inc/user/send_sms.php:285
+msgid "Your SMS has been delivered to queue"
+msgstr "El seu missatge ha estat enviar a la cua de processament"
+
+#: inc/user/send_sms.php:143
+msgid "Fail to sent SMS"
+msgstr "Impossible enviar el SMS"
+
+#: inc/user/send_sms.php:160 inc/user/send_sms.php:285
+msgid "sent"
+msgstr "enviat"
+
+#: inc/user/send_sms.php:160 inc/user/send_sms.php:285
+msgid "failed"
+msgstr "fallit"
+
+#: inc/user/send_sms.php:166
+msgid "You must select receiver and your message should not be empty"
+msgstr "ha de seleccionar un destinatari i/o el missatge no pot ser buit"
+
+#: inc/user/send_sms.php:230
+msgid "Send to group"
+msgstr "Enviar a un grup"
+
+#: inc/user/send_sms.php:231
+msgid "Group code"
+msgstr "Codi del grup"
+
+#: inc/user/send_sms.php:290
+msgid "You must select receiver group and your message should not be empty"
+msgstr ""
+"Ha de seleccionar un grup destinatari i/o el seu missatbe no pot ser buit"
+
+#: inc/user/user_outgoing.php:115
+msgid "number"
+msgstr "número"
+
+#: inc/user/user_pref.php:89
+msgid "Login information"
+msgstr "Informació de la sessió"
+
+#: inc/user/user_pref.php:92
+msgid "Re-Type Password"
+msgstr "Reescriviu la contrasenya"
+
+#: inc/user/user_pref.php:94
+msgid "Personal information"
+msgstr "Informació Personal"
+
+#: inc/user/user_pref.php:98
+msgid "Address"
+msgstr "Adreça"
+
+#: inc/user/user_pref.php:99
+msgid "City"
+msgstr "Ciutat"
+
+#: inc/user/user_pref.php:100
+msgid "State or Province"
+msgstr "Estat o provincia"
+
+#: inc/user/user_pref.php:101
+msgid "Country"
+msgstr "País"
+
+#: inc/user/user_pref.php:102
+msgid "Zipcode"
+msgstr "Codi postal"
+
+#: inc/user/user_pref.php:105
+msgid "Application information"
+msgstr "Informació del programa"
+
+#: inc/user/user_pref.php:110
+msgid "Forward PV to inbox"
+msgstr ""
+
+#: inc/user/user_pref.php:111
+#, fuzzy
+msgid "Forward PV to email"
+msgstr "Firma del correu reenviat"
+
+#: inc/user/user_pref.php:112
+msgid "Forward PV to mobile"
+msgstr ""
+
+#: inc/user/user_pref.php:174
+msgid "Preferences has been saved and password updated"
+msgstr "Les preferències s'han guardat i la contrasenya s'ha actualitzat"
+
+#~ msgid "Outbox"
+#~ msgstr "Safata de sortida"
+
+#~ msgid "sender number"
+#~ msgstr "número del remitent"
+
+#~ msgid "playSMS server successfully refreshed"
+#~ msgstr "El servidor PlaySMS ha estat recarregat satisfactòriament"
+
+#~ msgid "All Outgoing SMS"
+#~ msgstr "Tots els SMS de sortida"
+
+#~ msgid "Manual refresh"
+#~ msgstr "Recàrrega manual"
