@@ -1,8 +1,3 @@
-msgid ""
-msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-
 #: inc/user/send_sms.php:96 inc/user/send_sms.php:98
 msgid "All"
 msgstr "Todos"
@@ -15,7 +10,7 @@ msgstr "Plantilla de Mensaje"
 #: inc/user/sms_template.php:20 inc/user/sms_template.php:61
 #: inc/user/sms_template.php:70
 msgid "Add message template"
-msgstr "AÒadir Plantilla de Mensaje"
+msgstr "A√±adir Plantilla de Mensaje"
 
 #: inc/user/sms_template.php:26 inc/user/sms_template.php:156
 #: inc/user/user_pref.php:55 inc/admin/user_mgmnt.php:20
@@ -38,14 +33,14 @@ msgstr "No Procesado"
 
 #: inc/user/sms_template.php:55
 msgid "Select action"
-msgstr "Seleccione una acciÛn"
+msgstr "Seleccione una acci√≥n"
 
 #: inc/user/sms_template.php:56 inc/user/user_outgoing.php:130
 #: inc/user/get_status.php:130 inc/user/user_inbox.php:88
 #: inc/user/user_incoming.php:96 inc/admin/all_inbox.php:91
 #: inc/admin/all_incoming.php:100 inc/admin/all_outgoing.php:133
 msgid "Delete selection"
-msgstr "Borrar la selecciÛn"
+msgstr "Borrar la selecci√≥n"
 
 #: inc/user/sms_template.php:58
 msgid "Go"
@@ -115,7 +110,7 @@ msgstr "Por favor seleccione"
 
 #: inc/user/send_sms.php:82 lib/lib_init1.php:32 lib/lib_init1.php:37
 msgid "Send SMS"
-msgstr "EnvÌo de SMS"
+msgstr "Env√≠o de SMS"
 
 #: inc/user/send_sms.php:85 inc/user/send_sms.php:219
 msgid "From"
@@ -123,11 +118,11 @@ msgstr "De"
 
 #: inc/user/send_sms.php:90
 msgid "Phone number(s)"
-msgstr "Numero(s) telefÛnico(s)"
+msgstr "Numero(s) telef√≥nico(s)"
 
 #: inc/user/send_sms.php:102
 msgid "Send to"
-msgstr "Enviar a†"
+msgstr "Enviar a¬†"
 
 #: inc/user/send_sms.php:107 inc/user/send_sms.php:222
 msgid "Or"
@@ -163,7 +158,7 @@ msgstr "Caracteres del SMS"
 
 #: inc/user/send_sms.php:115 inc/user/send_sms.php:230
 msgid "Send as flash message"
-msgstr "Enviar como mensaje r·pido"
+msgstr "Enviar como mensaje r√°pido"
 
 #: inc/user/send_sms.php:116
 msgid "Send as unicode message (http://www.unicode.org)"
@@ -202,7 +197,7 @@ msgstr "Enviar a un grupo"
 
 #: inc/user/send_sms.php:222
 msgid "Group code"
-msgstr "CÛdigo del grupo"
+msgstr "C√≥digo del grupo"
 
 #: inc/user/send_sms.php:261
 msgid "You must select receiver group and your message should not be empty"
@@ -247,7 +242,7 @@ msgstr "Grupo"
 #: inc/admin/all_outgoing.php:38 inc/admin/user_mgmnt.php:24
 #: inc/admin/user_mgmnt.php:58
 msgid "Action"
-msgstr "AcciÛn"
+msgstr "Acci√≥n"
 
 #: inc/user/user_outgoing.php:81 inc/user/get_status.php:81
 #: inc/admin/all_outgoing.php:83
@@ -257,7 +252,7 @@ msgstr "Enviado"
 #: inc/user/user_outgoing.php:85 inc/user/get_status.php:85
 #: inc/admin/all_outgoing.php:87
 msgid "Failed"
-msgstr "FallÛ"
+msgstr "Fall√≥"
 
 #: inc/user/send_sms.php:166 inc/user/send_sms.php:290
 msgid "sent"
@@ -265,7 +260,7 @@ msgstr "enviado"
 
 #: inc/user/send_sms.php:166 inc/user/send_sms.php:290
 msgid "failed"
-msgstr "fallÛ"
+msgstr "fall√≥"
 
 #: inc/user/user_outgoing.php:89 inc/user/get_status.php:89
 #: inc/admin/all_outgoing.php:91
@@ -280,11 +275,11 @@ msgstr "Pendiente"
 #: inc/user/user_outgoing.php:114 inc/user/get_status.php:114
 #: inc/admin/all_outgoing.php:117
 msgid "Are you sure you want to delete outgoing SMS ?"
-msgstr "Est· Ud. seguro de querer borrar el SMS saliente ?"
+msgstr "Est√° Ud. seguro de querer borrar el SMS saliente ?"
 
 #: inc/user/user_outgoing.php:114 inc/user/get_status.php:114
 msgid "number"
-msgstr "n˙mero"
+msgstr "n√∫mero"
 
 #: inc/user/user_outgoing.php:150 inc/user/user_outgoing.php:173
 #: inc/user/get_status.php:150 inc/user/get_status.php:173
@@ -314,7 +309,7 @@ msgstr "Emisor"
 #: inc/user/user_inbox.php:70 inc/user/user_incoming.php:79
 #: inc/admin/all_inbox.php:73 inc/admin/all_incoming.php:82
 msgid "Are you sure you want to delete this SMS ?"
-msgstr "Est· Ud. seguro de querer borrar este SMS"
+msgstr "Est√° Ud. seguro de querer borrar este SMS"
 
 #: inc/user/user_inbox.php:102 inc/user/user_incoming.php:110
 #: inc/admin/all_inbox.php:105
@@ -346,7 +341,7 @@ msgstr "Preferencias"
 
 #: inc/user/user_pref.php:48
 msgid "Login information"
-msgstr "InformaciÛn de la sesiÛn"
+msgstr "Informaci√≥n de la sesi√≥n"
 
 #: inc/user/user_pref.php:49 inc/admin/user_mgmnt.php:19
 #: inc/admin/user_mgmnt.php:53 inc/admin/user_mgmnt.php:137
@@ -358,24 +353,24 @@ msgstr "Usuario"
 #: inc/admin/user_mgmnt.php:55 inc/admin/user_mgmnt.php:140
 #: inc/admin/user_mgmnt.php:228
 msgid "Email"
-msgstr "Correo ElectrÛnico"
+msgstr "Correo Electr√≥nico"
 
 #: inc/user/user_pref.php:51 inc/admin/user_mgmnt.php:152
 #: inc/admin/user_mgmnt.php:240
 msgid "Password"
-msgstr "ContraseÒa"
+msgstr "Contrase√±a"
 
 #: inc/user/user_pref.php:52
 msgid "Re-Type Password"
-msgstr "Re-ingresar contraseÒa"
+msgstr "Re-ingresar contrase√±a"
 
 #: inc/user/user_pref.php:54
 msgid "Personal information"
-msgstr "InformaciÛn Personal"
+msgstr "Informaci√≥n Personal"
 
 #: inc/user/user_pref.php:56
 msgid "Address"
-msgstr "DirecciÛn"
+msgstr "Direcci√≥n"
 
 #: inc/user/user_pref.php:57
 msgid "City"
@@ -387,15 +382,15 @@ msgstr "Estado o provincia"
 
 #: inc/user/user_pref.php:59
 msgid "Country"
-msgstr "PaÌs"
+msgstr "Pa√≠s"
 
 #: inc/user/user_pref.php:60
 msgid "Zipcode"
-msgstr "CÛdigo postal"
+msgstr "C√≥digo postal"
 
 #: inc/user/user_pref.php:62
 msgid "Application information"
-msgstr "InformaciÛn del programa"
+msgstr "Informaci√≥n del programa"
 
 #: inc/user/user_pref.php:63 inc/admin/user_mgmnt.php:22
 #: inc/admin/user_mgmnt.php:56 inc/admin/user_mgmnt.php:146
@@ -406,23 +401,23 @@ msgstr "Celular"
 #: inc/user/user_pref.php:63 inc/admin/user_mgmnt.php:146
 #: inc/admin/user_mgmnt.php:234
 msgid "sender number"
-msgstr "n˙mero del remitente"
+msgstr "n√∫mero del remitente"
 
 #: inc/user/user_pref.php:63 inc/admin/user_mgmnt.php:146
 #: inc/admin/user_mgmnt.php:234
 msgid "Max. 16 numeric or 11 alphanumeric characters"
-msgstr "Max. 16 caracteres numÈricos u 11 alfanumÈricos"
+msgstr "Max. 16 caracteres num√©ricos u 11 alfanum√©ricos"
 
 #: inc/user/user_pref.php:64 inc/admin/user_mgmnt.php:149
 #: inc/admin/user_mgmnt.php:237
 msgid "Max. 30 alphanumeric characters"
-msgstr "Max. 30 caracteres alfanumÈricos"
+msgstr "Max. 30 caracteres alfanum√©ricos"
 
 #: inc/user/user_pref.php:65 inc/admin/user_mgmnt.php:23
 #: inc/admin/user_mgmnt.php:57 inc/admin/user_mgmnt.php:155
 #: inc/admin/user_mgmnt.php:243
 msgid "Credit"
-msgstr "CrÈdito"
+msgstr "Cr√©dito"
 
 #: inc/user/user_pref.php:68 inc/admin/main_config.php:62
 #: inc/admin/user_mgmnt.php:161
@@ -435,15 +430,15 @@ msgstr "No se efectuaron cambios"
 
 #: inc/user/user_pref.php:99 inc/admin/user_mgmnt.php:183
 msgid "Email is already in use by other username"
-msgstr "Correo electrÛnico ya en uso"
+msgstr "Correo electr√≥nico ya en uso"
 
 #: inc/user/user_pref.php:99 inc/admin/user_mgmnt.php:183
 msgid "email"
-msgstr "Correo electrÛnico"
+msgstr "Correo electr√≥nico"
 
 #: inc/user/user_pref.php:119
 msgid "Preferences has been saved and password updated"
-msgstr "Las preferencias han sido guardadas y la contraseÒa actualizada"
+msgstr "Las preferencias han sido guardadas y la contrase√±a actualizada"
 
 #: inc/user/user_pref.php:123 inc/admin/user_mgmnt.php:196
 msgid "Preferences has been saved"
@@ -463,19 +458,19 @@ msgstr "El servidor PlaySMS ha sido refrescado satisfactoriamente"
 
 #: inc/common/login.php:16
 msgid "Unable to update login session"
-msgstr "Imposible actualizar la sesiÛn de usuario"
+msgstr "Imposible actualizar la sesi√≥n de usuario"
 
 #: inc/common/login.php:19
 msgid "Invalid username or password"
-msgstr "ContraseÒa o usuario inv·lido"
+msgstr "Contrase√±a o usuario inv√°lido"
 
 #: inc/admin/main_config.php:33 lib/lib_init1.php:52
 msgid "Main configuration"
-msgstr "ConfiguraciÛn Principal"
+msgstr "Configuraci√≥n Principal"
 
 #: inc/admin/main_config.php:38
 msgid "Website title"
-msgstr "TÌtulo del sitio WEB"
+msgstr "T√≠tulo del sitio WEB"
 
 #: inc/admin/main_config.php:41
 msgid "Website email"
@@ -487,7 +482,7 @@ msgstr "Firma del correo reenviado"
 
 #: inc/admin/main_config.php:47
 msgid "Gateway number"
-msgstr "N˙mero de la plataforma"
+msgstr "N√∫mero de la plataforma"
 
 #: inc/admin/main_config.php:50
 msgid "Default SMS rate"
@@ -507,7 +502,7 @@ msgstr "Idioma activo"
 
 #: inc/admin/main_config.php:89
 msgid "Main configuration changes has been saved"
-msgstr "La configuraciÛn principal ha sido guardada"
+msgstr "La configuraci√≥n principal ha sido guardada"
 
 #: inc/admin/all_inbox.php:25
 msgid "All Inbox"
@@ -528,11 +523,11 @@ msgstr "Todos los SMS salientes"
 
 #: inc/admin/all_outgoing.php:117
 msgid "row"
-msgstr "lÌnea"
+msgstr "l√≠nea"
 
 #: inc/admin/user_mgmnt.php:14 inc/admin/user_mgmnt.php:220
 msgid "Add user"
-msgstr "AÒadir usuario"
+msgstr "A√±adir usuario"
 
 #: inc/admin/user_mgmnt.php:15 inc/admin/user_mgmnt.php:127
 #: inc/admin/user_mgmnt.php:216
@@ -541,7 +536,7 @@ msgstr "Administrador"
 
 #: inc/admin/user_mgmnt.php:35
 msgid "Are you sure you want to delete user ?"
-msgstr "Est· Ud. seguro de querer borrar el usuario ?"
+msgstr "Est√° Ud. seguro de querer borrar el usuario ?"
 
 #: inc/admin/user_mgmnt.php:35 inc/admin/user_mgmnt.php:98
 #: inc/admin/user_mgmnt.php:103 inc/admin/user_mgmnt.php:183
@@ -552,7 +547,7 @@ msgstr "usuario"
 
 #: inc/admin/user_mgmnt.php:69
 msgid "Are you sure you want to delete user"
-msgstr "Est· Ud. seguro de querer borrar el usuario ?"
+msgstr "Est√° Ud. seguro de querer borrar el usuario ?"
 
 #: inc/admin/user_mgmnt.php:92
 msgid "Fail to delete user"
@@ -568,7 +563,7 @@ msgstr "Usuario no puede ser eliminado"
 
 #: inc/admin/user_mgmnt.php:107
 msgid "Currently logged in user is immune to deletion"
-msgstr "Usuario en sesiÛn activa, no puede ser eliminado"
+msgstr "Usuario en sesi√≥n activa, no puede ser eliminado"
 
 #: inc/admin/user_mgmnt.php:128
 msgid "Normal user"
@@ -580,7 +575,7 @@ msgstr "Nombre completo"
 
 #: inc/admin/user_mgmnt.php:152
 msgid "Fill to change password for username"
-msgstr "Rellene para cambiar la contraseÒa para el usuario"
+msgstr "Rellene para cambiar la contrase√±a para el usuario"
 
 #: inc/admin/user_mgmnt.php:158 inc/admin/user_mgmnt.php:246
 msgid "User level"
@@ -592,15 +587,15 @@ msgstr "Usuario sin Privilegios"
 
 #: inc/admin/user_mgmnt.php:249
 msgid "Add"
-msgstr "AÒadir"
+msgstr "A√±adir"
 
 #: inc/admin/user_mgmnt.php:269
 msgid "User is already exists"
-msgstr "El usuario ya existe†"
+msgstr "El usuario ya existe¬†"
 
 #: inc/admin/user_mgmnt.php:280
 msgid "User has been added"
-msgstr "El usuario ha sido aÒadido"
+msgstr "El usuario ha sido a√±adido"
 
 #: inc/admin/user_mgmnt.php:286
 msgid "You must fill all fields"
@@ -652,7 +647,7 @@ msgstr "Principal"
 
 #: lib/fn_themes.php:40
 msgid "Logout"
-msgstr "DesconexiÛn"
+msgstr "Desconexi√≥n"
 
 #: lib/fn_core.php:125
 msgid "from"
@@ -672,4 +667,4 @@ msgstr "Ud. ha sido desconectado"
 
 #: lib/fn_auth.php:120
 msgid "You have no access to this page"
-msgstr "Ud. no tiene acceso a esta p·gina"
+msgstr "Ud. no tiene acceso a esta p√°gina"
