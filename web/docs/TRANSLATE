@@ -28,14 +28,20 @@ UPDATE THE TRANSLATIONS
 -----------------------
 
 From time to time the translation strings have to be updated to reflect the
- new strings added to the interface, this process can be automated
+ new strings added to the code, this process can  in part be automated
 
-Update the master .pot file with all the translations
+NOTE: playsms is using a layered structure for the translations, so for
+ each module there is it's own translation
+
+To update the core translations (everything under lib and inc) you have to 
+ follow this steps
 1.- Go to the document root of your web installation
 	cd /var/www/playsms
-2.- Update the pot file with the updated strings
-	find . -iname "*.php" -exec xgettext -j -o plugin/language/messages.pot {} \;
-3.- Merge the updated .pot file with the existant translations (keeping the updated strings)
+2.- Update the pot file with the updated strings (from /lib and /inc)
+	touch plugin/language/messages.pot #Create the file if it doesn't exist
+	find lib/ -iname "*.php" -exec xgettext --from-code=utf-8 -j -o plugin/language/messages.pot {} \;
+	find inc/ -iname "*.php" -exec xgettext --from-code=utf-8 -j -o plugin/language/messages.pot {} \;
+3.- Merge the updated .pot file with the existant translations (to keep the already translated strings)
 	cd /var/www/playsms/plugin/language
 	for i in `ls -1 | grep -v '\.'` ; do echo "msgmerge $i/LC_MESSAGES/messages.po messages.pot >$i/LC_MESSAGES/messages.po.new && mv -f $i/LC_MESSAGES/messages.po.new $i/LC_MESSAGES/messages.po" ; done
 4.- You can now translate the missing translations with you favourite editor and send them back
@@ -44,3 +50,35 @@ Update the master .pot file with all the translations
      generated, this is a simple way of doing it
 	cd /var/www/playsms/plugin/language
 	for i in `ls -1 | grep -v '\.'` ; do msgfmt -vv $i/LC_MESSAGES/messages.po -o $i/LC_MESSAGES/messages.mo  ; done
+
+To update the rest of the translations a similar process could be done for the
+ folders containing more translations as of today (20/03/12)) the following folders contain
+ message files
+	./plugin/gateway/smstools/
+	./plugin/gateway/_template/
+	./plugin/gateway/gammu/
+	./plugin/gateway/kannel/
+	./plugin/gateway/gnokii/
+	./plugin/gateway/uplink/
+	./plugin/gateway/clickatell/
+	./plugin/gateway/msgtoolbox/
+	./plugin/feature/inboxgroup/
+	./plugin/feature/sms_autoreply/
+	./plugin/feature/_sms_survey/
+	./plugin/feature/sms_custom/
+	./plugin/feature/sms_subscribe/
+	./plugin/feature/sms_board/
+	./plugin/feature/sms_poll/
+	./plugin/feature/sms_quiz/
+	./plugin/feature/sms_command/
+	./plugin/feature/_sms_autosend/
+	./plugin/tools/xlate/
+	./plugin/tools/msgtemplate/
+	./plugin/tools/simplephonebook/
+	./plugin/tools/simplerate/
+	./plugin/tools/simplebilling/
+	./plugin/tools/sendfromfile/
+	./plugin/tools/plainoldsendmail/
+	./plugin/tools/_simulator/
+	./plugin/tools/pvat/
+

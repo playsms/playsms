@@ -1,672 +1,780 @@
-#: inc/user/sms_template.php:17 inc/user/send_sms.php:109
-#: inc/user/send_sms.php:224 lib/lib_init1.php:37
-msgid "Message template"
-msgstr "信息模版"
-
-#: inc/user/sms_template.php:20 inc/user/sms_template.php:61
-#: inc/user/sms_template.php:70
-msgid "Add message template"
-msgstr "增加信息模版"
-
-#: inc/user/sms_template.php:26 inc/user/sms_template.php:156
-#: inc/user/user_pref.php:55 inc/admin/user_mgmnt.php:20
-#: inc/admin/user_mgmnt.php:54
-msgid "Name"
-msgstr "名字"
-
-#: inc/user/sms_template.php:27 inc/user/sms_template.php:157
-#: inc/user/user_incoming.php:35 inc/admin/all_incoming.php:36
-msgid "Content"
-msgstr "内容"
-
-#: inc/admin/user_incoming.php:64 inc/admin/all_incoming.php:66
-msgid "handled"
-msgstr "已处理的"
-
-#: inc/admin/user_incoming.php:64 inc/admin/all_incoming.php:66
-msgid "unhandled"
-msgstr "未处理的"
-
-#: inc/user/sms_template.php:55
-msgid "Select action"
-msgstr "选择行为"
-
-#: inc/user/sms_template.php:56 inc/user/user_outgoing.php:130
-#: inc/user/get_status.php:130 inc/user/user_inbox.php:88
-#: inc/user/user_incoming.php:96 inc/admin/all_inbox.php:91
-#: inc/admin/all_incoming.php:100 inc/admin/all_outgoing.php:133
-msgid "Delete selection"
-msgstr "删除选择"
-
-#: inc/user/sms_template.php:58
-msgid "Go"
-msgstr "运行"
-
-#: inc/user/sms_template.php:75 inc/user/sms_template.php:113
-msgid "Message template name"
-msgstr "信息模版名字"
-
-#: inc/user/sms_template.php:78 inc/user/sms_template.php:116
-msgid "Message template content"
-msgstr "信息模版内容"
-
-#: inc/user/sms_template.php:81 inc/user/sms_template.php:119
-msgid "Save template"
-msgstr "保存模版"
-
-#: inc/user/sms_template.php:83 inc/user/sms_template.php:122
-#: inc/user/sms_template.php:185
-msgid "Back"
-msgstr "返回"
-
-#: inc/user/sms_template.php:95
-msgid "Message template has been saved"
-msgstr "信息模版已被保存"
-
-#: inc/user/sms_template.php:108
-msgid "Edit message template"
-msgstr "编辑信息模版"
-
-#: inc/user/sms_template.php:134
-msgid "Message template has been edited"
-msgstr "信息模版已被编辑"
-
-#: inc/user/sms_template.php:138
-msgid "Fail to edit message template"
-msgstr "无法编辑信息模版"
-
-#: inc/user/sms_template.php:150
-msgid "Delete message template"
-msgstr "删除信息模版"
-
-#: inc/user/sms_template.php:183
-msgid "Delete all templates ?"
-msgstr "删除全部模版 ?"
-
-#: inc/user/sms_template.php:184 lib/lib_init1.php:28
-msgid "Delete"
-msgstr "删除"
-
-#: inc/user/sms_template.php:201
-msgid "Selected message template has been deleted"
-msgstr "选择的信息模版已被删除"
-
-#: inc/user/send_sms.php:25 inc/user/send_sms.php:170
-msgid "shared by"
-msgstr "被分享"
-
-#: inc/user/send_sms.php:35 inc/user/send_sms.php:179
-msgid "not set"
-msgstr "为设置"
-
-#: inc/user/send_sms.php:61 inc/user/send_sms.php:195
-#: inc/user/user_pref.php:31
-msgid "Please select"
-msgstr "请选择"
-
-#: inc/user/send_sms.php:82 lib/lib_init1.php:33 lib/lib_init1.php:38
-msgid "Send SMS"
-msgstr "发送短信"
-
-#: inc/user/send_sms.php:85 inc/user/send_sms.php:219
-msgid "From"
-msgstr "来自"
-
-#: inc/user/send_sms.php:90
-msgid "Phone number(s)"
-msgstr "电话号码"
-
-#: inc/user/send_sms.php:96 inc/user/send_sms.php:98
-msgid "All"
-msgstr "全部"
-
-#: inc/user/send_sms.php:102
-msgid "Send to"
-msgstr "发送到"
-
-#: inc/user/send_sms.php:107 inc/user/send_sms.php:222
-msgid "Or"
-msgstr "或者"
-
-#: inc/user/send_sms.php:107
-msgid "International format"
-msgstr "国际格式"
-
-#: inc/user/send_sms.php:108 inc/user/send_sms.php:223
-#: inc/user/user_pref.php:64 inc/admin/user_mgmnt.php:149
-#: inc/admin/user_mgmnt.php:237
-msgid "SMS Sender ID"
-msgstr "短信发件人"
-
-#: inc/user/send_sms.php:108 inc/user/send_sms.php:223
-#: inc/user/user_pref.php:64 inc/admin/user_mgmnt.php:149
-#: inc/admin/user_mgmnt.php:237
-msgid "SMS footer"
-msgstr "短信页脚"
-
-#: inc/user/send_sms.php:110 inc/user/send_sms.php:225
-msgid "Use template"
-msgstr "使用模版"
-
-#: inc/user/send_sms.php:111 inc/user/send_sms.php:226
-msgid "Your message"
-msgstr "你的信息"
-
-#: inc/user/send_sms.php:113 inc/user/send_sms.php:228
-msgid "SMS character"
-msgstr "短信字符"
-
-#: inc/user/send_sms.php:115 inc/user/send_sms.php:230
-msgid "Send as flash message"
-msgstr "发送为瞬时信息"
-
-#: inc/user/send_sms.php:116
-msgid "Send as unicode message (http://www.unicode.org)"
-msgstr "发送为非代码信息"
-
-#: inc/user/send_sms.php:117 inc/user/send_sms.php:231
-msgid "Send"
-msgstr "发送"
-
-#: inc/user/send_sms.php:145 inc/user/send_sms.php:253
-msgid "Your SMS has been delivered to queue"
-msgstr "你的短信已在发送序列中"
-
-#: inc/user/send_sms.php:145 inc/user/send_sms.php:147
-#: inc/user/send_sms.php:253 inc/user/send_sms.php:255
-#: inc/user/user_outgoing.php:114 inc/user/get_status.php:114
-#: inc/admin/all_outgoing.php:117
-msgid "to"
-msgstr "到"
-
-#: inc/user/send_sms.php:147 inc/user/send_sms.php:255
-msgid "Fail to sent SMS"
-msgstr "发送短信失败"
-
-#: inc/user/send_sms.php:153
-msgid "You must select receiver and your message should not be empty"
-msgstr "你必须选择收件人并且你的信息不能为空"
-
-#: inc/user/send_sms.php:216 lib/lib_init1.php:39
-msgid "Send broadcast SMS"
-msgstr "发送广播短信"
-
-#: inc/user/send_sms.php:221
-msgid "Send to group"
-msgstr "发送至群"
-
-#: inc/user/send_sms.php:222
-msgid "Group code"
-msgstr "群代码"
-
-#: inc/user/send_sms.php:261
-msgid "You must select receiver group and your message should not be empty"
-msgstr "你必须选择收件群并且你的信息不能为空"
-
-#: inc/user/user_outgoing.php:25 lib/lib_init1.php:42
-msgid "Outgoing SMS"
-msgstr "短信发件箱"
-
-#: inc/user/user_outgoing.php:32 inc/user/get_status.php:32
-#: inc/user/user_inbox.php:32 inc/user/user_incoming.php:32
-#: inc/admin/all_inbox.php:33 inc/admin/all_incoming.php:33
-#: inc/admin/all_outgoing.php:33
-msgid "Time"
-msgstr "时间"
-
-#: inc/user/user_outgoing.php:33 inc/user/get_status.php:33
-#: inc/admin/all_outgoing.php:34 lib/fn_core.php:111
-msgid "Receiver"
-msgstr "收件人"
-
-#: inc/user/user_outgoing.php:34 inc/user/get_status.php:34
-#: inc/user/user_inbox.php:34 inc/admin/all_inbox.php:35
-#: inc/admin/all_outgoing.php:35 lib/fn_core.php:112
-msgid "Message"
-msgstr "消息"
-
-#: inc/user/user_outgoing.php:35 inc/user/get_status.php:35
-#: inc/user/user_incoming.php:37 inc/admin/all_incoming.php:38
-#: inc/admin/all_outgoing.php:36 inc/admin/user_mgmnt.php:15
-#: inc/admin/user_mgmnt.php:49
-msgid "Status"
-msgstr "状态"
-
-#: inc/user/user_outgoing.php:36 inc/user/get_status.php:36
-#: inc/admin/all_outgoing.php:37
-msgid "Group"
-msgstr "群"
-
-#: inc/user/user_outgoing.php:37 inc/user/get_status.php:37
-#: inc/user/user_inbox.php:35 inc/user/user_incoming.php:38
-#: inc/admin/all_inbox.php:36 inc/admin/all_incoming.php:39
-#: inc/admin/all_outgoing.php:38 inc/admin/user_mgmnt.php:24
-#: inc/admin/user_mgmnt.php:58
-msgid "Action"
-msgstr "行为"
-
-#: inc/user/user_outgoing.php:81 inc/user/get_status.php:81
-#: inc/admin/all_outgoing.php:83
-msgid "Sent"
-msgstr "已发送的"
-
-#: inc/user/user_outgoing.php:85 inc/user/get_status.php:85
-#: inc/admin/all_outgoing.php:87
-msgid "Failed"
-msgstr "发送失败的"
-
-#: inc/user/send_sms.php:166 inc/user/send_sms.php:290
-msgid "sent"
-msgstr "发送成功"
-
-#: inc/user/send_sms.php:166 inc/user/send_sms.php:290
-msgid "failed"
-msgstr "发送失败"
-
-#: inc/user/user_outgoing.php:89 inc/user/get_status.php:89
-#: inc/admin/all_outgoing.php:91
-msgid "Delivered"
-msgstr "已传送的"
-
-#: inc/user/user_outgoing.php:93 inc/user/get_status.php:93
-#: inc/admin/all_outgoing.php:95
-msgid "Pending"
-msgstr "等候中"
-
-#: inc/user/user_outgoing.php:114 inc/user/get_status.php:114
-#: inc/admin/all_outgoing.php:117
-msgid "Are you sure you want to delete outgoing SMS ?"
-msgstr "你确定要删除发出的信息吗 ?"
-
-#: inc/user/user_outgoing.php:114 inc/user/get_status.php:114
-msgid "number"
-msgstr "号码"
-
-#: inc/user/user_outgoing.php:150 inc/user/user_outgoing.php:173
-#: inc/user/get_status.php:150 inc/user/get_status.php:173
-#: inc/admin/all_outgoing.php:153 inc/admin/all_outgoing.php:176
-msgid "Selected outgoing SMS has been deleted"
-msgstr "选择的发送短信已被删除"
-
-#: inc/user/user_outgoing.php:154 inc/user/get_status.php:154
-#: inc/admin/all_outgoing.php:157
-msgid "Fail to delete SMS"
-msgstr "删除短信失败"
-
-#: inc/user/get_status.php:25
-msgid "Outbox"
-msgstr "发件箱"
-
-#: inc/user/user_inbox.php:25 lib/lib_init1.php:40
-msgid "Inbox"
-msgstr "收件箱"
-
-#: inc/user/user_inbox.php:33 inc/user/user_incoming.php:33
-#: inc/admin/all_inbox.php:34 inc/admin/all_incoming.php:34
-#: lib/fn_core.php:110
-msgid "Sender"
-msgstr "发件人"
-
-#: inc/user/user_inbox.php:70 inc/user/user_incoming.php:79
-#: inc/admin/all_inbox.php:73 inc/admin/all_incoming.php:82
-msgid "Are you sure you want to delete this SMS ?"
-msgstr "你确定删除这条短信吗 ?"
-
-#: inc/user/user_inbox.php:102 inc/user/user_incoming.php:110
-#: inc/admin/all_inbox.php:105
-msgid "Fail to delete incoming SMS"
-msgstr "删除收到的短信失败"
-
-#: inc/user/user_inbox.php:109 inc/user/user_inbox.php:128
-#: inc/user/user_incoming.php:117 inc/user/user_incoming.php:136
-#: inc/admin/all_inbox.php:112 inc/admin/all_inbox.php:131
-#: inc/admin/all_incoming.php:121 inc/admin/all_incoming.php:140
-msgid "Selected incoming SMS has been deleted"
-msgstr "选择的收到的短信已删除"
-
-#: inc/user/user_incoming.php:25 lib/lib_init1.php:41
-msgid "Incoming SMS"
-msgstr "收件箱"
-
-#: inc/user/user_incoming.php:34 inc/admin/all_incoming.php:35
-msgid "Keyword"
-msgstr "关键字"
-
-#: inc/user/user_incoming.php:36 inc/admin/all_incoming.php:37
-msgid "Feature"
-msgstr "特征"
-
-#: inc/user/user_pref.php:44 inc/admin/user_mgmnt.php:131 lib/lib_init1.php:43
-msgid "Preferences"
-msgstr "偏好"
-
-#: inc/user/user_pref.php:48
-msgid "Login information"
-msgstr "登陆信息"
-
-#: inc/user/user_pref.php:49 inc/admin/user_mgmnt.php:19
-#: inc/admin/user_mgmnt.php:53 inc/admin/user_mgmnt.php:137
-#: inc/admin/user_mgmnt.php:225
-msgid "Username"
-msgstr "用户名"
-
-#: inc/user/user_pref.php:50 inc/admin/user_mgmnt.php:21
-#: inc/admin/user_mgmnt.php:55 inc/admin/user_mgmnt.php:140
-#: inc/admin/user_mgmnt.php:228
-msgid "Email"
-msgstr "电子邮件"
-
-#: inc/user/user_pref.php:51 inc/admin/user_mgmnt.php:152
-#: inc/admin/user_mgmnt.php:240
-msgid "Password"
-msgstr "密码"
-
-#: inc/user/user_pref.php:52
-msgid "Re-Type Password"
-msgstr "再次输入密码"
-
-#: inc/user/user_pref.php:54
-msgid "Personal information"
-msgstr "个人信息"
-
-#: inc/user/user_pref.php:56
-msgid "Address"
-msgstr "地址"
-
-#: inc/user/user_pref.php:57
-msgid "City"
-msgstr "城市"
-
-#: inc/user/user_pref.php:58
-msgid "State or Province"
-msgstr "州或省"
-
-#: inc/user/user_pref.php:59
-msgid "Country"
-msgstr "国家"
-
-#: inc/user/user_pref.php:60
-msgid "Zipcode"
-msgstr "邮政编码"
-
-#: inc/user/user_pref.php:62
-msgid "Application information"
-msgstr "应用信息"
-
-#: inc/user/user_pref.php:63 inc/admin/user_mgmnt.php:22
-#: inc/admin/user_mgmnt.php:56 inc/admin/user_mgmnt.php:146
-#: inc/admin/user_mgmnt.php:234
-msgid "Mobile"
-msgstr "手机"
-
-#: inc/user/user_pref.php:63 inc/admin/user_mgmnt.php:146
-#: inc/admin/user_mgmnt.php:234
-msgid "sender number"
-msgstr "发件人号码"
-
-#: inc/user/user_pref.php:63 inc/admin/user_mgmnt.php:146
-#: inc/admin/user_mgmnt.php:234
-msgid "Max. 16 numeric or 11 alphanumeric characters"
-msgstr "最多16个数字或11个字母"
-
-#: inc/user/user_pref.php:64 inc/admin/user_mgmnt.php:149
-#: inc/admin/user_mgmnt.php:237
-msgid "Max. 30 alphanumeric characters"
-msgstr "最多30个字母"
-
-#: inc/user/user_pref.php:65 inc/admin/user_mgmnt.php:23
-#: inc/admin/user_mgmnt.php:57 inc/admin/user_mgmnt.php:155
-#: inc/admin/user_mgmnt.php:243
-msgid "Credit"
-msgstr "信用"
-
-#: inc/user/user_pref.php:68 inc/admin/main_config.php:62
-#: inc/admin/user_mgmnt.php:161
-msgid "Save"
-msgstr "保存"
-
-#: inc/user/user_pref.php:91 inc/admin/user_mgmnt.php:176
-msgid "No changes made"
-msgstr "没有作出改变"
-
-#: inc/user/user_pref.php:99 inc/admin/user_mgmnt.php:183
-msgid "Email is already in use by other username"
-msgstr "电子邮件已被其他用户使用"
-
-#: inc/user/user_pref.php:99 inc/admin/user_mgmnt.php:183
-msgid "email"
-msgstr "电子邮件"
-
-#: inc/user/user_pref.php:119
-msgid "Preferences has been saved and password updated"
-msgstr "偏好已被保存且密码已更新"
-
-#: inc/user/user_pref.php:123 inc/admin/user_mgmnt.php:196
-msgid "Preferences has been saved"
-msgstr "偏好已被保存"
-
-#: inc/user/user_pref.php:128 inc/admin/user_mgmnt.php:200
-msgid "Fail to save preferences"
-msgstr "保存偏好失败"
-
-#: inc/user/user_pref.php:134 inc/admin/user_mgmnt.php:206
-msgid "You must fill all field"
-msgstr "你必须添满全部空白"
-
-#: inc/common/daemon.php:9
-msgid "playSMS server successfully refreshed"
-msgstr "短信服务器成功更新"
-
-#: inc/common/login.php:16
-msgid "Unable to update login session"
-msgstr "不能更新登陆会话"
-
-#: inc/common/login.php:19
-msgid "Invalid username or password"
-msgstr "无效用户名或密码"
-
-#: inc/admin/main_config.php:33 lib/lib_init1.php:52
-msgid "Main configuration"
-msgstr "主要构造"
-
-#: inc/admin/main_config.php:38
-msgid "Website title"
-msgstr "网站名称"
-
-#: inc/admin/main_config.php:41
-msgid "Website email"
-msgstr "网站邮件"
-
-#: inc/admin/main_config.php:44
-msgid "Forwarded email footer"
-msgstr "转发邮件页脚"
-
-#: inc/admin/main_config.php:47
-msgid "Gateway number"
-msgstr "网关号"
-
-#: inc/admin/main_config.php:50
-msgid "Default SMS rate"
-msgstr "默认短信率"
-
-#: inc/admin/main_config.php:53
-msgid "Active gateway module"
-msgstr "活跃的网关模块"
-
-#: inc/admin/main_config.php:56
-msgid "Active themes"
-msgstr "活跃的主题"
-
-#: inc/admin/main_config.php:59
-msgid "Active language"
-msgstr "活跃的语言"
-
-#: inc/admin/main_config.php:89
-msgid "Main configuration changes has been saved"
-msgstr "主要构造变化已被保存"
-
-#: inc/admin/all_inbox.php:25
-msgid "All Inbox"
-msgstr "全部收件箱"
-
-#: inc/admin/all_inbox.php:32 inc/admin/all_incoming.php:32
-#: inc/admin/all_outgoing.php:32
-msgid "User"
-msgstr "用户"
-
-#: inc/admin/all_incoming.php:25 lib/lib_init1.php:49
-msgid "All incoming SMS"
-msgstr "全部收到的短信"
-
-#: inc/admin/all_outgoing.php:25
-msgid "All outgoing SMS"
-msgstr "全部发出的短信"
-
-#: inc/admin/all_outgoing.php:117
-msgid "row"
-msgstr "行"
-
-#: inc/admin/user_mgmnt.php:12 lib/lib_init1.php:51
-msgid "Manage user"
-msgstr "管理用户"
-
-#: inc/admin/user_mgmnt.php:14 inc/admin/user_mgmnt.php:86
-#: inc/admin/user_mgmnt.php:220
-msgid "Add user"
-msgstr "添加用户"
-
-#: inc/admin/user_mgmnt.php:15 inc/admin/user_mgmnt.php:127
-#: inc/admin/user_mgmnt.php:216
-msgid "Administrator"
-msgstr "管理员"
-
-#: inc/admin/user_mgmnt.php:35
-msgid "Are you sure you want to delete user ?"
-msgstr "确定删除用户 ?"
-
-#: inc/admin/user_mgmnt.php:35 inc/admin/user_mgmnt.php:98
-#: inc/admin/user_mgmnt.php:103 inc/admin/user_mgmnt.php:183
-#: inc/admin/user_mgmnt.php:196 inc/admin/user_mgmnt.php:200
-#: inc/admin/user_mgmnt.php:269 inc/admin/user_mgmnt.php:280
-msgid "username"
-msgstr "用户名"
-
-#: inc/admin/user_mgmnt.php:49 inc/admin/user_mgmnt.php:128
-msgid "Normal user"
-msgstr "一般用户"
-
-#: inc/admin/user_mgmnt.php:69
-msgid "Are you sure you want to delete user"
-msgstr "确定删除用户"
-
-#: inc/admin/user_mgmnt.php:92
-msgid "Fail to delete user"
-msgstr "删除用户失败"
-
-#: inc/admin/user_mgmnt.php:98
-msgid "User has been deleted"
-msgstr "用户已被删除"
-
-#: inc/admin/user_mgmnt.php:103
-msgid "User is immune to deletion"
-msgstr "用户删除无效"
-
-#: inc/admin/user_mgmnt.php:107
-msgid "Currently logged in user is immune to deletion"
-msgstr "目前在用户登陆的免疫缺失"
-
-#: inc/admin/user_mgmnt.php:143 inc/admin/user_mgmnt.php:231
-msgid "Full name"
-msgstr "全名"
-
-#: inc/admin/user_mgmnt.php:152
-msgid "Fill to change password for username"
-msgstr "填写更改用户名密码"
-
-#: inc/admin/user_mgmnt.php:158 inc/admin/user_mgmnt.php:246
-msgid "User level"
-msgstr "用户等级"
-
-#: inc/admin/user_mgmnt.php:217
-msgid "Normal User"
-msgstr "标准用户"
-
-#: inc/admin/user_mgmnt.php:249
-msgid "Add"
-msgstr "添加"
-
-#: inc/admin/user_mgmnt.php:269
-msgid "User is already exists"
-msgstr "用户已存在"
-
-#: inc/admin/user_mgmnt.php:280
-msgid "User has been added"
-msgstr "用户已添加"
-
-#: inc/admin/user_mgmnt.php:286
-msgid "You must fill all fields"
-msgstr "你必须填写全部空白"
-
-#: lib/lib_init1.php:27
-msgid "Edit"
-msgstr "编辑"
-
-#: lib/lib_init1.php:29
-msgid "Reply"
-msgstr "回复"
-
-#: lib/lib_init1.php:30
-msgid "Manage"
-msgstr "管理"
-
-#: lib/lib_init1.php:31
-msgid "View"
-msgstr "查看"
-
-#: lib/lib_init1.php:32
-msgid "Pick Date & Time"
-msgstr "选择日期和时间"
-
-#: lib/lib_init1.php:34
-msgid "Phonebook"
-msgstr "电话簿"
-
-#: lib/lib_init1.php:48
-msgid "All inbox"
-msgstr "全部发件箱"
-
-#: lib/lib_init1.php:50
-msgid "All outgoing SMS"
-msgstr "全部发出的邮件"
-
-#: lib/lib_init1.php:53
-msgid "Manual refresh"
-msgstr "手册更新"
-
-#: lib/fn_themes.php:36
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lib/fn_themes.php:37 lib/lib_init1.php:43
 msgid "Home"
 msgstr "主页"
 
-#: lib/fn_themes.php:38
+#: lib/fn_themes.php:39
 msgid "Logout"
 msgstr "注销"
 
-#: lib/fn_core.php:107
-msgid "from"
-msgstr "来自"
+#: lib/fn_auth.php:130
+msgid "You have no access to this page"
+msgstr "你无法访问这一页"
 
-#: lib/fn_core.php:108
-msgid "Forward Private WebSMS"
-msgstr "提出非官方网络短信"
+#: lib/fn_auth.php:156
+msgid "Unable to update login session"
+msgstr "不能更新登陆会话"
 
-#: lib/fn_core.php:109
-msgid "Date time"
-msgstr "日期时间"
+#: lib/fn_auth.php:159
+msgid "Invalid username or password"
+msgstr "无效用户名或密码"
 
-#: lib/fn_auth.php:89
+#: lib/fn_auth.php:184
 msgid "You have been logged out"
 msgstr "你已注销"
 
-#: lib/fn_auth.php:94
-msgid "You have no access to this page"
-msgstr "你无法访问这一页"
+#: lib/fn_auth.php:199
+#, fuzzy
+msgid "Fail to recover password"
+msgstr "无效用户名或密码"
+
+#: lib/fn_auth.php:205
+#, fuzzy
+msgid "Password recovery"
+msgstr "密码"
+
+#: lib/fn_auth.php:208 lib/fn_auth.php:265 inc/admin/user_mgmnt.php:20
+#: inc/admin/user_mgmnt.php:54 inc/admin/user_mgmnt.php:148
+#: inc/admin/user_mgmnt.php:256 inc/user/user_pref.php:90
+msgid "Username"
+msgstr "用户名"
+
+#: lib/fn_auth.php:209 lib/fn_auth.php:266 inc/admin/user_mgmnt.php:169
+#: inc/admin/user_mgmnt.php:277 inc/user/user_pref.php:91
+msgid "Password"
+msgstr "密码"
+
+#: lib/fn_auth.php:212 lib/fn_auth.php:271
+msgid "Password has been sent to your email"
+msgstr ""
+
+#: lib/fn_auth.php:214 lib/fn_auth.php:273
+#, fuzzy
+msgid "Fail to send email"
+msgstr "发送短信失败"
+
+#: lib/fn_auth.php:221
+msgid "Recover password disabled"
+msgstr ""
+
+#: lib/fn_auth.php:240
+msgid "Fail to register an account"
+msgstr ""
+
+#: lib/fn_auth.php:245 inc/admin/user_mgmnt.php:313
+msgid "User is already exists"
+msgstr "用户已存在"
+
+#: lib/fn_auth.php:245 lib/fn_auth.php:268 inc/admin/user_mgmnt.php:36
+#: inc/admin/user_mgmnt.php:99 inc/admin/user_mgmnt.php:104
+#: inc/admin/user_mgmnt.php:206 inc/admin/user_mgmnt.php:219
+#: inc/admin/user_mgmnt.php:223 inc/admin/user_mgmnt.php:313
+#: inc/admin/user_mgmnt.php:324
+msgid "username"
+msgstr "用户名"
+
+#: lib/fn_auth.php:262
+msgid "New account registration"
+msgstr ""
+
+#: lib/fn_auth.php:268 inc/admin/user_mgmnt.php:324
+msgid "User has been added"
+msgstr "用户已添加"
+
+#: lib/fn_auth.php:278
+msgid "Public registration disabled"
+msgstr ""
+
+#: lib/lib_init1.php:33
+msgid "Edit"
+msgstr "编辑"
+
+#: lib/lib_init1.php:34 inc/user/sms_template.php:185
+msgid "Delete"
+msgstr "删除"
+
+#: lib/lib_init1.php:35
+msgid "Reply"
+msgstr "回复"
+
+#: lib/lib_init1.php:36
+msgid "Manage"
+msgstr "管理"
+
+#: lib/lib_init1.php:37
+msgid "View"
+msgstr "查看"
+
+#: lib/lib_init1.php:38
+msgid "Pick Date & Time"
+msgstr "选择日期和时间"
+
+#: lib/lib_init1.php:39 lib/lib_init1.php:52 inc/user/send_sms.php:75
+msgid "Send SMS"
+msgstr "发送短信"
+
+#: lib/lib_init1.php:40
+msgid "Phonebook"
+msgstr "电话簿"
+
+#: lib/lib_init1.php:44
+msgid "My Account"
+msgstr ""
+
+#: lib/lib_init1.php:45
+#, fuzzy
+msgid "Administration"
+msgstr "管理员"
+
+#: lib/lib_init1.php:46 inc/admin/all_incoming.php:38
+#: inc/user/user_incoming.php:37
+msgid "Feature"
+msgstr "特征"
+
+#: lib/lib_init1.php:47
+msgid "Tools"
+msgstr ""
+
+#: lib/lib_init1.php:48 inc/admin/all_outgoing.php:35
+#, fuzzy
+msgid "Gateway"
+msgstr "网关号"
+
+#: lib/lib_init1.php:51 inc/user/sms_template.php:18 inc/user/send_sms.php:102
+#: inc/user/send_sms.php:232
+msgid "Message template"
+msgstr "信息模版"
+
+#: lib/lib_init1.php:53 inc/user/send_sms.php:224
+msgid "Send broadcast SMS"
+msgstr "发送广播短信"
+
+#: lib/lib_init1.php:54 inc/user/user_inbox.php:26
+msgid "Inbox"
+msgstr "收件箱"
+
+#: lib/lib_init1.php:55 inc/user/user_incoming.php:26
+msgid "Incoming SMS"
+msgstr "收件箱"
+
+#: lib/lib_init1.php:56 inc/user/user_outgoing.php:26
+msgid "Outgoing SMS"
+msgstr "短信发件箱"
+
+#: lib/lib_init1.php:57 inc/admin/user_mgmnt.php:142 inc/user/user_pref.php:85
+msgid "Preferences"
+msgstr "偏好"
+
+#: lib/lib_init1.php:63
+msgid "All inbox"
+msgstr "全部发件箱"
+
+#: lib/lib_init1.php:64 inc/admin/all_incoming.php:26
+msgid "All incoming SMS"
+msgstr "全部收到的短信"
+
+#: lib/lib_init1.php:65 inc/admin/all_outgoing.php:26
+msgid "All outgoing SMS"
+msgstr "全部发出的短信"
+
+#: lib/lib_init1.php:66 inc/admin/user_mgmnt.php:13
+msgid "Manage user"
+msgstr "管理用户"
+
+#: lib/lib_init1.php:67 inc/admin/main_config.php:44
+msgid "Main configuration"
+msgstr "主要构造"
+
+#: lib/fn_core.php:249
+msgid "from"
+msgstr "来自"
+
+#: lib/fn_core.php:250
+msgid "Forward Private WebSMS"
+msgstr "提出非官方网络短信"
+
+#: lib/fn_core.php:251
+msgid "Date time"
+msgstr "日期时间"
+
+#: lib/fn_core.php:252
+msgid "Sender"
+msgstr "发件人"
+
+#: lib/fn_core.php:253
+msgid "Receiver"
+msgstr "收件人"
+
+#: lib/fn_core.php:254 inc/admin/all_inbox.php:36
+#: inc/admin/all_outgoing.php:37 inc/user/user_inbox.php:35
+#: inc/user/user_outgoing.php:35
+msgid "Message"
+msgstr "消息"
+
+#: inc/admin/all_inbox.php:26
+msgid "All Inbox"
+msgstr "全部收件箱"
+
+#: inc/admin/all_inbox.php:33 inc/admin/all_outgoing.php:33
+#: inc/admin/all_incoming.php:33
+msgid "User"
+msgstr "用户"
+
+#: inc/admin/all_inbox.php:34 inc/admin/all_outgoing.php:34
+#: inc/admin/all_incoming.php:34 inc/user/user_inbox.php:33
+#: inc/user/user_outgoing.php:33 inc/user/user_incoming.php:33
+msgid "Time"
+msgstr "时间"
+
+#: inc/admin/all_inbox.php:35 inc/admin/all_incoming.php:35
+#: inc/user/user_inbox.php:34 inc/user/user_incoming.php:34
+msgid "From"
+msgstr "来自"
+
+#: inc/admin/all_inbox.php:37 inc/admin/all_outgoing.php:40
+#: inc/admin/user_mgmnt.php:25 inc/admin/user_mgmnt.php:59
+#: inc/admin/all_incoming.php:40 inc/user/user_inbox.php:36
+#: inc/user/user_outgoing.php:38 inc/user/user_incoming.php:39
+msgid "Action"
+msgstr "行为"
+
+#: inc/admin/all_inbox.php:74 inc/admin/all_incoming.php:83
+#: inc/user/user_inbox.php:71 inc/user/user_incoming.php:80
+msgid "Are you sure you want to delete this SMS ?"
+msgstr "你确定删除这条短信吗 ?"
+
+#: inc/admin/all_inbox.php:92 inc/admin/all_outgoing.php:137
+#: inc/admin/all_incoming.php:101 inc/user/sms_template.php:57
+#: inc/user/user_inbox.php:89 inc/user/user_outgoing.php:131
+#: inc/user/user_incoming.php:97
+msgid "Delete selection"
+msgstr "删除选择"
+
+#: inc/admin/all_inbox.php:106 inc/user/user_inbox.php:103
+#: inc/user/user_incoming.php:111
+msgid "Fail to delete incoming SMS"
+msgstr "删除收到的短信失败"
+
+#: inc/admin/all_inbox.php:113 inc/admin/all_inbox.php:132
+#: inc/admin/all_incoming.php:122 inc/admin/all_incoming.php:141
+#: inc/user/user_inbox.php:110 inc/user/user_inbox.php:129
+#: inc/user/user_incoming.php:118 inc/user/user_incoming.php:137
+msgid "Selected incoming SMS has been deleted"
+msgstr "选择的收到的短信已删除"
+
+#: inc/admin/main_config.php:14 inc/admin/main_config.php:19
+#: inc/user/user_pref.php:41 inc/user/user_pref.php:50
+#: inc/user/user_pref.php:59
+msgid "yes"
+msgstr ""
+
+#: inc/admin/main_config.php:15 inc/admin/main_config.php:20
+#: inc/user/user_pref.php:42 inc/user/user_pref.php:51
+#: inc/user/user_pref.php:60
+msgid "no"
+msgstr ""
+
+#: inc/admin/main_config.php:49
+msgid "Website title"
+msgstr "网站名称"
+
+#: inc/admin/main_config.php:52
+msgid "Website email"
+msgstr "网站邮件"
+
+#: inc/admin/main_config.php:55
+msgid "Forwarded email footer"
+msgstr "转发邮件页脚"
+
+#: inc/admin/main_config.php:58
+msgid "Gateway number"
+msgstr "网关号"
+
+#: inc/admin/main_config.php:61
+#, fuzzy
+msgid "Gateway timezone"
+msgstr "网关号"
+
+#: inc/admin/main_config.php:61 inc/admin/user_mgmnt.php:166
+#: inc/admin/user_mgmnt.php:274 inc/user/user_pref.php:106
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+#: inc/admin/main_config.php:64
+msgid "Default SMS rate"
+msgstr "默认短信率"
+
+#: inc/admin/main_config.php:67
+msgid "Maximum SMS count"
+msgstr ""
+
+#: inc/admin/main_config.php:70
+msgid "Default credit for user"
+msgstr ""
+
+#: inc/admin/main_config.php:73
+msgid "Enable public registration"
+msgstr ""
+
+#: inc/admin/main_config.php:76
+#, fuzzy
+msgid "Enable forgot password"
+msgstr "无效用户名或密码"
+
+#: inc/admin/main_config.php:79
+msgid "Active gateway module"
+msgstr "活跃的网关模块"
+
+#: inc/admin/main_config.php:82
+msgid "Active themes"
+msgstr "活跃的主题"
+
+#: inc/admin/main_config.php:85
+#, fuzzy
+msgid "Default language"
+msgstr "活跃的语言"
+
+#: inc/admin/main_config.php:88 inc/admin/user_mgmnt.php:181
+#: inc/user/user_pref.php:115
+msgid "Save"
+msgstr "保存"
+
+#: inc/admin/main_config.php:125
+msgid "Main configuration changes has been saved"
+msgstr "主要构造变化已被保存"
+
+#: inc/admin/all_outgoing.php:36 inc/user/user_outgoing.php:34
+msgid "To"
+msgstr ""
+
+#: inc/admin/all_outgoing.php:38 inc/admin/user_mgmnt.php:16
+#: inc/admin/user_mgmnt.php:50 inc/admin/all_incoming.php:39
+#: inc/user/user_outgoing.php:36 inc/user/user_incoming.php:38
+msgid "Status"
+msgstr "状态"
+
+#: inc/admin/all_outgoing.php:39 inc/user/user_outgoing.php:37
+msgid "Group"
+msgstr "群"
+
+#: inc/admin/all_outgoing.php:86 inc/user/user_outgoing.php:82
+msgid "Sent"
+msgstr "已发送的"
+
+#: inc/admin/all_outgoing.php:90 inc/user/user_outgoing.php:86
+msgid "Failed"
+msgstr "发送失败的"
+
+#: inc/admin/all_outgoing.php:94 inc/user/user_outgoing.php:90
+msgid "Delivered"
+msgstr "已传送的"
+
+#: inc/admin/all_outgoing.php:98 inc/user/user_outgoing.php:94
+msgid "Pending"
+msgstr "等候中"
+
+#: inc/admin/all_outgoing.php:121 inc/user/user_outgoing.php:115
+msgid "Are you sure you want to delete outgoing SMS ?"
+msgstr "你确定要删除发出的信息吗 ?"
+
+#: inc/admin/all_outgoing.php:121 inc/user/send_sms.php:141
+#: inc/user/send_sms.php:143 inc/user/user_outgoing.php:115
+msgid "to"
+msgstr "到"
+
+#: inc/admin/all_outgoing.php:121
+msgid "row"
+msgstr "行"
+
+#: inc/admin/all_outgoing.php:157 inc/admin/all_outgoing.php:180
+#: inc/user/user_outgoing.php:151 inc/user/user_outgoing.php:174
+msgid "Selected outgoing SMS has been deleted"
+msgstr "选择的发送短信已被删除"
+
+#: inc/admin/all_outgoing.php:161 inc/user/user_outgoing.php:155
+msgid "Fail to delete SMS"
+msgstr "删除短信失败"
+
+#: inc/admin/user_mgmnt.php:15 inc/admin/user_mgmnt.php:87
+#: inc/admin/user_mgmnt.php:251
+msgid "Add user"
+msgstr "添加用户"
+
+#: inc/admin/user_mgmnt.php:16 inc/admin/user_mgmnt.php:138
+#: inc/admin/user_mgmnt.php:247
+msgid "Administrator"
+msgstr "管理员"
+
+#: inc/admin/user_mgmnt.php:21 inc/admin/user_mgmnt.php:55
+#: inc/user/sms_template.php:27 inc/user/sms_template.php:157
+#: inc/user/user_pref.php:95
+msgid "Name"
+msgstr "名字"
+
+#: inc/admin/user_mgmnt.php:22 inc/admin/user_mgmnt.php:56
+#: inc/admin/user_mgmnt.php:154 inc/admin/user_mgmnt.php:262
+#: inc/user/user_pref.php:96
+msgid "Email"
+msgstr "电子邮件"
+
+#: inc/admin/user_mgmnt.php:23 inc/admin/user_mgmnt.php:57
+#: inc/admin/user_mgmnt.php:157 inc/admin/user_mgmnt.php:265
+#: inc/user/user_pref.php:97
+msgid "Mobile"
+msgstr "手机"
+
+#: inc/admin/user_mgmnt.php:24 inc/admin/user_mgmnt.php:58
+#: inc/admin/user_mgmnt.php:172 inc/admin/user_mgmnt.php:280
+#: inc/user/user_pref.php:109
+msgid "Credit"
+msgstr "信用"
+
+#: inc/admin/user_mgmnt.php:36
+msgid "Are you sure you want to delete user ?"
+msgstr "确定删除用户 ?"
+
+#: inc/admin/user_mgmnt.php:50 inc/admin/user_mgmnt.php:139
+msgid "Normal user"
+msgstr "一般用户"
+
+#: inc/admin/user_mgmnt.php:70
+msgid "Are you sure you want to delete user"
+msgstr "确定删除用户"
+
+#: inc/admin/user_mgmnt.php:93
+msgid "Fail to delete user"
+msgstr "删除用户失败"
+
+#: inc/admin/user_mgmnt.php:99
+msgid "User has been deleted"
+msgstr "用户已被删除"
+
+#: inc/admin/user_mgmnt.php:104
+msgid "User is immune to deletion"
+msgstr "用户删除无效"
+
+#: inc/admin/user_mgmnt.php:108
+msgid "Currently logged in user is immune to deletion"
+msgstr "目前在用户登陆的免疫缺失"
+
+#: inc/admin/user_mgmnt.php:151 inc/admin/user_mgmnt.php:259
+msgid "Full name"
+msgstr "全名"
+
+#: inc/admin/user_mgmnt.php:157 inc/admin/user_mgmnt.php:160
+#: inc/admin/user_mgmnt.php:265 inc/admin/user_mgmnt.php:268
+#: inc/user/user_pref.php:97 inc/user/user_pref.php:107
+msgid "Max. 16 numeric or 11 alphanumeric characters"
+msgstr "最多16个数字或11个字母"
+
+#: inc/admin/user_mgmnt.php:160 inc/admin/user_mgmnt.php:268
+#: inc/user/send_sms.php:78 inc/user/send_sms.php:227
+#: inc/user/user_pref.php:107
+msgid "SMS Sender ID"
+msgstr "短信发件人"
+
+#: inc/admin/user_mgmnt.php:163 inc/admin/user_mgmnt.php:271
+#: inc/user/send_sms.php:79 inc/user/send_sms.php:228
+#: inc/user/user_pref.php:108
+msgid "SMS footer"
+msgstr "短信页脚"
+
+#: inc/admin/user_mgmnt.php:163 inc/admin/user_mgmnt.php:271
+#: inc/user/user_pref.php:108
+msgid "Max. 30 alphanumeric characters"
+msgstr "最多30个字母"
+
+#: inc/admin/user_mgmnt.php:166 inc/admin/user_mgmnt.php:274
+#: inc/user/user_pref.php:106
+#, fuzzy
+msgid "Timezone"
+msgstr "时间"
+
+#: inc/admin/user_mgmnt.php:169
+msgid "Fill to change password for username"
+msgstr "填写更改用户名密码"
+
+#: inc/admin/user_mgmnt.php:175 inc/admin/user_mgmnt.php:283
+msgid "User level"
+msgstr "用户等级"
+
+#: inc/admin/user_mgmnt.php:178 inc/admin/user_mgmnt.php:286
+#: inc/user/user_pref.php:103
+msgid "Active language"
+msgstr "活跃的语言"
+
+#: inc/admin/user_mgmnt.php:199 inc/user/user_pref.php:144
+msgid "No changes made"
+msgstr "没有作出改变"
+
+#: inc/admin/user_mgmnt.php:206 inc/user/user_pref.php:152
+msgid "Email is already in use by other username"
+msgstr "电子邮件已被其他用户使用"
+
+#: inc/admin/user_mgmnt.php:206 inc/user/user_pref.php:152
+msgid "email"
+msgstr "电子邮件"
+
+#: inc/admin/user_mgmnt.php:219 inc/user/user_pref.php:178
+msgid "Preferences has been saved"
+msgstr "偏好已被保存"
+
+#: inc/admin/user_mgmnt.php:223 inc/user/user_pref.php:183
+msgid "Fail to save preferences"
+msgstr "保存偏好失败"
+
+#: inc/admin/user_mgmnt.php:229 inc/user/user_pref.php:189
+msgid "You must fill all field"
+msgstr "你必须添满全部空白"
+
+#: inc/admin/user_mgmnt.php:248
+msgid "Normal User"
+msgstr "标准用户"
+
+#: inc/admin/user_mgmnt.php:290
+msgid "Add"
+msgstr "添加"
+
+#: inc/admin/user_mgmnt.php:330
+msgid "You must fill all fields"
+msgstr "你必须填写全部空白"
+
+#: inc/admin/all_incoming.php:36 inc/user/user_incoming.php:35
+msgid "Keyword"
+msgstr "关键字"
+
+#: inc/admin/all_incoming.php:37 inc/user/sms_template.php:28
+#: inc/user/sms_template.php:158 inc/user/user_incoming.php:36
+msgid "Content"
+msgstr "内容"
+
+#: inc/admin/all_incoming.php:67 inc/user/user_incoming.php:65
+msgid "handled"
+msgstr "已处理的"
+
+#: inc/admin/all_incoming.php:67 inc/user/user_incoming.php:65
+msgid "unhandled"
+msgstr "未处理的"
+
+#: inc/user/sms_template.php:21 inc/user/sms_template.php:62
+#: inc/user/sms_template.php:71
+msgid "Add message template"
+msgstr "增加信息模版"
+
+#: inc/user/sms_template.php:56
+msgid "Select action"
+msgstr "选择行为"
+
+#: inc/user/sms_template.php:59
+msgid "Go"
+msgstr "运行"
+
+#: inc/user/sms_template.php:76 inc/user/sms_template.php:114
+msgid "Message template name"
+msgstr "信息模版名字"
+
+#: inc/user/sms_template.php:79 inc/user/sms_template.php:117
+msgid "Message template content"
+msgstr "信息模版内容"
+
+#: inc/user/sms_template.php:82 inc/user/sms_template.php:120
+msgid "Save template"
+msgstr "保存模版"
+
+#: inc/user/sms_template.php:84 inc/user/sms_template.php:123
+#: inc/user/sms_template.php:186
+msgid "Back"
+msgstr "返回"
+
+#: inc/user/sms_template.php:96
+msgid "Message template has been saved"
+msgstr "信息模版已被保存"
+
+#: inc/user/sms_template.php:109
+msgid "Edit message template"
+msgstr "编辑信息模版"
+
+#: inc/user/sms_template.php:135
+msgid "Message template has been edited"
+msgstr "信息模版已被编辑"
+
+#: inc/user/sms_template.php:139
+msgid "Fail to edit message template"
+msgstr "无法编辑信息模版"
+
+#: inc/user/sms_template.php:151
+msgid "Delete message template"
+msgstr "删除信息模版"
+
+#: inc/user/sms_template.php:184
+msgid "Delete all templates ?"
+msgstr "删除全部模版 ?"
+
+#: inc/user/sms_template.php:202
+msgid "Selected message template has been deleted"
+msgstr "选择的信息模版已被删除"
+
+#: inc/user/send_sms.php:26 inc/user/send_sms.php:185
+msgid "shared by"
+msgstr "被分享"
+
+#: inc/user/send_sms.php:38 inc/user/send_sms.php:196
+msgid "not set"
+msgstr "为设置"
+
+#: inc/user/send_sms.php:54 inc/user/send_sms.php:203
+#: inc/user/user_pref.php:65
+msgid "Please select"
+msgstr "请选择"
+
+#: inc/user/send_sms.php:84
+msgid "Phone number(s)"
+msgstr "电话号码"
+
+#: inc/user/send_sms.php:90 inc/user/send_sms.php:92
+msgid "All"
+msgstr "全部"
+
+#: inc/user/send_sms.php:96
+msgid "Send to"
+msgstr "发送到"
+
+#: inc/user/send_sms.php:101 inc/user/send_sms.php:231
+msgid "Or"
+msgstr "或者"
+
+#: inc/user/send_sms.php:101
+msgid "International format"
+msgstr "国际格式"
+
+#: inc/user/send_sms.php:103 inc/user/send_sms.php:233
+msgid "Use template"
+msgstr "使用模版"
+
+#: inc/user/send_sms.php:104 inc/user/send_sms.php:234
+msgid "Your message"
+msgstr "你的信息"
+
+#: inc/user/send_sms.php:106 inc/user/send_sms.php:236
+msgid "SMS character"
+msgstr "短信字符"
+
+#: inc/user/send_sms.php:109 inc/user/send_sms.php:239
+msgid "Send as flash message"
+msgstr "发送为瞬时信息"
+
+#: inc/user/send_sms.php:110 inc/user/send_sms.php:240
+msgid "Send as unicode message (http://www.unicode.org)"
+msgstr "发送为非代码信息"
+
+#: inc/user/send_sms.php:111 inc/user/send_sms.php:241
+msgid "Send"
+msgstr "发送"
+
+#: inc/user/send_sms.php:141 inc/user/send_sms.php:160
+#: inc/user/send_sms.php:285
+msgid "Your SMS has been delivered to queue"
+msgstr "你的短信已在发送序列中"
+
+#: inc/user/send_sms.php:143
+msgid "Fail to sent SMS"
+msgstr "发送短信失败"
+
+#: inc/user/send_sms.php:160 inc/user/send_sms.php:285
+msgid "sent"
+msgstr "发送成功"
+
+#: inc/user/send_sms.php:160 inc/user/send_sms.php:285
+msgid "failed"
+msgstr "发送失败"
+
+#: inc/user/send_sms.php:166
+msgid "You must select receiver and your message should not be empty"
+msgstr "你必须选择收件人并且你的信息不能为空"
+
+#: inc/user/send_sms.php:230
+msgid "Send to group"
+msgstr "发送至群"
+
+#: inc/user/send_sms.php:231
+msgid "Group code"
+msgstr "群代码"
+
+#: inc/user/send_sms.php:290
+msgid "You must select receiver group and your message should not be empty"
+msgstr "你必须选择收件群并且你的信息不能为空"
+
+#: inc/user/user_outgoing.php:115
+msgid "number"
+msgstr "号码"
+
+#: inc/user/user_pref.php:89
+msgid "Login information"
+msgstr "登陆信息"
+
+#: inc/user/user_pref.php:92
+msgid "Re-Type Password"
+msgstr "再次输入密码"
+
+#: inc/user/user_pref.php:94
+msgid "Personal information"
+msgstr "个人信息"
+
+#: inc/user/user_pref.php:98
+msgid "Address"
+msgstr "地址"
+
+#: inc/user/user_pref.php:99
+msgid "City"
+msgstr "城市"
+
+#: inc/user/user_pref.php:100
+msgid "State or Province"
+msgstr "州或省"
+
+#: inc/user/user_pref.php:101
+msgid "Country"
+msgstr "国家"
+
+#: inc/user/user_pref.php:102
+msgid "Zipcode"
+msgstr "邮政编码"
+
+#: inc/user/user_pref.php:105
+msgid "Application information"
+msgstr "应用信息"
+
+#: inc/user/user_pref.php:110
+msgid "Forward PV to inbox"
+msgstr ""
+
+#: inc/user/user_pref.php:111
+#, fuzzy
+msgid "Forward PV to email"
+msgstr "转发邮件页脚"
+
+#: inc/user/user_pref.php:112
+msgid "Forward PV to mobile"
+msgstr ""
+
+#: inc/user/user_pref.php:174
+msgid "Preferences has been saved and password updated"
+msgstr "偏好已被保存且密码已更新"
+
+#~ msgid "Outbox"
+#~ msgstr "发件箱"
+
+#~ msgid "sender number"
+#~ msgstr "发件人号码"
+
+#~ msgid "playSMS server successfully refreshed"
+#~ msgstr "短信服务器成功更新"
+
+#~ msgid "Manual refresh"
+#~ msgstr "手册更新"
