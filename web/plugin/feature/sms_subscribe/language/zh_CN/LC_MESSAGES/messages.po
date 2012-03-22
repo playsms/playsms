@@ -1,3 +1,10 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 #: config.php:4 sms_subscribe.php:12
 msgid "Manage subscribe"
 msgstr "管理订阅"

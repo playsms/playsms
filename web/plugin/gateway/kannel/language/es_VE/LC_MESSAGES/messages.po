@@ -1,3 +1,10 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 #: config.php:19 kannel.php:23
 msgid "Manage kannel"
 msgstr "Administrar Kannel"
@@ -12,7 +19,7 @@ msgstr "Desctivar"
 
 #: kannel.php:12
 msgid "click here to activate"
-msgstr "Presione aquí para activar"
+msgstr "Presione aquÃ­ para activar"
 
 #: kannel.php:28
 msgid "Gateway name"
@@ -24,7 +31,7 @@ msgstr "Usuario"
 
 #: kannel.php:34
 msgid "Password"
-msgstr "Contraseña"
+msgstr "ContraseÃ±a"
 
 #: kannel.php:34
 msgid "Fill to change the password"
@@ -36,7 +43,7 @@ msgstr "Emisor Global"
 
 #: kannel.php:37
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "Max. 16 numéricos u 11 alfanuméricos. Vacio para desactivar"
+msgstr "Max. 16 numÃ©ricos u 11 alfanumÃ©ricos. Vacio para desactivar"
 
 #: kannel.php:40
 msgid "Bearerbox hostname or IP"
@@ -44,7 +51,7 @@ msgstr "Nombre de HOST o IP del Bearerbox"
 
 #: kannel.php:40 kannel.php:43
 msgid "Kannel specific"
-msgstr "Valor específico de Kannel"
+msgstr "Valor especÃ­fico de Kannel"
 
 #: kannel.php:43
 msgid "Send SMS port"
@@ -60,7 +67,7 @@ msgstr "URL web de playSMS"
 
 #: kannel.php:46
 msgid "URL to playSMS, empty it to set it to base URL"
-msgstr "Dirección web de PlaySMS, vacio para dejar valor por defecto"
+msgstr "DirecciÃ³n web de PlaySMS, vacio para dejar valor por defecto"
 
 #: kannel.php:50
 msgid "Note"
@@ -68,7 +75,7 @@ msgstr "Nota"
 
 #: kannel.php:51
 msgid "Send SMS message without footer banner"
-msgstr "Envio de SMS sin pie de página"
+msgstr "Envio de SMS sin pie de pÃ¡gina"
 
 #: kannel.php:53
 msgid "Save"
@@ -80,7 +87,7 @@ msgstr "No se han efectuado cambios"
 
 #: kannel.php:80
 msgid "Gateway module configurations has been saved"
-msgstr "Configuración del múdulo Gateway ha sido guardada"
+msgstr "ConfiguraciÃ³n del mÃºdulo Gateway ha sido guardada"
 
 #: kannel.php:88
 msgid "Gateway has been activated"

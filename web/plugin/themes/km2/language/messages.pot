@@ -1,0 +1,104 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-22 15:43+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: plugin/themes/km2/page_welcome.php:8
+msgid "Welcome to PlaySMS"
+msgstr ""
+
+#: plugin/themes/km2/page_welcome.php:17
+msgid "About playSMS"
+msgstr ""
+
+#: plugin/themes/km2/page_welcome.php:18
+msgid "Changelog"
+msgstr ""
+
+#: plugin/themes/km2/page_welcome.php:19
+msgid "Installation Guide"
+msgstr ""
+
+#: plugin/themes/km2/page_welcome.php:20
+msgid "F.A.Q"
+msgstr ""
+
+#: plugin/themes/km2/page_welcome.php:21
+msgid "License"
+msgstr ""
+
+#: plugin/themes/km2/page_welcome.php:26
+msgid "FAQ Users"
+msgstr ""
+
+#: plugin/themes/km2/page_register.php:32
+msgid "Name"
+msgstr ""
+
+#: plugin/themes/km2/page_register.php:36 plugin/themes/km2/page_login.php:32
+#: plugin/themes/km2/page_forgot.php:31 plugin/themes/km2/page_forgot.php:31
+msgid "Username"
+msgstr ""
+
+#: plugin/themes/km2/page_register.php:41
+msgid "Mobile"
+msgstr ""
+
+#: plugin/themes/km2/page_register.php:46 plugin/themes/km2/page_forgot.php:36
+#: plugin/themes/km2/page_forgot.php:36
+msgid "Email"
+msgstr ""
+
+#: plugin/themes/km2/page_register.php:53
+msgid "Register"
+msgstr ""
+
+#: plugin/themes/km2/page_login.php:37
+msgid "Password"
+msgstr ""
+
+#: plugin/themes/km2/page_login.php:43
+msgid "Login"
+msgstr ""
+
+#: plugin/themes/km2/page_login.php:50
+msgid "Register an account"
+msgstr ""
+
+#: plugin/themes/km2/page_login.php:52
+msgid "Forgot password"
+msgstr ""
+
+#: plugin/themes/km2/header.php:42
+msgid "Home"
+msgstr ""
+
+#: plugin/themes/km2/header.php:45
+msgid "Preferences"
+msgstr ""
+
+#: plugin/themes/km2/header.php:47
+msgid "Contact"
+msgstr ""
+
+#: plugin/themes/km2/header.php:50
+msgid "Logout"
+msgstr ""
+
+#: plugin/themes/km2/page_forgot.php:43 plugin/themes/km2/page_forgot.php:43
+msgid "Recover password"
+msgstr ""
