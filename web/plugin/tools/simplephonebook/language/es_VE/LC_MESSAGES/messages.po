@@ -1,3 +1,10 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 #: config.php:3
 msgid "Export"
 msgstr "Exportar"
@@ -8,11 +15,11 @@ msgstr "Importar"
 
 #: config.php:5
 msgid "Publish"
-msgstr "¨ublicar"
+msgstr "Â¨ublicar"
 
 #: config.php:6
 msgid "Unpublish"
-msgstr "Eliminar publicación"
+msgstr "Eliminar publicaciÃ³n"
 
 #: config.php:8 phonebook.php:298 simplephonebook.php:146
 msgid "Phonebook"
@@ -28,11 +35,11 @@ msgstr "Nombre del grupo"
 
 #: dir_create.php:20 dir_edit.php:22 phonebook_exim.php:36
 msgid "Group code"
-msgstr "Código del grupo"
+msgstr "CÃ³digo del grupo"
 
 #: dir_create.php:20 dir_edit.php:22
 msgid "please use uppercase and make it short"
-msgstr "Por favor utilize mayúsculas y hágalo breve"
+msgstr "Por favor utilize mayÃºsculas y hÃ¡galo breve"
 
 #: dir_create.php:23 dir_edit.php:25
 msgid "Note"
@@ -40,7 +47,7 @@ msgstr "Nota"
 
 #: dir_create.php:23 dir_edit.php:25
 msgid "Group code used by keyword"
-msgstr "Código de grupo utilizado por una clave"
+msgstr "CÃ³digo de grupo utilizado por una clave"
 
 #: dir_create.php:23 dir_edit.php:25
 msgid "broadcast SMS from single SMS"
@@ -52,15 +59,15 @@ msgstr "Crear"
 
 #: dir_create.php:38
 msgid "Group code is already exists"
-msgstr "Código de grupo ya existe "
+msgstr "CÃ³digo de grupo ya existeÂ "
 
 #: dir_create.php:38 dir_create.php:45 dir_edit.php:47 phone_add.php:12
 msgid "code"
-msgstr "código"
+msgstr "cÃ³digo"
 
 #: dir_create.php:45
 msgid "Group code has been added"
-msgstr "Código de grupo ha sido añadido"
+msgstr "CÃ³digo de grupo ha sido aÃ±adido"
 
 #: dir_create.php:45 dir_edit.php:47 phonebook.php:267 phonebook.php:272
 #: phonebook.php:284 phonebook.php:289
@@ -90,7 +97,7 @@ msgstr "El grupo ha sido editado"
 #: phone_add.php:19 phone_add.php:24 simplephonebook.php:156
 #: simplephonebook.php:161
 msgid "Add number to group"
-msgstr "Añadir número al grupo"
+msgstr "AÃ±adir nÃºmero al grupo"
 
 #: phone_add.php:27 phonebook_exim.php:60 simplephonebook.php:41
 #: simplephonebook.php:115
@@ -108,19 +115,19 @@ msgstr "Formato internacional"
 #: phone_add.php:33 phonebook_exim.php:62 simplephonebook.php:43
 #: simplephonebook.php:117
 msgid "Email"
-msgstr "Correo electrónico"
+msgstr "Correo electrÃ³nico"
 
 #: phone_add.php:36
 msgid "Add"
-msgstr "Añadir"
+msgstr "AÃ±adir"
 
 #: phone_add.php:55
 msgid "Number is already exists"
-msgstr "El número ya existe "
+msgstr "El nÃºmero ya existeÂ "
 
 #: phone_add.php:55 phone_add.php:62
 msgid "number"
-msgstr "número"
+msgstr "nÃºmero"
 
 #: phone_add.php:55 phone_add.php:62
 msgid "name"
@@ -128,7 +135,7 @@ msgstr "nombre"
 
 #: phone_add.php:62
 msgid "Number has been added"
-msgstr "El número ha sido añadido"
+msgstr "El nÃºmero ha sido aÃ±adido"
 
 #: phonebook_exim.php:36
 msgid "Import phonebook"
@@ -140,15 +147,15 @@ msgstr "Seleccione un archivo CSV para entradas de directorio"
 
 #: phonebook_exim.php:39
 msgid "format : Name,Mobile,Email"
-msgstr "Nombre,Celular,Correo Electrónico"
+msgstr "Nombre,Celular,Correo ElectrÃ³nico"
 
 #: phonebook_exim.php:41
 msgid "Same item(s) will be replaced"
-msgstr "Renglones iguales serán reemplazados"
+msgstr "Renglones iguales serÃ¡n reemplazados"
 
 #: phonebook_exim.php:55
 msgid "Import confirmation"
-msgstr "Confirmación de la importación"
+msgstr "ConfirmaciÃ³n de la importaciÃ³n"
 
 #: phonebook_exim.php:98
 msgid "Replace all entries in database"
@@ -156,7 +163,7 @@ msgstr "Reemplazar todos os contactos en la base de datos"
 
 #: phonebook_exim.php:102
 msgid "Add all entries"
-msgstr "Añadir todas las entradas"
+msgstr "AÃ±adir todas las entradas"
 
 #: phonebook_exim.php:106
 msgid "Import above phonebook entries ?"
@@ -192,7 +199,7 @@ msgstr "Nombre copiado"
 
 #: phonebook.php:82
 msgid "Copied number"
-msgstr "Número copiado"
+msgstr "NÃºmero copiado"
 
 #: phonebook.php:83
 msgid "Copied email"
@@ -200,7 +207,7 @@ msgstr "Correo copiado"
 
 #: phonebook.php:113
 msgid "Code"
-msgstr "Código"
+msgstr "CÃ³digo"
 
 #: phonebook.php:118 phonebook.php:184
 msgid "Select destination group"
@@ -216,7 +223,7 @@ msgstr "Nombre movido"
 
 #: phonebook.php:148
 msgid "Moved number"
-msgstr "Número movido"
+msgstr "NÃºmero movido"
 
 #: phonebook.php:149
 msgid "Moved email"
@@ -228,7 +235,7 @@ msgstr "Nombre eliminado"
 
 #: phonebook.php:211
 msgid "Deleted number"
-msgstr "Número eliminado"
+msgstr "NÃºmero eliminado"
 
 #: phonebook.php:212
 msgid "Deleted email"
@@ -248,35 +255,35 @@ msgstr "Grupo ha sido publicado"
 
 #: phonebook.php:284
 msgid "Fail to unpublish"
-msgstr "Fallo al eliminar la publicación"
+msgstr "Fallo al eliminar la publicaciÃ³n"
 
 #: phonebook.php:289
 msgid "Group has been unpublished"
-msgstr "Grupo ha sido eliminado de publicación"
+msgstr "Grupo ha sido eliminado de publicaciÃ³n"
 
 #: simplephonebook.php:42 simplephonebook.php:116
 msgid "Number"
-msgstr "Número"
+msgstr "NÃºmero"
 
 #: simplephonebook.php:68
 msgid "Edit selections"
-msgstr "Editar selección"
+msgstr "Editar selecciÃ³n"
 
 #: simplephonebook.php:69
 msgid "Copy selections"
-msgstr "Copiar selección"
+msgstr "Copiar selecciÃ³n"
 
 #: simplephonebook.php:70
 msgid "Move selections"
-msgstr "Mover selección"
+msgstr "Mover selecciÃ³n"
 
 #: simplephonebook.php:71
 msgid "Delete selections"
-msgstr "Suprimir selección"
+msgstr "Suprimir selecciÃ³n"
 
 #: simplephonebook.php:79
 msgid "Select action"
-msgstr "Seleccionar acción"
+msgstr "Seleccionar acciÃ³n"
 
 #: simplephonebook.php:111
 msgid "Shared by"

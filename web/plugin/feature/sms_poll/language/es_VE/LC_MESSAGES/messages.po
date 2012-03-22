@@ -1,10 +1,17 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 #: config.php:4 sms_poll.php:12
 msgid "Manage poll"
 msgstr "Administrar Encuesta"
 
 #: sms_poll.php:14 sms_poll.php:62 sms_poll.php:276
 msgid "Add SMS poll"
-msgstr "AÒadir encuesta SMS"
+msgstr "A√±adir encuesta SMS"
 
 #: sms_poll.php:27 sms_poll.php:113
 msgid "Keyword"
@@ -12,7 +19,7 @@ msgstr "Clave"
 
 #: sms_poll.php:28 sms_poll.php:114
 msgid "Title"
-msgstr "TÌtulo"
+msgstr "T√≠tulo"
 
 #: sms_poll.php:29
 msgid "User"
@@ -24,7 +31,7 @@ msgstr "Estatus"
 
 #: sms_poll.php:31 sms_poll.php:115
 msgid "Action"
-msgstr "AccciÛn"
+msgstr "Accci√≥n"
 
 #: sms_poll.php:40 sms_poll.php:154
 msgid "Disabled"
@@ -36,7 +43,7 @@ msgstr "Habilitado"
 
 #: sms_poll.php:47
 msgid "Are you sure you want to delete SMS poll with all its choices and votes ?"
-msgstr "Est· Ud. seguro de querer borrar la encuesta SMS, sus opciones y votos ?"
+msgstr "Est√° Ud. seguro de querer borrar la encuesta SMS, sus opciones y votos ?"
 
 #: sms_poll.php:47 sms_poll.php:131 sms_poll.php:183 sms_poll.php:236
 #: sms_poll.php:241 sms_poll.php:257 sms_poll.php:265 sms_poll.php:305
@@ -54,7 +61,7 @@ msgstr "Clave de encuesta SMS"
 
 #: sms_poll.php:95 sms_poll.php:284
 msgid "SMS poll title"
-msgstr "TÌtulo de la encuesta SMS"
+msgstr "T√≠tulo de la encuesta SMS"
 
 #: sms_poll.php:98
 msgid "Save"
@@ -66,27 +73,27 @@ msgstr "Editar opciones de la encuesta SMS"
 
 #: sms_poll.php:131
 msgid "Are you sure you want to delete choice ?"
-msgstr "Est· Ud. seguro de quere borrar la opciÛn ?"
+msgstr "Est√° Ud. seguro de quere borrar la opci√≥n ?"
 
 #: sms_poll.php:131 sms_poll.php:214
 msgid "title"
-msgstr "tÌtulo"
+msgstr "t√≠tulo"
 
 #: sms_poll.php:136
 msgid "Add choice to this poll"
-msgstr "AÒadir opciÛn a esta encuesta"
+msgstr "A√±adir opci√≥n a esta encuesta"
 
 #: sms_poll.php:141
 msgid "Choice Keyword"
-msgstr "Clave de opciÛn"
+msgstr "Clave de opci√≥n"
 
 #: sms_poll.php:144
 msgid "Choice title"
-msgstr "TÌtulo de la opciÛn"
+msgstr "T√≠tulo de la opci√≥n"
 
 #: sms_poll.php:147 sms_poll.php:287
 msgid "Add"
-msgstr "AÒadir"
+msgstr "A√±adir"
 
 #: sms_poll.php:160
 msgid "Enable or disable this poll"
@@ -98,7 +105,7 @@ msgstr "Estatus actual"
 
 #: sms_poll.php:163
 msgid "What do you want to do ?"
-msgstr "QuÈ desea Ud. hacer ?"
+msgstr "Qu√© desea Ud. hacer ?"
 
 #: sms_poll.php:164
 msgid "I want to enable this poll"
@@ -126,11 +133,11 @@ msgstr "La encuesta SMS y todos sus mensajes ha sido borrada"
 
 #: sms_poll.php:236
 msgid "Choice has been added"
-msgstr "OpciÛn ha sido aÒadida"
+msgstr "Opci√≥n ha sido a√±adida"
 
 #: sms_poll.php:241
 msgid "Choice already exists"
-msgstr "OpciÛn ya existe†"
+msgstr "Opci√≥n ya existe¬†"
 
 #: sms_poll.php:257
 msgid "Fail to delete SMS poll choice"
@@ -142,8 +149,8 @@ msgstr "Opciones de encuesta SMS y sus votantes ha sido borrada"
 
 #: sms_poll.php:305
 msgid "SMS poll has been added"
-msgstr "Encuesta SMS ha sido aÒadida"
+msgstr "Encuesta SMS ha sido a√±adida"
 
 #: sms_poll.php:310
 msgid "SMS poll already exists, reserved or use by other feature"
-msgstr "Encuesta SMS ya existe, est· reservada o en uso por otra funciÛn"
+msgstr "Encuesta SMS ya existe, est√° reservada o en uso por otra funci√≥n"

@@ -1,6 +1,13 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 #: config.php:4 sms_quiz.php:79
 msgid "Manage quiz"
-msgstr "Administrar Ex·men corto (quiz)"
+msgstr "Administrar Ex√°men corto (quiz)"
 
 #: sms_quiz.php:16
 msgid "Received answer list for keyword"
@@ -24,7 +31,7 @@ msgstr "Estatus"
 
 #: sms_quiz.php:29 sms_quiz.php:98
 msgid "Action"
-msgstr "AcciÛn"
+msgstr "Acci√≥n"
 
 #: sms_quiz.php:38
 msgid "Correct"
@@ -36,15 +43,15 @@ msgstr "Incorrecto"
 
 #: sms_quiz.php:42
 msgid "Are you sure you want to delete this answer ?"
-msgstr "Est· Ud. seguro ed querer borrar esta respuesta ?"
+msgstr "Est√° Ud. seguro ed querer borrar esta respuesta ?"
 
 #: sms_quiz.php:68
 msgid "SMS quiz answer messages has been deleted"
-msgstr "Repuesta de Ex·men corto (quiz) SMS ha sido borrada"
+msgstr "Repuesta de Ex√°men corto (quiz) SMS ha sido borrada"
 
 #: sms_quiz.php:81 sms_quiz.php:128 sms_quiz.php:246
 msgid "Add SMS quiz"
-msgstr "AÒadir Ex·men corto (quiz) SMS"
+msgstr "A√±adir Ex√°men corto (quiz) SMS"
 
 #: sms_quiz.php:93
 msgid "Keyword"
@@ -72,7 +79,7 @@ msgstr "Habilitado"
 
 #: sms_quiz.php:112
 msgid "Are you sure you want to delete SMS quiz with all its choices and answers ?"
-msgstr "Est· Ud. seguro de querer borrar este Ex·men corto y todas sus opciones y respuestas ?"
+msgstr "Est√° Ud. seguro de querer borrar este Ex√°men corto y todas sus opciones y respuestas ?"
 
 #: sms_quiz.php:112 sms_quiz.php:207 sms_quiz.php:235 sms_quiz.php:285
 #: sms_quiz.php:288
@@ -81,19 +88,19 @@ msgstr "clave"
 
 #: sms_quiz.php:146
 msgid "Edit SMS quiz"
-msgstr "Editar Ex·men corto (quiz) SMS"
+msgstr "Editar Ex√°men corto (quiz) SMS"
 
 #: sms_quiz.php:153 sms_quiz.php:251
 msgid "SMS quiz keyword"
-msgstr "Clave de ex·men corto (quiz) SMS"
+msgstr "Clave de ex√°men corto (quiz) SMS"
 
 #: sms_quiz.php:156 sms_quiz.php:254
 msgid "SMS quiz question"
-msgstr "Pregunta de Ex·men corto (quiz) SMS"
+msgstr "Pregunta de Ex√°men corto (quiz) SMS"
 
 #: sms_quiz.php:159 sms_quiz.php:257
 msgid "SMS quiz answer"
-msgstr "Respuesta de Ex·men corto (quiz) SMS"
+msgstr "Respuesta de Ex√°men corto (quiz) SMS"
 
 #: sms_quiz.php:162 sms_quiz.php:260
 msgid "Message when correct"
@@ -109,7 +116,7 @@ msgstr "Guardar"
 
 #: sms_quiz.php:182
 msgid "Enable or disable this quiz"
-msgstr "Habilitar o deshabilitar Ex·men corto (quiz)"
+msgstr "Habilitar o deshabilitar Ex√°men corto (quiz)"
 
 #: sms_quiz.php:184
 msgid "Current status"
@@ -117,19 +124,19 @@ msgstr "Estatus actual"
 
 #: sms_quiz.php:185
 msgid "What do you want to do ?"
-msgstr "QuÈ  desea Ud. hacer ?"
+msgstr "Qu√©  desea Ud. hacer ?"
 
 #: sms_quiz.php:186
 msgid "I want to enable this quiz"
-msgstr "Deseo habilitar este Ex·men corto (quiz)"
+msgstr "Deseo habilitar este Ex√°men corto (quiz)"
 
 #: sms_quiz.php:187
 msgid "I want to disable this quiz"
-msgstr "deseo deshabilitar este Ex·men corto (quiz)"
+msgstr "deseo deshabilitar este Ex√°men corto (quiz)"
 
 #: sms_quiz.php:207
 msgid "SMS quiz has been saved"
-msgstr "El Ex·men corto (quiz) ha sido guardado"
+msgstr "El Ex√°men corto (quiz) ha sido guardado"
 
 #: sms_quiz.php:210 sms_quiz.php:291
 msgid "You must fill all field"
@@ -137,20 +144,20 @@ msgstr "Ud. debe rellenar todos los campos"
 
 #: sms_quiz.php:221
 msgid "SMS quiz status has been changed"
-msgstr "El estado del Ex·men corto (quiz) ha cambiado"
+msgstr "El estado del Ex√°men corto (quiz) ha cambiado"
 
 #: sms_quiz.php:235
 msgid "SMS quiz with all its messages has been deleted"
-msgstr "El Ex·men corto con todos sus mensajes ha sido eliminado"
+msgstr "El Ex√°men corto con todos sus mensajes ha sido eliminado"
 
 #: sms_quiz.php:266
 msgid "Add"
-msgstr "AÒadir"
+msgstr "A√±adir"
 
 #: sms_quiz.php:285
 msgid "SMS quiz has been added"
-msgstr "El Ex·men corto (quiz) ha sido aÒadido"
+msgstr "El Ex√°men corto (quiz) ha sido a√±adido"
 
 #: sms_quiz.php:288
 msgid "SMS quiz already exists, reserved or use by other feature"
-msgstr "El Ex·men corto (quiz) ya existe, est· reservado o en uso por otra funciÛn"
+msgstr "El Ex√°men corto (quiz) ya existe, est√° reservado o en uso por otra funci√≥n"
