@@ -65,6 +65,7 @@ Once we have updated the pot files, we can merge them with the existant translat
  so the translators have only to worry about translating. 
 
 ##Common, themes, plugins and tools strings
+cd /var/www/playsms/
 find . -type d -name "language" | sed -e "s/\/[^\/]*$//" > /tmp/.lang_folders
 for i in `cat /tmp/.lang_folders` ; do
 	for j in `ls -1 $i/language/ | grep '_'` ; do
