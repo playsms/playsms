@@ -1,0 +1,192 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-22 15:43+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: plugin/feature/sms_command/config.php:6
+#: plugin/feature/sms_command/sms_command.php:13
+#: plugin/feature/sms_command/sms_command.php:13
+msgid "Manage command"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:15
+#: plugin/feature/sms_command/sms_command.php:60
+#: plugin/feature/sms_command/sms_command.php:145
+#: plugin/feature/sms_command/sms_command.php:15
+#: plugin/feature/sms_command/sms_command.php:60
+#: plugin/feature/sms_command/sms_command.php:145
+msgid "Add SMS command"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:16
+#: plugin/feature/sms_command/sms_command.php:87
+#: plugin/feature/sms_command/sms_command.php:154
+#: plugin/feature/sms_command/sms_command.php:16
+#: plugin/feature/sms_command/sms_command.php:87
+#: plugin/feature/sms_command/sms_command.php:154
+msgid "SMS command exec path"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:28
+#: plugin/feature/sms_command/sms_command.php:28
+msgid "Keyword"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:29
+#: plugin/feature/sms_command/sms_command.php:29
+msgid "Exec"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:30
+#: plugin/feature/sms_command/sms_command.php:30
+msgid "User"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:31
+#: plugin/feature/sms_command/sms_command.php:31
+msgid "Action"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:42
+#: plugin/feature/sms_command/sms_command.php:42
+msgid "Are you sure you want to delete SMS command ?"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:42
+#: plugin/feature/sms_command/sms_command.php:106
+#: plugin/feature/sms_command/sms_command.php:110
+#: plugin/feature/sms_command/sms_command.php:130
+#: plugin/feature/sms_command/sms_command.php:134
+#: plugin/feature/sms_command/sms_command.php:175
+#: plugin/feature/sms_command/sms_command.php:179
+#: plugin/feature/sms_command/sms_command.php:184
+#: plugin/feature/sms_command/sms_command.php:42
+#: plugin/feature/sms_command/sms_command.php:106
+#: plugin/feature/sms_command/sms_command.php:110
+#: plugin/feature/sms_command/sms_command.php:130
+#: plugin/feature/sms_command/sms_command.php:134
+#: plugin/feature/sms_command/sms_command.php:175
+#: plugin/feature/sms_command/sms_command.php:179
+#: plugin/feature/sms_command/sms_command.php:184
+msgid "keyword"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:76
+#: plugin/feature/sms_command/sms_command.php:76
+msgid "Edit SMS command"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:81
+#: plugin/feature/sms_command/sms_command.php:148
+#: plugin/feature/sms_command/sms_command.php:81
+#: plugin/feature/sms_command/sms_command.php:148
+msgid "SMS command keyword"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:82
+#: plugin/feature/sms_command/sms_command.php:149
+#: plugin/feature/sms_command/sms_command.php:82
+#: plugin/feature/sms_command/sms_command.php:149
+msgid "Pass these parameter to command exec field"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:83
+#: plugin/feature/sms_command/sms_command.php:150
+#: plugin/feature/sms_command/sms_command.php:83
+#: plugin/feature/sms_command/sms_command.php:150
+msgid "will be replaced by SMS incoming date/time"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:84
+#: plugin/feature/sms_command/sms_command.php:151
+#: plugin/feature/sms_command/sms_command.php:84
+#: plugin/feature/sms_command/sms_command.php:151
+msgid "will be replaced by sender number"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:85
+#: plugin/feature/sms_command/sms_command.php:152
+#: plugin/feature/sms_command/sms_command.php:85
+#: plugin/feature/sms_command/sms_command.php:152
+msgid "will be replaced by command keyword"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:86
+#: plugin/feature/sms_command/sms_command.php:153
+#: plugin/feature/sms_command/sms_command.php:86
+#: plugin/feature/sms_command/sms_command.php:153
+msgid "will be replaced by command parameter passed to server from SMS"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:88
+#: plugin/feature/sms_command/sms_command.php:155
+#: plugin/feature/sms_command/sms_command.php:88
+#: plugin/feature/sms_command/sms_command.php:155
+msgid "SMS command exec"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:89
+#: plugin/feature/sms_command/sms_command.php:89
+msgid "Save"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:106
+#: plugin/feature/sms_command/sms_command.php:106
+msgid "SMS command has been saved"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:110
+#: plugin/feature/sms_command/sms_command.php:110
+msgid "Fail to save SMS command"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:115
+#: plugin/feature/sms_command/sms_command.php:189
+#: plugin/feature/sms_command/sms_command.php:115
+#: plugin/feature/sms_command/sms_command.php:189
+msgid "You must fill all fields"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:130
+#: plugin/feature/sms_command/sms_command.php:130
+msgid "SMS command has been deleted"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:134
+#: plugin/feature/sms_command/sms_command.php:134
+msgid "Fail to delete SMS command"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:156
+#: plugin/feature/sms_command/sms_command.php:156
+msgid "Add"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:175
+#: plugin/feature/sms_command/sms_command.php:175
+msgid "SMS command has been added"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:179
+#: plugin/feature/sms_command/sms_command.php:179
+msgid "Fail to add SMS command"
+msgstr ""
+
+#: plugin/feature/sms_command/sms_command.php:184
+#: plugin/feature/sms_command/sms_command.php:184
+msgid "SMS command already exists, reserved or use by other feature"
+msgstr ""

@@ -1,0 +1,124 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-22 15:43+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: plugin/gateway/clickatell/config.php:29
+#: plugin/gateway/clickatell/clickatell.php:24
+msgid "Manage clickatell"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:9
+msgid "Active"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:13
+msgid "Inactive"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:13
+msgid "click here to activate"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:29
+msgid "Gateway name"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:32
+msgid "API ID"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:35
+msgid "Username"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:38
+msgid "Password"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:38
+msgid "Fill to change the password"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:41
+msgid "Module sender"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:41
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:44
+msgid "Module timezone"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:44
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:47
+msgid "Clickatell API URL"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:47
+#: plugin/gateway/clickatell/clickatell.php:54
+msgid "No trailing slash"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:50
+msgid "Additional URL parameter"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:54
+msgid "Clickatell incoming path"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:59
+msgid "Note"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:60
+msgid "Your callback URL is"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:61
+msgid "Clickatell is a bulk SMS provider"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:61
+msgid "free credits are available for testing purposes"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:62
+msgid "Send SMS message without footer banner"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:63
+msgid "Save"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:77
+msgid "No changes has been made"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:97
+msgid "Gateway module configurations has been saved"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:105
+msgid "Gateway has been activated"
+msgstr ""
