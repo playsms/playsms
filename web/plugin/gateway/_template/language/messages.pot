@@ -1,0 +1,84 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-22 15:43+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: plugin/gateway/_template/config.php:16
+#: plugin/gateway/_template/template.php:25
+#: plugin/gateway/_template/template.php:25
+msgid "Manage template"
+msgstr ""
+
+#: plugin/gateway/_template/template.php:9
+#: plugin/gateway/_template/template.php:9
+msgid "Active"
+msgstr ""
+
+#: plugin/gateway/_template/template.php:13
+#: plugin/gateway/_template/template.php:13
+msgid "Inactive"
+msgstr ""
+
+#: plugin/gateway/_template/template.php:13
+#: plugin/gateway/_template/template.php:13
+msgid "click here to activate"
+msgstr ""
+
+#: plugin/gateway/_template/template.php:30
+#: plugin/gateway/_template/template.php:30
+msgid "Gateway name"
+msgstr ""
+
+#: plugin/gateway/_template/template.php:33
+#: plugin/gateway/_template/template.php:33
+msgid "Template installation path"
+msgstr ""
+
+#: plugin/gateway/_template/template.php:33
+#: plugin/gateway/_template/template.php:33
+msgid "No trailing slash"
+msgstr ""
+
+#: plugin/gateway/_template/template.php:37
+#: plugin/gateway/_template/template.php:37
+msgid "Note"
+msgstr ""
+
+#: plugin/gateway/_template/template.php:38
+#: plugin/gateway/_template/template.php:38
+msgid "Send SMS message without footer banner"
+msgstr ""
+
+#: plugin/gateway/_template/template.php:40
+#: plugin/gateway/_template/template.php:40
+msgid "Save"
+msgstr ""
+
+#: plugin/gateway/_template/template.php:46
+#: plugin/gateway/_template/template.php:46
+msgid "No changes has been made"
+msgstr ""
+
+#: plugin/gateway/_template/template.php:55
+#: plugin/gateway/_template/template.php:55
+msgid "Gateway module configurations has been saved"
+msgstr ""
+
+#: plugin/gateway/_template/template.php:63
+#: plugin/gateway/_template/template.php:63
+msgid "Gateway has been activated"
+msgstr ""
