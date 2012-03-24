@@ -1,3 +1,10 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 #: config.php:4 sms_board.php:12
 msgid "Manage board"
 msgstr "Administrar pizarra"
@@ -8,7 +15,7 @@ msgstr "de"
 
 #: fn.php:76
 msgid "Forward WebSMS"
-msgstr "RedirecciÛn SMS Web"
+msgstr "Redirecci√≥n SMS Web"
 
 #: fn.php:77
 msgid "Date and time"
@@ -28,7 +35,7 @@ msgstr "Mensaje"
 
 #: sms_board.php:14 sms_board.php:155
 msgid "Add SMS board"
-msgstr "AÒadir pizarra SMS"
+msgstr "A√±adir pizarra SMS"
 
 #: sms_board.php:20
 msgid "Forward"
@@ -40,7 +47,7 @@ msgstr "Usuario"
 
 #: sms_board.php:22
 msgid "Action"
-msgstr "AcciÛn"
+msgstr "Acci√≥n"
 
 #: sms_board.php:39
 msgid "Are you sure you want to delete SMS board with all its messages ?"
@@ -61,7 +68,7 @@ msgstr "Clave de pizarra SMS"
 
 #: sms_board.php:90 sms_board.php:166
 msgid "Forward to email"
-msgstr "Reenviar a un correo electrÛnico"
+msgstr "Reenviar a un correo electr√≥nico"
 
 #: sms_board.php:94 sms_board.php:170
 msgid "Template"
@@ -85,20 +92,20 @@ msgstr "La pizarra SMS y todos sus mensajes ha sido borrada"
 
 #: sms_board.php:163
 msgid "Leave them empty if you dont know what to fill in these boxes below"
-msgstr "DÈjas vacias si usted no sabe que rellenar en estos campos abajo"
+msgstr "D√©jas vacias si usted no sabe que rellenar en estos campos abajo"
 
 #: sms_board.php:175
 msgid "Add"
-msgstr "AÒadir"
+msgstr "A√±adir"
 
 #: sms_board.php:200
 msgid "SMS board has been added"
-msgstr "La pizarra SMS ha sido aÒadida"
+msgstr "La pizarra SMS ha sido a√±adida"
 
 #: sms_board.php:204
 msgid "Fail to add SMS board"
-msgstr "Fallo al aÒadir la pizarra SMS"
+msgstr "Fallo al a√±adir la pizarra SMS"
 
 #: sms_board.php:209
 msgid "SMS keyword already exists, reserved or use by other feature"
-msgstr "La clave SMS ya existe, est· reservada o en uso por otro proceso"
+msgstr "La clave SMS ya existe, est√° reservada o en uso por otro proceso"

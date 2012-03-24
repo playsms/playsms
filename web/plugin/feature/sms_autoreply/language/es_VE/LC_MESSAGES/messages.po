@@ -1,10 +1,17 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 #: config.php:4 sms_autoreply.php:12 sms_autoreply.php:75
 msgid "Manage autoreply"
 msgstr "Administrar auto-respuesta"
 
 #: sms_autoreply.php:14 sms_autoreply.php:56 sms_autoreply.php:149
 msgid "Add SMS autoreply"
-msgstr "AÒadir auto-respuesta de SMS"
+msgstr "A√±adir auto-respuesta de SMS"
 
 #: sms_autoreply.php:26
 msgid "Keyword"
@@ -16,7 +23,7 @@ msgstr "Usuario"
 
 #: sms_autoreply.php:28 sms_autoreply.php:87
 msgid "Action"
-msgstr "AcciÛn"
+msgstr "Acci√≥n"
 
 #: sms_autoreply.php:39
 msgid "Are you sure you want to delete SMS autoreply ?"
@@ -35,11 +42,11 @@ msgstr "Clave de SMS de auto-respuesta"
 
 #: sms_autoreply.php:79 sms_autoreply.php:118 sms_autoreply.php:219
 msgid "Add SMS autoreply scenario"
-msgstr "AÒadir Escenario de auto-respuesta de SMS"
+msgstr "A√±adir Escenario de auto-respuesta de SMS"
 
 #: sms_autoreply.php:84
 msgid "Param"
-msgstr "Par·metro"
+msgstr "Par√°metro"
 
 #: sms_autoreply.php:85
 msgid "Return"
@@ -47,7 +54,7 @@ msgstr "Regresar"
 
 #: sms_autoreply.php:104
 msgid "Are you sure you want to delete this SMS autoreply scenario ?"
-msgstr "Est· Ud. seguro de querer borrar este SMS de auto-respuesta ?"
+msgstr "Est√° Ud. seguro de querer borrar este SMS de auto-respuesta ?"
 
 #: sms_autoreply.php:134
 msgid "SMS autoreply has been deleted"
@@ -59,19 +66,19 @@ msgstr "Imposible eliminar el servicio de auto-respuesta"
 
 #: sms_autoreply.php:153 sms_autoreply.php:239
 msgid "Add"
-msgstr "AÒadir"
+msgstr "A√±adir"
 
 #: sms_autoreply.php:167
 msgid "SMS autoreply keyword has been added"
-msgstr "Clave de servicio SMS de auto-respuesta ha sido aÒadida"
+msgstr "Clave de servicio SMS de auto-respuesta ha sido a√±adida"
 
 #: sms_autoreply.php:171
 msgid "Fail to add SMS autoreply"
-msgstr "Imposible aÒadir auto-respuesta de SMS"
+msgstr "Imposible a√±adir auto-respuesta de SMS"
 
 #: sms_autoreply.php:176
 msgid "SMS keyword already exists, reserved or use by other feature"
-msgstr "La Clave de SMS de auto-respuesta ya existe, est· reservada o est· utilizada por otro servicio"
+msgstr "La Clave de SMS de auto-respuesta ya existe, est√° reservada o est√° utilizada por otro servicio"
 
 #: sms_autoreply.php:181 sms_autoreply.php:276 sms_autoreply.php:357
 msgid "You must fill all fields"
@@ -87,7 +94,7 @@ msgstr "Imposible eliminar el servicio de auto-respuesta de SMS"
 
 #: sms_autoreply.php:231 sms_autoreply.php:312
 msgid "SMS autoreply scenario parameter"
-msgstr "Par·metro de escenarios de auto-respuesta de SMS"
+msgstr "Par√°metro de escenarios de auto-respuesta de SMS"
 
 #: sms_autoreply.php:236 sms_autoreply.php:318
 msgid "SMS autoreply scenario replies with"
@@ -99,7 +106,7 @@ msgstr "Atras"
 
 #: sms_autoreply.php:267
 msgid "SMS autoreply scenario has been added"
-msgstr "El escenario de auto-respuesta ed SMS ha sido aÒadido"
+msgstr "El escenario de auto-respuesta ed SMS ha sido a√±adido"
 
 #: sms_autoreply.php:271
 msgid "Fail to add SMS autoreply scenario"

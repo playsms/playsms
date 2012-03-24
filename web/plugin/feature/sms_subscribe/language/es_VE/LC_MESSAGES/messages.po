@@ -1,10 +1,17 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 #: config.php:4 sms_subscribe.php:12
 msgid "Manage subscribe"
 msgstr "Administrar suscripciones"
 
 #: config.php:6
 msgid "Add message"
-msgstr "AÒadir un mensaje"
+msgstr "A√±adir un mensaje"
 
 #: config.php:7
 msgid "View members"
@@ -32,7 +39,7 @@ msgstr "Formato de SMS desconocido"
 
 #: sms_subscribe.php:14 sms_subscribe.php:66 sms_subscribe.php:438
 msgid "Add SMS subscribe"
-msgstr "AÒadir suscripciÛn SMS"
+msgstr "A√±adir suscripci√≥n SMS"
 
 #: sms_subscribe.php:26
 msgid "Keyword"
@@ -52,7 +59,7 @@ msgstr "Estado"
 
 #: sms_subscribe.php:30 sms_subscribe.php:96 sms_subscribe.php:282
 msgid "Action"
-msgstr "AcciÛn"
+msgstr "Acci√≥n"
 
 #: sms_subscribe.php:43 sms_subscribe.php:353
 msgid "Disabled"
@@ -64,7 +71,7 @@ msgstr "Habilitado"
 
 #: sms_subscribe.php:51
 msgid "Are you sure you want to delete SMS subscribe ?"
-msgstr "Est· Ud. seguro de querer borrar la subscripciÛn SMS ?"
+msgstr "Est√° Ud. seguro de querer borrar la subscripci√≥n SMS ?"
 
 #: sms_subscribe.php:51 sms_subscribe.php:381 sms_subscribe.php:414
 #: sms_subscribe.php:469 sms_subscribe.php:472
@@ -77,7 +84,7 @@ msgstr "Lista de mensajes SMS para clave"
 
 #: sms_subscribe.php:88 sms_subscribe.php:118
 msgid "Add Message"
-msgstr "AÒadir un mensaje"
+msgstr "A√±adir un mensaje"
 
 #: sms_subscribe.php:95 sms_subscribe.php:151
 msgid "Message"
@@ -85,7 +92,7 @@ msgstr "Mensaje"
 
 #: sms_subscribe.php:106
 msgid "Are you sure you want to delete this message?"
-msgstr "Est· Ud. seguro de querer eliminar este mensaje?"
+msgstr "Est√° Ud. seguro de querer eliminar este mensaje?"
 
 #: sms_subscribe.php:141
 msgid "Message detail"
@@ -94,7 +101,7 @@ msgstr "Detalle del mensaje"
 #: sms_subscribe.php:148 sms_subscribe.php:186 sms_subscribe.php:335
 #: sms_subscribe.php:443 sms_subscribe.php:493
 msgid "SMS subscribe keyword"
-msgstr "Clave de subscripciÛn SMS"
+msgstr "Clave de subscripci√≥n SMS"
 
 #: sms_subscribe.php:154
 msgid "Send this message to all members"
@@ -127,7 +134,7 @@ msgstr "Su mensaje ha sido enviado a la cola de proceso"
 
 #: sms_subscribe.php:246 sms_subscribe.php:248
 msgid "to"
-msgstr "Para†"
+msgstr "Para¬†"
 
 #: sms_subscribe.php:248
 msgid "Fail to send SMS"
@@ -139,15 +146,15 @@ msgstr "Lista de miembros por clave"
 
 #: sms_subscribe.php:280
 msgid "Phone number"
-msgstr "N˙mero de celular"
+msgstr "N√∫mero de celular"
 
 #: sms_subscribe.php:281
 msgid "Member join datetime"
-msgstr "Fecha de subscripciÛn del miembro"
+msgstr "Fecha de subscripci√≥n del miembro"
 
 #: sms_subscribe.php:290
 msgid "Are you sure you want to delete this member ?"
-msgstr "Est· Ud. seguro de querer eliminar el miembro ?"
+msgstr "Est√° Ud. seguro de querer eliminar el miembro ?"
 
 #: sms_subscribe.php:310
 msgid "\"Member has been deleted"
@@ -155,15 +162,15 @@ msgstr "El miembro ha sido eliminado"
 
 #: sms_subscribe.php:328
 msgid "Edit SMS subscribe"
-msgstr "Editar subscripciÛn de SMS"
+msgstr "Editar subscripci√≥n de SMS"
 
 #: sms_subscribe.php:338 sms_subscribe.php:446
 msgid "SMS subscribe reply"
-msgstr "Respuesta de subscripciÛn de SMS"
+msgstr "Respuesta de subscripci√≥n de SMS"
 
 #: sms_subscribe.php:341 sms_subscribe.php:449
 msgid "SMS unsubscribe reply"
-msgstr "Respuesta de retiro de susbscripciÛn SMS"
+msgstr "Respuesta de retiro de susbscripci√≥n SMS"
 
 #: sms_subscribe.php:344
 msgid "Save"
@@ -179,27 +186,27 @@ msgstr "Estatus actual"
 
 #: sms_subscribe.php:361
 msgid "What do you want to do ?"
-msgstr "QuÈ desea Ud. hacer ?"
+msgstr "Qu√© desea Ud. hacer ?"
 
 #: sms_subscribe.php:362
 msgid "I want to enable this subscribe"
-msgstr "Deseo habilitar esta subscripciÛn"
+msgstr "Deseo habilitar esta subscripci√≥n"
 
 #: sms_subscribe.php:363
 msgid "I want to disable this subscribe"
-msgstr "Deseo Deshabilitar esta subscripciÛn"
+msgstr "Deseo Deshabilitar esta subscripci√≥n"
 
 #: sms_subscribe.php:381
 msgid "SMS subscribe has been saved"
-msgstr "La subscripciÛn SMS ha sido guardada"
+msgstr "La subscripci√≥n SMS ha sido guardada"
 
 #: sms_subscribe.php:395
 msgid "SMS subscribe status has been changed"
-msgstr "El estado de la subscripciÛn ha cambiado"
+msgstr "El estado de la subscripci√≥n ha cambiado"
 
 #: sms_subscribe.php:414
 msgid "SMS subscribe with all its messages and members has been deleted"
-msgstr "La subscripciÛn SMS con todos sus mensajes y miembros ha sido eliminada"
+msgstr "La subscripci√≥n SMS con todos sus mensajes y miembros ha sido eliminada"
 
 #: sms_subscribe.php:427
 msgid "Message has been deleted"
@@ -207,16 +214,16 @@ msgstr "El mensaje ha sido eliminado"
 
 #: sms_subscribe.php:452 sms_subscribe.php:505
 msgid "Add"
-msgstr "AÒadir"
+msgstr "A√±adir"
 
 #: sms_subscribe.php:469
 msgid "SMS subscribe has been added"
-msgstr "SubscripciÛn SMS ha sido aÒadida"
+msgstr "Subscripci√≥n SMS ha sido a√±adida"
 
 #: sms_subscribe.php:472
 msgid "SMS subscribe already exists, reserved or use by other feature"
-msgstr "La subscripciÛn ya existe, est· reservada o en uso por otra funciÛn"
+msgstr "La subscripci√≥n ya existe, est√° reservada o en uso por otra funci√≥n"
 
 #: sms_subscribe.php:520
 msgid "Member message has been added"
-msgstr "Miembro ha sido aÒadido"
+msgstr "Miembro ha sido a√±adido"

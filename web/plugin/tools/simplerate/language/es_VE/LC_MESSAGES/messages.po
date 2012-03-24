@@ -1,10 +1,17 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 #: config.php:3 simplerate.php:12
 msgid "Manage SMS rate"
-msgstr "Administración de tarifas deSMS"
+msgstr "AdministraciÃ³n de tarifas deSMS"
 
 #: simplerate.php:14 simplerate.php:47 simplerate.php:122
 msgid "Add rate"
-msgstr "Añadir tarifa"
+msgstr "AÃ±adir tarifa"
 
 #: simplerate.php:18 simplerate.php:78 simplerate.php:127
 msgid "Destination"
@@ -20,7 +27,7 @@ msgstr "Tarifa"
 
 #: simplerate.php:21
 msgid "Action"
-msgstr "Acción"
+msgstr "AcciÃ³n"
 
 #: simplerate.php:32
 msgid "Are you sure you want to delete rate ?"
@@ -70,12 +77,12 @@ msgstr "Ud. debe rellenar todos los campos"
 
 #: simplerate.php:136
 msgid "Add"
-msgstr "Añadir"
+msgstr "AÃ±adir"
 
 #: simplerate.php:151
 msgid "Rate is already exists"
-msgstr "Tarifa ya existe "
+msgstr "Tarifa ya existeÂ "
 
 #: simplerate.php:161
 msgid "Rate has been added"
-msgstr "La tarifa ha sido añadida"
+msgstr "La tarifa ha sido aÃ±adida"
