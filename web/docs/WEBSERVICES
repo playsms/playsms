@@ -77,15 +77,22 @@ PROTOCOL
 
 EXAMPLE
 -------
+
+Example webservice URLs:
+
 http://playsms.org/trial/index.php?app=webservices&ta=pv&u=admin&p=rahasia&to=01234567890&msg=meeting+at+15.00+today!
 http://playsms.org/trial/index.php?app=webservices&ta=pv&u=admin&p=rahasia&to=01234567890,0134455667788&msg=meeting+today!
 http://playsms.org/trial/index.php?app=webservices&ta=bc&u=admin&p=rahasia&to=TI&msg=meeting+at+15.00+today!
 http://playsms.org/trial/index.php?app=webservices&ta=ds&u=admin&p=rahasia&c=100
 http://playsms.org/trial/index.php?app=webservices&ta=cr&u=admin&p=rahasia
 
+Another example, a webservice URL:
+http://x.com/index.php?app=webservices&ta=bc&u=admin&p=rahasia&to=TI&msg=meeting+at+15.00+today!
+
+Explanation:
 User admin access playSMS webservices in x.com with type of action bc (broadcast)
 if succeded returns: OK SMS_LOG_ID (eg: OK 754)
-if error occured returns one of the ERROR RETURNS above
+if error occured returns one of the ERROR RETURNS mentioned above
 
 
 --
