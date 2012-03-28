@@ -29,6 +29,7 @@ Version 0.9.6 - 120328
 - fix gateway msgtoolbox, unable to properly save message ID on incoming SMS (anton)
 - fix $sms_datetime for display purposes on some plugins using core_display_datetime() (anton)
 - fix #3414232 sms_poll log table missing datetime field (anton)
+- fix #3479182 spaces leading a message break keyword parsing (jeremymueller)
 
 Version 0.9.5.3 - 110910
 - MAJOR: fix security hole RFI http://www.exploit-db.com/exploits/17792/ (anton)
