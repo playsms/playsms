@@ -89,3 +89,7 @@ for i in `cat /tmp/.lang_folders` ; do
 		echo "msgfmt -vv $i/language/$j/LC_MESSAGES/messages.po -o $i/language/$j/LC_MESSAGES/messages.mo"
 	done
 done
+
+
+--
+Joan

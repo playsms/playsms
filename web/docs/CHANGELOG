@@ -1,5 +1,5 @@
-Version 0.9.6-git - unknown
-- MAJOR: move SMS sender ID logic in sendsms() and its hooks to sendsms_get_sender() (anton)
+Version 0.9.6 - 120328
+- MAJOR: move SMS sender ID logic in sendsms() and it hooks to sendsms_get_sender() (anton)
 - MAJOR: all 'mobile' terms that are related to sending SMS are replaced by 'sender' (anton)
 - MAJOR: all old 'sender' terms that are related to sending SMS are replaced by 'footer' (anton)
 - add new language Catalan (ca_ES) (aseques)
