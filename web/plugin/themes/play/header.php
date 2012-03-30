@@ -128,7 +128,15 @@
     
       <div class="content">
         <div class="page-header">
-          <h1><?php echo $theme_play_head1; ?> <small><?php echo $theme_play_head2; ?></small></h1>
+          <div style="float:left;">
+	<?php if (isset($theme_image)  &&  !empty($theme_image)) { ?>
+          <img style="vertical-align: middle;" src="plugin/themes/play/images/default_logo.png" alt="<?php echo $theme_play_head1; ?>" >
+          </div>
+          <div style="float:left; height: 85px; padding-left: 20px;">
+	<?php } ?>
+          <h1 style="line-height: 85px;"><?php echo $theme_play_head1; ?><small><?php echo $theme_play_head2; ?></small></h1>
+          </div>
+          <div style="clear:both;"></div> 
         </div>
         <div class="row">
           <div class="span14">
