@@ -104,6 +104,7 @@
 
   <body>
 
+    <?php if (valid()) { ?>
     <div class="topbar" data-dropdown="dropdown" >
       <div class="fill">
         <div class="container">
@@ -114,17 +115,14 @@
           <!--
           <span class="pull-right">
             <p>
-	              <?php 
-	              if (valid()) { 
-                  echo "<a>"._('Logged in') .': '. $username."</a>";
-                }
-		            ?>
+                  <?php echo "<a>"._('Logged in') .': '. $username."</a>"; ?>
             </p>
           </span>
           -->
         </div>
       </div>
     </div>
+    <?php } ?>
 
     <div class="container">
     
