@@ -5,6 +5,12 @@
 	<TR>
 		<td align="center" valign="middle" bgcolor="#fcfcfc">
 		<TABLE WIDTH=370 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+                        <TR>
+                                <TD COLSPAN=3><a href="<?php echo $http_path['base']; ?>"><IMG
+                                        SRC="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/images/default_logo.png"
+                                        border=0></a></TD>
+                        </TR>
+
 			<TR>
 				<TD COLSPAN=3><a href="<?php echo $http_path['base']; ?>"><IMG
 					SRC="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/images/login_00.png"
