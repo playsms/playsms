@@ -5,15 +5,21 @@
 	<TR>
 		<td align="center" valign="middle" bgcolor="#fcfcfc">
 		<TABLE WIDTH=370 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+                        <TR>
+                                <TD COLSPAN=3><a href="<?php echo $http_path['base']; ?>"><IMG
+                                        SRC="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/images/default_logo.png"
+                                        border=0></a></TD>
+                        </TR>
+
 			<TR>
 				<TD COLSPAN=3><a href="<?php echo $http_path['base']; ?>"><IMG
-					SRC="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/images/login_00.gif"
+					SRC="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/images/login_00.png"
 					WIDTH=370 border=0></a></TD>
 			</TR>
 			<TR>
 				<TD WIDTH=7
-					background="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/images/login_02.gif"><IMG
-					SRC="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/images/login_02.gif"
+					background="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/images/login_02.png"><IMG
+					SRC="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/images/login_02.png"
 					WIDTH=7 HEIGHT=16></TD>
 				<TD WIDTH=348 bgcolor="#FDFCFC"><br />
 				<div align=center><?php echo $error_content?></div>
@@ -51,8 +57,8 @@
 
 				</TD>
 				<TD WIDTH=15
-					background="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/images/login_04.gif"><IMG
-					SRC="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/images/login_04.gif"
+					background="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/images/login_04.png"><IMG
+						SRC="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/images/login_04.png"
 					WIDTH=15 HEIGHT=16></TD>
 			</TR>
 			<TR>
