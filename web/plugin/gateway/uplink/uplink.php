@@ -71,12 +71,15 @@ switch ($op)
 		$up_global_timezone = $_POST['up_global_timezone'];
 		$up_incoming_path = $_POST['up_incoming_path'];
 		$error_string = _('No changes has been made');
-		if ($up_master && $up_username && $up_incoming_path)
+                
+                /** Fixme Edward, Remove $up_incoming_path From IF **/
+		/**if ($up_master && $up_username && $up_incoming_path)**/
+                if ($up_master && $up_username)
 		{
 			if ($up_password) {
 				$password_change = "cfg_password='$up_password',";
 			}
-			$db_query = "
+			/*$db_query = "
 		UPDATE "._DB_PREF_."_gatewayUplink_config 
 		SET c_timestamp='".mktime()."',
 		    cfg_master='$up_master',
@@ -86,7 +89,19 @@ switch ($op)
 		    cfg_global_sender='$up_global_sender',
 		    cfg_datetime_timezone='$up_global_timezone',
 		    cfg_incoming_path='$up_incoming_path'
-	    ";
+	    ";*/
+                        $db_query = "
+		UPDATE "._DB_PREF_."_gatewayUplink_config 
+		SET c_timestamp='".mktime()."',
+		    cfg_master='$up_master',
+		    cfg_additional_param='$up_additional_param',
+		    cfg_username='$up_username',
+		    ".$password_change."
+		    cfg_global_sender='$up_global_sender',
+		    cfg_datetime_timezone='$up_global_timezone',
+		    cfg_incoming_path='$up_incoming_path'";
+                        /**End Of Fixing**/
+                        
 			if (@dba_affected_rows($db_query))
 			{
 				$error_string = _('Gateway module configurations has been saved');
