@@ -35,6 +35,7 @@ function interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,
 			$ret_final['param']['unicode'] = $ret['param']['unicode'];
 			$unicode = ( $ret['param']['unicode'] ? $ret['param']['unicode'] : $unicode );
 			$message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
+			$ret_final['cancel'] = $ret['cancel'];
 		}
 		$ret = x_hook($core_config['featurelist'][$c],'interceptsendsms',array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode));
 	}
@@ -59,6 +60,7 @@ function interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,
 			$ret_final['param']['unicode'] = $ret['param']['unicode'];
 			$unicode = ( $ret['param']['unicode'] ? $ret['param']['unicode'] : $unicode );
 			$message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
+			$ret_final['cancel'] = $ret['cancel'];
 		}
 		$ret = x_hook($core_config['toolslist'][$c],'interceptsendsms',array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode));
 	}
@@ -87,6 +89,13 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 		$unicode = ( $ret_intercept['param']['unicode'] ? $ret_intercept['param']['unicode'] : $unicode );
 	}
 
+	// if hooked function returns cancel=true then stop the sending, return false
+	if ($ret_intercept['cancel']) {
+		logger_print("cancelled:$uid,$gpid,$gateway_module,$sms_sender,$sms_to,$sms_type,$unicode", 3, "sendsms");
+		$ret['status'] = false;
+		return $ret;
+	}
+
 	// fixme anton - mobile number can be anything, screened by gateway
 	// $sms_sender = sendsms_getvalidnumber($sms_sender);
 
@@ -102,10 +111,10 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 		// the thing about this is that message saved may not be the same since gateway may not be able to process
 		// message with that length or certain characters in the message are not supported by the gateway
 		$db_query = "
-    	    INSERT INTO "._DB_PREF_."_tblSMSOutgoing 
-    	    (uid,p_gpid,p_gateway,p_src,p_dst,p_footer,p_msg,p_datetime,p_sms_type,unicode) 
-    	    VALUES ('$uid','$gpid','$gateway_module','$sms_sender','$sms_to','$sms_footer','$sms_msg','$sms_datetime','$sms_type','$unicode')
-	";
+			INSERT INTO "._DB_PREF_."_tblSMSOutgoing 
+			(uid,p_gpid,p_gateway,p_src,p_dst,p_footer,p_msg,p_datetime,p_sms_type,unicode) 
+			VALUES ('$uid','$gpid','$gateway_module','$sms_sender','$sms_to','$sms_footer','$sms_msg','$sms_datetime','$sms_type','$unicode')
+		";
 		logger_print("saving:$uid,$gpid,$gateway_module,$sms_sender,$sms_to,$sms_type,$unicode", 3, "sendsms");
 		// continue to gateway only when save to db is true
 		if ($smslog_id = @dba_insert_id($db_query)) {
@@ -120,6 +129,8 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 			}
 		}
 	}
+	logger_print("end", 3, "sendsms");
+
 	$ret['status'] = $ok;
 	$ret['smslog_id'] = $smslog_id;
 	return $ret;
