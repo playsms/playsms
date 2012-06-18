@@ -58,7 +58,7 @@ function sms_custom_handle($sms_datetime,$sms_sender,$custom_keyword,$custom_par
 {
 	global $datetime_now;
 	$ok = false;
-	$db_query = "SELECT custom_url FROM "._DB_PREF_."_featureCustom WHERE custom_keyword='$custom_keyword'";
+	$db_query = "SELECT custom_url,uid,returnasreply FROM "._DB_PREF_."_featureCustom WHERE custom_keyword='$custom_keyword'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$custom_url = $db_row['custom_url'];
@@ -67,6 +67,8 @@ function sms_custom_handle($sms_datetime,$sms_sender,$custom_keyword,$custom_par
 	$custom_url = str_replace("{SMSSENDER}",urlencode($sms_sender),$custom_url);
 	$custom_url = str_replace("{CUSTOMKEYWORD}",urlencode($custom_keyword),$custom_url);
 	$custom_url = str_replace("{CUSTOMPARAM}",urlencode($custom_param),$custom_url);
+        $username   = uid2username($db_row['uid']);
+        $debug      = dba_query("INSERT INTO " . _DB_PREF_ . "_toolsDebug (value)VALUES('$username')");
 	$url = parse_url($custom_url);
 	if (!$url['port'])
 	{
@@ -74,11 +76,17 @@ function sms_custom_handle($sms_datetime,$sms_sender,$custom_keyword,$custom_par
 	}
 	// fixme anton -deprecated when using PHP5
 	//$connection = fsockopen($url['host'],$url['port'],&$error_number,&$error_description,60);
-	$connection = fsockopen($url['host'],$url['port'],$error_number,$error_description,60);
+        //fixme Edward, change to file_get_contents
+        $connection    = file_get_contents($custom_url);
 	if($connection)
 	{
-		socket_set_blocking($connection, false);
-		fputs($connection, "GET $custom_url HTTP/1.0\r\n\r\n");
+                //fixme Edward, change to file_get_contents
+		//socket_set_blocking($connection, false);
+		//fputs($connection, "GET $custom_url HTTP/1.0\r\n\r\n");
+                $username   = uid2username($db_row['uid']);
+                if($db_row['returnasreply']==1){
+                sendsms_pv($username, $sms_sender, $connection, 'Text', 0);
+                }
 		$db_query = "
 	    INSERT INTO "._DB_PREF_."_featureCustom_log
 	    (sms_sender,custom_log_datetime,custom_log_keyword,custom_log_url) 
