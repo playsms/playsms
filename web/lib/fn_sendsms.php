@@ -18,48 +18,48 @@ function interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,
 	for ($c=0;$c<count($core_config['featurelist']);$c++) {
 		$ret = x_hook($core_config['featurelist'][$c],'interceptsendsms',array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode));
 		if ($ret['modified']) {
-			$ret_final['modified'] = $ret['modified'];
-			$ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
 			$sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
-			$ret_final['param']['sms_footer'] = $ret['param']['sms_footer'];
 			$sms_footer = ( $ret['param']['sms_footer'] ? $ret['param']['sms_footer'] : $sms_footer );
-			$ret_final['param']['sms_to'] = $ret['param']['sms_to'];
 			$sms_to = ( $ret['param']['sms_to'] ? $ret['param']['sms_to'] : $sms_to );
-			$ret_final['param']['sms_msg'] = $ret['param']['sms_msg'];
 			$sms_msg = ( $ret['param']['sms_msg'] ? $ret['param']['sms_msg'] : $sms_msg );
-			$ret_final['param']['uid'] = $ret['param']['uid'];
 			$uid = ( $ret['param']['uid'] ? $ret['param']['uid'] : $uid );
-			$ret_final['param']['gpid'] = $ret['param']['gpid'];
 			$gpid = ( $ret['param']['gpid'] ? $ret['param']['gpid'] : $gpid );
-			$ret_final['param']['sms_type'] = $ret['param']['sms_type'];
 			$sms_type = ( $ret['param']['sms_type'] ? $ret['param']['sms_type'] : $sms_type );
-			$ret_final['param']['unicode'] = $ret['param']['unicode'];
 			$unicode = ( $ret['param']['unicode'] ? $ret['param']['unicode'] : $unicode );
+			$ret_final['modified'] = $ret['modified'];
 			$ret_final['cancel'] = $ret['cancel'];
+			$ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
+			$ret_final['param']['sms_footer'] = $ret['param']['sms_footer'];
+			$ret_final['param']['sms_to'] = $ret['param']['sms_to'];
+			$ret_final['param']['sms_msg'] = $ret['param']['sms_msg'];
+			$ret_final['param']['uid'] = $ret['param']['uid'];
+			$ret_final['param']['gpid'] = $ret['param']['gpid'];
+			$ret_final['param']['sms_type'] = $ret['param']['sms_type'];
+			$ret_final['param']['unicode'] = $ret['param']['unicode'];
 		}
 	}
 	// tools list
 	for ($c=0;$c<count($core_config['toolslist']);$c++) {
 		$ret = x_hook($core_config['toolslist'][$c],'interceptsendsms',array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode));
 		if ($ret['modified']) {
-			$ret_final['modified'] = $ret['modified'];
-			$ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
 			$sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
-			$ret_final['param']['sms_footer'] = $ret['param']['sms_footer'];
 			$sms_footer = ( $ret['param']['sms_footer'] ? $ret['param']['sms_footer'] : $sms_footer );
-			$ret_final['param']['sms_to'] = $ret['param']['sms_to'];
 			$sms_to = ( $ret['param']['sms_to'] ? $ret['param']['sms_to'] : $sms_to );
-			$ret_final['param']['sms_msg'] = $ret['param']['sms_msg'];
 			$sms_msg = ( $ret['param']['sms_msg'] ? $ret['param']['sms_msg'] : $sms_msg );
-			$ret_final['param']['uid'] = $ret['param']['uid'];
 			$uid = ( $ret['param']['uid'] ? $ret['param']['uid'] : $uid );
-			$ret_final['param']['gpid'] = $ret['param']['gpid'];
 			$gpid = ( $ret['param']['gpid'] ? $ret['param']['gpid'] : $gpid );
-			$ret_final['param']['sms_type'] = $ret['param']['sms_type'];
 			$sms_type = ( $ret['param']['sms_type'] ? $ret['param']['sms_type'] : $sms_type );
-			$ret_final['param']['unicode'] = $ret['param']['unicode'];
 			$unicode = ( $ret['param']['unicode'] ? $ret['param']['unicode'] : $unicode );
+			$ret_final['modified'] = $ret['modified'];
 			$ret_final['cancel'] = $ret['cancel'];
+			$ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
+			$ret_final['param']['sms_footer'] = $ret['param']['sms_footer'];
+			$ret_final['param']['sms_to'] = $ret['param']['sms_to'];
+			$ret_final['param']['sms_msg'] = $ret['param']['sms_msg'];
+			$ret_final['param']['uid'] = $ret['param']['uid'];
+			$ret_final['param']['gpid'] = $ret['param']['gpid'];
+			$ret_final['param']['sms_type'] = $ret['param']['sms_type'];
+			$ret_final['param']['unicode'] = $ret['param']['unicode'];
 		}
 	}
 	return $ret_final;

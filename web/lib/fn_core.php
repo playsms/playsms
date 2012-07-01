@@ -43,16 +43,16 @@ function interceptincomingsms($sms_datetime,$sms_sender,$message,$sms_receiver="
 	for ($c=0;$c<count($core_config['featurelist']);$c++) {
 		$ret = x_hook($core_config['featurelist'][$c],'interceptincomingsms',array($sms_datetime,$sms_sender,$message,$sms_receiver));
 		if ($ret['modified']) {
-			$ret_final['modified'] = $ret['modified'];
-			$ret_final['param']['sms_datetime'] = $ret['param']['sms_datetime'];
-			$ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
-			$ret_final['param']['message'] = $ret['param']['message'];
-			$ret_final['param']['sms_receiver'] = $ret['param']['sms_receiver'];
 			$sms_datetime = ( $ret['param']['sms_datetime'] ? $ret['param']['sms_datetime'] : $sms_datetime );
 			$sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
 			$message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
 			$sms_receiver = ( $ret['param']['sms_receiver'] ? $ret['param']['sms_receiver'] : $sms_receiver );
+			$ret_final['modified'] = $ret['modified'];
 			$ret_final['cancel'] = $ret['cancel'];
+			$ret_final['param']['sms_datetime'] = $ret['param']['sms_datetime'];
+			$ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
+			$ret_final['param']['message'] = $ret['param']['message'];
+			$ret_final['param']['sms_receiver'] = $ret['param']['sms_receiver'];
 		}
 		if ($ret['hooked']) { $ret_final['hooked'] = $ret['hooked']; };
 	}
@@ -60,16 +60,16 @@ function interceptincomingsms($sms_datetime,$sms_sender,$message,$sms_receiver="
 	for ($c=0;$c<count($core_config['toolslist']);$c++) {
 		$ret = x_hook($core_config['toolslist'][$c],'interceptincomingsms',array($sms_datetime,$sms_sender,$message,$sms_receiver));
 		if ($ret['modified']) {
-			$ret_final['modified'] = $ret['modified'];
-			$ret_final['param']['sms_datetime'] = $ret['param']['sms_datetime'];
-			$ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
-			$ret_final['param']['message'] = $ret['param']['message'];
-			$ret_final['param']['sms_receiver'] = $ret['param']['sms_receiver'];
 			$sms_datetime = ( $ret['param']['sms_datetime'] ? $ret['param']['sms_datetime'] : $sms_datetime );
 			$sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
 			$message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
 			$sms_receiver = ( $ret['param']['sms_receiver'] ? $ret['param']['sms_receiver'] : $sms_receiver );
+			$ret_final['modified'] = $ret['modified'];
 			$ret_final['cancel'] = $ret['cancel'];
+			$ret_final['param']['sms_datetime'] = $ret['param']['sms_datetime'];
+			$ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
+			$ret_final['param']['message'] = $ret['param']['message'];
+			$ret_final['param']['sms_receiver'] = $ret['param']['sms_receiver'];
 		}
 		if ($ret['hooked']) { $ret_final['hooked'] = $ret['hooked']; };
 	}
