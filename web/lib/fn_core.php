@@ -41,6 +41,7 @@ function interceptincomingsms($sms_datetime,$sms_sender,$message,$sms_receiver="
 	$ret_final = array();
 	// feature list
 	for ($c=0;$c<count($core_config['featurelist']);$c++) {
+		$ret = x_hook($core_config['featurelist'][$c],'interceptincomingsms',array($sms_datetime,$sms_sender,$message,$sms_receiver));
 		if ($ret['modified']) {
 			$ret_final['modified'] = $ret['modified'];
 			$ret_final['param']['sms_datetime'] = $ret['param']['sms_datetime'];
@@ -54,10 +55,10 @@ function interceptincomingsms($sms_datetime,$sms_sender,$message,$sms_receiver="
 			$ret_final['cancel'] = $ret['cancel'];
 		}
 		if ($ret['hooked']) { $ret_final['hooked'] = $ret['hooked']; };
-		$ret = x_hook($core_config['featurelist'][$c],'interceptincomingsms',array($sms_datetime,$sms_sender,$message,$sms_receiver));
 	}
 	// tools list
 	for ($c=0;$c<count($core_config['toolslist']);$c++) {
+		$ret = x_hook($core_config['toolslist'][$c],'interceptincomingsms',array($sms_datetime,$sms_sender,$message,$sms_receiver));
 		if ($ret['modified']) {
 			$ret_final['modified'] = $ret['modified'];
 			$ret_final['param']['sms_datetime'] = $ret['param']['sms_datetime'];
@@ -71,7 +72,6 @@ function interceptincomingsms($sms_datetime,$sms_sender,$message,$sms_receiver="
 			$ret_final['cancel'] = $ret['cancel'];
 		}
 		if ($ret['hooked']) { $ret_final['hooked'] = $ret['hooked']; };
-		$ret = x_hook($core_config['toolslist'][$c],'interceptincomingsms',array($sms_datetime,$sms_sender,$message,$sms_receiver));
 	}
 	return $ret_final;
 }

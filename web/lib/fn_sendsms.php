@@ -16,6 +16,7 @@ function interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,
 	$ret_final = array();
 	// feature list
 	for ($c=0;$c<count($core_config['featurelist']);$c++) {
+		$ret = x_hook($core_config['featurelist'][$c],'interceptsendsms',array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode));
 		if ($ret['modified']) {
 			$ret_final['modified'] = $ret['modified'];
 			$ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
@@ -34,13 +35,12 @@ function interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,
 			$sms_type = ( $ret['param']['sms_type'] ? $ret['param']['sms_type'] : $sms_type );
 			$ret_final['param']['unicode'] = $ret['param']['unicode'];
 			$unicode = ( $ret['param']['unicode'] ? $ret['param']['unicode'] : $unicode );
-			$message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
 			$ret_final['cancel'] = $ret['cancel'];
 		}
-		$ret = x_hook($core_config['featurelist'][$c],'interceptsendsms',array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode));
 	}
 	// tools list
 	for ($c=0;$c<count($core_config['toolslist']);$c++) {
+		$ret = x_hook($core_config['toolslist'][$c],'interceptsendsms',array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode));
 		if ($ret['modified']) {
 			$ret_final['modified'] = $ret['modified'];
 			$ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
@@ -59,10 +59,8 @@ function interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,
 			$sms_type = ( $ret['param']['sms_type'] ? $ret['param']['sms_type'] : $sms_type );
 			$ret_final['param']['unicode'] = $ret['param']['unicode'];
 			$unicode = ( $ret['param']['unicode'] ? $ret['param']['unicode'] : $unicode );
-			$message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
 			$ret_final['cancel'] = $ret['cancel'];
 		}
-		$ret = x_hook($core_config['toolslist'][$c],'interceptsendsms',array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode));
 	}
 	return $ret_final;
 }
