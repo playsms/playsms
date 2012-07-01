@@ -18,8 +18,8 @@ function interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,
 	for ($c=0;$c<count($core_config['featurelist']);$c++) {
 		if ($ret['modified']) {
 			$ret_final['modified'] = $ret['modified'];
-			$ret_final['param']['mobile_sender'] = $ret['param']['mobile_sender'];
-			$sms_sender = ( $ret['param']['mobile_sender'] ? $ret['param']['mobile_sender'] : $sms_sender );
+			$ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
+			$sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
 			$ret_final['param']['sms_footer'] = $ret['param']['sms_footer'];
 			$sms_footer = ( $ret['param']['sms_footer'] ? $ret['param']['sms_footer'] : $sms_footer );
 			$ret_final['param']['sms_to'] = $ret['param']['sms_to'];
@@ -43,8 +43,8 @@ function interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,
 	for ($c=0;$c<count($core_config['toolslist']);$c++) {
 		if ($ret['modified']) {
 			$ret_final['modified'] = $ret['modified'];
-			$ret_final['param']['mobile_sender'] = $ret['param']['mobile_sender'];
-			$sms_sender = ( $ret['param']['mobile_sender'] ? $ret['param']['mobile_sender'] : $sms_sender );
+			$ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
+			$sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
 			$ret_final['param']['sms_footer'] = $ret['param']['sms_footer'];
 			$sms_footer = ( $ret['param']['sms_footer'] ? $ret['param']['sms_footer'] : $sms_footer );
 			$ret_final['param']['sms_to'] = $ret['param']['sms_to'];
@@ -79,7 +79,7 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 	// sent sms will be handled by plugin/tools/* first
 	$ret_intercept = interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode);
 	if ($ret_intercept['modified']) {
-		$sms_sender = ( $ret_intercept['param']['mobile_sender'] ? $ret_intercept['param']['mobile_sender'] : $sms_sender );
+		$sms_sender = ( $ret_intercept['param']['sms_sender'] ? $ret_intercept['param']['sms_sender'] : $sms_sender );
 		$sms_footer = ( $ret_intercept['param']['sms_footer'] ? $ret_intercept['param']['sms_footer'] : $sms_footer );
 		$sms_to = ( $ret_intercept['param']['sms_to'] ? $ret_intercept['param']['sms_to'] : $sms_to );
 		$sms_msg = ( $ret_intercept['param']['sms_msg'] ? $ret_intercept['param']['sms_msg'] : $sms_msg );
