@@ -70,10 +70,7 @@ switch ($op) {
         $edit_command_keyword = $db_row['command_keyword'];
         $edit_command_exec = stripslashes($db_row['command_exec']);
         $edit_command_exec = str_replace($plugin_config['feature']['sms_command']['bin'] . "/", '', $edit_command_exec);
-        $retasrep = $db_row['returnasreply'];
-        if ($retasrep == 1) {
-            $checked = "checked";
-        }
+        $edit_command_return_as_reply = ( $db_row['command_return_as_reply'] == '1' ? 'checked' : '' );
         if ($err) {
             $content = "<div class=error_string>$err</div>";
         }
@@ -91,19 +88,14 @@ switch ($op) {
 	    <p><b>{COMMANDPARAM}</b> " . _('will be replaced by command parameter passed to server from SMS') . "
 	    <p>" . _('SMS command exec path') . ": <b>" . $plugin_config['feature']['sms_command']['bin'] . "</b>
 	    <p>" . _('SMS command exec') . ": <input type=text size=60 name=edit_command_exec value=\"$edit_command_exec\">
-            <p>" . _('Return As Reply') . " : <input type=checkbox name=retrep $checked></p>
+            <p>" . _('Make return as reply') . " : <input type=checkbox name=edit_command_return_as_reply $edit_command_return_as_reply></p>
 	    <p><input type=submit class=button value=\"" . _('Save') . "\">
 	    </form>
 	";
         echo $content;
         break;
     case "sms_command_edit_yes":
-        $returnasreply = $_POST['retrep'];
-        if ($returnasreply == 'on') {
-            $reply = 1;
-        } else {
-            $reply = 0;
-        }
+        $edit_command_return_as_reply = ( $_POST['edit_command_return_as_reply'] == 'on' ? '1' : '0' );
         $edit_command_id = $_POST['edit_command_id'];
         $edit_command_keyword = $_POST['edit_command_keyword'];
         $edit_command_exec = $_POST['edit_command_exec'];
@@ -111,7 +103,7 @@ switch ($op) {
             $edit_command_exec = str_replace("/", "", $edit_command_exec);
             $edit_command_exec = str_replace("|", "", $edit_command_exec);
             $edit_command_exec = str_replace("\\", "", $edit_command_exec);
-            $db_query = "UPDATE " . _DB_PREF_ . "_featureCommand SET c_timestamp='" . mktime() . "',command_exec='$edit_command_exec',returnasreply=$reply WHERE command_keyword='$edit_command_keyword' AND uid='$uid'";
+            $db_query = "UPDATE " . _DB_PREF_ . "_featureCommand SET c_timestamp='" . mktime() . "',command_exec='$edit_command_exec',command_return_as_reply='$edit_command_return_as_reply' WHERE command_keyword='$edit_command_keyword' AND uid='$uid'";
             if (@dba_affected_rows($db_query)) {
                 $error_string = _('SMS command has been saved') . " (" . _('keyword') . ": `$edit_command_keyword`)";
             } else {
@@ -154,19 +146,14 @@ switch ($op) {
 	    <p><b>{COMMANDPARAM}</b> " . _('will be replaced by command parameter passed to server from SMS') . "
 	    <p>" . _('SMS command exec path') . ": <b>" . $plugin_config['feature']['sms_command']['bin'] . "</b>
 	    <p>" . _('SMS command exec') . ": <input type=text size=60 maxlength=200 name=add_command_exec value=\"$add_command_exec\">
-             <p>" . _('Return As Reply') . " : <input type=checkbox name=retrep></p>
+	    <p>" . _('Make return as reply') . " : <input type=checkbox name=add_command_return_as_reply></p>
 	    <p><input type=submit class=button value=\"" . _('Add') . "\">
 	    </form>
 	";
         echo $content;
         break;
     case "sms_command_add_yes":
-        $returnasreply = $_POST['retrep'];
-        if ($returnasreply == 'on') {
-            $reply = 1;
-        } else {
-            $reply = 0;
-        }
+        $add_command_return_as_reply = ( $_POST['add_command_return_as_reply'] == 'on' ? '1' : '0' );
         $add_command_keyword = strtoupper($_POST['add_command_keyword']);
         $add_command_exec = $_POST['add_command_exec'];
         if ($add_command_keyword && $add_command_exec) {
@@ -175,7 +162,7 @@ switch ($op) {
             $add_command_exec = str_replace("|", "", $add_command_exec);
             $add_command_exec = str_replace("\\", "", $add_command_exec);
             if (checkavailablekeyword($add_command_keyword)) {
-                $db_query = "INSERT INTO " . _DB_PREF_ . "_featureCommand (uid,command_keyword,command_exec,returnasreply) VALUES ('$uid','$add_command_keyword','$add_command_exec',$reply)";
+                $db_query = "INSERT INTO " . _DB_PREF_ . "_featureCommand (uid,command_keyword,command_exec,command_return_as_reply) VALUES ('$uid','$add_command_keyword','$add_command_exec','$add_command_return_as_reply')";
                 if ($new_uid = @dba_insert_id($db_query)) {
                     $error_string = _('SMS command has been added') . " (" . _('keyword') . " `$add_command_keyword`)";
                 } else {

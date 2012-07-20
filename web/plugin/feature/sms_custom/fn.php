@@ -58,7 +58,7 @@ function sms_custom_handle($sms_datetime,$sms_sender,$custom_keyword,$custom_par
 {
 	global $datetime_now;
 	$ok = false;
-	$db_query = "SELECT custom_url,uid,returnasreply FROM "._DB_PREF_."_featureCustom WHERE custom_keyword='$custom_keyword'";
+	$db_query = "SELECT custom_url,uid,custom_return_as_reply FROM "._DB_PREF_."_featureCustom WHERE custom_keyword='$custom_keyword'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$custom_url = $db_row['custom_url'];
@@ -77,15 +77,14 @@ function sms_custom_handle($sms_datetime,$sms_sender,$custom_keyword,$custom_par
 	// fixme anton -deprecated when using PHP5
 	//$connection = fsockopen($url['host'],$url['port'],&$error_number,&$error_description,60);
         //fixme Edward, change to file_get_contents
-        $connection    = file_get_contents($custom_url);
-	if($connection)
-	{
+        $returns    = file_get_contents($custom_url);
+	if($returns) {
                 //fixme Edward, change to file_get_contents
 		//socket_set_blocking($connection, false);
 		//fputs($connection, "GET $custom_url HTTP/1.0\r\n\r\n");
                 $username   = uid2username($db_row['uid']);
-                if($db_row['returnasreply']==1){
-                sendsms_pv($username, $sms_sender, $connection, 'Text', 0);
+                if ($db_row['custom_return_as_reply'] == 1) {
+                	sendsms_pv($username, $sms_sender, $returns, 'text', 0);
                 }
 		$db_query = "
 	    INSERT INTO "._DB_PREF_."_featureCustom_log

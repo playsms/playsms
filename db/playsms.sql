@@ -221,6 +221,7 @@ CREATE TABLE `playsms_featureCommand` (
   `uid` int(11) NOT NULL DEFAULT '0',
   `command_keyword` varchar(10) NOT NULL DEFAULT '',
   `command_exec` text NOT NULL,
+  `command_return_as_reply` tinyint(4) NOT NULL DEFAULT 0,
   PRIMARY KEY (`command_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -274,6 +275,7 @@ CREATE TABLE `playsms_featureCustom` (
   `uid` int(11) NOT NULL DEFAULT '0',
   `custom_keyword` varchar(10) NOT NULL DEFAULT '',
   `custom_url` text NOT NULL,
+  `custom_return_as_reply` tinyint(4) NOT NULL DEFAULT 0,
   PRIMARY KEY (`custom_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

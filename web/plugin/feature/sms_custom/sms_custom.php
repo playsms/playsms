@@ -73,10 +73,7 @@ switch ($op) {
         $edit_custom_keyword = $db_row['custom_keyword'];
         $edit_custom_url = stripslashes($db_row['custom_url']);
         $edit_custom_url = str_replace($feat_custom_path['bin'], '', $edit_custom_url);
-        $retasrep = $db_row['returnasreply'];
-        if ($retasrep == 1) {
-            $checked = "checked";
-        }
+        $edit_custom_return_as_reply = ( $db_row['custom_return_as_reply'] == '1' ? 'checked' : '' );
         if ($err) {
             $content = "<div class=error_string>$err</div>";
         }
@@ -93,24 +90,19 @@ switch ($op) {
 	    <p><b>{CUSTOMKEYWORD}</b> " . _('will be replaced by custom keyword') . "
 	    <p><b>{CUSTOMPARAM}</b> " . _('will be replaced by custom parameter passed to server from SMS') . "
 	    <p>" . _('SMS custom URL') . ": <input type=text size=60 name=edit_custom_url value=\"$edit_custom_url\">
-            <p>" . _('Return As Reply') . " : <input type=checkbox name=retrep $checked></p>
+            <p>" . _('Make return as reply') . " : <input type=checkbox name=edit_custom_return_as_reply $edit_custom_return_as_reply></p>
 	    <p><input type=submit class=button value=\"" . _('Save') . "\">
 	    </form>
 	";
         echo $content;
         break;
     case "sms_custom_edit_yes":
-        $returnasreply = $_POST['retrep'];
-        if ($returnasreply == 'on') {
-            $reply = 1;
-        }else{
-            $reply=0;
-        }
+        $edit_custom_return_as_reply = ( $_POST['edit_custom_return_as_reply'] == 'on' ? '1' : '0' );
         $edit_custom_id = $_POST['edit_custom_id'];
         $edit_custom_keyword = $_POST['edit_custom_keyword'];
         $edit_custom_url = $_POST['edit_custom_url'];
         if ($edit_custom_id && $edit_custom_keyword && $edit_custom_url) {
-            $db_query = "UPDATE " . _DB_PREF_ . "_featureCustom SET c_timestamp='" . mktime() . "',custom_url='$edit_custom_url',returnasreply=$reply WHERE custom_keyword='$edit_custom_keyword' AND uid='$uid'";
+            $db_query = "UPDATE " . _DB_PREF_ . "_featureCustom SET c_timestamp='" . mktime() . "',custom_url='$edit_custom_url',custom_return_as_reply='$edit_custom_return_as_reply' WHERE custom_keyword='$edit_custom_keyword' AND uid='$uid'";
             echo $db_query;
             if (@dba_affected_rows($db_query)) {
                 $error_string = _('SMS custom has been saved') . " (" . _('keyword') . " `$edit_custom_keyword`)";
@@ -153,24 +145,19 @@ switch ($op) {
 	    <p><b>{CUSTOMKEYWORD}</b> " . _('will be replaced by custom keyword') . "
 	    <p><b>{CUSTOMPARAM}</b> " . _('will be replaced by custom parameter passed to server from SMS') . "
 	    <p>" . _('SMS custom URL') . ": <input type=text size=60 maxlength=200 name=add_custom_url value=\"$add_custom_url\">
-            <p>" . _('Return As Reply') . " : <input type=checkbox name=retrep></p>
+            <p>" . _('Make return as reply') . " : <input type=checkbox name=add_custom_return_as_reply></p>
 	    <p><input type=submit class=button value=\"" . _('Add') . "\">
 	    </form>
 	";
         echo $content;
         break;
     case "sms_custom_add_yes":
-        $returnasreply = $_POST['retrep'];
-        if ($returnasreply == 'on') {
-            $reply = 1;
-        }else{
-            $reply=0;
-        }
+        $add_custom_return_as_reply = ( $_POST['add_custom_return_as_reply'] == 'on' ? '1' : '0' );
         $add_custom_keyword = strtoupper($_POST['add_custom_keyword']);
         $add_custom_url = $_POST['add_custom_url'];
         if ($add_custom_keyword && $add_custom_url) {
             if (checkavailablekeyword($add_custom_keyword)) {
-                $db_query = "INSERT INTO " . _DB_PREF_ . "_featureCustom (uid,custom_keyword,custom_url,returnasreply) VALUES ('$uid','$add_custom_keyword','$add_custom_url',$reply)";
+                $db_query = "INSERT INTO " . _DB_PREF_ . "_featureCustom (uid,custom_keyword,custom_url,custom_return_as_reply) VALUES ('$uid','$add_custom_keyword','$add_custom_url','$add_custom_return_as_reply')";
                 echo $db_query;
                 if ($new_uid = @dba_insert_id($db_query)) {
                     $error_string = _('SMS custom has been added') . " (" . _('keyword') . ": `$add_custom_keyword`)";

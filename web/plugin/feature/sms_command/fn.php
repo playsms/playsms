@@ -58,7 +58,7 @@ function sms_command_handle($sms_datetime,$sms_sender,$command_keyword,$command_
 {
 	global $datetime_now, $plugin_config;
 	$ok = false;
-	$db_query = "SELECT command_exec,uid,returnasreply FROM "._DB_PREF_."_featureCommand WHERE command_keyword='$command_keyword'";
+	$db_query = "SELECT command_exec,uid,command_return_as_reply FROM "._DB_PREF_."_featureCommand WHERE command_keyword='$command_keyword'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$command_exec = $db_row['command_exec'];
@@ -70,9 +70,9 @@ function sms_command_handle($sms_datetime,$sms_sender,$command_keyword,$command_
 	$command_exec = $plugin_config['feature']['sms_command']['bin']."/".$command_exec;
 	$command_output = shell_exec(stripslashes($command_exec));
         $username   = uid2username($db_row['uid']);
-                if($db_row['returnasreply']==1){
-                sendsms_pv($username, $sms_sender, $command_output, 'Text', 0);
-                }
+        if ($db_row['command_return_as_reply'] == 1) {
+                sendsms_pv($username, $sms_sender, $command_output, 'text', 0);
+        }
 	$db_query = "
 	INSERT INTO "._DB_PREF_."_featureCommand_log
 	(sms_sender,command_log_datetime,command_log_keyword,command_log_exec) 
