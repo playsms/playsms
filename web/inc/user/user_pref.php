@@ -30,6 +30,9 @@ switch ($op)
 			$fwd_to_inbox = $db_row['fwd_to_inbox'];
 			$fwd_to_email = $db_row['fwd_to_email'];
 			$fwd_to_mobile = $db_row['fwd_to_mobile'];
+			$replace_zero = $db_row['replace_zero'];
+			$plus_sign_remove = $db_row['plus_sign_remove'];
+			$plus_sign_add = $db_row['plus_sign_add'];
 			$credit = rate_getusercredit($username);
 		}
 		// select fwd_to_inbox
@@ -58,6 +61,24 @@ switch ($op)
 		}
 		$option_fwd_to_mobile = "<option value='1' ".$selected_1.">"._('yes')."</option>";
 		$option_fwd_to_mobile .= "<option value='0' ".$selected_0.">"._('no')."</option>";
+
+		// select plus_sign_remove
+		if ($plus_sign_remove) {
+			$selected_1 = 'selected'; $selected_0 = '';
+		} else {
+			$selected_1 = ''; $selected_0 = 'selected';
+		}
+		$option_plus_sign_remove = "<option value='1' ".$selected_1.">"._('yes')."</option>";
+		$option_plus_sign_remove .= "<option value='0' ".$selected_0.">"._('no')."</option>";
+
+		// select plus_sign_add
+		if ($plus_sign_add) {
+			$selected_1 = 'selected'; $selected_0 = '';
+		} else {
+			$selected_1 = ''; $selected_0 = 'selected';
+		}
+		$option_plus_sign_add = "<option value='1' ".$selected_1.">"._('yes')."</option>";
+		$option_plus_sign_add .= "<option value='0' ".$selected_0.">"._('no')."</option>";
 
 		// get country option
 		$db_query = "SELECT * FROM "._DB_PREF_."_tblUser_country ORDER BY country_name";
@@ -110,6 +131,9 @@ switch ($op)
 	    <tr><td width=200>"._('Forward PV to inbox')."</td><td>:</td><td><select name='up_fwd_to_inbox'>".$option_fwd_to_inbox."</select></td></tr>
 	    <tr><td width=200>"._('Forward PV to email')."</td><td>:</td><td><select name='up_fwd_to_email'>".$option_fwd_to_email."</select></td></tr>
 	    <tr><td width=200>"._('Forward PV to mobile')."</td><td>:</td><td><select name='up_fwd_to_mobile'>".$option_fwd_to_mobile."</select></td></tr>
+	    <tr><td width=200>"._('Auto replace prefix 0')."</td><td>:</td><td><input type=text size=5 maxlength=5 name='up_replace_zero' value=\"$replace_zero\"> ("._('Prefix or country code').")</td></tr>
+	    <tr><td width=200>"._('Auto remove plus sign')."</td><td>:</td><td><select name='up_plus_sign_remove'>".$option_plus_sign_remove."</select></td></tr>
+	    <tr><td width=200>"._('Always add plus sign')."</td><td>:</td><td><select name='up_plus_sign_add'>".$option_plus_sign_add."</select></td></tr>
 	    <tr><td colspan=3>&nbsp;</td></tr>
 	    <tr><td colspan=3><hr></td></tr>
 	    <tr><td width=200><input type=submit class=button value='"._('Save')."'></td></tr>
@@ -141,6 +165,9 @@ switch ($op)
 		$up_fwd_to_inbox = $_POST['up_fwd_to_inbox'];
 		$up_fwd_to_email = $_POST['up_fwd_to_email'];
 		$up_fwd_to_mobile = $_POST['up_fwd_to_mobile'];
+		$up_replace_zero = $_POST['up_replace_zero'];
+		$up_plus_sign_remove = $_POST['up_plus_sign_remove'];
+		$up_plus_sign_add = $_POST['up_plus_sign_add'];
 		$error_string = _('No changes made');
 		if ($up_name && $up_email)
 		{
@@ -165,7 +192,7 @@ switch ($op)
 			gender='$up_gender',address='$up_address',city='$up_city',state='$up_state',country='$up_country',
 			marital='$up_marital',education='$up_education',zipcode='$up_zipcode',junktimestamp='".mktime()."',
 			datetime_timezone='$up_timezone',language_module='$up_language_module',fwd_to_inbox='$up_fwd_to_inbox',fwd_to_email='$up_fwd_to_email',
-			fwd_to_mobile='$up_fwd_to_mobile'
+			fwd_to_mobile='$up_fwd_to_mobile',replace_zero='$up_replace_zero',plus_sign_remove='$up_plus_sign_remove',plus_sign_add='$up_plus_sign_add'
 		    WHERE uid='$uid'";
 				if (@dba_affected_rows($db_query))
 				{

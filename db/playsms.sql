@@ -1278,6 +1278,9 @@ CREATE TABLE `playsms_tblUser` (
   `fwd_to_mobile` tinyint(4) NOT NULL DEFAULT '0',
   `fwd_to_email` tinyint(4) NOT NULL DEFAULT '1',
   `fwd_to_inbox` tinyint(4) NOT NULL DEFAULT '1',
+  `replace_zero` varchar(5) NOT NULL DEFAULT '',
+  `plus_sign_remove` tinyint(4) NOT NULL DEFAULT '1',
+  `plus_sign_add` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1288,7 +1291,7 @@ CREATE TABLE `playsms_tblUser` (
 
 LOCK TABLES `playsms_tblUser` WRITE;
 /*!40000 ALTER TABLE `playsms_tblUser` DISABLE KEYS */;
-INSERT INTO `playsms_tblUser` VALUES (1332916885,1,2,'dd4aa3580e3de07858d812dcc094c32f','admin','admin','Administrator','+62000000000','noreply@playsms.org','playSMS','@admin',0,0,38,'','','',132,'',0,0,'','1332916885',0,'+0700','en_US',0,1,1);
+INSERT INTO `playsms_tblUser` VALUES (1332916885,1,2,'dd4aa3580e3de07858d812dcc094c32f','admin','admin','Administrator','+62000000000','noreply@playsms.org','playSMS','@admin',0,0,38,'','','',132,'',0,0,'','1332916885',0,'+0700','en_US',0,1,1,'',1,0);
 /*!40000 ALTER TABLE `playsms_tblUser` ENABLE KEYS */;
 UNLOCK TABLES;
 
