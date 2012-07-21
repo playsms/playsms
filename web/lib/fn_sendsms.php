@@ -10,6 +10,21 @@ function sendsms_getvalidnumber($number) {
 	return $number;
 }
 
+function sendsms_manipulate_prefix($number, $user) {
+	if (is_array($user)) {
+		if ($user['replace_zero']) {
+			$number = preg_replace('/^0/', $user['replace_zero'], $number);
+		}
+		if ($user['plus_sign_remove']) {
+			$number = preg_replace('/^\+/', '', $number);
+		}
+		if ($user['plus_sign_add']) {
+			$number = '+'.$number;
+		}
+	}
+	return $number;
+}
+
 function interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0) {
 	global $core_config;
 	$ret = array();
@@ -69,6 +84,12 @@ function interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,
 function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0) {
 	global $datetime_now, $core_config, $gateway_module;
 
+	$user = user_getdatabyuid($uid);
+	$username = $user['username'];
+
+	$sms_to = sendsms_getvalidnumber($sms_to);
+	$sms_to = sendsms_manipulate_prefix($sms_to, $user);
+
 	// make sure sms_datetime is in supported format and in GMT+0
 	// timezone used for outgoing message is not module timezone, but gateway timezone
 	// module gateway may have set already to +0000 (such kannel and clickatell)
@@ -98,8 +119,6 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 	// $sms_sender = sendsms_getvalidnumber($sms_sender);
 
 	$ok = false;
-	$username = uid2username($uid);
-	$sms_to = sendsms_getvalidnumber($sms_to);
 	logger_print("start", 3, "sendsms");
 	if (rate_cansend($username, $sms_to)) {
 		// fixme anton - its a total mess ! need another DBA - we dont need this anymore
