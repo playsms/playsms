@@ -75,7 +75,7 @@ switch ($op)
 	    <h2>"._('Send SMS')."</h2>
 	    <p>
 	    <form name=\"fm_sendsms\" id=\"fm_sendsms\" action=\"index.php?app=menu&inc=send_sms&op=sendsmstopv_yes\" method=\"POST\">
-	    <p>"._('SMS Sender ID').": $sms_from
+	    <p>"._('SMS sender ID').": $sms_from
 	    <p>"._('SMS footer').": $sms_footer
 	    <p>
 	    <table cellpadding=1 cellspacing=0 border=0>
@@ -224,7 +224,7 @@ switch ($op)
 	    <h2>"._('Send broadcast SMS')."</h2>
 	    <p>
 	    <form name=fm_sendsms id=fm_sendsms action=index.php?app=menu&inc=send_sms&op=sendsmstogr_yes method=POST>
-	    <p>"._('SMS Sender ID').": $sms_from
+	    <p>"._('SMS sender ID').": $sms_from
 	    <p>"._('SMS footer').": $sms_footer 
 	    <p>
 	    <p>"._('Send to group').": <select name=\"gpid\">$list_of_group</select>

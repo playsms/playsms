@@ -288,7 +288,7 @@ msgid "Forwarded email footer"
 msgstr ""
 
 #: inc/admin/main_config.php:58
-msgid "Default sender number"
+msgid "Default sender ID"
 msgstr ""
 
 #: inc/admin/main_config.php:61
@@ -468,7 +468,7 @@ msgstr ""
 #: inc/admin/user_mgmnt.php:160 inc/admin/user_mgmnt.php:268
 #: inc/user/send_sms.php:78 inc/user/send_sms.php:227
 #: inc/user/user_pref.php:107
-msgid "SMS Sender ID"
+msgid "SMS sender ID"
 msgstr ""
 
 #: inc/admin/user_mgmnt.php:163 inc/admin/user_mgmnt.php:271

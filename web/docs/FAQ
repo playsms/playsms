@@ -63,9 +63,9 @@ B. SEND SMS
     Answer:
     If you set the SMS footer in your Preferences, than the SMS footer
     will be added to the end of your SMS, this is useful when using 
-    gateway module with no ability to set SMS Sender ID.
-    Gateway module which have the ability to set SMS Sender ID will 
-    set SMS Sender ID to the SMS.
+    gateway module with no ability to set SMS sender ID.
+    Gateway module which have the ability to set SMS sender ID will 
+    set SMS sender ID to the SMS.
     
 
 C. RECEIVE SMS

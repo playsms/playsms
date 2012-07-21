@@ -157,7 +157,7 @@ switch ($op)
 		<td>"._('Mobile')."</td><td>:</td><td><input type='text' size='16' maxlength='16' name='up_mobile' value=\"$mobile\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td>
 	    </tr>
 	    <tr>
-		<td>"._('SMS Sender ID')."</td><td>:</td><td><input type='text' size='16' maxlength='16' name='up_sender' value=\"$sender\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td>
+		<td>"._('SMS sender ID')."</td><td>:</td><td><input type='text' size='16' maxlength='16' name='up_sender' value=\"$sender\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td>
 	    </tr>
 	    <tr>
 		<td>"._('SMS footer')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='up_footer' value=\"$footer\"> ("._('Max. 30 alphanumeric characters').")</td>
@@ -265,7 +265,7 @@ switch ($op)
 		<td>"._('Mobile')."</td><td>:</td><td><input type='text' size='16' maxlength='16' name='add_mobile' value=\"$add_mobile\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td>
 	    </tr>
 	    <tr>
-		<td>"._('SMS Sender ID')."</td><td>:</td><td><input type='text' size='16' maxlength='16' name='add_sender' value=\"$add_sender\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td>
+		<td>"._('SMS sender ID')."</td><td>:</td><td><input type='text' size='16' maxlength='16' name='add_sender' value=\"$add_sender\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td>
 	    </tr>
 	    <tr>
 		<td>"._('SMS footer')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='add_footer' value=\"$add_footer\"> ("._('Max. 30 alphanumeric characters').")</td>

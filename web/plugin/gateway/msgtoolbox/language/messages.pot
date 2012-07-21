@@ -70,7 +70,7 @@ msgstr ""
 
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:44
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:44
-msgid "Module sender number"
+msgid "Module sender ID"
 msgstr ""
 
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:44
