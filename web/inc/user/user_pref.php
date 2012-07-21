@@ -123,7 +123,7 @@ switch ($op)
 	    <tr><td width=200>"._('Zipcode')."</td><td>:</td><td><input type=text size=10 maxlength=10 name=up_zipcode value=\"$zipcode\"></td></tr>
 	    <tr><td width=200>"._('Active language')."</td><td>:</td><td><select name=up_language_module>$option_language_module</select></td></tr>
 	    <tr><td colspan=3>&nbsp;</td></tr>
-	    <tr><td colspan=3><h2>"._('Application information')."</h2><hr></td></tr>
+	    <tr><td colspan=3><h2>"._('Application options')."</h2><hr></td></tr>
 	    <tr><td width=200>"._('Timezone')."</td><td>:</td><td><input type=text size=5 maxlength=5 name=up_timezone value=\"$timezone\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td></tr>
 	    <tr><td width=200>"._('SMS Sender ID')."</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"$sender\"> ("._('Max. 16 numeric or 11 alphanumeric characters').")</td></tr>
 	    <tr><td width=200>"._('SMS footer')."</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_footer value=\"$footer\"> ("._('Max. 30 alphanumeric characters').")</td></tr>
