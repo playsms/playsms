@@ -288,11 +288,11 @@ msgid "Forwarded email footer"
 msgstr ""
 
 #: inc/admin/main_config.php:58
-msgid "Gateway number"
+msgid "Default sender number"
 msgstr ""
 
 #: inc/admin/main_config.php:61
-msgid "Gateway timezone"
+msgid "Default timezone"
 msgstr ""
 
 #: inc/admin/main_config.php:61 inc/admin/user_mgmnt.php:166

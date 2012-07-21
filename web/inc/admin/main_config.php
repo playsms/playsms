@@ -55,10 +55,10 @@ switch ($op)
 		<td>"._('Forwarded email footer')."</td><td>:</td><td><input type='text' size='50' name='edit_email_footer' value=\"$email_footer\"></td>
 	    </tr>
 	    <tr>
-		<td>"._('Gateway number')."</td><td>:</td><td><input type='text' size='20' name='edit_gateway_number' value=\"$gateway_number\"></td>
+		<td>"._('Default sender number')."</td><td>:</td><td><input type='text' size='20' name='edit_gateway_number' value=\"$gateway_number\"></td>
 	    </tr>
 	    <tr>
-		<td>"._('Gateway timezone')."</td><td>:</td><td><input type='text' size='5' maxlength='5' name='edit_gateway_timezone' value=\"$gateway_timezone\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td>
+		<td>"._('Default timezone')."</td><td>:</td><td><input type='text' size='5' maxlength='5' name='edit_gateway_timezone' value=\"$gateway_timezone\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td>
 	    </tr>
 	    <tr>
 		<td>"._('Default SMS rate')."</td><td>:</td><td><input type='text' size='20' name='edit_default_rate' value=\"$default_rate\"></td>

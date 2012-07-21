@@ -55,7 +55,7 @@ msgid "Fill to change the password"
 msgstr ""
 
 #: plugin/gateway/clickatell/clickatell.php:41
-msgid "Module sender"
+msgid "Module sender number"
 msgstr ""
 
 #: plugin/gateway/clickatell/clickatell.php:41

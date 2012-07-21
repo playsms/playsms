@@ -293,13 +293,13 @@ msgid "Forwarded email footer"
 msgstr "Footer email"
 
 #: inc/admin/main_config.php:58
-msgid "Gateway number"
-msgstr "Nomor gateway"
+msgid "Default sender number"
+msgstr "Nomor pengirim default"
 
 #: inc/admin/main_config.php:61
 #, fuzzy
-msgid "Gateway timezone"
-msgstr "Nomor gateway"
+msgid "Default timezone"
+msgstr "Timezone default"
 
 #: inc/admin/main_config.php:61 inc/admin/user_mgmnt.php:166
 #: inc/admin/user_mgmnt.php:274 inc/user/user_pref.php:106

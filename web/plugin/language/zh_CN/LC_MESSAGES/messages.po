@@ -293,12 +293,12 @@ msgid "Forwarded email footer"
 msgstr "转发邮件页脚"
 
 #: inc/admin/main_config.php:58
-msgid "Gateway number"
+msgid "Default sender number"
 msgstr "网关号"
 
 #: inc/admin/main_config.php:61
 #, fuzzy
-msgid "Gateway timezone"
+msgid "Default timezone"
 msgstr "网关号"
 
 #: inc/admin/main_config.php:61 inc/admin/user_mgmnt.php:166
