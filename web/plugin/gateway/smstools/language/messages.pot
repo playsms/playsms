@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-22 15:43+0100\n"
+"POT-Creation-Date: 2012-07-22 10:58+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,26 +18,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: plugin/gateway/smstools/smstools.php:9
+#: plugin/gateway/smstools/smstools.php:9
 msgid "Active"
 msgstr ""
 
+#: plugin/gateway/smstools/smstools.php:13
 #: plugin/gateway/smstools/smstools.php:13
 msgid "Inactive"
 msgstr ""
 
 #: plugin/gateway/smstools/smstools.php:13
+#: plugin/gateway/smstools/smstools.php:13
 msgid "click here to activate"
 msgstr ""
 
 #: plugin/gateway/smstools/smstools.php:24
-#: plugin/gateway/smstools/config.php:12 plugin/gateway/smstools/config.php:12
+#: plugin/gateway/smstools/config.php:12
+#: plugin/gateway/smstools/smstools.php:24
 msgid "Manage smstools"
 msgstr ""
 
 #: plugin/gateway/smstools/smstools.php:28
+#: plugin/gateway/smstools/smstools.php:28
 msgid "Gateway name"
 msgstr ""
 
+#: plugin/gateway/smstools/smstools.php:37
 #: plugin/gateway/smstools/smstools.php:37
 msgid "Gateway has been activated"
 msgstr ""

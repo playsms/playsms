@@ -12,6 +12,7 @@ if (!$core_config['daemon_process']) {
 	} else {
 		header ("Pragma: no-cache");
 	}
+	header('Content-Type: text/html; charset=UTF-8');
 	ob_start();
 }
 

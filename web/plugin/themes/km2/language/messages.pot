@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-22 15:43+0100\n"
+"POT-Creation-Date: 2012-07-22 10:58+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,23 +46,26 @@ msgid "FAQ Users"
 msgstr ""
 
 #: plugin/themes/km2/page_register.php:32
+#: plugin/themes/km2/page_register.php:32
 msgid "Name"
 msgstr ""
 
 #: plugin/themes/km2/page_register.php:36 plugin/themes/km2/page_login.php:32
-#: plugin/themes/km2/page_forgot.php:31 plugin/themes/km2/page_forgot.php:31
+#: plugin/themes/km2/page_forgot.php:31 plugin/themes/km2/page_register.php:36
 msgid "Username"
 msgstr ""
 
+#: plugin/themes/km2/page_register.php:41
 #: plugin/themes/km2/page_register.php:41
 msgid "Mobile"
 msgstr ""
 
 #: plugin/themes/km2/page_register.php:46 plugin/themes/km2/page_forgot.php:36
-#: plugin/themes/km2/page_forgot.php:36
+#: plugin/themes/km2/page_register.php:46
 msgid "Email"
 msgstr ""
 
+#: plugin/themes/km2/page_register.php:53
 #: plugin/themes/km2/page_register.php:53
 msgid "Register"
 msgstr ""
@@ -99,6 +102,6 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
-#: plugin/themes/km2/page_forgot.php:43 plugin/themes/km2/page_forgot.php:43
+#: plugin/themes/km2/page_forgot.php:43
 msgid "Recover password"
 msgstr ""

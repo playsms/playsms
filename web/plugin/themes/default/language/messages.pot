@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-22 15:43+0100\n"
+"POT-Creation-Date: 2012-07-22 10:58+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,40 +46,55 @@ msgid "HTTP API"
 msgstr ""
 
 #: plugin/themes/default/page_register.php:26
+#: plugin/themes/default/page_register.php:32
+#: plugin/themes/default/page_register.php:32
 msgid "Name"
 msgstr ""
 
 #: plugin/themes/default/page_register.php:30
 #: plugin/themes/default/page_login.php:25
 #: plugin/themes/default/page_forgot.php:26
-#: plugin/themes/default/page_forgot.php:26
+#: plugin/themes/default/page_login.php:30
+#: plugin/themes/default/page_forgot.php:32
+#: plugin/themes/default/page_register.php:36
+#: plugin/themes/default/page_register.php:36
 msgid "Username"
 msgstr ""
 
 #: plugin/themes/default/page_register.php:35
+#: plugin/themes/default/page_register.php:41
+#: plugin/themes/default/page_register.php:41
 msgid "Mobile"
 msgstr ""
 
 #: plugin/themes/default/page_register.php:39
 #: plugin/themes/default/page_forgot.php:31
-#: plugin/themes/default/page_forgot.php:31
+#: plugin/themes/default/page_forgot.php:37
+#: plugin/themes/default/page_register.php:45
+#: plugin/themes/default/page_register.php:45
 msgid "Email"
 msgstr ""
 
 #: plugin/themes/default/page_register.php:45
 #: plugin/themes/default/page_login.php:43
+#: plugin/themes/default/page_login.php:48
+#: plugin/themes/default/page_register.php:51
+#: plugin/themes/default/page_register.php:51
 msgid "Register an account"
 msgstr ""
 
 #: plugin/themes/default/page_login.php:30
+#: plugin/themes/default/page_login.php:35
 msgid "Password"
 msgstr ""
 
 #: plugin/themes/default/page_login.php:36
+#: plugin/themes/default/page_login.php:41
 msgid "Login"
 msgstr ""
 
 #: plugin/themes/default/page_login.php:50
+#: plugin/themes/default/page_login.php:55
 msgid "Forgot password"
 msgstr ""
 
@@ -92,6 +107,6 @@ msgid "Status"
 msgstr ""
 
 #: plugin/themes/default/page_forgot.php:37
-#: plugin/themes/default/page_forgot.php:37
+#: plugin/themes/default/page_forgot.php:43
 msgid "Recover password"
 msgstr ""

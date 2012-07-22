@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-22 15:43+0100\n"
+"POT-Creation-Date: 2012-07-22 10:58+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,7 @@ msgstr ""
 #: plugin/tools/simplephonebook/phone_add.php:12
 #: plugin/tools/simplephonebook/dir_create.php:38
 #: plugin/tools/simplephonebook/dir_create.php:45
+#: plugin/tools/simplephonebook/dir_edit.php:47
 #: plugin/tools/simplephonebook/dir_edit.php:47
 msgid "code"
 msgstr ""
@@ -79,6 +80,7 @@ msgstr ""
 #: plugin/tools/simplephonebook/phone_add.php:66
 #: plugin/tools/simplephonebook/dir_create.php:49
 #: plugin/tools/simplephonebook/dir_edit.php:51
+#: plugin/tools/simplephonebook/dir_edit.php:51
 msgid "You must fill all field"
 msgstr ""
 
@@ -90,31 +92,37 @@ msgstr ""
 
 #: plugin/tools/simplephonebook/dir_create.php:17
 #: plugin/tools/simplephonebook/dir_edit.php:19
+#: plugin/tools/simplephonebook/dir_edit.php:19
 msgid "Group name"
 msgstr ""
 
 #: plugin/tools/simplephonebook/dir_create.php:20
 #: plugin/tools/simplephonebook/phonebook_exim.php:36
 #: plugin/tools/simplephonebook/dir_edit.php:22
+#: plugin/tools/simplephonebook/dir_edit.php:22
 msgid "Group code"
 msgstr ""
 
 #: plugin/tools/simplephonebook/dir_create.php:20
+#: plugin/tools/simplephonebook/dir_edit.php:22
 #: plugin/tools/simplephonebook/dir_edit.php:22
 msgid "please use uppercase and make it short"
 msgstr ""
 
 #: plugin/tools/simplephonebook/dir_create.php:23
 #: plugin/tools/simplephonebook/dir_edit.php:25
+#: plugin/tools/simplephonebook/dir_edit.php:25
 msgid "Note"
 msgstr ""
 
 #: plugin/tools/simplephonebook/dir_create.php:23
 #: plugin/tools/simplephonebook/dir_edit.php:25
+#: plugin/tools/simplephonebook/dir_edit.php:25
 msgid "Group code used by keyword"
 msgstr ""
 
 #: plugin/tools/simplephonebook/dir_create.php:23
+#: plugin/tools/simplephonebook/dir_edit.php:25
 #: plugin/tools/simplephonebook/dir_edit.php:25
 msgid "broadcast SMS from single SMS"
 msgstr ""
@@ -137,10 +145,7 @@ msgstr ""
 #: plugin/tools/simplephonebook/phonebook.php:272
 #: plugin/tools/simplephonebook/phonebook.php:284
 #: plugin/tools/simplephonebook/phonebook.php:289
-#: plugin/tools/simplephonebook/phonebook.php:267
-#: plugin/tools/simplephonebook/phonebook.php:272
-#: plugin/tools/simplephonebook/phonebook.php:284
-#: plugin/tools/simplephonebook/phonebook.php:289
+#: plugin/tools/simplephonebook/dir_edit.php:47
 msgid "group"
 msgstr ""
 
@@ -164,7 +169,6 @@ msgstr ""
 
 #: plugin/tools/simplephonebook/config.php:10
 #: plugin/tools/simplephonebook/simplephonebook.php:151
-#: plugin/tools/simplephonebook/phonebook.php:298
 #: plugin/tools/simplephonebook/phonebook.php:298
 msgid "Phonebook"
 msgstr ""
@@ -195,8 +199,6 @@ msgid "Select action"
 msgstr ""
 
 #: plugin/tools/simplephonebook/simplephonebook.php:81
-#: plugin/tools/simplephonebook/phonebook.php:118
-#: plugin/tools/simplephonebook/phonebook.php:184
 #: plugin/tools/simplephonebook/phonebook.php:118
 #: plugin/tools/simplephonebook/phonebook.php:184
 msgid "Go"
@@ -256,116 +258,99 @@ msgid "Fail to upload CSV file for phonebook"
 msgstr ""
 
 #: plugin/tools/simplephonebook/dir_edit.php:14
+#: plugin/tools/simplephonebook/dir_edit.php:14
 msgid "Edit group"
 msgstr ""
 
 #: plugin/tools/simplephonebook/dir_edit.php:26
 #: plugin/tools/simplephonebook/phonebook.php:53
-#: plugin/tools/simplephonebook/phonebook.php:53
+#: plugin/tools/simplephonebook/dir_edit.php:26
 msgid "Save"
 msgstr ""
 
+#: plugin/tools/simplephonebook/dir_edit.php:40
 #: plugin/tools/simplephonebook/dir_edit.php:40
 msgid "No changes has been made"
 msgstr ""
 
 #: plugin/tools/simplephonebook/dir_edit.php:47
+#: plugin/tools/simplephonebook/dir_edit.php:47
 msgid "Group has been edited"
 msgstr ""
 
-#: plugin/tools/simplephonebook/phonebook.php:23
 #: plugin/tools/simplephonebook/phonebook.php:23
 msgid "Edited name"
 msgstr ""
 
 #: plugin/tools/simplephonebook/phonebook.php:24
-#: plugin/tools/simplephonebook/phonebook.php:24
 msgid "Edited number"
 msgstr ""
 
-#: plugin/tools/simplephonebook/phonebook.php:25
 #: plugin/tools/simplephonebook/phonebook.php:25
 msgid "Edited email"
 msgstr ""
 
 #: plugin/tools/simplephonebook/phonebook.php:81
-#: plugin/tools/simplephonebook/phonebook.php:81
 msgid "Copied name"
 msgstr ""
 
-#: plugin/tools/simplephonebook/phonebook.php:82
 #: plugin/tools/simplephonebook/phonebook.php:82
 msgid "Copied number"
 msgstr ""
 
 #: plugin/tools/simplephonebook/phonebook.php:83
-#: plugin/tools/simplephonebook/phonebook.php:83
 msgid "Copied email"
 msgstr ""
 
-#: plugin/tools/simplephonebook/phonebook.php:113
 #: plugin/tools/simplephonebook/phonebook.php:113
 msgid "Code"
 msgstr ""
 
 #: plugin/tools/simplephonebook/phonebook.php:118
 #: plugin/tools/simplephonebook/phonebook.php:184
-#: plugin/tools/simplephonebook/phonebook.php:118
-#: plugin/tools/simplephonebook/phonebook.php:184
 msgid "Select destination group"
 msgstr ""
 
-#: plugin/tools/simplephonebook/phonebook.php:147
 #: plugin/tools/simplephonebook/phonebook.php:147
 msgid "Moved name"
 msgstr ""
 
 #: plugin/tools/simplephonebook/phonebook.php:148
-#: plugin/tools/simplephonebook/phonebook.php:148
 msgid "Moved number"
 msgstr ""
 
-#: plugin/tools/simplephonebook/phonebook.php:149
 #: plugin/tools/simplephonebook/phonebook.php:149
 msgid "Moved email"
 msgstr ""
 
 #: plugin/tools/simplephonebook/phonebook.php:210
-#: plugin/tools/simplephonebook/phonebook.php:210
 msgid "Deleted name"
 msgstr ""
 
-#: plugin/tools/simplephonebook/phonebook.php:211
 #: plugin/tools/simplephonebook/phonebook.php:211
 msgid "Deleted number"
 msgstr ""
 
 #: plugin/tools/simplephonebook/phonebook.php:212
-#: plugin/tools/simplephonebook/phonebook.php:212
 msgid "Deleted email"
 msgstr ""
 
-#: plugin/tools/simplephonebook/phonebook.php:241
 #: plugin/tools/simplephonebook/phonebook.php:241
 msgid "Delete"
 msgstr ""
 
 #: plugin/tools/simplephonebook/phonebook.php:267
-#: plugin/tools/simplephonebook/phonebook.php:267
 msgid "Fail to publish"
 msgstr ""
 
-#: plugin/tools/simplephonebook/phonebook.php:272
 #: plugin/tools/simplephonebook/phonebook.php:272
 msgid "Group has been published"
 msgstr ""
 
 #: plugin/tools/simplephonebook/phonebook.php:284
-#: plugin/tools/simplephonebook/phonebook.php:284
 msgid "Fail to unpublish"
 msgstr ""
 
-#: plugin/tools/simplephonebook/phonebook.php:289
 #: plugin/tools/simplephonebook/phonebook.php:289
 msgid "Group has been unpublished"
 msgstr ""

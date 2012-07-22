@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-22 15:43+0100\n"
+"POT-Creation-Date: 2012-07-22 10:58+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,54 +18,53 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: plugin/gateway/gnokii/config.php:16 plugin/gateway/gnokii/gnokii.php:24
-#: plugin/gateway/gnokii/gnokii.php:24
 msgid "Manage gnokii"
 msgstr ""
 
-#: plugin/gateway/gnokii/gnokii.php:9 plugin/gateway/gnokii/gnokii.php:9
+#: plugin/gateway/gnokii/gnokii.php:9
 msgid "Active"
 msgstr ""
 
-#: plugin/gateway/gnokii/gnokii.php:13 plugin/gateway/gnokii/gnokii.php:13
+#: plugin/gateway/gnokii/gnokii.php:13
 msgid "Inactive"
 msgstr ""
 
-#: plugin/gateway/gnokii/gnokii.php:13 plugin/gateway/gnokii/gnokii.php:13
+#: plugin/gateway/gnokii/gnokii.php:13
 msgid "click here to activate"
 msgstr ""
 
-#: plugin/gateway/gnokii/gnokii.php:29 plugin/gateway/gnokii/gnokii.php:29
+#: plugin/gateway/gnokii/gnokii.php:29
 msgid "Gateway name"
 msgstr ""
 
-#: plugin/gateway/gnokii/gnokii.php:32 plugin/gateway/gnokii/gnokii.php:32
+#: plugin/gateway/gnokii/gnokii.php:32
 msgid "Gnokii installation path"
 msgstr ""
 
-#: plugin/gateway/gnokii/gnokii.php:32 plugin/gateway/gnokii/gnokii.php:32
+#: plugin/gateway/gnokii/gnokii.php:32
 msgid "No trailing slash"
 msgstr ""
 
-#: plugin/gateway/gnokii/gnokii.php:36 plugin/gateway/gnokii/gnokii.php:36
+#: plugin/gateway/gnokii/gnokii.php:36
 msgid "Note"
 msgstr ""
 
-#: plugin/gateway/gnokii/gnokii.php:37 plugin/gateway/gnokii/gnokii.php:37
+#: plugin/gateway/gnokii/gnokii.php:37
 msgid "Send SMS message without footer banner"
 msgstr ""
 
-#: plugin/gateway/gnokii/gnokii.php:39 plugin/gateway/gnokii/gnokii.php:39
+#: plugin/gateway/gnokii/gnokii.php:39
 msgid "Save"
 msgstr ""
 
-#: plugin/gateway/gnokii/gnokii.php:46 plugin/gateway/gnokii/gnokii.php:46
+#: plugin/gateway/gnokii/gnokii.php:46
 msgid "No changes has been made"
 msgstr ""
 
-#: plugin/gateway/gnokii/gnokii.php:55 plugin/gateway/gnokii/gnokii.php:55
+#: plugin/gateway/gnokii/gnokii.php:55
 msgid "Gateway module configurations has been saved"
 msgstr ""
 
-#: plugin/gateway/gnokii/gnokii.php:63 plugin/gateway/gnokii/gnokii.php:63
+#: plugin/gateway/gnokii/gnokii.php:63
 msgid "Gateway has been activated"
 msgstr ""

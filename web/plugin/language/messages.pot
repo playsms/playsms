@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-22 15:42+0100\n"
+"POT-Creation-Date: 2012-07-22 10:58+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,11 +52,13 @@ msgstr ""
 #: lib/fn_auth.php:208 lib/fn_auth.php:265 inc/admin/user_mgmnt.php:20
 #: inc/admin/user_mgmnt.php:54 inc/admin/user_mgmnt.php:148
 #: inc/admin/user_mgmnt.php:256 inc/user/user_pref.php:90
+#: inc/user/user_pref.php:111
 msgid "Username"
 msgstr ""
 
 #: lib/fn_auth.php:209 lib/fn_auth.php:266 inc/admin/user_mgmnt.php:169
 #: inc/admin/user_mgmnt.php:277 inc/user/user_pref.php:91
+#: inc/user/user_pref.php:112
 msgid "Password"
 msgstr ""
 
@@ -175,6 +177,7 @@ msgid "Outgoing SMS"
 msgstr ""
 
 #: lib/lib_init1.php:57 inc/admin/user_mgmnt.php:142 inc/user/user_pref.php:85
+#: inc/user/user_pref.php:106
 msgid "Preferences"
 msgstr ""
 
@@ -198,29 +201,29 @@ msgstr ""
 msgid "Main configuration"
 msgstr ""
 
-#: lib/fn_core.php:249
+#: lib/fn_core.php:249 lib/fn_core.php:257
 msgid "from"
 msgstr ""
 
-#: lib/fn_core.php:250
+#: lib/fn_core.php:250 lib/fn_core.php:258
 msgid "Forward Private WebSMS"
 msgstr ""
 
-#: lib/fn_core.php:251
+#: lib/fn_core.php:251 lib/fn_core.php:259
 msgid "Date time"
 msgstr ""
 
-#: lib/fn_core.php:252
+#: lib/fn_core.php:252 lib/fn_core.php:260
 msgid "Sender"
 msgstr ""
 
-#: lib/fn_core.php:253
+#: lib/fn_core.php:253 lib/fn_core.php:261
 msgid "Receiver"
 msgstr ""
 
 #: lib/fn_core.php:254 inc/admin/all_inbox.php:36
 #: inc/admin/all_outgoing.php:37 inc/user/user_inbox.php:35
-#: inc/user/user_outgoing.php:35
+#: inc/user/user_outgoing.php:35 lib/fn_core.php:262
 msgid "Message"
 msgstr ""
 
@@ -277,13 +280,17 @@ msgstr ""
 
 #: inc/admin/main_config.php:14 inc/admin/main_config.php:19
 #: inc/user/user_pref.php:41 inc/user/user_pref.php:50
-#: inc/user/user_pref.php:59
+#: inc/user/user_pref.php:59 inc/user/user_pref.php:44
+#: inc/user/user_pref.php:53 inc/user/user_pref.php:62
+#: inc/user/user_pref.php:71 inc/user/user_pref.php:80
 msgid "yes"
 msgstr ""
 
 #: inc/admin/main_config.php:15 inc/admin/main_config.php:20
 #: inc/user/user_pref.php:42 inc/user/user_pref.php:51
-#: inc/user/user_pref.php:60
+#: inc/user/user_pref.php:60 inc/user/user_pref.php:45
+#: inc/user/user_pref.php:54 inc/user/user_pref.php:63
+#: inc/user/user_pref.php:72 inc/user/user_pref.php:81
 msgid "no"
 msgstr ""
 
@@ -309,6 +316,7 @@ msgstr ""
 
 #: inc/admin/main_config.php:61 inc/admin/user_mgmnt.php:166
 #: inc/admin/user_mgmnt.php:274 inc/user/user_pref.php:106
+#: inc/user/user_pref.php:127
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
@@ -345,7 +353,7 @@ msgid "Default language"
 msgstr ""
 
 #: inc/admin/main_config.php:88 inc/admin/user_mgmnt.php:181
-#: inc/user/user_pref.php:115
+#: inc/user/user_pref.php:115 inc/user/user_pref.php:139
 msgid "Save"
 msgstr ""
 
@@ -417,25 +425,25 @@ msgstr ""
 
 #: inc/admin/user_mgmnt.php:21 inc/admin/user_mgmnt.php:55
 #: inc/user/sms_template.php:27 inc/user/sms_template.php:157
-#: inc/user/user_pref.php:95
+#: inc/user/user_pref.php:95 inc/user/user_pref.php:116
 msgid "Name"
 msgstr ""
 
 #: inc/admin/user_mgmnt.php:22 inc/admin/user_mgmnt.php:56
 #: inc/admin/user_mgmnt.php:154 inc/admin/user_mgmnt.php:262
-#: inc/user/user_pref.php:96
+#: inc/user/user_pref.php:96 inc/user/user_pref.php:117
 msgid "Email"
 msgstr ""
 
 #: inc/admin/user_mgmnt.php:23 inc/admin/user_mgmnt.php:57
 #: inc/admin/user_mgmnt.php:157 inc/admin/user_mgmnt.php:265
-#: inc/user/user_pref.php:97
+#: inc/user/user_pref.php:97 inc/user/user_pref.php:118
 msgid "Mobile"
 msgstr ""
 
 #: inc/admin/user_mgmnt.php:24 inc/admin/user_mgmnt.php:58
 #: inc/admin/user_mgmnt.php:172 inc/admin/user_mgmnt.php:280
-#: inc/user/user_pref.php:109
+#: inc/user/user_pref.php:109 inc/user/user_pref.php:130
 msgid "Credit"
 msgstr ""
 
@@ -474,28 +482,29 @@ msgstr ""
 #: inc/admin/user_mgmnt.php:157 inc/admin/user_mgmnt.php:160
 #: inc/admin/user_mgmnt.php:265 inc/admin/user_mgmnt.php:268
 #: inc/user/user_pref.php:97 inc/user/user_pref.php:107
+#: inc/user/user_pref.php:118 inc/user/user_pref.php:128
 msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr ""
 
 #: inc/admin/user_mgmnt.php:160 inc/admin/user_mgmnt.php:268
 #: inc/user/send_sms.php:78 inc/user/send_sms.php:227
-#: inc/user/user_pref.php:107
+#: inc/user/user_pref.php:107 inc/user/user_pref.php:128
 msgid "SMS sender ID"
 msgstr ""
 
 #: inc/admin/user_mgmnt.php:163 inc/admin/user_mgmnt.php:271
 #: inc/user/send_sms.php:79 inc/user/send_sms.php:228
-#: inc/user/user_pref.php:108
+#: inc/user/user_pref.php:108 inc/user/user_pref.php:129
 msgid "SMS footer"
 msgstr ""
 
 #: inc/admin/user_mgmnt.php:163 inc/admin/user_mgmnt.php:271
-#: inc/user/user_pref.php:108
+#: inc/user/user_pref.php:108 inc/user/user_pref.php:129
 msgid "Max. 30 alphanumeric characters"
 msgstr ""
 
 #: inc/admin/user_mgmnt.php:166 inc/admin/user_mgmnt.php:274
-#: inc/user/user_pref.php:106
+#: inc/user/user_pref.php:106 inc/user/user_pref.php:127
 msgid "Timezone"
 msgstr ""
 
@@ -508,31 +517,37 @@ msgid "User level"
 msgstr ""
 
 #: inc/admin/user_mgmnt.php:178 inc/admin/user_mgmnt.php:286
-#: inc/user/user_pref.php:103
+#: inc/user/user_pref.php:103 inc/user/user_pref.php:124
 msgid "Active language"
 msgstr ""
 
 #: inc/admin/user_mgmnt.php:199 inc/user/user_pref.php:144
+#: inc/user/user_pref.php:171
 msgid "No changes made"
 msgstr ""
 
 #: inc/admin/user_mgmnt.php:206 inc/user/user_pref.php:152
+#: inc/user/user_pref.php:179
 msgid "Email is already in use by other username"
 msgstr ""
 
 #: inc/admin/user_mgmnt.php:206 inc/user/user_pref.php:152
+#: inc/user/user_pref.php:179
 msgid "email"
 msgstr ""
 
 #: inc/admin/user_mgmnt.php:219 inc/user/user_pref.php:178
+#: inc/user/user_pref.php:205
 msgid "Preferences has been saved"
 msgstr ""
 
 #: inc/admin/user_mgmnt.php:223 inc/user/user_pref.php:183
+#: inc/user/user_pref.php:210
 msgid "Fail to save preferences"
 msgstr ""
 
 #: inc/admin/user_mgmnt.php:229 inc/user/user_pref.php:189
+#: inc/user/user_pref.php:216
 msgid "You must fill all field"
 msgstr ""
 
@@ -632,7 +647,7 @@ msgid "not set"
 msgstr ""
 
 #: inc/user/send_sms.php:54 inc/user/send_sms.php:203
-#: inc/user/user_pref.php:65
+#: inc/user/user_pref.php:65 inc/user/user_pref.php:86
 msgid "Please select"
 msgstr ""
 
@@ -717,35 +732,35 @@ msgstr ""
 msgid "number"
 msgstr ""
 
-#: inc/user/user_pref.php:89
+#: inc/user/user_pref.php:89 inc/user/user_pref.php:110
 msgid "Login information"
 msgstr ""
 
-#: inc/user/user_pref.php:92
+#: inc/user/user_pref.php:92 inc/user/user_pref.php:113
 msgid "Re-Type Password"
 msgstr ""
 
-#: inc/user/user_pref.php:94
+#: inc/user/user_pref.php:94 inc/user/user_pref.php:115
 msgid "Personal information"
 msgstr ""
 
-#: inc/user/user_pref.php:98
+#: inc/user/user_pref.php:98 inc/user/user_pref.php:119
 msgid "Address"
 msgstr ""
 
-#: inc/user/user_pref.php:99
+#: inc/user/user_pref.php:99 inc/user/user_pref.php:120
 msgid "City"
 msgstr ""
 
-#: inc/user/user_pref.php:100
+#: inc/user/user_pref.php:100 inc/user/user_pref.php:121
 msgid "State or Province"
 msgstr ""
 
-#: inc/user/user_pref.php:101
+#: inc/user/user_pref.php:101 inc/user/user_pref.php:122
 msgid "Country"
 msgstr ""
 
-#: inc/user/user_pref.php:102
+#: inc/user/user_pref.php:102 inc/user/user_pref.php:123
 msgid "Zipcode"
 msgstr ""
 
@@ -753,18 +768,38 @@ msgstr ""
 msgid "Application information"
 msgstr ""
 
-#: inc/user/user_pref.php:110
+#: inc/user/user_pref.php:110 inc/user/user_pref.php:131
 msgid "Forward PV to inbox"
 msgstr ""
 
-#: inc/user/user_pref.php:111
+#: inc/user/user_pref.php:111 inc/user/user_pref.php:132
 msgid "Forward PV to email"
 msgstr ""
 
-#: inc/user/user_pref.php:112
+#: inc/user/user_pref.php:112 inc/user/user_pref.php:133
 msgid "Forward PV to mobile"
 msgstr ""
 
-#: inc/user/user_pref.php:174
+#: inc/user/user_pref.php:174 inc/user/user_pref.php:201
 msgid "Preferences has been saved and password updated"
+msgstr ""
+
+#: inc/user/user_pref.php:126
+msgid "Application options"
+msgstr ""
+
+#: inc/user/user_pref.php:134
+msgid "Auto replace prefix 0"
+msgstr ""
+
+#: inc/user/user_pref.php:134
+msgid "Prefix or country code"
+msgstr ""
+
+#: inc/user/user_pref.php:135
+msgid "Auto remove plus sign"
+msgstr ""
+
+#: inc/user/user_pref.php:136
+msgid "Always add plus sign"
 msgstr ""

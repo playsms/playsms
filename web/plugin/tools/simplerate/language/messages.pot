@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-22 15:43+0100\n"
+"POT-Creation-Date: 2012-07-22 10:58+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,13 +19,9 @@ msgstr ""
 
 #: plugin/tools/simplerate/config.php:5
 #: plugin/tools/simplerate/simplerate.php:13
-#: plugin/tools/simplerate/simplerate.php:13
 msgid "Manage SMS rate"
 msgstr ""
 
-#: plugin/tools/simplerate/simplerate.php:15
-#: plugin/tools/simplerate/simplerate.php:48
-#: plugin/tools/simplerate/simplerate.php:124
 #: plugin/tools/simplerate/simplerate.php:15
 #: plugin/tools/simplerate/simplerate.php:48
 #: plugin/tools/simplerate/simplerate.php:124
@@ -35,15 +31,9 @@ msgstr ""
 #: plugin/tools/simplerate/simplerate.php:19
 #: plugin/tools/simplerate/simplerate.php:79
 #: plugin/tools/simplerate/simplerate.php:129
-#: plugin/tools/simplerate/simplerate.php:19
-#: plugin/tools/simplerate/simplerate.php:79
-#: plugin/tools/simplerate/simplerate.php:129
 msgid "Destination"
 msgstr ""
 
-#: plugin/tools/simplerate/simplerate.php:20
-#: plugin/tools/simplerate/simplerate.php:82
-#: plugin/tools/simplerate/simplerate.php:132
 #: plugin/tools/simplerate/simplerate.php:20
 #: plugin/tools/simplerate/simplerate.php:82
 #: plugin/tools/simplerate/simplerate.php:132
@@ -53,29 +43,17 @@ msgstr ""
 #: plugin/tools/simplerate/simplerate.php:21
 #: plugin/tools/simplerate/simplerate.php:85
 #: plugin/tools/simplerate/simplerate.php:135
-#: plugin/tools/simplerate/simplerate.php:21
-#: plugin/tools/simplerate/simplerate.php:85
-#: plugin/tools/simplerate/simplerate.php:135
 msgid "Rate"
 msgstr ""
 
-#: plugin/tools/simplerate/simplerate.php:22
 #: plugin/tools/simplerate/simplerate.php:22
 msgid "Action"
 msgstr ""
 
 #: plugin/tools/simplerate/simplerate.php:33
-#: plugin/tools/simplerate/simplerate.php:33
 msgid "Are you sure you want to delete rate ?"
 msgstr ""
 
-#: plugin/tools/simplerate/simplerate.php:33
-#: plugin/tools/simplerate/simplerate.php:55
-#: plugin/tools/simplerate/simplerate.php:59
-#: plugin/tools/simplerate/simplerate.php:105
-#: plugin/tools/simplerate/simplerate.php:109
-#: plugin/tools/simplerate/simplerate.php:154
-#: plugin/tools/simplerate/simplerate.php:164
 #: plugin/tools/simplerate/simplerate.php:33
 #: plugin/tools/simplerate/simplerate.php:55
 #: plugin/tools/simplerate/simplerate.php:59
@@ -93,69 +71,50 @@ msgstr ""
 #: plugin/tools/simplerate/simplerate.php:109
 #: plugin/tools/simplerate/simplerate.php:154
 #: plugin/tools/simplerate/simplerate.php:164
-#: plugin/tools/simplerate/simplerate.php:33
-#: plugin/tools/simplerate/simplerate.php:55
-#: plugin/tools/simplerate/simplerate.php:59
-#: plugin/tools/simplerate/simplerate.php:105
-#: plugin/tools/simplerate/simplerate.php:109
-#: plugin/tools/simplerate/simplerate.php:154
-#: plugin/tools/simplerate/simplerate.php:164
 msgid "prefix"
 msgstr ""
 
-#: plugin/tools/simplerate/simplerate.php:55
 #: plugin/tools/simplerate/simplerate.php:55
 msgid "Fail to delete rate"
 msgstr ""
 
 #: plugin/tools/simplerate/simplerate.php:59
-#: plugin/tools/simplerate/simplerate.php:59
 msgid "Rate has been deleted"
 msgstr ""
 
-#: plugin/tools/simplerate/simplerate.php:73
 #: plugin/tools/simplerate/simplerate.php:73
 msgid "Edit rate"
 msgstr ""
 
 #: plugin/tools/simplerate/simplerate.php:88
-#: plugin/tools/simplerate/simplerate.php:88
 msgid "Save"
 msgstr ""
 
-#: plugin/tools/simplerate/simplerate.php:99
 #: plugin/tools/simplerate/simplerate.php:99
 msgid "No changes made!"
 msgstr ""
 
 #: plugin/tools/simplerate/simplerate.php:105
-#: plugin/tools/simplerate/simplerate.php:105
 msgid "Rate has been saved"
 msgstr ""
 
-#: plugin/tools/simplerate/simplerate.php:109
 #: plugin/tools/simplerate/simplerate.php:109
 msgid "Fail to save rate"
 msgstr ""
 
 #: plugin/tools/simplerate/simplerate.php:114
 #: plugin/tools/simplerate/simplerate.php:170
-#: plugin/tools/simplerate/simplerate.php:114
-#: plugin/tools/simplerate/simplerate.php:170
 msgid "You must fill all fields"
 msgstr ""
 
-#: plugin/tools/simplerate/simplerate.php:138
 #: plugin/tools/simplerate/simplerate.php:138
 msgid "Add"
 msgstr ""
 
 #: plugin/tools/simplerate/simplerate.php:154
-#: plugin/tools/simplerate/simplerate.php:154
 msgid "Rate is already exists"
 msgstr ""
 
-#: plugin/tools/simplerate/simplerate.php:164
 #: plugin/tools/simplerate/simplerate.php:164
 msgid "Rate has been added"
 msgstr ""

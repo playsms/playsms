@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-22 15:43+0100\n"
+"POT-Creation-Date: 2012-07-22 10:58+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -98,10 +98,12 @@ msgstr ""
 msgid "No changes has been made"
 msgstr ""
 
-#: plugin/gateway/uplink/uplink.php:92 plugin/gateway/uplink/uplink.php:92
+#: plugin/gateway/uplink/uplink.php:92 plugin/gateway/uplink/uplink.php:107
+#: plugin/gateway/uplink/uplink.php:107
 msgid "Gateway module configurations has been saved"
 msgstr ""
 
-#: plugin/gateway/uplink/uplink.php:100 plugin/gateway/uplink/uplink.php:100
+#: plugin/gateway/uplink/uplink.php:100 plugin/gateway/uplink/uplink.php:115
+#: plugin/gateway/uplink/uplink.php:115
 msgid "Gateway has been activated"
 msgstr ""

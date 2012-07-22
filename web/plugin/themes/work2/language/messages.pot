@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-22 15:43+0100\n"
+"POT-Creation-Date: 2012-07-22 10:58+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,28 +42,31 @@ msgid "License"
 msgstr ""
 
 #: plugin/themes/work2/page_register.php:26
+#: plugin/themes/work2/page_register.php:26
 msgid "Name"
 msgstr ""
 
 #: plugin/themes/work2/page_register.php:30
 #: plugin/themes/work2/page_login.php:25
 #: plugin/themes/work2/page_forgot.php:26
-#: plugin/themes/work2/page_forgot.php:26
+#: plugin/themes/work2/page_register.php:30
 msgid "Username"
 msgstr ""
 
+#: plugin/themes/work2/page_register.php:35
 #: plugin/themes/work2/page_register.php:35
 msgid "Mobile"
 msgstr ""
 
 #: plugin/themes/work2/page_register.php:39
 #: plugin/themes/work2/page_forgot.php:31
-#: plugin/themes/work2/page_forgot.php:31
+#: plugin/themes/work2/page_register.php:39
 msgid "Email"
 msgstr ""
 
 #: plugin/themes/work2/page_register.php:45
 #: plugin/themes/work2/page_login.php:43
+#: plugin/themes/work2/page_register.php:45
 msgid "Register an account"
 msgstr ""
 
@@ -87,7 +90,6 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: plugin/themes/work2/page_forgot.php:37
 #: plugin/themes/work2/page_forgot.php:37
 msgid "Recover password"
 msgstr ""
