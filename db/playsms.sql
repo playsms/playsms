@@ -883,7 +883,10 @@ CREATE TABLE `playsms_gatewayKannel_config` (
   `cfg_sendsms_port` varchar(10) DEFAULT NULL,
   `cfg_playsms_web` varchar(250) DEFAULT NULL,
   `cfg_additional_param` varchar(250) DEFAULT NULL,
-  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700'
+  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700',
+  `cfg_adminhost` varchar(250) DEFAULT NULL,
+  `cfg_adminpwd` varchar(50) DEFAULT NULL,
+  `cfg_adminport` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -893,7 +896,7 @@ CREATE TABLE `playsms_gatewayKannel_config` (
 
 LOCK TABLES `playsms_gatewayKannel_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayKannel_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayKannel_config` VALUES (0,'kannel','/var/spool/playsms','playsms','playsms','','127.0.0.1','13131','http://localhost/playsms','','+0700');
+INSERT INTO `playsms_gatewayKannel_config` VALUES (0,'kannel','/var/spool/playsms','playsms','playsms','','127.0.0.1','13131','http://localhost/playsms','','+0700','','',0);
 /*!40000 ALTER TABLE `playsms_gatewayKannel_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
