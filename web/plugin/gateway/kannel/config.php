@@ -13,6 +13,11 @@ if ($db_row = dba_fetch_array($db_result)) {
 	$kannel_param['playsms_web']	= $db_row['cfg_playsms_web'];
 	$kannel_param['additional_param']	= $db_row['cfg_additional_param'];
 	$kannel_param['datetime_timezone']	= $db_row['cfg_datetime_timezone'];
+        //fixme edward Adding New Parameter HTTP Kannel Admin
+        $kannel_param['admin_url']              = $db_row['cfg_adminhost'];
+        $kannel_param['admin_pwd']              = $db_row['cfg_adminpwd'];
+        $kannel_param['admin_port']             = $db_row['cfg_adminport'];
+        //end of fixme edward Adding New Parameter HTTP Kannel Admin
 }
 
 if (! $kannel_param['additional_param']) {
