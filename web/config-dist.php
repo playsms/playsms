@@ -5,7 +5,7 @@ $core_config['db']['type'] = 'mysql';		// database engine
 $core_config['db']['host'] = 'localhost';	// database host/server
 $core_config['db']['port'] = '3306';		// database port
 $core_config['db']['user'] = 'root';		// database username
-$core_config['db']['pass'] = 'rootpassword';	// database password
+$core_config['db']['pass'] = 'dbpassword';	// database password
 $core_config['db']['name'] = 'playsms';		// database name
 $core_config['db']['pref'] = 'playsms';		// table's prefix without trailing underscore
 
@@ -32,7 +32,7 @@ $apps_path['logs']	= '/var/log/playsms';
 
 // log level: 0=disabled, 1=info, 2=warning, 3=debug, 4=verbose
 // WARNING: log level 3 and 4 will also save sensitif information such as password for used gateway
-$core_config['logstate']	= 0;
+$core_config['logstate']	= 3;
 
 // 0 for single session login; 1 for multi session login
 // multi session login is not secure because playsms leaves md5 crypted username and password
