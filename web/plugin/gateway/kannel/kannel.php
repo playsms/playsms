@@ -1,11 +1,7 @@
 <?php
 
-if (!(defined('_SECURE_'))) {
-    die('Intruder alert');
-};
-if (!isadmin()) {
-    forcenoaccess();
-};
+if (!(defined('_SECURE_'))) { die('Intruder alert'); };
+if (!isadmin()) { forcenoaccess(); };
 
 include $apps_path['plug'] . "/gateway/kannel/config.php";
 
@@ -60,13 +56,13 @@ switch ($op) {
 	    </tr>
             <!-- Fixme Edward Added Kanel HTTP Admin Parameter-->
              <tr>
-		<td>" . _('Kannel Admin Url') . "</td><td>:</td><td><input type=text size=30 maxlength=250 name=kannel_admin_url value=\"" . $kannel_param['admin_url'] . "\"> (" . _('URL to Kannel HTTP Administration') . ")</td>
+		<td>" . _('Kannel admin URL') . "</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_admin_url value=\"" . $kannel_param['admin_url'] . "\"> (" . _('HTTP Kannel admin URL') . ")</td>
 	    </tr>
             <tr>
-		<td>" . _('Kannel Admin Password') . "</td><td>:</td><td><input type=text size=30 maxlength=250 name=kannel_admin_pwd value=\"" . $kannel_param['admin_pwd'] . "\"> (" . _('Password of Http Kannel Admin') . ")</td>
+		<td>" . _('Kannel admin password') . "</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_admin_password value=\"" . $kannel_param['admin_password'] . "\"> (" . _('HTTP Kannel admin password') . ")</td>
 	    </tr>
             <tr>
-		<td>" . _('Kannel Admin Port') . "</td><td>:</td><td><input type=text size=30 maxlength=250 name=kannel_admin_port value=\"" . $kannel_param['admin_port'] . "\"> (" . _('Port Of Http Kannel Admin') . ")</td>
+		<td>" . _('Kannel admin port') . "</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_admin_port value=\"" . $kannel_param['admin_port'] . "\"> (" . _('HTTP Kannel admin port') . ")</td>
 	    </tr>
             <tr>
             <td>" . _('Kannel Configurations files') . "</td><td>:</td><td><textarea name='kannelconf' rows='40' style='width: 100%; border: 1px solid #333; padding: 4px; '>$conf</textarea></td>
@@ -80,7 +76,7 @@ switch ($op) {
 	    <p><input type=submit class=button value=\"" . _('Save') . "\">
 	    </form>
             <!-- Fixme Edward Added Button Restart Kannel, To Restart Kannel Services-->
-            <p><input type='button' value='Restart Services' class='button' onClick=\"parent.location.href='index.php?app=menu&inc=gateway_kannel&op=restart-kannel'\"></p>
+            <p><input type='button' value='Restart Kannel' class='button' onClick=\"parent.location.href='index.php?app=menu&inc=gateway_kannel&op=restart-kannel'\"></p>
             <!-- End Of Fixme Edward Added Button Restart Kannel, To Restart Kannel Services-->
 	";
         echo $content;
@@ -94,6 +90,9 @@ switch ($op) {
         $up_sendsms_port = $_POST['up_sendsms_port'];
         $up_playsms_web = ( $_POST['up_playsms_web'] ? $_POST['up_playsms_web'] : $http_path['base'] );
         $up_additional_param = ( $_POST['up_additional_param'] ? $_POST['up_additional_param'] : "smsc=default" );
+        $up_admin_url = $_POST['up_admin_url'];
+        $up_admin_password = $_POST['up_admin_password'];
+        $up_admin_port = $_POST['up_admin_port'];
         $error_string = _('No changes has been made');
         if ($up_username && $up_bearerbox_host && $up_sendsms_port) {
             if ($up_password) {
@@ -123,9 +122,9 @@ switch ($op) {
 		    cfg_sendsms_port='$up_sendsms_port',
 		    cfg_playsms_web='$up_playsms_web',
 		    cfg_additional_param='$up_additional_param',
-                    cfg_adminhost='$up_adminkannelurl',
-                    cfg_adminpwd='$up_adminkannelpwd',
-                    cfg_adminport='$up_adminkannelport'
+                    cfg_admin_url='$up_admin_url',
+                    cfg_admin_password='$up_admin_password',
+                    cfg_admin_port='$up_admin_port'
 	    ";
             //End Of Fixme Edward, Added Kannel HTTP Admin Parameter
             if (@dba_affected_rows($db_query)) {
@@ -154,12 +153,12 @@ switch ($op) {
     
     //Fixme Edward, Adding New Case To Handle Button Restart Kannel Services
      case "restart-kannel":
-        $kanneladminurl = $kannel_param['admin_url'];
-        $kanneladminpwd = $kannel_param['admin_pwd'];
+        $admin_url = $kannel_param['admin_url'];
+        $admin_password = $kannel_param['admin_password'];
         $kanneladminport = $kannel_param['admin_port'];
-        $url = "$kanneladminurl$kanneladminport/restart?password=$kanneladminpwd";
+        $url = $admin_url.$admin_port.'/restart?password='.$admin_password;
         $restart = file_get_contents($url);
-        $error_string   = _('Kannel Service Has Been Restart');
+        $error_string   = _('Kannel service has been restarted');
         header("Location: index.php?app=menu&inc=gateway_kannel&op=manage&err=" . urlencode($error_string));
         break;
     //end Of Fixme Edward, Adding New Case To Handle Button Restart Kannel Services
