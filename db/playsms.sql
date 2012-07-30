@@ -884,9 +884,9 @@ CREATE TABLE `playsms_gatewayKannel_config` (
   `cfg_playsms_web` varchar(250) DEFAULT NULL,
   `cfg_additional_param` varchar(250) DEFAULT NULL,
   `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700',
-  `cfg_adminhost` varchar(250) DEFAULT NULL,
-  `cfg_adminpwd` varchar(50) DEFAULT NULL,
-  `cfg_adminport` int(11) NOT NULL DEFAULT '0'
+  `cfg_admin_url` varchar(250) DEFAULT NULL,
+  `cfg_admin_password` varchar(50) DEFAULT NULL,
+  `cfg_admin_port` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1215,6 +1215,41 @@ CREATE TABLE `playsms_tblSMSOutgoing` (
 LOCK TABLES `playsms_tblSMSOutgoing` WRITE;
 /*!40000 ALTER TABLE `playsms_tblSMSOutgoing` DISABLE KEYS */;
 /*!40000 ALTER TABLE `playsms_tblSMSOutgoing` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `playsms_tblSMSOutgoing_queue`
+--
+
+DROP TABLE IF EXISTS `playsms_tblSMSOutgoing_queue`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `playsms_tblSMSOutgoing_queue` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `datetime_entry` varchar(20) NOT NULL DEFAULT '000-00-00 00:00:00',
+  `datetime_scheduled` varchar(20) NOT NULL DEFAULT '000-00-00 00:00:00',
+  `datetime_update` varchar(20) NOT NULL DEFAULT '000-00-00 00:00:00',
+  `flag` tinyint(4) NOT NULL,
+  `queue_code` varchar(40) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `gateway` varchar(100) NOT NULL,
+  `sender_id` varchar(100) NOT NULL,
+  `footer` varchar(30) NOT NULL,
+  `dst` varchar(100) NOT NULL,
+  `message` text NOT NULL,
+  `sms_type` varchar(100) NOT NULL,
+  `unicode` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `playsms_tblSMSOutgoing_queue`
+--
+
+LOCK TABLES `playsms_tblSMSOutgoing_queue` WRITE;
+/*!40000 ALTER TABLE `playsms_tblSMSOutgoing_queue` DISABLE KEYS */;
+/*!40000 ALTER TABLE `playsms_tblSMSOutgoing_queue` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

@@ -6,6 +6,24 @@ ALTER TABLE `playsms_tblUser` ADD `replace_zero` varchar(5) NOT NULL DEFAULT '' 
 ALTER TABLE `playsms_tblUser` ADD `plus_sign_remove` tinyint(4) NOT NULL DEFAULT '1' AFTER `replace_zero` ;
 ALTER TABLE `playsms_tblUser` ADD `plus_sign_add` tinyint(4) NOT NULL DEFAULT '0' AFTER `plus_sign_remove` ;
 
-ALTER TABLE `playsms_gatewayKannel_config` ADD `cfg_adminhost` varchar(250) NOT NULL ;
-ALTER TABLE `playsms_gatewayKannel_config` ADD `cfg_adminpwd` varchar(50) NOT NULL ;
-ALTER TABLE `playsms_gatewayKannel_config` ADD `cfg_adminport` int(11) NOT NULL ;
+ALTER TABLE `playsms_gatewayKannel_config` ADD `cfg_admin_url` varchar(250) NOT NULL ;
+ALTER TABLE `playsms_gatewayKannel_config` ADD `cfg_admin_password` varchar(50) NOT NULL ;
+ALTER TABLE `playsms_gatewayKannel_config` ADD `cfg_admin_port` int(11) NOT NULL ;
+
+CREATE TABLE `playsms_tblSMSOutgoing_queue` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `datetime_entry` varchar(20) NOT NULL DEFAULT '000-00-00 00:00:00',
+  `datetime_scheduled` varchar(20) NOT NULL DEFAULT '000-00-00 00:00:00',
+  `datetime_update` varchar(20) NOT NULL DEFAULT '000-00-00 00:00:00',
+  `flag` tinyint(4) NOT NULL,
+  `queue_code` varchar(40) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `gateway` varchar(100) NOT NULL,
+  `sender_id` varchar(100) NOT NULL,
+  `footer` varchar(30) NOT NULL,
+  `dst` varchar(100) NOT NULL,
+  `message` text NOT NULL,
+  `sms_type` varchar(100) NOT NULL,
+  `unicode` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
