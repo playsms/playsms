@@ -20,7 +20,7 @@ to	: destination numbers (for ta=pv) or destination group code (for ta=bc)
           multiple destination numbers (seperated by comma) can be used when ta=pv
           
 msg	: message
-type 	: message type (1=flash, 2=text)
+type 	: message type (flash or text)
 unicode : whether message unicode or not (1=unicode, 0=not unicode)
 
 last 	: last SMS log ID (this number not included on result)
