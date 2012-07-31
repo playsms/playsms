@@ -267,8 +267,10 @@ switch ($op)
 			if ($msg_unicode == "on") {
 				$unicode = "1";
 			}
-			list($ok,$to,$smslog_id) = sendsms_bc($username,$gpid,$message,$sms_type,$unicode);
+			list($ok,$to,$queue) = sendsms_bc($username,$gpid,$message,$sms_type,$unicode);
+			$error_string = _('Your SMS has been delivered to queue').' ('._('Queue').': '.$queue[0].')';
 
+			/*
 			// minimize delivery reports on web, actual status can be seen from outgoing SMS menu (emmanuel)
 			$sms_sent = 0;
 			$sms_failed = 0;
@@ -283,6 +285,7 @@ switch ($op)
 			}
 			// fixme anton - we dont need to add new lang entry, just use available phrase
 			$error_string = _('Your SMS has been delivered to queue')." ("._('sent').": ".$sms_sent.", "._('failed').": ".$sms_failed.")";
+			*/
 
 			$errid = logger_set_error_string($error_string);
 			header("Location: index.php?app=menu&inc=send_sms&op=sendsmstogr&message=".urlencode($message)."&errid=".$errid);

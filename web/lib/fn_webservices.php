@@ -32,9 +32,9 @@ function webservices_bc($c_username,$c_gcode,$msg,$type='text',$unicode=0) {
 	if (($c_uid = username2uid($c_username)) && $c_gcode && $msg) {
 		$c_gpid = phonebook_groupcode2id($c_uid,$c_gcode);
 		// sendsms_bc($c_username,$c_gpid,$message,$sms_type='text',$unicode=0)
-		list($ok,$to,$smslog_id) = sendsms_bc($c_username,$c_gpid,$msg,$type,$unicode);
+		list($ok,$to,$queue) = sendsms_bc($c_username,$c_gpid,$msg,$type,$unicode);
 		if ($ok[0]) {
-			$ret = "OK";
+			$ret = "OK ".$queue[0];
 		} else {
 			$ret = "ERR 300";
 		}

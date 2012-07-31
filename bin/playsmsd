@@ -2,6 +2,11 @@
 
 . /etc/default/playsms
 
+CWD=`pwd`
+cd $PLAYSMS_LOG
+nohup $(which php) -q $PLAYSMS_BIN/sendsmsd.php $PLAYSMS_PATH &
+cd $CWD
+
 while true
 do
     $(which php) -q $PLAYSMS_BIN/playsmsd.php $PLAYSMS_PATH

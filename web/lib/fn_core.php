@@ -120,7 +120,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 				$message .= " ".$array_target_group[$i];
 			}
 			logger_print("username:".$c_username." gpid:".$c_gpid." sender:".$sms_sender." receiver:".$sms_receiver." message:".$message, 3, "setsmsincomingaction bc");
-			list($ok,$to,$smslog_id) = sendsms_bc($c_username,$c_gpid,$message);
+			list($ok,$to,$queue) = sendsms_bc($c_username,$c_gpid,$message);
 			$ok = true;
 			break;
 		case "PV":
