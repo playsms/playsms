@@ -111,6 +111,7 @@ function sendsms_queue_push($queue_code,$sms_to) {
 }
 
 function sendsmsd() {
+	global $datetime_now;
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing_queue WHERE flag='0'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
@@ -149,7 +150,7 @@ function sendsmsd() {
 		if ($unprocessed_rows === 0) {
 			$c_flag = 1;
 		}
-		$db_query5 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue SET flag='$c_flag' WHERE id='$c_queue_id'";
+		$db_query5 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue SET flag='$c_flag', datetime_update='$datetime_now' WHERE id='$c_queue_id'";
 		$db_result5 = dba_query($db_query5);
 	}
 }
