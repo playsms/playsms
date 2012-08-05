@@ -21,13 +21,10 @@ if (file_exists($PLAYSMS_PATH)) {
 		if ($core_config['daemon_process'] && file_exists($fn)) {
 			include $fn;
 			if ($apps_path['incs']) {
-				while (true) {
-					echo "begin cycling\n";
-					sendsmsd();
-					echo "session:".mktime()."\n";
-					echo "end cycling\n";
-					sleep(10);
-				}
+				echo "begin cycling\n";
+				sendsmsd();
+				echo "session:".mktime()."\n";
+				echo "end cycling\n";
 			}
 		}
 	}

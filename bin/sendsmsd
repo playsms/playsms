@@ -4,6 +4,6 @@
 
 while true
 do
-    $(which php) -q $PLAYSMS_BIN/playsmsd.php $PLAYSMS_PATH
+    $(which php) -q $PLAYSMS_BIN/sendsmsd.php $PLAYSMS_PATH
     sleep 10;
 done

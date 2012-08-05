@@ -130,7 +130,7 @@ function sendsmsd() {
 		while ($db_row2 = dba_fetch_array($db_result2)) {
 			$c_id = $db_row2['id'];
 			$c_dst = $db_row2['dst'];
-			$c_flag = 0;
+			$c_flag = 2;
 			$ret = sendsms($c_sender_id,$c_footer,$c_dst,$c_message,$c_uid,$c_gpid,$c_sms_type,$c_unicode);
 			if ($ret['status']) {
 				$c_flag = 1;
@@ -143,7 +143,7 @@ function sendsmsd() {
 		$db_result4 = dba_query($db_query4);
 		$db_row4 = dba_fetch_array($db_result4);
 		$unprocessed_rows = $db_row4['rows'];
-		if ($unprocessed_rows === 0) {
+		if ($unprocessed_rows < 1) {
 			$c_flag = 1;
 		}
 		$db_query5 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue SET flag='$c_flag', datetime_update='$datetime_now' WHERE id='$c_queue_id'";
