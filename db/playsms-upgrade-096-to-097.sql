@@ -31,7 +31,6 @@ CREATE TABLE `playsms_tblSMSOutgoing_queue_dst` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `queue_id` int(11) NOT NULL,
   `flag` tinyint(4) NOT NULL,
-  `count` tinyint(4) NOT NULL,
   `dst` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

@@ -103,7 +103,9 @@ function sendsms_queue_push($queue_code,$sms_to) {
 	$queue_id = $db_row['id'];
 	if ($queue_id) {
 		$db_query = "INSERT INTO "._DB_PREF_."_tblSMSOutgoing_queue_dst (queue_id,dst) VALUES ('$queue_id','$sms_to')";
+		logger_print("saving:$queue_code,$sms_to", 3, "sendsms_queue_push");
 		if ($id = @dba_insert_id($db_query)) {
+			logger_print("id:".$id." queue_code:".$queue_code." dst:".$sms_to." saved", 3, "sendsms_queue_push");
 			$ok = true;
 		}
 	}
@@ -128,18 +130,12 @@ function sendsmsd() {
 		while ($db_row2 = dba_fetch_array($db_result2)) {
 			$c_id = $db_row2['id'];
 			$c_dst = $db_row2['dst'];
-			$c_count = $db_row2['count'];
 			$c_flag = 0;
-			if ($c_count >= 3) {
-				$c_flag = 2;
-			} else {
-				$ret = sendsms($c_sender_id,$c_footer,$c_dst,$c_message,$c_uid,$c_gpid,$c_sms_type,$c_unicode);
-				if ($ret['status']) {
-					$c_flag = 1;
-				}
-				$c_count++;
+			$ret = sendsms($c_sender_id,$c_footer,$c_dst,$c_message,$c_uid,$c_gpid,$c_sms_type,$c_unicode);
+			if ($ret['status']) {
+				$c_flag = 1;
 			}
-			$db_query3 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue_dst SET flag='$c_flag',count='$c_count' WHERE id='$c_id'";
+			$db_query3 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue_dst SET flag='$c_flag' WHERE id='$c_id'";
 			$db_result3 = dba_query($db_query3);
 		}
 		$c_flag = 0;
