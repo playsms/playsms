@@ -81,13 +81,13 @@ function interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,
 }
 
 function sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$sms_type='text',$unicode=0) {
-	global $datetime_now;
+	global $core_config;
 	$ret = FALSE;
 	$queue_code = md5(mktime().$uid.$sms_msg);
 	$db_query = "INSERT INTO "._DB_PREF_."_tblSMSOutgoing_queue ";
 	$db_query .= "(queue_code,datetime_entry,datetime_scheduled,uid,sender_id,footer,message,sms_type,unicode) ";
-	$db_query .= "VALUES ('$queue_code','$datetime_now','$datetime_now','$uid','$sms_sender','$sms_footer','$sms_msg','$sms_type','$unicode')";
-	logger_print("saving:$queue_code,$datetime_now,$uid,$sms_sender,$sms_footer,$sms_type,$unicode", 3, "sendsms_queue_create");
+	$db_query .= "VALUES ('$queue_code','".$config['datetime']['now']."','".$config['datetime']['now']."','$uid','$sms_sender','$sms_footer','$sms_msg','$sms_type','$unicode')";
+	logger_print("saving:$queue_code,".$config['datetime']['now'].",$uid,$sms_sender,$sms_footer,$sms_type,$unicode", 3, "sendsms_queue_create");
 	if ($id = @dba_insert_id($db_query)) {
 		logger_print("id:".$id." queue_code:".$queue_code." saved", 3, "sendsms_queue_create");
 		$ret = $queue_code;
@@ -113,7 +113,7 @@ function sendsms_queue_push($queue_code,$sms_to) {
 }
 
 function sendsmsd() {
-	global $datetime_now;
+	global $core_config;
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing_queue WHERE flag='0'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
@@ -146,13 +146,13 @@ function sendsmsd() {
 		if ($unprocessed_rows < 1) {
 			$c_flag = 1;
 		}
-		$db_query5 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue SET flag='$c_flag', datetime_update='$datetime_now' WHERE id='$c_queue_id'";
+		$db_query5 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue SET flag='$c_flag', datetime_update='".$config['datetime']['now']."' WHERE id='$c_queue_id'";
 		$db_result5 = dba_query($db_query5);
 	}
 }
 
 function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0) {
-	global $datetime_now, $core_config, $gateway_module;
+	global $core_config, $gateway_module;
 
 	$user = user_getdatabyuid($uid);
 	$username = $user['username'];
@@ -224,8 +224,7 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 }
 
 function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
-	global $apps_path, $core_config;
-	global $datetime_now, $gateway_module;
+	global $apps_path, $core_config, $gateway_module;
 	$uid = username2uid($username);
 	$sms_sender = sendsms_get_sender($username);
 	$max_length = ( $unicode ?  $core_config['smsmaxlength_unicode'] : $core_config['smsmaxlength'] );
@@ -262,8 +261,7 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 }
 
 function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
-	global $apps_path, $core_config;
-	global $datetime_now, $gateway_module;
+	global $apps_path, $core_config, $gateway_module;
 	$uid = username2uid($username);
 	$sms_sender = sendsms_get_sender($username);
 	$max_length = ( $unicode ?  $core_config['smsmaxlength_unicode'] : $core_config['smsmaxlength'] );
