@@ -199,7 +199,7 @@ if (defined('LC_MESSAGES')) {
 
 // set global variable
 $date_format		= "Y-m-d";
-$time_format		= "G:i:s";
+$time_format		= "H:i:s";
 $datetime_format 	= $date_format." ".$time_format;
 $date_now		= date($date_format, time());
 $time_now		= date($time_format, time());
