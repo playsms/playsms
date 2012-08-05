@@ -268,7 +268,7 @@ switch ($op)
 				$unicode = "1";
 			}
 			list($ok,$to,$queue) = sendsms_bc($username,$gpid,$message,$sms_type,$unicode);
-			$error_string = _('Your SMS has been delivered to queue').' ('._('Queue').': '.$queue[0].')';
+			$error_string = _('Your SMS has been delivered to queue');
 
 			/*
 			// minimize delivery reports on web, actual status can be seen from outgoing SMS menu (emmanuel)
