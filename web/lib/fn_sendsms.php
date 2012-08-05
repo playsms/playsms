@@ -86,8 +86,8 @@ function sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$sms_type='t
 	$queue_code = md5(mktime().$uid.$sms_msg);
 	$db_query = "INSERT INTO "._DB_PREF_."_tblSMSOutgoing_queue ";
 	$db_query .= "(queue_code,datetime_entry,datetime_scheduled,uid,sender_id,footer,message,sms_type,unicode) ";
-	$db_query .= "VALUES ('$queue_code','".$config['datetime']['now']."','".$config['datetime']['now']."','$uid','$sms_sender','$sms_footer','$sms_msg','$sms_type','$unicode')";
-	logger_print("saving:$queue_code,".$config['datetime']['now'].",$uid,$sms_sender,$sms_footer,$sms_type,$unicode", 3, "sendsms_queue_create");
+	$db_query .= "VALUES ('$queue_code','".$core_config['datetime']['now']."','".$core_config['datetime']['now']."','$uid','$sms_sender','$sms_footer','$sms_msg','$sms_type','$unicode')";
+	logger_print("saving:$queue_code,".$core_config['datetime']['now'].",$uid,$sms_sender,$sms_footer,$sms_type,$unicode", 3, "sendsms_queue_create");
 	if ($id = @dba_insert_id($db_query)) {
 		logger_print("id:".$id." queue_code:".$queue_code." saved", 3, "sendsms_queue_create");
 		$ret = $queue_code;
@@ -146,7 +146,7 @@ function sendsmsd() {
 		if ($unprocessed_rows < 1) {
 			$c_flag = 1;
 		}
-		$db_query5 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue SET flag='$c_flag', datetime_update='".$config['datetime']['now']."' WHERE id='$c_queue_id'";
+		$db_query5 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue SET flag='$c_flag', datetime_update='".$core_config['datetime']['now']."' WHERE id='$c_queue_id'";
 		$db_result5 = dba_query($db_query5);
 	}
 }
