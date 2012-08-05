@@ -118,6 +118,7 @@ function sendsmsd() {
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$c_queue_id = $db_row['id'];
+		$c_queue_code = $db_row['queue_code'];
 		$c_sender_id = $db_row['sender_id'];
 		$c_footer = $db_row['footer'];
 		$c_message = $db_row['message'];
@@ -125,16 +126,19 @@ function sendsmsd() {
 		$c_gpid = 0;
 		$c_sms_type = $db_row['sms_type'];
 		$c_unicode = $db_row['unicode'];
+		logger_print("start processing queue_code:".$c_queue_code." uid:".$c_uid." sender_id:".$c_sender_id, 3, "sendsmsd");
 		$db_query2 = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing_queue_dst WHERE queue_id='$c_queue_id' AND flag='0'";
 		$db_result2 = dba_query($db_query2);
 		while ($db_row2 = dba_fetch_array($db_result2)) {
 			$c_id = $db_row2['id'];
 			$c_dst = $db_row2['dst'];
 			$c_flag = 2;
+			logger_print("sending queue_code:".$c_queue_code." to:".$c_dst, 3, "sendsmsd");
 			$ret = sendsms($c_sender_id,$c_footer,$c_dst,$c_message,$c_uid,$c_gpid,$c_sms_type,$c_unicode);
 			if ($ret['status']) {
 				$c_flag = 1;
 			}
+			logger_print("result queue_code:".$c_queue_code." to:".$c_dst." flag:".$c_flag, 3, "sendsmsd");
 			$db_query3 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue_dst SET flag='$c_flag' WHERE id='$c_id'";
 			$db_result3 = dba_query($db_query3);
 		}
@@ -148,6 +152,7 @@ function sendsmsd() {
 		}
 		$db_query5 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue SET flag='$c_flag', datetime_update='".$core_config['datetime']['now']."' WHERE id='$c_queue_id'";
 		$db_result5 = dba_query($db_query5);
+		logger_print("finish processing queue_code:".$c_queue_code." uid:".$c_uid." sender_id:".$c_sender_id, 3, "sendsmsd");
 	}
 }
 
