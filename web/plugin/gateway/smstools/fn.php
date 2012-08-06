@@ -113,7 +113,11 @@ function smstools_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',
 	$ok = false;
 	if (file_exists($fn)) {
 		$ok = true;
+		$p_status = 0;
+	} else {
+		$p_status = 2;
 	}
+	setsmsdeliverystatus($smslog_id,$uid,$p_status);
 	return $ok;
 }
 
