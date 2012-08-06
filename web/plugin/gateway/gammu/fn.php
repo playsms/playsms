@@ -141,8 +141,13 @@ function gammu_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gp
 	$ok = false;
 	if (file_exists($fn)) {
 		$ok = true;
-		logger_print("outfile saved", 3, "gammu outgoing");
+		$p_status = 0;
+		logger_print("outfile:".$fn." saved", 3, "gammu outgoing");
+	} else {
+		$p_status = 2;
+		logger_print("cannot save outfile:".$fn, 3, "gammu outgoing");
 	}
+	setsmsdeliverystatus($smslog_id,$uid,$p_status);
 	return $ok;
 }
 
