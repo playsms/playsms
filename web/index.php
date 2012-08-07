@@ -4,6 +4,8 @@ include $apps_path['libs'].'/function.php';
 
 if (function_exists('bindtextdomain')) {
 	bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
+	bind_textdomain_codeset('messages', 'UTF-8');
+	textdomain('messages');
 }
 
 // fixme anton
@@ -39,6 +41,8 @@ if (isset($app)) {
 			$plugin = trim($_REQUEST['plugin']);
 			if (function_exists('bindtextdomain')) {
 				bindtextdomain('messages', $apps_path['plug'].'/'.$cat.'/'.$plugin.'/language/');
+				bind_textdomain_codeset('messages', 'UTF-8');
+				textdomain('messages');
 			}
 			x_hook($plugin,'call',array($_REQUEST));
 			break;

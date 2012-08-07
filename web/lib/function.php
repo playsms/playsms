@@ -53,6 +53,8 @@ for ($i=0;$i<count($plugins_category);$i++) {
 			{
 				if (function_exists('bindtextdomain')) {
 					bindtextdomain('messages', $dir.$tmp_core_config[$pc.'list'][$c].'/language/');
+					bind_textdomain_codeset('messages', 'UTF-8');
+					textdomain('messages');
 				}
 				include $c_fn1;
 				$c_fn2 = $dir.$tmp_core_config[$pc.'list'][$c]."/fn.php";
@@ -68,6 +70,8 @@ for ($i=0;$i<count($plugins_category);$i++) {
 
 if (function_exists('bindtextdomain')) {
 	bindtextdomain('messages', $apps_path['plug'].'/language/');
+	bind_textdomain_codeset('messages', 'UTF-8');
+	textdomain('messages');
 }
 
 // init global variables after plugins

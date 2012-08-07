@@ -186,6 +186,7 @@ $core_config['module']['language'] = $language_module;
 // make sure that bindtextdomain is exists, server should have PHP gettext extension enabled
 if (function_exists('bindtextdomain')) {
 	bindtextdomain('messages', $apps_path['plug'].'/language/');
+	bind_textdomain_codeset('messages', 'UTF-8');
 	textdomain('messages');
 }
 
