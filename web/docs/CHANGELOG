@@ -1,7 +1,7 @@
 Version 0.9.7-git
 - reminder for sender ID priority: Default sender ID->Module sender ID->SMS sender ID (anton)
 - add new language Brazilian Portuguese (pt_BR) (lucastx)
-- fix question mark issue on the web by setting bind_textdomain_codeset (lucastx)
+- fix #3555158 question mark issue on the web by setting bind_textdomain_codeset (lucastx)
 
 Version 0.9.6 - 120328
 - MAJOR: move SMS sender ID logic in sendsms() and it hooks to sendsms_get_sender() (anton)
