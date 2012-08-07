@@ -1,0 +1,230 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: config.php:4 sms_subscribe.php:12
+msgid "Manage subscribe"
+msgstr "Administrar assinaturas"
+
+#: config.php:6
+msgid "Add message"
+msgstr "Adicionar mensagem"
+
+#: config.php:7
+msgid "View members"
+msgstr "Ver membros"
+
+#: config.php:8
+msgid "View messages"
+msgstr "Ver mensagens"
+
+#: fn.php:96 fn.php:101 fn.php:106
+msgid "You are not a member"
+msgstr "Você não é um membro"
+
+#: fn.php:111
+msgid "Unknown SMS format"
+msgstr "Formato de SMS desconhecido"
+
+#: fn.php:144 fn.php:149 fn.php:154
+msgid "You already a member"
+msgstr "Você já é um membro"
+
+#: fn.php:159
+msgid "Unknown sms format"
+msgstr "Formato de SMS desconhecido"
+
+#: sms_subscribe.php:14 sms_subscribe.php:66 sms_subscribe.php:438
+msgid "Add SMS subscribe"
+msgstr "Adicionar assinatura SMS"
+
+#: sms_subscribe.php:26
+msgid "Keyword"
+msgstr "Palavra-chave"
+
+#: sms_subscribe.php:27
+msgid "Total members"
+msgstr "Número de membros"
+
+#: sms_subscribe.php:28
+msgid "User"
+msgstr "Usuário"
+
+#: sms_subscribe.php:29
+msgid "Status"
+msgstr "Estado"
+
+#: sms_subscribe.php:30 sms_subscribe.php:96 sms_subscribe.php:282
+msgid "Action"
+msgstr "Ação"
+
+#: sms_subscribe.php:43 sms_subscribe.php:353
+msgid "Disabled"
+msgstr "Desabilitado"
+
+#: sms_subscribe.php:45 sms_subscribe.php:355
+msgid "Enabled"
+msgstr "Habilitado"
+
+#: sms_subscribe.php:51
+msgid "Are you sure you want to delete SMS subscribe ?"
+msgstr "Tem certeza que quer remover essa assinatura?"
+
+#: sms_subscribe.php:51 sms_subscribe.php:381 sms_subscribe.php:414
+#: sms_subscribe.php:469 sms_subscribe.php:472
+msgid "keyword"
+msgstr "palavra-chave"
+
+#: sms_subscribe.php:84
+msgid "SMS messages list for keyword"
+msgstr "Lista de mensagens SMS pra palavra-chave"
+
+#: sms_subscribe.php:88 sms_subscribe.php:118
+msgid "Add Message"
+msgstr "Adicionar mensagem"
+
+#: sms_subscribe.php:95 sms_subscribe.php:151
+msgid "Message"
+msgstr "Mensagem"
+
+#: sms_subscribe.php:106
+msgid "Are you sure you want to delete this message?"
+msgstr "Tem certeza que quer remover essa mensagem?"
+
+#: sms_subscribe.php:141
+msgid "Message detail"
+msgstr "Detalhes da mensagem"
+
+#: sms_subscribe.php:148 sms_subscribe.php:186 sms_subscribe.php:335
+#: sms_subscribe.php:443 sms_subscribe.php:493
+msgid "SMS subscribe keyword"
+msgstr "Palavra-chave da assinatura SMS"
+
+#: sms_subscribe.php:154
+msgid "Send this message to all members"
+msgstr "Enviar essa mensagem pra todos os membros"
+
+#: sms_subscribe.php:155
+msgid "Send"
+msgstr "Enviar"
+
+#: sms_subscribe.php:190 sms_subscribe.php:500
+msgid "Message body"
+msgstr "Corpo da mensagem"
+
+#: sms_subscribe.php:196
+msgid "Edit"
+msgstr "Editar"
+
+#: sms_subscribe.php:211
+msgid "Message has been edited"
+msgstr "A mensagem foi editada"
+
+#: sms_subscribe.php:214 sms_subscribe.php:254 sms_subscribe.php:384
+#: sms_subscribe.php:475 sms_subscribe.php:523
+msgid "You must fill all fields"
+msgstr "Preencha todos os campos"
+
+#: sms_subscribe.php:246
+msgid "Your SMS has been delivered to queue"
+msgstr "Seu SMS foi emitido pra fila"
+
+#: sms_subscribe.php:246 sms_subscribe.php:248
+msgid "to"
+msgstr "para"
+
+#: sms_subscribe.php:248
+msgid "Fail to send SMS"
+msgstr "Falha ao enviar SMS"
+
+#: sms_subscribe.php:273
+msgid "Member list for keyword"
+msgstr "Lista de membros pra palavra-chave"
+
+#: sms_subscribe.php:280
+msgid "Phone number"
+msgstr "Telefone"
+
+#: sms_subscribe.php:281
+msgid "Member join datetime"
+msgstr "Data de entrada do membro"
+
+#: sms_subscribe.php:290
+msgid "Are you sure you want to delete this member ?"
+msgstr "Tem certeza que quer remover esse membro?"
+
+#: sms_subscribe.php:310
+msgid "\"Member has been deleted"
+msgstr "O membro foi removido"
+
+#: sms_subscribe.php:328
+msgid "Edit SMS subscribe"
+msgstr "Editar assinatura SMS"
+
+#: sms_subscribe.php:338 sms_subscribe.php:446
+msgid "SMS subscribe reply"
+msgstr "Resposta pra assinatura"
+
+#: sms_subscribe.php:341 sms_subscribe.php:449
+msgid "SMS unsubscribe reply"
+msgstr "Resposta pra desinscrição"
+
+#: sms_subscribe.php:344
+msgid "Save"
+msgstr "Salvar"
+
+#: sms_subscribe.php:358
+msgid "Enable or disable this subscribe"
+msgstr "Habilitar ou desabilitar essa assinatura"
+
+#: sms_subscribe.php:360
+msgid "Current status"
+msgstr "Status atual"
+
+#: sms_subscribe.php:361
+msgid "What do you want to do ?"
+msgstr "O que você quer fazer?"
+
+#: sms_subscribe.php:362
+msgid "I want to enable this subscribe"
+msgstr "Quero habilitar essa assinatura"
+
+#: sms_subscribe.php:363
+msgid "I want to disable this subscribe"
+msgstr "Quero desabilitar essa assinatura"
+
+#: sms_subscribe.php:381
+msgid "SMS subscribe has been saved"
+msgstr "A assinatura SMS foi salva"
+
+#: sms_subscribe.php:395
+msgid "SMS subscribe status has been changed"
+msgstr "O status da assinatura SMS foi alterado"
+
+#: sms_subscribe.php:414
+msgid "SMS subscribe with all its messages and members has been deleted"
+msgstr "A assinatura SMS foi removida, junto com suas mensagens e membros"
+
+#: sms_subscribe.php:427
+msgid "Message has been deleted"
+msgstr "A mensagem foi removida"
+
+#: sms_subscribe.php:452 sms_subscribe.php:505
+msgid "Add"
+msgstr "Adicionar"
+
+#: sms_subscribe.php:469
+msgid "SMS subscribe has been added"
+msgstr "A assinatura SMS foi adicionada"
+
+#: sms_subscribe.php:472
+msgid "SMS subscribe already exists, reserved or use by other feature"
+msgstr ""
+"A assinatura SMS já existe, está reservada ou em uso por outro recurso"
+
+#: sms_subscribe.php:520
+msgid "Member message has been added"
+msgstr "A mensagem foi adicionada"
