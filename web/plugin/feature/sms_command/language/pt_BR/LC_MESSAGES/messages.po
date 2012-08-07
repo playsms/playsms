@@ -1,0 +1,117 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: config.php:4 sms_command.php:12
+msgid "Manage command"
+msgstr "Administrar comando"
+
+#: sms_command.php:15 sms_command.php:86 sms_command.php:153
+msgid "SMS command exec path"
+msgstr "Caminho de execução do comando SMS"
+
+#: sms_command.php:27
+msgid "Keyword"
+msgstr "Palavra-chave"
+
+#: sms_command.php:28
+msgid "Exec"
+msgstr ""
+
+#: sms_command.php:29
+msgid "User"
+msgstr "Usuário"
+
+#: sms_command.php:30
+msgid "Action"
+msgstr "Ação"
+
+#: sms_command.php:41
+msgid "Are you sure you want to delete SMS command ?"
+msgstr "Tem certeza que quer remover o comando SMS?"
+
+#: sms_command.php:41 sms_command.php:105 sms_command.php:109
+#: sms_command.php:129 sms_command.php:133 sms_command.php:174
+#: sms_command.php:178 sms_command.php:183
+msgid "keyword"
+msgstr "palavra-chave"
+
+#: sms_command.php:59 sms_command.php:144
+msgid "Add SMS command"
+msgstr "Adicionar comando SMS"
+
+#: sms_command.php:75
+msgid "Edit SMS command"
+msgstr "Editar comando SMS"
+
+#: sms_command.php:80 sms_command.php:147
+msgid "SMS command keyword"
+msgstr "Palavra-chave do comando SMS"
+
+#: sms_command.php:81 sms_command.php:148
+msgid "Pass these parameter to command exec field"
+msgstr "Use esses parâmetros no campo do comando"
+
+#: sms_command.php:82 sms_command.php:149
+msgid "will be replaced by SMS incoming date/time"
+msgstr "será substituído pela data/hora de chegada do SMS"
+
+#: sms_command.php:83 sms_command.php:150
+msgid "will be replaced by sender number"
+msgstr "será substituído pelo número do remetente"
+
+#: sms_command.php:84 sms_command.php:151
+msgid "will be replaced by command keyword"
+msgstr "será substituído pela palavra-chave do comando"
+
+#: sms_command.php:85 sms_command.php:152
+msgid "will be replaced by command parameter passed to server from SMS"
+msgstr ""
+"será substituído pelo parâmetro do comando passado pro servidor por SMS"
+
+#: sms_command.php:87 sms_command.php:154
+msgid "SMS command exec"
+msgstr "Comando executado"
+
+#: sms_command.php:88
+msgid "Save"
+msgstr "Salvar"
+
+#: sms_command.php:105
+msgid "SMS command has been saved"
+msgstr "Comando SMS foi salvo"
+
+#: sms_command.php:109
+msgid "Fail to save SMS command"
+msgstr "Falha ao salvar comando SMS"
+
+#: sms_command.php:114 sms_command.php:188
+msgid "You must fill all fields"
+msgstr "Preencha todos os campos"
+
+#: sms_command.php:129
+msgid "SMS command has been deleted"
+msgstr "Comando SMS foi removido"
+
+#: sms_command.php:133
+msgid "Fail to delete SMS command"
+msgstr "Falha ao remover comando SMS"
+
+#: sms_command.php:155
+msgid "Add"
+msgstr "Adicionar"
+
+#: sms_command.php:174
+msgid "SMS command has been added"
+msgstr "Comando SMS foi adicionado"
+
+#: sms_command.php:178
+msgid "Fail to add SMS command"
+msgstr "Falha ao adicionar comando SMS"
+
+#: sms_command.php:183
+msgid "SMS command already exists, reserved or use by other feature"
+msgstr "O comando SMS já existe, está reservado ou em uso por outro recurso"

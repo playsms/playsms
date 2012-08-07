@@ -1,0 +1,111 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: config.php:4 sms_board.php:12
+msgid "Manage board"
+msgstr "Administrar board"
+
+#: fn.php:75
+msgid "from"
+msgstr "de"
+
+#: fn.php:76
+msgid "Forward WebSMS"
+msgstr "Encaminhar WebSMS"
+
+#: fn.php:77
+msgid "Date and time"
+msgstr "Data e hora"
+
+#: fn.php:78
+msgid "Sender"
+msgstr "Remetente"
+
+#: fn.php:79 fn.php:132 sms_board.php:19
+msgid "Keyword"
+msgstr "Palavra-chave"
+
+#: fn.php:80
+msgid "Message"
+msgstr "Mensagem"
+
+#: sms_board.php:14 sms_board.php:155
+msgid "Add SMS board"
+msgstr "Adicionar board SMS"
+
+#: sms_board.php:20
+msgid "Forward"
+msgstr "Encaminhar"
+
+#: sms_board.php:21
+msgid "User"
+msgstr "Usuário"
+
+#: sms_board.php:22
+msgid "Action"
+msgstr "Ação"
+
+#: sms_board.php:39
+msgid "Are you sure you want to delete SMS board with all its messages ?"
+msgstr "Tem certeza que quer remover o board SMS com todas as suas mensagens?"
+
+#: sms_board.php:39 sms_board.php:124 sms_board.php:144 sms_board.php:200
+#: sms_board.php:204 sms_board.php:209
+msgid "keyword"
+msgstr "palavra-chave"
+
+#: sms_board.php:80
+msgid "Edit SMS board"
+msgstr "Editar board SMS"
+
+#: sms_board.php:87 sms_board.php:160
+msgid "SMS board keyword"
+msgstr "Palavra-chave do board SMS"
+
+#: sms_board.php:90 sms_board.php:166
+msgid "Forward to email"
+msgstr "Encaminhar pro e-mail"
+
+#: sms_board.php:94 sms_board.php:170
+msgid "Template"
+msgstr "Template"
+
+#: sms_board.php:99
+msgid "Save"
+msgstr "Salvar"
+
+#: sms_board.php:124
+msgid "SMS board has been saved"
+msgstr "O board SMS foi salvo"
+
+#: sms_board.php:129 sms_board.php:214
+msgid "You must fill all fields"
+msgstr "Preencha todos os campos"
+
+#: sms_board.php:144
+msgid "SMS board with all its messages has been deleted"
+msgstr "O board SMS foi removido com todas as suas mensagens"
+
+#: sms_board.php:163
+msgid "Leave them empty if you dont know what to fill in these boxes below"
+msgstr "Deixe vazio se não quiser preencher os campos abaixo"
+
+#: sms_board.php:175
+msgid "Add"
+msgstr "Adicionar"
+
+#: sms_board.php:200
+msgid "SMS board has been added"
+msgstr "O board SMS foi adicionado"
+
+#: sms_board.php:204
+msgid "Fail to add SMS board"
+msgstr "Falha ao adicionar o board SMS"
+
+#: sms_board.php:209
+msgid "SMS keyword already exists, reserved or use by other feature"
+msgstr "A palavra-chave já existe, está reservada ou em uso por outro recurso"

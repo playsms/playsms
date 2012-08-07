@@ -1,0 +1,38 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: loginpage.php:19
+msgid "Username"
+msgstr "Usuário"
+
+#: loginpage.php:23
+msgid "Password"
+msgstr "Senha"
+
+#: welcomepage.php:7
+msgid "Welcome to playSMS"
+msgstr "Bem-vindo ao playSMS"
+
+#: welcomepage.php:9
+msgid "About playSMS"
+msgstr "Sobre o playSMS"
+
+#: welcomepage.php:10
+msgid "Changelog"
+msgstr ""
+
+#: welcomepage.php:11
+msgid "Installation Guide"
+msgstr "Guia de instalação"
+
+#: welcomepage.php:12
+msgid "F.A.Q"
+msgstr "FAQ"
+
+#: welcomepage.php:13
+msgid "License"
+msgstr "Licença"

@@ -1,0 +1,88 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: config.php:3 simplerate.php:12
+msgid "Manage SMS rate"
+msgstr "Administrar taxa de SMS"
+
+#: simplerate.php:14 simplerate.php:47 simplerate.php:122
+msgid "Add rate"
+msgstr "Adicionar taxa"
+
+#: simplerate.php:18 simplerate.php:78 simplerate.php:127
+msgid "Destination"
+msgstr "Destino"
+
+#: simplerate.php:19 simplerate.php:81 simplerate.php:130
+msgid "Prefix"
+msgstr "Prefixo"
+
+#: simplerate.php:20 simplerate.php:84 simplerate.php:133
+msgid "Rate"
+msgstr "Taxa"
+
+#: simplerate.php:21
+msgid "Action"
+msgstr "Ação"
+
+#: simplerate.php:32
+msgid "Are you sure you want to delete rate ?"
+msgstr "Tem certeza que quer remover a taxa?"
+
+#: simplerate.php:32 simplerate.php:54 simplerate.php:58 simplerate.php:103
+#: simplerate.php:107 simplerate.php:151 simplerate.php:161
+msgid "destination"
+msgstr "destino"
+
+#: simplerate.php:32 simplerate.php:54 simplerate.php:58 simplerate.php:103
+#: simplerate.php:107 simplerate.php:151 simplerate.php:161
+msgid "prefix"
+msgstr "prefixo"
+
+#: simplerate.php:54
+msgid "Fail to delete rate"
+msgstr "Falha ao remover a taxa"
+
+#: simplerate.php:58
+msgid "Rate has been deleted"
+msgstr "A taxa foi removida"
+
+#: simplerate.php:72
+msgid "Edit rate"
+msgstr "Editar taxa"
+
+#: simplerate.php:87
+msgid "Save"
+msgstr "Salvar"
+
+#: simplerate.php:97
+msgid "No changes made!"
+msgstr "Nenhuma mudança feita!"
+
+#: simplerate.php:103
+msgid "Rate has been saved"
+msgstr "A taxa foi salva"
+
+#: simplerate.php:107
+msgid "Fail to save rate"
+msgstr "Falha ao salvar a taxa"
+
+#: simplerate.php:112 simplerate.php:167
+msgid "You must fill all fields"
+msgstr "Preencha todos os campos"
+
+#: simplerate.php:136
+msgid "Add"
+msgstr "Adicionar"
+
+#: simplerate.php:151
+msgid "Rate is already exists"
+msgstr "A taxa já existe"
+
+#: simplerate.php:161
+msgid "Rate has been added"
+msgstr "A taxa foi adicionada"

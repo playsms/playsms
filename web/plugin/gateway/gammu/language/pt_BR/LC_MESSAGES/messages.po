@@ -1,0 +1,30 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: config.php:7 gammu.php:23
+msgid "Manage gammu"
+msgstr "Administrar gammu"
+
+#: gammu.php:8
+msgid "Active"
+msgstr "Ativo"
+
+#: gammu.php:12
+msgid "Inactive"
+msgstr "Inativo"
+
+#: gammu.php:12
+msgid "click here to activate"
+msgstr "clique aqui para ativar"
+
+#: gammu.php:27
+msgid "Gateway name"
+msgstr "Nome do gateway"
+
+#: gammu.php:36
+msgid "Gateway has been activated"
+msgstr "Gateway foi ativado"
