@@ -1,0 +1,95 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: config.php:24 kannel.php:23
+msgid "Manage kannel"
+msgstr "Administrar kannel"
+
+#: kannel.php:8
+msgid "Active"
+msgstr "Ativo"
+
+#: kannel.php:12
+msgid "Inactive"
+msgstr "Inativo"
+
+#: kannel.php:12
+msgid "click here to activate"
+msgstr "clique aqui para ativar"
+
+#: kannel.php:28
+msgid "Gateway name"
+msgstr "Nome do gateway"
+
+#: kannel.php:31
+msgid "Username"
+msgstr "Usuário"
+
+#: kannel.php:34
+msgid "Password"
+msgstr "Senha"
+
+#: kannel.php:34
+msgid "Fill to change the password"
+msgstr "Preencha pra mudar a senha"
+
+#: kannel.php:37
+msgid "Global sender"
+msgstr ""
+
+#: kannel.php:37
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+"Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
+
+#: kannel.php:40
+msgid "Bearerbox hostname or IP"
+msgstr "Hostname ou IP do bearerbox"
+
+#: kannel.php:40 kannel.php:43
+msgid "Kannel specific"
+msgstr "Específico do kannel"
+
+#: kannel.php:43
+msgid "Send SMS port"
+msgstr "Porta de envio de SMS"
+
+#: kannel.php:46
+msgid "Additional URL parameter"
+msgstr "Parâmetro de URL adicional"
+
+#: kannel.php:49
+msgid "playSMS web URL"
+msgstr "URL web do playSMS"
+
+#: kannel.php:49
+msgid "URL to playSMS, empty it to set it to base URL"
+msgstr ""
+
+#: kannel.php:53
+msgid "Note"
+msgstr ""
+
+#: kannel.php:54
+msgid "Send SMS message without footer banner"
+msgstr "Enviar mensagem SMS sem banner no rodapé"
+
+#: kannel.php:56
+msgid "Save"
+msgstr "Salvar"
+
+#: kannel.php:69
+msgid "No changes has been made"
+msgstr "Nenhuma mudança feita"
+
+#: kannel.php:88
+msgid "Gateway module configurations has been saved"
+msgstr "Configurações do módulo de gateway foram salvas"
+
+#: kannel.php:96
+msgid "Gateway has been activated"
+msgstr "Gateway foi ativado"

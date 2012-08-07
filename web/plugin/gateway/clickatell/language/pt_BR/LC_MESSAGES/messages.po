@@ -1,0 +1,109 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: clickatell.php:8
+msgid "Active"
+msgstr "Ativo"
+
+#: clickatell.php:12
+msgid "Inactive"
+msgstr "Inativo"
+
+#: clickatell.php:12
+msgid "click here to activate"
+msgstr "clique aqui para ativar"
+
+#: clickatell.php:23 config.php:23
+msgid "Manage clickatell"
+msgstr "Administrar clickatell"
+
+#: clickatell.php:28
+msgid "Gateway name"
+msgstr "Nome do gateway"
+
+#: clickatell.php:31
+msgid "API ID"
+msgstr "ID da API"
+
+#: clickatell.php:34
+msgid "Username"
+msgstr "Usuário"
+
+#: clickatell.php:37
+msgid "Password"
+msgstr "Senha"
+
+#: clickatell.php:37
+msgid "Fill to change the password"
+msgstr "Preencha pra mudar a senha"
+
+#: clickatell.php:40
+msgid "Global sender"
+msgstr ""
+
+#: clickatell.php:40
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+"Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
+
+#: clickatell.php:43
+msgid "Clickatell API URL"
+msgstr "URL da API do clickatell"
+
+#: clickatell.php:43 clickatell.php:49
+msgid "No trailing slash"
+msgstr "Sem barra no final"
+
+#: clickatell.php:46
+msgid "Additional URL parameter"
+msgstr "Parâmetro de URL adicional"
+
+#: clickatell.php:49
+msgid "Clickatell incoming path"
+msgstr "Caminho de chegada do clickatell"
+
+#: clickatell.php:53
+msgid "Note"
+msgstr ""
+
+#: clickatell.php:54
+msgid "Your callback URL is"
+msgstr "Sua URL de callback é"
+
+#: clickatell.php:55
+msgid ""
+"If you are using callback URL to receive incoming sms you may ignore "
+"Clickatell incoming path"
+msgstr ""
+
+#: clickatell.php:56
+msgid "Clickatell is a bulk SMS provider"
+msgstr "Clickatell é um provedor de SMS em massa"
+
+#: clickatell.php:56
+msgid "free credits are available for testing purposes"
+msgstr "créditos gratuitos estão disponíveis pra testes"
+
+#: clickatell.php:57
+msgid "Send SMS message without footer banner"
+msgstr "Enviar mensagem SMS sem banner no rodapé"
+
+#: clickatell.php:58
+msgid "Save"
+msgstr "Salvar"
+
+#: clickatell.php:71
+msgid "No changes has been made"
+msgstr "Nenhuma mudança feita"
+
+#: clickatell.php:90
+msgid "Gateway module configurations has been saved"
+msgstr "Configurações do módulo de gateway foram salvas"
+
+#: clickatell.php:98
+msgid "Gateway has been activated"
+msgstr "Gateway foi ativado"

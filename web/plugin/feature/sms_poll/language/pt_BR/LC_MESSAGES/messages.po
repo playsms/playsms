@@ -1,0 +1,158 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: config.php:4 sms_poll.php:12
+msgid "Manage poll"
+msgstr "Administrar votação"
+
+#: sms_poll.php:14 sms_poll.php:62 sms_poll.php:276
+msgid "Add SMS poll"
+msgstr "Adicionar votação SMS"
+
+#: sms_poll.php:27 sms_poll.php:113
+msgid "Keyword"
+msgstr "Palavra-chave"
+
+#: sms_poll.php:28 sms_poll.php:114
+msgid "Title"
+msgstr "Título"
+
+#: sms_poll.php:29
+msgid "User"
+msgstr "Usuário"
+
+#: sms_poll.php:30
+msgid "Status"
+msgstr "Estado"
+
+#: sms_poll.php:31 sms_poll.php:115
+msgid "Action"
+msgstr "Ação"
+
+#: sms_poll.php:40 sms_poll.php:154
+msgid "Disabled"
+msgstr "Desabilitado"
+
+#: sms_poll.php:43 sms_poll.php:157
+msgid "Enabled"
+msgstr "Habilitado"
+
+#: sms_poll.php:47
+msgid ""
+"Are you sure you want to delete SMS poll with all its choices and votes ?"
+msgstr ""
+"Tem certeza que quer remover a votação SMS com todas as opções e votos?"
+
+#: sms_poll.php:47 sms_poll.php:131 sms_poll.php:183 sms_poll.php:236
+#: sms_poll.php:241 sms_poll.php:257 sms_poll.php:265 sms_poll.php:305
+#: sms_poll.php:310
+msgid "keyword"
+msgstr "palavra-chave"
+
+#: sms_poll.php:85
+msgid "Edit SMS poll"
+msgstr "Editar votação SMS"
+
+#: sms_poll.php:92 sms_poll.php:281
+msgid "SMS poll keyword"
+msgstr "Palavra-chave da votação SMS"
+
+#: sms_poll.php:95 sms_poll.php:284
+msgid "SMS poll title"
+msgstr "Título da votação SMS"
+
+#: sms_poll.php:98
+msgid "Save"
+msgstr "Salvar"
+
+#: sms_poll.php:104
+msgid "Edit SMS poll choices"
+msgstr "Editar opções da votação SMS"
+
+#: sms_poll.php:131
+msgid "Are you sure you want to delete choice ?"
+msgstr "Tem certeza que quer remover essa opção?"
+
+#: sms_poll.php:131 sms_poll.php:214
+msgid "title"
+msgstr "título"
+
+#: sms_poll.php:136
+msgid "Add choice to this poll"
+msgstr "Adicionar opção pra essa votação"
+
+#: sms_poll.php:141
+msgid "Choice Keyword"
+msgstr "Palavra-chave da opção"
+
+#: sms_poll.php:144
+msgid "Choice title"
+msgstr "Título da opção"
+
+#: sms_poll.php:147 sms_poll.php:287
+msgid "Add"
+msgstr "Adicionar"
+
+#: sms_poll.php:160
+msgid "Enable or disable this poll"
+msgstr "Habilitar ou desabilitar essa votação"
+
+#: sms_poll.php:162
+msgid "Current status"
+msgstr "Status atual"
+
+#: sms_poll.php:163
+msgid "What do you want to do ?"
+msgstr "O que você quer fazer?"
+
+#: sms_poll.php:164
+msgid "I want to enable this poll"
+msgstr "Quero habilitar essa votação"
+
+#: sms_poll.php:165
+msgid "I want to disable this poll"
+msgstr "Quero desabilitar essa votação"
+
+#: sms_poll.php:183
+msgid "SMS poll with has been saved"
+msgstr "A votação SMS foi salva"
+
+#: sms_poll.php:188 sms_poll.php:246 sms_poll.php:315
+msgid "You must fill all fields"
+msgstr "Preencha todos os campos"
+
+#: sms_poll.php:199
+msgid "SMS poll status has been changed"
+msgstr "O status da votaçõa SMS foi alterado"
+
+#: sms_poll.php:214
+msgid "SMS poll with all its messages has been deleted"
+msgstr "A votação SMS foi removida com todas as suas mensagens"
+
+#: sms_poll.php:236
+msgid "Choice has been added"
+msgstr "A opção foi adicionada"
+
+#: sms_poll.php:241
+msgid "Choice already exists"
+msgstr "A opção já existe"
+
+#: sms_poll.php:257
+msgid "Fail to delete SMS poll choice"
+msgstr "Falha ao remover a opçao da votação SMS"
+
+#: sms_poll.php:265
+msgid "SMS poll choice and all its voters has been deleted"
+msgstr "A opção da votação SMS foi removida com todos os seus votos"
+
+#: sms_poll.php:305
+msgid "SMS poll has been added"
+msgstr "A votação SMS foi adicionada"
+
+#: sms_poll.php:310
+msgid "SMS poll already exists, reserved or use by other feature"
+msgstr "A votação SMS já existe, está reservada ou em uso por outro recurso"

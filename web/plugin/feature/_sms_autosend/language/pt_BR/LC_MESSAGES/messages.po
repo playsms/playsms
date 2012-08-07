@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: config.php:10 sms_autosend.php:20
+msgid "Manage autosend"
+msgstr ""
+
+#: sms_autosend.php:22 sms_autosend.php:82 sms_autosend.php:288
+msgid "Add SMS autosend"
+msgstr ""
+
+#: sms_autosend.php:34 sms_autosend.php:166 sms_autosend.php:295
+msgid "Message"
+msgstr "Mensagem"
+
+#: sms_autosend.php:35
+msgid "Repeat"
+msgstr ""
+
+#: sms_autosend.php:36
+msgid "User"
+msgstr "Usuário"
+
+#: sms_autosend.php:37 sms_autosend.php:172 sms_autosend.php:298
+msgid "Send to"
+msgstr "Enviar para"
+
+#: sms_autosend.php:38
+msgid "Status"
+msgstr "Estado"
+
+#: sms_autosend.php:39
+msgid "Action"
+msgstr "Ação"
+
+#: sms_autosend.php:47 sms_autosend.php:99 sms_autosend.php:199
+msgid "Disabled"
+msgstr "Desabilitado"
+
+#: sms_autosend.php:58 sms_autosend.php:111
+msgid "Once"
+msgstr ""
+
+#: sms_autosend.php:62 sms_autosend.php:201
+msgid "Enabled"
+msgstr "Habilitado"
+
+#: sms_autosend.php:66
+msgid "Are you sure you want to delete SMS autosend message ?"
+msgstr ""
+
+#: sms_autosend.php:92
+msgid "SMS autosend View"
+msgstr ""
+
+#: sms_autosend.php:132
+msgid "Time"
+msgstr "Hora"
+
+#: sms_autosend.php:161
+msgid "Edit SMS autosend"
+msgstr ""
+
+#: sms_autosend.php:169
+msgid "Repeat send"
+msgstr ""
+
+#: sms_autosend.php:184 sms_autosend.php:306
+msgid "Sending time"
+msgstr ""
+
+#: sms_autosend.php:192
+msgid "Update"
+msgstr ""
+
+#: sms_autosend.php:204
+msgid "Enable or disable this autosend"
+msgstr ""
+
+#: sms_autosend.php:206
+msgid "Current status"
+msgstr "Status atual"
+
+#: sms_autosend.php:207
+msgid "What do you want to do ?"
+msgstr "O que você quer fazer?"
+
+#: sms_autosend.php:208
+msgid "I want to enable this autosend"
+msgstr ""
+
+#: sms_autosend.php:209
+msgid "I want to disable this autosend"
+msgstr ""
+
+#: sms_autosend.php:245
+msgid "Autosend time has been saved"
+msgstr ""
+
+#: sms_autosend.php:249 sms_autosend.php:355
+msgid "You must fill all fields"
+msgstr "Preencha todos os campos"
+
+#: sms_autosend.php:260
+msgid "SMS autosend status has been changed"
+msgstr ""
+
+#: sms_autosend.php:276
+msgid "SMS autosend has been deleted"
+msgstr ""
+
+#: sms_autosend.php:289
+msgid "Add time field"
+msgstr ""
+
+#: sms_autosend.php:317
+msgid "Add"
+msgstr "Adicionar"
+
+#: sms_autosend.php:344
+msgid "SMS autosend has been added"
+msgstr ""
+
+#: sms_autosend.php:351
+msgid "Fail to add SMS autosend"
+msgstr ""
