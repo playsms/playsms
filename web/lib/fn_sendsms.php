@@ -116,6 +116,7 @@ function sendsmsd($single_queue='') {
 	global $core_config;
 	if ($single_queue) {
 		$queue_sql = "AND queue_code='".$single_queue."'";
+		logger_print("single queue queue_code:".$single_queue, 3, "sendsmsd");
 	}
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing_queue WHERE flag='0' ".$queue_sql;
 	$db_result = dba_query($db_query);
@@ -315,6 +316,9 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 
 			$j++;
 		}
+	}
+	if (! $core_config['issendsmsd']) {
+		sendsmsd($queue_code);
 	}
 	return array($ok,$to,$queue);
 }
