@@ -270,7 +270,7 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 	for ($i=0;$i<count($array_sms_to);$i++) {
 		$c_sms_to = str_replace("\'","",$array_sms_to[$i]);
 		$c_sms_to = str_replace("\"","",$c_sms_to);
-		$ok[$j] = false;
+		$ok[$i] = false;
 		$to[$i] = $c_sms_to;
 		$queue[$i] = $queue_code;
 
