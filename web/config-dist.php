@@ -42,4 +42,7 @@ $core_config['multilogin']	= 0;
 // are we using http or https ? the default is using http instead https
 $core_config['ishttps']		= false;
 
+// are we using sendsmsd or not. the default is not using sendsmsd
+$core_config['issendsmsd']	= false;
+
 ?>
