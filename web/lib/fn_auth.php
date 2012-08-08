@@ -21,31 +21,6 @@ function validatelogin($username,$password) {
 }
 
 /**
- * Set the language for the user, if it's no defined just leave it with the default
- * @param string $var_username Username
- * @return boolean TRUE if valid
- */
-function setuserlang($username="") {
-	//All the language initalitzations have been done in init.php
-	$language_module = 'en_US';
-	$db_query = "SELECT `language_module` FROM "._DB_PREF_."_tblUser WHERE username='$username'";
-	$db_result = dba_query($db_query);
-	$db_row = dba_fetch_array($db_result);
-	if (isset($db_row['language_module']) ) {
-		$language_module=$db_row['language_module'];
-	}
-	if (defined('LC_MESSAGES')) {
-        	// linux
-	        setlocale(LC_MESSAGES, $language_module, $language_module.'.utf8', $language_module.'.utf-8', $language_module.'.UTF8', $language_module.'.UTF-8');
-	} else {
-        	// windows
-	        putenv("LC_ALL={$language_module}");
-	}
-}
-
-
-
-/**
  * Check if ticket is valid, that visitor has access or validated
  * @param string $var_ticket Ticket
  * @param string $var_username Username
@@ -67,7 +42,6 @@ function valid($var_ticket="",$var_username="",$var_multilogin_id="") {
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		if ($multilogin_id && md5($username.$db_row['password']) && ($multilogin_id==md5($username.$db_row['password']))) {
-			setuserlang($username);
 			return true;
 		} else {
 			return false;
@@ -77,7 +51,6 @@ function valid($var_ticket="",$var_username="",$var_multilogin_id="") {
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		if ($ticket && $db_row['ticket']) {
-			setuserlang($username);
 			return true;
 		} else {
 			return false;
