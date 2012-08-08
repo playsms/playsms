@@ -30,6 +30,7 @@ CREATE TABLE `playsms_tblSMSOutgoing_queue` (
 CREATE TABLE `playsms_tblSMSOutgoing_queue_dst` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `queue_id` int(11) NOT NULL,
+  `smslog_id` bigint(20) NOT NULL,
   `flag` tinyint(4) NOT NULL,
   `dst` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
