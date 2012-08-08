@@ -86,7 +86,7 @@ function inboxgroup_forwardmembers($data, $log_in_id, $sms_sender, $message) {
 		if ($continue) {
 			for ($i=0;$i<count($users);$i++) {
 				if (($sms_to = $users[$i]['mobile']) && ($sms_to != $sms_sender)) {
-					//list($ok, $to, $smslog_id) = sendsms_pv($username, $sms_to, $message, 'text', 0);
+					//list($ok, $to, $smslog_id,$queue) = sendsms_pv($username, $sms_to, $message, 'text', 0);
 					//logger_print("forwardmembers sendsms smslog_id:".$smslog_id[0]." to:".$sms_to, 3, "inboxgroup");
 					//inboxgroup_saveoutlog($log_in_id, $smslog_id[0], 0, $users[$i]['uid']);
 					$c_username = uid2username($users[$i]['uid']);
@@ -115,7 +115,7 @@ function inboxgroup_forwardcatchall($data, $log_in_id, $sms_sender, $message) {
 		if ($continue) {
 			for ($i=0;$i<count($users);$i++) {
 				if (($sms_to = $users[$i]['mobile']) && ($sms_to != $sms_sender)) {
-					//list($ok, $to, $smslog_id) = sendsms_pv($username, $sms_to, $message, 'text', 0);
+					//list($ok, $to, $smslog_id,$queue) = sendsms_pv($username, $sms_to, $message, 'text', 0);
 					//logger_print("forwardcatchall sendsms smslog_id:".$smslog_id[0]." to:".$sms_to, 3, "inboxgroup");
 					//inboxgroup_saveoutlog($log_in_id, $smslog_id[0], 1, $users[$i]['uid']);
 					$c_username = uid2username($users[$i]['uid']);

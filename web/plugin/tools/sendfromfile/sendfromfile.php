@@ -157,7 +157,7 @@ switch ($op) {
 				if ($c_sms_to && $c_sms_msg && $c_username) {
 					$type = 'text';
 					$unicode = '0';
-					list($ok,$to,$smslog_id) = sendsms_pv($c_username,$c_sms_to,$c_sms_msg,$type,$unicode);
+					list($ok,$to,$smslog_id,$queue) = sendsms_pv($c_username,$c_sms_to,$c_sms_msg,$type,$unicode);
 				}
 			}
 			$db_query = "DELETE FROM "._DB_PREF_."_toolsSendfromfile WHERE sid='$sid'";

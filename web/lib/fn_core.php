@@ -120,7 +120,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 				$message .= " ".$array_target_group[$i];
 			}
 			logger_print("username:".$c_username." gpid:".$c_gpid." sender:".$sms_sender." receiver:".$sms_receiver." message:".$message, 3, "setsmsincomingaction bc");
-			list($ok,$to,$queue) = sendsms_bc($c_username,$c_gpid,$message);
+			list($ok,$to,$smslog_id,$queue) = sendsms_bc($c_username,$c_gpid,$message);
 			$ok = true;
 			break;
 		case "PV":
@@ -279,7 +279,7 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 					}
 					$message = $sender.' '.$message;
 					logger_print("send to mobile:".$mobile." from:".$sender." user:".$target_user, 3, "insertsmstoinbox");
-					list($ok, $to, $smslog_id) = sendsms_pv($target_user, $mobile, $message, 'text', $unicode);
+					list($ok, $to, $smslog_id, $queue) = sendsms_pv($target_user, $mobile, $message, 'text', $unicode);
 					if ($ok[0]) {
                                                 logger_print("sent to mobile:".$mobile." from:".$sender." user:".$target_user, 3, "insertsmstoinbox");
 					}

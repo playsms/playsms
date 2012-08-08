@@ -29,7 +29,7 @@ function myauto_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, 
 		}
 	}
 	// send reply
-	list($ok, $to, $smslog_id) = sendsms_pv('admin', $sms_sender, $reply, 'text', $unicode);
+	list($ok, $to, $smslog_id, $queue) = sendsms_pv('admin', $sms_sender, $reply, 'text', $unicode);
 	// log it
 	$sms_datetime = core_display_datetime($sms_datetime);
 	logger_print("dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." autorespon:".$reply,3,"myauto");

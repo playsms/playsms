@@ -6,19 +6,19 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
 	$arr_to = explode(',', $to);
 	if ($c_username && $arr_to[1] && $msg) {
 		// multiple destination
-		list($ok,$to,$smslog_id) = sendsms_pv($c_username,$arr_to,$msg,$type,$unicode);
+		list($ok,$to,$smslog_id,$queue) = sendsms_pv($c_username,$arr_to,$msg,$type,$unicode);
 		for ($i=0;$i<count($arr_to);$i++) {
 			if ($ok[$i] && $to[$i] && $smslog_id[$i]) {
-				$ret .= "OK ".$to[$i].",".$smslog_id[$i]."\n";
+				$ret .= "OK ".$to[$i].",".$smslog_id[$i].",".$queue[$i]."\n";
 			} else {
 				$ret .= "OK ".$arr_to[$i]."\n";
 			}
 		}
 	} elseif ($c_username && $to && $msg) {
 		// single destination
-		list($ok,$to,$smslog_id) = sendsms_pv($c_username,$to,$msg,$type,$unicode);
+		list($ok,$to,$smslog_id,$queue) = sendsms_pv($c_username,$to,$msg,$type,$unicode);
 		if ($ok[0] && $smslog_id[0]) {
-			$ret = "OK ".$smslog_id[0];
+			$ret = "OK ".$smslog_id[0].",".$queue[0];
 		} else {
 			$ret = "ERR 200";
 		}
@@ -32,7 +32,7 @@ function webservices_bc($c_username,$c_gcode,$msg,$type='text',$unicode=0) {
 	if (($c_uid = username2uid($c_username)) && $c_gcode && $msg) {
 		$c_gpid = phonebook_groupcode2id($c_uid,$c_gcode);
 		// sendsms_bc($c_username,$c_gpid,$message,$sms_type='text',$unicode=0)
-		list($ok,$to,$queue) = sendsms_bc($c_username,$c_gpid,$msg,$type,$unicode);
+		list($ok,$to,$smslog_id,$queue) = sendsms_bc($c_username,$c_gpid,$msg,$type,$unicode);
 		if ($ok[0]) {
 			$ret = "OK ".$queue[0];
 		} else {

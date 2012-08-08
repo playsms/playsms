@@ -138,15 +138,21 @@ function sendsmsd($single_queue='') {
 			$c_dst = $db_row2['dst'];
 			$c_smslog_id = 0;
 			$c_flag = 2;
+			$c_ok = false;
 			logger_print("sending queue_code:".$c_queue_code." to:".$c_dst, 3, "sendsmsd");
 			$ret = sendsms($c_sender_id,$c_footer,$c_dst,$c_message,$c_uid,$c_gpid,$c_sms_type,$c_unicode);
 			if ($ret['status'] && $ret['smslog_id']) {
+				$c_ok = true;
 				$c_smslog_id = $ret['smslog_id'];
 				$c_flag = 1;
 			}
 			logger_print("result queue_code:".$c_queue_code." to:".$c_dst." flag:".$c_flag." smslog_id:".$c_smslog_id, 3, "sendsmsd");
 			$db_query3 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue_dst SET smslog_id='$c_smslog_id',flag='$c_flag' WHERE id='$c_id'";
 			$db_result3 = dba_query($db_query3);
+			$ok[] = $c_ok;
+			$to[] = $c_dst;
+			$smslog_id[] = $c_smslog_id;
+			$queue[] = $c_queue_code;
 		}
 		$db_query5 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue SET flag='1', datetime_update='".$core_config['datetime']['now']."' WHERE id='$c_queue_id'";
 		if ($db_result5 = dba_affected_rows($db_query5)) {
@@ -155,6 +161,7 @@ function sendsmsd($single_queue='') {
 			logger_print("fail to finalize process queue_code:".$c_queue_code." uid:".$c_uid." sender_id:".$c_sender_id, 3, "sendsmsd");
 		}
 	}
+	return array($ok, $to, $smslog_id, $queue);
 }
 
 function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0) {
@@ -263,6 +270,7 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 	for ($i=0;$i<count($array_sms_to);$i++) {
 		$c_sms_to = str_replace("\'","",$array_sms_to[$i]);
 		$c_sms_to = str_replace("\"","",$c_sms_to);
+		$ok[$j] = false;
 		$to[$i] = $c_sms_to;
 		$queue[$i] = $queue_code;
 
@@ -274,10 +282,13 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 	}
 
 	if (! $core_config['issendsmsd']) {
-		sendsmsd($queue_code);
+		unset($ok);
+		unset($to);
+		unset($queue);
+		list($ok, $to, $smslog_id, $queue) = sendsmsd($queue_code);
 	}
 
-	return array($ok,$to,$queue);
+	return array($ok, $to, $smslog_id, $queue);
 }
 
 function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
@@ -321,7 +332,7 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 			$sms_to = $p_num;
 			$sms_to = str_replace("\'","",$sms_to);
 			$sms_to = str_replace("\"","",$sms_to);
-			$ok[$j] = 0;
+			$ok[$j] = false;
 			$to[$j] = $sms_to;
 			$queue[$j] = $queue_code;
 
@@ -335,10 +346,13 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 	}
 
 	if (! $core_config['issendsmsd']) {
-		sendsmsd($queue_code);
+		unset($ok);
+		unset($to);
+		unset($queue);
+		list($ok, $to, $smslog_id, $queue) = sendsmsd($queue_code);
 	}
 
-	return array($ok,$to,$queue);
+	return array($ok, $to, $smslog_id, $queue);
 }
 
 function sendsms_get_sender($username) {

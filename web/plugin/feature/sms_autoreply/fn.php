@@ -94,7 +94,7 @@ function sms_autoreply_handle($sms_datetime,$sms_sender,$c_uid,$autoreply_id,$au
 	{
 		$ok = false;
 		$c_username = uid2username($c_uid);
-		//list($ok,$to,$smslog_id) = sendsms_pv($c_username,$sms_sender,$autoreply_scenario_result);
+		//list($ok,$to,$smslog_id,$queue) = sendsms_pv($c_username,$sms_sender,$autoreply_scenario_result);
 		//$ok = $ok[0];
 		$unicode = 0;
 		if (function_exists('mb_detect_encoding')) {
@@ -103,7 +103,7 @@ function sms_autoreply_handle($sms_datetime,$sms_sender,$c_uid,$autoreply_id,$au
 				$unicode = 1;
 			}
 		}
-		list($ok, $to, $smslog_id) = sendsms_pv($c_username, $sms_sender, $autoreply_scenario_result, 'text', $unicode);
+		list($ok, $to, $smslog_id, $queue) = sendsms_pv($c_username, $sms_sender, $autoreply_scenario_result, 'text', $unicode);
                 $ok = $ok[0];
 	}
 	return $ok;
