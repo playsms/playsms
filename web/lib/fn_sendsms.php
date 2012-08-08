@@ -246,6 +246,13 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
         
 	//$sms_msg = str_replace("\"","'",$sms_msg);
 
+	// create a queue
+	$queue_code = sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$sms_type,$unicode);
+	if (! $queue_code) {
+		// when unable to create a queue then immediately returns FALSE, no point to continue
+		return FALSE;
+	}
+
 	if (is_array($sms_to)) {
 		$array_sms_to = $sms_to;
 	} else {
@@ -255,13 +262,20 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 		$c_sms_to = str_replace("\'","",$array_sms_to[$i]);
 		$c_sms_to = str_replace("\"","",$c_sms_to);
 		$to[$i] = $c_sms_to;
-		$ok[$i] = false;
-		if ($ret = sendsms($sms_sender,$sms_footer,$c_sms_to,$sms_msg,$uid,0,$sms_type,$unicode)) {
+		$queue[$i] = $queue_code;
+
+		// fill the queue with destination numbers
+		if ($ret = sendsms_queue_push($queue_code,$c_sms_to)) {
 			$ok[$i] = $ret['status'];
-			$smslog_id[$i] = $ret['smslog_id'];
 		}
+
 	}
-	return array($ok,$to,$smslog_id);
+
+	if (! $core_config['issendsmsd']) {
+		sendsmsd($queue_code);
+	}
+
+	return array($ok,$to,$queue);
 }
 
 function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
@@ -317,9 +331,11 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 			$j++;
 		}
 	}
+
 	if (! $core_config['issendsmsd']) {
 		sendsmsd($queue_code);
 	}
+
 	return array($ok,$to,$queue);
 }
 
