@@ -64,9 +64,10 @@ function uplink_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 		$url = str_replace("&&", "&", $url);
 
 		logger_print($url, 3, "uplink outgoing");
-		$fd = @implode ('', file ($url));
-		if ($fd) {
-			$response = split (" ", $fd);
+		$responses = trim(file_get_contents($url));
+		if ($responses) {
+			$up_id = 0;
+			$response = explode(' ', $responses);
 			if ($response[0] == "OK") {
 				$remote_slid = $response[1];
 				if ($remote_slid) {
@@ -80,12 +81,9 @@ function uplink_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 					}
 				}
 			}
-			logger_print("smslog_id:".$smslog_id." response:".$response[0]." ".$response[1], 3, "uplink outgoing");
+			logger_print("smslog_id:".$smslog_id." up_id:".$up_id." status:".$response[0]." remote_slid:".$response[1], 3, "uplink outgoing");
 		} else {
-			// even when the response is not what we expected we still print it out for debug purposes
-			$fd = str_replace("\n", " ", $fd);
-			$fd = str_replace("\r", " ", $fd);
-			logger_print("smslog_id:".$smslog_id." response:".$fd, 3, "uplink outgoing");
+			logger_print("smslog_id:".$smslog_id." no response", 3, "uplink outgoing");
 		}
 	}
 	if (!$ok) {
