@@ -9,6 +9,7 @@ ALTER TABLE `playsms_tblUser` ADD `plus_sign_add` tinyint(4) NOT NULL DEFAULT '0
 ALTER TABLE `playsms_gatewayKannel_config` ADD `cfg_admin_url` varchar(250) NOT NULL ;
 ALTER TABLE `playsms_gatewayKannel_config` ADD `cfg_admin_password` varchar(50) NOT NULL ;
 ALTER TABLE `playsms_gatewayKannel_config` ADD `cfg_admin_port` int(11) NOT NULL ;
+ALTER TABLE `playsms_gatewayKannel_config` ADD `cfg_dlr` int(11) NOT NULL DEFAULT '31' AFTER `cfg_playsms_web` ;
 
 CREATE TABLE `playsms_tblSMSOutgoing_queue` (
   `id` int(11) NOT NULL AUTO_INCREMENT,

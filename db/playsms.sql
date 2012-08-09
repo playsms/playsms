@@ -882,6 +882,7 @@ CREATE TABLE `playsms_gatewayKannel_config` (
   `cfg_bearerbox_host` varchar(250) DEFAULT NULL,
   `cfg_sendsms_port` varchar(10) DEFAULT NULL,
   `cfg_playsms_web` varchar(250) DEFAULT NULL,
+  `cfg_dlr` int(11) NOT NULL DEFAULT '31',
   `cfg_additional_param` varchar(250) DEFAULT NULL,
   `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700',
   `cfg_admin_url` varchar(250) DEFAULT NULL,
