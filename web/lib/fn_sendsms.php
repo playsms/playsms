@@ -270,15 +270,9 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 	for ($i=0;$i<count($array_sms_to);$i++) {
 		$c_sms_to = str_replace("\'","",$array_sms_to[$i]);
 		$c_sms_to = str_replace("\"","",$c_sms_to);
-		$ok[$i] = false;
+		$ok[$i] = sendsms_queue_push($queue_code,$c_sms_to);
 		$to[$i] = $c_sms_to;
 		$queue[$i] = $queue_code;
-
-		// fill the queue with destination numbers
-		if ($ret = sendsms_queue_push($queue_code,$c_sms_to)) {
-			$ok[$i] = $ret['status'];
-		}
-
 	}
 
 	if (! $core_config['issendsmsd']) {
@@ -332,15 +326,9 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 			$sms_to = $p_num;
 			$sms_to = str_replace("\'","",$sms_to);
 			$sms_to = str_replace("\"","",$sms_to);
-			$ok[$j] = false;
+			$ok[$j] = sendsms_queue_push($queue_code,$sms_to);
 			$to[$j] = $sms_to;
 			$queue[$j] = $queue_code;
-
-			// fill the queue with destination numbers
-			if ($ret = sendsms_queue_push($queue_code,$sms_to)) {
-				$ok[$j] = $ret['status'];
-			}
-
 			$j++;
 		}
 	}
