@@ -32,7 +32,11 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 
 	$URL = "/cgi-bin/sendsms?username=".urlencode($kannel_param['username'])."&password=".urlencode($kannel_param['password']);
 	$URL .= "&from=".urlencode($sms_sender)."&to=".urlencode($sms_to);
-	$URL .= "&dlr-mask=31&dlr-url=".urlencode($dlr_url);
+	// Handle DLR options config (emmanuel)
+	//$URL .= "&dlr-mask=31&dlr-url=".urlencode($dlr_url);
+	$URL .= "&dlr-mask=".$kannel_param['dlr']."&dlr-url=".urlencode($dlr_url);
+	// end of Handle DLR options config (emmanuel)
+
 	$URL .= "&mclass=".$msg_type;
 
 	if ($unicode) {
