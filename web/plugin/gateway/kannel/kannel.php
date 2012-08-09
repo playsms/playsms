@@ -16,6 +16,23 @@ switch ($op) {
         if ($err) {
             $content = "<div class=error_string>$err</div>";
         }
+	// Handle DLR options config (emmanuel)
+	/* DLR Kannel value
+	   1: Delivered to phone
+	   2: Non-Delivered to Phone
+	   4: Queued on SMSC
+	   8: Delivered to SMSC
+	   16: Non-Delivered to SMSC
+	*/
+	//$checked[] = check_dlr_value($kannel_param['dlr']);
+	$up_dlr_box = "<input type='checkbox' name='dlr_box[]' value='1' ".$checked[0]."> "._('Delivered to phone');
+	$up_dlr_box .= "<input type='checkbox' name='dlr_box[]' value='2' ".$checked[1]."> "._('Non-Delivered to phone');
+	$up_dlr_box .= "<br />";
+	$up_dlr_box .= "<input type='checkbox' name='dlr_box[]' value='4' ".$checked[2]."> "._('Queued on SMSC');
+	$up_dlr_box .= "<input type='checkbox' name='dlr_box[]' value='8' ".$checked[3]."> "._('Delivered to SMSC');
+	$up_dlr_box .= "<input type='checkbox' name='dlr_box[]' value='16' ".$checked[4]."> "._('Non-Delivered to SMSC');
+	// end of Handle DLR options config (emmanuel)
+	
         //Fixme Edward, Browse /etc/kannel.conf to Show on web Page
         $kanelconffile = "/etc/kannel/kannel.conf";
         $readconf = fopen($kanelconffile, 'r');
@@ -48,6 +65,11 @@ switch ($op) {
 	    <tr>
 		<td>" . _('Send SMS port') . "</td><td>:</td><td><input type=text size=10 maxlength=10 name=up_sendsms_port value=\"" . $kannel_param['sendsms_port'] . "\"> (" . _('Kannel specific') . ")</td>
 	    </tr>	    
+            <!-- Handle DLR config (emmanuel) -->
+            <tr>
+                <td>"._('Delivery Report')."</td><td>:</td><td>$up_dlr_box</td>
+            </tr>
+            <!-- end of Handle DLR config (emmanuel) -->
 	    <tr>
 		<td>" . _('Additional URL parameter') . "</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_additional_param value=\"" . $kannel_param['additional_param'] . "\"></td>
 	    </tr>
@@ -90,6 +112,14 @@ switch ($op) {
         $up_sendsms_port = $_POST['up_sendsms_port'];
         $up_playsms_web = ( $_POST['up_playsms_web'] ? $_POST['up_playsms_web'] : $http_path['base'] );
         $up_additional_param = ( $_POST['up_additional_param'] ? $_POST['up_additional_param'] : "smsc=default" );
+        // Handle DLR config (emmanuel)
+        if (isset($_POST['dlr_box'])) {
+          for ($i = 0, $c = count($_POST['dlr_box']); $i < $c; $i++) {
+                $up_playsms_dlr += intval( $_POST['dlr_box'][$i] );
+          }
+        }
+        // end of Handle DLR config (emmanuel)
+
         $up_admin_url = $_POST['up_admin_url'];
         $up_admin_password = $_POST['up_admin_password'];
         $up_admin_port = $_POST['up_admin_port'];
@@ -122,6 +152,7 @@ switch ($op) {
 		    cfg_sendsms_port='$up_sendsms_port',
 		    cfg_playsms_web='$up_playsms_web',
 		    cfg_additional_param='$up_additional_param',
+		    cfg_dlr='$up_playsms_dlr',
                     cfg_admin_url='$up_admin_url',
                     cfg_admin_password='$up_admin_password',
                     cfg_admin_port='$up_admin_port'
