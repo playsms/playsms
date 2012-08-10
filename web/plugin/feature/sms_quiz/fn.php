@@ -41,7 +41,7 @@ function sms_quiz_hook_setsmsincomingaction($sms_datetime, $sms_sender, $quiz_ke
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$c_uid = $db_row['uid'];
-		if (sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $quiz_keyword, $quiz_param, $raw_message)) {
+		if (sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $quiz_keyword, $quiz_param, $raw_message)) {
 			$ok = true;
 		}
 	}
@@ -50,7 +50,7 @@ function sms_quiz_hook_setsmsincomingaction($sms_datetime, $sms_sender, $quiz_ke
 	return $ret;
 }
 
-function sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $quiz_keyword, $quiz_param = '', $raw_message = '') {
+function sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $quiz_keyword, $quiz_param = '', $raw_message = '') {
 	global $core_config, $datetime_now;
 	$ok = false;
 	$username = uid2username($c_uid);

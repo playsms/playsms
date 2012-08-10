@@ -44,7 +44,7 @@ function sms_command_hook_setsmsincomingaction($sms_datetime,$sms_sender,$comman
 	if ($db_row = dba_fetch_array($db_result))
 	{
 		$c_uid = $db_row['uid'];
-		if (sms_command_handle($sms_datetime,$sms_sender,$command_keyword,$command_param,$raw_message))
+		if (sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$command_keyword,$command_param,$raw_message))
 		{
 			$ok = true;
 		}
@@ -54,7 +54,7 @@ function sms_command_hook_setsmsincomingaction($sms_datetime,$sms_sender,$comman
 	return $ret;
 }
 
-function sms_command_handle($sms_datetime,$sms_sender,$command_keyword,$command_param='',$raw_message='')
+function sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$command_keyword,$command_param='',$raw_message='')
 {
 	global $datetime_now, $plugin_config;
 	$ok = false;

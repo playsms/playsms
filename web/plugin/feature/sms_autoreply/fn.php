@@ -45,7 +45,7 @@ function sms_autoreply_hook_setsmsincomingaction($sms_datetime,$sms_sender,$auto
 	{
 		$c_uid = $db_row['uid'];
 		$autoreply_id = $db_row['autoreply_id'];
-		if (sms_autoreply_handle($sms_datetime,$sms_sender,$c_uid,$autoreply_id,$autoreply_keyword,$autoreply_param,$raw_message))
+		if (sms_autoreply_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$autoreply_id,$autoreply_keyword,$autoreply_param,$raw_message))
 		{
 			$ok = true;
 		}
@@ -55,7 +55,7 @@ function sms_autoreply_hook_setsmsincomingaction($sms_datetime,$sms_sender,$auto
 	return $ret;
 }
 
-function sms_autoreply_handle($sms_datetime,$sms_sender,$c_uid,$autoreply_id,$autoreply_keyword,$autoreply_param='',$raw_message)
+function sms_autoreply_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$autoreply_id,$autoreply_keyword,$autoreply_param='',$raw_message)
 {
 	global $datetime_now;
 	$ok = false;

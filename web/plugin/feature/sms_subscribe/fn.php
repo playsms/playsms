@@ -41,7 +41,7 @@ function sms_subscribe_hook_setsmsincomingaction($sms_datetime, $sms_sender, $su
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$c_uid = $db_row['uid'];
-		if (sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $subscribe_keyword, $subscribe_param, $raw_message)) {
+		if (sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $subscribe_keyword, $subscribe_param, $raw_message)) {
 			$ok = true;
 		}
 	}
@@ -50,7 +50,7 @@ function sms_subscribe_hook_setsmsincomingaction($sms_datetime, $sms_sender, $su
 	return $ret;
 }
 
-function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $subscribe_keyword, $subscribe_param = '', $raw_message = '') {
+function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $subscribe_keyword, $subscribe_param = '', $raw_message = '') {
 	global $core_config;
 	$ok = false;
 	$subscribe_param = strtoupper($subscribe_param);
