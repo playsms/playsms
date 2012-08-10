@@ -102,7 +102,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 	$ok = false;
 	$array_target_keyword = explode(" ",$message);
 	$target_keyword = strtoupper(trim($array_target_keyword[0]));
-	$message_full = $message;
+	$raw_message = $message;
 	$message = $array_target_keyword[1];
 	for ($i=2;$i<count($array_target_keyword);$i++) {
 		$message .= " ".$array_target_keyword[$i];
@@ -119,7 +119,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 			for ($i=2;$i<count($array_target_group);$i++) {
 				$message .= " ".$array_target_group[$i];
 			}
-			logger_print("username:".$c_username." gpid:".$c_gpid." sender:".$sms_sender." receiver:".$sms_receiver." message:".$message, 3, "setsmsincomingaction bc");
+			logger_print("username:".$c_username." gpid:".$c_gpid." sender:".$sms_sender." receiver:".$sms_receiver." message:".$message." raw:".$raw_message, 3, "setsmsincomingaction bc");
 			list($ok,$to,$smslog_id,$queue) = sendsms_bc($c_username,$c_gpid,$message);
 			$ok = true;
 			break;
@@ -132,7 +132,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 			for ($i=2;$i<count($array_target_user);$i++) {
 				$message .= " ".$array_target_user[$i];
 			}
-			logger_print("datetime:".$sms_datetime." sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user." message:".$message, 3, "setsmsincomingaction pv");
+			logger_print("datetime:".$sms_datetime." sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user." message:".$message." raw:".$raw_message, 3, "setsmsincomingaction pv");
 			if (insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_receiver)) {
 				$ok = true;
 			}
@@ -140,10 +140,10 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 		default:
 			for ($c=0;$c<count($core_config['featurelist']);$c++) {
 				$c_feature = $core_config['featurelist'][$c];
-				$ret = x_hook($c_feature,'setsmsincomingaction',array($sms_datetime,$sms_sender,$target_keyword,$message,$sms_receiver));
+				$ret = x_hook($c_feature,'setsmsincomingaction',array($sms_datetime,$sms_sender,$target_keyword,$message,$sms_receiver,$raw_message));
 				if ($ok = $ret['status']) {
 					$c_uid = $ret['uid'];
-					logger_print("feature:".$c_feature." datetime:".$sms_datetime." sender:".$sms_sender." receiver:".$sms_receiver." keyword:".$target_keyword." message:".$message, 3, "setsmsincomingaction");
+					logger_print("feature:".$c_feature." datetime:".$sms_datetime." sender:".$sms_sender." receiver:".$sms_receiver." keyword:".$target_keyword." message:".$message." raw:".$raw_message, 3, "setsmsincomingaction");
 					break;
 				}
 			}
@@ -152,7 +152,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 	if ($c_status == 0) {
 		$c_feature = '';
 		$target_keyword = '';
-		$message = $message_full;
+		$message = $raw_message;
 		// from interceptincomingsms(), force status as 'handled'
 		if ($ret_intercept['hooked']) {
 			$c_status = 1;

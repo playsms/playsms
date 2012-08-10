@@ -103,7 +103,7 @@ function sms_survey_hook_checkavailablekeyword($keyword) {
  * @return $ret
  *   array of keyword owner uid and status, TRUE if incoming sms handled
  */
-function sms_survey_hook_setsmsincomingaction($sms_datetime, $sms_sender, $survey_keyword, $survey_param = '', $sms_receiver = '') {
+function sms_survey_hook_setsmsincomingaction($sms_datetime, $sms_sender, $survey_keyword, $survey_param = '', $sms_receiver = '', $raw_message='') {
 	$ok = false;
 	$db_query = "SELECT uid FROM " . _DB_PREF_ . "_featureSurvey WHERE keyword='$survey_keyword'";
 	$db_result = dba_query($db_query);

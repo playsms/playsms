@@ -36,7 +36,7 @@ function sms_board_hook_checkavailablekeyword($keyword)
  * @return $ret
  *   array of keyword owner uid and status, TRUE if incoming sms handled
  */
-function sms_board_hook_setsmsincomingaction($sms_datetime,$sms_sender,$board_keyword,$board_param='',$sms_receiver='')
+function sms_board_hook_setsmsincomingaction($sms_datetime,$sms_sender,$board_keyword,$board_param='',$sms_receiver='',$raw_message='')
 {
 	$ok = false;
 	$db_query = "SELECT uid,board_id FROM "._DB_PREF_."_featureBoard WHERE board_keyword='$board_keyword'";
