@@ -35,7 +35,7 @@ switch ($op) {
     <tr>
         <td class=box_title width=5>*</td>
         <td class=box_title width=100>" . _('Keyword') . "</td>
-        <td class=box_title>" . _('Exec') . "</td>
+        <td class=box_title>" . _('URL') . "</td>
         <td class=box_title width=100>" . _('User') . "</td>	
         <td class=box_title width=75>" . _('Action') . "</td>
     </tr>
@@ -89,6 +89,7 @@ switch ($op) {
 	    <p><b>{SMSSENDER}</b> " . _('will be replaced by sender number') . "
 	    <p><b>{CUSTOMKEYWORD}</b> " . _('will be replaced by custom keyword') . "
 	    <p><b>{CUSTOMPARAM}</b> " . _('will be replaced by custom parameter passed to server from SMS') . "
+	    <p><b>{CUSTOMRAW}</b> " . _('will be replaced by SMS raw message') . "
 	    <p>" . _('SMS custom URL') . ": <input type=text size=60 name=edit_custom_url value=\"$edit_custom_url\">
             <p>" . _('Make return as reply') . " : <input type=checkbox name=edit_custom_return_as_reply $edit_custom_return_as_reply></p>
 	    <p><input type=submit class=button value=\"" . _('Save') . "\">
@@ -144,6 +145,7 @@ switch ($op) {
 	    <p><b>{SMSSENDER}</b> " . _('will be replaced by sender number') . "
 	    <p><b>{CUSTOMKEYWORD}</b> " . _('will be replaced by custom keyword') . "
 	    <p><b>{CUSTOMPARAM}</b> " . _('will be replaced by custom parameter passed to server from SMS') . "
+	    <p><b>{CUSTOMRAW}</b> " . _('will be replaced by SMS raw message') . "
 	    <p>" . _('SMS custom URL') . ": <input type=text size=60 maxlength=200 name=add_custom_url value=\"$add_custom_url\">
             <p>" . _('Make return as reply') . " : <input type=checkbox name=add_custom_return_as_reply></p>
 	    <p><input type=submit class=button value=\"" . _('Add') . "\">

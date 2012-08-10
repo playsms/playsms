@@ -67,6 +67,7 @@ function sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$comm
 	$command_exec = str_replace("{SMSSENDER}","\"$sms_sender\"",$command_exec);
 	$command_exec = str_replace("{COMMANDKEYWORD}","\"$command_keyword\"",$command_exec);
 	$command_exec = str_replace("{COMMANDPARAM}","\"$command_param\"",$command_exec);
+	$command_exec = str_replace("{COMMANDRAW}","\"$raw_message\"",$command_exec);
 	$command_exec = $plugin_config['feature']['sms_command']['bin']."/".$command_exec;
 	$command_output = shell_exec(stripslashes($command_exec));
         $username   = uid2username($db_row['uid']);
