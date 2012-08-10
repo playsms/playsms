@@ -1,6 +1,6 @@
 <?php
 // PHP PEAR DB compatible database engine:
-// msql, mssql, mysql, oci8, odbc, pgsql, sqlite
+// mysql, mysqli, pgsql, odbc and others supported by PHP PEAR DB
 $core_config['db']['type'] = 'mysql';		// database engine
 $core_config['db']['host'] = 'localhost';	// database host/server
 $core_config['db']['port'] = '3306';		// database port

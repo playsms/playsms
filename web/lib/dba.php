@@ -3,7 +3,8 @@ if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 // DB.php is part of PHP PEAR-DB package
 // previously removed in 0.9.2 but re-added in this release due to its complicated installation
-include_once $apps_path['libs'].'/external/pear-db/DB.php';
+define('LIBS', $apps_path['libs'].'/external/pear-db/');
+include_once LIBS.'DB.php';
 
 // --------------------------------------------------------------------------//
 
