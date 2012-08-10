@@ -44,7 +44,7 @@ function sms_custom_hook_setsmsincomingaction($sms_datetime,$sms_sender,$custom_
 	if ($db_row = dba_fetch_array($db_result))
 	{
 		$c_uid = $db_row['uid'];
-		if (sms_custom_handle($sms_datetime,$sms_sender,$custom_keyword,$custom_param))
+		if (sms_custom_handle($sms_datetime,$sms_sender,$custom_keyword,$custom_param,$raw_message))
 		{
 			$ok = true;
 		}
@@ -54,7 +54,7 @@ function sms_custom_hook_setsmsincomingaction($sms_datetime,$sms_sender,$custom_
 	return $ret;
 }
 
-function sms_custom_handle($sms_datetime,$sms_sender,$custom_keyword,$custom_param='')
+function sms_custom_handle($sms_datetime,$sms_sender,$custom_keyword,$custom_param='',$raw_message='')
 {
 	global $datetime_now;
 	$ok = false;

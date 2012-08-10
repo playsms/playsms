@@ -35,13 +35,13 @@ function sms_quiz_hook_checkavailablekeyword($keyword) {
  * @return $ret
  *   array of keyword owner uid and status, TRUE if incoming sms handled
  */
-function sms_quiz_hook_setsmsincomingaction($sms_datetime, $sms_sender, $quiz_keyword, $quiz_param = '', $sms_receiver = '', $raw_message='') {
+function sms_quiz_hook_setsmsincomingaction($sms_datetime, $sms_sender, $quiz_keyword, $quiz_param = '', $sms_receiver = '', $raw_message = '') {
 	$ok = false;
 	$db_query = "SELECT uid FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_keyword='$quiz_keyword'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$c_uid = $db_row['uid'];
-		if (sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $quiz_keyword, $quiz_param)) {
+		if (sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $quiz_keyword, $quiz_param, $raw_message)) {
 			$ok = true;
 		}
 	}
@@ -50,7 +50,7 @@ function sms_quiz_hook_setsmsincomingaction($sms_datetime, $sms_sender, $quiz_ke
 	return $ret;
 }
 
-function sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $quiz_keyword, $quiz_param = '') {
+function sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $quiz_keyword, $quiz_param = '', $raw_message = '') {
 	global $core_config, $datetime_now;
 	$ok = false;
 	$username = uid2username($c_uid);

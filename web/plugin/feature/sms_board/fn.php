@@ -44,7 +44,7 @@ function sms_board_hook_setsmsincomingaction($sms_datetime,$sms_sender,$board_ke
 	if ($db_row = dba_fetch_array($db_result))
 	{
 		$c_uid = $db_row['uid'];
-		if (sms_board_handle($c_uid, $sms_datetime,$sms_sender,$sms_receiver,$board_keyword,$board_param))
+		if (sms_board_handle($c_uid, $sms_datetime,$sms_sender,$sms_receiver,$board_keyword,$board_param,$raw_message))
 		{
 			$ok = true;
 		}
@@ -54,7 +54,7 @@ function sms_board_hook_setsmsincomingaction($sms_datetime,$sms_sender,$board_ke
 	return $ret;
 }
 
-function sms_board_handle($c_uid, $sms_datetime,$sms_sender,$sms_receiver,$board_keyword,$board_param='')
+function sms_board_handle($c_uid, $sms_datetime,$sms_sender,$sms_receiver,$board_keyword,$board_param='',$raw_message='')
 {
 	global $web_title,$email_service,$email_footer,$gateway_module, $datetime_now;
 	$ok = false;

@@ -103,13 +103,13 @@ function sms_survey_hook_checkavailablekeyword($keyword) {
  * @return $ret
  *   array of keyword owner uid and status, TRUE if incoming sms handled
  */
-function sms_survey_hook_setsmsincomingaction($sms_datetime, $sms_sender, $survey_keyword, $survey_param = '', $sms_receiver = '', $raw_message='') {
+function sms_survey_hook_setsmsincomingaction($sms_datetime, $sms_sender, $survey_keyword, $survey_param = '', $sms_receiver = '', $raw_message = '') {
 	$ok = false;
 	$db_query = "SELECT uid FROM " . _DB_PREF_ . "_featureSurvey WHERE keyword='$survey_keyword'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$c_uid = $db_row['uid'];
-		if (sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $survey_keyword, $survey_param)) {
+		if (sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $survey_keyword, $survey_param, $raw_message)) {
 			$ok = true;
 		}
 	}
@@ -119,7 +119,7 @@ function sms_survey_hook_setsmsincomingaction($sms_datetime, $sms_sender, $surve
 }
 
 // handle survey
-function sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $survey_keyword, $survey_param = '') {
+function sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $survey_keyword, $survey_param = '', $raw_message = '') {
 	global $core_config;
 	$ok = false;
 	// get survey data by keyword

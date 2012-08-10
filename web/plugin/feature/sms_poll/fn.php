@@ -44,7 +44,7 @@ function sms_poll_hook_setsmsincomingaction($sms_datetime,$sms_sender,$poll_keyw
 	if ($db_row = dba_fetch_array($db_result))
 	{
 		$c_uid = $db_row['uid'];
-		if (sms_poll_handle($sms_datetime,$sms_sender,$poll_keyword,$poll_param))
+		if (sms_poll_handle($sms_datetime,$sms_sender,$poll_keyword,$poll_param,$raw_message))
 		{
 			$ok = true;
 		}
@@ -54,7 +54,7 @@ function sms_poll_hook_setsmsincomingaction($sms_datetime,$sms_sender,$poll_keyw
 	return $ret;
 }
 
-function sms_poll_handle($sms_datetime,$sms_sender,$poll_keyword,$poll_param='')
+function sms_poll_handle($sms_datetime,$sms_sender,$poll_keyword,$poll_param='',$raw_message='')
 {
         global $datetime_now;
 	$ok = false;
