@@ -259,6 +259,7 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 	$queue_code = sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$sms_type,$unicode);
 	if (! $queue_code) {
 		// when unable to create a queue then immediately returns FALSE, no point to continue
+		logger_print("fail to finalize queue creation, exit immediately", 3, "sendsms_pv");
 		return FALSE;
 	}
 
@@ -314,6 +315,7 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 	$queue_code = sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$sms_type,$unicode);
 	if (! $queue_code) {
 		// when unable to create a queue then immediately returns FALSE, no point to continue
+		logger_print("fail to finalize queue creation, exit immediately", 3, "sendsms_bc");
 		return FALSE;
 	}
 
