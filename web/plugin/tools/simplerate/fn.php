@@ -55,7 +55,7 @@ function simplerate_getbyprefix($p_dst) {
 function simplerate_hook_rate_setusercredit($uid, $remaining=0) {
 	$ok = false;
 	logger_print("saving uid:".$uid." remaining:".$remaining, 3, "simplerate setusercredit");
-	$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp=NOW(),credit='$remaining' WHERE uid='$uid'";
+	$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".$core_config['datetime']['now']."',credit='$remaining' WHERE uid='$uid'";
 	if ($db_result = @dba_affected_rows($db_query)) {
 		logger_print("saved uid:".$uid." remaining:".$remaining, 3, "simplerate setusercredit");
 		$ok = true;

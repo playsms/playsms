@@ -88,7 +88,7 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver,
 		$num_rows = dba_num_rows($db_query);
 		if ($num_rows == 0) {
 			$member = false;
-			$db_query = "INSERT INTO " . _DB_PREF_ . "_featureSubscribe_member (subscribe_id,member_number,member_since) VALUES ('$subscribe_id','$sms_to',now())";
+			$db_query = "INSERT INTO " . _DB_PREF_ . "_featureSubscribe_member (subscribe_id,member_number,member_since) VALUES ('$subscribe_id','$sms_to','".$core_config['datetime']['now']."')";
 			switch ($subscribe_param) {
 				case "ON" :
 					$message = $msg1;
