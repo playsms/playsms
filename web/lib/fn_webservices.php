@@ -17,11 +17,12 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
 	} elseif ($c_username && $to && $msg) {
 		// single destination
 		list($ok,$to,$smslog_id,$queue) = sendsms_pv($c_username,$to,$msg,$type,$unicode);
-		if ($ok[0] && $smslog_id[0]) {
+		if ($ok[0]) {
 			$ret = "OK ".$smslog_id[0].",".$queue[0];
 		} else {
 			$ret = "ERR 200";
 		}
+		logger_print("returns:".$ret." to:".$to[0]." smslog_id:".$smslog_id[0]." queue_code:".$queue[0], 3, "webservices_pv");
 	} else {
 		$ret = "ERR 201";
 	}
