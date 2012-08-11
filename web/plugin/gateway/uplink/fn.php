@@ -80,6 +80,9 @@ function uplink_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 						$ok = true;
 					}
 				}
+			} else {
+				$response[0] += ' '.$response[1];
+				$response[1] = 0;
 			}
 			logger_print("smslog_id:".$smslog_id." up_id:".$up_id." status:".$response[0]." remote_slid:".$response[1], 3, "uplink outgoing");
 		} else {
