@@ -18,7 +18,7 @@ if (file_exists($PLAYSMS_PATH)) {
 	if (file_exists('init.php')) {
 		include 'init.php';
 		$fn = $apps_path['libs'].'/function.php';
-		if ($core_config['daemon_process'] && file_exists($fn)) {
+		if ($core_config['daemon_process'] && file_exists($fn) && $core_config['issendsmsd']) {
 			include $fn;
 			if ($apps_path['incs']) {
 				echo "begin cycling\n";
