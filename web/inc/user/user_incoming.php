@@ -43,7 +43,7 @@ switch ($op)
         <tbody>
 	";
 
-		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSIncoming WHERE in_uid='$uid' AND flag_deleted='0' ORDER BY in_id DESC LIMIT $limit,$line_per_page";
+		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSIncoming WHERE in_uid='$uid' AND flag_deleted='0' ORDER BY in_id DESC LIMIT $line_per_page OFFSET $limit";
 		$db_result = dba_query($db_query);
 		$i = ($num_rows-($line_per_page*($page-1)))+1;
 		$j = 0;

@@ -65,9 +65,9 @@ function webservices_ds_count($c_username,$c=100,$last=false) {
 	$ret = "ERR 101";
 	$uid = username2uid($c_username);
 	if ($c) {
-		$query_limit = " LIMIT 0,$c";
+		$query_limit = " LIMIT $c";
 	} else {
-		$query_limit = " LIMIT 0,100";
+		$query_limit = " LIMIT 100";
 	}
 	if ($last) {
 		$query_last = "AND smslog_id>$last";
