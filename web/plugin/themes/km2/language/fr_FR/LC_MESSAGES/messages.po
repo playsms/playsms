@@ -4,6 +4,7 @@ msgstr ""
 "POT-Creation-Date: 2012-03-20 11:16+0100\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language:fr_FR"
 
 #: header.php:39
 msgid "Home"
@@ -23,7 +24,7 @@ msgstr "Déconnexion"
 
 #: loginpage.php:27 page_forgot.php:37 page_register.php:41 page_login.php:37
 msgid "Username"
-msgstr "Pseudo"
+msgstr "Nom utilisateur"
 
 #: loginpage.php:31 page_login.php:41
 msgid "Password"
@@ -67,11 +68,11 @@ msgstr "Email"
 
 #: page_forgot.php:46
 msgid "Recover password"
-msgstr "Récupérer son mot de passe"
+msgstr "Recupérer mot de passe"
 
 #:page_register.php:54
 msgid "Register"
-msgstr "S'enregistrer"
+msgstr "S`enregistrer"
 
 #: page_register.php:37
 msgid "Name"
@@ -83,7 +84,7 @@ msgstr "Mobile"
 
 #: page_login.php:52
 msgid "Register an account"
-msgstr "S'enregistrer"
+msgstr "Créer un compte"
 
 #: page_login.php:52
 msgid "Forgot password"

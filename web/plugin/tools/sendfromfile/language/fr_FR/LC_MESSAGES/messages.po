@@ -1,7 +1,122 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+##, fuzzy
 msgid ""
 msgstr ""
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"Project-Id-Version: 0.9.6\n"
+"Report-Msgid-Bugs-To: elinguiuriel@gmail.com\n"
+"POT-Creation-Date: 2012-03-22 15:43+0100\n"
+"PO-Revision-Date: 2012-04-11 15:16+0000\n"
+"Last-Translator: ELINGUI Pascal Uriel <elinguiuriel@gmail.com>\n"
+"Language-Team: ELINGUI <LL@li.org>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: plugin/tools/sendfromfile/sendfromfile.php:12
+#: plugin/tools/sendfromfile/sendfromfile.php:68
+#: plugin/tools/sendfromfile/sendfromfile.php:12
+#: plugin/tools/sendfromfile/sendfromfile.php:68
+msgid "Send from file"
+msgstr "Envoi dépuis fichier"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:26
+#: plugin/tools/sendfromfile/sendfromfile.php:26
+msgid "Please select CSV file"
+msgstr "Sélectionner un fichier CSV"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:26
+#: plugin/tools/sendfromfile/sendfromfile.php:26
+msgid "format : destination number, message, username"
+msgstr "Format : numéro destinataire, méssage, nom utilisateur"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:28
+#: plugin/tools/sendfromfile/sendfromfile.php:28
+msgid "Upload file"
+msgstr "Importer"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:63
+#: plugin/tools/sendfromfile/sendfromfile.php:63
+msgid "Invalid CSV file"
+msgstr "Fichier CSV invalide"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:69
+#: plugin/tools/sendfromfile/sendfromfile.php:69
+msgid "Confirmation"
+msgstr "Confirmation"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:70
+#: plugin/tools/sendfromfile/sendfromfile.php:70
+msgid "Uploaded file"
+msgstr "Importer"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:73
+#: plugin/tools/sendfromfile/sendfromfile.php:73
+msgid "Found valid entries in uploaded file"
+msgstr "Entrées valides trouvées dans le fichier CSV"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:73
+#: plugin/tools/sendfromfile/sendfromfile.php:73
+msgid "valid entries"
+msgstr "Entrées valides"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:74
+#: plugin/tools/sendfromfile/sendfromfile.php:74
+msgid "Valid entries"
+msgstr "Entrées valides"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:99
+#: plugin/tools/sendfromfile/sendfromfile.php:99
+msgid "Found invalid entries in uploaded file"
+msgstr "Entrées valides trouvées dans le fichier CSV"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:99
+#: plugin/tools/sendfromfile/sendfromfile.php:99
+msgid "invalid entries"
+msgstr "Entrées invalides"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:100
+#: plugin/tools/sendfromfile/sendfromfile.php:100
+msgid "Invalid entries"
+msgstr "Entrées invalides"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:124
+#: plugin/tools/sendfromfile/sendfromfile.php:124
+msgid "Your choice"
+msgstr "Votre choix"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:127
+#: plugin/tools/sendfromfile/sendfromfile.php:127
+msgid "Cancel send from file"
+msgstr "Annuler l'envoi depuis fichier"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:131
+#: plugin/tools/sendfromfile/sendfromfile.php:131
+msgid "Send SMS to valid entries"
+msgstr "Envoi de SMS aux entrées valides"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:139
+#: plugin/tools/sendfromfile/sendfromfile.php:139
+msgid "Send from file has been cancelled"
+msgstr "Envoi depuis fichier annulé"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:141
+#: plugin/tools/sendfromfile/sendfromfile.php:141
+msgid "Fail to remove cancelled entries from database"
+msgstr "Echec de suppression des entrées enlevées dans la basse de données"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:144
+#: plugin/tools/sendfromfile/sendfromfile.php:167
+#: plugin/tools/sendfromfile/sendfromfile.php:144
+#: plugin/tools/sendfromfile/sendfromfile.php:167
+msgid "Invalid session ID"
+msgstr "Identifiant de session invalide"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:165
+#: plugin/tools/sendfromfile/sendfromfile.php:165
+msgid "SMS has been set to destination in uploaded file"
+msgstr "SMS envoi aux destinataires du fichier importé"

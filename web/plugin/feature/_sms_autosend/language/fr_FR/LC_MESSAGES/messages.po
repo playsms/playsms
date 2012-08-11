@@ -4,6 +4,7 @@ msgstr ""
 "POT-Creation-Date: 2012-03-20 11:16+0100\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr-FR"
 
 #: config.php:10 sms_autosend.php:20
 msgid "Manage autosend"
@@ -19,7 +20,7 @@ msgstr "Message"
 
 #: sms_autosend.php:35
 msgid "Repeat"
-msgstr "Répéter"
+msgstr "Répeter"
 
 #: sms_autosend.php:36
 msgid "User"
@@ -51,7 +52,7 @@ msgstr "Activer"
 
 #: sms_autosend.php:66
 msgid "Are you sure you want to delete SMS autosend message ?"
-msgstr "Etes-vous certain de vouloir supprimer l`envoi de ce message auto ?"
+msgstr "Voulez-vous supprimer l'envoi de ce message auto ?"
 
 #: sms_autosend.php:92
 msgid "SMS autosend View"
@@ -67,11 +68,15 @@ msgstr "Editer les envois autos"
 
 #: sms_autosend.php:169
 msgid "Repeat send"
-msgstr "Répéter l`envoi"
+msgstr "Répeter l'envoi"
 
 #: sms_autosend.php:184 sms_autosend.php:306
 msgid "Sending date"
-msgstr "Date d`envoi"
+msgstr "Date d'envoi"
+
+#: sms_autosend.php:187 sms_autosend.php:312
+msgid "Sending time"
+msgstr "Temps envoi"
 
 #: sms_autosend.php:192
 msgid "Update"
@@ -99,7 +104,7 @@ msgstr "Je souhaite désactiver cet envoi"
 
 #: sms_autosend.php:245
 msgid "Autosend date has been saved"
-msgstr "L`heure d'envoi a été sauvegardé"
+msgstr "L'heure d'envoi à été sauvegardé"
 
 #: sms_autosend.php:249 sms_autosend.php:355
 msgid "You must fill all fields"
@@ -107,11 +112,11 @@ msgstr "Vous devez remplir tous les champs"
 
 #: sms_autosend.php:260
 msgid "SMS autosend status has been changed"
-msgstr "Le statut du service d`envoi auto a été changé"
+msgstr "Le statut du service d'envoi auto à été changé"
 
 #: sms_autosend.php:276
 msgid "SMS autosend has been deleted"
-msgstr "L`envoi auto a été supprimé"
+msgstr "L'envoi auto a été supprimé"
 
 #: sms_autosend.php:289
 msgid "Add time field"
@@ -123,8 +128,8 @@ msgstr "Ajouter"
 
 #: sms_autosend.php:344
 msgid "SMS autosend has been added"
-msgstr "L`envoi auto a été ajouté"
+msgstr "L'envoi auto a été ajouté"
 
 #: sms_autosend.php:351
 msgid "Fail to add SMS autosend"
-msgstr "Impossible d`ajouter l`envoi auto"
+msgstr "Impossible d'ajouter l'envoi auto"

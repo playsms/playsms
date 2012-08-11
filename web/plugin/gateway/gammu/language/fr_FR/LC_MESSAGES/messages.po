@@ -7,24 +7,24 @@ msgstr ""
 
 #: config.php:7 gammu.php:23
 msgid "Manage gammu"
-msgstr "Manage gammu"
+msgstr "Gérer gammu"
 
 #: gammu.php:8
 msgid "Active"
-msgstr ""
+msgstr "Active"
 
 #: gammu.php:12
 msgid "Inactive"
-msgstr ""
+msgstr "Inactive"
 
 #: gammu.php:12
 msgid "click here to activate"
-msgstr ""
+msgstr "Cliquez pour activer"
 
 #: gammu.php:27
 msgid "Gateway name"
-msgstr ""
+msgstr "Nom passerelle"
 
 #: gammu.php:36
 msgid "Gateway has been activated"
-msgstr ""
+msgstr "Passerelle activée"

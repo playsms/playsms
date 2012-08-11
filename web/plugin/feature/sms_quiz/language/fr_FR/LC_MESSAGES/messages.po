@@ -4,6 +4,7 @@ msgstr ""
 "POT-Creation-Date: 2012-03-20 11:16+0100\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr_FR"
 
 #: config.php:4 sms_quiz.php:79
 msgid "Manage quiz"
@@ -43,11 +44,11 @@ msgstr "Incorrecte"
 
 #: sms_quiz.php:42
 msgid "Are you sure you want to delete this answer ?"
-msgstr "Etes-vous certain de vouloir supprimer cette réponse ?"
+msgstr "Êtes-vous certain de vouloir supprimer cette réponse ?"
 
 #: sms_quiz.php:68
 msgid "SMS quiz answer messages has been deleted"
-msgstr "Les messages de réponses au quiz ont été supprimés"
+msgstr "Les SMS de réponses au quiz ont été supprimés"
 
 #: sms_quiz.php:81 sms_quiz.php:128 sms_quiz.php:246
 msgid "Add SMS quiz"
@@ -80,7 +81,7 @@ msgstr "Activé"
 #: sms_quiz.php:112
 msgid ""
 "Are you sure you want to delete SMS quiz with all its choices and answers ?"
-msgstr "Etes-vous certain de vouloir supprimer ce quiz avec toutes ces réponses ?"
+msgstr "Êtes-vous certain de vouloir supprimer ce quiz avec toutes ces réponses ?"
 
 #: sms_quiz.php:112 sms_quiz.php:207 sms_quiz.php:235 sms_quiz.php:285
 #: sms_quiz.php:288
@@ -89,7 +90,7 @@ msgstr "mot-clé"
 
 #: sms_quiz.php:146
 msgid "Edit SMS quiz"
-msgstr "Edition du service"
+msgstr "Édition du service"
 
 #: sms_quiz.php:153 sms_quiz.php:251
 msgid "SMS quiz keyword"
@@ -103,13 +104,14 @@ msgstr "Question quiz"
 msgid "SMS quiz answer"
 msgstr "Réponse au quiz"
 
+
 #: sms_quiz.php:162 sms_quiz.php:260
 msgid "Message when correct"
 msgstr "Message de réponse si succès"
 
 #: sms_quiz.php:165 sms_quiz.php:263
 msgid "Message when incorrect"
-msgstr "Message de réponse si échec"
+msgstr "Message de réponse si echec"
 
 #: sms_quiz.php:168
 msgid "Save"

@@ -7,48 +7,48 @@ msgstr ""
 
 #: config.php:13 gnokii.php:23
 msgid "Manage gnokii"
-msgstr "Manage gnokii"
+msgstr "Gérer gnokii"
 
 #: gnokii.php:8
 msgid "Active"
-msgstr ""
+msgstr "Active"
 
 #: gnokii.php:12
 msgid "Inactive"
-msgstr ""
+msgstr "Inactive"
 
 #: gnokii.php:12
 msgid "click here to activate"
-msgstr ""
+msgstr "cliquez pour activer"
 
 #: gnokii.php:28
 msgid "Gateway name"
-msgstr ""
+msgstr "Nom passerelle"
 
 #: gnokii.php:31
 msgid "Gnokii installation path"
-msgstr ""
+msgstr "Chemin d'installation gnokii"
 
 #: gnokii.php:31
 msgid "No trailing slash"
-msgstr ""
+msgstr "Pas de slash final"
 
 #: gnokii.php:35
 msgid "Note"
-msgstr ""
+msgstr "Note"
 
 #: gnokii.php:36
 msgid "Send SMS message without footer banner"
-msgstr ""
+msgstr "Envoyer SMS sans pied de page"
 
 #: gnokii.php:38
 msgid "Save"
-msgstr ""
+msgstr "Sauvegarder"
 
 #: gnokii.php:54
 msgid "Gateway module configurations has been saved"
-msgstr ""
+msgstr "Configurations de la passerelle sauvegardées"
 
 #: gnokii.php:62
 msgid "Gateway has been activated"
-msgstr ""
+msgstr "Passerelle activée"

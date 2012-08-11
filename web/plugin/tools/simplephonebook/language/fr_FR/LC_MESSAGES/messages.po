@@ -4,6 +4,7 @@ msgstr ""
 "POT-Creation-Date: 2012-03-20 11:16+0100\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr_FR"
 
 #: config.php:3
 msgid "Export"
@@ -23,7 +24,7 @@ msgstr "Rendre privé"
 
 #: config.php:8 phonebook.php:298 simplephonebook.php:146
 msgid "Phonebook"
-msgstr "Carnet d`adresses"
+msgstr "Carnet d'adresses"
 
 #: dir_create.php:12 simplephonebook.php:155 simplephonebook.php:160
 msgid "Create group"
@@ -31,7 +32,7 @@ msgstr "Créer un groupe"
 
 #: dir_create.php:17 dir_edit.php:19
 msgid "Group name"
-msgstr "Nom du groupe"
+msgstr "Nom groupe"
 
 #: dir_create.php:20 dir_edit.php:22 phonebook_exim.php:36
 msgid "Group code"
@@ -39,7 +40,7 @@ msgstr "Code groupe"
 
 #: dir_create.php:20 dir_edit.php:22
 msgid "please use uppercase and make it short"
-msgstr "merci d`utiliser des majuscules et de le rendre court"
+msgstr "merci d'utiliser des majuscules et de le rendre court"
 
 #: dir_create.php:23 dir_edit.php:25
 msgid "Note"
@@ -51,7 +52,7 @@ msgstr "Code groupe utilisé par le mot-clé"
 
 #: dir_create.php:23 dir_edit.php:25
 msgid "broadcast SMS from single SMS"
-msgstr "effectué un mailling SMS depuis un simple SMS"
+msgstr "Diffuser les SMS depuis un simple SMS"
 
 #: dir_create.php:24
 msgid "Create"
@@ -67,7 +68,7 @@ msgstr "code"
 
 #: dir_create.php:45
 msgid "Group code has been added"
-msgstr "Le code a été ajouté"
+msgstr "Le code du groupe a ete ajoute"
 
 #: dir_create.php:45 dir_edit.php:47 phonebook.php:267 phonebook.php:272
 #: phonebook.php:284 phonebook.php:289
@@ -88,11 +89,11 @@ msgstr "Sauvegarder"
 
 #: dir_edit.php:40
 msgid "No changes has been made"
-msgstr "Aucune modification n`a été effectuée"
+msgstr "Aucune modification n'a ete effectuée"
 
 #: dir_edit.php:47
 msgid "Group has been edited"
-msgstr "Le groupe a été édité"
+msgstr "Le groupe a ete edite"
 
 #: phone_add.php:19 phone_add.php:24 simplephonebook.php:156
 #: simplephonebook.php:161
@@ -135,19 +136,19 @@ msgstr "nom"
 
 #: phone_add.php:62
 msgid "Number has been added"
-msgstr "Le numéro a été ajouté"
+msgstr "Le numéro a ete ajoute"
 
 #: phonebook_exim.php:36
 msgid "Import phonebook"
-msgstr "Importer le carnet d`adresse"
+msgstr "Importer le carnet d'adresse"
 
 #: phonebook_exim.php:39
 msgid "Please select CSV file for phonebook entries"
-msgstr "Sélectionnez le fichier CSV pour votre carnet d`adresse"
+msgstr "Sélectionnez le fichier CSV pour votre carnet d'adresse"
 
 #: phonebook_exim.php:39
 msgid "format : Name,Mobile,Email"
-msgstr "Nom,Mobile,Email"
+msgstr "format: Nom,Mobile,Email"
 
 #: phonebook_exim.php:41
 msgid "Same item(s) will be replaced"
@@ -155,7 +156,7 @@ msgstr "Les doublons seront remplacés"
 
 #: phonebook_exim.php:55
 msgid "Import confirmation"
-msgstr "Confirmation de l`import"
+msgstr "Confirmation de l'import"
 
 #: phonebook_exim.php:98
 msgid "Replace all entries in database"
@@ -179,7 +180,7 @@ msgstr "Retour"
 
 #: phonebook_exim.php:120
 msgid "Fail to upload CSV file for phonebook"
-msgstr "Impossible de télécharger le fichier CSV pour le carnet d`adresse"
+msgstr "Echec importation du fichier CSV pour le carnet d'adresse"
 
 #: phonebook.php:23
 msgid "Edited name"
@@ -187,19 +188,19 @@ msgstr "Nom édité"
 
 #: phonebook.php:24
 msgid "Edited number"
-msgstr "Numéro édité"
+msgstr "Numéro edite"
 
 #: phonebook.php:25
 msgid "Edited email"
-msgstr "Email édité"
+msgstr "Email edite"
 
 #: phonebook.php:81
 msgid "Copied name"
-msgstr "Nom copié"
+msgstr "Nom copie"
 
 #: phonebook.php:82
 msgid "Copied number"
-msgstr "Numéro copié"
+msgstr "Numéro copie"
 
 #: phonebook.php:83
 msgid "Copied email"
@@ -227,7 +228,7 @@ msgstr "Déplacer le numéro"
 
 #: phonebook.php:149
 msgid "Moved email"
-msgstr "Déplacer l`adresse email"
+msgstr "Déplacer l'adresse email"
 
 #: phonebook.php:210
 msgid "Deleted name"
@@ -239,7 +240,7 @@ msgstr "Supprimer le numéro"
 
 #: phonebook.php:212
 msgid "Deleted email"
-msgstr "Supprimer l`adresse email"
+msgstr "Supprimer l'adresse email"
 
 #: phonebook.php:241
 msgid "Delete"
@@ -247,19 +248,19 @@ msgstr "Supprimer"
 
 #: phonebook.php:267
 msgid "Fail to publish"
-msgstr "Impossible de rendre publique"
+msgstr "Impossible de publier"
 
 #: phonebook.php:272
 msgid "Group has been published"
-msgstr "Le groupe est rendu publique"
+msgstr "Groupe publié"
 
 #: phonebook.php:284
 msgid "Fail to unpublish"
-msgstr "Imposible de rendre privé"
+msgstr "Imposible de dépublier"
 
 #: phonebook.php:289
 msgid "Group has been unpublished"
-msgstr "Le groupe est rendu privé"
+msgstr "Le groupe a été dépublier"
 
 #: simplephonebook.php:42 simplephonebook.php:116
 msgid "Number"
@@ -283,7 +284,7 @@ msgstr "Supprimer les sélections"
 
 #: simplephonebook.php:79
 msgid "Select action"
-msgstr "Sélectionner un action"
+msgstr "Selection action"
 
 #: simplephonebook.php:111
 msgid "Shared by"

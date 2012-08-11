@@ -4,6 +4,7 @@ msgstr ""
 "POT-Creation-Date: 2012-03-20 11:16+0100\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language:fr-FR"
 
 #: config.php:4 sms_poll.php:12
 msgid "Manage poll"
@@ -44,7 +45,7 @@ msgstr "Activé"
 #: sms_poll.php:47
 msgid ""
 "Are you sure you want to delete SMS poll with all its choices and votes ?"
-msgstr "Etes-vous certain de vouloir supprimer ce sondage avec tous ses résultats ?"
+msgstr "Etes-vous certain de vouloir supprimer ce sondage avec tous ses resultats ?"
 
 #: sms_poll.php:47 sms_poll.php:131 sms_poll.php:183 sms_poll.php:236
 #: sms_poll.php:241 sms_poll.php:257 sms_poll.php:265 sms_poll.php:305
@@ -54,7 +55,7 @@ msgstr "mot-clé"
 
 #: sms_poll.php:85
 msgid "Edit SMS poll"
-msgstr "Edition du sondage"
+msgstr "Édition du sondage"
 
 #: sms_poll.php:92 sms_poll.php:281
 msgid "SMS poll keyword"
@@ -70,7 +71,7 @@ msgstr "Sauvegarder"
 
 #: sms_poll.php:104
 msgid "Edit SMS poll choices"
-msgstr "Edition des réponses du sondage"
+msgstr "Édition des réponses du sondage"
 
 #: sms_poll.php:131
 msgid "Are you sure you want to delete choice ?"
@@ -86,11 +87,11 @@ msgstr "Ajouter une réponse à ce sondage"
 
 #: sms_poll.php:141
 msgid "Choice Keyword"
-msgstr "Mot-clé de cette réponse"
+msgstr "Mot-clé réponse"
 
 #: sms_poll.php:144
 msgid "Choice title"
-msgstr "Titre de cette réponse"
+msgstr "Titre réponse"
 
 #: sms_poll.php:147 sms_poll.php:287
 msgid "Add"

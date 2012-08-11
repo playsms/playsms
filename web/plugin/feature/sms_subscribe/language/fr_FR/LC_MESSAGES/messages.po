@@ -4,6 +4,7 @@ msgstr ""
 "POT-Creation-Date: 2012-03-20 11:16+0100\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr_FR"
 
 #: config.php:4 sms_subscribe.php:12
 msgid "Manage subscribe"
@@ -23,13 +24,13 @@ msgstr "Afficher les messages"
 
 #: fn.php:96 fn.php:101 fn.php:106
 msgid "You are not a member"
-msgstr "Vous n`êtes pas membre"
+msgstr "Vous n'êtes pas membre"
 
 #: fn.php:111
 msgid "Unknown SMS format"
 msgstr "Format de SMS inconnu"
 
-#: fn.php:144 fn.php:149 fn.php:154
+#: fn.php:160 fn.php:165 fn.php:170
 msgid "You already a member"
 msgstr "Vous êtes déjà membres"
 
@@ -67,11 +68,11 @@ msgstr "Désactiver"
 
 #: sms_subscribe.php:45 sms_subscribe.php:355
 msgid "Enabled"
-msgstr "Activer"
+msgstr "Activé"
 
 #: sms_subscribe.php:51
 msgid "Are you sure you want to delete SMS subscribe ?"
-msgstr "Etes-vous certain de vouloir supprimer ce service SMS ?"
+msgstr "Êtes-vous certain de vouloir supprimer ce service SMS ?"
 
 #: sms_subscribe.php:51 sms_subscribe.php:381 sms_subscribe.php:414
 #: sms_subscribe.php:469 sms_subscribe.php:472
@@ -92,7 +93,7 @@ msgstr "Message"
 
 #: sms_subscribe.php:106
 msgid "Are you sure you want to delete this message?"
-msgstr "Etes-vous certain de vouloir supprimer ce message"
+msgstr "Êtes-vous certain de vouloir supprimer ce message"
 
 #: sms_subscribe.php:141
 msgid "Message detail"
@@ -101,7 +102,7 @@ msgstr "Détail du message"
 #: sms_subscribe.php:148 sms_subscribe.php:186 sms_subscribe.php:335
 #: sms_subscribe.php:443 sms_subscribe.php:493
 msgid "SMS subscribe keyword"
-msgstr "Mot-clé du service d`inscription"
+msgstr "Mot-clé du service d'inscription"
 
 #: sms_subscribe.php:154
 msgid "Send this message to all members"
@@ -117,11 +118,11 @@ msgstr "Corps du message"
 
 #: sms_subscribe.php:196
 msgid "Edit"
-msgstr "Editer"
+msgstr "Éditer"
 
 #: sms_subscribe.php:211
 msgid "Message has been edited"
-msgstr "Le message a été édité"
+msgstr "Le message a été édite"
 
 #: sms_subscribe.php:214 sms_subscribe.php:254 sms_subscribe.php:384
 #: sms_subscribe.php:475 sms_subscribe.php:523
@@ -130,7 +131,7 @@ msgstr "Vous devez remplir tous les champs"
 
 #: sms_subscribe.php:246
 msgid "Your SMS has been delivered to queue"
-msgstr "Votre message est en court de traitement"
+msgstr "Votre SMS a été delivré à la queue"
 
 #: sms_subscribe.php:246 sms_subscribe.php:248
 msgid "to"
@@ -138,7 +139,7 @@ msgstr "à"
 
 #: sms_subscribe.php:248
 msgid "Fail to send SMS"
-msgstr "Impossible d`envoyer le SMS"
+msgstr "Impossible d'envoyer le SMS"
 
 #: sms_subscribe.php:273
 msgid "Member list for keyword"
@@ -146,15 +147,15 @@ msgstr "Liste des membres pour le mot-clé"
 
 #: sms_subscribe.php:280
 msgid "Phone number"
-msgstr "Numéro de téléphone"
+msgstr "Numero de telephone"
 
 #: sms_subscribe.php:281
 msgid "Member join datetime"
-msgstr "Date d`inscription du membre"
+msgstr "Date d'inscription du membre"
 
 #: sms_subscribe.php:290
 msgid "Are you sure you want to delete this member ?"
-msgstr "Etes-vous certain de vouloir supprimer ce membre ?"
+msgstr "Êtes-vous certain de vouloir supprimer ce membre ?"
 
 #: sms_subscribe.php:310
 msgid "\"Member has been deleted"
@@ -162,11 +163,11 @@ msgstr "Le membre a été supprimé"
 
 #: sms_subscribe.php:328
 msgid "Edit SMS subscribe"
-msgstr "Editer le service"
+msgstr "Éditer le service"
 
 #: sms_subscribe.php:338 sms_subscribe.php:446
 msgid "SMS subscribe reply"
-msgstr "Réponse SMS d`inscription"
+msgstr "Réponse SMS d'inscription"
 
 #: sms_subscribe.php:341 sms_subscribe.php:449
 msgid "SMS unsubscribe reply"
@@ -226,4 +227,4 @@ msgstr "Ce mot-clé existe déjà, est réservé ou utilisé par un autre servic
 
 #: sms_subscribe.php:520
 msgid "Member message has been added"
-msgstr "Le message a été ajouté"
+msgstr "Le message a été ajoute"

@@ -11,90 +11,111 @@ msgstr "Active"
 
 #: clickatell.php:12
 msgid "Inactive"
-msgstr ""
+msgstr "Inactive"
 
 #: clickatell.php:12
 msgid "click here to activate"
-msgstr ""
+msgstr "Cliquez pour activer"
 
 #: clickatell.php:23 config.php:18
 msgid "Manage clickatell"
-msgstr ""
+msgstr "Gérer clickatell"
 
 #: clickatell.php:28
 msgid "Gateway name"
-msgstr ""
+msgstr "Nom passerelle"
 
 #: clickatell.php:31
 msgid "API ID"
-msgstr ""
+msgstr "ID API"
 
 #: clickatell.php:34
 msgid "Username"
-msgstr ""
+msgstr "Nom utilisateur"
 
 #: clickatell.php:37
 msgid "Password"
-msgstr ""
+msgstr "Mot de passe"
 
 #: clickatell.php:37
 msgid "Fill to change the password"
-msgstr ""
+msgstr "Remplir pour changer le mot de passe"
 
-#: clickatell.php:40
-msgid "Global sender"
-msgstr ""
+#: clickatell.php:44
+msgid "Module sender"
+msgstr "Émetteur global"
 
 #: clickatell.php:40
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
+msgstr "Max. 16 caractères numériques ou 11 alphanumérique. vide = inactif"
 
 #: clickatell.php:43
 msgid "Clickatell API URL"
-msgstr ""
+msgstr "URL API Clickatell"
 
 #: clickatell.php:43 clickatell.php:46
 msgid "No trailing slash"
-msgstr ""
+msgstr "Pas de slash final"
 
 #: clickatell.php:46
 msgid "Additional URL parameter"
-msgstr ""
+msgstr "Autres Paramètres URL"
 
 #: clickatell.php:46
 msgid "Clickatell incoming path"
-msgstr ""
+msgstr "Chemin rentrant clickatell"
+
+
+#: clickatell.php:47
+msgid "Module timezone"
+msgstr "Zone de temps"
+
+
+#: clickatell.php:47
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Ex: +0700 pour Jakarta/Bangkok"
 
 #: clickatell.php:49
 msgid "Note"
-msgstr ""
+msgstr "Note"
 
 #: clickatell.php:50
 msgid "Your callback URL is"
-msgstr ""
+msgstr "Votre callback est"
 
 #: clickatell.php:51
 msgid ""
 "If you are using callback URL to receive incoming sms you may ignore "
 "Clickatell Incoming Path"
-msgstr ""
+msgstr "Si vous utiliser une URL callback pour recevoir des SMS, vous devez"
+"ignorer le Chemin rentrant clickatell"
 
 #: clickatell.php:52
 msgid "Send SMS message without footer banner"
-msgstr ""
+msgstr "Envoyer SMS sans pied de page"
 
 #: clickatell.php:53
 msgid "Save"
-msgstr ""
+msgstr "Sauvegarder"
+
+
+#: clickatell.php:64
+msgid "Clickatell is a bulk SMS provider"
+msgstr "Clickatell est un founisser bulk SMS"
+
+
+#: clickatell.php:64
+msgid "free credits are available for testing purposes"
+msgstr "Crédits gratuits disponible pour des tests"
 
 #: clickatell.php:65
 msgid "No changes has been made"
-msgstr ""
+msgstr "Aucun changement éffectué"
 
 #: clickatell.php:80
 msgid "Gateway module configurations has been saved"
-msgstr ""
+msgstr "Configurations de la passerelles sauvegardées"
 
 #: clickatell.php:88
 msgid "Gateway has been activated"
-msgstr ""
+msgstr "Passerelle activée"
