@@ -177,6 +177,12 @@ function dba_insert_id($mystring) {
 				$result_tmp = dba_query($myquery);
 				$result = dba_fetch_row($result_tmp);
 				$result = $result[0];
+				break;
+			case "pgsql":
+				$myquery = "SELECT lastval()";
+				$result_tmp = dba_query($myquery);
+				list($result) = dba_fetch_row($result_tmp);
+				break;
 		}
 	}
 	return $result;
