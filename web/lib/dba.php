@@ -73,6 +73,7 @@ function dba_query($mystring, $from="0", $count="0") {
 			}
 			break;
 		case "mysql":
+		case "mysqli":
 			$str_limit = " LIMIT $from, $count";
 			$mystring .= $str_limit;
 			$is_special = true;
@@ -168,6 +169,7 @@ function dba_insert_id($mystring) {
 	if (dba_query ($mystring)) {
 		switch (_DB_TYPE_) {
 			case "mysql":
+			case "mysqli":
 				$myquery = "SELECT @@IDENTITY";
 				$result_tmp = dba_query($myquery);
 				list($result) = dba_fetch_row($result_tmp);
