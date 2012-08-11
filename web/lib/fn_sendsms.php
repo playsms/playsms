@@ -273,6 +273,7 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 		$c_sms_to = str_replace("\"","",$c_sms_to);
 		$ok[$i] = sendsms_queue_push($queue_code,$c_sms_to);
 		$to[$i] = $c_sms_to;
+		$smslog_id[$i] = 0;
 		$queue[$i] = $queue_code;
 	}
 
@@ -330,6 +331,7 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 			$sms_to = str_replace("\"","",$sms_to);
 			$ok[$j] = sendsms_queue_push($queue_code,$sms_to);
 			$to[$j] = $sms_to;
+			$smslog_id[$i] = 0;
 			$queue[$j] = $queue_code;
 			$j++;
 		}
