@@ -53,10 +53,6 @@ switch ($op)
 	    </tr>	    	    
 	    -->
 	</table>
-	    <!--
-	    <p>"._('Note').":</br>
-	    <p><input type=checkbox name=up_trn $checked> "._('Send SMS message without footer banner')."
-	    -->
 	    <p><input type=submit class=button value=\""._('Save')."\">
 	    </form>
 	";

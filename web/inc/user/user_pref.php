@@ -151,7 +151,6 @@ switch ($op)
 		$up_password = $_POST['up_password'];
 		$up_password_conf = $_POST['up_password_conf'];
 		$up_zipcode = $_POST['up_zipcode'];
-		$up_trn = $_POST['up_trn'];
 		$up_timezone = $_POST['up_timezone'];
 		$up_language_module = $_POST['up_language_module'];
 		$up_fwd_to_inbox = $_POST['up_fwd_to_inbox'];

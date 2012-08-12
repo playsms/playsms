@@ -91,10 +91,6 @@ switch ($op) {
             </tr>
                 <!-- End Of Fixme Edward Added Kanel HTTP Admin Parameter--> 
 	</table>	    
-	    <!--
-	    <p>" . _('Note') . ":</br>
-	    <p><input type=checkbox name=up_trn $checked> " . _('Send SMS message without footer banner') . "
-	    -->
 	    <p><input type=submit class=button value=\"" . _('Save') . "\">
 	    </form>
             <!-- Fixme Edward Added Button Restart Kannel, To Restart Kannel Services-->

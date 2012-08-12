@@ -62,7 +62,6 @@ switch ($op)
 	    <p>"._('Note').":<br>
 	    - "._('Your callback URL is')." <b>$callback_url</b><br>
 	    - "._('Clickatell is a bulk SMS provider').", <a href=\"http://www.dpbolvw.net/click-4099975-10807974?sid=gwmodtext\" target=\"_blank\">"._('free credits are available for testing purposes')."</a><img src=\"http://www.lduhtrp.net/image-4099975-10807974\" width=\"1\" height=\"1\" border=\"0\"/>
-	    <!-- <p><input type=checkbox name=up_trn $checked> "._('Send SMS message without footer banner')." -->
 	    <p><input type=submit class=button value="._('Save').">
 	    </form>
 	";

@@ -32,10 +32,6 @@ switch ($op)
 		<td>"._('Gnokii installation path')."</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_path value=\"".$gnokii_param['path']."\"> ("._('No trailing slash')." \"/\")</td>
 	    </tr>	    
 	</table>	    
-	    <!--
-	    <p>"._('Note').":</br>
-	    <p><input type=checkbox name=up_trn $checked> "._('Send SMS message without footer banner')."
-	    -->
 	    <p><input type=submit class=button value=\""._('Save')."\">
 	    </form>
 	";

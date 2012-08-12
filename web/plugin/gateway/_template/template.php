@@ -33,10 +33,6 @@ switch ($op)
 		    <td>"._('Template installation path')."</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_path value=\"".$template_param['path']."\"> ("._('No trailing slash')." \"/\")</td>
 		</tr>	    
 	    </table>	    
-	    <!--
-	    <p>"._('Note').":</br>
-	    <p><input type=checkbox name=up_trn $checked> "._('Send SMS message without footer banner')."
-	    -->
 	    <p><input type=submit class=button value=\""._('Save')."\">
 	    </form>";
 		echo $content;
