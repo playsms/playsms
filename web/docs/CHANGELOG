@@ -3,6 +3,7 @@ Version 0.9.7 - not released yet
 - MAJOR: remove unused field in user pref dailysms,age,birthday,gender,marital,education (anton)
 - MAJOR: all outgoing SMS are to be sent to a queue in database first and then the queue will be
   processed either directly or through new daemon sendsmsd (anton)
+- MAJOR: webservice has been modified in service related to sending SMS, please read (anton)
 - add new daemon sendsmsd for processing outgoing SMS queue (anton)
 - add new option 'Make return as reply' in SMS command and SMS custom (fhalley)
 - add new option to automatically add prefix, remove zero, and add/remove plus sign (anton)
