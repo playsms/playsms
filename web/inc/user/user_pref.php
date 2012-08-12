@@ -14,14 +14,10 @@ switch ($op)
 		$daily = 0;
 		if ($db_row = dba_fetch_array($db_result))
 		{
-			$daily = $db_row['dailysms'];
-			$gender = $db_row['gender'];
 			$address = $db_row['address'];
 			$city = $db_row['city'];
 			$state = $db_row['state'];
 			$country = $db_row['country'];
-			$marital = $db_row['marital'];
-			$education = $db_row['education'];
 			$zipcode = $db_row['zipcode'];
 			$sender = $db_row['sender'];
 			$footer = $db_row['footer'];
@@ -145,7 +141,6 @@ switch ($op)
 	case "user_pref_save":
 		$up_name = $_POST['up_name'];
 		$up_email = $_POST['up_email'];
-		$up_gender = $_POST['up_gender'];
 		$up_address = $_POST['up_address'];
 		$up_city = $_POST['up_city'];
 		$up_state = $_POST['up_state'];
@@ -153,11 +148,8 @@ switch ($op)
 		$up_mobile = $_POST['up_mobile'];
 		$up_sender = $_POST['up_sender'];
 		$up_footer = trim($_POST['up_footer']);
-		$up_daily = intval(trim($_POST['up_daily']));
 		$up_password = $_POST['up_password'];
 		$up_password_conf = $_POST['up_password_conf'];
-		$up_marital = $_POST['up_marital'];
-		$up_education = $_POST['up_education'];
 		$up_zipcode = $_POST['up_zipcode'];
 		$up_trn = $_POST['up_trn'];
 		$up_timezone = $_POST['up_timezone'];
@@ -189,8 +181,8 @@ switch ($op)
 		    UPDATE "._DB_PREF_."_tblUser 
 		    SET c_timestamp='".mktime()."',
 			name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender',footer='$up_footer'$chg_pwd,
-			gender='$up_gender',address='$up_address',city='$up_city',state='$up_state',country='$up_country',
-			marital='$up_marital',education='$up_education',zipcode='$up_zipcode',junktimestamp='".mktime()."',
+			address='$up_address',city='$up_city',state='$up_state',country='$up_country',
+			zipcode='$up_zipcode',junktimestamp='".mktime()."',
 			datetime_timezone='$up_timezone',language_module='$up_language_module',fwd_to_inbox='$up_fwd_to_inbox',fwd_to_email='$up_fwd_to_email',
 			fwd_to_mobile='$up_fwd_to_mobile',replace_zero='$up_replace_zero',plus_sign_remove='$up_plus_sign_remove',plus_sign_add='$up_plus_sign_add'
 		    WHERE uid='$uid'";
