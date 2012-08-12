@@ -163,7 +163,7 @@ function simplerate_hook_rate_refund($smslog_id) {
 }
 
 function simplerate_hook_setsmsdeliverystatus($smslog_id,$uid,$p_status) {
-	logger_print("start smslog_id:".$smslog_id, 3, "simplerate setsmsdeliverystatus");
+	//logger_print("start smslog_id:".$smslog_id, 3, "simplerate setsmsdeliverystatus");
 	if ($p_status == 2) {
 		// check in billing table smslog_id with status=0, status=1 is finalized, status=2 is rolled-back
 		$db_query = "SELECT id FROM "._DB_PREF_."_tblBilling WHERE status='0' AND smslog_id='$smslog_id'";

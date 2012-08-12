@@ -38,7 +38,7 @@ function simplebilling_hook_billing_finalize($smslog_id) {
 }
 
 function simplebilling_hook_setsmsdeliverystatus($smslog_id,$uid,$p_status) {
-	logger_print("checking smslog_id:".$smslog_id, 3, "simplebilling setsmsdeliverystatus");
+	//logger_print("checking smslog_id:".$smslog_id, 3, "simplebilling setsmsdeliverystatus");
 	if (($p_status == 1) || ($p_status == 3)) {
 		$db_query = "SELECT id FROM "._DB_PREF_."_tblBilling WHERE status='0' AND smslog_id='$smslog_id'";
 		$db_result = dba_query($db_query);
