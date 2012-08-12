@@ -68,7 +68,7 @@ function uplink_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 		if ($responses) {
 			$up_id = 0;
 			$response = explode(' ', $responses);
-			$response_data = explode(',', $responses[1]);
+			$response_data = explode(',', $response[1]);
 			if ($response[0] == "OK") {
 				$remote_slid = $response_data[0];
 				$remote_queue_code = $response_data[1];
