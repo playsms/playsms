@@ -32,7 +32,7 @@ Version 0.9.7 - not released yet
 - fix sql syntax "LIMIT count,offset" to "LIMIT count OFFSET offset" thx to f.hinlopen (anton)
 - fix dba_insert_id() to work with pgsql thx to f.hinlopen (anton)
 - fix NOW() in sql replace with $core_config['datetime']['now'] for compatibility (anton)
-- fix dba_insert_id(), add case option for mysqli, mysql and mysqli syntaxes (anton)
+- fix dba_insert_id(), add case option for mysqli in mysql block (anton)
 
 Version 0.9.6 - 120328
 - MAJOR: move SMS sender ID logic in sendsms() and it hooks to sendsms_get_sender() (anton)
