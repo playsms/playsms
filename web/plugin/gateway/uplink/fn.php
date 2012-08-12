@@ -86,7 +86,7 @@ function uplink_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 			logger_print("smslog_id:".$smslog_id." no response", 3, "uplink outgoing");
 		}
 	}
-	if ($ok && ($remote_slid || ($remote_slid === 0)) && $remote_queue_code) {
+	if ($ok && $remote_queue_code) {
 		if ($remote_slid) {
 			$p_status = 0;
 		} else {
