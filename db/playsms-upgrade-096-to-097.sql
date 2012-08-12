@@ -6,6 +6,8 @@ ALTER TABLE `playsms_tblUser` ADD `replace_zero` varchar(5) NOT NULL DEFAULT '' 
 ALTER TABLE `playsms_tblUser` ADD `plus_sign_remove` tinyint(4) NOT NULL DEFAULT '1' AFTER `replace_zero` ;
 ALTER TABLE `playsms_tblUser` ADD `plus_sign_add` tinyint(4) NOT NULL DEFAULT '0' AFTER `plus_sign_remove` ;
 
+ALTER TABLE `playsms_tblUser` DROP `dailysms` , DROP `gender` , DROP `age` , DROP `birthday` , DROP `marital` , DROP `education` ;
+
 ALTER TABLE `playsms_gatewayKannel_config` ADD `cfg_admin_url` varchar(250) NOT NULL ;
 ALTER TABLE `playsms_gatewayKannel_config` ADD `cfg_admin_password` varchar(50) NOT NULL ;
 ALTER TABLE `playsms_gatewayKannel_config` ADD `cfg_admin_port` int(11) NOT NULL ;
