@@ -68,31 +68,34 @@ function uplink_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 		if ($responses) {
 			$up_id = 0;
 			$response = explode(' ', $responses);
+			$response_data = explode(',', $responses[1]);
 			if ($response[0] == "OK") {
-				$remote_slid = $response[1];
+				$remote_slid = $response_data[0];
+				$remote_queue_code = $response_data[1];
 				if ($remote_slid) {
 					$db_query = "
 						INSERT INTO "._DB_PREF_."_gatewayUplink (up_local_slid,up_remote_slid,up_status)
 						VALUES ('$smslog_id','$remote_slid','0')
 					    ";
 					$up_id = @dba_insert_id($db_query);
-					if ($up_id) {
-						$ok = true;
-					}
 				}
-			} else {
-				$response[0] += ' '.$response[1];
-				$response[1] = 0;
+				$ok = true;
 			}
-			logger_print("smslog_id:".$smslog_id." up_id:".$up_id." status:".$response[0]." remote_slid:".$response[1], 3, "uplink outgoing");
+			logger_print("smslog_id:".$smslog_id." up_id:".$up_id." status:".$response[0]." remote_slid:".$response_data[0]." remote_queue_code:".$response_data[1], 3, "uplink outgoing");
 		} else {
 			logger_print("smslog_id:".$smslog_id." no response", 3, "uplink outgoing");
 		}
 	}
-	if (!$ok) {
+	if ($ok && ($remote_slid || ($remote_slid === 0)) && $remote_queue_code) {
+		if ($remote_slid) {
+			$p_status = 0;
+		} else {
+			$p_status = 1;
+		}
+	} else {
 		$p_status = 2;
-		setsmsdeliverystatus($smslog_id,$uid,$p_status);
 	}
+	setsmsdeliverystatus($smslog_id,$uid,$p_status);
 	return $ok;
 }
 
