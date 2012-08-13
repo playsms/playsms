@@ -1,6 +1,6 @@
 DESCRIPTION
 -----------
-This document explain about howto install or setup playSMS
+This document explain about how to install and setup playSMS
 
 
 REQUIREMENT
@@ -12,13 +12,13 @@ Minimum Required Software
 - Operating System Linux (install on MS Windows or BSD is also possible)
 - Web Server (for example Apache2 or lighttpd)
 - Database Server MySQL 4.x.x or latest stable release
-- PHP 5.x.x or latest stable release with mysql module enabled and CLI version available
+- PHP 5.x.x or latest stable release with mysql module enabled and CLI version installed
 - PHP gettext extension (this is a must for text translation)
 - PHP multibyte string function (should be able to call mb_convert_encoding)
 - Access to SMTP server (playSMS will use this to send email)
 - lynx, wget or curl, a console web browser (example scripts require lynx)
 - Downloaded playSMS package from SF.net or latest source code from Github
-- Selected gateway application. Recommended to use Kannel or SMS Server Tools (smstools3)
+- Selected gateway application. Recommended to use Kannel or SMS Server Tools
 
 Minimum Required Server Administrator (or Developer)
 - Understand howto make sure installed PHP has MySQL module enabled/loaded
@@ -33,18 +33,22 @@ Note:
 - I assumed that you have root priviledge. If you dont, please understand that I'm trying to
   guide you to install playSMS on /var/www/playsms under user 'playsms'. You may use your own
   username, your own home directory or any preferred directory.
-- This installation instructions might be working for other *NIX based operating system, 
-  I know someone installing playSMS on FreeBSD and it work just fine.
+- This installation instructions might be working for other *NIX based operating system.
+  I knew someone installing playSMS on FreeBSD and it worked.
 
-playSMS Web Interface:
+playSMS Web Interface step-by-step installation:
+
 1.  It is important to meet all minimum requiments above. Those application should also be working 
     and running properly
+
 2.  Setup a Linux user named 'playsms' to manage playSMS. Make sure that you logged in as root.
     # adduser playsms
     # passwd playsms
     Note: on some Linux distributions adduser and passwd are combined (eg: Debian and Ubuntu)
+
 3.  On most Linux distributions point 2 above will create a user and a group named 'playsms'
     with home directory /home/playsms (this directory does not mean anything to playSMS)
+
 4.  Create playSMS web root, spool and log and set ownership to user www-data or web server user
     # mkdir -p /var/www/playsms
     # mkdir -p /var/spool/playsms
@@ -53,21 +57,25 @@ playSMS Web Interface:
     # chown -R www-data /var/spool/playsms
     # chown -R www-data /var/log/playsms
     Note: There are Linux distributions using 'apache' as web server user instead of 'www-data'.
+
 5.  Extract playSMS package somewhere (Usually in /usr/local/src).
     # tar -zxvf playsms-x.x.x.tar.gz -C /usr/local/src
     Note: x.x.x may vary according to the package name you've download.
+
 6.  Copy files and directories inside 'web' directory to playSMS web root and set ownership again to
     user www-data or web server user
     # cd /usr/local/src/playsms-x.x.x/web
     # cp -rR * /var/www/playsms
     # chown -R www-data /var/www/playsms
     Note: Assumed your web server user is www-data, see notes on point 4 above.
+
 7.  Setup database (import database)
     # mysqladmin -u root -p create playsms
     # mysql -u root -p playsms < /usr/local/src/playsms-x.x.x/db/playsms.sql
     Note: You don't need to use MySQL root access nor this method to setup playSMS
     database, but this is beyond our scope. You should read MySQL manual for custom
     installation method or howto insert SQL statements into existing database.
+
 8.  Copy config-dist.php to config.php and then edit config.php
     # cd /var/www/playsms
     # cp config-dist.php config.php
@@ -75,31 +83,37 @@ playSMS Web Interface:
     or
     # vi config.php
     Note: Please read and fill all required fields with coutious.
-9.  Enter bin directory, copy playsms, playsmsd, playsmsd.php, playsmsd_start
+
+9.  Enter bin directory, copy playsms, playsmsd* and sendsmsd*
     # cd /usr/local/src/playsms-x.x.x/bin
-    # cp playsmsd playsmsd.php playsmsd_start /usr/local/bin/
     # cp playsms /etc/default/
+    # cp playsmsd* sendsmsd* /usr/local/bin/
     Note: Please note the difference between playsms and playsmsd, one is a config file the other
-    is a script.
+    are playSMS daemon scripts.
+
 10. Just to make sure every paths are correct, please edit /etc/default/playsms
     # vi /etc/default/playsms
     Make sure that PLAYSMS_PATH is pointing to a correct playSMS installation path, and also make
-    sure that PLAYSMS_BIN is pointing to a correct playSMS scripts (playsmsd_start, playsmsd) path.
+    sure that PLAYSMS_BIN is pointing to a correct playSMS daemon scripts path.
+
 11. Look for rc.local on /etc and its subdirectories (usualy /etc, /etc/init.d or /etc/rc.d/init.d).
     If you found it then edit that rc.local and put:
     "/usr/local/bin/playsmsd_start" (without quotes)
     on the bottom of the file (before exit if theres an exit command). This way playsmsd_start
     will start automatically on boot.
     Note: Just like any other steps above you need 'root' access to do this.
+
 12. Run playsmsd_start manually
     # /usr/local/bin/playsmsd_start
     Note:
-    - after that please do a ps -ax and see if ./playsmsd is running
-    - stop here and review your installation steps when playsmsd isn't running
+    - after that please do a ps -ax and see if playsmsd and sendsmsd are running
+    - stop here and review your installation steps when playsmsd and sendsmsd aren't running
     - consider to ask question in playSMS mailing list when you encountered any problem
+
 13. Browse http://localhost/playsms/ and login using default administrator user
     username: admin
     password: admin
+
 14. At this point you should be able to login to playSMS web interface and manage playSMS
 
 Please continue to follow INSTALL_GNOKII if you want to use gnokii as your gateway module, 
