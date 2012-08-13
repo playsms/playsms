@@ -24,7 +24,7 @@ msgstr "Rendre privé"
 
 #: config.php:8 phonebook.php:298 simplephonebook.php:146
 msgid "Phonebook"
-msgstr "Carnet d'adresses"
+msgstr "Carnet d`adresses"
 
 #: dir_create.php:12 simplephonebook.php:155 simplephonebook.php:160
 msgid "Create group"

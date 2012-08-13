@@ -7,24 +7,24 @@ msgstr ""
 
 #: config.php:7 smstools.php:23
 msgid "Manage smstools"
-msgstr "Manage smstools"
+msgstr "Gérer smstools"
 
 #: smstools.php:8
 msgid "Active"
-msgstr ""
+msgstr "Active"
 
 #: smstools.php:12
 msgid "Inactive"
-msgstr ""
+msgstr "Inactive"
 
 #: smstools.php:12
 msgid "click here to activate"
-msgstr ""
+msgstr "cliquez pour activer"
 
 #: smstools.php:27
 msgid "Gateway name"
-msgstr ""
+msgstr "Nom passerelle"
 
 #: smstools.php:36
 msgid "Gateway has been activated"
-msgstr ""
+msgstr "Passerelle activée"
