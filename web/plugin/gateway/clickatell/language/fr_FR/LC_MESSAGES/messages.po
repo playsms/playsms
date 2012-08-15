@@ -1,121 +1,140 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: 1.9.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-07-22 10:58+0700\n"
+"Language-Team: French <LL@li.org>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: clickatell.php:8
-msgid "Active"
-msgstr "Active"
-
-#: clickatell.php:12
-msgid "Inactive"
-msgstr "Inactive"
-
-#: clickatell.php:12
-msgid "click here to activate"
-msgstr "Cliquez pour activer"
-
-#: clickatell.php:23 config.php:18
+#: plugin/gateway/clickatell/config.php:29
+#: plugin/gateway/clickatell/clickatell.php:24
+#: plugin/gateway/clickatell/clickatell.php:27
 msgid "Manage clickatell"
 msgstr "Gérer clickatell"
 
-#: clickatell.php:28
+#: plugin/gateway/clickatell/clickatell.php:9
+msgid "Active"
+msgstr "Active"
+
+#: plugin/gateway/clickatell/clickatell.php:13
+msgid "Inactive"
+msgstr "Inactive"
+
+#: plugin/gateway/clickatell/clickatell.php:13
+msgid "click here to activate"
+msgstr "cliquez pour activer"
+
+#: plugin/gateway/clickatell/clickatell.php:29
+#: plugin/gateway/clickatell/clickatell.php:32
 msgid "Gateway name"
 msgstr "Nom passerelle"
 
-#: clickatell.php:31
+#: plugin/gateway/clickatell/clickatell.php:32
+#: plugin/gateway/clickatell/clickatell.php:35
 msgid "API ID"
 msgstr "ID API"
 
-#: clickatell.php:34
+#: plugin/gateway/clickatell/clickatell.php:35
+#: plugin/gateway/clickatell/clickatell.php:38
 msgid "Username"
 msgstr "Nom utilisateur"
 
-#: clickatell.php:37
+#: plugin/gateway/clickatell/clickatell.php:38
+#: plugin/gateway/clickatell/clickatell.php:41
 msgid "Password"
 msgstr "Mot de passe"
 
-#: clickatell.php:37
+#: plugin/gateway/clickatell/clickatell.php:38
+#: plugin/gateway/clickatell/clickatell.php:41
 msgid "Fill to change the password"
 msgstr "Remplir pour changer le mot de passe"
 
-#: clickatell.php:44
-msgid "Module sender"
-msgstr "Émetteur global"
+#: plugin/gateway/clickatell/clickatell.php:41
+#: plugin/gateway/clickatell/clickatell.php:44
+msgid "Module sender ID"
+msgstr "ID module émetteur"
 
-#: clickatell.php:40
+#: plugin/gateway/clickatell/clickatell.php:41
+#: plugin/gateway/clickatell/clickatell.php:44
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "Max. 16 caractères numériques ou 11 alphanumérique. vide = inactif"
+msgstr "Max : 16 caractères numériques ou 11 alphanumériques. vide pour désactiver"
 
-#: clickatell.php:43
-msgid "Clickatell API URL"
-msgstr "URL API Clickatell"
-
-#: clickatell.php:43 clickatell.php:46
-msgid "No trailing slash"
-msgstr "Pas de slash final"
-
-#: clickatell.php:46
-msgid "Additional URL parameter"
-msgstr "Autres Paramètres URL"
-
-#: clickatell.php:46
-msgid "Clickatell incoming path"
-msgstr "Chemin rentrant clickatell"
-
-
-#: clickatell.php:47
+#: plugin/gateway/clickatell/clickatell.php:44
+#: plugin/gateway/clickatell/clickatell.php:47
 msgid "Module timezone"
 msgstr "Zone de temps"
 
-
-#: clickatell.php:47
+#: plugin/gateway/clickatell/clickatell.php:44
+#: plugin/gateway/clickatell/clickatell.php:47
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Ex: +0700 pour Jakarta/Bangkok"
 
-#: clickatell.php:49
+#: plugin/gateway/clickatell/clickatell.php:47
+#: plugin/gateway/clickatell/clickatell.php:50
+msgid "Clickatell API URL"
+msgstr "URL API clickatell"
+
+#: plugin/gateway/clickatell/clickatell.php:47
+#: plugin/gateway/clickatell/clickatell.php:54
+#: plugin/gateway/clickatell/clickatell.php:50
+#: plugin/gateway/clickatell/clickatell.php:57
+msgid "No trailing slash"
+msgstr "Pas de slash final"
+
+#: plugin/gateway/clickatell/clickatell.php:50
+#: plugin/gateway/clickatell/clickatell.php:53
+msgid "Additional URL parameter"
+msgstr "Autres paramètres URL"
+
+#: plugin/gateway/clickatell/clickatell.php:54
+#: plugin/gateway/clickatell/clickatell.php:57
+msgid "Clickatell incoming path"
+msgstr "Chemin entrant clickatell"
+
+#: plugin/gateway/clickatell/clickatell.php:59
+#: plugin/gateway/clickatell/clickatell.php:62
 msgid "Note"
 msgstr "Note"
 
-#: clickatell.php:50
+#: plugin/gateway/clickatell/clickatell.php:60
+#: plugin/gateway/clickatell/clickatell.php:63
 msgid "Your callback URL is"
-msgstr "Votre callback est"
+msgstr "Votre URL callback est"
 
-#: clickatell.php:51
-msgid ""
-"If you are using callback URL to receive incoming sms you may ignore "
-"Clickatell Incoming Path"
-msgstr "Si vous utiliser une URL callback pour recevoir des SMS, vous devez"
-"ignorer le Chemin rentrant clickatell"
+#: plugin/gateway/clickatell/clickatell.php:61
+#: plugin/gateway/clickatell/clickatell.php:64
+msgid "Clickatell is a bulk SMS provider"
+msgstr "Clickatell est un fournisseur Bulk SMS"
 
-#: clickatell.php:52
+#: plugin/gateway/clickatell/clickatell.php:61
+#: plugin/gateway/clickatell/clickatell.php:64
+msgid "free credits are available for testing purposes"
+msgstr "crédits gratuits disponible pour des tests"
+
+#: plugin/gateway/clickatell/clickatell.php:62
+#: plugin/gateway/clickatell/clickatell.php:65
 msgid "Send SMS message without footer banner"
-msgstr "Envoyer SMS sans pied de page"
+msgstr "Envoyer les SMS sans pied de page"
 
-#: clickatell.php:53
+#: plugin/gateway/clickatell/clickatell.php:63
+#: plugin/gateway/clickatell/clickatell.php:66
 msgid "Save"
 msgstr "Sauvegarder"
 
-
-#: clickatell.php:64
-msgid "Clickatell is a bulk SMS provider"
-msgstr "Clickatell est un founisser bulk SMS"
-
-
-#: clickatell.php:64
-msgid "free credits are available for testing purposes"
-msgstr "Crédits gratuits disponible pour des tests"
-
-#: clickatell.php:65
+#: plugin/gateway/clickatell/clickatell.php:77
+#: plugin/gateway/clickatell/clickatell.php:80
 msgid "No changes has been made"
-msgstr "Aucun changement éffectué"
+msgstr "Aucun changement effectué"
 
-#: clickatell.php:80
+#: plugin/gateway/clickatell/clickatell.php:97
+#: plugin/gateway/clickatell/clickatell.php:100
 msgid "Gateway module configurations has been saved"
-msgstr "Configurations de la passerelles sauvegardées"
+msgstr "Configurations passerelle sauvegardées"
 
-#: clickatell.php:88
+#: plugin/gateway/clickatell/clickatell.php:105
+#: plugin/gateway/clickatell/clickatell.php:108
 msgid "Gateway has been activated"
 msgstr "Passerelle activée"

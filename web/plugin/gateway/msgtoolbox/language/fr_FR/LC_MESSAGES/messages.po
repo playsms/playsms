@@ -15,91 +15,73 @@ msgstr ""
 
 #: plugin/gateway/msgtoolbox/config.php:23
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:25
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:25
 msgid "Manage msgtoolbox"
 msgstr "Gérer msgtoolbox"
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:9
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:9
 msgid "Active"
 msgstr "Active"
 
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:13
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:13
 msgid "Inactive"
 msgstr "Inactive"
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:13
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:13
 msgid "click here to activate"
 msgstr "cliquez pour activer"
 
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:30
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:30
 msgid "Gateway name"
 msgstr "Nom passerelle"
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:33
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:33
 msgid "msgtoolbox URL"
 msgstr "URL msgtoolbox"
 
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:36
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:36
 msgid "Route"
 msgstr "Route"
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:38
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:38
 msgid "Username"
 msgstr "Not utilisateur"
 
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:41
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:41
 msgid "Password"
 msgstr "Mot de passe"
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:41
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:41
 msgid "Fill to change the password"
 msgstr "Remplir pour changer le mot de passe"
 
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:44
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:44
-msgid "Module sender"
-msgstr "Émetteur global"
+msgid "Module sender ID"
+msgstr "ID module émetteur"
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:44
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:44
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "Max. 16 car num ou 11 car alpha. vide=inactif"
+msgstr "Max : 16 caractères numériques ou 11 alphanumériques. vide pour désactiver"
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:47
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:47
 msgid "Module timezone"
 msgstr "Zone de temps"
 
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:47
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:47
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Ex: +0700 pour Jakarta/Bangkok"
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:50
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:50
 msgid "Save"
 msgstr "Sauvegarder"
 
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:62
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:62
 msgid "No changes has been made"
 msgstr "Aucun changement apporté"
 
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:80
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:80
 msgid "Gateway module configurations has been saved"
 msgstr "Configurations de la passerelle sauvergardées"
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:88
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:88
 msgid "Gateway has been activated"
 msgstr "Passerelle activée"

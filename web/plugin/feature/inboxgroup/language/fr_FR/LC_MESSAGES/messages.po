@@ -32,7 +32,7 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup.php:112
 #: plugin/feature/inboxgroup/inboxgroup.php:159
 #: plugin/feature/inboxgroup/config.php:7
-msgid "Group inbox"
+msgid "Group Inbox"
 msgstr "Service boite groupe"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:21
@@ -81,6 +81,10 @@ msgstr "désactivé"
 #: plugin/feature/inboxgroup/inboxgroup.php:177
 msgid "Receiver number"
 msgstr "Numéro récepteur"
+
+#: plugin/feature/inboxgroup/inboxgroup.php:86
+msgid "For example a short code"
+msgstr "Shortcode par exemple"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:35
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:116

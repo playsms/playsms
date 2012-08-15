@@ -1,112 +1,232 @@
+# French language for playSMS.
+# Copyright (C) 2012 playSMS 1.9.7
+# This file is distributed under the same license as the GPL package.
+#  <EMAIL@ADDRESS>, YEAR.
+#
 msgid ""
 msgstr ""
+"Project-Id-Version: 1.0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-07-22 10:58+0700\n"
+"PO-Revision-Date: 2012-08-13 00:08+0000\n"
+"Last-Translator: ELINGUI Pascal Uriel <elinguiuriel@gmail.com>\n"
+"Language-Team: Frenc <LL@li.org>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR"
 
-#: config.php:4 sms_custom.php:12
+#: plugin/feature/sms_custom/config.php:6
+#: plugin/feature/sms_custom/sms_custom.php:13
+#: plugin/feature/sms_custom/sms_custom.php:17
+#: plugin/feature/sms_custom/sms_custom.php:17
 msgid "Manage custom"
-msgstr "Service script URL"
+msgstr "Gérer script URL"
 
-#: sms_custom.php:14 sms_custom.php:56 sms_custom.php:137
+#: plugin/feature/sms_custom/sms_custom.php:15
+#: plugin/feature/sms_custom/sms_custom.php:57
+#: plugin/feature/sms_custom/sms_custom.php:138
+#: plugin/feature/sms_custom/sms_custom.php:21
+#: plugin/feature/sms_custom/sms_custom.php:65
+#: plugin/feature/sms_custom/sms_custom.php:21
+#: plugin/feature/sms_custom/sms_custom.php:65
+#: plugin/feature/sms_custom/sms_custom.php:138
 msgid "Add SMS custom"
-msgstr "Ajouter un service"
+msgstr "Ajouter script URL"
 
-#: sms_custom.php:27
+#: plugin/feature/sms_custom/sms_custom.php:28
+#: plugin/feature/sms_custom/sms_custom.php:37
+#: plugin/feature/sms_custom/sms_custom.php:37
 msgid "Keyword"
 msgstr "Mot-clé"
 
-#: sms_custom.php:28
+#: plugin/feature/sms_custom/sms_custom.php:29
+#: plugin/feature/sms_custom/sms_custom.php:38
+#: plugin/feature/sms_custom/sms_custom.php:38
 msgid "Exec"
-msgstr "Script URL"
+msgstr "URL"
 
-#: sms_custom.php:29
+#: plugin/feature/sms_custom/sms_custom.php:30
+#: plugin/feature/sms_custom/sms_custom.php:39
+#: plugin/feature/sms_custom/sms_custom.php:39
 msgid "User"
-msgstr "Compte"
+msgstr "Utilisateur"
 
-#: sms_custom.php:30
+#: plugin/feature/sms_custom/sms_custom.php:31
+#: plugin/feature/sms_custom/sms_custom.php:40
+#: plugin/feature/sms_custom/sms_custom.php:40
 msgid "Action"
 msgstr "Action"
 
-#: sms_custom.php:41
+#: plugin/feature/sms_custom/sms_custom.php:42
+#: plugin/feature/sms_custom/sms_custom.php:50
+#: plugin/feature/sms_custom/sms_custom.php:50
 msgid "Are you sure you want to delete SMS custom keyword ?"
-msgstr "Êtes-vous certain de vouloir supprimer ce service ?"
+msgstr "Voulez-vous supprimer le Mot clé du script URL ?"
 
-#: sms_custom.php:41 sms_custom.php:98 sms_custom.php:102 sms_custom.php:122
-#: sms_custom.php:126 sms_custom.php:162 sms_custom.php:166 sms_custom.php:171
+#: plugin/feature/sms_custom/sms_custom.php:42
+#: plugin/feature/sms_custom/sms_custom.php:99
+#: plugin/feature/sms_custom/sms_custom.php:103
+#: plugin/feature/sms_custom/sms_custom.php:123
+#: plugin/feature/sms_custom/sms_custom.php:127
+#: plugin/feature/sms_custom/sms_custom.php:163
+#: plugin/feature/sms_custom/sms_custom.php:167
+#: plugin/feature/sms_custom/sms_custom.php:172
+#: plugin/feature/sms_custom/sms_custom.php:50
+#: plugin/feature/sms_custom/sms_custom.php:108
+#: plugin/feature/sms_custom/sms_custom.php:110
+#: plugin/feature/sms_custom/sms_custom.php:126
+#: plugin/feature/sms_custom/sms_custom.php:128
+#: plugin/feature/sms_custom/sms_custom.php:165
+#: plugin/feature/sms_custom/sms_custom.php:168
+#: plugin/feature/sms_custom/sms_custom.php:50
+#: plugin/feature/sms_custom/sms_custom.php:108
+#: plugin/feature/sms_custom/sms_custom.php:110
+#: plugin/feature/sms_custom/sms_custom.php:126
+#: plugin/feature/sms_custom/sms_custom.php:128
+#: plugin/feature/sms_custom/sms_custom.php:163
+#: plugin/feature/sms_custom/sms_custom.php:165
+#: plugin/feature/sms_custom/sms_custom.php:168
 msgid "keyword"
 msgstr "mot-clé"
 
-#: sms_custom.php:72
+#: plugin/feature/sms_custom/sms_custom.php:73
+#: plugin/feature/sms_custom/sms_custom.php:81
+#: plugin/feature/sms_custom/sms_custom.php:81
 msgid "Edit SMS custom"
-msgstr "Édition du service"
+msgstr "Éditer script URL"
 
-#: sms_custom.php:77 sms_custom.php:140
+#: plugin/feature/sms_custom/sms_custom.php:78
+#: plugin/feature/sms_custom/sms_custom.php:141
+#: plugin/feature/sms_custom/sms_custom.php:86
+#: plugin/feature/sms_custom/sms_custom.php:86
+#: plugin/feature/sms_custom/sms_custom.php:141
 msgid "SMS custom keyword"
-msgstr "Mot-clé du service"
+msgstr "Mot-clé script URL"
 
-#: sms_custom.php:78 sms_custom.php:141
+#: plugin/feature/sms_custom/sms_custom.php:79
+#: plugin/feature/sms_custom/sms_custom.php:142
+#: plugin/feature/sms_custom/sms_custom.php:87
+#: plugin/feature/sms_custom/sms_custom.php:87
+#: plugin/feature/sms_custom/sms_custom.php:142
 msgid "Pass these parameter to custom URL field"
-msgstr "Transmission des paramètres dans l'URL du script associé"
+msgstr "Passez ces paramètres aux champs du scrip URL"
 
-#: sms_custom.php:79 sms_custom.php:142
+#: plugin/feature/sms_custom/sms_custom.php:80
+#: plugin/feature/sms_custom/sms_custom.php:143
+#: plugin/feature/sms_custom/sms_custom.php:88
+#: plugin/feature/sms_custom/sms_custom.php:88
+#: plugin/feature/sms_custom/sms_custom.php:143
 msgid "will be replaced by SMS incoming date/time"
 msgstr "sera remplacé par la date/heure du SMS reçu"
 
-#: sms_custom.php:80 sms_custom.php:143
+#: plugin/feature/sms_custom/sms_custom.php:81
+#: plugin/feature/sms_custom/sms_custom.php:144
+#: plugin/feature/sms_custom/sms_custom.php:89
+#: plugin/feature/sms_custom/sms_custom.php:89
+#: plugin/feature/sms_custom/sms_custom.php:144
 msgid "will be replaced by sender number"
 msgstr "sera remplacé par le numéro de l'émetteur"
 
-#: sms_custom.php:81 sms_custom.php:144
+#: plugin/feature/sms_custom/sms_custom.php:82
+#: plugin/feature/sms_custom/sms_custom.php:145
+#: plugin/feature/sms_custom/sms_custom.php:90
+#: plugin/feature/sms_custom/sms_custom.php:90
+#: plugin/feature/sms_custom/sms_custom.php:145
 msgid "will be replaced by custom keyword"
 msgstr "sera remplacé par le mot-clé du service"
 
-#: sms_custom.php:82 sms_custom.php:145
+#: plugin/feature/sms_custom/sms_custom.php:83
+#: plugin/feature/sms_custom/sms_custom.php:146
+#: plugin/feature/sms_custom/sms_custom.php:91
+#: plugin/feature/sms_custom/sms_custom.php:91
+#: plugin/feature/sms_custom/sms_custom.php:146
 msgid "will be replaced by custom parameter passed to server from SMS"
 msgstr "sera remplacé par le paramètre additionnel du SMS passe au serveur"
 
-#: sms_custom.php:83 sms_custom.php:146
+#: plugin/feature/sms_custom/sms_custom.php:84
+#: plugin/feature/sms_custom/sms_custom.php:147
+#: plugin/feature/sms_custom/sms_custom.php:92
+#: plugin/feature/sms_custom/sms_custom.php:92
+#: plugin/feature/sms_custom/sms_custom.php:147
 msgid "SMS custom URL"
-msgstr "URL personalisé du service"
+msgstr "URL du script"
 
-#: sms_custom.php:84
+#: plugin/feature/sms_custom/sms_custom.php:89
+#: plugin/feature/sms_custom/sms_custom.php:148
+msgid "will be replaced by SMS raw message"
+msgstr "Sera remplacé par le message complet"
+
+#: plugin/feature/sms_custom/sms_custom.php:85
+#: plugin/feature/sms_custom/sms_custom.php:94
+#: plugin/feature/sms_custom/sms_custom.php:94
 msgid "Save"
 msgstr "Sauvegarder"
 
-#: sms_custom.php:98
+#: plugin/feature/sms_custom/sms_custom.php:99
+#: plugin/feature/sms_custom/sms_custom.php:108
+#: plugin/feature/sms_custom/sms_custom.php:108
 msgid "SMS custom has been saved"
-msgstr "Le service a été sauvegarde"
+msgstr "Script URL sauvegardé"
 
-#: sms_custom.php:102
+#: plugin/feature/sms_custom/sms_custom.php:103
+#: plugin/feature/sms_custom/sms_custom.php:110
+#: plugin/feature/sms_custom/sms_custom.php:110
 msgid "Fail to save SMS custom"
-msgstr "Impossible de sauvegarder le service"
+msgstr "Echec sauvegarde script URL"
 
-#: sms_custom.php:107 sms_custom.php:176
+#: plugin/feature/sms_custom/sms_custom.php:108
+#: plugin/feature/sms_custom/sms_custom.php:177
+#: plugin/feature/sms_custom/sms_custom.php:113
+#: plugin/feature/sms_custom/sms_custom.php:171
+#: plugin/feature/sms_custom/sms_custom.php:113
+#: plugin/feature/sms_custom/sms_custom.php:171
 msgid "You must fill all fields"
 msgstr "Vous devez remplir tous les champs"
 
-#: sms_custom.php:122
+#: plugin/feature/sms_custom/sms_custom.php:123
+#: plugin/feature/sms_custom/sms_custom.php:126
+#: plugin/feature/sms_custom/sms_custom.php:126
 msgid "SMS custom has been deleted"
-msgstr "Le service a été supprime"
+msgstr "Script URL supprimé"
 
-#: sms_custom.php:126
+#: plugin/feature/sms_custom/sms_custom.php:127
+#: plugin/feature/sms_custom/sms_custom.php:128
+#: plugin/feature/sms_custom/sms_custom.php:128
 msgid "Fail to delete SMS custom"
-msgstr "Impossible de supprimer le service"
+msgstr "Echec suppressin script URL"
 
-#: sms_custom.php:147
+#: plugin/feature/sms_custom/sms_custom.php:148
+#: plugin/feature/sms_custom/sms_custom.php:149
+#: plugin/feature/sms_custom/sms_custom.php:149
 msgid "Add"
 msgstr "Ajouter"
 
-#: sms_custom.php:162
+#: plugin/feature/sms_custom/sms_custom.php:163
+#: plugin/feature/sms_custom/sms_custom.php:163
 msgid "SMS custom has been added"
-msgstr "Le service a été ajouté"
+msgstr "Script URL ajouté"
 
-#: sms_custom.php:166
+#: plugin/feature/sms_custom/sms_custom.php:167
+#: plugin/feature/sms_custom/sms_custom.php:165
+#: plugin/feature/sms_custom/sms_custom.php:165
 msgid "Fail to add SMS custom"
-msgstr "Impossible d'ajouter le service"
+msgstr "Echec ajout script URL"
 
-#: sms_custom.php:171
+#: plugin/feature/sms_custom/sms_custom.php:172
+#: plugin/feature/sms_custom/sms_custom.php:168
+#: plugin/feature/sms_custom/sms_custom.php:168
 msgid "SMS custom already exists, reserved or use by other feature"
-msgstr "Ce service existe déjà, est réservé ou utilisé par un autre service"
+msgstr "Script URL existant, reservé ou utilisé par un autre module"
+
+#: plugin/feature/sms_custom/sms_custom.php:19
+#: plugin/feature/sms_custom/sms_custom.php:19
+msgid "SMS Custom List"
+msgstr "Liste scripts URL"
+
+#: plugin/feature/sms_custom/sms_custom.php:93
+#: plugin/feature/sms_custom/sms_custom.php:148
+#: plugin/feature/sms_custom/sms_custom.php:93
+#: plugin/feature/sms_custom/sms_custom.php:148
+msgid "Make return as reply"
+msgstr "Activer le renvoi du résultat "
