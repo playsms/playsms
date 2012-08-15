@@ -32,7 +32,7 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup.php:112
 #: plugin/feature/inboxgroup/inboxgroup.php:159
 #: plugin/feature/inboxgroup/config.php:7
-msgid "Group Inbox"
+msgid "Group inbox"
 msgstr "Service boite groupe"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:21

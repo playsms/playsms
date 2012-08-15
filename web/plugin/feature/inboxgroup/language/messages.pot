@@ -30,7 +30,7 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:17
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:98
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:186
-msgid "Group Inbox"
+msgid "Group inbox"
 msgstr ""
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:21

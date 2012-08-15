@@ -14,7 +14,7 @@ if ($err) {
 // main
 switch ($op) {
 	case 'members':
-		$content = '<h2>'._('Group Inbox').'</h2><p />';
+		$content = '<h2>'._('Group inbox').'</h2><p />';
 		if ($error_content) {
 			$content .= '<p>'.$error_content.'</p>';
 		}
@@ -96,7 +96,7 @@ switch ($op) {
 		echo $content;
 		break;
 	case 'members_add':
-		$content = '<h2>'._('Group Inbox').'</h2><p />';
+		$content = '<h2>'._('Group inbox').'</h2><p />';
 		if ($error_content) {
 			$content .= '<p>'.$error_content.'</p>';
 		}
@@ -184,7 +184,7 @@ switch ($op) {
 		header("Location: index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid=".$rid."&errid=".$errid);
 		break;
 	case 'members_delete':
-		$content = '<h2>'._('Group Inbox').'</h2><p />';
+		$content = '<h2>'._('Group inbox').'</h2><p />';
 		if ($error_content) {
 			$content .= '<p>'.$error_content.'</p>';
 		}

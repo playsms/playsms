@@ -14,7 +14,7 @@ if ($err) {
 // main
 switch ($op) {
 	case 'catchall':
-		$content = '<h2>'._('Group Inbox').'</h2><p />';
+		$content = '<h2>'._('Group inbox').'</h2><p />';
 		if ($error_content) {
 			$content .= '<p>'.$error_content.'</p>';
 		}
@@ -95,7 +95,7 @@ switch ($op) {
 		echo $content;
 		break;
 	case 'catchall_add':
-		$content = '<h2>'._('Group Inbox').'</h2><p />';
+		$content = '<h2>'._('Group inbox').'</h2><p />';
 		if ($error_content) {
 			$content .= '<p>'.$error_content.'</p>';
 		}
@@ -183,7 +183,7 @@ switch ($op) {
 		header("Location: index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid=".$rid."&errid=".$errid);
 		break;
 	case 'catchall_delete':
-		$content = '<h2>'._('Group Inbox').'</h2><p />';
+		$content = '<h2>'._('Group inbox').'</h2><p />';
 		if ($error_content) {
 			$content .= '<p>'.$error_content.'</p>';
 		}
