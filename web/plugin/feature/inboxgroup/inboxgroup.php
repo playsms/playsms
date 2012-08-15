@@ -83,7 +83,7 @@ switch ($op) {
 		$content .= "
 			<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&op=add_submit'>
 			<table cellpadding='1' cellspacing='2' border='0'>
-			<tr><td>"._('Receiver number')."</td><td>:</td><td><input type='text' name='in_receiver' maxlength='20' size='20'> &nbsp; (".('For example a short code').")</td></tr>
+			<tr><td>"._('Receiver number')."</td><td>:</td><td><input type='text' name='in_receiver' maxlength='20' size='20'> &nbsp; ("._('For example a short code').")</td></tr>
 			<tr><td>"._('Keywords')."</td><td>:</td><td><input type='text' name='keywords' maxlength='100' size='40'> &nbsp; ("._('Seperate with comma for multiple items').")</td></tr>
 			<tr><td>"._('Description')."</td><td>:</td><td><input type='text' name='description' maxlength='100' size='40'></td></tr>
 			</table>

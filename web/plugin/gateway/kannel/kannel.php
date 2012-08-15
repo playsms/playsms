@@ -94,7 +94,7 @@ switch ($op) {
 	    <p><input type=submit class=button value=\"" . _('Save') . "\">
 	    </form>
             <!-- Fixme Edward Added Button Restart Kannel, To Restart Kannel Services-->
-            <p><input type='button' value='Restart Kannel' class='button' onClick=\"parent.location.href='index.php?app=menu&inc=gateway_kannel&op=restart-kannel'\"></p>
+            <p><input type='button' value=\""._('Restart Kannel')."\" class='button' onClick=\"parent.location.href='index.php?app=menu&inc=gateway_kannel&op=restart-kannel'\"></p>
             <!-- End Of Fixme Edward Added Button Restart Kannel, To Restart Kannel Services-->
 	";
         echo $content;

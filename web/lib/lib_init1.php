@@ -18,7 +18,7 @@ $mobile = username2mobile($username);
 $email = username2email($username);
 $name = username2name($username);
 $status = username2status($username);
-$userstatus = ( isadmin() ? 'Administrator' : ' Normal User' );
+$userstatus = ( isadmin() ? _('Administrator') : _('Normal User') );
 
 // reserved important keywords
 $reserved_keywords = array ("PV","BC");

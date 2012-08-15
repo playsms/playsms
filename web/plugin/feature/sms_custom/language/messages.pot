@@ -153,6 +153,11 @@ msgstr ""
 msgid "SMS custom URL"
 msgstr ""
 
+#: plugin/feature/sms_custom/sms_custom.php:89
+#: plugin/feature/sms_custom/sms_custom.php:148
+msgid "will be replaced by SMS raw message"
+msgstr ""
+
 #: plugin/feature/sms_custom/sms_custom.php:85
 #: plugin/feature/sms_custom/sms_custom.php:94
 #: plugin/feature/sms_custom/sms_custom.php:94
