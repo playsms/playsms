@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-22 10:58+0700\n"
+"POT-Creation-Date: 2012-08-16 08:25+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,11 +81,9 @@ msgstr ""
 msgid "Bearerbox hostname or IP"
 msgstr ""
 
-
 #: plugin/gateway/kannel/kannel.php:60
 msgid "Module timezone"
 msgstr ""
-
 
 #: plugin/gateway/kannel/kannel.php:60
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
@@ -151,7 +149,6 @@ msgstr ""
 msgid "HTTP Kannel admin port"
 msgstr ""
 
-
 #: plugin/gateway/kannel/kannel.php:177
 msgid "Gateway has been activated"
 msgstr ""
@@ -162,4 +159,8 @@ msgstr ""
 
 #: plugin/gateway/kannel/kannel.php:97
 msgid "Restart Kannel"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:188
+msgid "Kannel service has been restarted"
 msgstr ""

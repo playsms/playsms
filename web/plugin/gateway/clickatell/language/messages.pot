@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-22 10:58+0700\n"
+"POT-Creation-Date: 2012-08-16 08:25+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -129,20 +129,24 @@ msgstr ""
 
 #: plugin/gateway/clickatell/clickatell.php:63
 #: plugin/gateway/clickatell/clickatell.php:66
+#: plugin/gateway/clickatell/clickatell.php:65
 msgid "Save"
 msgstr ""
 
 #: plugin/gateway/clickatell/clickatell.php:77
 #: plugin/gateway/clickatell/clickatell.php:80
+#: plugin/gateway/clickatell/clickatell.php:79
 msgid "No changes has been made"
 msgstr ""
 
 #: plugin/gateway/clickatell/clickatell.php:97
 #: plugin/gateway/clickatell/clickatell.php:100
+#: plugin/gateway/clickatell/clickatell.php:99
 msgid "Gateway module configurations has been saved"
 msgstr ""
 
 #: plugin/gateway/clickatell/clickatell.php:105
 #: plugin/gateway/clickatell/clickatell.php:108
+#: plugin/gateway/clickatell/clickatell.php:107
 msgid "Gateway has been activated"
 msgstr ""

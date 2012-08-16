@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-22 10:58+0700\n"
+"POT-Creation-Date: 2012-08-16 08:25+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,6 +27,7 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup.php:78
 #: plugin/feature/inboxgroup/inboxgroup.php:112
 #: plugin/feature/inboxgroup/inboxgroup.php:159
+#: plugin/feature/inboxgroup/config.php:6
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:17
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:98
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:186
@@ -451,4 +452,8 @@ msgstr ""
 
 #: plugin/feature/inboxgroup/inboxgroup.php:235
 msgid "Fail to disable receiver number"
+msgstr ""
+
+#: plugin/feature/inboxgroup/inboxgroup.php:86
+msgid "For example a short code"
 msgstr ""
