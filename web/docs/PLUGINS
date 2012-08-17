@@ -1,7 +1,7 @@
 PLUGINS
 -------
-playSMS plugin's files and folders installed under directory web/plugins 
-and categorized into 5 different categories, they are:
+playSMS plugin's files and folders are under directory web/plugins and categorized 
+into 5 different categories, they are:
 - tools
 - feature
 - gateway
@@ -11,7 +11,7 @@ and categorized into 5 different categories, they are:
 
 Tools
 -----
-Here installed plugins with no specific SMS related features but used by playSMS.
+Here are installed plugins with no specific SMS related features but used by playSMS.
 
 Core functions that you can 'hook' from tools plugins:
 - playsmsd()
@@ -42,8 +42,8 @@ Core functions that you can 'hook' from tools plugins:
 
 Feature
 -------
-Here installed plugins which contains specific SMS related features and directly handle
-incoming or outgoing SMSes.
+Here are installed plugins which contain specific SMS related features and directly handle 
+incoming or outgoing SMS.
 
 Core functions that you can 'hook' from feature plugins:
 - playsmsd()
@@ -58,7 +58,7 @@ Core functions that you can 'hook' from feature plugins:
 
 Gateway
 -------
-Here installed plugins which has ability to actually send and/or receive SMS, and directly
+Here are installed plugins that hasve ability to actually send and/or receive SMS, and directly 
 connected to SMS gateway applications or services.
 
 Core functions that you can 'hook' from gateway plugins:
@@ -72,15 +72,16 @@ Core functions that you can 'hook' from gateway plugins:
 
 Themes
 ------
-Here installed playSMS's themes.
+Here are installed playSMS's themes.
+
 Core functions that you can 'hook' from themes plugins:
 - call($_REQUEST)
 
 
 Language
 --------
-Here installed language database based on gettext for core/main files only, plugin's language
-files are reside under each plugin's directory
+Here are installed language database based on gettext for core/main files only. But each plugin's 
+language files are reside under each plugin's directory.
 
 
 Plugin Anatomy
@@ -93,10 +94,10 @@ Each plugin will need to have below structure:
                                                   /docs/README
                                                   /docs/CHANGELOG
                                                   /lib
-                                                  <plugin_name>.php
+                                                  /<plugin_name>.php
 
-For example, plugin with purpose to serve connecting playsms to your own Content Provider, called 'mycp'.
-Since its a gateway, the category would be 'gateway'.
+For example, plugin with purpose to serve connecting playsms to your own Content Provider, 
+called 'mycp'. Since its a gateway, the category would be 'gateway'.
 
 The plugin structure will be:
 
@@ -106,7 +107,7 @@ The plugin structure will be:
                                       /docs/README
                                       /docs/CHANGELOG
                                       /lib
-                                      mycp.php
+                                      /mycp.php
 
 
 DIRECT ACCESS
