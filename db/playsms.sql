@@ -515,6 +515,7 @@ CREATE TABLE `playsms_featurePoll_log` (
   `poll_id` int(11) NOT NULL DEFAULT '0',
   `choice_id` int(11) NOT NULL DEFAULT '0',
   `poll_sender` varchar(20) NOT NULL DEFAULT '',
+  `in_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`result_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
