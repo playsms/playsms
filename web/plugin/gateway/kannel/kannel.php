@@ -78,9 +78,6 @@ switch ($op) {
 		<td>" . _('playSMS web URL') . "</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_playsms_web value=\"" . $kannel_param['playsms_web'] . "\"> (" . _('URL to playSMS, empty it to set it to base URL') . ")</td>
 	    </tr>
             <!-- Fixme Edward Added Kanel HTTP Admin Parameter-->
-             <tr>
-		<td>" . _('Kannel admin URL') . "</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_admin_url value=\"" . $kannel_param['admin_url'] . "\"> (" . _('HTTP Kannel admin URL') . ")</td>
-	    </tr>
             <tr>
 		<td>" . _('Kannel admin password') . "</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_admin_password value=\"" . $kannel_param['admin_password'] . "\"> (" . _('HTTP Kannel admin password') . ")</td>
 	    </tr>
@@ -95,7 +92,7 @@ switch ($op) {
 	    <p><input type=submit class=button value=\"" . _('Save') . "\">
 	    </form>
             <!-- Fixme Edward Added Button Restart Kannel, To Restart Kannel Services-->
-            <p><input type='button' value=\""._('Restart Kannel')."\" class='button' onClick=\"parent.location.href='index.php?app=menu&inc=gateway_kannel&op=restart-kannel'\"></p>
+            <p><input type='button' value=\""._('Restart Kannel')."\" class='button' onClick=\"parent.location.href='index.php?app=menu&inc=gateway_kannel&op=manage_restart'\"></p>
             <!-- End Of Fixme Edward Added Button Restart Kannel, To Restart Kannel Services-->
 	";
         echo $content;
@@ -185,11 +182,12 @@ switch ($op) {
         break;
     
     //Fixme Edward, Adding New Case To Handle Button Restart Kannel Services
-     case "restart-kannel":
-        $admin_url = $kannel_param['admin_url'];
-        $admin_password = $kannel_param['admin_password'];
-        $kanneladminport = $kannel_param['admin_port'];
-        $url = $admin_url.$admin_port.'/restart?password='.$admin_password;
+     case "manage_restart":
+     	$admin_port = $core_config['plugin']['kannel']['admin_port'];
+        $admin_url = $core_config['plugin']['kannel']['bearerbox_host'];
+        $admin_url = ( $admin_port ? $admin_url.':'.$admin_port : $admin_url );
+        $admin_password = $core_config['plugin']['kannel']['admin_password'];
+        $url = $admin_url.'/restart?password='.$admin_password;
         $restart = file_get_contents($url);
         $error_string   = _('Kannel service has been restarted');
         header("Location: index.php?app=menu&inc=gateway_kannel&op=manage&err=" . urlencode($error_string));
