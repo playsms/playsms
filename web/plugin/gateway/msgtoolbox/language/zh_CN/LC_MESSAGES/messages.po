@@ -1,86 +1,101 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config.php:17 uplink.php:24
-msgid "Manage uplink"
-msgstr "管理uplink"
+#: plugin/gateway/msgtoolbox/config.php:23
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:25
+msgid "Manage msgtoolbox"
+msgstr ""
 
-#: uplink.php:8
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:9
 msgid "Active"
 msgstr "活跃"
 
-#: uplink.php:12
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:13
 msgid "Inactive"
 msgstr "不活跃"
 
-#: uplink.php:12
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:13
 msgid "click here to activate"
 msgstr "点击这里激活"
 
-#: uplink.php:29
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:30
 msgid "Gateway name"
 msgstr "网关名"
 
-#: uplink.php:32
-msgid "Master URL"
-msgstr "主网址"
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:33
+msgid "msgtoolbox URL"
+msgstr ""
 
-#: uplink.php:35
-msgid "Additional URL parameter"
-msgstr "附加链接参数"
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:36
+msgid "Route"
+msgstr ""
 
-#: uplink.php:35
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:38
 msgid "Username"
 msgstr "用户名"
 
-#: uplink.php:38
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:41
 msgid "Password"
 msgstr "密码"
 
-#: uplink.php:38
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:41
 msgid "Fill to change the password"
 msgstr "填写改变密码"
 
-#: uplink.php:41
-msgid "Global sender"
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:44
+#, fuzzy
+msgid "Module sender ID"
 msgstr "全球发件人"
 
-#: uplink.php:41
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:44
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr "最多16个数字或11个字母，不可空"
 
-#: uplink.php:44
-msgid "Uplink incoming path"
-msgstr "Uplink传入路径"
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:47
+msgid "Module timezone"
+msgstr ""
 
-#: uplink.php:44
-msgid "No trailing slash"
-msgstr "没有结尾的斜线"
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:47
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
 
-#: uplink.php:48
-msgid "Note"
-msgstr "注意"
-
-#: uplink.php:49
-msgid "Send SMS message without footer banner"
-msgstr "发送无页脚横幅的短信"
-
-#: uplink.php:51
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:50
 msgid "Save"
 msgstr "保存"
 
-#: uplink.php:62
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:62
 msgid "No changes has been made"
 msgstr "没有做出改变"
 
-#: uplink.php:76
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:80
 msgid "Gateway module configurations has been saved"
 msgstr "网关模块的配置已保存"
 
-#: uplink.php:84
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:88
 msgid "Gateway has been activated"
 msgstr "网关已激活"
+
+#~ msgid "Manage uplink"
+#~ msgstr "管理uplink"
+
+#~ msgid "Master URL"
+#~ msgstr "主网址"
+
+#~ msgid "Additional URL parameter"
+#~ msgstr "附加链接参数"
+
+#~ msgid "Uplink incoming path"
+#~ msgstr "Uplink传入路径"
+
+#~ msgid "No trailing slash"
+#~ msgstr "没有结尾的斜线"
+
+#~ msgid "Note"
+#~ msgstr "注意"
+
+#~ msgid "Send SMS message without footer banner"
+#~ msgstr "发送无页脚横幅的短信"

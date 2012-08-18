@@ -1,135 +1,148 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
+"Language: fr-FR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr-FR"
 
-#: config.php:10 sms_autosend.php:20
+#: plugin/feature/_sms_autosend/config.php:12
+#: plugin/feature/_sms_autosend/sms_autosend.php:23
 msgid "Manage autosend"
 msgstr "Service envoi auto"
 
-#: sms_autosend.php:22 sms_autosend.php:82 sms_autosend.php:288
+#: plugin/feature/_sms_autosend/sms_autosend.php:25
+#: plugin/feature/_sms_autosend/sms_autosend.php:85
+#: plugin/feature/_sms_autosend/sms_autosend.php:294
 msgid "Add SMS autosend"
 msgstr "Ajouter un envoi auto"
 
-#: sms_autosend.php:34 sms_autosend.php:166 sms_autosend.php:295
+#: plugin/feature/_sms_autosend/sms_autosend.php:37
+#: plugin/feature/_sms_autosend/sms_autosend.php:169
+#: plugin/feature/_sms_autosend/sms_autosend.php:301
 msgid "Message"
 msgstr "Message"
 
-#: sms_autosend.php:35
+#: plugin/feature/_sms_autosend/sms_autosend.php:38
 msgid "Repeat"
 msgstr "Répeter"
 
-#: sms_autosend.php:36
+#: plugin/feature/_sms_autosend/sms_autosend.php:39
 msgid "User"
 msgstr "Compte"
 
-#: sms_autosend.php:37 sms_autosend.php:172 sms_autosend.php:298
+#: plugin/feature/_sms_autosend/sms_autosend.php:40
+#: plugin/feature/_sms_autosend/sms_autosend.php:175
+#: plugin/feature/_sms_autosend/sms_autosend.php:304
 msgid "Send to"
 msgstr "Envoyer à"
 
-#: sms_autosend.php:38
+#: plugin/feature/_sms_autosend/sms_autosend.php:41
 msgid "Status"
 msgstr "Statut"
 
-#: sms_autosend.php:39
+#: plugin/feature/_sms_autosend/sms_autosend.php:42
 msgid "Action"
 msgstr "Action"
 
-#: sms_autosend.php:47 sms_autosend.php:99 sms_autosend.php:199
+#: plugin/feature/_sms_autosend/sms_autosend.php:50
+#: plugin/feature/_sms_autosend/sms_autosend.php:102
+#: plugin/feature/_sms_autosend/sms_autosend.php:202
 msgid "Disabled"
 msgstr "Désactiver"
 
-#: sms_autosend.php:58 sms_autosend.php:111
+#: plugin/feature/_sms_autosend/sms_autosend.php:61
+#: plugin/feature/_sms_autosend/sms_autosend.php:114
 msgid "Once"
 msgstr "Une fois"
 
-#: sms_autosend.php:62 sms_autosend.php:201
+#: plugin/feature/_sms_autosend/sms_autosend.php:65
+#: plugin/feature/_sms_autosend/sms_autosend.php:204
 msgid "Enabled"
 msgstr "Activer"
 
-#: sms_autosend.php:66
+#: plugin/feature/_sms_autosend/sms_autosend.php:69
 msgid "Are you sure you want to delete SMS autosend message ?"
 msgstr "Voulez-vous supprimer l'envoi de ce message auto ?"
 
-#: sms_autosend.php:92
+#: plugin/feature/_sms_autosend/sms_autosend.php:95
 msgid "SMS autosend View"
 msgstr "Afficher les envois autos"
 
-#: sms_autosend.php:132
+#: plugin/feature/_sms_autosend/sms_autosend.php:135
 msgid "Time"
 msgstr "Date"
 
-#: sms_autosend.php:161
+#: plugin/feature/_sms_autosend/sms_autosend.php:164
 msgid "Edit SMS autosend"
 msgstr "Editer les envois autos"
 
-#: sms_autosend.php:169
+#: plugin/feature/_sms_autosend/sms_autosend.php:172
 msgid "Repeat send"
 msgstr "Répeter l'envoi"
 
-#: sms_autosend.php:184 sms_autosend.php:306
-msgid "Sending date"
-msgstr "Date d'envoi"
-
-#: sms_autosend.php:187 sms_autosend.php:312
+#: plugin/feature/_sms_autosend/sms_autosend.php:187
+#: plugin/feature/_sms_autosend/sms_autosend.php:312
 msgid "Sending time"
 msgstr "Temps envoi"
 
-#: sms_autosend.php:192
+#: plugin/feature/_sms_autosend/sms_autosend.php:195
 msgid "Update"
 msgstr "Mettre à jour"
 
-#: sms_autosend.php:204
+#: plugin/feature/_sms_autosend/sms_autosend.php:207
 msgid "Enable or disable this autosend"
 msgstr "Activer ou désactiver cet envoi"
 
-#: sms_autosend.php:206
+#: plugin/feature/_sms_autosend/sms_autosend.php:209
 msgid "Current status"
 msgstr "Statut actuel"
 
-#: sms_autosend.php:207
+#: plugin/feature/_sms_autosend/sms_autosend.php:210
 msgid "What do you want to do ?"
 msgstr "Que voulez-vous faire ?"
 
-#: sms_autosend.php:208
+#: plugin/feature/_sms_autosend/sms_autosend.php:211
 msgid "I want to enable this autosend"
 msgstr "Je souhaite activer cet envoi"
 
-#: sms_autosend.php:209
+#: plugin/feature/_sms_autosend/sms_autosend.php:212
 msgid "I want to disable this autosend"
 msgstr "Je souhaite désactiver cet envoi"
 
-#: sms_autosend.php:245
-msgid "Autosend date has been saved"
+#: plugin/feature/_sms_autosend/sms_autosend.php:251
+#, fuzzy
+msgid "Autosend time has been saved"
 msgstr "L'heure d'envoi à été sauvegardé"
 
-#: sms_autosend.php:249 sms_autosend.php:355
+#: plugin/feature/_sms_autosend/sms_autosend.php:255
+#: plugin/feature/_sms_autosend/sms_autosend.php:361
 msgid "You must fill all fields"
 msgstr "Vous devez remplir tous les champs"
 
-#: sms_autosend.php:260
+#: plugin/feature/_sms_autosend/sms_autosend.php:266
 msgid "SMS autosend status has been changed"
 msgstr "Le statut du service d'envoi auto à été changé"
 
-#: sms_autosend.php:276
+#: plugin/feature/_sms_autosend/sms_autosend.php:282
 msgid "SMS autosend has been deleted"
 msgstr "L'envoi auto a été supprimé"
 
-#: sms_autosend.php:289
+#: plugin/feature/_sms_autosend/sms_autosend.php:295
 msgid "Add time field"
 msgstr "Ajouter un champ date"
 
-#: sms_autosend.php:317
+#: plugin/feature/_sms_autosend/sms_autosend.php:323
 msgid "Add"
 msgstr "Ajouter"
 
-#: sms_autosend.php:344
+#: plugin/feature/_sms_autosend/sms_autosend.php:350
 msgid "SMS autosend has been added"
 msgstr "L'envoi auto a été ajouté"
 
-#: sms_autosend.php:351
+#: plugin/feature/_sms_autosend/sms_autosend.php:357
 msgid "Fail to add SMS autosend"
 msgstr "Impossible d'ajouter l'envoi auto"
+
+#~ msgid "Sending date"
+#~ msgstr "Date d'envoi"

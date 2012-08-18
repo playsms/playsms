@@ -1,6 +1,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: plugin/tools/_simulator/simulator.php:16
+#: plugin/tools/_simulator/simulator.php:29
+msgid "Simulator"
+msgstr ""
+
+#: plugin/tools/_simulator/simulator.php:23
+msgid "Submit"
+msgstr ""

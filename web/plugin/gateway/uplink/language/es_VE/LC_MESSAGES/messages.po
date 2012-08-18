@@ -1,86 +1,96 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config.php:17 uplink.php:24
+#: plugin/gateway/uplink/config.php:24 plugin/gateway/uplink/uplink.php:25
 msgid "Manage uplink"
 msgstr "Manage uplink"
 
-#: uplink.php:8
+#: plugin/gateway/uplink/uplink.php:9
 msgid "Active"
 msgstr ""
 
-#: uplink.php:12
+#: plugin/gateway/uplink/uplink.php:13
 msgid "Inactive"
 msgstr ""
 
-#: uplink.php:12
+#: plugin/gateway/uplink/uplink.php:13
 msgid "click here to activate"
 msgstr ""
 
-#: uplink.php:29
+#: plugin/gateway/uplink/uplink.php:30
 msgid "Gateway name"
 msgstr ""
 
-#: uplink.php:32
+#: plugin/gateway/uplink/uplink.php:33
 msgid "Master URL"
 msgstr ""
 
-#: uplink.php:35
+#: plugin/gateway/uplink/uplink.php:36
 msgid "Additional URL parameter"
 msgstr ""
 
-#: uplink.php:35
+#: plugin/gateway/uplink/uplink.php:39
 msgid "Username"
 msgstr ""
 
-#: uplink.php:38
+#: plugin/gateway/uplink/uplink.php:42
 msgid "Password"
 msgstr ""
 
-#: uplink.php:38
+#: plugin/gateway/uplink/uplink.php:42
 msgid "Fill to change the password"
 msgstr ""
 
-#: uplink.php:41
-msgid "Global sender"
+#: plugin/gateway/uplink/uplink.php:45
+msgid "Module sender ID"
 msgstr ""
 
-#: uplink.php:41
+#: plugin/gateway/uplink/uplink.php:45
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
 
-#: uplink.php:44
+#: plugin/gateway/uplink/uplink.php:48
+msgid "Module timezone"
+msgstr ""
+
+#: plugin/gateway/uplink/uplink.php:48
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+#: plugin/gateway/uplink/uplink.php:52
 msgid "Uplink incoming path"
 msgstr ""
 
-#: uplink.php:44
+#: plugin/gateway/uplink/uplink.php:52
 msgid "No trailing slash"
 msgstr ""
 
-#: uplink.php:48
+#: plugin/gateway/uplink/uplink.php:57
 msgid "Note"
 msgstr ""
 
-#: uplink.php:49
+#: plugin/gateway/uplink/uplink.php:58
 msgid "Send SMS message without footer banner"
 msgstr ""
 
-#: uplink.php:51
+#: plugin/gateway/uplink/uplink.php:60 plugin/gateway/uplink/uplink.php:56
 msgid "Save"
 msgstr ""
 
-#: uplink.php:62
+#: plugin/gateway/uplink/uplink.php:73 plugin/gateway/uplink/uplink.php:69
 msgid "No changes has been made"
 msgstr ""
 
-#: uplink.php:76
+#: plugin/gateway/uplink/uplink.php:92 plugin/gateway/uplink/uplink.php:107
+#: plugin/gateway/uplink/uplink.php:103
 msgid "Gateway module configurations has been saved"
 msgstr ""
 
-#: uplink.php:84
+#: plugin/gateway/uplink/uplink.php:100 plugin/gateway/uplink/uplink.php:115
+#: plugin/gateway/uplink/uplink.php:111
 msgid "Gateway has been activated"
 msgstr ""

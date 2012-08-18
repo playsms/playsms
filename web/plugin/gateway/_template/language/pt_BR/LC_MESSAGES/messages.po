@@ -1,58 +1,63 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config.php:14 template.php:24
+#: plugin/gateway/_template/config.php:16
+#: plugin/gateway/_template/template.php:25
 msgid "Manage template"
 msgstr "Administrar template"
 
-#: template.php:8
+#: plugin/gateway/_template/template.php:9
 msgid "Active"
 msgstr "Ativo"
 
-#: template.php:12
+#: plugin/gateway/_template/template.php:13
 msgid "Inactive"
 msgstr "Inativo"
 
-#: template.php:12
+#: plugin/gateway/_template/template.php:13
 msgid "click here to activate"
 msgstr "clique aqui para ativar"
 
-#: template.php:29
+#: plugin/gateway/_template/template.php:30
 msgid "Gateway name"
 msgstr "Nome do gateway"
 
-#: template.php:32
+#: plugin/gateway/_template/template.php:33
 msgid "Template installation path"
 msgstr "Caminho de instalação do template"
 
-#: template.php:32
+#: plugin/gateway/_template/template.php:33
 msgid "No trailing slash"
 msgstr "Sem barra no final"
 
-#: template.php:36
+#: plugin/gateway/_template/template.php:37
 msgid "Note"
 msgstr ""
 
-#: template.php:37
+#: plugin/gateway/_template/template.php:38
 msgid "Send SMS message without footer banner"
 msgstr "Enviar mensagem SMS sem banner no rodapé"
 
-#: template.php:39
+#: plugin/gateway/_template/template.php:40
+#: plugin/gateway/_template/template.php:36
 msgid "Save"
 msgstr "Salvar"
 
-#: template.php:45
+#: plugin/gateway/_template/template.php:46
+#: plugin/gateway/_template/template.php:42
 msgid "No changes has been made"
 msgstr "Nenhuma mudança feita"
 
-#: template.php:54
+#: plugin/gateway/_template/template.php:55
+#: plugin/gateway/_template/template.php:51
 msgid "Gateway module configurations has been saved"
 msgstr "Configurações do módulo de gateway foram salvas"
 
-#: template.php:62
+#: plugin/gateway/_template/template.php:63
+#: plugin/gateway/_template/template.php:59
 msgid "Gateway has been activated"
 msgstr "Gateway foi ativado"

@@ -1,157 +1,179 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config.php:4 sms_poll.php:12
+#: plugin/feature/sms_poll/config.php:6
+#: plugin/feature/sms_poll/sms_poll.php:13
 msgid "Manage poll"
 msgstr "Pengaturan layanan poling SMS"
 
-#: sms_poll.php:14 sms_poll.php:62 sms_poll.php:276
+#: plugin/feature/sms_poll/sms_poll.php:15
+#: plugin/feature/sms_poll/sms_poll.php:63
+#: plugin/feature/sms_poll/sms_poll.php:277
 msgid "Add SMS poll"
 msgstr "Tambah layanan poling SMS"
 
-#: sms_poll.php:27 sms_poll.php:113
+#: plugin/feature/sms_poll/sms_poll.php:28
+#: plugin/feature/sms_poll/sms_poll.php:114
 msgid "Keyword"
 msgstr "Kata kunci"
 
-#: sms_poll.php:28 sms_poll.php:114
+#: plugin/feature/sms_poll/sms_poll.php:29
+#: plugin/feature/sms_poll/sms_poll.php:115
 msgid "Title"
 msgstr "Judul"
 
-#: sms_poll.php:29
+#: plugin/feature/sms_poll/sms_poll.php:30
 msgid "User"
 msgstr "Pengguna"
 
-#: sms_poll.php:30
+#: plugin/feature/sms_poll/sms_poll.php:31
 msgid "Status"
 msgstr "Status"
 
-#: sms_poll.php:31 sms_poll.php:115
+#: plugin/feature/sms_poll/sms_poll.php:32
+#: plugin/feature/sms_poll/sms_poll.php:116
 msgid "Action"
 msgstr "Tindakan"
 
-#: sms_poll.php:40 sms_poll.php:154
+#: plugin/feature/sms_poll/sms_poll.php:41
+#: plugin/feature/sms_poll/sms_poll.php:155
 msgid "Disabled"
 msgstr "Mati"
 
-#: sms_poll.php:43 sms_poll.php:157
+#: plugin/feature/sms_poll/sms_poll.php:44
+#: plugin/feature/sms_poll/sms_poll.php:158
 msgid "Enabled"
 msgstr "Hidup"
 
-#: sms_poll.php:47
+#: plugin/feature/sms_poll/sms_poll.php:48
 msgid ""
 "Are you sure you want to delete SMS poll with all its choices and votes ?"
-msgstr "Anda yakin ingin menghapus layanan poling SMS beserta semua pilihan dan suaranya?"
+msgstr ""
+"Anda yakin ingin menghapus layanan poling SMS beserta semua pilihan dan "
+"suaranya?"
 
-#: sms_poll.php:47 sms_poll.php:131 sms_poll.php:183 sms_poll.php:236
-#: sms_poll.php:241 sms_poll.php:257 sms_poll.php:265 sms_poll.php:305
-#: sms_poll.php:310
+#: plugin/feature/sms_poll/sms_poll.php:48
+#: plugin/feature/sms_poll/sms_poll.php:132
+#: plugin/feature/sms_poll/sms_poll.php:184
+#: plugin/feature/sms_poll/sms_poll.php:237
+#: plugin/feature/sms_poll/sms_poll.php:242
+#: plugin/feature/sms_poll/sms_poll.php:258
+#: plugin/feature/sms_poll/sms_poll.php:266
+#: plugin/feature/sms_poll/sms_poll.php:306
+#: plugin/feature/sms_poll/sms_poll.php:311
 msgid "keyword"
 msgstr "kata kunci"
 
-#: sms_poll.php:85
+#: plugin/feature/sms_poll/sms_poll.php:86
 msgid "Edit SMS poll"
 msgstr "Ubah layanan poling SMS"
 
-#: sms_poll.php:92 sms_poll.php:281
+#: plugin/feature/sms_poll/sms_poll.php:93
+#: plugin/feature/sms_poll/sms_poll.php:282
 msgid "SMS poll keyword"
 msgstr "kata kunci poling SMS"
 
-#: sms_poll.php:95 sms_poll.php:284
+#: plugin/feature/sms_poll/sms_poll.php:96
+#: plugin/feature/sms_poll/sms_poll.php:285
 msgid "SMS poll title"
 msgstr "judul poling SMS"
 
-#: sms_poll.php:98
+#: plugin/feature/sms_poll/sms_poll.php:99
 msgid "Save"
 msgstr "Simpan"
 
-#: sms_poll.php:104
+#: plugin/feature/sms_poll/sms_poll.php:105
 msgid "Edit SMS poll choices"
 msgstr "Ubah pilihan-pilihan dalam layanan poling SMS?"
 
-#: sms_poll.php:131
+#: plugin/feature/sms_poll/sms_poll.php:132
 msgid "Are you sure you want to delete choice ?"
 msgstr "Anda yakin ingin menghapus pilihan?"
 
-#: sms_poll.php:131 sms_poll.php:214
+#: plugin/feature/sms_poll/sms_poll.php:132
+#: plugin/feature/sms_poll/sms_poll.php:215
 msgid "title"
 msgstr "judul"
 
-#: sms_poll.php:136
+#: plugin/feature/sms_poll/sms_poll.php:137
 msgid "Add choice to this poll"
 msgstr "Tambah pilihan ke dalam poling SMS ini"
 
-#: sms_poll.php:141
+#: plugin/feature/sms_poll/sms_poll.php:142
 msgid "Choice Keyword"
 msgstr "Kata Kunci Pilihan"
 
-#: sms_poll.php:144
+#: plugin/feature/sms_poll/sms_poll.php:145
 msgid "Choice title"
 msgstr "judul Pilihan"
 
-#: sms_poll.php:147 sms_poll.php:287
+#: plugin/feature/sms_poll/sms_poll.php:148
+#: plugin/feature/sms_poll/sms_poll.php:288
 msgid "Add"
 msgstr "Tambah"
 
-#: sms_poll.php:160
+#: plugin/feature/sms_poll/sms_poll.php:161
 msgid "Enable or disable this poll"
 msgstr "Matikan atau Hidupkan poling SMS ini"
 
-#: sms_poll.php:162
+#: plugin/feature/sms_poll/sms_poll.php:163
 msgid "Current status"
 msgstr "status saat ini"
 
-#: sms_poll.php:163
+#: plugin/feature/sms_poll/sms_poll.php:164
 msgid "What do you want to do ?"
 msgstr "Apa yang ingin anda lakukan?"
 
-#: sms_poll.php:164
+#: plugin/feature/sms_poll/sms_poll.php:165
 msgid "I want to enable this poll"
 msgstr "Saya ingin mengaktifkan poling SMS ini"
 
-#: sms_poll.php:165
+#: plugin/feature/sms_poll/sms_poll.php:166
 msgid "I want to disable this poll"
 msgstr "Saya ingin menonaktifkan poling SMS ini"
 
-#: sms_poll.php:183
+#: plugin/feature/sms_poll/sms_poll.php:184
 msgid "SMS poll with has been saved"
 msgstr "poling SMS telah disimpan"
 
-#: sms_poll.php:188 sms_poll.php:246 sms_poll.php:315
+#: plugin/feature/sms_poll/sms_poll.php:189
+#: plugin/feature/sms_poll/sms_poll.php:247
+#: plugin/feature/sms_poll/sms_poll.php:316
 msgid "You must fill all fields"
 msgstr "Anda harus mengisi semua kolom"
 
-#: sms_poll.php:199
+#: plugin/feature/sms_poll/sms_poll.php:200
 msgid "SMS poll status has been changed"
 msgstr "status poling SMS telah diganti"
 
-#: sms_poll.php:214
+#: plugin/feature/sms_poll/sms_poll.php:215
 msgid "SMS poll with all its messages has been deleted"
 msgstr "poling SMS telah dihapus beserta semua pesannya"
 
-#: sms_poll.php:236
+#: plugin/feature/sms_poll/sms_poll.php:237
 msgid "Choice has been added"
 msgstr "Pilihan telah ditambahkan"
 
-#: sms_poll.php:241
+#: plugin/feature/sms_poll/sms_poll.php:242
 msgid "Choice already exists"
 msgstr "Pilihan sudah ada"
 
-#: sms_poll.php:257
+#: plugin/feature/sms_poll/sms_poll.php:258
 msgid "Fail to delete SMS poll choice"
 msgstr "Gagal menghapus pilihan poling SMS"
 
-#: sms_poll.php:265
+#: plugin/feature/sms_poll/sms_poll.php:266
 msgid "SMS poll choice and all its voters has been deleted"
 msgstr "pilihan poling SMS beserta semua pemilihnya telah dihapus"
 
-#: sms_poll.php:305
+#: plugin/feature/sms_poll/sms_poll.php:306
 msgid "SMS poll has been added"
 msgstr ""
 
-#: sms_poll.php:310
+#: plugin/feature/sms_poll/sms_poll.php:311
 msgid "SMS poll already exists, reserved or use by other feature"
 msgstr "poling SMS sudah ada, dipesan, atau digunakan oleh fitur lain."

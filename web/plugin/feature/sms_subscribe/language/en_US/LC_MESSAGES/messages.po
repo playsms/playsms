@@ -1,229 +1,260 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config.php:4 sms_subscribe.php:12
-msgid "Manage subscribe"
-msgstr "Manage subscribe"
-
-#: config.php:6
-msgid "Add message"
+#: plugin/feature/sms_subscribe/fn.php:64
+msgid "Subscribe service inactive"
 msgstr ""
 
-#: config.php:7
-msgid "View members"
-msgstr ""
-
-#: config.php:8
-msgid "View messages"
-msgstr ""
-
-#: fn.php:96 fn.php:101 fn.php:106
+#: plugin/feature/sms_subscribe/fn.php:112
+#: plugin/feature/sms_subscribe/fn.php:117
+#: plugin/feature/sms_subscribe/fn.php:122
 msgid "You are not a member"
 msgstr ""
 
-#: fn.php:111
+#: plugin/feature/sms_subscribe/fn.php:127
 msgid "Unknown SMS format"
 msgstr ""
 
-#: fn.php:144 fn.php:149 fn.php:154
+#: plugin/feature/sms_subscribe/fn.php:160
+#: plugin/feature/sms_subscribe/fn.php:165
+#: plugin/feature/sms_subscribe/fn.php:170
 msgid "You already a member"
 msgstr ""
 
-#: fn.php:159
+#: plugin/feature/sms_subscribe/fn.php:175
 msgid "Unknown sms format"
 msgstr ""
 
-#: sms_subscribe.php:14 sms_subscribe.php:66 sms_subscribe.php:438
+#: plugin/feature/sms_subscribe/config.php:6
+#: plugin/feature/sms_subscribe/sms_subscribe.php:13
+msgid "Manage subscribe"
+msgstr "Manage subscribe"
+
+#: plugin/feature/sms_subscribe/config.php:8
+msgid "Add message"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/config.php:9
+msgid "View members"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/config.php:10
+msgid "View messages"
+msgstr ""
+
+#: plugin/feature/sms_subscribe/sms_subscribe.php:15
+#: plugin/feature/sms_subscribe/sms_subscribe.php:67
+#: plugin/feature/sms_subscribe/sms_subscribe.php:444
 msgid "Add SMS subscribe"
 msgstr ""
 
-#: sms_subscribe.php:26
+#: plugin/feature/sms_subscribe/sms_subscribe.php:27
 msgid "Keyword"
 msgstr ""
 
-#: sms_subscribe.php:27
+#: plugin/feature/sms_subscribe/sms_subscribe.php:28
 msgid "Total members"
 msgstr ""
 
-#: sms_subscribe.php:28
+#: plugin/feature/sms_subscribe/sms_subscribe.php:29
 msgid "User"
 msgstr ""
 
-#: sms_subscribe.php:29
+#: plugin/feature/sms_subscribe/sms_subscribe.php:30
 msgid "Status"
 msgstr ""
 
-#: sms_subscribe.php:30 sms_subscribe.php:96 sms_subscribe.php:282
+#: plugin/feature/sms_subscribe/sms_subscribe.php:31
+#: plugin/feature/sms_subscribe/sms_subscribe.php:97
+#: plugin/feature/sms_subscribe/sms_subscribe.php:290
 msgid "Action"
 msgstr ""
 
-#: sms_subscribe.php:43 sms_subscribe.php:353
+#: plugin/feature/sms_subscribe/sms_subscribe.php:44
+#: plugin/feature/sms_subscribe/sms_subscribe.php:361
 msgid "Disabled"
 msgstr ""
 
-#: sms_subscribe.php:45 sms_subscribe.php:355
+#: plugin/feature/sms_subscribe/sms_subscribe.php:46
+#: plugin/feature/sms_subscribe/sms_subscribe.php:363
 msgid "Enabled"
 msgstr ""
 
-#: sms_subscribe.php:51
+#: plugin/feature/sms_subscribe/sms_subscribe.php:52
 msgid "Are you sure you want to delete SMS subscribe ?"
 msgstr ""
 
-#: sms_subscribe.php:51 sms_subscribe.php:381 sms_subscribe.php:414
-#: sms_subscribe.php:469 sms_subscribe.php:472
+#: plugin/feature/sms_subscribe/sms_subscribe.php:52
+#: plugin/feature/sms_subscribe/sms_subscribe.php:389
+#: plugin/feature/sms_subscribe/sms_subscribe.php:421
+#: plugin/feature/sms_subscribe/sms_subscribe.php:475
+#: plugin/feature/sms_subscribe/sms_subscribe.php:478
 msgid "keyword"
 msgstr ""
 
-#: sms_subscribe.php:84
+#: plugin/feature/sms_subscribe/sms_subscribe.php:85
 msgid "SMS messages list for keyword"
 msgstr ""
 
-#: sms_subscribe.php:88 sms_subscribe.php:118
+#: plugin/feature/sms_subscribe/sms_subscribe.php:89
+#: plugin/feature/sms_subscribe/sms_subscribe.php:119
 msgid "Add Message"
 msgstr ""
 
-#: sms_subscribe.php:95 sms_subscribe.php:151
+#: plugin/feature/sms_subscribe/sms_subscribe.php:96
+#: plugin/feature/sms_subscribe/sms_subscribe.php:152
 msgid "Message"
 msgstr ""
 
-#: sms_subscribe.php:106
+#: plugin/feature/sms_subscribe/sms_subscribe.php:107
 msgid "Are you sure you want to delete this message?"
 msgstr ""
 
-#: sms_subscribe.php:141
+#: plugin/feature/sms_subscribe/sms_subscribe.php:142
 msgid "Message detail"
 msgstr ""
 
-#: sms_subscribe.php:148 sms_subscribe.php:186 sms_subscribe.php:335
-#: sms_subscribe.php:443 sms_subscribe.php:493
+#: plugin/feature/sms_subscribe/sms_subscribe.php:149
+#: plugin/feature/sms_subscribe/sms_subscribe.php:187
+#: plugin/feature/sms_subscribe/sms_subscribe.php:343
+#: plugin/feature/sms_subscribe/sms_subscribe.php:449
+#: plugin/feature/sms_subscribe/sms_subscribe.php:499
 msgid "SMS subscribe keyword"
 msgstr ""
 
-#: sms_subscribe.php:154
+#: plugin/feature/sms_subscribe/sms_subscribe.php:155
 msgid "Send this message to all members"
 msgstr ""
 
-#: sms_subscribe.php:155
+#: plugin/feature/sms_subscribe/sms_subscribe.php:156
 msgid "Send"
 msgstr ""
 
-#: sms_subscribe.php:190 sms_subscribe.php:500
+#: plugin/feature/sms_subscribe/sms_subscribe.php:191
+#: plugin/feature/sms_subscribe/sms_subscribe.php:506
 msgid "Message body"
 msgstr ""
 
-#: sms_subscribe.php:196
+#: plugin/feature/sms_subscribe/sms_subscribe.php:197
 msgid "Edit"
 msgstr ""
 
-#: sms_subscribe.php:211
+#: plugin/feature/sms_subscribe/sms_subscribe.php:212
 msgid "Message has been edited"
 msgstr ""
 
-#: sms_subscribe.php:214 sms_subscribe.php:254 sms_subscribe.php:384
-#: sms_subscribe.php:475 sms_subscribe.php:523
+#: plugin/feature/sms_subscribe/sms_subscribe.php:215
+#: plugin/feature/sms_subscribe/sms_subscribe.php:262
+#: plugin/feature/sms_subscribe/sms_subscribe.php:392
+#: plugin/feature/sms_subscribe/sms_subscribe.php:481
+#: plugin/feature/sms_subscribe/sms_subscribe.php:529
 msgid "You must fill all fields"
 msgstr ""
 
-#: sms_subscribe.php:246
+#: plugin/feature/sms_subscribe/sms_subscribe.php:254
 msgid "Your SMS has been delivered to queue"
 msgstr ""
 
-#: sms_subscribe.php:246 sms_subscribe.php:248
+#: plugin/feature/sms_subscribe/sms_subscribe.php:254
+#: plugin/feature/sms_subscribe/sms_subscribe.php:256
 msgid "to"
 msgstr ""
 
-#: sms_subscribe.php:248
+#: plugin/feature/sms_subscribe/sms_subscribe.php:256
 msgid "Fail to send SMS"
 msgstr ""
 
-#: sms_subscribe.php:273
+#: plugin/feature/sms_subscribe/sms_subscribe.php:281
 msgid "Member list for keyword"
 msgstr ""
 
-#: sms_subscribe.php:280
+#: plugin/feature/sms_subscribe/sms_subscribe.php:288
 msgid "Phone number"
 msgstr ""
 
-#: sms_subscribe.php:281
+#: plugin/feature/sms_subscribe/sms_subscribe.php:289
 msgid "Member join datetime"
 msgstr ""
 
-#: sms_subscribe.php:290
+#: plugin/feature/sms_subscribe/sms_subscribe.php:298
 msgid "Are you sure you want to delete this member ?"
 msgstr ""
 
-#: sms_subscribe.php:310
+#: plugin/feature/sms_subscribe/sms_subscribe.php:318
 msgid "\"Member has been deleted"
 msgstr ""
 
-#: sms_subscribe.php:328
+#: plugin/feature/sms_subscribe/sms_subscribe.php:336
 msgid "Edit SMS subscribe"
 msgstr ""
 
-#: sms_subscribe.php:338 sms_subscribe.php:446
+#: plugin/feature/sms_subscribe/sms_subscribe.php:346
+#: plugin/feature/sms_subscribe/sms_subscribe.php:452
 msgid "SMS subscribe reply"
 msgstr ""
 
-#: sms_subscribe.php:341 sms_subscribe.php:449
+#: plugin/feature/sms_subscribe/sms_subscribe.php:349
+#: plugin/feature/sms_subscribe/sms_subscribe.php:455
 msgid "SMS unsubscribe reply"
 msgstr ""
 
-#: sms_subscribe.php:344
+#: plugin/feature/sms_subscribe/sms_subscribe.php:352
 msgid "Save"
 msgstr ""
 
-#: sms_subscribe.php:358
+#: plugin/feature/sms_subscribe/sms_subscribe.php:366
 msgid "Enable or disable this subscribe"
 msgstr ""
 
-#: sms_subscribe.php:360
+#: plugin/feature/sms_subscribe/sms_subscribe.php:368
 msgid "Current status"
 msgstr ""
 
-#: sms_subscribe.php:361
+#: plugin/feature/sms_subscribe/sms_subscribe.php:369
 msgid "What do you want to do ?"
 msgstr ""
 
-#: sms_subscribe.php:362
+#: plugin/feature/sms_subscribe/sms_subscribe.php:370
 msgid "I want to enable this subscribe"
 msgstr ""
 
-#: sms_subscribe.php:363
+#: plugin/feature/sms_subscribe/sms_subscribe.php:371
 msgid "I want to disable this subscribe"
 msgstr ""
 
-#: sms_subscribe.php:381
+#: plugin/feature/sms_subscribe/sms_subscribe.php:389
 msgid "SMS subscribe has been saved"
 msgstr ""
 
-#: sms_subscribe.php:395
+#: plugin/feature/sms_subscribe/sms_subscribe.php:403
 msgid "SMS subscribe status has been changed"
 msgstr ""
 
-#: sms_subscribe.php:414
+#: plugin/feature/sms_subscribe/sms_subscribe.php:421
 msgid "SMS subscribe with all its messages and members has been deleted"
 msgstr ""
 
-#: sms_subscribe.php:427
+#: plugin/feature/sms_subscribe/sms_subscribe.php:433
 msgid "Message has been deleted"
 msgstr ""
 
-#: sms_subscribe.php:452 sms_subscribe.php:505
+#: plugin/feature/sms_subscribe/sms_subscribe.php:458
+#: plugin/feature/sms_subscribe/sms_subscribe.php:511
 msgid "Add"
 msgstr ""
 
-#: sms_subscribe.php:469
+#: plugin/feature/sms_subscribe/sms_subscribe.php:475
 msgid "SMS subscribe has been added"
 msgstr ""
 
-#: sms_subscribe.php:472
+#: plugin/feature/sms_subscribe/sms_subscribe.php:478
 msgid "SMS subscribe already exists, reserved or use by other feature"
 msgstr ""
 
-#: sms_subscribe.php:520
+#: plugin/feature/sms_subscribe/sms_subscribe.php:526
 msgid "Member message has been added"
 msgstr ""

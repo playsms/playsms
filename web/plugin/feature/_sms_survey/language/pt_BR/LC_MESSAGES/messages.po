@@ -1,372 +1,493 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config.php:4
-msgid "Manage survey"
-msgstr ""
-
-#: sms_survey_members.php:16 sms_survey_members.php:97
-#: sms_survey_members.php:181 sms_survey.php:26 sms_survey.php:96
-#: sms_survey.php:128 sms_survey.php:168 sms_survey.php:258 sms_survey.php:316
-#: sms_survey_questions.php:19
+#: plugin/feature/_sms_survey/sms_survey_members.php:17
+#: plugin/feature/_sms_survey/sms_survey_members.php:98
+#: plugin/feature/_sms_survey/sms_survey_members.php:182
+#: plugin/feature/_sms_survey/sms_survey.php:27
+#: plugin/feature/_sms_survey/sms_survey.php:97
+#: plugin/feature/_sms_survey/sms_survey.php:129
+#: plugin/feature/_sms_survey/sms_survey.php:169
+#: plugin/feature/_sms_survey/sms_survey.php:259
+#: plugin/feature/_sms_survey/sms_survey.php:317
+#: plugin/feature/_sms_survey/sms_survey_questions.php:20
 msgid "SMS Survey"
 msgstr ""
 
-#: sms_survey_members.php:20
+#: plugin/feature/_sms_survey/sms_survey_members.php:21
 msgid "Member list"
 msgstr ""
 
-#: sms_survey_members.php:30 sms_survey_members.php:32
-#: sms_survey_members.php:111 sms_survey_members.php:113
-#: sms_survey_members.php:195 sms_survey_members.php:197 sms_survey.php:50
-#: sms_survey.php:52 sms_survey.php:181 sms_survey.php:183 sms_survey.php:271
-#: sms_survey.php:273 sms_survey.php:329 sms_survey.php:331
-#: sms_survey_questions.php:43 sms_survey_questions.php:45
+#: plugin/feature/_sms_survey/sms_survey_members.php:31
+#: plugin/feature/_sms_survey/sms_survey_members.php:33
+#: plugin/feature/_sms_survey/sms_survey_members.php:112
+#: plugin/feature/_sms_survey/sms_survey_members.php:114
+#: plugin/feature/_sms_survey/sms_survey_members.php:196
+#: plugin/feature/_sms_survey/sms_survey_members.php:198
+#: plugin/feature/_sms_survey/sms_survey.php:51
+#: plugin/feature/_sms_survey/sms_survey.php:53
+#: plugin/feature/_sms_survey/sms_survey.php:182
+#: plugin/feature/_sms_survey/sms_survey.php:184
+#: plugin/feature/_sms_survey/sms_survey.php:272
+#: plugin/feature/_sms_survey/sms_survey.php:274
+#: plugin/feature/_sms_survey/sms_survey.php:330
+#: plugin/feature/_sms_survey/sms_survey.php:332
+#: plugin/feature/_sms_survey/sms_survey_questions.php:44
+#: plugin/feature/_sms_survey/sms_survey_questions.php:46
 msgid "enabled"
 msgstr ""
 
-#: sms_survey_members.php:30 sms_survey_members.php:111
-#: sms_survey_members.php:195 sms_survey.php:50 sms_survey.php:181
-#: sms_survey.php:271 sms_survey.php:329 sms_survey_questions.php:43
+#: plugin/feature/_sms_survey/sms_survey_members.php:31
+#: plugin/feature/_sms_survey/sms_survey_members.php:112
+#: plugin/feature/_sms_survey/sms_survey_members.php:196
+#: plugin/feature/_sms_survey/sms_survey.php:51
+#: plugin/feature/_sms_survey/sms_survey.php:182
+#: plugin/feature/_sms_survey/sms_survey.php:272
+#: plugin/feature/_sms_survey/sms_survey.php:330
+#: plugin/feature/_sms_survey/sms_survey_questions.php:44
 msgid "disabled"
 msgstr ""
 
-#: sms_survey_members.php:32 sms_survey_members.php:113
-#: sms_survey_members.php:197 sms_survey.php:52 sms_survey.php:183
-#: sms_survey.php:273 sms_survey.php:331 sms_survey_questions.php:45
+#: plugin/feature/_sms_survey/sms_survey_members.php:33
+#: plugin/feature/_sms_survey/sms_survey_members.php:114
+#: plugin/feature/_sms_survey/sms_survey_members.php:198
+#: plugin/feature/_sms_survey/sms_survey.php:53
+#: plugin/feature/_sms_survey/sms_survey.php:184
+#: plugin/feature/_sms_survey/sms_survey.php:274
+#: plugin/feature/_sms_survey/sms_survey.php:332
+#: plugin/feature/_sms_survey/sms_survey_questions.php:46
 msgid "completed"
 msgstr ""
 
-#: sms_survey_members.php:34 sms_survey_members.php:115
-#: sms_survey_members.php:199 sms_survey.php:57 sms_survey.php:185
-#: sms_survey.php:275 sms_survey.php:333 sms_survey_questions.php:47
+#: plugin/feature/_sms_survey/sms_survey_members.php:35
+#: plugin/feature/_sms_survey/sms_survey_members.php:116
+#: plugin/feature/_sms_survey/sms_survey_members.php:200
+#: plugin/feature/_sms_survey/sms_survey.php:58
+#: plugin/feature/_sms_survey/sms_survey.php:186
+#: plugin/feature/_sms_survey/sms_survey.php:276
+#: plugin/feature/_sms_survey/sms_survey.php:334
+#: plugin/feature/_sms_survey/sms_survey_questions.php:48
 msgid "yes"
 msgstr ""
 
-#: sms_survey_members.php:34 sms_survey_members.php:36
-#: sms_survey_members.php:115 sms_survey_members.php:117
-#: sms_survey_members.php:199 sms_survey_members.php:201 sms_survey.php:57
-#: sms_survey.php:59 sms_survey.php:185 sms_survey.php:187 sms_survey.php:275
-#: sms_survey.php:277 sms_survey.php:333 sms_survey.php:335
-#: sms_survey_questions.php:47 sms_survey_questions.php:49
+#: plugin/feature/_sms_survey/sms_survey_members.php:35
+#: plugin/feature/_sms_survey/sms_survey_members.php:37
+#: plugin/feature/_sms_survey/sms_survey_members.php:116
+#: plugin/feature/_sms_survey/sms_survey_members.php:118
+#: plugin/feature/_sms_survey/sms_survey_members.php:200
+#: plugin/feature/_sms_survey/sms_survey_members.php:202
+#: plugin/feature/_sms_survey/sms_survey.php:58
+#: plugin/feature/_sms_survey/sms_survey.php:60
+#: plugin/feature/_sms_survey/sms_survey.php:186
+#: plugin/feature/_sms_survey/sms_survey.php:188
+#: plugin/feature/_sms_survey/sms_survey.php:276
+#: plugin/feature/_sms_survey/sms_survey.php:278
+#: plugin/feature/_sms_survey/sms_survey.php:334
+#: plugin/feature/_sms_survey/sms_survey.php:336
+#: plugin/feature/_sms_survey/sms_survey_questions.php:48
+#: plugin/feature/_sms_survey/sms_survey_questions.php:50
 msgid "no"
 msgstr ""
 
-#: sms_survey_members.php:36 sms_survey_members.php:117
-#: sms_survey_members.php:201 sms_survey.php:59 sms_survey.php:187
-#: sms_survey.php:277 sms_survey.php:335 sms_survey_questions.php:49
+#: plugin/feature/_sms_survey/sms_survey_members.php:37
+#: plugin/feature/_sms_survey/sms_survey_members.php:118
+#: plugin/feature/_sms_survey/sms_survey_members.php:202
+#: plugin/feature/_sms_survey/sms_survey.php:60
+#: plugin/feature/_sms_survey/sms_survey.php:188
+#: plugin/feature/_sms_survey/sms_survey.php:278
+#: plugin/feature/_sms_survey/sms_survey.php:336
+#: plugin/feature/_sms_survey/sms_survey_questions.php:50
 msgid "restart"
 msgstr ""
 
-#: sms_survey_members.php:44 sms_survey_members.php:101
+#: plugin/feature/_sms_survey/sms_survey_members.php:45
+#: plugin/feature/_sms_survey/sms_survey_members.php:102
 msgid "Add member"
 msgstr ""
 
-#: sms_survey_members.php:49
+#: plugin/feature/_sms_survey/sms_survey_members.php:50
 msgid "Delete member"
 msgstr ""
 
-#: sms_survey_members.php:60 sms_survey_members.php:121
-#: sms_survey_members.php:205 sms_survey.php:37 sms_survey_questions.php:120
+#: plugin/feature/_sms_survey/sms_survey_members.php:61
+#: plugin/feature/_sms_survey/sms_survey_members.php:122
+#: plugin/feature/_sms_survey/sms_survey_members.php:206
+#: plugin/feature/_sms_survey/sms_survey.php:38
+#: plugin/feature/_sms_survey/sms_survey_questions.php:121
 msgid "User"
 msgstr "Usuário"
 
-#: sms_survey_members.php:61 sms_survey_members.php:122
-#: sms_survey_members.php:160 sms_survey_members.php:162
-#: sms_survey_members.php:166 sms_survey_members.php:168
-#: sms_survey_members.php:206 sms_survey.php:38 sms_survey.php:104
-#: sms_survey.php:141 sms_survey.php:191 sms_survey.php:281 sms_survey.php:339
-#: sms_survey_questions.php:121
+#: plugin/feature/_sms_survey/sms_survey_members.php:62
+#: plugin/feature/_sms_survey/sms_survey_members.php:123
+#: plugin/feature/_sms_survey/sms_survey_members.php:161
+#: plugin/feature/_sms_survey/sms_survey_members.php:163
+#: plugin/feature/_sms_survey/sms_survey_members.php:167
+#: plugin/feature/_sms_survey/sms_survey_members.php:169
+#: plugin/feature/_sms_survey/sms_survey_members.php:207
+#: plugin/feature/_sms_survey/sms_survey.php:39
+#: plugin/feature/_sms_survey/sms_survey.php:105
+#: plugin/feature/_sms_survey/sms_survey.php:142
+#: plugin/feature/_sms_survey/sms_survey.php:192
+#: plugin/feature/_sms_survey/sms_survey.php:282
+#: plugin/feature/_sms_survey/sms_survey.php:340
+#: plugin/feature/_sms_survey/sms_survey_questions.php:122
 msgid "Keyword"
 msgstr "Palavra-chave"
 
-#: sms_survey_members.php:62 sms_survey_members.php:123
-#: sms_survey_members.php:207 sms_survey.php:39 sms_survey.php:105
-#: sms_survey.php:142 sms_survey.php:192 sms_survey.php:282 sms_survey.php:340
-#: sms_survey_questions.php:122
+#: plugin/feature/_sms_survey/sms_survey_members.php:63
+#: plugin/feature/_sms_survey/sms_survey_members.php:124
+#: plugin/feature/_sms_survey/sms_survey_members.php:208
+#: plugin/feature/_sms_survey/sms_survey.php:40
+#: plugin/feature/_sms_survey/sms_survey.php:106
+#: plugin/feature/_sms_survey/sms_survey.php:143
+#: plugin/feature/_sms_survey/sms_survey.php:193
+#: plugin/feature/_sms_survey/sms_survey.php:283
+#: plugin/feature/_sms_survey/sms_survey.php:341
+#: plugin/feature/_sms_survey/sms_survey_questions.php:123
 msgid "Title"
 msgstr "Título"
 
-#: sms_survey_members.php:63 sms_survey_members.php:124
-#: sms_survey_members.php:208 sms_survey.php:40 sms_survey.php:193
-#: sms_survey.php:283 sms_survey.php:341 sms_survey_questions.php:123
+#: plugin/feature/_sms_survey/sms_survey_members.php:64
+#: plugin/feature/_sms_survey/sms_survey_members.php:125
+#: plugin/feature/_sms_survey/sms_survey_members.php:209
+#: plugin/feature/_sms_survey/sms_survey.php:41
+#: plugin/feature/_sms_survey/sms_survey.php:194
+#: plugin/feature/_sms_survey/sms_survey.php:284
+#: plugin/feature/_sms_survey/sms_survey.php:342
+#: plugin/feature/_sms_survey/sms_survey_questions.php:124
 msgid "Members"
 msgstr ""
 
-#: sms_survey_members.php:64 sms_survey_members.php:125
-#: sms_survey_members.php:209 sms_survey.php:41 sms_survey.php:194
-#: sms_survey.php:284 sms_survey.php:342 sms_survey_questions.php:124
+#: plugin/feature/_sms_survey/sms_survey_members.php:65
+#: plugin/feature/_sms_survey/sms_survey_members.php:126
+#: plugin/feature/_sms_survey/sms_survey_members.php:210
+#: plugin/feature/_sms_survey/sms_survey.php:42
+#: plugin/feature/_sms_survey/sms_survey.php:195
+#: plugin/feature/_sms_survey/sms_survey.php:285
+#: plugin/feature/_sms_survey/sms_survey.php:343
+#: plugin/feature/_sms_survey/sms_survey_questions.php:125
 msgid "Questions"
 msgstr ""
 
-#: sms_survey_members.php:65 sms_survey_members.php:126
-#: sms_survey_members.php:210 sms_survey.php:42 sms_survey.php:195
-#: sms_survey.php:285 sms_survey.php:343 sms_survey_questions.php:125
+#: plugin/feature/_sms_survey/sms_survey_members.php:66
+#: plugin/feature/_sms_survey/sms_survey_members.php:127
+#: plugin/feature/_sms_survey/sms_survey_members.php:211
+#: plugin/feature/_sms_survey/sms_survey.php:43
+#: plugin/feature/_sms_survey/sms_survey.php:196
+#: plugin/feature/_sms_survey/sms_survey.php:286
+#: plugin/feature/_sms_survey/sms_survey.php:344
+#: plugin/feature/_sms_survey/sms_survey_questions.php:126
 msgid "Status"
 msgstr "Estado"
 
-#: sms_survey_members.php:66 sms_survey_members.php:127
-#: sms_survey_members.php:211 sms_survey.php:43 sms_survey.php:196
-#: sms_survey.php:286 sms_survey.php:344 sms_survey_questions.php:126
+#: plugin/feature/_sms_survey/sms_survey_members.php:67
+#: plugin/feature/_sms_survey/sms_survey_members.php:128
+#: plugin/feature/_sms_survey/sms_survey_members.php:212
+#: plugin/feature/_sms_survey/sms_survey.php:44
+#: plugin/feature/_sms_survey/sms_survey.php:197
+#: plugin/feature/_sms_survey/sms_survey.php:287
+#: plugin/feature/_sms_survey/sms_survey.php:345
+#: plugin/feature/_sms_survey/sms_survey_questions.php:127
 msgid "Started"
 msgstr ""
 
-#: sms_survey_members.php:73 sms_survey_members.php:262
-#: sms_survey_members.php:264
+#: plugin/feature/_sms_survey/sms_survey_members.php:74
+#: plugin/feature/_sms_survey/sms_survey_members.php:263
+#: plugin/feature/_sms_survey/sms_survey_members.php:265
 msgid "Mobile"
 msgstr "Celular"
 
-#: sms_survey_members.php:74
+#: plugin/feature/_sms_survey/sms_survey_members.php:75
 msgid "Name"
 msgstr "Nome"
 
-#: sms_survey_members.php:135
+#: plugin/feature/_sms_survey/sms_survey_members.php:136
 msgid "Please select CSV file"
 msgstr ""
 
-#: sms_survey_members.php:135
+#: plugin/feature/_sms_survey/sms_survey_members.php:136
 msgid "format : keyword, mobile, name"
 msgstr ""
 
-#: sms_survey_members.php:137
+#: plugin/feature/_sms_survey/sms_survey_members.php:138
 msgid "Press submit button to add members from CSV file"
 msgstr ""
 
-#: sms_survey_members.php:138 sms_survey.php:107 sms_survey.php:144
-#: sms_survey_questions.php:75 sms_survey_questions.php:93
-#: sms_survey_questions.php:111
+#: plugin/feature/_sms_survey/sms_survey_members.php:139
+#: plugin/feature/_sms_survey/sms_survey.php:108
+#: plugin/feature/_sms_survey/sms_survey.php:145
+#: plugin/feature/_sms_survey/sms_survey_questions.php:76
+#: plugin/feature/_sms_survey/sms_survey_questions.php:94
+#: plugin/feature/_sms_survey/sms_survey_questions.php:112
 msgid "Submit"
 msgstr ""
 
-#: sms_survey_members.php:160
+#: plugin/feature/_sms_survey/sms_survey_members.php:161
 msgid "Member has been added"
 msgstr ""
 
-#: sms_survey_members.php:160 sms_survey_members.php:162
-#: sms_survey_members.php:166 sms_survey_members.php:168
+#: plugin/feature/_sms_survey/sms_survey_members.php:161
+#: plugin/feature/_sms_survey/sms_survey_members.php:163
+#: plugin/feature/_sms_survey/sms_survey_members.php:167
+#: plugin/feature/_sms_survey/sms_survey_members.php:169
 msgid "mobile"
 msgstr ""
 
-#: sms_survey_members.php:160 sms_survey_members.php:162
-#: sms_survey_members.php:166 sms_survey_members.php:168
-#: sms_survey_members.php:262 sms_survey_members.php:264
+#: plugin/feature/_sms_survey/sms_survey_members.php:161
+#: plugin/feature/_sms_survey/sms_survey_members.php:163
+#: plugin/feature/_sms_survey/sms_survey_members.php:167
+#: plugin/feature/_sms_survey/sms_survey_members.php:169
+#: plugin/feature/_sms_survey/sms_survey_members.php:263
+#: plugin/feature/_sms_survey/sms_survey_members.php:265
 msgid "name"
 msgstr ""
 
-#: sms_survey_members.php:162
+#: plugin/feature/_sms_survey/sms_survey_members.php:163
 msgid "Fail to add member"
 msgstr ""
 
-#: sms_survey_members.php:166
+#: plugin/feature/_sms_survey/sms_survey_members.php:167
 msgid "Keyword does not match"
 msgstr ""
 
-#: sms_survey_members.php:168
+#: plugin/feature/_sms_survey/sms_survey_members.php:169
 msgid "Mobile number not exists"
 msgstr ""
 
-#: sms_survey_members.php:175
+#: plugin/feature/_sms_survey/sms_survey_members.php:176
 msgid "Keyword does not exists"
 msgstr ""
 
-#: sms_survey_members.php:185
+#: plugin/feature/_sms_survey/sms_survey_members.php:186
 msgid "Remove member"
 msgstr ""
 
-#: sms_survey_members.php:229
+#: plugin/feature/_sms_survey/sms_survey_members.php:230
 msgid "Current members"
 msgstr ""
 
-#: sms_survey_members.php:235 sms_survey_members.php:237
+#: plugin/feature/_sms_survey/sms_survey_members.php:236
+#: plugin/feature/_sms_survey/sms_survey_members.php:238
 msgid "All"
 msgstr "Todos"
 
-#: sms_survey_members.php:241
+#: plugin/feature/_sms_survey/sms_survey_members.php:242
 msgid "Selected members"
 msgstr ""
 
-#: sms_survey_members.php:246
+#: plugin/feature/_sms_survey/sms_survey_members.php:247
 msgid "Press submit button to remove selected members from member list"
 msgstr ""
 
-#: sms_survey_members.php:262
+#: plugin/feature/_sms_survey/sms_survey_members.php:263
 msgid "Member has been deleted"
 msgstr ""
 
-#: sms_survey_members.php:264
+#: plugin/feature/_sms_survey/sms_survey_members.php:265
 msgid "Fail to delete member"
 msgstr ""
 
-#: sms_survey_members.php:268
+#: plugin/feature/_sms_survey/sms_survey_members.php:269
 msgid "Receiver number does not exists"
 msgstr ""
 
-#: sms_survey.php:32 sms_survey.php:90 sms_survey.php:100
+#: plugin/feature/_sms_survey/config.php:6
+msgid "Manage survey"
+msgstr ""
+
+#: plugin/feature/_sms_survey/sms_survey.php:33
+#: plugin/feature/_sms_survey/sms_survey.php:91
+#: plugin/feature/_sms_survey/sms_survey.php:101
 msgid "Add survey"
 msgstr ""
 
-#: sms_survey.php:44 sms_survey_questions.php:138
+#: plugin/feature/_sms_survey/sms_survey.php:45
+#: plugin/feature/_sms_survey/sms_survey_questions.php:139
 msgid "Action"
 msgstr "Ação"
 
-#: sms_survey.php:55 sms_survey.php:62
+#: plugin/feature/_sms_survey/sms_survey.php:56
+#: plugin/feature/_sms_survey/sms_survey.php:63
 msgid "N/A"
 msgstr ""
 
-#: sms_survey.php:117
+#: plugin/feature/_sms_survey/sms_survey.php:118
 msgid "Survey has been added"
 msgstr ""
 
-#: sms_survey.php:117 sms_survey.php:119 sms_survey.php:157 sms_survey.php:159
-#: sms_survey.php:215 sms_survey.php:217 sms_survey.php:231 sms_survey.php:233
-#: sms_survey.php:247 sms_survey.php:249 sms_survey.php:305 sms_survey.php:307
-#: sms_survey.php:363 sms_survey.php:365
+#: plugin/feature/_sms_survey/sms_survey.php:118
+#: plugin/feature/_sms_survey/sms_survey.php:120
+#: plugin/feature/_sms_survey/sms_survey.php:158
+#: plugin/feature/_sms_survey/sms_survey.php:160
+#: plugin/feature/_sms_survey/sms_survey.php:216
+#: plugin/feature/_sms_survey/sms_survey.php:218
+#: plugin/feature/_sms_survey/sms_survey.php:232
+#: plugin/feature/_sms_survey/sms_survey.php:234
+#: plugin/feature/_sms_survey/sms_survey.php:248
+#: plugin/feature/_sms_survey/sms_survey.php:250
+#: plugin/feature/_sms_survey/sms_survey.php:306
+#: plugin/feature/_sms_survey/sms_survey.php:308
+#: plugin/feature/_sms_survey/sms_survey.php:364
+#: plugin/feature/_sms_survey/sms_survey.php:366
 msgid "keyword"
 msgstr "palavra-chave"
 
-#: sms_survey.php:119
+#: plugin/feature/_sms_survey/sms_survey.php:120
 msgid "Fail to add survey"
 msgstr ""
 
-#: sms_survey.php:122 sms_survey.php:162 sms_survey_questions.php:174
-#: sms_survey_questions.php:190 sms_survey_questions.php:205
+#: plugin/feature/_sms_survey/sms_survey.php:123
+#: plugin/feature/_sms_survey/sms_survey.php:163
+#: plugin/feature/_sms_survey/sms_survey_questions.php:175
+#: plugin/feature/_sms_survey/sms_survey_questions.php:191
+#: plugin/feature/_sms_survey/sms_survey_questions.php:206
 msgid "You must fill all fields"
 msgstr "Preencha todos os campos"
 
-#: sms_survey.php:132
+#: plugin/feature/_sms_survey/sms_survey.php:133
 msgid "Edit survey"
 msgstr ""
 
-#: sms_survey.php:157
+#: plugin/feature/_sms_survey/sms_survey.php:158
 msgid "Survey has been edited"
 msgstr ""
 
-#: sms_survey.php:159
+#: plugin/feature/_sms_survey/sms_survey.php:160
 msgid "Fail to edit survey"
 msgstr ""
 
-#: sms_survey.php:172
+#: plugin/feature/_sms_survey/sms_survey.php:173
 msgid "Delete survey"
 msgstr ""
 
-#: sms_survey.php:198
+#: plugin/feature/_sms_survey/sms_survey.php:199
 msgid "Are you sure you want to delete this survey ?"
 msgstr ""
 
-#: sms_survey.php:201 sms_survey.php:291 sms_survey.php:349
+#: plugin/feature/_sms_survey/sms_survey.php:202
+#: plugin/feature/_sms_survey/sms_survey.php:292
+#: plugin/feature/_sms_survey/sms_survey.php:350
 msgid "Yes"
 msgstr ""
 
-#: sms_survey.php:204 sms_survey.php:294 sms_survey.php:352
+#: plugin/feature/_sms_survey/sms_survey.php:205
+#: plugin/feature/_sms_survey/sms_survey.php:295
+#: plugin/feature/_sms_survey/sms_survey.php:353
 msgid "Cancel"
 msgstr ""
 
-#: sms_survey.php:215
+#: plugin/feature/_sms_survey/sms_survey.php:216
 msgid "Survey has been deleted"
 msgstr ""
 
-#: sms_survey.php:217
+#: plugin/feature/_sms_survey/sms_survey.php:218
 msgid "Fail to delete survey"
 msgstr ""
 
-#: sms_survey.php:220 sms_survey.php:236 sms_survey.php:252 sms_survey.php:310
-#: sms_survey.php:368
+#: plugin/feature/_sms_survey/sms_survey.php:221
+#: plugin/feature/_sms_survey/sms_survey.php:237
+#: plugin/feature/_sms_survey/sms_survey.php:253
+#: plugin/feature/_sms_survey/sms_survey.php:311
+#: plugin/feature/_sms_survey/sms_survey.php:369
 msgid "Survey does not exists"
 msgstr ""
 
-#: sms_survey.php:231
+#: plugin/feature/_sms_survey/sms_survey.php:232
 msgid "Survey has been enabled"
 msgstr ""
 
-#: sms_survey.php:233
+#: plugin/feature/_sms_survey/sms_survey.php:234
 msgid "Fail to enable survey"
 msgstr ""
 
-#: sms_survey.php:247
+#: plugin/feature/_sms_survey/sms_survey.php:248
 msgid "Survey has been disabled"
 msgstr ""
 
-#: sms_survey.php:249
+#: plugin/feature/_sms_survey/sms_survey.php:250
 msgid "Fail to disable survey"
 msgstr ""
 
-#: sms_survey.php:262
+#: plugin/feature/_sms_survey/sms_survey.php:263
 msgid "Start survey"
 msgstr ""
 
-#: sms_survey.php:288
+#: plugin/feature/_sms_survey/sms_survey.php:289
 msgid "Are you sure you want to start this survey ?"
 msgstr ""
 
-#: sms_survey.php:305
+#: plugin/feature/_sms_survey/sms_survey.php:306
 msgid "Survey has been started"
 msgstr ""
 
-#: sms_survey.php:307
+#: plugin/feature/_sms_survey/sms_survey.php:308
 msgid "Fail to start survey"
 msgstr ""
 
-#: sms_survey.php:320
+#: plugin/feature/_sms_survey/sms_survey.php:321
 msgid "Stop survey"
 msgstr ""
 
-#: sms_survey.php:346
+#: plugin/feature/_sms_survey/sms_survey.php:347
 msgid "Are you sure you want to stop this survey ?"
 msgstr ""
 
-#: sms_survey.php:363
+#: plugin/feature/_sms_survey/sms_survey.php:364
 msgid "Survey has been stoped"
 msgstr ""
 
-#: sms_survey.php:365
+#: plugin/feature/_sms_survey/sms_survey.php:366
 msgid "Fail to stop survey"
 msgstr ""
 
-#: sms_survey_questions.php:25 sms_survey_questions.php:57
+#: plugin/feature/_sms_survey/sms_survey_questions.php:26
+#: plugin/feature/_sms_survey/sms_survey_questions.php:58
 msgid "Add question"
 msgstr ""
 
-#: sms_survey_questions.php:27
+#: plugin/feature/_sms_survey/sms_survey_questions.php:28
 msgid "Edit question"
 msgstr ""
 
-#: sms_survey_questions.php:29
+#: plugin/feature/_sms_survey/sms_survey_questions.php:30
 msgid "Delete question"
 msgstr ""
 
-#: sms_survey_questions.php:31
+#: plugin/feature/_sms_survey/sms_survey_questions.php:32
 msgid "Question list"
 msgstr ""
 
-#: sms_survey_questions.php:73 sms_survey_questions.php:91
-#: sms_survey_questions.php:109 sms_survey_questions.php:137
+#: plugin/feature/_sms_survey/sms_survey_questions.php:74
+#: plugin/feature/_sms_survey/sms_survey_questions.php:92
+#: plugin/feature/_sms_survey/sms_survey_questions.php:110
+#: plugin/feature/_sms_survey/sms_survey_questions.php:138
 msgid "Question"
 msgstr "Pergunta"
 
-#: sms_survey_questions.php:169
+#: plugin/feature/_sms_survey/sms_survey_questions.php:170
 msgid "Question has been added"
 msgstr ""
 
-#: sms_survey_questions.php:171
+#: plugin/feature/_sms_survey/sms_survey_questions.php:172
 msgid "Fail to add question"
 msgstr ""
 
-#: sms_survey_questions.php:185
+#: plugin/feature/_sms_survey/sms_survey_questions.php:186
 msgid "Question has been edited"
 msgstr ""
 
-#: sms_survey_questions.php:187
+#: plugin/feature/_sms_survey/sms_survey_questions.php:188
 msgid "Fail to edit question"
 msgstr ""
 
-#: sms_survey_questions.php:200
+#: plugin/feature/_sms_survey/sms_survey_questions.php:201
 msgid "Question has been deleted"
 msgstr ""
 
-#: sms_survey_questions.php:202
+#: plugin/feature/_sms_survey/sms_survey_questions.php:203
 msgid "Fail to delete question"
 msgstr ""

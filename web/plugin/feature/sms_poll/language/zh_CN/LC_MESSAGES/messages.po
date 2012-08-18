@@ -1,157 +1,177 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config.php:4 sms_poll.php:12
+#: plugin/feature/sms_poll/config.php:6
+#: plugin/feature/sms_poll/sms_poll.php:13
 msgid "Manage poll"
 msgstr "管理投票"
 
-#: sms_poll.php:14 sms_poll.php:62 sms_poll.php:276
+#: plugin/feature/sms_poll/sms_poll.php:15
+#: plugin/feature/sms_poll/sms_poll.php:63
+#: plugin/feature/sms_poll/sms_poll.php:277
 msgid "Add SMS poll"
 msgstr "增加短信投票"
 
-#: sms_poll.php:27 sms_poll.php:113
+#: plugin/feature/sms_poll/sms_poll.php:28
+#: plugin/feature/sms_poll/sms_poll.php:114
 msgid "Keyword"
 msgstr "关键字"
 
-#: sms_poll.php:28 sms_poll.php:114
+#: plugin/feature/sms_poll/sms_poll.php:29
+#: plugin/feature/sms_poll/sms_poll.php:115
 msgid "Title"
 msgstr "标题"
 
-#: sms_poll.php:29
+#: plugin/feature/sms_poll/sms_poll.php:30
 msgid "User"
 msgstr "用户"
 
-#: sms_poll.php:30
+#: plugin/feature/sms_poll/sms_poll.php:31
 msgid "Status"
 msgstr "状态"
 
-#: sms_poll.php:31 sms_poll.php:115
+#: plugin/feature/sms_poll/sms_poll.php:32
+#: plugin/feature/sms_poll/sms_poll.php:116
 msgid "Action"
 msgstr "行动"
 
-#: sms_poll.php:40 sms_poll.php:154
+#: plugin/feature/sms_poll/sms_poll.php:41
+#: plugin/feature/sms_poll/sms_poll.php:155
 msgid "Disabled"
 msgstr "禁用"
 
-#: sms_poll.php:43 sms_poll.php:157
+#: plugin/feature/sms_poll/sms_poll.php:44
+#: plugin/feature/sms_poll/sms_poll.php:158
 msgid "Enabled"
 msgstr "使用"
 
-#: sms_poll.php:47
+#: plugin/feature/sms_poll/sms_poll.php:48
 msgid ""
 "Are you sure you want to delete SMS poll with all its choices and votes ?"
 msgstr "确定删除短信投票和它的全部选择和选票 ?"
 
-#: sms_poll.php:47 sms_poll.php:131 sms_poll.php:183 sms_poll.php:236
-#: sms_poll.php:241 sms_poll.php:257 sms_poll.php:265 sms_poll.php:305
-#: sms_poll.php:310
+#: plugin/feature/sms_poll/sms_poll.php:48
+#: plugin/feature/sms_poll/sms_poll.php:132
+#: plugin/feature/sms_poll/sms_poll.php:184
+#: plugin/feature/sms_poll/sms_poll.php:237
+#: plugin/feature/sms_poll/sms_poll.php:242
+#: plugin/feature/sms_poll/sms_poll.php:258
+#: plugin/feature/sms_poll/sms_poll.php:266
+#: plugin/feature/sms_poll/sms_poll.php:306
+#: plugin/feature/sms_poll/sms_poll.php:311
 msgid "keyword"
 msgstr "关键字"
 
-#: sms_poll.php:85
+#: plugin/feature/sms_poll/sms_poll.php:86
 msgid "Edit SMS poll"
 msgstr "编辑短信投票"
 
-#: sms_poll.php:92 sms_poll.php:281
+#: plugin/feature/sms_poll/sms_poll.php:93
+#: plugin/feature/sms_poll/sms_poll.php:282
 msgid "SMS poll keyword"
 msgstr "短信投票关键字"
 
-#: sms_poll.php:95 sms_poll.php:284
+#: plugin/feature/sms_poll/sms_poll.php:96
+#: plugin/feature/sms_poll/sms_poll.php:285
 msgid "SMS poll title"
 msgstr "短信投票标题"
 
-#: sms_poll.php:98
+#: plugin/feature/sms_poll/sms_poll.php:99
 msgid "Save"
 msgstr "保存"
 
-#: sms_poll.php:104
+#: plugin/feature/sms_poll/sms_poll.php:105
 msgid "Edit SMS poll choices"
 msgstr "编辑短信投票选项"
 
-#: sms_poll.php:131
+#: plugin/feature/sms_poll/sms_poll.php:132
 msgid "Are you sure you want to delete choice ?"
 msgstr "确定删除选项 ?"
 
-#: sms_poll.php:131 sms_poll.php:214
+#: plugin/feature/sms_poll/sms_poll.php:132
+#: plugin/feature/sms_poll/sms_poll.php:215
 msgid "title"
 msgstr "标题"
 
-#: sms_poll.php:136
+#: plugin/feature/sms_poll/sms_poll.php:137
 msgid "Add choice to this poll"
 msgstr "增加选项到此投票"
 
-#: sms_poll.php:141
+#: plugin/feature/sms_poll/sms_poll.php:142
 msgid "Choice Keyword"
 msgstr "选项关键字"
 
-#: sms_poll.php:144
+#: plugin/feature/sms_poll/sms_poll.php:145
 msgid "Choice title"
 msgstr "选项标题"
 
-#: sms_poll.php:147 sms_poll.php:287
+#: plugin/feature/sms_poll/sms_poll.php:148
+#: plugin/feature/sms_poll/sms_poll.php:288
 msgid "Add"
 msgstr "增加"
 
-#: sms_poll.php:160
+#: plugin/feature/sms_poll/sms_poll.php:161
 msgid "Enable or disable this poll"
 msgstr "使用或禁用此投票"
 
-#: sms_poll.php:162
+#: plugin/feature/sms_poll/sms_poll.php:163
 msgid "Current status"
 msgstr "当前状态"
 
-#: sms_poll.php:163
+#: plugin/feature/sms_poll/sms_poll.php:164
 msgid "What do you want to do ?"
 msgstr "你想做什么 ?"
 
-#: sms_poll.php:164
+#: plugin/feature/sms_poll/sms_poll.php:165
 msgid "I want to enable this poll"
 msgstr "我要使用此投票"
 
-#: sms_poll.php:165
+#: plugin/feature/sms_poll/sms_poll.php:166
 msgid "I want to disable this poll"
 msgstr "我要禁用此投票"
 
-#: sms_poll.php:183
+#: plugin/feature/sms_poll/sms_poll.php:184
 msgid "SMS poll with has been saved"
 msgstr "短信投票已保存"
 
-#: sms_poll.php:188 sms_poll.php:246 sms_poll.php:315
+#: plugin/feature/sms_poll/sms_poll.php:189
+#: plugin/feature/sms_poll/sms_poll.php:247
+#: plugin/feature/sms_poll/sms_poll.php:316
 msgid "You must fill all fields"
 msgstr "你必须填满全部空白"
 
-#: sms_poll.php:199
+#: plugin/feature/sms_poll/sms_poll.php:200
 msgid "SMS poll status has been changed"
 msgstr "短信投票状态已改变"
 
-#: sms_poll.php:214
+#: plugin/feature/sms_poll/sms_poll.php:215
 msgid "SMS poll with all its messages has been deleted"
 msgstr "短信投票和它的全部信息已删除"
 
-#: sms_poll.php:236
+#: plugin/feature/sms_poll/sms_poll.php:237
 msgid "Choice has been added"
 msgstr "选项已增加"
 
-#: sms_poll.php:241
+#: plugin/feature/sms_poll/sms_poll.php:242
 msgid "Choice already exists"
 msgstr "选项已存在"
 
-#: sms_poll.php:257
+#: plugin/feature/sms_poll/sms_poll.php:258
 msgid "Fail to delete SMS poll choice"
 msgstr "删除短信投票选项失败"
 
-#: sms_poll.php:265
+#: plugin/feature/sms_poll/sms_poll.php:266
 msgid "SMS poll choice and all its voters has been deleted"
 msgstr "短信投票选项和它的全部选民已删除"
 
-#: sms_poll.php:305
+#: plugin/feature/sms_poll/sms_poll.php:306
 msgid "SMS poll has been added"
 msgstr "短信投票已增加"
 
-#: sms_poll.php:310
+#: plugin/feature/sms_poll/sms_poll.php:311
 msgid "SMS poll already exists, reserved or use by other feature"
 msgstr "短信投票已存在, 保留或其他功能的使用"

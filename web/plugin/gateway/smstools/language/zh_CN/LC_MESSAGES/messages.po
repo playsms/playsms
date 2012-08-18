@@ -1,30 +1,31 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config.php:7 smstools.php:23
-msgid "Manage smstools"
-msgstr "管理短信工具"
-
-#: smstools.php:8
+#: plugin/gateway/smstools/smstools.php:9
 msgid "Active"
 msgstr "活跃"
 
-#: smstools.php:12
+#: plugin/gateway/smstools/smstools.php:13
 msgid "Inactive"
 msgstr "不活跃"
 
-#: smstools.php:12
+#: plugin/gateway/smstools/smstools.php:13
 msgid "click here to activate"
 msgstr "点击这里激活"
 
-#: smstools.php:27
+#: plugin/gateway/smstools/smstools.php:24
+#: plugin/gateway/smstools/config.php:12
+msgid "Manage smstools"
+msgstr "管理短信工具"
+
+#: plugin/gateway/smstools/smstools.php:28
 msgid "Gateway name"
 msgstr "网关名"
 
-#: smstools.php:36
+#: plugin/gateway/smstools/smstools.php:37
 msgid "Gateway has been activated"
 msgstr "网关已激活"

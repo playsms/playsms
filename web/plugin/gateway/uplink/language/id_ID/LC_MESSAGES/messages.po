@@ -1,86 +1,98 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config.php:17 uplink.php:24
+#: plugin/gateway/uplink/config.php:24 plugin/gateway/uplink/uplink.php:25
 msgid "Manage uplink"
 msgstr "Pengaturan uplink"
 
-#: uplink.php:8
+#: plugin/gateway/uplink/uplink.php:9
 msgid "Active"
 msgstr "Aktif"
 
-#: uplink.php:12
+#: plugin/gateway/uplink/uplink.php:13
 msgid "Inactive"
 msgstr "Nonaktif"
 
-#: uplink.php:12
+#: plugin/gateway/uplink/uplink.php:13
 msgid "click here to activate"
 msgstr "Klik di sini untuk mengaktifkan"
 
-#: uplink.php:29
+#: plugin/gateway/uplink/uplink.php:30
 msgid "Gateway name"
 msgstr "Nama gateway"
 
-#: uplink.php:32
+#: plugin/gateway/uplink/uplink.php:33
 msgid "Master URL"
 msgstr "URL Utama"
 
-#: uplink.php:35
+#: plugin/gateway/uplink/uplink.php:36
 msgid "Additional URL parameter"
 msgstr "Parameter URL tambahan"
 
-#: uplink.php:35
+#: plugin/gateway/uplink/uplink.php:39
 msgid "Username"
 msgstr "Nama pengguna"
 
-#: uplink.php:38
+#: plugin/gateway/uplink/uplink.php:42
 msgid "Password"
 msgstr "Kata sandi"
 
-#: uplink.php:38
+#: plugin/gateway/uplink/uplink.php:42
 msgid "Fill to change the password"
 msgstr "Isi untuk merubah kata sandi"
 
-#: uplink.php:41
-msgid "Global sender"
+#: plugin/gateway/uplink/uplink.php:45
+#, fuzzy
+msgid "Module sender ID"
 msgstr "Pengirim global"
 
-#: uplink.php:41
+#: plugin/gateway/uplink/uplink.php:45
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "Maks. 16 karakter numerik atau 11 alfanumerik. kosongkan untuk menonaktifkan"
+msgstr ""
+"Maks. 16 karakter numerik atau 11 alfanumerik. kosongkan untuk menonaktifkan"
 
-#: uplink.php:44
+#: plugin/gateway/uplink/uplink.php:48
+msgid "Module timezone"
+msgstr ""
+
+#: plugin/gateway/uplink/uplink.php:48
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+#: plugin/gateway/uplink/uplink.php:52
 msgid "Uplink incoming path"
 msgstr "Jalur masuk uplink"
 
-#: uplink.php:44
+#: plugin/gateway/uplink/uplink.php:52
 msgid "No trailing slash"
 msgstr "Tanpa garis miring"
 
-#: uplink.php:48
+#: plugin/gateway/uplink/uplink.php:57
 msgid "Note"
 msgstr "Catatan"
 
-#: uplink.php:49
+#: plugin/gateway/uplink/uplink.php:58
 msgid "Send SMS message without footer banner"
 msgstr "Kirim SMS tanpa banner footer"
 
-#: uplink.php:51
+#: plugin/gateway/uplink/uplink.php:60 plugin/gateway/uplink/uplink.php:56
 msgid "Save"
 msgstr "Simpan"
 
-#: uplink.php:62
+#: plugin/gateway/uplink/uplink.php:73 plugin/gateway/uplink/uplink.php:69
 msgid "No changes has been made"
 msgstr "Tidak ada perubahan yang dilakukan"
 
-#: uplink.php:76
+#: plugin/gateway/uplink/uplink.php:92 plugin/gateway/uplink/uplink.php:107
+#: plugin/gateway/uplink/uplink.php:103
 msgid "Gateway module configurations has been saved"
 msgstr "Konfigurasi modul gateway telah disimpan"
 
-#: uplink.php:84
+#: plugin/gateway/uplink/uplink.php:100 plugin/gateway/uplink/uplink.php:115
+#: plugin/gateway/uplink/uplink.php:111
 msgid "Gateway has been activated"
 msgstr "Gateway telah diaktifkan"

@@ -1,46 +1,79 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: header.php:26
-msgid "Logged in"
-msgstr "登陆"
-
-#: header.php:26
-msgid "Status"
-msgstr "状态"
-
-#: loginpage.php:19
-msgid "Username"
-msgstr "用户名"
-
-#: loginpage.php:23
-msgid "Password"
-msgstr "密码"
-
-#: welcomepage.php:7
+#: plugin/themes/work2/page_welcome.php:8
 msgid "Welcome to playSMS"
 msgstr "欢迎使用playSMS"
 
-#: welcomepage.php:9
+#: plugin/themes/work2/page_welcome.php:10
 msgid "About playSMS"
 msgstr "关于playSMS"
 
-#: welcomepage.php:10
+#: plugin/themes/work2/page_welcome.php:11
 msgid "Changelog"
 msgstr "更改日志"
 
-#: welcomepage.php:11
+#: plugin/themes/work2/page_welcome.php:12
 msgid "Installation Guide"
 msgstr "安装指南"
 
-#: welcomepage.php:12
+#: plugin/themes/work2/page_welcome.php:13
 msgid "F.A.Q"
 msgstr "常见问题"
 
-#: welcomepage.php:13
+#: plugin/themes/work2/page_welcome.php:14
 msgid "License"
 msgstr "通行证"
+
+#: plugin/themes/work2/page_register.php:26
+msgid "Name"
+msgstr ""
+
+#: plugin/themes/work2/page_register.php:30
+#: plugin/themes/work2/page_login.php:25
+#: plugin/themes/work2/page_forgot.php:26
+msgid "Username"
+msgstr "用户名"
+
+#: plugin/themes/work2/page_register.php:35
+msgid "Mobile"
+msgstr ""
+
+#: plugin/themes/work2/page_register.php:39
+#: plugin/themes/work2/page_forgot.php:31
+msgid "Email"
+msgstr ""
+
+#: plugin/themes/work2/page_register.php:45
+#: plugin/themes/work2/page_login.php:43
+msgid "Register an account"
+msgstr ""
+
+#: plugin/themes/work2/page_login.php:30
+msgid "Password"
+msgstr "密码"
+
+#: plugin/themes/work2/page_login.php:36
+msgid "Login"
+msgstr ""
+
+#: plugin/themes/work2/page_login.php:50
+#, fuzzy
+msgid "Forgot password"
+msgstr "密码"
+
+#: plugin/themes/work2/header.php:36
+msgid "Logged in"
+msgstr "登陆"
+
+#: plugin/themes/work2/header.php:37
+msgid "Status"
+msgstr "状态"
+
+#: plugin/themes/work2/page_forgot.php:37
+msgid "Recover password"
+msgstr ""

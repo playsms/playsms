@@ -1,62 +1,92 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: header.php:39
-msgid "Home"
-msgstr "Início"
-
-#: header.php:40
-msgid "Preferences"
-msgstr "Preferências"
-
-#: header.php:41
-msgid "Contact"
-msgstr "Contato"
-
-#: header.php:42
-msgid "Logout"
-msgstr "Sair"
-
-#: loginpage.php:27
-msgid "Username"
-msgstr "Usuário"
-
-#: loginpage.php:31
-msgid "Password"
-msgstr "Senha"
-
-#: loginpage.php:36
-msgid "Login"
-msgstr "Login"
-
-#: welcomepage.php:7
+#: plugin/themes/km2/page_welcome.php:8
 msgid "Welcome to PlaySMS"
 msgstr ""
 
-#: welcomepage.php:16
+#: plugin/themes/km2/page_welcome.php:17
 msgid "About playSMS"
 msgstr "Sobre o playSMS"
 
-#: welcomepage.php:17
+#: plugin/themes/km2/page_welcome.php:18
 msgid "Changelog"
 msgstr ""
 
-#: welcomepage.php:18
+#: plugin/themes/km2/page_welcome.php:19
 msgid "Installation Guide"
 msgstr "Guia de instalação"
 
-#: welcomepage.php:19
+#: plugin/themes/km2/page_welcome.php:20
 msgid "F.A.Q"
 msgstr "FAQ"
 
-#: welcomepage.php:20
+#: plugin/themes/km2/page_welcome.php:21
 msgid "License"
 msgstr "Licença"
 
-#: welcomepage.php:25
+#: plugin/themes/km2/page_welcome.php:26
 msgid "FAQ Users"
+msgstr ""
+
+#: plugin/themes/km2/page_register.php:32
+msgid "Name"
+msgstr ""
+
+#: plugin/themes/km2/page_register.php:36 plugin/themes/km2/page_login.php:32
+#: plugin/themes/km2/page_forgot.php:31
+msgid "Username"
+msgstr "Usuário"
+
+#: plugin/themes/km2/page_register.php:41
+msgid "Mobile"
+msgstr ""
+
+#: plugin/themes/km2/page_register.php:46 plugin/themes/km2/page_forgot.php:36
+msgid "Email"
+msgstr ""
+
+#: plugin/themes/km2/page_register.php:53
+msgid "Register"
+msgstr ""
+
+#: plugin/themes/km2/page_login.php:37
+msgid "Password"
+msgstr "Senha"
+
+#: plugin/themes/km2/page_login.php:43
+msgid "Login"
+msgstr "Login"
+
+#: plugin/themes/km2/page_login.php:50
+msgid "Register an account"
+msgstr ""
+
+#: plugin/themes/km2/page_login.php:52
+#, fuzzy
+msgid "Forgot password"
+msgstr "Senha"
+
+#: plugin/themes/km2/header.php:42
+msgid "Home"
+msgstr "Início"
+
+#: plugin/themes/km2/header.php:45
+msgid "Preferences"
+msgstr "Preferências"
+
+#: plugin/themes/km2/header.php:47
+msgid "Contact"
+msgstr "Contato"
+
+#: plugin/themes/km2/header.php:50
+msgid "Logout"
+msgstr "Sair"
+
+#: plugin/themes/km2/page_forgot.php:43
+msgid "Recover password"
 msgstr ""

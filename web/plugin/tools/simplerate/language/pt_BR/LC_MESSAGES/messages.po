@@ -1,88 +1,108 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config.php:3 simplerate.php:12
+#: plugin/tools/simplerate/config.php:5
+#: plugin/tools/simplerate/simplerate.php:13
 msgid "Manage SMS rate"
 msgstr "Administrar taxa de SMS"
 
-#: simplerate.php:14 simplerate.php:47 simplerate.php:122
+#: plugin/tools/simplerate/simplerate.php:15
+#: plugin/tools/simplerate/simplerate.php:48
+#: plugin/tools/simplerate/simplerate.php:124
 msgid "Add rate"
 msgstr "Adicionar taxa"
 
-#: simplerate.php:18 simplerate.php:78 simplerate.php:127
+#: plugin/tools/simplerate/simplerate.php:19
+#: plugin/tools/simplerate/simplerate.php:79
+#: plugin/tools/simplerate/simplerate.php:129
 msgid "Destination"
 msgstr "Destino"
 
-#: simplerate.php:19 simplerate.php:81 simplerate.php:130
+#: plugin/tools/simplerate/simplerate.php:20
+#: plugin/tools/simplerate/simplerate.php:82
+#: plugin/tools/simplerate/simplerate.php:132
 msgid "Prefix"
 msgstr "Prefixo"
 
-#: simplerate.php:20 simplerate.php:84 simplerate.php:133
+#: plugin/tools/simplerate/simplerate.php:21
+#: plugin/tools/simplerate/simplerate.php:85
+#: plugin/tools/simplerate/simplerate.php:135
 msgid "Rate"
 msgstr "Taxa"
 
-#: simplerate.php:21
+#: plugin/tools/simplerate/simplerate.php:22
 msgid "Action"
 msgstr "Ação"
 
-#: simplerate.php:32
+#: plugin/tools/simplerate/simplerate.php:33
 msgid "Are you sure you want to delete rate ?"
 msgstr "Tem certeza que quer remover a taxa?"
 
-#: simplerate.php:32 simplerate.php:54 simplerate.php:58 simplerate.php:103
-#: simplerate.php:107 simplerate.php:151 simplerate.php:161
+#: plugin/tools/simplerate/simplerate.php:33
+#: plugin/tools/simplerate/simplerate.php:55
+#: plugin/tools/simplerate/simplerate.php:59
+#: plugin/tools/simplerate/simplerate.php:105
+#: plugin/tools/simplerate/simplerate.php:109
+#: plugin/tools/simplerate/simplerate.php:154
+#: plugin/tools/simplerate/simplerate.php:164
 msgid "destination"
 msgstr "destino"
 
-#: simplerate.php:32 simplerate.php:54 simplerate.php:58 simplerate.php:103
-#: simplerate.php:107 simplerate.php:151 simplerate.php:161
+#: plugin/tools/simplerate/simplerate.php:33
+#: plugin/tools/simplerate/simplerate.php:55
+#: plugin/tools/simplerate/simplerate.php:59
+#: plugin/tools/simplerate/simplerate.php:105
+#: plugin/tools/simplerate/simplerate.php:109
+#: plugin/tools/simplerate/simplerate.php:154
+#: plugin/tools/simplerate/simplerate.php:164
 msgid "prefix"
 msgstr "prefixo"
 
-#: simplerate.php:54
+#: plugin/tools/simplerate/simplerate.php:55
 msgid "Fail to delete rate"
 msgstr "Falha ao remover a taxa"
 
-#: simplerate.php:58
+#: plugin/tools/simplerate/simplerate.php:59
 msgid "Rate has been deleted"
 msgstr "A taxa foi removida"
 
-#: simplerate.php:72
+#: plugin/tools/simplerate/simplerate.php:73
 msgid "Edit rate"
 msgstr "Editar taxa"
 
-#: simplerate.php:87
+#: plugin/tools/simplerate/simplerate.php:88
 msgid "Save"
 msgstr "Salvar"
 
-#: simplerate.php:97
+#: plugin/tools/simplerate/simplerate.php:99
 msgid "No changes made!"
 msgstr "Nenhuma mudança feita!"
 
-#: simplerate.php:103
+#: plugin/tools/simplerate/simplerate.php:105
 msgid "Rate has been saved"
 msgstr "A taxa foi salva"
 
-#: simplerate.php:107
+#: plugin/tools/simplerate/simplerate.php:109
 msgid "Fail to save rate"
 msgstr "Falha ao salvar a taxa"
 
-#: simplerate.php:112 simplerate.php:167
+#: plugin/tools/simplerate/simplerate.php:114
+#: plugin/tools/simplerate/simplerate.php:170
 msgid "You must fill all fields"
 msgstr "Preencha todos os campos"
 
-#: simplerate.php:136
+#: plugin/tools/simplerate/simplerate.php:138
 msgid "Add"
 msgstr "Adicionar"
 
-#: simplerate.php:151
+#: plugin/tools/simplerate/simplerate.php:154
 msgid "Rate is already exists"
 msgstr "A taxa já existe"
 
-#: simplerate.php:161
+#: plugin/tools/simplerate/simplerate.php:164
 msgid "Rate has been added"
 msgstr "A taxa foi adicionada"

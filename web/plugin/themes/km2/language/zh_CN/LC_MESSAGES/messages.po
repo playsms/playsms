@@ -1,90 +1,91 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: header.php:39
-msgid "Home"
-msgstr "主页"
-
-#: header.php:40
-msgid "Preferences"
-msgstr "偏好"
-
-#: header.php:41
-msgid "Contact"
-msgstr "连接"
-
-#: header.php:42
-msgid "Logout"
-msgstr "注销"
-
-#: loginpage.php:27 page_forgot.php:37 page_register.php:41 page_login.php:37
-msgid "Username"
-msgstr "用户名"
-
-#: loginpage.php:31 page_login.php:41
-msgid "Password"
-msgstr "密码"
-
-#: loginpage.php:36 page_login.php:46
-msgid "Login"
-msgstr "登陆"
-
-#: welcomepage.php:7
+#: plugin/themes/km2/page_welcome.php:8
 msgid "Welcome to PlaySMS"
 msgstr "欢迎使用playSMS"
 
-#: welcomepage.php:16
+#: plugin/themes/km2/page_welcome.php:17
 msgid "About playSMS"
 msgstr "关于playSMS"
 
-#: welcomepage.php:17
+#: plugin/themes/km2/page_welcome.php:18
 msgid "Changelog"
 msgstr "更改日志"
 
-#: welcomepage.php:18
+#: plugin/themes/km2/page_welcome.php:19
 msgid "Installation Guide"
 msgstr "安装指南"
 
-#: welcomepage.php:19
+#: plugin/themes/km2/page_welcome.php:20
 msgid "F.A.Q"
 msgstr "常见问题"
 
-#: welcomepage.php:20
+#: plugin/themes/km2/page_welcome.php:21
 msgid "License"
 msgstr "通行证"
 
-#: welcomepage.php:25
+#: plugin/themes/km2/page_welcome.php:26
 msgid "FAQ Users"
 msgstr "常见问题用户"
 
-#: page_forgot.php:41 page_register.php:49
-msgid "Email"
-msgstr "电子邮件"
-
-#: page_forgot.php:46
-msgid "Recover password"
-msgstr "找回密码"
-
-#:page_register.php:54
-msgid "Register"
-msgstr "注册"
-
-#: page_register.php:37
+#: plugin/themes/km2/page_register.php:32
 msgid "Name"
 msgstr "姓名"
 
-#: page_register.php:45
+#: plugin/themes/km2/page_register.php:36 plugin/themes/km2/page_login.php:32
+#: plugin/themes/km2/page_forgot.php:31
+msgid "Username"
+msgstr "用户名"
+
+#: plugin/themes/km2/page_register.php:41
 msgid "Mobile"
 msgstr "手机"
 
-#: page_login.php:52
+#: plugin/themes/km2/page_register.php:46 plugin/themes/km2/page_forgot.php:36
+msgid "Email"
+msgstr "电子邮件"
+
+#: plugin/themes/km2/page_register.php:53
+msgid "Register"
+msgstr "注册"
+
+#: plugin/themes/km2/page_login.php:37
+msgid "Password"
+msgstr "密码"
+
+#: plugin/themes/km2/page_login.php:43
+msgid "Login"
+msgstr "登陆"
+
+#: plugin/themes/km2/page_login.php:50
 msgid "Register an account"
 msgstr "注册一个帐号"
 
-#: page_login.php:52
+#: plugin/themes/km2/page_login.php:52
 msgid "Forgot password"
 msgstr "忘记密码"
+
+#: plugin/themes/km2/header.php:42
+msgid "Home"
+msgstr "主页"
+
+#: plugin/themes/km2/header.php:45
+msgid "Preferences"
+msgstr "偏好"
+
+#: plugin/themes/km2/header.php:47
+msgid "Contact"
+msgstr "连接"
+
+#: plugin/themes/km2/header.php:50
+msgid "Logout"
+msgstr "注销"
+
+#: plugin/themes/km2/page_forgot.php:43
+msgid "Recover password"
+msgstr "找回密码"

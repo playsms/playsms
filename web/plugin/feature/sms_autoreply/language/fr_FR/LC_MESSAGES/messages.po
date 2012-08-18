@@ -1,130 +1,149 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
+"Language: fr_FR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR"
 
-#: config.php:6 sms_autoreply.php:12 sms_autoreply.php:75
+#: plugin/feature/sms_autoreply/config.php:6
+#: plugin/feature/sms_autoreply/sms_autoreply.php:13
+#: plugin/feature/sms_autoreply/sms_autoreply.php:76
 msgid "Manage autoreply"
 msgstr "Service réponse auto"
 
-#: sms_autoreply.php:14 sms_autoreply.php:56 sms_autoreply.php:149
+#: plugin/feature/sms_autoreply/sms_autoreply.php:15
+#: plugin/feature/sms_autoreply/sms_autoreply.php:57
+#: plugin/feature/sms_autoreply/sms_autoreply.php:151
 msgid "Add SMS autoreply"
 msgstr "Ajouter une réponse auto"
 
-#: sms_autoreply.php:26
+#: plugin/feature/sms_autoreply/sms_autoreply.php:27
 msgid "Keyword"
 msgstr "Mot-clé"
 
-#: sms_autoreply.php:27 sms_autoreply.php:86
+#: plugin/feature/sms_autoreply/sms_autoreply.php:28
+#: plugin/feature/sms_autoreply/sms_autoreply.php:87
 msgid "User"
 msgstr "Utilisateur"
 
-#: sms_autoreply.php:28 sms_autoreply.php:87
+#: plugin/feature/sms_autoreply/sms_autoreply.php:29
+#: plugin/feature/sms_autoreply/sms_autoreply.php:88
 msgid "Action"
 msgstr "Action"
 
-#: sms_autoreply.php:39
+#: plugin/feature/sms_autoreply/sms_autoreply.php:40
 msgid "Are you sure you want to delete SMS autoreply ?"
 msgstr "Voulez-vous supprimer ce service ?"
 
-#: sms_autoreply.php:39 sms_autoreply.php:134 sms_autoreply.php:138
-#: sms_autoreply.php:167 sms_autoreply.php:171 sms_autoreply.php:176
-#: sms_autoreply.php:199 sms_autoreply.php:203
+#: plugin/feature/sms_autoreply/sms_autoreply.php:40
+#: plugin/feature/sms_autoreply/sms_autoreply.php:136
+#: plugin/feature/sms_autoreply/sms_autoreply.php:140
+#: plugin/feature/sms_autoreply/sms_autoreply.php:169
+#: plugin/feature/sms_autoreply/sms_autoreply.php:173
+#: plugin/feature/sms_autoreply/sms_autoreply.php:178
 msgid "keyword"
 msgstr "mot-clé"
 
-#: sms_autoreply.php:77 sms_autoreply.php:152 sms_autoreply.php:221
-#: sms_autoreply.php:294
+#: plugin/feature/sms_autoreply/sms_autoreply.php:78
+#: plugin/feature/sms_autoreply/sms_autoreply.php:154
+#: plugin/feature/sms_autoreply/sms_autoreply.php:214
+#: plugin/feature/sms_autoreply/sms_autoreply.php:287
 msgid "SMS autoreply keyword"
 msgstr "Mot-clé du service"
 
-#: sms_autoreply.php:79 sms_autoreply.php:118 sms_autoreply.php:219
+#: plugin/feature/sms_autoreply/sms_autoreply.php:80
+#: plugin/feature/sms_autoreply/sms_autoreply.php:119
+#: plugin/feature/sms_autoreply/sms_autoreply.php:212
 msgid "Add SMS autoreply scenario"
 msgstr "Ajouter un scénario de réponse auto"
 
-#: sms_autoreply.php:84
+#: plugin/feature/sms_autoreply/sms_autoreply.php:85
 msgid "Param"
 msgstr "Paramètre"
 
-#: sms_autoreply.php:85
+#: plugin/feature/sms_autoreply/sms_autoreply.php:86
 msgid "Return"
 msgstr "Retour"
 
-#: sms_autoreply.php:104
+#: plugin/feature/sms_autoreply/sms_autoreply.php:105
 msgid "Are you sure you want to delete this SMS autoreply scenario ?"
 msgstr "Voulez-vous supprimer ce scénario de réponse auto ?"
 
-#: sms_autoreply.php:134
+#: plugin/feature/sms_autoreply/sms_autoreply.php:136
 msgid "SMS autoreply has been deleted"
 msgstr "Le service a été supprimé"
 
-#: sms_autoreply.php:138
+#: plugin/feature/sms_autoreply/sms_autoreply.php:140
 msgid "Fail to delete SMS autoreply"
 msgstr "Impossible de supprimer ce service"
 
-#: sms_autoreply.php:153 sms_autoreply.php:239
+#: plugin/feature/sms_autoreply/sms_autoreply.php:155
+#: plugin/feature/sms_autoreply/sms_autoreply.php:232
 msgid "Add"
 msgstr "Ajouter"
 
-#: sms_autoreply.php:167
+#: plugin/feature/sms_autoreply/sms_autoreply.php:169
 msgid "SMS autoreply keyword has been added"
 msgstr "Le mot-clé associé au service é été ajouté"
 
-#: sms_autoreply.php:171
+#: plugin/feature/sms_autoreply/sms_autoreply.php:173
 msgid "Fail to add SMS autoreply"
 msgstr "Impossible d'ajouter le service"
 
-#: sms_autoreply.php:176
+#: plugin/feature/sms_autoreply/sms_autoreply.php:178
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr "Le mot-clé existe déjà, est réservé ou utilisé par un autre service"
 
-#: sms_autoreply.php:181 sms_autoreply.php:276 sms_autoreply.php:357
+#: plugin/feature/sms_autoreply/sms_autoreply.php:183
+#: plugin/feature/sms_autoreply/sms_autoreply.php:269
+#: plugin/feature/sms_autoreply/sms_autoreply.php:350
 msgid "You must fill all fields"
 msgstr "Vous devez remplir tous les champs"
 
-#: sms_autoreply.php:199
-msgid "SMS autoreply scenario has been deleted"
-msgstr "Le scénario du service a été supprimé"
-
-#: sms_autoreply.php:203
+#: plugin/feature/sms_autoreply/sms_autoreply.php:190
 msgid "Fail to delete SMS autoreply scenario"
 msgstr "Impossible de supprimer le scenario de ce service"
 
-#: sms_autoreply.php:231 sms_autoreply.php:312
+#: plugin/feature/sms_autoreply/sms_autoreply.php:196
+msgid "SMS autoreply scenario has been deleted"
+msgstr "Le scénario du service a été supprimé"
+
+#: plugin/feature/sms_autoreply/sms_autoreply.php:224
+#: plugin/feature/sms_autoreply/sms_autoreply.php:305
 msgid "SMS autoreply scenario parameter"
 msgstr "Paramètre du scénario"
 
-#: sms_autoreply.php:236 sms_autoreply.php:318
+#: plugin/feature/sms_autoreply/sms_autoreply.php:229
+#: plugin/feature/sms_autoreply/sms_autoreply.php:311
 msgid "SMS autoreply scenario replies with"
 msgstr "Réponses du scénario avec"
 
-#: sms_autoreply.php:240 sms_autoreply.php:322
+#: plugin/feature/sms_autoreply/sms_autoreply.php:233
+#: plugin/feature/sms_autoreply/sms_autoreply.php:315
 msgid "Back"
 msgstr "Retour"
 
-#: sms_autoreply.php:267
+#: plugin/feature/sms_autoreply/sms_autoreply.php:260
 msgid "SMS autoreply scenario has been added"
 msgstr "Le scénario a été ajouté"
 
-#: sms_autoreply.php:271
+#: plugin/feature/sms_autoreply/sms_autoreply.php:264
 msgid "Fail to add SMS autoreply scenario"
 msgstr "Echec ajout scénario SMS auto réponse"
 
-#: sms_autoreply.php:292
+#: plugin/feature/sms_autoreply/sms_autoreply.php:285
 msgid "Edit SMS autoreply scenario"
 msgstr "Edition du scénario de réponse auto"
 
-#: sms_autoreply.php:321
+#: plugin/feature/sms_autoreply/sms_autoreply.php:314
 msgid "Save"
 msgstr "Sauvegarder"
 
-#: sms_autoreply.php:348
+#: plugin/feature/sms_autoreply/sms_autoreply.php:341
 msgid "SMS autoreply scenario has been edited"
 msgstr "Le scénario a été édité"
 
-#: sms_autoreply.php:352
+#: plugin/feature/sms_autoreply/sms_autoreply.php:345
 msgid "Fail to edit SMS autoreply scenario"
 msgstr "Impossible d'éditer ce scénario"

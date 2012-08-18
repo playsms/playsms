@@ -1,86 +1,82 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config.php:18 uplink.php:24
-msgid "Manage uplink"
-msgstr "Manage uplink"
+#: plugin/gateway/msgtoolbox/config.php:23
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:25
+msgid "Manage msgtoolbox"
+msgstr ""
 
-#: uplink.php:8
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:9
 msgid "Active"
 msgstr ""
 
-#: uplink.php:12
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:13
 msgid "Inactive"
 msgstr ""
 
-#: uplink.php:12
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:13
 msgid "click here to activate"
 msgstr ""
 
-#: uplink.php:29
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:30
 msgid "Gateway name"
 msgstr ""
 
-#: uplink.php:32
-msgid "Master URL"
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:33
+msgid "msgtoolbox URL"
 msgstr ""
 
-#: uplink.php:35
-msgid "Additional URL parameter"
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:36
+msgid "Route"
 msgstr ""
 
-#: uplink.php:38
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:38
 msgid "Username"
 msgstr ""
 
-#: uplink.php:41
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:41
 msgid "Password"
 msgstr ""
 
-#: uplink.php:41
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:41
 msgid "Fill to change the password"
 msgstr ""
 
-#: uplink.php:44
-msgid "Global sender"
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:44
+msgid "Module sender ID"
 msgstr ""
 
-#: uplink.php:44
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:44
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
 
-#: uplink.php:47
-msgid "Uplink incoming path"
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:47
+msgid "Module timezone"
 msgstr ""
 
-#: uplink.php:47
-msgid "No trailing slash"
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:47
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
-#: uplink.php:51
-msgid "Note"
-msgstr ""
-
-#: uplink.php:52
-msgid "Send SMS message without footer banner"
-msgstr ""
-
-#: uplink.php:54
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:50
 msgid "Save"
 msgstr ""
 
-#: uplink.php:66
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:62
 msgid "No changes has been made"
 msgstr ""
 
-#: uplink.php:84
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:80
 msgid "Gateway module configurations has been saved"
 msgstr ""
 
-#: uplink.php:92
+#: plugin/gateway/msgtoolbox/msgtoolbox.php:88
 msgid "Gateway has been activated"
 msgstr ""
+
+#~ msgid "Manage uplink"
+#~ msgstr "Manage uplink"

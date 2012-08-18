@@ -1,6 +1,89 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:12
+#: plugin/tools/sendfromfile/sendfromfile.php:68
+#: plugin/tools/sendfromfile/config.php:5
+msgid "Send from file"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:26
+msgid "Please select CSV file"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:26
+msgid "format : destination number, message, username"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:28
+msgid "Upload file"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:63
+msgid "Invalid CSV file"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:69
+msgid "Confirmation"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:70
+msgid "Uploaded file"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:73
+msgid "Found valid entries in uploaded file"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:73
+msgid "valid entries"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:74
+msgid "Valid entries"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:99
+msgid "Found invalid entries in uploaded file"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:99
+msgid "invalid entries"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:100
+msgid "Invalid entries"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:124
+msgid "Your choice"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:127
+msgid "Cancel send from file"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:131
+msgid "Send SMS to valid entries"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:139
+msgid "Send from file has been cancelled"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:141
+msgid "Fail to remove cancelled entries from database"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:144
+#: plugin/tools/sendfromfile/sendfromfile.php:167
+msgid "Invalid session ID"
+msgstr ""
+
+#: plugin/tools/sendfromfile/sendfromfile.php:165
+msgid "SMS has been set to destination in uploaded file"
+msgstr ""

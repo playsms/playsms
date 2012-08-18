@@ -1,54 +1,58 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config.php:13 gnokii.php:23
+#: plugin/gateway/gnokii/config.php:16 plugin/gateway/gnokii/gnokii.php:24
 msgid "Manage gnokii"
 msgstr "管理gnokii"
 
-#: gnokii.php:8
+#: plugin/gateway/gnokii/gnokii.php:9
 msgid "Active"
 msgstr "活跃"
 
-#: gnokii.php:12
+#: plugin/gateway/gnokii/gnokii.php:13
 msgid "Inactive"
 msgstr "不活跃"
 
-#: gnokii.php:12
+#: plugin/gateway/gnokii/gnokii.php:13
 msgid "click here to activate"
 msgstr "点击这里激活"
 
-#: gnokii.php:28
+#: plugin/gateway/gnokii/gnokii.php:29
 msgid "Gateway name"
 msgstr "网关名"
 
-#: gnokii.php:31
+#: plugin/gateway/gnokii/gnokii.php:32
 msgid "Gnokii installation path"
 msgstr "Gnokii安装路径"
 
-#: gnokii.php:31
+#: plugin/gateway/gnokii/gnokii.php:32
 msgid "No trailing slash"
 msgstr "没有结尾的斜线"
 
-#: gnokii.php:35
+#: plugin/gateway/gnokii/gnokii.php:36
 msgid "Note"
 msgstr "注意"
 
-#: gnokii.php:36
+#: plugin/gateway/gnokii/gnokii.php:37
 msgid "Send SMS message without footer banner"
 msgstr "发送无页脚横幅的短信"
 
-#: gnokii.php:38
+#: plugin/gateway/gnokii/gnokii.php:39 plugin/gateway/gnokii/gnokii.php:35
 msgid "Save"
 msgstr "保存"
 
-#: gnokii.php:54
+#: plugin/gateway/gnokii/gnokii.php:46 plugin/gateway/gnokii/gnokii.php:42
+msgid "No changes has been made"
+msgstr ""
+
+#: plugin/gateway/gnokii/gnokii.php:55 plugin/gateway/gnokii/gnokii.php:51
 msgid "Gateway module configurations has been saved"
 msgstr "网关模块的配置已保存"
 
-#: gnokii.php:62
+#: plugin/gateway/gnokii/gnokii.php:63 plugin/gateway/gnokii/gnokii.php:59
 msgid "Gateway has been activated"
 msgstr "网关已激活"

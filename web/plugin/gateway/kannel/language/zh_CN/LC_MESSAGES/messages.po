@@ -1,94 +1,172 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config.php:19 kannel.php:23
+#: plugin/gateway/kannel/config.php:38 plugin/gateway/kannel/kannel.php:43
+#: plugin/gateway/kannel/kannel.php:44 plugin/gateway/kannel/config.php:41
 msgid "Manage kannel"
 msgstr "管理kannel"
 
-#: kannel.php:8
+#: plugin/gateway/kannel/kannel.php:9
 msgid "Active"
 msgstr "活跃"
 
-#: kannel.php:12
+#: plugin/gateway/kannel/kannel.php:11
 msgid "Inactive"
 msgstr "不活跃"
 
-#: kannel.php:12
+#: plugin/gateway/kannel/kannel.php:11
 msgid "click here to activate"
 msgstr "点击这里激活"
 
-#: kannel.php:28
+#: plugin/gateway/kannel/kannel.php:48 plugin/gateway/kannel/kannel.php:49
 msgid "Gateway name"
 msgstr "网关名"
 
-#: kannel.php:31
+#: plugin/gateway/kannel/kannel.php:28
+msgid "Delivered to phone"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:29
+msgid "Non-Delivered to phone"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:31
+msgid "Queued on SMSC"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:32
+msgid "Delivered to SMSC"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:33
+msgid "Non-Delivered to SMSC"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:51 plugin/gateway/kannel/kannel.php:52
 msgid "Username"
 msgstr "用户名"
 
-#: kannel.php:34
+#: plugin/gateway/kannel/kannel.php:54 plugin/gateway/kannel/kannel.php:55
 msgid "Password"
 msgstr "密码"
 
-#: kannel.php:34
+#: plugin/gateway/kannel/kannel.php:54 plugin/gateway/kannel/kannel.php:55
 msgid "Fill to change the password"
 msgstr "填写改变密码"
 
-#: kannel.php:37
-msgid "Global sender"
+#: plugin/gateway/kannel/kannel.php:57 plugin/gateway/kannel/kannel.php:58
+#, fuzzy
+msgid "Module sender ID"
 msgstr "全球发件人"
 
-#: kannel.php:37
+#: plugin/gateway/kannel/kannel.php:57 plugin/gateway/kannel/kannel.php:58
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr "最多16个数字或11个字母，不可空"
 
-#: kannel.php:40
+#: plugin/gateway/kannel/kannel.php:63 plugin/gateway/kannel/kannel.php:64
 msgid "Bearerbox hostname or IP"
 msgstr ""
 
-#: kannel.php:40 kannel.php:43
+#: plugin/gateway/kannel/kannel.php:60 plugin/gateway/kannel/kannel.php:61
+msgid "Module timezone"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:60 plugin/gateway/kannel/kannel.php:61
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:63 plugin/gateway/kannel/kannel.php:66
+#: plugin/gateway/kannel/kannel.php:64 plugin/gateway/kannel/kannel.php:67
 msgid "Kannel specific"
 msgstr ""
 
-#: kannel.php:43
+#: plugin/gateway/kannel/kannel.php:66 plugin/gateway/kannel/kannel.php:67
 msgid "Send SMS port"
 msgstr "发送短信端口"
 
-#: kannel.php:46
+#: plugin/gateway/kannel/kannel.php:74 plugin/gateway/kannel/kannel.php:75
 msgid "Additional URL parameter"
 msgstr "附加链接参数"
 
-#: kannel.php:46
+#: plugin/gateway/kannel/kannel.php:77 plugin/gateway/kannel/kannel.php:78
 msgid "playSMS web URL"
 msgstr "短信网络链接"
 
-#: kannel.php:46
+#: plugin/gateway/kannel/kannel.php:77 plugin/gateway/kannel/kannel.php:78
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr ""
 
-#: kannel.php:50
-msgid "Note"
-msgstr "注意"
-
-#: kannel.php:51
-msgid "Send SMS message without footer banner"
-msgstr "发送无页脚横幅的短信"
-
-#: kannel.php:53
+#: plugin/gateway/kannel/kannel.php:94 plugin/gateway/kannel/kannel.php:92
 msgid "Save"
 msgstr "发送"
 
-#: kannel.php:65
+#: plugin/gateway/kannel/kannel.php:122 plugin/gateway/kannel/kannel.php:129
 msgid "No changes has been made"
 msgstr "没有做出改变"
 
-#: kannel.php:80
+#: plugin/gateway/kannel/kannel.php:70 plugin/gateway/kannel/kannel.php:71
+msgid "Delivery Report"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:158 plugin/gateway/kannel/kannel.php:165
 msgid "Gateway module configurations has been saved"
 msgstr "网关模块的配置已保存"
 
-#: kannel.php:88
+#: plugin/gateway/kannel/kannel.php:81
+msgid "Kannel admin URL"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:81
+msgid "HTTP Kannel admin URL"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:84 plugin/gateway/kannel/kannel.php:82
+msgid "Kannel admin password"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:84 plugin/gateway/kannel/kannel.php:82
+msgid "HTTP Kannel admin password"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:87 plugin/gateway/kannel/kannel.php:85
+msgid "Kannel admin port"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:87 plugin/gateway/kannel/kannel.php:85
+msgid "HTTP Kannel admin port"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:177 plugin/gateway/kannel/kannel.php:180
 msgid "Gateway has been activated"
 msgstr "网关已激活"
+
+#: plugin/gateway/kannel/kannel.php:90
+msgid "Kannel Configurations files"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:97 plugin/gateway/kannel/kannel.php:95
+#: plugin/gateway/kannel/kannel.php:192
+msgid "Restart Kannel"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:188
+msgid "Kannel service has been restarted"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:88
+msgid "Kannel configuration file"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:192
+msgid "Status"
+msgstr ""
+
+#~ msgid "Note"
+#~ msgstr "注意"
+
+#~ msgid "Send SMS message without footer banner"
+#~ msgstr "发送无页脚横幅的短信"

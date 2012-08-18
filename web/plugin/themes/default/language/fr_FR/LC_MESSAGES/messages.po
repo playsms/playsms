@@ -1,38 +1,96 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: loginpage.php:19
-msgid "Username"
-msgstr "Login"
-
-#: loginpage.php:23
-msgid "Password"
-msgstr "Mot de passe"
-
-#: welcomepage.php:7
+#: plugin/themes/default/page_welcome.php:8
 msgid "Welcome to playSMS"
 msgstr "Bienvenu dans playSMS"
 
-#: welcomepage.php:9
+#: plugin/themes/default/page_welcome.php:10
 msgid "About playSMS"
 msgstr "A propo de PlaySMS"
 
-#: welcomepage.php:10
+#: plugin/themes/default/page_welcome.php:11
 msgid "Changelog"
 msgstr "Changement"
 
-#: welcomepage.php:11
+#: plugin/themes/default/page_welcome.php:12
 msgid "Installation Guide"
 msgstr "Guide D'installation"
 
-#: welcomepage.php:12
+#: plugin/themes/default/page_welcome.php:13
 msgid "F.A.Q"
 msgstr "F.A.Q"
 
-#: welcomepage.php:13
+#: plugin/themes/default/page_welcome.php:14
 msgid "License"
 msgstr "License"
+
+#: plugin/themes/default/page_welcome.php:15
+msgid "HTTP API"
+msgstr ""
+
+#: plugin/themes/default/page_register.php:26
+#: plugin/themes/default/page_register.php:32
+msgid "Name"
+msgstr ""
+
+#: plugin/themes/default/page_register.php:30
+#: plugin/themes/default/page_login.php:25
+#: plugin/themes/default/page_forgot.php:26
+#: plugin/themes/default/page_login.php:30
+#: plugin/themes/default/page_forgot.php:32
+#: plugin/themes/default/page_register.php:36
+msgid "Username"
+msgstr "Login"
+
+#: plugin/themes/default/page_register.php:35
+#: plugin/themes/default/page_register.php:41
+msgid "Mobile"
+msgstr ""
+
+#: plugin/themes/default/page_register.php:39
+#: plugin/themes/default/page_forgot.php:31
+#: plugin/themes/default/page_forgot.php:37
+#: plugin/themes/default/page_register.php:45
+msgid "Email"
+msgstr ""
+
+#: plugin/themes/default/page_register.php:45
+#: plugin/themes/default/page_login.php:43
+#: plugin/themes/default/page_login.php:48
+#: plugin/themes/default/page_register.php:51
+msgid "Register an account"
+msgstr ""
+
+#: plugin/themes/default/page_login.php:30
+#: plugin/themes/default/page_login.php:35
+msgid "Password"
+msgstr "Mot de passe"
+
+#: plugin/themes/default/page_login.php:36
+#: plugin/themes/default/page_login.php:41
+msgid "Login"
+msgstr ""
+
+#: plugin/themes/default/page_login.php:50
+#: plugin/themes/default/page_login.php:55
+#, fuzzy
+msgid "Forgot password"
+msgstr "Mot de passe"
+
+#: plugin/themes/default/header.php:36
+msgid "Logged in"
+msgstr ""
+
+#: plugin/themes/default/header.php:37
+msgid "Status"
+msgstr ""
+
+#: plugin/themes/default/page_forgot.php:37
+#: plugin/themes/default/page_forgot.php:43
+msgid "Recover password"
+msgstr ""

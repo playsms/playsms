@@ -1,164 +1,183 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config.php:4 sms_quiz.php:79
+#: plugin/feature/sms_quiz/config.php:6
+#: plugin/feature/sms_quiz/sms_quiz.php:80
 msgid "Manage quiz"
 msgstr "Pengaturan kuis SMS"
 
-#: sms_quiz.php:16
+#: plugin/feature/sms_quiz/sms_quiz.php:17
 msgid "Received answer list for keyword"
 msgstr "Terima daftar jawaban untuk kata kunci"
 
-#: sms_quiz.php:25
+#: plugin/feature/sms_quiz/sms_quiz.php:26
 msgid "Datetime"
 msgstr "Waktu dan Tanggal"
 
-#: sms_quiz.php:26
+#: plugin/feature/sms_quiz/sms_quiz.php:27
 msgid "Sender"
 msgstr "Pengirim"
 
-#: sms_quiz.php:27
+#: plugin/feature/sms_quiz/sms_quiz.php:28
 msgid "Message"
 msgstr "Pesan"
 
-#: sms_quiz.php:28 sms_quiz.php:97
+#: plugin/feature/sms_quiz/sms_quiz.php:29
+#: plugin/feature/sms_quiz/sms_quiz.php:98
 msgid "Status"
 msgstr "Status"
 
-#: sms_quiz.php:29 sms_quiz.php:98
+#: plugin/feature/sms_quiz/sms_quiz.php:30
+#: plugin/feature/sms_quiz/sms_quiz.php:99
 msgid "Action"
 msgstr "Tindakan"
 
-#: sms_quiz.php:38
+#: plugin/feature/sms_quiz/sms_quiz.php:39
 msgid "Correct"
 msgstr "Benar"
 
-#: sms_quiz.php:40
+#: plugin/feature/sms_quiz/sms_quiz.php:41
 msgid "Incorrect"
 msgstr "Salah"
 
-#: sms_quiz.php:42
-msgid "Are you sure you want to delete this answer?"
+#: plugin/feature/sms_quiz/sms_quiz.php:43
+#, fuzzy
+msgid "Are you sure you want to delete this answer ?"
 msgstr "Anda yakin ingin menghapus jawaban ini?"
 
-#: sms_quiz.php:68
+#: plugin/feature/sms_quiz/sms_quiz.php:69
 msgid "SMS quiz answer messages has been deleted"
 msgstr "pesan jawaban kuis SMS telah dihapus"
 
-#: sms_quiz.php:81 sms_quiz.php:128 sms_quiz.php:246
+#: plugin/feature/sms_quiz/sms_quiz.php:82
+#: plugin/feature/sms_quiz/sms_quiz.php:129
+#: plugin/feature/sms_quiz/sms_quiz.php:247
 msgid "Add SMS quiz"
 msgstr "Tambah kuis SMS"
 
-#: sms_quiz.php:93
+#: plugin/feature/sms_quiz/sms_quiz.php:94
 msgid "Keyword"
 msgstr "Kata Kunci"
 
-#: sms_quiz.php:94
+#: plugin/feature/sms_quiz/sms_quiz.php:95
 msgid "Question"
 msgstr "Pertanyaan"
 
-#: sms_quiz.php:95
+#: plugin/feature/sms_quiz/sms_quiz.php:96
 msgid "Answer"
 msgstr "Jawaban"
 
-#: sms_quiz.php:96
+#: plugin/feature/sms_quiz/sms_quiz.php:97
 msgid "User"
 msgstr "Pengguna"
 
-#: sms_quiz.php:106 sms_quiz.php:177
+#: plugin/feature/sms_quiz/sms_quiz.php:107
+#: plugin/feature/sms_quiz/sms_quiz.php:178
 msgid "Disabled"
 msgstr "Nonaktif"
 
-#: sms_quiz.php:108 sms_quiz.php:179
+#: plugin/feature/sms_quiz/sms_quiz.php:109
+#: plugin/feature/sms_quiz/sms_quiz.php:180
 msgid "Enabled"
 msgstr "Aktif"
 
-#: sms_quiz.php:112
+#: plugin/feature/sms_quiz/sms_quiz.php:113
+#, fuzzy
 msgid ""
-"Are you sure you want to delete SMS quiz with all its choices and answers?"
-msgstr "Anda yakin ingin menghapus kuis SMS beserta semua pilihan dan jawabannya?"
+"Are you sure you want to delete SMS quiz with all its choices and answers ?"
+msgstr ""
+"Anda yakin ingin menghapus kuis SMS beserta semua pilihan dan jawabannya?"
 
-#: sms_quiz.php:112 sms_quiz.php:207 sms_quiz.php:235 sms_quiz.php:285
-#: sms_quiz.php:288
+#: plugin/feature/sms_quiz/sms_quiz.php:113
+#: plugin/feature/sms_quiz/sms_quiz.php:208
+#: plugin/feature/sms_quiz/sms_quiz.php:236
+#: plugin/feature/sms_quiz/sms_quiz.php:286
+#: plugin/feature/sms_quiz/sms_quiz.php:289
 msgid "keyword"
 msgstr "kata kunci"
 
-#: sms_quiz.php:146
+#: plugin/feature/sms_quiz/sms_quiz.php:147
 msgid "Edit SMS quiz"
 msgstr "Ubah kuis SMS"
 
-#: sms_quiz.php:153 sms_quiz.php:251
+#: plugin/feature/sms_quiz/sms_quiz.php:154
+#: plugin/feature/sms_quiz/sms_quiz.php:252
 msgid "SMS quiz keyword"
 msgstr "kata kunci kuis SMS"
 
-#: sms_quiz.php:156 sms_quiz.php:254
+#: plugin/feature/sms_quiz/sms_quiz.php:157
+#: plugin/feature/sms_quiz/sms_quiz.php:255
 msgid "SMS quiz question"
 msgstr "pertanyaan kuis SMS"
 
-#: sms_quiz.php:159 sms_quiz.php:257
+#: plugin/feature/sms_quiz/sms_quiz.php:160
+#: plugin/feature/sms_quiz/sms_quiz.php:258
 msgid "SMS quiz answer"
 msgstr "jawaban kuis SMS"
 
-#: sms_quiz.php:162 sms_quiz.php:260
+#: plugin/feature/sms_quiz/sms_quiz.php:163
+#: plugin/feature/sms_quiz/sms_quiz.php:261
 msgid "Message when correct"
 msgstr "Pesan ketika benar"
 
-#: sms_quiz.php:165 sms_quiz.php:263
+#: plugin/feature/sms_quiz/sms_quiz.php:166
+#: plugin/feature/sms_quiz/sms_quiz.php:264
 msgid "Message when incorrect"
 msgstr "Pesan ketika salah"
 
-#: sms_quiz.php:168
+#: plugin/feature/sms_quiz/sms_quiz.php:169
 msgid "Save"
 msgstr "Simpan"
 
-#: sms_quiz.php:182
+#: plugin/feature/sms_quiz/sms_quiz.php:183
 msgid "Enable or disable this quiz"
 msgstr "Aktif atau nonaktifkan kuis SMS ini"
 
-#: sms_quiz.php:184
+#: plugin/feature/sms_quiz/sms_quiz.php:185
 msgid "Current status"
 msgstr "status saat ini"
 
-#: sms_quiz.php:185
+#: plugin/feature/sms_quiz/sms_quiz.php:186
 msgid "What do you want to do ?"
 msgstr "Apa yang ingin anda lakukan?"
 
-#: sms_quiz.php:186
+#: plugin/feature/sms_quiz/sms_quiz.php:187
 msgid "I want to enable this quiz"
 msgstr "Saya ingin mengaktifkan kuis SMS ini"
 
-#: sms_quiz.php:187
+#: plugin/feature/sms_quiz/sms_quiz.php:188
 msgid "I want to disable this quiz"
 msgstr "Saya ingin menonaktifkan kuis SMS ini"
 
-#: sms_quiz.php:207
+#: plugin/feature/sms_quiz/sms_quiz.php:208
 msgid "SMS quiz has been saved"
 msgstr "kuis SMS telah disimpan"
 
-#: sms_quiz.php:210 sms_quiz.php:291
+#: plugin/feature/sms_quiz/sms_quiz.php:211
+#: plugin/feature/sms_quiz/sms_quiz.php:292
 msgid "You must fill all field"
 msgstr "Anda harus mengisi semua kolom"
 
-#: sms_quiz.php:221
+#: plugin/feature/sms_quiz/sms_quiz.php:222
 msgid "SMS quiz status has been changed"
 msgstr "status kuis SMS telah diganti"
 
-#: sms_quiz.php:235
+#: plugin/feature/sms_quiz/sms_quiz.php:236
 msgid "SMS quiz with all its messages has been deleted"
 msgstr "kuis SMS beserta semua pesannya telah dihapus"
 
-#: sms_quiz.php:266
+#: plugin/feature/sms_quiz/sms_quiz.php:267
 msgid "Add"
 msgstr "Tambah"
 
-#: sms_quiz.php:285
+#: plugin/feature/sms_quiz/sms_quiz.php:286
 msgid "SMS quiz has been added"
 msgstr "kuis SMS telah ditambahkan"
 
-#: sms_quiz.php:288
+#: plugin/feature/sms_quiz/sms_quiz.php:289
 msgid "SMS quiz already exists, reserved or use by other feature"
 msgstr "kuis SMS sudah ada, dipesan, atau digunakan oleh fitur lain"

@@ -1,107 +1,151 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: clickatell.php:8
-msgid "Active"
-msgstr "Aktif"
-
-#: clickatell.php:12
-msgid "Inactive"
-msgstr "Nonaktif"
-
-#: clickatell.php:12
-msgid "click here to activate"
-msgstr "klik di sini untuk mengaktifkan"
-
-#: clickatell.php:23 config.php:18
+#: plugin/gateway/clickatell/config.php:29
+#: plugin/gateway/clickatell/clickatell.php:24
+#: plugin/gateway/clickatell/clickatell.php:27
 msgid "Manage clickatell"
 msgstr "Pengaturan clickatell"
 
-#: clickatell.php:28
+#: plugin/gateway/clickatell/clickatell.php:9
+msgid "Active"
+msgstr "Aktif"
+
+#: plugin/gateway/clickatell/clickatell.php:13
+msgid "Inactive"
+msgstr "Nonaktif"
+
+#: plugin/gateway/clickatell/clickatell.php:13
+msgid "click here to activate"
+msgstr "klik di sini untuk mengaktifkan"
+
+#: plugin/gateway/clickatell/clickatell.php:29
+#: plugin/gateway/clickatell/clickatell.php:32
 msgid "Gateway name"
 msgstr "Nama gateway"
 
-#: clickatell.php:31
+#: plugin/gateway/clickatell/clickatell.php:32
+#: plugin/gateway/clickatell/clickatell.php:35
 msgid "API ID"
 msgstr "API ID"
 
-#: clickatell.php:34
+#: plugin/gateway/clickatell/clickatell.php:35
+#: plugin/gateway/clickatell/clickatell.php:38
 msgid "Username"
 msgstr "Nama pengguna"
 
-#: clickatell.php:37
+#: plugin/gateway/clickatell/clickatell.php:38
+#: plugin/gateway/clickatell/clickatell.php:41
 msgid "Password"
 msgstr "Kata sandi"
 
-#: clickatell.php:37
+#: plugin/gateway/clickatell/clickatell.php:38
+#: plugin/gateway/clickatell/clickatell.php:41
 msgid "Fill to change the password"
 msgstr "Isi untuk merubah kata sandi"
 
-#: clickatell.php:40
-msgid "Global sender"
+#: plugin/gateway/clickatell/clickatell.php:41
+#: plugin/gateway/clickatell/clickatell.php:44
+#, fuzzy
+msgid "Module sender ID"
 msgstr "Pengirim global"
 
-#: clickatell.php:40
+#: plugin/gateway/clickatell/clickatell.php:41
+#: plugin/gateway/clickatell/clickatell.php:44
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "Maks. 16 numerik atau 11 karakter alfanumerik. kosongkan untuk menonaktifkan"
+msgstr ""
+"Maks. 16 numerik atau 11 karakter alfanumerik. kosongkan untuk menonaktifkan"
 
-#: clickatell.php:43
+#: plugin/gateway/clickatell/clickatell.php:44
+#: plugin/gateway/clickatell/clickatell.php:47
+msgid "Module timezone"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:44
+#: plugin/gateway/clickatell/clickatell.php:47
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:47
+#: plugin/gateway/clickatell/clickatell.php:50
 msgid "Clickatell API URL"
 msgstr "URL Clickatell API"
 
-#: clickatell.php:43 clickatell.php:46
+#: plugin/gateway/clickatell/clickatell.php:47
+#: plugin/gateway/clickatell/clickatell.php:54
+#: plugin/gateway/clickatell/clickatell.php:50
+#: plugin/gateway/clickatell/clickatell.php:57
 msgid "No trailing slash"
 msgstr "Tanpa garis miring"
 
-#: clickatell.php:46
+#: plugin/gateway/clickatell/clickatell.php:50
+#: plugin/gateway/clickatell/clickatell.php:53
 msgid "Additional URL parameter"
 msgstr "Parameter URL tambahan"
 
-#: clickatell.php:46
+#: plugin/gateway/clickatell/clickatell.php:54
+#: plugin/gateway/clickatell/clickatell.php:57
 msgid "Clickatell incoming path"
 msgstr "Jalur masuk Clickatell"
 
-#: clickatell.php:49
+#: plugin/gateway/clickatell/clickatell.php:59
+#: plugin/gateway/clickatell/clickatell.php:62
 msgid "Note"
 msgstr "Catatan"
 
-#: clickatell.php:50
+#: plugin/gateway/clickatell/clickatell.php:60
+#: plugin/gateway/clickatell/clickatell.php:63
 msgid "Your callback URL is"
 msgstr "URL balasan anda adalah"
 
-#: clickatell.php:51
-msgid "If you are using callback URL to receive incoming sms you may ignore "
-msgstr "Jika anda menggunakan URL callback untuk menerima SMS masuk, anda dapat menghiraukan ini"
-
-msgid "Clickatell Incoming Path"
-msgstr "Path untuk SMS masuk dari Clickatell"
-
+#: plugin/gateway/clickatell/clickatell.php:61
+#: plugin/gateway/clickatell/clickatell.php:64
 msgid "Clickatell is a bulk SMS provider"
 msgstr "Clickatell adalah penyedia SMS bulk"
 
+#: plugin/gateway/clickatell/clickatell.php:61
+#: plugin/gateway/clickatell/clickatell.php:64
 msgid "free credits are available for testing purposes"
 msgstr "pulsa gratis tersedia untuk tujuan tes"
 
-#: clickatell.php:52
+#: plugin/gateway/clickatell/clickatell.php:62
+#: plugin/gateway/clickatell/clickatell.php:65
 msgid "Send SMS message without footer banner"
 msgstr "Kirim SMS tanpa banner footer"
 
-#: clickatell.php:53
+#: plugin/gateway/clickatell/clickatell.php:63
+#: plugin/gateway/clickatell/clickatell.php:66
+#: plugin/gateway/clickatell/clickatell.php:65
 msgid "Save"
 msgstr "Simpan"
 
-#: clickatell.php:65
+#: plugin/gateway/clickatell/clickatell.php:77
+#: plugin/gateway/clickatell/clickatell.php:80
+#: plugin/gateway/clickatell/clickatell.php:79
 msgid "No changes has been made"
 msgstr "Tidak ada perubahan yang terjadi"
 
-#: clickatell.php:80
+#: plugin/gateway/clickatell/clickatell.php:97
+#: plugin/gateway/clickatell/clickatell.php:100
+#: plugin/gateway/clickatell/clickatell.php:99
 msgid "Gateway module configurations has been saved"
 msgstr "Konfigurasi modul gateway telah disimpan"
 
-#: clickatell.php:88
+#: plugin/gateway/clickatell/clickatell.php:105
+#: plugin/gateway/clickatell/clickatell.php:108
+#: plugin/gateway/clickatell/clickatell.php:107
 msgid "Gateway has been activated"
 msgstr "Gateway telah diaktifkan"
+
+#~ msgid ""
+#~ "If you are using callback URL to receive incoming sms you may ignore "
+#~ msgstr ""
+#~ "Jika anda menggunakan URL callback untuk menerima SMS masuk, anda dapat "
+#~ "menghiraukan ini"
+
+#~ msgid "Clickatell Incoming Path"
+#~ msgstr "Path untuk SMS masuk dari Clickatell"

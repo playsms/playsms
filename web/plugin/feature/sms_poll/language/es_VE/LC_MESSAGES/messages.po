@@ -1,156 +1,178 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-08-18 08:34+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config.php:4 sms_poll.php:12
+#: plugin/feature/sms_poll/config.php:6
+#: plugin/feature/sms_poll/sms_poll.php:13
 msgid "Manage poll"
 msgstr "Administrar Encuesta"
 
-#: sms_poll.php:14 sms_poll.php:62 sms_poll.php:276
+#: plugin/feature/sms_poll/sms_poll.php:15
+#: plugin/feature/sms_poll/sms_poll.php:63
+#: plugin/feature/sms_poll/sms_poll.php:277
 msgid "Add SMS poll"
 msgstr "Añadir encuesta SMS"
 
-#: sms_poll.php:27 sms_poll.php:113
+#: plugin/feature/sms_poll/sms_poll.php:28
+#: plugin/feature/sms_poll/sms_poll.php:114
 msgid "Keyword"
 msgstr "Clave"
 
-#: sms_poll.php:28 sms_poll.php:114
+#: plugin/feature/sms_poll/sms_poll.php:29
+#: plugin/feature/sms_poll/sms_poll.php:115
 msgid "Title"
 msgstr "Título"
 
-#: sms_poll.php:29
+#: plugin/feature/sms_poll/sms_poll.php:30
 msgid "User"
 msgstr "Usuario"
 
-#: sms_poll.php:30
+#: plugin/feature/sms_poll/sms_poll.php:31
 msgid "Status"
 msgstr "Estatus"
 
-#: sms_poll.php:31 sms_poll.php:115
+#: plugin/feature/sms_poll/sms_poll.php:32
+#: plugin/feature/sms_poll/sms_poll.php:116
 msgid "Action"
 msgstr "Accción"
 
-#: sms_poll.php:40 sms_poll.php:154
+#: plugin/feature/sms_poll/sms_poll.php:41
+#: plugin/feature/sms_poll/sms_poll.php:155
 msgid "Disabled"
 msgstr "Deshabilitado"
 
-#: sms_poll.php:43 sms_poll.php:157
+#: plugin/feature/sms_poll/sms_poll.php:44
+#: plugin/feature/sms_poll/sms_poll.php:158
 msgid "Enabled"
 msgstr "Habilitado"
 
-#: sms_poll.php:47
-msgid "Are you sure you want to delete SMS poll with all its choices and votes ?"
-msgstr "Está Ud. seguro de querer borrar la encuesta SMS, sus opciones y votos ?"
+#: plugin/feature/sms_poll/sms_poll.php:48
+msgid ""
+"Are you sure you want to delete SMS poll with all its choices and votes ?"
+msgstr ""
+"Está Ud. seguro de querer borrar la encuesta SMS, sus opciones y votos ?"
 
-#: sms_poll.php:47 sms_poll.php:131 sms_poll.php:183 sms_poll.php:236
-#: sms_poll.php:241 sms_poll.php:257 sms_poll.php:265 sms_poll.php:305
-#: sms_poll.php:310
+#: plugin/feature/sms_poll/sms_poll.php:48
+#: plugin/feature/sms_poll/sms_poll.php:132
+#: plugin/feature/sms_poll/sms_poll.php:184
+#: plugin/feature/sms_poll/sms_poll.php:237
+#: plugin/feature/sms_poll/sms_poll.php:242
+#: plugin/feature/sms_poll/sms_poll.php:258
+#: plugin/feature/sms_poll/sms_poll.php:266
+#: plugin/feature/sms_poll/sms_poll.php:306
+#: plugin/feature/sms_poll/sms_poll.php:311
 msgid "keyword"
 msgstr "Clave"
 
-#: sms_poll.php:85
+#: plugin/feature/sms_poll/sms_poll.php:86
 msgid "Edit SMS poll"
 msgstr "Editar encuestta SMS"
 
-#: sms_poll.php:92 sms_poll.php:281
+#: plugin/feature/sms_poll/sms_poll.php:93
+#: plugin/feature/sms_poll/sms_poll.php:282
 msgid "SMS poll keyword"
 msgstr "Clave de encuesta SMS"
 
-#: sms_poll.php:95 sms_poll.php:284
+#: plugin/feature/sms_poll/sms_poll.php:96
+#: plugin/feature/sms_poll/sms_poll.php:285
 msgid "SMS poll title"
 msgstr "Título de la encuesta SMS"
 
-#: sms_poll.php:98
+#: plugin/feature/sms_poll/sms_poll.php:99
 msgid "Save"
 msgstr "Guardar"
 
-#: sms_poll.php:104
+#: plugin/feature/sms_poll/sms_poll.php:105
 msgid "Edit SMS poll choices"
 msgstr "Editar opciones de la encuesta SMS"
 
-#: sms_poll.php:131
+#: plugin/feature/sms_poll/sms_poll.php:132
 msgid "Are you sure you want to delete choice ?"
 msgstr "Está Ud. seguro de quere borrar la opción ?"
 
-#: sms_poll.php:131 sms_poll.php:214
+#: plugin/feature/sms_poll/sms_poll.php:132
+#: plugin/feature/sms_poll/sms_poll.php:215
 msgid "title"
 msgstr "título"
 
-#: sms_poll.php:136
+#: plugin/feature/sms_poll/sms_poll.php:137
 msgid "Add choice to this poll"
 msgstr "Añadir opción a esta encuesta"
 
-#: sms_poll.php:141
+#: plugin/feature/sms_poll/sms_poll.php:142
 msgid "Choice Keyword"
 msgstr "Clave de opción"
 
-#: sms_poll.php:144
+#: plugin/feature/sms_poll/sms_poll.php:145
 msgid "Choice title"
 msgstr "Título de la opción"
 
-#: sms_poll.php:147 sms_poll.php:287
+#: plugin/feature/sms_poll/sms_poll.php:148
+#: plugin/feature/sms_poll/sms_poll.php:288
 msgid "Add"
 msgstr "Añadir"
 
-#: sms_poll.php:160
+#: plugin/feature/sms_poll/sms_poll.php:161
 msgid "Enable or disable this poll"
 msgstr "Activar o desactivar encuesta"
 
-#: sms_poll.php:162
+#: plugin/feature/sms_poll/sms_poll.php:163
 msgid "Current status"
 msgstr "Estatus actual"
 
-#: sms_poll.php:163
+#: plugin/feature/sms_poll/sms_poll.php:164
 msgid "What do you want to do ?"
 msgstr "Qué desea Ud. hacer ?"
 
-#: sms_poll.php:164
+#: plugin/feature/sms_poll/sms_poll.php:165
 msgid "I want to enable this poll"
 msgstr "Deseo habilitar esta encuesta"
 
-#: sms_poll.php:165
+#: plugin/feature/sms_poll/sms_poll.php:166
 msgid "I want to disable this poll"
 msgstr "Deseo deshabilitar esta encuesta"
 
-#: sms_poll.php:183
+#: plugin/feature/sms_poll/sms_poll.php:184
 msgid "SMS poll with has been saved"
 msgstr "Encuesta SMS ha sido guardada"
 
-#: sms_poll.php:188 sms_poll.php:246 sms_poll.php:315
+#: plugin/feature/sms_poll/sms_poll.php:189
+#: plugin/feature/sms_poll/sms_poll.php:247
+#: plugin/feature/sms_poll/sms_poll.php:316
 msgid "You must fill all fields"
 msgstr "Ud. debe rellenar todos los campos"
 
-#: sms_poll.php:199
+#: plugin/feature/sms_poll/sms_poll.php:200
 msgid "SMS poll status has been changed"
 msgstr "El estatus de la encuesta SMS ha cambiado"
 
-#: sms_poll.php:214
+#: plugin/feature/sms_poll/sms_poll.php:215
 msgid "SMS poll with all its messages has been deleted"
 msgstr "La encuesta SMS y todos sus mensajes ha sido borrada"
 
-#: sms_poll.php:236
+#: plugin/feature/sms_poll/sms_poll.php:237
 msgid "Choice has been added"
 msgstr "Opción ha sido añadida"
 
-#: sms_poll.php:241
+#: plugin/feature/sms_poll/sms_poll.php:242
 msgid "Choice already exists"
 msgstr "Opción ya existe "
 
-#: sms_poll.php:257
+#: plugin/feature/sms_poll/sms_poll.php:258
 msgid "Fail to delete SMS poll choice"
 msgstr "Fallo al eliminar la encuesta SMS"
 
-#: sms_poll.php:265
+#: plugin/feature/sms_poll/sms_poll.php:266
 msgid "SMS poll choice and all its voters has been deleted"
 msgstr "Opciones de encuesta SMS y sus votantes ha sido borrada"
 
-#: sms_poll.php:305
+#: plugin/feature/sms_poll/sms_poll.php:306
 msgid "SMS poll has been added"
 msgstr "Encuesta SMS ha sido añadida"
 
-#: sms_poll.php:310
+#: plugin/feature/sms_poll/sms_poll.php:311
 msgid "SMS poll already exists, reserved or use by other feature"
 msgstr "Encuesta SMS ya existe, está reservada o en uso por otra función"
