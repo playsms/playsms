@@ -34,11 +34,12 @@ switch ($op) {
 	// end of Handle DLR options config (emmanuel)
 	
         //Fixme Edward, Browse /etc/kannel.conf to Show on web Page
-        $kanelconffile = "/etc/kannel/kannel.conf";
-        $readconf = fopen($kanelconffile, 'r');
-        $conf = fread($readconf, filesize($kanelconffile));
-        fclose($readconf);
+        $fn = $core_config['plugin']['kannel']['kannelconf'];
+        $fd = fopen($fn, 'r');
+        $up_kannelconf = fread($fd, filesize($fn));
+        fclose($fd);
         //End Of Fixme Edward, Browse /etc/kannel.conf to Show on web Page
+        
         $content .= "
 	    <h2>" . _('Manage kannel') . "</h2>
 	    <p>
@@ -87,7 +88,7 @@ switch ($op) {
 		<td>" . _('Kannel admin port') . "</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_admin_port value=\"" . $kannel_param['admin_port'] . "\"> (" . _('HTTP Kannel admin port') . ")</td>
 	    </tr>
             <tr>
-            <td>" . _('Kannel Configurations files') . "</td><td>:</td><td><textarea name='kannelconf' rows='40' style='width: 100%; border: 1px solid #333; padding: 4px; '>$conf</textarea></td>
+            <td valign=top>" . _('Kannel configuration file') . "<br />".$core_config['plugin']['kannel']['kannelconf']."</td><td valign=top>:</td><td><textarea name='up_kannelconf' rows='40' style='width: 100%; border: 1px solid #333; padding: 4px; '>".$up_kannelconf."</textarea></td>
             </tr>
                 <!-- End Of Fixme Edward Added Kanel HTTP Admin Parameter--> 
 	</table>	    
@@ -108,6 +109,15 @@ switch ($op) {
         $up_sendsms_port = $_POST['up_sendsms_port'];
         $up_playsms_web = ( $_POST['up_playsms_web'] ? $_POST['up_playsms_web'] : $http_path['base'] );
         $up_additional_param = ( $_POST['up_additional_param'] ? $_POST['up_additional_param'] : "smsc=default" );
+
+        $up_kannelconf = $_POST['up_kannelconf'];
+        $up_kannelconf = stripslashes($up_kannelconf);
+
+        $uname = strtolower(php_uname('s'));
+        if (strpos($uname, "windows")===false) {
+        	$up_kannelconf = str_replace("\r", "", $up_kannelconf);
+        }
+
         // Handle DLR config (emmanuel)
         if (isset($_POST['dlr_box'])) {
           for ($i = 0, $c = count($_POST['dlr_box']); $i < $c; $i++) {
@@ -157,16 +167,12 @@ switch ($op) {
             if (@dba_affected_rows($db_query)) {
                 $error_string = _('Gateway module configurations has been saved');
             }
-            //Fixme Edward, Handle Editing Kannel.conf Via Web
-            $kanelconffile = "/etc/kannel/kannel.conf";
-            $readconf = fopen($kanelconffile, "r");
-            $conf = fread($readconf, filesize($kanelconffile));
 
-            $confstring = $_POST['kannelconf'];
-            //print_r($confstring);
-            $fhandle = fopen($kanelconffile, "w");
-            fwrite($fhandle, $confstring);
-            fclose($fhandle);
+            //Fixme Edward, Handle Editing Kannel.conf Via Web
+            $fn = $core_config['plugin']['kannel']['kannelconf'];
+            $fd = fopen($fn, 'w');
+            fwrite($fd, $up_kannelconf);
+            fclose($fd);
             //End Of Edward, Handle Editing Kannel.conf Via Web
         }
         header("Location: index.php?app=menu&inc=gateway_kannel&op=manage&err=" . urlencode($error_string));
