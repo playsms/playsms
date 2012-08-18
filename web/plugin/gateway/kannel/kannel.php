@@ -187,9 +187,9 @@ switch ($op) {
         $admin_url = $core_config['plugin']['kannel']['bearerbox_host'];
         $admin_url = ( $admin_port ? $admin_url.':'.$admin_port : $admin_url );
         $admin_password = $core_config['plugin']['kannel']['admin_password'];
-        $url = $admin_url.'/restart?password='.$admin_password;
+        $url = 'http://'.$admin_url.'/restart?password='.$admin_password;
         $restart = file_get_contents($url);
-        $error_string   = _('Kannel service has been restarted');
+        $error_string   = _('Restart Kannel').' - '._('Status').': '.$restart;
         header("Location: index.php?app=menu&inc=gateway_kannel&op=manage&err=" . urlencode($error_string));
         break;
     //end Of Fixme Edward, Adding New Case To Handle Button Restart Kannel Services
