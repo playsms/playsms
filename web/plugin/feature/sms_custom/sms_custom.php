@@ -14,9 +14,8 @@ switch ($op) {
         }
 
         $content .= "
-	    <h2>" . _('Manage custom') . "</h2><br>";
+	    <h2>" . _('Manage custom') . "</h2>";
 
-        $content .= "<h3>" . _('SMS Custom List') . "</h3><hr>";
         $content .="<p>
 	    <input type=button value=\"" . _('Add SMS custom') . "\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_custom&op=sms_custom_add')\" class=\"button\" />
 	    <p>

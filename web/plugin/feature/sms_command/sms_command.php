@@ -14,7 +14,6 @@ switch ($op) {
         }
         $content .= "
 	    <h2>" . _('Manage command') . "</h2>";
-        $content .= "<h3>" . _('SMS Cummand List') . "</h3><hr>";
         $content .= "<p>
 	    <input type=button value=\"" . _('Add SMS command') . "\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_command&op=sms_command_add')\" class=\"button\" />
 	    <p>" . _('SMS command exec path') . " : <b>" . $plugin_config['feature']['sms_command']['bin'] . "/</b>
