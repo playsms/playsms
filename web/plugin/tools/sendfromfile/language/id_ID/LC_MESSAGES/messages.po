@@ -85,5 +85,5 @@ msgid "Invalid session ID"
 msgstr ""
 
 #: plugin/tools/sendfromfile/sendfromfile.php:165
-msgid "SMS has been set to destination in uploaded file"
+msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr ""

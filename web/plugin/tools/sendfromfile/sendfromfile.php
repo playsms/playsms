@@ -162,7 +162,7 @@ switch ($op) {
 			}
 			$db_query = "DELETE FROM "._DB_PREF_."_toolsSendfromfile WHERE sid='$sid'";
 			$db_result = dba_affected_rows($db_query);
-			$error_string = _('SMS has been set to destination in uploaded file');
+			$error_string = _('SMS has been sent to valid numbers in uploaded file');
 		} else {
 			$error_string = _('Invalid session ID');
 		}
