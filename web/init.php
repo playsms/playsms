@@ -75,7 +75,7 @@ function setuserlang($username="") {
 	$db_query = "SELECT `language_module` FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	if (isset($db_row['language_module']) ) {
+	if (trim($db_row['language_module'])) {
 		$language_module = $db_row['language_module'];
 	}
 	if (defined('LC_MESSAGES')) {

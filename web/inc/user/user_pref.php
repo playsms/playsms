@@ -92,6 +92,7 @@ switch ($op)
 			$option_country .= "<option value=\"$country_id\" $selected>$country_name</option>\n";
 		}
                 // get language options
+		$option_language_module = "<option value=\"\">"._('Default')."</option>\n";
                 for ($i=0;$i<count($core_config['languagelist']);$i++) {
                         $language = $core_config['languagelist'][$i];
                         if ($language == $language_module) $selected = "selected";

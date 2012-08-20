@@ -15,6 +15,7 @@ Version 0.9.7-beta1 - not released yet
 - add logger_print() when unable to produce $queue_code (anton)
 - add new contrib tools/language scripts to ease up translations based on docs/TRANSLATE (anton)
 - add new language Brazilian Portuguese (pt_BR) (lucastx)
+- add default language option in user preferences (anton)
 - update language French (fr_FR) (elinguiuriel)
 - update datetime format to Y-m-d H:i:s (anton)
 - update lib/dba.php and update included PEAR DB to 1.7.14 (anton)
