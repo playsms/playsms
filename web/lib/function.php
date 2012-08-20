@@ -3,7 +3,6 @@ if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 // main functions
 include $apps_path['libs']."/fn_logger.php";
-include $apps_path['libs']."/fn_auth.php";
 include $apps_path['libs']."/fn_user.php";
 include $apps_path['libs']."/fn_rate.php";
 include $apps_path['libs']."/fn_billing.php";

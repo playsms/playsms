@@ -52,7 +52,6 @@ function array_add_slashes($array) {
 }
 
 function pl_addslashes($data) {
-	global $core_config;
 	if ($core_config['db']['type']=="mssql") {
 		$data = str_replace("'", "''", $data);
 	} else {
@@ -71,7 +70,8 @@ function pl_addslashes($data) {
  * @return boolean TRUE if valid
  */
 function setuserlang($username="") {
-	global $language_module;
+	global $core_config;
+	$language_module = $core_config['module']['language'];
 	$db_query = "SELECT `language_module` FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -142,6 +142,7 @@ $core_config['plugins_category'] = $plugins_category;
 
 // include essential functions
 include_once $apps_path['libs']."/dba.php";
+include_once $apps_path['libs']."/fn_auth.php";
 
 // connect to database
 $dba_object = dba_connect(_DB_USER_,_DB_PASS_,_DB_NAME_,_DB_HOST_,_DB_PORT_);
@@ -204,16 +205,17 @@ if (file_exists($fn1) && file_exists($fn2)) {
 }
 $core_config['module']['language'] = $language_module;
 
-// multi-language init
-// make sure that bindtextdomain is exists, server should have PHP gettext extension enabled
+if (valid()) {
+	setuserlang($_COOKIE['vc2']);
+} else {
+	setuserlang();
+}
+
 if (function_exists('bindtextdomain')) {
 	bindtextdomain('messages', $apps_path['plug'].'/language/');
 	bind_textdomain_codeset('messages', 'UTF-8');
 	textdomain('messages');
 }
-
-// set language
-setuserlang($_COOKIE['vc2']);
 
 // set global variable
 $date_format		= "Y-m-d";

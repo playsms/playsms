@@ -58,6 +58,8 @@ for ($i=0;$i<count($plugins_category);$i++) {
 if (!($console = $_REQUEST['console'])) {
 	if (function_exists('bindtextdomain')) {
 		bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
+		bind_textdomain_codeset('messages', 'UTF-8');
+		textdomain('messages');
 	}
 	include $apps_path['themes'].'/'.$themes_module.'/footer.php';
 }
