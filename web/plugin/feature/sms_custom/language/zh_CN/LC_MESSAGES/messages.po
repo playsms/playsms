@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-18 08:34+0700\n"
+"POT-Creation-Date: 2012-08-20 09:56+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
@@ -17,11 +17,14 @@ msgstr "管理自定义"
 #: plugin/feature/sms_custom/sms_custom.php:21
 #: plugin/feature/sms_custom/sms_custom.php:65
 #: plugin/feature/sms_custom/sms_custom.php:139
+#: plugin/feature/sms_custom/sms_custom.php:20
+#: plugin/feature/sms_custom/sms_custom.php:64
 msgid "Add SMS custom"
 msgstr "增加短信自定义"
 
 #: plugin/feature/sms_custom/sms_custom.php:28
 #: plugin/feature/sms_custom/sms_custom.php:37
+#: plugin/feature/sms_custom/sms_custom.php:36
 msgid "Keyword"
 msgstr "关键字"
 
@@ -32,16 +35,19 @@ msgstr "执行"
 
 #: plugin/feature/sms_custom/sms_custom.php:30
 #: plugin/feature/sms_custom/sms_custom.php:39
+#: plugin/feature/sms_custom/sms_custom.php:38
 msgid "User"
 msgstr "用户"
 
 #: plugin/feature/sms_custom/sms_custom.php:31
 #: plugin/feature/sms_custom/sms_custom.php:40
+#: plugin/feature/sms_custom/sms_custom.php:39
 msgid "Action"
 msgstr "行动"
 
 #: plugin/feature/sms_custom/sms_custom.php:42
 #: plugin/feature/sms_custom/sms_custom.php:50
+#: plugin/feature/sms_custom/sms_custom.php:49
 msgid "Are you sure you want to delete SMS custom keyword ?"
 msgstr "确定删除短信自定义关键字 ?"
 
@@ -64,11 +70,16 @@ msgstr "确定删除短信自定义关键字 ?"
 #: plugin/feature/sms_custom/sms_custom.php:111
 #: plugin/feature/sms_custom/sms_custom.php:129
 #: plugin/feature/sms_custom/sms_custom.php:170
+#: plugin/feature/sms_custom/sms_custom.php:49
+#: plugin/feature/sms_custom/sms_custom.php:164
+#: plugin/feature/sms_custom/sms_custom.php:166
+#: plugin/feature/sms_custom/sms_custom.php:169
 msgid "keyword"
 msgstr "关键字"
 
 #: plugin/feature/sms_custom/sms_custom.php:73
 #: plugin/feature/sms_custom/sms_custom.php:81
+#: plugin/feature/sms_custom/sms_custom.php:80
 msgid "Edit SMS custom"
 msgstr "编辑短信自定义"
 
@@ -76,6 +87,7 @@ msgstr "编辑短信自定义"
 #: plugin/feature/sms_custom/sms_custom.php:141
 #: plugin/feature/sms_custom/sms_custom.php:86
 #: plugin/feature/sms_custom/sms_custom.php:142
+#: plugin/feature/sms_custom/sms_custom.php:85
 msgid "SMS custom keyword"
 msgstr "短信自定义关键字"
 
@@ -83,6 +95,7 @@ msgstr "短信自定义关键字"
 #: plugin/feature/sms_custom/sms_custom.php:142
 #: plugin/feature/sms_custom/sms_custom.php:87
 #: plugin/feature/sms_custom/sms_custom.php:143
+#: plugin/feature/sms_custom/sms_custom.php:86
 msgid "Pass these parameter to custom URL field"
 msgstr "通过这些参数自定义链接域"
 
@@ -90,6 +103,7 @@ msgstr "通过这些参数自定义链接域"
 #: plugin/feature/sms_custom/sms_custom.php:143
 #: plugin/feature/sms_custom/sms_custom.php:88
 #: plugin/feature/sms_custom/sms_custom.php:144
+#: plugin/feature/sms_custom/sms_custom.php:87
 msgid "will be replaced by SMS incoming date/time"
 msgstr "将被短信传入日期/时间替换"
 
@@ -97,6 +111,7 @@ msgstr "将被短信传入日期/时间替换"
 #: plugin/feature/sms_custom/sms_custom.php:144
 #: plugin/feature/sms_custom/sms_custom.php:89
 #: plugin/feature/sms_custom/sms_custom.php:145
+#: plugin/feature/sms_custom/sms_custom.php:88
 msgid "will be replaced by sender number"
 msgstr "将被发件人数替换"
 
@@ -104,6 +119,7 @@ msgstr "将被发件人数替换"
 #: plugin/feature/sms_custom/sms_custom.php:145
 #: plugin/feature/sms_custom/sms_custom.php:90
 #: plugin/feature/sms_custom/sms_custom.php:146
+#: plugin/feature/sms_custom/sms_custom.php:89
 msgid "will be replaced by custom keyword"
 msgstr "将被自定义关键字替换"
 
@@ -111,6 +127,7 @@ msgstr "将被自定义关键字替换"
 #: plugin/feature/sms_custom/sms_custom.php:146
 #: plugin/feature/sms_custom/sms_custom.php:91
 #: plugin/feature/sms_custom/sms_custom.php:147
+#: plugin/feature/sms_custom/sms_custom.php:90
 msgid "will be replaced by custom parameter passed to server from SMS"
 msgstr "将被传向短信服务器的自定义参数取代"
 
@@ -119,12 +136,15 @@ msgstr "将被传向短信服务器的自定义参数取代"
 #: plugin/feature/sms_custom/sms_custom.php:92
 #: plugin/feature/sms_custom/sms_custom.php:93
 #: plugin/feature/sms_custom/sms_custom.php:149
+#: plugin/feature/sms_custom/sms_custom.php:148
 msgid "SMS custom URL"
 msgstr "短信字定义链接"
 
 #: plugin/feature/sms_custom/sms_custom.php:89
 #: plugin/feature/sms_custom/sms_custom.php:148
 #: plugin/feature/sms_custom/sms_custom.php:92
+#: plugin/feature/sms_custom/sms_custom.php:91
+#: plugin/feature/sms_custom/sms_custom.php:147
 #, fuzzy
 msgid "will be replaced by SMS raw message"
 msgstr "将被发件人数替换"
@@ -153,6 +173,7 @@ msgstr "保存短信字定义失败"
 #: plugin/feature/sms_custom/sms_custom.php:171
 #: plugin/feature/sms_custom/sms_custom.php:114
 #: plugin/feature/sms_custom/sms_custom.php:173
+#: plugin/feature/sms_custom/sms_custom.php:172
 msgid "You must fill all fields"
 msgstr "你必须填满全部空白"
 
@@ -171,22 +192,26 @@ msgstr "删除短信自定义失败"
 #: plugin/feature/sms_custom/sms_custom.php:148
 #: plugin/feature/sms_custom/sms_custom.php:149
 #: plugin/feature/sms_custom/sms_custom.php:151
+#: plugin/feature/sms_custom/sms_custom.php:150
 msgid "Add"
 msgstr "增加"
 
 #: plugin/feature/sms_custom/sms_custom.php:163
 #: plugin/feature/sms_custom/sms_custom.php:165
+#: plugin/feature/sms_custom/sms_custom.php:164
 msgid "SMS custom has been added"
 msgstr "端心自定义已增加"
 
 #: plugin/feature/sms_custom/sms_custom.php:167
 #: plugin/feature/sms_custom/sms_custom.php:165
+#: plugin/feature/sms_custom/sms_custom.php:166
 msgid "Fail to add SMS custom"
 msgstr "增加短信自定义失败"
 
 #: plugin/feature/sms_custom/sms_custom.php:172
 #: plugin/feature/sms_custom/sms_custom.php:168
 #: plugin/feature/sms_custom/sms_custom.php:170
+#: plugin/feature/sms_custom/sms_custom.php:169
 msgid "SMS custom already exists, reserved or use by other feature"
 msgstr "短信自定义已存在, 保留或其他功能的使用"
 
@@ -199,9 +224,11 @@ msgstr "短信字定义链接"
 #: plugin/feature/sms_custom/sms_custom.php:148
 #: plugin/feature/sms_custom/sms_custom.php:94
 #: plugin/feature/sms_custom/sms_custom.php:150
+#: plugin/feature/sms_custom/sms_custom.php:149
 msgid "Make return as reply"
 msgstr ""
 
 #: plugin/feature/sms_custom/sms_custom.php:38
+#: plugin/feature/sms_custom/sms_custom.php:37
 msgid "URL"
 msgstr ""
