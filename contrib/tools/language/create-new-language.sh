@@ -3,22 +3,24 @@
 PLAYSMS=$1
 LANG=$2
 
+ERR=0
+
 if [ -z "$PLAYSMS" ]; then
-	echo "Usage   : $0 <playSMS installation path> <language>"
-	echo
-	echo "Example : $0 /var/www/playsms id_ID"
-	echo
-	echo "Above example will create new file playsms-language-id_ID.tar.gz"
-	echo
-	exit 1
+	ERR=1
 fi
 
 if [ -z "$LANG" ]; then
+	ERR=1
+fi
+
+if [ "$ERR" = "1" ]; then
+	echo
 	echo "Usage   : $0 <playSMS installation path> <language>"
 	echo
 	echo "Example : $0 /var/www/playsms id_ID"
 	echo
 	echo "Above example will create new file playsms-language-id_ID.tar.gz"
+	echo "containing new language files based on en_US"
 	echo
 	exit 1
 fi
