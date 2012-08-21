@@ -40,6 +40,13 @@ switch ($op) {
         fclose($fd);
         //End Of Fixme Edward, Browse /etc/kannel.conf to Show on web Page
         
+     	$admin_port = $core_config['plugin']['kannel']['admin_port'];
+        $admin_url = $core_config['plugin']['kannel']['bearerbox_host'];
+        $admin_url = ( $admin_port ? $admin_url.':'.$admin_port : $admin_url );
+        $admin_password = $core_config['plugin']['kannel']['admin_password'];
+        $url = 'http://'.$admin_url.'/status?password='.$admin_password;
+        $kannel_status = file_get_contents($url);
+        
         $content .= "
 	    <h2>" . _('Manage kannel') . "</h2>
 	    <p>
@@ -85,15 +92,21 @@ switch ($op) {
 		<td>" . _('Kannel admin port') . "</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_admin_port value=\"" . $kannel_param['admin_port'] . "\"> (" . _('HTTP Kannel admin port') . ")</td>
 	    </tr>
             <tr>
-            <td valign=top>" . _('Kannel configuration file') . "<br />".$core_config['plugin']['kannel']['kannelconf']."</td><td valign=top>:</td><td><textarea name='up_kannelconf' rows='40' style='width: 100%; border: 1px solid #333; padding: 4px; '>".$up_kannelconf."</textarea></td>
+            <td valign=top>" . _('Kannel configuration file') . "<br />".$core_config['plugin']['kannel']['kannelconf']."</td><td valign=top>:</td><td><textarea name='up_kannelconf' rows='20' style='width: 100%; border: 1px solid #333; padding: 4px; '>".$up_kannelconf."</textarea></td>
+            </tr>
+            <tr>
+            <td valign=top>" . _('Kannel status') . "</td><td valign=top>:</td><td><textarea name='up_kannelconf' rows='20' style='width: 100%; border: 1px solid #333; padding: 4px; '>".$kannel_status."</textarea></td>
+            </tr>
+            <tr>
+            	<td>&nbsp;</td><td>&nbsp;</td>
+            	<td>
+            		<input type='button' value=\""._('Restart Kannel')."\" class='button' onClick=\"parent.location.href='index.php?app=menu&inc=gateway_kannel&op=manage_restart'\">
+            	</td>
             </tr>
                 <!-- End Of Fixme Edward Added Kanel HTTP Admin Parameter--> 
 	</table>	    
 	    <p><input type=submit class=button value=\"" . _('Save') . "\">
 	    </form>
-            <!-- Fixme Edward Added Button Restart Kannel, To Restart Kannel Services-->
-            <p><input type='button' value=\""._('Restart Kannel')."\" class='button' onClick=\"parent.location.href='index.php?app=menu&inc=gateway_kannel&op=manage_restart'\"></p>
-            <!-- End Of Fixme Edward Added Button Restart Kannel, To Restart Kannel Services-->
 	";
         echo $content;
         break;
