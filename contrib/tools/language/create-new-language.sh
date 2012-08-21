@@ -28,14 +28,16 @@ fi
 CWD=$(pwd)
 
 TMP=$(mktemp -d)
+TMPLANG=$(mktemp)
 
 cd $PLAYSMS
-find . -type d -name "language" | sed -e "s/\/[^\/]*$//" > /tmp/.lang_folders
-for i in `cat /tmp/.lang_folders` ; do
+find . -type d -name "language" | sed -e "s/\/[^\/]*$//" > $TMPLANG
+for i in `cat $TMPLANG` ; do
 	mkdir -p $TMP/$i/language
 	cp -rR $i/language/messages.pot $TMP/$i/language/
 	cp -rR $i/language/en_US $TMP/$i/language/$LANG
 done
+rm $TMPLANG
 
 find $TMP -type f -name messages.mo -exec rm {} \;
 
