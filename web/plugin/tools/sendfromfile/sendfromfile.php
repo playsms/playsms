@@ -76,9 +76,9 @@ switch ($op) {
 				<table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
 					<tr>
 						<td class=box_title width=4>*</td>
-						<td class=box_title width='150'>Destination number</td>
-						<td class=box_title>Message</td>
-						<td class=box_title width='100' align=right>Username</td>
+						<td class=box_title width='150'>"._('Destination number')."</td>
+						<td class=box_title>"._('Message')."</td>
+						<td class=box_title width='100' align=right>"._('Username')."</td>
 					</tr>
 			";
 			for ($i=0;$i<count($item_valid);$i++) {
@@ -102,9 +102,9 @@ switch ($op) {
 				<table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
 					<tr>
 						<td class=box_title width=4>*</td>
-						<td class=box_title width='150'>Destination number</td>
-						<td class=box_title>Message</td>
-						<td class=box_title width='100' align=right>Username</td>
+						<td class=box_title width='150'>"._('Destination number')."</td>
+						<td class=box_title>"._('Message')."</td>
+						<td class=box_title width='100' align=right>"._('Username')."</td>
 					</tr>
 			";
 			for ($i=0;$i<count($item_invalid);$i++) {
