@@ -15,3 +15,5 @@ chown asterisk.asterisk $TMPFILE
 chmod 666 $TMPFILE
 
 mv $TMPFILE /var/spool/asterisk/outgoing/
+
+echo "Dials $1"
