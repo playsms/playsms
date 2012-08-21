@@ -86,7 +86,7 @@ switch ($op) {
 	    </tr>
             <!-- Fixme Edward Added Kanel HTTP Admin Parameter-->
             <tr>
-		<td>" . _('Kannel admin password') . "</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_admin_password value=\"" . $kannel_param['admin_password'] . "\"> (" . _('HTTP Kannel admin password') . ")</td>
+		<td>" . _('Kannel admin password') . "</td><td>:</td><td><input type=password size=30 maxlength=250 name=up_admin_password value=\"\"> (" . _('HTTP Kannel admin password') . ")</td>
 	    </tr>
             <tr>
 		<td>" . _('Kannel admin port') . "</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_admin_port value=\"" . $kannel_param['admin_port'] . "\"> (" . _('HTTP Kannel admin port') . ")</td>
@@ -144,6 +144,9 @@ switch ($op) {
             if ($up_password) {
                 $password_change = "cfg_password='$up_password',";
             }
+            if ($up_admin_password) {
+            	$admin_password_change = "cfg_admin_password='$up_admin_password',";
+            }
             //Fixme Edward, Added Kannel HTTP Admin Parameter
             /*             * $db_query = "
               UPDATE " . _DB_PREF_ . "_gatewayKannel_config
@@ -170,7 +173,7 @@ switch ($op) {
 		    cfg_additional_param='$up_additional_param',
 		    cfg_dlr='$up_playsms_dlr',
                     cfg_admin_url='$up_admin_url',
-                    cfg_admin_password='$up_admin_password',
+                    " . $admin_password_change . "
                     cfg_admin_port='$up_admin_port'
 	    ";
             //End Of Fixme Edward, Added Kannel HTTP Admin Parameter
