@@ -87,3 +87,15 @@ msgstr ""
 #: plugin/tools/sendfromfile/sendfromfile.php:165
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr ""
+
+#: sendfromfile.php:79 sendfromfile.php:105
+msgid "Destination number"
+msgstr ""
+
+#: sendfromfile.php:80 sendfromfile.php:106
+msgid "Message"
+msgstr ""
+
+#: sendfromfile.php:81 sendfromfile.php:107
+msgid "Username"
+msgstr ""
