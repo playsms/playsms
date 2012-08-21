@@ -95,7 +95,7 @@ switch ($op) {
             <td valign=top>" . _('Kannel configuration file') . "<br />".$core_config['plugin']['kannel']['kannelconf']."</td><td valign=top>:</td><td><textarea name='up_kannelconf' rows='20' style='width: 100%; border: 1px solid #333; padding: 4px; '>".$up_kannelconf."</textarea></td>
             </tr>
             <tr>
-            <td valign=top>" . _('Kannel status') . "</td><td valign=top>:</td><td><textarea name='up_kannelconf' rows='20' style='width: 100%; border: 1px solid #333; padding: 4px; '>".$kannel_status."</textarea></td>
+            <td valign=top>" . _('Kannel status') . "</td><td valign=top>:</td><td><textarea rows='20' style='width: 100%; border: 1px solid #333; padding: 4px; '>".$kannel_status."</textarea></td>
             </tr>
             <tr>
             	<td>&nbsp;</td><td>&nbsp;</td>
