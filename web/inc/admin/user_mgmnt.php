@@ -112,14 +112,15 @@ switch ($op)
 	case "user_edit":
 		$uname = $_REQUEST['uname'];
 		$uid = username2uid($uname);
-		$mobile = username2mobile($uname);
-		$email = username2email($uname);
-		$name = username2name($uname);
-		$status = username2status($uname);
-		$sender = username2sender($uname);
-		$footer = username2footer($uname);
-		$timezone = username2timezone($uname);
-		$language_module = username2lang($uname);
+		$c_user = user_getdatabyuid($uid);
+		$mobile = $c_user['mobile'];
+		$email = $c_user['email'];
+		$name = $c_user['name'];
+		$status = $c_user['status'];
+		$sender = $c_user['sender'];
+		$footer = $c_user['footer'];
+		$timezone = $c_user['datetime_timezone'];
+		$language_module = $c_user['language_module'];
                 // get language options
                 for ($i=0;$i<count($core_config['languagelist']);$i++) {
                         $language = $core_config['languagelist'][$i];
