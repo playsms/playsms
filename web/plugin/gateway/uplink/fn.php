@@ -163,7 +163,7 @@ function uplink_hook_getsmsinbox() {
 	while ($sms_in_file = @readdir($handle)) {
 	if (eregi("^ERR.in",$sms_in_file) && !eregi("^[.]",$sms_in_file)) {
 	$fn = $uplink_param['path']."/$sms_in_file";
-	logger_print("infile:".$fn, 3, "uplink incoming");
+	// logger_print("infile:".$fn, 3, "uplink incoming");
 	$tobe_deleted = $fn;
 	$lines = @file ($fn);
 	$sms_datetime = trim($lines[0]);

@@ -49,7 +49,7 @@ function smstools_hook_getsmsinbox() {
 	$handle = @opendir($smstools_param['path']."/incoming");
 	while ($sms_in_file = @readdir($handle)) {
 		$fn = $smstools_param['path']."/incoming/$sms_in_file";
-		logger_print("infile:".$fn, 3, "smstools incoming");
+		// logger_print("infile:".$fn, 3, "smstools incoming");
 		$tobe_deleted = $fn;
 		$lines = @file ($fn);
 		$start = 0;

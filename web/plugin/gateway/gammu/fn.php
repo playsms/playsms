@@ -80,7 +80,7 @@ function gammu_hook_getsmsinbox() {
 	while ($sms_in_file = @readdir($handle)) {
 		if ($sms_in_file != "." && $sms_in_file != "..") {
 			$fn = $gammu_param['path']."/inbox/$sms_in_file";
-			logger_print("infile:".$fn, 3, "gammu incoming");
+			// logger_print("infile:".$fn, 3, "gammu incoming");
 			$the_fn = str_replace('IN','',basename($fn));
 			$arr_fn = explode('_', $the_fn);
 			// let me know if you got better way :)
