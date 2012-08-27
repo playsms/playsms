@@ -196,7 +196,6 @@ switch ($op)
 		$up_credit = $_POST['up_credit'];
 		$up_timezone = ( $_POST['up_timezone'] ? $_POST['up_timezone'] : $gateway_timezone );
 		$up_language = $_POST['up_language_module'];
-		//	$status = username2status($uname);
 		$error_string = _('No changes made');
 		if ($up_name && $up_email)
 		{

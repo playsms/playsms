@@ -107,36 +107,6 @@ function username2footer($username) {
 	return $footer;
 }
 
-function username2timezone($username) {
-	if ($username) {
-		$db_query = "SELECT datetime_timezone FROM "._DB_PREF_."_tblUser WHERE username='$username'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$tz = $db_row['datetime_timezone'];
-	}
-	return $tz;
-}
-
-function username2lang($username) {
-        if ($username) {
-		$db_query = "SELECT language_module FROM "._DB_PREF_."_tblUser WHERE username='$username'";
-                $db_result = dba_query($db_query);
-                $db_row = dba_fetch_array($db_result);
-                $lang = $db_row['language_module'];
-        }
-        return $lang;
-}
-
-function username2email($username) {
-	if ($username) {
-		$db_query = "SELECT email FROM "._DB_PREF_."_tblUser WHERE username='$username'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$email = $db_row['email'];
-	}
-	return $email;
-}
-
 function username2name($username) {
 	if ($username) {
 		$db_query = "SELECT name FROM "._DB_PREF_."_tblUser WHERE username='$username'";
@@ -145,16 +115,6 @@ function username2name($username) {
 		$name = $db_row['name'];
 	}
 	return $name;
-}
-
-function username2status($username) {
-	if ($username) {
-		$db_query = "SELECT status FROM "._DB_PREF_."_tblUser WHERE username='$username'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$status = $db_row['status'];
-	}
-	return $status;
 }
 
 function mobile2uid($mobile) {
