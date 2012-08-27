@@ -4,8 +4,9 @@ Version 0.9.7-beta1 - not released yet
 - MAJOR: all outgoing SMS are to be sent to a queue in database first and then the queue will be
          processed either directly or through new daemon sendsmsd (anton)
 - MAJOR: webservice has been modified in service related to sending SMS, please read (anton)
-- MAJOR: lib/fn_auth.php now loaded from init.php
-- remove unused field from sql files dailysms, age, birthday, gender, marital, education (anton)
+- MAJOR: like lib/dba.php, lib/fn_auth.php now also loaded from init.php (anton)
+- remove unused functions in fn_user.php and add generic functions to get field's value (anton)
+- remove unused fields from sql files dailysms,age,birthday,gender,marital,education (anton)
 - add new daemon sendsmsd for processing outgoing SMS queue (anton)
 - add new option 'Make return as reply' in SMS command and SMS custom (fhalley)
 - add new option to automatically add prefix, remove zero, and add/remove plus sign (anton)
