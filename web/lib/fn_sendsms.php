@@ -241,7 +241,7 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 	$uid = username2uid($username);
 	$sms_sender = sendsms_get_sender($username);
 	$max_length = ( $unicode ?  $core_config['smsmaxlength_unicode'] : $core_config['smsmaxlength'] );
-	if ($sms_footer = username2footer($username)) {
+	if ($sms_footer = user_getfieldbyusername($username, 'footer')) {
 		$max_length = $max_length - strlen($sms_footer) - 1;
 	}
 	if (strlen($message)>$max_length) {
@@ -292,7 +292,7 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 	$uid = username2uid($username);
 	$sms_sender = sendsms_get_sender($username);
 	$max_length = ( $unicode ?  $core_config['smsmaxlength_unicode'] : $core_config['smsmaxlength'] );
-	if ($sms_footer = username2footer($username)) {
+	if ($sms_footer = user_getfieldbyusername($username, 'footer')) {
 		$max_length = $max_length - strlen($sms_footer) - 1;
 	}
 	if (strlen($message)>$max_length) {
@@ -357,7 +357,7 @@ function sendsms_get_sender($username) {
 		} else if ($gateway_number) {
 			$sms_sender = $gateway_number;
 		} else {
-			$sms_sender = username2sender($username);
+			$sms_sender = user_getfieldbyusername($username, 'sender');
 		}
 	}
 	$sms_sender = str_replace("\'","",$sms_sender);

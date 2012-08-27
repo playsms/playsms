@@ -28,7 +28,7 @@ switch ($op)
 		}
 		$sms_from = sendsms_get_sender($username);
 		$max_length = $core_config['smsmaxlength'];
-		if ($sms_footer = username2footer($username))
+		if ($sms_footer = user_getfieldbyusername($username, 'footer'))
 		{
                         // fixme anton - minus 1 for a space as sms_footer prefix
 			$max_length = $max_length - strlen($sms_footer) - 1;
@@ -187,7 +187,7 @@ switch ($op)
 		}
 		$sms_from = sendsms_get_sender($username);
 		$max_length = $core_config['smsmaxlength'];
-		if ($sms_footer = username2footer($username))
+		if ($sms_footer = user_getfieldbyusername($username, 'footer'))
 		{
                         // fixme anton - minus 1 for a space as sms_footer prefix
 			$max_length = $max_length - strlen($sms_footer) - 1;
