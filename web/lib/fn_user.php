@@ -75,16 +75,6 @@ function username2uid($username) {
 	return $uid;
 }
 
-function username2mobile($username) {
-	if ($username) {
-		$db_query = "SELECT mobile FROM "._DB_PREF_."_tblUser WHERE username='$username'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$mobile = $db_row['mobile'];
-	}
-	return $mobile;
-}
-
 function username2sender($username) {
 	if ($username) {
 		$db_query = "SELECT sender FROM "._DB_PREF_."_tblUser WHERE username='$username'";
@@ -105,16 +95,6 @@ function username2footer($username) {
 	$footer = str_replace("\'","",$footer);
 	$footer = str_replace("\"","",$footer);
 	return $footer;
-}
-
-function username2name($username) {
-	if ($username) {
-		$db_query = "SELECT name FROM "._DB_PREF_."_tblUser WHERE username='$username'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$name = $db_row['name'];
-	}
-	return $name;
 }
 
 function mobile2uid($mobile) {
