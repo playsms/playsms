@@ -1,18 +1,6 @@
 <?php
 if(!(defined('_SECURE_'))){die('Intruder alert');};
 
-function user_getdatabyuid($uid) {
-	$ret = array();
-	if ($uid) {
-		$db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE uid='$uid'";
-		$db_result = dba_query($db_query);
-		if ($db_row = dba_fetch_array($db_result)) {
-			$ret = $db_row;
-		}
-	}
-	return $ret;
-}
-
 function user_getall() {
 	$ret = array();
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblUser";
@@ -33,9 +21,38 @@ function user_getallwithstatus($status) {
 	return $ret;
 }
 
+function user_getdatabyuid($uid) {
+	$ret = array();
+	if ($uid) {
+		$db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE uid='$uid'";
+		$db_result = dba_query($db_query);
+		if ($db_row = dba_fetch_array($db_result)) {
+			$ret = $db_row;
+		}
+	}
+	return $ret;
+}
+
 function user_getdatabyusername($username) {
 	$uid = username2uid($username);
 	return user_getdatabyuid($uid);
+}
+
+function user_getfieldbyuid($uid, $field) {
+	$field = q_sanitize($field);
+	if ($uid && $field) {
+		$db_query = "SELECT $field FROM "._DB_PREF_."_tblUser WHERE uid='$uid'";
+		$db_result = dba_query($db_query);
+		if ($db_row = dba_fetch_array($db_result)) {
+			$ret = $db_row[$field];
+		}
+	}
+	return $ret;
+}
+
+function user_getfieldbyusername($username, $field) {
+	$uid = username2uid($username);
+	return user_getfieldbyuid($uid, $field);
 }
 
 function uid2username($uid) {
