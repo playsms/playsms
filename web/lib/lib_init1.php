@@ -10,24 +10,23 @@ $errid = q_sanitize($_REQUEST['errid']);
 $page = q_sanitize($_REQUEST['page']);
 $nav = q_sanitize($_REQUEST['nav']);
 
-$username = $_COOKIE['vc2'];
-$uid = username2uid($username);
-$sender = username2sender($username);
-$footer = username2footer($username);
-$mobile = username2mobile($username);
-$email = username2email($username);
-$name = username2name($username);
-$status = username2status($username);
-$userstatus = ( isadmin() ? _('Administrator') : _('Normal User') );
+// load user's data from user's DB table
+if (valid()) {
+	$username = $_COOKIE['vc2'];
+	$uid = username2uid($username);
+	$core_config['user'] = user_getdatabyuid($uid);
+	$sender = $core_config['user']['sender'];
+	$footer = $core_config['user']['footer'];
+	$mobile = $core_config['user']['mobile'];
+	$email = $core_config['user']['email'];
+	$name = $core_config['user']['name'];
+	$status = $core_config['user']['status'];
+	$userstatus = ( $status == 2 ? _('Administrator') : _('Normal User') );
+}
 
 // reserved important keywords
 $reserved_keywords = array ("PV","BC");
 $core_config['reserved_keywords'] = $reserved_keywords;
-
-// load user's data from user's DB table
-if (valid()) {
-	$core_config['user'] = user_getdatabyusername($username);
-}
 
 // action icon
 $icon_edit = "<img src=\"".$http_path['themes']."/".$themes_module."/images/edit_action.gif\" alt=\""._('Edit')."\" title=\""._('Edit')."\" border=0>";
