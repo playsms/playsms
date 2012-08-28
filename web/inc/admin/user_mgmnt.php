@@ -203,7 +203,7 @@ switch ($op)
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result))
 			{
-				$error_string = _('Email is already in use by other username')." ("._('email').": `$email`, "._('username').": `".$db_row['username']."`) ";
+				$error_string = _('Email is already in use by other username')." ("._('email').": `$up_email`, "._('username').": `".$db_row['username']."`) ";
 			}
 			else
 			{
