@@ -14,19 +14,27 @@ function smstools_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime=""
 		$fn = $smstools_param['spool_dir']."/sent/out.0.$uid.$smslog_id";
 		$efn = $smstools_param['spool_dir']."/failed/out.0.$uid.$smslog_id";
 	}
-	$p_datetime_stamp = strtotime($p_datetime);
-	$p_update_stamp = strtotime($p_update);
-	$p_delay = floor(($p_update_stamp - $p_datetime_stamp)/86400);
-	// set pending first
-	$p_status = 0;
-	setsmsdeliverystatus($smslog_id,$uid,$p_status);
-	// set failed if its at least 2 days old
-	if ($p_delay >= 2) {
-		$p_status = 2;
-		setsmsdeliverystatus($smslog_id,$uid,$p_status);
-	}
 	// set if its sent/delivered
 	if (file_exists($fn)) {
+
+		$lines = @file ($fn);
+		for ($c=0;$c<count($lines);$c++) {
+			$c_line = $lines[$c];
+			if (ereg('^Message_id: ',$c_line)) {
+				$message_id = trim(str_replace('Message_id: ','',trim($c_line)));
+				if ($message_id) {
+					break;
+				}
+			}
+		}
+		if ($smslod_id && $message_id) {
+			$db_query = "INSERT INTO "._DB_PREF_."_gatewaySmstools_dlr ('uid','smslog_id','message_id','status') VALUES ('$uid','$smslog_id','$message_id','-1')";
+			$dlr_id = dba_insert_id($db_query);
+			if ($dlr_id) {
+				logger_print("DLR mapped id:".$id." uid:".$uid." smslog_id:".$smslog_id." message_id:".$message_id, 3, "smstools getsmsstatus");
+			}
+		}
+
 		$p_status = 1;
 		setsmsdeliverystatus($smslog_id,$uid,$p_status);
 		if (is_dir($smstools_param['spool_bak'].'/sent')) {
@@ -46,6 +54,14 @@ function smstools_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime=""
 		if (file_exists($efn)) {
 			@unlink($efn);
 		}
+	}
+	// set failed if its at least 2 days old
+	$p_datetime_stamp = strtotime($p_datetime);
+	$p_update_stamp = strtotime($p_update);
+	$p_delay = floor(($p_update_stamp - $p_datetime_stamp)/86400);
+	if ($p_delay >= 2) {
+		$p_status = 2;
+		setsmsdeliverystatus($smslog_id,$uid,$p_status);
 	}
 	return;
 }
@@ -111,8 +127,18 @@ function smstools_hook_getsmsinbox() {
 						$status = $status_var[0];
 					}
 					if ($message_id && $status_var[1]) {
+						logger_print("DLR received message_id:".$message_id." status:".$status." info1:".$status_var[1]." info2:".$status_var[2], 3, "smstools incoming");
+						$db_query = "SELECT uid,smslog_id FROM "._DB_PREF_."_gatewaySmstools_dlr WHERE message_id='$message_id'";
+						$db_result = dba_query($db_query);
+						$db_row = dba_fetch_array($db_result);
+						$uid = $db_row['uid'];
+						$smslog_id = $db_row['smslog_id'];
+						if ($uid && $smslog_id && $status===0) {
+							$p_status = 3;
+							setsmsdeliverystatus($smslog_id,$uid,$p_status);
+							logger_print("DLR smslog_id:".$smslog_id." p_status:".$p_status, 3, "smstools incoming");
+						}
 						$is_dlr = true;
-						logger_print("status report message_id:".$message_id." status:".$status." info1:".$status_var[1]." info2:".$status_var[2], 3, "smstools incoming");
 					}
 				}
 

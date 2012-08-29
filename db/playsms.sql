@@ -874,6 +874,7 @@ DROP TABLE IF EXISTS `playsms_gatewaySmstools_dlr`;
 CREATE TABLE `playsms_gatewaySmstools_dlr` (
   `c_timestamp` int(11) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
   `smslog_id` int(11) NOT NULL,
   `message_id` int(11) NOT NULL,
   `status` int(11) NOT NULL,
