@@ -49,8 +49,8 @@ function smstools_hook_getsmsinbox() {
 	$handle = @opendir($smstools_param['spool_dir']."/incoming");
 	while ($sms_in_file = @readdir($handle)) {
 		$fn = $smstools_param['spool_dir']."/incoming/$sms_in_file";
-		// logger_print("infile:".$fn, 3, "smstools incoming");
-		$tobe_deleted = $fn;
+		$fn_bak = $smstools_param['spool_bak']."/incoming/$sms_in_file";
+
 		$lines = @file ($fn);
 		$start = 0;
 		for ($c=0;$c<count($lines);$c++) {
@@ -69,16 +69,16 @@ function smstools_hook_getsmsinbox() {
 		// copy to backup folder instead of delete it directly from original spool dir.
 		// playSMS does the backup since probably not many smstools3 users configure
 		// an eventhandler to backup incoming sms
-		if ( is_dir($smstools_param['spool_bak'].'/incoming')) {
-			logger_print("infile backup:".$tobe_deleted, 3, "smstools incoming");
-			@shell_exec('mv '.$tobe_deleted.' '.$smstools_param['spool_bak'].'/incoming/');
+		if (is_dir($smstools_param['spool_bak'].'/incoming') && $start) {
+			logger_print("infile backup:".$fn_bak, 3, "smstools incoming");
+			@shell_exec('mv '.$fn.' '.$smstools_param['spool_bak'].'/incoming/');
 		} else {
-			@unlink($tobe_deleted);
+			@unlink($fn);
 		}
 
 		// continue process only when incoming sms file can be deleted
-		if (! file_exists($tobe_deleted)) {
-			if ($sms_sender && $sms_datetime && $start) {
+		if (! file_exists($fn) && $start) {
+			if ($sms_sender && $sms_datetime) {
 				$message = "";
 				for ($lc=$start;$lc<count($lines);$lc++) {
 					$message .= trim($lines[$lc]);
@@ -89,6 +89,7 @@ function smstools_hook_getsmsinbox() {
 			}
 			logger_print("sender:".$sms_sender." receiver:".$sms_receiver." dt:".$sms_datetime." msg:".$message, 3, "smstools incoming");
 		}
+
 	}
 }
 
