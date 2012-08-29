@@ -40,7 +40,7 @@ Step by step how to install SMS Server Tools for playSMS as follows:
 	# cd /var/spool/smsbackup
 	# mkdir checked failed incoming outgoing sent
 	
-	# mkdir -p /var/log/sms
+	# mkdir -p /var/log/sms/stats
 
 7.  Change permissions on some directories so that web server user can write files on it
 
