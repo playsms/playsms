@@ -91,7 +91,10 @@ function smstools_hook_getsmsinbox() {
 			if ($sms_sender && $sms_datetime) {
 				$message = "";
 				for ($lc=$start;$lc<count($lines);$lc++) {
-					$message .= trim($lines[$lc]);
+					$message .= trim($lines[$lc])."\n";
+				}
+				if (strlen($message)>0) {
+					$message = substr($message, 0, -1);
 				}
 
 				$is_dlr = false;
@@ -107,9 +110,9 @@ function smstools_hook_getsmsinbox() {
 						$status_var = explode(',', trim($label[1]));
 						$status = $status_var[0];
 					}
-					if ($message_id && $status) {
+					if ($message_id && $status_var[1]) {
 						$is_dlr = true;
-						logger_print("status report message_id: ".$message_id." status:".$status, 3, "smstools incoming");
+						logger_print("status report message_id:".$message_id." status:".$status." info1:".$status_var[1]." info2:".$status_var[2], 3, "smstools incoming");
 					}
 				}
 
@@ -117,9 +120,9 @@ function smstools_hook_getsmsinbox() {
 				// if not a DLR then route it to incoming handler
 				if (! $is_dlr) {
 					setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
+					logger_print("sender:".$sms_sender." receiver:".$sms_receiver." dt:".$sms_datetime." msg:".$message, 3, "smstools incoming");
 				}
 			}
-			logger_print("sender:".$sms_sender." receiver:".$sms_receiver." dt:".$sms_datetime." msg:".$message, 3, "smstools incoming");
 		}
 
 	}
