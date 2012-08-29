@@ -1,7 +1,8 @@
 <?php
 if(!(defined('_SECURE_'))){die('Intruder alert');};
+
 $smstools_param['name'] = "smstools";
-$smstools_param['path'] = "/var/spool/sms";
+$smstools_param['spool_path'] = "/var/spool/sms";
 
 // save plugin's parameters or options in $core_config
 $core_config['plugin']['smstools'] = $smstools_param;

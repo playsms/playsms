@@ -8,11 +8,11 @@ function smstools_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime=""
 	// 1 = sent/delivered
 	// 2 = failed
 	if ($gpid) {
-		$fn = $smstools_param['path']."/sent/out.$gpid.$uid.$smslog_id";
-		$efn = $smstools_param['path']."/failed/out.$gpid.$uid.$smslog_id";
+		$fn = $smstools_param['spool_path']."/sent/out.$gpid.$uid.$smslog_id";
+		$efn = $smstools_param['spool_path']."/failed/out.$gpid.$uid.$smslog_id";
 	} else {
-		$fn = $smstools_param['path']."/sent/out.0.$uid.$smslog_id";
-		$efn = $smstools_param['path']."/failed/out.0.$uid.$smslog_id";
+		$fn = $smstools_param['spool_path']."/sent/out.0.$uid.$smslog_id";
+		$efn = $smstools_param['spool_path']."/failed/out.0.$uid.$smslog_id";
 	}
 	$p_datetime_stamp = strtotime($p_datetime);
 	$p_update_stamp = strtotime($p_update);
@@ -46,9 +46,9 @@ function smstools_hook_playsmsd() {
 
 function smstools_hook_getsmsinbox() {
 	global $smstools_param;
-	$handle = @opendir($smstools_param['path']."/incoming");
+	$handle = @opendir($smstools_param['spool_path']."/incoming");
 	while ($sms_in_file = @readdir($handle)) {
-		$fn = $smstools_param['path']."/incoming/$sms_in_file";
+		$fn = $smstools_param['spool_path']."/incoming/$sms_in_file";
 		// logger_print("infile:".$fn, 3, "smstools incoming");
 		$tobe_deleted = $fn;
 		$lines = @file ($fn);
@@ -104,7 +104,7 @@ function smstools_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',
 		// $sms_msg = str2hex($sms_msg);
 	}
 	$the_msg .= "\n$sms_msg";
-	$fn = $smstools_param['path']."/outgoing/out.$sms_id";
+	$fn = $smstools_param['spool_path']."/outgoing/out.$sms_id";
 	logger_print("outfile:".$fn, 3, "smstools outgoing");
 	umask(0);
 	$fd = @fopen($fn, "w+");
