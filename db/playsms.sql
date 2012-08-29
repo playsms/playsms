@@ -879,7 +879,7 @@ CREATE TABLE `playsms_gatewaySmstools_dlr` (
   `message_id` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `smslog_id` (`smslog_id`,`message_id`)
+  UNIQUE KEY `smslog_id` (`smslog_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
