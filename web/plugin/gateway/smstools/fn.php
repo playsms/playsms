@@ -64,7 +64,18 @@ function smstools_hook_getsmsinbox() {
 				break;
 			}
 		}
-		@unlink($tobe_deleted);
+
+		// inspired by keke's suggestion (smstools3 dev).
+		// copy to backup folder instead of delete it directly from original spool dir.
+		// playSMS does the backup since probably not many smstools3 users configure
+		// an eventhandler to backup incoming sms
+		if ( is_dir($smstools_param['spool_bak'].'/incoming')) {
+			logger_print("infile backup:".$tobe_deleted, 3, "smstools incoming");
+			@shell_exec('mv '.$tobe_deleted.' '.$smstools_param['spool_bak'].'/incoming/');
+		} else {
+			@unlink($tobe_deleted);
+		}
+
 		// continue process only when incoming sms file can be deleted
 		if (! file_exists($tobe_deleted)) {
 			if ($sms_sender && $sms_datetime && $start) {
@@ -104,12 +115,29 @@ function smstools_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',
 		// $sms_msg = str2hex($sms_msg);
 	}
 	$the_msg .= "\n$sms_msg";
+
+	// try to backup outgoing file first
+	$fn_bak = $smstools_param['spool_bak']."/outgoing/out.$sms_id";
+	if (is_dir($smstools_param['spool_bak'].'/outgoing')) {
+		umask(0);
+		$fd = @fopen($fn_bak, 'w+');
+		@fputs($fd, $the_msg);
+		@fclose($fd);
+	}
+
+	// copy from backup if exists, or create new one in spool dir
 	$fn = $smstools_param['spool_dir']."/outgoing/out.$sms_id";
+	if (file_exists($fn_bak)) {
+		logger_print("outfile backup:".$fn_bak, 3, "smstools outgoing");
+		@shell_exec('cp '.$fn_bak.' '.$fn);
+	} else {
+		umask(0);
+		$fd = @fopen($fn, 'w+');
+		@fputs($fd, $the_msg);
+		@fclose($fd);
+	}
+
 	logger_print("outfile:".$fn, 3, "smstools outgoing");
-	umask(0);
-	$fd = @fopen($fn, "w+");
-	@fputs($fd, $the_msg);
-	@fclose($fd);
 	$ok = false;
 	if (file_exists($fn)) {
 		$ok = true;
