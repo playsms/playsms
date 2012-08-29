@@ -137,7 +137,7 @@ function smstools_hook_getsmsinbox() {
 						$db_row = dba_fetch_array($db_result);
 						$uid = $db_row['uid'];
 						$smslog_id = $db_row['smslog_id'];
-						if ($uid && $smslog_id && $status===0) {
+						if ($uid && $smslog_id && $status==0) {
 							$p_status = 3;
 							setsmsdeliverystatus($smslog_id,$uid,$p_status);
 							logger_print("DLR smslog_id:".$smslog_id." p_status:".$p_status, 3, "smstools incoming");
