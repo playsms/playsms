@@ -52,6 +52,7 @@ function array_add_slashes($array) {
 }
 
 function pl_addslashes($data) {
+	global $core_config;
 	if ($core_config['db']['type']=="mssql") {
 		$data = str_replace("'", "''", $data);
 	} else {

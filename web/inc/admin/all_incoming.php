@@ -53,15 +53,15 @@ switch ($op)
 			$j++;
 			$in_id = $db_row['in_id'];
 			$in_username = uid2username($db_row['in_uid']);
-			$in_sender = $db_row['in_sender'];
+			$in_sender = stripslashes($db_row['in_sender']);
 			$p_desc = phonebook_number2name($in_sender);
 			$current_sender = $in_sender;
 			if ($p_desc)
 			{
 				$current_sender = "$in_sender<br>($p_desc)";
 			}
-			$in_keyword = $db_row['in_keyword'];
-			$in_message = core_display_text($db_row['in_message'], 25);
+			$in_keyword = stripslashes($db_row['in_keyword']);
+			$in_message = stripslashes(core_display_text($db_row['in_message'], 25));
 			$in_datetime = core_display_datetime($db_row['in_datetime']);
 			$in_feature = $db_row['in_feature'];
 			$in_status = ( $db_row['in_status'] == 1 ? '<p><font color=green>'._('handled').'</font></p>' : '<p><font color=red>'._('unhandled').'</font></p>' );

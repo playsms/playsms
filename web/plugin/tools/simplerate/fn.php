@@ -96,7 +96,7 @@ function simplerate_hook_rate_deduct($smslog_id) {
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$p_dst = $db_row['p_dst'];
-		$p_msg = $db_row['p_msg'];
+		$p_msg = stripslashes($db_row['p_msg']);
 		$uid = $db_row['uid'];
                 $unicode = $db_row['unicode'];
 		if ($p_dst && $p_msg && $uid) {

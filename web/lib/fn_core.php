@@ -161,6 +161,12 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 			logger_print("unhandled datetime:".$sms_datetime." sender:".$sms_sender." receiver:".$sms_receiver." message:".$message, 3, "setsmsincomingaction");
 		}
 	}
+
+	// fixme anton - since 0.9.7 magic_quote_gpc should be Off
+	$sms_sender = pl_addslashes($sms_sender);
+	$target_keyword = pl_addslashes($target_keyword);
+	$message = pl_addslashes($message);
+
 	$db_query = "
         INSERT INTO "._DB_PREF_."_tblSMSIncoming 
         (in_uid,in_feature,in_gateway,in_sender,in_receiver,in_keyword,in_message,in_datetime,in_status)
