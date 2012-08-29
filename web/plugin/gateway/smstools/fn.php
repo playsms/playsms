@@ -29,14 +29,24 @@ function smstools_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime=""
 	if (file_exists($fn)) {
 		$p_status = 1;
 		setsmsdeliverystatus($smslog_id,$uid,$p_status);
+		if (is_dir($smstools_param['spool_bak'].'/sent')) {
+			@shell_exec('mv '.$fn.' '.$smstools_param['spool_bak'].'/sent/');
+		}
+		if (file_exists($fn) {
+			@unlink($fn);
+		}
 	}
 	// set if its failed
 	if (file_exists($efn)) {
 		$p_status = 2;
 		setsmsdeliverystatus($smslog_id,$uid,$p_status);
+		if (is_dir($smstools_param['spool_bak'].'/failed')) {
+			@shell_exec('mv '.$efn.' '.$smstools_param['spool_bak'].'/failed/');
+		}
+		if (file_exists($efn)) {
+			@unlink($efn);
+		}
 	}
-	@unlink ($fn);
-	@unlink ($efn);
 	return;
 }
 
