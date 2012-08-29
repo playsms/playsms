@@ -38,3 +38,14 @@ CREATE TABLE `playsms_tblSMSOutgoing_queue_dst` (
   `dst` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE `playsms_gatewaySmstools_dlr` (
+  `c_timestamp` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `smslog_id` int(11) NOT NULL,
+  `message_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `smslog_id` (`smslog_id`,`message_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+

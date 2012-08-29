@@ -867,6 +867,21 @@ INSERT INTO `playsms_gatewayGnokii_config` VALUES (0,'gnokii','/var/spool/playsm
 UNLOCK TABLES;
 
 --
+-- Table structure for table `playsms_gatewaySmstools_dlr`
+--
+
+DROP TABLE IF EXISTS `playsms_gatewaySmstools_dlr`;
+CREATE TABLE `playsms_gatewaySmstools_dlr` (
+  `c_timestamp` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `smslog_id` int(11) NOT NULL,
+  `message_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `smslog_id` (`smslog_id`,`message_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
 -- Table structure for table `playsms_gatewayKannel_config`
 --
 
