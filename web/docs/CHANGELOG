@@ -10,6 +10,8 @@ Version 0.9.7-beta1 - not released yet
 - add new daemon sendsmsd for processing outgoing SMS queue (anton)
 - add new option 'Make return as reply' in SMS command and SMS custom (fhalley)
 - add new option to automatically add prefix, remove zero, and add/remove plus sign (anton)
+- add new table to hold DLR for gateway smstools (anton)
+- add handler for status report in gateway smstools, now we can get delivered status (anton)
 - add a text editor for kannel.conf and restart kannel from web (fhalley)
 - add kannel DLR options in kannel gateway configuration (emmanuel)
 - add more logger_print() in various location (anton)
