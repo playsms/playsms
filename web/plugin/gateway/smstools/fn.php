@@ -32,7 +32,7 @@ function smstools_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime=""
 		if (is_dir($smstools_param['spool_bak'].'/sent')) {
 			@shell_exec('mv '.$fn.' '.$smstools_param['spool_bak'].'/sent/');
 		}
-		if (file_exists($fn) {
+		if (file_exists($fn)) {
 			@unlink($fn);
 		}
 	}
