@@ -31,12 +31,12 @@ function smstools_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime=""
 			$db_query = "INSERT INTO "._DB_PREF_."_gatewaySmstools_dlr (c_timestamp,uid,smslog_id,message_id,status) VALUES ('".mktime()."','$uid','$smslog_id','$message_id','-1')";
 			$dlr_id = dba_insert_id($db_query);
 			if ($dlr_id) {
-				logger_print("DLR mapped id:".$id." uid:".$uid." smslog_id:".$smslog_id." message_id:".$message_id, 3, "smstools getsmsstatus");
+				logger_print("DLR mapped id:".$dlr_id." uid:".$uid." smslog_id:".$smslog_id." message_id:".$message_id, 3, "smstools getsmsstatus");
 			} else {
-				logger_print("Fail to map DLR id:".$id." uid:".$uid." smslog_id:".$smslog_id." message_id:".$message_id, 3, "smstools getsmsstatus");
+				logger_print("Fail to map DLR id:".$dlr_id." uid:".$uid." smslog_id:".$smslog_id." message_id:".$message_id, 3, "smstools getsmsstatus");
 			}
 		} else {
-			logger_print("No valid DLR id:".$id." uid:".$uid." smslog_id:".$smslog_id." message_id:".$message_id, 3, "smstools getsmsstatus");
+			logger_print("No valid DLR id:".$dlr_id." uid:".$uid." smslog_id:".$smslog_id." message_id:".$message_id, 3, "smstools getsmsstatus");
 		}
 
 		$p_status = 1;
