@@ -79,10 +79,6 @@ function interceptincomingsms($sms_datetime,$sms_sender,$message,$sms_receiver="
 function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="") {
 	global $gateway_module, $core_config;
 
-	// fixme anton - since 0.9.7 magic_quote_gpc should be Off
-	$sms_sender = pl_addslashes($sms_sender);
-	$message = pl_addslashes($message);
-
 	// make sure sms_datetime is in supported format and in GMT+0
 	$sms_datetime = core_adjust_datetime($sms_datetime);
 
@@ -166,6 +162,10 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 		}
 	}
 
+	// fixme anton - since 0.9.7 magic_quote_gpc should be Off
+	$sms_sender = pl_addslashes($sms_sender);
+	$message = pl_addslashes($message);
+
 	$db_query = "
         INSERT INTO "._DB_PREF_."_tblSMSIncoming 
         (in_uid,in_feature,in_gateway,in_sender,in_receiver,in_keyword,in_message,in_datetime,in_status)
@@ -236,11 +236,23 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 		if ($uid = $user['uid']) {
 			// forward to Inbox
 			if ($fwd_to_inbox = $user['fwd_to_inbox']) {
+
+				// fixme anton - since 0.9.7 magic_quote_gpc should be Off
+				// we should do this only when we're going to save data to db
+				// next time we will do this on DBA, instead of here
+				$sms_sender = pl_addslashes($sms_sender);
+				$message = pl_addslashes($message);
+
 				$db_query = "
-		    INSERT INTO "._DB_PREF_."_tblUserInbox
-		    (in_sender,in_receiver,in_uid,in_msg,in_datetime) 
-		    VALUES ('$sms_sender','$sms_receiver','$uid','$message','$sms_datetime')
-		";
+					INSERT INTO "._DB_PREF_."_tblUserInbox
+					(in_sender,in_receiver,in_uid,in_msg,in_datetime) 
+					VALUES ('$sms_sender','$sms_receiver','$uid','$message','$sms_datetime')
+				";
+
+				// fixme anton - stripslashes after pl_addslashes()
+				$sms_sender = stripslashes($sms_sender);
+				$message = stripslashes($message);
+
 				logger_print("saving sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user, 3, "insertsmstoinbox");
 				if ($cek_ok = @dba_insert_id($db_query)) {
 					logger_print("saved sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user, 3, "insertsmstoinbox");
@@ -256,9 +268,6 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 					$c_name = phonebook_number2name($sms_sender, $target_user);
 					$sender = $c_name ? $c_name.' <'.$sms_sender.'>' : $sms_sender;
 
-                                        // fixme anton - slash maddess
-                                        $message = stripslashes($message);
-                                        
 					$subject = "[SMSGW-PV] "._('from')." $sms_sender";
 					$body = _('Forward Private WebSMS')." ($web_title)\n\n";
 					$body .= _('Date time').": $sms_datetime\n";
@@ -269,10 +278,6 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 					logger_print("send email from:".$email_service." to:".$email." message:".$message, 3, "insertsmstoinbox");
 					sendmail($email_service,$email,$subject,$body);
 					logger_print("sent email from:".$email_service." to:".$email." message:".$message, 3, "insertsmstoinbox");
-					
-					// fixme anton - yes we need to addslash here since we stripped them above
-					// sendsms_pv below requires message to be slashed
-					$message = pl_addslashes($message);
 				}
 				$ok = true;
 			}

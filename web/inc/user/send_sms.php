@@ -8,7 +8,7 @@ $dst_gp_code = urlencode($_REQUEST['dst_gp_code']);
 switch ($op)
 {
 	case "sendsmstopv":
-		$message = $_REQUEST['message'];
+		$message = stripslashes($_REQUEST['message']);
 		$rows = phonebook_getdatabyuid($uid, "p_desc");
 		foreach ($rows as $key => $db_row) {
 			$list_of_number .= "<option value=\"".$db_row['p_num']."\" $selected>".$db_row['p_desc']." ".$db_row['p_num']."</option>";
@@ -111,9 +111,7 @@ switch ($op)
 	    <p><input type=submit class=button value='"._('Send')."' onClick=\"selectAllOptions(this.form['p_num[]'])\"> 
 	    </form>
 	";
-	    // fixme anton - if no magic_quote_gpc then the pl_addslashes in init.php will add \ in web ($message)
-	    // echo $content;
-	    echo stripslashes($content);
+	    echo $content;
 	    break;
 	case "sendsmstopv_yes":
 		$p_num = $_POST['p_num'];
@@ -133,7 +131,8 @@ switch ($op)
 			if ($msg_unicode == "on") {
 				$unicode = "1";
 			}
-			list($ok,$to,$smslog_id,$queue) = sendsms_pv($username,$sms_to,$message,$sms_type,$unicode);
+			
+			list($ok,$to,$smslog_id,$queue) = sendsms_pv($username,$sms_to,stripslashes($message),$sms_type,$unicode);
 			//$error_string = _('Your SMS has been delivered to queue');
 
 			if (count($ok) <= 5) {
@@ -168,7 +167,7 @@ switch ($op)
 		}
 		break;
 	case "sendsmstogr":
-		$message = $_REQUEST['message'];
+		$message = stripslashes($_REQUEST['message']);
 		$rows = phonebook_getgroupbyuid($uid, "gp_name");
 		foreach ($rows as $key => $db_row)
 		{
@@ -268,7 +267,7 @@ switch ($op)
 			if ($msg_unicode == "on") {
 				$unicode = "1";
 			}
-			list($ok,$to,$smslog_id,$queue) = sendsms_bc($username,$gpid,$message,$sms_type,$unicode);
+			list($ok,$to,$smslog_id,$queue) = sendsms_bc($username,$gpid,stripslashes($message),$sms_type,$unicode);
 			//$error_string = _('Your SMS has been delivered to queue');
 
 			// minimize delivery reports on web, actual status can be seen from outgoing SMS menu (emmanuel)
