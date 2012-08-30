@@ -5,6 +5,8 @@ Version 0.9.7-beta1 - not released yet
          processed either directly or through new daemon sendsmsd (anton)
 - MAJOR: webservice has been modified in service related to sending SMS, please read (anton)
 - MAJOR: like lib/dba.php, lib/fn_auth.php now also loaded from init.php (anton)
+- MAJOR: functions related to receiving SMS in fn_core.php are moved to fn_recvsms.php (anton)
+- MAJOR: assumed magic_quotes_gpc is set to Off, issues with quotes mostly fixed (anton)
 - remove unused functions in fn_user.php and add generic functions to get field's value (anton)
 - remove unused fields from sql files dailysms,age,birthday,gender,marital,education (anton)
 - add new daemon sendsmsd for processing outgoing SMS queue (anton)

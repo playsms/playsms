@@ -6,6 +6,7 @@ include $apps_path['libs']."/fn_logger.php";
 include $apps_path['libs']."/fn_user.php";
 include $apps_path['libs']."/fn_rate.php";
 include $apps_path['libs']."/fn_billing.php";
+include $apps_path['libs']."/fn_recvsms.php";
 include $apps_path['libs']."/fn_sendsms.php";
 include $apps_path['libs']."/fn_sendmail.php";
 include $apps_path['libs']."/fn_phonebook.php";
