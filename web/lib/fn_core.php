@@ -79,6 +79,10 @@ function interceptincomingsms($sms_datetime,$sms_sender,$message,$sms_receiver="
 function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="") {
 	global $gateway_module, $core_config;
 
+	// fixme anton - since 0.9.7 magic_quote_gpc should be Off
+	$sms_sender = pl_addslashes($sms_sender);
+	$message = pl_addslashes($message);
+
 	// make sure sms_datetime is in supported format and in GMT+0
 	$sms_datetime = core_adjust_datetime($sms_datetime);
 
@@ -162,11 +166,6 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 		}
 	}
 
-	// fixme anton - since 0.9.7 magic_quote_gpc should be Off
-	$sms_sender = pl_addslashes($sms_sender);
-	$target_keyword = pl_addslashes($target_keyword);
-	$message = pl_addslashes($message);
-
 	$db_query = "
         INSERT INTO "._DB_PREF_."_tblSMSIncoming 
         (in_uid,in_feature,in_gateway,in_sender,in_receiver,in_keyword,in_message,in_datetime,in_status)
@@ -237,9 +236,6 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 		if ($uid = $user['uid']) {
 			// forward to Inbox
 			if ($fwd_to_inbox = $user['fwd_to_inbox']) {
-				// fixme anton - no need since data from GPC and incoming SMS are already addslashed
-				// $sms_sender = pl_addslashes($sms_sender);
-				// $message = pl_addslashes($message);
 				$db_query = "
 		    INSERT INTO "._DB_PREF_."_tblUserInbox
 		    (in_sender,in_receiver,in_uid,in_msg,in_datetime) 
@@ -270,9 +266,13 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 					$body .= _('Receiver').": $sms_receiver\n\n";
 					$body .= _('Message').":\n$message\n\n";
 					$body .= $email_footer."\n\n";
-					logger_print("send email from:".$email_service." to:".$email, 3, "insertsmstoinbox");
+					logger_print("send email from:".$email_service." to:".$email." message:".$message, 3, "insertsmstoinbox");
 					sendmail($email_service,$email,$subject,$body);
-					logger_print("sent email from:".$email_service." to:".$email, 3, "insertsmstoinbox");
+					logger_print("sent email from:".$email_service." to:".$email." message:".$message, 3, "insertsmstoinbox");
+					
+					// fixme anton - yes we need to addslash here since we stripped them above
+					// sendsms_pv below requires message to be slashed
+					$message = pl_addslashes($message);
 				}
 				$ok = true;
 			}
@@ -287,7 +287,7 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 						}
 					}
 					$message = $sender.' '.$message;
-					logger_print("send to mobile:".$mobile." from:".$sender." user:".$target_user, 3, "insertsmstoinbox");
+					logger_print("send to mobile:".$mobile." from:".$sender." user:".$target_user." message:".$message, 3, "insertsmstoinbox");
 					list($ok, $to, $smslog_id, $queue) = sendsms_pv($target_user, $mobile, $message, 'text', $unicode);
 					if ($ok[0]) {
                                                 logger_print("sent to mobile:".$mobile." from:".$sender." user:".$target_user, 3, "insertsmstoinbox");

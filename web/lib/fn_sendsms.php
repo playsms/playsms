@@ -87,7 +87,7 @@ function sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$sms_type='t
 	// fixme anton - no need since all data from GPC and incoming SMS should be addslashed first
 	// $sms_sender = pl_addslashes($sms_sender);
 	// $sms_footer = pl_addslashes($sms_footer);
-	$sms_msg = pl_addslashes($sms_msg);
+	// $sms_msg = pl_addslashes($sms_msg);
 	$db_query = "INSERT INTO "._DB_PREF_."_tblSMSOutgoing_queue ";
 	$db_query .= "(queue_code,datetime_entry,datetime_scheduled,uid,sender_id,footer,message,sms_type,unicode) ";
 	$db_query .= "VALUES ('$queue_code','".$core_config['datetime']['now']."','".$core_config['datetime']['now']."','$uid','$sms_sender','$sms_footer','$sms_msg','$sms_type','$unicode')";
@@ -209,6 +209,7 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 	logger_print("start", 3, "sendsms");
 	if (rate_cansend($username, $sms_to)) {
 		// fixme anton - its a total mess ! need another DBA
+		// need pl_addslashes() since this function reads from database, strings are not slashed
 		$sms_sender = pl_addslashes(trim($sms_sender));
 		$sms_footer = pl_addslashes(trim($sms_footer));
 		$sms_msg = pl_addslashes($sms_msg);
@@ -225,6 +226,7 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 		if ($smslog_id = @dba_insert_id($db_query)) {
 			logger_print("smslog_id:".$smslog_id." saved", 3, "sendsms");
 			// fixme anton - another mess with slashes! also trim $sms_footer and prefix it with a space
+			// need to strip slashes since these variables get pl_addslashes() above
 			$sms_sender = stripslashes(trim($sms_sender));
 			$sms_footer = ' '.stripslashes(trim($sms_footer));
 			$sms_msg = stripslashes($sms_msg);

@@ -149,8 +149,6 @@ function smstools_hook_getsmsinbox() {
 				// collected: $sms_datetime, $sms_sender, $message, $sms_receiver
 				// if not a DLR then route it to incoming handler
 				if (! $is_dlr) {
-					$sms_sender = pl_addslashes($sms_sender);
-					$message = pl_addslashes($message);
 					setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
 					logger_print("sender:".$sms_sender." receiver:".$sms_receiver." dt:".$sms_datetime." msg:".$message, 3, "smstools incoming");
 				}
