@@ -89,6 +89,7 @@ function sms_board_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$board_
 				$body .= _('Keyword').": $board_keyword\n\n";
 				$body .= _('Message').":\n$board_param\n\n";
 				$body .= $email_footer."\n\n";
+				$body = stripslashes($body);
 				sendmail($email_service,$email,$subject,$body);
 			}
 			$ok = true;

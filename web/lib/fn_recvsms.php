@@ -250,15 +250,16 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 
 					// get name from target_user's phonebook
 					$c_name = phonebook_number2name($sms_sender, $target_user);
-					$sender = $c_name ? $c_name.' <'.stripslashes($sms_sender).'>' : stripslashes($sms_sender);
+					$sender = $c_name ? $c_name.' <'.$sms_sender.'>' : $sms_sender;
 
-					$subject = "[SMSGW-PV] "._('from')." $sms_sender";
+					$subject = "[SMSGW-PV] "._('from')." ".$sms_sender;
 					$body = _('Forward Private WebSMS')." ($web_title)\n\n";
 					$body .= _('Date time').": $sms_datetime\n";
-					$body .= _('Sender').": ".stripslashes($sender)."\n";
+					$body .= _('Sender').": $sender\n";
 					$body .= _('Receiver').": $sms_receiver\n\n";
-					$body .= _('Message').":\n".stripslashes($message)."\n\n";
+					$body .= _('Message').":\n$message\n\n";
 					$body .= $email_footer."\n\n";
+					$body = stripslashes($body);
 					logger_print("send email from:".$email_service." to:".$email." message:".$message, 3, "insertsmstoinbox");
 					sendmail($email_service,$email,$subject,$body);
 					logger_print("sent email from:".$email_service." to:".$email." message:".$message, 3, "insertsmstoinbox");
