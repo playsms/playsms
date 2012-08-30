@@ -33,6 +33,13 @@ if ($cb_timestamp && $cb_from && $cb_text)
 	$sms_sender = trim($cb_from);
 	$message = trim($cb_text);
 	$sms_receiver = trim($cb_to);
+
+	// fixme anton - assumed magic quotes gpc is Off, setsmsincomingaction() requires unquoted inputs
+	if (get_magic_quotes_gpc()) {
+		$sms_sender = stripslashes($sms_sender);
+		$message = stripslashes($message);
+	}
+
 	// collected:
 	// $sms_datetime, $sms_sender, $message, $sms_receiver
 	setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receiver);
