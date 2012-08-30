@@ -149,8 +149,10 @@ function smstools_hook_getsmsinbox() {
 				// collected: $sms_datetime, $sms_sender, $message, $sms_receiver
 				// if not a DLR then route it to incoming handler
 				if (! $is_dlr) {
-					setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
 					logger_print("sender:".$sms_sender." receiver:".$sms_receiver." dt:".$sms_datetime." msg:".$message, 3, "smstools incoming");
+					$sms_sender = addslashes($sms_sender);
+					$message = addslashes($message);
+					setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
 				}
 			}
 		}
@@ -160,6 +162,9 @@ function smstools_hook_getsmsinbox() {
 
 function smstools_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
 	global $smstools_param;
+	$sms_sender = stripslashes($sms_sender);
+	$sms_footer = stripslashes($sms_footer);
+	$sms_msg = stripslashes($sms_msg);
 	$sms_id = "$gpid.$uid.$smslog_id";
 	if (empty($sms_id)) {
 		$sms_id = mktime();

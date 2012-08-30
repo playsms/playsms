@@ -22,13 +22,13 @@ $q = trim($requests['q']); 	// sms_sender
 $a = trim($requests['a']); 	// message
 $Q = trim($requests['Q']); 	// sms_receiver
 
-// fixme anton - assumed magic quotes gpc is Off, setsmsincomingaction() requires unquoted inputs
-if (get_magic_quotes_gpc()) {
-	$q = stripslashes($q);
-	$a = stripslashes($a);
-}
-
 logger_print("addr:".$remote_addr." host:".$remote_host." t:".$t." q:".$q." a:".$a." Q:".$Q, 3, "kannel incoming");
+
+// fixme anton - assumed magic quotes gpc is Off, setsmsincomingaction() requires quoted inputs
+if (! get_magic_quotes_gpc()) {
+	$q = addslashes($q);
+	$a = addslashes($a);
+}
 
 if ($t && $q && $a) {
 	// collected:

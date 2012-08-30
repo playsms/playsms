@@ -132,7 +132,7 @@ switch ($op)
 				$unicode = "1";
 			}
 			
-			list($ok,$to,$smslog_id,$queue) = sendsms_pv($username,$sms_to,stripslashes($message),$sms_type,$unicode);
+			list($ok,$to,$smslog_id,$queue) = sendsms_pv($username,$sms_to,$message,$sms_type,$unicode);
 			//$error_string = _('Your SMS has been delivered to queue');
 
 			if (count($ok) <= 5) {
@@ -267,7 +267,7 @@ switch ($op)
 			if ($msg_unicode == "on") {
 				$unicode = "1";
 			}
-			list($ok,$to,$smslog_id,$queue) = sendsms_bc($username,$gpid,stripslashes($message),$sms_type,$unicode);
+			list($ok,$to,$smslog_id,$queue) = sendsms_bc($username,$gpid,$message,$sms_type,$unicode);
 			//$error_string = _('Your SMS has been delivered to queue');
 
 			// minimize delivery reports on web, actual status can be seen from outgoing SMS menu (emmanuel)

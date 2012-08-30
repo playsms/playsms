@@ -34,16 +34,17 @@ if ($cb_timestamp && $cb_from && $cb_text)
 	$message = trim($cb_text);
 	$sms_receiver = trim($cb_to);
 
-	// fixme anton - assumed magic quotes gpc is Off, setsmsincomingaction() requires unquoted inputs
-	if (get_magic_quotes_gpc()) {
-		$sms_sender = stripslashes($sms_sender);
-		$message = stripslashes($message);
+	logger_print("sender:".$sms_sender." receiver:".$sms_receiver." dt:".$sms_datetime." msg:".$message, 3, "clickatell incoming");
+
+	// fixme anton - assumed magic quotes gpc is Off, setsmsincomingaction() requires quoted inputs
+	if (! get_magic_quotes_gpc()) {
+		$sms_sender = addslashes($sms_sender);
+		$message = addslashes($message);
 	}
 
 	// collected:
 	// $sms_datetime, $sms_sender, $message, $sms_receiver
 	setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receiver);
-	logger_print("sender:".$sms_sender." receiver:".$sms_receiver." dt:".$sms_datetime." msg:".$message, 3, "clickatell incoming");
 }
 
 if ($cb_status && $cb_apimsgid)

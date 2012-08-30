@@ -84,23 +84,10 @@ function sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$sms_type='t
 	global $core_config;
 	$ret = FALSE;
 	$queue_code = md5(mktime().$uid.$sms_msg);
-	
 	logger_print("saving:$queue_code,".$core_config['datetime']['now'].",$uid,$sms_sender,$sms_footer,$sms_type,$unicode message:".$sms_msg, 3, "sendsms_queue_create");
-	
-	// fixme anton - requires addslashes, assumed magic_quotes_gpc is Off (which is recommended setting)
-	$sms_sender = addslashes($sms_sender);
-	$sms_footer = addslashes($sms_footer);
-	$sms_msg = addslashes($sms_msg);
-	
 	$db_query = "INSERT INTO "._DB_PREF_."_tblSMSOutgoing_queue ";
 	$db_query .= "(queue_code,datetime_entry,datetime_scheduled,uid,sender_id,footer,message,sms_type,unicode) ";
 	$db_query .= "VALUES ('$queue_code','".$core_config['datetime']['now']."','".$core_config['datetime']['now']."','$uid','$sms_sender','$sms_footer','$sms_msg','$sms_type','$unicode')";
-
-	// fixme anton - requires stripslashes after addslashes
-	$sms_sender = stripslashes($sms_sender);
-	$sms_footer = stripslashes($sms_footer);
-	$sms_msg = stripslashes($sms_msg);
-
 	if ($id = @dba_insert_id($db_query)) {
 		logger_print("id:".$id." queue_code:".$queue_code." saved", 3, "sendsms_queue_create");
 		$ret = $queue_code;
@@ -136,9 +123,9 @@ function sendsmsd($single_queue='') {
 	while ($db_row = dba_fetch_array($db_result)) {
 		$c_queue_id = $db_row['id'];
 		$c_queue_code = $db_row['queue_code'];
-		$c_sender_id = $db_row['sender_id'];
-		$c_footer = $db_row['footer'];
-		$c_message = $db_row['message'];
+		$c_sender_id = addslashes(trim($db_row['sender_id']));
+		$c_footer = addslashes(trim($db_row['footer']));
+		$c_message = addslashes(trim($db_row['message']));
 		$c_uid = $db_row['uid'];
 		$c_gpid = 0;
 		$c_sms_type = $db_row['sms_type'];
@@ -214,15 +201,12 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 	// fixme anton - mobile number can be anything, screened by gateway
 	// $sms_sender = sendsms_getvalidnumber($sms_sender);
 
+	// fixme anton - add a space in front of $sms_footer
+	$sms_footer = ' '.trim($sms_footer);
+
 	$ok = false;
 	logger_print("start", 3, "sendsms");
 	if (rate_cansend($username, $sms_to)) {
-		// fixme anton - its a total mess ! need another DBA
-		// need addslashes() since this function reads from database, strings are not slashed
-		$sms_sender = addslashes(trim($sms_sender));
-		$sms_footer = addslashes(trim($sms_footer));
-		$sms_msg = addslashes($sms_msg);
-
 		// we save all info first and then process with gateway module
 		// the thing about this is that message saved may not be the same since gateway may not be able to process
 		// message with that length or certain characters in the message are not supported by the gateway
@@ -232,20 +216,9 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 			VALUES ('$uid','$gpid','$gateway_module','$sms_sender','$sms_to','$sms_footer','$sms_msg','$sms_datetime','$sms_type','$unicode')
 		";
 		logger_print("saving:$uid,$gpid,$gateway_module,$sms_sender,$sms_to,$sms_type,$unicode", 3, "sendsms");
-
-		// fixme anton - need to strip slashes since these variables get addslashes() above
-		$sms_sender = stripslashes($sms_sender);
-		$sms_footer = stripslashes($sms_footer);
-		$sms_msg = stripslashes($sms_msg);
-
 		// continue to gateway only when save to db is true
 		if ($smslog_id = @dba_insert_id($db_query)) {
 			logger_print("smslog_id:".$smslog_id." saved", 3, "sendsms");
-
-			// fixme anton - add a space in front of $sms_footer
-			$sms_sender = trim($sms_sender);
-			$sms_footer = ' '.trim($sms_footer);
-
 			if (x_hook($gateway_module, 'sendsms', array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$smslog_id,$sms_type,$unicode))) {
 				// fixme anton - deduct user's credit as soon as gateway returns true
 				rate_deduct($smslog_id);
