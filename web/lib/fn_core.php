@@ -163,8 +163,8 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 	}
 
 	// fixme anton - since 0.9.7 magic_quote_gpc should be Off
-	$sms_sender = pl_addslashes($sms_sender);
-	$message = pl_addslashes($message);
+	$sms_sender = addslashes($sms_sender);
+	$message = addslashes($message);
 
 	$db_query = "
         INSERT INTO "._DB_PREF_."_tblSMSIncoming 
@@ -240,8 +240,8 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 				// fixme anton - since 0.9.7 magic_quote_gpc should be Off
 				// we should do this only when we're going to save data to db
 				// next time we will do this on DBA, instead of here
-				$sms_sender = pl_addslashes($sms_sender);
-				$message = pl_addslashes($message);
+				$sms_sender = addslashes($sms_sender);
+				$message = addslashes($message);
 
 				$db_query = "
 					INSERT INTO "._DB_PREF_."_tblUserInbox
@@ -249,7 +249,7 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 					VALUES ('$sms_sender','$sms_receiver','$uid','$message','$sms_datetime')
 				";
 
-				// fixme anton - stripslashes after pl_addslashes()
+				// fixme anton - stripslashes after addslashes()
 				$sms_sender = stripslashes($sms_sender);
 				$message = stripslashes($message);
 

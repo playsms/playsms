@@ -52,15 +52,10 @@ function array_add_slashes($array) {
 }
 
 function pl_addslashes($data) {
-	global $core_config;
-	if ($core_config['db']['type']=="mssql") {
-		$data = str_replace("'", "''", $data);
+	if (is_array($data)) {
+		$data = array_add_slashes($data);
 	} else {
-		if (is_array($data)) {
-			$data = array_add_slashes($data);
-		} else {
-			$data = addslashes($data);
-		}
+		$data = addslashes($data);
 	}
 	return $data;
 }
