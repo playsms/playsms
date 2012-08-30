@@ -237,6 +237,8 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 		if ($uid = $user['uid']) {
 			// forward to Inbox
 			if ($fwd_to_inbox = $user['fwd_to_inbox']) {
+				$sms_sender = pl_addslashes($sms_sender);
+				$message = pl_addslashes($message);
 				$db_query = "
 		    INSERT INTO "._DB_PREF_."_tblUserInbox
 		    (in_sender,in_receiver,in_uid,in_msg,in_datetime) 
