@@ -22,6 +22,12 @@ if (valid()) {
 	$name = $core_config['user']['name'];
 	$status = $core_config['user']['status'];
 	$userstatus = ( $status == 2 ? _('Administrator') : _('Normal User') );
+	$footer_space_length = ( strlen($footer) > 0 ? strlen($footer) + 1 : 0 );
+	$core_config['user']['opt']['per_sms_length'] = $core_config['per_sms_length'] - $footer_space_length;
+	$core_config['user']['opt']['per_sms_length_unicode'] = $core_config['per_sms_length_unicode'] - $footer_space_length;
+	$core_config['user']['opt']['max_sms_length'] = $core_config['main']['cfg_sms_max_count'] * $core_config['user']['opt']['per_sms_length'];
+	$core_config['user']['opt']['max_sms_length_unicode'] = $core_config['main']['cfg_sms_max_count'] * $core_config['user']['opt']['per_sms_length_unicode'];
+
 }
 
 // reserved important keywords

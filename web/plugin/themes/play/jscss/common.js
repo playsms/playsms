@@ -69,37 +69,18 @@ function SetSmsTemplate() {
         }
 }
 
-function SmsCountKeyUp(maxChar)
-{
+function SmsCountKeyDown() {
         var msg  = document.forms.fm_sendsms.message;
-        var left = document.forms.fm_sendsms.charNumberLeftOutput;
-        var smsLenLeft = maxChar  - msg.value.length;
-        if (smsLenLeft >= 0) 
-        {
-                left.value = smsLenLeft;
-        } 
-        else 
-        {
-                var msgMaxLen = maxChar;
-                left.value = 0;
-                msg.value = msg.value.substring(0, msgMaxLen);
+        var msg_unicode = document.fm_sendsms.msg_unicode;
+        var maxlimit = document.fm_sendsms.hiddcount.value;
+        var maxlimit_unicode = document.fm_sendsms.hiddcount_unicode.value;
+        var limit = maxlimit;
+        if (msg_unicode.checked) {
+        	var limit = maxlimit_unicode;
         }
-}
-
-function SmsCountKeyDown(maxChar)
-{
-        var msg  = document.forms.fm_sendsms.message;
-        var left = document.forms.fm_sendsms.charNumberLeftOutput;
-        var smsLenLeft = maxChar  - msg.value.length;
-        if (smsLenLeft >= 0) 
-        {
-                left.value = smsLenLeft;
-        } 
-        else 
-        {
-                var msgMaxLen = maxChar;
-                left.value = 0; 
-                msg.value = msg.value.substring(0, msgMaxLen);
+        var smsLenLeft = limit  - msg.value.length;
+        if (smsLenLeft <= 0) {
+                msg.value = msg.value.substring(0, limit);
         }
 }
 
@@ -109,18 +90,20 @@ function SmsTextCounter() {
         var maxlimit = document.fm_sendsms.hiddcount.value;
         var maxlimit_unicode = document.fm_sendsms.hiddcount_unicode.value;
         var limit = maxlimit;
-        var devider = 160;
+        var maxChar = document.forms.fm_sendsms.maxchar.value;
+        var maxChar_unicode = document.forms.fm_sendsms.maxchar_unicode.value;
+        var devider = maxChar;
         var messagelenudh;
         var result;
         if (msg_unicode.checked) {
                 limit = maxlimit_unicode;
-                devider = 70;
+                devider = maxChar_unicode;
         }
         if (msg.value.length > limit) {
                 msg.value = msg.value.substring(0, limit);
         }
         if (msg.value.length > devider) {
-                messagelenudh = Math.ceil(msg.value.length / (devider - 7));
+                messagelenudh = Math.ceil(msg.value.length / devider);
                 result = msg.value.length + ' char : ' + messagelenudh + ' SMS' ;
                 return result;
         } else {

@@ -239,10 +239,7 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 	global $apps_path, $core_config, $gateway_module;
 	$uid = username2uid($username);
 	$sms_sender = sendsms_get_sender($username);
-	$max_length = ( $unicode ?  $core_config['smsmaxlength_unicode'] : $core_config['smsmaxlength'] );
-	if ($sms_footer = user_getfieldbyusername($username, 'footer')) {
-		$max_length = $max_length - strlen($sms_footer) - 1;
-	}
+	$max_length = ( $unicode ?  $core_config['user']['opt']['max_sms_length_unicode'] : $core_config['user']['opt']['max_sms_length'] );
 	if (strlen($message)>$max_length) {
 		$message = substr ($message,0,$max_length);
 	}
@@ -290,10 +287,7 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 	global $apps_path, $core_config, $gateway_module;
 	$uid = username2uid($username);
 	$sms_sender = sendsms_get_sender($username);
-	$max_length = ( $unicode ?  $core_config['smsmaxlength_unicode'] : $core_config['smsmaxlength'] );
-	if ($sms_footer = user_getfieldbyusername($username, 'footer')) {
-		$max_length = $max_length - strlen($sms_footer) - 1;
-	}
+	$max_length = ( $unicode ?  $core_config['user']['opt']['max_sms_length_unicode'] : $core_config['user']['opt']['max_sms_length'] );
 	if (strlen($message)>$max_length) {
 		$message = substr ($message,0,$max_length);
 	}

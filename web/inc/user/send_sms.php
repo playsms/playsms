@@ -27,14 +27,8 @@ switch ($op)
 			}
 		}
 		$sms_from = sendsms_get_sender($username);
-		$max_length = $core_config['smsmaxlength'];
-		if ($sms_footer = user_getfieldbyusername($username, 'footer'))
-		{
-                        // fixme anton - minus 1 for a space as sms_footer prefix
-			$max_length = $max_length - strlen($sms_footer) - 1;
-		}
-		else
-		{
+		$sms_footer = $core_config['user']['footer'];
+		if (! $sms_footer) {
 			$sms_footer = "<i>"._('not set')."</i>";
 		}
 		for ($i=0;$i<=23;$i++)
@@ -102,10 +96,12 @@ switch ($op)
 	    <p>"._('Message template').": <select name=\"smstemplate\">$option_values</select>
 	    <p><input type=\"button\" onClick=\"SetSmsTemplate();\" name=\"nb\" value=\""._('Use template')."\" class=\"button\">
 	    <p>"._('Your message').":
-	    <br><textarea cols=\"39\" rows=\"5\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" onKeyUp=\"SmsCountKeyUp($max_length);\" onKeyDown=\"SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
+	    <br><textarea cols=\"39\" rows=\"5\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" onKeyDown=\"SmsCountKeyDown();\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
 	    <br>"._('SMS character').": <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
-            <input type=\"hidden\" value=\"".$core_config['smsmaxlength']."\" name=\"hiddcount\"> 
-            <input type=\"hidden\" value=\"".$core_config['smsmaxlength_unicode']."\" name=\"hiddcount_unicode\"> 
+            <input type=\"hidden\" value=\"".$core_config['user']['opt']['per_sms_length']."\" name=\"maxchar\"> 
+            <input type=\"hidden\" value=\"".$core_config['user']['opt']['per_sms_length_unicode']."\" name=\"maxchar_unicode\"> 
+            <input type=\"hidden\" value=\"".$core_config['user']['opt']['max_sms_length']."\" name=\"hiddcount\"> 
+            <input type=\"hidden\" value=\"".$core_config['user']['opt']['max_sms_length_unicode']."\" name=\"hiddcount_unicode\"> 
 		<p><input type=checkbox name=msg_flash> "._('Send as flash message')."
 	    <p><input type=checkbox name=msg_unicode onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\"> "._('Send as unicode message (http://www.unicode.org)')."
 	    <p><input type=submit class=button value='"._('Send')."' onClick=\"selectAllOptions(this.form['p_num[]'])\"> 
@@ -185,14 +181,8 @@ switch ($op)
 			$list_of_group .= "<option value=\"".$db_row['gpid']."\" $selected>".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.") - "._('shared by')." ".$c_username."</option>";
 		}
 		$sms_from = sendsms_get_sender($username);
-		$max_length = $core_config['smsmaxlength'];
-		if ($sms_footer = user_getfieldbyusername($username, 'footer'))
-		{
-                        // fixme anton - minus 1 for a space as sms_footer prefix
-			$max_length = $max_length - strlen($sms_footer) - 1;
-		}
-		else
-		{
+		$sms_footer = $core_config['user']['footer'];
+		if (! $sms_footer) {
 			$sms_footer = "<i>"._('not set')."</i>";
 		}
 
@@ -232,10 +222,12 @@ switch ($op)
 	    <p>"._('Message template').": <select name=\"smstemplate\">$option_values</select>
 	    <p><input type=\"button\" onClick=\"SetSmsTemplate();\" name=\"nb\" value=\""._('Use template')."\" class=\"button\">
 	    <p>"._('Your message').":
-	    <br><textarea cols=\"39\" rows=\"5\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" onKeyUp=\"SmsCountKeyUp($max_length);\" onKeyDown=\"SmsCountKeyDown($max_length);\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
+	    <br><textarea cols=\"39\" rows=\"5\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" onKeyDown=\"SmsCountKeyDown();\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
 	    <br>"._('SMS character').": <input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
-            <input type=\"hidden\" value=\"".$core_config['smsmaxlength']."\" name=\"hiddcount\"> 
-            <input type=\"hidden\" value=\"".$core_config['smsmaxlength_unicode']."\" name=\"hiddcount_unicode\"> 
+            <input type=\"hidden\" value=\"".$core_config['user']['opt']['per_sms_length']."\" name=\"maxchar\"> 
+            <input type=\"hidden\" value=\"".$core_config['user']['opt']['per_sms_length_unicode']."\" name=\"maxchar_unicode\"> 
+            <input type=\"hidden\" value=\"".$core_config['user']['opt']['max_sms_length']."\" name=\"hiddcount\"> 
+            <input type=\"hidden\" value=\"".$core_config['user']['opt']['max_sms_length_unicode']."\" name=\"hiddcount_unicode\"> 
 	    <p><input type=checkbox name=msg_flash> "._('Send as flash message')."
 	    <p><input type=checkbox name=msg_unicode onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\"> "._('Send as unicode message (http://www.unicode.org)')."
 	    <p><input type=submit class=button value='"._('Send')."' onClick=\"selectAllOptions(this.form[gp_code[]])\"> 
