@@ -80,14 +80,14 @@ function interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,
 	return $ret_final;
 }
 
-function sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$sms_type='text',$unicode=0) {
+function sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0) {
 	global $core_config;
 	$ret = FALSE;
 	$queue_code = md5(mktime().$uid.$sms_msg);
-	logger_print("saving:$queue_code,".$core_config['datetime']['now'].",$uid,$sms_sender,$sms_footer,$sms_type,$unicode message:".$sms_msg, 3, "sendsms_queue_create");
+	logger_print("saving:$queue_code,".$core_config['datetime']['now'].",$uid,$gpid,$sms_sender,$sms_footer,$sms_type,$unicode message:".$sms_msg, 3, "sendsms_queue_create");
 	$db_query = "INSERT INTO "._DB_PREF_."_tblSMSOutgoing_queue ";
-	$db_query .= "(queue_code,datetime_entry,datetime_scheduled,uid,sender_id,footer,message,sms_type,unicode) ";
-	$db_query .= "VALUES ('$queue_code','".$core_config['datetime']['now']."','".$core_config['datetime']['now']."','$uid','$sms_sender','$sms_footer','$sms_msg','$sms_type','$unicode')";
+	$db_query .= "(queue_code,datetime_entry,datetime_scheduled,uid,gpid,sender_id,footer,message,sms_type,unicode) ";
+	$db_query .= "VALUES ('$queue_code','".$core_config['datetime']['now']."','".$core_config['datetime']['now']."','$uid','$gpid','$sms_sender','$sms_footer','$sms_msg','$sms_type','$unicode')";
 	if ($id = @dba_insert_id($db_query)) {
 		logger_print("id:".$id." queue_code:".$queue_code." saved", 3, "sendsms_queue_create");
 		$ret = $queue_code;
@@ -127,10 +127,10 @@ function sendsmsd($single_queue='') {
 		$c_footer = addslashes(trim($db_row['footer']));
 		$c_message = addslashes(trim($db_row['message']));
 		$c_uid = $db_row['uid'];
-		$c_gpid = 0;
+		$c_gpid = $db_row['gpid'];
 		$c_sms_type = $db_row['sms_type'];
 		$c_unicode = $db_row['unicode'];
-		logger_print("start processing queue_code:".$c_queue_code." uid:".$c_uid." sender_id:".$c_sender_id, 3, "sendsmsd");
+		logger_print("start processing queue_code:".$c_queue_code." uid:".$c_uid." gpid:".$c_gpid." sender_id:".$c_sender_id, 3, "sendsmsd");
 		$db_query2 = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing_queue_dst WHERE queue_id='$c_queue_id' AND flag='0'";
 		$db_result2 = dba_query($db_query2);
 		while ($db_row2 = dba_fetch_array($db_result2)) {
@@ -253,7 +253,7 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 	//$sms_msg = str_replace("\"","'",$sms_msg);
 
 	// create a queue
-	$queue_code = sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$sms_type,$unicode);
+	$queue_code = sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,0,$sms_type,$unicode);
 	if (! $queue_code) {
 		// when unable to create a queue then immediately returns FALSE, no point to continue
 		logger_print("fail to finalize queue creation, exit immediately", 3, "sendsms_pv");
@@ -310,7 +310,7 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 	}
 
 	// create a queue
-	$queue_code = sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$sms_type,$unicode);
+	$queue_code = sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$gpid,$sms_type,$unicode);
 	if (! $queue_code) {
 		// when unable to create a queue then immediately returns FALSE, no point to continue
 		logger_print("fail to finalize queue creation, exit immediately", 3, "sendsms_bc");
