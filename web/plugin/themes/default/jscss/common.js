@@ -69,48 +69,37 @@ function SetSmsTemplate() {
         }
 }
 
-function SmsCountKeyDown() {
-        var msg  = document.forms.fm_sendsms.message;
-        var msg_unicode = document.fm_sendsms.msg_unicode;
-        var maxlimit = document.fm_sendsms.hiddcount.value;
-        var maxlimit_unicode = document.fm_sendsms.hiddcount_unicode.value;
-        var limit = maxlimit;
-        if (msg_unicode.checked) {
-        	var limit = maxlimit_unicode;
-        }
-        var smsLenLeft = limit  - msg.value.length;
-        if (smsLenLeft <= 0) {
-                msg.value = msg.value.substring(0, limit);
-        }
-}
-
 function SmsTextCounter() {
         var msg = document.fm_sendsms.message;
         var msg_unicode = document.fm_sendsms.msg_unicode;
-        var maxlimit = document.fm_sendsms.hiddcount.value;
-        var maxlimit_unicode = document.fm_sendsms.hiddcount_unicode.value;
-        var limit = maxlimit;
+        var footerlen = parseInt(document.forms.fm_sendsms.footerlen.value);
         var maxChar = document.forms.fm_sendsms.maxchar.value;
         var maxChar_unicode = document.forms.fm_sendsms.maxchar_unicode.value;
-        var devider = maxChar;
-        var messagelenudh;
+        var maxlimit = document.fm_sendsms.hiddcount.value;
+        var maxlimit_unicode = document.fm_sendsms.hiddcount_unicode.value;
+        var limit;
+        var devider;
+        var msgcount;
         var result;
         if (msg_unicode.checked) {
                 limit = maxlimit_unicode;
-                devider = maxChar_unicode;
+                devider = 70;
+                if (msg.value.length > 70) {
+                	devider = 63;
+                }
+        } else {
+                limit = maxlimit;
+                devider = 160;
+                if (msg.value.length > 160) {
+                	devider = 153;
+                }
         }
         if (msg.value.length > limit) {
                 msg.value = msg.value.substring(0, limit);
         }
-        if (msg.value.length > devider) {
-                messagelenudh = Math.ceil(msg.value.length / devider);
-                result = msg.value.length + ' char : ' + messagelenudh + ' SMS' ;
-                return result;
-        } else {
-                // otherwise, update 'characters left' counter
-                result = msg.value.length + ' char : 1 SMS' ;
-                return result;
-        }
+        msgcount = Math.ceil((msg.value.length + footerlen) / devider);
+        result = msg.value.length + ' char : ' + msgcount + ' SMS' ;
+        return result;
 }
 
 function SmsSetCounter() {
