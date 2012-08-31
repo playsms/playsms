@@ -266,8 +266,7 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 		$array_sms_to[0] = $sms_to;
 	}
 	for ($i=0;$i<count($array_sms_to);$i++) {
-		$c_sms_to = str_replace("\'","",$array_sms_to[$i]);
-		$c_sms_to = str_replace("\"","",$c_sms_to);
+		$c_sms_to = sendsms_getvalidnumber($array_sms_to[$i]);
 		$ok[$i] = sendsms_queue_push($queue_code,$c_sms_to);
 		$to[$i] = $c_sms_to;
 		$smslog_id[$i] = 0;
@@ -321,9 +320,7 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 		$rows = phonebook_getdatabyid($c_gpid);
 		foreach ($rows as $key => $db_row) {
 			$p_num = $db_row['p_num'];
-			$sms_to = $p_num;
-			$sms_to = str_replace("\'","",$sms_to);
-			$sms_to = str_replace("\"","",$sms_to);
+			$sms_to = sendsms_getvalidnumber($p_num);
 			$ok[$j] = sendsms_queue_push($queue_code,$sms_to);
 			$to[$j] = $sms_to;
 			$smslog_id[$i] = 0;
