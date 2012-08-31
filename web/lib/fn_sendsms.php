@@ -202,7 +202,9 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 	// $sms_sender = sendsms_getvalidnumber($sms_sender);
 
 	// fixme anton - add a space in front of $sms_footer
-	$sms_footer = ' '.trim($sms_footer);
+	if ($sms_footer) {
+		$sms_footer = ' '.trim($sms_footer);
+	}
 
 	$ok = false;
 	logger_print("start", 3, "sendsms");
