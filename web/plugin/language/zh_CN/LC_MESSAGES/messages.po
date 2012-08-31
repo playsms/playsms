@@ -747,8 +747,8 @@ msgstr "发送短信失败"
 
 #: inc/user/send_sms.php:160 inc/user/send_sms.php:285
 #: inc/user/send_sms.php:161 inc/user/send_sms.php:287
-msgid "sent"
-msgstr "发送成功"
+msgid "queued"
+msgstr ""
 
 #: inc/user/send_sms.php:160 inc/user/send_sms.php:285
 #: inc/user/send_sms.php:161 inc/user/send_sms.php:287

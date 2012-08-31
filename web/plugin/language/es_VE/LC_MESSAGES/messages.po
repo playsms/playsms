@@ -747,8 +747,8 @@ msgstr "Imposible enviar el SMS"
 
 #: inc/user/send_sms.php:160 inc/user/send_sms.php:285
 #: inc/user/send_sms.php:161 inc/user/send_sms.php:287
-msgid "sent"
-msgstr "enviado"
+msgid "queued"
+msgstr ""
 
 #: inc/user/send_sms.php:160 inc/user/send_sms.php:285
 #: inc/user/send_sms.php:161 inc/user/send_sms.php:287

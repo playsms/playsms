@@ -142,19 +142,19 @@ switch ($op)
 				}
 			} else {
 				// minimize delivery reports on web, actual status can be seen from outgoing SMS menu (emmanuel)
-				$sms_sent = 0;
+				$sms_queued = 0;
 				$sms_failed = 0;
 				for ($i=0;$i<count($ok);$i++) {
 					if ($ok[$i]) {
 						// $error_string .= _('Your SMS has been delivered to queue')." ("._('to').": `".$to[$i]."`)<br>";
-						$sms_sent++;
+						$sms_queued++;
 					} else {
 						// $error_string .= _('Fail to sent SMS')." ("._('to').": `".$to[$i]."`)<br>";
 						$sms_failed++;
 					}
 				}
 				// fixme anton - we dont need to add new lang entry, just use available phrase
-				$error_string = _('Your SMS has been delivered to queue')." ("._('sent').": ".$sms_sent.", "._('failed').": ".$sms_failed.")";
+				$error_string = _('Your SMS has been delivered to queue')." ("._('queued').": ".$sms_queued.", "._('failed').": ".$sms_failed.")";
 			}
 
 			$errid = logger_set_error_string($error_string);
@@ -265,19 +265,19 @@ switch ($op)
 			//$error_string = _('Your SMS has been delivered to queue');
 
 			// minimize delivery reports on web, actual status can be seen from outgoing SMS menu (emmanuel)
-			$sms_sent = 0;
+			$sms_queued = 0;
 			$sms_failed = 0;
 			for ($i=0;$i<count($ok);$i++) {
 				if ($ok[$i]) {
 					// $error_string .= _('Your SMS has been delivered to queue')." ("._('to').": `".$to[$i]."`)<br>";
-					$sms_sent++;
+					$sms_queued++;
 				} else {
 					// $error_string .= _('Fail to sent SMS')." ("._('to').": `".$to[$i]."`)<br>";
 					$sms_failed++;
 				}
 			}
 			// fixme anton - we dont need to add new lang entry, just use available phrase
-			$error_string = _('Your SMS has been delivered to queue')." ("._('sent').": ".$sms_sent.", "._('failed').": ".$sms_failed.")";
+			$error_string = _('Your SMS has been delivered to queue')." ("._('queued').": ".$sms_queued.", "._('failed').": ".$sms_failed.")";
 
 			$errid = logger_set_error_string($error_string);
 			header("Location: index.php?app=menu&inc=send_sms&op=sendsmstogr&message=".urlencode($message)."&errid=".$errid);

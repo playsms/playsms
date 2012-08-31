@@ -747,8 +747,8 @@ msgstr "Gagal mengirim SMS"
 
 #: inc/user/send_sms.php:160 inc/user/send_sms.php:285
 #: inc/user/send_sms.php:161 inc/user/send_sms.php:287
-msgid "sent"
-msgstr "terkirim"
+msgid "queued"
+msgstr "antri"
 
 #: inc/user/send_sms.php:160 inc/user/send_sms.php:285
 #: inc/user/send_sms.php:161 inc/user/send_sms.php:287
