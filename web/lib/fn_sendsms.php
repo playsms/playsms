@@ -206,28 +206,39 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 		$sms_footer = ' '.trim($sms_footer);
 	}
 
-	$ok = false;
 	logger_print("start", 3, "sendsms");
+
+	$ok = false;
+	$p_status = 2;
 	if (rate_cansend($username, $sms_to)) {
-		// we save all info first and then process with gateway module
-		// the thing about this is that message saved may not be the same since gateway may not be able to process
-		// message with that length or certain characters in the message are not supported by the gateway
-		$db_query = "
-			INSERT INTO "._DB_PREF_."_tblSMSOutgoing 
-			(uid,p_gpid,p_gateway,p_src,p_dst,p_footer,p_msg,p_datetime,p_sms_type,unicode) 
-			VALUES ('$uid','$gpid','$gateway_module','$sms_sender','$sms_to','$sms_footer','$sms_msg','$sms_datetime','$sms_type','$unicode')
-		";
-		logger_print("saving:$uid,$gpid,$gateway_module,$sms_sender,$sms_to,$sms_type,$unicode", 3, "sendsms");
-		// continue to gateway only when save to db is true
-		if ($smslog_id = @dba_insert_id($db_query)) {
-			logger_print("smslog_id:".$smslog_id." saved", 3, "sendsms");
+		$p_status = 0;
+	}
+	// we save all info first and then process with gateway module
+	// the thing about this is that message saved may not be the same since gateway may not be able to process
+	// message with that length or certain characters in the message are not supported by the gateway
+	$db_query = "
+		INSERT INTO "._DB_PREF_."_tblSMSOutgoing 
+		(uid,p_gpid,p_gateway,p_src,p_dst,p_footer,p_msg,p_datetime,p_status,p_sms_type,unicode) 
+		VALUES ('$uid','$gpid','$gateway_module','$sms_sender','$sms_to','$sms_footer','$sms_msg','$sms_datetime','$p_status','$sms_type','$unicode')
+	";
+	logger_print("saving:$uid,$gpid,$gateway_module,$sms_sender,$sms_to,$sms_type,$unicode,$p_status", 3, "sendsms");
+	// continue to gateway only when save to db is true
+	if ($smslog_id = @dba_insert_id($db_query)) {
+		logger_print("smslog_id:".$smslog_id." saved", 3, "sendsms");
+		// if pending (p_status=0) then continue, if failed (p_status=2) print log
+		if ($p_status == 0) {
 			if (x_hook($gateway_module, 'sendsms', array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$smslog_id,$sms_type,$unicode))) {
 				// fixme anton - deduct user's credit as soon as gateway returns true
 				rate_deduct($smslog_id);
 				$ok = true;
 			}
+		} else {
+			logger_print("not enough credit smslog_id:".$smslog_id, 3, "sendsms");
 		}
+	} else {
+		logger_print("fail to save in db table", 3, "sendsms");
 	}
+
 	logger_print("end", 3, "sendsms");
 
 	$ret['status'] = $ok;
