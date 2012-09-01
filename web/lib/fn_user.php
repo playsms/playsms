@@ -22,6 +22,7 @@ function user_getallwithstatus($status) {
 }
 
 function user_getdatabyuid($uid) {
+	global $core_config;
 	$ret = array();
 	if ($uid) {
 		$db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE uid='$uid'";
@@ -29,10 +30,10 @@ function user_getdatabyuid($uid) {
 		if ($db_row = dba_fetch_array($db_result)) {
 			$ret = $db_row;
 			$ret['opt']['sms_footer_length'] = ( strlen($ret['footer']) > 0 ? strlen($ret['footer']) + 1 : 0 );
-			$ret['opt']['per_sms_length'] = $core_config['main']['per_sms_length'] - $core_config['user']['opt']['sms_footer_length'];
-			$ret['opt']['per_sms_length_unicode'] = $core_config['main']['per_sms_length_unicode'] - $core_config['user']['opt']['sms_footer_length'];
-			$ret['opt']['max_sms_length'] = $core_config['main']['max_sms_length'] - $core_config['user']['opt']['sms_footer_length'];
-			$ret['opt']['max_sms_length_unicode'] = $core_config['main']['max_sms_length_unicode'] - $core_config['user']['opt']['sms_footer_length'];
+			$ret['opt']['per_sms_length'] = $core_config['main']['per_sms_length'] - $ret['opt']['sms_footer_length'];
+			$ret['opt']['per_sms_length_unicode'] = $core_config['main']['per_sms_length_unicode'] - $ret['opt']['sms_footer_length'];
+			$ret['opt']['max_sms_length'] = $core_config['main']['max_sms_length'] - $ret['opt']['sms_footer_length'];
+			$ret['opt']['max_sms_length_unicode'] = $core_config['main']['max_sms_length_unicode'] - $ret['opt']['sms_footer_length'];
 		}
 	}
 	return $ret;
