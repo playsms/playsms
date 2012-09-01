@@ -11,7 +11,7 @@ function logger_print($log,$level=1,$label="default") {
 		$type = $arr_log_type[$level];
 		$fn = $apps_path['logs'].'/playsms.log';
 		if ($fd = fopen($fn, 'a+')) {
-			$message = $datetime_now." # ".$type." # ".$label." # ".$log;
+			$message = stripslashes($datetime_now." # ".$type." # ".$label." # ".$log);
 			$message = str_replace("\n", " ", $message);
 			$message = str_replace("\r", " ", $message);
 			$message .= "\n";
