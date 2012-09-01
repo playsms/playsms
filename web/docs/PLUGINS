@@ -15,7 +15,7 @@ Here are installed plugins with no specific SMS related features but used by pla
 
 Core functions that you can 'hook' from tools plugins:
 - playsmsd()
-- billing_post($smslog_id,$rate,$credit)
+- billing_post($smslog_id,$rate,$credit,$count,$charge)
 - billing_rollback($smslog_id)
 - billing_finalize($smslog_id)
 - billing_getdata($smslog_id)

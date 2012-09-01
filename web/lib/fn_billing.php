@@ -8,12 +8,12 @@ if(!(defined('_SECURE_'))){die('Intruder alert');};
  * @param float $credit
  * @return boolean TRUE if posted
  */
-function billing_post($smslog_id,$rate,$credit) {
+function billing_post($smslog_id,$rate,$credit,$count,$charge) {
 	global $core_config;
 	$ok = false;
 	if ($smslog_id) {
 		for ($c=0;$c<count($core_config['toolslist']);$c++) {
-			if (x_hook($core_config['toolslist'][$c],'billing_post',array($smslog_id,$rate,$credit))) {
+			if (x_hook($core_config['toolslist'][$c],'billing_post',array($smslog_id,$rate,$credit,$count,$charge))) {
 				$ok = true;
 				break;
 			}
