@@ -257,7 +257,7 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 	}
 	$sms_msg = $message;
 	
-	logger_print("start uid:".$uid." to:".$sms_to." sender:".$sms_sender." footer:".$sms_footer." maxlength:".$max_length." msglen:".strlen($message)." message:".$message, 3, "sendsms pv");
+	logger_print("start uid:".$uid." sender:".$sms_sender." footer:".$sms_footer." maxlength:".$max_length." msglen:".strlen($message)." message:".$message, 3, "sendsms pv");
 
 	// \r and \n is ok - http://smstools3.kekekasvi.com/topic.php?id=328
 	//$sms_msg = str_replace("\r","",$sms_msg);
