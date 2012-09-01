@@ -92,7 +92,7 @@ function simplerate_hook_rate_deduct($smslog_id) {
         global $core_config;
 	$ok = false;
 	logger_print("enter smslog_id:".$smslog_id, 3, "simplerate deduct");
-	$db_query = "SELECT p_dst,p_msg,uid,unicode FROM "._DB_PREF_."_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
+	$db_query = "SELECT p_dst,p_footer,p_msg,uid,unicode FROM "._DB_PREF_."_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$p_dst = $db_row['p_dst'];
@@ -117,8 +117,9 @@ function simplerate_hook_rate_deduct($smslog_id) {
 			$username = uid2username($uid);
 			$credit = rate_getusercredit($username);
 			$remaining = $credit - $charge;
+			logger_print("deduct smslog_id:".$smslog_id." count:".$count." rate:".$rate." charge:".$charge." credit:".$credit." remaining:".$remaining, 3, "simplerate deduct");
 			if (rate_setusercredit($uid, $remaining)) {
-				if (billing_post($smslog_id, $rate, $credit)) {
+				if (billing_post($smslog_id, $rate, $credit, $count, $charge)) {
 					$ok = true;
 				}
 			}
@@ -142,22 +143,11 @@ function simplerate_hook_rate_refund($smslog_id) {
 		if ($p_dst && $p_msg && $uid) {
 			if (billing_rollback($smslog_id)) {
 				$bill = billing_getdata($smslog_id);
-				$rate = $bill['rate'];
+				$credit = $bill['credit'];
+				$charge = $bill['charge'];
 				$status = $bill['status'];
 				logger_print("rolling smslog_id:".$smslog_id, 3, "simplerate refund");
 				if ($status == '2') {
-
-		                        // get sms count
-		                        $sms_length = ( $unicode ? 70 : 160 );
-		                        $p_msg_len = strlen($p_msg) + strlen($p_footer) + 1;
-		                        $count = 1;
-		                        if ($core_config['main']['cfg_sms_max_count'] > 1) {
-		                                if ($p_msg_len > $sms_length) {
-		                                        $count = ceil($p_msg_len / ($sms_length - 7));
-		                                }
-		                        }
-
-					$charge = $count * $rate;
 					$username = uid2username($uid);
 					$credit = rate_getusercredit($username);
 					$remaining = $credit + $charge;

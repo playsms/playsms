@@ -1093,6 +1093,8 @@ CREATE TABLE `playsms_tblBilling` (
   `smslog_id` int(11) NOT NULL,
   `rate` float NOT NULL,
   `credit` double NOT NULL DEFAULT '0',
+  `count` int(11) NOT NULL DEFAULT '0',
+  `charge` double NOT NULL DEFAULT '0',
   `status` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -1250,6 +1252,7 @@ CREATE TABLE `playsms_tblSMSOutgoing_queue` (
   `datetime_update` varchar(20) NOT NULL DEFAULT '000-00-00 00:00:00',
   `flag` tinyint(4) NOT NULL,
   `uid` int(11) NOT NULL,
+  `gpid` int(11) NOT NULL,
   `sender_id` varchar(100) NOT NULL,
   `footer` varchar(30) NOT NULL,
   `message` text NOT NULL,

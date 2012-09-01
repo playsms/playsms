@@ -8,6 +8,9 @@ ALTER TABLE `playsms_tblUser` ADD `plus_sign_add` tinyint(4) NOT NULL DEFAULT '0
 
 ALTER TABLE `playsms_tblUser` DROP `dailysms` , DROP `gender` , DROP `age` , DROP `birthday` , DROP `marital` , DROP `education`, DROP `junktimestamp` ;
 
+ALTER TABLE `playsms_tblBilling` ADD `count` int(11) NOT NULL DEFAULT '0' AFTER `credit` ;
+ALTER TABLE `playsms_tblBilling` ADD `charge` double NOT NULL DEFAULT '0' AFTER `count` ;
+
 ALTER TABLE `playsms_gatewayKannel_config` ADD `cfg_admin_url` varchar(250) NOT NULL ;
 ALTER TABLE `playsms_gatewayKannel_config` ADD `cfg_admin_password` varchar(50) NOT NULL ;
 ALTER TABLE `playsms_gatewayKannel_config` ADD `cfg_admin_port` int(11) NOT NULL ;
@@ -21,6 +24,7 @@ CREATE TABLE `playsms_tblSMSOutgoing_queue` (
   `datetime_update` varchar(20) NOT NULL DEFAULT '000-00-00 00:00:00',
   `flag` tinyint(4) NOT NULL,
   `uid` int(11) NOT NULL,
+  `gpid` int(11) NOT NULL,
   `sender_id` varchar(100) NOT NULL,
   `footer` varchar(30) NOT NULL,
   `message` text NOT NULL,
