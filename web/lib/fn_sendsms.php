@@ -256,6 +256,8 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 		$message = substr ($message,0,$max_length);
 	}
 	$sms_msg = $message;
+	
+	logger_print("start uid:".$uid." to:".$sms_to." sender:".$sms_sender." footer:".$sms_footer." maxlength:".$max_length." msglen:".strlen($message)." message:".$message, 3, "sendsms pv");
 
 	// \r and \n is ok - http://smstools3.kekekasvi.com/topic.php?id=328
 	//$sms_msg = str_replace("\r","",$sms_msg);
@@ -290,6 +292,8 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 		list($ok, $to, $smslog_id, $queue) = sendsmsd($queue_code);
 	}
 
+	logger_print("end smslog_id:".$smslog_id." queue:".$queue_code, 3, "sendsms pv");
+
 	return array($ok, $to, $smslog_id, $queue);
 }
 
@@ -303,6 +307,9 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 		$message = substr ($message,0,$max_length);
 	}
 	$sms_msg = $message;
+	
+	logger_print("start uid:".$uid." gpid:".$gpid." sender:".$sms_sender." footer:".$sms_footer." maxlength:".$max_length." msglen:".strlen($message)." message:".$message, 3, "sendsms bc");
+
 
 	// \r and \n is ok - http://smstools3.kekekasvi.com/topic.php?id=328
 	//$sms_msg = str_replace("\r","",$sms_msg);
@@ -345,6 +352,8 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 		unset($queue);
 		list($ok, $to, $smslog_id, $queue) = sendsmsd($queue_code);
 	}
+
+	logger_print("end smslog_id:".$smslog_id." queue:".$queue_code, 3, "sendsms bc");
 
 	return array($ok, $to, $smslog_id, $queue);
 }
