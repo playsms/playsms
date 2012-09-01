@@ -23,20 +23,19 @@ $last	 = trim($_REQUEST['last']);
 // default error return
 $ret = "ERR 102";
 
+$is_valid = false;
 if ($u && $p) {
 	if (validatelogin($u,$p)) {
-		$username = $u;
-		$uid = username2uid($username);
-		$core_config['user'] = user_getdatabyuid($uid);
-		$core_config['user']['opt']['sms_footer_length'] = ( strlen($footer) > 0 ? strlen($footer) + 1 : 0 );
-		$core_config['user']['opt']['per_sms_length'] = $core_config['main']['per_sms_length'] - $core_config['user']['opt']['sms_footer_length'];
-		$core_config['user']['opt']['per_sms_length_unicode'] = $core_config['main']['per_sms_length_unicode'] - $core_config['user']['opt']['sms_footer_length'];
-		$core_config['user']['opt']['max_sms_length'] = $core_config['main']['max_sms_length'] - $core_config['user']['opt']['sms_footer_length'];
-		$core_config['user']['opt']['max_sms_length_unicode'] = $core_config['main']['max_sms_length_unicode'] - $core_config['user']['opt']['sms_footer_length'];
+		$core_config['user'] = user_getdatabyusername($u);
+		$is_valid = true;
 	}
 }
 
 if ($op) { $ta = $op; };
+
+$c_is_valid = ( $is_valid ? 1 : 0 );
+logger_print("start ta:".$ta." u:".$u." valid:".$c_is_valid, 3, "webservices");
+
 if ($ta) {
 	switch ($ta) {
 		case "PV":
@@ -86,5 +85,7 @@ if ($ta) {
 }
 
 echo $ret;
+
+logger_print("end ta:".$ta." u:".$u." valid:".$c_is_valid, 3, "webservices");
 
 ?>
