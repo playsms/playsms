@@ -20,6 +20,9 @@ function template_hook_playsmsd() {
 // $unicode		: send unicode character (16 bit)
 function template_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
 	// global $tmpl_param;   // global all variables needed, eg: varibles from config.php
+	//$sms_sender = stripslashes($sms_sender);
+	//$sms_footer = stripslashes($sms_footer);
+	//$sms_msg = stripslashes($sms_msg);
 	// ...
 	// ...
 	// return true or false

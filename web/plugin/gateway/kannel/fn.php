@@ -7,6 +7,9 @@ function kannel_hook_playsmsd() {
 function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
 	global $kannel_param;
 	global $http_path;
+	$sms_sender = stripslashes($sms_sender);
+	$sms_footer = stripslashes($sms_footer);
+	$sms_msg = stripslashes($sms_msg);
 	$ok = false;
 
 	if ($sms_footer) {

@@ -32,6 +32,9 @@ function uplink_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	// return true or false
 	// return $ok;
 	global $uplink_param;
+	$sms_sender = stripslashes($sms_sender);
+	$sms_footer = stripslashes($sms_footer);
+	$sms_msg = stripslashes($sms_msg);
 	$ok = false;
 
 	if ($sms_footer) {
