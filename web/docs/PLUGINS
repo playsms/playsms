@@ -37,6 +37,7 @@ Core functions that you can 'hook' from tools plugins:
 - interceptincomingsms($sms_datetime,$sms_sender,$message,$sms_receiver)
 - interceptsmstoinbox($sms_datetime,$sms_sender,$target_user,$message)
 - interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0)
+- webservices_output($ta,$_REQUEST)
 - call($_REQUEST)
 
 
@@ -53,6 +54,7 @@ Core functions that you can 'hook' from feature plugins:
 - interceptincomingsms($sms_datetime,$sms_sender,$message,$sms_receiver)
 - interceptsmstoinbox($sms_datetime,$sms_sender,$target_user,$message)
 - interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0)
+- webservices_output($ta,$_REQUEST)
 - call($_REQUEST)
 
 
@@ -67,6 +69,7 @@ Core functions that you can 'hook' from gateway plugins:
 - getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="")
 - sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0)
 - setsmsdeliverystatus($smslog_id,$uid,$p_status)
+- webservices_output($ta,$_REQUEST)
 - call($_REQUEST)
 
 
@@ -75,6 +78,8 @@ Themes
 Here are installed playSMS's themes.
 
 Core functions that you can 'hook' from themes plugins:
+- themes_buildmenu($arr_menu)
+- themes_navbar($num, $nav, $max_nav, $url, $page)
 - call($_REQUEST)
 
 
