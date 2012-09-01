@@ -104,7 +104,7 @@ function simplerate_hook_rate_deduct($smslog_id) {
                         
                         // get sms count
                         $sms_length = ( $unicode ? 70 : 160 );
-                        $p_msg_len = strlen($p_msg) + strlen($p_footer) + 1;
+                        $p_msg_len = strlen($p_msg) + strlen($p_footer);
                         $count = 1;
                         if ($core_config['main']['cfg_sms_max_count'] > 1) {
                                 if ($p_msg_len > $sms_length) {
@@ -117,7 +117,7 @@ function simplerate_hook_rate_deduct($smslog_id) {
 			$username = uid2username($uid);
 			$credit = rate_getusercredit($username);
 			$remaining = $credit - $charge;
-			logger_print("deduct smslog_id:".$smslog_id." count:".$count." rate:".$rate." charge:".$charge." credit:".$credit." remaining:".$remaining, 3, "simplerate deduct");
+			logger_print("deduct smslog_id:".$smslog_id." msglen:".$p_msg_len." count:".$count." rate:".$rate." charge:".$charge." credit:".$credit." remaining:".$remaining, 3, "simplerate deduct");
 			if (rate_setusercredit($uid, $remaining)) {
 				if (billing_post($smslog_id, $rate, $credit, $count, $charge)) {
 					$ok = true;

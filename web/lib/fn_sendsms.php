@@ -227,6 +227,7 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 		logger_print("smslog_id:".$smslog_id." saved", 3, "sendsms");
 		// if pending (p_status=0) then continue, if failed (p_status=2) print log
 		if ($p_status == 0) {
+			logger_print("final message:".$sms_msg.$sms_footer." len:".strlen($sms_msg.$sms_footer), 3, "sendsms");
 			if (x_hook($gateway_module, 'sendsms', array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$smslog_id,$sms_type,$unicode))) {
 				// fixme anton - deduct user's credit as soon as gateway returns true
 				rate_deduct($smslog_id);
