@@ -103,6 +103,10 @@ if (! get_magic_quotes_gpc()) {
 	foreach($_SERVER as $key => $val){$_SERVER[$key]=pl_addslashes($_SERVER[$key]);}
 }
 
+// too many codes using $_REQUEST, until we revise them all we use this as a workaround
+empty($_REQUEST);
+$_REQUEST = array_merge($_GET, $_POST);
+
 $c_script_filename = __FILE__;
 $c_php_self = $_SERVER['PHP_SELF'];
 $c_http_host = $_SERVER['HTTP_HOST'];
