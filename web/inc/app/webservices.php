@@ -23,12 +23,25 @@ $last	 = trim($_REQUEST['last']);
 // default error return
 $ret = "ERR 102";
 
+if ($u && $p) {
+	if (validatelogin($u,$p)) {
+		$username = $u;
+		$uid = username2uid($username);
+		$core_config['user'] = user_getdatabyuid($uid);
+		$core_config['user']['opt']['sms_footer_length'] = ( strlen($footer) > 0 ? strlen($footer) + 1 : 0 );
+		$core_config['user']['opt']['per_sms_length'] = $core_config['main']['per_sms_length'] - $core_config['user']['opt']['sms_footer_length'];
+		$core_config['user']['opt']['per_sms_length_unicode'] = $core_config['main']['per_sms_length_unicode'] - $core_config['user']['opt']['sms_footer_length'];
+		$core_config['user']['opt']['max_sms_length'] = $core_config['main']['max_sms_length'] - $core_config['user']['opt']['sms_footer_length'];
+		$core_config['user']['opt']['max_sms_length_unicode'] = $core_config['main']['max_sms_length_unicode'] - $core_config['user']['opt']['sms_footer_length'];
+	}
+}
+
 if ($op) { $ta = $op; };
 if ($ta) {
 	switch ($ta) {
 		case "PV":
 			if ($u && $p) {
-				if (validatelogin($u,$p)) {
+				if ($core_config['user']['uid']) {
 					$ret = webservices_pv($u,$to,$msg,$type,$unicode);
 				} else {
 					$ret = "ERR 100";
@@ -37,7 +50,7 @@ if ($ta) {
 			break;
 		case "BC":
 			if ($u && $p) {
-				if (validatelogin($u,$p)) {
+				if ($core_config['user']['uid']) {
 					$ret = webservices_bc($u,$to,$msg,$type,$unicode);
 				} else {
 					$ret = "ERR 100";
@@ -46,7 +59,7 @@ if ($ta) {
 			break;
 		case "DS":
 			if ($u && $p) {
-				if (validatelogin($u,$p)) {
+				if ($core_config['user']['uid']) {
 					if ($slid) {
 						$ret = webservices_ds_slid($u,$slid);
 					} else {
@@ -59,7 +72,7 @@ if ($ta) {
 			break;
                 case "CR":
                         if ($u && $p) {
-                                if (validatelogin($u,$p)) {
+                                if ($core_config['user']['uid']) {
                                         $ret = webservices_cr($u);
                                 } else {
                                         $ret = "ERR 100";
