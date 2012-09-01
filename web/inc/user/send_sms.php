@@ -158,9 +158,9 @@ switch ($op)
 			}
 
 			$errid = logger_set_error_string($error_string);
-			header("Location: index.php?app=menu&inc=send_sms&op=sendsmstopv&message=".urlencode($message)."&errid=".$errid);
+			header("Location: index.php?app=menu&inc=send_sms&op=sendsmstopv&message=".urlencode(stripslashes($message))."&errid=".$errid);
 		} else {
-			header("Location: index.php?app=menu&inc=send_sms&op=sendsmstopv&message=".urlencode($message)."&err=".urlencode(_('You must select receiver and your message should not be empty')));
+			header("Location: index.php?app=menu&inc=send_sms&op=sendsmstopv&message=".urlencode(stripslashes($message))."&err=".urlencode(_('You must select receiver and your message should not be empty')));
 		}
 		break;
 	case "sendsmstogr":
@@ -280,9 +280,9 @@ switch ($op)
 			$error_string = _('Your SMS has been delivered to queue')." ("._('queued').": ".$sms_queued.", "._('failed').": ".$sms_failed.")";
 
 			$errid = logger_set_error_string($error_string);
-			header("Location: index.php?app=menu&inc=send_sms&op=sendsmstogr&message=".urlencode($message)."&errid=".$errid);
+			header("Location: index.php?app=menu&inc=send_sms&op=sendsmstogr&message=".urlencode(stripslashes($message))."&errid=".$errid);
 		} else {
-			header("Location: index.php?app=menu&inc=send_sms&op=sendsmstogr&message=".urlencode($message)."&err=".urlencode(_('You must select receiver group and your message should not be empty')));
+			header("Location: index.php?app=menu&inc=send_sms&op=sendsmstogr&message=".urlencode(stripslashes($message))."&err=".urlencode(_('You must select receiver group and your message should not be empty')));
 		}
 		break;
 }

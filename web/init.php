@@ -100,7 +100,6 @@ if (! get_magic_quotes_gpc()) {
 	foreach($_GET as $key => $val){$_GET[$key]=pl_addslashes($_GET[$key]);}
 	foreach($_POST as $key => $val){$_POST[$key]=pl_addslashes($_POST[$key]);}
 	foreach($_COOKIE as $key => $val){$_COOKIE[$key]=pl_addslashes($_COOKIE[$key]);}
-	foreach($_REQUEST as $key => $val){$_REQUEST[$key]=pl_addslashes($_REQUEST[$key]);}
 	foreach($_SERVER as $key => $val){$_SERVER[$key]=pl_addslashes($_SERVER[$key]);}
 }
 
