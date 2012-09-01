@@ -1,0 +1,8 @@
+#: plugin/tools/playsmslog/config.php:5
+#: plugin/tools/playsmslog/playsmslog.php:10
+msgid "View log"
+msgstr ""
+
+#: plugin/tools/playsmslog/playsmslog.php:11
+msgid "Log file"
+msgstr ""
