@@ -36,12 +36,6 @@ if ($cb_timestamp && $cb_from && $cb_text)
 
 	logger_print("sender:".$sms_sender." receiver:".$sms_receiver." dt:".$sms_datetime." msg:".$message, 3, "clickatell incoming");
 
-	// fixme anton - assumed magic quotes gpc is Off, setsmsincomingaction() requires quoted inputs
-	if (! get_magic_quotes_gpc()) {
-		$sms_sender = addslashes($sms_sender);
-		$message = addslashes($message);
-	}
-
 	// collected:
 	// $sms_datetime, $sms_sender, $message, $sms_receiver
 	setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receiver);

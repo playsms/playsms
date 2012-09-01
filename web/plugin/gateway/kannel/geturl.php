@@ -24,12 +24,6 @@ $Q = trim($requests['Q']); 	// sms_receiver
 
 logger_print("addr:".$remote_addr." host:".$remote_host." t:".$t." q:".$q." a:".$a." Q:".$Q, 3, "kannel incoming");
 
-// fixme anton - assumed magic quotes gpc is Off, setsmsincomingaction() requires quoted inputs
-if (! get_magic_quotes_gpc()) {
-	$q = addslashes($q);
-	$a = addslashes($a);
-}
-
 if ($t && $q && $a) {
 	// collected:
 	// $sms_datetime, $sms_sender, $message, $sms_receiver
