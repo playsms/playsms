@@ -1,12 +1,13 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-20 09:56+0700\n"
+"POT-Creation-Date: 2012-09-01 08:26+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: plugin/gateway/kannel/config.php:38 plugin/gateway/kannel/kannel.php:43
 #: plugin/gateway/kannel/kannel.php:44 plugin/gateway/kannel/config.php:41
+#: plugin/gateway/kannel/kannel.php:51
 msgid "Manage kannel"
 msgstr "Administrar kannel"
 
@@ -23,6 +24,7 @@ msgid "click here to activate"
 msgstr "clique aqui para ativar"
 
 #: plugin/gateway/kannel/kannel.php:48 plugin/gateway/kannel/kannel.php:49
+#: plugin/gateway/kannel/kannel.php:56
 msgid "Gateway name"
 msgstr "Nome do gateway"
 
@@ -47,72 +49,89 @@ msgid "Non-Delivered to SMSC"
 msgstr ""
 
 #: plugin/gateway/kannel/kannel.php:51 plugin/gateway/kannel/kannel.php:52
+#: plugin/gateway/kannel/kannel.php:59
 msgid "Username"
 msgstr "Usuário"
 
 #: plugin/gateway/kannel/kannel.php:54 plugin/gateway/kannel/kannel.php:55
+#: plugin/gateway/kannel/kannel.php:62
 msgid "Password"
 msgstr "Senha"
 
 #: plugin/gateway/kannel/kannel.php:54 plugin/gateway/kannel/kannel.php:55
+#: plugin/gateway/kannel/kannel.php:62
 msgid "Fill to change the password"
 msgstr "Preencha pra mudar a senha"
 
 #: plugin/gateway/kannel/kannel.php:57 plugin/gateway/kannel/kannel.php:58
+#: plugin/gateway/kannel/kannel.php:65
 msgid "Module sender ID"
 msgstr ""
 
 #: plugin/gateway/kannel/kannel.php:57 plugin/gateway/kannel/kannel.php:58
+#: plugin/gateway/kannel/kannel.php:65
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
 "Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
 
 #: plugin/gateway/kannel/kannel.php:63 plugin/gateway/kannel/kannel.php:64
+#: plugin/gateway/kannel/kannel.php:71
 msgid "Bearerbox hostname or IP"
 msgstr "Hostname ou IP do bearerbox"
 
 #: plugin/gateway/kannel/kannel.php:60 plugin/gateway/kannel/kannel.php:61
+#: plugin/gateway/kannel/kannel.php:68
 msgid "Module timezone"
 msgstr ""
 
 #: plugin/gateway/kannel/kannel.php:60 plugin/gateway/kannel/kannel.php:61
+#: plugin/gateway/kannel/kannel.php:68
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
 #: plugin/gateway/kannel/kannel.php:63 plugin/gateway/kannel/kannel.php:66
 #: plugin/gateway/kannel/kannel.php:64 plugin/gateway/kannel/kannel.php:67
+#: plugin/gateway/kannel/kannel.php:71 plugin/gateway/kannel/kannel.php:74
 msgid "Kannel specific"
 msgstr "Específico do kannel"
 
 #: plugin/gateway/kannel/kannel.php:66 plugin/gateway/kannel/kannel.php:67
+#: plugin/gateway/kannel/kannel.php:74
 msgid "Send SMS port"
 msgstr "Porta de envio de SMS"
 
 #: plugin/gateway/kannel/kannel.php:74 plugin/gateway/kannel/kannel.php:75
+#: plugin/gateway/kannel/kannel.php:82
 msgid "Additional URL parameter"
 msgstr "Parâmetro de URL adicional"
 
 #: plugin/gateway/kannel/kannel.php:77 plugin/gateway/kannel/kannel.php:78
+#: plugin/gateway/kannel/kannel.php:85
 msgid "playSMS web URL"
 msgstr "URL web do playSMS"
 
 #: plugin/gateway/kannel/kannel.php:77 plugin/gateway/kannel/kannel.php:78
+#: plugin/gateway/kannel/kannel.php:85
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr ""
 
 #: plugin/gateway/kannel/kannel.php:94 plugin/gateway/kannel/kannel.php:92
+#: plugin/gateway/kannel/kannel.php:108
 msgid "Save"
 msgstr "Salvar"
 
 #: plugin/gateway/kannel/kannel.php:122 plugin/gateway/kannel/kannel.php:129
+#: plugin/gateway/kannel/kannel.php:142
 msgid "No changes has been made"
 msgstr "Nenhuma mudança feita"
 
 #: plugin/gateway/kannel/kannel.php:70 plugin/gateway/kannel/kannel.php:71
+#: plugin/gateway/kannel/kannel.php:78
 msgid "Delivery Report"
 msgstr ""
 
 #: plugin/gateway/kannel/kannel.php:158 plugin/gateway/kannel/kannel.php:165
+#: plugin/gateway/kannel/kannel.php:181
 msgid "Gateway module configurations has been saved"
 msgstr "Configurações do módulo de gateway foram salvas"
 
@@ -125,22 +144,27 @@ msgid "HTTP Kannel admin URL"
 msgstr ""
 
 #: plugin/gateway/kannel/kannel.php:84 plugin/gateway/kannel/kannel.php:82
+#: plugin/gateway/kannel/kannel.php:89
 msgid "Kannel admin password"
 msgstr ""
 
 #: plugin/gateway/kannel/kannel.php:84 plugin/gateway/kannel/kannel.php:82
+#: plugin/gateway/kannel/kannel.php:89
 msgid "HTTP Kannel admin password"
 msgstr ""
 
 #: plugin/gateway/kannel/kannel.php:87 plugin/gateway/kannel/kannel.php:85
+#: plugin/gateway/kannel/kannel.php:92
 msgid "Kannel admin port"
 msgstr ""
 
 #: plugin/gateway/kannel/kannel.php:87 plugin/gateway/kannel/kannel.php:85
+#: plugin/gateway/kannel/kannel.php:92
 msgid "HTTP Kannel admin port"
 msgstr ""
 
 #: plugin/gateway/kannel/kannel.php:177 plugin/gateway/kannel/kannel.php:180
+#: plugin/gateway/kannel/kannel.php:196
 msgid "Gateway has been activated"
 msgstr "Gateway foi ativado"
 
@@ -149,7 +173,8 @@ msgid "Kannel Configurations files"
 msgstr ""
 
 #: plugin/gateway/kannel/kannel.php:97 plugin/gateway/kannel/kannel.php:95
-#: plugin/gateway/kannel/kannel.php:192
+#: plugin/gateway/kannel/kannel.php:192 plugin/gateway/kannel/kannel.php:103
+#: plugin/gateway/kannel/kannel.php:208
 msgid "Restart Kannel"
 msgstr ""
 
@@ -157,12 +182,16 @@ msgstr ""
 msgid "Kannel service has been restarted"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:88
+#: plugin/gateway/kannel/kannel.php:88 plugin/gateway/kannel/kannel.php:95
 msgid "Kannel configuration file"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:192
+#: plugin/gateway/kannel/kannel.php:192 plugin/gateway/kannel/kannel.php:208
 msgid "Status"
+msgstr ""
+
+#: plugin/gateway/kannel/kannel.php:98
+msgid "Kannel status"
 msgstr ""
 
 #~ msgid "Send SMS message without footer banner"

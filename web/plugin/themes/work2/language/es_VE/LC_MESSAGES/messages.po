@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-20 09:56+0700\n"
+"POT-Creation-Date: 2012-09-01 08:26+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
@@ -76,4 +76,12 @@ msgstr "Estatus"
 
 #: plugin/themes/work2/page_forgot.php:37
 msgid "Recover password"
+msgstr ""
+
+#: plugin/themes/work2/fn.php:73
+msgid "Home"
+msgstr ""
+
+#: plugin/themes/work2/fn.php:75
+msgid "Logout"
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-20 09:56+0700\n"
+"POT-Creation-Date: 2012-09-01 08:26+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,12 +32,15 @@ msgstr ""
 #: plugin/feature/sms_custom/sms_custom.php:139
 #: plugin/feature/sms_custom/sms_custom.php:20
 #: plugin/feature/sms_custom/sms_custom.php:64
+#: plugin/feature/sms_custom/sms_custom.php:20
+#: plugin/feature/sms_custom/sms_custom.php:64
 #: plugin/feature/sms_custom/sms_custom.php:138
 msgid "Add SMS custom"
 msgstr ""
 
 #: plugin/feature/sms_custom/sms_custom.php:28
 #: plugin/feature/sms_custom/sms_custom.php:37
+#: plugin/feature/sms_custom/sms_custom.php:36
 #: plugin/feature/sms_custom/sms_custom.php:36
 msgid "Keyword"
 msgstr ""
@@ -50,17 +53,20 @@ msgstr ""
 #: plugin/feature/sms_custom/sms_custom.php:30
 #: plugin/feature/sms_custom/sms_custom.php:39
 #: plugin/feature/sms_custom/sms_custom.php:38
+#: plugin/feature/sms_custom/sms_custom.php:38
 msgid "User"
 msgstr ""
 
 #: plugin/feature/sms_custom/sms_custom.php:31
 #: plugin/feature/sms_custom/sms_custom.php:40
 #: plugin/feature/sms_custom/sms_custom.php:39
+#: plugin/feature/sms_custom/sms_custom.php:39
 msgid "Action"
 msgstr ""
 
 #: plugin/feature/sms_custom/sms_custom.php:42
 #: plugin/feature/sms_custom/sms_custom.php:50
+#: plugin/feature/sms_custom/sms_custom.php:49
 #: plugin/feature/sms_custom/sms_custom.php:49
 msgid "Are you sure you want to delete SMS custom keyword ?"
 msgstr ""
@@ -85,6 +91,10 @@ msgstr ""
 #: plugin/feature/sms_custom/sms_custom.php:129
 #: plugin/feature/sms_custom/sms_custom.php:170
 #: plugin/feature/sms_custom/sms_custom.php:49
+#: plugin/feature/sms_custom/sms_custom.php:164
+#: plugin/feature/sms_custom/sms_custom.php:166
+#: plugin/feature/sms_custom/sms_custom.php:169
+#: plugin/feature/sms_custom/sms_custom.php:49
 #: plugin/feature/sms_custom/sms_custom.php:108
 #: plugin/feature/sms_custom/sms_custom.php:110
 #: plugin/feature/sms_custom/sms_custom.php:126
@@ -98,6 +108,7 @@ msgstr ""
 #: plugin/feature/sms_custom/sms_custom.php:73
 #: plugin/feature/sms_custom/sms_custom.php:81
 #: plugin/feature/sms_custom/sms_custom.php:80
+#: plugin/feature/sms_custom/sms_custom.php:80
 msgid "Edit SMS custom"
 msgstr ""
 
@@ -105,6 +116,7 @@ msgstr ""
 #: plugin/feature/sms_custom/sms_custom.php:141
 #: plugin/feature/sms_custom/sms_custom.php:86
 #: plugin/feature/sms_custom/sms_custom.php:142
+#: plugin/feature/sms_custom/sms_custom.php:85
 #: plugin/feature/sms_custom/sms_custom.php:85
 #: plugin/feature/sms_custom/sms_custom.php:141
 msgid "SMS custom keyword"
@@ -115,6 +127,7 @@ msgstr ""
 #: plugin/feature/sms_custom/sms_custom.php:87
 #: plugin/feature/sms_custom/sms_custom.php:143
 #: plugin/feature/sms_custom/sms_custom.php:86
+#: plugin/feature/sms_custom/sms_custom.php:86
 #: plugin/feature/sms_custom/sms_custom.php:142
 msgid "Pass these parameter to custom URL field"
 msgstr ""
@@ -123,6 +136,7 @@ msgstr ""
 #: plugin/feature/sms_custom/sms_custom.php:143
 #: plugin/feature/sms_custom/sms_custom.php:88
 #: plugin/feature/sms_custom/sms_custom.php:144
+#: plugin/feature/sms_custom/sms_custom.php:87
 #: plugin/feature/sms_custom/sms_custom.php:87
 #: plugin/feature/sms_custom/sms_custom.php:143
 msgid "will be replaced by SMS incoming date/time"
@@ -133,6 +147,7 @@ msgstr ""
 #: plugin/feature/sms_custom/sms_custom.php:89
 #: plugin/feature/sms_custom/sms_custom.php:145
 #: plugin/feature/sms_custom/sms_custom.php:88
+#: plugin/feature/sms_custom/sms_custom.php:88
 #: plugin/feature/sms_custom/sms_custom.php:144
 msgid "will be replaced by sender number"
 msgstr ""
@@ -141,6 +156,7 @@ msgstr ""
 #: plugin/feature/sms_custom/sms_custom.php:145
 #: plugin/feature/sms_custom/sms_custom.php:90
 #: plugin/feature/sms_custom/sms_custom.php:146
+#: plugin/feature/sms_custom/sms_custom.php:89
 #: plugin/feature/sms_custom/sms_custom.php:89
 #: plugin/feature/sms_custom/sms_custom.php:145
 msgid "will be replaced by custom keyword"
@@ -151,6 +167,7 @@ msgstr ""
 #: plugin/feature/sms_custom/sms_custom.php:91
 #: plugin/feature/sms_custom/sms_custom.php:147
 #: plugin/feature/sms_custom/sms_custom.php:90
+#: plugin/feature/sms_custom/sms_custom.php:90
 #: plugin/feature/sms_custom/sms_custom.php:146
 msgid "will be replaced by custom parameter passed to server from SMS"
 msgstr ""
@@ -160,6 +177,7 @@ msgstr ""
 #: plugin/feature/sms_custom/sms_custom.php:92
 #: plugin/feature/sms_custom/sms_custom.php:93
 #: plugin/feature/sms_custom/sms_custom.php:149
+#: plugin/feature/sms_custom/sms_custom.php:148
 #: plugin/feature/sms_custom/sms_custom.php:92
 #: plugin/feature/sms_custom/sms_custom.php:148
 msgid "SMS custom URL"
@@ -168,6 +186,8 @@ msgstr ""
 #: plugin/feature/sms_custom/sms_custom.php:89
 #: plugin/feature/sms_custom/sms_custom.php:148
 #: plugin/feature/sms_custom/sms_custom.php:92
+#: plugin/feature/sms_custom/sms_custom.php:91
+#: plugin/feature/sms_custom/sms_custom.php:147
 #: plugin/feature/sms_custom/sms_custom.php:91
 #: plugin/feature/sms_custom/sms_custom.php:147
 msgid "will be replaced by SMS raw message"
@@ -200,6 +220,7 @@ msgstr ""
 #: plugin/feature/sms_custom/sms_custom.php:171
 #: plugin/feature/sms_custom/sms_custom.php:114
 #: plugin/feature/sms_custom/sms_custom.php:173
+#: plugin/feature/sms_custom/sms_custom.php:172
 #: plugin/feature/sms_custom/sms_custom.php:113
 #: plugin/feature/sms_custom/sms_custom.php:172
 msgid "You must fill all fields"
@@ -223,11 +244,13 @@ msgstr ""
 #: plugin/feature/sms_custom/sms_custom.php:149
 #: plugin/feature/sms_custom/sms_custom.php:151
 #: plugin/feature/sms_custom/sms_custom.php:150
+#: plugin/feature/sms_custom/sms_custom.php:150
 msgid "Add"
 msgstr ""
 
 #: plugin/feature/sms_custom/sms_custom.php:163
 #: plugin/feature/sms_custom/sms_custom.php:165
+#: plugin/feature/sms_custom/sms_custom.php:164
 #: plugin/feature/sms_custom/sms_custom.php:164
 msgid "SMS custom has been added"
 msgstr ""
@@ -235,12 +258,14 @@ msgstr ""
 #: plugin/feature/sms_custom/sms_custom.php:167
 #: plugin/feature/sms_custom/sms_custom.php:165
 #: plugin/feature/sms_custom/sms_custom.php:166
+#: plugin/feature/sms_custom/sms_custom.php:166
 msgid "Fail to add SMS custom"
 msgstr ""
 
 #: plugin/feature/sms_custom/sms_custom.php:172
 #: plugin/feature/sms_custom/sms_custom.php:168
 #: plugin/feature/sms_custom/sms_custom.php:170
+#: plugin/feature/sms_custom/sms_custom.php:169
 #: plugin/feature/sms_custom/sms_custom.php:169
 msgid "SMS custom already exists, reserved or use by other feature"
 msgstr ""
@@ -253,12 +278,14 @@ msgstr ""
 #: plugin/feature/sms_custom/sms_custom.php:148
 #: plugin/feature/sms_custom/sms_custom.php:94
 #: plugin/feature/sms_custom/sms_custom.php:150
+#: plugin/feature/sms_custom/sms_custom.php:149
 #: plugin/feature/sms_custom/sms_custom.php:93
 #: plugin/feature/sms_custom/sms_custom.php:149
 msgid "Make return as reply"
 msgstr ""
 
 #: plugin/feature/sms_custom/sms_custom.php:38
+#: plugin/feature/sms_custom/sms_custom.php:37
 #: plugin/feature/sms_custom/sms_custom.php:37
 msgid "URL"
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-20 09:56+0700\n"
+"POT-Creation-Date: 2012-09-01 08:26+0700\n"
 "PO-Revision-Date: 2012-04-11 13:56+0000\n"
 "Last-Translator: ELINGUI Pascal Uriel <elinguiuriel@gmail.com>\n"
 "Language-Team: ELINGUI <LL@li.org>\n"
@@ -28,6 +28,10 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup.php:112
 #: plugin/feature/inboxgroup/inboxgroup.php:159
 #: plugin/feature/inboxgroup/config.php:6
+#: plugin/feature/inboxgroup/inboxgroup_members.php:100
+#: plugin/feature/inboxgroup/inboxgroup_members.php:188
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:99
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:187
 msgid "Group inbox"
 msgstr "Service boite groupe"
 
@@ -43,6 +47,10 @@ msgstr "Liste des Fourre-tout"
 #: plugin/feature/inboxgroup/inboxgroup_members.php:201
 #: plugin/feature/inboxgroup/inboxgroup.php:49
 #: plugin/feature/inboxgroup/inboxgroup.php:174
+#: plugin/feature/inboxgroup/inboxgroup_members.php:114
+#: plugin/feature/inboxgroup/inboxgroup_members.php:202
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:113
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:201
 msgid "enabled"
 msgstr "Activé"
 
@@ -54,6 +62,10 @@ msgstr "Activé"
 #: plugin/feature/inboxgroup/inboxgroup_members.php:201
 #: plugin/feature/inboxgroup/inboxgroup.php:49
 #: plugin/feature/inboxgroup/inboxgroup.php:174
+#: plugin/feature/inboxgroup/inboxgroup_members.php:114
+#: plugin/feature/inboxgroup/inboxgroup_members.php:202
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:113
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:201
 msgid "disabled"
 msgstr "désactivé"
 
@@ -67,6 +79,10 @@ msgstr "désactivé"
 #: plugin/feature/inboxgroup/inboxgroup.php:86
 #: plugin/feature/inboxgroup/inboxgroup.php:129
 #: plugin/feature/inboxgroup/inboxgroup.php:177
+#: plugin/feature/inboxgroup/inboxgroup_members.php:117
+#: plugin/feature/inboxgroup/inboxgroup_members.php:205
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:116
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:204
 msgid "Receiver number"
 msgstr "Numéro récepteur"
 
@@ -80,6 +96,10 @@ msgstr "Numéro récepteur"
 #: plugin/feature/inboxgroup/inboxgroup.php:87
 #: plugin/feature/inboxgroup/inboxgroup.php:130
 #: plugin/feature/inboxgroup/inboxgroup.php:178
+#: plugin/feature/inboxgroup/inboxgroup_members.php:118
+#: plugin/feature/inboxgroup/inboxgroup_members.php:206
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:117
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:205
 msgid "Keywords"
 msgstr "Mot-clé"
 
@@ -92,6 +112,10 @@ msgstr "Mot-clé"
 #: plugin/feature/inboxgroup/inboxgroup.php:88
 #: plugin/feature/inboxgroup/inboxgroup.php:131
 #: plugin/feature/inboxgroup/inboxgroup.php:179
+#: plugin/feature/inboxgroup/inboxgroup_members.php:119
+#: plugin/feature/inboxgroup/inboxgroup_members.php:207
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:118
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:206
 msgid "Description"
 msgstr "Description"
 
@@ -101,6 +125,8 @@ msgstr "Description"
 #: plugin/feature/inboxgroup/inboxgroup_members.php:207
 #: plugin/feature/inboxgroup/inboxgroup.php:40
 #: plugin/feature/inboxgroup/inboxgroup.php:180
+#: plugin/feature/inboxgroup/inboxgroup_members.php:120
+#: plugin/feature/inboxgroup/inboxgroup_members.php:208
 msgid "Members"
 msgstr "Membres"
 
@@ -112,6 +138,10 @@ msgstr "Membres"
 #: plugin/feature/inboxgroup/inboxgroup_members.php:208
 #: plugin/feature/inboxgroup/inboxgroup.php:41
 #: plugin/feature/inboxgroup/inboxgroup.php:181
+#: plugin/feature/inboxgroup/inboxgroup_members.php:121
+#: plugin/feature/inboxgroup/inboxgroup_members.php:209
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:120
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:208
 msgid "Catch-all"
 msgstr "Fourre-tout"
 
@@ -123,17 +153,24 @@ msgstr "Fourre-tout"
 #: plugin/feature/inboxgroup/inboxgroup_members.php:209
 #: plugin/feature/inboxgroup/inboxgroup.php:42
 #: plugin/feature/inboxgroup/inboxgroup.php:182
+#: plugin/feature/inboxgroup/inboxgroup_members.php:122
+#: plugin/feature/inboxgroup/inboxgroup_members.php:210
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:121
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:209
 msgid "Status"
 msgstr "Status"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:45
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:84
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:102
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:85
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:103
 msgid "Add catch-all"
 msgstr "Ajouter fourre-tout"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:50
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:89
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:90
 msgid "Delete catch-all"
 msgstr "Supprimer fourre-tout"
 
@@ -147,6 +184,12 @@ msgstr "Supprimer fourre-tout"
 #: plugin/feature/inboxgroup/inboxgroup_members.php:177
 #: plugin/feature/inboxgroup/inboxgroup_members.php:262
 #: plugin/feature/inboxgroup/inboxgroup_members.php:264
+#: plugin/feature/inboxgroup/inboxgroup_members.php:176
+#: plugin/feature/inboxgroup/inboxgroup_members.php:178
+#: plugin/feature/inboxgroup/inboxgroup_members.php:266
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:175
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:177
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:265
 msgid "Username"
 msgstr "Login"
 
@@ -162,11 +205,15 @@ msgstr "Mobile"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:118
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:206
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:119
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:207
 msgid "catchall"
 msgstr "Fourre-tout"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:140
 #: plugin/feature/inboxgroup/inboxgroup_members.php:141
+#: plugin/feature/inboxgroup/inboxgroup_members.php:142
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:141
 msgid "All users"
 msgstr "Utilisateurs"
 
@@ -178,24 +225,35 @@ msgstr "Utilisateurs"
 #: plugin/feature/inboxgroup/inboxgroup_members.php:149
 #: plugin/feature/inboxgroup/inboxgroup_members.php:234
 #: plugin/feature/inboxgroup/inboxgroup_members.php:236
+#: plugin/feature/inboxgroup/inboxgroup_members.php:148
+#: plugin/feature/inboxgroup/inboxgroup_members.php:150
+#: plugin/feature/inboxgroup/inboxgroup_members.php:238
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:147
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:149
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:237
 msgid "All"
 msgstr "Tous"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:152
 #: plugin/feature/inboxgroup/inboxgroup_members.php:153
+#: plugin/feature/inboxgroup/inboxgroup_members.php:154
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:153
 msgid "Selected users"
 msgstr "Utilisateurs Sélectionnés"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:157
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:158
 msgid "Press submit button to add selected users to catch-all list"
 msgstr ""
 "Appuyer valider pour ajouter les utilisateurs a la liste de fourre-tout"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:174
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:175
 msgid "Catch-all has been added"
 msgstr "Fourre-tout ajouté"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:176
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:177
 msgid "Fail to add catch-all"
 msgstr "Echec d'ajout du fourre-tout"
 
@@ -206,30 +264,40 @@ msgstr "Echec d'ajout du fourre-tout"
 #: plugin/feature/inboxgroup/inboxgroup.php:206
 #: plugin/feature/inboxgroup/inboxgroup.php:222
 #: plugin/feature/inboxgroup/inboxgroup.php:238
+#: plugin/feature/inboxgroup/inboxgroup_members.php:182
+#: plugin/feature/inboxgroup/inboxgroup_members.php:270
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:181
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:269
 msgid "Receiver number does not exists"
 msgstr "Numéro de récepteur non existant"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:190
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:191
 msgid "Remove catch-all"
 msgstr "Supprimer le fourre-tout"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:227
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:229
 msgid "Current catchall"
 msgstr "Fourre-tout courrant"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:239
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:241
 msgid "Selected catchall"
 msgstr "Fourre-tout sélectionné"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:244
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:246
 msgid "Press submit button to remove selected catchall from catch-all list"
 msgstr "Appuyer valider pour enlever les fourre-tout sélectionnés de la liste"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:261
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:263
 msgid "Catch-all has been deleted"
 msgstr "Fourre-tout supprimé"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:263
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:265
 msgid "Fail to delete catch-all"
 msgstr "Echec de suppression fourre-tout"
 
@@ -240,47 +308,59 @@ msgstr "Liste des membres"
 #: plugin/feature/inboxgroup/inboxgroup_members.php:45
 #: plugin/feature/inboxgroup/inboxgroup_members.php:85
 #: plugin/feature/inboxgroup/inboxgroup_members.php:103
+#: plugin/feature/inboxgroup/inboxgroup_members.php:86
+#: plugin/feature/inboxgroup/inboxgroup_members.php:104
 msgid "Add member"
 msgstr "Ajouter membre"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:50
 #: plugin/feature/inboxgroup/inboxgroup_members.php:90
+#: plugin/feature/inboxgroup/inboxgroup_members.php:91
 msgid "Delete member"
 msgstr "Supprimer membre"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:158
+#: plugin/feature/inboxgroup/inboxgroup_members.php:159
 msgid "Press submit button to add selected users to member list"
 msgstr "Appuer valider pour ajouter les utilisateurs sélectionnés"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:175
+#: plugin/feature/inboxgroup/inboxgroup_members.php:176
 msgid "Member has been added"
 msgstr "Membre ajouté"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:177
+#: plugin/feature/inboxgroup/inboxgroup_members.php:178
 msgid "Fail to add member"
 msgstr "Echec d'ajout membre"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:191
+#: plugin/feature/inboxgroup/inboxgroup_members.php:192
 msgid "Remove member"
 msgstr "Supprimer membre"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:228
+#: plugin/feature/inboxgroup/inboxgroup_members.php:230
 msgid "Current members"
 msgstr "Membres courrant"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:240
+#: plugin/feature/inboxgroup/inboxgroup_members.php:242
 msgid "Selected members"
 msgstr "Membres sélectionnés"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:245
+#: plugin/feature/inboxgroup/inboxgroup_members.php:247
 msgid "Press submit button to remove selected members from member list"
 msgstr "Appuye valider pour supprimer les membres sélectionnés de la liste"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:262
+#: plugin/feature/inboxgroup/inboxgroup_members.php:264
 msgid "Member has been deleted"
 msgstr "Membre supprimé"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:264
+#: plugin/feature/inboxgroup/inboxgroup_members.php:266
 msgid "Fail to delete member"
 msgstr "Echec de suppression de membre"
 

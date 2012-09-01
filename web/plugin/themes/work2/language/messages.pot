@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-20 09:56+0700\n"
+"POT-Creation-Date: 2012-09-01 08:26+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,4 +92,12 @@ msgstr ""
 
 #: plugin/themes/work2/page_forgot.php:37
 msgid "Recover password"
+msgstr ""
+
+#: plugin/themes/work2/fn.php:73
+msgid "Home"
+msgstr ""
+
+#: plugin/themes/work2/fn.php:75
+msgid "Logout"
 msgstr ""

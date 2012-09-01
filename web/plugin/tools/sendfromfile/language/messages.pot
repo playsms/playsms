@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-21 16:36+0700\n"
+"POT-Creation-Date: 2012-09-01 08:26+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -103,13 +103,19 @@ msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr ""
 
 #: sendfromfile.php:79 sendfromfile.php:105
+#: plugin/tools/sendfromfile/sendfromfile.php:79
+#: plugin/tools/sendfromfile/sendfromfile.php:105
 msgid "Destination number"
 msgstr ""
 
 #: sendfromfile.php:80 sendfromfile.php:106
+#: plugin/tools/sendfromfile/sendfromfile.php:80
+#: plugin/tools/sendfromfile/sendfromfile.php:106
 msgid "Message"
 msgstr ""
 
 #: sendfromfile.php:81 sendfromfile.php:107
+#: plugin/tools/sendfromfile/sendfromfile.php:81
+#: plugin/tools/sendfromfile/sendfromfile.php:107
 msgid "Username"
 msgstr ""
