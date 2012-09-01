@@ -34,7 +34,7 @@ if ($u && $p) {
 if ($op) { $ta = $op; };
 
 $c_is_valid = ( $is_valid ? 1 : 0 );
-logger_print("start ta:".$ta." u:".$u." valid:".$c_is_valid, 3, "webservices");
+logger_print("start ta:".$ta." u:".$u." valid:".$c_is_valid." ip:".$_SERVER['REMOTE_ADDR'], 3, "webservices");
 
 if ($ta) {
 	switch ($ta) {
@@ -86,6 +86,6 @@ if ($ta) {
 
 echo $ret;
 
-logger_print("end ta:".$ta." u:".$u." valid:".$c_is_valid, 3, "webservices");
+logger_print("end ta:".$ta." u:".$u." valid:".$c_is_valid." ip:".$_SERVER['REMOTE_ADDR'], 3, "webservices");
 
 ?>
