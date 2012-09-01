@@ -292,7 +292,7 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 		list($ok, $to, $smslog_id, $queue) = sendsmsd($queue_code);
 	}
 
-	logger_print("end smslog_id:".$smslog_id." queue:".$queue_code, 3, "sendsms pv");
+	logger_print("end queue_code:".$queue_code, 3, "sendsms pv");
 
 	return array($ok, $to, $smslog_id, $queue);
 }
@@ -353,7 +353,7 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 		list($ok, $to, $smslog_id, $queue) = sendsmsd($queue_code);
 	}
 
-	logger_print("end smslog_id:".$smslog_id." queue:".$queue_code, 3, "sendsms bc");
+	logger_print("end queue_code:".$queue_code, 3, "sendsms bc");
 
 	return array($ok, $to, $smslog_id, $queue);
 }
