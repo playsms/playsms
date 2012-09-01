@@ -4,7 +4,6 @@ if (! $called_from_hook_call) {
 	include "init.php";
 	include $apps_path['libs']."/function.php";
 	chdir ("plugin/gateway/kannel");
-	$requests = $_REQUEST;
 }
 
 $remote_addr = $_SERVER['REMOTE_ADDR'];
@@ -17,10 +16,10 @@ if ($remote_addr != $kannel_param['bearerbox_host'] && $remote_host != $kannel_p
 	exit();
 }
 
-$t = trim($requests['t']); 	// sms_datetime
-$q = trim($requests['q']); 	// sms_sender
-$a = trim($requests['a']); 	// message
-$Q = trim($requests['Q']); 	// sms_receiver
+$t = trim($_REQUEST['t']); 	// sms_datetime
+$q = trim($_REQUEST['q']); 	// sms_sender
+$a = trim($_REQUEST['a']); 	// message
+$Q = trim($_REQUEST['Q']); 	// sms_receiver
 
 logger_print("addr:".$remote_addr." host:".$remote_host." t:".$t." q:".$q." a:".$a." Q:".$Q, 3, "kannel incoming");
 
