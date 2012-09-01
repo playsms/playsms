@@ -7,3 +7,26 @@ msgstr "Lihat log"
 msgid "Log file"
 msgstr "File log"
 
+#: plugin/tools/queuelog/config.php:4 plugin/tools/queuelog/queuelog.php:16
+msgid "View SMS queue"
+msgstr "Lihat antrian SMS"
+
+#: plugin/tools/queuelog/queuelog.php:22
+msgid "Queue Code"
+msgstr "Kode antrian"
+
+#: plugin/tools/queuelog/queuelog.php:23
+msgid "Date/Time"
+msgstr "Waktu/Jam"
+
+#: plugin/tools/queuelog/queuelog.php:27
+msgid "Username"
+msgstr "Pengguna"
+
+#: plugin/tools/queuelog/queuelog.php:31
+msgid "Group"
+msgstr "Grup"
+
+#: plugin/tools/queuelog/queuelog.php:32
+msgid "Message"
+msgstr "Pesan"

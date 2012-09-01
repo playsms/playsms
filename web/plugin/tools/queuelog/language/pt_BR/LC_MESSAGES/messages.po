@@ -6,3 +6,27 @@ msgstr ""
 #: plugin/tools/playsmslog/playsmslog.php:11
 msgid "Log file"
 msgstr ""
+
+#: plugin/tools/queuelog/config.php:4 plugin/tools/queuelog/queuelog.php:16
+msgid "View SMS queue"
+msgstr ""
+
+#: plugin/tools/queuelog/queuelog.php:22
+msgid "Queue Code"
+msgstr ""
+
+#: plugin/tools/queuelog/queuelog.php:23
+msgid "Date/Time"
+msgstr ""
+
+#: plugin/tools/queuelog/queuelog.php:27
+msgid "Username"
+msgstr ""
+
+#: plugin/tools/queuelog/queuelog.php:31
+msgid "Group"
+msgstr ""
+
+#: plugin/tools/queuelog/queuelog.php:32
+msgid "Message"
+msgstr ""
