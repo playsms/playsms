@@ -13,7 +13,7 @@ $remote_host = $_SERVER['HTTP_HOST'];
 // srosa 20100531: changed test below to allow hostname in bearerbox_host instead of ip
 // if ($remote_addr != $kannel_param['bearerbox_host'])
 if ($remote_addr != $kannel_param['bearerbox_host'] && $remote_host != $kannel_param['bearerbox_host']) {
-	logger_print("exit remote_addr:".$remote_addr." remote_host:".$remote_host." bearerbox_host:".$kannel_param['bearerbox_host'], 3, "kannel dlr");
+	logger_print("exit remote_addr:".$remote_addr." remote_host:".$remote_host." bearerbox_host:".$kannel_param['bearerbox_host'], 2, "kannel dlr");
 	exit();
 }
 
@@ -21,7 +21,7 @@ $type = $requests['type'];
 $slid = $requests['slid'];
 $uid = $requests['uid'];
 
-logger_print("addr:".$remote_addr." host:".$remote_host." type:".$type." slid:".$slid." uid:".$uid, 3, "kannel dlr");
+logger_print("addr:".$remote_addr." host:".$remote_host." type:".$type." slid:".$slid." uid:".$uid, 2, "kannel dlr");
 
 if ($type && $slid && $uid) {
 	$stat = 0;

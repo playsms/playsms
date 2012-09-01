@@ -79,12 +79,12 @@ function msgtoolbox_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='
 					}
 				}	
 			}
-			logger_print("sent smslog_id:".$smslog_id." response:".$fd, 3, "msgtoolbox outgoing");
+			logger_print("sent smslog_id:".$smslog_id." response:".$fd, 2, "msgtoolbox outgoing");
 		} else {
 			// even when the response is not what we expected we still print it out for debug purposes
 			$fd = str_replace("\n", " ", $fd);
 			$fd = str_replace("\r", " ", $fd);
-			logger_print("failed smslog_id:".$smslog_id." response:".$fd, 3, "msgtoolbox outgoing");
+			logger_print("failed smslog_id:".$smslog_id." response:".$fd, 2, "msgtoolbox outgoing");
 		}
 	}
 	if (!$ok) {

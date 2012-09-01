@@ -54,10 +54,10 @@ function simplerate_getbyprefix($p_dst) {
 
 function simplerate_hook_rate_setusercredit($uid, $remaining=0) {
 	$ok = false;
-	logger_print("saving uid:".$uid." remaining:".$remaining, 3, "simplerate setusercredit");
+	logger_print("saving uid:".$uid." remaining:".$remaining, 2, "simplerate setusercredit");
 	$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".$core_config['datetime']['now']."',credit='$remaining' WHERE uid='$uid'";
 	if ($db_result = @dba_affected_rows($db_query)) {
-		logger_print("saved uid:".$uid." remaining:".$remaining, 3, "simplerate setusercredit");
+		logger_print("saved uid:".$uid." remaining:".$remaining, 2, "simplerate setusercredit");
 		$ok = true;
 	}
 	return $ok;
@@ -81,9 +81,9 @@ function simplerate_hook_rate_cansend($username, $sms_to) {
 	if ($default_rate > $maxrate) {
 		$maxrate = $default_rate;
 	}
-	logger_print("check username:".$username." sms_to:".$sms_to." credit:".$credit." maxrate:".$maxrate, 3, "simplerate cansend");
+	logger_print("check username:".$username." sms_to:".$sms_to." credit:".$credit." maxrate:".$maxrate, 2, "simplerate cansend");
 	if ($ok = ( ($credit >= $maxrate) ? true : false )) {
-		logger_print("allowed username:".$username." sms_to:".$sms_to." credit:".$credit." maxrate:".$maxrate, 3, "simplerate cansend");
+		logger_print("allowed username:".$username." sms_to:".$sms_to." credit:".$credit." maxrate:".$maxrate, 2, "simplerate cansend");
 	}
 	return $ok;
 }
@@ -91,7 +91,7 @@ function simplerate_hook_rate_cansend($username, $sms_to) {
 function simplerate_hook_rate_deduct($smslog_id) {
         global $core_config;
 	$ok = false;
-	logger_print("enter smslog_id:".$smslog_id, 3, "simplerate deduct");
+	logger_print("enter smslog_id:".$smslog_id, 2, "simplerate deduct");
 	$db_query = "SELECT p_dst,p_footer,p_msg,uid,unicode FROM "._DB_PREF_."_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
@@ -117,7 +117,7 @@ function simplerate_hook_rate_deduct($smslog_id) {
 			$username = uid2username($uid);
 			$credit = rate_getusercredit($username);
 			$remaining = $credit - $charge;
-			logger_print("deduct smslog_id:".$smslog_id." msglen:".$p_msg_len." count:".$count." rate:".$rate." charge:".$charge." credit:".$credit." remaining:".$remaining, 3, "simplerate deduct");
+			logger_print("deduct smslog_id:".$smslog_id." msglen:".$p_msg_len." count:".$count." rate:".$rate." charge:".$charge." credit:".$credit." remaining:".$remaining, 2, "simplerate deduct");
 			if (rate_setusercredit($uid, $remaining)) {
 				if (billing_post($smslog_id, $rate, $credit, $count, $charge)) {
 					$ok = true;
@@ -131,7 +131,7 @@ function simplerate_hook_rate_deduct($smslog_id) {
 function simplerate_hook_rate_refund($smslog_id) {
         global $core_config;
 	$ok = false;
-	logger_print("start smslog_id:".$smslog_id, 3, "simplerate refund");
+	logger_print("start smslog_id:".$smslog_id, 2, "simplerate refund");
 	$db_query = "SELECT p_dst,p_msg,uid FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status='2' AND smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
@@ -146,13 +146,13 @@ function simplerate_hook_rate_refund($smslog_id) {
 				$credit = $bill['credit'];
 				$charge = $bill['charge'];
 				$status = $bill['status'];
-				logger_print("rolling smslog_id:".$smslog_id, 3, "simplerate refund");
+				logger_print("rolling smslog_id:".$smslog_id, 2, "simplerate refund");
 				if ($status == '2') {
 					$username = uid2username($uid);
 					$credit = rate_getusercredit($username);
 					$remaining = $credit + $charge;
 					if (rate_setusercredit($uid, $remaining)) {
-						logger_print("refund smslog_id:".$smslog_id, 3, "simplerate refund");
+						logger_print("refund smslog_id:".$smslog_id, 2, "simplerate refund");
 						$ok = true;
 					}
 				}
@@ -163,7 +163,7 @@ function simplerate_hook_rate_refund($smslog_id) {
 }
 
 function simplerate_hook_setsmsdeliverystatus($smslog_id,$uid,$p_status) {
-	//logger_print("start smslog_id:".$smslog_id, 3, "simplerate setsmsdeliverystatus");
+	//logger_print("start smslog_id:".$smslog_id, 2, "simplerate setsmsdeliverystatus");
 	if ($p_status == 2) {
 		// check in billing table smslog_id with status=0, status=1 is finalized, status=2 is rolled-back
 		$db_query = "SELECT id FROM "._DB_PREF_."_tblBilling WHERE status='0' AND smslog_id='$smslog_id'";

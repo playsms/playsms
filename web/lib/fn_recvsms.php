@@ -132,7 +132,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 			for ($i=2;$i<count($array_target_user);$i++) {
 				$message .= " ".$array_target_user[$i];
 			}
-			logger_print("datetime:".$sms_datetime." sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user." message:".$message." raw:".$raw_message, 3, "setsmsincomingaction pv");
+			logger_print("datetime:".$sms_datetime." sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user." message:".$message." raw:".$raw_message, 2, "setsmsincomingaction pv");
 			if (insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_receiver)) {
 				$ok = true;
 			}
@@ -237,9 +237,9 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 					(in_sender,in_receiver,in_uid,in_msg,in_datetime) 
 					VALUES ('$sms_sender','$sms_receiver','$uid','$message','$sms_datetime')
 				";
-				logger_print("saving sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user, 3, "insertsmstoinbox");
+				logger_print("saving sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user, 2, "insertsmstoinbox");
 				if ($cek_ok = @dba_insert_id($db_query)) {
-					logger_print("saved sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user, 3, "insertsmstoinbox");
+					logger_print("saved sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user, 2, "insertsmstoinbox");
 				}
 			}
 			// forward to email
@@ -280,7 +280,7 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 					logger_print("send to mobile:".$mobile." from:".$sender." user:".$target_user." message:".$message, 3, "insertsmstoinbox");
 					list($ok, $to, $smslog_id, $queue) = sendsms_pv($target_user, $mobile, $message, 'text', $unicode);
 					if ($ok[0]) {
-                                                logger_print("sent to mobile:".$mobile." from:".$sender." user:".$target_user, 3, "insertsmstoinbox");
+                                                logger_print("sent to mobile:".$mobile." from:".$sender." user:".$target_user, 2, "insertsmstoinbox");
 					}
 				}
 			}

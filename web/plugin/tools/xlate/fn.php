@@ -45,10 +45,10 @@ function xlate_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $
 					$sms_datetime = core_display_datetime($sms_datetime);
 					if ($gt->isSuccess()) {
 						$reply = '@'.$xlate_from.'2'.$xlate_to.' '.$words.' => '.$xlate_words;
-						logger_print("success dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." w:".$words." from:".$xlate_from." to:".$xlate_to." xlate:".$xlate_words,3,"xlate");
+						logger_print("success dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." w:".$words." from:".$xlate_from." to:".$xlate_to." xlate:".$xlate_words, 2, "xlate");
 					} else {
 						$reply = '@'.$xlate_from.'2'.$xlate_to.' '._("unable to translate").': '.$words;
-						logger_print("failed dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." w:".$words." from:".$xlate_from." to:".$xlate_to,3,"xlate");
+						logger_print("failed dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." w:".$words." from:".$xlate_from." to:".$xlate_to, 2, "xlate");
 					}
 					// detect reply message, set unicode if not ASCII
 					$unicode = 0;
@@ -61,14 +61,14 @@ function xlate_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $
 					// send reply SMS using admin account
 					// should add a web menu in xlate.php to choose which account will be used to send reply SMS
 					// usualy we inspect the result of sendsms_pv, but not this time
-					logger_print("send reply encoding:".$encoding,3,"xlate");
+					logger_print("send reply encoding:".$encoding, 2, "xlate");
 					list($ok, $to, $smslog_id, $queue) = sendsms_pv('admin', $sms_sender, $reply, 'text', $unicode);
 					// do not forget to tell parent that this SMS has been hooked
 					$ret['hooked'] = true;
 				} else {
 					// unable to load the class, set incoming sms unhandled
 					$ret['hooked'] = false;
-					logger_print("class not exists or fail to load",3,"xlate");
+					logger_print("class not exists or fail to load", 2, "xlate");
 				}
 			}
 		}

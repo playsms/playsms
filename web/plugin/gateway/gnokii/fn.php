@@ -55,7 +55,7 @@ function gnokii_hook_getsmsinbox() {
 	while ($sms_in_file = @readdir($handle)) {
 		if (eregi("^ERR.in",$sms_in_file) && !eregi("^[.]",$sms_in_file)) {
 			$fn = $gnokii_param['path']."/$sms_in_file";
-			// logger_print("infile:".$fn, 3, "gnokii incoming");
+			// logger_print("infile:".$fn, 2, "gnokii incoming");
 			$tobe_deleted = $fn;
 			$lines = @file ($fn);
 			$sms_datetime = trim($lines[0]);
@@ -89,7 +89,7 @@ function gnokii_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	$sms_msg = str_replace("\r", " ", $sms_msg);
 	$the_msg = "$sms_to\n$sms_msg";
 	$fn = $gnokii_param['path']."/out.$sms_id";
-	logger_print("outfile:".$fn, 3, "gnokii outgoing");
+	logger_print("outfile:".$fn, 2, "gnokii outgoing");
 	umask(0);
 	$fd = @fopen($fn, "w+");
 	@fputs($fd, $the_msg);
@@ -98,10 +98,10 @@ function gnokii_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	if (file_exists($fn)) {
 		$ok = true;
 		$p_status = 0;
-		logger_print("outfile:".$fn." saved", 3, "gnokii outgoing");
+		logger_print("outfile:".$fn." saved", 2, "gnokii outgoing");
 	} else {
 		$p_status = 2;
-		logger_print("cannot save outfile:".$fn, 3, "gnokii outgoing");
+		logger_print("cannot save outfile:".$fn, 2, "gnokii outgoing");
 	}
 	setsmsdeliverystatus($smslog_id,$uid,$p_status);
 	return $ok;

@@ -63,7 +63,7 @@ function gammu_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p
 		}
 	} else {
 		// delete the file if exists
-		logger_print("smslog_id:".$smslog_id." unlink the_fn:".$the_fn." p_status:".$p_status, 3, "gammu getsmsstatus");
+		logger_print("smslog_id:".$smslog_id." unlink the_fn:".$the_fn." p_status:".$p_status, 2, "gammu getsmsstatus");
 		@unlink ($the_fn);
 	}
 	return;
@@ -80,7 +80,7 @@ function gammu_hook_getsmsinbox() {
 	while ($sms_in_file = @readdir($handle)) {
 		if ($sms_in_file != "." && $sms_in_file != "..") {
 			$fn = $gammu_param['path']."/inbox/$sms_in_file";
-			// logger_print("infile:".$fn, 3, "gammu incoming");
+			// logger_print("infile:".$fn, 2, "gammu incoming");
 			$the_fn = str_replace('IN','',basename($fn));
 			$arr_fn = explode('_', $the_fn);
 			// let me know if you got better way :)
@@ -133,7 +133,7 @@ function gammu_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gp
 	}
 	*/
 	$fn = $gammu_param['path']."/outbox/OUT".$sms_id;
-	logger_print("outfile:".$fn, 3, "gammu outgoing");
+	logger_print("outfile:".$fn, 2, "gammu outgoing");
 	umask(0);
 	$fd = @fopen($fn, "w+");
 	@fputs($fd, $sms_msg);
@@ -142,10 +142,10 @@ function gammu_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gp
 	if (file_exists($fn)) {
 		$ok = true;
 		$p_status = 0;
-		logger_print("outfile:".$fn." saved", 3, "gammu outgoing");
+		logger_print("outfile:".$fn." saved", 2, "gammu outgoing");
 	} else {
 		$p_status = 2;
-		logger_print("cannot save outfile:".$fn, 3, "gammu outgoing");
+		logger_print("cannot save outfile:".$fn, 2, "gammu outgoing");
 	}
 	setsmsdeliverystatus($smslog_id,$uid,$p_status);
 	return $ok;

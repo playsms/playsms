@@ -45,7 +45,7 @@ function sms_survey_hook_playsmsd() {
 						}
 						list($ok, $to, $smslog_id, $queue) = sendsms_pv($c_username, $c_sms_to, $c_sms_msg, 'text', $unicode);
 						$ok[0] = $ok[0] ? "true" : "false" ;
-						logger_print("playsmsd send finish sid:".$c_sid." smslog_id:".$smslog_id[0]." ok:".$ok[0], 3, "sms_survey");
+						logger_print("playsmsd send finish sid:".$c_sid." smslog_id:".$smslog_id[0]." ok:".$ok[0], 2, "sms_survey");
 						// save the log
 						$log = "";
 						$log['survey_id'] = $c_sid;
@@ -164,7 +164,7 @@ function sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $s
 						// send next question to member
 						list($ok,$to,$smslog_id,$queue) = sendsms_pv($c_username,$c_sms_to,$c_sms_msg,$type,$unicode);
 						$ok[0] = $ok[0] ? "true" : "false" ;
-						logger_print("playsmsd send finish sid:".$c_sid." smslog_id:".$smslog_id[0]." ok:".$ok[0], 3, "sms_survey");
+						logger_print("playsmsd send finish sid:".$c_sid." smslog_id:".$smslog_id[0]." ok:".$ok[0], 2, "sms_survey");
 						// save the log
 						$log = "";
 						$log['survey_id'] = $sid;

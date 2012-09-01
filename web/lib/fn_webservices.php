@@ -22,7 +22,7 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
 		} else {
 			$ret = "ERR 200";
 		}
-		logger_print("returns:".$ret." to:".$to[0]." smslog_id:".$smslog_id[0]." queue_code:".$queue[0], 3, "webservices_pv");
+		logger_print("returns:".$ret." to:".$to[0]." smslog_id:".$smslog_id[0]." queue_code:".$queue[0], 2, "webservices_pv");
 	} else {
 		$ret = "ERR 201";
 	}

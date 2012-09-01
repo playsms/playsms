@@ -86,13 +86,13 @@ function clickatell_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='
 				// sent
 				$p_status = 1;
 			}
-			logger_print("smslog_id:".$smslog_id." charge:".$c_sms_credit." sms_status:".$p_status." response:".$response[0]." ".$response[1], 3, "clickatell outgoing");
+			logger_print("smslog_id:".$smslog_id." charge:".$c_sms_credit." sms_status:".$p_status." response:".$response[0]." ".$response[1], 2, "clickatell outgoing");
 			setsmsdeliverystatus($smslog_id,$uid,$p_status);
 		} else {
 			// even when the response is not what we expected we still print it out for debug purposes
 			$fd = str_replace("\n", " ", $fd);
 			$fd = str_replace("\r", " ", $fd);
-			logger_print("smslog_id:".$smslog_id." response:".$fd, 3, "clickatell outgoing");
+			logger_print("smslog_id:".$smslog_id." response:".$fd, 2, "clickatell outgoing");
 		}
 		$ok = true;
 	}
@@ -134,7 +134,7 @@ function clickatell_getsmsstatus($smslog_id) {
 	if ($apimsgid = $db_row['apimsgid']) {
 		$query_string = "getmsgcharge?api_id=".$clickatell_param['api_id']."&user=".$clickatell_param['username']."&password=".$clickatell_param['password']."&apimsgid=$apimsgid";
 		$url = $clickatell_param['send_url']."/".$query_string;
-		logger_print("smslog_id:".$smslog_id." apimsgid:".$apimsgid." url:".$url, 3, "clickatell getsmsstatus");
+		logger_print("smslog_id:".$smslog_id." apimsgid:".$apimsgid." url:".$url, 2, "clickatell getsmsstatus");
 		$fd = @implode ('', file ($url));
 		if ($fd) {
 			$response = split (" ", $fd);
@@ -161,7 +161,7 @@ function clickatell_getsmsstatus($smslog_id) {
 					case "004": $c_sms_status = 3; break; // delivered
 				}
 			}
-			logger_print("smslog_id:".$smslog_id." apimsgid:".$apimsgid." charge:".$credit." status:".$status." sms_status:".$c_sms_status, 3, "clickatell getsmsstatus");
+			logger_print("smslog_id:".$smslog_id." apimsgid:".$apimsgid." charge:".$credit." status:".$status." sms_status:".$c_sms_status, 2, "clickatell getsmsstatus");
 		}
 	}
 	return array ($c_sms_credit, $c_sms_status);
@@ -180,9 +180,9 @@ function clickatell_hook_call($requests) {
 	$access = $requests['access'];
 	if ($access == 'callback') {
 		$fn = $apps_path['plug'].'/gateway/clickatell/callback.php';
-		logger_print("start load:".$fn, 3, "clickatell call");
+		logger_print("start load:".$fn, 2, "clickatell call");
 		include $fn;
-		logger_print("end load callback", 3, "clickatell call");
+		logger_print("end load callback", 2, "clickatell call");
 	}
 }
 

@@ -124,7 +124,7 @@ function auth_login() {
 					$multilogin_id = md5($username.$password);
 					setcookie("vc3","$multilogin_id");
 				}
-				logger_print("u:".$username." t:".$ticket." ip:".$_SERVER['REMOTE_ADDR'], 3, "login");
+				logger_print("u:".$username." t:".$ticket." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
 			} else {
 				$error_string = _('Unable to update login session');
 			}
@@ -150,7 +150,7 @@ function auth_logout() {
 	$db_query = "UPDATE "._DB_PREF_."_tblUser SET ticket='".md5(mktime())."' ".
 	$db_query .= "WHERE username='".$_COOKIE['vc2']."' AND ticket='".$_COOKIE['vc1']."'";
 	$db_result = dba_query($db_query);
-	logger_print("u:".$_COOKIE['vc2']." t:".$_COOKIE['vc1']." ip:".$_SERVER['REMOTE_ADDR'], 3, "logout");
+	logger_print("u:".$_COOKIE['vc2']." t:".$_COOKIE['vc1']." ip:".$_SERVER['REMOTE_ADDR'], 2, "logout");
 	setcookie("vc1");
 	setcookie("vc2");
 	setcookie("vc3");
@@ -186,7 +186,7 @@ function auth_forgot() {
 					} else {
 						$error_string = _('Fail to send email');
 					}
-					logger_print("u:".$username." email:".$email." ip:".$_SERVER['REMOTE_ADDR'], 3, "forgot");
+					logger_print("u:".$username." email:".$email." ip:".$_SERVER['REMOTE_ADDR'], 2, "forgot");
 				}
 			}
 		}
@@ -231,7 +231,7 @@ function auth_register() {
 				}
 			}
 			if ($ok) {
-				logger_print("u:".$username." email:".$email." ip:".$_SERVER['REMOTE_ADDR'], 3, "register");
+				logger_print("u:".$username." email:".$email." ip:".$_SERVER['REMOTE_ADDR'], 2, "register");
 				$subject = "[SMSGW] "._('New account registration');
 				$body = $core_config['main']['cfg_web_title']."\n";
 				$body .= $core_config['http_path']['base']."\n\n";

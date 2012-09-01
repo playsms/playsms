@@ -81,9 +81,9 @@ function uplink_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 				}
 				$ok = true;
 			}
-			logger_print("smslog_id:".$smslog_id." up_id:".$up_id." status:".$response[0]." remote_slid:".$response_data[0]." remote_queue_code:".$response_data[1], 3, "uplink outgoing");
+			logger_print("smslog_id:".$smslog_id." up_id:".$up_id." status:".$response[0]." remote_slid:".$response_data[0]." remote_queue_code:".$response_data[1], 2, "uplink outgoing");
 		} else {
-			logger_print("smslog_id:".$smslog_id." no response", 3, "uplink outgoing");
+			logger_print("smslog_id:".$smslog_id." no response", 2, "uplink outgoing");
 		}
 	}
 	if ($ok && $remote_queue_code) {
@@ -163,7 +163,7 @@ function uplink_hook_getsmsinbox() {
 	while ($sms_in_file = @readdir($handle)) {
 	if (eregi("^ERR.in",$sms_in_file) && !eregi("^[.]",$sms_in_file)) {
 	$fn = $uplink_param['path']."/$sms_in_file";
-	// logger_print("infile:".$fn, 3, "uplink incoming");
+	// logger_print("infile:".$fn, 2, "uplink incoming");
 	$tobe_deleted = $fn;
 	$lines = @file ($fn);
 	$sms_datetime = trim($lines[0]);
@@ -175,7 +175,7 @@ function uplink_hook_getsmsinbox() {
 	// collected:
 	// $sms_datetime, $sms_sender, $message
 	setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
-	logger_print("sender:".$sms_sender." dt:".$sms_datetime." msg:".$message, 3, "uplink incoming");
+	logger_print("sender:".$sms_sender." dt:".$sms_datetime." msg:".$message, 2, "uplink incoming");
 	@unlink($tobe_deleted);
 	}
 	}

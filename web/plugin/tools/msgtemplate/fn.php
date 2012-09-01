@@ -34,7 +34,7 @@ function msgtemplate_hook_interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_
 	$ret['param']['sms_msg'] = $text;
 
 	// log it
-	logger_print("to:".$sms_to." msg:".$sms_msg." replacedby:".$ret['param']['sms_msg'],3,"msgtemplate");
+	logger_print("to:".$sms_to." msg:".$sms_msg." replacedby:".$ret['param']['sms_msg'], 3, "msgtemplate");
 
 	return $ret;
 }
