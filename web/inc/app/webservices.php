@@ -23,19 +23,13 @@ $last	 = trim($_REQUEST['last']);
 // default error return
 $ret = "ERR 102";
 
-$is_valid = false;
 if ($u && $p) {
 	if (validatelogin($u,$p)) {
 		$core_config['user'] = user_getdatabyusername($u);
-		$is_valid = true;
 	}
 }
 
 if ($op) { $ta = $op; };
-
-$c_is_valid = ( $is_valid ? 1 : 0 );
-logger_print("start ta:".$ta." u:".$u." valid:".$c_is_valid." ip:".$_SERVER['REMOTE_ADDR'], 3, "webservices");
-
 if ($ta) {
 	switch ($ta) {
 		case "PV":
@@ -85,7 +79,5 @@ if ($ta) {
 }
 
 echo $ret;
-
-logger_print("end ta:".$ta." u:".$u." valid:".$c_is_valid." ip:".$_SERVER['REMOTE_ADDR'], 3, "webservices");
 
 ?>
