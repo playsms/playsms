@@ -385,7 +385,10 @@ function sendsms_get_sender($username) {
 		} else if ($gateway_number) {
 			$sms_sender = $gateway_number;
 		} else {
-			$sms_sender = user_getfieldbyusername($username, 'sender');
+			$sms_sender = $core_config['user']['sender'];
+			if ($core_config['user']['username'] != $username) {
+				$sms_sender = user_getfieldbyusername($username, 'sender');
+			}
 		}
 	}
 	$sms_sender = str_replace("\'","",$sms_sender);
