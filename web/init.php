@@ -68,7 +68,7 @@ function pl_addslashes($data) {
 function setuserlang($username="") {
 	global $core_config;
 	$language_module = $core_config['module']['language'];
-	$db_query = "SELECT `language_module` FROM "._DB_PREF_."_tblUser WHERE username='$username'";
+	$db_query = "SELECT language_module FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	if (trim($db_row['language_module'])) {

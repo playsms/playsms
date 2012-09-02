@@ -215,7 +215,7 @@ function auth_register() {
 			$db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result)) {
-				$error_string = _('User is already exists')." ("._('username').": `".$username."`)";
+				$error_string = _('User is already exists')." ("._('username').": ".$username.")";
 			} else {
 				$password = substr(md5(time()),0,6);
 				$sender = ' - '.$username;
@@ -238,7 +238,7 @@ function auth_register() {
 				$body .= _('Username')."\t: $username\n";
 				$body .= _('Password')."\t: $password\n\n";
 				$body .= $core_config['main']['cfg_email_footer']."\n\n";
-				$error_string = _('User has been added')." ("._('username').": `".$username."`)";
+				$error_string = _('User has been added')." ("._('username').": ".$username.")";
 				$error_string .= "<br />";
 				if (sendmail($core_config['main']['cfg_email_service'],$email,$subject,$body)) {
 					$error_string .= _('Password has been sent to your email');

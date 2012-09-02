@@ -49,7 +49,7 @@ switch ($op) {
 			$action .= "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id=".$db_row['subscribe_id'].">$subscribe_icon_view_messages</a>&nbsp;";
 			$action .= "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add&subscribe_id=".$db_row['subscribe_id'].">$subscribe_icon_add_message</a>&nbsp;";
 			$action .= "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=".$db_row['subscribe_id'].">$icon_edit</a>&nbsp;";
-			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS subscribe ?')." ("._('keyword').": `".$db_row['subscribe_keyword']."`)','index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_del&subscribe_id=".$db_row['subscribe_id']."')\">$icon_delete</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS subscribe ?')." ("._('keyword').": ".$db_row['subscribe_keyword'].")','index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_del&subscribe_id=".$db_row['subscribe_id']."')\">$icon_delete</a>";
 			$content .= "
 					<tr>
 						<td class=$td_class>&nbsp;$i.</td>
@@ -251,9 +251,9 @@ switch ($op) {
 					}
 					list($ok, $to, $smslog_id, $queue) = sendsms_pv($username, $sms_to, $message, 'text', $unicode);
 					if ($ok[0]) {
-						$error_string .= _('Your SMS has been delivered to queue')." ("._('to').": `".$sms_to."`)<br>";
+						$error_string .= _('Your SMS has been delivered to queue')." ("._('to').": ".$sms_to.")<br>";
 					} else {
-						$error_string .= _('Fail to send SMS')." ("._('to').": `" . $sms_to . "`)<br>";
+						$error_string .= _('Fail to send SMS')." ("._('to').": " . $sms_to . ")<br>";
 					}
 				}
 			}
@@ -386,7 +386,7 @@ switch ($op) {
 					WHERE subscribe_id='$edit_subscribe_id' AND uid='$uid'
 			    	";
 			if (@ dba_affected_rows($db_query)) {
-				$error_string = _('SMS subscribe has been saved')." ("._('keyword').": `$edit_subscribe_keyword`)";
+				$error_string = _('SMS subscribe has been saved')." ("._('keyword').": $edit_subscribe_keyword)";
 			}
 		} else {
 			$error_string = _('You must fill all fields');
@@ -418,7 +418,7 @@ switch ($op) {
 				$del_msg = dba_affected_rows($db_query);
 				$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id='$subscribe_id'";
 				$del_member = dba_affected_rows($db_query);
-				$error_string = _('SMS subscribe with all its messages and members has been deleted')." ("._('keyword').": `$subscribe_keyword`)";
+				$error_string = _('SMS subscribe with all its messages and members has been deleted')." ("._('keyword').": $subscribe_keyword)";
 			}
 		}
 		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list&err=" . urlencode($error_string));
@@ -472,10 +472,10 @@ switch ($op) {
 							VALUES ('$uid','$add_subscribe_keyword','$add_subscribe_msg','$add_unsubscribe_msg')
 							";
 				if ($new_uid = @ dba_insert_id($db_query)) {
-					$error_string = _('SMS subscribe has been added')." ("._('keyword').": `$add_subscribe_keyword`)";
+					$error_string = _('SMS subscribe has been added')." ("._('keyword').": $add_subscribe_keyword)";
 				}
 			} else {
-				$error_string = _('SMS subscribe already exists, reserved or use by other feature')." ("._('keyword').": `$add_subscribe_keyword`)";
+				$error_string = _('SMS subscribe already exists, reserved or use by other feature')." ("._('keyword').": $add_subscribe_keyword)";
 			}
 		} else {
 			$error_string = _('You must fill all fields');

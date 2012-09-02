@@ -45,7 +45,7 @@ switch ($op)
 			}
 			$action = "<a href=index.php?app=menu&inc=feature_sms_poll&op=sms_poll_view&poll_id=".$db_row['poll_id']." target=_blank>$icon_view</a>&nbsp;";
 			$action .= "<a href=index.php?app=menu&inc=feature_sms_poll&op=sms_poll_edit&poll_id=".$db_row['poll_id'].">$icon_edit</a>&nbsp;";
-			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS poll with all its choices and votes ?')." ("._('keyword').": `".$db_row['poll_keyword']."`)','index.php?app=menu&inc=feature_sms_poll&op=sms_poll_del&poll_id=".$db_row['poll_id']."')\">$icon_delete</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS poll with all its choices and votes ?')." ("._('keyword').": ".$db_row['poll_keyword'].")','index.php?app=menu&inc=feature_sms_poll&op=sms_poll_del&poll_id=".$db_row['poll_id']."')\">$icon_delete</a>";
 			$content .= "
     <tr>
 	<td class=$td_class>&nbsp;$i.</td>
@@ -129,7 +129,7 @@ switch ($op)
 	<td class=$td_class>&nbsp;$i.</td>
 	<td class=$td_class>$choice_keyword</td>
 	<td class=$td_class>$choice_title</td>
-	<td class=$td_class align=center><a href=\"javascript:ConfirmURL('"._('Are you sure you want to delete choice ?')." ("._('title').": `".$choice_title."`, "._('keyword').": `".$choice_keyword."`)','index.php?app=menu&inc=feature_sms_poll&op=sms_poll_choice_del&poll_id=$poll_id&choice_id=$choice_id');\">$icon_delete</a></td>
+	<td class=$td_class align=center><a href=\"javascript:ConfirmURL('"._('Are you sure you want to delete choice ?')." ("._('title').": ".$choice_title.", "._('keyword').": ".$choice_keyword.")','index.php?app=menu&inc=feature_sms_poll&op=sms_poll_choice_del&poll_id=$poll_id&choice_id=$choice_id');\">$icon_delete</a></td>
     </tr>";	    
 		}
 		$content .= "
@@ -181,7 +181,7 @@ switch ($op)
 	    ";
 			if (@dba_affected_rows($db_query))
 			{
-				$error_string = _('SMS poll with has been saved')." ("._('keyword').": `$edit_poll_keyword`)";
+				$error_string = _('SMS poll with has been saved')." ("._('keyword').": $edit_poll_keyword)";
 			}
 		}
 		else
@@ -212,7 +212,7 @@ switch ($op)
 			$db_query = "DELETE FROM "._DB_PREF_."_featurePoll WHERE poll_title='$poll_title'";
 			if (@dba_affected_rows($db_query))
 			{
-				$error_string = _('SMS poll with all its messages has been deleted')." ("._('title').": `$poll_title`)";
+				$error_string = _('SMS poll with all its messages has been deleted')." ("._('title').": $poll_title)";
 			}
 		}
 		header ("Location: index.php?app=menu&inc=feature_sms_poll&op=sms_poll_list&err=".urlencode($error_string));
@@ -234,12 +234,12 @@ switch ($op)
 		";
 				if ($db_result = @dba_insert_id($db_query))
 				{
-					$error_string = _('Choice has been added')." ("._('keyword').": `$add_choice_keyword`)";
+					$error_string = _('Choice has been added')." ("._('keyword').": $add_choice_keyword)";
 				}
 			}
 			else
 			{
-				$error_string = _('Choice already exists')." ("._('keyword').": `$add_choice_keyword`)";
+				$error_string = _('Choice already exists')." ("._('keyword').": $add_choice_keyword)";
 			}
 		}
 		else
@@ -255,7 +255,7 @@ switch ($op)
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$choice_keyword = $db_row['choice_keyword'];
-		$error_string = _('Fail to delete SMS poll choice')." ("._('keyword').": `$choice_keyword`)";
+		$error_string = _('Fail to delete SMS poll choice')." ("._('keyword').": $choice_keyword)";
 		if ($poll_id && $choice_id && $choice_keyword)
 		{
 			$db_query = "DELETE FROM "._DB_PREF_."_featurePoll_choice WHERE poll_id='$poll_id' AND choice_id='$choice_id'";
@@ -263,7 +263,7 @@ switch ($op)
 			{
 				$db_query = "DELETE FROM "._DB_PREF_."_featurePoll_log WHERE poll_id='$poll_id' AND choice_id='$choice_id'";
 				dba_query($db_query);
-				$error_string = _('SMS poll choice and all its voters has been deleted')." ("._('keyword').": `$choice_keyword`)";
+				$error_string = _('SMS poll choice and all its voters has been deleted')." ("._('keyword').": $choice_keyword)";
 			}
 		}
 		header ("Location: index.php?app=menu&inc=feature_sms_poll&op=sms_poll_edit&poll_id=$poll_id&err=".urlencode($error_string));
@@ -303,12 +303,12 @@ switch ($op)
 		";
 				if ($new_uid = @dba_insert_id($db_query))
 				{
-					$error_string = _('SMS poll has been added')." ("._('keyword').": `$add_poll_keyword`)";
+					$error_string = _('SMS poll has been added')." ("._('keyword').": $add_poll_keyword)";
 				}
 			}
 			else
 			{
-				$error_string = _('SMS poll already exists, reserved or use by other feature')." ("._('keyword').": `$add_poll_keyword`)";
+				$error_string = _('SMS poll already exists, reserved or use by other feature')." ("._('keyword').": $add_poll_keyword)";
 			}
 		}
 		else

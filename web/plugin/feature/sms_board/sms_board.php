@@ -37,7 +37,7 @@ switch ($op)
 			$owner = uid2username($db_row['uid']);
 			$action = "<a href=index.php?app=menu&inc=feature_sms_board&op=sms_board_view&board_id=".$db_row['board_id']." target=_blank>$icon_view</a>&nbsp;";
 			$action .= "<a href=index.php?app=menu&inc=feature_sms_board&op=sms_board_edit&board_id=".$db_row['board_id'].">$icon_edit</a>&nbsp;";
-			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS board with all its messages ?')." ("._('keyword').": `".$db_row['board_keyword']."`)','index.php?app=menu&inc=feature_sms_board&op=sms_board_del&board_id=".$db_row['board_id']."')\">$icon_delete</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS board with all its messages ?')." ("._('keyword').": ".$db_row['board_keyword'].")','index.php?app=menu&inc=feature_sms_board&op=sms_board_del&board_id=".$db_row['board_id']."')\">$icon_delete</a>";
 			$content .= "
     <tr>
 	<td class=$td_class>&nbsp;$i.</td>
@@ -122,7 +122,7 @@ switch ($op)
 	    ";
 			if (@dba_affected_rows($db_query))
 			{
-				$error_string = _('SMS board has been saved')." ("._('keyword').": `$edit_board_keyword`)";
+				$error_string = _('SMS board has been saved')." ("._('keyword').": $edit_board_keyword)";
 			}
 		}
 		else
@@ -142,7 +142,7 @@ switch ($op)
 			$db_query = "DELETE FROM "._DB_PREF_."_featureBoard WHERE board_keyword='$board_keyword'";
 			if (@dba_affected_rows($db_query))
 			{
-				$error_string = _('SMS board with all its messages has been deleted')." ("._('keyword').": `$board_keyword`)";
+				$error_string = _('SMS board with all its messages has been deleted')." ("._('keyword').": $board_keyword)";
 			}
 		}
 		header ("Location: index.php?app=menu&inc=feature_sms_board&op=sms_board_list&err=".urlencode($error_string));
@@ -198,16 +198,16 @@ switch ($op)
 		";
 				if ($new_uid = @dba_insert_id($db_query))
 				{
-					$error_string = _('SMS board has been added')." ("._('keyword').": `$add_board_keyword`)";
+					$error_string = _('SMS board has been added')." ("._('keyword').": $add_board_keyword)";
 				}
 				else
 				{
-					$error_string = _('Fail to add SMS board')." ("._('keyword').": `$add_board_keyword`)";
+					$error_string = _('Fail to add SMS board')." ("._('keyword').": $add_board_keyword)";
 				}
 			}
 			else
 			{
-				$error_string = _('SMS keyword already exists, reserved or use by other feature')." ("._('keyword').": `$add_board_keyword`)";
+				$error_string = _('SMS keyword already exists, reserved or use by other feature')." ("._('keyword').": $add_board_keyword)";
 			}
 		}
 		else

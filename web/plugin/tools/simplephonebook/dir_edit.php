@@ -44,7 +44,7 @@ switch ($op)
 			{
 				$db_query = "UPDATE "._DB_PREF_."_toolsSimplephonebook_group SET c_timestamp='".mktime()."',gp_name='$dir_name',gp_code='$dir_code' WHERE uid='$uid' AND gpid='$gpid'";
 				$db_result = dba_query($db_query);
-				header("Location:  index.php?app=menu&inc=phonebook_list&err=".urlencode(_('Group has been edited')." ("._('group').": `$dir_name`, "._('code')." `$dir_code`)"));
+				header("Location:  index.php?app=menu&inc=phonebook_list&err=".urlencode(_('Group has been edited')." ("._('group').": $dir_name, "._('code')." $dir_code)"));
 				die();
 			}
 		}

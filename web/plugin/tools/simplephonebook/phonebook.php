@@ -264,12 +264,12 @@ switch ($op)
 			$db_query = "DELETE FROM "._DB_PREF_."_toolsSimplephonebook_group_public WHERE gpid='$gpid' AND uid='$uid'";
 			$db_result = @dba_query($db_query);
 			$gpname = gpid2gpname($gpid);
-			$error_string = _('Fail to publish')." ("._('group').": `$gpname`)";
+			$error_string = _('Fail to publish')." ("._('group').": $gpname)";
 			$db_query = "INSERT INTO "._DB_PREF_."_toolsSimplephonebook_group_public (gpid,uid) VALUES ('$gpid','$uid')";
 			$db_result = @dba_insert_id($db_query);
 			if ($db_result > 0)
 			{
-				$error_string = _('Group has been published')." ("._('group').": `$gpname`)";
+				$error_string = _('Group has been published')." ("._('group').": $gpname)";
 			}
 		}
 		header ("Location: index.php?app=menu&inc=tools_simplephonebook&op=simplephonebook_list&err=".urlencode($error_string));
@@ -281,12 +281,12 @@ switch ($op)
 		if ($gpid)
 		{
 			$gpname = gpid2gpname($gpid);
-			$error_string = _('Fail to unpublish')." ("._('group').": `$gpname`)";
+			$error_string = _('Fail to unpublish')." ("._('group').": $gpname)";
 			$db_query = "DELETE FROM "._DB_PREF_."_toolsSimplephonebook_group_public WHERE gpid='$gpid' AND uid='$uid'";
 			$db_result = @dba_affected_rows($db_query);
 			if ($db_result > 0)
 			{
-				$error_string = _('Group has been unpublished')." ("._('group').": `$gpname`)";
+				$error_string = _('Group has been unpublished')." ("._('group').": $gpname)";
 			}
 		}
 		header ("Location: index.php?app=menu&inc=tools_simplephonebook&op=simplephonebook_list&err=".urlencode($error_string));

@@ -36,7 +36,7 @@ while ($db_row = dba_fetch_array($db_result))
 
 	$list_of_phonenumber .= "
 	<form name=\"".strtolower($fm_name).$username."\" action=\"index.php?app=menu&inc=tools_simplephonebook&route=phonebook\" method=post>
-	<p><a href=\"javascript:ConfirmURL('Are you sure you want to delete group `".$db_row['gp_name']."` with all its members ?','index.php?app=menu&inc=tools_simplephonebook&route=phone_del&op=group&gpid=$gpid')\">$icon_delete</a> Group: ".$db_row['gp_name']." - code: ".$db_row['gp_code']." <!-- <a href=\"javascript: PopupSendSms('BC','".$db_row['gp_code']."')\">$icon_sendsms</a> -->$option_public $option_group_edit $option_group_export $option_group_import
+	<p><a href=\"javascript:ConfirmURL('Are you sure you want to delete group ".$db_row['gp_name']." with all its members ?','index.php?app=menu&inc=tools_simplephonebook&route=phone_del&op=group&gpid=$gpid')\">$icon_delete</a> Group: ".$db_row['gp_name']." - code: ".$db_row['gp_code']." <!-- <a href=\"javascript: PopupSendSms('BC','".$db_row['gp_code']."')\">$icon_sendsms</a> -->$option_public $option_group_edit $option_group_export $option_group_import
 	<table width=100% cellpadding=1 cellspacing=2 border=0 class=\"sortable\">
 	<tr>
 	    <td class=box_title width=4>&nbsp;*&nbsp;</td>

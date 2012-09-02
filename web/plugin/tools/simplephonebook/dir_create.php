@@ -35,14 +35,14 @@ switch ($op)
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result))
 			{
-				header("Location: index.php?app=menu&inc=tools_simplephonebook&route=dir_create&op=create&err=".urlencode(_('Group code is already exists')." ("._('code').": `$dir_code`)"));
+				header("Location: index.php?app=menu&inc=tools_simplephonebook&route=dir_create&op=create&err=".urlencode(_('Group code is already exists')." ("._('code').": $dir_code)"));
 				die();
 			}
 			else
 			{
 				$db_query = "INSERT INTO "._DB_PREF_."_toolsSimplephonebook_group (uid,gp_name,gp_code) VALUES ('$uid','$dir_name','$dir_code')";
 				$db_result = dba_query($db_query);
-				header("Location:  index.php?app=menu&inc=tools_simplephonebook&route=dir_create&op=create&err=".urlencode(_('Group code has been added')." ("._('group').": `$dir_name`, "._('code').": `$dir_code`)"));
+				header("Location:  index.php?app=menu&inc=tools_simplephonebook&route=dir_create&op=create&err=".urlencode(_('Group code has been added')." ("._('group').": $dir_name, "._('code').": $dir_code)"));
 				die();
 			}
 		}

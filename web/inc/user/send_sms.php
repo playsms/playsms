@@ -137,7 +137,7 @@ switch ($op)
 					if ($ok[$i]) {
 						$error_string .= _('Your SMS has been delivered to queue')." ("._('to').": ".$to[$i].")<br>";
 					} else {
-						$error_string .= _('Fail to sent SMS')." ("._('to').": `".$to[$i]."`)<br>";
+						$error_string .= _('Fail to sent SMS')." ("._('to').": ".$to[$i].")<br>";
 					}
 				}
 			} else {
@@ -146,10 +146,10 @@ switch ($op)
 				$sms_failed = 0;
 				for ($i=0;$i<count($ok);$i++) {
 					if ($ok[$i]) {
-						// $error_string .= _('Your SMS has been delivered to queue')." ("._('to').": `".$to[$i]."`)<br>";
+						// $error_string .= _('Your SMS has been delivered to queue')." ("._('to').": ".$to[$i].")<br>";
 						$sms_queued++;
 					} else {
-						// $error_string .= _('Fail to sent SMS')." ("._('to').": `".$to[$i]."`)<br>";
+						// $error_string .= _('Fail to sent SMS')." ("._('to').": ".$to[$i].")<br>";
 						$sms_failed++;
 					}
 				}
@@ -269,10 +269,10 @@ switch ($op)
 			$sms_failed = 0;
 			for ($i=0;$i<count($ok);$i++) {
 				if ($ok[$i]) {
-					// $error_string .= _('Your SMS has been delivered to queue')." ("._('to').": `".$to[$i]."`)<br>";
+					// $error_string .= _('Your SMS has been delivered to queue')." ("._('to').": ".$to[$i].")<br>";
 					$sms_queued++;
 				} else {
-					// $error_string .= _('Fail to sent SMS')." ("._('to').": `".$to[$i]."`)<br>";
+					// $error_string .= _('Fail to sent SMS')." ("._('to').": ".$to[$i].")<br>";
 					$sms_failed++;
 				}
 			}

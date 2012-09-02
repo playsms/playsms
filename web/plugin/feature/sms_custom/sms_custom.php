@@ -46,7 +46,7 @@ switch ($op) {
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
             $owner = uid2username($db_row['uid']);
             $action = "<a href=index.php?app=menu&inc=feature_sms_custom&op=sms_custom_edit&custom_id=" . $db_row['custom_id'] . ">$icon_edit</a>&nbsp;";
-            $action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS custom keyword ?') . " (" . _('keyword') . ": `" . $db_row['custom_keyword'] . "`)','index.php?app=menu&inc=feature_sms_custom&op=sms_custom_del&custom_id=" . $db_row['custom_id'] . "')\">$icon_delete</a>";
+            $action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS custom keyword ?') . " (" . _('keyword') . ": " . $db_row['custom_keyword'] . ")','index.php?app=menu&inc=feature_sms_custom&op=sms_custom_del&custom_id=" . $db_row['custom_id'] . "')\">$icon_delete</a>";
             $custom_url = ( (strlen($db_row['custom_url']) > $maxlen) ? substr($db_row['custom_url'], 0, $maxlen) . "..." : $db_row['custom_url'] );
             $content .= "
     <tr>
@@ -105,9 +105,9 @@ switch ($op) {
             $db_query = "UPDATE " . _DB_PREF_ . "_featureCustom SET c_timestamp='" . mktime() . "',custom_url='$edit_custom_url',custom_return_as_reply='$edit_custom_return_as_reply' WHERE custom_keyword='$edit_custom_keyword' AND uid='$uid'";
             echo $db_query;
             if (@dba_affected_rows($db_query)) {
-                $error_string = _('SMS custom has been saved') . " (" . _('keyword') . " `$edit_custom_keyword`)";
+                $error_string = _('SMS custom has been saved') . " (" . _('keyword') . " $edit_custom_keyword)";
             } else {
-                $error_string = _('Fail to save SMS custom') . " (" . _('keyword') . ": `$edit_custom_keyword`)";
+                $error_string = _('Fail to save SMS custom') . " (" . _('keyword') . ": $edit_custom_keyword)";
             }
         } else {
             $error_string = _('You must fill all fields');
@@ -123,9 +123,9 @@ switch ($op) {
         if ($keyword_name) {
             $db_query = "DELETE FROM " . _DB_PREF_ . "_featureCustom WHERE custom_keyword='$keyword_name'";
             if (@dba_affected_rows($db_query)) {
-                $error_string = _('SMS custom has been deleted') . " (" . _('keyword') . " `$keyword_name`)";
+                $error_string = _('SMS custom has been deleted') . " (" . _('keyword') . " $keyword_name)";
             } else {
-                $error_string = _('Fail to delete SMS custom') . " (" . _('keyword') . ": `$keyword_name`)";
+                $error_string = _('Fail to delete SMS custom') . " (" . _('keyword') . ": $keyword_name)";
             }
         }
         header("Location: index.php?app=menu&inc=feature_sms_custom&op=sms_custom_list&err=" . urlencode($error_string));
@@ -161,12 +161,12 @@ switch ($op) {
                 $db_query = "INSERT INTO " . _DB_PREF_ . "_featureCustom (uid,custom_keyword,custom_url,custom_return_as_reply) VALUES ('$uid','$add_custom_keyword','$add_custom_url','$add_custom_return_as_reply')";
                 echo $db_query;
                 if ($new_uid = @dba_insert_id($db_query)) {
-                    $error_string = _('SMS custom has been added') . " (" . _('keyword') . ": `$add_custom_keyword`)";
+                    $error_string = _('SMS custom has been added') . " (" . _('keyword') . ": $add_custom_keyword)";
                 } else {
-                    $error_string = _('Fail to add SMS custom') . " (" . _('keyword') . ": `$add_custom_keyword`)";
+                    $error_string = _('Fail to add SMS custom') . " (" . _('keyword') . ": $add_custom_keyword)";
                 }
             } else {
-                $error_string = _('SMS custom already exists, reserved or use by other feature') . " (" . _('keyword') . ": `$add_custom_keyword`)";
+                $error_string = _('SMS custom already exists, reserved or use by other feature') . " (" . _('keyword') . ": $add_custom_keyword)";
             }
         } else {
             $error_string = _('You must fill all fields');

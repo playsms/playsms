@@ -30,7 +30,7 @@ switch ($op)
 			$i++;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 			$action = "<a href=index.php?app=menu&inc=tools_simplerate&op=simplerate_edit&rateid=".$db_row['id'].">$icon_edit</a>";
-			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete rate ?')." ("._('destination').": `".$db_row['dst']."`, "._('prefix').": `".$db_row['prefix']."`)','index.php?app=menu&inc=tools_simplerate&op=simplerate_del&rateid=".$db_row['id']."')\">$icon_delete</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete rate ?')." ("._('destination').": ".$db_row['dst'].", "._('prefix').": ".$db_row['prefix'].")','index.php?app=menu&inc=tools_simplerate&op=simplerate_del&rateid=".$db_row['id']."')\">$icon_delete</a>";
 			$content .= "
     <tr>
 	<td class='$td_class'>&nbsp;$i.</td>
@@ -52,11 +52,11 @@ switch ($op)
 		$rateid = $_REQUEST['rateid'];
 		$dst = simplerate_getdst($rateid);
 		$prefix = simplerate_getprefix($rateid);
-		$error_string = _('Fail to delete rate')." ("._('destination').": `$dst`, "._('prefix').": `$prefix`)";
+		$error_string = _('Fail to delete rate')." ("._('destination').": $dst, "._('prefix').": $prefix)";
 		$db_query = "DELETE FROM "._DB_PREF_."_toolsSimplerate WHERE id='$rateid'";
 		if (@dba_affected_rows($db_query))
 		{
-			$error_string = _('Rate has been deleted')." ("._('destination').": `$dst`, "._('prefix').": `$prefix`)";
+			$error_string = _('Rate has been deleted')." ("._('destination').": $dst, "._('prefix').": $prefix)";
 		}
 		header ("Location: index.php?app=menu&inc=tools_simplerate&op=simplerate_list&err=".urlencode($error_string));
 		break;
@@ -102,11 +102,11 @@ switch ($op)
 			$db_query = "UPDATE "._DB_PREF_."_toolsSimplerate SET c_timestamp='".mktime()."',dst='$up_dst',prefix='$up_prefix',rate='$up_rate' WHERE id='$rateid'";
 			if (@dba_affected_rows($db_query))
 			{
-				$error_string = _('Rate has been saved')." ("._('destination').": `$up_dst`, "._('prefix').": `$up_prefix`)";
+				$error_string = _('Rate has been saved')." ("._('destination').": $up_dst, "._('prefix').": $up_prefix)";
 			}
 			else
 			{
-				$error_string = _('Fail to save rate')." ("._('destination').": `$up_dst`, "._('prefix').": `$up_prefix`)";
+				$error_string = _('Fail to save rate')." ("._('destination').": $up_dst, "._('prefix').": $up_prefix)";
 			}
 		}
 		else
@@ -151,7 +151,7 @@ switch ($op)
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result))
 			{
-				$error_string = _('Rate is already exists')." ("._('destination').": `".$db_row['dst']."`, "._('prefix').": `".$db_row['prefix']."`)";
+				$error_string = _('Rate is already exists')." ("._('destination').": ".$db_row['dst'].", "._('prefix').": ".$db_row['prefix'].")";
 			}
 			else
 			{
@@ -161,7 +161,7 @@ switch ($op)
 		";
 				if ($new_uid = @dba_insert_id($db_query))
 				{
-					$error_string = _('Rate has been added')." ("._('destination').": `$add_dst`, "._('prefix').": `$add_prefix`)";
+					$error_string = _('Rate has been added')." ("._('destination').": $add_dst, "._('prefix').": $add_prefix)";
 				}
 			}
 		}

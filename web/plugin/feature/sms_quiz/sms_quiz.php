@@ -110,7 +110,7 @@ switch ($op) {
 			}
 			$action = "<a href=index.php?app=menu&inc=feature_sms_quiz&op=sms_answer_view&quiz_id=".$db_row['quiz_id'].">$icon_view</a>&nbsp;";
 			$action .= "<a href=index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=".$db_row['quiz_id'].">$icon_edit</a>&nbsp;";
-			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS quiz with all its choices and answers ?')." ("._('keyword').": `".$db_row['quiz_keyword']."`)','index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_del&quiz_id=".$db_row['quiz_id']."')\">$icon_delete</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS quiz with all its choices and answers ?')." ("._('keyword').": ".$db_row['quiz_keyword'].")','index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_del&quiz_id=".$db_row['quiz_id']."')\">$icon_delete</a>";
 			$content .= "
 					<tr>
 						<td class=$td_class>&nbsp;$i.</td>
@@ -205,7 +205,7 @@ switch ($op) {
 						WHERE quiz_id='$edit_quiz_id' AND uid='$uid'
 						";
 			if (@ dba_affected_rows($db_query)) {
-				$error_string = _('SMS quiz has been saved')." ("._('keyword').": `$edit_quiz_keyword`)";
+				$error_string = _('SMS quiz has been saved')." ("._('keyword').": $edit_quiz_keyword)";
 			}
 		} else {
 			$error_string = _('You must fill all field');
@@ -233,7 +233,7 @@ switch ($op) {
 		if ($quiz_keyword) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_keyword='$quiz_keyword'";
 			if (@ dba_affected_rows($db_query)) {
-				$error_string = _('SMS quiz with all its messages has been deleted')." ("._('keyword').": `$quiz_keyword`)";
+				$error_string = _('SMS quiz with all its messages has been deleted')." ("._('keyword').": $quiz_keyword)";
 			}
 		}
 		header("Location: index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list&err=" . urlencode($error_string));
@@ -283,10 +283,10 @@ switch ($op) {
 							VALUES ('$uid','$add_quiz_keyword','$add_quiz_question','$add_quiz_answer','$add_quiz_msg_correct','$add_quiz_msg_incorrect')
 						";
 				if ($new_uid = @ dba_insert_id($db_query)) {
-					$error_string = _('SMS quiz has been added')." ("._('keyword').": `$add_quiz_keyword`)";
+					$error_string = _('SMS quiz has been added')." ("._('keyword').": $add_quiz_keyword)";
 				}
 			} else {
-				$error_string = _('SMS quiz already exists, reserved or use by other feature')." ("._('keyword').": `$add_quiz_keyword`)";
+				$error_string = _('SMS quiz already exists, reserved or use by other feature')." ("._('keyword').": $add_quiz_keyword)";
 			}
 		} else {
 			$error_string = _('You must fill all field');

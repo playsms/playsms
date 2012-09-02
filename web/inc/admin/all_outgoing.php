@@ -119,7 +119,7 @@ switch ($op)
 	          <td valign=top class=$td_class align=center>$p_status</td>
 	          <td valign=top class=$td_class align=center>$p_gpcode</td>
 	          <td valign=top class=$td_class align=center>
-		    <a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete outgoing SMS ?')." ("._('to')." `$hide_p_dst`, "._('row')." $i)','index.php?app=menu&inc=all_outgoing&op=all_outgoing_del&slid=$current_slid')\">$icon_delete</a>
+		    <a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete outgoing SMS ?')." ("._('to')." $hide_p_dst, "._('row')." $i)','index.php?app=menu&inc=all_outgoing&op=all_outgoing_del&slid=$current_slid')\">$icon_delete</a>
 		  </td>
 		<td class=$td_class width=4>
 		    <input type=hidden name=slid".$j." value=\"$current_slid\">

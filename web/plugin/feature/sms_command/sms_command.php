@@ -40,7 +40,7 @@ switch ($op) {
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
             $owner = uid2username($db_row['uid']);
             $action = "<a href=index.php?app=menu&inc=feature_sms_command&op=sms_command_edit&command_id=" . $db_row['command_id'] . ">$icon_edit</a>&nbsp;";
-            $action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS command ?') . " (" . _('keyword') . ": `" . $db_row['command_keyword'] . "`)','index.php?app=menu&inc=feature_sms_command&op=sms_command_del&command_id=" . $db_row['command_id'] . "')\">$icon_delete</a>";
+            $action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS command ?') . " (" . _('keyword') . ": " . $db_row['command_keyword'] . ")','index.php?app=menu&inc=feature_sms_command&op=sms_command_del&command_id=" . $db_row['command_id'] . "')\">$icon_delete</a>";
             $command_exec = ( (strlen($db_row['command_exec']) > $maxlen) ? substr($db_row['command_exec'], 0, $maxlen) . "..." : $db_row['command_exec'] );
             $content .= "
     <tr>
@@ -105,9 +105,9 @@ switch ($op) {
             $edit_command_exec = str_replace("\\", "", $edit_command_exec);
             $db_query = "UPDATE " . _DB_PREF_ . "_featureCommand SET c_timestamp='" . mktime() . "',command_exec='$edit_command_exec',command_return_as_reply='$edit_command_return_as_reply' WHERE command_keyword='$edit_command_keyword' AND uid='$uid'";
             if (@dba_affected_rows($db_query)) {
-                $error_string = _('SMS command has been saved') . " (" . _('keyword') . ": `$edit_command_keyword`)";
+                $error_string = _('SMS command has been saved') . " (" . _('keyword') . ": $edit_command_keyword)";
             } else {
-                $error_string = _('Fail to save SMS command') . " (" . _('keyword') . ": `$edit_command_keyword`)";
+                $error_string = _('Fail to save SMS command') . " (" . _('keyword') . ": $edit_command_keyword)";
             }
         } else {
             $error_string = _('You must fill all fields');
@@ -123,9 +123,9 @@ switch ($op) {
         if ($keyword_name) {
             $db_query = "DELETE FROM " . _DB_PREF_ . "_featureCommand WHERE command_keyword='$keyword_name'";
             if (@dba_affected_rows($db_query)) {
-                $error_string = _('SMS command has been deleted') . " (" . _('keyword') . ": `$keyword_name`)";
+                $error_string = _('SMS command has been deleted') . " (" . _('keyword') . ": $keyword_name)";
             } else {
-                $error_string = _('Fail to delete SMS command') . " (" . _('keyword') . ": `$keyword_name`)";
+                $error_string = _('Fail to delete SMS command') . " (" . _('keyword') . ": $keyword_name)";
             }
         }
         header("Location: index.php?app=menu&inc=feature_sms_command&op=sms_command_list&err=" . urlencode($error_string));
@@ -165,12 +165,12 @@ switch ($op) {
             if (checkavailablekeyword($add_command_keyword)) {
                 $db_query = "INSERT INTO " . _DB_PREF_ . "_featureCommand (uid,command_keyword,command_exec,command_return_as_reply) VALUES ('$uid','$add_command_keyword','$add_command_exec','$add_command_return_as_reply')";
                 if ($new_uid = @dba_insert_id($db_query)) {
-                    $error_string = _('SMS command has been added') . " (" . _('keyword') . " `$add_command_keyword`)";
+                    $error_string = _('SMS command has been added') . " (" . _('keyword') . " $add_command_keyword)";
                 } else {
-                    $error_string = _('Fail to add SMS command') . " (" . _('keyword') . ": `$add_command_keyword`)";
+                    $error_string = _('Fail to add SMS command') . " (" . _('keyword') . ": $add_command_keyword)";
                 }
             } else {
-                $error_string = _('SMS command already exists, reserved or use by other feature') . " (" . _('keyword') . ": `$add_command_keyword`)";
+                $error_string = _('SMS command already exists, reserved or use by other feature') . " (" . _('keyword') . ": $add_command_keyword)";
             }
         } else {
             $error_string = _('You must fill all fields');
