@@ -69,7 +69,6 @@ switch ($op)
 			{
 				$p_msg = $p_msg.' '.$p_footer;
 			}
-			$p_msg = stripslashes($p_msg);
 			$p_datetime = core_display_datetime($db_row['p_datetime']);
 			$p_update = $db_row['p_update'];
 			$p_status = $db_row['p_status'];
