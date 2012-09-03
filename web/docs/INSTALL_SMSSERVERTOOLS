@@ -28,9 +28,9 @@ Step by step how to install SMS Server Tools for playSMS as follows:
 	# cp contrib/smstools/smsd.conf /etc/
 
 5.  Make changes on /etc/smsd.conf. By default the configuration should be compatible
-    with iTegno 3000 USB gsm modem
+    with most wavecom modems with Serial to USB converter
 
-6.  Create some important directories for smstools3
+6.  Create important directories for smstools3
 
 	# mkdir -p /var/spool/sms
 	# cd /var/spool/sms
