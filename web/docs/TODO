@@ -6,8 +6,12 @@ TODO
 3. Virtual SMSC/gateway
 4. Outgoing SMS Route, enable multiple SMSC/gateway
 5. Incoming SMS Route, enable multiple SMSC/gateway
-6. .....
-7. .....
+6. Menu ordering from database
+7. Plugins installer
+8. Access Control List
+9. Cascading user management
+10....
+11....
 
 
 --
