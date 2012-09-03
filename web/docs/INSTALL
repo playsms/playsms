@@ -11,7 +11,7 @@ Minimum Required Hardware
 Minimum Required Software
 - Operating System Linux (install on MS Windows or BSD is also possible)
 - Web Server (for example Apache2 or lighttpd)
-- Database Server MySQL 4.x.x or latest stable release
+- Database Server MySQL 5.x.x or latest stable release
 - PHP 5.x.x or latest stable release with mysql module enabled and CLI version installed
 - PHP gettext extension (this is a must for text translation)
 - PHP multibyte string function (should be able to call mb_convert_encoding)
@@ -116,9 +116,11 @@ playSMS Web Interface step-by-step installation:
 
 14. At this point you should be able to login to playSMS web interface and manage playSMS
 
-Please continue to follow INSTALL_GNOKII if you want to use gnokii as your gateway module, 
-or INSTALL_SMSSERVERTOOLS to use SMS Server Tools, or INSTALL_KANNEL if you want to use 
-kannel, or INSTALL_GAMMU if you want to use gammu instead.
+Please continue to follow INSTALL_SMSSERVERTOOLS to use SMS Server Tools (smstools3) as your gateway
+module, or follow INSTALL_KANNEL if you want to use Kannel instead.
+
+Gnokii and Gammu also supported, please follow INSTALL_GNOKII if you want to use Gnokii as your
+gateway module, or INSTALL_GAMMU if you want to use Gammu instead.
 
 As of playSMS version 0.9.5 using Kannel or SMS Server Tools (smstools3) is preferrable.
 
