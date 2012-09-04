@@ -21,12 +21,21 @@ switch ($op) {
 		if ($error_content) {
 			$content .= '<p>'.$error_content.'</p>';
 		}
-		$content .= "
-			<form action=\"index.php?app=menu&inc=tools_sendfromfile&op=upload_confirm\" enctype=\"multipart/form-data\" method=\"post\">
-		    		"._('Please select CSV file')." ("._('format : destination number, message, username').")<br>
-		    		<p><input type=\"file\" name=\"fncsv\">
-		    		<p><input type=\"submit\" value=\""._('Upload file')."\" class=\"button\">
-			</form>";
+		if ($core_config['user']['status']==2) {
+			$content .= "
+				<form action=\"index.php?app=menu&inc=tools_sendfromfile&op=upload_confirm\" enctype=\"multipart/form-data\" method=\"post\">
+					"._('Please select CSV file')." ("._('format : destination number, message, username').")<br>
+					<p><input type=\"file\" name=\"fncsv\">
+					<p><input type=\"submit\" value=\""._('Upload file')."\" class=\"button\">
+				</form>";
+		} else {
+			$content .= "
+				<form action=\"index.php?app=menu&inc=tools_sendfromfile&op=upload_confirm\" enctype=\"multipart/form-data\" method=\"post\">
+					"._('Please select CSV file')." ("._('format : destination number, message').")<br>
+					<p><input type=\"file\" name=\"fncsv\">
+					<p><input type=\"submit\" value=\""._('Upload file')."\" class=\"button\">
+				</form>";
+		}
 		echo $content;
 		break;
 	case 'upload_confirm':
@@ -43,11 +52,16 @@ switch ($op) {
 					$row++;
 					$sms_to = $data[0];
 					$sms_msg = $data[1];
-					$sms_username = $data[2];
+					if ($core_config['user']['status']==2) {
+						$sms_username = $data[2];
+					} else {
+						$sms_username = $core_config['user']['username'];
+						$data[2] = $sms_username;
+					}
 					if ($sms_to && $sms_msg) {
 						if ($uid = username2uid($sms_username)) {
 							$db_query = "INSERT INTO "._DB_PREF_."_toolsSendfromfile (uid,sid,sms_datetime,sms_to,sms_msg,sms_username) ";
-							$db_query .= "VALUES ('$uid','$sid','".$core_config['datetime']['now']."','$sms_to','$sms_msg','$sms_username')";
+							$db_query .= "VALUES ('$uid','$sid','".$core_config['datetime']['now']."','$sms_to','".addslashes($sms_msg)."','$sms_username')";
 							if ($db_result = dba_insert_id($db_query)) {
 								$valid++;
 								$item_valid[$valid-1] = $data;
@@ -152,7 +166,7 @@ switch ($op) {
 			$db_result = dba_query($db_query);
 			while ($db_row = dba_fetch_array($db_result)) {
 				$c_sms_to = $db_row['sms_to'];
-				$c_sms_msg = $db_row['sms_msg'];
+				$c_sms_msg = addslashes($db_row['sms_msg']);
 				$c_username = $db_row['sms_username'];
 				if ($c_sms_to && $c_sms_msg && $c_username) {
 					$type = 'text';
