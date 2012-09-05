@@ -1,4 +1,4 @@
-Version 0.9.7.1 - NA
+Version 0.9.7.1 - 120905
 - MAJOR: fix security bug, non-admin can send SMS with other account from sendfromfile (anton)
 
 Version 0.9.7 - 120903
