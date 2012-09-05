@@ -1,0 +1,19 @@
+UPGRADE
+-------
+Upgrade to playSMS version 0.9.7.1 from unmodified playSMS version 0.9.6, bypasses playSMS version 0.9.7
+
+Steps to upgrade:
+1. Backup your old playSMS installation files, folders and database.
+2. Move your old playSMS to another location (back it up)
+3. Install this playSMS version (or extract it in the same path as old playSMS)
+4. Copy old config.php from old playSMS to new playSMS config.php
+5. Update database by inserting SQL patch file: 
+    db/playsms-upgrade-096-to-0971.sql
+    
+    for example:
+    # cd [this playSMS package directory]/db
+    # mysql -u [database username] -p [old playSMS database name] < playsms-upgrade-096-to-0971.sql
+
+
+--
+Anton Raharja

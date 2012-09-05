@@ -1,6 +1,6 @@
 UPGRADE
 -------
-Currently, upgrade to playSMS version 0.9.7 only available for unmodified playSMS version 0.9.6
+Upgrade to playSMS version 0.9.7 from unmodified playSMS version 0.9.6
 
 Steps to upgrade:
 1. Backup your old playSMS installation files, folders and database.

@@ -1,3 +1,6 @@
+Version 0.9.7.1 - NA
+- MAJOR: fix security bug, non-admin can send SMS with other account from sendfromfile (anton)
+
 Version 0.9.7 - 120903
 - MAJOR: all outgoing SMS are to be sent to a queue in database first and then the queue will be
          processed either directly or through new daemon sendsmsd (anton)
