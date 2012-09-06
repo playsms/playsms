@@ -88,7 +88,7 @@ function str2hex($string)  {
  */
 function core_display_text($text, $len=0) {
 	$text = htmlspecialchars($text);
-	if ($len) {
+	if ($len && (strlen($text) > $len)) {
 		$arr = explode(" ",$text);
 		for ($i=0;$i<count($arr);$i++) {
 			if (strlen($arr[$i]) > $len) {
