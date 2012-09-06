@@ -31,78 +31,6 @@ define('_SMTP_PASS_', $core_config['smtp']['pass']);
 define('_SMTP_HOST_', $core_config['smtp']['host']);
 define('_SMTP_PORT_', $core_config['smtp']['port']);
 
-/*
- start init functions
- protect from SQL injection when magic_quotes_gpc sets to "Off"
- */
-function array_add_slashes($array) {
-	if (is_array($array)) {
-		foreach ($array as $key => $value) {
-			if (!is_array($value)) {
-				$value = addslashes($value);
-				$key = addslashes($key);
-				$new_arr[$key] = $value;
-			}
-			if (is_array($value)) {
-				$new_arr[$key] = array_add_slashes($value);
-			}
-		}
-	}
-	return $new_arr;
-}
-
-function pl_addslashes($data) {
-	if (is_array($data)) {
-		$data = array_add_slashes($data);
-	} else {
-		$data = addslashes($data);
-	}
-	return $data;
-}
-
-/**
- * Set the language for the user, if it's no defined just leave it with the default
- * @param string $var_username Username
- * @return boolean TRUE if valid
- */
-function setuserlang($username="") {
-	global $core_config;
-	$language_module = $core_config['module']['language'];
-	$db_query = "SELECT language_module FROM "._DB_PREF_."_tblUser WHERE username='$username'";
-	$db_result = dba_query($db_query);
-	$db_row = dba_fetch_array($db_result);
-	if (trim($db_row['language_module'])) {
-		$language_module = $db_row['language_module'];
-	}
-	if (defined('LC_MESSAGES')) {
-        	// linux
-	        setlocale(LC_MESSAGES, $language_module, $language_module.'.utf8', $language_module.'.utf-8', $language_module.'.UTF8', $language_module.'.UTF-8');
-	} else {
-        	// windows
-	        putenv("LC_ALL={$language_module}");
-	}
-}
-
-// fixme anton
-// enforced to declare function _() for gettext replacement if no PHP gettext extension found
-// it is also possible to completely remove gettext and change multi-lang with translation array
-if (! function_exists('_')) {
-	function _($text) {
-		return $text;
-	}
-}
-/*
- end of init functions
- */
-
-// if magic quotes gps is set to Off (which is recommended) then addslashes all requests
-if (! get_magic_quotes_gpc()) {
-	foreach($_GET as $key => $val){$_GET[$key]=pl_addslashes($_GET[$key]);}
-	foreach($_POST as $key => $val){$_POST[$key]=pl_addslashes($_POST[$key]);}
-	foreach($_COOKIE as $key => $val){$_COOKIE[$key]=pl_addslashes($_COOKIE[$key]);}
-	foreach($_SERVER as $key => $val){$_SERVER[$key]=pl_addslashes($_SERVER[$key]);}
-}
-
 // too many codes using $_REQUEST, until we revise them all we use this as a workaround
 empty($_REQUEST);
 $_REQUEST = array_merge($_GET, $_POST);
@@ -137,13 +65,24 @@ $http_path['themes']	= $http_path['plug'].'/themes';
 $core_config['apps_path'] = $apps_path;
 $core_config['http_path'] = $http_path;
 
-// plugins category
-$plugins_category = array('tools','feature','gateway','themes','language');
-$core_config['plugins_category'] = $plugins_category;
+// load init functions
+include_once $apps_path['libs']."/fn_init.php";
 
 // include essential functions
 include_once $apps_path['libs']."/dba.php";
 include_once $apps_path['libs']."/fn_auth.php";
+
+// if magic quotes gps is set to Off (which is recommended) then addslashes all requests
+if (! get_magic_quotes_gpc()) {
+	foreach($_GET as $key => $val){$_GET[$key]=pl_addslashes($_GET[$key]);}
+	foreach($_POST as $key => $val){$_POST[$key]=pl_addslashes($_POST[$key]);}
+	foreach($_COOKIE as $key => $val){$_COOKIE[$key]=pl_addslashes($_COOKIE[$key]);}
+	foreach($_SERVER as $key => $val){$_SERVER[$key]=pl_addslashes($_SERVER[$key]);}
+}
+
+// plugins category
+$plugins_category = array('tools','feature','gateway','themes','language');
+$core_config['plugins_category'] = $plugins_category;
 
 // connect to database
 $dba_object = dba_connect(_DB_USER_,_DB_PASS_,_DB_NAME_,_DB_HOST_,_DB_PORT_);
