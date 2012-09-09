@@ -62,8 +62,8 @@ switch ($op) {
 			$fp = fopen($fnpb_tmpname, "r");
 			$file_content = fread($fp, filesize($fnpb_tmpname));
 			fclose($fp);
-			$parse_phonebook = explode("\r\n", $file_content);
-			$row_num = count($parse_phonebook);
+			$parse_phonebook = explode("\n", $file_content);
+			$row_num = ( count($parse_phonebook) <= 400 ? count($parse_phonebook) : 200 );
 			for ($i = 0; $i < $row_num; $i++) {
 				if (!empty($parse_phonebook) && strlen($parse_phonebook[$i]) > 1) {
 					$j = $i + 1;
@@ -115,7 +115,7 @@ switch ($op) {
 			$Email[$a] = $_POST['Email' . $a];
 		}
 		if ($replace == "ok") {
-			$db_query = "SELECT * FROM " . _DB_PREF_ . "_toolsSimplephonebook WHERE gpid='$gpid'";
+			$db_query = "SELECT * FROM " . _DB_PREF_ . "_toolsSimplephonebook WHERE uid='".$core_config['user']['uid']."' AND gpid='$gpid'";
 			$db_result = dba_query($db_query);
 			$j = 0;
 			while ($db_row = dba_fetch_array($db_result)) {
@@ -128,7 +128,7 @@ switch ($op) {
 				for ($k = 1; $k <= $j; $k++) {
 					if ($Name[$i] == $pdesc[$k]) {
 						if ($Number[$i]) {
-							$db_query1 = "UPDATE " . _DB_PREF_ . "_toolsSimplephonebook SET c_timestamp='" . mktime() . "',p_num='" . $Number[$i] . "',p_email='" . $Email[$i] . "' WHERE pid='" . $pid[$k] . "' AND gpid='$gpid'";
+							$db_query1 = "UPDATE " . _DB_PREF_ . "_toolsSimplephonebook SET c_timestamp='" . mktime() . "',p_num='" . $Number[$i] . "',p_email='" . $Email[$i] . "' WHERE uid='".$core_config['user']['uid']."' AND  pid='" . $pid[$k] . "' AND gpid='$gpid'";
 							$db_result1 = dba_affected_rows($db_query1);
 							if ($db_result1 > 0) {
 								// FIXME
@@ -143,7 +143,7 @@ switch ($op) {
 					if ($Name[$i] && $Number[$i]) {
 						$db_query2 = "
 							INSERT INTO " . _DB_PREF_ . "_toolsSimplephonebook (uid,p_desc,p_num,p_email,gpid)
-							VALUES ('$uid','" . $Name[$i] . "','" . $Number[$i] . "','" . $Email[$i] . "','$gpid')";
+							VALUES ('".$core_config['user']['uid']."','" . $Name[$i] . "','" . $Number[$i] . "','" . $Email[$i] . "','$gpid')";
 						$db_result2 = dba_insert_id($db_query2);
 						if ($db_result2 > 0) {
 							// FIXME
@@ -158,7 +158,7 @@ switch ($op) {
 				if ($Name[$i] && $Number[$i]) {
 					$db_query2 = "
 						INSERT INTO " . _DB_PREF_ . "_toolsSimplephonebook (uid,p_desc,p_num,p_email,gpid)
-						VALUES ('$uid','" . $Name[$i] . "','" . $Number[$i] . "','" . $Email[$i] . "','$gpid')";
+						VALUES ('".$core_config['user']['uid']."','" . $Name[$i] . "','" . $Number[$i] . "','" . $Email[$i] . "','$gpid')";
 					$db_result2 = dba_insert_id($db_query2);
 					if ($db_result2 > 0) {
 						// FIXME
