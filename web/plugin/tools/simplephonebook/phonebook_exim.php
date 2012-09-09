@@ -9,10 +9,10 @@ $gpid = $_REQUEST['gpid'];
 switch ($op) {
 	case "export":
 		if ($gpid) {
-			$db_query = "SELECT * FROM " . _DB_PREF_ . "_toolsSimplephonebook WHERE uid='$uid' AND gpid='$gpid'";
+			$db_query = "SELECT * FROM " . _DB_PREF_ . "_toolsSimplephonebook WHERE uid='".$core_config['user']['uid']."' AND gpid='$gpid'";
 			$filename = "phonebook-" . phonebook_groupid2code($gpid) . "-" . date(Ymd, time()) . ".csv";
 		} else {
-			$db_query = "SELECT * FROM " . _DB_PREF_ . "_toolsSimplephonebook WHERE uid='$uid'";
+			$db_query = "SELECT * FROM " . _DB_PREF_ . "_toolsSimplephonebook WHERE uid='".$core_config['user']['uid']."'";
 			$filename = "phonebook-" . date(Ymd, time()) . ".csv";
 		}
 		$db_result = dba_query($db_query);
