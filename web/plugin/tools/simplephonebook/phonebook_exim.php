@@ -63,7 +63,7 @@ switch ($op) {
 			$file_content = fread($fp, filesize($fnpb_tmpname));
 			fclose($fp);
 			$parse_phonebook = explode("\n", $file_content);
-			$row_num = ( count($parse_phonebook) <= 400 ? count($parse_phonebook) : 200 );
+			$row_num = ( count($parse_phonebook) <= 400 ? count($parse_phonebook) : 400 );
 			for ($i = 0; $i < $row_num; $i++) {
 				if (!empty($parse_phonebook) && strlen($parse_phonebook[$i]) > 1) {
 					$j = $i + 1;
