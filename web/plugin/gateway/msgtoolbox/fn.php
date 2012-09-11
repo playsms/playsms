@@ -30,13 +30,6 @@ function msgtoolbox_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='
 		$sms_msg = $sms_msg.$sms_footer;
 	}
 	
-	/* not used
-	$sms_type = 2; // text
-	if ($msg_type=="flash") {
-		$sms_type = 1; // flash
-	}
-	*/
-	
 	if ($sms_to && $sms_msg) {
 
 		if ($unicode) {

@@ -175,7 +175,7 @@ function smstools_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',
 	$the_msg = "From: $sms_sender\n";
 	$the_msg .= "To: $sms_to\n";
 	$the_msg .= "Report: yes\n";
-	if ($msg_type=="flash") {
+	if ($sms_type=='flash') {
 		$the_msg .= "Flash: yes\n";
 	}
 	if ($unicode) {

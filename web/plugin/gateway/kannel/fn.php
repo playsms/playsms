@@ -20,9 +20,10 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	$p_status = 2;
 	setsmsdeliverystatus($smslog_id,$uid,$p_status);
 
-	$msg_type = 1; // text, default
-	if ($sms_type=="flash") {
-		$msg_type = 0; //flash
+	if ($sms_type=='flash') {
+		$sms_type = 0; //flash
+	} else {
+		$sms_type = 1; // text, default
 	}
 
 	// this doesn't work properly if kannel is not on the same server with playSMS
@@ -40,7 +41,7 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	$URL .= "&dlr-mask=".$kannel_param['dlr']."&dlr-url=".urlencode($dlr_url);
 	// end of Handle DLR options config (emmanuel)
 
-	$URL .= "&mclass=".$msg_type;
+	$URL .= "&mclass=".$sms_type;
 
 	if ($unicode) {
 		if (function_exists('mb_convert_encoding')) {

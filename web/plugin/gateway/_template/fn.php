@@ -16,7 +16,7 @@ function template_hook_playsmsd() {
 // $uid			: sender User ID
 // $gpid		: group phonebook id (optional)
 // $smslog_id		: sms ID
-// $msg_type		: send flash message when the value is "flash"
+// $sms_type		: send flash message when the value is "flash"
 // $unicode		: send unicode character (16 bit)
 function template_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
 	// global $tmpl_param;   // global all variables needed, eg: varibles from config.php
