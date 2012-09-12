@@ -1,9 +1,18 @@
+# Joan <aseques@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-01 08:26+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Joan <aseques@gmail.com>\n"
+"PO-Revision-Date: 2012-09-07 17:30+0200\n"
+"Project-Id-Version: \n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.4\n"
 
 #: lib/fn_themes.php:37 lib/lib_init1.php:43 lib/lib_init1.php:48
 msgid "Home"
@@ -30,14 +39,12 @@ msgid "You have been logged out"
 msgstr "Us heu desconnectat"
 
 #: lib/fn_auth.php:199 lib/fn_auth.php:172
-#, fuzzy
 msgid "Fail to recover password"
-msgstr "Contrasenya o usuari incorrecte"
+msgstr "Error al recuperar la contrasenya"
 
 #: lib/fn_auth.php:205 lib/fn_auth.php:178
-#, fuzzy
 msgid "Password recovery"
-msgstr "Contrasenya"
+msgstr "Recuperar contrasenya"
 
 #: lib/fn_auth.php:208 lib/fn_auth.php:265 inc/admin/user_mgmnt.php:20
 #: inc/admin/user_mgmnt.php:54 inc/admin/user_mgmnt.php:148
@@ -59,21 +66,20 @@ msgstr "Contrasenya"
 #: lib/fn_auth.php:212 lib/fn_auth.php:271 lib/fn_auth.php:185
 #: lib/fn_auth.php:244
 msgid "Password has been sent to your email"
-msgstr ""
+msgstr "S'ha enviat la contrasenya per correu"
 
 #: lib/fn_auth.php:214 lib/fn_auth.php:273 lib/fn_auth.php:187
 #: lib/fn_auth.php:246
-#, fuzzy
 msgid "Fail to send email"
-msgstr "Impossible enviar el SMS"
+msgstr "No s'ha pogut enviar el correu"
 
 #: lib/fn_auth.php:221 lib/fn_auth.php:194
 msgid "Recover password disabled"
-msgstr ""
+msgstr "Recuperar contrasenya desactivat"
 
 #: lib/fn_auth.php:240 lib/fn_auth.php:213
 msgid "Fail to register an account"
-msgstr ""
+msgstr "Error al registrar un compte"
 
 #: lib/fn_auth.php:245 inc/admin/user_mgmnt.php:313 lib/fn_auth.php:218
 msgid "User is already exists"
@@ -89,7 +95,7 @@ msgstr "usuari"
 
 #: lib/fn_auth.php:262 lib/fn_auth.php:235
 msgid "New account registration"
-msgstr ""
+msgstr "Registrar un nou compte"
 
 #: lib/fn_auth.php:268 inc/admin/user_mgmnt.php:324 lib/fn_auth.php:241
 msgid "User has been added"
@@ -97,7 +103,7 @@ msgstr "L'usuari ha estat afegit"
 
 #: lib/fn_auth.php:278 lib/fn_auth.php:251
 msgid "Public registration disabled"
-msgstr ""
+msgstr "Registre públic desactivat"
 
 #: lib/lib_init1.php:33 lib/lib_init1.php:38
 msgid "Edit"
@@ -134,12 +140,11 @@ msgstr "Agenda"
 
 #: lib/lib_init1.php:44 lib/lib_init1.php:49
 msgid "My Account"
-msgstr ""
+msgstr "El meu compte"
 
 #: lib/lib_init1.php:45 lib/lib_init1.php:50
-#, fuzzy
 msgid "Administration"
-msgstr "Administrador"
+msgstr "Administració"
 
 #: lib/lib_init1.php:46 inc/admin/all_incoming.php:38
 #: inc/user/user_incoming.php:37 lib/lib_init1.php:51
@@ -148,12 +153,11 @@ msgstr "Servei"
 
 #: lib/lib_init1.php:47 lib/lib_init1.php:52
 msgid "Tools"
-msgstr ""
+msgstr "Eines"
 
 #: lib/lib_init1.php:48 inc/admin/all_outgoing.php:35 lib/lib_init1.php:53
-#, fuzzy
 msgid "Gateway"
-msgstr "Número de la plataforma"
+msgstr "Passarel·la"
 
 #: lib/lib_init1.php:51 inc/user/sms_template.php:18 inc/user/send_sms.php:102
 #: inc/user/send_sms.php:232 inc/user/send_sms.php:233 lib/lib_init1.php:56
@@ -292,7 +296,7 @@ msgstr "Els SMS entrants seleccionats han estat eliminats"
 #: inc/user/user_pref.php:58 inc/user/user_pref.php:67
 #: inc/user/user_pref.php:76
 msgid "yes"
-msgstr ""
+msgstr "si"
 
 #: inc/admin/main_config.php:15 inc/admin/main_config.php:20
 #: inc/user/user_pref.php:42 inc/user/user_pref.php:51
@@ -303,7 +307,7 @@ msgstr ""
 #: inc/user/user_pref.php:59 inc/user/user_pref.php:68
 #: inc/user/user_pref.php:77
 msgid "no"
-msgstr ""
+msgstr "no"
 
 #: inc/admin/main_config.php:49
 msgid "Website title"
@@ -322,16 +326,15 @@ msgid "Default sender ID"
 msgstr "Número de la plataforma"
 
 #: inc/admin/main_config.php:61
-#, fuzzy
 msgid "Default timezone"
-msgstr "Número de la plataforma"
+msgstr "Zona horaria per defecte"
 
 #: inc/admin/main_config.php:61 inc/admin/user_mgmnt.php:166
 #: inc/admin/user_mgmnt.php:274 inc/user/user_pref.php:106
 #: inc/user/user_pref.php:127 inc/user/user_pref.php:123
 #: inc/user/user_pref.php:124 inc/admin/user_mgmnt.php:167
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "p.ex: +0700 per Jakarta/Bangkok"
 
 #: inc/admin/main_config.php:64
 msgid "Default SMS rate"
@@ -339,20 +342,19 @@ msgstr "Tarifa per defecte per a SMS"
 
 #: inc/admin/main_config.php:67
 msgid "Maximum SMS count"
-msgstr ""
+msgstr "Nombre màxim de SMS"
 
 #: inc/admin/main_config.php:70
 msgid "Default credit for user"
-msgstr ""
+msgstr "Crèdit per defecte dels usuaris"
 
 #: inc/admin/main_config.php:73
 msgid "Enable public registration"
-msgstr ""
+msgstr "Habilitar registre públic"
 
 #: inc/admin/main_config.php:76
-#, fuzzy
 msgid "Enable forgot password"
-msgstr "Contrasenya o usuari incorrecte"
+msgstr "Habilitar recordar contrasenya"
 
 #: inc/admin/main_config.php:79
 msgid "Active gateway module"
@@ -363,9 +365,8 @@ msgid "Active themes"
 msgstr "Temes actius"
 
 #: inc/admin/main_config.php:85
-#, fuzzy
 msgid "Default language"
-msgstr "Idioma actiu"
+msgstr "Idioma per defecte"
 
 #: inc/admin/main_config.php:88 inc/admin/user_mgmnt.php:181
 #: inc/user/user_pref.php:115 inc/user/user_pref.php:139
@@ -380,7 +381,7 @@ msgstr "La configuració principal ha estat guardada"
 
 #: inc/admin/all_outgoing.php:36 inc/user/user_outgoing.php:34
 msgid "To"
-msgstr ""
+msgstr "A"
 
 #: inc/admin/all_outgoing.php:38 inc/admin/user_mgmnt.php:16
 #: inc/admin/user_mgmnt.php:50 inc/admin/all_incoming.php:39
@@ -556,9 +557,8 @@ msgstr "Max. 30 caràcters alfanumèricos"
 #: inc/user/user_pref.php:106 inc/user/user_pref.php:127
 #: inc/user/user_pref.php:123 inc/user/user_pref.php:124
 #: inc/admin/user_mgmnt.php:167
-#, fuzzy
 msgid "Timezone"
-msgstr "Hora"
+msgstr "Zona horària"
 
 #: inc/admin/user_mgmnt.php:169 inc/admin/user_mgmnt.php:170
 msgid "Fill to change password for username"
@@ -782,7 +782,7 @@ msgstr "Enviar"
 #: inc/user/send_sms.php:138 inc/user/send_sms.php:157
 #: inc/user/send_sms.php:280
 msgid "Your SMS has been delivered to queue"
-msgstr "El seu missatge ha estat enviar a la cua de processament"
+msgstr "El seu missatge ha estat enviat a la cua de processament"
 
 #: inc/user/send_sms.php:143 inc/user/send_sms.php:144
 #: inc/user/send_sms.php:140
@@ -793,7 +793,7 @@ msgstr "Impossible enviar el SMS"
 #: inc/user/send_sms.php:161 inc/user/send_sms.php:287
 #: inc/user/send_sms.php:157 inc/user/send_sms.php:280
 msgid "queued"
-msgstr ""
+msgstr "encuat"
 
 #: inc/user/send_sms.php:160 inc/user/send_sms.php:285
 #: inc/user/send_sms.php:161 inc/user/send_sms.php:287
@@ -873,18 +873,17 @@ msgstr "Informació del programa"
 #: inc/user/user_pref.php:110 inc/user/user_pref.php:131
 #: inc/user/user_pref.php:127 inc/user/user_pref.php:128
 msgid "Forward PV to inbox"
-msgstr ""
+msgstr "Enviar PV a l'entrada"
 
 #: inc/user/user_pref.php:111 inc/user/user_pref.php:132
 #: inc/user/user_pref.php:128 inc/user/user_pref.php:129
-#, fuzzy
 msgid "Forward PV to email"
-msgstr "Firma del correu reenviat"
+msgstr "Enviar PV al correu"
 
 #: inc/user/user_pref.php:112 inc/user/user_pref.php:133
 #: inc/user/user_pref.php:129 inc/user/user_pref.php:130
 msgid "Forward PV to mobile"
-msgstr ""
+msgstr "Enviar PV al mòbil"
 
 #: inc/user/user_pref.php:174 inc/user/user_pref.php:201
 #: inc/user/user_pref.php:191 inc/user/user_pref.php:192
@@ -893,34 +892,32 @@ msgstr "Les preferències s'han guardat i la contrasenya s'ha actualitzat"
 
 #: inc/user/user_pref.php:126 inc/user/user_pref.php:122
 #: inc/user/user_pref.php:123
-#, fuzzy
 msgid "Application options"
-msgstr "Informació del programa"
+msgstr "Opcions del programa"
 
 #: inc/user/user_pref.php:134 inc/user/user_pref.php:130
 #: inc/user/user_pref.php:131
 msgid "Auto replace prefix 0"
-msgstr ""
+msgstr "Auto reemplaçar el prefix 0"
 
 #: inc/user/user_pref.php:134 inc/user/user_pref.php:130
 #: inc/user/user_pref.php:131
 msgid "Prefix or country code"
-msgstr ""
+msgstr "Prefix o codi de país"
 
 #: inc/user/user_pref.php:135 inc/user/user_pref.php:131
 #: inc/user/user_pref.php:132
 msgid "Auto remove plus sign"
-msgstr ""
+msgstr "Auto el·liminar el signe més"
 
 #: inc/user/user_pref.php:136 inc/user/user_pref.php:132
 #: inc/user/user_pref.php:133
 msgid "Always add plus sign"
-msgstr ""
+msgstr "Sempre afegir el signe més"
 
 #: inc/user/user_pref.php:95
-#, fuzzy
 msgid "Default"
-msgstr "Número de la plataforma"
+msgstr "Per defecte"
 
 #~ msgid "Outbox"
 #~ msgstr "Safata de sortida"
