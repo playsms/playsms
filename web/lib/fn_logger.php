@@ -2,16 +2,13 @@
 if(!(defined('_SECURE_'))){die('Intruder alert');};
 
 function logger_print($log,$level=1,$label="default") {
-	global $apps_path, $datetime_now;
-	$arr_log_type[1] = "INFO";
-	$arr_log_type[2] = "WARNING";
-	$arr_log_type[3] = "DEBUG";
-	$arr_log_type[4] = "VERBOSE";
-	if (logger_get_level() >= $level) {
-		$type = $arr_log_type[$level];
-		$fn = $apps_path['logs'].'/playsms.log';
+	global $core_config;
+	$logfile = ( $core_config['main']['logfile'] ? $core_config['main']['logfile'] : 'playsms.log' );
+	if (logger_get_level() >= (int)$level) {
+		$type = 'L'.$level;
+		$fn = $core_config['apps_path']['logs'].'/'.$logfile;
 		if ($fd = fopen($fn, 'a+')) {
-			$message = stripslashes($datetime_now." # ".$type." # ".$label." # ".$log);
+			$message = stripslashes($core_config['datetime']['now']." ".$type." ".$label." # ".$log);
 			$message = str_replace("\n", " ", $message);
 			$message = str_replace("\r", " ", $message);
 			$message .= "\n";
