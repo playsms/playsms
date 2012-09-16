@@ -300,6 +300,7 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 		unset($ok);
 		unset($to);
 		unset($queue);
+		logger_print("sendsmsd off immediately process queue_code:".$queue_code, 2, "sendsms pv");
 		list($ok, $to, $smslog_id, $queue) = sendsmsd($queue_code);
 	}
 
