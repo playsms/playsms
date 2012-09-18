@@ -45,6 +45,8 @@ playSMS Web Interface step-by-step installation:
 
     # tar -zxf playsms-x.x.x.tar.gz -C /usr/local/src
 
+    # chown -R www-data /usr/local/src/playsms-x.x.x
+
     Note: x.x.x may vary according to the package name you've download.
 
 
@@ -62,45 +64,23 @@ playSMS Web Interface step-by-step installation:
 4.  Copy files and directories inside 'web' directory to playSMS web root and set ownership again to
     user www-data or web server user
 
-    # cd /usr/local/src/playsms-x.x.x/web
-
-    # cp -rR * /var/www/playsms
-
-    # chown -R www-data /var/www/playsms
-
-    Note: Assumed your web server user is www-data, see notes on point 4 above
+    # cp -rR /usr/local/src/playsms-x.x.x/web/* /var/www/playsms
 
 
 5.  Copy config-dist.php to config.php and then edit config.php
 
-    # cd /var/www/playsms
+    # cp /var/www/playsms/config-dist.php /var/www/playsms/config.php
 
-    # cp config-dist.php config.php
-
-    # vi config.php
+    # vi /var/www/playsms/config.php
 
     Note: Please read and fill all fields with correct values.
 
 
-6.  Enter bin directory, copy playsms, playsmsd* and sendsmsd*
+6.  Enter daemon/linux directory, copy playsms, playsmsd* and sendsmsd*
 
-    # cd /usr/local/src/playsms-x.x.x/bin
+    # cp /usr/local/src/playsms-x.x.x/daemon/linux/etc/playsms /etc/default/
 
-    # cp playsms /etc/default/
-
-    # cp playsmsd playsmsd.php playsmsd_start playsmsd_stop /usr/local/bin/
-
-    # cp sendsmsd sendsmsd.php /usr/local/bin/
-
-    Note: Please note the difference between playsms and playsmsd, one is a config file the other
-    are playSMS daemon scripts.
-    These playSMS daemon script files must be exists in /usr/local/bin:
-    - playsmsd
-    - playsmsd.php
-    - playsmsd_start
-    - playsmsd_stop
-    - sendsmsd
-    - sendsmsd.php
+    # cp /usr/local/src/playsms-x.x.x/daemon/linux/bin/* /usr/local/bin/
 
 
 7. Just to make sure every paths are correct, please edit /etc/default/playsms
