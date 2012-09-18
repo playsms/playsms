@@ -87,9 +87,17 @@ playSMS Web Interface step-by-step installation:
 9.  Enter bin directory, copy playsms, playsmsd* and sendsmsd*
     # cd /usr/local/src/playsms-x.x.x/bin
     # cp playsms /etc/default/
-    # cp playsmsd* sendsmsd* /usr/local/bin/
+    # cp playsmsd playsmsd.php playsmsd_start playsmsd_stop /usr/local/bin/
+    # cp sendsmsd sendsmsd.php /usr/local/bin/
     Note: Please note the difference between playsms and playsmsd, one is a config file the other
     are playSMS daemon scripts.
+    These playSMS daemon script files must be exists in /usr/local/bin:
+    - playsmsd
+    - playsmsd.php
+    - playsmsd_start
+    - playsmsd_stop
+    - sendsmsd
+    - sendsmsd.php
 
 10. Just to make sure every paths are correct, please edit /etc/default/playsms
     # vi /etc/default/playsms
