@@ -212,11 +212,37 @@ function auth_register() {
 		$mobile = trim($_REQUEST['mobile']);
 		$error_string = _('Fail to register an account');
 		if ($username && $email && $name && $mobile) {
-			$db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE username='$username'";
+			$continue = true;
+			
+			// check username
+			$db_query = "SELECT username FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result)) {
 				$error_string = _('User is already exists')." ("._('username').": ".$username.")";
-			} else {
+				$continue = false;
+			} 
+			
+			// check email
+			if ($continue) {
+				$db_query = "SELECT username FROM "._DB_PREF_."_tblUser WHERE email='$email'";
+				$db_result = dba_query($db_query);
+				if ($db_row = dba_fetch_array($db_result)) {
+					$error_string = _('User is already exists')." ("._('email').": ".$email.")";
+					$continue = false;
+				}
+			}
+			
+			// check mobile
+			if ($continue) {
+				$db_query = "SELECT username FROM "._DB_PREF_."_tblUser WHERE mobile='$mobile'";
+				$db_result = dba_query($db_query);
+				if ($db_row = dba_fetch_array($db_result)) {
+					$error_string = _('User is already exists')." ("._('mobile').": ".$mobile.")";
+					$continue = false;
+				}
+			}
+			
+			if ($continue) {
 				$password = substr(md5(time()),0,6);
 				$sender = ' - '.$username;
 				if (ereg("^(.+)(.+)\\.(.+)$",$email,$arr)) {
