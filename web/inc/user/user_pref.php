@@ -168,11 +168,25 @@ switch ($op) {
 		$error_string = _('No changes made');
 		if ($up_name && $up_email) {
 			$up_uname = $username;
+			$continue = true;
+			
+			// check double email
 			$db_query = "SELECT username FROM " . _DB_PREF_ . "_tblUser WHERE email='$up_email' AND NOT username='$up_uname'";
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result)) {
 				$error_string = _('Email is already in use by other username') . " (" . _('email') . ": $up_email)";
-			} else {
+				$continue = false;
+			} 
+			
+			// check double mobile
+			$db_query = "SELECT username FROM " . _DB_PREF_ . "_tblUser WHERE mobile='$up_mobile' AND NOT username='$up_uname'";
+			$db_result = dba_query($db_query);
+			if ($db_row = dba_fetch_array($db_result)) {
+				$error_string = _('Mobile is already in use by other username') . " (" . _('mobile') . ": $up_mobile)";
+				$continue = false;
+			} 
+			
+			if ($continue) {
 				$chg_pwd = "";
 				if ($up_password && $up_password_conf && ($up_password == $up_password_conf)) {
 					$chg_pwd = ",password='$up_password'";
