@@ -185,7 +185,10 @@ switch ($op) {
 		$up_language = $_POST['up_language_module'];
 		$error_string = _('No changes made');
 		if ($up_name && $up_email) {
-			$db_query = "SELECT username FROM " . _DB_PREF_ . "_tblUser WHERE email='$up_email' AND NOT username='$uname'";
+			if ($up_mobile) {
+				$if_up_mobile = " OR mobile='$up_mobile'";
+			}
+			$db_query = "SELECT username FROM " . _DB_PREF_ . "_tblUser WHERE (email='$up_email' $if_up_mobile) AND NOT username='$uname'";
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result)) {
 				$error_string = _('Email is already in use by other username') . " (" . _('email') . ": $up_email, " . _('username') . ": " . $db_row['username'] . ") ";
@@ -280,7 +283,10 @@ switch ($op) {
 		$add_timezone = $_POST['add_timezone'];
 		$add_language_module = $_POST['add_language_module'];
 		if (ereg("^(.+)(.+)\\.(.+)$", $add_email, $arr) && $add_email && $add_username && $add_name && $add_password) {
-			$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE username='$add_username'";
+			if ($add_mobile) {
+				$if_add_mobile = " OR mobile='$add_mobile'";
+			}
+			$db_query = "SELECT username FROM " . _DB_PREF_ . "_tblUser WHERE username='$add_username' OR email='$add_email' $if_add_mobile";
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result)) {
 				$error_string = _('User is already exists') . " (" . _('username') . ": " . $db_row['username'] . ")";
