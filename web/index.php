@@ -88,7 +88,13 @@ if ($err) {
 }
 // frontpage
 if (valid()) {
-	include $core_config['apps_path']['themes'].'/'.$core_config['module']['themes'].'/page_welcome.php';
+	if (empty($core_config['default_include'])) 
+		$core_config['default_include'] = 'page_welcome';
+	if (empty($core_config['default_option']))
+                $core_config['default_option'] = 'page_welcome';
+	include $apps_path['themes']."/".$themes_module."/header.php";
+	header("Location: index.php?app=menu&inc=".$core_config['default_include']."&op=".$core_config['default_option']);
+	include $apps_path['themes']."/".$themes_module."/footer.php";
 } else {
 	include $core_config['apps_path']['themes'].'/'.$core_config['module']['themes'].'/page_login.php';
 }
