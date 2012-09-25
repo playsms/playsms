@@ -86,16 +86,14 @@ if ($errid) {
 if ($err) {
 	$error_content = "<div class=error_string>$err</div>";
 }
+
 // frontpage
 if (valid()) {
-	if (empty($core_config['default_include'])) 
-		$core_config['default_include'] = 'page_welcome';
-	if (empty($core_config['default_option']))
-                $core_config['default_option'] = 'page_welcome';
-	include $apps_path['themes']."/".$themes_module."/header.php";
+	$core_config['default_include'] = ( empty($core_config['default_include']) ? $core_config['default_include'] = 'page_welcome' : $core_config['default_include'] );
+	$core_config['default_option'] = ( empty($core_config['default_option']) ? $core_config['default_option'] = 'page_welcome' : $core_config['default_option'] );
 	header("Location: index.php?app=menu&inc=".$core_config['default_include']."&op=".$core_config['default_option']);
-	include $apps_path['themes']."/".$themes_module."/footer.php";
 } else {
 	include $core_config['apps_path']['themes'].'/'.$core_config['module']['themes'].'/page_login.php';
 }
+
 ?>

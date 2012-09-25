@@ -33,5 +33,4 @@ $content .= "<pre>".htmlentities($fc)."</pre>";
 
 echo $content;
 
-include $apps_path['themes']."/".$themes_module."/footer.php";
 ?>
