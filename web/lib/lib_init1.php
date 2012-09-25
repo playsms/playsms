@@ -60,6 +60,7 @@ $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=user_inbox&op=u
 $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=user_incoming&op=user_incoming", _('Incoming SMS'));
 $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=user_outgoing&op=user_outgoing", _('Outgoing SMS'));
 $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=user_pref&op=user_pref", _('Preferences'));
+$arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=page_welcome&op=page_welcome", _('About'));
 //ksort($arr_menu[$menutab_my_account]);
 
 $menutab_administration = $core_config['menu']['main_tab']['administration'];
