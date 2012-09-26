@@ -1,0 +1,70 @@
+# Joan <aseques@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-26 12:58+0200\n"
+"PO-Revision-Date: 2012-09-26 14:14+0200\n"
+"Last-Translator: Joan <aseques@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.4\n"
+
+#: plugin/themes/play/fn.php:55 plugin/themes/play/header.php:111
+msgid "Home"
+msgstr "Principal"
+
+#: plugin/themes/play/fn.php:57
+msgid "Logout"
+msgstr "Sortir"
+
+#: plugin/themes/play/page_register.php:13
+msgid "Name"
+msgstr "Nom"
+
+#: plugin/themes/play/page_register.php:19
+#: plugin/themes/play/page_login.php:15 plugin/themes/play/page_forgot.php:13
+msgid "Username"
+msgstr "Username"
+
+#: plugin/themes/play/page_register.php:25
+msgid "Mobile"
+msgstr "Mòbil"
+
+#: plugin/themes/play/page_register.php:31
+#: plugin/themes/play/page_forgot.php:19
+msgid "Email"
+msgstr "Email"
+
+#: plugin/themes/play/page_register.php:43
+#: plugin/themes/play/page_forgot.php:31
+msgid "Login"
+msgstr "Usuari"
+
+#: plugin/themes/play/page_register.php:47
+#: plugin/themes/play/page_login.php:41
+msgid "Forgot password"
+msgstr "Contrasenya perduda"
+
+#: plugin/themes/play/page_login.php:21
+msgid "Password"
+msgstr "Password"
+
+#: plugin/themes/play/page_login.php:36 plugin/themes/play/page_forgot.php:35
+msgid "Register an account"
+msgstr "Registrar un compte"
+
+#: plugin/themes/play/header.php:118
+msgid "Logged in"
+msgstr "Connectat"
+
+#: plugin/themes/play/page_forgot.php:25
+msgid "Recover password"
+msgstr "Recuperar contrasenya"
+
+#~ msgid "Welcome to playSMS"
+#~ msgstr "Welcome to playSMS"

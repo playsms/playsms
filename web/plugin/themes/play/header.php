@@ -108,7 +108,7 @@
     <div class="topbar" data-dropdown="dropdown" >
       <div class="fill">
         <div class="container">
-          <a class="brand" href="<?php echo $http_path['base']; ?>">Home</a>
+          <a class="brand" href="<?php echo $http_path['base'];?>"><?php echo _('Home'); ?></a>
           <!-- <ul class="nav"> -->
             <?php echo theme_play_build_menu(); ?>
           <!-- </ul> -->
