@@ -39,7 +39,7 @@ for i in `cat $TMPLANG` ; do
 done
 rm $TMPLANG
 
-find $TMP -type f -name messages.mo -exec rm {} \;
+find $TMP -type f ! -name '*.po' -exec rm {} \;
 
 cd $CWD
 

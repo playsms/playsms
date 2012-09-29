@@ -41,12 +41,12 @@ for i in `cat $TMPLANG` ; do
 	cp -rR $i/language/$LANG $TMP/$i/language/
 done
 
-find $TMP -type f -name messages.mo -exec rm {} \;
+find $TMP -type f ! -name '*.po' -exec rm {} \;
 
 cd $CWD
 
-mv $TMP playsms-language-$LANG.bak
-tar -zcvf playsms-language-$LANG.bak.tar.gz playsms-language-$LANG.bak
-rm -rf playsms-language-$LANG.bak
+mv $TMP playsms-language-$LANG
+tar -zcvf playsms-language-$LANG-backup.tar.gz playsms-language-$LANG
+rm -rf playsms-language-$LANG
 
 exit 0
