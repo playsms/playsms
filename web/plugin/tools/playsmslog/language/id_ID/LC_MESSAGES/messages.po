@@ -6,4 +6,3 @@ msgstr "Lihat log"
 #: plugin/tools/playsmslog/playsmslog.php:11
 msgid "Log file"
 msgstr "File log"
-

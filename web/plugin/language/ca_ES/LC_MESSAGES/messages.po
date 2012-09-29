@@ -1,16 +1,16 @@
 # Joan <aseques@gmail.com>, 2012.
 msgid ""
 msgstr ""
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-01 08:26+0700\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Joan <aseques@gmail.com>\n"
-"PO-Revision-Date: 2012-09-07 17:30+0200\n"
 "Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: 2012-09-07 17:30+0200\n"
+"Last-Translator: Joan <aseques@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.4\n"
 
@@ -51,7 +51,10 @@ msgstr "Recuperar contrasenya"
 #: inc/admin/user_mgmnt.php:256 inc/user/user_pref.php:90
 #: inc/user/user_pref.php:111 lib/fn_auth.php:181 lib/fn_auth.php:238
 #: inc/user/user_pref.php:107 inc/user/user_pref.php:108
-#: inc/admin/user_mgmnt.php:149
+#: inc/admin/user_mgmnt.php:149 lib/fn_auth.php:264
+#: inc/admin/user_mgmnt.php:19 inc/admin/user_mgmnt.php:50
+#: inc/admin/user_mgmnt.php:137 inc/admin/user_mgmnt.php:235
+#: inc/user/user_pref.php:114
 msgid "Username"
 msgstr "Usuari"
 
@@ -59,17 +62,19 @@ msgstr "Usuari"
 #: inc/admin/user_mgmnt.php:277 inc/user/user_pref.php:91
 #: inc/user/user_pref.php:112 lib/fn_auth.php:182 lib/fn_auth.php:239
 #: inc/user/user_pref.php:108 inc/user/user_pref.php:109
-#: inc/admin/user_mgmnt.php:170
+#: inc/admin/user_mgmnt.php:170 lib/fn_auth.php:265
+#: inc/admin/user_mgmnt.php:158 inc/admin/user_mgmnt.php:256
+#: inc/user/user_pref.php:115
 msgid "Password"
 msgstr "Contrasenya"
 
 #: lib/fn_auth.php:212 lib/fn_auth.php:271 lib/fn_auth.php:185
-#: lib/fn_auth.php:244
+#: lib/fn_auth.php:244 lib/fn_auth.php:270
 msgid "Password has been sent to your email"
 msgstr "S'ha enviat la contrasenya per correu"
 
 #: lib/fn_auth.php:214 lib/fn_auth.php:273 lib/fn_auth.php:187
-#: lib/fn_auth.php:246
+#: lib/fn_auth.php:246 lib/fn_auth.php:272
 msgid "Fail to send email"
 msgstr "No s'ha pogut enviar el correu"
 
@@ -82,6 +87,8 @@ msgid "Fail to register an account"
 msgstr "Error al registrar un compte"
 
 #: lib/fn_auth.php:245 inc/admin/user_mgmnt.php:313 lib/fn_auth.php:218
+#: lib/fn_auth.php:221 lib/fn_auth.php:230 lib/fn_auth.php:240
+#: inc/admin/user_mgmnt.php:292
 msgid "User is already exists"
 msgstr "L'usuari ja existeix "
 
@@ -90,18 +97,24 @@ msgstr "L'usuari ja existeix "
 #: inc/admin/user_mgmnt.php:206 inc/admin/user_mgmnt.php:219
 #: inc/admin/user_mgmnt.php:223 inc/admin/user_mgmnt.php:313
 #: inc/admin/user_mgmnt.php:324 lib/fn_auth.php:218 lib/fn_auth.php:241
+#: lib/fn_auth.php:221 lib/fn_auth.php:267 inc/admin/user_mgmnt.php:33
+#: inc/admin/user_mgmnt.php:87 inc/admin/user_mgmnt.php:91
+#: inc/admin/user_mgmnt.php:194 inc/admin/user_mgmnt.php:203
+#: inc/admin/user_mgmnt.php:205 inc/admin/user_mgmnt.php:292
+#: inc/admin/user_mgmnt.php:299
 msgid "username"
 msgstr "usuari"
 
-#: lib/fn_auth.php:262 lib/fn_auth.php:235
+#: lib/fn_auth.php:262 lib/fn_auth.php:235 lib/fn_auth.php:261
 msgid "New account registration"
 msgstr "Registrar un nou compte"
 
 #: lib/fn_auth.php:268 inc/admin/user_mgmnt.php:324 lib/fn_auth.php:241
+#: lib/fn_auth.php:267 inc/admin/user_mgmnt.php:299
 msgid "User has been added"
 msgstr "L'usuari ha estat afegit"
 
-#: lib/fn_auth.php:278 lib/fn_auth.php:251
+#: lib/fn_auth.php:278 lib/fn_auth.php:251 lib/fn_auth.php:277
 msgid "Public registration disabled"
 msgstr "Registre públic desactivat"
 
@@ -185,27 +198,32 @@ msgstr "SMS de sortida"
 #: lib/lib_init1.php:57 inc/admin/user_mgmnt.php:142 inc/user/user_pref.php:85
 #: inc/user/user_pref.php:106 inc/user/user_pref.php:102
 #: inc/user/user_pref.php:103 lib/lib_init1.php:62
-#: inc/admin/user_mgmnt.php:143
+#: inc/admin/user_mgmnt.php:143 inc/admin/user_mgmnt.php:131
+#: inc/user/user_pref.php:109
 msgid "Preferences"
 msgstr "Preferències"
 
-#: lib/lib_init1.php:63 lib/lib_init1.php:68
+#: lib/lib_init1.php:63 lib/lib_init1.php:68 lib/lib_init1.php:69
 msgid "All inbox"
 msgstr "Tots els d'entrada"
 
 #: lib/lib_init1.php:64 inc/admin/all_incoming.php:26 lib/lib_init1.php:69
+#: lib/lib_init1.php:70
 msgid "All incoming SMS"
 msgstr "Tots els SMS d'entrada"
 
 #: lib/lib_init1.php:65 inc/admin/all_outgoing.php:26 lib/lib_init1.php:70
+#: lib/lib_init1.php:71
 msgid "All outgoing SMS"
 msgstr "Tots els SMS de sortida"
 
 #: lib/lib_init1.php:66 inc/admin/user_mgmnt.php:13 lib/lib_init1.php:71
+#: lib/lib_init1.php:72 inc/admin/user_mgmnt.php:12
 msgid "Manage user"
 msgstr "Administrar usuari"
 
 #: lib/lib_init1.php:67 inc/admin/main_config.php:44 lib/lib_init1.php:72
+#: lib/lib_init1.php:73
 msgid "Main configuration"
 msgstr "Configuració Principal"
 
@@ -259,6 +277,7 @@ msgstr "De"
 #: inc/admin/user_mgmnt.php:25 inc/admin/user_mgmnt.php:59
 #: inc/admin/all_incoming.php:40 inc/user/user_inbox.php:36
 #: inc/user/user_outgoing.php:38 inc/user/user_incoming.php:39
+#: inc/admin/user_mgmnt.php:24 inc/admin/user_mgmnt.php:55
 msgid "Action"
 msgstr "Acció"
 
@@ -294,7 +313,9 @@ msgstr "Els SMS entrants seleccionats han estat eliminats"
 #: inc/user/user_pref.php:71 inc/user/user_pref.php:80
 #: inc/user/user_pref.php:40 inc/user/user_pref.php:49
 #: inc/user/user_pref.php:58 inc/user/user_pref.php:67
-#: inc/user/user_pref.php:76
+#: inc/user/user_pref.php:76 inc/user/user_pref.php:39
+#: inc/user/user_pref.php:61 inc/user/user_pref.php:72
+#: inc/user/user_pref.php:83
 msgid "yes"
 msgstr "si"
 
@@ -305,7 +326,9 @@ msgstr "si"
 #: inc/user/user_pref.php:72 inc/user/user_pref.php:81
 #: inc/user/user_pref.php:41 inc/user/user_pref.php:50
 #: inc/user/user_pref.php:59 inc/user/user_pref.php:68
-#: inc/user/user_pref.php:77
+#: inc/user/user_pref.php:77 inc/user/user_pref.php:40
+#: inc/user/user_pref.php:62 inc/user/user_pref.php:73
+#: inc/user/user_pref.php:84
 msgid "no"
 msgstr "no"
 
@@ -333,6 +356,8 @@ msgstr "Zona horaria per defecte"
 #: inc/admin/user_mgmnt.php:274 inc/user/user_pref.php:106
 #: inc/user/user_pref.php:127 inc/user/user_pref.php:123
 #: inc/user/user_pref.php:124 inc/admin/user_mgmnt.php:167
+#: inc/admin/user_mgmnt.php:155 inc/admin/user_mgmnt.php:253
+#: inc/user/user_pref.php:130
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "p.ex: +0700 per Jakarta/Bangkok"
 
@@ -371,7 +396,8 @@ msgstr "Idioma per defecte"
 #: inc/admin/main_config.php:88 inc/admin/user_mgmnt.php:181
 #: inc/user/user_pref.php:115 inc/user/user_pref.php:139
 #: inc/user/user_pref.php:135 inc/user/user_pref.php:136
-#: inc/admin/user_mgmnt.php:182
+#: inc/admin/user_mgmnt.php:182 inc/admin/user_mgmnt.php:170
+#: inc/user/user_pref.php:142
 msgid "Save"
 msgstr "Guardar"
 
@@ -386,6 +412,7 @@ msgstr "A"
 #: inc/admin/all_outgoing.php:38 inc/admin/user_mgmnt.php:16
 #: inc/admin/user_mgmnt.php:50 inc/admin/all_incoming.php:39
 #: inc/user/user_outgoing.php:36 inc/user/user_incoming.php:38
+#: inc/admin/user_mgmnt.php:15 inc/admin/user_mgmnt.php:46
 msgid "Status"
 msgstr "Estat"
 
@@ -443,13 +470,15 @@ msgid "Fail to delete SMS"
 msgstr "Impossible borrar el SMS"
 
 #: inc/admin/user_mgmnt.php:15 inc/admin/user_mgmnt.php:87
-#: inc/admin/user_mgmnt.php:251
+#: inc/admin/user_mgmnt.php:251 inc/admin/user_mgmnt.php:14
+#: inc/admin/user_mgmnt.php:78 inc/admin/user_mgmnt.php:230
 msgid "Add user"
 msgstr "Afegir usuari"
 
 #: inc/admin/user_mgmnt.php:16 inc/admin/user_mgmnt.php:138
 #: inc/admin/user_mgmnt.php:247 lib/lib_init1.php:21 lib/lib_init1.php:24
-#: inc/admin/user_mgmnt.php:139
+#: inc/admin/user_mgmnt.php:139 inc/admin/user_mgmnt.php:15
+#: inc/admin/user_mgmnt.php:128 inc/admin/user_mgmnt.php:227
 msgid "Administrator"
 msgstr "Administrador"
 
@@ -457,6 +486,8 @@ msgstr "Administrador"
 #: inc/user/sms_template.php:27 inc/user/sms_template.php:157
 #: inc/user/user_pref.php:95 inc/user/user_pref.php:116
 #: inc/user/user_pref.php:112 inc/user/user_pref.php:113
+#: inc/admin/user_mgmnt.php:20 inc/admin/user_mgmnt.php:51
+#: inc/user/user_pref.php:119
 msgid "Name"
 msgstr "Nom"
 
@@ -464,7 +495,9 @@ msgstr "Nom"
 #: inc/admin/user_mgmnt.php:154 inc/admin/user_mgmnt.php:262
 #: inc/user/user_pref.php:96 inc/user/user_pref.php:117
 #: inc/user/user_pref.php:113 inc/user/user_pref.php:114
-#: inc/admin/user_mgmnt.php:155
+#: inc/admin/user_mgmnt.php:155 inc/admin/user_mgmnt.php:21
+#: inc/admin/user_mgmnt.php:52 inc/admin/user_mgmnt.php:143
+#: inc/admin/user_mgmnt.php:241 inc/user/user_pref.php:120
 msgid "Email"
 msgstr "Correu Electrònic"
 
@@ -472,7 +505,9 @@ msgstr "Correu Electrònic"
 #: inc/admin/user_mgmnt.php:157 inc/admin/user_mgmnt.php:265
 #: inc/user/user_pref.php:97 inc/user/user_pref.php:118
 #: inc/user/user_pref.php:114 inc/user/user_pref.php:115
-#: inc/admin/user_mgmnt.php:158
+#: inc/admin/user_mgmnt.php:158 inc/admin/user_mgmnt.php:22
+#: inc/admin/user_mgmnt.php:53 inc/admin/user_mgmnt.php:146
+#: inc/admin/user_mgmnt.php:244 inc/user/user_pref.php:121
 msgid "Mobile"
 msgstr "Mòbil"
 
@@ -480,41 +515,45 @@ msgstr "Mòbil"
 #: inc/admin/user_mgmnt.php:172 inc/admin/user_mgmnt.php:280
 #: inc/user/user_pref.php:109 inc/user/user_pref.php:130
 #: inc/user/user_pref.php:126 inc/user/user_pref.php:127
-#: inc/admin/user_mgmnt.php:173
+#: inc/admin/user_mgmnt.php:173 inc/admin/user_mgmnt.php:23
+#: inc/admin/user_mgmnt.php:54 inc/admin/user_mgmnt.php:161
+#: inc/admin/user_mgmnt.php:259 inc/user/user_pref.php:133
 msgid "Credit"
 msgstr "Crèdit"
 
-#: inc/admin/user_mgmnt.php:36
+#: inc/admin/user_mgmnt.php:36 inc/admin/user_mgmnt.php:33
 msgid "Are you sure you want to delete user ?"
 msgstr "Està segur de voler esborrar l'usuari ?"
 
 #: inc/admin/user_mgmnt.php:50 inc/admin/user_mgmnt.php:139
-#: inc/admin/user_mgmnt.php:140
+#: inc/admin/user_mgmnt.php:140 inc/admin/user_mgmnt.php:46
+#: inc/admin/user_mgmnt.php:129
 msgid "Normal user"
 msgstr "Usuari normal"
 
-#: inc/admin/user_mgmnt.php:70
+#: inc/admin/user_mgmnt.php:70 inc/admin/user_mgmnt.php:64
 msgid "Are you sure you want to delete user"
 msgstr "Està segur de voler esborrar l'usuari ?"
 
-#: inc/admin/user_mgmnt.php:93
+#: inc/admin/user_mgmnt.php:93 inc/admin/user_mgmnt.php:83
 msgid "Fail to delete user"
 msgstr "Impossible esborrar l'usuari"
 
-#: inc/admin/user_mgmnt.php:99
+#: inc/admin/user_mgmnt.php:99 inc/admin/user_mgmnt.php:87
 msgid "User has been deleted"
 msgstr "L'usuari ha estat eliminat"
 
-#: inc/admin/user_mgmnt.php:104
+#: inc/admin/user_mgmnt.php:104 inc/admin/user_mgmnt.php:91
 msgid "User is immune to deletion"
 msgstr "L'usuari no pot ser eliminat"
 
-#: inc/admin/user_mgmnt.php:108
+#: inc/admin/user_mgmnt.php:108 inc/admin/user_mgmnt.php:93
 msgid "Currently logged in user is immune to deletion"
 msgstr "Usuari en sessió activa, no pot ser eliminat"
 
 #: inc/admin/user_mgmnt.php:151 inc/admin/user_mgmnt.php:259
-#: inc/admin/user_mgmnt.php:152
+#: inc/admin/user_mgmnt.php:152 inc/admin/user_mgmnt.php:140
+#: inc/admin/user_mgmnt.php:238
 msgid "Full name"
 msgstr "Nom complet"
 
@@ -525,6 +564,9 @@ msgstr "Nom complet"
 #: inc/user/user_pref.php:114 inc/user/user_pref.php:124
 #: inc/user/user_pref.php:115 inc/user/user_pref.php:125
 #: inc/admin/user_mgmnt.php:158 inc/admin/user_mgmnt.php:161
+#: inc/admin/user_mgmnt.php:146 inc/admin/user_mgmnt.php:149
+#: inc/admin/user_mgmnt.php:244 inc/admin/user_mgmnt.php:247
+#: inc/user/user_pref.php:121 inc/user/user_pref.php:131
 msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "Max. 16 caràcters numèrics o 11 alfanumèrics"
 
@@ -534,6 +576,8 @@ msgstr "Max. 16 caràcters numèrics o 11 alfanumèrics"
 #: inc/user/send_sms.php:228 inc/user/user_pref.php:124
 #: inc/user/user_pref.php:125 inc/admin/user_mgmnt.php:161
 #: inc/user/send_sms.php:72 inc/user/send_sms.php:218
+#: inc/admin/user_mgmnt.php:149 inc/admin/user_mgmnt.php:247
+#: inc/user/user_pref.php:131
 msgid "SMS sender ID"
 msgstr "ID Remitent del SMS"
 
@@ -543,84 +587,98 @@ msgstr "ID Remitent del SMS"
 #: inc/user/send_sms.php:229 inc/user/user_pref.php:125
 #: inc/user/user_pref.php:126 inc/admin/user_mgmnt.php:164
 #: inc/user/send_sms.php:73 inc/user/send_sms.php:219
+#: inc/admin/user_mgmnt.php:152 inc/admin/user_mgmnt.php:250
+#: inc/user/user_pref.php:132
 msgid "SMS footer"
 msgstr "Firma del SMS"
 
 #: inc/admin/user_mgmnt.php:163 inc/admin/user_mgmnt.php:271
 #: inc/user/user_pref.php:108 inc/user/user_pref.php:129
 #: inc/user/user_pref.php:125 inc/user/user_pref.php:126
-#: inc/admin/user_mgmnt.php:164
+#: inc/admin/user_mgmnt.php:164 inc/admin/user_mgmnt.php:152
+#: inc/admin/user_mgmnt.php:250 inc/user/user_pref.php:132
 msgid "Max. 30 alphanumeric characters"
 msgstr "Max. 30 caràcters alfanumèricos"
 
 #: inc/admin/user_mgmnt.php:166 inc/admin/user_mgmnt.php:274
 #: inc/user/user_pref.php:106 inc/user/user_pref.php:127
 #: inc/user/user_pref.php:123 inc/user/user_pref.php:124
-#: inc/admin/user_mgmnt.php:167
+#: inc/admin/user_mgmnt.php:167 inc/admin/user_mgmnt.php:155
+#: inc/admin/user_mgmnt.php:253 inc/user/user_pref.php:130
 msgid "Timezone"
 msgstr "Zona horària"
 
 #: inc/admin/user_mgmnt.php:169 inc/admin/user_mgmnt.php:170
+#: inc/admin/user_mgmnt.php:158
 msgid "Fill to change password for username"
 msgstr "Omplir per a canviar la contrasenya de l'usuari"
 
 #: inc/admin/user_mgmnt.php:175 inc/admin/user_mgmnt.php:283
-#: inc/admin/user_mgmnt.php:176
+#: inc/admin/user_mgmnt.php:176 inc/admin/user_mgmnt.php:164
+#: inc/admin/user_mgmnt.php:262
 msgid "User level"
 msgstr "Privilegis d'usuari"
 
 #: inc/admin/user_mgmnt.php:178 inc/admin/user_mgmnt.php:286
 #: inc/user/user_pref.php:103 inc/user/user_pref.php:124
 #: inc/user/user_pref.php:120 inc/user/user_pref.php:121
-#: inc/admin/user_mgmnt.php:179
+#: inc/admin/user_mgmnt.php:179 inc/admin/user_mgmnt.php:167
+#: inc/admin/user_mgmnt.php:265 inc/user/user_pref.php:127
 msgid "Active language"
 msgstr "Idioma actiu"
 
 #: inc/admin/user_mgmnt.php:199 inc/user/user_pref.php:144
 #: inc/user/user_pref.php:171 inc/user/user_pref.php:162
-#: inc/user/user_pref.php:163
+#: inc/user/user_pref.php:163 inc/admin/user_mgmnt.php:186
+#: inc/user/user_pref.php:168
 msgid "No changes made"
 msgstr "No s'han realitzat canvis"
 
 #: inc/admin/user_mgmnt.php:206 inc/user/user_pref.php:152
 #: inc/user/user_pref.php:179 inc/user/user_pref.php:170
-#: inc/user/user_pref.php:171
+#: inc/user/user_pref.php:171 inc/admin/user_mgmnt.php:194
+#: inc/user/user_pref.php:177
 msgid "Email is already in use by other username"
 msgstr "Correu electrònic ja en ús"
 
 #: inc/admin/user_mgmnt.php:206 inc/user/user_pref.php:152
 #: inc/user/user_pref.php:179 inc/user/user_pref.php:170
-#: inc/user/user_pref.php:171
+#: inc/user/user_pref.php:171 lib/fn_auth.php:230 inc/admin/user_mgmnt.php:194
+#: inc/user/user_pref.php:177
 msgid "email"
 msgstr "Correu electrònic"
 
 #: inc/admin/user_mgmnt.php:219 inc/user/user_pref.php:178
 #: inc/user/user_pref.php:205 inc/user/user_pref.php:195
-#: inc/user/user_pref.php:196
+#: inc/user/user_pref.php:196 inc/admin/user_mgmnt.php:203
+#: inc/user/user_pref.php:206
 msgid "Preferences has been saved"
 msgstr "Les preferències han estat guardades"
 
 #: inc/admin/user_mgmnt.php:223 inc/user/user_pref.php:183
 #: inc/user/user_pref.php:210 inc/user/user_pref.php:200
-#: inc/user/user_pref.php:201
+#: inc/user/user_pref.php:201 inc/admin/user_mgmnt.php:205
+#: inc/user/user_pref.php:209
 msgid "Fail to save preferences"
 msgstr "Impossible guardar les preferències"
 
 #: inc/admin/user_mgmnt.php:229 inc/user/user_pref.php:189
 #: inc/user/user_pref.php:216 inc/user/user_pref.php:206
-#: inc/user/user_pref.php:207
+#: inc/user/user_pref.php:207 inc/admin/user_mgmnt.php:209
+#: inc/user/user_pref.php:213
 msgid "You must fill all field"
 msgstr "Cal omplir tots els camps"
 
 #: inc/admin/user_mgmnt.php:248 lib/lib_init1.php:21 lib/lib_init1.php:24
+#: inc/admin/user_mgmnt.php:228
 msgid "Normal User"
 msgstr "Usuari Normal"
 
-#: inc/admin/user_mgmnt.php:290
+#: inc/admin/user_mgmnt.php:290 inc/admin/user_mgmnt.php:269
 msgid "Add"
 msgstr "Afegir"
 
-#: inc/admin/user_mgmnt.php:330
+#: inc/admin/user_mgmnt.php:330 inc/admin/user_mgmnt.php:303
 msgid "You must fill all fields"
 msgstr "Cal omplir tots els camps"
 
@@ -714,6 +772,7 @@ msgstr "No configurat"
 #: inc/user/user_pref.php:65 inc/user/user_pref.php:86
 #: inc/user/send_sms.php:204 inc/user/user_pref.php:82
 #: inc/user/send_sms.php:48 inc/user/send_sms.php:194
+#: inc/user/user_pref.php:89
 msgid "Please select"
 msgstr "Si us plau seleccioni"
 
@@ -828,41 +887,49 @@ msgstr "número"
 
 #: inc/user/user_pref.php:89 inc/user/user_pref.php:110
 #: inc/user/user_pref.php:106 inc/user/user_pref.php:107
+#: inc/user/user_pref.php:113
 msgid "Login information"
 msgstr "Informació de la sessió"
 
 #: inc/user/user_pref.php:92 inc/user/user_pref.php:113
 #: inc/user/user_pref.php:109 inc/user/user_pref.php:110
+#: inc/user/user_pref.php:116
 msgid "Re-Type Password"
 msgstr "Reescriviu la contrasenya"
 
 #: inc/user/user_pref.php:94 inc/user/user_pref.php:115
 #: inc/user/user_pref.php:111 inc/user/user_pref.php:112
+#: inc/user/user_pref.php:118
 msgid "Personal information"
 msgstr "Informació Personal"
 
 #: inc/user/user_pref.php:98 inc/user/user_pref.php:119
 #: inc/user/user_pref.php:115 inc/user/user_pref.php:116
+#: inc/user/user_pref.php:122
 msgid "Address"
 msgstr "Adreça"
 
 #: inc/user/user_pref.php:99 inc/user/user_pref.php:120
 #: inc/user/user_pref.php:116 inc/user/user_pref.php:117
+#: inc/user/user_pref.php:123
 msgid "City"
 msgstr "Ciutat"
 
 #: inc/user/user_pref.php:100 inc/user/user_pref.php:121
 #: inc/user/user_pref.php:117 inc/user/user_pref.php:118
+#: inc/user/user_pref.php:124
 msgid "State or Province"
 msgstr "Estat o provincia"
 
 #: inc/user/user_pref.php:101 inc/user/user_pref.php:122
 #: inc/user/user_pref.php:118 inc/user/user_pref.php:119
+#: inc/user/user_pref.php:125
 msgid "Country"
 msgstr "País"
 
 #: inc/user/user_pref.php:102 inc/user/user_pref.php:123
 #: inc/user/user_pref.php:119 inc/user/user_pref.php:120
+#: inc/user/user_pref.php:126
 msgid "Zipcode"
 msgstr "Codi postal"
 
@@ -872,52 +939,98 @@ msgstr "Informació del programa"
 
 #: inc/user/user_pref.php:110 inc/user/user_pref.php:131
 #: inc/user/user_pref.php:127 inc/user/user_pref.php:128
+#: inc/user/user_pref.php:134
 msgid "Forward PV to inbox"
 msgstr "Enviar PV a l'entrada"
 
 #: inc/user/user_pref.php:111 inc/user/user_pref.php:132
 #: inc/user/user_pref.php:128 inc/user/user_pref.php:129
+#: inc/user/user_pref.php:135
 msgid "Forward PV to email"
 msgstr "Enviar PV al correu"
 
 #: inc/user/user_pref.php:112 inc/user/user_pref.php:133
 #: inc/user/user_pref.php:129 inc/user/user_pref.php:130
+#: inc/user/user_pref.php:136
 msgid "Forward PV to mobile"
 msgstr "Enviar PV al mòbil"
 
 #: inc/user/user_pref.php:174 inc/user/user_pref.php:201
 #: inc/user/user_pref.php:191 inc/user/user_pref.php:192
+#: inc/user/user_pref.php:204
 msgid "Preferences has been saved and password updated"
 msgstr "Les preferències s'han guardat i la contrasenya s'ha actualitzat"
 
 #: inc/user/user_pref.php:126 inc/user/user_pref.php:122
-#: inc/user/user_pref.php:123
+#: inc/user/user_pref.php:123 inc/user/user_pref.php:129
 msgid "Application options"
 msgstr "Opcions del programa"
 
 #: inc/user/user_pref.php:134 inc/user/user_pref.php:130
-#: inc/user/user_pref.php:131
+#: inc/user/user_pref.php:131 inc/user/user_pref.php:137
 msgid "Auto replace prefix 0"
 msgstr "Auto reemplaçar el prefix 0"
 
 #: inc/user/user_pref.php:134 inc/user/user_pref.php:130
-#: inc/user/user_pref.php:131
+#: inc/user/user_pref.php:131 inc/user/user_pref.php:137
 msgid "Prefix or country code"
 msgstr "Prefix o codi de país"
 
 #: inc/user/user_pref.php:135 inc/user/user_pref.php:131
-#: inc/user/user_pref.php:132
+#: inc/user/user_pref.php:132 inc/user/user_pref.php:138
 msgid "Auto remove plus sign"
 msgstr "Auto el·liminar el signe més"
 
 #: inc/user/user_pref.php:136 inc/user/user_pref.php:132
-#: inc/user/user_pref.php:133
+#: inc/user/user_pref.php:133 inc/user/user_pref.php:139
 msgid "Always add plus sign"
 msgstr "Sempre afegir el signe més"
 
-#: inc/user/user_pref.php:95
+#: inc/user/user_pref.php:95 inc/user/user_pref.php:100
 msgid "Default"
 msgstr "Per defecte"
+
+#: lib/lib_init1.php:63
+msgid "About"
+msgstr ""
+
+#: lib/fn_auth.php:240 inc/user/user_pref.php:185
+#, fuzzy
+msgid "mobile"
+msgstr "Mòbil"
+
+#: inc/user/page_welcome.php:6
+msgid "Welcome to playSMS"
+msgstr ""
+
+#: inc/user/page_welcome.php:8
+msgid "About playSMS"
+msgstr ""
+
+#: inc/user/page_welcome.php:9
+msgid "Changelog"
+msgstr ""
+
+#: inc/user/page_welcome.php:10
+msgid "Installation Guide"
+msgstr ""
+
+#: inc/user/page_welcome.php:11
+msgid "F.A.Q"
+msgstr ""
+
+#: inc/user/page_welcome.php:12
+msgid "License"
+msgstr ""
+
+#: inc/user/page_welcome.php:13
+msgid "HTTP API"
+msgstr ""
+
+#: inc/user/user_pref.php:185
+#, fuzzy
+msgid "Mobile is already in use by other username"
+msgstr "Correu electrònic ja en ús"
 
 #~ msgid "Outbox"
 #~ msgstr "Safata de sortida"

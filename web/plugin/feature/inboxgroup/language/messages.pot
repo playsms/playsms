@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-01 08:26+0700\n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,6 +30,8 @@ msgstr ""
 #: plugin/feature/inboxgroup/config.php:6
 #: plugin/feature/inboxgroup/inboxgroup_members.php:100
 #: plugin/feature/inboxgroup/inboxgroup_members.php:188
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:99
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:187
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:17
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:99
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:187
@@ -51,6 +53,8 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup.php:174
 #: plugin/feature/inboxgroup/inboxgroup_members.php:114
 #: plugin/feature/inboxgroup/inboxgroup_members.php:202
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:113
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:201
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:31
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:113
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:201
@@ -67,6 +71,8 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup.php:174
 #: plugin/feature/inboxgroup/inboxgroup_members.php:114
 #: plugin/feature/inboxgroup/inboxgroup_members.php:202
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:113
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:201
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:31
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:113
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:201
@@ -85,6 +91,8 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup.php:177
 #: plugin/feature/inboxgroup/inboxgroup_members.php:117
 #: plugin/feature/inboxgroup/inboxgroup_members.php:205
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:116
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:204
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:34
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:116
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:204
@@ -103,6 +111,8 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup.php:178
 #: plugin/feature/inboxgroup/inboxgroup_members.php:118
 #: plugin/feature/inboxgroup/inboxgroup_members.php:206
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:117
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:205
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:35
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:117
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:205
@@ -120,6 +130,8 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup.php:179
 #: plugin/feature/inboxgroup/inboxgroup_members.php:119
 #: plugin/feature/inboxgroup/inboxgroup_members.php:207
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:118
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:206
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:36
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:118
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:206
@@ -148,6 +160,8 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup.php:181
 #: plugin/feature/inboxgroup/inboxgroup_members.php:121
 #: plugin/feature/inboxgroup/inboxgroup_members.php:209
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:120
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:208
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:38
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:120
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:208
@@ -164,6 +178,8 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup.php:182
 #: plugin/feature/inboxgroup/inboxgroup_members.php:122
 #: plugin/feature/inboxgroup/inboxgroup_members.php:210
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:121
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:209
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:39
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:121
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:209
@@ -173,6 +189,8 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:45
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:84
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:102
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:85
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:103
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:45
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:85
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:103
@@ -181,6 +199,7 @@ msgstr ""
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:50
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:89
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:90
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:50
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:90
 msgid "Delete catch-all"
@@ -199,6 +218,9 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup_members.php:176
 #: plugin/feature/inboxgroup/inboxgroup_members.php:178
 #: plugin/feature/inboxgroup/inboxgroup_members.php:266
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:175
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:177
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:265
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:58
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:175
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:177
@@ -223,12 +245,15 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:206
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:119
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:207
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:119
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:207
 msgid "catchall"
 msgstr ""
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:140
 #: plugin/feature/inboxgroup/inboxgroup_members.php:141
 #: plugin/feature/inboxgroup/inboxgroup_members.php:142
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:141
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:141
 msgid "All users"
 msgstr ""
@@ -246,6 +271,9 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup_members.php:238
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:147
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:149
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:237
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:147
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:149
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:235
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:237
 msgid "All"
@@ -255,20 +283,24 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup_members.php:153
 #: plugin/feature/inboxgroup/inboxgroup_members.php:154
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:153
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:153
 msgid "Selected users"
 msgstr ""
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:157
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:158
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:158
 msgid "Press submit button to add selected users to catch-all list"
 msgstr ""
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:174
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:175
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:175
 msgid "Catch-all has been added"
 msgstr ""
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:176
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:177
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:177
 msgid "Fail to add catch-all"
 msgstr ""
@@ -284,35 +316,43 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup_members.php:270
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:181
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:269
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:181
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:269
 msgid "Receiver number does not exists"
 msgstr ""
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:190
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:191
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:191
 msgid "Remove catch-all"
 msgstr ""
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:227
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:229
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:229
 msgid "Current catchall"
 msgstr ""
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:239
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:241
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:241
 msgid "Selected catchall"
 msgstr ""
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:244
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:246
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:246
 msgid "Press submit button to remove selected catchall from catch-all list"
 msgstr ""
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:261
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:263
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:263
 msgid "Catch-all has been deleted"
 msgstr ""
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:263
+#: plugin/feature/inboxgroup/inboxgroup_catchall.php:265
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:265
 msgid "Fail to delete catch-all"
 msgstr ""

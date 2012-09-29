@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-26 12:58+0200\n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "PO-Revision-Date: 2012-09-26 14:40+0200\n"
 "Last-Translator: Joan <aseques@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -27,7 +27,6 @@ msgid "Log file"
 msgstr "Fitxers de registre"
 
 #: plugin/tools/queuelog/config.php:4 plugin/tools/queuelog/queuelog.php:16
-#: plugin/tools/queuelog/config.php:4
 msgid "View SMS queue"
 msgstr "Veure la cua de SMS"
 
@@ -50,4 +49,3 @@ msgstr "Grup"
 #: plugin/tools/queuelog/queuelog.php:32
 msgid "Message"
 msgstr "Missatge"
-

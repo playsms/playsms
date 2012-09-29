@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-01 08:26+0700\n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
@@ -44,7 +44,10 @@ msgstr "密码"
 #: inc/admin/user_mgmnt.php:256 inc/user/user_pref.php:90
 #: inc/user/user_pref.php:111 lib/fn_auth.php:181 lib/fn_auth.php:238
 #: inc/user/user_pref.php:107 inc/user/user_pref.php:108
-#: inc/admin/user_mgmnt.php:149
+#: inc/admin/user_mgmnt.php:149 lib/fn_auth.php:264
+#: inc/admin/user_mgmnt.php:19 inc/admin/user_mgmnt.php:50
+#: inc/admin/user_mgmnt.php:137 inc/admin/user_mgmnt.php:235
+#: inc/user/user_pref.php:114
 msgid "Username"
 msgstr "用户名"
 
@@ -52,17 +55,19 @@ msgstr "用户名"
 #: inc/admin/user_mgmnt.php:277 inc/user/user_pref.php:91
 #: inc/user/user_pref.php:112 lib/fn_auth.php:182 lib/fn_auth.php:239
 #: inc/user/user_pref.php:108 inc/user/user_pref.php:109
-#: inc/admin/user_mgmnt.php:170
+#: inc/admin/user_mgmnt.php:170 lib/fn_auth.php:265
+#: inc/admin/user_mgmnt.php:158 inc/admin/user_mgmnt.php:256
+#: inc/user/user_pref.php:115
 msgid "Password"
 msgstr "密码"
 
 #: lib/fn_auth.php:212 lib/fn_auth.php:271 lib/fn_auth.php:185
-#: lib/fn_auth.php:244
+#: lib/fn_auth.php:244 lib/fn_auth.php:270
 msgid "Password has been sent to your email"
 msgstr ""
 
 #: lib/fn_auth.php:214 lib/fn_auth.php:273 lib/fn_auth.php:187
-#: lib/fn_auth.php:246
+#: lib/fn_auth.php:246 lib/fn_auth.php:272
 #, fuzzy
 msgid "Fail to send email"
 msgstr "发送短信失败"
@@ -76,6 +81,8 @@ msgid "Fail to register an account"
 msgstr ""
 
 #: lib/fn_auth.php:245 inc/admin/user_mgmnt.php:313 lib/fn_auth.php:218
+#: lib/fn_auth.php:221 lib/fn_auth.php:230 lib/fn_auth.php:240
+#: inc/admin/user_mgmnt.php:292
 msgid "User is already exists"
 msgstr "用户已存在"
 
@@ -84,18 +91,24 @@ msgstr "用户已存在"
 #: inc/admin/user_mgmnt.php:206 inc/admin/user_mgmnt.php:219
 #: inc/admin/user_mgmnt.php:223 inc/admin/user_mgmnt.php:313
 #: inc/admin/user_mgmnt.php:324 lib/fn_auth.php:218 lib/fn_auth.php:241
+#: lib/fn_auth.php:221 lib/fn_auth.php:267 inc/admin/user_mgmnt.php:33
+#: inc/admin/user_mgmnt.php:87 inc/admin/user_mgmnt.php:91
+#: inc/admin/user_mgmnt.php:194 inc/admin/user_mgmnt.php:203
+#: inc/admin/user_mgmnt.php:205 inc/admin/user_mgmnt.php:292
+#: inc/admin/user_mgmnt.php:299
 msgid "username"
 msgstr "用户名"
 
-#: lib/fn_auth.php:262 lib/fn_auth.php:235
+#: lib/fn_auth.php:262 lib/fn_auth.php:235 lib/fn_auth.php:261
 msgid "New account registration"
 msgstr ""
 
 #: lib/fn_auth.php:268 inc/admin/user_mgmnt.php:324 lib/fn_auth.php:241
+#: lib/fn_auth.php:267 inc/admin/user_mgmnt.php:299
 msgid "User has been added"
 msgstr "用户已添加"
 
-#: lib/fn_auth.php:278 lib/fn_auth.php:251
+#: lib/fn_auth.php:278 lib/fn_auth.php:251 lib/fn_auth.php:277
 msgid "Public registration disabled"
 msgstr ""
 
@@ -181,27 +194,32 @@ msgstr "短信发件箱"
 #: lib/lib_init1.php:57 inc/admin/user_mgmnt.php:142 inc/user/user_pref.php:85
 #: inc/user/user_pref.php:106 inc/user/user_pref.php:102
 #: inc/user/user_pref.php:103 lib/lib_init1.php:62
-#: inc/admin/user_mgmnt.php:143
+#: inc/admin/user_mgmnt.php:143 inc/admin/user_mgmnt.php:131
+#: inc/user/user_pref.php:109
 msgid "Preferences"
 msgstr "偏好"
 
-#: lib/lib_init1.php:63 lib/lib_init1.php:68
+#: lib/lib_init1.php:63 lib/lib_init1.php:68 lib/lib_init1.php:69
 msgid "All inbox"
 msgstr "全部发件箱"
 
 #: lib/lib_init1.php:64 inc/admin/all_incoming.php:26 lib/lib_init1.php:69
+#: lib/lib_init1.php:70
 msgid "All incoming SMS"
 msgstr "全部收到的短信"
 
 #: lib/lib_init1.php:65 inc/admin/all_outgoing.php:26 lib/lib_init1.php:70
+#: lib/lib_init1.php:71
 msgid "All outgoing SMS"
 msgstr "全部发出的短信"
 
 #: lib/lib_init1.php:66 inc/admin/user_mgmnt.php:13 lib/lib_init1.php:71
+#: lib/lib_init1.php:72 inc/admin/user_mgmnt.php:12
 msgid "Manage user"
 msgstr "管理用户"
 
 #: lib/lib_init1.php:67 inc/admin/main_config.php:44 lib/lib_init1.php:72
+#: lib/lib_init1.php:73
 msgid "Main configuration"
 msgstr "主要构造"
 
@@ -255,6 +273,7 @@ msgstr "来自"
 #: inc/admin/user_mgmnt.php:25 inc/admin/user_mgmnt.php:59
 #: inc/admin/all_incoming.php:40 inc/user/user_inbox.php:36
 #: inc/user/user_outgoing.php:38 inc/user/user_incoming.php:39
+#: inc/admin/user_mgmnt.php:24 inc/admin/user_mgmnt.php:55
 msgid "Action"
 msgstr "行为"
 
@@ -290,7 +309,9 @@ msgstr "选择的收到的短信已删除"
 #: inc/user/user_pref.php:71 inc/user/user_pref.php:80
 #: inc/user/user_pref.php:40 inc/user/user_pref.php:49
 #: inc/user/user_pref.php:58 inc/user/user_pref.php:67
-#: inc/user/user_pref.php:76
+#: inc/user/user_pref.php:76 inc/user/user_pref.php:39
+#: inc/user/user_pref.php:61 inc/user/user_pref.php:72
+#: inc/user/user_pref.php:83
 msgid "yes"
 msgstr ""
 
@@ -301,7 +322,9 @@ msgstr ""
 #: inc/user/user_pref.php:72 inc/user/user_pref.php:81
 #: inc/user/user_pref.php:41 inc/user/user_pref.php:50
 #: inc/user/user_pref.php:59 inc/user/user_pref.php:68
-#: inc/user/user_pref.php:77
+#: inc/user/user_pref.php:77 inc/user/user_pref.php:40
+#: inc/user/user_pref.php:62 inc/user/user_pref.php:73
+#: inc/user/user_pref.php:84
 msgid "no"
 msgstr ""
 
@@ -330,6 +353,8 @@ msgstr "网关号"
 #: inc/admin/user_mgmnt.php:274 inc/user/user_pref.php:106
 #: inc/user/user_pref.php:127 inc/user/user_pref.php:123
 #: inc/user/user_pref.php:124 inc/admin/user_mgmnt.php:167
+#: inc/admin/user_mgmnt.php:155 inc/admin/user_mgmnt.php:253
+#: inc/user/user_pref.php:130
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
@@ -370,7 +395,8 @@ msgstr "活跃的语言"
 #: inc/admin/main_config.php:88 inc/admin/user_mgmnt.php:181
 #: inc/user/user_pref.php:115 inc/user/user_pref.php:139
 #: inc/user/user_pref.php:135 inc/user/user_pref.php:136
-#: inc/admin/user_mgmnt.php:182
+#: inc/admin/user_mgmnt.php:182 inc/admin/user_mgmnt.php:170
+#: inc/user/user_pref.php:142
 msgid "Save"
 msgstr "保存"
 
@@ -385,6 +411,7 @@ msgstr ""
 #: inc/admin/all_outgoing.php:38 inc/admin/user_mgmnt.php:16
 #: inc/admin/user_mgmnt.php:50 inc/admin/all_incoming.php:39
 #: inc/user/user_outgoing.php:36 inc/user/user_incoming.php:38
+#: inc/admin/user_mgmnt.php:15 inc/admin/user_mgmnt.php:46
 msgid "Status"
 msgstr "状态"
 
@@ -442,13 +469,15 @@ msgid "Fail to delete SMS"
 msgstr "删除短信失败"
 
 #: inc/admin/user_mgmnt.php:15 inc/admin/user_mgmnt.php:87
-#: inc/admin/user_mgmnt.php:251
+#: inc/admin/user_mgmnt.php:251 inc/admin/user_mgmnt.php:14
+#: inc/admin/user_mgmnt.php:78 inc/admin/user_mgmnt.php:230
 msgid "Add user"
 msgstr "添加用户"
 
 #: inc/admin/user_mgmnt.php:16 inc/admin/user_mgmnt.php:138
 #: inc/admin/user_mgmnt.php:247 lib/lib_init1.php:21 lib/lib_init1.php:24
-#: inc/admin/user_mgmnt.php:139
+#: inc/admin/user_mgmnt.php:139 inc/admin/user_mgmnt.php:15
+#: inc/admin/user_mgmnt.php:128 inc/admin/user_mgmnt.php:227
 msgid "Administrator"
 msgstr "管理员"
 
@@ -456,6 +485,8 @@ msgstr "管理员"
 #: inc/user/sms_template.php:27 inc/user/sms_template.php:157
 #: inc/user/user_pref.php:95 inc/user/user_pref.php:116
 #: inc/user/user_pref.php:112 inc/user/user_pref.php:113
+#: inc/admin/user_mgmnt.php:20 inc/admin/user_mgmnt.php:51
+#: inc/user/user_pref.php:119
 msgid "Name"
 msgstr "名字"
 
@@ -463,7 +494,9 @@ msgstr "名字"
 #: inc/admin/user_mgmnt.php:154 inc/admin/user_mgmnt.php:262
 #: inc/user/user_pref.php:96 inc/user/user_pref.php:117
 #: inc/user/user_pref.php:113 inc/user/user_pref.php:114
-#: inc/admin/user_mgmnt.php:155
+#: inc/admin/user_mgmnt.php:155 inc/admin/user_mgmnt.php:21
+#: inc/admin/user_mgmnt.php:52 inc/admin/user_mgmnt.php:143
+#: inc/admin/user_mgmnt.php:241 inc/user/user_pref.php:120
 msgid "Email"
 msgstr "电子邮件"
 
@@ -471,7 +504,9 @@ msgstr "电子邮件"
 #: inc/admin/user_mgmnt.php:157 inc/admin/user_mgmnt.php:265
 #: inc/user/user_pref.php:97 inc/user/user_pref.php:118
 #: inc/user/user_pref.php:114 inc/user/user_pref.php:115
-#: inc/admin/user_mgmnt.php:158
+#: inc/admin/user_mgmnt.php:158 inc/admin/user_mgmnt.php:22
+#: inc/admin/user_mgmnt.php:53 inc/admin/user_mgmnt.php:146
+#: inc/admin/user_mgmnt.php:244 inc/user/user_pref.php:121
 msgid "Mobile"
 msgstr "手机"
 
@@ -479,41 +514,45 @@ msgstr "手机"
 #: inc/admin/user_mgmnt.php:172 inc/admin/user_mgmnt.php:280
 #: inc/user/user_pref.php:109 inc/user/user_pref.php:130
 #: inc/user/user_pref.php:126 inc/user/user_pref.php:127
-#: inc/admin/user_mgmnt.php:173
+#: inc/admin/user_mgmnt.php:173 inc/admin/user_mgmnt.php:23
+#: inc/admin/user_mgmnt.php:54 inc/admin/user_mgmnt.php:161
+#: inc/admin/user_mgmnt.php:259 inc/user/user_pref.php:133
 msgid "Credit"
 msgstr "信用"
 
-#: inc/admin/user_mgmnt.php:36
+#: inc/admin/user_mgmnt.php:36 inc/admin/user_mgmnt.php:33
 msgid "Are you sure you want to delete user ?"
 msgstr "确定删除用户 ?"
 
 #: inc/admin/user_mgmnt.php:50 inc/admin/user_mgmnt.php:139
-#: inc/admin/user_mgmnt.php:140
+#: inc/admin/user_mgmnt.php:140 inc/admin/user_mgmnt.php:46
+#: inc/admin/user_mgmnt.php:129
 msgid "Normal user"
 msgstr "一般用户"
 
-#: inc/admin/user_mgmnt.php:70
+#: inc/admin/user_mgmnt.php:70 inc/admin/user_mgmnt.php:64
 msgid "Are you sure you want to delete user"
 msgstr "确定删除用户"
 
-#: inc/admin/user_mgmnt.php:93
+#: inc/admin/user_mgmnt.php:93 inc/admin/user_mgmnt.php:83
 msgid "Fail to delete user"
 msgstr "删除用户失败"
 
-#: inc/admin/user_mgmnt.php:99
+#: inc/admin/user_mgmnt.php:99 inc/admin/user_mgmnt.php:87
 msgid "User has been deleted"
 msgstr "用户已被删除"
 
-#: inc/admin/user_mgmnt.php:104
+#: inc/admin/user_mgmnt.php:104 inc/admin/user_mgmnt.php:91
 msgid "User is immune to deletion"
 msgstr "用户删除无效"
 
-#: inc/admin/user_mgmnt.php:108
+#: inc/admin/user_mgmnt.php:108 inc/admin/user_mgmnt.php:93
 msgid "Currently logged in user is immune to deletion"
 msgstr "目前在用户登陆的免疫缺失"
 
 #: inc/admin/user_mgmnt.php:151 inc/admin/user_mgmnt.php:259
-#: inc/admin/user_mgmnt.php:152
+#: inc/admin/user_mgmnt.php:152 inc/admin/user_mgmnt.php:140
+#: inc/admin/user_mgmnt.php:238
 msgid "Full name"
 msgstr "全名"
 
@@ -524,6 +563,9 @@ msgstr "全名"
 #: inc/user/user_pref.php:114 inc/user/user_pref.php:124
 #: inc/user/user_pref.php:115 inc/user/user_pref.php:125
 #: inc/admin/user_mgmnt.php:158 inc/admin/user_mgmnt.php:161
+#: inc/admin/user_mgmnt.php:146 inc/admin/user_mgmnt.php:149
+#: inc/admin/user_mgmnt.php:244 inc/admin/user_mgmnt.php:247
+#: inc/user/user_pref.php:121 inc/user/user_pref.php:131
 msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "最多16个数字或11个字母"
 
@@ -533,6 +575,8 @@ msgstr "最多16个数字或11个字母"
 #: inc/user/send_sms.php:228 inc/user/user_pref.php:124
 #: inc/user/user_pref.php:125 inc/admin/user_mgmnt.php:161
 #: inc/user/send_sms.php:72 inc/user/send_sms.php:218
+#: inc/admin/user_mgmnt.php:149 inc/admin/user_mgmnt.php:247
+#: inc/user/user_pref.php:131
 msgid "SMS sender ID"
 msgstr "短信发件人"
 
@@ -542,85 +586,99 @@ msgstr "短信发件人"
 #: inc/user/send_sms.php:229 inc/user/user_pref.php:125
 #: inc/user/user_pref.php:126 inc/admin/user_mgmnt.php:164
 #: inc/user/send_sms.php:73 inc/user/send_sms.php:219
+#: inc/admin/user_mgmnt.php:152 inc/admin/user_mgmnt.php:250
+#: inc/user/user_pref.php:132
 msgid "SMS footer"
 msgstr "短信页脚"
 
 #: inc/admin/user_mgmnt.php:163 inc/admin/user_mgmnt.php:271
 #: inc/user/user_pref.php:108 inc/user/user_pref.php:129
 #: inc/user/user_pref.php:125 inc/user/user_pref.php:126
-#: inc/admin/user_mgmnt.php:164
+#: inc/admin/user_mgmnt.php:164 inc/admin/user_mgmnt.php:152
+#: inc/admin/user_mgmnt.php:250 inc/user/user_pref.php:132
 msgid "Max. 30 alphanumeric characters"
 msgstr "最多30个字母"
 
 #: inc/admin/user_mgmnt.php:166 inc/admin/user_mgmnt.php:274
 #: inc/user/user_pref.php:106 inc/user/user_pref.php:127
 #: inc/user/user_pref.php:123 inc/user/user_pref.php:124
-#: inc/admin/user_mgmnt.php:167
+#: inc/admin/user_mgmnt.php:167 inc/admin/user_mgmnt.php:155
+#: inc/admin/user_mgmnt.php:253 inc/user/user_pref.php:130
 #, fuzzy
 msgid "Timezone"
 msgstr "时间"
 
 #: inc/admin/user_mgmnt.php:169 inc/admin/user_mgmnt.php:170
+#: inc/admin/user_mgmnt.php:158
 msgid "Fill to change password for username"
 msgstr "填写更改用户名密码"
 
 #: inc/admin/user_mgmnt.php:175 inc/admin/user_mgmnt.php:283
-#: inc/admin/user_mgmnt.php:176
+#: inc/admin/user_mgmnt.php:176 inc/admin/user_mgmnt.php:164
+#: inc/admin/user_mgmnt.php:262
 msgid "User level"
 msgstr "用户等级"
 
 #: inc/admin/user_mgmnt.php:178 inc/admin/user_mgmnt.php:286
 #: inc/user/user_pref.php:103 inc/user/user_pref.php:124
 #: inc/user/user_pref.php:120 inc/user/user_pref.php:121
-#: inc/admin/user_mgmnt.php:179
+#: inc/admin/user_mgmnt.php:179 inc/admin/user_mgmnt.php:167
+#: inc/admin/user_mgmnt.php:265 inc/user/user_pref.php:127
 msgid "Active language"
 msgstr "活跃的语言"
 
 #: inc/admin/user_mgmnt.php:199 inc/user/user_pref.php:144
 #: inc/user/user_pref.php:171 inc/user/user_pref.php:162
-#: inc/user/user_pref.php:163
+#: inc/user/user_pref.php:163 inc/admin/user_mgmnt.php:186
+#: inc/user/user_pref.php:168
 msgid "No changes made"
 msgstr "没有作出改变"
 
 #: inc/admin/user_mgmnt.php:206 inc/user/user_pref.php:152
 #: inc/user/user_pref.php:179 inc/user/user_pref.php:170
-#: inc/user/user_pref.php:171
+#: inc/user/user_pref.php:171 inc/admin/user_mgmnt.php:194
+#: inc/user/user_pref.php:177
 msgid "Email is already in use by other username"
 msgstr "电子邮件已被其他用户使用"
 
 #: inc/admin/user_mgmnt.php:206 inc/user/user_pref.php:152
 #: inc/user/user_pref.php:179 inc/user/user_pref.php:170
-#: inc/user/user_pref.php:171
+#: inc/user/user_pref.php:171 lib/fn_auth.php:230 inc/admin/user_mgmnt.php:194
+#: inc/user/user_pref.php:177
 msgid "email"
 msgstr "电子邮件"
 
 #: inc/admin/user_mgmnt.php:219 inc/user/user_pref.php:178
 #: inc/user/user_pref.php:205 inc/user/user_pref.php:195
-#: inc/user/user_pref.php:196
+#: inc/user/user_pref.php:196 inc/admin/user_mgmnt.php:203
+#: inc/user/user_pref.php:206
 msgid "Preferences has been saved"
 msgstr "偏好已被保存"
 
 #: inc/admin/user_mgmnt.php:223 inc/user/user_pref.php:183
 #: inc/user/user_pref.php:210 inc/user/user_pref.php:200
-#: inc/user/user_pref.php:201
+#: inc/user/user_pref.php:201 inc/admin/user_mgmnt.php:205
+#: inc/user/user_pref.php:209
 msgid "Fail to save preferences"
 msgstr "保存偏好失败"
 
 #: inc/admin/user_mgmnt.php:229 inc/user/user_pref.php:189
 #: inc/user/user_pref.php:216 inc/user/user_pref.php:206
-#: inc/user/user_pref.php:207
+#: inc/user/user_pref.php:207 inc/admin/user_mgmnt.php:209
+#: inc/user/user_pref.php:213
 msgid "You must fill all field"
 msgstr "你必须添满全部空白"
 
 #: inc/admin/user_mgmnt.php:248 lib/lib_init1.php:21 lib/lib_init1.php:24
+#: inc/admin/user_mgmnt.php:228
 msgid "Normal User"
 msgstr "标准用户"
 
-#: inc/admin/user_mgmnt.php:290
+#: inc/admin/user_mgmnt.php:290 inc/admin/user_mgmnt.php:269
 msgid "Add"
 msgstr "添加"
 
-#: inc/admin/user_mgmnt.php:330
+#: inc/admin/user_mgmnt.php:330 inc/admin/user_mgmnt.php:303
 msgid "You must fill all fields"
 msgstr "你必须填写全部空白"
 
@@ -714,6 +772,7 @@ msgstr "为设置"
 #: inc/user/user_pref.php:65 inc/user/user_pref.php:86
 #: inc/user/send_sms.php:204 inc/user/user_pref.php:82
 #: inc/user/send_sms.php:48 inc/user/send_sms.php:194
+#: inc/user/user_pref.php:89
 msgid "Please select"
 msgstr "请选择"
 
@@ -827,41 +886,49 @@ msgstr "号码"
 
 #: inc/user/user_pref.php:89 inc/user/user_pref.php:110
 #: inc/user/user_pref.php:106 inc/user/user_pref.php:107
+#: inc/user/user_pref.php:113
 msgid "Login information"
 msgstr "登陆信息"
 
 #: inc/user/user_pref.php:92 inc/user/user_pref.php:113
 #: inc/user/user_pref.php:109 inc/user/user_pref.php:110
+#: inc/user/user_pref.php:116
 msgid "Re-Type Password"
 msgstr "再次输入密码"
 
 #: inc/user/user_pref.php:94 inc/user/user_pref.php:115
 #: inc/user/user_pref.php:111 inc/user/user_pref.php:112
+#: inc/user/user_pref.php:118
 msgid "Personal information"
 msgstr "个人信息"
 
 #: inc/user/user_pref.php:98 inc/user/user_pref.php:119
 #: inc/user/user_pref.php:115 inc/user/user_pref.php:116
+#: inc/user/user_pref.php:122
 msgid "Address"
 msgstr "地址"
 
 #: inc/user/user_pref.php:99 inc/user/user_pref.php:120
 #: inc/user/user_pref.php:116 inc/user/user_pref.php:117
+#: inc/user/user_pref.php:123
 msgid "City"
 msgstr "城市"
 
 #: inc/user/user_pref.php:100 inc/user/user_pref.php:121
 #: inc/user/user_pref.php:117 inc/user/user_pref.php:118
+#: inc/user/user_pref.php:124
 msgid "State or Province"
 msgstr "州或省"
 
 #: inc/user/user_pref.php:101 inc/user/user_pref.php:122
 #: inc/user/user_pref.php:118 inc/user/user_pref.php:119
+#: inc/user/user_pref.php:125
 msgid "Country"
 msgstr "国家"
 
 #: inc/user/user_pref.php:102 inc/user/user_pref.php:123
 #: inc/user/user_pref.php:119 inc/user/user_pref.php:120
+#: inc/user/user_pref.php:126
 msgid "Zipcode"
 msgstr "邮政编码"
 
@@ -871,55 +938,101 @@ msgstr "应用信息"
 
 #: inc/user/user_pref.php:110 inc/user/user_pref.php:131
 #: inc/user/user_pref.php:127 inc/user/user_pref.php:128
+#: inc/user/user_pref.php:134
 msgid "Forward PV to inbox"
 msgstr ""
 
 #: inc/user/user_pref.php:111 inc/user/user_pref.php:132
 #: inc/user/user_pref.php:128 inc/user/user_pref.php:129
+#: inc/user/user_pref.php:135
 #, fuzzy
 msgid "Forward PV to email"
 msgstr "转发邮件页脚"
 
 #: inc/user/user_pref.php:112 inc/user/user_pref.php:133
 #: inc/user/user_pref.php:129 inc/user/user_pref.php:130
+#: inc/user/user_pref.php:136
 msgid "Forward PV to mobile"
 msgstr ""
 
 #: inc/user/user_pref.php:174 inc/user/user_pref.php:201
 #: inc/user/user_pref.php:191 inc/user/user_pref.php:192
+#: inc/user/user_pref.php:204
 msgid "Preferences has been saved and password updated"
 msgstr "偏好已被保存且密码已更新"
 
 #: inc/user/user_pref.php:126 inc/user/user_pref.php:122
-#: inc/user/user_pref.php:123
+#: inc/user/user_pref.php:123 inc/user/user_pref.php:129
 #, fuzzy
 msgid "Application options"
 msgstr "应用信息"
 
 #: inc/user/user_pref.php:134 inc/user/user_pref.php:130
-#: inc/user/user_pref.php:131
+#: inc/user/user_pref.php:131 inc/user/user_pref.php:137
 msgid "Auto replace prefix 0"
 msgstr ""
 
 #: inc/user/user_pref.php:134 inc/user/user_pref.php:130
-#: inc/user/user_pref.php:131
+#: inc/user/user_pref.php:131 inc/user/user_pref.php:137
 msgid "Prefix or country code"
 msgstr ""
 
 #: inc/user/user_pref.php:135 inc/user/user_pref.php:131
-#: inc/user/user_pref.php:132
+#: inc/user/user_pref.php:132 inc/user/user_pref.php:138
 msgid "Auto remove plus sign"
 msgstr ""
 
 #: inc/user/user_pref.php:136 inc/user/user_pref.php:132
-#: inc/user/user_pref.php:133
+#: inc/user/user_pref.php:133 inc/user/user_pref.php:139
 msgid "Always add plus sign"
 msgstr ""
 
-#: inc/user/user_pref.php:95
+#: inc/user/user_pref.php:95 inc/user/user_pref.php:100
 #, fuzzy
 msgid "Default"
 msgstr "网关号"
+
+#: lib/lib_init1.php:63
+msgid "About"
+msgstr ""
+
+#: lib/fn_auth.php:240 inc/user/user_pref.php:185
+#, fuzzy
+msgid "mobile"
+msgstr "手机"
+
+#: inc/user/page_welcome.php:6
+msgid "Welcome to playSMS"
+msgstr ""
+
+#: inc/user/page_welcome.php:8
+msgid "About playSMS"
+msgstr ""
+
+#: inc/user/page_welcome.php:9
+msgid "Changelog"
+msgstr ""
+
+#: inc/user/page_welcome.php:10
+msgid "Installation Guide"
+msgstr ""
+
+#: inc/user/page_welcome.php:11
+msgid "F.A.Q"
+msgstr ""
+
+#: inc/user/page_welcome.php:12
+msgid "License"
+msgstr ""
+
+#: inc/user/page_welcome.php:13
+msgid "HTTP API"
+msgstr ""
+
+#: inc/user/user_pref.php:185
+#, fuzzy
+msgid "Mobile is already in use by other username"
+msgstr "电子邮件已被其他用户使用"
 
 #~ msgid "Outbox"
 #~ msgstr "发件箱"

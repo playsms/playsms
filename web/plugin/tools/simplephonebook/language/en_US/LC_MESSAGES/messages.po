@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-01 08:26+0700\n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
@@ -23,11 +23,13 @@ msgstr ""
 #: plugin/tools/simplephonebook/simplephonebook.php:43
 #: plugin/tools/simplephonebook/simplephonebook.php:117
 #: plugin/tools/simplephonebook/phonebook_exim.php:60
+#: plugin/tools/simplephonebook/phonebook_exim.php:57
 msgid "Name"
 msgstr ""
 
 #: plugin/tools/simplephonebook/phone_add.php:30
 #: plugin/tools/simplephonebook/phonebook_exim.php:61
+#: plugin/tools/simplephonebook/phonebook_exim.php:58
 msgid "Mobile"
 msgstr ""
 
@@ -39,6 +41,7 @@ msgstr ""
 #: plugin/tools/simplephonebook/simplephonebook.php:45
 #: plugin/tools/simplephonebook/simplephonebook.php:119
 #: plugin/tools/simplephonebook/phonebook_exim.php:62
+#: plugin/tools/simplephonebook/phonebook_exim.php:59
 msgid "Email"
 msgstr ""
 
@@ -84,6 +87,7 @@ msgstr ""
 #: plugin/tools/simplephonebook/dir_create.php:20
 #: plugin/tools/simplephonebook/phonebook_exim.php:36
 #: plugin/tools/simplephonebook/dir_edit.php:22
+#: plugin/tools/simplephonebook/phonebook_exim.php:34
 msgid "Group code"
 msgstr ""
 
@@ -135,6 +139,8 @@ msgstr ""
 #: plugin/tools/simplephonebook/config.php:5
 #: plugin/tools/simplephonebook/phonebook_exim.php:42
 #: plugin/tools/simplephonebook/phonebook_exim.php:109
+#: plugin/tools/simplephonebook/phonebook_exim.php:40
+#: plugin/tools/simplephonebook/phonebook_exim.php:97
 msgid "Import"
 msgstr ""
 
@@ -193,46 +199,57 @@ msgid "Export all"
 msgstr ""
 
 #: plugin/tools/simplephonebook/phonebook_exim.php:36
+#: plugin/tools/simplephonebook/phonebook_exim.php:34
 msgid "Import phonebook"
 msgstr ""
 
 #: plugin/tools/simplephonebook/phonebook_exim.php:39
+#: plugin/tools/simplephonebook/phonebook_exim.php:37
 msgid "Please select CSV file for phonebook entries"
 msgstr ""
 
 #: plugin/tools/simplephonebook/phonebook_exim.php:39
+#: plugin/tools/simplephonebook/phonebook_exim.php:37
 msgid "format : Name,Mobile,Email"
 msgstr ""
 
 #: plugin/tools/simplephonebook/phonebook_exim.php:41
+#: plugin/tools/simplephonebook/phonebook_exim.php:39
 msgid "Same item(s) will be replaced"
 msgstr ""
 
 #: plugin/tools/simplephonebook/phonebook_exim.php:55
+#: plugin/tools/simplephonebook/phonebook_exim.php:52
 msgid "Import confirmation"
 msgstr ""
 
 #: plugin/tools/simplephonebook/phonebook_exim.php:98
+#: plugin/tools/simplephonebook/phonebook_exim.php:88
 msgid "Replace all entries in database"
 msgstr ""
 
 #: plugin/tools/simplephonebook/phonebook_exim.php:102
+#: plugin/tools/simplephonebook/phonebook_exim.php:90
 msgid "Add all entries"
 msgstr ""
 
 #: plugin/tools/simplephonebook/phonebook_exim.php:106
+#: plugin/tools/simplephonebook/phonebook_exim.php:94
 msgid "Import above phonebook entries ?"
 msgstr ""
 
 #: plugin/tools/simplephonebook/phonebook_exim.php:107
+#: plugin/tools/simplephonebook/phonebook_exim.php:95
 msgid "Status"
 msgstr ""
 
 #: plugin/tools/simplephonebook/phonebook_exim.php:113
+#: plugin/tools/simplephonebook/phonebook_exim.php:101
 msgid "Back"
 msgstr ""
 
 #: plugin/tools/simplephonebook/phonebook_exim.php:120
+#: plugin/tools/simplephonebook/phonebook_exim.php:105
 msgid "Fail to upload CSV file for phonebook"
 msgstr ""
 

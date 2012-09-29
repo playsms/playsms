@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-26 12:58+0200\n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,30 +26,36 @@ msgid "Logout"
 msgstr ""
 
 #: plugin/themes/play/page_register.php:13
+#: plugin/themes/play/page_register.php:13
 msgid "Name"
 msgstr ""
 
 #: plugin/themes/play/page_register.php:19
 #: plugin/themes/play/page_login.php:15 plugin/themes/play/page_forgot.php:13
+#: plugin/themes/play/page_register.php:19
 msgid "Username"
 msgstr ""
 
+#: plugin/themes/play/page_register.php:25
 #: plugin/themes/play/page_register.php:25
 msgid "Mobile"
 msgstr ""
 
 #: plugin/themes/play/page_register.php:31
 #: plugin/themes/play/page_forgot.php:19
+#: plugin/themes/play/page_register.php:31
 msgid "Email"
 msgstr ""
 
 #: plugin/themes/play/page_register.php:43
 #: plugin/themes/play/page_forgot.php:31
+#: plugin/themes/play/page_register.php:43
 msgid "Login"
 msgstr ""
 
 #: plugin/themes/play/page_register.php:47
 #: plugin/themes/play/page_login.php:41
+#: plugin/themes/play/page_register.php:47
 msgid "Forgot password"
 msgstr ""
 

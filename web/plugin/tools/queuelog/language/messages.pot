@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-01 12:12+0700\n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,25 +27,26 @@ msgid "Log file"
 msgstr ""
 
 #: plugin/tools/queuelog/config.php:4 plugin/tools/queuelog/queuelog.php:16
+#: plugin/tools/queuelog/queuelog.php:16
 msgid "View SMS queue"
 msgstr ""
 
-#: plugin/tools/queuelog/queuelog.php:22
+#: plugin/tools/queuelog/queuelog.php:22 plugin/tools/queuelog/queuelog.php:22
 msgid "Queue Code"
 msgstr ""
 
-#: plugin/tools/queuelog/queuelog.php:23
+#: plugin/tools/queuelog/queuelog.php:23 plugin/tools/queuelog/queuelog.php:23
 msgid "Date/Time"
 msgstr ""
 
-#: plugin/tools/queuelog/queuelog.php:27
+#: plugin/tools/queuelog/queuelog.php:27 plugin/tools/queuelog/queuelog.php:27
 msgid "Username"
 msgstr ""
 
-#: plugin/tools/queuelog/queuelog.php:31
+#: plugin/tools/queuelog/queuelog.php:31 plugin/tools/queuelog/queuelog.php:31
 msgid "Group"
 msgstr ""
 
-#: plugin/tools/queuelog/queuelog.php:32
+#: plugin/tools/queuelog/queuelog.php:32 plugin/tools/queuelog/queuelog.php:32
 msgid "Message"
 msgstr ""
