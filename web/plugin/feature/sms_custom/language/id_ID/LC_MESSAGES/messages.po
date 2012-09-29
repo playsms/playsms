@@ -81,7 +81,7 @@ msgstr "kata kunci"
 #: plugin/feature/sms_custom/sms_custom.php:81
 #: plugin/feature/sms_custom/sms_custom.php:80
 msgid "Edit SMS custom"
-msgstr "Ubah SMS kustom"
+msgstr "Sunting SMS kustom"
 
 #: plugin/feature/sms_custom/sms_custom.php:78
 #: plugin/feature/sms_custom/sms_custom.php:141
@@ -129,8 +129,7 @@ msgstr "akan digantikan oleh kata kunci SMS kustom"
 #: plugin/feature/sms_custom/sms_custom.php:147
 #: plugin/feature/sms_custom/sms_custom.php:90
 msgid "will be replaced by custom parameter passed to server from SMS"
-msgstr ""
-"akan diganti oleh parameter penyesuaian yang dikirim ke server dari SMS"
+msgstr "akan diganti oleh parameter penyesuaian yang dikirim ke server dari SMS"
 
 #: plugin/feature/sms_custom/sms_custom.php:84
 #: plugin/feature/sms_custom/sms_custom.php:147
@@ -227,9 +226,9 @@ msgstr "URL SMS kustom"
 #: plugin/feature/sms_custom/sms_custom.php:150
 #: plugin/feature/sms_custom/sms_custom.php:149
 msgid "Make return as reply"
-msgstr ""
+msgstr "Membuat kembali menjadi balasan"
 
 #: plugin/feature/sms_custom/sms_custom.php:38
 #: plugin/feature/sms_custom/sms_custom.php:37
 msgid "URL"
-msgstr ""
+msgstr "URL"

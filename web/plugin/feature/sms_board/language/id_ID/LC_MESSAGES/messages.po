@@ -72,7 +72,7 @@ msgstr "Simpan"
 
 #: plugin/feature/sms_board/sms_board.php:125
 msgid "SMS board has been saved"
-msgstr "layanan papan SMS telah disimpan"
+msgstr "Layanan papan SMS telah disimpan"
 
 #: plugin/feature/sms_board/sms_board.php:130
 #: plugin/feature/sms_board/sms_board.php:215
@@ -85,8 +85,7 @@ msgstr "Semua pesan di papan SMS telah dihapus"
 
 #: plugin/feature/sms_board/sms_board.php:164
 msgid "Leave them empty if you dont know what to fill in these boxes below"
-msgstr ""
-"Kosongkan kotak-kotak di bawah ini bila tidak tahu apa yang harus diisi"
+msgstr "Kosongkan kotak-kotak di bawah ini bila tidak tahu apa yang harus diisi"
 
 #: plugin/feature/sms_board/sms_board.php:176
 msgid "Add"
@@ -94,7 +93,7 @@ msgstr "Tambah"
 
 #: plugin/feature/sms_board/sms_board.php:201
 msgid "SMS board has been added"
-msgstr "layanan papan SMS telah ditambahkan"
+msgstr "Layanan papan SMS telah ditambahkan"
 
 #: plugin/feature/sms_board/sms_board.php:205
 msgid "Fail to add SMS board"
@@ -102,7 +101,7 @@ msgstr "Gagal menambah layanan papan SMS"
 
 #: plugin/feature/sms_board/sms_board.php:210
 msgid "SMS keyword already exists, reserved or use by other feature"
-msgstr "kata kunci SMS sudah digunakan atau dipesan oleh fitur lain"
+msgstr "Kata kunci SMS sudah digunakan atau dipesan oleh fitur lain"
 
 #: plugin/feature/sms_board/fn.php:84
 msgid "from"
@@ -122,7 +121,7 @@ msgstr "Pengirim"
 
 #: plugin/feature/sms_board/fn.php:88
 msgid "Receiver"
-msgstr ""
+msgstr "Penerima"
 
 #: plugin/feature/sms_board/fn.php:90
 msgid "Message"

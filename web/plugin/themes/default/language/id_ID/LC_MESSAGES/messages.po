@@ -36,7 +36,7 @@ msgstr ""
 #: plugin/themes/default/page_register.php:26
 #: plugin/themes/default/page_register.php:32
 msgid "Name"
-msgstr ""
+msgstr "Nama"
 
 #: plugin/themes/default/page_register.php:30
 #: plugin/themes/default/page_login.php:25
@@ -50,7 +50,7 @@ msgstr "Nama pengguna"
 #: plugin/themes/default/page_register.php:35
 #: plugin/themes/default/page_register.php:41
 msgid "Mobile"
-msgstr ""
+msgstr "Ponsel"
 
 #: plugin/themes/default/page_register.php:39
 #: plugin/themes/default/page_forgot.php:31
@@ -64,7 +64,7 @@ msgstr ""
 #: plugin/themes/default/page_login.php:48
 #: plugin/themes/default/page_register.php:51
 msgid "Register an account"
-msgstr ""
+msgstr "Daftarkan akun"
 
 #: plugin/themes/default/page_login.php:30
 #: plugin/themes/default/page_login.php:35
@@ -74,17 +74,17 @@ msgstr "Kata sandi"
 #: plugin/themes/default/page_login.php:36
 #: plugin/themes/default/page_login.php:41
 msgid "Login"
-msgstr ""
+msgstr "Masuk"
 
 #: plugin/themes/default/page_login.php:50
 #: plugin/themes/default/page_login.php:55
 #, fuzzy
 msgid "Forgot password"
-msgstr "Kata sandi"
+msgstr "Lupa Kata sandi"
 
 #: plugin/themes/default/header.php:36
 msgid "Logged in"
-msgstr ""
+msgstr "Telah masuk"
 
 #: plugin/themes/default/header.php:37
 msgid "Status"
@@ -93,12 +93,12 @@ msgstr ""
 #: plugin/themes/default/page_forgot.php:37
 #: plugin/themes/default/page_forgot.php:43
 msgid "Recover password"
-msgstr ""
+msgstr "Pulihkan kata sandi"
 
 #: plugin/themes/default/fn.php:38
 msgid "Home"
-msgstr ""
+msgstr "Beranda"
 
 #: plugin/themes/default/fn.php:40
 msgid "Logout"
-msgstr ""
+msgstr "Keluar"

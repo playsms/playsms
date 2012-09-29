@@ -7,7 +7,7 @@ msgstr ""
 
 #: lib/fn_themes.php:37 lib/lib_init1.php:43 lib/lib_init1.php:48
 msgid "Home"
-msgstr "Awal"
+msgstr "Beranda"
 
 #: lib/fn_themes.php:39
 msgid "Logout"
@@ -37,7 +37,7 @@ msgstr "Kata sandi atau nama pengguna tidak valid"
 #: lib/fn_auth.php:205 lib/fn_auth.php:178
 #, fuzzy
 msgid "Password recovery"
-msgstr "Kata sandi"
+msgstr "Pemulihan kata sandi"
 
 #: lib/fn_auth.php:208 lib/fn_auth.php:265 inc/admin/user_mgmnt.php:20
 #: inc/admin/user_mgmnt.php:54 inc/admin/user_mgmnt.php:148
@@ -64,7 +64,7 @@ msgstr "Kata sandi"
 #: lib/fn_auth.php:212 lib/fn_auth.php:271 lib/fn_auth.php:185
 #: lib/fn_auth.php:244 lib/fn_auth.php:270
 msgid "Password has been sent to your email"
-msgstr ""
+msgstr "Password telah dikirim ke email Anda"
 
 #: lib/fn_auth.php:214 lib/fn_auth.php:273 lib/fn_auth.php:187
 #: lib/fn_auth.php:246 lib/fn_auth.php:272
@@ -74,11 +74,11 @@ msgstr "Gagal mengirim SMS"
 
 #: lib/fn_auth.php:221 lib/fn_auth.php:194
 msgid "Recover password disabled"
-msgstr ""
+msgstr "Pemulihan kata sandi dinonaktifkan"
 
 #: lib/fn_auth.php:240 lib/fn_auth.php:213
 msgid "Fail to register an account"
-msgstr ""
+msgstr "Gagal untuk mendaftarkan akun"
 
 #: lib/fn_auth.php:245 inc/admin/user_mgmnt.php:313 lib/fn_auth.php:218
 #: lib/fn_auth.php:221 lib/fn_auth.php:230 lib/fn_auth.php:240
@@ -101,7 +101,7 @@ msgstr "nama pengguna"
 
 #: lib/fn_auth.php:262 lib/fn_auth.php:235 lib/fn_auth.php:261
 msgid "New account registration"
-msgstr ""
+msgstr "Pendaftaran akun baru"
 
 #: lib/fn_auth.php:268 inc/admin/user_mgmnt.php:324 lib/fn_auth.php:241
 #: lib/fn_auth.php:267 inc/admin/user_mgmnt.php:299
@@ -110,11 +110,11 @@ msgstr "Pengguna telah ditambah"
 
 #: lib/fn_auth.php:278 lib/fn_auth.php:251 lib/fn_auth.php:277
 msgid "Public registration disabled"
-msgstr ""
+msgstr "Pendaftaran umum dinonaktifkan"
 
 #: lib/lib_init1.php:33 lib/lib_init1.php:38
 msgid "Edit"
-msgstr "Ubah"
+msgstr "Sunting"
 
 #: lib/lib_init1.php:34 inc/user/sms_template.php:185 lib/lib_init1.php:39
 msgid "Delete"
@@ -147,7 +147,7 @@ msgstr "Buku telepon"
 
 #: lib/lib_init1.php:44 lib/lib_init1.php:49
 msgid "My Account"
-msgstr ""
+msgstr "Akun saya"
 
 #: lib/lib_init1.php:45 lib/lib_init1.php:50
 #, fuzzy
@@ -161,7 +161,7 @@ msgstr "Fitur"
 
 #: lib/lib_init1.php:47 lib/lib_init1.php:52
 msgid "Tools"
-msgstr ""
+msgstr "Alat"
 
 #: lib/lib_init1.php:48 inc/admin/all_outgoing.php:35 lib/lib_init1.php:53
 #, fuzzy
@@ -313,7 +313,7 @@ msgstr "SMS masuk telah dihapus"
 #: inc/user/user_pref.php:61 inc/user/user_pref.php:72
 #: inc/user/user_pref.php:83
 msgid "yes"
-msgstr ""
+msgstr "ya"
 
 #: inc/admin/main_config.php:15 inc/admin/main_config.php:20
 #: inc/user/user_pref.php:42 inc/user/user_pref.php:51
@@ -326,7 +326,7 @@ msgstr ""
 #: inc/user/user_pref.php:62 inc/user/user_pref.php:73
 #: inc/user/user_pref.php:84
 msgid "no"
-msgstr ""
+msgstr "tidak"
 
 #: inc/admin/main_config.php:49
 msgid "Website title"
@@ -347,7 +347,7 @@ msgstr "ID default pengirim"
 #: inc/admin/main_config.php:61
 #, fuzzy
 msgid "Default timezone"
-msgstr "Timezone default"
+msgstr "Zona waktu bawaan"
 
 #: inc/admin/main_config.php:61 inc/admin/user_mgmnt.php:166
 #: inc/admin/user_mgmnt.php:274 inc/user/user_pref.php:106
@@ -356,7 +356,7 @@ msgstr "Timezone default"
 #: inc/admin/user_mgmnt.php:155 inc/admin/user_mgmnt.php:253
 #: inc/user/user_pref.php:130
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Misalnya: +0700 untuk zona waktu Jakarta/Bangkok"
 
 #: inc/admin/main_config.php:64
 msgid "Default SMS rate"
@@ -364,20 +364,20 @@ msgstr "Tarif standar SMS"
 
 #: inc/admin/main_config.php:67
 msgid "Maximum SMS count"
-msgstr ""
+msgstr "Jumlah SMS maksimal"
 
 #: inc/admin/main_config.php:70
 msgid "Default credit for user"
-msgstr ""
+msgstr "Pulsa bawaan untuk pengguna"
 
 #: inc/admin/main_config.php:73
 msgid "Enable public registration"
-msgstr ""
+msgstr "Aktifkan pendaftaran umum"
 
 #: inc/admin/main_config.php:76
 #, fuzzy
 msgid "Enable forgot password"
-msgstr "Kata sandi atau nama pengguna tidak valid"
+msgstr "Aktifkan lupa kata sandi"
 
 #: inc/admin/main_config.php:79
 msgid "Active gateway module"
@@ -406,7 +406,7 @@ msgstr "Perubahan konfigurasi utama telah disimpan"
 
 #: inc/admin/all_outgoing.php:36 inc/user/user_outgoing.php:34
 msgid "To"
-msgstr ""
+msgstr "Ke"
 
 #: inc/admin/all_outgoing.php:38 inc/admin/user_mgmnt.php:16
 #: inc/admin/user_mgmnt.php:50 inc/admin/all_incoming.php:39
@@ -417,7 +417,7 @@ msgstr "Status"
 
 #: inc/admin/all_outgoing.php:39 inc/user/user_outgoing.php:37
 msgid "Group"
-msgstr "Kelompok"
+msgstr "Grup"
 
 #: inc/admin/all_outgoing.php:86 inc/user/user_outgoing.php:82
 #: inc/admin/all_outgoing.php:87 inc/user/user_outgoing.php:83
@@ -450,7 +450,7 @@ msgstr "Anda yakin ingin menghapus SMS keluar ?"
 #: inc/admin/all_outgoing.php:122 inc/user/send_sms.php:138
 #: inc/user/send_sms.php:140 inc/user/user_outgoing.php:116
 msgid "to"
-msgstr "Untuk"
+msgstr "ke"
 
 #: inc/admin/all_outgoing.php:121 inc/admin/all_outgoing.php:122
 msgid "row"
@@ -461,7 +461,7 @@ msgstr "baris"
 #: inc/admin/all_outgoing.php:158 inc/admin/all_outgoing.php:181
 #: inc/user/user_outgoing.php:152 inc/user/user_outgoing.php:175
 msgid "Selected outgoing SMS has been deleted"
-msgstr "SMS keluar telah dihapus"
+msgstr "SMS keluar yang dipilih telah dihapus"
 
 #: inc/admin/all_outgoing.php:161 inc/user/user_outgoing.php:155
 #: inc/admin/all_outgoing.php:162 inc/user/user_outgoing.php:156
@@ -589,7 +589,7 @@ msgstr "ID pengirim SMS"
 #: inc/admin/user_mgmnt.php:152 inc/admin/user_mgmnt.php:250
 #: inc/user/user_pref.php:132
 msgid "SMS footer"
-msgstr "footer SMS"
+msgstr "Catatan kaki SMS"
 
 #: inc/admin/user_mgmnt.php:163 inc/admin/user_mgmnt.php:271
 #: inc/user/user_pref.php:108 inc/user/user_pref.php:129
@@ -606,7 +606,7 @@ msgstr "Maks. 30 karakter alfanumerik"
 #: inc/admin/user_mgmnt.php:253 inc/user/user_pref.php:130
 #, fuzzy
 msgid "Timezone"
-msgstr "Waktu"
+msgstr "Zona waktu"
 
 #: inc/admin/user_mgmnt.php:169 inc/admin/user_mgmnt.php:170
 #: inc/admin/user_mgmnt.php:158
@@ -868,12 +868,12 @@ msgstr "Anda harus memilih penerima dan pesan anda tidak boleh kosong"
 #: inc/user/send_sms.php:230 inc/user/send_sms.php:231
 #: inc/user/send_sms.php:221
 msgid "Send to group"
-msgstr "Kirim ke kelompok"
+msgstr "Kirim ke grup"
 
 #: inc/user/send_sms.php:231 inc/user/send_sms.php:232
 #: inc/user/send_sms.php:222
 msgid "Group code"
-msgstr "Kode Kelompok"
+msgstr "Kode grup"
 
 #: inc/user/send_sms.php:290 inc/user/send_sms.php:292
 #: inc/user/send_sms.php:285
@@ -940,20 +940,20 @@ msgstr "Informasi aplikasi"
 #: inc/user/user_pref.php:127 inc/user/user_pref.php:128
 #: inc/user/user_pref.php:134
 msgid "Forward PV to inbox"
-msgstr ""
+msgstr "Teruskan PV ke inbox"
 
 #: inc/user/user_pref.php:111 inc/user/user_pref.php:132
 #: inc/user/user_pref.php:128 inc/user/user_pref.php:129
 #: inc/user/user_pref.php:135
 #, fuzzy
 msgid "Forward PV to email"
-msgstr "Footer email"
+msgstr "Teruskan PV ke email"
 
 #: inc/user/user_pref.php:112 inc/user/user_pref.php:133
 #: inc/user/user_pref.php:129 inc/user/user_pref.php:130
 #: inc/user/user_pref.php:136
 msgid "Forward PV to mobile"
-msgstr ""
+msgstr "Teruskan PV ke ponsel"
 
 #: inc/user/user_pref.php:174 inc/user/user_pref.php:201
 #: inc/user/user_pref.php:191 inc/user/user_pref.php:192
@@ -970,31 +970,31 @@ msgstr "Informasi aplikasi"
 #: inc/user/user_pref.php:134 inc/user/user_pref.php:130
 #: inc/user/user_pref.php:131 inc/user/user_pref.php:137
 msgid "Auto replace prefix 0"
-msgstr ""
+msgstr "otomatis mengganti kode awal dengan 0"
 
 #: inc/user/user_pref.php:134 inc/user/user_pref.php:130
 #: inc/user/user_pref.php:131 inc/user/user_pref.php:137
 msgid "Prefix or country code"
-msgstr ""
+msgstr "Kode awalan atau kode negara"
 
 #: inc/user/user_pref.php:135 inc/user/user_pref.php:131
 #: inc/user/user_pref.php:132 inc/user/user_pref.php:138
 msgid "Auto remove plus sign"
-msgstr ""
+msgstr "otomatis menghapus tanda plus"
 
 #: inc/user/user_pref.php:136 inc/user/user_pref.php:132
 #: inc/user/user_pref.php:133 inc/user/user_pref.php:139
 msgid "Always add plus sign"
-msgstr ""
+msgstr "Selalu menambahkan tanda plus"
 
 #: inc/user/user_pref.php:95 inc/user/user_pref.php:100
 #, fuzzy
 msgid "Default"
-msgstr "Timezone default"
+msgstr "Timezone bawaan"
 
 #: lib/lib_init1.php:63
 msgid "About"
-msgstr ""
+msgstr "Tentang"
 
 #: lib/fn_auth.php:240 inc/user/user_pref.php:185
 #, fuzzy
@@ -1003,19 +1003,19 @@ msgstr "Ponsel"
 
 #: inc/user/page_welcome.php:6
 msgid "Welcome to playSMS"
-msgstr ""
+msgstr "Selamat datang di playSMS"
 
 #: inc/user/page_welcome.php:8
 msgid "About playSMS"
-msgstr ""
+msgstr "Tentang playSMS"
 
 #: inc/user/page_welcome.php:9
 msgid "Changelog"
-msgstr ""
+msgstr "Catatan perubahan"
 
 #: inc/user/page_welcome.php:10
 msgid "Installation Guide"
-msgstr ""
+msgstr "Panduan Instalasi"
 
 #: inc/user/page_welcome.php:11
 msgid "F.A.Q"
@@ -1023,7 +1023,7 @@ msgstr ""
 
 #: inc/user/page_welcome.php:12
 msgid "License"
-msgstr ""
+msgstr "Lisensi"
 
 #: inc/user/page_welcome.php:13
 msgid "HTTP API"

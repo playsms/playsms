@@ -52,16 +52,15 @@ msgstr "Pengirim global"
 
 #: plugin/gateway/uplink/uplink.php:45
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Maks. 16 karakter numerik atau 11 alfanumerik. kosongkan untuk menonaktifkan"
+msgstr "Maks. 16 karakter numerik atau 11 alfanumerik. kosongkan untuk menonaktifkan"
 
 #: plugin/gateway/uplink/uplink.php:48
 msgid "Module timezone"
-msgstr ""
+msgstr "Modul zona waktu"
 
 #: plugin/gateway/uplink/uplink.php:48
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Misalnya: +0700 untuk zona waktu Jakarta/Bangkok"
 
 #: plugin/gateway/uplink/uplink.php:52
 msgid "Uplink incoming path"

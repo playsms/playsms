@@ -57,13 +57,12 @@ msgstr "Pengirim global"
 #: plugin/gateway/clickatell/clickatell.php:41
 #: plugin/gateway/clickatell/clickatell.php:44
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Maks. 16 numerik atau 11 karakter alfanumerik. kosongkan untuk menonaktifkan"
+msgstr "Maks. 16 numerik atau 11 karakter alfanumerik. kosongkan untuk menonaktifkan"
 
 #: plugin/gateway/clickatell/clickatell.php:44
 #: plugin/gateway/clickatell/clickatell.php:47
 msgid "Module timezone"
-msgstr ""
+msgstr "Zona waktu modul"
 
 #: plugin/gateway/clickatell/clickatell.php:44
 #: plugin/gateway/clickatell/clickatell.php:47

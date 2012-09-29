@@ -21,11 +21,11 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:99
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:187
 msgid "Group inbox"
-msgstr ""
+msgstr "Grup kotak masuk"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:21
 msgid "Catch-all list"
-msgstr ""
+msgstr "Daftar kotak tangkap semua"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:31
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:112
@@ -40,7 +40,7 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:113
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:201
 msgid "enabled"
-msgstr ""
+msgstr "Aktif"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:31
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:112
@@ -55,7 +55,7 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:113
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:201
 msgid "disabled"
-msgstr ""
+msgstr "Nonaktif"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:34
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:115
@@ -72,7 +72,7 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:116
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:204
 msgid "Receiver number"
-msgstr ""
+msgstr "Penerima nomor"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:35
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:116
@@ -89,7 +89,7 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:117
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:205
 msgid "Keywords"
-msgstr ""
+msgstr "Kata kunci"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:36
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:117
@@ -105,7 +105,7 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:118
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:206
 msgid "Description"
-msgstr ""
+msgstr "Deskripsi"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:37
 #: plugin/feature/inboxgroup/inboxgroup_members.php:37
@@ -116,7 +116,7 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup_members.php:120
 #: plugin/feature/inboxgroup/inboxgroup_members.php:208
 msgid "Members"
-msgstr ""
+msgstr "Anggota"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:38
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:119
@@ -131,7 +131,7 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:120
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:208
 msgid "Catch-all"
-msgstr ""
+msgstr "Kotak tangkap semua"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:39
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:120
@@ -146,7 +146,7 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:121
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:209
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:45
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:84
@@ -154,13 +154,13 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:85
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:103
 msgid "Add catch-all"
-msgstr ""
+msgstr "Tambah kotak tangkap semua"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:50
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:89
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:90
 msgid "Delete catch-all"
-msgstr ""
+msgstr "Hapus kotak tangkap semua"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:58
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:174
@@ -179,31 +179,31 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:177
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:265
 msgid "Username"
-msgstr ""
+msgstr "Nama pengguna"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:59
 #: plugin/feature/inboxgroup/inboxgroup_members.php:59
 msgid "Name"
-msgstr ""
+msgstr "Nama"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:60
 #: plugin/feature/inboxgroup/inboxgroup_members.php:60
 msgid "Mobile"
-msgstr ""
+msgstr "Ponsel"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:118
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:206
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:119
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:207
 msgid "catchall"
-msgstr ""
+msgstr "kotak tangkap semua"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:140
 #: plugin/feature/inboxgroup/inboxgroup_members.php:141
 #: plugin/feature/inboxgroup/inboxgroup_members.php:142
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:141
 msgid "All users"
-msgstr ""
+msgstr "Semua pengguna"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:146
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:148
@@ -220,29 +220,29 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:149
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:237
 msgid "All"
-msgstr ""
+msgstr "Semua"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:152
 #: plugin/feature/inboxgroup/inboxgroup_members.php:153
 #: plugin/feature/inboxgroup/inboxgroup_members.php:154
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:153
 msgid "Selected users"
-msgstr ""
+msgstr "Pengguna yang dipilih"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:157
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:158
 msgid "Press submit button to add selected users to catch-all list"
-msgstr ""
+msgstr "Tekan tombol kirim untuk menambahkan pengguna yang dipilih ke daftar kotak masuk"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:174
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:175
 msgid "Catch-all has been added"
-msgstr ""
+msgstr "Kotak tangkap semua telah ditambahkan"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:176
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:177
 msgid "Fail to add catch-all"
-msgstr ""
+msgstr "Gagal untuk menambahkan kotak tangkap semua"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:180
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:267
@@ -256,41 +256,41 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:181
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:269
 msgid "Receiver number does not exists"
-msgstr ""
+msgstr "Nomor penerima tidak ada"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:190
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:191
 msgid "Remove catch-all"
-msgstr ""
+msgstr "Hapus kotak tangkap semua"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:227
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:229
 msgid "Current catchall"
-msgstr ""
+msgstr "Kotak tangkap semua saat ini"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:239
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:241
 msgid "Selected catchall"
-msgstr ""
+msgstr "Kotak masuk tangkap semua"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:244
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:246
 msgid "Press submit button to remove selected catchall from catch-all list"
-msgstr ""
+msgstr "Tekan tombol kirim untuk menghapus kotak tangkap semua dari daftar kotak tangkap semua"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:261
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:263
 msgid "Catch-all has been deleted"
-msgstr ""
+msgstr "Kotak tangkap semua telah di hapus"
 
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:263
 #: plugin/feature/inboxgroup/inboxgroup_catchall.php:265
 msgid "Fail to delete catch-all"
-msgstr ""
+msgstr "Gagal menghapus kotak tangkap semua"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:21
 msgid "Member list"
-msgstr ""
+msgstr "Daftar anggota"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:45
 #: plugin/feature/inboxgroup/inboxgroup_members.php:85
@@ -298,82 +298,82 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup_members.php:86
 #: plugin/feature/inboxgroup/inboxgroup_members.php:104
 msgid "Add member"
-msgstr ""
+msgstr "Tambah anggota"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:50
 #: plugin/feature/inboxgroup/inboxgroup_members.php:90
 #: plugin/feature/inboxgroup/inboxgroup_members.php:91
 msgid "Delete member"
-msgstr ""
+msgstr "Hapus anggota"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:158
 #: plugin/feature/inboxgroup/inboxgroup_members.php:159
 msgid "Press submit button to add selected users to member list"
-msgstr ""
+msgstr "Tekan tombol kirim untuk menambahkan pengguna yang dipilih ke daftar anggota"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:175
 #: plugin/feature/inboxgroup/inboxgroup_members.php:176
 msgid "Member has been added"
-msgstr ""
+msgstr "Anggota telah ditambahkan"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:177
 #: plugin/feature/inboxgroup/inboxgroup_members.php:178
 msgid "Fail to add member"
-msgstr ""
+msgstr "Gagal untuk menambahkan anggota"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:191
 #: plugin/feature/inboxgroup/inboxgroup_members.php:192
 msgid "Remove member"
-msgstr ""
+msgstr "Hapus anggota"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:228
 #: plugin/feature/inboxgroup/inboxgroup_members.php:230
 msgid "Current members"
-msgstr ""
+msgstr "Anggota saat ini"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:240
 #: plugin/feature/inboxgroup/inboxgroup_members.php:242
 msgid "Selected members"
-msgstr ""
+msgstr "Anggota yang dipilih"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:245
 #: plugin/feature/inboxgroup/inboxgroup_members.php:247
 msgid "Press submit button to remove selected members from member list"
-msgstr ""
+msgstr "Tekan tombol kirim untuk menghapus anggota yang dipilih dari daftar anggota"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:262
 #: plugin/feature/inboxgroup/inboxgroup_members.php:264
 msgid "Member has been deleted"
-msgstr ""
+msgstr "Anggota telah dihapus"
 
 #: plugin/feature/inboxgroup/inboxgroup_members.php:264
 #: plugin/feature/inboxgroup/inboxgroup_members.php:266
 msgid "Fail to delete member"
-msgstr ""
+msgstr "Gagal untuk menghapus anggota"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:33
 #: plugin/feature/inboxgroup/inboxgroup.php:72
 #: plugin/feature/inboxgroup/inboxgroup.php:82
 msgid "Add receiver number"
-msgstr ""
+msgstr "Tambah nomor penerima"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:43
 msgid "Action"
-msgstr ""
+msgstr "Tindakan"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:87
 #: plugin/feature/inboxgroup/inboxgroup.php:130
 msgid "Seperate with comma for multiple items"
-msgstr ""
+msgstr "Pisahkan dengan koma untuk beberapa item"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:90
 #: plugin/feature/inboxgroup/inboxgroup.php:134
 msgid "Submit"
-msgstr ""
+msgstr "Kirim"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:101
 msgid "Receiver number has been added"
-msgstr ""
+msgstr "Nomor penerima telah ditambahkan"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:101
 #: plugin/feature/inboxgroup/inboxgroup.php:103
@@ -386,85 +386,85 @@ msgstr ""
 #: plugin/feature/inboxgroup/inboxgroup.php:233
 #: plugin/feature/inboxgroup/inboxgroup.php:235
 msgid "Number"
-msgstr ""
+msgstr "Nomor"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:103
 msgid "Fail to add receiver number"
-msgstr ""
+msgstr "Gagal untuk menambah nomor penerima"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:106
 #: plugin/feature/inboxgroup/inboxgroup.php:153
 msgid "You must fill all fields"
-msgstr ""
+msgstr "Anda harus mengisi semua kolom"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:116
 msgid "Edit receiver number"
-msgstr ""
+msgstr "Sunting nomor penerima"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:124
 msgid "yes"
-msgstr ""
+msgstr "ya"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:124
 msgid "no"
-msgstr ""
+msgstr "tidak"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:132
 msgid "Exclusive"
-msgstr ""
+msgstr "Eksklusif"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:132
 msgid "Restrict sender to regular members or catch-all members only"
-msgstr ""
+msgstr "Batasi pengirim ke anggota biasa atau hanya anggota kotak tangkap semua"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:148
 msgid "Receiver number has been edited"
-msgstr ""
+msgstr "Nomor penerima telah disunting"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:150
 msgid "Fail to edit receiver number"
-msgstr ""
+msgstr "Gagal mengedit nomor penerima"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:163
 msgid "Delete receiver number"
-msgstr ""
+msgstr "Menghapus nomor penerima"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:184
 msgid "Are you sure you want to delete this receiver number ?"
-msgstr ""
+msgstr "Apakah Anda yakin ingin menghapus nomor penerima ini?"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:187
 msgid "Yes"
-msgstr ""
+msgstr "Ya"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:190
 msgid "Cancel"
-msgstr ""
+msgstr "Batal"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:201
 msgid "Receiver number has been deleted"
-msgstr ""
+msgstr "Nomor penerima telah dihapus"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:203
 msgid "Fail to delete receiver number"
-msgstr ""
+msgstr "Gagal untuk menghapus nomor penerima"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:217
 msgid "Receiver number has been enabled"
-msgstr ""
+msgstr "Nomor penerima telah diaktifkan"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:219
 msgid "Fail to enable receiver number"
-msgstr ""
+msgstr "Gagal untuk mengaktifkan nomor penerima"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:233
 msgid "Receiver number has been disabled"
-msgstr ""
+msgstr "Nomor penerima telah dinonaktifkan"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:235
 msgid "Fail to disable receiver number"
-msgstr ""
+msgstr "Gagal untuk menonaktifkan nomor penerima"
 
 #: plugin/feature/inboxgroup/inboxgroup.php:86
 msgid "For example a short code"
-msgstr ""
+msgstr "Misalnya kode pendek"

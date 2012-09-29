@@ -7,7 +7,7 @@ msgstr ""
 
 #: plugin/themes/play/fn.php:55 plugin/themes/play/header.php:111
 msgid "Home"
-msgstr "Utama"
+msgstr "Beranda"
 
 #: plugin/themes/play/fn.php:57
 msgid "Logout"
@@ -24,7 +24,7 @@ msgstr "Username"
 
 #: plugin/themes/play/page_register.php:25
 msgid "Mobile"
-msgstr "Handphone"
+msgstr "Ponsel"
 
 #: plugin/themes/play/page_register.php:31
 #: plugin/themes/play/page_forgot.php:19
@@ -40,11 +40,11 @@ msgstr "Masuk"
 #: plugin/themes/play/page_login.php:41
 #, fuzzy
 msgid "Forgot password"
-msgstr "Password"
+msgstr "Lupa kata sandi"
 
 #: plugin/themes/play/page_login.php:21
 msgid "Password"
-msgstr "Kata kunci"
+msgstr "Kata sandi"
 
 #: plugin/themes/play/page_login.php:36 plugin/themes/play/page_forgot.php:35
 msgid "Register an account"
@@ -56,7 +56,7 @@ msgstr "Telah masuk"
 
 #: plugin/themes/play/page_forgot.php:25
 msgid "Recover password"
-msgstr "Dapatkan kata kunci"
+msgstr "Dapatkan kata sandi"
 
 #~ msgid "Welcome to playSMS"
 #~ msgstr "Welcome to playSMS"

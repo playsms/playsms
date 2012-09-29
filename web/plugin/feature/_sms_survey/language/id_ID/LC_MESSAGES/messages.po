@@ -16,11 +16,11 @@ msgstr ""
 #: plugin/feature/_sms_survey/sms_survey.php:317
 #: plugin/feature/_sms_survey/sms_survey_questions.php:20
 msgid "SMS Survey"
-msgstr ""
+msgstr "Memeriksa SMS"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:21
 msgid "Member list"
-msgstr ""
+msgstr "Daftar Anggota"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:31
 #: plugin/feature/_sms_survey/sms_survey_members.php:33
@@ -39,7 +39,7 @@ msgstr ""
 #: plugin/feature/_sms_survey/sms_survey_questions.php:44
 #: plugin/feature/_sms_survey/sms_survey_questions.php:46
 msgid "enabled"
-msgstr ""
+msgstr "Aktif"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:31
 #: plugin/feature/_sms_survey/sms_survey_members.php:112
@@ -50,7 +50,7 @@ msgstr ""
 #: plugin/feature/_sms_survey/sms_survey.php:330
 #: plugin/feature/_sms_survey/sms_survey_questions.php:44
 msgid "disabled"
-msgstr ""
+msgstr "Nonaktif"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:33
 #: plugin/feature/_sms_survey/sms_survey_members.php:114
@@ -61,7 +61,7 @@ msgstr ""
 #: plugin/feature/_sms_survey/sms_survey.php:332
 #: plugin/feature/_sms_survey/sms_survey_questions.php:46
 msgid "completed"
-msgstr ""
+msgstr "selesai"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:35
 #: plugin/feature/_sms_survey/sms_survey_members.php:116
@@ -72,7 +72,7 @@ msgstr ""
 #: plugin/feature/_sms_survey/sms_survey.php:334
 #: plugin/feature/_sms_survey/sms_survey_questions.php:48
 msgid "yes"
-msgstr ""
+msgstr "ya"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:35
 #: plugin/feature/_sms_survey/sms_survey_members.php:37
@@ -91,7 +91,7 @@ msgstr ""
 #: plugin/feature/_sms_survey/sms_survey_questions.php:48
 #: plugin/feature/_sms_survey/sms_survey_questions.php:50
 msgid "no"
-msgstr ""
+msgstr "tidak"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:37
 #: plugin/feature/_sms_survey/sms_survey_members.php:118
@@ -102,16 +102,16 @@ msgstr ""
 #: plugin/feature/_sms_survey/sms_survey.php:336
 #: plugin/feature/_sms_survey/sms_survey_questions.php:50
 msgid "restart"
-msgstr ""
+msgstr "restart"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:45
 #: plugin/feature/_sms_survey/sms_survey_members.php:102
 msgid "Add member"
-msgstr ""
+msgstr "Tambah pengguna"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:50
 msgid "Delete member"
-msgstr ""
+msgstr "Hapus pengguna"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:61
 #: plugin/feature/_sms_survey/sms_survey_members.php:122
@@ -119,7 +119,7 @@ msgstr ""
 #: plugin/feature/_sms_survey/sms_survey.php:38
 #: plugin/feature/_sms_survey/sms_survey_questions.php:121
 msgid "User"
-msgstr ""
+msgstr "Pemakai"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:62
 #: plugin/feature/_sms_survey/sms_survey_members.php:123
@@ -136,7 +136,7 @@ msgstr ""
 #: plugin/feature/_sms_survey/sms_survey.php:340
 #: plugin/feature/_sms_survey/sms_survey_questions.php:122
 msgid "Keyword"
-msgstr ""
+msgstr "Kata kunci"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:63
 #: plugin/feature/_sms_survey/sms_survey_members.php:124
@@ -149,7 +149,7 @@ msgstr ""
 #: plugin/feature/_sms_survey/sms_survey.php:341
 #: plugin/feature/_sms_survey/sms_survey_questions.php:123
 msgid "Title"
-msgstr ""
+msgstr "Judul"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:64
 #: plugin/feature/_sms_survey/sms_survey_members.php:125
@@ -160,7 +160,7 @@ msgstr ""
 #: plugin/feature/_sms_survey/sms_survey.php:342
 #: plugin/feature/_sms_survey/sms_survey_questions.php:124
 msgid "Members"
-msgstr ""
+msgstr "Anggota"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:65
 #: plugin/feature/_sms_survey/sms_survey_members.php:126
@@ -171,7 +171,7 @@ msgstr ""
 #: plugin/feature/_sms_survey/sms_survey.php:343
 #: plugin/feature/_sms_survey/sms_survey_questions.php:125
 msgid "Questions"
-msgstr ""
+msgstr "Pertanyaan"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:66
 #: plugin/feature/_sms_survey/sms_survey_members.php:127
@@ -182,7 +182,7 @@ msgstr ""
 #: plugin/feature/_sms_survey/sms_survey.php:344
 #: plugin/feature/_sms_survey/sms_survey_questions.php:126
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:67
 #: plugin/feature/_sms_survey/sms_survey_members.php:128
@@ -193,29 +193,29 @@ msgstr ""
 #: plugin/feature/_sms_survey/sms_survey.php:345
 #: plugin/feature/_sms_survey/sms_survey_questions.php:127
 msgid "Started"
-msgstr ""
+msgstr "Dimulai"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:74
 #: plugin/feature/_sms_survey/sms_survey_members.php:263
 #: plugin/feature/_sms_survey/sms_survey_members.php:265
 msgid "Mobile"
-msgstr ""
+msgstr "Ponsel"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:75
 msgid "Name"
-msgstr ""
+msgstr "Nama"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:136
 msgid "Please select CSV file"
-msgstr ""
+msgstr "Silakan pilih file CSV"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:136
 msgid "format : keyword, mobile, name"
-msgstr ""
+msgstr "Format: kata kunci, ponsel, nama"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:138
 msgid "Press submit button to add members from CSV file"
-msgstr ""
+msgstr "Tekan tombol kirim untuk menambahkan anggota dari file CSV"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:139
 #: plugin/feature/_sms_survey/sms_survey.php:108
@@ -224,18 +224,18 @@ msgstr ""
 #: plugin/feature/_sms_survey/sms_survey_questions.php:94
 #: plugin/feature/_sms_survey/sms_survey_questions.php:112
 msgid "Submit"
-msgstr ""
+msgstr "Kirim"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:161
 msgid "Member has been added"
-msgstr ""
+msgstr "Anggota telah ditambahkan"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:161
 #: plugin/feature/_sms_survey/sms_survey_members.php:163
 #: plugin/feature/_sms_survey/sms_survey_members.php:167
 #: plugin/feature/_sms_survey/sms_survey_members.php:169
 msgid "mobile"
-msgstr ""
+msgstr "ponsel"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:161
 #: plugin/feature/_sms_survey/sms_survey_members.php:163
@@ -244,80 +244,80 @@ msgstr ""
 #: plugin/feature/_sms_survey/sms_survey_members.php:263
 #: plugin/feature/_sms_survey/sms_survey_members.php:265
 msgid "name"
-msgstr ""
+msgstr "nama"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:163
 msgid "Fail to add member"
-msgstr ""
+msgstr "Gagal untuk menambah anggota"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:167
 msgid "Keyword does not match"
-msgstr ""
+msgstr "Kata kunci tidak cocok"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:169
 msgid "Mobile number not exists"
-msgstr ""
+msgstr "Nomor ponsel tidak ada"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:176
 msgid "Keyword does not exists"
-msgstr ""
+msgstr "Kata kunci tidak ada"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:186
 msgid "Remove member"
-msgstr ""
+msgstr "Hapus anggota"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:230
 msgid "Current members"
-msgstr ""
+msgstr "Anggota saat ini"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:236
 #: plugin/feature/_sms_survey/sms_survey_members.php:238
 msgid "All"
-msgstr ""
+msgstr "Semua"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:242
 msgid "Selected members"
-msgstr ""
+msgstr "Anggota yang dipilih"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:247
 msgid "Press submit button to remove selected members from member list"
-msgstr ""
+msgstr "Tekan tombol kirim untuk menghapus anggota yang dipilih dari daftar anggota"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:263
 msgid "Member has been deleted"
-msgstr ""
+msgstr "Anggota telah dihapus"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:265
 msgid "Fail to delete member"
-msgstr ""
+msgstr "Gagal menghapus anggota"
 
 #: plugin/feature/_sms_survey/sms_survey_members.php:269
 msgid "Receiver number does not exists"
-msgstr ""
+msgstr "Nomor penerima tidak ada"
 
 #: plugin/feature/_sms_survey/config.php:6
 msgid "Manage survey"
-msgstr ""
+msgstr "Mengelola survei"
 
 #: plugin/feature/_sms_survey/sms_survey.php:33
 #: plugin/feature/_sms_survey/sms_survey.php:91
 #: plugin/feature/_sms_survey/sms_survey.php:101
 msgid "Add survey"
-msgstr ""
+msgstr "Tambah survei"
 
 #: plugin/feature/_sms_survey/sms_survey.php:45
 #: plugin/feature/_sms_survey/sms_survey_questions.php:139
 msgid "Action"
-msgstr ""
+msgstr "Tindakan"
 
 #: plugin/feature/_sms_survey/sms_survey.php:56
 #: plugin/feature/_sms_survey/sms_survey.php:63
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: plugin/feature/_sms_survey/sms_survey.php:118
 msgid "Survey has been added"
-msgstr ""
+msgstr "Survei telah ditambahkan"
 
 #: plugin/feature/_sms_survey/sms_survey.php:118
 #: plugin/feature/_sms_survey/sms_survey.php:120
@@ -334,11 +334,11 @@ msgstr ""
 #: plugin/feature/_sms_survey/sms_survey.php:364
 #: plugin/feature/_sms_survey/sms_survey.php:366
 msgid "keyword"
-msgstr ""
+msgstr "katakunci"
 
 #: plugin/feature/_sms_survey/sms_survey.php:120
 msgid "Fail to add survey"
-msgstr ""
+msgstr "Gagal menambahkan survei"
 
 #: plugin/feature/_sms_survey/sms_survey.php:123
 #: plugin/feature/_sms_survey/sms_survey.php:163
@@ -346,47 +346,47 @@ msgstr ""
 #: plugin/feature/_sms_survey/sms_survey_questions.php:191
 #: plugin/feature/_sms_survey/sms_survey_questions.php:206
 msgid "You must fill all fields"
-msgstr ""
+msgstr "Anda harus mengisi semua kolom"
 
 #: plugin/feature/_sms_survey/sms_survey.php:133
 msgid "Edit survey"
-msgstr ""
+msgstr "Sunting survei"
 
 #: plugin/feature/_sms_survey/sms_survey.php:158
 msgid "Survey has been edited"
-msgstr ""
+msgstr "Survei telah disunting"
 
 #: plugin/feature/_sms_survey/sms_survey.php:160
 msgid "Fail to edit survey"
-msgstr ""
+msgstr "Gagal menyunting survei"
 
 #: plugin/feature/_sms_survey/sms_survey.php:173
 msgid "Delete survey"
-msgstr ""
+msgstr "Hapus survei"
 
 #: plugin/feature/_sms_survey/sms_survey.php:199
 msgid "Are you sure you want to delete this survey ?"
-msgstr ""
+msgstr "Apakah Anda yakin ingin menghapus survei ini?"
 
 #: plugin/feature/_sms_survey/sms_survey.php:202
 #: plugin/feature/_sms_survey/sms_survey.php:292
 #: plugin/feature/_sms_survey/sms_survey.php:350
 msgid "Yes"
-msgstr ""
+msgstr "Ya"
 
 #: plugin/feature/_sms_survey/sms_survey.php:205
 #: plugin/feature/_sms_survey/sms_survey.php:295
 #: plugin/feature/_sms_survey/sms_survey.php:353
 msgid "Cancel"
-msgstr ""
+msgstr "Batal"
 
 #: plugin/feature/_sms_survey/sms_survey.php:216
 msgid "Survey has been deleted"
-msgstr ""
+msgstr "Survei telah dihapus"
 
 #: plugin/feature/_sms_survey/sms_survey.php:218
 msgid "Fail to delete survey"
-msgstr ""
+msgstr "Gagal menghapus survei"
 
 #: plugin/feature/_sms_survey/sms_survey.php:221
 #: plugin/feature/_sms_survey/sms_survey.php:237
@@ -394,100 +394,100 @@ msgstr ""
 #: plugin/feature/_sms_survey/sms_survey.php:311
 #: plugin/feature/_sms_survey/sms_survey.php:369
 msgid "Survey does not exists"
-msgstr ""
+msgstr "Survei tidak ada"
 
 #: plugin/feature/_sms_survey/sms_survey.php:232
 msgid "Survey has been enabled"
-msgstr ""
+msgstr "Survei telah diaktifkan"
 
 #: plugin/feature/_sms_survey/sms_survey.php:234
 msgid "Fail to enable survey"
-msgstr ""
+msgstr "Gagal untuk mengaktifkan survei"
 
 #: plugin/feature/_sms_survey/sms_survey.php:248
 msgid "Survey has been disabled"
-msgstr ""
+msgstr "Survei telah dinonaktifkan"
 
 #: plugin/feature/_sms_survey/sms_survey.php:250
 msgid "Fail to disable survey"
-msgstr ""
+msgstr "Gagal untuk menonaktifkan survei"
 
 #: plugin/feature/_sms_survey/sms_survey.php:263
 msgid "Start survey"
-msgstr ""
+msgstr "Memulai survei"
 
 #: plugin/feature/_sms_survey/sms_survey.php:289
 msgid "Are you sure you want to start this survey ?"
-msgstr ""
+msgstr "Apakah Anda yakin ingin memulai survei ini?"
 
 #: plugin/feature/_sms_survey/sms_survey.php:306
 msgid "Survey has been started"
-msgstr ""
+msgstr "Survei telah dimulai"
 
 #: plugin/feature/_sms_survey/sms_survey.php:308
 msgid "Fail to start survey"
-msgstr ""
+msgstr "Gagal untuk memulai survei"
 
 #: plugin/feature/_sms_survey/sms_survey.php:321
 msgid "Stop survey"
-msgstr ""
+msgstr "Hentikan survei"
 
 #: plugin/feature/_sms_survey/sms_survey.php:347
 msgid "Are you sure you want to stop this survey ?"
-msgstr ""
+msgstr "Apakah Anda yakin ingin menghentikan survei ini?"
 
 #: plugin/feature/_sms_survey/sms_survey.php:364
 msgid "Survey has been stoped"
-msgstr ""
+msgstr "Survei telah dihentikan"
 
 #: plugin/feature/_sms_survey/sms_survey.php:366
 msgid "Fail to stop survey"
-msgstr ""
+msgstr "Gagal untuk menghentikan survei"
 
 #: plugin/feature/_sms_survey/sms_survey_questions.php:26
 #: plugin/feature/_sms_survey/sms_survey_questions.php:58
 msgid "Add question"
-msgstr ""
+msgstr "Tambah pertanyaan"
 
 #: plugin/feature/_sms_survey/sms_survey_questions.php:28
 msgid "Edit question"
-msgstr ""
+msgstr "Sunting pertanyaan"
 
 #: plugin/feature/_sms_survey/sms_survey_questions.php:30
 msgid "Delete question"
-msgstr ""
+msgstr "Hapus pertanyaan"
 
 #: plugin/feature/_sms_survey/sms_survey_questions.php:32
 msgid "Question list"
-msgstr ""
+msgstr "Daftar pertanyaan"
 
 #: plugin/feature/_sms_survey/sms_survey_questions.php:74
 #: plugin/feature/_sms_survey/sms_survey_questions.php:92
 #: plugin/feature/_sms_survey/sms_survey_questions.php:110
 #: plugin/feature/_sms_survey/sms_survey_questions.php:138
 msgid "Question"
-msgstr ""
+msgstr "Pertanyaan"
 
 #: plugin/feature/_sms_survey/sms_survey_questions.php:170
 msgid "Question has been added"
-msgstr ""
+msgstr "Pertanyaan telah ditambahkan"
 
 #: plugin/feature/_sms_survey/sms_survey_questions.php:172
 msgid "Fail to add question"
-msgstr ""
+msgstr "Gagal untuk menambah pertanyaan"
 
 #: plugin/feature/_sms_survey/sms_survey_questions.php:186
 msgid "Question has been edited"
-msgstr ""
+msgstr "Pertanyaan telah di sunting"
 
 #: plugin/feature/_sms_survey/sms_survey_questions.php:188
 msgid "Fail to edit question"
-msgstr ""
+msgstr "Gagal untuk menyunting pertanyaan"
 
 #: plugin/feature/_sms_survey/sms_survey_questions.php:201
 msgid "Question has been deleted"
-msgstr ""
+msgstr "Pertanyaan telah di hapus"
 
 #: plugin/feature/_sms_survey/sms_survey_questions.php:203
 msgid "Fail to delete question"
-msgstr ""
+msgstr "Gagal untuk menghapus pertanyaan"

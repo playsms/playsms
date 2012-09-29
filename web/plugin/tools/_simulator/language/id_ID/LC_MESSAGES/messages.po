@@ -8,8 +8,8 @@ msgstr ""
 #: plugin/tools/_simulator/simulator.php:16
 #: plugin/tools/_simulator/simulator.php:29
 msgid "Simulator"
-msgstr ""
+msgstr "Simulasi"
 
 #: plugin/tools/_simulator/simulator.php:23
 msgid "Submit"
-msgstr ""
+msgstr "Kirim"

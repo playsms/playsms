@@ -19,7 +19,7 @@ msgstr "Tambah layanan poling SMS"
 #: plugin/feature/sms_poll/sms_poll.php:28
 #: plugin/feature/sms_poll/sms_poll.php:114
 msgid "Keyword"
-msgstr "Kata kunci"
+msgstr "Kata sandi"
 
 #: plugin/feature/sms_poll/sms_poll.php:29
 #: plugin/feature/sms_poll/sms_poll.php:115
@@ -42,12 +42,12 @@ msgstr "Tindakan"
 #: plugin/feature/sms_poll/sms_poll.php:41
 #: plugin/feature/sms_poll/sms_poll.php:155
 msgid "Disabled"
-msgstr "Mati"
+msgstr "Nonaktif"
 
 #: plugin/feature/sms_poll/sms_poll.php:44
 #: plugin/feature/sms_poll/sms_poll.php:158
 msgid "Enabled"
-msgstr "Hidup"
+msgstr "Aktif"
 
 #: plugin/feature/sms_poll/sms_poll.php:48
 msgid ""
@@ -172,7 +172,7 @@ msgstr "pilihan poling SMS beserta semua pemilihnya telah dihapus"
 
 #: plugin/feature/sms_poll/sms_poll.php:306
 msgid "SMS poll has been added"
-msgstr ""
+msgstr "Poling SMS telah ditambahkan"
 
 #: plugin/feature/sms_poll/sms_poll.php:311
 msgid "SMS poll already exists, reserved or use by other feature"

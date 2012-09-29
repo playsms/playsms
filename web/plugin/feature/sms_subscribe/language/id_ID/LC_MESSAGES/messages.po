@@ -163,7 +163,7 @@ msgstr "SMS anda telah dikirim ke antrian"
 #: plugin/feature/sms_subscribe/sms_subscribe.php:254
 #: plugin/feature/sms_subscribe/sms_subscribe.php:256
 msgid "to"
-msgstr "untuk"
+msgstr "ke"
 
 #: plugin/feature/sms_subscribe/sms_subscribe.php:256
 msgid "Fail to send SMS"
@@ -254,8 +254,7 @@ msgstr "SMS berlangganan telah ditambahkan"
 
 #: plugin/feature/sms_subscribe/sms_subscribe.php:478
 msgid "SMS subscribe already exists, reserved or use by other feature"
-msgstr ""
-"layanan SMS berlangganan sudah ada, dipesa, atau digunakan oleh fitur lain"
+msgstr "layanan SMS berlangganan sudah ada, dipesa, atau digunakan oleh fitur lain"
 
 #: plugin/feature/sms_subscribe/sms_subscribe.php:526
 msgid "Member message has been added"

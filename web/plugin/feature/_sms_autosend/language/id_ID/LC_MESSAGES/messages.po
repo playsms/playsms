@@ -48,7 +48,7 @@ msgstr "Tindakan"
 #: plugin/feature/_sms_autosend/sms_autosend.php:102
 #: plugin/feature/_sms_autosend/sms_autosend.php:202
 msgid "Disabled"
-msgstr "Mati"
+msgstr "Nonaktif"
 
 #: plugin/feature/_sms_autosend/sms_autosend.php:61
 #: plugin/feature/_sms_autosend/sms_autosend.php:114
@@ -58,7 +58,7 @@ msgstr "Sekali"
 #: plugin/feature/_sms_autosend/sms_autosend.php:65
 #: plugin/feature/_sms_autosend/sms_autosend.php:204
 msgid "Enabled"
-msgstr "Hidup"
+msgstr "Aktif"
 
 #: plugin/feature/_sms_autosend/sms_autosend.php:69
 msgid "Are you sure you want to delete SMS autosend message ?"

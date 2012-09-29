@@ -97,7 +97,7 @@ msgstr "Anda harus mengisi semua kolom"
 
 #: plugin/tools/simplerate/simplerate.php:138
 msgid "Add"
-msgstr ""
+msgstr "Tambah"
 
 #: plugin/tools/simplerate/simplerate.php:154
 msgid "Rate is already exists"

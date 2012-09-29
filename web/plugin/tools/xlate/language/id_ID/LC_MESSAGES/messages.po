@@ -7,4 +7,4 @@ msgstr ""
 
 #: plugin/tools/xlate/fn.php:50
 msgid "unable to translate"
-msgstr ""
+msgstr "tidak dapat di terjemahkan"

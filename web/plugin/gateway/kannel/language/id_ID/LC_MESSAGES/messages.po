@@ -30,23 +30,23 @@ msgstr "Nama gateway"
 
 #: plugin/gateway/kannel/kannel.php:28
 msgid "Delivered to phone"
-msgstr ""
+msgstr "Dikirim ke telepon"
 
 #: plugin/gateway/kannel/kannel.php:29
 msgid "Non-Delivered to phone"
-msgstr ""
+msgstr "Tidak dikirim ke telepon"
 
 #: plugin/gateway/kannel/kannel.php:31
 msgid "Queued on SMSC"
-msgstr ""
+msgstr "Antrian dalam SMSC"
 
 #: plugin/gateway/kannel/kannel.php:32
 msgid "Delivered to SMSC"
-msgstr ""
+msgstr "Dikirim ke SMSC"
 
 #: plugin/gateway/kannel/kannel.php:33
 msgid "Non-Delivered to SMSC"
-msgstr ""
+msgstr "Tidak dikirim ke SMSC"
 
 #: plugin/gateway/kannel/kannel.php:51 plugin/gateway/kannel/kannel.php:52
 #: plugin/gateway/kannel/kannel.php:59
@@ -72,8 +72,7 @@ msgstr "Pengirim global"
 #: plugin/gateway/kannel/kannel.php:57 plugin/gateway/kannel/kannel.php:58
 #: plugin/gateway/kannel/kannel.php:65
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Maks. 16 numerik atau 11 karakter alfanumerik. kosongkan untuk menonaktifkan"
+msgstr "Maks. 16 numerik atau 11 karakter alfanumerik. kosongkan untuk menonaktifkan"
 
 #: plugin/gateway/kannel/kannel.php:63 plugin/gateway/kannel/kannel.php:64
 #: plugin/gateway/kannel/kannel.php:71
@@ -83,12 +82,12 @@ msgstr "Nama alamat Bearerbox atau IP"
 #: plugin/gateway/kannel/kannel.php:60 plugin/gateway/kannel/kannel.php:61
 #: plugin/gateway/kannel/kannel.php:68
 msgid "Module timezone"
-msgstr ""
+msgstr "Zona waktu modul"
 
 #: plugin/gateway/kannel/kannel.php:60 plugin/gateway/kannel/kannel.php:61
 #: plugin/gateway/kannel/kannel.php:68
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Misalnya: +0700 untuk zona waktu Jakarta/Bangkok"
 
 #: plugin/gateway/kannel/kannel.php:63 plugin/gateway/kannel/kannel.php:66
 #: plugin/gateway/kannel/kannel.php:64 plugin/gateway/kannel/kannel.php:67
@@ -129,7 +128,7 @@ msgstr "Tidak ada perubahan yang terjadi"
 #: plugin/gateway/kannel/kannel.php:70 plugin/gateway/kannel/kannel.php:71
 #: plugin/gateway/kannel/kannel.php:78
 msgid "Delivery Report"
-msgstr ""
+msgstr "Laporan terkirim"
 
 #: plugin/gateway/kannel/kannel.php:158 plugin/gateway/kannel/kannel.php:165
 #: plugin/gateway/kannel/kannel.php:181
@@ -171,7 +170,7 @@ msgstr "Gateway telah diaktifkan"
 
 #: plugin/gateway/kannel/kannel.php:90
 msgid "Kannel Configurations files"
-msgstr ""
+msgstr "File konfigurasi Kannel"
 
 #: plugin/gateway/kannel/kannel.php:97 plugin/gateway/kannel/kannel.php:95
 #: plugin/gateway/kannel/kannel.php:192 plugin/gateway/kannel/kannel.php:103
@@ -181,11 +180,11 @@ msgstr ""
 
 #: plugin/gateway/kannel/kannel.php:188
 msgid "Kannel service has been restarted"
-msgstr ""
+msgstr "Layanan kannel telah direstart"
 
 #: plugin/gateway/kannel/kannel.php:88 plugin/gateway/kannel/kannel.php:95
 msgid "Kannel configuration file"
-msgstr ""
+msgstr "File konfigurasi Kannel"
 
 #: plugin/gateway/kannel/kannel.php:192 plugin/gateway/kannel/kannel.php:208
 msgid "Status"

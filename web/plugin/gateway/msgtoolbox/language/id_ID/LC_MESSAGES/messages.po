@@ -8,7 +8,7 @@ msgstr ""
 #: plugin/gateway/msgtoolbox/config.php:23
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:25
 msgid "Manage msgtoolbox"
-msgstr ""
+msgstr "Kelola alat kotak pesan"
 
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:9
 msgid "Active"
@@ -28,7 +28,7 @@ msgstr "Nama gateway"
 
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:33
 msgid "msgtoolbox URL"
-msgstr ""
+msgstr "alat kotak pesan URL"
 
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:36
 msgid "Route"
@@ -53,8 +53,7 @@ msgstr "Pengirim global"
 
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:44
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Maks. 16 karakter numerik atau 11 alfanumerik. kosongkan untuk menonaktifkan"
+msgstr "Maks. 16 karakter numerik atau 11 alfanumerik. kosongkan untuk menonaktifkan"
 
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:47
 msgid "Module timezone"
@@ -62,7 +61,7 @@ msgstr ""
 
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:47
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Misalnya: +0700 untuk zona waktu Jakarta/Bangkok"
 
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:50
 msgid "Save"

@@ -31,7 +31,7 @@ msgstr "Lisensi"
 
 #: plugin/themes/work2/page_register.php:26
 msgid "Name"
-msgstr ""
+msgstr "Nama"
 
 #: plugin/themes/work2/page_register.php:30
 #: plugin/themes/work2/page_login.php:25
@@ -41,7 +41,7 @@ msgstr "Nama pengguna"
 
 #: plugin/themes/work2/page_register.php:35
 msgid "Mobile"
-msgstr ""
+msgstr "Ponsel"
 
 #: plugin/themes/work2/page_register.php:39
 #: plugin/themes/work2/page_forgot.php:31
@@ -51,7 +51,7 @@ msgstr ""
 #: plugin/themes/work2/page_register.php:45
 #: plugin/themes/work2/page_login.php:43
 msgid "Register an account"
-msgstr ""
+msgstr "Daftarkan akun"
 
 #: plugin/themes/work2/page_login.php:30
 msgid "Password"
@@ -59,16 +59,16 @@ msgstr "Kata sandi"
 
 #: plugin/themes/work2/page_login.php:36
 msgid "Login"
-msgstr ""
+msgstr "Mauk"
 
 #: plugin/themes/work2/page_login.php:50
 #, fuzzy
 msgid "Forgot password"
-msgstr "Kata sandi"
+msgstr "Lupa kata sandi"
 
 #: plugin/themes/work2/header.php:36
 msgid "Logged in"
-msgstr "Masuk"
+msgstr "Telah masuk"
 
 #: plugin/themes/work2/header.php:37
 msgid "Status"
@@ -76,12 +76,12 @@ msgstr "Status"
 
 #: plugin/themes/work2/page_forgot.php:37
 msgid "Recover password"
-msgstr ""
+msgstr "Pulihkan kata sandi"
 
 #: plugin/themes/work2/fn.php:73
 msgid "Home"
-msgstr ""
+msgstr "Beranda"
 
 #: plugin/themes/work2/fn.php:75
 msgid "Logout"
-msgstr ""
+msgstr "Keluar"

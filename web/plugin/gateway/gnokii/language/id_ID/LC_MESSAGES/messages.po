@@ -47,7 +47,7 @@ msgstr "Simpan"
 
 #: plugin/gateway/gnokii/gnokii.php:46 plugin/gateway/gnokii/gnokii.php:42
 msgid "No changes has been made"
-msgstr ""
+msgstr "Tidak ada perubahan telah dibuat"
 
 #: plugin/gateway/gnokii/gnokii.php:55 plugin/gateway/gnokii/gnokii.php:51
 msgid "Gateway module configurations has been saved"

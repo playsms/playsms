@@ -35,7 +35,7 @@ msgstr "FAQ untuk pengguna"
 
 #: plugin/themes/km2/page_register.php:32
 msgid "Name"
-msgstr ""
+msgstr "Nama"
 
 #: plugin/themes/km2/page_register.php:36 plugin/themes/km2/page_login.php:32
 #: plugin/themes/km2/page_forgot.php:31
@@ -44,7 +44,7 @@ msgstr "Nama pengguna"
 
 #: plugin/themes/km2/page_register.php:41
 msgid "Mobile"
-msgstr ""
+msgstr "Ponsel"
 
 #: plugin/themes/km2/page_register.php:46 plugin/themes/km2/page_forgot.php:36
 msgid "Email"
@@ -52,7 +52,7 @@ msgstr ""
 
 #: plugin/themes/km2/page_register.php:53
 msgid "Register"
-msgstr ""
+msgstr "Daftar"
 
 #: plugin/themes/km2/page_login.php:37
 msgid "Password"
@@ -64,7 +64,7 @@ msgstr "Masuk"
 
 #: plugin/themes/km2/page_login.php:50
 msgid "Register an account"
-msgstr ""
+msgstr "Daftarkan akun"
 
 #: plugin/themes/km2/page_login.php:52
 #, fuzzy
@@ -73,7 +73,7 @@ msgstr "Kata sandi"
 
 #: plugin/themes/km2/header.php:42 plugin/themes/km2/fn.php:38
 msgid "Home"
-msgstr "Awal"
+msgstr "Beranda"
 
 #: plugin/themes/km2/header.php:45
 msgid "Preferences"
@@ -89,4 +89,4 @@ msgstr "Keluar"
 
 #: plugin/themes/km2/page_forgot.php:43
 msgid "Recover password"
-msgstr ""
+msgstr "Pulihkan kata sandi"
