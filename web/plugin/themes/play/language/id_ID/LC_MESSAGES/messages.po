@@ -1,0 +1,62 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: plugin/themes/play/fn.php:55 plugin/themes/play/header.php:111
+msgid "Home"
+msgstr "Utama"
+
+#: plugin/themes/play/fn.php:57
+msgid "Logout"
+msgstr "Keluar"
+
+#: plugin/themes/play/page_register.php:13
+msgid "Name"
+msgstr "Nama"
+
+#: plugin/themes/play/page_register.php:19
+#: plugin/themes/play/page_login.php:15 plugin/themes/play/page_forgot.php:13
+msgid "Username"
+msgstr "Username"
+
+#: plugin/themes/play/page_register.php:25
+msgid "Mobile"
+msgstr "Handphone"
+
+#: plugin/themes/play/page_register.php:31
+#: plugin/themes/play/page_forgot.php:19
+msgid "Email"
+msgstr "Email"
+
+#: plugin/themes/play/page_register.php:43
+#: plugin/themes/play/page_forgot.php:31
+msgid "Login"
+msgstr "Masuk"
+
+#: plugin/themes/play/page_register.php:47
+#: plugin/themes/play/page_login.php:41
+#, fuzzy
+msgid "Forgot password"
+msgstr "Password"
+
+#: plugin/themes/play/page_login.php:21
+msgid "Password"
+msgstr "Kata kunci"
+
+#: plugin/themes/play/page_login.php:36 plugin/themes/play/page_forgot.php:35
+msgid "Register an account"
+msgstr "Daftar akun"
+
+#: plugin/themes/play/header.php:118
+msgid "Logged in"
+msgstr "Telah masuk"
+
+#: plugin/themes/play/page_forgot.php:25
+msgid "Recover password"
+msgstr "Dapatkan kata kunci"
+
+#~ msgid "Welcome to playSMS"
+#~ msgstr "Welcome to playSMS"
