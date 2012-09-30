@@ -1,26 +1,3 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-29 17:59+0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
-"Content-Transfer-Encoding: 8bit\n"
-
-#: plugin/gateway/gnokii/config.php:16 plugin/gateway/gnokii/gnokii.php:24
-msgid "Manage gnokii"
-msgstr ""
-
 #: plugin/gateway/gnokii/gnokii.php:9
 msgid "Active"
 msgstr ""
@@ -31,6 +8,10 @@ msgstr ""
 
 #: plugin/gateway/gnokii/gnokii.php:13
 msgid "click here to activate"
+msgstr ""
+
+#: plugin/gateway/gnokii/gnokii.php:24 plugin/gateway/gnokii/config.php:16
+msgid "Manage gnokii"
 msgstr ""
 
 #: plugin/gateway/gnokii/gnokii.php:29
@@ -45,26 +26,18 @@ msgstr ""
 msgid "No trailing slash"
 msgstr ""
 
-#: plugin/gateway/gnokii/gnokii.php:36
-msgid "Note"
-msgstr ""
-
-#: plugin/gateway/gnokii/gnokii.php:37
-msgid "Send SMS message without footer banner"
-msgstr ""
-
-#: plugin/gateway/gnokii/gnokii.php:39 plugin/gateway/gnokii/gnokii.php:35
+#: plugin/gateway/gnokii/gnokii.php:35
 msgid "Save"
 msgstr ""
 
-#: plugin/gateway/gnokii/gnokii.php:46 plugin/gateway/gnokii/gnokii.php:42
+#: plugin/gateway/gnokii/gnokii.php:42
 msgid "No changes has been made"
 msgstr ""
 
-#: plugin/gateway/gnokii/gnokii.php:55 plugin/gateway/gnokii/gnokii.php:51
+#: plugin/gateway/gnokii/gnokii.php:51
 msgid "Gateway module configurations has been saved"
 msgstr ""
 
-#: plugin/gateway/gnokii/gnokii.php:63 plugin/gateway/gnokii/gnokii.php:59
+#: plugin/gateway/gnokii/gnokii.php:59
 msgid "Gateway has been activated"
 msgstr ""
