@@ -54,7 +54,7 @@ msgstr "Ubah papan SMS"
 #: plugin/feature/sms_board/sms_board.php:88
 #: plugin/feature/sms_board/sms_board.php:161
 msgid "SMS board keyword"
-msgstr "kata kunci papan SMS"
+msgstr "Kata kunci papan SMS"
 
 #: plugin/feature/sms_board/sms_board.php:91
 #: plugin/feature/sms_board/sms_board.php:167

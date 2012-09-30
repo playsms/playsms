@@ -32,7 +32,7 @@ msgstr "Anda telah keluar"
 #: lib/fn_auth.php:199 lib/fn_auth.php:172
 #, fuzzy
 msgid "Fail to recover password"
-msgstr "Kata sandi atau nama pengguna tidak valid"
+msgstr "Gagal memulihkan password"
 
 #: lib/fn_auth.php:205 lib/fn_auth.php:178
 #, fuzzy
@@ -390,7 +390,7 @@ msgstr "Tema yang aktif"
 #: inc/admin/main_config.php:85
 #, fuzzy
 msgid "Default language"
-msgstr "Bahasa yang aktif"
+msgstr "Bahasa default"
 
 #: inc/admin/main_config.php:88 inc/admin/user_mgmnt.php:181
 #: inc/user/user_pref.php:115 inc/user/user_pref.php:139
@@ -990,7 +990,7 @@ msgstr "Selalu menambahkan tanda plus"
 #: inc/user/user_pref.php:95 inc/user/user_pref.php:100
 #, fuzzy
 msgid "Default"
-msgstr "Timezone bawaan"
+msgstr ""
 
 #: lib/lib_init1.php:63
 msgid "About"

@@ -89,7 +89,7 @@ msgstr "Sunting SMS kustom"
 #: plugin/feature/sms_custom/sms_custom.php:142
 #: plugin/feature/sms_custom/sms_custom.php:85
 msgid "SMS custom keyword"
-msgstr "kata kunci SMS kustom"
+msgstr "Kata kunci SMS kustom"
 
 #: plugin/feature/sms_custom/sms_custom.php:79
 #: plugin/feature/sms_custom/sms_custom.php:142

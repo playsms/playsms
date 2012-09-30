@@ -49,7 +49,7 @@ msgstr "kata kunci"
 #: plugin/feature/sms_autoreply/sms_autoreply.php:214
 #: plugin/feature/sms_autoreply/sms_autoreply.php:287
 msgid "SMS autoreply keyword"
-msgstr "kata kunci layanan balas SMS otomatis"
+msgstr "Kata kunci layanan balas SMS otomatis"
 
 #: plugin/feature/sms_autoreply/sms_autoreply.php:80
 #: plugin/feature/sms_autoreply/sms_autoreply.php:119
@@ -71,7 +71,7 @@ msgstr "Anda yakin ingin menghapus skenario layanan balas SMS otomatis ini?"
 
 #: plugin/feature/sms_autoreply/sms_autoreply.php:136
 msgid "SMS autoreply has been deleted"
-msgstr "layanan balas SMS otomatis telah terhapus"
+msgstr "Layanan balas SMS otomatis telah terhapus"
 
 #: plugin/feature/sms_autoreply/sms_autoreply.php:140
 msgid "Fail to delete SMS autoreply"
@@ -84,7 +84,7 @@ msgstr "Tambah"
 
 #: plugin/feature/sms_autoreply/sms_autoreply.php:169
 msgid "SMS autoreply keyword has been added"
-msgstr "kata kunci layanan balas SMS otomatis telah ditambahkan"
+msgstr "Kata kunci layanan balas SMS otomatis telah ditambahkan"
 
 #: plugin/feature/sms_autoreply/sms_autoreply.php:173
 msgid "Fail to add SMS autoreply"
@@ -92,7 +92,7 @@ msgstr "Gagal menambahkan layanan balas SMS otomatis"
 
 #: plugin/feature/sms_autoreply/sms_autoreply.php:178
 msgid "SMS keyword already exists, reserved or use by other feature"
-msgstr "kata kunci SMS sudah dipesan atau digunakan oleh fitur lain"
+msgstr "Kata kunci SMS sudah dipesan atau digunakan oleh fitur lain"
 
 #: plugin/feature/sms_autoreply/sms_autoreply.php:183
 #: plugin/feature/sms_autoreply/sms_autoreply.php:269
@@ -106,17 +106,17 @@ msgstr "Gagal menghapus skenario layanan balas SMS otomatis"
 
 #: plugin/feature/sms_autoreply/sms_autoreply.php:196
 msgid "SMS autoreply scenario has been deleted"
-msgstr "skenario layanan balas SMS otomatis telah dihapus"
+msgstr "Skenario layanan balas SMS otomatis telah dihapus"
 
 #: plugin/feature/sms_autoreply/sms_autoreply.php:224
 #: plugin/feature/sms_autoreply/sms_autoreply.php:305
 msgid "SMS autoreply scenario parameter"
-msgstr "parameter skenario layanan balas SMS otomatis"
+msgstr "Parameter skenario layanan balas SMS otomatis"
 
 #: plugin/feature/sms_autoreply/sms_autoreply.php:229
 #: plugin/feature/sms_autoreply/sms_autoreply.php:311
 msgid "SMS autoreply scenario replies with"
-msgstr "balasan dengan skenario layanan balas SMS otomatis"
+msgstr "Balasan dengan skenario layanan balas SMS otomatis"
 
 #: plugin/feature/sms_autoreply/sms_autoreply.php:233
 #: plugin/feature/sms_autoreply/sms_autoreply.php:315
@@ -125,7 +125,7 @@ msgstr "Kembali"
 
 #: plugin/feature/sms_autoreply/sms_autoreply.php:260
 msgid "SMS autoreply scenario has been added"
-msgstr "skenario layanan balas SMS otomatis telah ditambahkan"
+msgstr "Skenario layanan balas SMS otomatis telah ditambahkan"
 
 #: plugin/feature/sms_autoreply/sms_autoreply.php:264
 msgid "Fail to add SMS autoreply scenario"
@@ -141,7 +141,7 @@ msgstr "Simpan"
 
 #: plugin/feature/sms_autoreply/sms_autoreply.php:341
 msgid "SMS autoreply scenario has been edited"
-msgstr "skenario layanan balas SMS otomatis telah diubah"
+msgstr "Skenario layanan balas SMS otomatis telah diubah"
 
 #: plugin/feature/sms_autoreply/sms_autoreply.php:345
 msgid "Fail to edit SMS autoreply scenario"

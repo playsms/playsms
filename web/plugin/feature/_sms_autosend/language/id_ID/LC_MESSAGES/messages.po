@@ -136,7 +136,7 @@ msgstr "Tambah"
 
 #: plugin/feature/_sms_autosend/sms_autosend.php:350
 msgid "SMS autosend has been added"
-msgstr "layanan kirim SMS otomatis telah ditambahkan"
+msgstr "Layanan kirim SMS otomatis telah ditambahkan"
 
 #: plugin/feature/_sms_autosend/sms_autosend.php:357
 msgid "Fail to add SMS autosend"

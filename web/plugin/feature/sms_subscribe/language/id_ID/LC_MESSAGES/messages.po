@@ -99,7 +99,7 @@ msgstr "kata kunci"
 
 #: plugin/feature/sms_subscribe/sms_subscribe.php:85
 msgid "SMS messages list for keyword"
-msgstr "kata kunci untuk daftar pesan SMS"
+msgstr "Kata kunci untuk daftar pesan SMS"
 
 #: plugin/feature/sms_subscribe/sms_subscribe.php:89
 #: plugin/feature/sms_subscribe/sms_subscribe.php:119
@@ -125,7 +125,7 @@ msgstr "Rincian pesan"
 #: plugin/feature/sms_subscribe/sms_subscribe.php:449
 #: plugin/feature/sms_subscribe/sms_subscribe.php:499
 msgid "SMS subscribe keyword"
-msgstr "kata kunci SMS langganan"
+msgstr "Kata kunci SMS langganan"
 
 #: plugin/feature/sms_subscribe/sms_subscribe.php:155
 msgid "Send this message to all members"
@@ -196,12 +196,12 @@ msgstr "Ubah langganan SMS"
 #: plugin/feature/sms_subscribe/sms_subscribe.php:346
 #: plugin/feature/sms_subscribe/sms_subscribe.php:452
 msgid "SMS subscribe reply"
-msgstr "balas SMS berlangganan"
+msgstr "Balasan SMS berlangganan"
 
 #: plugin/feature/sms_subscribe/sms_subscribe.php:349
 #: plugin/feature/sms_subscribe/sms_subscribe.php:455
 msgid "SMS unsubscribe reply"
-msgstr "balas SMS nonlangganan"
+msgstr "Balasan SMS tidak berlangganan"
 
 #: plugin/feature/sms_subscribe/sms_subscribe.php:352
 msgid "Save"
@@ -233,7 +233,7 @@ msgstr "SMS berlangganan telah disimpan"
 
 #: plugin/feature/sms_subscribe/sms_subscribe.php:403
 msgid "SMS subscribe status has been changed"
-msgstr "status SMS berlangganan telah diganti"
+msgstr "Status SMS berlangganan telah diganti"
 
 #: plugin/feature/sms_subscribe/sms_subscribe.php:421
 msgid "SMS subscribe with all its messages and members has been deleted"
@@ -254,8 +254,8 @@ msgstr "SMS berlangganan telah ditambahkan"
 
 #: plugin/feature/sms_subscribe/sms_subscribe.php:478
 msgid "SMS subscribe already exists, reserved or use by other feature"
-msgstr "layanan SMS berlangganan sudah ada, dipesa, atau digunakan oleh fitur lain"
+msgstr "Layanan SMS berlangganan sudah ada, dipesa, atau digunakan oleh fitur lain"
 
 #: plugin/feature/sms_subscribe/sms_subscribe.php:526
 msgid "Member message has been added"
-msgstr "pesan anggota telah ditambahkan"
+msgstr "Pesan anggota telah ditambahkan"
