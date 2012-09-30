@@ -161,7 +161,7 @@ msgstr ""
 
 #: lib/lib_init1.php:48 inc/admin/all_outgoing.php:35 lib/lib_init1.php:53
 msgid "Gateway"
-msgstr "Número de la plataforma"
+msgstr "Plataforma"
 
 #: lib/lib_init1.php:51 inc/user/sms_template.php:18 inc/user/send_sms.php:102
 #: inc/user/send_sms.php:232 inc/user/send_sms.php:233 lib/lib_init1.php:56
