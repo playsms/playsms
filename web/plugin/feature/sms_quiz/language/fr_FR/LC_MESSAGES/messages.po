@@ -6,11 +6,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/feature/sms_quiz/config.php:6
-#: plugin/feature/sms_quiz/sms_quiz.php:80
-msgid "Manage quiz"
-msgstr "Service quiz"
-
 #: plugin/feature/sms_quiz/sms_quiz.php:17
 msgid "Received answer list for keyword"
 msgstr "Liste de réponses reçues pour le mot-clé"
@@ -52,6 +47,11 @@ msgstr "Êtes-vous certain de vouloir supprimer cette réponse ?"
 #: plugin/feature/sms_quiz/sms_quiz.php:69
 msgid "SMS quiz answer messages has been deleted"
 msgstr "Les SMS de réponses au quiz ont été supprimés"
+
+#: plugin/feature/sms_quiz/sms_quiz.php:80
+#: plugin/feature/sms_quiz/config.php:6
+msgid "Manage quiz"
+msgstr "Service quiz"
 
 #: plugin/feature/sms_quiz/sms_quiz.php:82
 #: plugin/feature/sms_quiz/sms_quiz.php:129

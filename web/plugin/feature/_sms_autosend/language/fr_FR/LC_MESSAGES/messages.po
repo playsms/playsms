@@ -6,8 +6,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/feature/_sms_autosend/config.php:12
 #: plugin/feature/_sms_autosend/sms_autosend.php:23
+#: plugin/feature/_sms_autosend/config.php:12
 msgid "Manage autosend"
 msgstr "Service envoi auto"
 

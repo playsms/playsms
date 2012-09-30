@@ -69,31 +69,27 @@ msgstr "Chemen entrant uplink"
 msgid "No trailing slash"
 msgstr "Pas de slash final"
 
-#: plugin/gateway/uplink/uplink.php:57
-msgid "Note"
-msgstr "Note"
-
-#: plugin/gateway/uplink/uplink.php:58
-msgid "Send SMS message without footer banner"
-msgstr "Envoyer SMS sans pied de page"
-
-#: plugin/gateway/uplink/uplink.php:60 plugin/gateway/uplink/uplink.php:56
+#: plugin/gateway/uplink/uplink.php:56
 msgid "Save"
 msgstr "Sauvegarder"
 
-#: plugin/gateway/uplink/uplink.php:73 plugin/gateway/uplink/uplink.php:69
+#: plugin/gateway/uplink/uplink.php:69
 msgid "No changes has been made"
 msgstr "Aucun changement apporté"
 
-#: plugin/gateway/uplink/uplink.php:92 plugin/gateway/uplink/uplink.php:107
 #: plugin/gateway/uplink/uplink.php:103
 msgid "Gateway module configurations has been saved"
 msgstr "Configurations passerelles sauvegardées"
 
-#: plugin/gateway/uplink/uplink.php:100 plugin/gateway/uplink/uplink.php:115
 #: plugin/gateway/uplink/uplink.php:111
 msgid "Gateway has been activated"
 msgstr "Passerelle activée"
+
+#~ msgid "Note"
+#~ msgstr "Note"
+
+#~ msgid "Send SMS message without footer banner"
+#~ msgstr "Envoyer SMS sans pied de page"
 
 #~ msgid "Global sender"
 #~ msgstr "Émetteur global"

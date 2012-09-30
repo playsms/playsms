@@ -5,163 +5,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/tools/simplephonebook/phone_add.php:12
-#: plugin/tools/simplephonebook/dir_create.php:38
-#: plugin/tools/simplephonebook/dir_create.php:45
-#: plugin/tools/simplephonebook/dir_edit.php:47
-msgid "code"
-msgstr "代码"
-
-#: plugin/tools/simplephonebook/phone_add.php:19
-#: plugin/tools/simplephonebook/phone_add.php:24
-#: plugin/tools/simplephonebook/simplephonebook.php:157
-#: plugin/tools/simplephonebook/simplephonebook.php:162
-msgid "Add number to group"
-msgstr "增加号码到组"
-
-#: plugin/tools/simplephonebook/phone_add.php:27
 #: plugin/tools/simplephonebook/simplephonebook.php:43
 #: plugin/tools/simplephonebook/simplephonebook.php:117
-#: plugin/tools/simplephonebook/phonebook_exim.php:60
 #: plugin/tools/simplephonebook/phonebook_exim.php:57
+#: plugin/tools/simplephonebook/phone_add.php:27
 msgid "Name"
 msgstr "姓名"
-
-#: plugin/tools/simplephonebook/phone_add.php:30
-#: plugin/tools/simplephonebook/phonebook_exim.php:61
-#: plugin/tools/simplephonebook/phonebook_exim.php:58
-msgid "Mobile"
-msgstr "手机"
-
-#: plugin/tools/simplephonebook/phone_add.php:30
-msgid "International format"
-msgstr "国际模式"
-
-#: plugin/tools/simplephonebook/phone_add.php:33
-#: plugin/tools/simplephonebook/simplephonebook.php:45
-#: plugin/tools/simplephonebook/simplephonebook.php:119
-#: plugin/tools/simplephonebook/phonebook_exim.php:62
-#: plugin/tools/simplephonebook/phonebook_exim.php:59
-msgid "Email"
-msgstr "电子信息"
-
-#: plugin/tools/simplephonebook/phone_add.php:36
-msgid "Add"
-msgstr "增加"
-
-#: plugin/tools/simplephonebook/phone_add.php:55
-msgid "Number is already exists"
-msgstr "号码已存在"
-
-#: plugin/tools/simplephonebook/phone_add.php:55
-#: plugin/tools/simplephonebook/phone_add.php:62
-msgid "number"
-msgstr "号码"
-
-#: plugin/tools/simplephonebook/phone_add.php:55
-#: plugin/tools/simplephonebook/phone_add.php:62
-msgid "name"
-msgstr "姓名"
-
-#: plugin/tools/simplephonebook/phone_add.php:62
-msgid "Number has been added"
-msgstr "号码已填加"
-
-#: plugin/tools/simplephonebook/phone_add.php:66
-#: plugin/tools/simplephonebook/dir_create.php:49
-#: plugin/tools/simplephonebook/dir_edit.php:51
-msgid "You must fill all field"
-msgstr "你必须填满空白"
-
-#: plugin/tools/simplephonebook/dir_create.php:12
-#: plugin/tools/simplephonebook/simplephonebook.php:156
-#: plugin/tools/simplephonebook/simplephonebook.php:161
-msgid "Create group"
-msgstr "创建组"
-
-#: plugin/tools/simplephonebook/dir_create.php:17
-#: plugin/tools/simplephonebook/dir_edit.php:19
-msgid "Group name"
-msgstr "组名"
-
-#: plugin/tools/simplephonebook/dir_create.php:20
-#: plugin/tools/simplephonebook/phonebook_exim.php:36
-#: plugin/tools/simplephonebook/dir_edit.php:22
-#: plugin/tools/simplephonebook/phonebook_exim.php:34
-msgid "Group code"
-msgstr "组代码"
-
-#: plugin/tools/simplephonebook/dir_create.php:20
-#: plugin/tools/simplephonebook/dir_edit.php:22
-msgid "please use uppercase and make it short"
-msgstr "请使用大写并且简练"
-
-#: plugin/tools/simplephonebook/dir_create.php:23
-#: plugin/tools/simplephonebook/dir_edit.php:25
-msgid "Note"
-msgstr "注意"
-
-#: plugin/tools/simplephonebook/dir_create.php:23
-#: plugin/tools/simplephonebook/dir_edit.php:25
-msgid "Group code used by keyword"
-msgstr "组代码使用关键字"
-
-#: plugin/tools/simplephonebook/dir_create.php:23
-#: plugin/tools/simplephonebook/dir_edit.php:25
-msgid "broadcast SMS from single SMS"
-msgstr "从单一的短信广播短信"
-
-#: plugin/tools/simplephonebook/dir_create.php:24
-msgid "Create"
-msgstr "创建"
-
-#: plugin/tools/simplephonebook/dir_create.php:38
-msgid "Group code is already exists"
-msgstr "组代码已存在"
-
-#: plugin/tools/simplephonebook/dir_create.php:45
-msgid "Group code has been added"
-msgstr "组代码已增加"
-
-#: plugin/tools/simplephonebook/dir_create.php:45
-#: plugin/tools/simplephonebook/dir_edit.php:47
-#: plugin/tools/simplephonebook/phonebook.php:267
-#: plugin/tools/simplephonebook/phonebook.php:272
-#: plugin/tools/simplephonebook/phonebook.php:284
-#: plugin/tools/simplephonebook/phonebook.php:289
-msgid "group"
-msgstr "组"
-
-#: plugin/tools/simplephonebook/config.php:4
-msgid "Export"
-msgstr "出口"
-
-#: plugin/tools/simplephonebook/config.php:5
-#: plugin/tools/simplephonebook/phonebook_exim.php:42
-#: plugin/tools/simplephonebook/phonebook_exim.php:109
-#: plugin/tools/simplephonebook/phonebook_exim.php:40
-#: plugin/tools/simplephonebook/phonebook_exim.php:97
-msgid "Import"
-msgstr "进口"
-
-#: plugin/tools/simplephonebook/config.php:6
-msgid "Publish"
-msgstr "发表"
-
-#: plugin/tools/simplephonebook/config.php:7
-msgid "Unpublish"
-msgstr "未发表"
-
-#: plugin/tools/simplephonebook/config.php:10
-#: plugin/tools/simplephonebook/simplephonebook.php:151
-#: plugin/tools/simplephonebook/phonebook.php:298
-msgid "Phonebook"
-msgstr "电话簿"
 
 #: plugin/tools/simplephonebook/simplephonebook.php:44
 #: plugin/tools/simplephonebook/simplephonebook.php:118
 msgid "Number"
 msgstr "号码"
+
+#: plugin/tools/simplephonebook/simplephonebook.php:45
+#: plugin/tools/simplephonebook/simplephonebook.php:119
+#: plugin/tools/simplephonebook/phonebook_exim.php:59
+#: plugin/tools/simplephonebook/phone_add.php:33
+msgid "Email"
+msgstr "电子信息"
 
 #: plugin/tools/simplephonebook/simplephonebook.php:70
 msgid "Edit selections"
@@ -193,82 +54,29 @@ msgstr "运行"
 msgid "Shared by"
 msgstr "被分享"
 
+#: plugin/tools/simplephonebook/simplephonebook.php:151
+#: plugin/tools/simplephonebook/phonebook.php:298
+#: plugin/tools/simplephonebook/config.php:10
+msgid "Phonebook"
+msgstr "电话簿"
+
+#: plugin/tools/simplephonebook/simplephonebook.php:156
+#: plugin/tools/simplephonebook/simplephonebook.php:161
+#: plugin/tools/simplephonebook/dir_create.php:12
+msgid "Create group"
+msgstr "创建组"
+
+#: plugin/tools/simplephonebook/simplephonebook.php:157
+#: plugin/tools/simplephonebook/simplephonebook.php:162
+#: plugin/tools/simplephonebook/phone_add.php:19
+#: plugin/tools/simplephonebook/phone_add.php:24
+msgid "Add number to group"
+msgstr "增加号码到组"
+
 #: plugin/tools/simplephonebook/simplephonebook.php:158
 #: plugin/tools/simplephonebook/simplephonebook.php:163
 msgid "Export all"
 msgstr "输出全部"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:36
-#: plugin/tools/simplephonebook/phonebook_exim.php:34
-msgid "Import phonebook"
-msgstr "载入电话簿"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:39
-#: plugin/tools/simplephonebook/phonebook_exim.php:37
-msgid "Please select CSV file for phonebook entries"
-msgstr "请选择电话簿条目CSV文件"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:39
-#: plugin/tools/simplephonebook/phonebook_exim.php:37
-msgid "format : Name,Mobile,Email"
-msgstr "格式 : 姓名,电话,电子邮件"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:41
-#: plugin/tools/simplephonebook/phonebook_exim.php:39
-msgid "Same item(s) will be replaced"
-msgstr "同一项目将被替换"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:55
-#: plugin/tools/simplephonebook/phonebook_exim.php:52
-msgid "Import confirmation"
-msgstr "载入确认"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:98
-#: plugin/tools/simplephonebook/phonebook_exim.php:88
-msgid "Replace all entries in database"
-msgstr "替换数据库中的所有条目"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:102
-#: plugin/tools/simplephonebook/phonebook_exim.php:90
-msgid "Add all entries"
-msgstr "添加全部条目"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:106
-#: plugin/tools/simplephonebook/phonebook_exim.php:94
-msgid "Import above phonebook entries ?"
-msgstr "载入以上电话簿条目 ?"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:107
-#: plugin/tools/simplephonebook/phonebook_exim.php:95
-msgid "Status"
-msgstr "状态"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:113
-#: plugin/tools/simplephonebook/phonebook_exim.php:101
-msgid "Back"
-msgstr "返回"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:120
-#: plugin/tools/simplephonebook/phonebook_exim.php:105
-msgid "Fail to upload CSV file for phonebook"
-msgstr "上传CSV文件到电话簿失败"
-
-#: plugin/tools/simplephonebook/dir_edit.php:14
-msgid "Edit group"
-msgstr "编辑组"
-
-#: plugin/tools/simplephonebook/dir_edit.php:26
-#: plugin/tools/simplephonebook/phonebook.php:53
-msgid "Save"
-msgstr "保存"
-
-#: plugin/tools/simplephonebook/dir_edit.php:40
-msgid "No changes has been made"
-msgstr "没有做出改变"
-
-#: plugin/tools/simplephonebook/dir_edit.php:47
-msgid "Group has been edited"
-msgstr "组已编辑"
 
 #: plugin/tools/simplephonebook/phonebook.php:23
 msgid "Edited name"
@@ -281,6 +89,11 @@ msgstr "已编辑的号码"
 #: plugin/tools/simplephonebook/phonebook.php:25
 msgid "Edited email"
 msgstr "已编辑的电子邮件"
+
+#: plugin/tools/simplephonebook/phonebook.php:53
+#: plugin/tools/simplephonebook/dir_edit.php:26
+msgid "Save"
+msgstr "保存"
 
 #: plugin/tools/simplephonebook/phonebook.php:81
 msgid "Copied name"
@@ -335,6 +148,15 @@ msgstr "删除"
 msgid "Fail to publish"
 msgstr "发表失败"
 
+#: plugin/tools/simplephonebook/phonebook.php:267
+#: plugin/tools/simplephonebook/phonebook.php:272
+#: plugin/tools/simplephonebook/phonebook.php:284
+#: plugin/tools/simplephonebook/phonebook.php:289
+#: plugin/tools/simplephonebook/dir_create.php:45
+#: plugin/tools/simplephonebook/dir_edit.php:47
+msgid "group"
+msgstr "组"
+
 #: plugin/tools/simplephonebook/phonebook.php:272
 msgid "Group has been published"
 msgstr "组已公布"
@@ -346,3 +168,164 @@ msgstr "未公布失败"
 #: plugin/tools/simplephonebook/phonebook.php:289
 msgid "Group has been unpublished"
 msgstr "组未公布"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:34
+msgid "Import phonebook"
+msgstr "载入电话簿"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:34
+#: plugin/tools/simplephonebook/dir_create.php:20
+#: plugin/tools/simplephonebook/dir_edit.php:22
+msgid "Group code"
+msgstr "组代码"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:37
+msgid "Please select CSV file for phonebook entries"
+msgstr "请选择电话簿条目CSV文件"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:37
+msgid "format : Name,Mobile,Email"
+msgstr "格式 : 姓名,电话,电子邮件"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:39
+msgid "Same item(s) will be replaced"
+msgstr "同一项目将被替换"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:40
+#: plugin/tools/simplephonebook/phonebook_exim.php:97
+#: plugin/tools/simplephonebook/config.php:5
+msgid "Import"
+msgstr "进口"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:52
+msgid "Import confirmation"
+msgstr "载入确认"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:58
+#: plugin/tools/simplephonebook/phone_add.php:30
+msgid "Mobile"
+msgstr "手机"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:88
+msgid "Replace all entries in database"
+msgstr "替换数据库中的所有条目"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:90
+msgid "Add all entries"
+msgstr "添加全部条目"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:94
+msgid "Import above phonebook entries ?"
+msgstr "载入以上电话簿条目 ?"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:95
+msgid "Status"
+msgstr "状态"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:101
+msgid "Back"
+msgstr "返回"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:105
+msgid "Fail to upload CSV file for phonebook"
+msgstr "上传CSV文件到电话簿失败"
+
+#: plugin/tools/simplephonebook/dir_create.php:17
+#: plugin/tools/simplephonebook/dir_edit.php:19
+msgid "Group name"
+msgstr "组名"
+
+#: plugin/tools/simplephonebook/dir_create.php:20
+#: plugin/tools/simplephonebook/dir_edit.php:22
+msgid "please use uppercase and make it short"
+msgstr "请使用大写并且简练"
+
+#: plugin/tools/simplephonebook/dir_create.php:23
+#: plugin/tools/simplephonebook/dir_edit.php:25
+msgid "Note"
+msgstr "注意"
+
+#: plugin/tools/simplephonebook/dir_create.php:23
+#: plugin/tools/simplephonebook/dir_edit.php:25
+msgid "Group code used by keyword"
+msgstr "组代码使用关键字"
+
+#: plugin/tools/simplephonebook/dir_create.php:23
+#: plugin/tools/simplephonebook/dir_edit.php:25
+msgid "broadcast SMS from single SMS"
+msgstr "从单一的短信广播短信"
+
+#: plugin/tools/simplephonebook/dir_create.php:24
+msgid "Create"
+msgstr "创建"
+
+#: plugin/tools/simplephonebook/dir_create.php:38
+msgid "Group code is already exists"
+msgstr "组代码已存在"
+
+#: plugin/tools/simplephonebook/dir_create.php:38
+#: plugin/tools/simplephonebook/dir_create.php:45
+#: plugin/tools/simplephonebook/phone_add.php:12
+#: plugin/tools/simplephonebook/dir_edit.php:47
+msgid "code"
+msgstr "代码"
+
+#: plugin/tools/simplephonebook/dir_create.php:45
+msgid "Group code has been added"
+msgstr "组代码已增加"
+
+#: plugin/tools/simplephonebook/dir_create.php:49
+#: plugin/tools/simplephonebook/phone_add.php:66
+#: plugin/tools/simplephonebook/dir_edit.php:51
+msgid "You must fill all field"
+msgstr "你必须填满空白"
+
+#: plugin/tools/simplephonebook/config.php:4
+msgid "Export"
+msgstr "出口"
+
+#: plugin/tools/simplephonebook/config.php:6
+msgid "Publish"
+msgstr "发表"
+
+#: plugin/tools/simplephonebook/config.php:7
+msgid "Unpublish"
+msgstr "未发表"
+
+#: plugin/tools/simplephonebook/phone_add.php:30
+msgid "International format"
+msgstr "国际模式"
+
+#: plugin/tools/simplephonebook/phone_add.php:36
+msgid "Add"
+msgstr "增加"
+
+#: plugin/tools/simplephonebook/phone_add.php:55
+msgid "Number is already exists"
+msgstr "号码已存在"
+
+#: plugin/tools/simplephonebook/phone_add.php:55
+#: plugin/tools/simplephonebook/phone_add.php:62
+msgid "number"
+msgstr "号码"
+
+#: plugin/tools/simplephonebook/phone_add.php:55
+#: plugin/tools/simplephonebook/phone_add.php:62
+msgid "name"
+msgstr "姓名"
+
+#: plugin/tools/simplephonebook/phone_add.php:62
+msgid "Number has been added"
+msgstr "号码已填加"
+
+#: plugin/tools/simplephonebook/dir_edit.php:14
+msgid "Edit group"
+msgstr "编辑组"
+
+#: plugin/tools/simplephonebook/dir_edit.php:40
+msgid "No changes has been made"
+msgstr "没有做出改变"
+
+#: plugin/tools/simplephonebook/dir_edit.php:47
+msgid "Group has been edited"
+msgstr "组已编辑"

@@ -6,163 +6,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/tools/simplephonebook/phone_add.php:12
-#: plugin/tools/simplephonebook/dir_create.php:38
-#: plugin/tools/simplephonebook/dir_create.php:45
-#: plugin/tools/simplephonebook/dir_edit.php:47
-msgid "code"
-msgstr "code"
-
-#: plugin/tools/simplephonebook/phone_add.php:19
-#: plugin/tools/simplephonebook/phone_add.php:24
-#: plugin/tools/simplephonebook/simplephonebook.php:157
-#: plugin/tools/simplephonebook/simplephonebook.php:162
-msgid "Add number to group"
-msgstr "Ajouter un numéro"
-
-#: plugin/tools/simplephonebook/phone_add.php:27
 #: plugin/tools/simplephonebook/simplephonebook.php:43
 #: plugin/tools/simplephonebook/simplephonebook.php:117
-#: plugin/tools/simplephonebook/phonebook_exim.php:60
 #: plugin/tools/simplephonebook/phonebook_exim.php:57
+#: plugin/tools/simplephonebook/phone_add.php:27
 msgid "Name"
 msgstr "Nom"
-
-#: plugin/tools/simplephonebook/phone_add.php:30
-#: plugin/tools/simplephonebook/phonebook_exim.php:61
-#: plugin/tools/simplephonebook/phonebook_exim.php:58
-msgid "Mobile"
-msgstr "Mobile"
-
-#: plugin/tools/simplephonebook/phone_add.php:30
-msgid "International format"
-msgstr "Format international"
-
-#: plugin/tools/simplephonebook/phone_add.php:33
-#: plugin/tools/simplephonebook/simplephonebook.php:45
-#: plugin/tools/simplephonebook/simplephonebook.php:119
-#: plugin/tools/simplephonebook/phonebook_exim.php:62
-#: plugin/tools/simplephonebook/phonebook_exim.php:59
-msgid "Email"
-msgstr "Email"
-
-#: plugin/tools/simplephonebook/phone_add.php:36
-msgid "Add"
-msgstr "Ajouter"
-
-#: plugin/tools/simplephonebook/phone_add.php:55
-msgid "Number is already exists"
-msgstr "Le numéro existe déjà"
-
-#: plugin/tools/simplephonebook/phone_add.php:55
-#: plugin/tools/simplephonebook/phone_add.php:62
-msgid "number"
-msgstr "numéro"
-
-#: plugin/tools/simplephonebook/phone_add.php:55
-#: plugin/tools/simplephonebook/phone_add.php:62
-msgid "name"
-msgstr "nom"
-
-#: plugin/tools/simplephonebook/phone_add.php:62
-msgid "Number has been added"
-msgstr "Le numéro a ete ajoute"
-
-#: plugin/tools/simplephonebook/phone_add.php:66
-#: plugin/tools/simplephonebook/dir_create.php:49
-#: plugin/tools/simplephonebook/dir_edit.php:51
-msgid "You must fill all field"
-msgstr "Vous devez remplir tous les champs"
-
-#: plugin/tools/simplephonebook/dir_create.php:12
-#: plugin/tools/simplephonebook/simplephonebook.php:156
-#: plugin/tools/simplephonebook/simplephonebook.php:161
-msgid "Create group"
-msgstr "Créer un groupe"
-
-#: plugin/tools/simplephonebook/dir_create.php:17
-#: plugin/tools/simplephonebook/dir_edit.php:19
-msgid "Group name"
-msgstr "Nom groupe"
-
-#: plugin/tools/simplephonebook/dir_create.php:20
-#: plugin/tools/simplephonebook/phonebook_exim.php:36
-#: plugin/tools/simplephonebook/dir_edit.php:22
-#: plugin/tools/simplephonebook/phonebook_exim.php:34
-msgid "Group code"
-msgstr "Code groupe"
-
-#: plugin/tools/simplephonebook/dir_create.php:20
-#: plugin/tools/simplephonebook/dir_edit.php:22
-msgid "please use uppercase and make it short"
-msgstr "merci d'utiliser des majuscules et de le rendre court"
-
-#: plugin/tools/simplephonebook/dir_create.php:23
-#: plugin/tools/simplephonebook/dir_edit.php:25
-msgid "Note"
-msgstr "Note"
-
-#: plugin/tools/simplephonebook/dir_create.php:23
-#: plugin/tools/simplephonebook/dir_edit.php:25
-msgid "Group code used by keyword"
-msgstr "Code groupe utilisé par le mot-clé"
-
-#: plugin/tools/simplephonebook/dir_create.php:23
-#: plugin/tools/simplephonebook/dir_edit.php:25
-msgid "broadcast SMS from single SMS"
-msgstr "Diffuser les SMS depuis un simple SMS"
-
-#: plugin/tools/simplephonebook/dir_create.php:24
-msgid "Create"
-msgstr "Créer"
-
-#: plugin/tools/simplephonebook/dir_create.php:38
-msgid "Group code is already exists"
-msgstr "Le code existe déjà"
-
-#: plugin/tools/simplephonebook/dir_create.php:45
-msgid "Group code has been added"
-msgstr "Le code du groupe a ete ajoute"
-
-#: plugin/tools/simplephonebook/dir_create.php:45
-#: plugin/tools/simplephonebook/dir_edit.php:47
-#: plugin/tools/simplephonebook/phonebook.php:267
-#: plugin/tools/simplephonebook/phonebook.php:272
-#: plugin/tools/simplephonebook/phonebook.php:284
-#: plugin/tools/simplephonebook/phonebook.php:289
-msgid "group"
-msgstr "groupe"
-
-#: plugin/tools/simplephonebook/config.php:4
-msgid "Export"
-msgstr "Exporter"
-
-#: plugin/tools/simplephonebook/config.php:5
-#: plugin/tools/simplephonebook/phonebook_exim.php:42
-#: plugin/tools/simplephonebook/phonebook_exim.php:109
-#: plugin/tools/simplephonebook/phonebook_exim.php:40
-#: plugin/tools/simplephonebook/phonebook_exim.php:97
-msgid "Import"
-msgstr "Importer"
-
-#: plugin/tools/simplephonebook/config.php:6
-msgid "Publish"
-msgstr "Rendre publique"
-
-#: plugin/tools/simplephonebook/config.php:7
-msgid "Unpublish"
-msgstr "Rendre privé"
-
-#: plugin/tools/simplephonebook/config.php:10
-#: plugin/tools/simplephonebook/simplephonebook.php:151
-#: plugin/tools/simplephonebook/phonebook.php:298
-msgid "Phonebook"
-msgstr "Carnet d`adresses"
 
 #: plugin/tools/simplephonebook/simplephonebook.php:44
 #: plugin/tools/simplephonebook/simplephonebook.php:118
 msgid "Number"
 msgstr "Numéro"
+
+#: plugin/tools/simplephonebook/simplephonebook.php:45
+#: plugin/tools/simplephonebook/simplephonebook.php:119
+#: plugin/tools/simplephonebook/phonebook_exim.php:59
+#: plugin/tools/simplephonebook/phone_add.php:33
+msgid "Email"
+msgstr "Email"
 
 #: plugin/tools/simplephonebook/simplephonebook.php:70
 msgid "Edit selections"
@@ -194,82 +55,29 @@ msgstr "Go"
 msgid "Shared by"
 msgstr "Partagé par"
 
+#: plugin/tools/simplephonebook/simplephonebook.php:151
+#: plugin/tools/simplephonebook/phonebook.php:298
+#: plugin/tools/simplephonebook/config.php:10
+msgid "Phonebook"
+msgstr "Carnet d`adresses"
+
+#: plugin/tools/simplephonebook/simplephonebook.php:156
+#: plugin/tools/simplephonebook/simplephonebook.php:161
+#: plugin/tools/simplephonebook/dir_create.php:12
+msgid "Create group"
+msgstr "Créer un groupe"
+
+#: plugin/tools/simplephonebook/simplephonebook.php:157
+#: plugin/tools/simplephonebook/simplephonebook.php:162
+#: plugin/tools/simplephonebook/phone_add.php:19
+#: plugin/tools/simplephonebook/phone_add.php:24
+msgid "Add number to group"
+msgstr "Ajouter un numéro"
+
 #: plugin/tools/simplephonebook/simplephonebook.php:158
 #: plugin/tools/simplephonebook/simplephonebook.php:163
 msgid "Export all"
 msgstr "Tout exporter"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:36
-#: plugin/tools/simplephonebook/phonebook_exim.php:34
-msgid "Import phonebook"
-msgstr "Importer le carnet d'adresse"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:39
-#: plugin/tools/simplephonebook/phonebook_exim.php:37
-msgid "Please select CSV file for phonebook entries"
-msgstr "Sélectionnez le fichier CSV pour votre carnet d'adresse"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:39
-#: plugin/tools/simplephonebook/phonebook_exim.php:37
-msgid "format : Name,Mobile,Email"
-msgstr "format: Nom,Mobile,Email"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:41
-#: plugin/tools/simplephonebook/phonebook_exim.php:39
-msgid "Same item(s) will be replaced"
-msgstr "Les doublons seront remplacés"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:55
-#: plugin/tools/simplephonebook/phonebook_exim.php:52
-msgid "Import confirmation"
-msgstr "Confirmation de l'import"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:98
-#: plugin/tools/simplephonebook/phonebook_exim.php:88
-msgid "Replace all entries in database"
-msgstr "Remplacer tous les contacts en base de données"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:102
-#: plugin/tools/simplephonebook/phonebook_exim.php:90
-msgid "Add all entries"
-msgstr "Ajouter tous les contacts"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:106
-#: plugin/tools/simplephonebook/phonebook_exim.php:94
-msgid "Import above phonebook entries ?"
-msgstr "Importer les contacts ci-dessous ?"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:107
-#: plugin/tools/simplephonebook/phonebook_exim.php:95
-msgid "Status"
-msgstr "Statut"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:113
-#: plugin/tools/simplephonebook/phonebook_exim.php:101
-msgid "Back"
-msgstr "Retour"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:120
-#: plugin/tools/simplephonebook/phonebook_exim.php:105
-msgid "Fail to upload CSV file for phonebook"
-msgstr "Echec importation du fichier CSV pour le carnet d'adresse"
-
-#: plugin/tools/simplephonebook/dir_edit.php:14
-msgid "Edit group"
-msgstr "Editer le groupe"
-
-#: plugin/tools/simplephonebook/dir_edit.php:26
-#: plugin/tools/simplephonebook/phonebook.php:53
-msgid "Save"
-msgstr "Sauvegarder"
-
-#: plugin/tools/simplephonebook/dir_edit.php:40
-msgid "No changes has been made"
-msgstr "Aucune modification n'a ete effectuée"
-
-#: plugin/tools/simplephonebook/dir_edit.php:47
-msgid "Group has been edited"
-msgstr "Le groupe a ete edite"
 
 #: plugin/tools/simplephonebook/phonebook.php:23
 msgid "Edited name"
@@ -282,6 +90,11 @@ msgstr "Numéro edite"
 #: plugin/tools/simplephonebook/phonebook.php:25
 msgid "Edited email"
 msgstr "Email edite"
+
+#: plugin/tools/simplephonebook/phonebook.php:53
+#: plugin/tools/simplephonebook/dir_edit.php:26
+msgid "Save"
+msgstr "Sauvegarder"
 
 #: plugin/tools/simplephonebook/phonebook.php:81
 msgid "Copied name"
@@ -336,6 +149,15 @@ msgstr "Supprimer"
 msgid "Fail to publish"
 msgstr "Impossible de publier"
 
+#: plugin/tools/simplephonebook/phonebook.php:267
+#: plugin/tools/simplephonebook/phonebook.php:272
+#: plugin/tools/simplephonebook/phonebook.php:284
+#: plugin/tools/simplephonebook/phonebook.php:289
+#: plugin/tools/simplephonebook/dir_create.php:45
+#: plugin/tools/simplephonebook/dir_edit.php:47
+msgid "group"
+msgstr "groupe"
+
 #: plugin/tools/simplephonebook/phonebook.php:272
 msgid "Group has been published"
 msgstr "Groupe publié"
@@ -347,3 +169,164 @@ msgstr "Imposible de dépublier"
 #: plugin/tools/simplephonebook/phonebook.php:289
 msgid "Group has been unpublished"
 msgstr "Le groupe a été dépublier"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:34
+msgid "Import phonebook"
+msgstr "Importer le carnet d'adresse"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:34
+#: plugin/tools/simplephonebook/dir_create.php:20
+#: plugin/tools/simplephonebook/dir_edit.php:22
+msgid "Group code"
+msgstr "Code groupe"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:37
+msgid "Please select CSV file for phonebook entries"
+msgstr "Sélectionnez le fichier CSV pour votre carnet d'adresse"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:37
+msgid "format : Name,Mobile,Email"
+msgstr "format: Nom,Mobile,Email"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:39
+msgid "Same item(s) will be replaced"
+msgstr "Les doublons seront remplacés"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:40
+#: plugin/tools/simplephonebook/phonebook_exim.php:97
+#: plugin/tools/simplephonebook/config.php:5
+msgid "Import"
+msgstr "Importer"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:52
+msgid "Import confirmation"
+msgstr "Confirmation de l'import"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:58
+#: plugin/tools/simplephonebook/phone_add.php:30
+msgid "Mobile"
+msgstr "Mobile"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:88
+msgid "Replace all entries in database"
+msgstr "Remplacer tous les contacts en base de données"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:90
+msgid "Add all entries"
+msgstr "Ajouter tous les contacts"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:94
+msgid "Import above phonebook entries ?"
+msgstr "Importer les contacts ci-dessous ?"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:95
+msgid "Status"
+msgstr "Statut"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:101
+msgid "Back"
+msgstr "Retour"
+
+#: plugin/tools/simplephonebook/phonebook_exim.php:105
+msgid "Fail to upload CSV file for phonebook"
+msgstr "Echec importation du fichier CSV pour le carnet d'adresse"
+
+#: plugin/tools/simplephonebook/dir_create.php:17
+#: plugin/tools/simplephonebook/dir_edit.php:19
+msgid "Group name"
+msgstr "Nom groupe"
+
+#: plugin/tools/simplephonebook/dir_create.php:20
+#: plugin/tools/simplephonebook/dir_edit.php:22
+msgid "please use uppercase and make it short"
+msgstr "merci d'utiliser des majuscules et de le rendre court"
+
+#: plugin/tools/simplephonebook/dir_create.php:23
+#: plugin/tools/simplephonebook/dir_edit.php:25
+msgid "Note"
+msgstr "Note"
+
+#: plugin/tools/simplephonebook/dir_create.php:23
+#: plugin/tools/simplephonebook/dir_edit.php:25
+msgid "Group code used by keyword"
+msgstr "Code groupe utilisé par le mot-clé"
+
+#: plugin/tools/simplephonebook/dir_create.php:23
+#: plugin/tools/simplephonebook/dir_edit.php:25
+msgid "broadcast SMS from single SMS"
+msgstr "Diffuser les SMS depuis un simple SMS"
+
+#: plugin/tools/simplephonebook/dir_create.php:24
+msgid "Create"
+msgstr "Créer"
+
+#: plugin/tools/simplephonebook/dir_create.php:38
+msgid "Group code is already exists"
+msgstr "Le code existe déjà"
+
+#: plugin/tools/simplephonebook/dir_create.php:38
+#: plugin/tools/simplephonebook/dir_create.php:45
+#: plugin/tools/simplephonebook/phone_add.php:12
+#: plugin/tools/simplephonebook/dir_edit.php:47
+msgid "code"
+msgstr "code"
+
+#: plugin/tools/simplephonebook/dir_create.php:45
+msgid "Group code has been added"
+msgstr "Le code du groupe a ete ajoute"
+
+#: plugin/tools/simplephonebook/dir_create.php:49
+#: plugin/tools/simplephonebook/phone_add.php:66
+#: plugin/tools/simplephonebook/dir_edit.php:51
+msgid "You must fill all field"
+msgstr "Vous devez remplir tous les champs"
+
+#: plugin/tools/simplephonebook/config.php:4
+msgid "Export"
+msgstr "Exporter"
+
+#: plugin/tools/simplephonebook/config.php:6
+msgid "Publish"
+msgstr "Rendre publique"
+
+#: plugin/tools/simplephonebook/config.php:7
+msgid "Unpublish"
+msgstr "Rendre privé"
+
+#: plugin/tools/simplephonebook/phone_add.php:30
+msgid "International format"
+msgstr "Format international"
+
+#: plugin/tools/simplephonebook/phone_add.php:36
+msgid "Add"
+msgstr "Ajouter"
+
+#: plugin/tools/simplephonebook/phone_add.php:55
+msgid "Number is already exists"
+msgstr "Le numéro existe déjà"
+
+#: plugin/tools/simplephonebook/phone_add.php:55
+#: plugin/tools/simplephonebook/phone_add.php:62
+msgid "number"
+msgstr "numéro"
+
+#: plugin/tools/simplephonebook/phone_add.php:55
+#: plugin/tools/simplephonebook/phone_add.php:62
+msgid "name"
+msgstr "nom"
+
+#: plugin/tools/simplephonebook/phone_add.php:62
+msgid "Number has been added"
+msgstr "Le numéro a ete ajoute"
+
+#: plugin/tools/simplephonebook/dir_edit.php:14
+msgid "Edit group"
+msgstr "Editer le groupe"
+
+#: plugin/tools/simplephonebook/dir_edit.php:40
+msgid "No changes has been made"
+msgstr "Aucune modification n'a ete effectuée"
+
+#: plugin/tools/simplephonebook/dir_edit.php:47
+msgid "Group has been edited"
+msgstr "Le groupe a ete edite"

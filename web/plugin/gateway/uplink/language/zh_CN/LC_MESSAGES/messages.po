@@ -69,28 +69,24 @@ msgstr "Uplink传入路径"
 msgid "No trailing slash"
 msgstr "没有结尾的斜线"
 
-#: plugin/gateway/uplink/uplink.php:57
-msgid "Note"
-msgstr "注意"
-
-#: plugin/gateway/uplink/uplink.php:58
-msgid "Send SMS message without footer banner"
-msgstr "发送无页脚横幅的短信"
-
-#: plugin/gateway/uplink/uplink.php:60 plugin/gateway/uplink/uplink.php:56
+#: plugin/gateway/uplink/uplink.php:56
 msgid "Save"
 msgstr "保存"
 
-#: plugin/gateway/uplink/uplink.php:73 plugin/gateway/uplink/uplink.php:69
+#: plugin/gateway/uplink/uplink.php:69
 msgid "No changes has been made"
 msgstr "没有做出改变"
 
-#: plugin/gateway/uplink/uplink.php:92 plugin/gateway/uplink/uplink.php:107
 #: plugin/gateway/uplink/uplink.php:103
 msgid "Gateway module configurations has been saved"
 msgstr "网关模块的配置已保存"
 
-#: plugin/gateway/uplink/uplink.php:100 plugin/gateway/uplink/uplink.php:115
 #: plugin/gateway/uplink/uplink.php:111
 msgid "Gateway has been activated"
 msgstr "网关已激活"
+
+#~ msgid "Note"
+#~ msgstr "注意"
+
+#~ msgid "Send SMS message without footer banner"
+#~ msgstr "发送无页脚横幅的短信"

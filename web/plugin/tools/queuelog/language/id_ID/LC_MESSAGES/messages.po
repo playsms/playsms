@@ -1,12 +1,3 @@
-#: plugin/tools/playsmslog/config.php:5
-#: plugin/tools/playsmslog/playsmslog.php:10
-msgid "View log"
-msgstr "Lihat log"
-
-#: plugin/tools/playsmslog/playsmslog.php:11
-msgid "Log file"
-msgstr "File log"
-
 #: plugin/tools/queuelog/config.php:4 plugin/tools/queuelog/queuelog.php:16
 msgid "View SMS queue"
 msgstr "Lihat antrian SMS"
@@ -30,3 +21,9 @@ msgstr "Grup"
 #: plugin/tools/queuelog/queuelog.php:32
 msgid "Message"
 msgstr "Pesan"
+
+#~ msgid "View log"
+#~ msgstr "Lihat log"
+
+#~ msgid "Log file"
+#~ msgstr "File log"

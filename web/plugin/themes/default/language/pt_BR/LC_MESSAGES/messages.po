@@ -5,81 +5,45 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/themes/default/page_welcome.php:8
-msgid "Welcome to playSMS"
-msgstr "Bem-vindo ao playSMS"
-
-#: plugin/themes/default/page_welcome.php:10
-msgid "About playSMS"
-msgstr "Sobre o playSMS"
-
-#: plugin/themes/default/page_welcome.php:11
-msgid "Changelog"
-msgstr ""
-
-#: plugin/themes/default/page_welcome.php:12
-msgid "Installation Guide"
-msgstr "Guia de instalação"
-
-#: plugin/themes/default/page_welcome.php:13
-msgid "F.A.Q"
-msgstr "FAQ"
-
-#: plugin/themes/default/page_welcome.php:14
-msgid "License"
-msgstr "Licença"
-
-#: plugin/themes/default/page_welcome.php:15
-msgid "HTTP API"
-msgstr ""
-
-#: plugin/themes/default/page_register.php:26
-#: plugin/themes/default/page_register.php:32
-msgid "Name"
-msgstr ""
-
-#: plugin/themes/default/page_register.php:30
-#: plugin/themes/default/page_login.php:25
-#: plugin/themes/default/page_forgot.php:26
 #: plugin/themes/default/page_login.php:30
 #: plugin/themes/default/page_forgot.php:32
 #: plugin/themes/default/page_register.php:36
 msgid "Username"
 msgstr "Usuário"
 
-#: plugin/themes/default/page_register.php:35
-#: plugin/themes/default/page_register.php:41
-msgid "Mobile"
+#: plugin/themes/default/page_login.php:35
+msgid "Password"
+msgstr "Senha"
+
+#: plugin/themes/default/page_login.php:41
+msgid "Login"
 msgstr ""
 
-#: plugin/themes/default/page_register.php:39
-#: plugin/themes/default/page_forgot.php:31
-#: plugin/themes/default/page_forgot.php:37
-#: plugin/themes/default/page_register.php:45
-msgid "Email"
-msgstr ""
-
-#: plugin/themes/default/page_register.php:45
-#: plugin/themes/default/page_login.php:43
 #: plugin/themes/default/page_login.php:48
 #: plugin/themes/default/page_register.php:51
 msgid "Register an account"
 msgstr ""
 
-#: plugin/themes/default/page_login.php:30
-#: plugin/themes/default/page_login.php:35
-msgid "Password"
-msgstr "Senha"
-
-#: plugin/themes/default/page_login.php:36
-#: plugin/themes/default/page_login.php:41
-msgid "Login"
-msgstr ""
-
-#: plugin/themes/default/page_login.php:50
 #: plugin/themes/default/page_login.php:55
 msgid "Forgot password"
 msgstr "Senha"
+
+#: plugin/themes/default/fn.php:38
+msgid "Home"
+msgstr ""
+
+#: plugin/themes/default/fn.php:40
+msgid "Logout"
+msgstr ""
+
+#: plugin/themes/default/page_forgot.php:37
+#: plugin/themes/default/page_register.php:45
+msgid "Email"
+msgstr ""
+
+#: plugin/themes/default/page_forgot.php:43
+msgid "Recover password"
+msgstr ""
 
 #: plugin/themes/default/header.php:36
 msgid "Logged in"
@@ -89,15 +53,25 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: plugin/themes/default/page_forgot.php:37
-#: plugin/themes/default/page_forgot.php:43
-msgid "Recover password"
+#: plugin/themes/default/page_register.php:32
+msgid "Name"
 msgstr ""
 
-#: plugin/themes/default/fn.php:38
-msgid "Home"
+#: plugin/themes/default/page_register.php:41
+msgid "Mobile"
 msgstr ""
 
-#: plugin/themes/default/fn.php:40
-msgid "Logout"
-msgstr ""
+#~ msgid "Welcome to playSMS"
+#~ msgstr "Bem-vindo ao playSMS"
+
+#~ msgid "About playSMS"
+#~ msgstr "Sobre o playSMS"
+
+#~ msgid "Installation Guide"
+#~ msgstr "Guia de instalação"
+
+#~ msgid "F.A.Q"
+#~ msgstr "FAQ"
+
+#~ msgid "License"
+#~ msgstr "Licença"

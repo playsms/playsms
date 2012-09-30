@@ -51,7 +51,8 @@ msgstr "Pengirim global"
 
 #: plugin/gateway/uplink/uplink.php:45
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "Maks. 16 karakter numerik atau 11 alfanumerik. kosongkan untuk menonaktifkan"
+msgstr ""
+"Maks. 16 karakter numerik atau 11 alfanumerik. kosongkan untuk menonaktifkan"
 
 #: plugin/gateway/uplink/uplink.php:48
 msgid "Module timezone"
@@ -69,28 +70,24 @@ msgstr "Jalur masuk uplink"
 msgid "No trailing slash"
 msgstr "Tanpa garis miring"
 
-#: plugin/gateway/uplink/uplink.php:57
-msgid "Note"
-msgstr "Catatan"
-
-#: plugin/gateway/uplink/uplink.php:58
-msgid "Send SMS message without footer banner"
-msgstr "Kirim SMS tanpa banner footer"
-
-#: plugin/gateway/uplink/uplink.php:60 plugin/gateway/uplink/uplink.php:56
+#: plugin/gateway/uplink/uplink.php:56
 msgid "Save"
 msgstr "Simpan"
 
-#: plugin/gateway/uplink/uplink.php:73 plugin/gateway/uplink/uplink.php:69
+#: plugin/gateway/uplink/uplink.php:69
 msgid "No changes has been made"
 msgstr "Tidak ada perubahan yang dilakukan"
 
-#: plugin/gateway/uplink/uplink.php:92 plugin/gateway/uplink/uplink.php:107
 #: plugin/gateway/uplink/uplink.php:103
 msgid "Gateway module configurations has been saved"
 msgstr "Konfigurasi modul gateway telah disimpan"
 
-#: plugin/gateway/uplink/uplink.php:100 plugin/gateway/uplink/uplink.php:115
 #: plugin/gateway/uplink/uplink.php:111
 msgid "Gateway has been activated"
 msgstr "Gateway telah diaktifkan"
+
+#~ msgid "Note"
+#~ msgstr "Catatan"
+
+#~ msgid "Send SMS message without footer banner"
+#~ msgstr "Kirim SMS tanpa banner footer"

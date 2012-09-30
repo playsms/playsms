@@ -5,30 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/feature/sms_subscribe/fn.php:64
-msgid "Subscribe service inactive"
-msgstr "La subscripción SMS ha sido guardada"
-
-#: plugin/feature/sms_subscribe/fn.php:112
-#: plugin/feature/sms_subscribe/fn.php:117
-#: plugin/feature/sms_subscribe/fn.php:122
-msgid "You are not a member"
-msgstr "Ud. no es miembro"
-
-#: plugin/feature/sms_subscribe/fn.php:127
-msgid "Unknown SMS format"
-msgstr "Formato de SMS desconocido"
-
-#: plugin/feature/sms_subscribe/fn.php:160
-#: plugin/feature/sms_subscribe/fn.php:165
-#: plugin/feature/sms_subscribe/fn.php:170
-msgid "You already a member"
-msgstr "Ud. ya es miembro"
-
-#: plugin/feature/sms_subscribe/fn.php:175
-msgid "Unknown sms format"
-msgstr "Formato de SMS desconocido"
-
 #: plugin/feature/sms_subscribe/config.php:6
 #: plugin/feature/sms_subscribe/sms_subscribe.php:13
 msgid "Manage subscribe"
@@ -259,3 +235,27 @@ msgstr "La subscripción ya existe, está reservada o en uso por otra función"
 #: plugin/feature/sms_subscribe/sms_subscribe.php:526
 msgid "Member message has been added"
 msgstr "Miembro ha sido añadido"
+
+#: plugin/feature/sms_subscribe/fn.php:64
+msgid "Subscribe service inactive"
+msgstr "La subscripción SMS ha sido guardada"
+
+#: plugin/feature/sms_subscribe/fn.php:112
+#: plugin/feature/sms_subscribe/fn.php:117
+#: plugin/feature/sms_subscribe/fn.php:122
+msgid "You are not a member"
+msgstr "Ud. no es miembro"
+
+#: plugin/feature/sms_subscribe/fn.php:127
+msgid "Unknown SMS format"
+msgstr "Formato de SMS desconocido"
+
+#: plugin/feature/sms_subscribe/fn.php:160
+#: plugin/feature/sms_subscribe/fn.php:165
+#: plugin/feature/sms_subscribe/fn.php:170
+msgid "You already a member"
+msgstr "Ud. ya es miembro"
+
+#: plugin/feature/sms_subscribe/fn.php:175
+msgid "Unknown sms format"
+msgstr "Formato de SMS desconocido"

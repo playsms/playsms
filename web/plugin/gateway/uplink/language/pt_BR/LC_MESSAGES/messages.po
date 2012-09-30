@@ -70,28 +70,21 @@ msgstr "Caminho de chegada do uplink"
 msgid "No trailing slash"
 msgstr "Sem barra no final"
 
-#: plugin/gateway/uplink/uplink.php:57
-msgid "Note"
-msgstr ""
-
-#: plugin/gateway/uplink/uplink.php:58
-msgid "Send SMS message without footer banner"
-msgstr "Enviar mensagem SMS sem banner no rodapé"
-
-#: plugin/gateway/uplink/uplink.php:60 plugin/gateway/uplink/uplink.php:56
+#: plugin/gateway/uplink/uplink.php:56
 msgid "Save"
 msgstr "Salvar"
 
-#: plugin/gateway/uplink/uplink.php:73 plugin/gateway/uplink/uplink.php:69
+#: plugin/gateway/uplink/uplink.php:69
 msgid "No changes has been made"
 msgstr "Nenhuma mudança feita"
 
-#: plugin/gateway/uplink/uplink.php:92 plugin/gateway/uplink/uplink.php:107
 #: plugin/gateway/uplink/uplink.php:103
 msgid "Gateway module configurations has been saved"
 msgstr "Configurações do módulo de gateway foram salvas"
 
-#: plugin/gateway/uplink/uplink.php:100 plugin/gateway/uplink/uplink.php:115
 #: plugin/gateway/uplink/uplink.php:111
 msgid "Gateway has been activated"
 msgstr "Gateway foi ativado"
+
+#~ msgid "Send SMS message without footer banner"
+#~ msgstr "Enviar mensagem SMS sem banner no rodapé"

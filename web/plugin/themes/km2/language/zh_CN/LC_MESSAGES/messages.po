@@ -5,54 +5,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/themes/km2/page_welcome.php:8
-msgid "Welcome to PlaySMS"
-msgstr "欢迎使用playSMS"
-
-#: plugin/themes/km2/page_welcome.php:17
-msgid "About playSMS"
-msgstr "关于playSMS"
-
-#: plugin/themes/km2/page_welcome.php:18
-msgid "Changelog"
-msgstr "更改日志"
-
-#: plugin/themes/km2/page_welcome.php:19
-msgid "Installation Guide"
-msgstr "安装指南"
-
-#: plugin/themes/km2/page_welcome.php:20
-msgid "F.A.Q"
-msgstr "常见问题"
-
-#: plugin/themes/km2/page_welcome.php:21
-msgid "License"
-msgstr "通行证"
-
-#: plugin/themes/km2/page_welcome.php:26
-msgid "FAQ Users"
-msgstr "常见问题用户"
-
-#: plugin/themes/km2/page_register.php:32
-msgid "Name"
-msgstr "姓名"
-
-#: plugin/themes/km2/page_register.php:36 plugin/themes/km2/page_login.php:32
-#: plugin/themes/km2/page_forgot.php:31
+#: plugin/themes/km2/page_login.php:32 plugin/themes/km2/page_forgot.php:31
+#: plugin/themes/km2/page_register.php:36
 msgid "Username"
 msgstr "用户名"
-
-#: plugin/themes/km2/page_register.php:41
-msgid "Mobile"
-msgstr "手机"
-
-#: plugin/themes/km2/page_register.php:46 plugin/themes/km2/page_forgot.php:36
-msgid "Email"
-msgstr "电子邮件"
-
-#: plugin/themes/km2/page_register.php:53
-msgid "Register"
-msgstr "注册"
 
 #: plugin/themes/km2/page_login.php:37
 msgid "Password"
@@ -70,9 +26,21 @@ msgstr "注册一个帐号"
 msgid "Forgot password"
 msgstr "忘记密码"
 
-#: plugin/themes/km2/header.php:42 plugin/themes/km2/fn.php:38
+#: plugin/themes/km2/fn.php:38 plugin/themes/km2/header.php:42
 msgid "Home"
 msgstr "主页"
+
+#: plugin/themes/km2/fn.php:40 plugin/themes/km2/header.php:50
+msgid "Logout"
+msgstr "注销"
+
+#: plugin/themes/km2/page_forgot.php:36 plugin/themes/km2/page_register.php:46
+msgid "Email"
+msgstr "电子邮件"
+
+#: plugin/themes/km2/page_forgot.php:43
+msgid "Recover password"
+msgstr "找回密码"
 
 #: plugin/themes/km2/header.php:45
 msgid "Preferences"
@@ -82,10 +50,35 @@ msgstr "偏好"
 msgid "Contact"
 msgstr "连接"
 
-#: plugin/themes/km2/header.php:50 plugin/themes/km2/fn.php:40
-msgid "Logout"
-msgstr "注销"
+#: plugin/themes/km2/page_register.php:32
+msgid "Name"
+msgstr "姓名"
 
-#: plugin/themes/km2/page_forgot.php:43
-msgid "Recover password"
-msgstr "找回密码"
+#: plugin/themes/km2/page_register.php:41
+msgid "Mobile"
+msgstr "手机"
+
+#: plugin/themes/km2/page_register.php:53
+msgid "Register"
+msgstr "注册"
+
+#~ msgid "Welcome to PlaySMS"
+#~ msgstr "欢迎使用playSMS"
+
+#~ msgid "About playSMS"
+#~ msgstr "关于playSMS"
+
+#~ msgid "Changelog"
+#~ msgstr "更改日志"
+
+#~ msgid "Installation Guide"
+#~ msgstr "安装指南"
+
+#~ msgid "F.A.Q"
+#~ msgstr "常见问题"
+
+#~ msgid "License"
+#~ msgstr "通行证"
+
+#~ msgid "FAQ Users"
+#~ msgstr "常见问题用户"

@@ -5,30 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/feature/sms_subscribe/fn.php:64
-msgid "Subscribe service inactive"
-msgstr "SMS berlangganan telah disimpan"
-
-#: plugin/feature/sms_subscribe/fn.php:112
-#: plugin/feature/sms_subscribe/fn.php:117
-#: plugin/feature/sms_subscribe/fn.php:122
-msgid "You are not a member"
-msgstr "Anda bukan anggota"
-
-#: plugin/feature/sms_subscribe/fn.php:127
-msgid "Unknown SMS format"
-msgstr "format SMS tidak dikenal"
-
-#: plugin/feature/sms_subscribe/fn.php:160
-#: plugin/feature/sms_subscribe/fn.php:165
-#: plugin/feature/sms_subscribe/fn.php:170
-msgid "You already a member"
-msgstr "Anda sudah terdaftar sebagai anggota"
-
-#: plugin/feature/sms_subscribe/fn.php:175
-msgid "Unknown sms format"
-msgstr "format SMS tidak dikenal"
-
 #: plugin/feature/sms_subscribe/config.php:6
 #: plugin/feature/sms_subscribe/sms_subscribe.php:13
 msgid "Manage subscribe"
@@ -253,8 +229,33 @@ msgstr "SMS berlangganan telah ditambahkan"
 
 #: plugin/feature/sms_subscribe/sms_subscribe.php:478
 msgid "SMS subscribe already exists, reserved or use by other feature"
-msgstr "Layanan SMS berlangganan sudah ada, dipesa, atau digunakan oleh fitur lain"
+msgstr ""
+"Layanan SMS berlangganan sudah ada, dipesa, atau digunakan oleh fitur lain"
 
 #: plugin/feature/sms_subscribe/sms_subscribe.php:526
 msgid "Member message has been added"
 msgstr "Pesan anggota telah ditambahkan"
+
+#: plugin/feature/sms_subscribe/fn.php:64
+msgid "Subscribe service inactive"
+msgstr "SMS berlangganan telah disimpan"
+
+#: plugin/feature/sms_subscribe/fn.php:112
+#: plugin/feature/sms_subscribe/fn.php:117
+#: plugin/feature/sms_subscribe/fn.php:122
+msgid "You are not a member"
+msgstr "Anda bukan anggota"
+
+#: plugin/feature/sms_subscribe/fn.php:127
+msgid "Unknown SMS format"
+msgstr "format SMS tidak dikenal"
+
+#: plugin/feature/sms_subscribe/fn.php:160
+#: plugin/feature/sms_subscribe/fn.php:165
+#: plugin/feature/sms_subscribe/fn.php:170
+msgid "You already a member"
+msgstr "Anda sudah terdaftar sebagai anggota"
+
+#: plugin/feature/sms_subscribe/fn.php:175
+msgid "Unknown sms format"
+msgstr "format SMS tidak dikenal"

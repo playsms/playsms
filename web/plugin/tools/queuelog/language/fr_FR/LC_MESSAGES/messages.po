@@ -1,12 +1,3 @@
-#: plugin/tools/playsmslog/config.php:5
-#: plugin/tools/playsmslog/playsmslog.php:10
-msgid "View log"
-msgstr ""
-
-#: plugin/tools/playsmslog/playsmslog.php:11
-msgid "Log file"
-msgstr ""
-
 #: plugin/tools/queuelog/config.php:4 plugin/tools/queuelog/queuelog.php:16
 msgid "View SMS queue"
 msgstr ""

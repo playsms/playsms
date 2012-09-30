@@ -52,7 +52,8 @@ msgstr "ID pengirim modul"
 
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:44
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "Maks. 16 karakter numerik atau 11 alfanumerik. kosongkan untuk menonaktifkan"
+msgstr ""
+"Maks. 16 karakter numerik atau 11 alfanumerik. kosongkan untuk menonaktifkan"
 
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:47
 msgid "Module timezone"

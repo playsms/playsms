@@ -5,11 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/feature/sms_quiz/config.php:6
-#: plugin/feature/sms_quiz/sms_quiz.php:80
-msgid "Manage quiz"
-msgstr "Administrar Exámen corto (quiz)"
-
 #: plugin/feature/sms_quiz/sms_quiz.php:17
 msgid "Received answer list for keyword"
 msgstr "Lista de respuestas recibidas para la clave"
@@ -51,6 +46,11 @@ msgstr "Está Ud. seguro ed querer borrar esta respuesta ?"
 #: plugin/feature/sms_quiz/sms_quiz.php:69
 msgid "SMS quiz answer messages has been deleted"
 msgstr "Repuesta de Exámen corto (quiz) SMS ha sido borrada"
+
+#: plugin/feature/sms_quiz/sms_quiz.php:80
+#: plugin/feature/sms_quiz/config.php:6
+msgid "Manage quiz"
+msgstr "Administrar Exámen corto (quiz)"
 
 #: plugin/feature/sms_quiz/sms_quiz.php:82
 #: plugin/feature/sms_quiz/sms_quiz.php:129

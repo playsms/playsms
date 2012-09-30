@@ -5,11 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/feature/sms_quiz/config.php:6
-#: plugin/feature/sms_quiz/sms_quiz.php:80
-msgid "Manage quiz"
-msgstr "Pengaturan kuis SMS"
-
 #: plugin/feature/sms_quiz/sms_quiz.php:17
 msgid "Received answer list for keyword"
 msgstr "Terima daftar jawaban untuk kata kunci"
@@ -52,6 +47,11 @@ msgstr "Anda yakin ingin menghapus jawaban ini?"
 msgid "SMS quiz answer messages has been deleted"
 msgstr "Pesan jawaban kuis SMS telah dihapus"
 
+#: plugin/feature/sms_quiz/sms_quiz.php:80
+#: plugin/feature/sms_quiz/config.php:6
+msgid "Manage quiz"
+msgstr "Pengaturan kuis SMS"
+
 #: plugin/feature/sms_quiz/sms_quiz.php:82
 #: plugin/feature/sms_quiz/sms_quiz.php:129
 #: plugin/feature/sms_quiz/sms_quiz.php:247
@@ -85,8 +85,10 @@ msgid "Enabled"
 msgstr "Aktif"
 
 #: plugin/feature/sms_quiz/sms_quiz.php:113
-msgid "Are you sure you want to delete SMS quiz with all its choices and answers ?"
-msgstr "Anda yakin ingin menghapus kuis SMS beserta semua pilihan dan jawabannya?"
+msgid ""
+"Are you sure you want to delete SMS quiz with all its choices and answers ?"
+msgstr ""
+"Anda yakin ingin menghapus kuis SMS beserta semua pilihan dan jawabannya?"
 
 #: plugin/feature/sms_quiz/sms_quiz.php:113
 #: plugin/feature/sms_quiz/sms_quiz.php:208

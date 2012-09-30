@@ -5,53 +5,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/themes/km2/page_welcome.php:8
-msgid "Welcome to PlaySMS"
-msgstr ""
-
-#: plugin/themes/km2/page_welcome.php:17
-msgid "About playSMS"
-msgstr ""
-
-#: plugin/themes/km2/page_welcome.php:18
-msgid "Changelog"
-msgstr ""
-
-#: plugin/themes/km2/page_welcome.php:19
-msgid "Installation Guide"
-msgstr ""
-
-#: plugin/themes/km2/page_welcome.php:20
-msgid "F.A.Q"
-msgstr ""
-
-#: plugin/themes/km2/page_welcome.php:21
-msgid "License"
-msgstr ""
-
-#: plugin/themes/km2/page_welcome.php:26
-msgid "FAQ Users"
-msgstr ""
-
-#: plugin/themes/km2/page_register.php:32
-msgid "Name"
-msgstr ""
-
-#: plugin/themes/km2/page_register.php:36 plugin/themes/km2/page_login.php:32
-#: plugin/themes/km2/page_forgot.php:31
+#: plugin/themes/km2/page_login.php:32 plugin/themes/km2/page_forgot.php:31
+#: plugin/themes/km2/page_register.php:36
 msgid "Username"
-msgstr ""
-
-#: plugin/themes/km2/page_register.php:41
-msgid "Mobile"
-msgstr ""
-
-#: plugin/themes/km2/page_register.php:46 plugin/themes/km2/page_forgot.php:36
-msgid "Email"
-msgstr ""
-
-#: plugin/themes/km2/page_register.php:53
-msgid "Register"
 msgstr ""
 
 #: plugin/themes/km2/page_login.php:37
@@ -70,9 +26,21 @@ msgstr ""
 msgid "Forgot password"
 msgstr ""
 
-#: plugin/themes/km2/header.php:42 plugin/themes/km2/fn.php:38
+#: plugin/themes/km2/fn.php:38 plugin/themes/km2/header.php:42
 msgid "Home"
 msgstr "Home"
+
+#: plugin/themes/km2/fn.php:40 plugin/themes/km2/header.php:50
+msgid "Logout"
+msgstr "Logout"
+
+#: plugin/themes/km2/page_forgot.php:36 plugin/themes/km2/page_register.php:46
+msgid "Email"
+msgstr ""
+
+#: plugin/themes/km2/page_forgot.php:43
+msgid "Recover password"
+msgstr ""
 
 #: plugin/themes/km2/header.php:45
 msgid "Preferences"
@@ -82,10 +50,14 @@ msgstr "Preferences"
 msgid "Contact"
 msgstr "Contact"
 
-#: plugin/themes/km2/header.php:50 plugin/themes/km2/fn.php:40
-msgid "Logout"
-msgstr "Logout"
+#: plugin/themes/km2/page_register.php:32
+msgid "Name"
+msgstr ""
 
-#: plugin/themes/km2/page_forgot.php:43
-msgid "Recover password"
+#: plugin/themes/km2/page_register.php:41
+msgid "Mobile"
+msgstr ""
+
+#: plugin/themes/km2/page_register.php:53
+msgid "Register"
 msgstr ""

@@ -5,10 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/gnokii/config.php:16 plugin/gateway/gnokii/gnokii.php:24
-msgid "Manage gnokii"
-msgstr "Pengaturan gnokii"
-
 #: plugin/gateway/gnokii/gnokii.php:9
 msgid "Active"
 msgstr "Aktif"
@@ -20,6 +16,10 @@ msgstr "Nonaktif"
 #: plugin/gateway/gnokii/gnokii.php:13
 msgid "click here to activate"
 msgstr "klik di sini untuk mengaktifkan"
+
+#: plugin/gateway/gnokii/gnokii.php:24 plugin/gateway/gnokii/config.php:16
+msgid "Manage gnokii"
+msgstr "Pengaturan gnokii"
 
 #: plugin/gateway/gnokii/gnokii.php:29
 msgid "Gateway name"
@@ -33,26 +33,24 @@ msgstr "Jalur instalasi Gnokii"
 msgid "No trailing slash"
 msgstr "Tanpa garis miring"
 
-#: plugin/gateway/gnokii/gnokii.php:36
-msgid "Note"
-msgstr "Catatan"
-
-#: plugin/gateway/gnokii/gnokii.php:37
-msgid "Send SMS message without footer banner"
-msgstr "Kirim SMS tanpa banner footer"
-
-#: plugin/gateway/gnokii/gnokii.php:39 plugin/gateway/gnokii/gnokii.php:35
+#: plugin/gateway/gnokii/gnokii.php:35
 msgid "Save"
 msgstr "Simpan"
 
-#: plugin/gateway/gnokii/gnokii.php:46 plugin/gateway/gnokii/gnokii.php:42
+#: plugin/gateway/gnokii/gnokii.php:42
 msgid "No changes has been made"
 msgstr "Tidak ada perubahan telah dibuat"
 
-#: plugin/gateway/gnokii/gnokii.php:55 plugin/gateway/gnokii/gnokii.php:51
+#: plugin/gateway/gnokii/gnokii.php:51
 msgid "Gateway module configurations has been saved"
 msgstr "Konfigurasi modul gateway telah disimpan"
 
-#: plugin/gateway/gnokii/gnokii.php:63 plugin/gateway/gnokii/gnokii.php:59
+#: plugin/gateway/gnokii/gnokii.php:59
 msgid "Gateway has been activated"
 msgstr "Gateway telah diaktifkan"
+
+#~ msgid "Note"
+#~ msgstr "Catatan"
+
+#~ msgid "Send SMS message without footer banner"
+#~ msgstr "Kirim SMS tanpa banner footer"

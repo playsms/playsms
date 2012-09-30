@@ -6,135 +6,105 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: plugin/tools/sendfromfile/sendfromfile.php:12
-#: plugin/tools/sendfromfile/sendfromfile.php:68
-#: plugin/tools/sendfromfile/config.php:5 sendfromfile.php:12
-#: sendfromfile.php:68 plugin/tools/sendfromfile/sendfromfile.php:82
+#: plugin/tools/sendfromfile/sendfromfile.php:82
+#: plugin/tools/sendfromfile/config.php:5
 msgid "Send from file"
 msgstr "Kirim dari file"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:26 sendfromfile.php:26
 #: plugin/tools/sendfromfile/sendfromfile.php:27
 #: plugin/tools/sendfromfile/sendfromfile.php:34
 msgid "Please select CSV file"
 msgstr "Silahkan pilih file CSV"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:26 sendfromfile.php:26
 #: plugin/tools/sendfromfile/sendfromfile.php:27
 msgid "format : destination number, message, username"
 msgstr "Format: nomor tujuan, pesan, nama pengguna"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:28 sendfromfile.php:28
 #: plugin/tools/sendfromfile/sendfromfile.php:29
 #: plugin/tools/sendfromfile/sendfromfile.php:36
 msgid "Upload file"
 msgstr "Unggah file"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:63 sendfromfile.php:63
+#: plugin/tools/sendfromfile/sendfromfile.php:34
+msgid "format : destination number, message"
+msgstr "Format: nomor tujuan, pesan"
+
 #: plugin/tools/sendfromfile/sendfromfile.php:77
 msgid "Invalid CSV file"
 msgstr "File CSV tidak valid"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:69 sendfromfile.php:69
 #: plugin/tools/sendfromfile/sendfromfile.php:83
 msgid "Confirmation"
 msgstr "Konfirmasi"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:70 sendfromfile.php:70
 #: plugin/tools/sendfromfile/sendfromfile.php:84
 msgid "Uploaded file"
 msgstr "File dirunggah"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:73 sendfromfile.php:73
 #: plugin/tools/sendfromfile/sendfromfile.php:87
 msgid "Found valid entries in uploaded file"
 msgstr "Ditemukan entri yang valid dalam file yang diunggah"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:73 sendfromfile.php:73
 #: plugin/tools/sendfromfile/sendfromfile.php:87
 msgid "valid entries"
 msgstr "entri valid"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:74 sendfromfile.php:74
 #: plugin/tools/sendfromfile/sendfromfile.php:88
 msgid "Valid entries"
 msgstr "Entri valid"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:99 sendfromfile.php:99
-#: plugin/tools/sendfromfile/sendfromfile.php:113
-msgid "Found invalid entries in uploaded file"
-msgstr "Ditemukan entri yang tidak valid dalam file yang diunggah"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:99 sendfromfile.php:99
-#: plugin/tools/sendfromfile/sendfromfile.php:113
-msgid "invalid entries"
-msgstr "entri tidak valid"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:100 sendfromfile.php:100
-#: plugin/tools/sendfromfile/sendfromfile.php:114
-msgid "Invalid entries"
-msgstr "Entri tidak valid"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:124 sendfromfile.php:124
-#: plugin/tools/sendfromfile/sendfromfile.php:138
-msgid "Your choice"
-msgstr "Pilihan Anda"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:127 sendfromfile.php:127
-#: plugin/tools/sendfromfile/sendfromfile.php:141
-msgid "Cancel send from file"
-msgstr "Batal kirim dari file"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:131 sendfromfile.php:131
-#: plugin/tools/sendfromfile/sendfromfile.php:145
-msgid "Send SMS to valid entries"
-msgstr "Kirim SMS ke entri yang valid"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:139 sendfromfile.php:139
-#: plugin/tools/sendfromfile/sendfromfile.php:153
-msgid "Send from file has been cancelled"
-msgstr "Kirim dari file telah dibatalkan"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:141 sendfromfile.php:141
-#: plugin/tools/sendfromfile/sendfromfile.php:155
-msgid "Fail to remove cancelled entries from database"
-msgstr "Gagal untuk menghapus entri dibatalkan dari database"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:144
-#: plugin/tools/sendfromfile/sendfromfile.php:167 sendfromfile.php:144
-#: sendfromfile.php:167 plugin/tools/sendfromfile/sendfromfile.php:158
-#: plugin/tools/sendfromfile/sendfromfile.php:181
-msgid "Invalid session ID"
-msgstr "Sesi ID tidak valid"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:165 sendfromfile.php:165
-#: plugin/tools/sendfromfile/sendfromfile.php:179
-msgid "SMS has been sent to valid numbers in uploaded file"
-msgstr "SMS telah dikirim ke nomor yang valid dalam file diunggah"
-
-#: sendfromfile.php:79 sendfromfile.php:105
-#: plugin/tools/sendfromfile/sendfromfile.php:79
-#: plugin/tools/sendfromfile/sendfromfile.php:105
 #: plugin/tools/sendfromfile/sendfromfile.php:93
 #: plugin/tools/sendfromfile/sendfromfile.php:119
 msgid "Destination number"
 msgstr "Nomor tujuan"
 
-#: sendfromfile.php:80 sendfromfile.php:106
-#: plugin/tools/sendfromfile/sendfromfile.php:80
-#: plugin/tools/sendfromfile/sendfromfile.php:106
 #: plugin/tools/sendfromfile/sendfromfile.php:94
 #: plugin/tools/sendfromfile/sendfromfile.php:120
 msgid "Message"
 msgstr "Pesan"
 
-#: sendfromfile.php:81 sendfromfile.php:107
-#: plugin/tools/sendfromfile/sendfromfile.php:81
-#: plugin/tools/sendfromfile/sendfromfile.php:107
 #: plugin/tools/sendfromfile/sendfromfile.php:95
 #: plugin/tools/sendfromfile/sendfromfile.php:121
 msgid "Username"
 msgstr "Nama pengguna"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:34
-msgid "format : destination number, message"
-msgstr "Format: nomor tujuan, pesan"
+#: plugin/tools/sendfromfile/sendfromfile.php:113
+msgid "Found invalid entries in uploaded file"
+msgstr "Ditemukan entri yang tidak valid dalam file yang diunggah"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:113
+msgid "invalid entries"
+msgstr "entri tidak valid"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:114
+msgid "Invalid entries"
+msgstr "Entri tidak valid"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:138
+msgid "Your choice"
+msgstr "Pilihan Anda"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:141
+msgid "Cancel send from file"
+msgstr "Batal kirim dari file"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:145
+msgid "Send SMS to valid entries"
+msgstr "Kirim SMS ke entri yang valid"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:153
+msgid "Send from file has been cancelled"
+msgstr "Kirim dari file telah dibatalkan"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:155
+msgid "Fail to remove cancelled entries from database"
+msgstr "Gagal untuk menghapus entri dibatalkan dari database"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:158
+#: plugin/tools/sendfromfile/sendfromfile.php:181
+msgid "Invalid session ID"
+msgstr "Sesi ID tidak valid"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:179
+msgid "SMS has been sent to valid numbers in uploaded file"
+msgstr "SMS telah dikirim ke nomor yang valid dalam file diunggah"

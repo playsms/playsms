@@ -5,6 +5,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: plugin/gateway/smstools/config.php:14
+#: plugin/gateway/smstools/smstools.php:24
+msgid "Manage smstools"
+msgstr "Pengaturan smstools"
+
 #: plugin/gateway/smstools/smstools.php:9
 msgid "Active"
 msgstr "Aktif"
@@ -16,11 +21,6 @@ msgstr "Nonaktif"
 #: plugin/gateway/smstools/smstools.php:13
 msgid "click here to activate"
 msgstr "klik di sini untuk mengaktifkan"
-
-#: plugin/gateway/smstools/smstools.php:24
-#: plugin/gateway/smstools/config.php:12 plugin/gateway/smstools/config.php:14
-msgid "Manage smstools"
-msgstr "Pengaturan smstools"
 
 #: plugin/gateway/smstools/smstools.php:28
 msgid "Gateway name"

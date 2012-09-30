@@ -18,135 +18,105 @@ msgstr ""
 "X-Generator: Lokalize 1.4\n"
 
 #: plugin/tools/sendfromfile/sendfromfile.php:12
-#: plugin/tools/sendfromfile/sendfromfile.php:68
-#: plugin/tools/sendfromfile/config.php:5 sendfromfile.php:12
-#: sendfromfile.php:68 plugin/tools/sendfromfile/sendfromfile.php:82
+#: plugin/tools/sendfromfile/sendfromfile.php:82
+#: plugin/tools/sendfromfile/config.php:5
 msgid "Send from file"
 msgstr "Enviar des de fitxer"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:26 sendfromfile.php:26
 #: plugin/tools/sendfromfile/sendfromfile.php:27
 #: plugin/tools/sendfromfile/sendfromfile.php:34
 msgid "Please select CSV file"
 msgstr "Trieu el fitxer CSV"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:26 sendfromfile.php:26
 #: plugin/tools/sendfromfile/sendfromfile.php:27
 msgid "format : destination number, message, username"
 msgstr "format: núm. destí, missatge, usuari"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:28 sendfromfile.php:28
 #: plugin/tools/sendfromfile/sendfromfile.php:29
 #: plugin/tools/sendfromfile/sendfromfile.php:36
 msgid "Upload file"
 msgstr "Pujar fitxer"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:63 sendfromfile.php:63
+#: plugin/tools/sendfromfile/sendfromfile.php:34
+msgid "format : destination number, message"
+msgstr "format: núm. destí, missatge"
+
 #: plugin/tools/sendfromfile/sendfromfile.php:77
 msgid "Invalid CSV file"
 msgstr "Fitxer CSV no vàlid"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:69 sendfromfile.php:69
 #: plugin/tools/sendfromfile/sendfromfile.php:83
 msgid "Confirmation"
 msgstr "Confirmar"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:70 sendfromfile.php:70
 #: plugin/tools/sendfromfile/sendfromfile.php:84
 msgid "Uploaded file"
 msgstr "Fitxer pujat"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:73 sendfromfile.php:73
 #: plugin/tools/sendfromfile/sendfromfile.php:87
 msgid "Found valid entries in uploaded file"
 msgstr "S'han trobat entrades correctes en el fitxer"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:73 sendfromfile.php:73
 #: plugin/tools/sendfromfile/sendfromfile.php:87
 msgid "valid entries"
 msgstr "entrades vàlides"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:74 sendfromfile.php:74
 #: plugin/tools/sendfromfile/sendfromfile.php:88
 msgid "Valid entries"
 msgstr "Entrades vàlides"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:99 sendfromfile.php:99
-#: plugin/tools/sendfromfile/sendfromfile.php:113
-msgid "Found invalid entries in uploaded file"
-msgstr "S'han trobat entrades no vàlides en el fitxer"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:99 sendfromfile.php:99
-#: plugin/tools/sendfromfile/sendfromfile.php:113
-msgid "invalid entries"
-msgstr "entrades no vàlides"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:100 sendfromfile.php:100
-#: plugin/tools/sendfromfile/sendfromfile.php:114
-msgid "Invalid entries"
-msgstr "entrades no vàlides"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:124 sendfromfile.php:124
-#: plugin/tools/sendfromfile/sendfromfile.php:138
-msgid "Your choice"
-msgstr "La vostra tria"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:127 sendfromfile.php:127
-#: plugin/tools/sendfromfile/sendfromfile.php:141
-msgid "Cancel send from file"
-msgstr "Cancel·lar l'enviament del fitxer"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:131 sendfromfile.php:131
-#: plugin/tools/sendfromfile/sendfromfile.php:145
-msgid "Send SMS to valid entries"
-msgstr "Enviar l'SMS a les entrades vàlides"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:139 sendfromfile.php:139
-#: plugin/tools/sendfromfile/sendfromfile.php:153
-msgid "Send from file has been cancelled"
-msgstr "L'enviament del fitxer s'ha cancel·lat"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:141 sendfromfile.php:141
-#: plugin/tools/sendfromfile/sendfromfile.php:155
-msgid "Fail to remove cancelled entries from database"
-msgstr "No s'han pogut el·liminar les entrades de la base de dades"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:144
-#: plugin/tools/sendfromfile/sendfromfile.php:167 sendfromfile.php:144
-#: sendfromfile.php:167 plugin/tools/sendfromfile/sendfromfile.php:158
-#: plugin/tools/sendfromfile/sendfromfile.php:181
-msgid "Invalid session ID"
-msgstr "ID de sessió no vàlid"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:165 sendfromfile.php:165
-#: plugin/tools/sendfromfile/sendfromfile.php:179
-msgid "SMS has been sent to valid numbers in uploaded file"
-msgstr "S'ha enviat l'SMS als números vàlids del fitxer pujat"
-
-#: sendfromfile.php:79 sendfromfile.php:105
-#: plugin/tools/sendfromfile/sendfromfile.php:79
-#: plugin/tools/sendfromfile/sendfromfile.php:105
 #: plugin/tools/sendfromfile/sendfromfile.php:93
 #: plugin/tools/sendfromfile/sendfromfile.php:119
 msgid "Destination number"
 msgstr "Número de destí"
 
-#: sendfromfile.php:80 sendfromfile.php:106
-#: plugin/tools/sendfromfile/sendfromfile.php:80
-#: plugin/tools/sendfromfile/sendfromfile.php:106
 #: plugin/tools/sendfromfile/sendfromfile.php:94
 #: plugin/tools/sendfromfile/sendfromfile.php:120
 msgid "Message"
 msgstr "Missatge"
 
-#: sendfromfile.php:81 sendfromfile.php:107
-#: plugin/tools/sendfromfile/sendfromfile.php:81
-#: plugin/tools/sendfromfile/sendfromfile.php:107
 #: plugin/tools/sendfromfile/sendfromfile.php:95
 #: plugin/tools/sendfromfile/sendfromfile.php:121
 msgid "Username"
 msgstr "Usuari"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:34
-msgid "format : destination number, message"
-msgstr "format: núm. destí, missatge"
+#: plugin/tools/sendfromfile/sendfromfile.php:113
+msgid "Found invalid entries in uploaded file"
+msgstr "S'han trobat entrades no vàlides en el fitxer"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:113
+msgid "invalid entries"
+msgstr "entrades no vàlides"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:114
+msgid "Invalid entries"
+msgstr "entrades no vàlides"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:138
+msgid "Your choice"
+msgstr "La vostra tria"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:141
+msgid "Cancel send from file"
+msgstr "Cancel·lar l'enviament del fitxer"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:145
+msgid "Send SMS to valid entries"
+msgstr "Enviar l'SMS a les entrades vàlides"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:153
+msgid "Send from file has been cancelled"
+msgstr "L'enviament del fitxer s'ha cancel·lat"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:155
+msgid "Fail to remove cancelled entries from database"
+msgstr "No s'han pogut el·liminar les entrades de la base de dades"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:158
+#: plugin/tools/sendfromfile/sendfromfile.php:181
+msgid "Invalid session ID"
+msgstr "ID de sessió no vàlid"
+
+#: plugin/tools/sendfromfile/sendfromfile.php:179
+msgid "SMS has been sent to valid numbers in uploaded file"
+msgstr "S'ha enviat l'SMS als números vàlids del fitxer pujat"

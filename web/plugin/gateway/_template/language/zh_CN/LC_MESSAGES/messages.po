@@ -34,30 +34,24 @@ msgstr "模板安装路径"
 msgid "No trailing slash"
 msgstr "没有结尾的斜线"
 
-#: plugin/gateway/_template/template.php:37
-msgid "Note"
-msgstr "注意"
-
-#: plugin/gateway/_template/template.php:38
-msgid "Send SMS message without footer banner"
-msgstr "发送无页脚横幅的短信"
-
-#: plugin/gateway/_template/template.php:40
 #: plugin/gateway/_template/template.php:36
 msgid "Save"
 msgstr "保存"
 
-#: plugin/gateway/_template/template.php:46
 #: plugin/gateway/_template/template.php:42
 msgid "No changes has been made"
 msgstr "未做改变"
 
-#: plugin/gateway/_template/template.php:55
 #: plugin/gateway/_template/template.php:51
 msgid "Gateway module configurations has been saved"
 msgstr "网关模块的配置已保存"
 
-#: plugin/gateway/_template/template.php:63
 #: plugin/gateway/_template/template.php:59
 msgid "Gateway has been activated"
 msgstr "网观已激活"
+
+#~ msgid "Note"
+#~ msgstr "注意"
+
+#~ msgid "Send SMS message without footer banner"
+#~ msgstr "发送无页脚横幅的短信"
