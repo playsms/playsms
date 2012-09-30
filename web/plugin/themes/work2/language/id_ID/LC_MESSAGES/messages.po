@@ -62,7 +62,6 @@ msgid "Login"
 msgstr "Mauk"
 
 #: plugin/themes/work2/page_login.php:50
-#, fuzzy
 msgid "Forgot password"
 msgstr "Lupa kata sandi"
 

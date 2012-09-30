@@ -50,7 +50,6 @@ msgstr "填写改变密码"
 
 #: plugin/gateway/clickatell/clickatell.php:41
 #: plugin/gateway/clickatell/clickatell.php:44
-#, fuzzy
 msgid "Module sender ID"
 msgstr "全球发件人"
 

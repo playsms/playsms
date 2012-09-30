@@ -65,7 +65,6 @@ msgstr "填写改变密码"
 
 #: plugin/gateway/kannel/kannel.php:57 plugin/gateway/kannel/kannel.php:58
 #: plugin/gateway/kannel/kannel.php:65
-#, fuzzy
 msgid "Module sender ID"
 msgstr "全球发件人"
 

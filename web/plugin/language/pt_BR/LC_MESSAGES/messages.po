@@ -336,12 +336,10 @@ msgid "Forwarded email footer"
 msgstr "Assinatura do e-mail encaminhado"
 
 #: inc/admin/main_config.php:58
-#, fuzzy
 msgid "Default sender ID"
 msgstr "SMS Sender ID"
 
 #: inc/admin/main_config.php:61
-#, fuzzy
 msgid "Default timezone"
 msgstr "Fuso horário do gateway"
 
@@ -571,7 +569,6 @@ msgstr "Máx de 16 dígitos ou 11 letras e dígitos"
 #: inc/user/send_sms.php:72 inc/user/send_sms.php:218
 #: inc/admin/user_mgmnt.php:149 inc/admin/user_mgmnt.php:247
 #: inc/user/user_pref.php:131
-#, fuzzy
 msgid "SMS sender ID"
 msgstr "SMS Sender ID"
 
@@ -959,7 +956,6 @@ msgstr "Preferências foram salvas e senhas atualizadas"
 
 #: inc/user/user_pref.php:126 inc/user/user_pref.php:122
 #: inc/user/user_pref.php:123 inc/user/user_pref.php:129
-#, fuzzy
 msgid "Application options"
 msgstr "Informações da aplicação"
 
@@ -984,7 +980,6 @@ msgid "Always add plus sign"
 msgstr ""
 
 #: inc/user/user_pref.php:95 inc/user/user_pref.php:100
-#, fuzzy
 msgid "Default"
 msgstr "Fuso horário do gateway"
 
@@ -993,7 +988,6 @@ msgid "About"
 msgstr ""
 
 #: lib/fn_auth.php:240 inc/user/user_pref.php:185
-#, fuzzy
 msgid "mobile"
 msgstr "Celular"
 
@@ -1026,7 +1020,6 @@ msgid "HTTP API"
 msgstr ""
 
 #: inc/user/user_pref.php:185
-#, fuzzy
 msgid "Mobile is already in use by other username"
 msgstr "Esse e-mail já é usado por outro usuário"
 

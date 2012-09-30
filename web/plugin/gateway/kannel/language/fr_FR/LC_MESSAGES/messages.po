@@ -184,7 +184,6 @@ msgid "Kannel service has been restarted"
 msgstr ""
 
 #: plugin/gateway/kannel/kannel.php:88 plugin/gateway/kannel/kannel.php:95
-#, fuzzy
 msgid "Kannel configuration file"
 msgstr "Fichier de configuration kannel"
 
@@ -193,6 +192,5 @@ msgid "Status"
 msgstr ""
 
 #: plugin/gateway/kannel/kannel.php:98
-#, fuzzy
 msgid "Kannel status"
 msgstr "Kannel port admin"

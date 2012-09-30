@@ -145,7 +145,6 @@ msgstr "短信字定义链接"
 #: plugin/feature/sms_custom/sms_custom.php:92
 #: plugin/feature/sms_custom/sms_custom.php:91
 #: plugin/feature/sms_custom/sms_custom.php:147
-#, fuzzy
 msgid "will be replaced by SMS raw message"
 msgstr "将被发件人数替换"
 
@@ -216,7 +215,6 @@ msgid "SMS custom already exists, reserved or use by other feature"
 msgstr "短信自定义已存在, 保留或其他功能的使用"
 
 #: plugin/feature/sms_custom/sms_custom.php:19
-#, fuzzy
 msgid "SMS Custom List"
 msgstr "短信字定义链接"
 

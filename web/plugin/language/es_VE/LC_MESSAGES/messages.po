@@ -30,12 +30,10 @@ msgid "You have been logged out"
 msgstr "Ud. ha sido desconectado"
 
 #: lib/fn_auth.php:199 lib/fn_auth.php:172
-#, fuzzy
 msgid "Fail to recover password"
 msgstr "Contraseña o usuario inválido"
 
 #: lib/fn_auth.php:205 lib/fn_auth.php:178
-#, fuzzy
 msgid "Password recovery"
 msgstr "Contraseña"
 
@@ -68,7 +66,6 @@ msgstr ""
 
 #: lib/fn_auth.php:214 lib/fn_auth.php:273 lib/fn_auth.php:187
 #: lib/fn_auth.php:246 lib/fn_auth.php:272
-#, fuzzy
 msgid "Fail to send email"
 msgstr "Imposible enviar el SMS"
 
@@ -150,7 +147,6 @@ msgid "My Account"
 msgstr ""
 
 #: lib/lib_init1.php:45 lib/lib_init1.php:50
-#, fuzzy
 msgid "Administration"
 msgstr "Administrador"
 
@@ -164,7 +160,6 @@ msgid "Tools"
 msgstr ""
 
 #: lib/lib_init1.php:48 inc/admin/all_outgoing.php:35 lib/lib_init1.php:53
-#, fuzzy
 msgid "Gateway"
 msgstr "Número de la plataforma"
 
@@ -345,7 +340,6 @@ msgid "Default sender ID"
 msgstr "Número de la plataforma"
 
 #: inc/admin/main_config.php:61
-#, fuzzy
 msgid "Default timezone"
 msgstr "Número de la plataforma"
 
@@ -375,7 +369,6 @@ msgid "Enable public registration"
 msgstr ""
 
 #: inc/admin/main_config.php:76
-#, fuzzy
 msgid "Enable forgot password"
 msgstr "Contraseña o usuario inválido"
 
@@ -388,7 +381,6 @@ msgid "Active themes"
 msgstr "Temas activos"
 
 #: inc/admin/main_config.php:85
-#, fuzzy
 msgid "Default language"
 msgstr "Idioma activo"
 
@@ -604,7 +596,6 @@ msgstr "Max. 30 caracteres alfanuméricos"
 #: inc/user/user_pref.php:123 inc/user/user_pref.php:124
 #: inc/admin/user_mgmnt.php:167 inc/admin/user_mgmnt.php:155
 #: inc/admin/user_mgmnt.php:253 inc/user/user_pref.php:130
-#, fuzzy
 msgid "Timezone"
 msgstr "Hora"
 
@@ -945,7 +936,6 @@ msgstr ""
 #: inc/user/user_pref.php:111 inc/user/user_pref.php:132
 #: inc/user/user_pref.php:128 inc/user/user_pref.php:129
 #: inc/user/user_pref.php:135
-#, fuzzy
 msgid "Forward PV to email"
 msgstr "Firma del correo reenviado"
 
@@ -963,7 +953,6 @@ msgstr "Las preferencias han sido guardadas y la contraseña actualizada"
 
 #: inc/user/user_pref.php:126 inc/user/user_pref.php:122
 #: inc/user/user_pref.php:123 inc/user/user_pref.php:129
-#, fuzzy
 msgid "Application options"
 msgstr "Información del programa"
 
@@ -988,7 +977,6 @@ msgid "Always add plus sign"
 msgstr ""
 
 #: inc/user/user_pref.php:95 inc/user/user_pref.php:100
-#, fuzzy
 msgid "Default"
 msgstr "Número de la plataforma"
 
@@ -997,7 +985,6 @@ msgid "About"
 msgstr ""
 
 #: lib/fn_auth.php:240 inc/user/user_pref.php:185
-#, fuzzy
 msgid "mobile"
 msgstr "Celular"
 
@@ -1030,7 +1017,6 @@ msgid "HTTP API"
 msgstr ""
 
 #: inc/user/user_pref.php:185
-#, fuzzy
 msgid "Mobile is already in use by other username"
 msgstr "Correo electrónico ya en uso"
 

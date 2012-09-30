@@ -145,7 +145,6 @@ msgstr "URL SMS kustom"
 #: plugin/feature/sms_custom/sms_custom.php:92
 #: plugin/feature/sms_custom/sms_custom.php:91
 #: plugin/feature/sms_custom/sms_custom.php:147
-#, fuzzy
 msgid "will be replaced by SMS raw message"
 msgstr "akan digantikan oleh nomor pengirim"
 
@@ -216,7 +215,6 @@ msgid "SMS custom already exists, reserved or use by other feature"
 msgstr "SMS kustom sudah dipesan atau digunakan oleh fitur lain."
 
 #: plugin/feature/sms_custom/sms_custom.php:19
-#, fuzzy
 msgid "SMS Custom List"
 msgstr "URL SMS kustom"
 

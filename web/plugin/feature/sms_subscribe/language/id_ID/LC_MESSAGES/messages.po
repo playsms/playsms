@@ -6,7 +6,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: plugin/feature/sms_subscribe/fn.php:64
-#, fuzzy
 msgid "Subscribe service inactive"
 msgstr "SMS berlangganan telah disimpan"
 

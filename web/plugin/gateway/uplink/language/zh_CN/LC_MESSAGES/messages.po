@@ -46,7 +46,6 @@ msgid "Fill to change the password"
 msgstr "填写改变密码"
 
 #: plugin/gateway/uplink/uplink.php:45
-#, fuzzy
 msgid "Module sender ID"
 msgstr "全球发件人"
 

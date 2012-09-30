@@ -961,9 +961,8 @@ msgstr "Préférences sauvegarde et mot de passe mis à jour"
 
 #: inc/user/user_pref.php:126 inc/user/user_pref.php:122
 #: inc/user/user_pref.php:123 inc/user/user_pref.php:129
-#, fuzzy
 msgid "Application options"
-msgstr "Information Application"
+msgstr ""
 
 #: inc/user/user_pref.php:134 inc/user/user_pref.php:130
 #: inc/user/user_pref.php:131 inc/user/user_pref.php:137
@@ -986,18 +985,16 @@ msgid "Always add plus sign"
 msgstr ""
 
 #: inc/user/user_pref.php:95 inc/user/user_pref.php:100
-#, fuzzy
 msgid "Default"
-msgstr "Zone de temps par défaut"
+msgstr "Défaut"
 
 #: lib/lib_init1.php:63
 msgid "About"
 msgstr ""
 
 #: lib/fn_auth.php:240 inc/user/user_pref.php:185
-#, fuzzy
 msgid "mobile"
-msgstr "Mobile"
+msgstr "mobile"
 
 #: inc/user/page_welcome.php:6
 msgid "Welcome to playSMS"
@@ -1028,6 +1025,5 @@ msgid "HTTP API"
 msgstr ""
 
 #: inc/user/user_pref.php:185
-#, fuzzy
 msgid "Mobile is already in use by other username"
 msgstr "Email déjà utilisé"

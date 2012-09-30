@@ -47,7 +47,6 @@ msgid "Fill to change the password"
 msgstr "填写改变密码"
 
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:44
-#, fuzzy
 msgid "Module sender ID"
 msgstr "全球发件人"
 

@@ -111,7 +111,6 @@ msgid "I want to disable this autosend"
 msgstr "Je souhaite désactiver cet envoi"
 
 #: plugin/feature/_sms_autosend/sms_autosend.php:251
-#, fuzzy
 msgid "Autosend time has been saved"
 msgstr "L'heure d'envoi à été sauvegardé"
 

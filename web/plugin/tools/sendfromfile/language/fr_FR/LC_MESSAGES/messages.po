@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.9.6\n"
@@ -148,6 +147,5 @@ msgid "Username"
 msgstr ""
 
 #: plugin/tools/sendfromfile/sendfromfile.php:34
-#, fuzzy
 msgid "format : destination number, message"
 msgstr "Format : numéro destinataire, méssage, nom utilisateur"

@@ -995,9 +995,8 @@ msgid "About"
 msgstr ""
 
 #: lib/fn_auth.php:240 inc/user/user_pref.php:185
-#, fuzzy
 msgid "mobile"
-msgstr "Mòbil"
+msgstr "mòbil"
 
 #: inc/user/page_welcome.php:6
 msgid "Welcome to playSMS"
@@ -1028,7 +1027,6 @@ msgid "HTTP API"
 msgstr ""
 
 #: inc/user/user_pref.php:185
-#, fuzzy
 msgid "Mobile is already in use by other username"
 msgstr "Correu electrònic ja en ús"
 

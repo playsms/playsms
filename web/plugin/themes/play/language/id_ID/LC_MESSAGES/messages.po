@@ -38,7 +38,6 @@ msgstr "Masuk"
 
 #: plugin/themes/play/page_register.php:47
 #: plugin/themes/play/page_login.php:41
-#, fuzzy
 msgid "Forgot password"
 msgstr "Lupa kata sandi"
 

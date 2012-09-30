@@ -82,7 +82,6 @@ msgstr "再次发送"
 
 #: plugin/feature/_sms_autosend/sms_autosend.php:187
 #: plugin/feature/_sms_autosend/sms_autosend.php:312
-#, fuzzy
 msgid "Sending time"
 msgstr "发送时间"
 
@@ -111,7 +110,6 @@ msgid "I want to disable this autosend"
 msgstr "我要禁用自动发送"
 
 #: plugin/feature/_sms_autosend/sms_autosend.php:251
-#, fuzzy
 msgid "Autosend time has been saved"
 msgstr "自动发送日期已保存"
 

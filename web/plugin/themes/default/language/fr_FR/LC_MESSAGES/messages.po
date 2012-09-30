@@ -78,7 +78,6 @@ msgstr ""
 
 #: plugin/themes/default/page_login.php:50
 #: plugin/themes/default/page_login.php:55
-#, fuzzy
 msgid "Forgot password"
 msgstr "Mot de passe"
 

@@ -65,7 +65,6 @@ msgstr "Isi untuk merubah kata sandi"
 
 #: plugin/gateway/kannel/kannel.php:57 plugin/gateway/kannel/kannel.php:58
 #: plugin/gateway/kannel/kannel.php:65
-#, fuzzy
 msgid "Module sender ID"
 msgstr "Pengirim global"
 

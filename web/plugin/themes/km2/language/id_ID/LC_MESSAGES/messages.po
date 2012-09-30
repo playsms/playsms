@@ -67,7 +67,6 @@ msgid "Register an account"
 msgstr "Daftarkan akun"
 
 #: plugin/themes/km2/page_login.php:52
-#, fuzzy
 msgid "Forgot password"
 msgstr "Kata sandi"
 

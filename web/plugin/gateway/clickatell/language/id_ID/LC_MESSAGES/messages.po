@@ -50,7 +50,6 @@ msgstr "Isi untuk merubah kata sandi"
 
 #: plugin/gateway/clickatell/clickatell.php:41
 #: plugin/gateway/clickatell/clickatell.php:44
-#, fuzzy
 msgid "Module sender ID"
 msgstr "Pengirim global"
 

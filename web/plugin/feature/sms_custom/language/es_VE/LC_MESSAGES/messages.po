@@ -146,7 +146,6 @@ msgstr "URL personalizado de SMS"
 #: plugin/feature/sms_custom/sms_custom.php:92
 #: plugin/feature/sms_custom/sms_custom.php:91
 #: plugin/feature/sms_custom/sms_custom.php:147
-#, fuzzy
 msgid "will be replaced by SMS raw message"
 msgstr "sera reemplazado por el celular emisor"
 
@@ -217,7 +216,6 @@ msgid "SMS custom already exists, reserved or use by other feature"
 msgstr "SMS personalizado ya existe, está reservado o en uso por otra función"
 
 #: plugin/feature/sms_custom/sms_custom.php:19
-#, fuzzy
 msgid "SMS Custom List"
 msgstr "URL personalizado de SMS"
 

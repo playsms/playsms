@@ -30,12 +30,10 @@ msgid "You have been logged out"
 msgstr "Anda telah keluar"
 
 #: lib/fn_auth.php:199 lib/fn_auth.php:172
-#, fuzzy
 msgid "Fail to recover password"
 msgstr "Gagal memulihkan password"
 
 #: lib/fn_auth.php:205 lib/fn_auth.php:178
-#, fuzzy
 msgid "Password recovery"
 msgstr "Pemulihan kata sandi"
 
@@ -68,7 +66,6 @@ msgstr "Password telah dikirim ke email Anda"
 
 #: lib/fn_auth.php:214 lib/fn_auth.php:273 lib/fn_auth.php:187
 #: lib/fn_auth.php:246 lib/fn_auth.php:272
-#, fuzzy
 msgid "Fail to send email"
 msgstr "Gagal mengirim SMS"
 
@@ -150,7 +147,6 @@ msgid "My Account"
 msgstr "Akun saya"
 
 #: lib/lib_init1.php:45 lib/lib_init1.php:50
-#, fuzzy
 msgid "Administration"
 msgstr "Administrator"
 
@@ -164,7 +160,6 @@ msgid "Tools"
 msgstr "Alat"
 
 #: lib/lib_init1.php:48 inc/admin/all_outgoing.php:35 lib/lib_init1.php:53
-#, fuzzy
 msgid "Gateway"
 msgstr "Nomor gateway"
 
@@ -345,9 +340,8 @@ msgid "Default sender ID"
 msgstr "ID default pengirim"
 
 #: inc/admin/main_config.php:61
-#, fuzzy
 msgid "Default timezone"
-msgstr "Zona waktu bawaan"
+msgstr "Zona waktu default"
 
 #: inc/admin/main_config.php:61 inc/admin/user_mgmnt.php:166
 #: inc/admin/user_mgmnt.php:274 inc/user/user_pref.php:106
@@ -368,14 +362,13 @@ msgstr "Jumlah SMS maksimal"
 
 #: inc/admin/main_config.php:70
 msgid "Default credit for user"
-msgstr "Pulsa bawaan untuk pengguna"
+msgstr "Pulsa default untuk pengguna"
 
 #: inc/admin/main_config.php:73
 msgid "Enable public registration"
 msgstr "Aktifkan pendaftaran umum"
 
 #: inc/admin/main_config.php:76
-#, fuzzy
 msgid "Enable forgot password"
 msgstr "Aktifkan lupa kata sandi"
 
@@ -388,7 +381,6 @@ msgid "Active themes"
 msgstr "Tema yang aktif"
 
 #: inc/admin/main_config.php:85
-#, fuzzy
 msgid "Default language"
 msgstr "Bahasa default"
 
@@ -604,7 +596,6 @@ msgstr "Maks. 30 karakter alfanumerik"
 #: inc/user/user_pref.php:123 inc/user/user_pref.php:124
 #: inc/admin/user_mgmnt.php:167 inc/admin/user_mgmnt.php:155
 #: inc/admin/user_mgmnt.php:253 inc/user/user_pref.php:130
-#, fuzzy
 msgid "Timezone"
 msgstr "Zona waktu"
 
@@ -945,7 +936,6 @@ msgstr "Teruskan PV ke inbox"
 #: inc/user/user_pref.php:111 inc/user/user_pref.php:132
 #: inc/user/user_pref.php:128 inc/user/user_pref.php:129
 #: inc/user/user_pref.php:135
-#, fuzzy
 msgid "Forward PV to email"
 msgstr "Teruskan PV ke email"
 
@@ -963,14 +953,13 @@ msgstr "Preferensi sudah disimpan dan kata sandi sudah diperbaharui"
 
 #: inc/user/user_pref.php:126 inc/user/user_pref.php:122
 #: inc/user/user_pref.php:123 inc/user/user_pref.php:129
-#, fuzzy
 msgid "Application options"
-msgstr "Informasi aplikasi"
+msgstr "Opsi aplikasi"
 
 #: inc/user/user_pref.php:134 inc/user/user_pref.php:130
 #: inc/user/user_pref.php:131 inc/user/user_pref.php:137
 msgid "Auto replace prefix 0"
-msgstr "otomatis mengganti kode awal dengan 0"
+msgstr "Otomatis mengganti kode awal dengan 0"
 
 #: inc/user/user_pref.php:134 inc/user/user_pref.php:130
 #: inc/user/user_pref.php:131 inc/user/user_pref.php:137
@@ -980,7 +969,7 @@ msgstr "Kode awalan atau kode negara"
 #: inc/user/user_pref.php:135 inc/user/user_pref.php:131
 #: inc/user/user_pref.php:132 inc/user/user_pref.php:138
 msgid "Auto remove plus sign"
-msgstr "otomatis menghapus tanda plus"
+msgstr "Otomatis menghapus tanda plus"
 
 #: inc/user/user_pref.php:136 inc/user/user_pref.php:132
 #: inc/user/user_pref.php:133 inc/user/user_pref.php:139
@@ -988,7 +977,6 @@ msgid "Always add plus sign"
 msgstr "Selalu menambahkan tanda plus"
 
 #: inc/user/user_pref.php:95 inc/user/user_pref.php:100
-#, fuzzy
 msgid "Default"
 msgstr ""
 
@@ -997,7 +985,6 @@ msgid "About"
 msgstr "Tentang"
 
 #: lib/fn_auth.php:240 inc/user/user_pref.php:185
-#, fuzzy
 msgid "mobile"
 msgstr "Ponsel"
 
@@ -1030,7 +1017,6 @@ msgid "HTTP API"
 msgstr ""
 
 #: inc/user/user_pref.php:185
-#, fuzzy
 msgid "Mobile is already in use by other username"
 msgstr "Email sudah digunakan oleh pengguna lain"
 

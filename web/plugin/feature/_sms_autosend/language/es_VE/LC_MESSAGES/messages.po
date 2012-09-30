@@ -82,7 +82,6 @@ msgstr "Repetir envío"
 
 #: plugin/feature/_sms_autosend/sms_autosend.php:187
 #: plugin/feature/_sms_autosend/sms_autosend.php:312
-#, fuzzy
 msgid "Sending time"
 msgstr "fecha de envío"
 
@@ -111,7 +110,6 @@ msgid "I want to disable this autosend"
 msgstr "Desea deshabilitar este autoenvío"
 
 #: plugin/feature/_sms_autosend/sms_autosend.php:251
-#, fuzzy
 msgid "Autosend time has been saved"
 msgstr "La fecha de autoenvío ha sido guardada"
 
