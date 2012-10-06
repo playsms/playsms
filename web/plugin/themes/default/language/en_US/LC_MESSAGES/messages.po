@@ -26,7 +26,7 @@ msgstr ""
 
 #: plugin/themes/default/page_login.php:55
 msgid "Forgot password"
-msgstr "Password"
+msgstr ""
 
 #: plugin/themes/default/fn.php:38
 msgid "Home"

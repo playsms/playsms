@@ -21,7 +21,7 @@ msgstr ""
 #: plugin/themes/play/page_login.php:41
 #: plugin/themes/play/page_register.php:47
 msgid "Forgot password"
-msgstr "Password"
+msgstr ""
 
 #: plugin/themes/play/fn.php:55 plugin/themes/play/header.php:111
 msgid "Home"

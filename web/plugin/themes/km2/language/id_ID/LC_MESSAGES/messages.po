@@ -24,7 +24,7 @@ msgstr "Daftarkan akun"
 
 #: plugin/themes/km2/page_login.php:52
 msgid "Forgot password"
-msgstr "Kata sandi"
+msgstr "Lupa kata sandi"
 
 #: plugin/themes/km2/fn.php:38 plugin/themes/km2/header.php:42
 msgid "Home"
