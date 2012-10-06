@@ -2,12 +2,6 @@
 include 'init.php';
 include $apps_path['libs'].'/function.php';
 
-if (function_exists('bindtextdomain')) {
-	bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
-	bind_textdomain_codeset('messages', 'UTF-8');
-	textdomain('messages');
-}
-
 // fixme anton
 // load app extensions from index, such as menu, webservices and callbacks
 // using $app you can do up to load another application from playSMS if you need to
@@ -91,8 +85,15 @@ if ($err) {
 if (valid()) {
 	$core_config['default_include'] = ( empty($core_config['default_include']) ? $core_config['default_include'] = 'page_welcome' : $core_config['default_include'] );
 	$core_config['default_option'] = ( empty($core_config['default_option']) ? $core_config['default_option'] = 'page_welcome' : $core_config['default_option'] );
+	ob_end_clean();
 	header("Location: index.php?app=menu&inc=".$core_config['default_include']."&op=".$core_config['default_option']);
+	exit();
 } else {
+	if (function_exists('bindtextdomain')) {
+		bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
+		bind_textdomain_codeset('messages', 'UTF-8');
+		textdomain('messages');
+	}
 	include $core_config['apps_path']['themes'].'/'.$core_config['module']['themes'].'/page_login.php';
 }
 
