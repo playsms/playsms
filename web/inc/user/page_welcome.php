@@ -1,6 +1,6 @@
-<?php if(!(defined('_SECURE_'))){die('Intruder alert');}; ?>
 <?php
-if (!valid()) { auth_logout(); };
+if(!(defined('_SECURE_'))){die('Intruder alert');};
+if(!valid()){forcenoaccess();};
 
 $content = "
     <h2>"._('Welcome to playSMS')."</h2>
