@@ -65,10 +65,11 @@ function auth_login() {
 		if (validatelogin($username,$password)) {
 			$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',ticket='1' WHERE username='$username'";
 			if (@dba_affected_rows($db_query)) {
+				$_SESSION['sid'] = session_id();
 				$_SESSION['username'] = $username;
 				$_SESSION['login'] = user_getdatabyusername($username);
 				$_SESSION['valid'] = true;
-				logger_print("u:".$username." sid:".SID." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
+				logger_print("u:".$username." status:".$_SESSION['login']['status']." sid:".$_SESSION['sid']." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
 			} else {
 				$error_string = _('Unable to update login session');
 			}
@@ -93,7 +94,7 @@ function auth_logout() {
 	global $core_config;
 	$db_query = "UPDATE "._DB_PREF_."_tblUser SET ticket='0' WHERE username='".$_SESSION['username']."'";
 	$db_result = dba_query($db_query);
-	logger_print("u:".$_SESSION['username']." sid:".SID." ip:".$_SERVER['REMOTE_ADDR'], 2, "logout");
+	logger_print("u:".$_SESSION['username']." status:".$_SESSION['login']['status']." sid:".$_SESSION['sid']." ip:".$_SERVER['REMOTE_ADDR'], 2, "logout");
 	@session_destroy();
 	$error_string = _('You have been logged out');
 	$errid = logger_set_error_string($error_string);
