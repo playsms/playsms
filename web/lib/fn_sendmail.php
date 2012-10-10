@@ -1,5 +1,5 @@
 <?php
-if(!(defined('_SECURE_'))){die('Intruder alert');};
+defined('_SECURE_') or die('Forbidden');
 
 function sendmail($mail_from,$mail_to,$mail_subject="",$mail_body="") {
 	global $core_config;

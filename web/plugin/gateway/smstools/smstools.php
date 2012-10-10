@@ -1,5 +1,5 @@
 <?php
-if(!(defined('_SECURE_'))){die('Intruder alert');};
+defined('_SECURE_') or die('Forbidden');
 if(!isadmin()){forcenoaccess();};
 
 include $apps_path['plug']."/gateway/smstools/config.php";

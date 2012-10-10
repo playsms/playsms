@@ -1,5 +1,5 @@
 <?php
-if(!(defined('_SECURE_'))){die('Intruder alert');};
+defined('_SECURE_') or die('Forbidden');
 
 function phonebook_groupid2code($gpid) {
 	global $core_config;

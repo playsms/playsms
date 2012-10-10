@@ -1,5 +1,6 @@
 <?php
-if(!(defined('_SECURE_'))){die('Intruder alert');};
+defined('_SECURE_') or die('Forbidden');
+
 function msgtoolbox_hook_playsmsd() {
 	// not used
 }

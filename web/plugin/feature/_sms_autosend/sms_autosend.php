@@ -1,5 +1,5 @@
 <?php
-if(!(defined('_SECURE_'))){die('Intruder alert');};
+defined('_SECURE_') or die('Forbidden');
 /*
  * Created on Apr 30, 2008
  *

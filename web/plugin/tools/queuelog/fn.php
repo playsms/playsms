@@ -1,5 +1,5 @@
-<?php if(!(defined('_SECURE_'))){die('Intruder alert');}; ?>
 <?php
+defined('_SECURE_') or die('Forbidden');
 
 function queuelog_get($line_per_page='', $limit='') {
 	global $core_config;

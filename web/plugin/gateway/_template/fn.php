@@ -1,5 +1,6 @@
 <?php
-if(!(defined('_SECURE_'))){die('Intruder alert');};
+defined('_SECURE_') or die('Forbidden');
+
 // hook_playsmsd
 // used by index.php?app=menu&inc=daemon to execute custom command
 function template_hook_playsmsd() {

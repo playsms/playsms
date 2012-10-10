@@ -1,5 +1,5 @@
 <?php
-if(!(defined('_SECURE_'))){die('Intruder alert');};
+defined('_SECURE_') or die('Forbidden');
 
 function q_sanitize($var) {
 	$var = str_replace("/","",$var);

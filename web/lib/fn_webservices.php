@@ -1,5 +1,5 @@
 <?php
-if(!(defined('_SECURE_'))){die('Intruder alert');};
+defined('_SECURE_') or die('Forbidden');
 
 function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
 	$ret = '';

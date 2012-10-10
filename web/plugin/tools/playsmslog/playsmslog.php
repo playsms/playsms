@@ -1,5 +1,6 @@
-<?php if(!(defined('_SECURE_'))){die('Intruder alert');}; ?>
 <?php
+defined('_SECURE_') or die('Forbidden');
+
 if(!isadmin()){forcenoaccess();};
 
 switch ($op)

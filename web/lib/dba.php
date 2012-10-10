@@ -1,5 +1,5 @@
 <?php
-if(!(defined('_SECURE_'))){die('Intruder alert');};
+defined('_SECURE_') or die('Forbidden');
 
 // DB.php is part of PHP PEAR-DB package
 // previously removed in 0.9.2 but re-added in this release due to its complicated installation

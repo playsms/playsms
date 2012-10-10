@@ -1,5 +1,5 @@
 <?php
-if(!(defined('_SECURE_'))){die('Intruder alert');};
+defined('_SECURE_') or die('Forbidden');
 
 $smstools_param['name'] = "smstools";
 $smstools_param['spool_dir'] = "/var/spool/sms";

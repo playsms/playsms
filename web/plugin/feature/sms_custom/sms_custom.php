@@ -1,11 +1,6 @@
 <?php
-
-if (!(defined('_SECURE_'))) {
-    die('Intruder alert');
-};
-if (!valid()) {
-    forcenoaccess();
-};
+defined('_SECURE_') or die('Forbidden');
+if (!valid()) { forcenoaccess(); };
 
 switch ($op) {
     case "sms_custom_list":

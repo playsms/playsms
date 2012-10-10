@@ -1,4 +1,4 @@
-<?php if(!(defined('_SECURE_'))){die('Intruder alert');}; ?>
+<?php defined('_SECURE_') or die('Forbidden'); ?>
 <?php include $apps_path['themes']."/".$themes_module."/header.php"; ?>
 <div class="modal" style="width: 55%; position: relative; top: auto; left: auto; margin: 0pt auto; z-index: 1;">
   <form action="index.php" method="post">

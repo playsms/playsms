@@ -1,5 +1,5 @@
 <?php
-if(!(defined('_SECURE_'))){die('Intruder alert');};
+defined('_SECURE_') or die('Forbidden');
 
 $item_count = $_POST['item_count'];
 for ($i=1;$i<=$item_count;$i++)

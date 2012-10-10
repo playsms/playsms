@@ -1,5 +1,5 @@
-<?php if(!(defined('_SECURE_'))){die('Intruder alert');}; ?>
 <?php
+defined('_SECURE_') or die('Forbidden');
 if(!valid()){forcenoaccess();};
 
 if ($route = $_REQUEST['route']) {

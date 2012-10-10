@@ -1,5 +1,5 @@
-<?php if(!(defined('_SECURE_'))){die('Intruder alert');}; ?>
 <?php
+defined('_SECURE_') or die('Forbidden');
 
 function plainoldsendmail_hook_sendmail($mail_from,$mail_to,$mail_subject="",$mail_body="") {
 	global $apps_path;

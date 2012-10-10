@@ -1,5 +1,5 @@
-<?php if(!(defined('_SECURE_'))){die('Intruder alert');}; ?>
 <?php
+defined('_SECURE_') or die('Forbidden');
 
 /*
  * intercept sendsms and replace certain word templates in $sms_msg
