@@ -4,6 +4,9 @@ include "config.php";
 // security, checked by essential files under subdir
 define('_SECURE_', 1);
 
+// start session
+@session_start();
+
 $core_config['daemon_process'] = $DAEMON_PROCESS;
 
 if (!$core_config['daemon_process']) {
@@ -70,6 +73,7 @@ include_once $apps_path['libs']."/fn_init.php";
 
 // include essential functions
 include_once $apps_path['libs']."/dba.php";
+include_once $apps_path['libs']."/fn_user.php";
 include_once $apps_path['libs']."/fn_auth.php";
 
 // if magic quotes gps is set to Off (which is recommended) then addslashes all requests
@@ -148,7 +152,7 @@ if (file_exists($fn1) && file_exists($fn2)) {
 $core_config['module']['language'] = $language_module;
 
 if (valid()) {
-	setuserlang($_COOKIE['vc2']);
+	setuserlang($_SESSION['username']);
 } else {
 	setuserlang();
 }

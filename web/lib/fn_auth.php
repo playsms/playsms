@@ -5,7 +5,7 @@ if(!(defined('_SECURE_'))){die('Intruder alert');};
  * Validate username and password
  * @param string $username Username
  * @param password $password Password
- * @return string|boolean Ticket or FALSE when validation failed
+ * @return boolean TRUE when validated or FALSE when validation failed
  */
 function validatelogin($username,$password) {
 	$db_query = "SELECT password FROM "._DB_PREF_."_tblUser WHERE username='$username'";
@@ -13,82 +13,29 @@ function validatelogin($username,$password) {
 	$db_row = dba_fetch_array($db_result);
 	$res_password = trim($db_row['password']);
 	if ($password && $res_password && ($password==$res_password)) {
-		$ticket = md5(mktime().$username);
-		return $ticket;
-	} else {
-		return false;
+		return true;
 	}
+	return false;
 }
 
 /**
  * Check if ticket is valid, that visitor has access or validated
- * @param string $var_ticket Ticket
- * @param string $var_username Username
- * @param string $var_multilogin_id 1 for multi login and 0 for single login
  * @return boolean TRUE if valid
  */
-function valid($var_ticket="",$var_username="",$var_multilogin_id="") {
-	global $core_config;
-	$ticket = $_COOKIE['vc1'];
-	$username = $_COOKIE['vc2'];
-	$multilogin_id = $_COOKIE['vc3'];
-	if ($var_ticket && $var_username && $var_multilogin_id) {
-		$ticket = $var_ticket;
-		$username = $var_username;
-		$multilogin_id = $var_multilogin_id;
+function valid() {
+	if ($_SESSION['username'] && $_SESSION['valid']) {
+		return true;
 	}
-	if ($core_config['multilogin']) {
-		$db_query = "SELECT password FROM "._DB_PREF_."_tblUser WHERE username='$username'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		if ($multilogin_id && md5($username.$db_row['password']) && ($multilogin_id==md5($username.$db_row['password']))) {
-			return true;
-		} else {
-			return false;
-		}
-	} else {
-		$db_query = "SELECT ticket FROM "._DB_PREF_."_tblUser WHERE username='$username' AND ticket='$ticket'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		if ($ticket && $db_row['ticket']) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+	return false;
 }
 
 /**
  * Check if visitor has admin access level
- * @param string $var_ticket Ticket
- * @param string $var_username Username
- * @param string $var_multilogin_id 1 for multi login and 0 for single login
  * @return boolean TRUE if valid and visitor has admin access level
  */
-function isadmin($var_ticket="",$var_username="",$var_multilogin_id="") {
-	global $core_config;
-	$ticket = $_COOKIE['vc1'];
-	$username = $_COOKIE['vc2'];
-	$multilogin_id = $_COOKIE['vc3'];
-	if ($var_ticket && $var_username && $var_multilogin_id) {
-		$ticket = $var_ticket;
-		$username = $var_username;
-		$multilogin_id = $var_multilogin_id;
-	}
-	if ($core_config['multilogin']) {
-		$db_query = "SELECT status,password FROM "._DB_PREF_."_tblUser WHERE username='$username'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		if ($db_row['status'] && ($db_row['status']==2) && ($multilogin_id==md5($username.$db_row['password']))) {
-			return true;
-		} else {
-			return false;
-		}
-	} else {
-		$db_query = "SELECT status FROM "._DB_PREF_."_tblUser WHERE username='$username' AND ticket='$ticket'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		if ($db_row['status'] && ($db_row['status']==2)) {
+function isadmin() {
+	if (valid()) {
+		if ($_SESSION['login']['status']==2) {
 			return true;
 		} else {
 			return false;
@@ -115,16 +62,13 @@ function auth_login() {
 	$username = trim($_REQUEST['username']);
 	$password = trim($_REQUEST['password']);
 	if ($username && $password) {
-		if ($ticket = validatelogin($username,$password)) {
-			$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',ticket='$ticket' WHERE username='$username'";
+		if (validatelogin($username,$password)) {
+			$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',ticket='1' WHERE username='$username'";
 			if (@dba_affected_rows($db_query)) {
-				setcookie("vc1","$ticket");
-				setcookie("vc2","$username");
-				if ($core_config['multilogin']) {
-					$multilogin_id = md5($username.$password);
-					setcookie("vc3","$multilogin_id");
-				}
-				logger_print("u:".$username." t:".$ticket." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
+				$_SESSION['username'] = $username;
+				$_SESSION['login'] = user_getdatabyusername($username);
+				$_SESSION['valid'] = true;
+				logger_print("u:".$username." sid:".SID." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
 			} else {
 				$error_string = _('Unable to update login session');
 			}
@@ -147,13 +91,10 @@ function auth_login() {
  */
 function auth_logout() {
 	global $core_config;
-	$db_query = "UPDATE "._DB_PREF_."_tblUser SET ticket='".md5(mktime())."' ".
-	$db_query .= "WHERE username='".$_COOKIE['vc2']."' AND ticket='".$_COOKIE['vc1']."'";
+	$db_query = "UPDATE "._DB_PREF_."_tblUser SET ticket='0' WHERE username='".$_SESSION['username']."'";
 	$db_result = dba_query($db_query);
-	logger_print("u:".$_COOKIE['vc2']." t:".$_COOKIE['vc1']." ip:".$_SERVER['REMOTE_ADDR'], 2, "logout");
-	setcookie("vc1");
-	setcookie("vc2");
-	setcookie("vc3");
+	logger_print("u:".$_SESSION['username']." sid:".SID." ip:".$_SERVER['REMOTE_ADDR'], 2, "logout");
+	@session_destroy();
 	$error_string = _('You have been logged out');
 	$errid = logger_set_error_string($error_string);
 	header("Location: ".$core_config['http_path']['base']."?errid=".$errid);
