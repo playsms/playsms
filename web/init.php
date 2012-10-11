@@ -4,9 +4,6 @@ include "config.php";
 // security, checked by essential files under subdir
 define('_SECURE_', 1);
 
-// start session
-@session_start();
-
 $core_config['daemon_process'] = $DAEMON_PROCESS;
 
 if (!$core_config['daemon_process']) {
@@ -15,6 +12,7 @@ if (!$core_config['daemon_process']) {
 	} else {
 		header ("Pragma: no-cache");
 	}
+	@session_start();
 	ob_start();
 }
 
