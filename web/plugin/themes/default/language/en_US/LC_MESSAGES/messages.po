@@ -60,6 +60,3 @@ msgstr ""
 #: plugin/themes/default/page_register.php:41
 msgid "Mobile"
 msgstr ""
-
-#~ msgid "Welcome to playSMS"
-#~ msgstr "Welcome to playSMS"

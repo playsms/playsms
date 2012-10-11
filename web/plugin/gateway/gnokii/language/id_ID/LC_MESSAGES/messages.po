@@ -48,9 +48,3 @@ msgstr "Konfigurasi modul gateway telah disimpan"
 #: plugin/gateway/gnokii/gnokii.php:59
 msgid "Gateway has been activated"
 msgstr "Gateway telah diaktifkan"
-
-#~ msgid "Note"
-#~ msgstr "Catatan"
-
-#~ msgid "Send SMS message without footer banner"
-#~ msgstr "Kirim SMS tanpa banner footer"

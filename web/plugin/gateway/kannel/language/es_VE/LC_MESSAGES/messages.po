@@ -148,9 +148,3 @@ msgstr "La plataforma ha sido activada"
 #: plugin/gateway/kannel/kannel.php:207
 msgid "Status"
 msgstr ""
-
-#~ msgid "Note"
-#~ msgstr "Nota"
-
-#~ msgid "Send SMS message without footer banner"
-#~ msgstr "Envio de SMS sin pie de página"

@@ -77,6 +77,3 @@ msgstr ""
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:88
 msgid "Gateway has been activated"
 msgstr ""
-
-#~ msgid "Manage uplink"
-#~ msgstr "Manage uplink"

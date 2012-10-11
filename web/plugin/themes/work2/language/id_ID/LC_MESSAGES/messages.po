@@ -60,21 +60,3 @@ msgstr "Nama"
 #: plugin/themes/work2/page_register.php:35
 msgid "Mobile"
 msgstr "Ponsel"
-
-#~ msgid "Welcome to playSMS"
-#~ msgstr "Selamat datang di playSMS"
-
-#~ msgid "About playSMS"
-#~ msgstr "Tentang playSMS"
-
-#~ msgid "Changelog"
-#~ msgstr "Catatan perubahan"
-
-#~ msgid "Installation Guide"
-#~ msgstr "Panduan instalasi"
-
-#~ msgid "F.A.Q"
-#~ msgstr "F.A.Q"
-
-#~ msgid "License"
-#~ msgstr "Lisensi"

@@ -1064,14 +1064,6 @@ msgstr ""
 msgid "Mobile is already in use by other username"
 msgstr "Email sudah digunakan oleh pengguna lain"
 
-#~ msgid "Outbox"
-#~ msgstr "Kotak Keluar"
-
-#~ msgid "sender number"
-#~ msgstr "nomor pengirim"
-
-#~ msgid "playSMS server successfully refreshed"
-#~ msgstr "server playSMS telah sukses dimuat ulang"
-
-#~ msgid "Manual refresh"
-#~ msgstr "Muat ulang secara manual"
+#: inc/user/send_sms.php:95
+msgid "Mobile number"
+msgstr "Nomor telepon"

@@ -77,24 +77,3 @@ msgstr "网关模块的配置已保存"
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:88
 msgid "Gateway has been activated"
 msgstr "网关已激活"
-
-#~ msgid "Manage uplink"
-#~ msgstr "管理uplink"
-
-#~ msgid "Master URL"
-#~ msgstr "主网址"
-
-#~ msgid "Additional URL parameter"
-#~ msgstr "附加链接参数"
-
-#~ msgid "Uplink incoming path"
-#~ msgstr "Uplink传入路径"
-
-#~ msgid "No trailing slash"
-#~ msgstr "没有结尾的斜线"
-
-#~ msgid "Note"
-#~ msgstr "注意"
-
-#~ msgid "Send SMS message without footer banner"
-#~ msgstr "发送无页脚横幅的短信"

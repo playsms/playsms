@@ -1071,3 +1071,7 @@ msgstr ""
 #: inc/user/user_pref.php:185
 msgid "Mobile is already in use by other username"
 msgstr "Email déjà utilisé"
+
+#: inc/user/send_sms.php:95
+msgid "Mobile number"
+msgstr "Numéro(s)"

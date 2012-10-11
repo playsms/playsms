@@ -61,24 +61,3 @@ msgstr "手机"
 #: plugin/themes/km2/page_register.php:53
 msgid "Register"
 msgstr "注册"
-
-#~ msgid "Welcome to PlaySMS"
-#~ msgstr "欢迎使用playSMS"
-
-#~ msgid "About playSMS"
-#~ msgstr "关于playSMS"
-
-#~ msgid "Changelog"
-#~ msgstr "更改日志"
-
-#~ msgid "Installation Guide"
-#~ msgstr "安装指南"
-
-#~ msgid "F.A.Q"
-#~ msgstr "常见问题"
-
-#~ msgid "License"
-#~ msgstr "通行证"
-
-#~ msgid "FAQ Users"
-#~ msgstr "常见问题用户"

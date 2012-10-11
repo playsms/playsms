@@ -40,9 +40,3 @@ msgstr "Grup"
 #: plugin/tools/queuelog/queuelog.php:32
 msgid "Message"
 msgstr "Missatge"
-
-#~ msgid "View log"
-#~ msgstr "Veure registre"
-
-#~ msgid "Log file"
-#~ msgstr "Fitxers de registre"

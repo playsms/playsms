@@ -142,6 +142,3 @@ msgstr "增加短信指令失败"
 #: plugin/feature/sms_command/sms_command.php:168
 msgid "SMS command already exists, reserved or use by other feature"
 msgstr "短信指令已存在, 保留或其他功能的使用"
-
-#~ msgid "SMS Command List"
-#~ msgstr "短信指令执行"

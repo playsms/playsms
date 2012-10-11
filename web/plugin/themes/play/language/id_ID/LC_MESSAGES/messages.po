@@ -56,6 +56,3 @@ msgstr "Nama"
 #: plugin/themes/play/page_register.php:25
 msgid "Mobile"
 msgstr "Ponsel"
-
-#~ msgid "Welcome to playSMS"
-#~ msgstr "Welcome to playSMS"

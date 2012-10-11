@@ -1074,17 +1074,6 @@ msgstr ""
 msgid "Mobile is already in use by other username"
 msgstr "Correu electrònic ja en ús"
 
-#~ msgid "Outbox"
-#~ msgstr "Safata de sortida"
-
-#~ msgid "sender number"
-#~ msgstr "número del remitent"
-
-#~ msgid "playSMS server successfully refreshed"
-#~ msgstr "El servidor PlaySMS ha estat recarregat satisfactòriament"
-
-#~ msgid "All Outgoing SMS"
-#~ msgstr "Tots els SMS de sortida"
-
-#~ msgid "Manual refresh"
-#~ msgstr "Recàrrega manual"
+#: inc/user/send_sms.php:95
+msgid "Mobile number"
+msgstr "Número(s) telefònic(s)"

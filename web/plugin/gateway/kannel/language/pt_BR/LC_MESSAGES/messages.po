@@ -149,6 +149,3 @@ msgstr "Gateway foi ativado"
 #: plugin/gateway/kannel/kannel.php:207
 msgid "Status"
 msgstr ""
-
-#~ msgid "Send SMS message without footer banner"
-#~ msgstr "Enviar mensagem SMS sem banner no rodapé"

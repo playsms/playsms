@@ -85,6 +85,3 @@ msgstr "Configurações do módulo de gateway foram salvas"
 #: plugin/gateway/uplink/uplink.php:111
 msgid "Gateway has been activated"
 msgstr "Gateway foi ativado"
-
-#~ msgid "Send SMS message without footer banner"
-#~ msgstr "Enviar mensagem SMS sem banner no rodapé"

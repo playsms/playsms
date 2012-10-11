@@ -61,24 +61,3 @@ msgstr "Ponsel"
 #: plugin/themes/km2/page_register.php:53
 msgid "Register"
 msgstr "Daftar"
-
-#~ msgid "Welcome to PlaySMS"
-#~ msgstr "Selamat datang di PlaySMS"
-
-#~ msgid "About playSMS"
-#~ msgstr "Tentang playSMS"
-
-#~ msgid "Changelog"
-#~ msgstr "Catatan perubahan"
-
-#~ msgid "Installation Guide"
-#~ msgstr "Panduan instalasi"
-
-#~ msgid "F.A.Q"
-#~ msgstr "F.A.Q"
-
-#~ msgid "License"
-#~ msgstr "Lisensi"
-
-#~ msgid "FAQ Users"
-#~ msgstr "FAQ untuk pengguna"

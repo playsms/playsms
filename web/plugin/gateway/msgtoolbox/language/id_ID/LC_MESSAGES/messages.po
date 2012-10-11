@@ -78,24 +78,3 @@ msgstr "Konfigurasi modul gateway telah disimpan"
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:88
 msgid "Gateway has been activated"
 msgstr "Gateway telah diaktifkan"
-
-#~ msgid "Manage uplink"
-#~ msgstr "Pengaturan uplink"
-
-#~ msgid "Master URL"
-#~ msgstr "URL Utama"
-
-#~ msgid "Additional URL parameter"
-#~ msgstr "Parameter URL tambahan"
-
-#~ msgid "Uplink incoming path"
-#~ msgstr "Jalur masuk uplink"
-
-#~ msgid "No trailing slash"
-#~ msgstr "Tanpa garis miring"
-
-#~ msgid "Note"
-#~ msgstr "Catatan"
-
-#~ msgid "Send SMS message without footer banner"
-#~ msgstr "Kirim SMS tanpa banner footer"

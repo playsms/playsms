@@ -61,15 +61,3 @@ msgstr ""
 #: plugin/themes/km2/page_register.php:53
 msgid "Register"
 msgstr ""
-
-#~ msgid "About playSMS"
-#~ msgstr "Sobre o playSMS"
-
-#~ msgid "Installation Guide"
-#~ msgstr "Guia de instalação"
-
-#~ msgid "F.A.Q"
-#~ msgstr "FAQ"
-
-#~ msgid "License"
-#~ msgstr "Licença"

@@ -137,9 +137,3 @@ msgstr "Gagal menambah SMS kustom"
 #: plugin/feature/sms_custom/sms_custom.php:164
 msgid "SMS custom already exists, reserved or use by other feature"
 msgstr "SMS kustom sudah dipesan atau digunakan oleh fitur lain."
-
-#~ msgid "Exec"
-#~ msgstr "Laksanakan"
-
-#~ msgid "SMS Custom List"
-#~ msgstr "URL SMS kustom"

@@ -137,9 +137,3 @@ msgstr "Fallo al añadir SMS personalizado"
 #: plugin/feature/sms_custom/sms_custom.php:164
 msgid "SMS custom already exists, reserved or use by other feature"
 msgstr "SMS personalizado ya existe, está reservado o en uso por otra función"
-
-#~ msgid "Exec"
-#~ msgstr "Ejecutar URL"
-
-#~ msgid "SMS Custom List"
-#~ msgstr "URL personalizado de SMS"

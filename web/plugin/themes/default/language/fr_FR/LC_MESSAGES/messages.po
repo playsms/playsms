@@ -60,21 +60,3 @@ msgstr ""
 #: plugin/themes/default/page_register.php:41
 msgid "Mobile"
 msgstr ""
-
-#~ msgid "Welcome to playSMS"
-#~ msgstr "Bienvenu dans playSMS"
-
-#~ msgid "About playSMS"
-#~ msgstr "A propo de PlaySMS"
-
-#~ msgid "Changelog"
-#~ msgstr "Changement"
-
-#~ msgid "Installation Guide"
-#~ msgstr "Guide D'installation"
-
-#~ msgid "F.A.Q"
-#~ msgstr "F.A.Q"
-
-#~ msgid "License"
-#~ msgstr "License"

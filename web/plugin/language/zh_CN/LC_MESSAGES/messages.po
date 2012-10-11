@@ -1064,14 +1064,6 @@ msgstr ""
 msgid "Mobile is already in use by other username"
 msgstr "电子邮件已被其他用户使用"
 
-#~ msgid "Outbox"
-#~ msgstr "发件箱"
-
-#~ msgid "sender number"
-#~ msgstr "发件人号码"
-
-#~ msgid "playSMS server successfully refreshed"
-#~ msgstr "短信服务器成功更新"
-
-#~ msgid "Manual refresh"
-#~ msgstr "手册更新"
+#: inc/user/send_sms.php:95
+msgid "Mobile number"
+msgstr "电话号码"

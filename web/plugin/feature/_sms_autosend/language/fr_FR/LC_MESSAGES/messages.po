@@ -142,6 +142,3 @@ msgstr "L'envoi auto a été ajouté"
 #: plugin/feature/_sms_autosend/sms_autosend.php:357
 msgid "Fail to add SMS autosend"
 msgstr "Impossible d'ajouter l'envoi auto"
-
-#~ msgid "Sending date"
-#~ msgstr "Date d'envoi"

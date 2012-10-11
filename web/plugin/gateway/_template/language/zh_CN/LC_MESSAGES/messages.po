@@ -49,9 +49,3 @@ msgstr "网关模块的配置已保存"
 #: plugin/gateway/_template/template.php:59
 msgid "Gateway has been activated"
 msgstr "网观已激活"
-
-#~ msgid "Note"
-#~ msgstr "注意"
-
-#~ msgid "Send SMS message without footer banner"
-#~ msgstr "发送无页脚横幅的短信"

@@ -143,6 +143,3 @@ msgstr "Fallo al añadir el comando SMS"
 msgid "SMS command already exists, reserved or use by other feature"
 msgstr ""
 "El comando SMS ya existe, está reservado y es utilizado por otra función"
-
-#~ msgid "SMS Command List"
-#~ msgstr "Ejecución de comando SMS"

@@ -21,9 +21,3 @@ msgstr "Grup"
 #: plugin/tools/queuelog/queuelog.php:32
 msgid "Message"
 msgstr "Pesan"
-
-#~ msgid "View log"
-#~ msgstr "Lihat log"
-
-#~ msgid "Log file"
-#~ msgstr "File log"

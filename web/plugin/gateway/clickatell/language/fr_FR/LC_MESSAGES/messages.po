@@ -111,6 +111,3 @@ msgstr "Configurations passerelle sauvegardées"
 #: plugin/gateway/clickatell/clickatell.php:107
 msgid "Gateway has been activated"
 msgstr "Passerelle activée"
-
-#~ msgid "Send SMS message without footer banner"
-#~ msgstr "Envoyer les SMS sans pied de page"

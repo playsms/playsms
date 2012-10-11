@@ -1067,5 +1067,6 @@ msgstr ""
 msgid "Mobile is already in use by other username"
 msgstr "Esse e-mail já é usado por outro usuário"
 
-#~ msgid "Gateway number"
-#~ msgstr "Número do gateway"
+#: inc/user/send_sms.php:95
+msgid "Mobile number"
+msgstr "Número(s) de telefone"

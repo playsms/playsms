@@ -107,15 +107,3 @@ msgstr "Konfigurasi modul gateway telah disimpan"
 #: plugin/gateway/clickatell/clickatell.php:107
 msgid "Gateway has been activated"
 msgstr "Gateway telah diaktifkan"
-
-#~ msgid "Send SMS message without footer banner"
-#~ msgstr "Kirim SMS tanpa banner footer"
-
-#~ msgid ""
-#~ "If you are using callback URL to receive incoming sms you may ignore "
-#~ msgstr ""
-#~ "Jika anda menggunakan URL callback untuk menerima SMS masuk, anda dapat "
-#~ "menghiraukan ini"
-
-#~ msgid "Clickatell Incoming Path"
-#~ msgstr "Path untuk SMS masuk dari Clickatell"

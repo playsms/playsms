@@ -106,11 +106,3 @@ msgstr "网关模块的配置已保存"
 #: plugin/gateway/clickatell/clickatell.php:107
 msgid "Gateway has been activated"
 msgstr "网关已激活"
-
-#~ msgid "Send SMS message without footer banner"
-#~ msgstr "发送无页脚横幅的短信"
-
-#~ msgid ""
-#~ "If you are using callback URL to receive incoming sms you may ignore "
-#~ "Clickatell Incoming Path"
-#~ msgstr "如果你正在使用回调链接收短信你可以忽略Clickatell 传入路径"

@@ -147,9 +147,3 @@ msgstr "Echec ajout script URL"
 #: plugin/feature/sms_custom/sms_custom.php:164
 msgid "SMS custom already exists, reserved or use by other feature"
 msgstr "Script URL existant, reservé ou utilisé par un autre module"
-
-#~ msgid "Exec"
-#~ msgstr "URL"
-
-#~ msgid "SMS Custom List"
-#~ msgstr "Liste scripts URL"

@@ -84,12 +84,3 @@ msgstr "Configurations passerelles sauvegardées"
 #: plugin/gateway/uplink/uplink.php:111
 msgid "Gateway has been activated"
 msgstr "Passerelle activée"
-
-#~ msgid "Note"
-#~ msgstr "Note"
-
-#~ msgid "Send SMS message without footer banner"
-#~ msgstr "Envoyer SMS sans pied de page"
-
-#~ msgid "Global sender"
-#~ msgstr "Émetteur global"

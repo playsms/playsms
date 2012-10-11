@@ -48,9 +48,3 @@ msgstr "Configurations de la passerelle sauvegardées"
 #: plugin/gateway/gnokii/gnokii.php:59
 msgid "Gateway has been activated"
 msgstr "Passerelle activée"
-
-#~ msgid "Note"
-#~ msgstr "Note"
-
-#~ msgid "Send SMS message without footer banner"
-#~ msgstr "Envoyer SMS sans pied de page"

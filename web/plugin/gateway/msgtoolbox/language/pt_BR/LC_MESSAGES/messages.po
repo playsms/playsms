@@ -78,21 +78,3 @@ msgstr "Configurações do módulo de gateway foram salvas"
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:88
 msgid "Gateway has been activated"
 msgstr "Gateway foi ativado"
-
-#~ msgid "Manage uplink"
-#~ msgstr "Administrar uplink"
-
-#~ msgid "Master URL"
-#~ msgstr "URL mestre"
-
-#~ msgid "Additional URL parameter"
-#~ msgstr "Parâmetro de URL adicional"
-
-#~ msgid "Uplink incoming path"
-#~ msgstr "Caminho de chegada do uplink"
-
-#~ msgid "No trailing slash"
-#~ msgstr "Sem barra no final"
-
-#~ msgid "Send SMS message without footer banner"
-#~ msgstr "Enviar mensagem SMS sem banner no rodapé"

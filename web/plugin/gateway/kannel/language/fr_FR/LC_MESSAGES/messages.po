@@ -150,12 +150,3 @@ msgstr "Passerelle activée"
 #: plugin/gateway/kannel/kannel.php:207
 msgid "Status"
 msgstr ""
-
-#~ msgid "Kannel admin URL"
-#~ msgstr "Kannel URL admin"
-
-#~ msgid "HTTP Kannel admin URL"
-#~ msgstr "HTTP Kannel URL admin"
-
-#~ msgid "Kannel Configurations files"
-#~ msgstr "Fichier de configuration kannel"

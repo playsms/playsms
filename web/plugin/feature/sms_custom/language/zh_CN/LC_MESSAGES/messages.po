@@ -136,9 +136,3 @@ msgstr "增加短信自定义失败"
 #: plugin/feature/sms_custom/sms_custom.php:164
 msgid "SMS custom already exists, reserved or use by other feature"
 msgstr "短信自定义已存在, 保留或其他功能的使用"
-
-#~ msgid "Exec"
-#~ msgstr "执行"
-
-#~ msgid "SMS Custom List"
-#~ msgstr "短信字定义链接"

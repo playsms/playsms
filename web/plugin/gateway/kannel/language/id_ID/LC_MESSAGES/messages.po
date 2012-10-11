@@ -149,15 +149,3 @@ msgstr "Gateway telah diaktifkan"
 #: plugin/gateway/kannel/kannel.php:207
 msgid "Status"
 msgstr ""
-
-#~ msgid "Kannel Configurations files"
-#~ msgstr "File konfigurasi Kannel"
-
-#~ msgid "Kannel service has been restarted"
-#~ msgstr "Layanan kannel telah direstart"
-
-#~ msgid "Note"
-#~ msgstr "Catatan"
-
-#~ msgid "Send SMS message without footer banner"
-#~ msgstr "Kirim SMS tanpa banner footer"
