@@ -13,8 +13,8 @@ $nav = q_sanitize($_REQUEST['nav']);
 // load user's data from user's DB table
 if (valid()) {
 	$username = $_SESSION['username'];
-	$uid = $_SESSION['user']['uid'];
-	$core_config['user'] = $_SESSION['user'];
+	$core_config['user'] = user_getdatabyusername($username);;
+	$uid = $core_config['user']['uid'];
 	$sender = $core_config['user']['sender'];
 	$footer = $core_config['user']['footer'];
 	$mobile = $core_config['user']['mobile'];
