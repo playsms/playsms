@@ -10,7 +10,7 @@ switch ($op) {
 		$quiz_answer_query = "SELECT quiz_keyword,quiz_answer FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_id = '$quiz_id'";
 		$db_answer_result = dba_query($quiz_answer_query);
 		$db_answer_row = dba_fetch_array($db_answer_result);
-		if ($err) {
+		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
@@ -66,14 +66,15 @@ switch ($op) {
 		if ($answer_id) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureQuiz_log WHERE answer_id='$answer_id'";
 			if (@ dba_affected_rows($db_query)) {
-				$error_string = _('SMS quiz answer messages has been deleted');
+				$_SESSION['error_string'] = _('SMS quiz answer messages has been deleted');
 			}
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_quiz&op=sms_answer_view&quiz_id=$quiz_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_quiz&op=sms_answer_view&quiz_id=$quiz_id");
+		exit();
 		break;
 
 	case "sms_quiz_list" :
-		if ($err) {
+		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
@@ -140,7 +141,7 @@ switch ($op) {
 		$edit_quiz_answer = $db_row['quiz_answer'];
 		$edit_quiz_msg_correct = $db_row['quiz_msg_correct'];
 		$edit_quiz_msg_incorrect = $db_row['quiz_msg_incorrect'];
-		if ($err) {
+		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
@@ -205,12 +206,13 @@ switch ($op) {
 						WHERE quiz_id='$edit_quiz_id' AND uid='$uid'
 						";
 			if (@ dba_affected_rows($db_query)) {
-				$error_string = _('SMS quiz has been saved')." ("._('keyword').": $edit_quiz_keyword)";
+				$_SESSION['error_string'] = _('SMS quiz has been saved')." ("._('keyword').": $edit_quiz_keyword)";
 			}
 		} else {
-			$error_string = _('You must fill all field');
+			$_SESSION['error_string'] = _('You must fill all field');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=$edit_quiz_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=$edit_quiz_id");
+		exit();
 		break;
 
 	case "sms_quiz_status" :
@@ -219,9 +221,10 @@ switch ($op) {
 		$db_query = "UPDATE " . _DB_PREF_ . "_featureQuiz SET c_timestamp='" . mktime() . "',quiz_enable='$ps' WHERE quiz_id='$quiz_id'";
 		$db_result = @ dba_affected_rows($db_query);
 		if ($db_result > 0) {
-			$error_string = _('SMS quiz status has been changed');
+			$_SESSION['error_string'] = _('SMS quiz status has been changed');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=$quiz_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=$quiz_id");
+		exit();
 		break;
 
 	case "sms_quiz_del" :
@@ -233,14 +236,15 @@ switch ($op) {
 		if ($quiz_keyword) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_keyword='$quiz_keyword'";
 			if (@ dba_affected_rows($db_query)) {
-				$error_string = _('SMS quiz with all its messages has been deleted')." ("._('keyword').": $quiz_keyword)";
+				$_SESSION['error_string'] = _('SMS quiz with all its messages has been deleted')." ("._('keyword').": $quiz_keyword)";
 			}
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list");
+		exit();
 		break;
 
 	case "sms_quiz_add" :
-		if ($err) {
+		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
@@ -283,15 +287,16 @@ switch ($op) {
 							VALUES ('$uid','$add_quiz_keyword','$add_quiz_question','$add_quiz_answer','$add_quiz_msg_correct','$add_quiz_msg_incorrect')
 						";
 				if ($new_uid = @ dba_insert_id($db_query)) {
-					$error_string = _('SMS quiz has been added')." ("._('keyword').": $add_quiz_keyword)";
+					$_SESSION['error_string'] = _('SMS quiz has been added')." ("._('keyword').": $add_quiz_keyword)";
 				}
 			} else {
-				$error_string = _('SMS quiz already exists, reserved or use by other feature')." ("._('keyword').": $add_quiz_keyword)";
+				$_SESSION['error_string'] = _('SMS quiz already exists, reserved or use by other feature')." ("._('keyword').": $add_quiz_keyword)";
 			}
 		} else {
-			$error_string = _('You must fill all field');
+			$_SESSION['error_string'] = _('You must fill all field');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add");
+		exit();
 		break;
 }
 ?>

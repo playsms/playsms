@@ -135,7 +135,7 @@ switch ($op)
 	</form>
 	<p>$nav_pages</p>
 	";
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			echo "<div class=error_string>$err</div><br><br>";
 		}
@@ -148,14 +148,15 @@ switch ($op)
 			$db_result = dba_affected_rows($db_query);
 			if ($db_result > 0)
 			{
-				$err = _('Selected outgoing SMS has been deleted');
+				$_SESSION['error_string'] = _('Selected outgoing SMS has been deleted');
 			}
 			else
 			{
-				$err = _('Fail to delete SMS');
+				$_SESSION['error_string'] = _('Fail to delete SMS');
 			}
 		}
-		header ("Location: index.php?app=menu&inc=user_outgoing&op=user_outgoing&err=".urlencode($err));
+		header("Location: index.php?app=menu&inc=user_outgoing&op=user_outgoing");
+		exit();
 		break;
 	case "act_del":
 		$item_count = $_POST['item_count'];
@@ -171,7 +172,9 @@ switch ($op)
 				$db_result = dba_affected_rows($db_query);
 			}
 		}
-		header ("Location: index.php?app=menu&inc=user_outgoing&op=user_outgoing&err=".urlencode(_('Selected outgoing SMS has been deleted')));
+		$_SESSION['error_string'] = _('Selected outgoing SMS has been deleted');
+		header("Location: index.php?app=menu&inc=user_outgoing&op=user_outgoing");
+		exit();
 		break;
 }
 

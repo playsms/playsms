@@ -5,7 +5,7 @@ if(!isadmin()){forcenoaccess();};
 switch ($op)
 {
 	case "simplerate_list":
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -52,20 +52,21 @@ switch ($op)
 		$rateid = $_REQUEST['rateid'];
 		$dst = simplerate_getdst($rateid);
 		$prefix = simplerate_getprefix($rateid);
-		$error_string = _('Fail to delete rate')." ("._('destination').": $dst, "._('prefix').": $prefix)";
+		$_SESSION['error_string'] = _('Fail to delete rate')." ("._('destination').": $dst, "._('prefix').": $prefix)";
 		$db_query = "DELETE FROM "._DB_PREF_."_toolsSimplerate WHERE id='$rateid'";
 		if (@dba_affected_rows($db_query))
 		{
-			$error_string = _('Rate has been deleted')." ("._('destination').": $dst, "._('prefix').": $prefix)";
+			$_SESSION['error_string'] = _('Rate has been deleted')." ("._('destination').": $dst, "._('prefix').": $prefix)";
 		}
-		header ("Location: index.php?app=menu&inc=tools_simplerate&op=simplerate_list&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=tools_simplerate&op=simplerate_list");
+		exit();
 		break;
 	case "simplerate_edit":
 		$rateid = $_REQUEST['rateid'];
 		$dst = simplerate_getdst($rateid);
 		$prefix = simplerate_getprefix($rateid);
 		$rate = simplerate_getbyid($rateid);
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<p><font color='red'>$err</font><p>";
 		}
@@ -96,27 +97,28 @@ switch ($op)
 		$up_prefix = $_POST['up_prefix'];
 		$up_prefix = preg_replace('/[^0-9.]*/','',$up_prefix);
 		$up_rate = $_POST['up_rate'];
-		$error_string = _('No changes made!');
+		$_SESSION['error_string'] = _('No changes made!');
 		if ($rateid && $up_dst && ($up_prefix >= 0) && ($up_rate >= 0))
 		{
 			$db_query = "UPDATE "._DB_PREF_."_toolsSimplerate SET c_timestamp='".mktime()."',dst='$up_dst',prefix='$up_prefix',rate='$up_rate' WHERE id='$rateid'";
 			if (@dba_affected_rows($db_query))
 			{
-				$error_string = _('Rate has been saved')." ("._('destination').": $up_dst, "._('prefix').": $up_prefix)";
+				$_SESSION['error_string'] = _('Rate has been saved')." ("._('destination').": $up_dst, "._('prefix').": $up_prefix)";
 			}
 			else
 			{
-				$error_string = _('Fail to save rate')." ("._('destination').": $up_dst, "._('prefix').": $up_prefix)";
+				$_SESSION['error_string'] = _('Fail to save rate')." ("._('destination').": $up_dst, "._('prefix').": $up_prefix)";
 			}
 		}
 		else
 		{
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header ("Location: index.php?app=menu&inc=tools_simplerate&op=simplerate_edit&rateid=$rateid&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=tools_simplerate&op=simplerate_edit&rateid=$rateid");
+		exit();
 		break;
 	case "simplerate_add":
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<p><font color='red'>$err</font><p>";
 		}
@@ -151,7 +153,7 @@ switch ($op)
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result))
 			{
-				$error_string = _('Rate is already exists')." ("._('destination').": ".$db_row['dst'].", "._('prefix').": ".$db_row['prefix'].")";
+				$_SESSION['error_string'] = _('Rate is already exists')." ("._('destination').": ".$db_row['dst'].", "._('prefix').": ".$db_row['prefix'].")";
 			}
 			else
 			{
@@ -161,15 +163,16 @@ switch ($op)
 		";
 				if ($new_uid = @dba_insert_id($db_query))
 				{
-					$error_string = _('Rate has been added')." ("._('destination').": $add_dst, "._('prefix').": $add_prefix)";
+					$_SESSION['error_string'] = _('Rate has been added')." ("._('destination').": $add_dst, "._('prefix').": $add_prefix)";
 				}
 			}
 		}
 		else
 		{
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header ("Location: index.php?app=menu&inc=tools_simplerate&op=simplerate_add&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=tools_simplerate&op=simplerate_add");
+		exit();
 		break;
 }
 

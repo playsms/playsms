@@ -14,10 +14,7 @@ if (($route = $_REQUEST['route']) && ($route == 'questions')) {
 
 // error messages
 $error_content = '';
-if ($errid) {
-	$err = logger_get_error_string($errid);
-}
-if ($err) {
+if ($err = $_SESSION['error_string']) {
 	$error_content = "<div class=error_string>$err</div>";
 }
 
@@ -115,15 +112,15 @@ switch ($op) {
 		$title = $_REQUEST['title'];
 		if ($keyword && $title) {
 			if (sms_survey_dataadd($keyword, $title)) {
-				$error_string = _('Survey has been added')." ("._('keyword').": ".$keyword.")";
+				$_SESSION['error_string'] = _('Survey has been added')." ("._('keyword').": ".$keyword.")";
 			} else {
-				$error_string = _('Fail to add survey')." ("._('keyword').": ".$keyword.")";
+				$_SESSION['error_string'] = _('Fail to add survey')." ("._('keyword').": ".$keyword.")";
 			}
 		} else {
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		$errid = logger_set_error_string($error_string);
-		header("Location: index.php?app=menu&inc=feature_sms_survey&op=add&errid=".$errid);
+		header("Location: index.php?app=menu&inc=feature_sms_survey&op=add");
+		exit();
 		break;
 	case 'edit':
 		$content = '<h2>'._('SMS Survey').'</h2><p />';
@@ -155,15 +152,15 @@ switch ($op) {
 		$keyword = $data['keyword'];
 		if ($sid && $keyword && $title) {
 			if (sms_survey_dataedit($sid, $keyword, $title)) {
-				$error_string = _('Survey has been edited')." ("._('keyword').": ".$keyword.")";
+				$_SESSION['error_string'] = _('Survey has been edited')." ("._('keyword').": ".$keyword.")";
 			} else {
-				$error_string = _('Fail to edit survey')." ("._('keyword').": ".$keyword.")";
+				$_SESSION['error_string'] = _('Fail to edit survey')." ("._('keyword').": ".$keyword.")";
 			}
 		} else {
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		$errid = logger_set_error_string($error_string);
-		header("Location: index.php?app=menu&inc=feature_sms_survey&op=edit&sid=".$sid."&errid=".$errid);
+		header("Location: index.php?app=menu&inc=feature_sms_survey&op=edit&sid=".$sid);
+		exit();
 		break;
 	case 'del':
 		$content = '<h2>'._('SMS Survey').'</h2><p />';
@@ -213,15 +210,15 @@ switch ($op) {
 		$keyword = $data['keyword'];
 		if ($sid && $keyword) {
 			if (sms_survey_datadel($sid)) {
-				$error_string = _('Survey has been deleted')." ("._('keyword').": ".$keyword.")";
+				$_SESSION['error_string'] = _('Survey has been deleted')." ("._('keyword').": ".$keyword.")";
 			} else {
-				$error_string = _('Fail to delete survey')." ("._('keyword').": ".$keyword.")";
+				$_SESSION['error_string'] = _('Fail to delete survey')." ("._('keyword').": ".$keyword.")";
 			}
 		} else {
-			$error_string = _('Survey does not exists');
+			$_SESSION['error_string'] = _('Survey does not exists');
 		}
-		$errid = logger_set_error_string($error_string);
-		header("Location: index.php?app=menu&inc=feature_sms_survey&op=list&sid=".$sid."&errid=".$errid);
+		header("Location: index.php?app=menu&inc=feature_sms_survey&op=list&sid=".$sid);
+		exit();
 		break;
 	case 'enable':
 		$sid = $_REQUEST['sid'];
@@ -229,15 +226,15 @@ switch ($op) {
 		$keyword = $data['keyword'];
 		if ($sid && $keyword) {
 			if (sms_survey_dataenable($sid)) {
-				$error_string = _('Survey has been enabled')." ("._('keyword').": ".$keyword.")";
+				$_SESSION['error_string'] = _('Survey has been enabled')." ("._('keyword').": ".$keyword.")";
 			} else {
-				$error_string = _('Fail to enable survey')." ("._('keyword').": ".$keyword.")";
+				$_SESSION['error_string'] = _('Fail to enable survey')." ("._('keyword').": ".$keyword.")";
 			}
 		} else {
-			$error_string = _('Survey does not exists');
+			$_SESSION['error_string'] = _('Survey does not exists');
 		}
-		$errid = logger_set_error_string($error_string);
-		header("Location: index.php?app=menu&inc=feature_sms_survey&op=list&sid=".$sid."&errid=".$errid);
+		header("Location: index.php?app=menu&inc=feature_sms_survey&op=list&sid=".$sid);
+		exit();
 		break;
 	case 'disable':
 		$sid = $_REQUEST['sid'];
@@ -245,15 +242,15 @@ switch ($op) {
 		$keyword = $data['keyword'];
 		if ($sid && $keyword) {
 			if (sms_survey_datadisable($sid)) {
-				$error_string = _('Survey has been disabled')." ("._('keyword').": ".$keyword.")";
+				$_SESSION['error_string'] = _('Survey has been disabled')." ("._('keyword').": ".$keyword.")";
 			} else {
-				$error_string = _('Fail to disable survey')." ("._('keyword').": ".$keyword.")";
+				$_SESSION['error_string'] = _('Fail to disable survey')." ("._('keyword').": ".$keyword.")";
 			}
 		} else {
-			$error_string = _('Survey does not exists');
+			$_SESSION['error_string'] = _('Survey does not exists');
 		}
-		$errid = logger_set_error_string($error_string);
-		header("Location: index.php?app=menu&inc=feature_sms_survey&op=list&sid=".$sid."&errid=".$errid);
+		header("Location: index.php?app=menu&inc=feature_sms_survey&op=list&sid=".$sid);
+		exit();
 		break;
 	case 'start':
 		$content = '<h2>'._('SMS Survey').'</h2><p />';
@@ -303,15 +300,15 @@ switch ($op) {
 		$keyword = $data['keyword'];
 		if ($sid && $keyword) {
 			if (sms_survey_datastart($sid)) {
-				$error_string = _('Survey has been started')." ("._('keyword').": ".$keyword.")";
+				$_SESSION['error_string'] = _('Survey has been started')." ("._('keyword').": ".$keyword.")";
 			} else {
-				$error_string = _('Fail to start survey')." ("._('keyword').": ".$keyword.")";
+				$_SESSION['error_string'] = _('Fail to start survey')." ("._('keyword').": ".$keyword.")";
 			}
 		} else {
-			$error_string = _('Survey does not exists');
+			$_SESSION['error_string'] = _('Survey does not exists');
 		}
-		$errid = logger_set_error_string($error_string);
-		header("Location: index.php?app=menu&inc=feature_sms_survey&op=list&sid=".$sid."&errid=".$errid);
+		header("Location: index.php?app=menu&inc=feature_sms_survey&op=list&sid=".$sid);
+		exit();
 		break;
 	case 'stop':
 		$content = '<h2>'._('SMS Survey').'</h2><p />';
@@ -361,15 +358,15 @@ switch ($op) {
 		$keyword = $data['keyword'];
 		if ($sid && $keyword) {
 			if (sms_survey_datastop($sid)) {
-				$error_string = _('Survey has been stoped')." ("._('keyword').": ".$keyword.")";
+				$_SESSION['error_string'] = _('Survey has been stoped')." ("._('keyword').": ".$keyword.")";
 			} else {
-				$error_string = _('Fail to stop survey')." ("._('keyword').": ".$keyword.")";
+				$_SESSION['error_string'] = _('Fail to stop survey')." ("._('keyword').": ".$keyword.")";
 			}
 		} else {
-			$error_string = _('Survey does not exists');
+			$_SESSION['error_string'] = _('Survey does not exists');
 		}
-		$errid = logger_set_error_string($error_string);
-		header("Location: index.php?app=menu&inc=feature_sms_survey&op=list&sid=".$sid."&errid=".$errid);
+		header("Location: index.php?app=menu&inc=feature_sms_survey&op=list&sid=".$sid);
+		exit();
 		break;
 }
 

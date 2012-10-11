@@ -4,10 +4,7 @@ if(!valid()){forcenoaccess();};
 
 // error messages
 $error_content = '';
-if ($errid) {
-	$err = logger_get_error_string($errid);
-}
-if ($err) {
+if ($err = $_SESSION['error_string']) {
 	$error_content = "<div class=error_string>$err</div>";
 }
 

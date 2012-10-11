@@ -14,10 +14,7 @@ if (($route = $_REQUEST['route']) && ($route == 'catchall')) {
 
 // error messages
 $error_content = '';
-if ($errid) {
-	$err = logger_get_error_string($errid);
-}
-if ($err) {
+if ($err = $_SESSION['error_string']) {
 	$error_content = "<div class=error_string>$err</div>";
 }
 
@@ -98,15 +95,15 @@ switch ($op) {
 		$description = $_REQUEST['description'];
 		if ($in_receiver && $keywords && $description) {
 			if (inboxgroup_dataadd($in_receiver, $keywords, $description)) {
-				$error_string = _('Receiver number has been added')." ("._('Number').": ".$in_receiver.")";
+				$_SESSION['error_string'] = _('Receiver number has been added')." ("._('Number').": ".$in_receiver.")";
 			} else {
-				$error_string = _('Fail to add receiver number')." ("._('Number').": ".$in_receiver.")";
+				$_SESSION['error_string'] = _('Fail to add receiver number')." ("._('Number').": ".$in_receiver.")";
 			}
 		} else {
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		$errid = logger_set_error_string($error_string);
-		header("Location: index.php?app=menu&inc=feature_inboxgroup&op=add&errid=".$errid);
+		header("Location: index.php?app=menu&inc=feature_inboxgroup&op=add");
+		exit();
 		break;
 	case 'edit':
 		$content = '<h2>'._('Group inbox').'</h2><p />';
@@ -145,15 +142,15 @@ switch ($op) {
 		$in_receiver = $data['in_receiver'];
 		if ($rid && $in_receiver && $keywords && $description) {
 			if (inboxgroup_dataedit($rid, $keywords, $description, $exclusive)) {
-				$error_string = _('Receiver number has been edited')." ("._('Number').": ".$in_receiver.")";
+				$_SESSION['error_string'] = _('Receiver number has been edited')." ("._('Number').": ".$in_receiver.")";
 			} else {
-				$error_string = _('Fail to edit receiver number')." ("._('Number').": ".$in_receiver.")";
+				$_SESSION['error_string'] = _('Fail to edit receiver number')." ("._('Number').": ".$in_receiver.")";
 			}
 		} else {
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		$errid = logger_set_error_string($error_string);
-		header("Location: index.php?app=menu&inc=feature_inboxgroup&op=edit&rid=".$rid."&errid=".$errid);
+		header("Location: index.php?app=menu&inc=feature_inboxgroup&op=edit&rid=".$rid);
+		exit();
 		break;
 	case 'del':
 		$content = '<h2>'._('Group inbox').'</h2><p />';
@@ -198,15 +195,15 @@ switch ($op) {
 		$in_receiver = $data['in_receiver'];
 		if ($rid && $in_receiver) {
 			if (inboxgroup_datadel($rid)) {
-				$error_string = _('Receiver number has been deleted')." ("._('Number').": ".$in_receiver.")";
+				$_SESSION['error_string'] = _('Receiver number has been deleted')." ("._('Number').": ".$in_receiver.")";
 			} else {
-				$error_string = _('Fail to delete receiver number')." ("._('Number').": ".$in_receiver.")";
+				$_SESSION['error_string'] = _('Fail to delete receiver number')." ("._('Number').": ".$in_receiver.")";
 			}
 		} else {
-			$error_string = _('Receiver number does not exists');
+			$_SESSION['error_string'] = _('Receiver number does not exists');
 		}
-		$errid = logger_set_error_string($error_string);
-		header("Location: index.php?app=menu&inc=feature_inboxgroup&op=list&rid=".$rid."&errid=".$errid);
+		header("Location: index.php?app=menu&inc=feature_inboxgroup&op=list&rid=".$rid);
+		exit();
 		break;
 	case 'enable':
 		$rid = $_REQUEST['rid'];
@@ -214,15 +211,15 @@ switch ($op) {
 		$in_receiver = $data['in_receiver'];
 		if ($rid && $in_receiver) {
 			if (inboxgroup_dataenable($rid)) {
-				$error_string = _('Receiver number has been enabled')." ("._('Number').": ".$in_receiver.")";
+				$_SESSION['error_string'] = _('Receiver number has been enabled')." ("._('Number').": ".$in_receiver.")";
 			} else {
-				$error_string = _('Fail to enable receiver number')." ("._('Number').": ".$in_receiver.")";
+				$_SESSION['error_string'] = _('Fail to enable receiver number')." ("._('Number').": ".$in_receiver.")";
 			}
 		} else {
-			$error_string = _('Receiver number does not exists');
+			$_SESSION['error_string'] = _('Receiver number does not exists');
 		}
-		$errid = logger_set_error_string($error_string);
-		header("Location: index.php?app=menu&inc=feature_inboxgroup&op=list&rid=".$rid."&errid=".$errid);
+		header("Location: index.php?app=menu&inc=feature_inboxgroup&op=list&rid=".$rid);
+		exit();
 		break;
 	case 'disable':
 		$rid = $_REQUEST['rid'];
@@ -230,15 +227,15 @@ switch ($op) {
 		$in_receiver = $data['in_receiver'];
 		if ($rid && $in_receiver) {
 			if (inboxgroup_datadisable($rid)) {
-				$error_string = _('Receiver number has been disabled')." ("._('Number').": ".$in_receiver.")";
+				$_SESSION['error_string'] = _('Receiver number has been disabled')." ("._('Number').": ".$in_receiver.")";
 			} else {
-				$error_string = _('Fail to disable receiver number')." ("._('Number').": ".$in_receiver.")";
+				$_SESSION['error_string'] = _('Fail to disable receiver number')." ("._('Number').": ".$in_receiver.")";
 			}
 		} else {
-			$error_string = _('Receiver number does not exists');
+			$_SESSION['error_string'] = _('Receiver number does not exists');
 		}
-		$errid = logger_set_error_string($error_string);
-		header("Location: index.php?app=menu&inc=feature_inboxgroup&op=list&rid=".$rid."&errid=".$errid);
+		header("Location: index.php?app=menu&inc=feature_inboxgroup&op=list&rid=".$rid);
+		exit();
 		break;
 }
 

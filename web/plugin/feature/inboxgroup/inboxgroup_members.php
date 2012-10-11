@@ -4,10 +4,7 @@ if(!isadmin()){forcenoaccess();};
 
 // error messages
 $error_content = '';
-if ($errid) {
-	$err = logger_get_error_string($errid);
-}
-if ($err) {
+if ($err = $_SESSION['error_string']) {
 	$error_content = "<div class=error_string>$err</div>";
 }
 
@@ -173,16 +170,16 @@ switch ($op) {
 				$c_uid = $uids[$i];
 				$c_username = uid2username($c_uid);
 				if (inboxgroup_membersadd($rid, $c_uid)) {
-					$error_string .= _('Member has been added')." ("._('Username').": ".$c_username.")<br />";
+					$_SESSION['error_string'] .= _('Member has been added')." ("._('Username').": ".$c_username.")<br />";
 				} else {
-					$error_string .= _('Fail to add member')." ("._('Username').": ".$c_username.")<br />";
+					$_SESSION['error_string'] .= _('Fail to add member')." ("._('Username').": ".$c_username.")<br />";
 				}
 			}
 		} else {
-			$error_string = _('Receiver number does not exists');
+			$_SESSION['error_string'] = _('Receiver number does not exists');
 		}
-		$errid = logger_set_error_string($error_string);
-		header("Location: index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid=".$rid."&errid=".$errid);
+		header("Location: index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid=".$rid);
+		exit();
 		break;
 	case 'members_delete':
 		$content = '<h2>'._('Group inbox').'</h2><p />';
@@ -261,16 +258,16 @@ switch ($op) {
 				$c_uid = $uids[$i];
 				$c_username = uid2username($c_uid);
 				if (inboxgroup_membersdel($rid, $c_uid)) {
-					$error_string .= _('Member has been deleted')." ("._('Username').": ".$c_username.")<br />";
+					$_SESSION['error_string'] .= _('Member has been deleted')." ("._('Username').": ".$c_username.")<br />";
 				} else {
-					$error_string .= _('Fail to delete member')." ("._('Username').": ".$c_username.")<br />";
+					$_SESSION['error_string'] .= _('Fail to delete member')." ("._('Username').": ".$c_username.")<br />";
 				}
 			}
 		} else {
-			$error_string = _('Receiver number does not exists');
+			$_SESSION['error_string'] = _('Receiver number does not exists');
 		}
-		$errid = logger_set_error_string($error_string);
-		header("Location: index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid=".$rid."&errid=".$errid);
+		header("Location: index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid=".$rid);
+		exit();
 		break;
 }
 

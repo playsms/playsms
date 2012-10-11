@@ -144,7 +144,7 @@ while ($db_row = dba_fetch_array($db_result))
 
 // ----
 
-if ($err) {
+if ($err = $_SESSION['error_string']) {
 	$content = "<div class=error_string>$err</div>";
 }
 $content .= "

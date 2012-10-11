@@ -47,8 +47,7 @@ header("Content-Type: application/octet-stream");
 header("Content-Type: application/download");
 
 // header untuk nama file
-header("Content-Disposition: attachment;
-        filename=".$namaFile."");
+header("Content-Disposition: attachment; filename=".$namaFile);
 
 header("Content-Transfer-Encoding: binary ");
 

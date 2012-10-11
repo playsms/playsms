@@ -6,7 +6,7 @@ $gpid = $_REQUEST['gpid'];
 switch ($op)
 {
 	case "edit":
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -37,18 +37,22 @@ switch ($op)
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result))
 			{
-				header("Location: index.php?app=menu&inc=phonebook_list&err=".urlencode(_('No changes has been made')));
+				$_SESSION['error_string'] = _('No changes has been made');
+				header("Location: index.php?app=menu&inc=phonebook_list");
 				die();
 			}
 			else
 			{
 				$db_query = "UPDATE "._DB_PREF_."_toolsSimplephonebook_group SET c_timestamp='".mktime()."',gp_name='$dir_name',gp_code='$dir_code' WHERE uid='$uid' AND gpid='$gpid'";
 				$db_result = dba_query($db_query);
-				header("Location:  index.php?app=menu&inc=phonebook_list&err=".urlencode(_('Group has been edited')." ("._('group').": $dir_name, "._('code')." $dir_code)"));
+				$_SESSION['error_string'] = _('Group has been edited')." ("._('group').": $dir_name, "._('code')." $dir_code)";
+				header("Location:  index.php?app=menu&inc=phonebook_list");
 				die();
 			}
 		}
-		header ("Location: index.php?app=menu&inc=tools_simplephonebook&route=dir_edit&op=edit&gpid=$gpid&err=".urlencode(_('You must fill all field')));
+		$_SESSION['error_string'] = _('You must fill all field');
+		header("Location: index.php?app=menu&inc=tools_simplephonebook&route=dir_edit&op=edit&gpid=$gpid");
+		exit();
 		break;
 }
 

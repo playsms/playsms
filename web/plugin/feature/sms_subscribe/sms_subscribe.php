@@ -6,7 +6,7 @@ if (!valid()) {
 
 switch ($op) {
 	case "sms_subscribe_list" :
-		if ($err) {
+		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
@@ -78,7 +78,7 @@ switch ($op) {
 
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id = '$subscribe_id'";
 		$db_result = dba_query($db_query);
-		if ($err) {
+		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
@@ -135,7 +135,7 @@ switch ($op) {
 		$db_row = dba_fetch_array($db_result);
 		$message = $db_row['msg'];
 
-		if ($err) {
+		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
@@ -173,7 +173,7 @@ switch ($op) {
 		$db_row = dba_fetch_array($db_result);
 		$edit_mbr_msg = $db_row['msg'];
 
-		if ($err) {
+		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
@@ -209,12 +209,13 @@ switch ($op) {
 						UPDATE " . _DB_PREF_ . "_featureSubscribe_msg set c_timestamp='" . mktime() . "', msg='$edit_mbr_msg'
 						WHERE msg_id ='$msg_id'";
 			if (@ dba_affected_rows($db_query)) {
-				$error_string = _('Message has been edited');
+				$_SESSION['error_string'] = _('Message has been edited');
 			}
 		} else {
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=msg_edit&subscribe_id=$subscribe_id&msg_id=$msg_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=msg_edit&subscribe_id=$subscribe_id&msg_id=$msg_id");
+		exit();
 		break;
 
 	case "sms_subscribe_msg_send" :
@@ -251,17 +252,18 @@ switch ($op) {
 					}
 					list($ok, $to, $smslog_id, $queue) = sendsms_pv($username, $sms_to, $message, 'text', $unicode);
 					if ($ok[0]) {
-						$error_string .= _('Your SMS has been delivered to queue')." ("._('to').": ".$sms_to.")<br>";
+						$_SESSION['error_string'] .= _('Your SMS has been delivered to queue')." ("._('to').": ".$sms_to.")<br>";
 					} else {
-						$error_string .= _('Fail to send SMS')." ("._('to').": " . $sms_to . ")<br>";
+						$_SESSION['error_string'] .= _('Fail to send SMS')." ("._('to').": " . $sms_to . ")<br>";
 					}
 				}
 			}
 
 		} else {
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=msg_view&msg_id=$msg_id&subscribe_id=$subscribe_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=msg_view&msg_id=$msg_id&subscribe_id=$subscribe_id");
+		exit();
 		break;
 
 	case "mbr_list" :
@@ -274,7 +276,7 @@ switch ($op) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id = '$subscribe_id' ORDER BY member_since DESC";
 		$db_result = dba_query($db_query);
 
-		if ($err) {
+		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
@@ -315,10 +317,11 @@ switch ($op) {
 		if ($mbr_id) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE member_id='$mbr_id'";
 			if (@ dba_affected_rows($db_query)) {
-				$error_string =_('"Member has been deleted');
+				$_SESSION['error_string'] =_('"Member has been deleted');
 			}
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=mbr_list&subscribe_id=$subscribe_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=mbr_list&subscribe_id=$subscribe_id");
+		exit();
 		break;
 
 	case "sms_subscribe_edit" :
@@ -329,7 +332,7 @@ switch ($op) {
 		$edit_subscribe_keyword = $db_row['subscribe_keyword'];
 		$edit_subscribe_msg = $db_row['subscribe_msg'];
 		$edit_unsubscribe_msg = $db_row['unsubscribe_msg'];
-		if ($err) {
+		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
@@ -386,12 +389,13 @@ switch ($op) {
 					WHERE subscribe_id='$edit_subscribe_id' AND uid='$uid'
 			    	";
 			if (@ dba_affected_rows($db_query)) {
-				$error_string = _('SMS subscribe has been saved')." ("._('keyword').": $edit_subscribe_keyword)";
+				$_SESSION['error_string'] = _('SMS subscribe has been saved')." ("._('keyword').": $edit_subscribe_keyword)";
 			}
 		} else {
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=$edit_subscribe_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=$edit_subscribe_id");
+		exit();
 		break;
 
 	case "sms_subscribe_status" :
@@ -400,9 +404,10 @@ switch ($op) {
 		$db_query = "UPDATE " . _DB_PREF_ . "_featureSubscribe SET c_timestamp='" . mktime() . "',subscribe_enable='$ps' WHERE subscribe_id='$subscribe_id'";
 		$db_result = @ dba_affected_rows($db_query);
 		if ($db_result > 0) {
-			$error_string = _('SMS subscribe status has been changed');
+			$_SESSION['error_string'] = _('SMS subscribe status has been changed');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=$subscribe_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=$subscribe_id");
+		exit();
 		break;
 
 	case "sms_subscribe_del" :
@@ -418,10 +423,11 @@ switch ($op) {
 				$del_msg = dba_affected_rows($db_query);
 				$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id='$subscribe_id'";
 				$del_member = dba_affected_rows($db_query);
-				$error_string = _('SMS subscribe with all its messages and members has been deleted')." ("._('keyword').": $subscribe_keyword)";
+				$_SESSION['error_string'] = _('SMS subscribe with all its messages and members has been deleted')." ("._('keyword').": $subscribe_keyword)";
 			}
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list");
+		exit();
 		break;
 
 	case "msg_del" :
@@ -430,14 +436,15 @@ switch ($op) {
 		if ($msg_id) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE msg_id='$msg_id'";
 			if (@ dba_affected_rows($db_query)) {
-				$error_string = _('Message has been deleted');
+				$_SESSION['error_string'] = _('Message has been deleted');
 			}
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=msg_view&subscribe_id=$subscribe_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=msg_view&subscribe_id=$subscribe_id");
+		exit();
 		break;
 
 	case "sms_subscribe_add" :
-		if ($err) {
+		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
@@ -472,20 +479,21 @@ switch ($op) {
 							VALUES ('$uid','$add_subscribe_keyword','$add_subscribe_msg','$add_unsubscribe_msg')
 							";
 				if ($new_uid = @ dba_insert_id($db_query)) {
-					$error_string = _('SMS subscribe has been added')." ("._('keyword').": $add_subscribe_keyword)";
+					$_SESSION['error_string'] = _('SMS subscribe has been added')." ("._('keyword').": $add_subscribe_keyword)";
 				}
 			} else {
-				$error_string = _('SMS subscribe already exists, reserved or use by other feature')." ("._('keyword').": $add_subscribe_keyword)";
+				$_SESSION['error_string'] = _('SMS subscribe already exists, reserved or use by other feature')." ("._('keyword').": $add_subscribe_keyword)";
 			}
 		} else {
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_add&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_add");
+		exit();
 		break;
 
 	case "sms_subscribe_mbr_msg_add" :
 		$subscribe_id = $_REQUEST['subscribe_id'];
-		if ($err) {
+		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$db_query = "SELECT subscribe_keyword FROM " . _DB_PREF_ . "_featureSubscribe where subscribe_id='$subscribe_id'";
@@ -523,12 +531,13 @@ switch ($op) {
 						VALUES ('$subscribe_id','$add_mbr_message')
 					";
 			if ($new_uid = @ dba_insert_id($db_query)) {
-				$error_string = _('Member message has been added');
+				$_SESSION['error_string'] = _('Member message has been added');
 			}
 		} else {
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add&subscribe_id=$subscribe_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_mbr_msg_add&subscribe_id=$subscribe_id");
+		exit();
 		break;
 }
 ?>

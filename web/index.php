@@ -56,10 +56,7 @@ if (isset($app)) {
 				default:
 					// error messages
 					$error_content = '';
-					if ($errid) {
-						$err = logger_get_error_string($errid);
-					}
-					if ($err) {
+					if ($err = $_SESSION['error_string']) {
 						$error_content = "<div class=error_string>$err</div>";
 					}
 					// load page
@@ -69,15 +66,13 @@ if (isset($app)) {
 					}
 			}
 	}
+	unset($_SESSION['error_string']);
 	exit();
 }
 
 // error messages
 $error_content = '';
-if ($errid) {
-	$err = logger_get_error_string($errid);
-}
-if ($err) {
+if ($err = $_SESSION['error_string']) {
 	$error_content = "<div class=error_string>$err</div>";
 }
 
@@ -97,4 +92,5 @@ if (valid()) {
 	include $core_config['apps_path']['themes'].'/'.$core_config['module']['themes'].'/page_login.php';
 }
 
+unset($_SESSION['error_string']);
 ?>

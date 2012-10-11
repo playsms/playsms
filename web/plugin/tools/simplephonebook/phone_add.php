@@ -11,7 +11,7 @@ switch ($op)
 		{
 			$list_of_group .= "<option value=".$db_row['gpid'].">".$db_row['gp_name']." - "._('code').": ".$db_row['gp_code']."</option>";
 		}
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -52,18 +52,22 @@ switch ($op)
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result))
 			{
-				header("Location: index.php?app=menu&inc=tools_simplephonebook&route=phone_add&op=add&err=".urlencode(_('Number is already exists')." ("._('number').":$p_num, "._('name').": ".$db_row['p_desc'].")"));
+				$_SESSION['error_string'] = _('Number is already exists')." ("._('number').":$p_num, "._('name').": ".$db_row['p_desc'].")";
+				header("Location: index.php?app=menu&inc=tools_simplephonebook&route=phone_add&op=add");
 				die();
 			}
 			else
 			{
 				$db_query = "INSERT INTO "._DB_PREF_."_toolsSimplephonebook (gpid,uid,p_num,p_desc,p_email) VALUES ('$gpid','$uid','$p_num','$p_desc','$p_email')";
 				$db_result = dba_query($db_query);
-				header("Location: index.php?app=menu&inc=tools_simplephonebook&route=phone_add&op=add&err=".urlencode(_('Number has been added')." ("._('number').": $p_num, "._('name').": $p_desc)"));
+				$_SESSION['error_string'] = _('Number has been added')." ("._('number').": $p_num, "._('name').": $p_desc)";
+				header("Location: index.php?app=menu&inc=tools_simplephonebook&route=phone_add&op=add");
 				die();
 			}
 		}
-		header("Location: index.php?app=menu&inc=tools_simplephonebook&route=phone_add&op=add&err=".urlencode(_('You must fill all field')));
+		$_SESSION['error_string'] = _('You must fill all field');
+		header("Location: index.php?app=menu&inc=tools_simplephonebook&route=phone_add&op=add");
+		exit();
 		break;
 }
 

@@ -4,10 +4,7 @@ if(!valid()){forcenoaccess();};
 
 // error messages
 $error_content = '';
-if ($errid) {
-	$err = logger_get_error_string($errid);
-}
-if ($err) {
+if ($err = $_SESSION['error_string']) {
 	$error_content = "<div class=error_string>$err</div>";
 }
 
@@ -167,15 +164,15 @@ switch ($op) {
 		$question = $_REQUEST['question'];
 		if ($sid && $question) {
 			if (sms_survey_questionsadd($sid, $question)) {
-				$error_string = _('Question has been added');
+				$_SESSION['error_string'] = _('Question has been added');
 			} else {
-				$error_string = _('Fail to add question');
+				$_SESSION['error_string'] = _('Fail to add question');
 			}
 		} else {
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		$errid = logger_set_error_string($error_string);
-		header("Location: index.php?app=menu&inc=feature_sms_survey&route=questions&op=questions&sid=".$sid."&errid=".$errid);
+		header("Location: index.php?app=menu&inc=feature_sms_survey&route=questions&op=questions&sid=".$sid);
+		exit();
 		break;
 	case 'questions_edit_submit':
 		$sid = $_REQUEST['sid'];
@@ -183,30 +180,30 @@ switch ($op) {
 		$question = $_REQUEST['question'];
 		if ($sid && $qid && $question) {
 			if (sms_survey_questionsedit($sid, $qid, $question)) {
-				$error_string = _('Question has been edited');
+				$_SESSION['error_string'] = _('Question has been edited');
 			} else {
-				$error_string = _('Fail to edit question');
+				$_SESSION['error_string'] = _('Fail to edit question');
 			}
 		} else {
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		$errid = logger_set_error_string($error_string);
-		header("Location: index.php?app=menu&inc=feature_sms_survey&route=questions&op=questions&sid=".$sid."&errid=".$errid);
+		header("Location: index.php?app=menu&inc=feature_sms_survey&route=questions&op=questions&sid=".$sid);
+		exit();
 		break;
 	case 'questions_del_submit':
 		$sid = $_REQUEST['sid'];
 		$qid = $_REQUEST['qid'];
 		if ($sid && $qid) {
 			if (sms_survey_questionsdel($sid, $qid)) {
-				$error_string = _('Question has been deleted');
+				$_SESSION['error_string'] = _('Question has been deleted');
 			} else {
-				$error_string = _('Fail to delete question');
+				$_SESSION['error_string'] = _('Fail to delete question');
 			}
 		} else {
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		$errid = logger_set_error_string($error_string);
-		header("Location: index.php?app=menu&inc=feature_sms_survey&route=questions&op=questions&sid=".$sid."&errid=".$errid);
+		header("Location: index.php?app=menu&inc=feature_sms_survey&route=questions&op=questions&sid=".$sid);
+		exit();
 		break;
 }
 

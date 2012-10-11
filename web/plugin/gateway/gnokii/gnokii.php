@@ -16,7 +16,7 @@ else
 switch ($op)
 {
 	case "manage":
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -39,7 +39,7 @@ switch ($op)
 		break;
 	case "manage_save":
 		$up_path = $_POST['up_path'];
-		$error_string = _('No changes has been made');
+		$_SESSION['error_string'] = _('No changes has been made');
 		if ($up_path)
 		{
 			$db_query = "
@@ -48,16 +48,18 @@ switch ($op)
 	    ";
 			if (@dba_affected_rows($db_query))
 			{
-				$error_string = _('Gateway module configurations has been saved');
+				$_SESSION['error_string'] = _('Gateway module configurations has been saved');
 			}
 		}
-		header ("Location: index.php?app=menu&inc=gateway_gnokii&op=manage&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=gateway_gnokii&op=manage");
+		exit();
 		break;
 	case "manage_activate":
 		$db_query = "UPDATE "._DB_PREF_."_tblConfig_main SET c_timestamp='".mktime()."',cfg_gateway_module='gnokii'";
 		$db_result = dba_query($db_query);
-		$error_string = _('Gateway has been activated');
-		header ("Location: index.php?app=menu&inc=gateway_gnokii&op=manage&err=".urlencode($error_string));
+		$_SESSION['error_string'] = _('Gateway has been activated');
+		header("Location: index.php?app=menu&inc=gateway_gnokii&op=manage");
+		exit();
 		break;
 }
 

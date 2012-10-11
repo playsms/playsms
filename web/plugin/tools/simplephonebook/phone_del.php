@@ -16,7 +16,8 @@ switch ($op)
 				$db_result = dba_query($db_query);
 			}
 		}
-		header ("Location: index.php?app=menu&inc=tools_simplephonebook&op=simplephonebook_list");
+		header("Location: index.php?app=menu&inc=tools_simplephonebook&op=simplephonebook_list");
+		exit();
 		break;
 	case "user":
 		if ($pid)
@@ -24,7 +25,8 @@ switch ($op)
 			$db_query = "DELETE FROM "._DB_PREF_."_toolsSimplephonebook WHERE pid='$pid' AND uid='$uid'";
 			$db_result = dba_query($db_query);
 		}
-		header ("Location: index.php?app=menu&inc=tools_simplephonebook&op=simplephonebook_list");
+		header("Location: index.php?app=menu&inc=tools_simplephonebook&op=simplephonebook_list");
+		exit();
 		break;
 }
 

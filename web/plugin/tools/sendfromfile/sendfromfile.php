@@ -12,10 +12,7 @@ switch ($op) {
 		$content = '<h2>'._('Send from file').'</h2><p />';
 		// error messages
 		$error_content = '';
-		if ($errid) {
-			$err = logger_get_error_string($errid);
-		}
-		if ($err) {
+		if ($err = $_SESSION['error_string']) {
 			$error_content = "<div class=error_string>$err</div>";
 		}
 		if ($error_content) {
@@ -74,9 +71,9 @@ switch ($op) {
 				}
 			}
 		} else {
-                        $error_string = _('Invalid CSV file');
-                        $errid = logger_set_error_string($error_string);
-                        header("Location: index.php?app=menu&inc=tools_sendfromfile&op=list&errid=".$errid);
+                        $_SESSION['error_string'] = _('Invalid CSV file');
+                        header("Location: index.php?app=menu&inc=tools_sendfromfile&op=list");
+                        exit();
                         break;
                 }
 		$content = '<h2>'._('Send from file').'</h2><p />';
@@ -150,15 +147,15 @@ switch ($op) {
 		if ($sid = $_REQUEST['sid']) {
 			$db_query = "DELETE FROM "._DB_PREF_."_toolsSendfromfile WHERE sid='$sid'";
 			if ($db_result = dba_affected_rows($db_query)) {
-				$error_string = _('Send from file has been cancelled');
+				$_SESSION['error_string'] = _('Send from file has been cancelled');
 			} else {
-				$error_string = _('Fail to remove cancelled entries from database');
+				$_SESSION['error_string'] = _('Fail to remove cancelled entries from database');
 			}
 		} else {
-			$error_string = _('Invalid session ID');
+			$_SESSION['error_string'] = _('Invalid session ID');
 		}
-		$errid = logger_set_error_string($error_string);
-		header("Location: index.php?app=menu&inc=tools_sendfromfile&op=list&errid=".$errid);
+		header("Location: index.php?app=menu&inc=tools_sendfromfile&op=list");
+		exit();
 		break;
 	case 'upload_process':
 		if ($sid = $_REQUEST['sid']) {
@@ -176,12 +173,12 @@ switch ($op) {
 			}
 			$db_query = "DELETE FROM "._DB_PREF_."_toolsSendfromfile WHERE sid='$sid'";
 			$db_result = dba_affected_rows($db_query);
-			$error_string = _('SMS has been sent to valid numbers in uploaded file');
+			$_SESSION['error_string'] = _('SMS has been sent to valid numbers in uploaded file');
 		} else {
-			$error_string = _('Invalid session ID');
+			$_SESSION['error_string'] = _('Invalid session ID');
 		}
-		$errid = logger_set_error_string($error_string);
-		header("Location: index.php?app=menu&inc=tools_sendfromfile&op=list&errid=".$errid);
+		header("Location: index.php?app=menu&inc=tools_sendfromfile&op=list");
+		exit();
 		break;
 }
 

@@ -5,7 +5,7 @@ if(!isadmin()){forcenoaccess();};
 switch ($op)
 {
 	case "main_config":
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -122,8 +122,9 @@ switch ($op)
 		cfg_enable_forgot='$edit_enable_forgot'
 	";
 		$db_result = dba_query($db_query);
-		$error_string = _('Main configuration changes has been saved');
-		header ("Location: index.php?app=menu&inc=main_config&op=main_config&err=".urlencode($error_string));
+		$_SESSION['error_string'] = _('Main configuration changes has been saved');
+		header("Location: index.php?app=menu&inc=main_config&op=main_config");
+		exit();
 		break;
 }
 

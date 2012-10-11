@@ -5,8 +5,6 @@ defined('_SECURE_') or die('Forbidden');
 
 $inc = q_sanitize($_REQUEST['inc']);
 $op = q_sanitize($_REQUEST['op']);
-$err = q_sanitize($_REQUEST['err']);
-$errid = q_sanitize($_REQUEST['errid']);
 $page = q_sanitize($_REQUEST['page']);
 $nav = q_sanitize($_REQUEST['nav']);
 

@@ -5,7 +5,7 @@ if(!valid()){forcenoaccess();};
 switch ($op)
 {
 	case "sms_board_list":
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -63,7 +63,8 @@ switch ($op)
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$board_keyword = $db_row['board_keyword'];
-		header ("Location: index.php?app=webservices&ta=sms_board&keyword=".$board_keyword);
+		header("Location: index.php?app=webservices&ta=sms_board&keyword=".$board_keyword);
+		exit();
 		break;
 	case "sms_board_edit":
 		$board_id = $_REQUEST['board_id'];
@@ -73,7 +74,7 @@ switch ($op)
 		$edit_board_keyword = $db_row['board_keyword'];
 		$edit_email = $db_row['board_forward_email'];
 		$edit_template = $db_row['board_pref_template'];
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -122,14 +123,15 @@ switch ($op)
 	    ";
 			if (@dba_affected_rows($db_query))
 			{
-				$error_string = _('SMS board has been saved')." ("._('keyword').": $edit_board_keyword)";
+				$_SESSION['error_string'] = _('SMS board has been saved')." ("._('keyword').": $edit_board_keyword)";
 			}
 		}
 		else
 		{
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header ("Location: index.php?app=menu&inc=feature_sms_board&op=sms_board_edit&board_id=$edit_board_id&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_board&op=sms_board_edit&board_id=$edit_board_id");
+		exit();
 		break;
 	case "sms_board_del":
 		$board_id = $_REQUEST['board_id'];
@@ -142,13 +144,14 @@ switch ($op)
 			$db_query = "DELETE FROM "._DB_PREF_."_featureBoard WHERE board_keyword='$board_keyword'";
 			if (@dba_affected_rows($db_query))
 			{
-				$error_string = _('SMS board with all its messages has been deleted')." ("._('keyword').": $board_keyword)";
+				$_SESSION['error_string'] = _('SMS board with all its messages has been deleted')." ("._('keyword').": $board_keyword)";
 			}
 		}
-		header ("Location: index.php?app=menu&inc=feature_sms_board&op=sms_board_list&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_board&op=sms_board_list");
+		exit();
 		break;
 	case "sms_board_add":
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -198,23 +201,24 @@ switch ($op)
 		";
 				if ($new_uid = @dba_insert_id($db_query))
 				{
-					$error_string = _('SMS board has been added')." ("._('keyword').": $add_board_keyword)";
+					$_SESSION['error_string'] = _('SMS board has been added')." ("._('keyword').": $add_board_keyword)";
 				}
 				else
 				{
-					$error_string = _('Fail to add SMS board')." ("._('keyword').": $add_board_keyword)";
+					$_SESSION['error_string'] = _('Fail to add SMS board')." ("._('keyword').": $add_board_keyword)";
 				}
 			}
 			else
 			{
-				$error_string = _('SMS keyword already exists, reserved or use by other feature')." ("._('keyword').": $add_board_keyword)";
+				$_SESSION['error_string'] = _('SMS keyword already exists, reserved or use by other feature')." ("._('keyword').": $add_board_keyword)";
 			}
 		}
 		else
 		{
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header ("Location: index.php?app=menu&inc=feature_sms_board&op=sms_board_add&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_board&op=sms_board_add");
+		exit();
 		break;
 }
 

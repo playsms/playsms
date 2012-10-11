@@ -5,7 +5,7 @@ if(!valid()){forcenoaccess();};
 switch ($op)
 {
 	case "sms_autoreply_list":
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -68,7 +68,7 @@ switch ($op)
 		$db_row = dba_fetch_array($db_result);
 		$manage_autoreply_keyword = $db_row['autoreply_keyword'];
 		$o_uid = $db_row['uid'];
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -133,17 +133,18 @@ switch ($op)
 			{
 				$db_query = "DELETE FROM "._DB_PREF_."_featureAutoreply_scenario WHERE autoreply_id='$autoreply_id'";
 				dba_query($db_query);
-				$error_string = _('SMS autoreply has been deleted')." ("._('keyword').": $keyword_name)";
+				$_SESSION['error_string'] = _('SMS autoreply has been deleted')." ("._('keyword').": $keyword_name)";
 			}
 			else
 			{
-				$error_string = _('Fail to delete SMS autoreply')." ("._('keyword').": $keyword_name";
+				$_SESSION['error_string'] = _('Fail to delete SMS autoreply')." ("._('keyword').": $keyword_name";
 			}
 		}
-		header ("Location: index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_list&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_list");
+		exit();
 		break;
 	case "sms_autoreply_add":
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -166,37 +167,39 @@ switch ($op)
 				$db_query = "INSERT INTO "._DB_PREF_."_featureAutoreply (uid,autoreply_keyword) VALUES ('$uid','$add_autoreply_keyword')";
 				if ($new_uid = @dba_insert_id($db_query))
 				{
-					$error_string = _('SMS autoreply keyword has been added')." ("._('keyword').": $add_autoreply_keyword)";
+					$_SESSION['error_string'] = _('SMS autoreply keyword has been added')." ("._('keyword').": $add_autoreply_keyword)";
 				}
 				else
 				{
-					$error_string = _('Fail to add SMS autoreply')." ("._('keyword').": $add_autoreply_keyword)";
+					$_SESSION['error_string'] = _('Fail to add SMS autoreply')." ("._('keyword').": $add_autoreply_keyword)";
 				}
 			}
 			else
 			{
-				$error_string = _('SMS keyword already exists, reserved or use by other feature')." ("._('keyword').": $add_autoreply_keyword)";
+				$_SESSION['error_string'] = _('SMS keyword already exists, reserved or use by other feature')." ("._('keyword').": $add_autoreply_keyword)";
 			}
 		}
 		else
 		{
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header ("Location: index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_add&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_add");
+		exit();
 		break;
 
 		// scenario
 	case "sms_autoreply_scenario_del":
-		$error_string = _('Fail to delete SMS autoreply scenario');
+		$_SESSION['error_string'] = _('Fail to delete SMS autoreply scenario');
 		if (($autoreply_id = $_REQUEST['autoreply_id']) && ($autoreply_scenario_id = $_REQUEST['autoreply_scenario_id']))
 		{
 			$db_query = "DELETE FROM "._DB_PREF_."_featureAutoreply_scenario WHERE autoreply_id='$autoreply_id' AND autoreply_scenario_id='$autoreply_scenario_id'";
 			if (@dba_affected_rows($db_query))
 			{
-				$error_string = _('SMS autoreply scenario has been deleted');
+				$_SESSION['error_string'] = _('SMS autoreply scenario has been deleted');
 			}
 		}
-		header ("Location: index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=".$autoreply_id."&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=".$autoreply_id."");
+		exit();
 		break;
 	case "sms_autoreply_scenario_add":
 		$autoreply_id = $_REQUEST['autoreply_id'];
@@ -204,7 +207,7 @@ switch ($op)
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$autoreply_keyword = $db_row['autoreply_keyword'];
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -257,18 +260,19 @@ switch ($op)
 		(autoreply_id,".$autoreply_scenario_param_list."autoreply_scenario_result) VALUES ('$autoreply_id',$autoreply_scenario_keyword_param_entry'$add_autoreply_scenario_result')";
 			if ($new_uid = dba_insert_id($db_query))
 			{
-				$error_string = _('SMS autoreply scenario has been added');
+				$_SESSION['error_string'] = _('SMS autoreply scenario has been added');
 			}
 			else
 			{
-				$error_string = _('Fail to add SMS autoreply scenario');
+				$_SESSION['error_string'] = _('Fail to add SMS autoreply scenario');
 			}
 		}
 		else
 		{
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header ("Location: index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=$autoreply_id&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=$autoreply_id");
+		exit();
 		break;
 	case "sms_autoreply_scenario_edit":
 		$autoreply_scenario_id = $_REQUEST['autoreply_scenario_id'];
@@ -277,7 +281,7 @@ switch ($op)
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$autoreply_keyword = $db_row['autoreply_keyword'];
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -338,18 +342,19 @@ switch ($op)
 	    ";
 			if ($db_result = @dba_affected_rows($db_query))
 			{
-				$error_string = _('SMS autoreply scenario has been edited');
+				$_SESSION['error_string'] = _('SMS autoreply scenario has been edited');
 			}
 			else
 			{
-				$error_string = _('Fail to edit SMS autoreply scenario');
+				$_SESSION['error_string'] = _('Fail to edit SMS autoreply scenario');
 			}
 		}
 		else
 		{
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header ("Location: index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit&autoreply_id=$autoreply_id&autoreply_scenario_id=$autoreply_scenario_id&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit&autoreply_id=$autoreply_id&autoreply_scenario_id=$autoreply_scenario_id");
+		exit();
 		break;
 }
 

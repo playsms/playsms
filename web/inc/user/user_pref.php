@@ -4,7 +4,7 @@ if(!valid()){forcenoaccess();};
 
 switch ($op) {
 	case "user_pref":
-		if ($err) {
+		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE uid='$uid'";
@@ -165,7 +165,7 @@ switch ($op) {
 		$up_replace_zero = $_POST['up_replace_zero'];
 		$up_plus_sign_remove = $_POST['up_plus_sign_remove'];
 		$up_plus_sign_add = $_POST['up_plus_sign_add'];
-		$error_string = _('No changes made');
+		$_SESSION['error_string'] = _('No changes made');
 		if ($up_name && $up_email) {
 			$up_uname = $username;
 			$continue = true;
@@ -174,7 +174,7 @@ switch ($op) {
 			$db_query = "SELECT username FROM " . _DB_PREF_ . "_tblUser WHERE email='$up_email' AND NOT username='$up_uname'";
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result)) {
-				$error_string = _('Email is already in use by other username') . " (" . _('email') . ": $up_email)";
+				$_SESSION['error_string'] = _('Email is already in use by other username') . " (" . _('email') . ": $up_email)";
 				$continue = false;
 			} 
 			
@@ -182,7 +182,7 @@ switch ($op) {
 			$db_query = "SELECT username FROM " . _DB_PREF_ . "_tblUser WHERE mobile='$up_mobile' AND NOT username='$up_uname'";
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result)) {
-				$error_string = _('Mobile is already in use by other username') . " (" . _('mobile') . ": $up_mobile)";
+				$_SESSION['error_string'] = _('Mobile is already in use by other username') . " (" . _('mobile') . ": $up_mobile)";
 				$continue = false;
 			} 
 			
@@ -201,18 +201,19 @@ switch ($op) {
 					WHERE uid='$uid'";
 				if (@dba_affected_rows($db_query)) {
 					if ($up_password && $up_password_conf && ($up_password == $up_password_conf)) {
-						$error_string = _('Preferences has been saved and password updated');
+						$_SESSION['error_string'] = _('Preferences has been saved and password updated');
 					} else {
-						$error_string = _('Preferences has been saved');
+						$_SESSION['error_string'] = _('Preferences has been saved');
 					}
 				} else {
-					$error_string = _('Fail to save preferences');
+					$_SESSION['error_string'] = _('Fail to save preferences');
 				}
 			}
 		} else {
-			$error_string = _('You must fill all field');
+			$_SESSION['error_string'] = _('You must fill all field');
 		}
-		header("Location: index.php?app=menu&inc=user_pref&op=user_pref&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=user_pref&op=user_pref");
+		exit();
 		break;
 }
 ?>

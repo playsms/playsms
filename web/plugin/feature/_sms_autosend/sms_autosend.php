@@ -16,7 +16,7 @@ if (!valid()) {
 <?php
 switch ($op) {
 	case "sms_autosend_list" :
-		if ($err) {
+		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
@@ -89,7 +89,7 @@ switch ($op) {
 
 	case "sms_autosend_view" :
 		$autosend_id = $_REQUEST['autosend_id'];
-		if ($err) {
+		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "<h2>"._('SMS autosend View')."</h2>";
@@ -157,7 +157,7 @@ switch ($op) {
 		$edit_autosend_number = $db_row['autosend_number'];
 		$edit_time_id = $db_row['time_id'];
 		$edit_autosend_time = $db_row['autosend_time'];
-		if ($err) {
+		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
@@ -248,13 +248,14 @@ switch ($op) {
 				$i++;
 			}
 			if ($update_time | $insert) {
-				$error_string = _('Autosend time has been saved');
+				$_SESSION['error_string'] = _('Autosend time has been saved');
 			}
 
 		} else {
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_edit&autosend_id=$edit_autosend_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_edit&autosend_id=$edit_autosend_id");
+		exit();
 		break;
 
 	case "sms_autosend_status" :
@@ -263,9 +264,10 @@ switch ($op) {
 		$db_query = "UPDATE " . _DB_PREF_ . "_featureAutosend SET c_timestamp='" . mktime() . "',autosend_enable='$ps' WHERE autosend_id='$autosend_id'";
 		$db_result = @ dba_affected_rows($db_query);
 		if ($db_result > 0) {
-			$error_string = _('SMS autosend status has been changed');
+			$_SESSION['error_string'] = _('SMS autosend status has been changed');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_edit&autosend_id=$autosend_id&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_edit&autosend_id=$autosend_id");
+		exit();
 		break;
 
 	case "sms_autosend_del" :
@@ -279,15 +281,16 @@ switch ($op) {
 			if (@ dba_affected_rows($db_query)) {
 				$db_query = "DELETE FROM " . _DB_PREF_ . "_featureAutosend_time WHERE  autosend_id='$autosend_id'";
 				if ($db_result = dba_affected_rows($db_query)) {
-					$error_string = _('SMS autosend has been deleted');
+					$_SESSION['error_string'] = _('SMS autosend has been deleted');
 				}
 			}
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_list&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_list");
+		exit();
 		break;
 
 	case "sms_autosend_add" :
-		if ($err) {
+		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
@@ -347,20 +350,21 @@ switch ($op) {
 					}
 				}
 				if ($insert) {
-					$error_string = _('SMS autosend has been added');
+					$_SESSION['error_string'] = _('SMS autosend has been added');
 				} else {
 					$db_query = "DELETE FROM " . _DB_PREF_ . "_featureAutosend WHERE autosend_id = '".$db_row['autosend_id']."'";
 					$delete = @ dba_affected_rows($db_query);
 				}
 
 			} else {
-				$error_string = _('Fail to add SMS autosend');
+				$_SESSION['error_string'] = _('Fail to add SMS autosend');
 			}
 
 		} else {
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_add&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_add");
+		exit();
 		break;
 }
 ?>

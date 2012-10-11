@@ -4,7 +4,7 @@ defined('_SECURE_') or die('Forbidden');
 switch ($op)
 {
 	case "create":
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -35,18 +35,22 @@ switch ($op)
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result))
 			{
-				header("Location: index.php?app=menu&inc=tools_simplephonebook&route=dir_create&op=create&err=".urlencode(_('Group code is already exists')." ("._('code').": $dir_code)"));
+				$_SESSION['error_string'] = _('Group code is already exists')." ("._('code').": $dir_code)";
+				header("Location: index.php?app=menu&inc=tools_simplephonebook&route=dir_create&op=create");
 				die();
 			}
 			else
 			{
 				$db_query = "INSERT INTO "._DB_PREF_."_toolsSimplephonebook_group (uid,gp_name,gp_code) VALUES ('$uid','$dir_name','$dir_code')";
 				$db_result = dba_query($db_query);
-				header("Location:  index.php?app=menu&inc=tools_simplephonebook&route=dir_create&op=create&err=".urlencode(_('Group code has been added')." ("._('group').": $dir_name, "._('code').": $dir_code)"));
+				$_SESSION['error_string'] = _('Group code has been added')." ("._('group').": $dir_name, "._('code').": $dir_code)";
+				header("Location:  index.php?app=menu&inc=tools_simplephonebook&route=dir_create&op=create");
 				die();
 			}
 		}
-		header ("Location: index.php?app=menu&inc=tools_simplephonebook&route=dir_create&op=create&err=".urlencode(_('You must fill all field')));
+		$_SESSION['error_string'] = _('You must fill all field');
+		header("Location: index.php?app=menu&inc=tools_simplephonebook&route=dir_create&op=create");
+		exit();
 		break;
 }
 

@@ -24,7 +24,7 @@ switch ($op) {
 		break;
 	case "import":
 		if ($gpid) {
-			if ($err) {
+			if ($err = $_SESSION['error_string']) {
 				$content = "<div class=error_string>$err</div>";
 			}
 			$content .= "
@@ -99,8 +99,9 @@ switch ($op) {
 				</form>";
 			echo $content;
 		} else {
-			$error_string = _('Fail to upload CSV file for phonebook');
-			header("Location: index.php?app=menu&inc=tools_simplephonebook&route=phonebook_exim&op=import&gpid=$gpid&err=" . urlencode($error_string));
+			$_SESSION['error_string'] = _('Fail to upload CSV file for phonebook');
+			header("Location: index.php?app=menu&inc=tools_simplephonebook&route=phonebook_exim&op=import&gpid=$gpid");
+			exit();
 		}
 		break;
 	case "import_yes":
@@ -165,7 +166,8 @@ switch ($op) {
 				}
 			}
 		}
-		header("Location: index.php?app=menu&inc=tools_simplephonebook&op=simplephonebook_list&err=" . urlencode($error_string) . "");
+		header("Location: index.php?app=menu&inc=tools_simplephonebook&op=simplephonebook_list");
+		exit();
 		break;
 }
 ?>

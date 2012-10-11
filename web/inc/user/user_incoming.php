@@ -101,24 +101,25 @@ switch ($op)
     </form>
     <p>$nav_pages</p>
     ";
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			echo "<div class=error_string>$err</div><br><br>";
 		}
 		echo $content;
 		break;
 	case "user_incoming_del":
-		$error_string = _('Fail to delete incoming SMS');
+		$_SESSION['error_string'] = _('Fail to delete incoming SMS');
 		if ($in_id = $_REQUEST['inid'])
 		{
 			$db_query = "UPDATE "._DB_PREF_."_tblSMSIncoming SET c_timestamp='".mktime()."',flag_deleted='1' WHERE in_uid='$uid' AND in_id='$in_id'";
 			$db_result = dba_affected_rows($db_query);
 			if ($db_result > 0)
 			{
-				$error_string = _('Selected incoming SMS has been deleted');
+				$_SESSION['error_string'] = _('Selected incoming SMS has been deleted');
 			}
 		}
-		header("Location: index.php?app=menu&inc=user_incoming&op=user_incoming&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=user_incoming&op=user_incoming");
+		exit();
 		break;
 	case "act_del":
 		$item_count = $_POST['item_count'];
@@ -134,7 +135,9 @@ switch ($op)
 				$db_result = dba_affected_rows($db_query);
 			}
 		}
-		header ("Location: index.php?app=menu&inc=user_incoming&op=user_incoming&err=".urlencode(_('Selected incoming SMS has been deleted')));
+		$_SESSION['error_string'] = _('Selected incoming SMS has been deleted');
+		header("Location: index.php?app=menu&inc=user_incoming&op=user_incoming");
+		exit();
 		break;
 }
 

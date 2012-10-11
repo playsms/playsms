@@ -141,43 +141,40 @@ switch ($op)
 	</form>
 	<p>$nav_pages</p>
 	";
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			echo "<div class=error_string>$err</div><br><br>";
 		}
 		echo $content;
 		break;
 	case "all_outgoing_del":
-		if ($slid)
-		{
+		if ($slid) {
 			$db_query = "UPDATE "._DB_PREF_."_tblSMSOutgoing SET c_timestamp='".mktime()."',flag_deleted='1' WHERE smslog_id='$slid'";
 			$db_result = dba_affected_rows($db_query);
-			if ($db_result > 0)
-			{
-				$err = _('Selected outgoing SMS has been deleted');
-			}
-			else
-			{
-				$err = _('Fail to delete SMS');
+			if ($db_result > 0) {
+				$_SESSION['error_string'] = _('Selected outgoing SMS has been deleted');
+			} else {
+				$_SESSION['error_string'] = _('Fail to delete SMS');
 			}
 		}
-		header ("Location: index.php?app=menu&inc=all_outgoing&op=all_outgoing&err=".urlencode($err));
+		header("Location: index.php?app=menu&inc=all_outgoing&op=all_outgoing");
+		exit();
 		break;
 	case "act_del":
 		$item_count = $_POST['item_count'];
 
-		for ($i=1;$i<=$item_count;$i++)
-		{
+		for ($i=1;$i<=$item_count;$i++) {
 			$chkid = $_POST['chkid'.$i];
 			$slid = $_POST['slid'.$i];
 
-			if(($chkid=="on") && $slid)
-			{
+			if(($chkid=="on") && $slid) {
 				$db_query = "UPDATE "._DB_PREF_."_tblSMSOutgoing SET c_timestamp='".mktime()."',flag_deleted='1' WHERE smslog_id='$slid'";
 				$db_result = dba_affected_rows($db_query);
 			}
 		}
-		header ("Location: index.php?app=menu&inc=all_outgoing&op=all_outgoing&err=".urlencode(_('Selected outgoing SMS has been deleted')));
+		$_SESSION['error_string'] = _('Selected outgoing SMS has been deleted');
+		header("Location: index.php?app=menu&inc=all_outgoing&op=all_outgoing");
+		exit();
 		break;
 }
 

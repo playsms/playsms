@@ -4,10 +4,7 @@ if(!valid()){forcenoaccess();};
 
 // error messages
 $error_content = '';
-if ($errid) {
-	$err = logger_get_error_string($errid);
-}
-if ($err) {
+if ($err = $_SESSION['error_string']) {
 	$error_content = "<div class=error_string>$err</div>";
 }
 
@@ -151,32 +148,32 @@ switch ($op) {
 			$fs = $_FILES['fncsv']['size'];
 			if (($fs == filesize($fn)) && file_exists($fn)) {
 				if (($fd = fopen($fn, 'r')) !== FALSE) {
-					$error_string = "";
+					$_SESSION['error_string'] = "";
 					while (($data = fgetcsv($fd, $fs, ',')) !== FALSE) {
 						$c_keyword = trim(strtoupper($data[0]));
 						$c_mobile = sendsms_getvalidnumber(trim($data[1]));
 						$c_name = htmlspecialchars(trim($data[2]));
 						if (($keyword == $c_keyword) && $c_keyword && $c_mobile) {
 							if (sms_survey_membersadd($sid, $c_mobile, $c_name)) {
-								$error_string .= _('Member has been added')." ("._('Keyword').": ".$c_keyword.", "._('mobile').": ".$c_mobile.", "._('name').": ".$c_name." )<br />";
+								$_SESSION['error_string'] .= _('Member has been added')." ("._('Keyword').": ".$c_keyword.", "._('mobile').": ".$c_mobile.", "._('name').": ".$c_name." )<br />";
 							} else {
-								$error_string .= _('Fail to add member')." ("._('Keyword').": ".$c_keyword.", "._('mobile').": ".$c_mobile.", "._('name').": ".$c_name." )<br />";
+								$_SESSION['error_string'] .= _('Fail to add member')." ("._('Keyword').": ".$c_keyword.", "._('mobile').": ".$c_mobile.", "._('name').": ".$c_name." )<br />";
 							}
 						} else {
 							if ($c_mobile) {
-								$error_string .= _('Keyword does not match')." ("._('Keyword').": ".$c_keyword.", "._('mobile').": ".$c_mobile.", "._('name').": ".$c_name." )<br />";
+								$_SESSION['error_string'] .= _('Keyword does not match')." ("._('Keyword').": ".$c_keyword.", "._('mobile').": ".$c_mobile.", "._('name').": ".$c_name." )<br />";
 							} else if ($c_keyword) {
-								$error_string .= _('Mobile number not exists')." ("._('Keyword').": ".$c_keyword.", "._('mobile').": ".$c_mobile.", "._('name').": ".$c_name." )<br />";
+								$_SESSION['error_string'] .= _('Mobile number not exists')." ("._('Keyword').": ".$c_keyword.", "._('mobile').": ".$c_mobile.", "._('name').": ".$c_name." )<br />";
 							}
 						}
 					}
 				}
 			}
 		} else {
-			$error_string = _('Keyword does not exists');
+			$_SESSION['error_string'] = _('Keyword does not exists');
 		}
-		$errid = logger_set_error_string($error_string);
-		header("Location: index.php?app=menu&inc=feature_sms_survey&route=members&op=members&sid=".$sid."&errid=".$errid);
+		header("Location: index.php?app=menu&inc=feature_sms_survey&route=members&op=members&sid=".$sid);
+		exit();
 		break;
 	case 'members_delete':
 		$content = '<h2>'._('SMS Survey').'</h2><p />';
@@ -260,16 +257,16 @@ switch ($op) {
 				$c_id = $members[$i];
 				$member = sms_survey_getmemberbyid($c_id);
 				if (sms_survey_membersdel($sid, $c_id)) {
-					$error_string .= _('Member has been deleted')." ("._('Mobile').": ".$member['mobile'].", "._('name').": ".$member['name'].")<br />";
+					$_SESSION['error_string'] .= _('Member has been deleted')." ("._('Mobile').": ".$member['mobile'].", "._('name').": ".$member['name'].")<br />";
 				} else {
-					$error_string .= _('Fail to delete member')." ("._('Mobile').": ".$member['mobile'].", "._('name').": ".$member['name'].")<br />";
+					$_SESSION['error_string'] .= _('Fail to delete member')." ("._('Mobile').": ".$member['mobile'].", "._('name').": ".$member['name'].")<br />";
 				}
 			}
 		} else {
-			$error_string = _('Receiver number does not exists');
+			$_SESSION['error_string'] = _('Receiver number does not exists');
 		}
-		$errid = logger_set_error_string($error_string);
-		header("Location: index.php?app=menu&inc=feature_sms_survey&route=members&op=members&sid=".$sid."&errid=".$errid);
+		header("Location: index.php?app=menu&inc=feature_sms_survey&route=members&op=members&sid=".$sid);
+		exit();
 		break;
 }
 

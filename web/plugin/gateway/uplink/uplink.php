@@ -17,7 +17,7 @@ else
 switch ($op)
 {
 	case "manage":
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -66,7 +66,7 @@ switch ($op)
 		$up_global_sender = $_POST['up_global_sender'];
 		$up_global_timezone = $_POST['up_global_timezone'];
 		$up_incoming_path = $_POST['up_incoming_path'];
-		$error_string = _('No changes has been made');
+		$_SESSION['error_string'] = _('No changes has been made');
                 
                 /** Fixme Edward, Remove $up_incoming_path From IF **/
 		/**if ($up_master && $up_username && $up_incoming_path)**/
@@ -100,16 +100,18 @@ switch ($op)
                         
 			if (@dba_affected_rows($db_query))
 			{
-				$error_string = _('Gateway module configurations has been saved');
+				$_SESSION['error_string'] = _('Gateway module configurations has been saved');
 			}
 		}
-		header ("Location: index.php?app=menu&inc=gateway_uplink&op=manage&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=gateway_uplink&op=manage");
+		exit();
 		break;
 	case "manage_activate":
 		$db_query = "UPDATE "._DB_PREF_."_tblConfig_main SET c_timestamp='".mktime()."',cfg_gateway_module='uplink'";
 		$db_result = dba_query($db_query);
-		$error_string = _('Gateway has been activated');
-		header ("Location: index.php?app=menu&inc=gateway_uplink&op=manage&err=".urlencode($error_string));
+		$_SESSION['error_string'] = _('Gateway has been activated');
+		header("Location: index.php?app=menu&inc=gateway_uplink&op=manage");
+		exit();
 		break;
 }
 

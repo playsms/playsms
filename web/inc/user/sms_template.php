@@ -9,7 +9,7 @@ $tid = $_REQUEST['tid'];
 switch ($op)
 {
 	case "list":
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -93,13 +93,14 @@ switch ($op)
 		$db_result = dba_insert_id($db_query);
 		if ($db_result > 0)
 		{
-			$error_string = _('Message template has been saved');
+			$_SESSION['error_string'] = _('Message template has been saved');
 		}
 		else
 		{
 			// FIXME
 		}
-		header ("Location: index.php?app=menu&inc=sms_template&op=list&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=sms_template&op=list");
+		exit();
 		break;
 	case "edit_template":
 		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSTemplate WHERE tid='$tid'";
@@ -132,13 +133,14 @@ switch ($op)
 		$db_result = dba_affected_rows($db_query);
 		if ($db_result > 0)
 		{
-			$error_string = _('Message template has been edited');
+			$_SESSION['error_string'] = _('Message template has been edited');
 		}
 		else
 		{
-			$error_string = _('Fail to edit message template');
+			$_SESSION['error_string'] = _('Fail to edit message template');
 		}
-		header ("Location: index.php?app=menu&inc=sms_template&op=list&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=sms_template&op=list");
+		exit();
 		break;
 	case "delete":
 		$item_count = $_POST['item_count'];
@@ -199,8 +201,9 @@ switch ($op)
 			$db_query = "DELETE FROM "._DB_PREF_."_tblSMSTemplate WHERE tid='".${"tid".$i}."'";
 			$db_result = dba_affected_rows($db_query);
 		}
-		$error_string = _('Selected message template has been deleted');
-		header ("Location: index.php?app=menu&inc=sms_template&op=list&err=".urlencode($error_string));
+		$_SESSION['error_string'] = _('Selected message template has been deleted');
+		header("Location: index.php?app=menu&inc=sms_template&op=list");
+		exit();
 		break;
 
 }

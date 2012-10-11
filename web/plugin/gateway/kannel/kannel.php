@@ -12,7 +12,7 @@ if ($gateway_module == $kannel_param['name']) {
 
 switch ($op) {
     case "manage":
-        if ($err) {
+        if ($err = $_SESSION['error_string']) {
             $content = "<div class=error_string>$err</div>";
         }
 	// Handle DLR options config (emmanuel)
@@ -138,7 +138,7 @@ switch ($op) {
         $up_admin_url = $_POST['up_admin_url'];
         $up_admin_password = $_POST['up_admin_password'];
         $up_admin_port = $_POST['up_admin_port'];
-        $error_string = _('No changes has been made');
+        $_SESSION['error_string'] = _('No changes has been made');
         if ($up_username && $up_bearerbox_host && $up_sendsms_port) {
             if ($up_password) {
                 $password_change = "cfg_password='$up_password',";
@@ -177,7 +177,7 @@ switch ($op) {
 	    ";
             //End Of Fixme Edward, Added Kannel HTTP Admin Parameter
             if (@dba_affected_rows($db_query)) {
-                $error_string = _('Gateway module configurations has been saved');
+                $_SESSION['error_string'] = _('Gateway module configurations has been saved');
             }
 
             //Fixme Edward, Handle Editing Kannel.conf Via Web
@@ -187,13 +187,15 @@ switch ($op) {
             fclose($fd);
             //End Of Edward, Handle Editing Kannel.conf Via Web
         }
-        header("Location: index.php?app=menu&inc=gateway_kannel&op=manage&err=" . urlencode($error_string));
+        header("Location: index.php?app=menu&inc=gateway_kannel&op=manage");
+        exit();
         break;
     case "manage_activate":
         $db_query = "UPDATE " . _DB_PREF_ . "_tblConfig_main SET c_timestamp='" . mktime() . "',cfg_gateway_module='kannel'";
         $db_result = dba_query($db_query);
-        $error_string = _('Gateway has been activated');
-        header("Location: index.php?app=menu&inc=gateway_kannel&op=manage&err=" . urlencode($error_string));
+        $_SESSION['error_string'] = _('Gateway has been activated');
+        header("Location: index.php?app=menu&inc=gateway_kannel&op=manage");
+        exit();
         break;
     
     //Fixme Edward, Adding New Case To Handle Button Restart Kannel Services
@@ -204,8 +206,9 @@ switch ($op) {
         $admin_password = $core_config['plugin']['kannel']['admin_password'];
         $url = 'http://'.$admin_url.'/restart?password='.$admin_password;
         $restart = file_get_contents($url);
-        $error_string   = _('Restart Kannel').' - '._('Status').': '.$restart;
-        header("Location: index.php?app=menu&inc=gateway_kannel&op=manage&err=" . urlencode($error_string));
+        $_SESSION['error_string']   = _('Restart Kannel').' - '._('Status').': '.$restart;
+        header("Location: index.php?app=menu&inc=gateway_kannel&op=manage");
+        exit();
         break;
     //end Of Fixme Edward, Adding New Case To Handle Button Restart Kannel Services
 }

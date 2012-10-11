@@ -4,7 +4,7 @@ if(!isadmin()){forcenoaccess();};
 
 switch ($op) {
 	case "user_list":
-		if ($err) {
+		if ($err = $_SESSION['error_string']) {
 			$content = "<p><font color='red'>$err</font><p>";
 		}
 		$content .= "
@@ -79,19 +79,20 @@ switch ($op) {
 	case "user_del":
 		$uname = $_REQUEST['uname'];
 		$del_uid = username2uid($uname);
-		$error_string = _('Fail to delete user') . " $uname!";
+		$_SESSION['error_string'] = _('Fail to delete user') . " $uname!";
 		if (($del_uid > 1) && ($del_uid != $uid)) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_tblUser WHERE uid='$del_uid'";
 			if (@dba_affected_rows($db_query)) {
-				$error_string = _('User has been deleted') . " (" . _('username') . ": $uname)";
+				$_SESSION['error_string'] = _('User has been deleted') . " (" . _('username') . ": $uname)";
 			}
 		}
 		if (($del_uid == 1) || ($uname == "admin")) {
-			$error_string = _('User is immune to deletion') . " (" . _('username') . " $uname)";
+			$_SESSION['error_string'] = _('User is immune to deletion') . " (" . _('username') . " $uname)";
 		} else if ($del_uid == $uid) {
-			$error_string = _('Currently logged in user is immune to deletion');
+			$_SESSION['error_string'] = _('Currently logged in user is immune to deletion');
 		}
-		header("Location: index.php?app=menu&inc=user_mgmnt&op=user_list&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=user_mgmnt&op=user_list");
+		exit();
 		break;
 	case "user_edit":
 		$uname = $_REQUEST['uname'];
@@ -114,7 +115,7 @@ switch ($op) {
 			$selected = "";
 		}
 		$credit = rate_getusercredit($uname);
-		if ($err) {
+		if ($err = $_SESSION['error_string']) {
 			$content = "<p><font color='red'>$err</font><p>";
 		}
 		if ($status == 2) {
@@ -182,7 +183,7 @@ switch ($op) {
 		$up_credit = $_POST['up_credit'];
 		$up_timezone = ( $_POST['up_timezone'] ? $_POST['up_timezone'] : $gateway_timezone );
 		$up_language = $_POST['up_language_module'];
-		$error_string = _('No changes made');
+		$_SESSION['error_string'] = _('No changes made');
 		if ($up_name && $up_email) {
 			if ($up_mobile) {
 				$if_up_mobile = " OR mobile='$up_mobile'";
@@ -190,7 +191,7 @@ switch ($op) {
 			$db_query = "SELECT username FROM " . _DB_PREF_ . "_tblUser WHERE (email='$up_email' $if_up_mobile) AND NOT username='$uname'";
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result)) {
-				$error_string = _('Email is already in use by other username') . " (" . _('email') . ": $up_email, " . _('username') . ": " . $db_row['username'] . ") ";
+				$_SESSION['error_string'] = _('Email is already in use by other username') . " (" . _('email') . ": $up_email, " . _('username') . ": " . $db_row['username'] . ") ";
 			} else {
 				if ($up_password) {
 					$chg_pwd = ",password='$up_password'";
@@ -199,18 +200,19 @@ switch ($op) {
 				if (@dba_affected_rows($db_query)) {
 					$c_uid = username2uid($uname);
 					rate_setusercredit($c_uid, $up_credit);
-					$error_string = _('Preferences has been saved') . " (" . _('username') . ": $uname)";
+					$_SESSION['error_string'] = _('Preferences has been saved') . " (" . _('username') . ": $uname)";
 				} else {
-					$error_string = _('Fail to save preferences') . " (" . _('username') . ": $uname)";
+					$_SESSION['error_string'] = _('Fail to save preferences') . " (" . _('username') . ": $uname)";
 				}
 			}
 		} else {
-			$error_string = _('You must fill all field');
+			$_SESSION['error_string'] = _('You must fill all field');
 		}
-		header("Location: index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=$uname&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=$uname");
+		exit();
 		break;
 	case "user_add":
-		if ($err) {
+		if ($err = $_SESSION['error_string']) {
 			$content = "<p><font color='red'>$err</font><p>";
 		}
 		$add_timezone = ( $add_timezone ? $add_timezone : $gateway_timezone );
@@ -288,20 +290,21 @@ switch ($op) {
 			$db_query = "SELECT username FROM " . _DB_PREF_ . "_tblUser WHERE username='$add_username' OR email='$add_email' $if_add_mobile";
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result)) {
-				$error_string = _('User is already exists') . " (" . _('username') . ": " . $db_row['username'] . ")";
+				$_SESSION['error_string'] = _('User is already exists') . " (" . _('username') . ": " . $db_row['username'] . ")";
 			} else {
 				$db_query = "
 					INSERT INTO " . _DB_PREF_ . "_tblUser (status,username,password,name,mobile,email,sender,footer,credit,datetime_timezone,language_module)
 					VALUES ('$add_status','$add_username','$add_password','$add_name','$add_mobile','$add_email','$add_sender','$add_footer','$add_credit','$add_timezone','$add_language_module')";
 				if ($new_uid = @dba_insert_id($db_query)) {
 					rate_setusercredit($new_uid, $add_credit);
-					$error_string = _('User has been added') . " (" . _('username') . ": $add_username)";
+					$_SESSION['error_string'] = _('User has been added') . " (" . _('username') . ": $add_username)";
 				}
 			}
 		} else {
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=user_mgmnt&op=user_add&err=" . urlencode($error_string));
+		header("Location: index.php?app=menu&inc=user_mgmnt&op=user_add");
+		exit();
 		break;
 }
 ?>

@@ -5,7 +5,7 @@ if(!valid()){forcenoaccess();};
 switch ($op)
 {
 	case "sms_poll_list":
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -69,7 +69,8 @@ switch ($op)
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$poll_keyword = $db_row['poll_keyword'];
-		header ("Location: index.php?app=webservices&ta=sms_poll&keyword=".$poll_keyword);
+		header("Location: index.php?app=webservices&ta=sms_poll&keyword=".$poll_keyword);
+		exit();
 		break;
 	case "sms_poll_edit":
 		$poll_id = $_REQUEST['poll_id'];
@@ -78,7 +79,7 @@ switch ($op)
 		$db_row = dba_fetch_array($db_result);
 		$edit_poll_title = $db_row['poll_title'];
 		$edit_poll_keyword = $db_row['poll_keyword'];
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -181,14 +182,15 @@ switch ($op)
 	    ";
 			if (@dba_affected_rows($db_query))
 			{
-				$error_string = _('SMS poll with has been saved')." ("._('keyword').": $edit_poll_keyword)";
+				$_SESSION['error_string'] = _('SMS poll with has been saved')." ("._('keyword').": $edit_poll_keyword)";
 			}
 		}
 		else
 		{
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header ("Location: index.php?app=menu&inc=feature_sms_poll&op=sms_poll_edit&poll_id=$edit_poll_id&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_poll&op=sms_poll_edit&poll_id=$edit_poll_id");
+		exit();
 		break;
 	case "sms_poll_status":
 		$poll_id = $_REQUEST['poll_id'];
@@ -197,9 +199,10 @@ switch ($op)
 		$db_result = @dba_affected_rows($db_query);
 		if ($db_result > 0)
 		{
-			$error_string = _('SMS poll status has been changed');
+			$_SESSION['error_string'] = _('SMS poll status has been changed');
 		}
-		header ("Location: index.php?app=menu&inc=feature_sms_poll&op=sms_poll_edit&poll_id=$poll_id&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_poll&op=sms_poll_edit&poll_id=$poll_id");
+		exit();
 		break;
 	case "sms_poll_del":
 		$poll_id = $_REQUEST['poll_id'];
@@ -212,10 +215,11 @@ switch ($op)
 			$db_query = "DELETE FROM "._DB_PREF_."_featurePoll WHERE poll_title='$poll_title'";
 			if (@dba_affected_rows($db_query))
 			{
-				$error_string = _('SMS poll with all its messages has been deleted')." ("._('title').": $poll_title)";
+				$_SESSION['error_string'] = _('SMS poll with all its messages has been deleted')." ("._('title').": $poll_title)";
 			}
 		}
-		header ("Location: index.php?app=menu&inc=feature_sms_poll&op=sms_poll_list&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_poll&op=sms_poll_list");
+		exit();
 		break;
 	case "sms_poll_choice_add":
 		$poll_id = $_POST['poll_id'];
@@ -234,19 +238,20 @@ switch ($op)
 		";
 				if ($db_result = @dba_insert_id($db_query))
 				{
-					$error_string = _('Choice has been added')." ("._('keyword').": $add_choice_keyword)";
+					$_SESSION['error_string'] = _('Choice has been added')." ("._('keyword').": $add_choice_keyword)";
 				}
 			}
 			else
 			{
-				$error_string = _('Choice already exists')." ("._('keyword').": $add_choice_keyword)";
+				$_SESSION['error_string'] = _('Choice already exists')." ("._('keyword').": $add_choice_keyword)";
 			}
 		}
 		else
 		{
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header ("Location: index.php?app=menu&inc=feature_sms_poll&op=sms_poll_edit&poll_id=$poll_id&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_poll&op=sms_poll_edit&poll_id=$poll_id");
+		exit();
 		break;
 	case "sms_poll_choice_del":
 		$poll_id = $_REQUEST['poll_id'];
@@ -255,7 +260,7 @@ switch ($op)
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$choice_keyword = $db_row['choice_keyword'];
-		$error_string = _('Fail to delete SMS poll choice')." ("._('keyword').": $choice_keyword)";
+		$_SESSION['error_string'] = _('Fail to delete SMS poll choice')." ("._('keyword').": $choice_keyword)";
 		if ($poll_id && $choice_id && $choice_keyword)
 		{
 			$db_query = "DELETE FROM "._DB_PREF_."_featurePoll_choice WHERE poll_id='$poll_id' AND choice_id='$choice_id'";
@@ -263,13 +268,14 @@ switch ($op)
 			{
 				$db_query = "DELETE FROM "._DB_PREF_."_featurePoll_log WHERE poll_id='$poll_id' AND choice_id='$choice_id'";
 				dba_query($db_query);
-				$error_string = _('SMS poll choice and all its voters has been deleted')." ("._('keyword').": $choice_keyword)";
+				$_SESSION['error_string'] = _('SMS poll choice and all its voters has been deleted')." ("._('keyword').": $choice_keyword)";
 			}
 		}
-		header ("Location: index.php?app=menu&inc=feature_sms_poll&op=sms_poll_edit&poll_id=$poll_id&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_poll&op=sms_poll_edit&poll_id=$poll_id");
+		exit();
 		break;
 	case "sms_poll_add":
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -303,19 +309,20 @@ switch ($op)
 		";
 				if ($new_uid = @dba_insert_id($db_query))
 				{
-					$error_string = _('SMS poll has been added')." ("._('keyword').": $add_poll_keyword)";
+					$_SESSION['error_string'] = _('SMS poll has been added')." ("._('keyword').": $add_poll_keyword)";
 				}
 			}
 			else
 			{
-				$error_string = _('SMS poll already exists, reserved or use by other feature')." ("._('keyword').": $add_poll_keyword)";
+				$_SESSION['error_string'] = _('SMS poll already exists, reserved or use by other feature')." ("._('keyword').": $add_poll_keyword)";
 			}
 		}
 		else
 		{
-			$error_string = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header ("Location: index.php?app=menu&inc=feature_sms_poll&op=sms_poll_add&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=feature_sms_poll&op=sms_poll_add");
+		exit();
 		break;
 }
 

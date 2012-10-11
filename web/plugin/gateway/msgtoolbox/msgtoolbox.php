@@ -17,7 +17,7 @@ else
 switch ($op)
 {
 	case "manage":
-		if ($err)
+		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -59,7 +59,7 @@ switch ($op)
 		$up_password = $_POST['up_password'];
 		$up_global_sender = $_POST['up_global_sender'];
 		$up_global_timezone = $_POST['up_global_timezone'];
-		$error_string = _('No changes has been made');
+		$_SESSION['error_string'] = _('No changes has been made');
 		if ($up_url && $up_username)
 		{
 			if ($up_password) {
@@ -77,16 +77,18 @@ switch ($op)
 			    ";
 			if (@dba_affected_rows($db_query))
 			{
-				$error_string = _('Gateway module configurations has been saved');
+				$_SESSION['error_string'] = _('Gateway module configurations has been saved');
 			}
 		}
-		header ("Location: index.php?app=menu&inc=gateway_msgtoolbox&op=manage&err=".urlencode($error_string));
+		header("Location: index.php?app=menu&inc=gateway_msgtoolbox&op=manage");
+		exit();
 		break;
 	case "manage_activate":
 		$db_query = "UPDATE "._DB_PREF_."_tblConfig_main SET c_timestamp='".mktime()."',cfg_gateway_module='msgtoolbox'";
 		$db_result = dba_query($db_query);
-		$error_string = _('Gateway has been activated');
-		header ("Location: index.php?app=menu&inc=gateway_msgtoolbox&op=manage&err=".urlencode($error_string));
+		$_SESSION['error_string'] = _('Gateway has been activated');
+		header("Location: index.php?app=menu&inc=gateway_msgtoolbox&op=manage");
+		exit();
 		break;
 }
 
