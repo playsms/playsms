@@ -34,11 +34,6 @@ $apps_path['logs']	= '/var/log/playsms';
 // WARNING: log level 3 and 4 will also save sensitif information such as password for used gateway
 $core_config['logstate']	= 2;
 
-// 0 for single session login; 1 for multi session login
-// multi session login is not secure because playsms leaves md5 crypted username and password
-// on admin's computer
-$core_config['multilogin']	= 0;
-
 // are we using http or https ? the default is using http instead https
 $core_config['ishttps']		= false;
 
