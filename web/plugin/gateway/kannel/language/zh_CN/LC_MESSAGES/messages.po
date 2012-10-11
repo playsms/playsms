@@ -5,147 +5,147 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/kannel/kannel.php:9
+#: plugin/gateway/kannel/kannel.php:8
 msgid "Active"
 msgstr "活跃"
 
-#: plugin/gateway/kannel/kannel.php:11
+#: plugin/gateway/kannel/kannel.php:10
 msgid "Inactive"
 msgstr "不活跃"
 
-#: plugin/gateway/kannel/kannel.php:11
+#: plugin/gateway/kannel/kannel.php:10
 msgid "click here to activate"
 msgstr "点击这里激活"
 
-#: plugin/gateway/kannel/kannel.php:28
+#: plugin/gateway/kannel/kannel.php:27
 msgid "Delivered to phone"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:29
+#: plugin/gateway/kannel/kannel.php:28
 msgid "Non-Delivered to phone"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:31
+#: plugin/gateway/kannel/kannel.php:30
 msgid "Queued on SMSC"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:32
+#: plugin/gateway/kannel/kannel.php:31
 msgid "Delivered to SMSC"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:33
+#: plugin/gateway/kannel/kannel.php:32
 msgid "Non-Delivered to SMSC"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:51 plugin/gateway/kannel/config.php:41
+#: plugin/gateway/kannel/kannel.php:50 plugin/gateway/kannel/config.php:42
 msgid "Manage kannel"
 msgstr "管理kannel"
 
-#: plugin/gateway/kannel/kannel.php:56
+#: plugin/gateway/kannel/kannel.php:55
 msgid "Gateway name"
 msgstr "网关名"
 
-#: plugin/gateway/kannel/kannel.php:59
+#: plugin/gateway/kannel/kannel.php:58
 msgid "Username"
 msgstr "用户名"
 
-#: plugin/gateway/kannel/kannel.php:62
+#: plugin/gateway/kannel/kannel.php:61
 msgid "Password"
 msgstr "密码"
 
-#: plugin/gateway/kannel/kannel.php:62
+#: plugin/gateway/kannel/kannel.php:61
 msgid "Fill to change the password"
 msgstr "填写改变密码"
 
-#: plugin/gateway/kannel/kannel.php:65
+#: plugin/gateway/kannel/kannel.php:64
 msgid "Module sender ID"
 msgstr "全球发件人"
 
-#: plugin/gateway/kannel/kannel.php:65
+#: plugin/gateway/kannel/kannel.php:64
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr "最多16个数字或11个字母，不可空"
 
-#: plugin/gateway/kannel/kannel.php:68
+#: plugin/gateway/kannel/kannel.php:67
 msgid "Module timezone"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:68
+#: plugin/gateway/kannel/kannel.php:67
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:71
+#: plugin/gateway/kannel/kannel.php:70
 msgid "Bearerbox hostname or IP"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:71 plugin/gateway/kannel/kannel.php:74
+#: plugin/gateway/kannel/kannel.php:70 plugin/gateway/kannel/kannel.php:73
 msgid "Kannel specific"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:74
+#: plugin/gateway/kannel/kannel.php:73
 msgid "Send SMS port"
 msgstr "发送短信端口"
 
-#: plugin/gateway/kannel/kannel.php:78
+#: plugin/gateway/kannel/kannel.php:77
 msgid "Delivery Report"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:82
+#: plugin/gateway/kannel/kannel.php:81
 msgid "Additional URL parameter"
 msgstr "附加链接参数"
 
-#: plugin/gateway/kannel/kannel.php:85
+#: plugin/gateway/kannel/kannel.php:84
 msgid "playSMS web URL"
 msgstr "短信网络链接"
 
-#: plugin/gateway/kannel/kannel.php:85
+#: plugin/gateway/kannel/kannel.php:84
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:89
+#: plugin/gateway/kannel/kannel.php:88
 msgid "Kannel admin password"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:89
+#: plugin/gateway/kannel/kannel.php:88
 msgid "HTTP Kannel admin password"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:92
+#: plugin/gateway/kannel/kannel.php:91
 msgid "Kannel admin port"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:92
+#: plugin/gateway/kannel/kannel.php:91
 msgid "HTTP Kannel admin port"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:95
+#: plugin/gateway/kannel/kannel.php:94
 msgid "Kannel configuration file"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:98
+#: plugin/gateway/kannel/kannel.php:97
 msgid "Kannel status"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:103 plugin/gateway/kannel/kannel.php:208
+#: plugin/gateway/kannel/kannel.php:102 plugin/gateway/kannel/kannel.php:207
 msgid "Restart Kannel"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:108
+#: plugin/gateway/kannel/kannel.php:107
 msgid "Save"
 msgstr "发送"
 
-#: plugin/gateway/kannel/kannel.php:142
+#: plugin/gateway/kannel/kannel.php:141
 msgid "No changes has been made"
 msgstr "没有做出改变"
 
-#: plugin/gateway/kannel/kannel.php:181
+#: plugin/gateway/kannel/kannel.php:180
 msgid "Gateway module configurations has been saved"
 msgstr "网关模块的配置已保存"
 
-#: plugin/gateway/kannel/kannel.php:196
+#: plugin/gateway/kannel/kannel.php:195
 msgid "Gateway has been activated"
 msgstr "网关已激活"
 
-#: plugin/gateway/kannel/kannel.php:208
+#: plugin/gateway/kannel/kannel.php:207
 msgid "Status"
 msgstr ""
 

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/uplink/config.php:24 plugin/gateway/uplink/uplink.php:25
+#: plugin/gateway/uplink/config.php:25 plugin/gateway/uplink/uplink.php:25
 msgid "Manage uplink"
 msgstr "管理uplink"
 

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/_template/config.php:16
+#: plugin/gateway/_template/config.php:17
 #: plugin/gateway/_template/template.php:25
 msgid "Manage template"
 msgstr "Manage template"

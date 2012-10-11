@@ -5,7 +5,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/msgtoolbox/config.php:23
+#: plugin/gateway/msgtoolbox/config.php:24
 #: plugin/gateway/msgtoolbox/msgtoolbox.php:25
 msgid "Manage msgtoolbox"
 msgstr ""

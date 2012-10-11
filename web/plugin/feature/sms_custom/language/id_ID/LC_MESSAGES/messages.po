@@ -6,135 +6,135 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: plugin/feature/sms_custom/config.php:6
-#: plugin/feature/sms_custom/sms_custom.php:17
+#: plugin/feature/sms_custom/sms_custom.php:12
 msgid "Manage custom"
 msgstr "Pengaturan SMS kustom"
 
-#: plugin/feature/sms_custom/sms_custom.php:20
-#: plugin/feature/sms_custom/sms_custom.php:64
-#: plugin/feature/sms_custom/sms_custom.php:138
+#: plugin/feature/sms_custom/sms_custom.php:15
+#: plugin/feature/sms_custom/sms_custom.php:59
+#: plugin/feature/sms_custom/sms_custom.php:133
 msgid "Add SMS custom"
 msgstr "Tambah SMS kustom"
 
-#: plugin/feature/sms_custom/sms_custom.php:36
+#: plugin/feature/sms_custom/sms_custom.php:31
 msgid "Keyword"
 msgstr "Kata kunci"
 
-#: plugin/feature/sms_custom/sms_custom.php:37
+#: plugin/feature/sms_custom/sms_custom.php:32
 msgid "URL"
 msgstr "URL"
 
-#: plugin/feature/sms_custom/sms_custom.php:38
+#: plugin/feature/sms_custom/sms_custom.php:33
 msgid "User"
 msgstr "Pengguna"
 
-#: plugin/feature/sms_custom/sms_custom.php:39
+#: plugin/feature/sms_custom/sms_custom.php:34
 msgid "Action"
 msgstr "Tindakan"
 
-#: plugin/feature/sms_custom/sms_custom.php:49
+#: plugin/feature/sms_custom/sms_custom.php:44
 msgid "Are you sure you want to delete SMS custom keyword ?"
 msgstr "Anda yakin ingin menghapus kata kunci SMS kustom"
 
-#: plugin/feature/sms_custom/sms_custom.php:49
-#: plugin/feature/sms_custom/sms_custom.php:108
-#: plugin/feature/sms_custom/sms_custom.php:110
-#: plugin/feature/sms_custom/sms_custom.php:126
-#: plugin/feature/sms_custom/sms_custom.php:128
+#: plugin/feature/sms_custom/sms_custom.php:44
+#: plugin/feature/sms_custom/sms_custom.php:103
+#: plugin/feature/sms_custom/sms_custom.php:105
+#: plugin/feature/sms_custom/sms_custom.php:121
+#: plugin/feature/sms_custom/sms_custom.php:123
+#: plugin/feature/sms_custom/sms_custom.php:159
+#: plugin/feature/sms_custom/sms_custom.php:161
 #: plugin/feature/sms_custom/sms_custom.php:164
-#: plugin/feature/sms_custom/sms_custom.php:166
-#: plugin/feature/sms_custom/sms_custom.php:169
 msgid "keyword"
 msgstr "kata kunci"
 
-#: plugin/feature/sms_custom/sms_custom.php:80
+#: plugin/feature/sms_custom/sms_custom.php:75
 msgid "Edit SMS custom"
 msgstr "Sunting SMS kustom"
 
-#: plugin/feature/sms_custom/sms_custom.php:85
-#: plugin/feature/sms_custom/sms_custom.php:141
+#: plugin/feature/sms_custom/sms_custom.php:80
+#: plugin/feature/sms_custom/sms_custom.php:136
 msgid "SMS custom keyword"
 msgstr "Kata kunci SMS kustom"
 
-#: plugin/feature/sms_custom/sms_custom.php:86
-#: plugin/feature/sms_custom/sms_custom.php:142
+#: plugin/feature/sms_custom/sms_custom.php:81
+#: plugin/feature/sms_custom/sms_custom.php:137
 msgid "Pass these parameter to custom URL field"
 msgstr "Masukkan parameter-parameter ini ke kolom penyesuaian URL"
 
-#: plugin/feature/sms_custom/sms_custom.php:87
-#: plugin/feature/sms_custom/sms_custom.php:143
+#: plugin/feature/sms_custom/sms_custom.php:82
+#: plugin/feature/sms_custom/sms_custom.php:138
 msgid "will be replaced by SMS incoming date/time"
 msgstr "akan digantikan oleh waktu/tanggal SMS masuk"
 
-#: plugin/feature/sms_custom/sms_custom.php:88
-#: plugin/feature/sms_custom/sms_custom.php:144
+#: plugin/feature/sms_custom/sms_custom.php:83
+#: plugin/feature/sms_custom/sms_custom.php:139
 msgid "will be replaced by sender number"
 msgstr "akan digantikan oleh nomor pengirim"
 
-#: plugin/feature/sms_custom/sms_custom.php:89
-#: plugin/feature/sms_custom/sms_custom.php:145
+#: plugin/feature/sms_custom/sms_custom.php:84
+#: plugin/feature/sms_custom/sms_custom.php:140
 msgid "will be replaced by custom keyword"
 msgstr "akan digantikan oleh kata kunci SMS kustom"
 
-#: plugin/feature/sms_custom/sms_custom.php:90
-#: plugin/feature/sms_custom/sms_custom.php:146
+#: plugin/feature/sms_custom/sms_custom.php:85
+#: plugin/feature/sms_custom/sms_custom.php:141
 msgid "will be replaced by custom parameter passed to server from SMS"
 msgstr ""
 "akan diganti oleh parameter penyesuaian yang dikirim ke server dari SMS"
 
-#: plugin/feature/sms_custom/sms_custom.php:91
-#: plugin/feature/sms_custom/sms_custom.php:147
+#: plugin/feature/sms_custom/sms_custom.php:86
+#: plugin/feature/sms_custom/sms_custom.php:142
 msgid "will be replaced by SMS raw message"
 msgstr "akan digantikan oleh nomor pengirim"
 
-#: plugin/feature/sms_custom/sms_custom.php:92
-#: plugin/feature/sms_custom/sms_custom.php:148
+#: plugin/feature/sms_custom/sms_custom.php:87
+#: plugin/feature/sms_custom/sms_custom.php:143
 msgid "SMS custom URL"
 msgstr "URL SMS kustom"
 
-#: plugin/feature/sms_custom/sms_custom.php:93
-#: plugin/feature/sms_custom/sms_custom.php:149
+#: plugin/feature/sms_custom/sms_custom.php:88
+#: plugin/feature/sms_custom/sms_custom.php:144
 msgid "Make return as reply"
 msgstr "Membuat kembali menjadi balasan"
 
-#: plugin/feature/sms_custom/sms_custom.php:94
+#: plugin/feature/sms_custom/sms_custom.php:89
 msgid "Save"
 msgstr "Simpan"
 
-#: plugin/feature/sms_custom/sms_custom.php:108
+#: plugin/feature/sms_custom/sms_custom.php:103
 msgid "SMS custom has been saved"
 msgstr "SMS kustom sudah disimpan"
 
-#: plugin/feature/sms_custom/sms_custom.php:110
+#: plugin/feature/sms_custom/sms_custom.php:105
 msgid "Fail to save SMS custom"
 msgstr "Gagal menyimpan SMS kustom"
 
-#: plugin/feature/sms_custom/sms_custom.php:113
-#: plugin/feature/sms_custom/sms_custom.php:172
+#: plugin/feature/sms_custom/sms_custom.php:108
+#: plugin/feature/sms_custom/sms_custom.php:167
 msgid "You must fill all fields"
 msgstr "Anda harus mengisi semua kolom"
 
-#: plugin/feature/sms_custom/sms_custom.php:126
+#: plugin/feature/sms_custom/sms_custom.php:121
 msgid "SMS custom has been deleted"
 msgstr "SMS kustom sudah dihapus"
 
-#: plugin/feature/sms_custom/sms_custom.php:128
+#: plugin/feature/sms_custom/sms_custom.php:123
 msgid "Fail to delete SMS custom"
 msgstr "Gagal menghapus SMS kustom"
 
-#: plugin/feature/sms_custom/sms_custom.php:150
+#: plugin/feature/sms_custom/sms_custom.php:145
 msgid "Add"
 msgstr "Tambah"
 
-#: plugin/feature/sms_custom/sms_custom.php:164
+#: plugin/feature/sms_custom/sms_custom.php:159
 msgid "SMS custom has been added"
 msgstr "SMS kustom telah ditambahkan"
 
-#: plugin/feature/sms_custom/sms_custom.php:166
+#: plugin/feature/sms_custom/sms_custom.php:161
 msgid "Fail to add SMS custom"
 msgstr "Gagal menambah SMS kustom"
 
-#: plugin/feature/sms_custom/sms_custom.php:169
+#: plugin/feature/sms_custom/sms_custom.php:164
 msgid "SMS custom already exists, reserved or use by other feature"
 msgstr "SMS kustom sudah dipesan atau digunakan oleh fitur lain."
 

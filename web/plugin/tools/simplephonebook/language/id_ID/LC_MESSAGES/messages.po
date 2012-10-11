@@ -7,7 +7,7 @@ msgstr ""
 
 #: plugin/tools/simplephonebook/simplephonebook.php:43
 #: plugin/tools/simplephonebook/simplephonebook.php:117
-#: plugin/tools/simplephonebook/phonebook_exim.php:57
+#: plugin/tools/simplephonebook/phonebook_exim.php:54
 #: plugin/tools/simplephonebook/phone_add.php:27
 msgid "Name"
 msgstr "Nama"
@@ -19,7 +19,7 @@ msgstr "Nomor"
 
 #: plugin/tools/simplephonebook/simplephonebook.php:45
 #: plugin/tools/simplephonebook/simplephonebook.php:119
-#: plugin/tools/simplephonebook/phonebook_exim.php:59
+#: plugin/tools/simplephonebook/phonebook_exim.php:56
 #: plugin/tools/simplephonebook/phone_add.php:33
 msgid "Email"
 msgstr "Email"
@@ -169,64 +169,64 @@ msgstr "Gagal membatalkan publikasi"
 msgid "Group has been unpublished"
 msgstr "Kelompok telah batal dipublikasi"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:34
+#: plugin/tools/simplephonebook/phonebook_exim.php:31
 msgid "Import phonebook"
 msgstr "Impor buku telepon"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:34
+#: plugin/tools/simplephonebook/phonebook_exim.php:31
 #: plugin/tools/simplephonebook/dir_create.php:20
 #: plugin/tools/simplephonebook/dir_edit.php:22
 msgid "Group code"
 msgstr "kode kelompok"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:37
+#: plugin/tools/simplephonebook/phonebook_exim.php:34
 msgid "Please select CSV file for phonebook entries"
 msgstr "Silakan pilih file CSV untuk entri buku telepon"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:37
+#: plugin/tools/simplephonebook/phonebook_exim.php:34
 msgid "format : Name,Mobile,Email"
 msgstr "format : Nama,Ponsel,Email"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:39
+#: plugin/tools/simplephonebook/phonebook_exim.php:36
 msgid "Same item(s) will be replaced"
 msgstr "hal yang sama akan diganti"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:40
-#: plugin/tools/simplephonebook/phonebook_exim.php:97
+#: plugin/tools/simplephonebook/phonebook_exim.php:37
+#: plugin/tools/simplephonebook/phonebook_exim.php:94
 #: plugin/tools/simplephonebook/config.php:5
 msgid "Import"
 msgstr "Impor"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:52
+#: plugin/tools/simplephonebook/phonebook_exim.php:49
 msgid "Import confirmation"
 msgstr "konfirmasi impor"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:58
+#: plugin/tools/simplephonebook/phonebook_exim.php:55
 #: plugin/tools/simplephonebook/phone_add.php:30
 msgid "Mobile"
 msgstr "Ponsel"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:88
+#: plugin/tools/simplephonebook/phonebook_exim.php:85
 msgid "Replace all entries in database"
 msgstr "Ganti semua entri di database"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:90
+#: plugin/tools/simplephonebook/phonebook_exim.php:87
 msgid "Add all entries"
 msgstr "Tambah semua entri"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:94
+#: plugin/tools/simplephonebook/phonebook_exim.php:91
 msgid "Import above phonebook entries ?"
 msgstr "Impor entri buku telepon di atas?"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:95
+#: plugin/tools/simplephonebook/phonebook_exim.php:92
 msgid "Status"
 msgstr "Status"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:101
+#: plugin/tools/simplephonebook/phonebook_exim.php:98
 msgid "Back"
 msgstr "Kembali"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:105
+#: plugin/tools/simplephonebook/phonebook_exim.php:102
 msgid "Fail to upload CSV file for phonebook"
 msgstr "Gagal mengunggah file CSV untuk buku telepon"
 

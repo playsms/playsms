@@ -1,4 +1,4 @@
-#: plugin/tools/simplerate/config.php:5
+#: plugin/tools/simplerate/config.php:6
 #: plugin/tools/simplerate/simplerate.php:13
 msgid "Manage SMS rate"
 msgstr ""

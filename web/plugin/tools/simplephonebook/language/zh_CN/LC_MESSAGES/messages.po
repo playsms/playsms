@@ -7,7 +7,7 @@ msgstr ""
 
 #: plugin/tools/simplephonebook/simplephonebook.php:43
 #: plugin/tools/simplephonebook/simplephonebook.php:117
-#: plugin/tools/simplephonebook/phonebook_exim.php:57
+#: plugin/tools/simplephonebook/phonebook_exim.php:54
 #: plugin/tools/simplephonebook/phone_add.php:27
 msgid "Name"
 msgstr "姓名"
@@ -19,7 +19,7 @@ msgstr "号码"
 
 #: plugin/tools/simplephonebook/simplephonebook.php:45
 #: plugin/tools/simplephonebook/simplephonebook.php:119
-#: plugin/tools/simplephonebook/phonebook_exim.php:59
+#: plugin/tools/simplephonebook/phonebook_exim.php:56
 #: plugin/tools/simplephonebook/phone_add.php:33
 msgid "Email"
 msgstr "电子信息"
@@ -169,64 +169,64 @@ msgstr "未公布失败"
 msgid "Group has been unpublished"
 msgstr "组未公布"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:34
+#: plugin/tools/simplephonebook/phonebook_exim.php:31
 msgid "Import phonebook"
 msgstr "载入电话簿"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:34
+#: plugin/tools/simplephonebook/phonebook_exim.php:31
 #: plugin/tools/simplephonebook/dir_create.php:20
 #: plugin/tools/simplephonebook/dir_edit.php:22
 msgid "Group code"
 msgstr "组代码"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:37
+#: plugin/tools/simplephonebook/phonebook_exim.php:34
 msgid "Please select CSV file for phonebook entries"
 msgstr "请选择电话簿条目CSV文件"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:37
+#: plugin/tools/simplephonebook/phonebook_exim.php:34
 msgid "format : Name,Mobile,Email"
 msgstr "格式 : 姓名,电话,电子邮件"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:39
+#: plugin/tools/simplephonebook/phonebook_exim.php:36
 msgid "Same item(s) will be replaced"
 msgstr "同一项目将被替换"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:40
-#: plugin/tools/simplephonebook/phonebook_exim.php:97
+#: plugin/tools/simplephonebook/phonebook_exim.php:37
+#: plugin/tools/simplephonebook/phonebook_exim.php:94
 #: plugin/tools/simplephonebook/config.php:5
 msgid "Import"
 msgstr "进口"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:52
+#: plugin/tools/simplephonebook/phonebook_exim.php:49
 msgid "Import confirmation"
 msgstr "载入确认"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:58
+#: plugin/tools/simplephonebook/phonebook_exim.php:55
 #: plugin/tools/simplephonebook/phone_add.php:30
 msgid "Mobile"
 msgstr "手机"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:88
+#: plugin/tools/simplephonebook/phonebook_exim.php:85
 msgid "Replace all entries in database"
 msgstr "替换数据库中的所有条目"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:90
+#: plugin/tools/simplephonebook/phonebook_exim.php:87
 msgid "Add all entries"
 msgstr "添加全部条目"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:94
+#: plugin/tools/simplephonebook/phonebook_exim.php:91
 msgid "Import above phonebook entries ?"
 msgstr "载入以上电话簿条目 ?"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:95
+#: plugin/tools/simplephonebook/phonebook_exim.php:92
 msgid "Status"
 msgstr "状态"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:101
+#: plugin/tools/simplephonebook/phonebook_exim.php:98
 msgid "Back"
 msgstr "返回"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:105
+#: plugin/tools/simplephonebook/phonebook_exim.php:102
 msgid "Fail to upload CSV file for phonebook"
 msgstr "上传CSV文件到电话簿失败"
 

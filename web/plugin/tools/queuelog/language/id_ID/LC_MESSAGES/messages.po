@@ -1,4 +1,4 @@
-#: plugin/tools/queuelog/config.php:4 plugin/tools/queuelog/queuelog.php:16
+#: plugin/tools/queuelog/config.php:5 plugin/tools/queuelog/queuelog.php:16
 msgid "View SMS queue"
 msgstr "Lihat antrian SMS"
 

@@ -1,4 +1,4 @@
-#: plugin/gateway/uplink/config.php:24 plugin/gateway/uplink/uplink.php:25
+#: plugin/gateway/uplink/config.php:25 plugin/gateway/uplink/uplink.php:25
 msgid "Manage uplink"
 msgstr ""
 

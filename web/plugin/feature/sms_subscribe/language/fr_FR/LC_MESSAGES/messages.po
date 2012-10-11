@@ -236,26 +236,26 @@ msgstr "Ce mot-clé existe déjà, est réservé ou utilisé par un autre servic
 msgid "Member message has been added"
 msgstr "Le message a été ajoute"
 
-#: plugin/feature/sms_subscribe/fn.php:64
+#: plugin/feature/sms_subscribe/fn.php:63
 msgid "Subscribe service inactive"
 msgstr "Le service a été sauvegardé"
 
-#: plugin/feature/sms_subscribe/fn.php:112
-#: plugin/feature/sms_subscribe/fn.php:117
-#: plugin/feature/sms_subscribe/fn.php:122
+#: plugin/feature/sms_subscribe/fn.php:111
+#: plugin/feature/sms_subscribe/fn.php:116
+#: plugin/feature/sms_subscribe/fn.php:121
 msgid "You are not a member"
 msgstr "Vous n'êtes pas membre"
 
-#: plugin/feature/sms_subscribe/fn.php:127
+#: plugin/feature/sms_subscribe/fn.php:126
 msgid "Unknown SMS format"
 msgstr "Format de SMS inconnu"
 
-#: plugin/feature/sms_subscribe/fn.php:160
-#: plugin/feature/sms_subscribe/fn.php:165
-#: plugin/feature/sms_subscribe/fn.php:170
+#: plugin/feature/sms_subscribe/fn.php:159
+#: plugin/feature/sms_subscribe/fn.php:164
+#: plugin/feature/sms_subscribe/fn.php:169
 msgid "You already a member"
 msgstr "Vous êtes déjà membres"
 
-#: plugin/feature/sms_subscribe/fn.php:175
+#: plugin/feature/sms_subscribe/fn.php:174
 msgid "Unknown sms format"
 msgstr "Format de SMS inconnu"

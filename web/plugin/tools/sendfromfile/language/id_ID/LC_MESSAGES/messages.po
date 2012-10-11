@@ -7,7 +7,7 @@ msgstr ""
 
 #: plugin/tools/sendfromfile/sendfromfile.php:12
 #: plugin/tools/sendfromfile/sendfromfile.php:82
-#: plugin/tools/sendfromfile/config.php:5
+#: plugin/tools/sendfromfile/config.php:6
 msgid "Send from file"
 msgstr "Kirim dari file"
 

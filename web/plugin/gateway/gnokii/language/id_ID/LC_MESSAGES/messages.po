@@ -17,7 +17,7 @@ msgstr "Nonaktif"
 msgid "click here to activate"
 msgstr "klik di sini untuk mengaktifkan"
 
-#: plugin/gateway/gnokii/gnokii.php:24 plugin/gateway/gnokii/config.php:16
+#: plugin/gateway/gnokii/gnokii.php:24 plugin/gateway/gnokii/config.php:17
 msgid "Manage gnokii"
 msgstr "Pengaturan gnokii"
 

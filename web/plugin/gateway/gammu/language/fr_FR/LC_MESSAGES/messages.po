@@ -5,7 +5,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/gammu/config.php:12 plugin/gateway/gammu/gammu.php:24
+#: plugin/gateway/gammu/config.php:13 plugin/gateway/gammu/gammu.php:24
 msgid "Manage gammu"
 msgstr "Gérer gammu"
 

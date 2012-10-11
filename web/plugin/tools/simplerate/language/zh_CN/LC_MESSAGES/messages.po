@@ -5,7 +5,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/tools/simplerate/config.php:5
+#: plugin/tools/simplerate/config.php:6
 #: plugin/tools/simplerate/simplerate.php:13
 msgid "Manage SMS rate"
 msgstr "管理短信等级"

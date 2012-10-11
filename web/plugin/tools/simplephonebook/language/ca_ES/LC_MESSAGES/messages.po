@@ -19,7 +19,7 @@ msgstr ""
 
 #: plugin/tools/simplephonebook/simplephonebook.php:43
 #: plugin/tools/simplephonebook/simplephonebook.php:117
-#: plugin/tools/simplephonebook/phonebook_exim.php:57
+#: plugin/tools/simplephonebook/phonebook_exim.php:54
 #: plugin/tools/simplephonebook/phone_add.php:27
 msgid "Name"
 msgstr "Nom"
@@ -31,7 +31,7 @@ msgstr "Número"
 
 #: plugin/tools/simplephonebook/simplephonebook.php:45
 #: plugin/tools/simplephonebook/simplephonebook.php:119
-#: plugin/tools/simplephonebook/phonebook_exim.php:59
+#: plugin/tools/simplephonebook/phonebook_exim.php:56
 #: plugin/tools/simplephonebook/phone_add.php:33
 msgid "Email"
 msgstr "Email"
@@ -181,64 +181,64 @@ msgstr "Error al despúblicar"
 msgid "Group has been unpublished"
 msgstr "El grup s'ha despúblicat"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:34
+#: plugin/tools/simplephonebook/phonebook_exim.php:31
 msgid "Import phonebook"
 msgstr "Importar contactes"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:34
+#: plugin/tools/simplephonebook/phonebook_exim.php:31
 #: plugin/tools/simplephonebook/dir_create.php:20
 #: plugin/tools/simplephonebook/dir_edit.php:22
 msgid "Group code"
 msgstr "Codi del grup"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:37
+#: plugin/tools/simplephonebook/phonebook_exim.php:34
 msgid "Please select CSV file for phonebook entries"
 msgstr "Si us plau trieu un fitxer CSV per les entrades de contactes"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:37
+#: plugin/tools/simplephonebook/phonebook_exim.php:34
 msgid "format : Name,Mobile,Email"
 msgstr "format: Nom,Mòbil,Email"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:39
+#: plugin/tools/simplephonebook/phonebook_exim.php:36
 msgid "Same item(s) will be replaced"
 msgstr "El(s) mateix(os) element(s) es reemplaçarà(n)"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:40
-#: plugin/tools/simplephonebook/phonebook_exim.php:97
+#: plugin/tools/simplephonebook/phonebook_exim.php:37
+#: plugin/tools/simplephonebook/phonebook_exim.php:94
 #: plugin/tools/simplephonebook/config.php:5
 msgid "Import"
 msgstr "Importar"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:52
+#: plugin/tools/simplephonebook/phonebook_exim.php:49
 msgid "Import confirmation"
 msgstr "Confirmeu importació"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:58
+#: plugin/tools/simplephonebook/phonebook_exim.php:55
 #: plugin/tools/simplephonebook/phone_add.php:30
 msgid "Mobile"
 msgstr "Mòbil"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:88
+#: plugin/tools/simplephonebook/phonebook_exim.php:85
 msgid "Replace all entries in database"
 msgstr "Reemplaçar totes les entrades de la base de dades"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:90
+#: plugin/tools/simplephonebook/phonebook_exim.php:87
 msgid "Add all entries"
 msgstr "Afegir totes les entrades"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:94
+#: plugin/tools/simplephonebook/phonebook_exim.php:91
 msgid "Import above phonebook entries ?"
 msgstr "Importar el contactes de dalt?"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:95
+#: plugin/tools/simplephonebook/phonebook_exim.php:92
 msgid "Status"
 msgstr "Estat"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:101
+#: plugin/tools/simplephonebook/phonebook_exim.php:98
 msgid "Back"
 msgstr "Enrere"
 
-#: plugin/tools/simplephonebook/phonebook_exim.php:105
+#: plugin/tools/simplephonebook/phonebook_exim.php:102
 msgid "Fail to upload CSV file for phonebook"
 msgstr "Error al pujar el CSV per els contactes"
 

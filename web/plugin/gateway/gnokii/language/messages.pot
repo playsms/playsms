@@ -10,7 +10,7 @@ msgstr ""
 msgid "click here to activate"
 msgstr ""
 
-#: plugin/gateway/gnokii/gnokii.php:24 plugin/gateway/gnokii/config.php:16
+#: plugin/gateway/gnokii/gnokii.php:24 plugin/gateway/gnokii/config.php:17
 msgid "Manage gnokii"
 msgstr ""
 

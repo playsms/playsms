@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.4\n"
 
-#: plugin/tools/queuelog/config.php:4 plugin/tools/queuelog/queuelog.php:16
+#: plugin/tools/queuelog/config.php:5 plugin/tools/queuelog/queuelog.php:16
 msgid "View SMS queue"
 msgstr "Veure la cua de SMS"
 
