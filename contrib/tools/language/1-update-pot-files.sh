@@ -12,8 +12,8 @@ CWD=$(pwd)
 ##Common strings
 cd $PLAYSMS
 touch plugin/language/messages.pot
-find lib/ -iname "*.php" -L PHP --omit-header -exec xgettext --from-code=utf-8 -j -o plugin/language/messages.pot {} \;
-find inc/ -iname "*.php" -L PHP --omit-header -exec xgettext --from-code=utf-8 -j -o plugin/language/messages.pot {} \;
+find lib/ -iname "*.php" -exec xgettext -L PHP --omit-header --from-code=utf-8 -j -o plugin/language/messages.pot {} \;
+find inc/ -iname "*.php" -exec xgettext -L PHP --omit-header --from-code=utf-8 -j -o plugin/language/messages.pot {} \;
 
 ##Themes,plugins and tools strings
 cd $PLAYSMS
