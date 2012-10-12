@@ -41,7 +41,7 @@ function msgtemplate_hook_interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_
 
 function msgtemplate_hook_sendsms_get_template() {
 	$ret = array();
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSTemplate WHERE uid='".$_SESSION['uid']."'";
+	$db_query = "SELECT * FROM "._DB_PREF_."_toolsMsgtemplate WHERE uid='".$_SESSION['uid']."'";
 	$db_result = dba_query($db_query);
 	$i = 0;
 	while ($db_row = dba_fetch_array($db_result)) {

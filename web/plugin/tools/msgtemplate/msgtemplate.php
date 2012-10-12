@@ -29,7 +29,7 @@ switch ($op)
 		<td class=\"sorttable_nosort\" align=\"center\"><input type=checkbox onclick=CheckUncheckAll(document.".$fm_name.")></td>
 	    </tr>
 	";
-		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSTemplate WHERE uid='$uid'";
+		$db_query = "SELECT * FROM "._DB_PREF_."_toolsMsgtemplate WHERE uid='$uid'";
 		$db_result = dba_query($db_query);
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result))
@@ -89,7 +89,7 @@ switch ($op)
 	case "add_yes":
 		$t_title = $_POST['t_title'];
 		$t_text = $_POST['t_text'];
-		$db_query = "INSERT INTO "._DB_PREF_."_tblSMSTemplate (uid,t_title,t_text) VALUES ('$uid','$t_title','$t_text')";
+		$db_query = "INSERT INTO "._DB_PREF_."_toolsMsgtemplate (uid,t_title,t_text) VALUES ('$uid','$t_title','$t_text')";
 		$db_result = dba_insert_id($db_query);
 		if ($db_result > 0)
 		{
@@ -103,7 +103,7 @@ switch ($op)
 		exit();
 		break;
 	case "edit_template":
-		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSTemplate WHERE tid='$tid'";
+		$db_query = "SELECT * FROM "._DB_PREF_."_toolsMsgtemplate WHERE tid='$tid'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$content = "
@@ -129,7 +129,7 @@ switch ($op)
 	case "edit_yes":
 		$t_title = $_POST['t_title'];
 		$t_text = $_POST['t_text'];
-		$db_query = "UPDATE "._DB_PREF_."_tblSMSTemplate SET c_timestamp='".mktime()."',t_title='$t_title', t_text='$t_text' WHERE tid='$tid'";
+		$db_query = "UPDATE "._DB_PREF_."_toolsMsgtemplate SET c_timestamp='".mktime()."',t_title='$t_title', t_text='$t_text' WHERE tid='$tid'";
 		$db_result = dba_affected_rows($db_query);
 		if ($db_result > 0)
 		{
@@ -166,7 +166,7 @@ switch ($op)
 			if (${"chkid".$i} == "on")
 			{
 				$j++;
-				$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSTemplate WHERE tid='".${"tid".$i}."'";
+				$db_query = "SELECT * FROM "._DB_PREF_."_toolsMsgtemplate WHERE tid='".${"tid".$i}."'";
 				$db_result = dba_query($db_query);
 				$db_row = dba_fetch_array($db_result);
 				$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
@@ -198,7 +198,7 @@ switch ($op)
 		}
 		for ($i=1;$i<=$item_count;$i++)
 		{
-			$db_query = "DELETE FROM "._DB_PREF_."_tblSMSTemplate WHERE tid='".${"tid".$i}."'";
+			$db_query = "DELETE FROM "._DB_PREF_."_toolsMsgtemplate WHERE tid='".${"tid".$i}."'";
 			$db_result = dba_affected_rows($db_query);
 		}
 		$_SESSION['error_string'] = _('Selected message template has been deleted');
