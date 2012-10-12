@@ -124,7 +124,7 @@ switch ($op) {
 			<tr><td width=200>" . _('State or Province') . "</td><td>:</td><td><input type=text size=30 maxlength=100 name=up_state value=\"$state\"></td></tr>
 			<tr><td width=200>" . _('Country') . "</td><td>:</td><td><select name=up_country>$option_country</select></td></tr>
 			<tr><td width=200>" . _('Zipcode') . "</td><td>:</td><td><input type=text size=10 maxlength=10 name=up_zipcode value=\"$zipcode\"></td></tr>
-			<tr><td width=200>" . _('Active language') . "</td><td>:</td><td><select name=up_language_module>$option_language_module</select></td></tr>
+			<tr><td width=200>Active language</td><td>:</td><td><select name=up_language_module>$option_language_module</select></td></tr>
 			<tr><td colspan=3>&nbsp;</td></tr>
 			<tr><td colspan=3><h2>" . _('Application options') . "</h2><hr></td></tr>
 			<tr><td width=200>" . _('Timezone') . "</td><td>:</td><td><input type=text size=5 maxlength=5 name=up_timezone value=\"$timezone\"> (" . _('Eg: +0700 for Jakarta/Bangkok timezone') . ")</td></tr>

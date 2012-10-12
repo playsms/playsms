@@ -82,7 +82,7 @@ switch ($op)
 		<td>"._('Active themes')."</td><td>:</td><td><select name='edit_themes_module'>$option_themes_module</select></td>
 	    </tr>
 	    <tr>
-		<td>"._('Default language')."</td><td>:</td><td><select name='edit_language_module'>$option_language_module</select></td>
+		<td>Default language</td><td>:</td><td><select name='edit_language_module'>$option_language_module</select></td>
 	    </tr>
 	</table>	    
 	    <p><input type='submit' class='button' value='"._('Save')."'>
