@@ -5,83 +5,63 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/uplink/config.php:25 plugin/gateway/uplink/uplink.php:25
-msgid "Manage uplink"
-msgstr "Administrar uplink"
-
-#: plugin/gateway/uplink/uplink.php:9
 msgid "Active"
 msgstr "Ativo"
 
-#: plugin/gateway/uplink/uplink.php:13
-msgid "Inactive"
-msgstr "Inativo"
-
-#: plugin/gateway/uplink/uplink.php:13
-msgid "click here to activate"
-msgstr "clique aqui para ativar"
-
-#: plugin/gateway/uplink/uplink.php:30
-msgid "Gateway name"
-msgstr "Nome do gateway"
-
-#: plugin/gateway/uplink/uplink.php:33
-msgid "Master URL"
-msgstr "URL mestre"
-
-#: plugin/gateway/uplink/uplink.php:36
 msgid "Additional URL parameter"
 msgstr "Parâmetro de URL adicional"
 
-#: plugin/gateway/uplink/uplink.php:39
-msgid "Username"
-msgstr "Usuário"
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
 
-#: plugin/gateway/uplink/uplink.php:42
-msgid "Password"
-msgstr "Senha"
-
-#: plugin/gateway/uplink/uplink.php:42
 msgid "Fill to change the password"
 msgstr "Preencha pra mudar a senha"
 
-#: plugin/gateway/uplink/uplink.php:45
-msgid "Module sender ID"
-msgstr ""
+msgid "Gateway has been activated"
+msgstr "Gateway foi ativado"
 
-#: plugin/gateway/uplink/uplink.php:45
+msgid "Gateway module configurations has been saved"
+msgstr "Configurações do módulo de gateway foram salvas"
+
+msgid "Gateway name"
+msgstr "Nome do gateway"
+
+msgid "Inactive"
+msgstr "Inativo"
+
+msgid "Manage uplink"
+msgstr "Administrar uplink"
+
+msgid "Master URL"
+msgstr "URL mestre"
+
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
 "Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
 
-#: plugin/gateway/uplink/uplink.php:48
+msgid "Module sender ID"
+msgstr ""
+
 msgid "Module timezone"
 msgstr ""
 
-#: plugin/gateway/uplink/uplink.php:48
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
-
-#: plugin/gateway/uplink/uplink.php:52
-msgid "Uplink incoming path"
-msgstr "Caminho de chegada do uplink"
-
-#: plugin/gateway/uplink/uplink.php:52
-msgid "No trailing slash"
-msgstr "Sem barra no final"
-
-#: plugin/gateway/uplink/uplink.php:56
-msgid "Save"
-msgstr "Salvar"
-
-#: plugin/gateway/uplink/uplink.php:69
 msgid "No changes has been made"
 msgstr "Nenhuma mudança feita"
 
-#: plugin/gateway/uplink/uplink.php:103
-msgid "Gateway module configurations has been saved"
-msgstr "Configurações do módulo de gateway foram salvas"
+msgid "No trailing slash"
+msgstr "Sem barra no final"
 
-#: plugin/gateway/uplink/uplink.php:111
-msgid "Gateway has been activated"
-msgstr "Gateway foi ativado"
+msgid "Password"
+msgstr "Senha"
+
+msgid "Save"
+msgstr "Salvar"
+
+msgid "Uplink incoming path"
+msgstr "Caminho de chegada do uplink"
+
+msgid "Username"
+msgstr "Usuário"
+
+msgid "click here to activate"
+msgstr "clique aqui para ativar"

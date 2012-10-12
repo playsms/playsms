@@ -5,58 +5,41 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/themes/work2/page_login.php:25
-#: plugin/themes/work2/page_forgot.php:26
-#: plugin/themes/work2/page_register.php:30
-msgid "Username"
-msgstr "Nama pengguna"
-
-#: plugin/themes/work2/page_login.php:30
-msgid "Password"
-msgstr "Kata sandi"
-
-#: plugin/themes/work2/page_login.php:36
-msgid "Login"
-msgstr "Mauk"
-
-#: plugin/themes/work2/page_login.php:43
-#: plugin/themes/work2/page_register.php:45
-msgid "Register an account"
-msgstr "Daftarkan akun"
-
-#: plugin/themes/work2/page_login.php:50
-msgid "Forgot password"
-msgstr "Lupa kata sandi"
-
-#: plugin/themes/work2/fn.php:73
-msgid "Home"
-msgstr "Beranda"
-
-#: plugin/themes/work2/fn.php:75
-msgid "Logout"
-msgstr "Keluar"
-
-#: plugin/themes/work2/page_forgot.php:31
-#: plugin/themes/work2/page_register.php:39
 msgid "Email"
 msgstr ""
 
-#: plugin/themes/work2/page_forgot.php:37
-msgid "Recover password"
-msgstr "Pulihkan kata sandi"
+msgid "Forgot password"
+msgstr "Lupa kata sandi"
 
-#: plugin/themes/work2/header.php:36
+msgid "Home"
+msgstr "Beranda"
+
 msgid "Logged in"
 msgstr "Telah masuk"
 
-#: plugin/themes/work2/header.php:37
-msgid "Status"
-msgstr "Status"
+msgid "Login"
+msgstr "Mauk"
 
-#: plugin/themes/work2/page_register.php:26
+msgid "Logout"
+msgstr "Keluar"
+
+msgid "Mobile"
+msgstr "Ponsel"
+
 msgid "Name"
 msgstr "Nama"
 
-#: plugin/themes/work2/page_register.php:35
-msgid "Mobile"
-msgstr "Ponsel"
+msgid "Password"
+msgstr "Kata sandi"
+
+msgid "Recover password"
+msgstr "Pulihkan kata sandi"
+
+msgid "Register an account"
+msgstr "Daftarkan akun"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Username"
+msgstr "Nama pengguna"

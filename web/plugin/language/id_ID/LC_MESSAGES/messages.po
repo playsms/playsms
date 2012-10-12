@@ -5,1065 +5,578 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: lib/fn_themes.php:37 lib/lib_init1.php:43 lib/lib_init1.php:48
-msgid "Home"
-msgstr "Beranda"
-
-#: lib/fn_themes.php:39
-msgid "Logout"
-msgstr "Keluar"
-
-#: lib/fn_auth.php:130 lib/fn_auth.php:103 lib/fn_auth.php:50
-msgid "You have no access to this page"
-msgstr "Anda tidak memiliki akses ke halaman ini"
-
-#: lib/fn_auth.php:156 lib/fn_auth.php:129 lib/fn_auth.php:74
-msgid "Unable to update login session"
-msgstr "Tidak dapat memperbaharui sesi login"
-
-#: lib/fn_auth.php:159 lib/fn_auth.php:132 lib/fn_auth.php:77
-msgid "Invalid username or password"
-msgstr "Kata sandi atau nama pengguna tidak valid"
-
-#: lib/fn_auth.php:184 lib/fn_auth.php:157 lib/fn_auth.php:99
-msgid "You have been logged out"
-msgstr "Anda telah keluar"
-
-#: lib/fn_auth.php:199 lib/fn_auth.php:172 lib/fn_auth.php:114
-msgid "Fail to recover password"
-msgstr "Gagal memulihkan password"
-
-#: lib/fn_auth.php:205 lib/fn_auth.php:178 lib/fn_auth.php:120
-msgid "Password recovery"
-msgstr "Pemulihan kata sandi"
-
-#: lib/fn_auth.php:208 lib/fn_auth.php:265 inc/admin/user_mgmnt.php:20
-#: inc/admin/user_mgmnt.php:54 inc/admin/user_mgmnt.php:148
-#: inc/admin/user_mgmnt.php:256 inc/user/user_pref.php:90
-#: inc/user/user_pref.php:111 lib/fn_auth.php:181 lib/fn_auth.php:238
-#: inc/user/user_pref.php:107 inc/user/user_pref.php:108
-#: inc/admin/user_mgmnt.php:149 lib/fn_auth.php:264
-#: inc/admin/user_mgmnt.php:19 inc/admin/user_mgmnt.php:50
-#: inc/admin/user_mgmnt.php:137 inc/admin/user_mgmnt.php:235
-#: inc/user/user_pref.php:114 lib/fn_auth.php:123 lib/fn_auth.php:206
-#: inc/admin/user_mgmnt.php:18 inc/admin/user_mgmnt.php:49
-#: inc/admin/user_mgmnt.php:136 inc/admin/user_mgmnt.php:234
-msgid "Username"
-msgstr "Nama pengguna"
-
-#: lib/fn_auth.php:209 lib/fn_auth.php:266 inc/admin/user_mgmnt.php:169
-#: inc/admin/user_mgmnt.php:277 inc/user/user_pref.php:91
-#: inc/user/user_pref.php:112 lib/fn_auth.php:182 lib/fn_auth.php:239
-#: inc/user/user_pref.php:108 inc/user/user_pref.php:109
-#: inc/admin/user_mgmnt.php:170 lib/fn_auth.php:265
-#: inc/admin/user_mgmnt.php:158 inc/admin/user_mgmnt.php:256
-#: inc/user/user_pref.php:115 lib/fn_auth.php:124 lib/fn_auth.php:207
-#: inc/admin/user_mgmnt.php:157 inc/admin/user_mgmnt.php:255
-msgid "Password"
-msgstr "Kata sandi"
-
-#: lib/fn_auth.php:212 lib/fn_auth.php:271 lib/fn_auth.php:185
-#: lib/fn_auth.php:244 lib/fn_auth.php:270 lib/fn_auth.php:127
-msgid "Password has been sent to your email"
-msgstr "Password telah dikirim ke email Anda"
-
-#: lib/fn_auth.php:214 lib/fn_auth.php:273 lib/fn_auth.php:187
-#: lib/fn_auth.php:246 lib/fn_auth.php:272 lib/fn_auth.php:129
-msgid "Fail to send email"
-msgstr "Gagal mengirim SMS"
-
-#: lib/fn_auth.php:221 lib/fn_auth.php:194 lib/fn_auth.php:136
-msgid "Recover password disabled"
-msgstr "Pemulihan kata sandi dinonaktifkan"
-
-#: lib/fn_auth.php:240 lib/fn_auth.php:213 lib/fn_auth.php:155
-msgid "Fail to register an account"
-msgstr "Gagal untuk mendaftarkan akun"
-
-#: lib/fn_auth.php:245 inc/admin/user_mgmnt.php:313 lib/fn_auth.php:218
-#: lib/fn_auth.php:221 lib/fn_auth.php:230 lib/fn_auth.php:240
-#: inc/admin/user_mgmnt.php:292 lib/fn_auth.php:163 lib/fn_auth.php:172
-#: lib/fn_auth.php:182 inc/admin/user_mgmnt.php:291
-msgid "User is already exists"
-msgstr "Pengguna sudah ada"
-
-#: lib/fn_auth.php:245 lib/fn_auth.php:268 inc/admin/user_mgmnt.php:36
-#: inc/admin/user_mgmnt.php:99 inc/admin/user_mgmnt.php:104
-#: inc/admin/user_mgmnt.php:206 inc/admin/user_mgmnt.php:219
-#: inc/admin/user_mgmnt.php:223 inc/admin/user_mgmnt.php:313
-#: inc/admin/user_mgmnt.php:324 lib/fn_auth.php:218 lib/fn_auth.php:241
-#: lib/fn_auth.php:221 lib/fn_auth.php:267 inc/admin/user_mgmnt.php:33
-#: inc/admin/user_mgmnt.php:87 inc/admin/user_mgmnt.php:91
-#: inc/admin/user_mgmnt.php:194 inc/admin/user_mgmnt.php:203
-#: inc/admin/user_mgmnt.php:205 inc/admin/user_mgmnt.php:292
-#: inc/admin/user_mgmnt.php:299 lib/fn_auth.php:163 lib/fn_auth.php:209
-#: inc/admin/user_mgmnt.php:32 inc/admin/user_mgmnt.php:86
-#: inc/admin/user_mgmnt.php:90 inc/admin/user_mgmnt.php:193
-#: inc/admin/user_mgmnt.php:202 inc/admin/user_mgmnt.php:204
-#: inc/admin/user_mgmnt.php:291 inc/admin/user_mgmnt.php:298
-msgid "username"
-msgstr "nama pengguna"
-
-#: lib/fn_auth.php:262 lib/fn_auth.php:235 lib/fn_auth.php:261
-#: lib/fn_auth.php:203
-msgid "New account registration"
-msgstr "Pendaftaran akun baru"
-
-#: lib/fn_auth.php:268 inc/admin/user_mgmnt.php:324 lib/fn_auth.php:241
-#: lib/fn_auth.php:267 inc/admin/user_mgmnt.php:299 lib/fn_auth.php:209
-#: inc/admin/user_mgmnt.php:298
-msgid "User has been added"
-msgstr "Pengguna telah ditambah"
-
-#: lib/fn_auth.php:278 lib/fn_auth.php:251 lib/fn_auth.php:277
-#: lib/fn_auth.php:219
-msgid "Public registration disabled"
-msgstr "Pendaftaran umum dinonaktifkan"
-
-#: lib/lib_init1.php:33 lib/lib_init1.php:38
-msgid "Edit"
-msgstr "Sunting"
-
-#: lib/lib_init1.php:34 inc/user/sms_template.php:185 lib/lib_init1.php:39
-msgid "Delete"
-msgstr "Hapus"
-
-#: lib/lib_init1.php:35 lib/lib_init1.php:40
-msgid "Reply"
-msgstr "Balas"
-
-#: lib/lib_init1.php:36 lib/lib_init1.php:41
-msgid "Manage"
-msgstr "Atur"
-
-#: lib/lib_init1.php:37 lib/lib_init1.php:42
-msgid "View"
-msgstr "Tampil"
-
-#: lib/lib_init1.php:38 lib/lib_init1.php:43
-msgid "Pick Date & Time"
-msgstr "Pilih waktu & tanggal"
-
-#: lib/lib_init1.php:39 lib/lib_init1.php:52 inc/user/send_sms.php:75
-#: lib/lib_init1.php:44 lib/lib_init1.php:57 inc/user/send_sms.php:69
-msgid "Send SMS"
-msgstr "Kirim SMS"
-
-#: lib/lib_init1.php:40 lib/lib_init1.php:45
-msgid "Phonebook"
-msgstr "Buku telepon"
-
-#: lib/lib_init1.php:44 lib/lib_init1.php:49
-msgid "My Account"
-msgstr "Akun saya"
-
-#: lib/lib_init1.php:45 lib/lib_init1.php:50
-msgid "Administration"
-msgstr "Administrator"
-
-#: lib/lib_init1.php:46 inc/admin/all_incoming.php:38
-#: inc/user/user_incoming.php:37 lib/lib_init1.php:51
-msgid "Feature"
-msgstr "Fitur"
-
-#: lib/lib_init1.php:47 lib/lib_init1.php:52
-msgid "Tools"
-msgstr "Alat"
-
-#: lib/lib_init1.php:48 inc/admin/all_outgoing.php:35 lib/lib_init1.php:53
-msgid "Gateway"
-msgstr ""
-
-#: lib/lib_init1.php:51 inc/user/sms_template.php:18 inc/user/send_sms.php:102
-#: inc/user/send_sms.php:232 inc/user/send_sms.php:233 lib/lib_init1.php:56
-#: inc/user/send_sms.php:96 inc/user/send_sms.php:223
-msgid "Message template"
-msgstr "Pola pesan"
-
-#: lib/lib_init1.php:53 inc/user/send_sms.php:224 inc/user/send_sms.php:225
-#: lib/lib_init1.php:58 inc/user/send_sms.php:215
-msgid "Send broadcast SMS"
-msgstr "Kirim banyak SMS"
-
-#: lib/lib_init1.php:54 inc/user/user_inbox.php:26 lib/lib_init1.php:59
-msgid "Inbox"
-msgstr "Kotak masuk"
-
-#: lib/lib_init1.php:55 inc/user/user_incoming.php:26 lib/lib_init1.php:60
-msgid "Incoming SMS"
-msgstr "SMS masuk"
-
-#: lib/lib_init1.php:56 inc/user/user_outgoing.php:26 lib/lib_init1.php:61
-msgid "Outgoing SMS"
-msgstr "SMS keluar"
-
-#: lib/lib_init1.php:57 inc/admin/user_mgmnt.php:142 inc/user/user_pref.php:85
-#: inc/user/user_pref.php:106 inc/user/user_pref.php:102
-#: inc/user/user_pref.php:103 lib/lib_init1.php:62
-#: inc/admin/user_mgmnt.php:143 inc/admin/user_mgmnt.php:131
-#: inc/user/user_pref.php:109 inc/admin/user_mgmnt.php:130
-msgid "Preferences"
-msgstr "Preferensi"
-
-#: lib/lib_init1.php:63 lib/lib_init1.php:68 lib/lib_init1.php:69
-msgid "All inbox"
-msgstr "Semua kotak masuk"
-
-#: lib/lib_init1.php:64 inc/admin/all_incoming.php:26 lib/lib_init1.php:69
-#: lib/lib_init1.php:70
-msgid "All incoming SMS"
-msgstr "Semua SMS masuk"
-
-#: lib/lib_init1.php:65 inc/admin/all_outgoing.php:26 lib/lib_init1.php:70
-#: lib/lib_init1.php:71
-msgid "All outgoing SMS"
-msgstr "Semua SMS keluar"
-
-#: lib/lib_init1.php:66 inc/admin/user_mgmnt.php:13 lib/lib_init1.php:71
-#: lib/lib_init1.php:72 inc/admin/user_mgmnt.php:12
-#: inc/admin/user_mgmnt.php:11
-msgid "Manage user"
-msgstr "Pengaturan pengguna"
-
-#: lib/lib_init1.php:67 inc/admin/main_config.php:44 lib/lib_init1.php:72
-#: lib/lib_init1.php:73
-msgid "Main configuration"
-msgstr "Konfigurasi utama"
-
-#: lib/fn_core.php:249 lib/fn_core.php:257 lib/fn_recvsms.php:255
-msgid "from"
-msgstr "dari"
-
-#: lib/fn_core.php:250 lib/fn_core.php:258 lib/fn_recvsms.php:256
-msgid "Forward Private WebSMS"
-msgstr "Teruskan WebSMS pribadi"
-
-#: lib/fn_core.php:251 lib/fn_core.php:259 lib/fn_recvsms.php:257
-msgid "Date time"
-msgstr "Waktu & tanggal"
-
-#: lib/fn_core.php:252 lib/fn_core.php:260 lib/fn_recvsms.php:258
-msgid "Sender"
-msgstr "Pengirim"
-
-#: lib/fn_core.php:253 lib/fn_core.php:261 lib/fn_recvsms.php:259
-msgid "Receiver"
-msgstr "Penerima"
-
-#: lib/fn_core.php:254 inc/admin/all_inbox.php:36
-#: inc/admin/all_outgoing.php:37 inc/user/user_inbox.php:35
-#: inc/user/user_outgoing.php:35 lib/fn_core.php:262 lib/fn_recvsms.php:260
-msgid "Message"
-msgstr "Pesan"
-
-#: inc/admin/all_inbox.php:26
-msgid "All Inbox"
-msgstr "Semua kotak masuk"
-
-#: inc/admin/all_inbox.php:33 inc/admin/all_outgoing.php:33
-#: inc/admin/all_incoming.php:33
-msgid "User"
-msgstr "Pengguna"
-
-#: inc/admin/all_inbox.php:34 inc/admin/all_outgoing.php:34
-#: inc/admin/all_incoming.php:34 inc/user/user_inbox.php:33
-#: inc/user/user_outgoing.php:33 inc/user/user_incoming.php:33
-msgid "Time"
-msgstr "Waktu"
-
-#: inc/admin/all_inbox.php:35 inc/admin/all_incoming.php:35
-#: inc/user/user_inbox.php:34 inc/user/user_incoming.php:34
-msgid "From"
-msgstr "Dari"
-
-#: inc/admin/all_inbox.php:37 inc/admin/all_outgoing.php:40
-#: inc/admin/user_mgmnt.php:25 inc/admin/user_mgmnt.php:59
-#: inc/admin/all_incoming.php:40 inc/user/user_inbox.php:36
-#: inc/user/user_outgoing.php:38 inc/user/user_incoming.php:39
-#: inc/admin/user_mgmnt.php:24 inc/admin/user_mgmnt.php:55
-#: inc/admin/user_mgmnt.php:23 inc/admin/user_mgmnt.php:54
-msgid "Action"
-msgstr "Tindakan"
-
-#: inc/admin/all_inbox.php:74 inc/admin/all_incoming.php:83
-#: inc/user/user_inbox.php:71 inc/user/user_incoming.php:80
-msgid "Are you sure you want to delete this SMS ?"
-msgstr "Anda yakin ingin menghapus SMS ini ?"
-
-#: inc/admin/all_inbox.php:92 inc/admin/all_outgoing.php:137
-#: inc/admin/all_incoming.php:101 inc/user/sms_template.php:57
-#: inc/user/user_inbox.php:89 inc/user/user_outgoing.php:131
-#: inc/user/user_incoming.php:97 inc/admin/all_outgoing.php:138
-#: inc/user/user_outgoing.php:132
-msgid "Delete selection"
-msgstr "Hapus pilihan"
-
-#: inc/admin/all_inbox.php:106 inc/user/user_inbox.php:103
-#: inc/user/user_incoming.php:111
-msgid "Fail to delete incoming SMS"
-msgstr "Gagal menghapus SMS masuk"
-
-#: inc/admin/all_inbox.php:113 inc/admin/all_inbox.php:132
-#: inc/admin/all_incoming.php:122 inc/admin/all_incoming.php:141
-#: inc/user/user_inbox.php:110 inc/user/user_inbox.php:129
-#: inc/user/user_incoming.php:118 inc/user/user_incoming.php:137
-msgid "Selected incoming SMS has been deleted"
-msgstr "SMS masuk telah dihapus"
-
-#: inc/admin/main_config.php:14 inc/admin/main_config.php:19
-#: inc/user/user_pref.php:41 inc/user/user_pref.php:50
-#: inc/user/user_pref.php:59 inc/user/user_pref.php:44
-#: inc/user/user_pref.php:53 inc/user/user_pref.php:62
-#: inc/user/user_pref.php:71 inc/user/user_pref.php:80
-#: inc/user/user_pref.php:40 inc/user/user_pref.php:49
-#: inc/user/user_pref.php:58 inc/user/user_pref.php:67
-#: inc/user/user_pref.php:76 inc/user/user_pref.php:39
-#: inc/user/user_pref.php:61 inc/user/user_pref.php:72
-#: inc/user/user_pref.php:83
-msgid "yes"
-msgstr "ya"
-
-#: inc/admin/main_config.php:15 inc/admin/main_config.php:20
-#: inc/user/user_pref.php:42 inc/user/user_pref.php:51
-#: inc/user/user_pref.php:60 inc/user/user_pref.php:45
-#: inc/user/user_pref.php:54 inc/user/user_pref.php:63
-#: inc/user/user_pref.php:72 inc/user/user_pref.php:81
-#: inc/user/user_pref.php:41 inc/user/user_pref.php:50
-#: inc/user/user_pref.php:59 inc/user/user_pref.php:68
-#: inc/user/user_pref.php:77 inc/user/user_pref.php:40
-#: inc/user/user_pref.php:62 inc/user/user_pref.php:73
-#: inc/user/user_pref.php:84
-msgid "no"
-msgstr "tidak"
-
-#: inc/admin/main_config.php:49
-msgid "Website title"
-msgstr "Judul situs"
-
-#: inc/admin/main_config.php:52
-msgid "Website email"
-msgstr "Email situs"
-
-#: inc/admin/main_config.php:55
-msgid "Forwarded email footer"
-msgstr "Footer email"
-
-#: inc/admin/main_config.php:58
-msgid "Default sender ID"
-msgstr "ID default pengirim"
-
-#: inc/admin/main_config.php:61
-msgid "Default timezone"
-msgstr "Zona waktu default"
-
-#: inc/admin/main_config.php:61 inc/admin/user_mgmnt.php:166
-#: inc/admin/user_mgmnt.php:274 inc/user/user_pref.php:106
-#: inc/user/user_pref.php:127 inc/user/user_pref.php:123
-#: inc/user/user_pref.php:124 inc/admin/user_mgmnt.php:167
-#: inc/admin/user_mgmnt.php:155 inc/admin/user_mgmnt.php:253
-#: inc/user/user_pref.php:130 inc/admin/user_mgmnt.php:154
-#: inc/admin/user_mgmnt.php:252
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Misalnya: +0700 untuk zona waktu Jakarta/Bangkok"
-
-#: inc/admin/main_config.php:64
-msgid "Default SMS rate"
-msgstr "Tarif standar SMS"
-
-#: inc/admin/main_config.php:67
-msgid "Maximum SMS count"
-msgstr "Jumlah SMS maksimal"
-
-#: inc/admin/main_config.php:70
-msgid "Default credit for user"
-msgstr "Pulsa default untuk pengguna"
-
-#: inc/admin/main_config.php:73
-msgid "Enable public registration"
-msgstr "Aktifkan pendaftaran umum"
-
-#: inc/admin/main_config.php:76
-msgid "Enable forgot password"
-msgstr "Aktifkan lupa kata sandi"
-
-#: inc/admin/main_config.php:79
-msgid "Active gateway module"
-msgstr "Modul gateway yang aktif"
-
-#: inc/admin/main_config.php:82
-msgid "Active themes"
-msgstr "Tema yang aktif"
-
-#: inc/admin/main_config.php:85
-msgid "Default language"
-msgstr "Bahasa default"
-
-#: inc/admin/main_config.php:88 inc/admin/user_mgmnt.php:181
-#: inc/user/user_pref.php:115 inc/user/user_pref.php:139
-#: inc/user/user_pref.php:135 inc/user/user_pref.php:136
-#: inc/admin/user_mgmnt.php:182 inc/admin/user_mgmnt.php:170
-#: inc/user/user_pref.php:142 inc/admin/user_mgmnt.php:169
-msgid "Save"
-msgstr "Simpan"
-
-#: inc/admin/main_config.php:125
-msgid "Main configuration changes has been saved"
-msgstr "Perubahan konfigurasi utama telah disimpan"
-
-#: inc/admin/all_outgoing.php:36 inc/user/user_outgoing.php:34
-msgid "To"
-msgstr "Ke"
-
-#: inc/admin/all_outgoing.php:38 inc/admin/user_mgmnt.php:16
-#: inc/admin/user_mgmnt.php:50 inc/admin/all_incoming.php:39
-#: inc/user/user_outgoing.php:36 inc/user/user_incoming.php:38
-#: inc/admin/user_mgmnt.php:15 inc/admin/user_mgmnt.php:46
-#: inc/admin/user_mgmnt.php:14 inc/admin/user_mgmnt.php:45
-msgid "Status"
-msgstr "Status"
-
-#: inc/admin/all_outgoing.php:39 inc/user/user_outgoing.php:37
-msgid "Group"
-msgstr "Grup"
-
-#: inc/admin/all_outgoing.php:86 inc/user/user_outgoing.php:82
-#: inc/admin/all_outgoing.php:87 inc/user/user_outgoing.php:83
-msgid "Sent"
-msgstr "Terkirim"
-
-#: inc/admin/all_outgoing.php:90 inc/user/user_outgoing.php:86
-#: inc/admin/all_outgoing.php:91 inc/user/user_outgoing.php:87
-msgid "Failed"
-msgstr "Gagal"
-
-#: inc/admin/all_outgoing.php:94 inc/user/user_outgoing.php:90
-#: inc/admin/all_outgoing.php:95 inc/user/user_outgoing.php:91
-msgid "Delivered"
-msgstr "Diterima"
-
-#: inc/admin/all_outgoing.php:98 inc/user/user_outgoing.php:94
-#: inc/admin/all_outgoing.php:99 inc/user/user_outgoing.php:95
-msgid "Pending"
-msgstr "Tertunda"
-
-#: inc/admin/all_outgoing.php:121 inc/user/user_outgoing.php:115
-#: inc/admin/all_outgoing.php:122 inc/user/user_outgoing.php:116
-msgid "Are you sure you want to delete outgoing SMS ?"
-msgstr "Anda yakin ingin menghapus SMS keluar ?"
-
-#: inc/admin/all_outgoing.php:121 inc/user/send_sms.php:141
-#: inc/user/send_sms.php:143 inc/user/user_outgoing.php:115
-#: inc/user/send_sms.php:142 inc/user/send_sms.php:144
-#: inc/admin/all_outgoing.php:122 inc/user/send_sms.php:138
-#: inc/user/send_sms.php:140 inc/user/user_outgoing.php:116
-msgid "to"
-msgstr "ke"
-
-#: inc/admin/all_outgoing.php:121 inc/admin/all_outgoing.php:122
-msgid "row"
-msgstr "baris"
-
-#: inc/admin/all_outgoing.php:157 inc/admin/all_outgoing.php:180
-#: inc/user/user_outgoing.php:151 inc/user/user_outgoing.php:174
-#: inc/admin/all_outgoing.php:158 inc/admin/all_outgoing.php:181
-#: inc/user/user_outgoing.php:152 inc/user/user_outgoing.php:175
-msgid "Selected outgoing SMS has been deleted"
-msgstr "SMS keluar yang dipilih telah dihapus"
-
-#: inc/admin/all_outgoing.php:161 inc/user/user_outgoing.php:155
-#: inc/admin/all_outgoing.php:162 inc/user/user_outgoing.php:156
-msgid "Fail to delete SMS"
-msgstr "Gagal menghapus SMS"
-
-#: inc/admin/user_mgmnt.php:15 inc/admin/user_mgmnt.php:87
-#: inc/admin/user_mgmnt.php:251 inc/admin/user_mgmnt.php:14
-#: inc/admin/user_mgmnt.php:78 inc/admin/user_mgmnt.php:230
-#: inc/admin/user_mgmnt.php:13 inc/admin/user_mgmnt.php:77
-#: inc/admin/user_mgmnt.php:229
-msgid "Add user"
-msgstr "Tambah pengguna"
-
-#: inc/admin/user_mgmnt.php:16 inc/admin/user_mgmnt.php:138
-#: inc/admin/user_mgmnt.php:247 lib/lib_init1.php:21 lib/lib_init1.php:24
-#: inc/admin/user_mgmnt.php:139 inc/admin/user_mgmnt.php:15
-#: inc/admin/user_mgmnt.php:128 inc/admin/user_mgmnt.php:227
-#: inc/admin/user_mgmnt.php:14 inc/admin/user_mgmnt.php:127
-#: inc/admin/user_mgmnt.php:226
-msgid "Administrator"
-msgstr "Administrator"
-
-#: inc/admin/user_mgmnt.php:21 inc/admin/user_mgmnt.php:55
-#: inc/user/sms_template.php:27 inc/user/sms_template.php:157
-#: inc/user/user_pref.php:95 inc/user/user_pref.php:116
-#: inc/user/user_pref.php:112 inc/user/user_pref.php:113
-#: inc/admin/user_mgmnt.php:20 inc/admin/user_mgmnt.php:51
-#: inc/user/user_pref.php:119 inc/admin/user_mgmnt.php:19
-#: inc/admin/user_mgmnt.php:50
-msgid "Name"
-msgstr "Nama"
-
-#: inc/admin/user_mgmnt.php:22 inc/admin/user_mgmnt.php:56
-#: inc/admin/user_mgmnt.php:154 inc/admin/user_mgmnt.php:262
-#: inc/user/user_pref.php:96 inc/user/user_pref.php:117
-#: inc/user/user_pref.php:113 inc/user/user_pref.php:114
-#: inc/admin/user_mgmnt.php:155 inc/admin/user_mgmnt.php:21
-#: inc/admin/user_mgmnt.php:52 inc/admin/user_mgmnt.php:143
-#: inc/admin/user_mgmnt.php:241 inc/user/user_pref.php:120
-#: inc/admin/user_mgmnt.php:20 inc/admin/user_mgmnt.php:51
-#: inc/admin/user_mgmnt.php:142 inc/admin/user_mgmnt.php:240
-msgid "Email"
-msgstr "Email"
-
-#: inc/admin/user_mgmnt.php:23 inc/admin/user_mgmnt.php:57
-#: inc/admin/user_mgmnt.php:157 inc/admin/user_mgmnt.php:265
-#: inc/user/user_pref.php:97 inc/user/user_pref.php:118
-#: inc/user/user_pref.php:114 inc/user/user_pref.php:115
-#: inc/admin/user_mgmnt.php:158 inc/admin/user_mgmnt.php:22
-#: inc/admin/user_mgmnt.php:53 inc/admin/user_mgmnt.php:146
-#: inc/admin/user_mgmnt.php:244 inc/user/user_pref.php:121
-#: inc/admin/user_mgmnt.php:21 inc/admin/user_mgmnt.php:52
-#: inc/admin/user_mgmnt.php:145 inc/admin/user_mgmnt.php:243
-msgid "Mobile"
-msgstr "Ponsel"
-
-#: inc/admin/user_mgmnt.php:24 inc/admin/user_mgmnt.php:58
-#: inc/admin/user_mgmnt.php:172 inc/admin/user_mgmnt.php:280
-#: inc/user/user_pref.php:109 inc/user/user_pref.php:130
-#: inc/user/user_pref.php:126 inc/user/user_pref.php:127
-#: inc/admin/user_mgmnt.php:173 inc/admin/user_mgmnt.php:23
-#: inc/admin/user_mgmnt.php:54 inc/admin/user_mgmnt.php:161
-#: inc/admin/user_mgmnt.php:259 inc/user/user_pref.php:133
-#: inc/admin/user_mgmnt.php:22 inc/admin/user_mgmnt.php:53
-#: inc/admin/user_mgmnt.php:160 inc/admin/user_mgmnt.php:258
-msgid "Credit"
-msgstr "Pulsa"
-
-#: inc/admin/user_mgmnt.php:36 inc/admin/user_mgmnt.php:33
-#: inc/admin/user_mgmnt.php:32
-msgid "Are you sure you want to delete user ?"
-msgstr "Anda yakin ingin menghapus pengguna ?"
-
-#: inc/admin/user_mgmnt.php:50 inc/admin/user_mgmnt.php:139
-#: inc/admin/user_mgmnt.php:140 inc/admin/user_mgmnt.php:46
-#: inc/admin/user_mgmnt.php:129 inc/admin/user_mgmnt.php:45
-#: inc/admin/user_mgmnt.php:128
-msgid "Normal user"
-msgstr "Pengguna normal"
-
-#: inc/admin/user_mgmnt.php:70 inc/admin/user_mgmnt.php:64
-#: inc/admin/user_mgmnt.php:63
-msgid "Are you sure you want to delete user"
-msgstr "Anda yakin ingin menghapus pengguna"
-
-#: inc/admin/user_mgmnt.php:93 inc/admin/user_mgmnt.php:83
-#: inc/admin/user_mgmnt.php:82
-msgid "Fail to delete user"
-msgstr "Gagal menghapus pengguna"
-
-#: inc/admin/user_mgmnt.php:99 inc/admin/user_mgmnt.php:87
-#: inc/admin/user_mgmnt.php:86
-msgid "User has been deleted"
-msgstr "Pengguna telah dihapus"
-
-#: inc/admin/user_mgmnt.php:104 inc/admin/user_mgmnt.php:91
-#: inc/admin/user_mgmnt.php:90
-msgid "User is immune to deletion"
-msgstr "Pengguna kebal untuk dihapus"
-
-#: inc/admin/user_mgmnt.php:108 inc/admin/user_mgmnt.php:93
-#: inc/admin/user_mgmnt.php:92
-msgid "Currently logged in user is immune to deletion"
-msgstr "Pengguna saat ini kebal untuk dihapus"
-
-#: inc/admin/user_mgmnt.php:151 inc/admin/user_mgmnt.php:259
-#: inc/admin/user_mgmnt.php:152 inc/admin/user_mgmnt.php:140
-#: inc/admin/user_mgmnt.php:238 inc/admin/user_mgmnt.php:139
-#: inc/admin/user_mgmnt.php:237
-msgid "Full name"
-msgstr "Nama lengkap"
-
-#: inc/admin/user_mgmnt.php:157 inc/admin/user_mgmnt.php:160
-#: inc/admin/user_mgmnt.php:265 inc/admin/user_mgmnt.php:268
-#: inc/user/user_pref.php:97 inc/user/user_pref.php:107
-#: inc/user/user_pref.php:118 inc/user/user_pref.php:128
-#: inc/user/user_pref.php:114 inc/user/user_pref.php:124
-#: inc/user/user_pref.php:115 inc/user/user_pref.php:125
-#: inc/admin/user_mgmnt.php:158 inc/admin/user_mgmnt.php:161
-#: inc/admin/user_mgmnt.php:146 inc/admin/user_mgmnt.php:149
-#: inc/admin/user_mgmnt.php:244 inc/admin/user_mgmnt.php:247
-#: inc/user/user_pref.php:121 inc/user/user_pref.php:131
-#: inc/admin/user_mgmnt.php:145 inc/admin/user_mgmnt.php:148
-#: inc/admin/user_mgmnt.php:243 inc/admin/user_mgmnt.php:246
-msgid "Max. 16 numeric or 11 alphanumeric characters"
-msgstr "Maks. 16 karakter numerik atau 11 alfanumerik"
-
-#: inc/admin/user_mgmnt.php:160 inc/admin/user_mgmnt.php:268
-#: inc/user/send_sms.php:78 inc/user/send_sms.php:227
-#: inc/user/user_pref.php:107 inc/user/user_pref.php:128
-#: inc/user/send_sms.php:228 inc/user/user_pref.php:124
-#: inc/user/user_pref.php:125 inc/admin/user_mgmnt.php:161
-#: inc/user/send_sms.php:72 inc/user/send_sms.php:218
-#: inc/admin/user_mgmnt.php:149 inc/admin/user_mgmnt.php:247
-#: inc/user/user_pref.php:131 inc/admin/user_mgmnt.php:148
-#: inc/admin/user_mgmnt.php:246
-msgid "SMS sender ID"
-msgstr "ID pengirim SMS"
-
-#: inc/admin/user_mgmnt.php:163 inc/admin/user_mgmnt.php:271
-#: inc/user/send_sms.php:79 inc/user/send_sms.php:228
-#: inc/user/user_pref.php:108 inc/user/user_pref.php:129
-#: inc/user/send_sms.php:229 inc/user/user_pref.php:125
-#: inc/user/user_pref.php:126 inc/admin/user_mgmnt.php:164
-#: inc/user/send_sms.php:73 inc/user/send_sms.php:219
-#: inc/admin/user_mgmnt.php:152 inc/admin/user_mgmnt.php:250
-#: inc/user/user_pref.php:132 inc/admin/user_mgmnt.php:151
-#: inc/admin/user_mgmnt.php:249
-msgid "SMS footer"
-msgstr "Catatan kaki SMS"
-
-#: inc/admin/user_mgmnt.php:163 inc/admin/user_mgmnt.php:271
-#: inc/user/user_pref.php:108 inc/user/user_pref.php:129
-#: inc/user/user_pref.php:125 inc/user/user_pref.php:126
-#: inc/admin/user_mgmnt.php:164 inc/admin/user_mgmnt.php:152
-#: inc/admin/user_mgmnt.php:250 inc/user/user_pref.php:132
-#: inc/admin/user_mgmnt.php:151 inc/admin/user_mgmnt.php:249
-msgid "Max. 30 alphanumeric characters"
-msgstr "Maks. 30 karakter alfanumerik"
-
-#: inc/admin/user_mgmnt.php:166 inc/admin/user_mgmnt.php:274
-#: inc/user/user_pref.php:106 inc/user/user_pref.php:127
-#: inc/user/user_pref.php:123 inc/user/user_pref.php:124
-#: inc/admin/user_mgmnt.php:167 inc/admin/user_mgmnt.php:155
-#: inc/admin/user_mgmnt.php:253 inc/user/user_pref.php:130
-#: inc/admin/user_mgmnt.php:154 inc/admin/user_mgmnt.php:252
-msgid "Timezone"
-msgstr "Zona waktu"
-
-#: inc/admin/user_mgmnt.php:169 inc/admin/user_mgmnt.php:170
-#: inc/admin/user_mgmnt.php:158 inc/admin/user_mgmnt.php:157
-msgid "Fill to change password for username"
-msgstr "Isi untuk mengganti kata sandi untuk nama penguna"
-
-#: inc/admin/user_mgmnt.php:175 inc/admin/user_mgmnt.php:283
-#: inc/admin/user_mgmnt.php:176 inc/admin/user_mgmnt.php:164
-#: inc/admin/user_mgmnt.php:262 inc/admin/user_mgmnt.php:163
-#: inc/admin/user_mgmnt.php:261
-msgid "User level"
-msgstr "Tingkatan pengguna"
-
-#: inc/admin/user_mgmnt.php:178 inc/admin/user_mgmnt.php:286
-#: inc/user/user_pref.php:103 inc/user/user_pref.php:124
-#: inc/user/user_pref.php:120 inc/user/user_pref.php:121
-#: inc/admin/user_mgmnt.php:179 inc/admin/user_mgmnt.php:167
-#: inc/admin/user_mgmnt.php:265 inc/user/user_pref.php:127
-#: inc/admin/user_mgmnt.php:166 inc/admin/user_mgmnt.php:264
-msgid "Active language"
-msgstr "Bahasa yang aktif"
-
-#: inc/admin/user_mgmnt.php:199 inc/user/user_pref.php:144
-#: inc/user/user_pref.php:171 inc/user/user_pref.php:162
-#: inc/user/user_pref.php:163 inc/admin/user_mgmnt.php:186
-#: inc/user/user_pref.php:168 inc/admin/user_mgmnt.php:185
-msgid "No changes made"
-msgstr "Tidak ada perubahan yang dilakukan"
-
-#: inc/admin/user_mgmnt.php:206 inc/user/user_pref.php:152
-#: inc/user/user_pref.php:179 inc/user/user_pref.php:170
-#: inc/user/user_pref.php:171 inc/admin/user_mgmnt.php:194
-#: inc/user/user_pref.php:177 inc/admin/user_mgmnt.php:193
-msgid "Email is already in use by other username"
-msgstr "Email sudah digunakan oleh pengguna lain"
-
-#: inc/admin/user_mgmnt.php:206 inc/user/user_pref.php:152
-#: inc/user/user_pref.php:179 inc/user/user_pref.php:170
-#: inc/user/user_pref.php:171 lib/fn_auth.php:230 inc/admin/user_mgmnt.php:194
-#: inc/user/user_pref.php:177 lib/fn_auth.php:172 inc/admin/user_mgmnt.php:193
-msgid "email"
-msgstr "email"
-
-#: inc/admin/user_mgmnt.php:219 inc/user/user_pref.php:178
-#: inc/user/user_pref.php:205 inc/user/user_pref.php:195
-#: inc/user/user_pref.php:196 inc/admin/user_mgmnt.php:203
-#: inc/user/user_pref.php:206 inc/admin/user_mgmnt.php:202
-msgid "Preferences has been saved"
-msgstr "Preferensi telah disimpan"
-
-#: inc/admin/user_mgmnt.php:223 inc/user/user_pref.php:183
-#: inc/user/user_pref.php:210 inc/user/user_pref.php:200
-#: inc/user/user_pref.php:201 inc/admin/user_mgmnt.php:205
-#: inc/user/user_pref.php:209 inc/admin/user_mgmnt.php:204
-msgid "Fail to save preferences"
-msgstr "Gagal menyimpan preferensi"
-
-#: inc/admin/user_mgmnt.php:229 inc/user/user_pref.php:189
-#: inc/user/user_pref.php:216 inc/user/user_pref.php:206
-#: inc/user/user_pref.php:207 inc/admin/user_mgmnt.php:209
-#: inc/user/user_pref.php:213 inc/admin/user_mgmnt.php:208
-msgid "You must fill all field"
-msgstr "Anda harus mengisi semua kolom"
-
-#: inc/admin/user_mgmnt.php:248 lib/lib_init1.php:21 lib/lib_init1.php:24
-#: inc/admin/user_mgmnt.php:228 inc/admin/user_mgmnt.php:227
-msgid "Normal User"
-msgstr "Pengguna normal"
-
-#: inc/admin/user_mgmnt.php:290 inc/admin/user_mgmnt.php:269
-#: inc/admin/user_mgmnt.php:268
-msgid "Add"
-msgstr "Tambah"
-
-#: inc/admin/user_mgmnt.php:330 inc/admin/user_mgmnt.php:303
-#: inc/admin/user_mgmnt.php:302
-msgid "You must fill all fields"
-msgstr "Anda harus mengisi semua kolom"
-
-#: inc/admin/all_incoming.php:36 inc/user/user_incoming.php:35
-msgid "Keyword"
-msgstr "Kata kunci"
-
-#: inc/admin/all_incoming.php:37 inc/user/sms_template.php:28
-#: inc/user/sms_template.php:158 inc/user/user_incoming.php:36
-msgid "Content"
-msgstr "Isi"
-
-#: inc/admin/all_incoming.php:67 inc/user/user_incoming.php:65
-msgid "handled"
-msgstr "tertangani"
-
-#: inc/admin/all_incoming.php:67 inc/user/user_incoming.php:65
-msgid "unhandled"
-msgstr "tidak tertangani"
-
-#: inc/user/sms_template.php:21 inc/user/sms_template.php:62
-#: inc/user/sms_template.php:71
-msgid "Add message template"
-msgstr "Tambah pola pesan"
-
-#: inc/user/sms_template.php:56
-msgid "Select action"
-msgstr "Pilih tindakan"
-
-#: inc/user/sms_template.php:59
-msgid "Go"
-msgstr "Jalankan"
-
-#: inc/user/sms_template.php:76 inc/user/sms_template.php:114
-msgid "Message template name"
-msgstr "Nama pola pesan"
-
-#: inc/user/sms_template.php:79 inc/user/sms_template.php:117
-msgid "Message template content"
-msgstr "Isi pola pesan"
-
-#: inc/user/sms_template.php:82 inc/user/sms_template.php:120
-msgid "Save template"
-msgstr "Simpan pola"
-
-#: inc/user/sms_template.php:84 inc/user/sms_template.php:123
-#: inc/user/sms_template.php:186
-msgid "Back"
-msgstr "Kembali"
-
-#: inc/user/sms_template.php:96
-msgid "Message template has been saved"
-msgstr "Pola pesan telah disimpan"
-
-#: inc/user/sms_template.php:109
-msgid "Edit message template"
-msgstr "Ubah pola pesan"
-
-#: inc/user/sms_template.php:135
-msgid "Message template has been edited"
-msgstr "Pola pesan telah diubah"
-
-#: inc/user/sms_template.php:139
-msgid "Fail to edit message template"
-msgstr "Gagal mengubah pola pesan"
-
-#: inc/user/sms_template.php:151
-msgid "Delete message template"
-msgstr "Hapus pola pesan"
-
-#: inc/user/sms_template.php:184
-msgid "Delete all templates ?"
-msgstr "Hapus semua pola?"
-
-#: inc/user/sms_template.php:202
-msgid "Selected message template has been deleted"
-msgstr "Pola pesan telah dihapus"
-
-#: inc/user/send_sms.php:26 inc/user/send_sms.php:185
-#: inc/user/send_sms.php:186 inc/user/send_sms.php:182
-msgid "shared by"
-msgstr "dibagi oleh"
-
-#: inc/user/send_sms.php:38 inc/user/send_sms.php:196
-#: inc/user/send_sms.php:197 inc/user/send_sms.php:32
-#: inc/user/send_sms.php:187
-msgid "not set"
-msgstr "belum diatur"
-
-#: inc/user/send_sms.php:54 inc/user/send_sms.php:203
-#: inc/user/user_pref.php:65 inc/user/user_pref.php:86
-#: inc/user/send_sms.php:204 inc/user/user_pref.php:82
-#: inc/user/send_sms.php:48 inc/user/send_sms.php:194
-#: inc/user/user_pref.php:89
-msgid "Please select"
-msgstr "Silakan pilih"
-
-#: inc/user/send_sms.php:84 inc/user/send_sms.php:78
-msgid "Phone number(s)"
-msgstr "Nomor telepon"
-
-#: inc/user/send_sms.php:90 inc/user/send_sms.php:92 inc/user/send_sms.php:84
-#: inc/user/send_sms.php:86
-msgid "All"
-msgstr "Semua"
-
-#: inc/user/send_sms.php:96 inc/user/send_sms.php:90
-msgid "Send to"
-msgstr "Kirim ke"
-
-#: inc/user/send_sms.php:101 inc/user/send_sms.php:231
-#: inc/user/send_sms.php:232 inc/user/send_sms.php:95
-#: inc/user/send_sms.php:222
-msgid "Or"
-msgstr "Atau"
-
-#: inc/user/send_sms.php:101 inc/user/send_sms.php:95
-msgid "International format"
-msgstr "Format internasional"
-
-#: inc/user/send_sms.php:103 inc/user/send_sms.php:233
-#: inc/user/send_sms.php:234 inc/user/send_sms.php:97
-#: inc/user/send_sms.php:224
-msgid "Use template"
-msgstr "Gunakan pola"
-
-#: inc/user/send_sms.php:104 inc/user/send_sms.php:234
-#: inc/user/send_sms.php:235 inc/user/send_sms.php:98
-#: inc/user/send_sms.php:225
-msgid "Your message"
-msgstr "Pesan anda"
-
-#: inc/user/send_sms.php:106 inc/user/send_sms.php:236
-#: inc/user/send_sms.php:237 inc/user/send_sms.php:100
-#: inc/user/send_sms.php:227
-msgid "SMS character"
-msgstr "Karakter SMS"
-
-#: inc/user/send_sms.php:109 inc/user/send_sms.php:239
-#: inc/user/send_sms.php:240 inc/user/send_sms.php:106
-#: inc/user/send_sms.php:233
-msgid "Send as flash message"
-msgstr "Kirim sebagai pesan flash"
-
-#: inc/user/send_sms.php:110 inc/user/send_sms.php:240
-#: inc/user/send_sms.php:241 inc/user/send_sms.php:107
-#: inc/user/send_sms.php:234
-msgid "Send as unicode message (http://www.unicode.org)"
-msgstr "Kirim sebagai pesan unicode (http://www.unicode.org)"
-
-#: inc/user/send_sms.php:111 inc/user/send_sms.php:241
-#: inc/user/send_sms.php:242 inc/user/send_sms.php:108
-#: inc/user/send_sms.php:235
-msgid "Send"
-msgstr "Kirim"
-
-#: inc/user/send_sms.php:141 inc/user/send_sms.php:160
-#: inc/user/send_sms.php:285 inc/user/send_sms.php:142
-#: inc/user/send_sms.php:161 inc/user/send_sms.php:287
-#: inc/user/send_sms.php:138 inc/user/send_sms.php:157
-#: inc/user/send_sms.php:280
-msgid "Your SMS has been delivered to queue"
-msgstr "SMS anda telah dikirim ke antrian"
-
-#: inc/user/send_sms.php:143 inc/user/send_sms.php:144
-#: inc/user/send_sms.php:140
-msgid "Fail to sent SMS"
-msgstr "Gagal mengirim SMS"
-
-#: inc/user/send_sms.php:160 inc/user/send_sms.php:285
-#: inc/user/send_sms.php:161 inc/user/send_sms.php:287
-#: inc/user/send_sms.php:157 inc/user/send_sms.php:280
-msgid "queued"
-msgstr "antri"
-
-#: inc/user/send_sms.php:160 inc/user/send_sms.php:285
-#: inc/user/send_sms.php:161 inc/user/send_sms.php:287
-#: inc/user/send_sms.php:157 inc/user/send_sms.php:280
-msgid "failed"
-msgstr "gagal"
-
-#: inc/user/send_sms.php:166 inc/user/send_sms.php:167
-#: inc/user/send_sms.php:163
-msgid "You must select receiver and your message should not be empty"
-msgstr "Anda harus memilih penerima dan pesan anda tidak boleh kosong"
-
-#: inc/user/send_sms.php:230 inc/user/send_sms.php:231
-#: inc/user/send_sms.php:221
-msgid "Send to group"
-msgstr "Kirim ke grup"
-
-#: inc/user/send_sms.php:231 inc/user/send_sms.php:232
-#: inc/user/send_sms.php:222
-msgid "Group code"
-msgstr "Kode grup"
-
-#: inc/user/send_sms.php:290 inc/user/send_sms.php:292
-#: inc/user/send_sms.php:285
-msgid "You must select receiver group and your message should not be empty"
-msgstr "Anda harus memilih kelompok penerima dan pesan anda tidak boleh kosong"
-
-#: inc/user/user_outgoing.php:115 inc/user/user_outgoing.php:116
-msgid "number"
-msgstr "nomor"
-
-#: inc/user/user_pref.php:89 inc/user/user_pref.php:110
-#: inc/user/user_pref.php:106 inc/user/user_pref.php:107
-#: inc/user/user_pref.php:113
-msgid "Login information"
-msgstr "Informasi login"
-
-#: inc/user/user_pref.php:92 inc/user/user_pref.php:113
-#: inc/user/user_pref.php:109 inc/user/user_pref.php:110
-#: inc/user/user_pref.php:116
-msgid "Re-Type Password"
-msgstr "Ketik ulang kata sandi"
-
-#: inc/user/user_pref.php:94 inc/user/user_pref.php:115
-#: inc/user/user_pref.php:111 inc/user/user_pref.php:112
-#: inc/user/user_pref.php:118
-msgid "Personal information"
-msgstr "Informasi pribadi"
-
-#: inc/user/user_pref.php:98 inc/user/user_pref.php:119
-#: inc/user/user_pref.php:115 inc/user/user_pref.php:116
-#: inc/user/user_pref.php:122
-msgid "Address"
-msgstr "Alamat"
-
-#: inc/user/user_pref.php:99 inc/user/user_pref.php:120
-#: inc/user/user_pref.php:116 inc/user/user_pref.php:117
-#: inc/user/user_pref.php:123
-msgid "City"
-msgstr "Kota"
-
-#: inc/user/user_pref.php:100 inc/user/user_pref.php:121
-#: inc/user/user_pref.php:117 inc/user/user_pref.php:118
-#: inc/user/user_pref.php:124
-msgid "State or Province"
-msgstr "Propinsi"
-
-#: inc/user/user_pref.php:101 inc/user/user_pref.php:122
-#: inc/user/user_pref.php:118 inc/user/user_pref.php:119
-#: inc/user/user_pref.php:125
-msgid "Country"
-msgstr "Negara"
-
-#: inc/user/user_pref.php:102 inc/user/user_pref.php:123
-#: inc/user/user_pref.php:119 inc/user/user_pref.php:120
-#: inc/user/user_pref.php:126
-msgid "Zipcode"
-msgstr "Kode POS"
-
-#: inc/user/user_pref.php:105
-msgid "Application information"
-msgstr "Informasi aplikasi"
-
-#: inc/user/user_pref.php:110 inc/user/user_pref.php:131
-#: inc/user/user_pref.php:127 inc/user/user_pref.php:128
-#: inc/user/user_pref.php:134
-msgid "Forward PV to inbox"
-msgstr "Teruskan PV ke inbox"
-
-#: inc/user/user_pref.php:111 inc/user/user_pref.php:132
-#: inc/user/user_pref.php:128 inc/user/user_pref.php:129
-#: inc/user/user_pref.php:135
-msgid "Forward PV to email"
-msgstr "Teruskan PV ke email"
-
-#: inc/user/user_pref.php:112 inc/user/user_pref.php:133
-#: inc/user/user_pref.php:129 inc/user/user_pref.php:130
-#: inc/user/user_pref.php:136
-msgid "Forward PV to mobile"
-msgstr "Teruskan PV ke ponsel"
-
-#: inc/user/user_pref.php:174 inc/user/user_pref.php:201
-#: inc/user/user_pref.php:191 inc/user/user_pref.php:192
-#: inc/user/user_pref.php:204
-msgid "Preferences has been saved and password updated"
-msgstr "Preferensi sudah disimpan dan kata sandi sudah diperbaharui"
-
-#: inc/user/user_pref.php:126 inc/user/user_pref.php:122
-#: inc/user/user_pref.php:123 inc/user/user_pref.php:129
-msgid "Application options"
-msgstr "Opsi aplikasi"
-
-#: inc/user/user_pref.php:134 inc/user/user_pref.php:130
-#: inc/user/user_pref.php:131 inc/user/user_pref.php:137
-msgid "Auto replace prefix 0"
-msgstr "Otomatis mengganti kode awal dengan 0"
-
-#: inc/user/user_pref.php:134 inc/user/user_pref.php:130
-#: inc/user/user_pref.php:131 inc/user/user_pref.php:137
-msgid "Prefix or country code"
-msgstr "Kode awalan atau kode negara"
-
-#: inc/user/user_pref.php:135 inc/user/user_pref.php:131
-#: inc/user/user_pref.php:132 inc/user/user_pref.php:138
-msgid "Auto remove plus sign"
-msgstr "Otomatis menghapus tanda plus"
-
-#: inc/user/user_pref.php:136 inc/user/user_pref.php:132
-#: inc/user/user_pref.php:133 inc/user/user_pref.php:139
-msgid "Always add plus sign"
-msgstr "Selalu menambahkan tanda plus"
-
-#: inc/user/user_pref.php:95 inc/user/user_pref.php:100
-msgid "Default"
-msgstr ""
-
-#: lib/lib_init1.php:63
 msgid "About"
 msgstr "Tentang"
 
-#: lib/fn_auth.php:240 inc/user/user_pref.php:185 lib/fn_auth.php:182
-msgid "mobile"
-msgstr "Ponsel"
-
-#: inc/user/page_welcome.php:6
-msgid "Welcome to playSMS"
-msgstr "Selamat datang di playSMS"
-
-#: inc/user/page_welcome.php:8
 msgid "About playSMS"
 msgstr "Tentang playSMS"
 
-#: inc/user/page_welcome.php:9
+msgid "Action"
+msgstr "Tindakan"
+
+msgid "Active gateway module"
+msgstr "Modul gateway yang aktif"
+
+msgid "Active language"
+msgstr "Bahasa yang aktif"
+
+msgid "Active themes"
+msgstr "Tema yang aktif"
+
+msgid "Add"
+msgstr "Tambah"
+
+msgid "Add message template"
+msgstr "Tambah pola pesan"
+
+msgid "Add user"
+msgstr "Tambah pengguna"
+
+msgid "Address"
+msgstr "Alamat"
+
+msgid "Administration"
+msgstr "Administrator"
+
+msgid "Administrator"
+msgstr "Administrator"
+
+msgid "All"
+msgstr "Semua"
+
+msgid "All Inbox"
+msgstr "Semua kotak masuk"
+
+msgid "All inbox"
+msgstr "Semua kotak masuk"
+
+msgid "All incoming SMS"
+msgstr "Semua SMS masuk"
+
+msgid "All outgoing SMS"
+msgstr "Semua SMS keluar"
+
+msgid "Always add plus sign"
+msgstr "Selalu menambahkan tanda plus"
+
+msgid "Application information"
+msgstr "Informasi aplikasi"
+
+msgid "Application options"
+msgstr "Opsi aplikasi"
+
+msgid "Are you sure you want to delete outgoing SMS ?"
+msgstr "Anda yakin ingin menghapus SMS keluar ?"
+
+msgid "Are you sure you want to delete this SMS ?"
+msgstr "Anda yakin ingin menghapus SMS ini ?"
+
+msgid "Are you sure you want to delete user"
+msgstr "Anda yakin ingin menghapus pengguna"
+
+msgid "Are you sure you want to delete user ?"
+msgstr "Anda yakin ingin menghapus pengguna ?"
+
+msgid "Auto remove plus sign"
+msgstr "Otomatis menghapus tanda plus"
+
+msgid "Auto replace prefix 0"
+msgstr "Otomatis mengganti kode awal dengan 0"
+
+msgid "Back"
+msgstr "Kembali"
+
 msgid "Changelog"
 msgstr "Catatan perubahan"
 
-#: inc/user/page_welcome.php:10
-msgid "Installation Guide"
-msgstr "Panduan Instalasi"
+msgid "City"
+msgstr "Kota"
 
-#: inc/user/page_welcome.php:11
+msgid "Content"
+msgstr "Isi"
+
+msgid "Country"
+msgstr "Negara"
+
+msgid "Credit"
+msgstr "Pulsa"
+
+msgid "Currently logged in user is immune to deletion"
+msgstr "Pengguna saat ini kebal untuk dihapus"
+
+msgid "Date time"
+msgstr "Waktu & tanggal"
+
+msgid "Default"
+msgstr ""
+
+msgid "Default SMS rate"
+msgstr "Tarif standar SMS"
+
+msgid "Default credit for user"
+msgstr "Pulsa default untuk pengguna"
+
+msgid "Default language"
+msgstr "Bahasa default"
+
+msgid "Default sender ID"
+msgstr "ID default pengirim"
+
+msgid "Default timezone"
+msgstr "Zona waktu default"
+
+msgid "Delete"
+msgstr "Hapus"
+
+msgid "Delete all templates ?"
+msgstr "Hapus semua pola?"
+
+msgid "Delete message template"
+msgstr "Hapus pola pesan"
+
+msgid "Delete selection"
+msgstr "Hapus pilihan"
+
+msgid "Delivered"
+msgstr "Diterima"
+
+msgid "Edit"
+msgstr "Sunting"
+
+msgid "Edit message template"
+msgstr "Ubah pola pesan"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Misalnya: +0700 untuk zona waktu Jakarta/Bangkok"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Email is already in use by other username"
+msgstr "Email sudah digunakan oleh pengguna lain"
+
+msgid "Enable forgot password"
+msgstr "Aktifkan lupa kata sandi"
+
+msgid "Enable public registration"
+msgstr "Aktifkan pendaftaran umum"
+
 msgid "F.A.Q"
 msgstr ""
 
-#: inc/user/page_welcome.php:12
-msgid "License"
-msgstr "Lisensi"
+msgid "Fail to delete SMS"
+msgstr "Gagal menghapus SMS"
 
-#: inc/user/page_welcome.php:13
+msgid "Fail to delete incoming SMS"
+msgstr "Gagal menghapus SMS masuk"
+
+msgid "Fail to delete user"
+msgstr "Gagal menghapus pengguna"
+
+msgid "Fail to edit message template"
+msgstr "Gagal mengubah pola pesan"
+
+msgid "Fail to recover password"
+msgstr "Gagal memulihkan password"
+
+msgid "Fail to register an account"
+msgstr "Gagal untuk mendaftarkan akun"
+
+msgid "Fail to save preferences"
+msgstr "Gagal menyimpan preferensi"
+
+msgid "Fail to send email"
+msgstr "Gagal mengirim SMS"
+
+msgid "Fail to sent SMS"
+msgstr "Gagal mengirim SMS"
+
+msgid "Failed"
+msgstr "Gagal"
+
+msgid "Feature"
+msgstr "Fitur"
+
+msgid "Fill to change password for username"
+msgstr "Isi untuk mengganti kata sandi untuk nama penguna"
+
+msgid "Forward PV to email"
+msgstr "Teruskan PV ke email"
+
+msgid "Forward PV to inbox"
+msgstr "Teruskan PV ke inbox"
+
+msgid "Forward PV to mobile"
+msgstr "Teruskan PV ke ponsel"
+
+msgid "Forward Private WebSMS"
+msgstr "Teruskan WebSMS pribadi"
+
+msgid "Forwarded email footer"
+msgstr "Footer email"
+
+msgid "From"
+msgstr "Dari"
+
+msgid "Full name"
+msgstr "Nama lengkap"
+
+msgid "Gateway"
+msgstr ""
+
+msgid "Go"
+msgstr "Jalankan"
+
+msgid "Group"
+msgstr "Grup"
+
+msgid "Group code"
+msgstr "Kode grup"
+
 msgid "HTTP API"
 msgstr ""
 
-#: inc/user/user_pref.php:185
+msgid "Home"
+msgstr "Beranda"
+
+msgid "Inbox"
+msgstr "Kotak masuk"
+
+msgid "Incoming SMS"
+msgstr "SMS masuk"
+
+msgid "Installation Guide"
+msgstr "Panduan Instalasi"
+
+msgid "International format"
+msgstr "Format internasional"
+
+msgid "Invalid username or password"
+msgstr "Kata sandi atau nama pengguna tidak valid"
+
+msgid "Keyword"
+msgstr "Kata kunci"
+
+msgid "License"
+msgstr "Lisensi"
+
+msgid "Login information"
+msgstr "Informasi login"
+
+msgid "Logout"
+msgstr "Keluar"
+
+msgid "Main configuration"
+msgstr "Konfigurasi utama"
+
+msgid "Main configuration changes has been saved"
+msgstr "Perubahan konfigurasi utama telah disimpan"
+
+msgid "Manage"
+msgstr "Atur"
+
+msgid "Manage user"
+msgstr "Pengaturan pengguna"
+
+msgid "Max. 16 numeric or 11 alphanumeric characters"
+msgstr "Maks. 16 karakter numerik atau 11 alfanumerik"
+
+msgid "Max. 30 alphanumeric characters"
+msgstr "Maks. 30 karakter alfanumerik"
+
+msgid "Maximum SMS count"
+msgstr "Jumlah SMS maksimal"
+
+msgid "Message"
+msgstr "Pesan"
+
+msgid "Message template"
+msgstr "Pola pesan"
+
+msgid "Message template content"
+msgstr "Isi pola pesan"
+
+msgid "Message template has been edited"
+msgstr "Pola pesan telah diubah"
+
+msgid "Message template has been saved"
+msgstr "Pola pesan telah disimpan"
+
+msgid "Message template name"
+msgstr "Nama pola pesan"
+
+msgid "Mobile"
+msgstr "Ponsel"
+
 msgid "Mobile is already in use by other username"
 msgstr "Email sudah digunakan oleh pengguna lain"
 
-#: inc/user/send_sms.php:95
 msgid "Mobile number"
 msgstr "Nomor telepon"
+
+msgid "My Account"
+msgstr "Akun saya"
+
+msgid "Name"
+msgstr "Nama"
+
+msgid "New account registration"
+msgstr "Pendaftaran akun baru"
+
+msgid "No changes made"
+msgstr "Tidak ada perubahan yang dilakukan"
+
+msgid "Normal User"
+msgstr "Pengguna normal"
+
+msgid "Normal user"
+msgstr "Pengguna normal"
+
+msgid "Or"
+msgstr "Atau"
+
+msgid "Outgoing SMS"
+msgstr "SMS keluar"
+
+msgid "Password"
+msgstr "Kata sandi"
+
+msgid "Password has been sent to your email"
+msgstr "Password telah dikirim ke email Anda"
+
+msgid "Password recovery"
+msgstr "Pemulihan kata sandi"
+
+msgid "Pending"
+msgstr "Tertunda"
+
+msgid "Personal information"
+msgstr "Informasi pribadi"
+
+msgid "Phone number(s)"
+msgstr "Nomor telepon"
+
+msgid "Phonebook"
+msgstr "Buku telepon"
+
+msgid "Pick Date & Time"
+msgstr "Pilih waktu & tanggal"
+
+msgid "Please select"
+msgstr "Silakan pilih"
+
+msgid "Please select template"
+msgstr "Silakan pilih"
+
+msgid "Preferences"
+msgstr "Preferensi"
+
+msgid "Preferences has been saved"
+msgstr "Preferensi telah disimpan"
+
+msgid "Preferences has been saved and password updated"
+msgstr "Preferensi sudah disimpan dan kata sandi sudah diperbaharui"
+
+msgid "Prefix or country code"
+msgstr "Kode awalan atau kode negara"
+
+msgid "Public registration disabled"
+msgstr "Pendaftaran umum dinonaktifkan"
+
+msgid "Re-Type Password"
+msgstr "Ketik ulang kata sandi"
+
+msgid "Receiver"
+msgstr "Penerima"
+
+msgid "Recover password disabled"
+msgstr "Pemulihan kata sandi dinonaktifkan"
+
+msgid "Reply"
+msgstr "Balas"
+
+msgid "SMS character"
+msgstr "Karakter SMS"
+
+msgid "SMS footer"
+msgstr "Catatan kaki SMS"
+
+msgid "SMS sender ID"
+msgstr "ID pengirim SMS"
+
+msgid "Save"
+msgstr "Simpan"
+
+msgid "Save template"
+msgstr "Simpan pola"
+
+msgid "Select action"
+msgstr "Pilih tindakan"
+
+msgid "Selected incoming SMS has been deleted"
+msgstr "SMS masuk telah dihapus"
+
+msgid "Selected message template has been deleted"
+msgstr "Pola pesan telah dihapus"
+
+msgid "Selected outgoing SMS has been deleted"
+msgstr "SMS keluar yang dipilih telah dihapus"
+
+msgid "Send"
+msgstr "Kirim"
+
+msgid "Send SMS"
+msgstr "Kirim SMS"
+
+msgid "Send as flash message"
+msgstr "Kirim sebagai pesan flash"
+
+msgid "Send as unicode message (http://www.unicode.org)"
+msgstr "Kirim sebagai pesan unicode (http://www.unicode.org)"
+
+msgid "Send broadcast SMS"
+msgstr "Kirim banyak SMS"
+
+msgid "Send to"
+msgstr "Kirim ke"
+
+msgid "Send to group"
+msgstr "Kirim ke grup"
+
+msgid "Sender"
+msgstr "Pengirim"
+
+msgid "Sent"
+msgstr "Terkirim"
+
+msgid "State or Province"
+msgstr "Propinsi"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Time"
+msgstr "Waktu"
+
+msgid "Timezone"
+msgstr "Zona waktu"
+
+msgid "To"
+msgstr "Ke"
+
+msgid "Tools"
+msgstr "Alat"
+
+msgid "Unable to update login session"
+msgstr "Tidak dapat memperbaharui sesi login"
+
+msgid "Use"
+msgstr "Pengguna"
+
+msgid "Use template"
+msgstr "Gunakan pola"
+
+msgid "User"
+msgstr "Pengguna"
+
+msgid "User has been added"
+msgstr "Pengguna telah ditambah"
+
+msgid "User has been deleted"
+msgstr "Pengguna telah dihapus"
+
+msgid "User is already exists"
+msgstr "Pengguna sudah ada"
+
+msgid "User is immune to deletion"
+msgstr "Pengguna kebal untuk dihapus"
+
+msgid "User level"
+msgstr "Tingkatan pengguna"
+
+msgid "Username"
+msgstr "Nama pengguna"
+
+msgid "View"
+msgstr "Tampil"
+
+msgid "Website email"
+msgstr "Email situs"
+
+msgid "Website title"
+msgstr "Judul situs"
+
+msgid "Welcome to playSMS"
+msgstr "Selamat datang di playSMS"
+
+msgid "You have been logged out"
+msgstr "Anda telah keluar"
+
+msgid "You have no access to this page"
+msgstr "Anda tidak memiliki akses ke halaman ini"
+
+msgid "You must fill all field"
+msgstr "Anda harus mengisi semua kolom"
+
+msgid "You must fill all fields"
+msgstr "Anda harus mengisi semua kolom"
+
+msgid "You must select receiver and your message should not be empty"
+msgstr "Anda harus memilih penerima dan pesan anda tidak boleh kosong"
+
+msgid "You must select receiver group and your message should not be empty"
+msgstr "Anda harus memilih kelompok penerima dan pesan anda tidak boleh kosong"
+
+msgid "Your SMS has been delivered to queue"
+msgstr "SMS anda telah dikirim ke antrian"
+
+msgid "Your message"
+msgstr "Pesan anda"
+
+msgid "Zipcode"
+msgstr "Kode POS"
+
+msgid "email"
+msgstr "email"
+
+msgid "failed"
+msgstr "gagal"
+
+msgid "from"
+msgstr "dari"
+
+msgid "handled"
+msgstr "tertangani"
+
+msgid "mobile"
+msgstr "Ponsel"
+
+msgid "no"
+msgstr "tidak"
+
+msgid "not set"
+msgstr "belum diatur"
+
+msgid "number"
+msgstr "nomor"
+
+msgid "queued"
+msgstr "antri"
+
+msgid "row"
+msgstr "baris"
+
+msgid "shared by"
+msgstr "dibagi oleh"
+
+msgid "to"
+msgstr "ke"
+
+msgid "unhandled"
+msgstr "tidak tertangani"
+
+msgid "username"
+msgstr "nama pengguna"
+
+msgid "yes"
+msgstr "ya"

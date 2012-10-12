@@ -1,143 +1,107 @@
-#: plugin/gateway/kannel/kannel.php:8
 msgid "Active"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:10
-msgid "Inactive"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:10
-msgid "click here to activate"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:27
-msgid "Delivered to phone"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:28
-msgid "Non-Delivered to phone"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:30
-msgid "Queued on SMSC"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:31
-msgid "Delivered to SMSC"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:32
-msgid "Non-Delivered to SMSC"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:50 plugin/gateway/kannel/config.php:42
-msgid "Manage kannel"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:55
-msgid "Gateway name"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:58
-msgid "Username"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:61
-msgid "Password"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:61
-msgid "Fill to change the password"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:64
-msgid "Module sender ID"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:64
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:67
-msgid "Module timezone"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:67
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:70
-msgid "Bearerbox hostname or IP"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:70 plugin/gateway/kannel/kannel.php:73
-msgid "Kannel specific"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:73
-msgid "Send SMS port"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:77
-msgid "Delivery Report"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:81
 msgid "Additional URL parameter"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:84
-msgid "playSMS web URL"
+msgid "Bearerbox hostname or IP"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:84
-msgid "URL to playSMS, empty it to set it to base URL"
+msgid "Delivered to SMSC"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:88
-msgid "Kannel admin password"
+msgid "Delivered to phone"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:88
-msgid "HTTP Kannel admin password"
+msgid "Delivery Report"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:91
-msgid "Kannel admin port"
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:91
-msgid "HTTP Kannel admin port"
+msgid "Fill to change the password"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:94
-msgid "Kannel configuration file"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:97
-msgid "Kannel status"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:102 plugin/gateway/kannel/kannel.php:207
-msgid "Restart Kannel"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:107
-msgid "Save"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:141
-msgid "No changes has been made"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:180
-msgid "Gateway module configurations has been saved"
-msgstr ""
-
-#: plugin/gateway/kannel/kannel.php:195
 msgid "Gateway has been activated"
 msgstr ""
 
-#: plugin/gateway/kannel/kannel.php:207
+msgid "Gateway module configurations has been saved"
+msgstr ""
+
+msgid "Gateway name"
+msgstr ""
+
+msgid "HTTP Kannel admin password"
+msgstr ""
+
+msgid "HTTP Kannel admin port"
+msgstr ""
+
+msgid "Inactive"
+msgstr ""
+
+msgid "Kannel admin password"
+msgstr ""
+
+msgid "Kannel admin port"
+msgstr ""
+
+msgid "Kannel configuration file"
+msgstr ""
+
+msgid "Kannel specific"
+msgstr ""
+
+msgid "Kannel status"
+msgstr ""
+
+msgid "Manage kannel"
+msgstr ""
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+
+msgid "Module sender ID"
+msgstr ""
+
+msgid "Module timezone"
+msgstr ""
+
+msgid "No changes has been made"
+msgstr ""
+
+msgid "Non-Delivered to SMSC"
+msgstr ""
+
+msgid "Non-Delivered to phone"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Queued on SMSC"
+msgstr ""
+
+msgid "Restart Kannel"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Send SMS port"
+msgstr ""
+
 msgid "Status"
+msgstr ""
+
+msgid "URL to playSMS, empty it to set it to base URL"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "click here to activate"
+msgstr ""
+
+msgid "playSMS web URL"
 msgstr ""

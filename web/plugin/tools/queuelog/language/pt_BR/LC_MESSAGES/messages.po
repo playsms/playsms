@@ -1,23 +1,17 @@
-#: plugin/tools/queuelog/config.php:5 plugin/tools/queuelog/queuelog.php:16
-msgid "View SMS queue"
-msgstr ""
-
-#: plugin/tools/queuelog/queuelog.php:22
-msgid "Queue Code"
-msgstr ""
-
-#: plugin/tools/queuelog/queuelog.php:23
 msgid "Date/Time"
 msgstr ""
 
-#: plugin/tools/queuelog/queuelog.php:27
-msgid "Username"
-msgstr ""
-
-#: plugin/tools/queuelog/queuelog.php:31
 msgid "Group"
 msgstr ""
 
-#: plugin/tools/queuelog/queuelog.php:32
 msgid "Message"
+msgstr ""
+
+msgid "Queue Code"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "View SMS queue"
 msgstr ""

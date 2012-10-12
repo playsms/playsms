@@ -17,106 +17,74 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.4\n"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:12
-#: plugin/tools/sendfromfile/sendfromfile.php:82
-#: plugin/tools/sendfromfile/config.php:6
-msgid "Send from file"
-msgstr "Enviar des de fitxer"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:27
-#: plugin/tools/sendfromfile/sendfromfile.php:34
-msgid "Please select CSV file"
-msgstr "Trieu el fitxer CSV"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:27
-msgid "format : destination number, message, username"
-msgstr "format: núm. destí, missatge, usuari"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:29
-#: plugin/tools/sendfromfile/sendfromfile.php:36
-msgid "Upload file"
-msgstr "Pujar fitxer"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:34
-msgid "format : destination number, message"
-msgstr "format: núm. destí, missatge"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:77
-msgid "Invalid CSV file"
-msgstr "Fitxer CSV no vàlid"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:83
-msgid "Confirmation"
-msgstr "Confirmar"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:84
-msgid "Uploaded file"
-msgstr "Fitxer pujat"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:87
-msgid "Found valid entries in uploaded file"
-msgstr "S'han trobat entrades correctes en el fitxer"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:87
-msgid "valid entries"
-msgstr "entrades vàlides"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:88
-msgid "Valid entries"
-msgstr "Entrades vàlides"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:93
-#: plugin/tools/sendfromfile/sendfromfile.php:119
-msgid "Destination number"
-msgstr "Número de destí"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:94
-#: plugin/tools/sendfromfile/sendfromfile.php:120
-msgid "Message"
-msgstr "Missatge"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:95
-#: plugin/tools/sendfromfile/sendfromfile.php:121
-msgid "Username"
-msgstr "Usuari"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:113
-msgid "Found invalid entries in uploaded file"
-msgstr "S'han trobat entrades no vàlides en el fitxer"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:113
-msgid "invalid entries"
-msgstr "entrades no vàlides"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:114
-msgid "Invalid entries"
-msgstr "entrades no vàlides"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:138
-msgid "Your choice"
-msgstr "La vostra tria"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:141
 msgid "Cancel send from file"
 msgstr "Cancel·lar l'enviament del fitxer"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:145
-msgid "Send SMS to valid entries"
-msgstr "Enviar l'SMS a les entrades vàlides"
+msgid "Confirmation"
+msgstr "Confirmar"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:153
-msgid "Send from file has been cancelled"
-msgstr "L'enviament del fitxer s'ha cancel·lat"
+msgid "Destination number"
+msgstr "Número de destí"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:155
 msgid "Fail to remove cancelled entries from database"
 msgstr "No s'han pogut el·liminar les entrades de la base de dades"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:158
-#: plugin/tools/sendfromfile/sendfromfile.php:181
+msgid "Found invalid entries in uploaded file"
+msgstr "S'han trobat entrades no vàlides en el fitxer"
+
+msgid "Found valid entries in uploaded file"
+msgstr "S'han trobat entrades correctes en el fitxer"
+
+msgid "Invalid CSV file"
+msgstr "Fitxer CSV no vàlid"
+
+msgid "Invalid entries"
+msgstr "entrades no vàlides"
+
 msgid "Invalid session ID"
 msgstr "ID de sessió no vàlid"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:179
+msgid "Message"
+msgstr "Missatge"
+
+msgid "Please select CSV file"
+msgstr "Trieu el fitxer CSV"
+
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "S'ha enviat l'SMS als números vàlids del fitxer pujat"
+
+msgid "Send SMS to valid entries"
+msgstr "Enviar l'SMS a les entrades vàlides"
+
+msgid "Send from file"
+msgstr "Enviar des de fitxer"
+
+msgid "Send from file has been cancelled"
+msgstr "L'enviament del fitxer s'ha cancel·lat"
+
+msgid "Upload file"
+msgstr "Pujar fitxer"
+
+msgid "Uploaded file"
+msgstr "Fitxer pujat"
+
+msgid "Username"
+msgstr "Usuari"
+
+msgid "Valid entries"
+msgstr "Entrades vàlides"
+
+msgid "Your choice"
+msgstr "La vostra tria"
+
+msgid "format : destination number, message"
+msgstr "format: núm. destí, missatge"
+
+msgid "format : destination number, message, username"
+msgstr "format: núm. destí, missatge, usuari"
+
+msgid "invalid entries"
+msgstr "entrades no vàlides"
+
+msgid "valid entries"
+msgstr "entrades vàlides"

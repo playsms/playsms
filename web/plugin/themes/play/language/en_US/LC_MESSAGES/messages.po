@@ -5,54 +5,38 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/themes/play/page_login.php:15 plugin/themes/play/page_forgot.php:13
-#: plugin/themes/play/page_register.php:19
-msgid "Username"
-msgstr "Username"
-
-#: plugin/themes/play/page_login.php:21
-msgid "Password"
-msgstr "Password"
-
-#: plugin/themes/play/page_login.php:36 plugin/themes/play/page_forgot.php:35
-msgid "Register an account"
-msgstr ""
-
-#: plugin/themes/play/page_login.php:41
-#: plugin/themes/play/page_register.php:47
-msgid "Forgot password"
-msgstr ""
-
-#: plugin/themes/play/fn.php:55 plugin/themes/play/header.php:111
-msgid "Home"
-msgstr ""
-
-#: plugin/themes/play/fn.php:57
-msgid "Logout"
-msgstr ""
-
-#: plugin/themes/play/page_forgot.php:19
-#: plugin/themes/play/page_register.php:31
 msgid "Email"
 msgstr ""
 
-#: plugin/themes/play/page_forgot.php:25
-msgid "Recover password"
+msgid "Forgot password"
 msgstr ""
 
-#: plugin/themes/play/page_forgot.php:31
-#: plugin/themes/play/page_register.php:43
-msgid "Login"
+msgid "Home"
 msgstr ""
 
-#: plugin/themes/play/header.php:118
 msgid "Logged in"
 msgstr ""
 
-#: plugin/themes/play/page_register.php:13
+msgid "Login"
+msgstr ""
+
+msgid "Logout"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
 msgid "Name"
 msgstr ""
 
-#: plugin/themes/play/page_register.php:25
-msgid "Mobile"
+msgid "Password"
+msgstr "Password"
+
+msgid "Recover password"
 msgstr ""
+
+msgid "Register an account"
+msgstr ""
+
+msgid "Username"
+msgstr "Username"

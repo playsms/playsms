@@ -17,26 +17,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.4\n"
 
-#: plugin/tools/queuelog/config.php:5 plugin/tools/queuelog/queuelog.php:16
-msgid "View SMS queue"
-msgstr "Veure la cua de SMS"
-
-#: plugin/tools/queuelog/queuelog.php:22
-msgid "Queue Code"
-msgstr "Codi de la cua"
-
-#: plugin/tools/queuelog/queuelog.php:23
 msgid "Date/Time"
 msgstr "Data/Hora"
 
-#: plugin/tools/queuelog/queuelog.php:27
-msgid "Username"
-msgstr "Usuari"
-
-#: plugin/tools/queuelog/queuelog.php:31
 msgid "Group"
 msgstr "Grup"
 
-#: plugin/tools/queuelog/queuelog.php:32
 msgid "Message"
 msgstr "Missatge"
+
+msgid "Queue Code"
+msgstr "Codi de la cua"
+
+msgid "Username"
+msgstr "Usuari"
+
+msgid "View SMS queue"
+msgstr "Veure la cua de SMS"

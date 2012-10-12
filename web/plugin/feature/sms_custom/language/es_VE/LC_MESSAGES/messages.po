@@ -5,135 +5,87 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/feature/sms_custom/config.php:6
-#: plugin/feature/sms_custom/sms_custom.php:12
-msgid "Manage custom"
-msgstr "Administración personalizada de URL"
-
-#: plugin/feature/sms_custom/sms_custom.php:15
-#: plugin/feature/sms_custom/sms_custom.php:59
-#: plugin/feature/sms_custom/sms_custom.php:133
-msgid "Add SMS custom"
-msgstr "Añadir SMS personalizado"
-
-#: plugin/feature/sms_custom/sms_custom.php:31
-msgid "Keyword"
-msgstr "Clave"
-
-#: plugin/feature/sms_custom/sms_custom.php:32
-msgid "URL"
-msgstr ""
-
-#: plugin/feature/sms_custom/sms_custom.php:33
-msgid "User"
-msgstr "Usuario"
-
-#: plugin/feature/sms_custom/sms_custom.php:34
 msgid "Action"
 msgstr "Acción"
 
-#: plugin/feature/sms_custom/sms_custom.php:44
+msgid "Add"
+msgstr "Añadir"
+
+msgid "Add SMS custom"
+msgstr "Añadir SMS personalizado"
+
 msgid "Are you sure you want to delete SMS custom keyword ?"
 msgstr "Está Ud. seguro de querer eliminar esta clave SMS personalizado ?"
 
-#: plugin/feature/sms_custom/sms_custom.php:44
-#: plugin/feature/sms_custom/sms_custom.php:103
-#: plugin/feature/sms_custom/sms_custom.php:105
-#: plugin/feature/sms_custom/sms_custom.php:121
-#: plugin/feature/sms_custom/sms_custom.php:123
-#: plugin/feature/sms_custom/sms_custom.php:159
-#: plugin/feature/sms_custom/sms_custom.php:161
-#: plugin/feature/sms_custom/sms_custom.php:164
-msgid "keyword"
-msgstr "Clave"
-
-#: plugin/feature/sms_custom/sms_custom.php:75
 msgid "Edit SMS custom"
 msgstr "Edición del servicio"
 
-#: plugin/feature/sms_custom/sms_custom.php:80
-#: plugin/feature/sms_custom/sms_custom.php:136
-msgid "SMS custom keyword"
-msgstr "Clave de servicio SMS personalizado"
+msgid "Fail to add SMS custom"
+msgstr "Fallo al añadir SMS personalizado"
 
-#: plugin/feature/sms_custom/sms_custom.php:81
-#: plugin/feature/sms_custom/sms_custom.php:137
+msgid "Fail to delete SMS custom"
+msgstr "Fallo al eliminar el SMS persoanlizado"
+
+msgid "Fail to save SMS custom"
+msgstr "Fallo al guardar el SMS personalizado"
+
+msgid "Keyword"
+msgstr "Clave"
+
+msgid "Make return as reply"
+msgstr ""
+
+msgid "Manage custom"
+msgstr "Administración personalizada de URL"
+
 msgid "Pass these parameter to custom URL field"
 msgstr "Pasar este parámetro al campo personalizado de URL"
 
-#: plugin/feature/sms_custom/sms_custom.php:82
-#: plugin/feature/sms_custom/sms_custom.php:138
+msgid "SMS custom URL"
+msgstr "URL personalizado de SMS"
+
+msgid "SMS custom already exists, reserved or use by other feature"
+msgstr "SMS personalizado ya existe, está reservado o en uso por otra función"
+
+msgid "SMS custom has been added"
+msgstr "SMS personalizado ha sido añadido"
+
+msgid "SMS custom has been deleted"
+msgstr "SMS personalizado ha sido eliminado"
+
+msgid "SMS custom has been saved"
+msgstr "SMS personalizado ha sido guardado"
+
+msgid "SMS custom keyword"
+msgstr "Clave de servicio SMS personalizado"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "URL"
+msgstr ""
+
+msgid "User"
+msgstr "Usuario"
+
+msgid "You must fill all fields"
+msgstr "Ud. debe rellenar todos los campos"
+
+msgid "keyword"
+msgstr "Clave"
+
 msgid "will be replaced by SMS incoming date/time"
 msgstr "será reemplazado por fecha/hora de SMS entrante"
 
-#: plugin/feature/sms_custom/sms_custom.php:83
-#: plugin/feature/sms_custom/sms_custom.php:139
-msgid "will be replaced by sender number"
+msgid "will be replaced by SMS raw message"
 msgstr "sera reemplazado por el celular emisor"
 
-#: plugin/feature/sms_custom/sms_custom.php:84
-#: plugin/feature/sms_custom/sms_custom.php:140
 msgid "will be replaced by custom keyword"
 msgstr "seraá reemplado por la clave personalizada"
 
-#: plugin/feature/sms_custom/sms_custom.php:85
-#: plugin/feature/sms_custom/sms_custom.php:141
 msgid "will be replaced by custom parameter passed to server from SMS"
 msgstr ""
 "será reemplazado por el parámetro personalizado pasado desde el servidor SMS"
 
-#: plugin/feature/sms_custom/sms_custom.php:86
-#: plugin/feature/sms_custom/sms_custom.php:142
-msgid "will be replaced by SMS raw message"
+msgid "will be replaced by sender number"
 msgstr "sera reemplazado por el celular emisor"
-
-#: plugin/feature/sms_custom/sms_custom.php:87
-#: plugin/feature/sms_custom/sms_custom.php:143
-msgid "SMS custom URL"
-msgstr "URL personalizado de SMS"
-
-#: plugin/feature/sms_custom/sms_custom.php:88
-#: plugin/feature/sms_custom/sms_custom.php:144
-msgid "Make return as reply"
-msgstr ""
-
-#: plugin/feature/sms_custom/sms_custom.php:89
-msgid "Save"
-msgstr "Guardar"
-
-#: plugin/feature/sms_custom/sms_custom.php:103
-msgid "SMS custom has been saved"
-msgstr "SMS personalizado ha sido guardado"
-
-#: plugin/feature/sms_custom/sms_custom.php:105
-msgid "Fail to save SMS custom"
-msgstr "Fallo al guardar el SMS personalizado"
-
-#: plugin/feature/sms_custom/sms_custom.php:108
-#: plugin/feature/sms_custom/sms_custom.php:167
-msgid "You must fill all fields"
-msgstr "Ud. debe rellenar todos los campos"
-
-#: plugin/feature/sms_custom/sms_custom.php:121
-msgid "SMS custom has been deleted"
-msgstr "SMS personalizado ha sido eliminado"
-
-#: plugin/feature/sms_custom/sms_custom.php:123
-msgid "Fail to delete SMS custom"
-msgstr "Fallo al eliminar el SMS persoanlizado"
-
-#: plugin/feature/sms_custom/sms_custom.php:145
-msgid "Add"
-msgstr "Añadir"
-
-#: plugin/feature/sms_custom/sms_custom.php:159
-msgid "SMS custom has been added"
-msgstr "SMS personalizado ha sido añadido"
-
-#: plugin/feature/sms_custom/sms_custom.php:161
-msgid "Fail to add SMS custom"
-msgstr "Fallo al añadir SMS personalizado"
-
-#: plugin/feature/sms_custom/sms_custom.php:164
-msgid "SMS custom already exists, reserved or use by other feature"
-msgstr "SMS personalizado ya existe, está reservado o en uso por otra función"

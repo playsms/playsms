@@ -5,59 +5,44 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/themes/km2/page_login.php:32 plugin/themes/km2/page_forgot.php:31
-#: plugin/themes/km2/page_register.php:36
-msgid "Username"
-msgstr "Pseudo"
-
-#: plugin/themes/km2/page_login.php:37
-msgid "Password"
-msgstr "Mot de Passe"
-
-#: plugin/themes/km2/page_login.php:43
-msgid "Login"
-msgstr "Connexion"
-
-#: plugin/themes/km2/page_login.php:50
-msgid "Register an account"
-msgstr "S'enregistrer"
-
-#: plugin/themes/km2/page_login.php:52
-msgid "Forgot password"
-msgstr "Mot de passe oublié ?"
-
-#: plugin/themes/km2/fn.php:38 plugin/themes/km2/header.php:42
-msgid "Home"
-msgstr "Accueil"
-
-#: plugin/themes/km2/fn.php:40 plugin/themes/km2/header.php:50
-msgid "Logout"
-msgstr "Déconnexion"
-
-#: plugin/themes/km2/page_forgot.php:36 plugin/themes/km2/page_register.php:46
-msgid "Email"
-msgstr "Email"
-
-#: plugin/themes/km2/page_forgot.php:43
-msgid "Recover password"
-msgstr "Récupérer son mot de passe"
-
-#: plugin/themes/km2/header.php:45
-msgid "Preferences"
-msgstr "Préférences"
-
-#: plugin/themes/km2/header.php:47
 msgid "Contact"
 msgstr "Contact"
 
-#: plugin/themes/km2/page_register.php:32
-msgid "Name"
-msgstr "Nom"
+msgid "Email"
+msgstr "Email"
 
-#: plugin/themes/km2/page_register.php:41
+msgid "Forgot password"
+msgstr "Mot de passe oublié ?"
+
+msgid "Home"
+msgstr "Accueil"
+
+msgid "Login"
+msgstr "Connexion"
+
+msgid "Logout"
+msgstr "Déconnexion"
+
 msgid "Mobile"
 msgstr "Mobile"
 
-#: plugin/themes/km2/page_register.php:53
+msgid "Name"
+msgstr "Nom"
+
+msgid "Password"
+msgstr "Mot de Passe"
+
+msgid "Preferences"
+msgstr "Préférences"
+
+msgid "Recover password"
+msgstr "Récupérer son mot de passe"
+
 msgid "Register"
 msgstr "S'enregistrer"
+
+msgid "Register an account"
+msgstr "S'enregistrer"
+
+msgid "Username"
+msgstr "Pseudo"

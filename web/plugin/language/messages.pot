@@ -1,1062 +1,575 @@
-#: lib/fn_themes.php:37 lib/lib_init1.php:43 lib/lib_init1.php:48
-msgid "Home"
-msgstr ""
-
-#: lib/fn_themes.php:39
-msgid "Logout"
-msgstr ""
-
-#: lib/fn_auth.php:130 lib/fn_auth.php:103 lib/fn_auth.php:50
-msgid "You have no access to this page"
-msgstr ""
-
-#: lib/fn_auth.php:156 lib/fn_auth.php:129 lib/fn_auth.php:74
-msgid "Unable to update login session"
-msgstr ""
-
-#: lib/fn_auth.php:159 lib/fn_auth.php:132 lib/fn_auth.php:77
-msgid "Invalid username or password"
-msgstr ""
-
-#: lib/fn_auth.php:184 lib/fn_auth.php:157 lib/fn_auth.php:99
-msgid "You have been logged out"
-msgstr ""
-
-#: lib/fn_auth.php:199 lib/fn_auth.php:172 lib/fn_auth.php:114
-msgid "Fail to recover password"
-msgstr ""
-
-#: lib/fn_auth.php:205 lib/fn_auth.php:178 lib/fn_auth.php:120
-msgid "Password recovery"
-msgstr ""
-
-#: lib/fn_auth.php:208 lib/fn_auth.php:265 inc/admin/user_mgmnt.php:20
-#: inc/admin/user_mgmnt.php:54 inc/admin/user_mgmnt.php:148
-#: inc/admin/user_mgmnt.php:256 inc/user/user_pref.php:90
-#: inc/user/user_pref.php:111 lib/fn_auth.php:181 lib/fn_auth.php:238
-#: inc/user/user_pref.php:107 inc/user/user_pref.php:108
-#: inc/admin/user_mgmnt.php:149 lib/fn_auth.php:264
-#: inc/admin/user_mgmnt.php:19 inc/admin/user_mgmnt.php:50
-#: inc/admin/user_mgmnt.php:137 inc/admin/user_mgmnt.php:235
-#: inc/user/user_pref.php:114 lib/fn_auth.php:123 lib/fn_auth.php:206
-#: inc/admin/user_mgmnt.php:18 inc/admin/user_mgmnt.php:49
-#: inc/admin/user_mgmnt.php:136 inc/admin/user_mgmnt.php:234
-msgid "Username"
-msgstr ""
-
-#: lib/fn_auth.php:209 lib/fn_auth.php:266 inc/admin/user_mgmnt.php:169
-#: inc/admin/user_mgmnt.php:277 inc/user/user_pref.php:91
-#: inc/user/user_pref.php:112 lib/fn_auth.php:182 lib/fn_auth.php:239
-#: inc/user/user_pref.php:108 inc/user/user_pref.php:109
-#: inc/admin/user_mgmnt.php:170 lib/fn_auth.php:265
-#: inc/admin/user_mgmnt.php:158 inc/admin/user_mgmnt.php:256
-#: inc/user/user_pref.php:115 lib/fn_auth.php:124 lib/fn_auth.php:207
-#: inc/admin/user_mgmnt.php:157 inc/admin/user_mgmnt.php:255
-msgid "Password"
-msgstr ""
-
-#: lib/fn_auth.php:212 lib/fn_auth.php:271 lib/fn_auth.php:185
-#: lib/fn_auth.php:244 lib/fn_auth.php:270 lib/fn_auth.php:127
-msgid "Password has been sent to your email"
-msgstr ""
-
-#: lib/fn_auth.php:214 lib/fn_auth.php:273 lib/fn_auth.php:187
-#: lib/fn_auth.php:246 lib/fn_auth.php:272 lib/fn_auth.php:129
-msgid "Fail to send email"
-msgstr ""
-
-#: lib/fn_auth.php:221 lib/fn_auth.php:194 lib/fn_auth.php:136
-msgid "Recover password disabled"
-msgstr ""
-
-#: lib/fn_auth.php:240 lib/fn_auth.php:213 lib/fn_auth.php:155
-msgid "Fail to register an account"
-msgstr ""
-
-#: lib/fn_auth.php:245 inc/admin/user_mgmnt.php:313 lib/fn_auth.php:218
-#: lib/fn_auth.php:221 lib/fn_auth.php:230 lib/fn_auth.php:240
-#: inc/admin/user_mgmnt.php:292 lib/fn_auth.php:163 lib/fn_auth.php:172
-#: lib/fn_auth.php:182 inc/admin/user_mgmnt.php:291
-msgid "User is already exists"
-msgstr ""
-
-#: lib/fn_auth.php:245 lib/fn_auth.php:268 inc/admin/user_mgmnt.php:36
-#: inc/admin/user_mgmnt.php:99 inc/admin/user_mgmnt.php:104
-#: inc/admin/user_mgmnt.php:206 inc/admin/user_mgmnt.php:219
-#: inc/admin/user_mgmnt.php:223 inc/admin/user_mgmnt.php:313
-#: inc/admin/user_mgmnt.php:324 lib/fn_auth.php:218 lib/fn_auth.php:241
-#: lib/fn_auth.php:221 lib/fn_auth.php:267 inc/admin/user_mgmnt.php:33
-#: inc/admin/user_mgmnt.php:87 inc/admin/user_mgmnt.php:91
-#: inc/admin/user_mgmnt.php:194 inc/admin/user_mgmnt.php:203
-#: inc/admin/user_mgmnt.php:205 inc/admin/user_mgmnt.php:292
-#: inc/admin/user_mgmnt.php:299 lib/fn_auth.php:163 lib/fn_auth.php:209
-#: inc/admin/user_mgmnt.php:32 inc/admin/user_mgmnt.php:86
-#: inc/admin/user_mgmnt.php:90 inc/admin/user_mgmnt.php:193
-#: inc/admin/user_mgmnt.php:202 inc/admin/user_mgmnt.php:204
-#: inc/admin/user_mgmnt.php:291 inc/admin/user_mgmnt.php:298
-msgid "username"
-msgstr ""
-
-#: lib/fn_auth.php:262 lib/fn_auth.php:235 lib/fn_auth.php:261
-#: lib/fn_auth.php:203
-msgid "New account registration"
-msgstr ""
-
-#: lib/fn_auth.php:268 inc/admin/user_mgmnt.php:324 lib/fn_auth.php:241
-#: lib/fn_auth.php:267 inc/admin/user_mgmnt.php:299 lib/fn_auth.php:209
-#: inc/admin/user_mgmnt.php:298
-msgid "User has been added"
-msgstr ""
-
-#: lib/fn_auth.php:278 lib/fn_auth.php:251 lib/fn_auth.php:277
-#: lib/fn_auth.php:219
-msgid "Public registration disabled"
-msgstr ""
-
-#: lib/lib_init1.php:33 lib/lib_init1.php:38
-msgid "Edit"
-msgstr ""
-
-#: lib/lib_init1.php:34 inc/user/sms_template.php:185 lib/lib_init1.php:39
-msgid "Delete"
-msgstr ""
-
-#: lib/lib_init1.php:35 lib/lib_init1.php:40
-msgid "Reply"
-msgstr ""
-
-#: lib/lib_init1.php:36 lib/lib_init1.php:41
-msgid "Manage"
-msgstr ""
-
-#: lib/lib_init1.php:37 lib/lib_init1.php:42
-msgid "View"
-msgstr ""
-
-#: lib/lib_init1.php:38 lib/lib_init1.php:43
-msgid "Pick Date & Time"
-msgstr ""
-
-#: lib/lib_init1.php:39 lib/lib_init1.php:52 inc/user/send_sms.php:75
-#: lib/lib_init1.php:44 lib/lib_init1.php:57 inc/user/send_sms.php:69
-msgid "Send SMS"
-msgstr ""
-
-#: lib/lib_init1.php:40 lib/lib_init1.php:45
-msgid "Phonebook"
-msgstr ""
-
-#: lib/lib_init1.php:44 lib/lib_init1.php:49
-msgid "My Account"
-msgstr ""
-
-#: lib/lib_init1.php:45 lib/lib_init1.php:50
-msgid "Administration"
-msgstr ""
-
-#: lib/lib_init1.php:46 inc/admin/all_incoming.php:38
-#: inc/user/user_incoming.php:37 lib/lib_init1.php:51
-msgid "Feature"
-msgstr ""
-
-#: lib/lib_init1.php:47 lib/lib_init1.php:52
-msgid "Tools"
-msgstr ""
-
-#: lib/lib_init1.php:48 inc/admin/all_outgoing.php:35 lib/lib_init1.php:53
-msgid "Gateway"
-msgstr ""
-
-#: lib/lib_init1.php:51 inc/user/sms_template.php:18 inc/user/send_sms.php:102
-#: inc/user/send_sms.php:232 inc/user/send_sms.php:233 lib/lib_init1.php:56
-#: inc/user/send_sms.php:96 inc/user/send_sms.php:223
-msgid "Message template"
-msgstr ""
-
-#: lib/lib_init1.php:53 inc/user/send_sms.php:224 inc/user/send_sms.php:225
-#: lib/lib_init1.php:58 inc/user/send_sms.php:215
-msgid "Send broadcast SMS"
-msgstr ""
-
-#: lib/lib_init1.php:54 inc/user/user_inbox.php:26 lib/lib_init1.php:59
-msgid "Inbox"
-msgstr ""
-
-#: lib/lib_init1.php:55 inc/user/user_incoming.php:26 lib/lib_init1.php:60
-msgid "Incoming SMS"
-msgstr ""
-
-#: lib/lib_init1.php:56 inc/user/user_outgoing.php:26 lib/lib_init1.php:61
-msgid "Outgoing SMS"
-msgstr ""
-
-#: lib/lib_init1.php:57 inc/admin/user_mgmnt.php:142 inc/user/user_pref.php:85
-#: inc/user/user_pref.php:106 inc/user/user_pref.php:102
-#: inc/user/user_pref.php:103 lib/lib_init1.php:62
-#: inc/admin/user_mgmnt.php:143 inc/admin/user_mgmnt.php:131
-#: inc/user/user_pref.php:109 inc/admin/user_mgmnt.php:130
-msgid "Preferences"
-msgstr ""
-
-#: lib/lib_init1.php:63 lib/lib_init1.php:68 lib/lib_init1.php:69
-msgid "All inbox"
-msgstr ""
-
-#: lib/lib_init1.php:64 inc/admin/all_incoming.php:26 lib/lib_init1.php:69
-#: lib/lib_init1.php:70
-msgid "All incoming SMS"
-msgstr ""
-
-#: lib/lib_init1.php:65 inc/admin/all_outgoing.php:26 lib/lib_init1.php:70
-#: lib/lib_init1.php:71
-msgid "All outgoing SMS"
-msgstr ""
-
-#: lib/lib_init1.php:66 inc/admin/user_mgmnt.php:13 lib/lib_init1.php:71
-#: lib/lib_init1.php:72 inc/admin/user_mgmnt.php:12
-#: inc/admin/user_mgmnt.php:11
-msgid "Manage user"
-msgstr ""
-
-#: lib/lib_init1.php:67 inc/admin/main_config.php:44 lib/lib_init1.php:72
-#: lib/lib_init1.php:73
-msgid "Main configuration"
-msgstr ""
-
-#: lib/fn_core.php:249 lib/fn_core.php:257 lib/fn_recvsms.php:255
-msgid "from"
-msgstr ""
-
-#: lib/fn_core.php:250 lib/fn_core.php:258 lib/fn_recvsms.php:256
-msgid "Forward Private WebSMS"
-msgstr ""
-
-#: lib/fn_core.php:251 lib/fn_core.php:259 lib/fn_recvsms.php:257
-msgid "Date time"
-msgstr ""
-
-#: lib/fn_core.php:252 lib/fn_core.php:260 lib/fn_recvsms.php:258
-msgid "Sender"
-msgstr ""
-
-#: lib/fn_core.php:253 lib/fn_core.php:261 lib/fn_recvsms.php:259
-msgid "Receiver"
-msgstr ""
-
-#: lib/fn_core.php:254 inc/admin/all_inbox.php:36
-#: inc/admin/all_outgoing.php:37 inc/user/user_inbox.php:35
-#: inc/user/user_outgoing.php:35 lib/fn_core.php:262 lib/fn_recvsms.php:260
-msgid "Message"
-msgstr ""
-
-#: inc/admin/all_inbox.php:26
-msgid "All Inbox"
-msgstr ""
-
-#: inc/admin/all_inbox.php:33 inc/admin/all_outgoing.php:33
-#: inc/admin/all_incoming.php:33
-msgid "User"
-msgstr ""
-
-#: inc/admin/all_inbox.php:34 inc/admin/all_outgoing.php:34
-#: inc/admin/all_incoming.php:34 inc/user/user_inbox.php:33
-#: inc/user/user_outgoing.php:33 inc/user/user_incoming.php:33
-msgid "Time"
-msgstr ""
-
-#: inc/admin/all_inbox.php:35 inc/admin/all_incoming.php:35
-#: inc/user/user_inbox.php:34 inc/user/user_incoming.php:34
-msgid "From"
-msgstr ""
-
-#: inc/admin/all_inbox.php:37 inc/admin/all_outgoing.php:40
-#: inc/admin/user_mgmnt.php:25 inc/admin/user_mgmnt.php:59
-#: inc/admin/all_incoming.php:40 inc/user/user_inbox.php:36
-#: inc/user/user_outgoing.php:38 inc/user/user_incoming.php:39
-#: inc/admin/user_mgmnt.php:24 inc/admin/user_mgmnt.php:55
-#: inc/admin/user_mgmnt.php:23 inc/admin/user_mgmnt.php:54
-msgid "Action"
-msgstr ""
-
-#: inc/admin/all_inbox.php:74 inc/admin/all_incoming.php:83
-#: inc/user/user_inbox.php:71 inc/user/user_incoming.php:80
-msgid "Are you sure you want to delete this SMS ?"
-msgstr ""
-
-#: inc/admin/all_inbox.php:92 inc/admin/all_outgoing.php:137
-#: inc/admin/all_incoming.php:101 inc/user/sms_template.php:57
-#: inc/user/user_inbox.php:89 inc/user/user_outgoing.php:131
-#: inc/user/user_incoming.php:97 inc/admin/all_outgoing.php:138
-#: inc/user/user_outgoing.php:132
-msgid "Delete selection"
-msgstr ""
-
-#: inc/admin/all_inbox.php:106 inc/user/user_inbox.php:103
-#: inc/user/user_incoming.php:111
-msgid "Fail to delete incoming SMS"
-msgstr ""
-
-#: inc/admin/all_inbox.php:113 inc/admin/all_inbox.php:132
-#: inc/admin/all_incoming.php:122 inc/admin/all_incoming.php:141
-#: inc/user/user_inbox.php:110 inc/user/user_inbox.php:129
-#: inc/user/user_incoming.php:118 inc/user/user_incoming.php:137
-msgid "Selected incoming SMS has been deleted"
-msgstr ""
-
-#: inc/admin/main_config.php:14 inc/admin/main_config.php:19
-#: inc/user/user_pref.php:41 inc/user/user_pref.php:50
-#: inc/user/user_pref.php:59 inc/user/user_pref.php:44
-#: inc/user/user_pref.php:53 inc/user/user_pref.php:62
-#: inc/user/user_pref.php:71 inc/user/user_pref.php:80
-#: inc/user/user_pref.php:40 inc/user/user_pref.php:49
-#: inc/user/user_pref.php:58 inc/user/user_pref.php:67
-#: inc/user/user_pref.php:76 inc/user/user_pref.php:39
-#: inc/user/user_pref.php:61 inc/user/user_pref.php:72
-#: inc/user/user_pref.php:83
-msgid "yes"
-msgstr ""
-
-#: inc/admin/main_config.php:15 inc/admin/main_config.php:20
-#: inc/user/user_pref.php:42 inc/user/user_pref.php:51
-#: inc/user/user_pref.php:60 inc/user/user_pref.php:45
-#: inc/user/user_pref.php:54 inc/user/user_pref.php:63
-#: inc/user/user_pref.php:72 inc/user/user_pref.php:81
-#: inc/user/user_pref.php:41 inc/user/user_pref.php:50
-#: inc/user/user_pref.php:59 inc/user/user_pref.php:68
-#: inc/user/user_pref.php:77 inc/user/user_pref.php:40
-#: inc/user/user_pref.php:62 inc/user/user_pref.php:73
-#: inc/user/user_pref.php:84
-msgid "no"
-msgstr ""
-
-#: inc/admin/main_config.php:49
-msgid "Website title"
-msgstr ""
-
-#: inc/admin/main_config.php:52
-msgid "Website email"
-msgstr ""
-
-#: inc/admin/main_config.php:55
-msgid "Forwarded email footer"
-msgstr ""
-
-#: inc/admin/main_config.php:58
-msgid "Default sender ID"
-msgstr ""
-
-#: inc/admin/main_config.php:61
-msgid "Default timezone"
-msgstr ""
-
-#: inc/admin/main_config.php:61 inc/admin/user_mgmnt.php:166
-#: inc/admin/user_mgmnt.php:274 inc/user/user_pref.php:106
-#: inc/user/user_pref.php:127 inc/user/user_pref.php:123
-#: inc/user/user_pref.php:124 inc/admin/user_mgmnt.php:167
-#: inc/admin/user_mgmnt.php:155 inc/admin/user_mgmnt.php:253
-#: inc/user/user_pref.php:130 inc/admin/user_mgmnt.php:154
-#: inc/admin/user_mgmnt.php:252
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
-
-#: inc/admin/main_config.php:64
-msgid "Default SMS rate"
-msgstr ""
-
-#: inc/admin/main_config.php:67
-msgid "Maximum SMS count"
-msgstr ""
-
-#: inc/admin/main_config.php:70
-msgid "Default credit for user"
-msgstr ""
-
-#: inc/admin/main_config.php:73
-msgid "Enable public registration"
-msgstr ""
-
-#: inc/admin/main_config.php:76
-msgid "Enable forgot password"
-msgstr ""
-
-#: inc/admin/main_config.php:79
-msgid "Active gateway module"
-msgstr ""
-
-#: inc/admin/main_config.php:82
-msgid "Active themes"
-msgstr ""
-
-#: inc/admin/main_config.php:85
-msgid "Default language"
-msgstr ""
-
-#: inc/admin/main_config.php:88 inc/admin/user_mgmnt.php:181
-#: inc/user/user_pref.php:115 inc/user/user_pref.php:139
-#: inc/user/user_pref.php:135 inc/user/user_pref.php:136
-#: inc/admin/user_mgmnt.php:182 inc/admin/user_mgmnt.php:170
-#: inc/user/user_pref.php:142 inc/admin/user_mgmnt.php:169
-msgid "Save"
-msgstr ""
-
-#: inc/admin/main_config.php:125
-msgid "Main configuration changes has been saved"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:36 inc/user/user_outgoing.php:34
-msgid "To"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:38 inc/admin/user_mgmnt.php:16
-#: inc/admin/user_mgmnt.php:50 inc/admin/all_incoming.php:39
-#: inc/user/user_outgoing.php:36 inc/user/user_incoming.php:38
-#: inc/admin/user_mgmnt.php:15 inc/admin/user_mgmnt.php:46
-#: inc/admin/user_mgmnt.php:14 inc/admin/user_mgmnt.php:45
-msgid "Status"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:39 inc/user/user_outgoing.php:37
-msgid "Group"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:86 inc/user/user_outgoing.php:82
-#: inc/admin/all_outgoing.php:87 inc/user/user_outgoing.php:83
-msgid "Sent"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:90 inc/user/user_outgoing.php:86
-#: inc/admin/all_outgoing.php:91 inc/user/user_outgoing.php:87
-msgid "Failed"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:94 inc/user/user_outgoing.php:90
-#: inc/admin/all_outgoing.php:95 inc/user/user_outgoing.php:91
-msgid "Delivered"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:98 inc/user/user_outgoing.php:94
-#: inc/admin/all_outgoing.php:99 inc/user/user_outgoing.php:95
-msgid "Pending"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:121 inc/user/user_outgoing.php:115
-#: inc/admin/all_outgoing.php:122 inc/user/user_outgoing.php:116
-msgid "Are you sure you want to delete outgoing SMS ?"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:121 inc/user/send_sms.php:141
-#: inc/user/send_sms.php:143 inc/user/user_outgoing.php:115
-#: inc/user/send_sms.php:142 inc/user/send_sms.php:144
-#: inc/admin/all_outgoing.php:122 inc/user/send_sms.php:138
-#: inc/user/send_sms.php:140 inc/user/user_outgoing.php:116
-msgid "to"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:121 inc/admin/all_outgoing.php:122
-msgid "row"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:157 inc/admin/all_outgoing.php:180
-#: inc/user/user_outgoing.php:151 inc/user/user_outgoing.php:174
-#: inc/admin/all_outgoing.php:158 inc/admin/all_outgoing.php:181
-#: inc/user/user_outgoing.php:152 inc/user/user_outgoing.php:175
-msgid "Selected outgoing SMS has been deleted"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:161 inc/user/user_outgoing.php:155
-#: inc/admin/all_outgoing.php:162 inc/user/user_outgoing.php:156
-msgid "Fail to delete SMS"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:15 inc/admin/user_mgmnt.php:87
-#: inc/admin/user_mgmnt.php:251 inc/admin/user_mgmnt.php:14
-#: inc/admin/user_mgmnt.php:78 inc/admin/user_mgmnt.php:230
-#: inc/admin/user_mgmnt.php:13 inc/admin/user_mgmnt.php:77
-#: inc/admin/user_mgmnt.php:229
-msgid "Add user"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:16 inc/admin/user_mgmnt.php:138
-#: inc/admin/user_mgmnt.php:247 lib/lib_init1.php:21 lib/lib_init1.php:24
-#: inc/admin/user_mgmnt.php:139 inc/admin/user_mgmnt.php:15
-#: inc/admin/user_mgmnt.php:128 inc/admin/user_mgmnt.php:227
-#: inc/admin/user_mgmnt.php:14 inc/admin/user_mgmnt.php:127
-#: inc/admin/user_mgmnt.php:226
-msgid "Administrator"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:21 inc/admin/user_mgmnt.php:55
-#: inc/user/sms_template.php:27 inc/user/sms_template.php:157
-#: inc/user/user_pref.php:95 inc/user/user_pref.php:116
-#: inc/user/user_pref.php:112 inc/user/user_pref.php:113
-#: inc/admin/user_mgmnt.php:20 inc/admin/user_mgmnt.php:51
-#: inc/user/user_pref.php:119 inc/admin/user_mgmnt.php:19
-#: inc/admin/user_mgmnt.php:50
-msgid "Name"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:22 inc/admin/user_mgmnt.php:56
-#: inc/admin/user_mgmnt.php:154 inc/admin/user_mgmnt.php:262
-#: inc/user/user_pref.php:96 inc/user/user_pref.php:117
-#: inc/user/user_pref.php:113 inc/user/user_pref.php:114
-#: inc/admin/user_mgmnt.php:155 inc/admin/user_mgmnt.php:21
-#: inc/admin/user_mgmnt.php:52 inc/admin/user_mgmnt.php:143
-#: inc/admin/user_mgmnt.php:241 inc/user/user_pref.php:120
-#: inc/admin/user_mgmnt.php:20 inc/admin/user_mgmnt.php:51
-#: inc/admin/user_mgmnt.php:142 inc/admin/user_mgmnt.php:240
-msgid "Email"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:23 inc/admin/user_mgmnt.php:57
-#: inc/admin/user_mgmnt.php:157 inc/admin/user_mgmnt.php:265
-#: inc/user/user_pref.php:97 inc/user/user_pref.php:118
-#: inc/user/user_pref.php:114 inc/user/user_pref.php:115
-#: inc/admin/user_mgmnt.php:158 inc/admin/user_mgmnt.php:22
-#: inc/admin/user_mgmnt.php:53 inc/admin/user_mgmnt.php:146
-#: inc/admin/user_mgmnt.php:244 inc/user/user_pref.php:121
-#: inc/admin/user_mgmnt.php:21 inc/admin/user_mgmnt.php:52
-#: inc/admin/user_mgmnt.php:145 inc/admin/user_mgmnt.php:243
-msgid "Mobile"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:24 inc/admin/user_mgmnt.php:58
-#: inc/admin/user_mgmnt.php:172 inc/admin/user_mgmnt.php:280
-#: inc/user/user_pref.php:109 inc/user/user_pref.php:130
-#: inc/user/user_pref.php:126 inc/user/user_pref.php:127
-#: inc/admin/user_mgmnt.php:173 inc/admin/user_mgmnt.php:23
-#: inc/admin/user_mgmnt.php:54 inc/admin/user_mgmnt.php:161
-#: inc/admin/user_mgmnt.php:259 inc/user/user_pref.php:133
-#: inc/admin/user_mgmnt.php:22 inc/admin/user_mgmnt.php:53
-#: inc/admin/user_mgmnt.php:160 inc/admin/user_mgmnt.php:258
-msgid "Credit"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:36 inc/admin/user_mgmnt.php:33
-#: inc/admin/user_mgmnt.php:32
-msgid "Are you sure you want to delete user ?"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:50 inc/admin/user_mgmnt.php:139
-#: inc/admin/user_mgmnt.php:140 inc/admin/user_mgmnt.php:46
-#: inc/admin/user_mgmnt.php:129 inc/admin/user_mgmnt.php:45
-#: inc/admin/user_mgmnt.php:128
-msgid "Normal user"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:70 inc/admin/user_mgmnt.php:64
-#: inc/admin/user_mgmnt.php:63
-msgid "Are you sure you want to delete user"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:93 inc/admin/user_mgmnt.php:83
-#: inc/admin/user_mgmnt.php:82
-msgid "Fail to delete user"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:99 inc/admin/user_mgmnt.php:87
-#: inc/admin/user_mgmnt.php:86
-msgid "User has been deleted"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:104 inc/admin/user_mgmnt.php:91
-#: inc/admin/user_mgmnt.php:90
-msgid "User is immune to deletion"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:108 inc/admin/user_mgmnt.php:93
-#: inc/admin/user_mgmnt.php:92
-msgid "Currently logged in user is immune to deletion"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:151 inc/admin/user_mgmnt.php:259
-#: inc/admin/user_mgmnt.php:152 inc/admin/user_mgmnt.php:140
-#: inc/admin/user_mgmnt.php:238 inc/admin/user_mgmnt.php:139
-#: inc/admin/user_mgmnt.php:237
-msgid "Full name"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:157 inc/admin/user_mgmnt.php:160
-#: inc/admin/user_mgmnt.php:265 inc/admin/user_mgmnt.php:268
-#: inc/user/user_pref.php:97 inc/user/user_pref.php:107
-#: inc/user/user_pref.php:118 inc/user/user_pref.php:128
-#: inc/user/user_pref.php:114 inc/user/user_pref.php:124
-#: inc/user/user_pref.php:115 inc/user/user_pref.php:125
-#: inc/admin/user_mgmnt.php:158 inc/admin/user_mgmnt.php:161
-#: inc/admin/user_mgmnt.php:146 inc/admin/user_mgmnt.php:149
-#: inc/admin/user_mgmnt.php:244 inc/admin/user_mgmnt.php:247
-#: inc/user/user_pref.php:121 inc/user/user_pref.php:131
-#: inc/admin/user_mgmnt.php:145 inc/admin/user_mgmnt.php:148
-#: inc/admin/user_mgmnt.php:243 inc/admin/user_mgmnt.php:246
-msgid "Max. 16 numeric or 11 alphanumeric characters"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:160 inc/admin/user_mgmnt.php:268
-#: inc/user/send_sms.php:78 inc/user/send_sms.php:227
-#: inc/user/user_pref.php:107 inc/user/user_pref.php:128
-#: inc/user/send_sms.php:228 inc/user/user_pref.php:124
-#: inc/user/user_pref.php:125 inc/admin/user_mgmnt.php:161
-#: inc/user/send_sms.php:72 inc/user/send_sms.php:218
-#: inc/admin/user_mgmnt.php:149 inc/admin/user_mgmnt.php:247
-#: inc/user/user_pref.php:131 inc/admin/user_mgmnt.php:148
-#: inc/admin/user_mgmnt.php:246
-msgid "SMS sender ID"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:163 inc/admin/user_mgmnt.php:271
-#: inc/user/send_sms.php:79 inc/user/send_sms.php:228
-#: inc/user/user_pref.php:108 inc/user/user_pref.php:129
-#: inc/user/send_sms.php:229 inc/user/user_pref.php:125
-#: inc/user/user_pref.php:126 inc/admin/user_mgmnt.php:164
-#: inc/user/send_sms.php:73 inc/user/send_sms.php:219
-#: inc/admin/user_mgmnt.php:152 inc/admin/user_mgmnt.php:250
-#: inc/user/user_pref.php:132 inc/admin/user_mgmnt.php:151
-#: inc/admin/user_mgmnt.php:249
-msgid "SMS footer"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:163 inc/admin/user_mgmnt.php:271
-#: inc/user/user_pref.php:108 inc/user/user_pref.php:129
-#: inc/user/user_pref.php:125 inc/user/user_pref.php:126
-#: inc/admin/user_mgmnt.php:164 inc/admin/user_mgmnt.php:152
-#: inc/admin/user_mgmnt.php:250 inc/user/user_pref.php:132
-#: inc/admin/user_mgmnt.php:151 inc/admin/user_mgmnt.php:249
-msgid "Max. 30 alphanumeric characters"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:166 inc/admin/user_mgmnt.php:274
-#: inc/user/user_pref.php:106 inc/user/user_pref.php:127
-#: inc/user/user_pref.php:123 inc/user/user_pref.php:124
-#: inc/admin/user_mgmnt.php:167 inc/admin/user_mgmnt.php:155
-#: inc/admin/user_mgmnt.php:253 inc/user/user_pref.php:130
-#: inc/admin/user_mgmnt.php:154 inc/admin/user_mgmnt.php:252
-msgid "Timezone"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:169 inc/admin/user_mgmnt.php:170
-#: inc/admin/user_mgmnt.php:158 inc/admin/user_mgmnt.php:157
-msgid "Fill to change password for username"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:175 inc/admin/user_mgmnt.php:283
-#: inc/admin/user_mgmnt.php:176 inc/admin/user_mgmnt.php:164
-#: inc/admin/user_mgmnt.php:262 inc/admin/user_mgmnt.php:163
-#: inc/admin/user_mgmnt.php:261
-msgid "User level"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:178 inc/admin/user_mgmnt.php:286
-#: inc/user/user_pref.php:103 inc/user/user_pref.php:124
-#: inc/user/user_pref.php:120 inc/user/user_pref.php:121
-#: inc/admin/user_mgmnt.php:179 inc/admin/user_mgmnt.php:167
-#: inc/admin/user_mgmnt.php:265 inc/user/user_pref.php:127
-#: inc/admin/user_mgmnt.php:166 inc/admin/user_mgmnt.php:264
-msgid "Active language"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:199 inc/user/user_pref.php:144
-#: inc/user/user_pref.php:171 inc/user/user_pref.php:162
-#: inc/user/user_pref.php:163 inc/admin/user_mgmnt.php:186
-#: inc/user/user_pref.php:168 inc/admin/user_mgmnt.php:185
-msgid "No changes made"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:206 inc/user/user_pref.php:152
-#: inc/user/user_pref.php:179 inc/user/user_pref.php:170
-#: inc/user/user_pref.php:171 inc/admin/user_mgmnt.php:194
-#: inc/user/user_pref.php:177 inc/admin/user_mgmnt.php:193
-msgid "Email is already in use by other username"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:206 inc/user/user_pref.php:152
-#: inc/user/user_pref.php:179 inc/user/user_pref.php:170
-#: inc/user/user_pref.php:171 lib/fn_auth.php:230 inc/admin/user_mgmnt.php:194
-#: inc/user/user_pref.php:177 lib/fn_auth.php:172 inc/admin/user_mgmnt.php:193
-msgid "email"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:219 inc/user/user_pref.php:178
-#: inc/user/user_pref.php:205 inc/user/user_pref.php:195
-#: inc/user/user_pref.php:196 inc/admin/user_mgmnt.php:203
-#: inc/user/user_pref.php:206 inc/admin/user_mgmnt.php:202
-msgid "Preferences has been saved"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:223 inc/user/user_pref.php:183
-#: inc/user/user_pref.php:210 inc/user/user_pref.php:200
-#: inc/user/user_pref.php:201 inc/admin/user_mgmnt.php:205
-#: inc/user/user_pref.php:209 inc/admin/user_mgmnt.php:204
-msgid "Fail to save preferences"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:229 inc/user/user_pref.php:189
-#: inc/user/user_pref.php:216 inc/user/user_pref.php:206
-#: inc/user/user_pref.php:207 inc/admin/user_mgmnt.php:209
-#: inc/user/user_pref.php:213 inc/admin/user_mgmnt.php:208
-msgid "You must fill all field"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:248 lib/lib_init1.php:21 lib/lib_init1.php:24
-#: inc/admin/user_mgmnt.php:228 inc/admin/user_mgmnt.php:227
-msgid "Normal User"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:290 inc/admin/user_mgmnt.php:269
-#: inc/admin/user_mgmnt.php:268
-msgid "Add"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:330 inc/admin/user_mgmnt.php:303
-#: inc/admin/user_mgmnt.php:302
-msgid "You must fill all fields"
-msgstr ""
-
-#: inc/admin/all_incoming.php:36 inc/user/user_incoming.php:35
-msgid "Keyword"
-msgstr ""
-
-#: inc/admin/all_incoming.php:37 inc/user/sms_template.php:28
-#: inc/user/sms_template.php:158 inc/user/user_incoming.php:36
-msgid "Content"
-msgstr ""
-
-#: inc/admin/all_incoming.php:67 inc/user/user_incoming.php:65
-msgid "handled"
-msgstr ""
-
-#: inc/admin/all_incoming.php:67 inc/user/user_incoming.php:65
-msgid "unhandled"
-msgstr ""
-
-#: inc/user/sms_template.php:21 inc/user/sms_template.php:62
-#: inc/user/sms_template.php:71
-msgid "Add message template"
-msgstr ""
-
-#: inc/user/sms_template.php:56
-msgid "Select action"
-msgstr ""
-
-#: inc/user/sms_template.php:59
-msgid "Go"
-msgstr ""
-
-#: inc/user/sms_template.php:76 inc/user/sms_template.php:114
-msgid "Message template name"
-msgstr ""
-
-#: inc/user/sms_template.php:79 inc/user/sms_template.php:117
-msgid "Message template content"
-msgstr ""
-
-#: inc/user/sms_template.php:82 inc/user/sms_template.php:120
-msgid "Save template"
-msgstr ""
-
-#: inc/user/sms_template.php:84 inc/user/sms_template.php:123
-#: inc/user/sms_template.php:186
-msgid "Back"
-msgstr ""
-
-#: inc/user/sms_template.php:96
-msgid "Message template has been saved"
-msgstr ""
-
-#: inc/user/sms_template.php:109
-msgid "Edit message template"
-msgstr ""
-
-#: inc/user/sms_template.php:135
-msgid "Message template has been edited"
-msgstr ""
-
-#: inc/user/sms_template.php:139
-msgid "Fail to edit message template"
-msgstr ""
-
-#: inc/user/sms_template.php:151
-msgid "Delete message template"
-msgstr ""
-
-#: inc/user/sms_template.php:184
-msgid "Delete all templates ?"
-msgstr ""
-
-#: inc/user/sms_template.php:202
-msgid "Selected message template has been deleted"
-msgstr ""
-
-#: inc/user/send_sms.php:26 inc/user/send_sms.php:185
-#: inc/user/send_sms.php:186 inc/user/send_sms.php:182
-msgid "shared by"
-msgstr ""
-
-#: inc/user/send_sms.php:38 inc/user/send_sms.php:196
-#: inc/user/send_sms.php:197 inc/user/send_sms.php:32
-#: inc/user/send_sms.php:187
-msgid "not set"
-msgstr ""
-
-#: inc/user/send_sms.php:54 inc/user/send_sms.php:203
-#: inc/user/user_pref.php:65 inc/user/user_pref.php:86
-#: inc/user/send_sms.php:204 inc/user/user_pref.php:82
-#: inc/user/send_sms.php:48 inc/user/send_sms.php:194
-#: inc/user/user_pref.php:89
-msgid "Please select"
-msgstr ""
-
-#: inc/user/send_sms.php:84 inc/user/send_sms.php:78
-msgid "Phone number(s)"
-msgstr ""
-
-#: inc/user/send_sms.php:90 inc/user/send_sms.php:92 inc/user/send_sms.php:84
-#: inc/user/send_sms.php:86
-msgid "All"
-msgstr ""
-
-#: inc/user/send_sms.php:96 inc/user/send_sms.php:90
-msgid "Send to"
-msgstr ""
-
-#: inc/user/send_sms.php:101 inc/user/send_sms.php:231
-#: inc/user/send_sms.php:232 inc/user/send_sms.php:95
-#: inc/user/send_sms.php:222
-msgid "Or"
-msgstr ""
-
-#: inc/user/send_sms.php:101 inc/user/send_sms.php:95
-msgid "International format"
-msgstr ""
-
-#: inc/user/send_sms.php:103 inc/user/send_sms.php:233
-#: inc/user/send_sms.php:234 inc/user/send_sms.php:97
-#: inc/user/send_sms.php:224
-msgid "Use template"
-msgstr ""
-
-#: inc/user/send_sms.php:104 inc/user/send_sms.php:234
-#: inc/user/send_sms.php:235 inc/user/send_sms.php:98
-#: inc/user/send_sms.php:225
-msgid "Your message"
-msgstr ""
-
-#: inc/user/send_sms.php:106 inc/user/send_sms.php:236
-#: inc/user/send_sms.php:237 inc/user/send_sms.php:100
-#: inc/user/send_sms.php:227
-msgid "SMS character"
-msgstr ""
-
-#: inc/user/send_sms.php:109 inc/user/send_sms.php:239
-#: inc/user/send_sms.php:240 inc/user/send_sms.php:106
-#: inc/user/send_sms.php:233
-msgid "Send as flash message"
-msgstr ""
-
-#: inc/user/send_sms.php:110 inc/user/send_sms.php:240
-#: inc/user/send_sms.php:241 inc/user/send_sms.php:107
-#: inc/user/send_sms.php:234
-msgid "Send as unicode message (http://www.unicode.org)"
-msgstr ""
-
-#: inc/user/send_sms.php:111 inc/user/send_sms.php:241
-#: inc/user/send_sms.php:242 inc/user/send_sms.php:108
-#: inc/user/send_sms.php:235
-msgid "Send"
-msgstr ""
-
-#: inc/user/send_sms.php:141 inc/user/send_sms.php:160
-#: inc/user/send_sms.php:285 inc/user/send_sms.php:142
-#: inc/user/send_sms.php:161 inc/user/send_sms.php:287
-#: inc/user/send_sms.php:138 inc/user/send_sms.php:157
-#: inc/user/send_sms.php:280
-msgid "Your SMS has been delivered to queue"
-msgstr ""
-
-#: inc/user/send_sms.php:143 inc/user/send_sms.php:144
-#: inc/user/send_sms.php:140
-msgid "Fail to sent SMS"
-msgstr ""
-
-#: inc/user/send_sms.php:160 inc/user/send_sms.php:285
-#: inc/user/send_sms.php:161 inc/user/send_sms.php:287
-#: inc/user/send_sms.php:157 inc/user/send_sms.php:280
-msgid "queued"
-msgstr ""
-
-#: inc/user/send_sms.php:160 inc/user/send_sms.php:285
-#: inc/user/send_sms.php:161 inc/user/send_sms.php:287
-#: inc/user/send_sms.php:157 inc/user/send_sms.php:280
-msgid "failed"
-msgstr ""
-
-#: inc/user/send_sms.php:166 inc/user/send_sms.php:167
-#: inc/user/send_sms.php:163
-msgid "You must select receiver and your message should not be empty"
-msgstr ""
-
-#: inc/user/send_sms.php:230 inc/user/send_sms.php:231
-#: inc/user/send_sms.php:221
-msgid "Send to group"
-msgstr ""
-
-#: inc/user/send_sms.php:231 inc/user/send_sms.php:232
-#: inc/user/send_sms.php:222
-msgid "Group code"
-msgstr ""
-
-#: inc/user/send_sms.php:290 inc/user/send_sms.php:292
-#: inc/user/send_sms.php:285
-msgid "You must select receiver group and your message should not be empty"
-msgstr ""
-
-#: inc/user/user_outgoing.php:115 inc/user/user_outgoing.php:116
-msgid "number"
-msgstr ""
-
-#: inc/user/user_pref.php:89 inc/user/user_pref.php:110
-#: inc/user/user_pref.php:106 inc/user/user_pref.php:107
-#: inc/user/user_pref.php:113
-msgid "Login information"
-msgstr ""
-
-#: inc/user/user_pref.php:92 inc/user/user_pref.php:113
-#: inc/user/user_pref.php:109 inc/user/user_pref.php:110
-#: inc/user/user_pref.php:116
-msgid "Re-Type Password"
-msgstr ""
-
-#: inc/user/user_pref.php:94 inc/user/user_pref.php:115
-#: inc/user/user_pref.php:111 inc/user/user_pref.php:112
-#: inc/user/user_pref.php:118
-msgid "Personal information"
-msgstr ""
-
-#: inc/user/user_pref.php:98 inc/user/user_pref.php:119
-#: inc/user/user_pref.php:115 inc/user/user_pref.php:116
-#: inc/user/user_pref.php:122
-msgid "Address"
-msgstr ""
-
-#: inc/user/user_pref.php:99 inc/user/user_pref.php:120
-#: inc/user/user_pref.php:116 inc/user/user_pref.php:117
-#: inc/user/user_pref.php:123
-msgid "City"
-msgstr ""
-
-#: inc/user/user_pref.php:100 inc/user/user_pref.php:121
-#: inc/user/user_pref.php:117 inc/user/user_pref.php:118
-#: inc/user/user_pref.php:124
-msgid "State or Province"
-msgstr ""
-
-#: inc/user/user_pref.php:101 inc/user/user_pref.php:122
-#: inc/user/user_pref.php:118 inc/user/user_pref.php:119
-#: inc/user/user_pref.php:125
-msgid "Country"
-msgstr ""
-
-#: inc/user/user_pref.php:102 inc/user/user_pref.php:123
-#: inc/user/user_pref.php:119 inc/user/user_pref.php:120
-#: inc/user/user_pref.php:126
-msgid "Zipcode"
-msgstr ""
-
-#: inc/user/user_pref.php:105
-msgid "Application information"
-msgstr ""
-
-#: inc/user/user_pref.php:110 inc/user/user_pref.php:131
-#: inc/user/user_pref.php:127 inc/user/user_pref.php:128
-#: inc/user/user_pref.php:134
-msgid "Forward PV to inbox"
-msgstr ""
-
-#: inc/user/user_pref.php:111 inc/user/user_pref.php:132
-#: inc/user/user_pref.php:128 inc/user/user_pref.php:129
-#: inc/user/user_pref.php:135
-msgid "Forward PV to email"
-msgstr ""
-
-#: inc/user/user_pref.php:112 inc/user/user_pref.php:133
-#: inc/user/user_pref.php:129 inc/user/user_pref.php:130
-#: inc/user/user_pref.php:136
-msgid "Forward PV to mobile"
-msgstr ""
-
-#: inc/user/user_pref.php:174 inc/user/user_pref.php:201
-#: inc/user/user_pref.php:191 inc/user/user_pref.php:192
-#: inc/user/user_pref.php:204
-msgid "Preferences has been saved and password updated"
-msgstr ""
-
-#: inc/user/user_pref.php:126 inc/user/user_pref.php:122
-#: inc/user/user_pref.php:123 inc/user/user_pref.php:129
-msgid "Application options"
-msgstr ""
-
-#: inc/user/user_pref.php:134 inc/user/user_pref.php:130
-#: inc/user/user_pref.php:131 inc/user/user_pref.php:137
-msgid "Auto replace prefix 0"
-msgstr ""
-
-#: inc/user/user_pref.php:134 inc/user/user_pref.php:130
-#: inc/user/user_pref.php:131 inc/user/user_pref.php:137
-msgid "Prefix or country code"
-msgstr ""
-
-#: inc/user/user_pref.php:135 inc/user/user_pref.php:131
-#: inc/user/user_pref.php:132 inc/user/user_pref.php:138
-msgid "Auto remove plus sign"
-msgstr ""
-
-#: inc/user/user_pref.php:136 inc/user/user_pref.php:132
-#: inc/user/user_pref.php:133 inc/user/user_pref.php:139
-msgid "Always add plus sign"
-msgstr ""
-
-#: inc/user/user_pref.php:95 inc/user/user_pref.php:100
-msgid "Default"
-msgstr ""
-
-#: lib/lib_init1.php:63
 msgid "About"
 msgstr ""
 
-#: lib/fn_auth.php:240 inc/user/user_pref.php:185 lib/fn_auth.php:182
-msgid "mobile"
-msgstr ""
-
-#: inc/user/page_welcome.php:6
-msgid "Welcome to playSMS"
-msgstr ""
-
-#: inc/user/page_welcome.php:8
 msgid "About playSMS"
 msgstr ""
 
-#: inc/user/page_welcome.php:9
+msgid "Action"
+msgstr ""
+
+msgid "Active gateway module"
+msgstr ""
+
+msgid "Active language"
+msgstr ""
+
+msgid "Active themes"
+msgstr ""
+
+msgid "Add"
+msgstr ""
+
+msgid "Add message template"
+msgstr ""
+
+msgid "Add user"
+msgstr ""
+
+msgid "Address"
+msgstr ""
+
+msgid "Administration"
+msgstr ""
+
+msgid "Administrator"
+msgstr ""
+
+msgid "All"
+msgstr ""
+
+msgid "All Inbox"
+msgstr ""
+
+msgid "All inbox"
+msgstr ""
+
+msgid "All incoming SMS"
+msgstr ""
+
+msgid "All outgoing SMS"
+msgstr ""
+
+msgid "Always add plus sign"
+msgstr ""
+
+msgid "Application information"
+msgstr ""
+
+msgid "Application options"
+msgstr ""
+
+msgid "Are you sure you want to delete outgoing SMS ?"
+msgstr ""
+
+msgid "Are you sure you want to delete this SMS ?"
+msgstr ""
+
+msgid "Are you sure you want to delete user"
+msgstr ""
+
+msgid "Are you sure you want to delete user ?"
+msgstr ""
+
+msgid "Auto remove plus sign"
+msgstr ""
+
+msgid "Auto replace prefix 0"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
 msgid "Changelog"
 msgstr ""
 
-#: inc/user/page_welcome.php:10
-msgid "Installation Guide"
+msgid "City"
 msgstr ""
 
-#: inc/user/page_welcome.php:11
+msgid "Content"
+msgstr ""
+
+msgid "Country"
+msgstr ""
+
+msgid "Credit"
+msgstr ""
+
+msgid "Currently logged in user is immune to deletion"
+msgstr ""
+
+msgid "Date time"
+msgstr ""
+
+msgid "Default"
+msgstr ""
+
+msgid "Default SMS rate"
+msgstr ""
+
+msgid "Default credit for user"
+msgstr ""
+
+msgid "Default language"
+msgstr ""
+
+msgid "Default sender ID"
+msgstr ""
+
+msgid "Default timezone"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Delete all templates ?"
+msgstr ""
+
+msgid "Delete message template"
+msgstr ""
+
+msgid "Delete selection"
+msgstr ""
+
+msgid "Delivered"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Edit message template"
+msgstr ""
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Email is already in use by other username"
+msgstr ""
+
+msgid "Enable forgot password"
+msgstr ""
+
+msgid "Enable public registration"
+msgstr ""
+
 msgid "F.A.Q"
 msgstr ""
 
-#: inc/user/page_welcome.php:12
-msgid "License"
+msgid "Fail to delete SMS"
 msgstr ""
 
-#: inc/user/page_welcome.php:13
+msgid "Fail to delete incoming SMS"
+msgstr ""
+
+msgid "Fail to delete user"
+msgstr ""
+
+msgid "Fail to edit message template"
+msgstr ""
+
+msgid "Fail to recover password"
+msgstr ""
+
+msgid "Fail to register an account"
+msgstr ""
+
+msgid "Fail to save preferences"
+msgstr ""
+
+msgid "Fail to send email"
+msgstr ""
+
+msgid "Fail to sent SMS"
+msgstr ""
+
+msgid "Failed"
+msgstr ""
+
+msgid "Feature"
+msgstr ""
+
+msgid "Fill to change password for username"
+msgstr ""
+
+msgid "Forward PV to email"
+msgstr ""
+
+msgid "Forward PV to inbox"
+msgstr ""
+
+msgid "Forward PV to mobile"
+msgstr ""
+
+msgid "Forward Private WebSMS"
+msgstr ""
+
+msgid "Forwarded email footer"
+msgstr ""
+
+msgid "From"
+msgstr ""
+
+msgid "Full name"
+msgstr ""
+
+msgid "Gateway"
+msgstr ""
+
+msgid "Go"
+msgstr ""
+
+msgid "Group"
+msgstr ""
+
+msgid "Group code"
+msgstr ""
+
 msgid "HTTP API"
 msgstr ""
 
-#: inc/user/user_pref.php:185
+msgid "Home"
+msgstr ""
+
+msgid "Inbox"
+msgstr ""
+
+msgid "Incoming SMS"
+msgstr ""
+
+msgid "Installation Guide"
+msgstr ""
+
+msgid "International format"
+msgstr ""
+
+msgid "Invalid username or password"
+msgstr ""
+
+msgid "Keyword"
+msgstr ""
+
+msgid "License"
+msgstr ""
+
+msgid "Login information"
+msgstr ""
+
+msgid "Logout"
+msgstr ""
+
+msgid "Main configuration"
+msgstr ""
+
+msgid "Main configuration changes has been saved"
+msgstr ""
+
+msgid "Manage"
+msgstr ""
+
+msgid "Manage user"
+msgstr ""
+
+msgid "Max. 16 numeric or 11 alphanumeric characters"
+msgstr ""
+
+msgid "Max. 30 alphanumeric characters"
+msgstr ""
+
+msgid "Maximum SMS count"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Message template"
+msgstr ""
+
+msgid "Message template content"
+msgstr ""
+
+msgid "Message template has been edited"
+msgstr ""
+
+msgid "Message template has been saved"
+msgstr ""
+
+msgid "Message template name"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
 msgid "Mobile is already in use by other username"
 msgstr ""
 
-#: inc/user/send_sms.php:95
 msgid "Mobile number"
+msgstr ""
+
+msgid "My Account"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "New account registration"
+msgstr ""
+
+msgid "No changes made"
+msgstr ""
+
+msgid "Normal User"
+msgstr ""
+
+msgid "Normal user"
+msgstr ""
+
+msgid "Or"
+msgstr ""
+
+msgid "Outgoing SMS"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Password has been sent to your email"
+msgstr ""
+
+msgid "Password recovery"
+msgstr ""
+
+msgid "Pending"
+msgstr ""
+
+msgid "Personal information"
+msgstr ""
+
+msgid "Phone number(s)"
+msgstr ""
+
+msgid "Phonebook"
+msgstr ""
+
+msgid "Pick Date & Time"
+msgstr ""
+
+msgid "Please select"
+msgstr ""
+
+msgid "Please select template"
+msgstr ""
+
+msgid "Preferences"
+msgstr ""
+
+msgid "Preferences has been saved"
+msgstr ""
+
+msgid "Preferences has been saved and password updated"
+msgstr ""
+
+msgid "Prefix or country code"
+msgstr ""
+
+msgid "Public registration disabled"
+msgstr ""
+
+msgid "Re-Type Password"
+msgstr ""
+
+msgid "Receiver"
+msgstr ""
+
+msgid "Recover password disabled"
+msgstr ""
+
+msgid "Reply"
+msgstr ""
+
+msgid "SMS character"
+msgstr ""
+
+msgid "SMS footer"
+msgstr ""
+
+msgid "SMS sender ID"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Save template"
+msgstr ""
+
+msgid "Select action"
+msgstr ""
+
+msgid "Selected incoming SMS has been deleted"
+msgstr ""
+
+msgid "Selected message template has been deleted"
+msgstr ""
+
+msgid "Selected outgoing SMS has been deleted"
+msgstr ""
+
+msgid "Send"
+msgstr ""
+
+msgid "Send SMS"
+msgstr ""
+
+msgid "Send as flash message"
+msgstr ""
+
+msgid "Send as unicode message (http://www.unicode.org)"
+msgstr ""
+
+msgid "Send broadcast SMS"
+msgstr ""
+
+msgid "Send to"
+msgstr ""
+
+msgid "Send to group"
+msgstr ""
+
+msgid "Sender"
+msgstr ""
+
+msgid "Sent"
+msgstr ""
+
+msgid "State or Province"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "Timezone"
+msgstr ""
+
+msgid "To"
+msgstr ""
+
+msgid "Tools"
+msgstr ""
+
+msgid "Unable to update login session"
+msgstr ""
+
+msgid "Use"
+msgstr ""
+
+msgid "Use template"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "User has been added"
+msgstr ""
+
+msgid "User has been deleted"
+msgstr ""
+
+msgid "User is already exists"
+msgstr ""
+
+msgid "User is immune to deletion"
+msgstr ""
+
+msgid "User level"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "View"
+msgstr ""
+
+msgid "Website email"
+msgstr ""
+
+msgid "Website title"
+msgstr ""
+
+msgid "Welcome to playSMS"
+msgstr ""
+
+msgid "You have been logged out"
+msgstr ""
+
+msgid "You have no access to this page"
+msgstr ""
+
+msgid "You must fill all field"
+msgstr ""
+
+msgid "You must fill all fields"
+msgstr ""
+
+msgid "You must select receiver and your message should not be empty"
+msgstr ""
+
+msgid "You must select receiver group and your message should not be empty"
+msgstr ""
+
+msgid "Your SMS has been delivered to queue"
+msgstr ""
+
+msgid "Your message"
+msgstr ""
+
+msgid "Zipcode"
+msgstr ""
+
+msgid "email"
+msgstr ""
+
+msgid "failed"
+msgstr ""
+
+msgid "from"
+msgstr ""
+
+msgid "handled"
+msgstr ""
+
+msgid "mobile"
+msgstr ""
+
+msgid "no"
+msgstr ""
+
+msgid "not set"
+msgstr ""
+
+msgid "number"
+msgstr ""
+
+msgid "queued"
+msgstr ""
+
+msgid "row"
+msgstr ""
+
+msgid "shared by"
+msgstr ""
+
+msgid "to"
+msgstr ""
+
+msgid "unhandled"
+msgstr ""
+
+msgid "username"
+msgstr ""
+
+msgid "yes"
 msgstr ""

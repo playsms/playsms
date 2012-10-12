@@ -16,387 +16,204 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/feature/inboxgroup/inboxgroup.php:27
-#: plugin/feature/inboxgroup/inboxgroup.php:78
-#: plugin/feature/inboxgroup/inboxgroup.php:112
-#: plugin/feature/inboxgroup/inboxgroup.php:159
-#: plugin/feature/inboxgroup/inboxgroup_members.php:17
-#: plugin/feature/inboxgroup/inboxgroup_members.php:100
-#: plugin/feature/inboxgroup/inboxgroup_members.php:188
-#: plugin/feature/inboxgroup/config.php:6
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:17
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:99
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:187
-msgid "Group inbox"
-msgstr "Service boite groupe"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:33
-#: plugin/feature/inboxgroup/inboxgroup.php:72
-#: plugin/feature/inboxgroup/inboxgroup.php:82
-msgid "Add receiver number"
-msgstr "Ajout numéro récepteur"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:38
-#: plugin/feature/inboxgroup/inboxgroup.php:86
-#: plugin/feature/inboxgroup/inboxgroup.php:129
-#: plugin/feature/inboxgroup/inboxgroup.php:177
-#: plugin/feature/inboxgroup/inboxgroup_members.php:34
-#: plugin/feature/inboxgroup/inboxgroup_members.php:117
-#: plugin/feature/inboxgroup/inboxgroup_members.php:205
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:34
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:116
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:204
-msgid "Receiver number"
-msgstr "Numéro récepteur"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:39
-#: plugin/feature/inboxgroup/inboxgroup.php:87
-#: plugin/feature/inboxgroup/inboxgroup.php:130
-#: plugin/feature/inboxgroup/inboxgroup.php:178
-#: plugin/feature/inboxgroup/inboxgroup_members.php:35
-#: plugin/feature/inboxgroup/inboxgroup_members.php:118
-#: plugin/feature/inboxgroup/inboxgroup_members.php:206
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:35
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:117
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:205
-msgid "Keywords"
-msgstr "Mot-clé"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:40
-#: plugin/feature/inboxgroup/inboxgroup.php:180
-#: plugin/feature/inboxgroup/inboxgroup_members.php:37
-#: plugin/feature/inboxgroup/inboxgroup_members.php:120
-#: plugin/feature/inboxgroup/inboxgroup_members.php:208
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:37
-msgid "Members"
-msgstr "Membres"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:41
-#: plugin/feature/inboxgroup/inboxgroup.php:181
-#: plugin/feature/inboxgroup/inboxgroup_members.php:38
-#: plugin/feature/inboxgroup/inboxgroup_members.php:121
-#: plugin/feature/inboxgroup/inboxgroup_members.php:209
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:38
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:120
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:208
-msgid "Catch-all"
-msgstr "Fourre-tout"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:42
-#: plugin/feature/inboxgroup/inboxgroup.php:182
-#: plugin/feature/inboxgroup/inboxgroup_members.php:39
-#: plugin/feature/inboxgroup/inboxgroup_members.php:122
-#: plugin/feature/inboxgroup/inboxgroup_members.php:210
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:39
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:121
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:209
-msgid "Status"
-msgstr "Status"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:43
 msgid "Action"
 msgstr "Action"
 
-#: plugin/feature/inboxgroup/inboxgroup.php:49
-#: plugin/feature/inboxgroup/inboxgroup.php:174
-#: plugin/feature/inboxgroup/inboxgroup_members.php:31
-#: plugin/feature/inboxgroup/inboxgroup_members.php:114
-#: plugin/feature/inboxgroup/inboxgroup_members.php:202
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:31
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:113
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:201
-msgid "enabled"
-msgstr "Activé"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:49
-#: plugin/feature/inboxgroup/inboxgroup.php:174
-#: plugin/feature/inboxgroup/inboxgroup_members.php:31
-#: plugin/feature/inboxgroup/inboxgroup_members.php:114
-#: plugin/feature/inboxgroup/inboxgroup_members.php:202
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:31
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:113
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:201
-msgid "disabled"
-msgstr "désactivé"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:86
-msgid "For example a short code"
-msgstr "Shortcode par exemple"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:87
-#: plugin/feature/inboxgroup/inboxgroup.php:130
-msgid "Seperate with comma for multiple items"
-msgstr "éléments separés par une virgule"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:88
-#: plugin/feature/inboxgroup/inboxgroup.php:131
-#: plugin/feature/inboxgroup/inboxgroup.php:179
-#: plugin/feature/inboxgroup/inboxgroup_members.php:36
-#: plugin/feature/inboxgroup/inboxgroup_members.php:119
-#: plugin/feature/inboxgroup/inboxgroup_members.php:207
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:36
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:118
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:206
-msgid "Description"
-msgstr "Description"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:90
-#: plugin/feature/inboxgroup/inboxgroup.php:134
-msgid "Submit"
-msgstr "valider"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:101
-msgid "Receiver number has been added"
-msgstr "Numéro de récepteur ajouté"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:101
-#: plugin/feature/inboxgroup/inboxgroup.php:103
-#: plugin/feature/inboxgroup/inboxgroup.php:148
-#: plugin/feature/inboxgroup/inboxgroup.php:150
-#: plugin/feature/inboxgroup/inboxgroup.php:201
-#: plugin/feature/inboxgroup/inboxgroup.php:203
-#: plugin/feature/inboxgroup/inboxgroup.php:217
-#: plugin/feature/inboxgroup/inboxgroup.php:219
-#: plugin/feature/inboxgroup/inboxgroup.php:233
-#: plugin/feature/inboxgroup/inboxgroup.php:235
-msgid "Number"
-msgstr "Numéro"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:103
-msgid "Fail to add receiver number"
-msgstr "Echec d'ajout de numéro récepteur"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:106
-#: plugin/feature/inboxgroup/inboxgroup.php:153
-msgid "You must fill all fields"
-msgstr "Vous devez remplir tous les champs"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:116
-msgid "Edit receiver number"
-msgstr "Editer numéro récepteur"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:124
-msgid "yes"
-msgstr "oui"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:124
-msgid "no"
-msgstr "non"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:132
-msgid "Exclusive"
-msgstr "Exclusive"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:132
-msgid "Restrict sender to regular members or catch-all members only"
-msgstr "Membres réguliers ou aux membres du fourre-tout uniquement"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:148
-msgid "Receiver number has been edited"
-msgstr "Numéro de récepteur édité"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:150
-msgid "Fail to edit receiver number"
-msgstr "Echec d'édition du numéro récepteur"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:163
-msgid "Delete receiver number"
-msgstr "Supprimer numéro récepteur"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:184
-msgid "Are you sure you want to delete this receiver number ?"
-msgstr "Voulez-vous supprimer le numéro récepteur ?"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:187
-msgid "Yes"
-msgstr "Oui"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:190
-msgid "Cancel"
-msgstr "Annuler"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:201
-msgid "Receiver number has been deleted"
-msgstr "Numéro récepteur supprimé"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:203
-msgid "Fail to delete receiver number"
-msgstr "Echec de suppression numéro récepteur"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:206
-#: plugin/feature/inboxgroup/inboxgroup.php:222
-#: plugin/feature/inboxgroup/inboxgroup.php:238
-#: plugin/feature/inboxgroup/inboxgroup_members.php:182
-#: plugin/feature/inboxgroup/inboxgroup_members.php:270
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:181
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:269
-msgid "Receiver number does not exists"
-msgstr "Numéro de récepteur non existant"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:217
-msgid "Receiver number has been enabled"
-msgstr "Numéro récepteur activé"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:219
-msgid "Fail to enable receiver number"
-msgstr "Echec d'activation du numéro récepteur"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:233
-msgid "Receiver number has been disabled"
-msgstr "Numéro récepteur désactivé"
-
-#: plugin/feature/inboxgroup/inboxgroup.php:235
-msgid "Fail to disable receiver number"
-msgstr "Echec de suppression numéro récepteur"
-
-#: plugin/feature/inboxgroup/inboxgroup_members.php:21
-msgid "Member list"
-msgstr "Liste des membres"
-
-#: plugin/feature/inboxgroup/inboxgroup_members.php:45
-#: plugin/feature/inboxgroup/inboxgroup_members.php:86
-#: plugin/feature/inboxgroup/inboxgroup_members.php:104
-msgid "Add member"
-msgstr "Ajouter membre"
-
-#: plugin/feature/inboxgroup/inboxgroup_members.php:50
-#: plugin/feature/inboxgroup/inboxgroup_members.php:91
-msgid "Delete member"
-msgstr "Supprimer membre"
-
-#: plugin/feature/inboxgroup/inboxgroup_members.php:58
-#: plugin/feature/inboxgroup/inboxgroup_members.php:176
-#: plugin/feature/inboxgroup/inboxgroup_members.php:178
-#: plugin/feature/inboxgroup/inboxgroup_members.php:264
-#: plugin/feature/inboxgroup/inboxgroup_members.php:266
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:58
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:175
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:177
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:263
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:265
-msgid "Username"
-msgstr "Login"
-
-#: plugin/feature/inboxgroup/inboxgroup_members.php:59
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:59
-msgid "Name"
-msgstr "Nom"
-
-#: plugin/feature/inboxgroup/inboxgroup_members.php:60
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:60
-msgid "Mobile"
-msgstr "Mobile"
-
-#: plugin/feature/inboxgroup/inboxgroup_members.php:142
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:141
-msgid "All users"
-msgstr "Utilisateurs"
-
-#: plugin/feature/inboxgroup/inboxgroup_members.php:148
-#: plugin/feature/inboxgroup/inboxgroup_members.php:150
-#: plugin/feature/inboxgroup/inboxgroup_members.php:236
-#: plugin/feature/inboxgroup/inboxgroup_members.php:238
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:147
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:149
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:235
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:237
-msgid "All"
-msgstr "Tous"
-
-#: plugin/feature/inboxgroup/inboxgroup_members.php:154
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:153
-msgid "Selected users"
-msgstr "Utilisateurs Sélectionnés"
-
-#: plugin/feature/inboxgroup/inboxgroup_members.php:159
-msgid "Press submit button to add selected users to member list"
-msgstr "Appuer valider pour ajouter les utilisateurs sélectionnés"
-
-#: plugin/feature/inboxgroup/inboxgroup_members.php:176
-msgid "Member has been added"
-msgstr "Membre ajouté"
-
-#: plugin/feature/inboxgroup/inboxgroup_members.php:178
-msgid "Fail to add member"
-msgstr "Echec d'ajout membre"
-
-#: plugin/feature/inboxgroup/inboxgroup_members.php:192
-msgid "Remove member"
-msgstr "Supprimer membre"
-
-#: plugin/feature/inboxgroup/inboxgroup_members.php:230
-msgid "Current members"
-msgstr "Membres courrant"
-
-#: plugin/feature/inboxgroup/inboxgroup_members.php:242
-msgid "Selected members"
-msgstr "Membres sélectionnés"
-
-#: plugin/feature/inboxgroup/inboxgroup_members.php:247
-msgid "Press submit button to remove selected members from member list"
-msgstr "Appuye valider pour supprimer les membres sélectionnés de la liste"
-
-#: plugin/feature/inboxgroup/inboxgroup_members.php:264
-msgid "Member has been deleted"
-msgstr "Membre supprimé"
-
-#: plugin/feature/inboxgroup/inboxgroup_members.php:266
-msgid "Fail to delete member"
-msgstr "Echec de suppression de membre"
-
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:21
-msgid "Catch-all list"
-msgstr "Liste des Fourre-tout"
-
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:45
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:85
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:103
 msgid "Add catch-all"
 msgstr "Ajouter fourre-tout"
 
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:50
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:90
+msgid "Add member"
+msgstr "Ajouter membre"
+
+msgid "Add receiver number"
+msgstr "Ajout numéro récepteur"
+
+msgid "All"
+msgstr "Tous"
+
+msgid "All users"
+msgstr "Utilisateurs"
+
+msgid "Are you sure you want to delete this receiver number ?"
+msgstr "Voulez-vous supprimer le numéro récepteur ?"
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "Catch-all"
+msgstr "Fourre-tout"
+
+msgid "Catch-all has been added"
+msgstr "Fourre-tout ajouté"
+
+msgid "Catch-all has been deleted"
+msgstr "Fourre-tout supprimé"
+
+msgid "Catch-all list"
+msgstr "Liste des Fourre-tout"
+
+msgid "Current catchall"
+msgstr "Fourre-tout courrant"
+
+msgid "Current members"
+msgstr "Membres courrant"
+
 msgid "Delete catch-all"
 msgstr "Supprimer fourre-tout"
 
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:119
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:207
-msgid "catchall"
-msgstr "Fourre-tout"
+msgid "Delete member"
+msgstr "Supprimer membre"
 
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:158
+msgid "Delete receiver number"
+msgstr "Supprimer numéro récepteur"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Edit receiver number"
+msgstr "Editer numéro récepteur"
+
+msgid "Exclusive"
+msgstr "Exclusive"
+
+msgid "Fail to add catch-all"
+msgstr "Echec d'ajout du fourre-tout"
+
+msgid "Fail to add member"
+msgstr "Echec d'ajout membre"
+
+msgid "Fail to add receiver number"
+msgstr "Echec d'ajout de numéro récepteur"
+
+msgid "Fail to delete catch-all"
+msgstr "Echec de suppression fourre-tout"
+
+msgid "Fail to delete member"
+msgstr "Echec de suppression de membre"
+
+msgid "Fail to delete receiver number"
+msgstr "Echec de suppression numéro récepteur"
+
+msgid "Fail to disable receiver number"
+msgstr "Echec de suppression numéro récepteur"
+
+msgid "Fail to edit receiver number"
+msgstr "Echec d'édition du numéro récepteur"
+
+msgid "Fail to enable receiver number"
+msgstr "Echec d'activation du numéro récepteur"
+
+msgid "For example a short code"
+msgstr "Shortcode par exemple"
+
+msgid "Group inbox"
+msgstr "Service boite groupe"
+
+msgid "Keywords"
+msgstr "Mot-clé"
+
+msgid "Member has been added"
+msgstr "Membre ajouté"
+
+msgid "Member has been deleted"
+msgstr "Membre supprimé"
+
+msgid "Member list"
+msgstr "Liste des membres"
+
+msgid "Members"
+msgstr "Membres"
+
+msgid "Mobile"
+msgstr "Mobile"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Number"
+msgstr "Numéro"
+
 msgid "Press submit button to add selected users to catch-all list"
 msgstr ""
 "Appuyer valider pour ajouter les utilisateurs a la liste de fourre-tout"
 
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:175
-msgid "Catch-all has been added"
-msgstr "Fourre-tout ajouté"
+msgid "Press submit button to add selected users to member list"
+msgstr "Appuer valider pour ajouter les utilisateurs sélectionnés"
 
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:177
-msgid "Fail to add catch-all"
-msgstr "Echec d'ajout du fourre-tout"
-
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:191
-msgid "Remove catch-all"
-msgstr "Supprimer le fourre-tout"
-
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:229
-msgid "Current catchall"
-msgstr "Fourre-tout courrant"
-
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:241
-msgid "Selected catchall"
-msgstr "Fourre-tout sélectionné"
-
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:246
 msgid "Press submit button to remove selected catchall from catch-all list"
 msgstr "Appuyer valider pour enlever les fourre-tout sélectionnés de la liste"
 
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:263
-msgid "Catch-all has been deleted"
-msgstr "Fourre-tout supprimé"
+msgid "Press submit button to remove selected members from member list"
+msgstr "Appuye valider pour supprimer les membres sélectionnés de la liste"
 
-#: plugin/feature/inboxgroup/inboxgroup_catchall.php:265
-msgid "Fail to delete catch-all"
-msgstr "Echec de suppression fourre-tout"
+msgid "Receiver number"
+msgstr "Numéro récepteur"
+
+msgid "Receiver number does not exists"
+msgstr "Numéro de récepteur non existant"
+
+msgid "Receiver number has been added"
+msgstr "Numéro de récepteur ajouté"
+
+msgid "Receiver number has been deleted"
+msgstr "Numéro récepteur supprimé"
+
+msgid "Receiver number has been disabled"
+msgstr "Numéro récepteur désactivé"
+
+msgid "Receiver number has been edited"
+msgstr "Numéro de récepteur édité"
+
+msgid "Receiver number has been enabled"
+msgstr "Numéro récepteur activé"
+
+msgid "Remove catch-all"
+msgstr "Supprimer le fourre-tout"
+
+msgid "Remove member"
+msgstr "Supprimer membre"
+
+msgid "Restrict sender to regular members or catch-all members only"
+msgstr "Membres réguliers ou aux membres du fourre-tout uniquement"
+
+msgid "Selected catchall"
+msgstr "Fourre-tout sélectionné"
+
+msgid "Selected members"
+msgstr "Membres sélectionnés"
+
+msgid "Selected users"
+msgstr "Utilisateurs Sélectionnés"
+
+msgid "Seperate with comma for multiple items"
+msgstr "éléments separés par une virgule"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Submit"
+msgstr "valider"
+
+msgid "Username"
+msgstr "Login"
+
+msgid "Yes"
+msgstr "Oui"
+
+msgid "You must fill all fields"
+msgstr "Vous devez remplir tous les champs"
+
+msgid "catchall"
+msgstr "Fourre-tout"
+
+msgid "disabled"
+msgstr "désactivé"
+
+msgid "enabled"
+msgstr "Activé"
+
+msgid "no"
+msgstr "non"
+
+msgid "yes"
+msgstr "oui"

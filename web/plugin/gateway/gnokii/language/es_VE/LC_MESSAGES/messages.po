@@ -5,46 +5,35 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/gnokii/gnokii.php:9
 msgid "Active"
 msgstr ""
 
-#: plugin/gateway/gnokii/gnokii.php:13
-msgid "Inactive"
+msgid "Gateway has been activated"
 msgstr ""
 
-#: plugin/gateway/gnokii/gnokii.php:13
-msgid "click here to activate"
-msgstr ""
-
-#: plugin/gateway/gnokii/gnokii.php:24 plugin/gateway/gnokii/config.php:17
-msgid "Manage gnokii"
-msgstr "Manage gnokii"
-
-#: plugin/gateway/gnokii/gnokii.php:29
-msgid "Gateway name"
-msgstr ""
-
-#: plugin/gateway/gnokii/gnokii.php:32
-msgid "Gnokii installation path"
-msgstr ""
-
-#: plugin/gateway/gnokii/gnokii.php:32
-msgid "No trailing slash"
-msgstr ""
-
-#: plugin/gateway/gnokii/gnokii.php:35
-msgid "Save"
-msgstr ""
-
-#: plugin/gateway/gnokii/gnokii.php:42
-msgid "No changes has been made"
-msgstr ""
-
-#: plugin/gateway/gnokii/gnokii.php:51
 msgid "Gateway module configurations has been saved"
 msgstr ""
 
-#: plugin/gateway/gnokii/gnokii.php:59
-msgid "Gateway has been activated"
+msgid "Gateway name"
+msgstr ""
+
+msgid "Gnokii installation path"
+msgstr ""
+
+msgid "Inactive"
+msgstr ""
+
+msgid "Manage gnokii"
+msgstr "Manage gnokii"
+
+msgid "No changes has been made"
+msgstr ""
+
+msgid "No trailing slash"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "click here to activate"
 msgstr ""

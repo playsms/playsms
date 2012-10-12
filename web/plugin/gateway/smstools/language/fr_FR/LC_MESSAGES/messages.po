@@ -5,27 +5,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/smstools/config.php:14
-#: plugin/gateway/smstools/smstools.php:24
-msgid "Manage smstools"
-msgstr "Gérer smstools"
-
-#: plugin/gateway/smstools/smstools.php:9
 msgid "Active"
 msgstr "Active"
 
-#: plugin/gateway/smstools/smstools.php:13
-msgid "Inactive"
-msgstr "Inactive"
+msgid "Gateway has been activated"
+msgstr "Passerelle activée"
 
-#: plugin/gateway/smstools/smstools.php:13
-msgid "click here to activate"
-msgstr "cliquez pour activer"
-
-#: plugin/gateway/smstools/smstools.php:28
 msgid "Gateway name"
 msgstr "Nom passerelle"
 
-#: plugin/gateway/smstools/smstools.php:37
-msgid "Gateway has been activated"
-msgstr "Passerelle activée"
+msgid "Inactive"
+msgstr "Inactive"
+
+msgid "Manage smstools"
+msgstr "Gérer smstools"
+
+msgid "click here to activate"
+msgstr "cliquez pour activer"

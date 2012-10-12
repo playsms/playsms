@@ -16,106 +16,74 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:12
-#: plugin/tools/sendfromfile/sendfromfile.php:82
-#: plugin/tools/sendfromfile/config.php:6
-msgid "Send from file"
-msgstr "Envoi dépuis fichier"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:27
-#: plugin/tools/sendfromfile/sendfromfile.php:34
-msgid "Please select CSV file"
-msgstr "Sélectionner un fichier CSV"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:27
-msgid "format : destination number, message, username"
-msgstr "Format : numéro destinataire, méssage, nom utilisateur"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:29
-#: plugin/tools/sendfromfile/sendfromfile.php:36
-msgid "Upload file"
-msgstr "Importer"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:34
-msgid "format : destination number, message"
-msgstr "Format : numéro destinataire, méssage, nom utilisateur"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:77
-msgid "Invalid CSV file"
-msgstr "Fichier CSV invalide"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:83
-msgid "Confirmation"
-msgstr "Confirmation"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:84
-msgid "Uploaded file"
-msgstr "Importer"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:87
-msgid "Found valid entries in uploaded file"
-msgstr "Entrées valides trouvées dans le fichier CSV"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:87
-msgid "valid entries"
-msgstr "Entrées valides"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:88
-msgid "Valid entries"
-msgstr "Entrées valides"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:93
-#: plugin/tools/sendfromfile/sendfromfile.php:119
-msgid "Destination number"
-msgstr ""
-
-#: plugin/tools/sendfromfile/sendfromfile.php:94
-#: plugin/tools/sendfromfile/sendfromfile.php:120
-msgid "Message"
-msgstr ""
-
-#: plugin/tools/sendfromfile/sendfromfile.php:95
-#: plugin/tools/sendfromfile/sendfromfile.php:121
-msgid "Username"
-msgstr ""
-
-#: plugin/tools/sendfromfile/sendfromfile.php:113
-msgid "Found invalid entries in uploaded file"
-msgstr "Entrées valides trouvées dans le fichier CSV"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:113
-msgid "invalid entries"
-msgstr "Entrées invalides"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:114
-msgid "Invalid entries"
-msgstr "Entrées invalides"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:138
-msgid "Your choice"
-msgstr "Votre choix"
-
-#: plugin/tools/sendfromfile/sendfromfile.php:141
 msgid "Cancel send from file"
 msgstr "Annuler l'envoi depuis fichier"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:145
-msgid "Send SMS to valid entries"
-msgstr "Envoi de SMS aux entrées valides"
+msgid "Confirmation"
+msgstr "Confirmation"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:153
-msgid "Send from file has been cancelled"
-msgstr "Envoi depuis fichier annulé"
+msgid "Destination number"
+msgstr ""
 
-#: plugin/tools/sendfromfile/sendfromfile.php:155
 msgid "Fail to remove cancelled entries from database"
 msgstr "Echec de suppression des entrées enlevées dans la basse de données"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:158
-#: plugin/tools/sendfromfile/sendfromfile.php:181
+msgid "Found invalid entries in uploaded file"
+msgstr "Entrées valides trouvées dans le fichier CSV"
+
+msgid "Found valid entries in uploaded file"
+msgstr "Entrées valides trouvées dans le fichier CSV"
+
+msgid "Invalid CSV file"
+msgstr "Fichier CSV invalide"
+
+msgid "Invalid entries"
+msgstr "Entrées invalides"
+
 msgid "Invalid session ID"
 msgstr "Identifiant de session invalide"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:179
+msgid "Message"
+msgstr ""
+
+msgid "Please select CSV file"
+msgstr "Sélectionner un fichier CSV"
+
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "SMS envoi aux destinataires du fichier importé"
+
+msgid "Send SMS to valid entries"
+msgstr "Envoi de SMS aux entrées valides"
+
+msgid "Send from file"
+msgstr "Envoi dépuis fichier"
+
+msgid "Send from file has been cancelled"
+msgstr "Envoi depuis fichier annulé"
+
+msgid "Upload file"
+msgstr "Importer"
+
+msgid "Uploaded file"
+msgstr "Importer"
+
+msgid "Username"
+msgstr ""
+
+msgid "Valid entries"
+msgstr "Entrées valides"
+
+msgid "Your choice"
+msgstr "Votre choix"
+
+msgid "format : destination number, message"
+msgstr "Format : numéro destinataire, méssage, nom utilisateur"
+
+msgid "format : destination number, message, username"
+msgstr "Format : numéro destinataire, méssage, nom utilisateur"
+
+msgid "invalid entries"
+msgstr "Entrées invalides"
+
+msgid "valid entries"
+msgstr "Entrées valides"

@@ -1,55 +1,38 @@
-#: plugin/themes/default/page_login.php:30
-#: plugin/themes/default/page_forgot.php:32
-#: plugin/themes/default/page_register.php:36
-msgid "Username"
-msgstr ""
-
-#: plugin/themes/default/page_login.php:35
-msgid "Password"
-msgstr ""
-
-#: plugin/themes/default/page_login.php:41
-msgid "Login"
-msgstr ""
-
-#: plugin/themes/default/page_login.php:48
-#: plugin/themes/default/page_register.php:51
-msgid "Register an account"
-msgstr ""
-
-#: plugin/themes/default/page_login.php:55
-msgid "Forgot password"
-msgstr ""
-
-#: plugin/themes/default/fn.php:38
-msgid "Home"
-msgstr ""
-
-#: plugin/themes/default/fn.php:40
-msgid "Logout"
-msgstr ""
-
-#: plugin/themes/default/page_forgot.php:37
-#: plugin/themes/default/page_register.php:45
 msgid "Email"
 msgstr ""
 
-#: plugin/themes/default/page_forgot.php:43
-msgid "Recover password"
+msgid "Forgot password"
 msgstr ""
 
-#: plugin/themes/default/header.php:36
+msgid "Home"
+msgstr ""
+
 msgid "Logged in"
 msgstr ""
 
-#: plugin/themes/default/header.php:37
-msgid "Status"
+msgid "Login"
 msgstr ""
 
-#: plugin/themes/default/page_register.php:32
+msgid "Logout"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
 msgid "Name"
 msgstr ""
 
-#: plugin/themes/default/page_register.php:41
-msgid "Mobile"
+msgid "Password"
+msgstr ""
+
+msgid "Recover password"
+msgstr ""
+
+msgid "Register an account"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Username"
 msgstr ""

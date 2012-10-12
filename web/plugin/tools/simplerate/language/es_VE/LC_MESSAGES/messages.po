@@ -5,104 +5,62 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/tools/simplerate/config.php:6
-#: plugin/tools/simplerate/simplerate.php:13
-msgid "Manage SMS rate"
-msgstr "Administración de tarifas deSMS"
-
-#: plugin/tools/simplerate/simplerate.php:15
-#: plugin/tools/simplerate/simplerate.php:48
-#: plugin/tools/simplerate/simplerate.php:124
-msgid "Add rate"
-msgstr "Añadir tarifa"
-
-#: plugin/tools/simplerate/simplerate.php:19
-#: plugin/tools/simplerate/simplerate.php:79
-#: plugin/tools/simplerate/simplerate.php:129
-msgid "Destination"
-msgstr "Destino"
-
-#: plugin/tools/simplerate/simplerate.php:20
-#: plugin/tools/simplerate/simplerate.php:82
-#: plugin/tools/simplerate/simplerate.php:132
-msgid "Prefix"
-msgstr "Prefijo"
-
-#: plugin/tools/simplerate/simplerate.php:21
-#: plugin/tools/simplerate/simplerate.php:85
-#: plugin/tools/simplerate/simplerate.php:135
-msgid "Rate"
-msgstr "Tarifa"
-
-#: plugin/tools/simplerate/simplerate.php:22
 msgid "Action"
 msgstr "Acción"
 
-#: plugin/tools/simplerate/simplerate.php:33
-msgid "Are you sure you want to delete rate ?"
-msgstr "Esta Ud. seguro de querer borrar esta tarifa ?"
-
-#: plugin/tools/simplerate/simplerate.php:33
-#: plugin/tools/simplerate/simplerate.php:55
-#: plugin/tools/simplerate/simplerate.php:59
-#: plugin/tools/simplerate/simplerate.php:105
-#: plugin/tools/simplerate/simplerate.php:109
-#: plugin/tools/simplerate/simplerate.php:154
-#: plugin/tools/simplerate/simplerate.php:164
-msgid "destination"
-msgstr "destino"
-
-#: plugin/tools/simplerate/simplerate.php:33
-#: plugin/tools/simplerate/simplerate.php:55
-#: plugin/tools/simplerate/simplerate.php:59
-#: plugin/tools/simplerate/simplerate.php:105
-#: plugin/tools/simplerate/simplerate.php:109
-#: plugin/tools/simplerate/simplerate.php:154
-#: plugin/tools/simplerate/simplerate.php:164
-msgid "prefix"
-msgstr "prefijo"
-
-#: plugin/tools/simplerate/simplerate.php:55
-msgid "Fail to delete rate"
-msgstr "Fallo al borrar la tarifa"
-
-#: plugin/tools/simplerate/simplerate.php:59
-msgid "Rate has been deleted"
-msgstr "La tarifa ha sido eliminada"
-
-#: plugin/tools/simplerate/simplerate.php:73
-msgid "Edit rate"
-msgstr "Editar tarifa"
-
-#: plugin/tools/simplerate/simplerate.php:88
-msgid "Save"
-msgstr "Guardar"
-
-#: plugin/tools/simplerate/simplerate.php:99
-msgid "No changes made!"
-msgstr "No se efectuaron cambios!"
-
-#: plugin/tools/simplerate/simplerate.php:105
-msgid "Rate has been saved"
-msgstr "La tarifa se ha guardado"
-
-#: plugin/tools/simplerate/simplerate.php:109
-msgid "Fail to save rate"
-msgstr "Fallo al eliminar la tarifa"
-
-#: plugin/tools/simplerate/simplerate.php:114
-#: plugin/tools/simplerate/simplerate.php:170
-msgid "You must fill all fields"
-msgstr "Ud. debe rellenar todos los campos"
-
-#: plugin/tools/simplerate/simplerate.php:138
 msgid "Add"
 msgstr "Añadir"
 
-#: plugin/tools/simplerate/simplerate.php:154
+msgid "Add rate"
+msgstr "Añadir tarifa"
+
+msgid "Are you sure you want to delete rate ?"
+msgstr "Esta Ud. seguro de querer borrar esta tarifa ?"
+
+msgid "Destination"
+msgstr "Destino"
+
+msgid "Edit rate"
+msgstr "Editar tarifa"
+
+msgid "Fail to delete rate"
+msgstr "Fallo al borrar la tarifa"
+
+msgid "Fail to save rate"
+msgstr "Fallo al eliminar la tarifa"
+
+msgid "Manage SMS rate"
+msgstr "Administración de tarifas deSMS"
+
+msgid "No changes made!"
+msgstr "No se efectuaron cambios!"
+
+msgid "Prefix"
+msgstr "Prefijo"
+
+msgid "Rate"
+msgstr "Tarifa"
+
+msgid "Rate has been added"
+msgstr "La tarifa ha sido añadida"
+
+msgid "Rate has been deleted"
+msgstr "La tarifa ha sido eliminada"
+
+msgid "Rate has been saved"
+msgstr "La tarifa se ha guardado"
+
 msgid "Rate is already exists"
 msgstr "Tarifa ya existe "
 
-#: plugin/tools/simplerate/simplerate.php:164
-msgid "Rate has been added"
-msgstr "La tarifa ha sido añadida"
+msgid "Save"
+msgstr "Guardar"
+
+msgid "You must fill all fields"
+msgstr "Ud. debe rellenar todos los campos"
+
+msgid "destination"
+msgstr "destino"
+
+msgid "prefix"
+msgstr "prefijo"

@@ -5,140 +5,89 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/feature/sms_command/config.php:6
-#: plugin/feature/sms_command/sms_command.php:11
-msgid "Manage command"
-msgstr "管理指令"
-
-#: plugin/feature/sms_command/sms_command.php:13
-#: plugin/feature/sms_command/sms_command.php:56
-#: plugin/feature/sms_command/sms_command.php:133
-msgid "Add SMS command"
-msgstr "增加短信指令"
-
-#: plugin/feature/sms_command/sms_command.php:14
-#: plugin/feature/sms_command/sms_command.php:84
-#: plugin/feature/sms_command/sms_command.php:143
-msgid "SMS command exec path"
-msgstr "短信指令执行路径"
-
-#: plugin/feature/sms_command/sms_command.php:25
-msgid "Keyword"
-msgstr "关键字"
-
-#: plugin/feature/sms_command/sms_command.php:26
-msgid "Exec"
-msgstr "执行"
-
-#: plugin/feature/sms_command/sms_command.php:27
-msgid "User"
-msgstr "用户"
-
-#: plugin/feature/sms_command/sms_command.php:28
 msgid "Action"
 msgstr "行动"
 
-#: plugin/feature/sms_command/sms_command.php:38
-msgid "Are you sure you want to delete SMS command ?"
-msgstr "确定删除短信指令 ?"
-
-#: plugin/feature/sms_command/sms_command.php:38
-#: plugin/feature/sms_command/sms_command.php:103
-#: plugin/feature/sms_command/sms_command.php:105
-#: plugin/feature/sms_command/sms_command.php:121
-#: plugin/feature/sms_command/sms_command.php:123
-#: plugin/feature/sms_command/sms_command.php:163
-#: plugin/feature/sms_command/sms_command.php:165
-#: plugin/feature/sms_command/sms_command.php:168
-msgid "keyword"
-msgstr "关键字"
-
-#: plugin/feature/sms_command/sms_command.php:72
-msgid "Edit SMS command"
-msgstr "编辑短信指令"
-
-#: plugin/feature/sms_command/sms_command.php:77
-#: plugin/feature/sms_command/sms_command.php:136
-msgid "SMS command keyword"
-msgstr "短信指令关键字"
-
-#: plugin/feature/sms_command/sms_command.php:78
-#: plugin/feature/sms_command/sms_command.php:137
-msgid "Pass these parameter to command exec field"
-msgstr "通过这些参数命令执行领域"
-
-#: plugin/feature/sms_command/sms_command.php:79
-#: plugin/feature/sms_command/sms_command.php:138
-msgid "will be replaced by SMS incoming date/time"
-msgstr "用短信收到日期/时间替换"
-
-#: plugin/feature/sms_command/sms_command.php:80
-#: plugin/feature/sms_command/sms_command.php:139
-msgid "will be replaced by sender number"
-msgstr "被发件人数替换"
-
-#: plugin/feature/sms_command/sms_command.php:81
-#: plugin/feature/sms_command/sms_command.php:140
-msgid "will be replaced by command keyword"
-msgstr "被指令关键字替换"
-
-#: plugin/feature/sms_command/sms_command.php:82
-#: plugin/feature/sms_command/sms_command.php:141
-msgid "will be replaced by command parameter passed to server from SMS"
-msgstr "将被替换的短信传递到服务器的命令参数"
-
-#: plugin/feature/sms_command/sms_command.php:83
-#: plugin/feature/sms_command/sms_command.php:142
-msgid "will be replaced by SMS raw message"
-msgstr "被发件人数替换"
-
-#: plugin/feature/sms_command/sms_command.php:85
-#: plugin/feature/sms_command/sms_command.php:144
-msgid "SMS command exec"
-msgstr "短信指令执行"
-
-#: plugin/feature/sms_command/sms_command.php:86
-#: plugin/feature/sms_command/sms_command.php:145
-msgid "Make return as reply"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:87
-msgid "Save"
-msgstr "保存"
-
-#: plugin/feature/sms_command/sms_command.php:103
-msgid "SMS command has been saved"
-msgstr "短信指令已保存"
-
-#: plugin/feature/sms_command/sms_command.php:105
-msgid "Fail to save SMS command"
-msgstr "保存短信指令失败"
-
-#: plugin/feature/sms_command/sms_command.php:108
-#: plugin/feature/sms_command/sms_command.php:171
-msgid "You must fill all fields"
-msgstr "你必须填满全部空白"
-
-#: plugin/feature/sms_command/sms_command.php:121
-msgid "SMS command has been deleted"
-msgstr "短信指令已删除"
-
-#: plugin/feature/sms_command/sms_command.php:123
-msgid "Fail to delete SMS command"
-msgstr "删除短信指令失败"
-
-#: plugin/feature/sms_command/sms_command.php:146
 msgid "Add"
 msgstr "增加"
 
-#: plugin/feature/sms_command/sms_command.php:163
-msgid "SMS command has been added"
-msgstr "短信指令已增加"
+msgid "Add SMS command"
+msgstr "增加短信指令"
 
-#: plugin/feature/sms_command/sms_command.php:165
+msgid "Are you sure you want to delete SMS command ?"
+msgstr "确定删除短信指令 ?"
+
+msgid "Edit SMS command"
+msgstr "编辑短信指令"
+
+msgid "Exec"
+msgstr "执行"
+
 msgid "Fail to add SMS command"
 msgstr "增加短信指令失败"
 
-#: plugin/feature/sms_command/sms_command.php:168
+msgid "Fail to delete SMS command"
+msgstr "删除短信指令失败"
+
+msgid "Fail to save SMS command"
+msgstr "保存短信指令失败"
+
+msgid "Keyword"
+msgstr "关键字"
+
+msgid "Make return as reply"
+msgstr ""
+
+msgid "Manage command"
+msgstr "管理指令"
+
+msgid "Pass these parameter to command exec field"
+msgstr "通过这些参数命令执行领域"
+
 msgid "SMS command already exists, reserved or use by other feature"
 msgstr "短信指令已存在, 保留或其他功能的使用"
+
+msgid "SMS command exec"
+msgstr "短信指令执行"
+
+msgid "SMS command exec path"
+msgstr "短信指令执行路径"
+
+msgid "SMS command has been added"
+msgstr "短信指令已增加"
+
+msgid "SMS command has been deleted"
+msgstr "短信指令已删除"
+
+msgid "SMS command has been saved"
+msgstr "短信指令已保存"
+
+msgid "SMS command keyword"
+msgstr "短信指令关键字"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "User"
+msgstr "用户"
+
+msgid "You must fill all fields"
+msgstr "你必须填满全部空白"
+
+msgid "keyword"
+msgstr "关键字"
+
+msgid "will be replaced by SMS incoming date/time"
+msgstr "用短信收到日期/时间替换"
+
+msgid "will be replaced by SMS raw message"
+msgstr "被发件人数替换"
+
+msgid "will be replaced by command keyword"
+msgstr "被指令关键字替换"
+
+msgid "will be replaced by command parameter passed to server from SMS"
+msgstr "将被替换的短信传递到服务器的命令参数"
+
+msgid "will be replaced by sender number"
+msgstr "被发件人数替换"

@@ -1,3 +1,2 @@
-#: plugin/tools/xlate/fn.php:50
 msgid "unable to translate"
 msgstr ""

@@ -1,79 +1,59 @@
-#: plugin/gateway/uplink/config.php:25 plugin/gateway/uplink/uplink.php:25
-msgid "Manage uplink"
-msgstr ""
-
-#: plugin/gateway/uplink/uplink.php:9
 msgid "Active"
 msgstr ""
 
-#: plugin/gateway/uplink/uplink.php:13
-msgid "Inactive"
-msgstr ""
-
-#: plugin/gateway/uplink/uplink.php:13
-msgid "click here to activate"
-msgstr ""
-
-#: plugin/gateway/uplink/uplink.php:30
-msgid "Gateway name"
-msgstr ""
-
-#: plugin/gateway/uplink/uplink.php:33
-msgid "Master URL"
-msgstr ""
-
-#: plugin/gateway/uplink/uplink.php:36
 msgid "Additional URL parameter"
 msgstr ""
 
-#: plugin/gateway/uplink/uplink.php:39
-msgid "Username"
-msgstr ""
-
-#: plugin/gateway/uplink/uplink.php:42
-msgid "Password"
-msgstr ""
-
-#: plugin/gateway/uplink/uplink.php:42
-msgid "Fill to change the password"
-msgstr ""
-
-#: plugin/gateway/uplink/uplink.php:45
-msgid "Module sender ID"
-msgstr ""
-
-#: plugin/gateway/uplink/uplink.php:45
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-
-#: plugin/gateway/uplink/uplink.php:48
-msgid "Module timezone"
-msgstr ""
-
-#: plugin/gateway/uplink/uplink.php:48
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
-#: plugin/gateway/uplink/uplink.php:52
-msgid "Uplink incoming path"
+msgid "Fill to change the password"
 msgstr ""
 
-#: plugin/gateway/uplink/uplink.php:52
-msgid "No trailing slash"
+msgid "Gateway has been activated"
 msgstr ""
 
-#: plugin/gateway/uplink/uplink.php:56
-msgid "Save"
-msgstr ""
-
-#: plugin/gateway/uplink/uplink.php:69
-msgid "No changes has been made"
-msgstr ""
-
-#: plugin/gateway/uplink/uplink.php:103
 msgid "Gateway module configurations has been saved"
 msgstr ""
 
-#: plugin/gateway/uplink/uplink.php:111
-msgid "Gateway has been activated"
+msgid "Gateway name"
+msgstr ""
+
+msgid "Inactive"
+msgstr ""
+
+msgid "Manage uplink"
+msgstr ""
+
+msgid "Master URL"
+msgstr ""
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+
+msgid "Module sender ID"
+msgstr ""
+
+msgid "Module timezone"
+msgstr ""
+
+msgid "No changes has been made"
+msgstr ""
+
+msgid "No trailing slash"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Uplink incoming path"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "click here to activate"
 msgstr ""

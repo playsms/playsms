@@ -5,104 +5,62 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/tools/simplerate/config.php:6
-#: plugin/tools/simplerate/simplerate.php:13
-msgid "Manage SMS rate"
-msgstr "Pengaturan tarif SMS"
-
-#: plugin/tools/simplerate/simplerate.php:15
-#: plugin/tools/simplerate/simplerate.php:48
-#: plugin/tools/simplerate/simplerate.php:124
-msgid "Add rate"
-msgstr "Tambah tarif"
-
-#: plugin/tools/simplerate/simplerate.php:19
-#: plugin/tools/simplerate/simplerate.php:79
-#: plugin/tools/simplerate/simplerate.php:129
-msgid "Destination"
-msgstr "Tujuan"
-
-#: plugin/tools/simplerate/simplerate.php:20
-#: plugin/tools/simplerate/simplerate.php:82
-#: plugin/tools/simplerate/simplerate.php:132
-msgid "Prefix"
-msgstr "Awalan"
-
-#: plugin/tools/simplerate/simplerate.php:21
-#: plugin/tools/simplerate/simplerate.php:85
-#: plugin/tools/simplerate/simplerate.php:135
-msgid "Rate"
-msgstr "Tarif"
-
-#: plugin/tools/simplerate/simplerate.php:22
 msgid "Action"
 msgstr "Tindakan"
 
-#: plugin/tools/simplerate/simplerate.php:33
-msgid "Are you sure you want to delete rate ?"
-msgstr "Anda yakin ingin menghapus tarif?"
-
-#: plugin/tools/simplerate/simplerate.php:33
-#: plugin/tools/simplerate/simplerate.php:55
-#: plugin/tools/simplerate/simplerate.php:59
-#: plugin/tools/simplerate/simplerate.php:105
-#: plugin/tools/simplerate/simplerate.php:109
-#: plugin/tools/simplerate/simplerate.php:154
-#: plugin/tools/simplerate/simplerate.php:164
-msgid "destination"
-msgstr "tujuan"
-
-#: plugin/tools/simplerate/simplerate.php:33
-#: plugin/tools/simplerate/simplerate.php:55
-#: plugin/tools/simplerate/simplerate.php:59
-#: plugin/tools/simplerate/simplerate.php:105
-#: plugin/tools/simplerate/simplerate.php:109
-#: plugin/tools/simplerate/simplerate.php:154
-#: plugin/tools/simplerate/simplerate.php:164
-msgid "prefix"
-msgstr "awalan"
-
-#: plugin/tools/simplerate/simplerate.php:55
-msgid "Fail to delete rate"
-msgstr "Gagal menghapus tarif"
-
-#: plugin/tools/simplerate/simplerate.php:59
-msgid "Rate has been deleted"
-msgstr "Tarif telah dihapus"
-
-#: plugin/tools/simplerate/simplerate.php:73
-msgid "Edit rate"
-msgstr "Ubah tarif"
-
-#: plugin/tools/simplerate/simplerate.php:88
-msgid "Save"
-msgstr "Simpan"
-
-#: plugin/tools/simplerate/simplerate.php:99
-msgid "No changes made!"
-msgstr "Tidak ada perubahan yang dilakukan!"
-
-#: plugin/tools/simplerate/simplerate.php:105
-msgid "Rate has been saved"
-msgstr "Tarif telah disimpan"
-
-#: plugin/tools/simplerate/simplerate.php:109
-msgid "Fail to save rate"
-msgstr "Gagal menyimpan tarif"
-
-#: plugin/tools/simplerate/simplerate.php:114
-#: plugin/tools/simplerate/simplerate.php:170
-msgid "You must fill all fields"
-msgstr "Anda harus mengisi semua kolom"
-
-#: plugin/tools/simplerate/simplerate.php:138
 msgid "Add"
 msgstr "Tambah"
 
-#: plugin/tools/simplerate/simplerate.php:154
+msgid "Add rate"
+msgstr "Tambah tarif"
+
+msgid "Are you sure you want to delete rate ?"
+msgstr "Anda yakin ingin menghapus tarif?"
+
+msgid "Destination"
+msgstr "Tujuan"
+
+msgid "Edit rate"
+msgstr "Ubah tarif"
+
+msgid "Fail to delete rate"
+msgstr "Gagal menghapus tarif"
+
+msgid "Fail to save rate"
+msgstr "Gagal menyimpan tarif"
+
+msgid "Manage SMS rate"
+msgstr "Pengaturan tarif SMS"
+
+msgid "No changes made!"
+msgstr "Tidak ada perubahan yang dilakukan!"
+
+msgid "Prefix"
+msgstr "Awalan"
+
+msgid "Rate"
+msgstr "Tarif"
+
+msgid "Rate has been added"
+msgstr "Tarif telah ditambahkan"
+
+msgid "Rate has been deleted"
+msgstr "Tarif telah dihapus"
+
+msgid "Rate has been saved"
+msgstr "Tarif telah disimpan"
+
 msgid "Rate is already exists"
 msgstr "Tarif telah ada sebelumnya"
 
-#: plugin/tools/simplerate/simplerate.php:164
-msgid "Rate has been added"
-msgstr "Tarif telah ditambahkan"
+msgid "Save"
+msgstr "Simpan"
+
+msgid "You must fill all fields"
+msgstr "Anda harus mengisi semua kolom"
+
+msgid "destination"
+msgstr "tujuan"
+
+msgid "prefix"
+msgstr "awalan"

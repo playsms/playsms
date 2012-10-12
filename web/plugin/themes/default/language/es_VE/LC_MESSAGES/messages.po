@@ -5,58 +5,41 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/themes/default/page_login.php:30
-#: plugin/themes/default/page_forgot.php:32
-#: plugin/themes/default/page_register.php:36
-msgid "Username"
-msgstr "Usuario"
-
-#: plugin/themes/default/page_login.php:35
-msgid "Password"
-msgstr "Contraseña"
-
-#: plugin/themes/default/page_login.php:41
-msgid "Login"
-msgstr ""
-
-#: plugin/themes/default/page_login.php:48
-#: plugin/themes/default/page_register.php:51
-msgid "Register an account"
-msgstr ""
-
-#: plugin/themes/default/page_login.php:55
-msgid "Forgot password"
-msgstr "Contraseña"
-
-#: plugin/themes/default/fn.php:38
-msgid "Home"
-msgstr ""
-
-#: plugin/themes/default/fn.php:40
-msgid "Logout"
-msgstr ""
-
-#: plugin/themes/default/page_forgot.php:37
-#: plugin/themes/default/page_register.php:45
 msgid "Email"
 msgstr ""
 
-#: plugin/themes/default/page_forgot.php:43
-msgid "Recover password"
+msgid "Forgot password"
+msgstr "Contraseña"
+
+msgid "Home"
 msgstr ""
 
-#: plugin/themes/default/header.php:36
 msgid "Logged in"
 msgstr ""
 
-#: plugin/themes/default/header.php:37
-msgid "Status"
+msgid "Login"
 msgstr ""
 
-#: plugin/themes/default/page_register.php:32
+msgid "Logout"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
 msgid "Name"
 msgstr ""
 
-#: plugin/themes/default/page_register.php:41
-msgid "Mobile"
+msgid "Password"
+msgstr "Contraseña"
+
+msgid "Recover password"
 msgstr ""
+
+msgid "Register an account"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Username"
+msgstr "Usuario"

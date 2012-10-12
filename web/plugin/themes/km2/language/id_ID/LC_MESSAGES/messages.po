@@ -5,59 +5,44 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/themes/km2/page_login.php:32 plugin/themes/km2/page_forgot.php:31
-#: plugin/themes/km2/page_register.php:36
-msgid "Username"
-msgstr "Nama pengguna"
-
-#: plugin/themes/km2/page_login.php:37
-msgid "Password"
-msgstr "Kata sandi"
-
-#: plugin/themes/km2/page_login.php:43
-msgid "Login"
-msgstr "Masuk"
-
-#: plugin/themes/km2/page_login.php:50
-msgid "Register an account"
-msgstr "Daftarkan akun"
-
-#: plugin/themes/km2/page_login.php:52
-msgid "Forgot password"
-msgstr "Lupa kata sandi"
-
-#: plugin/themes/km2/fn.php:38 plugin/themes/km2/header.php:42
-msgid "Home"
-msgstr "Beranda"
-
-#: plugin/themes/km2/fn.php:40 plugin/themes/km2/header.php:50
-msgid "Logout"
-msgstr "Keluar"
-
-#: plugin/themes/km2/page_forgot.php:36 plugin/themes/km2/page_register.php:46
-msgid "Email"
-msgstr ""
-
-#: plugin/themes/km2/page_forgot.php:43
-msgid "Recover password"
-msgstr "Pulihkan kata sandi"
-
-#: plugin/themes/km2/header.php:45
-msgid "Preferences"
-msgstr "Preferensi"
-
-#: plugin/themes/km2/header.php:47
 msgid "Contact"
 msgstr "Kontak"
 
-#: plugin/themes/km2/page_register.php:32
-msgid "Name"
-msgstr "Nama"
+msgid "Email"
+msgstr ""
 
-#: plugin/themes/km2/page_register.php:41
+msgid "Forgot password"
+msgstr "Lupa kata sandi"
+
+msgid "Home"
+msgstr "Beranda"
+
+msgid "Login"
+msgstr "Masuk"
+
+msgid "Logout"
+msgstr "Keluar"
+
 msgid "Mobile"
 msgstr "Ponsel"
 
-#: plugin/themes/km2/page_register.php:53
+msgid "Name"
+msgstr "Nama"
+
+msgid "Password"
+msgstr "Kata sandi"
+
+msgid "Preferences"
+msgstr "Preferensi"
+
+msgid "Recover password"
+msgstr "Pulihkan kata sandi"
+
 msgid "Register"
 msgstr "Daftar"
+
+msgid "Register an account"
+msgstr "Daftarkan akun"
+
+msgid "Username"
+msgstr "Nama pengguna"

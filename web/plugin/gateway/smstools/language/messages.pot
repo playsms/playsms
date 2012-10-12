@@ -1,24 +1,17 @@
-#: plugin/gateway/smstools/config.php:14
-#: plugin/gateway/smstools/smstools.php:24
-msgid "Manage smstools"
-msgstr ""
-
-#: plugin/gateway/smstools/smstools.php:9
 msgid "Active"
 msgstr ""
 
-#: plugin/gateway/smstools/smstools.php:13
-msgid "Inactive"
+msgid "Gateway has been activated"
 msgstr ""
 
-#: plugin/gateway/smstools/smstools.php:13
-msgid "click here to activate"
-msgstr ""
-
-#: plugin/gateway/smstools/smstools.php:28
 msgid "Gateway name"
 msgstr ""
 
-#: plugin/gateway/smstools/smstools.php:37
-msgid "Gateway has been activated"
+msgid "Inactive"
+msgstr ""
+
+msgid "Manage smstools"
+msgstr ""
+
+msgid "click here to activate"
 msgstr ""

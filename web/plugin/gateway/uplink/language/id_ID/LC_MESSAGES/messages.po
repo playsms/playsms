@@ -5,83 +5,63 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/uplink/config.php:25 plugin/gateway/uplink/uplink.php:25
-msgid "Manage uplink"
-msgstr "Pengaturan uplink"
-
-#: plugin/gateway/uplink/uplink.php:9
 msgid "Active"
 msgstr "Aktif"
 
-#: plugin/gateway/uplink/uplink.php:13
-msgid "Inactive"
-msgstr "Nonaktif"
-
-#: plugin/gateway/uplink/uplink.php:13
-msgid "click here to activate"
-msgstr "Klik di sini untuk mengaktifkan"
-
-#: plugin/gateway/uplink/uplink.php:30
-msgid "Gateway name"
-msgstr "Nama gateway"
-
-#: plugin/gateway/uplink/uplink.php:33
-msgid "Master URL"
-msgstr "URL Utama"
-
-#: plugin/gateway/uplink/uplink.php:36
 msgid "Additional URL parameter"
 msgstr "Parameter URL tambahan"
 
-#: plugin/gateway/uplink/uplink.php:39
-msgid "Username"
-msgstr "Nama pengguna"
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Misalnya: +0700 untuk zona waktu Jakarta/Bangkok"
 
-#: plugin/gateway/uplink/uplink.php:42
-msgid "Password"
-msgstr "Kata sandi"
-
-#: plugin/gateway/uplink/uplink.php:42
 msgid "Fill to change the password"
 msgstr "Isi untuk merubah kata sandi"
 
-#: plugin/gateway/uplink/uplink.php:45
-msgid "Module sender ID"
-msgstr "Pengirim global"
+msgid "Gateway has been activated"
+msgstr "Gateway telah diaktifkan"
 
-#: plugin/gateway/uplink/uplink.php:45
+msgid "Gateway module configurations has been saved"
+msgstr "Konfigurasi modul gateway telah disimpan"
+
+msgid "Gateway name"
+msgstr "Nama gateway"
+
+msgid "Inactive"
+msgstr "Nonaktif"
+
+msgid "Manage uplink"
+msgstr "Pengaturan uplink"
+
+msgid "Master URL"
+msgstr "URL Utama"
+
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
 "Maks. 16 karakter numerik atau 11 alfanumerik. kosongkan untuk menonaktifkan"
 
-#: plugin/gateway/uplink/uplink.php:48
+msgid "Module sender ID"
+msgstr "Pengirim global"
+
 msgid "Module timezone"
 msgstr "Modul zona waktu"
 
-#: plugin/gateway/uplink/uplink.php:48
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Misalnya: +0700 untuk zona waktu Jakarta/Bangkok"
-
-#: plugin/gateway/uplink/uplink.php:52
-msgid "Uplink incoming path"
-msgstr "Jalur masuk uplink"
-
-#: plugin/gateway/uplink/uplink.php:52
-msgid "No trailing slash"
-msgstr "Tanpa garis miring"
-
-#: plugin/gateway/uplink/uplink.php:56
-msgid "Save"
-msgstr "Simpan"
-
-#: plugin/gateway/uplink/uplink.php:69
 msgid "No changes has been made"
 msgstr "Tidak ada perubahan yang dilakukan"
 
-#: plugin/gateway/uplink/uplink.php:103
-msgid "Gateway module configurations has been saved"
-msgstr "Konfigurasi modul gateway telah disimpan"
+msgid "No trailing slash"
+msgstr "Tanpa garis miring"
 
-#: plugin/gateway/uplink/uplink.php:111
-msgid "Gateway has been activated"
-msgstr "Gateway telah diaktifkan"
+msgid "Password"
+msgstr "Kata sandi"
+
+msgid "Save"
+msgstr "Simpan"
+
+msgid "Uplink incoming path"
+msgstr "Jalur masuk uplink"
+
+msgid "Username"
+msgstr "Nama pengguna"
+
+msgid "click here to activate"
+msgstr "Klik di sini untuk mengaktifkan"

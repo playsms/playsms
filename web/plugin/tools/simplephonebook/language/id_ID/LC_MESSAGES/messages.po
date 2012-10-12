@@ -5,327 +5,215 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/tools/simplephonebook/simplephonebook.php:43
-#: plugin/tools/simplephonebook/simplephonebook.php:117
-#: plugin/tools/simplephonebook/phonebook_exim.php:54
-#: plugin/tools/simplephonebook/phone_add.php:27
-msgid "Name"
-msgstr "Nama"
-
-#: plugin/tools/simplephonebook/simplephonebook.php:44
-#: plugin/tools/simplephonebook/simplephonebook.php:118
-msgid "Number"
-msgstr "Nomor"
-
-#: plugin/tools/simplephonebook/simplephonebook.php:45
-#: plugin/tools/simplephonebook/simplephonebook.php:119
-#: plugin/tools/simplephonebook/phonebook_exim.php:56
-#: plugin/tools/simplephonebook/phone_add.php:33
-msgid "Email"
-msgstr "Email"
-
-#: plugin/tools/simplephonebook/simplephonebook.php:70
-msgid "Edit selections"
-msgstr "Ubah pilihan"
-
-#: plugin/tools/simplephonebook/simplephonebook.php:71
-msgid "Copy selections"
-msgstr "Salin pilihan"
-
-#: plugin/tools/simplephonebook/simplephonebook.php:72
-msgid "Move selections"
-msgstr "Pindah pilihan"
-
-#: plugin/tools/simplephonebook/simplephonebook.php:73
-msgid "Delete selections"
-msgstr "Hapus pilihan"
-
-#: plugin/tools/simplephonebook/simplephonebook.php:81
-msgid "Select action"
-msgstr "PIlih tindakan"
-
-#: plugin/tools/simplephonebook/simplephonebook.php:81
-#: plugin/tools/simplephonebook/phonebook.php:118
-#: plugin/tools/simplephonebook/phonebook.php:184
-msgid "Go"
-msgstr "Masukkan"
-
-#: plugin/tools/simplephonebook/simplephonebook.php:113
-msgid "Shared by"
-msgstr "Dibagi oleh"
-
-#: plugin/tools/simplephonebook/simplephonebook.php:151
-#: plugin/tools/simplephonebook/phonebook.php:298
-#: plugin/tools/simplephonebook/config.php:10
-msgid "Phonebook"
-msgstr "Buku telepon"
-
-#: plugin/tools/simplephonebook/simplephonebook.php:156
-#: plugin/tools/simplephonebook/simplephonebook.php:161
-#: plugin/tools/simplephonebook/dir_create.php:12
-msgid "Create group"
-msgstr "Buat kelompok"
-
-#: plugin/tools/simplephonebook/simplephonebook.php:157
-#: plugin/tools/simplephonebook/simplephonebook.php:162
-#: plugin/tools/simplephonebook/phone_add.php:19
-#: plugin/tools/simplephonebook/phone_add.php:24
-msgid "Add number to group"
-msgstr "Tambah nomor ke kelompok"
-
-#: plugin/tools/simplephonebook/simplephonebook.php:158
-#: plugin/tools/simplephonebook/simplephonebook.php:163
-msgid "Export all"
-msgstr "Ekspor semua"
-
-#: plugin/tools/simplephonebook/phonebook.php:23
-msgid "Edited name"
-msgstr "Nama yang diubah"
-
-#: plugin/tools/simplephonebook/phonebook.php:24
-msgid "Edited number"
-msgstr "Nomor yang diubah"
-
-#: plugin/tools/simplephonebook/phonebook.php:25
-msgid "Edited email"
-msgstr "Email yang diubah"
-
-#: plugin/tools/simplephonebook/phonebook.php:53
-#: plugin/tools/simplephonebook/dir_edit.php:26
-msgid "Save"
-msgstr "Simpan"
-
-#: plugin/tools/simplephonebook/phonebook.php:81
-msgid "Copied name"
-msgstr "Nama yang disalin"
-
-#: plugin/tools/simplephonebook/phonebook.php:82
-msgid "Copied number"
-msgstr "Nomor yang disalin"
-
-#: plugin/tools/simplephonebook/phonebook.php:83
-msgid "Copied email"
-msgstr "Email yang disalin"
-
-#: plugin/tools/simplephonebook/phonebook.php:113
-msgid "Code"
-msgstr "Kode"
-
-#: plugin/tools/simplephonebook/phonebook.php:118
-#: plugin/tools/simplephonebook/phonebook.php:184
-msgid "Select destination group"
-msgstr "Pilih kelompok tujuan"
-
-#: plugin/tools/simplephonebook/phonebook.php:147
-msgid "Moved name"
-msgstr "Nama yang dipindahkan"
-
-#: plugin/tools/simplephonebook/phonebook.php:148
-msgid "Moved number"
-msgstr "Nomor yang dipindahkan"
-
-#: plugin/tools/simplephonebook/phonebook.php:149
-msgid "Moved email"
-msgstr "Email yang dipindahkan"
-
-#: plugin/tools/simplephonebook/phonebook.php:210
-msgid "Deleted name"
-msgstr "Nama yang dihapus"
-
-#: plugin/tools/simplephonebook/phonebook.php:211
-msgid "Deleted number"
-msgstr "Nomor yang dihapus"
-
-#: plugin/tools/simplephonebook/phonebook.php:212
-msgid "Deleted email"
-msgstr "Email yang dihapus"
-
-#: plugin/tools/simplephonebook/phonebook.php:241
-msgid "Delete"
-msgstr "Hapus"
-
-#: plugin/tools/simplephonebook/phonebook.php:267
-msgid "Fail to publish"
-msgstr "Gagal menerbitkan"
-
-#: plugin/tools/simplephonebook/phonebook.php:267
-#: plugin/tools/simplephonebook/phonebook.php:272
-#: plugin/tools/simplephonebook/phonebook.php:284
-#: plugin/tools/simplephonebook/phonebook.php:289
-#: plugin/tools/simplephonebook/dir_create.php:45
-#: plugin/tools/simplephonebook/dir_edit.php:47
-msgid "group"
-msgstr "kelompok"
-
-#: plugin/tools/simplephonebook/phonebook.php:272
-msgid "Group has been published"
-msgstr "Kelompok telah dipublikasi"
-
-#: plugin/tools/simplephonebook/phonebook.php:284
-msgid "Fail to unpublish"
-msgstr "Gagal membatalkan publikasi"
-
-#: plugin/tools/simplephonebook/phonebook.php:289
-msgid "Group has been unpublished"
-msgstr "Kelompok telah batal dipublikasi"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:31
-msgid "Import phonebook"
-msgstr "Impor buku telepon"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:31
-#: plugin/tools/simplephonebook/dir_create.php:20
-#: plugin/tools/simplephonebook/dir_edit.php:22
-msgid "Group code"
-msgstr "kode kelompok"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:34
-msgid "Please select CSV file for phonebook entries"
-msgstr "Silakan pilih file CSV untuk entri buku telepon"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:34
-msgid "format : Name,Mobile,Email"
-msgstr "format : Nama,Ponsel,Email"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:36
-msgid "Same item(s) will be replaced"
-msgstr "hal yang sama akan diganti"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:37
-#: plugin/tools/simplephonebook/phonebook_exim.php:94
-#: plugin/tools/simplephonebook/config.php:5
-msgid "Import"
-msgstr "Impor"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:49
-msgid "Import confirmation"
-msgstr "konfirmasi impor"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:55
-#: plugin/tools/simplephonebook/phone_add.php:30
-msgid "Mobile"
-msgstr "Ponsel"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:85
-msgid "Replace all entries in database"
-msgstr "Ganti semua entri di database"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:87
-msgid "Add all entries"
-msgstr "Tambah semua entri"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:91
-msgid "Import above phonebook entries ?"
-msgstr "Impor entri buku telepon di atas?"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:92
-msgid "Status"
-msgstr "Status"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:98
-msgid "Back"
-msgstr "Kembali"
-
-#: plugin/tools/simplephonebook/phonebook_exim.php:102
-msgid "Fail to upload CSV file for phonebook"
-msgstr "Gagal mengunggah file CSV untuk buku telepon"
-
-#: plugin/tools/simplephonebook/dir_create.php:17
-#: plugin/tools/simplephonebook/dir_edit.php:19
-msgid "Group name"
-msgstr "nama kelompok"
-
-#: plugin/tools/simplephonebook/dir_create.php:20
-#: plugin/tools/simplephonebook/dir_edit.php:22
-msgid "please use uppercase and make it short"
-msgstr "Mohon gunakan huruf kapital dan kata pendek"
-
-#: plugin/tools/simplephonebook/dir_create.php:23
-#: plugin/tools/simplephonebook/dir_edit.php:25
-msgid "Note"
-msgstr "Catatan"
-
-#: plugin/tools/simplephonebook/dir_create.php:23
-#: plugin/tools/simplephonebook/dir_edit.php:25
-msgid "Group code used by keyword"
-msgstr "kode grup digunakan oleh kata kunci"
-
-#: plugin/tools/simplephonebook/dir_create.php:23
-#: plugin/tools/simplephonebook/dir_edit.php:25
-msgid "broadcast SMS from single SMS"
-msgstr "sebarkan SMS dari satu SMS"
-
-#: plugin/tools/simplephonebook/dir_create.php:24
-msgid "Create"
-msgstr "Buat"
-
-#: plugin/tools/simplephonebook/dir_create.php:38
-msgid "Group code is already exists"
-msgstr "kode kelompok telah terpakai"
-
-#: plugin/tools/simplephonebook/dir_create.php:38
-#: plugin/tools/simplephonebook/dir_create.php:45
-#: plugin/tools/simplephonebook/phone_add.php:12
-#: plugin/tools/simplephonebook/dir_edit.php:47
-msgid "code"
-msgstr "kode"
-
-#: plugin/tools/simplephonebook/dir_create.php:45
-msgid "Group code has been added"
-msgstr "kode kelompok telah ditambahkan"
-
-#: plugin/tools/simplephonebook/dir_create.php:49
-#: plugin/tools/simplephonebook/phone_add.php:66
-#: plugin/tools/simplephonebook/dir_edit.php:51
-msgid "You must fill all field"
-msgstr "Anda harus mengisi semua kolom"
-
-#: plugin/tools/simplephonebook/config.php:4
-msgid "Export"
-msgstr "Ekspor"
-
-#: plugin/tools/simplephonebook/config.php:6
-msgid "Publish"
-msgstr "Publikasi"
-
-#: plugin/tools/simplephonebook/config.php:7
-msgid "Unpublish"
-msgstr "Batal Dipublikasi"
-
-#: plugin/tools/simplephonebook/phone_add.php:30
-msgid "International format"
-msgstr "Format Internasional"
-
-#: plugin/tools/simplephonebook/phone_add.php:36
 msgid "Add"
 msgstr "Tambah"
 
-#: plugin/tools/simplephonebook/phone_add.php:55
-msgid "Number is already exists"
-msgstr "Nomor sudah ada sebelumnya"
+msgid "Add all entries"
+msgstr "Tambah semua entri"
 
-#: plugin/tools/simplephonebook/phone_add.php:55
-#: plugin/tools/simplephonebook/phone_add.php:62
-msgid "number"
-msgstr "nomor"
+msgid "Add number to group"
+msgstr "Tambah nomor ke kelompok"
 
-#: plugin/tools/simplephonebook/phone_add.php:55
-#: plugin/tools/simplephonebook/phone_add.php:62
-msgid "name"
-msgstr "nama"
+msgid "Back"
+msgstr "Kembali"
 
-#: plugin/tools/simplephonebook/phone_add.php:62
-msgid "Number has been added"
-msgstr "Nomor telah ditambahkan"
+msgid "Code"
+msgstr "Kode"
 
-#: plugin/tools/simplephonebook/dir_edit.php:14
+msgid "Copied email"
+msgstr "Email yang disalin"
+
+msgid "Copied name"
+msgstr "Nama yang disalin"
+
+msgid "Copied number"
+msgstr "Nomor yang disalin"
+
+msgid "Copy selections"
+msgstr "Salin pilihan"
+
+msgid "Create"
+msgstr "Buat"
+
+msgid "Create group"
+msgstr "Buat kelompok"
+
+msgid "Delete"
+msgstr "Hapus"
+
+msgid "Delete selections"
+msgstr "Hapus pilihan"
+
+msgid "Deleted email"
+msgstr "Email yang dihapus"
+
+msgid "Deleted name"
+msgstr "Nama yang dihapus"
+
+msgid "Deleted number"
+msgstr "Nomor yang dihapus"
+
 msgid "Edit group"
 msgstr "Ubah kelompok"
 
-#: plugin/tools/simplephonebook/dir_edit.php:40
+msgid "Edit selections"
+msgstr "Ubah pilihan"
+
+msgid "Edited email"
+msgstr "Email yang diubah"
+
+msgid "Edited name"
+msgstr "Nama yang diubah"
+
+msgid "Edited number"
+msgstr "Nomor yang diubah"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Export"
+msgstr "Ekspor"
+
+msgid "Export all"
+msgstr "Ekspor semua"
+
+msgid "Fail to publish"
+msgstr "Gagal menerbitkan"
+
+msgid "Fail to unpublish"
+msgstr "Gagal membatalkan publikasi"
+
+msgid "Fail to upload CSV file for phonebook"
+msgstr "Gagal mengunggah file CSV untuk buku telepon"
+
+msgid "Go"
+msgstr "Masukkan"
+
+msgid "Group code"
+msgstr "kode kelompok"
+
+msgid "Group code has been added"
+msgstr "kode kelompok telah ditambahkan"
+
+msgid "Group code is already exists"
+msgstr "kode kelompok telah terpakai"
+
+msgid "Group code used by keyword"
+msgstr "kode grup digunakan oleh kata kunci"
+
+msgid "Group has been edited"
+msgstr "Kelompok telah diubah"
+
+msgid "Group has been published"
+msgstr "Kelompok telah dipublikasi"
+
+msgid "Group has been unpublished"
+msgstr "Kelompok telah batal dipublikasi"
+
+msgid "Group name"
+msgstr "nama kelompok"
+
+msgid "Import"
+msgstr "Impor"
+
+msgid "Import above phonebook entries ?"
+msgstr "Impor entri buku telepon di atas?"
+
+msgid "Import confirmation"
+msgstr "konfirmasi impor"
+
+msgid "Import phonebook"
+msgstr "Impor buku telepon"
+
+msgid "International format"
+msgstr "Format Internasional"
+
+msgid "Mobile"
+msgstr "Ponsel"
+
+msgid "Move selections"
+msgstr "Pindah pilihan"
+
+msgid "Moved email"
+msgstr "Email yang dipindahkan"
+
+msgid "Moved name"
+msgstr "Nama yang dipindahkan"
+
+msgid "Moved number"
+msgstr "Nomor yang dipindahkan"
+
+msgid "Name"
+msgstr "Nama"
+
 msgid "No changes has been made"
 msgstr "Tidak ada perubahan yang dilakukan"
 
-#: plugin/tools/simplephonebook/dir_edit.php:47
-msgid "Group has been edited"
-msgstr "Kelompok telah diubah"
+msgid "Note"
+msgstr "Catatan"
+
+msgid "Number"
+msgstr "Nomor"
+
+msgid "Number has been added"
+msgstr "Nomor telah ditambahkan"
+
+msgid "Number is already exists"
+msgstr "Nomor sudah ada sebelumnya"
+
+msgid "Phonebook"
+msgstr "Buku telepon"
+
+msgid "Please select CSV file for phonebook entries"
+msgstr "Silakan pilih file CSV untuk entri buku telepon"
+
+msgid "Publish"
+msgstr "Publikasi"
+
+msgid "Replace all entries in database"
+msgstr "Ganti semua entri di database"
+
+msgid "Same item(s) will be replaced"
+msgstr "hal yang sama akan diganti"
+
+msgid "Save"
+msgstr "Simpan"
+
+msgid "Select action"
+msgstr "PIlih tindakan"
+
+msgid "Select destination group"
+msgstr "Pilih kelompok tujuan"
+
+msgid "Shared by"
+msgstr "Dibagi oleh"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Unpublish"
+msgstr "Batal Dipublikasi"
+
+msgid "You must fill all field"
+msgstr "Anda harus mengisi semua kolom"
+
+msgid "broadcast SMS from single SMS"
+msgstr "sebarkan SMS dari satu SMS"
+
+msgid "code"
+msgstr "kode"
+
+msgid "format : Name,Mobile,Email"
+msgstr "format : Nama,Ponsel,Email"
+
+msgid "group"
+msgstr "kelompok"
+
+msgid "name"
+msgstr "nama"
+
+msgid "number"
+msgstr "nomor"
+
+msgid "please use uppercase and make it short"
+msgstr "Mohon gunakan huruf kapital dan kata pendek"

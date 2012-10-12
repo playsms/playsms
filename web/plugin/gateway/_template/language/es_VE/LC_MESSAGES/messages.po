@@ -5,47 +5,35 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/_template/config.php:17
-#: plugin/gateway/_template/template.php:25
-msgid "Manage template"
-msgstr "Manage template"
-
-#: plugin/gateway/_template/template.php:9
 msgid "Active"
 msgstr ""
 
-#: plugin/gateway/_template/template.php:13
-msgid "Inactive"
+msgid "Gateway has been activated"
 msgstr ""
 
-#: plugin/gateway/_template/template.php:13
-msgid "click here to activate"
-msgstr ""
-
-#: plugin/gateway/_template/template.php:30
-msgid "Gateway name"
-msgstr ""
-
-#: plugin/gateway/_template/template.php:33
-msgid "Template installation path"
-msgstr ""
-
-#: plugin/gateway/_template/template.php:33
-msgid "No trailing slash"
-msgstr ""
-
-#: plugin/gateway/_template/template.php:36
-msgid "Save"
-msgstr ""
-
-#: plugin/gateway/_template/template.php:42
-msgid "No changes has been made"
-msgstr ""
-
-#: plugin/gateway/_template/template.php:51
 msgid "Gateway module configurations has been saved"
 msgstr ""
 
-#: plugin/gateway/_template/template.php:59
-msgid "Gateway has been activated"
+msgid "Gateway name"
+msgstr ""
+
+msgid "Inactive"
+msgstr ""
+
+msgid "Manage template"
+msgstr "Manage template"
+
+msgid "No changes has been made"
+msgstr ""
+
+msgid "No trailing slash"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Template installation path"
+msgstr ""
+
+msgid "click here to activate"
 msgstr ""

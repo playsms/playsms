@@ -5,58 +5,41 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/themes/work2/page_login.php:25
-#: plugin/themes/work2/page_forgot.php:26
-#: plugin/themes/work2/page_register.php:30
-msgid "Username"
-msgstr "Usuario"
-
-#: plugin/themes/work2/page_login.php:30
-msgid "Password"
-msgstr "Contraseña"
-
-#: plugin/themes/work2/page_login.php:36
-msgid "Login"
-msgstr ""
-
-#: plugin/themes/work2/page_login.php:43
-#: plugin/themes/work2/page_register.php:45
-msgid "Register an account"
-msgstr ""
-
-#: plugin/themes/work2/page_login.php:50
-msgid "Forgot password"
-msgstr "Contraseña"
-
-#: plugin/themes/work2/fn.php:73
-msgid "Home"
-msgstr ""
-
-#: plugin/themes/work2/fn.php:75
-msgid "Logout"
-msgstr ""
-
-#: plugin/themes/work2/page_forgot.php:31
-#: plugin/themes/work2/page_register.php:39
 msgid "Email"
 msgstr ""
 
-#: plugin/themes/work2/page_forgot.php:37
-msgid "Recover password"
+msgid "Forgot password"
+msgstr "Contraseña"
+
+msgid "Home"
 msgstr ""
 
-#: plugin/themes/work2/header.php:36
 msgid "Logged in"
 msgstr "Conectado"
 
-#: plugin/themes/work2/header.php:37
-msgid "Status"
-msgstr "Estatus"
+msgid "Login"
+msgstr ""
 
-#: plugin/themes/work2/page_register.php:26
+msgid "Logout"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
 msgid "Name"
 msgstr ""
 
-#: plugin/themes/work2/page_register.php:35
-msgid "Mobile"
+msgid "Password"
+msgstr "Contraseña"
+
+msgid "Recover password"
 msgstr ""
+
+msgid "Register an account"
+msgstr ""
+
+msgid "Status"
+msgstr "Estatus"
+
+msgid "Username"
+msgstr "Usuario"

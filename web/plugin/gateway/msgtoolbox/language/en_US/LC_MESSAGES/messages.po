@@ -5,75 +5,56 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/msgtoolbox/config.php:24
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:25
-msgid "Manage msgtoolbox"
-msgstr ""
-
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:9
 msgid "Active"
 msgstr ""
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:13
-msgid "Inactive"
-msgstr ""
-
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:13
-msgid "click here to activate"
-msgstr ""
-
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:30
-msgid "Gateway name"
-msgstr ""
-
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:33
-msgid "msgtoolbox URL"
-msgstr ""
-
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:36
-msgid "Route"
-msgstr ""
-
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:38
-msgid "Username"
-msgstr ""
-
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:41
-msgid "Password"
-msgstr ""
-
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:41
-msgid "Fill to change the password"
-msgstr ""
-
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:44
-msgid "Module sender ID"
-msgstr ""
-
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:44
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:47
-msgid "Module timezone"
-msgstr ""
-
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:47
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:50
-msgid "Save"
+msgid "Fill to change the password"
 msgstr ""
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:62
-msgid "No changes has been made"
+msgid "Gateway has been activated"
 msgstr ""
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:80
 msgid "Gateway module configurations has been saved"
 msgstr ""
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:88
-msgid "Gateway has been activated"
+msgid "Gateway name"
+msgstr ""
+
+msgid "Inactive"
+msgstr ""
+
+msgid "Manage msgtoolbox"
+msgstr ""
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+
+msgid "Module sender ID"
+msgstr ""
+
+msgid "Module timezone"
+msgstr ""
+
+msgid "No changes has been made"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Route"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "click here to activate"
+msgstr ""
+
+msgid "msgtoolbox URL"
 msgstr ""

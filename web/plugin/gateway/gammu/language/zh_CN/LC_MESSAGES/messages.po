@@ -5,26 +5,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/gammu/config.php:13 plugin/gateway/gammu/gammu.php:24
-msgid "Manage gammu"
-msgstr "管理监务"
-
-#: plugin/gateway/gammu/gammu.php:9
 msgid "Active"
 msgstr "活跃"
 
-#: plugin/gateway/gammu/gammu.php:13
-msgid "Inactive"
-msgstr "不活跃"
+msgid "Gateway has been activated"
+msgstr "网关已激活"
 
-#: plugin/gateway/gammu/gammu.php:13
-msgid "click here to activate"
-msgstr "点击这里激活"
-
-#: plugin/gateway/gammu/gammu.php:28
 msgid "Gateway name"
 msgstr "网关名"
 
-#: plugin/gateway/gammu/gammu.php:37
-msgid "Gateway has been activated"
-msgstr "网关已激活"
+msgid "Inactive"
+msgstr "不活跃"
+
+msgid "Manage gammu"
+msgstr "管理监务"
+
+msgid "click here to activate"
+msgstr "点击这里激活"

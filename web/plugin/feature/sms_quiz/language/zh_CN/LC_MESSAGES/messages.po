@@ -5,176 +5,120 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/feature/sms_quiz/sms_quiz.php:17
-msgid "Received answer list for keyword"
-msgstr "收到答复关键字列表"
-
-#: plugin/feature/sms_quiz/sms_quiz.php:26
-msgid "Datetime"
-msgstr "日期时间"
-
-#: plugin/feature/sms_quiz/sms_quiz.php:27
-msgid "Sender"
-msgstr "发件人"
-
-#: plugin/feature/sms_quiz/sms_quiz.php:28
-msgid "Message"
-msgstr "信息"
-
-#: plugin/feature/sms_quiz/sms_quiz.php:29
-#: plugin/feature/sms_quiz/sms_quiz.php:98
-msgid "Status"
-msgstr "状态"
-
-#: plugin/feature/sms_quiz/sms_quiz.php:30
-#: plugin/feature/sms_quiz/sms_quiz.php:99
 msgid "Action"
 msgstr "行动"
 
-#: plugin/feature/sms_quiz/sms_quiz.php:39
-msgid "Correct"
-msgstr "正确"
+msgid "Add"
+msgstr "增加"
 
-#: plugin/feature/sms_quiz/sms_quiz.php:41
-msgid "Incorrect"
-msgstr "错误"
-
-#: plugin/feature/sms_quiz/sms_quiz.php:43
-msgid "Are you sure you want to delete this answer ?"
-msgstr "确定删除这条答案 ?"
-
-#: plugin/feature/sms_quiz/sms_quiz.php:69
-msgid "SMS quiz answer messages has been deleted"
-msgstr "短信测试答案信息已删除"
-
-#: plugin/feature/sms_quiz/sms_quiz.php:80
-#: plugin/feature/sms_quiz/config.php:6
-msgid "Manage quiz"
-msgstr "管理测试"
-
-#: plugin/feature/sms_quiz/sms_quiz.php:82
-#: plugin/feature/sms_quiz/sms_quiz.php:129
-#: plugin/feature/sms_quiz/sms_quiz.php:247
 msgid "Add SMS quiz"
 msgstr "增加短信测试"
 
-#: plugin/feature/sms_quiz/sms_quiz.php:94
-msgid "Keyword"
-msgstr "关键字"
-
-#: plugin/feature/sms_quiz/sms_quiz.php:95
-msgid "Question"
-msgstr "问题"
-
-#: plugin/feature/sms_quiz/sms_quiz.php:96
 msgid "Answer"
 msgstr "答案"
 
-#: plugin/feature/sms_quiz/sms_quiz.php:97
-msgid "User"
-msgstr "用户"
-
-#: plugin/feature/sms_quiz/sms_quiz.php:107
-#: plugin/feature/sms_quiz/sms_quiz.php:178
-msgid "Disabled"
-msgstr "禁用"
-
-#: plugin/feature/sms_quiz/sms_quiz.php:109
-#: plugin/feature/sms_quiz/sms_quiz.php:180
-msgid "Enabled"
-msgstr "使用"
-
-#: plugin/feature/sms_quiz/sms_quiz.php:113
 msgid ""
 "Are you sure you want to delete SMS quiz with all its choices and answers ?"
 msgstr "确定删除短信测试和它的全部选项和答案 ?"
 
-#: plugin/feature/sms_quiz/sms_quiz.php:113
-#: plugin/feature/sms_quiz/sms_quiz.php:208
-#: plugin/feature/sms_quiz/sms_quiz.php:236
-#: plugin/feature/sms_quiz/sms_quiz.php:286
-#: plugin/feature/sms_quiz/sms_quiz.php:289
-msgid "keyword"
-msgstr "关键字"
+msgid "Are you sure you want to delete this answer ?"
+msgstr "确定删除这条答案 ?"
 
-#: plugin/feature/sms_quiz/sms_quiz.php:147
-msgid "Edit SMS quiz"
-msgstr "编辑短信测试"
+msgid "Correct"
+msgstr "正确"
 
-#: plugin/feature/sms_quiz/sms_quiz.php:154
-#: plugin/feature/sms_quiz/sms_quiz.php:252
-msgid "SMS quiz keyword"
-msgstr "短信测试关键字"
-
-#: plugin/feature/sms_quiz/sms_quiz.php:157
-#: plugin/feature/sms_quiz/sms_quiz.php:255
-msgid "SMS quiz question"
-msgstr "短信测试问题"
-
-#: plugin/feature/sms_quiz/sms_quiz.php:160
-#: plugin/feature/sms_quiz/sms_quiz.php:258
-msgid "SMS quiz answer"
-msgstr "短信测试答案"
-
-#: plugin/feature/sms_quiz/sms_quiz.php:163
-#: plugin/feature/sms_quiz/sms_quiz.php:261
-msgid "Message when correct"
-msgstr "正确时信息"
-
-#: plugin/feature/sms_quiz/sms_quiz.php:166
-#: plugin/feature/sms_quiz/sms_quiz.php:264
-msgid "Message when incorrect"
-msgstr "错误时信息"
-
-#: plugin/feature/sms_quiz/sms_quiz.php:169
-msgid "Save"
-msgstr "保存"
-
-#: plugin/feature/sms_quiz/sms_quiz.php:183
-msgid "Enable or disable this quiz"
-msgstr "使用或禁用此次测试"
-
-#: plugin/feature/sms_quiz/sms_quiz.php:185
 msgid "Current status"
 msgstr "正确状态"
 
-#: plugin/feature/sms_quiz/sms_quiz.php:186
-msgid "What do you want to do ?"
-msgstr "你想做什么 ?"
+msgid "Datetime"
+msgstr "日期时间"
 
-#: plugin/feature/sms_quiz/sms_quiz.php:187
-msgid "I want to enable this quiz"
-msgstr "我要使用此次测试"
+msgid "Disabled"
+msgstr "禁用"
 
-#: plugin/feature/sms_quiz/sms_quiz.php:188
+msgid "Edit SMS quiz"
+msgstr "编辑短信测试"
+
+msgid "Enable or disable this quiz"
+msgstr "使用或禁用此次测试"
+
+msgid "Enabled"
+msgstr "使用"
+
 msgid "I want to disable this quiz"
 msgstr "我要禁用此次测试"
 
-#: plugin/feature/sms_quiz/sms_quiz.php:208
-msgid "SMS quiz has been saved"
-msgstr "短信测试已保存"
+msgid "I want to enable this quiz"
+msgstr "我要使用此次测试"
 
-#: plugin/feature/sms_quiz/sms_quiz.php:211
-#: plugin/feature/sms_quiz/sms_quiz.php:292
-msgid "You must fill all field"
-msgstr "你必须填满全部空白"
+msgid "Incorrect"
+msgstr "错误"
 
-#: plugin/feature/sms_quiz/sms_quiz.php:222
-msgid "SMS quiz status has been changed"
-msgstr "短信测试状态已改变"
+msgid "Keyword"
+msgstr "关键字"
 
-#: plugin/feature/sms_quiz/sms_quiz.php:236
-msgid "SMS quiz with all its messages has been deleted"
-msgstr "短信测试和它的全部信息已删除"
+msgid "Manage quiz"
+msgstr "管理测试"
 
-#: plugin/feature/sms_quiz/sms_quiz.php:267
-msgid "Add"
-msgstr "增加"
+msgid "Message"
+msgstr "信息"
 
-#: plugin/feature/sms_quiz/sms_quiz.php:286
+msgid "Message when correct"
+msgstr "正确时信息"
+
+msgid "Message when incorrect"
+msgstr "错误时信息"
+
+msgid "Question"
+msgstr "问题"
+
+msgid "Received answer list for keyword"
+msgstr "收到答复关键字列表"
+
+msgid "SMS quiz already exists, reserved or use by other feature"
+msgstr "短信测试已存在, 保留或其他功能的使用"
+
+msgid "SMS quiz answer"
+msgstr "短信测试答案"
+
+msgid "SMS quiz answer messages has been deleted"
+msgstr "短信测试答案信息已删除"
+
 msgid "SMS quiz has been added"
 msgstr "短信测试已增加"
 
-#: plugin/feature/sms_quiz/sms_quiz.php:289
-msgid "SMS quiz already exists, reserved or use by other feature"
-msgstr "短信测试已存在, 保留或其他功能的使用"
+msgid "SMS quiz has been saved"
+msgstr "短信测试已保存"
+
+msgid "SMS quiz keyword"
+msgstr "短信测试关键字"
+
+msgid "SMS quiz question"
+msgstr "短信测试问题"
+
+msgid "SMS quiz status has been changed"
+msgstr "短信测试状态已改变"
+
+msgid "SMS quiz with all its messages has been deleted"
+msgstr "短信测试和它的全部信息已删除"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Sender"
+msgstr "发件人"
+
+msgid "Status"
+msgstr "状态"
+
+msgid "User"
+msgstr "用户"
+
+msgid "What do you want to do ?"
+msgstr "你想做什么 ?"
+
+msgid "You must fill all field"
+msgstr "你必须填满全部空白"
+
+msgid "keyword"
+msgstr "关键字"

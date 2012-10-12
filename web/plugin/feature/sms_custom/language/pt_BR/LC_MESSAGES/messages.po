@@ -5,134 +5,86 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/feature/sms_custom/config.php:6
-#: plugin/feature/sms_custom/sms_custom.php:12
-msgid "Manage custom"
-msgstr "Administrar personalizado"
-
-#: plugin/feature/sms_custom/sms_custom.php:15
-#: plugin/feature/sms_custom/sms_custom.php:59
-#: plugin/feature/sms_custom/sms_custom.php:133
-msgid "Add SMS custom"
-msgstr "Adicionar customizado"
-
-#: plugin/feature/sms_custom/sms_custom.php:31
-msgid "Keyword"
-msgstr "Palavra-chave"
-
-#: plugin/feature/sms_custom/sms_custom.php:32
-msgid "URL"
-msgstr ""
-
-#: plugin/feature/sms_custom/sms_custom.php:33
-msgid "User"
-msgstr "Usuário"
-
-#: plugin/feature/sms_custom/sms_custom.php:34
 msgid "Action"
 msgstr "Ação"
 
-#: plugin/feature/sms_custom/sms_custom.php:44
-msgid "Are you sure you want to delete SMS custom keyword ?"
-msgstr "Tem certeza que quer remover a palavra-chave?"
-
-#: plugin/feature/sms_custom/sms_custom.php:44
-#: plugin/feature/sms_custom/sms_custom.php:103
-#: plugin/feature/sms_custom/sms_custom.php:105
-#: plugin/feature/sms_custom/sms_custom.php:121
-#: plugin/feature/sms_custom/sms_custom.php:123
-#: plugin/feature/sms_custom/sms_custom.php:159
-#: plugin/feature/sms_custom/sms_custom.php:161
-#: plugin/feature/sms_custom/sms_custom.php:164
-msgid "keyword"
-msgstr "palavra-chave"
-
-#: plugin/feature/sms_custom/sms_custom.php:75
-msgid "Edit SMS custom"
-msgstr "Editar customizado"
-
-#: plugin/feature/sms_custom/sms_custom.php:80
-#: plugin/feature/sms_custom/sms_custom.php:136
-msgid "SMS custom keyword"
-msgstr "Palavra-chave"
-
-#: plugin/feature/sms_custom/sms_custom.php:81
-#: plugin/feature/sms_custom/sms_custom.php:137
-msgid "Pass these parameter to custom URL field"
-msgstr "Use esses parâmetros no campo de URL"
-
-#: plugin/feature/sms_custom/sms_custom.php:82
-#: plugin/feature/sms_custom/sms_custom.php:138
-msgid "will be replaced by SMS incoming date/time"
-msgstr "será substituído pela data/hora de chegada do SMS"
-
-#: plugin/feature/sms_custom/sms_custom.php:83
-#: plugin/feature/sms_custom/sms_custom.php:139
-msgid "will be replaced by sender number"
-msgstr "será substituído pelo número do remetente"
-
-#: plugin/feature/sms_custom/sms_custom.php:84
-#: plugin/feature/sms_custom/sms_custom.php:140
-msgid "will be replaced by custom keyword"
-msgstr "será substituído pela palavra-chave do customizado"
-
-#: plugin/feature/sms_custom/sms_custom.php:85
-#: plugin/feature/sms_custom/sms_custom.php:141
-msgid "will be replaced by custom parameter passed to server from SMS"
-msgstr "será substituído pelo parâmetro passado pro servidor por SMS"
-
-#: plugin/feature/sms_custom/sms_custom.php:86
-#: plugin/feature/sms_custom/sms_custom.php:142
-msgid "will be replaced by SMS raw message"
-msgstr "será substituído pelo número do remetente"
-
-#: plugin/feature/sms_custom/sms_custom.php:87
-#: plugin/feature/sms_custom/sms_custom.php:143
-msgid "SMS custom URL"
-msgstr "URL do customizado"
-
-#: plugin/feature/sms_custom/sms_custom.php:88
-#: plugin/feature/sms_custom/sms_custom.php:144
-msgid "Make return as reply"
-msgstr ""
-
-#: plugin/feature/sms_custom/sms_custom.php:89
-msgid "Save"
-msgstr "Salvar"
-
-#: plugin/feature/sms_custom/sms_custom.php:103
-msgid "SMS custom has been saved"
-msgstr "Customizado SMS foi salvo"
-
-#: plugin/feature/sms_custom/sms_custom.php:105
-msgid "Fail to save SMS custom"
-msgstr "Falha ao salvar o customizado"
-
-#: plugin/feature/sms_custom/sms_custom.php:108
-#: plugin/feature/sms_custom/sms_custom.php:167
-msgid "You must fill all fields"
-msgstr "Preencha todos os campos"
-
-#: plugin/feature/sms_custom/sms_custom.php:121
-msgid "SMS custom has been deleted"
-msgstr "O customizado foi removido"
-
-#: plugin/feature/sms_custom/sms_custom.php:123
-msgid "Fail to delete SMS custom"
-msgstr "Falha ao remover o customizado"
-
-#: plugin/feature/sms_custom/sms_custom.php:145
 msgid "Add"
 msgstr "Adicionar"
 
-#: plugin/feature/sms_custom/sms_custom.php:159
-msgid "SMS custom has been added"
-msgstr "O customizado foi adicionado"
+msgid "Add SMS custom"
+msgstr "Adicionar customizado"
 
-#: plugin/feature/sms_custom/sms_custom.php:161
+msgid "Are you sure you want to delete SMS custom keyword ?"
+msgstr "Tem certeza que quer remover a palavra-chave?"
+
+msgid "Edit SMS custom"
+msgstr "Editar customizado"
+
 msgid "Fail to add SMS custom"
 msgstr "Falha ao adicionar o customizado"
 
-#: plugin/feature/sms_custom/sms_custom.php:164
+msgid "Fail to delete SMS custom"
+msgstr "Falha ao remover o customizado"
+
+msgid "Fail to save SMS custom"
+msgstr "Falha ao salvar o customizado"
+
+msgid "Keyword"
+msgstr "Palavra-chave"
+
+msgid "Make return as reply"
+msgstr ""
+
+msgid "Manage custom"
+msgstr "Administrar personalizado"
+
+msgid "Pass these parameter to custom URL field"
+msgstr "Use esses parâmetros no campo de URL"
+
+msgid "SMS custom URL"
+msgstr "URL do customizado"
+
 msgid "SMS custom already exists, reserved or use by other feature"
 msgstr "O customizado já existe, está reservado ou em uso por outro recurso"
+
+msgid "SMS custom has been added"
+msgstr "O customizado foi adicionado"
+
+msgid "SMS custom has been deleted"
+msgstr "O customizado foi removido"
+
+msgid "SMS custom has been saved"
+msgstr "Customizado SMS foi salvo"
+
+msgid "SMS custom keyword"
+msgstr "Palavra-chave"
+
+msgid "Save"
+msgstr "Salvar"
+
+msgid "URL"
+msgstr ""
+
+msgid "User"
+msgstr "Usuário"
+
+msgid "You must fill all fields"
+msgstr "Preencha todos os campos"
+
+msgid "keyword"
+msgstr "palavra-chave"
+
+msgid "will be replaced by SMS incoming date/time"
+msgstr "será substituído pela data/hora de chegada do SMS"
+
+msgid "will be replaced by SMS raw message"
+msgstr "será substituído pelo número do remetente"
+
+msgid "will be replaced by custom keyword"
+msgstr "será substituído pela palavra-chave do customizado"
+
+msgid "will be replaced by custom parameter passed to server from SMS"
+msgstr "será substituído pelo parâmetro passado pro servidor por SMS"
+
+msgid "will be replaced by sender number"
+msgstr "será substituído pelo número do remetente"

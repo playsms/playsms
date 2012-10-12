@@ -5,104 +5,77 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/clickatell/clickatell.php:9
-msgid "Active"
-msgstr "Active"
-
-#: plugin/gateway/clickatell/clickatell.php:13
-msgid "Inactive"
-msgstr ""
-
-#: plugin/gateway/clickatell/clickatell.php:13
-msgid "click here to activate"
-msgstr ""
-
-#: plugin/gateway/clickatell/clickatell.php:27
-#: plugin/gateway/clickatell/config.php:29
-msgid "Manage clickatell"
-msgstr ""
-
-#: plugin/gateway/clickatell/clickatell.php:32
-msgid "Gateway name"
-msgstr ""
-
-#: plugin/gateway/clickatell/clickatell.php:35
 msgid "API ID"
 msgstr ""
 
-#: plugin/gateway/clickatell/clickatell.php:38
-msgid "Username"
-msgstr ""
+msgid "Active"
+msgstr "Active"
 
-#: plugin/gateway/clickatell/clickatell.php:41
-msgid "Password"
-msgstr ""
-
-#: plugin/gateway/clickatell/clickatell.php:41
-msgid "Fill to change the password"
-msgstr ""
-
-#: plugin/gateway/clickatell/clickatell.php:44
-msgid "Module sender ID"
-msgstr ""
-
-#: plugin/gateway/clickatell/clickatell.php:44
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-
-#: plugin/gateway/clickatell/clickatell.php:47
-msgid "Module timezone"
-msgstr ""
-
-#: plugin/gateway/clickatell/clickatell.php:47
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
-
-#: plugin/gateway/clickatell/clickatell.php:50
-msgid "Clickatell API URL"
-msgstr ""
-
-#: plugin/gateway/clickatell/clickatell.php:50
-#: plugin/gateway/clickatell/clickatell.php:57
-msgid "No trailing slash"
-msgstr ""
-
-#: plugin/gateway/clickatell/clickatell.php:53
 msgid "Additional URL parameter"
 msgstr ""
 
-#: plugin/gateway/clickatell/clickatell.php:57
+msgid "Clickatell API URL"
+msgstr ""
+
 msgid "Clickatell incoming path"
 msgstr ""
 
-#: plugin/gateway/clickatell/clickatell.php:62
-msgid "Note"
-msgstr ""
-
-#: plugin/gateway/clickatell/clickatell.php:63
-msgid "Your callback URL is"
-msgstr ""
-
-#: plugin/gateway/clickatell/clickatell.php:64
 msgid "Clickatell is a bulk SMS provider"
 msgstr ""
 
-#: plugin/gateway/clickatell/clickatell.php:64
-msgid "free credits are available for testing purposes"
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
-#: plugin/gateway/clickatell/clickatell.php:65
-msgid "Save"
+msgid "Fill to change the password"
 msgstr ""
 
-#: plugin/gateway/clickatell/clickatell.php:79
-msgid "No changes has been made"
+msgid "Gateway has been activated"
 msgstr ""
 
-#: plugin/gateway/clickatell/clickatell.php:99
 msgid "Gateway module configurations has been saved"
 msgstr ""
 
-#: plugin/gateway/clickatell/clickatell.php:107
-msgid "Gateway has been activated"
+msgid "Gateway name"
+msgstr ""
+
+msgid "Inactive"
+msgstr ""
+
+msgid "Manage clickatell"
+msgstr ""
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+
+msgid "Module sender ID"
+msgstr ""
+
+msgid "Module timezone"
+msgstr ""
+
+msgid "No changes has been made"
+msgstr ""
+
+msgid "No trailing slash"
+msgstr ""
+
+msgid "Note"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "Your callback URL is"
+msgstr ""
+
+msgid "click here to activate"
+msgstr ""
+
+msgid "free credits are available for testing purposes"
 msgstr ""

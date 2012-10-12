@@ -5,47 +5,35 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/_template/config.php:17
-#: plugin/gateway/_template/template.php:25
-msgid "Manage template"
-msgstr "管理模板"
-
-#: plugin/gateway/_template/template.php:9
 msgid "Active"
 msgstr "活跃"
 
-#: plugin/gateway/_template/template.php:13
-msgid "Inactive"
-msgstr "不活跃"
+msgid "Gateway has been activated"
+msgstr "网观已激活"
 
-#: plugin/gateway/_template/template.php:13
-msgid "click here to activate"
-msgstr "点击这里激活"
-
-#: plugin/gateway/_template/template.php:30
-msgid "Gateway name"
-msgstr "网关名"
-
-#: plugin/gateway/_template/template.php:33
-msgid "Template installation path"
-msgstr "模板安装路径"
-
-#: plugin/gateway/_template/template.php:33
-msgid "No trailing slash"
-msgstr "没有结尾的斜线"
-
-#: plugin/gateway/_template/template.php:36
-msgid "Save"
-msgstr "保存"
-
-#: plugin/gateway/_template/template.php:42
-msgid "No changes has been made"
-msgstr "未做改变"
-
-#: plugin/gateway/_template/template.php:51
 msgid "Gateway module configurations has been saved"
 msgstr "网关模块的配置已保存"
 
-#: plugin/gateway/_template/template.php:59
-msgid "Gateway has been activated"
-msgstr "网观已激活"
+msgid "Gateway name"
+msgstr "网关名"
+
+msgid "Inactive"
+msgstr "不活跃"
+
+msgid "Manage template"
+msgstr "管理模板"
+
+msgid "No changes has been made"
+msgstr "未做改变"
+
+msgid "No trailing slash"
+msgstr "没有结尾的斜线"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Template installation path"
+msgstr "模板安装路径"
+
+msgid "click here to activate"
+msgstr "点击这里激活"

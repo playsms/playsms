@@ -5,105 +5,78 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/clickatell/clickatell.php:9
-msgid "Active"
-msgstr "Aktif"
-
-#: plugin/gateway/clickatell/clickatell.php:13
-msgid "Inactive"
-msgstr "Nonaktif"
-
-#: plugin/gateway/clickatell/clickatell.php:13
-msgid "click here to activate"
-msgstr "klik di sini untuk mengaktifkan"
-
-#: plugin/gateway/clickatell/clickatell.php:27
-#: plugin/gateway/clickatell/config.php:29
-msgid "Manage clickatell"
-msgstr "Pengaturan clickatell"
-
-#: plugin/gateway/clickatell/clickatell.php:32
-msgid "Gateway name"
-msgstr "Nama gateway"
-
-#: plugin/gateway/clickatell/clickatell.php:35
 msgid "API ID"
 msgstr "API ID"
 
-#: plugin/gateway/clickatell/clickatell.php:38
-msgid "Username"
-msgstr "Nama pengguna"
+msgid "Active"
+msgstr "Aktif"
 
-#: plugin/gateway/clickatell/clickatell.php:41
-msgid "Password"
-msgstr "Kata sandi"
+msgid "Additional URL parameter"
+msgstr "Parameter URL tambahan"
 
-#: plugin/gateway/clickatell/clickatell.php:41
+msgid "Clickatell API URL"
+msgstr "URL Clickatell API"
+
+msgid "Clickatell incoming path"
+msgstr "Jalur masuk Clickatell"
+
+msgid "Clickatell is a bulk SMS provider"
+msgstr "Clickatell adalah penyedia SMS bulk"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
 msgid "Fill to change the password"
 msgstr "Isi untuk merubah kata sandi"
 
-#: plugin/gateway/clickatell/clickatell.php:44
-msgid "Module sender ID"
-msgstr "Pengirim global"
+msgid "Gateway has been activated"
+msgstr "Gateway telah diaktifkan"
 
-#: plugin/gateway/clickatell/clickatell.php:44
+msgid "Gateway module configurations has been saved"
+msgstr "Konfigurasi modul gateway telah disimpan"
+
+msgid "Gateway name"
+msgstr "Nama gateway"
+
+msgid "Inactive"
+msgstr "Nonaktif"
+
+msgid "Manage clickatell"
+msgstr "Pengaturan clickatell"
+
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
 "Maks. 16 numerik atau 11 karakter alfanumerik. kosongkan untuk menonaktifkan"
 
-#: plugin/gateway/clickatell/clickatell.php:47
+msgid "Module sender ID"
+msgstr "Pengirim global"
+
 msgid "Module timezone"
 msgstr "Zona waktu modul"
 
-#: plugin/gateway/clickatell/clickatell.php:47
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
-
-#: plugin/gateway/clickatell/clickatell.php:50
-msgid "Clickatell API URL"
-msgstr "URL Clickatell API"
-
-#: plugin/gateway/clickatell/clickatell.php:50
-#: plugin/gateway/clickatell/clickatell.php:57
-msgid "No trailing slash"
-msgstr "Tanpa garis miring"
-
-#: plugin/gateway/clickatell/clickatell.php:53
-msgid "Additional URL parameter"
-msgstr "Parameter URL tambahan"
-
-#: plugin/gateway/clickatell/clickatell.php:57
-msgid "Clickatell incoming path"
-msgstr "Jalur masuk Clickatell"
-
-#: plugin/gateway/clickatell/clickatell.php:62
-msgid "Note"
-msgstr "Catatan"
-
-#: plugin/gateway/clickatell/clickatell.php:63
-msgid "Your callback URL is"
-msgstr "URL balasan anda adalah"
-
-#: plugin/gateway/clickatell/clickatell.php:64
-msgid "Clickatell is a bulk SMS provider"
-msgstr "Clickatell adalah penyedia SMS bulk"
-
-#: plugin/gateway/clickatell/clickatell.php:64
-msgid "free credits are available for testing purposes"
-msgstr "pulsa gratis tersedia untuk tujuan tes"
-
-#: plugin/gateway/clickatell/clickatell.php:65
-msgid "Save"
-msgstr "Simpan"
-
-#: plugin/gateway/clickatell/clickatell.php:79
 msgid "No changes has been made"
 msgstr "Tidak ada perubahan yang terjadi"
 
-#: plugin/gateway/clickatell/clickatell.php:99
-msgid "Gateway module configurations has been saved"
-msgstr "Konfigurasi modul gateway telah disimpan"
+msgid "No trailing slash"
+msgstr "Tanpa garis miring"
 
-#: plugin/gateway/clickatell/clickatell.php:107
-msgid "Gateway has been activated"
-msgstr "Gateway telah diaktifkan"
+msgid "Note"
+msgstr "Catatan"
+
+msgid "Password"
+msgstr "Kata sandi"
+
+msgid "Save"
+msgstr "Simpan"
+
+msgid "Username"
+msgstr "Nama pengguna"
+
+msgid "Your callback URL is"
+msgstr "URL balasan anda adalah"
+
+msgid "click here to activate"
+msgstr "klik di sini untuk mengaktifkan"
+
+msgid "free credits are available for testing purposes"
+msgstr "pulsa gratis tersedia untuk tujuan tes"

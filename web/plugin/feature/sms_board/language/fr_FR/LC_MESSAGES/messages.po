@@ -6,124 +6,84 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/feature/sms_board/config.php:6
-#: plugin/feature/sms_board/sms_board.php:13
-msgid "Manage board"
-msgstr "Service rédirection"
-
-#: plugin/feature/sms_board/fn.php:84
-msgid "from"
-msgstr "de"
-
-#: plugin/feature/sms_board/fn.php:85
-msgid "Forward WebSMS"
-msgstr "Rédirection WebSMS"
-
-#: plugin/feature/sms_board/fn.php:86
-msgid "Date and time"
-msgstr "Date & Heure"
-
-#: plugin/feature/sms_board/fn.php:87
-msgid "Sender"
-msgstr "Émetteur"
-
-#: plugin/feature/sms_board/fn.php:88
-msgid "Receiver"
-msgstr ""
-
-#: plugin/feature/sms_board/fn.php:89 plugin/feature/sms_board/fn.php:143
-#: plugin/feature/sms_board/sms_board.php:20
-msgid "Keyword"
-msgstr "Mot-clé"
-
-#: plugin/feature/sms_board/fn.php:90
-msgid "Message"
-msgstr "Message"
-
-#: plugin/feature/sms_board/sms_board.php:15
-#: plugin/feature/sms_board/sms_board.php:57
-#: plugin/feature/sms_board/sms_board.php:156
-msgid "Add SMS board"
-msgstr "Ajouter un service de rédirection"
-
-#: plugin/feature/sms_board/sms_board.php:21
-msgid "Forward"
-msgstr "Rédirection"
-
-#: plugin/feature/sms_board/sms_board.php:22
-msgid "User"
-msgstr "Compte"
-
-#: plugin/feature/sms_board/sms_board.php:23
 msgid "Action"
 msgstr "Action"
 
-#: plugin/feature/sms_board/sms_board.php:40
+msgid "Add"
+msgstr "Ajouter"
+
+msgid "Add SMS board"
+msgstr "Ajouter un service de rédirection"
+
 msgid "Are you sure you want to delete SMS board with all its messages ?"
 msgstr "Voulez-vous supprimer ce service avec tous ses messages ?"
 
-#: plugin/feature/sms_board/sms_board.php:40
-#: plugin/feature/sms_board/sms_board.php:125
-#: plugin/feature/sms_board/sms_board.php:145
-#: plugin/feature/sms_board/sms_board.php:201
-#: plugin/feature/sms_board/sms_board.php:205
-#: plugin/feature/sms_board/sms_board.php:210
-msgid "keyword"
-msgstr "mot-clé"
+msgid "Date and time"
+msgstr "Date & Heure"
 
-#: plugin/feature/sms_board/sms_board.php:81
 msgid "Edit SMS board"
 msgstr "Éditer le service de rédirection"
 
-#: plugin/feature/sms_board/sms_board.php:88
-#: plugin/feature/sms_board/sms_board.php:161
-msgid "SMS board keyword"
-msgstr "Mot-clé du service de rédirection"
+msgid "Fail to add SMS board"
+msgstr "Impossible d'ajouter un service de rédirection"
 
-#: plugin/feature/sms_board/sms_board.php:91
-#: plugin/feature/sms_board/sms_board.php:167
+msgid "Forward"
+msgstr "Rédirection"
+
+msgid "Forward WebSMS"
+msgstr "Rédirection WebSMS"
+
 msgid "Forward to email"
 msgstr "Transmettre à l'adresse email"
 
-#: plugin/feature/sms_board/sms_board.php:95
-#: plugin/feature/sms_board/sms_board.php:171
-msgid "Template"
-msgstr "Modèle"
+msgid "Keyword"
+msgstr "Mot-clé"
 
-#: plugin/feature/sms_board/sms_board.php:100
-msgid "Save"
-msgstr "Sauvegarder"
-
-#: plugin/feature/sms_board/sms_board.php:125
-msgid "SMS board has been saved"
-msgstr "Le service de rédirection a été sauvegardé"
-
-#: plugin/feature/sms_board/sms_board.php:130
-#: plugin/feature/sms_board/sms_board.php:215
-msgid "You must fill all fields"
-msgstr "Vous devez remplir tous les champs"
-
-#: plugin/feature/sms_board/sms_board.php:145
-msgid "SMS board with all its messages has been deleted"
-msgstr "Le service avec tous ses messages ont été supprimés"
-
-#: plugin/feature/sms_board/sms_board.php:164
 msgid "Leave them empty if you dont know what to fill in these boxes below"
 msgstr ""
 "Laisser vide si vous ne savez pas comment remplir les champs ci-dessous"
 
-#: plugin/feature/sms_board/sms_board.php:176
-msgid "Add"
-msgstr "Ajouter"
+msgid "Manage board"
+msgstr "Service rédirection"
 
-#: plugin/feature/sms_board/sms_board.php:201
+msgid "Message"
+msgstr "Message"
+
+msgid "Receiver"
+msgstr ""
+
 msgid "SMS board has been added"
 msgstr "Le service de rédirection a été ajouté"
 
-#: plugin/feature/sms_board/sms_board.php:205
-msgid "Fail to add SMS board"
-msgstr "Impossible d'ajouter un service de rédirection"
+msgid "SMS board has been saved"
+msgstr "Le service de rédirection a été sauvegardé"
 
-#: plugin/feature/sms_board/sms_board.php:210
+msgid "SMS board keyword"
+msgstr "Mot-clé du service de rédirection"
+
+msgid "SMS board with all its messages has been deleted"
+msgstr "Le service avec tous ses messages ont été supprimés"
+
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr "Le mot-clé existe déjà, est réservé ou utilisé par un autre service"
+
+msgid "Save"
+msgstr "Sauvegarder"
+
+msgid "Sender"
+msgstr "Émetteur"
+
+msgid "Template"
+msgstr "Modèle"
+
+msgid "User"
+msgstr "Compte"
+
+msgid "You must fill all fields"
+msgstr "Vous devez remplir tous les champs"
+
+msgid "from"
+msgstr "de"
+
+msgid "keyword"
+msgstr "mot-clé"

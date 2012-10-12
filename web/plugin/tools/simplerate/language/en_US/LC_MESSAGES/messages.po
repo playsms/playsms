@@ -5,104 +5,62 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/tools/simplerate/config.php:6
-#: plugin/tools/simplerate/simplerate.php:13
-msgid "Manage SMS rate"
-msgstr "Manage SMS rate"
-
-#: plugin/tools/simplerate/simplerate.php:15
-#: plugin/tools/simplerate/simplerate.php:48
-#: plugin/tools/simplerate/simplerate.php:124
-msgid "Add rate"
-msgstr ""
-
-#: plugin/tools/simplerate/simplerate.php:19
-#: plugin/tools/simplerate/simplerate.php:79
-#: plugin/tools/simplerate/simplerate.php:129
-msgid "Destination"
-msgstr ""
-
-#: plugin/tools/simplerate/simplerate.php:20
-#: plugin/tools/simplerate/simplerate.php:82
-#: plugin/tools/simplerate/simplerate.php:132
-msgid "Prefix"
-msgstr ""
-
-#: plugin/tools/simplerate/simplerate.php:21
-#: plugin/tools/simplerate/simplerate.php:85
-#: plugin/tools/simplerate/simplerate.php:135
-msgid "Rate"
-msgstr ""
-
-#: plugin/tools/simplerate/simplerate.php:22
 msgid "Action"
 msgstr ""
 
-#: plugin/tools/simplerate/simplerate.php:33
-msgid "Are you sure you want to delete rate ?"
-msgstr ""
-
-#: plugin/tools/simplerate/simplerate.php:33
-#: plugin/tools/simplerate/simplerate.php:55
-#: plugin/tools/simplerate/simplerate.php:59
-#: plugin/tools/simplerate/simplerate.php:105
-#: plugin/tools/simplerate/simplerate.php:109
-#: plugin/tools/simplerate/simplerate.php:154
-#: plugin/tools/simplerate/simplerate.php:164
-msgid "destination"
-msgstr ""
-
-#: plugin/tools/simplerate/simplerate.php:33
-#: plugin/tools/simplerate/simplerate.php:55
-#: plugin/tools/simplerate/simplerate.php:59
-#: plugin/tools/simplerate/simplerate.php:105
-#: plugin/tools/simplerate/simplerate.php:109
-#: plugin/tools/simplerate/simplerate.php:154
-#: plugin/tools/simplerate/simplerate.php:164
-msgid "prefix"
-msgstr ""
-
-#: plugin/tools/simplerate/simplerate.php:55
-msgid "Fail to delete rate"
-msgstr ""
-
-#: plugin/tools/simplerate/simplerate.php:59
-msgid "Rate has been deleted"
-msgstr ""
-
-#: plugin/tools/simplerate/simplerate.php:73
-msgid "Edit rate"
-msgstr ""
-
-#: plugin/tools/simplerate/simplerate.php:88
-msgid "Save"
-msgstr ""
-
-#: plugin/tools/simplerate/simplerate.php:99
-msgid "No changes made!"
-msgstr ""
-
-#: plugin/tools/simplerate/simplerate.php:105
-msgid "Rate has been saved"
-msgstr ""
-
-#: plugin/tools/simplerate/simplerate.php:109
-msgid "Fail to save rate"
-msgstr ""
-
-#: plugin/tools/simplerate/simplerate.php:114
-#: plugin/tools/simplerate/simplerate.php:170
-msgid "You must fill all fields"
-msgstr ""
-
-#: plugin/tools/simplerate/simplerate.php:138
 msgid "Add"
 msgstr ""
 
-#: plugin/tools/simplerate/simplerate.php:154
+msgid "Add rate"
+msgstr ""
+
+msgid "Are you sure you want to delete rate ?"
+msgstr ""
+
+msgid "Destination"
+msgstr ""
+
+msgid "Edit rate"
+msgstr ""
+
+msgid "Fail to delete rate"
+msgstr ""
+
+msgid "Fail to save rate"
+msgstr ""
+
+msgid "Manage SMS rate"
+msgstr "Manage SMS rate"
+
+msgid "No changes made!"
+msgstr ""
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Rate"
+msgstr ""
+
+msgid "Rate has been added"
+msgstr ""
+
+msgid "Rate has been deleted"
+msgstr ""
+
+msgid "Rate has been saved"
+msgstr ""
+
 msgid "Rate is already exists"
 msgstr ""
 
-#: plugin/tools/simplerate/simplerate.php:164
-msgid "Rate has been added"
+msgid "Save"
+msgstr ""
+
+msgid "You must fill all fields"
+msgstr ""
+
+msgid "destination"
+msgstr ""
+
+msgid "prefix"
 msgstr ""

@@ -5,104 +5,62 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/tools/simplerate/config.php:6
-#: plugin/tools/simplerate/simplerate.php:13
-msgid "Manage SMS rate"
-msgstr "管理短信等级"
-
-#: plugin/tools/simplerate/simplerate.php:15
-#: plugin/tools/simplerate/simplerate.php:48
-#: plugin/tools/simplerate/simplerate.php:124
-msgid "Add rate"
-msgstr "增加等级"
-
-#: plugin/tools/simplerate/simplerate.php:19
-#: plugin/tools/simplerate/simplerate.php:79
-#: plugin/tools/simplerate/simplerate.php:129
-msgid "Destination"
-msgstr "目标"
-
-#: plugin/tools/simplerate/simplerate.php:20
-#: plugin/tools/simplerate/simplerate.php:82
-#: plugin/tools/simplerate/simplerate.php:132
-msgid "Prefix"
-msgstr "前缀"
-
-#: plugin/tools/simplerate/simplerate.php:21
-#: plugin/tools/simplerate/simplerate.php:85
-#: plugin/tools/simplerate/simplerate.php:135
-msgid "Rate"
-msgstr "等级"
-
-#: plugin/tools/simplerate/simplerate.php:22
 msgid "Action"
 msgstr "行为"
 
-#: plugin/tools/simplerate/simplerate.php:33
-msgid "Are you sure you want to delete rate ?"
-msgstr "确定删除等级 ?"
-
-#: plugin/tools/simplerate/simplerate.php:33
-#: plugin/tools/simplerate/simplerate.php:55
-#: plugin/tools/simplerate/simplerate.php:59
-#: plugin/tools/simplerate/simplerate.php:105
-#: plugin/tools/simplerate/simplerate.php:109
-#: plugin/tools/simplerate/simplerate.php:154
-#: plugin/tools/simplerate/simplerate.php:164
-msgid "destination"
-msgstr "目标"
-
-#: plugin/tools/simplerate/simplerate.php:33
-#: plugin/tools/simplerate/simplerate.php:55
-#: plugin/tools/simplerate/simplerate.php:59
-#: plugin/tools/simplerate/simplerate.php:105
-#: plugin/tools/simplerate/simplerate.php:109
-#: plugin/tools/simplerate/simplerate.php:154
-#: plugin/tools/simplerate/simplerate.php:164
-msgid "prefix"
-msgstr "前缀"
-
-#: plugin/tools/simplerate/simplerate.php:55
-msgid "Fail to delete rate"
-msgstr "删除等级失败"
-
-#: plugin/tools/simplerate/simplerate.php:59
-msgid "Rate has been deleted"
-msgstr "等级已删除"
-
-#: plugin/tools/simplerate/simplerate.php:73
-msgid "Edit rate"
-msgstr "编辑等级"
-
-#: plugin/tools/simplerate/simplerate.php:88
-msgid "Save"
-msgstr "保存"
-
-#: plugin/tools/simplerate/simplerate.php:99
-msgid "No changes made!"
-msgstr "没有做出改变"
-
-#: plugin/tools/simplerate/simplerate.php:105
-msgid "Rate has been saved"
-msgstr "等级已保存"
-
-#: plugin/tools/simplerate/simplerate.php:109
-msgid "Fail to save rate"
-msgstr "保存等级失败"
-
-#: plugin/tools/simplerate/simplerate.php:114
-#: plugin/tools/simplerate/simplerate.php:170
-msgid "You must fill all fields"
-msgstr "你必须填满全部空白"
-
-#: plugin/tools/simplerate/simplerate.php:138
 msgid "Add"
 msgstr "增加"
 
-#: plugin/tools/simplerate/simplerate.php:154
+msgid "Add rate"
+msgstr "增加等级"
+
+msgid "Are you sure you want to delete rate ?"
+msgstr "确定删除等级 ?"
+
+msgid "Destination"
+msgstr "目标"
+
+msgid "Edit rate"
+msgstr "编辑等级"
+
+msgid "Fail to delete rate"
+msgstr "删除等级失败"
+
+msgid "Fail to save rate"
+msgstr "保存等级失败"
+
+msgid "Manage SMS rate"
+msgstr "管理短信等级"
+
+msgid "No changes made!"
+msgstr "没有做出改变"
+
+msgid "Prefix"
+msgstr "前缀"
+
+msgid "Rate"
+msgstr "等级"
+
+msgid "Rate has been added"
+msgstr "等级已添加"
+
+msgid "Rate has been deleted"
+msgstr "等级已删除"
+
+msgid "Rate has been saved"
+msgstr "等级已保存"
+
 msgid "Rate is already exists"
 msgstr "等级已存在"
 
-#: plugin/tools/simplerate/simplerate.php:164
-msgid "Rate has been added"
-msgstr "等级已添加"
+msgid "Save"
+msgstr "保存"
+
+msgid "You must fill all fields"
+msgstr "你必须填满全部空白"
+
+msgid "destination"
+msgstr "目标"
+
+msgid "prefix"
+msgstr "前缀"

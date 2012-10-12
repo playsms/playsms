@@ -5,82 +5,62 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/uplink/config.php:25 plugin/gateway/uplink/uplink.php:25
-msgid "Manage uplink"
-msgstr "Gérer uplink"
-
-#: plugin/gateway/uplink/uplink.php:9
 msgid "Active"
 msgstr "Active"
 
-#: plugin/gateway/uplink/uplink.php:13
-msgid "Inactive"
-msgstr "Inactive"
-
-#: plugin/gateway/uplink/uplink.php:13
-msgid "click here to activate"
-msgstr "Cliquez pour activer"
-
-#: plugin/gateway/uplink/uplink.php:30
-msgid "Gateway name"
-msgstr "Nom passerelle"
-
-#: plugin/gateway/uplink/uplink.php:33
-msgid "Master URL"
-msgstr "URL maitre"
-
-#: plugin/gateway/uplink/uplink.php:36
 msgid "Additional URL parameter"
 msgstr "Autres paramètres URL"
 
-#: plugin/gateway/uplink/uplink.php:39
-msgid "Username"
-msgstr "Nom utilisateur"
-
-#: plugin/gateway/uplink/uplink.php:42
-msgid "Password"
-msgstr "Mot de passe"
-
-#: plugin/gateway/uplink/uplink.php:42
-msgid "Fill to change the password"
-msgstr "Remplir pour changer le mot de passe"
-
-#: plugin/gateway/uplink/uplink.php:45
-msgid "Module sender ID"
-msgstr "Émetteur global"
-
-#: plugin/gateway/uplink/uplink.php:45
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "Max. 16 car num ou 11 car alpha. vide=inactif"
-
-#: plugin/gateway/uplink/uplink.php:48
-msgid "Module timezone"
-msgstr "Zone de temps"
-
-#: plugin/gateway/uplink/uplink.php:48
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Ex: +0700 pour Jakarta/Bangkok"
 
-#: plugin/gateway/uplink/uplink.php:52
-msgid "Uplink incoming path"
-msgstr "Chemen entrant uplink"
+msgid "Fill to change the password"
+msgstr "Remplir pour changer le mot de passe"
 
-#: plugin/gateway/uplink/uplink.php:52
-msgid "No trailing slash"
-msgstr "Pas de slash final"
+msgid "Gateway has been activated"
+msgstr "Passerelle activée"
 
-#: plugin/gateway/uplink/uplink.php:56
-msgid "Save"
-msgstr "Sauvegarder"
-
-#: plugin/gateway/uplink/uplink.php:69
-msgid "No changes has been made"
-msgstr "Aucun changement apporté"
-
-#: plugin/gateway/uplink/uplink.php:103
 msgid "Gateway module configurations has been saved"
 msgstr "Configurations passerelles sauvegardées"
 
-#: plugin/gateway/uplink/uplink.php:111
-msgid "Gateway has been activated"
-msgstr "Passerelle activée"
+msgid "Gateway name"
+msgstr "Nom passerelle"
+
+msgid "Inactive"
+msgstr "Inactive"
+
+msgid "Manage uplink"
+msgstr "Gérer uplink"
+
+msgid "Master URL"
+msgstr "URL maitre"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Max. 16 car num ou 11 car alpha. vide=inactif"
+
+msgid "Module sender ID"
+msgstr "Émetteur global"
+
+msgid "Module timezone"
+msgstr "Zone de temps"
+
+msgid "No changes has been made"
+msgstr "Aucun changement apporté"
+
+msgid "No trailing slash"
+msgstr "Pas de slash final"
+
+msgid "Password"
+msgstr "Mot de passe"
+
+msgid "Save"
+msgstr "Sauvegarder"
+
+msgid "Uplink incoming path"
+msgstr "Chemen entrant uplink"
+
+msgid "Username"
+msgstr "Nom utilisateur"
+
+msgid "click here to activate"
+msgstr "Cliquez pour activer"

@@ -14,54 +14,38 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.4\n"
 
-#: plugin/themes/play/page_login.php:15 plugin/themes/play/page_forgot.php:13
-#: plugin/themes/play/page_register.php:19
-msgid "Username"
-msgstr "Username"
-
-#: plugin/themes/play/page_login.php:21
-msgid "Password"
-msgstr "Password"
-
-#: plugin/themes/play/page_login.php:36 plugin/themes/play/page_forgot.php:35
-msgid "Register an account"
-msgstr "Registrar un compte"
-
-#: plugin/themes/play/page_login.php:41
-#: plugin/themes/play/page_register.php:47
-msgid "Forgot password"
-msgstr "Contrasenya perduda"
-
-#: plugin/themes/play/fn.php:55 plugin/themes/play/header.php:111
-msgid "Home"
-msgstr "Principal"
-
-#: plugin/themes/play/fn.php:57
-msgid "Logout"
-msgstr "Sortir"
-
-#: plugin/themes/play/page_forgot.php:19
-#: plugin/themes/play/page_register.php:31
 msgid "Email"
 msgstr "Email"
 
-#: plugin/themes/play/page_forgot.php:25
-msgid "Recover password"
-msgstr "Recuperar contrasenya"
+msgid "Forgot password"
+msgstr "Contrasenya perduda"
 
-#: plugin/themes/play/page_forgot.php:31
-#: plugin/themes/play/page_register.php:43
-msgid "Login"
-msgstr "Usuari"
+msgid "Home"
+msgstr "Principal"
 
-#: plugin/themes/play/header.php:118
 msgid "Logged in"
 msgstr "Connectat"
 
-#: plugin/themes/play/page_register.php:13
+msgid "Login"
+msgstr "Usuari"
+
+msgid "Logout"
+msgstr "Sortir"
+
+msgid "Mobile"
+msgstr "Mòbil"
+
 msgid "Name"
 msgstr "Nom"
 
-#: plugin/themes/play/page_register.php:25
-msgid "Mobile"
-msgstr "Mòbil"
+msgid "Password"
+msgstr "Password"
+
+msgid "Recover password"
+msgstr "Recuperar contrasenya"
+
+msgid "Register an account"
+msgstr "Registrar un compte"
+
+msgid "Username"
+msgstr "Username"

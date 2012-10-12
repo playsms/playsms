@@ -5,26 +5,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/gammu/config.php:13 plugin/gateway/gammu/gammu.php:24
-msgid "Manage gammu"
-msgstr "Administrar gammu"
-
-#: plugin/gateway/gammu/gammu.php:9
 msgid "Active"
 msgstr "Ativo"
 
-#: plugin/gateway/gammu/gammu.php:13
-msgid "Inactive"
-msgstr "Inativo"
+msgid "Gateway has been activated"
+msgstr "Gateway foi ativado"
 
-#: plugin/gateway/gammu/gammu.php:13
-msgid "click here to activate"
-msgstr "clique aqui para ativar"
-
-#: plugin/gateway/gammu/gammu.php:28
 msgid "Gateway name"
 msgstr "Nome do gateway"
 
-#: plugin/gateway/gammu/gammu.php:37
-msgid "Gateway has been activated"
-msgstr "Gateway foi ativado"
+msgid "Inactive"
+msgstr "Inativo"
+
+msgid "Manage gammu"
+msgstr "Administrar gammu"
+
+msgid "click here to activate"
+msgstr "clique aqui para ativar"

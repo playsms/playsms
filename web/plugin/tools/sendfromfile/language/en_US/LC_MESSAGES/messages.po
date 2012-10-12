@@ -5,106 +5,74 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/tools/sendfromfile/sendfromfile.php:12
-#: plugin/tools/sendfromfile/sendfromfile.php:82
-#: plugin/tools/sendfromfile/config.php:6
-msgid "Send from file"
-msgstr ""
-
-#: plugin/tools/sendfromfile/sendfromfile.php:27
-#: plugin/tools/sendfromfile/sendfromfile.php:34
-msgid "Please select CSV file"
-msgstr ""
-
-#: plugin/tools/sendfromfile/sendfromfile.php:27
-msgid "format : destination number, message, username"
-msgstr ""
-
-#: plugin/tools/sendfromfile/sendfromfile.php:29
-#: plugin/tools/sendfromfile/sendfromfile.php:36
-msgid "Upload file"
-msgstr ""
-
-#: plugin/tools/sendfromfile/sendfromfile.php:34
-msgid "format : destination number, message"
-msgstr ""
-
-#: plugin/tools/sendfromfile/sendfromfile.php:77
-msgid "Invalid CSV file"
-msgstr ""
-
-#: plugin/tools/sendfromfile/sendfromfile.php:83
-msgid "Confirmation"
-msgstr ""
-
-#: plugin/tools/sendfromfile/sendfromfile.php:84
-msgid "Uploaded file"
-msgstr ""
-
-#: plugin/tools/sendfromfile/sendfromfile.php:87
-msgid "Found valid entries in uploaded file"
-msgstr ""
-
-#: plugin/tools/sendfromfile/sendfromfile.php:87
-msgid "valid entries"
-msgstr ""
-
-#: plugin/tools/sendfromfile/sendfromfile.php:88
-msgid "Valid entries"
-msgstr ""
-
-#: plugin/tools/sendfromfile/sendfromfile.php:93
-#: plugin/tools/sendfromfile/sendfromfile.php:119
-msgid "Destination number"
-msgstr ""
-
-#: plugin/tools/sendfromfile/sendfromfile.php:94
-#: plugin/tools/sendfromfile/sendfromfile.php:120
-msgid "Message"
-msgstr ""
-
-#: plugin/tools/sendfromfile/sendfromfile.php:95
-#: plugin/tools/sendfromfile/sendfromfile.php:121
-msgid "Username"
-msgstr ""
-
-#: plugin/tools/sendfromfile/sendfromfile.php:113
-msgid "Found invalid entries in uploaded file"
-msgstr ""
-
-#: plugin/tools/sendfromfile/sendfromfile.php:113
-msgid "invalid entries"
-msgstr ""
-
-#: plugin/tools/sendfromfile/sendfromfile.php:114
-msgid "Invalid entries"
-msgstr ""
-
-#: plugin/tools/sendfromfile/sendfromfile.php:138
-msgid "Your choice"
-msgstr ""
-
-#: plugin/tools/sendfromfile/sendfromfile.php:141
 msgid "Cancel send from file"
 msgstr ""
 
-#: plugin/tools/sendfromfile/sendfromfile.php:145
-msgid "Send SMS to valid entries"
+msgid "Confirmation"
 msgstr ""
 
-#: plugin/tools/sendfromfile/sendfromfile.php:153
-msgid "Send from file has been cancelled"
+msgid "Destination number"
 msgstr ""
 
-#: plugin/tools/sendfromfile/sendfromfile.php:155
 msgid "Fail to remove cancelled entries from database"
 msgstr ""
 
-#: plugin/tools/sendfromfile/sendfromfile.php:158
-#: plugin/tools/sendfromfile/sendfromfile.php:181
+msgid "Found invalid entries in uploaded file"
+msgstr ""
+
+msgid "Found valid entries in uploaded file"
+msgstr ""
+
+msgid "Invalid CSV file"
+msgstr ""
+
+msgid "Invalid entries"
+msgstr ""
+
 msgid "Invalid session ID"
 msgstr ""
 
-#: plugin/tools/sendfromfile/sendfromfile.php:179
+msgid "Message"
+msgstr ""
+
+msgid "Please select CSV file"
+msgstr ""
+
 msgid "SMS has been sent to valid numbers in uploaded file"
+msgstr ""
+
+msgid "Send SMS to valid entries"
+msgstr ""
+
+msgid "Send from file"
+msgstr ""
+
+msgid "Send from file has been cancelled"
+msgstr ""
+
+msgid "Upload file"
+msgstr ""
+
+msgid "Uploaded file"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "Valid entries"
+msgstr ""
+
+msgid "Your choice"
+msgstr ""
+
+msgid "format : destination number, message"
+msgstr ""
+
+msgid "format : destination number, message, username"
+msgstr ""
+
+msgid "invalid entries"
+msgstr ""
+
+msgid "valid entries"
 msgstr ""

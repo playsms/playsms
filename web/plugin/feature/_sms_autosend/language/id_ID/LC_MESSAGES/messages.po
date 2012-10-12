@@ -5,139 +5,95 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/feature/_sms_autosend/sms_autosend.php:23
-#: plugin/feature/_sms_autosend/config.php:12
-msgid "Manage autosend"
-msgstr "Pengaturan kirim SMS otomatis"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:25
-#: plugin/feature/_sms_autosend/sms_autosend.php:85
-#: plugin/feature/_sms_autosend/sms_autosend.php:294
-msgid "Add SMS autosend"
-msgstr "Tambah layanan kirim SMS otomatis"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:37
-#: plugin/feature/_sms_autosend/sms_autosend.php:169
-#: plugin/feature/_sms_autosend/sms_autosend.php:301
-msgid "Message"
-msgstr "Pesan"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:38
-msgid "Repeat"
-msgstr "Ulang"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:39
-msgid "User"
-msgstr "Pengguna"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:40
-#: plugin/feature/_sms_autosend/sms_autosend.php:175
-#: plugin/feature/_sms_autosend/sms_autosend.php:304
-msgid "Send to"
-msgstr "Kirim ke"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:41
-msgid "Status"
-msgstr "Status"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:42
 msgid "Action"
 msgstr "Tindakan"
 
-#: plugin/feature/_sms_autosend/sms_autosend.php:50
-#: plugin/feature/_sms_autosend/sms_autosend.php:102
-#: plugin/feature/_sms_autosend/sms_autosend.php:202
-msgid "Disabled"
-msgstr "Nonaktif"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:61
-#: plugin/feature/_sms_autosend/sms_autosend.php:114
-msgid "Once"
-msgstr "Sekali"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:65
-#: plugin/feature/_sms_autosend/sms_autosend.php:204
-msgid "Enabled"
-msgstr "Aktif"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:69
-msgid "Are you sure you want to delete SMS autosend message ?"
-msgstr "Anda yakin ingin menghapus pesan untuk layanan kirim SMS otomatis?"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:95
-msgid "SMS autosend View"
-msgstr "Tampilan layanan kirim SMS otomatis"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:135
-msgid "Time"
-msgstr "Waktu"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:164
-msgid "Edit SMS autosend"
-msgstr "Ubah layanan kirim SMS otomatis"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:172
-msgid "Repeat send"
-msgstr "Kirim ulang"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:187
-#: plugin/feature/_sms_autosend/sms_autosend.php:312
-msgid "Sending time"
-msgstr "Waktu pengiriman"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:195
-msgid "Update"
-msgstr "Perbaharui"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:207
-msgid "Enable or disable this autosend"
-msgstr "Hidupkan atau matikan layanan kirim SMS otomatis ini"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:209
-msgid "Current status"
-msgstr "Status saat ini"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:210
-msgid "What do you want to do ?"
-msgstr "Apa yang ingin anda lakukan?"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:211
-msgid "I want to enable this autosend"
-msgstr "Saya ingin menghidupkan layanan kirim SMS otomatis ini"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:212
-msgid "I want to disable this autosend"
-msgstr "Saya ingin mematikan layanan kirim SMS otomatis ini"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:251
-msgid "Autosend time has been saved"
-msgstr "Waktu pengiriman SMS otomatis sudah disimpan"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:255
-#: plugin/feature/_sms_autosend/sms_autosend.php:361
-msgid "You must fill all fields"
-msgstr "Anda harus mengisi semua kolom"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:266
-msgid "SMS autosend status has been changed"
-msgstr "Status layanan kirim SMS otomatis telah diubah"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:282
-msgid "SMS autosend has been deleted"
-msgstr "layanan kirim SMS otomatis telah dihapus"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:295
-msgid "Add time field"
-msgstr "Tambah kolom waktu"
-
-#: plugin/feature/_sms_autosend/sms_autosend.php:323
 msgid "Add"
 msgstr "Tambah"
 
-#: plugin/feature/_sms_autosend/sms_autosend.php:350
+msgid "Add SMS autosend"
+msgstr "Tambah layanan kirim SMS otomatis"
+
+msgid "Add time field"
+msgstr "Tambah kolom waktu"
+
+msgid "Are you sure you want to delete SMS autosend message ?"
+msgstr "Anda yakin ingin menghapus pesan untuk layanan kirim SMS otomatis?"
+
+msgid "Autosend time has been saved"
+msgstr "Waktu pengiriman SMS otomatis sudah disimpan"
+
+msgid "Current status"
+msgstr "Status saat ini"
+
+msgid "Disabled"
+msgstr "Nonaktif"
+
+msgid "Edit SMS autosend"
+msgstr "Ubah layanan kirim SMS otomatis"
+
+msgid "Enable or disable this autosend"
+msgstr "Hidupkan atau matikan layanan kirim SMS otomatis ini"
+
+msgid "Enabled"
+msgstr "Aktif"
+
+msgid "Fail to add SMS autosend"
+msgstr "Gagal menambah layanan kirim SMS otomatis"
+
+msgid "I want to disable this autosend"
+msgstr "Saya ingin mematikan layanan kirim SMS otomatis ini"
+
+msgid "I want to enable this autosend"
+msgstr "Saya ingin menghidupkan layanan kirim SMS otomatis ini"
+
+msgid "Manage autosend"
+msgstr "Pengaturan kirim SMS otomatis"
+
+msgid "Message"
+msgstr "Pesan"
+
+msgid "Once"
+msgstr "Sekali"
+
+msgid "Repeat"
+msgstr "Ulang"
+
+msgid "Repeat send"
+msgstr "Kirim ulang"
+
+msgid "SMS autosend View"
+msgstr "Tampilan layanan kirim SMS otomatis"
+
 msgid "SMS autosend has been added"
 msgstr "Layanan kirim SMS otomatis telah ditambahkan"
 
-#: plugin/feature/_sms_autosend/sms_autosend.php:357
-msgid "Fail to add SMS autosend"
-msgstr "Gagal menambah layanan kirim SMS otomatis"
+msgid "SMS autosend has been deleted"
+msgstr "layanan kirim SMS otomatis telah dihapus"
+
+msgid "SMS autosend status has been changed"
+msgstr "Status layanan kirim SMS otomatis telah diubah"
+
+msgid "Send to"
+msgstr "Kirim ke"
+
+msgid "Sending time"
+msgstr "Waktu pengiriman"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Time"
+msgstr "Waktu"
+
+msgid "Update"
+msgstr "Perbaharui"
+
+msgid "User"
+msgstr "Pengguna"
+
+msgid "What do you want to do ?"
+msgstr "Apa yang ingin anda lakukan?"
+
+msgid "You must fill all fields"
+msgstr "Anda harus mengisi semua kolom"

@@ -5,124 +5,84 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/feature/sms_board/config.php:6
-#: plugin/feature/sms_board/sms_board.php:13
-msgid "Manage board"
-msgstr "Administrar pizarra"
-
-#: plugin/feature/sms_board/fn.php:84
-msgid "from"
-msgstr "de"
-
-#: plugin/feature/sms_board/fn.php:85
-msgid "Forward WebSMS"
-msgstr "Redirección SMS Web"
-
-#: plugin/feature/sms_board/fn.php:86
-msgid "Date and time"
-msgstr "Fecha & Hora"
-
-#: plugin/feature/sms_board/fn.php:87
-msgid "Sender"
-msgstr "Emisor"
-
-#: plugin/feature/sms_board/fn.php:88
-msgid "Receiver"
-msgstr ""
-
-#: plugin/feature/sms_board/fn.php:89 plugin/feature/sms_board/fn.php:143
-#: plugin/feature/sms_board/sms_board.php:20
-msgid "Keyword"
-msgstr "Clave"
-
-#: plugin/feature/sms_board/fn.php:90
-msgid "Message"
-msgstr "Mensaje"
-
-#: plugin/feature/sms_board/sms_board.php:15
-#: plugin/feature/sms_board/sms_board.php:57
-#: plugin/feature/sms_board/sms_board.php:156
-msgid "Add SMS board"
-msgstr "Añadir pizarra SMS"
-
-#: plugin/feature/sms_board/sms_board.php:21
-msgid "Forward"
-msgstr "Reenvio"
-
-#: plugin/feature/sms_board/sms_board.php:22
-msgid "User"
-msgstr "Usuario"
-
-#: plugin/feature/sms_board/sms_board.php:23
 msgid "Action"
 msgstr "Acción"
 
-#: plugin/feature/sms_board/sms_board.php:40
+msgid "Add"
+msgstr "Añadir"
+
+msgid "Add SMS board"
+msgstr "Añadir pizarra SMS"
+
 msgid "Are you sure you want to delete SMS board with all its messages ?"
 msgstr ""
 "Etes-vous certain de vouloir supprimer ce service avec tous ses messages ?"
 
-#: plugin/feature/sms_board/sms_board.php:40
-#: plugin/feature/sms_board/sms_board.php:125
-#: plugin/feature/sms_board/sms_board.php:145
-#: plugin/feature/sms_board/sms_board.php:201
-#: plugin/feature/sms_board/sms_board.php:205
-#: plugin/feature/sms_board/sms_board.php:210
-msgid "keyword"
-msgstr "Clave"
+msgid "Date and time"
+msgstr "Fecha & Hora"
 
-#: plugin/feature/sms_board/sms_board.php:81
 msgid "Edit SMS board"
 msgstr "Editar servicio de pizarra"
 
-#: plugin/feature/sms_board/sms_board.php:88
-#: plugin/feature/sms_board/sms_board.php:161
-msgid "SMS board keyword"
-msgstr "Clave de pizarra SMS"
-
-#: plugin/feature/sms_board/sms_board.php:91
-#: plugin/feature/sms_board/sms_board.php:167
-msgid "Forward to email"
-msgstr "Reenviar a un correo electrónico"
-
-#: plugin/feature/sms_board/sms_board.php:95
-#: plugin/feature/sms_board/sms_board.php:171
-msgid "Template"
-msgstr "Plantilla"
-
-#: plugin/feature/sms_board/sms_board.php:100
-msgid "Save"
-msgstr "Guardar"
-
-#: plugin/feature/sms_board/sms_board.php:125
-msgid "SMS board has been saved"
-msgstr "La pizarra SMS ha sido guardada"
-
-#: plugin/feature/sms_board/sms_board.php:130
-#: plugin/feature/sms_board/sms_board.php:215
-msgid "You must fill all fields"
-msgstr "Ud. debe rellenar todos los campos"
-
-#: plugin/feature/sms_board/sms_board.php:145
-msgid "SMS board with all its messages has been deleted"
-msgstr "La pizarra SMS y todos sus mensajes ha sido borrada"
-
-#: plugin/feature/sms_board/sms_board.php:164
-msgid "Leave them empty if you dont know what to fill in these boxes below"
-msgstr "Déjas vacias si usted no sabe que rellenar en estos campos abajo"
-
-#: plugin/feature/sms_board/sms_board.php:176
-msgid "Add"
-msgstr "Añadir"
-
-#: plugin/feature/sms_board/sms_board.php:201
-msgid "SMS board has been added"
-msgstr "La pizarra SMS ha sido añadida"
-
-#: plugin/feature/sms_board/sms_board.php:205
 msgid "Fail to add SMS board"
 msgstr "Fallo al añadir la pizarra SMS"
 
-#: plugin/feature/sms_board/sms_board.php:210
+msgid "Forward"
+msgstr "Reenvio"
+
+msgid "Forward WebSMS"
+msgstr "Redirección SMS Web"
+
+msgid "Forward to email"
+msgstr "Reenviar a un correo electrónico"
+
+msgid "Keyword"
+msgstr "Clave"
+
+msgid "Leave them empty if you dont know what to fill in these boxes below"
+msgstr "Déjas vacias si usted no sabe que rellenar en estos campos abajo"
+
+msgid "Manage board"
+msgstr "Administrar pizarra"
+
+msgid "Message"
+msgstr "Mensaje"
+
+msgid "Receiver"
+msgstr ""
+
+msgid "SMS board has been added"
+msgstr "La pizarra SMS ha sido añadida"
+
+msgid "SMS board has been saved"
+msgstr "La pizarra SMS ha sido guardada"
+
+msgid "SMS board keyword"
+msgstr "Clave de pizarra SMS"
+
+msgid "SMS board with all its messages has been deleted"
+msgstr "La pizarra SMS y todos sus mensajes ha sido borrada"
+
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr "La clave SMS ya existe, está reservada o en uso por otro proceso"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Sender"
+msgstr "Emisor"
+
+msgid "Template"
+msgstr "Plantilla"
+
+msgid "User"
+msgstr "Usuario"
+
+msgid "You must fill all fields"
+msgstr "Ud. debe rellenar todos los campos"
+
+msgid "from"
+msgstr "de"
+
+msgid "keyword"
+msgstr "Clave"

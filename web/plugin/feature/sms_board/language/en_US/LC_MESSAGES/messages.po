@@ -5,123 +5,83 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/feature/sms_board/config.php:6
-#: plugin/feature/sms_board/sms_board.php:13
-msgid "Manage board"
-msgstr "Manage board"
-
-#: plugin/feature/sms_board/fn.php:84
-msgid "from"
-msgstr ""
-
-#: plugin/feature/sms_board/fn.php:85
-msgid "Forward WebSMS"
-msgstr ""
-
-#: plugin/feature/sms_board/fn.php:86
-msgid "Date and time"
-msgstr ""
-
-#: plugin/feature/sms_board/fn.php:87
-msgid "Sender"
-msgstr ""
-
-#: plugin/feature/sms_board/fn.php:88
-msgid "Receiver"
-msgstr ""
-
-#: plugin/feature/sms_board/fn.php:89 plugin/feature/sms_board/fn.php:143
-#: plugin/feature/sms_board/sms_board.php:20
-msgid "Keyword"
-msgstr ""
-
-#: plugin/feature/sms_board/fn.php:90
-msgid "Message"
-msgstr ""
-
-#: plugin/feature/sms_board/sms_board.php:15
-#: plugin/feature/sms_board/sms_board.php:57
-#: plugin/feature/sms_board/sms_board.php:156
-msgid "Add SMS board"
-msgstr ""
-
-#: plugin/feature/sms_board/sms_board.php:21
-msgid "Forward"
-msgstr ""
-
-#: plugin/feature/sms_board/sms_board.php:22
-msgid "User"
-msgstr ""
-
-#: plugin/feature/sms_board/sms_board.php:23
 msgid "Action"
 msgstr ""
 
-#: plugin/feature/sms_board/sms_board.php:40
-msgid "Are you sure you want to delete SMS board with all its messages ?"
-msgstr ""
-
-#: plugin/feature/sms_board/sms_board.php:40
-#: plugin/feature/sms_board/sms_board.php:125
-#: plugin/feature/sms_board/sms_board.php:145
-#: plugin/feature/sms_board/sms_board.php:201
-#: plugin/feature/sms_board/sms_board.php:205
-#: plugin/feature/sms_board/sms_board.php:210
-msgid "keyword"
-msgstr ""
-
-#: plugin/feature/sms_board/sms_board.php:81
-msgid "Edit SMS board"
-msgstr ""
-
-#: plugin/feature/sms_board/sms_board.php:88
-#: plugin/feature/sms_board/sms_board.php:161
-msgid "SMS board keyword"
-msgstr ""
-
-#: plugin/feature/sms_board/sms_board.php:91
-#: plugin/feature/sms_board/sms_board.php:167
-msgid "Forward to email"
-msgstr ""
-
-#: plugin/feature/sms_board/sms_board.php:95
-#: plugin/feature/sms_board/sms_board.php:171
-msgid "Template"
-msgstr ""
-
-#: plugin/feature/sms_board/sms_board.php:100
-msgid "Save"
-msgstr ""
-
-#: plugin/feature/sms_board/sms_board.php:125
-msgid "SMS board has been saved"
-msgstr ""
-
-#: plugin/feature/sms_board/sms_board.php:130
-#: plugin/feature/sms_board/sms_board.php:215
-msgid "You must fill all fields"
-msgstr ""
-
-#: plugin/feature/sms_board/sms_board.php:145
-msgid "SMS board with all its messages has been deleted"
-msgstr ""
-
-#: plugin/feature/sms_board/sms_board.php:164
-msgid "Leave them empty if you dont know what to fill in these boxes below"
-msgstr ""
-
-#: plugin/feature/sms_board/sms_board.php:176
 msgid "Add"
 msgstr ""
 
-#: plugin/feature/sms_board/sms_board.php:201
-msgid "SMS board has been added"
+msgid "Add SMS board"
 msgstr ""
 
-#: plugin/feature/sms_board/sms_board.php:205
+msgid "Are you sure you want to delete SMS board with all its messages ?"
+msgstr ""
+
+msgid "Date and time"
+msgstr ""
+
+msgid "Edit SMS board"
+msgstr ""
+
 msgid "Fail to add SMS board"
 msgstr ""
 
-#: plugin/feature/sms_board/sms_board.php:210
+msgid "Forward"
+msgstr ""
+
+msgid "Forward WebSMS"
+msgstr ""
+
+msgid "Forward to email"
+msgstr ""
+
+msgid "Keyword"
+msgstr ""
+
+msgid "Leave them empty if you dont know what to fill in these boxes below"
+msgstr ""
+
+msgid "Manage board"
+msgstr "Manage board"
+
+msgid "Message"
+msgstr ""
+
+msgid "Receiver"
+msgstr ""
+
+msgid "SMS board has been added"
+msgstr ""
+
+msgid "SMS board has been saved"
+msgstr ""
+
+msgid "SMS board keyword"
+msgstr ""
+
+msgid "SMS board with all its messages has been deleted"
+msgstr ""
+
 msgid "SMS keyword already exists, reserved or use by other feature"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Sender"
+msgstr ""
+
+msgid "Template"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "You must fill all fields"
+msgstr ""
+
+msgid "from"
+msgstr ""
+
+msgid "keyword"
 msgstr ""

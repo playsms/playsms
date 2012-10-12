@@ -5,76 +5,57 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/msgtoolbox/config.php:24
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:25
-msgid "Manage msgtoolbox"
-msgstr ""
-
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:9
 msgid "Active"
 msgstr "Ativo"
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:13
-msgid "Inactive"
-msgstr "Inativo"
-
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:13
-msgid "click here to activate"
-msgstr "clique aqui para ativar"
-
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:30
-msgid "Gateway name"
-msgstr "Nome do gateway"
-
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:33
-msgid "msgtoolbox URL"
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:36
-msgid "Route"
-msgstr ""
-
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:38
-msgid "Username"
-msgstr "Usuário"
-
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:41
-msgid "Password"
-msgstr "Senha"
-
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:41
 msgid "Fill to change the password"
 msgstr "Preencha pra mudar a senha"
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:44
-msgid "Module sender ID"
+msgid "Gateway has been activated"
+msgstr "Gateway foi ativado"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Configurações do módulo de gateway foram salvas"
+
+msgid "Gateway name"
+msgstr "Nome do gateway"
+
+msgid "Inactive"
+msgstr "Inativo"
+
+msgid "Manage msgtoolbox"
 msgstr ""
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:44
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
 "Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:47
+msgid "Module sender ID"
+msgstr ""
+
 msgid "Module timezone"
 msgstr ""
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:47
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
-
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:50
-msgid "Save"
-msgstr "Salvar"
-
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:62
 msgid "No changes has been made"
 msgstr "Nenhuma mudança feita"
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:80
-msgid "Gateway module configurations has been saved"
-msgstr "Configurações do módulo de gateway foram salvas"
+msgid "Password"
+msgstr "Senha"
 
-#: plugin/gateway/msgtoolbox/msgtoolbox.php:88
-msgid "Gateway has been activated"
-msgstr "Gateway foi ativado"
+msgid "Route"
+msgstr ""
+
+msgid "Save"
+msgstr "Salvar"
+
+msgid "Username"
+msgstr "Usuário"
+
+msgid "click here to activate"
+msgstr "clique aqui para ativar"
+
+msgid "msgtoolbox URL"
+msgstr ""

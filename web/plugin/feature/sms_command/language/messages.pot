@@ -1,137 +1,86 @@
-#: plugin/feature/sms_command/config.php:6
-#: plugin/feature/sms_command/sms_command.php:11
-msgid "Manage command"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:13
-#: plugin/feature/sms_command/sms_command.php:56
-#: plugin/feature/sms_command/sms_command.php:133
-msgid "Add SMS command"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:14
-#: plugin/feature/sms_command/sms_command.php:84
-#: plugin/feature/sms_command/sms_command.php:143
-msgid "SMS command exec path"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:25
-msgid "Keyword"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:26
-msgid "Exec"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:27
-msgid "User"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:28
 msgid "Action"
 msgstr ""
 
-#: plugin/feature/sms_command/sms_command.php:38
-msgid "Are you sure you want to delete SMS command ?"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:38
-#: plugin/feature/sms_command/sms_command.php:103
-#: plugin/feature/sms_command/sms_command.php:105
-#: plugin/feature/sms_command/sms_command.php:121
-#: plugin/feature/sms_command/sms_command.php:123
-#: plugin/feature/sms_command/sms_command.php:163
-#: plugin/feature/sms_command/sms_command.php:165
-#: plugin/feature/sms_command/sms_command.php:168
-msgid "keyword"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:72
-msgid "Edit SMS command"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:77
-#: plugin/feature/sms_command/sms_command.php:136
-msgid "SMS command keyword"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:78
-#: plugin/feature/sms_command/sms_command.php:137
-msgid "Pass these parameter to command exec field"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:79
-#: plugin/feature/sms_command/sms_command.php:138
-msgid "will be replaced by SMS incoming date/time"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:80
-#: plugin/feature/sms_command/sms_command.php:139
-msgid "will be replaced by sender number"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:81
-#: plugin/feature/sms_command/sms_command.php:140
-msgid "will be replaced by command keyword"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:82
-#: plugin/feature/sms_command/sms_command.php:141
-msgid "will be replaced by command parameter passed to server from SMS"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:83
-#: plugin/feature/sms_command/sms_command.php:142
-msgid "will be replaced by SMS raw message"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:85
-#: plugin/feature/sms_command/sms_command.php:144
-msgid "SMS command exec"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:86
-#: plugin/feature/sms_command/sms_command.php:145
-msgid "Make return as reply"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:87
-msgid "Save"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:103
-msgid "SMS command has been saved"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:105
-msgid "Fail to save SMS command"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:108
-#: plugin/feature/sms_command/sms_command.php:171
-msgid "You must fill all fields"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:121
-msgid "SMS command has been deleted"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:123
-msgid "Fail to delete SMS command"
-msgstr ""
-
-#: plugin/feature/sms_command/sms_command.php:146
 msgid "Add"
 msgstr ""
 
-#: plugin/feature/sms_command/sms_command.php:163
-msgid "SMS command has been added"
+msgid "Add SMS command"
 msgstr ""
 
-#: plugin/feature/sms_command/sms_command.php:165
+msgid "Are you sure you want to delete SMS command ?"
+msgstr ""
+
+msgid "Edit SMS command"
+msgstr ""
+
+msgid "Exec"
+msgstr ""
+
 msgid "Fail to add SMS command"
 msgstr ""
 
-#: plugin/feature/sms_command/sms_command.php:168
+msgid "Fail to delete SMS command"
+msgstr ""
+
+msgid "Fail to save SMS command"
+msgstr ""
+
+msgid "Keyword"
+msgstr ""
+
+msgid "Make return as reply"
+msgstr ""
+
+msgid "Manage command"
+msgstr ""
+
+msgid "Pass these parameter to command exec field"
+msgstr ""
+
 msgid "SMS command already exists, reserved or use by other feature"
+msgstr ""
+
+msgid "SMS command exec"
+msgstr ""
+
+msgid "SMS command exec path"
+msgstr ""
+
+msgid "SMS command has been added"
+msgstr ""
+
+msgid "SMS command has been deleted"
+msgstr ""
+
+msgid "SMS command has been saved"
+msgstr ""
+
+msgid "SMS command keyword"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "You must fill all fields"
+msgstr ""
+
+msgid "keyword"
+msgstr ""
+
+msgid "will be replaced by SMS incoming date/time"
+msgstr ""
+
+msgid "will be replaced by SMS raw message"
+msgstr ""
+
+msgid "will be replaced by command keyword"
+msgstr ""
+
+msgid "will be replaced by command parameter passed to server from SMS"
+msgstr ""
+
+msgid "will be replaced by sender number"
 msgstr ""

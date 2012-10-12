@@ -1,56 +1,41 @@
-#: plugin/themes/km2/page_login.php:32 plugin/themes/km2/page_forgot.php:31
-#: plugin/themes/km2/page_register.php:36
-msgid "Username"
-msgstr ""
-
-#: plugin/themes/km2/page_login.php:37
-msgid "Password"
-msgstr ""
-
-#: plugin/themes/km2/page_login.php:43
-msgid "Login"
-msgstr ""
-
-#: plugin/themes/km2/page_login.php:50
-msgid "Register an account"
-msgstr ""
-
-#: plugin/themes/km2/page_login.php:52
-msgid "Forgot password"
-msgstr ""
-
-#: plugin/themes/km2/fn.php:38 plugin/themes/km2/header.php:42
-msgid "Home"
-msgstr ""
-
-#: plugin/themes/km2/fn.php:40 plugin/themes/km2/header.php:50
-msgid "Logout"
-msgstr ""
-
-#: plugin/themes/km2/page_forgot.php:36 plugin/themes/km2/page_register.php:46
-msgid "Email"
-msgstr ""
-
-#: plugin/themes/km2/page_forgot.php:43
-msgid "Recover password"
-msgstr ""
-
-#: plugin/themes/km2/header.php:45
-msgid "Preferences"
-msgstr ""
-
-#: plugin/themes/km2/header.php:47
 msgid "Contact"
 msgstr ""
 
-#: plugin/themes/km2/page_register.php:32
-msgid "Name"
+msgid "Email"
 msgstr ""
 
-#: plugin/themes/km2/page_register.php:41
+msgid "Forgot password"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "Login"
+msgstr ""
+
+msgid "Logout"
+msgstr ""
+
 msgid "Mobile"
 msgstr ""
 
-#: plugin/themes/km2/page_register.php:53
+msgid "Name"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Preferences"
+msgstr ""
+
+msgid "Recover password"
+msgstr ""
+
 msgid "Register"
+msgstr ""
+
+msgid "Register an account"
+msgstr ""
+
+msgid "Username"
 msgstr ""

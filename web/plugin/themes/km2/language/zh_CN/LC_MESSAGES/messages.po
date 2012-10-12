@@ -5,59 +5,44 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/themes/km2/page_login.php:32 plugin/themes/km2/page_forgot.php:31
-#: plugin/themes/km2/page_register.php:36
-msgid "Username"
-msgstr "用户名"
-
-#: plugin/themes/km2/page_login.php:37
-msgid "Password"
-msgstr "密码"
-
-#: plugin/themes/km2/page_login.php:43
-msgid "Login"
-msgstr "登陆"
-
-#: plugin/themes/km2/page_login.php:50
-msgid "Register an account"
-msgstr "注册一个帐号"
-
-#: plugin/themes/km2/page_login.php:52
-msgid "Forgot password"
-msgstr "忘记密码"
-
-#: plugin/themes/km2/fn.php:38 plugin/themes/km2/header.php:42
-msgid "Home"
-msgstr "主页"
-
-#: plugin/themes/km2/fn.php:40 plugin/themes/km2/header.php:50
-msgid "Logout"
-msgstr "注销"
-
-#: plugin/themes/km2/page_forgot.php:36 plugin/themes/km2/page_register.php:46
-msgid "Email"
-msgstr "电子邮件"
-
-#: plugin/themes/km2/page_forgot.php:43
-msgid "Recover password"
-msgstr "找回密码"
-
-#: plugin/themes/km2/header.php:45
-msgid "Preferences"
-msgstr "偏好"
-
-#: plugin/themes/km2/header.php:47
 msgid "Contact"
 msgstr "连接"
 
-#: plugin/themes/km2/page_register.php:32
-msgid "Name"
-msgstr "姓名"
+msgid "Email"
+msgstr "电子邮件"
 
-#: plugin/themes/km2/page_register.php:41
+msgid "Forgot password"
+msgstr "忘记密码"
+
+msgid "Home"
+msgstr "主页"
+
+msgid "Login"
+msgstr "登陆"
+
+msgid "Logout"
+msgstr "注销"
+
 msgid "Mobile"
 msgstr "手机"
 
-#: plugin/themes/km2/page_register.php:53
+msgid "Name"
+msgstr "姓名"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Preferences"
+msgstr "偏好"
+
+msgid "Recover password"
+msgstr "找回密码"
+
 msgid "Register"
 msgstr "注册"
+
+msgid "Register an account"
+msgstr "注册一个帐号"
+
+msgid "Username"
+msgstr "用户名"
