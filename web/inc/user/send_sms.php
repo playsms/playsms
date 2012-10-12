@@ -8,11 +8,13 @@ $dst_gp_code = urlencode($_REQUEST['dst_gp_code']);
 switch ($op) {
 	case "sendsmstopv":
 		$message = stripslashes($_REQUEST['message']);
+
 		$rows = phonebook_getgroupbyuid($uid, "gp_name");
 		foreach ($rows as $key => $db_row) {
 			$c_count = phonebook_getmembercountbyid($db_row['gpid']);
 			$list_of_number .= "<option value=\"gpid_".$db_row['gpid']."\" $selected>"._('Group').": ".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.")</option>";
 		}
+
 		$rows = phonebook_getsharedgroup($uid);
 		foreach ($rows as $key => $db_row) {
 			$c_uid = $db_row['uid'];
@@ -20,10 +22,12 @@ switch ($op) {
 			$c_count = phonebook_getmembercountbyid($db_row['gpid']);
 			$list_of_number .= "<option value=\"gpid_".$db_row['gpid']."\" $selected>"._('Group').": ".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.") - "._('shared by')." ".$c_username."</option>";
 		}
+
 		$rows = phonebook_getdatabyuid($uid, "p_desc");
 		foreach ($rows as $key => $db_row) {
 			$list_of_number .= "<option value=\"".$db_row['p_num']."\" $selected>".$db_row['p_desc']." ".$db_row['p_num']."</option>";
 		}
+
 		$rows = phonebook_getsharedgroup($uid);
 		foreach ($rows as $key => $db_row) {
 			$c_gpid = $db_row['gpid'];
@@ -35,17 +39,26 @@ switch ($op) {
 				$list_of_number .= "<option value=\"".$db_row1['p_num']."\" $selected>".$db_row1['p_desc']." ".$db_row1['p_num']." ("._('shared by')." ".$c_username.")</option>";
 			}
 		}
+
 		$sms_from = sendsms_get_sender($username);
+
 		$sms_footer = $core_config['user']['footer'];
 		if (! $sms_footer) {
 			$sms_footer = "<i>"._('not set')."</i>";
 		}
+
 		$option_values = "<option value=\"\" default>--"._('Please select template')."--</option>";
 		$c_templates = sendsms_get_template();
 		for ($i=0;$i<count($c_templates);$i++) {
 			$option_values .= "<option value=\"".$c_templates[$i]['text']."\">".$c_templates[$i]['title']."</option>";
 			$input_values .= "<input type=\"hidden\" name=\"content_".$i."\" value=\"".$c_templates[$i]['text']."\">";
 		}
+		if ($c_templates[0]) {
+			$sms_template = "
+				<p><select name=\"smstemplate\">$option_values</select>
+				<input type=\"button\" onClick=\"SetSmsTemplate();\" name=\"nb\" value=\""._('Use')."\" class=\"button\">";
+		}
+
 		$content = '';
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
@@ -79,8 +92,7 @@ switch ($op) {
 			</tr>
 			</table>
 			<p>"._('Or').": <input type=text size=20 maxlength=20 name=p_num_text value=\"$dst_p_num\">
-			<p><select name=\"smstemplate\">$option_values</select>
-			<input type=\"button\" onClick=\"SetSmsTemplate();\" name=\"nb\" value=\""._('Use')."\" class=\"button\">
+			$sms_template
 			<p>"._('Message').":
 			<br><textarea cols=\"39\" rows=\"5\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
 			<br><input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
