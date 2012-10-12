@@ -401,4 +401,15 @@ function sendsms_get_sender($username) {
 	return $sms_sender;
 }
 
+function sendsms_get_template() {
+	global $core_config;
+	$templates = array();
+	for ($c=0;$c<count($core_config['toolslist']);$c++) {
+		if ($templates = x_hook($core_config['toolslist'][$c],'sendsms_get_template')) {
+			break;
+		}
+	}
+	return $templates;
+}
+
 ?>

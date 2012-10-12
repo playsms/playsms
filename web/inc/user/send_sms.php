@@ -40,14 +40,11 @@ switch ($op) {
 		if (! $sms_footer) {
 			$sms_footer = "<i>"._('not set')."</i>";
 		}
-		$db_query2 = "SELECT * FROM "._DB_PREF_."_tblSMSTemplate WHERE uid='$uid'";
-		$db_result2 = dba_query($db_query2);
-		$j = 0;
 		$option_values = "<option value=\"\" default>--"._('Please select template')."--</option>";
-		while ($db_row = dba_fetch_array($db_result2)) {
-			$j++;
-			$option_values .= "<option value=\"".$db_row['t_text']."\">".$db_row['t_title']."</option>";
-			$input_values .= "<input type=\"hidden\" name=\"content_$j\" value=\"".$db_row['t_text']."\">";
+		$c_templates = sendsms_get_template();
+		for ($i=0;$i<count($c_templates);$i++) {
+			$option_values .= "<option value=\"".$c_templates[$i]['text']."\">".$c_templates[$i]['title']."</option>";
+			$input_values .= "<input type=\"hidden\" name=\"content_".$i."\" value=\"".$c_templates[$i]['text']."\">";
 		}
 		$content = '';
 		if ($err = $_SESSION['error_string']) {
