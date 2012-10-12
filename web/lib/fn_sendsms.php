@@ -267,13 +267,8 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 		$message = substr ($message,0,$max_length);
 	}
 	$sms_msg = $message;
-	
-	logger_print("start uid:".$uid." sender:".$sms_sender." footer:".$sms_footer." maxlength:".$max_length." msgcount:".strlen($sms_msg)." message:".$sms_msg, 3, "sendsms pv");
 
-	// \r and \n is ok - http://smstools3.kekekasvi.com/topic.php?id=328
-	//$sms_msg = str_replace("\r","",$sms_msg);
-	//$sms_msg = str_replace("\n","",$sms_msg);
-	//$sms_msg = str_replace("\"","'",$sms_msg);
+	logger_print("start uid:".$uid." sender:".$sms_sender." footer:".$sms_footer." maxlength:".$max_length." msgcount:".strlen($sms_msg)." message:".$sms_msg, 3, "sendsms pv");
 
 	// create a queue
 	$queue_code = sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,0,$sms_type,$unicode);
@@ -288,8 +283,23 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 	} else {
 		$array_sms_to[0] = $sms_to;
 	}
+
 	for ($i=0;$i<count($array_sms_to);$i++) {
-		$c_sms_to = sendsms_getvalidnumber($array_sms_to[$i]);
+		if (substr($array_sms_to[$i], 0, 5) == 'gpid_') {
+			$c_gpid = substr($array_sms_to[$i], 5);
+			$rows = phonebook_getdatabyid($c_gpid);
+			foreach ($rows as $key => $db_row) {
+				$all_sms_to[] = $db_row['p_num'];
+			}
+		} else {
+			$all_sms_to[] = $array_sms_to[$i];
+		}
+	}
+	// remove double entries
+	$all_sms_to = array_unique($all_sms_to);
+
+	for ($i=0;$i<count($all_sms_to);$i++) {
+		$c_sms_to = sendsms_getvalidnumber($all_sms_to[$i]);
 		$ok[$i] = sendsms_queue_push($queue_code,$c_sms_to);
 		$to[$i] = $c_sms_to;
 		$smslog_id[$i] = 0;
@@ -325,14 +335,8 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 		$message = substr ($message,0,$max_length);
 	}
 	$sms_msg = $message;
-	
+
 	logger_print("start uid:".$uid." gpid:".$gpid." sender:".$sms_sender." footer:".$sms_footer." maxlength:".$max_length." msgcount:".strlen($sms_msg)." message:".$sms_msg, 3, "sendsms bc");
-
-
-	// \r and \n is ok - http://smstools3.kekekasvi.com/topic.php?id=328
-	//$sms_msg = str_replace("\r","",$sms_msg);
-	//$sms_msg = str_replace("\n","",$sms_msg);
-	//$sms_msg = str_replace("\"","'",$sms_msg);
 
 	// destination group should be an array, if single then make it array of 1 member
 	if (is_array($gpid)) {

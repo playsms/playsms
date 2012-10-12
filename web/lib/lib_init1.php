@@ -53,7 +53,6 @@ $core_config['menu']['main_tab']['gateway'] = _('Gateway');
 $menutab_my_account = $core_config['menu']['main_tab']['my_account'];
 $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=sms_template&op=list", _('Message template'));
 $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=send_sms&op=sendsmstopv", _('Send SMS'));
-$arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=send_sms&op=sendsmstogr", _('Send broadcast SMS'));
 $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=user_inbox&op=user_inbox", _('Inbox'));
 $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=user_incoming&op=user_incoming", _('Incoming SMS'));
 $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=user_outgoing&op=user_outgoing", _('Outgoing SMS'));
