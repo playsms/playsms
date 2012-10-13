@@ -38,7 +38,7 @@ $core_config['plugin']['kannel'] = $kannel_param;
 
 // insert to left menu array
 if (isadmin()) {
-	$menutab_gateway = $core_config['menu']['main_tab']['gateway'];
+	$menutab_gateway = $core_config['menu']['gateway'];
 	$arr_menu[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_kannel&op=manage", _('Manage kannel'));
 }
 

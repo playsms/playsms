@@ -6,6 +6,6 @@ $simplephonebook_icon_import = "<img src=\"".$http_path['themes']."/".$themes_mo
 $simplephonebook_icon_publish = "<img src=\"".$http_path['themes']."/".$themes_module."/images/publicphonebook.gif\" alt=\""._('Publish')."\" title=\""._('Publish')."\" border=0>";
 $simplephonebook_icon_unpublish = "<img src=\"".$http_path['themes']."/".$themes_module."/images/unpublicphonebook.gif\" alt=\""._('Unpublish')."\" title=\""._('Unpublish')."\" border=0>";
 
-$menutab_tools = $core_config['menu']['main_tab']['tools'];
+$menutab_tools = $core_config['menu']['tools'];
 $arr_menu[$menutab_tools][] = array("index.php?app=menu&inc=tools_simplephonebook&op=simplephonebook_list", _('Phonebook'));
 ?>

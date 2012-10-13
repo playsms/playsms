@@ -43,14 +43,14 @@ $icon_sendsms = "<img src=\"".$http_path['themes']."/".$themes_module."/images/s
 $icon_phonebook = "<img src=\"".$http_path['themes']."/".$themes_module."/images/phonebook_action.gif\" alt=\""._('Phonebook')."\" title=\""._('Phonebook')."\" border=0>";
 
 // menus
-$core_config['menu']['main_tab']['home'] = _('Home');
-$core_config['menu']['main_tab']['my_account'] = _('My Account');
-$core_config['menu']['main_tab']['administration'] = _('Administration');
-$core_config['menu']['main_tab']['feature'] = _('Feature');
-$core_config['menu']['main_tab']['tools'] = _('Tools');
-$core_config['menu']['main_tab']['gateway'] = _('Gateway');
+$core_config['menu']['home'] = _('Home');
+$core_config['menu']['my_account'] = _('My Account');
+$core_config['menu']['administration'] = _('Administration');
+$core_config['menu']['feature'] = _('Feature');
+$core_config['menu']['tools'] = _('Tools');
+$core_config['menu']['gateway'] = _('Gateway');
 
-$menutab_my_account = $core_config['menu']['main_tab']['my_account'];
+$menutab_my_account = $core_config['menu']['my_account'];
 $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=send_sms&op=sendsmstopv", _('Send SMS'));
 $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=user_inbox&op=user_inbox", _('Inbox'));
 $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=user_incoming&op=user_incoming", _('Incoming SMS'));
@@ -58,7 +58,7 @@ $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=user_outgoing&o
 $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=user_pref&op=user_pref", _('Preferences'));
 //ksort($arr_menu[$menutab_my_account]);
 
-$menutab_administration = $core_config['menu']['main_tab']['administration'];
+$menutab_administration = $core_config['menu']['administration'];
 if (isadmin()) {
 	// administrator menus
 	$arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=all_inbox&op=all_inbox", _('All inbox'));
