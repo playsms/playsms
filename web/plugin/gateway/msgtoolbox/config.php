@@ -20,7 +20,7 @@ $core_config['plugin']['msgtoolbox'] = $msgtoolbox_param;
 
 // insert to left menu array
 if (isadmin()) {
-	$menutab_gateway = $core_config['menu']['gateway'];
+	$menutab_gateway = $core_config['menutab']['gateway'];
 	$arr_menu[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_msgtoolbox&op=manage", _('Manage msgtoolbox'));
 }
 ?>
