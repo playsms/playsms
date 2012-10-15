@@ -10,6 +10,6 @@ $core_config['menu'] = $arr_menu;
 $core_config['plugins'] = $plugin;
 
 // fixme anton - uncomment this if you want to know what are available in $core_config
-print_r($core_config); die();
+//print_r($core_config); die();
 
 ?>
