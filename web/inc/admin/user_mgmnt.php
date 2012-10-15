@@ -106,14 +106,24 @@ switch ($op) {
 		$footer = $c_user['footer'];
 		$timezone = $c_user['datetime_timezone'];
 		$language_module = $c_user['language_module'];
+
 		// get language options
-		for ($i = 0; $i < count($core_config['languagelist']); $i++) {
+		$lang_list = '';
+		for ($i=0;$i<count($core_config['languagelist']);$i++) {
 			$language = $core_config['languagelist'][$i];
-			if ($language == $language_module)
-				$selected = "selected";
-			$option_language_module .= "<option value=\"$language\" $selected>$language</option>";
-			$selected = "";
+			$c_language_title = $core_config['plugins']['language'][$language]['title'];
+			if ($c_language_title) {
+				$lang_list[$c_language_title] = $language;
+			}
 		}
+		if (is_array($lang_list)) {
+			foreach ($lang_list as $key => $val) {
+				if ($val == $language_module) $selected = "selected";
+				$option_language_module .= "<option value=\"".$val."\" $selected>".$key."</option>";
+				$selected = "";
+			}
+		}
+
 		$credit = rate_getusercredit($uname);
 		if ($err = $_SESSION['error_string']) {
 			$content = "<p><font color='red'>$err</font><p>";
@@ -216,14 +226,24 @@ switch ($op) {
 			$content = "<p><font color='red'>$err</font><p>";
 		}
 		$add_timezone = ( $add_timezone ? $add_timezone : $gateway_timezone );
+
 		// get language options
-		for ($i = 0; $i < count($core_config['languagelist']); $i++) {
+		$lang_list = '';
+		for ($i=0;$i<count($core_config['languagelist']);$i++) {
 			$language = $core_config['languagelist'][$i];
-			if ($language == $language_module)
-				$selected = "selected";
-			$option_language_module .= "<option value=\"$language\" $selected>$language</option>";
-			$selected = "";
+			$c_language_title = $core_config['plugins']['language'][$language]['title'];
+			if ($c_language_title) {
+				$lang_list[$c_language_title] = $language;
+			}
 		}
+		if (is_array($lang_list)) {
+			foreach ($lang_list as $key => $val) {
+				if ($val == $language_module) $selected = "selected";
+				$option_language_module .= "<option value=\"".$val."\" $selected>".$key."</option>";
+				$selected = "";
+			}
+		}
+
 		$option_status = "
 			<option value='2'>" . _('Administrator') . "</option>
 			<option value='3' selected>" . _('Normal User') . "</option>";

@@ -96,15 +96,25 @@ switch ($op) {
 			}
 			$option_country .= "<option value=\"$country_id\" $selected>$country_name</option>\n";
 		}
+
 		// get language options
-		$option_language_module = "<option value=\"\">" . _('Default') . "</option>\n";
-		for ($i = 0; $i < count($core_config['languagelist']); $i++) {
+		$lang_list = '';
+		for ($i=0;$i<count($core_config['languagelist']);$i++) {
 			$language = $core_config['languagelist'][$i];
-			if ($language == $language_module)
-				$selected = "selected";
-			$option_language_module .= "<option value=\"$language\" $selected>$language</option>";
-			$selected = "";
+			$c_language_title = $core_config['plugins']['language'][$language]['title'];
+			if ($c_language_title) {
+				$lang_list[$c_language_title] = $language;
+			}
 		}
+		$option_language_module .= "<option value=\"\">"._('Default')."</option>";
+		if (is_array($lang_list)) {
+			foreach ($lang_list as $key => $val) {
+				if ($val == $language_module) $selected = "selected";
+				$option_language_module .= "<option value=\"".$val."\" $selected>".$key."</option>";
+				$selected = "";
+			}
+		}
+
 		$content .= "
 			<h2>" . _('Preferences') . "</h2>
 			<p>
