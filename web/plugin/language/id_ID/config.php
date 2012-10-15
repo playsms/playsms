@@ -1,3 +1,3 @@
 <?php
-// empty
+$plugin['language']['id_ID']['title'] = 'Indonesian (Indonesia)';
 ?>

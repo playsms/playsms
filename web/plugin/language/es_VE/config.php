@@ -1,3 +1,3 @@
 <?php
-// empty
+$plugin['language']['es_VE']['title'] = 'Spanish (Venezuela)';
 ?>
