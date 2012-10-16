@@ -48,6 +48,7 @@ switch ($op)
 		$j=0;
 		while ($db_row = dba_fetch_array($db_result))
 		{
+			$db_row = core_display_data($db_row);
 			$j++;
 			$current_slid = $db_row['smslog_id'];
 			$p_username = uid2username($db_row['uid']);

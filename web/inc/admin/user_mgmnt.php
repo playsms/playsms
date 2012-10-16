@@ -57,6 +57,7 @@ switch ($op) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE status='3' ORDER BY username";
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
+			$db_row = core_display_data($db_row);
 			$i++;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 			$action = "<a href=index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=" . $db_row['username'] . ">$icon_edit</a>";
