@@ -105,6 +105,23 @@ function core_display_text($text, $len=0) {
 }
 
 /*
+ * Format $data for safe display on the web
+ * @param $data
+ *    original $data
+ * @return
+ *    formatted $data
+ */
+function core_display_data($data) {
+	if (is_array($data)) {
+		foreach ($data as $key => $val) {
+			$data[$key] = core_display_text($val);
+		}
+	} else {
+		$data = core_displaye_text($data);
+	}
+	return $data;
+}
+/*
  * Calculate timezone string into number of seconds offset
  * @param $tz
  *    timezone
