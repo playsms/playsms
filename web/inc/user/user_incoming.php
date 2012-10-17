@@ -49,6 +49,7 @@ switch ($op)
 		$j = 0;
 		while ($db_row = dba_fetch_array($db_result))
 		{
+			$in_message = core_display_text($db_row['in_message'], 25);
 			$db_row = core_display_data($db_row);
 			$j++;
 			$in_id = $db_row['in_id'];
@@ -60,7 +61,6 @@ switch ($op)
 				$current_sender = "$in_sender<br>($p_desc)";
 			}
 			$in_keyword = $db_row['in_keyword'];
-			$in_message = core_display_text($db_row['in_message'], 25);
 			$in_datetime = core_display_datetime($db_row['in_datetime']);
 			$in_feature = $db_row['in_feature'];
 			$in_status = ( $db_row['in_status'] == 1 ? '<p><font color=green>'._('handled').'</font></p>' : '<p><font color=red>'._('unhandled').'</font></p>' );

@@ -47,6 +47,7 @@ switch ($op)
 		$j = 0;
 		while ($db_row = dba_fetch_array($db_result))
 		{
+			$in_msg = core_display_text($db_row['in_msg'], 25);
 			$db_row = core_display_data($db_row);
 			$j++;
 			$in_id = $db_row['in_id'];
@@ -58,7 +59,6 @@ switch ($op)
 			{
 				$current_sender = "$in_sender<br>($p_desc)";
 			}
-			$in_msg = core_display_text($db_row['in_msg'], 25);
 			$in_datetime = core_display_datetime($db_row['in_datetime']);
 			$i--;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
