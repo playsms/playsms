@@ -12,6 +12,7 @@ function validatelogin($username,$password) {
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$res_password = trim($db_row['password']);
+	$password = md5($password);
 	if ($password && $res_password && ($password==$res_password)) {
 		$ticket = md5(mktime().$username);
 		return $ticket;
@@ -19,31 +20,6 @@ function validatelogin($username,$password) {
 		return false;
 	}
 }
-
-/**
- * Set the language for the user, if it's no defined just leave it with the default
- * @param string $var_username Username
- * @return boolean TRUE if valid
- */
-function setuserlang($username="") {
-	//All the language initalitzations have been done in init.php
-	$language_module = 'en_US';
-	$db_query = "SELECT `language_module` FROM "._DB_PREF_."_tblUser WHERE username='$username'";
-	$db_result = dba_query($db_query);
-	$db_row = dba_fetch_array($db_result);
-	if (isset($db_row['language_module']) ) {
-		$language_module=$db_row['language_module'];
-	}
-	if (defined('LC_MESSAGES')) {
-        	// linux
-	        setlocale(LC_MESSAGES, $language_module, $language_module.'.utf8', $language_module.'.utf-8', $language_module.'.UTF8', $language_module.'.UTF-8');
-	} else {
-        	// windows
-	        putenv("LC_ALL={$language_module}");
-	}
-}
-
-
 
 /**
  * Check if ticket is valid, that visitor has access or validated
@@ -67,7 +43,6 @@ function valid($var_ticket="",$var_username="",$var_multilogin_id="") {
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		if ($multilogin_id && md5($username.$db_row['password']) && ($multilogin_id==md5($username.$db_row['password']))) {
-			setuserlang($username);
 			return true;
 		} else {
 			return false;
@@ -77,7 +52,6 @@ function valid($var_ticket="",$var_username="",$var_multilogin_id="") {
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		if ($ticket && $db_row['ticket']) {
-			setuserlang($username);
 			return true;
 		} else {
 			return false;
@@ -151,7 +125,7 @@ function auth_login() {
 					$multilogin_id = md5($username.$password);
 					setcookie("vc3","$multilogin_id");
 				}
-				logger_print("u:".$username." t:".$ticket." ip:".$_SERVER['REMOTE_ADDR'], 3, "login");
+				logger_print("u:".$username." t:".$ticket." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
 			} else {
 				$error_string = _('Unable to update login session');
 			}
@@ -177,7 +151,7 @@ function auth_logout() {
 	$db_query = "UPDATE "._DB_PREF_."_tblUser SET ticket='".md5(mktime())."' ".
 	$db_query .= "WHERE username='".$_COOKIE['vc2']."' AND ticket='".$_COOKIE['vc1']."'";
 	$db_result = dba_query($db_query);
-	logger_print("u:".$_COOKIE['vc2']." t:".$_COOKIE['vc1']." ip:".$_SERVER['REMOTE_ADDR'], 3, "logout");
+	logger_print("u:".$_COOKIE['vc2']." t:".$_COOKIE['vc1']." ip:".$_SERVER['REMOTE_ADDR'], 2, "logout");
 	setcookie("vc1");
 	setcookie("vc2");
 	setcookie("vc3");
@@ -202,18 +176,27 @@ function auth_forgot() {
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result)) {
 				if ($password = $db_row['password']) {
-					$subject = "[SMSGW] "._('Password recovery');
-					$body = $core_config['main']['cfg_web_title']."\n";
-					$body .= $core_config['http_path']['base']."\n\n";
-					$body .= _('Username')."\t: $username\n";
-					$body .= _('Password')."\t: $password\n\n";
-					$body .= $core_config['main']['cfg_email_footer']."\n\n";
-					if (sendmail($core_config['main']['cfg_email_service'],$email,$subject,$body)) {
-						$error_string = _('Password has been sent to your email');
-					} else {
+					$new_password = getRandomString(8);
+					$new_password_coded = md5($new_password);
+					$db_query = "UPDATE "._DB_PREF_."_tblUser SET password='$new_password_coded' WHERE username='$username' AND email='$email'";
+					if (@dba_affected_rows($db_query))
+					{
+						$subject = "[SMSGW] "._('Password recovery');
+						$body = $core_config['main']['cfg_web_title']."\n";
+						$body .= $core_config['http_path']['base']."\n\n";
+						$body .= _('Username')."\t: $username\n";
+						$body .= _('Password')."\t: $new_password\n\n";
+						$body .= $core_config['main']['cfg_email_footer']."\n\n";
+						if (sendmail($core_config['main']['cfg_email_service'],$email,$subject,$body)) {
+							$error_string = _('Password has been sent to your email');
+						} else {
+							$error_string = _('Fail to send email');
+						}
+					}else{
 						$error_string = _('Fail to send email');
 					}
-					logger_print("u:".$username." email:".$email." ip:".$_SERVER['REMOTE_ADDR'], 3, "forgot");
+					
+					logger_print("u:".$username." email:".$email." ip:".$_SERVER['REMOTE_ADDR'], 2, "forgot");
 				}
 			}
 		}
@@ -223,6 +206,22 @@ function auth_forgot() {
 	$errid = logger_set_error_string($error_string);
 	header("Location: ".$core_config['http_path']['base']."?errid=".$errid);
 	exit();
+}
+
+/**
+ * Generates a new string, for example a new password
+ *
+ */
+function getRandomString($length = 6) {
+
+    $validCharacters = "abcdefghijklmnopqrstuxyvwzABCDEFGHIJKLMNOPQRSTUXYVWZ+-*#&@!?";
+    $validCharNumber = strlen($validCharacters);
+    $result = "";
+    for ($i = 0; $i < $length; $i++) {
+        $index = mt_rand(0, $validCharNumber - 1);
+        $result .= $validCharacters[$index];
+    }
+    return $result;
 }
 
 /**
@@ -242,9 +241,10 @@ function auth_register() {
 			$db_query = "SELECT * FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result)) {
-				$error_string = _('User is already exists')." ("._('username').": `".$username."`)";
+				$error_string = _('User is already exists')." ("._('username').": ".$username.")";
 			} else {
 				$password = substr(md5(time()),0,6);
+				$password = md5($password);
 				$sender = ' - '.$username;
 				if (ereg("^(.+)(.+)\\.(.+)$",$email,$arr)) {
 					// by default the status is 3 (normal user)
@@ -258,14 +258,14 @@ function auth_register() {
 				}
 			}
 			if ($ok) {
-				logger_print("u:".$username." email:".$email." ip:".$_SERVER['REMOTE_ADDR'], 3, "register");
+				logger_print("u:".$username." email:".$email." ip:".$_SERVER['REMOTE_ADDR'], 2, "register");
 				$subject = "[SMSGW] "._('New account registration');
 				$body = $core_config['main']['cfg_web_title']."\n";
 				$body .= $core_config['http_path']['base']."\n\n";
 				$body .= _('Username')."\t: $username\n";
 				$body .= _('Password')."\t: $password\n\n";
 				$body .= $core_config['main']['cfg_email_footer']."\n\n";
-				$error_string = _('User has been added')." ("._('username').": `".$username."`)";
+				$error_string = _('User has been added')." ("._('username').": ".$username.")";
 				$error_string .= "<br />";
 				if (sendmail($core_config['main']['cfg_email_service'],$email,$subject,$body)) {
 					$error_string .= _('Password has been sent to your email');

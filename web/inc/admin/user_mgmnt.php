@@ -33,7 +33,7 @@ switch ($op)
 			$i++;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 			$action = "<a href=index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=".$db_row['username'].">$icon_edit</a>";
-			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete user ?')." ("._('username').": `".$db_row['username']."`)','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=".$db_row['username']."')\">$icon_delete</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete user ?')." ("._('username').": ".$db_row['username'].")','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=".$db_row['username']."')\">$icon_delete</a>";
 			$content .= "
     <tr>
 	<td class='$td_class'>&nbsp;$i.</td>
@@ -67,7 +67,7 @@ switch ($op)
 			$i++;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 			$action = "<a href=index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=".$db_row['username'].">$icon_edit</a>";
-			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete user')." `".$db_row['username']."` ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=".$db_row['username']."')\">$icon_delete</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete user')." ".$db_row['username']." ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=".$db_row['username']."')\">$icon_delete</a>";
 			$content .= "
     <tr>
 	<td class='$td_class'>&nbsp;$i.</td>
@@ -90,18 +90,18 @@ switch ($op)
 	case "user_del":
 		$uname = $_REQUEST['uname'];
 		$del_uid = username2uid($uname);
-		$error_string = _('Fail to delete user')." `$uname`!";
+		$error_string = _('Fail to delete user')." $uname!";
 		if (($del_uid > 1) && ($del_uid != $uid))
 		{
 			$db_query = "DELETE FROM "._DB_PREF_."_tblUser WHERE uid='$del_uid'";
 			if (@dba_affected_rows($db_query))
 			{
-				$error_string = _('User has been deleted')." ("._('username').": `$uname`)";
+				$error_string = _('User has been deleted')." ("._('username').": $uname)";
 			}
 		}
 		if (($del_uid == 1) || ($uname == "admin"))
 		{
-			$error_string = _('User is immune to deletion')." ("._('username')." `$uname`)";
+			$error_string = _('User is immune to deletion')." ("._('username')." $uname)";
 		}
 		else if ($del_uid == $uid)
 		{
@@ -112,14 +112,15 @@ switch ($op)
 	case "user_edit":
 		$uname = $_REQUEST['uname'];
 		$uid = username2uid($uname);
-		$mobile = username2mobile($uname);
-		$email = username2email($uname);
-		$name = username2name($uname);
-		$status = username2status($uname);
-		$sender = username2sender($uname);
-		$footer = username2footer($uname);
-		$timezone = username2timezone($uname);
-		$language_module = username2lang($uname);
+		$c_user = user_getdatabyuid($uid);
+		$mobile = $c_user['mobile'];
+		$email = $c_user['email'];
+		$name = $c_user['name'];
+		$status = $c_user['status'];
+		$sender = $c_user['sender'];
+		$footer = $c_user['footer'];
+		$timezone = $c_user['datetime_timezone'];
+		$language_module = $c_user['language_module'];
                 // get language options
                 for ($i=0;$i<count($core_config['languagelist']);$i++) {
                         $language = $core_config['languagelist'][$i];
@@ -166,7 +167,7 @@ switch ($op)
 		<td>"._('Timezone')."</td><td>:</td><td><input type='text' size='5' maxlength='5' name='up_timezone' value=\"$timezone\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td>
 	    </tr>
 	    <tr>
-		<td>"._('Password')."</td><td>:</td><td><input type='password' size='30' maxlength='30' name='up_password'> ("._('Fill to change password for username')." `$uname`)</td>
+		<td>"._('Password')."</td><td>:</td><td><input type='password' size='30' maxlength='30' name='up_password'> ("._('Fill to change password for username')." $uname)</td>
 	    </tr>	    
 	    <tr>
 		<td>"._('Credit')."</td><td>:</td><td><input type='text' size='16' maxlength='30' name='up_credit' value=\"$credit\"></td>
@@ -195,7 +196,6 @@ switch ($op)
 		$up_credit = $_POST['up_credit'];
 		$up_timezone = ( $_POST['up_timezone'] ? $_POST['up_timezone'] : $gateway_timezone );
 		$up_language = $_POST['up_language_module'];
-		//	$status = username2status($uname);
 		$error_string = _('No changes made');
 		if ($up_name && $up_email)
 		{
@@ -203,12 +203,13 @@ switch ($op)
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result))
 			{
-				$error_string = _('Email is already in use by other username')." ("._('email').": `$email`, "._('username').": `".$db_row['username']."`) ";
+				$error_string = _('Email is already in use by other username')." ("._('email').": $up_email, "._('username').": ".$db_row['username'].") ";
 			}
 			else
 			{
 				if ($up_password)
 				{
+					$up_password = md5($up_password);
 					$chg_pwd = ",password='$up_password'";
 				}
 				$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender',footer='$up_footer',datetime_timezone='$up_timezone',language_module='$up_language',status='$up_status'".$chg_pwd." WHERE username='$uname'";
@@ -216,11 +217,11 @@ switch ($op)
 				{
 					$c_uid = username2uid($uname);
 					rate_setusercredit($c_uid, $up_credit);
-					$error_string = _('Preferences has been saved')." ("._('username').": `$uname`)";
+					$error_string = _('Preferences has been saved')." ("._('username').": $uname)";
 				}
 				else
 				{
-					$error_string = _('Fail to save preferences')." ("._('username').": `$uname`)";
+					$error_string = _('Fail to save preferences')." ("._('username').": $uname)";
 				}
 			}
 		}
@@ -300,6 +301,7 @@ switch ($op)
 		$add_sender = $_POST['add_sender'];
 		$add_footer = $_POST['add_footer'];
 		$add_password = $_POST['add_password'];
+		$add_password = md5($add_password);
 		$add_credit = $_POST['add_credit'];
 		$add_status = $_POST['add_status'];
 		$add_timezone = $_POST['add_timezone'];
@@ -310,7 +312,7 @@ switch ($op)
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result))
 			{
-				$error_string = _('User is already exists')." ("._('username').": `".$db_row['username']."`)";
+				$error_string = _('User is already exists')." ("._('username').": ".$db_row['username'].")";
 			}
 			else
 			{
@@ -321,7 +323,7 @@ switch ($op)
 				if ($new_uid = @dba_insert_id($db_query))
 				{
 					rate_setusercredit($new_uid, $add_credit);
-					$error_string = _('User has been added')." ("._('username').": `$add_username`)";
+					$error_string = _('User has been added')." ("._('username').": $add_username)";
 				}
 			}
 		}
