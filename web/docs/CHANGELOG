@@ -6,6 +6,7 @@ Verison 0.9.8-git - NA
 - add language for themes play (aseques)
 - add bat files to start and stop gammu, playsmsd, sendsmsd in windows (anton)
 - add config for playsmsd and sendsmsd in windows, playsms.bat (anton)
+- add BC keyword like handler to feature SMS subscribe (anton)
 - add lib/fn_init.php to hold init functions, small re-structure in init.php (anton)
 - update language id_ID (hangbreaker)
 - update catalan language (aseques)
