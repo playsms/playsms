@@ -52,7 +52,6 @@ function sms_subscribe_hook_setsmsincomingaction($sms_datetime, $sms_sender, $su
 function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $subscribe_keyword, $subscribe_param = '', $raw_message = '') {
 	global $core_config;
 	$ok = false;
-	$subscribe_param = strtoupper($subscribe_param);
 	$subscribe_keyword = strtoupper($subscribe_keyword);
 	$username = uid2username($c_uid);
 	$sms_to = $sms_sender; // we are replying to this sender
@@ -74,8 +73,38 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver,
 			return $ok[0];
 		}
 	}
-	$c_uid = $db_row['uid'];
+	
+	// check for BC sub-keyword
 	$subscribe_id = $db_row['subscribe_id'];
+	$c_arr = explode(' ', $subscribe_param);
+	$bc = trim(strtoupper($c_arr[0]));
+	if ($bc == 'BC') {
+		for ($i=1;$i<count($c_arr);$i++) {
+			$msg0 .= $c_arr[$i].' ';
+		}
+		$message = trim($msg0);
+		$db_query = "SELECT member_number FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id = '$subscribe_id'";
+		$db_result = dba_query($db_query);
+		while ($db_row = dba_fetch_array($db_result)) {
+			$sms_to[] = $db_row['member_number'];
+		}
+		if ($sms_to[0]) {
+			$unicode = 0;
+			if (function_exists('mb_detect_encoding')) {
+				$encoding = mb_detect_encoding($message, 'auto');
+				if ($encoding != 'ASCII') {
+					$unicode = 1;
+				}
+			}
+			list($ok, $to, $smslog_id, $queue) = sendsms_pv($username, $sms_to, $message, 'text', $unicode);
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	// check for subscribe/unsubscribe sub-keyword
+	$subscribe_param = trim(strtoupper($subscribe_param));
 	$num_rows = dba_num_rows($db_query);
 	if ($num_rows) {
 		$msg1 = $db_row['subscribe_msg'];
