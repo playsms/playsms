@@ -317,7 +317,7 @@ switch ($op) {
 		if ($mbr_id) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE member_id='$mbr_id'";
 			if (@ dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] =_('"Member has been deleted');
+				$_SESSION['error_string'] =_('Member has been deleted');
 			}
 		}
 		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=mbr_list&subscribe_id=$subscribe_id");
