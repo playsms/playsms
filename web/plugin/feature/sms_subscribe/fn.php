@@ -183,4 +183,50 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver,
 	}
 	return $ok;
 }
+
+/*
+ * intercept incoming sms and look for keyword BC followed by subscribe keyword
+ * this feature will do BC but for subscribe keyword
+ *
+ * sms format:
+ *   BC <sms_subscribe_keyword> <message>
+ *
+ * @param $sms_datetime
+ *   incoming SMS date/time
+ * @param $sms_sender
+ *   incoming SMS sender
+ * @message
+ *   incoming SMS message before intercepted
+ * @param $sms_receiver
+ *   receiver number that is receiving incoming SMS
+ * @return
+ *   array $ret
+ */
+function sms_subscribe_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $sms_receiver) {
+	$msg = explode(" ", $message);
+	$bc = strtoupper($msg[0]);
+	$keyword = strtoupper($msg[1]);
+	for ($i=2;$i<count($msg);$i++) {
+		$message .= $msg[$i].' ';
+	}
+	$message = trim($message);
+	$hooked = false;
+	if ($bc == 'BC') {
+		$c_uid = mobile2uid($sms_sender);
+		$c_username = uid2username($c_uid);
+		if ($c_uid && $c_username) {
+			$sms_datetime = core_display_datetime($sms_datetime);
+			logger_print("dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." bc:".$bc." keyword:".$keyword." message:".$message, 3, "sms_subscribe");
+			$hooked = true;
+		}
+	}
+	$ret = array();
+	if ($hooked) {
+		$ret['modified'] = true;
+		$ret['hooked'] = true;
+		$ret['param']['message'] = $keyword.' BC '.$message;
+	}
+	return $ret;
+}
+
 ?>
