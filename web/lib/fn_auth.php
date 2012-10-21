@@ -183,9 +183,10 @@ function auth_register() {
 				$footer = '@'.$username;
 				if (ereg("^(.+)(.+)\\.(.+)$",$email,$arr)) {
 					// by default the status is 3 (normal user)
+					$datetime_now = $core_config['datetime']['now'];
 					$db_query = "
-						INSERT INTO "._DB_PREF_."_tblUser (status,username,password,name,mobile,email,footer,credit)
-						VALUES ('3','$username','$password','$name','$mobile','$email','$footer','".$core_config['main']['cfg_default_credit']."')
+						INSERT INTO "._DB_PREF_."_tblUser (status,username,password,name,mobile,email,footer,credit,register_datetime,lastupdate_datetime)
+						VALUES ('3','$username','$password','$name','$mobile','$email','$footer','".$core_config['main']['cfg_default_credit']."','$datetime_now','$datetime_now')
 					";
 					if ($new_uid = @dba_insert_id($db_query)) {
 						$ok = true;

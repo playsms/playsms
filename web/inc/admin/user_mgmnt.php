@@ -12,18 +12,20 @@ switch ($op) {
 			<p>
 			<input type='button' value='" . _('Add user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
 			<p>" . _('Status') . ": <b>" . _('Administrator') . "</b><br>
-			<table cellpadding='1' cellspacing='2' border='0' width='100%'>
+			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
 			<tr>
 				<td class='box_title' width='25'>*</td>
+				<td class='box_title' width='100'>" . _('Created') . "</td>
+				<td class='box_title' width='100'>" . _('Last update') . "</td>
 				<td class='box_title' width='100'>" . _('Username') . "</td>
 				<td class='box_title' width='125'>" . _('Name') . "</td>	
 				<td class='box_title' width='150'>" . _('Email') . "</td>
 				<td class='box_title' width='150'>" . _('Mobile') . "</td>
 				<td class='box_title' width='75'>" . _('Credit') . "</td>
-				<td class='box_title' width='75'>" . _('Action') . "</td>
+				<td class='box_title' class='sortable_nosort' width='75'>" . _('Action') . "</td>
 			</tr>";
 		$i = 0;
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE status='2' ORDER BY username";
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE status='2' ORDER BY register_datetime,username";
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
 			$i++;
@@ -33,6 +35,8 @@ switch ($op) {
 			$content .= "
 				<tr>
 					<td class='$td_class'>&nbsp;$i.</td>
+					<td class='$td_class'>" . $db_row['register_datetime'] . "</td>
+					<td class='$td_class'>" . $db_row['lastupdate_datetime'] . "</td>
 					<td class='$td_class'>" . $db_row['username'] . "</td>
 					<td class='$td_class'>" . $db_row['name'] . "</td>
 					<td class='$td_class'>" . $db_row['email'] . "</td>	
@@ -43,18 +47,20 @@ switch ($op) {
 		}
 		$content .= "</table>";
 		$content .= "<p>" . _('Status') . ": <b>" . _('Normal user') . "</b><br>
-			<table cellpadding='1' cellspacing='2' border='0' width='100%'>
+			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
 			<tr>
 				<td class='box_title' width='25'>*</td>
+				<td class='box_title' width='100'>" . _('Created') . "</td>
+				<td class='box_title' width='100'>" . _('Last update') . "</td>
 				<td class='box_title' width='100'>" . _('Username') . "</td>
 				<td class='box_title' width='125'>" . _('Name') . "</td>	
 				<td class='box_title' width='150'>" . _('Email') . "</td>
 				<td class='box_title' width='150'>" . _('Mobile') . "</td>
 				<td class='box_title' width='75'>" . _('Credit') . "</td>
-				<td class='box_title' width='75'>" . _('Action') . "</td>
+				<td class='box_title' class='sortable_nosort' width='75'>" . _('Action') . "</td>
 			</tr>";
 		$i = 0;
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE status='3' ORDER BY username";
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE status='3' ORDER BY register_datetime,username";
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
 			$db_row = core_display_data($db_row);
@@ -65,6 +71,8 @@ switch ($op) {
 			$content .= "
 				<tr>
 					<td class='$td_class'>&nbsp;$i.</td>
+					<td class='$td_class'>" . $db_row['register_datetime'] . "</td>
+					<td class='$td_class'>" . $db_row['lastupdate_datetime'] . "</td>
 					<td class='$td_class'>" . $db_row['username'] . "</td>
 					<td class='$td_class'>" . $db_row['name'] . "</td>
 					<td class='$td_class'>" . $db_row['email'] . "</td>	
@@ -207,7 +215,7 @@ switch ($op) {
 				if ($up_password) {
 					$chg_pwd = ",password='$up_password'";
 				}
-				$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET c_timestamp='" . mktime() . "',name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender',footer='$up_footer',datetime_timezone='$up_timezone',language_module='$up_language',status='$up_status'" . $chg_pwd . " WHERE username='$uname'";
+				$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET c_timestamp='" . mktime() . "',name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender',footer='$up_footer',datetime_timezone='$up_timezone',language_module='$up_language',status='$up_status',lastupdate_datetime='".$core_config['datetime']['now']."'" . $chg_pwd . " WHERE username='$uname'";
 				if (@dba_affected_rows($db_query)) {
 					$c_uid = username2uid($uname);
 					rate_setusercredit($c_uid, $up_credit);
@@ -313,9 +321,10 @@ switch ($op) {
 			if ($db_row = dba_fetch_array($db_result)) {
 				$_SESSION['error_string'] = _('User is already exists') . " (" . _('username') . ": " . $db_row['username'] . ")";
 			} else {
+				$datetime_now = $core_config['datetime']['now'];
 				$db_query = "
-					INSERT INTO " . _DB_PREF_ . "_tblUser (status,username,password,name,mobile,email,sender,footer,credit,datetime_timezone,language_module)
-					VALUES ('$add_status','$add_username','$add_password','$add_name','$add_mobile','$add_email','$add_sender','$add_footer','$add_credit','$add_timezone','$add_language_module')";
+					INSERT INTO " . _DB_PREF_ . "_tblUser (status,username,password,name,mobile,email,sender,footer,credit,datetime_timezone,language_module,register_datetime,lastupdate_datetime)
+					VALUES ('$add_status','$add_username','$add_password','$add_name','$add_mobile','$add_email','$add_sender','$add_footer','$add_credit','$add_timezone','$add_language_module','$datetime_now','$datetime_now')";
 				if ($new_uid = @dba_insert_id($db_query)) {
 					rate_setusercredit($new_uid, $add_credit);
 					$_SESSION['error_string'] = _('User has been added') . " (" . _('username') . ": $add_username)";
