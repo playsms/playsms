@@ -107,6 +107,9 @@ msgstr "Contingut"
 msgid "Country"
 msgstr "País"
 
+msgid "Created"
+msgstr ""
+
 msgid "Credit"
 msgstr "Crèdit"
 
@@ -266,6 +269,9 @@ msgstr "Contrasenya o usuari incorrecte"
 msgid "Keyword"
 msgstr "Clau"
 
+msgid "Last update"
+msgstr ""
+
 msgid "License"
 msgstr ""
 
@@ -400,6 +406,9 @@ msgstr "Destinatari"
 
 msgid "Recover password disabled"
 msgstr "Recuperar contrasenya desactivat"
+
+msgid "Registered"
+msgstr "Entregat"
 
 msgid "Reply"
 msgstr "Respondre"

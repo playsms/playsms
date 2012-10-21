@@ -98,6 +98,9 @@ msgstr "Isi"
 msgid "Country"
 msgstr "Negara"
 
+msgid "Created"
+msgstr ""
+
 msgid "Credit"
 msgstr "Pulsa"
 
@@ -257,6 +260,9 @@ msgstr "Kata sandi atau nama pengguna tidak valid"
 msgid "Keyword"
 msgstr "Kata kunci"
 
+msgid "Last update"
+msgstr "Terakhir ubah"
+
 msgid "License"
 msgstr "Lisensi"
 
@@ -391,6 +397,9 @@ msgstr "Penerima"
 
 msgid "Recover password disabled"
 msgstr "Pemulihan kata sandi dinonaktifkan"
+
+msgid "Registered"
+msgstr "Terdaftar"
 
 msgid "Reply"
 msgstr "Balas"

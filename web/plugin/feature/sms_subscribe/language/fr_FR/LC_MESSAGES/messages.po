@@ -6,9 +6,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "\"Member has been deleted"
-msgstr "Le membre a été supprimé"
-
 msgid "Action"
 msgstr "Action"
 
@@ -65,6 +62,9 @@ msgstr "Mot-clé"
 
 msgid "Manage subscribe"
 msgstr "Service inscription"
+
+msgid "Member has been deleted"
+msgstr "Le membre a été supprimé"
 
 msgid "Member join datetime"
 msgstr "Date d'inscription du membre"

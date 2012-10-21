@@ -98,6 +98,9 @@ msgstr "内容"
 msgid "Country"
 msgstr "国家"
 
+msgid "Created"
+msgstr ""
+
 msgid "Credit"
 msgstr "信用"
 
@@ -257,6 +260,9 @@ msgstr "无效用户名或密码"
 msgid "Keyword"
 msgstr "关键字"
 
+msgid "Last update"
+msgstr ""
+
 msgid "License"
 msgstr ""
 
@@ -391,6 +397,9 @@ msgstr "收件人"
 
 msgid "Recover password disabled"
 msgstr ""
+
+msgid "Registered"
+msgstr "已传送的"
 
 msgid "Reply"
 msgstr "回复"

@@ -91,6 +91,9 @@ msgstr ""
 msgid "Country"
 msgstr ""
 
+msgid "Created"
+msgstr ""
+
 msgid "Credit"
 msgstr ""
 
@@ -250,6 +253,9 @@ msgstr ""
 msgid "Keyword"
 msgstr ""
 
+msgid "Last update"
+msgstr ""
+
 msgid "License"
 msgstr ""
 
@@ -383,6 +389,9 @@ msgid "Receiver"
 msgstr ""
 
 msgid "Recover password disabled"
+msgstr ""
+
+msgid "Registered"
 msgstr ""
 
 msgid "Reply"

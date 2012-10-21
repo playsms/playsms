@@ -1,6 +1,3 @@
-msgid "\"Member has been deleted"
-msgstr ""
-
 msgid "Action"
 msgstr ""
 
@@ -56,6 +53,9 @@ msgid "Keyword"
 msgstr ""
 
 msgid "Manage subscribe"
+msgstr ""
+
+msgid "Member has been deleted"
 msgstr ""
 
 msgid "Member join datetime"

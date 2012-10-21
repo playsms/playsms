@@ -104,6 +104,9 @@ msgstr "Contenu"
 msgid "Country"
 msgstr "Pays"
 
+msgid "Created"
+msgstr ""
+
 msgid "Credit"
 msgstr "Crédit"
 
@@ -263,6 +266,9 @@ msgstr "Login ou mot de passe érroné"
 msgid "Keyword"
 msgstr "Mot clé"
 
+msgid "Last update"
+msgstr ""
+
 msgid "License"
 msgstr ""
 
@@ -397,6 +403,9 @@ msgstr "Récepteur"
 
 msgid "Recover password disabled"
 msgstr "Recouvrement de mot de passe désastivé"
+
+msgid "Registered"
+msgstr "Delivré"
 
 msgid "Reply"
 msgstr "Reéssayer"

@@ -98,6 +98,9 @@ msgstr "Contenido"
 msgid "Country"
 msgstr "País"
 
+msgid "Created"
+msgstr ""
+
 msgid "Credit"
 msgstr "Crédito"
 
@@ -257,6 +260,9 @@ msgstr "Contraseña o usuario inválido"
 msgid "Keyword"
 msgstr "Clave"
 
+msgid "Last update"
+msgstr ""
+
 msgid "License"
 msgstr ""
 
@@ -391,6 +397,9 @@ msgstr "Destinatario"
 
 msgid "Recover password disabled"
 msgstr ""
+
+msgid "Registered"
+msgstr "Entregado"
 
 msgid "Reply"
 msgstr "Responder"
