@@ -25,7 +25,7 @@ switch ($op) {
 				<td class='box_title' class='sortable_nosort' width='75'>" . _('Action') . "</td>
 			</tr>";
 		$i = 0;
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE status='2' ORDER BY register_datetime,username";
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE status='2' ORDER BY register_datetime DESC,username";
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
 			$i++;
@@ -60,7 +60,7 @@ switch ($op) {
 				<td class='box_title' class='sortable_nosort' width='75'>" . _('Action') . "</td>
 			</tr>";
 		$i = 0;
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE status='3' ORDER BY register_datetime,username";
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE status='3' ORDER BY register_datetime DESC,username";
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
 			$db_row = core_display_data($db_row);
