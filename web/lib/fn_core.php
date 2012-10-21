@@ -149,7 +149,9 @@ function core_display_datetime($time, $tz=0) {
 	global $core_config;
 	if (! $tz) {
 		if (! ($tz = $core_config['user']['datetime_timezone'])) {
-			$tz = $core_config['main']['cfg_datetime_timezone'];
+			if (! ($tz = $core_config['plugin'][$gateway_module]['datetime_timezone'])) {
+				$tz = $core_config['main']['cfg_datetime_timezone'];
+			}
 		}
 	}
 	$time = strtotime($time);
@@ -174,8 +176,10 @@ function core_adjust_datetime($time, $tz=0) {
 	global $core_config;
 	$gateway_module = $core_config['module']['gateway'];
 	if (! $tz) {
-		if (! ($tz = $core_config['plugin'][$gateway_module]['datetime_timezone'])) {
-			$tz = $core_config['main']['cfg_datetime_timezone'];
+		if (! ($tz = $core_config['user']['datetime_timezone'])) {
+			if (! ($tz = $core_config['plugin'][$gateway_module]['datetime_timezone'])) {
+				$tz = $core_config['main']['cfg_datetime_timezone'];
+			}
 		}
 	}
 	$time = strtotime($time);
