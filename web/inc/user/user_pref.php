@@ -201,6 +201,7 @@ switch ($op) {
 				if ($up_password && $up_password_conf && ($up_password == $up_password_conf)) {
 					$chg_pwd = ",password='$up_password'";
 				}
+				$datetime_now = core_adjust_datetime($core_config['datetime']['now']);
 				$db_query = "
 					UPDATE " . _DB_PREF_ . "_tblUser 
 					SET c_timestamp='" . mktime() . "',
@@ -208,7 +209,7 @@ switch ($op) {
 						address='$up_address',city='$up_city',state='$up_state',country='$up_country',
 						zipcode='$up_zipcode',datetime_timezone='$up_timezone',language_module='$up_language_module',fwd_to_inbox='$up_fwd_to_inbox',fwd_to_email='$up_fwd_to_email',
 						fwd_to_mobile='$up_fwd_to_mobile',replace_zero='$up_replace_zero',plus_sign_remove='$up_plus_sign_remove',plus_sign_add='$up_plus_sign_add',
-						lastupdate_datetime='".$core_config['datetime']['now']."'
+						lastupdate_datetime='$datetime_now'
 					WHERE uid='$uid'";
 				if (@dba_affected_rows($db_query)) {
 					if ($up_password && $up_password_conf && ($up_password == $up_password_conf)) {

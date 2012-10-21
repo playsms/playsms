@@ -35,8 +35,8 @@ switch ($op) {
 			$content .= "
 				<tr>
 					<td class='$td_class'>&nbsp;$i.</td>
-					<td class='$td_class'>" . $db_row['register_datetime'] . "</td>
-					<td class='$td_class'>" . $db_row['lastupdate_datetime'] . "</td>
+					<td class='$td_class'>" . core_display_datetime($db_row['register_datetime']) . "</td>
+					<td class='$td_class'>" . core_display_datetime($db_row['lastupdate_datetime']) . "</td>
 					<td class='$td_class'>" . $db_row['username'] . "</td>
 					<td class='$td_class'>" . $db_row['name'] . "</td>
 					<td class='$td_class'>" . $db_row['email'] . "</td>	
@@ -71,8 +71,8 @@ switch ($op) {
 			$content .= "
 				<tr>
 					<td class='$td_class'>&nbsp;$i.</td>
-					<td class='$td_class'>" . $db_row['register_datetime'] . "</td>
-					<td class='$td_class'>" . $db_row['lastupdate_datetime'] . "</td>
+					<td class='$td_class'>" . core_display_datetime($db_row['register_datetime']) . "</td>
+					<td class='$td_class'>" . core_display_datetime($db_row['lastupdate_datetime']) . "</td>
 					<td class='$td_class'>" . $db_row['username'] . "</td>
 					<td class='$td_class'>" . $db_row['name'] . "</td>
 					<td class='$td_class'>" . $db_row['email'] . "</td>	
@@ -215,7 +215,8 @@ switch ($op) {
 				if ($up_password) {
 					$chg_pwd = ",password='$up_password'";
 				}
-				$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET c_timestamp='" . mktime() . "',name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender',footer='$up_footer',datetime_timezone='$up_timezone',language_module='$up_language',status='$up_status',lastupdate_datetime='".$core_config['datetime']['now']."'" . $chg_pwd . " WHERE username='$uname'";
+				$datetime_now = core_adjust_datetime($core_config['datetime']['now']);
+				$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET c_timestamp='" . mktime() . "',name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender',footer='$up_footer',datetime_timezone='$up_timezone',language_module='$up_language',status='$up_status',lastupdate_datetime='$datetime_now'" . $chg_pwd . " WHERE username='$uname'";
 				if (@dba_affected_rows($db_query)) {
 					$c_uid = username2uid($uname);
 					rate_setusercredit($c_uid, $up_credit);
@@ -321,7 +322,7 @@ switch ($op) {
 			if ($db_row = dba_fetch_array($db_result)) {
 				$_SESSION['error_string'] = _('User is already exists') . " (" . _('username') . ": " . $db_row['username'] . ")";
 			} else {
-				$datetime_now = $core_config['datetime']['now'];
+				$datetime_now = core_adjust_datetime($core_config['datetime']['now']);
 				$db_query = "
 					INSERT INTO " . _DB_PREF_ . "_tblUser (status,username,password,name,mobile,email,sender,footer,credit,datetime_timezone,language_module,register_datetime,lastupdate_datetime)
 					VALUES ('$add_status','$add_username','$add_password','$add_name','$add_mobile','$add_email','$add_sender','$add_footer','$add_credit','$add_timezone','$add_language_module','$datetime_now','$datetime_now')";
