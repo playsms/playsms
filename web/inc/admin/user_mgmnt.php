@@ -15,7 +15,7 @@ switch ($op) {
 			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
 			<tr>
 				<td class='box_title' width='25'>*</td>
-				<td class='box_title' width='100'>" . _('Created') . "</td>
+				<td class='box_title' width='100'>" . _('Registered') . "</td>
 				<td class='box_title' width='100'>" . _('Last update') . "</td>
 				<td class='box_title' width='100'>" . _('Username') . "</td>
 				<td class='box_title' width='125'>" . _('Name') . "</td>	
@@ -50,7 +50,7 @@ switch ($op) {
 			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
 			<tr>
 				<td class='box_title' width='25'>*</td>
-				<td class='box_title' width='100'>" . _('Created') . "</td>
+				<td class='box_title' width='100'>" . _('Registered') . "</td>
 				<td class='box_title' width='100'>" . _('Last update') . "</td>
 				<td class='box_title' width='100'>" . _('Username') . "</td>
 				<td class='box_title' width='125'>" . _('Name') . "</td>	
