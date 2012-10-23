@@ -16,7 +16,6 @@ switch ($op) {
 			<tr>
 				<td class='box_title' width='25'>*</td>
 				<td class='box_title' width='100'>" . _('Registered') . "</td>
-				<td class='box_title' width='100'>" . _('Last update') . "</td>
 				<td class='box_title' width='100'>" . _('Username') . "</td>
 				<td class='box_title' width='125'>" . _('Name') . "</td>	
 				<td class='box_title' width='150'>" . _('Email') . "</td>
@@ -36,7 +35,6 @@ switch ($op) {
 				<tr>
 					<td class='$td_class'>&nbsp;$i.</td>
 					<td class='$td_class'>" . core_display_datetime($db_row['register_datetime']) . "</td>
-					<td class='$td_class'>" . core_display_datetime($db_row['lastupdate_datetime']) . "</td>
 					<td class='$td_class'>" . $db_row['username'] . "</td>
 					<td class='$td_class'>" . $db_row['name'] . "</td>
 					<td class='$td_class'>" . $db_row['email'] . "</td>	
