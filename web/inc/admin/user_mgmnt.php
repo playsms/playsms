@@ -209,6 +209,7 @@ switch ($op) {
 				$_SESSION['error_string'] = _('Email is already in use by other username') . " (" . _('email') . ": $up_email, " . _('username') . ": " . $db_row['username'] . ") ";
 			} else {
 				if ($up_password) {
+					$up_password = md5($up_password);
 					$chg_pwd = ",password='$up_password'";
 				}
 				$datetime_now = core_adjust_datetime($core_config['datetime']['now']);
@@ -305,6 +306,7 @@ switch ($op) {
 		$add_sender = $_POST['add_sender'];
 		$add_footer = $_POST['add_footer'];
 		$add_password = $_POST['add_password'];
+		$add_password = md5($add_password);
 		$add_credit = $_POST['add_credit'];
 		$add_status = $_POST['add_status'];
 		$add_timezone = $_POST['add_timezone'];

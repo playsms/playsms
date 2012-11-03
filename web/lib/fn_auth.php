@@ -12,6 +12,7 @@ function validatelogin($username,$password) {
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$res_password = trim($db_row['password']);
+	$password = md5($password);
 	if ($password && $res_password && ($password==$res_password)) {
 		return true;
 	}
@@ -112,17 +113,27 @@ function auth_forgot() {
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result)) {
 				if ($password = $db_row['password']) {
-					$subject = "[SMSGW] "._('Password recovery');
-					$body = $core_config['main']['cfg_web_title']."\n";
-					$body .= $core_config['http_path']['base']."\n\n";
-					$body .= _('Username')."\t: $username\n";
-					$body .= _('Password')."\t: $password\n\n";
-					$body .= $core_config['main']['cfg_email_footer']."\n\n";
-					if (sendmail($core_config['main']['cfg_email_service'],$email,$subject,$body)) {
-						$_SESSION['error_string'] = _('Password has been sent to your email');
-					} else {
-						$_SESSION['error_string'] = _('Fail to send email');
+					$new_password = getRandomString(8);
+					$new_password_coded = md5($new_password);
+					$db_query = "UPDATE "._DB_PREF_."_tblUser SET password='$new_password_coded' WHERE username='$username' AND email='$email'";
+					if (@dba_affected_rows($db_query))
+					{
+						$subject = "[SMSGW] "._('Password recovery');
+						$body = $core_config['main']['cfg_web_title']."\n";
+						$body .= $core_config['http_path']['base']."\n\n";
+						$body .= _('Username')."\t: $username\n";
+						$body .= _('Password')."\t: $password\n\n";
+						$body .= $core_config['main']['cfg_email_footer']."\n\n";
+						if (sendmail($core_config['main']['cfg_email_service'],$email,$subject,$body)) {
+							$_SESSION['error_string'] = _('Password has been sent to your email');
+						} else {
+							$_SESSION['error_string'] = _('Fail to send email');
+						}
+						
+					}else{
+						$error_string = _('Fail to send email');
 					}
+					
 					logger_print("u:".$username." email:".$email." ip:".$_SERVER['REMOTE_ADDR'], 2, "forgot");
 				}
 			}
@@ -132,6 +143,22 @@ function auth_forgot() {
 	}
 	header("Location: ".$core_config['http_path']['base']."?errid=".$errid);
 	exit();
+}
+
+/**
+ * Generates a new string, for example a new password
+ *
+ */
+function getRandomString($length = 6) {
+
+    $validCharacters = "abcdefghijklmnopqrstuxyvwzABCDEFGHIJKLMNOPQRSTUXYVWZ+-*#&@!?";
+    $validCharNumber = strlen($validCharacters);
+    $result = "";
+    for ($i = 0; $i < $length; $i++) {
+        $index = mt_rand(0, $validCharNumber - 1);
+        $result .= $validCharacters[$index];
+    }
+    return $result;
 }
 
 /**
@@ -180,13 +207,14 @@ function auth_register() {
 			
 			if ($continue) {
 				$password = substr(md5(time()),0,6);
+				$password_coded = md5($password);
 				$footer = '@'.$username;
 				if (ereg("^(.+)(.+)\\.(.+)$",$email,$arr)) {
 					// by default the status is 3 (normal user)
 					$datetime_now = $core_config['datetime']['now'];
 					$db_query = "
 						INSERT INTO "._DB_PREF_."_tblUser (status,username,password,name,mobile,email,footer,credit,register_datetime,lastupdate_datetime)
-						VALUES ('3','$username','$password','$name','$mobile','$email','$footer','".$core_config['main']['cfg_default_credit']."','$datetime_now','$datetime_now')
+						VALUES ('3','$username','$password_coded','$name','$mobile','$email','$footer','".$core_config['main']['cfg_default_credit']."','$datetime_now','$datetime_now')
 					";
 					if ($new_uid = @dba_insert_id($db_query)) {
 						$ok = true;
