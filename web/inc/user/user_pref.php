@@ -199,6 +199,7 @@ switch ($op) {
 			if ($continue) {
 				$chg_pwd = "";
 				if ($up_password && $up_password_conf && ($up_password == $up_password_conf)) {
+					$up_password = md5($up_password);
 					$chg_pwd = ",password='$up_password'";
 				}
 				$datetime_now = core_adjust_datetime($core_config['datetime']['now']);
