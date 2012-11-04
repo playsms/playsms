@@ -113,7 +113,7 @@ function auth_forgot() {
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result)) {
 				if ($password = $db_row['password']) {
-					$new_password = getRandomString(8);
+					$new_password = core_get_random_string();
 					$new_password_coded = md5($new_password);
 					$db_query = "UPDATE "._DB_PREF_."_tblUser SET password='$new_password_coded' WHERE username='$username' AND email='$email'";
 					if (@dba_affected_rows($db_query)) {
@@ -142,22 +142,6 @@ function auth_forgot() {
 	}
 	header("Location: ".$core_config['http_path']['base']."?errid=".$errid);
 	exit();
-}
-
-/**
- * Generates a new string, for example a new password
- *
- */
-function getRandomString($length = 6) {
-
-    $validCharacters = "abcdefghijklmnopqrstuxyvwzABCDEFGHIJKLMNOPQRSTUXYVWZ+-*#&@!?";
-    $validCharNumber = strlen($validCharacters);
-    $result = "";
-    for ($i = 0; $i < $length; $i++) {
-        $index = mt_rand(0, $validCharNumber - 1);
-        $result .= $validCharacters[$index];
-    }
-    return $result;
 }
 
 /**
@@ -205,7 +189,7 @@ function auth_register() {
 			}
 			
 			if ($continue) {
-				$password = getRandomString(8);
+				$password = core_get_random_string();
 				$password_coded = md5($password);
 				$footer = '@'.$username;
 				if (ereg("^(.+)(.+)\\.(.+)$",$email,$arr)) {

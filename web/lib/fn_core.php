@@ -199,4 +199,20 @@ function core_adjust_datetime($time, $tz=0) {
 	return $ret;
 }
 
+/**
+ * Generates a new string, for example a new password
+ *
+ */
+function core_get_random_string($length = 8) {
+
+    $valid_chars = "abcdefghijklmnopqrstuxyvwzABCDEFGHIJKLMNOPQRSTUXYVWZ+-*#&@!?";
+    $valid_char_len = strlen($valid_chars);
+    $result = "";
+    for ($i = 0; $i < $length; $i++) {
+        $index = mt_rand(0, $valid_char_len - 1);
+        $result .= $valid_chars[$index];
+    }
+    return $result;
+}
+
 ?>
