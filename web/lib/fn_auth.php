@@ -116,13 +116,12 @@ function auth_forgot() {
 					$new_password = getRandomString(8);
 					$new_password_coded = md5($new_password);
 					$db_query = "UPDATE "._DB_PREF_."_tblUser SET password='$new_password_coded' WHERE username='$username' AND email='$email'";
-					if (@dba_affected_rows($db_query))
-					{
+					if (@dba_affected_rows($db_query)) {
 						$subject = "[SMSGW] "._('Password recovery');
 						$body = $core_config['main']['cfg_web_title']."\n";
 						$body .= $core_config['http_path']['base']."\n\n";
-						$body .= _('Username')."\t: $username\n";
-						$body .= _('Password')."\t: $password\n\n";
+						$body .= _('Username')."\t: ".$username."\n";
+						$body .= _('Password')."\t: ".$new_password."\n\n";
 						$body .= $core_config['main']['cfg_email_footer']."\n\n";
 						if (sendmail($core_config['main']['cfg_email_service'],$email,$subject,$body)) {
 							$_SESSION['error_string'] = _('Password has been sent to your email');
@@ -130,7 +129,7 @@ function auth_forgot() {
 							$_SESSION['error_string'] = _('Fail to send email');
 						}
 						
-					}else{
+					} else {
 						$error_string = _('Fail to send email');
 					}
 					
@@ -206,7 +205,7 @@ function auth_register() {
 			}
 			
 			if ($continue) {
-				$password = substr(md5(time()),0,6);
+				$password = getRandomString(8);
 				$password_coded = md5($password);
 				$footer = '@'.$username;
 				if (ereg("^(.+)(.+)\\.(.+)$",$email,$arr)) {
