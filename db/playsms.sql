@@ -463,6 +463,8 @@ CREATE TABLE `playsms_featurePoll` (
   `poll_title` varchar(250) NOT NULL DEFAULT '',
   `poll_keyword` varchar(10) NOT NULL DEFAULT '',
   `poll_enable` int(11) NOT NULL DEFAULT '0',
+  `poll_msg_valid` varchar(100) NOT NULL ,
+  `poll_msg_invalid` varchar(100) NOT NULL,
   PRIMARY KEY (`poll_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1320,8 +1322,7 @@ CREATE TABLE `playsms_tblUser` (
 
 LOCK TABLES `playsms_tblUser` WRITE;
 /*!40000 ALTER TABLE `playsms_tblUser` DISABLE KEYS */;
-INSERT INTO `playsms_tblUser` VALUES (1332916885,1,2,'dd4aa3580e3de07858d812dcc094c32f','admin','456b7016a916a4b178dd72b947c152b7','Administrator','+62000000000',
-'noreply@playsms.org','playSMS','@admin','','','',132,'',0,'+0700','en_US',0,1,1,'',1,0);
+INSERT INTO `playsms_tblUser` VALUES (1332916885,1,2,'dd4aa3580e3de07858d812dcc094c32f','admin','456b7016a916a4b178dd72b947c152b7','Administrator','+62000000000', 'noreply@playsms.org','playSMS','@admin','','','',132,'',0,'+0700','en_US',0,1,1,'',1,0,'','');
 /*!40000 ALTER TABLE `playsms_tblUser` ENABLE KEYS */;
 UNLOCK TABLES;
 
