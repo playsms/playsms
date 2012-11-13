@@ -603,6 +603,9 @@ CREATE TABLE `playsms_featureSubscribe` (
   `subscribe_msg` varchar(200) NOT NULL,
   `unsubscribe_msg` varchar(200) NOT NULL,
   `subscribe_enable` int(11) NOT NULL DEFAULT '0',
+  `subscribe_param` varchar(20) NOT NULL,
+  `unsubscribe_param` varchar(20) NOT NULL,
+  `forward_param` varchar(20) NOT NULL,
   PRIMARY KEY (`subscribe_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
