@@ -1,4 +1,4 @@
-<?php if(!(defined('_SECURE_'))){die('Intruder alert');}; ?>
+<?php defined('_SECURE_') or die('Forbidden'); ?>
 <?php
 
 function gpid2gpname($gpid)
@@ -11,6 +11,20 @@ function gpid2gpname($gpid)
 		$gp_name = $db_row['gp_name'];
 	}
 	return $gp_name;
+}
+
+function private_group($gpid){
+	$db_query = "SELECT g.private 
+			 FROM "._DB_PREF_."_toolsSimplephonebook_group g
+			WHERE g.gpid=$gpid";	
+			
+	$db_result = dba_query($db_query);
+	$db_row = dba_fetch_array($db_result);
+	
+	if($db_row['private'])
+		return TRUE;
+	
+	return FALSE;
 }
 
 function gpname2gpid($gp_name)

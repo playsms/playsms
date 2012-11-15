@@ -1,758 +1,594 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-10-11 22:14+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: lib/fn_themes.php:37 lib/lib_init1.php:43
-msgid "Home"
+msgid "About"
 msgstr ""
 
-#: lib/fn_themes.php:39
-msgid "Logout"
+msgid "About playSMS"
 msgstr ""
 
-#: lib/fn_auth.php:130
-msgid "You have no access to this page"
-msgstr ""
-
-#: lib/fn_auth.php:156
-msgid "Unable to update login session"
-msgstr ""
-
-#: lib/fn_auth.php:159
-msgid "Invalid username or password"
-msgstr ""
-
-#: lib/fn_auth.php:184
-msgid "You have been logged out"
-msgstr ""
-
-#: lib/fn_auth.php:199
-msgid "Fail to recover password"
-msgstr ""
-
-#: lib/fn_auth.php:205
-msgid "Password recovery"
-msgstr ""
-
-#: lib/fn_auth.php:208 lib/fn_auth.php:265 inc/admin/user_mgmnt.php:20
-#: inc/admin/user_mgmnt.php:54 inc/admin/user_mgmnt.php:148
-#: inc/admin/user_mgmnt.php:256 inc/user/user_pref.php:90
-msgid "Username"
-msgstr ""
-
-#: lib/fn_auth.php:209 lib/fn_auth.php:266 inc/admin/user_mgmnt.php:169
-#: inc/admin/user_mgmnt.php:277 inc/user/user_pref.php:91
-msgid "Password"
-msgstr ""
-
-#: lib/fn_auth.php:212 lib/fn_auth.php:271
-msgid "Password has been sent to your email"
-msgstr ""
-
-#: lib/fn_auth.php:214 lib/fn_auth.php:273
-msgid "Fail to send email"
-msgstr ""
-
-#: lib/fn_auth.php:221
-msgid "Recover password disabled"
-msgstr ""
-
-#: lib/fn_auth.php:240
-msgid "Fail to register an account"
-msgstr ""
-
-#: lib/fn_auth.php:245 inc/admin/user_mgmnt.php:313
-msgid "User is already exists"
-msgstr ""
-
-#: lib/fn_auth.php:245 lib/fn_auth.php:268 inc/admin/user_mgmnt.php:36
-#: inc/admin/user_mgmnt.php:99 inc/admin/user_mgmnt.php:104
-#: inc/admin/user_mgmnt.php:206 inc/admin/user_mgmnt.php:219
-#: inc/admin/user_mgmnt.php:223 inc/admin/user_mgmnt.php:313
-#: inc/admin/user_mgmnt.php:324
-msgid "username"
-msgstr ""
-
-#: lib/fn_auth.php:262
-msgid "New account registration"
-msgstr ""
-
-#: lib/fn_auth.php:268 inc/admin/user_mgmnt.php:324
-msgid "User has been added"
-msgstr ""
-
-#: lib/fn_auth.php:278
-msgid "Public registration disabled"
-msgstr ""
-
-#: lib/lib_init1.php:33
-msgid "Edit"
-msgstr ""
-
-#: lib/lib_init1.php:34 inc/user/sms_template.php:185
-msgid "Delete"
-msgstr ""
-
-#: lib/lib_init1.php:35
-msgid "Reply"
-msgstr ""
-
-#: lib/lib_init1.php:36
-msgid "Manage"
-msgstr ""
-
-#: lib/lib_init1.php:37
-msgid "View"
-msgstr ""
-
-#: lib/lib_init1.php:38
-msgid "Pick Date & Time"
-msgstr ""
-
-#: lib/lib_init1.php:39 lib/lib_init1.php:52 inc/user/send_sms.php:75
-msgid "Send SMS"
-msgstr ""
-
-#: lib/lib_init1.php:40
-msgid "Phonebook"
-msgstr ""
-
-#: lib/lib_init1.php:44
-msgid "My Account"
-msgstr ""
-
-#: lib/lib_init1.php:45
-msgid "Administration"
-msgstr ""
-
-#: lib/lib_init1.php:46 inc/admin/all_incoming.php:38
-#: inc/user/user_incoming.php:37
-msgid "Feature"
-msgstr ""
-
-#: lib/lib_init1.php:47
-msgid "Tools"
-msgstr ""
-
-#: lib/lib_init1.php:48 inc/admin/all_outgoing.php:35
-msgid "Gateway"
-msgstr ""
-
-#: lib/lib_init1.php:51 inc/user/sms_template.php:18 inc/user/send_sms.php:102
-#: inc/user/send_sms.php:232
-msgid "Message template"
-msgstr "Message template"
-
-#: lib/lib_init1.php:53 inc/user/send_sms.php:224
-msgid "Send broadcast SMS"
-msgstr ""
-
-#: lib/lib_init1.php:54 inc/user/user_inbox.php:26
-msgid "Inbox"
-msgstr ""
-
-#: lib/lib_init1.php:55 inc/user/user_incoming.php:26
-msgid "Incoming SMS"
-msgstr ""
-
-#: lib/lib_init1.php:56 inc/user/user_outgoing.php:26
-msgid "Outgoing SMS"
-msgstr ""
-
-#: lib/lib_init1.php:57 inc/admin/user_mgmnt.php:142 inc/user/user_pref.php:85
-msgid "Preferences"
-msgstr ""
-
-#: lib/lib_init1.php:63
-msgid "All inbox"
-msgstr ""
-
-#: lib/lib_init1.php:64 inc/admin/all_incoming.php:26
-msgid "All incoming SMS"
-msgstr ""
-
-#: lib/lib_init1.php:65 inc/admin/all_outgoing.php:26
-msgid "All outgoing SMS"
-msgstr ""
-
-#: lib/lib_init1.php:66 inc/admin/user_mgmnt.php:13
-msgid "Manage user"
-msgstr ""
-
-#: lib/lib_init1.php:67 inc/admin/main_config.php:44
-msgid "Main configuration"
-msgstr ""
-
-#: lib/fn_core.php:249
-msgid "from"
-msgstr ""
-
-#: lib/fn_core.php:250
-msgid "Forward Private WebSMS"
-msgstr ""
-
-#: lib/fn_core.php:251
-msgid "Date time"
-msgstr ""
-
-#: lib/fn_core.php:252
-msgid "Sender"
-msgstr ""
-
-#: lib/fn_core.php:253
-msgid "Receiver"
-msgstr ""
-
-#: lib/fn_core.php:254 inc/admin/all_inbox.php:36
-#: inc/admin/all_outgoing.php:37 inc/user/user_inbox.php:35
-#: inc/user/user_outgoing.php:35
-msgid "Message"
-msgstr ""
-
-#: inc/admin/all_inbox.php:26
-msgid "All Inbox"
-msgstr ""
-
-#: inc/admin/all_inbox.php:33 inc/admin/all_outgoing.php:33
-#: inc/admin/all_incoming.php:33
-msgid "User"
-msgstr ""
-
-#: inc/admin/all_inbox.php:34 inc/admin/all_outgoing.php:34
-#: inc/admin/all_incoming.php:34 inc/user/user_inbox.php:33
-#: inc/user/user_outgoing.php:33 inc/user/user_incoming.php:33
-msgid "Time"
-msgstr ""
-
-#: inc/admin/all_inbox.php:35 inc/admin/all_incoming.php:35
-#: inc/user/user_inbox.php:34 inc/user/user_incoming.php:34
-msgid "From"
-msgstr ""
-
-#: inc/admin/all_inbox.php:37 inc/admin/all_outgoing.php:40
-#: inc/admin/user_mgmnt.php:25 inc/admin/user_mgmnt.php:59
-#: inc/admin/all_incoming.php:40 inc/user/user_inbox.php:36
-#: inc/user/user_outgoing.php:38 inc/user/user_incoming.php:39
 msgid "Action"
 msgstr ""
 
-#: inc/admin/all_inbox.php:74 inc/admin/all_incoming.php:83
-#: inc/user/user_inbox.php:71 inc/user/user_incoming.php:80
-msgid "Are you sure you want to delete this SMS ?"
-msgstr ""
-
-#: inc/admin/all_inbox.php:92 inc/admin/all_outgoing.php:137
-#: inc/admin/all_incoming.php:101 inc/user/sms_template.php:57
-#: inc/user/user_inbox.php:89 inc/user/user_outgoing.php:131
-#: inc/user/user_incoming.php:97
-msgid "Delete selection"
-msgstr ""
-
-#: inc/admin/all_inbox.php:106 inc/user/user_inbox.php:103
-#: inc/user/user_incoming.php:111
-msgid "Fail to delete incoming SMS"
-msgstr ""
-
-#: inc/admin/all_inbox.php:113 inc/admin/all_inbox.php:132
-#: inc/admin/all_incoming.php:122 inc/admin/all_incoming.php:141
-#: inc/user/user_inbox.php:110 inc/user/user_inbox.php:129
-#: inc/user/user_incoming.php:118 inc/user/user_incoming.php:137
-msgid "Selected incoming SMS has been deleted"
-msgstr ""
-
-#: inc/admin/main_config.php:14 inc/admin/main_config.php:19
-#: inc/user/user_pref.php:41 inc/user/user_pref.php:50
-#: inc/user/user_pref.php:59
-msgid "yes"
-msgstr ""
-
-#: inc/admin/main_config.php:15 inc/admin/main_config.php:20
-#: inc/user/user_pref.php:42 inc/user/user_pref.php:51
-#: inc/user/user_pref.php:60
-msgid "no"
-msgstr ""
-
-#: inc/admin/main_config.php:49
-msgid "Website title"
-msgstr ""
-
-#: inc/admin/main_config.php:52
-msgid "Website email"
-msgstr ""
-
-#: inc/admin/main_config.php:55
-msgid "Forwarded email footer"
-msgstr ""
-
-#: inc/admin/main_config.php:58
-msgid "Default sender ID"
-msgstr ""
-
-#: inc/admin/main_config.php:61
-msgid "Default timezone"
-msgstr ""
-
-#: inc/admin/main_config.php:61 inc/admin/user_mgmnt.php:166
-#: inc/admin/user_mgmnt.php:274 inc/user/user_pref.php:106
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
-
-#: inc/admin/main_config.php:64
-msgid "Default SMS rate"
-msgstr ""
-
-#: inc/admin/main_config.php:67
-msgid "Maximum SMS count"
-msgstr ""
-
-#: inc/admin/main_config.php:70
-msgid "Default credit for user"
-msgstr ""
-
-#: inc/admin/main_config.php:73
-msgid "Enable public registration"
-msgstr ""
-
-#: inc/admin/main_config.php:76
-msgid "Enable forgot password"
-msgstr ""
-
-#: inc/admin/main_config.php:79
 msgid "Active gateway module"
 msgstr ""
 
-#: inc/admin/main_config.php:82
-msgid "Active themes"
-msgstr ""
-
-#: inc/admin/main_config.php:85
-msgid "Default language"
-msgstr ""
-
-#: inc/admin/main_config.php:88 inc/admin/user_mgmnt.php:181
-#: inc/user/user_pref.php:115
-msgid "Save"
-msgstr ""
-
-#: inc/admin/main_config.php:125
-msgid "Main configuration changes has been saved"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:36 inc/user/user_outgoing.php:34
-msgid "To"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:38 inc/admin/user_mgmnt.php:16
-#: inc/admin/user_mgmnt.php:50 inc/admin/all_incoming.php:39
-#: inc/user/user_outgoing.php:36 inc/user/user_incoming.php:38
-msgid "Status"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:39 inc/user/user_outgoing.php:37
-msgid "Group"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:86 inc/user/user_outgoing.php:82
-msgid "Sent"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:90 inc/user/user_outgoing.php:86
-msgid "Failed"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:94 inc/user/user_outgoing.php:90
-msgid "Delivered"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:98 inc/user/user_outgoing.php:94
-msgid "Pending"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:121 inc/user/user_outgoing.php:115
-msgid "Are you sure you want to delete outgoing SMS ?"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:121 inc/user/send_sms.php:141
-#: inc/user/send_sms.php:143 inc/user/user_outgoing.php:115
-msgid "to"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:121
-msgid "row"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:157 inc/admin/all_outgoing.php:180
-#: inc/user/user_outgoing.php:151 inc/user/user_outgoing.php:174
-msgid "Selected outgoing SMS has been deleted"
-msgstr ""
-
-#: inc/admin/all_outgoing.php:161 inc/user/user_outgoing.php:155
-msgid "Fail to delete SMS"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:15 inc/admin/user_mgmnt.php:87
-#: inc/admin/user_mgmnt.php:251
-msgid "Add user"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:16 inc/admin/user_mgmnt.php:138
-#: inc/admin/user_mgmnt.php:247
-msgid "Administrator"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:21 inc/admin/user_mgmnt.php:55
-#: inc/user/sms_template.php:27 inc/user/sms_template.php:157
-#: inc/user/user_pref.php:95
-msgid "Name"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:22 inc/admin/user_mgmnt.php:56
-#: inc/admin/user_mgmnt.php:154 inc/admin/user_mgmnt.php:262
-#: inc/user/user_pref.php:96
-msgid "Email"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:23 inc/admin/user_mgmnt.php:57
-#: inc/admin/user_mgmnt.php:157 inc/admin/user_mgmnt.php:265
-#: inc/user/user_pref.php:97
-msgid "Mobile"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:24 inc/admin/user_mgmnt.php:58
-#: inc/admin/user_mgmnt.php:172 inc/admin/user_mgmnt.php:280
-#: inc/user/user_pref.php:109
-msgid "Credit"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:36
-msgid "Are you sure you want to delete user ?"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:50 inc/admin/user_mgmnt.php:139
-msgid "Normal user"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:70
-msgid "Are you sure you want to delete user"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:93
-msgid "Fail to delete user"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:99
-msgid "User has been deleted"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:104
-msgid "User is immune to deletion"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:108
-msgid "Currently logged in user is immune to deletion"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:151 inc/admin/user_mgmnt.php:259
-msgid "Full name"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:157 inc/admin/user_mgmnt.php:160
-#: inc/admin/user_mgmnt.php:265 inc/admin/user_mgmnt.php:268
-#: inc/user/user_pref.php:97 inc/user/user_pref.php:107
-msgid "Max. 16 numeric or 11 alphanumeric characters"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:160 inc/admin/user_mgmnt.php:268
-#: inc/user/send_sms.php:78 inc/user/send_sms.php:227
-#: inc/user/user_pref.php:107
-msgid "SMS sender ID"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:163 inc/admin/user_mgmnt.php:271
-#: inc/user/send_sms.php:79 inc/user/send_sms.php:228
-#: inc/user/user_pref.php:108
-msgid "SMS footer"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:163 inc/admin/user_mgmnt.php:271
-#: inc/user/user_pref.php:108
-msgid "Max. 30 alphanumeric characters"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:166 inc/admin/user_mgmnt.php:274
-#: inc/user/user_pref.php:106
-msgid "Timezone"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:169
-msgid "Fill to change password for username"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:175 inc/admin/user_mgmnt.php:283
-msgid "User level"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:178 inc/admin/user_mgmnt.php:286
-#: inc/user/user_pref.php:103
 msgid "Active language"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:199 inc/user/user_pref.php:144
-msgid "No changes made"
+msgid "Active themes"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:206 inc/user/user_pref.php:152
-msgid "Email is already in use by other username"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:206 inc/user/user_pref.php:152
-msgid "email"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:219 inc/user/user_pref.php:178
-msgid "Preferences has been saved"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:223 inc/user/user_pref.php:183
-msgid "Fail to save preferences"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:229 inc/user/user_pref.php:189
-msgid "You must fill all field"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:248
-msgid "Normal User"
-msgstr ""
-
-#: inc/admin/user_mgmnt.php:290
 msgid "Add"
 msgstr ""
 
-#: inc/admin/user_mgmnt.php:330
-msgid "You must fill all fields"
-msgstr ""
-
-#: inc/admin/all_incoming.php:36 inc/user/user_incoming.php:35
-msgid "Keyword"
-msgstr ""
-
-#: inc/admin/all_incoming.php:37 inc/user/sms_template.php:28
-#: inc/user/sms_template.php:158 inc/user/user_incoming.php:36
-msgid "Content"
-msgstr ""
-
-#: inc/admin/all_incoming.php:67 inc/user/user_incoming.php:65
-msgid "handled"
-msgstr ""
-
-#: inc/admin/all_incoming.php:67 inc/user/user_incoming.php:65
-msgid "unhandled"
-msgstr ""
-
-#: inc/user/sms_template.php:21 inc/user/sms_template.php:62
-#: inc/user/sms_template.php:71
 msgid "Add message template"
 msgstr ""
 
-#: inc/user/sms_template.php:56
-msgid "Select action"
+msgid "Add user"
 msgstr ""
 
-#: inc/user/sms_template.php:59
-msgid "Go"
-msgstr ""
-
-#: inc/user/sms_template.php:76 inc/user/sms_template.php:114
-msgid "Message template name"
-msgstr ""
-
-#: inc/user/sms_template.php:79 inc/user/sms_template.php:117
-msgid "Message template content"
-msgstr ""
-
-#: inc/user/sms_template.php:82 inc/user/sms_template.php:120
-msgid "Save template"
-msgstr ""
-
-#: inc/user/sms_template.php:84 inc/user/sms_template.php:123
-#: inc/user/sms_template.php:186
-msgid "Back"
-msgstr ""
-
-#: inc/user/sms_template.php:96
-msgid "Message template has been saved"
-msgstr ""
-
-#: inc/user/sms_template.php:109
-msgid "Edit message template"
-msgstr ""
-
-#: inc/user/sms_template.php:135
-msgid "Message template has been edited"
-msgstr ""
-
-#: inc/user/sms_template.php:139
-msgid "Fail to edit message template"
-msgstr ""
-
-#: inc/user/sms_template.php:151
-msgid "Delete message template"
-msgstr ""
-
-#: inc/user/sms_template.php:184
-msgid "Delete all templates ?"
-msgstr ""
-
-#: inc/user/sms_template.php:202
-msgid "Selected message template has been deleted"
-msgstr ""
-
-#: inc/user/send_sms.php:26 inc/user/send_sms.php:185
-msgid "shared by"
-msgstr ""
-
-#: inc/user/send_sms.php:38 inc/user/send_sms.php:196
-msgid "not set"
-msgstr ""
-
-#: inc/user/send_sms.php:54 inc/user/send_sms.php:203
-#: inc/user/user_pref.php:65
-msgid "Please select"
-msgstr ""
-
-#: inc/user/send_sms.php:84
-msgid "Phone number(s)"
-msgstr ""
-
-#: inc/user/send_sms.php:90 inc/user/send_sms.php:92
-msgid "All"
-msgstr ""
-
-#: inc/user/send_sms.php:96
-msgid "Send to"
-msgstr ""
-
-#: inc/user/send_sms.php:101 inc/user/send_sms.php:231
-msgid "Or"
-msgstr ""
-
-#: inc/user/send_sms.php:101
-msgid "International format"
-msgstr ""
-
-#: inc/user/send_sms.php:103 inc/user/send_sms.php:233
-msgid "Use template"
-msgstr ""
-
-#: inc/user/send_sms.php:104 inc/user/send_sms.php:234
-msgid "Your message"
-msgstr ""
-
-#: inc/user/send_sms.php:106 inc/user/send_sms.php:236
-msgid "SMS character"
-msgstr ""
-
-#: inc/user/send_sms.php:109 inc/user/send_sms.php:239
-msgid "Send as flash message"
-msgstr ""
-
-#: inc/user/send_sms.php:110 inc/user/send_sms.php:240
-msgid "Send as unicode message (http://www.unicode.org)"
-msgstr ""
-
-#: inc/user/send_sms.php:111 inc/user/send_sms.php:241
-msgid "Send"
-msgstr ""
-
-#: inc/user/send_sms.php:141 inc/user/send_sms.php:160
-#: inc/user/send_sms.php:285
-msgid "Your SMS has been delivered to queue"
-msgstr ""
-
-#: inc/user/send_sms.php:143
-msgid "Fail to sent SMS"
-msgstr ""
-
-#: inc/user/send_sms.php:160 inc/user/send_sms.php:285
-msgid "sent"
-msgstr ""
-
-#: inc/user/send_sms.php:160 inc/user/send_sms.php:285
-msgid "failed"
-msgstr ""
-
-#: inc/user/send_sms.php:166
-msgid "You must select receiver and your message should not be empty"
-msgstr ""
-
-#: inc/user/send_sms.php:230
-msgid "Send to group"
-msgstr ""
-
-#: inc/user/send_sms.php:231
-msgid "Group code"
-msgstr ""
-
-#: inc/user/send_sms.php:290
-msgid "You must select receiver group and your message should not be empty"
-msgstr ""
-
-#: inc/user/user_outgoing.php:115
-msgid "number"
-msgstr ""
-
-#: inc/user/user_pref.php:89
-msgid "Login information"
-msgstr ""
-
-#: inc/user/user_pref.php:92
-msgid "Re-Type Password"
-msgstr ""
-
-#: inc/user/user_pref.php:94
-msgid "Personal information"
-msgstr ""
-
-#: inc/user/user_pref.php:98
 msgid "Address"
 msgstr ""
 
-#: inc/user/user_pref.php:99
-msgid "City"
+msgid "Administration"
 msgstr ""
 
-#: inc/user/user_pref.php:100
-msgid "State or Province"
+msgid "Administrator"
 msgstr ""
 
-#: inc/user/user_pref.php:101
-msgid "Country"
+msgid "All"
 msgstr ""
 
-#: inc/user/user_pref.php:102
-msgid "Zipcode"
+msgid "All Inbox"
 msgstr ""
 
-#: inc/user/user_pref.php:105
+msgid "All inbox"
+msgstr ""
+
+msgid "All incoming SMS"
+msgstr ""
+
+msgid "All outgoing SMS"
+msgstr ""
+
+msgid "Always add plus sign"
+msgstr ""
+
 msgid "Application information"
 msgstr ""
 
-#: inc/user/user_pref.php:110
-msgid "Forward PV to inbox"
+msgid "Application options"
 msgstr ""
 
-#: inc/user/user_pref.php:111
+msgid "Are you sure you want to delete outgoing SMS ?"
+msgstr ""
+
+msgid "Are you sure you want to delete this SMS ?"
+msgstr ""
+
+msgid "Are you sure you want to delete user"
+msgstr ""
+
+msgid "Are you sure you want to delete user ?"
+msgstr ""
+
+msgid "Auto remove plus sign"
+msgstr ""
+
+msgid "Auto replace prefix 0"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "Changelog"
+msgstr ""
+
+msgid "City"
+msgstr ""
+
+msgid "Content"
+msgstr ""
+
+msgid "Country"
+msgstr ""
+
+msgid "Created"
+msgstr ""
+
+msgid "Credit"
+msgstr ""
+
+msgid "Currently logged in user is immune to deletion"
+msgstr ""
+
+msgid "Date time"
+msgstr ""
+
+msgid "Default"
+msgstr ""
+
+msgid "Default SMS rate"
+msgstr ""
+
+msgid "Default credit for user"
+msgstr ""
+
+msgid "Default language"
+msgstr ""
+
+msgid "Default sender ID"
+msgstr ""
+
+msgid "Default timezone"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Delete all templates ?"
+msgstr ""
+
+msgid "Delete message template"
+msgstr ""
+
+msgid "Delete selection"
+msgstr ""
+
+msgid "Delivered"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Edit message template"
+msgstr ""
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Email is already in use by other username"
+msgstr ""
+
+msgid "Enable forgot password"
+msgstr ""
+
+msgid "Enable public registration"
+msgstr ""
+
+msgid "F.A.Q"
+msgstr ""
+
+msgid "Fail to delete SMS"
+msgstr ""
+
+msgid "Fail to delete incoming SMS"
+msgstr ""
+
+msgid "Fail to delete user"
+msgstr ""
+
+msgid "Fail to edit message template"
+msgstr ""
+
+msgid "Fail to recover password"
+msgstr ""
+
+msgid "Fail to register an account"
+msgstr ""
+
+msgid "Fail to save preferences"
+msgstr ""
+
+msgid "Fail to send email"
+msgstr ""
+
+msgid "Fail to sent SMS"
+msgstr ""
+
+msgid "Failed"
+msgstr ""
+
+msgid "Feature"
+msgstr ""
+
+msgid "Fill to change password for username"
+msgstr ""
+
 msgid "Forward PV to email"
 msgstr ""
 
-#: inc/user/user_pref.php:112
+msgid "Forward PV to inbox"
+msgstr ""
+
 msgid "Forward PV to mobile"
 msgstr ""
 
-#: inc/user/user_pref.php:174
+msgid "Forward Private WebSMS"
+msgstr ""
+
+msgid "Forwarded email footer"
+msgstr ""
+
+msgid "From"
+msgstr ""
+
+msgid "Full name"
+msgstr ""
+
+msgid "Gateway"
+msgstr ""
+
+msgid "Go"
+msgstr ""
+
+msgid "Group"
+msgstr ""
+
+msgid "Group code"
+msgstr ""
+
+msgid "HTTP API"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "Inbox"
+msgstr ""
+
+msgid "Incoming SMS"
+msgstr ""
+
+msgid "Installation Guide"
+msgstr ""
+
+msgid "International format"
+msgstr ""
+
+msgid "Invalid username or password"
+msgstr ""
+
+msgid "Keyword"
+msgstr ""
+
+msgid "Last update"
+msgstr ""
+
+msgid "License"
+msgstr ""
+
+msgid "Login information"
+msgstr ""
+
+msgid "Logout"
+msgstr ""
+
+msgid "Main configuration"
+msgstr ""
+
+msgid "Main configuration changes has been saved"
+msgstr ""
+
+msgid "Manage"
+msgstr ""
+
+msgid "Manage user"
+msgstr ""
+
+msgid "Max. 16 numeric or 11 alphanumeric characters"
+msgstr ""
+
+msgid "Max. 30 alphanumeric characters"
+msgstr ""
+
+msgid "Maximum SMS count"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Message template"
+msgstr "Message template"
+
+msgid "Message template content"
+msgstr ""
+
+msgid "Message template has been edited"
+msgstr ""
+
+msgid "Message template has been saved"
+msgstr ""
+
+msgid "Message template name"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
+msgid "Mobile is already in use by other username"
+msgstr ""
+
+msgid "Mobile number"
+msgstr ""
+
+msgid "My Account"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "New account registration"
+msgstr ""
+
+msgid "No changes made"
+msgstr ""
+
+msgid "Normal User"
+msgstr ""
+
+msgid "Normal user"
+msgstr ""
+
+msgid "Or"
+msgstr ""
+
+msgid "Outgoing SMS"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Password has been sent to your email"
+msgstr ""
+
+msgid "Password recovery"
+msgstr ""
+
+msgid "Pending"
+msgstr ""
+
+msgid "Personal information"
+msgstr ""
+
+msgid "Phone number(s)"
+msgstr ""
+
+msgid "Phonebook"
+msgstr ""
+
+msgid "Pick Date & Time"
+msgstr ""
+
+msgid "Please select"
+msgstr ""
+
+msgid "Please select template"
+msgstr "Message template"
+
+msgid "Preferences"
+msgstr ""
+
+msgid "Preferences has been saved"
+msgstr ""
+
 msgid "Preferences has been saved and password updated"
+msgstr ""
+
+msgid "Prefix or country code"
+msgstr ""
+
+msgid "Public registration disabled"
+msgstr ""
+
+msgid "Re-Type Password"
+msgstr ""
+
+msgid "Receiver"
+msgstr ""
+
+msgid "Recover password disabled"
+msgstr ""
+
+msgid "Registered"
+msgstr ""
+
+msgid "Reply"
+msgstr ""
+
+msgid "SMS character"
+msgstr ""
+
+msgid "SMS footer"
+msgstr ""
+
+msgid "SMS sender ID"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Save template"
+msgstr ""
+
+msgid "Select action"
+msgstr ""
+
+msgid "Selected incoming SMS has been deleted"
+msgstr ""
+
+msgid "Selected message template has been deleted"
+msgstr ""
+
+msgid "Selected outgoing SMS has been deleted"
+msgstr ""
+
+msgid "Send"
+msgstr ""
+
+msgid "Send SMS"
+msgstr ""
+
+msgid "Send as flash message"
+msgstr ""
+
+msgid "Send as unicode message (http://www.unicode.org)"
+msgstr ""
+
+msgid "Send broadcast SMS"
+msgstr ""
+
+msgid "Send to"
+msgstr ""
+
+msgid "Send to group"
+msgstr ""
+
+msgid "Sender"
+msgstr ""
+
+msgid "Sent"
+msgstr ""
+
+msgid "State or Province"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "Timezone"
+msgstr ""
+
+msgid "To"
+msgstr ""
+
+msgid "Tools"
+msgstr ""
+
+msgid "Unable to update login session"
+msgstr ""
+
+msgid "Use"
+msgstr ""
+
+msgid "Use template"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "User has been added"
+msgstr ""
+
+msgid "User has been deleted"
+msgstr ""
+
+msgid "User is already exists"
+msgstr ""
+
+msgid "User is immune to deletion"
+msgstr ""
+
+msgid "User level"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "View"
+msgstr ""
+
+msgid "Website email"
+msgstr ""
+
+msgid "Website title"
+msgstr ""
+
+msgid "Welcome to playSMS"
+msgstr ""
+
+msgid "You have been logged out"
+msgstr ""
+
+msgid "You have no access to this page"
+msgstr ""
+
+msgid "You must fill all field"
+msgstr ""
+
+msgid "You must fill all fields"
+msgstr ""
+
+msgid "You must select receiver and your message should not be empty"
+msgstr ""
+
+msgid "You must select receiver group and your message should not be empty"
+msgstr ""
+
+msgid "Your SMS has been delivered to queue"
+msgstr ""
+
+msgid "Your message"
+msgstr ""
+
+msgid "Zipcode"
+msgstr ""
+
+msgid "email"
+msgstr ""
+
+msgid "failed"
+msgstr ""
+
+msgid "from"
+msgstr ""
+
+msgid "handled"
+msgstr ""
+
+msgid "mobile"
+msgstr ""
+
+msgid "no"
+msgstr ""
+
+msgid "not set"
+msgstr ""
+
+msgid "number"
+msgstr ""
+
+msgid "queued"
+msgstr ""
+
+msgid "row"
+msgstr ""
+
+msgid "shared by"
+msgstr ""
+
+msgid "to"
+msgstr ""
+
+msgid "unhandled"
+msgstr ""
+
+msgid "username"
+msgstr ""
+
+msgid "yes"
+msgstr ""
+
+msgid "Alarm"
 msgstr ""

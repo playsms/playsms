@@ -1,116 +1,234 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 11:16+0100\n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config.php:4 sms_command.php:12
-msgid "Manage command"
-msgstr "Manage command"
-
-#: sms_command.php:15 sms_command.php:86 sms_command.php:153
-msgid "SMS command exec path"
-msgstr ""
-
-#: sms_command.php:27
-msgid "Keyword"
-msgstr ""
-
-#: sms_command.php:28
-msgid "Exec"
-msgstr ""
-
-#: sms_command.php:29
-msgid "User"
-msgstr ""
-
-#: sms_command.php:30
 msgid "Action"
 msgstr ""
 
-#: sms_command.php:41
-msgid "Are you sure you want to delete SMS command ?"
-msgstr ""
-
-#: sms_command.php:41 sms_command.php:105 sms_command.php:109
-#: sms_command.php:129 sms_command.php:133 sms_command.php:174
-#: sms_command.php:178 sms_command.php:183
-msgid "keyword"
-msgstr ""
-
-#: sms_command.php:59 sms_command.php:144
-msgid "Add SMS command"
-msgstr ""
-
-#: sms_command.php:75
-msgid "Edit SMS command"
-msgstr ""
-
-#: sms_command.php:80 sms_command.php:147
-msgid "SMS command keyword"
-msgstr ""
-
-#: sms_command.php:81 sms_command.php:148
-msgid "Pass these parameter to command exec field"
-msgstr ""
-
-#: sms_command.php:82 sms_command.php:149
-msgid "will be replaced by SMS incoming date/time"
-msgstr ""
-
-#: sms_command.php:83 sms_command.php:150
-msgid "will be replaced by sender number"
-msgstr ""
-
-#: sms_command.php:84 sms_command.php:151
-msgid "will be replaced by command keyword"
-msgstr ""
-
-#: sms_command.php:85 sms_command.php:152
-msgid "will be replaced by command parameter passed to server from SMS"
-msgstr ""
-
-#: sms_command.php:87 sms_command.php:154
-msgid "SMS command exec"
-msgstr ""
-
-#: sms_command.php:88
-msgid "Save"
-msgstr ""
-
-#: sms_command.php:105
-msgid "SMS command has been saved"
-msgstr ""
-
-#: sms_command.php:109
-msgid "Fail to save SMS command"
-msgstr ""
-
-#: sms_command.php:114 sms_command.php:188
-msgid "You must fill all fields"
-msgstr ""
-
-#: sms_command.php:129
-msgid "SMS command has been deleted"
-msgstr ""
-
-#: sms_command.php:133
-msgid "Fail to delete SMS command"
-msgstr ""
-
-#: sms_command.php:155
 msgid "Add"
 msgstr ""
 
-#: sms_command.php:174
-msgid "SMS command has been added"
+msgid "Add SMS command"
 msgstr ""
 
-#: sms_command.php:178
+msgid "Are you sure you want to delete SMS command ?"
+msgstr ""
+
+msgid "Edit SMS command"
+msgstr ""
+
+msgid "Exec"
+msgstr ""
+
 msgid "Fail to add SMS command"
 msgstr ""
 
-#: sms_command.php:183
+msgid "Fail to delete SMS command"
+msgstr ""
+
+msgid "Fail to save SMS command"
+msgstr ""
+
+msgid "Keyword"
+msgstr ""
+
+msgid "Make return as reply"
+msgstr ""
+
+msgid "Manage command"
+msgstr "Manage command"
+
+msgid "Pass these parameter to command exec field"
+msgstr ""
+
 msgid "SMS command already exists, reserved or use by other feature"
+msgstr ""
+
+msgid "SMS command exec"
+msgstr ""
+
+msgid "SMS command exec path"
+msgstr ""
+
+msgid "SMS command has been added"
+msgstr ""
+
+msgid "SMS command has been deleted"
+msgstr ""
+
+msgid "SMS command has been saved"
+msgstr ""
+
+msgid "SMS command keyword"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "You must fill all fields"
+msgstr ""
+
+msgid "keyword"
+msgstr ""
+
+msgid "will be replaced by SMS incoming date/time"
+msgstr ""
+
+msgid "will be replaced by SMS raw message"
+msgstr ""
+
+msgid "will be replaced by command keyword"
+msgstr ""
+
+msgid "will be replaced by command parameter passed to server from SMS"
+msgstr ""
+
+msgid "will be replaced by sender number"
+msgstr ""
+
+msgid "Manage alarm"
+msgstr "Manage alarm"
+
+msgid "Add SMS alarm"
+msgstr ""
+
+msgid "With Alarm?"
+msgstr ""
+
+msgid "SMS alarm name"
+msgstr ""
+
+msgid "Alarm message"
+msgstr ""
+
+msgid "SMS alarm name already exists."
+msgstr ""
+
+msgid "Alarm name"
+msgstr ""
+
+msgid "SMS alarm has been added"
+msgstr ""
+
+msgid "Fail to add SMS alarm"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Alarm Message"
+msgstr ""
+
+msgid "Alarm Numbers"
+msgstr ""
+
+msgid "Min Value"
+msgstr ""
+
+msgid "Max Value"
+msgstr ""
+
+msgid "included"
+msgstr ""
+
+msgid "Min (Integer) Value"
+msgstr ""
+
+msgid "Max (Integer) Value"
+msgstr ""
+
+msgid "You must fill all fields, correctly"
+msgstr ""
+
+msgid "Max value must be equal or greater than Min value."
+msgstr ""
+
+msgid "Are you sure you want to delete SMS alarm?"
+msgstr ""
+
+msgid "Edit SMS alarm"
+msgstr ""
+
+msgid "Edit Alarm Numbers"
+msgstr ""
+
+msgid "Alarm Number"
+msgstr ""
+
+msgid "Are you sure you want to delete alarm number ?"
+msgstr ""
+
+msgid "Add Alarm Number"
+msgstr ""
+
+msgid "International format"
+msgstr ""
+
+msgid "Alarm Number has been added"
+msgstr ""
+
+msgid "Fail to add Alarm Number"
+msgstr ""
+
+msgid "SMS Alarm Number has been deleted"
+msgstr ""
+
+msgid "Fail to delete Alarm Number"
+msgstr ""
+
+msgid "Fail to update SMS Alarm"
+msgstr ""
+
+msgid "SMS Alarm has been saved"
+msgstr ""
+
+msgid "Fail to save SMS Alarm"
+msgstr ""
+
+msgid "Fail to delete Alarm"
+msgstr ""
+
+msgid "SMS Alarm has been deleted"
+msgstr ""
+
+msgid "SMS Alarm has been deleted, but action doesn\'t delete Alarm Numbers."
+msgstr ""
+
+msgid " # Command ID:"
+msgstr ""
+
+msgid "got updated!"
+msgstr ""
+ 
+msgid "Add Alarm Group Numbers"
+msgstr ""
+
+msgid "Group Number:"
+msgstr ""
+
+msgid "Group Code"
+msgstr ""
+
+msgid "Group Info"
+msgstr ""
+
+msgid "Are you sure you want to delete alarm group?"
+msgstr ""
+
+msgid "Alarm Group has been added"
+msgstr ""
+
+msgid "Fail to add Alarm Group"
+msgstr ""
+
+msgid "Fail to delete Alarm Group"
+msgstr ""
+
+msgid "SMS Alarm Group has been deleted"
 msgstr ""

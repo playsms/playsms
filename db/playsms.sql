@@ -114,7 +114,7 @@ CREATE TABLE `playsms_featureAutosend` (
   `autosend_number` varchar(20) NOT NULL,
   `autosend_enable` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`autosend_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,7 +140,7 @@ CREATE TABLE `playsms_featureAutosend_time` (
   `autosend_time` varchar(20) NOT NULL,
   `sent` enum('1','0') NOT NULL DEFAULT '0',
   PRIMARY KEY (`time_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -222,6 +222,9 @@ CREATE TABLE `playsms_featureCommand` (
   `command_keyword` varchar(10) NOT NULL DEFAULT '',
   `command_exec` text NOT NULL,
   `command_return_as_reply` tinyint(4) NOT NULL DEFAULT 0,
+  `with_alarm` BOOLEAN NOT NULL DEFAULT FALSE,
+  `with_answer` BOOLEAN NOT NULL DEFAULT FALSE,
+  `command_msg` text,
   PRIMARY KEY (`command_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -249,6 +252,7 @@ CREATE TABLE `playsms_featureCommand_log` (
   `command_log_datetime` varchar(20) NOT NULL DEFAULT '',
   `command_log_keyword` varchar(10) NOT NULL DEFAULT '',
   `command_log_exec` text NOT NULL,
+  `command_log_output` text NOT NULL,
   PRIMARY KEY (`command_log_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -260,6 +264,83 @@ CREATE TABLE `playsms_featureCommand_log` (
 LOCK TABLES `playsms_featureCommand_log` WRITE;
 /*!40000 ALTER TABLE `playsms_featureCommand_log` DISABLE KEYS */;
 /*!40000 ALTER TABLE `playsms_featureCommand_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `playsms_featureCommand_Alarm`
+--
+
+DROP TABLE IF EXISTS `playsms_featureCommand_Alarm`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `playsms_featureCommand_Alarm` (
+  `c_timestamp` int(11) NOT NULL DEFAULT '0',
+  `alarm_id` int(11) NOT NULL AUTO_INCREMENT,
+  `command_id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `alarm_name` varchar(100) NOT NULL,
+  `alarm_msg` text NOT NULL,
+  `alarm_min_value` int(11) NOT NULL,
+  `alarm_max_value` int(11) NOT NULL,
+  PRIMARY KEY (`alarm_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `playsms_featureCommand_Alarm`
+--
+
+LOCK TABLES `playsms_featureCommand_Alarm` WRITE;
+/*!40000 ALTER TABLE `playsms_featureCommand_Alarm` DISABLE KEYS */;
+/*!40000 ALTER TABLE `playsms_featureCommand_Alarm` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `playsms_featureCommand_Alarm_contacts`
+--
+
+DROP TABLE IF EXISTS `playsms_featureCommand_Alarm_contacts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `playsms_featureCommand_Alarm_contacts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,		
+  `alarm_id` int(11) NOT NULL,
+  `contact_number` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `playsms_featureCommand_Alarm_contacts`
+--
+
+LOCK TABLES `playsms_featureCommand_Alarm_contacts` WRITE;
+/*!40000 ALTER TABLE `playsms_featureCommand_Alarm_contacts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `playsms_featureCommand_Alarm_contacts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `playsms_featureCommand_Alarm_group_id`
+--
+
+DROP TABLE IF EXISTS `playsms_featureCommand_Alarm_group_id`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `playsms_featureCommand_Alarm_group_id` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,		
+  `alarm_id` int(11) NOT NULL,
+  `gpid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `playsms_featureCommand_Alarm_contacts`
+--
+
+LOCK TABLES `playsms_featureCommand_Alarm_contacts` WRITE;
+/*!40000 ALTER TABLE `playsms_featureCommand_Alarm_contacts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `playsms_featureCommand_Alarm_contacts` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -463,6 +544,8 @@ CREATE TABLE `playsms_featurePoll` (
   `poll_title` varchar(250) NOT NULL DEFAULT '',
   `poll_keyword` varchar(10) NOT NULL DEFAULT '',
   `poll_enable` int(11) NOT NULL DEFAULT '0',
+  `poll_msg_valid` varchar(100) NOT NULL ,
+  `poll_msg_invalid` varchar(100) NOT NULL,
   PRIMARY KEY (`poll_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -515,6 +598,7 @@ CREATE TABLE `playsms_featurePoll_log` (
   `poll_id` int(11) NOT NULL DEFAULT '0',
   `choice_id` int(11) NOT NULL DEFAULT '0',
   `poll_sender` varchar(20) NOT NULL DEFAULT '',
+  `in_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`result_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -546,7 +630,7 @@ CREATE TABLE `playsms_featureQuiz` (
   `quiz_msg_incorrect` varchar(100) NOT NULL,
   `quiz_enable` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`quiz_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -573,7 +657,7 @@ CREATE TABLE `playsms_featureQuiz_log` (
   `quiz_sender` varchar(20) NOT NULL DEFAULT '',
   `in_datetime` varchar(20) NOT NULL,
   PRIMARY KEY (`answer_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -600,8 +684,11 @@ CREATE TABLE `playsms_featureSubscribe` (
   `subscribe_msg` varchar(200) NOT NULL,
   `unsubscribe_msg` varchar(200) NOT NULL,
   `subscribe_enable` int(11) NOT NULL DEFAULT '0',
+  `subscribe_param` varchar(20) NOT NULL,
+  `unsubscribe_param` varchar(20) NOT NULL,
+  `forward_param` varchar(20) NOT NULL,
   PRIMARY KEY (`subscribe_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -627,7 +714,7 @@ CREATE TABLE `playsms_featureSubscribe_member` (
   `member_number` varchar(20) NOT NULL,
   `member_since` varchar(20) NOT NULL,
   PRIMARY KEY (`member_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -652,7 +739,7 @@ CREATE TABLE `playsms_featureSubscribe_msg` (
   `subscribe_id` int(11) NOT NULL,
   `msg` varchar(200) NOT NULL,
   PRIMARY KEY (`msg_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -866,6 +953,22 @@ INSERT INTO `playsms_gatewayGnokii_config` VALUES (0,'gnokii','/var/spool/playsm
 UNLOCK TABLES;
 
 --
+-- Table structure for table `playsms_gatewaySmstools_dlr`
+--
+
+DROP TABLE IF EXISTS `playsms_gatewaySmstools_dlr`;
+CREATE TABLE `playsms_gatewaySmstools_dlr` (
+  `c_timestamp` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
+  `smslog_id` int(11) NOT NULL,
+  `message_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `smslog_id` (`smslog_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
 -- Table structure for table `playsms_gatewayKannel_config`
 --
 
@@ -882,8 +985,12 @@ CREATE TABLE `playsms_gatewayKannel_config` (
   `cfg_bearerbox_host` varchar(250) DEFAULT NULL,
   `cfg_sendsms_port` varchar(10) DEFAULT NULL,
   `cfg_playsms_web` varchar(250) DEFAULT NULL,
+  `cfg_dlr` int(11) NOT NULL DEFAULT '31',
   `cfg_additional_param` varchar(250) DEFAULT NULL,
-  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700'
+  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700',
+  `cfg_admin_url` varchar(250) DEFAULT NULL,
+  `cfg_admin_password` varchar(50) DEFAULT NULL,
+  `cfg_admin_port` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -893,7 +1000,7 @@ CREATE TABLE `playsms_gatewayKannel_config` (
 
 LOCK TABLES `playsms_gatewayKannel_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayKannel_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayKannel_config` VALUES (0,'kannel','/var/spool/playsms','playsms','playsms','','127.0.0.1','13131','http://localhost/playsms','','+0700');
+INSERT INTO `playsms_gatewayKannel_config` VALUES (0,'kannel','/var/spool/playsms','playsms','playsms','','127.0.0.1','13131','http://localhost/playsms','31','','+0700','','',0);
 /*!40000 ALTER TABLE `playsms_gatewayKannel_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1015,7 +1122,7 @@ CREATE TABLE `playsms_gatewayUplink` (
   `up_remote_slid` int(11) NOT NULL DEFAULT '0',
   `up_status` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`up_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1072,6 +1179,8 @@ CREATE TABLE `playsms_tblBilling` (
   `smslog_id` int(11) NOT NULL,
   `rate` float NOT NULL,
   `credit` double NOT NULL DEFAULT '0',
+  `count` int(11) NOT NULL DEFAULT '0',
+  `charge` double NOT NULL DEFAULT '0',
   `status` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -1119,29 +1228,6 @@ LOCK TABLES `playsms_tblConfig_main` WRITE;
 /*!40000 ALTER TABLE `playsms_tblConfig_main` DISABLE KEYS */;
 INSERT INTO `playsms_tblConfig_main` VALUES (1332916845,'playSMS','noreply@playsms.org','powered by playSMS','smstools','000','default',0,'en_US','+0700',3,0,0,1);
 /*!40000 ALTER TABLE `playsms_tblConfig_main` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `playsms_tblErrorString`
---
-
-DROP TABLE IF EXISTS `playsms_tblErrorString`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `playsms_tblErrorString` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `error_string` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `playsms_tblErrorString`
---
-
-LOCK TABLES `playsms_tblErrorString` WRITE;
-/*!40000 ALTER TABLE `playsms_tblErrorString` DISABLE KEYS */;
-/*!40000 ALTER TABLE `playsms_tblErrorString` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1215,30 +1301,64 @@ LOCK TABLES `playsms_tblSMSOutgoing` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `playsms_tblSMSTemplate`
+-- Table structure for table `playsms_tblSMSOutgoing_queue`
 --
 
-DROP TABLE IF EXISTS `playsms_tblSMSTemplate`;
+DROP TABLE IF EXISTS `playsms_tblSMSOutgoing_queue`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `playsms_tblSMSTemplate` (
-  `c_timestamp` int(11) NOT NULL DEFAULT '0',
-  `tid` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) NOT NULL DEFAULT '0',
-  `t_title` varchar(100) NOT NULL DEFAULT '',
-  `t_text` text NOT NULL,
-  PRIMARY KEY (`tid`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+CREATE TABLE `playsms_tblSMSOutgoing_queue` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `queue_code` varchar(40) NOT NULL,
+  `datetime_entry` varchar(20) NOT NULL DEFAULT '000-00-00 00:00:00',
+  `datetime_scheduled` varchar(20) NOT NULL DEFAULT '000-00-00 00:00:00',
+  `datetime_update` varchar(20) NOT NULL DEFAULT '000-00-00 00:00:00',
+  `flag` tinyint(4) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `gpid` int(11) NOT NULL,
+  `sender_id` varchar(100) NOT NULL,
+  `footer` varchar(30) NOT NULL,
+  `message` text NOT NULL,
+  `sms_type` varchar(100) NOT NULL,
+  `unicode` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `queue_code` (`queue_code`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `playsms_tblSMSTemplate`
+-- Dumping data for table `playsms_tblSMSOutgoing_queue`
 --
 
-LOCK TABLES `playsms_tblSMSTemplate` WRITE;
-/*!40000 ALTER TABLE `playsms_tblSMSTemplate` DISABLE KEYS */;
-INSERT INTO `playsms_tblSMSTemplate` VALUES (0,1,1,'Good morning','Hi u there, good morning!!'),(0,2,1,'Good night have a sweet dream','Hi sweetheart, good night and have a sweet dream :*'),(0,3,1,'Meeting Now','Hello #NAME#, please hurry up, boss summons us !');
-/*!40000 ALTER TABLE `playsms_tblSMSTemplate` ENABLE KEYS */;
+LOCK TABLES `playsms_tblSMSOutgoing_queue` WRITE;
+/*!40000 ALTER TABLE `playsms_tblSMSOutgoing_queue` DISABLE KEYS */;
+/*!40000 ALTER TABLE `playsms_tblSMSOutgoing_queue` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `playsms_tblSMSOutgoing_queue_dst`
+--
+
+DROP TABLE IF EXISTS `playsms_tblSMSOutgoing_queue_dst`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `playsms_tblSMSOutgoing_queue_dst` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `queue_id` int(11) NOT NULL,
+  `smslog_id` bigint(20) NOT NULL,
+  `flag` tinyint(4) NOT NULL,
+  `dst` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `playsms_tblSMSOutgoing_queue_dst`
+--
+
+LOCK TABLES `playsms_tblSMSOutgoing_queue_dst` WRITE;
+/*!40000 ALTER TABLE `playsms_tblSMSOutgoing_queue_dst` DISABLE KEYS */;
+/*!40000 ALTER TABLE `playsms_tblSMSOutgoing_queue_dst` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1254,24 +1374,17 @@ CREATE TABLE `playsms_tblUser` (
   `status` tinyint(4) NOT NULL DEFAULT '0',
   `ticket` varchar(100) NOT NULL DEFAULT '',
   `username` varchar(100) NOT NULL DEFAULT '',
-  `password` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `password` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
   `name` varchar(100) NOT NULL DEFAULT '',
   `mobile` varchar(16) NOT NULL DEFAULT '',
   `email` varchar(250) NOT NULL DEFAULT '',
   `sender` varchar(16) NOT NULL DEFAULT '',
   `footer` varchar(30) NOT NULL DEFAULT '',
-  `dailysms` int(11) NOT NULL DEFAULT '0',
-  `gender` tinyint(4) NOT NULL DEFAULT '0',
-  `age` tinyint(4) NOT NULL DEFAULT '0',
   `address` varchar(250) NOT NULL DEFAULT '',
   `city` varchar(100) NOT NULL DEFAULT '',
   `state` varchar(100) NOT NULL DEFAULT '',
   `country` int(11) NOT NULL DEFAULT '0',
-  `birthday` varchar(10) NOT NULL DEFAULT '0000-00-00',
-  `marital` tinyint(4) NOT NULL DEFAULT '0',
-  `education` tinyint(4) NOT NULL DEFAULT '0',
   `zipcode` varchar(10) NOT NULL DEFAULT '',
-  `junktimestamp` varchar(30) NOT NULL DEFAULT '',
   `credit` double NOT NULL DEFAULT '0',
   `datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700',
   `language_module` varchar(10) NOT NULL DEFAULT 'en_US',
@@ -1281,8 +1394,10 @@ CREATE TABLE `playsms_tblUser` (
   `replace_zero` varchar(5) NOT NULL DEFAULT '',
   `plus_sign_remove` tinyint(4) NOT NULL DEFAULT '1',
   `plus_sign_add` tinyint(4) NOT NULL DEFAULT '0',
+  `register_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `lastupdate_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`uid`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1291,7 +1406,7 @@ CREATE TABLE `playsms_tblUser` (
 
 LOCK TABLES `playsms_tblUser` WRITE;
 /*!40000 ALTER TABLE `playsms_tblUser` DISABLE KEYS */;
-INSERT INTO `playsms_tblUser` VALUES (1332916885,1,2,'dd4aa3580e3de07858d812dcc094c32f','admin','admin','Administrator','+62000000000','noreply@playsms.org','playSMS','@admin',0,0,38,'','','',132,'',0,0,'','1332916885',0,'+0700','en_US',0,1,1,'',1,0);
+INSERT INTO `playsms_tblUser` VALUES (1332916885,1,2,'dd4aa3580e3de07858d812dcc094c32f','admin','456b7016a916a4b178dd72b947c152b7','Administrator','+62000000000', 'noreply@playsms.org','playSMS','@admin','','','',132,'',0,'+0700','en_US',0,1,1,'',1,0,'','');
 /*!40000 ALTER TABLE `playsms_tblUser` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1337,7 +1452,7 @@ CREATE TABLE `playsms_tblUser_country` (
   `country_name` varchar(200) NOT NULL DEFAULT '',
   `country_code` varchar(10) NOT NULL,
   PRIMARY KEY (`country_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=335 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1348,6 +1463,33 @@ LOCK TABLES `playsms_tblUser_country` WRITE;
 /*!40000 ALTER TABLE `playsms_tblUser_country` DISABLE KEYS */;
 INSERT INTO `playsms_tblUser_country` VALUES (0,1,'Afghanistan',''),(0,2,'Albania',''),(0,3,'Algeria',''),(0,5,'Andorra',''),(0,10,'Argentina',''),(0,11,'Armenia',''),(0,14,'Australia',''),(0,16,'Austria',''),(0,18,'Azerbaijan',''),(0,19,'Bahamas',''),(0,20,'Bahrain',''),(0,21,'Bangladesh',''),(0,24,'Belarus',''),(0,25,'Belgium',''),(0,29,'Bermuda',''),(0,30,'Bhutan',''),(0,31,'Bolivia',''),(0,32,'Bosnia-Herzegovina',''),(0,33,'Botswana',''),(0,35,'Brazil',''),(0,38,'Brunei',''),(0,39,'Bulgaria',''),(0,41,'Burundi',''),(0,42,'Cambodia',''),(0,44,'Cameroon',''),(0,45,'Canada',''),(0,51,'Chile',''),(0,52,'China',''),(0,55,'Columbia',''),(0,58,'Congo',''),(0,60,'Costa Rica',''),(0,61,'Croatia',''),(0,62,'Cuba',''),(0,66,'Czech Republic',''),(0,67,'Denmark',''),(0,74,'East Timor',''),(0,76,'Ecuador',''),(0,77,'Egypt',''),(0,78,'El Salvador',''),(0,81,'Estonia',''),(0,84,'Fiji Islands',''),(0,85,'Finland',''),(0,86,'France',''),(0,93,'Gabon',''),(0,94,'Gambia',''),(0,96,'Germany',''),(0,98,'Ghana',''),(0,100,'Greece',''),(0,105,'Guam',''),(0,107,'Guatemala',''),(0,108,'UK',''),(0,111,'Guyana',''),(0,112,'Haiti',''),(0,113,'Honduras',''),(0,114,'HongKong',''),(0,118,'Hungary',''),(0,120,'Iceland',''),(0,121,'India',''),(0,132,'Indonesia',''),(0,139,'Iran',''),(0,140,'Iraq',''),(0,141,'Ireland',''),(0,143,'Israel',''),(0,144,'Italy',''),(0,146,'Ivory Coast',''),(0,147,'Jamaica',''),(0,148,'Japan',''),(0,150,'Jordan',''),(0,151,'Kazakhstan',''),(0,153,'Kenya',''),(0,155,'Korea (South)',''),(0,156,'Korea (North)',''),(0,157,'Kuwait',''),(0,158,'Kyrgyzstan',''),(0,160,'Latvia',''),(0,161,'Lebanon',''),(0,163,'Liberia',''),(0,164,'Libya',''),(0,166,'Lithuania',''),(0,167,'Luxembourg',''),(0,170,'Macedonia',''),(0,171,'Malawi',''),(0,173,'Malaysia',''),(0,175,'Maldives',''),(0,177,'Mali Republic',''),(0,178,'Malta',''),(0,181,'Mauritania',''),(0,184,'Mexico',''),(0,186,'Moldova',''),(0,188,'Mongolia',''),(0,189,'Montserrat',''),(0,190,'Morocco',''),(0,192,'Mozambique',''),(0,193,'Myanmar',''),(0,194,'Namibia',''),(0,196,'Nepal',''),(0,197,'Netherlands',''),(0,200,'New Caledonia',''),(0,201,'New Zealand',''),(0,202,'Nicaragua',''),(0,203,'Niger',''),(0,204,'Nigeria',''),(0,208,'Norway',''),(0,209,'Oman',''),(0,210,'Pakistan',''),(0,211,'Palau',''),(0,212,'Palestine',''),(0,213,'Panama',''),(0,214,'Papua New Guinea',''),(0,215,'Paraguay',''),(0,216,'Peru',''),(0,217,'Philippines',''),(0,220,'Poland',''),(0,223,'Portugal',''),(0,225,'Puerto Rico',''),(0,226,'Qatar',''),(0,228,'Romania',''),(0,229,'Russia',''),(0,232,'Rwanda',''),(0,238,'Samoa',''),(0,241,'Saudi Arabia',''),(0,242,'Senegal',''),(0,244,'Sierra Leone',''),(0,245,'Singapore',''),(0,248,'Slovakia',''),(0,249,'Slovenia',''),(0,251,'Somalia',''),(0,252,'South Africa',''),(0,253,'Spain',''),(0,256,'Sri Lanka',''),(0,257,'Sudan',''),(0,258,'Suriname',''),(0,259,'Swaziland',''),(0,260,'Sweden',''),(0,262,'Switzerland',''),(0,263,'Syria',''),(0,264,'Taiwan',''),(0,267,'Tajikistan',''),(0,268,'Tanzania',''),(0,269,'Thailand',''),(0,274,'Trinidad and Tobago',''),(0,275,'Tunisia',''),(0,276,'Turkey',''),(0,277,'Turkmenistan',''),(0,279,'Tuvalu',''),(0,280,'Uganda',''),(0,281,'Ukraine',''),(0,284,'USA',''),(0,289,'United Arab Emirates',''),(0,290,'Uruguay',''),(0,291,'Uzbekistan',''),(0,293,'Vatican City State',''),(0,294,'Venezuela',''),(0,295,'Vietnam',''),(0,299,'Yemen',''),(0,300,'Yugoslavia',''),(0,303,'Zambia',''),(0,305,'Zimbabwe',''),(0,312,'Ethiopia',''),(0,314,'South Korea',''),(0,318,'Angola',''),(0,319,'Aruba',''),(0,320,'Laos',''),(0,325,'Serbia & Montenegro (Yugoslavia)',''),(0,332,'Jersey',''),(0,334,'OTHER (unlisted)','');
 /*!40000 ALTER TABLE `playsms_tblUser_country` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `playsms_toolsMsgtemplate`
+--
+
+DROP TABLE IF EXISTS `playsms_toolsMsgtemplate`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `playsms_toolsMsgtemplate` (
+  `c_timestamp` int(11) NOT NULL DEFAULT '0',
+  `tid` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `t_title` varchar(100) NOT NULL DEFAULT '',
+  `t_text` text NOT NULL,
+  PRIMARY KEY (`tid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `playsms_toolsMsgtemplate`
+--
+
+LOCK TABLES `playsms_toolsMsgtemplate` WRITE;
+/*!40000 ALTER TABLE `playsms_toolsMsgtemplate` DISABLE KEYS */;
+INSERT INTO `playsms_toolsMsgtemplate` VALUES (0,1,1,'Good morning','Hi u there, good morning!!'),(0,2,1,'Good night have a sweet dream','Hi sweetheart, good night and have a sweet dream :*'),(0,3,1,'Meeting Now','Hello #NAME#, please hurry up, boss summons us !');
+/*!40000 ALTER TABLE `playsms_toolsMsgtemplate` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
