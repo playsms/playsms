@@ -75,12 +75,23 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver,
 	}
 	
 	logger_print("username:".$username." sender:".$sms_sender." keyword:".$subscribe_keyword." param:".$subscribe_param, 3, "sms_subscribe");
+	$subscribe_accept_param = $db_row['subscribe_param'];
+	$subscribe_reject_param = $db_row['unsubscribe_param'];
+	$forward_param = $db_row['forward_param'];
+	// for later use
+	$subscribe_param_array = explode(" ", $subscribe_param);
+	
+	$forward_sms = '';
+	for ($i=1; $i<sizeof($subscribe_param_array); $i++) {
+		$forward_sms .= $subscribe_param_array[$i] . ' ';
+	}
+	$forward_sms = substr($forward_sms,0,-1);
 	
 	// check for BC sub-keyword
 	$subscribe_id = $db_row['subscribe_id'];
 	$c_arr = explode(' ', $subscribe_param);
 	$bc = trim(strtoupper($c_arr[0]));
-	if ($bc == 'BC') {
+	if ($bc == 'BC' || $bc == $forward_param) {
 		for ($i=1;$i<count($c_arr);$i++) {
 			$msg0 .= $c_arr[$i].' ';
 		}
@@ -124,6 +135,7 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver,
 				case "ON" :
 				case "IN" :
 				case "REG" :
+				case $subscribe_accept_param :
 					$message = $msg1;
 					$logged = dba_query($db_query);
 					logger_print('REG SUCCESS sender:'.$sms_sender.' keyword:'.$subscribe_keyword.' mobile:'.$sms_to, 3, "sms_subscribe");
@@ -133,6 +145,7 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver,
 				case "OFF" :
 				case "OUT" :
 				case "UNREG" :
+				case $subscribe_reject_param :
 					$message = _('You are not a member');
 					logger_print('REG FAILED sender:'.$sms_sender.' keyword:'.$subscribe_keyword.' mobile:'.$sms_to, 3, "sms_subscribe");
 					$ok = true;
@@ -151,6 +164,7 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver,
 				case "OFF" :
 				case "OUT" :
 				case "UNREG" :
+				case $subscribe_reject_param :
 					$message = $msg2;
 					$success = 'fail to delete member';
 					$deleted = dba_query($db_query);
@@ -164,6 +178,7 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver,
 				case "ON" :
 				case "IN" :
 				case "REG" :
+				case $subscribe_accept_param :
 					$message = _('You already a member');
 					logger_print('UNREG fail already a member sender:'.$sms_sender.' keyword:'.$subscribe_keyword.' mobile:'.$sms_to, 3, "sms_subscribe");
 					$ok = true;

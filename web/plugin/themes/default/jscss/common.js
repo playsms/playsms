@@ -107,4 +107,75 @@ function SmsSetCounter() {
         document.fm_sendsms.txtcount.value  = ilen ;
 }
 
+/* ############################
+New functions with more abstraction! Don't delete all of the old because some features
+like the counter of sendsms form isn't prepared for the abstract functions yet.
+############################ */
+
+function SmsSetCounter_Abstract(field, returnField, hiddcountField, hiddcount_unicodeField) {
+        var ilen = SmsTextCounter_Abstract(field, hiddcountField, hiddcount_unicodeField);
+        document.getElementById(returnField).value = ilen;
+}
+
+function SmsTextCounter_Abstract(field, hiddcountField, hiddcount_unicodeField) {
+        var msg = document.getElementById(field);
+        var maxlimit = document.getElementById(hiddcountField).value;
+        var maxlimit_unicode = document.getElementById(hiddcount_unicodeField).value;
+        var limit = maxlimit;
+        var devider = 160;
+        var messagelenudh;
+        var result;
+		
+        if (msg.value.length > limit) {
+                msg.value = msg.value.substring(0, limit);
+        }
+        if (msg.value.length > devider) {
+                messagelenudh = Math.ceil(msg.value.length / (devider - 7));
+                result = msg.value.length + ' char : ' + messagelenudh + ' SMS' ;
+                return result;
+        } else {
+                // otherwise, update 'characters left' counter
+                result = msg.value.length + ' char : 1 SMS' ;
+                return result;
+        }
+}
+
+function SmsCountKeyDown_Abstract(maxChar, formName)
+{
+		//alert('olá');
+        var msg  = document.getElementById(formName).field;
+        var left = document.getElementById(formName).charNumberLeftOutput;
+        var smsLenLeft = maxChar  - msg.value.length;
+		alert(maxChar);
+        if (smsLenLeft >= 0) 
+        {
+                left.value = smsLenLeft;
+        } 
+        else 
+        {
+                var msgMaxLen = maxChar;
+                left.value = 0; 
+                msg.value = msg.value.substring(0, msgMaxLen);
+        }
+}
+
+function SmsCountKeyUp_Abstract(maxChar,formName, fieldName)
+{
+		//alert('olá');
+        var msg  = document.getElementById(fieldName)
+        var left = document.getElementById(formName).charNumberLeftOutput;
+        
+        var smsLenLeft = maxChar  - msg.value.length;
+        if (smsLenLeft >= 0) 
+        {
+                left.value = smsLenLeft;
+        } 
+        else 
+        {
+                var msgMaxLen = maxChar;
+                left.value = 0;
+                msg.value = msg.value.substring(0, msgMaxLen);
+        }
+}
+
 // END -->
