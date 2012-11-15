@@ -91,3 +91,144 @@ msgstr ""
 
 msgid "will be replaced by sender number"
 msgstr ""
+
+msgid "Manage alarm"
+msgstr "Manage alarm"
+
+msgid "Add SMS alarm"
+msgstr ""
+
+msgid "With Alarm?"
+msgstr ""
+
+msgid "SMS alarm name"
+msgstr ""
+
+msgid "Alarm message"
+msgstr ""
+
+msgid "SMS alarm name already exists."
+msgstr ""
+
+msgid "Alarm name"
+msgstr ""
+
+msgid "SMS alarm has been added"
+msgstr ""
+
+msgid "Fail to add SMS alarm"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Alarm Message"
+msgstr ""
+
+msgid "Alarm Numbers"
+msgstr ""
+
+msgid "Min Value"
+msgstr ""
+
+msgid "Max Value"
+msgstr ""
+
+msgid "included"
+msgstr ""
+
+msgid "Min (Integer) Value"
+msgstr ""
+
+msgid "Max (Integer) Value"
+msgstr ""
+
+msgid "You must fill all fields, correctly"
+msgstr ""
+
+msgid "Max value must be equal or greater than Min value."
+msgstr ""
+
+msgid "Are you sure you want to delete SMS alarm?"
+msgstr ""
+
+msgid "Edit SMS alarm"
+msgstr ""
+
+msgid "Edit Alarm Numbers"
+msgstr ""
+
+msgid "Alarm Number"
+msgstr ""
+
+msgid "Are you sure you want to delete alarm number ?"
+msgstr ""
+
+msgid "Add Alarm Number"
+msgstr ""
+
+msgid "International format"
+msgstr ""
+
+msgid "Alarm Number has been added"
+msgstr ""
+
+msgid "Fail to add Alarm Number"
+msgstr ""
+
+msgid "SMS Alarm Number has been deleted"
+msgstr ""
+
+msgid "Fail to delete Alarm Number"
+msgstr ""
+
+msgid "Fail to update SMS Alarm"
+msgstr ""
+
+msgid "SMS Alarm has been saved"
+msgstr ""
+
+msgid "Fail to save SMS Alarm"
+msgstr ""
+
+msgid "Fail to delete Alarm"
+msgstr ""
+
+msgid "SMS Alarm has been deleted"
+msgstr ""
+
+msgid "SMS Alarm has been deleted, but action doesn\'t delete Alarm Numbers."
+msgstr ""
+
+msgid " # Command ID:"
+msgstr ""
+
+msgid "got updated!"
+msgstr ""
+ 
+msgid "Add Alarm Group Numbers"
+msgstr ""
+
+msgid "Group Number:"
+msgstr ""
+
+msgid "Group Code"
+msgstr ""
+
+msgid "Group Info"
+msgstr ""
+
+msgid "Are you sure you want to delete alarm group?"
+msgstr ""
+
+msgid "Alarm Group has been added"
+msgstr ""
+
+msgid "Fail to add Alarm Group"
+msgstr ""
+
+msgid "Fail to delete Alarm Group"
+msgstr ""
+
+msgid "SMS Alarm Group has been deleted"
+msgstr ""

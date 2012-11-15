@@ -589,3 +589,6 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+msgid "Alarm"
+msgstr ""
