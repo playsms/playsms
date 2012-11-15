@@ -13,6 +13,20 @@ function gpid2gpname($gpid)
 	return $gp_name;
 }
 
+function private_group($gpid){
+	$db_query = "SELECT g.private 
+			 FROM "._DB_PREF_."_toolsSimplephonebook_group g
+			WHERE g.gpid=$gpid";	
+			
+	$db_result = dba_query($db_query);
+	$db_row = dba_fetch_array($db_result);
+	
+	if($db_row['private'])
+		return TRUE;
+	
+	return FALSE;
+}
+
 function gpname2gpid($gp_name)
 {
     if ($gp_name)

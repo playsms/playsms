@@ -222,6 +222,9 @@ CREATE TABLE `playsms_featureCommand` (
   `command_keyword` varchar(10) NOT NULL DEFAULT '',
   `command_exec` text NOT NULL,
   `command_return_as_reply` tinyint(4) NOT NULL DEFAULT 0,
+  `with_alarm` BOOLEAN NOT NULL DEFAULT FALSE,
+  `with_answer` BOOLEAN NOT NULL DEFAULT FALSE,
+  `command_msg` text,
   PRIMARY KEY (`command_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -249,6 +252,7 @@ CREATE TABLE `playsms_featureCommand_log` (
   `command_log_datetime` varchar(20) NOT NULL DEFAULT '',
   `command_log_keyword` varchar(10) NOT NULL DEFAULT '',
   `command_log_exec` text NOT NULL,
+  `command_log_output` text NOT NULL,
   PRIMARY KEY (`command_log_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -260,6 +264,83 @@ CREATE TABLE `playsms_featureCommand_log` (
 LOCK TABLES `playsms_featureCommand_log` WRITE;
 /*!40000 ALTER TABLE `playsms_featureCommand_log` DISABLE KEYS */;
 /*!40000 ALTER TABLE `playsms_featureCommand_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `playsms_featureCommand_Alarm`
+--
+
+DROP TABLE IF EXISTS `playsms_featureCommand_Alarm`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `playsms_featureCommand_Alarm` (
+  `c_timestamp` int(11) NOT NULL DEFAULT '0',
+  `alarm_id` int(11) NOT NULL AUTO_INCREMENT,
+  `command_id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `alarm_name` varchar(100) NOT NULL,
+  `alarm_msg` text NOT NULL,
+  `alarm_min_value` int(11) NOT NULL,
+  `alarm_max_value` int(11) NOT NULL,
+  PRIMARY KEY (`alarm_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `playsms_featureCommand_Alarm`
+--
+
+LOCK TABLES `playsms_featureCommand_Alarm` WRITE;
+/*!40000 ALTER TABLE `playsms_featureCommand_Alarm` DISABLE KEYS */;
+/*!40000 ALTER TABLE `playsms_featureCommand_Alarm` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `playsms_featureCommand_Alarm_contacts`
+--
+
+DROP TABLE IF EXISTS `playsms_featureCommand_Alarm_contacts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `playsms_featureCommand_Alarm_contacts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,		
+  `alarm_id` int(11) NOT NULL,
+  `contact_number` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `playsms_featureCommand_Alarm_contacts`
+--
+
+LOCK TABLES `playsms_featureCommand_Alarm_contacts` WRITE;
+/*!40000 ALTER TABLE `playsms_featureCommand_Alarm_contacts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `playsms_featureCommand_Alarm_contacts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `playsms_featureCommand_Alarm_group_id`
+--
+
+DROP TABLE IF EXISTS `playsms_featureCommand_Alarm_group_id`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `playsms_featureCommand_Alarm_group_id` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,		
+  `alarm_id` int(11) NOT NULL,
+  `gpid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `playsms_featureCommand_Alarm_contacts`
+--
+
+LOCK TABLES `playsms_featureCommand_Alarm_contacts` WRITE;
+/*!40000 ALTER TABLE `playsms_featureCommand_Alarm_contacts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `playsms_featureCommand_Alarm_contacts` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
