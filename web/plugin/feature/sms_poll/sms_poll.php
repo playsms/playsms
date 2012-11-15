@@ -79,6 +79,8 @@ switch ($op)
 		$db_row = dba_fetch_array($db_result);
 		$edit_poll_title = $db_row['poll_title'];
 		$edit_poll_keyword = $db_row['poll_keyword'];
+		$edit_poll_msg_valid = $db_row['poll_msg_valid'];
+		$edit_poll_msg_invalid = $db_row['poll_msg_invalid'];
 		if ($err = $_SESSION['error_string'])
 		{
 			$content = "<div class=error_string>$err</div>";
@@ -95,6 +97,12 @@ switch ($op)
 	    </tr>
 	    <tr>
 		<td>"._('SMS poll title')."</td><td>:</td><td><input type=text size=60 maxlength=200 name=edit_poll_title value=\"$edit_poll_title\"></td>
+	    </tr>
+	    <tr>
+		<td>Reply message, when valid answer</td><td>:</td><td><input type=text size=40 maxlength=200 name=\"edit_poll_msg_valid\" value=\"$edit_poll_msg_valid\"></td>
+	    </tr>
+	    <tr>
+		<td>Reply message, when invalid answer</td><td>:</td><td><input type=text size=40 maxlength=200 name=\"edit_poll_msg_invalid\" value=\"$edit_poll_msg_invalid\"></td>
 	    </tr>	    
 	</table>	    
 	    <p><input type=submit class=button value=\""._('Save')."\">
@@ -173,11 +181,13 @@ switch ($op)
 		$edit_poll_id = $_POST['edit_poll_id'];
 		$edit_poll_keyword = $_POST['edit_poll_keyword'];
 		$edit_poll_title = $_POST['edit_poll_title'];
-		if ($edit_poll_id && $edit_poll_title && $edit_poll_keyword)
+		$edit_poll_msg_valid = $_POST['edit_poll_msg_valid'];
+		$edit_poll_msg_invalid = $_POST['edit_poll_msg_invalid'];
+		if ($edit_poll_id && $edit_poll_title && $edit_poll_keyword && $edit_poll_msg_valid && $edit_poll_msg_invalid)
 		{
 			$db_query = "
 	        UPDATE "._DB_PREF_."_featurePoll
-	        SET c_timestamp='".mktime()."',poll_title='$edit_poll_title',poll_keyword='$edit_poll_keyword'
+	        SET c_timestamp='".mktime()."',poll_title='$edit_poll_title',poll_keyword='$edit_poll_keyword', poll_msg_valid='$edit_poll_msg_valid', poll_msg_invalid='$edit_poll_msg_invalid'
 		WHERE poll_id='$edit_poll_id' AND uid='$uid'
 	    ";
 			if (@dba_affected_rows($db_query))
@@ -282,14 +292,20 @@ switch ($op)
 		$content .= "
 	    <h2>"._('Add SMS poll')."</h2>
 	    <p>
-	    <form action=index.php?app=menu&inc=feature_sms_poll&op=sms_poll_add_yes method=post>
+	    <form action=index.php?app=menu&inc=\"feature_sms_poll&op=sms_poll_add_yes\" method=\"post\">
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
 		<td width=150>"._('SMS poll keyword')."</td><td width=5>:</td><td><input type=text size=3 maxlength=10 name=add_poll_keyword value=\"$add_poll_keyword\"></td>
 	    </tr>
 	    <tr>
 		<td>"._('SMS poll title')."</td><td>:</td><td><input type=text size=60 maxlength=200 name=add_poll_title value=\"$add_poll_title\"></td>
-	    </tr>	    
+	    </tr>	 
+	    <tr>
+		<td>Reply message, when valid answer</td><td>:</td><td><input type=text size=40 maxlength=200 name=\"add_poll_msg_valid\" value=\"$add_poll_msg_valid\"></td>
+	    </tr>	
+	    <tr>
+		<td>Reply message, when invalid answer</td><td>:</td><td><input type=text size=40 maxlength=200 name=\"add_poll_msg_invalid\" value=\"$add_poll_msg_invalid\"></td>
+	    </tr>	   
 	</table>
 	    <p><input type=submit class=button value=\""._('Add')."\">
 	    </form>
@@ -297,15 +313,18 @@ switch ($op)
 		echo $content;
 		break;
 	case "sms_poll_add_yes":
+
 		$add_poll_keyword = strtoupper($_POST['add_poll_keyword']);
 		$add_poll_title = $_POST['add_poll_title'];
-		if ($add_poll_title && $add_poll_keyword)
+		$add_poll_msg_valid = $_POST['add_poll_msg_valid'];
+		$add_poll_msg_invalid = $_POST['add_poll_msg_invalid'];
+		if ($add_poll_title && $add_poll_keyword && $add_poll_msg_valid && $add_poll_msg_invalid)
 		{
 			if (checkavailablekeyword($add_poll_keyword))
 			{
 				$db_query = "
-		    INSERT INTO "._DB_PREF_."_featurePoll (uid,poll_keyword,poll_title)
-		    VALUES ('$uid','$add_poll_keyword','$add_poll_title')
+		    INSERT INTO "._DB_PREF_."_featurePoll (uid,poll_keyword,poll_title, poll_msg_valid, poll_msg_invalid)
+		    VALUES ('$uid','$add_poll_keyword','$add_poll_title', '$add_poll_msg_valid', '$add_poll_msg_invalid')
 		";
 				if ($new_uid = @dba_insert_id($db_query))
 				{
