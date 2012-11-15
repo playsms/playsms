@@ -172,3 +172,15 @@ msgstr ""
 
 msgid "to"
 msgstr ""
+
+msgid "SMS subscribe parameter"
+msgstr ""
+
+msgid "SMS unsubscribe parameter"
+msgstr ""
+
+msgid "SMS forward parameter"
+msgstr "" 
+
+msgid "Subscribe param, Unsibscribe param and Forward param must be all different!"
+msgstr "" 
