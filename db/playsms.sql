@@ -791,6 +791,50 @@ LOCK TABLES `playsms_featureSurvey_questions` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `playsms_gatewaySMSTools_config`
+--
+
+DROP TABLE IF EXISTS `playsms_gatewaySMSTools_config`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `playsms_gatewaySMSTools_config` (
+	`ready` BOOLEAN NOT NULL DEFAULT FALSE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `playsms_gatewaySMSTools_config`
+--
+
+LOCK TABLES `playsms_gatewaySMSTools_config` WRITE;
+/*!40000 ALTER TABLE `playsms_gatewaySMSTools_config` DISABLE KEYS */;
+INSERT INTO `playsms_gatewaySMSTools_config` VALUES (FALSE);
+/*!40000 ALTER TABLE `playsms_gatewaySMSTools_config` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `playsms_gatewayGammu_config`
+--
+
+DROP TABLE IF EXISTS `playsms_gatewayGammu_config`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `playsms_gatewayGammu_config` (
+	`ready` BOOLEAN NOT NULL DEFAULT FALSE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `playsms_gatewayGammu_config`
+--
+
+LOCK TABLES `playsms_gatewayGammu_config` WRITE;
+/*!40000 ALTER TABLE `playsms_gatewayGammu_config` DISABLE KEYS */;
+INSERT INTO `playsms_gatewayGammu_config` VALUES (FALSE);
+/*!40000 ALTER TABLE `playsms_gatewayGammu_config` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `playsms_gatewayClickatell_apidata`
 --
 
@@ -833,7 +877,8 @@ CREATE TABLE `playsms_gatewayClickatell_config` (
   `cfg_incoming_path` varchar(250) DEFAULT NULL,
   `cfg_credit` int(11) NOT NULL DEFAULT '0',
   `cfg_additional_param` varchar(250) DEFAULT NULL,
-  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700'
+  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700',
+  `ready` BOOLEAN NOT NULL DEFAULT FALSE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -843,7 +888,7 @@ CREATE TABLE `playsms_gatewayClickatell_config` (
 
 LOCK TABLES `playsms_gatewayClickatell_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayClickatell_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayClickatell_config` VALUES (0,'clickatell','123456','playsms','playsms','PlaySMS','https://api.clickatell.com/http','/var/spool/playsms',10,'','+0700');
+INSERT INTO `playsms_gatewayClickatell_config` VALUES (0,'clickatell','123456','playsms','playsms','PlaySMS','https://api.clickatell.com/http','/var/spool/playsms',10,'','+0700', FALSE);
 /*!40000 ALTER TABLE `playsms_gatewayClickatell_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -857,7 +902,8 @@ DROP TABLE IF EXISTS `playsms_gatewayGnokii_config`;
 CREATE TABLE `playsms_gatewayGnokii_config` (
   `c_timestamp` int(11) NOT NULL DEFAULT '0',
   `cfg_name` varchar(20) NOT NULL DEFAULT 'gnokii',
-  `cfg_path` varchar(250) NOT NULL DEFAULT ''
+  `cfg_path` varchar(250) NOT NULL DEFAULT '',
+  `ready` BOOLEAN NOT NULL DEFAULT FALSE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -867,7 +913,7 @@ CREATE TABLE `playsms_gatewayGnokii_config` (
 
 LOCK TABLES `playsms_gatewayGnokii_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayGnokii_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayGnokii_config` VALUES (0,'gnokii','/var/spool/playsms');
+INSERT INTO `playsms_gatewayGnokii_config` VALUES (0,'gnokii','/var/spool/playsms', FALSE);
 /*!40000 ALTER TABLE `playsms_gatewayGnokii_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -909,7 +955,8 @@ CREATE TABLE `playsms_gatewayKannel_config` (
   `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700',
   `cfg_admin_url` varchar(250) DEFAULT NULL,
   `cfg_admin_password` varchar(50) DEFAULT NULL,
-  `cfg_admin_port` int(11) NOT NULL DEFAULT '0'
+  `cfg_admin_port` int(11) NOT NULL DEFAULT '0',
+  `ready` BOOLEAN NOT NULL DEFAULT FALSE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -919,7 +966,7 @@ CREATE TABLE `playsms_gatewayKannel_config` (
 
 LOCK TABLES `playsms_gatewayKannel_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayKannel_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayKannel_config` VALUES (0,'kannel','/var/spool/playsms','playsms','playsms','','127.0.0.1','13131','http://localhost/playsms','31','','+0700','','',0);
+INSERT INTO `playsms_gatewayKannel_config` VALUES (0,'kannel','/var/spool/playsms','playsms','playsms','','127.0.0.1','13131','http://localhost/playsms','31','','+0700','','',0, FALSE);
 /*!40000 ALTER TABLE `playsms_gatewayKannel_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -935,6 +982,7 @@ CREATE TABLE `playsms_gatewayKannel_dlr` (
   `kannel_dlr_id` int(11) NOT NULL AUTO_INCREMENT,
   `smslog_id` int(11) NOT NULL DEFAULT '0',
   `kannel_dlr_type` tinyint(4) NOT NULL DEFAULT '0',
+  `ready` BOOLEAN NOT NULL DEFAULT FALSE,
   PRIMARY KEY (`kannel_dlr_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -989,7 +1037,8 @@ CREATE TABLE `playsms_gatewayMsgtoolbox_config` (
   `cfg_username` varchar(100) DEFAULT NULL,
   `cfg_password` varchar(100) DEFAULT NULL,
   `cfg_global_sender` varchar(20) DEFAULT NULL,
-  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700'
+  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700',
+  `ready` BOOLEAN NOT NULL DEFAULT FALSE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -999,7 +1048,7 @@ CREATE TABLE `playsms_gatewayMsgtoolbox_config` (
 
 LOCK TABLES `playsms_gatewayMsgtoolbox_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayMsgtoolbox_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayMsgtoolbox_config` VALUES (0,'msgtoolbox','http://serverX.msgtoolbox.com/api/current/send/message.php','1','playsms','password','playSMS','+0700');
+INSERT INTO `playsms_gatewayMsgtoolbox_config` VALUES (0,'msgtoolbox','http://serverX.msgtoolbox.com/api/current/send/message.php','1','playsms','password','playSMS','+0700', FALSE);
 /*!40000 ALTER TABLE `playsms_gatewayMsgtoolbox_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1013,7 +1062,8 @@ DROP TABLE IF EXISTS `playsms_gatewayTemplate_config`;
 CREATE TABLE `playsms_gatewayTemplate_config` (
   `c_timestamp` int(11) NOT NULL DEFAULT '0',
   `cfg_name` varchar(20) NOT NULL DEFAULT 'template',
-  `cfg_path` varchar(250) NOT NULL DEFAULT ''
+  `cfg_path` varchar(250) NOT NULL DEFAULT '',
+  `ready` BOOLEAN NOT NULL DEFAULT FALSE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1023,7 +1073,7 @@ CREATE TABLE `playsms_gatewayTemplate_config` (
 
 LOCK TABLES `playsms_gatewayTemplate_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayTemplate_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayTemplate_config` VALUES (0,'template','/usr/local');
+INSERT INTO `playsms_gatewayTemplate_config` VALUES (0,'template','/usr/local', FALSE);
 /*!40000 ALTER TABLE `playsms_gatewayTemplate_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1070,7 +1120,8 @@ CREATE TABLE `playsms_gatewayUplink_config` (
   `cfg_global_sender` varchar(20) DEFAULT NULL,
   `cfg_incoming_path` varchar(250) DEFAULT NULL,
   `cfg_additional_param` varchar(250) DEFAULT NULL,
-  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700'
+  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700',
+  `ready` BOOLEAN NOT NULL DEFAULT FALSE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1080,7 +1131,7 @@ CREATE TABLE `playsms_gatewayUplink_config` (
 
 LOCK TABLES `playsms_gatewayUplink_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayUplink_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayUplink_config` VALUES (0,'uplink','http://playsms.master.url','playsms','playsms','','/var/spool/playsms','','+0700');
+INSERT INTO `playsms_gatewayUplink_config` VALUES (0,'uplink','http://playsms.master.url','playsms','playsms','','/var/spool/playsms','','+0700', FALSE);
 /*!40000 ALTER TABLE `playsms_gatewayUplink_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1126,7 +1177,9 @@ CREATE TABLE `playsms_tblConfig_main` (
   `cfg_web_title` varchar(250) DEFAULT NULL,
   `cfg_email_service` varchar(250) DEFAULT NULL,
   `cfg_email_footer` varchar(250) DEFAULT NULL,
-  `cfg_gateway_module` varchar(20) DEFAULT NULL,
+  `cfg_sender_gateway_module` varchar(20) NOT NULL,
+  `cfg_receiver_gateway_module` varchar(20) NOT NULL,
+  `cfg_sender_gateway_withrules` BOOLEAN NOT NULL DEFAULT FALSE,
   `cfg_gateway_number` varchar(100) DEFAULT NULL,
   `cfg_themes_module` varchar(100) DEFAULT NULL,
   `cfg_default_rate` float NOT NULL DEFAULT '0',
@@ -1145,8 +1198,32 @@ CREATE TABLE `playsms_tblConfig_main` (
 
 LOCK TABLES `playsms_tblConfig_main` WRITE;
 /*!40000 ALTER TABLE `playsms_tblConfig_main` DISABLE KEYS */;
-INSERT INTO `playsms_tblConfig_main` VALUES (1332916845,'playSMS','noreply@playsms.org','powered by playSMS','smstools','000','default',0,'en_US','+0700',3,0,0,1);
+INSERT INTO `playsms_tblConfig_main` VALUES (1332916845,'playSMS','noreply@playsms.org','powered by playSMS','smstools','smstools',FALSE,'000','default',0,'en_US','+0700',3,0,0,1);
 /*!40000 ALTER TABLE `playsms_tblConfig_main` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `playsms_gateway_rules`
+--
+
+DROP TABLE IF EXISTS `playsms_gateway_rules`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `playsms_gateway_rules` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`gateway` varchar(20) NOT NULL,
+	`rules` varchar(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `playsms_gateway_rules`
+--
+
+LOCK TABLES `playsms_gateway_rules` WRITE;
+/*!40000 ALTER TABLE `playsms_gateway_rules` DISABLE KEYS */;
+/*!40000 ALTER TABLE `playsms_gateway_rules` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

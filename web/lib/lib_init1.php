@@ -33,6 +33,7 @@ $reserved_keywords = array ("PV","BC");
 $core_config['reserved_keywords'] = $reserved_keywords;
 
 // action icon
+$icon_warning_triangle = "<img src=\"".$http_path['themes']."/".$themes_module."/images/warning_triangle.png\" alt=\""._('With Rules')."\" title=\""._('With Rules')."\" border=0>";
 $icon_edit = "<img src=\"".$http_path['themes']."/".$themes_module."/images/edit_action.gif\" alt=\""._('Edit')."\" title=\""._('Edit')."\" border=0>";
 $icon_delete = "<img src=\"".$http_path['themes']."/".$themes_module."/images/delete_action.gif\" alt=\""._('Delete')."\" title=\""._('Delete')."\" border=0>";
 $icon_reply = "<img src=\"".$http_path['themes']."/".$themes_module."/images/reply_action.gif\" alt=\""._('Reply')."\" title=\""._('Reply')."\" border=0>";

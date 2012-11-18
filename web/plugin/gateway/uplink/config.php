@@ -1,6 +1,8 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
+$uplink_param['ready'] = FALSE;
+
 $db_query = "SELECT * FROM "._DB_PREF_."_gatewayUplink_config";
 $db_result = dba_query($db_query);
 if ($db_row = dba_fetch_array($db_result)) {
@@ -12,6 +14,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 	$uplink_param['path']     		= $db_row['cfg_incoming_path'];
 	$uplink_param['additional_param']	= $db_row['cfg_additional_param'];
 	$uplink_param['datetime_timezone']	= $db_row['cfg_datetime_timezone'];
+	$uplink_param['ready'] = $db_row['ready'];
 }
 
 // save plugin's parameters or options in $core_config

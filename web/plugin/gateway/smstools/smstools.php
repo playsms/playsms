@@ -4,13 +4,13 @@ if(!isadmin()){forcenoaccess();};
 
 include $apps_path['plug']."/gateway/smstools/config.php";
 
-if ($gateway_module == $smstools_param['name'])
+if ($smstools_param['ready'])
 {
-	$status_active = "(<b><font color=green>"._('Active')."</font></b>)";
+	$status_active = "(<b><font color=green>"._('Ready')."</font></b>) (<a href=\"index.php?app=menu&inc=gateway_smstools&op=manage_unready\">"._('click here to set gateway unready')."</a>)";
 }
 else
 {
-	$status_active = "(<b><font color=red>"._('Inactive')."</font></b>) (<a href=\"index.php?app=menu&inc=gateway_smstools&op=manage_activate\">"._('click here to activate')."</a>)";
+	$status_active = "(<b><font color=red>"._('Unready')."</font></b>) (<a href=\"index.php?app=menu&inc=gateway_smstools&op=manage_ready\">"._('click here to set gateway ready')."</a>)";
 }
 
 switch ($op)
@@ -31,12 +31,17 @@ switch ($op)
 	";
 		echo $content;
 		break;
-	case "manage_activate":
-		$db_query = "UPDATE "._DB_PREF_."_tblConfig_main SET c_timestamp='".mktime()."',cfg_gateway_module='smstools'";
+	case "manage_ready":
+		$db_query = "UPDATE "._DB_PREF_."_gatewaySMSTools_config SET ready=TRUE";
 		$db_result = dba_query($db_query);
-		$_SESSION['error_string'] = _('Gateway has been activated');
-		header("Location: index.php?app=menu&inc=gateway_smstools&op=manage");
-		exit();
+		$error_string = _('Gateway is now ready to be used!');
+		header ("Location: index.php?app=menu&inc=gateway_smstools&op=manage&err=".urlencode($error_string));
+		break;
+	case "manage_unready":
+		$db_query = "UPDATE "._DB_PREF_."_gatewaySMSTools_config SET ready=FALSE";
+		$db_result = dba_query($db_query);
+		$error_string = _('Gateway is not ready to be used!');
+		header ("Location: index.php?app=menu&inc=gateway_smstools&op=manage&err=".urlencode($error_string));
 		break;
 }
 

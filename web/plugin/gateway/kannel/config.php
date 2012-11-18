@@ -1,6 +1,8 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
+$kannel_param['ready'] = FALSE;
+
 $db_query = "SELECT * FROM "._DB_PREF_."_gatewayKannel_config";
 $db_result = dba_query($db_query);
 if ($db_row = dba_fetch_array($db_result)) {
@@ -22,6 +24,7 @@ if ($db_row = dba_fetch_array($db_result)) {
         $kannel_param['admin_password']              = $db_row['cfg_admin_password'];
         $kannel_param['admin_port']             = $db_row['cfg_admin_port'];
         //end of fixme edward Adding New Parameter HTTP Kannel Admin
+    $kannel_param['ready'] = $db_row['ready'];
 }
 
 // default path for kannel.conf, please edit the path if different from default

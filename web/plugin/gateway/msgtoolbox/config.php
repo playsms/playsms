@@ -1,6 +1,8 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
+$msgtoolbox_param['ready'] = FALSE;
+
 $db_query = "SELECT * FROM "._DB_PREF_."_gatewayMsgtoolbox_config";
 $db_result = dba_query($db_query);
 if ($db_row = dba_fetch_array($db_result)) {
@@ -11,6 +13,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 	$msgtoolbox_param['password']			= $db_row['cfg_password'];
 	$msgtoolbox_param['global_sender']		= $db_row['cfg_global_sender'];
 	$msgtoolbox_param['datetime_timezone']	= $db_row['cfg_datetime_timezone'];
+	$msgtoolbox_param['ready'] = $db_row['ready'];
 }
 
 // save plugin's parameters or options in $core_config
