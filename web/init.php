@@ -103,7 +103,8 @@ if (isset($db_row)) {
 	$gateway_number = $db_row['cfg_gateway_number'];
 	$gateway_timezone = $db_row['cfg_datetime_timezone'];
 	$default_rate = $db_row['cfg_default_rate'];
-	$tmp_gateway_module = $db_row['cfg_gateway_module'];
+	$tmp_sender_gateway_module = $db_row['cfg_sender_gateway_module'];
+	$tmp_receiver_gateway_module = $db_row['cfg_receiver_gateway_module'];
 	$tmp_themes_module = $db_row['cfg_themes_module'];
 	$tmp_language_module = $db_row['cfg_language_module'];
 	$sms_max_count = $db_row['cfg_sms_max_count'];
@@ -123,13 +124,22 @@ $core_config['main']['max_sms_length'] = $core_config['main']['cfg_sms_max_count
 $core_config['main']['max_sms_length_unicode'] = $core_config['main']['cfg_sms_max_count'] * $core_config['main']['per_sms_length_unicode'];
 
 // verify selected gateway_module exists
-$fn1 = $apps_path['plug'].'/gateway/'.$tmp_gateway_module.'/config.php';
-$fn2 = $apps_path['plug'].'/gateway/'.$tmp_gateway_module.'/fn.php';
-$gateway_module = 'smstools';
+//sender_gateway
+$fn1 = $apps_path['plug'].'/gateway/'.$tmp_sender_gateway_module.'/config.php';
+$fn2 = $apps_path['plug'].'/gateway/'.$tmp_sender_gateway_module.'/fn.php';
+$gateway_sender_module = 'smstools';
 if (file_exists($fn1) && file_exists($fn2)) {
-	$gateway_module = $tmp_gateway_module;
+	$gateway_sender_module = $tmp_sender_gateway_module;
 }
-$core_config['module']['gateway'] = $gateway_module;
+$core_config['module']['gateway_sender'] = $gateway_sender_module;
+//receiver_gateway
+$fn1 = $apps_path['plug'].'/gateway/'.$tmp_receiver_gateway_module.'/config.php';
+$fn2 = $apps_path['plug'].'/gateway/'.$tmp_receiver_gateway_module.'/fn.php';
+$gateway_receiver_module = 'smstools';
+if (file_exists($fn1) && file_exists($fn2)) {
+	$gateway_receiver_module = $tmp_receiver_gateway_module;
+}
+$core_config['module']['gateway_receiver'] = $gateway_receiver_module;
 
 // verify selected themes_module exists
 $fn1 = $apps_path['plug'].'/themes/'.$tmp_themes_module.'/config.php';

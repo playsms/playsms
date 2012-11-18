@@ -10,6 +10,19 @@ function sendsms_getvalidnumber($number) {
 	return $number;
 }
 
+function with_gateway_rules(){
+	$db_query = "SELECT cfg_sender_gateway_withrules
+			 FROM "._DB_PREF_."_tblConfig_main";	
+			
+	$db_result = dba_query($db_query);
+	$db_row = dba_fetch_array($db_result);
+		
+	if($db_row['cfg_sender_gateway_withrules'])
+		return true;
+	else
+		return false;
+}
+
 function sendsms_manipulate_prefix($number, $user) {
 	if (is_array($user)) {
 		if ($user['replace_zero']) {
@@ -165,8 +178,29 @@ function sendsmsd($single_queue='') {
 }
 
 function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0) {
-	global $core_config, $gateway_module;
-
+	global $core_config, $gateway_sender_module;
+	
+	$sender_gateway = $gateway_sender_module;
+	if(with_gateway_rules()){
+		$db_query = "SELECT * FROM "._DB_PREF_."_gateway_rules";
+			
+		$db_result = dba_query($db_query);
+		while ($db_row = dba_fetch_array($db_result))
+		{
+			$rules = $db_row['rules'];
+			$gateway_name = $db_row['gateway'];
+			
+			$rules_size = strlen($rules);
+			
+			$sub_number = substr($sms_to, 0, $rules_size);
+			
+			if($sub_number == $rules){
+				$sender_gateway = $gateway_name;
+				break;
+			}
+		}
+	}
+	
 	$user = $core_config['user'];
 	if ($uid && ($user['uid'] != $uid)) {
 		$user = user_getdatabyuid($uid);
@@ -197,7 +231,7 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 
 	// if hooked function returns cancel=true then stop the sending, return false
 	if ($ret_intercept['cancel']) {
-		logger_print("cancelled:$uid,$gpid,$gateway_module,$sms_sender,$sms_to,$sms_type,$unicode", 2, "sendsms");
+		logger_print("cancelled:$uid,$gpid,$sender_gateway,$sms_sender,$sms_to,$sms_type,$unicode", 2, "sendsms");
 		$ret['status'] = false;
 		return $ret;
 	}
@@ -223,16 +257,16 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 	$db_query = "
 		INSERT INTO "._DB_PREF_."_tblSMSOutgoing 
 		(uid,p_gpid,p_gateway,p_src,p_dst,p_footer,p_msg,p_datetime,p_status,p_sms_type,unicode) 
-		VALUES ('$uid','$gpid','$gateway_module','$sms_sender','$sms_to','$sms_footer','$sms_msg','$sms_datetime','$p_status','$sms_type','$unicode')
+		VALUES ('$uid','$gpid','$sender_gateway','$sms_sender','$sms_to','$sms_footer','$sms_msg','$sms_datetime','$p_status','$sms_type','$unicode')
 	";
-	logger_print("saving:$uid,$gpid,$gateway_module,$sms_sender,$sms_to,$sms_type,$unicode,$p_status", 2, "sendsms");
+	logger_print("saving:$uid,$gpid,$sender_gateway,$sms_sender,$sms_to,$sms_type,$unicode,$p_status", 2, "sendsms");
 	// continue to gateway only when save to db is true
 	if ($smslog_id = @dba_insert_id($db_query)) {
 		logger_print("smslog_id:".$smslog_id." saved", 2, "sendsms");
 		// if pending (p_status=0) then continue, if failed (p_status=2) print log
 		if ($p_status == 0) {
 			logger_print("final message:".$sms_msg.$sms_footer." len:".strlen($sms_msg.$sms_footer), 3, "sendsms");
-			if (x_hook($gateway_module, 'sendsms', array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$smslog_id,$sms_type,$unicode))) {
+			if (x_hook($sender_gateway, 'sendsms', array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$smslog_id,$sms_type,$unicode))) {
 				// fixme anton - deduct user's credit as soon as gateway returns true
 				rate_deduct($smslog_id);
 				$ok = true;
@@ -252,7 +286,7 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 }
 
 function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
-	global $apps_path, $core_config, $gateway_module;
+	global $apps_path, $core_config, $gateway_sender_module;
 
 	$user = $core_config['user'];
 	if ($username && ($user['username'] != $username)) {
@@ -320,7 +354,7 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 }
 
 function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
-	global $apps_path, $core_config, $gateway_module;
+	global $apps_path, $core_config, $gateway_sender_module;
 
 	$user = $core_config['user'];
 	if ($username && ($user['username'] != $username)) {
@@ -382,11 +416,11 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 
 function sendsms_get_sender($username) {
 	global $core_config;
-	$gateway_module = $core_config['main']['cfg_gateway_module'];
+	$gateway_sender_module = $core_config['main']['cfg_gateway_module'];
 	$gateway_number = $core_config['main']['cfg_gateway_number'];
-	if ($gateway_module) {
-		if ($core_config['plugin'][$gateway_module]['global_sender']) {
-			$sms_sender = $core_config['plugin'][$gateway_module]['global_sender'];
+	if ($gateway_sender_module) {
+		if ($core_config['plugin'][$gateway_sender_module]['global_sender']) {
+			$sms_sender = $core_config['plugin'][$gateway_sender_module]['global_sender'];
 		} else if ($gateway_number) {
 			$sms_sender = $gateway_number;
 		} else {
