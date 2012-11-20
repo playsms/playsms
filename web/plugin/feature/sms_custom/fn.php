@@ -69,7 +69,6 @@ function sms_custom_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$custo
 	$custom_url = str_replace("{CUSTOMPARAM}",urlencode($custom_param),$custom_url);
 	$custom_url = str_replace("{CUSTOMRAW}",urlencode($raw_message),$custom_url);
         $username   = uid2username($db_row['uid']);
-        $debug      = dba_query("INSERT INTO " . _DB_PREF_ . "_toolsDebug (value)VALUES('$username')");
 	$url = parse_url($custom_url);
 	if (!$url['port'])
 	{
