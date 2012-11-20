@@ -72,7 +72,14 @@ function sms_custom_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$custo
 		$custom_url = str_replace("{CUSTOMRAW}",urlencode($raw_message),$custom_url);
 		$returns = file_get_contents($custom_url);
 		if ($custom_return_as_reply == 1) {
-			sendsms_pv($username, $sms_sender, $returns, 'text', 0);
+			$unicode = 0;
+			if (function_exists('mb_detect_encoding')) {
+				$encoding = mb_detect_encoding($returns, 'auto');
+				if ($encoding != 'ASCII') {
+					$unicode = 1;
+				}
+			}
+			sendsms_pv($username, $sms_sender, $returns, 'text', $unicode);
 		}
 		$db_query = "
 			INSERT INTO "._DB_PREF_."_featureCustom_log
