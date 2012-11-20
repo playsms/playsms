@@ -68,32 +68,28 @@ function sms_custom_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$custo
 	$custom_url = str_replace("{CUSTOMKEYWORD}",urlencode($custom_keyword),$custom_url);
 	$custom_url = str_replace("{CUSTOMPARAM}",urlencode($custom_param),$custom_url);
 	$custom_url = str_replace("{CUSTOMRAW}",urlencode($raw_message),$custom_url);
-        $username   = uid2username($db_row['uid']);
-	$url = parse_url($custom_url);
-	if (!$url['port'])
-	{
-		$url['port'] = 80;
-	}
-	// fixme anton -deprecated when using PHP5
+	//$url = parse_url($custom_url);
+	// fixme anton - deprecated when using PHP5
+	//if (!$url['port']) {
+	//	$url['port'] = 80;
+	//}
 	//$connection = fsockopen($url['host'],$url['port'],&$error_number,&$error_description,60);
-        //fixme Edward, change to file_get_contents
-        $returns    = file_get_contents($custom_url);
+	//socket_set_blocking($connection, false);
+	//fputs($connection, "GET $custom_url HTTP/1.0\r\n\r\n");
+	//fixme Edward, change to file_get_contents
+	$returns    = file_get_contents($custom_url);
 	if($returns) {
-                //fixme Edward, change to file_get_contents
-		//socket_set_blocking($connection, false);
-		//fputs($connection, "GET $custom_url HTTP/1.0\r\n\r\n");
-                $username   = uid2username($db_row['uid']);
-                if ($db_row['custom_return_as_reply'] == 1) {
-                	sendsms_pv($username, $sms_sender, $returns, 'text', 0);
-                }
+		//fixme Edward, change to file_get_contents
+		$username   = uid2username($db_row['uid']);
+		if ($db_row['custom_return_as_reply'] == 1) {
+			sendsms_pv($username, $sms_sender, $returns, 'text', 0);
+		}
 		$db_query = "
-	    INSERT INTO "._DB_PREF_."_featureCustom_log
-	    (sms_sender,custom_log_datetime,custom_log_keyword,custom_log_url) 
-	    VALUES
-	    ('$sms_sender','$datetime_now','$custom_keyword','$custom_url')
-	";
-		if ($new_id = @dba_insert_id($db_query))
-		{
+			INSERT INTO "._DB_PREF_."_featureCustom_log
+			(sms_sender,custom_log_datetime,custom_log_keyword,custom_log_url) 
+			VALUES
+			('$sms_sender','$datetime_now','$custom_keyword','$custom_url')";
+		if ($new_id = @dba_insert_id($db_query)) {
 			$ok = true;
 		}
 	}
