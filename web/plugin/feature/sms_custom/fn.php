@@ -54,34 +54,24 @@ function sms_custom_hook_setsmsincomingaction($sms_datetime,$sms_sender,$custom_
 	return $ret;
 }
 
-function sms_custom_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$custom_keyword,$custom_param='',$raw_message='')
-{
+function sms_custom_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$custom_keyword,$custom_param='',$raw_message='') {
 	global $datetime_now;
 	$ok = false;
 	$db_query = "SELECT custom_url,uid,custom_return_as_reply FROM "._DB_PREF_."_featureCustom WHERE custom_keyword='$custom_keyword'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$custom_url = $db_row['custom_url'];
-	$sms_datetime = core_display_datetime($sms_datetime);
-	$custom_url = str_replace("{SMSDATETIME}",urlencode($sms_datetime),$custom_url);
-	$custom_url = str_replace("{SMSSENDER}",urlencode($sms_sender),$custom_url);
-	$custom_url = str_replace("{CUSTOMKEYWORD}",urlencode($custom_keyword),$custom_url);
-	$custom_url = str_replace("{CUSTOMPARAM}",urlencode($custom_param),$custom_url);
-	$custom_url = str_replace("{CUSTOMRAW}",urlencode($raw_message),$custom_url);
-	//$url = parse_url($custom_url);
-	// fixme anton - deprecated when using PHP5
-	//if (!$url['port']) {
-	//	$url['port'] = 80;
-	//}
-	//$connection = fsockopen($url['host'],$url['port'],&$error_number,&$error_description,60);
-	//socket_set_blocking($connection, false);
-	//fputs($connection, "GET $custom_url HTTP/1.0\r\n\r\n");
-	//fixme Edward, change to file_get_contents
-	$returns    = file_get_contents($custom_url);
-	if($returns) {
-		//fixme Edward, change to file_get_contents
-		$username   = uid2username($db_row['uid']);
-		if ($db_row['custom_return_as_reply'] == 1) {
+	$username = uid2username($db_row['uid']);
+	$custom_return_as_reply = $db_row['custom_return_as_reply'];
+	if ($custom_keyword && $custom_url && $username) {
+		$sms_datetime = core_display_datetime($sms_datetime);
+		$custom_url = str_replace("{SMSDATETIME}",urlencode($sms_datetime),$custom_url);
+		$custom_url = str_replace("{SMSSENDER}",urlencode($sms_sender),$custom_url);
+		$custom_url = str_replace("{CUSTOMKEYWORD}",urlencode($custom_keyword),$custom_url);
+		$custom_url = str_replace("{CUSTOMPARAM}",urlencode($custom_param),$custom_url);
+		$custom_url = str_replace("{CUSTOMRAW}",urlencode($raw_message),$custom_url);
+		$returns = file_get_contents($custom_url);
+		if ($custom_return_as_reply == 1) {
 			sendsms_pv($username, $sms_sender, $returns, 'text', 0);
 		}
 		$db_query = "
