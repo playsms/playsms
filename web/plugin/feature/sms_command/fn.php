@@ -73,7 +73,14 @@ function sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$comm
 		$command_exec = $plugin_config['feature']['sms_command']['bin']."/".$command_exec;
 		$command_output = shell_exec(stripslashes($command_exec));
 		if ($command_return_as_reply == 1) {
-			sendsms_pv($username, $sms_sender, $command_output, 'text', 0);
+			$unicode = 0;
+			if (function_exists('mb_detect_encoding')) {
+				$encoding = mb_detect_encoding($command_output, 'auto');
+				if ($encoding != 'ASCII') {
+					$unicode = 1;
+				}
+			}
+			sendsms_pv($username, $sms_sender, $command_output, 'text', $unicode);
 		}
 		$db_query = "
 			INSERT INTO "._DB_PREF_."_featureCommand_log
