@@ -95,9 +95,11 @@ switch ($op) {
         $edit_command_keyword = $_POST['edit_command_keyword'];
         $edit_command_exec = $_POST['edit_command_exec'];
         if ($edit_command_id && $edit_command_keyword && $edit_command_exec) {
+            $edit_command_exec = str_replace("../", "", $edit_command_exec);
+            $edit_command_exec = str_replace("..\\", "", $edit_command_exec);
             $edit_command_exec = str_replace("/", "", $edit_command_exec);
-            $edit_command_exec = str_replace("|", "", $edit_command_exec);
             $edit_command_exec = str_replace("\\", "", $edit_command_exec);
+            $edit_command_exec = str_replace("|", "", $edit_command_exec);
             $db_query = "UPDATE " . _DB_PREF_ . "_featureCommand SET c_timestamp='" . mktime() . "',command_exec='$edit_command_exec',command_return_as_reply='$edit_command_return_as_reply' WHERE command_keyword='$edit_command_keyword' AND uid='$uid'";
             if (@dba_affected_rows($db_query)) {
                 $_SESSION['error_string'] = _('SMS command has been saved') . " (" . _('keyword') . ": $edit_command_keyword)";
