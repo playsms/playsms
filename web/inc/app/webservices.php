@@ -23,6 +23,11 @@ $last	 = trim($_REQUEST['last']);
 // default error return
 $ret = "ERR 102";
 
+// fixme anton
+// should be empty this way first
+// will be filled only after successful validatelogin()
+$core_config['user'] = '';
+
 if ($u && $p) {
 	if (validatelogin($u,$p)) {
 		$core_config['user'] = user_getdatabyusername($u);
