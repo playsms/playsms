@@ -23,60 +23,41 @@ $last	 = trim($_REQUEST['last']);
 // default error return
 $ret = "ERR 102";
 
-// fixme anton
-// should be empty this way first
-// will be filled only after successful validatelogin()
-$core_config['user'] = '';
-
-if ($u && $p) {
-	if (validatelogin($u,$p)) {
-		$core_config['user'] = user_getdatabyusername($u);
-	}
-}
-
 if ($op) { $ta = $op; };
 if ($ta) {
 	switch ($ta) {
 		case "PV":
-			if ($u && $p) {
-				if ($core_config['user']['uid']) {
-					$ret = webservices_pv($u,$to,$msg,$type,$unicode);
-				} else {
-					$ret = "ERR 100";
-				}
+			if (validatelogin($u,$p)) {
+				$ret = webservices_pv($u,$to,$msg,$type,$unicode);
+			} else {
+				$ret = "ERR 100";
 			}
 			break;
 		case "BC":
-			if ($u && $p) {
-				if ($core_config['user']['uid']) {
-					$ret = webservices_bc($u,$to,$msg,$type,$unicode);
-				} else {
-					$ret = "ERR 100";
-				}
+			if (validatelogin($u,$p)) {
+				$ret = webservices_bc($u,$to,$msg,$type,$unicode);
+			} else {
+				$ret = "ERR 100";
 			}
 			break;
 		case "DS":
-			if ($u && $p) {
-				if ($core_config['user']['uid']) {
-					if ($slid) {
-						$ret = webservices_ds_slid($u,$slid);
-					} else {
-						$ret = webservices_ds_count($u,$c,$last);
-					}
+			if (validatelogin($u,$p)) {
+				if ($slid) {
+					$ret = webservices_ds_slid($u,$slid);
 				} else {
-					$ret = "ERR 100";
+					$ret = webservices_ds_count($u,$c,$last);
 				}
+			} else {
+				$ret = "ERR 100";
 			}
 			break;
-                case "CR":
-                        if ($u && $p) {
-                                if ($core_config['user']['uid']) {
-                                        $ret = webservices_cr($u);
-                                } else {
-                                        $ret = "ERR 100";
-                                }
-                        }
-                        break;
+		case "CR":
+			if (validatelogin($u,$p)) {
+				$ret = webservices_cr($u);
+			} else {
+				$ret = "ERR 100";
+			}
+			break;
 		default:
 			// output do not require valid login
 			$ret = webservices_output($ta,$_REQUEST);
