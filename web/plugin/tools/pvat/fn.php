@@ -41,7 +41,6 @@ function pvat_handle($in) {
 		if (substr($c_text, 0, 1) == '@') {
 			$c_username = substr($c_text, 1);
 			$c_username = str_replace(',', '', $c_username);
-			$c_username = str_replace('.', '', $c_username);
 			$c_username = str_replace(':', '', $c_username);
 			$c_username = str_replace(';', '', $c_username);
 			$c_username = str_replace('!', '', $c_username);
