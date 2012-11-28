@@ -27,7 +27,7 @@ if ($remote_slid && $client_ref && $status) {
 		$uid = $data['uid'];
 		$p_status = $data['p_status'];
 		switch ($status) {
-			case "delivered": $p_status = 3; // delivered
+			case "delivered": $p_status = 3; break; // delivered
 			case "buffered":
 			case "accepted": $p_status = 1; break; // sent
 			default:
