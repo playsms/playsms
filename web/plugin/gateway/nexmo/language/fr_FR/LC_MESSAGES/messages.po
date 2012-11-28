@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: 2012-08-09 12:04+0000\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Active"
+msgstr "Active"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Ex: +0700 pour Jakarta/Bangkok"
+
+msgid "Fill to change the password"
+msgstr "Remplir pour changer le mot de passe"
+
+msgid "Gateway has been activated"
+msgstr "Passerelle activée"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Configurations de la passerelle sauvergardées"
+
+msgid "Gateway name"
+msgstr "Nom passerelle"
+
+msgid "Inactive"
+msgstr "Inactive"
+
+msgid "Manage nexmo"
+msgstr "Gérer nexmo"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+"Max : 16 caractères numériques ou 11 alphanumériques. vide pour désactiver"
+
+msgid "Module sender ID"
+msgstr "ID module émetteur"
+
+msgid "Module timezone"
+msgstr "Zone de temps"
+
+msgid "No changes has been made"
+msgstr "Aucun changement apporté"
+
+msgid "Password"
+msgstr "Mot de passe"
+
+msgid "Save"
+msgstr "Sauvegarder"
+
+msgid "Username"
+msgstr "Not utilisateur"
+
+msgid "click here to activate"
+msgstr "cliquez pour activer"
+
+msgid "nexmo URL"
+msgstr "URL nexmo"
