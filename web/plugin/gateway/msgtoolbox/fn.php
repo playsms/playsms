@@ -42,7 +42,7 @@ function msgtoolbox_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='
 		}
 		// fixme anton - from playSMS v0.9.5.1 references to input.php replaced with index.php?app=webservices
 		// I should add autodetect, if its below v0.9.5.1 should use input.php
-		$query_string = "username=".$msgtoolbox_param['username']."&password=".$msgtoolbox_param['password']."&to=".urlencode($sms_to)."&from=".urlencode($sms_from)."&message=".urlencode($sms_msg).$unicode."&route=".$msgtoolbox_param['route'];
+		$query_string = "username=".$msgtoolbox_param['username']."&password=".$msgtoolbox_param['password']."&to=".urlencode($sms_to)."&from=".urlencode($sms_sender)."&message=".urlencode($sms_msg).$unicode."&route=".$msgtoolbox_param['route'];
 		$url = $msgtoolbox_param['url']."?".$query_string;
 
 		/* not used
