@@ -48,8 +48,9 @@ function pvat_handle($in) {
 			$c_username = str_replace("'", '', $c_username);
 			$c_username = str_replace('"', '', $c_username);
 			if ($c_uid = username2uid($c_username)) {
+				logger_print("insert u:".$c_username." uid:".$c_uid." dt:".$in['sms_datetime']." s:".$in['sms_sender']." r:".$in['sms_receiver']." m:".$in['message'], 3, "pvat");
 				insertsmstoinbox($in['sms_datetime'], $in['sms_sender'], $c_username, $in['message'], $in['sms_receiver']);
-				logger_print("inbox:".$c_username." uid:".$c_uid." dt:".$in['sms_datetime']." s:".$in['sms_sender']." r:".$in['sms_receiver']." m:".$in['message'], 3, "pvat");
+				logger_print("insert end", 3, "pvat");
 				$ret['hooked'] = true;
 			}
 		}
