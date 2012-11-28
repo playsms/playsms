@@ -40,6 +40,14 @@ function pvat_handle($in) {
 		$c_text = trim($in['msg'][$i]);
 		if (substr($c_text, 0, 1) == '@') {
 			$c_username = substr($c_text, 1);
+			$c_username = str_replace(',', '', $c_username);
+			$c_username = str_replace('.', '', $c_username);
+			$c_username = str_replace(':', '', $c_username);
+			$c_username = str_replace(';', '', $c_username);
+			$c_username = str_replace('!', '', $c_username);
+			$c_username = str_replace('?', '', $c_username);
+			$c_username = str_replace("'", '', $c_username);
+			$c_username = str_replace('"', '', $c_username);
 			if ($c_uid = username2uid($c_username)) {
 				insertsmstoinbox($in['sms_datetime'], $in['sms_sender'], $c_username, $in['message'], $in['sms_receiver']);
 				logger_print("inbox:".$c_username." uid:".$c_uid." dt:".$in['sms_datetime']." s:".$in['sms_sender']." r:".$in['sms_receiver']." m:".$in['message'], 3, "pvat");
