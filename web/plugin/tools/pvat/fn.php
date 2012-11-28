@@ -20,38 +20,31 @@ defined('_SECURE_') or die('Forbidden');
  *   array $ret
  */
 function pvat_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $sms_receiver) {
-	$msg = explode(" ", $message);
+	$msg = explode(' ', $message);
 	$ret = array();
 	if (count($msg) > 1) {
-		$input['sms_datetime'] = $sms_datetime;
-		$input['sms_sender'] = $sms_sender;
-		$input['message'] = $message;
-		$input['sms_receiver'] = $sms_receiver;
-		$input['msg'] = $msg;
-		$ret = pvat_handle($input);
+		$in['sms_datetime'] = $sms_datetime;
+		$in['sms_sender'] = $sms_sender;
+		$in['message'] = $message;
+		$in['sms_receiver'] = $sms_receiver;
+		$in['msg'] = $msg;
+		$ret = pvat_handle($in);
 	}
 	return $ret;
 }
 
-function pvat_handle($input) {
+function pvat_handle($in) {
 	$ret = array();
-	$pv = trim($input['msg'][0]);
-	if (substr($pv,0,1) == '@') {
-		$c_username = substr($pv,1);
-		$new_message = "PV ".$c_username." ";
-		if (username2uid($c_username)) {
-			for ($i=1;$i<count($input['msg']);$i++) {
-				$new_message .= $input['msg'][$i]." ";
+	$in['sms_datetime'] = core_display_datetime($in['sms_datetime']);
+	for ($i=0;$i<count($in['msg']);$i++) {
+		$c_text = trim($in['msg'][$i]);
+		if (substr($c_text, 0, 1) == '@') {
+			$c_username = substr($c_text, 1);
+			if ($c_uid = username2uid($c_username)) {
+				insertsmstoinbox($in['sms_datetime'], $in['sms_sender'], $c_username, $in['message'], $in['sms_receiver']);
+				logger_print("inbox:".$c_username." uid:".$c_uid." dt:".$in['sms_datetime']." s:".$in['sms_sender']." r:".$in['sms_receiver']." m:".$in['message'], 3, "pvat");
+				$ret['hooked'] = true;
 			}
-			$new_message = substr($new_message,0,-1);
-			// set 1 to param_modified to let parent function modify param values
-			$ret['modified'] = true;
-			// this time only message param changed
-			$ret['param']['message'] = $new_message;
-			$input['sms_datetime'] = core_display_datetime($input['sms_datetime']);
-			logger_print("dt:".$input['sms_datetime']." s:".$input['sms_sender']." r:".$input['sms_receiver']." m:".$input['message']." mod:".$ret['param']['message'], 3, "pvat");
-			// do not forget to tell parent that this SMS has been hooked
-			$ret['hooked'] = true;
 		}
 	}
 	return $ret;
