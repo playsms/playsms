@@ -93,6 +93,9 @@ msgstr "Le message a été édite"
 msgid "Phone number"
 msgstr "Numero de telephone"
 
+msgid "SMS forward parameter"
+msgstr ""
+
 msgid "SMS messages list for keyword"
 msgstr "Liste des messages SMS pour ce mot-clé"
 
@@ -108,6 +111,9 @@ msgstr "Le service a été sauvegardé"
 msgid "SMS subscribe keyword"
 msgstr "Mot-clé du service d'inscription"
 
+msgid "SMS subscribe parameter"
+msgstr "Réponse SMS d'inscription"
+
 msgid "SMS subscribe reply"
 msgstr "Réponse SMS d'inscription"
 
@@ -116,6 +122,9 @@ msgstr "Le statut du service a été modifié"
 
 msgid "SMS subscribe with all its messages and members has been deleted"
 msgstr "Le service avec tous ses messages et ses membres a été supprimé"
+
+msgid "SMS unsubscribe parameter"
+msgstr "Réponse SMS de désinscription"
 
 msgid "SMS unsubscribe reply"
 msgstr "Réponse SMS de désinscription"

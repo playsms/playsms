@@ -56,6 +56,9 @@ msgstr "Matikan atau Hidupkan poling SMS ini"
 msgid "Enabled"
 msgstr "Aktif"
 
+msgid "Fail to add SMS poll"
+msgstr "Gagal menghapus pilihan poling SMS"
+
 msgid "Fail to delete SMS poll choice"
 msgstr "Gagal menghapus pilihan poling SMS"
 
@@ -100,6 +103,9 @@ msgstr "Simpan"
 
 msgid "Status"
 msgstr "Status"
+
+msgid "This poll has 0 votes!"
+msgstr ""
 
 msgid "Title"
 msgstr "Judul"

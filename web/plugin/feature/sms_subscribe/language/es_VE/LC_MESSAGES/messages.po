@@ -92,6 +92,9 @@ msgstr "El mensaje ha sido editado"
 msgid "Phone number"
 msgstr "Número de celular"
 
+msgid "SMS forward parameter"
+msgstr ""
+
 msgid "SMS messages list for keyword"
 msgstr "Lista de mensajes SMS para clave"
 
@@ -107,6 +110,9 @@ msgstr "La subscripción SMS ha sido guardada"
 msgid "SMS subscribe keyword"
 msgstr "Clave de subscripción SMS"
 
+msgid "SMS subscribe parameter"
+msgstr "Respuesta de subscripción de SMS"
+
 msgid "SMS subscribe reply"
 msgstr "Respuesta de subscripción de SMS"
 
@@ -116,6 +122,9 @@ msgstr "El estado de la subscripción ha cambiado"
 msgid "SMS subscribe with all its messages and members has been deleted"
 msgstr ""
 "La subscripción SMS con todos sus mensajes y miembros ha sido eliminada"
+
+msgid "SMS unsubscribe parameter"
+msgstr "Respuesta de retiro de susbscripción SMS"
 
 msgid "SMS unsubscribe reply"
 msgstr "Respuesta de retiro de susbscripción SMS"

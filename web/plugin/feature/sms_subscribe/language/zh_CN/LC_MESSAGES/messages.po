@@ -92,6 +92,9 @@ msgstr "信息已编辑"
 msgid "Phone number"
 msgstr "电话号码"
 
+msgid "SMS forward parameter"
+msgstr ""
+
 msgid "SMS messages list for keyword"
 msgstr "短信关键字列表"
 
@@ -107,6 +110,9 @@ msgstr "短信订阅已保存"
 msgid "SMS subscribe keyword"
 msgstr "短信订阅关键字"
 
+msgid "SMS subscribe parameter"
+msgstr "短信订阅回复"
+
 msgid "SMS subscribe reply"
 msgstr "短信订阅回复"
 
@@ -115,6 +121,9 @@ msgstr "短信订阅状态已改变"
 
 msgid "SMS subscribe with all its messages and members has been deleted"
 msgstr "短信订阅和它的全部信息和会员已删除"
+
+msgid "SMS unsubscribe parameter"
+msgstr "短信未订阅回复"
 
 msgid "SMS unsubscribe reply"
 msgstr "短信未订阅回复"

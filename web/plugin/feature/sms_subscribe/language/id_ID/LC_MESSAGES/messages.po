@@ -92,6 +92,9 @@ msgstr "Pesan telah diubah"
 msgid "Phone number"
 msgstr "Nomor telepon"
 
+msgid "SMS forward parameter"
+msgstr ""
+
 msgid "SMS messages list for keyword"
 msgstr "Kata kunci untuk daftar pesan SMS"
 
@@ -108,6 +111,9 @@ msgstr "SMS berlangganan telah disimpan"
 msgid "SMS subscribe keyword"
 msgstr "Kata kunci SMS langganan"
 
+msgid "SMS subscribe parameter"
+msgstr "Balasan SMS berlangganan"
+
 msgid "SMS subscribe reply"
 msgstr "Balasan SMS berlangganan"
 
@@ -116,6 +122,9 @@ msgstr "Status SMS berlangganan telah diganti"
 
 msgid "SMS subscribe with all its messages and members has been deleted"
 msgstr "SMS berlangganan beserta semua pesan dan anggotanya telah dihapus"
+
+msgid "SMS unsubscribe parameter"
+msgstr "Balasan SMS tidak berlangganan"
 
 msgid "SMS unsubscribe reply"
 msgstr "Balasan SMS tidak berlangganan"

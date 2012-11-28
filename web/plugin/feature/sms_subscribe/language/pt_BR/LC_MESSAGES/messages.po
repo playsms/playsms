@@ -92,6 +92,9 @@ msgstr "A mensagem foi editada"
 msgid "Phone number"
 msgstr "Telefone"
 
+msgid "SMS forward parameter"
+msgstr ""
+
 msgid "SMS messages list for keyword"
 msgstr "Lista de mensagens SMS pra palavra-chave"
 
@@ -107,6 +110,9 @@ msgstr "A assinatura SMS foi salva"
 msgid "SMS subscribe keyword"
 msgstr "Palavra-chave da assinatura SMS"
 
+msgid "SMS subscribe parameter"
+msgstr "Resposta pra assinatura"
+
 msgid "SMS subscribe reply"
 msgstr "Resposta pra assinatura"
 
@@ -115,6 +121,9 @@ msgstr "O status da assinatura SMS foi alterado"
 
 msgid "SMS subscribe with all its messages and members has been deleted"
 msgstr "A assinatura SMS foi removida, junto com suas mensagens e membros"
+
+msgid "SMS unsubscribe parameter"
+msgstr "Resposta pra desinscrição"
 
 msgid "SMS unsubscribe reply"
 msgstr "Resposta pra desinscrição"

@@ -54,6 +54,9 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
+msgid "Fail to add SMS poll"
+msgstr ""
+
 msgid "Fail to delete SMS poll choice"
 msgstr ""
 
@@ -97,6 +100,9 @@ msgid "Save"
 msgstr ""
 
 msgid "Status"
+msgstr ""
+
+msgid "This poll has 0 votes!"
 msgstr ""
 
 msgid "Title"

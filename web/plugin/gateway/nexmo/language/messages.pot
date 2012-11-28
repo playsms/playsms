@@ -1,10 +1,16 @@
+msgid "API key"
+msgstr ""
+
+msgid "API secret"
+msgstr ""
+
 msgid "Active"
 msgstr ""
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
-msgid "Fill to change the password"
+msgid "Fill to change the API secret"
 msgstr ""
 
 msgid "Gateway has been activated"
@@ -31,20 +37,14 @@ msgstr ""
 msgid "Module timezone"
 msgstr ""
 
-msgid "No changes has been made"
+msgid "Nexmo URL"
 msgstr ""
 
-msgid "Password"
+msgid "No changes has been made"
 msgstr ""
 
 msgid "Save"
 msgstr ""
 
-msgid "Username"
-msgstr ""
-
 msgid "click here to activate"
-msgstr ""
-
-msgid "nexmo URL"
 msgstr ""

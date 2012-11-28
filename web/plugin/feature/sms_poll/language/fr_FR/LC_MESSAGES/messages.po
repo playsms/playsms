@@ -56,6 +56,9 @@ msgstr "Activer ou désactiver ce sondage"
 msgid "Enabled"
 msgstr "Activé"
 
+msgid "Fail to add SMS poll"
+msgstr "Impossible de supprimer les réponses de ce sondage"
+
 msgid "Fail to delete SMS poll choice"
 msgstr "Impossible de supprimer les réponses de ce sondage"
 
@@ -100,6 +103,9 @@ msgstr "Sauvegarder"
 
 msgid "Status"
 msgstr "Statut"
+
+msgid "This poll has 0 votes!"
+msgstr ""
 
 msgid "Title"
 msgstr "Titre"

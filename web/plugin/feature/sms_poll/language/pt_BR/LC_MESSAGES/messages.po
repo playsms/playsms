@@ -55,6 +55,9 @@ msgstr "Habilitar ou desabilitar essa votação"
 msgid "Enabled"
 msgstr "Habilitado"
 
+msgid "Fail to add SMS poll"
+msgstr "Falha ao remover a opçao da votação SMS"
+
 msgid "Fail to delete SMS poll choice"
 msgstr "Falha ao remover a opçao da votação SMS"
 
@@ -99,6 +102,9 @@ msgstr "Salvar"
 
 msgid "Status"
 msgstr "Estado"
+
+msgid "This poll has 0 votes!"
+msgstr ""
 
 msgid "Title"
 msgstr "Título"

@@ -54,6 +54,9 @@ msgstr "使用或禁用此投票"
 msgid "Enabled"
 msgstr "使用"
 
+msgid "Fail to add SMS poll"
+msgstr "删除短信投票选项失败"
+
 msgid "Fail to delete SMS poll choice"
 msgstr "删除短信投票选项失败"
 
@@ -98,6 +101,9 @@ msgstr "保存"
 
 msgid "Status"
 msgstr "状态"
+
+msgid "This poll has 0 votes!"
+msgstr ""
 
 msgid "Title"
 msgstr "标题"

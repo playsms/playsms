@@ -92,6 +92,9 @@ msgstr ""
 msgid "Phone number"
 msgstr ""
 
+msgid "SMS forward parameter"
+msgstr ""
+
 msgid "SMS messages list for keyword"
 msgstr ""
 
@@ -107,6 +110,9 @@ msgstr ""
 msgid "SMS subscribe keyword"
 msgstr ""
 
+msgid "SMS subscribe parameter"
+msgstr ""
+
 msgid "SMS subscribe reply"
 msgstr ""
 
@@ -114,6 +120,9 @@ msgid "SMS subscribe status has been changed"
 msgstr ""
 
 msgid "SMS subscribe with all its messages and members has been deleted"
+msgstr ""
+
+msgid "SMS unsubscribe parameter"
 msgstr ""
 
 msgid "SMS unsubscribe reply"
@@ -172,15 +181,3 @@ msgstr ""
 
 msgid "to"
 msgstr ""
-
-msgid "SMS subscribe parameter"
-msgstr ""
-
-msgid "SMS unsubscribe parameter"
-msgstr ""
-
-msgid "SMS forward parameter"
-msgstr "" 
-
-msgid "Subscribe param, Unsibscribe param and Forward param must be all different!"
-msgstr "" 

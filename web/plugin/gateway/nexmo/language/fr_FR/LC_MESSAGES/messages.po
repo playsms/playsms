@@ -13,13 +13,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "API key"
+msgstr ""
+
+msgid "API secret"
+msgstr ""
+
 msgid "Active"
 msgstr "Active"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Ex: +0700 pour Jakarta/Bangkok"
 
-msgid "Fill to change the password"
+msgid "Fill to change the API secret"
 msgstr "Remplir pour changer le mot de passe"
 
 msgid "Gateway has been activated"
@@ -47,20 +53,14 @@ msgstr "ID module émetteur"
 msgid "Module timezone"
 msgstr "Zone de temps"
 
+msgid "Nexmo URL"
+msgstr "URL nexmo"
+
 msgid "No changes has been made"
 msgstr "Aucun changement apporté"
-
-msgid "Password"
-msgstr "Mot de passe"
 
 msgid "Save"
 msgstr "Sauvegarder"
 
-msgid "Username"
-msgstr "Not utilisateur"
-
 msgid "click here to activate"
 msgstr "cliquez pour activer"
-
-msgid "nexmo URL"
-msgstr "URL nexmo"

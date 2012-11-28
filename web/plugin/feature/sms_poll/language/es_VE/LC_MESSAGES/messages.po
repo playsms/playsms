@@ -55,6 +55,9 @@ msgstr "Activar o desactivar encuesta"
 msgid "Enabled"
 msgstr "Habilitado"
 
+msgid "Fail to add SMS poll"
+msgstr "Fallo al eliminar la encuesta SMS"
+
 msgid "Fail to delete SMS poll choice"
 msgstr "Fallo al eliminar la encuesta SMS"
 
@@ -99,6 +102,9 @@ msgstr "Guardar"
 
 msgid "Status"
 msgstr "Estatus"
+
+msgid "This poll has 0 votes!"
+msgstr ""
 
 msgid "Title"
 msgstr "Título"
