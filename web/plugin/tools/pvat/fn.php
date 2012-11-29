@@ -36,23 +36,27 @@ function pvat_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $s
 function pvat_handle($in) {
 	$ret = array();
 	$in['sms_datetime'] = core_display_datetime($in['sms_datetime']);
+	$x = array();
 	for ($i=0;$i<count($in['msg']);$i++) {
 		$c_text = trim($in['msg'][$i]);
 		if (substr($c_text, 0, 1) == '@') {
-			$c_username = substr($c_text, 1);
-			$c_username = str_replace(',', '', $c_username);
-			$c_username = str_replace(':', '', $c_username);
-			$c_username = str_replace(';', '', $c_username);
-			$c_username = str_replace('!', '', $c_username);
-			$c_username = str_replace('?', '', $c_username);
-			$c_username = str_replace("'", '', $c_username);
-			$c_username = str_replace('"', '', $c_username);
-			if ($c_uid = username2uid($c_username)) {
-				logger_print("insert u:".$c_username." uid:".$c_uid." dt:".$in['sms_datetime']." s:".$in['sms_sender']." r:".$in['sms_receiver']." m:".$in['message'], 3, "pvat");
-				insertsmstoinbox($in['sms_datetime'], $in['sms_sender'], $c_username, $in['message'], $in['sms_receiver']);
-				logger_print("insert end", 3, "pvat");
-				$ret['hooked'] = true;
-			}
+			$x[] = strtolower(substr($c_text, 1));
+		}
+	}
+	$y = array_unique($x);
+	foreach ($y as $key => $c_username) {
+		$c_username = str_replace(',', '', $c_username);
+		$c_username = str_replace(':', '', $c_username);
+		$c_username = str_replace(';', '', $c_username);
+		$c_username = str_replace('!', '', $c_username);
+		$c_username = str_replace('?', '', $c_username);
+		$c_username = str_replace("'", '', $c_username);
+		$c_username = str_replace('"', '', $c_username);
+		if ($c_uid = username2uid($c_username)) {
+			logger_print("insert u:".$c_username." uid:".$c_uid." dt:".$in['sms_datetime']." s:".$in['sms_sender']." r:".$in['sms_receiver']." m:".$in['message'], 3, "pvat");
+			insertsmstoinbox($in['sms_datetime'], $in['sms_sender'], $c_username, $in['message'], $in['sms_receiver']);
+			logger_print("insert end", 3, "pvat");
+			$ret['hooked'] = true;
 		}
 	}
 	return $ret;
