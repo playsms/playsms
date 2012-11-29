@@ -3,10 +3,6 @@ defined('_SECURE_') or die('Forbidden');
 
 /*
  * intercept incoming sms and look for @ sign followed by username
- * this feature will replace:
- *   @username <private message>
- * to:
- *   PV username <private message>
  *
  * @param $sms_datetime
  *   incoming SMS date/time
