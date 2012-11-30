@@ -122,7 +122,7 @@ function simplephonebook_hook_phonebook_getmembercountbyid($gpid) {
 	$db_query = "SELECT COUNT(*) as count FROM "._DB_PREF_."_toolsSimplephonebook WHERE gpid='$gpid'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
-		$count = $db_row['count'];
+		$count = ( $db_row['count'] ? $db_row['count'] : 0 );
 	}
 	return $count;
 }

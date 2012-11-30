@@ -108,17 +108,17 @@ while ($db_row = dba_fetch_array($db_result))
 	$gpid = $db_row['gpid'];
 	$fm_name = "fm_phonebook_".$db_row['gp_code'];
 	$c_uid = $db_row['uid'];
-	$c_username = uid2username($c_uid);
-	$list_of_phonenumber .= "
-	<p>"._('Shared by').": ".$c_username." - group: ".$db_row['gp_name']." - code: ".$db_row['gp_code']." <!-- <a href=\"javascript: PopupSendSms('BC','".$db_row['gp_code']."')\">$icon_sendsms</a> -->
-	<table width=100% cellpadding=1 cellspacing=2 border=0 class=\"sortable\">
-	<tr>
-	    <td class=box_title width=4>&nbsp;*&nbsp;</td>
-	    <td class=box_title width=200>"._('Name')."</td>
-	    <td class=box_title width=100>"._('Number')."</td>
-	    <td class=box_title>"._('Email')."</td>
-	</tr>
-    ";
+	if ($c_username = uid2username($c_uid)) {
+		$list_of_phonenumber .= "
+			<p>"._('Shared by').": ".$c_username." - group: ".$db_row['gp_name']." - code: ".$db_row['gp_code']." <!-- <a href=\"javascript: PopupSendSms('BC','".$db_row['gp_code']."')\">$icon_sendsms</a> -->
+			<table width=100% cellpadding=1 cellspacing=2 border=0 class=\"sortable\">
+			<tr>
+				<td class=box_title width=4>&nbsp;*&nbsp;</td>
+				<td class=box_title width=200>"._('Name')."</td>
+				<td class=box_title width=100>"._('Number')."</td>
+				<td class=box_title>"._('Email')."</td>
+			</tr>";
+	}
 	$db_query1 = "SELECT * FROM "._DB_PREF_."_toolsSimplephonebook WHERE gpid='$gpid' ORDER BY p_desc";
 	$db_result1 = dba_query($db_query1);
 	$i = 0;
