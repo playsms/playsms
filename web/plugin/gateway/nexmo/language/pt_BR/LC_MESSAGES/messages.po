@@ -48,11 +48,29 @@ msgstr ""
 msgid "Nexmo URL"
 msgstr ""
 
+msgid "Nexmo is a bulk SMS provider"
+msgstr ""
+
+msgid "Nexmo will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
 msgid "No changes has been made"
 msgstr "Nenhuma mudança feita"
+
+msgid "Notes"
+msgstr ""
 
 msgid "Save"
 msgstr "Salvar"
 
+msgid "Your callback URL is"
+msgstr ""
+
+msgid "Your callback URL should be accessible from Nexmo"
+msgstr ""
+
 msgid "click here to activate"
 msgstr "clique aqui para ativar"
+
+msgid "free credits are available for testing purposes"
+msgstr ""

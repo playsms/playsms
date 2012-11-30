@@ -56,11 +56,29 @@ msgstr "Zone de temps"
 msgid "Nexmo URL"
 msgstr "URL nexmo"
 
+msgid "Nexmo is a bulk SMS provider"
+msgstr ""
+
+msgid "Nexmo will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
 msgid "No changes has been made"
 msgstr "Aucun changement apporté"
+
+msgid "Notes"
+msgstr ""
 
 msgid "Save"
 msgstr "Sauvegarder"
 
+msgid "Your callback URL is"
+msgstr ""
+
+msgid "Your callback URL should be accessible from Nexmo"
+msgstr ""
+
 msgid "click here to activate"
 msgstr "cliquez pour activer"
+
+msgid "free credits are available for testing purposes"
+msgstr ""
