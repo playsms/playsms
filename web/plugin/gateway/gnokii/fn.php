@@ -69,6 +69,8 @@ function gnokii_hook_getsmsinbox() {
 			if (! file_exists($tobe_deleted)) {
 				// collected:
 				// $sms_datetime, $sms_sender, $message, $sms_receiver
+				$sms_sender = addslashes($sms_sender);
+				$message = addslashes($message);
 				setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
 				logger_print("sender:".$sms_sender." receiver:".$sms_receiver." dt:".$sms_datetime." msg:".$message, 3, "gnokii incoming");
 			}

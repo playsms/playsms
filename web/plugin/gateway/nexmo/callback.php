@@ -47,6 +47,8 @@ $message = urldecode($requests['text']);
 $sms_receiver = $requests['to'];
 if ($remote_slid && $client_ref && $message) {
 	logger_print("incoming", 2, "nexmo callback");
+	$sms_sender = addslashes($sms_sender);
+	$message = addslashes($message);
 	setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
 }
 

@@ -52,6 +52,8 @@ function template_hook_getsmsinbox() {
 	// global $tmpl_param;
 	// $sms_datetime	: incoming sms datetime
 	// $message		: incoming sms message
+	// $sms_sender = addslashes($sms_sender);
+	// $message = addslashes($message);
 	// setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver)
 	// you must retrieve all informations needed by setsmsincomingaction()
 	// from incoming sms, have a look gnokii gateway module
