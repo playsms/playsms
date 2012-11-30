@@ -82,14 +82,7 @@ function sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$comm
 			}
 			sendsms_pv($username, $sms_sender, $command_output, 'text', $unicode);
 		}
-		$db_query = "
-			INSERT INTO "._DB_PREF_."_featureCommand_log
-			(sms_sender,command_log_datetime,command_log_keyword,command_log_exec) 
-			VALUES
-			('$sms_sender','$datetime_now','$command_keyword','$command_exec')";
-		if ($new_id = @dba_insert_id($db_query)) {
-			$ok = true;
-		}
+		$ok = true;
 	}
 	return $ok;
 }

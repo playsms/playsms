@@ -41,33 +41,6 @@ LOCK TABLES `playsms_featureAutoreply` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `playsms_featureAutoreply_log`
---
-
-DROP TABLE IF EXISTS `playsms_featureAutoreply_log`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `playsms_featureAutoreply_log` (
-  `c_timestamp` int(11) NOT NULL DEFAULT '0',
-  `autoreply_log_id` int(11) NOT NULL AUTO_INCREMENT,
-  `sms_sender` varchar(20) NOT NULL DEFAULT '',
-  `autoreply_log_datetime` varchar(20) NOT NULL DEFAULT '',
-  `autoreply_log_keyword` varchar(10) NOT NULL DEFAULT '',
-  `autoreply_log_request` text NOT NULL,
-  PRIMARY KEY (`autoreply_log_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `playsms_featureAutoreply_log`
---
-
-LOCK TABLES `playsms_featureAutoreply_log` WRITE;
-/*!40000 ALTER TABLE `playsms_featureAutoreply_log` DISABLE KEYS */;
-/*!40000 ALTER TABLE `playsms_featureAutoreply_log` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `playsms_featureAutoreply_scenario`
 --
 
@@ -236,33 +209,6 @@ LOCK TABLES `playsms_featureCommand` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `playsms_featureCommand_log`
---
-
-DROP TABLE IF EXISTS `playsms_featureCommand_log`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `playsms_featureCommand_log` (
-  `c_timestamp` int(11) NOT NULL DEFAULT '0',
-  `command_log_id` int(11) NOT NULL AUTO_INCREMENT,
-  `sms_sender` varchar(20) NOT NULL DEFAULT '',
-  `command_log_datetime` varchar(20) NOT NULL DEFAULT '',
-  `command_log_keyword` varchar(10) NOT NULL DEFAULT '',
-  `command_log_exec` text NOT NULL,
-  PRIMARY KEY (`command_log_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `playsms_featureCommand_log`
---
-
-LOCK TABLES `playsms_featureCommand_log` WRITE;
-/*!40000 ALTER TABLE `playsms_featureCommand_log` DISABLE KEYS */;
-/*!40000 ALTER TABLE `playsms_featureCommand_log` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `playsms_featureCustom`
 --
 
@@ -287,33 +233,6 @@ CREATE TABLE `playsms_featureCustom` (
 LOCK TABLES `playsms_featureCustom` WRITE;
 /*!40000 ALTER TABLE `playsms_featureCustom` DISABLE KEYS */;
 /*!40000 ALTER TABLE `playsms_featureCustom` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `playsms_featureCustom_log`
---
-
-DROP TABLE IF EXISTS `playsms_featureCustom_log`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `playsms_featureCustom_log` (
-  `c_timestamp` int(11) NOT NULL DEFAULT '0',
-  `custom_log_id` int(11) NOT NULL AUTO_INCREMENT,
-  `sms_sender` varchar(20) NOT NULL DEFAULT '',
-  `custom_log_datetime` varchar(20) NOT NULL DEFAULT '',
-  `custom_log_keyword` varchar(10) NOT NULL DEFAULT '',
-  `custom_log_url` text NOT NULL,
-  PRIMARY KEY (`custom_log_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `playsms_featureCustom_log`
---
-
-LOCK TABLES `playsms_featureCustom_log` WRITE;
-/*!40000 ALTER TABLE `playsms_featureCustom_log` DISABLE KEYS */;
-/*!40000 ALTER TABLE `playsms_featureCustom_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

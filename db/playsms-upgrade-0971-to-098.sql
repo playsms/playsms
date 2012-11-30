@@ -69,3 +69,7 @@ LOCK TABLES `playsms_gatewayNexmo_config` WRITE;
 INSERT INTO `playsms_gatewayNexmo_config` VALUES (0,'nexmo','https://rest.nexmo.com/sms/json','12345678','87654321','playSMS','+0700');
 /*!40000 ALTER TABLE `playsms_gatewayNexmo_config` ENABLE KEYS */;
 UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `playsms_featureAutoreply_log` ;
+DROP TABLE IF EXISTS `playsms_featureCommand_log` ;
+DROP TABLE IF EXISTS `playsms_featureCustom_log` ;

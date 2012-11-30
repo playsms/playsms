@@ -81,14 +81,7 @@ function sms_custom_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$custo
 			}
 			sendsms_pv($username, $sms_sender, $returns, 'text', $unicode);
 		}
-		$db_query = "
-			INSERT INTO "._DB_PREF_."_featureCustom_log
-			(sms_sender,custom_log_datetime,custom_log_keyword,custom_log_url) 
-			VALUES
-			('$sms_sender','$datetime_now','$custom_keyword','$custom_url')";
-		if ($new_id = @dba_insert_id($db_query)) {
-			$ok = true;
-		}
+		$ok = true;
 	}
 	return $ok;
 }

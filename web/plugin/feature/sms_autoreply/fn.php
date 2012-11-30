@@ -72,30 +72,13 @@ function sms_autoreply_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$au
 		$autoreply_scenario_param_list .= "autoreply_scenario_param$i='".$autoreply_part[$i]."' AND ";
 	}
 	$db_query = "
-	SELECT autoreply_scenario_result FROM "._DB_PREF_."_featureAutoreply_scenario 
-	WHERE autoreply_id='$autoreply_id' AND $autoreply_scenario_param_list 1=1
-    ";
+		SELECT autoreply_scenario_result FROM "._DB_PREF_."_featureAutoreply_scenario 
+		WHERE autoreply_id='$autoreply_id' AND $autoreply_scenario_param_list 1=1";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	if ($autoreply_scenario_result = $db_row['autoreply_scenario_result'])
-	{
-		$db_query = "
-	    INSERT INTO "._DB_PREF_."_featureAutoreply_log
-	    (sms_sender,autoreply_log_datetime,autoreply_log_keyword,autoreply_log_request) 
-	    VALUES
-	    ('$sms_sender','$datetime_now','$autoreply_keyword','$autoreply_request')
-	";
-		if ($new_id = @dba_insert_id($db_query))
-		{
-			$ok = true;
-		}
-	}
-	if ($ok)
-	{
+	if ($autoreply_scenario_result = $db_row['autoreply_scenario_result']) {
 		$ok = false;
 		$c_username = uid2username($c_uid);
-		//list($ok,$to,$smslog_id,$queue) = sendsms_pv($c_username,$sms_sender,$autoreply_scenario_result);
-		//$ok = $ok[0];
 		$unicode = 0;
 		if (function_exists('mb_detect_encoding')) {
 			$encoding = mb_detect_encoding($message, 'auto');
@@ -104,7 +87,7 @@ function sms_autoreply_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$au
 			}
 		}
 		list($ok, $to, $smslog_id, $queue) = sendsms_pv($c_username, $sms_sender, $autoreply_scenario_result, 'text', $unicode);
-                $ok = $ok[0];
+		$ok = $ok[0];
 	}
 	return $ok;
 }
