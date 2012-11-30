@@ -33,7 +33,6 @@ switch ($op)
 	      <th align=center width=20%>"._('Time')."</th>
 	      <th align=center width=10%>"._('From')."</th>
 	      <th align=center width=70%>"._('Message')."</th>
-	      <th align=center class=\"sorttable_nosort\">"._('Action')."</td>
 	      <th width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></td>
 	    </tr>
         </thead>
@@ -66,12 +65,6 @@ switch ($op)
 	          <td valign=top class=$td_class align=center width=20%>$in_datetime</td>
 	          <td valign=top class=$td_class align=center width=20%>$current_sender</td>
 	          <td valign=top class=$td_class align=left width=60%>$in_msg</td>
-	          <td valign=top class=$td_class align=center nowrap>
-		    <!-- <a href=\"javascript: PopupReplySms('$current_sender', '".urlencode($in_msg)."')\">$icon_reply</a> -->
-		    <!-- <a href=\"index.php?app=menu&inc=phone_add&op=add&phone=$current_sender\">$icon_phonebook</a> -->
-		    <a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this SMS ?')."','index.php?app=menu&inc=user_inbox&op=user_inbox_del&inid=$in_id')\">$icon_delete</a>
-		    
-		  </td>
 		<td class=$td_class width=4>
 		    <input type=hidden name=inid".$j." value=\"$in_id\">
 		    <input type=checkbox name=chkid".$j.">

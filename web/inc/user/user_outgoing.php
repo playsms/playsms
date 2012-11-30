@@ -34,7 +34,6 @@ switch ($op)
 	      <th align=center width=10%>"._('To')."</th>
 	      <th align=center width=60%>"._('Message')."</th>
 	      <th align=center width=10%>"._('Status')."</th>
-	      <th align=center width=4 class=\"sorttable_nosort\">"._('Action')."</th>
 	      <th width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_outgoing)></td>
 	    </tr>
         </thead>
@@ -110,9 +109,6 @@ switch ($op)
 	          <td valign=top class=$td_class align=center width=20%>$current_p_dst</td>
 	          <td valign=top class=$td_class align=left width=60%>$p_msg</td>
 	          <td valign=top class=$td_class align=center width=10%>$p_status</td>
-	          <td valign=top class=$td_class align=center width=4>
-		    <a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete outgoing SMS ?')." ("._('to').": $hide_p_dst, "._('number').": $i)','index.php?app=menu&inc=user_outgoing&op=user_outgoing_del&slid=$current_slid')\">$icon_delete</a>
-		  </td>
 		<td class=$td_class width=4>
 		    <input type=hidden name=slid".$j." value=\"$current_slid\">
 		    <input type=checkbox name=chkid".$j.">
