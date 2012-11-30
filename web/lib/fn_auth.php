@@ -153,6 +153,7 @@ function auth_register() {
 	$ok = false;
 	if ($core_config['main']['cfg_enable_register']) {
 		$username = trim($_REQUEST['username']);
+		$username = core_sanitize_username($username);
 		$email = trim($_REQUEST['email']);
 		$name = trim($_REQUEST['name']);
 		$mobile = trim($_REQUEST['mobile']);

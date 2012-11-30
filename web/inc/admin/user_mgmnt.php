@@ -187,7 +187,7 @@ switch ($op) {
 		echo $content;
 		break;
 	case "user_edit_save":
-		$uname = $_POST['uname'];
+		$uname = core_sanitize_username($_POST['uname']);
 		$up_name = $_POST['up_name'];
 		$up_email = $_POST['up_email'];
 		$up_mobile = $_POST['up_mobile'];
@@ -300,7 +300,7 @@ switch ($op) {
 		break;
 	case "user_add_yes":
 		$add_email = $_POST['add_email'];
-		$add_username = $_POST['add_username'];
+		$add_username = core_sanitize_username($_POST['add_username']);
 		$add_name = $_POST['add_name'];
 		$add_mobile = $_POST['add_mobile'];
 		$add_sender = $_POST['add_sender'];

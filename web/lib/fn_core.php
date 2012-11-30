@@ -215,4 +215,13 @@ function core_get_random_string($length = 8) {
     return $result;
 }
 
+/**
+ * Sanitize username
+ *
+ */
+function core_sanitize_username($username) {
+	$username = preg_replace("/[^A-Za-z0-9 ]/", '', $username);
+	return $username;
+}
+
 ?>
