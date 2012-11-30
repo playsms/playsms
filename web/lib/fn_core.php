@@ -220,7 +220,7 @@ function core_get_random_string($length = 8) {
  *
  */
 function core_sanitize_username($username) {
-	$username = preg_replace("/[^A-Za-z0-9 ]/", '', $username);
+	$username = preg_replace("/[^A-Za-z0-9\.\-]/", '', $username);
 	return $username;
 }
 
