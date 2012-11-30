@@ -27,7 +27,7 @@ function pvat_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $s
 		ORDER BY p_datetime DESC LIMIT 1";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	if ($c_username = uid2username($db_row['uid'])) {
+	if (($c_username = uid2username($db_row['uid'])) && ($db_row['uid'] != mobile2uid($sms_sender))) {
 		$c1 = strtotime($db_row['p_datetime']);
 		$c2 = strtotime(core_display_datetime($sms_datetime));
 		$p = floor(($c2 - $c1)/86400);
