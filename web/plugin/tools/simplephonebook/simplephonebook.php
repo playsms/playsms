@@ -104,10 +104,11 @@ $db_query = "
 ";
 $db_result = dba_query($db_query);
 while ($db_row = dba_fetch_array($db_result)) {
-	$gpid = $db_row['gpid'];
 	$fm_name = "fm_phonebook_".$db_row['gp_code'];
+	$gpid = $db_row['gpid'];
+	$c_count = phonebook_getmembercountbyid($gpid);
 	$c_uid = $db_row['uid'];
-	if ($c_username = uid2username($c_uid)) {
+	if ($c_count && ($c_username = uid2username($c_uid))) {
 		$list_of_phonenumber .= "
 			<p>"._('Shared by').": ".$c_username." - group: ".$db_row['gp_name']." - code: ".$db_row['gp_code']." <!-- <a href=\"javascript: PopupSendSms('BC','".$db_row['gp_code']."')\">$icon_sendsms</a> -->
 			<table width=100% cellpadding=1 cellspacing=2 border=0 class=\"sortable\">

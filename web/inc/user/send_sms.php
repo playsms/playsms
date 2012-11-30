@@ -11,16 +11,18 @@ switch ($op) {
 
 		$rows = phonebook_getgroupbyuid($uid, "gp_name");
 		foreach ($rows as $key => $db_row) {
-			$c_count = phonebook_getmembercountbyid($db_row['gpid']);
-			$list_of_number .= "<option value=\"gpid_".$db_row['gpid']."\" $selected>"._('Group').": ".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.")</option>";
+			if ($c_count = phonebook_getmembercountbyid($db_row['gpid'])) {
+				$list_of_number .= "<option value=\"gpid_".$db_row['gpid']."\" $selected>"._('Group').": ".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.")</option>";
+			}
 		}
 
 		$rows = phonebook_getsharedgroup($uid);
 		foreach ($rows as $key => $db_row) {
 			$c_uid = $db_row['uid'];
 			if ($c_username = uid2username($c_uid)) {
-				$c_count = phonebook_getmembercountbyid($db_row['gpid']);
-				$list_of_number .= "<option value=\"gpid_".$db_row['gpid']."\" $selected>"._('Group').": ".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.") - "._('shared by')." ".$c_username."</option>";
+				if ($c_count = phonebook_getmembercountbyid($db_row['gpid'])) {
+					$list_of_number .= "<option value=\"gpid_".$db_row['gpid']."\" $selected>"._('Group').": ".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.") - "._('shared by')." ".$c_username."</option>";
+				}
 			}
 		}
 
