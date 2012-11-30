@@ -27,15 +27,20 @@ function pvat_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $s
 		ORDER BY p_datetime DESC LIMIT 1";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	if (($c_username = uid2username($db_row['uid'])) && ($db_row['uid'] != mobile2uid($sms_sender))) {
-		$c1 = strtotime($db_row['p_datetime']);
-		$c2 = strtotime(core_display_datetime($sms_datetime));
-		$p = floor(($c2 - $c1)/86400);
-		if ($p <= 1) {
-			logger_print("reply u:".$c_username." uid:".$db_row['uid']." dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." m:".$message, 3, "pvat");
-			insertsmstoinbox($sms_datetime, $sms_sender, $c_username, $message, $sms_receiver);
-			logger_print("reply end", 3, "pvat");
-			$ret['hooked'] = true;
+	if ($c_username = uid2username($db_row['uid'])) {
+		$mobile = user_getfieldbyuid($db_row['uid'], 'mobile');
+		$c_mobile = str_replace('+','',$mobile);
+		if (strlen($c_mobile) > 7) { $c_mobile = substr($c_mobile,3); }
+		if ($c_mobile != $c_sms_sender) {
+			$c1 = strtotime($db_row['p_datetime']);
+			$c2 = strtotime(core_display_datetime($sms_datetime));
+			$p = floor(($c2 - $c1)/86400);
+			if ($p <= 1) {
+				logger_print("reply u:".$c_username." uid:".$db_row['uid']." dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." m:".$message, 3, "pvat");
+				insertsmstoinbox($sms_datetime, $sms_sender, $c_username, $message, $sms_receiver);
+				logger_print("reply end", 3, "pvat");
+				$ret['hooked'] = true;
+			}
 		}
 	}
 
