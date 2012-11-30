@@ -12,11 +12,6 @@ defined('_SECURE_') or die('Forbidden');
 // $uid		: sender User ID
 // $smslog_id	: sms ID
 function nexmo_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
-	// global $nexmo_param;   // global all variables needed, eg: varibles from config.php
-	// ...
-	// ...
-	// return true or false
-	// return $ok;
 	global $nexmo_param;
 	$sms_sender = stripslashes($sms_sender);
 	$sms_footer = stripslashes($sms_footer);
@@ -58,9 +53,9 @@ function nexmo_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gp
 			}
 		} else {
 			// even when the response is not what we expected we still print it out for debug purposes
-			$fd = str_replace("\n", " ", $fd);
-			$fd = str_replace("\r", " ", $fd);
-			logger_print("failed smslog_id:".$smslog_id, 2, "nexmo outgoing");
+			$resp = str_replace("\n", " ", $resp);
+			$resp = str_replace("\r", " ", $resp);
+			logger_print("failed smslog_id:".$smslog_id." resp:".$resp, 2, "nexmo outgoing");
 		}
 	}
 	if (!$ok) {
