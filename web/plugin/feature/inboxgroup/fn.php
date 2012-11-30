@@ -176,9 +176,11 @@ function inboxgroup_getmembers($id) {
 	$i = 0;
 	while ($db_row = dba_fetch_array($db_result)) {
 		$data = user_getdatabyuid($db_row['uid']);
-		$ret[$i]['uid'] = $db_row['uid'];
-		$ret[$i]['mobile'] = $data['mobile'];
-		$i++;
+		if ($data['uid']) {
+			$ret[$i]['uid'] = $db_row['uid'];
+			$ret[$i]['mobile'] = $data['mobile'];
+			$i++;
+		}
 	}
 	return $ret;
 }
@@ -190,9 +192,11 @@ function inboxgroup_getcatchall($id) {
 	$i = 0;
 	while ($db_row = dba_fetch_array($db_result)) {
 		$data = user_getdatabyuid($db_row['uid']);
-		$ret[$i]['uid'] = $db_row['uid'];
-		$ret[$i]['mobile'] = $data['mobile'];
-		$i++;
+		if ($data['mobile']) {
+			$ret[$i]['uid'] = $db_row['uid'];
+			$ret[$i]['mobile'] = $data['mobile'];
+			$i++;
+		}
 	}
 	return $ret;
 }

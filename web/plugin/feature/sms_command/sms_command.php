@@ -31,9 +31,9 @@ switch ($op) {
         $i = 0;
         $maxlen = 50;
         while ($db_row = dba_fetch_array($db_result)) {
+		if ($owner = uid2username($db_row['uid'])) {
             $i++;
             $td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-            $owner = uid2username($db_row['uid']);
             $action = "<a href=index.php?app=menu&inc=feature_sms_command&op=sms_command_edit&command_id=" . $db_row['command_id'] . ">$icon_edit</a>&nbsp;";
             $action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS command ?') . " (" . _('keyword') . ": " . $db_row['command_keyword'] . ")','index.php?app=menu&inc=feature_sms_command&op=sms_command_del&command_id=" . $db_row['command_id'] . "')\">$icon_delete</a>";
             $command_exec = ( (strlen($db_row['command_exec']) > $maxlen) ? substr($db_row['command_exec'], 0, $maxlen) . "..." : $db_row['command_exec'] );
@@ -45,6 +45,7 @@ switch ($op) {
 	<td class=$td_class>$owner</td>	
 	<td class=$td_class align=center>$action</td>
     </tr>";
+		}
         }
 
         $content .= "

@@ -61,18 +61,18 @@ switch ($op) {
 		for ($i=0;$i<count($members);$i++) {
 			$c_uid = $members[$i]['uid'];
 			$c_user = user_getdatabyuid($c_uid);
-			$c_username = $c_user['username'];
-			$c_name = $c_user['name'];
-			$c_mobile = $c_user['mobile'];
-			$td_class = (($i+1) % 2) ? "box_text_odd" : "box_text_even";
-			$content .= "
-				<tr class='".$td_class."'>
-					<td align='center'>".($i+1).".</td>
-					<td align='center'>".$c_username."</td>
-					<td align='center'>".$c_name."</td>
-					<td align='center'>".$c_mobile."</td>
-				</tr>
-			";
+			if ($c_username = $c_user['username']) {
+				$c_name = $c_user['name'];
+				$c_mobile = $c_user['mobile'];
+				$td_class = (($i+1) % 2) ? "box_text_odd" : "box_text_even";
+				$content .= "
+					<tr class='".$td_class."'>
+						<td align='center'>".($i+1).".</td>
+						<td align='center'>".$c_username."</td>
+						<td align='center'>".$c_name."</td>
+						<td align='center'>".$c_mobile."</td>
+					</tr>";
+			}
 		}
 		$content .= "
 			</table>
@@ -213,10 +213,11 @@ switch ($op) {
 		for ($i=0;$i<count($users);$i++) {
 			$c_uid = $users[$i]['uid'];
 			$c_user = user_getdatabyuid($c_uid);
-			$c_username = $c_user['username'];
-			$c_name = $c_user['name'];
-			$c_mobile = $c_user['mobile'];
-			$list_of_users .= "<option value='".$c_uid."'>".$c_name." ".$c_mobile."</option>";
+			if ($c_username = $c_user['username']) {
+				$c_name = $c_user['name'];
+				$c_mobile = $c_user['mobile'];
+				$list_of_users .= "<option value='".$c_uid."'>".$c_name." ".$c_mobile."</option>";
+			}
 		}
 		$content .= "
 			<form action=\"index.php?app=menu&inc=feature_inboxgroup&route=members&op=members_delete_submit\" method=\"post\">

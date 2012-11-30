@@ -29,25 +29,26 @@ switch ($op) {
 			</tr>";
 		$i=0;
 		while ($db_row = dba_fetch_array($db_result)) {
-			$i++;
-			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-			$owner = uid2username($db_row['uid']);
-			$poll_status = "<font color=red>"._('Disabled')."</font>";
-			if ($db_row['poll_enable']) {
-				$poll_status = "<font color=green>"._('Enabled')."</font>";
+			if ($owner = uid2username($db_row['uid'])) {
+				$i++;
+				$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
+				$poll_status = "<font color=red>"._('Disabled')."</font>";
+				if ($db_row['poll_enable']) {
+					$poll_status = "<font color=green>"._('Enabled')."</font>";
+				}
+				$action = "<a href=index.php?app=menu&inc=feature_sms_poll&op=sms_poll_view&poll_id=".$db_row['poll_id']." target=_blank>$icon_view</a>&nbsp;";
+				$action .= "<a href=index.php?app=menu&inc=feature_sms_poll&op=sms_poll_edit&poll_id=".$db_row['poll_id'].">$icon_edit</a>&nbsp;";
+				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS poll with all its choices and votes ?')." ("._('keyword').": ".$db_row['poll_keyword'].")','index.php?app=menu&inc=feature_sms_poll&op=sms_poll_del&poll_id=".$db_row['poll_id']."')\">$icon_delete</a>";
+				$content .= "
+					<tr>
+						<td class=$td_class>&nbsp;$i.</td>
+						<td class=$td_class>".$db_row['poll_keyword']."</td>
+						<td class=$td_class>".$db_row['poll_title']."</td>
+						<td class=$td_class>$owner</td>	
+						<td class=$td_class>$poll_status</td>		
+						<td class=$td_class align=center>$action</td>
+					</tr>";
 			}
-			$action = "<a href=index.php?app=menu&inc=feature_sms_poll&op=sms_poll_view&poll_id=".$db_row['poll_id']." target=_blank>$icon_view</a>&nbsp;";
-			$action .= "<a href=index.php?app=menu&inc=feature_sms_poll&op=sms_poll_edit&poll_id=".$db_row['poll_id'].">$icon_edit</a>&nbsp;";
-			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS poll with all its choices and votes ?')." ("._('keyword').": ".$db_row['poll_keyword'].")','index.php?app=menu&inc=feature_sms_poll&op=sms_poll_del&poll_id=".$db_row['poll_id']."')\">$icon_delete</a>";
-			$content .= "
-				<tr>
-					<td class=$td_class>&nbsp;$i.</td>
-					<td class=$td_class>".$db_row['poll_keyword']."</td>
-					<td class=$td_class>".$db_row['poll_title']."</td>
-					<td class=$td_class>$owner</td>	
-					<td class=$td_class>$poll_status</td>		
-					<td class=$td_class align=center>$action</td>
-				</tr>";
 		}
 		$content .= "</table>";
 		echo $content;

@@ -44,30 +44,30 @@ switch ($op) {
 							";
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
-			$i++;
-			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-			$owner = uid2username($db_row['uid']);
-			$autosend_status = "<font color=red>"._('Disabled')."</font>";
-			$message = $db_row['autosend_message'];
-			$send_to = $db_row['autosend_number'];
-			$time = $db_row['autosend_time'];
+			if ($owner = uid2username($db_row['uid'])) {
+				$i++;
+				$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
+				$autosend_status = "<font color=red>"._('Disabled')."</font>";
+				$message = $db_row['autosend_message'];
+				$send_to = $db_row['autosend_number'];
+				$time = $db_row['autosend_time'];
 
-			$db_query = "SELECT autosend_id FROM " . _DB_PREF_ . "_featureAutosend_time WHERE autosend_id = '".$db_row['autosend_id']."'";
-			$num_rows = dba_num_rows($db_query);
+				$db_query = "SELECT autosend_id FROM " . _DB_PREF_ . "_featureAutosend_time WHERE autosend_id = '".$db_row['autosend_id']."'";
+				$num_rows = dba_num_rows($db_query);
 
-			if ($num_rows > "1") {
-				$repeat = $num_rows;
-			} else {
-				$repeat = _('Once');
-			}
+				if ($num_rows > "1") {
+					$repeat = $num_rows;
+				} else {
+					$repeat = _('Once');
+				}
 
-			if ($db_row['autosend_enable']) {
-				$autosend_status = "<font color=green>"._('Enabled')."</font>";
-			}
-			$action = "<a href=index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_view&autosend_id=".$db_row['autosend_id'].">$icon_view</a>&nbsp;";
-			$action .= "<a href=index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_edit&autosend_id=".$db_row['autosend_id'].">$icon_edit</a>&nbsp;";
-			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS autosend message ?')."','index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_del&autosend_id=".$db_row['autosend_id']."')\">$icon_delete</a>";
-			$content .= "
+				if ($db_row['autosend_enable']) {
+					$autosend_status = "<font color=green>"._('Enabled')."</font>";
+				}
+				$action = "<a href=index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_view&autosend_id=".$db_row['autosend_id'].">$icon_view</a>&nbsp;";
+				$action .= "<a href=index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_edit&autosend_id=".$db_row['autosend_id'].">$icon_edit</a>&nbsp;";
+				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS autosend message ?')."','index.php?app=menu&inc=feature_sms_autosend&op=sms_autosend_del&autosend_id=".$db_row['autosend_id']."')\">$icon_delete</a>";
+				$content .= "
 							<tr>
 								<td class=$td_class>&nbsp;$i.</td>
 								<td class=$td_class>$message</td>
@@ -77,6 +77,7 @@ switch ($op) {
 								<td class=$td_class>$autosend_status</td>									
 								<td class=$td_class align=center>$action</td>
 							</tr>";
+			}
 		}
 		$content .= "</table>";
 		echo $content;

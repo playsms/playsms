@@ -33,9 +33,9 @@ switch ($op)
 		$i=0;
 		while ($db_row = dba_fetch_array($db_result))
 		{
+			if ($owner = uid2username($db_row['uid'])) {
 			$i++;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-			$owner = uid2username($db_row['uid']);
 			$action = "<a href=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=".$db_row['autoreply_id'].">$icon_manage</a>&nbsp;";
 			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS autoreply ?')." ("._('keyword').": ".$db_row['autoreply_keyword'].")','index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_del&autoreply_id=".$db_row['autoreply_id']."')\">$icon_delete</a>";
 			$content .= "
@@ -46,6 +46,7 @@ switch ($op)
 	<td class=$td_class align=center>$action</td>
     </tr>
 ";
+			}
 		}
 
 		$content .= "
@@ -93,8 +94,8 @@ switch ($op)
 		$j=0;
 		while ($db_row = dba_fetch_array($db_result))
 		{
+			if ($owner = uid2username($o_uid)) {
 			$j++;
-			$owner = uid2username($o_uid);
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 			$list_of_param = "";
 			for ($i=1;$i<=7;$i++)
@@ -112,6 +113,7 @@ switch ($op)
 	<td class=$td_class align=center>$action</td>
     </tr>
 	";
+			}
 		}
 		$content .= "
     </table>
