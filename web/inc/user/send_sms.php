@@ -18,9 +18,10 @@ switch ($op) {
 		$rows = phonebook_getsharedgroup($uid);
 		foreach ($rows as $key => $db_row) {
 			$c_uid = $db_row['uid'];
-			$c_username = uid2username($c_uid);
-			$c_count = phonebook_getmembercountbyid($db_row['gpid']);
-			$list_of_number .= "<option value=\"gpid_".$db_row['gpid']."\" $selected>"._('Group').": ".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.") - "._('shared by')." ".$c_username."</option>";
+			if ($c_username = uid2username($c_uid)) {
+				$c_count = phonebook_getmembercountbyid($db_row['gpid']);
+				$list_of_number .= "<option value=\"gpid_".$db_row['gpid']."\" $selected>"._('Group').": ".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.") - "._('shared by')." ".$c_username."</option>";
+			}
 		}
 
 		$rows = phonebook_getdatabyuid($uid, "p_desc");
@@ -32,11 +33,12 @@ switch ($op) {
 		foreach ($rows as $key => $db_row) {
 			$c_gpid = $db_row['gpid'];
 			$c_uid = $db_row['uid'];
-			$c_username = uid2username($c_uid);
-			$i = 0;
-			$rows = phonebook_getdatabyid($c_gpid);
-			foreach ($rows as $key => $db_row1) {
-				$list_of_number .= "<option value=\"".$db_row1['p_num']."\" $selected>".$db_row1['p_desc']." ".$db_row1['p_num']." ("._('shared by')." ".$c_username.")</option>";
+			if ($c_username = uid2username($c_uid)) {
+				$i = 0;
+				$rows = phonebook_getdatabyid($c_gpid);
+				foreach ($rows as $key => $db_row1) {
+					$list_of_number .= "<option value=\"".$db_row1['p_num']."\" $selected>".$db_row1['p_desc']." ".$db_row1['p_num']." ("._('shared by')." ".$c_username.")</option>";
+				}
 			}
 		}
 
