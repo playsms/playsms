@@ -45,10 +45,10 @@ $icon_phonebook = "<img src=\"".$http_path['themes']."/".$themes_module."/images
 // menus
 $core_config['menutab']['home'] = _('Home');
 $core_config['menutab']['my_account'] = _('My Account');
-$core_config['menutab']['administration'] = _('Administration');
-$core_config['menutab']['feature'] = _('Feature');
 $core_config['menutab']['tools'] = _('Tools');
+$core_config['menutab']['feature'] = _('Feature');
 $core_config['menutab']['gateway'] = _('Gateway');
+$core_config['menutab']['administration'] = _('Administration');
 
 $menutab_my_account = $core_config['menutab']['my_account'];
 $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=send_sms&op=sendsmstopv", _('Send SMS'));
@@ -56,18 +56,6 @@ $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=user_inbox&op=u
 $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=user_incoming&op=user_incoming", _('Incoming SMS'));
 $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=user_outgoing&op=user_outgoing", _('Outgoing SMS'));
 $arr_menu[$menutab_my_account][] = array("index.php?app=menu&inc=user_pref&op=user_pref", _('Preferences'));
-//ksort($arr_menu[$menutab_my_account]);
-
-$menutab_administration = $core_config['menutab']['administration'];
-if (isadmin()) {
-	// administrator menus
-	$arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=all_inbox&op=all_inbox", _('All inbox'));
-	$arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=all_incoming&op=all_incoming", _('All incoming SMS'));
-	$arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=all_outgoing&op=all_outgoing", _('All outgoing SMS'));
-	$arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=user_mgmnt&op=user_list", _('Manage user'));
-	$arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=main_config&op=main_config", _('Main configuration'));
-	//ksort($arr_menu[$menutab_administration]);
-}
 
 // fixme anton - uncomment this if you want to know what are available in $core_config
 //print_r($core_config); die();
