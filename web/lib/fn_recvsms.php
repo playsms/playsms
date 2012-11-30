@@ -230,6 +230,10 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 	if ($sms_sender && $target_user && $message) {
 		$user = user_getdatabyusername($target_user);
 		if ($uid = $user['uid']) {
+			// get name from target_user's phonebook
+			$c_name = phonebook_number2name($sms_sender, $target_user);
+			$sender = $c_name ? $c_name.' <'.$sms_sender.'>' : $sms_sender;
+
 			// forward to Inbox
 			if ($fwd_to_inbox = $user['fwd_to_inbox']) {
 				$db_query = "
@@ -247,11 +251,6 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 				if ($email = $user['email']) {
 					// make sure sms_datetime is in supported format and in user's timezone
 					$sms_datetime = core_display_datetime($sms_datetime);
-
-					// get name from target_user's phonebook
-					$c_name = phonebook_number2name($sms_sender, $target_user);
-					$sender = $c_name ? $c_name.' <'.$sms_sender.'>' : $sms_sender;
-
 					$subject = "[SMSGW-PV] "._('from')." ".$sms_sender;
 					$body = _('Forward Private WebSMS')." ($web_title)\n\n";
 					$body .= _('Date time').": $sms_datetime\n";
@@ -277,10 +276,10 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 						}
 					}
 					$message = $sender.' '.$message;
-					logger_print("send to mobile:".$mobile." from:".$sender." user:".$target_user." message:".$message, 3, "insertsmstoinbox");
+					logger_print("send to mobile:".$mobile." from:".$sms_sender." user:".$target_user." message:".$message, 3, "insertsmstoinbox");
 					list($ok, $to, $smslog_id, $queue) = sendsms_pv($target_user, $mobile, $message, 'text', $unicode);
 					if ($ok[0]) {
-                                                logger_print("sent to mobile:".$mobile." from:".$sender." user:".$target_user, 2, "insertsmstoinbox");
+                                                logger_print("sent to mobile:".$mobile." from:".$sms_sender." user:".$target_user, 2, "insertsmstoinbox");
 					}
 				}
 			}
