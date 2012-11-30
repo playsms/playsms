@@ -2,8 +2,7 @@
 defined('_SECURE_') or die('Forbidden');
 
 function sendsms_getvalidnumber($number) {
-	$number_arr = explode(" ", $number);
-	$number = preg_replace("/[^0-9\+]/", "", $number_arr[0]);
+	$number = preg_replace("/[^0-9\+]/", "", $number);
 	if (strlen($number) > 20) {
 		$number = substr($number, 0, 20);
 	}
