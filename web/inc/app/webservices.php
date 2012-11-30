@@ -9,7 +9,7 @@ $p 	 = trim($_REQUEST['p']);
 $ta	 = trim(strtoupper($_REQUEST['ta']));
 $op	 = trim(strtoupper($_REQUEST['op']));
 
-// PV and BC specifics
+// send SMS specifics
 $to 	 = trim(strtoupper($_REQUEST['to']));
 $msg 	 = trim($_REQUEST['msg']);
 $type 	 = ( trim($_REQUEST['type']) ? trim($_REQUEST['type']) : 'text' );

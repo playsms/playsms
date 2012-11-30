@@ -123,20 +123,6 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 			list($ok,$to,$smslog_id,$queue) = sendsms_bc($c_username,$c_gpid,$message);
 			$ok = true;
 			break;
-		case "PV":
-			$c_feature = 'core';
-			$array_target_user = explode(" ",$message);
-			$target_user = strtoupper(trim($array_target_user[0]));
-			$c_uid = username2uid($target_user);
-			$message = $array_target_user[1];
-			for ($i=2;$i<count($array_target_user);$i++) {
-				$message .= " ".$array_target_user[$i];
-			}
-			logger_print("datetime:".$sms_datetime." sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user." message:".$message." raw:".$raw_message, 2, "setsmsincomingaction pv");
-			if (insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_receiver)) {
-				$ok = true;
-			}
-			break;
 		default:
 			for ($c=0;$c<count($core_config['featurelist']);$c++) {
 				$c_feature = $core_config['featurelist'][$c];
@@ -251,7 +237,7 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 				if ($email = $user['email']) {
 					// make sure sms_datetime is in supported format and in user's timezone
 					$sms_datetime = core_display_datetime($sms_datetime);
-					$subject = "[SMSGW-PV] "._('from')." ".$sms_sender;
+					$subject = _('Forward from')." ".$sms_sender;
 					$body = _('Forward Private WebSMS')." ($web_title)\n\n";
 					$body .= _('Date time').": $sms_datetime\n";
 					$body .= _('Sender').": $sender\n";

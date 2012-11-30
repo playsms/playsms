@@ -141,9 +141,9 @@ switch ($op) {
 			<tr><td width=200>" . _('SMS sender ID') . "</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"$sender\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td></tr>
 			<tr><td width=200>" . _('SMS footer') . "</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_footer value=\"$footer\"> (" . _('Max. 30 alphanumeric characters') . ")</td></tr>
 			<tr><td width=200>" . _('Credit') . "</td><td>:</td><td><b>$credit</b></td></tr>
-			<tr><td width=200>" . _('Forward PV to inbox') . "</td><td>:</td><td><select name='up_fwd_to_inbox'>" . $option_fwd_to_inbox . "</select></td></tr>
-			<tr><td width=200>" . _('Forward PV to email') . "</td><td>:</td><td><select name='up_fwd_to_email'>" . $option_fwd_to_email . "</select></td></tr>
-			<tr><td width=200>" . _('Forward PV to mobile') . "</td><td>:</td><td><select name='up_fwd_to_mobile'>" . $option_fwd_to_mobile . "</select></td></tr>
+			<tr><td width=200>" . _('Forward SMS to inbox') . "</td><td>:</td><td><select name='up_fwd_to_inbox'>" . $option_fwd_to_inbox . "</select></td></tr>
+			<tr><td width=200>" . _('Forward SMS to email') . "</td><td>:</td><td><select name='up_fwd_to_email'>" . $option_fwd_to_email . "</select></td></tr>
+			<tr><td width=200>" . _('Forward SMS to mobile') . "</td><td>:</td><td><select name='up_fwd_to_mobile'>" . $option_fwd_to_mobile . "</select></td></tr>
 			<tr><td width=200>" . _('Auto replace prefix 0') . "</td><td>:</td><td><input type=text size=5 maxlength=5 name='up_replace_zero' value=\"$replace_zero\"> (" . _('Prefix or country code') . ")</td></tr>
 			<tr><td width=200>" . _('Auto remove plus sign') . "</td><td>:</td><td><select name='up_plus_sign_remove'>" . $option_plus_sign_remove . "</select></td></tr>
 			<tr><td width=200>" . _('Always add plus sign') . "</td><td>:</td><td><select name='up_plus_sign_add'>" . $option_plus_sign_add . "</select></td></tr>

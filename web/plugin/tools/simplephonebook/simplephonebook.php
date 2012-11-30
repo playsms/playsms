@@ -57,7 +57,6 @@ while ($db_row = dba_fetch_array($db_result))
 	    <tr>
 		<td width=4 class=$td_class>&nbsp;$i.&nbsp;</td>
 		<td class=$td_class width=35%>&nbsp;".$db_row1['p_desc']."</td>
-		<td class=$td_class width=25%>&nbsp;<!-- <a href=\"javascript: PopupSendSms('PV','".$db_row1['p_num']."')\"> --> ".$db_row1['p_num']." <!-- </a> --></td>
 		<td class=$td_class width=40%>&nbsp;".$db_row1['p_email']."</td>
 		<td class=$td_class width=4>
 		    <input type=hidden name=pid".$i." value=\"".$db_row1['pid']."\">
@@ -128,7 +127,6 @@ while ($db_row = dba_fetch_array($db_result)) {
 				<tr>
 					<td class=$td_class width=4>&nbsp;$i.&nbsp;</td>
 					<td class=$td_class width=35%>&nbsp;".$db_row1['p_desc']."</td>
-					<td class=$td_class width=25%>&nbsp;<!-- <a href=\"javascript: PopupSendSms('PV','".$db_row1['p_num']."')\"> --> ".$db_row1['p_num']." <!-- </a> --></td>
 					<td class=$td_class width=40%>&nbsp;".$db_row1['p_email']."</td>
 				</tr>";
 		}

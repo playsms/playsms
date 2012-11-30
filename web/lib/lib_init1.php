@@ -29,7 +29,7 @@ if (valid()) {
 }
 
 // reserved important keywords
-$reserved_keywords = array ("PV","BC");
+$reserved_keywords = array ("BC");
 $core_config['reserved_keywords'] = $reserved_keywords;
 
 // action icon
