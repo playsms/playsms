@@ -24,6 +24,7 @@ function nexmo_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gp
 	
 	if ($sms_sender && $sms_to && $sms_msg) {
 
+		$unicode = "";
 		if ($unicode) {
 			if (function_exists('mb_convert_encoding')) {
 				// $sms_msg = mb_convert_encoding($sms_msg, "UCS-2BE", "auto");
