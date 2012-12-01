@@ -6,7 +6,7 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
 	$arr_to = explode(',', $to);
 	if ($c_username && $arr_to[1] && $msg) {
 		// multiple destination
-		list($ok,$to,$smslog_id,$queue) = sendsms_pv($c_username,$arr_to,$msg,$type,$unicode);
+		list($ok,$to,$smslog_id,$queue) = sendsms($c_username,$arr_to,$msg,$type,$unicode);
 		for ($i=0;$i<count($arr_to);$i++) {
 			if ($ok[$i] && $to[$i] && $smslog_id[$i]) {
 				$ret .= "OK ".$to[$i].",".$smslog_id[$i].",".$queue[$i]."\n";
@@ -16,7 +16,7 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
 		}
 	} elseif ($c_username && $to && $msg) {
 		// single destination
-		list($ok,$to,$smslog_id,$queue) = sendsms_pv($c_username,$to,$msg,$type,$unicode);
+		list($ok,$to,$smslog_id,$queue) = sendsms($c_username,$to,$msg,$type,$unicode);
 		if ($ok[0]) {
 			$ret = "OK ".$smslog_id[0].",".$queue[0];
 		} else {

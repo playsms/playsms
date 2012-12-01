@@ -80,7 +80,7 @@ function sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$comm
 					$unicode = 1;
 				}
 			}
-			sendsms_pv($username, $sms_sender, $command_output, 'text', $unicode);
+			sendsms($username, $sms_sender, $command_output, 'text', $unicode);
 		}
 		$ok = true;
 	}

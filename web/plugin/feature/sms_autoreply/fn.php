@@ -86,7 +86,7 @@ function sms_autoreply_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$au
 				$unicode = 1;
 			}
 		}
-		list($ok, $to, $smslog_id, $queue) = sendsms_pv($c_username, $sms_sender, $autoreply_scenario_result, 'text', $unicode);
+		list($ok, $to, $smslog_id, $queue) = sendsms($c_username, $sms_sender, $autoreply_scenario_result, 'text', $unicode);
 		$ok = $ok[0];
 	}
 	return $ok;

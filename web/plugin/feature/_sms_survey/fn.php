@@ -35,7 +35,7 @@ function sms_survey_hook_playsmsd() {
 						$type = 'text';
 						// $unicode = '0';
 						// send message to member
-						// list($ok,$to,$smslog_id,$queue) = sendsms_pv($c_username,$c_sms_to,$c_sms_msg,$type,$unicode);
+						// list($ok,$to,$smslog_id,$queue) = sendsms($c_username,$c_sms_to,$c_sms_msg,$type,$unicode);
 						$unicode = 0;
 						if (function_exists('mb_detect_encoding')) {
 							$encoding = mb_detect_encoding($message, 'auto');
@@ -43,7 +43,7 @@ function sms_survey_hook_playsmsd() {
 								$unicode = 1;
 							}
 						}
-						list($ok, $to, $smslog_id, $queue) = sendsms_pv($c_username, $c_sms_to, $c_sms_msg, 'text', $unicode);
+						list($ok, $to, $smslog_id, $queue) = sendsms($c_username, $c_sms_to, $c_sms_msg, 'text', $unicode);
 						$ok[0] = $ok[0] ? "true" : "false" ;
 						logger_print("playsmsd send finish sid:".$c_sid." smslog_id:".$smslog_id[0]." ok:".$ok[0], 2, "sms_survey");
 						// save the log
@@ -162,7 +162,7 @@ function sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $s
 						$type = 'text';
 						$unicode = '0';
 						// send next question to member
-						list($ok,$to,$smslog_id,$queue) = sendsms_pv($c_username,$c_sms_to,$c_sms_msg,$type,$unicode);
+						list($ok,$to,$smslog_id,$queue) = sendsms($c_username,$c_sms_to,$c_sms_msg,$type,$unicode);
 						$ok[0] = $ok[0] ? "true" : "false" ;
 						logger_print("playsmsd send finish sid:".$c_sid." smslog_id:".$smslog_id[0]." ok:".$ok[0], 2, "sms_survey");
 						// save the log

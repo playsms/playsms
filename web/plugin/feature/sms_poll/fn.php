@@ -76,11 +76,11 @@ function sms_poll_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$poll_ke
 					VALUES ('$poll_id','$choice_id','$sms_sender','$datetime_now')";
 				dba_query($db_query);
 				//Instead of 'admin' the sender could be the user that creates the poll!
-				list($ok, $to, $smslog_id) = sendsms_pv('admin', $sms_sender, $poll_msg_valid, 'text', $unicode);
+				list($ok, $to, $smslog_id) = sendsms('admin', $sms_sender, $poll_msg_valid, 'text', $unicode);
 			}
 			$ok = true;
 		} else {
-			list($ok, $to, $smslog_id) = sendsms_pv('admin', $sms_sender, $poll_msg_invalid, 'text', $unicode);	
+			list($ok, $to, $smslog_id) = sendsms('admin', $sms_sender, $poll_msg_invalid, 'text', $unicode);	
 		}
 	}
 	return $ok;

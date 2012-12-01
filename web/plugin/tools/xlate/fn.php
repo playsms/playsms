@@ -60,9 +60,9 @@ function xlate_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $
 					}
 					// send reply SMS using admin account
 					// should add a web menu in xlate.php to choose which account will be used to send reply SMS
-					// usualy we inspect the result of sendsms_pv, but not this time
+					// usualy we inspect the result of sendsms, but not this time
 					logger_print("send reply encoding:".$encoding, 2, "xlate");
-					list($ok, $to, $smslog_id, $queue) = sendsms_pv('admin', $sms_sender, $reply, 'text', $unicode);
+					list($ok, $to, $smslog_id, $queue) = sendsms('admin', $sms_sender, $reply, 'text', $unicode);
 					// do not forget to tell parent that this SMS has been hooked
 					$ret['hooked'] = true;
 				} else {

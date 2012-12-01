@@ -139,7 +139,7 @@ function sendsmsd($single_queue='') {
 			$c_flag = 2;
 			$c_ok = false;
 			logger_print("sending queue_code:".$c_queue_code." to:".$c_dst, 2, "sendsmsd");
-			$ret = sendsms($c_sender_id,$c_footer,$c_dst,$c_message,$c_uid,$c_gpid,$c_sms_type,$c_unicode);
+			$ret = sendsms_process($c_sender_id,$c_footer,$c_dst,$c_message,$c_uid,$c_gpid,$c_sms_type,$c_unicode);
 			if ($ret['status'] && $ret['smslog_id']) {
 				$c_ok = true;
 				$c_smslog_id = $ret['smslog_id'];
@@ -163,7 +163,7 @@ function sendsmsd($single_queue='') {
 	return array($ok, $to, $smslog_id, $queue);
 }
 
-function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0) {
+function sendsms_process($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0) {
 	global $core_config, $gateway_module;
 
 	$user = $core_config['user'];
@@ -250,7 +250,7 @@ function sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type
 	return $ret;
 }
 
-function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
+function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 	global $apps_path, $core_config, $gateway_module;
 
 	$user = $core_config['user'];
@@ -273,7 +273,7 @@ function sendsms_pv($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 	$queue_code = sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,0,$sms_type,$unicode);
 	if (! $queue_code) {
 		// when unable to create a queue then immediately returns FALSE, no point to continue
-		logger_print("fail to finalize queue creation, exit immediately", 2, "sendsms_pv");
+		logger_print("fail to finalize queue creation, exit immediately", 2, "sendsms");
 		return FALSE;
 	}
 

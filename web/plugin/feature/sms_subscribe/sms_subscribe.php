@@ -242,7 +242,7 @@ switch ($op) {
 				$sms_to = $db_row['member_number'];
 
 				for ($i = 0; $i < count($sms_to); $i++) {
-					//list($ok,$to,$smslog_id,$queue) = sendsms_pv($username, $sms_to, $message);
+					//list($ok,$to,$smslog_id,$queue) = sendsms($username, $sms_to, $message);
 					//$ok = $ok[0];
 					$unicode = 0;
 					if (function_exists('mb_detect_encoding')) {
@@ -251,7 +251,7 @@ switch ($op) {
 							$unicode = 1;
 						}
 					}
-					list($ok, $to, $smslog_id, $queue) = sendsms_pv($username, $sms_to, $message, 'text', $unicode);
+					list($ok, $to, $smslog_id, $queue) = sendsms($username, $sms_to, $message, 'text', $unicode);
 					if ($ok[0]) {
 						$_SESSION['error_string'] .= _('Your SMS has been delivered to queue')." ("._('to').": ".$sms_to.")<br>";
 					} else {

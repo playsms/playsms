@@ -129,7 +129,7 @@ switch ($op) {
 			if ($msg_unicode == "on") {
 				$unicode = "1";
 			}
-			list($ok,$to,$smslog_id,$queue) = sendsms_pv($username,$sms_to,$message,$sms_type,$unicode);
+			list($ok,$to,$smslog_id,$queue) = sendsms($username,$sms_to,$message,$sms_type,$unicode);
 			if (count($ok) <= 5) {
 				for ($i=0;$i<count($ok);$i++) {
 					if ($ok[$i]) {

@@ -68,7 +68,7 @@ function sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $qui
 		$answer = strtoupper($quiz_param);
 		$db_query = "INSERT INTO " . _DB_PREF_ . "_featureQuiz_log (quiz_id,quiz_answer,quiz_sender,in_datetime) VALUES ('$quiz_id','$answer','$sms_to','$datetime_now')";
 		if ($logged = @dba_insert_id($db_query)) {
-			//list($ok,$to,$smslog_id,$queue) = sendsms_pv($username, $sms_to, $message);
+			//list($ok,$to,$smslog_id,$queue) = sendsms($username, $sms_to, $message);
 			$unicode = 0;
 			if (function_exists('mb_detect_encoding')) {
 				$encoding = mb_detect_encoding($message, 'auto');
@@ -76,7 +76,7 @@ function sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $qui
 					$unicode = 1;
 				}
 			}
-			list($ok, $to, $smslog_id, $queue) = sendsms_pv($username, $sms_to, $message, 'text', $unicode);
+			list($ok, $to, $smslog_id, $queue) = sendsms($username, $sms_to, $message, 'text', $unicode);
                         $ok = $ok[0];
 		}
 	} else if ($db_row['quiz_keyword'] == $quiz_keyword) {

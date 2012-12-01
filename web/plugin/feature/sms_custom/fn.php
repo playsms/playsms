@@ -79,7 +79,7 @@ function sms_custom_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$custo
 					$unicode = 1;
 				}
 			}
-			sendsms_pv($username, $sms_sender, $returns, 'text', $unicode);
+			sendsms($username, $sms_sender, $returns, 'text', $unicode);
 		}
 		$ok = true;
 	}

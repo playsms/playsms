@@ -60,7 +60,7 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver,
 	if ($db_row = dba_fetch_array($db_result)) {
 		if (! $db_row['subscribe_enable']) {
 			$message = _('Subscribe service inactive');
-			//list($ok,$to,$smslog_id,$queue) = sendsms_pv($username, $sms_to, $message);
+			//list($ok,$to,$smslog_id,$queue) = sendsms($username, $sms_to, $message);
 			//$ok = $ok[0];
 			$unicode = 0;
 			if (function_exists('mb_detect_encoding')) {
@@ -69,7 +69,7 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver,
 					$unicode = 1;
 				}
 			}
-			list($ok, $to, $smslog_id, $queue) = sendsms_pv($username, $sms_to, $message, 'text', $unicode);
+			list($ok, $to, $smslog_id, $queue) = sendsms($username, $sms_to, $message, 'text', $unicode);
 			return $ok[0];
 		}
 	}
@@ -110,7 +110,7 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver,
 				}
 			}
 			logger_print('BC sender:'.$sms_sender.' keyword:'.$subscribe_keyword.' count:'.count($bc_to).' m:'.$message, 3, "sms_subscribe");
-			list($ok, $to, $smslog_id, $queue) = sendsms_pv($username, $bc_to, $message, 'text', $unicode);
+			list($ok, $to, $smslog_id, $queue) = sendsms($username, $bc_to, $message, 'text', $unicode);
 			return true;
 		} else {
 		    return false;
@@ -191,7 +191,7 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver,
 					break;
 			}
 		}
-		list($ok,$to,$smslog_id,$queue) = sendsms_pv($username, $sms_to, $message);
+		list($ok,$to,$smslog_id,$queue) = sendsms($username, $sms_to, $message);
 		$ok = $ok[0];
 	} else {
 		$ok = false;
