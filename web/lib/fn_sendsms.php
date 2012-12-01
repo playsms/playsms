@@ -280,10 +280,11 @@ function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 	if (is_array($sms_to)) {
 		$array_sms_to = $sms_to;
 	} else {
-		$array_sms_to[0] = $sms_to;
+		$array_sms_to = explode(',', $sms_to);
 	}
 
 	for ($i=0;$i<count($array_sms_to);$i++) {
+		$array_sms_to[$i] = trim($array_sms_to[$i]);
 		if (substr($array_sms_to[$i], 0, 5) == 'gpid_') {
 			$c_gpid = substr($array_sms_to[$i], 5);
 			$rows = phonebook_getdatabyid($c_gpid);
