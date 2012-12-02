@@ -112,11 +112,7 @@ switch ($op) {
 		echo $content;
 		break;
 	case "sendsmstopv_yes":
-		$p_num = $_POST['p_num'];
-		if (!$p_num[0]) {
-			$p_num = explode(",", $_POST['p_num_text']);
-		}
-		$sms_to = $p_num;
+		$sms_to = $_POST['p_num'];
 		$msg_flash = $_POST['msg_flash'];
 		$msg_unicode = $_POST['msg_unicode'];
 		$message = $_POST['message'];

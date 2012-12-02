@@ -283,23 +283,24 @@ function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 		$array_sms_to = explode(',', $sms_to);
 	}
 
+	$all_sms_to = array();
 	for ($i=0;$i<count($array_sms_to);$i++) {
-		$array_sms_to[$i] = trim($array_sms_to[$i]);
-		if (substr($array_sms_to[$i], 0, 5) == 'gpid_') {
-			$c_gpid = substr($array_sms_to[$i], 5);
-			$rows = phonebook_getdatabyid($c_gpid);
+		if (substr(trim($array_sms_to[$i]), 0, 5) == 'gpid_') {
+			$c_gpid = substr(trim($array_sms_to[$i]), 5);
+			$rows = phonebook_getdatabyid(trim($c_gpid));
 			foreach ($rows as $key => $db_row) {
-				$all_sms_to[] = $db_row['p_num'];
+				$all_sms_to[] = sendsms_getvalidnumber(trim($db_row['p_num']));
 			}
 		} else {
-			$all_sms_to[] = $array_sms_to[$i];
+			$all_sms_to[] = sendsms_getvalidnumber(trim($array_sms_to[$i]));
 		}
 	}
+
 	// remove double entries
 	$all_sms_to = array_unique($all_sms_to);
 
 	for ($i=0;$i<count($all_sms_to);$i++) {
-		$c_sms_to = sendsms_getvalidnumber($all_sms_to[$i]);
+		$c_sms_to = $all_sms_to[$i];
 		$ok[$i] = sendsms_queue_push($queue_code,$c_sms_to);
 		$to[$i] = $c_sms_to;
 		$smslog_id[$i] = 0;
@@ -342,7 +343,7 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 	if (is_array($gpid)) {
 		$array_gpid = $gpid;
 	} else {
-		$array_gpid[0] = $gpid;
+		$array_gpid = explode(',', $gpid);
 	}
 
 	// create a queue
@@ -355,7 +356,7 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 
 	$j=0;
 	for ($i=0;$i<count($array_gpid);$i++) {
-		$c_gpid = strtoupper($array_gpid[$i]);
+		$c_gpid = strtoupper(trim($array_gpid[$i]));
 		$rows = phonebook_getdatabyid($c_gpid);
 		foreach ($rows as $key => $db_row) {
 			$p_num = $db_row['p_num'];
