@@ -18,6 +18,12 @@ defined('_SECURE_') or die('Forbidden');
 function pvat_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $sms_receiver) {
 	$ret = array();
 
+	// continue only when keyword does not exists
+	$m = explode(' ', $message);
+	if (! checkavailablekeyword($m[0])) {
+		return $ret;
+	}
+
 	// check for reply message
 	$c_sms_sender = str_replace('+','',$sms_sender);
 	if (strlen($c_sms_sender) > 7) { $c_sms_sender = substr($c_sms_sender,3); }
