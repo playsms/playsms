@@ -112,11 +112,11 @@ switch ($op) {
 		echo $content;
 		break;
 	case "sendsmstopv_yes":
-		$sms_to = $_POST['p_num'];
+		$sms_to = ( trim($_POST['p_num'][0]) ? $_POST['p_num'] : $_POST['p_num_text'] );
 		$msg_flash = $_POST['msg_flash'];
 		$msg_unicode = $_POST['msg_unicode'];
 		$message = $_POST['message'];
-		if ($sms_to[0] && $message) {
+		if ($sms_to && $message) {
 			$sms_type = "text";
 			if ($msg_flash == "on") {
 				$sms_type = "flash";
