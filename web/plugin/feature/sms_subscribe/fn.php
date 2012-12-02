@@ -228,12 +228,15 @@ function sms_subscribe_hook_interceptincomingsms($sms_datetime, $sms_sender, $me
 	$message = trim($message);
 	$hooked = false;
 	if ($bc == 'BC') {
-		$c_uid = mobile2uid($sms_sender);
-		$c_username = uid2username($c_uid);
-		if ($c_uid && $c_username) {
-			$sms_datetime = core_display_datetime($sms_datetime);
-			logger_print("dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." uid:".$c_uid." username:".$c_username." bc:".$bc." keyword:".$keyword." message:".$message, 3, "sms_subscribe");
-			$hooked = true;
+		// if not available then the keyword is exists
+		if (! sms_subscribe_hook_checkavailablekeyword($keyword)) {
+			$c_uid = mobile2uid($sms_sender);
+			$c_username = uid2username($c_uid);
+			if ($c_uid && $c_username) {
+				$sms_datetime = core_display_datetime($sms_datetime);
+				logger_print("dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." uid:".$c_uid." username:".$c_username." bc:".$bc." keyword:".$keyword." message:".$message, 3, "sms_subscribe");
+				$hooked = true;
+			}
 		}
 	}
 	$ret = array();
