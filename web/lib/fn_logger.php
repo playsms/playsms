@@ -1,10 +1,11 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
-function logger_print($log,$level=1,$label="default") {
+function logger_print($log, $level, $label) {
 	global $core_config;
 	$logfile = ( $core_config['main']['logfile'] ? $core_config['main']['logfile'] : 'playsms.log' );
-	if (logger_get_level() >= (int)$level) {
+	$level = (int) $level;
+	if (logger_get_level() >= $level) {
 		$type = 'L'.$level;
 		$fn = $core_config['apps_path']['logs'].'/'.$logfile;
 		if ($fd = fopen($fn, 'a+')) {
