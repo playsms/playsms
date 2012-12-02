@@ -138,7 +138,7 @@ function gammu_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gp
 	}
 	*/
 	$fn = $gammu_param['path']."/outbox/OUT".$sms_id;
-	logger_print("outfile:".$fn, 2, "gammu outgoing");
+	logger_print("saving outfile:".$fn, 2, "gammu outgoing");
 	umask(0);
 	$fd = @fopen($fn, "w+");
 	@fputs($fd, $sms_msg);
@@ -147,10 +147,10 @@ function gammu_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gp
 	if (file_exists($fn)) {
 		$ok = true;
 		$p_status = 0;
-		logger_print("outfile:".$fn." saved", 2, "gammu outgoing");
+		logger_print("saved outfile:".$fn, 2, "gammu outgoing");
 	} else {
 		$p_status = 2;
-		logger_print("cannot save outfile:".$fn, 2, "gammu outgoing");
+		logger_print("fail to save outfile:".$fn, 2, "gammu outgoing");
 	}
 	setsmsdeliverystatus($smslog_id,$uid,$p_status);
 	return $ok;

@@ -208,15 +208,15 @@ function smstools_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',
 		@fclose($fd);
 	}
 
-	logger_print("outfile:".$fn, 2, "smstools outgoing");
+	logger_print("saving outfile:".$fn, 2, "smstools outgoing");
 	$ok = false;
 	if (file_exists($fn)) {
 		$ok = true;
 		$p_status = 0;
-		logger_print("outfile:".$fn." saved", 2, "smstools outgoing");
+		logger_print("saved outfile:".$fn, 2, "smstools outgoing");
 	} else {
 		$p_status = 2;
-		logger_print("cannot save outfile:".$fn, 2, "smstools outgoing");
+		logger_print("fail to save outfile:".$fn, 2, "smstools outgoing");
 	}
 	setsmsdeliverystatus($smslog_id,$uid,$p_status);
 	return $ok;

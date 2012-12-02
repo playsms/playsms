@@ -94,7 +94,7 @@ function gnokii_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	$sms_msg = str_replace("\r", " ", $sms_msg);
 	$the_msg = "$sms_to\n$sms_msg";
 	$fn = $gnokii_param['path']."/out.$sms_id";
-	logger_print("outfile:".$fn, 2, "gnokii outgoing");
+	logger_print("saving outfile:".$fn, 2, "gnokii outgoing");
 	umask(0);
 	$fd = @fopen($fn, "w+");
 	@fputs($fd, $the_msg);
@@ -103,10 +103,10 @@ function gnokii_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	if (file_exists($fn)) {
 		$ok = true;
 		$p_status = 0;
-		logger_print("outfile:".$fn." saved", 2, "gnokii outgoing");
+		logger_print("saved outfile:".$fn, 2, "gnokii outgoing");
 	} else {
 		$p_status = 2;
-		logger_print("cannot save outfile:".$fn, 2, "gnokii outgoing");
+		logger_print("fail to save outfile:".$fn, 2, "gnokii outgoing");
 	}
 	setsmsdeliverystatus($smslog_id,$uid,$p_status);
 	return $ok;

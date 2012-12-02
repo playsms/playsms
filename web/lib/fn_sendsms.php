@@ -83,12 +83,12 @@ function sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$gpid=0,$sms
 	global $core_config;
 	$ret = FALSE;
 	$queue_code = md5(mktime().$uid.$sms_msg);
-	logger_print("saving:$queue_code,".$core_config['datetime']['now'].",$uid,$gpid,$sms_sender,$sms_footer,$sms_type,$unicode message:".$sms_msg, 3, "sendsms_queue_create");
+	logger_print("saving queue_code:".$queue_code." src:".$sms_sender, 2, "sendsms_queue_create");
 	$db_query = "INSERT INTO "._DB_PREF_."_tblSMSOutgoing_queue ";
 	$db_query .= "(queue_code,datetime_entry,datetime_scheduled,uid,gpid,sender_id,footer,message,sms_type,unicode) ";
 	$db_query .= "VALUES ('$queue_code','".$core_config['datetime']['now']."','".$core_config['datetime']['now']."','$uid','$gpid','$sms_sender','$sms_footer','$sms_msg','$sms_type','$unicode')";
 	if ($id = @dba_insert_id($db_query)) {
-		logger_print("id:".$id." queue_code:".$queue_code." saved", 2, "sendsms_queue_create");
+		logger_print("saved queue_code:".$queue_code." id:".$id , 2, "sendsms_queue_create");
 		$ret = $queue_code;
 	}
 	return $ret;
@@ -102,9 +102,9 @@ function sendsms_queue_push($queue_code,$sms_to) {
 	$queue_id = $db_row['id'];
 	if ($queue_id) {
 		$db_query = "INSERT INTO "._DB_PREF_."_tblSMSOutgoing_queue_dst (queue_id,dst) VALUES ('$queue_id','$sms_to')";
-		logger_print("saving:$queue_code,$sms_to", 2, "sendsms_queue_push");
+		logger_print("saving queue_code:".$queue_code." dst:".$sms_to, 2, "sendsms_queue_push");
 		if ($id = @dba_insert_id($db_query)) {
-			logger_print("id:".$id." queue_code:".$queue_code." dst:".$sms_to." saved", 2, "sendsms_queue_push");
+			logger_print("saved queue_code:".$queue_code." id:".$id, 2, "sendsms_queue_push");
 			$ok = true;
 		}
 	}
@@ -224,10 +224,10 @@ function sendsms_process($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$
 		(uid,p_gpid,p_gateway,p_src,p_dst,p_footer,p_msg,p_datetime,p_status,p_sms_type,unicode) 
 		VALUES ('$uid','$gpid','$gateway_module','$sms_sender','$sms_to','$sms_footer','$sms_msg','$sms_datetime','$p_status','$sms_type','$unicode')
 	";
-	logger_print("saving:$uid,$gpid,$gateway_module,$sms_sender,$sms_to,$sms_type,$unicode,$p_status", 2, "sendsms");
+	logger_print("saving u:".$uid." g:".$gpid." gw:".$gateway_module." s:".$sms_sender." d:".$sms_to." type:".$sms_type." unicode:".$unicode." status:".$p_status, 2, "sendsms");
 	// continue to gateway only when save to db is true
 	if ($smslog_id = @dba_insert_id($db_query)) {
-		logger_print("smslog_id:".$smslog_id." saved", 2, "sendsms");
+		logger_print("saved smslog_id:".$smslog_id, 2, "sendsms");
 		// if pending (p_status=0) then continue, if failed (p_status=2) print log
 		if ($p_status == 0) {
 			logger_print("final message:".$sms_msg.$sms_footer." len:".strlen($sms_msg.$sms_footer), 3, "sendsms");
