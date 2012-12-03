@@ -24,6 +24,29 @@ function user_getall($fields='', $extras='') {
 	return $ret;
 }
 
+function user_count($fields='', $extras='') {
+	$ret = 0;
+	if (is_array($fields)) {
+		foreach ($fields as $key => $val) {
+			$q_condition .= "AND ".$key."='".$val."' ";
+		}
+		if ($q_condition) {
+			$q_condition = "WHERE ".substr($q_condition, 3);
+		}
+	}
+	if (is_array($extras)) {
+		foreach ($extras as $key => $val) {
+			$q_extra .= $key." ".$val." ";
+		}
+	}
+	$db_query = "SELECT count(*) AS count FROM "._DB_PREF_."_tblUser ".$q_condition." ".$q_extra;
+	$db_result = dba_query($db_query);
+	if ($db_row = dba_fetch_array($db_result)) {
+		$ret = $db_row['count'];
+	}
+	return $ret;
+}
+
 function user_add($item) {
 	$ret = false;
 	if (is_array($item)) {

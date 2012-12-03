@@ -2,15 +2,34 @@
 defined('_SECURE_') or die('Forbidden');
 if(!isadmin()){forcenoaccess();};
 
+if(!$page){$page = 1;}
+if(!$nav){$nav = 1;}
+$line_per_page = 50;
+$max_nav = 15;
+
 switch ($op) {
 	case "user_list":
+		$referrer = ( $_SESSION['referrer'] ? $_SESSION['referrer'] : 'user_list_tab1' );
+		header("Location: index.php?app=menu&inc=user_mgmnt&op=".$referrer);
+		break;
+	case "user_list_tab1":
+		$fields = array('status' => 2);
+		$count = user_count($fields);
+		$pages = ceil($count/$line_per_page);
+		$limit = ($page-1)*$line_per_page;
+		$nav_pages = themes_navbar($pages, $nav, $max_nav, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab1", $page);
+		$_SESSION['referrer'] = 'user_list_tab1';
 		if ($err = $_SESSION['error_string']) {
 			$content = "<p><font color='red'>$err</font><p>";
 		}
 		$content .= "
 			<h2>" . _('Manage user') . "</h2>
 			<p>
+		";
+		$content .= "
 			<input type='button' value='" . _('Add user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
+			<input type='button' value='" . _('View normal user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab2')\" class=\"button\" />
+			<p>".$nav_pages."</p>
 			<p>" . _('Status') . ": <b>" . _('Administrator') . "</b><br>
 			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
 			<tr>
@@ -23,12 +42,12 @@ switch ($op) {
 				<td class='box_title' width='75'>" . _('Credit') . "</td>
 				<td class='box_title' class='sortable_nosort' width='75'>" . _('Action') . "</td>
 			</tr>";
-		$j = 0;
+		$j = ($count-($line_per_page*($page-1)))+1;
 		$fields = array('status' => 2);
-		$extras = array('ORDER BY' => 'register_datetime DESC, username');
+		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $line_per_page, 'OFFSET' => $limit);
 		$list = user_getall($fields, $extras);
 		for ($i=0;$i<count($list);$i++) {
-			$j++;
+			$j--;
 			$td_class = ($j % 2) ? "box_text_odd" : "box_text_even";
 			$action = "<a href=index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=" . $list[$i]['username'] . ">$icon_edit</a>";
 			$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $list[$i]['username'] . ")','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">$icon_delete</a>";
@@ -44,8 +63,30 @@ switch ($op) {
 					<td class='$td_class' align='center'>$action</td>
 				</tr>";
 		}
-		$content .= "</table>";
-		$content .= "<p>" . _('Status') . ": <b>" . _('Normal user') . "</b><br>
+		$content .= "
+			</table>
+			<p>".$nav_pages."</p>";
+		echo $content;
+		break;
+	case "user_list_tab2":
+		$fields = array('status' => 3);
+		$count = user_count($fields);
+		$pages = ceil($count/$line_per_page);
+		$limit = ($page-1)*$line_per_page;
+		$nav_pages = themes_navbar($pages, $nav, $max_nav, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab2", $page);
+		$_SESSION['referrer'] = 'user_list_tab2';
+		if ($err = $_SESSION['error_string']) {
+			$content = "<p><font color='red'>$err</font><p>";
+		}
+		$content .= "
+			<h2>" . _('Manage user') . "</h2>
+			<p>
+		";
+		$content .= "
+			<input type='button' value='" . _('Add user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
+			<input type='button' value='" . _('View administrator') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab1')\" class=\"button\" />
+			<p>".$nav_pages."</p>
+			<p>" . _('Status') . ": <b>" . _('Normal user') . "</b><br>
 			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
 			<tr>
 				<td class='box_title' width='25'>*</td>
@@ -57,13 +98,13 @@ switch ($op) {
 				<td class='box_title' width='75'>" . _('Credit') . "</td>
 				<td class='box_title' class='sortable_nosort' width='75'>" . _('Action') . "</td>
 			</tr>";
-		$j = 0;
+		$j = ($count-($line_per_page*($page-1)))+1;
 		$fields = array('status' => 3);
-		$extras = array('ORDER BY' => 'register_datetime DESC, username');
+		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $line_per_page, 'OFFSET' => $limit);
 		$list = user_getall($fields, $extras);
 		for ($i=0;$i<count($list);$i++) {
 			$list[$i] = core_display_data($list[$i]);
-			$j++;
+			$j--;
 			$td_class = ($j % 2) ? "box_text_odd" : "box_text_even";
 			$action = "<a href=index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=" . $list[$i]['username'] . ">$icon_edit</a>";
 			$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user') . " " . $list[$i]['username'] . " ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">$icon_delete</a>";
@@ -79,9 +120,10 @@ switch ($op) {
 					<td class='$td_class' align='center'>$action</td>
 				</tr>";
 		}
-		$content .= "</table>";
+		$content .= "
+			</table>
+			<p>".$nav_pages."</p>";
 		echo $content;
-		echo "<p><input type=button value='" . _('Add user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" /></p>";
 		break;
 	case "user_del":
 		$uname = $_REQUEST['uname'];
@@ -98,7 +140,8 @@ switch ($op) {
 		} else if ($del_uid == $uid) {
 			$_SESSION['error_string'] = _('Currently logged in user is immune to deletion');
 		}
-		header("Location: index.php?app=menu&inc=user_mgmnt&op=user_list");
+		$referrer = ( $_SESSION['referrer'] ? $_SESSION['referrer'] : 'user_list_tab1' );
+		header("Location: index.php?app=menu&inc=user_mgmnt&op=".$referrer);
 		exit();
 		break;
 	case "user_edit":
