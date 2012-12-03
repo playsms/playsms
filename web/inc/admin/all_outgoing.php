@@ -7,24 +7,14 @@ $slid = $_REQUEST['slid'];
 switch ($op)
 {
 	case "all_outgoing":
-		if(!$page){$page = 1;}
-		if(!$nav){$nav = 1;}
-
-		$line_per_page = 50;
-		$max_nav = 15;
-
 		$db_query = "SELECT count(*) as count FROM "._DB_PREF_."_tblSMSOutgoing WHERE flag_deleted='0'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$num_rows = $db_row['count'];
-
-		$pages = ceil($num_rows/$line_per_page);
-		$nav_pages = themes_navbar($pages, $nav, $max_nav, "index.php?app=menu&inc=all_outgoing&op=all_outgoing", $page);
-		$limit = ($page-1)*$line_per_page;
+		$nav = themes_nav($db_row['count'], "index.php?app=menu&inc=all_outgoing&op=all_outgoing");
 
 		$content = "
 	    <h2>"._('All outgoing SMS')."</h2>
-	    <p>$nav_pages</p>
+	    <p>".$nav['form']."</p>
 	    <form name=\"fm_outgoing\" action=\"index.php?app=menu&inc=all_outgoing&op=act_del\" method=post onSubmit=\"return SureConfirm()\">
 	    <table width=100% cellpadding=1 cellspacing=2 border=0 class=\"sortable\">
         <thead>
@@ -41,9 +31,9 @@ switch ($op)
         </thead>
         <tbody>
 	";
-		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE flag_deleted='0' ORDER BY smslog_id DESC LIMIT $line_per_page OFFSET $limit";
+		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE flag_deleted='0' ORDER BY smslog_id DESC LIMIT ".$nav['limit']." OFFSET ".$nav['offset'];
 		$db_result = dba_query($db_query);
-		$i = ($num_rows-($line_per_page*($page-1)))+1;
+		$i = $nav['top'];
 		$j=0;
 		while ($db_row = dba_fetch_array($db_result))
 		{
@@ -134,7 +124,7 @@ switch ($op)
 	</tr>
 	</table>	
 	</form>
-	<p>$nav_pages</p>
+	<p>".$nav['form']."</p>
 	";
 		if ($err = $_SESSION['error_string'])
 		{

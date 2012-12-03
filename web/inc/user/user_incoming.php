@@ -5,26 +5,14 @@ if(!valid()){forcenoaccess();};
 switch ($op)
 {
 	case "user_incoming":
-		if(!$page){$page = 1;}
-		if(!$nav){$nav = 1;}
-
-		$line_per_page = 50;
-		$max_nav = 15;
-
-		$db_query = "";
-
 		$db_query = "SELECT count(*) as count FROM "._DB_PREF_."_tblSMSIncoming WHERE in_uid='$uid' AND flag_deleted='0'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$num_rows = $db_row['count'];
-
-		$pages = ceil($num_rows/$line_per_page);
-		$nav_pages = themes_navbar($pages, $nav, $max_nav, "index.php?app=menu&inc=user_incoming&op=user_incoming", $page);
-		$limit = ($page-1)*$line_per_page;
+		$nav = themes_nav($db_row['count'], "index.php?app=menu&inc=user_incoming&op=user_incoming");
 
 		$content = "
 	    <h2>"._('Incoming SMS')."</h2>
-	    <p>$nav_pages</p>
+	    <p>".$nav['form']."</p>
 	    <form name=\"fm_incoming\" action=\"index.php?app=menu&inc=user_incoming&op=act_del\" method=post onSubmit=\"return SureConfirm()\">
 	    <table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
         <thead>
@@ -42,9 +30,9 @@ switch ($op)
         <tbody>
 	";
 
-		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSIncoming WHERE in_uid='$uid' AND flag_deleted='0' ORDER BY in_id DESC LIMIT $line_per_page OFFSET $limit";
+		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSIncoming WHERE in_uid='$uid' AND flag_deleted='0' ORDER BY in_id DESC LIMIT ".$nav['limit']." OFFSET ".$nav['offset'];
 		$db_result = dba_query($db_query);
-		$i = ($num_rows-($line_per_page*($page-1)))+1;
+		$i = $nav['top'];
 		$j = 0;
 		while ($db_row = dba_fetch_array($db_result))
 		{
@@ -94,7 +82,7 @@ switch ($op)
 	</tr>
 	</table>	    
     </form>
-    <p>$nav_pages</p>
+    <p>".$nav['form']."</p>
     ";
 		if ($err = $_SESSION['error_string'])
 		{
