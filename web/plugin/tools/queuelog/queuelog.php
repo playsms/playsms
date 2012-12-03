@@ -4,17 +4,11 @@ defined('_SECURE_') or die('Forbidden');
 switch ($op)
 {
 	case "queuelog_list":
-		if(!$page){$page = 1;}
-		if(!$nav){$nav = 1;}
-		$line_per_page = 50;
-		$max_nav = 15;
-		$num_rows = queuelog_countall();
-		$pages = ceil($num_rows/$line_per_page);
-		$nav_pages = themes_navbar($pages, $nav, $max_nav, "index.php?app=menu&inc=tools_queuelog&op=queuelog_list", $page);
-		$limit = ($page-1)*$line_per_page;
+		$count = queuelog_countall();
+		$nav = themes_nav($count, "index.php?app=menu&inc=tools_queuelog&op=queuelog_list");
 		$content = "
 			<h2>"._('View SMS queue')."</h2>
-			<p>".$nav_pages."</p>
+			<p>".$nav['form']."</p>
 			<table width=100% cellpadding=1 cellspacing=2 border=0 class=\"sortable\">
 			<thead>
 			<tr>
@@ -34,7 +28,7 @@ switch ($op)
 			</thead>
 			<tbody>
 		";
-		$data = queuelog_get($line_per_page, $limit);
+		$data = queuelog_get($nav['limit'], $nav['offset']);
 		for ($c=count($data)-1;$c>=0;$c--) {
 			$i = $c + 1;
 			$c_queue_code = $data[$c]['queue_code'];
@@ -62,7 +56,7 @@ switch ($op)
 		}
 		$content .= "
 			</tbody></table>
-			<p>".$nav_pages."</p>
+			<p>".$nav['form']."</p>
 		";
 		echo $content;
 		break;
