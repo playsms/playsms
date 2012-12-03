@@ -2,11 +2,6 @@
 defined('_SECURE_') or die('Forbidden');
 if(!isadmin()){forcenoaccess();};
 
-if(!$page){$page = 1;}
-if(!$nav){$nav = 1;}
-$line_per_page = 50;
-$max_nav = 15;
-
 switch ($op) {
 	case "user_list":
 		$referrer = ( $_SESSION['referrer'] ? $_SESSION['referrer'] : 'user_list_tab1' );
@@ -15,9 +10,7 @@ switch ($op) {
 	case "user_list_tab1":
 		$fields = array('status' => 2);
 		$count = user_count($fields);
-		$pages = ceil($count/$line_per_page);
-		$limit = ($page-1)*$line_per_page;
-		$nav_pages = themes_navbar($pages, $nav, $max_nav, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab1", $page);
+		$nav = themes_nav($count, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab1");
 		$_SESSION['referrer'] = 'user_list_tab1';
 		if ($err = $_SESSION['error_string']) {
 			$content = "<p><font color='red'>$err</font><p>";
@@ -29,7 +22,7 @@ switch ($op) {
 		$content .= "
 			<input type='button' value='" . _('Add user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
 			<input type='button' value='" . _('View normal user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab2')\" class=\"button\" />
-			<p>".$nav_pages."</p>
+			<p>".$nav['form']."</p>
 			<p>" . _('Status') . ": <b>" . _('Administrator') . "</b><br>
 			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
 			<tr>
@@ -42,9 +35,9 @@ switch ($op) {
 				<td class='box_title' width='75'>" . _('Credit') . "</td>
 				<td class='box_title' class='sortable_nosort' width='75'>" . _('Action') . "</td>
 			</tr>";
-		$j = ($count-($line_per_page*($page-1)))+1;
+		$j = $nav['top'];
 		$fields = array('status' => 2);
-		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $line_per_page, 'OFFSET' => $limit);
+		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = user_getall($fields, $extras);
 		for ($i=0;$i<count($list);$i++) {
 			$j--;
@@ -65,15 +58,13 @@ switch ($op) {
 		}
 		$content .= "
 			</table>
-			<p>".$nav_pages."</p>";
+			<p>".$nav['form']."</p>";
 		echo $content;
 		break;
 	case "user_list_tab2":
 		$fields = array('status' => 3);
 		$count = user_count($fields);
-		$pages = ceil($count/$line_per_page);
-		$limit = ($page-1)*$line_per_page;
-		$nav_pages = themes_navbar($pages, $nav, $max_nav, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab2", $page);
+		$nav = themes_nav($count, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab2");
 		$_SESSION['referrer'] = 'user_list_tab2';
 		if ($err = $_SESSION['error_string']) {
 			$content = "<p><font color='red'>$err</font><p>";
@@ -85,7 +76,7 @@ switch ($op) {
 		$content .= "
 			<input type='button' value='" . _('Add user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
 			<input type='button' value='" . _('View administrator') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab1')\" class=\"button\" />
-			<p>".$nav_pages."</p>
+			<p>".$nav['form']."</p>
 			<p>" . _('Status') . ": <b>" . _('Normal user') . "</b><br>
 			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
 			<tr>
@@ -98,9 +89,9 @@ switch ($op) {
 				<td class='box_title' width='75'>" . _('Credit') . "</td>
 				<td class='box_title' class='sortable_nosort' width='75'>" . _('Action') . "</td>
 			</tr>";
-		$j = ($count-($line_per_page*($page-1)))+1;
+		$j = $nav['top'];
 		$fields = array('status' => 3);
-		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $line_per_page, 'OFFSET' => $limit);
+		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = user_getall($fields, $extras);
 		for ($i=0;$i<count($list);$i++) {
 			$list[$i] = core_display_data($list[$i]);
@@ -122,7 +113,7 @@ switch ($op) {
 		}
 		$content .= "
 			</table>
-			<p>".$nav_pages."</p>";
+			<p>".$nav['form']."</p>";
 		echo $content;
 		break;
 	case "user_del":
