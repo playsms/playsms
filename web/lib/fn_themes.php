@@ -31,8 +31,8 @@ function themes_navbar($num, $nav, $max_nav, $url, $page) {
 
 function themes_nav($count, $url) {
 	$ret = false;
-	$lines_per_page = 2;
-	$max_nav = 15;
+	$lines_per_page = 30;
+	$max_nav = 10;
 	$num = ceil($count / $lines_per_page);
 	$nav = ( $_REQUEST['nav'] ? $_REQUEST['nav'] : 1 );
 	$page = ( $_REQUEST['page'] ? $_REQUEST['page'] : 1 );
