@@ -40,9 +40,9 @@ while ($db_row = dba_fetch_array($db_result))
 	<table width=100% cellpadding=1 cellspacing=2 border=0 class=\"sortable\">
 	<tr>
 	    <td class=box_title width=4>&nbsp;*&nbsp;</td>
-	    <td class=box_title width=200>"._('Name')."</td>
-	    <td class=box_title width=100>"._('Number')."</td>
-	    <td class=box_title>"._('Email')."</td>
+	    <td class=box_title width=35%>"._('Name')."</td>
+	    <td class=box_title width=25%>"._('Number')."</td>
+	    <td class=box_title width=40%>"._('Email')."</td>
 	    <td class=box_title width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.".strtolower($fm_name).$username.")></td>
 	</tr>
     ";
@@ -56,9 +56,10 @@ while ($db_row = dba_fetch_array($db_result))
 		$list_of_phonenumber .= "
 	    <tr>
 		<td width=4 class=$td_class>&nbsp;$i.&nbsp;</td>
-		<td class=$td_class width=35%>&nbsp;".$db_row1['p_desc']."</td>
-		<td class=$td_class width=40%>&nbsp;".$db_row1['p_email']."</td>
-		<td class=$td_class width=4>
+		<td class=$td_class>&nbsp;".$db_row1['p_desc']."</td>
+		<td class=$td_class>&nbsp;".$db_row1['p_num']."</td>
+		<td class=$td_class>&nbsp;".$db_row1['p_email']."</td>
+		<td class=$td_class>
 		    <input type=hidden name=pid".$i." value=\"".$db_row1['pid']."\">
 		    <input type=checkbox name=chkid".$i.">
 		</td>
@@ -113,9 +114,9 @@ while ($db_row = dba_fetch_array($db_result)) {
 			<table width=100% cellpadding=1 cellspacing=2 border=0 class=\"sortable\">
 			<tr>
 				<td class=box_title width=4>&nbsp;*&nbsp;</td>
-				<td class=box_title width=200>"._('Name')."</td>
-				<td class=box_title width=100>"._('Number')."</td>
-				<td class=box_title>"._('Email')."</td>
+				<td class=box_title width=35%>"._('Name')."</td>
+				<td class=box_title width=25%>"._('Number')."</td>
+				<td class=box_title width=40%>"._('Email')."</td>
 			</tr>";
 		$db_query1 = "SELECT * FROM "._DB_PREF_."_toolsSimplephonebook WHERE gpid='$gpid' ORDER BY p_desc";
 		$db_result1 = dba_query($db_query1);
@@ -125,9 +126,10 @@ while ($db_row = dba_fetch_array($db_result)) {
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 			$list_of_phonenumber .= "
 				<tr>
-					<td class=$td_class width=4>&nbsp;$i.&nbsp;</td>
-					<td class=$td_class width=35%>&nbsp;".$db_row1['p_desc']."</td>
-					<td class=$td_class width=40%>&nbsp;".$db_row1['p_email']."</td>
+					<td class=$td_class>&nbsp;$i.&nbsp;</td>
+					<td class=$td_class>&nbsp;".$db_row1['p_desc']."</td>
+					<td class=$td_class>&nbsp;".$db_row1['p_num']."</td>
+					<td class=$td_class>&nbsp;".$db_row1['p_email']."</td>
 				</tr>";
 		}
 		$item_count = $i;
