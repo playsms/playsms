@@ -1,17 +1,22 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
-function user_getall($fields=array()) {
+function user_getall($fields='', $extras='') {
 	$ret = array();
 	if (is_array($fields)) {
 		foreach ($fields as $key => $val) {
-			$q_condition .= " AND ".$key."='".$val."'";
+			$q_condition .= "AND ".$key."='".$val."' ";
 		}
 		if ($q_condition) {
-			$q_condition = " WHERE 1=1 ".$q_condition;
+			$q_condition = "WHERE ".substr($q_condition, 3);
 		}
 	}
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblUser ".$q_condition;
+	if (is_array($extras)) {
+		foreach ($extras as $key => $val) {
+			$q_extra .= $key." ".$val." ";
+		}
+	}
+	$db_query = "SELECT * FROM "._DB_PREF_."_tblUser ".$q_condition." ".$q_extra;
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[] = $db_row;
@@ -28,7 +33,7 @@ function user_add($item) {
 		}
 		if ($sets && $vals) {
 			$sets = substr($sets, 0, -1);
-			$vals = substr($sets, 0, -1);
+			$vals = substr($vals, 0, -1);
 			$db_query = "INSERT INTO "._DB_PREF_."_tblUser (".$sets.") VALUES (".$vals.")";
 			if ($c_id = dba_insert_id($db_query)) {
 				$ret = $c_id;
@@ -38,7 +43,7 @@ function user_add($item) {
 	return $ret;
 }
 
-function user_update($item, $condition=array()) {
+function user_update($item, $condition='') {
 	$ret = false;
 	if (is_array($item)) {
 		foreach ($item as $key => $val) {
@@ -63,14 +68,14 @@ function user_update($item, $condition=array()) {
 	return $ret;
 }
 
-function user_remove($condition=array()) {
+function user_remove($condition='') {
 	$ret = false;
 	if (is_array($condition)) {
 		foreach ($condition as $key => $val){ 
-			$q_condition .= " AND ".$key."='".$val."'";
+			$q_condition .= "AND ".$key."='".$val."' ";
 		}
 		if ($q_condition) {
-			$q_condition = " WHERE 1=1 ".$q_condition;
+			$q_condition = "WHERE ".substr($q_condition, 3);
 		}
 		$db_query = "DELETE FROM "._DB_PREF_."_tblUser ".$q_condition;
 		if ($c_rows = dba_affected_rows($db_query)) {
@@ -80,14 +85,14 @@ function user_remove($condition=array()) {
 	return $ret;
 }
 
-function user_isavail($fields=array()) {
+function user_isavail($fields='') {
 	$ret = false;
 	if (is_array($fields)) {
 		foreach ($fields as $key => $val) {
-			$q_condition .= " AND ".$key."='".$val."'";
+			$q_condition .= "OR ".$key."='".$val."' ";
 		}
 		if ($q_condition) {
-			$q_condition = " WHERE 1=1 ".$q_condition;
+			$q_condition = "WHERE ".substr($q_condition, 2);
 		}
 	}
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblUser ".$q_condition." LIMIT 1";
@@ -99,7 +104,6 @@ function user_isavail($fields=array()) {
 	}
 	return $ret;
 }
-
 
 function user_getallwithstatus($status) {
 	$ret = array();
