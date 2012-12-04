@@ -181,7 +181,11 @@ function user_getfieldbyusername($username, $field) {
 function user_add_validate($item) {
 	$ret['status'] = true;
 	if (is_array($item)) {
-		if ($item['username'] && (strlen($item['username']) <= 3)) {
+		if ($item['password'] && (strlen($item['password']) < 4)) {
+			$ret['error_string'] = _('Password should be at least 4 characters');
+			$ret['status'] = false;
+		}
+		if ($item['username'] && (strlen($item['username']) < 3)) {
 			$ret['error_string'] = _('Username should be at least 3 characters')." (".$item['username'].")";
 			$ret['status'] = false;
 		}
@@ -205,7 +209,8 @@ function user_add_validate($item) {
 				$ret['error_string'] = _('Your mobile format is invalid')." (".$item['mobile'].")";
 				$ret['status'] = false;
 			}
-			$c_user = user_getall(array('mobile' => $item['mobile']));
+			$c_uid = mobile2uid($item['mobile']);
+			$c_user = user_getall(array('uid' => $c_uid));
 			if ($c_user[0]['username'] && ($c_user[0]['username'] != $item['username'])) {
 				$ret['error_string'] = _('Mobile is already in use by other username') . " (" . _('mobile') . ": ".$item['mobile'].", " . _('username') . ": " . $c_user[0]['username'] . ") ";
 				$ret['status'] = false;

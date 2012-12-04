@@ -7,26 +7,23 @@ switch ($op) {
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE uid='$uid'";
-		$db_result = dba_query($db_query);
-		$daily = 0;
-		if ($db_row = dba_fetch_array($db_result)) {
-			$address = $db_row['address'];
-			$city = $db_row['city'];
-			$state = $db_row['state'];
-			$country = $db_row['country'];
-			$zipcode = $db_row['zipcode'];
-			$sender = $db_row['sender'];
-			$footer = $db_row['footer'];
-			$timezone = $db_row['datetime_timezone'];
-			$language_module = $db_row['language_module'];
-			$fwd_to_inbox = $db_row['fwd_to_inbox'];
-			$fwd_to_email = $db_row['fwd_to_email'];
-			$fwd_to_mobile = $db_row['fwd_to_mobile'];
-			$replace_zero = $db_row['replace_zero'];
-			$plus_sign_remove = $db_row['plus_sign_remove'];
-			$plus_sign_add = $db_row['plus_sign_add'];
-			$credit = rate_getusercredit($username);
+		if ($c_user = user_getall(array('uid' => $core_config['user']['uid']))) {
+			$address = $c_user[0]['address'];
+			$city = $c_user[0]['city'];
+			$state = $c_user[0]['state'];
+			$country = $c_user[0]['country'];
+			$zipcode = $c_user[0]['zipcode'];
+			$sender = $c_user[0]['sender'];
+			$footer = $c_user[0]['footer'];
+			$datetime_timezone = $c_user[0]['datetime_timezone'];
+			$language_module = $c_user[0]['language_module'];
+			$fwd_to_inbox = $c_user[0]['fwd_to_inbox'];
+			$fwd_to_email = $c_user[0]['fwd_to_email'];
+			$fwd_to_mobile = $c_user[0]['fwd_to_mobile'];
+			$replace_zero = $c_user[0]['replace_zero'];
+			$plus_sign_remove = $c_user[0]['plus_sign_remove'];
+			$plus_sign_add = $c_user[0]['plus_sign_add'];
+			$credit = rate_getusercredit($c_username);
 		}
 		// select fwd_to_inbox
 		if ($fwd_to_inbox) {
@@ -121,7 +118,7 @@ switch ($op) {
 			<form action=index.php?app=menu&inc=user_pref&op=user_pref_save method=post enctype=\"multipart/form-data\">
 			<table width=100% cellpadding=1 cellspacing=1 border=0>
 			<tr><td colspan=3><h2>" . _('Login information') . "</h2><hr></td></tr>
-			<tr><td width=200>" . _('Username') . "</td><td>:</td><td><b>$username</b></td></tr>
+			<tr><td width=200>" . _('Username') . "</td><td>:</td><td><b>".$core_config['user']['username']."</b></td></tr>
 			<tr><td width=200>" . _('Password') . "</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password></td></tr>
 			<tr><td width=200>" . _('Re-Type Password') . "</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password_conf></td></tr>
 			<tr><td colspan=3>&nbsp;</td></tr>
@@ -137,7 +134,7 @@ switch ($op) {
 			<tr><td width=200>Active language</td><td>:</td><td><select name=up_language_module>$option_language_module</select></td></tr>
 			<tr><td colspan=3>&nbsp;</td></tr>
 			<tr><td colspan=3><h2>" . _('Application options') . "</h2><hr></td></tr>
-			<tr><td width=200>" . _('Timezone') . "</td><td>:</td><td><input type=text size=5 maxlength=5 name=up_timezone value=\"$timezone\"> (" . _('Eg: +0700 for Jakarta/Bangkok timezone') . ")</td></tr>
+			<tr><td width=200>" . _('Timezone') . "</td><td>:</td><td><input type=text size=5 maxlength=5 name=up_datetime_timezone value=\"$datetime_timezone\"> (" . _('Eg: +0700 for Jakarta/Bangkok timezone') . ")</td></tr>
 			<tr><td width=200>" . _('SMS sender ID') . "</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"$sender\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td></tr>
 			<tr><td width=200>" . _('SMS footer') . "</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_footer value=\"$footer\"> (" . _('Max. 30 alphanumeric characters') . ")</td></tr>
 			<tr><td width=200>" . _('Credit') . "</td><td>:</td><td><b>$credit</b></td></tr>
@@ -155,72 +152,45 @@ switch ($op) {
 		echo $content;
 		break;
 	case "user_pref_save":
-		$up_name = $_POST['up_name'];
-		$up_email = $_POST['up_email'];
-		$up_address = $_POST['up_address'];
-		$up_city = $_POST['up_city'];
-		$up_state = $_POST['up_state'];
-		$up_country = $_POST['up_country'];
-		$up_mobile = $_POST['up_mobile'];
-		$up_sender = $_POST['up_sender'];
-		$up_footer = trim($_POST['up_footer']);
-		$up_password = $_POST['up_password'];
-		$up_password_conf = $_POST['up_password_conf'];
-		$up_zipcode = $_POST['up_zipcode'];
-		$up_timezone = $_POST['up_timezone'];
-		$up_language_module = $_POST['up_language_module'];
-		$up_fwd_to_inbox = $_POST['up_fwd_to_inbox'];
-		$up_fwd_to_email = $_POST['up_fwd_to_email'];
-		$up_fwd_to_mobile = $_POST['up_fwd_to_mobile'];
-		$up_replace_zero = $_POST['up_replace_zero'];
-		$up_plus_sign_remove = $_POST['up_plus_sign_remove'];
-		$up_plus_sign_add = $_POST['up_plus_sign_add'];
 		$_SESSION['error_string'] = _('No changes made');
-		if ($up_name && $up_email) {
-			$up_uname = $username;
-			$continue = true;
-			
-			// check double email
-			$db_query = "SELECT username FROM " . _DB_PREF_ . "_tblUser WHERE email='$up_email' AND NOT username='$up_uname'";
-			$db_result = dba_query($db_query);
-			if ($db_row = dba_fetch_array($db_result)) {
-				$_SESSION['error_string'] = _('Email is already in use by other username') . " (" . _('email') . ": $up_email)";
-				$continue = false;
-			} 
-			
-			// check double mobile
-			$db_query = "SELECT username FROM " . _DB_PREF_ . "_tblUser WHERE mobile='$up_mobile' AND NOT username='$up_uname'";
-			$db_result = dba_query($db_query);
-			if ($db_row = dba_fetch_array($db_result)) {
-				$_SESSION['error_string'] = _('Mobile is already in use by other username') . " (" . _('mobile') . ": $up_mobile)";
-				$continue = false;
-			} 
-			
-			if ($continue) {
-				$chg_pwd = "";
-				if ($up_password && $up_password_conf && ($up_password == $up_password_conf)) {
-					$up_password = md5($up_password);
-					$chg_pwd = ",password='$up_password'";
-				}
-				$datetime_now = core_adjust_datetime($core_config['datetime']['now']);
-				$db_query = "
-					UPDATE " . _DB_PREF_ . "_tblUser 
-					SET c_timestamp='" . mktime() . "',
-						name='$up_name',email='$up_email',mobile='$up_mobile',sender='$up_sender',footer='$up_footer'$chg_pwd,
-						address='$up_address',city='$up_city',state='$up_state',country='$up_country',
-						zipcode='$up_zipcode',datetime_timezone='$up_timezone',language_module='$up_language_module',fwd_to_inbox='$up_fwd_to_inbox',fwd_to_email='$up_fwd_to_email',
-						fwd_to_mobile='$up_fwd_to_mobile',replace_zero='$up_replace_zero',plus_sign_remove='$up_plus_sign_remove',plus_sign_add='$up_plus_sign_add',
-						lastupdate_datetime='$datetime_now'
-					WHERE uid='$uid'";
-				if (@dba_affected_rows($db_query)) {
-					if ($up_password && $up_password_conf && ($up_password == $up_password_conf)) {
-						$_SESSION['error_string'] = _('Preferences has been saved and password updated');
+		$fields = array(
+			'name', 'email', 'address', 'city', 'state', 'country', 'mobile',
+			'sender', 'footer', 'password', 'zipcode', 'datetime_timezone', 
+			'language_module', 'fwd_to_inbox', 'fwd_to_email', 'fwd_to_mobile',
+			'replace_zero', 'plus_sign_remove', 'plus_sign_add'
+		);
+		for ($i=0;$i<count($fields);$i++) {
+			$up[$fields[$i]] = trim($_POST['up_'.$fields[$i]]);
+		}
+		$up['username'] = $core_config['user']['username'];
+		$up['lastupdate_datetime'] = core_adjust_datetime($core_config['datetime']['now']);
+		if ($up['name'] && $up['email']) {
+			$v = user_add_validate($up);
+			if ($v['status']) {
+				$continue = true;
+				if ($up['password'] && $_POST['up_password_conf']) {
+					if ($up['password'] == $_POST['up_password_conf']) {
+						$up['password'] = md5($up['password']);
 					} else {
-						$_SESSION['error_string'] = _('Preferences has been saved');
+						$_SESSION['error_string'] = _('Password does not match');
+						$continue = false;
 					}
 				} else {
-					$_SESSION['error_string'] = _('Fail to save preferences');
+					unset($up['password']);
 				}
+				if ($continue) {
+					if (user_update($up, array('username' => $up['username']))) {
+						if ($up['password']) {
+							$_SESSION['error_string'] = _('Preferences has been saved and password updated');
+						} else {
+							$_SESSION['error_string'] = _('Preferences has been saved');
+						}
+					} else {
+						$_SESSION['error_string'] = _('Fail to save preferences');
+					}
+				}
+			} else {
+				$_SESSION['error_string'] = $v['error_string'];
 			}
 		} else {
 			$_SESSION['error_string'] = _('You must fill all field');
