@@ -117,17 +117,17 @@ switch ($op) {
 		echo $content;
 		break;
 	case "user_del":
-		$uname = $_REQUEST['uname'];
-		$del_uid = username2uid($uname);
-		$_SESSION['error_string'] = _('Fail to delete user') . " $uname!";
+		$up['username'] = $_REQUEST['uname'];
+		$del_uid = username2uid($up['username']);
+		$_SESSION['error_string'] = _('Fail to delete user') . " ".$up['username'];
 		if (($del_uid > 1) && ($del_uid != $uid)) {
 			$condition = array('uid' => $del_uid);
 			if (user_remove($condition)) {
-				$_SESSION['error_string'] = _('User has been deleted') . " (" . _('username') . ": $uname)";
+				$_SESSION['error_string'] = _('User has been deleted') . " (" . _('username') . ": ".$up['username'].")";
 			}
 		}
-		if (($del_uid == 1) || ($uname == "admin")) {
-			$_SESSION['error_string'] = _('User is immune to deletion') . " (" . _('username') . " $uname)";
+		if (($del_uid == 1) || ($up['username'] == "admin")) {
+			$_SESSION['error_string'] = _('User is immune to deletion') . " (" . _('username') . " ".$up['username'].")";
 		} else if ($del_uid == $uid) {
 			$_SESSION['error_string'] = _('Currently logged in user is immune to deletion');
 		}
@@ -136,8 +136,8 @@ switch ($op) {
 		exit();
 		break;
 	case "user_edit":
-		$uname = $_REQUEST['uname'];
-		$uid = username2uid($uname);
+		$up['username'] = $_REQUEST['uname'];
+		$uid = username2uid($up['username']);
 		$c_user = user_getdatabyuid($uid);
 		$mobile = $c_user['mobile'];
 		$email = $c_user['email'];
@@ -165,7 +165,7 @@ switch ($op) {
 			}
 		}
 
-		$credit = rate_getusercredit($uname);
+		$credit = rate_getusercredit($up['username']);
 		if ($err = $_SESSION['error_string']) {
 			$content = "<p><font color='red'>$err</font><p>";
 		}
@@ -179,13 +179,13 @@ switch ($op) {
 			<option value='2' $selected_2>" . _('Administrator') . "</option>
 			<option value='3' $selected_3>" . _('Normal user') . "</option>";
 		$content .= "
-			<h2>" . _('Preferences') . ": $uname</h2>
+			<h2>" . _('Preferences') . ": ".$up['username']."</h2>
 			<p>
 			<form action='index.php?app=menu&inc=user_mgmnt&op=user_edit_save' method='post'>
-			<input type='hidden' name='uname' value=\"$uname\">
+			<input type='hidden' name='uname' value=\"".$up['username']."\">
 			<table width='100%' cellpadding='1' cellspacing='2' border='0'>
 			<tr>
-				<td width='175'>" . _('Username') . " $nd</td><td width='5'>:</td><td><b>$uname</b></td>
+				<td width='175'>" . _('Username') . " $nd</td><td width='5'>:</td><td><b>".$up['username']."</b></td>
 			</tr>
 			<tr>
 				<td>" . _('Full name') . " $nd</td><td>:</td><td><input type='text' size='30' maxlength='30' name='up_name' value=\"$name\"></td>
@@ -206,7 +206,7 @@ switch ($op) {
 				<td>" . _('Timezone') . "</td><td>:</td><td><input type='text' size='5' maxlength='5' name='up_datetime_timezone' value=\"$datetime_timezone\"> (" . _('Eg: +0700 for Jakarta/Bangkok timezone') . ")</td>
 			</tr>
 			<tr>
-				<td>" . _('Password') . "</td><td>:</td><td><input type='password' size='30' maxlength='30' name='up_password'> (" . _('Fill to change password for username') . " $uname)</td>
+				<td>" . _('Password') . "</td><td>:</td><td><input type='password' size='30' maxlength='30' name='up_password'> (" . _('Fill to change password for username') . " ".$up['username'].")</td>
 			</tr>	    
 			<tr>
 				<td>" . _('Credit') . "</td><td>:</td><td><input type='text' size='16' maxlength='30' name='up_credit' value=\"$credit\"></td>
@@ -223,7 +223,7 @@ switch ($op) {
 		echo $content;
 		break;
 	case "user_edit_save":
-		$uname = core_sanitize_username($_POST['uname']);
+		$up['username'] = core_sanitize_username($_POST['uname']);
 		$up['name'] = $_POST['up_name'];
 		$up['email'] = $_POST['up_email'];
 		$up['mobile'] = $_POST['up_mobile'];
@@ -237,33 +237,29 @@ switch ($op) {
 		$_SESSION['error_string'] = _('No changes made');
 		$next = true;
 		if ($up['email'] && $up['name']) {
-			if (! preg_match('/^(.+)@(.+)\.(.+)$/', $up['email'])) {
-				$_SESSION['error_string'] = _('Your email format is invalid')." (".$up['email'].")";
-				$next = false;
-			}
-			$c_user = user_getall(array('email' => $up['email']));
-			if ($c_user[0]['username'] && ($c_user[0]['username'] != $uname)) {
-				$_SESSION['error_string'] = _('Email is already in use by other username') . " (" . _('email') . ": ".$up['email'].", " . _('username') . ": " . $c_user[0]['username'] . ") ";
-				$next = false;
-			} 
-			if ($next) {
+			$v = user_add_validate($up);
+			if ($v['status']) {
 				if ($up['password']) {
 					$up['password'] = md5($up['password']);
+				} else {
+					unset($up['password']);
 				}
 				$datetime_now = core_adjust_datetime($core_config['datetime']['now']);
 				$up['lastupdate_datetime'] = $datetime_now;
-				if (user_update($up, array('username' => $uname))) {
-					$c_uid = username2uid($uname);
+				if (user_update($up, array('username' => $up['username']))) {
+					$c_uid = username2uid($up['username']);
 					rate_setusercredit($c_uid, $up['credit']);
-					$_SESSION['error_string'] = _('Preferences has been saved') . " (" . _('username') . ": $uname)";
+					$_SESSION['error_string'] = _('Preferences has been saved') . " (" . _('username') . ": ".$up['username'].")";
 				} else {
-					$_SESSION['error_string'] = _('Fail to save preferences') . " (" . _('username') . ": $uname)";
+					$_SESSION['error_string'] = _('Fail to save preferences') . " (" . _('username') . ": ".$up['username'].")";
 				}
+			} else {
+				$_SESSION['error_string'] = $v['error_string'];
 			}
 		} else {
 			$_SESSION['error_string'] = _('You must fill all field');
 		}
-		header("Location: index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=$uname");
+		header("Location: index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=".$up['username']);
 		exit();
 		break;
 	case "user_add":
@@ -351,26 +347,27 @@ switch ($op) {
 		$add['language_module'] = $_POST['add_language_module'];
 		$next = true;
 		if ($add['email'] && $add['username'] && $add['name'] && $add['password']) {
-			if (! preg_match('/^(.+)@(.+)\.(.+)$/', $add['email'])) {
-				$_SESSION['error_string'] = _('Your email format is invalid')." (".$add['email'].")";
-				$next = false;
-			}
-			$item = array('username' => $add['username'], 'email' => $add['email']);
-			if ($add['mobile']) {
-				$item['mobile'] = $add['mobile'];
-			}
-			if (! user_isavail($item)) {
-				$_SESSION['error_string'] = _('User is already exists') . " (" . _('username') . ": " . $add['username'] . ")";
-				$next = false;
-			}
-			if ($next) {
-				$datetime_now = core_adjust_datetime($core_config['datetime']['now']);
-				$add['register_datetime'] = $datetime_now;
-				$add['lastupdate_datetime'] = $datetime_now;
-				if ($new_uid = user_add($add)) {
-					rate_setusercredit($new_uid, $add['credit']);
-					$_SESSION['error_string'] = _('User has been added') . " (" . _('username') . ": ".$add['username'].")";
+			$v = user_add_validate($add);
+			if ($v['status']) {
+				$item = array('username' => $add['username'], 'email' => $add['email']);
+				if ($add['mobile']) {
+					$item['mobile'] = $add['mobile'];
 				}
+				if (! user_isavail($item)) {
+					$_SESSION['error_string'] = _('User is already exists') . " (" . _('username') . ": " . $add['username'] . ")";
+					$next = false;
+				}
+				if ($next) {
+					$datetime_now = core_adjust_datetime($core_config['datetime']['now']);
+					$add['register_datetime'] = $datetime_now;
+					$add['lastupdate_datetime'] = $datetime_now;
+					if ($new_uid = user_add($add)) {
+						rate_setusercredit($new_uid, $add['credit']);
+						$_SESSION['error_string'] = _('User has been added') . " (" . _('username') . ": ".$add['username'].")";
+					}
+				}
+			} else {
+				$_SESSION['error_string'] = $v['error_string'];
 			}
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');

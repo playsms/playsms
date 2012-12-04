@@ -178,6 +178,43 @@ function user_getfieldbyusername($username, $field) {
 	return user_getfieldbyuid($uid, $field);
 }
 
+function user_add_validate($item) {
+	$ret['status'] = true;
+	if (is_array($item)) {
+		if ($item['username'] && (strlen($item['username']) <= 3)) {
+			$ret['error_string'] = _('Username should be at least 3 characters')." (".$item['username'].")";
+			$ret['status'] = false;
+		}
+		if ($item['username'] && (! preg_match('/([A-Za-z0-9\.\-])/', $item['username']))) {
+			$ret['error_string'] = _('Valid characters for username are alphabets, numbers, dot or dash')." (".$item['username'].")";
+			$ret['status'] = false;
+		}
+		if ($item['email']) {
+			if (! preg_match('/^(.+)@(.+)\.(.+)$/', $item['email'])) {
+				$ret['error_string'] = _('Your email format is invalid')." (".$item['email'].")";
+				$ret['status'] = false;
+			}
+			$c_user = user_getall(array('email' => $item['email']));
+			if ($c_user[0]['username'] && ($c_user[0]['username'] != $item['username'])) {
+				$ret['error_string'] = _('Email is already in use by other username') . " (" . _('email') . ": ".$item['email'].", " . _('username') . ": " . $c_user[0]['username'] . ") ";
+				$ret['status'] = false;
+			}
+		}
+		if ($item['mobile']) {
+			if (! preg_match('/([0-9\+\- ])/', $item['mobile'])) {
+				$ret['error_string'] = _('Your mobile format is invalid')." (".$item['mobile'].")";
+				$ret['status'] = false;
+			}
+			$c_user = user_getall(array('mobile' => $item['mobile']));
+			if ($c_user[0]['username'] && ($c_user[0]['username'] != $item['username'])) {
+				$ret['error_string'] = _('Mobile is already in use by other username') . " (" . _('mobile') . ": ".$item['mobile'].", " . _('username') . ": " . $c_user[0]['username'] . ") ";
+				$ret['status'] = false;
+			}
+		}
+	}
+	return $ret;
+}
+
 function uid2username($uid) {
 	if ($uid) {
 		$db_query = "SELECT username FROM "._DB_PREF_."_tblUser WHERE uid='$uid'";
