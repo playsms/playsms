@@ -235,11 +235,18 @@ switch ($op) {
 		$up['datetime_timezone'] = ( $_POST['datetime_timezone'] ? $_POST['datetime_timezone'] : $gateway_timezone );
 		$up['language_module'] = $_POST['up_language_module'];
 		$_SESSION['error_string'] = _('No changes made');
-		if (preg_match('/^(.+)@(.+)\.(.+)$/', $up['email']) && $up['email'] && $up['name']) {
+		$next = true;
+		if ($up['email'] && $up['name']) {
+			if (! preg_match('/^(.+)@(.+)\.(.+)$/', $up['email'])) {
+				$_SESSION['error_string'] = _('Your email format is invalid')." (".$up['email'].")";
+				$next = false;
+			}
 			$c_user = user_getall(array('email' => $up['email']));
 			if ($c_user[0]['username'] && ($c_user[0]['username'] != $uname)) {
 				$_SESSION['error_string'] = _('Email is already in use by other username') . " (" . _('email') . ": ".$up['email'].", " . _('username') . ": " . $c_user[0]['username'] . ") ";
-			} else {
+				$next = false;
+			} 
+			if ($next) {
 				if ($up['password']) {
 					$up['password'] = md5($up['password']);
 				}
@@ -342,14 +349,21 @@ switch ($op) {
 		$add['status'] = $_POST['add_status'];
 		$add['datetime_timezone'] = $_POST['add_datetime_timezone'];
 		$add['language_module'] = $_POST['add_language_module'];
-		if (preg_match('/^(.+)@(.+)\.(.+)$/', $add['email']) && $add['email'] && $add['username'] && $add['name'] && $add['password']) {
+		$next = true;
+		if ($add['email'] && $add['username'] && $add['name'] && $add['password']) {
+			if (! preg_match('/^(.+)@(.+)\.(.+)$/', $add['email'])) {
+				$_SESSION['error_string'] = _('Your email format is invalid')." (".$add['email'].")";
+				$next = false;
+			}
 			$item = array('username' => $add['username'], 'email' => $add['email']);
 			if ($add['mobile']) {
 				$item['mobile'] = $add['mobile'];
 			}
 			if (! user_isavail($item)) {
 				$_SESSION['error_string'] = _('User is already exists') . " (" . _('username') . ": " . $add['username'] . ")";
-			} else {
+				$next = false;
+			}
+			if ($next) {
 				$datetime_now = core_adjust_datetime($core_config['datetime']['now']);
 				$add['register_datetime'] = $datetime_now;
 				$add['lastupdate_datetime'] = $datetime_now;
