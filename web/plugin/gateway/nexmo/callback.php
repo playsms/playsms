@@ -10,10 +10,18 @@ if (! $called_from_hook_call) {
 	$requests = $_REQUEST;
 }
 
+$log = '';
+if (is_array($requests)) {
+	foreach ($requests as $key => $val) {
+		$log .= $key.':'.$val.' ';
+	}
+	logger_print("pushed ".$log, 2, "nexmo callback");
+}
+
 $remote_slid = $requests['messageId'];
-$client_ref = $requests['client-ref'];
 
 // delivery receipt
+$client_ref = $requests['client-ref'];
 $status = $requests['status'];
 if ($remote_slid && $client_ref && $status) {
 	$db_query = "
@@ -45,8 +53,8 @@ $sms_datetime = urldecode($requests['message-timestamp']);
 $sms_sender = $requests['msisdn'];
 $message = urldecode($requests['text']);
 $sms_receiver = $requests['to'];
-if ($remote_slid && $client_ref && $message) {
-	logger_print("incoming", 2, "nexmo callback");
+if ($remote_slid && $message) {
+	logger_print("incoming message_id:".$remote_slid." s:".$sms_sender." d:".$sms_receiver, 2, "nexmo callback");
 	$sms_sender = addslashes($sms_sender);
 	$message = addslashes($message);
 	setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
