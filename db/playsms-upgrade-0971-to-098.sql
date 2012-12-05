@@ -25,7 +25,7 @@ CREATE TABLE `playsms_gatewayNexmo` (
   `c_timestamp` int(11) NOT NULL DEFAULT '0',
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `local_slid` int(11) NOT NULL DEFAULT '0',
-  `remote_slid` int(11) NOT NULL DEFAULT '0',
+  `remote_slid` varchar(40) NOT NULL DEFAULT '',
   `status` tinyint(4) NOT NULL DEFAULT '0',
   `network` varchar(20) NOT NULL DEFAULT '',
   `error_text` varchar(100) NOT NULL DEFAULT '',
