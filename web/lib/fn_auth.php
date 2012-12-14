@@ -5,17 +5,33 @@ defined('_SECURE_') or die('Forbidden');
  * Validate username and password
  * @param string $username Username
  * @param password $password Password
+ * @param password $token Token
  * @return boolean TRUE when validated or FALSE when validation failed
  */
-function validatelogin($username,$password) {
-	$db_query = "SELECT password FROM "._DB_PREF_."_tblUser WHERE username='$username'";
-	$db_result = dba_query($db_query);
-	$db_row = dba_fetch_array($db_result);
-	$res_password = trim($db_row['password']);
-	$password = md5($password);
-	if ($password && $res_password && ($password==$res_password)) {
-		return true;
+function validatelogin($username,$password,$token) {
+	logger_print("webapp login with username:".$username." password: ".$password." token: ".$token, 3, "webapp login");
+	if (!empty($token)) {
+		//Token provided, preferred method
+		$db_query = "SELECT token FROM "._DB_PREF_."_tblUser WHERE username='$username'";
+		$db_result = dba_query($db_query);
+		$db_row = dba_fetch_array($db_result);
+		$res_token = trim($db_row['token']);
+		if ($token==$res_token) {
+			logger_print("webapp token login for username:".$username." token: ".$token, 3, "webapp login");
+			return true;
+		}
+	} else {
+		//Password provided, legacy method
+		$db_query = "SELECT password FROM "._DB_PREF_."_tblUser WHERE username='$username'";
+		$db_result = dba_query($db_query);
+		$db_row = dba_fetch_array($db_result);
+		$res_password = trim($db_row['password']);
+		$password = md5($password);
+		if ($password && $res_password && ($password==$res_password)) {
+			return true;
+		}
 	}
+
 	return false;
 }
 

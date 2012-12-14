@@ -98,7 +98,7 @@ switch ($op) {
 			$j--;
 			$td_class = ($j % 2) ? "box_text_odd" : "box_text_even";
 			$action = "<a href=index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=" . $list[$i]['username'] . ">$icon_edit</a>";
-			$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user') . " " . $list[$i]['username'] . " ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">$icon_delete</a>";
+ 			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">$icon_delete</a>";
 			$content .= "
 				<tr>
 					<td class='$td_class'>&nbsp;".$j.".</td>
@@ -146,6 +146,7 @@ switch ($op) {
 		$sender = $c_user['sender'];
 		$footer = $c_user['footer'];
 		$datetime_timezone = $c_user['datetime_timezone'];
+		$token = $c_user['token'];
 		$language_module = $c_user['language_module'];
 
 		// get language options
@@ -207,6 +208,9 @@ switch ($op) {
 			</tr>
 			<tr>
 				<td>" . _('Password') . "</td><td>:</td><td><input type='password' size='30' maxlength='30' name='up_password'> (" . _('Fill to change password for username') . " ".$up['username'].")</td>
+			</tr>
+			<tr>
+// 				<td>" . _('Webapp Token') . "</td><td>:</td><td><input type='text' size='40' maxlength='40' name='up_token' value=\"$token\" disabled> (" . _('Webapp token') . " ".$up['token'].")</td>
 			</tr>	    
 			<tr>
 				<td>" . _('Credit') . "</td><td>:</td><td><input type='text' size='16' maxlength='30' name='up_credit' value=\"$credit\"></td>
@@ -341,6 +345,7 @@ switch ($op) {
 		$add['footer'] = $_POST['add_footer'];
 		$add['password'] = $_POST['add_password'];
 		$add['password'] = md5($add['password']);
+		$add['token'] = sha1(microtime(TRUE).rand());
 		$add['credit'] = $_POST['add_credit'];
 		$add['status'] = $_POST['add_status'];
 		$add['datetime_timezone'] = $_POST['add_datetime_timezone'];
@@ -354,7 +359,7 @@ switch ($op) {
 					$item['mobile'] = $add['mobile'];
 				}
 				if (! user_isavail($item)) {
-					$_SESSION['error_string'] = _('User is already exists') . " (" . _('username') . ": " . $add['username'] . ")";
+					$_SESSION['error_string'] = _('User already exists') . " (" . _('username') . ": " . $add['username'] . ")";
 					$next = false;
 				}
 				if ($next) {
