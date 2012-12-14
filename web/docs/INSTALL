@@ -91,8 +91,15 @@ playSMS Web Interface step-by-step installation:
     to /var/www/playsms), and also make sure that PLAYSMS_BIN is pointing to a correct playSMS daemon 
     scripts path (in this example to /usr/local/bin)
 
+8a. You can program the system to start playsms when the system boots using the init.d scripts
+    Copy the init script to init.d and program it to boot with the system
 
-8. Look for rc.local on /etc and its subdirectories (usualy /etc, /etc/init.d or /etc/rc.d/init.d).
+    # cp /usr/local/src/playsms-x.x.x/daemon/linux/etc/playsms.initd /etc/init.d/playsms
+
+    # update-rc.d playsms defaults
+
+
+8b. Look for rc.local on /etc and its subdirectories (usualy /etc, /etc/init.d or /etc/rc.d/init.d).
     If you found it then edit that rc.local and put:
 
     "/usr/local/bin/playsmsd_start" (without quotes)
@@ -103,7 +110,13 @@ playSMS Web Interface step-by-step installation:
     Note: Just like any other steps above you need 'root' access to do this.
 
 
-9. Run playsmsd_start manually
+9. Start playsmsd manually
+
+    a) If you are using the init scripts:
+
+    # /etc/init.d/playsms start
+
+    b) If you are using rc.local:
 
     # /usr/local/bin/playsmsd_start
 
