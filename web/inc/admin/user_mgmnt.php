@@ -98,7 +98,7 @@ switch ($op) {
 			$j--;
 			$td_class = ($j % 2) ? "box_text_odd" : "box_text_even";
 			$action = "<a href=index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=" . $list[$i]['username'] . ">$icon_edit</a>";
-			$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user') . " " . $list[$i]['username'] . " ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">$icon_delete</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_('Are you sure you want to delete user')) . " " . $list[$i]['username'] . " ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">$icon_delete</a>";
 			$content .= "
 				<tr>
 					<td class='$td_class'>&nbsp;".$j.".</td>
