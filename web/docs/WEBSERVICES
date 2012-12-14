@@ -9,6 +9,7 @@ PARAMETERS
 
 u	: username
 p	: password
+h	: hash token
 
 ta	: type of action
 	  for example:
@@ -60,21 +61,21 @@ ERR 400 : no delivery status retrieved
 PROTOCOL
 --------
 
-1. Send SMS
+1. Send SMS (h for hash token, p for password)
     ta		: pv
-    parameters	: u, p, to, msg, type, unicode
+    parameters	: u, h, to, msg, type, unicode
     returns	: error returns
     notes	: to parameter is a valid international formatted mobile number
 
 2. Send broadcast SMS
     ta		: bc
-    parameters	: u, p, to, msg, type, unicode
+    parameters	: u, h, to, msg, type, unicode
     returns	: error returns
     notes	: to parameter is group code
 
 3. Delivery reports
     ta		: ds
-    parameters	: u, p, slid, c, last
+    parameters	: u, h, slid, c, last
     returns	: formatted text:
 		  SMS log ID; Source number; Destination Number; Message; Delivery Time;
 		  Update Pending Status Time; SMS Status
@@ -84,14 +85,17 @@ PROTOCOL
 
 4. User credits
     ta          : cr
-    parameters  : u, p
+    parameters  : u, h
     returns     : user's credit
 
 
 EXAMPLE
 -------
 
-Webservice URL:
+Webservice URL (using hash token):
+http://x.com/index.php?app=webservices&ta=bc&u=admin&h=a3438bd4dd6b8dda99efc06c879d0b50da30fa77&to=TI&msg=meeting+at+15.00+today!
+
+Webservice URL (using password):
 http://x.com/index.php?app=webservices&ta=bc&u=admin&p=rahasia&to=TI&msg=meeting+at+15.00+today!
 
 Explanation:
