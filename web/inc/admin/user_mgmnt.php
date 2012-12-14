@@ -210,7 +210,7 @@ switch ($op) {
 				<td>" . _('Password') . "</td><td>:</td><td><input type='password' size='30' maxlength='30' name='up_password'> (" . _('Fill to change password for username') . " ".$up['username'].")</td>
 			</tr>
 			<tr>
-// 				<td>" . _('Webapp Token') . "</td><td>:</td><td><input type='text' size='40' maxlength='40' name='up_token' value=\"$token\" disabled> (" . _('Webapp token') . " ".$up['token'].")</td>
+ 				<td>" . _('Webapp Token') . "</td><td>:</td><td><input type='text' size='40' maxlength='40' name='up_token' value=\"$token\" disabled> (" . _('Webapp token') . " ".$up['token'].")</td>
 			</tr>	    
 			<tr>
 				<td>" . _('Credit') . "</td><td>:</td><td><input type='text' size='16' maxlength='30' name='up_credit' value=\"$credit\"></td>
