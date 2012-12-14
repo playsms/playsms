@@ -1,0 +1,72 @@
+#!/bin/sh
+# Start/stop the playsms service
+
+# This is the default init.d script for Playsms.
+
+# Make sure that the Playsms binaries can be found in $BOXPATH or somewhere
+# else along $PATH.  run_playsms_box has to be in $BOXPATH.
+
+### BEGIN INIT INFO
+# Provides:          playsms
+# Required-Start:    $local_fs $remote_fs
+# Required-Stop:     $local_fs $remote_fs
+# Should-Start:      $network $named
+# Should-Stop:       $network $named
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: SMS gateway
+# Description:       Playsms is a platform to manage other sms backends
+#		     to send and receive sms
+### END INIT INFO
+
+. /lib/lsb/init-functions
+
+PIDFILE=/var/run/playsms.pid
+
+# We require the config file in /etc/default/playsms to be
+# available, otherwise exit
+if [ -e /etc/default/playsms ] ; then
+	. /etc/default/playsms
+else
+	log_failure_msg "Could not read /etc/default/playsms"
+	exit 1
+fi
+
+case "$1" in
+  start)
+    log_daemon_msg "Starting playsms"
+    log_progress_msg "playsms"
+    DAEMON=$PLAYSMS_BIN/playsmsd
+    DAEMON_OPTIONS=$PLAYSMS_PATH
+    start-stop-daemon --start --background --make-pidfile \
+	--pidfile $PIDFILE \
+	--exec $DAEMON -- $DAEMON_OPTIONS
+    log_end_msg 0
+    ;;
+
+  stop)
+    log_daemon_msg "Stopping playsms"
+    log_progress_msg "playsms"
+    start-stop-daemon --stop --retry 5 \
+    	--pidfile $PIDFILE
+    log_end_msg 0
+    ;;
+
+  reload)
+    # We don't have support for this yet.
+    exit 1
+    ;;
+
+  restart|force-reload)
+    $0 stop
+    sleep 1
+    $0 start
+    ;;
+
+  *)
+    echo "Usage: $0 {start|stop|restart|force-reload}"
+    exit 1
+
+esac
+
+exit 0
