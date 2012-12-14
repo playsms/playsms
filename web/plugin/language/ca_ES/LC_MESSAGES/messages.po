@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-10-11 22:14+0700\n"
-"PO-Revision-Date: 2012-09-07 17:30+0200\n"
+"PO-Revision-Date: 2012-12-14 12:44+0100\n"
 "Last-Translator: Joan <aseques@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -15,10 +15,10 @@ msgstr ""
 "X-Generator: Lokalize 1.4\n"
 
 msgid "About"
-msgstr ""
+msgstr "Quant a"
 
 msgid "About playSMS"
-msgstr ""
+msgstr "Quant a playSMS"
 
 msgid "Action"
 msgstr "Acció"
@@ -96,7 +96,7 @@ msgid "Back"
 msgstr "Enrere"
 
 msgid "Changelog"
-msgstr ""
+msgstr "Canvis"
 
 msgid "City"
 msgstr "Ciutat"
@@ -108,7 +108,7 @@ msgid "Country"
 msgstr "País"
 
 msgid "Created"
-msgstr ""
+msgstr "Creat"
 
 msgid "Credit"
 msgstr "Crèdit"
@@ -174,7 +174,7 @@ msgid "Enable public registration"
 msgstr "Habilitar registre públic"
 
 msgid "F.A.Q"
-msgstr ""
+msgstr "P.M.F"
 
 msgid "Fail to delete SMS"
 msgstr "Impossible borrar el SMS"
@@ -224,6 +224,18 @@ msgstr "Enviar PV al mòbil"
 msgid "Forward Private WebSMS"
 msgstr "Reenviar WebSMS Privat"
 
+msgid "Forward SMS to email"
+msgstr "Reenviar els SMS al correu"
+
+msgid "Forward SMS to inbox"
+msgstr "Reenviar els SMS a l'entrada"
+
+msgid "Forward SMS to mobile"
+msgstr "Reenviar els sms al mòbil"
+
+msgid "Forward from"
+msgstr "Reenviar de"
+
 msgid "Forwarded email footer"
 msgstr "Firma del correu reenviat"
 
@@ -246,7 +258,7 @@ msgid "Group code"
 msgstr "Codi del grup"
 
 msgid "HTTP API"
-msgstr ""
+msgstr "API HTTP"
 
 msgid "Home"
 msgstr "Principal"
@@ -258,7 +270,7 @@ msgid "Incoming SMS"
 msgstr "SMS Entrants"
 
 msgid "Installation Guide"
-msgstr ""
+msgstr "Guia d'instal·lació"
 
 msgid "International format"
 msgstr "Format internacional"
@@ -270,10 +282,10 @@ msgid "Keyword"
 msgstr "Clau"
 
 msgid "Last update"
-msgstr ""
+msgstr "Última actualització"
 
 msgid "License"
-msgstr ""
+msgstr "Llicència"
 
 msgid "Login information"
 msgstr "Informació de la sessió"
@@ -356,11 +368,17 @@ msgstr "SMS de sortida"
 msgid "Password"
 msgstr "Contrasenya"
 
+msgid "Password does not match"
+msgstr "La contrasenya no coincideix"
+
 msgid "Password has been sent to your email"
 msgstr "S'ha enviat la contrasenya per correu"
 
 msgid "Password recovery"
 msgstr "Recuperar contrasenya"
+
+msgid "Password should be at least 4 characters"
+msgstr "La contrasenya ha de ser com a mínim de 4 caràcters"
 
 msgid "Pending"
 msgstr "Pendent"
@@ -515,8 +533,20 @@ msgstr "Privilegis d'usuari"
 msgid "Username"
 msgstr "Usuari"
 
+msgid "Username should be at least 3 characters"
+msgstr "L'usuari ha de ser de com a mínim 3 caràcters"
+
+msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr "Els caràcters vàlids per l'usuari són alfabètics, números, punt o guió"
+
 msgid "View"
 msgstr "Veure"
+
+msgid "View administrator"
+msgstr "Vista administrador"
+
+msgid "View normal user"
+msgstr "Vista usuari normal"
 
 msgid "Website email"
 msgstr "Correu electrònic de contacte"
@@ -525,7 +555,7 @@ msgid "Website title"
 msgstr "Títol del lloc WEB"
 
 msgid "Welcome to playSMS"
-msgstr ""
+msgstr "Benvingut al playSMS"
 
 msgid "You have been logged out"
 msgstr "Us heu desconnectat"
@@ -549,8 +579,14 @@ msgstr ""
 msgid "Your SMS has been delivered to queue"
 msgstr "El seu missatge ha estat enviat a la cua de processament"
 
+msgid "Your email format is invalid"
+msgstr "El vostre format de correu no és vàlid"
+
 msgid "Your message"
 msgstr "El seu missatge"
+
+msgid "Your mobile format is invalid"
+msgstr "El format del mòbil no és vàlid"
 
 msgid "Zipcode"
 msgstr "Codi postal"
@@ -599,3 +635,4 @@ msgstr "usuari"
 
 msgid "yes"
 msgstr "si"
+

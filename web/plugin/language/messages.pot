@@ -208,6 +208,18 @@ msgstr ""
 msgid "Forward Private WebSMS"
 msgstr ""
 
+msgid "Forward SMS to email"
+msgstr ""
+
+msgid "Forward SMS to inbox"
+msgstr ""
+
+msgid "Forward SMS to mobile"
+msgstr ""
+
+msgid "Forward from"
+msgstr ""
+
 msgid "Forwarded email footer"
 msgstr ""
 
@@ -340,10 +352,16 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
+msgid "Password does not match"
+msgstr ""
+
 msgid "Password has been sent to your email"
 msgstr ""
 
 msgid "Password recovery"
+msgstr ""
+
+msgid "Password should be at least 4 characters"
 msgstr ""
 
 msgid "Pending"
@@ -499,7 +517,19 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
+msgid "Username should be at least 3 characters"
+msgstr ""
+
+msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr ""
+
 msgid "View"
+msgstr ""
+
+msgid "View administrator"
+msgstr ""
+
+msgid "View normal user"
 msgstr ""
 
 msgid "Website email"
@@ -532,7 +562,13 @@ msgstr ""
 msgid "Your SMS has been delivered to queue"
 msgstr ""
 
+msgid "Your email format is invalid"
+msgstr ""
+
 msgid "Your message"
+msgstr ""
+
+msgid "Your mobile format is invalid"
 msgstr ""
 
 msgid "Zipcode"
