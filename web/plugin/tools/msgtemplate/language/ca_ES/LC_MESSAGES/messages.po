@@ -1,0 +1,74 @@
+# Header entry was created by Lokalize.
+#
+# Joan <aseques@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Mime-Version: 1.0"
+"Last-Translator: Joan <aseques@gmail.com>\n"
+"PO-Revision-Date: 2012-12-13 17:24+0100\n"
+"Project-Id-Version: \n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.4\n"
+
+msgid "Add message template"
+msgstr "Afegir plantilla de missatge"
+
+msgid "Back"
+msgstr "Enrere"
+
+msgid "Content"
+msgstr "Contingut"
+
+msgid "Delete"
+msgstr "Esborrar"
+
+msgid "Delete all templates ?"
+msgstr "Esborrar totes les plantilles?"
+
+msgid "Delete message template"
+msgstr "Esborrar plantilla de missatge"
+
+msgid "Delete selection"
+msgstr "Esborrar selecció"
+
+msgid "Edit message template"
+msgstr "Editar plantilla de missatge"
+
+msgid "Fail to edit message template"
+msgstr "Error editant la plantilla del missatge"
+
+msgid "Go"
+msgstr "Ves"
+
+msgid "Message template"
+msgstr "Plantilla de missatge"
+
+msgid "Message template content"
+msgstr "Contingut de la plantilla de missatge"
+
+msgid "Message template has been edited"
+msgstr "La plantilla del missatge s'ha editat"
+
+msgid "Message template has been saved"
+msgstr "La plantilla de missatge s'ha guardat"
+
+msgid "Message template name"
+msgstr "Nom de la plantilla de missatge"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Save template"
+msgstr "Guardar plantilla"
+
+msgid "Select action"
+msgstr "Marcar acció"
+
+msgid "Selected message template has been deleted"
+msgstr "La plantilla seleccionada s'ha esborrat"
+
