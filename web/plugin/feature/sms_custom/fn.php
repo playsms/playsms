@@ -70,6 +70,7 @@ function sms_custom_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$custo
 		$custom_url = str_replace("{CUSTOMKEYWORD}",urlencode($custom_keyword),$custom_url);
 		$custom_url = str_replace("{CUSTOMPARAM}",urlencode($custom_param),$custom_url);
 		$custom_url = str_replace("{CUSTOMRAW}",urlencode($raw_message),$custom_url);
+		logger_print("custom_url:".$custom_url, 3, "sms custom");
 		$returns = file_get_contents($custom_url);
 		if ($custom_return_as_reply == 1) {
 			$unicode = 0;
@@ -79,6 +80,7 @@ function sms_custom_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$custo
 					$unicode = 1;
 				}
 			}
+			logger_print("returns:".$returns, 3, "sms custom");
 			sendsms($username, $sms_sender, $returns, 'text', $unicode);
 		}
 		$ok = true;

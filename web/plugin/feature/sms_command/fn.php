@@ -71,6 +71,7 @@ function sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$comm
 		$command_exec = str_replace("{COMMANDPARAM}","\"$command_param\"",$command_exec);
 		$command_exec = str_replace("{COMMANDRAW}","\"$raw_message\"",$command_exec);
 		$command_exec = $plugin_config['feature']['sms_command']['bin']."/".$command_exec;
+		logger_print("command_exec:".$command_exec, 3, "sms command");
 		$command_output = shell_exec(stripslashes($command_exec));
 		if ($command_return_as_reply == 1) {
 			$unicode = 0;
@@ -80,6 +81,7 @@ function sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$comm
 					$unicode = 1;
 				}
 			}
+			logger_print("command_output:".$command_output, 3, "sms command");
 			sendsms($username, $sms_sender, $command_output, 'text', $unicode);
 		}
 		$ok = true;
