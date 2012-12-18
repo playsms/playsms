@@ -8,6 +8,7 @@ switch ($op) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		if ($c_user = user_getall(array('uid' => $core_config['user']['uid']))) {
+			$token = $c_user[0]['token'];
 			$address = $c_user[0]['address'];
 			$city = $c_user[0]['city'];
 			$state = $c_user[0]['state'];
@@ -120,6 +121,7 @@ switch ($op) {
 			<tr><td width=200>" . _('Username') . "</td><td>:</td><td><b>".$core_config['user']['username']."</b></td></tr>
 			<tr><td width=200>" . _('Password') . "</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password></td></tr>
 			<tr><td width=200>" . _('Re-Type Password') . "</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password_conf></td></tr>
+			<tr><td width=200>" . _('Webapp Token') . "</td><td>:</td><td><input type='text' size='40' maxlength='40' name='up_token' value=\"$token\" disabled> ("._('generated on user creation').")</td></tr>
 			<tr><td colspan=3>&nbsp;</td></tr>
 			<tr><td colspan=3><h2>" . _('Personal information') . "</h2><hr></td></tr>
 			<tr><td width=200>" . _('Name') . " $nd</td><td>:</td><td><input type=text size=30 maxlength=100 name=up_name value=\"$name\"></td></tr>
