@@ -9,12 +9,13 @@ if (file_exists($playsms_conf_file)) {
 	if (is_dir($playsms_path) && file_exists($playsms_path."/init.php")) {
 		chdir($playsms_path);
 		include "init.php";
-		$db_query = "SELECT uid,username,password FROM "._DB_PREF_."_tblUser";
+		$db_query = "SELECT uid,username,password,token FROM "._DB_PREF_."_tblUser";
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
 			$c_uid = $db_row['uid'];
 			$c_username = $db_row['username'];
 			$c_password = $db_row['password'];
+			$c_token = $db_row['token'];
 			if (strlen($c_password)!=32) {
 				$db_query2 = "UPDATE "._DB_PREF_."_tblUser SET password='".md5($c_password)."' WHERE uid='".$c_uid."'";
 				if ($db_result2 = dba_affected_rows($db_query2)) {
@@ -22,6 +23,14 @@ if (file_exists($playsms_conf_file)) {
 				}
 			} else {
 				echo "user: [".$c_username."] password most likely already in md5 format\n";
+			}
+
+			if (strlen($c_token)==0) {
+
+				$db_query2 = "UPDATE "._DB_PREF_."_tblUser SET token='".sha1(microtime(TRUE).rand())."' WHERE uid='".$c_uid."'";
+				if ($db_result2 = dba_affected_rows($db_query2)) {
+					echo "user: [".$c_username."] added a token to be used with the webapp token\n";
+				}
 			}
 		}
 	}
