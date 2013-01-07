@@ -16,7 +16,7 @@ for i in `cat /tmp/.lang_folders` ; do
 		msgmerge $i/language/$j/LC_MESSAGES/messages.po $i/language/messages.pot > $i/language/$j/LC_MESSAGES/messages.po.tmp
 		mv $i/language/$j/LC_MESSAGES/messages.po.tmp $i/language/$j/LC_MESSAGES/messages.po
 		echo -n $i/language/$j/LC_MESSAGES/messages.po
-		msgattrib --clear-fuzzy --no-obsolete $i/language/$j/LC_MESSAGES/messages.po -o $i/language/$j/LC_MESSAGES/messages.po
+		msgattrib --no-obsolete $i/language/$j/LC_MESSAGES/messages.po -o $i/language/$j/LC_MESSAGES/messages.po
 	done
 done
 echo
