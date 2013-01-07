@@ -24,13 +24,16 @@ You will have to translate the .po file, you can use poedit, lokalize or any oth
 You can also edit these file:
  - docs/README #this is the readme document with the authors of the translations
 
+IMPORTANT: If you want, there are a couple of script to help you with the translation
+backup-language-files.sh (creates a backup of existant language files)
+create-new-language.sh (creates a tgz that contains all the files to translate
+	the whole playsms interface)
 
 UPDATE THE TRANSLATIONS
 -----------------------
 
-To improve/finish the translations into your language, you can
- will have to go to every folder of the program to get the .po files
- to be translated.
+To improve/finish the translations into your language, you will have
+ to go into every folder of the program to get the .po files  to be translated.
 
 Once you've translated the .po files with poedit, lokalize or any other tool
  you just have to replace them into the destination folder.
@@ -44,19 +47,10 @@ UPDATING THE POT FILES OF THE SYSTEM
 When new strings are added to the system, on any of the themes or plugins, updating the
  pot files will allow the users to update their translations.
 The .pot files are the templates on with every translation is based.
+There's a contrib script into contrib/tools/language/ for this
 
-##Common strings
-cd /var/www/playsms
-touch plugin/language/messages.pot
-find lib/ -iname "*.php" -exec xgettext --from-code=utf-8 -j -o plugin/language/messages.pot {} \;
-find inc/ -iname "*.php" -exec xgettext --from-code=utf-8 -j -o plugin/language/messages.pot {} \;
-
-##Themes,plugins and tools strings
-cd /var/www/playsms
-find . -type d -name "language" | grep -v "plugin/language" | sed -e "s/\/[^\/]*$//" > /tmp/.lang_folders
-for i in `cat /tmp/.lang_folders` ; do touch "$i/language/messages.pot" ; done
-for i in `cat /tmp/.lang_folders` ; do find $i -iname '*.php' -exec xgettext --from-code=utf-8 -j -o $i/language/messages.pot {} \; ; done
-rm /tmp/.lang_folders
+##To update the pot files with new texts (/var/www/playsms is you web path)
+bash 1-update-pot-files.sh /var/www/playsms
 
 MERGE EXISTANT PO FILES WITH NEWER POT TEMPLATES
 ------------------------------------------------
@@ -64,15 +58,8 @@ MERGE EXISTANT PO FILES WITH NEWER POT TEMPLATES
 Once we have updated the pot files, we can merge them with the existant translations
  so the translators have only to worry about translating. 
 
-##Common, themes, plugins and tools strings
-cd /var/www/playsms/
-find . -type d -name "language" | sed -e "s/\/[^\/]*$//" > /tmp/.lang_folders
-for i in `cat /tmp/.lang_folders` ; do
-	for j in `ls -1 $i/language/ | grep '_'` ; do
-		echo "msgmerge $i/language/$j/LC_MESSAGES/messages.po $i/language/messages.pot >/dev/null"
-		#echo "msgmerge $i/language/$j/LC_MESSAGES/messages.po $i/language/messages.pot >/tmp/.messages.po.new && mv -f /tmp/.messages.po.new $i/language/$j/LC_MESSAGES/messages.po"
-	done
-done
+##To merge the update pot files with existant .po files for each language (/var/www/playsms is you web path)
+bash 2-merge-existing-po-files.sh  /var/www/playsms
 
 REGENERATING THE MO FILES
 -------------------------
@@ -82,14 +69,9 @@ Until you regenerate the mo files, the translations won't be visible in
 For any time there are new .po files their correspondant .mo files need to be
  generated, this is a simple way of doing it.
 
-cd /var/www/playsms/
-find . -type d -name "language" | sed -e "s/\/[^\/]*$//" > /tmp/.lang_folders
-for i in `cat /tmp/.lang_folders` ; do
-	for j in `ls -1 $i/language/ | grep '_'` ; do
-		msgfmt -vv $i/language/$j/LC_MESSAGES/messages.po -o $i/language/$j/LC_MESSAGES/messages.mo
-	done
-done
 
+##To regenerate the .mo file from the .po files on the system (/var/www/playsms is you web path)
+bash 3-regenerating-mo-files.sh /var/www/playsms
 
 --
 Joan
