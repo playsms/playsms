@@ -215,6 +215,22 @@ msgstr "Teruskan PV ke ponsel"
 msgid "Forward Private WebSMS"
 msgstr "Teruskan WebSMS pribadi"
 
+#, fuzzy
+msgid "Forward SMS to email"
+msgstr "Teruskan PV ke email"
+
+#, fuzzy
+msgid "Forward SMS to inbox"
+msgstr "Teruskan PV ke inbox"
+
+#, fuzzy
+msgid "Forward SMS to mobile"
+msgstr "Teruskan PV ke ponsel"
+
+#, fuzzy
+msgid "Forward from"
+msgstr "Teruskan PV ke email"
+
 msgid "Forwarded email footer"
 msgstr "Footer email"
 
@@ -347,11 +363,17 @@ msgstr "SMS keluar"
 msgid "Password"
 msgstr "Kata sandi"
 
+msgid "Password does not match"
+msgstr ""
+
 msgid "Password has been sent to your email"
 msgstr "Password telah dikirim ke email Anda"
 
 msgid "Password recovery"
 msgstr "Pemulihan kata sandi"
+
+msgid "Password should be at least 4 characters"
+msgstr ""
 
 msgid "Pending"
 msgstr "Tertunda"
@@ -488,6 +510,10 @@ msgstr "Gunakan pola"
 msgid "User"
 msgstr "Pengguna"
 
+#, fuzzy
+msgid "User already exists"
+msgstr "Pengguna sudah ada"
+
 msgid "User has been added"
 msgstr "Pengguna telah ditambah"
 
@@ -506,8 +532,28 @@ msgstr "Tingkatan pengguna"
 msgid "Username"
 msgstr "Nama pengguna"
 
+msgid "Username should be at least 3 characters"
+msgstr ""
+
+msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr ""
+
 msgid "View"
 msgstr "Tampil"
+
+#, fuzzy
+msgid "View administrator"
+msgstr "Administrator"
+
+#, fuzzy
+msgid "View normal user"
+msgstr "Pengguna normal"
+
+msgid "Webapp Token"
+msgstr ""
+
+msgid "Webapp token"
+msgstr ""
 
 msgid "Website email"
 msgstr "Email situs"
@@ -539,8 +585,14 @@ msgstr "Anda harus memilih kelompok penerima dan pesan anda tidak boleh kosong"
 msgid "Your SMS has been delivered to queue"
 msgstr "SMS anda telah dikirim ke antrian"
 
+msgid "Your email format is invalid"
+msgstr ""
+
 msgid "Your message"
 msgstr "Pesan anda"
+
+msgid "Your mobile format is invalid"
+msgstr ""
 
 msgid "Zipcode"
 msgstr "Kode POS"
@@ -553,6 +605,9 @@ msgstr "gagal"
 
 msgid "from"
 msgstr "dari"
+
+msgid "generated on user creation"
+msgstr ""
 
 msgid "handled"
 msgstr "tertangani"

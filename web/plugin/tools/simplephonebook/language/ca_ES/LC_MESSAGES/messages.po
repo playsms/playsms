@@ -111,7 +111,7 @@ msgid "Group code is already exists"
 msgstr "El codi de grup ja existeix"
 
 msgid "Group code used by keyword"
-msgstr "Codi de grup usat pel teclat"
+msgstr "Codi de grup usat per la paraula clau"
 
 msgid "Group has been edited"
 msgstr "El grup s'ha editat"
