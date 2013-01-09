@@ -499,6 +499,9 @@ msgstr ""
 msgid "User"
 msgstr ""
 
+msgid "User already exists"
+msgstr ""
+
 msgid "User has been added"
 msgstr ""
 
@@ -530,6 +533,12 @@ msgid "View administrator"
 msgstr ""
 
 msgid "View normal user"
+msgstr ""
+
+msgid "Webapp Token"
+msgstr ""
+
+msgid "Webapp token"
 msgstr ""
 
 msgid "Website email"
@@ -581,6 +590,9 @@ msgid "failed"
 msgstr ""
 
 msgid "from"
+msgstr ""
+
+msgid "generated on user creation"
 msgstr ""
 
 msgid "handled"

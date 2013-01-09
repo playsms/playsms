@@ -215,6 +215,22 @@ msgstr "Encaminhar PV pro celular"
 msgid "Forward Private WebSMS"
 msgstr "WebSMS Privada Encaminhada"
 
+#, fuzzy
+msgid "Forward SMS to email"
+msgstr "Encaminhar PV pro e-mail"
+
+#, fuzzy
+msgid "Forward SMS to inbox"
+msgstr "Encaminhar PV pra caixa de entrada"
+
+#, fuzzy
+msgid "Forward SMS to mobile"
+msgstr "Encaminhar PV pro celular"
+
+#, fuzzy
+msgid "Forward from"
+msgstr "Encaminhar PV pro e-mail"
+
 msgid "Forwarded email footer"
 msgstr "Assinatura do e-mail encaminhado"
 
@@ -347,10 +363,16 @@ msgstr "SMS's saindo"
 msgid "Password"
 msgstr "Senha"
 
+msgid "Password does not match"
+msgstr ""
+
 msgid "Password has been sent to your email"
 msgstr ""
 
 msgid "Password recovery"
+msgstr ""
+
+msgid "Password should be at least 4 characters"
 msgstr ""
 
 msgid "Pending"
@@ -490,6 +512,10 @@ msgstr "Usar modelo"
 msgid "User"
 msgstr "Usuário"
 
+#, fuzzy
+msgid "User already exists"
+msgstr "O usuário já existe"
+
 msgid "User has been added"
 msgstr "O usuário foi adicionado"
 
@@ -508,8 +534,28 @@ msgstr "Nível de usuário"
 msgid "Username"
 msgstr "Usuário"
 
+msgid "Username should be at least 3 characters"
+msgstr ""
+
+msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr ""
+
 msgid "View"
 msgstr "Visualizar"
+
+#, fuzzy
+msgid "View administrator"
+msgstr "Administrador"
+
+#, fuzzy
+msgid "View normal user"
+msgstr "Usuário normal"
+
+msgid "Webapp Token"
+msgstr ""
+
+msgid "Webapp token"
+msgstr ""
 
 msgid "Website email"
 msgstr "E-mail do website"
@@ -542,8 +588,14 @@ msgstr ""
 msgid "Your SMS has been delivered to queue"
 msgstr "Seu SMS foi emitido pra fila"
 
+msgid "Your email format is invalid"
+msgstr ""
+
 msgid "Your message"
 msgstr "Mensagem"
+
+msgid "Your mobile format is invalid"
+msgstr ""
 
 msgid "Zipcode"
 msgstr "CEP"
@@ -556,6 +608,9 @@ msgstr "falha"
 
 msgid "from"
 msgstr "de"
+
+msgid "generated on user creation"
+msgstr ""
 
 msgid "handled"
 msgstr "tratadas"
