@@ -1,0 +1,5 @@
+msgid "Log file"
+msgstr "Fitxer de registre"
+
+msgid "View log"
+msgstr "Veure registres"
