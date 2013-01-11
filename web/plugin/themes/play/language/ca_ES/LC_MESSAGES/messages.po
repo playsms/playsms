@@ -39,7 +39,7 @@ msgid "Name"
 msgstr "Nom"
 
 msgid "Password"
-msgstr "Password"
+msgstr "Contrasenya"
 
 msgid "Recover password"
 msgstr "Recuperar contrasenya"
@@ -48,4 +48,4 @@ msgid "Register an account"
 msgstr "Registrar un compte"
 
 msgid "Username"
-msgstr "Username"
+msgstr "Usuari"

@@ -215,6 +215,22 @@ msgstr ""
 msgid "Forward Private WebSMS"
 msgstr "提出非官方网络短信"
 
+#, fuzzy
+msgid "Forward SMS to email"
+msgstr "转发邮件页脚"
+
+#, fuzzy
+msgid "Forward SMS to inbox"
+msgstr "转发邮件页脚"
+
+#, fuzzy
+msgid "Forward SMS to mobile"
+msgstr "转发邮件页脚"
+
+#, fuzzy
+msgid "Forward from"
+msgstr "转发邮件页脚"
+
 msgid "Forwarded email footer"
 msgstr "转发邮件页脚"
 
@@ -347,11 +363,17 @@ msgstr "短信发件箱"
 msgid "Password"
 msgstr "密码"
 
+msgid "Password does not match"
+msgstr ""
+
 msgid "Password has been sent to your email"
 msgstr ""
 
 msgid "Password recovery"
 msgstr "密码"
+
+msgid "Password should be at least 4 characters"
+msgstr ""
 
 msgid "Pending"
 msgstr "等候中"
@@ -488,6 +510,10 @@ msgstr "使用模版"
 msgid "User"
 msgstr "用户"
 
+#, fuzzy
+msgid "User already exists"
+msgstr "用户已存在"
+
 msgid "User has been added"
 msgstr "用户已添加"
 
@@ -506,8 +532,28 @@ msgstr "用户等级"
 msgid "Username"
 msgstr "用户名"
 
+msgid "Username should be at least 3 characters"
+msgstr ""
+
+msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr ""
+
 msgid "View"
 msgstr "查看"
+
+#, fuzzy
+msgid "View administrator"
+msgstr "管理员"
+
+#, fuzzy
+msgid "View normal user"
+msgstr "一般用户"
+
+msgid "Webapp Token"
+msgstr ""
+
+msgid "Webapp token"
+msgstr ""
 
 msgid "Website email"
 msgstr "网站邮件"
@@ -539,8 +585,14 @@ msgstr "你必须选择收件群并且你的信息不能为空"
 msgid "Your SMS has been delivered to queue"
 msgstr "你的短信已在发送序列中"
 
+msgid "Your email format is invalid"
+msgstr ""
+
 msgid "Your message"
 msgstr "你的信息"
+
+msgid "Your mobile format is invalid"
+msgstr ""
 
 msgid "Zipcode"
 msgstr "邮政编码"
@@ -553,6 +605,9 @@ msgstr "发送失败"
 
 msgid "from"
 msgstr "来自"
+
+msgid "generated on user creation"
+msgstr ""
 
 msgid "handled"
 msgstr "已处理的"

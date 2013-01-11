@@ -5,7 +5,7 @@
 <div class="modal" style="width: 55%; position: relative; top: auto; left: auto; margin: 0pt auto; z-index: 1;">
   <form action="index.php" method="post">
     <div class="modal-header">
-      <h3>Login</h3>
+      <h3><?php echo _('Login'); ?></h3>
     </div>
     <div class="modal-body">
         <input type="hidden" name="app" value="page" />

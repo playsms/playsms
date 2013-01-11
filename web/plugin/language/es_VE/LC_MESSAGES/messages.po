@@ -215,6 +215,22 @@ msgstr ""
 msgid "Forward Private WebSMS"
 msgstr "Reenviar WebSMS Privado"
 
+#, fuzzy
+msgid "Forward SMS to email"
+msgstr "Firma del correo reenviado"
+
+#, fuzzy
+msgid "Forward SMS to inbox"
+msgstr "Firma del correo reenviado"
+
+#, fuzzy
+msgid "Forward SMS to mobile"
+msgstr "Firma del correo reenviado"
+
+#, fuzzy
+msgid "Forward from"
+msgstr "Firma del correo reenviado"
+
 msgid "Forwarded email footer"
 msgstr "Firma del correo reenviado"
 
@@ -347,11 +363,17 @@ msgstr "SMS salientes"
 msgid "Password"
 msgstr "Contraseña"
 
+msgid "Password does not match"
+msgstr ""
+
 msgid "Password has been sent to your email"
 msgstr ""
 
 msgid "Password recovery"
 msgstr "Contraseña"
+
+msgid "Password should be at least 4 characters"
+msgstr ""
 
 msgid "Pending"
 msgstr "Pendiente"
@@ -488,6 +510,10 @@ msgstr "Utilizar Plantilla de Mensaje"
 msgid "User"
 msgstr "Usuario"
 
+#, fuzzy
+msgid "User already exists"
+msgstr "El usuario ya existe "
+
 msgid "User has been added"
 msgstr "El usuario ha sido añadido"
 
@@ -506,8 +532,28 @@ msgstr "Privilegios de usuario"
 msgid "Username"
 msgstr "Usuario"
 
+msgid "Username should be at least 3 characters"
+msgstr ""
+
+msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr ""
+
 msgid "View"
 msgstr "Ver"
+
+#, fuzzy
+msgid "View administrator"
+msgstr "Administrador"
+
+#, fuzzy
+msgid "View normal user"
+msgstr "Usuario sin Privilegios"
+
+msgid "Webapp Token"
+msgstr ""
+
+msgid "Webapp token"
+msgstr ""
 
 msgid "Website email"
 msgstr "Correo de contacto"
@@ -539,8 +585,14 @@ msgstr "Debe seleccionar un destinatario y/o su menasaje no puede estar vacio"
 msgid "Your SMS has been delivered to queue"
 msgstr "Su mensaje ha sido enviado a la cola de procesamiento"
 
+msgid "Your email format is invalid"
+msgstr ""
+
 msgid "Your message"
 msgstr "Su mensaje"
+
+msgid "Your mobile format is invalid"
+msgstr ""
 
 msgid "Zipcode"
 msgstr "Código postal"
@@ -553,6 +605,9 @@ msgstr "falló"
 
 msgid "from"
 msgstr "de"
+
+msgid "generated on user creation"
+msgstr ""
 
 msgid "handled"
 msgstr "Procesado"

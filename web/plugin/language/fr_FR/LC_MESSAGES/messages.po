@@ -221,6 +221,22 @@ msgstr "Transfert PV au mobile"
 msgid "Forward Private WebSMS"
 msgstr "Transfére WebSMS Privé"
 
+#, fuzzy
+msgid "Forward SMS to email"
+msgstr "Transfert PV à email"
+
+#, fuzzy
+msgid "Forward SMS to inbox"
+msgstr "Transfert PV à Boite de réception"
+
+#, fuzzy
+msgid "Forward SMS to mobile"
+msgstr "Transfert PV au mobile"
+
+#, fuzzy
+msgid "Forward from"
+msgstr "Transfert PV à email"
+
 msgid "Forwarded email footer"
 msgstr "Pied de pas des mails"
 
@@ -353,11 +369,17 @@ msgstr "SMS sortant"
 msgid "Password"
 msgstr "Mot de passe"
 
+msgid "Password does not match"
+msgstr ""
+
 msgid "Password has been sent to your email"
 msgstr "Mot de passe envoyé par mail"
 
 msgid "Password recovery"
 msgstr "Recouvrer mot de passe"
+
+msgid "Password should be at least 4 characters"
+msgstr ""
 
 msgid "Pending"
 msgstr "En atente"
@@ -496,6 +518,10 @@ msgstr "Utiliser le modèle"
 msgid "User"
 msgstr "Utilisateur"
 
+#, fuzzy
+msgid "User already exists"
+msgstr "L'utilisateur existe déjà"
+
 msgid "User has been added"
 msgstr "Utilisateur ajouté"
 
@@ -514,8 +540,28 @@ msgstr "Privilège Utilisateur"
 msgid "Username"
 msgstr "Nom utilisateur"
 
+msgid "Username should be at least 3 characters"
+msgstr ""
+
+msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr ""
+
 msgid "View"
 msgstr "Voir"
+
+#, fuzzy
+msgid "View administrator"
+msgstr "Administrateur"
+
+#, fuzzy
+msgid "View normal user"
+msgstr "Utilisateur"
+
+msgid "Webapp Token"
+msgstr ""
+
+msgid "Webapp token"
+msgstr ""
 
 msgid "Website email"
 msgstr "Email du Site"
@@ -547,8 +593,14 @@ msgstr "Selectionnez un group de reception & Le message ne doit pas etre vide"
 msgid "Your SMS has been delivered to queue"
 msgstr "Message mis dans la queue"
 
+msgid "Your email format is invalid"
+msgstr ""
+
 msgid "Your message"
 msgstr "Votre message"
+
+msgid "Your mobile format is invalid"
+msgstr ""
 
 msgid "Zipcode"
 msgstr "Code Zip"
@@ -561,6 +613,9 @@ msgstr "Echec"
 
 msgid "from"
 msgstr "De"
+
+msgid "generated on user creation"
+msgstr ""
 
 msgid "handled"
 msgstr "Géré"
