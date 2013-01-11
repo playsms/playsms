@@ -10,3 +10,7 @@
 #fm_sendsms td[align="center"] input {
     width: 100px;
 }
+
+#playsmslogView {
+    width: 99%;
+}
