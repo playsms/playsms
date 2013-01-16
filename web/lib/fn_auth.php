@@ -9,7 +9,7 @@ defined('_SECURE_') or die('Forbidden');
  * @return boolean TRUE when validated or FALSE when validation failed
  */
 function validatelogin($username,$password,$token) {
-	logger_print("webapp login with username:".$username." password: ".$password." token: ".$token, 3, "webapp login");
+	logger_print("login attempt with username: '".$username."' password: '".$password."' token: '".$token."'", 3, "login");
 	if (!empty($token)) {
 		//Token provided, preferred method
 		$db_query = "SELECT token FROM "._DB_PREF_."_tblUser WHERE username='$username'";
@@ -17,7 +17,6 @@ function validatelogin($username,$password,$token) {
 		$db_row = dba_fetch_array($db_result);
 		$res_token = trim($db_row['token']);
 		if ($token==$res_token) {
-			logger_print("webapp token login for username:".$username." token: ".$token, 3, "webapp login");
 			return true;
 		}
 	} else {
@@ -31,6 +30,8 @@ function validatelogin($username,$password,$token) {
 			return true;
 		}
 	}
+	//We log the failed logins to be used with fail2ban
+	logger_print("failed login for ".$username." from: ".$_SERVER['REMOTE_ADDR'], 2, "login");
 
 	return false;
 }
