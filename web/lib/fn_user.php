@@ -71,7 +71,7 @@ function user_update($item, $condition='') {
 	global $core_config;
 	if (is_array($item)) {
 		foreach ($item as $key => $val) {
-			if (($key != "sender") || ($core_config['denycustomsender']!=true)) {
+			if (($key != "sender") || ($core_config['denycustomsender']!=true) || isadmin($condition['username'])) {
 				$sets .= $key."='".$val."',";
 			}
 		}
