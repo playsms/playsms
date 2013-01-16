@@ -68,9 +68,12 @@ function user_add($item) {
 
 function user_update($item, $condition='') {
 	$ret = false;
+	global $core_config;
 	if (is_array($item)) {
 		foreach ($item as $key => $val) {
-			$sets .= $key."='".$val."',";
+			if (($key != "sender") || ($core_config['denycustomsender']!=true) || isadmin($condition['username'])) {
+				$sets .= $key."='".$val."',";
+			}
 		}
 		if ($sets) {
 			$sets = substr($sets, 0, -1);

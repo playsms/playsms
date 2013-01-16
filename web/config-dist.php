@@ -34,6 +34,10 @@ $apps_path['logs']	= '/var/log/playsms';
 // WARNING: log level 3 and 4 will also save sensitif information such as password for used gateway
 $core_config['logstate']	= 2;
 
+// do we allow the users to edit the sender number (default = no),
+// only effective when there is no gateway sender ID defined
+$core_config['denycustomsender']        = true;
+
 // are we using http or https ? the default is using http instead https
 $core_config['ishttps']		= false;
 

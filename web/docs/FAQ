@@ -59,14 +59,19 @@ B. SEND SMS
     Answer:
     No, playSMS will keep trying to send the SMS.
 
-7.  How is my sent SMS looks like at the recipient mobile phones?
+7.  How do my sent SMS look like at the recipient mobile phones?
     Answer:
-    If you set the SMS footer in your Preferences, than the SMS footer
+    If you set the SMS footer in your Preferences, then the SMS footer
     will be added to the end of your SMS, this is useful when using 
     gateway module with no ability to set SMS sender ID.
-    Gateway module which have the ability to set SMS sender ID will 
+    Gateway modules which have the ability to set SMS sender ID will 
     set SMS sender ID to the SMS.
-    
+    The sender ID is set according this order:
+	1. Default sender ID (in case it exists)
+	2. Module sender ID (in case it exists)
+	3. Per user SMS sender ID (only editable by the user when
+	    denycustomsender=false, the admin can edit it always)
+
 
 C. RECEIVE SMS
 --------------    
