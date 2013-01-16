@@ -1,0 +1,30 @@
+INSTALL FAIL2BAN
+--------------
+Fail2ban is an excellent piece of software to protect the software against
+ brute force / dictionary attacks
+
+To install it on debian
+# apt-get install fail2ban
+
+
+# To copy the config in contrib to its destination
+cp contrib/fail2ban/playsms.conf /etc/fail2ban/filter.d/
+
+
+# To enable the filter add this to /etc/fail2ban/jail.conf
+
+
+#############################
+[playsms]
+
+enabled  = true
+port     = 80,443
+protocol = tcp
+filter   = playsms
+logpath  = /var/log/playsms/playsms.log
+
+############################
+
+After restarting fail2ban (/etc/init.d/fail2ban restart) any
+ installation with logstate >= 2 should start blocking the
+ attempts

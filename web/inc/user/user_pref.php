@@ -112,6 +112,7 @@ switch ($op) {
 			}
 		}
 
+		$core_config['denycustomsender'] ? $senderidstatus="disabled" : $senderidstatus="";
 		$content .= "
 			<h2>" . _('Preferences') . "</h2>
 			<p>
@@ -136,7 +137,7 @@ switch ($op) {
 			<tr><td colspan=3>&nbsp;</td></tr>
 			<tr><td colspan=3><h2>" . _('Application options') . "</h2><hr></td></tr>
 			<tr><td width=200>" . _('Timezone') . "</td><td>:</td><td><input type=text size=5 maxlength=5 name=up_datetime_timezone value=\"$datetime_timezone\"> (" . _('Eg: +0700 for Jakarta/Bangkok timezone') . ")</td></tr>
-			<tr><td width=200>" . _('SMS sender ID') . "</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"$sender\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td></tr>
+			<tr><td width=200>" . _('SMS sender ID') . "</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"$sender\" $senderidstatus> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td></tr>
 			<tr><td width=200>" . _('SMS footer') . "</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_footer value=\"$footer\"> (" . _('Max. 30 alphanumeric characters') . ")</td></tr>
 			<tr><td width=200>" . _('Credit') . "</td><td>:</td><td><b>$credit</b></td></tr>
 			<tr><td width=200>" . _('Forward SMS to inbox') . "</td><td>:</td><td><select name='up_fwd_to_inbox'>" . $option_fwd_to_inbox . "</select></td></tr>
