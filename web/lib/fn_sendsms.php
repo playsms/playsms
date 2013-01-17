@@ -144,6 +144,8 @@ function sendsmsd($single_queue='') {
 				$c_ok = true;
 				$c_smslog_id = $ret['smslog_id'];
 				$c_flag = 1;
+			} else {
+				$c_ok = $ret['p_status'];
 			}
 			logger_print("result queue_code:".$c_queue_code." to:".$c_dst." flag:".$c_flag." smslog_id:".$c_smslog_id, 2, "sendsmsd");
 			$db_query3 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue_dst SET smslog_id='$c_smslog_id',flag='$c_flag' WHERE id='$c_id'";
@@ -247,6 +249,7 @@ function sendsms_process($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$
 
 	$ret['status'] = $ok;
 	$ret['smslog_id'] = $smslog_id;
+	$ret['p_status'] = $p_status;
 	return $ret;
 }
 
