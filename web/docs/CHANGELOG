@@ -1,6 +1,7 @@
 Verison 0.9.8-git - NA
 - MAJOR: change the login method to use PHP session (anton)
 - MAJOR: change the way to show $error_string, now using PHP session (anton)
+- MAJOR: expand webservice with new error codes (aseques)
 - remove option for multilogin, it will always be multi-login since using session (anton)
 - remove old page_welcome pages, now in inc/user/page_welcome.php and its configurable (anton)
 - add language for themes play (aseques)
