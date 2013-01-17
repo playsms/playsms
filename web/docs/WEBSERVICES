@@ -51,11 +51,20 @@ Unsuccessful actions:
 ERR 100 : authentication failed
 ERR 101 : type of action not valid
 ERR 102 : one or more field empty
+ERR 103 : not enough credit for this operation
 ERR 200 : send private failed
 ERR 201 : destination number or message is empty
 ERR 300 : send broadcast failed
 ERR 301 : destination group or message is empty
 ERR 400 : no delivery status retrieved
+
+There might appear new error codes in the future, you should be aware that new
+ codes might appear with this syntax.
+
+ERR 1xx: authentication or parameter erorrs
+ERR 2xx: specific pv errors
+ERR 3xx: specific bc errors
+ERR 4xx: delivery status errors
 
 
 PROTOCOL
