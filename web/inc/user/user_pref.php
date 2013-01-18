@@ -24,7 +24,7 @@ switch ($op) {
 			$replace_zero = $c_user[0]['replace_zero'];
 			$plus_sign_remove = $c_user[0]['plus_sign_remove'];
 			$plus_sign_add = $c_user[0]['plus_sign_add'];
-			$credit = rate_getusercredit($c_username);
+			$credit = rate_getusercredit($c_user[0]['username']);
 		}
 		// select fwd_to_inbox
 		if ($fwd_to_inbox) {
