@@ -1,4 +1,5 @@
 Verison 0.9.8-git - NA
+- MAJOR: webapp usage now can be used with a token instead of the password (joan)
 - MAJOR: change the login method to use PHP session (anton)
 - MAJOR: change the way to show $error_string, now using PHP session (anton)
 - MAJOR: expand webservice with new error codes (aseques)
@@ -9,6 +10,7 @@ Verison 0.9.8-git - NA
 - add config for playsmsd and sendsmsd in windows, playsms.bat (anton)
 - add BC keyword like handler to feature SMS subscribe (anton)
 - add lib/fn_init.php to hold init functions, small re-structure in init.php (anton)
+- add instructions to enable fail2ban (joan)
 - update language id_ID (hangbreaker)
 - update catalan language (aseques)
 - update user's email and mobile should be unique (anton)
