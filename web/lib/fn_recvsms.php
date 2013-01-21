@@ -264,7 +264,7 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 					$message = $sender.' '.$message;
 					logger_print("send to mobile:".$mobile." from:".$sms_sender." user:".$target_user." message:".$message, 3, "insertsmstoinbox");
 					list($ok, $to, $smslog_id, $queue) = sendsms($target_user, $mobile, $message, 'text', $unicode);
-					if ($ok[0]) {
+					if ($ok[0]==1) {
                                                 logger_print("sent to mobile:".$mobile." from:".$sms_sender." user:".$target_user, 2, "insertsmstoinbox");
 					}
 				}

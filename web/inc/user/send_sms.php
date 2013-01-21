@@ -128,9 +128,10 @@ switch ($op) {
 			list($ok,$to,$smslog_id,$queue) = sendsms($username,$sms_to,$message,$sms_type,$unicode);
 			if (count($ok) <= 5) {
 				for ($i=0;$i<count($ok);$i++) {
-					if ($ok[$i]) {
+					if ($ok[$i]==1) {
 						$_SESSION['error_string'] .= _('Your SMS has been delivered to queue')." ("._('to').": ".$to[$i].")<br>";
-					} else {
+					} elseif ($ok[$i]==2) {
+						$_SESSION['error_string'] .= _('Fail sent SMS, no credit')." ("._('to').": ".$to[$i].")<br>";					 } else {
 						$_SESSION['error_string'] .= _('Fail to sent SMS')." ("._('to').": ".$to[$i].")<br>";
 					}
 				}
