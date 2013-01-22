@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-10-11 22:14+0700\n"
-"PO-Revision-Date: 2013-01-09 16:35+0100\n"
+"PO-Revision-Date: 2013-01-22 11:36+0100\n"
 "Last-Translator: Joan <aseques@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -87,7 +87,7 @@ msgid "Are you sure you want to delete user ?"
 msgstr "Està segur de voler esborrar l'usuari ?"
 
 msgid "Auto remove plus sign"
-msgstr "Auto el·liminar el signe més"
+msgstr "Auto eliminar el signe més"
 
 msgid "Auto replace prefix 0"
 msgstr "Auto reemplaçar el prefix 0"
@@ -135,7 +135,7 @@ msgid "Default sender ID"
 msgstr "Número de la plataforma"
 
 msgid "Default timezone"
-msgstr "Zona horaria per defecte"
+msgstr "Zona horària per defecte"
 
 msgid "Delete"
 msgstr "Esborrar"
@@ -176,11 +176,14 @@ msgstr "Habilitar registre públic"
 msgid "F.A.Q"
 msgstr "P.M.F"
 
+msgid "Fail sent SMS, no credit"
+msgstr "No es pot enviar el SMS, no hi ha saldo"
+
 msgid "Fail to delete SMS"
-msgstr "Impossible borrar el SMS"
+msgstr "Impossible esborrar el SMS"
 
 msgid "Fail to delete incoming SMS"
-msgstr "Impossible borrar el SMS entrant"
+msgstr "Impossible esborrar el SMS entrant"
 
 msgid "Fail to delete user"
 msgstr "Impossible esborrar l'usuari"
@@ -231,7 +234,7 @@ msgid "Forward SMS to inbox"
 msgstr "Reenviar els SMS a l'entrada"
 
 msgid "Forward SMS to mobile"
-msgstr "Reenviar els sms al mòbil"
+msgstr "Reenviar els SMS al mòbil"
 
 msgid "Forward from"
 msgstr "Reenviar de"
@@ -287,6 +290,9 @@ msgstr "Última actualització"
 msgid "License"
 msgstr "Llicència"
 
+msgid "Local number length"
+msgstr "Longitud del número local"
+
 msgid "Login information"
 msgstr "Informació de la sessió"
 
@@ -309,7 +315,7 @@ msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "Max. 16 caràcters numèrics o 11 alfanumèrics"
 
 msgid "Max. 30 alphanumeric characters"
-msgstr "Max. 30 caràcters alfanumèricos"
+msgstr "Max. 30 caràcters alfanumèrics"
 
 msgid "Maximum SMS count"
 msgstr "Nombre màxim de SMS"
@@ -324,13 +330,16 @@ msgid "Message template content"
 msgstr "Contingut de Plantilla de Missatge"
 
 msgid "Message template has been edited"
-msgstr "La Plantilla de Mensaje ha estat editada"
+msgstr "La Plantilla de missatge ha estat editada"
 
 msgid "Message template has been saved"
 msgstr "La Plantilla de Missatge s'ha guardat"
 
 msgid "Message template name"
 msgstr "Nom de la Plantilla de Missatge"
+
+msgid "Min length to detect missing country code"
+msgstr "Min. longitud per detectar que falta el codi de país"
 
 msgid "Mobile"
 msgstr "Mòbil"
@@ -428,6 +437,9 @@ msgstr "Recuperar contrasenya desactivat"
 msgid "Registered"
 msgstr "Entregat"
 
+msgid "Replace prefix 0 or padding local numbers"
+msgstr "Reemplaça el prefix 0 o afegeix als números locals"
+
 msgid "Reply"
 msgstr "Respondre"
 
@@ -486,7 +498,7 @@ msgid "Sent"
 msgstr "Enviat"
 
 msgid "State or Province"
-msgstr "Estat o provincia"
+msgstr "Estat o província"
 
 msgid "Status"
 msgstr "Estat"
@@ -504,7 +516,7 @@ msgid "Tools"
 msgstr "Eines"
 
 msgid "Unable to update login session"
-msgstr "Impossible actualitzar la sessió de l'usuario"
+msgstr "Impossible actualitzar la sessió de l'usuari"
 
 msgid "Use"
 msgstr "Utilitzar"
@@ -583,7 +595,7 @@ msgstr "ha de seleccionar un destinatari i/o el missatge no pot ser buit"
 
 msgid "You must select receiver group and your message should not be empty"
 msgstr ""
-"Ha de seleccionar un grup destinatari i/o el seu missatbe no pot ser buit"
+"Ha de seleccionar un grup destinatari i/o el seu missatge no pot ser buit"
 
 msgid "Your SMS has been delivered to queue"
 msgstr "El seu missatge ha estat enviat a la cua de processament"
@@ -647,3 +659,4 @@ msgstr "usuari"
 
 msgid "yes"
 msgstr "si"
+

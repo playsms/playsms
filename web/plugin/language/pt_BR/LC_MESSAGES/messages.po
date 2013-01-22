@@ -167,6 +167,10 @@ msgstr ""
 msgid "F.A.Q"
 msgstr ""
 
+#, fuzzy
+msgid "Fail sent SMS, no credit"
+msgstr "Falha ao enviar SMS"
+
 msgid "Fail to delete SMS"
 msgstr "Falha ao remover SMS"
 
@@ -282,6 +286,9 @@ msgstr ""
 msgid "License"
 msgstr ""
 
+msgid "Local number length"
+msgstr ""
+
 msgid "Login information"
 msgstr "Informações de login"
 
@@ -326,6 +333,9 @@ msgstr "Modelo de mensagem foi salvo"
 
 msgid "Message template name"
 msgstr "Nome do modelo de mensagem"
+
+msgid "Min length to detect missing country code"
+msgstr ""
 
 msgid "Mobile"
 msgstr "Celular"
@@ -422,6 +432,9 @@ msgstr ""
 
 msgid "Registered"
 msgstr "Entregue"
+
+msgid "Replace prefix 0 or padding local numbers"
+msgstr ""
 
 msgid "Reply"
 msgstr "Responder"

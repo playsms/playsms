@@ -167,6 +167,10 @@ msgstr ""
 msgid "F.A.Q"
 msgstr ""
 
+#, fuzzy
+msgid "Fail sent SMS, no credit"
+msgstr "发送短信失败"
+
 msgid "Fail to delete SMS"
 msgstr "删除短信失败"
 
@@ -282,6 +286,9 @@ msgstr ""
 msgid "License"
 msgstr ""
 
+msgid "Local number length"
+msgstr ""
+
 msgid "Login information"
 msgstr "登陆信息"
 
@@ -326,6 +333,9 @@ msgstr "信息模版已被保存"
 
 msgid "Message template name"
 msgstr "信息模版名字"
+
+msgid "Min length to detect missing country code"
+msgstr ""
 
 msgid "Mobile"
 msgstr "手机"
@@ -422,6 +432,9 @@ msgstr ""
 
 msgid "Registered"
 msgstr "已传送的"
+
+msgid "Replace prefix 0 or padding local numbers"
+msgstr ""
 
 msgid "Reply"
 msgstr "回复"

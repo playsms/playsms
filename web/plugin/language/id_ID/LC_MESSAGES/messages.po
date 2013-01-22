@@ -167,6 +167,10 @@ msgstr "Aktifkan pendaftaran umum"
 msgid "F.A.Q"
 msgstr ""
 
+#, fuzzy
+msgid "Fail sent SMS, no credit"
+msgstr "Gagal mengirim SMS"
+
 msgid "Fail to delete SMS"
 msgstr "Gagal menghapus SMS"
 
@@ -282,6 +286,9 @@ msgstr "Terakhir ubah"
 msgid "License"
 msgstr "Lisensi"
 
+msgid "Local number length"
+msgstr ""
+
 msgid "Login information"
 msgstr "Informasi login"
 
@@ -326,6 +333,9 @@ msgstr "Pola pesan telah disimpan"
 
 msgid "Message template name"
 msgstr "Nama pola pesan"
+
+msgid "Min length to detect missing country code"
+msgstr ""
 
 msgid "Mobile"
 msgstr "Ponsel"
@@ -422,6 +432,9 @@ msgstr "Pemulihan kata sandi dinonaktifkan"
 
 msgid "Registered"
 msgstr "Terdaftar"
+
+msgid "Replace prefix 0 or padding local numbers"
+msgstr ""
 
 msgid "Reply"
 msgstr "Balas"
