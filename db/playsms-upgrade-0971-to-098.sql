@@ -5,6 +5,7 @@ ALTER TABLE `playsms_tblSMSTemplate` RENAME TO `playsms_toolsMsgtemplate` ;
 ALTER TABLE `playsms_tblUser` ADD `register_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00' AFTER `plus_sign_add` ;
 ALTER TABLE `playsms_tblUser` ADD `lastupdate_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00' AFTER `register_datetime` ;
 ALTER TABLE `playsms_tblUser` ADD `token` VARCHAR(40) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL AFTER  `password`;
+ALTER TABLE `playsms_tblUser` ADD `local_length` TINYINT NOT NULL DEFAULT '9' AFTER `plus_sign_add`;
 
 ALTER TABLE `playsms_tblUser` MODIFY `password` varchar(32) NOT NULL ;
 

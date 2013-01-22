@@ -21,6 +21,7 @@ switch ($op) {
 			$fwd_to_inbox = $c_user[0]['fwd_to_inbox'];
 			$fwd_to_email = $c_user[0]['fwd_to_email'];
 			$fwd_to_mobile = $c_user[0]['fwd_to_mobile'];
+			$local_length = $c_user[0]['local_length'];
 			$replace_zero = $c_user[0]['replace_zero'];
 			$plus_sign_remove = $c_user[0]['plus_sign_remove'];
 			$plus_sign_add = $c_user[0]['plus_sign_add'];
@@ -143,7 +144,8 @@ switch ($op) {
 			<tr><td width=200>" . _('Forward SMS to inbox') . "</td><td>:</td><td><select name='up_fwd_to_inbox'>" . $option_fwd_to_inbox . "</select></td></tr>
 			<tr><td width=200>" . _('Forward SMS to email') . "</td><td>:</td><td><select name='up_fwd_to_email'>" . $option_fwd_to_email . "</select></td></tr>
 			<tr><td width=200>" . _('Forward SMS to mobile') . "</td><td>:</td><td><select name='up_fwd_to_mobile'>" . $option_fwd_to_mobile . "</select></td></tr>
-			<tr><td width=200>" . _('Auto replace prefix 0') . "</td><td>:</td><td><input type=text size=5 maxlength=5 name='up_replace_zero' value=\"$replace_zero\"> (" . _('Prefix or country code') . ")</td></tr>
+			<tr><td width=200>" . _('Local number length') . "</td><td>:</td><td><input type=text size=5 maxlength=5 name='up_local_length' value=\"$local_length\"> (" . _('Min length to detect missing country code') . ")</td></tr>
+			<tr><td width=200>" . _('Prefix or country code') . "</td><td>:</td><td><input type=text size=5 maxlength=5 name='up_replace_zero' value=\"$replace_zero\"> (" . _('Replace prefix 0 or padding local numbers') . ")</td></tr>
 			<tr><td width=200>" . _('Auto remove plus sign') . "</td><td>:</td><td><select name='up_plus_sign_remove'>" . $option_plus_sign_remove . "</select></td></tr>
 			<tr><td width=200>" . _('Always add plus sign') . "</td><td>:</td><td><select name='up_plus_sign_add'>" . $option_plus_sign_add . "</select></td></tr>
 			<tr><td colspan=3>&nbsp;</td></tr>
@@ -159,7 +161,7 @@ switch ($op) {
 			'name', 'email', 'address', 'city', 'state', 'country', 'mobile',
 			'sender', 'footer', 'password', 'zipcode', 'datetime_timezone', 
 			'language_module', 'fwd_to_inbox', 'fwd_to_email', 'fwd_to_mobile',
-			'replace_zero', 'plus_sign_remove', 'plus_sign_add'
+			'local_length','replace_zero', 'plus_sign_remove', 'plus_sign_add'
 		);
 		for ($i=0;$i<count($fields);$i++) {
 			$up[$fields[$i]] = trim($_POST['up_'.$fields[$i]]);
