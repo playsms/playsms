@@ -167,6 +167,10 @@ msgstr ""
 msgid "F.A.Q"
 msgstr ""
 
+#, fuzzy
+msgid "Fail sent SMS, no credit"
+msgstr "Imposible enviar el SMS"
+
 msgid "Fail to delete SMS"
 msgstr "Imposible borrar el SMS"
 
@@ -282,6 +286,9 @@ msgstr ""
 msgid "License"
 msgstr ""
 
+msgid "Local number length"
+msgstr ""
+
 msgid "Login information"
 msgstr "Información de la sesión"
 
@@ -326,6 +333,9 @@ msgstr "La Plantilla de Mensaje ha sido guardada"
 
 msgid "Message template name"
 msgstr "Nombre de la Plantilla de Mensaje"
+
+msgid "Min length to detect missing country code"
+msgstr ""
 
 msgid "Mobile"
 msgstr "Celular"
@@ -422,6 +432,9 @@ msgstr ""
 
 msgid "Registered"
 msgstr "Entregado"
+
+msgid "Replace prefix 0 or padding local numbers"
+msgstr ""
 
 msgid "Reply"
 msgstr "Responder"

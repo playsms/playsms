@@ -167,6 +167,9 @@ msgstr ""
 msgid "F.A.Q"
 msgstr ""
 
+msgid "Fail sent SMS, no credit"
+msgstr ""
+
 msgid "Fail to delete SMS"
 msgstr ""
 
@@ -278,6 +281,9 @@ msgstr ""
 msgid "License"
 msgstr ""
 
+msgid "Local number length"
+msgstr ""
+
 msgid "Login information"
 msgstr ""
 
@@ -321,6 +327,9 @@ msgid "Message template has been saved"
 msgstr ""
 
 msgid "Message template name"
+msgstr ""
+
+msgid "Min length to detect missing country code"
 msgstr ""
 
 msgid "Mobile"
@@ -417,6 +426,9 @@ msgid "Recover password disabled"
 msgstr ""
 
 msgid "Registered"
+msgstr ""
+
+msgid "Replace prefix 0 or padding local numbers"
 msgstr ""
 
 msgid "Reply"
