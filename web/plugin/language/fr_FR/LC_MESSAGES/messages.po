@@ -173,6 +173,10 @@ msgstr "Autoriser enregistrement public"
 msgid "F.A.Q"
 msgstr ""
 
+#, fuzzy
+msgid "Fail sent SMS, no credit"
+msgstr "Echec d'envoi du SMS"
+
 msgid "Fail to delete SMS"
 msgstr "Echec de suppression"
 
@@ -288,6 +292,9 @@ msgstr ""
 msgid "License"
 msgstr ""
 
+msgid "Local number length"
+msgstr ""
+
 msgid "Login information"
 msgstr "Information de Login"
 
@@ -332,6 +339,9 @@ msgstr "Modèle de message enregistré"
 
 msgid "Message template name"
 msgstr "Nom du modèle de message"
+
+msgid "Min length to detect missing country code"
+msgstr ""
 
 msgid "Mobile"
 msgstr "Mobile"
@@ -428,6 +438,9 @@ msgstr "Recouvrement de mot de passe désastivé"
 
 msgid "Registered"
 msgstr "Delivré"
+
+msgid "Replace prefix 0 or padding local numbers"
+msgstr ""
 
 msgid "Reply"
 msgstr "Reéssayer"
