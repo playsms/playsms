@@ -44,4 +44,22 @@ function themes_nav($count, $url) {
 	return $ret;
 }
 
+function themes_search($var) {
+	$ret = false;
+	$value = $_REQUEST[$var['name'].'_keyword'];
+	$content = "
+		<form action='".$var['url']."' method='post'>
+		<table cellpadding='0' cellspacing='0' border='0'><tr>
+			<td>"._('Search')."</td>
+			<td>:</td>
+			<td><input type='text' name='".$var['name']."_keyword' value='".$value."' size='40 maxlength='40'><td></td>
+			<td><input type='submit' value='"._('Go')."' class='button'></td>
+		</tr></table>
+		</form>
+	";
+	$ret['form'] = $content;
+	$ret['keyword'] = $value;
+	return $ret;
+}
+
 ?>
