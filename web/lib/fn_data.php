@@ -21,7 +21,10 @@ function data_search($db_table, $fields='', $keywords='', $extras='') {
 	if ($q_fields || $q_keywords || $q_extras) {
 		$q_where = 'WHERE';
 	}
-	$q_conditions = substr(trim($q_fields." ".$q_keywords." ".$q_extras), 3);
+	
+	// keywords first, and then fields
+	$q_conditions = substr(trim($q_keywords." ".$q_fields." ".$q_extras), 3);
+	
 	$db_query = "SELECT * FROM ".$db_table." ".$q_where." ".$q_conditions;
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {

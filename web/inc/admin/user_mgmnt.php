@@ -9,7 +9,7 @@ switch ($op) {
 		break;
 	case "user_list_tab1":
 		$fields = array('status' => 2);
-		$count = user_count($fields);
+		$count = data_count(_DB_PREF_.'_tblUser', $fields);
 		$nav = themes_nav($count, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab1");
 		$search_var = array(
 			'name' => 'user_mgmnt',
@@ -42,12 +42,12 @@ switch ($op) {
 				<td class='box_title' class='sortable_nosort' width='75'>" . _('Action') . "</td>
 			</tr>";
 		$j = $nav['top'];
+		$fields = array('status' => 2);
 		if ($search['keyword']) {
 			$keywords = array('username' => '%'.$search['keyword'].'%');
 		}
-		$fields = array('status' => 2);
 		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = user_search($keywords, $fields, $extras);
+		$list = data_search(_DB_PREF_.'_tblUser', $fields, $keywords, $extras);
 		for ($i=0;$i<count($list);$i++) {
 			$j--;
 			$td_class = ($j % 2) ? "box_text_odd" : "box_text_even";
@@ -72,7 +72,7 @@ switch ($op) {
 		break;
 	case "user_list_tab2":
 		$fields = array('status' => 3);
-		$count = user_count($fields);
+		$count = data_count(_DB_PREF_.'_tblUser', $fields);
 		$nav = themes_nav($count, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab2");
 		$search_var = array(
 			'name' => 'user_mgmnt',
@@ -105,12 +105,12 @@ switch ($op) {
 				<td class='box_title' class='sortable_nosort' width='75'>" . _('Action') . "</td>
 			</tr>";
 		$j = $nav['top'];
+		$fields = array('status' => 3);
 		if ($search['keyword']) {
 			$keywords = array('username' => '%'.$search['keyword'].'%');
 		}
-		$fields = array('status' => 3);
 		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = user_search($keywords, $fields, $extras);
+		$list = data_search(_DB_PREF_.'_tblUser', $fields, $keywords, $extras);
 		for ($i=0;$i<count($list);$i++) {
 			$list[$i] = core_display_data($list[$i]);
 			$j--;
@@ -140,7 +140,7 @@ switch ($op) {
 		$_SESSION['error_string'] = _('Fail to delete user') . " ".$up['username'];
 		if (($del_uid > 1) && ($del_uid != $uid)) {
 			$condition = array('uid' => $del_uid);
-			if (user_remove($condition)) {
+			if (data_remove(_DB_PREF_.'_tblUser', $condition)) {
 				$_SESSION['error_string'] = _('User has been deleted') . " (" . _('username') . ": ".$up['username'].")";
 			}
 		}
@@ -268,7 +268,7 @@ switch ($op) {
 				}
 				$datetime_now = core_adjust_datetime($core_config['datetime']['now']);
 				$up['lastupdate_datetime'] = $datetime_now;
-				if (user_update($up, array('username' => $up['username']))) {
+				if (data_update(_DB_PREF_.'_tblUser', $up, array('username' => $up['username']))) {
 					$c_uid = username2uid($up['username']);
 					rate_setusercredit($c_uid, $up['credit']);
 					$_SESSION['error_string'] = _('Preferences has been saved') . " (" . _('username') . ": ".$up['username'].")";
@@ -376,7 +376,7 @@ switch ($op) {
 				if ($add['mobile']) {
 					$item['mobile'] = $add['mobile'];
 				}
-				if (! user_isavail($item)) {
+				if (! data_isavail($item)) {
 					$_SESSION['error_string'] = _('User already exists') . " (" . _('username') . ": " . $add['username'] . ")";
 					$next = false;
 				}
@@ -384,7 +384,7 @@ switch ($op) {
 					$datetime_now = core_adjust_datetime($core_config['datetime']['now']);
 					$add['register_datetime'] = $datetime_now;
 					$add['lastupdate_datetime'] = $datetime_now;
-					if ($new_uid = user_add($add)) {
+					if ($new_uid = data_add(_DB_PREF_.'_tblUser', $add)) {
 						rate_setusercredit($new_uid, $add['credit']);
 						$_SESSION['error_string'] = _('User has been added') . " (" . _('username') . ": ".$add['username'].")";
 					}
