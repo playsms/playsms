@@ -2,6 +2,7 @@
 defined('_SECURE_') or die('Forbidden');
 
 // main functions
+include $apps_path['libs']."/fn_data.php";
 include $apps_path['libs']."/fn_logger.php";
 include $apps_path['libs']."/fn_country.php";
 include $apps_path['libs']."/fn_rate.php";
