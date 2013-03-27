@@ -11,6 +11,11 @@ switch ($op) {
 		$fields = array('status' => 2);
 		$count = user_count($fields);
 		$nav = themes_nav($count, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab1");
+		$search_var = array(
+			'name' => 'user_mgmnt',
+			'url' => 'index.php?app=menu&inc=user_mgmnt&op=user_list_tab1',
+		);
+		$search = themes_search($search_var);
 		$_SESSION['referrer'] = 'user_list_tab1';
 		if ($err = $_SESSION['error_string']) {
 			$content = "<p><font color='red'>$err</font><p>";
@@ -22,6 +27,7 @@ switch ($op) {
 		$content .= "
 			<input type='button' value='" . _('Add user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
 			<input type='button' value='" . _('View normal user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab2')\" class=\"button\" />
+			<p>".$search['form']."</p>
 			<p>".$nav['form']."</p>
 			<p>" . _('Status') . ": <b>" . _('Administrator') . "</b><br>
 			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
@@ -36,9 +42,12 @@ switch ($op) {
 				<td class='box_title' class='sortable_nosort' width='75'>" . _('Action') . "</td>
 			</tr>";
 		$j = $nav['top'];
+		if ($search['keyword']) {
+			$keywords = array('username' => '%'.$search['keyword'].'%');
+		}
 		$fields = array('status' => 2);
 		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = user_getall($fields, $extras);
+		$list = user_search($keywords, $fields, $extras);
 		for ($i=0;$i<count($list);$i++) {
 			$j--;
 			$td_class = ($j % 2) ? "box_text_odd" : "box_text_even";
@@ -65,6 +74,11 @@ switch ($op) {
 		$fields = array('status' => 3);
 		$count = user_count($fields);
 		$nav = themes_nav($count, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab2");
+		$search_var = array(
+			'name' => 'user_mgmnt',
+			'url' => 'index.php?app=menu&inc=user_mgmnt&op=user_list_tab2',
+		);
+		$search = themes_search($search_var);
 		$_SESSION['referrer'] = 'user_list_tab2';
 		if ($err = $_SESSION['error_string']) {
 			$content = "<p><font color='red'>$err</font><p>";
@@ -76,6 +90,7 @@ switch ($op) {
 		$content .= "
 			<input type='button' value='" . _('Add user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
 			<input type='button' value='" . _('View administrator') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab1')\" class=\"button\" />
+			<p>".$search['form']."</p>
 			<p>".$nav['form']."</p>
 			<p>" . _('Status') . ": <b>" . _('Normal user') . "</b><br>
 			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
@@ -90,9 +105,12 @@ switch ($op) {
 				<td class='box_title' class='sortable_nosort' width='75'>" . _('Action') . "</td>
 			</tr>";
 		$j = $nav['top'];
+		if ($search['keyword']) {
+			$keywords = array('username' => '%'.$search['keyword'].'%');
+		}
 		$fields = array('status' => 3);
 		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = user_getall($fields, $extras);
+		$list = user_search($keywords, $fields, $extras);
 		for ($i=0;$i<count($list);$i++) {
 			$list[$i] = core_display_data($list[$i]);
 			$j--;

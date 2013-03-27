@@ -1,6 +1,35 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
+function user_search($keywords='', $fields='', $extras='') {
+	$ret = array();
+	if (is_array($keywords)) {
+		foreach ($keywords as $key => $val) {
+			$q_keywords .= "OR ".$key." LIKE '".$val."' ";
+		}
+	}
+	if (is_array($fields)) {
+		foreach ($fields as $key => $val) {
+			$q_fields .= "AND ".$key."=".$val." ";
+		}
+	}
+	if (is_array($extras)) {
+		foreach ($extras as $key => $val) {
+			$q_extras .= $key." ".$val." ";
+		}
+	}
+	if ($q_keywords || $q_fields || $q_extras) {
+		$q_where = 'WHERE';
+	}
+	$q_conditions = substr(trim($q_keywords." ".$q_fields." ".$q_extras), 3);
+	$db_query = "SELECT * FROM "._DB_PREF_."_tblUser ".$q_where." ".$q_conditions;
+	$db_result = dba_query($db_query);
+	while ($db_row = dba_fetch_array($db_result)) {
+		$ret[] = $db_row;
+	}
+	return $ret;
+}
+
 function user_getall($fields='', $extras='') {
 	$ret = array();
 	if (is_array($fields)) {
@@ -17,6 +46,7 @@ function user_getall($fields='', $extras='') {
 		}
 	}
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblUser ".$q_condition." ".$q_extra;
+	print_r($db_query);
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[] = $db_row;
