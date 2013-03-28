@@ -9,8 +9,13 @@ switch ($op) {
 		break;
 	case "user_list_tab1":
 		$fields = array('status' => 2);
-		$count = data_count(_DB_PREF_.'_tblUser', $fields);
+		if ($search['keyword']) {
+			$keywords = array('username' => '%'.$search['keyword'].'%');
+		}
+		$count = data_count(_DB_PREF_.'_tblUser', $fields, $keywords);
 		$nav = themes_nav($count, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab1");
+		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
+		$list = data_search(_DB_PREF_.'_tblUser', $fields, $keywords, $extras);
 		$search_var = array(
 			'name' => 'user_mgmnt',
 			'url' => 'index.php?app=menu&inc=user_mgmnt&op=user_list_tab1',
@@ -42,12 +47,6 @@ switch ($op) {
 				<td class='box_title' class='sortable_nosort' width='75'>" . _('Action') . "</td>
 			</tr>";
 		$j = $nav['top'];
-		$fields = array('status' => 2);
-		if ($search['keyword']) {
-			$keywords = array('username' => '%'.$search['keyword'].'%');
-		}
-		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = data_search(_DB_PREF_.'_tblUser', $fields, $keywords, $extras);
 		for ($i=0;$i<count($list);$i++) {
 			$j--;
 			$td_class = ($j % 2) ? "box_text_odd" : "box_text_even";
@@ -72,8 +71,13 @@ switch ($op) {
 		break;
 	case "user_list_tab2":
 		$fields = array('status' => 3);
-		$count = data_count(_DB_PREF_.'_tblUser', $fields);
-		$nav = themes_nav($count, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab2");
+		if ($search['keyword']) {
+			$keywords = array('username' => '%'.$search['keyword'].'%');
+		}
+		$count = data_count(_DB_PREF_.'_tblUser', $fields, $keywords);
+		$nav = themes_nav($count, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab1");
+		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
+		$list = data_search(_DB_PREF_.'_tblUser', $fields, $keywords, $extras);
 		$search_var = array(
 			'name' => 'user_mgmnt',
 			'url' => 'index.php?app=menu&inc=user_mgmnt&op=user_list_tab2',
@@ -105,12 +109,6 @@ switch ($op) {
 				<td class='box_title' class='sortable_nosort' width='75'>" . _('Action') . "</td>
 			</tr>";
 		$j = $nav['top'];
-		$fields = array('status' => 3);
-		if ($search['keyword']) {
-			$keywords = array('username' => '%'.$search['keyword'].'%');
-		}
-		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = data_search(_DB_PREF_.'_tblUser', $fields, $keywords, $extras);
 		for ($i=0;$i<count($list);$i++) {
 			$list[$i] = core_display_data($list[$i]);
 			$j--;
