@@ -32,7 +32,10 @@ switch ($op) {
 			</thead>
 			<tbody>";
 
-		$db_query = "SELECT * FROM "._DB_PREF_."_tblUserInbox WHERE in_hidden='0' AND in_msg LIKE '%".$search['keyword']."%' OR in_sender LIKE '%".$search['keyword']."%' ORDER BY in_id DESC LIMIT ".$nav['limit']." OFFSET ".$nav['offset'];
+		if ($kw = $search['keyword']) {
+			$search_sql = "AND in_msg LIKE '%".$kw."%' OR in_sender LIKE '%".$kw."%' OR in_datetime LIKE '%".$kw."%'";
+		}
+		$db_query = "SELECT * FROM "._DB_PREF_."_tblUserInbox WHERE in_hidden='0' ".$search_sql." ORDER BY in_id DESC LIMIT ".$nav['limit']." OFFSET ".$nav['offset'];
 		$db_result = dba_query($db_query);
 		$i = $nav['top'];
 		$j = 0;
