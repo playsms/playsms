@@ -8,6 +8,11 @@ switch ($op) {
 		header("Location: index.php?app=menu&inc=user_mgmnt&op=".$referrer);
 		break;
 	case "user_list_tab1":
+		$search_var = array(
+			'name' => 'user_mgmnt',
+			'url' => 'index.php?app=menu&inc=user_mgmnt&op=user_list_tab1',
+		);
+		$search = themes_search($search_var);
 		$fields = array('status' => 2);
 		if ($search['keyword']) {
 			$keywords = array('username' => '%'.$search['keyword'].'%');
@@ -16,11 +21,6 @@ switch ($op) {
 		$nav = themes_nav($count, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab1");
 		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = data_search(_DB_PREF_.'_tblUser', $fields, $keywords, $extras);
-		$search_var = array(
-			'name' => 'user_mgmnt',
-			'url' => 'index.php?app=menu&inc=user_mgmnt&op=user_list_tab1',
-		);
-		$search = themes_search($search_var);
 		$_SESSION['referrer'] = 'user_list_tab1';
 		if ($err = $_SESSION['error_string']) {
 			$content = "<p><font color='red'>$err</font><p>";
@@ -70,6 +70,11 @@ switch ($op) {
 		echo $content;
 		break;
 	case "user_list_tab2":
+		$search_var = array(
+			'name' => 'user_mgmnt',
+			'url' => 'index.php?app=menu&inc=user_mgmnt&op=user_list_tab2',
+		);
+		$search = themes_search($search_var);
 		$fields = array('status' => 3);
 		if ($search['keyword']) {
 			$keywords = array('username' => '%'.$search['keyword'].'%');
@@ -78,11 +83,6 @@ switch ($op) {
 		$nav = themes_nav($count, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab1");
 		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = data_search(_DB_PREF_.'_tblUser', $fields, $keywords, $extras);
-		$search_var = array(
-			'name' => 'user_mgmnt',
-			'url' => 'index.php?app=menu&inc=user_mgmnt&op=user_list_tab2',
-		);
-		$search = themes_search($search_var);
 		$_SESSION['referrer'] = 'user_list_tab2';
 		if ($err = $_SESSION['error_string']) {
 			$content = "<p><font color='red'>$err</font><p>";
