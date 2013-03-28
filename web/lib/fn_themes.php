@@ -22,6 +22,7 @@ function themes_buildmenu($arr_menu) {
 
 function themes_navbar($num, $nav, $max_nav, $url, $page) {
 	global $core_config;
+	$url = $url.'&'.$core_config['tmp']['themes_search']['name'].'='.$core_config['tmp']['themes_search']['keyword'];
 	$nav_pages = '';
 	if ($core_config['module']['themes']) {
 		$nav_pages = x_hook($core_config['module']['themes'],'themes_navbar',array($num, $nav, $max_nav, $url, $page));
@@ -45,8 +46,11 @@ function themes_nav($count, $url) {
 }
 
 function themes_search($var) {
+	global $core_config;
 	$ret = false;
 	$value = $_REQUEST[$var['name'].'_keyword'];
+	$core_config['tmp']['themes_search']['name'] = $var['name'].'_keyword';
+	$core_config['tmp']['themes_search']['keyword'] = $value;
 	$content = "
 		<form action='".$var['url']."' method='post'>
 		<table cellpadding='0' cellspacing='0' border='0'><tr>

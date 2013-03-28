@@ -80,7 +80,7 @@ switch ($op) {
 			$keywords = array('username' => '%'.$search['keyword'].'%');
 		}
 		$count = data_count(_DB_PREF_.'_tblUser', $fields, $keywords);
-		$nav = themes_nav($count, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab1");
+		$nav = themes_nav($count, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab2");
 		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = data_search(_DB_PREF_.'_tblUser', $fields, $keywords, $extras);
 		$_SESSION['referrer'] = 'user_list_tab2';
