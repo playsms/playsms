@@ -4,15 +4,23 @@ if(!isadmin()){forcenoaccess();};
 
 switch ($op) {
 	case "all_inbox":
-		$db_query = "SELECT count(*) as count FROM "._DB_PREF_."_tblUserInbox WHERE in_hidden='0'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$nav = themes_nav($db_row['count'], "index.php?app=menu&inc=all_inbox&op=all_inbox");
 		$search_var = array(
 			'name' => 'all_inbox',
 			'url' => 'index.php?app=menu&inc=all_inbox&op=all_inbox',
 		);
 		$search = themes_search($search_var);
+		$fields = array('in_hidden' => 0);
+		if ($kw = $search['keyword']) {
+			$keywords = array(
+			    'in_msg' => '%'.$kw.'%',
+			    'in_sender' => '%'.$kw.'%',
+			    'in_datetime' => '%'.$kw.'%'
+			    );
+		}
+		$count = data_count(_DB_PREF_.'_tblUserInbox', $fields, $keywords);
+		$nav = themes_nav($count, "index.php?app=menu&inc=all_inbox&op=all_inbox");
+		$extras = array('ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
+		$list = data_search(_DB_PREF_.'_tblUserInbox', $fields, $keywords, $extras);
 
 		$content = "
 			<h2>"._('All Inbox')."</h2>
@@ -32,26 +40,20 @@ switch ($op) {
 			</thead>
 			<tbody>";
 
-		if ($kw = $search['keyword']) {
-			$search_sql = "AND in_msg LIKE '%".$kw."%' OR in_sender LIKE '%".$kw."%' OR in_datetime LIKE '%".$kw."%'";
-		}
-		$db_query = "SELECT * FROM "._DB_PREF_."_tblUserInbox WHERE in_hidden='0' ".$search_sql." ORDER BY in_id DESC LIMIT ".$nav['limit']." OFFSET ".$nav['offset'];
-		$db_result = dba_query($db_query);
 		$i = $nav['top'];
 		$j = 0;
-		while ($db_row = dba_fetch_array($db_result)) {
-			$in_msg = core_display_text($db_row['in_msg'], 25);
-			$db_row = core_display_data($db_row);
-			$j++;
-			$in_id = $db_row['in_id'];
-			$in_username = uid2username($db_row['in_uid']);
-			$in_sender = $db_row['in_sender'];
+		for ($j=0;$j<count($list);$j++) {
+			$in_msg = core_display_text($list[$j]['in_msg'], 25);
+			$list[$j] = core_display_data($list[$j]);
+			$in_id = $list[$j]['in_id'];
+			$in_username = uid2username($list[$j]['in_uid']);
+			$in_sender = $list[$j]['in_sender'];
 			$p_desc = phonebook_number2name($in_sender);
 			$current_sender = $in_sender;
 			if ($p_desc) {
 				$current_sender = "$in_sender<br>($p_desc)";
 			}
-			$in_datetime = core_display_datetime($db_row['in_datetime']);
+			$in_datetime = core_display_datetime($list[$j]['in_datetime']);
 			$i--;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 			$content .= "
@@ -76,6 +78,7 @@ switch ($op) {
 			<tr>
 				<td width=100% colspan=2 align=right>
 					<input type=hidden name=item_count value=\"$item_count\">
+					<input type=hidden name=ref value=\"".$_SERVER['REQUEST_URI']."\">
 					<input type=submit value=\""._('Delete selection')."\" class=button />
 				</td>
 			</tr>
@@ -88,30 +91,19 @@ switch ($op) {
 		}
 		echo $content;
 		break;
-	case "all_inbox_del":
-		$_SESSION['error_string'] = _('Fail to delete incoming SMS');
-		if ($in_id = $_REQUEST['inid']) {
-			$db_query = "UPDATE "._DB_PREF_."_tblUserInbox SET c_timestamp='".mktime()."',in_hidden='1' WHERE in_id='$in_id'";
-			$db_result = dba_affected_rows($db_query);
-			if ($db_result > 0) {
-				$_SESSION['error_string'] = _('Selected incoming SMS has been deleted');
-			}
-		}
-		header("Location: index.php?app=menu&inc=all_inbox&op=all_inbox");
-		exit();
-		break;
 	case "act_del":
 		$item_count = $_POST['item_count'];
-		for ($i=1;$i<=$item_count;$i++) {
+		$ref = $_POST['ref'];
+		for ($i=0;$i<$item_count;$i++) {
 			$chkid = $_POST['chkid'.$i];
 			$inid = $_POST['inid'.$i];
 			if(($chkid=="on") && $inid) {
-				$db_query = "UPDATE "._DB_PREF_."_tblUserInbox SET c_timestamp='".mktime()."',in_hidden='1' WHERE in_id='$inid'";
-				$db_result = dba_affected_rows($db_query);
+				$up = array('c_timestamp' => mktime(), 'in_hidden' => '1');
+				data_update(_DB_PREF_.'_tblUserInbox', $up, array('in_id' => $inid));
 			}
 		}
 		$_SESSION['error_string'] = _('Selected incoming SMS has been deleted');
-		header("Location: index.php?app=menu&inc=all_inbox&op=all_inbox");
+		header("Location: ".$ref);
 		exit();
 		break;
 }
