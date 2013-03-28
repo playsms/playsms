@@ -26,8 +26,8 @@ switch ($op) {
 			<tr>
 				<th align=center width=4>*</th>
 				<th align=center width=10%>"._('User')."</th>
-				<th align=center width=20%>"._('Time')."</th>
 				<th align=center width=10%>"._('Gateway')."</th>
+				<th align=center width=20%>"._('Time')."</th>
 				<th align=center width=10%>"._('To')."</th>
 				<th align=center width=40%>"._('Message')."</th>
 				<th align=center width=10%>"._('Status')."</th>
@@ -95,8 +95,8 @@ switch ($op) {
 				<tr>
 					<td valign=top class=$td_class align=left>$i.</td>
 					<td valign=top class=$td_class align=center>$p_username</td>
-					<td valign=top class=$td_class align=center>$p_datetime</td>
 					<td valign=top class=$td_class align=center>$p_gateway</td>
+					<td valign=top class=$td_class align=center>$p_datetime</td>
 					<td valign=top class=$td_class align=center>$current_p_dst</td>
 					<td valign=top class=$td_class align=left>$p_msg</td>
 					<td valign=top class=$td_class align=center>$p_status</td>
