@@ -6,15 +6,25 @@ $slid = $_REQUEST['slid'];
 
 switch ($op) {
 	case "all_outgoing":
-		$db_query = "SELECT count(*) as count FROM "._DB_PREF_."_tblSMSOutgoing WHERE flag_deleted='0'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$nav = themes_nav($db_row['count'], "index.php?app=menu&inc=all_outgoing&op=all_outgoing");
 		$search_var = array(
 			'name' => 'all_outgoing',
 			'url' => 'index.php?app=menu&inc=all_outgoing&op=all_outgoing',
 		);
 		$search = themes_search($search_var);
+		$fields = array('flag_deleted' => 0);
+		if ($kw = $search['keyword']) {
+			$keywords = array(
+			    'p_msg' => '%'.$kw.'%',
+			    'p_dst' => '%'.$kw.'%',
+			    'p_datetime' => '%'.$kw.'%',
+			    'p_gateway' => '%'.$kw.'%',
+			    'p_footer' => '%'.$kw.'%'
+			    );
+		}
+		$count = data_count(_DB_PREF_.'_tblSMSOutgoing', $fields, $keywords);
+		$nav = themes_nav($count, "index.php?app=menu&inc=all_outgoing&op=all_outgoing");
+		$extras = array('ORDER BY' => 'smslog_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
+		$list = data_search(_DB_PREF_.'_tblSMSOutgoing', $fields, $keywords, $extras);
 
 		$content = "
 			<h2>"._('All outgoing SMS')."</h2>
@@ -36,21 +46,14 @@ switch ($op) {
 			</thead>
 			<tbody>";
 
-		if ($kw = $search['keyword']) {
-			$search_sql = "AND p_msg LIKE '%".$kw."%' OR p_dst LIKE '%".$kw."%' ";
-			$search_sql .= "OR p_datetime LIKE '%".$kw."%' OR p_gateway LIKE '%".$kw."%' OR p_footer LIKE '%".$kw."%'";
-		}
-		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE flag_deleted='0' ".$search_sql." ORDER BY smslog_id DESC LIMIT ".$nav['limit']." OFFSET ".$nav['offset'];
-		$db_result = dba_query($db_query);
 		$i = $nav['top'];
 		$j=0;
-		while ($db_row = dba_fetch_array($db_result)) {
-			$p_msg = core_display_text($db_row['p_msg'], 25);
-			$db_row = core_display_data($db_row);
-			$j++;
-			$current_slid = $db_row['smslog_id'];
-			$p_username = uid2username($db_row['uid']);
-			$p_dst = $db_row['p_dst'];
+		for ($j=0;$j<count($list);$j++) {
+			$p_msg = core_display_text($list[$j]['p_msg'], 25);
+			$list[$j] = core_display_data($list[$j]);
+			$current_slid = $list[$j]['smslog_id'];
+			$p_username = uid2username($list[$j]['uid']);
+			$p_dst = $list[$j]['p_dst'];
 			$p_desc = phonebook_number2name($p_dst);
 			$current_p_dst = $p_dst;
 			if ($p_desc) {
@@ -60,17 +63,17 @@ switch ($op) {
 			if ($p_desc) {
 				$hide_p_dst = "$p_dst ($p_desc)";
 			}
-			$p_sms_type = $db_row['p_sms_type'];
+			$p_sms_type = $list[$j]['p_sms_type'];
 			$hide_p_dst = str_replace("\'","",$hide_p_dst);
 			$hide_p_dst = str_replace("\"","",$hide_p_dst);
-			if (($p_footer = $db_row['p_footer']) && (($p_sms_type == "text") || ($p_sms_type == "flash"))) {
+			if (($p_footer = $list[$j]['p_footer']) && (($p_sms_type == "text") || ($p_sms_type == "flash"))) {
 				$p_msg = $p_msg.' '.$p_footer;
 			}
-			$p_datetime = core_display_datetime($db_row['p_datetime']);
-			$p_gateway = $db_row['p_gateway'];
-			$p_update = $db_row['p_update'];
-			$p_status = $db_row['p_status'];
-			$p_gpid = $db_row['p_gpid'];
+			$p_datetime = core_display_datetime($list[$j]['p_datetime']);
+			$p_gateway = $list[$j]['p_gateway'];
+			$p_update = $list[$j]['p_update'];
+			$p_status = $list[$j]['p_status'];
+			$p_gpid = $list[$j]['p_gpid'];
 			// 0 = pending
 			// 1 = sent
 			// 2 = failed
