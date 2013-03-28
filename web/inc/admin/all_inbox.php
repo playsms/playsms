@@ -8,9 +8,15 @@ switch ($op) {
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$nav = themes_nav($db_row['count'], "index.php?app=menu&inc=all_inbox&op=all_inbox");
+		$search_var = array(
+			'name' => 'all_inbox',
+			'url' => 'index.php?app=menu&inc=all_inbox&op=all_inbox',
+		);
+		$search = themes_search($search_var);
 
 		$content = "
 			<h2>"._('All Inbox')."</h2>
+			<p>".$search['form']."</p>
 			<p>".$nav['form']."</p>
 			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=all_inbox&op=act_del\" method=post onSubmit=\"return SureConfirm()\">
 			<table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
@@ -26,7 +32,7 @@ switch ($op) {
 			</thead>
 			<tbody>";
 
-		$db_query = "SELECT * FROM "._DB_PREF_."_tblUserInbox WHERE in_hidden='0' ORDER BY in_id DESC LIMIT ".$nav['limit']." OFFSET ".$nav['offset'];
+		$db_query = "SELECT * FROM "._DB_PREF_."_tblUserInbox WHERE in_hidden='0' AND in_msg LIKE '%".$search['keyword']."%' OR in_sender LIKE '%".$search['keyword']."%' ORDER BY in_id DESC LIMIT ".$nav['limit']." OFFSET ".$nav['offset'];
 		$db_result = dba_query($db_query);
 		$i = $nav['top'];
 		$j = 0;
