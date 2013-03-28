@@ -4,16 +4,26 @@ if(!isadmin()){forcenoaccess();};
 
 switch ($op) {
 	case "user_incoming":
-		$db_query = "SELECT count(*) as count FROM "._DB_PREF_."_tblSMSIncoming WHERE flag_deleted='0'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$nav = themes_nav($db_row['count'], "index.php?app=menu&inc=user_incoming&op=user_incoming");
 		$search_var = array(
 			'name' => 'user_incoming',
 			'url' => 'index.php?app=menu&inc=user_incoming&op=user_incoming',
 		);
 		$search = themes_search($search_var);
-
+		$fields = array('in_uid' => $uid, 'flag_deleted' => 0);
+		if ($kw = $search['keyword']) {
+			$keywords = array(
+			    'in_message' => '%'.$kw.'%',
+			    'in_sender' => '%'.$kw.'%',
+			    'in_datetime' => '%'.$kw.'%',
+			    'in_feature' => '%'.$kw.'%',
+			    'in_keyword' => '%'.$kw.'%'
+			    );
+		}
+		$count = data_count(_DB_PREF_.'_tblSMSIncoming', $fields, $keywords);
+		$nav = themes_nav($count, "index.php?app=menu&inc=user_incoming&op=user_incoming");
+		$extras = array('ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
+		$list = data_search(_DB_PREF_.'_tblSMSIncoming', $fields, $keywords, $extras);
+		
 		$content = "
 			<h2>"._('Incoming SMS')."</h2>
 			<p>".$search['form']."</p>
@@ -34,29 +44,22 @@ switch ($op) {
 			</thead>
 			<tbody>";
 
-		if ($kw = $search['keyword']) {
-			$search_sql = "AND in_message LIKE '%".$kw."%' OR in_sender LIKE '%".$kw."%' ";
-			$search_sql .= "OR in_feature LIKE '%".$kw."%' OR in_datetime LIKE '%".$kw."%' OR in_keyword LIKE '%".$kw."%'";
-		}
-		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSIncoming WHERE in_uid='$uid' AND flag_deleted='0' ".$search_sql." ORDER BY in_id DESC LIMIT ".$nav['limit']." OFFSET ".$nav['offset'];
-		$db_result = dba_query($db_query);
 		$i = $nav['top'];
 		$j = 0;
-		while ($db_row = dba_fetch_array($db_result)) {
-			$in_message = core_display_text($db_row['in_message'], 25);
-			$db_row = core_display_data($db_row);
-			$j++;
-			$in_id = $db_row['in_id'];
-			$in_sender = $db_row['in_sender'];
+		for ($j=0;$j<count($list);$j++) {
+			$in_message = core_display_text($list[$j]['in_message'], 25);
+			$list[$j] = core_display_data($list[$j]);
+			$in_id = $list[$j]['in_id'];
+			$in_sender = $list[$j]['in_sender'];
 			$p_desc = phonebook_number2name($in_sender);
 			$current_sender = $in_sender;
 			if ($p_desc) {
 				$current_sender = "$in_sender<br>($p_desc)";
 			}
-			$in_keyword = $db_row['in_keyword'];
-			$in_datetime = core_display_datetime($db_row['in_datetime']);
-			$in_feature = $db_row['in_feature'];
-			$in_status = ( $db_row['in_status'] == 1 ? '<p><font color=green>'._('handled').'</font></p>' : '<p><font color=red>'._('unhandled').'</font></p>' );
+			$in_keyword = $list[$j]['in_keyword'];
+			$in_datetime = core_display_datetime($list[$j]['in_datetime']);
+			$in_feature = $list[$j]['in_feature'];
+			$in_status = ( $list[$j]['in_status'] == 1 ? '<p><font color=green>'._('handled').'</font></p>' : '<p><font color=red>'._('unhandled').'</font></p>' );
 			$i--;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 			$content .= "
@@ -83,6 +86,7 @@ switch ($op) {
 			<tr>
 				<td width=100% colspan=2 align=right>
 					<input type=hidden name=item_count value=\"$item_count\">
+					<input type=hidden name=ref value=\"".$_SERVER['REQUEST_URI']."\">
 					<input type=submit value=\""._('Delete selection')."\" class=button />
 				</td>
 			</tr>
@@ -95,30 +99,19 @@ switch ($op) {
 		}
 		echo $content;
 		break;
-	case "user_incoming_del":
-		$_SESSION['error_string'] = "Fail to delete incoming SMS";
-		if ($in_id = $_REQUEST['inid']) {
-			$db_query = "UPDATE "._DB_PREF_."_tblSMSIncoming SET c_timestamp='".mktime()."',flag_deleted='1' WHERE in_uid='$uid' AND in_id='$in_id'";
-			$db_result = dba_affected_rows($db_query);
-			if ($db_result > 0) {
-				$_SESSION['error_string'] = _('Selected incoming SMS has been deleted');
-			}
-		}
-		header("Location: index.php?app=menu&inc=user_incoming&op=user_incoming");
-		exit();
-		break;
 	case "act_del":
 		$item_count = $_POST['item_count'];
-		for ($i=1;$i<=$item_count;$i++) {
+		$ref = $_POST['ref'];
+		for ($i=0;$i<$item_count;$i++) {
 			$chkid = $_POST['chkid'.$i];
 			$inid = $_POST['inid'.$i];
 			if(($chkid=="on") && $inid) {
-				$db_query = "UPDATE "._DB_PREF_."_tblSMSIncoming SET c_timestamp='".mktime()."',flag_deleted='1' WHERE in_uid='$uid' AND in_id='$inid'";
-				$db_result = dba_affected_rows($db_query);
+				$up = array('c_timestamp' => mktime(), 'flag_deleted' => '1');
+				data_update(_DB_PREF_.'_tblSMSIncoming', $up, array('in_uid' => $uid, 'in_id' => $inid));
 			}
 		}
 		$_SESSION['error_string'] = _('Selected incoming SMS has been deleted');
-		header("Location: index.php?app=menu&inc=user_incoming&op=user_incoming");
+		header("Location: ".$ref);
 		exit();
 		break;
 }

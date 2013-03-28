@@ -6,15 +6,25 @@ $slid = $_REQUEST['slid'];
 
 switch ($op) {
 	case "user_outgoing":
-		$db_query = "SELECT count(*) as count FROM "._DB_PREF_."_tblSMSOutgoing WHERE flag_deleted='0'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$nav = themes_nav($db_row['count'], "index.php?app=menu&inc=user_outgoing&op=user_outgoing");
 		$search_var = array(
 			'name' => 'user_outgoing',
 			'url' => 'index.php?app=menu&inc=user_outgoing&op=user_outgoing',
 		);
 		$search = themes_search($search_var);
+		$fields = array('uid' => $uid, 'flag_deleted' => 0);
+		if ($kw = $search['keyword']) {
+			$keywords = array(
+			    'p_msg' => '%'.$kw.'%',
+			    'p_dst' => '%'.$kw.'%',
+			    'p_datetime' => '%'.$kw.'%',
+			    'p_gateway' => '%'.$kw.'%',
+			    'p_footer' => '%'.$kw.'%'
+			    );
+		}
+		$count = data_count(_DB_PREF_.'_tblSMSOutgoing', $fields, $keywords);
+		$nav = themes_nav($count, "index.php?app=menu&inc=user_outgoing&op=user_outgoing");
+		$extras = array('ORDER BY' => 'smslog_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
+		$list = data_search(_DB_PREF_.'_tblSMSOutgoing', $fields, $keywords, $extras);
 
 		$content = "
 			<h2>"._('Outgoing SMS')."</h2>
@@ -34,20 +44,13 @@ switch ($op) {
 			</thead>
 			<tbody>";
 
-		if ($kw = $search['keyword']) {
-			$search_sql = "AND p_msg LIKE '%".$kw."%' OR p_dst LIKE '%".$kw."%' ";
-			$search_sql .= "OR p_datetime LIKE '%".$kw."%' OR p_footer LIKE '%".$kw."%'";
-		}
-		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE uid='$uid' AND flag_deleted='0' ".$search_sql." ORDER BY smslog_id DESC LIMIT ".$nav['limit']." OFFSET ".$nav['offset'];
-		$db_result = dba_query($db_query);
 		$i = $nav['top'];
 		$j=0;
-		while ($db_row = dba_fetch_array($db_result)) {
-			$p_msg = core_display_text($db_row['p_msg'], 25);
-			$db_row = core_display_data($db_row);
-			$j++;
-			$current_slid = $db_row['smslog_id'];
-			$p_dst = $db_row['p_dst'];
+		for ($j=0;$j<count($list);$j++) {
+			$p_msg = core_display_text($list[$j]['p_msg'], 25);
+			$list[$j] = core_display_data($list[$j]);
+			$current_slid = $list[$j]['smslog_id'];
+			$p_dst = $list[$j]['p_dst'];
 			$p_desc = phonebook_number2name($p_dst);
 			$current_p_dst = $p_dst;
 			if ($p_desc) {
@@ -57,16 +60,16 @@ switch ($op) {
 			if ($p_desc) {
 				$hide_p_dst = "$p_dst ($p_desc)";
 			}
-			$p_sms_type = $db_row['p_sms_type'];
+			$p_sms_type = $list[$j]['p_sms_type'];
 			$hide_p_dst = str_replace("\'","",$hide_p_dst);
 			$hide_p_dst = str_replace("\"","",$hide_p_dst);
-			if (($p_footer = $db_row['p_footer']) && (($p_sms_type == "text") || ($p_sms_type == "flash"))) {
+			if (($p_footer = $list[$j]['p_footer']) && (($p_sms_type == "text") || ($p_sms_type == "flash"))) {
 				$p_msg = $p_msg.' '.$p_footer;
 			}
-			$p_datetime = core_display_datetime($db_row['p_datetime']);
-			$p_update = $db_row['p_update'];
-			$p_status = $db_row['p_status'];
-			$p_gpid = $db_row['p_gpid'];
+			$p_datetime = core_display_datetime($list[$j]['p_datetime']);
+			$p_update = $list[$j]['p_update'];
+			$p_status = $list[$j]['p_status'];
+			$p_gpid = $list[$j]['p_gpid'];
 			// 0 = pending
 			// 1 = sent
 			// 2 = failed
@@ -109,6 +112,7 @@ switch ($op) {
 			<tr>
 				<td width=100% colspan=2 align=right>
 					<input type=hidden name=item_count value=\"$item_count\">
+					<input type=hidden name=ref value=\"".$_SERVER['REQUEST_URI']."\">
 					<input type=submit value=\""._('Delete selection')."\" class=button />
 				</td>
 			</tr>
@@ -121,31 +125,19 @@ switch ($op) {
 		}
 		echo $content;
 		break;
-	case "user_outgoing_del":
-		if ($slid) {
-			$db_query = "UPDATE "._DB_PREF_."_tblSMSOutgoing SET c_timestamp='".mktime()."',flag_deleted='1' WHERE uid='$uid' AND smslog_id='$slid'";
-			$db_result = dba_affected_rows($db_query);
-			if ($db_result > 0) {
-				$_SESSION['error_string'] = _('Selected outgoing SMS has been deleted');
-			} else {
-				$_SESSION['error_string'] = _('Fail to delete SMS');
-			}
-		}
-		header("Location: index.php?app=menu&inc=user_outgoing&op=user_outgoing");
-		exit();
-		break;
 	case "act_del":
 		$item_count = $_POST['item_count'];
-		for ($i=1;$i<=$item_count;$i++) {
+		$ref = $_POST['ref'];
+		for ($i=0;$i<$item_count;$i++) {
 			$chkid = $_POST['chkid'.$i];
 			$slid = $_POST['slid'.$i];
 			if(($chkid=="on") && $slid) {
-				$db_query = "UPDATE "._DB_PREF_."_tblSMSOutgoing SET c_timestamp='".mktime()."',flag_deleted='1' WHERE uid='$uid' AND smslog_id='$slid'";
-				$db_result = dba_affected_rows($db_query);
+				$up = array('c_timestamp' => mktime(), 'flag_deleted' => '1');
+				data_update(_DB_PREF_.'_tblSMSOutgoing', $up, array('uid' => $uid, 'smslog_id' => $slid));
 			}
 		}
 		$_SESSION['error_string'] = _('Selected outgoing SMS has been deleted');
-		header("Location: index.php?app=menu&inc=user_outgoing&op=user_outgoing");
+		header("Location: ".$ref);
 		exit();
 		break;
 }

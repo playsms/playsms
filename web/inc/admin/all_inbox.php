@@ -23,7 +23,7 @@ switch ($op) {
 		$list = data_search(_DB_PREF_.'_tblUserInbox', $fields, $keywords, $extras);
 
 		$content = "
-			<h2>"._('All Inbox')."</h2>
+			<h2>"._('All inbox')."</h2>
 			<p>".$search['form']."</p>
 			<p>".$nav['form']."</p>
 			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=all_inbox&op=act_del\" method=post onSubmit=\"return SureConfirm()\">
