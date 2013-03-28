@@ -118,6 +118,7 @@ switch ($op) {
 			<tr>
 				<td width=100% colspan=2 align=right>
 					<input type=hidden name=item_count value=\"$item_count\">
+					<input type=hidden name=ref value=\"".$_SERVER['REQUEST_URI']."\">
 					<input type=submit value=\""._('Delete selection')."\" class=button />
 				</td>
 			</tr>
@@ -130,31 +131,19 @@ switch ($op) {
 		}
 		echo $content;
 		break;
-	case "all_outgoing_del":
-		if ($slid) {
-			$db_query = "UPDATE "._DB_PREF_."_tblSMSOutgoing SET c_timestamp='".mktime()."',flag_deleted='1' WHERE smslog_id='$slid'";
-			$db_result = dba_affected_rows($db_query);
-			if ($db_result > 0) {
-				$_SESSION['error_string'] = _('Selected outgoing SMS has been deleted');
-			} else {
-				$_SESSION['error_string'] = _('Fail to delete SMS');
-			}
-		}
-		header("Location: index.php?app=menu&inc=all_outgoing&op=all_outgoing");
-		exit();
-		break;
 	case "act_del":
 		$item_count = $_POST['item_count'];
-		for ($i=1;$i<=$item_count;$i++) {
+		$ref = $_POST['ref'];
+		for ($i=0;$i<$item_count;$i++) {
 			$chkid = $_POST['chkid'.$i];
 			$slid = $_POST['slid'.$i];
 			if(($chkid=="on") && $slid) {
-				$db_query = "UPDATE "._DB_PREF_."_tblSMSOutgoing SET c_timestamp='".mktime()."',flag_deleted='1' WHERE smslog_id='$slid'";
-				$db_result = dba_affected_rows($db_query);
+				$up = array('c_timestamp' => mktime(), 'flag_deleted' => '1');
+				data_update(_DB_PREF_.'_tblSMSOutgoing', $up, array('smslog_id' => $slid));
 			}
 		}
 		$_SESSION['error_string'] = _('Selected outgoing SMS has been deleted');
-		header("Location: index.php?app=menu&inc=all_outgoing&op=all_outgoing");
+		header("Location: ".$ref);
 		exit();
 		break;
 }
