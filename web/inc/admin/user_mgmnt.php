@@ -225,7 +225,7 @@ switch ($op) {
 				<td>" . _('Password') . "</td><td>:</td><td><input type='password' size='30' maxlength='30' name='up_password'> (" . _('Fill to change password for username') . " ".$up['username'].")</td>
 			</tr>
 			<tr>
- 				<td>" . _('Webapp Token') . "</td><td>:</td><td><input type='text' size='40' maxlength='40' name='up_token' value=\"$token\" disabled> (" . _('Webapp token') . " ".$up['token'].")</td>
+ 				<td>" . _('Webservices token') . "</td><td>:</td><td><input type='text' size='30' maxlength='30' name='up_token' value=\"\"> ("._('Fill to update').")</td>
 			</tr>	    
 			<tr>
 				<td>" . _('Credit') . "</td><td>:</td><td><input type='text' size='16' maxlength='30' name='up_credit' value=\"$credit\"></td>
@@ -250,6 +250,7 @@ switch ($op) {
 		$up['sender'] = $_POST['up_sender'];
 		$up['footer'] = $_POST['up_footer'];
 		$up['password'] = $_POST['up_password'];
+		$up['token'] = $_POST['up_token'];
 		$up['status'] = $_POST['up_status'];
 		$up['credit'] = $_POST['up_credit'];
 		$up['datetime_timezone'] = ( $_POST['datetime_timezone'] ? $_POST['datetime_timezone'] : $gateway_timezone );
@@ -263,6 +264,11 @@ switch ($op) {
 					$up['password'] = md5($up['password']);
 				} else {
 					unset($up['password']);
+				}
+				if ($up['token']) {
+					$up['token'] = md5(mktime().$up['username'].$up['token']);
+				} else {
+					unset($up['token']);
 				}
 				$datetime_now = core_adjust_datetime($core_config['datetime']['now']);
 				$up['lastupdate_datetime'] = $datetime_now;
@@ -363,7 +369,7 @@ switch ($op) {
 		$add['footer'] = $_POST['add_footer'];
 		$add['password'] = $_POST['add_password'];
 		$add['password'] = md5($add['password']);
-		$add['token'] = sha1(microtime(TRUE).rand());
+		$add['token'] = md5(mktime().$add['username']);
 		$add['credit'] = $_POST['add_credit'];
 		$add['status'] = $_POST['add_status'];
 		$add['datetime_timezone'] = $_POST['add_datetime_timezone'];

@@ -123,8 +123,7 @@ switch ($op) {
 			<tr><td colspan=3><h2>" . _('Login information') . "</h2><hr></td></tr>
 			<tr><td width=200>" . _('Username') . "</td><td>:</td><td><b>".$core_config['user']['username']."</b></td></tr>
 			<tr><td width=200>" . _('Password') . "</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password></td></tr>
-			<tr><td width=200>" . _('Re-Type Password') . "</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password_conf></td></tr>
-			<tr><td width=200>" . _('Webapp Token') . "</td><td>:</td><td><input type='text' size='40' maxlength='40' name='up_token' value=\"$token\" disabled> ("._('generated on user creation').")</td></tr>
+			<tr><td width=200>" . _('Re-type password') . "</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password_conf></td></tr>
 			<tr><td colspan=3>&nbsp;</td></tr>
 			<tr><td colspan=3><h2>" . _('Personal information') . "</h2><hr></td></tr>
 			<tr><td width=200>" . _('Name') . " $nd</td><td>:</td><td><input type=text size=30 maxlength=100 name=up_name value=\"$name\"></td></tr>
@@ -138,6 +137,8 @@ switch ($op) {
 			<tr><td width=200>Active language</td><td>:</td><td><select name=up_language_module>$option_language_module</select></td></tr>
 			<tr><td colspan=3>&nbsp;</td></tr>
 			<tr><td colspan=3><h2>" . _('Application options') . "</h2><hr></td></tr>
+			<tr><td width=200>" . _('Webservices token') . "</td><td>:</td><td><b>".$token."</b></td></tr>
+			<tr><td width=200>" . _('New webservices token') . "</td><td>:</td><td><input type='text' size='30' maxlength='30' name='up_token' value=\"\"> ("._('Fill to update').")</td></tr>
 			<tr><td width=200>" . _('Timezone') . "</td><td>:</td><td><input type=text size=5 maxlength=5 name=up_datetime_timezone value=\"$datetime_timezone\"> (" . _('Eg: +0700 for Jakarta/Bangkok timezone') . ")</td></tr>
 			<tr><td width=200>" . _('SMS sender ID') . "</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"$sender\" $senderidstatus> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td></tr>
 			<tr><td width=200>" . _('SMS footer') . "</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_footer value=\"$footer\"> (" . _('Max. 30 alphanumeric characters') . ")</td></tr>
@@ -163,7 +164,8 @@ switch ($op) {
 			'name', 'email', 'address', 'city', 'state', 'country', 'mobile',
 			'sender', 'footer', 'password', 'zipcode', 'datetime_timezone', 
 			'language_module', 'fwd_to_inbox', 'fwd_to_email', 'fwd_to_mobile',
-			'local_length','replace_zero', 'plus_sign_remove', 'plus_sign_add'
+			'local_length','replace_zero', 'plus_sign_remove', 'plus_sign_add',
+			'token'
 		);
 		for ($i=0;$i<count($fields);$i++) {
 			$up[$fields[$i]] = trim($_POST['up_'.$fields[$i]]);
@@ -184,10 +186,17 @@ switch ($op) {
 				} else {
 					unset($up['password']);
 				}
+				if ($up['token']) {
+					$up['token'] = md5(mktime().$up['username'].$up['token']);
+				} else {
+					unset($up['token']);
+				}
 				if ($continue) {
 					if (dba_update(_DB_PREF_.'_tblUser', $up, array('username' => $up['username']))) {
 						if ($up['password']) {
 							$_SESSION['error_string'] = _('Preferences has been saved and password updated');
+						} else if ($up['token']) {
+							$_SESSION['error_string'] = _('Preferences has been saved and webservices token updated');
 						} else {
 							$_SESSION['error_string'] = _('Preferences has been saved');
 						}
