@@ -99,7 +99,7 @@ msgid "Country"
 msgstr "Negara"
 
 msgid "Created"
-msgstr ""
+msgstr "Dibuat"
 
 msgid "Credit"
 msgstr "Pulsa"
@@ -111,7 +111,7 @@ msgid "Date time"
 msgstr "Waktu & tanggal"
 
 msgid "Default"
-msgstr ""
+msgstr "Default"
 
 msgid "Default SMS rate"
 msgstr "Tarif standar SMS"
@@ -165,11 +165,10 @@ msgid "Enable public registration"
 msgstr "Aktifkan pendaftaran umum"
 
 msgid "F.A.Q"
-msgstr ""
+msgstr "F.A.Q"
 
-#, fuzzy
 msgid "Fail sent SMS, no credit"
-msgstr "Gagal mengirim SMS"
+msgstr "Gagal mengirim SMS, tidak ada kredit"
 
 msgid "Fail to delete SMS"
 msgstr "Gagal menghapus SMS"
@@ -207,6 +206,9 @@ msgstr "Fitur"
 msgid "Fill to change password for username"
 msgstr "Isi untuk mengganti kata sandi untuk nama penguna"
 
+msgid "Fill to update"
+msgstr "Isi untuk mengganti"
+
 msgid "Forward PV to email"
 msgstr "Teruskan PV ke email"
 
@@ -219,21 +221,17 @@ msgstr "Teruskan PV ke ponsel"
 msgid "Forward Private WebSMS"
 msgstr "Teruskan WebSMS pribadi"
 
-#, fuzzy
 msgid "Forward SMS to email"
-msgstr "Teruskan PV ke email"
+msgstr "Teruskan SMS ke email"
 
-#, fuzzy
 msgid "Forward SMS to inbox"
-msgstr "Teruskan PV ke inbox"
+msgstr "Teruskan SMS ke inbox"
 
-#, fuzzy
 msgid "Forward SMS to mobile"
-msgstr "Teruskan PV ke ponsel"
+msgstr "Teruskan SMS ke ponsel"
 
-#, fuzzy
 msgid "Forward from"
-msgstr "Teruskan PV ke email"
+msgstr "Teruskan dari"
 
 msgid "Forwarded email footer"
 msgstr "Footer email"
@@ -355,6 +353,9 @@ msgstr "Nama"
 msgid "New account registration"
 msgstr "Pendaftaran akun baru"
 
+msgid "New webservices token"
+msgstr ""
+
 msgid "No changes made"
 msgstr "Tidak ada perubahan yang dilakukan"
 
@@ -415,6 +416,9 @@ msgstr "Preferensi telah disimpan"
 msgid "Preferences has been saved and password updated"
 msgstr "Preferensi sudah disimpan dan kata sandi sudah diperbaharui"
 
+msgid "Preferences has been saved and webservices token updated"
+msgstr "Preferensi sudah disimpan dan token webservices sudah diperbaharui"
+
 msgid "Prefix or country code"
 msgstr "Kode awalan atau kode negara"
 
@@ -422,6 +426,9 @@ msgid "Public registration disabled"
 msgstr "Pendaftaran umum dinonaktifkan"
 
 msgid "Re-Type Password"
+msgstr "Ketik ulang kata sandi"
+
+msgid "Re-type password"
 msgstr "Ketik ulang kata sandi"
 
 msgid "Receiver"
@@ -453,6 +460,9 @@ msgstr "Simpan"
 
 msgid "Save template"
 msgstr "Simpan pola"
+
+msgid "Search"
+msgstr ""
 
 msgid "Select action"
 msgstr "Pilih tindakan"
@@ -523,7 +533,6 @@ msgstr "Gunakan pola"
 msgid "User"
 msgstr "Pengguna"
 
-#, fuzzy
 msgid "User already exists"
 msgstr "Pengguna sudah ada"
 
@@ -554,11 +563,9 @@ msgstr ""
 msgid "View"
 msgstr "Tampil"
 
-#, fuzzy
 msgid "View administrator"
 msgstr "Administrator"
 
-#, fuzzy
 msgid "View normal user"
 msgstr "Pengguna normal"
 
@@ -567,6 +574,12 @@ msgstr ""
 
 msgid "Webapp token"
 msgstr ""
+
+msgid "Webservices"
+msgstr ""
+
+msgid "Webservices token"
+msgstr "Token webservices"
 
 msgid "Website email"
 msgstr "Email situs"

@@ -207,6 +207,10 @@ msgstr "Recurso"
 msgid "Fill to change password for username"
 msgstr "Preencha pra mudar a senha do usuário"
 
+#, fuzzy
+msgid "Fill to update"
+msgstr "Falha ao remover SMS"
+
 msgid "Forward PV to email"
 msgstr "Encaminhar PV pro e-mail"
 
@@ -355,6 +359,9 @@ msgstr "Nome"
 msgid "New account registration"
 msgstr ""
 
+msgid "New webservices token"
+msgstr ""
+
 msgid "No changes made"
 msgstr "Sem mudanças"
 
@@ -415,6 +422,10 @@ msgstr "Preferências foram salvas"
 msgid "Preferences has been saved and password updated"
 msgstr "Preferências foram salvas e senhas atualizadas"
 
+#, fuzzy
+msgid "Preferences has been saved and webservices token updated"
+msgstr "Preferências foram salvas e senhas atualizadas"
+
 msgid "Prefix or country code"
 msgstr ""
 
@@ -422,6 +433,10 @@ msgid "Public registration disabled"
 msgstr ""
 
 msgid "Re-Type Password"
+msgstr "Re-digite a senha"
+
+#, fuzzy
+msgid "Re-type password"
 msgstr "Re-digite a senha"
 
 msgid "Receiver"
@@ -453,6 +468,9 @@ msgstr "Salvar"
 
 msgid "Save template"
 msgstr "Salvar modelo"
+
+msgid "Search"
+msgstr ""
 
 msgid "Select action"
 msgstr "Selecionar ação"
@@ -569,6 +587,13 @@ msgstr ""
 
 msgid "Webapp token"
 msgstr ""
+
+msgid "Webservices"
+msgstr ""
+
+#, fuzzy
+msgid "Webservices token"
+msgstr "Título do website"
 
 msgid "Website email"
 msgstr "E-mail do website"

@@ -215,6 +215,10 @@ msgstr "Servei"
 msgid "Fill to change password for username"
 msgstr "Omplir per a canviar la contrasenya de l'usuari"
 
+#, fuzzy
+msgid "Fill to update"
+msgstr "Última actualització"
+
 msgid "Forward PV to email"
 msgstr "Enviar PV al correu"
 
@@ -359,6 +363,9 @@ msgstr "Nom"
 msgid "New account registration"
 msgstr "Registrar un nou compte"
 
+msgid "New webservices token"
+msgstr ""
+
 msgid "No changes made"
 msgstr "No s'han realitzat canvis"
 
@@ -419,6 +426,10 @@ msgstr "Les preferències han estat guardades"
 msgid "Preferences has been saved and password updated"
 msgstr "Les preferències s'han guardat i la contrasenya s'ha actualitzat"
 
+#, fuzzy
+msgid "Preferences has been saved and webservices token updated"
+msgstr "Les preferències s'han guardat i la contrasenya s'ha actualitzat"
+
 msgid "Prefix or country code"
 msgstr "Prefix o codi de país"
 
@@ -426,6 +437,10 @@ msgid "Public registration disabled"
 msgstr "Registre públic desactivat"
 
 msgid "Re-Type Password"
+msgstr "Reescriviu la contrasenya"
+
+#, fuzzy
+msgid "Re-type password"
 msgstr "Reescriviu la contrasenya"
 
 msgid "Receiver"
@@ -457,6 +472,9 @@ msgstr "Guardar"
 
 msgid "Save template"
 msgstr "Guardar Plantilla de Missatge"
+
+msgid "Search"
+msgstr ""
 
 msgid "Select action"
 msgstr "Seleccioni una acció"
@@ -569,6 +587,13 @@ msgstr "Token webapp"
 msgid "Webapp token"
 msgstr "Token webapp"
 
+msgid "Webservices"
+msgstr ""
+
+#, fuzzy
+msgid "Webservices token"
+msgstr "Token webapp"
+
 msgid "Website email"
 msgstr "Correu electrònic de contacte"
 
@@ -659,4 +684,3 @@ msgstr "usuari"
 
 msgid "yes"
 msgstr "si"
-

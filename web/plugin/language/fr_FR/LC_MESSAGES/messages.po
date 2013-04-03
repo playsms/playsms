@@ -213,6 +213,10 @@ msgstr "Services"
 msgid "Fill to change password for username"
 msgstr "Remplir pour changer le mot de passe"
 
+#, fuzzy
+msgid "Fill to update"
+msgstr "Echec de suppression"
+
 msgid "Forward PV to email"
 msgstr "Transfert PV à email"
 
@@ -361,6 +365,9 @@ msgstr "Nom"
 msgid "New account registration"
 msgstr "Nouveau compte"
 
+msgid "New webservices token"
+msgstr ""
+
 msgid "No changes made"
 msgstr "Aucun changement éffectué"
 
@@ -421,6 +428,10 @@ msgstr "Préférences sauvegardées"
 msgid "Preferences has been saved and password updated"
 msgstr "Préférences sauvegarde et mot de passe mis à jour"
 
+#, fuzzy
+msgid "Preferences has been saved and webservices token updated"
+msgstr "Préférences sauvegarde et mot de passe mis à jour"
+
 msgid "Prefix or country code"
 msgstr ""
 
@@ -428,6 +439,10 @@ msgid "Public registration disabled"
 msgstr "Enregistrement public"
 
 msgid "Re-Type Password"
+msgstr "Re-taper le Mot de passe"
+
+#, fuzzy
+msgid "Re-type password"
 msgstr "Re-taper le Mot de passe"
 
 msgid "Receiver"
@@ -459,6 +474,9 @@ msgstr "Enregistrer"
 
 msgid "Save template"
 msgstr "Enregistrer"
+
+msgid "Search"
+msgstr ""
 
 msgid "Select action"
 msgstr "Sélectionner action"
@@ -575,6 +593,13 @@ msgstr ""
 
 msgid "Webapp token"
 msgstr ""
+
+msgid "Webservices"
+msgstr ""
+
+#, fuzzy
+msgid "Webservices token"
+msgstr "Titre du Site"
 
 msgid "Website email"
 msgstr "Email du Site"

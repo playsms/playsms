@@ -207,6 +207,10 @@ msgstr "Servicio"
 msgid "Fill to change password for username"
 msgstr "Rellene para cambiar la contraseña para el usuario"
 
+#, fuzzy
+msgid "Fill to update"
+msgstr "Imposible borrar el SMS"
+
 msgid "Forward PV to email"
 msgstr "Firma del correo reenviado"
 
@@ -355,6 +359,9 @@ msgstr "Nombre"
 msgid "New account registration"
 msgstr ""
 
+msgid "New webservices token"
+msgstr ""
+
 msgid "No changes made"
 msgstr "No se efectuaron cambios"
 
@@ -415,6 +422,10 @@ msgstr "Las preferencias han sido guardadas"
 msgid "Preferences has been saved and password updated"
 msgstr "Las preferencias han sido guardadas y la contraseña actualizada"
 
+#, fuzzy
+msgid "Preferences has been saved and webservices token updated"
+msgstr "Las preferencias han sido guardadas y la contraseña actualizada"
+
 msgid "Prefix or country code"
 msgstr ""
 
@@ -422,6 +433,10 @@ msgid "Public registration disabled"
 msgstr ""
 
 msgid "Re-Type Password"
+msgstr "Re-ingresar contraseña"
+
+#, fuzzy
+msgid "Re-type password"
 msgstr "Re-ingresar contraseña"
 
 msgid "Receiver"
@@ -453,6 +468,9 @@ msgstr "Guardar"
 
 msgid "Save template"
 msgstr "Guardar Plantilla de Mensaje"
+
+msgid "Search"
+msgstr ""
 
 msgid "Select action"
 msgstr "Seleccione una acción"
@@ -567,6 +585,13 @@ msgstr ""
 
 msgid "Webapp token"
 msgstr ""
+
+msgid "Webservices"
+msgstr ""
+
+#, fuzzy
+msgid "Webservices token"
+msgstr "Título del sitio WEB"
 
 msgid "Website email"
 msgstr "Correo de contacto"

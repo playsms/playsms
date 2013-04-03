@@ -207,6 +207,10 @@ msgstr "特征"
 msgid "Fill to change password for username"
 msgstr "填写更改用户名密码"
 
+#, fuzzy
+msgid "Fill to update"
+msgstr "删除短信失败"
+
 msgid "Forward PV to email"
 msgstr "转发邮件页脚"
 
@@ -355,6 +359,9 @@ msgstr "名字"
 msgid "New account registration"
 msgstr ""
 
+msgid "New webservices token"
+msgstr ""
+
 msgid "No changes made"
 msgstr "没有作出改变"
 
@@ -415,6 +422,10 @@ msgstr "偏好已被保存"
 msgid "Preferences has been saved and password updated"
 msgstr "偏好已被保存且密码已更新"
 
+#, fuzzy
+msgid "Preferences has been saved and webservices token updated"
+msgstr "偏好已被保存且密码已更新"
+
 msgid "Prefix or country code"
 msgstr ""
 
@@ -422,6 +433,10 @@ msgid "Public registration disabled"
 msgstr ""
 
 msgid "Re-Type Password"
+msgstr "再次输入密码"
+
+#, fuzzy
+msgid "Re-type password"
 msgstr "再次输入密码"
 
 msgid "Receiver"
@@ -453,6 +468,9 @@ msgstr "保存"
 
 msgid "Save template"
 msgstr "保存模版"
+
+msgid "Search"
+msgstr ""
 
 msgid "Select action"
 msgstr "选择行为"
@@ -567,6 +585,13 @@ msgstr ""
 
 msgid "Webapp token"
 msgstr ""
+
+msgid "Webservices"
+msgstr ""
+
+#, fuzzy
+msgid "Webservices token"
+msgstr "网站名称"
 
 msgid "Website email"
 msgstr "网站邮件"

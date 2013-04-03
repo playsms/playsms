@@ -206,6 +206,9 @@ msgstr ""
 msgid "Fill to change password for username"
 msgstr ""
 
+msgid "Fill to update"
+msgstr ""
+
 msgid "Forward PV to email"
 msgstr ""
 
@@ -350,6 +353,9 @@ msgstr ""
 msgid "New account registration"
 msgstr ""
 
+msgid "New webservices token"
+msgstr ""
+
 msgid "No changes made"
 msgstr ""
 
@@ -410,6 +416,9 @@ msgstr ""
 msgid "Preferences has been saved and password updated"
 msgstr ""
 
+msgid "Preferences has been saved and webservices token updated"
+msgstr ""
+
 msgid "Prefix or country code"
 msgstr ""
 
@@ -417,6 +426,9 @@ msgid "Public registration disabled"
 msgstr ""
 
 msgid "Re-Type Password"
+msgstr ""
+
+msgid "Re-type password"
 msgstr ""
 
 msgid "Receiver"
@@ -447,6 +459,9 @@ msgid "Save"
 msgstr ""
 
 msgid "Save template"
+msgstr ""
+
+msgid "Search"
 msgstr ""
 
 msgid "Select action"
@@ -558,6 +573,12 @@ msgid "Webapp Token"
 msgstr ""
 
 msgid "Webapp token"
+msgstr ""
+
+msgid "Webservices"
+msgstr ""
+
+msgid "Webservices token"
 msgstr ""
 
 msgid "Website email"
