@@ -19,10 +19,10 @@ switch ($op) {
 			    'in_keyword' => '%'.$kw.'%'
 			    );
 		}
-		$count = data_count(_DB_PREF_.'_tblSMSIncoming', $fields, $keywords);
+		$count = dba_count(_DB_PREF_.'_tblSMSIncoming', $fields, $keywords);
 		$nav = themes_nav($count, "index.php?app=menu&inc=user_incoming&op=user_incoming");
 		$extras = array('ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = data_search(_DB_PREF_.'_tblSMSIncoming', $fields, $keywords, $extras);
+		$list = dba_search(_DB_PREF_.'_tblSMSIncoming', $fields, $keywords, $extras);
 		
 		$content = "
 			<h2>"._('Incoming SMS')."</h2>
@@ -107,7 +107,7 @@ switch ($op) {
 			$inid = $_POST['inid'.$i];
 			if(($chkid=="on") && $inid) {
 				$up = array('c_timestamp' => mktime(), 'flag_deleted' => '1');
-				data_update(_DB_PREF_.'_tblSMSIncoming', $up, array('in_uid' => $uid, 'in_id' => $inid));
+				dba_update(_DB_PREF_.'_tblSMSIncoming', $up, array('in_uid' => $uid, 'in_id' => $inid));
 			}
 		}
 		$_SESSION['error_string'] = _('Selected incoming SMS has been deleted');

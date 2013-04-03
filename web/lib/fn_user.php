@@ -71,7 +71,7 @@ function user_add_validate($item) {
 				$ret['error_string'] = _('Your email format is invalid')." (".$item['email'].")";
 				$ret['status'] = false;
 			}
-			$c_user = data_search(_DB_PREF_.'_tblUser', array('email' => $item['email']));
+			$c_user = dba_search(_DB_PREF_.'_tblUser', array('email' => $item['email']));
 			if ($c_user[0]['username'] && ($c_user[0]['username'] != $item['username'])) {
 				$ret['error_string'] = _('Email is already in use by other username') . " (" . _('email') . ": ".$item['email'].", " . _('username') . ": " . $c_user[0]['username'] . ") ";
 				$ret['status'] = false;
@@ -83,7 +83,7 @@ function user_add_validate($item) {
 				$ret['status'] = false;
 			}
 			$c_uid = mobile2uid($item['mobile']);
-			$c_user = data_search(_DB_PREF_.'_tblUser', array('uid' => $c_uid));
+			$c_user = dba_search(_DB_PREF_.'_tblUser', array('uid' => $c_uid));
 			if ($c_user[0]['username'] && ($c_user[0]['username'] != $item['username'])) {
 				$ret['error_string'] = _('Mobile is already in use by other username') . " (" . _('mobile') . ": ".$item['mobile'].", " . _('username') . ": " . $c_user[0]['username'] . ") ";
 				$ret['status'] = false;

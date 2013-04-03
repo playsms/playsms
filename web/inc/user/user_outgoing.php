@@ -21,10 +21,10 @@ switch ($op) {
 			    'p_footer' => '%'.$kw.'%'
 			    );
 		}
-		$count = data_count(_DB_PREF_.'_tblSMSOutgoing', $fields, $keywords);
+		$count = dba_count(_DB_PREF_.'_tblSMSOutgoing', $fields, $keywords);
 		$nav = themes_nav($count, "index.php?app=menu&inc=user_outgoing&op=user_outgoing");
 		$extras = array('ORDER BY' => 'smslog_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = data_search(_DB_PREF_.'_tblSMSOutgoing', $fields, $keywords, $extras);
+		$list = dba_search(_DB_PREF_.'_tblSMSOutgoing', $fields, $keywords, $extras);
 
 		$content = "
 			<h2>"._('Outgoing SMS')."</h2>
@@ -133,7 +133,7 @@ switch ($op) {
 			$slid = $_POST['slid'.$i];
 			if(($chkid=="on") && $slid) {
 				$up = array('c_timestamp' => mktime(), 'flag_deleted' => '1');
-				data_update(_DB_PREF_.'_tblSMSOutgoing', $up, array('uid' => $uid, 'smslog_id' => $slid));
+				dba_update(_DB_PREF_.'_tblSMSOutgoing', $up, array('uid' => $uid, 'smslog_id' => $slid));
 			}
 		}
 		$_SESSION['error_string'] = _('Selected outgoing SMS has been deleted');

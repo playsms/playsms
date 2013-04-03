@@ -7,7 +7,7 @@ switch ($op) {
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
-		if ($c_user = data_search(_DB_PREF_.'_tblUser', array('uid' => $core_config['user']['uid']))) {
+		if ($c_user = dba_search(_DB_PREF_.'_tblUser', array('uid' => $core_config['user']['uid']))) {
 			$token = $c_user[0]['token'];
 			$address = $c_user[0]['address'];
 			$city = $c_user[0]['city'];
@@ -185,7 +185,7 @@ switch ($op) {
 					unset($up['password']);
 				}
 				if ($continue) {
-					if (data_update(_DB_PREF_.'_tblUser', $up, array('username' => $up['username']))) {
+					if (dba_update(_DB_PREF_.'_tblUser', $up, array('username' => $up['username']))) {
 						if ($up['password']) {
 							$_SESSION['error_string'] = _('Preferences has been saved and password updated');
 						} else {

@@ -17,10 +17,10 @@ switch ($op) {
 		if ($search['keyword']) {
 			$keywords = array('username' => '%'.$search['keyword'].'%');
 		}
-		$count = data_count(_DB_PREF_.'_tblUser', $fields, $keywords);
+		$count = dba_count(_DB_PREF_.'_tblUser', $fields, $keywords);
 		$nav = themes_nav($count, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab1");
 		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = data_search(_DB_PREF_.'_tblUser', $fields, $keywords, $extras);
+		$list = dba_search(_DB_PREF_.'_tblUser', $fields, $keywords, $extras);
 		$_SESSION['referrer'] = 'user_list_tab1';
 		if ($err = $_SESSION['error_string']) {
 			$content = "<p><font color='red'>$err</font><p>";
@@ -78,10 +78,10 @@ switch ($op) {
 		if ($search['keyword']) {
 			$keywords = array('username' => '%'.$search['keyword'].'%');
 		}
-		$count = data_count(_DB_PREF_.'_tblUser', $fields, $keywords);
+		$count = dba_count(_DB_PREF_.'_tblUser', $fields, $keywords);
 		$nav = themes_nav($count, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab2");
 		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = data_search(_DB_PREF_.'_tblUser', $fields, $keywords, $extras);
+		$list = dba_search(_DB_PREF_.'_tblUser', $fields, $keywords, $extras);
 		$_SESSION['referrer'] = 'user_list_tab2';
 		if ($err = $_SESSION['error_string']) {
 			$content = "<p><font color='red'>$err</font><p>";
@@ -136,7 +136,7 @@ switch ($op) {
 		$_SESSION['error_string'] = _('Fail to delete user') . " ".$up['username'];
 		if (($del_uid > 1) && ($del_uid != $uid)) {
 			$condition = array('uid' => $del_uid);
-			if (data_remove(_DB_PREF_.'_tblUser', $condition)) {
+			if (dba_remove(_DB_PREF_.'_tblUser', $condition)) {
 				$_SESSION['error_string'] = _('User has been deleted') . " (" . _('username') . ": ".$up['username'].")";
 			}
 		}
@@ -266,7 +266,7 @@ switch ($op) {
 				}
 				$datetime_now = core_adjust_datetime($core_config['datetime']['now']);
 				$up['lastupdate_datetime'] = $datetime_now;
-				if (data_update(_DB_PREF_.'_tblUser', $up, array('username' => $up['username']))) {
+				if (dba_update(_DB_PREF_.'_tblUser', $up, array('username' => $up['username']))) {
 					$c_uid = username2uid($up['username']);
 					rate_setusercredit($c_uid, $up['credit']);
 					$_SESSION['error_string'] = _('Preferences has been saved') . " (" . _('username') . ": ".$up['username'].")";
@@ -376,7 +376,7 @@ switch ($op) {
 				if ($add['mobile']) {
 					$item['mobile'] = $add['mobile'];
 				}
-				if (! data_isavail($item)) {
+				if (! dba_isavail($item)) {
 					$_SESSION['error_string'] = _('User already exists') . " (" . _('username') . ": " . $add['username'] . ")";
 					$next = false;
 				}
@@ -384,7 +384,7 @@ switch ($op) {
 					$datetime_now = core_adjust_datetime($core_config['datetime']['now']);
 					$add['register_datetime'] = $datetime_now;
 					$add['lastupdate_datetime'] = $datetime_now;
-					if ($new_uid = data_add(_DB_PREF_.'_tblUser', $add)) {
+					if ($new_uid = dba_add(_DB_PREF_.'_tblUser', $add)) {
 						rate_setusercredit($new_uid, $add['credit']);
 						$_SESSION['error_string'] = _('User has been added') . " (" . _('username') . ": ".$add['username'].")";
 					}

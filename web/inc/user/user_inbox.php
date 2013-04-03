@@ -17,10 +17,10 @@ switch ($op) {
 			    'in_datetime' => '%'.$kw.'%'
 			    );
 		}
-		$count = data_count(_DB_PREF_.'_tblUserInbox', $fields, $keywords);
+		$count = dba_count(_DB_PREF_.'_tblUserInbox', $fields, $keywords);
 		$nav = themes_nav($count, "index.php?app=menu&inc=user_inbox&op=user_inbox");
 		$extras = array('ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = data_search(_DB_PREF_.'_tblUserInbox', $fields, $keywords, $extras);
+		$list = dba_search(_DB_PREF_.'_tblUserInbox', $fields, $keywords, $extras);
 
 		$content = "
 			<h2>"._('Inbox')."</h2>
@@ -96,7 +96,7 @@ switch ($op) {
 			$inid = $_POST['inid'.$i];
 			if(($chkid=="on") && $inid) {
 				$up = array('c_timestamp' => mktime(), 'in_hidden' => '1');
-				data_update(_DB_PREF_.'_tblUserInbox', $up, array('in_uid' => $uid, 'in_id' => $inid));
+				dba_update(_DB_PREF_.'_tblUserInbox', $up, array('in_uid' => $uid, 'in_id' => $inid));
 			}
 		}
 		$_SESSION['error_string'] = _('Selected incoming SMS has been deleted');
