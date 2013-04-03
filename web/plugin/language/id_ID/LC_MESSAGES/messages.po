@@ -207,7 +207,7 @@ msgid "Fill to change password for username"
 msgstr "Isi untuk mengganti kata sandi untuk nama penguna"
 
 msgid "Fill to update"
-msgstr "Isi untuk mengganti"
+msgstr "Isi untuk memperbaharui"
 
 msgid "Forward PV to email"
 msgstr "Teruskan PV ke email"
@@ -354,7 +354,7 @@ msgid "New account registration"
 msgstr "Pendaftaran akun baru"
 
 msgid "New webservices token"
-msgstr ""
+msgstr "Token webservices baru"
 
 msgid "No changes made"
 msgstr "Tidak ada perubahan yang dilakukan"
