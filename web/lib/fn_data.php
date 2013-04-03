@@ -5,13 +5,16 @@ function data_search($db_table, $fields='', $keywords='', $extras='') {
 	$ret = array();
 	if (is_array($fields)) {
 		foreach ($fields as $key => $val) {
-			$q_fields .= "AND ".$key."=".$val." ";
+			$q_fields .= "AND ".$key."='".$val."' ";
 		}
 	}
 	if (is_array($keywords)) {
+		$q_keywords = "AND (";
 		foreach ($keywords as $key => $val) {
 			$q_keywords .= "OR ".$key." LIKE '".$val."' ";
 		}
+		$q_keywords .= ")";
+		$q_keywords = str_replace("(OR","(",$q_keywords);
 	}
 	if (is_array($extras)) {
 		foreach ($extras as $key => $val) {
@@ -22,8 +25,7 @@ function data_search($db_table, $fields='', $keywords='', $extras='') {
 		$q_where = 'WHERE';
 	}
 	
-	// keywords first, and then fields
-	$q_conditions = substr(trim($q_keywords." ".$q_fields." ".$q_extras), 3);
+	$q_conditions = substr(trim($q_fields." ".$q_keywords." ".$q_extras), 3);
 	
 	$db_query = "SELECT * FROM ".$db_table." ".$q_where." ".$q_conditions;
 	$db_result = dba_query($db_query);
@@ -37,13 +39,16 @@ function data_count($db_table, $fields='', $keywords='', $extras='') {
 	$ret = 0;
 	if (is_array($fields)) {
 		foreach ($fields as $key => $val) {
-			$q_fields .= "AND ".$key."=".$val." ";
+			$q_fields .= "AND ".$key."='".$val."' ";
 		}
 	}
 	if (is_array($keywords)) {
+		$q_keywords = "AND (";
 		foreach ($keywords as $key => $val) {
 			$q_keywords .= "OR ".$key." LIKE '".$val."' ";
 		}
+		$q_keywords .= ")";
+		$q_keywords = str_replace("(OR","(",$q_keywords);
 	}
 	if (is_array($extras)) {
 		foreach ($extras as $key => $val) {
@@ -54,8 +59,7 @@ function data_count($db_table, $fields='', $keywords='', $extras='') {
 		$q_where = 'WHERE';
 	}
 	
-	// keywords first, and then fields
-	$q_conditions = substr(trim($q_keywords." ".$q_fields." ".$q_extras), 3);
+	$q_conditions = substr(trim($q_fields." ".$q_keywords." ".$q_extras), 3);
 	
 	$db_query = "SELECT COUNT(*) AS count FROM ".$db_table." ".$q_where." ".$q_conditions;
 	$db_result = dba_query($db_query);
