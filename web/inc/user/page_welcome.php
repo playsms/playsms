@@ -10,7 +10,7 @@ $content = "
     <input type=button value=\""._('Installation Guide')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=page_welcome&get=3')\" class=\"button\" />
     <input type=button value=\""._('F.A.Q')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=page_welcome&get=4')\" class=\"button\" />
     <input type=button value=\""._('License')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=page_welcome&get=5')\" class=\"button\" />
-    <input type=button value=\""._('HTTP API')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=page_welcome&get=6')\" class=\"button\" />
+    <input type=button value=\""._('Webservices')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=page_welcome&get=6')\" class=\"button\" />
     <hr size=1>
 ";
 

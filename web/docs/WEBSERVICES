@@ -8,8 +8,7 @@ PARAMETERS
 ----------
 
 u	: username
-p	: password
-h	: hash token
+h	: webservices token
 
 ta	: type of action
 	  for example:
@@ -70,7 +69,7 @@ ERR 4xx: delivery status errors
 PROTOCOL
 --------
 
-1. Send SMS (h for hash token, p for password)
+1. Send SMS
     ta		: pv
     parameters	: u, h, to, msg, type, unicode
     returns	: error returns
@@ -101,15 +100,12 @@ PROTOCOL
 EXAMPLE
 -------
 
-Webservice URL (using hash token):
-http://x.com/index.php?app=webservices&ta=bc&u=admin&h=a3438bd4dd6b8dda99efc06c879d0b50da30fa77&to=TI&msg=meeting+at+15.00+today!
-
-Webservice URL (using password):
-http://x.com/index.php?app=webservices&ta=bc&u=admin&p=rahasia&to=TI&msg=meeting+at+15.00+today!
+Webservice URL:
+http://x.com/index.php?app=webservices&ta=cr&u=admin&h=b09ba37b03b21e4ffb99b6d4ece735c1
 
 Explanation:
-User admin access playSMS webservices in x.com with type of action bc (broadcast)
-if succeded returns: OK SMS_LOG_ID (eg: OK 754)
+User admin accessed playSMS webservices in x.com with type of action cr (User credits)
+if succeded returns: OK <user's credits> (eg: OK 4500)
 if error occured returns one of the ERROR RETURNS mentioned above
 
 
