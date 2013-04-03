@@ -83,13 +83,13 @@ switch ($op) {
 			</tbody>
 			</table>
 			<table width=100% cellpadding=0 cellspacing=0 border=0>
-			<tr>
+			<tbody><tr>
 				<td width=100% colspan=2 align=right>
 					<input type=hidden name=item_count value=\"$item_count\">
 					<input type=hidden name=ref value=\"".$_SERVER['REQUEST_URI']."\">
 					<input type=submit value=\""._('Delete selection')."\" class=button />
 				</td>
-			</tr>
+			</tr></tbody>
 			</table>
 			</form>
 			<p>".$nav['form']."</p>";
