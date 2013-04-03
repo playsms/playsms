@@ -53,10 +53,7 @@ function default_hook_themes_navbar($num, $nav, $max_nav, $url, $page) {
 		$nav_end = (($nav) * $max_nav);
 		$start = 1;
 		$end = ceil($num/$max_nav);
-		$nav_pages = "
-            <table cellpadding=1 cellspacing=1>
-            <tr>
-        ";
+		$nav_pages = "<table cellpadding=1 cellspacing=1><tbody><tr>";
 		$nav_pages .= "<td> <a href=$url&page=1&nav=1><img align=absmiddle src=".$core_config['http_path']['themes']."/".$core_config['module']['themes']."/images/icon_start.gif border=0 /></a></td>";
 		$nav_pages .= "<td>";
 		$nav_pages .= ($start==$nav) ? "<img align=absmiddle src=".$core_config['http_path']['themes']."/".$core_config['module']['themes']."/images/icon_prev.gif border=0 /> &nbsp;" : "<a href=$url&page=".((($nav-2)*$max_nav)+1)."&nav=".($nav-1)."><img src=".$core_config['http_path']['themes']."/".$core_config['module']['themes']."/images/icon_prev.gif border=0 /></a>";
@@ -75,10 +72,7 @@ function default_hook_themes_navbar($num, $nav, $max_nav, $url, $page) {
 		$nav_pages .= ($end==$nav) ? "<img align=absmiddle src=".$core_config['http_path']['themes']."/".$core_config['module']['themes']."/images/icon_next.gif border=0 />&nbsp;" : "<a href=$url&page=".(($nav*$max_nav)+1)."&nav=".($nav+1)."> <img align=absmiddle src=".$core_config['http_path']['themes']."/".$core_config['module']['themes']."/images/icon_next.gif border=0 /></a>";
 		$nav_pages .= "</td>";
 		$nav_pages .= "<td><a href=$url&page=$num&nav=$end> <img align=absmiddle src=".$core_config['http_path']['themes']."/".$core_config['module']['themes']."/images/icon_end.gif border=0 /> </a></td>";
-		$nav_pages .= "
-            </tr>
-            </table>	
-        ";
+		$nav_pages .= "</tr></tbody></table>";
 	}
 	return $nav_pages;
 }

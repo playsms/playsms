@@ -51,6 +51,7 @@ switch ($op) {
 	    <p>
 	    <form action=index.php?app=menu&inc=gateway_kannel&op=manage_save method=post>
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
+	    <tbody>
 	    <tr>
 		<td width=150>" . _('Gateway name') . "</td><td width=5>:</td><td><b>kannel</b> $status_active</td>
 	    </tr>
@@ -102,6 +103,7 @@ switch ($op) {
             		<input type='button' value=\""._('Restart Kannel')."\" class='button' onClick=\"parent.location.href='index.php?app=menu&inc=gateway_kannel&op=manage_restart'\">
             	</td>
             </tr>
+            </tbody>
                 <!-- End Of Fixme Edward Added Kanel HTTP Admin Parameter--> 
 	</table>	    
 	    <p><input type=submit class=button value=\"" . _('Save') . "\">

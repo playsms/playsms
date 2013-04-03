@@ -53,12 +53,12 @@ function themes_search($var) {
 	$core_config['tmp']['themes_search']['keyword'] = $value;
 	$content = "
 		<form action='".$var['url']."' method='post'>
-		<table cellpadding='0' cellspacing='0' border='0'><tr>
+		<table cellpadding='0' cellspacing='0' border='0'><tbody><tr>
 			<td>"._('Search')."</td>
-			<td>:</td>
+			<td>&nbsp;:&nbsp;</td>
 			<td><input type='text' name='".$var['name']."_keyword' value='".$value."' size='40 maxlength='40'><td></td>
 			<td><input type='submit' value='"._('Go')."' class='button'></td>
-		</tr></table>
+		</tr></tbody></table>
 		</form>
 	";
 	$ret['form'] = $content;

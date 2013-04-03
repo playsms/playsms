@@ -26,6 +26,7 @@ switch ($op)
 	    <p>
 	    <form action=index.php?app=menu&inc=gateway_uplink&op=manage_save method=post>
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
+	    <tbody>
 	    <tr>
 		<td width=150>"._('Gateway name')."</td><td width=5>:</td><td><b>uplink</b> $status_active</td>
 	    </tr>
@@ -52,6 +53,7 @@ switch ($op)
 		<td>"._('Uplink incoming path')."</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_incoming_path value=\"".$uplink_param['path']."\"> ("._('No trailing slash')." \"/\")</td>
 	    </tr>	    	    
 	    -->
+	    </tbody>
 	</table>
 	    <p><input type=submit class=button value=\""._('Save')."\">
 	    </form>

@@ -2,9 +2,11 @@
 <?php include $apps_path['themes']."/".$themes_module."/header.php"; ?>
 
 <TABLE WIDTH="100%" height="100%" BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	<tbody>
 	<TR>
 		<td align="center" valign="middle" bgcolor="#fcfcfc">
 		<TABLE WIDTH=370 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+			<tbody>
                         <TR>
                                 <TD COLSPAN=3><a href="<?php echo $http_path['base']; ?>"><IMG
                                         SRC="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/images/default_logo.png"
@@ -23,10 +25,11 @@
 					WIDTH=7 HEIGHT=16></TD>
 				<TD WIDTH=348 bgcolor="#FDFCFC"><br />
 				<div align=center><?php echo $error_content?></div>
+				<form action="index.php" method=POST><input type=hidden name=app
+					value=page> <input type=hidden name=inc value=forgot> <input
+					type=hidden name=op value=auth_forgot>
 				<table width="100%" border="0" cellpadding="2" cellspacing="2">
-					<form action="index.php" method=POST><input type=hidden name=app
-						value=page> <input type=hidden name=inc value=forgot> <input
-						type=hidden name=op value=auth_forgot>
+					<tbody>
 					</td>
 					<tr>
 						<td width="140" align="right"><?php echo _('Username'); ?> &nbsp;
@@ -42,8 +45,9 @@
 						<td>&nbsp;<input type=submit class=button
 							value="<?php echo _('Recover password'); ?>"></td>
 					</tr>
-					</form>
+					</tbody>
 				</table>
+				</form>
 
 				<br />
 
@@ -58,9 +62,11 @@
 					SRC="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/images/powered_by_playsms.gif"
 					WIDTH=370 border=0></a></TD>
 			</TR>
+			</tbody>
 		</TABLE>
 		</td>
 	</TR>
+	</tbody>
 </TABLE>
 
 <?php include $apps_path['themes']."/".$themes_module."/footer.php"; ?>
