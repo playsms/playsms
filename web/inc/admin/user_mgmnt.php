@@ -28,15 +28,13 @@ switch ($op) {
 		$content .= "
 			<h2>" . _('Manage user') . "</h2>
 			<p>
-		";
-		$content .= "
 			<input type='button' value='" . _('Add user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
 			<input type='button' value='" . _('View normal user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab2')\" class=\"button\" />
 			<p>".$search['form']."</p>
 			<p>".$nav['form']."</p>
 			<p>" . _('Status') . ": <b>" . _('Administrator') . "</b><br>
 			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
-			<tr>
+			<thead><tr>
 				<td class='box_title' width='25'>*</td>
 				<td class='box_title' width='100'>" . _('Registered') . "</td>
 				<td class='box_title' width='100'>" . _('Username') . "</td>
@@ -45,7 +43,8 @@ switch ($op) {
 				<td class='box_title' width='150'>" . _('Mobile') . "</td>
 				<td class='box_title' width='75'>" . _('Credit') . "</td>
 				<td class='box_title' class='sortable_nosort' width='75'>" . _('Action') . "</td>
-			</tr>";
+			</tr></thead>
+			<tbody>";
 		$j = $nav['top'];
 		for ($i=0;$i<count($list);$i++) {
 			$j--;
@@ -65,7 +64,7 @@ switch ($op) {
 				</tr>";
 		}
 		$content .= "
-			</table>
+			</tbody></table>
 			<p>".$nav['form']."</p>";
 		echo $content;
 		break;
@@ -90,15 +89,13 @@ switch ($op) {
 		$content .= "
 			<h2>" . _('Manage user') . "</h2>
 			<p>
-		";
-		$content .= "
 			<input type='button' value='" . _('Add user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
 			<input type='button' value='" . _('View administrator') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab1')\" class=\"button\" />
 			<p>".$search['form']."</p>
 			<p>".$nav['form']."</p>
 			<p>" . _('Status') . ": <b>" . _('Normal user') . "</b><br>
 			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
-			<tr>
+			<thead><tr>
 				<td class='box_title' width='25'>*</td>
 				<td class='box_title' width='100'>" . _('Registered') . "</td>
 				<td class='box_title' width='100'>" . _('Username') . "</td>
@@ -107,7 +104,8 @@ switch ($op) {
 				<td class='box_title' width='150'>" . _('Mobile') . "</td>
 				<td class='box_title' width='75'>" . _('Credit') . "</td>
 				<td class='box_title' class='sortable_nosort' width='75'>" . _('Action') . "</td>
-			</tr>";
+			</tr></thead>
+			<tbody>";
 		$j = $nav['top'];
 		for ($i=0;$i<count($list);$i++) {
 			$list[$i] = core_display_data($list[$i]);
@@ -128,7 +126,7 @@ switch ($op) {
 				</tr>";
 		}
 		$content .= "
-			</table>
+			</tbody></table>
 			<p>".$nav['form']."</p>";
 		echo $content;
 		break;
@@ -201,6 +199,7 @@ switch ($op) {
 			<form action='index.php?app=menu&inc=user_mgmnt&op=user_edit_save' method='post'>
 			<input type='hidden' name='uname' value=\"".$up['username']."\">
 			<table width='100%' cellpadding='1' cellspacing='2' border='0'>
+			<tbody>
 			<tr>
 				<td width='175'>" . _('Username') . " $nd</td><td width='5'>:</td><td><b>".$up['username']."</b></td>
 			</tr>
@@ -237,7 +236,8 @@ switch ($op) {
 			<tr>
 				<td>" . _('Active language') . "</td><td>:</td><td><select name='up_language_module'>$option_language_module</select></td>
 			</tr>
-			</table>	    
+			</tbody>
+			</table>
 			<p><input type='submit' class='button' value='" . _('Save') . "'>
 			</form>";
 		echo $content;
@@ -313,6 +313,7 @@ switch ($op) {
 		<p>
 		<form action='index.php?app=menu&inc=user_mgmnt&op=user_add_yes' method='post'>
 		<table width='100%' cellpadding='1' cellspacing='2' border='0'>
+		<tbody>
 		<tr>
 			<td width='175'>" . _('Username') . " $nd</td><td width='5'>:</td><td><input type='text' size='30' maxlength='30' name='add_username' value=\"$add_username\"></td>
 		</tr>
@@ -347,7 +348,8 @@ switch ($op) {
 			<td>" . _('Active language') . "</td><td>:</td><td><select name='add_language_module'>$option_language_module</select></td>
 		</tr>
 
-		</table>	    
+		</tbody>
+		</table>
 		<p><input type='submit' class='button' value='" . _('Add') . "'>
 		</form>";
 		echo $content;

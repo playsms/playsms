@@ -119,6 +119,7 @@ switch ($op) {
 			<p>
 			<form action=index.php?app=menu&inc=user_pref&op=user_pref_save method=post enctype=\"multipart/form-data\">
 			<table width=100% cellpadding=1 cellspacing=1 border=0>
+			<tbody>
 			<tr><td colspan=3><h2>" . _('Login information') . "</h2><hr></td></tr>
 			<tr><td width=200>" . _('Username') . "</td><td>:</td><td><b>".$core_config['user']['username']."</b></td></tr>
 			<tr><td width=200>" . _('Password') . "</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password></td></tr>
@@ -151,6 +152,7 @@ switch ($op) {
 			<tr><td colspan=3>&nbsp;</td></tr>
 			<tr><td colspan=3><hr></td></tr>
 			<tr><td width=200><input type=submit class=button value='" . _('Save') . "'></td></tr>
+			</tbody>
 			</table>
 			</form>";
 		echo $content;

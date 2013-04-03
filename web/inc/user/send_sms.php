@@ -76,6 +76,7 @@ switch ($op) {
 			<p>"._('SMS footer').": $sms_footer
 			<p>
 			<table cellpadding=1 cellspacing=0 border=0>
+			<tbody>
 			<tr>
 				<td nowrap>
 					"._('To').":<br>
@@ -94,6 +95,7 @@ switch ($op) {
 					<select name=\"p_num[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\"></select>
 				</td>
 			</tr>
+			</tbody>
 			</table>
 			<p>"._('Or').": <input type=text size=20 maxlength=20 name=p_num_text value=\"$dst_p_num\">
 			$sms_template
