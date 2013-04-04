@@ -22,7 +22,7 @@ function themes_buildmenu($arr_menu) {
 
 function themes_navbar($num, $nav, $max_nav, $url, $page) {
 	global $core_config;
-	$url = $url.'&'.$core_config['tmp']['themes_search']['name'].'='.$core_config['tmp']['themes_search']['keyword'];
+	$url = $url.'&'.$core_config['tmp']['themes_search']['param'].'='.urlencode($core_config['tmp']['themes_search']['keyword']);
 	$nav_pages = '';
 	if ($core_config['module']['themes']) {
 		$nav_pages = x_hook($core_config['module']['themes'],'themes_navbar',array($num, $nav, $max_nav, $url, $page));
@@ -49,7 +49,7 @@ function themes_search($var) {
 	global $core_config;
 	$ret = false;
 	$value = $_REQUEST[$var['name'].'_keyword'];
-	$core_config['tmp']['themes_search']['name'] = $var['name'].'_keyword';
+	$core_config['tmp']['themes_search']['param'] = $var['name'].'_keyword';
 	$core_config['tmp']['themes_search']['keyword'] = $value;
 	$content = "
 		<form action='".$var['url']."' method='post'>
@@ -59,10 +59,17 @@ function themes_search($var) {
 			<td><input type='text' name='".$var['name']."_keyword' value='".$value."' size='40 maxlength='40'><td></td>
 			<td><input type='submit' value='"._('Go')."' class='button'></td>
 		</tr></tbody></table>
-		</form>
-	";
+		</form>";
+	$ret['name'] = $var['name'];
+	$ret['param'] = $core_config['tmp']['themes_search']['param'];
+	$ret['keyword'] = $core_config['tmp']['themes_search']['keyword'];
+	$ret['url'] = trim($var['url']);
+	$q_mark = '';
+	if (strpos($ret['url'], '?') === false) {
+		$q_mark = '?';
+	}
+	$ret['url_get'] = $ret['url'].$q_mark.'&'.$ret['param'].'='.urlencode($ret['keyword']);
 	$ret['form'] = $content;
-	$ret['keyword'] = $value;
 	return $ret;
 }
 
