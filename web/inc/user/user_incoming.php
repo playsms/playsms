@@ -4,25 +4,20 @@ if(!isadmin()){forcenoaccess();};
 
 switch ($op) {
 	case "user_incoming":
-		$search_var = array(
-			'name' => 'user_incoming',
-			'url' => 'index.php?app=menu&inc=user_incoming&op=user_incoming',
-		);
-		$search = themes_search($search_var);
 		$fields = array('in_uid' => $uid, 'flag_deleted' => 0);
-		if ($kw = $search['keyword']) {
+		if ($kw = themes_search_keyword()) {
 			$keywords = array(
-			    'in_message' => '%'.$kw.'%',
-			    'in_sender' => '%'.$kw.'%',
-			    'in_datetime' => '%'.$kw.'%',
-			    'in_feature' => '%'.$kw.'%',
-			    'in_keyword' => '%'.$kw.'%'
-			    );
+				'in_message' => '%'.$kw.'%',
+				'in_sender' => '%'.$kw.'%',
+				'in_datetime' => '%'.$kw.'%',
+				'in_feature' => '%'.$kw.'%',
+				'in_keyword' => '%'.$kw.'%');
 		}
 		$count = dba_count(_DB_PREF_.'_tblSMSIncoming', $fields, $keywords);
-		$nav = themes_nav($count, "index.php?app=menu&inc=user_incoming&op=user_incoming");
+		$nav = themes_nav($count, 'index.php?app=menu&inc=user_incoming&op=user_incoming');
 		$extras = array('ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = dba_search(_DB_PREF_.'_tblSMSIncoming', $fields, $keywords, $extras);
+		$search = themes_search();
 		
 		$content = "
 			<h2>"._('Incoming SMS')."</h2>
@@ -72,8 +67,8 @@ switch ($op) {
 					<td valign=top class=$td_class align=center>$in_feature</td>
 					<td valign=top class=$td_class align=center>$in_status</td>
 					<td class=$td_class width=4>
-						<input type=hidden name=inid".$j." value=\"$in_id\">
-						<input type=checkbox name=chkid".$j.">
+						<input type=hidden name=itemid".$j." value=\"$in_id\">
+						<input type=checkbox name=checkid".$j.">
 					</td>
 				</tr>";
 		}
@@ -85,8 +80,6 @@ switch ($op) {
 			<table width=100% cellpadding=0 cellspacing=0 border=0>
 			<tbody><tr>
 				<td width=100% colspan=2 align=right>
-					<input type=hidden name=item_count value=\"$item_count\">
-					<input type=hidden name=ref value=\"".$_SERVER['REQUEST_URI']."\">
 					<input type=submit value=\""._('Delete selection')."\" class=button />
 				</td>
 			</tr></tbody>
@@ -100,18 +93,19 @@ switch ($op) {
 		echo $content;
 		break;
 	case "act_del":
-		$item_count = $_POST['item_count'];
-		$ref = $_POST['ref'];
-		for ($i=0;$i<$item_count;$i++) {
-			$chkid = $_POST['chkid'.$i];
-			$inid = $_POST['inid'.$i];
-			if(($chkid=="on") && $inid) {
+		$nav = themes_nav_session();
+		$search = themes_search_session();
+		for ($i=0;$i<$nav['limit'];$i++) {
+			$checkid = $_POST['checkid'.$i];
+			$itemid = $_POST['itemid'.$i];
+			if(($checkid=="on") && $itemid) {
 				$up = array('c_timestamp' => mktime(), 'flag_deleted' => '1');
-				dba_update(_DB_PREF_.'_tblSMSIncoming', $up, array('in_uid' => $uid, 'in_id' => $inid));
+				dba_update(_DB_PREF_.'_tblSMSIncoming', $up, array('in_uid' => $uid, 'in_id' => $itemid));
 			}
 		}
+		$ref_url = $nav['url'].'&search_keyword='.$search['keyword'].'&page='.$nav['page'].'&nav='.$nav['nav'];
 		$_SESSION['error_string'] = _('Selected incoming SMS has been deleted');
-		header("Location: ".$ref);
+		header("Location: ".$ref_url);
 		exit();
 		break;
 }
