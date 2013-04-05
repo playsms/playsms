@@ -4,8 +4,10 @@ if(!isadmin()){forcenoaccess();};
 
 switch ($op) {
 	case "user_incoming":
+		$base_url = 'index.php?app=menu&inc=user_incoming&op=user_incoming';
+		$search = themes_search($base_url);
 		$fields = array('in_uid' => $uid, 'flag_deleted' => 0);
-		if ($kw = themes_search_keyword()) {
+		if ($kw = $search['keyword']) {
 			$keywords = array(
 				'in_message' => '%'.$kw.'%',
 				'in_sender' => '%'.$kw.'%',
@@ -14,10 +16,9 @@ switch ($op) {
 				'in_keyword' => '%'.$kw.'%');
 		}
 		$count = dba_count(_DB_PREF_.'_tblSMSIncoming', $fields, $keywords);
-		$nav = themes_nav($count, 'index.php?app=menu&inc=user_incoming&op=user_incoming');
+		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = dba_search(_DB_PREF_.'_tblSMSIncoming', $fields, $keywords, $extras);
-		$search = themes_search();
 		
 		$content = "
 			<h2>"._('Incoming SMS')."</h2>
@@ -72,7 +73,6 @@ switch ($op) {
 					</td>
 				</tr>";
 		}
-		$item_count = $j;
 
 		$content .= "
 			</tbody>
@@ -103,9 +103,9 @@ switch ($op) {
 				dba_update(_DB_PREF_.'_tblSMSIncoming', $up, array('in_uid' => $uid, 'in_id' => $itemid));
 			}
 		}
-		$ref_url = $nav['url'].'&search_keyword='.$search['keyword'].'&page='.$nav['page'].'&nav='.$nav['nav'];
+		$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&page='.$nav['page'].'&nav='.$nav['nav'];
 		$_SESSION['error_string'] = _('Selected incoming SMS has been deleted');
-		header("Location: ".$ref_url);
+		header("Location: ".$ref);
 		exit();
 		break;
 }

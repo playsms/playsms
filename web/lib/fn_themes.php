@@ -23,7 +23,10 @@ function themes_buildmenu($arr_menu) {
 function themes_navbar($num, $nav, $max_nav, $url, $page) {
 	global $core_config;
 	$search = themes_search_session();
-	$url = $url.'&'.$search['param'].'='.urlencode($search['keyword']);
+	if ($search['param']) {
+		$search_url = '&'.$search['param'].'='.urlencode($search['keyword']);
+	}
+	$url = $url.$search_url;
 	$nav_pages = '';
 	if ($core_config['module']['themes']) {
 		$nav_pages = x_hook($core_config['module']['themes'],'themes_navbar',array($num, $nav, $max_nav, $url, $page));
@@ -55,10 +58,10 @@ function themes_nav_session() {
 	return $_SESSION['tmp']['themes_nav'];
 }
 
-function themes_search() {
+function themes_search($url='') {
 	$ret['param'] = 'search_keyword';
-	$ret['keyword'] = themes_search_keyword();
-	$ret['url'] = ( trim($var['url']) ? trim($var['url']) : $_SERVER['REQUEST_URI'] );
+	$ret['keyword'] = $_REQUEST['search_keyword'];
+	$ret['url'] = ( trim($url) ? trim($url) : $_SERVER['REQUEST_URI'] );
 	$content = "
 		<form action='".$ret['url']."' method='POST'>
 		<table cellpadding='0' cellspacing='0' border='0'><tbody><tr>
@@ -75,10 +78,6 @@ function themes_search() {
 
 function themes_search_session() {
 	return $_SESSION['tmp']['themes_search'];
-}
-
-function themes_search_keyword() {
-	return $_REQUEST['search_keyword'];
 }
 
 ?>
