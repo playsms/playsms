@@ -19,12 +19,22 @@ switch ($op) {
 		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = dba_search(_DB_PREF_.'_tblSMSIncoming', $fields, $keywords, $extras);
-		
+
+		$actions_box = "
+			<table width=100% cellpadding=0 cellspacing=0 border=0>
+			<tbody><tr>
+				<td width=100% align=left>".$nav['form']."</td>
+				<td>&nbsp;</td>
+				<td><input type=submit name=go value=\""._('Export as CSV')."\" class=button /></td>
+				<td><input type=submit name=go value=\""._('Delete selection')."\" class=button /></td>
+			</tr></tbody>
+			</table>";
+
 		$content = "
 			<h2>"._('All incoming SMS')."</h2>
 			<p>".$search['form']."</p>
-			<p>".$nav['form']."</p>
 			<form name=\"fm_incoming\" action=\"index.php?app=menu&inc=all_incoming&op=actions\" method=post onSubmit=\"return SureConfirm()\">
+			".$actions_box."
 			<table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
 			<thead>
 			<tr>
@@ -80,19 +90,8 @@ switch ($op) {
 		$content .= "
 			</tbody>
 			</table>
-			<table width=100% cellpadding=0 cellspacing=0 border=0>
-			<tbody><tr>
-				<td width=100% align=right>&nbsp;</td>
-				<td align=right>
-					<input type=submit name=go value=\""._('Export as CSV')."\" class=button />
-				</td>
-				<td align=right>
-					<input type=submit name=go value=\""._('Delete selection')."\" class=button />
-				</td>
-			</tr></tbody>
-			</table>
-			</form>
-			<p>".$nav['form']."</p>";
+			".$actions_box."
+			</form>";
 
 		if ($err = $_SESSION['error_string']) {
 			echo "<div class=error_string>$err</div><br><br>";
