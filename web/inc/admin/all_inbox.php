@@ -4,21 +4,17 @@ if(!isadmin()){forcenoaccess();};
 
 switch ($op) {
 	case "all_inbox":
-		$search_var = array(
-			'name' => 'all_inbox',
-			'url' => 'index.php?app=menu&inc=all_inbox&op=all_inbox',
-		);
-		$search = themes_search($search_var);
+		$base_url = 'index.php?app=menu&inc=all_inbox&op=all_inbox';
+		$search = themes_search($base_url);
 		$fields = array('in_hidden' => 0);
 		if ($kw = $search['keyword']) {
 			$keywords = array(
-			    'in_msg' => '%'.$kw.'%',
-			    'in_sender' => '%'.$kw.'%',
-			    'in_datetime' => '%'.$kw.'%'
-			    );
+				'in_msg' => '%'.$kw.'%',
+				'in_sender' => '%'.$kw.'%',
+				'in_datetime' => '%'.$kw.'%');
 		}
 		$count = dba_count(_DB_PREF_.'_tblUserInbox', $fields, $keywords);
-		$nav = themes_nav($count, "index.php?app=menu&inc=all_inbox&op=all_inbox");
+		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = dba_search(_DB_PREF_.'_tblUserInbox', $fields, $keywords, $extras);
 
@@ -43,10 +39,10 @@ switch ($op) {
 		$i = $nav['top'];
 		$j = 0;
 		for ($j=0;$j<count($list);$j++) {
+			$in_username = uid2username($list[$j]['in_uid']);
 			$in_msg = core_display_text($list[$j]['in_msg'], 25);
 			$list[$j] = core_display_data($list[$j]);
 			$in_id = $list[$j]['in_id'];
-			$in_username = uid2username($list[$j]['in_uid']);
 			$in_sender = $list[$j]['in_sender'];
 			$p_desc = phonebook_number2name($in_sender);
 			$current_sender = $in_sender;
@@ -64,12 +60,11 @@ switch ($op) {
 					<td valign=top class=$td_class align=center>$current_sender</td>
 					<td valign=top class=$td_class align=left>$in_msg</td>
 					<td class=$td_class width=4>
-						<input type=hidden name=inid".$j." value=\"$in_id\">
-						<input type=checkbox name=chkid".$j.">
+						<input type=hidden name=itemid".$j." value=\"$in_id\">
+						<input type=checkbox name=checkid".$j.">
 					</td>
 				</tr>";
 		}
-		$item_count = $j;
 
 		$content .= "
 			</tbody>
@@ -77,8 +72,6 @@ switch ($op) {
 			<table width=100% cellpadding=0 cellspacing=0 border=0>
 			<tbody><tr>
 				<td width=100% colspan=2 align=right>
-					<input type=hidden name=item_count value=\"$item_count\">
-					<input type=hidden name=ref value=\"".$_SERVER['REQUEST_URI']."\">
 					<input type=submit value=\""._('Delete selection')."\" class=button />
 				</td>
 			</tr></tbody>
@@ -92,16 +85,17 @@ switch ($op) {
 		echo $content;
 		break;
 	case "act_del":
-		$item_count = $_POST['item_count'];
-		$ref = $_POST['ref'];
-		for ($i=0;$i<$item_count;$i++) {
-			$chkid = $_POST['chkid'.$i];
-			$inid = $_POST['inid'.$i];
-			if(($chkid=="on") && $inid) {
+		$nav = themes_nav_session();
+		$search = themes_search_session();
+		for ($i=0;$i<$nav['limit'];$i++) {
+			$checkid = $_POST['checkid'.$i];
+			$itemid = $_POST['itemid'.$i];
+			if(($checkid=="on") && $itemid) {
 				$up = array('c_timestamp' => mktime(), 'in_hidden' => '1');
-				dba_update(_DB_PREF_.'_tblUserInbox', $up, array('in_id' => $inid));
+				dba_update(_DB_PREF_.'_tblUserInbox', $up, array('in_id' => $itemid));
 			}
 		}
+		$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&page='.$nav['page'].'&nav='.$nav['nav'];
 		$_SESSION['error_string'] = _('Selected incoming SMS has been deleted');
 		header("Location: ".$ref);
 		exit();
