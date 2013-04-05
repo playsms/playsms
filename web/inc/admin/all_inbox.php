@@ -22,7 +22,7 @@ switch ($op) {
 			<h2>"._('All inbox')."</h2>
 			<p>".$search['form']."</p>
 			<p>".$nav['form']."</p>
-			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=all_inbox&op=act_del\" method=post onSubmit=\"return SureConfirm()\">
+			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=all_inbox&op=actions\" method=post onSubmit=\"return SureConfirm()\">
 			<table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
 			<thead>
 			<tr>
@@ -71,8 +71,12 @@ switch ($op) {
 			</table>
 			<table width=100% cellpadding=0 cellspacing=0 border=0>
 			<tbody><tr>
-				<td width=100% colspan=2 align=right>
-					<input type=submit value=\""._('Delete selection')."\" class=button />
+				<td width=100% align=right>&nbsp;</td>
+				<td align=right>
+					<input type=submit name=go value=\""._('Export as CSV')."\" class=button />
+				</td>
+				<td align=right>
+					<input type=submit name=go value=\""._('Delete selection')."\" class=button />
 				</td>
 			</tr></tbody>
 			</table>
@@ -84,21 +88,46 @@ switch ($op) {
 		}
 		echo $content;
 		break;
-	case "act_del":
+	case "actions":
 		$nav = themes_nav_session();
 		$search = themes_search_session();
-		for ($i=0;$i<$nav['limit'];$i++) {
-			$checkid = $_POST['checkid'.$i];
-			$itemid = $_POST['itemid'.$i];
-			if(($checkid=="on") && $itemid) {
-				$up = array('c_timestamp' => mktime(), 'in_hidden' => '1');
-				dba_update(_DB_PREF_.'_tblUserInbox', $up, array('in_id' => $itemid));
-			}
+		$go = $_REQUEST['go'];
+		switch ($go) {
+			case _('Export as CSV'):
+				$fields = array('in_hidden' => 0);
+				if ($kw = $search['keyword']) {
+					$keywords = array(
+						'in_msg' => '%'.$kw.'%',
+						'in_sender' => '%'.$kw.'%',
+						'in_datetime' => '%'.$kw.'%');
+				}
+				$list = dba_search(_DB_PREF_.'_tblUserInbox', $fields, $keywords);
+				$data[0] = array(_('User'), _('Time'), _('From'), _('Message'));
+				for ($i=0;$i<count($list);$i++) {
+					$j = $i + 1;
+					$data[$j] = array(
+						uid2username($list[$i]['in_uid']),
+						core_display_datetime($list[$i]['in_datetime']),
+						$list[$i]['in_sender'],
+						$list[$i]['in_msg']);
+				}
+				$content = csv_format($data);
+				$fn = 'all_inbox-'.$core_config['datetime']['now_stamp'].'.csv';
+				download($content, $fn, 'text/csv');
+				break;
+			case _('Delete selection'):
+				for ($i=0;$i<$nav['limit'];$i++) {
+					$checkid = $_POST['checkid'.$i];
+					$itemid = $_POST['itemid'.$i];
+					if(($checkid=="on") && $itemid) {
+						$up = array('c_timestamp' => mktime(), 'in_hidden' => '1');
+						dba_update(_DB_PREF_.'_tblUserInbox', $up, array('in_id' => $itemid));
+					}
+				}
+				$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&page='.$nav['page'].'&nav='.$nav['nav'];
+				$_SESSION['error_string'] = _('Selected incoming SMS has been deleted');
+				header("Location: ".$ref);
 		}
-		$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&page='.$nav['page'].'&nav='.$nav['nav'];
-		$_SESSION['error_string'] = _('Selected incoming SMS has been deleted');
-		header("Location: ".$ref);
-		exit();
 		break;
 }
 

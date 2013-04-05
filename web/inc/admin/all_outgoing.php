@@ -24,7 +24,7 @@ switch ($op) {
 			<h2>"._('Outgoing SMS')."</h2>
 			<p>".$search['form']."</p>
 			<p>".$nav['form']."</p>
-			<form name=\"fm_outgoing\" action=\"index.php?app=menu&inc=all_outgoing&op=act_del\" method=post onSubmit=\"return SureConfirm()\">
+			<form name=\"fm_outgoing\" action=\"index.php?app=menu&inc=all_outgoing&op=actions\" method=post onSubmit=\"return SureConfirm()\">
 			<table width=100% cellpadding=1 cellspacing=2 border=0 class=\"sortable\">
 			<thead>
 			<tr>
@@ -109,8 +109,12 @@ switch ($op) {
 			</table>
 			<table width=100% cellpadding=0 cellspacing=0 border=0>
 			<tbody><tr>
-				<td width=100% colspan=2 align=right>
-					<input type=submit value=\""._('Delete selection')."\" class=button />
+				<td width=100% align=right>&nbsp;</td>
+				<td align=right>
+					<input type=submit name=go value=\""._('Export as CSV')."\" class=button />
+				</td>
+				<td align=right>
+					<input type=submit name=go value=\""._('Delete selection')."\" class=button />
 				</td>
 			</tr></tbody>
 			</table>
@@ -122,21 +126,50 @@ switch ($op) {
 		}
 		echo $content;
 		break;
-	case "act_del":
+	case "actions":
 		$nav = themes_nav_session();
 		$search = themes_search_session();
-		for ($i=0;$i<$nav['limit'];$i++) {
-			$checkid = $_POST['checkid'.$i];
-			$itemid = $_POST['itemid'.$i];
-			if(($checkid=="on") && $itemid) {
-				$up = array('c_timestamp' => mktime(), 'flag_deleted' => '1');
-				dba_update(_DB_PREF_.'_tblSMSOutgoing', $up, array('smslog_id' => $itemid));
-			}
+		$go = $_REQUEST['go'];
+		switch ($go) {
+			case _('Export as CSV'):
+				$fields = array('flag_deleted' => 0);
+				if ($kw = $search['keyword']) {
+					$keywords = array(
+						'p_msg' => '%'.$kw.'%',
+						'p_dst' => '%'.$kw.'%',
+						'p_datetime' => '%'.$kw.'%',
+						'p_gateway' => '%'.$kw.'%',
+						'p_footer' => '%'.$kw.'%');
+				}
+				$list = dba_search(_DB_PREF_.'_tblSMSOutgoing', $fields, $keywords);
+				$data[0] = array(_('User'), _('Gateway'),_('Time'), _('To'), _('Message'), _('Status'));
+				for ($i=0;$i<count($list);$i++) {
+					$j = $i + 1;
+					$data[$j] = array(
+						uid2username($list[$i]['uid']),
+						$list[$i]['p_gateway'],
+						core_display_datetime($list[$i]['p_datetime']),
+						$list[$i]['p_dst'],
+						$list[$i]['p_msg'].$list[$i]['p_footer'],
+						$list[$i]['p_status']);
+				}
+				$content = csv_format($data);
+				$fn = 'all_outgoing-'.$core_config['datetime']['now_stamp'].'.csv';
+				download($content, $fn, 'text/csv');
+				break;
+			case _('Delete selection'):
+				for ($i=0;$i<$nav['limit'];$i++) {
+					$checkid = $_POST['checkid'.$i];
+					$itemid = $_POST['itemid'.$i];
+					if(($checkid=="on") && $itemid) {
+						$up = array('c_timestamp' => mktime(), 'flag_deleted' => '1');
+						dba_update(_DB_PREF_.'_tblSMSOutgoing', $up, array('smslog_id' => $itemid));
+					}
+				}
+				$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&page='.$nav['page'].'&nav='.$nav['nav'];
+				$_SESSION['error_string'] = _('Selected outgoing SMS has been deleted');
+				header("Location: ".$ref);
 		}
-		$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&page='.$nav['page'].'&nav='.$nav['nav'];
-		$_SESSION['error_string'] = _('Selected outgoing SMS has been deleted');
-		header("Location: ".$ref);
-		exit();
 		break;
 }
 
