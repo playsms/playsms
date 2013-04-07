@@ -9,6 +9,7 @@ switch ($op) {
 		$fields = array('in_hidden' => 0);
 		if ($kw = $search['keyword']) {
 			$keywords = array(
+				'username' => '%'.$kw.'%',
 				'in_msg' => '%'.$kw.'%',
 				'in_sender' => '%'.$kw.'%',
 				'in_datetime' => '%'.$kw.'%');

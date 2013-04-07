@@ -9,6 +9,7 @@ switch ($op) {
 		$fields = array('flag_deleted' => 0);
 		if ($kw = $search['keyword']) {
 			$keywords = array(
+				'username' => '%'.$kw.'%',
 				'in_message' => '%'.$kw.'%',
 				'in_sender' => '%'.$kw.'%',
 				'in_datetime' => '%'.$kw.'%',
