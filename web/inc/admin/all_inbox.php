@@ -51,7 +51,7 @@ switch ($op) {
 		$i = $nav['top'];
 		$j = 0;
 		for ($j=0;$j<count($list);$j++) {
-			$in_username = uid2username($list[$j]['in_uid']);
+			$in_username = $list[$j]['username'];
 			$in_msg = core_display_text($list[$j]['in_msg'], 25);
 			$list[$j] = core_display_data($list[$j]);
 			$in_id = $list[$j]['in_id'];
@@ -109,7 +109,7 @@ switch ($op) {
 				for ($i=0;$i<count($list);$i++) {
 					$j = $i + 1;
 					$data[$j] = array(
-						uid2username($list[$i]['in_uid']),
+						$list[$i]['username'],
 						core_display_datetime($list[$i]['in_datetime']),
 						$list[$i]['in_sender'],
 						$list[$i]['in_msg']);

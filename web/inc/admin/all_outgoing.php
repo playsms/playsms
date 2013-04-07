@@ -56,7 +56,7 @@ switch ($op) {
 		$i = $nav['top'];
 		$j=0;
 		for ($j=0;$j<count($list);$j++) {
-			$p_username = uid2username($list[$j]['uid']);
+			$p_username = $list[$j]['username'];
 			$p_gateway = $list[$j]['p_gateway'];
 			$p_msg = core_display_text($list[$j]['p_msg'], 25);
 			$list[$j] = core_display_data($list[$j]);
@@ -151,7 +151,7 @@ switch ($op) {
 				for ($i=0;$i<count($list);$i++) {
 					$j = $i + 1;
 					$data[$j] = array(
-						uid2username($list[$i]['uid']),
+						$list[$i]['username'],
 						$list[$i]['p_gateway'],
 						core_display_datetime($list[$i]['p_datetime']),
 						$list[$i]['p_dst'],
