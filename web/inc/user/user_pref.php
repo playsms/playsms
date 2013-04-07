@@ -84,7 +84,7 @@ switch ($op) {
 
 		// get country option
 		$option_country = "<option value=\"0\">--" . _('Please select') . "--</option>\n";
-		$result = country_getall('', array('ORDER BY' => 'country_name'));
+		$result = dba_search(_DB_PREF_.'_tblUser_country', '', '', array('ORDER BY' => 'country_name'));
 		for ($i=0;$i<count($result);$i++) {
 			$country_id = $result[$i]['country_id'];
 			$country_name = $result[$i]['country_name'];
