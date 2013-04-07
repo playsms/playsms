@@ -137,13 +137,16 @@ switch ($op) {
 				$fields = array('flag_deleted' => 0);
 				if ($kw = $search['keyword']) {
 					$keywords = array(
+						'username' => '%'.$kw.'%',
 						'p_msg' => '%'.$kw.'%',
 						'p_dst' => '%'.$kw.'%',
 						'p_datetime' => '%'.$kw.'%',
 						'p_gateway' => '%'.$kw.'%',
 						'p_footer' => '%'.$kw.'%');
 				}
-				$list = dba_search(_DB_PREF_.'_tblSMSOutgoing', $fields, $keywords);
+				$table = _DB_PREF_.'_tblSMSOutgoing';
+				$join = 'INNER JOIN '._DB_PREF_.'_tblUser AS B ON A.uid=B.uid';
+				$list = dba_search($table.' AS A', $fields, $keywords, '', $join);
 				$data[0] = array(_('User'), _('Gateway'),_('Time'), _('To'), _('Message'), _('Status'));
 				for ($i=0;$i<count($list);$i++) {
 					$j = $i + 1;
