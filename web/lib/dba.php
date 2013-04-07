@@ -199,7 +199,7 @@ function dba_disconnect() {
 	}
 }
 
-function dba_search($db_table, $fields='', $keywords='', $extras='') {
+function dba_search($db_table, $fields='', $keywords='', $extras='', $join='') {
 	$ret = array();
 	if (is_array($fields)) {
 		foreach ($fields as $key => $val) {
@@ -224,7 +224,7 @@ function dba_search($db_table, $fields='', $keywords='', $extras='') {
 			$q_extras .= $key." ".$val." ";
 		}
 	}
-	$db_query = "SELECT * FROM ".$db_table." ".$q_where." ".$q_conditions." ".$q_extras;
+	$db_query = "SELECT * FROM ".$db_table." ".$join." ".$q_where." ".$q_conditions." ".$q_extras;
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[] = $db_row;
@@ -232,7 +232,7 @@ function dba_search($db_table, $fields='', $keywords='', $extras='') {
 	return $ret;
 }
 
-function dba_count($db_table, $fields='', $keywords='', $extras='') {
+function dba_count($db_table, $fields='', $keywords='', $extras='', $join='') {
 	$ret = 0;
 	if (is_array($fields)) {
 		foreach ($fields as $key => $val) {
@@ -257,7 +257,7 @@ function dba_count($db_table, $fields='', $keywords='', $extras='') {
 			$q_extras .= $key." ".$val." ";
 		}
 	}
-	$db_query = "SELECT COUNT(*) AS count FROM ".$db_table." ".$q_where." ".$q_conditions." ".$q_extras;
+	$db_query = "SELECT COUNT(*) AS count FROM ".$db_table." ".$join." ".$q_where." ".$q_conditions." ".$q_extras;
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$ret = $db_row['count'];

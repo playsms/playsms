@@ -15,10 +15,12 @@ switch ($op) {
 				'p_gateway' => '%'.$kw.'%',
 				'p_footer' => '%'.$kw.'%');
 		}
-		$count = dba_count(_DB_PREF_.'_tblSMSOutgoing', $fields, $keywords);
+		$table = _DB_PREF_.'_tblSMSOutgoing';
+		$join = 'INNER JOIN '._DB_PREF_.'_tblUser AS B ON A.uid=B.uid';
+		$count = dba_count($table.' AS A', $fields, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'smslog_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = dba_search(_DB_PREF_.'_tblSMSOutgoing', $fields, $keywords, $extras);
+		$list = dba_search($table.' AS A', $fields, $keywords, $extras, $join);
 
 		$actions_box = "
 			<table width=100% cellpadding=0 cellspacing=0 border=0>
