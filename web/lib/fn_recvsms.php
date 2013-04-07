@@ -148,13 +148,16 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 		}
 	}
 
+	// fixme anton - all incoming messages set to user with uid=1 if no one owns it
+	$c_uid = ( $c_uid ? $c_uid : 1 );
+
 	$db_query = "
-        INSERT INTO "._DB_PREF_."_tblSMSIncoming 
-        (in_uid,in_feature,in_gateway,in_sender,in_receiver,in_keyword,in_message,in_datetime,in_status)
-        VALUES
-        ('$c_uid','$c_feature','$gateway_module','$sms_sender','$sms_receiver','$target_keyword','$message','$sms_datetime','$c_status')
-    ";
+		INSERT INTO "._DB_PREF_."_tblSMSIncoming 
+		(in_uid,in_feature,in_gateway,in_sender,in_receiver,in_keyword,in_message,in_datetime,in_status)
+		VALUES
+		('$c_uid','$c_feature','$gateway_module','$sms_sender','$sms_receiver','$target_keyword','$message','$sms_datetime','$c_status')";
 	$db_result = dba_query($db_query);
+
 	return $ok;
 }
 
