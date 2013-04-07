@@ -214,18 +214,17 @@ function dba_search($db_table, $fields='', $keywords='', $extras='') {
 		$q_keywords .= ")";
 		$q_keywords = str_replace("(OR","(",$q_keywords);
 	}
+	$q_conditions = trim($q_fields." ".$q_keywords);
+	if ($q_fields || $q_keywords) {
+		$q_where = 'WHERE';
+		$q_conditions = substr($q_conditions, 3);
+	}
 	if (is_array($extras)) {
 		foreach ($extras as $key => $val) {
 			$q_extras .= $key." ".$val." ";
 		}
 	}
-	if ($q_fields || $q_keywords || $q_extras) {
-		$q_where = 'WHERE';
-	}
-	
-	$q_conditions = substr(trim($q_fields." ".$q_keywords." ".$q_extras), 3);
-	
-	$db_query = "SELECT * FROM ".$db_table." ".$q_where." ".$q_conditions;
+	$db_query = "SELECT * FROM ".$db_table." ".$q_where." ".$q_conditions." ".$q_extras;
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[] = $db_row;
@@ -248,18 +247,17 @@ function dba_count($db_table, $fields='', $keywords='', $extras='') {
 		$q_keywords .= ")";
 		$q_keywords = str_replace("(OR","(",$q_keywords);
 	}
+	$q_conditions = trim($q_fields." ".$q_keywords);
+	if ($q_fields || $q_keywords) {
+		$q_where = 'WHERE';
+		$q_conditions = substr($q_conditions, 3);
+	}
 	if (is_array($extras)) {
 		foreach ($extras as $key => $val) {
 			$q_extras .= $key." ".$val." ";
 		}
 	}
-	if ($q_fields || $q_keywords || $q_extras) {
-		$q_where = 'WHERE';
-	}
-	
-	$q_conditions = substr(trim($q_fields." ".$q_keywords." ".$q_extras), 3);
-	
-	$db_query = "SELECT COUNT(*) AS count FROM ".$db_table." ".$q_where." ".$q_conditions;
+	$db_query = "SELECT COUNT(*) AS count FROM ".$db_table." ".$q_where." ".$q_conditions." ".$q_extras;
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$ret = $db_row['count'];
