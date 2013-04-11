@@ -153,8 +153,12 @@ switch ($op) {
 		}
 
 		$core_config['denycustomsender'] ? $senderidstatus="disabled" : $senderidstatus="";
+		if ($uname && isadmin()) {
+			$content .= "<h2>" . _('Manage user') . "</h2>";
+		} else {
+			$content .= "<h2>" . _('Preferences') . "</h2>";
+		}
 		$content .= "
-			<h2>" . _('Preferences') . "</h2>
 			<p>
 			<form action=\"index.php?app=menu&inc=user_pref&op=user_pref_save&uname=".$c_username."\" method=post enctype=\"multipart/form-data\">
 			<table width=100% cellpadding=1 cellspacing=1 border=0>
@@ -193,7 +197,10 @@ switch ($op) {
 			<tr><td width=200>" . _('Always add plus sign') . "</td><td>:</td><td><select name='up_plus_sign_add'>" . $option_plus_sign_add . "</select></td></tr>
 			<tr><td colspan=3>&nbsp;</td></tr>
 			<tr><td colspan=3><hr></td></tr>
-			<tr><td width=200><input type=submit class=button value='" . _('Save') . "'></td></tr>
+			<tr><td width=200>
+				<input type=submit class=button value='" . _('Save') . "'>
+				<input type=button class=button value='". _('Delete') ."' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $c_username . "')\">
+			</td></tr>
 			</tbody>
 			</table>
 			</form>";
