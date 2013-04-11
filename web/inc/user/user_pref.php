@@ -9,6 +9,7 @@ switch ($op) {
 		}
 		if ($c_user = dba_search(_DB_PREF_.'_tblUser', array('uid' => $core_config['user']['uid']))) {
 			$token = $c_user[0]['token'];
+			$webservices_ip = $c_user[0]['webservices_ip'];
 			$enable_webservices = $c_user[0]['enable_webservices'];
 			$address = $c_user[0]['address'];
 			$city = $c_user[0]['city'];
@@ -164,6 +165,7 @@ switch ($op) {
 			<tr><td width=200>" . _('Webservices token') . "</td><td>:</td><td><b>".$token."</b></td></tr>
 			<tr><td width=200>" . _('New webservices token') . "</td><td>:</td><td><select name='up_new_token'>" . $option_new_token . "</select></td></tr>
 			<tr><td width=200>" . _('Enable webservices') . "</td><td>:</td><td><select name='up_enable_webservices'>" . $option_enable_webservices . "</select></td></tr>
+			<tr><td width=200>" . _('Webservices IP range') . "</td><td>:</td><td><input type=text size=30 maxlength=100 name=up_webservices_ip value=\"$webservices_ip\"> ("._('Comma seperated').")</td></tr>
 			<tr><td width=200>" . _('Timezone') . "</td><td>:</td><td><input type=text size=5 maxlength=5 name=up_datetime_timezone value=\"$datetime_timezone\"> (" . _('Eg: +0700 for Jakarta/Bangkok timezone') . ")</td></tr>
 			<tr><td width=200>" . _('SMS sender ID') . "</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"$sender\" $senderidstatus> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td></tr>
 			<tr><td width=200>" . _('SMS footer') . "</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_footer value=\"$footer\"> (" . _('Max. 30 alphanumeric characters') . ")</td></tr>
@@ -190,7 +192,7 @@ switch ($op) {
 			'sender', 'footer', 'password', 'zipcode', 'datetime_timezone', 
 			'language_module', 'fwd_to_inbox', 'fwd_to_email', 'fwd_to_mobile',
 			'local_length','replace_zero', 'plus_sign_remove', 'plus_sign_add',
-			'new_token', 'enable_webservices'
+			'new_token', 'enable_webservices', 'webservices_ip'
 		);
 		for ($i=0;$i<count($fields);$i++) {
 			$up[$fields[$i]] = trim($_POST['up_'.$fields[$i]]);

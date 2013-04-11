@@ -31,12 +31,19 @@ function validatetoken($token) {
 	$token = trim($token);
 	logger_print("login attempt t:".$token." ip:".$_SERVER['REMOTE_ADDR'], 3, "login");
 	if ($token) {
-		$db_query = "SELECT uid,username,enable_webservices FROM "._DB_PREF_."_tblUser WHERE token='$token'";
+		$db_query = "SELECT uid,username,enable_webservices,webservices_ip FROM "._DB_PREF_."_tblUser WHERE token='$token'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		if (($uid = trim($db_row['uid'])) && ($username = trim($db_row['username'])) && ($db_row['enable_webservices'])) {
-			logger_print("valid login u:".$username." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
-			return $uid;
+			$ip = explode(',', $db_row['webservices_ip']);
+			if (is_array($ip)) {
+				foreach ($ip as $key => $net) {
+					if (core_net_match($net, $_SERVER['REMOTE_ADDR'])) {
+						logger_print("valid login u:".$username." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
+						return $uid;
+					}
+				}
+			}
 		}
 	}
 	logger_print("invalid login t:".$token." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");

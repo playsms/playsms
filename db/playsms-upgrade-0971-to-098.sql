@@ -6,6 +6,7 @@ ALTER TABLE `playsms_tblUser` ADD `register_datetime` varchar(20) NOT NULL DEFAU
 ALTER TABLE `playsms_tblUser` ADD `lastupdate_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00' AFTER `register_datetime` ;
 ALTER TABLE `playsms_tblUser` ADD `token` VARCHAR(32) NOT NULL DEFAULT '' AFTER `password`;
 ALTER TABLE `playsms_tblUser` ADD `enable_webservices` TINYINT(4) NOT NULL DEFAULT '0' AFTER `token`;
+ALTER TABLE `playsms_tblUser` ADD `webservices_ip` varchar(100) NOT NULL DEFAULT '127.0.0.1, 192.168.*.*' AFTER `enable_webservices` ;
 ALTER TABLE `playsms_tblUser` ADD `local_length` TINYINT NOT NULL DEFAULT '9' AFTER `plus_sign_add`;
 
 ALTER TABLE `playsms_tblUser` MODIFY `password` varchar(32) NOT NULL ;

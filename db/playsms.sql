@@ -1271,6 +1271,7 @@ CREATE TABLE `playsms_tblUser` (
   `password` varchar(32) NOT NULL DEFAULT '',
   `token` varchar(32) NOT NULL DEFAULT '',
   `enable_webservices` tinyint(4) NOT NULL DEFAULT '0',
+  `webservices_ip` varchar(100) NOT NULL DEFAULT '',
   `name` varchar(100) NOT NULL DEFAULT '',
   `mobile` varchar(16) NOT NULL DEFAULT '',
   `email` varchar(250) NOT NULL DEFAULT '',
@@ -1303,7 +1304,7 @@ CREATE TABLE `playsms_tblUser` (
 
 LOCK TABLES `playsms_tblUser` WRITE;
 /*!40000 ALTER TABLE `playsms_tblUser` DISABLE KEYS */;
-INSERT INTO `playsms_tblUser` VALUES (1332916885,1,2,'dd4aa3580e3de07858d812dcc094c32f','admin','21232f297a57a5a743894a0e4a801fc3','',0,'Administrator','+62000000000', 'noreply@playsms.org','playSMS','@admin','','','',132,'',0,'+0700','en_US',0,1,1,'',1,0,'','','');
+INSERT INTO `playsms_tblUser` VALUES (1332916885,1,2,'dd4aa3580e3de07858d812dcc094c32f','admin','21232f297a57a5a743894a0e4a801fc3','',0,'127.0.0.1, 192.168.*.*','Administrator','+62000000000', 'noreply@playsms.org','playSMS','@admin','','','',132,'',0,'+0700','en_US',0,1,1,'',1,0,'','','');
 /*!40000 ALTER TABLE `playsms_tblUser` ENABLE KEYS */;
 UNLOCK TABLES;
 
