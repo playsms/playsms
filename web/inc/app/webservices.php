@@ -2,7 +2,6 @@
 defined('_SECURE_') or die('Forbidden');
 
 // parameters
-$u 	 = trim($_REQUEST['u']);
 $h 	 = trim($_REQUEST['h']);
 
 // type of action (ta) or operation (op), ta = op
@@ -27,21 +26,24 @@ if ($op) { $ta = $op; };
 if ($ta) {
 	switch ($ta) {
 		case "PV":
-			if (validatelogin($u,'',$h)) {
+			if ($c_uid = validatetoken($h)) {
+				$u = uid2username($c_uid);
 				$ret = webservices_pv($u,$to,$msg,$type,$unicode);
 			} else {
 				$ret = "ERR 100";
 			}
 			break;
 		case "BC":
-			if (validatelogin($u,'',$h)) {
+			if ($c_uid = validatetoken($h)) {
+				$u = uid2username($c_uid);
 				$ret = webservices_bc($u,$to,$msg,$type,$unicode);
 			} else {
 				$ret = "ERR 100";
 			}
 			break;
 		case "DS":
-			if (validatelogin($u,'',$h)) {
+			if ($c_uid = validatetoken($h)) {
+				$u = uid2username($c_uid);
 				if ($slid) {
 					$ret = webservices_ds_slid($u,$slid);
 				} else {
@@ -52,7 +54,8 @@ if ($ta) {
 			}
 			break;
 		case "CR":
-			if (validatelogin($u,'',$h)) {
+			if ($c_uid = validatetoken($h)) {
+				$u = uid2username($c_uid);
 				$ret = webservices_cr($u);
 			} else {
 				$ret = "ERR 100";
