@@ -2,15 +2,24 @@
 defined('_SECURE_') or die('Forbidden');
 if(!valid()){forcenoaccess();};
 
+$c_username = $core_config['user']['username'];
+
+if (($uname = $_REQUEST['uname']) && isadmin()) {
+	$c_username = trim($uname);
+}
+
 switch ($op) {
 	case "user_pref":
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
-		if ($c_user = dba_search(_DB_PREF_.'_tblUser', array('uid' => $core_config['user']['uid']))) {
+		if ($c_user = dba_search(_DB_PREF_.'_tblUser', array('username' => $c_username))) {
 			$token = $c_user[0]['token'];
 			$webservices_ip = $c_user[0]['webservices_ip'];
 			$enable_webservices = $c_user[0]['enable_webservices'];
+			$name = $c_user[0]['name'];
+			$email = $c_user[0]['email'];
+			$mobile = $c_user[0]['mobile'];
 			$address = $c_user[0]['address'];
 			$city = $c_user[0]['city'];
 			$state = $c_user[0]['state'];
@@ -27,7 +36,12 @@ switch ($op) {
 			$replace_zero = $c_user[0]['replace_zero'];
 			$plus_sign_remove = $c_user[0]['plus_sign_remove'];
 			$plus_sign_add = $c_user[0]['plus_sign_add'];
-			$credit = rate_getusercredit($c_user[0]['username']);
+			$credit = rate_getusercredit($c_username);
+		} else {
+			$_SESSION['error_string'] = _('User does not exists').' ('._('username').': '.$uname.')';
+			$referrer = ( $_SESSION['referrer'] ? $_SESSION['referrer'] : 'user_list_tab1' );
+			header("Location: index.php?app=menu&inc=user_mgmnt&op=".$referrer);
+			exit();
 		}
 
 		// select enable_webservices
@@ -142,11 +156,11 @@ switch ($op) {
 		$content .= "
 			<h2>" . _('Preferences') . "</h2>
 			<p>
-			<form action=index.php?app=menu&inc=user_pref&op=user_pref_save method=post enctype=\"multipart/form-data\">
+			<form action=\"index.php?app=menu&inc=user_pref&op=user_pref_save&uname=".$c_username."\" method=post enctype=\"multipart/form-data\">
 			<table width=100% cellpadding=1 cellspacing=1 border=0>
 			<tbody>
 			<tr><td colspan=3><h2>" . _('Login information') . "</h2><hr></td></tr>
-			<tr><td width=200>" . _('Username') . "</td><td>:</td><td><b>".$core_config['user']['username']."</b></td></tr>
+			<tr><td width=200>" . _('Username') . "</td><td>:</td><td><b>".$c_username."</b></td></tr>
 			<tr><td width=200>" . _('Password') . "</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password></td></tr>
 			<tr><td width=200>" . _('Re-type password') . "</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password_conf></td></tr>
 			<tr><td colspan=3>&nbsp;</td></tr>
@@ -197,7 +211,7 @@ switch ($op) {
 		for ($i=0;$i<count($fields);$i++) {
 			$up[$fields[$i]] = trim($_POST['up_'.$fields[$i]]);
 		}
-		$up['username'] = $core_config['user']['username'];
+		$up['username'] = $c_username;
 		$up['lastupdate_datetime'] = core_adjust_datetime($core_config['datetime']['now']);
 		if ($up['name'] && $up['email']) {
 			$v = user_add_validate($up);
@@ -214,11 +228,11 @@ switch ($op) {
 					unset($up['password']);
 				}
 				if ($up['new_token']) {
-					$up['token'] = md5(mktime().$up['username'].$up['email']);
+					$up['token'] = md5(mktime().$c_username.$up['email']);
 				}
 				unset($up['new_token']);
 				if ($continue) {
-					if (dba_update(_DB_PREF_.'_tblUser', $up, array('username' => $up['username']))) {
+					if (dba_update(_DB_PREF_.'_tblUser', $up, array('username' => $c_username))) {
 						if ($up['password']) {
 							$_SESSION['error_string'] = _('Preferences has been saved and password updated');
 						} else if ($up['token']) {
@@ -236,7 +250,7 @@ switch ($op) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all field');
 		}
-		header("Location: index.php?app=menu&inc=user_pref&op=user_pref");
+		header("Location: index.php?app=menu&inc=user_pref&op=user_pref&uname=".$c_username);
 		exit();
 		break;
 }

@@ -49,7 +49,7 @@ switch ($op) {
 		for ($i=0;$i<count($list);$i++) {
 			$j--;
 			$td_class = ($j % 2) ? "box_text_odd" : "box_text_even";
-			$action = "<a href=index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=" . $list[$i]['username'] . ">$icon_edit</a>";
+			$action = "<a href=\"index.php?app=menu&inc=user_pref&op=user_pref&uname=" . $list[$i]['username'] . "\">$icon_edit</a>";
 			$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $list[$i]['username'] . ")','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">$icon_delete</a>";
 			$content .= "
 				<tr>
@@ -111,8 +111,8 @@ switch ($op) {
 			$list[$i] = core_display_data($list[$i]);
 			$j--;
 			$td_class = ($j % 2) ? "box_text_odd" : "box_text_even";
-			$action = "<a href=index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=" . $list[$i]['username'] . ">$icon_edit</a>";
- 			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">$icon_delete</a>";
+			$action = "<a href=\"index.php?app=menu&inc=user_pref&op=user_pref&uname=" . $list[$i]['username'] . "\">$icon_edit</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">$icon_delete</a>";
 			$content .= "
 				<tr>
 					<td class='$td_class'>&nbsp;".$j.".</td>
@@ -147,145 +147,6 @@ switch ($op) {
 		}
 		$referrer = ( $_SESSION['referrer'] ? $_SESSION['referrer'] : 'user_list_tab1' );
 		header("Location: index.php?app=menu&inc=user_mgmnt&op=".$referrer);
-		exit();
-		break;
-	case "user_edit":
-		$up['username'] = $_REQUEST['uname'];
-		$uid = username2uid($up['username']);
-		$c_user = user_getdatabyuid($uid);
-		$mobile = $c_user['mobile'];
-		$email = $c_user['email'];
-		$name = $c_user['name'];
-		$status = $c_user['status'];
-		$sender = $c_user['sender'];
-		$footer = $c_user['footer'];
-		$datetime_timezone = $c_user['datetime_timezone'];
-		$token = $c_user['token'];
-		$language_module = $c_user['language_module'];
-
-		// get language options
-		$lang_list = '';
-		for ($i=0;$i<count($core_config['languagelist']);$i++) {
-			$language = $core_config['languagelist'][$i];
-			$c_language_title = $core_config['plugins']['language'][$language]['title'];
-			if ($c_language_title) {
-				$lang_list[$c_language_title] = $language;
-			}
-		}
-		if (is_array($lang_list)) {
-			foreach ($lang_list as $key => $val) {
-				if ($val == $language_module) $selected = "selected";
-				$option_language_module .= "<option value=\"".$val."\" $selected>".$key."</option>";
-				$selected = "";
-			}
-		}
-
-		$credit = rate_getusercredit($up['username']);
-		if ($err = $_SESSION['error_string']) {
-			$content = "<p><font color='red'>$err</font><p>";
-		}
-		if ($status == 2) {
-			$selected_2 = "selected";
-		}
-		if ($status == 3) {
-			$selected_3 = "selected";
-		}
-		$option_status = "
-			<option value='2' $selected_2>" . _('Administrator') . "</option>
-			<option value='3' $selected_3>" . _('Normal user') . "</option>";
-		$content .= "
-			<h2>" . _('Preferences') . ": ".$up['username']."</h2>
-			<p>
-			<form action='index.php?app=menu&inc=user_mgmnt&op=user_edit_save' method='post'>
-			<input type='hidden' name='uname' value=\"".$up['username']."\">
-			<table width='100%' cellpadding='1' cellspacing='2' border='0'>
-			<tbody>
-			<tr>
-				<td width='175'>" . _('Username') . " $nd</td><td width='5'>:</td><td><b>".$up['username']."</b></td>
-			</tr>
-			<tr>
-				<td>" . _('Full name') . " $nd</td><td>:</td><td><input type='text' size='30' maxlength='30' name='up_name' value=\"$name\"></td>
-			</tr>	    	    
-			<tr>
-				<td>" . _('Email') . " $nd</td><td>:</td><td><input type='text' size='30' maxlength='30' name='up_email' value=\"$email\"></td>
-			</tr>
-			<tr>
-				<td>" . _('Mobile') . "</td><td>:</td><td><input type='text' size='16' maxlength='16' name='up_mobile' value=\"$mobile\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td>
-			</tr>
-			<tr>
-				<td>" . _('SMS sender ID') . "</td><td>:</td><td><input type='text' size='16' maxlength='16' name='up_sender' value=\"$sender\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td>
-			</tr>
-			<tr>
-				<td>" . _('SMS footer') . "</td><td>:</td><td><input type='text' size='30' maxlength='30' name='up_footer' value=\"$footer\"> (" . _('Max. 30 alphanumeric characters') . ")</td>
-			</tr>	    
-			<tr>
-				<td>" . _('Timezone') . "</td><td>:</td><td><input type='text' size='5' maxlength='5' name='up_datetime_timezone' value=\"$datetime_timezone\"> (" . _('Eg: +0700 for Jakarta/Bangkok timezone') . ")</td>
-			</tr>
-			<tr>
-				<td>" . _('Password') . "</td><td>:</td><td><input type='password' size='30' maxlength='30' name='up_password'> (" . _('Fill to change password for username') . " ".$up['username'].")</td>
-			</tr>
-			<tr>
- 				<td>" . _('Webservices token') . "</td><td>:</td><td><input type='text' size='30' maxlength='30' name='up_token' value=\"\"> ("._('Fill to update').")</td>
-			</tr>	    
-			<tr>
-				<td>" . _('Credit') . "</td><td>:</td><td><input type='text' size='16' maxlength='30' name='up_credit' value=\"$credit\"></td>
-			</tr>	    
-			<tr>
-				<td>" . _('User level') . "</td><td>:</td><td><select name='up_status'>$option_status</select></td>
-			</tr>
-			<tr>
-				<td>" . _('Active language') . "</td><td>:</td><td><select name='up_language_module'>$option_language_module</select></td>
-			</tr>
-			</tbody>
-			</table>
-			<p><input type='submit' class='button' value='" . _('Save') . "'>
-			</form>";
-		echo $content;
-		break;
-	case "user_edit_save":
-		$up['username'] = core_sanitize_username($_POST['uname']);
-		$up['name'] = $_POST['up_name'];
-		$up['email'] = $_POST['up_email'];
-		$up['mobile'] = $_POST['up_mobile'];
-		$up['sender'] = $_POST['up_sender'];
-		$up['footer'] = $_POST['up_footer'];
-		$up['password'] = $_POST['up_password'];
-		$up['token'] = $_POST['up_token'];
-		$up['status'] = $_POST['up_status'];
-		$up['credit'] = $_POST['up_credit'];
-		$up['datetime_timezone'] = ( $_POST['datetime_timezone'] ? $_POST['datetime_timezone'] : $gateway_timezone );
-		$up['language_module'] = $_POST['up_language_module'];
-		$_SESSION['error_string'] = _('No changes made');
-		$next = true;
-		if ($up['email'] && $up['name']) {
-			$v = user_add_validate($up);
-			if ($v['status']) {
-				if ($up['password']) {
-					$up['password'] = md5($up['password']);
-				} else {
-					unset($up['password']);
-				}
-				if ($up['token']) {
-					$up['token'] = md5(mktime().$up['username'].$up['token']);
-				} else {
-					unset($up['token']);
-				}
-				$datetime_now = core_adjust_datetime($core_config['datetime']['now']);
-				$up['lastupdate_datetime'] = $datetime_now;
-				if (dba_update(_DB_PREF_.'_tblUser', $up, array('username' => $up['username']))) {
-					$c_uid = username2uid($up['username']);
-					rate_setusercredit($c_uid, $up['credit']);
-					$_SESSION['error_string'] = _('Preferences has been saved') . " (" . _('username') . ": ".$up['username'].")";
-				} else {
-					$_SESSION['error_string'] = _('Fail to save preferences') . " (" . _('username') . ": ".$up['username'].")";
-				}
-			} else {
-				$_SESSION['error_string'] = $v['error_string'];
-			}
-		} else {
-			$_SESSION['error_string'] = _('You must fill all field');
-		}
-		header("Location: index.php?app=menu&inc=user_mgmnt&op=user_edit&uname=".$up['username']);
 		exit();
 		break;
 	case "user_add":

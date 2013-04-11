@@ -340,10 +340,15 @@ function dba_isavail($db_table, $fields='') {
 	$db_query = "SELECT * FROM ".$db_table." ".$q_condition." LIMIT 1";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
-		$ret = 0;
+		$ret = false;
 	} else {
-		$ret = 1;
+		$ret = true;
 	}
+	return $ret;
+}
+
+function dba_isexists($db_table, $fields='') {
+	$ret = ( dba_isavail($db_table, $fields) ? false : true );
 	return $ret;
 }
 
