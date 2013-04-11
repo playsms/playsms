@@ -18,7 +18,7 @@ function validatelogin($username,$password) {
 		logger_print("valid login u:".$username." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
 		return true;
 	}
-	logger_print("invalid login ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
+	logger_print("invalid login u:".$username." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
 	return false;
 }
 
@@ -39,7 +39,7 @@ function validatetoken($token) {
 			return $uid;
 		}
 	}
-	logger_print("invalid login ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
+	logger_print("invalid login t:".$token." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
 	return false;
 }
 
