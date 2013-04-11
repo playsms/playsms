@@ -9,6 +9,7 @@ switch ($op) {
 		}
 		if ($c_user = dba_search(_DB_PREF_.'_tblUser', array('uid' => $core_config['user']['uid']))) {
 			$token = $c_user[0]['token'];
+			$enable_webservices = $c_user[0]['enable_webservices'];
 			$address = $c_user[0]['address'];
 			$city = $c_user[0]['city'];
 			$state = $c_user[0]['state'];
@@ -27,6 +28,29 @@ switch ($op) {
 			$plus_sign_add = $c_user[0]['plus_sign_add'];
 			$credit = rate_getusercredit($c_user[0]['username']);
 		}
+
+		// select enable_webservices
+		if ($enable_webservices) {
+			$selected_1 = 'selected';
+			$selected_0 = '';
+		} else {
+			$selected_1 = '';
+			$selected_0 = 'selected';
+		}
+		$option_enable_webservices = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
+		$option_enable_webservices .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
+
+		// select token
+		if ($new_token) {
+			$selected_1 = 'selected';
+			$selected_0 = '';
+		} else {
+			$selected_1 = '';
+			$selected_0 = 'selected';
+		}
+		$option_new_token = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
+		$option_new_token .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
+
 		// select fwd_to_inbox
 		if ($fwd_to_inbox) {
 			$selected_1 = 'selected';
@@ -138,7 +162,8 @@ switch ($op) {
 			<tr><td colspan=3>&nbsp;</td></tr>
 			<tr><td colspan=3><h2>" . _('Application options') . "</h2><hr></td></tr>
 			<tr><td width=200>" . _('Webservices token') . "</td><td>:</td><td><b>".$token."</b></td></tr>
-			<tr><td width=200>" . _('New webservices token') . "</td><td>:</td><td><input type='text' size='30' maxlength='30' name='up_token' value=\"\"> ("._('Fill to update').")</td></tr>
+			<tr><td width=200>" . _('New webservices token') . "</td><td>:</td><td><select name='up_new_token'>" . $option_new_token . "</select></td></tr>
+			<tr><td width=200>" . _('Enable webservices') . "</td><td>:</td><td><select name='up_enable_webservices'>" . $option_enable_webservices . "</select></td></tr>
 			<tr><td width=200>" . _('Timezone') . "</td><td>:</td><td><input type=text size=5 maxlength=5 name=up_datetime_timezone value=\"$datetime_timezone\"> (" . _('Eg: +0700 for Jakarta/Bangkok timezone') . ")</td></tr>
 			<tr><td width=200>" . _('SMS sender ID') . "</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"$sender\" $senderidstatus> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td></tr>
 			<tr><td width=200>" . _('SMS footer') . "</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_footer value=\"$footer\"> (" . _('Max. 30 alphanumeric characters') . ")</td></tr>
@@ -165,7 +190,7 @@ switch ($op) {
 			'sender', 'footer', 'password', 'zipcode', 'datetime_timezone', 
 			'language_module', 'fwd_to_inbox', 'fwd_to_email', 'fwd_to_mobile',
 			'local_length','replace_zero', 'plus_sign_remove', 'plus_sign_add',
-			'token'
+			'new_token', 'enable_webservices'
 		);
 		for ($i=0;$i<count($fields);$i++) {
 			$up[$fields[$i]] = trim($_POST['up_'.$fields[$i]]);
@@ -186,11 +211,10 @@ switch ($op) {
 				} else {
 					unset($up['password']);
 				}
-				if ($up['token']) {
-					$up['token'] = md5(mktime().$up['username'].$up['token']);
-				} else {
-					unset($up['token']);
+				if ($up['new_token']) {
+					$up['token'] = md5(mktime().$up['username'].$up['email']);
 				}
+				unset($up['new_token']);
 				if ($continue) {
 					if (dba_update(_DB_PREF_.'_tblUser', $up, array('username' => $up['username']))) {
 						if ($up['password']) {
