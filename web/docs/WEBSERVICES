@@ -7,8 +7,7 @@ URL: http://[playSMS_web_domain_or_url]/index.php?app=webservices
 PARAMETERS
 ----------
 
-u	: username
-h	: webservices token
+h	: webservices token, configured by user from Preferences menu
 
 ta	: type of action
 	  for example:
@@ -71,19 +70,19 @@ PROTOCOL
 
 1. Send SMS
     ta		: pv
-    parameters	: u, h, to, msg, type, unicode
+    parameters	: h, to, msg, type, unicode
     returns	: error returns
     notes	: to parameter is a valid international formatted mobile number
 
 2. Send broadcast SMS
     ta		: bc
-    parameters	: u, h, to, msg, type, unicode
+    parameters	: h, to, msg, type, unicode
     returns	: error returns
     notes	: to parameter is group code
 
 3. Delivery reports
     ta		: ds
-    parameters	: u, h, slid, c, last
+    parameters	: h, slid, c, last
     returns	: formatted text:
 		  SMS log ID; Source number; Destination Number; Message; Delivery Time;
 		  Update Pending Status Time; SMS Status
@@ -93,7 +92,7 @@ PROTOCOL
 
 4. User credits
     ta          : cr
-    parameters  : u, h
+    parameters  : h
     returns     : user's credit
 
 
@@ -101,10 +100,13 @@ EXAMPLE
 -------
 
 Webservice URL:
-http://x.com/index.php?app=webservices&ta=cr&u=admin&h=b09ba37b03b21e4ffb99b6d4ece735c1
+http://x.com/index.php?app=webservices&ta=cr&h=b09ba37b03b21e4ffb99b6d4ece735c1
 
 Explanation:
-User admin accessed playSMS webservices in x.com with type of action cr (User credits)
+
+playSMS webservices in x.com with type of action (ta) cr (User credits)
+accessed by user or apps using a webservices token (h)
+
 if succeded returns: OK <user's credits> (eg: OK 4500)
 if error occured returns one of the ERROR RETURNS mentioned above
 
