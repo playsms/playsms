@@ -48,12 +48,6 @@ function getsmsoutgoing($smslog_id) {
 	return $data;
 }
 
-function execcommoncustomcmd() {
-	global $apps_path;
-	@include $apps_path['incs']."/common/customcmd.php";
-}
-
-
 function playsmsd() {
 	global $core_config, $gateway_module;
 	// plugin tools
