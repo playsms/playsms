@@ -2,5 +2,7 @@ INSTALL KANNEL
 --------------
 Due to complexity of installation process for kannel, we decide to leave this module for experts.
 
+On some Linux distro you can easily use "apt-get install kannel" to install Kannel.
+
 Well experts, there's something you should see and understand on contrib/kannel/kannel.conf, the part after
 SMS SERVICE 'Default'.

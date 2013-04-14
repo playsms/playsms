@@ -66,6 +66,8 @@ playSMS Web Interface step-by-step installation:
 
     # cp -rR /usr/local/src/playsms-x.x.x/web/* /var/www/playsms
 
+    # chown -R www-data /var/www/playsms
+
 
 5.  Copy config-dist.php to config.php and then edit config.php
 
@@ -77,6 +79,8 @@ playSMS Web Interface step-by-step installation:
 
 
 6.  Enter daemon/linux directory, copy playsms, playsmsd* and sendsmsd*
+
+    # mkdir -p /etc/default /usr/local/bin
 
     # cp /usr/local/src/playsms-x.x.x/daemon/linux/etc/playsms /etc/default/
 
@@ -91,37 +95,39 @@ playSMS Web Interface step-by-step installation:
     to /var/www/playsms), and also make sure that PLAYSMS_BIN is pointing to a correct playSMS daemon 
     scripts path (in this example to /usr/local/bin)
 
-8a. You can program the system to start playsms when the system boots using the init.d scripts
-    Copy the init script to init.d and program it to boot with the system
 
-    # cp /usr/local/src/playsms-x.x.x/daemon/linux/etc/playsms.initd /etc/init.d/playsms
+8.  There are two choices to get playSMS daemon starts automatically on every boot. You need to choose one
+
+    A. Using init script. When you are installing playSMS on Debian based distro (like Ubuntu), you may use
+       contributed init script. Copy the init script to /etc/init.d/ and program it to start at boot
+
+    # cp /usr/local/src/playsms-x.x.x/daemon/linux/etc/init.d/playsms /etc/init.d/playsms
 
     # update-rc.d playsms defaults
 
+    B. Using rc.local. Look for rc.local on /etc, /etc/init.d or /etc/rc.d/init.d
+       When you found it edit that rc.local and put:
 
-8b. Look for rc.local on /etc and its subdirectories (usualy /etc, /etc/init.d or /etc/rc.d/init.d).
-    If you found it then edit that rc.local and put:
+       "/usr/local/bin/playsmsd_start" (without quotes, remove quotes)
 
-    "/usr/local/bin/playsmsd_start" (without quotes)
+       on the bottom of the file (before exit if theres an exit command). This way playsmsd_start
+       will start automatically on boot.
 
-    on the bottom of the file (before exit if theres an exit command). This way playsmsd_start
-    will start automatically on boot.
-
-    Note: Just like any other steps above you need 'root' access to do this.
+    Note: Just like any other steps before, you need 'root' access to do this.
 
 
-9. Start playsmsd manually
+9. Start playsmsd manually, no need to reboot your OS
 
-    a) If you are using the init scripts:
+    A. If you are using the init script:
 
-    # /etc/init.d/playsms start
+       # /etc/init.d/playsms start
 
-    b) If you are using rc.local:
+    B. If you are using rc.local:
 
-    # /usr/local/bin/playsmsd_start
+       # /usr/local/bin/playsmsd_start
 
     Note:
-    - after that please do a ps ax and see if playsmsd and sendsmsd are running
+    - please do a "ps ax" and see if playsmsd and sendsmsd are running
 
       # ps ax | grep sms
       2756 ?        S      0:00 /bin/bash ./playsmsd /var/www/playsms

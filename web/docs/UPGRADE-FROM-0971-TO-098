@@ -14,8 +14,8 @@ Steps to upgrade:
     for example:
     # cd [this playSMS package directory]/db
     # mysql -u [database username] -p [old playSMS database name] < playsms-upgrade-0971-to-098.sql
+    # mysql -u [database username] -p [old playSMS database name] < playsms-upgrade-098-md5-password.sql
 
-6. Run the script to upgrade the passwords to new format and to create the webapps token
 
 --
 Anton Raharja
