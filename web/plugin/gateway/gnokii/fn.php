@@ -45,10 +45,6 @@ function gnokii_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$
 	return;
 }
 
-function gnokii_hook_playsmsd() {
-	// nothing
-}
-
 function gnokii_hook_getsmsinbox() {
 	global $gnokii_param;
 	$handle = @opendir($gnokii_param['path']);

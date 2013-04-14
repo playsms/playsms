@@ -147,40 +147,4 @@ function uplink_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$
 	}
 }
 
-// hook_getsmsinbox
-// called by incoming sms processor
-// no returns needed
-function uplink_hook_getsmsinbox() {
-	// global $uplink_param;
-	// $sms_datetime	: incoming sms datetime
-	// $message		: incoming sms message
-	// setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver)
-	// you must retrieve all informations needed by setsmsincomingaction()
-	// from incoming sms, have a look uplink gateway module
-	// fixme anton - uplink will receive incoming sms by using callback/push url
-	/*
-	global $uplink_param;
-	$handle = @opendir($uplink_param['path']);
-	while ($sms_in_file = @readdir($handle)) {
-	if (eregi("^ERR.in",$sms_in_file) && !eregi("^[.]",$sms_in_file)) {
-	$fn = $uplink_param['path']."/$sms_in_file";
-	// logger_print("infile:".$fn, 2, "uplink incoming");
-	$tobe_deleted = $fn;
-	$lines = @file ($fn);
-	$sms_datetime = trim($lines[0]);
-	$sms_sender = trim($lines[1]);
-	$message = "";
-	for ($lc=2;$lc<count($lines);$lc++) {
-	$message .= trim($lines[$lc]);
-	}
-	// collected:
-	// $sms_datetime, $sms_sender, $message
-	setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
-	logger_print("sender:".$sms_sender." dt:".$sms_datetime." msg:".$message, 2, "uplink incoming");
-	@unlink($tobe_deleted);
-	}
-	}
-	*/
-}
-
 ?>

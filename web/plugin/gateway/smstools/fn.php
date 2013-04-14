@@ -70,10 +70,6 @@ function smstools_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime=""
 	return;
 }
 
-function smstools_hook_playsmsd() {
-	// nothing
-}
-
 function smstools_hook_getsmsinbox() {
 	global $smstools_param;
 	$handle = @opendir($smstools_param['spool_dir']."/incoming");

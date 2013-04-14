@@ -69,10 +69,6 @@ function gammu_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p
 	return;
 }
 
-function gammu_hook_playsmsd() {
-	// nothing
-}
-
 function gammu_hook_getsmsinbox() {
 	// IN20101017_091747_00_+628123423141312345_00.txt
 	global $gammu_param;

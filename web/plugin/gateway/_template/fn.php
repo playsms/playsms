@@ -1,12 +1,6 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
-// hook_playsmsd
-// used by index.php?app=menu&inc=daemon to execute custom command
-function template_hook_playsmsd() {
-	// nothing
-}
-
 // hook_sendsms
 // called by main sms sender
 // return true for success delivery
@@ -28,6 +22,12 @@ function template_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',
 	// ...
 	// return true or false
 	// return $ok;
+}
+
+// hook_playsmsd
+// used by index.php?app=menu&inc=daemon to execute custom commands
+function template_hook_playsmsd() {
+	// custom commands
 }
 
 // hook_getsmsstatus

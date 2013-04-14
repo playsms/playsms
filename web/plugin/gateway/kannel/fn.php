@@ -1,10 +1,6 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
-function kannel_hook_playsmsd() {
-	// nothing
-}
-
 function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
 	global $kannel_param;
 	global $http_path;
@@ -101,39 +97,6 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 		logger_print("smslog_id:".$smslog_id." response:".$rv, 2, "kannel outgoing");
 	}
 	return $ok;
-}
-
-function kannel_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="") {
-	global $kannel_param;
-	// not used, depend on kannel delivery status updater
-}
-
-function kannel_hook_getsmsinbox() {
-	global $kannel_param;
-	// not used, playSMS will only received HTTP pushed values from kannel
-	/*
-	$handle = @opendir($kannel_param['path']);
-	while ($sms_in_file = @readdir($handle))
-	{
-	if (eregi("^ERR.in",$sms_in_file) && !eregi("^[.]",$sms_in_file))
-	{
-	$fn = $kannel_param['path']."/$sms_in_file";
-	$tobe_deleted = $fn;
-	$lines = @file ($fn);
-	$sms_datetime = urldecode(trim($lines[0]));
-	$sms_sender = urldecode(trim($lines[1]));
-	$message = "";
-	for ($lc=2;$lc<count($lines);$lc++)
-	{
-	$message .= trim($lines[$lc]);
-	}
-	// collected:
-	// $sms_datetime, $sms_sender, $message
-	setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
-	@unlink($tobe_deleted);
-	}
-	}
-	*/
 }
 
 function kannel_hook_call($requests) {

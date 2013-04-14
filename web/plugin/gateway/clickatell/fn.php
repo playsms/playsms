@@ -102,31 +102,6 @@ function clickatell_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='
 	return $ok;
 }
 
-function clickatell_hook_getsmsinbox() {
-	// fixme anton - clickatell will only receive incoming sms from callback url
-	/*
-	global $clickatell_param;
-	$handle = @opendir($clickatell_param['incoming_path']);
-	while ($sms_in_file = @readdir($handle)) {
-	if (eregi("^ERR.in",$sms_in_file) && !eregi("^[.]",$sms_in_file)) {
-	$fn = $clickatell_param['incoming_path']."/$sms_in_file";
-	$tobe_deleted = $fn;
-	$lines = @file ($fn);
-	$sms_datetime = trim($lines[0]);
-	$sms_sender = trim($lines[1]);
-	$message = "";
-	for ($lc=2;$lc<count($lines);$lc++) {
-	$message .= trim($lines[$lc]);
-	}
-	// collected:
-	// $sms_datetime, $sms_sender, $message, $sms_receiver
-	setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
-	@unlink($tobe_deleted);
-	}
-	}
-	*/
-}
-
 function clickatell_getsmsstatus($smslog_id) {
 	global $clickatell_param;
 	$c_sms_status = 0;

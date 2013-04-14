@@ -1,10 +1,6 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
-function msgtoolbox_hook_playsmsd() {
-	// not used
-}
-
 // hook_sendsms
 // called by main sms sender
 // return true for success delivery
@@ -89,22 +85,6 @@ function msgtoolbox_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='
 		setsmsdeliverystatus($smslog_id,$uid,$p_status);
 	}
 	return $ok;
-}
-
-// hook_getsmsstatus
-// called by index.php?app=menu&inc=daemon (periodic daemon) to set sms status
-// no returns needed
-// $p_datetime	: first sms delivery datetime
-// $p_update	: last status update datetime
-function msgtoolbox_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="") {
-	// not used, status coming from msgtoolbox server through a callback URL
-}
-
-// hook_getsmsinbox
-// called by incoming sms processor
-// no returns needed
-function msgtoolbox_hook_getsmsinbox() {
-	// not used
 }
 
 ?>
