@@ -101,7 +101,7 @@ playSMS Web Interface step-by-step installation:
     A. Using init script. When you are installing playSMS on Debian based distro (like Ubuntu), you may use
        contributed init script. Copy the init script to /etc/init.d/ and program it to start at boot
 
-    # cp /usr/local/src/playsms-x.x.x/daemon/linux/etc/init.d/playsms /etc/init.d/playsms
+    # cp /usr/local/src/playsms-x.x.x/daemon/linux/etc/playsms.init /etc/init.d/playsms
 
     # update-rc.d playsms defaults
 

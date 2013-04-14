@@ -15,7 +15,7 @@
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
 # Short-Description: SMS gateway
-# Description:       Playsms is a platform to manage other sms backends
+# Description:       playSMS is a platform to manage other sms backends
 #		     to send and receive sms
 ### END INIT INFO
 
@@ -34,7 +34,7 @@ fi
 
 case "$1" in
   start)
-    log_daemon_msg "Starting playsms"
+    log_daemon_msg "Starting playSMS daemon"
     log_progress_msg "playsms"
     DAEMON=$PLAYSMS_BIN/playsmsd
     DAEMON_OPTIONS=$PLAYSMS_PATH
@@ -45,7 +45,7 @@ case "$1" in
     ;;
 
   stop)
-    log_daemon_msg "Stopping playsms"
+    log_daemon_msg "Stopping playSMS daemon"
     log_progress_msg "playsms"
     start-stop-daemon --stop --retry 5 \
     	--pidfile $PIDFILE
