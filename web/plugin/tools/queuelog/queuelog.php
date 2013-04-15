@@ -23,6 +23,7 @@ switch ($op)
 		}
 		$content .= "
 				<th align=center width=4>"._('Group')."</th>
+				<th align=center width=4>"._('Count')."</th>
 				<th align=center width=60%>"._('Message')."</th>
 			</tr>
 			</thead>
@@ -35,6 +36,7 @@ switch ($op)
 			$c_datetime_entry = $data[$c]['datetime_entry'];
 			$c_username = uid2username($data[$c]['uid']);
 			$c_group = phonebook_groupid2code($data[$c]['gpid']);
+			$c_count = $data[$c]['count'];
 			$c_message = stripslashes(core_display_text($data[$c]['message'].' '.$data[$c]['footer'], 25));
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 			$content .= "
@@ -50,6 +52,7 @@ switch ($op)
 			}
 			$content .= "
 					<td valign=top class=$td_class align=center>".$c_group."</td>
+					<td valign=top class=$td_class align=center>".$c_count."</td>
 					<td valign=top class=$td_class align=left>".$c_message."</td>
 				</tr>
 			";
