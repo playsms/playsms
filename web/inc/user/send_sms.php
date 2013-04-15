@@ -115,6 +115,9 @@ switch ($op) {
 		break;
 	case "sendsmstopv_yes":
 		$sms_to = ( trim($_POST['p_num'][0]) ? $_POST['p_num'] : $_POST['p_num_text'] );
+		if (! is_array($sms_to)) {
+			$sms_to = explode(',', $sms_to);
+		}
 		$msg_flash = $_POST['msg_flash'];
 		$msg_unicode = $_POST['msg_unicode'];
 		$message = $_POST['message'];
@@ -130,11 +133,17 @@ switch ($op) {
 			for ($i=0;$i<count($sms_to);$i++) {
 				if (substr(trim($sms_to[$i]), 0, 5) == 'gpid_') {
 					if ($c_gpid = substr(trim($sms_to[$i]), 5)) {
-						list($ok,$to,$smslog_id,$queue) = sendsms_bc($username,$c_gpid,$message,$sms_type,$unicode);
+						$array_gpid[] = $c_gpid;
 					}
 				} else {
-					list($ok,$to,$smslog_id,$queue) = sendsms($username,$sms_to[$i],$message,$sms_type,$unicode);
+					$array_sms_to[] = $sms_to[$i];
 				}
+			}
+			if (is_array($array_sms_to) && $array_sms_to[0]) {
+				list($ok,$to,$smslog_id,$queue) = sendsms($username,$array_sms_to,$message,$sms_type,$unicode);
+			}
+			if (is_array($array_gpid) && $array_gpid[0]) {
+				list($ok,$to,$smslog_id,$queue) = sendsms_bc($username,$array_gpid,$message,$sms_type,$unicode);
 			}
 			if (count($ok) <= 5) {
 				for ($i=0;$i<count($ok);$i++) {
