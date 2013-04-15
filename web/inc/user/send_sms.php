@@ -143,29 +143,25 @@ switch ($op) {
 				list($ok,$to,$smslog_id,$queue) = sendsms($username,$array_sms_to,$message,$sms_type,$unicode);
 			}
 			if (is_array($array_gpid) && $array_gpid[0]) {
-				list($ok,$to,$smslog_id,$queue) = sendsms_bc($username,$array_gpid,$message,$sms_type,$unicode);
+				list($ok_bc,$to_bc,$smslog_id_bc,$queue_bc) = sendsms_bc($username,$array_gpid,$message,$sms_type,$unicode);
 			}
-			if (count($ok) <= 5) {
-				for ($i=0;$i<count($ok);$i++) {
-					if ($ok[$i]==1) {
-						$_SESSION['error_string'] .= _('Your SMS has been delivered to queue')." ("._('to').": ".$to[$i].")<br>";
-					} elseif ($ok[$i]==2) {
-						$_SESSION['error_string'] .= _('Fail sent SMS, no credit')." ("._('to').": ".$to[$i].")<br>";					 } else {
-						$_SESSION['error_string'] .= _('Fail to sent SMS')." ("._('to').": ".$to[$i].")<br>";
-					}
+			$sms_queued = 0;
+			$sms_failed = 0;
+			for ($i=0;$i<count($ok);$i++) {
+				if ($ok[$i]) {
+					$sms_queued++;
+				} else {
+					$sms_failed++;
 				}
-			} else {
-				$sms_queued = 0;
-				$sms_failed = 0;
-				for ($i=0;$i<count($ok);$i++) {
-					if ($ok[$i]) {
-						$sms_queued++;
-					} else {
-						$sms_failed++;
-					}
-				}
-				$_SESSION['error_string'] = _('Your SMS has been delivered to queue')." ("._('queued').": ".$sms_queued.", "._('failed').": ".$sms_failed.")";
 			}
+			for ($i=0;$i<count($ok_bc);$i++) {
+				if ($ok_bc[$i]) {
+					$sms_queued++;
+				} else {
+					$sms_failed++;
+				}
+			}
+			$_SESSION['error_string'] = _('Your SMS has been delivered to queue')." ("._('queued').": ".$sms_queued.", "._('failed').": ".$sms_failed.")";
 		} else {
 			$_SESSION['error_string'] = _('You must select receiver and your message should not be empty');
 		}
