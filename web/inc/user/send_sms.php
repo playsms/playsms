@@ -127,7 +127,15 @@ switch ($op) {
 			if ($msg_unicode == "on") {
 				$unicode = "1";
 			}
-			list($ok,$to,$smslog_id,$queue) = sendsms($username,$sms_to,$message,$sms_type,$unicode);
+			for ($i=0;$i<count($sms_to);$i++) {
+				if (substr(trim($sms_to[$i]), 0, 5) == 'gpid_') {
+					if ($c_gpid = substr(trim($sms_to[$i]), 5)) {
+						list($ok,$to,$smslog_id,$queue) = sendsms_bc($username,$c_gpid,$message,$sms_type,$unicode);
+					}
+				} else {
+					list($ok,$to,$smslog_id,$queue) = sendsms($username,$sms_to[$i],$message,$sms_type,$unicode);
+				}
+			}
 			if (count($ok) <= 5) {
 				for ($i=0;$i<count($ok);$i++) {
 					if ($ok[$i]==1) {

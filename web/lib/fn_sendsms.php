@@ -296,15 +296,7 @@ function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 
 	$all_sms_to = array();
 	for ($i=0;$i<count($array_sms_to);$i++) {
-		if (substr(trim($array_sms_to[$i]), 0, 5) == 'gpid_') {
-			$c_gpid = substr(trim($array_sms_to[$i]), 5);
-			$rows = phonebook_getdatabyid(trim($c_gpid));
-			foreach ($rows as $key => $db_row) {
-				$all_sms_to[] = sendsms_getvalidnumber(trim($db_row['p_num']));
-			}
-		} else {
-			$all_sms_to[] = sendsms_getvalidnumber(trim($array_sms_to[$i]));
-		}
+		$all_sms_to[] = sendsms_getvalidnumber(trim($array_sms_to[$i]));
 	}
 
 	// remove double entries
