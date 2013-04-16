@@ -96,15 +96,7 @@ switch ($op) {
 		switch ($go) {
 			case _('Export as CSV'):
 				$fields = array('in_uid' => $uid, 'flag_deleted' => 0);
-				if ($kw = $search['keyword']) {
-					$keywords = array(
-						'in_message' => '%'.$kw.'%',
-						'in_sender' => '%'.$kw.'%',
-						'in_datetime' => '%'.$kw.'%',
-						'in_feature' => '%'.$kw.'%',
-						'in_keyword' => '%'.$kw.'%');
-				}
-				$list = dba_search(_DB_PREF_.'_tblSMSIncoming', $fields, $keywords);
+				$list = dba_search(_DB_PREF_.'_tblSMSIncoming', $fields, $search['dba_keywords']);
 				$data[0] = array(_('User'), _('Time'), _('From'), _('Keyword'), _('Content'), _('Feature'), _('Status'));
 				for ($i=0;$i<count($list);$i++) {
 					$j = $i + 1;

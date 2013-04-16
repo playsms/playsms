@@ -91,15 +91,8 @@ switch ($op) {
 		switch ($go) {
 			case _('Export as CSV'):
 				$fields = array('in_hidden' => 0);
-				if ($kw = $search['keyword']) {
-					$keywords = array(
-						'username' => '%'.$kw.'%',
-						'in_msg' => '%'.$kw.'%',
-						'in_sender' => '%'.$kw.'%',
-						'in_datetime' => '%'.$kw.'%');
-				}
 				$join = 'INNER JOIN '._DB_PREF_.'_tblUser AS B ON in_uid=B.uid';
-				$list = dba_search(_DB_PREF_.'_tblUserInbox', $fields, $keywords, '', $join);
+				$list = dba_search(_DB_PREF_.'_tblUserInbox', $fields, $search['dba_keywords'], '', $join);
 				$data[0] = array(_('User'), _('Time'), _('From'), _('Message'));
 				for ($i=0;$i<count($list);$i++) {
 					$j = $i + 1;

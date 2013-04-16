@@ -139,7 +139,7 @@ switch ($op) {
 				}
 				$table = _DB_PREF_.'_tblSMSOutgoing';
 				$join = 'INNER JOIN '._DB_PREF_.'_tblUser AS B ON A.uid=B.uid';
-				$list = dba_search($table.' AS A', $fields, $keywords, '', $join);
+				$list = dba_search($table.' AS A', $fields, $search['dba_keywords'], '', $join);
 				$data[0] = array(_('User'), _('Gateway'),_('Time'), _('To'), _('Message'), _('Status'));
 				for ($i=0;$i<count($list);$i++) {
 					$j = $i + 1;
