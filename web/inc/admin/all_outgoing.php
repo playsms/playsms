@@ -128,15 +128,6 @@ switch ($op) {
 		switch ($go) {
 			case _('Export as CSV'):
 				$fields = array('flag_deleted' => 0);
-				if ($kw = $search['keyword']) {
-					$keywords = array(
-						'username' => '%'.$kw.'%',
-						'p_msg' => '%'.$kw.'%',
-						'p_dst' => '%'.$kw.'%',
-						'p_datetime' => '%'.$kw.'%',
-						'p_gateway' => '%'.$kw.'%',
-						'p_footer' => '%'.$kw.'%');
-				}
 				$table = _DB_PREF_.'_tblSMSOutgoing';
 				$join = 'INNER JOIN '._DB_PREF_.'_tblUser AS B ON A.uid=B.uid';
 				$list = dba_search($table.' AS A', $fields, $search['dba_keywords'], '', $join);
