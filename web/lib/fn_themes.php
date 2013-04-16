@@ -23,8 +23,11 @@ function themes_buildmenu($arr_menu) {
 function themes_navbar($num, $nav, $max_nav, $url, $page) {
 	global $core_config;
 	$search = themes_search_session();
-	if ($search['param']) {
-		$search_url = '&'.$search['param'].'='.urlencode($search['keyword']);
+	if ($search['keyword']) {
+		$search_url = '&search_keyword='.urlencode($search['keyword']);
+	}
+	if ($search['category']) {
+		$search_url .= '&search_category='.urlencode($search['category']);
 	}
 	$url = $url.$search_url;
 	$nav_pages = '';
@@ -58,16 +61,27 @@ function themes_nav_session() {
 	return $_SESSION['tmp']['themes_nav'];
 }
 
-function themes_search($url='') {
-	$ret['param'] = 'search_keyword';
+function themes_search($search_category=array(), $url='') {
 	$ret['keyword'] = $_REQUEST['search_keyword'];
 	$ret['url'] = ( trim($url) ? trim($url) : $_SERVER['REQUEST_URI'] );
+	$ret['category'] = $_REQUEST['search_category'];
+	$option_search_category = "<option value=\"\">"._('Search')."</option>";
+	foreach ($search_category as $key => $val) {
+		if ( $selected = ( $ret['category'] == $val ? 'selected' : '' ) ) {
+			$ret['dba_keywords'] = array($val => '%'.$ret['keyword'].'%' );
+		}
+		$option_search_category .= "<option value=\"".$val."\" $selected>".ucfirst($key)."</option>";
+		$tmp_dba_keywords[$val] = '%'.$ret['keyword'].'%';
+	}
+	if ((! $ret['category'] ) && $ret['keyword']) {
+		$ret['dba_keywords'] = $tmp_dba_keywords;
+	}
 	$content = "
 		<form action='".$ret['url']."' method='POST'>
 		<table cellpadding='0' cellspacing='0' border='0'><tbody><tr>
-			<td>"._('Search')."</td>
+			<td><select name='search_category'>".$option_search_category."</select></td>
 			<td>&nbsp;:&nbsp;</td>
-			<td><input type='text' name='".$ret['param']."' value='".$ret['keyword']."' size='30' maxlength='30'><td></td>
+			<td><input type='text' name='search_keyword' value='".$ret['keyword']."' size='30' maxlength='30'><td></td>
 			<td><input type='submit' value='"._('Go')."' class='button'></td>
 		</tr></tbody></table>
 		</form>";

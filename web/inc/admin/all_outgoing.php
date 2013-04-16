@@ -4,18 +4,11 @@ if(!isadmin()){forcenoaccess();};
 
 switch ($op) {
 	case "all_outgoing":
+		$search_category = array(_('User') => 'username', _('Gateway') => 'p_gateway', _('Time') => 'p_datetime', _('To') => 'p_dst', _('Message') => 'p_msg', _('Footer') => 'p_footer');
 		$base_url = 'index.php?app=menu&inc=all_outgoing&op=all_outgoing';
-		$search = themes_search($base_url);
+		$search = themes_search($search_category, $base_url);
 		$fields = array('flag_deleted' => 0);
-		if ($kw = $search['keyword']) {
-			$keywords = array(
-				'username' => '%'.$kw.'%',
-				'p_msg' => '%'.$kw.'%',
-				'p_dst' => '%'.$kw.'%',
-				'p_datetime' => '%'.$kw.'%',
-				'p_gateway' => '%'.$kw.'%',
-				'p_footer' => '%'.$kw.'%');
-		}
+		$keywords = $search['dba_keywords'];
 		$table = _DB_PREF_.'_tblSMSOutgoing';
 		$join = 'INNER JOIN '._DB_PREF_.'_tblUser AS B ON A.uid=B.uid';
 		$count = dba_count($table.' AS A', $fields, $keywords, '', $join);

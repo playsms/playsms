@@ -4,15 +4,11 @@ if(!valid()){forcenoaccess();};
 
 switch ($op) {
 	case "user_inbox":
+		$search_category = array(_('Time') => 'in_datetime', _('From') => 'in_sender', _('Message') => 'in_msg');
 		$base_url = 'index.php?app=menu&inc=user_inbox&op=user_inbox';
-		$search = themes_search($base_url);
+		$search = themes_search($search_category, $base_url);
 		$fields = array('in_uid' => $uid, 'in_hidden' => 0);
-		if ($kw = $search['keyword']) {
-			$keywords = array(
-				'in_msg' => '%'.$kw.'%',
-				'in_sender' => '%'.$kw.'%',
-				'in_datetime' => '%'.$kw.'%');
-		}
+		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_.'_tblUserInbox', $fields, $keywords);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);

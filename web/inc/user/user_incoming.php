@@ -4,17 +4,11 @@ if(!valid()){forcenoaccess();};
 
 switch ($op) {
 	case "user_incoming":
+		$search_category = array(_('Time') => 'in_datetime', _('From') => 'in_sender', _('Keyword') => 'in_keyword', _('Content') => 'in_msg', _('Feature') => 'in_feature');
 		$base_url = 'index.php?app=menu&inc=user_incoming&op=user_incoming';
-		$search = themes_search($base_url);
+		$search = themes_search($search_category, $base_url);
 		$fields = array('in_uid' => $uid, 'flag_deleted' => 0);
-		if ($kw = $search['keyword']) {
-			$keywords = array(
-				'in_message' => '%'.$kw.'%',
-				'in_sender' => '%'.$kw.'%',
-				'in_datetime' => '%'.$kw.'%',
-				'in_feature' => '%'.$kw.'%',
-				'in_keyword' => '%'.$kw.'%');
-		}
+		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_.'_tblSMSIncoming', $fields, $keywords);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);

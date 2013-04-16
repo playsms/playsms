@@ -4,18 +4,11 @@ if(!isadmin()){forcenoaccess();};
 
 switch ($op) {
 	case "all_incoming":
+		$search_category = array(_('User') => 'username', _('Time') => 'in_datetime', _('From') => 'in_sender', _('Keyword') => 'in_keyword', _('Content') => 'in_msg', _('Feature') => 'in_feature');
 		$base_url = 'index.php?app=menu&inc=all_incoming&op=all_incoming';
-		$search = themes_search($base_url);
+		$search = themes_search($search_category, $base_url);
 		$fields = array('flag_deleted' => 0);
-		if ($kw = $search['keyword']) {
-			$keywords = array(
-				'username' => '%'.$kw.'%',
-				'in_message' => '%'.$kw.'%',
-				'in_sender' => '%'.$kw.'%',
-				'in_datetime' => '%'.$kw.'%',
-				'in_feature' => '%'.$kw.'%',
-				'in_keyword' => '%'.$kw.'%');
-		}
+		$keywords = $search['dba_keywords'];
 		$join = 'INNER JOIN '._DB_PREF_.'_tblUser AS B ON in_uid=B.uid';
 		$count = dba_count(_DB_PREF_.'_tblSMSIncoming', $fields, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);

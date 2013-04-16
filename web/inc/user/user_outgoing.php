@@ -4,17 +4,11 @@ if(!valid()){forcenoaccess();};
 
 switch ($op) {
 	case "user_outgoing":
+		$search_category = array(_('Time') => 'p_datetime', _('To') => 'p_dst', _('Message') => 'p_msg', _('Footer') => 'p_footer');
 		$base_url = 'index.php?app=menu&inc=user_outgoing&op=user_outgoing';
-		$search = themes_search($base_url);
+		$search = themes_search($search_category, $base_url);
 		$fields = array('uid' => $uid, 'flag_deleted' => 0);
-		if ($kw = $search['keyword']) {
-			$keywords = array(
-				'p_msg' => '%'.$kw.'%',
-				'p_dst' => '%'.$kw.'%',
-				'p_datetime' => '%'.$kw.'%',
-				'p_gateway' => '%'.$kw.'%',
-				'p_footer' => '%'.$kw.'%');
-		}
+		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_.'_tblSMSOutgoing', $fields, $keywords);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'smslog_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
