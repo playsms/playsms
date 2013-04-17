@@ -7,12 +7,12 @@ switch ($op) {
 		$search_category = array(_('Time') => 'p_datetime', _('To') => 'p_dst', _('Message') => 'p_msg', _('Footer') => 'p_footer');
 		$base_url = 'index.php?app=menu&inc=user_outgoing&op=user_outgoing';
 		$search = themes_search($search_category, $base_url);
-		$fields = array('uid' => $uid, 'flag_deleted' => 0);
+		$conditions = array('uid' => $uid, 'flag_deleted' => 0);
 		$keywords = $search['dba_keywords'];
-		$count = dba_count(_DB_PREF_.'_tblSMSOutgoing', $fields, $keywords);
+		$count = dba_count(_DB_PREF_.'_tblSMSOutgoing', $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'smslog_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = dba_search(_DB_PREF_.'_tblSMSOutgoing', $fields, $keywords, $extras);
+		$list = dba_search(_DB_PREF_.'_tblSMSOutgoing', '*', $conditions, $keywords, $extras);
 
 		$actions_box = "
 			<table width=100% cellpadding=0 cellspacing=0 border=0>
@@ -119,8 +119,8 @@ switch ($op) {
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case _('Export as CSV'):
-				$fields = array('uid' => $uid, 'flag_deleted' => 0);
-				$list = dba_search(_DB_PREF_.'_tblSMSOutgoing', $fields, $search['dba_keywords']);
+				$conditions = array('uid' => $uid, 'flag_deleted' => 0);
+				$list = dba_search(_DB_PREF_.'_tblSMSOutgoing', '*', $conditions, $search['dba_keywords']);
 				$data[0] = array(_('User'), _('Time'), _('To'), _('Message'), _('Status'));
 				for ($i=0;$i<count($list);$i++) {
 					$j = $i + 1;

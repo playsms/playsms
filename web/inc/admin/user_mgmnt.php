@@ -13,14 +13,14 @@ switch ($op) {
 			'url' => 'index.php?app=menu&inc=user_mgmnt&op=user_list_tab1',
 		);
 		$search = themes_search($search_var);
-		$fields = array('status' => 2);
+		$conditions = array('status' => 2);
 		if ($search['keyword']) {
 			$keywords = array('username' => '%'.$search['keyword'].'%');
 		}
-		$count = dba_count(_DB_PREF_.'_tblUser', $fields, $keywords);
+		$count = dba_count(_DB_PREF_.'_tblUser', $conditions, $keywords);
 		$nav = themes_nav($count, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab1");
 		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = dba_search(_DB_PREF_.'_tblUser', $fields, $keywords, $extras);
+		$list = dba_search(_DB_PREF_.'_tblUser', '*', $conditions, $keywords, $extras);
 		$_SESSION['referrer'] = 'user_list_tab1';
 		if ($err = $_SESSION['error_string']) {
 			$content = "<p><font color='red'>$err</font><p>";
@@ -74,14 +74,14 @@ switch ($op) {
 			'url' => 'index.php?app=menu&inc=user_mgmnt&op=user_list_tab2',
 		);
 		$search = themes_search($search_var);
-		$fields = array('status' => 3);
+		$conditions = array('status' => 3);
 		if ($search['keyword']) {
 			$keywords = array('username' => '%'.$search['keyword'].'%');
 		}
-		$count = dba_count(_DB_PREF_.'_tblUser', $fields, $keywords);
+		$count = dba_count(_DB_PREF_.'_tblUser', $conditions, $keywords);
 		$nav = themes_nav($count, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab2");
 		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = dba_search(_DB_PREF_.'_tblUser', $fields, $keywords, $extras);
+		$list = dba_search(_DB_PREF_.'_tblUser', '*', $conditions, $keywords, $extras);
 		$_SESSION['referrer'] = 'user_list_tab2';
 		if ($err = $_SESSION['error_string']) {
 			$content = "<p><font color='red'>$err</font><p>";

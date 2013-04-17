@@ -7,14 +7,14 @@ switch ($op) {
 		$search_category = array(_('User') => 'username', _('Gateway') => 'p_gateway', _('Time') => 'p_datetime', _('To') => 'p_dst', _('Message') => 'p_msg', _('Footer') => 'p_footer');
 		$base_url = 'index.php?app=menu&inc=all_outgoing&op=all_outgoing';
 		$search = themes_search($search_category, $base_url);
-		$fields = array('flag_deleted' => 0);
+		$conditions = array('flag_deleted' => 0);
 		$keywords = $search['dba_keywords'];
 		$table = _DB_PREF_.'_tblSMSOutgoing';
 		$join = 'INNER JOIN '._DB_PREF_.'_tblUser AS B ON A.uid=B.uid';
-		$count = dba_count($table.' AS A', $fields, $keywords, '', $join);
+		$count = dba_count($table.' AS A', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'smslog_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = dba_search($table.' AS A', $fields, $keywords, $extras, $join);
+		$list = dba_search($table.' AS A', '*', $conditions, $keywords, $extras, $join);
 
 		$actions_box = "
 			<table width=100% cellpadding=0 cellspacing=0 border=0>
@@ -127,10 +127,10 @@ switch ($op) {
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case _('Export as CSV'):
-				$fields = array('flag_deleted' => 0);
+				$conditions = array('flag_deleted' => 0);
 				$table = _DB_PREF_.'_tblSMSOutgoing';
 				$join = 'INNER JOIN '._DB_PREF_.'_tblUser AS B ON A.uid=B.uid';
-				$list = dba_search($table.' AS A', $fields, $search['dba_keywords'], '', $join);
+				$list = dba_search($table.' AS A', '*', $conditions, $search['dba_keywords'], '', $join);
 				$data[0] = array(_('User'), _('Gateway'),_('Time'), _('To'), _('Message'), _('Status'));
 				for ($i=0;$i<count($list);$i++) {
 					$j = $i + 1;

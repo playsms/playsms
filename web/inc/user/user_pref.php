@@ -13,7 +13,7 @@ switch ($op) {
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
-		if ($c_user = dba_search(_DB_PREF_.'_tblUser', array('username' => $c_username))) {
+		if ($c_user = dba_search(_DB_PREF_.'_tblUser', '*', array('username' => $c_username))) {
 			$token = $c_user[0]['token'];
 			$webservices_ip = $c_user[0]['webservices_ip'];
 			$enable_webservices = $c_user[0]['enable_webservices'];
@@ -123,7 +123,7 @@ switch ($op) {
 
 		// get country option
 		$option_country = "<option value=\"0\">--" . _('Please select') . "--</option>\n";
-		$result = dba_search(_DB_PREF_.'_tblUser_country', '', '', array('ORDER BY' => 'country_name'));
+		$result = dba_search(_DB_PREF_.'_tblUser_country', '*', '', '', array('ORDER BY' => 'country_name'));
 		for ($i=0;$i<count($result);$i++) {
 			$country_id = $result[$i]['country_id'];
 			$country_name = $result[$i]['country_name'];

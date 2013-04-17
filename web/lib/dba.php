@@ -199,11 +199,14 @@ function dba_disconnect() {
 	}
 }
 
-function dba_search($db_table, $fields='', $keywords='', $extras='', $join='') {
+function dba_search($db_table, $fields='*', $conditions='', $keywords='', $extras='', $join='') {
 	$ret = array();
-	if (is_array($fields)) {
-		foreach ($fields as $key => $val) {
-			$q_fields .= "AND ".$key."='".$val."' ";
+	if ($fields)) {
+		$q_fields = trim($fields);
+	}
+	if (is_array($conditions)) {
+		foreach ($conditions as $key => $val) {
+			$q_conditions .= "AND ".$key."='".$val."' ";
 		}
 	}
 	if (is_array($keywords)) {
@@ -214,17 +217,17 @@ function dba_search($db_table, $fields='', $keywords='', $extras='', $join='') {
 		$q_keywords .= ")";
 		$q_keywords = str_replace("(OR","(",$q_keywords);
 	}
-	$q_conditions = trim($q_fields." ".$q_keywords);
-	if ($q_fields || $q_keywords) {
+	$q_sql_where = trim($q_conditions." ".$q_keywords);
+	if ($q_conditions || $q_keywords) {
 		$q_where = 'WHERE';
-		$q_conditions = substr($q_conditions, 3);
+		$q_sql_where = substr($q_sql_where, 3);
 	}
 	if (is_array($extras)) {
 		foreach ($extras as $key => $val) {
 			$q_extras .= $key." ".$val." ";
 		}
 	}
-	$db_query = "SELECT * FROM ".$db_table." ".$join." ".$q_where." ".$q_conditions." ".$q_extras;
+	$db_query = "SELECT ".$q_fields." FROM ".$db_table." ".$join." ".$q_where." ".$q_sql_where." ".$q_extras;
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[] = $db_row;
@@ -232,11 +235,11 @@ function dba_search($db_table, $fields='', $keywords='', $extras='', $join='') {
 	return $ret;
 }
 
-function dba_count($db_table, $fields='', $keywords='', $extras='', $join='') {
+function dba_count($db_table, $conditions='', $keywords='', $extras='', $join='') {
 	$ret = 0;
-	if (is_array($fields)) {
-		foreach ($fields as $key => $val) {
-			$q_fields .= "AND ".$key."='".$val."' ";
+	if (is_array($conditions)) {
+		foreach ($conditions as $key => $val) {
+			$q_conditions .= "AND ".$key."='".$val."' ";
 		}
 	}
 	if (is_array($keywords)) {
@@ -247,17 +250,17 @@ function dba_count($db_table, $fields='', $keywords='', $extras='', $join='') {
 		$q_keywords .= ")";
 		$q_keywords = str_replace("(OR","(",$q_keywords);
 	}
-	$q_conditions = trim($q_fields." ".$q_keywords);
-	if ($q_fields || $q_keywords) {
+	$q_sql_where = trim($q_conditions." ".$q_keywords);
+	if ($q_conditions || $q_keywords) {
 		$q_where = 'WHERE';
-		$q_conditions = substr($q_conditions, 3);
+		$q_sql_where = substr($q_sql_where, 3);
 	}
 	if (is_array($extras)) {
 		foreach ($extras as $key => $val) {
 			$q_extras .= $key." ".$val." ";
 		}
 	}
-	$db_query = "SELECT COUNT(*) AS count FROM ".$db_table." ".$join." ".$q_where." ".$q_conditions." ".$q_extras;
+	$db_query = "SELECT COUNT(*) AS count FROM ".$db_table." ".$join." ".$q_where." ".$q_sql_where." ".$q_extras;
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$ret = $db_row['count'];
@@ -265,10 +268,10 @@ function dba_count($db_table, $fields='', $keywords='', $extras='', $join='') {
 	return $ret;
 }
 
-function dba_add($db_table, $item) {
+function dba_add($db_table, $items) {
 	$ret = false;
-	if (is_array($item)) {
-		foreach ($item as $key => $val) {
+	if (is_array($items)) {
+		foreach ($items as $key => $val) {
 			$sets .= $key.",";
 			$vals .= "'".$val."',";
 		}
@@ -284,11 +287,11 @@ function dba_add($db_table, $item) {
 	return $ret;
 }
 
-function dba_update($db_table, $item, $condition='') {
+function dba_update($db_table, $items, $condition='') {
 	$ret = false;
 	global $core_config;
-	if (is_array($item)) {
-		foreach ($item as $key => $val) {
+	if (is_array($items)) {
+		foreach ($items as $key => $val) {
 			$sets .= $key."='".$val."',";
 		}
 		if ($sets) {
@@ -327,10 +330,10 @@ function dba_remove($db_table, $condition='') {
 	return $ret;
 }
 
-function dba_isavail($db_table, $fields='') {
+function dba_isavail($db_table, $conditions='') {
 	$ret = false;
-	if (is_array($fields)) {
-		foreach ($fields as $key => $val) {
+	if (is_array($conditions)) {
+		foreach ($conditions as $key => $val) {
 			$q_condition .= "OR ".$key."='".$val."' ";
 		}
 		if ($q_condition) {
@@ -347,8 +350,8 @@ function dba_isavail($db_table, $fields='') {
 	return $ret;
 }
 
-function dba_isexists($db_table, $fields='') {
-	$ret = ( dba_isavail($db_table, $fields) ? false : true );
+function dba_isexists($db_table, $conditions='') {
+	$ret = ( dba_isavail($db_table, $conditions) ? false : true );
 	return $ret;
 }
 

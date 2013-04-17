@@ -7,12 +7,12 @@ switch ($op) {
 		$search_category = array(_('Time') => 'in_datetime', _('From') => 'in_sender', _('Keyword') => 'in_keyword', _('Content') => 'in_msg', _('Feature') => 'in_feature');
 		$base_url = 'index.php?app=menu&inc=user_incoming&op=user_incoming';
 		$search = themes_search($search_category, $base_url);
-		$fields = array('in_uid' => $uid, 'flag_deleted' => 0);
+		$conditions = array('in_uid' => $uid, 'flag_deleted' => 0);
 		$keywords = $search['dba_keywords'];
-		$count = dba_count(_DB_PREF_.'_tblSMSIncoming', $fields, $keywords);
+		$count = dba_count(_DB_PREF_.'_tblSMSIncoming', $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = dba_search(_DB_PREF_.'_tblSMSIncoming', $fields, $keywords, $extras);
+		$list = dba_search(_DB_PREF_.'_tblSMSIncoming', '*', $conditions, $keywords, $extras);
 		
 		$actions_box = "
 			<table width=100% cellpadding=0 cellspacing=0 border=0>
@@ -95,8 +95,8 @@ switch ($op) {
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case _('Export as CSV'):
-				$fields = array('in_uid' => $uid, 'flag_deleted' => 0);
-				$list = dba_search(_DB_PREF_.'_tblSMSIncoming', $fields, $search['dba_keywords']);
+				$conditions = array('in_uid' => $uid, 'flag_deleted' => 0);
+				$list = dba_search(_DB_PREF_.'_tblSMSIncoming', '*', $conditions, $search['dba_keywords']);
 				$data[0] = array(_('User'), _('Time'), _('From'), _('Keyword'), _('Content'), _('Feature'), _('Status'));
 				for ($i=0;$i<count($list);$i++) {
 					$j = $i + 1;

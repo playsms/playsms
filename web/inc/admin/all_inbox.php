@@ -7,13 +7,13 @@ switch ($op) {
 		$search_category = array(_('User') => 'username', _('Time') => 'in_datetime', _('From') => 'in_sender', _('Message') => 'in_msg');
 		$base_url = 'index.php?app=menu&inc=all_inbox&op=all_inbox';
 		$search = themes_search($search_category, $base_url);
-		$fields = array('in_hidden' => 0);
+		$conditions = array('in_hidden' => 0);
 		$keywords = $search['dba_keywords'];
 		$join = 'INNER JOIN '._DB_PREF_.'_tblUser AS B ON in_uid=B.uid';
-		$count = dba_count(_DB_PREF_.'_tblUserInbox', $fields, $keywords, '', $join);
+		$count = dba_count(_DB_PREF_.'_tblUserInbox', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = dba_search(_DB_PREF_.'_tblUserInbox', $fields, $keywords, $extras, $join);
+		$list = dba_search(_DB_PREF_.'_tblUserInbox', '*', $conditions, $keywords, $extras, $join);
 
 		$actions_box = "
 			<table width=100% cellpadding=0 cellspacing=0 border=0>
@@ -90,9 +90,9 @@ switch ($op) {
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case _('Export as CSV'):
-				$fields = array('in_hidden' => 0);
+				$conditions = array('in_hidden' => 0);
 				$join = 'INNER JOIN '._DB_PREF_.'_tblUser AS B ON in_uid=B.uid';
-				$list = dba_search(_DB_PREF_.'_tblUserInbox', $fields, $search['dba_keywords'], '', $join);
+				$list = dba_search(_DB_PREF_.'_tblUserInbox', '*', $conditions, $search['dba_keywords'], '', $join);
 				$data[0] = array(_('User'), _('Time'), _('From'), _('Message'));
 				for ($i=0;$i<count($list);$i++) {
 					$j = $i + 1;
