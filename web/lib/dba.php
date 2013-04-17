@@ -201,7 +201,7 @@ function dba_disconnect() {
 
 function dba_search($db_table, $fields='*', $conditions='', $keywords='', $extras='', $join='') {
 	$ret = array();
-	if ($fields)) {
+	if ($fields) {
 		$q_fields = trim($fields);
 	}
 	if (is_array($conditions)) {
