@@ -13,7 +13,8 @@ switch ($op) {
 		$count = dba_count(_DB_PREF_.'_toolsPhonebook AS A', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'A.name DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = dba_search(_DB_PREF_.'_toolsPhonebook AS A', '*', $conditions, $keywords, $extras, $join);
+		$fields = 'A.id AS upid, A.name AS name, mobile, email, B.name AS group_name, code';
+		$list = dba_search(_DB_PREF_.'_toolsPhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
 
 		$actions_box = "
 			<table width=100% cellpadding=0 cellspacing=0 border=0>
@@ -28,16 +29,16 @@ switch ($op) {
 		$content = "
 			<h2>"._('Phonebook')."</h2>
 			<p>".$search['form']."</p>
-			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=phonebook_list&op=actions\" method=post onSubmit=\"return SureConfirm()\">
+			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=tools_phonebook&op=actions\" method=post onSubmit=\"return SureConfirm()\">
 			".$actions_box."
 			<table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
 			<thead>
 			<tr>
 				<th align=center width=4>*</th>
-				<th align=center width=30%>"._('Name')."</th>
-				<th align=center width=20%>"._('Mobile')."</th>
-				<th align=center width=20%>"._('Email')."</th>
-				<th align=center width=20%>"._('Group name')."</th>
+				<th align=center width=25%>"._('Name')."</th>
+				<th align=center width=15%>"._('Mobile')."</th>
+				<th align=center width=25%>"._('Email')."</th>
+				<th align=center width=25%>"._('Group name')."</th>
 				<th align=center width=10%>"._('Group code')."</th>
 				<th width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></td>
 			</tr>
@@ -47,6 +48,7 @@ switch ($op) {
 		$i = $nav['top'];
 		$j = 0;
 		for ($j=0;$j<count($list);$j++) {
+			$upid = $list[$j]['upid'];
 			$name = $list[$j]['name'];
 			$mobile = $list[$j]['mobile'];
 			$email = $list[$j]['email'];
@@ -60,10 +62,10 @@ switch ($op) {
 					<td valign=top class=$td_class align=center>$name</td>
 					<td valign=top class=$td_class align=center>$mobile</td>
 					<td valign=top class=$td_class align=center>$email</td>
-					<td valign=top class=$td_class align=left>$group_name</td>
-					<td valign=top class=$td_class align=left>$group_code</td>
+					<td valign=top class=$td_class align=center>$group_name</td>
+					<td valign=top class=$td_class align=center>$group_code</td>
 					<td class=$td_class width=4>
-						<input type=hidden name=itemid".$j." value=\"$in_id\">
+						<input type=hidden name=itemid".$j." value=\"$upid\">
 						<input type=checkbox name=checkid".$j.">
 					</td>
 				</tr>";
@@ -86,17 +88,18 @@ switch ($op) {
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case _('Export as CSV'):
-				$conditions = array('in_hidden' => 0);
-				$join = 'INNER JOIN '._DB_PREF_.'_tblUser AS B ON in_uid=B.uid';
-				$list = dba_search(_DB_PREF_.'_tblUserInbox', '*', $conditions, $search['dba_keywords'], '', $join);
-				$data[0] = array(_('User'), _('Time'), _('From'), _('Message'));
+				$fields = 'A.name AS name, mobile, email, B.name AS group_name, code';
+				$join = 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group AS B ON A.gpid=B.id';
+				$list = dba_search(_DB_PREF_.'_toolsPhonebook AS A', $fields, '', $search['dba_keywords'], '', $join);
+				$data[0] = array(_('Name'), _('Mobile'), _('Email'), _('Group name'), _('Group code'));
 				for ($i=0;$i<count($list);$i++) {
 					$j = $i + 1;
 					$data[$j] = array(
-						$list[$i]['username'],
-						core_display_datetime($list[$i]['in_datetime']),
-						$list[$i]['in_sender'],
-						$list[$i]['in_msg']);
+						$list[$i]['name'],
+						$list[$i]['mobile'],
+						$list[$i]['email'],
+						$list[$i]['group_name'],
+						$list[$i]['code']);
 				}
 				$content = csv_format($data);
 				$fn = 'phonebook-'.$core_config['datetime']['now_stamp'].'.csv';
@@ -107,12 +110,11 @@ switch ($op) {
 					$checkid = $_POST['checkid'.$i];
 					$itemid = $_POST['itemid'.$i];
 					if(($checkid=="on") && $itemid) {
-						$up = array('c_timestamp' => mktime(), 'in_hidden' => '1');
-						dba_update(_DB_PREF_.'_tblUserInbox', $up, array('in_id' => $itemid));
+						dba_remove(_DB_PREF_.'_toolsPhonebook', array('id' => $itemid));
 					}
 				}
-				$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&page='.$nav['page'].'&nav='.$nav['nav'];
-				$_SESSION['error_string'] = _('Selected incoming SMS has been deleted');
+				$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&search_category='.$search['category'].'&page='.$nav['page'].'&nav='.$nav['nav'];
+				$_SESSION['error_string'] = _('Selected incoming phonebook item has been deleted');
 				header("Location: ".$ref);
 		}
 		break;
