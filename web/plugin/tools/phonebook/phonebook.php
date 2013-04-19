@@ -31,7 +31,7 @@ switch ($op) {
 				<td width=100% align=left>".$nav['form']."</td>
 				<td>&nbsp;</td>
 				<td><input type=button class=button value=\""._('Add contact')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&op=phonebook_add'\"></td>
-				<td><input type=submit name=go value=\""._('Group')."\" class=button /></td>
+				<td><input type=button class=button value=\""._('Group')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&route=group&op=list'\"></td>
 				<td><input type=submit name=go value=\""._('Export as CSV')."\" class=button /></td>
 				<td><input type=submit name=go value=\""._('Delete selection')."\" class=button onClick=\"return SureConfirm()\"/></td>
 			</tr></tbody>
@@ -154,9 +154,6 @@ switch ($op) {
 				$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&search_category='.$search['category'].'&page='.$nav['page'].'&nav='.$nav['nav'];
 				$_SESSION['error_string'] = _('Selected contact has been deleted');
 				header("Location: ".$ref);
-				break;
-			case _('Group'):
-				header("Location: index.php?app=menu&inc=tools_phonebook&route=group&op=list");
 				break;
 			case 'add':
 				$gpid = $_POST['gpid'];
