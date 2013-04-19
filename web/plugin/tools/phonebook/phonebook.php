@@ -11,7 +11,6 @@ if ($route = $_REQUEST['route']) {
 	}
 }
 
-
 switch ($op) {
 	case "phonebook_list":
 		$search_category = array(_('Name') => 'A.name', _('Mobile') => 'mobile', _('Email') => 'email', _('Group code') => 'code');
@@ -31,6 +30,7 @@ switch ($op) {
 			<tbody><tr>
 				<td width=100% align=left>".$nav['form']."</td>
 				<td>&nbsp;</td>
+				<td><input type=button class=button value=\""._('Add contact')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&op=phonebook_add'\"></td>
 				<td><input type=submit name=go value=\""._('Group')."\" class=button /></td>
 				<td><input type=submit name=go value=\""._('Export as CSV')."\" class=button /></td>
 				<td><input type=submit name=go value=\""._('Delete selection')."\" class=button onClick=\"return SureConfirm()\"/></td>
@@ -91,6 +91,36 @@ switch ($op) {
 		echo $content;
 		unset($_SESSION['error_string']);
 		break;
+	case "phonebook_add":
+		$phone = trim(urlencode($_REQUEST['phone']));
+		$uid = $core_config['user']['uid'];
+		$db_query = "SELECT * FROM "._DB_PREF_."_toolsPhonebook_group WHERE uid='$uid'";
+		$db_result = dba_query($db_query);
+		while ($db_row = dba_fetch_array($db_result)) {
+			$list_of_group .= "<option value=".$db_row['id'].">".$db_row['name']." - "._('code').": ".$db_row['code']."</option>";
+		}
+		$content = "
+			<h2>"._('Phonebook')."</h2>
+			<h3>"._('Add contact')."</h3>
+			<p>
+			<form action=\"index.php?app=menu&inc=tools_phonebook&op=actions&go=add\" name=fm_addphone method=POST>
+			<table width=100% cellpadding=1 cellspacing=2 border=0>
+			<tbody>
+			<tr><td width=100>"._('Group')."</td><td width=5>:</td><td><select name=gpid>$list_of_group</select></td></tr>
+			<tr><td>"._('Name')."</td><td>:</td><td><input type=text name=name size=30></td></tr>
+			<tr><td>"._('Mobile')."</td><td>:</td><td><input type=text name=mobile value=\"".$phone."\" size=30></td></tr>
+			<tr><td>"._('Email')."</td><td>:</td><td><input type=text name=email size=30></td></tr>
+			</tbody>
+			</table>
+			<p><input type=submit class=button value=\""._('Save')."\">
+			</form>
+			<p><input type=button class=button value=\""._('Back')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&op=phonebook_list'\">";
+		if ($err = $_SESSION['error_string']) {
+			echo "<div class=error_string>$err</div><br><br>";
+		}
+		echo $content;
+		unset($_SESSION['error_string']);
+		break;
 	case "actions":
 		$nav = themes_nav_session();
 		$search = themes_search_session();
@@ -122,11 +152,33 @@ switch ($op) {
 					}
 				}
 				$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&search_category='.$search['category'].'&page='.$nav['page'].'&nav='.$nav['nav'];
-				$_SESSION['error_string'] = _('Selected phonebook item has been deleted');
+				$_SESSION['error_string'] = _('Selected contact has been deleted');
 				header("Location: ".$ref);
 				break;
 			case _('Group'):
 				header("Location: index.php?app=menu&inc=tools_phonebook&route=group&op=list");
+				break;
+			case 'add':
+				$gpid = $_POST['gpid'];
+				$mobile = str_replace("\'","",$_POST['mobile']);
+				$mobile = str_replace("\"","",$mobile);
+				$name = str_replace("\'","",$_POST['name']);
+				$name = str_replace("\"","",$name);
+				$email = str_replace("\'","",$_POST['email']);
+				$email = str_replace("\"","",$email);
+				$_SESSION['error_string'] = _('You must fill all field');
+				if ($gpid && $mobile && $name) {
+					$db_query = "SELECT mobile,name FROM "._DB_PREF_."_toolsPhonebook WHERE uid='$uid' AND gpid='$gpid' AND mobile='$mobile'";
+					$db_result = dba_query($db_query);
+					if ($db_row = dba_fetch_array($db_result)) {
+						$_SESSION['error_string'] = _('Contact is already exists')." ("._('mobile').": ".$mobile.", "._('name').": ".$db_row['name'].")";
+					} else {
+						$db_query = "INSERT INTO "._DB_PREF_."_toolsPhonebook (gpid,uid,mobile,name,email) VALUES ('$gpid','$uid','$mobile','$name','$email')";
+						$db_result = dba_query($db_query);
+						$_SESSION['error_string'] = _('Contact has been added')." ("._('mobile').": ".$mobile.", "._('name').": ".$name.")";
+					}
+				}
+				header("Location: index.php?app=menu&inc=tools_phonebook&op=phonebook_add");
 				break;
 		}
 		break;
