@@ -1419,85 +1419,6 @@ LOCK TABLES `playsms_toolsSendfromfile` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `playsms_toolsSimplephonebook`
---
-
-DROP TABLE IF EXISTS `playsms_toolsSimplephonebook`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `playsms_toolsSimplephonebook` (
-  `c_timestamp` int(11) NOT NULL DEFAULT '0',
-  `pid` int(11) NOT NULL AUTO_INCREMENT,
-  `gpid` int(11) NOT NULL DEFAULT '0',
-  `uid` int(11) NOT NULL DEFAULT '0',
-  `p_num` varchar(100) NOT NULL DEFAULT '',
-  `p_desc` varchar(250) NOT NULL DEFAULT '',
-  `p_email` varchar(250) NOT NULL DEFAULT '',
-  PRIMARY KEY (`pid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `playsms_toolsSimplephonebook`
---
-
-LOCK TABLES `playsms_toolsSimplephonebook` WRITE;
-/*!40000 ALTER TABLE `playsms_toolsSimplephonebook` DISABLE KEYS */;
-/*!40000 ALTER TABLE `playsms_toolsSimplephonebook` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `playsms_toolsSimplephonebook_group`
---
-
-DROP TABLE IF EXISTS `playsms_toolsSimplephonebook_group`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `playsms_toolsSimplephonebook_group` (
-  `c_timestamp` int(11) NOT NULL DEFAULT '0',
-  `gpid` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) NOT NULL DEFAULT '0',
-  `gp_name` varchar(100) NOT NULL DEFAULT '',
-  `gp_code` varchar(10) NOT NULL DEFAULT '',
-  PRIMARY KEY (`gpid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `playsms_toolsSimplephonebook_group`
---
-
-LOCK TABLES `playsms_toolsSimplephonebook_group` WRITE;
-/*!40000 ALTER TABLE `playsms_toolsSimplephonebook_group` DISABLE KEYS */;
-/*!40000 ALTER TABLE `playsms_toolsSimplephonebook_group` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `playsms_toolsSimplephonebook_group_public`
---
-
-DROP TABLE IF EXISTS `playsms_toolsSimplephonebook_group_public`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `playsms_toolsSimplephonebook_group_public` (
-  `c_timestamp` int(11) NOT NULL DEFAULT '0',
-  `gpidpublic` int(11) NOT NULL AUTO_INCREMENT,
-  `gpid` int(11) NOT NULL DEFAULT '0',
-  `uid` varchar(100) NOT NULL DEFAULT '',
-  PRIMARY KEY (`gpidpublic`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `playsms_toolsSimplephonebook_group_public`
---
-
-LOCK TABLES `playsms_toolsSimplephonebook_group_public` WRITE;
-/*!40000 ALTER TABLE `playsms_toolsSimplephonebook_group_public` DISABLE KEYS */;
-/*!40000 ALTER TABLE `playsms_toolsSimplephonebook_group_public` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `playsms_toolsSimplerate`
 --
 
@@ -1532,11 +1453,13 @@ DROP TABLE IF EXISTS `playsms_toolsPhonebook`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_toolsPhonebook` (
+  `c_timestamp` int(11) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `gpid` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `email` varchar(254) NOT NULL,
-  `mobile` varchar(20) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `mobile` varchar(100) NOT NULL,
+  `name` varchar(250) NOT NULL,
+  `email` varchar(250) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1549,6 +1472,7 @@ DROP TABLE IF EXISTS `playsms_toolsPhonebook_group`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_toolsPhonebook_group` (
+  `c_timestamp` int(11) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,

@@ -18,6 +18,24 @@ ALTER TABLE `playsms_featureSubscribe` ADD `subscribe_param` varchar(20) NOT NUL
 ALTER TABLE `playsms_featureSubscribe` ADD `unsubscribe_param` varchar(20) NOT NULL ;
 ALTER TABLE `playsms_featureSubscribe` ADD `forward_param` varchar(20) NOT NULL ;
 
+ALTER TABLE  `playsms_toolsSimplephonebook` CHANGE  `c_timestamp`  `c_timestamp` INT( 11 ) NOT NULL DEFAULT  '0',
+CHANGE  `pid`  `id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
+CHANGE  `gpid`  `gpid` INT( 11 ) NOT NULL DEFAULT  '0',
+CHANGE  `uid`  `uid` INT( 11 ) NOT NULL DEFAULT  '0',
+CHANGE  `p_num`  `mobile` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  '',
+CHANGE  `p_desc`  `name` VARCHAR( 250 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  '',
+CHANGE  `p_email`  `email` VARCHAR( 250 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  '' ;
+
+RENAME TABLE  `playsms`.`playsms_toolsSimplephonebook` TO  `playsms`.`playsms_toolsPhonebook` ;
+
+ALTER TABLE  `playsms_toolsSimplephonebook_group` CHANGE  `c_timestamp`  `c_timestamp` INT( 11 ) NOT NULL DEFAULT  '0',
+CHANGE  `gpid`  `id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
+CHANGE  `uid`  `uid` INT( 11 ) NOT NULL DEFAULT  '0',
+CHANGE  `gp_name`  `name` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  '',
+CHANGE  `gp_code`  `code` VARCHAR( 10 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  '' ;
+
+RENAME TABLE  `playsms`.`playsms_toolsSimplephonebook_group` TO  `playsms`.`playsms_toolsPhonebook_group` ;
+
 --
 -- Table structure for table `playsms_gatewayNexmo`
 --
