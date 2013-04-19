@@ -105,11 +105,6 @@ function phonebook_hook_phonebook_getdatabyuid($uid, $orderby="") {
 		FROM "._DB_PREF_."_toolsPhonebook AS A
 		INNER JOIN "._DB_PREF_."_toolsPhonebook_group AS B ON A.gpid=B.id
 		WHERE mobile LIKE '%".$mobile."' AND B.uid='$uid'";
-	$db_query = "
-		SELECT A.id AS pid, gpid, A.name AS p_desc, mobile AS p_num, email, B.name AS group_name, code 
-		FROM "._DB_PREF_."_toolsPhonebook AS A
-		INNER JOIN "._DB_PREF_."_toolsPhonebook_group AS B ON A.gpid=B.id
-		WHERE mobile LIKE '%".$mobile."' AND B.uid='$uid'";
 	if ($orderby) {
 		$db_query .= " ORDER BY ".$orderby;
 	}
