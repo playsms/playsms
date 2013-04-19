@@ -3,13 +3,14 @@ defined('_SECURE_') or die('Forbidden');
 
 function logger_print($log, $level, $label) {
 	global $core_config;
-	$logfile = ( $core_config['main']['logfile'] ? $core_config['main']['logfile'] : 'playsms.log' );
+	$logfile = ( $core_config['logfile'] ? $core_config['logfile'] : 'playsms.log' );
 	$level = (int) $level;
+	$username = ( $core_config['user']['username'] ? $core_config['user']['username'] : '-' );
 	if (logger_get_level() >= $level) {
 		$type = 'L'.$level;
 		$fn = $core_config['apps_path']['logs'].'/'.$logfile;
 		if ($fd = fopen($fn, 'a+')) {
-			$message = stripslashes($core_config['datetime']['now']." ".$type." ".$label." # ".$log);
+			$message = stripslashes($core_config['datetime']['now']." ".$username." ".$type." ".$label." # ".$log);
 			$message = str_replace("\n", " ", $message);
 			$message = str_replace("\r", " ", $message);
 			$message .= "\n";
@@ -27,6 +28,39 @@ function logger_get_level() {
 function logger_set_level($level=0) {
 	global $core_config;
 	$core_config['logstate'] = $level;
+}
+
+function logger_audit() {
+	global $core_config;
+	if ($core_config['logaudit']) {
+		foreach ($_GET as $key => $val) {
+			if(stristr($key, 'password') === FALSE) {
+				$log .= $key.':'.$val.' ';
+			} else {
+				$log .= $key.':xxxxxx ';
+			}
+		}
+		foreach ($_POST as $key => $val) {
+			if(stristr($key, 'password') === FALSE) {
+				$log .= $key.':'.$val.' ';
+			} else {
+				$log .= $key.':xxxxxx ';
+			}
+		}
+		$log = trim($log);
+		$logauditfile = ( $core_config['logauditfile'] ? $core_config['logauditfile'] : 'audit.log' );
+		$username = ( $core_config['user']['username'] ? $core_config['user']['username'] : '-' );
+		$ip = $_SERVER['REMOTE_ADDR'];
+		$fn = $core_config['apps_path']['logs'].'/'.$logauditfile;
+		if ($fd = fopen($fn, 'a+')) {
+			$message = stripslashes($core_config['datetime']['now']." ".$username." ip:".$ip." ".$log);
+			$message = str_replace("\n", " ", $message);
+			$message = str_replace("\r", " ", $message);
+			$message .= "\n";
+			fputs($fd, $message);
+			fclose($fd);
+		}
+	}
 }
 
 ?>

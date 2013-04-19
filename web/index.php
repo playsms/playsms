@@ -2,6 +2,7 @@
 include 'init.php';
 include $apps_path['libs'].'/function.php';
 
+
 // fixme anton
 // load app extensions from index, such as menu, webservices and callbacks
 // using $app you can do up to load another application from playSMS if you need to
@@ -12,6 +13,7 @@ if (isset($app)) {
 		case 'mn':
 		case 'menu':
 			// $app=menu to access menus, replacement of direct access to menu.php
+			logger_audit();
 			$fn = $apps_path['incs'].'/app/menu.php';
 			if (file_exists($fn)) {
 				include $fn;
@@ -44,6 +46,7 @@ if (isset($app)) {
 			// $app=page to access a page inside themes
 			// by default this is used for displaying 'forgot password' page and 'register an account' page
 			// login, logout, register, forgot password, noaccess
+			logger_audit();
 			switch ($op) {
 				case 'auth_login':
 				case 'auth_logout':
