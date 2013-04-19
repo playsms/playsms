@@ -59,7 +59,7 @@ switch ($op) {
 		$j = 0;
 		for ($j=0;$j<count($list);$j++) {
 			$pid = $list[$j]['pid'];
-			$name = $list[$j]['name'];
+			$name = "<a href=\"index.php?app=menu&inc=tools_phonebook&op=phonebook_edit&id=".$pid."\">".$list[$j]['name']."</a>";
 			$mobile = $list[$j]['mobile'];
 			$email = $list[$j]['email'];
 			$group_code = strtoupper($list[$j]['code']);
@@ -122,6 +122,39 @@ switch ($op) {
 		echo $content;
 		unset($_SESSION['error_string']);
 		break;
+	case "phonebook_edit":
+		$uid = $core_config['user']['uid'];
+		$id = $_REQUEST['id'];
+		$list = dba_search(_DB_PREF_.'_toolsPhonebook', 'gpid, name, mobile, email', array('id' => $id, 'uid' => $uid));
+		$db_query = "SELECT * FROM "._DB_PREF_."_toolsPhonebook_group WHERE uid='$uid'";
+		$db_result = dba_query($db_query);
+		while ($db_row = dba_fetch_array($db_result)) {
+			$selected = ( $db_row['id'] == $list[0]['gpid'] ? 'selected' : '' );
+			$list_of_group .= "<option value=".$db_row['id']." $selected>".$db_row['name']." - "._('code').": ".$db_row['code']."</option>";
+		}
+		$content = "
+			<h2>"._('Phonebook')."</h2>
+			<h3>"._('Edit contact')."</h3>
+			<p>
+			<form action=\"index.php?app=menu&inc=tools_phonebook&op=actions&go=edit\" name=fm_addphone method=POST>
+			<input type=hidden name=id value=\"".$id."\">
+			<table width=100% cellpadding=1 cellspacing=2 border=0>
+			<tbody>
+			<tr><td width=100>"._('Group')."</td><td width=5>:</td><td><select name=gpid>$list_of_group</select></td></tr>
+			<tr><td>"._('Name')."</td><td>:</td><td><input type=text name=name value=\"".$list[0]['name']."\" size=30></td></tr>
+			<tr><td>"._('Mobile')."</td><td>:</td><td><input type=text name=mobile value=\"".$list[0]['mobile']."\" size=30></td></tr>
+			<tr><td>"._('Email')."</td><td>:</td><td><input type=text name=email value=\"".$list[0]['email']."\" size=30></td></tr>
+			</tbody>
+			</table>
+			<p><input type=submit class=button value=\""._('Save')."\">
+			</form>
+			<p><input type=button class=button value=\""._('Back')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&op=phonebook_list'\">";
+		if ($err = $_SESSION['error_string']) {
+			echo "<div class=error_string>$err</div><br><br>";
+		}
+		echo $content;
+		unset($_SESSION['error_string']);
+		break;
 	case "actions":
 		$nav = themes_nav_session();
 		$search = themes_search_session();
@@ -157,6 +190,7 @@ switch ($op) {
 				header("Location: ".$ref);
 				break;
 			case 'add':
+				$uid = $core_config['user']['uid'];
 				$gpid = $_POST['gpid'];
 				$mobile = str_replace("\'","",$_POST['mobile']);
 				$mobile = str_replace("\"","",$mobile);
@@ -177,6 +211,24 @@ switch ($op) {
 					}
 				}
 				header("Location: index.php?app=menu&inc=tools_phonebook&op=phonebook_add");
+				break;
+			case 'edit':
+				$uid = $core_config['user']['uid'];
+				$id = $_POST['id'];
+				$gpid = $_POST['gpid'];
+				$mobile = str_replace("\'","",$_POST['mobile']);
+				$mobile = str_replace("\"","",$mobile);
+				$name = str_replace("\'","",$_POST['name']);
+				$name = str_replace("\"","",$name);
+				$email = str_replace("\'","",$_POST['email']);
+				$email = str_replace("\"","",$email);
+				$_SESSION['error_string'] = _('You must fill all field');
+				if ($id && $gpid && $mobile && $name) {
+					$db_query = "UPDATE "._DB_PREF_."_toolsPhonebook SET c_timestamp='".mktime()."',gpid='$gpid',name='$name',mobile='$mobile',email='$email' WHERE id='$id' AND uid='$uid'";
+					$db_result = dba_query($db_query);
+					$_SESSION['error_string'] = _('Contact has been edited')." ("._('mobile').": ".$mobile.", "._('name').": ".$name.")";
+				}
+				header("Location: index.php?app=menu&inc=tools_phonebook&op=phonebook_list");
 				break;
 		}
 		break;
