@@ -77,3 +77,37 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `playsms_featureAutoreply_log` ;
 DROP TABLE IF EXISTS `playsms_featureCommand_log` ;
 DROP TABLE IF EXISTS `playsms_featureCustom_log` ;
+
+--
+-- Table structure for table `playsms_toolsPhonebook`
+--
+
+DROP TABLE IF EXISTS `playsms_toolsPhonebook`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `playsms_toolsPhonebook` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `gpid` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(254) NOT NULL,
+  `mobile` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `playsms_toolsPhonebook_group`
+--
+
+DROP TABLE IF EXISTS `playsms_toolsPhonebook_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `playsms_toolsPhonebook_group` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `code` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+

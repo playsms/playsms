@@ -12,6 +12,13 @@ function q_sanitize($var) {
 	return $var;
 }
 
+function core_sanitize_path($var) {
+	$var = str_replace("|","",$var);
+	$var = str_replace("..","",$var);
+	$var = strip_tags($var);
+	return $var;
+}
+
 function x_hook($c_plugin, $c_function, $c_param=array()) {
 	$c_fn = $c_plugin.'_hook_'.$c_function;
 	if ($c_plugin && $c_function && function_exists($c_fn)) {

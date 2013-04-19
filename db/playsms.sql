@@ -1523,6 +1523,39 @@ LOCK TABLES `playsms_toolsSimplerate` WRITE;
 /*!40000 ALTER TABLE `playsms_toolsSimplerate` DISABLE KEYS */;
 /*!40000 ALTER TABLE `playsms_toolsSimplerate` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `playsms_toolsPhonebook`
+--
+
+DROP TABLE IF EXISTS `playsms_toolsPhonebook`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `playsms_toolsPhonebook` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `gpid` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(254) NOT NULL,
+  `mobile` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `playsms_toolsPhonebook_group`
+--
+
+DROP TABLE IF EXISTS `playsms_toolsPhonebook_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `playsms_toolsPhonebook_group` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `code` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

@@ -2,6 +2,15 @@
 defined('_SECURE_') or die('Forbidden');
 if(!valid()){forcenoaccess();};
 
+if ($route = $_REQUEST['route']) {
+	$fn = $apps_path['plug'].'/tools/phonebook/'.$route.'.php';
+	$fn = core_sanitize_path($fn);
+	if (file_exists($fn)) {
+		include $fn;
+		exit();
+	}
+}
+
 switch ($op) {
 	case "phonebook_list":
 		$search_category = array(_('Name') => 'A.name', _('Mobile') => 'mobile', _('Email') => 'email', _('Group name') => 'B.name', _('Group code') => 'code');
@@ -21,15 +30,16 @@ switch ($op) {
 			<tbody><tr>
 				<td width=100% align=left>".$nav['form']."</td>
 				<td>&nbsp;</td>
+				<td><input type=submit name=go value=\""._('Group')."\" class=button /></td>
 				<td><input type=submit name=go value=\""._('Export as CSV')."\" class=button /></td>
-				<td><input type=submit name=go value=\""._('Delete selection')."\" class=button /></td>
+				<td><input type=submit name=go value=\""._('Delete selection')."\" class=button onClick=\"return SureConfirm()\"/></td>
 			</tr></tbody>
 			</table>";
 
 		$content = "
 			<h2>"._('Phonebook')."</h2>
 			<p>".$search['form']."</p>
-			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=tools_phonebook&op=actions\" method=post onSubmit=\"return SureConfirm()\">
+			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=tools_phonebook&op=actions\" method=post>
 			".$actions_box."
 			<table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
 			<thead>
@@ -116,6 +126,10 @@ switch ($op) {
 				$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&search_category='.$search['category'].'&page='.$nav['page'].'&nav='.$nav['nav'];
 				$_SESSION['error_string'] = _('Selected incoming phonebook item has been deleted');
 				header("Location: ".$ref);
+				break;
+			case _('Group'):
+				header("Location: index.php?app=menu&inc=tools_phonebook&route=group&op=list");
+				break;
 		}
 		break;
 }
