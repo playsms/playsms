@@ -11,9 +11,10 @@ if ($route = $_REQUEST['route']) {
 	}
 }
 
+
 switch ($op) {
 	case "phonebook_list":
-		$search_category = array(_('Name') => 'A.name', _('Mobile') => 'mobile', _('Email') => 'email', _('Group name') => 'B.name', _('Group code') => 'code');
+		$search_category = array(_('Name') => 'A.name', _('Mobile') => 'mobile', _('Email') => 'email', _('Group code') => 'code');
 		$base_url = 'index.php?app=menu&inc=tools_phonebook&op=phonebook_list';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array('B.uid' => $core_config['user']['uid']);
@@ -22,7 +23,7 @@ switch ($op) {
 		$count = dba_count(_DB_PREF_.'_toolsPhonebook AS A', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'A.name DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$fields = 'A.id AS upid, A.name AS name, mobile, email, B.name AS group_name, code';
+		$fields = 'A.id AS pid, A.name AS name, mobile, email, code';
 		$list = dba_search(_DB_PREF_.'_toolsPhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
 
 		$actions_box = "
@@ -45,10 +46,9 @@ switch ($op) {
 			<thead>
 			<tr>
 				<th align=center width=4>*</th>
-				<th align=center width=25%>"._('Name')."</th>
-				<th align=center width=15%>"._('Mobile')."</th>
-				<th align=center width=25%>"._('Email')."</th>
-				<th align=center width=25%>"._('Group name')."</th>
+				<th align=center width=30%>"._('Name')."</th>
+				<th align=center width=30%>"._('Mobile')."</th>
+				<th align=center width=30%>"._('Email')."</th>
 				<th align=center width=10%>"._('Group code')."</th>
 				<th width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></td>
 			</tr>
@@ -58,11 +58,10 @@ switch ($op) {
 		$i = $nav['top'];
 		$j = 0;
 		for ($j=0;$j<count($list);$j++) {
-			$upid = $list[$j]['upid'];
+			$pid = $list[$j]['pid'];
 			$name = $list[$j]['name'];
 			$mobile = $list[$j]['mobile'];
 			$email = $list[$j]['email'];
-			$group_name = $list[$j]['group_name'];
 			$group_code = strtoupper($list[$j]['code']);
 			$i--;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
@@ -72,10 +71,9 @@ switch ($op) {
 					<td valign=top class=$td_class align=center>$name</td>
 					<td valign=top class=$td_class align=center>$mobile</td>
 					<td valign=top class=$td_class align=center>$email</td>
-					<td valign=top class=$td_class align=center>$group_name</td>
 					<td valign=top class=$td_class align=center>$group_code</td>
 					<td class=$td_class width=4>
-						<input type=hidden name=itemid".$j." value=\"$upid\">
+						<input type=hidden name=itemid".$j." value=\"$pid\">
 						<input type=checkbox name=checkid".$j.">
 					</td>
 				</tr>";
@@ -91,6 +89,7 @@ switch ($op) {
 			echo "<div class=error_string>$err</div><br><br>";
 		}
 		echo $content;
+		unset($_SESSION['error_string']);
 		break;
 	case "actions":
 		$nav = themes_nav_session();
@@ -98,17 +97,16 @@ switch ($op) {
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case _('Export as CSV'):
-				$fields = 'A.name AS name, mobile, email, B.name AS group_name, code';
+				$fields = 'A.name AS name, mobile, email, code';
 				$join = 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group AS B ON A.gpid=B.id';
 				$list = dba_search(_DB_PREF_.'_toolsPhonebook AS A', $fields, '', $search['dba_keywords'], '', $join);
-				$data[0] = array(_('Name'), _('Mobile'), _('Email'), _('Group name'), _('Group code'));
+				$data[0] = array(_('Name'), _('Mobile'), _('Email'), _('Group code'));
 				for ($i=0;$i<count($list);$i++) {
 					$j = $i + 1;
 					$data[$j] = array(
 						$list[$i]['name'],
 						$list[$i]['mobile'],
 						$list[$i]['email'],
-						$list[$i]['group_name'],
 						$list[$i]['code']);
 				}
 				$content = csv_format($data);
@@ -124,7 +122,7 @@ switch ($op) {
 					}
 				}
 				$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&search_category='.$search['category'].'&page='.$nav['page'].'&nav='.$nav['nav'];
-				$_SESSION['error_string'] = _('Selected incoming phonebook item has been deleted');
+				$_SESSION['error_string'] = _('Selected phonebook item has been deleted');
 				header("Location: ".$ref);
 				break;
 			case _('Group'):

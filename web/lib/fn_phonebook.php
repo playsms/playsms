@@ -1,6 +1,30 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
+function phonebook_groupid2name($gpid) {
+	global $core_config;
+	if ($gpid) {
+		for ($c=0;$c<count($core_config['toolslist']);$c++) {
+			if ($gp_name = x_hook($core_config['toolslist'][$c],'phonebook_groupid2name',array($gpid))) {
+				break;
+			}
+		}
+	}
+	return $gp_name;
+}
+
+function phonebook_groupname2id($uid,$gp_name) {
+	global $core_config;
+	if ($uid && $gp_name) {
+		for ($c=0;$c<count($core_config['toolslist']);$c++) {
+			if ($gpid = x_hook($core_config['toolslist'][$c],'phonebook_groupname2id',array($uid,$gp_name))) {
+				break;
+			}
+		}
+	}
+	return $gpid;
+}
+
 function phonebook_groupid2code($gpid) {
 	global $core_config;
 	if ($gpid) {

@@ -1,6 +1,26 @@
 <?php defined('_SECURE_') or die('Forbidden'); ?>
 <?php
 
+function phonebook_hook_phonebook_groupid2name($gpid) {
+	if ($gpid) {
+		$db_query = "SELECT name FROM "._DB_PREF_."_toolsPhonebook_group WHERE id='$gpid'";
+		$db_result = dba_query($db_query);
+		$db_row = dba_fetch_array($db_result);
+		$name = $db_row['name'];
+	}
+	return $name;
+}
+
+function phonebook_hook_phonebook_groupname2id($uid,$name) {
+	if ($uid && $name) {
+		$db_query = "SELECT id FROM "._DB_PREF_."_toolsPhonebook_group WHERE uid='$uid' AND code='$code'";
+		$db_result = dba_query($db_query);
+		$db_row = dba_fetch_array($db_result);
+		$id = $db_row['id'];
+	}
+	return $id;
+}
+
 function phonebook_hook_phonebook_groupid2code($gpid) {
 	if ($gpid) {
 		$db_query = "SELECT code FROM "._DB_PREF_."_toolsPhonebook_group WHERE id='$gpid'";
@@ -81,7 +101,12 @@ function phonebook_hook_phonebook_getdatabyid($gpid, $orderby="") {
 function phonebook_hook_phonebook_getdatabyuid($uid, $orderby="") {
 	$ret = array();
 	$db_query = "
-		SELECT A.id AS upid, gpid, A.name AS p_desc, mobile AS p_num, email, B.name AS group_name, code 
+		SELECT A.id AS pid, gpid, A.name AS p_desc, mobile AS p_num, email, B.name AS group_name, code 
+		FROM "._DB_PREF_."_toolsPhonebook AS A
+		INNER JOIN "._DB_PREF_."_toolsPhonebook_group AS B ON A.gpid=B.id
+		WHERE mobile LIKE '%".$mobile."' AND B.uid='$uid'";
+	$db_query = "
+		SELECT A.id AS pid, gpid, A.name AS p_desc, mobile AS p_num, email, B.name AS group_name, code 
 		FROM "._DB_PREF_."_toolsPhonebook AS A
 		INNER JOIN "._DB_PREF_."_toolsPhonebook_group AS B ON A.gpid=B.id
 		WHERE mobile LIKE '%".$mobile."' AND B.uid='$uid'";
