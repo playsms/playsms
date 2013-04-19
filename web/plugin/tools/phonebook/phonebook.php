@@ -28,11 +28,10 @@ switch ($op) {
 		$actions_box = "
 			<table width=100% cellpadding=0 cellspacing=0 border=0>
 			<tbody><tr>
-				<td width=100% align=left>".$nav['form']."</td>
-				<td>&nbsp;</td>
 				<td><input type=button class=button value=\""._('Add contact')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&op=phonebook_add'\"></td>
 				<td><input type=button class=button value=\""._('Group')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&route=group&op=list'\"></td>
 				<td><input type=submit name=go value=\""._('Export as CSV')."\" class=button /></td>
+				<td width=100%>&nbsp;</td>
 				<td><input type=submit name=go value=\""._('Delete selection')."\" class=button onClick=\"return SureConfirm()\"/></td>
 			</tr></tbody>
 			</table>";
@@ -40,6 +39,7 @@ switch ($op) {
 		$content = "
 			<h2>"._('Phonebook')."</h2>
 			<p>".$search['form']."</p>
+			<p>".$nav['form']."</p>
 			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=tools_phonebook&op=actions\" method=post>
 			".$actions_box."
 			<table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
@@ -83,6 +83,7 @@ switch ($op) {
 			</tbody>
 			</table>
 			".$actions_box."
+			<p>".$nav['form']."</p>
 			</form>";
 
 		if ($err = $_SESSION['error_string']) {
