@@ -94,4 +94,13 @@ function themes_search_session() {
 	return $_SESSION['tmp']['themes_search'];
 }
 
+function themes_button_back($url) {
+	$content = "<input type=button class=button value=\""._('Back')."\" onClick=\"javascript:window.location.href='".$url."'\">";
+	return $content;
+}
+
+function _b($url) {
+	return themes_button_back($url);
+}
+
 ?>

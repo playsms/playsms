@@ -115,7 +115,7 @@ switch ($op) {
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
-			<p><input type=button class=button value=\""._('Back')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&op=phonebook_list'\">";
+			<p>"._b('index.php?app=menu&inc=tools_phonebook&op=phonebook_list');
 		if ($err = $_SESSION['error_string']) {
 			echo "<div class=error_string>$err</div><br><br>";
 		}
@@ -148,7 +148,7 @@ switch ($op) {
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
-			<p><input type=button class=button value=\""._('Back')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&op=phonebook_list'\">";
+			<p>"._b('index.php?app=menu&inc=tools_phonebook&op=phonebook_list');
 		if ($err = $_SESSION['error_string']) {
 			echo "<div class=error_string>$err</div><br><br>";
 		}

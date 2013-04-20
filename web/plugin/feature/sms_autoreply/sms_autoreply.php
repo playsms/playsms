@@ -235,9 +235,8 @@ switch ($op)
 	    </tr>	    
 	</table>
 	    <p><input type=submit class=button value="._('Add').">
-	    <p><input type=button class=button value="._('Back')." onClick=javascript:linkto('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=$autoreply_id')>
 	    </form>
-	";
+	    <p>"._b('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id='.$autoreply_id);
 		echo $content;
 		break;
 	case "sms_autoreply_scenario_add_yes":
@@ -318,9 +317,8 @@ switch ($op)
 	    </tr>	    	
 	    </table>
 	    <p><input type=submit class=button value=\""._('Save')."\">
-	    <p><input type=button class=button value="._('Back')." onClick=javascript:linkto('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=$autoreply_id')>
 	    </form>
-	";
+	    <p>"._b('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id='.$autoreply_id);
 		echo $content;
 		break;
 	case "sms_autoreply_scenario_edit_yes":

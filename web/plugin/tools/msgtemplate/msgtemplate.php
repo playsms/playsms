@@ -81,9 +81,7 @@ switch ($op)
 	</table>	    
 	    <p><input type=\"submit\" class=\"button\" value=\""._('Save template')."\">
 	    </form>
-	    <p><input type=button class=button value='"._('Back')."' onClick=javascript:linkto('index.php?app=menu&inc=tools_msgtemplate&op=list')>
-	    </form>
-	";
+	    <p>"._b('index.php?app=menu&inc=tools_msgtemplate&op=list');
 		echo $content;
 		break;
 	case "add_yes":
@@ -121,9 +119,7 @@ switch ($op)
 	    <p><input type=\"submit\" class=\"button\" value=\""._('Save template')."\">
 	    <input type=\"hidden\" name=\"item_count\" value=\"$i\">
 	    </form>
-	    <p><input type=button class=button value='"._('Back')."' onClick=javascript:linkto('index.php?app=menu&inc=tools_msgtemplate&op=list')>
-	    </form>
-	";
+	    <p>"._b('index.php?app=menu&inc=tools_msgtemplate&op=list');
 		echo $content;
 		break;
 	case "edit_yes":
@@ -185,9 +181,8 @@ switch ($op)
 	    <input type=\"hidden\" name=\"item_count\" value=\"$j\">
 	    <p>"._('Delete all templates ?')."
 	    <p><input type=\"submit\" value=\""._('Delete')."\" class=\"button\">
-	    <p><input type=button class=button value='"._('Back')."' onClick=javascript:linkto('index.php?app=menu&inc=tools_msgtemplate&op=list')>
 	    </form>
-	";
+	    <p>"._b('index.php?app=menu&inc=tools_msgtemplate&op=list');
 		echo $content;
 		break;
 	case "delete_yes":

@@ -66,7 +66,7 @@ switch ($op) {
 			</table>
 			".$actions_box."
 			</form>
-			<p><input type=button class=button value=\""._('Back')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&op=phonebook_list'\">";
+			<p>"._b('index.php?app=menu&inc=tools_phonebook&op=phonebook_list');
 
 		if ($err = $_SESSION['error_string']) {
 			echo "<div class=error_string>$err</div><br><br>";
@@ -119,8 +119,8 @@ switch ($op) {
 			</table>
 			<p>"._('Note').": "._('Group code used by keyword')." BC ("._('broadcast SMS from single SMS').")
 			<p><input type=submit class=button value=\""._('Save')."\"> 
-			<p><input type=button class=button value=\""._('Back')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&route=group&op=list'\">
-			</form>";
+			</form>
+			<p>"._('index.php?app=menu&inc=tools_phonebook&route=group&op=list');
 		if ($err = $_SESSION['error_string']) {
 			echo "<div class=error_string>$err</div><br><br>";
 		}
