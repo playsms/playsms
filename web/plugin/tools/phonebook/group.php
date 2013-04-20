@@ -72,7 +72,6 @@ switch ($op) {
 			echo "<div class=error_string>$err</div><br><br>";
 		}
 		echo $content;
-		unset($_SESSION['error_string']);
 		break;
 	case "add":
 		$content = "
@@ -126,7 +125,6 @@ switch ($op) {
 			echo "<div class=error_string>$err</div><br><br>";
 		}
 		echo $content;
-		unset($_SESSION['error_string']);
 		break;
 	case "actions":
 		$nav = themes_nav_session();
@@ -145,6 +143,7 @@ switch ($op) {
 				$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&search_category='.$search['category'].'&page='.$nav['page'].'&nav='.$nav['nav'];
 				$_SESSION['error_string'] = _('Selected group has been deleted');
 				header("Location: ".$ref);
+				exit();
 				break;
 			case 'add':
 				$group_name = $_POST['group_name'];
@@ -163,6 +162,7 @@ switch ($op) {
 					}
 				}
 				header("Location: index.php?app=menu&inc=tools_phonebook&route=group&op=list");
+				exit();
 				break;
 			case 'edit':
 				$gpid = $_POST['gpid'];
@@ -182,6 +182,7 @@ switch ($op) {
 					}
 				}
 				header("Location: index.php?app=menu&inc=tools_phonebook&route=group&op=edit&gpid=$gpid");
+				exit();
 				break;
 		}
 		break;

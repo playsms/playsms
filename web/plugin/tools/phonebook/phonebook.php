@@ -7,6 +7,7 @@ if ($route = $_REQUEST['route']) {
 	$fn = core_sanitize_path($fn);
 	if (file_exists($fn)) {
 		include $fn;
+		unset($_SESSION['error_string']);
 		exit();
 	}
 }
@@ -30,7 +31,8 @@ switch ($op) {
 			<tbody><tr>
 				<td><input type=button class=button value=\""._('Add contact')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&op=phonebook_add'\"></td>
 				<td><input type=button class=button value=\""._('Group')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&route=group&op=list'\"></td>
-				<td><input type=submit name=go value=\""._('Export as CSV')."\" class=button /></td>
+				<td><input type=button class=button value=\""._('Import')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&route=import&op=list'\"></td>
+				<td><input type=submit name=go value=\""._('Export')."\" class=button /></td>
 				<td width=100%>&nbsp;</td>
 				<td><input type=submit name=go value=\""._('Delete selection')."\" class=button onClick=\"return SureConfirm()\"/></td>
 			</tr></tbody>
@@ -90,7 +92,6 @@ switch ($op) {
 			echo "<div class=error_string>$err</div><br><br>";
 		}
 		echo $content;
-		unset($_SESSION['error_string']);
 		break;
 	case "phonebook_add":
 		$phone = trim(urlencode($_REQUEST['phone']));
@@ -120,7 +121,6 @@ switch ($op) {
 			echo "<div class=error_string>$err</div><br><br>";
 		}
 		echo $content;
-		unset($_SESSION['error_string']);
 		break;
 	case "phonebook_edit":
 		$uid = $core_config['user']['uid'];
@@ -153,17 +153,17 @@ switch ($op) {
 			echo "<div class=error_string>$err</div><br><br>";
 		}
 		echo $content;
-		unset($_SESSION['error_string']);
 		break;
 	case "actions":
 		$nav = themes_nav_session();
 		$search = themes_search_session();
 		$go = $_REQUEST['go'];
 		switch ($go) {
-			case _('Export as CSV'):
+			case _('Export'):
+				$uid = $core_config['user']['uid'];
 				$fields = 'A.name AS name, mobile, email, code';
 				$join = 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group AS B ON A.gpid=B.id';
-				$list = dba_search(_DB_PREF_.'_toolsPhonebook AS A', $fields, '', $search['dba_keywords'], '', $join);
+				$list = dba_search(_DB_PREF_.'_toolsPhonebook AS A', $fields, array('A.uid' => $uid), $search['dba_keywords'], '', $join);
 				$data[0] = array(_('Name'), _('Mobile'), _('Email'), _('Group code'));
 				for ($i=0;$i<count($list);$i++) {
 					$j = $i + 1;
@@ -188,6 +188,7 @@ switch ($op) {
 				$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&search_category='.$search['category'].'&page='.$nav['page'].'&nav='.$nav['nav'];
 				$_SESSION['error_string'] = _('Selected contact has been deleted');
 				header("Location: ".$ref);
+				exit();
 				break;
 			case 'add':
 				$uid = $core_config['user']['uid'];
@@ -211,6 +212,7 @@ switch ($op) {
 					}
 				}
 				header("Location: index.php?app=menu&inc=tools_phonebook&op=phonebook_add");
+				exit();
 				break;
 			case 'edit':
 				$uid = $core_config['user']['uid'];
@@ -229,6 +231,7 @@ switch ($op) {
 					$_SESSION['error_string'] = _('Contact has been edited')." ("._('mobile').": ".$mobile.", "._('name').": ".$name.")";
 				}
 				header("Location: index.php?app=menu&inc=tools_phonebook&op=phonebook_list");
+				exit();
 				break;
 		}
 		break;
