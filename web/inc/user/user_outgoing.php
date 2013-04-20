@@ -17,7 +17,7 @@ switch ($op) {
 		$actions_box = "
 			<table width=100% cellpadding=0 cellspacing=0 border=0>
 			<tbody><tr>
-				<td><input type=submit name=go value=\""._('Export as CSV')."\" class=button /></td>
+				<td><input type=submit name=go value=\""._('Export')."\" class=button /></td>
 				<td width=100%>&nbsp;</td>
 				<td><input type=submit name=go value=\""._('Delete selection')."\" class=button /></td>
 			</tr></tbody>
@@ -119,7 +119,7 @@ switch ($op) {
 		$search = themes_search_session();
 		$go = $_REQUEST['go'];
 		switch ($go) {
-			case _('Export as CSV'):
+			case _('Export'):
 				$conditions = array('uid' => $uid, 'flag_deleted' => 0);
 				$list = dba_search(_DB_PREF_.'_tblSMSOutgoing', '*', $conditions, $search['dba_keywords']);
 				$data[0] = array(_('User'), _('Time'), _('To'), _('Message'), _('Status'));
