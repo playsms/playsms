@@ -2,12 +2,13 @@
 defined('_SECURE_') or die('Forbidden');
 if(!valid()){forcenoaccess();};
 
-$dst_p_num = urlencode($_REQUEST['dst_p_num']);
-$dst_gp_code = urlencode($_REQUEST['dst_gp_code']);
-
 switch ($op) {
 	case "sendsmstopv":
-		$message = stripslashes($_REQUEST['message']);
+		$do = trim($_REQUEST['do']);
+		if (($do == 'reply') || ($do == 'forward')) {
+			$to = $_REQUEST['to'];
+			$message = stripslashes($_REQUEST['message']);
+		}
 
 		$rows = phonebook_getgroupbyuid($uid, "gp_name");
 		foreach ($rows as $key => $db_row) {
@@ -97,10 +98,10 @@ switch ($op) {
 			</tr>
 			</tbody>
 			</table>
-			<p>"._('Or').": <input type=text size=20 maxlength=20 name=p_num_text value=\"$dst_p_num\">
+			<p>"._('Or').": <input type=text size=20 maxlength=20 name=p_num_text value=\"$to\">
 			$sms_template
 			<p>"._('Message').":
-			<br><textarea cols=\"39\" rows=\"5\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
+			<br><textarea cols=\"39\" rows=\"5\" onFocus=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
 			<br><input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
 			<input type=\"hidden\" value=\"".$core_config['user']['opt']['sms_footer_length']."\" name=\"footerlen\"> 
 			<input type=\"hidden\" value=\"".$core_config['user']['opt']['per_sms_length']."\" name=\"maxchar\"> 
@@ -111,6 +112,10 @@ switch ($op) {
 			<p><input type=checkbox name=msg_unicode onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\"> "._('Send as unicode message (http://www.unicode.org)')."
 			<p><input type=submit class=button value='"._('Send')."' onClick=\"selectAllOptions(this.form['p_num[]'])\"> 
 			</form>";
+		$content .= "
+			<script type=\"text/javascript\" language=\"JavaScript\">
+				document.forms['fm_sendsms'].elements['message'].focus();
+			</script>";
 		echo $content;
 		break;
 	case "sendsmstopv_yes":

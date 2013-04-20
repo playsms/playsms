@@ -48,9 +48,15 @@ switch ($op) {
 		for ($j=0;$j<count($list);$j++) {
 			$in_username = $list[$j]['username'];
 			$in_msg = core_display_text($list[$j]['in_msg'], 25);
+			$in_sender = $list[$j]['in_sender'];
+			$reply = '';
+			$forward = '';
+			if (($msg=$list[$j]['in_msg']) && $in_sender) {
+				$reply = '<br />'._a('index.php?app=menu&inc=send_sms&op=sendsmstopv&do=reply&message='.urlencode($msg).'&to='.urlencode($in_sender), _('reply'));
+				$forward = _a('index.php?app=menu&inc=send_sms&op=sendsmstopv&do=forward&message='.urlencode($msg), _('forward'));
+			}
 			$list[$j] = core_display_data($list[$j]);
 			$in_id = $list[$j]['in_id'];
-			$in_sender = $list[$j]['in_sender'];
 			$p_desc = phonebook_number2name($in_sender);
 			$current_sender = $in_sender;
 			if ($p_desc) {
@@ -65,7 +71,7 @@ switch ($op) {
 					<td valign=top class=$td_class align=center>$in_username</td>
 					<td valign=top class=$td_class align=center>$in_datetime</td>
 					<td valign=top class=$td_class align=center>$current_sender</td>
-					<td valign=top class=$td_class align=left>$in_msg</td>
+					<td valign=top class=$td_class align=left>$in_msg $reply $forward</td>
 					<td class=$td_class width=4>
 						<input type=hidden name=itemid".$j." value=\"$in_id\">
 						<input type=checkbox name=checkid".$j.">

@@ -103,4 +103,14 @@ function _b($url) {
 	return themes_button_back($url);
 }
 
+function themes_link($url, $title='') {
+	$c_title = ( $title ? $title : $url );
+	$content = "<a href=\"".$url."\">".$c_title."</a>";
+	return $content;
+}
+
+function _a($url, $title='') {
+	return themes_link($url, $title);
+}
+
 ?>
