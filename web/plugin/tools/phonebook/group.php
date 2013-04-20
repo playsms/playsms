@@ -94,7 +94,8 @@ switch ($op) {
 			</table>
 			<p>"._('Note').": "._('Group code used by keyword')." BC ("._('broadcast SMS from single SMS').")
 			<p><input type=submit class=button value=\""._('Save')."\"> 
-			</form>";
+			</form>
+			<p>"._b('index.php?app=menu&inc=tools_phonebook&route=group&op=list');
 		echo $content;
 		break;
 	case "edit":
@@ -120,7 +121,7 @@ switch ($op) {
 			<p>"._('Note').": "._('Group code used by keyword')." BC ("._('broadcast SMS from single SMS').")
 			<p><input type=submit class=button value=\""._('Save')."\"> 
 			</form>
-			<p>"._('index.php?app=menu&inc=tools_phonebook&route=group&op=list');
+			<p>"._b('index.php?app=menu&inc=tools_phonebook&route=group&op=list');
 		if ($err = $_SESSION['error_string']) {
 			echo "<div class=error_string>$err</div><br><br>";
 		}
