@@ -11,7 +11,7 @@
  */
 function inboxgroup_hook_checkavailablekeyword($keyword) {
 	$ok = true;
-	$db_query = "SELECT id FROM " . _DB_PREF_ . "_featureInboxgroup WHERE keywords LIKE '%$keyword%'";
+	$db_query = "SELECT id FROM " . _DB_PREF_ . "_featureInboxgroup WHERE keywords LIKE '%$keyword%' AND deleted='0'";
 	if ($db_result = dba_num_rows($db_query)) {
 		$ok = false;
 	}

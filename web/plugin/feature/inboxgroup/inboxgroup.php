@@ -67,8 +67,7 @@ switch ($op) {
 			</table>
 			<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&op=add'>
 			<p><input class='button' type='submit' value='"._('Add receiver number')."'></p>
-			</form>
-		";
+			</form>";
 		echo $content;
 		break;
 	case 'add':
@@ -86,7 +85,7 @@ switch ($op) {
 			</table>
 			<p><input class='button' type='submit' value='"._('Submit')."'></p>
 			</form>
-		";
+			"._b('index.php?app=menu&inc=feature_inboxgroup&op=list');
 		echo $content;
 		break;
 	case 'add_submit':
