@@ -6,6 +6,7 @@ $c_username = $core_config['user']['username'];
 
 if (($uname = $_REQUEST['uname']) && isadmin()) {
 	$c_username = trim($uname);
+	$url_uname = '&uname='.$c_username;
 }
 
 switch ($op) {
@@ -152,15 +153,22 @@ switch ($op) {
 			}
 		}
 
-		$core_config['denycustomsender'] ? $senderidstatus="disabled" : $senderidstatus="";
+		if ($core_config['denycustomsender']) {
+			$option_sender_id = "<tr><td width=200>" . _('SMS sender ID') . "</td><td>:</td><td><b>".sendsms_get_sender($c_username)."</b></td></tr>";
+		} else {
+			$option_sender_id = "<tr><td width=200>" . _('SMS sender ID') . "</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"$sender\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td></tr>";
+		}
 		if ($uname && isadmin()) {
 			$content .= "<h2>" . _('Manage user') . "</h2>";
+			$option_credit = "<tr><td width=200>" . _('Credit') . "</td><td>:</td><td><b><input type=text size=10 maxlength=10 name=up_credit value=\"$credit\"></td></tr>";
+			$button_delete = "<input type=button class=button value='". _('Delete') ."' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=menu&inc=user_mgmnt&op=user_del".$url_uname."')\">";
 		} else {
 			$content .= "<h2>" . _('Preferences') . "</h2>";
+			$option_credit = "<tr><td width=200>" . _('Credit') . "</td><td>:</td><td><b>$credit</b></td></tr>";
 		}
 		$content .= "
 			<p>
-			<form action=\"index.php?app=menu&inc=user_pref&op=user_pref_save&uname=".$c_username."\" method=post enctype=\"multipart/form-data\">
+			<form action=\"index.php?app=menu&inc=user_pref&op=user_pref_save".$url_uname."\" method=post enctype=\"multipart/form-data\">
 			<table width=100% cellpadding=1 cellspacing=1 border=0>
 			<tbody>
 			<tr><td colspan=3><h2>" . _('Login information') . "</h2><hr></td></tr>
@@ -185,9 +193,9 @@ switch ($op) {
 			<tr><td width=200>" . _('Enable webservices') . "</td><td>:</td><td><select name='up_enable_webservices'>" . $option_enable_webservices . "</select></td></tr>
 			<tr><td width=200>" . _('Webservices IP range') . "</td><td>:</td><td><input type=text size=30 maxlength=100 name=up_webservices_ip value=\"$webservices_ip\"> ("._('Comma seperated').")</td></tr>
 			<tr><td width=200>" . _('Timezone') . "</td><td>:</td><td><input type=text size=5 maxlength=5 name=up_datetime_timezone value=\"$datetime_timezone\"> (" . _('Eg: +0700 for Jakarta/Bangkok timezone') . ")</td></tr>
-			<tr><td width=200>" . _('SMS sender ID') . "</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"$sender\" $senderidstatus> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td></tr>
+			".$option_sender_id."
 			<tr><td width=200>" . _('SMS footer') . "</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_footer value=\"$footer\"> (" . _('Max. 30 alphanumeric characters') . ")</td></tr>
-			<tr><td width=200>" . _('Credit') . "</td><td>:</td><td><b>$credit</b></td></tr>
+			".$option_credit."
 			<tr><td width=200>" . _('Forward SMS to inbox') . "</td><td>:</td><td><select name='up_fwd_to_inbox'>" . $option_fwd_to_inbox . "</select></td></tr>
 			<tr><td width=200>" . _('Forward SMS to email') . "</td><td>:</td><td><select name='up_fwd_to_email'>" . $option_fwd_to_email . "</select></td></tr>
 			<tr><td width=200>" . _('Forward SMS to mobile') . "</td><td>:</td><td><select name='up_fwd_to_mobile'>" . $option_fwd_to_mobile . "</select></td></tr>
@@ -199,7 +207,7 @@ switch ($op) {
 			<tr><td colspan=3><hr></td></tr>
 			<tr><td width=200>
 				<input type=submit class=button value='" . _('Save') . "'>
-				<input type=button class=button value='". _('Delete') ."' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $c_username . "')\">
+				".$button_delete."
 			</td></tr>
 			</tbody>
 			</table>
@@ -210,11 +218,17 @@ switch ($op) {
 		$_SESSION['error_string'] = _('No changes made');
 		$fields = array(
 			'name', 'email', 'address', 'city', 'state', 'country', 'mobile',
-			'sender', 'footer', 'password', 'zipcode', 'datetime_timezone', 
-			'language_module', 'fwd_to_inbox', 'fwd_to_email', 'fwd_to_mobile',
-			'local_length','replace_zero', 'plus_sign_remove', 'plus_sign_add',
+			'footer', 'password', 'zipcode', 'datetime_timezone', 'language_module',
+			'fwd_to_inbox', 'fwd_to_email', 'fwd_to_mobile', 'local_length',
+			'replace_zero', 'plus_sign_remove', 'plus_sign_add',
 			'new_token', 'enable_webservices', 'webservices_ip'
 		);
+		if (! $core_config['denycustomsender']) {
+			$fields[] = 'sender';
+		}
+		if ($uname && isadmin()) {
+			$fields[] = 'credit';
+		}
 		for ($i=0;$i<count($fields);$i++) {
 			$up[$fields[$i]] = trim($_POST['up_'.$fields[$i]]);
 		}
@@ -257,7 +271,7 @@ switch ($op) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all field');
 		}
-		header("Location: index.php?app=menu&inc=user_pref&op=user_pref&uname=".$c_username);
+		header("Location: index.php?app=menu&inc=user_pref&op=user_pref".$url_uname);
 		exit();
 		break;
 }
