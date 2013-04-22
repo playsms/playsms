@@ -69,7 +69,7 @@ switch ($op) {
 			<p>"._b('index.php?app=menu&inc=tools_phonebook&op=phonebook_list');
 
 		if ($err = $_SESSION['error_string']) {
-			echo "<div class=error_string>$err</div><br><br>";
+			echo "<div class=error_string>$err</div>";
 		}
 		echo $content;
 		break;
@@ -122,7 +122,7 @@ switch ($op) {
 			</form>
 			<p>"._b('index.php?app=menu&inc=tools_phonebook&route=group&op=list');
 		if ($err = $_SESSION['error_string']) {
-			echo "<div class=error_string>$err</div><br><br>";
+			echo "<div class=error_string>$err</div>";
 		}
 		echo $content;
 		break;

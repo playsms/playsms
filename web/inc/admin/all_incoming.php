@@ -96,7 +96,7 @@ switch ($op) {
 			</form>";
 
 		if ($err = $_SESSION['error_string']) {
-			echo "<div class=error_string>$err</div><br><br>";
+			echo "<div class=error_string>$err</div>";
 		}
 		echo $content;
 		break;
