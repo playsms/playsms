@@ -2,6 +2,12 @@
 defined('_SECURE_') or die('Forbidden');
 if (!valid()) { forcenoaccess(); };
 
+if (isadmin()) {
+	$sms_command_bin = $plugin_config['feature']['sms_command']['bin'];
+} else {
+	$sms_command_bin = $plugin_config['feature']['sms_command']['bin'].'/'.$core_config['user']['username'];
+}
+
 switch ($op) {
     case "sms_command_list":
         if ($err = $_SESSION['error_string']) {
@@ -11,7 +17,7 @@ switch ($op) {
 	    <h2>" . _('Manage command') . "</h2>";
         $content .= "<p>
 	    <input type=button value=\"" . _('Add SMS command') . "\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_command&op=sms_command_add')\" class=\"button\" />
-	    <p>" . _('SMS command exec path') . " : <b>" . $plugin_config['feature']['sms_command']['bin'] . "/</b>
+	    <p>" . _('SMS command exec path') . " : <b>" . $sms_command_bin . "/</b>
 	";
         if (!isadmin()) {
             $query_user_only = "WHERE uid='$uid'";
@@ -64,7 +70,7 @@ switch ($op) {
         $db_row = dba_fetch_array($db_result);
         $edit_command_keyword = $db_row['command_keyword'];
         $edit_command_exec = stripslashes($db_row['command_exec']);
-        $edit_command_exec = str_replace($plugin_config['feature']['sms_command']['bin'] . "/", '', $edit_command_exec);
+        $edit_command_exec = str_replace($sms_command_bin . "/", '', $edit_command_exec);
         $edit_command_return_as_reply = ( $db_row['command_return_as_reply'] == '1' ? 'checked' : '' );
         if ($err = $_SESSION['error_string']) {
             $content = "<div class=error_string>$err</div>";
@@ -82,7 +88,7 @@ switch ($op) {
 	    <p><b>{COMMANDKEYWORD}</b> " . _('will be replaced by command keyword') . "
 	    <p><b>{COMMANDPARAM}</b> " . _('will be replaced by command parameter passed to server from SMS') . "
 	    <p><b>{COMMANDRAW}</b> " . _('will be replaced by SMS raw message') . "
-	    <p>" . _('SMS command exec path') . ": <b>" . $plugin_config['feature']['sms_command']['bin'] . "</b>
+	    <p>" . _('SMS command exec path') . ": <b>" . $sms_command_bin . "</b>
 	    <p>" . _('SMS command exec') . ": <input type=text size=60 name=edit_command_exec value=\"$edit_command_exec\">
             <p>" . _('Make return as reply') . " : <input type=checkbox name=edit_command_return_as_reply $edit_command_return_as_reply></p>
 	    <p><input type=submit class=button value=\"" . _('Save') . "\">
@@ -145,7 +151,7 @@ switch ($op) {
 	    <p><b>{COMMANDKEYWORD}</b> " . _('will be replaced by command keyword') . "
 	    <p><b>{COMMANDPARAM}</b> " . _('will be replaced by command parameter passed to server from SMS') . "
 	    <p><b>{COMMANDRAW}</b> " . _('will be replaced by SMS raw message') . "
-	    <p>" . _('SMS command exec path') . ": <b>" . $plugin_config['feature']['sms_command']['bin'] . "</b>
+	    <p>" . _('SMS command exec path') . ": <b>" . $sms_command_bin . "</b>
 	    <p>" . _('SMS command exec') . ": <input type=text size=60 maxlength=200 name=add_command_exec value=\"$add_command_exec\">
 	    <p>" . _('Make return as reply') . " : <input type=checkbox name=add_command_return_as_reply></p>
 	    <p><input type=submit class=button value=\"" . _('Add') . "\">
