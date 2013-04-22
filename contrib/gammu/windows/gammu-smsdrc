@@ -1,0 +1,20 @@
+[gammu]
+port = com8:
+connection = at115200
+logfile = C:\gammu\logs\gammu.log
+logformat = textall
+
+[smsd]
+Service = files
+InboxPath = C:\playsms\spool\inbox\
+OutboxPath = C:\playsms\spool\outbox\
+SentSMSPath = C:\playsms\spool\sent\
+ErrorSMSPath = C:\playsms\spool\error\
+InboxFormat = unicode
+OutboxFormat = unicode
+TransmitFormat = auto
+debugLevel = 1
+LogFile = C:\gammu\logs\smsd.log
+DeliveryReport = sms
+DeliveryReportDelay = 7200
+CheckSecurity = 0
