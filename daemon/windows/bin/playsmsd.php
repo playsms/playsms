@@ -25,7 +25,6 @@ if (file_exists($PLAYSMS_PATH)) {
 				playsmsd();
 				getsmsinbox();
 				getsmsstatus();
-				execcommoncustomcmd();
 				echo "session:".mktime()."\n";
 				echo "end cycling\n";
 			}
