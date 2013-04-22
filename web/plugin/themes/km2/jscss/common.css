@@ -181,9 +181,17 @@ li {
 
 .error_string {
 	font-family: Verdana;
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: bold;
 	color: #ff0000;
+	background-color: #ededed;
+	margin-top: 3px;
+	margin-bottom: 10px;
+	margin-left: 0px;
+	margin-right: 0px;
+	text-align: center;
+	border: 1px solid #737A3A;
+	padding: 3px;
 }
 
 .required {
