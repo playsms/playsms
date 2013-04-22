@@ -113,4 +113,13 @@ function _a($url, $title='') {
 	return themes_link($url, $title);
 }
 
+function themes_button($url, $title) {
+	$content = "<input type=button class=button value=\"".$title."\" onClick=\"javascript:window.location.href='".$url."'\" />";
+	return $content;
+}
+
+function _button($url, $title) {
+	return themes_button($url, $title);
+}
+
 ?>
