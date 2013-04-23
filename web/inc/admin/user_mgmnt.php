@@ -23,7 +23,7 @@ switch ($op) {
 		$list = dba_search(_DB_PREF_.'_tblUser', '*', $conditions, $keywords, $extras);
 		$_SESSION['referrer'] = 'user_list_tab1';
 		if ($err = $_SESSION['error_string']) {
-			$content = "<p><font color='red'>$err</font><p>";
+			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
 			<h2>" . _('Manage user') . "</h2>
@@ -84,7 +84,7 @@ switch ($op) {
 		$list = dba_search(_DB_PREF_.'_tblUser', '*', $conditions, $keywords, $extras);
 		$_SESSION['referrer'] = 'user_list_tab2';
 		if ($err = $_SESSION['error_string']) {
-			$content = "<p><font color='red'>$err</font><p>";
+			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
 			<h2>" . _('Manage user') . "</h2>
@@ -151,7 +151,7 @@ switch ($op) {
 		break;
 	case "user_add":
 		if ($err = $_SESSION['error_string']) {
-			$content = "<p><font color='red'>$err</font><p>";
+			$content = "<div class=error_string>$err</div>";
 		}
 		$add_datetime_timezone = ( $add_datetime_timezone ? $add_datetime_timezone : $gateway_timezone );
 

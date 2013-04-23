@@ -68,7 +68,7 @@ switch ($op)
 		$rate = simplerate_getbyid($rateid);
 		if ($err = $_SESSION['error_string'])
 		{
-			$content = "<p><font color='red'>$err</font><p>";
+			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
 	    <h2>"._('Edit rate')."</h2>
@@ -120,7 +120,7 @@ switch ($op)
 	case "simplerate_add":
 		if ($err = $_SESSION['error_string'])
 		{
-			$content = "<p><font color='red'>$err</font><p>";
+			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
 	    <h2>"._('Add rate')."</h2>
