@@ -24,7 +24,7 @@ function bchash_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, 
 		return $ret;
 	}
 
-	// scan for @<username>
+	// scan for #<sender's phonebook group code>
 	$msg = explode(' ', $message);
 	if (count($msg) > 1) {
 		$in['sms_datetime'] = $sms_datetime;
