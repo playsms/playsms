@@ -89,25 +89,25 @@ switch ($op) {
 		$j=0;
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = uid2username($o_uid)) {
-			$j++;
-			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-			$list_of_param = "";
-			for ($i=1;$i<=7;$i++) {
-				$list_of_param .= $db_row['autoreply_scenario_param'.$i]."&nbsp;";
-			}
-			$action = "<a href=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit&autoreply_id=$autoreply_id&autoreply_scenario_id=".$db_row['autoreply_scenario_id'].">$icon_edit</a>";
-			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this SMS autoreply scenario ?')."','index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_del&autoreply_id=$autoreply_id&autoreply_scenario_id=".$db_row['autoreply_scenario_id']."')\">$icon_delete</a>";
-			if (isadmin()) {
-				$option_owner = "<td class=$td_class>$owner</td>";
-			}
-			$content .= "
-				<tr>
-					<td class=$td_class>&nbsp;$j.</td>
-					<td class=$td_class>$list_of_param</td>
-					<td class=$td_class>".$db_row['autoreply_scenario_result']."</td>
-					".$option_owner."
-					<td class=$td_class align=center>$action</td>
-				</tr>";
+				$j++;
+				$td_class = ($j % 2) ? "box_text_odd" : "box_text_even";
+				$list_of_param = "";
+				for ($i=1;$i<=7;$i++) {
+					$list_of_param .= $db_row['autoreply_scenario_param'.$i]."&nbsp;";
+				}
+				$action = "<a href=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit&autoreply_id=$autoreply_id&autoreply_scenario_id=".$db_row['autoreply_scenario_id'].">$icon_edit</a>";
+				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this SMS autoreply scenario ?')."','index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_del&autoreply_id=$autoreply_id&autoreply_scenario_id=".$db_row['autoreply_scenario_id']."')\">$icon_delete</a>";
+				if (isadmin()) {
+					$option_owner = "<td class=$td_class>$owner</td>";
+				}
+				$content .= "
+					<tr>
+						<td class=$td_class>&nbsp;$j.</td>
+						<td class=$td_class>$list_of_param</td>
+						<td class=$td_class>".$db_row['autoreply_scenario_result']."</td>
+						".$option_owner."
+						<td class=$td_class align=center>$action</td>
+					</tr>";
 			}
 		}
 		$content .= "
