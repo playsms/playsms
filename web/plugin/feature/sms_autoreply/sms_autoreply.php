@@ -4,26 +4,27 @@ if(!valid()){forcenoaccess();};
 
 switch ($op) {
 	case "sms_autoreply_list":
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
-		}
 		$content .= "
 			<h2>"._('Manage autoreply')."</h2>
-			<p>
-			<input type=button value=\""._('Add SMS autoreply')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_add')\" class=\"button\" />
-			<p>";
+			<p>"._button('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_add', _('Add SMS autoreply'));
 		if (!isadmin()) {
 			$query_user_only = "WHERE uid='$uid'";
 		}
 		$db_query = "SELECT * FROM "._DB_PREF_."_featureAutoreply $query_user_only ORDER BY autoreply_keyword";
-		$content .= "
-			<table cellpadding=1 cellspacing=2 border=0 width=100%>
-			<tr>
-				<td class=box_title width=5>*</td>
-				<td class=box_title width=100>"._('Keyword')."</td>
-				<td class=box_title>"._('User')."</td>
-				<td class=box_title width=75>"._('Action')."</td>
-			</tr>";
+		$content .= "<table cellpadding=1 cellspacing=2 border=0 width=100% class=sortable><thead><tr>";
+		if (isadmin()) {
+			$content .= "
+				<th width=4>*</th>
+				<th width=40%>"._('Keyword')."</th>
+				<th width=50%>"._('User')."</th>
+				<th width=10%>"._('Action')."</th>";
+		} else {
+			$content .= "
+				<th width=4>*</th>
+				<th width=90%>"._('Keyword')."</th>
+				<th width=10%>"._('Action')."</th>";
+		}
+		$content .= "</tr></thead><tbody>";
 		$db_result = dba_query($db_query);
 		$i=0;
 		while ($db_row = dba_fetch_array($db_result)) {
@@ -32,20 +33,25 @@ switch ($op) {
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 			$action = "<a href=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=".$db_row['autoreply_id'].">$icon_manage</a>&nbsp;";
 			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS autoreply ?')." ("._('keyword').": ".$db_row['autoreply_keyword'].")','index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_del&autoreply_id=".$db_row['autoreply_id']."')\">$icon_delete</a>";
+			if (isadmin()) {
+				$option_owner = "<td class=$td_class>$owner</td>";
+			}
 			$content .= "
 				<tr>
 					<td class=$td_class>&nbsp;$i.</td>
 					<td class=$td_class>".$db_row['autoreply_keyword']."</td>
-					<td class=$td_class>$owner</td>
+					".$option_owner."
 					<td class=$td_class align=center>$action</td>
 				</tr>";
 			}
 		}
-		$content .= "</table>";
+		$content .= "</tbody>
+			</table>
+			<p>"._button('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_add', _('Add SMS autoreply'));
+		if ($err = $_SESSION['error_string']) {
+			echo "<div class=error_string>$err</div>";
+		}
 		echo $content;
-		echo "
-			<p>
-			<input type=button value=\""._('Add SMS autoreply')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_add')\" class=\"button\" />";
 		break;
 	case "sms_autoreply_manage":
 		$autoreply_id = $_REQUEST['autoreply_id'];
@@ -57,24 +63,27 @@ switch ($op) {
 		$db_row = dba_fetch_array($db_result);
 		$manage_autoreply_keyword = $db_row['autoreply_keyword'];
 		$o_uid = $db_row['uid'];
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
-		}
 		$content .= "
 			<h2>"._('Manage autoreply')."</h2>
 			<p>
 			<p>"._('SMS autoreply keyword').": <b>$manage_autoreply_keyword</b>
-			<p>
-			<input type=button value=\""._('Add SMS autoreply scenario')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=$autoreply_id')\" class=\"button\" />
-			<p>
-			<table cellpadding=1 cellspacing=2 border=0 width=100%>
-			<tr>
-				<td class=box_title width=5>*</td>
-				<td class=box_title width=100>"._('Param')."</td>
-				<td class=box_title>"._('Return')."</td>
-				<td class=box_title width=100>"._('User')."</td>
-				<td class=box_title width=75>"._('Action')."</td>
-			</tr>";
+			<p>"._button('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id='.$autoreply_id, _('Add SMS autoreply scenario'))."
+			<table cellpadding=1 cellspacing=2 border=0 width=100% class=sortable><thead><tr>";
+		if (isadmin()) {
+			$content .= "
+				<th width=4>*</th>
+				<th width=20%>"._('Param')."</th>
+				<th width=50%>"._('Return')."</th>
+				<th width=20%>"._('User')."</th>
+				<th width=10%>"._('Action')."</th>";
+		} else {
+			$content .= "
+				<th width=4>*</th>
+				<th width=20%>"._('Param')."</th>
+				<th width=70%>"._('Return')."</th>
+				<th width=10%>"._('Action')."</th>";
+		}
+		$content .= "</tr></thead><tbody>";
 		$db_query = "SELECT * FROM "._DB_PREF_."_featureAutoreply_scenario WHERE autoreply_id='$autoreply_id' ORDER BY autoreply_scenario_param1";
 		$db_result = dba_query($db_query);
 		$j=0;
@@ -88,21 +97,27 @@ switch ($op) {
 			}
 			$action = "<a href=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit&autoreply_id=$autoreply_id&autoreply_scenario_id=".$db_row['autoreply_scenario_id'].">$icon_edit</a>";
 			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this SMS autoreply scenario ?')."','index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_del&autoreply_id=$autoreply_id&autoreply_scenario_id=".$db_row['autoreply_scenario_id']."')\">$icon_delete</a>";
+			if (isadmin()) {
+				$option_owner = "<td class=$td_class>$owner</td>";
+			}
 			$content .= "
 				<tr>
 					<td class=$td_class>&nbsp;$j.</td>
 					<td class=$td_class>$list_of_param</td>
 					<td class=$td_class>".$db_row['autoreply_scenario_result']."</td>
-					<td class=$td_class>$owner</td>
+					".$option_owner."
 					<td class=$td_class align=center>$action</td>
 				</tr>";
 			}
 		}
 		$content .= "
 			</table>
-			<p>
-			<input type=button value=\""._('Add SMS autoreply scenario')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=$autoreply_id')\" class=\"button\" />
-			</form>";
+			</form>
+			<p>"._button('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id='.$autoreply_id, _('Add SMS autoreply scenario'))."
+			<p>"._b('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_list');
+		if ($err = $_SESSION['error_string']) {
+			echo "<div class=error_string>$err</div>";
+		}
 		echo $content;
 		break;
 	case "sms_autoreply_del":
@@ -124,20 +139,22 @@ switch ($op) {
 		exit();
 		break;
 	case "sms_autoreply_add":
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
-		}
 		$content .= "
-			<h2>"._('Add SMS autoreply')."</h2>
+			<h2>"._('Manage autoreply')."</h2>
+			<h3>"._('Add SMS autoreply')."</h3>
 			<p>
 			<form action=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_add_yes method=post>
-			<p>"._('SMS autoreply keyword').": <input type=text size=10 maxlength=10 name=add_autoreply_keyword value=\"$add_autoreply_keyword\">
-			<p><input type=submit class=button value="._('Add').">
-			</form>";
+			<p>"._('SMS autoreply keyword')." : <input type=text size=10 maxlength=10 name=add_autoreply_keyword value=\"$add_autoreply_keyword\">
+			<p><input type=submit class=button value="._('Save').">
+			</form>
+			<p>"._b('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_list');
+		if ($err = $_SESSION['error_string']) {
+			echo "<div class=error_string>$err</div>";
+		}
 		echo $content;
 		break;
 	case "sms_autoreply_add_yes":
-		$add_autoreply_keyword = strtoupper($_POST['add_autoreply_keyword']);
+		$add_autoreply_keyword = trim(strtoupper($_POST['add_autoreply_keyword']));
 		if ($add_autoreply_keyword) {
 			if (checkavailablekeyword($add_autoreply_keyword)) {
 				$db_query = "INSERT INTO "._DB_PREF_."_featureAutoreply (uid,autoreply_keyword) VALUES ('$uid','$add_autoreply_keyword')";
@@ -173,11 +190,9 @@ switch ($op) {
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$autoreply_keyword = $db_row['autoreply_keyword'];
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
-		}
 		$content .= "
-			<h2>"._('Add SMS autoreply scenario')."</h2>
+			<h2>"._('Manage autoreply')."</h2>
+			<h3>"._('Add SMS autoreply scenario')."</h3>
 			<p>
 			<p>"._('SMS autoreply keyword').": <b>$autoreply_keyword</b>
 			<p>
@@ -195,16 +210,19 @@ switch ($op) {
 				<td>"._('SMS autoreply scenario replies with')."</td><td>:</td><td><input type=text size=60 name=add_autoreply_scenario_result value=\"$add_autoreply_scenario_result\"></td>
 			</tr>
 			</table>
-			<p><input type=submit class=button value="._('Add').">
+			<p><input type=submit class=button value="._('Save').">
 			</form>
 			<p>"._b('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id='.$autoreply_id);
+		if ($err = $_SESSION['error_string']) {
+			echo "<div class=error_string>$err</div>";
+		}
 		echo $content;
 		break;
 	case "sms_autoreply_scenario_add_yes":
 		$autoreply_id = $_POST['autoreply_id'];
 		$add_autoreply_scenario_result = $_POST['add_autoreply_scenario_result'];
 		for ($i=1;$i<=7;$i++) {
-			${"add_autoreply_scenario_param".$i} = strtoupper($_POST['add_autoreply_scenario_param'.$i]);
+			${"add_autoreply_scenario_param".$i} = trim(strtoupper($_POST['add_autoreply_scenario_param'.$i]));
 		}
 		if ($add_autoreply_scenario_result) {
 			for ($i=1;$i<=7;$i++) {
@@ -234,11 +252,9 @@ switch ($op) {
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$autoreply_keyword = $db_row['autoreply_keyword'];
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
-		}
 		$content .= "
-			<h2>"._('Edit SMS autoreply scenario')."</h2>
+			<h2>"._('Manage autoreply')."</h2>
+			<h3>"._('Edit SMS autoreply scenario')."</h3>
 			<p>
 			<p>"._('SMS autoreply keyword').": <b>$autoreply_keyword</b>
 			<p>
@@ -267,6 +283,9 @@ switch ($op) {
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
 			<p>"._b('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id='.$autoreply_id);
+		if ($err = $_SESSION['error_string']) {
+			echo "<div class=error_string>$err</div>";
+		}
 		echo $content;
 		break;
 	case "sms_autoreply_scenario_edit_yes":
@@ -274,7 +293,7 @@ switch ($op) {
 		$autoreply_id = $_POST['autoreply_id'];
 		$edit_autoreply_scenario_result = $_POST['edit_autoreply_scenario_result'];
 		for ($i=1;$i<=7;$i++) {
-			${"edit_autoreply_scenario_param".$i} = strtoupper($_POST['edit_autoreply_scenario_param'.$i]);
+			${"edit_autoreply_scenario_param".$i} = trim(strtoupper($_POST['edit_autoreply_scenario_param'.$i]));
 		}
 		if ($edit_autoreply_scenario_result) {
 			for ($i=1;$i<=7;$i++) {

@@ -54,7 +54,7 @@ function sms_autoreply_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$au
 	global $datetime_now;
 	$ok = false;
 	$autoreply_request = $autoreply_keyword." ".$autoreply_param;
-	$array_autoreply_request = explode(" ",$autoreply_request);
+	$array_autoreply_request = preg_split('/[\s]+/',$autoreply_request);
 	for ($i=0;$i<count($array_autoreply_request);$i++) {
 		$autoreply_part[$i] = trim($array_autoreply_request[$i]);
 		$tmp_autoreply_request .= trim($array_autoreply_request[$i])." ";
