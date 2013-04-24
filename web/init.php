@@ -69,11 +69,6 @@ $core_config['http_path'] = $http_path;
 // load init functions
 include_once $apps_path['libs']."/fn_init.php";
 
-// include essential functions
-include_once $apps_path['libs']."/dba.php";
-include_once $apps_path['libs']."/fn_user.php";
-include_once $apps_path['libs']."/fn_auth.php";
-
 // if magic quotes gps is set to Off (which is recommended) then addslashes all requests
 if (! get_magic_quotes_gpc()) {
 	foreach($_GET as $key => $val){$_GET[$key]=pl_addslashes($_GET[$key]);}
