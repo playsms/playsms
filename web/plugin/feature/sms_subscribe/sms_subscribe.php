@@ -244,13 +244,7 @@ switch ($op) {
 				for ($i = 0; $i < count($sms_to); $i++) {
 					//list($ok,$to,$smslog_id,$queue) = sendsms($username, $sms_to, $message);
 					//$ok = $ok[0];
-					$unicode = 0;
-					if (function_exists('mb_detect_encoding')) {
-						$encoding = mb_detect_encoding($message, 'auto');
-						if ($encoding != 'ASCII') {
-							$unicode = 1;
-						}
-					}
+					$unicode = core_detect_unicode($message);
 					list($ok, $to, $smslog_id, $queue) = sendsms($username, $sms_to, $message, 'text', $unicode);
 					if ($ok[0]) {
 						$_SESSION['error_string'] .= _('Your SMS has been delivered to queue')." ("._('to').": ".$sms_to.")<br>";

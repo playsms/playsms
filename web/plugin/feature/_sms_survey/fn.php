@@ -36,13 +36,7 @@ function sms_survey_hook_playsmsd() {
 						// $unicode = '0';
 						// send message to member
 						// list($ok,$to,$smslog_id,$queue) = sendsms($c_username,$c_sms_to,$c_sms_msg,$type,$unicode);
-						$unicode = 0;
-						if (function_exists('mb_detect_encoding')) {
-							$encoding = mb_detect_encoding($message, 'auto');
-							if ($encoding != 'ASCII') {
-								$unicode = 1;
-							}
-						}
+						$unicode = core_detect_unicode($message);
 						list($ok, $to, $smslog_id, $queue) = sendsms($c_username, $c_sms_to, $c_sms_msg, 'text', $unicode);
 						$ok[0] = $ok[0] ? "true" : "false" ;
 						logger_print("playsmsd send finish sid:".$c_sid." smslog_id:".$smslog_id[0]." ok:".$ok[0], 2, "sms_survey");

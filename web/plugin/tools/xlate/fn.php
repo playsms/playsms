@@ -51,13 +51,7 @@ function xlate_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $
 						logger_print("failed dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." w:".$words." from:".$xlate_from." to:".$xlate_to, 2, "xlate");
 					}
 					// detect reply message, set unicode if not ASCII
-					$unicode = 0;
-					if (function_exists('mb_detect_encoding')) {
-						$encoding = mb_detect_encoding($reply, 'auto');
-						if ($encoding != 'ASCII') {
-			    $unicode = 1;
-						}
-					}
+					$unicode = core_detect_unicode($reply);
 					// send reply SMS using admin account
 					// should add a web menu in xlate.php to choose which account will be used to send reply SMS
 					// usualy we inspect the result of sendsms, but not this time

@@ -62,13 +62,7 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver,
 			$message = _('Subscribe service inactive');
 			//list($ok,$to,$smslog_id,$queue) = sendsms($username, $sms_to, $message);
 			//$ok = $ok[0];
-			$unicode = 0;
-			if (function_exists('mb_detect_encoding')) {
-				$encoding = mb_detect_encoding($message, 'auto');
-				if ($encoding != 'ASCII') {
-					$unicode = 1;
-				}
-			}
+			$unicode = core_detect_unicode($message);
 			list($ok, $to, $smslog_id, $queue) = sendsms($username, $sms_to, $message, 'text', $unicode);
 			return $ok[0];
 		}
@@ -102,13 +96,7 @@ function sms_subscribe_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver,
 			$bc_to[] = $db_row1['member_number'];
 		}
 		if ($sms_to[0]) {
-			$unicode = 0;
-			if (function_exists('mb_detect_encoding')) {
-				$encoding = mb_detect_encoding($message, 'auto');
-				if ($encoding != 'ASCII') {
-					$unicode = 1;
-				}
-			}
+			$unicode = core_detect_unicode($message);
 			logger_print('BC sender:'.$sms_sender.' keyword:'.$subscribe_keyword.' count:'.count($bc_to).' m:'.$message, 3, "sms_subscribe");
 			list($ok, $to, $smslog_id, $queue) = sendsms($username, $bc_to, $message, 'text', $unicode);
 			return true;

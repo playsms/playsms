@@ -74,13 +74,7 @@ function sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$comm
 		logger_print("command_exec:".$command_exec, 3, "sms command");
 		$command_output = shell_exec(stripslashes($command_exec));
 		if ($command_return_as_reply == 1) {
-			$unicode = 0;
-			if (function_exists('mb_detect_encoding')) {
-				$encoding = mb_detect_encoding($command_output, 'auto');
-				if ($encoding != 'ASCII') {
-					$unicode = 1;
-				}
-			}
+			$unicode = core_detect_unicode($command_output);
 			$command_output = addslashes($command_output);
 			logger_print("command_output:".$command_output, 3, "sms command");
 			sendsms($username, $sms_sender, $command_output, 'text', $unicode);

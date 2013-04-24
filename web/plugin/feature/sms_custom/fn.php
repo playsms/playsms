@@ -73,13 +73,7 @@ function sms_custom_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$custo
 		logger_print("custom_url:".$custom_url, 3, "sms custom");
 		$returns = file_get_contents($custom_url);
 		if ($custom_return_as_reply == 1) {
-			$unicode = 0;
-			if (function_exists('mb_detect_encoding')) {
-				$encoding = mb_detect_encoding($returns, 'auto');
-				if ($encoding != 'ASCII') {
-					$unicode = 1;
-				}
-			}
+			$unicode = core_detect_unicode($returns);
 			$returns = addslashes($returns);
 			logger_print("returns:".$returns, 3, "sms custom");
 			sendsms($username, $sms_sender, $returns, 'text', $unicode);

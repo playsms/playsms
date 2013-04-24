@@ -21,13 +21,7 @@ function myauto_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, 
 	// reply message
 	$reply = 'Thank you for your message';
 	// detect reply message, set unicode if not ASCII
-	$unicode = 0;
-	if (function_exists('mb_detect_encoding')) {
-		$encoding = mb_detect_encoding($reply, 'auto');
-		if ($encoding != 'ASCII') {
-			$unicode = 1;
-		}
-	}
+	$unicode = core_detect_unicode($reply);
 	// send reply
 	list($ok, $to, $smslog_id, $queue) = sendsms('admin', $sms_sender, $reply, 'text', $unicode);
 	// log it

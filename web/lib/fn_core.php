@@ -280,4 +280,17 @@ function core_net_match($network, $ip) {
 	}
 }
 
+function core_detect_unicode($text) {
+	$unicode = 0;
+	if (function_exists('mb_detect_encoding')) {
+		$encoding = mb_detect_encoding($text, 'auto');
+		if ($encoding != 'ASCII') {
+			$unicode = 1;
+		}
+	} else {
+		$unicode = false;
+	}
+	return $unicode;
+}
+
 ?>

@@ -25,13 +25,7 @@ function sms_autosend_hook_playsmsd() {
 		$sms_to = $db_row['autosend_number']; // we are sending to this number
 		$autosend_id = $db_row['autosend_id'];
 		$time_id = $db_row['time_id'];
-		$unicode = 0;
-		if (function_exists('mb_detect_encoding')) {
-			$encoding = mb_detect_encoding($message, 'auto');
-			if ($encoding != 'ASCII') {
-				$unicode = 1;
-			}
-		}
+		$unicode = core_detect_unicode($message);
 		list($ok, $to, $smslog_id, $queue) = sendsms($username, $sms_to, $message, 'text', $unicode);
 		if ($ok[0]) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureAutosend_time SET sent='1' WHERE time_id = '$time_id'";

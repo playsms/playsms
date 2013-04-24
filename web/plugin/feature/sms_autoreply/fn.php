@@ -71,13 +71,7 @@ function sms_autoreply_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$au
 	if ($autoreply_scenario_result = $db_row['autoreply_scenario_result']) {
 		$ok = false;
 		$c_username = uid2username($c_uid);
-		$unicode = 0;
-		if (function_exists('mb_detect_encoding')) {
-			$encoding = mb_detect_encoding($message, 'auto');
-			if ($encoding != 'ASCII') {
-				$unicode = 1;
-			}
-		}
+		$unicode = core_detect_unicode($message);
 		list($ok, $to, $smslog_id, $queue) = sendsms($c_username, $sms_sender, $autoreply_scenario_result, 'text', $unicode);
 		$ok = $ok[0];
 	}

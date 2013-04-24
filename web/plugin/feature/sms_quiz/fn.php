@@ -69,13 +69,7 @@ function sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $qui
 		$db_query = "INSERT INTO " . _DB_PREF_ . "_featureQuiz_log (quiz_id,quiz_answer,quiz_sender,in_datetime) VALUES ('$quiz_id','$answer','$sms_to','$datetime_now')";
 		if ($logged = @dba_insert_id($db_query)) {
 			//list($ok,$to,$smslog_id,$queue) = sendsms($username, $sms_to, $message);
-			$unicode = 0;
-			if (function_exists('mb_detect_encoding')) {
-				$encoding = mb_detect_encoding($message, 'auto');
-				if ($encoding != 'ASCII') {
-					$unicode = 1;
-				}
-			}
+			$unicode = core_detect_unicode($message);
 			list($ok, $to, $smslog_id, $queue) = sendsms($username, $sms_to, $message, 'text', $unicode);
                         $ok = $ok[0];
 		}

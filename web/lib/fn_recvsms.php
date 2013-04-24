@@ -257,13 +257,7 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 			// forward to mobile
 			if ($fwd_to_mobile = $user['fwd_to_mobile']) {
 				if ($mobile = $user['mobile']) {
-					$unicode = 0;
-					if (function_exists('mb_detect_encoding')) {
-						$encoding = mb_detect_encoding($message, 'auto');
-						if ($encoding != 'ASCII') {
-							$unicode = 1;
-						}
-					}
+					$unicode = core_detect_unicode($message);
 					$message = $sender.' '.$message;
 					logger_print("send to mobile:".$mobile." from:".$sms_sender." user:".$target_user." message:".$message, 3, "insertsmstoinbox");
 					list($ok, $to, $smslog_id, $queue) = sendsms($target_user, $mobile, $message, 'text', $unicode);
