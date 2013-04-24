@@ -43,6 +43,9 @@ switch ($op)
 		<td>"._('Password')."</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password value=\"\"> ("._('Fill to change the password').")</td>
 	    </tr>	    
 	    <tr>
+		<td>"._('Webservice token')."</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_token value=\"".$uplink_param['token']."\"></td>
+	    </tr>	    
+	    <tr>
 		<td>"._('Module sender ID')."</td><td>:</td><td><input type=text size=11 maxlength=11 name=up_global_sender value=\"".$uplink_param['global_sender']."\"> ("._('Max. 16 numeric or 11 alphanumeric char. empty to disable').")</td>
 	    </tr>
 	    <tr>
@@ -65,6 +68,7 @@ switch ($op)
 		$up_additional_param = $_POST['up_additional_param'];
 		$up_username = $_POST['up_username'];
 		$up_password = $_POST['up_password'];
+		$up_token = $_POST['up_token'];
 		$up_global_sender = $_POST['up_global_sender'];
 		$up_global_timezone = $_POST['up_global_timezone'];
 		$up_incoming_path = $_POST['up_incoming_path'];
@@ -95,6 +99,7 @@ switch ($op)
 		    cfg_additional_param='$up_additional_param',
 		    cfg_username='$up_username',
 		    ".$password_change."
+		    cfg_token='$up_token',
 		    cfg_global_sender='$up_global_sender',
 		    cfg_datetime_timezone='$up_global_timezone',
 		    cfg_incoming_path='$up_incoming_path'";

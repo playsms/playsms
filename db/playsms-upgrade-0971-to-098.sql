@@ -18,6 +18,8 @@ ALTER TABLE `playsms_featureSubscribe` ADD `subscribe_param` varchar(20) NOT NUL
 ALTER TABLE `playsms_featureSubscribe` ADD `unsubscribe_param` varchar(20) NOT NULL ;
 ALTER TABLE `playsms_featureSubscribe` ADD `forward_param` varchar(20) NOT NULL ;
 
+ALTER TABLE `playsms_gatewayUplink_config` ADD `cfg_token` varchar(32) NULL AFTER `cfg_password` ;
+
 ALTER TABLE  `playsms_toolsSimplephonebook` CHANGE  `c_timestamp`  `c_timestamp` INT( 11 ) NOT NULL DEFAULT  '0',
 CHANGE  `pid`  `id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
 CHANGE  `gpid`  `gpid` INT( 11 ) NOT NULL DEFAULT  '0',

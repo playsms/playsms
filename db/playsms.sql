@@ -1042,6 +1042,7 @@ CREATE TABLE `playsms_gatewayUplink_config` (
   `cfg_master` varchar(250) DEFAULT NULL,
   `cfg_username` varchar(100) DEFAULT NULL,
   `cfg_password` varchar(100) DEFAULT NULL,
+  `cfg_token` varchar(32) DEFAULT NULL,
   `cfg_global_sender` varchar(20) DEFAULT NULL,
   `cfg_incoming_path` varchar(250) DEFAULT NULL,
   `cfg_additional_param` varchar(250) DEFAULT NULL,
@@ -1055,7 +1056,7 @@ CREATE TABLE `playsms_gatewayUplink_config` (
 
 LOCK TABLES `playsms_gatewayUplink_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayUplink_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayUplink_config` VALUES (0,'uplink','http://playsms.master.url','playsms','playsms','','/var/spool/playsms','','+0700');
+INSERT INTO `playsms_gatewayUplink_config` VALUES (0,'uplink','http://playsms.master.url','','','','','/var/spool/playsms','','+0700');
 /*!40000 ALTER TABLE `playsms_gatewayUplink_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
