@@ -18,9 +18,6 @@ include $apps_path['libs']."/fn_download.php";
 // init global variables
 include $apps_path['libs']."/lib_init1.php";
 
-// custom functions before plugins loading
-include $apps_path['libs']."/fn_custom1.php";
-
 // load plugin's config and libraries
 for ($i=0;$i<count($plugins_category);$i++) {
 	if ($pc = $plugins_category[$i]) {
@@ -77,8 +74,5 @@ if (function_exists('bindtextdomain')) {
 
 // init global variables after plugins
 include $apps_path['libs']."/lib_init2.php";
-
-// custom functions after plugins loaded
-include $apps_path['libs']."/fn_custom2.php";
 
 ?>
