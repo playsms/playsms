@@ -43,7 +43,7 @@ switch ($op)
 		<td>"._('Password')."</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password value=\"\"> ("._('Fill to change the password').")</td>
 	    </tr>	    
 	    <tr>
-		<td>"._('Webservice token')."</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_token value=\"".$uplink_param['token']."\"></td>
+		<td>"._('Webservice token')."</td><td>:</td><td><input type=text size=30 maxlength=32 name=up_token value=\"".$uplink_param['token']."\"></td>
 	    </tr>	    
 	    <tr>
 		<td>"._('Module sender ID')."</td><td>:</td><td><input type=text size=11 maxlength=11 name=up_global_sender value=\"".$uplink_param['global_sender']."\"> ("._('Max. 16 numeric or 11 alphanumeric char. empty to disable').")</td>
