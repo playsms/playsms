@@ -21,14 +21,12 @@ if ($err = $_SESSION['error_string']) {
 // main
 switch ($op) {
 	case 'list':
-		$content = '<h2>'._('Group inbox').'</h2><p />';
 		if ($error_content) {
 			$content .= $error_content;
 		}
 		$content .= "
-			<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&op=add'>
-			<p><input class='button' type='submit' value='"._('Add group inbox')."'></p>
-			</form>
+			<h2>"._('Group inbox')."</h2>
+			<p>"._button('index.php?app=menu&inc=feature_inboxgroup&op=add', _('Add group inbox'))."
 			<table width='100%' cellpadding='1' cellspacing='2' border='0' class='sortable'>
 			<thead><tr>
 				<th width='4'>*</th>
@@ -65,17 +63,15 @@ switch ($op) {
 		$content .= "
 			</tbody>
 			</table>
-			<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&op=add'>
-			<p><input class='button' type='submit' value='"._('Add group inbox')."'></p>
-			</form>";
+			<p>"._button('index.php?app=menu&inc=feature_inboxgroup&op=add', _('Add group inbox'));
 		echo $content;
 		break;
 	case 'add':
-		$content = '<h2>'._('Group inbox').'</h2><p />';
 		if ($error_content) {
 			$content .= $error_content;
 		}
-		$content .= '<h3>'._('Add group inbox').'</h3><p />';
+		$content .= "<h2>"._('Group inbox')."</h2>";
+		$content .= "<h3>"._('Add group inbox')."</h3>";
 		$content .= "
 			<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&op=add_submit'>
 			<table cellpadding='1' cellspacing='2' border='0'>
@@ -105,11 +101,6 @@ switch ($op) {
 		exit();
 		break;
 	case 'edit':
-		$content = '<h2>'._('Group inbox').'</h2><p />';
-		if ($error_content) {
-			$content .= $error_content;
-		}
-		$content .= '<h3>'._('Edit group inbox').'</h3><p />';
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
 		$in_receiver = $data['in_receiver'];
@@ -118,6 +109,11 @@ switch ($op) {
 		$selected_1 = $data['exclusive'] ? 'selected' : '' ;
 		if (! $selected_1) { $selected_0 = 'selected'; };
 		$option_exclusive = "<option value='1' ".$selected_1.">"._('yes')."</option><option value='0' ".$selected_0.">"._('no')."</option>";
+		if ($error_content) {
+			$content .= $error_content;
+		}
+		$content .= "<h2>"._('Group inbox')."</h2>";
+		$content .= "<h3>"._('Edit group inbox')."</h3>";
 		$content .= "
 			<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&op=edit_submit'>
 			<input type='hidden' name='rid' value='$rid'>
@@ -152,11 +148,6 @@ switch ($op) {
 		exit();
 		break;
 	case 'del':
-		$content = '<h2>'._('Group inbox').'</h2><p />';
-		if ($error_content) {
-			$content .= $error_content;
-		}
-		$content .= '<h3>'._('Delete group inbox').'</h3><p />';
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
 		$in_receiver = $data['in_receiver'];
@@ -168,6 +159,11 @@ switch ($op) {
 		$c_catchall = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid=".$rid."'>".$c_catchall."</a>";
 		$c_status = $data
 		['status'] ? "<font color='green'>"._('enabled')."</font>" : "<font color='red'>"._('disabled')."</font>";
+		if ($error_content) {
+			$content .= $error_content;
+		}
+		$content .= "<h2>"._('Group inbox')."</h2>";
+		$content .= "<h3>"._('Delete group inbox')."</h3>";
 		$content .= "
 			<table cellpadding='1' cellspacing='2' border='0'>
 			<tr><td>"._('Receiver number')."</td><td>:</td><td>".$in_receiver."</td></tr>

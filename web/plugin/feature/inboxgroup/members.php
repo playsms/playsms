@@ -11,11 +11,6 @@ if ($err = $_SESSION['error_string']) {
 // main
 switch ($op) {
 	case 'members':
-		$content = '<h2>'._('Group inbox').'</h2><p />';
-		if ($error_content) {
-			$content .= '<p>'.$error_content.'</p>';
-		}
-		$content .= '<h3>'._('Member list').'</h3><p />';
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
 		$in_receiver = $data['in_receiver'];
@@ -26,6 +21,11 @@ switch ($op) {
 		$c_catchall = count(inboxgroup_getcatchall($rid));
 		$c_catchall = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid=".$rid."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<font color='green'>"._('enabled')."</font>" : "<font color='red'>"._('disabled')."</font>";
+		if ($error_content) {
+			$content .= $error_content;
+		}
+		$content .= "<h2>"._('Group inbox')."</h2>";
+		$content .= "<h3>"._('Member list')."</h3>";
 		$content .= "
 			<table cellpadding='1' cellspacing='2' border='0'>
 			<tr><td>"._('Receiver number')."</td><td>:</td><td>".$in_receiver."</td></tr>
@@ -97,11 +97,6 @@ switch ($op) {
 		echo $content;
 		break;
 	case 'members_add':
-		$content = '<h2>'._('Group inbox').'</h2><p />';
-		if ($error_content) {
-			$content .= '<p>'.$error_content.'</p>';
-		}
-		$content .= '<h3>'._('Add member').'</h3><p />';
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
 		$in_receiver = $data['in_receiver'];
@@ -112,6 +107,11 @@ switch ($op) {
 		$c_catchall = count(inboxgroup_getcatchall($rid));
 		$c_catchall = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid=".$rid."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<font color='green'>"._('enabled')."</font>" : "<font color='red'>"._('disabled')."</font>";
+		if ($error_content) {
+			$content .= $error_content;
+		}
+		$content .= "<h2>"._('Group inbox')."</h2>";
+		$content .= "<h3>"._('Add member')."</h3>";
 		$content .= "
 			<table cellpadding='1' cellspacing='2' border='0'>
 			<tr><td>"._('Receiver number')."</td><td>:</td><td>".$in_receiver."</td></tr>
@@ -184,11 +184,6 @@ switch ($op) {
 		exit();
 		break;
 	case 'members_delete':
-		$content = '<h2>'._('Group inbox').'</h2><p />';
-		if ($error_content) {
-			$content .= '<p>'.$error_content.'</p>';
-		}
-		$content .= '<h3>'._('Remove member').'</h3><p />';
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
 		$in_receiver = $data['in_receiver'];
@@ -199,6 +194,11 @@ switch ($op) {
 		$c_catchall = count(inboxgroup_getcatchall($rid));
 		$c_catchall = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid=".$rid."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<font color='green'>"._('enabled')."</font>" : "<font color='red'>"._('disabled')."</font>";
+		if ($error_content) {
+			$content .= $error_content;
+		}
+		$content .= "<h2>"._('Group inbox')."</h2>";
+		$content .= "<h3>"._('Delete member')."</h3>";
 		$content .= "
 			<table cellpadding='1' cellspacing='2' border='0'>
 			<tr><td>"._('Receiver number')."</td><td>:</td><td>".$in_receiver."</td></tr>

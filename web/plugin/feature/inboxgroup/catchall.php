@@ -11,11 +11,6 @@ if ($err = $_SESSION['error_string']) {
 // main
 switch ($op) {
 	case 'catchall':
-		$content = '<h2>'._('Group inbox').'</h2><p />';
-		if ($error_content) {
-			$content .= '<p>'.$error_content.'</p>';
-		}
-		$content .= '<h3>'._('Catch-all list').'</h3><p />';
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
 		$in_receiver = $data['in_receiver'];
@@ -26,6 +21,11 @@ switch ($op) {
 		$c_catchall = count(inboxgroup_getcatchall($rid));
 		$c_catchall = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid=".$rid."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<font color='green'>"._('enabled')."</font>" : "<font color='red'>"._('disabled')."</font>";
+		if ($error_content) {
+			$content .= $error_content;
+		}
+		$content .= "<h2>"._('Group inbox')."</h2>";
+		$content .= "<h3>"._('Catch-all list')."</h3>";
 		$content .= "
 			<table cellpadding='1' cellspacing='2' border='0'>
 			<tr><td>"._('Receiver number')."</td><td>:</td><td>".$in_receiver."</td></tr>
@@ -97,27 +97,27 @@ switch ($op) {
 		echo $content;
 		break;
 	case 'catchall_add':
-		$content = '<h2>'._('Group inbox').'</h2><p />';
-		if ($error_content) {
-			$content .= '<p>'.$error_content.'</p>';
-		}
-		$content .= '<h3>'._('Add catch-all').'</h3><p />';
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
 		$in_receiver = $data['in_receiver'];
 		$keywords = $data['keywords'];
 		$description = $data['description'];
-		$c_catchall = count(inboxgroup_getcatchall($rid));
-		$c_catchall = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid=".$rid."'>".$c_catchall."</a>";
+		$c_members = count(inboxgroup_getmembers($rid));
+		$c_members = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid=".$rid."'>".$c_members."</a>";
 		$c_catchall = count(inboxgroup_getcatchall($rid));
 		$c_catchall = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid=".$rid."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<font color='green'>"._('enabled')."</font>" : "<font color='red'>"._('disabled')."</font>";
+		if ($error_content) {
+			$content .= $error_content;
+		}
+		$content .= "<h2>"._('Group inbox')."</h2>";
+		$content .= "<h3>"._('Add catch-all')."</h3>";
 		$content .= "
 			<table cellpadding='1' cellspacing='2' border='0'>
 			<tr><td>"._('Receiver number')."</td><td>:</td><td>".$in_receiver."</td></tr>
 			<tr><td>"._('Keywords')."</td><td>:</td><td>".$keywords."</td></tr>
 			<tr><td>"._('Description')."</td><td>:</td><td>".$description."</td></tr>
-			<tr><td>"._('catchall')."</td><td>:</td><td>".$c_catchall."</td></tr>
+			<tr><td>"._('Members')."</td><td>:</td><td>".$c_members."</td></tr>
 			<tr><td>"._('Catch-all')."</td><td>:</td><td>".$c_catchall."</td></tr>
 			<tr><td>"._('Status')."</td><td>:</td><td>".$c_status."</td></tr>
 			</table>";
@@ -184,27 +184,27 @@ switch ($op) {
 		exit();
 		break;
 	case 'catchall_delete':
-		$content = '<h2>'._('Group inbox').'</h2><p />';
-		if ($error_content) {
-			$content .= '<p>'.$error_content.'</p>';
-		}
-		$content .= '<h3>'._('Remove catch-all').'</h3><p />';
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
 		$in_receiver = $data['in_receiver'];
 		$keywords = $data['keywords'];
 		$description = $data['description'];
-		$c_catchall = count(inboxgroup_getcatchall($rid));
-		$c_catchall = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid=".$rid."'>".$c_catchall."</a>";
+		$c_members = count(inboxgroup_getmembers($rid));
+		$c_members = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid=".$rid."'>".$c_members."</a>";
 		$c_catchall = count(inboxgroup_getcatchall($rid));
 		$c_catchall = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid=".$rid."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<font color='green'>"._('enabled')."</font>" : "<font color='red'>"._('disabled')."</font>";
+		if ($error_content) {
+			$content .= $error_content;
+		}
+		$content .= "<h2>"._('Group inbox')."</h2>";
+		$content .= "<h3>"._('Delete catch-all')."</h3>";
 		$content .= "
 			<table cellpadding='1' cellspacing='2' border='0'>
 			<tr><td>"._('Receiver number')."</td><td>:</td><td>".$in_receiver."</td></tr>
 			<tr><td>"._('Keywords')."</td><td>:</td><td>".$keywords."</td></tr>
 			<tr><td>"._('Description')."</td><td>:</td><td>".$description."</td></tr>
-			<tr><td>"._('catchall')."</td><td>:</td><td>".$c_catchall."</td></tr>
+			<tr><td>"._('Members')."</td><td>:</td><td>".$c_members."</td></tr>
 			<tr><td>"._('Catch-all')."</td><td>:</td><td>".$c_catchall."</td></tr>
 			<tr><td>"._('Status')."</td><td>:</td><td>".$c_status."</td></tr>
 			</table>";
