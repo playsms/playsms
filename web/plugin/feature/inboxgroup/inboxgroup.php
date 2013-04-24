@@ -53,7 +53,7 @@ switch ($op) {
 				<tr class='".$td_class."'>
 					<td align='center'>".($i+1).".</td>
 					<td align='center'>".$data[$i]['in_receiver']."</td>
-					<td align='center'>".$data[$i]['keywords']."</td>
+					<td align='center'>".str_replace(',',', ',$data[$i]['keywords'])."</td>
 					<td align='center'>".$c_members."</td>
 					<td align='center'>".$c_catchall."</td>
 					<td align='center'>".$c_status."</td>
