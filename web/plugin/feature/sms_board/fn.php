@@ -90,7 +90,7 @@ function sms_board_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$board_
 function sms_board_output_serialize($keyword,$line="10") {
 	$keyword = strtoupper($keyword);
 	$line = ( $line ? $line : '10' );
-	$ret['board'] = $keyword;
+	$ret['board']['keyword'] = $keyword;
 	$db_query = "SELECT * FROM "._DB_PREF_."_featureBoard_log WHERE in_keyword='$keyword' ORDER BY in_datetime DESC LIMIT $line";
 	$db_result = dba_query($db_query);
 	$i = 0;
@@ -106,7 +106,7 @@ function sms_board_output_serialize($keyword,$line="10") {
 function sms_board_output_json($keyword,$line="10") {
 	$keyword = strtoupper($keyword);
 	$line = ( $line ? $line : '10' );
-	$ret['board'] = $keyword;
+	$ret['board']['keyword'] = $keyword;
 	$db_query = "SELECT * FROM "._DB_PREF_."_featureBoard_log WHERE in_keyword='$keyword' ORDER BY in_datetime DESC LIMIT $line";
 	$db_result = dba_query($db_query);
 	$i = 0;
@@ -141,12 +141,14 @@ function sms_board_output_xml($keyword,$line="10") {
 }
 
 function sms_board_output_rss($keyword,$line="10",$format="RSS0.91") {
-	global $apps_path,$web_title;
+	global $core_config;
 	$keyword = strtoupper($keyword);
 	$line = ( $line ? $line : '10' );
 	$format_output = ( $format ? $format : "RSS0.91" );
-	include_once $apps_path['plug']."/feature/sms_board/lib/external/feedcreator/feedcreator.class.php";
+	include_once $core_config['apps_path']['plug']."/feature/sms_board/lib/external/feedcreator/feedcreator.class.php";
 	$rss = new UniversalFeedCreator();
+	$rss->title = $core_config['main']['cfg_web_title'];
+	$rss->description = _('SMS Board').' '.$keyword;
 	$db_query1 = "SELECT * FROM "._DB_PREF_."_featureBoard_log WHERE in_keyword='$keyword' ORDER BY in_datetime DESC LIMIT $line";
 	$db_result1 = dba_query($db_query1);
 	while ($db_row1 = dba_fetch_array($db_result1)) {
@@ -166,7 +168,8 @@ function sms_board_output_rss($keyword,$line="10",$format="RSS0.91") {
 
 // part of SMS board
 function sms_board_output_html($keyword,$line="10",$pref_bodybgcolor="#E0D0C0",$pref_oddbgcolor="#EEDDCC",$pref_evenbgcolor="#FFEEDD") {
-	global $apps_path,$web_title;
+	global $core_config;
+	$web_title = $core_config['main']['cfg_web_title'];
 	$keyword = strtoupper($keyword);
 	if (!$line) { $line = "10"; };
 	if (!$pref_bodybgcolor) { $pref_bodybgcolor = "#E0D0C0"; }
@@ -230,7 +233,7 @@ function sms_board_hook_webservices_output($ta,$requests) {
 				header('Content-Type: text/xml; charset=utf-8');
 				$ret = $content;
 				break;
-			case "rss":
+			case "feed":
 				ob_end_clean(); // before sms_board_output_rss, and dont set content-type
 				$content = sms_board_output_rss($keyword,$line,$format);
 				$ret = $content;
