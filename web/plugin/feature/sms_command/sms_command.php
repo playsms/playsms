@@ -15,7 +15,7 @@ switch ($op) {
 		if (!isadmin()) {
 			$query_user_only = "WHERE uid='$uid'";
 		}
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCommand $query_user_only ORDER BY command_keyword";
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCommand ".$query_user_only." ORDER BY command_keyword";
 		$db_result = dba_query($db_query);
 		$content .= "<table cellpadding=1 cellspacing=2 border=0 width=100% class=sortable>";
 		if (!isadmin()) {
@@ -127,7 +127,10 @@ switch ($op) {
 		break;
 	case "sms_command_del":
 		$command_id = $_REQUEST['command_id'];
-		$db_query = "SELECT command_keyword FROM " . _DB_PREF_ . "_featureCommand WHERE command_id='$command_id'";
+		if (!isadmin()) {
+			$query_user_only = "AND uid='$uid'";
+		}
+		$db_query = "SELECT command_keyword FROM " . _DB_PREF_ . "_featureCommand WHERE command_id='$command_id' ".$query_user_only;
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$keyword_name = $db_row['command_keyword'];

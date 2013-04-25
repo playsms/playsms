@@ -42,7 +42,7 @@ switch ($op) {
 		if (!isadmin()) {
 			$query_user_only = "WHERE uid='$uid'";
 		}
-		$db_query = "SELECT * FROM "._DB_PREF_."_featureBoard $query_user_only ORDER BY board_keyword";
+		$db_query = "SELECT * FROM "._DB_PREF_."_featureBoard ".$query_user_only." ORDER BY board_keyword";
 		$db_result = dba_query($db_query);
 		$i=0;
 		while ($db_row = dba_fetch_array($db_result)) {
@@ -123,7 +123,7 @@ switch ($op) {
 			$db_query = "
 				UPDATE "._DB_PREF_."_featureBoard
 				SET c_timestamp='".mktime()."',board_forward_email='$edit_email',board_pref_template='$edit_template'
-				WHERE board_id='$edit_board_id' $query_user_only";
+				WHERE board_id='$edit_board_id' ".$query_user_only;
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('SMS board has been saved')." ("._('keyword').": $edit_board_keyword)";
 			} else {
@@ -137,7 +137,10 @@ switch ($op) {
 		break;
 	case "sms_board_del":
 		$board_id = $_REQUEST['board_id'];
-		$db_query = "SELECT board_keyword FROM "._DB_PREF_."_featureBoard WHERE board_id='$board_id'";
+		if (!isadmin()) {
+			$query_user_only = "AND uid='$uid'";
+		}
+		$db_query = "SELECT board_keyword FROM "._DB_PREF_."_featureBoard WHERE board_id='$board_id' ".$query_user_only;
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$board_keyword = $db_row['board_keyword'];
