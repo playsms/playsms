@@ -21,12 +21,22 @@ switch ($op) {
 			<h2>"._('Manage board')."</h2>
 			<p>"._button('index.php?app=menu&inc=feature_sms_board&op=sms_board_add', _('Add SMS board'))."
 			<table cellpadding=1 cellspacing=2 border=0 width=100% class=sortable>
-			<thead><tr>
+			<thead><tr>";
+		if (isadmin()) {
+			$content .= "
 				<th width=4>*</th>
 				<th width=30%>"._('Keyword')."</th>
 				<th width=40%>"._('Forward')."</th>
 				<th width=20%>"._('User')."</th>
-				<th width=10%>"._('Action')."</th>
+				<th width=10%>"._('Action')."</th>";
+		} else {
+			$content .= "
+				<th width=4>*</th>
+				<th width=30%>"._('Keyword')."</th>
+				<th width=60%>"._('Forward')."</th>
+				<th width=10%>"._('Action')."</th>";
+		}
+		$content .= "
 			</tr></thead>
 			<tbody>";
 		if (!isadmin()) {
@@ -42,12 +52,15 @@ switch ($op) {
 				$action = "<a href=index.php?app=menu&inc=feature_sms_board&route=view&op=list&board_id=".$db_row['board_id']." target=_blank>$icon_view</a>&nbsp;";
 				$action .= "<a href=index.php?app=menu&inc=feature_sms_board&op=sms_board_edit&board_id=".$db_row['board_id'].">$icon_edit</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS board with all its messages ?')." ("._('keyword').": ".$db_row['board_keyword'].")','index.php?app=menu&inc=feature_sms_board&op=sms_board_del&board_id=".$db_row['board_id']."')\">$icon_delete</a>";
+				if (isadmin()) {
+					$option_owner = "<td class=$td_class>$owner</td>";
+				}
 				$content .= "
 					<tr>
 						<td class=$td_class>&nbsp;$i.</td>
 						<td class=$td_class>".$db_row['board_keyword']."</td>
 						<td class=$td_class>".$db_row['board_forward_email']."</td>
-						<td class=$td_class>$owner</td>	
+						".$option_owner."
 						<td class=$td_class align=center>$action</td>
 					</tr>";
 			}
