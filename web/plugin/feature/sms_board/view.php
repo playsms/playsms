@@ -41,15 +41,6 @@ switch ($op) {
 			<p>"._b('index.php?app=menu&inc=feature_sms_board&op=sms_board_list');
 		echo $content;
 		break;
-	case 'output':
-		$board_id = $_REQUEST['board_id'];
-		$db_query = "SELECT board_keyword FROM "._DB_PREF_."_featureBoard WHERE board_id='$board_id'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$board_keyword = $db_row['board_keyword'];
-		header("Location: index.php?app=webservices&ta=sms_board&keyword=".$board_keyword);
-		exit();
-		break;
 }
 
 ?>
