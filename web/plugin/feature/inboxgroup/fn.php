@@ -135,7 +135,7 @@ function inboxgroup_extractmessage($message) {
 		$ret['content'] .= $arr[$i]." ";
 	}
 	$ret['content'] = trim($ret['content']);
-	logger_print("extractmessage s:".$sms_sender." r:".$sms_receiver." k:".$ret['keyword']." c:".$ret['content'], 3, "inboxgroup");
+	//logger_print("extractmessage s:".$sms_sender." r:".$sms_receiver." k:".$ret['keyword']." c:".$ret['content'], 3, "inboxgroup");
 	return $ret;
 }
 
