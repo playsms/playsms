@@ -15,8 +15,8 @@ switch ($op) {
 		if (isadmin()) {
 			$content .= "
 				<th width=4>*</th>
-				<th width=40%>"._('Keyword')."</th>
-				<th width=50%>"._('User')."</th>
+				<th width=20%>"._('Keyword')."</th>
+				<th width=70%>"._('User')."</th>
 				<th width=10%>"._('Action')."</th>";
 		} else {
 			$content .= "

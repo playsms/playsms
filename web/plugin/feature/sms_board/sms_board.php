@@ -25,15 +25,15 @@ switch ($op) {
 		if (isadmin()) {
 			$content .= "
 				<th width=4>*</th>
-				<th width=30%>"._('Keyword')."</th>
-				<th width=40%>"._('Forward')."</th>
+				<th width=20%>"._('Keyword')."</th>
+				<th width=50%>"._('Forward')."</th>
 				<th width=20%>"._('User')."</th>
 				<th width=10%>"._('Action')."</th>";
 		} else {
 			$content .= "
 				<th width=4>*</th>
-				<th width=30%>"._('Keyword')."</th>
-				<th width=60%>"._('Forward')."</th>
+				<th width=20%>"._('Keyword')."</th>
+				<th width=70%>"._('Forward')."</th>
 				<th width=10%>"._('Action')."</th>";
 		}
 		$content .= "

@@ -30,9 +30,9 @@ switch ($op) {
 			$content .= "
 				<thead><tr>
 					<th width=4>*</th>
-					<th width=15%>" . _('Keyword') . "</th>
-					<th width=60%>" . _('Exec') . "</th>
-					<th width=15%>" . _('User') . "</th>
+					<th width=20%>" . _('Keyword') . "</th>
+					<th width=50%>" . _('Exec') . "</th>
+					<th width=20%>" . _('User') . "</th>
 					<th width=10%>" . _('Action') . "</th>
 				</tr></thead>";
 		}
