@@ -87,12 +87,65 @@ function sms_board_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$board_
 	return $ok;
 }
 
-function sms_board_output_rss($keyword,$line="10") {
-	global $apps_path,$web_title;
-	include_once $apps_path['plug']."/feature/sms_board/lib/external/feedcreator/feedcreator.class.php";
+function sms_board_output_serialize($keyword,$line="10") {
 	$keyword = strtoupper($keyword);
-	if (!$line) { $line = "10"; };
-	$format_output = "RSS0.91";
+	$line = ( $line ? $line : '10' );
+	$ret['board'] = $keyword;
+	$db_query = "SELECT * FROM "._DB_PREF_."_featureBoard_log WHERE in_keyword='$keyword' ORDER BY in_datetime DESC LIMIT $line";
+	$db_result = dba_query($db_query);
+	$i = 0;
+	while ($db_row = dba_fetch_array($db_result)) {
+		$ret['item'][$i]['sender'] = $db_row['in_masked'];
+		$ret['item'][$i]['message'] = $db_row['in_msg'];
+		$ret['item'][$i]['datetime'] = $db_row['in_datetime'];
+		$i++;
+	}
+	return serialize($ret);
+}
+
+function sms_board_output_json($keyword,$line="10") {
+	$keyword = strtoupper($keyword);
+	$line = ( $line ? $line : '10' );
+	$ret['board'] = $keyword;
+	$db_query = "SELECT * FROM "._DB_PREF_."_featureBoard_log WHERE in_keyword='$keyword' ORDER BY in_datetime DESC LIMIT $line";
+	$db_result = dba_query($db_query);
+	$i = 0;
+	while ($db_row = dba_fetch_array($db_result)) {
+		$ret['item'][$i]['sender'] = $db_row['in_masked'];
+		$ret['item'][$i]['message'] = $db_row['in_msg'];
+		$ret['item'][$i]['datetime'] = $db_row['in_datetime'];
+		$i++;
+	}
+	return json_encode($ret);
+}
+
+function sms_board_output_xml($keyword,$line="10") {
+	$keyword = strtoupper($keyword);
+	$line = ( $line ? $line : '10' );
+	$xml = '<?xml version="1.0" encoding="UTF-8"?>'."\n";
+	$xml .= '<board keyword="'.$keyword.'">'."\n";
+	$db_query = "SELECT * FROM "._DB_PREF_."_featureBoard_log WHERE in_keyword='$keyword' ORDER BY in_datetime DESC LIMIT $line";
+	$db_result = dba_query($db_query);
+	while ($db_row = dba_fetch_array($db_result)) {
+		$sender = $db_row['in_masked'];
+		$message = $db_row['in_msg'];
+		$datetime = $db_row['in_datetime'];
+		$xml .= '<item>'."\n";
+		$xml .= '<title>'.$sender.'</title>'."\n";
+		$xml .= '<message>'.$message.'</message>'."\n";
+		$xml .= '<datetime>'.$datetime.'</datetime>'."\n";
+		$xml .= '</item>'."\n";
+	}
+	$xml .= '</board>';
+	return $xml;
+}
+
+function sms_board_output_rss($keyword,$line="10",$format="RSS0.91") {
+	global $apps_path,$web_title;
+	$keyword = strtoupper($keyword);
+	$line = ( $line ? $line : '10' );
+	$format_output = ( $format ? $format : "RSS0.91" );
+	include_once $apps_path['plug']."/feature/sms_board/lib/external/feedcreator/feedcreator.class.php";
 	$rss = new UniversalFeedCreator();
 	$db_query1 = "SELECT * FROM "._DB_PREF_."_featureBoard_log WHERE in_keyword='$keyword' ORDER BY in_datetime DESC LIMIT $line";
 	$db_result1 = dba_query($db_query1);
@@ -157,11 +210,29 @@ function sms_board_hook_webservices_output($ta,$requests) {
 		$keyword = strtoupper($keyword);
 		$line = $requests['line'];
 		$type = $requests['type'];
+		$format = $requests['format'];
 		switch ($type) {
+			case "serialize":
+				$content = sms_board_output_serialize($keyword,$line);
+				ob_end_clean();
+				header('Content-Type: text/plain; charset=utf-8');
+				$ret = $content;
+				break;
+			case "json":
+				$content = sms_board_output_json($keyword,$line);
+				ob_end_clean();
+				header('Content-Type: text/json; charset=utf-8');
+				$ret = $content;
+				break;
 			case "xml":
+				$content = sms_board_output_xml($keyword,$line);
+				ob_end_clean();
+				header('Content-Type: text/xml; charset=utf-8');
+				$ret = $content;
+				break;
 			case "rss":
-				$content = sms_board_output_rss($keyword,$line);
-				header('Content-Type: text/xml');
+				ob_end_clean(); // before sms_board_output_rss, and dont set content-type
+				$content = sms_board_output_rss($keyword,$line,$format);
 				$ret = $content;
 				break;
 			case "html":
@@ -170,6 +241,7 @@ function sms_board_hook_webservices_output($ta,$requests) {
 				$oddbgcolor = $requests['oddbgcolor'];
 				$evenbgcolor = $requests['evenbgcolor'];
 				$content = sms_board_output_html($keyword,$line,$bodybgcolor,$oddbgcolor,$evenbgcolor);
+				ob_end_clean();
 				$ret = $content;
 		}
 	}
