@@ -2,6 +2,16 @@
 defined('_SECURE_') or die('Forbidden');
 if(!valid()){forcenoaccess();};
 
+if ($route = $_REQUEST['route']) {
+	$fn = $apps_path['plug'].'/feature/sms_board/'.$route.'.php';
+	$fn = core_sanitize_path($fn);
+	if (file_exists($fn)) {
+		include $fn;
+		unset($_SESSION['error_string']);
+		exit();
+	}
+}
+
 switch ($op) {
 	case "sms_board_list":
 		if ($err = $_SESSION['error_string']) {
@@ -29,7 +39,7 @@ switch ($op) {
 			if ($owner = uid2username($db_row['uid'])) {
 				$i++;
 				$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-				$action = "<a href=index.php?app=menu&inc=feature_sms_board&op=sms_board_view&board_id=".$db_row['board_id']." target=_blank>$icon_view</a>&nbsp;";
+				$action = "<a href=index.php?app=menu&inc=feature_sms_board&route=view&op=list&board_id=".$db_row['board_id']." target=_blank>$icon_view</a>&nbsp;";
 				$action .= "<a href=index.php?app=menu&inc=feature_sms_board&op=sms_board_edit&board_id=".$db_row['board_id'].">$icon_edit</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS board with all its messages ?')." ("._('keyword').": ".$db_row['board_keyword'].")','index.php?app=menu&inc=feature_sms_board&op=sms_board_del&board_id=".$db_row['board_id']."')\">$icon_delete</a>";
 				$content .= "
@@ -45,15 +55,6 @@ switch ($op) {
 		$content .= "</tbody></table>
 			<p>"._button('index.php?app=menu&inc=feature_sms_board&op=sms_board_add', _('Add SMS board'));
 		echo $content;
-		break;
-	case "sms_board_view":
-		$board_id = $_REQUEST['board_id'];
-		$db_query = "SELECT board_keyword FROM "._DB_PREF_."_featureBoard WHERE board_id='$board_id'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$board_keyword = $db_row['board_keyword'];
-		header("Location: index.php?app=webservices&ta=sms_board&keyword=".$board_keyword);
-		exit();
 		break;
 	case "sms_board_edit":
 		$board_id = $_REQUEST['board_id'];
