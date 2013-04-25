@@ -9,12 +9,10 @@ defined('_SECURE_') or die('Forbidden');
  * @return
  *   TRUE if keyword is available
  */
-function sms_board_hook_checkavailablekeyword($keyword)
-{
+function sms_board_hook_checkavailablekeyword($keyword) {
 	$ok = true;
 	$db_query = "SELECT board_id FROM "._DB_PREF_."_featureBoard WHERE board_keyword='$keyword'";
-	if ($db_result = dba_num_rows($db_query))
-	{
+	if ($db_result = dba_num_rows($db_query)) {
 		$ok = false;
 	}
 	return $ok;
@@ -36,16 +34,13 @@ function sms_board_hook_checkavailablekeyword($keyword)
  * @return $ret
  *   array of keyword owner uid and status, TRUE if incoming sms handled
  */
-function sms_board_hook_setsmsincomingaction($sms_datetime,$sms_sender,$board_keyword,$board_param='',$sms_receiver='',$raw_message='')
-{
+function sms_board_hook_setsmsincomingaction($sms_datetime,$sms_sender,$board_keyword,$board_param='',$sms_receiver='',$raw_message='') {
 	$ok = false;
 	$db_query = "SELECT uid,board_id FROM "._DB_PREF_."_featureBoard WHERE board_keyword='$board_keyword'";
 	$db_result = dba_query($db_query);
-	if ($db_row = dba_fetch_array($db_result))
-	{
+	if ($db_row = dba_fetch_array($db_result)) {
 		$c_uid = $db_row['uid'];
-		if (sms_board_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$board_keyword,$board_param,$raw_message))
-		{
+		if (sms_board_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$board_keyword,$board_param,$raw_message)) {
 			$ok = true;
 		}
 	}
@@ -54,33 +49,27 @@ function sms_board_hook_setsmsincomingaction($sms_datetime,$sms_sender,$board_ke
 	return $ret;
 }
 
-function sms_board_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$board_keyword,$board_param='',$raw_message='')
-{
+function sms_board_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$board_keyword,$board_param='',$raw_message='') {
 	global $web_title,$email_service,$email_footer,$gateway_module, $datetime_now;
 	$ok = false;
-	if ($sms_sender && $board_keyword && $board_param)
-	{
+	if ($sms_sender && $board_keyword && $board_param) {
 		// masked sender sets here
 		$masked_sender = substr_replace($sms_sender,'xxxx',-4);
 		$db_query = "
-	    INSERT INTO "._DB_PREF_."_featureBoard_log 
-	    (in_gateway,in_sender,in_masked,in_keyword,in_msg,in_datetime) 
-	    VALUES ('$gateway_module','$sms_sender','$masked_sender','$board_keyword','$board_param','$datetime_now')
-	";
-		if ($cek_ok = @dba_insert_id($db_query))
-		{
+			INSERT INTO "._DB_PREF_."_featureBoard_log
+			(in_gateway,in_sender,in_masked,in_keyword,in_msg,in_datetime)
+			VALUES ('$gateway_module','$sms_sender','$masked_sender','$board_keyword','$board_param','$datetime_now')";
+		if ($cek_ok = @dba_insert_id($db_query)) {
 			$db_query1 = "SELECT board_forward_email FROM "._DB_PREF_."_featureBoard WHERE board_keyword='$board_keyword'";
 			$db_result1 = dba_query($db_query1);
 			$db_row1 = dba_fetch_array($db_result1);
 			$email = $db_row1['board_forward_email'];
-			if ($email)
-			{
+			if ($email) {
 				// get name from c_uid's phonebook
 				$c_username = uid2username($c_uid);
 				$c_name = phonebook_number2name($sms_sender, $c_username);
 				$sms_sender = $c_name ? $c_name.' <'.$sms_sender.'>' : $sms_sender;
 				$sms_datetime = core_display_datetime($sms_datetime);
-					
 				$subject = "[SMSGW-".$board_keyword."] "._('from')." $sms_sender";
 				$body = _('Forward WebSMS')." ($web_title)\n\n";
 				$body .= _('Date and time').": $sms_datetime\n";
@@ -98,8 +87,7 @@ function sms_board_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$board_
 	return $ok;
 }
 
-function sms_board_output_rss($keyword,$line="10")
-{
+function sms_board_output_rss($keyword,$line="10") {
 	global $apps_path,$web_title;
 	include_once $apps_path['plug']."/feature/sms_board/lib/external/feedcreator/feedcreator.class.php";
 	$keyword = strtoupper($keyword);
@@ -108,8 +96,7 @@ function sms_board_output_rss($keyword,$line="10")
 	$rss = new UniversalFeedCreator();
 	$db_query1 = "SELECT * FROM "._DB_PREF_."_featureBoard_log WHERE in_keyword='$keyword' ORDER BY in_datetime DESC LIMIT $line";
 	$db_result1 = dba_query($db_query1);
-	while ($db_row1 = dba_fetch_array($db_result1))
-	{
+	while ($db_row1 = dba_fetch_array($db_result1)) {
 		$title = $db_row1['in_masked'];
 		$description = $db_row1['in_msg'];
 		$datetime = $db_row1['in_datetime'];
@@ -125,8 +112,7 @@ function sms_board_output_rss($keyword,$line="10")
 }
 
 // part of SMS board
-function sms_board_output_html($keyword,$line="10",$pref_bodybgcolor="#E0D0C0",$pref_oddbgcolor="#EEDDCC",$pref_evenbgcolor="#FFEEDD")
-{
+function sms_board_output_html($keyword,$line="10",$pref_bodybgcolor="#E0D0C0",$pref_oddbgcolor="#EEDDCC",$pref_evenbgcolor="#FFEEDD") {
 	global $apps_path,$web_title;
 	$keyword = strtoupper($keyword);
 	if (!$line) { $line = "10"; };
@@ -135,15 +121,13 @@ function sms_board_output_html($keyword,$line="10",$pref_bodybgcolor="#E0D0C0",$
 	if (!$pref_evenbgcolor) { $pref_evenbgcolor = "#FFEEDD"; }
 	$db_query = "SELECT board_pref_template FROM "._DB_PREF_."_featureBoard WHERE board_keyword='$keyword'";
 	$db_result = dba_query($db_query);
-	if ($db_row = dba_fetch_array($db_result))
-	{
+	if ($db_row = dba_fetch_array($db_result)) {
 		$template = $db_row['board_pref_template'];
 		$db_query1 = "SELECT * FROM "._DB_PREF_."_featureBoard_log WHERE in_keyword='$keyword' ORDER BY in_datetime DESC LIMIT $line";
 		$db_result1 = dba_query($db_query1);
 		$content = "<html>\n<head>\n<title>$web_title - "._('Keyword').": $keyword</title>\n<meta name=\"author\" content=\"http://playsms.org\">\n</head>\n<body bgcolor=\"$pref_bodybgcolor\" topmargin=\"0\" leftmargin=\"0\">\n<table width=100% cellpadding=2 cellspacing=2>\n";
 		$i = 0;
-		while ($db_row1 = dba_fetch_array($db_result1))
-		{
+		while ($db_row1 = dba_fetch_array($db_result1)) {
 			$i++;
 			$sender = $db_row1['in_masked'];
 			$datetime = $db_row1['in_datetime'];
@@ -152,12 +136,9 @@ function sms_board_output_html($keyword,$line="10",$pref_bodybgcolor="#E0D0C0",$
 			$tmp_template = str_replace("{SENDER}",$sender,$tmp_template);
 			$tmp_template = str_replace("{DATETIME}",$datetime,$tmp_template);
 			$tmp_template = str_replace("{MESSAGE}",$message,$tmp_template);
-			if (($i % 2) == 0)
-			{
+			if (($i % 2) == 0) {
 				$pref_zigzagcolor = "$pref_evenbgcolor";
-			}
-			else
-			{
+			} else {
 				$pref_zigzagcolor = "$pref_oddbgcolor";
 			}
 			$content .= "\n<tr><td width=100% bgcolor=\"$pref_zigzagcolor\">\n$tmp_template</td></tr>\n\n";
