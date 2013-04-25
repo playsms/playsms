@@ -56,7 +56,7 @@ function inboxgroup_hook_interceptincomingsms($sms_datetime, $sms_sender, $messa
 				// combination does not exists, check only $sms_receiver
 				$data = inboxgroup_getdata($sms_receiver);
 				// proceed only if receiver id exists
-				if ($data['id']) {
+				if ($data['id'] && $data['status']) {
 					// forward to catch all users (if any)
 					inboxgroup_forwardcatchall($data, $log_in_id, $sms_sender, $msg['content']);
 					// set handled
