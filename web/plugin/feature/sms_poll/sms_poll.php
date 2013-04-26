@@ -177,7 +177,7 @@ switch ($op) {
 		break;
 	case "sms_poll_edit_yes":
 		$edit_poll_id = $_POST['edit_poll_id'];
-		$edit_poll_keyword = $_POST['edit_poll_keyword'];
+		$edit_poll_keyword = strtoupper($_POST['edit_poll_keyword']);
 		$edit_poll_title = $_POST['edit_poll_title'];
 		$edit_poll_message_valid = $_POST['edit_poll_message_valid'];
 		$edit_poll_message_invalid = $_POST['edit_poll_message_invalid'];

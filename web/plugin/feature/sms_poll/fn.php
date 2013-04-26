@@ -36,12 +36,16 @@ function sms_poll_hook_checkavailablekeyword($keyword) {
  */
 function sms_poll_hook_setsmsincomingaction($sms_datetime,$sms_sender,$poll_keyword,$poll_param='',$sms_receiver='',$raw_message='') {
 	$ok = false;
-	$db_query = "SELECT uid,poll_id FROM "._DB_PREF_."_featurePoll WHERE poll_keyword='$poll_keyword'";
+	$db_query = "SELECT * FROM "._DB_PREF_."_featurePoll WHERE poll_keyword='$poll_keyword'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
-		$c_uid = $db_row['uid'];
-		if (sms_poll_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$poll_keyword,$poll_param,$raw_message)) {
-			$ok = true;
+		if ($db_row['uid'] && $db_row['poll_enable']) {
+			logger_print('begin k:'.$poll_keyword.' c:'.$poll_param, 2, 'sms_poll');
+			if (sms_poll_handle($db_row,$sms_datetime,$sms_sender,$poll_keyword,$poll_param,$sms_receiver,$raw_message)) {
+				$ok = true;
+			}
+			$status = ( $ok ? 'handled' : 'unhandled' );
+			logger_print('end k:'.$poll_keyword.' c:'.$poll_param.' s:'.$status, 2, 'sms_poll');
 		}
 	}
 	$ret['uid'] = $c_uid;
@@ -49,38 +53,41 @@ function sms_poll_hook_setsmsincomingaction($sms_datetime,$sms_sender,$poll_keyw
 	return $ret;
 }
 
-function sms_poll_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$poll_keyword,$poll_param='',$raw_message='') {
+function sms_poll_handle($list,$sms_datetime,$sms_sender,$poll_keyword,$poll_param='',$sms_receiver='',$raw_message='') {
 	global $datetime_now;
 	$ok = false;
 	$poll_keyword = strtoupper($poll_keyword);
-	$target_choice = strtoupper($poll_param);
-	if ($sms_sender && $poll_keyword && $target_choice) {
-		$db_query = "SELECT poll_id,poll_enable, poll_msg_valid, poll_msg_invalid FROM "._DB_PREF_."_featurePoll WHERE poll_keyword='$poll_keyword'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$poll_id = $db_row['poll_id'];
-		$poll_enable = $db_row['poll_enable'];
-		$poll_msg_valid = $db_row['poll_msg_valid'];
-		$poll_msg_invalid = $db_row['poll_msg_invalid'];
-		$db_query = "SELECT choice_id FROM "._DB_PREF_."_featurePoll_choice WHERE choice_keyword='$target_choice' AND poll_id='$poll_id'";
+	$choice_keyword = strtoupper($poll_param);
+	if ($sms_sender && $poll_keyword && $choice_keyword) {
+		$poll_id = $list['poll_id'];
+		$db_query = "SELECT choice_id FROM "._DB_PREF_."_featurePoll_choice WHERE choice_keyword='$choice_keyword' AND poll_id='$poll_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$choice_id = $db_row['choice_id'];
 		if ($poll_id && $choice_id) {
-			$db_query = "SELECT result_id FROM "._DB_PREF_."_featurePoll_log WHERE poll_sender='$sms_sender' AND poll_id='$poll_id'";
-			$already_vote = @dba_num_rows($db_query);
-			if ((!$already_vote) && $poll_enable) {
+			$c_sms_sender = substr($sms_sender, 3);
+			$db_query = "SELECT result_id FROM "._DB_PREF_."_featurePoll_log WHERE poll_sender LIKE '%$c_sms_sender' AND poll_id='$poll_id'";
+			$vote = @dba_num_rows($db_query);
+			$poll_enable = $list['poll_enable'];
+			logger_print('vote k:'.$poll_keyword.' c:'.$choice_keyword.' already:'.$vote.' enable:'.$poll_enable, 2, 'sms_poll');
+			if ((! $vote) && $poll_enable) {
 				$db_query = "
 					INSERT INTO "._DB_PREF_."_featurePoll_log 
 					(poll_id,choice_id,poll_sender,in_datetime) 
 					VALUES ('$poll_id','$choice_id','$sms_sender','$datetime_now')";
-				dba_query($db_query);
-				//Instead of 'admin' the sender could be the user that creates the poll!
-				list($ok, $to, $smslog_id) = sendsms('admin', $sms_sender, $poll_msg_valid, 'text', $unicode);
+				if (($new_id = @dba_insert_id($db_query)) && ($c_username = uid2username($list['uid']))) {
+					if ($poll_message_valid = $list['poll_message_valid']) {
+						$unicode = core_detect_unicode($poll_message_valid);
+						list($ok, $to, $smslog_id, $queue_code) = sendsms($c_username, $sms_sender, $poll_message_valid, 'text', $unicode);
+					}
+					$ok = true;
+				}
 			}
-			$ok = true;
 		} else {
-			list($ok, $to, $smslog_id) = sendsms('admin', $sms_sender, $poll_msg_invalid, 'text', $unicode);	
+			if (($poll_message_invalid = $list['poll_message_invalid']) && ($c_username = uid2username($list['uid']))) {
+				$unicode = core_detect_unicode($poll_message_invalid);
+				list($ok, $to, $smslog_id, $queue_code) = sendsms($c_username, $sms_sender, $poll_message_invalid, 'text', $unicode);
+			}
 		}
 	}
 	return $ok;

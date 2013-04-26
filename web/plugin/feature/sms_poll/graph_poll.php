@@ -1,21 +1,25 @@
 <?php
-$results = $_GET['results'];
-$answers = $_GET['answers'];
+$results = explode(',', $_REQUEST['results']);
+$answers = explode(',', $_REQUEST['answers']);
+
 include("lib/pChart/class/pData.class.php");
 include("lib/pChart/class/pDraw.class.php");
 include("lib/pChart/class/pPie.class.php");
 include("lib/pChart/class/pImage.class.php");
+
 /* Create and populate the pData object */
-$MyData = new pData();   
-$MyData->addPoints(explode(",", $results),"ScoreA");  
-$MyData->setSerieDescription("ScoreA","Application A");
+$MyData = new pData();
+$MyData->addPoints($results, "ScoreA");
+$MyData->setSerieDescription("ScoreA", "Application A");
 /* Define the absissa serie */
-$MyData->addPoints(explode(",", $answers),"Labels");
+$MyData->addPoints($answers, "Labels");
 $MyData->setAbscissa("Labels");
+
 /* Create the pChart object */
 $myPicture = new pImage(700,400,$MyData,TRUE);
 /* Set the default font properties */ 
 $myPicture->setFontProperties(array("FontName"=>"pChart/fonts/pf_arma_five.ttf","FontSize"=>6,"R"=>80,"G"=>80,"B"=>80));
+
 /* Create the pPie object */ 
 $PieChart = new pPie($myPicture,$MyData);
 /* Define the slice color */
@@ -31,6 +35,9 @@ $myPicture->setShadow(TRUE,array("X"=>1,"Y"=>1,"R"=>0,"G"=>0,"B"=>0,"Alpha"=>20)
 /* Write the legend box */ 
 $myPicture->setFontProperties(array("FontName"=>"pChart/fonts/Silkscreen.ttf","FontSize"=>6,"R"=>255,"G"=>255,"B"=>255));
 $PieChart->drawPieLegend(3,8,array("Style"=>LEGEND_NOBORDER,"Mode"=>LEGEND_HORIZONTAL));
+
 /* Render the picture (choose the best way) */
+ob_end_clean();
 $myPicture->autoOutput();
+
 ?>
