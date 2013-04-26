@@ -287,10 +287,9 @@ switch ($op) {
 		$db_query = "SELECT quiz_keyword FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_id='$quiz_id' ".$query_user_only;
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$quiz_keyword = $db_row['quiz_keyword'];
-		if ($quiz_keyword) {
-			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_keyword='$quiz_keyword'";
-			if (@ dba_affected_rows($db_query)) {
+		if ($quiz_keyword = $db_row['quiz_keyword']) {
+			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_id='$quiz_id' ".$query_user_only;
+			if (@dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('SMS quiz with all its messages has been deleted')." ("._('keyword').": $quiz_keyword)";
 			}
 		}
