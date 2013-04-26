@@ -155,11 +155,10 @@ function sms_poll_hook_webservices_output($ta,$requests) {
 	global $core_config;
 	$ret = '';
 	if ($keyword = $requests['keyword']) {
-		$list = dba_search(_DB_PREF_.'_featurePoll', 'poll_id,poll_enable', array('poll_keyword' => $keyword));
+		$list = dba_search(_DB_PREF_.'_featurePoll', 'poll_id', array('poll_keyword' => $keyword));
 		$poll_id = $list[0]['poll_id'];
-		$poll_enable = $list[0]['poll_enable'];
 	}
-	if ($poll_id && $poll_enable) {
+	if ($poll_id) {
 		$type = $requests['type'];
 		switch ($type) {
 			case 'serialize':
