@@ -51,7 +51,7 @@ switch ($op) {
 		if ($results == $no_results) {
 			$content .= "<p>"._('This poll has 0 votes!');
 		} else {
-			$content .= "<img src=\"plugin/feature/sms_poll/graph_poll.php?results=$results&answers=".urlencode($answers)."\">";
+			$content .= "<img src=\"".$output_graph."\">";
 		}
 		$content .= "<p>"._b('index.php?app=menu&inc=feature_sms_poll&op=sms_poll_list');
 		echo $content;

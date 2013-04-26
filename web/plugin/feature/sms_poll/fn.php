@@ -143,8 +143,12 @@ function sms_poll_output_xml($keyword, $list) {
 }
 
 function sms_poll_output_graph($keyword, $list) {
-	$ret = '';
-	return $ret;
+	global $core_config;
+	$ret = unserialize(sms_poll_output_serialize($keyword, $list));
+	$choices = $ret['choices'];
+	$results = $ret['results'];
+	include $core_config['apps_path']['plug'].'/feature/sms_poll/graph_poll.php';
+	exit();
 }
 
 function sms_poll_hook_webservices_output($ta,$requests) {
