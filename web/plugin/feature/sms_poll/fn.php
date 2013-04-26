@@ -93,63 +93,86 @@ function sms_poll_handle($list,$sms_datetime,$sms_sender,$poll_keyword,$poll_par
 	return $ok;
 }
 
-function sms_poll_hook_webservices_output($ta,$requests) {
-	global $http_path, $themes_module;
-	$keyword = $requests['keyword'];
-	$db_query = "SELECT poll_id,poll_title FROM "._DB_PREF_."_featurePoll WHERE poll_keyword='$keyword'";
-	$db_result = dba_query($db_query);
-	$db_row = dba_fetch_array($db_result);
-	$poll_id = $db_row['poll_id'];
-	$poll_title = $db_row['poll_title'];
-	$db_query = "SELECT result_id FROM "._DB_PREF_."_featurePoll_log WHERE poll_id='$poll_id'";
-	$total_voters = @dba_num_rows($db_query);
+function sms_poll_output_serialize($poll_keyword, $list) {
+	$poll_id = $list[0]['poll_id'];
+	$list2 = dba_search(_DB_PREF_.'_featurePoll_choice', '*', array('poll_id' => $poll_id));
+	$poll_choices = array();
+	for ($i=0;$i<count($list2);$i++) {
+		$c_keyword = $list2[$i]['choice_keyword'];
+		$c_title = $list2[$i]['choice_title'];
+		$poll_choices[$c_keyword] = $c_title;
+		$choice_ids[$c_keyword] = $list2[$i]['choice_id'];
+	}
+	$poll_results = array();
+	$votes = 0;
+	foreach ($choice_ids as $key => $val) {
+		$c_num = dba_count(_DB_PREF_.'_featurePoll_log', array('poll_id' => $poll_id, 'choice_id' => $val));
+		$poll_results[$key] = ( (int)$c_num ? $c_num : 0 );
+		$votes += $c_num;
+	}
+	$ret['keyword'] = $poll_keyword;
+	$ret['votes'] = $votes;
+	$ret['choices'] = $poll_choices;
+	$ret['results'] = $poll_results;
+	$ret = serialize($ret);
+	return $ret;
+}
 
-	if ($poll_id) {
-		$mult = $requests['mult'];
-		$bodybgcolor = $requests['bodybgcolor'];
-		if (!isset($mult)) {
-			$mult = "2";
+function sms_poll_output_json($keyword, $list) {
+	$ret = unserialize(sms_poll_output_serialize($keyword, $list));
+	$ret = json_encode($ret);
+	return $ret;
+}
+
+function sms_poll_output_xml($keyword, $list) {
+	$data = unserialize(sms_poll_output_serialize($keyword, $list));
+	$ret = "<?xml version=\"1.0\"?>\n";
+	$ret .= "<poll>\n";
+	$ret .= "<keyword>".$keyword."</keyword>\n";
+	$ret .= "<votes>".$data['votes']."</votes>\n";
+	foreach ($data['choices'] as $key => $val) {
+		$poll_choices .= "<".$key.">".$val."</".$key.">\n";
+	}
+	$ret .= "<choices>".$poll_choices."</choices>\n";
+	foreach ($data['results'] as $key => $val) {
+		$poll_results .= "<".$key.">".$val."</".$key.">\n";
+	}
+	$ret .= "<results>".$poll_results."</results>\n";
+	$ret .= "</poll>\n";
+	return $ret;
+}
+
+function sms_poll_output_graph($keyword, $list) {
+	$ret = '';
+	return $ret;
+}
+
+function sms_poll_hook_webservices_output($ta,$requests) {
+	global $core_config;
+	$ret = '';
+	if ($keyword = $requests['keyword']) {
+		$list = dba_search(_DB_PREF_.'_featurePoll', 'poll_id,poll_enable', array('poll_keyword' => $keyword));
+		$poll_id = $list[0]['poll_id'];
+		$poll_enable = $list[0]['poll_enable'];
+	}
+	if ($poll_id && $poll_enable) {
+		$type = $requests['type'];
+		switch ($type) {
+			case 'serialize':
+				$ret = sms_poll_output_serialize($keyword, $list);
+				break;
+			case 'json':
+				$ret = sms_poll_output_json($keyword, $list);
+				break;
+			case 'xml':
+				ob_end_clean();
+				header('Content-type: text/xml');
+				$ret = sms_poll_output_xml($keyword, $list);
+				break;
+			case 'graph':
+				$ret = sms_poll_output_graph($keyword, $list);
+				break;
 		}
-		if (!isset($bodybgcolor)) {
-			$bodybgcolor = "#FEFEFE";
-		}
-		$content = "
-			<html>
-			<head>
-				<title>$web_title</title>
-				<meta name=\"author\" content=\"http://playsms.org\">
-				<link rel=\"stylesheet\" type=\"text/css\" href=\"".$http_path['themes']."/".$themes_module."/jscss/common.css\">
-			</head>
-			<body bgcolor=\"gray\" topmargin=\"0\" leftmargin\"0\">";
-		$db_query = "SELECT * FROM "._DB_PREF_."_featurePoll_choice WHERE poll_id='$poll_id' ORDER BY choice_keyword";
-		$db_result = dba_query($db_query);
-		$results= "";
-		$answers = "";
-		$no_results="";
-		while ($db_row = dba_fetch_array($db_result)) {
-			$choice_id = $db_row['choice_id'];
-			$choice_title = $db_row['choice_title'];
-			$answers .= $choice_title . ",";
-			$choice_keyword = $db_row['choice_keyword'];
-			$db_query1 = "SELECT result_id FROM "._DB_PREF_."_featurePoll_log WHERE poll_id='$poll_id' AND choice_id='$choice_id'";
-			$choice_voted = @dba_num_rows($db_query1);
-			$results .= $choice_voted . ",";
-			$no_results .= "0,";
-		}
-		
-		$answers = substr_replace($answers,"",-1);
-		$results = substr_replace($results,"",-1);
-		$no_results = substr_replace($no_results,"",-1);
-		if ($results == $no_results) {
-			$content .= "<br />"._('This poll has 0 votes!');
-		} else {
-			$content .= "
-				<iframe width=\"900\" height=\"500\" frameborder=\"0\" 
-					src=\"plugin/feature/sms_poll/graph_poll.php?results=$results&answers=".urlencode($answers)."\">
-				</iframe>";
-		}
-		$content .= "</body></html>";
-		$ret = $content;
 	}
 	return $ret;
 }
