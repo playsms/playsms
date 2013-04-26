@@ -126,7 +126,10 @@ switch ($op) {
 		break;
 	case "sms_quiz_edit" :
 		$quiz_id = $_REQUEST['quiz_id'];
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_id='$quiz_id'";
+		if (! isadmin()) {
+			$query_user_only = " AND uid='$uid'";
+		}
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_id='$quiz_id' ".$query_user_only;
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$edit_quiz_keyword = $db_row['quiz_keyword'];
