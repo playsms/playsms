@@ -37,12 +37,16 @@ function sms_quiz_hook_checkavailablekeyword($keyword) {
  */
 function sms_quiz_hook_setsmsincomingaction($sms_datetime, $sms_sender, $quiz_keyword, $quiz_param = '', $sms_receiver = '', $raw_message = '') {
 	$ok = false;
-	$db_query = "SELECT uid FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_keyword='$quiz_keyword'";
+	$db_query = "SELECT * FROM "._DB_PREF_."_featureQuiz WHERE quiz_keyword='$quiz_keyword'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
-		$c_uid = $db_row['uid'];
-		if (sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $quiz_keyword, $quiz_param, $raw_message)) {
-			$ok = true;
+		if ($db_row['uid'] && $db_row['quiz_enable']) {
+			logger_print('begin k:'.$quiz_keyword.' c:'.$quiz_param, 2, 'sms_quiz');
+			if (sms_quiz_handle($db_row,$sms_datetime,$sms_sender,$quiz_keyword,$quiz_param,$sms_receiver,$raw_message)) {
+				$ok = true;
+			}
+			$status = ( $ok ? 'handled' : 'unhandled' );
+			logger_print('end k:'.$quiz_keyword.' c:'.$quiz_param.' s:'.$status, 2, 'sms_quiz');
 		}
 	}
 	$ret['uid'] = $c_uid;
@@ -50,16 +54,12 @@ function sms_quiz_hook_setsmsincomingaction($sms_datetime, $sms_sender, $quiz_ke
 	return $ret;
 }
 
-function sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $quiz_keyword, $quiz_param = '', $raw_message = '') {
+function sms_quiz_handle($list, $sms_datetime, $sms_sender, $quiz_keyword, $quiz_param = '', $sms_receiver='', $raw_message = '') {
 	global $core_config, $datetime_now;
 	$ok = false;
-	$username = uid2username($c_uid);
 	$sms_to = $sms_sender; // we are replying to this sender
-	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_keyword='$quiz_keyword'";
-	$db_result = dba_query($db_query);
-	$db_row = dba_fetch_array($db_result);
-	if ($db_row['quiz_enable'] == 1) {
-		if ($db_row['quiz_answer'] == strtoupper($quiz_param)) {
+	if ($quiz_enable = $list[0]['quiz_enable']) {
+		if (strtoupper($db_row['quiz_answer']) == strtoupper($quiz_param)) {
 			$message = $db_row['quiz_msg_correct'];
 		} else {
 			$message = $db_row['quiz_msg_incorrect'];
@@ -68,16 +68,12 @@ function sms_quiz_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $qui
 		$answer = strtoupper($quiz_param);
 		$db_query = "INSERT INTO " . _DB_PREF_ . "_featureQuiz_log (quiz_id,quiz_answer,quiz_sender,in_datetime) VALUES ('$quiz_id','$answer','$sms_to','$datetime_now')";
 		if ($logged = @dba_insert_id($db_query)) {
-			//list($ok,$to,$smslog_id,$queue) = sendsms($username, $sms_to, $message);
-			$unicode = core_detect_unicode($message);
-			list($ok, $to, $smslog_id, $queue) = sendsms($username, $sms_to, $message, 'text', $unicode);
-                        $ok = $ok[0];
+			if ($message && ($username = uid2username($c_uid))) {
+				$unicode = core_detect_unicode($message);
+				list($ok, $to, $smslog_id, $queue) = sendsms($username, $sms_to, $message, 'text', $unicode);
+			}
+			$ok = true;
 		}
-	} else if ($db_row['quiz_keyword'] == $quiz_keyword) {
-		// returns true even if its logged as correct/incorrect answer
-		// this situation happens when user answers a disabled quiz
-		// returning false will make this SMS as unhandled SMS
-		$ok = true;
 	}
 	return $ok;
 }
