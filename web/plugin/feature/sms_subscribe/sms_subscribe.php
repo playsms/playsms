@@ -336,6 +336,72 @@ switch ($op) {
 		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list");
 		exit();
 		break;
+	case "mbr_list" :
+		$subscribe_id = $_REQUEST['subscribe_id'];
+		if (! isadmin()) {
+			$query_user_only = "AND uid='$uid'";
+		}
+		$db_query = "SELECT subscribe_keyword FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id = '$subscribe_id' ".$query_user_only;
+		$db_result = dba_query($db_query);
+		$db_row = dba_fetch_array($db_result);
+		$subscribe_name = $db_row['subscribe_keyword'];
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id = '$subscribe_id' ORDER BY member_since DESC";
+		$db_result = dba_query($db_query);
+		if ($err = $_SESSION['error_string']) {
+			$content = "<div class=error_string>$err</div>";
+		}
+		$content .= "
+			<h2>"._('Manage subscribe')."</h2>
+			<h3>"._('Member list for keyword')." $subscribe_name</h3>
+			<p>
+			<table cellpadding=1 cellspacing=2 border=0 width=100% class=sortable>
+			<thead><tr>
+				<th width=4>*</th>
+				<th width=50%>"._('Phone number')."</th>
+				<th width=40%>"._('Member join datetime')."</th>
+				<th width=10%>"._('Action')."</th>
+			</tr></thead>
+			<tbody>";
+		$i = 0;
+		while ($db_row = dba_fetch_array($db_result)) {
+			$i++;
+			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
+			$action = "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this member ?')."','index.php?app=menu&inc=feature_sms_subscribe&op=mbr_del&subscribe_id=$subscribe_id&mbr_id=".$db_row['member_id']."')\">$icon_delete</a>";
+			$content .= "
+				<tr>
+					<td class=$td_class>&nbsp;$i.</td>
+					<td class=$td_class align=center>".$db_row['member_number']."</td>
+					<td class=$td_class align=center>".$db_row['member_since']."</td>
+					<td class=$td_class align=center>$action</td>
+					</tr>";
+		}
+		$content .= "</tbody>
+			</table>
+			<p>"._b('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
+		echo $content;
+		break;
+	case "mbr_del" :
+		$subscribe_id = $_REQUEST['subscribe_id'];
+		$continue = false;
+		if (isadmin()) {
+			$continue = true;
+		} else {
+			$list = dba_search(_DB_PREF_.'_featureSubscribe', 'uid', array('uid' => $uid));
+			if ($subscribe_id==$list[0]['subscribe_id']) {
+				$continue = true;
+			}
+		}
+		$mbr_id = $_REQUEST['mbr_id'];
+		if ($mbr_id && $continue) {
+			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE member_id='$mbr_id'";
+			if (@ dba_affected_rows($db_query)) {
+				$_SESSION['error_string'] =_('Member has been deleted');
+			}
+		}
+		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=mbr_list&subscribe_id=$subscribe_id");
+		exit();
+		break;
+
 	case "msg_list" :
 		$subscribe_id = $_REQUEST['subscribe_id'];
 		$db_query = "SELECT subscribe_keyword FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id = '$subscribe_id'";
@@ -519,64 +585,6 @@ switch ($op) {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
 		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=msg_view&msg_id=$msg_id&subscribe_id=$subscribe_id");
-		exit();
-		break;
-
-	case "mbr_list" :
-		$subscribe_id = $_REQUEST['subscribe_id'];
-		$db_query = "SELECT subscribe_keyword FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id = '$subscribe_id'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$subscribe_name = $db_row['subscribe_keyword'];
-
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id = '$subscribe_id' ORDER BY member_since DESC";
-		$db_result = dba_query($db_query);
-
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
-		}
-		$content .= "
-		<h2>"._('Member list for keyword')." $subscribe_name</h2>
-			";
-
-		$content .= "
-		<table cellpadding=1 cellspacing=2 border=0 width=100%>
-		<tr>
-		<th width=4>*</td>
-				<th width=50%>"._('Phone number')."</td>
-				<th width=50%>"._('Member join datetime')."</td>
-				<th>"._('Action')."</td>
-		</tr>
-			";
-		$i = 0;
-		while ($db_row = dba_fetch_array($db_result)) {
-			$i++;
-			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
-
-			$action = "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this member ?')."','index.php?app=menu&inc=feature_sms_subscribe&op=mbr_del&subscribe_id=$subscribe_id&mbr_id=".$db_row['member_id']."')\">$icon_delete</a>";
-
-			$content .= "
-				<tr>
-					<td class=$td_class>&nbsp;$i.</td>
-					<td class=$td_class>".$db_row['member_number']."</td>
-					<td class=$td_class>".$db_row['member_since']."</td>
-					<td class=$td_class>$action</td>	
-					</tr>";
-		}
-		$content .= "</table>";
-		echo $content;
-		break;
-
-	case "mbr_del" :
-		$subscribe_id = $_REQUEST['subscribe_id'];
-		$mbr_id = $_REQUEST['mbr_id'];
-		if ($mbr_id) {
-			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE member_id='$mbr_id'";
-			if (@ dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] =_('Member has been deleted');
-			}
-		}
-		header("Location: index.php?app=menu&inc=feature_sms_subscribe&op=mbr_list&subscribe_id=$subscribe_id");
 		exit();
 		break;
 
