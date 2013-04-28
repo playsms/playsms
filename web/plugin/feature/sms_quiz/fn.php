@@ -58,7 +58,7 @@ function sms_quiz_handle($list, $sms_datetime, $sms_sender, $quiz_keyword, $quiz
 	global $core_config, $datetime_now;
 	$ok = false;
 	$sms_to = $sms_sender; // we are replying to this sender
-	if ($quiz_enable = $list[0]['quiz_enable']) {
+	if ($quiz_enable = $list['quiz_enable']) {
 		if (strtoupper($db_row['quiz_answer']) == strtoupper($quiz_param)) {
 			$message = $db_row['quiz_msg_correct'];
 		} else {
