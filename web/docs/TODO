@@ -1,17 +1,16 @@
 TODO
 ----
 
-1. Search box for phonebook, incoming and outgoing SMS
-2. Install scripts, deb or rpm package for playSMS
-3. Virtual SMSC/gateway
-4. Outgoing SMS Route, enable multiple SMSC/gateway
-5. Incoming SMS Route, enable multiple SMSC/gateway
-6. Menu ordering from database
-7. Plugins installer
-8. Access Control List
-9. Cascading user management
+1. Install scripts, deb or rpm package for playSMS
+2. Virtual SMSC/gateway
+3. Outgoing SMS Route, enable multiple SMSC/gateway
+4. Incoming SMS Route, enable multiple SMSC/gateway
+5. Menu ordering from database
+6. Plugins installer
+7. Access Control List
+8. Cascading user management
+9....
 10....
-11....
 
 
 --

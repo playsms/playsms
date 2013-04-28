@@ -4,6 +4,7 @@ TRANSLATING PLAYSMS
 NOTE: playsms is using a layered structure for the translations, so for
  each module there is it's own translation
 
+
 CREATE NEW TRANSLATIONS
 -----------------------
 To create a NEW tranlation of playsms, you will have copy the translation template
@@ -29,6 +30,7 @@ backup-language-files.sh (creates a backup of existant language files)
 create-new-language.sh (creates a tgz that contains all the files to translate
 	the whole playsms interface)
 
+
 UPDATE THE TRANSLATIONS
 -----------------------
 
@@ -52,6 +54,7 @@ There's a contrib script into contrib/tools/language/ for this
 ##To update the pot files with new texts (/var/www/playsms is you web path)
 bash 1-update-pot-files.sh /var/www/playsms
 
+
 MERGE EXISTANT PO FILES WITH NEWER POT TEMPLATES
 ------------------------------------------------
 
@@ -60,6 +63,7 @@ Once we have updated the pot files, we can merge them with the existant translat
 
 ##To merge the update pot files with existant .po files for each language (/var/www/playsms is you web path)
 bash 2-merge-existing-po-files.sh  /var/www/playsms
+
 
 REGENERATING THE MO FILES
 -------------------------
