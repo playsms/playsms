@@ -63,13 +63,16 @@ switch ($op) {
 				$views .= "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=mbr_list&subscribe_id=".$db_row['subscribe_id'].">$subscribe_icon_view_members</a>&nbsp;";
 				$action = "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=".$db_row['subscribe_id'].">$icon_edit</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS subscribe ?')." ("._('keyword').": ".$db_row['subscribe_keyword'].")','index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_del&subscribe_id=".$db_row['subscribe_id']."')\">$icon_delete</a>";
+				if (isadmin()) {
+					$option_owner = "<td class=$td_class>$owner</td>";
+				}
 				$content .= "
 					<tr>
 						<td class=$td_class>&nbsp;$i.</td>
 						<td class=$td_class>".$db_row['subscribe_keyword']."</td>
 						<td class=$td_class align=center>$members</td>
 						<td class=$td_class align=center>$messages</td>
-						<td class=$td_class>$owner</td>
+						".$option_owner."
 						<td class=$td_class align=center>$subscribe_status</td>
 						<td class=$td_class align=center>$views</td>
 						<td class=$td_class align=center>$action</td>
