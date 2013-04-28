@@ -18,6 +18,10 @@ ALTER TABLE `playsms_featureSubscribe` ADD `subscribe_param` varchar(20) NOT NUL
 ALTER TABLE `playsms_featureSubscribe` ADD `unsubscribe_param` varchar(20) NOT NULL ;
 ALTER TABLE `playsms_featureSubscribe` ADD `forward_param` varchar(20) NOT NULL ;
 
+ALTER TABLE `playsms_featureSubscribe_msg` ADD `create_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00' AFTER `msg` ;
+ALTER TABLE `playsms_featureSubscribe_msg` ADD `update_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00' AFTER `create_datetime` ;
+ALTER TABLE `playsms_featureSubscribe_msg` ADD `counter` tinyint(4) NOT NULL DEFAULT '0' AFTER `update_datetime` ;
+
 ALTER TABLE `playsms_gatewayUplink_config` ADD `cfg_token` varchar(32) NULL AFTER `cfg_password` ;
 
 ALTER TABLE  `playsms_toolsSimplephonebook` CHANGE  `c_timestamp`  `c_timestamp` INT( 11 ) NOT NULL DEFAULT  '0',
@@ -97,4 +101,5 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `playsms_featureAutoreply_log` ;
 DROP TABLE IF EXISTS `playsms_featureCommand_log` ;
 DROP TABLE IF EXISTS `playsms_featureCustom_log` ;
+
 
