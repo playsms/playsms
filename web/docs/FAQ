@@ -2,8 +2,8 @@ FAQ (Frequently Asked Questions)
 --------------------------------
 
 Q: Why the core codes are licensed as GPL version 2?
-A: So that all commercial SMS gateway software are forced to be at
-   least twice better than the Free and Open Source one, playSMS.
+A: GPL is one of the open source license, choosing this will force 
+   users or developers to contribute back when they modify the core.
 
 Q: Why plugins and API related codes are licensed as LGPL?
 A: So that you can create your own or modify from others a playSMS 
@@ -14,8 +14,7 @@ A. LOGIN
 --------
 1.  How to login for the first time after installation?
     Answer:
-    Please read INSTALL, INSTALLATION on Linux, playSMS Web Interface, 
-    step 13th.
+    Browse playSMS URL and login with username admin and password admin
 
 2.  What should I do next after I logged in as Administrator?
     Answer:
@@ -36,7 +35,7 @@ B. SEND SMS
 
 2.  How to send broadcast SMS from web?
     Answer:
-    Use Send broadcast SMS page.
+    Use Send SMS page.
 
 3.  Is there any delivery status reported?
     Answer:
@@ -49,11 +48,11 @@ B. SEND SMS
 4.  Can we delete Outgoing SMS?
     Answer:
     Yes, but its not really deleted, its just permanently hidden from
-    everyone's Outgoing SMS page (including from administrators).
+    everyone's Outgoing SMS page (including from administrator's).
 
 5.  Can we retrieve deleted Outgoing SMS?
     Answer:
-    No, not at the moment.
+    No, not at the moment. Not from playSMS interface.
 
 6.  If we delete Outgoing SMS, is it affecting SMS transmission?
     Answer:
@@ -66,11 +65,12 @@ B. SEND SMS
     gateway module with no ability to set SMS sender ID.
     Gateway modules which have the ability to set SMS sender ID will 
     set SMS sender ID to the SMS.
-    The sender ID is set according this order:
+    The sender ID is set according to this order:
 	1. Default sender ID (in case it exists)
 	2. Module sender ID (in case it exists)
 	3. Per user SMS sender ID (only editable by the user when
-	    denycustomsender=false, the admin can edit it always)
+	   denycustomsender is set to false from config.php, but admin 
+	   can always edit it)
 
 
 C. RECEIVE SMS
@@ -87,12 +87,15 @@ C. RECEIVE SMS
         PV [your_username] [their message]
     or this format (since playSMS 0.9.5.2):
         @[your username] [their message]
+    or as long as the SMS contains @[your username] (since playSMS 0.9.8)
+
     eg: 
 	PV devteam your application works!
 	pv devteam i want to help you developing this application :)
 	@devteam your application rocks!
 	@devteam I want to help but dunno wht todo, any idea?
 	@admin bro, please set me as admin too !!
+	Hi @admin, nice to know that now we have a free SMS service!
 	
 3.  Can I forward SMS from my mobile phone to my group?
     Answer:
@@ -100,15 +103,20 @@ C. RECEIVE SMS
     that Group Code as parameter to forward SMS to group.
     Using special keyword BC you may forward SMS to your group:
         BC [group code] [your message]
+    or as long as the SMS contains #[group code] (since playSMS 0.9.8)
+
     eg: 
 	BC DEV thx for joining our crussade :)
 	bc DEV dont forget to read function.php
 	Bc DEV testing only, sending this SMS to group code DEV
+	#DEV its nice to meet you all
+	To all of you in #DEV please get this bug fixed asap!
+
     Note: playSMS will use Mobile number sets in user Preferences to
     authenticate keyword BC
 
 4.  What happened to the received/incoming SMS without keyword PV 
-    or keyword with @ sign ?
+    or keyword (or messages) with @ sign ?
     Answer:
     They will only be shown in All Incoming SMS menu as an 'unhandled' 
     SMS where only admin users have access to them.
@@ -153,22 +161,18 @@ E. SMS BOARD
     eg:
 	http://playsms/index.php?app=webservices&ta=sms_board&keyword=INFO&line=15
     
-3.  Can I retrieve incoming SMS for that a keyword in XML format?
+3.  What output formats available for SMS board webservices?
     Answer:
-    Yes, incoming SMS will be formatted in RSS 0.91, and accessible
-    trough this url:
-	http://playsms/index.php?app=webservices&ta=sms_board&keyword=INFO&type=xml
-    Other parameter you can use to refine the XML output:
-    line	: show x line number of rows in xml file
-    eg:
-	http://playsms/index.php?app=webservices&ta=sms_board&keyword=INFO&type=xml&line=15
+    PHP serialize, json, xml, rss feed (0.91, 1.0, 2.0, ATOM) and html.
+    Please see menu view in SMS board.
     
 4.  How to put that web page on my main website?
     Answer:
     Use IFRAME html tag. Customize your IFRAME to match your main 
     website look and feel.
     eg:
-	<IFRAME src="http://playsms/index.php?app=webservices&ta=sms_board&keyword=INFO">
+	<IFRAME 
+	  src="http://playsms/index.php?app=webservices&ta=sms_board&keyword=INFO">
 	</IFRAME>
     Note: other solution may be available.
 
@@ -200,13 +204,13 @@ F. SMS COMMAND
 	retr pop3 pop3.ngoprek.org devteam mypwd
 	uptime
 
-4. What commands are available from SMS command?
-   Answer:
-   Any commands are available to be executed from SMS command.
+4.  What commands are available from SMS command?
+    Answer:
+    Any commands are available to be executed from SMS command.
 
-5. What is the check box 'Make return as reply' for?
-   Answer:
-   playSMS will pickup output of executed command as reply to sender
+5.  What is the check box 'Make return as reply' for?
+    Answer:
+    playSMS will pickup output of executed command as reply to sender
 
 
 G. SMS CUSTOM
@@ -238,9 +242,9 @@ G. SMS CUSTOM
 	retr pop3 pop3.ngoprek.org devteam mypwd
 	uptime
 
-4. What is the check box 'Make return as reply' for?
-   Answer:
-   playSMS will pickup output of URL/other host as reply to sender
+4.  What is the check box 'Make return as reply' for?
+    Answer:
+    playSMS will pickup output of URL/other host as reply to sender
 
 
 H. SMS POLL
@@ -266,8 +270,13 @@ H. SMS POLL
     refresh=yes	: check latest incoming sms and refresh webpage output
     Use IFRAME html tag.
     eg:
-	<IFRAME src="http://your_playsms_web_domain/index.php?app=webservices&ta=sms_poll&keyword=PRES">
+	<IFRAME 
+	  src="http://your_playsms_web_domain/index.php?app=webservices&ta=sms_poll&keyword=PRES">
 	</IFRAME>
+
+3.  What output formats available for SMS poll webservices?
+    Answer:
+    PHP serialize, json, xml, and graph. Please see menu view in SMS poll.
 
 
 I. SMS QUIZ
@@ -319,23 +328,7 @@ J. SMS SUBSCRIBE
     theclub off
     
 
-K. SMS AUTOSEND
----------------
-1.  What is SMS autosend system?
-    Answer:
-    Administrator can add messages which will automatically be sent to
-    defined number at defined date and time. This feature supports 
-    multiple date and time which means that the message will 
-    automatically sent at these date and time you have defined.
-	
-2.  Howto use SMS subscribe system?
-    Answer:
-    Add new autosend message or list/edit/delete it. Write down the 
-    message, destination number, define your date and time with format
-    "YYYY-mm-dd hh:mm:ss".
-	
-
-L. GATEWAY MODULE
+K. GATEWAY MODULE
 -----------------    
 1.  I've heard that from version 0.5 playSMS support any gateway other
     than gnokii. Is this true?
@@ -373,7 +366,7 @@ L. GATEWAY MODULE
     Yes.
 
 
-M. SMS RATE AND CREDIT
+L. SMS RATE AND CREDIT
 ----------------------
 1.  What is Manage SMS rate menu in Administration drop-down menu?
     Answer:
@@ -402,7 +395,7 @@ M. SMS RATE AND CREDIT
     Only sent SMS.
 
 
-N. CONTACT
+M. CONTACT
 ----------    
 1.  Is there any place where I can discuss playSMS matters?
     Answer:
