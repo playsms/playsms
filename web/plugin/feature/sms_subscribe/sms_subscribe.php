@@ -22,20 +22,18 @@ switch ($op) {
 			$content .= "
 				<th width=5>*</th>
 				<th width=20%>"._('Keyword')."</th>
-				<th width=15%>"._('Members')."</th>
-				<th width=15%>"._('Messages')."</th>
 				<th width=20%>"._('User')."</th>
+				<th width=20%>"._('Members')."</th>
+				<th width=20%>"._('Messages')."</th>
 				<th width=10%>"._('Status')."</th>
-				<th width=10%>"._('View')."</th>
 				<th width=10%>"._('Action')."</th>";
 		} else {
 			$content .= "
 				<th width=5>*</th>
 				<th width=20%>"._('Keyword')."</th>
-				<th width=25%>"._('Members')."</th>
-				<th width=25%>"._('Messages')."</th>
+				<th width=30%>"._('Members')."</th>
+				<th width=30%>"._('Messages')."</th>
 				<th width=10%>"._('Status')."</th>
-				<th width=10%>"._('View')."</th>
 				<th width=10%>"._('Action')."</th>";
 		}
 		$content .= "
@@ -59,8 +57,6 @@ switch ($op) {
 				if ($db_row['subscribe_enable']) {
 					$subscribe_status = "<a href=\"index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_status&subscribe_id=".$db_row['subscribe_id']."&ps=0\"><font color=green>"._('enabled')."</font></a>";
 				}
-				$views = "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id=".$db_row['subscribe_id'].">$subscribe_icon_view_messages</a>&nbsp;";
-				$views .= "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=mbr_list&subscribe_id=".$db_row['subscribe_id'].">$subscribe_icon_view_members</a>&nbsp;";
 				$action = "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=".$db_row['subscribe_id'].">$icon_edit</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS subscribe ?')." ("._('keyword').": ".$db_row['subscribe_keyword'].")','index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_del&subscribe_id=".$db_row['subscribe_id']."')\">$icon_delete</a>";
 				if (isadmin()) {
@@ -70,11 +66,10 @@ switch ($op) {
 					<tr>
 						<td class=$td_class>&nbsp;$i.</td>
 						<td class=$td_class>".$db_row['subscribe_keyword']."</td>
-						<td class=$td_class align=center>$members</td>
-						<td class=$td_class align=center>$messages</td>
 						".$option_owner."
+						<td class=$td_class align=center><a href=index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id=".$db_row['subscribe_id'].">".$members."</a></td>
+						<td class=$td_class align=center><a href=index.php?app=menu&inc=feature_sms_subscribe&op=mbr_list&subscribe_id=".$db_row['subscribe_id'].">".$messages."</a></td>
 						<td class=$td_class align=center>$subscribe_status</td>
-						<td class=$td_class align=center>$views</td>
 						<td class=$td_class align=center>$action</td>
 					</tr>";
 			}
