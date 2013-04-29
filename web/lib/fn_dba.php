@@ -355,4 +355,19 @@ function dba_isexists($db_table, $conditions='') {
 	return $ret;
 }
 
+function dba_valid($db_table, $field, $value) {
+	global $core_config;
+	$ret = false;
+	if ($db_table && $field && $value) {
+		$conditions[$field] = $value;
+		if (! isadmin()) {
+			$conditions['uid'] = $core_config['user']['uid'];
+		}
+		if ($list = dba_search($db_table, $field, $conditions)) {
+			$ret = $list[0][$field];
+		}
+	}
+	return $ret;
+}
+
 ?>
