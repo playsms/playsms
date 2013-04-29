@@ -48,13 +48,10 @@ switch ($op) {
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = uid2username($db_row['uid'])) {
-				if (! isadmin()) {
-					$query_user_only = "AND uid='$uid'";
-				}
-				$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id = '".$db_row['subscribe_id']."' ".$query_user_only;
+				$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id = '".$db_row['subscribe_id']."'";
 				$members = @dba_num_rows($db_query);
 				if (!$members) { $members = 0; }
-				$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id = '".$db_row['subscribe_id']."' ".$query_user_only;
+				$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id = '".$db_row['subscribe_id']."'";
 				$messages = @dba_num_rows($db_query);
 				if (!$messages) { $messages = 0; }
 				$i++;
