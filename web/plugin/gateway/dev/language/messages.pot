@@ -1,0 +1,41 @@
+msgid "Active"
+msgstr ""
+
+msgid "Date/Time"
+msgstr ""
+
+msgid "Fail to simulate incoming SMS"
+msgstr ""
+
+msgid "Gateway has been activated"
+msgstr ""
+
+msgid "Gateway name"
+msgstr ""
+
+msgid "Inactive"
+msgstr ""
+
+msgid "Manage dev"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Receiver"
+msgstr ""
+
+msgid "Sender"
+msgstr ""
+
+msgid "Simulate incoming SMS"
+msgstr ""
+
+msgid "Submit"
+msgstr ""
+
+msgid "This is a test incoming SMS message"
+msgstr ""
+
+msgid "click here to activate"
+msgstr ""
