@@ -2,6 +2,12 @@
 defined('_SECURE_') or die('Forbidden');
 if(!valid()){forcenoaccess();};
 
+if ($custom_id = $_REQUEST['custom_id']) {
+	if (! ($custom_id = dba_valid(_DB_PREF_.'_featureCustom', 'custom_id', $custom_id))) {
+		forcenoaccess();
+	}
+}
+
 switch ($op) {
 	case "sms_custom_list":
 		if ($err = $_SESSION['error_string']) {
@@ -10,11 +16,6 @@ switch ($op) {
 		$content .= "
 			<h2>" . _('Manage custom') . "</h2>
 			<p>"._button('index.php?app=menu&inc=feature_sms_custom&op=sms_custom_add', _('Add SMS custom'));
-		if (!isadmin()) {
-			$query_user_only = "WHERE uid='$uid'";
-		}
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCustom ".$query_user_only." ORDER BY custom_keyword";
-		$db_result = dba_query($db_query);
 		$content .= "
 			<table cellpadding=1 cellspacing=2 border=0 width=100% class=sortable>
 			<thead><tr>";
@@ -37,6 +38,11 @@ switch ($op) {
 			</tbody>";
 		$i = 0;
 		$maxlen = 50;
+		if (! isadmin()) {
+			$query_user_only = "WHERE uid='$uid'";
+		}
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCustom ".$query_user_only." ORDER BY custom_keyword";
+		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = uid2username($db_row['uid'])) {
 				$i++;
@@ -63,7 +69,6 @@ switch ($op) {
 		echo $content;
 		break;
 	case "sms_custom_edit":
-		$custom_id = $_REQUEST['custom_id'];
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCustom WHERE custom_id='$custom_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
@@ -79,7 +84,7 @@ switch ($op) {
 			<h3>" . _('Edit SMS custom') . "</h3>
 			<p>
 			<form action=index.php?app=menu&inc=feature_sms_custom&op=sms_custom_edit_yes method=post>
-			<input type=hidden name=edit_custom_id value=$custom_id>
+			<input type=hidden name=custom_id value=$custom_id>
 			<input type=hidden name=edit_custom_keyword value=$edit_custom_keyword>
 			<p>" . _('SMS custom keyword') . ": <b>$edit_custom_keyword</b>
 			<p>" . _('Pass these parameter to custom URL field') . ":
@@ -97,14 +102,10 @@ switch ($op) {
 		break;
 	case "sms_custom_edit_yes":
 		$edit_custom_return_as_reply = ( $_POST['edit_custom_return_as_reply'] == 'on' ? '1' : '0' );
-		$edit_custom_id = $_POST['edit_custom_id'];
 		$edit_custom_keyword = $_POST['edit_custom_keyword'];
 		$edit_custom_url = $_POST['edit_custom_url'];
-		if ($edit_custom_id && $edit_custom_keyword && $edit_custom_url) {
-			if (! isadmin()) {
-				$query_user_only = "AND uid='$uid'";
-			}
-			$db_query = "UPDATE " . _DB_PREF_ . "_featureCustom SET c_timestamp='" . mktime() . "',custom_url='$edit_custom_url',custom_return_as_reply='$edit_custom_return_as_reply' WHERE custom_keyword='$edit_custom_keyword' ".$query_user_only;
+		if ($custom_id && $edit_custom_keyword && $edit_custom_url) {
+			$db_query = "UPDATE " . _DB_PREF_ . "_featureCustom SET c_timestamp='" . mktime() . "',custom_url='$edit_custom_url',custom_return_as_reply='$edit_custom_return_as_reply' WHERE custom_keyword='$edit_custom_keyword'";
 			echo $db_query;
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('SMS custom has been saved') . " (" . _('keyword') . " $edit_custom_keyword)";
@@ -114,15 +115,11 @@ switch ($op) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_custom&op=sms_custom_edit&custom_id=$edit_custom_id");
+		header("Location: index.php?app=menu&inc=feature_sms_custom&op=sms_custom_edit&custom_id=$custom_id");
 		exit();
 		break;
 	case "sms_custom_del":
-		$custom_id = $_REQUEST['custom_id'];
-		if (! isadmin()) {
-			$query_user_only = "AND uid='$uid'";
-		}
-		$db_query = "SELECT custom_keyword FROM " . _DB_PREF_ . "_featureCustom WHERE custom_id='$custom_id' ".$query_user_only;
+		$db_query = "SELECT custom_keyword FROM " . _DB_PREF_ . "_featureCustom WHERE custom_id='$custom_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$keyword_name = $db_row['custom_keyword'];

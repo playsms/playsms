@@ -2,6 +2,12 @@
 defined('_SECURE_') or die('Forbidden');
 if (!valid()) { forcenoaccess(); };
 
+if ($command_id = $_REQUEST['command_id']) {
+	if (! ($command_id = dba_valid(_DB_PREF_.'_featureCommand', 'command_id', $command_id))) {
+		forcenoaccess();
+	}
+}
+
 $sms_command_bin = $plugin_config['feature']['sms_command']['bin'];
 
 switch ($op) {
@@ -12,18 +18,19 @@ switch ($op) {
 		$content .= "
 			<h2>" . _('Manage command') . "</h2>
 			<p>"._button('index.php?app=menu&inc=feature_sms_command&op=sms_command_add', _('Add SMS command'));
-		if (!isadmin()) {
+		if (! isadmin()) {
 			$query_user_only = "WHERE uid='$uid'";
 		}
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCommand ".$query_user_only." ORDER BY command_keyword";
 		$db_result = dba_query($db_query);
 		$content .= "<table cellpadding=1 cellspacing=2 border=0 width=100% class=sortable>";
-		if (!isadmin()) {
+		if (isadmin()) {
 			$content .= "
 				<thead><tr>
 					<th width=4>*</th>
 					<th width=20%>" . _('Keyword') . "</th>
-					<th width=70%>" . _('Exec') . "</th>
+					<th width=50%>" . _('Exec') . "</th>
+					<th width=20%>" . _('User') . "</th>
 					<th width=10%>" . _('Action') . "</th>
 				</tr></thead>";
 		} else {
@@ -31,8 +38,7 @@ switch ($op) {
 				<thead><tr>
 					<th width=4>*</th>
 					<th width=20%>" . _('Keyword') . "</th>
-					<th width=50%>" . _('Exec') . "</th>
-					<th width=20%>" . _('User') . "</th>
+					<th width=70%>" . _('Exec') . "</th>
 					<th width=10%>" . _('Action') . "</th>
 				</tr></thead>";
 		}
@@ -65,7 +71,6 @@ switch ($op) {
 		echo $content;
 		break;
 	case "sms_command_edit":
-		$command_id = $_REQUEST['command_id'];
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCommand WHERE command_id='$command_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
@@ -82,7 +87,7 @@ switch ($op) {
 			<h3>" . _('Edit SMS command') . "</h3>
 			<p>
 			<form action=index.php?app=menu&inc=feature_sms_command&op=sms_command_edit_yes method=post>
-			<input type=hidden name=edit_command_id value=$command_id>
+			<input type=hidden name=command_id value=$command_id>
 			<input type=hidden name=edit_command_keyword value=$edit_command_keyword>
 			<p>" . _('SMS command keyword') . ": <b>$edit_command_keyword</b>
 			<p>" . _('Pass these parameter to command exec field') . ":
@@ -101,19 +106,15 @@ switch ($op) {
 		break;
 	case "sms_command_edit_yes":
 		$edit_command_return_as_reply = ( $_POST['edit_command_return_as_reply'] == 'on' ? '1' : '0' );
-		$edit_command_id = $_POST['edit_command_id'];
 		$edit_command_keyword = $_POST['edit_command_keyword'];
 		$edit_command_exec = $_POST['edit_command_exec'];
-		if ($edit_command_id && $edit_command_keyword && $edit_command_exec) {
+		if ($command_id && $edit_command_keyword && $edit_command_exec) {
 			$edit_command_exec = str_replace("../", "", $edit_command_exec);
 			$edit_command_exec = str_replace("..\\", "", $edit_command_exec);
 			$edit_command_exec = str_replace("/", "", $edit_command_exec);
 			$edit_command_exec = str_replace("\\", "", $edit_command_exec);
 			$edit_command_exec = str_replace("|", "", $edit_command_exec);
-			if (!isadmin()) {
-				$query_user_only = "AND uid='$uid'";
-			}
-			$db_query = "UPDATE " . _DB_PREF_ . "_featureCommand SET c_timestamp='" . mktime() . "',command_exec='$edit_command_exec',command_return_as_reply='$edit_command_return_as_reply' WHERE command_keyword='$edit_command_keyword' ".$query_user_only;
+			$db_query = "UPDATE " . _DB_PREF_ . "_featureCommand SET c_timestamp='" . mktime() . "',command_exec='$edit_command_exec',command_return_as_reply='$edit_command_return_as_reply' WHERE command_keyword='$edit_command_keyword'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('SMS command has been saved') . " (" . _('keyword') . ": $edit_command_keyword)";
 			} else {
@@ -122,15 +123,11 @@ switch ($op) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_command&op=sms_command_edit&command_id=$edit_command_id");
+		header("Location: index.php?app=menu&inc=feature_sms_command&op=sms_command_edit&command_id=$command_id");
 		exit();
 		break;
 	case "sms_command_del":
-		$command_id = $_REQUEST['command_id'];
-		if (!isadmin()) {
-			$query_user_only = "AND uid='$uid'";
-		}
-		$db_query = "SELECT command_keyword FROM " . _DB_PREF_ . "_featureCommand WHERE command_id='$command_id' ".$query_user_only;
+		$db_query = "SELECT command_keyword FROM " . _DB_PREF_ . "_featureCommand WHERE command_id='$command_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$keyword_name = $db_row['command_keyword'];

@@ -45,7 +45,7 @@ switch ($op) {
 		$content .= "
 			</tr></thead>
 			<tbody>";
-		if (!isadmin()) {
+		if (! isadmin()) {
 			$query_user_only = "WHERE uid='$uid'";
 		}
 		$db_query = "SELECT * FROM "._DB_PREF_."_featureBoard ".$query_user_only." ORDER BY board_keyword";

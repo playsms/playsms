@@ -2,6 +2,12 @@
 defined('_SECURE_') or die('Forbidden');
 if(!valid()){forcenoaccess();};
 
+if ($poll_id = $_REQUEST['poll_id']) {
+	if (! ($poll_id = dba_valid(_DB_PREF_.'_featurePoll', 'poll_id', $poll_id))) {
+		forcenoaccess();
+	}
+}
+
 if ($route = $_REQUEST['route']) {
 	$fn = $apps_path['plug'].'/feature/sms_poll/'.$route.'.php';
 	$fn = core_sanitize_path($fn);
@@ -20,11 +26,6 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage poll')."</h2>
 			<p>"._button('index.php?app=menu&inc=feature_sms_poll&op=sms_poll_add', _('Add SMS poll'));
-		if (!isadmin()) {
-			$query_user_only = "WHERE uid='$uid'";
-		}
-		$db_query = "SELECT * FROM "._DB_PREF_."_featurePoll ".$query_user_only." ORDER BY poll_id";
-		$db_result = dba_query($db_query);
 		$content .= "
 			<table cellpadding=1 cellspacing=2 border=0 width=100% class=sortable>
 			<thead><tr>";
@@ -48,6 +49,11 @@ switch ($op) {
 			</tr></thead>
 			<tbody>";
 		$i=0;
+		if (! isadmin()) {
+			$query_user_only = "WHERE uid='$uid'";
+		}
+		$db_query = "SELECT * FROM "._DB_PREF_."_featurePoll ".$query_user_only." ORDER BY poll_id";
+		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = uid2username($db_row['uid'])) {
 				$i++;
@@ -79,7 +85,6 @@ switch ($op) {
 		echo $content;
 		break;
 	case "sms_poll_view":
-		$poll_id = $_REQUEST['poll_id'];
 		$db_query = "SELECT poll_keyword FROM "._DB_PREF_."_featurePoll WHERE poll_id='$poll_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
@@ -88,11 +93,7 @@ switch ($op) {
 		exit();
 		break;
 	case "sms_poll_edit":
-		$poll_id = $_REQUEST['poll_id'];
-		if (! isadmin()) {
-			$query_user_only = "AND uid='$uid'";
-		}
-		$db_query = "SELECT * FROM "._DB_PREF_."_featurePoll WHERE poll_id='$poll_id' ".$query_user_only;
+		$db_query = "SELECT * FROM "._DB_PREF_."_featurePoll WHERE poll_id='$poll_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$edit_poll_title = $db_row['poll_title'];
@@ -107,7 +108,7 @@ switch ($op) {
 			<h3>"._('Edit SMS poll')."</h3>
 			<p>
 			<form action=index.php?app=menu&inc=feature_sms_poll&op=sms_poll_edit_yes method=post>
-			<input type=hidden name=edit_poll_id value=\"$poll_id\">
+			<input type=hidden name=poll_id value=\"$poll_id\">
 			<input type=hidden name=edit_poll_keyword value=\"$edit_poll_keyword\">
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 			<tr>
@@ -179,35 +180,27 @@ switch ($op) {
 		echo $content;
 		break;
 	case "sms_poll_edit_yes":
-		$edit_poll_id = $_POST['edit_poll_id'];
 		$edit_poll_keyword = strtoupper($_POST['edit_poll_keyword']);
 		$edit_poll_title = $_POST['edit_poll_title'];
 		$edit_poll_message_valid = $_POST['edit_poll_message_valid'];
 		$edit_poll_message_invalid = $_POST['edit_poll_message_invalid'];
-		if ($edit_poll_id && $edit_poll_title && $edit_poll_keyword && $edit_poll_message_valid && $edit_poll_message_invalid) {
-			if (! isadmin()) {
-				$query_user_only = "AND uid='$uid'";
-			}
+		if ($poll_id && $edit_poll_title && $edit_poll_keyword && $edit_poll_message_valid && $edit_poll_message_invalid) {
 			$db_query = "
 				UPDATE "._DB_PREF_."_featurePoll
 				SET c_timestamp='".mktime()."',poll_title='$edit_poll_title',poll_keyword='$edit_poll_keyword', poll_message_valid='$edit_poll_message_valid', poll_message_invalid='$edit_poll_message_invalid'
-				WHERE poll_id='$edit_poll_id' ".$query_user_only;
+				WHERE poll_id='$poll_id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('SMS poll with has been saved')." ("._('keyword').": $edit_poll_keyword)";
 			}
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_poll&op=sms_poll_edit&poll_id=$edit_poll_id");
+		header("Location: index.php?app=menu&inc=feature_sms_poll&op=sms_poll_edit&poll_id=$poll_id");
 		exit();
 		break;
 	case "sms_poll_status":
-		$poll_id = $_REQUEST['poll_id'];
 		$ps = $_REQUEST['ps'];
-		if (! isadmin()) {
-			$query_user_only = "AND uid='$uid'";
-		}
-		$db_query = "UPDATE "._DB_PREF_."_featurePoll SET c_timestamp='".mktime()."',poll_enable='$ps' WHERE poll_id='$poll_id' ".$query_user_only;
+		$db_query = "UPDATE "._DB_PREF_."_featurePoll SET c_timestamp='".mktime()."',poll_enable='$ps' WHERE poll_id='$poll_id'";
 		$db_result = @dba_affected_rows($db_query);
 		if ($db_result > 0) {
 			$_SESSION['error_string'] = _('SMS poll status has been changed');
@@ -216,15 +209,11 @@ switch ($op) {
 		exit();
 		break;
 	case "sms_poll_del":
-		$poll_id = $_REQUEST['poll_id'];
-		if (! isadmin()) {
-			$query_user_only = "AND uid='$uid'";
-		}
-		$db_query = "SELECT poll_keyword FROM "._DB_PREF_."_featurePoll WHERE poll_id='$poll_id' ".$query_user_only;
+		$db_query = "SELECT poll_keyword FROM "._DB_PREF_."_featurePoll WHERE poll_id='$poll_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		if ($poll_keyword = $db_row['poll_keyword']) {
-			$db_query = "DELETE FROM "._DB_PREF_."_featurePoll WHERE poll_id='$poll_id' ".$query_user_only;
+			$db_query = "DELETE FROM "._DB_PREF_."_featurePoll WHERE poll_id='$poll_id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('SMS poll with all its messages has been deleted')." ("._('keyword').": $poll_keyword)";
 			}
@@ -233,7 +222,6 @@ switch ($op) {
 		exit();
 		break;
 	case "sms_poll_choice_add":
-		$poll_id = $_POST['poll_id'];
 		$add_choice_title = $_POST['add_choice_title'];
 		$add_choice_keyword = strtoupper($_POST['add_choice_keyword']);
 		if ($poll_id && $add_choice_title && $add_choice_keyword) {
@@ -257,7 +245,6 @@ switch ($op) {
 		exit();
 		break;
 	case "sms_poll_choice_del":
-		$poll_id = $_REQUEST['poll_id'];
 		$choice_id = $_REQUEST['choice_id'];
 		$db_query = "SELECT choice_keyword FROM "._DB_PREF_."_featurePoll_choice WHERE poll_id='$poll_id' AND choice_id='$choice_id'";
 		$db_result = dba_query($db_query);

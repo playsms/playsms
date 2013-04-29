@@ -13,10 +13,6 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage autoreply')."</h2>
 			<p>"._button('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_add', _('Add SMS autoreply'));
-		if (!isadmin()) {
-			$query_user_only = "WHERE uid='$uid'";
-		}
-		$db_query = "SELECT * FROM "._DB_PREF_."_featureAutoreply $query_user_only ORDER BY autoreply_keyword";
 		$content .= "<table cellpadding=1 cellspacing=2 border=0 width=100% class=sortable><thead><tr>";
 		if (isadmin()) {
 			$content .= "
@@ -31,6 +27,10 @@ switch ($op) {
 				<th width=10%>"._('Action')."</th>";
 		}
 		$content .= "</tr></thead><tbody>";
+		if (! isadmin()) {
+			$query_user_only = "WHERE uid='$uid'";
+		}
+		$db_query = "SELECT * FROM "._DB_PREF_."_featureAutoreply ".$query_user_only." ORDER BY autoreply_keyword";
 		$db_result = dba_query($db_query);
 		$i=0;
 		while ($db_row = dba_fetch_array($db_result)) {

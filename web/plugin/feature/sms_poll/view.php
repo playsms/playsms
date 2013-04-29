@@ -1,15 +1,9 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
-if(!valid()){forcenoaccess();};
 
 switch ($op) {
 	case 'list':
-		$poll_id = $_REQUEST['poll_id'];
 		$conditions['poll_id'] = $poll_id;
-		if (! isadmin()) {
-			$uid = $core_config['user']['uid'];
-			$conditions['uid'] = $uid;
-		}
 		$list = dba_search(_DB_PREF_.'_featurePoll', '*', $conditions);
 		$poll_keyword = $list[0]['poll_keyword'];
 		$output_serialize = $core_config['http_path']['base']."/index.php?app=webservices&ta=sms_poll&keyword=".urlencode($poll_keyword)."&type=serialize";
