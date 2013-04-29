@@ -1,4 +1,4 @@
-Version 0.9.8 - 130429
+Version 0.9.8 - 130507
 - MAJOR: webservice now using hash token instead of username password (aseques)
 - MAJOR: change the login method to use PHP session (anton)
 - MAJOR: change the way to show $error_string, now using PHP session (anton)
@@ -20,6 +20,7 @@ Version 0.9.8 - 130429
 - add simple reply and forward feature on inbox and incoming SMS (anton)
 - add IP validations with network masks for playSMS web services (anton)
 - add new gateway module for Nexmo (anton)
+- add new gateway module Dev for development or simulation (anton)
 - add export output to PHP serialize, json, xml and image for sms_poll (anton)
 - add export output to PHP serialize, json, xml, rss feeds, html for sms_board (anton)
 - update keyword BC to handle feature SMS subscribe (anton)
