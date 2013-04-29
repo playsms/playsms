@@ -8,7 +8,7 @@ do
     sleep 3
     CWD=`pwd`
     cd $PLAYSMS_LOG
-    nohup $PLAYSMS_SMSD/smsd -m file -c $PLAYSMS_SPOOL -u $PLAYSMS_BIN/gnokii_smsd_incoming -f $PLAYSMS_LOG/gnokii_smsd_logs >/dev/null 2>&1 &
+    nohup /usr/sbin/smsd -m file -c $PLAYSMS_SPOOL -u $PLAYSMS_BIN/gnokii_smsd_incoming -f $PLAYSMS_LOG/gnokii_smsd_logs >/dev/null 2>&1 &
     cd $CWD
     sleep 16m
 done
