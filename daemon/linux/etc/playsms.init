@@ -43,6 +43,7 @@ case "$1" in
 	--pidfile $PIDFILE1 \
 	--exec $DAEMON -- $DAEMON_OPTIONS
     log_end_msg 0
+
     log_daemon_msg "Starting sendsms daemon"
     log_progress_msg "sendsms"
     DAEMON=$PLAYSMS_BIN/sendsmsd
@@ -59,6 +60,7 @@ case "$1" in
     start-stop-daemon --stop --retry 5 \
     	--pidfile $PIDFILE1
     log_end_msg 0
+
     log_daemon_msg "Stopping sendsms daemon"
     log_progress_msg "sendsms"
     start-stop-daemon --stop --retry 5 \
