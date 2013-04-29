@@ -27,13 +27,13 @@ Feature Highlights
 - SMS quiz, serve quizzes on SMS
 - SMS subscribe, manage user subscribes to a service using SMS
 - Create your own features, tools, themes and gateway modules as a plugin
-- Supports Gammu, Gnokii, Kannel, SMS Server Tools, Msgtoolbox and Clickatell
+- Supports Gammu, Gnokii, Kannel, SMS Server Tools, Msgtoolbox, Nexmo and Clickatell
 - Simple webservices for sending SMS and retrieving delivery reports
 - Long SMS support, length of text is configurable
 - Rate SMS by destination prefix
 - SMS credit system per user
 - Timezone settings
-- Multi-language user interface (current: English, French and Bahasa Indonesia)
+- Multi-language user interface (English, French, Bahasa Indonesia and a few others)
 - Easily add new language for user interface
 - Web-based interface
 

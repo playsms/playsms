@@ -14,14 +14,15 @@
 # Should-Stop:       $network $named
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: SMS gateway
+# Short-Description: playSMS SMS gateway daemon
 # Description:       playSMS is a platform to manage other sms backends
 #		     to send and receive sms
 ### END INIT INFO
 
 . /lib/lsb/init-functions
 
-PIDFILE=/var/run/playsms.pid
+PIDFILE1=/var/run/playsms.pid
+PIDFILE2=/var/run/sendsms.pid
 
 # We require the config file in /etc/default/playsms to be
 # available, otherwise exit
@@ -39,7 +40,15 @@ case "$1" in
     DAEMON=$PLAYSMS_BIN/playsmsd
     DAEMON_OPTIONS=$PLAYSMS_PATH
     start-stop-daemon --start --background --make-pidfile \
-	--pidfile $PIDFILE \
+	--pidfile $PIDFILE1 \
+	--exec $DAEMON -- $DAEMON_OPTIONS
+    log_end_msg 0
+    log_daemon_msg "Starting sendsms daemon"
+    log_progress_msg "sendsms"
+    DAEMON=$PLAYSMS_BIN/sendsmsd
+    DAEMON_OPTIONS=$PLAYSMS_PATH
+    start-stop-daemon --start --background --make-pidfile \
+	--pidfile $PIDFILE2 \
 	--exec $DAEMON -- $DAEMON_OPTIONS
     log_end_msg 0
     ;;
@@ -48,18 +57,18 @@ case "$1" in
     log_daemon_msg "Stopping playSMS daemon"
     log_progress_msg "playsms"
     start-stop-daemon --stop --retry 5 \
-    	--pidfile $PIDFILE
+    	--pidfile $PIDFILE1
+    log_end_msg 0
+    log_daemon_msg "Stopping sendsms daemon"
+    log_progress_msg "sendsms"
+    start-stop-daemon --stop --retry 5 \
+    	--pidfile $PIDFILE2
     log_end_msg 0
     ;;
 
-  reload)
-    # We don't have support for this yet.
-    exit 1
-    ;;
-
-  restart|force-reload)
+  reload|restart|force-reload)
     $0 stop
-    sleep 1
+    sleep 2
     $0 start
     ;;
 
