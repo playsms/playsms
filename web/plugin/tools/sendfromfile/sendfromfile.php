@@ -44,7 +44,7 @@ switch ($op) {
 		$invalid = 0;
 		if (($fs == filesize($fn)) && file_exists($fn)) {
 			if (($fd = fopen($fn, 'r')) !== FALSE) {
-				$sid = md5($fn);
+				$sid = $core_config['user']['uid'].mktime().md5($fn);
 				while (($data = fgetcsv($fd, $fs, ',')) !== FALSE) {
 					$row++;
 					$sms_to = $data[0];
