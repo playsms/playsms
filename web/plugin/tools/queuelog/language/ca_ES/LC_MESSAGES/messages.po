@@ -17,6 +17,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.4\n"
 
+msgid "Count"
+msgstr ""
+
 msgid "Date/Time"
 msgstr "Data/Hora"
 

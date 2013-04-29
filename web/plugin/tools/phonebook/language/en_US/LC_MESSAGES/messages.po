@@ -1,0 +1,125 @@
+msgid "Add contact"
+msgstr ""
+
+msgid "Add group"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Contact has been added"
+msgstr ""
+
+msgid "Contact has been edited"
+msgstr ""
+
+msgid "Contact is already exists"
+msgstr ""
+
+msgid "Contacts has been imported"
+msgstr ""
+
+msgid "Delete selection"
+msgstr ""
+
+msgid "Edit contact"
+msgstr ""
+
+msgid "Edit group"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
+msgid "Fail to upload CSV file for phonebook"
+msgstr ""
+
+msgid "Group"
+msgstr ""
+
+msgid "Group code"
+msgstr ""
+
+msgid "Group code has been added"
+msgstr ""
+
+msgid "Group code is already exists"
+msgstr ""
+
+msgid "Group code used by keyword"
+msgstr ""
+
+msgid "Group has been edited"
+msgstr ""
+
+msgid "Group name"
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "Import above phonebook entries ?"
+msgstr ""
+
+msgid "Import confirmation"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "No changes has been made"
+msgstr ""
+
+msgid "Note"
+msgstr ""
+
+msgid "Phonebook"
+msgstr ""
+
+msgid "Please select CSV file for phonebook entries"
+msgstr ""
+
+msgid "Publish"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Selected contact has been deleted"
+msgstr ""
+
+msgid "Selected group has been deleted"
+msgstr ""
+
+msgid "Unpublish"
+msgstr ""
+
+msgid "You must fill all field"
+msgstr ""
+
+msgid "broadcast SMS from single SMS"
+msgstr ""
+
+msgid "code"
+msgstr ""
+
+msgid "format"
+msgstr ""
+
+msgid "group"
+msgstr ""
+
+msgid "mobile"
+msgstr ""
+
+msgid "name"
+msgstr ""
+
+msgid "please use uppercase and make it short"
+msgstr ""

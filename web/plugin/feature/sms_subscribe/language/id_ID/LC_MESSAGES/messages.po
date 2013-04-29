@@ -8,12 +8,6 @@ msgstr ""
 msgid "Action"
 msgstr "Tindakan"
 
-msgid "Add"
-msgstr "Tambah"
-
-msgid "Add Message"
-msgstr "Tambah Pesan"
-
 msgid "Add SMS subscribe"
 msgstr "Tambah layanan SMS berlangganan"
 
@@ -29,35 +23,40 @@ msgstr "Anda yakin ingin menghapus anggota ini?"
 msgid "Are you sure you want to delete this message?"
 msgstr "Anda yakin ingin menghapus pesan ini?"
 
-msgid "Current status"
-msgstr "Status saat ini"
-
-msgid "Disabled"
-msgstr "Nonaktif"
-
-msgid "Edit"
-msgstr "Ubah"
+msgid "Created"
+msgstr ""
 
 msgid "Edit SMS subscribe"
 msgstr "Ubah langganan SMS"
 
-msgid "Enable or disable this subscribe"
-msgstr "Aktifkan atau nonaktifkan layanan SMS berlangganan ini"
+#, fuzzy
+msgid "Edit message"
+msgstr "Tambah pesan"
 
-msgid "Enabled"
-msgstr "Aktif"
+#, fuzzy
+msgid "Fail to add SMS subscribe"
+msgstr "Tambah layanan SMS berlangganan"
+
+#, fuzzy
+msgid "Fail to add message"
+msgstr "Tambah pesan"
+
+#, fuzzy
+msgid "Fail to edit SMS subscribe"
+msgstr "Ubah langganan SMS"
+
+#, fuzzy
+msgid "Fail to edit message"
+msgstr "Gagal mengirim SMS"
 
 msgid "Fail to send SMS"
 msgstr "Gagal mengirim SMS"
 
-msgid "I want to disable this subscribe"
-msgstr "Saya ingin menonaktifkan layanan SMS berlangganan ini"
-
-msgid "I want to enable this subscribe"
-msgstr "Saya ingin mengaktifkan layanan SMS berlangganan ini"
-
 msgid "Keyword"
 msgstr "Kata Kunci"
+
+msgid "Last update"
+msgstr ""
 
 msgid "Manage subscribe"
 msgstr "Pengaturan SMS berlangganan"
@@ -71,10 +70,15 @@ msgstr "Tanggal bergabung anggota"
 msgid "Member list for keyword"
 msgstr "kata kunci untuk daftar anggota"
 
-msgid "Member message has been added"
-msgstr "Pesan anggota telah ditambahkan"
+#, fuzzy
+msgid "Members"
+msgstr "Lihat anggota"
 
 msgid "Message"
+msgstr "Pesan"
+
+#, fuzzy
+msgid "Message ID"
 msgstr "Pesan"
 
 msgid "Message body"
@@ -83,11 +87,19 @@ msgstr "Badan pesan"
 msgid "Message detail"
 msgstr "Rincian pesan"
 
+#, fuzzy
+msgid "Message has been added"
+msgstr "Pesan telah diubah"
+
 msgid "Message has been deleted"
 msgstr "Pesan telah dihapus"
 
 msgid "Message has been edited"
 msgstr "Pesan telah diubah"
+
+#, fuzzy
+msgid "Messages"
+msgstr "Pesan"
 
 msgid "Phone number"
 msgstr "Nomor telepon"
@@ -138,14 +150,11 @@ msgstr "Kirim"
 msgid "Send this message to all members"
 msgstr "Kirim pesan ini ke semua anggota"
 
+msgid "Sent"
+msgstr ""
+
 msgid "Status"
 msgstr "Status"
-
-msgid "Subscribe service inactive"
-msgstr "SMS berlangganan telah disimpan"
-
-msgid "Total members"
-msgstr "Jumlah anggota"
 
 msgid "Unknown SMS format"
 msgstr "format SMS tidak dikenal"
@@ -162,9 +171,6 @@ msgstr "Lihat anggota"
 msgid "View messages"
 msgstr "Lihat pesan"
 
-msgid "What do you want to do ?"
-msgstr "Apa yang ingin anda lakukan?"
-
 msgid "You already a member"
 msgstr "Anda sudah terdaftar sebagai anggota"
 
@@ -177,8 +183,13 @@ msgstr "Anda harus mengisi semua kolom"
 msgid "Your SMS has been delivered to queue"
 msgstr "SMS anda telah dikirim ke antrian"
 
+#, fuzzy
+msgid "disabled"
+msgstr "Nonaktif"
+
+#, fuzzy
+msgid "enabled"
+msgstr "Aktif"
+
 msgid "keyword"
 msgstr "kata kunci"
-
-msgid "to"
-msgstr "ke"

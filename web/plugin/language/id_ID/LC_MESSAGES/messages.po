@@ -92,6 +92,9 @@ msgstr "Catatan perubahan"
 msgid "City"
 msgstr "Kota"
 
+msgid "Comma seperated"
+msgstr ""
+
 msgid "Content"
 msgstr "Isi"
 
@@ -164,6 +167,13 @@ msgstr "Aktifkan lupa kata sandi"
 msgid "Enable public registration"
 msgstr "Aktifkan pendaftaran umum"
 
+#, fuzzy
+msgid "Enable webservices"
+msgstr "Token webservices baru"
+
+msgid "Export"
+msgstr ""
+
 msgid "F.A.Q"
 msgstr "F.A.Q"
 
@@ -208,6 +218,10 @@ msgstr "Isi untuk mengganti kata sandi untuk nama penguna"
 
 msgid "Fill to update"
 msgstr "Isi untuk memperbaharui"
+
+#, fuzzy
+msgid "Footer"
+msgstr "Catatan kaki SMS"
 
 msgid "Forward PV to email"
 msgstr "Teruskan PV ke email"
@@ -536,6 +550,10 @@ msgstr "Pengguna"
 msgid "User already exists"
 msgstr "Pengguna sudah ada"
 
+#, fuzzy
+msgid "User does not exists"
+msgstr "Pengguna sudah ada"
+
 msgid "User has been added"
 msgstr "Pengguna telah ditambah"
 
@@ -577,6 +595,10 @@ msgstr ""
 
 msgid "Webservices"
 msgstr ""
+
+#, fuzzy
+msgid "Webservices IP range"
+msgstr "Token webservices"
 
 msgid "Webservices token"
 msgstr "Token webservices"
@@ -629,6 +651,10 @@ msgstr "email"
 msgid "failed"
 msgstr "gagal"
 
+#, fuzzy
+msgid "forward"
+msgstr "Teruskan dari"
+
 msgid "from"
 msgstr "dari"
 
@@ -652,6 +678,10 @@ msgstr "nomor"
 
 msgid "queued"
 msgstr "antri"
+
+#, fuzzy
+msgid "reply"
+msgstr "Balas"
 
 msgid "row"
 msgstr "baris"

@@ -8,9 +8,6 @@ msgstr ""
 msgid "Action"
 msgstr ""
 
-msgid "Add"
-msgstr ""
-
 msgid "Add SMS autoreply"
 msgstr ""
 
@@ -21,9 +18,6 @@ msgid "Are you sure you want to delete SMS autoreply ?"
 msgstr ""
 
 msgid "Are you sure you want to delete this SMS autoreply scenario ?"
-msgstr ""
-
-msgid "Back"
 msgstr ""
 
 msgid "Edit SMS autoreply scenario"

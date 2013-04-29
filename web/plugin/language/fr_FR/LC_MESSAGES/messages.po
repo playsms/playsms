@@ -98,6 +98,9 @@ msgstr ""
 msgid "City"
 msgstr "Vile"
 
+msgid "Comma seperated"
+msgstr ""
+
 msgid "Content"
 msgstr "Contenu"
 
@@ -170,6 +173,12 @@ msgstr "Mot de passe perdu"
 msgid "Enable public registration"
 msgstr "Autoriser enregistrement public"
 
+msgid "Enable webservices"
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
 msgid "F.A.Q"
 msgstr ""
 
@@ -216,6 +225,10 @@ msgstr "Remplir pour changer le mot de passe"
 #, fuzzy
 msgid "Fill to update"
 msgstr "Echec de suppression"
+
+#, fuzzy
+msgid "Footer"
+msgstr "Pied de page SMS"
 
 msgid "Forward PV to email"
 msgstr "Transfert PV à email"
@@ -553,6 +566,10 @@ msgstr "Utilisateur"
 msgid "User already exists"
 msgstr "L'utilisateur existe déjà"
 
+#, fuzzy
+msgid "User does not exists"
+msgstr "L'utilisateur existe déjà"
+
 msgid "User has been added"
 msgstr "Utilisateur ajouté"
 
@@ -596,6 +613,10 @@ msgstr ""
 
 msgid "Webservices"
 msgstr ""
+
+#, fuzzy
+msgid "Webservices IP range"
+msgstr "Titre du Site"
 
 #, fuzzy
 msgid "Webservices token"
@@ -649,6 +670,10 @@ msgstr "email"
 msgid "failed"
 msgstr "Echec"
 
+#, fuzzy
+msgid "forward"
+msgstr "Transfert PV à email"
+
 msgid "from"
 msgstr "De"
 
@@ -672,6 +697,10 @@ msgstr "Numéro"
 
 msgid "queued"
 msgstr ""
+
+#, fuzzy
+msgid "reply"
+msgstr "Reéssayer"
 
 msgid "row"
 msgstr "ligne"

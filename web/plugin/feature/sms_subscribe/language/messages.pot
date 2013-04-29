@@ -1,12 +1,6 @@
 msgid "Action"
 msgstr ""
 
-msgid "Add"
-msgstr ""
-
-msgid "Add Message"
-msgstr ""
-
 msgid "Add SMS subscribe"
 msgstr ""
 
@@ -22,34 +16,34 @@ msgstr ""
 msgid "Are you sure you want to delete this message?"
 msgstr ""
 
-msgid "Current status"
-msgstr ""
-
-msgid "Disabled"
-msgstr ""
-
-msgid "Edit"
+msgid "Created"
 msgstr ""
 
 msgid "Edit SMS subscribe"
 msgstr ""
 
-msgid "Enable or disable this subscribe"
+msgid "Edit message"
 msgstr ""
 
-msgid "Enabled"
+msgid "Fail to add SMS subscribe"
+msgstr ""
+
+msgid "Fail to add message"
+msgstr ""
+
+msgid "Fail to edit SMS subscribe"
+msgstr ""
+
+msgid "Fail to edit message"
 msgstr ""
 
 msgid "Fail to send SMS"
 msgstr ""
 
-msgid "I want to disable this subscribe"
-msgstr ""
-
-msgid "I want to enable this subscribe"
-msgstr ""
-
 msgid "Keyword"
+msgstr ""
+
+msgid "Last update"
 msgstr ""
 
 msgid "Manage subscribe"
@@ -64,10 +58,13 @@ msgstr ""
 msgid "Member list for keyword"
 msgstr ""
 
-msgid "Member message has been added"
+msgid "Members"
 msgstr ""
 
 msgid "Message"
+msgstr ""
+
+msgid "Message ID"
 msgstr ""
 
 msgid "Message body"
@@ -76,10 +73,16 @@ msgstr ""
 msgid "Message detail"
 msgstr ""
 
+msgid "Message has been added"
+msgstr ""
+
 msgid "Message has been deleted"
 msgstr ""
 
 msgid "Message has been edited"
+msgstr ""
+
+msgid "Messages"
 msgstr ""
 
 msgid "Phone number"
@@ -130,13 +133,10 @@ msgstr ""
 msgid "Send this message to all members"
 msgstr ""
 
+msgid "Sent"
+msgstr ""
+
 msgid "Status"
-msgstr ""
-
-msgid "Subscribe service inactive"
-msgstr ""
-
-msgid "Total members"
 msgstr ""
 
 msgid "Unknown SMS format"
@@ -154,9 +154,6 @@ msgstr ""
 msgid "View messages"
 msgstr ""
 
-msgid "What do you want to do ?"
-msgstr ""
-
 msgid "You already a member"
 msgstr ""
 
@@ -169,8 +166,11 @@ msgstr ""
 msgid "Your SMS has been delivered to queue"
 msgstr ""
 
-msgid "keyword"
+msgid "disabled"
 msgstr ""
 
-msgid "to"
+msgid "enabled"
+msgstr ""
+
+msgid "keyword"
 msgstr ""

@@ -92,6 +92,9 @@ msgstr ""
 msgid "City"
 msgstr ""
 
+msgid "Comma seperated"
+msgstr ""
+
 msgid "Content"
 msgstr ""
 
@@ -164,6 +167,12 @@ msgstr ""
 msgid "Enable public registration"
 msgstr ""
 
+msgid "Enable webservices"
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
 msgid "F.A.Q"
 msgstr ""
 
@@ -207,6 +216,9 @@ msgid "Fill to change password for username"
 msgstr ""
 
 msgid "Fill to update"
+msgstr ""
+
+msgid "Footer"
 msgstr ""
 
 msgid "Forward PV to email"
@@ -536,6 +548,9 @@ msgstr ""
 msgid "User already exists"
 msgstr ""
 
+msgid "User does not exists"
+msgstr ""
+
 msgid "User has been added"
 msgstr ""
 
@@ -576,6 +591,9 @@ msgid "Webapp token"
 msgstr ""
 
 msgid "Webservices"
+msgstr ""
+
+msgid "Webservices IP range"
 msgstr ""
 
 msgid "Webservices token"
@@ -629,6 +647,9 @@ msgstr ""
 msgid "failed"
 msgstr ""
 
+msgid "forward"
+msgstr ""
+
 msgid "from"
 msgstr ""
 
@@ -651,6 +672,9 @@ msgid "number"
 msgstr ""
 
 msgid "queued"
+msgstr ""
+
+msgid "reply"
 msgstr ""
 
 msgid "row"

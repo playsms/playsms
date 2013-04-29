@@ -19,9 +19,6 @@ msgstr ""
 msgid "Action"
 msgstr "Action"
 
-msgid "Add"
-msgstr "Ajouter"
-
 msgid "Add SMS command"
 msgstr "Ajouter une commande SMS"
 

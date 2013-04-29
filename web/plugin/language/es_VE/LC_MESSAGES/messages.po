@@ -92,6 +92,9 @@ msgstr ""
 msgid "City"
 msgstr "Ciudad"
 
+msgid "Comma seperated"
+msgstr ""
+
 msgid "Content"
 msgstr "Contenido"
 
@@ -164,6 +167,12 @@ msgstr "Contraseña o usuario inválido"
 msgid "Enable public registration"
 msgstr ""
 
+msgid "Enable webservices"
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
 msgid "F.A.Q"
 msgstr ""
 
@@ -210,6 +219,10 @@ msgstr "Rellene para cambiar la contraseña para el usuario"
 #, fuzzy
 msgid "Fill to update"
 msgstr "Imposible borrar el SMS"
+
+#, fuzzy
+msgid "Footer"
+msgstr "Firma del SMS"
 
 msgid "Forward PV to email"
 msgstr "Firma del correo reenviado"
@@ -545,6 +558,10 @@ msgstr "Usuario"
 msgid "User already exists"
 msgstr "El usuario ya existe "
 
+#, fuzzy
+msgid "User does not exists"
+msgstr "El usuario ya existe "
+
 msgid "User has been added"
 msgstr "El usuario ha sido añadido"
 
@@ -588,6 +605,10 @@ msgstr ""
 
 msgid "Webservices"
 msgstr ""
+
+#, fuzzy
+msgid "Webservices IP range"
+msgstr "Título del sitio WEB"
 
 #, fuzzy
 msgid "Webservices token"
@@ -641,6 +662,10 @@ msgstr "Correo electrónico"
 msgid "failed"
 msgstr "falló"
 
+#, fuzzy
+msgid "forward"
+msgstr "Firma del correo reenviado"
+
 msgid "from"
 msgstr "de"
 
@@ -664,6 +689,10 @@ msgstr "número"
 
 msgid "queued"
 msgstr ""
+
+#, fuzzy
+msgid "reply"
+msgstr "Responder"
 
 msgid "row"
 msgstr "línea"

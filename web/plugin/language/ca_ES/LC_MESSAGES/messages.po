@@ -101,6 +101,9 @@ msgstr "Canvis"
 msgid "City"
 msgstr "Ciutat"
 
+msgid "Comma seperated"
+msgstr ""
+
 msgid "Content"
 msgstr "Contingut"
 
@@ -173,6 +176,12 @@ msgstr "Habilitar recordar contrasenya"
 msgid "Enable public registration"
 msgstr "Habilitar registre públic"
 
+msgid "Enable webservices"
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
 msgid "F.A.Q"
 msgstr "P.M.F"
 
@@ -218,6 +227,10 @@ msgstr "Omplir per a canviar la contrasenya de l'usuari"
 #, fuzzy
 msgid "Fill to update"
 msgstr "Última actualització"
+
+#, fuzzy
+msgid "Footer"
+msgstr "Firma del SMS"
 
 msgid "Forward PV to email"
 msgstr "Enviar PV al correu"
@@ -548,6 +561,10 @@ msgstr "Usuari"
 msgid "User already exists"
 msgstr "L'usuari ja existeix"
 
+#, fuzzy
+msgid "User does not exists"
+msgstr "L'usuari ja existeix"
+
 msgid "User has been added"
 msgstr "L'usuari ha estat afegit"
 
@@ -589,6 +606,10 @@ msgstr "Token webapp"
 
 msgid "Webservices"
 msgstr ""
+
+#, fuzzy
+msgid "Webservices IP range"
+msgstr "Token webapp"
 
 #, fuzzy
 msgid "Webservices token"
@@ -643,6 +664,10 @@ msgstr "Correu electrònic"
 msgid "failed"
 msgstr "fallit"
 
+#, fuzzy
+msgid "forward"
+msgstr "Reenviar de"
+
 msgid "from"
 msgstr "de"
 
@@ -666,6 +691,10 @@ msgstr "número"
 
 msgid "queued"
 msgstr "encuat"
+
+#, fuzzy
+msgid "reply"
+msgstr "Respondre"
 
 msgid "row"
 msgstr "línia"

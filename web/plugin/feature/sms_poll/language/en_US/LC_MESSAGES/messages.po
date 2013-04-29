@@ -24,22 +24,16 @@ msgstr ""
 msgid "Are you sure you want to delete choice ?"
 msgstr ""
 
-msgid "Choice Keyword"
-msgstr ""
-
 msgid "Choice already exists"
 msgstr ""
 
 msgid "Choice has been added"
 msgstr ""
 
+msgid "Choice keyword"
+msgstr ""
+
 msgid "Choice title"
-msgstr ""
-
-msgid "Current status"
-msgstr ""
-
-msgid "Disabled"
 msgstr ""
 
 msgid "Edit SMS poll"
@@ -48,22 +42,16 @@ msgstr ""
 msgid "Edit SMS poll choices"
 msgstr ""
 
-msgid "Enable or disable this poll"
-msgstr ""
-
-msgid "Enabled"
-msgstr ""
-
 msgid "Fail to add SMS poll"
 msgstr ""
 
 msgid "Fail to delete SMS poll choice"
 msgstr ""
 
-msgid "I want to disable this poll"
+msgid "Graph output"
 msgstr ""
 
-msgid "I want to enable this poll"
+msgid "JSON output"
 msgstr ""
 
 msgid "Keyword"
@@ -72,10 +60,25 @@ msgstr ""
 msgid "Manage poll"
 msgstr "Manage poll"
 
+msgid "PHP serialize output"
+msgstr ""
+
+msgid "Reply message on invalid answer"
+msgstr ""
+
+msgid "Reply message on valid answer"
+msgstr ""
+
+msgid "Reply message when invalid answer"
+msgstr ""
+
 msgid "SMS poll already exists, reserved or use by other feature"
 msgstr ""
 
 msgid "SMS poll choice and all its voters has been deleted"
+msgstr ""
+
+msgid "SMS poll graph"
 msgstr ""
 
 msgid "SMS poll has been added"
@@ -111,10 +114,23 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-msgid "What do you want to do ?"
+msgid "View"
+msgstr ""
+
+#, fuzzy
+msgid "View poll"
+msgstr "Manage poll"
+
+msgid "XML output"
 msgstr ""
 
 msgid "You must fill all fields"
+msgstr ""
+
+msgid "disabled"
+msgstr ""
+
+msgid "enabled"
 msgstr ""
 
 msgid "keyword"

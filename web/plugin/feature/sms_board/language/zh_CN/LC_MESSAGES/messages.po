@@ -8,9 +8,6 @@ msgstr ""
 msgid "Action"
 msgstr "行为"
 
-msgid "Add"
-msgstr "增加"
-
 msgid "Add SMS board"
 msgstr "增加短信面板"
 
@@ -26,6 +23,10 @@ msgstr "编辑短信面板"
 msgid "Fail to add SMS board"
 msgstr "增加短信面板失败"
 
+#, fuzzy
+msgid "Fail to edit SMS board"
+msgstr "增加短信面板失败"
+
 msgid "Forward"
 msgstr "发送"
 
@@ -35,11 +36,20 @@ msgstr "发送网页短信"
 msgid "Forward to email"
 msgstr "发送到电子邮件"
 
+msgid "HTML output"
+msgstr ""
+
+msgid "JSON output"
+msgstr ""
+
 msgid "Keyword"
 msgstr "关键字"
 
 msgid "Leave them empty if you dont know what to fill in these boxes below"
 msgstr "留下空白如果你不知道下面框内填什么"
+
+msgid "MBOX output"
+msgstr ""
 
 msgid "Manage board"
 msgstr "管理面板"
@@ -47,8 +57,27 @@ msgstr "管理面板"
 msgid "Message"
 msgstr "信息"
 
+msgid "PHP serialize output"
+msgstr ""
+
+msgid "RSS 0.91 output"
+msgstr ""
+
+msgid "RSS 1.0 output"
+msgstr ""
+
+msgid "RSS 2.0 output"
+msgstr ""
+
+msgid "RSS ATOM output"
+msgstr ""
+
 msgid "Receiver"
 msgstr ""
+
+#, fuzzy
+msgid "SMS Board"
+msgstr "增加短信面板"
 
 msgid "SMS board has been added"
 msgstr "短信面板已增加"
@@ -76,6 +105,13 @@ msgstr "模板"
 
 msgid "User"
 msgstr "用户"
+
+#, fuzzy
+msgid "View board"
+msgstr "管理面板"
+
+msgid "XML output"
+msgstr ""
 
 msgid "You must fill all fields"
 msgstr "你必须填满全部空白"

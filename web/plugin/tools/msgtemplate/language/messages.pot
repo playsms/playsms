@@ -1,19 +1,7 @@
 msgid "Add message template"
 msgstr ""
 
-msgid "Back"
-msgstr ""
-
 msgid "Content"
-msgstr ""
-
-msgid "Delete"
-msgstr ""
-
-msgid "Delete all templates ?"
-msgstr ""
-
-msgid "Delete message template"
 msgstr ""
 
 msgid "Delete selection"
@@ -22,10 +10,10 @@ msgstr ""
 msgid "Edit message template"
 msgstr ""
 
-msgid "Fail to edit message template"
+msgid "Fail to add message template"
 msgstr ""
 
-msgid "Go"
+msgid "Fail to edit message template"
 msgstr ""
 
 msgid "Message template"
@@ -46,11 +34,11 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-msgid "Save template"
-msgstr ""
-
-msgid "Select action"
+msgid "Save"
 msgstr ""
 
 msgid "Selected message template has been deleted"
+msgstr ""
+
+msgid "You must fill all fields"
 msgstr ""

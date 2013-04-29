@@ -8,9 +8,6 @@ msgstr ""
 msgid "Action"
 msgstr ""
 
-msgid "Add"
-msgstr ""
-
 msgid "Add SMS quiz"
 msgstr ""
 
@@ -24,34 +21,16 @@ msgstr ""
 msgid "Are you sure you want to delete this answer ?"
 msgstr ""
 
-msgid "Correct"
-msgstr ""
-
-msgid "Current status"
-msgstr ""
-
 msgid "Datetime"
-msgstr ""
-
-msgid "Disabled"
 msgstr ""
 
 msgid "Edit SMS quiz"
 msgstr ""
 
-msgid "Enable or disable this quiz"
+msgid "Fail to add SMS quiz"
 msgstr ""
 
-msgid "Enabled"
-msgstr ""
-
-msgid "I want to disable this quiz"
-msgstr ""
-
-msgid "I want to enable this quiz"
-msgstr ""
-
-msgid "Incorrect"
+msgid "Fail to edit SMS quiz"
 msgstr ""
 
 msgid "Keyword"
@@ -60,19 +39,16 @@ msgstr ""
 msgid "Manage quiz"
 msgstr "Manage quiz"
 
-msgid "Message"
-msgstr ""
-
-msgid "Message when correct"
-msgstr ""
-
-msgid "Message when incorrect"
-msgstr ""
-
 msgid "Question"
 msgstr ""
 
 msgid "Received answer list for keyword"
+msgstr ""
+
+msgid "Reply message on correct"
+msgstr ""
+
+msgid "Reply message on incorrect"
 msgstr ""
 
 msgid "SMS quiz already exists, reserved or use by other feature"
@@ -114,10 +90,19 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-msgid "What do you want to do ?"
+msgid "You must fill all field"
 msgstr ""
 
-msgid "You must fill all field"
+msgid "correct"
+msgstr ""
+
+msgid "disabled"
+msgstr ""
+
+msgid "enabled"
+msgstr ""
+
+msgid "incorrect"
 msgstr ""
 
 msgid "keyword"

@@ -8,9 +8,6 @@ msgstr ""
 msgid "Action"
 msgstr "Tindakan"
 
-msgid "Add"
-msgstr "Tambah"
-
 msgid "Add SMS autoreply"
 msgstr "Tambah layanan balas SMS otomatis"
 
@@ -22,9 +19,6 @@ msgstr "Anda yakin ingin menghapus layanan balas SMS otomatis?"
 
 msgid "Are you sure you want to delete this SMS autoreply scenario ?"
 msgstr "Anda yakin ingin menghapus skenario layanan balas SMS otomatis ini?"
-
-msgid "Back"
-msgstr "Kembali"
 
 msgid "Edit SMS autoreply scenario"
 msgstr "Ubah skenario layanan balas SMS otomatis"

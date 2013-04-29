@@ -48,20 +48,17 @@ msgstr ""
 msgid "No changes has been made"
 msgstr "Nenhuma mudança feita"
 
-msgid "No trailing slash"
-msgstr "Sem barra no final"
-
 msgid "Password"
 msgstr "Senha"
 
 msgid "Save"
 msgstr "Salvar"
 
-msgid "Uplink incoming path"
-msgstr "Caminho de chegada do uplink"
-
 msgid "Username"
 msgstr "Usuário"
+
+msgid "Webservice token"
+msgstr ""
 
 msgid "click here to activate"
 msgstr "clique aqui para ativar"

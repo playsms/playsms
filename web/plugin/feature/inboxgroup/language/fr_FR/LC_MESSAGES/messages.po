@@ -22,11 +22,12 @@ msgstr "Action"
 msgid "Add catch-all"
 msgstr "Ajouter fourre-tout"
 
+#, fuzzy
+msgid "Add group inbox"
+msgstr "Service boite groupe"
+
 msgid "Add member"
 msgstr "Ajouter membre"
-
-msgid "Add receiver number"
-msgstr "Ajout numéro récepteur"
 
 msgid "All"
 msgstr "Tous"
@@ -34,7 +35,8 @@ msgstr "Tous"
 msgid "All users"
 msgstr "Utilisateurs"
 
-msgid "Are you sure you want to delete this receiver number ?"
+#, fuzzy
+msgid "Are you sure you want to delete this group inbox ?"
 msgstr "Voulez-vous supprimer le numéro récepteur ?"
 
 msgid "Cancel"
@@ -61,17 +63,19 @@ msgstr "Membres courrant"
 msgid "Delete catch-all"
 msgstr "Supprimer fourre-tout"
 
+#, fuzzy
+msgid "Delete group inbox"
+msgstr "Service boite groupe"
+
 msgid "Delete member"
 msgstr "Supprimer membre"
-
-msgid "Delete receiver number"
-msgstr "Supprimer numéro récepteur"
 
 msgid "Description"
 msgstr "Description"
 
-msgid "Edit receiver number"
-msgstr "Editer numéro récepteur"
+#, fuzzy
+msgid "Edit group inbox"
+msgstr "Service boite groupe"
 
 msgid "Exclusive"
 msgstr "Exclusive"
@@ -79,28 +83,33 @@ msgstr "Exclusive"
 msgid "Fail to add catch-all"
 msgstr "Echec d'ajout du fourre-tout"
 
+#, fuzzy
+msgid "Fail to add group inbox"
+msgstr "Echec d'ajout de numéro récepteur"
+
 msgid "Fail to add member"
 msgstr "Echec d'ajout membre"
-
-msgid "Fail to add receiver number"
-msgstr "Echec d'ajout de numéro récepteur"
 
 msgid "Fail to delete catch-all"
 msgstr "Echec de suppression fourre-tout"
 
+#, fuzzy
+msgid "Fail to delete group inbox"
+msgstr "Echec de suppression de membre"
+
 msgid "Fail to delete member"
 msgstr "Echec de suppression de membre"
 
-msgid "Fail to delete receiver number"
+#, fuzzy
+msgid "Fail to disable group inbox"
 msgstr "Echec de suppression numéro récepteur"
 
-msgid "Fail to disable receiver number"
-msgstr "Echec de suppression numéro récepteur"
-
-msgid "Fail to edit receiver number"
+#, fuzzy
+msgid "Fail to edit group inbox"
 msgstr "Echec d'édition du numéro récepteur"
 
-msgid "Fail to enable receiver number"
+#, fuzzy
+msgid "Fail to enable group inbox"
 msgstr "Echec d'activation du numéro récepteur"
 
 msgid "For example a short code"
@@ -108,6 +117,26 @@ msgstr "Shortcode par exemple"
 
 msgid "Group inbox"
 msgstr "Service boite groupe"
+
+#, fuzzy
+msgid "Group inbox has been added"
+msgstr "Membre ajouté"
+
+#, fuzzy
+msgid "Group inbox has been deleted"
+msgstr "Membre supprimé"
+
+#, fuzzy
+msgid "Group inbox has been disabled"
+msgstr "Numéro récepteur désactivé"
+
+#, fuzzy
+msgid "Group inbox has been edited"
+msgstr "Numéro de récepteur édité"
+
+#, fuzzy
+msgid "Group inbox has been enabled"
+msgstr "Numéro récepteur activé"
 
 msgid "Keywords"
 msgstr "Mot-clé"
@@ -152,29 +181,11 @@ msgstr "Numéro récepteur"
 msgid "Receiver number does not exists"
 msgstr "Numéro de récepteur non existant"
 
-msgid "Receiver number has been added"
-msgstr "Numéro de récepteur ajouté"
-
-msgid "Receiver number has been deleted"
-msgstr "Numéro récepteur supprimé"
-
-msgid "Receiver number has been disabled"
-msgstr "Numéro récepteur désactivé"
-
-msgid "Receiver number has been edited"
-msgstr "Numéro de récepteur édité"
-
-msgid "Receiver number has been enabled"
-msgstr "Numéro récepteur activé"
-
-msgid "Remove catch-all"
-msgstr "Supprimer le fourre-tout"
-
-msgid "Remove member"
-msgstr "Supprimer membre"
-
 msgid "Restrict sender to regular members or catch-all members only"
 msgstr "Membres réguliers ou aux membres du fourre-tout uniquement"
+
+msgid "Save"
+msgstr ""
 
 msgid "Selected catchall"
 msgstr "Fourre-tout sélectionné"
@@ -191,9 +202,6 @@ msgstr "éléments separés par une virgule"
 msgid "Status"
 msgstr "Status"
 
-msgid "Submit"
-msgstr "valider"
-
 msgid "Username"
 msgstr "Login"
 
@@ -202,9 +210,6 @@ msgstr "Oui"
 
 msgid "You must fill all fields"
 msgstr "Vous devez remplir tous les champs"
-
-msgid "catchall"
-msgstr "Fourre-tout"
 
 msgid "disabled"
 msgstr "désactivé"

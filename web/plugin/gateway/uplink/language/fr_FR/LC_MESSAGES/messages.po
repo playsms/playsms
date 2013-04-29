@@ -47,20 +47,17 @@ msgstr "Zone de temps"
 msgid "No changes has been made"
 msgstr "Aucun changement apporté"
 
-msgid "No trailing slash"
-msgstr "Pas de slash final"
-
 msgid "Password"
 msgstr "Mot de passe"
 
 msgid "Save"
 msgstr "Sauvegarder"
 
-msgid "Uplink incoming path"
-msgstr "Chemen entrant uplink"
-
 msgid "Username"
 msgstr "Nom utilisateur"
+
+msgid "Webservice token"
+msgstr ""
 
 msgid "click here to activate"
 msgstr "Cliquez pour activer"

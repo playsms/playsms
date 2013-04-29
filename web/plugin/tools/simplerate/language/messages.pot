@@ -1,9 +1,6 @@
 msgid "Action"
 msgstr ""
 
-msgid "Add"
-msgstr ""
-
 msgid "Add rate"
 msgstr ""
 

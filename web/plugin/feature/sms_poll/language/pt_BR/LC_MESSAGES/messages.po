@@ -25,23 +25,18 @@ msgstr ""
 msgid "Are you sure you want to delete choice ?"
 msgstr "Tem certeza que quer remover essa opção?"
 
-msgid "Choice Keyword"
-msgstr "Palavra-chave da opção"
-
 msgid "Choice already exists"
 msgstr "A opção já existe"
 
 msgid "Choice has been added"
 msgstr "A opção foi adicionada"
 
+#, fuzzy
+msgid "Choice keyword"
+msgstr "Palavra-chave da opção"
+
 msgid "Choice title"
 msgstr "Título da opção"
-
-msgid "Current status"
-msgstr "Status atual"
-
-msgid "Disabled"
-msgstr "Desabilitado"
 
 msgid "Edit SMS poll"
 msgstr "Editar votação SMS"
@@ -49,23 +44,17 @@ msgstr "Editar votação SMS"
 msgid "Edit SMS poll choices"
 msgstr "Editar opções da votação SMS"
 
-msgid "Enable or disable this poll"
-msgstr "Habilitar ou desabilitar essa votação"
-
-msgid "Enabled"
-msgstr "Habilitado"
-
 msgid "Fail to add SMS poll"
 msgstr "Falha ao remover a opçao da votação SMS"
 
 msgid "Fail to delete SMS poll choice"
 msgstr "Falha ao remover a opçao da votação SMS"
 
-msgid "I want to disable this poll"
-msgstr "Quero desabilitar essa votação"
+msgid "Graph output"
+msgstr ""
 
-msgid "I want to enable this poll"
-msgstr "Quero habilitar essa votação"
+msgid "JSON output"
+msgstr ""
 
 msgid "Keyword"
 msgstr "Palavra-chave"
@@ -73,11 +62,27 @@ msgstr "Palavra-chave"
 msgid "Manage poll"
 msgstr "Administrar votação"
 
+msgid "PHP serialize output"
+msgstr ""
+
+msgid "Reply message on invalid answer"
+msgstr ""
+
+msgid "Reply message on valid answer"
+msgstr ""
+
+msgid "Reply message when invalid answer"
+msgstr ""
+
 msgid "SMS poll already exists, reserved or use by other feature"
 msgstr "A votação SMS já existe, está reservada ou em uso por outro recurso"
 
 msgid "SMS poll choice and all its voters has been deleted"
 msgstr "A opção da votação SMS foi removida com todos os seus votos"
+
+#, fuzzy
+msgid "SMS poll graph"
+msgstr "Palavra-chave da votação SMS"
 
 msgid "SMS poll has been added"
 msgstr "A votação SMS foi adicionada"
@@ -112,11 +117,26 @@ msgstr "Título"
 msgid "User"
 msgstr "Usuário"
 
-msgid "What do you want to do ?"
-msgstr "O que você quer fazer?"
+msgid "View"
+msgstr ""
+
+#, fuzzy
+msgid "View poll"
+msgstr "Administrar votação"
+
+msgid "XML output"
+msgstr ""
 
 msgid "You must fill all fields"
 msgstr "Preencha todos os campos"
+
+#, fuzzy
+msgid "disabled"
+msgstr "Desabilitado"
+
+#, fuzzy
+msgid "enabled"
+msgstr "Habilitado"
 
 msgid "keyword"
 msgstr "palavra-chave"

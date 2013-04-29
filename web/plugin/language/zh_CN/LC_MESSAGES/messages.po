@@ -92,6 +92,9 @@ msgstr ""
 msgid "City"
 msgstr "城市"
 
+msgid "Comma seperated"
+msgstr ""
+
 msgid "Content"
 msgstr "内容"
 
@@ -164,6 +167,12 @@ msgstr "无效用户名或密码"
 msgid "Enable public registration"
 msgstr ""
 
+msgid "Enable webservices"
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
 msgid "F.A.Q"
 msgstr ""
 
@@ -210,6 +219,10 @@ msgstr "填写更改用户名密码"
 #, fuzzy
 msgid "Fill to update"
 msgstr "删除短信失败"
+
+#, fuzzy
+msgid "Footer"
+msgstr "短信页脚"
 
 msgid "Forward PV to email"
 msgstr "转发邮件页脚"
@@ -545,6 +558,10 @@ msgstr "用户"
 msgid "User already exists"
 msgstr "用户已存在"
 
+#, fuzzy
+msgid "User does not exists"
+msgstr "用户已存在"
+
 msgid "User has been added"
 msgstr "用户已添加"
 
@@ -588,6 +605,10 @@ msgstr ""
 
 msgid "Webservices"
 msgstr ""
+
+#, fuzzy
+msgid "Webservices IP range"
+msgstr "网站名称"
 
 #, fuzzy
 msgid "Webservices token"
@@ -641,6 +662,10 @@ msgstr "电子邮件"
 msgid "failed"
 msgstr "发送失败"
 
+#, fuzzy
+msgid "forward"
+msgstr "转发邮件页脚"
+
 msgid "from"
 msgstr "来自"
 
@@ -664,6 +689,10 @@ msgstr "号码"
 
 msgid "queued"
 msgstr ""
+
+#, fuzzy
+msgid "reply"
+msgstr "回复"
 
 msgid "row"
 msgstr "行"

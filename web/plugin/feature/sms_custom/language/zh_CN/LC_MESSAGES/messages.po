@@ -8,9 +8,6 @@ msgstr ""
 msgid "Action"
 msgstr "行动"
 
-msgid "Add"
-msgstr "增加"
-
 msgid "Add SMS custom"
 msgstr "增加短信自定义"
 

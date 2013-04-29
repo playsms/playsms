@@ -24,23 +24,18 @@ msgstr "确定删除短信投票和它的全部选择和选票 ?"
 msgid "Are you sure you want to delete choice ?"
 msgstr "确定删除选项 ?"
 
-msgid "Choice Keyword"
-msgstr "选项关键字"
-
 msgid "Choice already exists"
 msgstr "选项已存在"
 
 msgid "Choice has been added"
 msgstr "选项已增加"
 
+#, fuzzy
+msgid "Choice keyword"
+msgstr "选项关键字"
+
 msgid "Choice title"
 msgstr "选项标题"
-
-msgid "Current status"
-msgstr "当前状态"
-
-msgid "Disabled"
-msgstr "禁用"
 
 msgid "Edit SMS poll"
 msgstr "编辑短信投票"
@@ -48,23 +43,17 @@ msgstr "编辑短信投票"
 msgid "Edit SMS poll choices"
 msgstr "编辑短信投票选项"
 
-msgid "Enable or disable this poll"
-msgstr "使用或禁用此投票"
-
-msgid "Enabled"
-msgstr "使用"
-
 msgid "Fail to add SMS poll"
 msgstr "删除短信投票选项失败"
 
 msgid "Fail to delete SMS poll choice"
 msgstr "删除短信投票选项失败"
 
-msgid "I want to disable this poll"
-msgstr "我要禁用此投票"
+msgid "Graph output"
+msgstr ""
 
-msgid "I want to enable this poll"
-msgstr "我要使用此投票"
+msgid "JSON output"
+msgstr ""
 
 msgid "Keyword"
 msgstr "关键字"
@@ -72,11 +61,27 @@ msgstr "关键字"
 msgid "Manage poll"
 msgstr "管理投票"
 
+msgid "PHP serialize output"
+msgstr ""
+
+msgid "Reply message on invalid answer"
+msgstr ""
+
+msgid "Reply message on valid answer"
+msgstr ""
+
+msgid "Reply message when invalid answer"
+msgstr ""
+
 msgid "SMS poll already exists, reserved or use by other feature"
 msgstr "短信投票已存在, 保留或其他功能的使用"
 
 msgid "SMS poll choice and all its voters has been deleted"
 msgstr "短信投票选项和它的全部选民已删除"
+
+#, fuzzy
+msgid "SMS poll graph"
+msgstr "短信投票关键字"
 
 msgid "SMS poll has been added"
 msgstr "短信投票已增加"
@@ -111,11 +116,26 @@ msgstr "标题"
 msgid "User"
 msgstr "用户"
 
-msgid "What do you want to do ?"
-msgstr "你想做什么 ?"
+msgid "View"
+msgstr ""
+
+#, fuzzy
+msgid "View poll"
+msgstr "管理投票"
+
+msgid "XML output"
+msgstr ""
 
 msgid "You must fill all fields"
 msgstr "你必须填满全部空白"
+
+#, fuzzy
+msgid "disabled"
+msgstr "禁用"
+
+#, fuzzy
+msgid "enabled"
+msgstr "使用"
 
 msgid "keyword"
 msgstr "关键字"

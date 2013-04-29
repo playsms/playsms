@@ -9,9 +9,6 @@ msgstr ""
 msgid "Action"
 msgstr "Action"
 
-msgid "Add"
-msgstr "Ajouter"
-
 msgid "Add SMS quiz"
 msgstr "Ajouter une question quiz"
 
@@ -26,35 +23,19 @@ msgstr ""
 msgid "Are you sure you want to delete this answer ?"
 msgstr "Êtes-vous certain de vouloir supprimer cette réponse ?"
 
-msgid "Correct"
-msgstr "Correcte"
-
-msgid "Current status"
-msgstr "Statut actuel"
-
 msgid "Datetime"
 msgstr "Date"
-
-msgid "Disabled"
-msgstr "Désactivé"
 
 msgid "Edit SMS quiz"
 msgstr "Édition du service"
 
-msgid "Enable or disable this quiz"
-msgstr "Activer ou désactiver ce quiz"
+#, fuzzy
+msgid "Fail to add SMS quiz"
+msgstr "Ajouter une question quiz"
 
-msgid "Enabled"
-msgstr "Activé"
-
-msgid "I want to disable this quiz"
-msgstr "Je souhaite désactiver ce quiz"
-
-msgid "I want to enable this quiz"
-msgstr "Je souhaite activer ce quiz"
-
-msgid "Incorrect"
-msgstr "Incorrecte"
+#, fuzzy
+msgid "Fail to edit SMS quiz"
+msgstr "Édition du service"
 
 msgid "Keyword"
 msgstr "Mot-clé"
@@ -62,20 +43,19 @@ msgstr "Mot-clé"
 msgid "Manage quiz"
 msgstr "Service quiz"
 
-msgid "Message"
-msgstr "Message"
-
-msgid "Message when correct"
-msgstr "Message de réponse si succès"
-
-msgid "Message when incorrect"
-msgstr "Message de réponse si echec"
-
 msgid "Question"
 msgstr "Question"
 
 msgid "Received answer list for keyword"
 msgstr "Liste de réponses reçues pour le mot-clé"
+
+#, fuzzy
+msgid "Reply message on correct"
+msgstr "Message de réponse si succès"
+
+#, fuzzy
+msgid "Reply message on incorrect"
+msgstr "Message de réponse si echec"
 
 msgid "SMS quiz already exists, reserved or use by other feature"
 msgstr "Ce mot-clé existe déjà, est réservé ou utilisé par un autre service"
@@ -116,11 +96,24 @@ msgstr "Statut"
 msgid "User"
 msgstr "Compte"
 
-msgid "What do you want to do ?"
-msgstr "Que voulez-vous faire ?"
-
 msgid "You must fill all field"
 msgstr "Vous devez remplir tous les champs"
+
+#, fuzzy
+msgid "correct"
+msgstr "Incorrecte"
+
+#, fuzzy
+msgid "disabled"
+msgstr "Désactivé"
+
+#, fuzzy
+msgid "enabled"
+msgstr "Activé"
+
+#, fuzzy
+msgid "incorrect"
+msgstr "Incorrecte"
 
 msgid "keyword"
 msgstr "mot-clé"

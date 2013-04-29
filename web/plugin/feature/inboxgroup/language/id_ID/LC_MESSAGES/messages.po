@@ -11,11 +11,12 @@ msgstr "Tindakan"
 msgid "Add catch-all"
 msgstr "Tambah kotak tangkap semua"
 
+#, fuzzy
+msgid "Add group inbox"
+msgstr "Grup kotak masuk"
+
 msgid "Add member"
 msgstr "Tambah anggota"
-
-msgid "Add receiver number"
-msgstr "Tambah nomor penerima"
 
 msgid "All"
 msgstr "Semua"
@@ -23,7 +24,8 @@ msgstr "Semua"
 msgid "All users"
 msgstr "Semua pengguna"
 
-msgid "Are you sure you want to delete this receiver number ?"
+#, fuzzy
+msgid "Are you sure you want to delete this group inbox ?"
 msgstr "Apakah Anda yakin ingin menghapus nomor penerima ini?"
 
 msgid "Cancel"
@@ -50,17 +52,19 @@ msgstr "Anggota saat ini"
 msgid "Delete catch-all"
 msgstr "Hapus kotak tangkap semua"
 
+#, fuzzy
+msgid "Delete group inbox"
+msgstr "Grup kotak masuk"
+
 msgid "Delete member"
 msgstr "Hapus anggota"
-
-msgid "Delete receiver number"
-msgstr "Menghapus nomor penerima"
 
 msgid "Description"
 msgstr "Deskripsi"
 
-msgid "Edit receiver number"
-msgstr "Sunting nomor penerima"
+#, fuzzy
+msgid "Edit group inbox"
+msgstr "Grup kotak masuk"
 
 msgid "Exclusive"
 msgstr "Eksklusif"
@@ -68,28 +72,33 @@ msgstr "Eksklusif"
 msgid "Fail to add catch-all"
 msgstr "Gagal untuk menambahkan kotak tangkap semua"
 
+#, fuzzy
+msgid "Fail to add group inbox"
+msgstr "Gagal untuk menambah nomor penerima"
+
 msgid "Fail to add member"
 msgstr "Gagal untuk menambahkan anggota"
-
-msgid "Fail to add receiver number"
-msgstr "Gagal untuk menambah nomor penerima"
 
 msgid "Fail to delete catch-all"
 msgstr "Gagal menghapus kotak tangkap semua"
 
+#, fuzzy
+msgid "Fail to delete group inbox"
+msgstr "Gagal untuk menghapus anggota"
+
 msgid "Fail to delete member"
 msgstr "Gagal untuk menghapus anggota"
 
-msgid "Fail to delete receiver number"
-msgstr "Gagal untuk menghapus nomor penerima"
-
-msgid "Fail to disable receiver number"
+#, fuzzy
+msgid "Fail to disable group inbox"
 msgstr "Gagal untuk menonaktifkan nomor penerima"
 
-msgid "Fail to edit receiver number"
+#, fuzzy
+msgid "Fail to edit group inbox"
 msgstr "Gagal mengedit nomor penerima"
 
-msgid "Fail to enable receiver number"
+#, fuzzy
+msgid "Fail to enable group inbox"
 msgstr "Gagal untuk mengaktifkan nomor penerima"
 
 msgid "For example a short code"
@@ -97,6 +106,26 @@ msgstr "Misalnya kode pendek"
 
 msgid "Group inbox"
 msgstr "Grup kotak masuk"
+
+#, fuzzy
+msgid "Group inbox has been added"
+msgstr "Anggota telah ditambahkan"
+
+#, fuzzy
+msgid "Group inbox has been deleted"
+msgstr "Anggota telah dihapus"
+
+#, fuzzy
+msgid "Group inbox has been disabled"
+msgstr "Nomor penerima telah dinonaktifkan"
+
+#, fuzzy
+msgid "Group inbox has been edited"
+msgstr "Nomor penerima telah disunting"
+
+#, fuzzy
+msgid "Group inbox has been enabled"
+msgstr "Nomor penerima telah diaktifkan"
 
 msgid "Keywords"
 msgstr "Kata kunci"
@@ -146,30 +175,12 @@ msgstr "Penerima nomor"
 msgid "Receiver number does not exists"
 msgstr "Nomor penerima tidak ada"
 
-msgid "Receiver number has been added"
-msgstr "Nomor penerima telah ditambahkan"
-
-msgid "Receiver number has been deleted"
-msgstr "Nomor penerima telah dihapus"
-
-msgid "Receiver number has been disabled"
-msgstr "Nomor penerima telah dinonaktifkan"
-
-msgid "Receiver number has been edited"
-msgstr "Nomor penerima telah disunting"
-
-msgid "Receiver number has been enabled"
-msgstr "Nomor penerima telah diaktifkan"
-
-msgid "Remove catch-all"
-msgstr "Hapus kotak tangkap semua"
-
-msgid "Remove member"
-msgstr "Hapus anggota"
-
 msgid "Restrict sender to regular members or catch-all members only"
 msgstr ""
 "Batasi pengirim ke anggota biasa atau hanya anggota kotak tangkap semua"
+
+msgid "Save"
+msgstr ""
 
 msgid "Selected catchall"
 msgstr "Kotak masuk tangkap semua"
@@ -186,9 +197,6 @@ msgstr "Pisahkan dengan koma untuk beberapa item"
 msgid "Status"
 msgstr "Status"
 
-msgid "Submit"
-msgstr "Kirim"
-
 msgid "Username"
 msgstr "Nama pengguna"
 
@@ -197,9 +205,6 @@ msgstr "Ya"
 
 msgid "You must fill all fields"
 msgstr "Anda harus mengisi semua kolom"
-
-msgid "catchall"
-msgstr "kotak tangkap semua"
 
 msgid "disabled"
 msgstr "Nonaktif"

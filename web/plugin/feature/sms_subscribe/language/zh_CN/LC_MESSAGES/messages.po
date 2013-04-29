@@ -8,12 +8,6 @@ msgstr ""
 msgid "Action"
 msgstr "行动"
 
-msgid "Add"
-msgstr "增加"
-
-msgid "Add Message"
-msgstr "增加信息"
-
 msgid "Add SMS subscribe"
 msgstr "增加短信订阅"
 
@@ -29,35 +23,40 @@ msgstr "确定删除这个会员 ?"
 msgid "Are you sure you want to delete this message?"
 msgstr "确定删除这条信息"
 
-msgid "Current status"
-msgstr "当前状态"
-
-msgid "Disabled"
-msgstr "禁用"
-
-msgid "Edit"
-msgstr "编辑"
+msgid "Created"
+msgstr ""
 
 msgid "Edit SMS subscribe"
 msgstr "编辑短信订阅"
 
-msgid "Enable or disable this subscribe"
-msgstr "使用或禁用此订阅"
+#, fuzzy
+msgid "Edit message"
+msgstr "增加"
 
-msgid "Enabled"
-msgstr "使用"
+#, fuzzy
+msgid "Fail to add SMS subscribe"
+msgstr "增加短信订阅"
+
+#, fuzzy
+msgid "Fail to add message"
+msgstr "增加"
+
+#, fuzzy
+msgid "Fail to edit SMS subscribe"
+msgstr "编辑短信订阅"
+
+#, fuzzy
+msgid "Fail to edit message"
+msgstr "发送短信失败"
 
 msgid "Fail to send SMS"
 msgstr "发送短信失败"
 
-msgid "I want to disable this subscribe"
-msgstr "J我要禁用次订阅"
-
-msgid "I want to enable this subscribe"
-msgstr "我要使用此订阅"
-
 msgid "Keyword"
 msgstr "关键字"
+
+msgid "Last update"
+msgstr ""
 
 msgid "Manage subscribe"
 msgstr "管理订阅"
@@ -71,10 +70,15 @@ msgstr "会员加入日期时间"
 msgid "Member list for keyword"
 msgstr "会员列表关键字"
 
-msgid "Member message has been added"
-msgstr "会员信息已增加"
+#, fuzzy
+msgid "Members"
+msgstr "浏览人数"
 
 msgid "Message"
+msgstr "信息"
+
+#, fuzzy
+msgid "Message ID"
 msgstr "信息"
 
 msgid "Message body"
@@ -83,11 +87,19 @@ msgstr "信息正文"
 msgid "Message detail"
 msgstr "信息详情"
 
+#, fuzzy
+msgid "Message has been added"
+msgstr "信息已编辑"
+
 msgid "Message has been deleted"
 msgstr "信息已删除"
 
 msgid "Message has been edited"
 msgstr "信息已编辑"
+
+#, fuzzy
+msgid "Messages"
+msgstr "信息"
 
 msgid "Phone number"
 msgstr "电话号码"
@@ -137,14 +149,11 @@ msgstr "发送"
 msgid "Send this message to all members"
 msgstr "发送信息到全部会员"
 
+msgid "Sent"
+msgstr ""
+
 msgid "Status"
 msgstr "状态"
-
-msgid "Subscribe service inactive"
-msgstr "短信订阅已保存"
-
-msgid "Total members"
-msgstr "总人数"
 
 msgid "Unknown SMS format"
 msgstr "未知短信格式"
@@ -161,9 +170,6 @@ msgstr "浏览人数"
 msgid "View messages"
 msgstr "浏览信息"
 
-msgid "What do you want to do ?"
-msgstr "你想要做什么 ?"
-
 msgid "You already a member"
 msgstr "你已是会员"
 
@@ -176,8 +182,13 @@ msgstr "你必须填满全部空白"
 msgid "Your SMS has been delivered to queue"
 msgstr "你的短信已在队列中"
 
+#, fuzzy
+msgid "disabled"
+msgstr "禁用"
+
+#, fuzzy
+msgid "enabled"
+msgstr "使用"
+
 msgid "keyword"
 msgstr "关键字"
-
-msgid "to"
-msgstr "到"

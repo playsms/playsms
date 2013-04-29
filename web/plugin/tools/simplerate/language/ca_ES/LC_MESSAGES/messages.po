@@ -16,9 +16,6 @@ msgstr ""
 msgid "Action"
 msgstr "Acció"
 
-msgid "Add"
-msgstr "Afegir>"
-
 msgid "Add rate"
 msgstr "Afegir tarifa"
 

@@ -9,9 +9,6 @@ msgstr ""
 msgid "Action"
 msgstr "Action"
 
-msgid "Add"
-msgstr "Ajouter"
-
 msgid "Add SMS board"
 msgstr "Ajouter un service de rédirection"
 
@@ -27,6 +24,10 @@ msgstr "Éditer le service de rédirection"
 msgid "Fail to add SMS board"
 msgstr "Impossible d'ajouter un service de rédirection"
 
+#, fuzzy
+msgid "Fail to edit SMS board"
+msgstr "Impossible d'ajouter un service de rédirection"
+
 msgid "Forward"
 msgstr "Rédirection"
 
@@ -36,6 +37,12 @@ msgstr "Rédirection WebSMS"
 msgid "Forward to email"
 msgstr "Transmettre à l'adresse email"
 
+msgid "HTML output"
+msgstr ""
+
+msgid "JSON output"
+msgstr ""
+
 msgid "Keyword"
 msgstr "Mot-clé"
 
@@ -43,14 +50,36 @@ msgid "Leave them empty if you dont know what to fill in these boxes below"
 msgstr ""
 "Laisser vide si vous ne savez pas comment remplir les champs ci-dessous"
 
+msgid "MBOX output"
+msgstr ""
+
 msgid "Manage board"
 msgstr "Service rédirection"
 
 msgid "Message"
 msgstr "Message"
 
+msgid "PHP serialize output"
+msgstr ""
+
+msgid "RSS 0.91 output"
+msgstr ""
+
+msgid "RSS 1.0 output"
+msgstr ""
+
+msgid "RSS 2.0 output"
+msgstr ""
+
+msgid "RSS ATOM output"
+msgstr ""
+
 msgid "Receiver"
 msgstr ""
+
+#, fuzzy
+msgid "SMS Board"
+msgstr "Ajouter un service de rédirection"
 
 msgid "SMS board has been added"
 msgstr "Le service de rédirection a été ajouté"
@@ -78,6 +107,13 @@ msgstr "Modèle"
 
 msgid "User"
 msgstr "Compte"
+
+#, fuzzy
+msgid "View board"
+msgstr "Service rédirection"
+
+msgid "XML output"
+msgstr ""
 
 msgid "You must fill all fields"
 msgstr "Vous devez remplir tous les champs"

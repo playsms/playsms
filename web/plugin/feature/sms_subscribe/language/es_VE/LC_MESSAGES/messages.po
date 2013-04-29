@@ -8,12 +8,6 @@ msgstr ""
 msgid "Action"
 msgstr "Acción"
 
-msgid "Add"
-msgstr "Añadir"
-
-msgid "Add Message"
-msgstr "Añadir un mensaje"
-
 msgid "Add SMS subscribe"
 msgstr "Añadir suscripción SMS"
 
@@ -29,35 +23,40 @@ msgstr "Está Ud. seguro de querer eliminar el miembro ?"
 msgid "Are you sure you want to delete this message?"
 msgstr "Está Ud. seguro de querer eliminar este mensaje?"
 
-msgid "Current status"
-msgstr "Estatus actual"
-
-msgid "Disabled"
-msgstr "Deshabilitado"
-
-msgid "Edit"
-msgstr "Editar"
+msgid "Created"
+msgstr ""
 
 msgid "Edit SMS subscribe"
 msgstr "Editar subscripción de SMS"
 
-msgid "Enable or disable this subscribe"
-msgstr "Habilitar o desghablitar el servicio"
+#, fuzzy
+msgid "Edit message"
+msgstr "Añadir un mensaje"
 
-msgid "Enabled"
-msgstr "Habilitado"
+#, fuzzy
+msgid "Fail to add SMS subscribe"
+msgstr "Añadir suscripción SMS"
+
+#, fuzzy
+msgid "Fail to add message"
+msgstr "Añadir un mensaje"
+
+#, fuzzy
+msgid "Fail to edit SMS subscribe"
+msgstr "Editar subscripción de SMS"
+
+#, fuzzy
+msgid "Fail to edit message"
+msgstr "No es posible enviar el SMS"
 
 msgid "Fail to send SMS"
 msgstr "No es posible enviar el SMS"
 
-msgid "I want to disable this subscribe"
-msgstr "Deseo Deshabilitar esta subscripción"
-
-msgid "I want to enable this subscribe"
-msgstr "Deseo habilitar esta subscripción"
-
 msgid "Keyword"
 msgstr "Clave"
+
+msgid "Last update"
+msgstr ""
 
 msgid "Manage subscribe"
 msgstr "Administrar suscripciones"
@@ -71,10 +70,15 @@ msgstr "Fecha de subscripción del miembro"
 msgid "Member list for keyword"
 msgstr "Lista de miembros por clave"
 
-msgid "Member message has been added"
-msgstr "Miembro ha sido añadido"
+#, fuzzy
+msgid "Members"
+msgstr "Ver miembros"
 
 msgid "Message"
+msgstr "Mensaje"
+
+#, fuzzy
+msgid "Message ID"
 msgstr "Mensaje"
 
 msgid "Message body"
@@ -83,11 +87,19 @@ msgstr "Cuerpo del mensaje"
 msgid "Message detail"
 msgstr "Detalle del mensaje"
 
+#, fuzzy
+msgid "Message has been added"
+msgstr "El mensaje ha sido editado"
+
 msgid "Message has been deleted"
 msgstr "El mensaje ha sido eliminado"
 
 msgid "Message has been edited"
 msgstr "El mensaje ha sido editado"
+
+#, fuzzy
+msgid "Messages"
+msgstr "Mensaje"
 
 msgid "Phone number"
 msgstr "Número de celular"
@@ -138,14 +150,11 @@ msgstr "Enviar"
 msgid "Send this message to all members"
 msgstr "Enviar este mensaje a todos los miembros"
 
+msgid "Sent"
+msgstr ""
+
 msgid "Status"
 msgstr "Estado"
-
-msgid "Subscribe service inactive"
-msgstr "La subscripción SMS ha sido guardada"
-
-msgid "Total members"
-msgstr "Total de miembros"
 
 msgid "Unknown SMS format"
 msgstr "Formato de SMS desconocido"
@@ -162,9 +171,6 @@ msgstr "Ver miembros"
 msgid "View messages"
 msgstr "Ver mensajes"
 
-msgid "What do you want to do ?"
-msgstr "Qué desea Ud. hacer ?"
-
 msgid "You already a member"
 msgstr "Ud. ya es miembro"
 
@@ -177,8 +183,13 @@ msgstr "Ud. debe rellenar todos los campos"
 msgid "Your SMS has been delivered to queue"
 msgstr "Su mensaje ha sido enviado a la cola de proceso"
 
+#, fuzzy
+msgid "disabled"
+msgstr "Deshabilitado"
+
+#, fuzzy
+msgid "enabled"
+msgstr "Habilitado"
+
 msgid "keyword"
 msgstr "clave"
-
-msgid "to"
-msgstr "Para "

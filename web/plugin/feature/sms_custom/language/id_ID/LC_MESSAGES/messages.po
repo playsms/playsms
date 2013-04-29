@@ -8,9 +8,6 @@ msgstr ""
 msgid "Action"
 msgstr "Tindakan"
 
-msgid "Add"
-msgstr "Tambah"
-
 msgid "Add SMS custom"
 msgstr "Tambah SMS kustom"
 

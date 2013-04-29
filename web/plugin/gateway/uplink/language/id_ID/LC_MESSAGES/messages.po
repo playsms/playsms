@@ -48,20 +48,17 @@ msgstr "Modul zona waktu"
 msgid "No changes has been made"
 msgstr "Tidak ada perubahan yang dilakukan"
 
-msgid "No trailing slash"
-msgstr "Tanpa garis miring"
-
 msgid "Password"
 msgstr "Kata sandi"
 
 msgid "Save"
 msgstr "Simpan"
 
-msgid "Uplink incoming path"
-msgstr "Jalur masuk uplink"
-
 msgid "Username"
 msgstr "Nama pengguna"
+
+msgid "Webservice token"
+msgstr ""
 
 msgid "click here to activate"
 msgstr "Klik di sini untuk mengaktifkan"

@@ -1,9 +1,6 @@
 msgid "Action"
 msgstr ""
 
-msgid "Add"
-msgstr ""
-
 msgid "Add SMS board"
 msgstr ""
 
@@ -19,6 +16,9 @@ msgstr ""
 msgid "Fail to add SMS board"
 msgstr ""
 
+msgid "Fail to edit SMS board"
+msgstr ""
+
 msgid "Forward"
 msgstr ""
 
@@ -28,10 +28,19 @@ msgstr ""
 msgid "Forward to email"
 msgstr ""
 
+msgid "HTML output"
+msgstr ""
+
+msgid "JSON output"
+msgstr ""
+
 msgid "Keyword"
 msgstr ""
 
 msgid "Leave them empty if you dont know what to fill in these boxes below"
+msgstr ""
+
+msgid "MBOX output"
 msgstr ""
 
 msgid "Manage board"
@@ -40,7 +49,25 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
+msgid "PHP serialize output"
+msgstr ""
+
+msgid "RSS 0.91 output"
+msgstr ""
+
+msgid "RSS 1.0 output"
+msgstr ""
+
+msgid "RSS 2.0 output"
+msgstr ""
+
+msgid "RSS ATOM output"
+msgstr ""
+
 msgid "Receiver"
+msgstr ""
+
+msgid "SMS Board"
 msgstr ""
 
 msgid "SMS board has been added"
@@ -68,6 +95,12 @@ msgid "Template"
 msgstr ""
 
 msgid "User"
+msgstr ""
+
+msgid "View board"
+msgstr ""
+
+msgid "XML output"
 msgstr ""
 
 msgid "You must fill all fields"

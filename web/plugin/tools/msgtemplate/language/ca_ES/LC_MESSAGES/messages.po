@@ -16,20 +16,8 @@ msgstr ""
 msgid "Add message template"
 msgstr "Afegir plantilla de missatge"
 
-msgid "Back"
-msgstr "Enrere"
-
 msgid "Content"
 msgstr "Contingut"
-
-msgid "Delete"
-msgstr "Esborrar"
-
-msgid "Delete all templates ?"
-msgstr "Esborrar totes les plantilles?"
-
-msgid "Delete message template"
-msgstr "Esborrar plantilla de missatge"
 
 msgid "Delete selection"
 msgstr "Esborrar selecció"
@@ -37,11 +25,12 @@ msgstr "Esborrar selecció"
 msgid "Edit message template"
 msgstr "Editar plantilla de missatge"
 
-msgid "Fail to edit message template"
+#, fuzzy
+msgid "Fail to add message template"
 msgstr "Error editant la plantilla del missatge"
 
-msgid "Go"
-msgstr "Ves"
+msgid "Fail to edit message template"
+msgstr "Error editant la plantilla del missatge"
 
 msgid "Message template"
 msgstr "Plantilla de missatge"
@@ -61,11 +50,11 @@ msgstr "Nom de la plantilla de missatge"
 msgid "Name"
 msgstr "Nom"
 
-msgid "Save template"
-msgstr "Guardar plantilla"
-
-msgid "Select action"
-msgstr "Marcar acció"
+msgid "Save"
+msgstr ""
 
 msgid "Selected message template has been deleted"
 msgstr "La plantilla seleccionada s'ha esborrat"
+
+msgid "You must fill all fields"
+msgstr ""

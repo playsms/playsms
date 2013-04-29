@@ -8,9 +8,6 @@ msgstr ""
 msgid "Action"
 msgstr "Acción"
 
-msgid "Add"
-msgstr "Añadir"
-
 msgid "Add SMS board"
 msgstr "Añadir pizarra SMS"
 
@@ -27,6 +24,10 @@ msgstr "Editar servicio de pizarra"
 msgid "Fail to add SMS board"
 msgstr "Fallo al añadir la pizarra SMS"
 
+#, fuzzy
+msgid "Fail to edit SMS board"
+msgstr "Fallo al añadir la pizarra SMS"
+
 msgid "Forward"
 msgstr "Reenvio"
 
@@ -36,11 +37,20 @@ msgstr "Redirección SMS Web"
 msgid "Forward to email"
 msgstr "Reenviar a un correo electrónico"
 
+msgid "HTML output"
+msgstr ""
+
+msgid "JSON output"
+msgstr ""
+
 msgid "Keyword"
 msgstr "Clave"
 
 msgid "Leave them empty if you dont know what to fill in these boxes below"
 msgstr "Déjas vacias si usted no sabe que rellenar en estos campos abajo"
+
+msgid "MBOX output"
+msgstr ""
 
 msgid "Manage board"
 msgstr "Administrar pizarra"
@@ -48,8 +58,27 @@ msgstr "Administrar pizarra"
 msgid "Message"
 msgstr "Mensaje"
 
+msgid "PHP serialize output"
+msgstr ""
+
+msgid "RSS 0.91 output"
+msgstr ""
+
+msgid "RSS 1.0 output"
+msgstr ""
+
+msgid "RSS 2.0 output"
+msgstr ""
+
+msgid "RSS ATOM output"
+msgstr ""
+
 msgid "Receiver"
 msgstr ""
+
+#, fuzzy
+msgid "SMS Board"
+msgstr "Añadir pizarra SMS"
 
 msgid "SMS board has been added"
 msgstr "La pizarra SMS ha sido añadida"
@@ -77,6 +106,13 @@ msgstr "Plantilla"
 
 msgid "User"
 msgstr "Usuario"
+
+#, fuzzy
+msgid "View board"
+msgstr "Administrar pizarra"
+
+msgid "XML output"
+msgstr ""
 
 msgid "You must fill all fields"
 msgstr "Ud. debe rellenar todos los campos"

@@ -8,12 +8,6 @@ msgstr ""
 msgid "Action"
 msgstr "Ação"
 
-msgid "Add"
-msgstr "Adicionar"
-
-msgid "Add Message"
-msgstr "Adicionar mensagem"
-
 msgid "Add SMS subscribe"
 msgstr "Adicionar assinatura SMS"
 
@@ -29,35 +23,40 @@ msgstr "Tem certeza que quer remover esse membro?"
 msgid "Are you sure you want to delete this message?"
 msgstr "Tem certeza que quer remover essa mensagem?"
 
-msgid "Current status"
-msgstr "Status atual"
-
-msgid "Disabled"
-msgstr "Desabilitado"
-
-msgid "Edit"
-msgstr "Editar"
+msgid "Created"
+msgstr ""
 
 msgid "Edit SMS subscribe"
 msgstr "Editar assinatura SMS"
 
-msgid "Enable or disable this subscribe"
-msgstr "Habilitar ou desabilitar essa assinatura"
+#, fuzzy
+msgid "Edit message"
+msgstr "Adicionar mensagem"
 
-msgid "Enabled"
-msgstr "Habilitado"
+#, fuzzy
+msgid "Fail to add SMS subscribe"
+msgstr "Adicionar assinatura SMS"
+
+#, fuzzy
+msgid "Fail to add message"
+msgstr "Adicionar mensagem"
+
+#, fuzzy
+msgid "Fail to edit SMS subscribe"
+msgstr "Editar assinatura SMS"
+
+#, fuzzy
+msgid "Fail to edit message"
+msgstr "Falha ao enviar SMS"
 
 msgid "Fail to send SMS"
 msgstr "Falha ao enviar SMS"
 
-msgid "I want to disable this subscribe"
-msgstr "Quero desabilitar essa assinatura"
-
-msgid "I want to enable this subscribe"
-msgstr "Quero habilitar essa assinatura"
-
 msgid "Keyword"
 msgstr "Palavra-chave"
+
+msgid "Last update"
+msgstr ""
 
 msgid "Manage subscribe"
 msgstr "Administrar assinaturas"
@@ -71,10 +70,15 @@ msgstr "Data de entrada do membro"
 msgid "Member list for keyword"
 msgstr "Lista de membros pra palavra-chave"
 
-msgid "Member message has been added"
-msgstr "A mensagem foi adicionada"
+#, fuzzy
+msgid "Members"
+msgstr "Ver membros"
 
 msgid "Message"
+msgstr "Mensagem"
+
+#, fuzzy
+msgid "Message ID"
 msgstr "Mensagem"
 
 msgid "Message body"
@@ -83,11 +87,19 @@ msgstr "Corpo da mensagem"
 msgid "Message detail"
 msgstr "Detalhes da mensagem"
 
+#, fuzzy
+msgid "Message has been added"
+msgstr "A mensagem foi editada"
+
 msgid "Message has been deleted"
 msgstr "A mensagem foi removida"
 
 msgid "Message has been edited"
 msgstr "A mensagem foi editada"
+
+#, fuzzy
+msgid "Messages"
+msgstr "Mensagem"
 
 msgid "Phone number"
 msgstr "Telefone"
@@ -137,14 +149,11 @@ msgstr "Enviar"
 msgid "Send this message to all members"
 msgstr "Enviar essa mensagem pra todos os membros"
 
+msgid "Sent"
+msgstr ""
+
 msgid "Status"
 msgstr "Estado"
-
-msgid "Subscribe service inactive"
-msgstr "A assinatura SMS foi salva"
-
-msgid "Total members"
-msgstr "Número de membros"
 
 msgid "Unknown SMS format"
 msgstr "Formato de SMS desconhecido"
@@ -161,9 +170,6 @@ msgstr "Ver membros"
 msgid "View messages"
 msgstr "Ver mensagens"
 
-msgid "What do you want to do ?"
-msgstr "O que você quer fazer?"
-
 msgid "You already a member"
 msgstr "Você já é um membro"
 
@@ -176,8 +182,13 @@ msgstr "Preencha todos os campos"
 msgid "Your SMS has been delivered to queue"
 msgstr "Seu SMS foi emitido pra fila"
 
+#, fuzzy
+msgid "disabled"
+msgstr "Desabilitado"
+
+#, fuzzy
+msgid "enabled"
+msgstr "Habilitado"
+
 msgid "keyword"
 msgstr "palavra-chave"
-
-msgid "to"
-msgstr "para"

@@ -8,9 +8,6 @@ msgstr ""
 msgid "Action"
 msgstr "Tindakan"
 
-msgid "Add"
-msgstr "Tambah"
-
 msgid "Add SMS quiz"
 msgstr "Tambah kuis SMS"
 
@@ -25,35 +22,17 @@ msgstr ""
 msgid "Are you sure you want to delete this answer ?"
 msgstr "Anda yakin ingin menghapus jawaban ini?"
 
-msgid "Correct"
-msgstr "Benar"
-
-msgid "Current status"
-msgstr "status saat ini"
-
 msgid "Datetime"
 msgstr "Waktu dan Tanggal"
-
-msgid "Disabled"
-msgstr "Nonaktif"
 
 msgid "Edit SMS quiz"
 msgstr "Ubah kuis SMS"
 
-msgid "Enable or disable this quiz"
-msgstr "Aktif atau nonaktifkan kuis SMS ini"
+msgid "Fail to add SMS quiz"
+msgstr "Gagal menambah kuis SMS"
 
-msgid "Enabled"
-msgstr "Aktif"
-
-msgid "I want to disable this quiz"
-msgstr "Saya ingin menonaktifkan kuis SMS ini"
-
-msgid "I want to enable this quiz"
-msgstr "Saya ingin mengaktifkan kuis SMS ini"
-
-msgid "Incorrect"
-msgstr "Salah"
+msgid "Fail to edit SMS quiz"
+msgstr "Gagal mengubah kuis SMS"
 
 msgid "Keyword"
 msgstr "Kata Kunci"
@@ -61,20 +40,17 @@ msgstr "Kata Kunci"
 msgid "Manage quiz"
 msgstr "Pengaturan kuis SMS"
 
-msgid "Message"
-msgstr "Pesan"
-
-msgid "Message when correct"
-msgstr "Pesan ketika benar"
-
-msgid "Message when incorrect"
-msgstr "Pesan ketika salah"
-
 msgid "Question"
 msgstr "Pertanyaan"
 
 msgid "Received answer list for keyword"
 msgstr "Terima daftar jawaban untuk kata kunci"
+
+msgid "Reply message on correct"
+msgstr "Pesan balasan ketika benar"
+
+msgid "Reply message on incorrect"
+msgstr "Pesan balasan ketika salah"
 
 msgid "SMS quiz already exists, reserved or use by other feature"
 msgstr "Kuis SMS sudah ada, dipesan, atau digunakan oleh fitur lain"
@@ -115,11 +91,20 @@ msgstr "Status"
 msgid "User"
 msgstr "Pengguna"
 
-msgid "What do you want to do ?"
-msgstr "Apa yang ingin anda lakukan?"
-
 msgid "You must fill all field"
 msgstr "Anda harus mengisi semua kolom"
+
+msgid "correct"
+msgstr "benar"
+
+msgid "disabled"
+msgstr "nonaktif"
+
+msgid "enabled"
+msgstr "aktif"
+
+msgid "incorrect"
+msgstr "salah"
 
 msgid "keyword"
 msgstr "kata kunci"

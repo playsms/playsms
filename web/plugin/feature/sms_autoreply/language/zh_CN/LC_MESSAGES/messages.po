@@ -8,9 +8,6 @@ msgstr ""
 msgid "Action"
 msgstr "行为"
 
-msgid "Add"
-msgstr "增加"
-
 msgid "Add SMS autoreply"
 msgstr "增加短信自动回复"
 
@@ -22,9 +19,6 @@ msgstr "确定删除短信自动回复 ?"
 
 msgid "Are you sure you want to delete this SMS autoreply scenario ?"
 msgstr "确定删除此条短信自动回复情景 ?"
-
-msgid "Back"
-msgstr "返回"
 
 msgid "Edit SMS autoreply scenario"
 msgstr "编辑短信自动回复情景"

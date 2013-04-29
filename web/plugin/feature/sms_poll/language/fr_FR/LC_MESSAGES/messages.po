@@ -26,23 +26,18 @@ msgstr ""
 msgid "Are you sure you want to delete choice ?"
 msgstr "Etes-vous certain de vouloir supprimer cette réponse ?"
 
-msgid "Choice Keyword"
-msgstr "Mot-clé réponse"
-
 msgid "Choice already exists"
 msgstr "Cette réponse existe déjà"
 
 msgid "Choice has been added"
 msgstr "La réponse a été ajoutée"
 
+#, fuzzy
+msgid "Choice keyword"
+msgstr "Mot-clé réponse"
+
 msgid "Choice title"
 msgstr "Titre réponse"
-
-msgid "Current status"
-msgstr "Statut actuel"
-
-msgid "Disabled"
-msgstr "Désactivé"
 
 msgid "Edit SMS poll"
 msgstr "Édition du sondage"
@@ -50,23 +45,17 @@ msgstr "Édition du sondage"
 msgid "Edit SMS poll choices"
 msgstr "Édition des réponses du sondage"
 
-msgid "Enable or disable this poll"
-msgstr "Activer ou désactiver ce sondage"
-
-msgid "Enabled"
-msgstr "Activé"
-
 msgid "Fail to add SMS poll"
 msgstr "Impossible de supprimer les réponses de ce sondage"
 
 msgid "Fail to delete SMS poll choice"
 msgstr "Impossible de supprimer les réponses de ce sondage"
 
-msgid "I want to disable this poll"
-msgstr "Je souhaite désactiver ce sondage"
+msgid "Graph output"
+msgstr ""
 
-msgid "I want to enable this poll"
-msgstr "Je souhaite activer ce sondage"
+msgid "JSON output"
+msgstr ""
 
 msgid "Keyword"
 msgstr "Mot-clé"
@@ -74,11 +63,27 @@ msgstr "Mot-clé"
 msgid "Manage poll"
 msgstr "Service sondage"
 
+msgid "PHP serialize output"
+msgstr ""
+
+msgid "Reply message on invalid answer"
+msgstr ""
+
+msgid "Reply message on valid answer"
+msgstr ""
+
+msgid "Reply message when invalid answer"
+msgstr ""
+
 msgid "SMS poll already exists, reserved or use by other feature"
 msgstr "Ce sondage existe déjà, est réservé ou utilisé par un autre service"
 
 msgid "SMS poll choice and all its voters has been deleted"
 msgstr "Les réponses et tous les votes de ce sondage ont été supprimés"
+
+#, fuzzy
+msgid "SMS poll graph"
+msgstr "Mot-clé du sondage"
 
 msgid "SMS poll has been added"
 msgstr "Le sondage a été ajouté"
@@ -113,11 +118,26 @@ msgstr "Titre"
 msgid "User"
 msgstr "Compte"
 
-msgid "What do you want to do ?"
-msgstr "Que voulez-vous faire ?"
+msgid "View"
+msgstr ""
+
+#, fuzzy
+msgid "View poll"
+msgstr "Service sondage"
+
+msgid "XML output"
+msgstr ""
 
 msgid "You must fill all fields"
 msgstr "Vous devez remplir tous les champs"
+
+#, fuzzy
+msgid "disabled"
+msgstr "Désactivé"
+
+#, fuzzy
+msgid "enabled"
+msgstr "Activé"
 
 msgid "keyword"
 msgstr "mot-clé"

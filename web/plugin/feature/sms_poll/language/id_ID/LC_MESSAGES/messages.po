@@ -26,23 +26,18 @@ msgstr ""
 msgid "Are you sure you want to delete choice ?"
 msgstr "Anda yakin ingin menghapus pilihan?"
 
-msgid "Choice Keyword"
-msgstr "Kata Kunci Pilihan"
-
 msgid "Choice already exists"
 msgstr "Pilihan sudah ada"
 
 msgid "Choice has been added"
 msgstr "Pilihan telah ditambahkan"
 
+#, fuzzy
+msgid "Choice keyword"
+msgstr "Kata Kunci Pilihan"
+
 msgid "Choice title"
 msgstr "judul Pilihan"
-
-msgid "Current status"
-msgstr "status saat ini"
-
-msgid "Disabled"
-msgstr "Nonaktif"
 
 msgid "Edit SMS poll"
 msgstr "Ubah layanan poling SMS"
@@ -50,23 +45,17 @@ msgstr "Ubah layanan poling SMS"
 msgid "Edit SMS poll choices"
 msgstr "Ubah pilihan-pilihan dalam layanan poling SMS?"
 
-msgid "Enable or disable this poll"
-msgstr "Matikan atau Hidupkan poling SMS ini"
-
-msgid "Enabled"
-msgstr "Aktif"
-
 msgid "Fail to add SMS poll"
 msgstr "Gagal menghapus pilihan poling SMS"
 
 msgid "Fail to delete SMS poll choice"
 msgstr "Gagal menghapus pilihan poling SMS"
 
-msgid "I want to disable this poll"
-msgstr "Saya ingin menonaktifkan poling SMS ini"
+msgid "Graph output"
+msgstr ""
 
-msgid "I want to enable this poll"
-msgstr "Saya ingin mengaktifkan poling SMS ini"
+msgid "JSON output"
+msgstr ""
 
 msgid "Keyword"
 msgstr "Kata sandi"
@@ -74,11 +63,27 @@ msgstr "Kata sandi"
 msgid "Manage poll"
 msgstr "Pengaturan layanan poling SMS"
 
+msgid "PHP serialize output"
+msgstr ""
+
+msgid "Reply message on invalid answer"
+msgstr ""
+
+msgid "Reply message on valid answer"
+msgstr ""
+
+msgid "Reply message when invalid answer"
+msgstr ""
+
 msgid "SMS poll already exists, reserved or use by other feature"
 msgstr "Poling SMS sudah ada, dipesan, atau digunakan oleh fitur lain."
 
 msgid "SMS poll choice and all its voters has been deleted"
 msgstr "Pilihan poling SMS beserta semua pemilihnya telah dihapus"
+
+#, fuzzy
+msgid "SMS poll graph"
+msgstr "Kata kunci poling SMS"
 
 msgid "SMS poll has been added"
 msgstr "Poling SMS telah ditambahkan"
@@ -113,11 +118,26 @@ msgstr "Judul"
 msgid "User"
 msgstr "Pengguna"
 
-msgid "What do you want to do ?"
-msgstr "Apa yang ingin anda lakukan?"
+msgid "View"
+msgstr ""
+
+#, fuzzy
+msgid "View poll"
+msgstr "Pengaturan layanan poling SMS"
+
+msgid "XML output"
+msgstr ""
 
 msgid "You must fill all fields"
 msgstr "Anda harus mengisi semua kolom"
+
+#, fuzzy
+msgid "disabled"
+msgstr "Nonaktif"
+
+#, fuzzy
+msgid "enabled"
+msgstr "Aktif"
 
 msgid "keyword"
 msgstr "kata kunci"

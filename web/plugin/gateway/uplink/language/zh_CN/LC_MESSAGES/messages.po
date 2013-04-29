@@ -47,20 +47,17 @@ msgstr ""
 msgid "No changes has been made"
 msgstr "没有做出改变"
 
-msgid "No trailing slash"
-msgstr "没有结尾的斜线"
-
 msgid "Password"
 msgstr "密码"
 
 msgid "Save"
 msgstr "保存"
 
-msgid "Uplink incoming path"
-msgstr "Uplink传入路径"
-
 msgid "Username"
 msgstr "用户名"
+
+msgid "Webservice token"
+msgstr ""
 
 msgid "click here to activate"
 msgstr "点击这里激活"

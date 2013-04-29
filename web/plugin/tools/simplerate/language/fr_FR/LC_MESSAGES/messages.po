@@ -9,9 +9,6 @@ msgstr ""
 msgid "Action"
 msgstr "Action"
 
-msgid "Add"
-msgstr "Ajouter"
-
 msgid "Add rate"
 msgstr "Ajouter un tarif"
 
