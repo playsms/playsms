@@ -1,4 +1,4 @@
-Verison 0.9.8-git - NA
+Version 0.9.8 - NA
 - MAJOR: webapp usage now can be used with a token instead of the password (aseques)
 - MAJOR: change the login method to use PHP session (anton)
 - MAJOR: change the way to show $error_string, now using PHP session (anton)
