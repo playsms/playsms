@@ -2,6 +2,12 @@
 defined('_SECURE_') or die('Forbidden');
 if(!valid()){forcenoaccess();};
 
+if ($board_id = $_REQUEST['board_id']) {
+	if (! ($board_id = dba_valid(_DB_PREF_.'_featureBoard', 'board_id', $board_id))) {
+		forcenoaccess();
+	}
+}
+
 if ($route = $_REQUEST['route']) {
 	$fn = $apps_path['plug'].'/feature/sms_board/'.$route.'.php';
 	$fn = core_sanitize_path($fn);
@@ -70,7 +76,6 @@ switch ($op) {
 		echo $content;
 		break;
 	case "sms_board_edit":
-		$board_id = $_REQUEST['board_id'];
 		$db_query = "SELECT * FROM "._DB_PREF_."_featureBoard WHERE board_id='$board_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
@@ -85,7 +90,7 @@ switch ($op) {
 			<h3>"._('Edit SMS board')."</h3>
 			<p>
 			<form action=index.php?app=menu&inc=feature_sms_board&op=sms_board_edit_yes method=post>
-			<input type=hidden name=edit_board_id value=$board_id>
+			<input type=hidden name=board_id value=$board_id>
 			<input type=hidden name=edit_board_keyword value=$edit_board_keyword>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 			<tr>
@@ -107,23 +112,19 @@ switch ($op) {
 		echo $content;
 		break;
 	case "sms_board_edit_yes":
-		$edit_board_id = $_POST['edit_board_id'];
 		$edit_board_keyword = $_POST['edit_board_keyword'];
 		$edit_email = $_POST['edit_email'];
 		$edit_template = $_POST['edit_template'];
-		if ($edit_board_id) {
+		if ($board_id) {
 			if (!$edit_template) {
 				$edit_template = "<font color=black size=-1><b>{SENDER}</b></font><br>";
 				$edit_template .= "<font color=black size=-2><i>{DATETIME}</i></font><br>";
 				$edit_template .= "<font color=black size=-1>{MESSAGE}</font>";
 			}
-			if (!isadmin()) {
-				$query_user_only = "AND uid='$uid'";
-			}
 			$db_query = "
 				UPDATE "._DB_PREF_."_featureBoard
 				SET c_timestamp='".mktime()."',board_forward_email='$edit_email',board_pref_template='$edit_template'
-				WHERE board_id='$edit_board_id' ".$query_user_only;
+				WHERE board_id='$board_id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('SMS board has been saved')." ("._('keyword').": $edit_board_keyword)";
 			} else {
@@ -132,15 +133,11 @@ switch ($op) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_board&op=sms_board_edit&board_id=$edit_board_id");
+		header("Location: index.php?app=menu&inc=feature_sms_board&op=sms_board_edit&board_id=$board_id");
 		exit();
 		break;
 	case "sms_board_del":
-		$board_id = $_REQUEST['board_id'];
-		if (!isadmin()) {
-			$query_user_only = "AND uid='$uid'";
-		}
-		$db_query = "SELECT board_keyword FROM "._DB_PREF_."_featureBoard WHERE board_id='$board_id' ".$query_user_only;
+		$db_query = "SELECT board_keyword FROM "._DB_PREF_."_featureBoard WHERE board_id='$board_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$board_keyword = $db_row['board_keyword'];

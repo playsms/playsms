@@ -1,15 +1,9 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
-if(!valid()){forcenoaccess();};
 
 switch ($op) {
 	case 'list':
-		$board_id = $_REQUEST['board_id'];
 		$conditions['board_id'] = $board_id;
-		if (! isadmin()) {
-			$uid = $core_config['user']['uid'];
-			$conditions['uid'] = $uid;
-		}
 		$list = dba_search(_DB_PREF_.'_featureBoard', '*', $conditions);
 		$board_keyword = $list[0]['board_keyword'];
 		$output_serialize = $core_config['http_path']['base']."/index.php?app=webservices&ta=sms_board&keyword=".urlencode($board_keyword)."&type=serialize";
