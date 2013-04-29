@@ -104,18 +104,7 @@ function sms_board_output_serialize($keyword,$line="10") {
 }
 
 function sms_board_output_json($keyword,$line="10") {
-	$keyword = strtoupper($keyword);
-	$line = ( $line ? $line : '10' );
-	$ret['board']['keyword'] = $keyword;
-	$db_query = "SELECT * FROM "._DB_PREF_."_featureBoard_log WHERE in_keyword='$keyword' ORDER BY in_datetime DESC LIMIT $line";
-	$db_result = dba_query($db_query);
-	$i = 0;
-	while ($db_row = dba_fetch_array($db_result)) {
-		$ret['item'][$i]['sender'] = $db_row['in_masked'];
-		$ret['item'][$i]['message'] = $db_row['in_msg'];
-		$ret['item'][$i]['datetime'] = $db_row['in_datetime'];
-		$i++;
-	}
+	$ret = unserialize(sms_board_output_serialize($keyword, $line));
 	return json_encode($ret);
 }
 
