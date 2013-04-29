@@ -1,4 +1,4 @@
-Version 0.9.8 - NA
+Version 0.9.8 - 130429
 - MAJOR: webservice now using hash token instead of username password (aseques)
 - MAJOR: change the login method to use PHP session (anton)
 - MAJOR: change the way to show $error_string, now using PHP session (anton)
@@ -22,7 +22,7 @@ Version 0.9.8 - NA
 - update catalan language (aseques)
 - update user's email and mobile should be unique (anton)
 - update directory structure in package (anton)
-- update maximum phonebook import is 100 contacts per upload (anton)
+- update limit of maximum phonebook import per upload (anton)
 - update terms in log to levels instead of words (anton)
 - update list of Inbox, Incoming SMS and Outgoing SMS with export to csv (anton)
 - update list of Inbox, Incoming SMS and Outgoing SMS with search box (anton)
