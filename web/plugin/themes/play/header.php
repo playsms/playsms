@@ -134,7 +134,8 @@
           </div>
           <div style="float:left; height: 85px; padding-left: 20px;">
 	<?php } ?>
-          <h1 style="line-height: 85px;"><?php echo $theme_play_head1; ?><small><?php echo $theme_play_head2; ?></small></h1>
+          <h1 style="line-height: 85px;"><?php echo $theme_play_head1; ?></h1>
+          <h1><small><?php echo $theme_play_head2; ?></small></h1>
           </div>
           <div style="clear:both;"></div> 
         </div>
