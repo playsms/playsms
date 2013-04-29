@@ -4,7 +4,7 @@ if(!isadmin()){forcenoaccess();};
 
 switch ($op) {
 	case "all_incoming":
-		$search_category = array(_('User') => 'username', _('Time') => 'in_datetime', _('From') => 'in_sender', _('Keyword') => 'in_keyword', _('Content') => 'in_msg', _('Feature') => 'in_feature');
+		$search_category = array(_('User') => 'username', _('Time') => 'in_datetime', _('From') => 'in_sender', _('Keyword') => 'in_keyword', _('Content') => 'in_message', _('Feature') => 'in_feature');
 		$base_url = 'index.php?app=menu&inc=all_incoming&op=all_incoming';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array('flag_deleted' => 0);
