@@ -11,6 +11,8 @@ ALTER TABLE `playsms_tblUser` ADD `local_length` TINYINT NOT NULL DEFAULT '9' AF
 
 ALTER TABLE `playsms_tblUser` MODIFY `password` varchar(32) NOT NULL ;
 
+ALTER TABLE `playsms_tblSMSOutgoing` ADD `queue_code` varchar(40) NOT NULL ;
+
 ALTER TABLE `playsms_featurePoll` ADD `poll_message_valid` varchar(100) NOT NULL ;
 ALTER TABLE `playsms_featurePoll` ADD `poll_message_invalid` varchar(100) NOT NULL ;
 

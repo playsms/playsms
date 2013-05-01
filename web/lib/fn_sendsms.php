@@ -147,7 +147,7 @@ function sendsmsd($single_queue='') {
 			$c_flag = 2;
 			$c_ok = false;
 			logger_print("sending queue_code:".$c_queue_code." to:".$c_dst, 2, "sendsmsd");
-			$ret = sendsms_process($c_sender_id,$c_footer,$c_dst,$c_message,$c_uid,$c_gpid,$c_sms_type,$c_unicode);
+			$ret = sendsms_process($c_sender_id,$c_footer,$c_dst,$c_message,$c_uid,$c_gpid,$c_sms_type,$c_unicode,$c_queue_code);
 			if ($ret['status'] && $ret['smslog_id']) {
 				$c_ok = true;
 				$c_smslog_id = $ret['smslog_id'];
@@ -173,7 +173,7 @@ function sendsmsd($single_queue='') {
 	return array($ok, $to, $smslog_id, $queue);
 }
 
-function sendsms_process($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0) {
+function sendsms_process($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0,$queue_code='') {
 	global $core_config, $gateway_module;
 
 	$user = $core_config['user'];
@@ -206,7 +206,7 @@ function sendsms_process($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$
 
 	// if hooked function returns cancel=true then stop the sending, return false
 	if ($ret_intercept['cancel']) {
-		logger_print("cancelled:$uid,$gpid,$gateway_module,$sms_sender,$sms_to,$sms_type,$unicode", 2, "sendsms");
+		logger_print("cancelled:$uid,$gpid,$gateway_module,$sms_sender,$sms_to,$sms_type,$unicode", 2, "sendsms_process");
 		$ret['status'] = false;
 		return $ret;
 	}
@@ -219,7 +219,7 @@ function sendsms_process($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$
 		$sms_footer = ' '.trim($sms_footer);
 	}
 
-	logger_print("start", 2, "sendsms");
+	logger_print("start", 2, "sendsms_process");
 
 	$ok = false;
 	$p_status = 2;
@@ -231,13 +231,12 @@ function sendsms_process($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$
 	// message with that length or certain characters in the message are not supported by the gateway
 	$db_query = "
 		INSERT INTO "._DB_PREF_."_tblSMSOutgoing 
-		(uid,p_gpid,p_gateway,p_src,p_dst,p_footer,p_msg,p_datetime,p_status,p_sms_type,unicode) 
-		VALUES ('$uid','$gpid','$gateway_module','$sms_sender','$sms_to','$sms_footer','$sms_msg','$sms_datetime','$p_status','$sms_type','$unicode')
-	";
+		(uid,p_gpid,p_gateway,p_src,p_dst,p_footer,p_msg,p_datetime,p_status,p_sms_type,unicode,queue_code) 
+		VALUES ('$uid','$gpid','$gateway_module','$sms_sender','$sms_to','$sms_footer','$sms_msg','$sms_datetime','$p_status','$sms_type','$unicode','$queue_code')";
 	logger_print("saving u:".$uid." g:".$gpid." gw:".$gateway_module." s:".$sms_sender." d:".$sms_to." type:".$sms_type." unicode:".$unicode." status:".$p_status, 2, "sendsms");
 	// continue to gateway only when save to db is true
 	if ($smslog_id = @dba_insert_id($db_query)) {
-		logger_print("saved smslog_id:".$smslog_id, 2, "sendsms");
+		logger_print("saved smslog_id:".$smslog_id, 2, "sendsms_process");
 		// if pending (p_status=0) then continue, if failed (p_status=2) print log
 		if ($p_status == 0) {
 			logger_print("final message:".$sms_msg.$sms_footer." len:".strlen($sms_msg.$sms_footer), 3, "sendsms");
@@ -247,13 +246,13 @@ function sendsms_process($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$
 				$ok = true;
 			}
 		} else {
-			logger_print("fail not enough credit smslog_id:".$smslog_id, 2, "sendsms");
+			logger_print("fail not enough credit smslog_id:".$smslog_id, 2, "sendsms_process");
 		}
 	} else {
-		logger_print("fail to save in db table", 2, "sendsms");
+		logger_print("fail to save in db table", 2, "sendsms_process");
 	}
 
-	logger_print("end", 2, "sendsms");
+	logger_print("end", 2, "sendsms_process");
 
 	$ret['status'] = $ok;
 	$ret['smslog_id'] = $smslog_id;
@@ -278,14 +277,14 @@ function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 	}
 	$sms_msg = $message;
 
-	logger_print("start uid:".$uid." sender:".$sms_sender, 2, "sendsms pv");
-	logger_print("footer:".$sms_footer." maxlength:".$max_length." msgcount:".strlen($sms_msg)." message:".$sms_msg, 3, "sendsms pv");
+	logger_print("start uid:".$uid." sender:".$sms_sender, 2, "sendsms_pv");
+	logger_print("footer:".$sms_footer." maxlength:".$max_length." msgcount:".strlen($sms_msg)." message:".$sms_msg, 3, "sendsms_pv");
 
 	// create a queue
 	$queue_code = sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,0,$sms_type,$unicode);
 	if (! $queue_code) {
 		// when unable to create a queue then immediately returns FALSE, no point to continue
-		logger_print("fail to finalize queue creation, exit immediately", 2, "sendsms");
+		logger_print("fail to finalize queue creation, exit immediately", 2, "sendsms_pv");
 		return FALSE;
 	}
 
@@ -315,11 +314,11 @@ function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 		unset($ok);
 		unset($to);
 		unset($queue);
-		logger_print("sendsmsd off immediately process queue_code:".$queue_code, 2, "sendsms pv");
+		logger_print("sendsmsd off immediately process queue_code:".$queue_code, 2, "sendsms_pv");
 		list($ok, $to, $smslog_id, $queue) = sendsmsd($queue_code);
 	}
 
-	logger_print("end queue_code:".$queue_code, 2, "sendsms pv");
+	logger_print("end queue_code:".$queue_code, 2, "sendsms_pv");
 
 	return array($ok, $to, $smslog_id, $queue);
 }
@@ -351,8 +350,8 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 	$j=0;
 	for ($i=0;$i<count($array_gpid);$i++) {
 		if ($c_gpid = trim($array_gpid[$i])) {
-			logger_print("start uid:".$uid." gpid:".$c_gpid." sender:".$sms_sender, 2, "sendsms bc");
-			logger_print("footer:".$sms_footer." maxlength:".$max_length." msgcount:".strlen($sms_msg)." message:".$sms_msg, 3, "sendsms bc");
+			logger_print("start uid:".$uid." gpid:".$c_gpid." sender:".$sms_sender, 2, "sendsms_bc");
+			logger_print("footer:".$sms_footer." maxlength:".$max_length." msgcount:".strlen($sms_msg)." message:".$sms_msg, 3, "sendsms_bc");
 			// create a queue
 			$queue_code = sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$c_gpid,$sms_type,$unicode);
 			if (! $queue_code) {
@@ -372,7 +371,7 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 					$j++;
 				}
 			}
-			logger_print("end queue_code:".$queue_code, 2, "sendsms bc");
+			logger_print("end queue_code:".$queue_code, 2, "sendsms_bc");
 		}
 	}
 
