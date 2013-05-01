@@ -49,12 +49,19 @@ function webservices_bc($c_username,$c_gcode,$msg,$type='text',$unicode=0) {
 	return $ret;
 }
 
-function webservices_ds($c_username,$slid=0,$c=100,$last=false) {
+function webservices_ds($c_username,$queue_code='',$slid=0,$c=100,$last=false) {
 	$ret = "ERR 101";
 	$uid = username2uid($c_username);
+	// if queue_code isset
+	if ($uid && trim($queue_code)) {
+		$query_condition = "AND queue_code='$queue_code'";
+	}
 	// if slid isset
 	if ($uid && trim($slid)) {
-		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE uid='$uid' AND flag_deleted='0' AND smslog_id='$slid' LIMIT 1";
+		$query_condition = "AND smslod_id='$slid'";
+	}
+	if ($query_condition) {
+		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE uid='$uid' AND flag_deleted='0' ".$query_condition." LIMIT 1";
 		$db_result = dba_query($db_query);
 		if ($db_row = dba_fetch_array($db_result)) {
 			$p_status = $db_row['p_status'];
