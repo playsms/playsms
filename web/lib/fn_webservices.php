@@ -53,8 +53,8 @@ function webservices_ds($c_username,$slid=0,$c=100,$last=false) {
 	$ret = "ERR 101";
 	$uid = username2uid($c_username);
 	// if slid isset
-	if (trim($slid)) {
-		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE uid='$uid' AND smslog_id='$slid' LIMIT 1";
+	if ($uid && trim($slid)) {
+		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE uid='$uid' AND flag_deleted='0' AND smslog_id='$slid' LIMIT 1";
 		$db_result = dba_query($db_query);
 		if ($db_row = dba_fetch_array($db_result)) {
 			$p_status = $db_row['p_status'];
@@ -80,23 +80,25 @@ function webservices_ds($c_username,$slid=0,$c=100,$last=false) {
 	if ($last) {
 		$query_last = "AND smslog_id>$last";
 	}
-	$content = "";
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE uid='$uid' AND flag_deleted='0' $query_last ORDER BY p_datetime DESC $query_limit";
-	$db_result = dba_query($db_query);
-	while ($db_row = dba_fetch_array($db_result)) {
-		$smslog_id = $db_row['smslog_id'];
-		$p_src = $db_row['p_src'];
-		$p_dst = $db_row['p_dst'];
-		$p_datetime = $db_row['p_datetime'];
-		$p_update = $db_row['p_update'];
-		$p_status = $db_row['p_status'];
-		$content .= "\"$smslog_id\";\"$p_src\";\"$p_dst\";\"$p_datetime\";\"$p_update\";\"$p_status\";\n";
-	}
-	// if DS available by checking content
-	if ($content) {
-		$ret = $content;
-	} else {
-		$ret = "ERR 400";
+	if ($uid && ($c || $last)) {
+		$content = "";
+		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE uid='$uid' AND flag_deleted='0' $query_last ORDER BY p_datetime DESC $query_limit";
+		$db_result = dba_query($db_query);
+		while ($db_row = dba_fetch_array($db_result)) {
+			$smslog_id = $db_row['smslog_id'];
+			$p_src = $db_row['p_src'];
+			$p_dst = $db_row['p_dst'];
+			$p_datetime = $db_row['p_datetime'];
+			$p_update = $db_row['p_update'];
+			$p_status = $db_row['p_status'];
+			$content .= "\"$smslog_id\";\"$p_src\";\"$p_dst\";\"$p_datetime\";\"$p_update\";\"$p_status\";\n";
+		}
+		// if DS available by checking content
+		if ($content) {
+			$ret = $content;
+		} else {
+			$ret = "ERR 400";
+		}
 	}
 	return $ret;
 }
