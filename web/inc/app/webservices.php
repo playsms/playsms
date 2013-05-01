@@ -44,11 +44,7 @@ if ($ta) {
 		case "DS":
 			if ($c_uid = validatetoken($h)) {
 				$u = uid2username($c_uid);
-				if ($slid) {
-					$ret = webservices_ds_slid($u,$slid);
-				} else {
-					$ret = webservices_ds_count($u,$c,$last);
-				}
+				$ret = webservices_ds($u,$slid,$c,$last);
 			} else {
 				$ret = "ERR 100";
 			}

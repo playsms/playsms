@@ -49,37 +49,39 @@ function webservices_bc($c_username,$c_gcode,$msg,$type='text',$unicode=0) {
 	return $ret;
 }
 
-function webservices_ds_slid($c_username, $slid) {
+function webservices_ds($c_username,$slid=0,$c=100,$last=false) {
 	$ret = "ERR 101";
 	$uid = username2uid($c_username);
-	$content = "";
-	if ($slid) {
-		$db_query = "SELECT p_status FROM "._DB_PREF_."_tblSMSOutgoing WHERE uid='$uid' AND smslog_id='$slid'";
+	// if slid isset
+	if (trim($slid)) {
+		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE uid='$uid' AND smslog_id='$slid' LIMIT 1";
 		$db_result = dba_query($db_query);
 		if ($db_row = dba_fetch_array($db_result)) {
 			$p_status = $db_row['p_status'];
-			$ret = $p_status;
+			$smslog_id = $db_row['smslog_id'];
+			$p_src = $db_row['p_src'];
+			$p_dst = $db_row['p_dst'];
+			$p_datetime = $db_row['p_datetime'];
+			$p_update = $db_row['p_update'];
+			$p_status = $db_row['p_status'];
+			$ret = "\"$smslog_id\";\"$p_src\";\"$p_dst\";\"$p_datetime\";\"$p_update\";\"$p_status\";\n";
 		} else {
 			$ret = "ERR 400";
 		}
+		return $ret;
 	}
-	return $ret;
-}
-
-function webservices_ds_count($c_username,$c=100,$last=false) {
-	$ret = "ERR 101";
-	$uid = username2uid($c_username);
+	// if c isset
 	if ($c) {
 		$query_limit = " LIMIT $c";
 	} else {
 		$query_limit = " LIMIT 100";
 	}
+	// if last isset
 	if ($last) {
 		$query_last = "AND smslog_id>$last";
 	}
-	$content_xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-	$content_csv = "";
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE uid='$uid' $query_last ORDER BY p_datetime DESC $query_limit";
+	$content = "";
+	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE uid='$uid' AND flag_deleted='0' $query_last ORDER BY p_datetime DESC $query_limit";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$smslog_id = $db_row['smslog_id'];
@@ -88,17 +90,11 @@ function webservices_ds_count($c_username,$c=100,$last=false) {
 		$p_datetime = $db_row['p_datetime'];
 		$p_update = $db_row['p_update'];
 		$p_status = $db_row['p_status'];
-		$content_xml .= "<ds id=\"".$smslog_id."\" src=\"".$p_src."\" dst=\"".$p_dst."\" datetime=\"".$p_datetime."\" update=\"".$p_update."\" status=\"".$p_status."\"></ds>\n";
-		$content_csv .= "\"$smslog_id\";\"$p_src\";\"$p_dst\";\"$p_datetime\";\"$p_update\";\"$p_status\";\n";
+		$content .= "\"$smslog_id\";\"$p_src\";\"$p_dst\";\"$p_datetime\";\"$p_update\";\"$p_status\";\n";
 	}
-	// if DS available by checking content_csv
-	if ($content_csv) {
-		if ($form == "XML") {
-			header("Content-Type: text/xml");
-			$ret = $content_xml;
-		} else {
-			$ret = $content_csv;
-		}
+	// if DS available by checking content
+	if ($content) {
+		$ret = $content;
 	} else {
 		$ret = "ERR 400";
 	}
