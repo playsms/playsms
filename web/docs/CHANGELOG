@@ -7,6 +7,7 @@ Version 0.9.8 - 130507
 - MAJOR: several rename to core files and functions (anton)
 - remove option for multilogin, it will always be multi-login since using session (anton)
 - remove old page_welcome pages, now in inc/user/page_welcome.php and configurable (anton)
+- add new type of action get_token to get webservices token from supplied username (anton)
 - add new dba functions dba_search() dba_count() dba_update() dba_add() etc (anton)
 - add language for themes play (aseques)
 - add new error codes for webservice (aseques)

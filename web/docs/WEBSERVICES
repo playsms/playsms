@@ -41,14 +41,11 @@ ERROR RETURNS
 
 Successful actions:
 
-OK                                    : action successful and returns nothing
+OK [QUEUE_CODE]                       : action successful and returns Queue Code
                                         this is only when "ta=bc"
-OK [SMS_LOG_ID],[QUEUE_CODE]          : action successful and returns an SMS Log ID
-                                        and Queue Code
-OK [NUMBER],[SMS_LOG_ID],[QUEUE_CODE] : action successful and returns destination
-                                        number, it's SMS Log ID and it's Queue Code
-                                        this is only when "ta=pv" and "to" contains
-                                        multiple destinations
+OK [SMS_LOG_ID],[QUEUE_CODE],[NUMBER] : action successful and returns it's SMS Log ID,
+                                        it's Queue Code and destination number
+                                        this is only when "ta=pv"
 OK [CREDIT]                           : action successful and returns user's credit
 OK [WEBSERVICE_TOKEN]                 : action successful and returns webservice token
 
