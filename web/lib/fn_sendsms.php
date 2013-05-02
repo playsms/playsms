@@ -148,9 +148,9 @@ function sendsmsd($single_queue='') {
 			$c_ok = false;
 			logger_print("sending queue_code:".$c_queue_code." to:".$c_dst, 2, "sendsmsd");
 			$ret = sendsms_process($c_sender_id,$c_footer,$c_dst,$c_message,$c_uid,$c_gpid,$c_sms_type,$c_unicode,$c_queue_code);
+			$c_dst = $ret['to'];
 			if ($ret['status'] && $ret['smslog_id']) {
 				$c_ok = true;
-				$c_dst = $ret['to'];
 				$c_smslog_id = $ret['smslog_id'];
 				$c_flag = 1;
 			} else {
