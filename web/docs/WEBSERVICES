@@ -24,9 +24,13 @@ msg	: message
 type 	: message type (flash or text)
 unicode : whether message unicode or not (1=unicode, 0=not unicode)
 
+queue	: queue code
+src	: sender number or ID
+dst	: destination number (single number)
+dt	: send SMS date/time
+slid	: SMS Log ID
 last 	: last SMS log ID (this number not included on result)
 c	: number of delivery status that will be retrieved
-slid	: SMS Log ID (for ta=ds, when slid defined 'last' and 'c' has no effect)
 
 
 ERROR RETURNS
@@ -54,7 +58,9 @@ ERR 200 : send private failed
 ERR 201 : destination number or message is empty
 ERR 300 : send broadcast failed
 ERR 301 : destination group or message is empty
-ERR 400 : no delivery status retrieved
+ERR 400 : no delivery status available
+ERR 401 : no delivery status retrieved and SMS still in queue
+ERR 402 : no delivery status retrieved and SMS has been processed from queue
 
 There might appear new error codes in the future, you should be aware that new
  codes might appear with this syntax.
@@ -80,12 +86,11 @@ PROTOCOL
     returns	: error returns
     notes	: to parameter is group code
 
-3. Delivery reports
+3. Delivery status
     ta		: ds
-    parameters	: h, slid, c, last
-    returns	: formatted text:
-		  SMS log ID; Source number; Destination Number; Message; Delivery Time;
-		  Update Pending Status Time; SMS Status
+    parameters	: h, queue, src, dst, dt, slid, c, last
+    returns	: CSV format:
+		  "SMS log ID";"From";"To";"Message";"Delivery";"Update";"Status"
     notes	: slid retrieves only 1 delivery report at particular SMS log ID
 		  c retrieves as many as c value
 		  last retrieves from last SMS log ID
@@ -108,6 +113,23 @@ playSMS webservices in x.com with type of action (ta) cr (User credits)
 accessed by user or apps using a webservices token (h)
 
 if succeded returns: OK <user's credits> (eg: OK 4500)
+
+if error occured returns one of the ERROR RETURNS mentioned above
+
+
+Webservice URL:
+http://x.com/index.php?app=webservices&h=471bb53b69a966e27ae818ee3d0c8c78&ta=ds&dt=2013
+
+Explanation:
+
+playSMS webservices in x.com with type o action (ta) ds (Delivery status)
+accessed by user or apps using a webservices token (h) with query date/time (dt) 2013
+the service will be looking for delivery statuses on year 2013
+
+if succeded returns CSV format, for example:
+"59";"playSMS";"628999911111";"2013-05-01 17:59:46";"2013-05-01 17:59:48";"3";
+"60";"playSMS";"089999922222";"2013-05-02 04:59:46";"2013-05-02 11:59:46";"2";
+
 if error occured returns one of the ERROR RETURNS mentioned above
 
 

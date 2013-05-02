@@ -16,6 +16,9 @@ $unicode = ( trim($_REQUEST['unicode']) ? trim($_REQUEST['unicode']) : 0 );
 
 // DS specifics
 $queue	 = trim($_REQUEST['queue']);
+$src	 = trim($_REQUEST['src']);
+$dst	 = trim($_REQUEST['dst']);
+$dt	 = trim($_REQUEST['dt']);
 $slid	 = trim($_REQUEST['slid']);
 $c	 = trim($_REQUEST['c']);
 $last	 = trim($_REQUEST['last']);
@@ -45,7 +48,7 @@ if ($ta) {
 		case "DS":
 			if ($c_uid = validatetoken($h)) {
 				$u = uid2username($c_uid);
-				$ret = webservices_ds($u,$queue,$slid,$c,$last);
+				$ret = webservices_ds($u,$queue,$src,$dst,$dt,$slid,$c,$last);
 			} else {
 				$ret = "ERR 100";
 			}
