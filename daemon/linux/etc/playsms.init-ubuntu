@@ -1,0 +1,83 @@
+#!/bin/sh
+# Start/stop the playsms service
+
+# This is the default init.d script for Playsms.
+
+# Make sure that the Playsms binaries can be found in $BOXPATH or somewhere
+# else along $PATH.  run_playsms_box has to be in $BOXPATH.
+
+### BEGIN INIT INFO
+# Provides:          playsms
+# Required-Start:    $local_fs $remote_fs
+# Required-Stop:     $local_fs $remote_fs
+# Should-Start:      $network $named
+# Should-Stop:       $network $named
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: playSMS SMS gateway daemon
+# Description:       playSMS is a platform to manage other sms backends
+#		     to send and receive sms
+### END INIT INFO
+
+. /lib/lsb/init-functions
+
+PIDFILE1=/var/run/playsms.pid
+PIDFILE2=/var/run/sendsms.pid
+
+# We require the config file in /etc/default/playsms to be
+# available, otherwise exit
+if [ -e /etc/default/playsms ] ; then
+	. /etc/default/playsms
+else
+	log_failure_msg "Could not read /etc/default/playsms"
+	exit 1
+fi
+
+case "$1" in
+  start)
+    log_daemon_msg "Starting playSMS daemon"
+    log_progress_msg "playsms"
+    DAEMON=$PLAYSMS_BIN/playsmsd
+    DAEMON_OPTIONS=$PLAYSMS_PATH
+    start-stop-daemon --start --background --make-pidfile \
+	--pidfile $PIDFILE1 \
+	--exec $DAEMON -- $DAEMON_OPTIONS
+    log_end_msg 0
+
+    log_daemon_msg "Starting sendsms daemon"
+    log_progress_msg "sendsms"
+    DAEMON=$PLAYSMS_BIN/sendsmsd
+    DAEMON_OPTIONS=$PLAYSMS_PATH
+    start-stop-daemon --start --background --make-pidfile \
+	--pidfile $PIDFILE2 \
+	--exec $DAEMON -- $DAEMON_OPTIONS
+    log_end_msg 0
+    ;;
+
+  stop)
+    log_daemon_msg "Stopping playSMS daemon"
+    log_progress_msg "playsms"
+    start-stop-daemon --stop --retry 5 \
+    	--pidfile $PIDFILE1
+    log_end_msg 0
+
+    log_daemon_msg "Stopping sendsms daemon"
+    log_progress_msg "sendsms"
+    start-stop-daemon --stop --retry 5 \
+    	--pidfile $PIDFILE2
+    log_end_msg 0
+    ;;
+
+  reload|restart|force-reload)
+    $0 stop
+    sleep 2
+    $0 start
+    ;;
+
+  *)
+    echo "Usage: $0 {start|stop|restart|force-reload}"
+    exit 1
+
+esac
+
+exit 0

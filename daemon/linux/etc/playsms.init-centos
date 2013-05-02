@@ -1,0 +1,120 @@
+#!/bin/bash
+# playsms daemon
+# chkconfig: 3456 20 80
+# description: playsms daemon
+# processname: playsms
+
+. /lib/lsb/init-functions
+
+# We require the config file in /etc/default/playsms to be
+# available, otherwise exit
+if [ -e /etc/default/playsms ] ; then
+        . /etc/default/playsms
+else
+        echo -n "Could not read /etc/default/playsms"
+        exit 1
+fi
+
+DAEMON_PATH=$PLAYSMS_BIN
+
+DAEMONP=playsmsd
+DAEMONS=sendsmsd
+DAEMONOPTS=$PLAYSMS_PATH
+
+NAME=playsms
+DESC="playsmsd & sendsmsd daemon init script"
+PIDFILEP=/var/run/$DAEMONP.pid
+PIDFILES=/var/run/$DAEMONS.pid
+SCRIPTNAME=/etc/init.d/$NAME
+
+case "$1" in
+
+start)
+	# Starting playsmsd
+	printf "%-50s" "Starting $DAEMONP..."
+	cd $DAEMON_PATH
+	./$DAEMONP $DAEMONOPTS > /dev/null 2>&1 &
+	PIDP=$!
+	#echo "Saving PIDP" $PIDP " to " $PIDFILEP
+        if [ -z $PIDP ]; then
+            printf "%s\n" "Fail"
+        else
+            echo $PIDP > $PIDFILEP
+            printf "%s\n" "Ok"
+        fi
+
+        # Starting sendsmsd
+        printf "%-50s" "Starting $DAEMONS..."
+        cd $DAEMON_PATH
+        ./$DAEMONS $DAEMONOPTS > /dev/null 2>&1 &
+	PIDS=$!
+        #echo "Saving PIDS" $PIDS " to " $PIDFILES
+        if [ -z $PIDS ]; then
+            printf "%s\n" "Fail"
+        else
+            echo $PIDS > $PIDFILES
+            printf "%s\n" "Ok"
+        fi
+
+;;
+
+status)
+        printf "%-50s" "Checking $DAEMONP..."
+        if [ -f $PIDFILEP ]; then
+            PIDP=`cat $PIDFILEP`
+            if [ -z "`ps axf | grep ${PIDP} | grep -v grep`" ]; then
+                printf "%s\n" "Process dead but pidfile exists"
+            else
+                echo "Running"
+            fi
+        else
+            printf "%s\n" "Service not running"
+        fi
+
+        printf "%-50s" "Checking $DAEMONS..."
+        if [ -f $PIDFILES ]; then
+            PIDS=`cat $PIDFILES`
+            if [ -z "`ps axf | grep ${PIDS} | grep -v grep`" ]; then
+                printf "%s\n" "Process dead but pidfile exists"
+            else
+                echo "Running"
+            fi
+        else
+            printf "%s\n" "Service not running"
+        fi
+;;
+
+stop)
+        printf "%-50s" "Stopping $DAEMONP"
+            PIDP=`cat $PIDFILEP`
+            cd $DAEMON_PATH
+        if [ -f $PIDFILEP ]; then
+            kill -HUP $PIDP
+            printf "%s\n" "Ok"
+            rm -f $PIDFILEP
+        else
+            printf "%s\n" "pidfile not found"
+        fi
+
+        printf "%-50s" "Stopping $DAEMONS"
+            PIDS=`cat $PIDFILES`
+            cd $DAEMON_PATH
+        if [ -f $PIDFILES ]; then
+            kill -HUP $PIDS
+            printf "%s\n" "Ok"
+            rm -f $PIDFILES
+        else
+            printf "%s\n" "pidfile not found"
+        fi
+
+;;
+
+restart)
+  	$0 stop
+  	$0 start
+;;
+
+*)
+        echo "Usage: $0 {status|start|stop|restart}"
+        exit 1
+esac
