@@ -109,7 +109,7 @@ function uplink_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$
 			$url = $uplink_param['master']."/".$query_string;
 			$response = trim(@implode ('', file ($url)));
 			$r = str_getcsv($response,';','"',"\\");
-			if ($r[0]=='ERR 400') {
+			if (($r[0]=='ERR 400') || ($r[0]=='ERR 402')) {
 				$p_status = 2;
 				setsmsdeliverystatus($local_slid,$uid,$p_status);
 			} else {
