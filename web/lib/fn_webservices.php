@@ -52,6 +52,7 @@ function webservices_bc($c_username,$c_gcode,$msg,$type='text',$unicode=0) {
 function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',$slid=0,$c=100,$last=false) {
 	$ret = "ERR 101";
 	$uid = username2uid($c_username);
+	$conditions['flag_deleted'] = 0;
 	if ($slid) {
 		$conditions['smslog_id'] = $slid;
 	}
