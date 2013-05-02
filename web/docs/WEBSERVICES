@@ -8,12 +8,15 @@ PARAMETERS
 ----------
 
 h	: webservices token, configured by user from Preferences menu
+u	: username, supplied for ta=get_token
+p	: password, supplied for ta=get_token
 
 ta	: type of action
 	  for example:
 	    pv 		: send private
 	    bc 		: send broadcast
 	    ds 		: delivery status
+	    get_token	: get webservice token
 	    sms_poll 	: poll results from plugin sms_poll
 	    sms_board 	: board results from plugin sms_board
 
@@ -38,15 +41,16 @@ ERROR RETURNS
 
 Successful actions:
 
-OK                                    : action successfully executed and returns nothing
+OK                                    : action successful and returns nothing
                                         this is only when "ta=bc"
-OK [SMS_LOG_ID],[QUEUE_CODE]          : action successfully executed and returns an SMS Log ID
+OK [SMS_LOG_ID],[QUEUE_CODE]          : action successful and returns an SMS Log ID
                                         and Queue Code
-OK [NUMBER],[SMS_LOG_ID],[QUEUE_CODE] : action successfully executed and returns destination
+OK [NUMBER],[SMS_LOG_ID],[QUEUE_CODE] : action successful and returns destination
                                         number, it's SMS Log ID and it's Queue Code
-                                        this is only when "ta=pv" and "to" contains multiple
-                                        destinations
-OK [CREDIT]                           : action successfully executed and returns user's credit
+                                        this is only when "ta=pv" and "to" contains
+                                        multiple destinations
+OK [CREDIT]                           : action successful and returns user's credit
+OK [WEBSERVICE_TOKEN]                 : action successful and returns webservice token
 
 Unsuccessful actions:
 
@@ -54,6 +58,7 @@ ERR 100 : authentication failed
 ERR 101 : type of action not valid
 ERR 102 : one or more field empty
 ERR 103 : not enough credit for this operation
+ERR 104 : webservice token is not available
 ERR 200 : send private failed
 ERR 201 : destination number or message is empty
 ERR 300 : send broadcast failed
@@ -63,7 +68,7 @@ ERR 401 : no delivery status retrieved and SMS still in queue
 ERR 402 : no delivery status retrieved and SMS has been processed from queue
 
 There might appear new error codes in the future, you should be aware that new
- codes might appear with this syntax.
+codes might appear with this syntax
 
 ERR 1xx: authentication or parameter erorrs
 ERR 2xx: specific pv errors
@@ -96,41 +101,68 @@ PROTOCOL
 		  last retrieves from last SMS log ID
 
 4. User credits
-    ta          : cr
-    parameters  : h
-    returns     : user's credit
+    ta		: cr
+    parameters	: h
+    returns	: user's credit
+
+5. Get token
+    ta		: get_token
+    parameters	: u, p
+    returns	: webservice token
+
+6. Get SMS poll results
+    ta		: sms_poll
+    parameters	: <please read in SMS poll menu>
+    returns	: <please read in SMS poll menu>
+
+7. Get SMS board results
+    ta		: sms_board
+    parameters	: <please read in SMS board menu>
+    returns	: <please read in SMS board menu>
 
 
 EXAMPLE
 -------
 
-Webservice URL:
-http://x.com/index.php?app=webservices&ta=cr&h=b09ba37b03b21e4ffb99b6d4ece735c1
+1. Example webservice URL:
+   http://x.com/index.php?app=webservices&ta=cr&h=b09ba37b03b21e4ffb99b6d4ece735c1
 
-Explanation:
+   Explanation:
 
-playSMS webservices in x.com with type of action (ta) cr (User credits)
-accessed by user or apps using a webservices token (h)
+   playSMS webservices in x.com with type of action (ta) cr (User credits)
+   accessed by user or apps using a webservices token (h)
 
-if succeded returns: OK <user's credits> (eg: OK 4500)
+   if succeeded returns: OK <user's credits> (eg: OK 4500)
 
-if error occured returns one of the ERROR RETURNS mentioned above
+   if error occured returns one of the ERROR RETURNS mentioned above
 
+2. Example webservice URL:
+   http://x.com/index.php?app=webservices&h=471bb53b69a966e27ae818ee3d0c8c78&ta=ds&dt=2013
 
-Webservice URL:
-http://x.com/index.php?app=webservices&h=471bb53b69a966e27ae818ee3d0c8c78&ta=ds&dt=2013
+   Explanation:
 
-Explanation:
+   playSMS webservices in x.com with type o action (ta) ds (Delivery status)
+   accessed by user or apps using a webservices token (h) with query date/time (dt) 2013
+   the service will be looking for delivery statuses on year 2013
 
-playSMS webservices in x.com with type o action (ta) ds (Delivery status)
-accessed by user or apps using a webservices token (h) with query date/time (dt) 2013
-the service will be looking for delivery statuses on year 2013
+   if succeeded returns CSV format, for example:
+   "59";"playSMS";"628999911111";"2013-05-01 17:59:46";"2013-05-01 17:59:48";"3";
+   "60";"playSMS";"089999922222";"2013-05-02 04:59:46";"2013-05-02 11:59:46";"2";
 
-if succeded returns CSV format, for example:
-"59";"playSMS";"628999911111";"2013-05-01 17:59:46";"2013-05-01 17:59:48";"3";
-"60";"playSMS";"089999922222";"2013-05-02 04:59:46";"2013-05-02 11:59:46";"2";
+   if error occured returns one of the ERROR RETURNS mentioned above
 
-if error occured returns one of the ERROR RETURNS mentioned above
+3. Example webservice URL:
+   http://x.com/index.php?app=webservices&ta=get_token&u=operator&p=s*cretpwd%!
+
+   Explanation:
+
+   playSMS webservices in x.com with type o action (ta) get_token (get webservice token)
+   accessed by user or apps using a username (u) and password (p)
+
+   if succeeded returns text with format: OK <webservice token>
+   OK 6d1bb53b49a986d2eae6185a3d0c8c61
+
+   if error occured returns one of the ERROR RETURNS mentioned above
 
 
 --

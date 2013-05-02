@@ -108,10 +108,10 @@ function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',
 }
 
 function webservices_cr($c_username) {
-        $credit = rate_getusercredit($c_username);
-        $credit = ( $credit ? $credit : '0' );
-        $ret = "OK ".$credit;
-        return $ret;
+	$credit = rate_getusercredit($c_username);
+	$credit = ( $credit ? $credit : '0' );
+	$ret = "OK ".$credit;
+	return $ret;
 }
 
 function webservices_output($ta,$requests) {
