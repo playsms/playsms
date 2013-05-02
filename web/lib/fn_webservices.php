@@ -9,7 +9,7 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
 		list($ok,$to,$smslog_id,$queue_code) = sendsms($c_username,$arr_to,$msg,$type,$unicode);
 		for ($i=0;$i<count($arr_to);$i++) {
 			if ($ok[$i]==1 && $to[$i] && $smslog_id[$i]) {
-				$ret .= "OK ".$to[$i].",".$smslog_id[$i].",".$queue_code[$i]."\n";
+				$ret .= "OK ".$smslog_id[$i].",".$queue_code[$i].",".$to[$i]."\n";
 			} elseif ($ok[$i]==2) {
 				$ret .= "ERR 103 ".$arr_to[$i]."\n";
 			} else {
@@ -20,7 +20,7 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
 		// single destination
 		list($ok,$to,$smslog_id,$queue_code) = sendsms($c_username,$to,$msg,$type,$unicode);
 		if ($ok[0]==1) {
-			$ret = "OK ".$smslog_id[0].",".$queue_code[0];
+			$ret = "OK ".$smslog_id[0].",".$queue_code[0].",".$to[0];
 		} elseif ($ok[0]==2) {
 			$ret = "ERR 103";
 		} else {

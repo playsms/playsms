@@ -150,6 +150,7 @@ function sendsmsd($single_queue='') {
 			$ret = sendsms_process($c_sender_id,$c_footer,$c_dst,$c_message,$c_uid,$c_gpid,$c_sms_type,$c_unicode,$c_queue_code);
 			if ($ret['status'] && $ret['smslog_id']) {
 				$c_ok = true;
+				$c_dst = $ret['to'];
 				$c_smslog_id = $ret['smslog_id'];
 				$c_flag = 1;
 			} else {
@@ -255,6 +256,7 @@ function sendsms_process($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$
 	logger_print("end", 2, "sendsms_process");
 
 	$ret['status'] = $ok;
+	$ret['to'] = $sms_to;
 	$ret['smslog_id'] = $smslog_id;
 	$ret['p_status'] = $p_status;
 	return $ret;
