@@ -1,8 +1,8 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
+if(!valid()){forcenoaccess();};
 
-switch ($op)
-{
+switch ($op) {
 	case "queuelog_list":
 		$count = queuelog_countall();
 		$nav = themes_nav($count, "index.php?app=menu&inc=tools_queuelog&op=queuelog_list");
@@ -16,9 +16,9 @@ switch ($op)
 				<th align=center width=20%>"._('Queue Code')."</th>
 				<th align=center width=10%>"._('Date/Time')."</th>
 		";
-		if ($core_config['user']['status'] == 2) {
+		if (isadmin()) {
 			$content .= "
-				<th align=center width=10%>"._('Username')."</th>
+				<th align=center width=10%>"._('User')."</th>
 			";
 		}
 		$content .= "
@@ -45,7 +45,7 @@ switch ($op)
 					<td valign=top class=$td_class align=center>".$c_queue_code."</td>
 					<td valign=top class=$td_class align=center>".$c_datetime_entry."</td>
 			";
-			if ($core_config['user']['status'] == 2) {
+			if (isadmin()) {
 				$content .= "
 					<td valign=top class=$td_class align=center>".$c_username."</td>
 				";
