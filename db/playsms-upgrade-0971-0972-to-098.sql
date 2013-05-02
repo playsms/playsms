@@ -26,6 +26,8 @@ ALTER TABLE `playsms_featureSubscribe_msg` ADD `counter` tinyint(4) NOT NULL DEF
 
 ALTER TABLE `playsms_gatewayUplink_config` ADD `cfg_token` varchar(32) NULL AFTER `cfg_password` ;
 
+ALTER TABLE `playsms_gatewayUplink` ADD `up_remote_queue_code` varchar(32) NOT NULL, ADD `up_dst` varchar(100) NOT NULL ;
+
 ALTER TABLE  `playsms_toolsSimplephonebook` CHANGE  `c_timestamp`  `c_timestamp` INT( 11 ) NOT NULL DEFAULT  '0',
 CHANGE  `pid`  `id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
 CHANGE  `gpid`  `gpid` INT( 11 ) NOT NULL DEFAULT  '0',
