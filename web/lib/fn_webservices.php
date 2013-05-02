@@ -62,7 +62,12 @@ function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',
 		$conditions['p_src'] = $src;
 	}
 	if ($dst) {
-		$conditions['p_dst'] = $dst;
+		if ($dst[0]=='0') {
+			$c_dst = substr($dst, 1);
+		} else {
+			$c_dst = substr($dst, 3);
+		}
+		$keywords['p_dst'] = '%'.$c_dst;
 	}
 	if ($datetime) {
 		$keywords['p_datetime'] = '%'.$datetime.'%';
