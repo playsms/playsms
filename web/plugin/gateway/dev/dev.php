@@ -52,7 +52,7 @@ switch ($op) {
 			$sms_sender = addslashes($sms_sender);
 			$message = addslashes($message);
 			setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
-			$err = "sender:".$sms_sender." receiver:".$sms_receiver." dt:".$sms_datetime." msg:".$message;
+			$err = "sender:".$sms_sender." receiver:".$sms_receiver." dt:".$sms_datetime." msg:".stripslashes($message);
 			logger_print($err, 3, "dev incoming");
 			$_SESSION['error_string'] = $err;
 		} else {
