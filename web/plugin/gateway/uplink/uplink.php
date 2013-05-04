@@ -31,12 +31,6 @@ switch ($op) {
 				<td>"._('Additional URL parameter')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_additional_param value=\"".$uplink_param['additional_param']."\"></td>
 			</tr>
 			<tr>
-				<td>"._('Username')."</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_username value=\"".$uplink_param['username']."\"></td>
-			</tr>
-			<tr>
-				<td>"._('Password')."</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password value=\"\"> ("._('Fill to change the password').")</td>
-			</tr>
-			<tr>
 				<td>"._('Webservice token')."</td><td>:</td><td><input type=text size=30 maxlength=32 name=up_token value=\"".$uplink_param['token']."\"></td>
 			</tr>
 			<tr>
@@ -53,24 +47,17 @@ switch ($op) {
 	case "manage_save":
 		$up_master = $_POST['up_master'];
 		$up_additional_param = $_POST['up_additional_param'];
-		$up_username = $_POST['up_username'];
-		$up_password = $_POST['up_password'];
 		$up_token = $_POST['up_token'];
 		$up_global_sender = $_POST['up_global_sender'];
 		$up_global_timezone = $_POST['up_global_timezone'];
 		$up_incoming_path = $_POST['up_incoming_path'];
 		$_SESSION['error_string'] = _('No changes has been made');
-		if ($up_master && ($up_username || $up_token)) {
-			if ($up_password) {
-				$password_change = "cfg_password='$up_password',";
-			}
+		if ($up_master && $up_token) {
 			$db_query = "
 				UPDATE "._DB_PREF_."_gatewayUplink_config 
 				SET c_timestamp='".mktime()."',
 				cfg_master='$up_master',
 				cfg_additional_param='$up_additional_param',
-				cfg_username='$up_username',
-				".$password_change."
 				cfg_token='$up_token',
 				cfg_global_sender='$up_global_sender',
 				cfg_datetime_timezone='$up_global_timezone',

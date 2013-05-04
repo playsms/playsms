@@ -34,11 +34,7 @@ function uplink_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 		}
 		// fixme anton - from playSMS v0.9.5.1 references to input.php replaced with index.php?app=webservices
 		// I should add autodetect, if its below v0.9.5.1 should use input.php
-		if ($uplink_param['token']) {
-			$query_string = "index.php?app=webservices&h=".$uplink_param['token']."&ta=pv&to=".urlencode($sms_to)."&from=".urlencode($sms_from)."&type=$sms_type&msg=".urlencode($sms_msg)."&unicode=".$unicode;
-		} else {
-			$query_string = "index.php?app=webservices&u=".$uplink_param['username']."&p=".$uplink_param['password']."&ta=pv&to=".urlencode($sms_to)."&from=".urlencode($sms_from)."&type=$sms_type&msg=".urlencode($sms_msg)."&unicode=".$unicode;
-		}
+		$query_string = "index.php?app=webservices&h=".$uplink_param['token']."&ta=pv&to=".urlencode($sms_to)."&from=".urlencode($sms_sender)."&type=$sms_type&msg=".urlencode($sms_msg)."&unicode=".$unicode;
 		$url = $uplink_param['master']."/".$query_string;
 		if ($additional_param = $uplink_param['additional_param']) {
 			$additional_param = "&".$additional_param;
