@@ -12,18 +12,18 @@ function themes_default_get_title() {
 
 */
 
-function default_hook_themes_buildmenu($arr_menu) {
+function default_hook_themes_buildmenu($menu_config) {
 	global $core_config;
 	$content_tree = "";
 	$tree_index = 1;
 	$open = 0;
-	foreach($arr_menu as $key=>$value) {
+	foreach($menu_config as $key=>$value) {
 		if($tree_index==1){$open = 1;}else{$open = 0;};
 		$content_tree .= "\t\t d.add($tree_index,0,\"$key\",'','','','','',$open);\n";
 		$tree_index++;
 	}
 	$tree_index_top = 1;
-	foreach($arr_menu as $key=>$value) {
+	foreach($menu_config as $key=>$value) {
 		foreach($value as $sub_key1=>$sub_value1) {
 			$content_tree .= "\t\t d.add($tree_index,$tree_index_top,\"".$sub_value1[1]."\", '".$sub_value1[0]."', '', '');\n";
 			$tree_index++;

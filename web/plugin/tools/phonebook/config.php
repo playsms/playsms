@@ -7,5 +7,5 @@ $phonebook_icon_publish = "<img src=\"".$http_path['themes']."/".$themes_module.
 $phonebook_icon_unpublish = "<img src=\"".$http_path['themes']."/".$themes_module."/images/unpublish.gif\" alt=\""._('Unpublish')."\" title=\""._('Unpublish')."\" border=0>";
 
 $menutab_tools = $core_config['menutab']['tools'];
-$arr_menu[$menutab_tools][] = array("index.php?app=menu&inc=tools_phonebook&op=phonebook_list", _('Phonebook'));
+$menu_config[$menutab_tools][] = array("index.php?app=menu&inc=tools_phonebook&op=phonebook_list", _('Phonebook'));
 ?>

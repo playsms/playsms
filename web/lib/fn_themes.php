@@ -3,19 +3,19 @@ defined('_SECURE_') or die('Forbidden');
 
 function themes_get_menu_tree($menus='') {
 	global $core_config;
-	$arr_menu = $core_config['menu'];
+	$menu_config = $core_config['menu'];
 	if ($menus) {
-		$arr_menu = $menus;
+		$menu_config = $menus;
 	}
-	$menu_tree = themes_buildmenu($arr_menu);
+	$menu_tree = themes_buildmenu($menu_config);
 	return $menu_tree;
 }
 
-function themes_buildmenu($arr_menu) {
+function themes_buildmenu($menu_config) {
 	global $core_config;
 	$menu = '';
 	if ($core_config['module']['themes']) {
-		$menu = x_hook($core_config['module']['themes'],'themes_buildmenu',array($arr_menu));
+		$menu = x_hook($core_config['module']['themes'],'themes_buildmenu',array($menu_config));
 	}
 	return $menu;
 }

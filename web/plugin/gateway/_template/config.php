@@ -14,6 +14,6 @@ if ($db_row = dba_fetch_array($db_result)) {
 // insert to left menu array
 if (isadmin()) {
 	$menutab_gateway = $core_config['menutab']['gateway'];
-	$arr_menu[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_template&op=manage", _('Manage template'));
+	$menu_config[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_template&op=manage", _('Manage template'));
 }
 ?>

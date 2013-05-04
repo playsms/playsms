@@ -11,6 +11,6 @@ $core_config['plugin']['dev'] = $dev_param;
 // insert to left menu array
 if (isadmin()) {
 	$menutab_gateway = $core_config['menutab']['gateway'];
-	$arr_menu[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_dev&op=manage", _('Manage dev'));
+	$menu_config[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_dev&op=manage", _('Manage dev'));
 }
 ?>

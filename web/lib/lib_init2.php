@@ -6,16 +6,16 @@ defined('_SECURE_') or die('Forbidden');
 $menutab_administration = $core_config['menutab']['administration'];
 if (isadmin()) {
 	// administrator menus
-	$arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=all_inbox&op=all_inbox", _('All inbox'));
-	$arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=all_incoming&op=all_incoming", _('All incoming SMS'));
-	$arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=all_outgoing&op=all_outgoing", _('All outgoing SMS'));
-	$arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=user_mgmnt&op=user_list", _('Manage user'));
-	$arr_menu[$menutab_administration][] = array("index.php?app=menu&inc=main_config&op=main_config", _('Main configuration'));
-	//ksort($arr_menu[$menutab_administration]);
+	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_inbox&op=all_inbox", _('All inbox'));
+	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_incoming&op=all_incoming", _('All incoming SMS'));
+	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_outgoing&op=all_outgoing", _('All outgoing SMS'));
+	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=user_mgmnt&op=user_list", _('Manage user'));
+	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=main_config&op=main_config", _('Main configuration'));
+	//ksort($menu_config[$menutab_administration]);
 }
 
 // load menus into core_config
-$core_config['menu'] = $arr_menu;
+$core_config['menu'] = $menu_config;
 
 // load plugin's config into core_config
 $core_config['plugins'] = $plugin;

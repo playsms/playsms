@@ -20,6 +20,6 @@ $core_config['plugin']['nexmo'] = $nexmo_param;
 // insert to left menu array
 if (isadmin()) {
 	$menutab_gateway = $core_config['menutab']['gateway'];
-	$arr_menu[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_nexmo&op=manage", _('Manage nexmo'));
+	$menu_config[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_nexmo&op=manage", _('Manage nexmo'));
 }
 ?>

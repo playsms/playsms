@@ -23,6 +23,6 @@ $core_config['plugin']['uplink'] = $uplink_param;
 // insert to left menu array
 if (isadmin()) {
 	$menutab_gateway = $core_config['menutab']['gateway'];
-	$arr_menu[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_uplink&op=manage", _('Manage uplink'));
+	$menu_config[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_uplink&op=manage", _('Manage uplink'));
 }
 ?>

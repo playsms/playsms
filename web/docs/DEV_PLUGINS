@@ -78,7 +78,7 @@ Themes
 Here are installed playSMS's themes.
 
 Core functions that you can 'hook' from themes plugins:
-- themes_buildmenu($arr_menu)
+- themes_buildmenu($menu_config)
 - themes_navbar($num, $nav, $max_nav, $url, $page)
 - call($_REQUEST)
 

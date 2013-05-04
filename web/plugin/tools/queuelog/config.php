@@ -6,5 +6,5 @@ if (isadmin()) {
 } else {
 	$menutab = $core_config['menutab']['tools'];
 }
-$arr_menu[$menutab][] = array("index.php?app=menu&inc=tools_queuelog&op=queuelog_list", _('View SMS queue'));
+$menu_config[$menutab][] = array("index.php?app=menu&inc=tools_queuelog&op=queuelog_list", _('View SMS queue'));
 ?>

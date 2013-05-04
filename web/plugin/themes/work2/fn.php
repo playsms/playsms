@@ -13,15 +13,15 @@ function themes_work2_get_title() {
 */
 
 function themes_work2_get_menu_dropdown($menus='') {
-	global $arr_menu;
+	global $menu_config;
 	if ($menus) {
-		$arr_menu = $menus;
+		$menu_config = $menus;
 	}
-	$menu_tree = themes_work2_buildmenu($arr_menu);
+	$menu_tree = themes_work2_buildmenu($menu_config);
 	return $menu_tree;
 }
 
-function themes_work2_buildmenu($arr_menu) {
+function themes_work2_buildmenu($menu_config) {
 	global $http_path;
 	$i = 0;
 	$content = "<table><tr><td>";
@@ -31,7 +31,7 @@ function themes_work2_buildmenu($arr_menu) {
 	$content .= "</div>";
 	$content .= "<script type='text/javascript'>at_attach('dropdown_attach_menu_parent_".$i."', 'dropdown_attach_menu_child_".$i."', 'hover', 'y', 'pointer');</script>";
 	$content .= "</td>";
-	foreach ($arr_menu as $cat => $value) {
+	foreach ($menu_config as $cat => $value) {
 		$i++;
 		$content .= "<td>";
 		$content .= "<div id='dropdown_attach_menu_parent_".$i."' class='dropdown_attach'><a href='#'>".$cat."</a></div>";
@@ -47,18 +47,18 @@ function themes_work2_buildmenu($arr_menu) {
 	return $content;
 }
 
-function work2_hook_themes_buildmenu($arr_menu) {
+function work2_hook_themes_buildmenu($menu_config) {
 	global $core_config;
 	$content_tree = "";
 	$tree_index = 1;
 	$open = 0;
-	foreach($arr_menu as $key=>$value) {
+	foreach($menu_config as $key=>$value) {
 		if($tree_index==1){$open = 1;}else{$open = 0;};
 		$content_tree .= "\t\t d.add($tree_index,0,\"$key\",'','','','','',$open);\n";
 		$tree_index++;
 	}
 	$tree_index_top = 1;
-	foreach($arr_menu as $key=>$value) {
+	foreach($menu_config as $key=>$value) {
 		foreach($value as $sub_key1=>$sub_value1) {
 			$content_tree .= "\t\t d.add($tree_index,$tree_index_top,\"".$sub_value1[1]."\", '".$sub_value1[0]."', '', '');\n";
 			$tree_index++;
