@@ -56,8 +56,9 @@ function sms_poll_hook_setsmsincomingaction($sms_datetime,$sms_sender,$poll_keyw
 function sms_poll_handle($list,$sms_datetime,$sms_sender,$poll_keyword,$poll_param='',$sms_receiver='',$raw_message='') {
 	global $datetime_now;
 	$ok = false;
-	$poll_keyword = strtoupper($poll_keyword);
-	$choice_keyword = strtoupper($poll_param);
+	$poll_keyword = strtoupper(trim($poll_keyword));
+	$poll_param = strtoupper(trim($poll_param));
+	$choice_keyword = $poll_param;
 	if ($sms_sender && $poll_keyword && $choice_keyword) {
 		$poll_id = $list['poll_id'];
 		$db_query = "SELECT choice_id FROM "._DB_PREF_."_featurePoll_choice WHERE choice_keyword='$choice_keyword' AND poll_id='$poll_id'";

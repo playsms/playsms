@@ -52,6 +52,8 @@ function sms_custom_hook_setsmsincomingaction($sms_datetime,$sms_sender,$custom_
 function sms_custom_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$custom_keyword,$custom_param='',$raw_message='') {
 	global $datetime_now;
 	$ok = false;
+	$custom_keyword = strtoupper(trim($custom_keyword));
+	$custom_param = trim($custom_param);
 	$db_query = "SELECT custom_url,uid,custom_return_as_reply FROM "._DB_PREF_."_featureCustom WHERE custom_keyword='$custom_keyword'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);

@@ -57,7 +57,8 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 	global $core_config;
 	$ok = false;
 	$c_uid = $list['uid'];
-	$subscribe_keyword = strtoupper($subscribe_keyword);
+	$subscribe_keyword = strtoupper(trim($subscribe_keyword));
+	$subscribe_param = strtoupper(trim($subscribe_param));
 	$username = uid2username($c_uid);
 	logger_print("username:".$username." sender:".$sms_sender." keyword:".$subscribe_keyword." param:".$subscribe_param, 3, "sms_subscribe");
 	$subscribe_accept_param = $list['subscribe_param'];

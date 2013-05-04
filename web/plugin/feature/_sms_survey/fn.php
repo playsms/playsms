@@ -116,6 +116,8 @@ function sms_survey_hook_setsmsincomingaction($sms_datetime, $sms_sender, $surve
 function sms_survey_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $survey_keyword, $survey_param = '', $raw_message = '') {
 	global $core_config;
 	$ok = false;
+	$survey_keyword = strtoupper(trim($survey_keyword));
+	$survey_param = strtoupper(trim($survey_param));
 	// get survey data by keyword
 	$data = sms_survey_getdatabykeyword($survey_keyword);
 	if ($data['status'] == 1) {

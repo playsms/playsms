@@ -52,6 +52,8 @@ function sms_board_hook_setsmsincomingaction($sms_datetime,$sms_sender,$board_ke
 function sms_board_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$board_keyword,$board_param='',$raw_message='') {
 	global $web_title,$email_service,$email_footer,$gateway_module, $datetime_now;
 	$ok = false;
+	$board_keyword = strtoupper(trim($board_keyword));
+	$board_param = trim($board_param);
 	if ($sms_sender && $board_keyword && $board_param) {
 		// masked sender sets here
 		$masked_sender = substr_replace($sms_sender,'xxxx',-4);

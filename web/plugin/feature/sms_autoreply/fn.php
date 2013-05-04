@@ -53,6 +53,8 @@ function sms_autoreply_hook_setsmsincomingaction($sms_datetime,$sms_sender,$auto
 function sms_autoreply_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$autoreply_id,$autoreply_keyword,$autoreply_param='',$raw_message) {
 	global $datetime_now;
 	$ok = false;
+	$autoreply_keyword = strtoupper(trim($autoreply_keyword));
+	$autoreply_param = strtoupper(trim($autoreply_param));
 	$autoreply_request = $autoreply_keyword." ".$autoreply_param;
 	$array_autoreply_request = preg_split('/[\s]+/',$autoreply_request);
 	for ($i=0;$i<count($array_autoreply_request);$i++) {

@@ -58,6 +58,7 @@ function sms_quiz_handle($list, $sms_datetime, $sms_sender, $quiz_keyword, $quiz
 	global $core_config, $datetime_now;
 	$ok = false;
 	$sms_to = $sms_sender; // we are replying to this sender
+	$quiz_keyword = strtoupper(trim($quiz_keyword));
 	$quiz_param = strtoupper(trim($quiz_param));
 	if (($quiz_enable = $list['quiz_enable']) && $quiz_param) {
 		if (strtoupper($list['quiz_answer']) == $quiz_param) {
