@@ -1,0 +1,230 @@
+MENU CONFIG
+-----------
+
+Example of $menu_config
+
+Array
+(
+    [My Account] => Array
+        (
+            [0] => Array
+                (
+                    [0] => index.php?app=menu&inc=send_sms&op=sendsmstopv
+                    [1] => Send SMS
+                )
+
+            [1] => Array
+                (
+                    [0] => index.php?app=menu&inc=user_inbox&op=user_inbox
+                    [1] => Inbox
+                )
+
+            [2] => Array
+                (
+                    [0] => index.php?app=menu&inc=user_incoming&op=user_incoming
+                    [1] => Incoming SMS
+                )
+
+            [3] => Array
+                (
+                    [0] => index.php?app=menu&inc=user_outgoing&op=user_outgoing
+                    [1] => Outgoing SMS
+                )
+
+            [4] => Array
+                (
+                    [0] => index.php?app=menu&inc=user_pref&op=user_pref
+                    [1] => Preferences
+                )
+
+        )
+
+    [Tools] => Array
+        (
+            [0] => Array
+                (
+                    [0] => index.php?app=menu&inc=tools_msgtemplate&op=list
+                    [1] => Message template
+                )
+
+            [1] => Array
+                (
+                    [0] => index.php?app=menu&inc=tools_phonebook&op=phonebook_list
+                    [1] => Phonebook
+                )
+
+            [2] => Array
+                (
+                    [0] => index.php?app=menu&inc=tools_sendfromfile&op=list
+                    [1] => Send from file
+                )
+
+        )
+
+    [Administration] => Array
+        (
+            [0] => Array
+                (
+                    [0] => index.php?app=menu&inc=tools_playsmslog&op=playsmslog_list
+                    [1] => View log
+                )
+
+            [1] => Array
+                (
+                    [0] => index.php?app=menu&inc=tools_queuelog&op=queuelog_list
+                    [1] => View SMS queue
+                )
+
+            [2] => Array
+                (
+                    [0] => index.php?app=menu&inc=tools_simplerate&op=simplerate_list
+                    [1] => Manage SMS rate
+                )
+
+            [3] => Array
+                (
+                    [0] => index.php?app=menu&inc=all_inbox&op=all_inbox
+                    [1] => All inbox
+                )
+
+            [4] => Array
+                (
+                    [0] => index.php?app=menu&inc=all_incoming&op=all_incoming
+                    [1] => All incoming SMS
+                )
+
+            [5] => Array
+                (
+                    [0] => index.php?app=menu&inc=all_outgoing&op=all_outgoing
+                    [1] => All outgoing SMS
+                )
+
+            [6] => Array
+                (
+                    [0] => index.php?app=menu&inc=user_mgmnt&op=user_list
+                    [1] => Manage user
+                )
+
+            [7] => Array
+                (
+                    [0] => index.php?app=menu&inc=main_config&op=main_config
+                    [1] => Main configuration
+                )
+
+        )
+
+    [Feature] => Array
+        (
+            [0] => Array
+                (
+                    [0] => index.php?app=menu&inc=feature_inboxgroup&op=list
+                    [1] => Group inbox
+                )
+
+            [1] => Array
+                (
+                    [0] => index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_list
+                    [1] => Manage autoreply
+                )
+
+            [2] => Array
+                (
+                    [0] => index.php?app=menu&inc=feature_sms_board&op=sms_board_list
+                    [1] => Manage board
+                )
+
+            [3] => Array
+                (
+                    [0] => index.php?app=menu&inc=feature_sms_command&op=sms_command_list
+                    [1] => Manage command
+                )
+
+            [4] => Array
+                (
+                    [0] => index.php?app=menu&inc=feature_sms_custom&op=sms_custom_list
+                    [1] => Manage custom
+                )
+
+            [5] => Array
+                (
+                    [0] => index.php?app=menu&inc=feature_sms_poll&op=sms_poll_list
+                    [1] => Manage poll
+                )
+
+            [6] => Array
+                (
+                    [0] => index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list
+                    [1] => Manage quiz
+                )
+
+            [7] => Array
+                (
+                    [0] => index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list
+                    [1] => Manage subscribe
+                )
+
+        )
+
+    [Gateway] => Array
+        (
+            [0] => Array
+                (
+                    [0] => index.php?app=menu&inc=gateway_clickatell&op=manage
+                    [1] => Manage clickatell
+                )
+
+            [1] => Array
+                (
+                    [0] => index.php?app=menu&inc=gateway_dev&op=manage
+                    [1] => Manage dev
+                )
+
+            [2] => Array
+                (
+                    [0] => index.php?app=menu&inc=gateway_gammu&op=manage
+                    [1] => Manage gammu
+                )
+
+            [3] => Array
+                (
+                    [0] => index.php?app=menu&inc=gateway_gnokii&op=manage
+                    [1] => Manage gnokii
+                )
+
+            [4] => Array
+                (
+                    [0] => index.php?app=menu&inc=gateway_kannel&op=manage
+                    [1] => Manage kannel
+                )
+
+            [5] => Array
+                (
+                    [0] => index.php?app=menu&inc=gateway_msgtoolbox&op=manage
+                    [1] => Manage msgtoolbox
+                )
+
+            [6] => Array
+                (
+                    [0] => index.php?app=menu&inc=gateway_nexmo&op=manage
+                    [1] => Manage nexmo
+                )
+
+            [7] => Array
+                (
+                    [0] => index.php?app=menu&inc=gateway_smstools&op=manage
+                    [1] => Manage smstools
+                )
+
+            [8] => Array
+                (
+                    [0] => index.php?app=menu&inc=gateway_uplink&op=manage
+                    [1] => Manage uplink
+                )
+
+        )
+
+)
+
+
+--
+Anton Raharja

@@ -59,5 +59,6 @@ $menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_pref&op
 
 // fixme anton - uncomment this if you want to know what are available in $core_config
 //print_r($core_config); die();
+//print_r($menu_config); die();
 
 ?>
