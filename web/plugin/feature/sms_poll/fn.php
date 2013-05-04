@@ -132,11 +132,11 @@ function sms_poll_output_xml($keyword, $list) {
 	$ret .= "<keyword>".$keyword."</keyword>\n";
 	$ret .= "<votes>".$data['votes']."</votes>\n";
 	foreach ($data['choices'] as $key => $val) {
-		$poll_choices .= "<".$key.">".$val."</".$key.">\n";
+		$poll_choices .= "<item key=\"".$key."\">".$val."</item>\n";
 	}
 	$ret .= "<choices>".$poll_choices."</choices>\n";
 	foreach ($data['results'] as $key => $val) {
-		$poll_results .= "<".$key.">".$val."</".$key.">\n";
+		$poll_results .= "<item key=\"".$key."\">".$val."</item>\n";
 	}
 	$ret .= "<results>".$poll_results."</results>\n";
 	$ret .= "</poll>\n";
