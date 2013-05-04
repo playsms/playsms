@@ -7,8 +7,6 @@ if (($route = $_REQUEST['route']) && ($route == 'user')) {
 	exit();
 }
 
-$sendfromfile_row_limit = 500;
-
 switch ($op) {
 	case 'list':
 		$content = '<h2>'._('Send from file').'</h2><p />';
