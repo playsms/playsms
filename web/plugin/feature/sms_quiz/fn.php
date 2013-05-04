@@ -58,13 +58,14 @@ function sms_quiz_handle($list, $sms_datetime, $sms_sender, $quiz_keyword, $quiz
 	global $core_config, $datetime_now;
 	$ok = false;
 	$sms_to = $sms_sender; // we are replying to this sender
-	if ($quiz_enable = $list['quiz_enable']) {
-		if (strtoupper($db_row['quiz_answer']) == strtoupper($quiz_param)) {
-			$message = $db_row['quiz_msg_correct'];
+	$quiz_param = strtoupper(trim($quiz_param));
+	if (($quiz_enable = $list['quiz_enable']) && $quiz_param) {
+		if (strtoupper($list['quiz_answer']) == $quiz_param) {
+			$message = $list['quiz_msg_correct'];
 		} else {
-			$message = $db_row['quiz_msg_incorrect'];
+			$message = $list['quiz_msg_incorrect'];
 		}
-		$quiz_id = $db_row['quiz_id'];
+		$quiz_id = $list['quiz_id'];
 		$answer = strtoupper($quiz_param);
 		$db_query = "INSERT INTO " . _DB_PREF_ . "_featureQuiz_log (quiz_id,quiz_answer,quiz_sender,in_datetime) VALUES ('$quiz_id','$answer','$sms_to','$datetime_now')";
 		if ($logged = @dba_insert_id($db_query)) {
