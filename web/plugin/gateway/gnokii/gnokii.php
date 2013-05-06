@@ -4,7 +4,9 @@ if(!isadmin()){forcenoaccess();};
 
 include $apps_path['plug']."/gateway/gnokii/config.php";
 
-if ($gateway_module == $gnokii_param['name'])
+$gw = gateway_get();
+
+if ($gw == $gnokii_param['name'])
 {
 	$status_active = "(<b><font color=green>"._('Active')."</font></b>)";
 }

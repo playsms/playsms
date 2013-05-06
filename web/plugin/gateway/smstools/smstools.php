@@ -4,7 +4,9 @@ if(!isadmin()){forcenoaccess();};
 
 include $apps_path['plug']."/gateway/smstools/config.php";
 
-if ($gateway_module == $smstools_param['name'])
+$gw = gateway_get();
+
+if ($gw == $smstools_param['name'])
 {
 	$status_active = "(<b><font color=green>"._('Active')."</font></b>)";
 }

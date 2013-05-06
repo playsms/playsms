@@ -4,7 +4,9 @@ if(!isadmin()){forcenoaccess();};
 
 include $apps_path['plug']."/gateway/template/config.php";
 
-if ($gateway_module == $template_param['name'])
+$gw = gateway_get();
+
+if ($gw == $template_param['name'])
 {
 	$status_active = "(<b><font color=green>"._('Active')."</font></b>)";
 }

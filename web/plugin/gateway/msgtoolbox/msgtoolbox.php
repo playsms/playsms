@@ -4,7 +4,9 @@ if(!isadmin()){forcenoaccess();};
 
 include $apps_path['plug']."/gateway/msgtoolbox/config.php";
 
-if ($gateway_module == $msgtoolbox_param['name'])
+$gw = gateway_get();
+
+if ($gw == $msgtoolbox_param['name'])
 {
 	$status_active = "(<b><font color=green>"._('Active')."</font></b>)";
 }

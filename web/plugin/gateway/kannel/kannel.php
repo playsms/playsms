@@ -4,7 +4,9 @@ if (!isadmin()) { forcenoaccess(); };
 
 include $apps_path['plug'] . "/gateway/kannel/config.php";
 
-if ($gateway_module == $kannel_param['name']) {
+$gw = gateway_get();
+
+if ($gw == $kannel_param['name']) {
     $status_active = "(<b><font color=green>" . _('Active') . "</font></b>)";
 } else {
     $status_active = "(<b><font color=red>" . _('Inactive') . "</font></b>) (<a href=\"index.php?app=menu&inc=gateway_kannel&op=manage_activate\">" . _('click here to activate') . "</a>)";

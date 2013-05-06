@@ -4,7 +4,9 @@ if(!isadmin()){forcenoaccess();};
 
 include $apps_path['plug']."/gateway/dev/config.php";
 
-if ($gateway_module == $dev_param['name']) {
+$gw = gateway_get();
+
+if ($gw == $dev_param['name']) {
 	$status_active = "(<b><font color=green>"._('Active')."</font></b>)";
 } else {
 	$status_active = "(<b><font color=red>"._('Inactive')."</font></b>) (<a href=\"index.php?app=menu&inc=gateway_dev&op=manage_activate\">"._('click here to activate')."</a>)";
