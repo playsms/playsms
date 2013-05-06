@@ -97,11 +97,11 @@ C. RECEIVE SMS
 	@admin bro, please set me as admin too !!
 	Hi @admin, nice to know that now we have a free SMS service!
 	
-3.  Can I forward SMS from my mobile phone to my group?
+3.  Can I forward SMS from my mobile phone to my phonebook group?
     Answer:
-    When you create a group you will be asked for a Group Code, Use
-    that Group Code as parameter to forward SMS to group.
-    Using special keyword BC you may forward SMS to your group:
+    When you create a group in your phonebook you will be asked for 
+    a Group Code. Use that Group Code as parameter to forward SMS to 
+    group using special keyword BC you may forward SMS to your group:
         BC [group code] [your message]
     or as long as the SMS contains #[group code] (since playSMS 0.9.8)
 

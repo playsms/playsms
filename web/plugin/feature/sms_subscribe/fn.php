@@ -58,7 +58,7 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 	$ok = false;
 	$c_uid = $list['uid'];
 	$subscribe_keyword = strtoupper(trim($subscribe_keyword));
-	$subscribe_param = strtoupper(trim($subscribe_param));
+	$subscribe_param = trim($subscribe_param);
 	$username = uid2username($c_uid);
 	logger_print("username:".$username." sender:".$sms_sender." keyword:".$subscribe_keyword." param:".$subscribe_param, 3, "sms_subscribe");
 	$subscribe_accept_param = $list['subscribe_param'];
@@ -197,22 +197,35 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 function sms_subscribe_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $sms_receiver) {
 	$msg = explode(" ", $message);
 	$bc = strtoupper($msg[0]);
-	$keyword = strtoupper($msg[1]);
+	$keyword = '';
 	$message = '';
-	for ($i=2;$i<count($msg);$i++) {
-		$message .= $msg[$i].' ';
+	if ($bc=='BC') {
+		$keyword = strtoupper($msg[1]);
+		for ($i=2;$i<count($msg);$i++) {
+			$message .= $msg[$i].' ';
+		}
+	} else if (substr($msg[0],0,1)=='#') {
+		$keyword = str_replace('#', '', strtoupper($msg[0]));
+		for ($i=1;$i<count($msg);$i++) {
+			$message .= $msg[$i].' ';
+		}
 	}
 	$message = trim($message);
 	$hooked = false;
-	if (($bc=='BC') || ($bc=='#'.$keyword)) {
+	if ($keyword && $message) {
+		logger_print("interceptincomingsms k:".$keyword." m:".$message, 1, "sms_subscribe");
 		// if not available then the keyword is exists
 		if (! sms_subscribe_hook_checkavailablekeyword($keyword)) {
 			$c_uid = mobile2uid($sms_sender);
 			$c_username = uid2username($c_uid);
 			if ($c_uid && $c_username) {
-				$sms_datetime = core_display_datetime($sms_datetime);
-				logger_print("dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." uid:".$c_uid." username:".$c_username." bc:".$bc." keyword:".$keyword." message:".$message, 3, "sms_subscribe");
-				$hooked = true;
+				$db_query = "SELECT subscribe_keyword FROM " . _DB_PREF_ . "_featureSubscribe WHERE uid='".$c_uid."'";
+				$list = dba_search(_DB_PREF_.'_featureSubscribe', 'subscribe_keyword', array('uid' => $c_uid));
+				if (strtoupper($list[0]['subscribe_keyword'])==$keyword) {
+					$sms_datetime = core_display_datetime($sms_datetime);
+					logger_print("interceptincomingsms dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." uid:".$c_uid." username:".$c_username." bc:".$bc." keyword:".$keyword." message:".$message, 3, "sms_subscribe");
+					$hooked = true;
+				}
 			}
 		}
 	}

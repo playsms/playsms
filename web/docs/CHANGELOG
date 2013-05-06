@@ -1,4 +1,4 @@
-Version 0.9.8 - 130508
+Version 0.9.8 - 130507
 - MAJOR: webservice now using hash token instead of username password (aseques)
 - MAJOR: change the login method to use PHP session (anton)
 - MAJOR: change the way to show $error_string, now using PHP session (anton)
@@ -16,6 +16,7 @@ Version 0.9.8 - 130508
 - add config for playsmsd and sendsmsd in MS Windows, playsms.bat (anton)
 - add lib/fn_init.php to hold init functions, small re-structure in init.php (anton)
 - add lib/fn_country.php (anton)
+- add lib/fn_gateway.php and gateway_get() to get current active gateway (anton)
 - add instructions to enable fail2ban (aseques)
 - add an option to autocomplete short numbers with international prefix (aseques)
 - add new plugin tools bchash convert #<group code> to BC <group code> (anton)
