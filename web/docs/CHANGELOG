@@ -35,7 +35,7 @@ Version 0.9.8 - 130507
 - add feature to check incoming message as a reply message in plugin tools pvat (anton)
 - add core_display_data() to format data before display it on the web (anton)
 - add language title to each language config.php file (anton)
-- update keyword BC to handle feature SMS subscribe (anton)
+- update keyword BC and # sign to handle feature SMS subscribe (anton)
 - update language id_ID (hangsbreaker)
 - update catalan language (aseques)
 - update user's email and mobile is unique (anton)

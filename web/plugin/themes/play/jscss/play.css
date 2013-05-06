@@ -14,3 +14,9 @@
 #playsmslogView {
     width: 99%;
 }
+
+#txtcount {
+	background-color:transparent;
+	border: 0px solid;
+	font-weight: bold;
+}

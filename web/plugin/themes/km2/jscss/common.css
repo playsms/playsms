@@ -198,3 +198,17 @@ li {
 	color: #ff0000;
 	float: right;
 }
+
+.main {
+	text-align: center;
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #f6f6f6;
+}
+
+#txtcount {
+	background-color:transparent;
+	border: 0px solid;
+	font-weight: bold;
+}

@@ -1225,3 +1225,9 @@ td,div {
 	color: #ff0000;
 	float: right;
 }
+
+#txtcount {
+	background-color:transparent;
+	border: 0px solid;
+	font-weight: bold;
+}

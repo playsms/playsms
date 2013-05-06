@@ -100,7 +100,7 @@ switch ($op) {
 			$sms_template
 			<p>"._('Message').":
 			<br><textarea cols=\"40\" rows=\"4\" onFocus=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
-			<br><input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
+			<br><input type=\"text\" id=txtcount name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
 			<input type=\"hidden\" value=\"".$core_config['user']['opt']['sms_footer_length']."\" name=\"footerlen\"> 
 			<input type=\"hidden\" value=\"".$core_config['user']['opt']['per_sms_length']."\" name=\"maxchar\"> 
 			<input type=\"hidden\" value=\"".$core_config['user']['opt']['per_sms_length_unicode']."\" name=\"maxchar_unicode\"> 
