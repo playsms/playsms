@@ -2,7 +2,7 @@
 
 function gateway_get() {
 	global $core_config;
-	$ret = $core_config['main']['cfg_gateway_module'];
+	$ret = $core_config['module']['gateway'];
 	return $ret;
 }
 
