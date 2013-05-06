@@ -77,7 +77,9 @@ function interceptincomingsms($sms_datetime,$sms_sender,$message,$sms_receiver="
 }
 
 function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="") {
-	global $gateway_module, $core_config;
+	global $core_config;
+
+	$gw = gateway_get();
 
 	// make sure sms_datetime is in supported format and in GMT+0
 	$sms_datetime = core_adjust_datetime($sms_datetime);
@@ -155,7 +157,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 		INSERT INTO "._DB_PREF_."_tblSMSIncoming 
 		(in_uid,in_feature,in_gateway,in_sender,in_receiver,in_keyword,in_message,in_datetime,in_status)
 		VALUES
-		('$c_uid','$c_feature','$gateway_module','$sms_sender','$sms_receiver','$target_keyword','$message','$sms_datetime','$c_status')";
+		('$c_uid','$c_feature','$gw','$sms_sender','$sms_receiver','$target_keyword','$message','$sms_datetime','$c_status')";
 	$db_result = dba_query($db_query);
 
 	return $ok;
@@ -290,7 +292,8 @@ function setsmsdeliverystatus($smslog_id,$uid,$p_status) {
 			for ($c=0;$c<count($core_config['featurelist']);$c++) {
 				x_hook($core_config['featurelist'][$c],'setsmsdeliverystatus',array($smslog_id,$uid,$p_status));
 			}
-			x_hook($gateway_module,'setsmsdeliverystatus',array($smslog_id,$uid,$p_status));
+			$gw = gateway_get();
+			x_hook($gw,'setsmsdeliverystatus',array($smslog_id,$uid,$p_status));
 		}
 	}
 	return $ok;

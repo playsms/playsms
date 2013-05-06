@@ -27,13 +27,13 @@ function x_hook($c_plugin, $c_function, $c_param=array()) {
 }
 
 function getsmsinbox() {
-	global $gateway_module;
-	x_hook($gateway_module,'getsmsinbox');
+	$gw = gateway_get();
+	x_hook($gw,'getsmsinbox');
 }
 
 function getsmsstatus() {
-	global $gateway_module;
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status='0' AND p_gateway='$gateway_module'";
+	$gw = gateway_get();
+	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status='0' AND p_gateway='$gw'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$uid = $db_row['uid'];
@@ -41,7 +41,7 @@ function getsmsstatus() {
 		$p_datetime = $db_row['p_datetime'];
 		$p_update = $db_row['p_update'];
 		$gpid = $db_row['p_gpid'];
-		x_hook($gateway_module,'getsmsstatus',array($gpid,$uid,$smslog_id,$p_datetime,$p_update));
+		x_hook($gw,'getsmsstatus',array($gpid,$uid,$smslog_id,$p_datetime,$p_update));
 	}
 }
 
@@ -56,7 +56,7 @@ function getsmsoutgoing($smslog_id) {
 }
 
 function playsmsd() {
-	global $core_config, $gateway_module;
+	global $core_config;
 	// plugin tools
 	for ($c=0;$c<count($core_config['toolslist']);$c++) {
 		x_hook($core_config['toolslist'][$c],'playsmsd');
@@ -66,7 +66,8 @@ function playsmsd() {
 		x_hook($core_config['featurelist'][$c],'playsmsd');
 	}
 	// plugin gateway
-	x_hook($gateway_module,'playsmsd');
+	$gw = gateway_get();
+	x_hook($gw,'playsmsd');
 }
 
 function str2hex($string)  {
@@ -148,12 +149,13 @@ function core_datetime_offset($tz=0) {
  */
 function core_display_datetime($time, $tz=0) {
 	global $core_config;
+	$gw = gateway_get();
 	$time = trim($time);
 	$ret = $time;
 	if ($time && ($time != '0000-00-00 00:00:00')) {
 		if (! $tz) {
 			if (! ($tz = $core_config['user']['datetime_timezone'])) {
-				if (! ($tz = $core_config['plugin'][$gateway_module]['datetime_timezone'])) {
+				if (! ($tz = $core_config['plugin'][$gw]['datetime_timezone'])) {
 					$tz = $core_config['main']['cfg_datetime_timezone'];
 				}
 			}
@@ -179,13 +181,13 @@ function core_display_datetime($time, $tz=0) {
  */
 function core_adjust_datetime($time, $tz=0) {
 	global $core_config;
-	$gateway_module = $core_config['module']['gateway'];
+	$gw = gateway_get();
 	$time = trim($time);
 	$ret = $time;
 	if ($time && ($time != '0000-00-00 00:00:00')) {
 		if (! $tz) {
 			if (! ($tz = $core_config['user']['datetime_timezone'])) {
-				if (! ($tz = $core_config['plugin'][$gateway_module]['datetime_timezone'])) {
+				if (! ($tz = $core_config['plugin'][$gw]['datetime_timezone'])) {
 					$tz = $core_config['main']['cfg_datetime_timezone'];
 				}
 			}
