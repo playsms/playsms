@@ -20,7 +20,8 @@ function pvat_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $s
 
 	// continue only when keyword does not exists
 	$m = explode(' ', $message);
-	if (! checkavailablekeyword($m[0])) {
+	$c_m = str_replace('#', '', $m[0]);
+	if (! checkavailablekeyword($c_m)) {
 		return $ret;
 	}
 
