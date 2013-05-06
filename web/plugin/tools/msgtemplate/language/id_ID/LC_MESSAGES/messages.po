@@ -1,44 +1,44 @@
 msgid "Add message template"
-msgstr ""
+msgstr "Tambah template pesan"
 
 msgid "Content"
-msgstr ""
+msgstr "Isi"
 
 msgid "Delete selection"
-msgstr ""
+msgstr "Hapus pilihan"
 
 msgid "Edit message template"
-msgstr ""
+msgstr "Ubah template pesan"
 
 msgid "Fail to add message template"
-msgstr ""
+msgstr "Gagal menambah template pesan"
 
 msgid "Fail to edit message template"
-msgstr ""
+msgstr "Gagal mengubah template pesan"
 
 msgid "Message template"
-msgstr ""
+msgstr "Template pesan"
 
 msgid "Message template content"
-msgstr ""
+msgstr "Isi template pesan"
 
 msgid "Message template has been edited"
-msgstr ""
+msgstr "Template pesan telah diubah"
 
 msgid "Message template has been saved"
-msgstr ""
+msgstr "Template telah disimpan"
 
 msgid "Message template name"
-msgstr ""
+msgstr "Nama template pesan"
 
 msgid "Name"
-msgstr ""
+msgstr "Nama"
 
 msgid "Save"
-msgstr ""
+msgstr "Simpan"
 
 msgid "Selected message template has been deleted"
-msgstr ""
+msgstr "Template pesan terpilih telah dihapus"
 
 msgid "You must fill all fields"
-msgstr ""
+msgstr "Anda harus mengisi semua isian"

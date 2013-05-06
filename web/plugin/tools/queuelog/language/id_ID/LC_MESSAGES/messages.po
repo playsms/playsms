@@ -1,5 +1,5 @@
 msgid "Count"
-msgstr ""
+msgstr "Hitung"
 
 msgid "Date/Time"
 msgstr "Waktu/Jam"
@@ -13,7 +13,7 @@ msgstr "Pesan"
 msgid "Queue Code"
 msgstr "Kode antrian"
 
-msgid "Username"
+msgid "User"
 msgstr "Pengguna"
 
 msgid "View SMS queue"

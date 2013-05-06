@@ -14,9 +14,6 @@ msgstr ""
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
-msgid "Fill to change the password"
-msgstr ""
-
 msgid "Gateway has been activated"
 msgstr ""
 
@@ -47,13 +44,7 @@ msgstr ""
 msgid "No changes has been made"
 msgstr ""
 
-msgid "Password"
-msgstr ""
-
 msgid "Save"
-msgstr ""
-
-msgid "Username"
 msgstr ""
 
 msgid "Webservice token"

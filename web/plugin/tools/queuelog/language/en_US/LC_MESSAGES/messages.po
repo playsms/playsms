@@ -13,7 +13,7 @@ msgstr ""
 msgid "Queue Code"
 msgstr ""
 
-msgid "Username"
+msgid "User"
 msgstr ""
 
 msgid "View SMS queue"

@@ -129,8 +129,7 @@ msgid "Press submit button to add members from CSV file"
 msgstr "Tekan tombol kirim untuk menambahkan anggota dari file CSV"
 
 msgid "Press submit button to remove selected members from member list"
-msgstr ""
-"Tekan tombol kirim untuk menghapus anggota yang dipilih dari daftar anggota"
+msgstr "Tekan tombol kirim untuk menghapus anggota yang dipilih dari daftar anggota"
 
 msgid "Question"
 msgstr "Pertanyaan"

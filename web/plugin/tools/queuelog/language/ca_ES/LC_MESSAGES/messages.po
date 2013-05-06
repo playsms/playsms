@@ -32,7 +32,8 @@ msgstr "Missatge"
 msgid "Queue Code"
 msgstr "Codi de la cua"
 
-msgid "Username"
+#, fuzzy
+msgid "User"
 msgstr "Usuari"
 
 msgid "View SMS queue"

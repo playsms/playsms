@@ -176,6 +176,10 @@ msgstr "你已是会员"
 msgid "You are not a member"
 msgstr "你还不是会员"
 
+#, fuzzy
+msgid "You have no member"
+msgstr "你还不是会员"
+
 msgid "You must fill all fields"
 msgstr "你必须填满全部空白"
 

@@ -14,9 +14,6 @@ msgstr "Parameter URL tambahan"
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Misalnya: +0700 untuk zona waktu Jakarta/Bangkok"
 
-msgid "Fill to change the password"
-msgstr "Isi untuk merubah kata sandi"
-
 msgid "Gateway has been activated"
 msgstr "Gateway telah diaktifkan"
 
@@ -36,8 +33,7 @@ msgid "Master URL"
 msgstr "URL Utama"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Maks. 16 karakter numerik atau 11 alfanumerik. kosongkan untuk menonaktifkan"
+msgstr "Maks. 16 karakter numerik atau 11 alfanumerik. kosongkan untuk menonaktifkan"
 
 msgid "Module sender ID"
 msgstr "Pengirim global"
@@ -48,17 +44,11 @@ msgstr "Modul zona waktu"
 msgid "No changes has been made"
 msgstr "Tidak ada perubahan yang dilakukan"
 
-msgid "Password"
-msgstr "Kata sandi"
-
 msgid "Save"
 msgstr "Simpan"
 
-msgid "Username"
-msgstr "Nama pengguna"
-
 msgid "Webservice token"
-msgstr ""
+msgstr "Token webservices"
 
 msgid "click here to activate"
 msgstr "Klik di sini untuk mengaktifkan"

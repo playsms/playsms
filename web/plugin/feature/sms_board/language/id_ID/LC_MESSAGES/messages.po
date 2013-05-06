@@ -23,9 +23,8 @@ msgstr "Ubah papan SMS"
 msgid "Fail to add SMS board"
 msgstr "Gagal menambah layanan papan SMS"
 
-#, fuzzy
 msgid "Fail to edit SMS board"
-msgstr "Gagal menambah layanan papan SMS"
+msgstr "Gagal mengubah layanan papan SMS"
 
 msgid "Forward"
 msgstr "Teruskan"
@@ -37,20 +36,19 @@ msgid "Forward to email"
 msgstr "Teruskan ke email"
 
 msgid "HTML output"
-msgstr ""
+msgstr "Keluaran HTML"
 
 msgid "JSON output"
-msgstr ""
+msgstr "Keluaran JSON"
 
 msgid "Keyword"
 msgstr "Kata kunci"
 
 msgid "Leave them empty if you dont know what to fill in these boxes below"
-msgstr ""
-"Kosongkan kotak-kotak di bawah ini bila tidak tahu apa yang harus diisi"
+msgstr "Kosongkan kotak-kotak di bawah ini bila tidak tahu apa yang harus diisi"
 
 msgid "MBOX output"
-msgstr ""
+msgstr "Keluaran MBOX"
 
 msgid "Manage board"
 msgstr "Pengaturan papan SMS"
@@ -59,26 +57,25 @@ msgid "Message"
 msgstr "Pesan"
 
 msgid "PHP serialize output"
-msgstr ""
+msgstr "Keluaran PHP serialize"
 
 msgid "RSS 0.91 output"
-msgstr ""
+msgstr "Keluaran RSS 0.91"
 
 msgid "RSS 1.0 output"
-msgstr ""
+msgstr "Keluaran RSS 1.0"
 
 msgid "RSS 2.0 output"
-msgstr ""
+msgstr "Keluaran RSS 2.0"
 
 msgid "RSS ATOM output"
-msgstr ""
+msgstr "Keluaran ATOM"
 
 msgid "Receiver"
 msgstr "Penerima"
 
-#, fuzzy
 msgid "SMS Board"
-msgstr "Tambah papan SMS"
+msgstr "Layanan papan SMS"
 
 msgid "SMS board has been added"
 msgstr "Layanan papan SMS telah ditambahkan"
@@ -107,12 +104,11 @@ msgstr "Pola"
 msgid "User"
 msgstr "Pengguna"
 
-#, fuzzy
 msgid "View board"
-msgstr "Pengaturan papan SMS"
+msgstr "Lihat papan SMS"
 
 msgid "XML output"
-msgstr ""
+msgstr "Keluaran XML"
 
 msgid "You must fill all fields"
 msgstr "Anda harus mengisi semua kolom"

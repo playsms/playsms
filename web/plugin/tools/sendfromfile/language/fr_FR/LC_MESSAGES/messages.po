@@ -85,5 +85,8 @@ msgstr "Format : numéro destinataire, méssage, nom utilisateur"
 msgid "invalid entries"
 msgstr "Entrées invalides"
 
+msgid "of"
+msgstr ""
+
 msgid "valid entries"
 msgstr "Entrées valides"

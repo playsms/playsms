@@ -17,11 +17,8 @@ msgstr "Tambah layanan poling SMS"
 msgid "Add choice to this poll"
 msgstr "Tambah pilihan ke dalam poling SMS ini"
 
-msgid ""
-"Are you sure you want to delete SMS poll with all its choices and votes ?"
-msgstr ""
-"Anda yakin ingin menghapus layanan poling SMS beserta semua pilihan dan "
-"suaranya?"
+msgid "Are you sure you want to delete SMS poll with all its choices and votes ?"
+msgstr "Anda yakin ingin menghapus layanan poling SMS beserta semua pilihan dan suaranya ?"
 
 msgid "Are you sure you want to delete choice ?"
 msgstr "Anda yakin ingin menghapus pilihan?"
@@ -32,12 +29,11 @@ msgstr "Pilihan sudah ada"
 msgid "Choice has been added"
 msgstr "Pilihan telah ditambahkan"
 
-#, fuzzy
 msgid "Choice keyword"
-msgstr "Kata Kunci Pilihan"
+msgstr "Kata kunci pilihan"
 
 msgid "Choice title"
-msgstr "judul Pilihan"
+msgstr "Judul pilihan"
 
 msgid "Edit SMS poll"
 msgstr "Ubah layanan poling SMS"
@@ -52,28 +48,28 @@ msgid "Fail to delete SMS poll choice"
 msgstr "Gagal menghapus pilihan poling SMS"
 
 msgid "Graph output"
-msgstr ""
+msgstr "Keluaran grafik"
 
 msgid "JSON output"
-msgstr ""
+msgstr "Keluaran JSON"
 
 msgid "Keyword"
-msgstr "Kata sandi"
+msgstr "Kata kunci"
 
 msgid "Manage poll"
 msgstr "Pengaturan layanan poling SMS"
 
 msgid "PHP serialize output"
-msgstr ""
+msgstr "Keluaran PHO serialize"
 
 msgid "Reply message on invalid answer"
-msgstr ""
+msgstr "Pesan balasan untuk jawaban salah"
 
 msgid "Reply message on valid answer"
-msgstr ""
+msgstr "Pesan balasan untuk jawaban benar"
 
 msgid "Reply message when invalid answer"
-msgstr ""
+msgstr "Pesan balasan ketika jawaban salah"
 
 msgid "SMS poll already exists, reserved or use by other feature"
 msgstr "Poling SMS sudah ada, dipesan, atau digunakan oleh fitur lain."
@@ -81,9 +77,8 @@ msgstr "Poling SMS sudah ada, dipesan, atau digunakan oleh fitur lain."
 msgid "SMS poll choice and all its voters has been deleted"
 msgstr "Pilihan poling SMS beserta semua pemilihnya telah dihapus"
 
-#, fuzzy
 msgid "SMS poll graph"
-msgstr "Kata kunci poling SMS"
+msgstr "Grafik poling SMS"
 
 msgid "SMS poll has been added"
 msgstr "Poling SMS telah ditambahkan"
@@ -110,7 +105,7 @@ msgid "Status"
 msgstr "Status"
 
 msgid "This poll has 0 votes!"
-msgstr ""
+msgstr "SMS polling ini kosong!"
 
 msgid "Title"
 msgstr "Judul"
@@ -119,25 +114,22 @@ msgid "User"
 msgstr "Pengguna"
 
 msgid "View"
-msgstr ""
+msgstr "Lihat"
 
-#, fuzzy
 msgid "View poll"
-msgstr "Pengaturan layanan poling SMS"
+msgstr "Lihat polling"
 
 msgid "XML output"
-msgstr ""
+msgstr "Keluaran XML"
 
 msgid "You must fill all fields"
 msgstr "Anda harus mengisi semua kolom"
 
-#, fuzzy
 msgid "disabled"
-msgstr "Nonaktif"
+msgstr "nonaktif"
 
-#, fuzzy
 msgid "enabled"
-msgstr "Aktif"
+msgstr "aktif"
 
 msgid "keyword"
 msgstr "kata kunci"

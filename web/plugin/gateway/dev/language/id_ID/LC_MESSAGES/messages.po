@@ -9,10 +9,10 @@ msgid "Active"
 msgstr "Aktif"
 
 msgid "Date/Time"
-msgstr ""
+msgstr "Tanggal/Jam"
 
 msgid "Fail to simulate incoming SMS"
-msgstr ""
+msgstr "Gagal simulasikan SMS masuk"
 
 msgid "Gateway has been activated"
 msgstr "Gateway telah diaktifkan"
@@ -23,27 +23,26 @@ msgstr "Nama gateway"
 msgid "Inactive"
 msgstr "Nonaktif"
 
-#, fuzzy
 msgid "Manage dev"
-msgstr "Pengaturan gnokii"
+msgstr "Pengaturan dev"
 
 msgid "Message"
-msgstr ""
+msgstr "Pesan"
 
 msgid "Receiver"
-msgstr ""
+msgstr "Penerima"
 
 msgid "Sender"
-msgstr ""
+msgstr "Pengirim"
 
 msgid "Simulate incoming SMS"
-msgstr ""
+msgstr "Simulasikan SMS masuk"
 
 msgid "Submit"
-msgstr ""
+msgstr "Kirim"
 
 msgid "This is a test incoming SMS message"
-msgstr ""
+msgstr "Ini adalah pesan SMS masuk percobaan"
 
 msgid "click here to activate"
 msgstr "klik di sini untuk mengaktifkan"

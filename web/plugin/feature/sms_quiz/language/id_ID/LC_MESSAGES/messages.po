@@ -16,8 +16,7 @@ msgstr "Jawaban"
 
 msgid ""
 "Are you sure you want to delete SMS quiz with all its choices and answers ?"
-msgstr ""
-"Anda yakin ingin menghapus kuis SMS beserta semua pilihan dan jawabannya?"
+msgstr "Anda yakin ingin menghapus kuis SMS beserta semua pilihan dan jawabannya?"
 
 msgid "Are you sure you want to delete this answer ?"
 msgstr "Anda yakin ingin menghapus jawaban ini?"

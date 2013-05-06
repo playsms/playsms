@@ -93,7 +93,7 @@ msgid "City"
 msgstr "Kota"
 
 msgid "Comma seperated"
-msgstr ""
+msgstr "Dipisahkan koma"
 
 msgid "Content"
 msgstr "Isi"
@@ -167,12 +167,11 @@ msgstr "Aktifkan lupa kata sandi"
 msgid "Enable public registration"
 msgstr "Aktifkan pendaftaran umum"
 
-#, fuzzy
 msgid "Enable webservices"
-msgstr "Token webservices baru"
+msgstr "Aktifkan webservices"
 
 msgid "Export"
-msgstr ""
+msgstr "Ekspor"
 
 msgid "F.A.Q"
 msgstr "F.A.Q"
@@ -219,9 +218,8 @@ msgstr "Isi untuk mengganti kata sandi untuk nama penguna"
 msgid "Fill to update"
 msgstr "Isi untuk memperbaharui"
 
-#, fuzzy
 msgid "Footer"
-msgstr "Catatan kaki SMS"
+msgstr "Catatan kaki"
 
 msgid "Forward PV to email"
 msgstr "Teruskan PV ke email"
@@ -257,7 +255,7 @@ msgid "Full name"
 msgstr "Nama lengkap"
 
 msgid "Gateway"
-msgstr ""
+msgstr "Gateway"
 
 msgid "Go"
 msgstr "Jalankan"
@@ -269,7 +267,7 @@ msgid "Group code"
 msgstr "Kode grup"
 
 msgid "HTTP API"
-msgstr ""
+msgstr "HTTP API"
 
 msgid "Home"
 msgstr "Beranda"
@@ -299,7 +297,7 @@ msgid "License"
 msgstr "Lisensi"
 
 msgid "Local number length"
-msgstr ""
+msgstr "Panjang nomor lokal"
 
 msgid "Login information"
 msgstr "Informasi login"
@@ -347,7 +345,7 @@ msgid "Message template name"
 msgstr "Nama pola pesan"
 
 msgid "Min length to detect missing country code"
-msgstr ""
+msgstr "Panjang minimum untuk mendeteksi kode negara"
 
 msgid "Mobile"
 msgstr "Ponsel"
@@ -389,7 +387,7 @@ msgid "Password"
 msgstr "Kata sandi"
 
 msgid "Password does not match"
-msgstr ""
+msgstr "Kata sandi tidak cocok"
 
 msgid "Password has been sent to your email"
 msgstr "Password telah dikirim ke email Anda"
@@ -398,7 +396,7 @@ msgid "Password recovery"
 msgstr "Pemulihan kata sandi"
 
 msgid "Password should be at least 4 characters"
-msgstr ""
+msgstr "Kata sandi minimal 4 karakter"
 
 msgid "Pending"
 msgstr "Tertunda"
@@ -455,7 +453,7 @@ msgid "Registered"
 msgstr "Terdaftar"
 
 msgid "Replace prefix 0 or padding local numbers"
-msgstr ""
+msgstr "Ganti prefix 0 atau gabungkan nomor lokal"
 
 msgid "Reply"
 msgstr "Balas"
@@ -476,7 +474,7 @@ msgid "Save template"
 msgstr "Simpan pola"
 
 msgid "Search"
-msgstr ""
+msgstr "Cari"
 
 msgid "Select action"
 msgstr "Pilih tindakan"
@@ -550,9 +548,8 @@ msgstr "Pengguna"
 msgid "User already exists"
 msgstr "Pengguna sudah ada"
 
-#, fuzzy
 msgid "User does not exists"
-msgstr "Pengguna sudah ada"
+msgstr "Pengguna tidak ada"
 
 msgid "User has been added"
 msgstr "Pengguna telah ditambah"
@@ -573,10 +570,10 @@ msgid "Username"
 msgstr "Nama pengguna"
 
 msgid "Username should be at least 3 characters"
-msgstr ""
+msgstr "Nama pengguna minimal 3 karakter"
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
-msgstr ""
+msgstr "Karakter valid untuk nama pengguna adalah huruf, angka, titik dan garis bawah"
 
 msgid "View"
 msgstr "Tampil"
@@ -588,17 +585,16 @@ msgid "View normal user"
 msgstr "Pengguna normal"
 
 msgid "Webapp Token"
-msgstr ""
+msgstr "Token Webapp"
 
 msgid "Webapp token"
-msgstr ""
+msgstr "Token webapp"
 
 msgid "Webservices"
-msgstr ""
+msgstr "Webservices"
 
-#, fuzzy
 msgid "Webservices IP range"
-msgstr "Token webservices"
+msgstr "IP webservices"
 
 msgid "Webservices token"
 msgstr "Token webservices"
@@ -634,13 +630,13 @@ msgid "Your SMS has been delivered to queue"
 msgstr "SMS anda telah dikirim ke antrian"
 
 msgid "Your email format is invalid"
-msgstr ""
+msgstr "Formail email tidak valid"
 
 msgid "Your message"
 msgstr "Pesan anda"
 
 msgid "Your mobile format is invalid"
-msgstr ""
+msgstr "Nomor anda tidak valid"
 
 msgid "Zipcode"
 msgstr "Kode POS"
@@ -651,15 +647,14 @@ msgstr "email"
 msgid "failed"
 msgstr "gagal"
 
-#, fuzzy
 msgid "forward"
-msgstr "Teruskan dari"
+msgstr "teruskan"
 
 msgid "from"
 msgstr "dari"
 
 msgid "generated on user creation"
-msgstr ""
+msgstr "dibuat saat user diciptakan"
 
 msgid "handled"
 msgstr "tertangani"
@@ -679,9 +674,8 @@ msgstr "nomor"
 msgid "queued"
 msgstr "antri"
 
-#, fuzzy
 msgid "reply"
-msgstr "Balas"
+msgstr "balas"
 
 msgid "row"
 msgstr "baris"

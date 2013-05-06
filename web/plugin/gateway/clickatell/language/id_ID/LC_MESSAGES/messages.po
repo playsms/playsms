@@ -24,7 +24,7 @@ msgid "Clickatell is a bulk SMS provider"
 msgstr "Clickatell adalah penyedia SMS bulk"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Contoh: +0700 untuk zona waktu Jakarta/Bangkok"
 
 msgid "Fill to change the password"
 msgstr "Isi untuk merubah kata sandi"
@@ -45,8 +45,7 @@ msgid "Manage clickatell"
 msgstr "Pengaturan clickatell"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Maks. 16 numerik atau 11 karakter alfanumerik. kosongkan untuk menonaktifkan"
+msgstr "Maks. 16 numerik atau 11 karakter alfanumerik. kosongkan untuk menonaktifkan"
 
 msgid "Module sender ID"
 msgstr "Pengirim global"

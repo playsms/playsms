@@ -86,5 +86,8 @@ msgstr "format: núm. destí, missatge, usuari"
 msgid "invalid entries"
 msgstr "entrades no vàlides"
 
+msgid "of"
+msgstr ""
+
 msgid "valid entries"
 msgstr "entrades vàlides"

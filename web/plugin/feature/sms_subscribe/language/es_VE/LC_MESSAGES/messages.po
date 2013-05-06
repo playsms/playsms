@@ -177,6 +177,10 @@ msgstr "Ud. ya es miembro"
 msgid "You are not a member"
 msgstr "Ud. no es miembro"
 
+#, fuzzy
+msgid "You have no member"
+msgstr "Ud. no es miembro"
+
 msgid "You must fill all fields"
 msgstr "Ud. debe rellenar todos los campos"
 

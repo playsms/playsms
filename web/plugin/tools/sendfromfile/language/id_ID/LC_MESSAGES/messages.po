@@ -74,5 +74,8 @@ msgstr "Format: nomor tujuan, pesan, nama pengguna"
 msgid "invalid entries"
 msgstr "entri tidak valid"
 
+msgid "of"
+msgstr "dari"
+
 msgid "valid entries"
 msgstr "entri valid"

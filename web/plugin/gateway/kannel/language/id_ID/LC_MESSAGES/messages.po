@@ -39,35 +39,34 @@ msgid "Gateway name"
 msgstr "Nama gateway"
 
 msgid "HTTP Kannel admin password"
-msgstr ""
+msgstr "Password admin HTTP kannel"
 
 msgid "HTTP Kannel admin port"
-msgstr ""
+msgstr "Port admin HTTP kannel"
 
 msgid "Inactive"
 msgstr "Nonaktif"
 
 msgid "Kannel admin password"
-msgstr ""
+msgstr "Password admin kannel"
 
 msgid "Kannel admin port"
-msgstr ""
+msgstr "Port admin kannel"
 
 msgid "Kannel configuration file"
-msgstr "File konfigurasi Kannel"
+msgstr "File konfigurasi kannel"
 
 msgid "Kannel specific"
-msgstr "Spesifik untuk Kannel"
+msgstr "Spesifik untuk kannel"
 
 msgid "Kannel status"
-msgstr ""
+msgstr "Status kannel"
 
 msgid "Manage kannel"
 msgstr "Pengaturan kannel"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Maks. 16 numerik atau 11 karakter alfanumerik. kosongkan untuk menonaktifkan"
+msgstr "Maks. 16 numerik atau 11 karakter alfanumerik. kosongkan untuk menonaktifkan"
 
 msgid "Module sender ID"
 msgstr "Pengirim global"
@@ -91,7 +90,7 @@ msgid "Queued on SMSC"
 msgstr "Antrian dalam SMSC"
 
 msgid "Restart Kannel"
-msgstr ""
+msgstr "Restart kannel"
 
 msgid "Save"
 msgstr "Simpan"
@@ -100,7 +99,7 @@ msgid "Send SMS port"
 msgstr "Port untuk send SMS"
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr "URL untuk playSMS, kosongkan untuk mengaturnya ke URL dasar"

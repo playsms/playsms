@@ -6,7 +6,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "Forgot password"
 msgstr "Lupa Kata sandi"
@@ -39,7 +39,7 @@ msgid "Register an account"
 msgstr "Daftarkan akun"
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "Username"
 msgstr "Nama pengguna"

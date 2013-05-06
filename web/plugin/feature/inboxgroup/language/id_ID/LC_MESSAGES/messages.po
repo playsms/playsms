@@ -11,9 +11,8 @@ msgstr "Tindakan"
 msgid "Add catch-all"
 msgstr "Tambah kotak tangkap semua"
 
-#, fuzzy
 msgid "Add group inbox"
-msgstr "Grup kotak masuk"
+msgstr "Tambah grup kotak masuk"
 
 msgid "Add member"
 msgstr "Tambah anggota"
@@ -24,9 +23,8 @@ msgstr "Semua"
 msgid "All users"
 msgstr "Semua pengguna"
 
-#, fuzzy
 msgid "Are you sure you want to delete this group inbox ?"
-msgstr "Apakah Anda yakin ingin menghapus nomor penerima ini?"
+msgstr "Apakah anda yakin ingin menghapus grup kotak masuk ini ?"
 
 msgid "Cancel"
 msgstr "Batal"
@@ -52,9 +50,8 @@ msgstr "Anggota saat ini"
 msgid "Delete catch-all"
 msgstr "Hapus kotak tangkap semua"
 
-#, fuzzy
 msgid "Delete group inbox"
-msgstr "Grup kotak masuk"
+msgstr "Hapus grup kotak masuk"
 
 msgid "Delete member"
 msgstr "Hapus anggota"
@@ -62,9 +59,8 @@ msgstr "Hapus anggota"
 msgid "Description"
 msgstr "Deskripsi"
 
-#, fuzzy
 msgid "Edit group inbox"
-msgstr "Grup kotak masuk"
+msgstr "Ubah grup kotak masuk"
 
 msgid "Exclusive"
 msgstr "Eksklusif"
@@ -72,9 +68,8 @@ msgstr "Eksklusif"
 msgid "Fail to add catch-all"
 msgstr "Gagal untuk menambahkan kotak tangkap semua"
 
-#, fuzzy
 msgid "Fail to add group inbox"
-msgstr "Gagal untuk menambah nomor penerima"
+msgstr "Gagal untuk menambah grup kotak masuk"
 
 msgid "Fail to add member"
 msgstr "Gagal untuk menambahkan anggota"
@@ -82,24 +77,20 @@ msgstr "Gagal untuk menambahkan anggota"
 msgid "Fail to delete catch-all"
 msgstr "Gagal menghapus kotak tangkap semua"
 
-#, fuzzy
 msgid "Fail to delete group inbox"
-msgstr "Gagal untuk menghapus anggota"
+msgstr "Gagal menghapus grup kotak masuk"
 
 msgid "Fail to delete member"
 msgstr "Gagal untuk menghapus anggota"
 
-#, fuzzy
 msgid "Fail to disable group inbox"
-msgstr "Gagal untuk menonaktifkan nomor penerima"
+msgstr "Gagal menonaktifkan grup kotak masuk"
 
-#, fuzzy
 msgid "Fail to edit group inbox"
-msgstr "Gagal mengedit nomor penerima"
+msgstr "Gagal mengubah grup kotak masuk"
 
-#, fuzzy
 msgid "Fail to enable group inbox"
-msgstr "Gagal untuk mengaktifkan nomor penerima"
+msgstr "Gagal mengaktifkan grup kotak masuk"
 
 msgid "For example a short code"
 msgstr "Misalnya kode pendek"
@@ -107,25 +98,20 @@ msgstr "Misalnya kode pendek"
 msgid "Group inbox"
 msgstr "Grup kotak masuk"
 
-#, fuzzy
 msgid "Group inbox has been added"
-msgstr "Anggota telah ditambahkan"
+msgstr "Grup kotak masuk telah ditambahkan"
 
-#, fuzzy
 msgid "Group inbox has been deleted"
-msgstr "Anggota telah dihapus"
+msgstr "Grup kotak masuk telah dihapus"
 
-#, fuzzy
 msgid "Group inbox has been disabled"
-msgstr "Nomor penerima telah dinonaktifkan"
+msgstr "Grup kotak masuk telah dinonaktifkan"
 
-#, fuzzy
 msgid "Group inbox has been edited"
-msgstr "Nomor penerima telah disunting"
+msgstr "Grup kotak masuk telah diubah"
 
-#, fuzzy
 msgid "Group inbox has been enabled"
-msgstr "Nomor penerima telah diaktifkan"
+msgstr "Group kotak masuk sudah diaktifkan"
 
 msgid "Keywords"
 msgstr "Kata kunci"
@@ -152,22 +138,16 @@ msgid "Number"
 msgstr "Nomor"
 
 msgid "Press submit button to add selected users to catch-all list"
-msgstr ""
-"Tekan tombol kirim untuk menambahkan pengguna yang dipilih ke daftar kotak "
-"masuk"
+msgstr "Tekan tombol kirim untuk menambahkan pengguna yang dipilih ke daftar kotak masuk"
 
 msgid "Press submit button to add selected users to member list"
-msgstr ""
-"Tekan tombol kirim untuk menambahkan pengguna yang dipilih ke daftar anggota"
+msgstr "Tekan tombol kirim untuk menambahkan pengguna yang dipilih ke daftar anggota"
 
 msgid "Press submit button to remove selected catchall from catch-all list"
-msgstr ""
-"Tekan tombol kirim untuk menghapus kotak tangkap semua dari daftar kotak "
-"tangkap semua"
+msgstr "Tekan tombol kirim untuk menghapus kotak tangkap semua dari daftar kotak tangkap semua"
 
 msgid "Press submit button to remove selected members from member list"
-msgstr ""
-"Tekan tombol kirim untuk menghapus anggota yang dipilih dari daftar anggota"
+msgstr "Tekan tombol kirim untuk menghapus anggota yang dipilih dari daftar anggota"
 
 msgid "Receiver number"
 msgstr "Penerima nomor"
@@ -176,11 +156,10 @@ msgid "Receiver number does not exists"
 msgstr "Nomor penerima tidak ada"
 
 msgid "Restrict sender to regular members or catch-all members only"
-msgstr ""
-"Batasi pengirim ke anggota biasa atau hanya anggota kotak tangkap semua"
+msgstr "Batasi pengirim ke anggota biasa atau hanya anggota kotak tangkap semua"
 
 msgid "Save"
-msgstr ""
+msgstr "Simpan"
 
 msgid "Selected catchall"
 msgstr "Kotak masuk tangkap semua"

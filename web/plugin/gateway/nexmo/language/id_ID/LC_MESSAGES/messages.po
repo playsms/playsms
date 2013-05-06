@@ -6,10 +6,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "API key"
-msgstr ""
+msgstr "Kunci API"
 
 msgid "API secret"
-msgstr ""
+msgstr "Kata rahasia API"
 
 msgid "Active"
 msgstr "Aktif"
@@ -36,8 +36,7 @@ msgid "Manage nexmo"
 msgstr "Pengaturan nexmo"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Maks. 16 karakter numerik atau 11 alfanumerik. kosongkan untuk menonaktifkan"
+msgstr "Maks. 16 karakter numerik atau 11 alfanumerik. kosongkan untuk menonaktifkan"
 
 msgid "Module sender ID"
 msgstr "ID pengirim modul"
@@ -49,28 +48,28 @@ msgid "Nexmo URL"
 msgstr "nexmo URL"
 
 msgid "Nexmo is a bulk SMS provider"
-msgstr ""
+msgstr "Nexmo adalah penyedia SMS bulk"
 
 msgid "Nexmo will push DLR and incoming SMS to your callback URL"
-msgstr ""
+msgstr "Nexmo akan mengirim DLR dan SMS yang masuk ke URL callback anda"
 
 msgid "No changes has been made"
 msgstr "Tidak ada perubahan yang dilakukan"
 
 msgid "Notes"
-msgstr ""
+msgstr "Catatan"
 
 msgid "Save"
 msgstr "Simpan"
 
 msgid "Your callback URL is"
-msgstr ""
+msgstr "URL callback anda adalah"
 
 msgid "Your callback URL should be accessible from Nexmo"
-msgstr ""
+msgstr "Callback URL seharusnya dapat diakses oleh Nexmo"
 
 msgid "click here to activate"
 msgstr "Klik di sini untuk mengaktifkan"
 
 msgid "free credits are available for testing purposes"
-msgstr ""
+msgstr "Kredit gratis tersedia untuk tujuan percobaan"

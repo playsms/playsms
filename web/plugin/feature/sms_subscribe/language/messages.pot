@@ -160,6 +160,9 @@ msgstr ""
 msgid "You are not a member"
 msgstr ""
 
+msgid "You have no member"
+msgstr ""
+
 msgid "You must fill all fields"
 msgstr ""
 

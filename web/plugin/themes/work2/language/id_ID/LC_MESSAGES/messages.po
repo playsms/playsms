@@ -6,7 +6,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "Forgot password"
 msgstr "Lupa kata sandi"

@@ -14,9 +14,6 @@ msgstr "Parâmetro de URL adicional"
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
-msgid "Fill to change the password"
-msgstr "Preencha pra mudar a senha"
-
 msgid "Gateway has been activated"
 msgstr "Gateway foi ativado"
 
@@ -48,14 +45,8 @@ msgstr ""
 msgid "No changes has been made"
 msgstr "Nenhuma mudança feita"
 
-msgid "Password"
-msgstr "Senha"
-
 msgid "Save"
 msgstr "Salvar"
-
-msgid "Username"
-msgstr "Usuário"
 
 msgid "Webservice token"
 msgstr ""

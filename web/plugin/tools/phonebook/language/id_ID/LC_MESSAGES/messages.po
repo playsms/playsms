@@ -1,125 +1,125 @@
 msgid "Add contact"
-msgstr ""
+msgstr "Tambah kontak"
 
 msgid "Add group"
-msgstr ""
+msgstr "Tambah grup"
 
 msgid "Code"
-msgstr ""
+msgstr "Kode"
 
 msgid "Contact has been added"
-msgstr ""
+msgstr "Kontak telah ditambah"
 
 msgid "Contact has been edited"
-msgstr ""
+msgstr "Kontak telah diubah"
 
 msgid "Contact is already exists"
-msgstr ""
+msgstr "Kontak sudah ada"
 
 msgid "Contacts has been imported"
-msgstr ""
+msgstr "Kontak telah di-impor"
 
 msgid "Delete selection"
-msgstr ""
+msgstr "Hapus pilihan"
 
 msgid "Edit contact"
-msgstr ""
+msgstr "Ubah kontak"
 
 msgid "Edit group"
-msgstr ""
+msgstr "Ubah grup"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "Export"
-msgstr ""
+msgstr "Ekspor"
 
 msgid "Fail to upload CSV file for phonebook"
-msgstr ""
+msgstr "Gagal untuk memasukkan berkas CSV ke buku telepon"
 
 msgid "Group"
-msgstr ""
+msgstr "Grup"
 
 msgid "Group code"
-msgstr ""
+msgstr "Kode grup"
 
 msgid "Group code has been added"
-msgstr ""
+msgstr "Kode grup telah ditambah"
 
 msgid "Group code is already exists"
-msgstr ""
+msgstr "Kode grup sudah ada"
 
 msgid "Group code used by keyword"
-msgstr ""
+msgstr "Kode grup digunakan oleh kata kunci"
 
 msgid "Group has been edited"
-msgstr ""
+msgstr "Grup telah diubah"
 
 msgid "Group name"
-msgstr ""
+msgstr "Nama grup"
 
 msgid "Import"
-msgstr ""
+msgstr "Impor"
 
 msgid "Import above phonebook entries ?"
-msgstr ""
+msgstr "Impor isi buku telepon diatas ?"
 
 msgid "Import confirmation"
-msgstr ""
+msgstr "Konfirmasi impor"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Handphone"
 
 msgid "Name"
-msgstr ""
+msgstr "Nama"
 
 msgid "No changes has been made"
-msgstr ""
+msgstr "Tidak ada perubahan"
 
 msgid "Note"
-msgstr ""
+msgstr "Catatan"
 
 msgid "Phonebook"
-msgstr ""
+msgstr "Buku telepon"
 
 msgid "Please select CSV file for phonebook entries"
-msgstr ""
+msgstr "Pilih berkas CSV untuk isian buku telepon"
 
 msgid "Publish"
-msgstr ""
+msgstr "Publikasikan"
 
 msgid "Save"
-msgstr ""
+msgstr "Simpan"
 
 msgid "Selected contact has been deleted"
-msgstr ""
+msgstr "Kontak terpilih telah dihapus"
 
 msgid "Selected group has been deleted"
-msgstr ""
+msgstr "Grup terpilih telah dihapus"
 
 msgid "Unpublish"
-msgstr ""
+msgstr "Tidak dipublikasi"
 
 msgid "You must fill all field"
-msgstr ""
+msgstr "Anda harus mengisi semua isian"
 
 msgid "broadcast SMS from single SMS"
-msgstr ""
+msgstr "sebarkan SMS dari satu SMS"
 
 msgid "code"
-msgstr ""
+msgstr "kode"
 
 msgid "format"
-msgstr ""
+msgstr "format"
 
 msgid "group"
-msgstr ""
+msgstr "grup"
 
 msgid "mobile"
-msgstr ""
+msgstr "handphone"
 
 msgid "name"
-msgstr ""
+msgstr "nama"
 
 msgid "please use uppercase and make it short"
-msgstr ""
+msgstr "gunakan hurup besar dan singkat saja"

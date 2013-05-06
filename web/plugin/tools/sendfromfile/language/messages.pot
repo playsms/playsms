@@ -67,5 +67,8 @@ msgstr ""
 msgid "invalid entries"
 msgstr ""
 
+msgid "of"
+msgstr ""
+
 msgid "valid entries"
 msgstr ""

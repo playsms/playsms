@@ -14,9 +14,6 @@ msgstr "附加链接参数"
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
-msgid "Fill to change the password"
-msgstr "填写改变密码"
-
 msgid "Gateway has been activated"
 msgstr "网关已激活"
 
@@ -47,14 +44,8 @@ msgstr ""
 msgid "No changes has been made"
 msgstr "没有做出改变"
 
-msgid "Password"
-msgstr "密码"
-
 msgid "Save"
 msgstr "保存"
-
-msgid "Username"
-msgstr "用户名"
 
 msgid "Webservice token"
 msgstr ""

@@ -81,8 +81,7 @@ msgid "will be replaced by custom keyword"
 msgstr "akan digantikan oleh kata kunci SMS kustom"
 
 msgid "will be replaced by custom parameter passed to server from SMS"
-msgstr ""
-"akan diganti oleh parameter penyesuaian yang dikirim ke server dari SMS"
+msgstr "akan diganti oleh parameter penyesuaian yang dikirim ke server dari SMS"
 
 msgid "will be replaced by sender number"
 msgstr "akan digantikan oleh nomor pengirim"
