@@ -173,6 +173,7 @@ $nd 			= "<div class=required>(*)</div>";
 
 if (! ($core_config['module']['gateway'] && $core_config['module']['themes'] && $core_config['module']['language'])) {
 	logger_print("Fail to load gateway, themes or language module", 1, "init");
+	ob_end_clean();
 	die(_('FATAL ERROR').' : '._('Fail to load gateway, themes or language module'));
 }
 
