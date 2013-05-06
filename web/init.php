@@ -97,10 +97,10 @@ if (isset($db_row)) {
 	$email_footer = $db_row['cfg_email_footer'];
 	$gateway_number = $db_row['cfg_gateway_number'];
 	$gateway_timezone = $db_row['cfg_datetime_timezone'];
+	$gateway_module = ( $db_row['cfg_gateway_module'] ? $db_row['cfg_gateway_module'] : 'smstools' );
+	$themes_module = ( $db_row['cfg_themes_module'] ? $db_row['cfg_themes_module'] : 'default' );
+	$language_module = ( $db_row['cfg_language_module'] ? $db_row['cfg_language_module'] : 'en_US' );
 	$default_rate = $db_row['cfg_default_rate'];
-	$tmp_gateway_module = $db_row['cfg_gateway_module'];
-	$tmp_themes_module = $db_row['cfg_themes_module'];
-	$tmp_language_module = $db_row['cfg_language_module'];
 	$sms_max_count = $db_row['cfg_sms_max_count'];
 	$default_credit = $db_row['cfg_default_credit'];
 	$enable_register = $db_row['cfg_enable_register'];
@@ -118,31 +118,25 @@ $core_config['main']['max_sms_length'] = $core_config['main']['cfg_sms_max_count
 $core_config['main']['max_sms_length_unicode'] = $core_config['main']['cfg_sms_max_count'] * $core_config['main']['per_sms_length_unicode'];
 
 // verify selected gateway_module exists
-$fn1 = $apps_path['plug'].'/gateway/'.$tmp_gateway_module.'/config.php';
-$fn2 = $apps_path['plug'].'/gateway/'.$tmp_gateway_module.'/fn.php';
-$gateway_module = 'smstools';
+$fn1 = $apps_path['plug'].'/gateway/'.$gateway_module.'/config.php';
+$fn2 = $apps_path['plug'].'/gateway/'.$gateway_module.'/fn.php';
 if (file_exists($fn1) && file_exists($fn2)) {
-	$gateway_module = $tmp_gateway_module;
+	$core_config['module']['gateway'] = $gateway_module;
 }
-$core_config['module']['gateway'] = $gateway_module;
 
 // verify selected themes_module exists
-$fn1 = $apps_path['plug'].'/themes/'.$tmp_themes_module.'/config.php';
-$fn2 = $apps_path['plug'].'/themes/'.$tmp_themes_module.'/fn.php';
-$themes_module = 'default';
+$fn1 = $apps_path['plug'].'/themes/'.$themes_module.'/config.php';
+$fn2 = $apps_path['plug'].'/themes/'.$themes_module.'/fn.php';
 if (file_exists($fn1) && file_exists($fn2)) {
-	$themes_module = $tmp_themes_module;
+	$core_config['module']['themes'] = $themes_module;
 }
-$core_config['module']['themes'] = $themes_module;
 
 // verify selected language_module exists
-$fn1 = $apps_path['plug'].'/language/'.$tmp_language_module.'/config.php';
-$fn2 = $apps_path['plug'].'/language/'.$tmp_language_module.'/fn.php';
-$language_module = 'en_US';
+$fn1 = $apps_path['plug'].'/language/'.$language_module.'/config.php';
+$fn2 = $apps_path['plug'].'/language/'.$language_module.'/fn.php';
 if (file_exists($fn1) && file_exists($fn2)) {
-	$language_module = $tmp_language_module;
+	$core_config['module']['language'] = $language_module;
 }
-$core_config['module']['language'] = $language_module;
 
 if (valid()) {
 	setuserlang($_SESSION['username']);
@@ -176,6 +170,12 @@ $core_config['datetime']['now_stamp']		= $datetime_now_stamp;
 $core_config['datetime']['format_stamp']	= $datetime_format_stamp;
 
 $nd 			= "<div class=required>(*)</div>";
+
+if (! ($core_config['module']['gateway'] && $core_config['module']['themes'] && $core_config['module']['language'])) {
+	logger_print("Fail to load gateway, themes or language module", 1, "init");
+	die(_('FATAL ERROR').' : '._('Fail to load gateway, themes or language module'));
+}
+
 // fixme anton - uncomment this if you want to know what are available in $core_config
 //print_r($core_config); die();
 

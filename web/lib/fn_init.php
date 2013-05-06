@@ -68,9 +68,11 @@ if (! function_exists('_')) {
 include_once $apps_path['libs']."/fn_dba.php";
 include_once $apps_path['libs']."/fn_user.php";
 include_once $apps_path['libs']."/fn_auth.php";
+include_once $apps_path['libs']."/fn_logger.php";
+include_once $apps_path['libs']."/fn_sendmail.php";
 
 /*
- end of init functions
+ * end of init functions
  */
 
 ?>
