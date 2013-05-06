@@ -175,7 +175,10 @@ function sendsmsd($single_queue='') {
 }
 
 function sendsms_process($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0,$queue_code='') {
-	global $core_config, $gateway_module;
+	global $core_config;
+
+	// get active gateway module
+	$gateway_module = gateway_get();
 
 	$user = $core_config['user'];
 	if ($uid && ($user['uid'] != $uid)) {
