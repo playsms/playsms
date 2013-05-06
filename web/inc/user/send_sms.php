@@ -78,7 +78,7 @@ switch ($op) {
 			<tbody>
 			<tr>
 				<td nowrap>
-					"._('To').":<br>
+					"._('Phonebook').":<br>
 					<select name=\"p_num_dump[]\" size=\"5\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\">$list_of_number</select>
 				</td>
 				<td width=10>&nbsp;</td>
@@ -96,7 +96,7 @@ switch ($op) {
 			</tr>
 			</tbody>
 			</table>
-			<p>"._('Or').": <input type=text size=20 maxlength=20 name=p_num_text value=\"$to\">
+			<p>"._('Send to').":<br><input type=text size=30 maxlength=250 name=p_num_text value=\"$to\">
 			$sms_template
 			<p>"._('Message').":
 			<br><textarea cols=\"40\" rows=\"4\" onFocus=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
@@ -117,9 +117,11 @@ switch ($op) {
 		echo $content;
 		break;
 	case "sendsmstopv_yes":
-		$sms_to = ( trim($_POST['p_num'][0]) ? $_POST['p_num'] : $_POST['p_num_text'] );
-		if (! is_array($sms_to)) {
+		if ($sms_to = trim($_POST['p_num_text'])) {
 			$sms_to = explode(',', $sms_to);
+		}
+		if ($_POST['p_num'][0]) {
+			$sms_to = array_merge($sms_to, $_POST['p_num']);
 		}
 		$msg_flash = $_POST['msg_flash'];
 		$msg_unicode = $_POST['msg_unicode'];
