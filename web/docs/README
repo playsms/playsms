@@ -13,22 +13,23 @@ group communication tools
 
 Feature Highlights
 ------------------
-- Multiple database engine supported (using PHP PEAR DB)
+- Multiple database engine supported
 - Send SMS to single mobile phone (web2mobile)
 - Send SMS broadcasted to a group of mobile phones (web2mobiles, bulk SMS)
 - Support sending text, flash and unicode message
 - Receive private SMS to Inbox and forward it to email (mobile2web)
 - Forward single SMS from mobile to a group of mobile phones (mobile2mobiles)
 - SMS autoreply, for easy autoreplying formatted incoming SMS
-- SMS board, forward received SMS to email, html and/or xml page
+- SMS board, forward received SMS to email, html page, json, xml and rss feeds
 - SMS command, execute server side shell script using SMS
 - SMS custom, forward incoming SMS to custom application, locally or external URL
-- SMS poll, manage polling system using SMS
+- SMS poll, manage polling system using SMS, exports graph, json and xml
 - SMS quiz, serve quizzes on SMS
 - SMS subscribe, manage user subscribes to a service using SMS
 - Create your own features, tools, themes and gateway modules as a plugin
 - Supports Gammu, Gnokii, Kannel, SMS Server Tools, Msgtoolbox, Nexmo and Clickatell
-- Simple webservices for sending SMS and retrieving delivery reports
+- Supports simulation tools to simulate incoming and outgoing SMS
+- Webservices for sending SMS, retrieving delivery reports, checking credits, etc
 - Long SMS support, length of text is configurable
 - Rate SMS by destination prefix
 - SMS credit system per user

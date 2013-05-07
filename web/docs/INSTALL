@@ -50,7 +50,8 @@ playSMS Web Interface using install script:
     - you must read and verify the install data presented when running
       script install-playsms-ubuntu.sh, and continue only when the data
       is correct
-    - please do a "ps ax" and see if playsmsd and sendsmsd are running
+    - after successful installation, please run command "ps ax" and see 
+      if playsmsd and sendsmsd are running
 
       # ps ax | grep sms
       2756 ?        S      0:00 /bin/bash ./playsmsd /var/www/playsms
@@ -60,7 +61,7 @@ playSMS Web Interface using install script:
     - consider to ask question in playSMS mailing list when you encountered any problem
     - if all seems to be correctly installed you may try to login from web
 
-      browse http://localhost/playsms/ and login using default administrator user
+      browse http://<your web server IP>/playsms/ and login using default administrator user
       username: admin
       password: admin
 
@@ -163,7 +164,8 @@ playSMS Web Interface step-by-step installation:
        # /usr/local/bin/playsmsd_start
 
     Note:
-    - please do a "ps ax" and see if playsmsd and sendsmsd are running
+    - after successful installation, please run command "ps ax" and see 
+      if playsmsd and sendsmsd are running
 
       # ps ax | grep sms
       2756 ?        S      0:00 /bin/bash ./playsmsd /var/www/playsms
@@ -173,7 +175,7 @@ playSMS Web Interface step-by-step installation:
     - consider to ask question in playSMS mailing list when you encountered any problem
     - if all seems to be correctly installed you may try to login from web
 
-      browse http://localhost/playsms/ and login using default administrator user
+      browse http://<your web server IP>/playsms/ and login using default administrator user
       username: admin
       password: admin
 
