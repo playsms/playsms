@@ -27,30 +27,73 @@ Minimum Required Server Administrator (or Developer)
 - Basic knowledges to operate and manage Linux (skill to navigate in console mode)
 
 
-INSTALLATION on Linux
----------------------
+INSTALLATION on Linux using install-script
+------------------------------------------
+playSMS Web Interface using install script:
+
+1.  Extract playSMS package somewhere (Usually in /usr/local/src).
+
+    # tar -zxf playsms-x.x.x.tar.gz -C /usr/local/src
+
+    Note: x.x.x may vary according to the package name you've download.
+          For example playsms-0.9.8.tar.gz
+
+2.  Run installer script. Be warned that the script have been tested only on 
+    Ubuntu server or desktop.
+
+    # cd /usr/local/src/playsms-x.x.x/contrib/installer
+
+    # ./install-playsms-ubuntu.sh
+
+    Note:
+    - you must read and verify the install data presented when running
+      script install-playsms-ubuntu.sh, and continue only when the data
+      is correct
+    - please do a "ps ax" and see if playsmsd and sendsmsd are running
+
+      # ps ax | grep sms
+      2756 ?        S      0:00 /bin/bash ./playsmsd /var/www/playsms
+      2759 ?        S      0:00 /bin/bash ./sendsmsd /var/www/playsms
+
+    - stop here and review your installation steps when playsmsd and sendsmsd aren't running
+    - consider to ask question in playSMS mailing list when you encountered any problem
+    - if all seems to be correctly installed you may try to login from web
+
+      browse http://localhost/playsms/ and login using default administrator user
+      username: admin
+      password: admin
+
+
+INSTALLATION on Linux step by step
+----------------------------------
 playSMS Web Interface step-by-step installation:
 
+1.  Extract playSMS package somewhere (Usually in /usr/local/src).
 
-1.  Create playSMS web root, spool and log and set ownership to user www-data or web server user
+    # tar -zxf playsms-x.x.x.tar.gz -C /usr/local/src
 
-    # mkdir -p /var/www/playsms /var/spool/playsms /var/log/playsms
+    Note: x.x.x may vary according to the package name you've download.
+          For example playsms-0.9.8.tar.gz
 
-    # chown -R www-data /var/www/playsms /var/spool/playsms /var/log/playsms
+
+2.  Create playSMS web root, spool and log and set ownership to user www-data or web server user
+
+    # mkdir -p /var/www/playsms /var/spool/playsms /var/log/playsms /var/lib/playsms
+
+    # chown -R www-data /var/www/playsms /var/spool/playsms /var/log/playsms /var/lib/playsms
 
     Note: There are Linux distributions using 'apache' as web server user instead of 'www-data'.
 
 
-2.  Extract playSMS package somewhere (Usually in /usr/local/src).
+3.  Copy files and directories inside 'web' directory to playSMS web root and set ownership again to
+    user www-data or web server user, just to make sure
 
-    # tar -zxf playsms-x.x.x.tar.gz -C /usr/local/src
+    # cp -rR /usr/local/src/playsms-x.x.x/web/* /var/www/playsms
 
-    # chown -R www-data /usr/local/src/playsms-x.x.x
-
-    Note: x.x.x may vary according to the package name you've download.
+    # chown -R www-data /var/www/playsms
 
 
-3.  Setup database (import database)
+4.  Setup database (import database)
 
     # mysqladmin -u root -p create playsms
 
@@ -59,14 +102,6 @@ playSMS Web Interface step-by-step installation:
     Note: You don't need to use MySQL root access nor this method to setup playSMS
     database, but this is beyond our scope. You should read MySQL manual for custom
     installation method or howto insert SQL statements into existing database.
-
-
-4.  Copy files and directories inside 'web' directory to playSMS web root and set ownership again to
-    user www-data or web server user
-
-    # cp -rR /usr/local/src/playsms-x.x.x/web/* /var/www/playsms
-
-    # chown -R www-data /var/www/playsms
 
 
 5.  Copy config-dist.php to config.php and then edit config.php
