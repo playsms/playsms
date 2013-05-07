@@ -4,7 +4,7 @@
 # ============
 
 
-# Please change install data below to suit your system configurations
+# Please change INSTALL DATA below to suit your system configurations
 
 # Please do not change variable name, you may change only the value
 
@@ -57,7 +57,13 @@ PATHSRC="/usr/local/src/playsms-0.9.8"
 
 echo
 echo "playSMS Install Script for Ubuntu"
-echo "================================="
+echo
+echo "=================================================================="
+echo "WARNING:"
+echo "- This install script WILL NOT upgrade currently installed playSMS"
+echo "- This install script WILL REMOVE your current playSMS database"
+echo "- Please backup before proceeding"
+echo "=================================================================="
 echo
 
 USERID=$(id -u)
@@ -68,7 +74,7 @@ if [ "$USERID" != "0" ]; then
 	exit 1
 fi
 
-echo "Install data:"
+echo "INSTALL DATA:"
 echo
 
 echo "MySQL username      = $DBUSER"
@@ -88,7 +94,7 @@ echo
 
 echo "=================================================================="
 echo
-echo "Please read and confirm install data above"
+echo "Please read and confirm INSTALL DATA above"
 echo
 confirm=
 while [ -z $confirm ]
@@ -110,7 +116,7 @@ sleep 1
 
 echo "Are you sure ?"
 echo
-echo "Please read and check again the install data above"
+echo "Please read and check again the INSTALL DATA above"
 echo
 confirm=
 while [ -z $confirm ]
