@@ -18,9 +18,8 @@ switch ($op) {
 		$actions_box = "
 			<table width=100% cellpadding=0 cellspacing=0 border=0>
 			<tbody><tr>
-				<td width=100% align=left>".$nav['form']."</td>
-				<td>&nbsp;</td>
 				<td><input type=button class=button value=\""._('Add group')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&route=group&op=add'\"></td>
+				<td width=100%>&nbsp;</td>
 				<td><input type=submit name=go value=\""._('Delete selection')."\" class=button onClick=\"return SureConfirm()\"/></td>
 			</tr></tbody>
 			</table>";
@@ -29,6 +28,7 @@ switch ($op) {
 			<h2>"._('Phonebook')."</h2>
 			<h3>"._('Group')."</h3>
 			<p>".$search['form']."</p>
+			<p>".$nav['form']."</p>
 			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=tools_phonebook&route=group&op=actions\" method=post>
 			".$actions_box."
 			<table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
