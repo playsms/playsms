@@ -4,9 +4,9 @@
 $core_config['db']['type'] = 'mysql';		// database engine
 $core_config['db']['host'] = 'localhost';	// database host/server
 $core_config['db']['port'] = '3306';		// database port
-$core_config['db']['user'] = 'root';		// database username
-$core_config['db']['pass'] = 'dbpassword';	// database password
-$core_config['db']['name'] = 'playsms';		// database name
+$core_config['db']['user'] = '#DBUSER#';	// database username
+$core_config['db']['pass'] = '#DBPASS#';	// database password
+$core_config['db']['name'] = '#DBNAME#';	// database name
 $core_config['db']['pref'] = 'playsms';		// table's prefix without trailing underscore
 
 // SMTP configuration
@@ -38,7 +38,7 @@ $core_config['logstate']	= 2;
 $core_config['logfile']		= 'playsms.log';
 
 // WARNING: will log almost anything but passwords
-$core_config['logaudit']	= false;
+$core_config['logaudit']	= true;
 
 // log audit file
 $core_config['logauditfile']	= 'audit.log';
