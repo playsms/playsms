@@ -4,11 +4,8 @@ if(!valid()){forcenoaccess();};
 
 switch ($op) {
 	case "sendsmstopv":
-		$do = trim($_REQUEST['do']);
-		if (($do == 'reply') || ($do == 'forward')) {
-			$to = $_REQUEST['to'];
-			$message = stripslashes($_REQUEST['message']);
-		}
+		$to = $_REQUEST['to'];
+		$message = stripslashes($_REQUEST['message']);
 
 		$rows = phonebook_getgroupbyuid($uid, "gp_name");
 		foreach ($rows as $key => $db_row) {
@@ -96,10 +93,10 @@ switch ($op) {
 			</tr>
 			</tbody>
 			</table>
-			<p>"._('Send to').":<br><input type=text size=30 maxlength=250 name=p_num_text value=\"$to\">
+			<p>"._('Send to').":<br><input type=text size=30 maxlength=250 name=p_num_text value=\"".$to."\">
 			$sms_template
 			<p>"._('Message').":
-			<br><textarea cols=\"40\" rows=\"4\" onFocus=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" name=\"message\" id=\"ta_sms_content\">$message</textarea>
+			<br><textarea cols=\"40\" rows=\"4\" onFocus=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" name=\"message\" id=\"ta_sms_content\">".$message."</textarea>
 			<br><input type=\"text\" id=txtcount name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
 			<input type=\"hidden\" value=\"".$core_config['user']['opt']['sms_footer_length']."\" name=\"footerlen\"> 
 			<input type=\"hidden\" value=\"".$core_config['user']['opt']['per_sms_length']."\" name=\"maxchar\"> 
@@ -117,16 +114,20 @@ switch ($op) {
 		echo $content;
 		break;
 	case "sendsmstopv_yes":
-		if ($sms_to = trim($_POST['p_num_text'])) {
+		if ($sms_to = trim($_REQUEST['p_num_text'])) {
 			$sms_to = explode(',', $sms_to);
 		}
-		if ($_POST['p_num'][0]) {
-			$sms_to = array_merge($sms_to, $_POST['p_num']);
+		if ($_REQUEST['p_num'][0]) {
+			if (is_array($sms_to) && $sms_to[0]) {
+				$sms_to = array_merge($sms_to, $_REQUEST['p_num']);
+			} else {
+				$sms_to = $_REQUEST['p_num'];
+			}
 		}
-		$msg_flash = $_POST['msg_flash'];
-		$msg_unicode = $_POST['msg_unicode'];
-		$message = $_POST['message'];
-		if ($sms_to && $message) {
+		$msg_flash = $_REQUEST['msg_flash'];
+		$msg_unicode = $_REQUEST['msg_unicode'];
+		$message = addslashes($_REQUEST['message']);
+		if ($sms_to[0] && $message) {
 			$sms_type = "text";
 			if ($msg_flash == "on") {
 				$sms_type = "flash";
