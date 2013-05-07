@@ -38,6 +38,7 @@ playSMS Web Interface using install script:
     Note: x.x.x may vary according to the package name you've download.
           For example playsms-0.9.8.tar.gz
 
+
 2.  Run installer script. Be warned that the script have been tested only on 
     Ubuntu server or desktop.
 
@@ -110,7 +111,7 @@ playSMS Web Interface step-by-step installation:
 
     # vi /var/www/playsms/config.php
 
-    Note: Please read and fill all fields with correct values.
+    Note: Please read and fill all fields with correct values
 
 
 6.  Enter daemon/linux directory, copy playsms, playsmsd* and sendsmsd*
@@ -122,7 +123,7 @@ playSMS Web Interface step-by-step installation:
     # cp /usr/local/src/playsms-x.x.x/daemon/linux/bin/* /usr/local/bin/
 
 
-7. Just to make sure every paths are correct, please edit /etc/default/playsms
+7.  Just to make sure every paths are correct, please edit /etc/default/playsms
 
     # vi /etc/default/playsms
 

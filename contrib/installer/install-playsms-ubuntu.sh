@@ -20,6 +20,9 @@ DBNAME="playsms"
 # Web server's user, for example apache2 user by default is www-data
 WEBSERVERUSER="www-data"
 
+# Web server's group, for example apache2 group by default is www-data
+WEBSERVERGROUP="www-data"
+
 # Path to playSMS web files
 PATHWEB="/var/www/playsms"
 
@@ -71,11 +74,15 @@ echo
 echo "MySQL username      = $DBUSER"
 echo "MySQL password      = $DBPASS"
 echo "MySQL database      = $DBNAME"
+echo
 echo "Web server user     = $WEBSERVERUSER"
+echo "Web server group    = $WEBSERVERGROUP"
+echo
 echo "playSMS web path    = $PATHWEB"
 echo "playSMS log path    = $PATHLOG"
 echo "playSMS lib path    = $PATHLIB"
 echo "playSMS spool path  = $PATHSPO"
+echo
 echo "playSMS source path = $PATHSRC"
 echo
 
@@ -134,11 +141,9 @@ set -e
 echo -n .
 cd $PATHSRC
 echo -n .
-cp -rR web/* $PATHWEB
-echo -n .
 mkdir -p $PATHWEB $PATHLOG $PATHLIB $PATHSPO
 echo -n .
-chown -R $WEBSERVERUSER $PATHWEB $PATHLOG $PATHLIB $PATHSPO
+cp -rR web/* $PATHWEB
 set +e
 echo -n .
 mysqladmin -u $DBUSER -p$DBPASS create $DBNAME >/dev/null 2>&1
@@ -153,6 +158,8 @@ echo -n .
 sed -i "s/#DBUSER#/$DBUSER/g" $PATHWEB/config.php
 echo -n .
 sed -i "s/#DBPASS#/$DBPASS/g" $PATHWEB/config.php
+echo -n .
+chown -R $WEBSERVERUSER.$WEBSERVERGROUP $PATHWEB $PATHLOG $PATHLIB $PATHSPO
 echo -n .
 mkdir -p /etc/default /usr/local/bin
 echo -n .
