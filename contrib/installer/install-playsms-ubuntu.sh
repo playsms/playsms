@@ -173,7 +173,9 @@ echo -n .
 update-rc.d playsms defaults >/dev/null 2>&1
 echo "end"
 echo
-/etc/init.d/playsms restart
+/etc/init.d/playsms stop >/dev/null 2>&1
+sleep 2
+/etc/init.d/playsms start
 echo
 
 echo "playSMS has been successfully installed on your system"
