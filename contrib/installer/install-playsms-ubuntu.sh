@@ -36,8 +36,8 @@ PATHLIB="/var/lib/playsms"
 PATHSPO="/var/spool/playsms"
 
 # Path to playSMS extracted source files
-#PATHSRC="/usr/local/src/playsms-0.9.8"
-PATHSRC="/home/anton/Data/git/playSMS"
+PATHSRC="/usr/local/src/playsms-0.9.8"
+
 
 # END OF INSTALL DATA
 # ===================
