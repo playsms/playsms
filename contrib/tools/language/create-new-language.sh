@@ -20,7 +20,8 @@ if [ "$ERR" = "1" ]; then
 	echo "Example : $0 /var/www/playsms id_ID"
 	echo
 	echo "Above example will create new file playsms-language-id_ID.tar.gz"
-	echo "containing new language files based on en_US"
+	echo "containing new language files based on en_US, if the language already"
+	echo "has some translations they will be preserved"
 	echo
 	exit 1
 fi
@@ -34,8 +35,12 @@ cd $PLAYSMS
 find . -type d -name "language" | sed -e "s/\/[^\/]*$//" > $TMPLANG
 for i in `cat $TMPLANG` ; do
 	mkdir -p $TMP/$i/language
-	cp -rR $i/language/messages.pot $TMP/$i/language/
-	cp -rR $i/language/en_US $TMP/$i/language/$LANG
+	if [ -e $i/language/$LANG ] ; then
+		cp -rR $i/language/$LANG $TMP/$i/language/$LANG
+	else
+		cp -rR $i/language/en_US $TMP/$i/language/$LANG
+		cp -rR $i/language/messages.pot $TMP/$i/language/
+	fi
 done
 rm $TMPLANG
 

@@ -28,6 +28,8 @@ IMPORTANT: If you want, there are a couple of script to help you with the transl
 backup-language-files.sh (creates a backup of existant language files)
 create-new-language.sh (creates a tgz that contains all the files to translate
 	the whole playsms interface)
+restore-language-files.sh (restores the language files (po) from the backup or newly
+	created files
 
 UPDATE THE TRANSLATIONS
 -----------------------
