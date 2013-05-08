@@ -37,6 +37,6 @@ else
 	exit 1
 fi
 
-tar -xvzf $LANGFILE --strip-components 1 -C $PLAYSMS/plugin/
+tar -xvzf $LANGFILE --strip-components 2 -C $PLAYSMS/plugin/
 
 exit 0
