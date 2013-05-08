@@ -27,11 +27,11 @@ if [ "$ERR" = "1" ]; then
 fi
 
 CWD=$(pwd)
-
+ls -1
 if [ -e playsms-language-$LANG.tar.gz ] ; then
 	LANGFILE=playsms-language-$LANG.tar.gz
-elif [ -e playsms-language-$LANG.bak.tar.gz ] ; then
-	LANGFILE=playsms-language-$LANG.bak.tar.gz
+elif [ -e playsms-language-$LANG-backup.tar.gz ] ; then
+	LANGFILE=playsms-language-$LANG-backup.tar.gz
 else
 	echo "We couldn't find the language file"
 	exit 1

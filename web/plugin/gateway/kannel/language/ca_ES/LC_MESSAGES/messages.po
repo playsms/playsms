@@ -1,0 +1,114 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Active"
+msgstr ""
+
+msgid "Additional URL parameter"
+msgstr ""
+
+msgid "Bearerbox hostname or IP"
+msgstr ""
+
+msgid "Delivered to SMSC"
+msgstr ""
+
+msgid "Delivered to phone"
+msgstr ""
+
+msgid "Delivery Report"
+msgstr ""
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Fill to change the password"
+msgstr ""
+
+msgid "Gateway has been activated"
+msgstr ""
+
+msgid "Gateway module configurations has been saved"
+msgstr ""
+
+msgid "Gateway name"
+msgstr ""
+
+msgid "HTTP Kannel admin password"
+msgstr ""
+
+msgid "HTTP Kannel admin port"
+msgstr ""
+
+msgid "Inactive"
+msgstr ""
+
+msgid "Kannel admin password"
+msgstr ""
+
+msgid "Kannel admin port"
+msgstr ""
+
+msgid "Kannel configuration file"
+msgstr ""
+
+msgid "Kannel specific"
+msgstr ""
+
+msgid "Kannel status"
+msgstr ""
+
+msgid "Manage kannel"
+msgstr "Manage kannel"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+
+msgid "Module sender ID"
+msgstr ""
+
+msgid "Module timezone"
+msgstr ""
+
+msgid "No changes has been made"
+msgstr ""
+
+msgid "Non-Delivered to SMSC"
+msgstr ""
+
+msgid "Non-Delivered to phone"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Queued on SMSC"
+msgstr ""
+
+msgid "Restart Kannel"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Send SMS port"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "URL to playSMS, empty it to set it to base URL"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "click here to activate"
+msgstr ""
+
+msgid "playSMS web URL"
+msgstr ""

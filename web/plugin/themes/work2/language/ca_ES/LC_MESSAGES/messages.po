@@ -1,0 +1,45 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Email"
+msgstr ""
+
+msgid "Forgot password"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "Logged in"
+msgstr "Logged in"
+
+msgid "Login"
+msgstr ""
+
+msgid "Logout"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Recover password"
+msgstr ""
+
+msgid "Register an account"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Username"
+msgstr ""

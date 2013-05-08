@@ -1,0 +1,24 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Active"
+msgstr ""
+
+msgid "Gateway has been activated"
+msgstr ""
+
+msgid "Gateway name"
+msgstr ""
+
+msgid "Inactive"
+msgstr ""
+
+msgid "Manage smstools"
+msgstr "Manage smstools"
+
+msgid "click here to activate"
+msgstr ""
