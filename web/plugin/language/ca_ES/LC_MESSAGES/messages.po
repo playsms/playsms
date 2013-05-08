@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-10-11 22:14+0700\n"
-"PO-Revision-Date: 2013-01-22 11:36+0100\n"
+"PO-Revision-Date: 2013-05-08 15:00+0200\n"
 "Last-Translator: Joan <aseques@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -102,7 +102,15 @@ msgid "City"
 msgstr "Ciutat"
 
 msgid "Comma seperated"
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 msgstr ""
+=======
+msgstr "Separat per comes"
+>>>>>>> Stashed changes
+=======
+msgstr "Separat per comes"
+>>>>>>> Stashed changes
 
 msgid "Content"
 msgstr "Contingut"
@@ -177,10 +185,23 @@ msgid "Enable public registration"
 msgstr "Habilitar registre públic"
 
 msgid "Enable webservices"
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 msgstr ""
 
 msgid "Export"
 msgstr ""
+=======
+=======
+>>>>>>> Stashed changes
+msgstr "Habilitar webservices"
+
+msgid "Export"
+msgstr "Exportar"
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
 msgid "F.A.Q"
 msgstr "P.M.F"
@@ -224,13 +245,18 @@ msgstr "Servei"
 msgid "Fill to change password for username"
 msgstr "Omplir per a canviar la contrasenya de l'usuari"
 
-#, fuzzy
 msgid "Fill to update"
-msgstr "Última actualització"
+msgstr "Omplir per actualitzar"
+
+msgid "Footer"
+msgstr "Firma del SMS"
+<<<<<<< Updated upstream
 
 #, fuzzy
 msgid "Footer"
 msgstr "Firma del SMS"
+=======
+>>>>>>> Stashed changes
 
 msgid "Forward PV to email"
 msgstr "Enviar PV al correu"
@@ -377,7 +403,7 @@ msgid "New account registration"
 msgstr "Registrar un nou compte"
 
 msgid "New webservices token"
-msgstr ""
+msgstr "Nou token de webservices"
 
 msgid "No changes made"
 msgstr "No s'han realitzat canvis"
@@ -439,9 +465,9 @@ msgstr "Les preferències han estat guardades"
 msgid "Preferences has been saved and password updated"
 msgstr "Les preferències s'han guardat i la contrasenya s'ha actualitzat"
 
-#, fuzzy
 msgid "Preferences has been saved and webservices token updated"
-msgstr "Les preferències s'han guardat i la contrasenya s'ha actualitzat"
+msgstr ""
+"Les preferències s'han guardat i el token de webservices s'ha actualitzat"
 
 msgid "Prefix or country code"
 msgstr "Prefix o codi de país"
@@ -452,7 +478,6 @@ msgstr "Registre públic desactivat"
 msgid "Re-Type Password"
 msgstr "Reescriviu la contrasenya"
 
-#, fuzzy
 msgid "Re-type password"
 msgstr "Reescriviu la contrasenya"
 
@@ -487,7 +512,7 @@ msgid "Save template"
 msgstr "Guardar Plantilla de Missatge"
 
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 msgid "Select action"
 msgstr "Seleccioni una acció"
@@ -561,9 +586,19 @@ msgstr "Usuari"
 msgid "User already exists"
 msgstr "L'usuari ja existeix"
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #, fuzzy
 msgid "User does not exists"
 msgstr "L'usuari ja existeix"
+=======
+msgid "User does not exists"
+msgstr "L'usuari no existeix"
+>>>>>>> Stashed changes
+=======
+msgid "User does not exists"
+msgstr "L'usuari no existeix"
+>>>>>>> Stashed changes
 
 msgid "User has been added"
 msgstr "L'usuari ha estat afegit"
@@ -605,15 +640,26 @@ msgid "Webapp token"
 msgstr "Token webapp"
 
 msgid "Webservices"
-msgstr ""
+msgstr "Webservices"
 
+msgid "Webservices IP range"
+msgstr "Rang de IPs per webservices"
+
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #, fuzzy
 msgid "Webservices IP range"
 msgstr "Token webapp"
+=======
+msgid "Webservices token"
+msgstr "Token de webservices"
+>>>>>>> Stashed changes
 
 #, fuzzy
+=======
+>>>>>>> Stashed changes
 msgid "Webservices token"
-msgstr "Token webapp"
+msgstr "Token de webservices"
 
 msgid "Website email"
 msgstr "Correu electrònic de contacte"
@@ -664,9 +710,19 @@ msgstr "Correu electrònic"
 msgid "failed"
 msgstr "fallit"
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #, fuzzy
 msgid "forward"
 msgstr "Reenviar de"
+=======
+msgid "forward"
+msgstr "Reenviar"
+>>>>>>> Stashed changes
+=======
+msgid "forward"
+msgstr "Reenviar"
+>>>>>>> Stashed changes
 
 msgid "from"
 msgstr "de"
@@ -692,7 +748,13 @@ msgstr "número"
 msgid "queued"
 msgstr "encuat"
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #, fuzzy
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 msgid "reply"
 msgstr "Respondre"
 
@@ -713,3 +775,4 @@ msgstr "usuari"
 
 msgid "yes"
 msgstr "si"
+

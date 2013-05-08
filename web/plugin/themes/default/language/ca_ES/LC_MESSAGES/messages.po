@@ -1,0 +1,55 @@
+# Joan <aseques@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Joan <aseques@gmail.com>\n"
+"PO-Revision-Date: 2013-05-08 15:31+0200\n"
+"Project-Id-Version: \n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.4\n"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Forgot password"
+msgstr "He oblidat la contrasenya"
+
+msgid "Home"
+msgstr "Inici"
+
+msgid "Logged in"
+msgstr "Heu entrat"
+
+msgid "Login"
+msgstr "Entrar"
+
+msgid "Logout"
+msgstr "Sortir"
+
+msgid "Mobile"
+msgstr "Mòbil"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Password"
+msgstr "Contrasenya"
+
+msgid "Recover password"
+msgstr "Recuperar contrasenya"
+
+msgid "Register an account"
+msgstr "Registrar un compte"
+
+msgid "Status"
+msgstr "Estat"
+
+msgid "Username"
+msgstr "Usuari"
+

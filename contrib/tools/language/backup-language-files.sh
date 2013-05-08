@@ -20,7 +20,7 @@ if [ "$ERR" = "1" ]; then
 	echo "Example : $0 /var/www/playsms id_ID"
 	echo
 	echo "Above example will backup language files id_ID and copy them to an archive file"
-	echo "playsms-language-id_ID.bak.tar.gz"
+	echo "playsms-language-id_ID-backup.tar.gz"
 	echo
 	echo "Please note that this script will only backup .pot and .po files"
 	echo "You will need to generate the .mo files again later"
