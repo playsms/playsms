@@ -287,7 +287,7 @@ function dba_add($db_table, $items) {
 	return $ret;
 }
 
-function dba_update($db_table, $items, $condition='') {
+function dba_update($db_table, $items, $condition='', $operand='AND') {
 	$ret = false;
 	global $core_config;
 	if (is_array($items)) {
@@ -298,7 +298,7 @@ function dba_update($db_table, $items, $condition='') {
 			$sets = substr($sets, 0, -1);
 			if (is_array($condition)) {
 				foreach ($condition as $key => $val){ 
-					$q_condition .= " AND ".$key."='".$val."'";
+					$q_condition .= " ".$operand." ".$key."='".$val."'";
 				}
 				if ($q_condition) {
 					$q_condition = " WHERE 1=1 ".$q_condition;
@@ -313,11 +313,11 @@ function dba_update($db_table, $items, $condition='') {
 	return $ret;
 }
 
-function dba_remove($db_table, $condition='') {
+function dba_remove($db_table, $condition='', $operand='AND') {
 	$ret = false;
 	if (is_array($condition)) {
 		foreach ($condition as $key => $val){ 
-			$q_condition .= "AND ".$key."='".$val."' ";
+			$q_condition .= $operand." ".$key."='".$val."' ";
 		}
 		if ($q_condition) {
 			$q_condition = "WHERE ".substr($q_condition, 3);
@@ -330,14 +330,14 @@ function dba_remove($db_table, $condition='') {
 	return $ret;
 }
 
-function dba_isavail($db_table, $conditions='') {
+function dba_isavail($db_table, $conditions='', $operand='OR') {
 	$ret = false;
 	if (is_array($conditions)) {
 		foreach ($conditions as $key => $val) {
-			$q_condition .= "OR ".$key."='".$val."' ";
+			$q_condition .= $operand." ".$key."='".$val."' ";
 		}
 		if ($q_condition) {
-			$q_condition = "WHERE ".substr($q_condition, 2);
+			$q_condition = "WHERE ".substr($q_condition, 3);
 		}
 	}
 	$db_query = "SELECT * FROM ".$db_table." ".$q_condition." LIMIT 1";
@@ -350,8 +350,8 @@ function dba_isavail($db_table, $conditions='') {
 	return $ret;
 }
 
-function dba_isexists($db_table, $conditions='') {
-	$ret = ( dba_isavail($db_table, $conditions) ? false : true );
+function dba_isexists($db_table, $conditions='', $operand='OR') {
+	$ret = ( dba_isavail($db_table, $conditions, $operand) ? false : true );
 	return $ret;
 }
 
