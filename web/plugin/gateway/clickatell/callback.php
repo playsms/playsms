@@ -37,8 +37,6 @@ if ($cb_timestamp && $cb_from && $cb_text)
 
 	// collected:
 	// $sms_datetime, $sms_sender, $message, $sms_receiver
-	$sms_sender = addslashes($sms_sender);
-	$message = addslashes($message);
 	setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receiver);
 }
 

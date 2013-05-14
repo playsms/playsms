@@ -126,7 +126,7 @@ switch ($op) {
 		}
 		$msg_flash = $_REQUEST['msg_flash'];
 		$msg_unicode = $_REQUEST['msg_unicode'];
-		$message = addslashes($_REQUEST['message']);
+		$message = $_REQUEST['message'];
 		if ($sms_to[0] && $message) {
 			$sms_type = "text";
 			if ($msg_flash == "on") {

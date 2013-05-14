@@ -26,8 +26,6 @@ logger_print("addr:".$remote_addr." host:".$remote_host." t:".$t." q:".$q." a:".
 if ($t && $q && $a) {
 	// collected:
 	// $sms_datetime, $sms_sender, $message, $sms_receiver
-	$q = addslashes($q);
-	$a = addslashes($a);
 	setsmsincomingaction($t, $q, $a, $Q);
 }
 ?>

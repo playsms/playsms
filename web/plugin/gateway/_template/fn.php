@@ -52,6 +52,7 @@ function template_hook_getsmsinbox() {
 	// global $tmpl_param;
 	// $sms_datetime	: incoming sms datetime
 	// $message		: incoming sms message
+	// if $sms_sender and $message are not coming from $_REQUEST then you need to addslashes it
 	// $sms_sender = addslashes($sms_sender);
 	// $message = addslashes($message);
 	// setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver)
