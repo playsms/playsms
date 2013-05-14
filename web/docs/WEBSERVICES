@@ -56,6 +56,8 @@ ERR 101 : type of action not valid
 ERR 102 : one or more field empty
 ERR 103 : not enough credit for this operation
 ERR 104 : webservice token is not available
+ERR 105 : webservice token not enable for this user
+ERR 106 : webservice token not allowed from this IP address
 ERR 200 : send private failed
 ERR 201 : destination number or message is empty
 ERR 300 : send broadcast failed

@@ -65,10 +65,35 @@ if ($ta) {
 			break;
 		case "GET_TOKEN":
 			if (validatelogin($u,$p)) {
-				if ($token = user_getfieldbyusername($u,'token')) {
-					$ret = "OK ".$token;
+				$user = user_getdatabyusername($u);
+				if ($user['uid']) {
+					$continue = false;
+					$ret = "ERR 106";
+					$ip = explode(',', $user['webservices_ip']);
+					if (is_array($ip)) {
+						foreach ($ip as $key => $net) {
+							if (core_net_match($net, $_SERVER['REMOTE_ADDR'])) {
+								$continue = true;
+							}
+						}
+					}
+					if ($continue) {
+						$continue = false;
+						if ($token = $user['token']) {
+							$continue = true;
+						} else {
+							$ret = "ERR 104";
+						}
+					}
+					if ($continue) {
+						if ($user['enable_webservices']) {
+							$ret = "OK ".$token;
+						} else {
+							$ret = "ERR 105";
+						}
+					}
 				} else {
-					$ret = "ERR 104";
+					$ret = "ERR 100";
 				}
 			} else {
 				$ret = "ERR 100";
