@@ -204,12 +204,13 @@ function sms_subscribe_hook_interceptincomingsms($sms_datetime, $sms_sender, $me
 		for ($i=2;$i<count($msg);$i++) {
 			$message .= $msg[$i].' ';
 		}
-	} else if (substr($msg[0],0,1)=='#') {
-		$keyword = str_replace('#', '', strtoupper($msg[0]));
+	} else if (substr($bc,0,1)=='#') {
+		$keyword = str_replace('#', '', $bc);
 		for ($i=1;$i<count($msg);$i++) {
 			$message .= $msg[$i].' ';
 		}
 	}
+	$keyword = trim($keyword);
 	$message = trim($message);
 	$hooked = false;
 	if ($keyword && $message) {
@@ -219,11 +220,11 @@ function sms_subscribe_hook_interceptincomingsms($sms_datetime, $sms_sender, $me
 			$c_uid = mobile2uid($sms_sender);
 			$c_username = uid2username($c_uid);
 			if ($c_uid && $c_username) {
-				$db_query = "SELECT subscribe_keyword FROM " . _DB_PREF_ . "_featureSubscribe WHERE uid='".$c_uid."'";
-				$list = dba_search(_DB_PREF_.'_featureSubscribe', 'subscribe_keyword', array('uid' => $c_uid));
-				if (strtoupper($list[0]['subscribe_keyword'])==$keyword) {
+				$list = dba_search(_DB_PREF_.'_featureSubscribe', 'subscribe_id, forward_param', array('uid' => $c_uid, 'subscribe_keyword' => $keyword));
+				if ($list[0]['subscribe_id']) {
+					$forward_param = ( $list[0]['forward_param'] ? $list[0]['forward_param'] : 'BC' );
 					$sms_datetime = core_display_datetime($sms_datetime);
-					logger_print("interceptincomingsms dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." uid:".$c_uid." username:".$c_username." bc:".$bc." keyword:".$keyword." message:".$message, 3, "sms_subscribe");
+					logger_print("interceptincomingsms dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." uid:".$c_uid." username:".$c_username." bc:".$bc." keyword:".$keyword." message:".$message." fwd:".$forward_param, 3, "sms_subscribe");
 					$hooked = true;
 				}
 			}
@@ -233,7 +234,7 @@ function sms_subscribe_hook_interceptincomingsms($sms_datetime, $sms_sender, $me
 	if ($hooked) {
 		$ret['modified'] = true;
 		$ret['hooked'] = true;
-		$ret['param']['message'] = $keyword.' BC '.$message;
+		$ret['param']['message'] = $keyword.' '.$forward_param.' '.$message;
 	}
 	return $ret;
 }
