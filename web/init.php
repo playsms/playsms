@@ -32,10 +32,6 @@ define('_SMTP_PASS_', $core_config['smtp']['pass']);
 define('_SMTP_HOST_', $core_config['smtp']['host']);
 define('_SMTP_PORT_', $core_config['smtp']['port']);
 
-// too many codes using $_REQUEST, until we revise them all we use this as a workaround
-empty($_REQUEST);
-$_REQUEST = array_merge($_GET, $_POST);
-
 $c_script_filename = __FILE__;
 $c_php_self = $_SERVER['PHP_SELF'];
 $c_http_host = $_SERVER['HTTP_HOST'];
@@ -71,11 +67,13 @@ include_once $apps_path['libs']."/fn_init.php";
 
 // if magic quotes gps is set to Off (which is recommended) then addslashes all requests
 if (! get_magic_quotes_gpc()) {
-	foreach($_GET as $key => $val){$_GET[$key]=pl_addslashes($_GET[$key]);}
-	foreach($_POST as $key => $val){$_POST[$key]=pl_addslashes($_POST[$key]);}
-	foreach($_COOKIE as $key => $val){$_COOKIE[$key]=pl_addslashes($_COOKIE[$key]);}
-	foreach($_SERVER as $key => $val){$_SERVER[$key]=pl_addslashes($_SERVER[$key]);}
+	foreach($_GET as $key => $val){$_GET[$key]=pl_addslashes($val);}
+	foreach($_POST as $key => $val){$_POST[$key]=pl_addslashes($val);}
 }
+
+// too many codes using $_REQUEST, until we revise them all we use this as a workaround
+empty($_REQUEST);
+$_REQUEST = array_merge($_GET, $_POST);
 
 // plugins category
 $plugins_category = array('tools','feature','gateway','themes','language');
