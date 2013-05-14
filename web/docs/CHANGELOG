@@ -1,4 +1,4 @@
-Version 0.9.8 - 130507
+Version 0.9.8 - 130515
 - MAJOR: webservice now using hash token instead of username password (aseques)
 - MAJOR: change the login method to use PHP session (anton)
 - MAJOR: change the way to show $error_string, now using PHP session (anton)
@@ -53,7 +53,6 @@ Version 0.9.8 - 130507
 - fix to allow space and minus in destination number or mobile (anton)
 - fix language tools, use --clear-fuzzy and several other fixes (anton)
 - fix #23 flash not working, wrong variable $msg_type should be $sms_type (p-walker)
-- fix phonebook_exim.php export and import should check uid (anton)
 - fix bugs on various plugins (anton)
 
 Version 0.9.7.1 - 120905
