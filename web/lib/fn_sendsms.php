@@ -265,7 +265,7 @@ function sendsms_process($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$
 	return $ret;
 }
 
-function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0) {
+function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0,$nofooter=false) {
 	global $apps_path, $core_config;
 	$user = $core_config['user'];
 	if ($username && ($user['username'] != $username)) {
@@ -274,6 +274,9 @@ function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 
 	$uid = $user['uid'];
 	$sms_sender = sendsms_get_sender($username);
+	if ($nofooter) {
+		$user['footer'] = '';
+	}
 	$sms_footer = $user['footer'];
 	$max_length = ( $unicode ?  $user['opt']['max_sms_length_unicode'] : $user['opt']['max_sms_length'] );
 	if (strlen($message)>$max_length) {
@@ -327,7 +330,7 @@ function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0) {
 	return array($ok, $to, $smslog_id, $queue);
 }
 
-function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
+function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0,$nofooter=false) {
 	global $apps_path, $core_config;
 	$user = $core_config['user'];
 	if ($username && ($user['username'] != $username)) {
@@ -336,6 +339,9 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0) {
 
 	$uid = $user['uid'];
 	$sms_sender = sendsms_get_sender($username);
+	if ($nofooter) {
+		$user['footer'] = '';
+	}
 	$sms_footer = $user['footer'];
 	$max_length = ( $unicode ?  $user['opt']['max_sms_length_unicode'] : $user['opt']['max_sms_length'] );
 	if (strlen($message)>$max_length) {
