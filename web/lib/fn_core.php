@@ -295,4 +295,26 @@ function core_detect_unicode($text) {
 	return $unicode;
 }
 
+
+/**
+ * Function: array_to_xml()
+ * ref: http://stackoverflow.com/a/3289602 (onokazu)
+ *
+ * This function returns an xml format of an array
+ * Usage: core_array_to_xml(ARRAY, SimpleXMLElement OBJECT)
+ */
+function core_array_to_xml($arr=array(), SimpleXMLElement $xml) {
+	foreach ($arr as $k => $v) {
+		if (is_numeric($k)) {
+			$k = 'item';
+		}
+		if (is_array($v)) {
+			core_array_to_xml($v, $xml->addChild($k));
+		} else {
+			$xml->addChild($k, $v);
+		}
+	}
+	return $xml;
+}
+
 ?>

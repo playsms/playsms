@@ -137,6 +137,11 @@ if ($ta) {
 
 if ($format=='JSON') {
 	echo json_encode($json);
+} else if ($format=='XML') {
+	$xml = core_array_to_xml($json, new SimpleXMLElement('<response/>'));
+	ob_end_clean();
+	header('Content-Type: text/xml');
+	echo $xml->asXML();
 } else {
 	echo $ret;
 }
