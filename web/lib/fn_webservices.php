@@ -12,7 +12,6 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
 				$ret .= "OK ".$smslog_id[$i].",".$queue_code[$i].",".$to[$i]."\n";
 				$json['data'][$i]['status'] = 'OK';
 				$json['data'][$i]['error'] = '0';
-				$json['data'][$i]['ok'] = $ok[$i];
 				$json['data'][$i]['slid'] = $smslog_id[$i];
 				$json['data'][$i]['queue'] = $queue_code[$i];
 				$json['data'][$i]['to'] = $to[$i];
@@ -20,7 +19,6 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
 				$ret .= "ERR 103 ".$arr_to[$i]."\n";
 				$json['data'][$i]['status'] = 'ERR';
 				$json['data'][$i]['error'] = '103';
-				$json['data'][$i]['ok'] = $ok[$i];
 				$json['data'][$i]['slid'] = '';
 				$json['data'][$i]['queue'] = '';
 				$json['data'][$i]['to'] = $to[$i];
@@ -28,7 +26,6 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
 				$ret .= "ERR 200 ".$arr_to[$i]."\n";
 				$json['data'][$i]['status'] = 'ERR';
 				$json['data'][$i]['error'] = '200';
-				$json['data'][$i]['ok'] = $ok[$i];
 				$json['data'][$i]['slid'] = '';
 				$json['data'][$i]['queue'] = '';
 				$json['data'][$i]['to'] = $to[$i];
@@ -146,8 +143,8 @@ function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',
 		// if DS available by checking content
 		if ($content) {
 			$ret = $content;
-			$json['status'] = 'OK';
-			$json['error'] = '0';
+			unset($json['status']);
+			unset($json['error']);
 			$json['multi'] = true;
 		} else {
 			if (dba_search(_DB_PREF_.'_tblSMSOutgoing_queue', 'id', array('queue_code' => $queue_code, 'flag' => 0))) {
