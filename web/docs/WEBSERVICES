@@ -20,6 +20,8 @@ ta	: type of action
 	    sms_poll 	: poll results from plugin sms_poll
 	    sms_board 	: board results from plugin sms_board
 
+format	: output format, format=json for JSON output
+
 to	: destination numbers (for ta=pv) or destination group code (for ta=bc)
           multiple destination numbers (seperated by comma) can be used when ta=pv
           
@@ -141,7 +143,7 @@ EXAMPLE
 
    Explanation:
 
-   playSMS webservices in x.com with type o action (ta) ds (Delivery status)
+   playSMS webservices in x.com with type of action (ta) ds (Delivery status)
    accessed by user or apps using a webservices token (h) with query date/time (dt) 2013
    the service will be looking for delivery statuses on year 2013
 
@@ -156,13 +158,30 @@ EXAMPLE
 
    Explanation:
 
-   playSMS webservices in x.com with type o action (ta) get_token (get webservice token)
+   playSMS webservices in x.com with type of action (ta) get_token (get webservice token)
    accessed by user or apps using a username (u) and password (p)
 
    if succeeded returns text with format: OK <webservice token>
    OK 6d1bb53b49a986d2eae6185a3d0c8c61
 
    if error occured returns one of the ERROR RETURNS mentioned above
+
+4. Example webservice URL:
+   http://x.com/index.php?app=webservices&h=a45a02791b2fe2fedb078c39fd83637a&ta=pv&to=0987654321
+   &msg=test+only&format=json
+
+   Explanation:
+
+   playSMS webservices in x.com with type of action (ta) pv (send SMS) accessed by
+   user or apps using a webservices token (h) with destination number (to) 0987654321
+   message (msg) 'test only' and expected output format is JSON format (format=json)
+   if you want plain text format then remove the format=json param
+
+   if succeeded returns text with JSON format:
+   {"status":"OK","error":"0","slid":0,"queue":"afb5f34575e30ec4efe4471cf5d1bee4",
+   "to":"0987654321"}
+
+   if error occured returns one of the ERROR RETURNS mentioned above, also in JSON format
 
 
 --

@@ -10,6 +10,9 @@ $p	= trim($_REQUEST['p']);
 $ta	= trim(strtoupper($_REQUEST['ta']));
 $op	= trim(strtoupper($_REQUEST['op']));
 
+// output format
+$format = trim(strtoupper($_REQUEST['format']));
+
 // send SMS specifics
 $to	= trim(strtoupper($_REQUEST['to']));
 $msg	= trim($_REQUEST['msg']);
@@ -25,42 +28,47 @@ $slid	= trim($_REQUEST['slid']);
 $c	= trim($_REQUEST['c']);
 $last	= trim($_REQUEST['last']);
 
-// default error return
-$ret = "ERR 102";
-
 if ($op) { $ta = $op; };
 if ($ta) {
 	switch ($ta) {
 		case "PV":
 			if ($c_uid = validatetoken($h)) {
 				$u = uid2username($c_uid);
-				$ret = webservices_pv($u,$to,$msg,$type,$unicode);
+				list($ret,$json) = webservices_pv($u,$to,$msg,$type,$unicode);
 			} else {
 				$ret = "ERR 100";
+				$json['status'] = 'ERR';
+				$json['error'] = '100';
 			}
 			break;
 		case "BC":
 			if ($c_uid = validatetoken($h)) {
 				$u = uid2username($c_uid);
-				$ret = webservices_bc($u,$to,$msg,$type,$unicode);
+				list($ret,$json) = webservices_bc($u,$to,$msg,$type,$unicode);
 			} else {
 				$ret = "ERR 100";
+				$json['status'] = 'ERR';
+				$json['error'] = '100';
 			}
 			break;
 		case "DS":
 			if ($c_uid = validatetoken($h)) {
 				$u = uid2username($c_uid);
-				$ret = webservices_ds($u,$queue,$src,$dst,$dt,$slid,$c,$last);
+				list($ret,$json) = webservices_ds($u,$queue,$src,$dst,$dt,$slid,$c,$last);
 			} else {
 				$ret = "ERR 100";
+				$json['status'] = 'ERR';
+				$json['error'] = '100';
 			}
 			break;
 		case "CR":
 			if ($c_uid = validatetoken($h)) {
 				$u = uid2username($c_uid);
-				$ret = webservices_cr($u);
+				list($ret,$json) = webservices_cr($u);
 			} else {
 				$ret = "ERR 100";
+				$json['status'] = 'ERR';
+				$json['error'] = '100';
 			}
 			break;
 		case "GET_TOKEN":
@@ -69,6 +77,8 @@ if ($ta) {
 				if ($user['uid']) {
 					$continue = false;
 					$ret = "ERR 106";
+					$json['status'] = 'ERR';
+					$json['error'] = '106';
 					$ip = explode(',', $user['webservices_ip']);
 					if (is_array($ip)) {
 						foreach ($ip as $key => $net) {
@@ -83,28 +93,52 @@ if ($ta) {
 							$continue = true;
 						} else {
 							$ret = "ERR 104";
+							$json['status'] = 'ERR';
+							$json['error'] = '104';
 						}
 					}
 					if ($continue) {
 						if ($user['enable_webservices']) {
 							$ret = "OK ".$token;
+							$json['status'] = 'OK';
+							$json['error'] = '0';
+							$json['token'] = $token;
 						} else {
 							$ret = "ERR 105";
+							$json['status'] = 'ERR';
+							$json['error'] = '105';
 						}
 					}
 				} else {
 					$ret = "ERR 100";
+					$json['status'] = 'ERR';
+					$json['error'] = '100';
 				}
 			} else {
 				$ret = "ERR 100";
+				$json['status'] = 'ERR';
+				$json['error'] = '100';
 			}
 			break;
 		default:
-			// output do not require valid login
-			$ret = webservices_output($ta,$_REQUEST);
+			if ($ta) {
+				// output do not require valid login
+				$ret = webservices_output($ta,$_REQUEST);
+				echo $ret;
+				exit();
+			} else {
+				// default error return
+				$ret = "ERR 102";
+				$json['status'] = 'ERR';
+				$json['error'] = '102';
+			}
 	}
 }
 
-echo $ret;
+if ($format=='JSON') {
+	echo json_encode($json);
+} else {
+	echo $ret;
+}
 
 ?>

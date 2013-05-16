@@ -1,4 +1,4 @@
-Version 0.9.8 - 130515
+Version 0.9.8 - 130517
 - MAJOR: webservice now using hash token instead of username password (aseques)
 - MAJOR: change the login method to use PHP session (anton)
 - MAJOR: change the way to show $error_string, now using PHP session (anton)
@@ -8,6 +8,7 @@ Version 0.9.8 - 130515
 - MAJOR: $arr_menu rename to $menu_config, its global just like $core_config (anton)
 - remove option for multilogin, it will always be multi-login since using session (anton)
 - remove old page_welcome pages, now in inc/user/page_welcome.php and configurable (anton)
+- add json output to webservices with param format=json (anton)
 - add installer script for playSMS on Ubuntu (anton)
 - add new type of action get_token to get webservices token from supplied username (anton)
 - add new dba functions dba_search() dba_count() dba_update() dba_add() etc (anton)
