@@ -20,7 +20,9 @@ ta	: type of action
 	    sms_poll 	: poll results from plugin sms_poll
 	    sms_board 	: board results from plugin sms_board
 
-format	: output format, format=json for JSON output
+format	: output format selection
+          format=json for JSON output
+          format=xml for XML output
 
 to	: destination numbers (for ta=pv) or destination group code (for ta=bc)
           multiple destination numbers (seperated by comma) can be used when ta=pv
