@@ -98,6 +98,7 @@ PROTOCOL
     notes	: slid retrieves only 1 delivery report at particular SMS log ID
 		  c retrieves as many as c value
 		  last retrieves from last SMS log ID
+		  if SMS log ID is empty then you can use queue to list it
 
 4. User credits
     ta		: cr
