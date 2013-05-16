@@ -23,6 +23,8 @@ ta	: type of action
 format	: output format selection
           format=json for JSON output
           format=xml for XML output
+          format=serialize for PHP serialize output
+          format=plain or format is empty for plain text old style output
 
 to	: destination numbers (for ta=pv) or destination group code (for ta=bc)
           multiple destination numbers (seperated by comma) can be used when ta=pv
