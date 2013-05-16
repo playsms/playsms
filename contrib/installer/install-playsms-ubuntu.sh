@@ -55,6 +55,7 @@ PATHSRC="/usr/local/src/playsms-0.9.8"
 
 
 
+clear
 echo
 echo "playSMS Install Script for Ubuntu"
 echo
