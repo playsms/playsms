@@ -89,10 +89,11 @@ function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',
 			$smslog_id = $db_row['smslog_id'];
 			$p_src = $db_row['p_src'];
 			$p_dst = $db_row['p_dst'];
+			$p_msg = str_replace('"', "'", $db_row['p_msg']);
 			$p_datetime = $db_row['p_datetime'];
 			$p_update = $db_row['p_update'];
 			$p_status = $db_row['p_status'];
-			$content .= "\"$smslog_id\";\"$p_src\";\"$p_dst\";\"$p_datetime\";\"$p_update\";\"$p_status\";\n";
+			$content .= "\"$smslog_id\";\"$p_src\";\"$p_dst\";\"$p_msg\";\"$p_datetime\";\"$p_update\";\"$p_status\"\n";
 		}
 		// if DS available by checking content
 		if ($content) {
