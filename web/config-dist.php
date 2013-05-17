@@ -25,10 +25,10 @@ $core_config['smtp']['port'] = '25';
 // on production level you should turn off PHP error reporting (set to 0), by default its on
 //error_reporting(0);
 //error_reporting(E_ALL ^ (E_NOTICE | E_WARNING | E_DEPRECATED));
-error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
+error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING & ~E_STRICT);
 
 // logs directories
-$apps_path['logs']	= '/var/log/playsms';
+$apps_path['logs']	= '#PATHLOG#';
 
 // log level: 0=disabled, 1=info, 2=warning, 3=debug, 4=verbose
 // WARNING: log level 3 and 4 will also save sensitif information such as password for used gateway

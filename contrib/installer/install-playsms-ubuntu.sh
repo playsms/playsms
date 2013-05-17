@@ -1,47 +1,21 @@
 #!/bin/bash
 
-# INSTALL DATA
-# ============
+INSTALLCONF="./install.conf"
 
+if [ -n "$1" ]; then
+	if [ -e "$1" ]; then
+		INSTALLCONF=$1
+	fi
+fi
 
-# Please change INSTALL DATA below to suit your system configurations
+if [ ! -e "$INSTALLCONF" ]; then
+	echo
+	echo "ERROR: unable to find install.conf"
+	echo
+	exit 1
+fi
 
-# Please do not change variable name, you may change only the value
-
-# MySQL database username
-DBUSER="root"
-
-# MySQL database password
-DBPASS="password"
-
-# MySQL database name
-DBNAME="playsms"
-
-# Web server's user, for example apache2 user by default is www-data
-WEBSERVERUSER="www-data"
-
-# Web server's group, for example apache2 group by default is www-data
-WEBSERVERGROUP="www-data"
-
-# Path to playSMS web files
-PATHWEB="/var/www/playsms"
-
-# Path to playSMS log files
-PATHLOG="/var/log/playsms"
-
-# Path to playSMS lib files, used by feature SMS command
-PATHLIB="/var/lib/playsms"
-
-# Path to playSMS spool files, used by gnokii gateway
-PATHSPO="/var/spool/playsms"
-
-# Path to playSMS extracted source files
-PATHSRC="/usr/local/src/playsms-0.9.8"
-
-
-# END OF INSTALL DATA
-# ===================
-
+. $INSTALLCONF
 
 
 
@@ -71,7 +45,6 @@ USERID=$(id -u)
 if [ "$USERID" != "0" ]; then
 	echo "ERROR: You need to run this script as root"
 	echo
-	
 	exit 1
 fi
 
@@ -85,12 +58,13 @@ echo
 echo "Web server user     = $WEBSERVERUSER"
 echo "Web server group    = $WEBSERVERGROUP"
 echo
+echo "playSMS source path = $PATHSRC"
+echo
 echo "playSMS web path    = $PATHWEB"
 echo "playSMS log path    = $PATHLOG"
 echo "playSMS lib path    = $PATHLIB"
 echo "playSMS spool path  = $PATHSPO"
-echo
-echo "playSMS source path = $PATHSRC"
+echo "playSMS bin path    = $PATHBIN"
 echo
 
 echo "=================================================================="
@@ -166,13 +140,25 @@ sed -i "s/#DBUSER#/$DBUSER/g" $PATHWEB/config.php
 echo -n .
 sed -i "s/#DBPASS#/$DBPASS/g" $PATHWEB/config.php
 echo -n .
+sed -i "s|#PATHLOG#|$PATHLOG|g" $PATHWEB/config.php
+echo -n .
 chown -R $WEBSERVERUSER.$WEBSERVERGROUP $PATHWEB $PATHLOG $PATHLIB $PATHSPO
 echo -n .
-mkdir -p /etc/default /usr/local/bin
+mkdir -p /etc/default $PATHBIN
 echo -n .
-cp daemon/linux/etc/playsms /etc/default/
+cp daemon/linux/etc/playsms-install-script /etc/default/playsms
 echo -n .
-cp daemon/linux/bin/* /usr/local/bin/
+sed -i "s|#PATHWEB#|$PATHWEB|g" /etc/default/playsms
+echo -n .
+sed -i "s|#PATHBIN#|$PATHBIN|g" /etc/default/playsms
+echo -n .
+sed -i "s|#PATHLOG#|$PATHLOG|g" /etc/default/playsms
+echo -n .
+sed -i "s|#PATHSPO#|$PATHSPO|g" /etc/default/playsms
+echo -n .
+sed -i "s|#PATHLIB#|$PATHLIB|g" /etc/default/playsms
+echo -n .
+cp daemon/linux/bin/* $PATHBIN
 echo -n .
 cp daemon/linux/etc/playsms.init-ubuntu /etc/init.d/playsms
 set +e

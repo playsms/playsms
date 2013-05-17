@@ -2,3 +2,4 @@ PLAYSMS_PATH=/var/www/playsms
 PLAYSMS_BIN=/usr/local/bin
 PLAYSMS_LOG=/var/log/playsms
 PLAYSMS_SPOOL=/var/spool/playsms
+PLAYSMS_LIB=/var/lib/playsms
