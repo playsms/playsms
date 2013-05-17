@@ -38,8 +38,14 @@ playSMS Web Interface using install script:
     Note: x.x.x may vary according to the package name you've download.
           For example playsms-0.9.8.tar.gz
 
+2.  Edit install.conf, read it, understand it and make changes to suit your
+    system configuration
 
-2.  Run installer script. Be warned that the script have been tested only on 
+    # cd /usr/local/src/playsms-x.x.x/contrib/installer
+
+    # vi install.conf
+
+3.  Run installer script. Be warned that the script have been tested only on 
     Ubuntu server or desktop.
 
     # cd /usr/local/src/playsms-x.x.x/contrib/installer
@@ -50,7 +56,8 @@ playSMS Web Interface using install script:
     - you must read and verify the install data presented when running
       script install-playsms-ubuntu.sh, and continue only when the data
       is correct
-    - after successful installation, please run command "ps ax" and see 
+    - edit install.conf again if you think your install data is wrong
+    - after successful installation, please run command "ps ax" and see
       if playsmsd and sendsmsd are running
 
       # ps ax | grep sms
@@ -77,7 +84,6 @@ playSMS Web Interface step-by-step installation:
     Note: x.x.x may vary according to the package name you've download.
           For example playsms-0.9.8.tar.gz
 
-
 2.  Create playSMS web root, spool and log and set ownership to user www-data or web server user
 
     # mkdir -p /var/www/playsms /var/spool/playsms /var/log/playsms /var/lib/playsms
@@ -86,14 +92,12 @@ playSMS Web Interface step-by-step installation:
 
     Note: There are Linux distributions using 'apache' as web server user instead of 'www-data'.
 
-
 3.  Copy files and directories inside 'web' directory to playSMS web root and set ownership again to
     user www-data or web server user, just to make sure
 
     # cp -rR /usr/local/src/playsms-x.x.x/web/* /var/www/playsms
 
     # chown -R www-data /var/www/playsms
-
 
 4.  Setup database (import database)
 
@@ -105,7 +109,6 @@ playSMS Web Interface step-by-step installation:
     database, but this is beyond our scope. You should read MySQL manual for custom
     installation method or howto insert SQL statements into existing database.
 
-
 5.  Copy config-dist.php to config.php and then edit config.php
 
     # cp /var/www/playsms/config-dist.php /var/www/playsms/config.php
@@ -113,7 +116,6 @@ playSMS Web Interface step-by-step installation:
     # vi /var/www/playsms/config.php
 
     Note: Please read and fill all fields with correct values
-
 
 6.  Enter daemon/linux directory, copy playsms, playsmsd* and sendsmsd*
 
@@ -123,7 +125,6 @@ playSMS Web Interface step-by-step installation:
 
     # cp /usr/local/src/playsms-x.x.x/daemon/linux/bin/* /usr/local/bin/
 
-
 7.  Just to make sure every paths are correct, please edit /etc/default/playsms
 
     # vi /etc/default/playsms
@@ -131,7 +132,6 @@ playSMS Web Interface step-by-step installation:
     Note: Make sure that PLAYSMS_PATH is pointing to a correct playSMS installation path (in this example
     to /var/www/playsms), and also make sure that PLAYSMS_BIN is pointing to a correct playSMS daemon 
     scripts path (in this example to /usr/local/bin)
-
 
 8.  There are two choices to get playSMS daemon starts automatically on every boot. You need to choose one
 
@@ -151,7 +151,6 @@ playSMS Web Interface step-by-step installation:
        will start automatically on boot.
 
     Note: Just like any other steps before, you need 'root' access to do this.
-
 
 9. Start playsmsd manually, no need to reboot your OS
 
