@@ -7,7 +7,6 @@ $content = "
     <p>
     <input type=button value=\""._('About playSMS')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=page_welcome&get=1')\" class=\"button\" />
     <input type=button value=\""._('Changelog')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=page_welcome&get=2')\" class=\"button\" />
-    <input type=button value=\""._('Installation Guide')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=page_welcome&get=3')\" class=\"button\" />
     <input type=button value=\""._('F.A.Q')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=page_welcome&get=4')\" class=\"button\" />
     <input type=button value=\""._('License')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=page_welcome&get=5')\" class=\"button\" />
     <input type=button value=\""._('Webservices')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=page_welcome&get=6')\" class=\"button\" />
