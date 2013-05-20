@@ -65,19 +65,25 @@ function sms_custom_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$custo
 		$custom_url = str_replace("{SMSDATETIME}",urlencode($sms_datetime),$custom_url);
 		$custom_url = str_replace("{SMSSENDER}",urlencode($sms_sender),$custom_url);
 		$custom_url = str_replace("{CUSTOMKEYWORD}",urlencode($custom_keyword),$custom_url);
-        $custom_url = str_replace("{CUSTOMPARAM}",urlencode($custom_param),$custom_url);
+		$custom_url = str_replace("{CUSTOMPARAM}",urlencode($custom_param),$custom_url);
 		$custom_url = str_replace("{CUSTOMRAW}",urlencode($raw_message),$custom_url);
 		logger_print("custom_url:".$custom_url, 3, "sms custom");
 		
-		$opts = array('http' =>
-            array(
-                'method'  => 'POST',
-                'header'  => "Content-type: application/x-www-form-urlencoded\r\n"
-            )
-        );
-        $context  = stream_context_create($opts);
+		$parsed_url = parse_url($custom_url);
 		
-		$returns = file_get_contents($custom_url, false, $context);
+		$opts = array('http' =>
+				array(
+					'method'  => 'POST',
+					'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+					'content' => $parsed_url['query']
+				)
+		);
+		
+		$context  = stream_context_create($opts);
+		
+		$server_url = explode('?', $custom_url);
+		
+		$returns = file_get_contents($server_url[0], false, $context);
 		if ($custom_return_as_reply == 1) {
 			$unicode = core_detect_unicode($returns);
 			$returns = addslashes($returns);
