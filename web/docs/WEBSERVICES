@@ -40,6 +40,7 @@ dt	: send SMS date/time
 slid	: SMS Log ID
 last 	: last SMS log ID (this number not included on result)
 c	: number of delivery status that will be retrieved
+kwd	: keyword
 
 
 ERROR RETURNS
@@ -96,7 +97,7 @@ PROTOCOL
     returns	: error returns
     notes	: to parameter is group code
 
-3. Delivery status
+3. Outgoing SMS and delivery status
     ta		: ds
     parameters	: h, queue, src, dst, dt, slid, c, last
     returns	: CSV format:
@@ -106,22 +107,30 @@ PROTOCOL
 		  last retrieves from last SMS log ID
 		  if SMS log ID is empty then you can use queue to list it
 
-4. User credits
+4. Incoming SMS
+    ta		: in
+    parameters	: h, src, dst, kwd, dt, c, last
+    returns	: CSV format:
+		  "ID";"From";"To";"Keyword";"Message";"Date/Time";"Status"
+    notes	: c retrieves as many as c value
+		  last retrieves from last ID
+
+5. User credits
     ta		: cr
     parameters	: h
     returns	: user's credit
 
-5. Get token
+6. Get token
     ta		: get_token
     parameters	: u, p
     returns	: webservice token
 
-6. Get SMS poll results
+7. Get SMS poll results
     ta		: sms_poll
     parameters	: <please read in SMS poll menu>
     returns	: <please read in SMS poll menu>
 
-7. Get SMS board results
+8. Get SMS board results
     ta		: sms_board
     parameters	: <please read in SMS board menu>
     returns	: <please read in SMS board menu>
@@ -171,8 +180,8 @@ EXAMPLE
    if error occured returns one of the ERROR RETURNS mentioned above
 
 4. Example webservice URL:
-   http://x.com/index.php?app=webservices&h=a45a02791b2fe2fedb078c39fd83637a&ta=pv&to=0987654321
-   &msg=test+only&format=json
+   http://x.com/index.php?app=webservices&h=a45a02791b2fe2fedb078c39fd83637a&ta=pv
+   &to=0987654321&msg=test+only&format=json
 
    Explanation:
 
@@ -186,6 +195,34 @@ EXAMPLE
    "to":"0987654321"}
 
    if error occured returns one of the ERROR RETURNS mentioned above, also in JSON format
+
+5. Example webservice URL:
+   http://x.com/index.php?app=webservices&h=482ac0069592c647289e52dfef88be68&ta=in
+   &kwd=IDOL&format=xml
+
+   Explanation:
+
+   playSMS webservices in x.com with type of action (ta) in (incoming SMS) accessed by
+   user or apps using a webservices token (h) with keyword (kwd) IDOL and expected
+   output format is in XML format (format=xml)
+
+   if succeeded returns text with XML format:
+   <response>
+      <data>
+         <item>
+            <id>2</id>
+            <src>+629876543210</src>
+            <dst>1234</dst>
+            <kwd>IDOL</kwd>
+            <msg>A</msg>
+            <dt>2013-05-20 12:40:38</dt>
+            <status>1</status>
+         </item>
+      </data>
+      <multi>1</multi>
+   </response>
+
+   if error occured returns one of the ERROR RETURNS mentioned above, also in XML format
 
 
 --
