@@ -116,6 +116,8 @@ switch ($op) {
 			$edit_command_exec = str_replace("|", "", $edit_command_exec);
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureCommand SET c_timestamp='" . mktime() . "',command_exec='$edit_command_exec',command_return_as_reply='$edit_command_return_as_reply' WHERE command_keyword='$edit_command_keyword'";
 			if (@dba_affected_rows($db_query)) {
+				$c_dir = $sms_command_bin."/".$uid;
+				@shell_exec("mkdir -p \"".$c_dir."\"");
 				$_SESSION['error_string'] = _('SMS command has been saved') . " (" . _('keyword') . ": $edit_command_keyword)";
 			} else {
 				$_SESSION['error_string'] = _('Fail to save SMS command') . " (" . _('keyword') . ": $edit_command_keyword)";
@@ -178,6 +180,8 @@ switch ($op) {
 			if (checkavailablekeyword($add_command_keyword)) {
 				$db_query = "INSERT INTO " . _DB_PREF_ . "_featureCommand (uid,command_keyword,command_exec,command_return_as_reply) VALUES ('$uid','$add_command_keyword','$add_command_exec','$add_command_return_as_reply')";
 				if ($new_uid = @dba_insert_id($db_query)) {
+					$c_dir = $sms_command_bin."/".$uid;
+					@shell_exec("mkdir -p \"".$c_dir."\"");
 					$_SESSION['error_string'] = _('SMS command has been added') . " (" . _('keyword') . " $add_command_keyword)";
 				} else {
 					$_SESSION['error_string'] = _('Fail to add SMS command') . " (" . _('keyword') . ": $add_command_keyword)";
