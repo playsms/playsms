@@ -1,5 +1,0 @@
-msgid "Simulator"
-msgstr ""
-
-msgid "Submit"
-msgstr ""
