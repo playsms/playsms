@@ -8,19 +8,26 @@ help()
 	printf "\t-t (text of the message)\n"
 }
 
+
+VERB=0
+
 #We read the parameters via getops
-while getopts ":n:t:h" opt; do
+while getopts ":n:t:vh" opt; do
   case $opt in
     n)
-      #Passem el host de destí
-      IP=$OPTARG;
+      #Phone number
+      NUMBER=$OPTARG;
       ;;
-    d)
-      #Pings que enviem i segons que esperema (tolerancia)
-      TOL=$OPTARG;
+    t)
+      #Text of the sms we will send
+      TEXT=$OPTARG;
+      ;;
+    v)
+      #Enable the verbose mode
+      VERB=1
       ;;
     h)
-      #Ajuda
+      #Help
       help;
       exit 0;
       ;;
@@ -37,14 +44,33 @@ while getopts ":n:t:h" opt; do
   esac
 done
 
-if [ ! -e $0.config ] ; then
+verb () { 
+	if [ $VERB -eq 1 ]; then 
+		echo "$@" 
+	fi 
+} 
+
+DIR=`dirname $0`
+if [ ! -e $DIR/$0.config ] ; then
 	printf "ERROR: The config file $0.config is missing, you can use $0.config.dist as"
 	printf "a base to configure it\n"
 else
-	. $0.config
+	. $DIR/$0.config
 fi
 
 
-if [ -z "$TOKEN" ] ; then 
-	echo "There are missing variables in the config"
+if [ -z "$TOKEN" -o -z "$SITE" -o -z "$USERNAME" ] ; then 
+	echo "ERROR: There are missing variables in the config"
+	exit 1
 fi
+
+if [ -z "$NUMBER" -o -z "$TEXT" ] ; then
+	echo "ERROR: There are missing variables from the command line"
+	exit 1
+fi
+
+TEXT=`echo -n $TEXT | tr ' ' '+'`
+TEXT=`echo -n $TEXT |recode html..ascii`
+#Constructing the URL for the message
+URL="${SITE}/index.php?app=webservices&ta=pv&u=$USERNAME&h=$TOKEN&to=$NUMBER&msg=$TEXT"
+verb $URL
