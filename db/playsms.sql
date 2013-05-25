@@ -1312,6 +1312,7 @@ CREATE TABLE `playsms_tblUser` (
   `replace_zero` varchar(5) NOT NULL DEFAULT '',
   `plus_sign_remove` tinyint(4) NOT NULL DEFAULT '1',
   `plus_sign_add` tinyint(4) NOT NULL DEFAULT '0',
+  `send_as_unicode` tinyint(4) NOT NULL DEFAULT '0',
   `local_length` tinyint(4) NOT NULL DEFAULT '9',
   `register_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `lastupdate_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',

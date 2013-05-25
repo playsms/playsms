@@ -37,6 +37,7 @@ switch ($op) {
 			$replace_zero = $c_user[0]['replace_zero'];
 			$plus_sign_remove = $c_user[0]['plus_sign_remove'];
 			$plus_sign_add = $c_user[0]['plus_sign_add'];
+			$send_as_unicode = $c_user[0]['send_as_unicode'];
 			$credit = rate_getusercredit($c_username);
 		} else {
 			$_SESSION['error_string'] = _('User does not exists').' ('._('username').': '.$uname.')';
@@ -122,6 +123,17 @@ switch ($op) {
 		$option_plus_sign_add = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
 		$option_plus_sign_add .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
 
+		// select send_as_unicode
+		if ($send_as_unicode) {
+			$selected_1 = 'selected';
+			$selected_0 = '';
+		} else {
+			$selected_1 = '';
+			$selected_0 = 'selected';
+		}
+		$option_send_as_unicode = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
+		$option_send_as_unicode .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
+
 		// get country option
 		$option_country = "<option value=\"0\">--" . _('Please select') . "--</option>\n";
 		$result = dba_search(_DB_PREF_.'_tblUser_country', '*', '', '', array('ORDER BY' => 'country_name'));
@@ -203,6 +215,7 @@ switch ($op) {
 			<tr><td width=200>" . _('Prefix or country code') . "</td><td>:</td><td><input type=text size=5 maxlength=5 name='up_replace_zero' value=\"$replace_zero\"> (" . _('Replace prefix 0 or padding local numbers') . ")</td></tr>
 			<tr><td width=200>" . _('Auto remove plus sign') . "</td><td>:</td><td><select name='up_plus_sign_remove'>" . $option_plus_sign_remove . "</select></td></tr>
 			<tr><td width=200>" . _('Always add plus sign') . "</td><td>:</td><td><select name='up_plus_sign_add'>" . $option_plus_sign_add . "</select></td></tr>
+			<tr><td width=200>" . _('Always choose to send as unicode') . "</td><td>:</td><td><select name='up_send_as_unicode'>" . $option_send_as_unicode . "</select></td></tr>
 			<tr><td colspan=3>&nbsp;</td></tr>
 			<tr><td colspan=3><hr></td></tr>
 			<tr><td width=200>
@@ -220,7 +233,7 @@ switch ($op) {
 			'name', 'email', 'address', 'city', 'state', 'country', 'mobile',
 			'footer', 'password', 'zipcode', 'datetime_timezone', 'language_module',
 			'fwd_to_inbox', 'fwd_to_email', 'fwd_to_mobile', 'local_length',
-			'replace_zero', 'plus_sign_remove', 'plus_sign_add',
+			'replace_zero', 'plus_sign_remove', 'plus_sign_add', 'send_as_unicode',
 			'new_token', 'enable_webservices', 'webservices_ip'
 		);
 		if (! $core_config['denycustomsender']) {

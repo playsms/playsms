@@ -135,6 +135,7 @@ Array
             [replace_zero] => 
             [plus_sign_remove] => 1
             [plus_sign_add] => 0
+            [send_as_unicode] => 0
             [local_length] => 9
             [register_datetime] => 0000-00-00 00:00:00
             [lastupdate_datetime] => 2013-04-24 15:25:32

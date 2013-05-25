@@ -42,6 +42,10 @@ switch ($op) {
 			}
 		}
 
+		if ($core_config['user']['send_as_unicode']) {
+			$option_msg_unicode = 'checked';
+		}
+
 		$sms_from = sendsms_get_sender($username);
 
 		$sms_footer = $core_config['user']['footer'];
@@ -104,7 +108,7 @@ switch ($op) {
 			<input type=\"hidden\" value=\"".$core_config['user']['opt']['max_sms_length']."\" name=\"hiddcount\"> 
 			<input type=\"hidden\" value=\"".$core_config['user']['opt']['max_sms_length_unicode']."\" name=\"hiddcount_unicode\"> 
 			<p><input type=checkbox name=msg_flash> "._('Send as flash message')."
-			<p><input type=checkbox name=msg_unicode onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\"> "._('Send as unicode message (http://www.unicode.org)')."
+			<p><input type=checkbox name=msg_unicode ".$option_msg_unicode." onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\"> "._('Send as unicode message (http://www.unicode.org)')."
 			<p><input type=submit class=button value='"._('Send')."' onClick=\"selectAllOptions(this.form['p_num[]'])\"> 
 			</form>";
 		$content .= "
