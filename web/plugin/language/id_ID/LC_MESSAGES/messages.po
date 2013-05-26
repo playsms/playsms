@@ -59,6 +59,9 @@ msgstr "Semua SMS keluar"
 msgid "Always add plus sign"
 msgstr "Selalu menambahkan tanda plus"
 
+msgid "Always choose to send as unicode"
+msgstr ""
+
 msgid "Application information"
 msgstr "Informasi aplikasi"
 
@@ -573,7 +576,8 @@ msgid "Username should be at least 3 characters"
 msgstr "Nama pengguna minimal 3 karakter"
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
-msgstr "Karakter valid untuk nama pengguna adalah huruf, angka, titik dan garis bawah"
+msgstr ""
+"Karakter valid untuk nama pengguna adalah huruf, angka, titik dan garis bawah"
 
 msgid "View"
 msgstr "Tampil"

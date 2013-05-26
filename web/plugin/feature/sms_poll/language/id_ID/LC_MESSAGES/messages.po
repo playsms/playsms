@@ -17,8 +17,11 @@ msgstr "Tambah layanan poling SMS"
 msgid "Add choice to this poll"
 msgstr "Tambah pilihan ke dalam poling SMS ini"
 
-msgid "Are you sure you want to delete SMS poll with all its choices and votes ?"
-msgstr "Anda yakin ingin menghapus layanan poling SMS beserta semua pilihan dan suaranya ?"
+msgid ""
+"Are you sure you want to delete SMS poll with all its choices and votes ?"
+msgstr ""
+"Anda yakin ingin menghapus layanan poling SMS beserta semua pilihan dan "
+"suaranya ?"
 
 msgid "Are you sure you want to delete choice ?"
 msgstr "Anda yakin ingin menghapus pilihan?"

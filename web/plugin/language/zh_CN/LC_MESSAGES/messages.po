@@ -59,6 +59,9 @@ msgstr "全部发出的短信"
 msgid "Always add plus sign"
 msgstr ""
 
+msgid "Always choose to send as unicode"
+msgstr ""
+
 msgid "Application information"
 msgstr "应用信息"
 

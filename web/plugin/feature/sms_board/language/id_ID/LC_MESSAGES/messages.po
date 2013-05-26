@@ -45,7 +45,8 @@ msgid "Keyword"
 msgstr "Kata kunci"
 
 msgid "Leave them empty if you dont know what to fill in these boxes below"
-msgstr "Kosongkan kotak-kotak di bawah ini bila tidak tahu apa yang harus diisi"
+msgstr ""
+"Kosongkan kotak-kotak di bawah ini bila tidak tahu apa yang harus diisi"
 
 msgid "MBOX output"
 msgstr "Keluaran MBOX"

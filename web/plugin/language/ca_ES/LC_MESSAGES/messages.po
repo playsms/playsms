@@ -68,6 +68,9 @@ msgstr "Tots els SMS de sortida"
 msgid "Always add plus sign"
 msgstr "Sempre afegir el signe més"
 
+msgid "Always choose to send as unicode"
+msgstr ""
+
 msgid "Application information"
 msgstr "Informació del programa"
 
@@ -705,4 +708,3 @@ msgstr "usuari"
 
 msgid "yes"
 msgstr "si"
-

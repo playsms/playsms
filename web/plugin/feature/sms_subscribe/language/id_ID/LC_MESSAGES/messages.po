@@ -102,7 +102,8 @@ msgid "SMS messages list for keyword"
 msgstr "Kata kunci untuk daftar pesan SMS"
 
 msgid "SMS subscribe already exists, reserved or use by other feature"
-msgstr "Layanan SMS berlangganan sudah ada, dipesa, atau digunakan oleh fitur lain"
+msgstr ""
+"Layanan SMS berlangganan sudah ada, dipesa, atau digunakan oleh fitur lain"
 
 msgid "SMS subscribe has been added"
 msgstr "SMS berlangganan telah ditambahkan"

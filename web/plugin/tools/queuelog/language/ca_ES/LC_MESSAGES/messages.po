@@ -37,4 +37,3 @@ msgstr "Usuari"
 
 msgid "View SMS queue"
 msgstr "Veure la cua de SMS"
-

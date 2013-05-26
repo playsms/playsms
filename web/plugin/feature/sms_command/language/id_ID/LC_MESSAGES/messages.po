@@ -84,7 +84,8 @@ msgid "will be replaced by command keyword"
 msgstr "akan digantikan oleh kata kunci perintah"
 
 msgid "will be replaced by command parameter passed to server from SMS"
-msgstr "akan diganti dengan parameter perintah yang dikirimkan ke server dari SMS"
+msgstr ""
+"akan diganti dengan parameter perintah yang dikirimkan ke server dari SMS"
 
 msgid "will be replaced by sender number"
 msgstr "akan digantikan oleh nomor pengirim"

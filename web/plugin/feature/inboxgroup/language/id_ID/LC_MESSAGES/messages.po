@@ -138,16 +138,22 @@ msgid "Number"
 msgstr "Nomor"
 
 msgid "Press submit button to add selected users to catch-all list"
-msgstr "Tekan tombol kirim untuk menambahkan pengguna yang dipilih ke daftar kotak masuk"
+msgstr ""
+"Tekan tombol kirim untuk menambahkan pengguna yang dipilih ke daftar kotak "
+"masuk"
 
 msgid "Press submit button to add selected users to member list"
-msgstr "Tekan tombol kirim untuk menambahkan pengguna yang dipilih ke daftar anggota"
+msgstr ""
+"Tekan tombol kirim untuk menambahkan pengguna yang dipilih ke daftar anggota"
 
 msgid "Press submit button to remove selected catchall from catch-all list"
-msgstr "Tekan tombol kirim untuk menghapus kotak tangkap semua dari daftar kotak tangkap semua"
+msgstr ""
+"Tekan tombol kirim untuk menghapus kotak tangkap semua dari daftar kotak "
+"tangkap semua"
 
 msgid "Press submit button to remove selected members from member list"
-msgstr "Tekan tombol kirim untuk menghapus anggota yang dipilih dari daftar anggota"
+msgstr ""
+"Tekan tombol kirim untuk menghapus anggota yang dipilih dari daftar anggota"
 
 msgid "Receiver number"
 msgstr "Penerima nomor"
@@ -156,7 +162,8 @@ msgid "Receiver number does not exists"
 msgstr "Nomor penerima tidak ada"
 
 msgid "Restrict sender to regular members or catch-all members only"
-msgstr "Batasi pengirim ke anggota biasa atau hanya anggota kotak tangkap semua"
+msgstr ""
+"Batasi pengirim ke anggota biasa atau hanya anggota kotak tangkap semua"
 
 msgid "Save"
 msgstr "Simpan"
