@@ -104,7 +104,7 @@ switch ($op) {
 		$edit_web_title = $_POST['edit_web_title'];
 		$edit_email_service = $_POST['edit_email_service'];
 		$edit_email_footer = $_POST['edit_email_footer'];
-		$edit_gateway_number = $_POST['edit_gateway_number'];
+		$edit_gateway_number = core_sanitize_sender($_POST['edit_gateway_number']);
 		$edit_gateway_timezone = $_POST['edit_gateway_timezone'];
 		$edit_default_rate = $_POST['edit_default_rate'];
 		$edit_gateway_module = $_POST['edit_gateway_module'];

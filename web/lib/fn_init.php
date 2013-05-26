@@ -70,6 +70,7 @@ include_once $apps_path['libs']."/fn_user.php";
 include_once $apps_path['libs']."/fn_auth.php";
 include_once $apps_path['libs']."/fn_logger.php";
 include_once $apps_path['libs']."/fn_sendmail.php";
+include_once $apps_path['libs']."/fn_core.php";
 
 /*
  * end of init functions

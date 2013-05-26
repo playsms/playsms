@@ -13,7 +13,7 @@ if (valid()) {
 	$username = $_SESSION['username'];
 	$core_config['user'] = user_getdatabyusername($username);;
 	$uid = $core_config['user']['uid'];
-	$sender = $core_config['user']['sender'];
+	$sender = core_sanitize_sender($core_config['user']['sender']);
 	$footer = $core_config['user']['footer'];
 	$mobile = $core_config['user']['mobile'];
 	$email = $core_config['user']['email'];

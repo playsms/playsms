@@ -93,7 +93,7 @@ if (isset($db_row)) {
 	$web_title = $db_row['cfg_web_title'];
 	$email_service = $db_row['cfg_email_service'];
 	$email_footer = $db_row['cfg_email_footer'];
-	$gateway_number = $db_row['cfg_gateway_number'];
+	$gateway_number = core_sanitize_sender($db_row['cfg_gateway_number']);
 	$gateway_timezone = $db_row['cfg_datetime_timezone'];
 	$gateway_module = ( $db_row['cfg_gateway_module'] ? $db_row['cfg_gateway_module'] : 'smstools' );
 	$themes_module = ( $db_row['cfg_themes_module'] ? $db_row['cfg_themes_module'] : 'default' );

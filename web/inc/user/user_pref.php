@@ -26,7 +26,7 @@ switch ($op) {
 			$state = $c_user[0]['state'];
 			$country = $c_user[0]['country'];
 			$zipcode = $c_user[0]['zipcode'];
-			$sender = $c_user[0]['sender'];
+			$sender = core_sanitize_sender($c_user[0]['sender']);
 			$footer = $c_user[0]['footer'];
 			$datetime_timezone = $c_user[0]['datetime_timezone'];
 			$language_module = $c_user[0]['language_module'];

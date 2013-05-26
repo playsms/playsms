@@ -226,7 +226,7 @@ switch ($op) {
 		$add['username'] = core_sanitize_username($_POST['add_username']);
 		$add['name'] = $_POST['add_name'];
 		$add['mobile'] = $_POST['add_mobile'];
-		$add['sender'] = $_POST['add_sender'];
+		$add['sender'] = core_sanitize_sender($_POST['add_sender']);
 		$add['footer'] = $_POST['add_footer'];
 		$add['password'] = $_POST['add_password'];
 		$add['password'] = md5($add['password']);
