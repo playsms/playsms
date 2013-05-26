@@ -497,7 +497,7 @@ msgstr ""
 msgid "Send as flash message"
 msgstr ""
 
-msgid "Send as unicode message (http://www.unicode.org)"
+msgid "Send as unicode message"
 msgstr ""
 
 msgid "Send broadcast SMS"

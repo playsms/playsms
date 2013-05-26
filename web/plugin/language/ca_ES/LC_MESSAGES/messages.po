@@ -535,8 +535,8 @@ msgstr "Enviar SMS"
 msgid "Send as flash message"
 msgstr "Enviar com a missatge ràpid"
 
-msgid "Send as unicode message (http://www.unicode.org)"
-msgstr "Enviar en Unicode (http://www.unicode.org)"
+msgid "Send as unicode message"
+msgstr "Enviar en Unicode"
 
 msgid "Send broadcast SMS"
 msgstr "Enviar SMS Massiu"

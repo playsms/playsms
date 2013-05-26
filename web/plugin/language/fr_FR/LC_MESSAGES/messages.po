@@ -512,10 +512,8 @@ msgstr "Envoyer SMS"
 msgid "Send as flash message"
 msgstr "Envoyer un message flash"
 
-msgid "Send as unicode message (http://www.unicode.org)"
-msgstr ""
-"Envoyer un message unicode (<a href='http://www.unicode.org'>http://www."
-"unicode.org</a>)"
+msgid "Send as unicode message"
+msgstr "Envoyer un message unicode"
 
 msgid "Send broadcast SMS"
 msgstr "Diffusion de SMS"

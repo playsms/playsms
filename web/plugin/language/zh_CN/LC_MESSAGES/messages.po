@@ -506,7 +506,7 @@ msgstr "发送短信"
 msgid "Send as flash message"
 msgstr "发送为瞬时信息"
 
-msgid "Send as unicode message (http://www.unicode.org)"
+msgid "Send as unicode message"
 msgstr "发送为非代码信息"
 
 msgid "Send broadcast SMS"

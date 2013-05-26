@@ -506,10 +506,8 @@ msgstr "Enviar SMS"
 msgid "Send as flash message"
 msgstr "Enviar como mensagem flash"
 
-msgid "Send as unicode message (http://www.unicode.org)"
-msgstr ""
-"Enviar como mensagem unicode (http://unicode.org/standard/translations/"
-"portuguese.html)"
+msgid "Send as unicode message"
+msgstr "Enviar como mensagem unicode"
 
 msgid "Send broadcast SMS"
 msgstr "Enviar SMS broadcast"

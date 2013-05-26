@@ -497,8 +497,8 @@ msgstr "Kirim SMS"
 msgid "Send as flash message"
 msgstr "Kirim sebagai pesan flash"
 
-msgid "Send as unicode message (http://www.unicode.org)"
-msgstr "Kirim sebagai pesan unicode (http://www.unicode.org)"
+msgid "Send as unicode message"
+msgstr "Kirim sebagai pesan unicode"
 
 msgid "Send broadcast SMS"
 msgstr "Kirim banyak SMS"
