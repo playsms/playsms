@@ -396,21 +396,22 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0,$nofoot
 
 function sendsms_get_sender($username) {
 	global $core_config;
-	if ($gw = gateway_get()) {
-		$gateway_number = $core_config['main']['cfg_gateway_number'];
+	if ($username && ($gw = gateway_get())) {
 		if ($core_config['plugin'][$gw]['global_sender']) {
+			// 1st priority global sender number, from main configuration
 			$sms_sender = $core_config['plugin'][$gw]['global_sender'];
-		} else if ($gateway_number) {
-			$sms_sender = $gateway_number;
+		} else if ($core_config['main']['cfg_gateway_number']) {
+			// 2nd priority gateway number, from gateway module settings
+			$sms_sender = $core_config['main']['cfg_gateway_number'];
 		} else {
+			// 3rd priority user's sender number, from user preferences
 			$sms_sender = $core_config['user']['sender'];
 			if ($core_config['user']['username'] != $username) {
 				$sms_sender = user_getfieldbyusername($username, 'sender');
 			}
 		}
 	}
-	$sms_sender = str_replace("\'","",$sms_sender);
-	$sms_sender = str_replace("\"","",$sms_sender);
+	$sms_sender = core_sanitize_sender($sms_sender);
 	return $sms_sender;
 }
 

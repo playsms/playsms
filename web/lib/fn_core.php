@@ -255,6 +255,19 @@ function core_sanitize_numeric($text) {
 }
 
 /**
+ * Sanitize SMS sender
+ *
+ */
+function core_sanitize_sender($text) {
+	$text = core_sanitize_alphanumeric($text);
+	$text = substr($text, 0, 16);
+	if (preg_match("/^[A-Za-z]/", $text) == TRUE) {
+		$text = substr($text, 0, 11);
+	}
+	return $text;
+}
+
+/**
  * Function: core_net_match()
  * ref: http://stackoverflow.com/a/10422605 (Volomike)
  *
