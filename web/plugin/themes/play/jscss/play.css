@@ -20,3 +20,34 @@
 	border: 0px solid;
 	font-weight: bold;
 }
+
+#user_inbox_msg {
+	word-wrap: break-word;
+	width: 470px;
+}
+
+#user_incoming_msg {
+	word-wrap: break-word;
+	width: 260px;
+}
+
+#user_outgoing_msg {
+	word-wrap: break-word;
+	width: 400px;
+}
+
+#all_inbox_msg {
+	word-wrap: break-word;
+	width: 400px;
+}
+
+#all_incoming_msg {
+	word-wrap: break-word;
+	width: 190px;
+}
+
+#all_outgoing_msg {
+	word-wrap: break-word;
+	width: 260px;
+}
+

@@ -47,7 +47,7 @@ switch ($op) {
 		$j = 0;
 		for ($j=0;$j<count($list);$j++) {
 			$in_username = $list[$j]['username'];
-			$in_msg = core_display_text($list[$j]['in_msg'], 25);
+			$in_msg = core_display_text($list[$j]['in_msg']);
 			$in_sender = $list[$j]['in_sender'];
 			$reply = '';
 			$forward = '';
@@ -71,7 +71,7 @@ switch ($op) {
 					<td valign=top class=$td_class align=center>$in_username</td>
 					<td valign=top class=$td_class align=center>$in_datetime</td>
 					<td valign=top class=$td_class align=center>$current_sender</td>
-					<td valign=top class=$td_class align=left>$in_msg $reply $forward</td>
+					<td valign=top class=$td_class align=left><p id=\"all_inbox_msg\">$in_msg $reply $forward</p></td>
 					<td class=$td_class width=4>
 						<input type=hidden name=itemid".$j." value=\"$in_id\">
 						<input type=checkbox name=checkid".$j.">

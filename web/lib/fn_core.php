@@ -84,24 +84,14 @@ function str2hex($string)  {
  * @param $text
  *    original text
  * @param $len
- *    max. length of word in $text, split if more than $len
+ *    length of text
  * @return
  *    formatted text
  */
 function core_display_text($text, $len=0) {
 	$text = htmlspecialchars($text);
-	if ($len && (strlen($text) > $len)) {
-		$arr = explode(" ",$text);
-		for ($i=0;$i<count($arr);$i++) {
-			if (strlen($arr[$i]) > $len) {
-				$arr2 = str_split($arr[$i], $len);
-				$arr[$i] = '';
-				for ($j=0;$j<count($arr2);$j++) {
-					$arr[$i] .= $arr2[$j]."\n";
-				}
-			}
-		}
-		$text = implode(" ",$arr);
+	if ($len) {
+		$text = substr($text, 0, $len).'..';
 	}
 	return $text;
 }

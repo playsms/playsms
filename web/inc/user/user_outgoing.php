@@ -45,7 +45,7 @@ switch ($op) {
 		$i = $nav['top'];
 		$j=0;
 		for ($j=0;$j<count($list);$j++) {
-			$p_msg = core_display_text($list[$j]['p_msg'], 25);
+			$p_msg = core_display_text($list[$j]['p_msg']);
 			$list[$j] = core_display_data($list[$j]);
 			$smslog_id = $list[$j]['smslog_id'];
 			$p_dst = $list[$j]['p_dst'];
@@ -93,7 +93,7 @@ switch ($op) {
 					<td valign=top class=$td_class align=left>$i.</td>
 					<td valign=top class=$td_class align=center>$p_datetime</td>
 					<td valign=top class=$td_class align=center>$current_p_dst</td>
-					<td valign=top class=$td_class align=left>$p_msg</td>
+					<td valign=top class=$td_class align=left><p id=\"user_outgoing_msg\">$p_msg</p></td>
 					<td valign=top class=$td_class align=center>$p_status</td>
 					<td class=$td_class width=4>
 						<input type=hidden name=itemid".$j." value=\"$smslog_id\">

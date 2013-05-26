@@ -50,7 +50,7 @@ switch ($op) {
 		$j = 0;
 		for ($j=0;$j<count($list);$j++) {
 			$in_username = $list[$j]['username'];
-			$in_message = core_display_text($list[$j]['in_message'], 25);
+			$in_message = core_display_text($list[$j]['in_message']);
 			$in_sender = $list[$j]['in_sender'];
 			$reply = '';
 			$forward = '';
@@ -78,7 +78,7 @@ switch ($op) {
 					<td valign=top class=$td_class align=center>$in_datetime</td>
 					<td valign=top class=$td_class align=center>$current_sender</td>
 					<td valign=top class=$td_class align=center>$in_keyword</td>
-					<td valign=top class=$td_class align=left>$in_message $reply $forward</td>
+					<td valign=top class=$td_class align=left><p id=\"all_incoming_msg\">$in_message $reply $forward</p></td>
 					<td valign=top class=$td_class align=center>$in_feature</td>
 					<td valign=top class=$td_class align=center>$in_status</td>
 					<td class=$td_class width=4>
