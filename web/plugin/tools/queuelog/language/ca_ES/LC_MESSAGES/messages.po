@@ -18,15 +18,7 @@ msgstr ""
 "X-Generator: Lokalize 1.4\n"
 
 msgid "Count"
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-msgstr ""
-=======
 msgstr "Total"
->>>>>>> Stashed changes
-=======
-msgstr "Total"
->>>>>>> Stashed changes
 
 msgid "Date/Time"
 msgstr "Data/Hora"
@@ -40,7 +32,6 @@ msgstr "Missatge"
 msgid "Queue Code"
 msgstr "Codi cua"
 
-#, fuzzy
 msgid "User"
 msgstr "Usuari"
 

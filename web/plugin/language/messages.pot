@@ -52,6 +52,9 @@ msgstr ""
 msgid "Always add plus sign"
 msgstr ""
 
+msgid "Always choose to send as unicode"
+msgstr ""
+
 msgid "Application information"
 msgstr ""
 

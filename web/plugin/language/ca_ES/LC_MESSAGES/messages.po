@@ -102,15 +102,7 @@ msgid "City"
 msgstr "Ciutat"
 
 msgid "Comma seperated"
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-msgstr ""
-=======
 msgstr "Separat per comes"
->>>>>>> Stashed changes
-=======
-msgstr "Separat per comes"
->>>>>>> Stashed changes
 
 msgid "Content"
 msgstr "Contingut"
@@ -185,23 +177,10 @@ msgid "Enable public registration"
 msgstr "Habilitar registre públic"
 
 msgid "Enable webservices"
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 msgstr ""
-
-msgid "Export"
-msgstr ""
-=======
-=======
->>>>>>> Stashed changes
-msgstr "Habilitar webservices"
 
 msgid "Export"
 msgstr "Exportar"
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 msgid "F.A.Q"
 msgstr "P.M.F"
@@ -250,13 +229,6 @@ msgstr "Omplir per actualitzar"
 
 msgid "Footer"
 msgstr "Firma del SMS"
-<<<<<<< Updated upstream
-
-#, fuzzy
-msgid "Footer"
-msgstr "Firma del SMS"
-=======
->>>>>>> Stashed changes
 
 msgid "Forward PV to email"
 msgstr "Enviar PV al correu"
@@ -586,19 +558,8 @@ msgstr "Usuari"
 msgid "User already exists"
 msgstr "L'usuari ja existeix"
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-#, fuzzy
-msgid "User does not exists"
-msgstr "L'usuari ja existeix"
-=======
 msgid "User does not exists"
 msgstr "L'usuari no existeix"
->>>>>>> Stashed changes
-=======
-msgid "User does not exists"
-msgstr "L'usuari no existeix"
->>>>>>> Stashed changes
 
 msgid "User has been added"
 msgstr "L'usuari ha estat afegit"
@@ -645,19 +606,6 @@ msgstr "Webservices"
 msgid "Webservices IP range"
 msgstr "Rang de IPs per webservices"
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-#, fuzzy
-msgid "Webservices IP range"
-msgstr "Token webapp"
-=======
-msgid "Webservices token"
-msgstr "Token de webservices"
->>>>>>> Stashed changes
-
-#, fuzzy
-=======
->>>>>>> Stashed changes
 msgid "Webservices token"
 msgstr "Token de webservices"
 
@@ -710,19 +658,8 @@ msgstr "Correu electrònic"
 msgid "failed"
 msgstr "fallit"
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-#, fuzzy
-msgid "forward"
-msgstr "Reenviar de"
-=======
 msgid "forward"
 msgstr "Reenviar"
->>>>>>> Stashed changes
-=======
-msgid "forward"
-msgstr "Reenviar"
->>>>>>> Stashed changes
 
 msgid "from"
 msgstr "de"
@@ -748,13 +685,6 @@ msgstr "número"
 msgid "queued"
 msgstr "encuat"
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-#, fuzzy
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 msgid "reply"
 msgstr "Respondre"
 

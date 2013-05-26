@@ -26,30 +26,12 @@ msgstr "Esborrar selecció"
 msgid "Edit message template"
 msgstr "Editar plantilla de missatge"
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-#, fuzzy
-msgid "Fail to add message template"
-msgstr "Error editant la plantilla del missatge"
-=======
-msgid "Fail to add message template"
-msgstr "Error afegint la plantilla del missatge"
->>>>>>> Stashed changes
-
-msgid "Fail to edit message template"
-msgstr "Error editant la plantilla del missatge"
-
-<<<<<<< Updated upstream
-=======
 msgid "Fail to add message template"
 msgstr "Error afegint la plantilla del missatge"
 
 msgid "Fail to edit message template"
 msgstr "Error editant la plantilla del missatge"
 
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 msgid "Message template"
 msgstr "Plantilla de missatge"
 
@@ -69,28 +51,10 @@ msgid "Name"
 msgstr "Nom"
 
 msgid "Save"
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-msgstr ""
-=======
 msgstr "Guardar"
->>>>>>> Stashed changes
-=======
-msgstr "Guardar"
->>>>>>> Stashed changes
 
 msgid "Selected message template has been deleted"
 msgstr "La plantilla seleccionada s'ha esborrat"
 
 msgid "You must fill all fields"
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-msgstr ""
-=======
 msgstr "Heu d'omplir tots els camps"
-
->>>>>>> Stashed changes
-=======
-msgstr "Heu d'omplir tots els camps"
-
->>>>>>> Stashed changes
