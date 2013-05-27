@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #This script reads a couple of parameters from a config file and allows us to
 # send sms by submitting only the number and the text to be send
 
@@ -8,6 +8,24 @@ help()
 	printf "\t-t (text of the message)\n"
 }
 
+is_err()
+{
+	case "$1" in
+	"ERR_100")
+		echo "ERR 100: authentication failed";
+		;;
+	"ERR_103")
+		echo "ERR 103 : not enough credit for this operation"
+		;;
+	"ERR_201")
+		echo "ERR 201: destination number or message is empty";
+		;;
+	*)
+		echo "--$1--"
+		;;
+	esac
+	
+}
 
 VERB=0
 
@@ -50,6 +68,7 @@ verb () {
 	fi 
 } 
 
+#IFS=$'\n'
 DIR=`dirname $0`
 if [ ! -e $DIR/$0.config ] ; then
 	printf "ERROR: The config file $0.config is missing, you can use $0.config.dist as"
@@ -69,8 +88,21 @@ if [ -z "$NUMBER" -o -z "$TEXT" ] ; then
 	exit 1
 fi
 
-TEXT=`echo -n $TEXT | tr ' ' '+'`
-TEXT=`echo -n $TEXT |recode html..ascii`
+#IFS=$'\t'
+
+#We need to replace the spaces with + signs
+#TEXT=`echo -n $TEXT | tr ' ' '+'`
 #Constructing the URL for the message
-URL="${SITE}/index.php?app=webservices&ta=pv&u=$USERNAME&h=$TOKEN&to=$NUMBER&msg=$TEXT"
-verb $URL
+#URL="${SITE}/index.php?app=webservices&ta=pv&u=$USERNAME&h=$TOKEN&to=$NUMBER&msg=$TEXT"
+FETCH="${SITE}/index.php \
+	-d app=webservices
+	-d ta=pv \
+	-d u=$USERNAME \
+	-d h=$TOKEN \
+	-d to=$NUMBER"
+
+
+verb $FETCH
+OUT=`curl -s -G $FETCH --data-urlencode "msg=$TEXT"`
+OUT=`echo -n $OUT | tr ' ' '_'`
+is_err $OUT
