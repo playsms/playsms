@@ -13,15 +13,19 @@ is_err()
 	case "$1" in
 	"ERR_100")
 		echo "ERR 100: authentication failed";
+		exit 1
 		;;
 	"ERR_103")
 		echo "ERR 103 : not enough credit for this operation"
+		exit 1
 		;;
 	"ERR_201")
 		echo "ERR 201: destination number or message is empty";
+		exit 1
 		;;
 	*)
-		echo "--$1--"
+		echo "ERROR CODE --$1-- not known, please add to the array"
+		exit 1
 		;;
 	esac
 	
@@ -105,4 +109,5 @@ FETCH="${SITE}/index.php \
 verb $FETCH
 OUT=`curl -s -G $FETCH --data-urlencode "msg=$TEXT"`
 OUT=`echo -n $OUT | tr ' ' '_'`
+#we error out if there's an error sending
 is_err $OUT
