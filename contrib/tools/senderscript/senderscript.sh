@@ -107,7 +107,7 @@ FETCH="${SITE}/index.php \
 
 
 verb $FETCH
-OUT=`curl -s -G $FETCH --data-urlencode "msg=$TEXT"`
+OUT=`curl -s $FETCH --data-urlencode "msg=$TEXT"`
 OUT=`echo -n $OUT | tr ' ' '_'`
 #we error out if there's an error sending
 is_err $OUT
