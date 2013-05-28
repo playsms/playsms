@@ -278,7 +278,11 @@ function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0,$nofoote
 		$user['footer'] = '';
 	}
 	$sms_footer = $user['footer'];
-	$max_length = ( $unicode ?  $user['opt']['max_sms_length_unicode'] : $user['opt']['max_sms_length'] );
+
+	// fixme anton - fix #71 but not sure whats the correct solution for this
+	//$max_length = ( $unicode ?  $user['opt']['max_sms_length_unicode'] : $user['opt']['max_sms_length'] );
+	$max_length = $user['opt']['max_sms_length'];
+
 	if (strlen($message)>$max_length) {
 		$message = substr ($message,0,$max_length);
 	}
@@ -343,7 +347,11 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0,$nofoot
 		$user['footer'] = '';
 	}
 	$sms_footer = $user['footer'];
-	$max_length = ( $unicode ?  $user['opt']['max_sms_length_unicode'] : $user['opt']['max_sms_length'] );
+
+	// fixme anton - fix #71 but not sure whats the correct solution for this
+	//$max_length = ( $unicode ?  $user['opt']['max_sms_length_unicode'] : $user['opt']['max_sms_length'] );
+	$max_length = $user['opt']['max_sms_length'];
+
 	if (strlen($message)>$max_length) {
 		$message = substr ($message,0,$max_length);
 	}
