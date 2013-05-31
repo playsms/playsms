@@ -313,13 +313,18 @@ function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0,$nofoote
 	// remove double entries
 	$all_sms_to = array_unique($all_sms_to);
 
+	$sms_count = 0;
 	for ($i=0;$i<count($all_sms_to);$i++) {
 		$c_sms_to = $all_sms_to[$i];
-		$ok[$i] = sendsms_queue_push($queue_code,$c_sms_to);
+		if ($ok[$i] = sendsms_queue_push($queue_code,$c_sms_to)) {
+			$sms_count++;
+		}
 		$to[$i] = $c_sms_to;
 		$smslog_id[$i] = 0;
 		$queue[$i] = $queue_code;
 	}
+
+	logger_print("end queue_code:".$queue_code." sms_count:".$sms_count, 2, "sendsms_pv");
 
 	if (! $core_config['issendsmsd']) {
 		unset($ok);
@@ -328,8 +333,6 @@ function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0,$nofoote
 		logger_print("sendsmsd off immediately process queue_code:".$queue_code, 2, "sendsms_pv");
 		list($ok, $to, $smslog_id, $queue) = sendsmsd($queue_code);
 	}
-
-	logger_print("end queue_code:".$queue_code, 2, "sendsms_pv");
 
 	return array($ok, $to, $smslog_id, $queue);
 }
@@ -376,19 +379,22 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0,$nofoot
 				logger_print("fail to finalize queue creation, exit immediately", 2, "sendsms_bc");
 				return FALSE;
 			}
+			$sms_count = 0;
 			$rows = phonebook_getdatabyid($c_gpid);
 			if (is_array($rows)) {
 				foreach ($rows as $key => $db_row) {
 					$p_num = $db_row['p_num'];
 					$sms_to = sendsms_getvalidnumber($p_num);
-					$ok[$j] = sendsms_queue_push($queue_code,$sms_to);
+					if ($ok[$j] = sendsms_queue_push($queue_code,$sms_to)) {
+						$sms_count++;
+					}
 					$to[$j] = $sms_to;
 					$smslog_id[$i] = 0;
 					$queue[$j] = $queue_code;
 					$j++;
 				}
 			}
-			logger_print("end queue_code:".$queue_code, 2, "sendsms_bc");
+			logger_print("end queue_code:".$queue_code." sms_count:".$sms_count, 2, "sendsms_bc");
 		}
 	}
 
