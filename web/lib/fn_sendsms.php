@@ -119,6 +119,14 @@ function sendsms_queue_push($queue_code,$sms_to) {
 	return $ok;
 }
 
+function sendsms_queue_update($queue_code, $updates) {
+	$ret = false;
+	if (is_array($updates) {
+		$ret = dba_update(_DB_PREF_.'_tblSMSOutgoing_queue', $updates, array('queue_code' => $queue_code));
+	}
+	return $ret;
+}
+
 function sendsmsd($single_queue='') {
 	global $core_config;
 	if ($single_queue) {
