@@ -10,7 +10,8 @@ function logger_print($log, $level, $label) {
 		$type = 'L'.$level;
 		$fn = $core_config['apps_path']['logs'].'/'.$logfile;
 		if ($fd = fopen($fn, 'a+')) {
-			$message = stripslashes($core_config['datetime']['now']." ".$username." ".$type." ".$label." # ".$log);
+			$dt = date($core_config['datetime']['format'], mktime());
+			$message = stripslashes($dt." ".$username." ".$type." ".$label." # ".$log);
 			$message = str_replace("\n", " ", $message);
 			$message = str_replace("\r", " ", $message);
 			$message .= "\n";
@@ -53,7 +54,8 @@ function logger_audit() {
 		$ip = $_SERVER['REMOTE_ADDR'];
 		$fn = $core_config['apps_path']['logs'].'/'.$logauditfile;
 		if ($fd = fopen($fn, 'a+')) {
-			$message = stripslashes($core_config['datetime']['now']." ".$username." ip:".$ip." ".$log);
+			$dt = date($core_config['datetime']['format'], mktime());
+			$message = stripslashes($dt." ".$username." ip:".$ip." ".$log);
 			$message = str_replace("\n", " ", $message);
 			$message = str_replace("\r", " ", $message);
 			$message .= "\n";
