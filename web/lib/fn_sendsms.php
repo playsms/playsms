@@ -121,7 +121,7 @@ function sendsms_queue_push($queue_code,$sms_to) {
 
 function sendsms_queue_update($queue_code, $updates) {
 	$ret = false;
-	if (is_array($updates) {
+	if (is_array($updates)) {
 		$ret = dba_update(_DB_PREF_.'_tblSMSOutgoing_queue', $updates, array('queue_code' => $queue_code));
 	}
 	return $ret;
@@ -332,7 +332,12 @@ function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0,$nofoote
 		$queue[$i] = $queue_code;
 	}
 
-	logger_print("end queue_code:".$queue_code." sms_count:".$sms_count, 2, "sendsms_pv");
+	if (sendsms_queue_update($queue_code, array('flag' => '0', 'sms_count' => $sms_count))) {
+		logger_print("end queue_code:".$queue_code." sms_count:".$sms_count, 2, "sendsms_pv");
+	} else {
+		logger_print("fail to prepare queue, exit immediately", 2, "sendsms_pv");
+		return FALSE;
+	}
 
 	if (! $core_config['issendsmsd']) {
 		unset($ok);
@@ -402,7 +407,12 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0,$nofoot
 					$j++;
 				}
 			}
-			logger_print("end queue_code:".$queue_code." sms_count:".$sms_count, 2, "sendsms_bc");
+			if (sendsms_queue_update($queue_code, array('flag' => '0', 'sms_count' => $sms_count))) {
+				logger_print("end queue_code:".$queue_code." sms_count:".$sms_count, 2, "sendsms_bc");
+			} else {
+				logger_print("fail to prepare queue, exit immediately", 2, "sendsms_bc");
+				return FALSE;
+			}
 		}
 	}
 
