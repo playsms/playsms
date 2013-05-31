@@ -93,8 +93,8 @@ function sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$gpid=0,$sms
 	$queue_code = md5(mktime().$uid.$gpid.$sms_msg);
 	logger_print("saving queue_code:".$queue_code." src:".$sms_sender, 2, "sendsms_queue_create");
 	$db_query = "INSERT INTO "._DB_PREF_."_tblSMSOutgoing_queue ";
-	$db_query .= "(queue_code,datetime_entry,datetime_scheduled,uid,gpid,sender_id,footer,message,sms_type,unicode) ";
-	$db_query .= "VALUES ('$queue_code','".$core_config['datetime']['now']."','".$core_config['datetime']['now']."','$uid','$gpid','$sms_sender','$sms_footer','$sms_msg','$sms_type','$unicode')";
+	$db_query .= "(queue_code,datetime_entry,datetime_scheduled,uid,gpid,sender_id,footer,message,sms_type,unicode,flag) ";
+	$db_query .= "VALUES ('$queue_code','".$core_config['datetime']['now']."','".$core_config['datetime']['now']."','$uid','$gpid','$sms_sender','$sms_footer','$sms_msg','$sms_type','$unicode','2')";
 	if ($id = @dba_insert_id($db_query)) {
 		logger_print("saved queue_code:".$queue_code." id:".$id , 2, "sendsms_queue_create");
 		$ret = $queue_code;
@@ -104,7 +104,7 @@ function sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$gpid=0,$sms
 
 function sendsms_queue_push($queue_code,$sms_to) {
 	$ok = false;
-	$db_query = "SELECT id FROM "._DB_PREF_."_tblSMSOutgoing_queue WHERE queue_code='$queue_code'";
+	$db_query = "SELECT id FROM "._DB_PREF_."_tblSMSOutgoing_queue WHERE queue_code='$queue_code' AND flag='2'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$queue_id = $db_row['id'];
@@ -145,16 +145,19 @@ function sendsmsd($single_queue='') {
 		$c_gpid = $db_row['gpid'];
 		$c_sms_type = $db_row['sms_type'];
 		$c_unicode = $db_row['unicode'];
-		logger_print("start processing queue_code:".$c_queue_code." uid:".$c_uid." gpid:".$c_gpid." sender_id:".$c_sender_id, 2, "sendsmsd");
-		$db_query2 = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing_queue_dst WHERE queue_id='$c_queue_id' AND flag='0'";
+		$c_sms_count = $db_row['sms_count'];
+		logger_print("start processing queue_code:".$c_queue_code." sms_count:".$c_sms_count." uid:".$c_uid." gpid:".$c_gpid." sender_id:".$c_sender_id, 2, "sendsmsd");
+		$counter = 0;
+		$db_query2 = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing_queue_dst WHERE queue_id='$c_queue_id' AND flag='0' LIMIT 2";
 		$db_result2 = dba_query($db_query2);
 		while ($db_row2 = dba_fetch_array($db_result2)) {
+			$counter++;
 			$c_id = $db_row2['id'];
 			$c_dst = $db_row2['dst'];
 			$c_smslog_id = 0;
 			$c_flag = 2;
 			$c_ok = false;
-			logger_print("sending queue_code:".$c_queue_code." to:".$c_dst, 2, "sendsmsd");
+			logger_print("sending queue_code:".$c_queue_code." to:".$c_dst." sms_count:".$c_sms_count." counter:".$counter, 2, "sendsmsd");
 			$ret = sendsms_process($c_sender_id,$c_footer,$c_dst,$c_message,$c_uid,$c_gpid,$c_sms_type,$c_unicode,$c_queue_code);
 			$c_dst = $ret['to'];
 			if ($ret['status'] && $ret['smslog_id']) {
@@ -172,11 +175,16 @@ function sendsmsd($single_queue='') {
 			$smslog_id[] = $c_smslog_id;
 			$queue[] = $c_queue_code;
 		}
-		$db_query5 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue SET flag='1', datetime_update='".$core_config['datetime']['now']."' WHERE id='$c_queue_id'";
-		if ($db_result5 = dba_affected_rows($db_query5)) {
-			logger_print("finish processing queue_code:".$c_queue_code." uid:".$c_uid." sender_id:".$c_sender_id, 2, "sendsmsd");
+		$sms_processed = dba_count(_DB_PREF_.'_tblSMSOutgoing_queue_dst', array('queue_id' => $c_queue_id, 'flag' => '1'));
+		if ($sms_processed >= $c_sms_count) {
+			$db_query5 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue SET flag='1', datetime_update='".$core_config['datetime']['now']."' WHERE id='$c_queue_id'";
+			if ($db_result5 = dba_affected_rows($db_query5)) {
+				logger_print("finish processing queue_code:".$c_queue_code." uid:".$c_uid." sender_id:".$c_sender_id." sms_count:".$c_sms_count, 2, "sendsmsd");
+			} else {
+				logger_print("fail to finalize process queue_code:".$c_queue_code." uid:".$c_uid." sender_id:".$c_sender_id." sms_processed:".$sms_processed, 2, "sendsmsd");
+			}
 		} else {
-			logger_print("fail to finalize process queue_code:".$c_queue_code." uid:".$c_uid." sender_id:".$c_sender_id, 2, "sendsmsd");
+			logger_print("partially processing queue_code:".$c_queue_code." uid:".$c_uid." sender_id:".$c_sender_id." sms_count:".$c_sms_count." sms_processed:".$sms_processed." counter:".$counter, 2, "sendsmsd");
 		}
 	}
 	return array($ok, $to, $smslog_id, $queue);
