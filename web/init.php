@@ -4,6 +4,9 @@ include "config.php";
 // security, checked by essential files under subdir
 define('_SECURE_', 1);
 
+// generate a unique Process ID
+define('_PID_', uniqid('PID'));
+
 $core_config['daemon_process'] = $DAEMON_PROCESS;
 
 if (!$core_config['daemon_process']) {

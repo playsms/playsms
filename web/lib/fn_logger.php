@@ -11,7 +11,7 @@ function logger_print($log, $level, $label) {
 		$fn = $core_config['apps_path']['logs'].'/'.$logfile;
 		if ($fd = fopen($fn, 'a+')) {
 			$dt = date($core_config['datetime']['format'], mktime());
-			$message = stripslashes($dt." ".$username." ".$type." ".$label." # ".$log);
+			$message = stripslashes($dt." "._PID_." ".$username." ".$type." ".$label." # ".$log);
 			$message = str_replace("\n", " ", $message);
 			$message = str_replace("\r", " ", $message);
 			$message .= "\n";
@@ -55,7 +55,7 @@ function logger_audit() {
 		$fn = $core_config['apps_path']['logs'].'/'.$logauditfile;
 		if ($fd = fopen($fn, 'a+')) {
 			$dt = date($core_config['datetime']['format'], mktime());
-			$message = stripslashes($dt." ".$username." ip:".$ip." ".$log);
+			$message = stripslashes($dt." "._PID_." ".$username." ip:".$ip." ".$log);
 			$message = str_replace("\n", " ", $message);
 			$message = str_replace("\r", " ", $message);
 			$message .= "\n";
