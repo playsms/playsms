@@ -175,7 +175,10 @@ function sendsmsd($single_queue='') {
 			$smslog_id[] = $c_smslog_id;
 			$queue[] = $c_queue_code;
 		}
-		$sms_processed = dba_count(_DB_PREF_.'_tblSMSOutgoing_queue_dst', array('queue_id' => $c_queue_id, 'flag' => '1'));
+		$db_query = "SELECT count(*) AS count FROM "._DB_PREF_."_tblSMSOutgoing_queue_dst WHERE queue_id='$c_queue_id' AND NOT flag ='0'";
+		$db_result = dba_query($db_query);
+		$db_row = dba_fetch_array($db_result);
+		$sms_processed = ( $db_row['count'] ? $db_row['count'] : 0 );
 		if ($sms_processed >= $c_sms_count) {
 			$db_query5 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue SET flag='1', datetime_update='".$core_config['datetime']['now']."' WHERE id='$c_queue_id'";
 			if ($db_result5 = dba_affected_rows($db_query5)) {
