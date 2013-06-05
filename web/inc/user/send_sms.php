@@ -95,7 +95,7 @@ switch ($op) {
 			<tr>
 				<td nowrap>
 					"._('Phonebook').":<br>
-					<select name=\"p_num_dump[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\">$list_of_number</select>
+					<select name=\"p_num_dump[]\" size=\"10\" style=\"width: 190px\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\">$list_of_number</select>
 				</td>
 				<td width=10>&nbsp;</td>
 				<td align=center valign=middle>
@@ -107,7 +107,7 @@ switch ($op) {
 				<td width=10>&nbsp;</td>
 				<td nowrap>
 					"._('Send to').":<br>
-					<select name=\"p_num[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\"></select>
+					<select name=\"p_num[]\" size=\"10\" style=\"width: 190px\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\"></select>
 				</td>
 			</tr>
 			</tbody>
@@ -115,15 +115,23 @@ switch ($op) {
 			<p>"._('Send to').":<br><input type=text size=30 maxlength=250 name=p_num_text value=\"".$to."\">
 			$sms_template
 			<p>"._('Message').":
-			<br><textarea cols=\"40\" rows=\"4\" onFocus=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" name=\"message\" id=\"ta_sms_content\">".$message."</textarea>
+			<br><textarea cols=\"70\" rows=\"4\" onFocus=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" name=\"message\" id=\"ta_sms_content\">".$message."</textarea>
 			<br><input type=\"text\" id=txtcount name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
 			<input type=\"hidden\" value=\"".$core_config['user']['opt']['sms_footer_length']."\" name=\"footerlen\"> 
 			<input type=\"hidden\" value=\"".$core_config['user']['opt']['per_sms_length']."\" name=\"maxchar\"> 
 			<input type=\"hidden\" value=\"".$core_config['user']['opt']['per_sms_length_unicode']."\" name=\"maxchar_unicode\"> 
 			<input type=\"hidden\" value=\"".$core_config['user']['opt']['max_sms_length']."\" name=\"hiddcount\"> 
 			<input type=\"hidden\" value=\"".$core_config['user']['opt']['max_sms_length_unicode']."\" name=\"hiddcount_unicode\"> 
-			<p><input type=checkbox name=msg_flash> "._('Send as flash message')."
-			<p><input type=checkbox name=msg_unicode ".$option_msg_unicode." onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\"> "._('Send as unicode message')."
+			<p>
+			<table>
+			<tr>
+				<td valign=center><input type=checkbox name=msg_flash></td>
+				<td valign=center>"._('Flash message')."</td>
+				<td valign=center width=10>&nbsp;</td>
+				<td valign=center><input type=checkbox name=msg_unicode ".$option_msg_unicode." onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\"></td>
+				<td valign=center>"._('Unicode message')."</td>
+			</tr>
+			</table>
 			<p><input type=submit class=button value='"._('Send')."' onClick=\"selectAllOptions(this.form['p_num[]'])\"> 
 			</form>";
 		$content .= "
