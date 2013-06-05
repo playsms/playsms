@@ -127,4 +127,15 @@ function phonebook_search($uid, $keyword="", $count="") {
 	return $ret;
 }
 
+function phonebook_search_group($uid, $keyword="", $count="") {
+	global $core_config;
+	$ret = array();
+	for ($c=0;$c<count($core_config['toolslist']);$c++) {
+		if ($ret = x_hook($core_config['toolslist'][$c],'phonebook_search_group',array($uid,$keyword,$count))) {
+			break;
+		}
+	}
+	return $ret;
+}
+
 ?>

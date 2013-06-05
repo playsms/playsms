@@ -85,19 +85,19 @@ ERR 4xx: delivery status errors
 PROTOCOL
 --------
 
-1. Send SMS
+1.  Send SMS
     ta		: pv
     parameters	: h, to, msg, type, unicode
     returns	: error returns
     notes	: to parameter is a valid international formatted mobile number
 
-2. Send broadcast SMS
+2.  Send broadcast SMS
     ta		: bc
     parameters	: h, to, msg, type, unicode
     returns	: error returns
     notes	: to parameter is group code
 
-3. Outgoing SMS and delivery status
+3.  Outgoing SMS and delivery status
     ta		: ds
     parameters	: h, queue, src, dst, dt, slid, c, last
     returns	: CSV format:
@@ -107,7 +107,7 @@ PROTOCOL
 		  last retrieves from last SMS log ID
 		  if SMS log ID is empty then you can use queue to list it
 
-4. Incoming SMS
+4.  Incoming SMS
     ta		: in
     parameters	: h, src, dst, kwd, dt, c, last
     returns	: CSV format:
@@ -115,30 +115,35 @@ PROTOCOL
     notes	: c retrieves as many as c value
 		  last retrieves from last ID
 
-5. User credits
+5.  User credits
     ta		: cr
     parameters	: h
     returns	: user's credit
 
-6. Get token
+6.  Get token
     ta		: get_token
     parameters	: u, p
     returns	: webservice token
 
-7. Get SMS poll results
+7.  Get SMS poll results
     ta		: sms_poll
     parameters	: <please read in SMS poll menu>
     returns	: <please read in SMS poll menu>
 
-8. Get SMS board results
+8.  Get SMS board results
     ta		: sms_board
     parameters	: <please read in SMS board menu>
     returns	: <please read in SMS board menu>
 
-9. Get contact list by name, mobile or email
+9.  Get contact list by name, mobile or email
     ta		: get_contact
     parameters	: h, kwd, c
     returns	: list of contacts
+
+10. Get group contact list by name or code
+    ta		: get_contact_group
+    parameters	: h, kwd, c
+    returns	: list of group contacts
 
 
 EXAMPLE

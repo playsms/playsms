@@ -143,4 +143,18 @@ function phonebook_hook_phonebook_search($uid, $keyword="", $count="") {
 	return $ret;
 }
 
+function phonebook_hook_phonebook_search_group($uid, $keyword="", $count="") {
+	$ret = array();
+	if ($keyword) {
+		$fields = 'id AS gpid,name AS group_name,code';
+		$conditions = array('uid' => $uid);
+		$keywords = array('name' => '%'.$keyword.'%', 'code' => '%'.$keyword.'%');
+		if ((int) $count) {
+			$extras = array('LIMIT' => $count);
+		}
+		$ret = dba_search(_DB_PREF_.'_toolsPhonebook_group', $fields, $conditions, $keywords, $extras);
+	}
+	return $ret;
+}
+
 ?>
