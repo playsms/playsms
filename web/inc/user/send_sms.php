@@ -95,7 +95,7 @@ switch ($op) {
 			<tr>
 				<td nowrap>
 					"._('Phonebook').":<br>
-					<select name=\"p_num_dump[]\" size=\"15\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\">$list_of_number</select>
+					<select name=\"p_num_dump[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\">$list_of_number</select>
 				</td>
 				<td width=10>&nbsp;</td>
 				<td align=center valign=middle>
@@ -107,7 +107,7 @@ switch ($op) {
 				<td width=10>&nbsp;</td>
 				<td nowrap>
 					"._('Send to').":<br>
-					<select name=\"p_num[]\" size=\"15\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\"></select>
+					<select name=\"p_num[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\"></select>
 				</td>
 			</tr>
 			</tbody>
