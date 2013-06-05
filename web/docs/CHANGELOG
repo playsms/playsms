@@ -2,9 +2,30 @@ CHANGELOG
 ---------
 
 Version 0.9.9-git - 130613
-- MAJOR: sendsmsd to process each queue in parallel
+- update sendsmsd daemon to enable parallel multi queue processing
+- update http method to POST in SMS custom (endymuhardin)
 - add new webservices type of action get_contact to get contact lists
-- fix cutting very long word in inbox, incoming and outgoing table
+- add new webservices ta=get_contact_group to search group contacts by name or code
+- add new webservices ta=get_contact to search contacts by name, mobile or email
+- add $phonebook_row_limit and set it to 20k entries per upload
+- add sms_count on create queue and push to queue
+- add a unique process ID for log
+- add bash script to send sms via the webservices interface (aseques)
+- add core_sanitize_sender() and fix sendsms_get_sender()
+- add core_sanitize_alphanumeric() core_sanitize_alpha() core_sanitize_numeric()
+- add automtically create directory "$sms_command_bin/$uid" for SMS command
+- add a language full backup script
+- add type of action IN (ta=in) to retrieves incoming SMS from playSMS webservices
+- remove git conflict messages from ca_ES po files
+- remove link to http://www.unicode.org from send as unicode message option
+- remove unfinished plugin from this repo and move them to new repo playSMS-extra-plugin
+- fix sendsend flagging a queue too quick and partial
+- fix the method to import from CSV file
+- fix core_display_text() not to word-wrap text, instead the wrapping is done through CSS
+- fix #81 a bug causing a queue partially processed
+- fix #77 execute SMS command script in correct directory
+- fix #72 add option to check option to send message as unicode by default
+- fix #71 wrong formula to calculate max. length per SMS for unicode messages
 
 Version 0.9.8 - 130517
 - MAJOR: webservice now using hash token instead of username password (aseques)
