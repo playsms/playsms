@@ -37,7 +37,7 @@ switch ($op) {
 			$c_username = uid2username($data[$c]['uid']);
 			$c_group = phonebook_groupid2code($data[$c]['gpid']);
 			$c_count = $data[$c]['count'];
-			$c_message = stripslashes(core_display_text($data[$c]['message'].' '.$data[$c]['footer'], 25));
+			$c_message = stripslashes(core_display_text($data[$c]['message'].' '.$data[$c]['footer']));
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 			$content .= "
 				<tr>
