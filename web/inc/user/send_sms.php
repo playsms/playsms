@@ -2,44 +2,50 @@
 defined('_SECURE_') or die('Forbidden');
 if(!valid()){forcenoaccess();};
 
+if (! ($bulk = $_REQUEST['bulk'])) {
+	$bulk = $_SESSION['tmp']['sendsms']['bulk'];
+}
+
 switch ($op) {
 	case "sendsmstopv":
 		$to = $_REQUEST['to'];
 		$message = stripslashes($_REQUEST['message']);
 
-		$rows = phonebook_getgroupbyuid($uid, "gp_name");
-		foreach ($rows as $key => $db_row) {
-			if ($c_count = phonebook_getmembercountbyid($db_row['gpid'])) {
-				$list_of_number .= "<option value=\"gpid_".$db_row['gpid']."\" $selected>"._('Group').": ".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.")</option>";
-			}
-		}
-
-		$rows = phonebook_getsharedgroup($uid);
-		foreach ($rows as $key => $db_row) {
-			$c_uid = $db_row['uid'];
-			if ($c_username = uid2username($c_uid)) {
+		if ($bulk == 1) {
+			$rows = phonebook_getgroupbyuid($uid, "gp_name");
+			foreach ($rows as $key => $db_row) {
 				if ($c_count = phonebook_getmembercountbyid($db_row['gpid'])) {
-					$list_of_number .= "<option value=\"gpid_".$db_row['gpid']."\" $selected>"._('Group').": ".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.") - "._('shared by')." ".$c_username."</option>";
+					$list_of_number .= "<option value=\"gpid_".$db_row['gpid']."\" $selected>"._('Group').": ".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.")</option>";
 				}
 			}
-		}
-
-		$rows = phonebook_getdatabyuid($uid, "p_desc");
-		foreach ($rows as $key => $db_row) {
-			$list_of_number .= "<option value=\"".$db_row['p_num']."\" $selected>".$db_row['p_desc']." ".$db_row['p_num']."</option>";
-		}
-
-		$rows = phonebook_getsharedgroup($uid);
-		foreach ($rows as $key => $db_row) {
-			$c_gpid = $db_row['gpid'];
-			$c_uid = $db_row['uid'];
-			if ($c_username = uid2username($c_uid)) {
-				$i = 0;
-				$rows = phonebook_getdatabyid($c_gpid);
-				foreach ($rows as $key => $db_row1) {
-					$list_of_number .= "<option value=\"".$db_row1['p_num']."\" $selected>".$db_row1['p_desc']." ".$db_row1['p_num']." ("._('shared by')." ".$c_username.")</option>";
+			$rows = phonebook_getsharedgroup($uid);
+			foreach ($rows as $key => $db_row) {
+				$c_uid = $db_row['uid'];
+				if ($c_username = uid2username($c_uid)) {
+					if ($c_count = phonebook_getmembercountbyid($db_row['gpid'])) {
+						$list_of_number .= "<option value=\"gpid_".$db_row['gpid']."\" $selected>"._('Group').": ".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.") - "._('shared by')." ".$c_username."</option>";
+					}
 				}
 			}
+			$_SESSION['tmp']['sendsms']['bulk'] = 1;
+		} else if ($bulk == 2) {
+			$rows = phonebook_getdatabyuid($uid, "p_desc");
+			foreach ($rows as $key => $db_row) {
+				$list_of_number .= "<option value=\"".$db_row['p_num']."\" $selected>".$db_row['p_desc']." ".$db_row['p_num']."</option>";
+			}
+			$rows = phonebook_getsharedgroup($uid);
+			foreach ($rows as $key => $db_row) {
+				$c_gpid = $db_row['gpid'];
+				$c_uid = $db_row['uid'];
+				if ($c_username = uid2username($c_uid)) {
+					$i = 0;
+					$rows = phonebook_getdatabyid($c_gpid);
+					foreach ($rows as $key => $db_row1) {
+						$list_of_number .= "<option value=\"".$db_row1['p_num']."\" $selected>".$db_row1['p_desc']." ".$db_row1['p_num']." ("._('shared by')." ".$c_username.")</option>";
+					}
+				}
+			}
+			$_SESSION['tmp']['sendsms']['bulk'] = 2;
 		}
 
 		if ($core_config['user']['send_as_unicode']) {
@@ -74,13 +80,22 @@ switch ($op) {
 			<form name=\"fm_sendsms\" id=\"fm_sendsms\" action=\"index.php?app=menu&inc=send_sms&op=sendsmstopv_yes\" method=\"POST\">
 			<p>"._('SMS sender ID').": $sms_from
 			<p>"._('SMS footer').": $sms_footer
+			<p>";
+
+		if ($bulk == 1) {
+			$content .= _button('index.php?app=menu&inc=send_sms&op=sendsmstopv&bulk=2', _('Send to numbers'));
+		} else if ($bulk == 2){
+			$content .= _button('index.php?app=menu&inc=send_sms&op=sendsmstopv&bulk=1', _('Send to groups'));
+		}
+
+		$content .= "
 			<p>
 			<table cellpadding=1 cellspacing=0 border=0>
 			<tbody>
 			<tr>
 				<td nowrap>
 					"._('Phonebook').":<br>
-					<select name=\"p_num_dump[]\" size=\"5\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\">$list_of_number</select>
+					<select name=\"p_num_dump[]\" size=\"15\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\">$list_of_number</select>
 				</td>
 				<td width=10>&nbsp;</td>
 				<td align=center valign=middle>
@@ -92,7 +107,7 @@ switch ($op) {
 				<td width=10>&nbsp;</td>
 				<td nowrap>
 					"._('Send to').":<br>
-					<select name=\"p_num[]\" size=\"5\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\"></select>
+					<select name=\"p_num[]\" size=\"15\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\"></select>
 				</td>
 			</tr>
 			</tbody>
