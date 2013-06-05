@@ -49,7 +49,7 @@ function gnokii_hook_getsmsinbox() {
 	global $gnokii_param;
 	$handle = @opendir($gnokii_param['path']);
 	while ($sms_in_file = @readdir($handle)) {
-		if (eregi("^ERR.in",$sms_in_file) && !eregi("^[.]",$sms_in_file)) {
+		if (preg_match("/^ERR.in/i",$sms_in_file) && !preg_match("/^[.]/i",$sms_in_file)) {
 			$fn = $gnokii_param['path']."/$sms_in_file";
 			// logger_print("infile:".$fn, 2, "gnokii incoming");
 			$tobe_deleted = $fn;

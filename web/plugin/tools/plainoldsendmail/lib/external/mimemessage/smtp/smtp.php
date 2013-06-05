@@ -506,7 +506,7 @@ class smtp_class
 		if(function_exists("preg_replace"))
 		$output=preg_replace(array("/(^|[^\r])\n/","/\r([^\n])/","/\\.(\r|\$)/"),array("\\1\r\n","\r\n\\1","..\\1"),$data);
 		else
-		$output=ereg_replace("\\.(\r|\$)","..\\1",ereg_replace("\r([^\n])","\r\n\\1",ereg_replace("(^|[^\r])\n","\\1\r\n",$data)));
+		$output=preg_replace("/\\.(\r|\$)","..\\1/",preg_replace("/\r([^\n])/","\r\n\\1",preg_replace("/(^|[^\r])\n/","\\1\r\n",$data)));
 	}
 
 	Function SendData($data)

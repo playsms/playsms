@@ -224,7 +224,7 @@ function auth_register() {
 				$password = core_get_random_string();
 				$password_coded = md5($password);
 				$footer = '@'.$username;
-				if (ereg("^(.+)(.+)\\.(.+)$",$email,$arr)) {
+				if (preg_match("/^(.+)(.+)\\.(.+)$/",$email,$arr)) {
 					// by default the status is 3 (normal user)
 					$datetime_now = $core_config['datetime']['now'];
 					$db_query = "

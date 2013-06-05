@@ -37,7 +37,7 @@ class sendmail_message_class extends email_message_class
 		if($this->delivery_mode!=SENDMAIL_DELIVERY_DEFAULT)
 		$command.=" -O DeliveryMode=".$this->delivery_mode;
 		if(strlen($return_path))
-		$command.=" -f '".ereg_replace("'", "'\\''",$return_path)."'";
+		$command.=" -f '".preg_replace("/'/", "'\\''",$return_path)."'";
 		if(strlen($this->sendmail_arguments))
 		$command.=" ".$this->sendmail_arguments;
 		if(!($pipe=popen($command,"w")))

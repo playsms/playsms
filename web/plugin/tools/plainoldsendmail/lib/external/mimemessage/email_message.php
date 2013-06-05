@@ -355,7 +355,7 @@ class email_message_class
 
 	Function ValidateEmailAddress($address)
 	{
-		return(eregi($this->email_regular_expression,QuoteMeta($address)));
+		return(preg_match('/'.$this->email_regular_expression.'/i',QuoteMeta($address)));
 	}
 
 	Function QuotedPrintableEncode($text,$header_charset="",$break_lines=1)
@@ -1003,10 +1003,10 @@ class email_message_class
 		$content_type="";
 		while(strlen($additional_headers))
 		{
-			ereg("([^\r\n]+)(\r?\n)?(.*)\$",$additional_headers,$matches);
+			preg_match("/([^\r\n]+)(\r?\n)?(.*)\$/",$additional_headers,$matches);
 			$header=$matches[1];
 			$additional_headers=$matches[3];
-			if(!ereg("^([^:]+):[ \t]+(.+)\$",$header,$matches))
+			if(!preg_match("/^([^:]+):[ \t]+(.+)\$/",$header,$matches))
 			{
 				$this->error="invalid header \"$header\"";
 				return(0);
@@ -1025,9 +1025,9 @@ class email_message_class
 		}
 		if(strlen($additional_parameters))
 		{
-			if(ereg("^[ \t]*-f[ \t]*([^@]+@[^ \t]+)[ \t]*(.*)\$"/*"^[ \t]?-f([^@]@[^ \t]+)[ \t]?(.*)\$"*/,$additional_parameters,$matches))
+			if(preg_match("/^[ \t]*-f[ \t]*([^@]+@[^ \t]+)[ \t]*(.*)\$"/*"^[ \t]?-f([^@]@[^ \t]+)[ \t]?(.*)\$/",$additional_parameters,$matches))
 			{
-				if(!eregi($this->email_regular_expression,$matches[1]))
+				if(!preg_match('/'.$this->email_regular_expression.'/i',$matches[1]))
 				{
 					$this->error="it was specified an invalid e-mail address for the additional parameter -f";
 					return(0);
