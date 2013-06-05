@@ -19,7 +19,7 @@ $msg	= trim($_REQUEST['msg']);
 $type	= ( trim($_REQUEST['type']) ? trim($_REQUEST['type']) : 'text' );
 $unicode= ( trim($_REQUEST['unicode']) ? trim($_REQUEST['unicode']) : 0 );
 
-// DS, IN
+// DS, IN, GET_CONTACT
 $src	= trim($_REQUEST['src']);
 $dst	= trim($_REQUEST['dst']);
 $dt	= trim($_REQUEST['dt']);
@@ -30,7 +30,7 @@ $last	= trim($_REQUEST['last']);
 $queue	= trim($_REQUEST['queue']);
 $slid	= trim($_REQUEST['slid']);
 
-// IN
+// IN, GET_CONTACT
 $kwd	= trim($_REQUEST['kwd']);
 
 if ($op) { $ta = $op; };
@@ -80,6 +80,15 @@ if ($ta) {
 			if ($c_uid = validatetoken($h)) {
 				$u = uid2username($c_uid);
 				list($ret,$json) = webservices_cr($u);
+			} else {
+				$ret = "ERR 100";
+				$json['status'] = 'ERR';
+				$json['error'] = '100';
+			}
+			break;
+		case "GET_CONTACT":
+			if ($c_uid = validatetoken($h)) {
+				list($ret,$json) = webservices_get_contact($c_uid, $kwd, $c);
 			} else {
 				$ret = "ERR 100";
 				$json['status'] = 'ERR';

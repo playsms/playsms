@@ -243,6 +243,27 @@ function webservices_cr($c_username) {
 	return array($ret, $json);
 }
 
+function webservices_get_contact($c_uid, $name, $count) {
+	$ret = '';
+	$list = phonebook_search($c_uid, $name, $count);
+	foreach ($list as $db_row) {
+		if ($db_row['pid']) {
+			$ret .= '"'.$db_row['pid'].'",';
+			$ret .= '"'.$db_row['gpid'].'",';
+			$ret .= '"'.$db_row['p_desc'].'",';
+			$ret .= '"'.$db_row['p_num'].'",';
+			$ret .= '"'.$db_row['email'].'",';
+			$ret .= '"'.$db_row['group_name'].'",';
+			$ret .= '"'.$db_row['code'].'"'."\n";
+		}
+	}
+	$json['status'] = 'OK';
+	$json['error'] = '0';
+	$json['data'] = $list;
+	$json['multi'] = true;
+	return array($ret, $json);
+}
+
 function webservices_output($ta,$requests) {
 	$ta = strtolower($ta);
 	$ret = x_hook($ta,'webservices_output',array($ta,$requests));

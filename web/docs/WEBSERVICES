@@ -135,6 +135,11 @@ PROTOCOL
     parameters	: <please read in SMS board menu>
     returns	: <please read in SMS board menu>
 
+9. Get contact list by name, mobile or email
+    ta		: get_contact
+    parameters	: h, kwd, c
+    returns	: list of contacts
+
 
 EXAMPLE
 -------
@@ -223,6 +228,23 @@ EXAMPLE
    </response>
 
    if error occured returns one of the ERROR RETURNS mentioned above, also in XML format
+
+6. Example webservice URL:
+   http://x.com/index.php?app=webservices&h=482ac0069592c647289e52dfef88be68&kwd=anton
+   &ta=get_contact&format=json
+
+   Explanation:
+
+   playSMS webservices in x.com with type of action (ta) get_contact access by user or
+   apps using a webservices token (h) with keyword (kwd) anton and expected output format
+   is in JSON format (format=json)
+
+   if succeeded returns text with JSON format:
+   {"status":"OK","error":"0","data":[{"pid":"13674","gpid":"2","p_desc":"Anton Raharja",
+   "p_num":"08901230659","email":"","group_name":"Test Group","code":"TESTGROUP"}],
+   "multi":true}
+
+   if error occured returns one of the ERROR RETURNS mentioned above, also in JSON format
 
 
 --

@@ -128,4 +128,19 @@ function phonebook_hook_phonebook_getgroupbyuid($uid, $orderby="") {
 	return $ret;
 }
 
+function phonebook_hook_phonebook_search($uid, $keyword="", $count="") {
+	$ret = array();
+	if ($keyword) {
+		$fields = 'A.id AS pid,gpid,A.name AS p_desc,A.mobile AS p_num,email,B.name AS group_name,code';
+		$conditions = array('A.uid' => $uid);
+		$keywords = array('A.name' => '%'.$keyword.'%', 'A.mobile' => '%'.$keyword.'%', 'A.email' => '%'.$keyword.'%');
+		if ((int) $count) {
+			$extras = array('LIMIT' => $count);
+		}
+		$join = "INNER JOIN "._DB_PREF_."_toolsPhonebook_group AS B ON A.gpid=B.id";
+		$ret = dba_search(_DB_PREF_.'_toolsPhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
+	}
+	return $ret;
+}
+
 ?>

@@ -116,4 +116,15 @@ function phonebook_getgroupbyuid($uid, $orderby="") {
 	return $ret;
 }
 
+function phonebook_search($uid, $keyword="", $count="") {
+	global $core_config;
+	$ret = array();
+	for ($c=0;$c<count($core_config['toolslist']);$c++) {
+		if ($ret = x_hook($core_config['toolslist'][$c],'phonebook_search',array($uid,$keyword,$count))) {
+			break;
+		}
+	}
+	return $ret;
+}
+
 ?>
