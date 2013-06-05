@@ -4,6 +4,7 @@ CHANGELOG
 Version 0.9.9-git - 130613
 - update sendsmsd daemon to enable parallel multi queue processing
 - update http method to POST in SMS custom (endymuhardin)
+- update deprecated commands eregi, ereg and ereg_replace with preg_match and preg_replace
 - add new webservices type of action get_contact to get contact lists
 - add new webservices ta=get_contact_group to search group contacts by name or code
 - add new webservices ta=get_contact to search contacts by name, mobile or email
