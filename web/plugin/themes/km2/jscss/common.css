@@ -165,7 +165,6 @@ li {
 
 .box_text_odd {
 	font-family: Verdana;
-	font-size: 12px;
 	font-weight: normal;
 	color: #000000;
 	background-color: #FCFCF0;
@@ -173,7 +172,6 @@ li {
 
 .box_text_even {
 	font-family: Verdana;
-	font-size: 12px;
 	font-weight: normal;
 	color: #000000;
 	background-color: #DBDCDD;
