@@ -1,6 +1,11 @@
 CHANGELOG
 ---------
 
+Version 0.9.9-git - 130613
+- MAJOR: sendsmsd to process each queue in parallel
+- add new webservices type of action get_contact to get contact lists
+- fix cutting very long word in inbox, incoming and outgoing table
+
 Version 0.9.8 - 130517
 - MAJOR: webservice now using hash token instead of username password (aseques)
 - MAJOR: change the login method to use PHP session
