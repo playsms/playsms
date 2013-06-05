@@ -95,7 +95,7 @@ switch ($op) {
 			<tr>
 				<td nowrap>
 					"._('Phonebook').":<br>
-					<select name=\"p_num_dump[]\" size=\"10\" style=\"width: 190px\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\">$list_of_number</select>
+					<select name=\"p_num_dump[]\" size=\"8\" style=\"width: 200px\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\">$list_of_number</select>
 				</td>
 				<td width=10>&nbsp;</td>
 				<td align=center valign=middle>
@@ -107,7 +107,7 @@ switch ($op) {
 				<td width=10>&nbsp;</td>
 				<td nowrap>
 					"._('Send to').":<br>
-					<select name=\"p_num[]\" size=\"10\" style=\"width: 190px\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\"></select>
+					<select name=\"p_num[]\" size=\"8\" style=\"width: 200px\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\"></select>
 				</td>
 			</tr>
 			</tbody>
@@ -115,7 +115,7 @@ switch ($op) {
 			<p>"._('Send to').":<br><input type=text size=30 maxlength=250 name=p_num_text value=\"".$to."\">
 			$sms_template
 			<p>"._('Message').":
-			<br><textarea cols=\"70\" rows=\"4\" onFocus=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" name=\"message\" id=\"ta_sms_content\">".$message."</textarea>
+			<br><textarea cols=\"55\" rows=\"3\" onFocus=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" name=\"message\" id=\"ta_sms_content\">".$message."</textarea>
 			<br><input type=\"text\" id=txtcount name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
 			<input type=\"hidden\" value=\"".$core_config['user']['opt']['sms_footer_length']."\" name=\"footerlen\"> 
 			<input type=\"hidden\" value=\"".$core_config['user']['opt']['per_sms_length']."\" name=\"maxchar\"> 
