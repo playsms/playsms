@@ -1025,7 +1025,7 @@ class email_message_class
 		}
 		if(strlen($additional_parameters))
 		{
-			if(preg_match("/^[ \t]*-f[ \t]*([^@]+@[^ \t]+)[ \t]*(.*)\$"/*"^[ \t]?-f([^@]@[^ \t]+)[ \t]?(.*)\$/",$additional_parameters,$matches))
+			if(preg_match("/^[ \t]*-f[ \t]*([^@]+@[^ \t]+)[ \t]*(.*)\$/i",$additional_parameters,$matches))
 			{
 				if(!preg_match('/'.$this->email_regular_expression.'/i',$matches[1]))
 				{
