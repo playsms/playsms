@@ -13,7 +13,7 @@ switch ($op) {
 			<thead>
 			<tr>
 				<th align=center width=4>*</th>
-				<th align=center width=20%>"._('Queue Code')."</th>
+				<th align=center width=30%>"._('Queue Code')."</th>
 				<th align=center width=10%>"._('Date/Time')."</th>
 		";
 		if (isadmin()) {
@@ -22,9 +22,9 @@ switch ($op) {
 			";
 		}
 		$content .= "
-				<th align=center width=4>"._('Group')."</th>
-				<th align=center width=4>"._('Count')."</th>
-				<th align=center width=60%>"._('Message')."</th>
+				<th align=center width=10%>"._('Group')."</th>
+				<th align=center width=10%>"._('Count')."</th>
+				<th align=center width=30%>"._('Message')."</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -37,11 +37,11 @@ switch ($op) {
 			$c_username = uid2username($data[$c]['uid']);
 			$c_group = phonebook_groupid2code($data[$c]['gpid']);
 			$c_count = $data[$c]['count'];
-			$c_message = stripslashes(core_display_text($data[$c]['message'].' '.$data[$c]['footer']));
+			$c_message = stripslashes(core_display_text($data[$c]['message'], 25));
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 			$content .= "
 				<tr>
-					<td valign=top class=$td_class align=left>".$i.".</td>
+					<td valign=top class=$td_class align=center>".$i.".</td>
 					<td valign=top class=$td_class align=center>".$c_queue_code."</td>
 					<td valign=top class=$td_class align=center>".$c_datetime_entry."</td>
 			";
