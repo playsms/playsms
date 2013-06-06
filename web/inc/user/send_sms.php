@@ -83,9 +83,9 @@ switch ($op) {
 			<p>";
 
 		if ($bulk == 1) {
-			$content .= _button('index.php?app=menu&inc=send_sms&op=sendsmstopv&bulk=2', _('Send to numbers'));
+			$content .= _button('index.php?app=menu&inc=send_sms&op=sendsmstopv&bulk=2', _('View numbers'));
 		} else if ($bulk == 2){
-			$content .= _button('index.php?app=menu&inc=send_sms&op=sendsmstopv&bulk=1', _('Send to groups'));
+			$content .= _button('index.php?app=menu&inc=send_sms&op=sendsmstopv&bulk=1', _('View groups'));
 		}
 
 		$content .= "
