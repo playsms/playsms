@@ -13,18 +13,18 @@ switch ($op) {
 			<thead>
 			<tr>
 				<th align=center width=4>*</th>
-				<th align=center width=15%>"._('Queue Code')."</th>
+				<th align=center width=30%>"._('Queue Code')."</th>
 				<th align=center width=20%>"._('Date/Time')."</th>
 		";
 		if (isadmin()) {
 			$content .= "
-				<th align=center width=17%>"._('User')."</th>
+				<th align=center width=10%>"._('User')."</th>
 			";
 		}
 		$content .= "
-				<th align=center width=15%>"._('Group')."</th>
-				<th align=center width=8%>"._('Count')."</th>
-				<th align=center width=25%>"._('Message')."</th>
+				<th align=center width=10%>"._('Group')."</th>
+				<th align=center width=10%>"._('Count')."</th>
+				<th align=center width=20%>"._('Message')."</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -37,7 +37,7 @@ switch ($op) {
 			$c_username = uid2username($data[$c]['uid']);
 			$c_group = phonebook_groupid2code($data[$c]['gpid']);
 			$c_count = $data[$c]['count'];
-			$c_message = stripslashes(core_display_text($data[$c]['message'], 25));
+			$c_message = stripslashes(core_display_text($data[$c]['message'], 15));
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 			$content .= "
 				<tr>
