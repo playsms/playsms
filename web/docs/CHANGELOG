@@ -15,7 +15,7 @@ Version 0.9.9-git - 130613
 - add bash script to send sms via the webservices interface (aseques)
 - add core_sanitize_sender() and fix sendsms_get_sender()
 - add core_sanitize_alphanumeric() core_sanitize_alpha() core_sanitize_numeric()
-- add automtically create directory "$sms_command_bin/$uid" for SMS command
+- add automatically create directory "$sms_command_bin/$uid" for SMS command
 - add a language full backup script
 - add type of action IN (ta=in) to retrieves incoming SMS from playSMS webservices
 - remove git conflict messages from ca_ES po files
@@ -26,6 +26,7 @@ Version 0.9.9-git - 130613
 - fix core_display_text() not to word-wrap text, instead the wrapping is done through CSS
 - fix #81 a bug causing a queue partially processed
 - fix #77 execute SMS command script in correct directory
+- fix #75 new options to define unknown format and already member reply in SMS subscribe
 - fix #72 add option to check option to send message as unicode by default
 - fix #71 wrong formula to calculate max. length per SMS for unicode messages
 
