@@ -230,7 +230,7 @@ switch ($op) {
 		$add['footer'] = $_POST['add_footer'];
 		$add['password'] = $_POST['add_password'];
 		$add['password'] = md5($add['password']);
-		$add['token'] = md5(uniqid(true).$add['username']);
+		$add['token'] = md5(uniqid($add['username'], true));
 		$add['credit'] = $_POST['add_credit'];
 		$add['status'] = $_POST['add_status'];
 		$add['datetime_timezone'] = $_POST['add_datetime_timezone'];

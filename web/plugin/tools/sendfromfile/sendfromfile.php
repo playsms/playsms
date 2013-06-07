@@ -39,7 +39,7 @@ switch ($op) {
 		$invalid = 0;
 		if (($fs == filesize($fn)) && file_exists($fn)) {
 			if (($fd = fopen($fn, 'r')) !== FALSE) {
-				$sid = uniqid(true);
+				$sid = uniqid('SID', true);
 				$continue = true;
 				while ((($data = fgetcsv($fd, $fs, ',')) !== FALSE) && $continue) {
 					$row++;
