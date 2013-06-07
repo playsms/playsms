@@ -91,7 +91,7 @@ function sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$gpid=0,$sms
 	global $core_config;
 	$ret = FALSE;
 	$dt = date($core_config['datetime']['format'], mktime());
-	$queue_code = md5(mktime().$uid.$gpid.$sms_msg);
+	$queue_code = uniqid(true);
 	logger_print("saving queue_code:".$queue_code." src:".$sms_sender, 2, "sendsms_queue_create");
 	$db_query = "INSERT INTO "._DB_PREF_."_tblSMSOutgoing_queue ";
 	$db_query .= "(queue_code,datetime_entry,datetime_scheduled,uid,gpid,sender_id,footer,message,sms_type,unicode,flag) ";
