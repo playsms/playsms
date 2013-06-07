@@ -164,6 +164,7 @@ switch ($op) {
 		exit();
 		break;
 	case 'upload_process':
+		set_time_limit(600);
 		if ($sid = $_REQUEST['sid']) {
 			$db_query = "SELECT * FROM "._DB_PREF_."_toolsSendfromfile WHERE sid='$sid'";
 			$db_result = dba_query($db_query);
