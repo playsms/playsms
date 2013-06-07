@@ -13,25 +13,25 @@ switch ($op) {
 			<thead>
 			<tr>
 				<th align=center width=4>*</th>
-				<th align=center width=30%>"._('Queue Code')."</th>
-				<th align=center width=10%>"._('Date/Time')."</th>
+				<th align=center width=15%>"._('Queue Code')."</th>
+				<th align=center width=20%>"._('Date/Time')."</th>
 		";
 		if (isadmin()) {
 			$content .= "
-				<th align=center width=10%>"._('User')."</th>
+				<th align=center width=17%>"._('User')."</th>
 			";
 		}
 		$content .= "
-				<th align=center width=10%>"._('Group')."</th>
-				<th align=center width=10%>"._('Count')."</th>
-				<th align=center width=30%>"._('Message')."</th>
+				<th align=center width=15%>"._('Group')."</th>
+				<th align=center width=8%>"._('Count')."</th>
+				<th align=center width=25%>"._('Message')."</th>
 			</tr>
 			</thead>
 			<tbody>
 		";
 		$data = queuelog_get($nav['limit'], $nav['offset']);
 		for ($c=count($data)-1;$c>=0;$c--) {
-			$i = $c + 1;
+			$i = $count - $nav['offset'] + $c + 1 - count($data);
 			$c_queue_code = $data[$c]['queue_code'];
 			$c_datetime_entry = $data[$c]['datetime_entry'];
 			$c_username = uid2username($data[$c]['uid']);
