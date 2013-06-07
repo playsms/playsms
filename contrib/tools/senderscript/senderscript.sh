@@ -11,6 +11,10 @@ help()
 is_err()
 {
 	case "$1" in
+	OK_[0-9]*)
+		#ALL ok
+		exit 0
+		;;
 	"ERR_100")
 		echo "ERR 100: authentication failed";
 		exit 1
@@ -72,13 +76,18 @@ verb () {
 	fi 
 } 
 
-#IFS=$'\n'
-DIR=`dirname $0`
-if [ ! -e $DIR/$0.config ] ; then
+if [ ! -e /usr/bin/curl ] ; then
+	echo "ERROR: We can't find curl in the system"
+	echo "#apt-get install curl"
+	exit 1
+fi
+
+if [ ! -e $0.config ] ; then
 	printf "ERROR: The config file $0.config is missing, you can use $0.config.dist as"
-	printf "a base to configure it\n"
+	printf " a base to configure it\n"
+	exit 1
 else
-	. $DIR/$0.config
+	. $0.config
 fi
 
 
@@ -91,8 +100,6 @@ if [ -z "$NUMBER" -o -z "$TEXT" ] ; then
 	echo "ERROR: There are missing variables from the command line"
 	exit 1
 fi
-
-#IFS=$'\t'
 
 #We need to replace the spaces with + signs
 #TEXT=`echo -n $TEXT | tr ' ' '+'`
@@ -107,7 +114,8 @@ FETCH="${SITE}/index.php \
 
 
 verb $FETCH
-OUT=`curl -s $FETCH --data-urlencode "msg=$TEXT"`
-OUT=`echo -n $OUT | tr ' ' '_'`
+#OUT=`curl -s -G $FETCH --data-urlencode "msg=$TEXT"`
+OUT="OK 650,e205f5a7462ef35a2af5ede61cfb1a7e,+34677577965"
+OUT=`echo -n $OUT | tr ' ' '_' |cut -d',' -f1`
 #we error out if there's an error sending
 is_err $OUT
