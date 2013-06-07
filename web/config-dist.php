@@ -53,4 +53,10 @@ $core_config['ishttps']		= false;
 // are we using sendsmsd or not. the default is using sendsmsd
 $core_config['issendsmsd']	= true;
 
+// limit the number of queue processed by sendsmsd in one time
+$core_config['sendsmsd_queue']	= 30;
+
+// limit the length of each queue processed by sendsmsd in one time
+$core_config['sendsmsd_limit']	= 1000;
+
 ?>

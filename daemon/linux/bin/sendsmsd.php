@@ -1,6 +1,8 @@
 #!/usr/bin/php -q
 <?php
 
+set_time_limit(600);
+
 //error_reporting(0);
 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 
@@ -23,7 +25,10 @@ if (($PLAYSMS_PATH = $argv[1]) && (file_exists($PLAYSMS_PATH))) {
 if ($continue) {
 	if (trim($argv[2]) == '_GETQUEUE_') {
 		$queue = '';
-		$list = dba_search(_DB_PREF_.'_tblSMSOutgoing_queue', 'queue_code', array('flag' => '0'));
+		if ((int) $core_config['sendsmsd_queue'] > 0) {
+			$extas = array('LIMIT' => (int) $core_config['sendsmsd_queue']);
+		}
+		$list = dba_search(_DB_PREF_.'_tblSMSOutgoing_queue', 'queue_code', array('flag' => '0'), '', $extras);
 		foreach ($list as $db_row) {
 			$queue .= $db_row['queue_code'].' ';
 		}
@@ -33,7 +38,7 @@ if ($continue) {
 		exit();
 	}
 	if ((trim($argv[2]) == '_PROCESS_') && trim($argv[3])){
-		sendsmsd($argv[3]);
+		sendsmsd($argv[3], $core_config['sendsmsd_limit']);
 	}
 }
 
