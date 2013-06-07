@@ -55,7 +55,6 @@ function sms_subscribe_hook_setsmsincomingaction($sms_datetime, $sms_sender, $su
 
 function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyword, $subscribe_param = '', $sms_receiver = '', $raw_message = '') {
 	global $core_config;
-	$ok = false;
 	$c_uid = $list['uid'];
 	$subscribe_keyword = strtoupper(trim($subscribe_keyword));
 	$subscribe_param = trim($subscribe_param);
@@ -99,10 +98,13 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 	}
 
 	// check for subscribe/unsubscribe sub-keyword
+	$ok = false;
 	$subscribe_param = trim(strtoupper($subscribe_param));
 	if ($sms_to = $sms_sender) {
 		$msg1 = $list['subscribe_msg'];
 		$msg2 = $list['unsubscribe_msg'];
+		$unknown_format_msg = $list['unknown_format_msg'];
+		$already_member_msg = $list['already_member_msg'];
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE member_number='$sms_to' AND subscribe_id='$subscribe_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
@@ -120,19 +122,8 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 					logger_print('REG SUCCESS sender:'.$sms_sender.' keyword:'.$subscribe_keyword.' mobile:'.$sms_to, 2, "sms_subscribe");
 					$ok = true;
 					break;
-				case "OFF" :
-				case "OUT" :
-				case "UNREG" :
-				case $subscribe_reject_param :
-					$message = _('You are not a member');
-					logger_print('UNREG FAILED sender:'.$sms_sender.' keyword:'.$subscribe_keyword.' mobile:'.$sms_to, 2, "sms_subscribe");
-					$ok = true;
-					break;
-				default :
-					$message = _('Unknown SMS format');
-					logger_print('REG unknown format sender:'.$sms_sender.' keyword:'.$subscribe_keyword.' mobile:'.$sms_to, 2, "sms_subscribe");
-					$ok = true;
-					break;
+				default:
+					$message = '';
 			}
 		} else {
 			$member = true;
@@ -156,21 +147,21 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 				case "IN" :
 				case "REG" :
 				case $subscribe_accept_param :
-					$message = _('You already a member');
+					$message = $already_member_msg;
 					logger_print('REG fail already a member sender:'.$sms_sender.' keyword:'.$subscribe_keyword.' mobile:'.$sms_to, 2, "sms_subscribe");
 					$ok = true;
 					break;
 				default :
-					$message = _('Unknown sms format');
+					$message = $unknown_format_msg;
 					logger_print('Unknown format sender:'.$sms_sender.' keyword:'.$subscribe_keyword.' mobile:'.$sms_to, 2, "sms_subscribe");
 					$ok = true;
 					break;
 			}
 		}
-		list($ok,$to,$smslog_id,$queue) = sendsms($username, $sms_to, $message);
-		$ok = $ok[0];
-	} else {
-		$ok = false;
+		if ($message) {
+			list($ok,$to,$smslog_id,$queue) = sendsms($username, $sms_to, $message);
+			$ok = $ok[0];
+		}
 	}
 	return $ok;
 }

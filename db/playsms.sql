@@ -521,12 +521,14 @@ CREATE TABLE `playsms_featureSubscribe` (
   `subscribe_id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL DEFAULT '0',
   `subscribe_keyword` varchar(20) NOT NULL,
-  `subscribe_msg` varchar(200) NOT NULL,
-  `unsubscribe_msg` varchar(200) NOT NULL,
+  `subscribe_msg` varchar(140) NOT NULL DEFAULT '',
+  `unsubscribe_msg` varchar(140) NOT NULL DEFAULT '',
   `subscribe_enable` int(11) NOT NULL DEFAULT '0',
   `subscribe_param` varchar(20) NOT NULL,
   `unsubscribe_param` varchar(20) NOT NULL,
   `forward_param` varchar(20) NOT NULL,
+  `unknown_format_msg` varchar(140) NOT NULL DEFAULT '',
+  `already_member_msg` varchar(140) NOT NULL DEFAULT '',
   PRIMARY KEY (`subscribe_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

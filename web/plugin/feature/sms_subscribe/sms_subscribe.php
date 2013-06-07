@@ -105,10 +105,10 @@ switch ($op) {
 			<form name=\"form_subscribe_add\" id=\"form_subscribe_add\" action=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_add_yes method=post>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td width=150>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><input type=text size=10 maxlength=10 name=add_subscribe_keyword value=\"$add_subscribe_keyword\"></td>
+				<td width=200>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><input type=text size=10 maxlength=10 name=add_subscribe_keyword value=\"$add_subscribe_keyword\"></td>
 			</tr>
 			<tr>
-				<td width=150>"._('SMS subscribe parameter')."</td>
+				<td width=200>"._('SMS subscribe parameter')."</td>
 				<td width=5>:</td>
 				<td>
 					<input type=text size=10 maxlength=20 name=add_subscribe_param value=\"$add_subscribe_param\">
@@ -118,7 +118,7 @@ switch ($op) {
 				<td style=\"vertical-align:top;\">"._('SMS subscribe reply')."</td>
 				<td style=\"vertical-align:top;\">:</td>
 				<td>
-					<textarea maxlength=\"200\" name=\"add_subscribe_msg\" id=\"add_subscribe_msg\" value=\"\" cols=\"35\" rows=\"3\" 
+					<textarea maxlength=\"140\" name=\"add_subscribe_msg\" id=\"add_subscribe_msg\" value=\"\" cols=\"35\" rows=\"3\" 
 						onClick=\"SmsSetCounter_Abstract('add_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\" 
 						onkeypress=\"SmsSetCounter_Abstract('add_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\" 
 						onblur=\"SmsSetCounter_Abstract('add_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\" 
@@ -132,7 +132,7 @@ switch ($op) {
 				</td>
 			</tr>
 			<tr>
-				<td width=150>"._('SMS unsubscribe parameter')."</td>
+				<td width=200>"._('SMS unsubscribe parameter')."</td>
 				<td width=5>:</td>
 				<td>
 					<input type=text size=10 maxlength=20 name=add_unsubscribe_param value=\"$add_unsubscribe_param\">
@@ -142,7 +142,7 @@ switch ($op) {
 				<td style=\"vertical-align:top;\">"._('SMS unsubscribe reply')."</td>
 				<td style=\"vertical-align:top;\">:</td>
 				<td>
-					<textarea maxlength=\"200\" name=\"add_unsubscribe_msg\" id=\"add_unsubscribe_msg\" value=\"\" cols=\"35\" rows=\"3\" 
+					<textarea maxlength=\"140\" name=\"add_unsubscribe_msg\" id=\"add_unsubscribe_msg\" value=\"\" cols=\"35\" rows=\"3\" 
 						onClick=\"SmsSetCounter_Abstract('add_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\" 
 						onkeypress=\"SmsSetCounter_Abstract('add_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\" 
 						onblur=\"SmsSetCounter_Abstract('add_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\" 
@@ -156,10 +156,44 @@ switch ($op) {
 				</td>
 			</tr>
 			<tr>
-				<td width=150>"._('SMS forward parameter')."</td>
+				<td width=200>"._('SMS forward parameter')."</td>
 				<td width=5>:</td>
 				<td>
 					<input type=text size=10 maxlength=20 name=add_forward_param value=\"$add_forward_param\">
+				</td>
+			</tr>
+			<tr>
+				<td style=\"vertical-align:top;\">"._('Unknown format reply')."</td>
+				<td style=\"vertical-align:top;\">:</td>
+				<td>
+					<textarea maxlength=\"140\" name=\"add_unknown_format_msg\" id=\"add_unknown_format_msg\" value=\"\" cols=\"35\" rows=\"3\" 
+						onClick=\"SmsSetCounter_Abstract('add_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\" 
+						onkeypress=\"SmsSetCounter_Abstract('add_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\" 
+						onblur=\"SmsSetCounter_Abstract('add_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\" 
+						onKeyUp=\"SmsSetCounter_Abstract('add_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\"	
+						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'add_unknown_format_msg');\" 
+						onKeyDown=\"SmsCountKeyDown_Abstract($max_length, 'form_subscribe_add');\"></textarea>
+					<br>
+					<input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount_uk\" id=\"txtcount_uk\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.form_subscribe_add.add_unknown_format_msg.focus();\" readonly>
+					<input type=\"hidden\" value=\"".$core_config['main']['max_sms_length'] ."\" name=\"hiddcount_uk\" id=\"hiddcount_uk\"> 
+					<input type=\"hidden\" value=\"".$core_config['main']['max_sms_length_unicode']."\" name=\"hiddcount_unicode_uk\" id=\"hiddcount_unicode_uk\"> 
+				</td>
+			</tr>
+			<tr>
+				<td style=\"vertical-align:top;\">"._('Already a member reply')."</td>
+				<td style=\"vertical-align:top;\">:</td>
+				<td>
+					<textarea maxlength=\"140\" name=\"add_already_member_msg\" id=\"add_already_member_msg\" value=\"\" cols=\"35\" rows=\"3\" 
+						onClick=\"SmsSetCounter_Abstract('add_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\" 
+						onkeypress=\"SmsSetCounter_Abstract('add_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\" 
+						onblur=\"SmsSetCounter_Abstract('add_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\" 
+						onKeyUp=\"SmsSetCounter_Abstract('add_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\"	
+						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'add_already_member_msg');\" 
+						onKeyDown=\"SmsCountKeyDown_Abstract($max_length, 'form_subscribe_add');\"></textarea>
+					<br>
+					<input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount_am\" id=\"txtcount_am\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.form_subscribe_add.add_already_member_msg.focus();\" readonly>
+					<input type=\"hidden\" value=\"".$core_config['main']['max_sms_length'] ."\" name=\"hiddcount_am\" id=\"hiddcount_am\"> 
+					<input type=\"hidden\" value=\"".$core_config['main']['max_sms_length_unicode']."\" name=\"hiddcount_unicode_am\" id=\"hiddcount_unicode_am\"> 
 				</td>
 			</tr>
 			</table>
@@ -175,12 +209,14 @@ switch ($op) {
 		$add_subscribe_param = strtoupper($_POST['add_subscribe_param']);
 		$add_unsubscribe_param = strtoupper($_POST['add_unsubscribe_param']);
 		$add_forward_param = strtoupper($_POST['add_forward_param']);
+		$add_unknown_format_msg = $_POST['add_unknown_format_msg'];
+		$add_already_member_msg = $_POST['add_already_member_msg'];
 		if (! $add_forward_param) { $add_forward_param = 'BC'; };
-		if ($add_subscribe_keyword && $add_subscribe_msg && $add_unsubscribe_msg && $add_forward_param) {
+		if ($add_subscribe_keyword && $add_subscribe_msg && $add_unsubscribe_msg && $add_forward_param && $add_unknown_format_msg && $add_already_member_msg) {
 			if (checkavailablekeyword($add_subscribe_keyword)) {
 				$db_query = "
-					INSERT INTO " . _DB_PREF_ . "_featureSubscribe (uid,subscribe_keyword,subscribe_msg,unsubscribe_msg, subscribe_param, unsubscribe_param, forward_param)
-					VALUES ('$uid','$add_subscribe_keyword','$add_subscribe_msg','$add_unsubscribe_msg','$add_subscribe_param','$add_unsubscribe_param','$add_forward_param')";
+					INSERT INTO " . _DB_PREF_ . "_featureSubscribe (uid,subscribe_keyword,subscribe_msg,unsubscribe_msg, subscribe_param, unsubscribe_param, forward_param, unknown_format_msg, already_member_msg)
+					VALUES ('$uid','$add_subscribe_keyword','$add_subscribe_msg','$add_unsubscribe_msg','$add_subscribe_param','$add_unsubscribe_param','$add_forward_param','$add_unknown_format_msg','$add_already_member_msg')";
 				if ($new_uid = @ dba_insert_id($db_query)) {
 					$_SESSION['error_string'] = _('SMS subscribe has been added')." ("._('keyword').": $add_subscribe_keyword)";
 				} else {
@@ -206,6 +242,8 @@ switch ($op) {
 		$edit_unsubscribe_param = $db_row['unsubscribe_param'];
 		$edit_forward_param = $db_row['forward_param'];
 		$max_length = $core_config['main']['max_sms_length'];
+		$edit_unknown_format_msg = $db_row['unknown_format_msg'];
+		$edit_already_member_msg = $db_row['already_member_msg'];
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -218,20 +256,20 @@ switch ($op) {
 			<input type=hidden name=edit_subscribe_keyword value=\"$edit_subscribe_keyword\">
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td width=150>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$edit_subscribe_keyword</b></td>
+				<td width=200>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$edit_subscribe_keyword</b></td>
 			</tr>
-				<tr>
-					<td width=150>"._('SMS subscribe parameter')."</td>
-					<td width=5>:</td>
-					<td>
-						<input type=text size=10 maxlength=20 name=edit_subscribe_param value=\"$edit_subscribe_param\">
-					</td>
-				</tr>
+			<tr>
+				<td width=200>"._('SMS subscribe parameter')."</td>
+				<td width=5>:</td>
+				<td>
+					<input type=text size=10 maxlength=20 name=edit_subscribe_param value=\"$edit_subscribe_param\">
+				</td>
+			</tr>
 			<tr>
 				<td style=\"vertical-align:top;\">"._('SMS subscribe reply')."</td>
 				<td style=\"vertical-align:top;\">:</td>
 				<td>
-					<textarea maxlength=\"200\" name=\"edit_subscribe_msg\" id=\"edit_subscribe_msg\" value=\"\" cols=\"35\" rows=\"3\" 
+					<textarea maxlength=\"140\" name=\"edit_subscribe_msg\" id=\"edit_subscribe_msg\" value=\"\" cols=\"35\" rows=\"3\" 
 						onClick=\"SmsSetCounter_Abstract('edit_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\" 
 						onkeypress=\"SmsSetCounter_Abstract('edit_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\" 
 						onblur=\"SmsSetCounter_Abstract('edit_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\" 
@@ -245,7 +283,7 @@ switch ($op) {
 				</td>
 			</tr>
 			<tr>
-				<td width=150>"._('SMS unsubscribe parameter')."</td>
+				<td width=200>"._('SMS unsubscribe parameter')."</td>
 				<td width=5>:</td>
 				<td>
 					<input type=text size=10 maxlength=20 name=edit_unsubscribe_param value=\"$edit_unsubscribe_param\">
@@ -255,7 +293,7 @@ switch ($op) {
 				<td style=\"vertical-align:top;\">"._('SMS unsubscribe reply')."</td>
 				<td style=\"vertical-align:top;\">:</td>
 				<td>
-					<textarea maxlength=\"200\" name=\"edit_unsubscribe_msg\" id=\"edit_unsubscribe_msg\" value=\"\" cols=\"35\" rows=\"3\" 
+					<textarea maxlength=\"140\" name=\"edit_unsubscribe_msg\" id=\"edit_unsubscribe_msg\" value=\"\" cols=\"35\" rows=\"3\" 
 						onClick=\"SmsSetCounter_Abstract('edit_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\" 
 						onkeypress=\"SmsSetCounter_Abstract('edit_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\" 
 						onblur=\"SmsSetCounter_Abstract('edit_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\" 
@@ -269,10 +307,44 @@ switch ($op) {
 				</td>
 			</tr>
 			<tr>
-				<td width=150>"._('SMS forward parameter')."</td>
+				<td width=200>"._('SMS forward parameter')."</td>
 				<td width=5>:</td>
 				<td>
 					<input type=text size=10 maxlength=20 name=edit_forward_param value=\"$edit_forward_param\">
+				</td>
+			</tr>
+			<tr>
+				<td style=\"vertical-align:top;\">"._('Unknown format reply')."</td>
+				<td style=\"vertical-align:top;\">:</td>
+				<td>
+					<textarea maxlength=\"140\" name=\"edit_unknown_format_msg\" id=\"edit_unknown_format_msg\" value=\"\" cols=\"35\" rows=\"3\" 
+						onClick=\"SmsSetCounter_Abstract('edit_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\" 
+						onkeypress=\"SmsSetCounter_Abstract('edit_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\" 
+						onblur=\"SmsSetCounter_Abstract('edit_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\" 
+						onKeyUp=\"SmsSetCounter_Abstract('edit_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\"	
+						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'edit_unknown_format_msg');\" 
+						onKeyDown=\"SmsCountKeyDown_Abstract($max_length, 'form_subscribe_add');\">$edit_unknown_format_msg</textarea>
+					<br>
+					<input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount_uk\" id=\"txtcount_uk\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.form_subscribe_add.edit_unknown_format_msg.focus();\" readonly>
+					<input type=\"hidden\" value=\"".$core_config['main']['max_sms_length'] ."\" name=\"hiddcount_uk\" id=\"hiddcount_uk\"> 
+					<input type=\"hidden\" value=\"".$core_config['main']['max_sms_length_unicode']."\" name=\"hiddcount_unicode_uk\" id=\"hiddcount_unicode_uk\"> 
+				</td>
+			</tr>
+			<tr>
+				<td style=\"vertical-align:top;\">"._('Already a member reply')."</td>
+				<td style=\"vertical-align:top;\">:</td>
+				<td>
+					<textarea maxlength=\"140\" name=\"edit_already_member_msg\" id=\"edit_already_member_msg\" value=\"\" cols=\"35\" rows=\"3\" 
+						onClick=\"SmsSetCounter_Abstract('edit_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\" 
+						onkeypress=\"SmsSetCounter_Abstract('edit_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\" 
+						onblur=\"SmsSetCounter_Abstract('edit_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\" 
+						onKeyUp=\"SmsSetCounter_Abstract('edit_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\"	
+						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'edit_already_member_msg');\" 
+						onKeyDown=\"SmsCountKeyDown_Abstract($max_length, 'form_subscribe_add');\">$edit_already_member_msg</textarea>
+					<br>
+					<input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount_am\" id=\"txtcount_am\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.form_subscribe_add.edit_already_member_msg.focus();\" readonly>
+					<input type=\"hidden\" value=\"".$core_config['main']['max_sms_length'] ."\" name=\"hiddcount_am\" id=\"hiddcount_am\"> 
+					<input type=\"hidden\" value=\"".$core_config['main']['max_sms_length_unicode']."\" name=\"hiddcount_unicode_am\" id=\"hiddcount_unicode_am\"> 
 				</td>
 			</tr>
 		</table>
@@ -288,11 +360,15 @@ switch ($op) {
 		$edit_subscribe_param = strtoupper($_POST['edit_subscribe_param']);
 		$edit_unsubscribe_param = strtoupper($_POST['edit_unsubscribe_param']);
 		$edit_forward_param = strtoupper($_POST['edit_forward_param']);
+		$edit_unknown_format_msg = $_POST['edit_unknown_format_msg'];
+		$edit_already_member_msg = $_POST['edit_already_member_msg'];
 		if (! $edit_forward_param) { $edit_forward_param = 'BC'; };
-		if ($subscribe_id && $edit_subscribe_keyword && $edit_subscribe_msg && $edit_unsubscribe_msg && $edit_forward_param) {
+		if ($subscribe_id && $edit_subscribe_keyword && $edit_subscribe_msg && $edit_unsubscribe_msg && $edit_forward_param && $edit_unknown_format_msg && $edit_already_member_msg) {
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_featureSubscribe
-				SET c_timestamp='" . mktime() . "',subscribe_keyword='$edit_subscribe_keyword',subscribe_msg='$edit_subscribe_msg',unsubscribe_msg='$edit_unsubscribe_msg', subscribe_param='$edit_subscribe_param', unsubscribe_param='$edit_unsubscribe_param', forward_param='$edit_forward_param'
+				SET c_timestamp='" . mktime() . "', subscribe_keyword='$edit_subscribe_keyword', subscribe_msg='$edit_subscribe_msg',
+					unsubscribe_msg='$edit_unsubscribe_msg', subscribe_param='$edit_subscribe_param', unsubscribe_param='$edit_unsubscribe_param',
+					forward_param='$edit_forward_param', unknown_format_msg='$edit_unknown_format_msg', already_member_msg='$edit_already_member_msg'
 				WHERE subscribe_id='$subscribe_id'";
 			if (@ dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('SMS subscribe has been saved')." ("._('keyword').": $edit_subscribe_keyword)";
@@ -429,7 +505,7 @@ switch ($op) {
 			<input type=hidden value=$msg_id name=msg_id>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td width=150>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$subscribe_name</b></td>
+				<td width=200>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$subscribe_name</b></td>
 			</tr>
 			<tr>
 				<td colspan=3>
@@ -476,7 +552,7 @@ switch ($op) {
 			<input type=hidden value=$subscribe_id name=subscribe_id>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td width=150>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$subscribe_name</b></td>
+				<td width=200>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$subscribe_name</b></td>
 			</tr>
 			<tr>
 				<td colspan=3>
@@ -539,7 +615,7 @@ switch ($op) {
 			<input type=hidden value=$subscribe_id name=subscribe_id>
 			<input type=hidden value=$msg_id name=msg_id>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
-			<tr><td width=150>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$subscribe_name</b></td></tr>
+			<tr><td width=200>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$subscribe_name</b></td></tr>
 			<tr><td>"._('Message ID')."</td><td>:</td><td>".$msg_id."</td></tr>
 			<tr><td>"._('Message')."</td><td>:</td><td>".$message."</td></tr>
 			<tr><td>"._('Sent')."</td><td>:</td><td>".$counter."</td></tr>
