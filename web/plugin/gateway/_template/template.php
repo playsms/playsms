@@ -29,7 +29,7 @@ switch ($op)
 	    <form action=index.php?app=menu&inc=gateway_template&op=manage_save method=post>
 	    <table width=100% cellpadding=1 cellspacing=2 border=0>
 		<tr>
-		    <td width=150>"._('Gateway name')."</td><td width=5>:</td><td><b>template</b> $status_active</td>
+		    <td width=200>"._('Gateway name')."</td><td width=5>:</td><td><b>template</b> $status_active</td>
 		</tr>
 		<tr>
 		    <td>"._('Template installation path')."</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_path value=\"".$template_param['path']."\"> ("._('No trailing slash')." \"/\")</td>
