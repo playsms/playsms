@@ -128,13 +128,21 @@ function sendsms_queue_update($queue_code, $updates) {
 	return $ret;
 }
 
-function sendsmsd($single_queue='') {
+function sendsmsd($single_queue='', $sendsmsd_limit=0, $sendsmsd_offset=0) {
 	global $core_config;
 	if ($single_queue) {
 		$queue_sql = "AND queue_code='".$single_queue."'";
 		logger_print("single queue queue_code:".$single_queue, 2, "sendsmsd");
 	}
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing_queue WHERE flag='0' ".$queue_sql;
+	$sendsmsd_limit = (int) $sendsmsd_limit;
+	if ($sendsmsd_limit > 0) {
+		$sql_limit = "LIMIT ".$sendsmsd_limit;
+	}
+	$sendsmsd_offset = (int) $sendsmsd_offset;
+	if ($sendsmsd_offset > 0) {
+		$sql_offset = "OFFSET ".$sendsmsd_offset;
+	}
+	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing_queue WHERE flag='0' ".$queue_sql." ".$sql_limit." ".$sql_offset;
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$c_queue_id = $db_row['id'];
