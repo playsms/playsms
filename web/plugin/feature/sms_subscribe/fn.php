@@ -101,10 +101,10 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 	$ok = false;
 	$subscribe_param = trim(strtoupper($subscribe_param));
 	if ($sms_to = $sms_sender) {
-		$msg1 = $list['subscribe_msg'];
-		$msg2 = $list['unsubscribe_msg'];
-		$unknown_format_msg = $list['unknown_format_msg'];
-		$already_member_msg = $list['already_member_msg'];
+		$msg1 = addslashes($list['subscribe_msg']);
+		$msg2 = addslashes($list['unsubscribe_msg']);
+		$unknown_format_msg = addslashes($list['unknown_format_msg']);
+		$already_member_msg = addslashes($list['already_member_msg']);
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE member_number='$sms_to' AND subscribe_id='$subscribe_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
