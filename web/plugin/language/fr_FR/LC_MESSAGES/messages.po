@@ -230,6 +230,10 @@ msgid "Fill to update"
 msgstr "Echec de suppression"
 
 #, fuzzy
+msgid "Flash message"
+msgstr "Envoyer un message flash"
+
+#, fuzzy
 msgid "Footer"
 msgstr "Pied de page SMS"
 
@@ -554,6 +558,10 @@ msgstr "Outils"
 msgid "Unable to update login session"
 msgstr "Impossible de mettre à jour la session"
 
+#, fuzzy
+msgid "Unicode message"
+msgstr "Envoyer un message unicode"
+
 msgid "Use"
 msgstr "Utilisateur"
 
@@ -602,9 +610,16 @@ msgstr "Voir"
 msgid "View administrator"
 msgstr "Administrateur"
 
+msgid "View groups"
+msgstr ""
+
 #, fuzzy
 msgid "View normal user"
 msgstr "Utilisateur"
+
+#, fuzzy
+msgid "View numbers"
+msgstr "Numéro(s)"
 
 msgid "Webapp Token"
 msgstr ""

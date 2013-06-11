@@ -14,6 +14,10 @@ msgstr "增加短信订阅"
 msgid "Add message"
 msgstr "增加"
 
+#, fuzzy
+msgid "Already a member reply"
+msgstr "你已是会员"
+
 msgid "Are you sure you want to delete SMS subscribe ?"
 msgstr "确定删除短信订阅 ?"
 
@@ -155,10 +159,8 @@ msgstr ""
 msgid "Status"
 msgstr "状态"
 
-msgid "Unknown SMS format"
-msgstr "未知短信格式"
-
-msgid "Unknown sms format"
+#, fuzzy
+msgid "Unknown format reply"
 msgstr "未知短信格式"
 
 msgid "User"
@@ -169,12 +171,6 @@ msgstr "浏览人数"
 
 msgid "View messages"
 msgstr "浏览信息"
-
-msgid "You already a member"
-msgstr "你已是会员"
-
-msgid "You are not a member"
-msgstr "你还不是会员"
 
 #, fuzzy
 msgid "You have no member"

@@ -224,6 +224,10 @@ msgid "Fill to update"
 msgstr "删除短信失败"
 
 #, fuzzy
+msgid "Flash message"
+msgstr "发送为瞬时信息"
+
+#, fuzzy
 msgid "Footer"
 msgstr "短信页脚"
 
@@ -548,6 +552,10 @@ msgstr ""
 msgid "Unable to update login session"
 msgstr "不能更新登陆会话"
 
+#, fuzzy
+msgid "Unicode message"
+msgstr "发送为非代码信息"
+
 msgid "Use"
 msgstr "用户"
 
@@ -596,9 +604,16 @@ msgstr "查看"
 msgid "View administrator"
 msgstr "管理员"
 
+msgid "View groups"
+msgstr ""
+
 #, fuzzy
 msgid "View normal user"
 msgstr "一般用户"
+
+#, fuzzy
+msgid "View numbers"
+msgstr "电话号码"
 
 msgid "Webapp Token"
 msgstr ""

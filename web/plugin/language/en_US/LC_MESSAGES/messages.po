@@ -221,6 +221,9 @@ msgstr ""
 msgid "Fill to update"
 msgstr ""
 
+msgid "Flash message"
+msgstr ""
+
 msgid "Footer"
 msgstr ""
 
@@ -539,6 +542,9 @@ msgstr ""
 msgid "Unable to update login session"
 msgstr ""
 
+msgid "Unicode message"
+msgstr ""
+
 msgid "Use"
 msgstr ""
 
@@ -584,7 +590,13 @@ msgstr ""
 msgid "View administrator"
 msgstr ""
 
+msgid "View groups"
+msgstr ""
+
 msgid "View normal user"
+msgstr ""
+
+msgid "View numbers"
 msgstr ""
 
 msgid "Webapp Token"

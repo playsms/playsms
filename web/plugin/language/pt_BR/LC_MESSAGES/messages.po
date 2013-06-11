@@ -224,6 +224,10 @@ msgid "Fill to update"
 msgstr "Falha ao remover SMS"
 
 #, fuzzy
+msgid "Flash message"
+msgstr "Enviar como mensagem flash"
+
+#, fuzzy
 msgid "Footer"
 msgstr "Assinatura do SMS"
 
@@ -548,6 +552,10 @@ msgstr ""
 msgid "Unable to update login session"
 msgstr "Incapaz de atualizar a sessão de login"
 
+#, fuzzy
+msgid "Unicode message"
+msgstr "Enviar como mensagem unicode"
+
 msgid "Use"
 msgstr "Usuário"
 
@@ -596,9 +604,16 @@ msgstr "Visualizar"
 msgid "View administrator"
 msgstr "Administrador"
 
+msgid "View groups"
+msgstr ""
+
 #, fuzzy
 msgid "View normal user"
 msgstr "Usuário normal"
+
+#, fuzzy
+msgid "View numbers"
+msgstr "Número(s) de telefone"
 
 msgid "Webapp Token"
 msgstr ""

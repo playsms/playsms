@@ -224,6 +224,10 @@ msgid "Fill to update"
 msgstr "Imposible borrar el SMS"
 
 #, fuzzy
+msgid "Flash message"
+msgstr "Enviar como mensaje rápido"
+
+#, fuzzy
 msgid "Footer"
 msgstr "Firma del SMS"
 
@@ -548,6 +552,10 @@ msgstr ""
 msgid "Unable to update login session"
 msgstr "Imposible actualizar la sesión de usuario"
 
+#, fuzzy
+msgid "Unicode message"
+msgstr "Enviar en Unicode"
+
 msgid "Use"
 msgstr "Usuario"
 
@@ -596,9 +604,16 @@ msgstr "Ver"
 msgid "View administrator"
 msgstr "Administrador"
 
+msgid "View groups"
+msgstr ""
+
 #, fuzzy
 msgid "View normal user"
 msgstr "Usuario sin Privilegios"
+
+#, fuzzy
+msgid "View numbers"
+msgstr "Numero(s) telefónico(s)"
 
 msgid "Webapp Token"
 msgstr ""

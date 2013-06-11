@@ -14,6 +14,10 @@ msgstr "Adicionar assinatura SMS"
 msgid "Add message"
 msgstr "Adicionar mensagem"
 
+#, fuzzy
+msgid "Already a member reply"
+msgstr "Você já é um membro"
+
 msgid "Are you sure you want to delete SMS subscribe ?"
 msgstr "Tem certeza que quer remover essa assinatura?"
 
@@ -155,10 +159,8 @@ msgstr ""
 msgid "Status"
 msgstr "Estado"
 
-msgid "Unknown SMS format"
-msgstr "Formato de SMS desconhecido"
-
-msgid "Unknown sms format"
+#, fuzzy
+msgid "Unknown format reply"
 msgstr "Formato de SMS desconhecido"
 
 msgid "User"
@@ -169,12 +171,6 @@ msgstr "Ver membros"
 
 msgid "View messages"
 msgstr "Ver mensagens"
-
-msgid "You already a member"
-msgstr "Você já é um membro"
-
-msgid "You are not a member"
-msgstr "Você não é um membro"
 
 #, fuzzy
 msgid "You have no member"

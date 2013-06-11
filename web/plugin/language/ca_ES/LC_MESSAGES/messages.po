@@ -230,6 +230,10 @@ msgstr "Omplir per a canviar la contrasenya de l'usuari"
 msgid "Fill to update"
 msgstr "Omplir per actualitzar"
 
+#, fuzzy
+msgid "Flash message"
+msgstr "Enviar com a missatge ràpid"
+
 msgid "Footer"
 msgstr "Firma del SMS"
 
@@ -549,6 +553,10 @@ msgstr "Eines"
 msgid "Unable to update login session"
 msgstr "Impossible actualitzar la sessió de l'usuari"
 
+#, fuzzy
+msgid "Unicode message"
+msgstr "Enviar en Unicode"
+
 msgid "Use"
 msgstr "Utilitzar"
 
@@ -594,8 +602,15 @@ msgstr "Veure"
 msgid "View administrator"
 msgstr "Vista administrador"
 
+msgid "View groups"
+msgstr ""
+
 msgid "View normal user"
 msgstr "Vista usuari normal"
+
+#, fuzzy
+msgid "View numbers"
+msgstr "Número(s) telefònic(s)"
 
 msgid "Webapp Token"
 msgstr "Token webapp"

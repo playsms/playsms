@@ -14,6 +14,9 @@ msgstr ""
 msgid "Add message"
 msgstr ""
 
+msgid "Already a member reply"
+msgstr ""
+
 msgid "Are you sure you want to delete SMS subscribe ?"
 msgstr ""
 
@@ -146,10 +149,7 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-msgid "Unknown SMS format"
-msgstr ""
-
-msgid "Unknown sms format"
+msgid "Unknown format reply"
 msgstr ""
 
 msgid "User"
@@ -159,12 +159,6 @@ msgid "View members"
 msgstr ""
 
 msgid "View messages"
-msgstr ""
-
-msgid "You already a member"
-msgstr ""
-
-msgid "You are not a member"
 msgstr ""
 
 msgid "You have no member"

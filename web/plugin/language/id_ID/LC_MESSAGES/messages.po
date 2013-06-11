@@ -221,6 +221,10 @@ msgstr "Isi untuk mengganti kata sandi untuk nama penguna"
 msgid "Fill to update"
 msgstr "Isi untuk memperbaharui"
 
+#, fuzzy
+msgid "Flash message"
+msgstr "Kirim sebagai pesan flash"
+
 msgid "Footer"
 msgstr "Catatan kaki"
 
@@ -539,6 +543,10 @@ msgstr "Alat"
 msgid "Unable to update login session"
 msgstr "Tidak dapat memperbaharui sesi login"
 
+#, fuzzy
+msgid "Unicode message"
+msgstr "Kirim sebagai pesan unicode"
+
 msgid "Use"
 msgstr "Pengguna"
 
@@ -585,8 +593,15 @@ msgstr "Tampil"
 msgid "View administrator"
 msgstr "Administrator"
 
+msgid "View groups"
+msgstr ""
+
 msgid "View normal user"
 msgstr "Pengguna normal"
+
+#, fuzzy
+msgid "View numbers"
+msgstr "Nomor telepon"
 
 msgid "Webapp Token"
 msgstr "Token Webapp"

@@ -15,6 +15,10 @@ msgstr "Ajouter un service"
 msgid "Add message"
 msgstr "Ajouter un message"
 
+#, fuzzy
+msgid "Already a member reply"
+msgstr "Vous êtes déjà membres"
+
 msgid "Are you sure you want to delete SMS subscribe ?"
 msgstr "Êtes-vous certain de vouloir supprimer ce service SMS ?"
 
@@ -156,10 +160,8 @@ msgstr ""
 msgid "Status"
 msgstr "Statut"
 
-msgid "Unknown SMS format"
-msgstr "Format de SMS inconnu"
-
-msgid "Unknown sms format"
+#, fuzzy
+msgid "Unknown format reply"
 msgstr "Format de SMS inconnu"
 
 msgid "User"
@@ -170,12 +172,6 @@ msgstr "Afficher les membres"
 
 msgid "View messages"
 msgstr "Afficher les messages"
-
-msgid "You already a member"
-msgstr "Vous êtes déjà membres"
-
-msgid "You are not a member"
-msgstr "Vous n'êtes pas membre"
 
 #, fuzzy
 msgid "You have no member"
