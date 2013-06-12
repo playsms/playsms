@@ -1,6 +1,30 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
+/**
+ * Validate webservices token, with or without username
+ * @param $h
+ *     Webservices token
+ * @param $u
+ *     Username
+ * @return boolean FALSE if invalid, string username if valid
+ */
+function webservices_validate($h,$u) {
+	global $core_config;
+	$ret = false;
+	if ($c_uid = validatetoken($h)) {
+		$c_u = uid2username($c_uid);
+		if ($core_config['webservices_username']) {
+			if ($c_u && $u && ($c_u == $u)) {
+				$ret = $c_u;
+			}
+		} else {
+			$ret = $c_u;
+		}
+	}
+	return $ret;
+}
+
 function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
 	$ret = '';
 	$arr_to = explode(',', $to);

@@ -37,8 +37,7 @@ if ($op) { $ta = $op; };
 if ($ta) {
 	switch ($ta) {
 		case "PV":
-			if ($c_uid = validatetoken($h)) {
-				$u = uid2username($c_uid);
+			if ($u = webservices_validate($h,$u)) {
 				list($ret,$json) = webservices_pv($u,$to,$msg,$type,$unicode);
 			} else {
 				$ret = "ERR 100";
@@ -47,8 +46,7 @@ if ($ta) {
 			}
 			break;
 		case "BC":
-			if ($c_uid = validatetoken($h)) {
-				$u = uid2username($c_uid);
+			if ($u = webservices_validate($h,$u)) {
 				list($ret,$json) = webservices_bc($u,$to,$msg,$type,$unicode);
 			} else {
 				$ret = "ERR 100";
@@ -57,8 +55,7 @@ if ($ta) {
 			}
 			break;
 		case "DS":
-			if ($c_uid = validatetoken($h)) {
-				$u = uid2username($c_uid);
+			if ($u = webservices_validate($h,$u)) {
 				list($ret,$json) = webservices_ds($u,$queue,$src,$dst,$dt,$slid,$c,$last);
 			} else {
 				$ret = "ERR 100";
@@ -67,8 +64,7 @@ if ($ta) {
 			}
 			break;
 		case "IN":
-			if ($c_uid = validatetoken($h)) {
-				$u = uid2username($c_uid);
+			if ($u = webservices_validate($h,$u)) {
 				list($ret,$json) = webservices_in($u,$src,$dst,$kwd,$dt,$c,$last);
 			} else {
 				$ret = "ERR 100";
@@ -77,8 +73,7 @@ if ($ta) {
 			}
 			break;
 		case "CR":
-			if ($c_uid = validatetoken($h)) {
-				$u = uid2username($c_uid);
+			if ($u = webservices_validate($h,$u)) {
 				list($ret,$json) = webservices_cr($u);
 			} else {
 				$ret = "ERR 100";
@@ -87,7 +82,7 @@ if ($ta) {
 			}
 			break;
 		case "GET_CONTACT":
-			if ($c_uid = validatetoken($h)) {
+			if ($u = webservices_validate($h,$u)) {
 				list($ret,$json) = webservices_get_contact($c_uid, $kwd, $c);
 			} else {
 				$ret = "ERR 100";
@@ -96,7 +91,7 @@ if ($ta) {
 			}
 			break;
 		case "GET_CONTACT_GROUP":
-			if ($c_uid = validatetoken($h)) {
+			if ($u = webservices_validate($h,$u)) {
 				list($ret,$json) = webservices_get_contact_group($c_uid, $kwd, $c);
 			} else {
 				$ret = "ERR 100";

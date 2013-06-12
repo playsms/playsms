@@ -8,7 +8,7 @@ PARAMETERS
 ----------
 
 h	: webservices token, configured by user from Preferences menu
-u	: username, supplied for ta=get_token
+u	: username
 p	: password, supplied for ta=get_token
 
 ta	: type of action
@@ -87,19 +87,19 @@ PROTOCOL
 
 1.  Send SMS
     ta		: pv
-    parameters	: h, to, msg, type, unicode
+    parameters	: u, h, to, msg, type, unicode
     returns	: error returns
     notes	: to parameter is a valid international formatted mobile number
 
 2.  Send broadcast SMS
     ta		: bc
-    parameters	: h, to, msg, type, unicode
+    parameters	: u, h, to, msg, type, unicode
     returns	: error returns
     notes	: to parameter is group code
 
 3.  Outgoing SMS and delivery status
     ta		: ds
-    parameters	: h, queue, src, dst, dt, slid, c, last
+    parameters	: u, h, queue, src, dst, dt, slid, c, last
     returns	: CSV format:
 		  "SMS log ID";"From";"To";"Message";"Delivery";"Update";"Status"
     notes	: slid retrieves only 1 delivery report at particular SMS log ID
@@ -109,7 +109,7 @@ PROTOCOL
 
 4.  Incoming SMS
     ta		: in
-    parameters	: h, src, dst, kwd, dt, c, last
+    parameters	: u, h, src, dst, kwd, dt, c, last
     returns	: CSV format:
 		  "ID";"From";"To";"Keyword";"Message";"Date/Time";"Status"
     notes	: c retrieves as many as c value
@@ -117,7 +117,7 @@ PROTOCOL
 
 5.  User credits
     ta		: cr
-    parameters	: h
+    parameters	: u, h
     returns	: user's credit
 
 6.  Get token
@@ -137,12 +137,12 @@ PROTOCOL
 
 9.  Get contact list by name, mobile or email
     ta		: get_contact
-    parameters	: h, kwd, c
+    parameters	: u, h, kwd, c
     returns	: list of contacts
 
 10. Get group contact list by name or code
     ta		: get_contact_group
-    parameters	: h, kwd, c
+    parameters	: u, h, kwd, c
     returns	: list of group contacts
 
 
@@ -150,25 +150,25 @@ EXAMPLE
 -------
 
 1. Example webservice URL:
-   http://x.com/index.php?app=webservices&ta=cr&h=b09ba37b03b21e4ffb99b6d4ece735c1
+   http://x.com/index.php?app=webservices&ta=cr&u=anton&h=b09ba37b03b21e4ffb99b6d4ece735c1
 
    Explanation:
 
    playSMS webservices in x.com with type of action (ta) cr (User credits)
-   accessed by user or apps using a webservices token (h)
+   accessed by user or apps using a username (u) and webservices token (h)
 
    if succeeded returns: OK <user's credits> (eg: OK 4500)
 
    if error occured returns one of the ERROR RETURNS mentioned above
 
 2. Example webservice URL:
-   http://x.com/index.php?app=webservices&h=471bb53b69a966e27ae818ee3d0c8c78&ta=ds&dt=2013
+   http://x.com/index.php?app=webservices&u=anton&h=471bb53b69a966e27ae818ee3d0c8c78&ta=ds&dt=2013
 
    Explanation:
 
    playSMS webservices in x.com with type of action (ta) ds (Delivery status)
-   accessed by user or apps using a webservices token (h) with query date/time (dt) 2013
-   the service will be looking for delivery statuses on year 2013
+   accessed by user or apps using a username (u) and webservices token (h) with parameter query
+   date/time (dt) 2013 the service will be looking for delivery statuses on year 2013
 
    if succeeded returns CSV format, for example:
    "59";"playSMS";"628999911111";"2013-05-01 17:59:46";"2013-05-01 17:59:48";"3";
@@ -190,14 +190,15 @@ EXAMPLE
    if error occured returns one of the ERROR RETURNS mentioned above
 
 4. Example webservice URL:
-   http://x.com/index.php?app=webservices&h=a45a02791b2fe2fedb078c39fd83637a&ta=pv
+   http://x.com/index.php?app=webservices&u=anton&h=a45a02791b2fe2fedb078c39fd83637a&ta=pv
    &to=0987654321&msg=test+only&format=json
 
    Explanation:
 
    playSMS webservices in x.com with type of action (ta) pv (send SMS) accessed by
-   user or apps using a webservices token (h) with destination number (to) 0987654321
-   message (msg) 'test only' and expected output format is JSON format (format=json)
+   user or apps using a username (u) and webservices token (h) with destination
+   number (to) 0987654321, message (msg) 'test only' and expected output format is 
+   JSON format (format=json)
    if you want plain text format then remove the format=json param
 
    if succeeded returns text with JSON format:
@@ -207,14 +208,14 @@ EXAMPLE
    if error occured returns one of the ERROR RETURNS mentioned above, also in JSON format
 
 5. Example webservice URL:
-   http://x.com/index.php?app=webservices&h=482ac0069592c647289e52dfef88be68&ta=in
+   http://x.com/index.php?app=webservices&u=anton&h=482ac0069592c647289e52dfef88be68&ta=in
    &kwd=IDOL&format=xml
 
    Explanation:
 
    playSMS webservices in x.com with type of action (ta) in (incoming SMS) accessed by
-   user or apps using a webservices token (h) with keyword (kwd) IDOL and expected
-   output format is in XML format (format=xml)
+   user or apps using a username (u) and webservices token (h) with keyword (kwd) IDOL 
+   and expected output format is in XML format (format=xml)
 
    if succeeded returns text with XML format:
    <response>
@@ -235,14 +236,14 @@ EXAMPLE
    if error occured returns one of the ERROR RETURNS mentioned above, also in XML format
 
 6. Example webservice URL:
-   http://x.com/index.php?app=webservices&h=482ac0069592c647289e52dfef88be68&kwd=anton
+   http://x.com/index.php?app=webservices&u=anton&h=482ac0069592c647289e52dfef88be68&kwd=anton
    &ta=get_contact&format=json
 
    Explanation:
 
    playSMS webservices in x.com with type of action (ta) get_contact access by user or
-   apps using a webservices token (h) with keyword (kwd) anton and expected output format
-   is in JSON format (format=json)
+   apps using a username (u) and webservices token (h) with keyword (kwd) anton and expected 
+   output format is in JSON format (format=json)
 
    if succeeded returns text with JSON format:
    {"status":"OK","error":"0","data":[{"pid":"13674","gpid":"2","p_desc":"Anton Raharja",

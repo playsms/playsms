@@ -59,4 +59,7 @@ $core_config['sendsmsd_queue']	= 30;
 // limit the length of each queue processed by sendsmsd in one time
 $core_config['sendsmsd_limit']	= 1000;
 
+// webservices require username
+$core_config['webservices_username']	= true;
+
 ?>
