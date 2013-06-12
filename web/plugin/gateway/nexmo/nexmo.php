@@ -31,7 +31,7 @@ switch ($op) {
 				<tr><td>"._('Nexmo URL')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_url value=\"".$nexmo_param['url']."\"> (json)</td></tr>
 				<tr><td>"._('API key')."</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_api_key value=\"".$nexmo_param['api_key']."\"></td></tr>
 				<tr><td>"._('API secret')."</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_api_secret value=\"\"> ("._('Fill to change the API secret').")</td></tr>
-				<tr><td>"._('Module sender ID')."</td><td>:</td><td><input type=text size=11 maxlength=11 name=up_global_sender value=\"".$nexmo_param['global_sender']."\"> ("._('Max. 16 numeric or 11 alphanumeric char. empty to disable').")</td></tr>
+				<tr><td>"._('Module sender ID')."</td><td>:</td><td><input type=text size=30 maxlength=16 name=up_global_sender value=\"".$nexmo_param['global_sender']."\"> ("._('Max. 16 numeric or 11 alphanumeric char. empty to disable').")</td></tr>
 				<tr><td>"._('Module timezone')."</td><td>:</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"".$nexmo_param['datetime_timezone']."\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td></tr>
 				</tbody>
 			</table>
