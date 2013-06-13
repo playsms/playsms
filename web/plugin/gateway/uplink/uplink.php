@@ -36,7 +36,7 @@ switch ($op) {
 				<td>"._('Webservice token')."</td><td>:</td><td><input type=text size=30 maxlength=32 name=up_token value=\"".$uplink_param['token']."\"></td>
 			</tr>
 			<tr>
-				<td>"._('Module sender ID')."</td><td>:</td><td><input type=text size=11 maxlength=11 name=up_global_sender value=\"".$uplink_param['global_sender']."\"> ("._('Max. 16 numeric or 11 alphanumeric char. empty to disable').")</td>
+				<td>"._('Module sender ID')."</td><td>:</td><td><input type=text size=30 maxlength=16 name=up_global_sender value=\"".$uplink_param['global_sender']."\"> ("._('Max. 16 numeric or 11 alphanumeric char. empty to disable').")</td>
 			</tr>
 			<tr>
 				<td>"._('Module timezone')."</td><td>:</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"".$uplink_param['datetime_timezone']."\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td>
