@@ -48,7 +48,7 @@ function sms_poll_hook_setsmsincomingaction($sms_datetime,$sms_sender,$poll_keyw
 			logger_print('end k:'.$poll_keyword.' c:'.$poll_param.' s:'.$status, 2, 'sms_poll');
 		}
 	}
-	$ret['uid'] = $c_uid;
+	$ret['uid'] = $db_row['uid'];
 	$ret['status'] = $ok;
 	return $ret;
 }

@@ -48,7 +48,7 @@ function sms_subscribe_hook_setsmsincomingaction($sms_datetime, $sms_sender, $su
 			logger_print('end k:'.$subscribe_keyword.' c:'.$subscribe_param.' s:'.$status, 2, 'sms_subscribe');
 		}
 	}
-	$ret['uid'] = $c_uid;
+	$ret['uid'] = $db_row['uid'];
 	$ret['status'] = $ok;
 	return $ret;
 }
