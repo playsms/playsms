@@ -25,6 +25,9 @@ Version 0.9.9-git - 130613
 - fix sendsend flagging a queue too quick and partial
 - fix the method to import from CSV file
 - fix core_display_text() not to word-wrap text, instead the wrapping is done through CSS
+- fix #85 wrong sender ID priority
+- fix #84 SMS subscribe reply message not working due to missing addslashes()
+- fix #83 SMS quiz not working due to wrong $c_uid value
 - fix #81 a bug causing a queue partially processed
 - fix #77 execute SMS command script in correct directory
 - fix #75 new options to define unknown format and already member reply in SMS subscribe
