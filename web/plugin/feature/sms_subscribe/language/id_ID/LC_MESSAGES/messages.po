@@ -14,9 +14,8 @@ msgstr "Tambah layanan SMS berlangganan"
 msgid "Add message"
 msgstr "Tambah pesan"
 
-#, fuzzy
 msgid "Already a member reply"
-msgstr "Anda sudah terdaftar sebagai anggota"
+msgstr "Balasan sudah terdaftar"
 
 msgid "Are you sure you want to delete SMS subscribe ?"
 msgstr "Anda yakin ingin menghapus layanan SMS berlangganan?"
@@ -151,9 +150,8 @@ msgstr "Terkirim"
 msgid "Status"
 msgstr "Status"
 
-#, fuzzy
 msgid "Unknown format reply"
-msgstr "format SMS tidak dikenal"
+msgstr "Balasan format SMS tidak dikenal"
 
 msgid "User"
 msgstr "Pengguna"

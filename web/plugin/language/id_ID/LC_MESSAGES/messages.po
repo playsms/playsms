@@ -60,7 +60,7 @@ msgid "Always add plus sign"
 msgstr "Selalu menambahkan tanda plus"
 
 msgid "Always choose to send as unicode"
-msgstr ""
+msgstr "Selalu pilih mengirim sebagai unicode"
 
 msgid "Application information"
 msgstr "Informasi aplikasi"
@@ -221,9 +221,8 @@ msgstr "Isi untuk mengganti kata sandi untuk nama penguna"
 msgid "Fill to update"
 msgstr "Isi untuk memperbaharui"
 
-#, fuzzy
 msgid "Flash message"
-msgstr "Kirim sebagai pesan flash"
+msgstr "Pesan flash"
 
 msgid "Footer"
 msgstr "Catatan kaki"
@@ -543,9 +542,8 @@ msgstr "Alat"
 msgid "Unable to update login session"
 msgstr "Tidak dapat memperbaharui sesi login"
 
-#, fuzzy
 msgid "Unicode message"
-msgstr "Kirim sebagai pesan unicode"
+msgstr "Pesan unicode"
 
 msgid "Use"
 msgstr "Pengguna"
@@ -594,14 +592,13 @@ msgid "View administrator"
 msgstr "Administrator"
 
 msgid "View groups"
-msgstr ""
+msgstr "Lihat group"
 
 msgid "View normal user"
 msgstr "Pengguna normal"
 
-#, fuzzy
 msgid "View numbers"
-msgstr "Nomor telepon"
+msgstr "Lihat nomor"
 
 msgid "Webapp Token"
 msgstr "Token Webapp"
