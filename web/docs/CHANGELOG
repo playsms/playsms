@@ -1,12 +1,14 @@
 CHANGELOG
 ---------
 
-Version 0.9.9-git - 130613
+Version 0.9.9-git - 130615
 - update sendsmsd daemon to enable parallel multi queue processing
+- update config.php to include options for sendsmsd queue number and queue length limit
 - update http method to POST in SMS custom (endymuhardin)
 - update deprecated commands eregi, ereg and ereg_replace with preg_match and preg_replace
 - update Send SMS page to split between send to numbers and to groups
 - update webservices to require username when validating requests
+- add $core_config['webservices_username'] option in config.php, default is TRUE
 - add new webservices type of action get_contact to get contact lists
 - add new webservices ta=get_contact_group to search group contacts by name or code
 - add new webservices ta=get_contact to search contacts by name, mobile or email
@@ -19,6 +21,8 @@ Version 0.9.9-git - 130613
 - add automatically create directory "$sms_command_bin/$uid" for SMS command
 - add a language full backup script
 - add type of action IN (ta=in) to retrieves incoming SMS from playSMS webservices
+- add set_time_limit(600) in various places such as import contacts and send from file
+- replace mktime() as random generator for md5() on several lines with uniqid()
 - remove git conflict messages from ca_ES po files
 - remove link to http://www.unicode.org from send as unicode message option
 - remove unfinished plugin from this repo and move them to new repo playSMS-extra-plugin
