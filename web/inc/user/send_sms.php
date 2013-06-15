@@ -11,11 +11,25 @@ switch ($op) {
 		$to = $_REQUEST['to'];
 		$message = stripslashes($_REQUEST['message']);
 
+		// sender ID
+		$sms_from = sendsms_get_sender($username);
+		if (! $sms_from) {
+			$sms_from = "<i>"._('not set')."</i>";
+		}
+
+		// SMS footer
+		$sms_footer = $core_config['user']['footer'];
+		if (! $sms_footer) {
+			$sms_footer = "<i>"._('not set')."</i>";
+		}
+
+		// groups and numbers
 		if ($bulk == 1) {
 			$rows = phonebook_getgroupbyuid($uid, "gp_name");
 			foreach ($rows as $key => $db_row) {
 				if ($c_count = phonebook_getmembercountbyid($db_row['gpid'])) {
-					$list_of_number .= "<option value=\"gpid_".$db_row['gpid']."\" $selected>"._('Group').": ".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.")</option>";
+					$value = $db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.")";
+					$list_of_number .= "<option value=\"gpid_".$db_row['gpid']."\" title=\"".$value."\" $selected>".$value."</option>";
 				}
 			}
 			$rows = phonebook_getsharedgroup($uid);
@@ -23,7 +37,8 @@ switch ($op) {
 				$c_uid = $db_row['uid'];
 				if ($c_username = uid2username($c_uid)) {
 					if ($c_count = phonebook_getmembercountbyid($db_row['gpid'])) {
-						$list_of_number .= "<option value=\"gpid_".$db_row['gpid']."\" $selected>"._('Group').": ".$db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.") - "._('shared by')." ".$c_username."</option>";
+						$value = $db_row['gp_name']." (".$db_row['gp_code'].")(".$c_count.")";
+						$list_of_number .= "<option value=\"gpid_".$db_row['gpid']."\" title=\"".$value."\" $selected>".$value."</option>";
 					}
 				}
 			}
@@ -31,7 +46,8 @@ switch ($op) {
 		} else if ($bulk == 2) {
 			$rows = phonebook_getdatabyuid($uid, "p_desc");
 			foreach ($rows as $key => $db_row) {
-				$list_of_number .= "<option value=\"".$db_row['p_num']."\" $selected>".$db_row['p_desc']." ".$db_row['p_num']."</option>";
+				$value = $db_row['p_desc']." (".$db_row['p_num'].")";
+				$list_of_number .= "<option value=\"".$db_row['p_num']."\" title=\"".$value."\" $selected>".$value."</option>";
 			}
 			$rows = phonebook_getsharedgroup($uid);
 			foreach ($rows as $key => $db_row) {
@@ -41,32 +57,28 @@ switch ($op) {
 					$i = 0;
 					$rows = phonebook_getdatabyid($c_gpid);
 					foreach ($rows as $key => $db_row1) {
-						$list_of_number .= "<option value=\"".$db_row1['p_num']."\" $selected>".$db_row1['p_desc']." ".$db_row1['p_num']." ("._('shared by')." ".$c_username.")</option>";
+						$value = $db_row1['p_desc']." (".$db_row1['p_num'].")";
+						$list_of_number .= "<option value=\"".$db_row1['p_num']."\" title=\"".$value."\" $selected>".$value."</option>";
 					}
 				}
 			}
 			$_SESSION['tmp']['sendsms']['bulk'] = 2;
 		}
 
-		if ($core_config['user']['send_as_unicode']) {
-			$option_msg_unicode = 'checked';
-		}
-
-		$sms_from = sendsms_get_sender($username);
-
-		$sms_footer = $core_config['user']['footer'];
-		if (! $sms_footer) {
-			$sms_footer = "<i>"._('not set')."</i>";
-		}
-
+		// message template
 		$option_values = "<option value=\"\" default>--"._('Please select template')."--</option>";
 		$c_templates = sendsms_get_template();
 		for ($i=0;$i<count($c_templates);$i++) {
-			$option_values .= "<option value=\"".$c_templates[$i]['text']."\">".$c_templates[$i]['title']."</option>";
+			$option_values .= "<option value=\"".$c_templates[$i]['text']."\" title=\"".$c_templates[$i]['text']."\">".$c_templates[$i]['title']."</option>";
 			$input_values .= "<input type=\"hidden\" name=\"content_".$i."\" value=\"".$c_templates[$i]['text']."\">";
 		}
 		if ($c_templates[0]) {
 			$sms_template = "<p><select name=\"smstemplate\" onClick=\"SetSmsTemplate();\">$option_values</select>";
+		}
+
+		// unicode option
+		if ($core_config['user']['send_as_unicode']) {
+			$option_msg_unicode = 'checked';
 		}
 
 		$content = '';
@@ -100,9 +112,9 @@ switch ($op) {
 				<td width=10>&nbsp;</td>
 				<td align=center valign=middle>
 					<input type=\"button\" class=\"button\" value=\"&gt;&gt;\" onclick=\"moveSelectedOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\"><br>
-					<!-- <input type=\"button\" class=\"button\" value=\""._('All')." &gt;&gt;\" onclick=\"moveAllOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\"><br> -->
+					<input type=\"button\" class=\"button\" value=\""._('All')." &gt;&gt;\" onclick=\"moveAllOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\"><br>
 					<input type=\"button\" class=\"button\" value=\"&lt;&lt;\" onclick=\"moveSelectedOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\"><br>
-					<!-- <input type=\"button\" class=\"button\" value=\""._('All')." &lt;&lt;\" onclick=\"moveAllOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\"> -->
+					<input type=\"button\" class=\"button\" value=\""._('All')." &lt;&lt;\" onclick=\"moveAllOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\">
 				</td>
 				<td width=10>&nbsp;</td>
 				<td nowrap>
