@@ -1041,16 +1041,6 @@ CREATE TABLE `playsms_gatewayUplink` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `playsms_gatewayUplink`
---
-
-LOCK TABLES `playsms_gatewayUplink` WRITE;
-/*!40000 ALTER TABLE `playsms_gatewayUplink` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayUplink` VALUES (0,1,3,259,1,'','');
-/*!40000 ALTER TABLE `playsms_gatewayUplink` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `playsms_gatewayUplink_config`
 --
 

@@ -33,7 +33,10 @@ switch ($op) {
 				<td>"._('Additional URL parameter')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_additional_param value=\"".$uplink_param['additional_param']."\"></td>
 			</tr>
 			<tr>
-				<td>"._('Webservice token')."</td><td>:</td><td><input type=text size=30 maxlength=32 name=up_token value=\"".$uplink_param['token']."\"></td>
+				<td>"._('Webservice username')."</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_username value=\"".$uplink_param['username']."\"></td>
+			</tr>
+			<tr>
+				<td>"._('Webservice token')."</td><td>:</td><td><input type=text size=30 maxlength=32 name=up_token value=\"\"></td>
 			</tr>
 			<tr>
 				<td>"._('Module sender ID')."</td><td>:</td><td><input type=text size=30 maxlength=16 name=up_global_sender value=\"".$uplink_param['global_sender']."\"> ("._('Max. 16 numeric or 11 alphanumeric char. empty to disable').")</td>
@@ -49,18 +52,22 @@ switch ($op) {
 	case "manage_save":
 		$up_master = $_POST['up_master'];
 		$up_additional_param = $_POST['up_additional_param'];
-		$up_token = $_POST['up_token'];
+		$up_username = $_POST['up_username'];
+		if ($up_token = $_POST['up_token']) {
+			$update_token = "cfg_token='".$up_token."',";
+		}
 		$up_global_sender = $_POST['up_global_sender'];
 		$up_global_timezone = $_POST['up_global_timezone'];
 		$up_incoming_path = $_POST['up_incoming_path'];
 		$_SESSION['error_string'] = _('No changes has been made');
-		if ($up_master && $up_token) {
+		if ($up_master && $up_username && $up_token) {
 			$db_query = "
 				UPDATE "._DB_PREF_."_gatewayUplink_config 
 				SET c_timestamp='".mktime()."',
 				cfg_master='$up_master',
 				cfg_additional_param='$up_additional_param',
-				cfg_token='$up_token',
+				cfg_username='$up_username',
+				".$update_token."
 				cfg_global_sender='$up_global_sender',
 				cfg_datetime_timezone='$up_global_timezone',
 				cfg_incoming_path='$up_incoming_path'";

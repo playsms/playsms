@@ -1,3 +1,6 @@
+Version 1.2
+- apply webservices token
+
 Version 1.1
 - following core, references to input.php replaced with index.php?app=webservices
 - pass this point, uplink will only compatible with playSMS version 0.9.5.1 or above

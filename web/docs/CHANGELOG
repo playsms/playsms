@@ -5,6 +5,7 @@ Version 0.9.9 - 130619
 - update sendsmsd daemon to enable parallel multi queue processing
 - update config.php to include options for sendsmsd queue number and queue length limit
 - update http method to POST in SMS custom (endymuhardin)
+- update uplink gateway to use webservices username and token
 - update deprecated commands eregi, ereg and ereg_replace with preg_match and preg_replace
 - update Send SMS page to split between send to numbers and to groups
 - update webservices to require username when validating requests
