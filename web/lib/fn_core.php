@@ -115,6 +115,27 @@ function core_display_data($data) {
 }
 
 /*
+ * Get current date and time
+ * @param $format
+ *    output format 'date' for date only and 'time' for time only
+ * @return
+ *    current date and time
+ */
+function core_get_datetime($format='') {
+	global $core_config;
+	$ret = date($core_config['datetime']['format'], mktime());
+	if (strtolower(trim($format)) == 'date') {
+		$arr = explode(' ', $ret);
+		$ret = $arr[0];
+	}
+	if (strtolower(trim($format)) == 'time') {
+		$arr = explode(' ', $ret);
+		$ret = $arr[1];
+	}
+	return $ret;
+}
+
+/*
  * Get timezone
  * @param $username
  *    username or empty for default timezone
