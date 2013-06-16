@@ -270,9 +270,8 @@ H. SMS POLL
     refresh=yes	: check latest incoming sms and refresh webpage output
     Use IFRAME html tag.
     eg:
-	<IFRAME 
-	  src="http://your_playsms_web_domain/index.php?app=webservices&ta=sms_poll&keyword=PRES">
-	</IFRAME>
+	<IFRAME src="http://your_playsms_web_domain/index.php?app=webservices
+	&ta=sms_poll&keyword=PRES"></IFRAME>
 
 3.  What output formats available for SMS poll webservices?
     Answer:

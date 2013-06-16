@@ -162,13 +162,15 @@ EXAMPLE
    if error occured returns one of the ERROR RETURNS mentioned above
 
 2. Example webservice URL:
-   http://x.com/index.php?app=webservices&u=anton&h=471bb53b69a966e27ae818ee3d0c8c78&ta=ds&dt=2013
+   http://x.com/index.php?app=webservices&u=anton&h=471bb53b69a966e27ae818ee3d0c8c78
+   &ta=ds&dt=2013
 
    Explanation:
 
    playSMS webservices in x.com with type of action (ta) ds (Delivery status)
-   accessed by user or apps using a username (u) and webservices token (h) with parameter query
-   date/time (dt) 2013 the service will be looking for delivery statuses on year 2013
+   accessed by user or apps using a username (u) and webservices token (h) with parameter
+   query date/time (dt) 2013 the service will be looking for delivery statuses on year
+   2013
 
    if succeeded returns CSV format, for example:
    "59";"playSMS";"628999911111";"2013-05-01 17:59:46";"2013-05-01 17:59:48";"3";
@@ -190,8 +192,8 @@ EXAMPLE
    if error occured returns one of the ERROR RETURNS mentioned above
 
 4. Example webservice URL:
-   http://x.com/index.php?app=webservices&u=anton&h=a45a02791b2fe2fedb078c39fd83637a&ta=pv
-   &to=0987654321&msg=test+only&format=json
+   http://x.com/index.php?app=webservices&u=anton&h=a45a02791b2fe2fedb078c39fd83637a
+   &ta=pv&to=0987654321&msg=test+only&format=json
 
    Explanation:
 
@@ -214,7 +216,7 @@ EXAMPLE
    Explanation:
 
    playSMS webservices in x.com with type of action (ta) in (incoming SMS) accessed by
-   user or apps using a username (u) and webservices token (h) with keyword (kwd) IDOL 
+   user or apps using a username (u) and webservices token (h) with keyword (kwd) IDOL
    and expected output format is in XML format (format=xml)
 
    if succeeded returns text with XML format:
@@ -236,14 +238,14 @@ EXAMPLE
    if error occured returns one of the ERROR RETURNS mentioned above, also in XML format
 
 6. Example webservice URL:
-   http://x.com/index.php?app=webservices&u=anton&h=482ac0069592c647289e52dfef88be68&kwd=anton
-   &ta=get_contact&format=json
+   http://x.com/index.php?app=webservices&u=anton&h=482ac0069592c647289e52dfef88be68
+   &kwd=anton&ta=get_contact&format=json
 
    Explanation:
 
    playSMS webservices in x.com with type of action (ta) get_contact access by user or
-   apps using a username (u) and webservices token (h) with keyword (kwd) anton and expected 
-   output format is in JSON format (format=json)
+   apps using a username (u) and webservices token (h) with keyword (kwd) anton and
+   expected output format is in JSON format (format=json)
 
    if succeeded returns text with JSON format:
    {"status":"OK","error":"0","data":[{"pid":"13674","gpid":"2","p_desc":"Anton Raharja",

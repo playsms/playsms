@@ -102,8 +102,8 @@ Version 0.9.7.1 - 120905
 - MAJOR: fix security bug, non-admin can send SMS with other account from sendfromfile
 
 Version 0.9.7 - 120903
-- MAJOR: all outgoing SMS are to be sent to a queue in database first and then the queue will be
-         processed either directly or through new daemon sendsmsd
+- MAJOR: all outgoing SMS are to be sent to a queue in database first and then the
+         queue will be processed either directly or through new daemon sendsmsd
 - MAJOR: raw/unmodified SMS is now passed to plugins through hook setsmsincomingaction()
 - MAJOR: webservice has been modified in service related to sending SMS, please read
 - MAJOR: like lib/dba.php, lib/fn_auth.php now also loaded from init.php
@@ -210,7 +210,7 @@ Version 0.9.5.3 - 110910
 - sms autosend temporarily disabled, not removed, waiting for major changes
 - fix checkavailablekeyword() lib/fn_core.php to have hooks return TRUE if available
 - fix autoreply unable to delete scenario
-- fix sms_survey unable to send sms due to accessing $core_config['user'] on playsmsd() (avudz)
+- fix sms_survey unable to send sms due to accessing user var  on playsmsd() (avudz)
 - fix sms subscribe subscribing to disabled keyword should not happen
 - fix sms autosend admin should have permission to edit all data
 - fix typo phonebook_groupcode2id() in webservices_bc() lib/fn_webservices.php
@@ -239,14 +239,14 @@ Version 0.9.5.2 - 101115
 
 Version 0.9.5.1 - 101020
 - MAJOR: gateway uplink will work only with master installed with playSMS >= 0.9.5.1
-- MAJOR: fix message empty when handled by gnokii or smstools due to single quote in $lc (kendokar)
-- MAJOR: PHP PEAR DB re-included in the package, too complicated to install it manually
+- MAJOR: fix empty msg handled by gnokii/smstools due to single quote in $lc (kendokar)
+- MAJOR: PHP PEAR DB re-included in the package, too complicated to install manual
 - add new gateway module gammu, tested using backend FILES with Gammu version 1.28.0
-- add interceptincomingsms() lib/fn_core.php, in setsmsincomingaction(), hookable for tools
-- add interceptsmstoinbox() lib/fn_core.php, in insertsmstoinbox(), hookable for tools
+- add interceptincomingsms() lib/fn_core.php, setsmsincomingaction(), hookable for tools
+- add interceptsmstoinbox() lib/fn_core.php, insertsmstoinbox(), hookable for tools
 - add css class .error_string and .required, themes common.css
-- add index.php?app=call to run hookable function 'call', this will replace all direct access
-- change websend2pv() to sendsms_pv() and websend2group() to sendsms_bc(), lib/fn_sendsms.php
+- add index.php?app=call to run hookable function 'call', replaced all direct access
+- change websend2pv() to sendsms_pv(), websend2group() to sendsms_bc(), fn_sendsms.php
 - change length of main table in themes default and work2 to 960 instead of 100%
 - remove input.php and output.php and replace them with webservices, docs/WEBSERVICES
 - remove send2group() and replace it with sendsms_bc(), lib/fn_sendsms.php
@@ -258,7 +258,7 @@ Version 0.9.5.1 - 101020
 - fix length of p_footer in db table tblSMSOutgoing should be 30, not 11
 - fix condition when PHP gettext not available or disabled, declare _() in init.php
 - fix display unsafe text with htmlspecialchars in inbox, incoming and outgoing
-- fix long words in displayed SMS message on the web by splitting them 25 chars per word max
+- fix long words in displayed SMS message on the web by splitting 25 chars per word max
 
 Version 0.9.5 - 101010
 - add multi-language support per plugin bases
@@ -268,7 +268,7 @@ Version 0.9.5 - 101010
 - add cfg_additional_param (varchar 250) in clickatell, kannel and uplink db config
 - add check on php function mb_convert_encoding(), must be supported for unicode messages
 - add additional URL parameter for clickatell, kannel and uplink
-- add uplink to hook playsmsd(), it is possible master reports 'delivered', not just 'sent'
+- add uplink to hook playsmsd(), it's possible master reports 'delivered', not just 'sent'
 - add hook on sendmail, rate, phonebook
 - add new core function billing and can be hooked
 - add new tools, plainoldsendmail, to handle sendmail()
@@ -279,7 +279,7 @@ Version 0.9.5 - 101010
 - add new language and translate it for core and plugins, fr_FR (emmanuel)
 - add new language and translate it for core and plugins, id_ID
 - add logger_print level 3 on all gateways, log send/receive sms activities
-- add option to add additional URL parameter in gateway module clickatell, kannel and uplink
+- add option to add additional URL param in gateway module clickatell, kannel and uplink
 - add new theme 'km2' (emmanuel)
 - add new theme 'work2' to demonstrate dropdown menu
 - add show js for how many SMS and characters has been composed (adetunjiha)
@@ -306,7 +306,7 @@ Version 0.9.5 - 101010
 - fix unable to save preferences from admin menu, manage user
 - fix allow \r and \n in SMS text, http://smstools3.kekekasvi.com/topic.php?id=328
 - fix kannel gateway, bearerbox to accept hostname, not only IP (srosa)
-- fix kannel gateway, missing bearerbox host and sendsms port, plugin/gateway/kannel/fn.php
+- fix kannel gateway, missing bearerbox host and sendsms port, kannel fn.php
 - fix dlr-url misformed, plugin/gateway/kannel/fn.php
 - fix RFI LFI bug, http://www.securityfocus.com/bid/33138
 - update file INSTALL, use PHP 5.x.x, enable multibyte string and short_open_tag
@@ -319,7 +319,7 @@ Version 0.9.5 - 101010
 - change db table names for phonebook related functions to toolsSimplephonebook*
 - change rawurlencode in uplink and clickatell by urlencode
 - change sender number priority, now: global sender->gateway number->mobile number
-- change back kannel gateway, use fsockopen due to improper HTTP response from kannel (srosa)
+- change kannel gateway, use fsockopen due to improper HTTP response from kannel (srosa)
 - remove js PopupReplySMS() and phone_add option from inbox and incoming pages
 - remove manually inserted plugins name in config.php, now load automatically
 
@@ -328,23 +328,23 @@ Version 0.9.4 - 080713
 - remove bin/kannel_incoming.sh
 - kannel can only pass MOs to playSMS using geturl method, see contrib/kannel/kannel.conf
 - remove PlaySMS Web URL and Kannel Incoming Path, kannel gateway, kannel.php
-- change delivery mechanism, now using file_get_contents instead of fsockopen, kannel gateway
-- fix (again and again), mclass=0 for flash, mclass=1 for text to mobile, kannel gateway, fn.php
+- change delivery mechanism, now using file_get_contents instead of fsockopen, kannel
+- fix (again), mclass=0 for flash, mclass=1 for text to mobile, kannel gateway, fn.php
 - fix delivering messages, anticipate responses from kannel latest version, kannel gateway
 - fix admin auth for non multi session login
 - fix user preferences unable to modify email
 - change default login type to non multi session login
 
 Version 0.9.3 - 080520
-- NOTE: PHP PEAR and PEAR-DB are removed from playSMS package, please install them manually
-- lib/fn_sendsms.php, websend2pv(), websend2group() returns array status, destination, smslog_id
+- NOTE: PHP PEAR and PEAR-DB are removed from playSMS package, install them manually
+- fn_sendsms.php, websend2pv(), websend2group() returns array status, dest, smslog_id
 - fix mobile2uid() in lib/fn_user.php returns wrong value, should be $uid
 - fix locating base application path, previously failed to autodetect paths correctly
 - fix admin editing user, previously sender id was not shown correctly
-- fix sms_poll not handling keyword correctly, sms_poll_handle(), target_choice = poll_param
+- fix sms_poll not handling keyword correctly, sms_poll_handle(), target_choice=poll_param
 - fix playsmsd process, changes to config file and php sources not updated
 - fix HTTP API, input.php, ta=pv returns "OK" followed by smslog_id
-- fix (again) message type (mclass), keep sending as SIM message, in kannel gateway, fn.php
+- fix (again) message type (mclass), keep sending as SIM message, in kannel, fn.php
 - change logger behaviour
 - add new plugin/feature, sms_quiz
 - add new plugin/feature, sms_subscribe
@@ -464,7 +464,7 @@ Version 0.7 - 040716
 - Add new field in tblSMSIncoming and tblSMSOutgoing to save used gateway module
   (will be used in the next release for statistical purposes)
 - Add javascript send sms windows popup (includes in $apps_path[base]/common.js)
-- Add many improvement on $apps_path[base]/ws.php especially on delivery status retrieval part
+- Add improvements on $apps_path[base]/ws.php especially on delivery status retrieval part
 - Fix error when deleting choices and modify poll in feature SMS poll
 - Fix error recording $command_exec to command_log_exec on table featCommand_log
 - Fix language (misstyped in Indonesian) on $apps_path[base]/inc/user/user_pref.php
@@ -478,11 +478,11 @@ Version 0.6 - 040626
 - Include's are stored on $apps_path[incs]
 - Add paramater 'last' for specifying Last SMS log ID on ws.php (delivery status)
 - Add javascript character counter on send sms form (based on Yoan Talagrand works) (yoan)
-- Add new gateway module for Kannel (based on Eugene Trotsan works, modified by Anton) (eugene)
+- Add new gateway module for Kannel (eugene)
 - Fix delete poll's, mixed up between $poll, $poll_name and $poll_title
 - Fix typos, "your usernama" should be "your username" and some other
-- Fix $sms_sender and $mobile mixed up in lib/custom_function.php causing sender number empty
-- Fix error on hybrid gateway module, extra $ found at query string password 
+- Fix $sms_sender and $mobile mixed up in lib/custom_function.php causing empty sender
+- Fix error on hybrid gateway module, extra $ found at query string password
   on gw_send_sms() causing authentication failed (thx to frankster on the forum)
 - Done changes on file README, INSTALL and FAQ
 
