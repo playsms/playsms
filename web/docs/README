@@ -2,7 +2,7 @@ README
 ------
 
 http://www.playsms.org
-Version 0.9.9-git
+Version 0.9.9
 
 
 Description
@@ -18,6 +18,7 @@ Feature Highlights
 - Send SMS to single mobile phone (web2mobile)
 - Send SMS broadcasted to a group of mobile phones (web2mobiles, bulk SMS)
 - Support sending text, flash and unicode message
+- Capable of handling large amount of SMS (about 500 thousand SMS per month)
 - Receive private SMS to Inbox and forward it to email (mobile2web)
 - Forward single SMS from mobile to a group of mobile phones (mobile2mobiles)
 - SMS autoreply, for easy autoreplying formatted incoming SMS
