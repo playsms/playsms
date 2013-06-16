@@ -248,9 +248,9 @@ switch ($op) {
 					$next = false;
 				}
 				if ($next) {
-					$datetime_now = core_adjust_datetime($core_config['datetime']['now']);
-					$add['register_datetime'] = $datetime_now;
-					$add['lastupdate_datetime'] = $datetime_now;
+					$dt = core_adjust_datetime(core_get_datetime());
+					$add['register_datetime'] = $dt;
+					$add['lastupdate_datetime'] = $dt;
 					if ($new_uid = dba_add(_DB_PREF_.'_tblUser', $add)) {
 						rate_setusercredit($new_uid, $add['credit']);
 						$_SESSION['error_string'] = _('User has been added') . " (" . _('username') . ": ".$add['username'].")";

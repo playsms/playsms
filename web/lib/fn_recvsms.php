@@ -274,14 +274,14 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 }
 
 function setsmsdeliverystatus($smslog_id,$uid,$p_status) {
-	global $core_config, $datetime_now;
+	global $core_config;
 	// $p_status = 0 --> pending
 	// $p_status = 1 --> sent
 	// $p_status = 2 --> failed
 	// $p_status = 3 --> delivered
 	//logger_print("smslog_id:".$smslog_id." uid:".$uid." p_status:".$p_status, 2, "setsmsdeliverystatus");
 	$ok = false;
-	$db_query = "UPDATE "._DB_PREF_."_tblSMSOutgoing SET c_timestamp='".mktime()."',p_update='$datetime_now',p_status='$p_status' WHERE smslog_id='$smslog_id' AND uid='$uid'";
+	$db_query = "UPDATE "._DB_PREF_."_tblSMSOutgoing SET c_timestamp='".mktime()."',p_update='".core_get_datetime()."',p_status='$p_status' WHERE smslog_id='$smslog_id' AND uid='$uid'";
 	if ($aff_id = @dba_affected_rows($db_query)) {
 		//logger_print("saved smslog_id:".$smslog_id, 2, "setsmsdeliverystatus");
 		$ok = true;

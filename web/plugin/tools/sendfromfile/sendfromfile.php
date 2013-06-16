@@ -55,7 +55,7 @@ switch ($op) {
 					}
 					if ($sms_to && $sms_msg && $uid) {
 						$db_query = "INSERT INTO "._DB_PREF_."_toolsSendfromfile (uid,sid,sms_datetime,sms_to,sms_msg,sms_username) ";
-						$db_query .= "VALUES ('$uid','$sid','".$core_config['datetime']['now']."','$sms_to','".addslashes($sms_msg)."','$sms_username')";
+						$db_query .= "VALUES ('$uid','$sid','".core_get_datetime()."','$sms_to','".addslashes($sms_msg)."','$sms_username')";
 						if ($db_result = dba_insert_id($db_query)) {
 							$valid++;
 							$item_valid[$valid-1] = $data;

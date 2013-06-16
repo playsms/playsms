@@ -55,7 +55,7 @@ function sms_command_hook_setsmsincomingaction($sms_datetime,$sms_sender,$comman
 }
 
 function sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$command_keyword,$command_param='',$raw_message='') {
-	global $datetime_now, $plugin_config;
+	global $plugin_config;
 	$ok = false;
 	$command_keyword = strtoupper(trim($command_keyword));
 	$command_param = trim($command_param);

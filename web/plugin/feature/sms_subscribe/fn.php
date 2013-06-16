@@ -117,7 +117,7 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 				case "REG" :
 				case $subscribe_accept_param :
 					$message = $msg1;
-					$db_query = "INSERT INTO " . _DB_PREF_ . "_featureSubscribe_member (subscribe_id,member_number,member_since) VALUES ('$subscribe_id','$sms_to','".$core_config['datetime']['now']."')";
+					$db_query = "INSERT INTO " . _DB_PREF_ . "_featureSubscribe_member (subscribe_id,member_number,member_since) VALUES ('$subscribe_id','$sms_to','".core_get_datetime()."')";
 					$logged = dba_query($db_query);
 					logger_print('REG SUCCESS sender:'.$sms_sender.' keyword:'.$subscribe_keyword.' mobile:'.$sms_to, 2, "sms_subscribe");
 					$ok = true;

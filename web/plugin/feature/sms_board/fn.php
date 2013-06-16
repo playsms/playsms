@@ -50,7 +50,7 @@ function sms_board_hook_setsmsincomingaction($sms_datetime,$sms_sender,$board_ke
 }
 
 function sms_board_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$board_keyword,$board_param='',$raw_message='') {
-	global $web_title,$email_service,$email_footer,$datetime_now;
+	global $web_title,$email_service,$email_footer;
 	$ok = false;
 	$board_keyword = strtoupper(trim($board_keyword));
 	$board_param = trim($board_param);
@@ -61,7 +61,7 @@ function sms_board_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$board_
 		$db_query = "
 			INSERT INTO "._DB_PREF_."_featureBoard_log
 			(in_gateway,in_sender,in_masked,in_keyword,in_msg,in_datetime)
-			VALUES ('$gw','$sms_sender','$masked_sender','$board_keyword','$board_param','$datetime_now')";
+			VALUES ('$gw','$sms_sender','$masked_sender','$board_keyword','$board_param','".core_get_datetime()."')";
 		if ($cek_ok = @dba_insert_id($db_query)) {
 			$db_query1 = "SELECT board_forward_email FROM "._DB_PREF_."_featureBoard WHERE board_keyword='$board_keyword'";
 			$db_result1 = dba_query($db_query1);

@@ -54,7 +54,6 @@ function sms_poll_hook_setsmsincomingaction($sms_datetime,$sms_sender,$poll_keyw
 }
 
 function sms_poll_handle($list,$sms_datetime,$sms_sender,$poll_keyword,$poll_param='',$sms_receiver='',$raw_message='') {
-	global $datetime_now;
 	$ok = false;
 	$poll_keyword = strtoupper(trim($poll_keyword));
 	$poll_param = strtoupper(trim($poll_param));
@@ -75,7 +74,7 @@ function sms_poll_handle($list,$sms_datetime,$sms_sender,$poll_keyword,$poll_par
 				$db_query = "
 					INSERT INTO "._DB_PREF_."_featurePoll_log 
 					(poll_id,choice_id,poll_sender,in_datetime) 
-					VALUES ('$poll_id','$choice_id','$sms_sender','$datetime_now')";
+					VALUES ('$poll_id','$choice_id','$sms_sender','".core_get_datetime()."')";
 				if (($new_id = @dba_insert_id($db_query)) && ($c_username = uid2username($list['uid']))) {
 					if ($poll_message_valid = $list['poll_message_valid']) {
 						$unicode = core_detect_unicode($poll_message_valid);

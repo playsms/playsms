@@ -90,7 +90,7 @@ function inboxgroup_forwardmembers($data, $log_in_id, $sms_sender, $message) {
 					//logger_print("forwardmembers sendsms smslog_id:".$smslog_id[0]." to:".$sms_to, 2, "inboxgroup");
 					//inboxgroup_saveoutlog($log_in_id, $smslog_id[0], 0, $users[$i]['uid']);
 					$c_username = uid2username($users[$i]['uid']);
-					insertsmstoinbox($core_config['datetime']['now'],$sms_sender,$c_username,$message,$data['in_receiver']);
+					insertsmstoinbox(core_get_datetime(),$sms_sender,$c_username,$message,$data['in_receiver']);
 				}
 			}
 		}
@@ -119,7 +119,7 @@ function inboxgroup_forwardcatchall($data, $log_in_id, $sms_sender, $message) {
 					//logger_print("forwardcatchall sendsms smslog_id:".$smslog_id[0]." to:".$sms_to, 2, "inboxgroup");
 					//inboxgroup_saveoutlog($log_in_id, $smslog_id[0], 1, $users[$i]['uid']);
 					$c_username = uid2username($users[$i]['uid']);
-					insertsmstoinbox($core_config['datetime']['now'],$sms_sender,$c_username,$message,$data['in_receiver']);
+					insertsmstoinbox(core_get_datetime(),$sms_sender,$c_username,$message,$data['in_receiver']);
 				}
 			}
 		}
@@ -227,7 +227,7 @@ function inboxgroup_dataexists($in_receiver) {
 
 function inboxgroup_dataadd($in_receiver, $keywords, $description) {
 	global $core_config;
-	$datetime_now = $core_config['datetime']['now'];
+	$dt = core_get_datetime();
 	$uid = $core_config['user']['uid'];
 	$keywords = str_replace(' ', '', $keywords);
 	$keywords = trim(strtoupper($keywords));
@@ -240,7 +240,7 @@ function inboxgroup_dataadd($in_receiver, $keywords, $description) {
 	}
 	if ($keywords = substr($k, 0, -1)) {
 		$db_query = "INSERT INTO "._DB_PREF_."_featureInboxgroup (uid,in_receiver,keywords,description,creation_datetime) ";
-		$db_query .= "VALUES ('$uid','$in_receiver','$keywords','$description','$datetime_now')";
+		$db_query .= "VALUES ('$uid','$in_receiver','$keywords','$description','$dt')";
 		$id = dba_insert_id($db_query);
 	}
 	return $id;

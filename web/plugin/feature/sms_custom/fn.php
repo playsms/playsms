@@ -50,7 +50,6 @@ function sms_custom_hook_setsmsincomingaction($sms_datetime,$sms_sender,$custom_
 }
 
 function sms_custom_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$custom_keyword,$custom_param='',$raw_message='') {
-	global $datetime_now;
 	$ok = false;
 	$custom_keyword = strtoupper(trim($custom_keyword));
 	$custom_param = trim($custom_param);

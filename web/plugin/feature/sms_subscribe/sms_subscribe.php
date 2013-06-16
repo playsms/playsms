@@ -524,7 +524,7 @@ switch ($op) {
 		$msg_id = $_POST['msg_id'];
 		if ($subscribe_id && $edit_mbr_msg && $msg_id) {
 			$db_query = "
-				UPDATE " . _DB_PREF_ . "_featureSubscribe_msg set c_timestamp='" . mktime() . "', msg='$edit_mbr_msg',update_datetime='".$core_config['datetime']['now']."'
+				UPDATE " . _DB_PREF_ . "_featureSubscribe_msg set c_timestamp='" . mktime() . "', msg='$edit_mbr_msg',update_datetime='".core_get_datetime()."'
 				WHERE subscribe_id='$subscribe_id' AND msg_id ='$msg_id'";
 			if (@ dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('Message has been edited');
@@ -569,10 +569,10 @@ switch ($op) {
 	case "msg_add_yes" :
 		$add_mbr_message = $_POST['add_mbr_message'];
 		if ($subscribe_id && $add_mbr_message) {
-			$datetime_now = $core_config['datetime']['now'];
+			$dt = core_get_datetime();
 			$db_query = "
 				INSERT INTO " . _DB_PREF_ . "_featureSubscribe_msg (subscribe_id,msg,create_datetime,update_datetime)
-				VALUES ('$subscribe_id','$add_mbr_message','$datetime_now','$datetime_now')";
+				VALUES ('$subscribe_id','$add_mbr_message','$dt','$dt')";
 			if ($new_uid = @ dba_insert_id($db_query)) {
 				$_SESSION['error_string'] = _('Message has been added');
 			} else {

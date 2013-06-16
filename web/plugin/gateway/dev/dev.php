@@ -16,7 +16,7 @@ switch ($op) {
 	case "manage":
 		$sender = '+629876543210';
 		$receiver = '1234';
-		$datetime = $core_config['datetime']['now'];
+		$datetime = core_get_datetime();
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -48,7 +48,7 @@ switch ($op) {
 	case "simulate":
 		$sms_sender = ( $_REQUEST['sender'] ? $_REQUEST['sender'] : '+629876543210' );
 		$sms_receiver = ( $_REQUEST['receiver'] ? $_REQUEST['receiver'] : '1234' );
-		$sms_datetime = ( $_REQUEST['datetime'] ? $_REQUEST['datetime'] : $core_config['datetime']['now'] );
+		$sms_datetime = ( $_REQUEST['datetime'] ? $_REQUEST['datetime'] : core_get_datetime() );
 		$message = ( $_REQUEST['message'] ? $_REQUEST['message'] : _('This is a test incoming SMS message') );
 		if (trim($sms_sender) && trim($sms_receiver) && trim($sms_datetime) && trim($message)) {
 			setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);

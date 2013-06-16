@@ -55,7 +55,7 @@ function sms_quiz_hook_setsmsincomingaction($sms_datetime, $sms_sender, $quiz_ke
 }
 
 function sms_quiz_handle($list, $sms_datetime, $sms_sender, $quiz_keyword, $quiz_param = '', $sms_receiver='', $raw_message = '') {
-	global $core_config, $datetime_now;
+	global $core_config;
 	$ok = false;
 	$sms_to = $sms_sender; // we are replying to this sender
 	$quiz_keyword = strtoupper(trim($quiz_keyword));
@@ -68,7 +68,7 @@ function sms_quiz_handle($list, $sms_datetime, $sms_sender, $quiz_keyword, $quiz
 		}
 		$quiz_id = $list['quiz_id'];
 		$answer = strtoupper($quiz_param);
-		$db_query = "INSERT INTO " . _DB_PREF_ . "_featureQuiz_log (quiz_id,quiz_answer,quiz_sender,in_datetime) VALUES ('$quiz_id','$answer','$sms_to','$datetime_now')";
+		$db_query = "INSERT INTO " . _DB_PREF_ . "_featureQuiz_log (quiz_id,quiz_answer,quiz_sender,in_datetime) VALUES ('$quiz_id','$answer','$sms_to','".core_get_datetime()."')";
 		if ($logged = @dba_insert_id($db_query)) {
 			if ($message && ($username = uid2username($list['uid']))) {
 				$unicode = core_detect_unicode($message);

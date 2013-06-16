@@ -246,7 +246,7 @@ switch ($op) {
 			$up[$fields[$i]] = trim($_POST['up_'.$fields[$i]]);
 		}
 		$up['username'] = $c_username;
-		$up['lastupdate_datetime'] = core_adjust_datetime($core_config['datetime']['now']);
+		$up['lastupdate_datetime'] = core_adjust_datetime(core_get_datetime());
 		if ($up['name'] && $up['email']) {
 			$v = user_add_validate($up);
 			if ($v['status']) {
