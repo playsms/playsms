@@ -200,6 +200,7 @@ switch ($op) {
 			<tr><td width=200>Active language</td><td>:</td><td><select name=up_language_module>$option_language_module</select></td></tr>
 			<tr><td colspan=3>&nbsp;</td></tr>
 			<tr><td colspan=3><h2>" . _('Application options') . "</h2><hr></td></tr>
+			<tr><td width=200>" . _('Webservices username') . "</td><td>:</td><td><b>".$c_username."</b></td></tr>
 			<tr><td width=200>" . _('Webservices token') . "</td><td>:</td><td><b>".$token."</b></td></tr>
 			<tr><td width=200>" . _('New webservices token') . "</td><td>:</td><td><select name='up_new_token'>" . $option_new_token . "</select></td></tr>
 			<tr><td width=200>" . _('Enable webservices') . "</td><td>:</td><td><select name='up_enable_webservices'>" . $option_enable_webservices . "</select></td></tr>
