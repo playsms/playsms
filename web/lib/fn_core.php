@@ -113,6 +113,30 @@ function core_display_data($data) {
 	}
 	return $data;
 }
+
+/*
+ * Get timezone
+ * @param $username
+ *    username or empty for default timezone
+ * @return
+ *    timezone
+ */
+function core_get_timezone($username='') {
+	global $core_config;
+	$ret = '';
+	if ($username) {
+		$list = dba_search(_DB_PREF_.'_tblUser', 'datetime_timezone', array('username' => $username));
+		$ret  = $list[0]['datetime_timezone'];
+	}
+	if (! $ret) {
+		$gw = gateway_get();
+		if (! ($ret = $core_config['plugin'][$gw]['datetime_timezone'])) {
+			$ret = $core_config['main']['cfg_datetime_timezone'];
+		}
+	}
+	return $ret;
+}
+
 /*
  * Calculate timezone string into number of seconds offset
  * @param $tz

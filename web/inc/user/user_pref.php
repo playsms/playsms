@@ -28,7 +28,7 @@ switch ($op) {
 			$zipcode = $c_user[0]['zipcode'];
 			$sender = core_sanitize_sender($c_user[0]['sender']);
 			$footer = $c_user[0]['footer'];
-			$datetime_timezone = $c_user[0]['datetime_timezone'];
+			$datetime_timezone = core_get_timezone($c_username);
 			$language_module = $c_user[0]['language_module'];
 			$fwd_to_inbox = $c_user[0]['fwd_to_inbox'];
 			$fwd_to_email = $c_user[0]['fwd_to_email'];
