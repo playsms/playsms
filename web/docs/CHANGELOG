@@ -1,7 +1,7 @@
 CHANGELOG
 ---------
 
-Version 0.9.9-git - 130615
+Version 0.9.9-git - 130616
 - update sendsmsd daemon to enable parallel multi queue processing
 - update config.php to include options for sendsmsd queue number and queue length limit
 - update http method to POST in SMS custom (endymuhardin)
@@ -9,6 +9,7 @@ Version 0.9.9-git - 130615
 - update Send SMS page to split between send to numbers and to groups
 - update webservices to require username when validating requests
 - add $core_config['webservices_username'] option in config.php, default is TRUE
+- add core_get_timezone() and core_get_datetime()
 - add new webservices type of action get_contact to get contact lists
 - add new webservices ta=get_contact_group to search group contacts by name or code
 - add new webservices ta=get_contact to search contacts by name, mobile or email
