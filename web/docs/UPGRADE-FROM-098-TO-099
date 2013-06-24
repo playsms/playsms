@@ -12,6 +12,10 @@ Also note, it is assumed that your new playSMS was extracted at:
 
 Follow below steps carefully to upgrade from unmodified 0.9.8 to 0.9.9:
 
+Stop playsmsd and sendsmsd:
+
+/etc/init.d/playsms stop
+
 1. Move and backup old files:
 
 	mkdir -p /root/backup
@@ -34,6 +38,12 @@ Follow below steps carefully to upgrade from unmodified 0.9.8 to 0.9.9:
 
 	cd /usr/local/src/playsms-0.9.9
 	mysql -uroot -p playsms < db/playsms-upgrade-098-to-099.sql
+
+Start again playsmsd and sendsmsd:
+
+/etc/init.d/playsms start
+
+Upgrade complete, browse playSMS as usual.
 
 
 --
