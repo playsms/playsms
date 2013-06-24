@@ -1,6 +1,8 @@
 #!/usr/bin/php -q
 <?php
 
+set_time_limit(600);
+
 //error_reporting(0);
 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 

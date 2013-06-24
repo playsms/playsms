@@ -1,7 +1,7 @@
 CHANGELOG
 ---------
 
-Version 0.9.9 - 130619
+Version 0.9.9 - 130625
 - update sendsmsd daemon to enable parallel multi queue processing
 - update config.php to include options for sendsmsd queue number and queue length limit
 - update http method to POST in SMS custom (endymuhardin)

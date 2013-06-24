@@ -27,6 +27,16 @@ Minimum Required Server Administrator (or Developer)
 - Basic knowledges to operate and manage Linux (skill to navigate in console mode)
 
 
+INSTALLATION
+------------
+There are 2 methods available to install playSMS:
+1. Using install-script
+2. Step-by-step
+
+If you are using Ubuntu server, relatively new and not much core changes, then I suggest
+you to use 1st method, using install-script.
+
+
 INSTALLATION on Linux using install-script
 ------------------------------------------
 playSMS Web Interface using install script:
@@ -184,8 +194,6 @@ module, or follow INSTALL_KANNEL if you want to use Kannel instead.
 
 Gnokii and Gammu also supported, please follow INSTALL_GNOKII if you want to use Gnokii as your
 gateway module, or INSTALL_GAMMU if you want to use Gammu instead.
-
-As of playSMS version 0.9.5 using Kannel or SMS Server Tools (smstools3) is preferrable.
 
 
 --
