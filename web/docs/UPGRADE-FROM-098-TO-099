@@ -2,17 +2,38 @@ UPGRADE
 -------
 Upgrade to playSMS version 0.9.9 from unmodified playSMS version 0.9.8
 
+Please note, it is assumed that your old playSMS was installed this way:
+- Your playSMS 0.9.8 web location is in /var/www/playsms/
+- Your playSMS 0.9.8 daemon files location are in /usr/local/bin/
+- Your playSMS 0.9.8 database name is playsms
 
-Steps to upgrade:
-1. Backup your old playSMS installation files, folders and database.
-2. Move your old playSMS (all files and folders) to another location (its backup)
-3. Install this playSMS version (or extract it in the same path as old playSMS)
-4. Read old config.php from old playSMS and apply some information to new playSMS config.php
-5. Update database by inserting SQL patch file: db/playsms-upgrade-098-to-099.sql
+Also note, it is assumed that your new playSMS was extracted at:
+- /usr/local/src/playsms-0.9.9
 
-    for example:
-    # cd [this playSMS package directory]/db
-    # mysql -u [database username] -p [old playSMS database name] < playsms-upgrade-098-to-099.sql
+Follow below steps carefully to upgrade from unmodified 0.9.8 to 0.9.9:
+
+1. Move and backup old files:
+
+	mkdir -p /root/backup
+	cd /root/backup
+	mkdir www bin etc db
+	mv /var/www/playsms/* www/
+	mv /usr/local/bin/playsms* /usr/local/bin/sendsms* bin/
+	mysqldump -uroot -p playsms --add-drop-table > db/playsms.sql
+	cp /etc/default/playsms etc/playsms
+	cp /etc/init.d/playsms etc/playsms.init
+
+2. Quick install new files:
+	
+	cd /usr/local/src/playsms-0.9.9
+	cp -rR web/* /var/www/playsms/
+	cp -rR daemon/linux/bin/* /usr/local/bin/
+	cp /root/backup/www/config.php /var/www/playsms/
+
+3. Update database:
+
+	cd /usr/local/src/playsms-0.9.9
+	mysql -uroot -p playsms < db/playsms-upgrade-098-to-099.sql
 
 
 --
