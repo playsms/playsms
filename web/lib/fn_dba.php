@@ -24,7 +24,8 @@ function dba_connect($username,$password,$dbname,$hostname,$port="",$persistant=
 	if (DB::isError($dba_object)) {
 		// $error_msg = "DB Name: $dbname<br>DB Host: $host";
 		ob_end_clean();
-		die ("<p align=left>".$dba_object->getMessage()."<br>".$error_msg."<br>");
+		//die ("<p align=left>".$dba_object->getMessage()."<br>".$error_msg."<br>");
+		return false;
 	}
 	return $dba_object;
 }

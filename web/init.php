@@ -83,7 +83,11 @@ $plugins_category = array('tools','feature','gateway','themes','language');
 $core_config['plugins_category'] = $plugins_category;
 
 // connect to database
-$dba_object = dba_connect(_DB_USER_,_DB_PASS_,_DB_NAME_,_DB_HOST_,_DB_PORT_);
+if (! ($dba_object = dba_connect(_DB_USER_,_DB_PASS_,_DB_NAME_,_DB_HOST_,_DB_PORT_))) {
+	logger_print("Fail to connect to database", 1, "init");
+	ob_end_clean();
+	die(_('FATAL ERROR').' : '._('Fail to connect to database'));
+}
 
 // set charset to UTF-8
 dba_query("SET NAMES utf8");
