@@ -66,17 +66,13 @@ II. Install with apt-get
     # apt-get install gammu-smsd
 
 3. Create required directories
-    # mkdir /var/log/gammu
-    # mkdir -p /var/spool/gammu/inbox
-    # mkdir -p /var/spool/gammu/outbox
-    # mkdir -p /var/spool/gammu/sent
-    # mkdir -p /var/spool/gammu/error
+    # mkdir -p /var/log/gammu /var/spool/gammu/{inbox,outbox,sent,error}
 
 4. Setup Gammu spool directories owner and permissions
    In this example your webserver user and group is www-data
-    # chown www-data:www-data -R /var/spool/gammu/*
+    # chown www-data:www-data -R /var/spool/gammu
     OR
-    # chmod 777 -R /var/spool/gammu/*
+    # chmod 777 -R /var/spool/gammu
 
 5. Copy [this_playsms_package]/contrib/gammu/gammu-smsdrc to /etc/
     # cp [this_playsms_package]/contrib/gammu/gammu-smsdrc /etc/
