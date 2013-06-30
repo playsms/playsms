@@ -30,13 +30,13 @@ switch ($op) {
 			<table width=\"100%\" cellpadding=1 cellspacing=2 border=\"0\" class=\"sortable\">
 			<form name=\"$fm_name\" action=\"index.php?app=menu&inc=tools_msgtemplate&op=actions\" method=post>
 			<thead><tr>
-				<th width=\"4\">&nbsp;*</th>
+				<th width=\"10%\">&nbsp;*</th>
 				<th width=\"30%\">&nbsp;"._('Name')."</th>
-				<th width=\"70%\">&nbsp;"._('Content')."</th>
+				<th width=\"60%\">&nbsp;"._('Content')."</th>
 				<th class=\"sorttable_nosort\" align=\"center\"><input type=checkbox onclick=CheckUncheckAll(document.".$fm_name.")></th>
 			</tr></thead>
 			<tbody>";
-		$db_query = "SELECT * FROM "._DB_PREF_."_toolsMsgtemplate WHERE uid='$uid'";
+		$db_query = "SELECT * FROM "._DB_PREF_."_toolsMsgtemplate WHERE uid='$uid' ORDER BY t_title";
 		$db_result = dba_query($db_query);
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
@@ -47,8 +47,8 @@ switch ($op) {
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 			$content .= "
 				<tr>
-					<td class=\"$td_class\">&nbsp;$i.&nbsp;</td>
-					<td class=\"$td_class\">&nbsp;<a href=\"index.php?app=menu&inc=tools_msgtemplate&op=edit&tid=$tid\">$temp_title</a></td>
+					<td class=\"$td_class\" align=center>&nbsp;<a href=\"index.php?app=menu&inc=tools_msgtemplate&op=edit&tid=$tid\">$i.</a></td>
+					<td class=\"$td_class\">&nbsp;$temp_title</td>
 					<td class=\"$td_class\">&nbsp;$temp_text</td>
 					<td class=\"$td_class\" align=\"center\"><input type=hidden name=tid".$i." value=\"".$db_row['tid']."\"><input type=checkbox name=chkid".$i."></td>
 					<input type=hidden name=tid".$i." value=\"".$db_row['tid']."\">

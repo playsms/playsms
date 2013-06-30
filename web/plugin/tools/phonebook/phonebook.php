@@ -22,7 +22,7 @@ switch ($op) {
 		$join = 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group AS B ON A.gpid=B.id';
 		$count = dba_count(_DB_PREF_.'_toolsPhonebook AS A', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
-		$extras = array('ORDER BY' => 'A.name DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
+		$extras = array('ORDER BY' => 'A.name, mobile', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$fields = 'A.id AS pid, A.name AS name, mobile, email, code';
 		$list = dba_search(_DB_PREF_.'_toolsPhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
 
@@ -47,9 +47,9 @@ switch ($op) {
 			<table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
 			<thead>
 			<tr>
-				<th align=center width=4>*</th>
-				<th align=center width=30%>"._('Name')."</th>
-				<th align=center width=30%>"._('Mobile')."</th>
+				<th align=center width=10%>*</th>
+				<th align=center width=25%>"._('Name')."</th>
+				<th align=center width=25%>"._('Mobile')."</th>
 				<th align=center width=30%>"._('Email')."</th>
 				<th align=center width=10%>"._('Group code')."</th>
 				<th width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></td>
@@ -61,15 +61,16 @@ switch ($op) {
 		$j = 0;
 		for ($j=0;$j<count($list);$j++) {
 			$pid = $list[$j]['pid'];
-			$name = "<a href=\"index.php?app=menu&inc=tools_phonebook&op=phonebook_edit&id=".$pid."\">".$list[$j]['name']."</a>";
+			$name = $list[$j]['name'];
 			$mobile = $list[$j]['mobile'];
 			$email = $list[$j]['email'];
 			$group_code = strtoupper($list[$j]['code']);
 			$i--;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
+			$c_i = "<a href=\"index.php?app=menu&inc=tools_phonebook&op=phonebook_edit&id=".$pid."\">".$i.".</a>";
 			$content .= "
 				<tr>
-					<td valign=top class=$td_class align=left>$i.</td>
+					<td valign=top class=$td_class align=center>$c_i</td>
 					<td valign=top class=$td_class align=center>$name</td>
 					<td valign=top class=$td_class align=center>$mobile</td>
 					<td valign=top class=$td_class align=center>$email</td>

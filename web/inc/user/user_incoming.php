@@ -32,12 +32,10 @@ switch ($op) {
 			<table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
 			<thead>
 			<tr>
-				<th align=center width=4>*</th>
-				<th align=center width=20%>"._('Time')."</th>
-				<th align=center width=10%>"._('From')."</th>
-				<th align=center width=10%>"._('Keyword')."</th>
+				<th align=center width=10%>*</th>
+				<th align=center width=20%>"._('From')."</th>
+				<th align=center width=20%>"._('Keyword')."</th>
 				<th align=center width=40%>"._('Content')."</th>
-				<th align=center width=10%>"._('Feature')."</th>
 				<th align=center width=10%>"._('Status')."</th>
 				<th width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_incoming)></td>
 			</tr>
@@ -47,13 +45,6 @@ switch ($op) {
 		$i = $nav['top'];
 		$j = 0;
 		for ($j=0;$j<count($list);$j++) {
-			$in_message = core_display_text($list[$j]['in_message']);
-			$reply = '';
-			$forward = '';
-			if (($msg=$list[$j]['in_message']) && $in_sender) {
-				$reply = '<br />'._a('index.php?app=menu&inc=send_sms&op=sendsmstopv&do=reply&message='.urlencode($msg).'&to='.urlencode($in_sender), _('reply'));
-				$forward = _a('index.php?app=menu&inc=send_sms&op=sendsmstopv&do=forward&message='.urlencode($msg), _('forward'));
-			}
 			$list[$j] = core_display_data($list[$j]);
 			$in_id = $list[$j]['in_id'];
 			$in_sender = $list[$j]['in_sender'];
@@ -66,18 +57,30 @@ switch ($op) {
 			$in_datetime = core_display_datetime($list[$j]['in_datetime']);
 			$in_feature = $list[$j]['in_feature'];
 			$in_status = ( $list[$j]['in_status'] == 1 ? '<p><font color=green>'._('handled').'</font></p>' : '<p><font color=red>'._('unhandled').'</font></p>' );
+			$in_status = strtolower($in_status);
+			$c_feature = '';
+			if ($in_feature) {
+				$c_feature = "<br />(".$in_feature.")";
+			}
+			$msg = trim($list[$j]['in_message']);
+			$in_message = core_display_text($msg);
+			$reply = '';
+			$forward = '';
+			if ($msg && $in_sender) {
+				$reply = _a('index.php?app=menu&inc=send_sms&op=sendsmstopv&do=reply&message='.urlencode($msg).'&to='.urlencode($in_sender), _('reply'));
+				$forward = _a('index.php?app=menu&inc=send_sms&op=sendsmstopv&do=forward&message='.urlencode($msg), _('forward'));
+			}
+			$c_message = $in_datetime."<p id=\"user_incoming_msg\">".$in_message."</p>".$reply." ".$forward;
 			$i--;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 			$content .= "
 				<tr>
-					<td valign=top class=$td_class align=left>$i.</td>
-					<td valign=top class=$td_class align=center>$in_datetime</td>
+					<td valign=top class=$td_class align=center>$i.</td>
 					<td valign=top class=$td_class align=center>$current_sender</td>
-					<td valign=top class=$td_class align=center>$in_keyword</td>
-					<td valign=top class=$td_class align=left><p id=\"user_incoming_msg\">$in_message $reply $forward</p></td>
-					<td valign=top class=$td_class align=center>$in_feature</td>
+					<td valign=top class=$td_class align=center>$in_keyword $c_feature</td>
+					<td valign=top class=$td_class align=left>$c_message</td>
 					<td valign=top class=$td_class align=center>$in_status</td>
-					<td class=$td_class width=4>
+					<td valign=top class=$td_class width=4>
 						<input type=hidden name=itemid".$j." value=\"$in_id\">
 						<input type=checkbox name=checkid".$j.">
 					</td>

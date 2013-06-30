@@ -213,7 +213,7 @@ li {
 
 #user_inbox_msg {
 	word-wrap: break-word;
-	width: 470px;
+	width: 480px;
 }
 
 #user_incoming_msg {
@@ -238,6 +238,6 @@ li {
 
 #all_outgoing_msg {
 	word-wrap: break-word;
-	width: 260px;
+	width: 190px;
 }
 

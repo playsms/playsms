@@ -32,9 +32,8 @@ switch ($op) {
 			<table width=100% cellpadding=1 cellspacing=2 border=0 class=\"sortable\">
 			<thead>
 			<tr>
-				<th align=center width=4>*</th>
-				<th align=center width=20%>"._('Time')."</th>
-				<th align=center width=10%>"._('To')."</th>
+				<th align=center width=10%>*</th>
+				<th align=center width=20%>"._('To')."</th>
 				<th align=center width=60%>"._('Message')."</th>
 				<th align=center width=10%>"._('Status')."</th>
 				<th width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_outgoing)></td>
@@ -45,7 +44,6 @@ switch ($op) {
 		$i = $nav['top'];
 		$j=0;
 		for ($j=0;$j<count($list);$j++) {
-			$p_msg = core_display_text($list[$j]['p_msg']);
 			$list[$j] = core_display_data($list[$j]);
 			$smslog_id = $list[$j]['smslog_id'];
 			$p_dst = $list[$j]['p_dst'];
@@ -81,21 +79,28 @@ switch ($op) {
 			} else {
 				$p_status = "<p><font color=orange>"._('Pending')."</font></p>";
 			}
+			$p_status = strtolower($p_status);
 			if ($p_gpid) {
 				$p_gpcode = strtoupper(phonebook_groupid2code($p_gpid));
 			} else {
 				$p_gpcode = "&nbsp;";
 			}
+			$msg = $list[$j]['p_msg'];
+			$p_msg = core_display_text($msg);
+			if ($msg && $p_dst) {
+				$resend = _a('index.php?app=menu&inc=send_sms&op=sendsmstopv&do=reply&message='.urlencode($msg).'&to='.urlencode($p_dst), _('resend'));
+				$forward = _a('index.php?app=menu&inc=send_sms&op=sendsmstopv&do=forward&message='.urlencode($msg), _('forward'));
+			}
+			$c_message = $p_datetime."<p id=\"user_outgoing_msg\">".$p_msg."</p>".$resend." ".$forward;
 			$i--;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 			$content .= "
 				<tr>
-					<td valign=top class=$td_class align=left>$i.</td>
-					<td valign=top class=$td_class align=center>$p_datetime</td>
+					<td valign=top class=$td_class align=center>$i.</td>
 					<td valign=top class=$td_class align=center>$current_p_dst</td>
-					<td valign=top class=$td_class align=left><p id=\"user_outgoing_msg\">$p_msg</p></td>
+					<td valign=top class=$td_class align=left>$c_message</td>
 					<td valign=top class=$td_class align=center>$p_status</td>
-					<td class=$td_class width=4>
+					<td valign=top class=$td_class width=4>
 						<input type=hidden name=itemid".$j." value=\"$smslog_id\">
 						<input type=checkbox name=checkid".$j.">
 					</td>		  

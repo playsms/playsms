@@ -34,8 +34,8 @@ switch ($op) {
 			<table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
 			<thead>
 			<tr>
-				<th align=center width=4>*</th>
-				<th align=center width=70%>"._('Name')."</th>
+				<th align=center width=10%>*</th>
+				<th align=center width=60%>"._('Name')."</th>
 				<th align=center width=30%>"._('Code')."</th>
 				<th width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></td>
 			</tr>
@@ -45,13 +45,14 @@ switch ($op) {
 		$j = 0;
 		for ($j=0;$j<count($list);$j++) {
 			$gpid = $list[$j]['id'];
-			$name = "<a href=\"index.php?app=menu&inc=tools_phonebook&route=group&op=edit&gpid=".$gpid."\">".$list[$j]['name']."</a>";
+			$name = $list[$j]['name'];
 			$code = $list[$j]['code'];
 			$i++;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
+			$c_i = "<a href=\"index.php?app=menu&inc=tools_phonebook&route=group&op=edit&gpid=".$gpid."\">".$i.".</a>";
 			$content .= "
 				<tr>
-					<td valign=top class=$td_class align=left>$i.</td>
+					<td valign=top class=$td_class align=center>$c_i</td>
 					<td valign=top class=$td_class align=center>$name</td>
 					<td valign=top class=$td_class align=center>$code</td>
 					<td class=$td_class width=4>

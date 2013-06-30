@@ -35,13 +35,12 @@ switch ($op) {
 			<p>" . _('Status') . ": <b>" . _('Administrator') . "</b><br>
 			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
 			<thead><tr>
-				<td class='box_title' width='25'>*</td>
-				<td class='box_title' width='100'>" . _('Registered') . "</td>
-				<td class='box_title' width='100'>" . _('Username') . "</td>
-				<td class='box_title' width='125'>" . _('Name') . "</td>	
-				<td class='box_title' width='150'>" . _('Email') . "</td>
-				<td class='box_title' width='150'>" . _('Mobile') . "</td>
-				<td class='box_title' width='75'>" . _('Credit') . "</td>
+				<td class='box_title' width='10%'>*</td>
+				<td class='box_title' width='20%'>" . _('Registered') . "</td>
+				<td class='box_title' width='20%'>" . _('Username') . "</td>
+				<td class='box_title' width='20%'>" . _('Name') . "</td>	
+				<td class='box_title' width='20%'>" . _('Mobile') . "</td>
+				<td class='box_title' width='10%'>" . _('Credit') . "</td>
 				<td class='box_title' class='sortable_nosort' width='75'>" . _('Action') . "</td>
 			</tr></thead>
 			<tbody>";
@@ -53,14 +52,13 @@ switch ($op) {
 			$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $list[$i]['username'] . ")','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">$icon_delete</a>";
 			$content .= "
 				<tr>
-					<td class='$td_class'>&nbsp;".$j.".</td>
-					<td class='$td_class'>" . core_display_datetime($list[$i]['register_datetime']) . "</td>
-					<td class='$td_class'>" . $list[$i]['username'] . "</td>
-					<td class='$td_class'>" . $list[$i]['name'] . "</td>
-					<td class='$td_class'>" . $list[$i]['email'] . "</td>	
-					<td class='$td_class'>" . $list[$i]['mobile'] . "</td>	
-					<td class='$td_class'>" . rate_getusercredit($list[$i]['username']) . "</td>	
-					<td class='$td_class' align='center'>$action</td>
+					<td class='$td_class' valign=top align=center>&nbsp;".$j.".</td>
+					<td class='$td_class' valign=top align=center>" . core_display_datetime($list[$i]['register_datetime']) . "</td>
+					<td class='$td_class' valign=top align=center>" . $list[$i]['username'] . "</td>
+					<td class='$td_class' valign=top align=center>" . $list[$i]['name'] . "</td>
+					<td class='$td_class' valign=top align=center>" . $list[$i]['mobile'] . "</td>	
+					<td class='$td_class' valign=top align=center>" . rate_getusercredit($list[$i]['username']) . "</td>	
+					<td class='$td_class' valign=top align=center>$action</td>
 				</tr>";
 		}
 		$content .= "
@@ -96,13 +94,12 @@ switch ($op) {
 			<p>" . _('Status') . ": <b>" . _('Normal user') . "</b><br>
 			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
 			<thead><tr>
-				<td class='box_title' width='25'>*</td>
-				<td class='box_title' width='100'>" . _('Registered') . "</td>
-				<td class='box_title' width='100'>" . _('Username') . "</td>
-				<td class='box_title' width='125'>" . _('Name') . "</td>	
-				<td class='box_title' width='150'>" . _('Email') . "</td>
-				<td class='box_title' width='150'>" . _('Mobile') . "</td>
-				<td class='box_title' width='75'>" . _('Credit') . "</td>
+				<td class='box_title' width='10%'>*</td>
+				<td class='box_title' width='20%'>" . _('Registered') . "</td>
+				<td class='box_title' width='20%'>" . _('Username') . "</td>
+				<td class='box_title' width='20%'>" . _('Name') . "</td>	
+				<td class='box_title' width='20%'>" . _('Mobile') . "</td>
+				<td class='box_title' width='10%'>" . _('Credit') . "</td>
 				<td class='box_title' class='sortable_nosort' width='75'>" . _('Action') . "</td>
 			</tr></thead>
 			<tbody>";
@@ -115,14 +112,13 @@ switch ($op) {
 			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">$icon_delete</a>";
 			$content .= "
 				<tr>
-					<td class='$td_class'>&nbsp;".$j.".</td>
-					<td class='$td_class'>" . core_display_datetime($list[$i]['register_datetime']) . "</td>
-					<td class='$td_class'>" . $list[$i]['username'] . "</td>
-					<td class='$td_class'>" . $list[$i]['name'] . "</td>
-					<td class='$td_class'>" . $list[$i]['email'] . "</td>	
-					<td class='$td_class'>" . $list[$i]['mobile'] . "</td>	
-					<td class='$td_class'>" . rate_getusercredit($list[$i]['username']) . "</td>	
-					<td class='$td_class' align='center'>$action</td>
+					<td class='$td_class' valign=top align=center>&nbsp;".$j.".</td>
+					<td class='$td_class' valign=top align=center>" . core_display_datetime($list[$i]['register_datetime']) . "</td>
+					<td class='$td_class' valign=top align=center>" . $list[$i]['username'] . "</td>
+					<td class='$td_class' valign=top align=center>" . $list[$i]['name'] . "</td>
+					<td class='$td_class' valign=top align=center>" . $list[$i]['mobile'] . "</td>	
+					<td class='$td_class' valign=top align=center>" . rate_getusercredit($list[$i]['username']) . "</td>	
+					<td class='$td_class' valign=top align=center>$action</td>
 				</tr>";
 		}
 		$content .= "
