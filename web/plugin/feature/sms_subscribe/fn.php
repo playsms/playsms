@@ -76,7 +76,7 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 
 	// check for BC/forward param
 	$bc = trim(strtoupper($c_arr[0]));
-	if (($bc=='BC') || ($forward_param && ($bc==$forward_param))) {
+	if ((($bc=='BC') || ($forward_param && ($bc==$forward_param))) && ($c_uid==mobile2uid($sms_sender))) {
 		for ($i=1;$i<count($c_arr);$i++) {
 			$msg0 .= $c_arr[$i].' ';
 		}
