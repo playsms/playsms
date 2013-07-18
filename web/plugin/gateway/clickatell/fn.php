@@ -112,7 +112,7 @@ function clickatell_getsmsstatus($smslog_id) {
 	if ($apimsgid = $db_row['apimsgid']) {
 		$query_string = "getmsgcharge?api_id=".$clickatell_param['api_id']."&user=".$clickatell_param['username']."&password=".$clickatell_param['password']."&apimsgid=$apimsgid";
 		$url = $clickatell_param['send_url']."/".$query_string;
-		logger_print("smslog_id:".$smslog_id." apimsgid:".$apimsgid." url:".$url, 2, "clickatell getsmsstatus");
+		logger_print("smslog_id:".$smslog_id." apimsgid:".$apimsgid." url:".$url, 3, "clickatell getsmsstatus");
 		$fd = @implode ('', file ($url));
 		if ($fd) {
 			$response = split (" ", $fd);
