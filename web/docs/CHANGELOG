@@ -1,6 +1,11 @@
 CHANGELOG
 ---------
 
+Version 0.9.9.1-git - NA
+- update log level to 3 for clickatell getsmsstatus
+- add logger_print() at the begining and the end of webservices
+- remove themes 'km2'
+
 Version 0.9.9 - 130625
 - update sendsmsd daemon to enable parallel multi queue processing
 - update config.php to include options for sendsmsd queue number and queue length limit
