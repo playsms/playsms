@@ -34,6 +34,9 @@ $slid	= trim($_REQUEST['slid']);
 $kwd	= trim($_REQUEST['kwd']);
 
 if ($op) { $ta = $op; };
+
+logger_print("begin u:".$u." h:".$h." ip:".$_SERVER['REMOTE_ADDR']." ta:".$ta, 3, "webservices");
+
 if ($ta) {
 	switch ($ta) {
 		case "PV":
@@ -175,5 +178,7 @@ if ($format=='JSON') {
 } else if ($format=='' || $format=='PLAIN') {
 	echo $ret;
 }
+
+logger_print("end u:".$u." h:".$h." ip:".$_SERVER['REMOTE_ADDR']." ta:".$ta, 3, "webservices");
 
 ?>
