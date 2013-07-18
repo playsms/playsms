@@ -54,6 +54,8 @@ echo
 echo "MySQL username      = $DBUSER"
 echo "MySQL password      = $DBPASS"
 echo "MySQL database      = $DBNAME"
+echo "MySQL host          = $DBHOST"
+echo "MySQL port          = $DBPORT"
 echo
 echo "Web server user     = $WEBSERVERUSER"
 echo "Web server group    = $WEBSERVERGROUP"
@@ -127,12 +129,16 @@ echo -n .
 cp -rR web/* $PATHWEB
 set +e
 echo -n .
-mysqladmin -u $DBUSER -p$DBPASS create $DBNAME >/dev/null 2>&1
+mysqladmin -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT create $DBNAME >/dev/null 2>&1
 set -e
 echo -n .
-mysql -u $DBUSER -p$DBPASS $DBNAME < db/playsms.sql
+mysql -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT $DBNAME < db/playsms.sql
 echo -n .
 cp $PATHWEB/config-dist.php $PATHWEB/config.php
+echo -n .
+sed -i "s/#DBHOST#/$DBHOST/g" $PATHWEB/config.php
+echo -n .
+sed -i "s/#DBPORT#/$DBPORT/g" $PATHWEB/config.php
 echo -n .
 sed -i "s/#DBNAME#/$DBNAME/g" $PATHWEB/config.php
 echo -n .
