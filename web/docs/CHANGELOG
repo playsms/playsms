@@ -4,6 +4,7 @@ CHANGELOG
 Version 0.9.9.1-git - NA
 - update log level to 3 for clickatell getsmsstatus
 - add logger_print() at the begining and the end of webservices
+- add DBHOST and DBPORT on install script
 - remove themes 'km2'
 
 Version 0.9.9 - 130625
