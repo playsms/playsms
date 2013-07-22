@@ -7,6 +7,7 @@ Version 0.9.9.1-git - NA
 - add logger_print() at the begining and the end of webservices
 - add DBHOST and DBPORT on install script
 - remove themes 'km2'
+- remove column 'status' on inbox, incoming and outgoing tables
 - fix #90 webservices list all incoming SMS on ta=in regardless of uid
 
 Version 0.9.9 - 130625

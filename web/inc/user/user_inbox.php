@@ -33,8 +33,8 @@ switch ($op) {
 			<thead>
 			<tr>
 				<th align=center width=10%>*</th>
-				<th align=center width=20%>"._('From')."</th>
-				<th align=center width=70%>"._('Message')."</th>
+				<th align=center width=30%>"._('From')."</th>
+				<th align=center width=60%>"._('Message')."</th>
 				<th width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></td>
 			</tr>
 			</thead>

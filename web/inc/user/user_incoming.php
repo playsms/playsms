@@ -33,10 +33,9 @@ switch ($op) {
 			<thead>
 			<tr>
 				<th align=center width=10%>*</th>
-				<th align=center width=20%>"._('From')."</th>
+				<th align=center width=30%>"._('From')."</th>
 				<th align=center width=20%>"._('Keyword')."</th>
 				<th align=center width=40%>"._('Content')."</th>
-				<th align=center width=10%>"._('Status')."</th>
 				<th width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_incoming)></td>
 			</tr>
 			</thead>
@@ -56,7 +55,7 @@ switch ($op) {
 			$in_keyword = $list[$j]['in_keyword'];
 			$in_datetime = core_display_datetime($list[$j]['in_datetime']);
 			$in_feature = $list[$j]['in_feature'];
-			$in_status = ( $list[$j]['in_status'] == 1 ? '<p><font color=green>'._('handled').'</font></p>' : '<p><font color=red>'._('unhandled').'</font></p>' );
+			$in_status = ( $list[$j]['in_status'] == 1 ? '<font color=green>'._('handled').'</font>' : '<p><font color=red>'._('unhandled').'</font></p>' );
 			$in_status = strtolower($in_status);
 			$c_feature = '';
 			if ($in_feature) {
@@ -70,7 +69,7 @@ switch ($op) {
 				$reply = _a('index.php?app=menu&inc=send_sms&op=sendsmstopv&do=reply&message='.urlencode($msg).'&to='.urlencode($in_sender), _('reply'));
 				$forward = _a('index.php?app=menu&inc=send_sms&op=sendsmstopv&do=forward&message='.urlencode($msg), _('forward'));
 			}
-			$c_message = $in_datetime."<p id=\"user_incoming_msg\">".$in_message."</p>".$reply." ".$forward;
+			$c_message = $in_datetime."&nbsp;".$in_status."<p id=\"user_incoming_msg\">".$in_message."</p>".$reply." ".$forward;
 			$i--;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 			$content .= "
@@ -79,7 +78,6 @@ switch ($op) {
 					<td valign=top class=$td_class align=center>$current_sender</td>
 					<td valign=top class=$td_class align=center>$in_keyword $c_feature</td>
 					<td valign=top class=$td_class align=left>$c_message</td>
-					<td valign=top class=$td_class align=center>$in_status</td>
 					<td valign=top class=$td_class width=4>
 						<input type=hidden name=itemid".$j." value=\"$in_id\">
 						<input type=checkbox name=checkid".$j.">

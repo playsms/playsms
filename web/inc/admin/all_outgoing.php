@@ -35,11 +35,10 @@ switch ($op) {
 			<thead>
 			<tr>
 				<th align=center width=10%>*</th>
-				<th align=center width=10%>"._('User')."</th>
-				<th align=center width=20%>"._('Gateway')."</th>
-				<th align=center width=20%>"._('To')."</th>
-				<th align=center width=30%>"._('Message')."</th>
-				<th align=center width=10%>"._('Status')."</th>
+				<th align=center width=15%>"._('User')."</th>
+				<th align=center width=15%>"._('Gateway')."</th>
+				<th align=center width=25%>"._('To')."</th>
+				<th align=center width=35%>"._('Message')."</th>
 				<th width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_outgoing)></td>
 			</tr>
 			</thead>
@@ -77,13 +76,13 @@ switch ($op) {
 			// 2 = failed
 			// 3 = delivered
 			if ($p_status == "1") {
-				$p_status = "<p><font color=green>"._('Sent')."</font></p>";
+				$p_status = "<font color=green>"._('Sent')."</font>";
 			} else if ($p_status == "2") {
-				$p_status = "<p><font color=red>"._('Failed')."</font></p>";
+				$p_status = "<font color=red>"._('Failed')."</font>";
 			} else if ($p_status == "3") {
-				$p_status = "<p><font color=green>"._('Delivered')."</font></p>";
+				$p_status = "<font color=green>"._('Delivered')."</font>";
 			} else {
-				$p_status = "<p><font color=orange>"._('Pending')."</font></p>";
+				$p_status = "<font color=orange>"._('Pending')."</font>";
 			}
 			$p_status = strtolower($p_status);
 			if ($p_gpid) {
@@ -97,7 +96,7 @@ switch ($op) {
 				$resend = _a('index.php?app=menu&inc=send_sms&op=sendsmstopv&do=reply&message='.urlencode($msg).'&to='.urlencode($p_dst), _('resend'));
 				$forward = _a('index.php?app=menu&inc=send_sms&op=sendsmstopv&do=forward&message='.urlencode($msg), _('forward'));
 			}
-			$c_message = $p_datetime."<p id=\"all_outgoing_msg\">".$p_msg."</p>".$resend." ".$forward;
+			$c_message = $p_datetime."&nbsp;".$p_status."<p id=\"all_outgoing_msg\">".$p_msg."</p>".$resend." ".$forward;
 			$i--;
 			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
 			$content .= "
@@ -107,7 +106,6 @@ switch ($op) {
 					<td valign=top class=$td_class align=center>$p_gateway</td>
 					<td valign=top class=$td_class align=center>$current_p_dst</td>
 					<td valign=top class=$td_class align=left>$c_message</td>
-					<td valign=top class=$td_class align=center>$p_status</td>
 					<td valign=top class=$td_class width=4>
 						<input type=hidden name=itemid".$j." value=\"$smslog_id\">
 						<input type=checkbox name=checkid".$j.">
