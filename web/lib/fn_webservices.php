@@ -111,7 +111,9 @@ function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',
 	$ret = "ERR 101";
 	$json['status'] = 'ERR';
 	$json['error'] = '101';
-	$uid = username2uid($c_username);
+	if ($uid = username2uid($c_username)) {
+		$conditions['uid'] = $uid;
+	}
 	$conditions['flag_deleted'] = 0;
 	if ($slid) {
 		$conditions['smslog_id'] = $slid;
@@ -196,8 +198,10 @@ function webservices_in($c_username,$src='',$dst='',$kwd='',$datetime='',$c=100,
 	$ret = "ERR 101";
 	$json['status'] = 'ERR';
 	$json['error'] = '101';
-	$uid = username2uid($c_username);
 	$conditions['flag_deleted'] = 0;
+	if ($uid = username2uid($c_username)) {
+		$conditions['in_uid'] = $uid;
+	}
 	if ($src) {
 		if ($src[0]=='0') {
 			$c_src = substr($src, 1);

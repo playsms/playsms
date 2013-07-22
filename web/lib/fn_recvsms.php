@@ -54,6 +54,7 @@ function interceptincomingsms($sms_datetime,$sms_sender,$message,$sms_receiver="
 			$ret_final['param']['message'] = $ret['param']['message'];
 			$ret_final['param']['sms_receiver'] = $ret['param']['sms_receiver'];
 		}
+		if ($ret['uid']) { $ret_final['uid'] = $ret['uid']; };
 		if ($ret['hooked']) { $ret_final['hooked'] = $ret['hooked']; };
 	}
 	// tools list
@@ -71,6 +72,7 @@ function interceptincomingsms($sms_datetime,$sms_sender,$message,$sms_receiver="
 			$ret_final['param']['message'] = $ret['param']['message'];
 			$ret_final['param']['sms_receiver'] = $ret['param']['sms_receiver'];
 		}
+		if ($ret['uid']) { $ret_final['uid'] = $ret['uid']; };
 		if ($ret['hooked']) { $ret_final['hooked'] = $ret['hooked']; };
 	}
 	return $ret_final;
@@ -144,6 +146,9 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 		// from interceptincomingsms(), force status as 'handled'
 		if ($ret_intercept['hooked']) {
 			$c_status = 1;
+			if ($ret_intercept['uid']) {
+				$c_uid = $ret_intercept['uid'];
+			}
 			logger_print("intercepted datetime:".$sms_datetime." sender:".$sms_sender." receiver:".$sms_receiver." message:".$message, 3, "setsmsincomingaction");
 		} else {
 			logger_print("unhandled datetime:".$sms_datetime." sender:".$sms_sender." receiver:".$sms_receiver." message:".$message, 3, "setsmsincomingaction");

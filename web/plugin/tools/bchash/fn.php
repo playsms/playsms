@@ -63,6 +63,7 @@ function bchash_handle($in) {
 			logger_print("bc g:".$c_group_code." gpid:".$c_gpid." uid:".$c_uid." dt:".$in['sms_datetime']." s:".$in['sms_sender']." r:".$in['sms_receiver']." m:".$in['message'], 3, "bchash");
 			sendsms_bc($c_username, $c_gpid, $in['message']);
 			logger_print("bc end", 3, "bchash");
+			$ret['uid'] = $c_uid;
 			$ret['hooked'] = true;
 		}
 	}
