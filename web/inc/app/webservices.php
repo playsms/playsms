@@ -75,6 +75,15 @@ if ($ta) {
 				$json['error'] = '100';
 			}
 			break;
+		case "IX":
+			if ($u = webservices_validate($h,$u)) {
+				list($ret,$json) = webservices_ix($u,$src,$dst,$dt,$c,$last);
+			} else {
+				$ret = "ERR 100";
+				$json['status'] = 'ERR';
+				$json['error'] = '100';
+			}
+			break;
 		case "CR":
 			if ($u = webservices_validate($h,$u)) {
 				list($ret,$json) = webservices_cr($u);

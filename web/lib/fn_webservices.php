@@ -261,6 +261,66 @@ function webservices_in($c_username,$src='',$dst='',$kwd='',$datetime='',$c=100,
 	return array($ret, $json);
 }
 
+function webservices_ix($c_username,$src='',$dst='',$datetime='',$c=100,$last=false) {
+	$ret = "ERR 101";
+	$json['status'] = 'ERR';
+	$json['error'] = '101';
+	$conditions['in_hidden'] = 0;
+	if ($uid = username2uid($c_username)) {
+		$conditions['in_uid'] = $uid;
+	}
+	if ($src) {
+		if ($src[0]=='0') {
+			$c_src = substr($src, 1);
+		} else {
+			$c_src = substr($src, 3);
+		}
+		$keywords['in_sender'] = '%'.$c_src;
+	}
+	if ($dst) {
+		$conditions['in_receiver'] = $dst;
+	}
+	if ($datetime) {
+		$keywords['in_datetime'] = '%'.$datetime.'%';
+	}
+	if ($last) {
+		$extras['AND in_id'] = '>'.$last;
+	}
+	$extras['ORDER BY'] = 'in_datetime DESC';
+	if ($c) {
+		$extras['LIMIT'] = $c;
+	} else {
+		$extras['LIMIT'] = 100;
+	}
+	if ($uid) {
+		$content = '';
+		$j = 0;
+		$list = dba_search(_DB_PREF_.'_tblUserInbox', '*', $conditions, $keywords, $extras);
+		foreach ($list as $db_row) {
+			$id = $db_row['in_id'];
+			$src = $db_row['in_sender'];
+			$dst = $db_row['in_receiver'];
+			$message = str_replace('"', "'", $db_row['in_msg']);
+			$datetime = $db_row['in_datetime'];
+			$content .= "\"$id\";\"$src\";\"$dst\";\"$message\";\"$datetime\"\n";
+			$json['data'][$j]['id'] = $id;
+			$json['data'][$j]['src'] = $src;
+			$json['data'][$j]['dst'] = $dst;
+			$json['data'][$j]['msg'] = $message;
+			$json['data'][$j]['dt'] = $datetime;
+			$j++;
+		}
+		// if DS available by checking content
+		if ($content) {
+			$ret = $content;
+			unset($json['status']);
+			unset($json['error']);
+			$json['multi'] = true;
+		}
+	}
+	return array($ret, $json);
+}
+
 function webservices_cr($c_username) {
 	$credit = rate_getusercredit($c_username);
 	$credit = ( $credit ? $credit : '0' );
