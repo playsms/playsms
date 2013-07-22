@@ -23,7 +23,7 @@
 
 #user_inbox_msg {
 	word-wrap: break-word;
-	width: 470px;
+	width: 400px;
 }
 
 #user_incoming_msg {
@@ -38,7 +38,7 @@
 
 #all_inbox_msg {
 	word-wrap: break-word;
-	width: 400px;
+	width: 320px;
 }
 
 #all_incoming_msg {
@@ -48,6 +48,6 @@
 
 #all_outgoing_msg {
 	word-wrap: break-word;
-	width: 260px;
+	width: 220px;
 }
 
