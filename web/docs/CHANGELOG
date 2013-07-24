@@ -1,7 +1,7 @@
 CHANGELOG
 ---------
 
-Version 0.9.9.1-git - NA
+Version 0.9.9.1-git - 130725
 - update log level to 3 for clickatell getsmsstatus
 - add new webservices type of action IX to get SMS on user's inbox
 - add logger_print() at the begining and the end of webservices
@@ -9,6 +9,7 @@ Version 0.9.9.1-git - NA
 - remove themes 'km2'
 - remove column 'status' on inbox, incoming and outgoing tables
 - fix #90 webservices list all incoming SMS on ta=in regardless of uid
+- fix search categories in user_mgmnt
 
 Version 0.9.9 - 130625
 - update sendsmsd daemon to enable parallel multi queue processing
