@@ -1,0 +1,38 @@
+UPGRADE
+-------
+Upgrade to playSMS version 0.9.9.1 from unmodified playSMS version 0.9.9
+
+Assumed that your old playSMS (0.9.9) was installed like this:
+- Your playSMS 0.9.9 web location is in /var/www/playsms/
+- Your playSMS 0.9.9 daemon files location are in /usr/local/bin/
+- Your playSMS 0.9.9 database name is playsms
+
+And, assumed that your new playSMS (0.9.9.1) was extracted at:
+- /usr/local/src/playsms-0.9.9.1
+
+Follow below steps carefully to upgrade from unmodified 0.9.9 to 0.9.9.1:
+
+1. Stop playsmsd and sendsmsd:
+
+	/etc/init.d/playsms stop
+
+2. Move and backup old files (please note on the 'slash'):
+
+	mkdir -p /root/backup-0.9.9/www
+	mv /var/www/playsms/* /root/backup-0.9.9/www/
+
+3. Quick install new files and copy old config.php:
+
+	cd /usr/local/src/playsms-0.9.9.1
+	cp -rR web/* /var/www/playsms/
+	cp /root/backup-0.9.9/www/config.php /var/www/playsms/
+
+4. Start again playsmsd and sendsmsd:
+
+	/etc/init.d/playsms start
+
+5. Upgrade complete, browse playSMS as usual.
+
+
+--
+Anton Raharja
