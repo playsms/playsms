@@ -9,14 +9,14 @@ switch ($op) {
 		break;
 	case "user_list_tab1":
 		$search_var = array(
-			'name' => 'user_mgmnt',
-			'url' => 'index.php?app=menu&inc=user_mgmnt&op=user_list_tab1',
+			_('Registered') => 'register_datetime',
+			_('Username') => 'username',
+			_('Name') => 'name',
+			_('Mobile') => 'mobile'
 		);
 		$search = themes_search($search_var);
 		$conditions = array('status' => 2);
-		if ($search['keyword']) {
-			$keywords = array('username' => '%'.$search['keyword'].'%');
-		}
+		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_.'_tblUser', $conditions, $keywords);
 		$nav = themes_nav($count, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab1");
 		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
@@ -68,14 +68,14 @@ switch ($op) {
 		break;
 	case "user_list_tab2":
 		$search_var = array(
-			'name' => 'user_mgmnt',
-			'url' => 'index.php?app=menu&inc=user_mgmnt&op=user_list_tab2',
+			_('Registered') => 'register_datetime',
+			_('Username') => 'username',
+			_('Name') => 'name',
+			_('Mobile') => 'mobile'
 		);
 		$search = themes_search($search_var);
 		$conditions = array('status' => 3);
-		if ($search['keyword']) {
-			$keywords = array('username' => '%'.$search['keyword'].'%');
-		}
+		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_.'_tblUser', $conditions, $keywords);
 		$nav = themes_nav($count, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab2");
 		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
