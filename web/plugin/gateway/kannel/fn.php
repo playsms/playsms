@@ -63,7 +63,7 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	$URL .= $additional_param;
 	$URL = str_replace("&&", "&", $URL);
 
-	logger_print("http://".$kannel_param['bearerbox_host'].":".$kannel_param['sendsms_port'].$URL, 3, "kannel outgoing");
+	logger_print("http://".$kannel_param['sendsms_host'].":".$kannel_param['sendsms_port'].$URL, 3, "kannel outgoing");
 
 	// srosa 20100531: Due to improper http response from Kannel, file_get_contents cannot be used.
 	// One issue is that Kannel responds with HTTP 202 whereas file_get_contents expect HTTP 200
@@ -82,8 +82,8 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	}
 	*/
 	// fixme anton - deprecated when using PHP5
-	//$connection = fsockopen($kannel_param['bearerbox_host'],$kannel_param['sendsms_port'],&$error_number,&$error_description,60);
-	$connection = fsockopen($kannel_param['bearerbox_host'],$kannel_param['sendsms_port'],$error_number,$error_description,60);
+	//$connection = fsockopen($kannel_param['sendsms_host'],$kannel_param['sendsms_port'],&$error_number,&$error_description,60);
+	$connection = fsockopen($kannel_param['sendsms_host'],$kannel_param['sendsms_port'],$error_number,$error_description,60);
 	if ($connection) {
 		socket_set_blocking($connection, false);
 		fputs($connection, "GET ".$URL." HTTP/1.0\r\n\r\n");
