@@ -73,6 +73,9 @@ switch ($op) {
 		<td>" . _('Bearerbox hostname or IP') . "</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_bearerbox_host value=\"" . $kannel_param['bearerbox_host'] . "\"> (" . _('Kannel specific') . ")</td>
 	    </tr>	    
 	    <tr>
+		<td>" . _('Send SMS hostname or IP') . "</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_sendsms_host value=\"" . $kannel_param['sendsms_host'] . "\"> (" . _('Kannel specific') . ")</td>
+	    </tr>	    
+	    <tr>
 		<td>" . _('Send SMS port') . "</td><td>:</td><td><input type=text size=10 maxlength=10 name=up_sendsms_port value=\"" . $kannel_param['sendsms_port'] . "\"> (" . _('Kannel specific') . ")</td>
 	    </tr>	    
             <!-- Handle DLR config (emmanuel) -->
@@ -119,6 +122,7 @@ switch ($op) {
         $up_global_sender = $_POST['up_global_sender'];
         $up_global_timezone = $_POST['up_global_timezone'];
         $up_bearerbox_host = $_POST['up_bearerbox_host'];
+        $up_sendsms_host = $_POST['up_sendsms_host'];
         $up_sendsms_port = $_POST['up_sendsms_port'];
         $up_playsms_web = ( $_POST['up_playsms_web'] ? $_POST['up_playsms_web'] : $http_path['base'] );
         $up_additional_param = ( $_POST['up_additional_param'] ? $_POST['up_additional_param'] : "smsc=default" );
@@ -171,6 +175,7 @@ switch ($op) {
 		    cfg_global_sender='$up_global_sender',
 		    cfg_datetime_timezone='$up_global_timezone',
 		    cfg_bearerbox_host='$up_bearerbox_host',
+		    cfg_sendsms_host='$up_sendsms_host',
 		    cfg_sendsms_port='$up_sendsms_port',
 		    cfg_playsms_web='$up_playsms_web',
 		    cfg_additional_param='$up_additional_param',
