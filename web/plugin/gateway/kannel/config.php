@@ -10,7 +10,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 	$kannel_param['password']		= $db_row['cfg_password'];
 	$kannel_param['global_sender']	= $db_row['cfg_global_sender'];
 	$kannel_param['bearerbox_host']	= $db_row['cfg_bearerbox_host'];
-	$kannel_param['sendsms_host']	= $db_row['cfg_sendsms_host'];
+	$kannel_param['sendsms_host']	= ( $db_row['cfg_sendsms_host'] ? $db_row['cfg_sendsms_host'] : $kannel_param['bearerbox_host'] );
 	$kannel_param['sendsms_port']	= $db_row['cfg_sendsms_port'];
 	$kannel_param['playsms_web']	= $db_row['cfg_playsms_web'];
 	// Handle DLR options in Kannel - emmanuel
