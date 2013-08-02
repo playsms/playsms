@@ -3,7 +3,7 @@
 // mysql, mysqli, pgsql, odbc and others supported by PHP PEAR DB
 $core_config['db']['type'] = 'mysql';		// database engine
 $core_config['db']['host'] = '#DBHOST#';	// database host/server
-$core_config['db']['port'] = '#DBPORT#';		// database port
+$core_config['db']['port'] = '#DBPORT#';	// database port
 $core_config['db']['user'] = '#DBUSER#';	// database username
 $core_config['db']['pass'] = '#DBPASS#';	// database password
 $core_config['db']['name'] = '#DBNAME#';	// database name
@@ -28,7 +28,7 @@ $core_config['smtp']['port'] = '25';
 error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING & ~E_STRICT);
 
 // logs directories
-$apps_path['logs']	= '#PATHLOG#';
+$apps_path['logs']		= '#PATHLOG#';
 
 // log level: 0=disabled, 1=info, 2=warning, 3=debug, 4=verbose
 // WARNING: log level 3 and 4 will also save sensitif information such as password for used gateway
@@ -42,10 +42,6 @@ $core_config['logaudit']	= true;
 
 // log audit file
 $core_config['logauditfile']	= 'audit.log';
-
-// do we allow the users to edit the sender number (default = no),
-// only effective when there is no gateway sender ID defined
-$core_config['denycustomsender']= true;
 
 // are we using http or https ? the default is using http instead https
 $core_config['ishttps']		= false;
@@ -61,5 +57,9 @@ $core_config['sendsmsd_limit']	= 1000;
 
 // webservices require username
 $core_config['webservices_username']	= true;
+
+// do we allow the users to edit the sender number (default = no),
+// only effective when there is no gateway sender ID defined
+$core_config['denycustomsender']	= true;
 
 ?>
