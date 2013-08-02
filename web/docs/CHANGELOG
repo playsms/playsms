@@ -1,11 +1,12 @@
 CHANGELOG
 ---------
 
-Version 0.9.9.1-git - 130725
+Version 0.9.9.1-git - 130817
 - update log level to 3 for clickatell getsmsstatus
 - add new webservices type of action IX to get SMS on user's inbox
 - add logger_print() at the begining and the end of webservices
 - add DBHOST and DBPORT on install script
+- add sendsms_host option in kannel gateway module (lucastx)
 - remove themes 'km2'
 - remove column 'status' on inbox, incoming and outgoing tables
 - fix #90 webservices list all incoming SMS on ta=in regardless of uid

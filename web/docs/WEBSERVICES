@@ -3,6 +3,8 @@ WEBSERVICES ACCESS
 
 URL: http://[playSMS_web_domain_or_url]/index.php?app=webservices
 
+For example https://playsms.org/trial/index.php?app=webservices
+
 
 PARAMETERS
 ----------
