@@ -829,8 +829,7 @@ CREATE TABLE `playsms_gatewayKannel_config` (
 --
 
 LOCK TABLES `playsms_gatewayKannel_config` WRITE;
-/*!40000 ALTER TABLE `playsms_gatewayKannel_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayKannel_config` VALUES (0,'kannel','/var/spool/playsms','playsms','playsms','','127.0.0.1','13131','http://localhost/playsms',31,'','+0700','','',0);
+INSERT INTO `playsms_gatewayKannel_config` VALUES (0,'kannel','/var/spool/playsms','playsms','playsms','','127.0.0.1','127.0.0.1','13131','http://localhost/playsms','31','','+0700','','',0);
 /*!40000 ALTER TABLE `playsms_gatewayKannel_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
