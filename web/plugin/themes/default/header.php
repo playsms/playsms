@@ -34,8 +34,8 @@
 				<tbody>
 				<tr>
 					<td style="border: #E8E8E8 0px solid; background-color: #F5F5F5; vertical-align: top; padding: 10px;">
-						<p><?php echo _('Logged in'); ?>: <?php echo $username; ?></p>
-						<p><?php echo _('Status'); ?>: <?php echo $userstatus; ?></p>
+						<p><?php echo $name; ?>&nbsp;(<?php echo $username; ?>)</p>
+						<p> <?php echo $userstatus; ?></p>
 					</td>
 				</tr>
 				<tr>
