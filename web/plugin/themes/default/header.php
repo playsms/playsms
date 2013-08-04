@@ -30,17 +30,21 @@
 		<!-- left menu -->
 	<?php if (valid()) { ?>
 		<td style="vertical-align: top">
-		<table style="width: 200px">
-			<tbody>
-			<tr>
-				<td
-					style="border: #B4B3B3 1px solid; background-color: #F8F8F8; vertical-align: top; padding: 10px;">
-				<p><b><?php echo _('Logged in'); ?>: <?php echo $username; ?></b></p>
-				<p><b><?php echo _('Status'); ?>: <?php echo $userstatus; ?></b></p>
-				<?php echo themes_get_menu_tree(); ?></td>
-			</tr>
-			</tbody>
-		</table>
+			<table style="width: 240px">
+				<tbody>
+				<tr>
+					<td style="border: #E8E8E8 0px solid; background-color: #F5F5F5; vertical-align: top; padding: 10px;">
+						<p><?php echo _('Logged in'); ?>: <?php echo $username; ?></p>
+						<p><?php echo _('Status'); ?>: <?php echo $userstatus; ?></p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border: #E8E8E8 0px solid; background-color: #F5F5F5; vertical-align: top; padding: 10px;">
+						<?php echo themes_get_menu_tree(); ?>
+					</td>
+				</tr>
+				</tbody>
+			</table>
 		</td>
 		<?php } ?>
 
