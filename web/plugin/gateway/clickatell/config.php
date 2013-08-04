@@ -1,5 +1,6 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
+
 $db_query = "SELECT * FROM "._DB_PREF_."_gatewayClickatell_config";
 $db_result = dba_query($db_query);
 if ($db_row = dba_fetch_array($db_result)) {
