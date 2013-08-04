@@ -36,7 +36,7 @@ switch ($op) {
 				</tbody>
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
-			</form>	
+			</form>
 			"._('Notes').":<br />
 			- "._('Your callback URL is')." <b>".$callback_url."</b><br />
 			- "._('Your callback URL should be accessible from Nexmo')."<br />
