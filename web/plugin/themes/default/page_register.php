@@ -5,7 +5,7 @@
 	<tbody>
 	<tr>
 		<td align="center" valign="middle">
-		<table width=470 border=0 cellpadding=0 cellspacing=0 bgcolor=#2C3E50>
+		<table width=400 border=0 cellpadding=0 cellspacing=0 bgcolor=#2C3E50>
 			<tbody>
 			<tr>
 				<td>
@@ -27,7 +27,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td width="170" align="right"><?php echo _('Name'); ?> &nbsp;</td>
+						<td width="140" align="right"><?php echo _('Name'); ?> &nbsp;</td>
 						<td>&nbsp;<input type=text name=name maxlength=100 size=20></td>
 					</tr>
 					<tr>
