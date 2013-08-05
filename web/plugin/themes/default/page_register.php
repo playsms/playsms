@@ -1,11 +1,11 @@
 <?php defined('_SECURE_') or die('Forbidden'); ?>
 <?php include $apps_path['themes']."/".$themes_module."/header.php"; ?>
 
-<table width="100%" height="100%" border=0 cellpadding=0 cellspacing=0>
+<table width="100%" border=0 cellpadding=0 cellspacing=0>
 	<tbody>
 	<tr>
-		<td align="center" valign="middle">
-		<table width=400 border=0 cellpadding=0 cellspacing=0 bgcolor=#2C3E50>
+		<td align="center">
+		<table width=360 border=0 cellpadding=0 cellspacing=0 bgcolor=#2C3E50>
 			<tbody>
 			<tr>
 				<td>
@@ -17,17 +17,17 @@
 					<tbody>
 					<tr><td>&nbsp;</td></tr>
 					<tr>
-						<td align='center' valign='middle' colspan='2'>
+						<td align='center' colspan='2'>
 							<a href=<?php echo $http_path['base']?>><?php echo $web_title?></a>
 						</td>
 					</tr>
 					<tr>
-						<td align='center' valign='middle' colspan='2'>
+						<td align='center' colspan='2'>
 							<?php echo $error_content?>
 						</td>
 					</tr>
 					<tr>
-						<td width="140" align="right"><?php echo _('Name'); ?> &nbsp;</td>
+						<td width="120" align="right"><?php echo _('Name'); ?> &nbsp;</td>
 						<td>&nbsp;<input type=text name=name maxlength=100 size=20></td>
 					</tr>
 					<tr>
