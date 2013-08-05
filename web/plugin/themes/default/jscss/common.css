@@ -164,22 +164,6 @@ li {
 	color: gray
 }
 
-.box_text {
-	font-family: Arial, Helvetica;
-	font-size: 12pt;
-	font-weight: normal;
-	/* text-align: ; */
-	color: #FFF;
-	/* background-color: ; */
-}
-
-.boxItem { /* background: ; */
-	padding: 3px;
-	/* border-top: 1 solid #FFF; */ /* border-left: 1 solid #FFF; */
-	/* border-right: 1 solid #c0c0c0; */
-	/* border-bottom: 1 solid #c0c0c0; */
-}
-
 .row_odd {
 	font-family: Arial, Helvetica;
 	font-weight: normal;
