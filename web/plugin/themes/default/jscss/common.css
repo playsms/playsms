@@ -210,10 +210,12 @@ li {
 	float: right;
 }
 
-#txtcount {
+#txtcount, #txtcount_un, #txtcount_uk, #txtcount_am {
+	color: #EEE;
 	background-color: transparent;
 	border: 0px solid;
 	font-weight: normal;
+	
 }
 
 #user_inbox_msg {
