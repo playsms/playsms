@@ -26,7 +26,7 @@
 				<tbody>
 				<tr>
 					<td style="background-color: #2C3E50; vertical-align: top; padding: 10px; height: 100px;">
-						<img style="float: left; padding-right: 10px;" src="http://www.gravatar.com/avatar/<?php echo md5(strtolower(trim($core_config['user']['email']))); ?>">
+						<img style="float: left; padding-right: 10px;" src="<?php echo $core_config['user']['opt']['gravatar']; ?>">
 						<p><?php echo $name; ?></p>
 						<p><?php echo $username; ?></p>
 					</td>
