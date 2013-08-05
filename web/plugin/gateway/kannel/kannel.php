@@ -55,7 +55,7 @@ switch ($op) {
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tbody>
 	    <tr>
-		<td width=200>" . _('Gateway name') . "</td><td width=5>:</td><td><b>kannel</b> $status_active</td>
+		<td width=270>" . _('Gateway name') . "</td><td width=5>:</td><td><b>kannel</b> $status_active</td>
 	    </tr>
 	    <tr>
 		<td>" . _('Username') . "</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_username value=\"" . $kannel_param['username'] . "\"></td>

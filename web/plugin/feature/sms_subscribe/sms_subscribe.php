@@ -105,10 +105,10 @@ switch ($op) {
 			<form name=\"form_subscribe_add\" id=\"form_subscribe_add\" action=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_add_yes method=post>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td width=200>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><input type=text size=10 maxlength=10 name=add_subscribe_keyword value=\"$add_subscribe_keyword\"></td>
+				<td width=270>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><input type=text size=10 maxlength=10 name=add_subscribe_keyword value=\"$add_subscribe_keyword\"></td>
 			</tr>
 			<tr>
-				<td width=200>"._('SMS subscribe parameter')."</td>
+				<td width=270>"._('SMS subscribe parameter')."</td>
 				<td width=5>:</td>
 				<td>
 					<input type=text size=10 maxlength=20 name=add_subscribe_param value=\"$add_subscribe_param\">
@@ -132,7 +132,7 @@ switch ($op) {
 				</td>
 			</tr>
 			<tr>
-				<td width=200>"._('SMS unsubscribe parameter')."</td>
+				<td width=270>"._('SMS unsubscribe parameter')."</td>
 				<td width=5>:</td>
 				<td>
 					<input type=text size=10 maxlength=20 name=add_unsubscribe_param value=\"$add_unsubscribe_param\">
@@ -156,7 +156,7 @@ switch ($op) {
 				</td>
 			</tr>
 			<tr>
-				<td width=200>"._('SMS forward parameter')."</td>
+				<td width=270>"._('SMS forward parameter')."</td>
 				<td width=5>:</td>
 				<td>
 					<input type=text size=10 maxlength=20 name=add_forward_param value=\"$add_forward_param\">
@@ -256,10 +256,10 @@ switch ($op) {
 			<input type=hidden name=edit_subscribe_keyword value=\"$edit_subscribe_keyword\">
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td width=200>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$edit_subscribe_keyword</b></td>
+				<td width=270>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$edit_subscribe_keyword</b></td>
 			</tr>
 			<tr>
-				<td width=200>"._('SMS subscribe parameter')."</td>
+				<td width=270>"._('SMS subscribe parameter')."</td>
 				<td width=5>:</td>
 				<td>
 					<input type=text size=10 maxlength=20 name=edit_subscribe_param value=\"$edit_subscribe_param\">
@@ -283,7 +283,7 @@ switch ($op) {
 				</td>
 			</tr>
 			<tr>
-				<td width=200>"._('SMS unsubscribe parameter')."</td>
+				<td width=270>"._('SMS unsubscribe parameter')."</td>
 				<td width=5>:</td>
 				<td>
 					<input type=text size=10 maxlength=20 name=edit_unsubscribe_param value=\"$edit_unsubscribe_param\">
@@ -307,7 +307,7 @@ switch ($op) {
 				</td>
 			</tr>
 			<tr>
-				<td width=200>"._('SMS forward parameter')."</td>
+				<td width=270>"._('SMS forward parameter')."</td>
 				<td width=5>:</td>
 				<td>
 					<input type=text size=10 maxlength=20 name=edit_forward_param value=\"$edit_forward_param\">
@@ -505,7 +505,7 @@ switch ($op) {
 			<input type=hidden value=$msg_id name=msg_id>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td width=200>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$subscribe_name</b></td>
+				<td width=270>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$subscribe_name</b></td>
 			</tr>
 			<tr>
 				<td colspan=3>
@@ -552,7 +552,7 @@ switch ($op) {
 			<input type=hidden value=$subscribe_id name=subscribe_id>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td width=200>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$subscribe_name</b></td>
+				<td width=270>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$subscribe_name</b></td>
 			</tr>
 			<tr>
 				<td colspan=3>
@@ -615,7 +615,7 @@ switch ($op) {
 			<input type=hidden value=$subscribe_id name=subscribe_id>
 			<input type=hidden value=$msg_id name=msg_id>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
-			<tr><td width=200>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$subscribe_name</b></td></tr>
+			<tr><td width=270>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$subscribe_name</b></td></tr>
 			<tr><td>"._('Message ID')."</td><td>:</td><td>".$msg_id."</td></tr>
 			<tr><td>"._('Message')."</td><td>:</td><td>".$message."</td></tr>
 			<tr><td>"._('Sent')."</td><td>:</td><td>".$counter."</td></tr>

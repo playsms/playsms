@@ -85,7 +85,7 @@ switch ($op) {
 			<form action=index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add_yes method=post>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td width=200>"._('SMS quiz keyword')."</td><td width=5>:</td><td><input type=text size=10 maxlength=10 name=add_quiz_keyword value=\"$add_quiz_keyword\"></td>
+				<td width=270>"._('SMS quiz keyword')."</td><td width=5>:</td><td><input type=text size=10 maxlength=10 name=add_quiz_keyword value=\"$add_quiz_keyword\"></td>
 			</tr>
 			<tr>
 				<td>"._('SMS quiz question')."</td><td>:</td><td><input type=text size=40 maxlength=100 name=add_quiz_question value=\"$add_quiz_question\"></td>
@@ -151,7 +151,7 @@ switch ($op) {
 			<input type=hidden name=edit_quiz_keyword value=\"$edit_quiz_keyword\">
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td width=200>"._('SMS quiz keyword')."</td><td width=5>:</td><td><b>$edit_quiz_keyword</b></td>
+				<td width=270>"._('SMS quiz keyword')."</td><td width=5>:</td><td><b>$edit_quiz_keyword</b></td>
 			</tr>
 			<tr>
 				<td>"._('SMS quiz question')."</td><td>:</td><td><input type=text size=40 maxlength=100 name=edit_quiz_question value=\"$edit_quiz_question\"></td>

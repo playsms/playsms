@@ -27,7 +27,7 @@ switch ($op)
 	    <p>
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
-		<td width=200>"._('Gateway name')."</td><td width=5>:</td><td><b>gammu</b> $status_active</td>
+		<td width=270>"._('Gateway name')."</td><td width=5>:</td><td><b>gammu</b> $status_active</td>
 	    </tr>
 	</table>	    
 	";
