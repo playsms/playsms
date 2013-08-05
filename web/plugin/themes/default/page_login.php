@@ -18,7 +18,7 @@
 					<tr><td>&nbsp;</td></tr>
 					<tr>
 						<td align='center' valign='middle' colspan='2'>
-							<?php echo $web_title?>
+							<a href=<?php echo $http_path['base']?>><?php echo $web_title?></a>
 						</td>
 					</tr>
 					<tr>
