@@ -32,7 +32,7 @@
 					</tr>
 					<tr>
 						<td align="right"><?php echo _('Email'); ?> &nbsp;</td>
-						<td>&nbsp;<input type=password name=email maxlength=100 size=20></td>
+						<td>&nbsp;<input type=text name=email maxlength=100 size=20></td>
 					</tr>
 					<tr>
 						<td>&nbsp;</td>
