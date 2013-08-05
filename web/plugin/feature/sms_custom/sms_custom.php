@@ -86,13 +86,13 @@ switch ($op) {
 			<form action=index.php?app=menu&inc=feature_sms_custom&op=sms_custom_edit_yes method=post>
 			<input type=hidden name=custom_id value=$custom_id>
 			<input type=hidden name=edit_custom_keyword value=$edit_custom_keyword>
-			<p>" . _('SMS custom keyword') . ": <b>$edit_custom_keyword</b>
+			<p>" . _('SMS custom keyword') . ": $edit_custom_keyword
 			<p>" . _('Pass these parameter to custom URL field') . ":
-			<p><b>{SMSDATETIME}</b> " . _('will be replaced by SMS incoming date/time') . "
-			<p><b>{SMSSENDER}</b> " . _('will be replaced by sender number') . "
-			<p><b>{CUSTOMKEYWORD}</b> " . _('will be replaced by custom keyword') . "
-			<p><b>{CUSTOMPARAM}</b> " . _('will be replaced by custom parameter passed to server from SMS') . "
-			<p><b>{CUSTOMRAW}</b> " . _('will be replaced by SMS raw message') . "
+			<p>{SMSDATETIME} " . _('will be replaced by SMS incoming date/time') . "
+			<p>{SMSSENDER} " . _('will be replaced by sender number') . "
+			<p>{CUSTOMKEYWORD} " . _('will be replaced by custom keyword') . "
+			<p>{CUSTOMPARAM} " . _('will be replaced by custom parameter passed to server from SMS') . "
+			<p>{CUSTOMRAW} " . _('will be replaced by SMS raw message') . "
 			<p>" . _('SMS custom URL') . ": <input type=text size=40 name=edit_custom_url value=\"$edit_custom_url\">
 			<p>" . _('Make return as reply') . " : <input type=checkbox name=edit_custom_return_as_reply $edit_custom_return_as_reply></p>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
@@ -145,11 +145,11 @@ switch ($op) {
 			<form action=index.php?app=menu&inc=feature_sms_custom&op=sms_custom_add_yes method=post>
 			<p>" . _('SMS custom keyword') . ": <input type=text size=10 maxlength=10 name=add_custom_keyword value=\"$add_custom_keyword\">
 			<p>" . _('Pass these parameter to custom URL field') . ":
-			<p><b>{SMSDATETIME}</b> " . _('will be replaced by SMS incoming date/time') . "
-			<p><b>{SMSSENDER}</b> " . _('will be replaced by sender number') . "
-			<p><b>{CUSTOMKEYWORD}</b> " . _('will be replaced by custom keyword') . "
-			<p><b>{CUSTOMPARAM}</b> " . _('will be replaced by custom parameter passed to server from SMS') . "
-			<p><b>{CUSTOMRAW}</b> " . _('will be replaced by SMS raw message') . "
+			<p>{SMSDATETIME} " . _('will be replaced by SMS incoming date/time') . "
+			<p>{SMSSENDER} " . _('will be replaced by sender number') . "
+			<p>{CUSTOMKEYWORD} " . _('will be replaced by custom keyword') . "
+			<p>{CUSTOMPARAM} " . _('will be replaced by custom parameter passed to server from SMS') . "
+			<p>{CUSTOMRAW} " . _('will be replaced by SMS raw message') . "
 			<p>" . _('SMS custom URL') . ": <input type=text size=40 maxlength=200 name=add_custom_url value=\"$add_custom_url\">
 			<p>" . _('Make return as reply') . " : <input type=checkbox name=add_custom_return_as_reply></p>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">

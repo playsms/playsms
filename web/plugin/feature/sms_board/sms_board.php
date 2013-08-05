@@ -94,7 +94,7 @@ switch ($op) {
 			<input type=hidden name=edit_board_keyword value=$edit_board_keyword>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td width=270>"._('SMS board keyword')."</td><td width=5>:</td><td><b>$edit_board_keyword</b></td>
+				<td width=270>"._('SMS board keyword')."</td><td width=5>:</td><td>$edit_board_keyword</td>
 			</tr>
 			<tr>
 				<td>"._('Forward to email')."</td><td>:</td><td><input type=text size=30 name=edit_email value=\"$edit_email\"></td>
@@ -117,7 +117,7 @@ switch ($op) {
 		$edit_template = $_POST['edit_template'];
 		if ($board_id) {
 			if (!$edit_template) {
-				$edit_template = "<font color=black size=-1><b>{SENDER}</b></font><br>";
+				$edit_template = "<font color=black size=-1>{SENDER}</font><br>";
 				$edit_template .= "<font color=black size=-2><i>{DATETIME}</i></font><br>";
 				$edit_template .= "<font color=black size=-1>{MESSAGE}</font>";
 			}
@@ -164,7 +164,7 @@ switch ($op) {
 				<td width=270>"._('SMS board keyword')."</td><td width=5>:</td><td><input type=text size=30 maxlength=30 name=add_board_keyword value=\"$add_board_keyword\"></td>
 			</tr>
 			<tr>
-				<td colspan=3><p><b>"._('Leave them empty if you dont know what to fill in these boxes below')."</b></td>
+				<td colspan=3><p>"._('Leave them empty if you dont know what to fill in these boxes below')."</td>
 			</tr>
 			<tr>
 				<td>"._('Forward to email')."</td><td>:</td><td><input type=text size=30 name=add_email value=\"$add_email\"></td>
@@ -188,7 +188,7 @@ switch ($op) {
 		if ($add_board_keyword) {
 			if (checkavailablekeyword($add_board_keyword)) {
 				if (!$add_template) {
-					$add_template = "<font color=black size=-1><b>{SENDER}</b></font><br>";
+					$add_template = "<font color=black size=-1>{SENDER}</font><br>";
 					$add_template .= "<font color=black size=-2><i>{DATETIME}</i></font><br>";
 					$add_template .= "<font color=black size=-1>{MESSAGE}</font>";
 				}

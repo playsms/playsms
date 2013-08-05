@@ -256,7 +256,7 @@ switch ($op) {
 			<input type=hidden name=edit_subscribe_keyword value=\"$edit_subscribe_keyword\">
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td width=270>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$edit_subscribe_keyword</b></td>
+				<td width=270>"._('SMS subscribe keyword')."</td><td width=5>:</td><td>$edit_subscribe_keyword</td>
 			</tr>
 			<tr>
 				<td width=270>"._('SMS subscribe parameter')."</td>
@@ -505,7 +505,7 @@ switch ($op) {
 			<input type=hidden value=$msg_id name=msg_id>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td width=270>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$subscribe_name</b></td>
+				<td width=270>"._('SMS subscribe keyword')."</td><td width=5>:</td><td>$subscribe_name</td>
 			</tr>
 			<tr>
 				<td colspan=3>
@@ -552,7 +552,7 @@ switch ($op) {
 			<input type=hidden value=$subscribe_id name=subscribe_id>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td width=270>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$subscribe_name</b></td>
+				<td width=270>"._('SMS subscribe keyword')."</td><td width=5>:</td><td>$subscribe_name</td>
 			</tr>
 			<tr>
 				<td colspan=3>
@@ -615,7 +615,7 @@ switch ($op) {
 			<input type=hidden value=$subscribe_id name=subscribe_id>
 			<input type=hidden value=$msg_id name=msg_id>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
-			<tr><td width=270>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><b>$subscribe_name</b></td></tr>
+			<tr><td width=270>"._('SMS subscribe keyword')."</td><td width=5>:</td><td>$subscribe_name</td></tr>
 			<tr><td>"._('Message ID')."</td><td>:</td><td>".$msg_id."</td></tr>
 			<tr><td>"._('Message')."</td><td>:</td><td>".$message."</td></tr>
 			<tr><td>"._('Sent')."</td><td>:</td><td>".$counter."</td></tr>

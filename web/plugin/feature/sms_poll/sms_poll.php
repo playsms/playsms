@@ -112,7 +112,7 @@ switch ($op) {
 			<input type=hidden name=edit_poll_keyword value=\"$edit_poll_keyword\">
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td width=270>"._('SMS poll keyword')."</td><td width=5>:</td><td><b>$edit_poll_keyword</b></td>
+				<td width=270>"._('SMS poll keyword')."</td><td width=5>:</td><td>$edit_poll_keyword</td>
 			</tr>
 			<tr>
 				<td>"._('SMS poll title')."</td><td>:</td><td><input type=text size=40 maxlength=100 name=edit_poll_title value=\"$edit_poll_title\"></td>
@@ -163,7 +163,7 @@ switch ($op) {
 		}
 		$content .= "</tbody>
 			</table>
-			<p><b>"._('Add choice to this poll')."</b>
+			<p>"._('Add choice to this poll')."
 			<form action=\"index.php?app=menu&inc=feature_sms_poll&op=sms_poll_choice_add\" method=post>
 			<input type=hidden name=poll_id value=\"$poll_id\">
 			<table width=100% cellpadding=1 cellspacing=2 border=0>

@@ -52,7 +52,7 @@ function play_hook_themes_buildmenu($menu_config) {
         <script type=\"text/javascript\">
         <!--
         d = new dTree('d');
-        d.add(0,-1,'<b>"._('Home')."</b>', '".$core_config['http_path']['base']."', '', '_top');
+        d.add(0,-1,'"._('Home')."', '".$core_config['http_path']['base']."', '', '_top');
         $content_tree
         d.add($tree_index_top,0,'"._('Logout')."', 'index.php?app=page&op=auth_logout', '', '_top');
         document.write(d);

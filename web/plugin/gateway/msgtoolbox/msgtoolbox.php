@@ -8,11 +8,11 @@ $gw = gateway_get();
 
 if ($gw == $msgtoolbox_param['name'])
 {
-	$status_active = "(<b><font color=green>"._('Active')."</font></b>)";
+	$status_active = "(<font color=green>"._('Active')."</font>)";
 }
 else
 {
-	$status_active = "(<b><font color=red>"._('Inactive')."</font></b>) (<a href=\"index.php?app=menu&inc=gateway_msgtoolbox&op=manage_activate\">"._('click here to activate')."</a>)";
+	$status_active = "(<font color=red>"._('Inactive')."</font>) (<a href=\"index.php?app=menu&inc=gateway_msgtoolbox&op=manage_activate\">"._('click here to activate')."</a>)";
 }
 
 
@@ -29,7 +29,7 @@ switch ($op)
 	    <form action=index.php?app=menu&inc=gateway_msgtoolbox&op=manage_save method=post>
 		<table width=100% cellpadding=1 cellspacing=2 border=0>
 		    <tr>
-			<td width=270>"._('Gateway name')."</td><td width=5>:</td><td><b>msgtoolbox</b> $status_active</td>
+			<td width=270>"._('Gateway name')."</td><td width=5>:</td><td>msgtoolbox $status_active</td>
 		    </tr>
 		    <tr>
 			<td>"._('msgtoolbox URL')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_url value=\"".$msgtoolbox_param['url']."\"></td>

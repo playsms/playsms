@@ -151,7 +151,7 @@ switch ($op) {
 			<input type=hidden name=edit_quiz_keyword value=\"$edit_quiz_keyword\">
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td width=270>"._('SMS quiz keyword')."</td><td width=5>:</td><td><b>$edit_quiz_keyword</b></td>
+				<td width=270>"._('SMS quiz keyword')."</td><td width=5>:</td><td>$edit_quiz_keyword</td>
 			</tr>
 			<tr>
 				<td>"._('SMS quiz question')."</td><td>:</td><td><input type=text size=40 maxlength=100 name=edit_quiz_question value=\"$edit_quiz_question\"></td>

@@ -7,9 +7,9 @@ include $apps_path['plug']."/gateway/nexmo/config.php";
 $gw = gateway_get();
 
 if ($gw == $nexmo_param['name']) {
-	$status_active = "(<b><font color=green>"._('Active')."</font></b>)";
+	$status_active = "(<font color=green>"._('Active')."</font>)";
 } else {
-	$status_active = "(<b><font color=red>"._('Inactive')."</font></b>) (<a href=\"index.php?app=menu&inc=gateway_nexmo&op=manage_activate\">"._('click here to activate')."</a>)";
+	$status_active = "(<font color=red>"._('Inactive')."</font>) (<a href=\"index.php?app=menu&inc=gateway_nexmo&op=manage_activate\">"._('click here to activate')."</a>)";
 }
 
 $callback_url = $_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/plugin/gateway/nexmo/callback.php";
@@ -27,7 +27,7 @@ switch ($op) {
 			<form action=index.php?app=menu&inc=gateway_nexmo&op=manage_save method=post>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 				<tbody>
-				<tr><td width=270>"._('Gateway name')."</td><td width=5>:</td><td><b>nexmo</b> $status_active</td></tr>
+				<tr><td width=270>"._('Gateway name')."</td><td width=5>:</td><td>nexmo $status_active</td></tr>
 				<tr><td>"._('Nexmo URL')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_url value=\"".$nexmo_param['url']."\"> (json)</td></tr>
 				<tr><td>"._('API key')."</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_api_key value=\"".$nexmo_param['api_key']."\"></td></tr>
 				<tr><td>"._('API secret')."</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_api_secret value=\"\"> ("._('Fill to change the API secret').")</td></tr>
@@ -38,7 +38,7 @@ switch ($op) {
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
 			"._('Notes').":<br />
-			- "._('Your callback URL is')." <b>".$callback_url."</b><br />
+			- "._('Your callback URL is')." ".$callback_url."<br />
 			- "._('Your callback URL should be accessible from Nexmo')."<br />
 			- "._('Nexmo will push DLR and incoming SMS to your callback URL')."<br />
 			- "._('Nexmo is a bulk SMS provider').", <a href=\"http://www.nexmo.com\" target=\"_blank\">"._('free credits are available for testing purposes')."</a><br />";

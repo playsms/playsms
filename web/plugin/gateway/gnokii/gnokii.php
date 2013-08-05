@@ -8,11 +8,11 @@ $gw = gateway_get();
 
 if ($gw == $gnokii_param['name'])
 {
-	$status_active = "(<b><font color=green>"._('Active')."</font></b>)";
+	$status_active = "(<font color=green>"._('Active')."</font>)";
 }
 else
 {
-	$status_active = "(<b><font color=red>"._('Inactive')."</font></b>) (<a href=\"index.php?app=menu&inc=gateway_gnokii&op=manage_activate\">"._('click here to activate')."</a>)";
+	$status_active = "(<font color=red>"._('Inactive')."</font>) (<a href=\"index.php?app=menu&inc=gateway_gnokii&op=manage_activate\">"._('click here to activate')."</a>)";
 }
 
 switch ($op)
@@ -28,7 +28,7 @@ switch ($op)
 	    <form action=index.php?app=menu&inc=gateway_gnokii&op=manage_save method=post>
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
-		<td width=270>"._('Gateway name')."</td><td width=5>:</td><td><b>gnokii</b> $status_active</td>
+		<td width=270>"._('Gateway name')."</td><td width=5>:</td><td>gnokii $status_active</td>
 	    </tr>
 	    <tr>
 		<td>"._('Gnokii installation path')."</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_path value=\"".$gnokii_param['path']."\"> ("._('No trailing slash')." \"/\")</td>

@@ -689,7 +689,7 @@ class FeedCreator extends HtmlDescribable {
 				$this->_redirect($filename);
 			}
 		} else {
-			echo "<br /><b>Error creating feed file, please check write permissions.</b><br />";
+			echo "<br />Error creating feed file, please check write permissions.<br />";
 		}
 	}
 
@@ -1518,7 +1518,7 @@ $rss->image = $image;
 $item = new FeedItem();
 $item->title = "This is an the test title of an item";
 $item->link = "http://localhost/item/";
-$item->description = "<b>description in </b><br/>HTML";
+$item->description = "description in <br/>HTML";
 
 //optional
 //item->descriptionTruncSize = 500;

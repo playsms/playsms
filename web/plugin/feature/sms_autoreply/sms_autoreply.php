@@ -68,7 +68,7 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage autoreply')."</h2>
 			<p>
-			<p>"._('SMS autoreply keyword').": <b>$manage_autoreply_keyword</b>
+			<p>"._('SMS autoreply keyword').": $manage_autoreply_keyword
 			<p>"._button('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id='.$autoreply_id, _('Add SMS autoreply scenario'))."
 			<table cellpadding=1 cellspacing=2 border=0 width=100% class=sortable><thead><tr>";
 		if (isadmin()) {
@@ -194,7 +194,7 @@ switch ($op) {
 			<h2>"._('Manage autoreply')."</h2>
 			<h3>"._('Add SMS autoreply scenario')."</h3>
 			<p>
-			<p>"._('SMS autoreply keyword').": <b>$autoreply_keyword</b>
+			<p>"._('SMS autoreply keyword').": $autoreply_keyword
 			<p>
 			<form action=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add_yes method=post>
 			<input type=hidden name=autoreply_id value=\"$autoreply_id\">
@@ -254,7 +254,7 @@ switch ($op) {
 			<h2>"._('Manage autoreply')."</h2>
 			<h3>"._('Edit SMS autoreply scenario')."</h3>
 			<p>
-			<p>"._('SMS autoreply keyword').": <b>$autoreply_keyword</b>
+			<p>"._('SMS autoreply keyword').": $autoreply_keyword
 			<p>
 			<form action=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit_yes method=post>
 			<input type=hidden name=autoreply_id value=\"$autoreply_id\">

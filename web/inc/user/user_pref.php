@@ -166,17 +166,17 @@ switch ($op) {
 		}
 
 		if ($core_config['denycustomsender']) {
-			$option_sender_id = "<tr><td width=270>" . _('SMS sender ID') . "</td><td>:</td><td><b>".sendsms_get_sender($c_username)."</b></td></tr>";
+			$option_sender_id = "<tr><td width=270>" . _('SMS sender ID') . "</td><td>:</td><td>".sendsms_get_sender($c_username)."</td></tr>";
 		} else {
 			$option_sender_id = "<tr><td width=270>" . _('SMS sender ID') . "</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"$sender\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td></tr>";
 		}
 		if ($uname && isadmin()) {
 			$content .= "<h2>" . _('Manage user') . "</h2>";
-			$option_credit = "<tr><td width=270>" . _('Credit') . "</td><td>:</td><td><b><input type=text size=10 maxlength=10 name=up_credit value=\"$credit\"></td></tr>";
+			$option_credit = "<tr><td width=270>" . _('Credit') . "</td><td>:</td><td><input type=text size=10 maxlength=10 name=up_credit value=\"$credit\"></td></tr>";
 			$button_delete = "<input type=button class=button value='". _('Delete') ."' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=menu&inc=user_mgmnt&op=user_del".$url_uname."')\">";
 		} else {
 			$content .= "<h2>" . _('Preferences') . "</h2>";
-			$option_credit = "<tr><td width=270>" . _('Credit') . "</td><td>:</td><td><b>$credit</b></td></tr>";
+			$option_credit = "<tr><td width=270>" . _('Credit') . "</td><td>:</td><td>$credit</td></tr>";
 		}
 		$content .= "
 			<p>
@@ -184,7 +184,7 @@ switch ($op) {
 			<table width=100% cellpadding=1 cellspacing=1 border=0>
 			<tbody>
 			<tr><td colspan=3><h2>" . _('Login information') . "</h2><hr></td></tr>
-			<tr><td width=270>" . _('Username') . "</td><td>:</td><td><b>".$c_username."</b></td></tr>
+			<tr><td width=270>" . _('Username') . "</td><td>:</td><td>".$c_username."</td></tr>
 			<tr><td width=270>" . _('Password') . "</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password></td></tr>
 			<tr><td width=270>" . _('Re-type password') . "</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password_conf></td></tr>
 			<tr><td colspan=3>&nbsp;</td></tr>
@@ -200,8 +200,8 @@ switch ($op) {
 			<tr><td width=270>Active language</td><td>:</td><td><select name=up_language_module>$option_language_module</select></td></tr>
 			<tr><td colspan=3>&nbsp;</td></tr>
 			<tr><td colspan=3><h2>" . _('Application options') . "</h2><hr></td></tr>
-			<tr><td width=270>" . _('Webservices username') . "</td><td>:</td><td><b>".$c_username."</b></td></tr>
-			<tr><td width=270>" . _('Webservices token') . "</td><td>:</td><td><b>".$token."</b></td></tr>
+			<tr><td width=270>" . _('Webservices username') . "</td><td>:</td><td>".$c_username."</td></tr>
+			<tr><td width=270>" . _('Webservices token') . "</td><td>:</td><td>".$token."</td></tr>
 			<tr><td width=270>" . _('New webservices token') . "</td><td>:</td><td><select name='up_new_token'>" . $option_new_token . "</select></td></tr>
 			<tr><td width=270>" . _('Enable webservices') . "</td><td>:</td><td><select name='up_enable_webservices'>" . $option_enable_webservices . "</select></td></tr>
 			<tr><td width=270>" . _('Webservices IP range') . "</td><td>:</td><td><input type=text size=30 maxlength=100 name=up_webservices_ip value=\"$webservices_ip\"> ("._('Comma seperated').")</td></tr>

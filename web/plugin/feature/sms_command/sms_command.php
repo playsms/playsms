@@ -89,14 +89,14 @@ switch ($op) {
 			<form action=index.php?app=menu&inc=feature_sms_command&op=sms_command_edit_yes method=post>
 			<input type=hidden name=command_id value=$command_id>
 			<input type=hidden name=edit_command_keyword value=$edit_command_keyword>
-			<p>" . _('SMS command keyword') . ": <b>$edit_command_keyword</b>
+			<p>" . _('SMS command keyword') . ": $edit_command_keyword
 			<p>" . _('Pass these parameter to command exec field') . ":
-			<p><b>{SMSDATETIME}</b> " . _('will be replaced by SMS incoming date/time') . "
-			<p><b>{SMSSENDER}</b> " . _('will be replaced by sender number') . "
-			<p><b>{COMMANDKEYWORD}</b> " . _('will be replaced by command keyword') . "
-			<p><b>{COMMANDPARAM}</b> " . _('will be replaced by command parameter passed to server from SMS') . "
-			<p><b>{COMMANDRAW}</b> " . _('will be replaced by SMS raw message') . "
-			<p>" . _('SMS command exec path') . ": <b>" . $sms_command_bin.'/'.$edit_command_uid . "</b>
+			<p>{SMSDATETIME} " . _('will be replaced by SMS incoming date/time') . "
+			<p>{SMSSENDER} " . _('will be replaced by sender number') . "
+			<p>{COMMANDKEYWORD} " . _('will be replaced by command keyword') . "
+			<p>{COMMANDPARAM} " . _('will be replaced by command parameter passed to server from SMS') . "
+			<p>{COMMANDRAW} " . _('will be replaced by SMS raw message') . "
+			<p>" . _('SMS command exec path') . ": " . $sms_command_bin.'/'.$edit_command_uid . "
 			<p>" . _('SMS command exec') . ": <input type=text size=40 name=edit_command_exec value=\"$edit_command_exec\">
 			<p>" . _('Make return as reply') . " : <input type=checkbox name=edit_command_return_as_reply $edit_command_return_as_reply></p>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
@@ -155,12 +155,12 @@ switch ($op) {
 			<form action=index.php?app=menu&inc=feature_sms_command&op=sms_command_add_yes method=post>
 			<p>" . _('SMS command keyword') . ": <input type=text size=10 maxlength=10 name=add_command_keyword value=\"$add_command_keyword\">
 			<p>" . _('Pass these parameter to command exec field') . ":
-			<p><b>{SMSDATETIME}</b> " . _('will be replaced by SMS incoming date/time') . "
-			<p><b>{SMSSENDER}</b> " . _('will be replaced by sender number') . "
-			<p><b>{COMMANDKEYWORD}</b> " . _('will be replaced by command keyword') . "
-			<p><b>{COMMANDPARAM}</b> " . _('will be replaced by command parameter passed to server from SMS') . "
-			<p><b>{COMMANDRAW}</b> " . _('will be replaced by SMS raw message') . "
-			<p>" . _('SMS command exec path') . ": <b>" . $sms_command_bin.'/'.$core_config['user']['uid'] . "</b>
+			<p>{SMSDATETIME} " . _('will be replaced by SMS incoming date/time') . "
+			<p>{SMSSENDER} " . _('will be replaced by sender number') . "
+			<p>{COMMANDKEYWORD} " . _('will be replaced by command keyword') . "
+			<p>{COMMANDPARAM} " . _('will be replaced by command parameter passed to server from SMS') . "
+			<p>{COMMANDRAW} " . _('will be replaced by SMS raw message') . "
+			<p>" . _('SMS command exec path') . ": " . $sms_command_bin.'/'.$core_config['user']['uid'] . "
 			<p>" . _('SMS command exec') . ": <input type=text size=40 maxlength=200 name=add_command_exec value=\"$add_command_exec\">
 			<p>" . _('Make return as reply') . " : <input type=checkbox name=add_command_return_as_reply></p>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">

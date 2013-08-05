@@ -1,9 +1,9 @@
 html {
-  height: 100%;
+	height: 100%;
 }
 
 body {
-	font-family: Arial, Helvetica;
+	font-family: Helvetica, Arial;
 	font-size: 12pt;
 	min-height: 100%;
 	margin: 0px;
@@ -20,7 +20,7 @@ body {
 }
 
 a {
-	font-family: Arial, Helvetica;
+	font-family: Helvetica, Arial;
 	font-size: 12pt;
 	font-weight: normal;
 	color: #FFF;
@@ -38,7 +38,7 @@ a:hover {
 }
 
 table,p,br,tr {
-	font-family: Arial, Helvetica;
+	font-family: Helvetica, Arial;
 	font-size: 12pt;
 	font-weight: normal;
 	color: #FFF;
@@ -54,7 +54,7 @@ table.main {
 }
 
 div, table td, table tbody {
-	font-family: Arial, Helvetica;
+	font-family: Helvetica, Arial;
 	font-size: 12pt;
 	font-weight: normal;
 	color: #FFF;
@@ -62,7 +62,7 @@ div, table td, table tbody {
 }
 
 table th, table thead {
-	font-family: Arial, Helvetica;
+	font-family: Helvetica, Arial;
 	font-size: 12pt;
 	font-weight: normal;
 	text-align: center;
@@ -71,7 +71,7 @@ table th, table thead {
 }
 
 table.sortable thead {
-	font-family: Arial, Helvetica;
+	font-family: Helvetica, Arial;
 	font-size: 12pt;
 	font-weight: normal;
 	text-align: center;
@@ -81,29 +81,40 @@ table.sortable thead {
 }
 
 h1 {
-	font-family: Arial, Helvetica;
-	font-size: 20pt;
+	font-family: Helvetica, Arial;
+	font-size: 22pt;
 	font-weight: normal;
 	text-align: left;
 	color: #FFF;
 	/* background-color: ; */
 	margin-top: 0;
-	margin-bottom: 0;
+	margin-bottom: 20px;
 }
 
 h2 {
-	font-family: Arial, Helvetica;
+	font-family: Helvetica, Arial;
 	font-size: 18pt;
 	font-weight: normal;
 	text-align: left;
 	color: #FFF;
 	/* background-color: ; */
-	margin-top: 0;
-	margin-bottom: 0;
+	margin-top: 0px;
+	margin-bottom: 20px;
+}
+
+h3 {
+	font-family: Helvetica, Arial;
+	font-size: 16pt;
+	font-weight: normal;
+	text-align: left;
+	color: #FFF;
+	/* background-color: ; */
+	margin-top: 0px;
+	margin-bottom: 20px;
 }
 
 input,select,option,textarea {
-	font-family: Arial, Helvetica;
+	font-family: Helvetica, Arial;
 	font-size: 12pt;
 	font-weight: normal;
 	color: #738384;
@@ -166,21 +177,21 @@ li {
 }
 
 .row_odd {
-	font-family: Arial, Helvetica;
+	font-family: Helvetica, Arial;
 	font-weight: normal;
 	color: #FFF;
 	background-color: #9FAEAF;
 }
 
 .row_even {
-	font-family: Arial, Helvetica;
+	font-family: Helvetica, Arial;
 	font-weight: normal;
 	color: #FFF;
 	background-color: #8F9D9E;
 }
 
 .error_string {
-	font-family: Arial, Helvetica;
+	font-family: Helvetica, Arial;
 	font-size: 12px;
 	font-weight: normal;
 	color: #ff0000;

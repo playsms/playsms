@@ -32,7 +32,7 @@ switch ($op) {
 			<input type='button' value='" . _('View normal user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab2')\" class=\"button\" />
 			<p>".$search['form']."</p>
 			<p>".$nav['form']."</p>
-			<p>" . _('Status') . ": <b>" . _('Administrator') . "</b><br>
+			<p>" . _('Status') . ": " . _('Administrator') . "<br>
 			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
 			<thead><tr>
 				<th width='10%'>*</th>
@@ -91,7 +91,7 @@ switch ($op) {
 			<input type='button' value='" . _('View administrator') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab1')\" class=\"button\" />
 			<p>".$search['form']."</p>
 			<p>".$nav['form']."</p>
-			<p>" . _('Status') . ": <b>" . _('Normal user') . "</b><br>
+			<p>" . _('Status') . ": " . _('Normal user') . "<br>
 			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
 			<thead><tr>
 				<th width='10%'>*</th>

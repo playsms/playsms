@@ -8,11 +8,11 @@ $gw = gateway_get();
 
 if ($gw == $smstools_param['name'])
 {
-	$status_active = "(<b><font color=green>"._('Active')."</font></b>)";
+	$status_active = "(<font color=green>"._('Active')."</font>)";
 }
 else
 {
-	$status_active = "(<b><font color=red>"._('Inactive')."</font></b>) (<a href=\"index.php?app=menu&inc=gateway_smstools&op=manage_activate\">"._('click here to activate')."</a>)";
+	$status_active = "(<font color=red>"._('Inactive')."</font>) (<a href=\"index.php?app=menu&inc=gateway_smstools&op=manage_activate\">"._('click here to activate')."</a>)";
 }
 
 switch ($op)
@@ -27,7 +27,7 @@ switch ($op)
 	    <p>
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tr>
-		<td width=270>"._('Gateway name')."</td><td width=5>:</td><td><b>smstools</b> $status_active</td>
+		<td width=270>"._('Gateway name')."</td><td width=5>:</td><td>smstools $status_active</td>
 	    </tr>
 	</table>	    
 	";

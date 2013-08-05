@@ -7,9 +7,9 @@ include $apps_path['plug'] . "/gateway/kannel/config.php";
 $gw = gateway_get();
 
 if ($gw == $kannel_param['name']) {
-    $status_active = "(<b><font color=green>" . _('Active') . "</font></b>)";
+    $status_active = "(<font color=green>" . _('Active') . "</font>)";
 } else {
-    $status_active = "(<b><font color=red>" . _('Inactive') . "</font></b>) (<a href=\"index.php?app=menu&inc=gateway_kannel&op=manage_activate\">" . _('click here to activate') . "</a>)";
+    $status_active = "(<font color=red>" . _('Inactive') . "</font>) (<a href=\"index.php?app=menu&inc=gateway_kannel&op=manage_activate\">" . _('click here to activate') . "</a>)";
 }
 
 switch ($op) {
@@ -55,7 +55,7 @@ switch ($op) {
 	<table width=100% cellpadding=1 cellspacing=2 border=0>
 	    <tbody>
 	    <tr>
-		<td width=270>" . _('Gateway name') . "</td><td width=5>:</td><td><b>kannel</b> $status_active</td>
+		<td width=270>" . _('Gateway name') . "</td><td width=5>:</td><td>kannel $status_active</td>
 	    </tr>
 	    <tr>
 		<td>" . _('Username') . "</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_username value=\"" . $kannel_param['username'] . "\"></td>

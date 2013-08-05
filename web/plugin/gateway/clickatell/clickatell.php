@@ -7,9 +7,9 @@ include $apps_path['plug']."/gateway/clickatell/config.php";
 $gw = gateway_get();
 
 if ($gw == $clickatell_param['name']) {
-	$status_active = "(<b><font color=green>"._('Active')."</font></b>)";
+	$status_active = "(<font color=green>"._('Active')."</font>)";
 } else {
-	$status_active = "(<b><font color=red>"._('Inactive')."</font></b>) (<a href=\"index.php?app=menu&inc=gateway_clickatell&op=manage_activate\">"._('click here to activate')."</a>)";
+	$status_active = "(<font color=red>"._('Inactive')."</font>) (<a href=\"index.php?app=menu&inc=gateway_clickatell&op=manage_activate\">"._('click here to activate')."</a>)";
 }
 
 $callback_url = $_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/plugin/gateway/clickatell/callback.php";
@@ -27,7 +27,7 @@ switch ($op) {
 			<form action=index.php?app=menu&inc=gateway_clickatell&op=manage_save method=post>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td width=270>"._('Gateway name')."</td><td width=5>:</td><td><b>clickatell</b> $status_active</td>
+				<td width=270>"._('Gateway name')."</td><td width=5>:</td><td>clickatell $status_active</td>
 			</tr>
 			<tr>
 				<td>"._('API ID')."</td><td>:</td><td><input type=text size=20 maxlength=20 name=up_api_id value=\"".$clickatell_param['api_id']."\"></td>
@@ -59,7 +59,7 @@ switch ($op) {
 					<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
 			"._('Notes').":<br />
-			- "._('Your callback URL is')." <b>".$callback_url."</b><br />
+			- "._('Your callback URL is')." ".$callback_url."<br />
 			- "._('Your callback URL should be accessible from Clickatell')."<br />
 			- "._('Clickatell will push DLR and incoming SMS to your callback URL')."<br />
 			- "._('Clickatell is a bulk SMS provider').", <a href=\"https://www.clickatell.com/register/\" target=\"_blank\">"._('free credits are available for testing purposes')."</a><br />";
