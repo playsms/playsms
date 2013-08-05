@@ -21,17 +21,18 @@
 
 		<!-- left menu -->
 		<?php if (valid()) { ?>
-		<td style="vertical-align: top; width: 20%">
-			<table style="vertical-align: top; width: 100%;  height: 100%">
+		<td style="vertical-align: top; width: 20%;">
+			<table style="vertical-align: top; width: 100%; height: 100%;">
 				<tbody>
 				<tr>
-					<td style="background-color: #2C3E50; vertical-align: top; padding: 10px;">
-						<p><?php echo $name; ?>&nbsp;(<?php echo $username; ?>)</p>
-						<p> <?php echo $userstatus; ?></p>
+					<td style="background-color: #2C3E50; vertical-align: top; padding: 10px; height: 100px;">
+						<img style="float: left; padding-right: 10px;" src="http://www.gravatar.com/avatar/<?php echo md5(strtolower(trim($core_config['user']['email']))); ?>">
+						<p><?php echo $name; ?></p>
+						<p><?php echo $username; ?></p>
 					</td>
 				</tr>
 				<tr>
-					<td style="background-color: #34495E; vertical-align: top; padding: 10px; height: 100%">
+					<td style="background-color: #34495E; vertical-align: top; padding: 10px;">
 						<?php echo themes_get_menu_tree(); ?>
 					</td>
 				</tr>
@@ -42,7 +43,7 @@
 
 		<!-- content -->
 		<td style="vertical-align: top; width: 80%;">
-			<table style="vertical-align: top; width: 100%">
+			<table style="vertical-align: top; width: 100%; height: 100%">
 				<tbody>
 				<tr>
 					<td style="background-color: #7F8C8D; vertical-align: top; padding: 10px;">
