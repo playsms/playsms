@@ -164,32 +164,6 @@ li {
 	color: gray
 }
 
-.box_name {
-	font-family: Arial, Helvetica;
-	font-size: 12pt;
-	font-weight: normal;
-	text-align: center;
-	color: #ffc000;
-	/* background-color: ; */ /* border: 1 solid #3785E9; */
-}
-
-.box_title {
-	font-family: Arial, Helvetica;
-	font-size: 12pt;
-	font-weight: normal;
-	text-align: center;
-	color: #ffffd0;
-	background-color: #FFF;
-}
-
-.box_heading {
-	font-family: Arial, Helvetica;
-	font-size: 18pt;
-	font-weight: normal;
-	text-align: left;
-	/* color: ; */ /* background-color: ; */
-}
-
 .box_text {
 	font-family: Arial, Helvetica;
 	font-size: 12pt;

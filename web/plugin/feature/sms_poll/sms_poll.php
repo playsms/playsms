@@ -31,19 +31,19 @@ switch ($op) {
 			<thead><tr>";
 		if (isadmin()) {
 			$content .= "
-				<td class=box_title width=4>*</td>
-				<td class=box_title width=20%>"._('Keyword')."</td>
-				<td class=box_title width=40%>"._('Title')."</td>
-				<td class=box_title width=20%>"._('User')."</td>
-				<td class=box_title width=10%>"._('Status')."</td>
-				<td class=box_title width=10%>"._('Action')."</td>";
+				<th width=4>*</th>
+				<th width=20%>"._('Keyword')."</th>
+				<th width=40%>"._('Title')."</th>
+				<th width=20%>"._('User')."</th>
+				<th width=10%>"._('Status')."</th>
+				<th width=10%>"._('Action')."</th>";
 		} else {
 			$content .= "
-				<td class=box_title width=4>*</td>
-				<td class=box_title width=20%>"._('Keyword')."</td>
-				<td class=box_title width=60%>"._('Title')."</td>
-				<td class=box_title width=10%>"._('Status')."</td>
-				<td class=box_title width=10%>"._('Action')."</td>";
+				<th width=4>*</th>
+				<th width=20%>"._('Keyword')."</th>
+				<th width=60%>"._('Title')."</th>
+				<th width=10%>"._('Status')."</th>
+				<th width=10%>"._('Action')."</th>";
 		}
 		$content .= "
 			</tr></thead>

@@ -35,13 +35,13 @@ switch ($op) {
 			<p>" . _('Status') . ": <b>" . _('Administrator') . "</b><br>
 			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
 			<thead><tr>
-				<td class='box_title' width='10%'>*</td>
-				<td class='box_title' width='20%'>" . _('Registered') . "</td>
-				<td class='box_title' width='20%'>" . _('Username') . "</td>
-				<td class='box_title' width='20%'>" . _('Name') . "</td>	
-				<td class='box_title' width='20%'>" . _('Mobile') . "</td>
-				<td class='box_title' width='10%'>" . _('Credit') . "</td>
-				<td class='box_title' class='sortable_nosort' width='75'>" . _('Action') . "</td>
+				<th width='10%'>*</th>
+				<th width='20%'>" . _('Registered') . "</th>
+				<th width='20%'>" . _('Username') . "</th>
+				<th width='20%'>" . _('Name') . "</th>
+				<th width='20%'>" . _('Mobile') . "</th>
+				<th width='10%'>" . _('Credit') . "</th>
+				<th class='sortable_nosort' width='75'>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
 		$j = $nav['top'];
@@ -94,13 +94,13 @@ switch ($op) {
 			<p>" . _('Status') . ": <b>" . _('Normal user') . "</b><br>
 			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
 			<thead><tr>
-				<td class='box_title' width='10%'>*</td>
-				<td class='box_title' width='20%'>" . _('Registered') . "</td>
-				<td class='box_title' width='20%'>" . _('Username') . "</td>
-				<td class='box_title' width='20%'>" . _('Name') . "</td>	
-				<td class='box_title' width='20%'>" . _('Mobile') . "</td>
-				<td class='box_title' width='10%'>" . _('Credit') . "</td>
-				<td class='box_title' class='sortable_nosort' width='75'>" . _('Action') . "</td>
+				<th width='10%'>*</th>
+				<th width='20%'>" . _('Registered') . "</th>
+				<th width='20%'>" . _('Username') . "</th>
+				<th width='20%'>" . _('Name') . "</th>
+				<th width='20%'>" . _('Mobile') . "</th>
+				<th width='10%'>" . _('Credit') . "</th>
+				<th class='sortable_nosort' width='75'>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
 		$j = $nav['top'];
