@@ -7,6 +7,9 @@ Version 0.9.9.1-git - 130817
 - add logger_print() at the begining and the end of webservices
 - add DBHOST and DBPORT on install script
 - add sendsms_host option in kannel gateway module (lucastx)
+- upgrade themes default
+- remove unused js and css files on themes default
+- remove themes 'work2'
 - remove themes 'km2'
 - remove column 'status' on inbox, incoming and outgoing tables
 - fix #90 webservices list all incoming SMS on ta=in regardless of uid
