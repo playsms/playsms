@@ -52,7 +52,7 @@ switch ($op) {
 					$gid = phonebook_groupcode2id($uid, $parse_param[3]);
 					if ($parse_param[0] && $parse_param[1] && $parse_param[3] && $gid) {
 						$j++;
-						$td_class = ($j % 2) ? "box_text_odd" : "box_text_even";
+						$td_class = ($j % 2) ? "row_odd" : "row_even";
 						$content .= "
 							<tr>
 							<td align=center class=$td_class>$j.</td>

@@ -48,7 +48,7 @@ switch ($op) {
 			$c_catchall = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid=".$c_rid."'>".$c_catchall."</a>";
 			$c_action = "<a href='index.php?app=menu&inc=feature_inboxgroup&op=edit&rid=".$c_rid."'>".$icon_edit."</a> ";
 			$c_action .= "<a href='index.php?app=menu&inc=feature_inboxgroup&op=del&rid=".$c_rid."'>".$icon_delete."</a> ";
-			$td_class = (($i+1) % 2) ? "box_text_odd" : "box_text_even";
+			$td_class = (($i+1) % 2) ? "row_odd" : "row_even";
 			$content .= "
 				<tr class='".$td_class."'>
 					<td align='center'>".($i+1).".</td>

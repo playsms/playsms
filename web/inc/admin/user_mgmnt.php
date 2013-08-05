@@ -47,7 +47,7 @@ switch ($op) {
 		$j = $nav['top'];
 		for ($i=0;$i<count($list);$i++) {
 			$j--;
-			$td_class = ($j % 2) ? "box_text_odd" : "box_text_even";
+			$td_class = ($j % 2) ? "row_odd" : "row_even";
 			$action = "<a href=\"index.php?app=menu&inc=user_pref&op=user_pref&uname=" . $list[$i]['username'] . "\">$icon_edit</a>";
 			$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $list[$i]['username'] . ")','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">$icon_delete</a>";
 			$content .= "
@@ -107,7 +107,7 @@ switch ($op) {
 		for ($i=0;$i<count($list);$i++) {
 			$list[$i] = core_display_data($list[$i]);
 			$j--;
-			$td_class = ($j % 2) ? "box_text_odd" : "box_text_even";
+			$td_class = ($j % 2) ? "row_odd" : "row_even";
 			$action = "<a href=\"index.php?app=menu&inc=user_pref&op=user_pref&uname=" . $list[$i]['username'] . "\">$icon_edit</a>";
 			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">$icon_delete</a>";
 			$content .= "

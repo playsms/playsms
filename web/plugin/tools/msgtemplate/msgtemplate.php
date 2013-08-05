@@ -44,7 +44,7 @@ switch ($op) {
 			$tid = $db_row['tid'];
 			$temp_title = $db_row['t_title'];
 			$temp_text = $db_row['t_text'];
-			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
+			$td_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
 				<tr>
 					<td class=\"$td_class\" align=center>&nbsp;<a href=\"index.php?app=menu&inc=tools_msgtemplate&op=edit&tid=$tid\">$i.</a></td>

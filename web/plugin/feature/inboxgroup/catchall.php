@@ -66,7 +66,7 @@ switch ($op) {
 				$j++;
 				$c_name = $c_user['name'];
 				$c_mobile = $c_user['mobile'];
-				$td_class = (($j+1) % 2) ? "box_text_odd" : "box_text_even";
+				$td_class = (($j+1) % 2) ? "row_odd" : "row_even";
 				$content .= "
 					<tr class='".$td_class."'>
 						<td align='center'>".$j.".</td>

@@ -55,7 +55,7 @@ switch ($op) {
 				$messages = @dba_num_rows($db_query);
 				if (!$messages) { $messages = 0; }
 				$i++;
-				$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
+				$td_class = ($i % 2) ? "row_odd" : "row_even";
 				$subscribe_status = "<a href=\"index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_status&subscribe_id=".$db_row['subscribe_id']."&ps=1\"><font color=red>"._('disabled')."</font></a>";
 				if ($db_row['subscribe_enable']) {
 					$subscribe_status = "<a href=\"index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_status&subscribe_id=".$db_row['subscribe_id']."&ps=0\"><font color=green>"._('enabled')."</font></a>";
@@ -420,7 +420,7 @@ switch ($op) {
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
 			$i++;
-			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
+			$td_class = ($i % 2) ? "row_odd" : "row_even";
 			$action = "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this member ?')."','index.php?app=menu&inc=feature_sms_subscribe&op=mbr_del&subscribe_id=$subscribe_id&mbr_id=".$db_row['member_id']."')\">$icon_delete</a>";
 			$content .= "
 				<tr>
@@ -468,7 +468,7 @@ switch ($op) {
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
 			$i++;
-			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
+			$td_class = ($i % 2) ? "row_odd" : "row_even";
 			$action = "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=msg_view&subscribe_id=".$db_row['subscribe_id']."&msg_id=".$db_row['msg_id'].">$icon_view</a>&nbsp;";
 			$action .= "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=msg_edit&subscribe_id=$subscribe_id&msg_id=".$db_row['msg_id'].">$icon_edit</a>&nbsp;";
 			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this message?')."','index.php?app=menu&inc=feature_sms_subscribe&op=msg_del&subscribe_id=$subscribe_id&msg_id=".$db_row['msg_id']."')\">$icon_delete</a>";

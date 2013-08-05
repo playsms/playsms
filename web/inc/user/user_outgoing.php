@@ -92,7 +92,7 @@ switch ($op) {
 			}
 			$c_message = $p_datetime."&nbsp;".$p_status."<p id=\"user_outgoing_msg\">".$p_msg."</p>".$resend." ".$forward;
 			$i--;
-			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
+			$td_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
 				<tr>
 					<td valign=top class=$td_class align=center>$i.</td>

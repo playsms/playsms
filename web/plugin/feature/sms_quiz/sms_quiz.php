@@ -47,7 +47,7 @@ switch ($op) {
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = uid2username($db_row['uid'])) {
 				$i++;
-				$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
+				$td_class = ($i % 2) ? "row_odd" : "row_even";
 				$quiz_status = "<a href=\"index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_status&quiz_id=".$db_row['quiz_id']."&ps=1\"><font color=red>"._('disabled')."</font></a>";
 				if ($db_row['quiz_enable']) {
 					$quiz_status = "<a href=\"index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_status&quiz_id=".$db_row['quiz_id']."&ps=0\"><font color=green>"._('enabled')."</font></a>";
@@ -219,7 +219,7 @@ switch ($op) {
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
 			$i++;
-			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
+			$td_class = ($i % 2) ? "row_odd" : "row_even";
 			if ($db_row['quiz_answer'] == $db_answer_row['quiz_answer']) {
 				$iscorrect = "<font color=green>"._('correct')."</font>";
 			} else {

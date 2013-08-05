@@ -57,7 +57,7 @@ switch ($op) {
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = uid2username($db_row['uid'])) {
 				$i++;
-				$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
+				$td_class = ($i % 2) ? "row_odd" : "row_even";
 				$poll_status = "<a href=\"index.php?app=menu&inc=feature_sms_poll&op=sms_poll_status&poll_id=".$db_row['poll_id']."&ps=1\"><font color=red>"._('disabled')."</font></a>";
 				if ($db_row['poll_enable']) {
 					$poll_status = "<a href=\"index.php?app=menu&inc=feature_sms_poll&op=sms_poll_status&poll_id=".$db_row['poll_id']."&ps=0\"><font color=green>"._('enabled')."</font></a>";
@@ -149,7 +149,7 @@ switch ($op) {
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
 			$i++;
-			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
+			$td_class = ($i % 2) ? "row_odd" : "row_even";
 			$choice_id = $db_row['choice_id'];
 			$choice_keyword = $db_row['choice_keyword'];
 			$choice_title = $db_row['choice_title'];

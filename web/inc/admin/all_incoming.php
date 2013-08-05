@@ -72,7 +72,7 @@ switch ($op) {
 			}
 			$c_message = $in_datetime."&nbsp;".$in_status."<p id=\"all_incoming_msg\">".$in_message."</p>".$reply." ".$forward;
 			$i--;
-			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
+			$td_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
 				<tr>
 					<td valign=top class=$td_class align=center>$i.</td>

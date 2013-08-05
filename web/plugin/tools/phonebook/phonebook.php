@@ -66,7 +66,7 @@ switch ($op) {
 			$email = $list[$j]['email'];
 			$group_code = strtoupper($list[$j]['code']);
 			$i--;
-			$td_class = ($i % 2) ? "box_text_odd" : "box_text_even";
+			$td_class = ($i % 2) ? "row_odd" : "row_even";
 			$c_i = "<a href=\"index.php?app=menu&inc=tools_phonebook&op=phonebook_edit&id=".$pid."\">".$i.".</a>";
 			$content .= "
 				<tr>

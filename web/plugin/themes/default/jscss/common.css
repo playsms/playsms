@@ -180,14 +180,14 @@ li {
 	/* border-bottom: 1 solid #c0c0c0; */
 }
 
-.box_text_odd {
+.row_odd {
 	font-family: Arial, Helvetica;
 	font-weight: normal;
 	color: #FFF;
 	background-color: #9FAEAF;
 }
 
-.box_text_even {
+.row_even {
 	font-family: Arial, Helvetica;
 	font-weight: normal;
 	color: #FFF;
