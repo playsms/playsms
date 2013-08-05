@@ -45,7 +45,7 @@ function default_hook_themes_buildmenu($menu_config) {
 	$content .= "d = new dTree('d');\n";
 	$content .= "d.add(0,-1,'"._('Home')."','".$home_url."','"._('Home')."','_top','','','');\n";
 	$content .= $content_tree;
-	$content .= "d.add(".$tree_index_top.",0,'"._('Logout')."','".$logout_url."','"._('Logout')."','_top','','','');\n";
+	// $content .= "d.add(".$tree_index_top.",0,'"._('Logout')."','".$logout_url."','"._('Logout')."','_top','','','');\n";
 	$content .= "document.write(d);\n";
 	$content .= "//-->\n";
 	$content .= "</script>";
