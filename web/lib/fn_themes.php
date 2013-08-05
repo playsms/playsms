@@ -78,11 +78,9 @@ function themes_search($search_category=array(), $url='') {
 	}
 	$content = "
 		<form action='".$ret['url']."' method='POST'>
-		<table cellpadding='0' cellspacing='0' border='0'><tbody><tr>
+		<table id=searchbar><tbody><tr>
 			<td><select name='search_category'>".$option_search_category."</select></td>
-			<td>&nbsp;:&nbsp;</td>
-			<td><input type='text' name='search_keyword' value='".$ret['keyword']."' size='30' maxlength='30'><td></td>
-			<td><input type='submit' value='"._('Go')."' class='button'></td>
+			<td><input type='text' name='search_keyword' value='".$ret['keyword']."' size='30' maxlength='30' onEnter='document.searchbar.submit();'><td></td>
 		</tr></tbody></table>
 		</form>";
 	$ret['form'] = $content;

@@ -232,3 +232,7 @@ li {
 #navbar {
 	text-align: center;
 }
+
+#searchbar {
+	border-spacing: 0;
+}
