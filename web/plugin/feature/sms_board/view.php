@@ -22,7 +22,7 @@ switch ($op) {
 			<h2>"._('Manage board')."</h2>
 			<h3>"._('View board')." : ".$board_keyword."</h3>
 			<table cellpadding=1 cellspacing=2 border=0 width=100%>
-				<tr><td width=100>"._('PHP serialize output')."</td><td>:</td><td><a href=\"".$output_serialize."\" target=_blank>".$output_serialize."</a></td></tr>
+				<tr><td width=270>"._('PHP serialize output')."</td><td>:</td><td><a href=\"".$output_serialize."\" target=_blank>".$output_serialize."</a></td></tr>
 				<tr><td>"._('JSON output')."</td><td>:</td><td><a href=\"".$output_json."\" target=_blank>".$output_json."</a></td></tr>
 				<tr><td>"._('XML output')."</td><td>:</td><td><a href=\"".$output_xml."\" target=_blank>".$output_xml."</a></td></tr>
 				<tr><td>"._('RSS 0.91 output')."</td><td>:</td><td><a href=\"".$output_rss091."\" target=_blank>".$output_rss091."</a></td></tr>
