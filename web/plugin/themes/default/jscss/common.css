@@ -247,3 +247,7 @@ li {
 	word-wrap: break-word;
 	width: 220px;
 }
+
+#navbar {
+	text-align: center;
+}

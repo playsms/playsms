@@ -62,26 +62,22 @@ function default_hook_themes_navbar($num, $nav, $max_nav, $url, $page) {
 		$nav_end = (($nav) * $max_nav);
 		$start = 1;
 		$end = ceil($num/$max_nav);
-		$nav_pages = "<table cellpadding=1 cellspacing=1><tbody><tr>";
-		$nav_pages .= "<td> <a href=$url&page=1&nav=1><img align=absmiddle src=".$core_config['http_path']['themes']."/".$core_config['module']['themes']."/images/icon_start.gif border=0 /></a></td>";
-		$nav_pages .= "<td>";
-		$nav_pages .= ($start==$nav) ? "<img align=absmiddle src=".$core_config['http_path']['themes']."/".$core_config['module']['themes']."/images/icon_prev.gif border=0 /> &nbsp;" : "<a href=$url&page=".((($nav-2)*$max_nav)+1)."&nav=".($nav-1)."><img src=".$core_config['http_path']['themes']."/".$core_config['module']['themes']."/images/icon_prev.gif border=0 /></a>";
-		$nav_pages .= "</td>";
-		$nav_pages .= ($start==$nav) ? "<td>" : "<td> ... ";
+		$nav_pages = "<div id='navbar'>";
+		$nav_pages .= "<a href='".$url."&page=1&nav=1'> << </a>";
+		$nav_pages .= ($start==$nav) ? " &nbsp; < &nbsp; " : "<a href='".$url."&page=".((($nav-2)*$max_nav)+1)."&nav=".($nav-1)."'> &nbsp; < &nbsp; </a>";
+		$nav_pages .= ($start==$nav) ? "" : " ... ";
 		for($i=$nav_start;$i<=$nav_end;$i++) {
 			if($i>$num){ break; };
 			if ($i == $page) {
-				$nav_pages .= "[$i] ";
+				$nav_pages .= "$i ";
 			} else {
-				$nav_pages .= "<a href=$url&page=$i&nav=$nav>$i</a> ";
+				$nav_pages .= "<a href='".$url."&page=".$i."&nav=".$nav."'>".$i."</a> ";
 			}
 		}
-		$nav_pages .= ($end==$nav) ? "</td>" : " ... </td>";
-		$nav_pages .= "<td>";
-		$nav_pages .= ($end==$nav) ? "<img align=absmiddle src=".$core_config['http_path']['themes']."/".$core_config['module']['themes']."/images/icon_next.gif border=0 />&nbsp;" : "<a href=$url&page=".(($nav*$max_nav)+1)."&nav=".($nav+1)."> <img align=absmiddle src=".$core_config['http_path']['themes']."/".$core_config['module']['themes']."/images/icon_next.gif border=0 /></a>";
-		$nav_pages .= "</td>";
-		$nav_pages .= "<td><a href='".$url."&page=".$num."&nav=".$end."'> <img align=absmiddle src=".$core_config['http_path']['themes']."/".$core_config['module']['themes']."/images/icon_end.gif border=0 /> </a></td>";
-		$nav_pages .= "</tr></tbody></table>";
+		$nav_pages .= ($end==$nav) ? "" : " ... ";
+		$nav_pages .= ($end==$nav) ? " &nbsp; > &nbsp; " : "<a href='".$url."&page=".(($nav*$max_nav)+1)."&nav=".($nav+1)."'> &nbsp; > &nbsp; </a>";
+		$nav_pages .= "<a href='".$url."&page=".$num."&nav=".$end."'> >> </a>";
+		$nav_pages .= "</div>";
 	}
 	return $nav_pages;
 }
