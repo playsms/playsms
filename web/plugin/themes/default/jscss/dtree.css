@@ -4,9 +4,9 @@
 | Copyright (c) 2002-2003 Geir Landr�               |
 |--------------------------------------------------*/
 .dtree {
-	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-	font-size: 11px;
-	color: #666;
+	/* font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; */
+	/* font-size: 11px; */
+	/* color: #666; */
 	white-space: nowrap;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .dtree a {
-	color: #333;
+	/* color: #333; */
 	text-decoration: none;
 }
 
@@ -26,12 +26,12 @@
 }
 
 .dtree a.node:hover,.dtree a.nodeSel:hover {
-	color: #333;
+	/* color: #333; */
 	text-decoration: underline;
 }
 
 .dtree a.nodeSel {
-	background-color: #c0d2ec;
+	/* background-color: #c0d2ec; */
 }
 
 .dtree .clip {

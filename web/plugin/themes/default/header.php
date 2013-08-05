@@ -6,40 +6,32 @@
 </head>
 <body>
 
-<script type="text/javascript"
-	src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/selectbox.js"></script>
-<script type="text/javascript"
-	src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/common.js"></script>
-<script type="text/javascript"
-	src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/dtree.js"></script>
-<script type="text/javascript"
-	src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/sorttable.js"></script>
+<script type="text/javascript" src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/common.js"></script>
+<script type="text/javascript" src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/dtree.js"></script>
+<script type="text/javascript" src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/selectbox.js"></script>
+<script type="text/javascript" src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/sorttable.js"></script>
 
-<link rel="stylesheet" type="text/css"
-	href="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/common.css">
-<link rel="stylesheet" type="text/css"
-	href="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/dtree.css">
-<link rel="stylesheet" type="text/css"
-	href="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/rfnet.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/common.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/dtree.css">
 
 <div class="main">
-<table cellpadding="8" cellspacing="2" border="0" width="100%">
+<table class="main">
 	<tbody>
 	<tr>
 
 		<!-- left menu -->
-	<?php if (valid()) { ?>
-		<td style="vertical-align: top">
-			<table style="width: 240px">
+		<?php if (valid()) { ?>
+		<td style="vertical-align: top; width: 20%">
+			<table style="vertical-align: top; width: 100%;  height: 100%">
 				<tbody>
 				<tr>
-					<td style="border: #E8E8E8 0px solid; background-color: #F5F5F5; vertical-align: top; padding: 10px;">
+					<td style="background-color: #2C3E50; vertical-align: top; padding: 10px;">
 						<p><?php echo $name; ?>&nbsp;(<?php echo $username; ?>)</p>
 						<p> <?php echo $userstatus; ?></p>
 					</td>
 				</tr>
 				<tr>
-					<td style="border: #E8E8E8 0px solid; background-color: #F5F5F5; vertical-align: top; padding: 10px;">
+					<td style="background-color: #34495E; vertical-align: top; padding: 10px; height: 100%">
 						<?php echo themes_get_menu_tree(); ?>
 					</td>
 				</tr>
@@ -49,4 +41,8 @@
 		<?php } ?>
 
 		<!-- content -->
-		<td style="vertical-align: top; width: 100%;">
+		<td style="vertical-align: top; width: 80%;">
+			<table style="vertical-align: top; width: 100%">
+				<tbody>
+				<tr>
+					<td style="background-color: #7F8C8D; vertical-align: top; padding: 10px;">

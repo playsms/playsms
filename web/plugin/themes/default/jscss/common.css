@@ -3,107 +3,137 @@ html {
 }
 
 body {
-	font-family: Helvetica, MS Sans Serif;
-	font-size: 10pt;
+	font-family: Arial, Helvetica;
+	font-size: 12pt;
 	min-height: 100%;
 	margin: 0px;
+	color: #FFF;
+}
+
+.main {
+	text-align: center;
+	width: 95%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #7F8C8D;
 }
 
 a {
-	color: #000080;
+	font-family: Arial, Helvetica;
+	font-size: 12pt;
+	font-weight: normal;
+	color: #FFF;
 	text-decoration: none;
+	cursor: pointer;
+}
+
+a:visited, a:link {
+	color: #FFF;
 }
 
 a:hover {
-	color: red;
+	color: #FFF;
+	text-decoration: underline;
 }
 
 table,p,br,tr {
-	font-family: Helvetica, MS Sans Serif;
-	font-size: 10pt;
+	font-family: Arial, Helvetica;
+	font-size: 12pt;
 	font-weight: normal;
-	/* color: #000000; */
+	color: #FFF;
 	/* background-color: ; */
 }
 
-th,thead {
-	font-family: Helvetica, MS Sans Serif;
-	font-size: 10pt;
+table.main {
+	border-spacing: 2;
+	border-collapse: collapse;
+	text-align: left;
+	width: 100%;
+}
+
+div, table td, table tbody {
+	font-family: Arial, Helvetica;
+	font-size: 12pt;
 	font-weight: normal;
-	/* color: #000000; */
+	color: #FFF;
 	/* background-color: ; */
 }
 
-td,div,tbody {
-	font-family: Helvetica, MS Sans Serif;
-	font-size: 10pt;
+table th, table thead {
+	font-family: Arial, Helvetica;
+	font-size: 12pt;
 	font-weight: normal;
-	/* color: #000000; */
-	/* background-color: ; */
+	text-align: center;
+	color: #FFF;
+	background-color: #95A5A6;
+}
+
+table.sortable thead {
+	font-family: Arial, Helvetica;
+	font-size: 12pt;
+	font-weight: normal;
+	text-align: center;
+	color: #FFF;
+	background-color: #95A5A6;
+	cursor: pointer;
 }
 
 h1 {
-	font-family: Helvetica, MS Sans Serif;
+	font-family: Arial, Helvetica;
 	font-size: 20pt;
 	font-weight: normal;
 	text-align: left;
-	color: #0E4C8C;
+	color: #FFF;
 	/* background-color: ; */
 	margin-top: 0;
 	margin-bottom: 0;
 }
 
 h2 {
-	font-family: Helvetica, MS Sans Serif;
-	font-size: 14pt;
+	font-family: Arial, Helvetica;
+	font-size: 18pt;
 	font-weight: normal;
 	text-align: left;
-	color: #0E4C8C;
+	color: #FFF;
 	/* background-color: ; */
 	margin-top: 0;
 	margin-bottom: 0;
 }
 
-table.sortable thead {
-	font-family: Helvetica, MS Sans Serif;
-	font-size: 10pt;
-	font-weight: normal;
-	text-align: center;
-	color: #ffffd0;
-	background-color: #1C3E83;
-	cursor: pointer;
-}
-
 input,select,option,textarea {
-	font-family: Helvetica, MS Sans Serif;
-	font-size: 10pt;
+	font-family: Arial, Helvetica;
+	font-size: 12pt;
 	font-weight: normal;
-	color: #000000;
-	background-color: #FBFBF4;
-	border: 1px solid #737A3A;
+	color: #738384;
+	background-color: #ECF0F1;
+	border: 1px solid #ECF0F1;
 }
 
 button,.button {
 	font-weight: normal;
-	color: #ffffff;
-	background-color: #5087B6;
-	border: 1px solid #699DC9;
+	color: #FFF;
+	background-color: #455A6F;
+	border: 1px solid #455A6F;
+	cursor: pointer;
+	text-decoration: none;
+	padding: 2px 20px 2px 20px;
 }
 
 li {
 	color: #0000ff;
 }
 
-.font14pt {
-	font-size: 14pt;
+.font18pt {
+	font-size: 18pt;
 }
 
 .font12pt {
 	font-size: 12pt;
 }
 
-.font10pt {
-	font-size: 10pt;
+.font12pt {
+	font-size: 12pt;
 }
 
 .font9pt {
@@ -135,8 +165,8 @@ li {
 }
 
 .box_name {
-	font-family: Helvetica, MS Sans Serif;
-	font-size: 10pt;
+	font-family: Arial, Helvetica;
+	font-size: 12pt;
 	font-weight: normal;
 	text-align: center;
 	color: #ffc000;
@@ -144,54 +174,54 @@ li {
 }
 
 .box_title {
-	font-family: Helvetica, MS Sans Serif;
-	font-size: 10pt;
+	font-family: Arial, Helvetica;
+	font-size: 12pt;
 	font-weight: normal;
 	text-align: center;
 	color: #ffffd0;
-	background-color: #1C3E83;
+	background-color: #FFF;
 }
 
 .box_heading {
-	font-family: Helvetica, MS Sans Serif;
-	font-size: 12pt;
+	font-family: Arial, Helvetica;
+	font-size: 18pt;
 	font-weight: normal;
 	text-align: left;
 	/* color: ; */ /* background-color: ; */
 }
 
 .box_text {
-	font-family: Helvetica, MS Sans Serif;
-	font-size: 10pt;
+	font-family: Arial, Helvetica;
+	font-size: 12pt;
 	font-weight: normal;
 	/* text-align: ; */
-	color: #000000;
+	color: #FFF;
 	/* background-color: ; */
 }
 
 .boxItem { /* background: ; */
 	padding: 3px;
-	/* border-top: 1 solid #000000; */ /* border-left: 1 solid #000000; */
+	/* border-top: 1 solid #FFF; */ /* border-left: 1 solid #FFF; */
 	/* border-right: 1 solid #c0c0c0; */
 	/* border-bottom: 1 solid #c0c0c0; */
 }
 
 .box_text_odd {
-	font-family: Helvetica, MS Sans Serif;
+	font-family: Arial, Helvetica;
 	font-weight: normal;
-	color: #000000;
-	background-color: #FCFCF0;
+	color: #FFF;
+	background-color: #9FAEAF;
 }
 
 .box_text_even {
-	font-family: Helvetica, MS Sans Serif;
+	font-family: Arial, Helvetica;
 	font-weight: normal;
-	color: #000000;
-	background-color: #DBDCDD;
+	color: #FFF;
+	background-color: #8F9D9E;
 }
 
 .error_string {
-	font-family: Helvetica, MS Sans Serif;
+	font-family: Arial, Helvetica;
 	font-size: 12px;
 	font-weight: normal;
 	color: #ff0000;
@@ -208,15 +238,6 @@ li {
 .required {
 	color: #ff0000;
 	float: right;
-}
-
-.main {
-	text-align: center;
-	width: 95%;
-	margin-left: auto;
-	margin-right: auto;
-	/* background-color: #f6f6f6; */
-	background-color: #fafafa;
 }
 
 #txtcount {
