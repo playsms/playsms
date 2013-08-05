@@ -20,8 +20,6 @@ body {
 }
 
 a {
-	font-family: Helvetica, Arial;
-	font-size: 12pt;
 	font-weight: normal;
 	color: #FFF;
 	text-decoration: none;
@@ -30,6 +28,7 @@ a {
 
 a:visited, a:link {
 	color: #FFF;
+	text-decoration: none;
 }
 
 a:hover {
@@ -53,31 +52,29 @@ table.main {
 	margin: 0px;
 }
 
-div, table td, table tbody {
+table tbody, table td {
+	/* color: #FFF; */
+	/* background-color: ; */
+}
+
+table thead, table th {
+	font-weight: normal;
+	text-align: center;
+	background-color: #566B7F;
+	padding: 5px;
+	margin-bottom: 0px;
+}
+
+table.sortable thead, table.sortable th {
+	cursor: pointer;
+}
+
+div {
 	font-family: Helvetica, Arial;
 	font-size: 12pt;
 	font-weight: normal;
 	color: #FFF;
 	/* background-color: ; */
-}
-
-table th, table thead {
-	font-family: Helvetica, Arial;
-	font-size: 12pt;
-	font-weight: normal;
-	text-align: center;
-	color: #FFF;
-	background-color: #95A5A6;
-}
-
-table.sortable thead {
-	font-family: Helvetica, Arial;
-	font-size: 12pt;
-	font-weight: normal;
-	text-align: center;
-	color: #FFF;
-	background-color: #95A5A6;
-	cursor: pointer;
 }
 
 h1 {
@@ -123,6 +120,8 @@ input,select,option,textarea {
 }
 
 button,.button {
+	font-family: Helvetica, Arial;
+	font-size: 12pt;
 	font-weight: normal;
 	color: #FFF;
 	background-color: #455A6F;
@@ -133,7 +132,7 @@ button,.button {
 }
 
 li {
-	color: #0000ff;
+	color: #FFF;
 }
 
 .font18pt {
