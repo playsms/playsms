@@ -51,7 +51,7 @@ switch ($op) {
 			$p_desc = phonebook_number2name($p_dst);
 			$current_p_dst = $p_dst;
 			if ($p_desc) {
-				$current_p_dst = "$p_dst<br>($p_desc)";
+				$current_p_dst = "$p_dst<br />$p_desc";
 			}
 			$hide_p_dst = $p_dst;
 			if ($p_desc) {
@@ -72,13 +72,13 @@ switch ($op) {
 			// 2 = failed
 			// 3 = delivered
 			if ($p_status == "1") {
-				$p_status = "<font color=green>"._('Sent')."</font>";
+				$p_status = "<span class=status_sent />";
 			} else if ($p_status == "2") {
-				$p_status = "<font color=red>"._('Failed')."</font>";
+				$p_status = "<span class=status_failed />";
 			} else if ($p_status == "3") {
-				$p_status = "<font color=green>"._('Delivered')."</font>";
+				$p_status = "<span class=status_delivered />";
 			} else {
-				$p_status = "<font color=orange>"._('Pending')."</font>";
+				$p_status = "<span class=status_pending />";
 			}
 			$p_status = strtolower($p_status);
 			if ($p_gpid) {

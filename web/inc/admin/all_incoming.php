@@ -56,7 +56,7 @@ switch ($op) {
 			if ($c_feature = $list[$j]['in_feature']) {
 				$c_feature = "<br/>(".$c_feature.")";
 			}
-			$in_status = ( $list[$j]['in_status'] == 1 ? '<font color=green>'._('handled').'</font>' : '<font color=red>'._('unhandled').'</font>' );
+			$in_status = ( $list[$j]['in_status'] == 1 ? '<span class=status_handled />' : '<span class=status_unhandled />' );
 			$in_status = strtolower($in_status);
 			$msg = $list[$j]['in_message'];
 			$in_message = core_display_text($msg);

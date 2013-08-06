@@ -159,6 +159,10 @@ li {
 	color: #3498DB;
 }
 
+.color_orange {
+	color: #F1C40F;
+}
+
 .color_black {
 	color: #000;
 }
@@ -324,3 +328,52 @@ li {
 #button_back input {
 	margin: 20px 0 0 1px;
 }
+
+.status_handled {
+	width: 10px;
+	height: 10px;
+	background-color: #2ECC71;
+	color: #2ECC71;
+	display: inline-block;
+}
+
+.status_unhandled {
+	width: 10px;
+	height: 10px;
+	background-color: #E74C3C;
+	color: #E74C3C;
+	display: inline-block;
+}
+
+.status_sent {
+	width: 10px;
+	height: 10px;
+	background-color: #2ECC71;
+	color: #2ECC71;
+	display: inline-block;
+}
+
+.status_failed {
+	width: 10px;
+	height: 10px;
+	background-color: #E74C3C;
+	color: #E74C3C;
+	display: inline-block;
+}
+
+.status_delivered {
+	width: 10px;
+	height: 10px;
+	background-color: #3498DB;
+	color: #3498DB;
+	display: inline-block;
+}
+
+.status_pending {
+	width: 10px;
+	height: 10px;
+	background-color: #F1C40F;
+	color: #F1C40F;
+	display: inline-block;
+}
+
