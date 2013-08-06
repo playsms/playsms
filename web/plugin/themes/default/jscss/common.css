@@ -53,6 +53,8 @@ table.main {
 }
 
 table tbody, table td {
+	padding: 5px 0 5px 0;
+	margin: 0px;
 	/* color: #FFF; */
 	/* background-color: ; */
 }
@@ -111,8 +113,7 @@ input,select,option,textarea {
 	color: #738384;
 	background-color: #ECF0F1;
 	border: 0px solid #ECF0F1;
-	margin-left: -1px;
-	padding-left: 1px;
+	padding-left: 5px;
 }
 
 button,.button {
@@ -123,7 +124,6 @@ button,.button {
 	cursor: pointer;
 	text-decoration: none;
 	padding: 2px 20px 2px 20px;
-	margin: 5px -1px 5px -1px;
 }
 
 li {

@@ -25,15 +25,13 @@ switch ($op) {
 			</table>";
 		$content = "
 			<h2>"._('Message template')."</h2>
-			<p>
 			".$actions_box."
 			<table width=\"100%\" cellpadding=1 cellspacing=2 border=\"0\" class=\"sortable\">
 			<form name=\"$fm_name\" action=\"index.php?app=menu&inc=tools_msgtemplate&op=actions\" method=post>
 			<thead><tr>
-				<th width=\"10%\">&nbsp;*</th>
 				<th width=\"30%\">&nbsp;"._('Name')."</th>
-				<th width=\"60%\">&nbsp;"._('Content')."</th>
-				<th class=\"sorttable_nosort\" align=\"center\"><input type=checkbox onclick=CheckUncheckAll(document.".$fm_name.")></th>
+				<th width=\"65%\">&nbsp;"._('Content')."</th>
+				<th width=5% class=\"sorttable_nosort\" align=\"center\"><input type=checkbox onclick=CheckUncheckAll(document.".$fm_name.")></th>
 			</tr></thead>
 			<tbody>";
 		$db_query = "SELECT * FROM "._DB_PREF_."_toolsMsgtemplate WHERE uid='$uid' ORDER BY t_title";
@@ -47,9 +45,8 @@ switch ($op) {
 			$td_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
 				<tr>
-					<td class=\"$td_class\" align=center>&nbsp;<a href=\"index.php?app=menu&inc=tools_msgtemplate&op=edit&tid=$tid\">$i.</a></td>
-					<td class=\"$td_class\">&nbsp;$temp_title</td>
-					<td class=\"$td_class\">&nbsp;$temp_text</td>
+					<td class=\"$td_class\" align=left><a href=\"index.php?app=menu&inc=tools_msgtemplate&op=edit&tid=$tid\">$temp_title</a></td>
+					<td class=\"$td_class\" align=left>$temp_text</td>
 					<td class=\"$td_class\" align=\"center\"><input type=hidden name=tid".$i." value=\"".$db_row['tid']."\"><input type=checkbox name=chkid".$i."></td>
 					<input type=hidden name=tid".$i." value=\"".$db_row['tid']."\">
 				</tr>";
@@ -72,14 +69,13 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Message template')."</h2>
 			<h3>"._('Add message template')."</h3>
-			<p>
 			<form action=\"index.php?app=menu&inc=tools_msgtemplate&op=actions&go=add\" method=\"post\">
-			<table width=100% cellpadding=1 cellspacing=2 border=0>
+			<table width=100%>
 			<tr>
-				<td width=270>"._('Message template name')."</td><td width=5>:</td><td><input type=\"text\" size=\"60\" maxlength=\"100\" name=\"t_title\"></td>
+				<td width=270>"._('Message template name')."</td><td></td><td><input type=\"text\" size=\"60\" maxlength=\"100\" name=\"t_title\"></td>
 			</tr>
 			<tr>
-				<td>"._('Message template content')."</td><td>:</td><td><input type=text name=t_text size=\"60\"></td>
+				<td>"._('Message template content')."</td><td></td><td><input type=text name=t_text size=\"60\"></td>
 			</tr>	
 			</table>	
 			<p><input type=\"submit\" class=\"button\" value=\""._('Save')."\">
@@ -97,15 +93,14 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Message template')."</h2>
 			<h3>"._('Edit message template')."</h3>
-			<p>
 			<form action=\"index.php?app=menu&inc=tools_msgtemplate&op=actions&go=edit\" method=\"post\">
 			<input type=hidden name=tid value=\"$tid\">
-			<table width=100% cellpadding=1 cellspacing=2 border=0>
+			<table width=100%>
 			<tr>
-				<td width=270>"._('Message template name')."</td><td width=5>:</td><td><input type=\"text\" size=\"60\" maxlength=\"100\" name=\"t_title\" value=\"".$db_row['t_title']."\"></td>
+				<td width=270>"._('Message template name')."</td><td></td><td><input type=\"text\" size=\"60\" maxlength=\"100\" name=\"t_title\" value=\"".$db_row['t_title']."\"></td>
 			</tr>
 			<tr>
-				<td>"._('Message template content')."</td><td>:</td><td><input type=text name=t_text size=\"60\" value=\"".$db_row['t_text']."\"></td>
+				<td>"._('Message template content')."</td><td></td><td><input type=text name=t_text size=\"60\" value=\"".$db_row['t_text']."\"></td>
 			</tr>	
 			</table>
 			<p><input type=\"submit\" class=\"button\" value=\""._('Save')."\">
