@@ -73,7 +73,7 @@ switch ($op) {
 			$input_values .= "<input type=\"hidden\" name=\"content_".$i."\" value=\"".$c_templates[$i]['text']."\">";
 		}
 		if ($c_templates[0]) {
-			$sms_template = "<p><select name=\"smstemplate\" onClick=\"SetSmsTemplate();\">$option_values</select>";
+			$sms_template = "<div id=msg_template><select name=\"smstemplate\" onClick=\"SetSmsTemplate();\">$option_values</select></div>";
 		}
 
 		// unicode option
@@ -90,9 +90,8 @@ switch ($op) {
 			<h2>"._('Send SMS')."</h2>
 			<p>
 			<form name=\"fm_sendsms\" id=\"fm_sendsms\" action=\"index.php?app=menu&inc=send_sms&op=sendsmstopv_yes\" method=\"POST\">
-			<p>"._('SMS sender ID').": $sms_from
-			<p>"._('SMS footer').": $sms_footer
-			<p>";
+			<p>"._('SMS sender ID')." $sms_from</p>
+			<p>"._('SMS footer')." $sms_footer</p>";
 
 		if ($bulk == 1) {
 			$content .= _button('index.php?app=menu&inc=send_sms&op=sendsmstopv&bulk=2', _('View numbers'));
@@ -106,7 +105,7 @@ switch ($op) {
 			<tbody>
 			<tr>
 				<td nowrap>
-					"._('Phonebook').":<br>
+					"._('Phonebook')."<br>
 					<select name=\"p_num_dump[]\" size=\"8\" style=\"width: 200px\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\">$list_of_number</select>
 				</td>
 				<td width=10>&nbsp;</td>
@@ -118,16 +117,16 @@ switch ($op) {
 				</td>
 				<td width=10>&nbsp;</td>
 				<td nowrap>
-					"._('Send to').":<br>
+					"._('Send to')."<br>
 					<select name=\"p_num[]\" size=\"8\" style=\"width: 200px\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\"></select>
 				</td>
 			</tr>
 			</tbody>
 			</table>
-			<p>"._('Send to').":<br><input type=text size=30 maxlength=250 name=p_num_text value=\"".$to."\">
-			$sms_template
-			<p>"._('Message').":
-			<br><textarea cols=\"55\" rows=\"3\" onFocus=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" name=\"message\" id=\"ta_sms_content\">".$message."</textarea>
+			<p>"._('Send to')."<br><input type=text size=30 maxlength=250 name=p_num_text value=\"".$to."\"></p>
+			<p>"._('Message')."</p>
+			".$sms_template."
+			<textarea cols=\"55\" rows=\"3\" onFocus=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" name=\"message\" id=\"ta_sms_content\">".$message."</textarea>
 			<br><input type=\"text\" id=txtcount name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
 			<input type=\"hidden\" value=\"".$core_config['user']['opt']['sms_footer_length']."\" name=\"footerlen\"> 
 			<input type=\"hidden\" value=\"".$core_config['user']['opt']['per_sms_length']."\" name=\"maxchar\"> 

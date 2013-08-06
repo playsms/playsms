@@ -23,7 +23,7 @@ switch ($op) {
 
 		$content = "
 			<h2>"._('Incoming SMS')."</h2>
-			<p>".$search['form']."</p>
+			".$search['form']."
 			<form name=\"fm_incoming\" action=\"index.php?app=menu&inc=user_incoming&op=actions\" method=post onSubmit=\"return SureConfirm()\">
 			".$actions_box."
 			<table width=100% class=\"sortable\">
@@ -51,7 +51,7 @@ switch ($op) {
 			$in_keyword = $list[$j]['in_keyword'];
 			$in_datetime = core_display_datetime($list[$j]['in_datetime']);
 			$in_feature = $list[$j]['in_feature'];
-			$in_status = ( $list[$j]['in_status'] == 1 ? '<font color=green>'._('handled').'</font>' : '<p><font color=red>'._('unhandled').'</font></p>' );
+			$in_status = ( $list[$j]['in_status'] == 1 ? '<font color=green>'._('handled').'</font>' : '<font color=red>'._('unhandled').'</font>' );
 			$in_status = strtolower($in_status);
 			$c_feature = '';
 			if ($in_feature) {

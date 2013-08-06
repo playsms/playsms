@@ -27,7 +27,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td width="120" align="right"><?php echo _('Username'); ?> &nbsp;</td>
+						<td width="100" align="right"><?php echo _('Username'); ?> &nbsp;</td>
 						<td>&nbsp;<input type=text name=username maxlength=100 size=20></td>
 					</tr>
 					<tr>

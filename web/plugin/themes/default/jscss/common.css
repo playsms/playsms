@@ -264,6 +264,10 @@ li {
 	padding-bottom: 12px;
 }
 
+#msg_template {
+	text-align: left;
+}
+
 #actions_box {
 	margin: 1px 0px 5px -1px;
 	padding: 0;

@@ -166,49 +166,49 @@ switch ($op) {
 			<option value='2'>" . _('Administrator') . "</option>
 			<option value='3' selected>" . _('Normal User') . "</option>";
 		$content .= "
-		<h2>" . _('Add user') . "</h2>
-		<p>
+		<h2>"._('Manage user')."</h2>
+		<h3>"._('Add user')."</h3>
 		<form action='index.php?app=menu&inc=user_mgmnt&op=user_add_yes' method='post'>
 		<table width=100%>
 		<tbody>
 		<tr>
-			<td width='270'>" . _('Username') . " $nd</td><td width='5'>:</td><td><input type='text' size='30' maxlength='30' name='add_username' value=\"$add_username\"></td>
+			<td width=270>" . _('User level') . "</td><td><select name='add_status'>$option_status</select></td>
 		</tr>
 		<tr>
-			<td>" . _('Full name') . " $nd</td><td>:</td><td><input type='text' size='30' maxlength='30' name='add_name' value=\"$add_name\"></td>
+			<td>" . _('Username') . " $nd</td><td><input type='text' size='30' maxlength='30' name='add_username' value=\"$add_username\"></td>
 		</tr>
 		<tr>
-			<td>" . _('Email') . " $nd</td><td>:</td><td><input type='text' size='30' maxlength='30' name='add_email' value=\"$add_email\"></td>
+			<td>" . _('Password') . " $nd</td><td><input type='password' size='30' maxlength='30' name='add_password' value=\"$add_password\"></td>
 		</tr>
 		<tr>
-			<td>" . _('Mobile') . "</td><td>:</td><td><input type='text' size='16' maxlength='16' name='add_mobile' value=\"$add_mobile\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td>
+			<td>" . _('Full name') . " $nd</td><td><input type='text' size='30' maxlength='30' name='add_name' value=\"$add_name\"></td>
 		</tr>
 		<tr>
-			<td>" . _('SMS sender ID') . "</td><td>:</td><td><input type='text' size='16' maxlength='16' name='add_sender' value=\"$add_sender\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td>
+			<td>" . _('Email') . " $nd</td><td><input type='text' size='30' maxlength='30' name='add_email' value=\"$add_email\"></td>
 		</tr>
 		<tr>
-			<td>" . _('SMS footer') . "</td><td>:</td><td><input type='text' size='30' maxlength='30' name='add_footer' value=\"$add_footer\"> (" . _('Max. 30 alphanumeric characters') . ")</td>
+			<td>" . _('Mobile') . "</td><td><input type='text' size='16' maxlength='16' name='add_mobile' value=\"$add_mobile\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td>
+		</tr>
+		<tr>
+			<td>" . _('SMS sender ID') . "</td><td><input type='text' size='16' maxlength='16' name='add_sender' value=\"$add_sender\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td>
+		</tr>
+		<tr>
+			<td>" . _('SMS footer') . "</td><td><input type='text' size='30' maxlength='30' name='add_footer' value=\"$add_footer\"> (" . _('Max. 30 alphanumeric characters') . ")</td>
 		</tr>	    	    	    
 		<tr>
-			<td>" . _('Timezone') . "</td><td>:</td><td><input type='text' size='5' maxlength='5' name='add_datetime_timezone' value=\"$add_datetime_timezone\"> (" . _('Eg: +0700 for Jakarta/Bangkok timezone') . ")</td>
+			<td>" . _('Timezone') . "</td><td><input type='text' size='5' maxlength='5' name='add_datetime_timezone' value=\"$add_datetime_timezone\"> (" . _('Eg: +0700 for Jakarta/Bangkok timezone') . ")</td>
 		</tr>
 		<tr>
-			<td>" . _('Password') . " $nd</td><td>:</td><td><input type='password' size='30' maxlength='30' name='add_password' value=\"$add_password\"></td>
+			<td>" . _('Credit') . "</td><td><input type='text' size='5' maxlength='30' name='add_credit' value=\"" . $core_config['main']['cfg_default_credit'] . "\"></td>
 		</tr>
 		<tr>
-			<td>" . _('Credit') . "</td><td>:</td><td><input type='text' size='16' maxlength='30' name='add_credit' value=\"" . $core_config['main']['cfg_default_credit'] . "\"></td>
+			<td>" . _('Active language') . "</td><td><select name='add_language_module'>$option_language_module</select></td>
 		</tr>
-		<tr>
-			<td>" . _('User level') . "</td><td>:</td><td><select name='add_status'>$option_status</select></td>
-		</tr>
-		<tr>
-			<td>" . _('Active language') . "</td><td>:</td><td><select name='add_language_module'>$option_language_module</select></td>
-		</tr>
-
 		</tbody>
 		</table>
-		<p><input type='submit' class='button' value='" . _('Add') . "'>
-		</form>";
+		<input type='submit' class='button' value='" . _('Save') . "'>
+		</form>
+		<p>"._b('index.php?app=menu&inc=user_mgmnt&op=user_list');
 		echo $content;
 		break;
 	case "user_add_yes":

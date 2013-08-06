@@ -23,7 +23,7 @@ switch ($op) {
 
 		$content = "
 			<h2>"._('Outgoing SMS')."</h2>
-			<p>".$search['form']."</p>
+			".$search['form']."
 			<form name=\"fm_outgoing\" action=\"index.php?app=menu&inc=user_outgoing&op=actions\" method=post onSubmit=\"return SureConfirm()\">
 			".$actions_box."
 			<table width=100% class=\"sortable\">

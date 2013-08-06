@@ -216,13 +216,10 @@ switch ($op) {
 			<tr><td>" . _('Auto remove plus sign') . "</td><td><select name='up_plus_sign_remove'>" . $option_plus_sign_remove . "</select></td></tr>
 			<tr><td>" . _('Always add plus sign') . "</td><td><select name='up_plus_sign_add'>" . $option_plus_sign_add . "</select></td></tr>
 			<tr><td>" . _('Always choose to send as unicode') . "</td><td><select name='up_send_as_unicode'>" . $option_send_as_unicode . "</select></td></tr>
-			<tr><td colspan=2>&nbsp;</td></tr>
-			<tr><td>
-				<input type=submit class=button value='" . _('Save') . "'>
-				".$button_delete."
 			</td></tr>
 			</tbody>
 			</table>
+			<input type=submit class=button value='" . _('Save') . "'> ".$button_delete."
 			</form>";
 		echo $content;
 		break;
