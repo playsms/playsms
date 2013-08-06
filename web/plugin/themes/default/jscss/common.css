@@ -267,6 +267,7 @@ li {
 	margin: 1px 0px 5px -1px;
 	padding: 0;
 	width: 100%;
+	clear: both;
 }
 
 #actions_box_left {
