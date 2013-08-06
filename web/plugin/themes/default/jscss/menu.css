@@ -1,0 +1,92 @@
+nav {
+  font-family: Helvetica, Arial;
+  font-size: 10pt;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  width: 260px;
+}
+
+.menu-item {
+  background: #FFF;
+  width: 260px; 
+}
+
+/*Menu Header Styles*/
+.menu-item h4 {
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  border-top: 1px solid rgba(255,255,255,0.2);
+  color: #FFF;
+  background: #2980B9; /* Old browsers */
+  font-size: 12pt;
+  font-family: Helvetica, Arial;
+  padding: 7px 12px;
+  
+}
+
+.menu-item h4:hover {  
+  /* background: #2980B9; */ /* Old browsers */
+
+}
+
+.menu-item h4 a {
+  color: #FFF;
+  display: block;
+  text-decoration: none;
+  width: 260px;
+}
+
+/*ul Styles*/
+.menu-item ul {
+  background: #FFF;
+  font-size: 10pt;
+  line-height: 22px;
+  height: 0;
+  list-style-type: none;
+  overflow: hidden;
+  padding: 0px;
+  
+  /*Animation*/
+  -webkit-transition: height 1s ease;
+     -moz-transition: height 1s ease;
+       -o-transition: height 1s ease;
+      -ms-transition: height 1s ease;
+          transition: height 1s ease;
+}
+
+
+.menu-item:hover ul {
+  height: 220px;
+}
+
+.menu-item ul a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #AAA;
+  display: block;
+  width: 240px;
+}
+
+/*li Styles*/
+.menu-item li {
+  border-bottom: 1px solid #eee;
+}
+
+.menu-item li:hover {
+  background: #eee;
+}
+
+/*First Item Styles*/
+.alpha p {
+	padding: 8px 12px;
+	color: #aaa;
+}
+
+.alpha p a {
+	color: #aaa;
+	font-style: italic;
+}
+
+.alpha p a:hover {
+	color: #ccc;
+}
