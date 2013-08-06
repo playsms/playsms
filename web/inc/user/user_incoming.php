@@ -46,7 +46,7 @@ switch ($op) {
 			$p_desc = phonebook_number2name($in_sender);
 			$current_sender = $in_sender;
 			if ($p_desc) {
-				$current_sender = "$in_sender<br>($p_desc)";
+				$current_sender = "$in_sender<br />$p_desc";
 			}
 			$in_keyword = $list[$j]['in_keyword'];
 			$in_datetime = core_display_datetime($list[$j]['in_datetime']);
@@ -55,7 +55,7 @@ switch ($op) {
 			$in_status = strtolower($in_status);
 			$c_feature = '';
 			if ($in_feature) {
-				$c_feature = "<br />(".$in_feature.")";
+				$c_feature = "<br />".$in_feature;
 			}
 			$msg = trim($list[$j]['in_message']);
 			$in_message = core_display_text($msg);

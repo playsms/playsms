@@ -48,7 +48,7 @@ switch ($op) {
 			$p_desc = phonebook_number2name($in_sender);
 			$current_sender = $in_sender;
 			if ($p_desc) {
-				$current_sender = "$in_sender<br>($p_desc)";
+				$current_sender = "$in_sender<br />$p_desc";
 			}
 			$in_datetime = core_display_datetime($list[$j]['in_datetime']);
 			$msg = $list[$j]['in_msg'];

@@ -49,12 +49,12 @@ switch ($op) {
 			$p_desc = phonebook_number2name($in_sender);
 			$current_sender = $in_sender;
 			if ($p_desc) {
-				$current_sender = "$in_sender<br>($p_desc)";
+				$current_sender = "$in_sender<br />$p_desc";
 			}
 			$in_keyword = $list[$j]['in_keyword'];
 			$in_datetime = core_display_datetime($list[$j]['in_datetime']);
 			if ($c_feature = $list[$j]['in_feature']) {
-				$c_feature = "<br/>(".$c_feature.")";
+				$c_feature = "<br />".$c_feature;
 			}
 			$in_status = ( $list[$j]['in_status'] == 1 ? '<span class=status_handled />' : '<span class=status_unhandled />' );
 			$in_status = strtolower($in_status);

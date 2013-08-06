@@ -53,13 +53,7 @@ switch ($op) {
 			if ($p_desc) {
 				$current_p_dst = "$p_dst<br />$p_desc";
 			}
-			$hide_p_dst = $p_dst;
-			if ($p_desc) {
-				$hide_p_dst = "$p_dst ($p_desc)";
-			}
 			$p_sms_type = $list[$j]['p_sms_type'];
-			$hide_p_dst = str_replace("\'","",$hide_p_dst);
-			$hide_p_dst = str_replace("\"","",$hide_p_dst);
 			if (($p_footer = $list[$j]['p_footer']) && (($p_sms_type == "text") || ($p_sms_type == "flash"))) {
 				$p_msg = $p_msg.' '.$p_footer;
 			}
