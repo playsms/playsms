@@ -2,14 +2,14 @@ nav {
   font-family: Helvetica, Arial;
   font-size: 10pt;
   line-height: 1;
-  margin: 0;
+  margin: 10px auto;
   padding: 0;
-  width: 260px;
+  width: 254px;
 }
 
 .menu-item {
-  background: #FFF;
-  width: 260px; 
+  background: #FCFCFC;
+  width: 254px;
 }
 
 /*Menu Header Styles*/
@@ -33,12 +33,12 @@ nav {
   color: #FFF;
   display: block;
   text-decoration: none;
-  width: 260px;
+  width: 254px;
 }
 
 /*ul Styles*/
 .menu-item ul {
-  background: #FFF;
+  background: #FCFCFC;
   font-size: 10pt;
   line-height: 22px;
   height: 0;

@@ -27,14 +27,14 @@
 				<tbody>
 				<tr>
 					<td style="background-color: #2C3E50; vertical-align: top; padding: 10px; height: 100px;">
-						<img style="float: left; padding-right: 10px;" src="<?php echo $core_config['user']['opt']['gravatar']; ?>">
-						<div><?php echo $name; ?></div>
-						<div><?php echo $username; ?><br /></div>
+						<a href="<?php echo $http_path['base']?>"><img style="float: left; padding-right: 10px;" src="<?php echo $core_config['user']['opt']['gravatar']; ?>"></a>
+						<div><a href="<?php echo $http_path['base']?>"><?php echo $name; ?></a></div>
+						<div><a href="<?php echo $http_path['base']?>"><?php echo $username; ?></a></div>
 						<div style='padding-top: 1em;'><a href="index.php?app=page&op=auth_logout"><?php echo _('Logout'); ?></a></div>
 					</td>
 				</tr>
 				<tr>
-					<td style="background-color: #34495E; vertical-align: top; padding: 10px;">
+					<td style="background-color: #34495E; vertical-align: top; padding: 0px;">
 						<?php echo themes_get_menu_tree(); ?>
 					</td>
 				</tr>
