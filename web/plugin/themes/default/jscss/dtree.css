@@ -27,7 +27,7 @@
 
 .dtree a.node:hover,.dtree a.nodeSel:hover {
 	/* color: #333; */
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 .dtree a.nodeSel {

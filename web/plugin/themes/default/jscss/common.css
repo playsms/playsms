@@ -26,16 +26,21 @@ a {
 	color: #FFF;
 	text-decoration: none;
 	cursor: pointer;
+	-webkit-transition: background-color 0.5s ease;
+	-moz-transition: background-color 0.5s ease;
+	-o-transition: background-color 0.5s ease;
+	transition: background-color 0.5s ease;
 }
 
-a:visited, a:link {
+a:visited {
 	color: #FFF;
 	text-decoration: none;
 }
 
 a:hover {
 	color: #FFF;
-	text-decoration: underline;
+	text-decoration: none;
+	background-color: #7F8C8D;
 }
 
 table,tr {
@@ -125,10 +130,18 @@ button,.button {
 	font-weight: normal;
 	color: #FFF;
 	background-color: #455A6F;
-	border: 1px solid #455A6F;
+	border: 0;
 	cursor: pointer;
 	text-decoration: none;
-	padding: 2px 20px 2px 20px;
+	padding: 6px 30px 6px 30px;
+	-webkit-transition: background-color 0.5s ease;
+	-moz-transition: background-color 0.5s ease;
+	-o-transition: background-color 0.5s ease;
+	transition: background-color 0.5s ease;
+}
+
+button:hover,.button:hover {
+	background-color: #566B7F;
 }
 
 li {
