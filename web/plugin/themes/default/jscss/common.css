@@ -78,6 +78,10 @@ span,div {
 	/* background-color: ; */
 }
 
+p {
+	margin: 0 0 5px 0;
+}
+
 h1 {
 	font-size: 22pt;
 	font-weight: normal;
@@ -183,10 +187,7 @@ li {
 	font-weight: normal;
 	color: #ff0000;
 	background-color: #ededed;
-	margin-top: 3px;
-	margin-bottom: 10px;
-	margin-left: 0px;
-	margin-right: 0px;
+	margin: 0 0 10px 0;
 	text-align: center;
 	border: 1px solid #737A3A;
 	padding: 3px;
