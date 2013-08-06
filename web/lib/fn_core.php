@@ -109,7 +109,7 @@ function core_display_data($data) {
 			$data[$key] = core_display_text($val);
 		}
 	} else {
-		$data = core_displaye_text($data);
+		$data = core_display_text($data);
 	}
 	return $data;
 }
