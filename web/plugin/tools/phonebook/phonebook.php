@@ -103,10 +103,10 @@ switch ($op) {
 			<form action=\"index.php?app=menu&inc=tools_phonebook&op=actions&go=add\" name=fm_addphone method=POST>
 			<table width=100%>
 			<tbody>
-			<tr><td width=270>"._('Group')."</td><td width=5></td><td><select name=gpid>$list_of_group</select></td></tr>
-			<tr><td>"._('Name')."</td><td></td><td><input type=text name=name size=30></td></tr>
-			<tr><td>"._('Mobile')."</td><td></td><td><input type=text name=mobile value=\"".$phone."\" size=30></td></tr>
-			<tr><td>"._('Email')."</td><td></td><td><input type=text name=email size=30></td></tr>
+			<tr><td width=270>"._('Group')."</td><td><select name=gpid>$list_of_group</select></td></tr>
+			<tr><td>"._('Name')."</td><td><input type=text name=name size=30></td></tr>
+			<tr><td>"._('Mobile')."</td><td><input type=text name=mobile value=\"".$phone."\" size=30></td></tr>
+			<tr><td>"._('Email')."</td><td><input type=text name=email size=30></td></tr>
 			</tbody>
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
@@ -135,10 +135,10 @@ switch ($op) {
 			<input type=hidden name=id value=\"".$id."\">
 			<table width=100%>
 			<tbody>
-			<tr><td width=100>"._('Group')."</td><td width=5></td><td><select name=gpid>$list_of_group</select></td></tr>
-			<tr><td>"._('Name')."</td><td></td><td><input type=text name=name value=\"".$list[0]['name']."\" size=30></td></tr>
-			<tr><td>"._('Mobile')."</td><td></td><td><input type=text name=mobile value=\"".$list[0]['mobile']."\" size=30></td></tr>
-			<tr><td>"._('Email')."</td><td></td><td><input type=text name=email value=\"".$list[0]['email']."\" size=30></td></tr>
+			<tr><td width=100>"._('Group')."</td><td><select name=gpid>$list_of_group</select></td></tr>
+			<tr><td>"._('Name')."</td><td><input type=text name=name value=\"".$list[0]['name']."\" size=30></td></tr>
+			<tr><td>"._('Mobile')."</td><td><input type=text name=mobile value=\"".$list[0]['mobile']."\" size=30></td></tr>
+			<tr><td>"._('Email')."</td><td><input type=text name=email value=\"".$list[0]['email']."\" size=30></td></tr>
 			</tbody>
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">

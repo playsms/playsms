@@ -72,10 +72,10 @@ switch ($op) {
 			<form action=\"index.php?app=menu&inc=tools_msgtemplate&op=actions&go=add\" method=\"post\">
 			<table width=100%>
 			<tr>
-				<td width=270>"._('Message template name')."</td><td></td><td><input type=\"text\" size=\"60\" maxlength=\"100\" name=\"t_title\"></td>
+				<td width=270>"._('Message template name')."</td><td><input type=\"text\" size=\"60\" maxlength=\"100\" name=\"t_title\"></td>
 			</tr>
 			<tr>
-				<td>"._('Message template content')."</td><td></td><td><input type=text name=t_text size=\"60\"></td>
+				<td>"._('Message template content')."</td><td><input type=text name=t_text size=\"60\"></td>
 			</tr>	
 			</table>	
 			<p><input type=\"submit\" class=\"button\" value=\""._('Save')."\">
@@ -97,10 +97,10 @@ switch ($op) {
 			<input type=hidden name=tid value=\"$tid\">
 			<table width=100%>
 			<tr>
-				<td width=270>"._('Message template name')."</td><td></td><td><input type=\"text\" size=\"60\" maxlength=\"100\" name=\"t_title\" value=\"".$db_row['t_title']."\"></td>
+				<td width=270>"._('Message template name')."</td><td><input type=\"text\" size=\"60\" maxlength=\"100\" name=\"t_title\" value=\"".$db_row['t_title']."\"></td>
 			</tr>
 			<tr>
-				<td>"._('Message template content')."</td><td></td><td><input type=text name=t_text size=\"60\" value=\"".$db_row['t_text']."\"></td>
+				<td>"._('Message template content')."</td><td><input type=text name=t_text size=\"60\" value=\"".$db_row['t_text']."\"></td>
 			</tr>	
 			</table>
 			<p><input type=\"submit\" class=\"button\" value=\""._('Save')."\">

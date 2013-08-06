@@ -166,57 +166,57 @@ switch ($op) {
 		}
 
 		if ($core_config['denycustomsender']) {
-			$option_sender_id = "<tr><td>" . _('SMS sender ID') . "</td><td></td><td>".sendsms_get_sender($c_username)."</td></tr>";
+			$option_sender_id = "<tr><td>" . _('SMS sender ID') . "</td><td>".sendsms_get_sender($c_username)."</td></tr>";
 		} else {
-			$option_sender_id = "<tr><td>" . _('SMS sender ID') . "</td><td></td><td><input type=text size=16 maxlength=16 name=up_sender value=\"$sender\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td></tr>";
+			$option_sender_id = "<tr><td>" . _('SMS sender ID') . "</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"$sender\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td></tr>";
 		}
 		if ($uname && isadmin()) {
 			$content .= "<h2>" . _('Manage user') . "</h2>";
-			$option_credit = "<tr><td>" . _('Credit') . "</td><td></td><td><input type=text size=10 maxlength=10 name=up_credit value=\"$credit\"></td></tr>";
+			$option_credit = "<tr><td>" . _('Credit') . "</td><td><input type=text size=10 maxlength=10 name=up_credit value=\"$credit\"></td></tr>";
 			$button_delete = "<input type=button class=button value='". _('Delete') ."' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=menu&inc=user_mgmnt&op=user_del".$url_uname."')\">";
 		} else {
 			$content .= "<h2>" . _('Preferences') . "</h2>";
-			$option_credit = "<tr><td>" . _('Credit') . "</td><td></td><td>$credit</td></tr>";
+			$option_credit = "<tr><td>" . _('Credit') . "</td><td>$credit</td></tr>";
 		}
 		$content .= "
 			<form action=\"index.php?app=menu&inc=user_pref&op=user_pref_save".$url_uname."\" method=post enctype=\"multipart/form-data\">
 			<table width=100%>
 			<tbody>
-			<tr><td colspan=3><h3>" . _('Login information') . "</h3></td></tr>
-			<tr><td width=270>" . _('Username') . "</td><td></td><td>".$c_username."</td></tr>
-			<tr><td>" . _('Password') . "</td><td></td><td><input type=password size=30 maxlength=30 name=up_password></td></tr>
-			<tr><td>" . _('Re-type password') . "</td><td></td><td><input type=password size=30 maxlength=30 name=up_password_conf></td></tr>
-			<tr><td colspan=3>&nbsp;</td></tr>
-			<tr><td colspan=3><h3>" . _('Personal information') . "</h3></td></tr>
-			<tr><td>" . _('Name') . " $nd</td><td></td><td><input type=text size=30 maxlength=100 name=up_name value=\"$name\"></td></tr>
-			<tr><td>" . _('Email') . " $nd</td><td></td><td><input type=text size=30 maxlength=30 name=up_email value=\"$email\"></td></tr>
-			<tr><td>" . _('Mobile') . "</td><td></td><td><input type=text size=16 maxlength=16 name=up_mobile value=\"$mobile\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td></tr>
-			<tr><td>" . _('Address') . "</td><td></td><td><input type=text size=30 maxlength=250 name=up_address value=\"$address\"></td></tr>
-			<tr><td>" . _('City') . "</td><td></td><td><input type=text size=30 maxlength=100 name=up_city value=\"$city\"></td></tr>
-			<tr><td>" . _('State or Province') . "</td><td></td><td><input type=text size=30 maxlength=100 name=up_state value=\"$state\"></td></tr>
-			<tr><td>" . _('Country') . "</td><td></td><td><select name=up_country>$option_country</select></td></tr>
-			<tr><td>" . _('Zipcode') . "</td><td></td><td><input type=text size=10 maxlength=10 name=up_zipcode value=\"$zipcode\"></td></tr>
-			<tr><td>Active language</td><td></td><td><select name=up_language_module>$option_language_module</select></td></tr>
-			<tr><td colspan=3>&nbsp;</td></tr>
-			<tr><td colspan=3><h3>" . _('Application options') . "</h3></td></tr>
-			<tr><td>" . _('Webservices username') . "</td><td></td><td>".$c_username."</td></tr>
-			<tr><td>" . _('Webservices token') . "</td><td></td><td>".$token."</td></tr>
-			<tr><td>" . _('New webservices token') . "</td><td></td><td><select name='up_new_token'>" . $option_new_token . "</select></td></tr>
-			<tr><td>" . _('Enable webservices') . "</td><td></td><td><select name='up_enable_webservices'>" . $option_enable_webservices . "</select></td></tr>
-			<tr><td>" . _('Webservices IP range') . "</td><td></td><td><input type=text size=30 maxlength=100 name=up_webservices_ip value=\"$webservices_ip\"> ("._('Comma seperated').")</td></tr>
-			<tr><td>" . _('Timezone') . "</td><td></td><td><input type=text size=5 maxlength=5 name=up_datetime_timezone value=\"$datetime_timezone\"> (" . _('Eg: +0700 for Jakarta/Bangkok timezone') . ")</td></tr>
+			<tr><td colspan=2><h3>" . _('Login information') . "</h3></td></tr>
+			<tr><td width=270>" . _('Username') . "</td><td>".$c_username."</td></tr>
+			<tr><td>" . _('Password') . "</td><td><input type=password size=30 maxlength=30 name=up_password></td></tr>
+			<tr><td>" . _('Re-type password') . "</td><td><input type=password size=30 maxlength=30 name=up_password_conf></td></tr>
+			<tr><td colspan=2>&nbsp;</td></tr>
+			<tr><td colspan=2><h3>" . _('Personal information') . "</h3></td></tr>
+			<tr><td>" . _('Name') . " $nd</td><td><input type=text size=30 maxlength=100 name=up_name value=\"$name\"></td></tr>
+			<tr><td>" . _('Email') . " $nd</td><td><input type=text size=30 maxlength=30 name=up_email value=\"$email\"></td></tr>
+			<tr><td>" . _('Mobile') . "</td><td><input type=text size=16 maxlength=16 name=up_mobile value=\"$mobile\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td></tr>
+			<tr><td>" . _('Address') . "</td><td><input type=text size=30 maxlength=250 name=up_address value=\"$address\"></td></tr>
+			<tr><td>" . _('City') . "</td><td><input type=text size=30 maxlength=100 name=up_city value=\"$city\"></td></tr>
+			<tr><td>" . _('State or Province') . "</td><td><input type=text size=30 maxlength=100 name=up_state value=\"$state\"></td></tr>
+			<tr><td>" . _('Country') . "</td><td><select name=up_country>$option_country</select></td></tr>
+			<tr><td>" . _('Zipcode') . "</td><td><input type=text size=10 maxlength=10 name=up_zipcode value=\"$zipcode\"></td></tr>
+			<tr><td>Active language</td><td><select name=up_language_module>$option_language_module</select></td></tr>
+			<tr><td colspan=2>&nbsp;</td></tr>
+			<tr><td colspan=2><h3>" . _('Application options') . "</h3></td></tr>
+			<tr><td>" . _('Webservices username') . "</td><td>".$c_username."</td></tr>
+			<tr><td>" . _('Webservices token') . "</td><td>".$token."</td></tr>
+			<tr><td>" . _('New webservices token') . "</td><td><select name='up_new_token'>" . $option_new_token . "</select></td></tr>
+			<tr><td>" . _('Enable webservices') . "</td><td><select name='up_enable_webservices'>" . $option_enable_webservices . "</select></td></tr>
+			<tr><td>" . _('Webservices IP range') . "</td><td><input type=text size=30 maxlength=100 name=up_webservices_ip value=\"$webservices_ip\"> ("._('Comma seperated').")</td></tr>
+			<tr><td>" . _('Timezone') . "</td><td><input type=text size=5 maxlength=5 name=up_datetime_timezone value=\"$datetime_timezone\"> (" . _('Eg: +0700 for Jakarta/Bangkok timezone') . ")</td></tr>
 			".$option_sender_id."
-			<tr><td>" . _('SMS footer') . "</td><td></td><td><input type=text size=30 maxlength=30 name=up_footer value=\"$footer\"> (" . _('Max. 30 alphanumeric characters') . ")</td></tr>
+			<tr><td>" . _('SMS footer') . "</td><td><input type=text size=30 maxlength=30 name=up_footer value=\"$footer\"> (" . _('Max. 30 alphanumeric characters') . ")</td></tr>
 			".$option_credit."
-			<tr><td>" . _('Forward SMS to inbox') . "</td><td></td><td><select name='up_fwd_to_inbox'>" . $option_fwd_to_inbox . "</select></td></tr>
-			<tr><td>" . _('Forward SMS to email') . "</td><td></td><td><select name='up_fwd_to_email'>" . $option_fwd_to_email . "</select></td></tr>
-			<tr><td>" . _('Forward SMS to mobile') . "</td><td></td><td><select name='up_fwd_to_mobile'>" . $option_fwd_to_mobile . "</select></td></tr>
-			<tr><td>" . _('Local number length') . "</td><td></td><td><input type=text size=5 maxlength=5 name='up_local_length' value=\"$local_length\"> (" . _('Min length to detect missing country code') . ")</td></tr>
-			<tr><td>" . _('Prefix or country code') . "</td><td></td><td><input type=text size=5 maxlength=5 name='up_replace_zero' value=\"$replace_zero\"> (" . _('Replace prefix 0 or padding local numbers') . ")</td></tr>
-			<tr><td>" . _('Auto remove plus sign') . "</td><td></td><td><select name='up_plus_sign_remove'>" . $option_plus_sign_remove . "</select></td></tr>
-			<tr><td>" . _('Always add plus sign') . "</td><td></td><td><select name='up_plus_sign_add'>" . $option_plus_sign_add . "</select></td></tr>
-			<tr><td>" . _('Always choose to send as unicode') . "</td><td></td><td><select name='up_send_as_unicode'>" . $option_send_as_unicode . "</select></td></tr>
-			<tr><td colspan=3>&nbsp;</td></tr>
+			<tr><td>" . _('Forward SMS to inbox') . "</td><td><select name='up_fwd_to_inbox'>" . $option_fwd_to_inbox . "</select></td></tr>
+			<tr><td>" . _('Forward SMS to email') . "</td><td><select name='up_fwd_to_email'>" . $option_fwd_to_email . "</select></td></tr>
+			<tr><td>" . _('Forward SMS to mobile') . "</td><td><select name='up_fwd_to_mobile'>" . $option_fwd_to_mobile . "</select></td></tr>
+			<tr><td>" . _('Local number length') . "</td><td><input type=text size=5 maxlength=5 name='up_local_length' value=\"$local_length\"> (" . _('Min length to detect missing country code') . ")</td></tr>
+			<tr><td>" . _('Prefix or country code') . "</td><td><input type=text size=5 maxlength=5 name='up_replace_zero' value=\"$replace_zero\"> (" . _('Replace prefix 0 or padding local numbers') . ")</td></tr>
+			<tr><td>" . _('Auto remove plus sign') . "</td><td><select name='up_plus_sign_remove'>" . $option_plus_sign_remove . "</select></td></tr>
+			<tr><td>" . _('Always add plus sign') . "</td><td><select name='up_plus_sign_add'>" . $option_plus_sign_add . "</select></td></tr>
+			<tr><td>" . _('Always choose to send as unicode') . "</td><td><select name='up_send_as_unicode'>" . $option_send_as_unicode . "</select></td></tr>
+			<tr><td colspan=2>&nbsp;</td></tr>
 			<tr><td>
 				<input type=submit class=button value='" . _('Save') . "'>
 				".$button_delete."

@@ -78,11 +78,11 @@ switch ($op) {
 			<table width=100%>
 			<tbody>
 				<tr>
-					<td width=75>"._('Group name')."</td><td></td>
-					<td><input type=text name=group_name size=50></td>
+					<td width=270>"._('Group name')."</td>
+					<td><input type=text name=group_name size=30></td>
 				</tr>
 				<tr>
-					<td>"._('Group code')."</td><td></td>
+					<td>"._('Group code')."</td>
 					<td><input type=text name=group_code size=10> ("._('please use uppercase and make it short').")</td>
 				</tr>
 			</tbody>
@@ -104,11 +104,11 @@ switch ($op) {
 			<table width=100%>
 			<tbody>
 			<tr>
-				<td width=270>"._('Group name')."</td><td></td>
+				<td width=270>"._('Group name')."</td>
 				<td><input type=text name=group_name value=\"".phonebook_groupid2name($gpid)."\" size=50></td>
 			</tr>
 			<tr>
-				<td>"._('Group code')."</td><td></td>
+				<td>"._('Group code')."</td>
 				<td><input type=text name=group_code value=\"".phonebook_groupid2code($gpid)."\" size=10> ("._('please use uppercase and make it short').")</td>
 			</tr>
 			</tbody>
