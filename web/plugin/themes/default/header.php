@@ -21,7 +21,7 @@
 
 		<!-- left menu -->
 		<?php if (valid()) { ?>
-		<td style="vertical-align: top; width: 20%;">
+		<td style="vertical-align: top; width: 274px;">
 			<table style="vertical-align: top; width: 100%; height: 100%;">
 				<tbody>
 				<tr>
@@ -43,7 +43,7 @@
 		<?php } ?>
 
 		<!-- content -->
-		<td style="vertical-align: top; width: 80%;">
+		<td style="vertical-align: top; width: 750px;">
 			<table style="vertical-align: top; width: 100%; height: 100%">
 				<tbody>
 				<tr>

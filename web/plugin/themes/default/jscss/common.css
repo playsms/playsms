@@ -5,14 +5,16 @@ html {
 body {
 	font-family: Helvetica, Arial;
 	font-size: 12pt;
+	width: 100%;
 	min-height: 100%;
 	margin: 0px;
 	color: #FFF;
+	background-color: #ECF0F1;
 }
 
 .main {
 	text-align: center;
-	width: 100%;
+	width: 1024px;
 	height: 100%;
 	margin-left: auto;
 	margin-right: auto;
@@ -63,7 +65,7 @@ table thead, table th {
 	margin-bottom: 0px;
 }
 
-table.sortable thead, table.sortable th {
+table.sortable thead, table.sortable th, table.sortable_nosort thead, table.sortable_nosort th {
 	cursor: pointer;
 }
 
@@ -200,31 +202,40 @@ li {
 }
 
 #user_inbox_msg {
+	padding-bottom: 12px;
 	word-wrap: break-word;
 	width: 400px;
 }
 
 #user_incoming_msg {
+	padding-bottom: 12px;
 	word-wrap: break-word;
 	width: 260px;
 }
 
 #user_outgoing_msg {
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-bottom: 12px;
+	word-break:keep-all;
 	word-wrap: break-word;
-	width: 400px;
+	width: 28em;
 }
 
 #all_inbox_msg {
+	padding-bottom: 12px;
 	word-wrap: break-word;
 	width: 320px;
 }
 
 #all_incoming_msg {
+	padding-bottom: 12px;
 	word-wrap: break-word;
 	width: 190px;
 }
 
 #all_outgoing_msg {
+	padding-bottom: 12px;
 	word-wrap: break-word;
 	width: 220px;
 }
@@ -235,4 +246,18 @@ li {
 
 #searchbar {
 	border-spacing: 0;
+}
+
+#msg_label {
+	font-size: 11pt;
+	float: left;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+#msg_option {
+	font-size: 11pt;
+	text-align: right;
+	padding-left: 2px;
+	padding-right: 2px;
 }
