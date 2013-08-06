@@ -217,7 +217,6 @@ switch ($op) {
 			<tr><td>" . _('Always add plus sign') . "</td><td></td><td><select name='up_plus_sign_add'>" . $option_plus_sign_add . "</select></td></tr>
 			<tr><td>" . _('Always choose to send as unicode') . "</td><td></td><td><select name='up_send_as_unicode'>" . $option_send_as_unicode . "</select></td></tr>
 			<tr><td colspan=3>&nbsp;</td></tr>
-			<tr><td colspan=3></td></tr>
 			<tr><td>
 				<input type=submit class=button value='" . _('Save') . "'>
 				".$button_delete."
