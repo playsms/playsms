@@ -7,9 +7,8 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage SMS rate')."</h2>
 			<p>"._button('index.php?app=menu&inc=tools_simplerate&op=simplerate_add', _('Add rate'))."
-			<table cellpadding='1' cellspacing='2' border='0' width='100%' class=\"sortable\">
+			<table width='100%' class=\"sortable\">
 			<thead><tr>
-				<th width='4'>*</th>
 				<th width='50%'>"._('Destination')."</th>
 				<th width='20%'>"._('Prefix')."</th>
 				<th width='20%'>"._('Rate')."</th>
@@ -26,8 +25,7 @@ switch ($op) {
 			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete rate ?')." ("._('destination').": ".$db_row['dst'].", "._('prefix').": ".$db_row['prefix'].")','index.php?app=menu&inc=tools_simplerate&op=simplerate_del&rateid=".$db_row['id']."')\">$icon_delete</a>";
 			$content .= "
 				<tr>
-					<td class='$td_class'>&nbsp;$i.</td>
-					<td class='$td_class'>".$db_row['dst']."</td>
+					<td class='$td_class' align='center'>".$db_row['dst']."</td>
 					<td class='$td_class' align='center'>".$db_row['prefix']."</td>	
 					<td class='$td_class' align='center'>".$db_row['rate']."</td>	
 					<td class='$td_class' align='center'>$action</td>
@@ -35,7 +33,7 @@ switch ($op) {
 		}
 		$content .= "
 			</tbody></table>
-			<p>"._button('index.php?app=menu&inc=tools_simplerate&op=simplerate_add', _('Add rate'));
+			"._button('index.php?app=menu&inc=tools_simplerate&op=simplerate_add', _('Add rate'));
 		if ($err = $_SESSION['error_string']) {
 			echo "<div class=error_string>$err</div>";
 		}
@@ -64,18 +62,17 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage SMS rate')."</h2>
 			<h3>"._('Edit rate')."</h3>
-			<p>
 			<form action='index.php?app=menu&inc=tools_simplerate&op=simplerate_edit_save' method='post'>
 			<input type='hidden' name='rateid' value=\"$rateid\">
-			<table width='100%' cellpadding='1' cellspacing='2' border='0'>
+			<table width='100%'>
 			<tr>
-				<td width='100'>"._('Destination')."</td><td>:</td><td><input type='text' size='30' maxlength='30' name='up_dst' value=\"$dst\"></td>
+				<td width='270'>"._('Destination')."</td><td></td><td><input type='text' size='30' maxlength='30' name='up_dst' value=\"$dst\"></td>
 			</tr>
 			<tr>
-				<td>"._('Prefix')."</td><td>:</td><td><input type='text' size='10' maxlength='10' name='up_prefix' value=\"$prefix\"></td>
+				<td>"._('Prefix')."</td><td></td><td><input type='text' size='10' maxlength='10' name='up_prefix' value=\"$prefix\"></td>
 			</tr>
 			<tr>
-				<td>"._('Rate')."</td><td>:</td><td><input type='text' size='10' maxlength='10' name='up_rate' value=\"$rate\"></td>
+				<td>"._('Rate')."</td><td></td><td><input type='text' size='10' maxlength='10' name='up_rate' value=\"$rate\"></td>
 			</tr>
 			</table>	
 			<p><input type='submit' class='button' value='"._('Save')."'>
@@ -110,17 +107,16 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage SMS rate')."</h2>
 			<h3>"._('Add rate')."</h3>
-			<p>
 			<form action='index.php?app=menu&inc=tools_simplerate&op=simplerate_add_yes' method='post'>
-			<table width='100%' cellpadding='1' cellspacing='2' border='0'>
+			<table width='100%'>
 			<tr>
-				<td width='100'>"._('Destination')."</td><td width='5'>:</td><td><input type='text' size='30' maxlength='30' name='add_dst' value=\"$add_dst\"></td>
+				<td width='270'>"._('Destination')."</td><td></td><td><input type='text' size='30' maxlength='30' name='add_dst' value=\"$add_dst\"></td>
 			</tr>
 			<tr>
-				<td>"._('Prefix')."</td><td>:</td><td><input type='text' size='10' maxlength='10' name='add_prefix' value=\"$add_prefix\"></td>
+				<td>"._('Prefix')."</td><td></td><td><input type='text' size='10' maxlength='10' name='add_prefix' value=\"$add_prefix\"></td>
 			</tr>
 			<tr>
-				<td>"._('Rate')."</td><td>:</td><td><input type='text' size='10' maxlength='10' name='add_rate' value=\"$add_rate\"></td>
+				<td>"._('Rate')."</td><td></td><td><input type='text' size='10' maxlength='10' name='add_rate' value=\"$add_rate\"></td>
 			</tr>
 			</table>	
 			<p><input type='submit' class='button' value='"._('Save')."'>
