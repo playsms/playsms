@@ -15,14 +15,14 @@ if ($tid = $_REQUEST['tid']) {
 switch ($op) {
 	case "list":
 		$fm_name = "fm_smstemp";
+
 		$actions_box = "
-			<table width=100% cellpadding=0 cellspacing=0 border=0>
-			<tbody><tr>
-				<td>"._button('index.php?app=menu&inc=tools_msgtemplate&op=add', _('Add message template'))."</td>
-				<td width=100%>&nbsp;</td>
-				<td><input type=submit name=go value=\""._('Delete selection')."\" class=button onClick=\"return SureConfirm()\"/></td>
-			</tr></tbody>
-			</table>";
+			<div id=actions_box>
+			<div id=actions_box_left>"._button('index.php?app=menu&inc=tools_msgtemplate&op=add', _('Add message template'))."</div>
+			<div id=actions_box_center>&nbsp;</div>
+			<div id=actions_box_right><input type=submit name=go value=\""._('Delete selection')."\" class=button onClick=\"return SureConfirm()\"/></div>
+			</div>";
+
 		$content = "
 			<h2>"._('Message template')."</h2>
 			".$actions_box."

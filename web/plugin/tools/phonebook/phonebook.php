@@ -27,21 +27,18 @@ switch ($op) {
 		$list = dba_search(_DB_PREF_.'_toolsPhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
 
 		$actions_box = "
-			<table width=100%>
-			<tbody><tr>
-				<td><input type=button class=button value=\""._('Add contact')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&op=phonebook_add'\"></td>
-				<td><input type=button class=button value=\""._('Group')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&route=group&op=list'\"></td>
-				<td><input type=button class=button value=\""._('Import')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&route=import&op=list'\"></td>
-				<td><input type=submit name=go value=\""._('Export')."\" class=button /></td>
-				<td width=100%>&nbsp;</td>
-				<td><input type=submit name=go value=\""._('Delete selection')."\" class=button onClick=\"return SureConfirm()\"/></td>
-			</tr></tbody>
-			</table>";
+			<div id=actions_box>
+			<div id=actions_box_left><input type=button class=button value=\""._('Add contact')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&op=phonebook_add'\"></div>
+			<div id=actions_box_center>".$nav['form']."</div>
+			<div id=actions_box_right><input type=submit name=go value=\""._('Delete selection')."\" class=button onClick=\"return SureConfirm()\"/></div>
+			</div>";
 
 		$content = "
 			<h2>"._('Phonebook')."</h2>
+			<input type=button class=button value=\""._('Group')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&route=group&op=list'\">
+			<input type=button class=button value=\""._('Import')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&route=import&op=list'\">
+			<input type=button class=button value=\""._('Export')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&op=actions&go="._('Export')."'\">
 			<p>".$search['form']."</p>
-			<p>".$nav['form']."</p>
 			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=tools_phonebook&op=actions\" method=post>
 			".$actions_box."
 			<table width=100% class=\"sortable\">
@@ -84,7 +81,6 @@ switch ($op) {
 			</tbody>
 			</table>
 			".$actions_box."
-			<p>".$nav['form']."</p>
 			</form>";
 
 		if ($err = $_SESSION['error_string']) {

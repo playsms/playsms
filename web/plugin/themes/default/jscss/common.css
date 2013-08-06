@@ -72,7 +72,7 @@ table.sortable thead, table.sortable th, table.sortable_nosort thead, table.sort
 	cursor: pointer;
 }
 
-span,div,p,br {
+span,div {
 	font-weight: normal;
 	color: #FFF;
 	/* background-color: ; */
@@ -303,4 +303,8 @@ li {
 
 #search_box_input {
 	text-align: left;
+}
+
+#button_back input {
+	margin: 20px 0 0 1px;
 }

@@ -100,7 +100,7 @@ function themes_search_session() {
 }
 
 function themes_button_back($url) {
-	$content = "<input type=button class=button value=\""._('Back')."\" onClick=\"javascript:window.location.href='".$url."'\">";
+	$content = themes_button($url, _('Back'), 'button_back');
 	return $content;
 }
 
@@ -118,8 +118,8 @@ function _a($url, $title='') {
 	return themes_link($url, $title);
 }
 
-function themes_button($url, $title) {
-	$content = "<input type=button class=button value=\"".$title."\" onClick=\"javascript:window.location.href='".$url."'\" />";
+function themes_button($url, $title, $class='buttons') {
+	$content = "<div id=\"".$class."\"><input type=button class=button value=\"".$title."\" onClick=\"javascript:window.location.href='".$url."'\" /></div>";
 	return $content;
 }
 
