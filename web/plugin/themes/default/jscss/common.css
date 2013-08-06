@@ -204,13 +204,13 @@ li {
 #user_inbox_msg {
 	padding-bottom: 12px;
 	word-wrap: break-word;
-	width: 400px;
+	width: 28em;
 }
 
 #user_incoming_msg {
 	padding-bottom: 12px;
 	word-wrap: break-word;
-	width: 260px;
+	width: 19em;
 }
 
 #user_outgoing_msg {

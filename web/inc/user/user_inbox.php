@@ -31,10 +31,9 @@ switch ($op) {
 			<table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
 			<thead>
 			<tr>
-				<th align=center width=10%>*</th>
 				<th align=center width=30%>"._('From')."</th>
-				<th align=center width=60%>"._('Message')."</th>
-				<th width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></td>
+				<th align=center width=65%>"._('Message')."</th>
+				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></td>
 			</tr>
 			</thead>
 			<tbody>";
@@ -59,15 +58,14 @@ switch ($op) {
 				$reply = _a('index.php?app=menu&inc=send_sms&op=sendsmstopv&do=reply&message='.urlencode($msg).'&to='.urlencode($in_sender), _('reply'));
 				$forward = _a('index.php?app=menu&inc=send_sms&op=sendsmstopv&do=forward&message='.urlencode($msg), _('forward'));
 			}
-			$c_message = $in_datetime."<p id=\"user_inbox_msg\">".$in_msg."</p>".$reply." ".$forward."";
+			$c_message = "<div id=\"user_inbox_msg\">".$in_msg."</div><div id=\"msg_label\">".$in_datetime."&nbsp;".$in_status."</div><div id=\"msg_option\">".$reply."&nbsp".$forward."</div>";
 			$i--;
 			$td_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
 				<tr>
-					<td valign=top class=$td_class align=center>$i.</td>
 					<td valign=top class=$td_class align=center>$current_sender</td>
 					<td valign=top class=$td_class align=left>$c_message</td>
-					<td valign=top class=$td_class width=4>
+					<td valign=top class=$td_class align=center>
 						<input type=hidden name=itemid".$j." value=\"$in_id\">
 						<input type=checkbox name=checkid".$j.">
 					</td>
