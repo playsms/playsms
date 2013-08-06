@@ -143,7 +143,7 @@ button,.button {
 	border: 0;
 	cursor: pointer;
 	text-decoration: none;
-	padding: 6px 30px 6px 30px;
+	padding: 6px 20px 6px 20px;
 	-webkit-transition: background-color 0.5s ease;
 	-moz-transition: background-color 0.5s ease;
 	-o-transition: background-color 0.5s ease;
