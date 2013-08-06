@@ -148,27 +148,27 @@ li {
 }
 
 .color_red {
-	color: red
+	color: #E74C3C;
 }
 
 .color_green {
-	color: green
+	color: #2ECC71;
 }
 
 .color_blue {
-	color: blue
+	color: #3498DB;
 }
 
 .color_black {
-	color: black
+	color: #000;
 }
 
 .color_white {
-	color: white
+	color: #FFF;
 }
 
 .color_gray {
-	color: gray
+	color: #BDC3C7;
 }
 
 .row_odd {
