@@ -19,7 +19,7 @@ switch ($op) {
 			<div id=actions_box>
 			<div id=actions_box_left><input type=button class=button value=\""._('Add group')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&route=group&op=add'\"></div>
 			<div id=actions_box_center>".$nav['form']."</div>
-			<div id=actions_box_right><input type=submit name=go value=\""._('Delete selection')."\" class=button onClick=\"return SureConfirm()\"/></div>
+			<div id=actions_box_right><input type=submit name=go value=\""._('Delete')."\" class=button onClick=\"return SureConfirm()\"/></div>
 			</div>";
 
 		$content = "
@@ -127,7 +127,7 @@ switch ($op) {
 		$search = themes_search_session();
 		$go = $_REQUEST['go'];
 		switch ($go) {
-			case _('Delete selection'):
+			case _('Delete'):
 				for ($i=0;$i<$nav['limit'];$i++) {
 					$checkid = $_POST['checkid'.$i];
 					$itemid = $_POST['itemid'.$i];

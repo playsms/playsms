@@ -18,7 +18,7 @@ switch ($op) {
 			<div id=actions_box>
 			<div id=actions_box_left><input type=submit name=go value=\""._('Export')."\" class=button /></div>
 			<div id=actions_box_center>".$nav['form']."</div>
-			<div id=actions_box_right><input type=submit name=go value=\""._('Delete selection')."\" class=button /></div>
+			<div id=actions_box_right><input type=submit name=go value=\""._('Delete')."\" class=button /></div>
 			</div>";
 
 		$content = "
@@ -102,7 +102,7 @@ switch ($op) {
 				$fn = 'user_inbox-'.$core_config['datetime']['now_stamp'].'.csv';
 				download($content, $fn, 'text/csv');
 				break;
-			case _('Delete selection'):
+			case _('Delete'):
 				for ($i=0;$i<$nav['limit'];$i++) {
 					$checkid = $_POST['checkid'.$i];
 					$itemid = $_POST['itemid'.$i];

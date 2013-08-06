@@ -20,7 +20,7 @@ switch ($op) {
 			<div id=actions_box>
 			<div id=actions_box_left>"._button('index.php?app=menu&inc=tools_msgtemplate&op=add', _('Add message template'))."</div>
 			<div id=actions_box_center>&nbsp;</div>
-			<div id=actions_box_right><input type=submit name=go value=\""._('Delete selection')."\" class=button onClick=\"return SureConfirm()\"/></div>
+			<div id=actions_box_right><input type=submit name=go value=\""._('Delete')."\" class=button onClick=\"return SureConfirm()\"/></div>
 			</div>";
 
 		$content = "
@@ -146,7 +146,7 @@ switch ($op) {
 				header("Location: index.php?app=menu&inc=tools_msgtemplate&op=list");
 				exit();
 				break;
-			case _('Delete selection'):
+			case _('Delete'):
 				$item_count = $_POST['item_count'];
 				for ($i=1;$i<=$item_count;$i++) {
 					$chkid[$i] = $_POST['chkid'.$i];
