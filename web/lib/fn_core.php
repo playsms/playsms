@@ -89,7 +89,7 @@ function str2hex($string)  {
  *    formatted text
  */
 function core_display_text($text, $len=0) {
-	$text = htmlspecialchars($text);
+	$text = strip_tags($text);
 	if ($len) {
 		$text = substr($text, 0, $len).'..';
 	}
