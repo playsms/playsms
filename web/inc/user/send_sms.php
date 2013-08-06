@@ -102,7 +102,7 @@ switch ($op) {
 
 		$content .= "
 			<p>
-			<table cellpadding=1 cellspacing=0 border=0>
+			<table>
 			<tbody>
 			<tr>
 				<td nowrap>

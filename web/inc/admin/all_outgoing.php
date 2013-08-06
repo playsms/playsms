@@ -17,7 +17,7 @@ switch ($op) {
 		$list = dba_search($table.' AS A', '*', $conditions, $keywords, $extras, $join);
 
 		$actions_box = "
-			<table width=100% cellpadding=0 cellspacing=0 border=0>
+			<table width=100%>
 			<tbody><tr>
 				<td><input type=submit name=go value=\""._('Export')."\" class=button /></td>
 				<td width=100%>".$nav['form']."</td>
@@ -30,7 +30,7 @@ switch ($op) {
 			<p>".$search['form']."</p>
 			<form name=\"fm_outgoing\" action=\"index.php?app=menu&inc=all_outgoing&op=actions\" method=post onSubmit=\"return SureConfirm()\">
 			".$actions_box."
-			<table width=100% border=0 class=\"sortable\">
+			<table width=100% class=\"sortable\">
 			<thead>
 			<tr>
 				<th align=center width=20%>"._('User')."</th>

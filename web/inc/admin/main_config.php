@@ -53,46 +53,46 @@ switch ($op) {
 		<h2>"._('Main configuration')."</h2>
 		<p>
 		<form action='index.php?app=menu&inc=main_config&op=main_config_save' method='post'>
-		<table width='100%' cellpadding='1' cellspacing='2' border='0'>
+		<table width=100%>
 		<tbody>
 		<tr>
-			<td width='270'>"._('Website title')."</td><td width='5'>:</td><td><input type='text' size='50' name='edit_web_title' value=\"$web_title\"></td>
+			<td width='270'>"._('Website title')."</td><td width='5'></td><td><input type='text' size='50' name='edit_web_title' value=\"$web_title\"></td>
 		</tr>
 		<tr>
-			<td>"._('Website email')."</td><td>:</td><td><input type='text' size='30' name='edit_email_service' value=\"$email_service\"></td>
+			<td>"._('Website email')."</td><td></td><td><input type='text' size='30' name='edit_email_service' value=\"$email_service\"></td>
 		</tr>
 		<tr>
-			<td>"._('Forwarded email footer')."</td><td>:</td><td><input type='text' size='50' name='edit_email_footer' value=\"$email_footer\"></td>
+			<td>"._('Forwarded email footer')."</td><td></td><td><input type='text' size='50' name='edit_email_footer' value=\"$email_footer\"></td>
 		</tr>
 		<tr>
-			<td>"._('Default sender ID')."</td><td>:</td><td><input type='text' size='20' name='edit_gateway_number' value=\"$gateway_number\"></td>
+			<td>"._('Default sender ID')."</td><td></td><td><input type='text' size='20' name='edit_gateway_number' value=\"$gateway_number\"></td>
 		</tr>
 		<tr>
-			<td>"._('Default timezone')."</td><td>:</td><td><input type='text' size='5' maxlength='5' name='edit_gateway_timezone' value=\"$gateway_timezone\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td>
+			<td>"._('Default timezone')."</td><td></td><td><input type='text' size='5' maxlength='5' name='edit_gateway_timezone' value=\"$gateway_timezone\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td>
 		</tr>
 		<tr>
-			<td>"._('Default SMS rate')."</td><td>:</td><td><input type='text' size='20' name='edit_default_rate' value=\"$default_rate\"></td>
+			<td>"._('Default SMS rate')."</td><td></td><td><input type='text' size='20' name='edit_default_rate' value=\"$default_rate\"></td>
 		</tr>
 		<tr>
-			<td>"._('Maximum SMS count')."</td><td>:</td><td><input type='text' size='2' maxlength='2' name='edit_sms_max_count' value=\"$sms_max_count\"></td>
+			<td>"._('Maximum SMS count')."</td><td></td><td><input type='text' size='2' maxlength='2' name='edit_sms_max_count' value=\"$sms_max_count\"></td>
 		</tr>
 		<tr>
-			<td>"._('Default credit for user')."</td><td>:</td><td><input type='text' size='20' name='edit_default_credit' value=\"$default_credit\"></td>
+			<td>"._('Default credit for user')."</td><td></td><td><input type='text' size='20' name='edit_default_credit' value=\"$default_credit\"></td>
 		</tr>
 		<tr>
-			<td>"._('Enable public registration')."</td><td>:</td><td><select name='edit_enable_register'>$option_enable_register</select></td>
+			<td>"._('Enable public registration')."</td><td></td><td><select name='edit_enable_register'>$option_enable_register</select></td>
 		</tr>
 		<tr>
-			<td>"._('Enable forgot password')."</td><td>:</td><td><select name='edit_enable_forgot'>$option_enable_forgot</select></td>
+			<td>"._('Enable forgot password')."</td><td></td><td><select name='edit_enable_forgot'>$option_enable_forgot</select></td>
 		</tr>
 		<tr>
-			<td>"._('Active gateway module')."</td><td>:</td><td><select name='edit_gateway_module'>$option_gateway_module</select></td>
+			<td>"._('Active gateway module')."</td><td></td><td><select name='edit_gateway_module'>$option_gateway_module</select></td>
 		</tr>
 		<tr>
-			<td>"._('Active themes')."</td><td>:</td><td><select name='edit_themes_module'>$option_themes_module</select></td>
+			<td>"._('Active themes')."</td><td></td><td><select name='edit_themes_module'>$option_themes_module</select></td>
 		</tr>
 		<tr>
-			<td>Default language</td><td>:</td><td><select name='edit_language_module'>$option_language_module</select></td>
+			<td>Default language</td><td></td><td><select name='edit_language_module'>$option_language_module</select></td>
 		</tr>
 		</tbody>
 		</table>

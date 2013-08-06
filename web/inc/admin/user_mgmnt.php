@@ -27,13 +27,12 @@ switch ($op) {
 		}
 		$content .= "
 			<h2>" . _('Manage user') . "</h2>
-			<p>
+			<h3>" . _('Administrator') . "</h3>
 			<input type='button' value='" . _('Add user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
 			<input type='button' value='" . _('View normal user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab2')\" class=\"button\" />
 			<p>".$search['form']."</p>
-			<p>".$nav['form']."</p>
-			<p>" . _('Status') . ": " . _('Administrator') . "<br>
-			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
+			<table width=100%><tbody><tr><td>".$nav['form']."</td></tr></tbody></table>
+			<table width=100% class=\"sortable\">
 			<thead><tr>
 				<th width='20%'>" . _('Registered') . "</th>
 				<th width='20%'>" . _('Username') . "</th>
@@ -61,7 +60,7 @@ switch ($op) {
 		}
 		$content .= "
 			</tbody></table>
-			<p>".$nav['form']."</p>";
+			<table width=100%><tbody><tr><td>".$nav['form']."</td></tr></tbody></table>";
 		echo $content;
 		break;
 	case "user_list_tab2":
@@ -84,13 +83,12 @@ switch ($op) {
 		}
 		$content .= "
 			<h2>" . _('Manage user') . "</h2>
-			<p>
+			<h3>" . _('Normal user') . "</h3>
 			<input type='button' value='" . _('Add user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
 			<input type='button' value='" . _('View administrator') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab1')\" class=\"button\" />
 			<p>".$search['form']."</p>
-			<p>".$nav['form']."</p>
-			<p>" . _('Status') . ": " . _('Normal user') . "<br>
-			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
+			<table width=100%><tbody><tr><td>".$nav['form']."</td></tr></tbody></table>
+			<table width=100% class=\"sortable\">
 			<thead><tr>
 				<th width='20%'>" . _('Registered') . "</th>
 				<th width='20%'>" . _('Username') . "</th>
@@ -119,7 +117,7 @@ switch ($op) {
 		}
 		$content .= "
 			</tbody></table>
-			<p>".$nav['form']."</p>";
+			<table width=100%><tbody><tr><td>".$nav['form']."</td></tr></tbody></table>";
 		echo $content;
 		break;
 	case "user_del":
@@ -171,7 +169,7 @@ switch ($op) {
 		<h2>" . _('Add user') . "</h2>
 		<p>
 		<form action='index.php?app=menu&inc=user_mgmnt&op=user_add_yes' method='post'>
-		<table width='100%' cellpadding='1' cellspacing='2' border='0'>
+		<table width=100%>
 		<tbody>
 		<tr>
 			<td width='270'>" . _('Username') . " $nd</td><td width='5'>:</td><td><input type='text' size='30' maxlength='30' name='add_username' value=\"$add_username\"></td>

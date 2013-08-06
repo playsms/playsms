@@ -38,7 +38,7 @@ a:hover {
 	text-decoration: underline;
 }
 
-table,p,br,tr {
+table,tr {
 	border-spacing: 0;
 	border-collapse: collapse;
 	font-weight: normal;
@@ -69,7 +69,7 @@ table.sortable thead, table.sortable th, table.sortable_nosort thead, table.sort
 	cursor: pointer;
 }
 
-div {
+span,div,p,br {
 	font-weight: normal;
 	color: #FFF;
 	/* background-color: ; */
@@ -110,7 +110,9 @@ input,select,option,textarea {
 	font-weight: normal;
 	color: #738384;
 	background-color: #ECF0F1;
-	border: 1px solid #ECF0F1;
+	border: 0px solid #ECF0F1;
+	margin-left: -1px;
+	padding-left: 1px;
 }
 
 button,.button {
@@ -121,6 +123,7 @@ button,.button {
 	cursor: pointer;
 	text-decoration: none;
 	padding: 2px 20px 2px 20px;
+	margin: 5px -1px 5px -1px;
 }
 
 li {

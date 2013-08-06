@@ -15,7 +15,7 @@ switch ($op) {
 		$list = dba_search(_DB_PREF_.'_tblUserInbox', '*', $conditions, $keywords, $extras);
 
 		$actions_box = "
-			<table width=100% cellpadding=0 cellspacing=0 border=0>
+			<table width=100%>
 			<tbody><tr>
 				<td><input type=submit name=go value=\""._('Export')."\" class=button /></td>
 				<td width=100%>".$nav['form']."</td>
@@ -28,7 +28,7 @@ switch ($op) {
 			<p>".$search['form']."</p>
 			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=user_inbox&op=actions\" method=post onSubmit=\"return SureConfirm()\">
 			".$actions_box."
-			<table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
+			<table width=100% class=\"sortable\">
 			<thead>
 			<tr>
 				<th align=center width=30%>"._('From')."</th>
