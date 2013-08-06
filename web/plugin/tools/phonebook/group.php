@@ -16,7 +16,7 @@ switch ($op) {
 		$list = dba_search(_DB_PREF_.'_toolsPhonebook_group', $fields, $conditions, $keywords, $extras);
 
 		$actions_box = "
-			<table width=100% cellpadding=0 cellspacing=0 border=0>
+			<table width=100%>
 			<tbody><tr>
 				<td><input type=button class=button value=\""._('Add group')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&route=group&op=add'\"></td>
 				<td width=100%>&nbsp;</td>
@@ -31,13 +31,12 @@ switch ($op) {
 			<p>".$nav['form']."</p>
 			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=tools_phonebook&route=group&op=actions\" method=post>
 			".$actions_box."
-			<table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
+			<table width=100% class=\"sortable\">
 			<thead>
 			<tr>
-				<th align=center width=10%>*</th>
 				<th align=center width=60%>"._('Name')."</th>
-				<th align=center width=30%>"._('Code')."</th>
-				<th width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></td>
+				<th align=center width=35%>"._('Code')."</th>
+				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></td>
 			</tr>
 			</thead>
 			<tbody>";
@@ -52,10 +51,9 @@ switch ($op) {
 			$c_i = "<a href=\"index.php?app=menu&inc=tools_phonebook&route=group&op=edit&gpid=".$gpid."\">".$i.".</a>";
 			$content .= "
 				<tr>
-					<td valign=top class=$td_class align=center>$c_i</td>
 					<td valign=top class=$td_class align=center>$name</td>
 					<td valign=top class=$td_class align=center>$code</td>
-					<td class=$td_class width=4>
+					<td valign=top class=$td_class align=center>
 						<input type=hidden name=itemid".$j." value=\"".$gpid."\">
 						<input type=checkbox name=checkid".$j.">
 					</td>
@@ -80,14 +78,14 @@ switch ($op) {
 			<h3>"._('Add group')."</h3>
 			<p>
 			<form action=\"index.php?app=menu&inc=tools_phonebook&route=group&op=actions&go=add\" method=POST>
-			<table width=100% cellpadding=1 cellspacing=2 border=0>
+			<table width=100%>
 			<tbody>
 				<tr>
-					<td width=75>"._('Group name')."</td><td width=5>:</td>
+					<td width=75>"._('Group name')."</td><td></td>
 					<td><input type=text name=group_name size=50></td>
 				</tr>
 				<tr>
-					<td>"._('Group code')."</td><td>:</td>
+					<td>"._('Group code')."</td><td></td>
 					<td><input type=text name=group_code size=10> ("._('please use uppercase and make it short').")</td>
 				</tr>
 			</tbody>
@@ -106,14 +104,14 @@ switch ($op) {
 			<p>
 			<form action=\"index.php?app=menu&inc=tools_phonebook&route=group&op=actions&go=edit\" method=POST>
 			<input type=hidden name=gpid value=\"$gpid\">
-			<table width=100% cellpadding=1 cellspacing=2 border=0>
+			<table width=100%>
 			<tbody>
 			<tr>
-				<td width=75>"._('Group name')."</td><td width=5>:</td>
+				<td width=270>"._('Group name')."</td><td></td>
 				<td><input type=text name=group_name value=\"".phonebook_groupid2name($gpid)."\" size=50></td>
 			</tr>
 			<tr>
-				<td>"._('Group code')."</td><td>:</td>
+				<td>"._('Group code')."</td><td></td>
 				<td><input type=text name=group_code value=\"".phonebook_groupid2code($gpid)."\" size=10> ("._('please use uppercase and make it short').")</td>
 			</tr>
 			</tbody>

@@ -27,7 +27,7 @@ switch ($op) {
 		$list = dba_search(_DB_PREF_.'_toolsPhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
 
 		$actions_box = "
-			<table width=100% cellpadding=0 cellspacing=0 border=0>
+			<table width=100%>
 			<tbody><tr>
 				<td><input type=button class=button value=\""._('Add contact')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&op=phonebook_add'\"></td>
 				<td><input type=button class=button value=\""._('Group')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&route=group&op=list'\"></td>
@@ -44,15 +44,14 @@ switch ($op) {
 			<p>".$nav['form']."</p>
 			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=tools_phonebook&op=actions\" method=post>
 			".$actions_box."
-			<table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
+			<table width=100% class=\"sortable\">
 			<thead>
 			<tr>
-				<th align=center width=10%>*</th>
 				<th align=center width=25%>"._('Name')."</th>
 				<th align=center width=25%>"._('Mobile')."</th>
 				<th align=center width=30%>"._('Email')."</th>
-				<th align=center width=10%>"._('Group code')."</th>
-				<th width=4 class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></td>
+				<th align=center width=15%>"._('Group code')."</th>
+				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></td>
 			</tr>
 			</thead>
 			<tbody>";
@@ -70,12 +69,11 @@ switch ($op) {
 			$c_i = "<a href=\"index.php?app=menu&inc=tools_phonebook&op=phonebook_edit&id=".$pid."\">".$i.".</a>";
 			$content .= "
 				<tr>
-					<td valign=top class=$td_class align=center>$c_i</td>
 					<td valign=top class=$td_class align=center>$name</td>
 					<td valign=top class=$td_class align=center>$mobile</td>
 					<td valign=top class=$td_class align=center>$email</td>
 					<td valign=top class=$td_class align=center>$group_code</td>
-					<td class=$td_class width=4>
+					<td valign=top class=$td_class align=center>
 						<input type=hidden name=itemid".$j." value=\"$pid\">
 						<input type=checkbox name=checkid".$j.">
 					</td>
@@ -107,12 +105,12 @@ switch ($op) {
 			<h3>"._('Add contact')."</h3>
 			<p>
 			<form action=\"index.php?app=menu&inc=tools_phonebook&op=actions&go=add\" name=fm_addphone method=POST>
-			<table width=100% cellpadding=1 cellspacing=2 border=0>
+			<table width=100%>
 			<tbody>
-			<tr><td width=100>"._('Group')."</td><td width=5>:</td><td><select name=gpid>$list_of_group</select></td></tr>
-			<tr><td>"._('Name')."</td><td>:</td><td><input type=text name=name size=30></td></tr>
-			<tr><td>"._('Mobile')."</td><td>:</td><td><input type=text name=mobile value=\"".$phone."\" size=30></td></tr>
-			<tr><td>"._('Email')."</td><td>:</td><td><input type=text name=email size=30></td></tr>
+			<tr><td width=270>"._('Group')."</td><td width=5></td><td><select name=gpid>$list_of_group</select></td></tr>
+			<tr><td>"._('Name')."</td><td></td><td><input type=text name=name size=30></td></tr>
+			<tr><td>"._('Mobile')."</td><td></td><td><input type=text name=mobile value=\"".$phone."\" size=30></td></tr>
+			<tr><td>"._('Email')."</td><td></td><td><input type=text name=email size=30></td></tr>
 			</tbody>
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
@@ -139,12 +137,12 @@ switch ($op) {
 			<p>
 			<form action=\"index.php?app=menu&inc=tools_phonebook&op=actions&go=edit\" name=fm_addphone method=POST>
 			<input type=hidden name=id value=\"".$id."\">
-			<table width=100% cellpadding=1 cellspacing=2 border=0>
+			<table width=100%>
 			<tbody>
-			<tr><td width=100>"._('Group')."</td><td width=5>:</td><td><select name=gpid>$list_of_group</select></td></tr>
-			<tr><td>"._('Name')."</td><td>:</td><td><input type=text name=name value=\"".$list[0]['name']."\" size=30></td></tr>
-			<tr><td>"._('Mobile')."</td><td>:</td><td><input type=text name=mobile value=\"".$list[0]['mobile']."\" size=30></td></tr>
-			<tr><td>"._('Email')."</td><td>:</td><td><input type=text name=email value=\"".$list[0]['email']."\" size=30></td></tr>
+			<tr><td width=100>"._('Group')."</td><td width=5></td><td><select name=gpid>$list_of_group</select></td></tr>
+			<tr><td>"._('Name')."</td><td></td><td><input type=text name=name value=\"".$list[0]['name']."\" size=30></td></tr>
+			<tr><td>"._('Mobile')."</td><td></td><td><input type=text name=mobile value=\"".$list[0]['mobile']."\" size=30></td></tr>
+			<tr><td>"._('Email')."</td><td></td><td><input type=text name=email value=\"".$list[0]['email']."\" size=30></td></tr>
 			</tbody>
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
