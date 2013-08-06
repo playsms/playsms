@@ -27,9 +27,9 @@
 				<tr>
 					<td style="background-color: #2C3E50; vertical-align: top; padding: 10px; height: 100px;">
 						<img style="float: left; padding-right: 10px;" src="<?php echo $core_config['user']['opt']['gravatar']; ?>">
-						<p><?php echo $name; ?><br />
-						<?php echo $username; ?><br /><br />
-						<a href="index.php?app=page&op=auth_logout"><?php echo _('Logout'); ?></a></p>
+						<div><?php echo $name; ?></div>
+						<div><?php echo $username; ?><br /></div>
+						<div style='padding-top: 1em;'><a href="index.php?app=page&op=auth_logout"><?php echo _('Logout'); ?></a></div>
 					</td>
 				</tr>
 				<tr>
