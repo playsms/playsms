@@ -179,16 +179,15 @@ switch ($op) {
 			$option_credit = "<tr><td width=270>" . _('Credit') . "</td><td></td><td>$credit</td></tr>";
 		}
 		$content .= "
-			<p>
 			<form action=\"index.php?app=menu&inc=user_pref&op=user_pref_save".$url_uname."\" method=post enctype=\"multipart/form-data\">
 			<table width=100%>
 			<tbody>
-			<tr><td colspan=3><h2>" . _('Login information') . "</h2></td></tr>
+			<tr><td colspan=3><h3>" . _('Login information') . "</h3></td></tr>
 			<tr><td width=270>" . _('Username') . "</td><td></td><td>".$c_username."</td></tr>
 			<tr><td width=270>" . _('Password') . "</td><td></td><td><input type=password size=30 maxlength=30 name=up_password></td></tr>
 			<tr><td width=270>" . _('Re-type password') . "</td><td></td><td><input type=password size=30 maxlength=30 name=up_password_conf></td></tr>
 			<tr><td colspan=3>&nbsp;</td></tr>
-			<tr><td colspan=3><h2>" . _('Personal information') . "</h2></td></tr>
+			<tr><td colspan=3><h3>" . _('Personal information') . "</h3></td></tr>
 			<tr><td width=270>" . _('Name') . " $nd</td><td></td><td><input type=text size=30 maxlength=100 name=up_name value=\"$name\"></td></tr>
 			<tr><td width=270>" . _('Email') . " $nd</td><td></td><td><input type=text size=30 maxlength=30 name=up_email value=\"$email\"></td></tr>
 			<tr><td width=270>" . _('Mobile') . "</td><td></td><td><input type=text size=16 maxlength=16 name=up_mobile value=\"$mobile\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td></tr>
@@ -199,7 +198,7 @@ switch ($op) {
 			<tr><td width=270>" . _('Zipcode') . "</td><td></td><td><input type=text size=10 maxlength=10 name=up_zipcode value=\"$zipcode\"></td></tr>
 			<tr><td width=270>Active language</td><td></td><td><select name=up_language_module>$option_language_module</select></td></tr>
 			<tr><td colspan=3>&nbsp;</td></tr>
-			<tr><td colspan=3><h2>" . _('Application options') . "</h2></td></tr>
+			<tr><td colspan=3><h3>" . _('Application options') . "</h3></td></tr>
 			<tr><td width=270>" . _('Webservices username') . "</td><td></td><td>".$c_username."</td></tr>
 			<tr><td width=270>" . _('Webservices token') . "</td><td></td><td>".$token."</td></tr>
 			<tr><td width=270>" . _('New webservices token') . "</td><td></td><td><select name='up_new_token'>" . $option_new_token . "</select></td></tr>
