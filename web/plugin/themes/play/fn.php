@@ -77,7 +77,7 @@ function play_hook_themes_navbar($num, $nav, $max_nav, $url, $page) {
 		for($i=$nav_start;$i<=$nav_end;$i++) {
 			if($i>$num){ break; };
 			if ($i == $page) {
-				$nav_pages .= "$i ";
+				$nav_pages .= "<u>$i</u> ";
 			} else {
 				$nav_pages .= "<a href='".$url."&page=".$i."&nav=".$nav."'>".$i."</a> ";
 			}
