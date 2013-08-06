@@ -83,6 +83,13 @@ function themes_search($search_category=array(), $url='') {
 			<td><input type='text' name='search_keyword' value='".$ret['keyword']."' size='30' maxlength='30' onEnter='document.searchbar.submit();'><td></td>
 		</tr></tbody></table>
 		</form>";
+	$content = "
+		<form action='".$ret['url']."' method='POST'>
+		<div id=search_box>
+			<div id=search_box_select><select name='search_category'>".$option_search_category."</select></div>
+			<div id=search_box_input><input type='text' name='search_keyword' value='".$ret['keyword']."' size='30' maxlength='30' onEnter='document.searchbar.submit();'></div>
+		</div>
+		</form>";
 	$ret['form'] = $content;
 	$_SESSION['tmp']['themes_search'] = $ret;
 	return $ret;

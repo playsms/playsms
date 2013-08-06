@@ -44,6 +44,7 @@ table,tr {
 	font-weight: normal;
 	color: #FFF;
 	/* background-color: ; */
+	margin: 0 0 0 1px;
 }
 
 table.main {
@@ -53,7 +54,7 @@ table.main {
 }
 
 table tbody, table td {
-	padding: 0px;
+	padding: 5px;
 	margin: 0px;
 	/* color: #FFF; */
 	/* background-color: ; */
@@ -112,7 +113,7 @@ input,select,option,textarea {
 	font-weight: normal;
 	color: #738384;
 	background-color: #ECF0F1;
-	border: 0px solid #ECF0F1;
+	border: 1px solid #ECF0F1;
 	padding-left: 5px;
 }
 
@@ -247,10 +248,6 @@ li {
 	text-align: center;
 }
 
-#searchbar {
-	border-spacing: 0;
-}
-
 #msg_label {
 	font-size: 11pt;
 	padding-left: 2px;
@@ -264,4 +261,46 @@ li {
 	padding-left: 2px;
 	padding-right: 2px;
 	padding-bottom: 12px;
+}
+
+#actions_box {
+	margin: 1px 0px 5px -1px;
+	padding: 0;
+	width: 100%;
+}
+
+#actions_box_left {
+	text-align: left;
+	float: left;
+	width: 25%;
+}
+
+#actions_box_center {
+	text-align: center;
+	float: left;
+	width: 50%;
+	padding: 4px 0 0 0;
+}
+
+#actions_box_right {
+	text-align: right;
+	float: left;
+	width: 25%;
+}
+
+#actions_box_right input {
+	margin-right: -3px;
+}
+
+#search_box {
+	text-align: left;
+}
+
+#search_box_select {
+	float: left;
+	text-align: left;
+}
+
+#search_box_input {
+	text-align: left;
 }
