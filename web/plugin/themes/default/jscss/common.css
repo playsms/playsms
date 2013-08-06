@@ -39,14 +39,14 @@ a:hover {
 }
 
 table,p,br,tr {
+	border-spacing: 0;
+	border-collapse: collapse;
 	font-weight: normal;
 	color: #FFF;
 	/* background-color: ; */
 }
 
 table.main {
-	border-spacing: 2;
-	border-collapse: collapse;
 	text-align: left;
 	width: 100%;
 	margin: 0px;
@@ -225,19 +225,19 @@ li {
 #all_inbox_msg {
 	padding-bottom: 12px;
 	word-wrap: break-word;
-	width: 320px;
+	width: 21em;
 }
 
 #all_incoming_msg {
 	padding-bottom: 12px;
 	word-wrap: break-word;
-	width: 190px;
+	width: 12em;
 }
 
 #all_outgoing_msg {
 	padding-bottom: 12px;
 	word-wrap: break-word;
-	width: 220px;
+	width: 14em;
 }
 
 #navbar {
@@ -250,14 +250,15 @@ li {
 
 #msg_label {
 	font-size: 11pt;
-	float: left;
 	padding-left: 2px;
 	padding-right: 2px;
+	/* float: left; */
 }
 
 #msg_option {
 	font-size: 11pt;
-	text-align: right;
+	text-align: left;
 	padding-left: 2px;
 	padding-right: 2px;
+	padding-bottom: 12px;
 }

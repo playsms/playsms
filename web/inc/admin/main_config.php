@@ -56,7 +56,7 @@ switch ($op) {
 		<table width='100%' cellpadding='1' cellspacing='2' border='0'>
 		<tbody>
 		<tr>
-			<td width='200'>"._('Website title')."</td><td width='5'>:</td><td><input type='text' size='50' name='edit_web_title' value=\"$web_title\"></td>
+			<td width='270'>"._('Website title')."</td><td width='5'>:</td><td><input type='text' size='50' name='edit_web_title' value=\"$web_title\"></td>
 		</tr>
 		<tr>
 			<td>"._('Website email')."</td><td>:</td><td><input type='text' size='30' name='edit_email_service' value=\"$email_service\"></td>

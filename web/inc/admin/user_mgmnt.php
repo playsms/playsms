@@ -35,13 +35,12 @@ switch ($op) {
 			<p>" . _('Status') . ": " . _('Administrator') . "<br>
 			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
 			<thead><tr>
-				<th width='10%'>*</th>
 				<th width='20%'>" . _('Registered') . "</th>
 				<th width='20%'>" . _('Username') . "</th>
 				<th width='20%'>" . _('Name') . "</th>
 				<th width='20%'>" . _('Mobile') . "</th>
 				<th width='10%'>" . _('Credit') . "</th>
-				<th class='sortable_nosort' width='75'>" . _('Action') . "</th>
+				<th width='10% class='sortable_nosort'>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
 		$j = $nav['top'];
@@ -52,7 +51,6 @@ switch ($op) {
 			$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $list[$i]['username'] . ")','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">$icon_delete</a>";
 			$content .= "
 				<tr>
-					<td class='$td_class' valign=top align=center>&nbsp;".$j.".</td>
 					<td class='$td_class' valign=top align=center>" . core_display_datetime($list[$i]['register_datetime']) . "</td>
 					<td class='$td_class' valign=top align=center>" . $list[$i]['username'] . "</td>
 					<td class='$td_class' valign=top align=center>" . $list[$i]['name'] . "</td>
@@ -94,13 +92,12 @@ switch ($op) {
 			<p>" . _('Status') . ": " . _('Normal user') . "<br>
 			<table cellpadding='1' cellspacing='2' border='0' width='100%' class='sortable'>
 			<thead><tr>
-				<th width='10%'>*</th>
 				<th width='20%'>" . _('Registered') . "</th>
 				<th width='20%'>" . _('Username') . "</th>
 				<th width='20%'>" . _('Name') . "</th>
 				<th width='20%'>" . _('Mobile') . "</th>
 				<th width='10%'>" . _('Credit') . "</th>
-				<th class='sortable_nosort' width='75'>" . _('Action') . "</th>
+				<th width='10% class='sortable_nosort'>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
 		$j = $nav['top'];
@@ -112,7 +109,6 @@ switch ($op) {
 			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">$icon_delete</a>";
 			$content .= "
 				<tr>
-					<td class='$td_class' valign=top align=center>&nbsp;".$j.".</td>
 					<td class='$td_class' valign=top align=center>" . core_display_datetime($list[$i]['register_datetime']) . "</td>
 					<td class='$td_class' valign=top align=center>" . $list[$i]['username'] . "</td>
 					<td class='$td_class' valign=top align=center>" . $list[$i]['name'] . "</td>
@@ -178,7 +174,7 @@ switch ($op) {
 		<table width='100%' cellpadding='1' cellspacing='2' border='0'>
 		<tbody>
 		<tr>
-			<td width='175'>" . _('Username') . " $nd</td><td width='5'>:</td><td><input type='text' size='30' maxlength='30' name='add_username' value=\"$add_username\"></td>
+			<td width='270'>" . _('Username') . " $nd</td><td width='5'>:</td><td><input type='text' size='30' maxlength='30' name='add_username' value=\"$add_username\"></td>
 		</tr>
 		<tr>
 			<td>" . _('Full name') . " $nd</td><td>:</td><td><input type='text' size='30' maxlength='30' name='add_name' value=\"$add_name\"></td>
