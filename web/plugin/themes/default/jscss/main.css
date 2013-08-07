@@ -420,3 +420,6 @@ li {
 	display: inline-block;
 }
 
+.hint {
+	font-size: 9pt;
+}
