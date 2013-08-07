@@ -225,8 +225,14 @@ li {
 }
 
 .required {
-	color: #ff0000;
 	float: right;
+	margin-top: 5px;
+	width: 10px;
+	height: 10px;
+	background-color: #3498DB;
+	color: #3498DB;
+	display: inline-block;
+	vertical-align: bottom;
 }
 
 #txtcount, #txtcount_un, #txtcount_uk, #txtcount_am {

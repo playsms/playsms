@@ -174,7 +174,7 @@ $datetime_now_stamp	= date($datetime_format_stamp, time());
 $core_config['datetime']['now_stamp']		= $datetime_now_stamp;
 $core_config['datetime']['format_stamp']	= $datetime_format_stamp;
 
-$nd 			= "<div class=required>(*)</div>";
+$nd 			= "<span class=required />";
 
 if (! ($core_config['module']['gateway'] && $core_config['module']['themes'] && $core_config['module']['language'])) {
 	logger_print("Fail to load gateway, themes or language module", 1, "init");
