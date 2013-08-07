@@ -7,9 +7,9 @@ include $apps_path['plug']."/gateway/nexmo/config.php";
 $gw = gateway_get();
 
 if ($gw == $nexmo_param['name']) {
-	$status_active = "(<font color=green>"._('Active')."</font>)";
+	$status_active = "<span class=status_active />";
 } else {
-	$status_active = "(<font color=red>"._('Inactive')."</font>) (<a href=\"index.php?app=menu&inc=gateway_nexmo&op=manage_activate\">"._('click here to activate')."</a>)";
+	$status_active = "<span class=status_inactive />";
 }
 
 $callback_url = $_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/plugin/gateway/nexmo/callback.php";

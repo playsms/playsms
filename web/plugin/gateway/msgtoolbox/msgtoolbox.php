@@ -6,13 +6,10 @@ include $apps_path['plug']."/gateway/msgtoolbox/config.php";
 
 $gw = gateway_get();
 
-if ($gw == $msgtoolbox_param['name'])
-{
-	$status_active = "(<font color=green>"._('Active')."</font>)";
-}
-else
-{
-	$status_active = "(<font color=red>"._('Inactive')."</font>) (<a href=\"index.php?app=menu&inc=gateway_msgtoolbox&op=manage_activate\">"._('click here to activate')."</a>)";
+if ($gw == $msgtoolbox_param['name']) {
+	$status_active = "<span class=status_active />";
+} else {
+	$status_active = "<span class=status_inactive />";
 }
 
 

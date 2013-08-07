@@ -7,9 +7,9 @@ include $apps_path['plug']."/gateway/dev/config.php";
 $gw = gateway_get();
 
 if ($gw == $dev_param['name']) {
-	$status_active = "(<font color=green>"._('Active')."</font>)";
+	$status_active = "<span class=status_active />";
 } else {
-	$status_active = "(<font color=red>"._('Inactive')."</font>) (<a href=\"index.php?app=menu&inc=gateway_dev&op=manage_activate\">"._('click here to activate')."</a>)";
+	$status_active = "<span class=status_inactive />";
 }
 
 switch ($op) {

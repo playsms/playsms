@@ -404,3 +404,19 @@ li {
 	display: inline-block;
 }
 
+.status_active {
+	width: 10px;
+	height: 10px;
+	background-color: #2ECC71;
+	color: #2ECC71;
+	display: inline-block;
+}
+
+.status_inactive {
+	width: 10px;
+	height: 10px;
+	background-color: #E74C3C;
+	color: #E74C3C;
+	display: inline-block;
+}
+
