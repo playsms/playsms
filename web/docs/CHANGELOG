@@ -6,14 +6,17 @@ Version 0.9.9.1-git - 130817
 - add new webservices type of action IX to get SMS on user's inbox
 - add logger_print() at the begining and the end of webservices
 - add DBHOST and DBPORT on install script
+- add common place to put common js files, themes/common/jscss
 - add sendsms_host option in kannel gateway module (lucastx)
 - upgrade themes default
 - remove unused js and css files on themes default
+- remove dTree js and css files
 - remove themes 'work2'
 - remove themes 'km2'
 - remove column 'status' on inbox, incoming and outgoing tables
 - fix #90 webservices list all incoming SMS on ta=in regardless of uid
 - fix search categories in user_mgmnt
+- fix plugin loader, wrongly use counter variable
 
 Version 0.9.9 - 130625
 - update sendsmsd daemon to enable parallel multi queue processing
