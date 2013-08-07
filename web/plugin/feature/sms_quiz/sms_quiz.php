@@ -88,16 +88,16 @@ switch ($op) {
 				<td width=270>"._('SMS quiz keyword')."</td><td width=5>:</td><td><input type=text size=10 maxlength=10 name=add_quiz_keyword value=\"$add_quiz_keyword\"></td>
 			</tr>
 			<tr>
-				<td>"._('SMS quiz question')."</td><td>:</td><td><input type=text size=40 maxlength=100 name=add_quiz_question value=\"$add_quiz_question\"></td>
+				<td>"._('SMS quiz question')."</td><td>:</td><td><input type=text size=30 maxlength=100 name=add_quiz_question value=\"$add_quiz_question\"></td>
 			</tr>
 			<tr>
-				<td>"._('SMS quiz answer')."</td><td>:</td><td><input type=text size=40 maxlength=100 name=add_quiz_answer value=\"$add_quiz_answer\"></td>
+				<td>"._('SMS quiz answer')."</td><td>:</td><td><input type=text size=30 maxlength=100 name=add_quiz_answer value=\"$add_quiz_answer\"></td>
 			</tr>
 			<tr>
-				<td>"._('Reply message on correct')."</td><td>:</td><td><input type=text size=40 maxlength=100 name=add_quiz_msg_correct value=\"$add_quiz_msg_correct\"></td>
+				<td>"._('Reply message on correct')."</td><td>:</td><td><input type=text size=30 maxlength=100 name=add_quiz_msg_correct value=\"$add_quiz_msg_correct\"></td>
 			</tr>
 			<tr>
-				<td>"._('Reply message on incorrect')."</td><td>:</td><td><input type=text size=40 maxlength=100 name=add_quiz_msg_incorrect value=\"$add_quiz_msg_incorrect\"></td>
+				<td>"._('Reply message on incorrect')."</td><td>:</td><td><input type=text size=30 maxlength=100 name=add_quiz_msg_incorrect value=\"$add_quiz_msg_incorrect\"></td>
 			</tr>
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
@@ -154,16 +154,16 @@ switch ($op) {
 				<td width=270>"._('SMS quiz keyword')."</td><td width=5>:</td><td>$edit_quiz_keyword</td>
 			</tr>
 			<tr>
-				<td>"._('SMS quiz question')."</td><td>:</td><td><input type=text size=40 maxlength=100 name=edit_quiz_question value=\"$edit_quiz_question\"></td>
+				<td>"._('SMS quiz question')."</td><td>:</td><td><input type=text size=30 maxlength=100 name=edit_quiz_question value=\"$edit_quiz_question\"></td>
 			</tr>
 			<tr>
-				<td>"._('SMS quiz answer')."</td><td>:</td><td><input type=text size=40 maxlength=100 name=edit_quiz_answer value=\"$edit_quiz_answer\"></td>
+				<td>"._('SMS quiz answer')."</td><td>:</td><td><input type=text size=30 maxlength=100 name=edit_quiz_answer value=\"$edit_quiz_answer\"></td>
 			</tr>
 			<tr>
-				<td>"._('Reply message on correct')."</td><td>:</td><td><input type=text size=40 maxlength=100 name=edit_quiz_msg_correct value=\"$edit_quiz_msg_correct\"></td>
+				<td>"._('Reply message on correct')."</td><td>:</td><td><input type=text size=30 maxlength=100 name=edit_quiz_msg_correct value=\"$edit_quiz_msg_correct\"></td>
 			</tr>
 			<tr>
-				<td>"._('Reply message on incorrect')."</td><td>:</td><td><input type=text size=40 maxlength=100 name=edit_quiz_msg_incorrect value=\"$edit_quiz_msg_incorrect\"></td>
+				<td>"._('Reply message on incorrect')."</td><td>:</td><td><input type=text size=30 maxlength=100 name=edit_quiz_msg_incorrect value=\"$edit_quiz_msg_incorrect\"></td>
 			</tr>
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">

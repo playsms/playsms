@@ -76,8 +76,8 @@ switch ($op) {
 			<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&op=add_submit'>
 			<table cellpadding='1' cellspacing='2' border='0'>
 			<tr><td>"._('Receiver number')."</td><td>:</td><td><input type='text' name='in_receiver' maxlength='20' size='20'> &nbsp; ("._('For example a short code').")</td></tr>
-			<tr><td>"._('Keywords')."</td><td>:</td><td><input type='text' name='keywords' maxlength='100' size='40'> &nbsp; ("._('Seperate with comma for multiple items').")</td></tr>
-			<tr><td>"._('Description')."</td><td>:</td><td><input type='text' name='description' maxlength='100' size='40'></td></tr>
+			<tr><td>"._('Keywords')."</td><td>:</td><td><input type='text' name='keywords' maxlength='100' size=30> &nbsp; ("._('Seperate with comma for multiple items').")</td></tr>
+			<tr><td>"._('Description')."</td><td>:</td><td><input type='text' name='description' maxlength='100' size=30></td></tr>
 			</table>
 			<p><input class='button' type='submit' value='"._('Save')."'></p>
 			</form>
@@ -119,8 +119,8 @@ switch ($op) {
 			<input type='hidden' name='rid' value='$rid'>
 			<table cellpadding='1' cellspacing='2' border='0'>
 			<tr><td>"._('Receiver number')."</td><td>:</td><td>".$in_receiver."</td></tr>
-			<tr><td>"._('Keywords')."</td><td>:</td><td><input type='text' name='keywords' value='$keywords' maxlength='100' size='40'> &nbsp; ("._('Seperate with comma for multiple items').")</td></tr>
-			<tr><td>"._('Description')."</td><td>:</td><td><input type='text' name='description' value='$description' maxlength='100' size='40'></td></tr>
+			<tr><td>"._('Keywords')."</td><td>:</td><td><input type='text' name='keywords' value='$keywords' maxlength='100' size=30> &nbsp; ("._('Seperate with comma for multiple items').")</td></tr>
+			<tr><td>"._('Description')."</td><td>:</td><td><input type='text' name='description' value='$description' maxlength='100' size=30></td></tr>
 			<tr><td>"._('Exclusive')."</td><td>:</td><td><select name='exclusive'>".$option_exclusive."</select> ("._('Restrict sender to regular members or catch-all members only').")</td></tr>
 			</table>
 			<p><input class='button' type='submit' value='"._('Save')."'></p>

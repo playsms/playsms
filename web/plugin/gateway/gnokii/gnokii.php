@@ -28,7 +28,7 @@ switch ($op)
 		<td width=270>"._('Gateway name')."</td><td width=5>:</td><td>gnokii $status_active</td>
 	    </tr>
 	    <tr>
-		<td>"._('Gnokii installation path')."</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_path value=\"".$gnokii_param['path']."\"> ("._('No trailing slash')." \"/\")</td>
+		<td>"._('Gnokii installation path')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_path value=\"".$gnokii_param['path']."\"> ("._('No trailing slash')." \"/\")</td>
 	    </tr>	    
 	</table>	    
 	    <p><input type=submit class=button value=\""._('Save')."\">

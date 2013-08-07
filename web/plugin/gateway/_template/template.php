@@ -29,7 +29,7 @@ switch ($op)
 		    <td width=270>"._('Gateway name')."</td><td width=5>:</td><td>template $status_active</td>
 		</tr>
 		<tr>
-		    <td>"._('Template installation path')."</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_path value=\"".$template_param['path']."\"> ("._('No trailing slash')." \"/\")</td>
+		    <td>"._('Template installation path')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_path value=\"".$template_param['path']."\"> ("._('No trailing slash')." \"/\")</td>
 		</tr>	    
 	    </table>	    
 	    <p><input type=submit class=button value=\""._('Save')."\">

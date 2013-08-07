@@ -56,13 +56,13 @@ switch ($op) {
 		<table width=100%>
 		<tbody>
 		<tr>
-			<td width='270'>"._('Website title')."</td><td><input type='text' size='30' name='edit_web_title' value=\"$web_title\"></td>
+			<td width='270'>"._('Website title')."</td><td><input type='text' size=30 name='edit_web_title' value=\"$web_title\"></td>
 		</tr>
 		<tr>
-			<td>"._('Website email')."</td><td><input type='text' size='30' name='edit_email_service' value=\"$email_service\"></td>
+			<td>"._('Website email')."</td><td><input type='text' size=30 name='edit_email_service' value=\"$email_service\"></td>
 		</tr>
 		<tr>
-			<td>"._('Forwarded email footer')."</td><td><input type='text' size='30' name='edit_email_footer' value=\"$email_footer\"></td>
+			<td>"._('Forwarded email footer')."</td><td><input type='text' size=30 name='edit_email_footer' value=\"$email_footer\"></td>
 		</tr>
 		<tr>
 			<td>"._('Default sender ID')."</td><td><input type='text' size='20' name='edit_gateway_number' value=\"$gateway_number\"></td>

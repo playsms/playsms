@@ -66,7 +66,7 @@ switch ($op) {
 			<input type='hidden' name='rateid' value=\"$rateid\">
 			<table width='100%'>
 			<tr>
-				<td width='270'>"._('Destination')."</td><td><input type='text' size='30' maxlength='30' name='up_dst' value=\"$dst\"></td>
+				<td width='270'>"._('Destination')."</td><td><input type='text' size=30 maxlength='30' name='up_dst' value=\"$dst\"></td>
 			</tr>
 			<tr>
 				<td>"._('Prefix')."</td><td><input type='text' size='10' maxlength='10' name='up_prefix' value=\"$prefix\"></td>
@@ -110,7 +110,7 @@ switch ($op) {
 			<form action='index.php?app=menu&inc=tools_simplerate&op=simplerate_add_yes' method='post'>
 			<table width='100%'>
 			<tr>
-				<td width='270'>"._('Destination')."</td><td><input type='text' size='30' maxlength='30' name='add_dst' value=\"$add_dst\"></td>
+				<td width='270'>"._('Destination')."</td><td><input type='text' size=30 maxlength='30' name='add_dst' value=\"$add_dst\"></td>
 			</tr>
 			<tr>
 				<td>"._('Prefix')."</td><td><input type='text' size='10' maxlength='10' name='add_prefix' value=\"$add_prefix\"></td>

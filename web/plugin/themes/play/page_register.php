@@ -12,25 +12,25 @@
         <div class="clearfix">
           <label for="name"><?php echo _('Name'); ?></label>
           <div class="input">
-            <input type="text" size="30" name="name" id="name" class="medium">
+            <input type="text" size=30 name="name" id="name" class="medium">
           </div>
         </div>
         <div class="clearfix">
           <label for="username"><?php echo _('Username'); ?></label>
           <div class="input">
-            <input type="text" size="30" name="username" id="username" class="medium">
+            <input type="text" size=30 name="username" id="username" class="medium">
           </div>
         </div>
         <div class="clearfix">
           <label for="mobile"><?php echo _('Mobile'); ?></label>
           <div class="input">
-            <input type="text" size="30" name="mobile" id="mobile" class="medium">
+            <input type="text" size=30 name="mobile" id="mobile" class="medium">
           </div>
         </div>
         <div class="clearfix">
           <label for="email"><?php echo _('Email'); ?></label>
           <div class="input">
-            <input type="text" size="30" name="email" id="email" class="medium">
+            <input type="text" size=30 name="email" id="email" class="medium">
           </div>
         </div>
         <div class="actions">

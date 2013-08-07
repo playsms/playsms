@@ -29,7 +29,7 @@ switch ($op) {
 			<h3>"._('Simulate incoming SMS')."</h3>
 			<form action=\"index.php?app=menu&inc=gateway_dev&op=simulate\" method=post>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
-			<tr><td width=270>"._('Message')."</td><td>:</td><td><input type=text name=message value=\"$message\" size=40 maxlength=250></td></tr>
+			<tr><td width=270>"._('Message')."</td><td>:</td><td><input type=text name=message value=\"$message\" size=30 maxlength=250></td></tr>
 			<tr><td>"._('Sender')."</td><td>:</td><td><input type=text name=sender value=\"$sender\" size=20 maxlength=20></td></tr>
 			<tr><td>"._('Receiver')."</td><td>:</td><td><input type=text name=receiver value=\"$receiver\" size=20 maxlength=20></td></tr>
 			<tr><td>"._('Date/Time')."</td><td>:</td><td><input type=text name=datetime value=\"$datetime\" size=20 maxlength=20></td></tr>

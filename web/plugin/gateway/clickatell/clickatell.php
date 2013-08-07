@@ -45,14 +45,14 @@ switch ($op) {
 				<td>"._('Module timezone')."</td><td>:</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"".$clickatell_param['datetime_timezone']."\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td>
 			</tr>
 			<tr>
-				<td>"._('Clickatell API URL')."</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_send_url value=\"".$clickatell_param['send_url']."\"> ("._('No trailing slash')." \"/\")</td>
+				<td>"._('Clickatell API URL')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_send_url value=\"".$clickatell_param['send_url']."\"> ("._('No trailing slash')." \"/\")</td>
 			</tr>
 			<tr>
 				<td>"._('Additional URL parameter')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_additional_param value=\"".$clickatell_param['additional_param']."\"></td>
 			</tr>
 			<!--
 			<tr>
-				<td>"._('Clickatell incoming path')."</td><td>:</td><td><input type=text size=40 maxlength=250 name=up_incoming_path value=\"".$clickatell_param['incoming_path']."\"> ("._('No trailing slash')." \"/\")</td>
+				<td>"._('Clickatell incoming path')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_incoming_path value=\"".$clickatell_param['incoming_path']."\"> ("._('No trailing slash')." \"/\")</td>
 			</tr>	
 			-->
 			</table>	

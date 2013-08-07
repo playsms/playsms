@@ -97,7 +97,7 @@ switch ($op) {
 			<p>{COMMANDPARAM} " . _('will be replaced by command parameter passed to server from SMS') . "
 			<p>{COMMANDRAW} " . _('will be replaced by SMS raw message') . "
 			<p>" . _('SMS command exec path') . ": " . $sms_command_bin.'/'.$edit_command_uid . "
-			<p>" . _('SMS command exec') . ": <input type=text size=40 name=edit_command_exec value=\"$edit_command_exec\">
+			<p>" . _('SMS command exec') . ": <input type=text size=30 name=edit_command_exec value=\"$edit_command_exec\">
 			<p>" . _('Make return as reply') . " : <input type=checkbox name=edit_command_return_as_reply $edit_command_return_as_reply></p>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
@@ -161,7 +161,7 @@ switch ($op) {
 			<p>{COMMANDPARAM} " . _('will be replaced by command parameter passed to server from SMS') . "
 			<p>{COMMANDRAW} " . _('will be replaced by SMS raw message') . "
 			<p>" . _('SMS command exec path') . ": " . $sms_command_bin.'/'.$core_config['user']['uid'] . "
-			<p>" . _('SMS command exec') . ": <input type=text size=40 maxlength=200 name=add_command_exec value=\"$add_command_exec\">
+			<p>" . _('SMS command exec') . ": <input type=text size=30 maxlength=200 name=add_command_exec value=\"$add_command_exec\">
 			<p>" . _('Make return as reply') . " : <input type=checkbox name=add_command_return_as_reply></p>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>

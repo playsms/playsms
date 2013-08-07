@@ -12,13 +12,13 @@
         <div class="clearfix">
           <label for="username"><?php echo _('Username'); ?></label>
           <div class="input">
-            <input type="text" size="30" name="username" id="username" class="medium">
+            <input type="text" size=30 name="username" id="username" class="medium">
           </div>
         </div>
         <div class="clearfix">
           <label for="email"><?php echo _('Email'); ?></label>
           <div class="input">
-            <input type="text" size="30" name="email" id="email" class="medium">
+            <input type="text" size=30 name="email" id="email" class="medium">
           </div>
         </div>
         <div class="actions">

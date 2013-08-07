@@ -14,13 +14,13 @@
         <div class="clearfix">
           <label for="username"><?php echo _('Username'); ?></label>
           <div class="input">
-            <input type="text" size="30" name="username" id="username" class="medium">
+            <input type="text" size=30 name="username" id="username" class="medium">
           </div>
         </div>
         <div class="clearfix">
           <label for="password"><?php echo _('Password'); ?></label>
           <div class="input">
-            <input type="password" size="30" name="password" id="password" class="medium">
+            <input type="password" size=30 name="password" id="password" class="medium">
           </div>
         </div>
         <div class="actions">

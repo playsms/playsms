@@ -93,7 +93,7 @@ switch ($op) {
 			<p>{CUSTOMKEYWORD} " . _('will be replaced by custom keyword') . "
 			<p>{CUSTOMPARAM} " . _('will be replaced by custom parameter passed to server from SMS') . "
 			<p>{CUSTOMRAW} " . _('will be replaced by SMS raw message') . "
-			<p>" . _('SMS custom URL') . ": <input type=text size=40 name=edit_custom_url value=\"$edit_custom_url\">
+			<p>" . _('SMS custom URL') . ": <input type=text size=30 name=edit_custom_url value=\"$edit_custom_url\">
 			<p>" . _('Make return as reply') . " : <input type=checkbox name=edit_custom_return_as_reply $edit_custom_return_as_reply></p>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
@@ -150,7 +150,7 @@ switch ($op) {
 			<p>{CUSTOMKEYWORD} " . _('will be replaced by custom keyword') . "
 			<p>{CUSTOMPARAM} " . _('will be replaced by custom parameter passed to server from SMS') . "
 			<p>{CUSTOMRAW} " . _('will be replaced by SMS raw message') . "
-			<p>" . _('SMS custom URL') . ": <input type=text size=40 maxlength=200 name=add_custom_url value=\"$add_custom_url\">
+			<p>" . _('SMS custom URL') . ": <input type=text size=30 maxlength=200 name=add_custom_url value=\"$add_custom_url\">
 			<p>" . _('Make return as reply') . " : <input type=checkbox name=add_custom_return_as_reply></p>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>

@@ -105,7 +105,7 @@ switch ($op) {
 			<tbody>
 			<tr>
 				<td width=270>"._('Group name')."</td>
-				<td><input type=text name=group_name value=\"".phonebook_groupid2name($gpid)."\" size=50></td>
+				<td><input type=text name=group_name value=\"".phonebook_groupid2name($gpid)."\" size=30></td>
 			</tr>
 			<tr>
 				<td>"._('Group code')."</td>
