@@ -190,7 +190,7 @@ switch ($op) {
 			<tr><td colspan=2><h3>" . _('Personal information') . "</h3></td></tr>
 			<tr><td>" . _('Name') . " $nd</td><td><input type=text size=30 maxlength=100 name=up_name value=\"$name\"></td></tr>
 			<tr><td>" . _('Email') . " $nd</td><td><input type=text size=30 maxlength=30 name=up_email value=\"$email\"></td></tr>
-			<tr><td>" . _('Mobile') . "</td><td><input type=text size=16 maxlength=16 name=up_mobile value=\"$mobile\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td></tr>
+			<tr><td>" . _('Mobile') . "</td><td><input type=text size=16 maxlength=16 name=up_mobile value=\"$mobile\"> " . _hint('Max. 16 numeric or 11 alphanumeric characters') . "</td></tr>
 			<tr><td>" . _('Address') . "</td><td><input type=text size=30 maxlength=250 name=up_address value=\"$address\"></td></tr>
 			<tr><td>" . _('City') . "</td><td><input type=text size=30 maxlength=100 name=up_city value=\"$city\"></td></tr>
 			<tr><td>" . _('State or Province') . "</td><td><input type=text size=30 maxlength=100 name=up_state value=\"$state\"></td></tr>

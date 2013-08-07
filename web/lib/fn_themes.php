@@ -127,4 +127,13 @@ function _button($url, $title) {
 	return themes_button($url, $title);
 }
 
+function themes_hint($text) {
+	$content = "<span class=hint>"._($text)."</span>";
+	return $content;
+}
+
+function _hint($text) {
+	return themes_hint($text);
+}
+
 ?>
