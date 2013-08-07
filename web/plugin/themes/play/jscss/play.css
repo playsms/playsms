@@ -15,46 +15,221 @@
     width: 99%;
 }
 
-#txtcount {
-	background-color:transparent;
+.row_odd {
+	font-weight: normal;
+	/* color: #FFF; */
+	/* background-color: #9FAEAF; */
+}
+
+.row_even {
+	font-weight: normal;
+	/* color: #FFF; */
+	/* background-color: #8F9D9E; */
+}
+
+.error_string {
+	font-weight: normal;
+	color: #ff0000;
+	background-color: #ededed;
+	margin: 0 0 10px 0;
+	text-align: center;
+	border: 1px solid #737A3A;
+	padding: 3px;
+}
+
+.required {
+	color: #ff0000;
+	float: right;
+}
+
+#txtcount, #txtcount_un, #txtcount_uk, #txtcount_am {
+	color: #EEE;
+	background-color: transparent;
 	border: 0px solid;
-	font-weight: bold;
+	font-weight: normal;
+	
 }
 
 #user_inbox_msg {
+	padding-bottom: 12px;
 	word-wrap: break-word;
-	width: 400px;
+	width: 28em;
 }
 
 #user_incoming_msg {
+	padding-bottom: 12px;
 	word-wrap: break-word;
-	width: 260px;
+	width: 19em;
 }
 
 #user_outgoing_msg {
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-bottom: 12px;
+	word-break:keep-all;
 	word-wrap: break-word;
-	width: 400px;
+	width: 28em;
 }
 
 #all_inbox_msg {
+	padding-bottom: 12px;
 	word-wrap: break-word;
-	width: 320px;
+	width: 21em;
 }
 
 #all_incoming_msg {
+	padding-bottom: 12px;
 	word-wrap: break-word;
-	width: 190px;
+	width: 12em;
 }
 
 #all_outgoing_msg {
+	padding-bottom: 12px;
 	word-wrap: break-word;
-	width: 220px;
+	width: 14em;
 }
 
 #navbar {
 	text-align: center;
 }
 
-#searchbar {
-	border-spacing: 0;
+#msg_label {
+	font-size: 11pt;
+	padding-left: 2px;
+	padding-right: 2px;
+	/* float: left; */
 }
+
+#msg_option {
+	font-size: 11pt;
+	text-align: left;
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-bottom: 12px;
+}
+
+#msg_template {
+	text-align: left;
+}
+
+#msg_combo_phonebook {
+	width: 15em;
+	height: 10em;
+}
+
+#msg_combo_sendto {
+	width: 15em;
+	height: 10em;
+}
+
+#actions_box {
+	margin: 1px 0px 5px -1px;
+	padding: 0;
+	width: 100%;
+	clear: both;
+}
+
+#actions_box_left {
+	text-align: left;
+	float: left;
+	width: 25%;
+}
+
+#actions_box_center {
+	text-align: center;
+	float: left;
+	width: 50%;
+	padding: 4px 0 0 0;
+}
+
+#actions_box_right {
+	text-align: right;
+	float: left;
+	width: 25%;
+}
+
+#actions_box_right input {
+	margin-right: -3px;
+}
+
+#search_box {
+	text-align: left;
+}
+
+#search_box_select {
+	float: left;
+	text-align: left;
+}
+
+#search_box_input {
+	text-align: left;
+}
+
+#button_back input {
+	margin: 20px 0 0 1px;
+}
+
+.status_handled {
+	width: 10px;
+	height: 10px;
+	background-color: #2ECC71;
+	color: #2ECC71;
+	display: inline-block;
+}
+
+.status_unhandled {
+	width: 10px;
+	height: 10px;
+	background-color: #E74C3C;
+	color: #E74C3C;
+	display: inline-block;
+}
+
+.status_sent {
+	width: 10px;
+	height: 10px;
+	background-color: #2ECC71;
+	color: #2ECC71;
+	display: inline-block;
+}
+
+.status_failed {
+	width: 10px;
+	height: 10px;
+	background-color: #E74C3C;
+	color: #E74C3C;
+	display: inline-block;
+}
+
+.status_delivered {
+	width: 10px;
+	height: 10px;
+	background-color: #3498DB;
+	color: #3498DB;
+	display: inline-block;
+}
+
+.status_pending {
+	width: 10px;
+	height: 10px;
+	background-color: #F1C40F;
+	color: #F1C40F;
+	display: inline-block;
+}
+
+.status_active {
+	width: 10px;
+	height: 10px;
+	background-color: #2ECC71;
+	color: #2ECC71;
+	display: inline-block;
+}
+
+.status_inactive {
+	width: 10px;
+	height: 10px;
+	background-color: #E74C3C;
+	color: #E74C3C;
+	display: inline-block;
+}
+

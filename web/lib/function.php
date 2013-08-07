@@ -42,6 +42,7 @@ for ($i=0;$i<count($plugins_category);$i++) {
 			}
 		}
 		// load each plugin's config and libaries
+		$d = 0;
 		for ($c=0;$c<count($tmp_core_config[$pc.'list']);$c++)
 		{
 			$c_fn1 = $dir.$tmp_core_config[$pc.'list'][$c]."/config.php";
@@ -57,7 +58,8 @@ for ($i=0;$i<count($plugins_category);$i++) {
 				if (file_exists($c_fn2))
 				{
 					include $c_fn2;
-					$core_config[$pc.'list'][$c] = $tmp_core_config[$pc.'list'][$c];
+					$core_config[$pc.'list'][$d] = $tmp_core_config[$pc.'list'][$c];
+					$d++;
 				}
 			}
 		}

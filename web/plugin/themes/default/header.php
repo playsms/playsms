@@ -6,14 +6,12 @@
 </head>
 <body>
 
-<script type="text/javascript" src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/common.js"></script>
-<script type="text/javascript" src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/dtree.js"></script>
-<script type="text/javascript" src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/selectbox.js"></script>
-<script type="text/javascript" src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/sorttable.js"></script>
+<script type="text/javascript" src="<?php echo $http_path['themes']; ?>/common/jscss/common.js"></script>
+<script type="text/javascript" src="<?php echo $http_path['themes']; ?>/common/jscss/selectbox.js"></script>
+<script type="text/javascript" src="<?php echo $http_path['themes']; ?>/common/jscss/sorttable.js"></script>
 
-<link rel="stylesheet" type="text/css" href="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/common.css">
-<link rel="stylesheet" type="text/css" href="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/dtree.css">
-<link rel="stylesheet" type="text/css" href="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/menu.css" media="screen">
+<link rel="stylesheet" type="text/css" href="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/main.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/menu.css" media="screen" />
 
 <div class="main">
 <table class="main">
