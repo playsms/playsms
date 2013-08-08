@@ -148,6 +148,7 @@ button,.button {
 	-moz-transition: background-color 0.5s ease;
 	-o-transition: background-color 0.5s ease;
 	transition: background-color 0.5s ease;
+	border-radius: 3px;
 }
 
 button:hover,.button:hover {

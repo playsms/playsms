@@ -1,15 +1,18 @@
 <html>
 <head>
 <title><?php echo $web_title; ?></title>
-<meta name="author" content="http://playsms.org">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="author" content="http://antonraharja.com">
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $themes_default_charset; ?>">
 </head>
 <body>
 
+<!-- load common js and css -->
 <script type="text/javascript" src="<?php echo $http_path['themes']; ?>/common/jscss/common.js"></script>
 <script type="text/javascript" src="<?php echo $http_path['themes']; ?>/common/jscss/selectbox.js"></script>
 <script type="text/javascript" src="<?php echo $http_path['themes']; ?>/common/jscss/sorttable.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo $http_path['themes']; ?>/common/jscss/common.css" />
 
+<!-- load specific themes default js and css -->
 <link rel="stylesheet" type="text/css" href="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/main.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/menu.css" media="screen" />
 
@@ -25,22 +28,22 @@
 				<tbody>
 				<tr>
 					<td style="background-color: #2C3E50; vertical-align: top; padding: 10px; height: 100px;">
+						<div style='float: left'>
+							<div style='padding: 0; width: 170px;'><a href="index.php?app=menu&inc=user_pref&op=user_pref"><?php echo $name; ?></a></div>
+							<div style='padding: 0; width: 170px;'><a href="index.php?app=menu&inc=user_pref&op=user_pref"><?php echo $username; ?></a></div>
+							<div style='padding: 22px 0 0 0; width: 170px;'><a href="index.php?app=page&op=auth_logout"><?php echo _('Logout'); ?></a></div>
+						</div>
 						<style type='text/css'>
 							#profile_pic {
 								background-image:url('<?php echo $core_config['user']['opt']['gravatar']; ?>');
 								background-color: #2980B9;
-								padding-right: 10px;
+								margin-left: 174px;
 								width: 80px;
 								height: 80px;
-								border-bottom: 1px solid rgba(0,0,0,0.3);
-								border-top: 1px solid rgba(255,255,255,0.2);
 								cursor: pointer;
 							}
 						</style>
 						<div id=profile_pic onClick="window.location.href='<?php echo $http_path['base']?>'"/>
-						<div style='padding: 0 0 0 100px; width: 170px'><a href="index.php?app=menu&inc=user_pref&op=user_pref"><?php echo $name; ?></a></div>
-						<div style='padding: 0 0 0 100px; width: 170px'><a href="index.php?app=menu&inc=user_pref&op=user_pref"><?php echo $username; ?></a></div>
-						<div style='padding: 22px 0 0 100px; width: 170px'><a href="index.php?app=page&op=auth_logout"><?php echo _('Logout'); ?></a></div>
 					</td>
 				</tr>
 				<tr>
