@@ -17,7 +17,7 @@ switch ($op) {
 		}
 		$content .= "
 			<h2>" . _('Manage command') . "</h2>
-			<p>"._button('index.php?app=menu&inc=feature_sms_command&op=sms_command_add', _('Add SMS command'));
+			"._button('index.php?app=menu&inc=feature_sms_command&op=sms_command_add', _('Add SMS command'));
 		if (! isadmin()) {
 			$query_user_only = "WHERE uid='$uid'";
 		}
@@ -27,7 +27,6 @@ switch ($op) {
 		if (isadmin()) {
 			$content .= "
 				<thead><tr>
-					<th width=4>*</th>
 					<th width=20%>" . _('Keyword') . "</th>
 					<th width=50%>" . _('Exec') . "</th>
 					<th width=20%>" . _('User') . "</th>
@@ -36,7 +35,6 @@ switch ($op) {
 		} else {
 			$content .= "
 				<thead><tr>
-					<th width=4>*</th>
 					<th width=20%>" . _('Keyword') . "</th>
 					<th width=70%>" . _('Exec') . "</th>
 					<th width=10%>" . _('Action') . "</th>
@@ -52,12 +50,11 @@ switch ($op) {
 				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS command ?') . " (" . _('keyword') . ": " . $db_row['command_keyword'] . ")','index.php?app=menu&inc=feature_sms_command&op=sms_command_del&command_id=" . $db_row['command_id'] . "')\">$icon_delete</a>";
 				$command_exec = $sms_command_bin.'/'.$db_row['uid'].'/'.$db_row['command_exec'];
 				if (isadmin()) {
-					$show_owner = "<td class=$td_class>".$owner."</td>";
+					$show_owner = "<td class=$td_class align=center>".$owner."</td>";
 				}
 				$content .= "
 					<tr>
-						<td class=$td_class>&nbsp;$i.</td>
-						<td class=$td_class>" . $db_row['command_keyword'] . "</td>
+						<td class=$td_class align=center>" . $db_row['command_keyword'] . "</td>
 						<td class=$td_class>" . stripslashes($command_exec) . "</td>
 						".$show_owner."
 						<td class=$td_class align=center>$action</td>
@@ -67,7 +64,7 @@ switch ($op) {
 		$content .= "
 			</tbody>
 			</table>
-			<p>"._button('index.php?app=menu&inc=feature_sms_command&op=sms_command_add', _('Add SMS command'));
+			"._button('index.php?app=menu&inc=feature_sms_command&op=sms_command_add', _('Add SMS command'));
 		echo $content;
 		break;
 	case "sms_command_edit":
@@ -85,23 +82,42 @@ switch ($op) {
 		$content .= "
 			<h2>" . _('Manage command') . "</h2>
 			<h3>" . _('Edit SMS command') . "</h3>
-			<p>
 			<form action=index.php?app=menu&inc=feature_sms_command&op=sms_command_edit_yes method=post>
 			<input type=hidden name=command_id value=$command_id>
 			<input type=hidden name=edit_command_keyword value=$edit_command_keyword>
-			<p>" . _('SMS command keyword') . ": $edit_command_keyword
-			<p>" . _('Pass these parameter to command exec field') . ":
-			<p>{SMSDATETIME} " . _('will be replaced by SMS incoming date/time') . "
-			<p>{SMSSENDER} " . _('will be replaced by sender number') . "
-			<p>{COMMANDKEYWORD} " . _('will be replaced by command keyword') . "
-			<p>{COMMANDPARAM} " . _('will be replaced by command parameter passed to server from SMS') . "
-			<p>{COMMANDRAW} " . _('will be replaced by SMS raw message') . "
-			<p>" . _('SMS command exec path') . ": " . $sms_command_bin.'/'.$edit_command_uid . "
-			<p>" . _('SMS command exec') . ": <input type=text size=30 name=edit_command_exec value=\"$edit_command_exec\">
-			<p>" . _('Make return as reply') . " : <input type=checkbox name=edit_command_return_as_reply $edit_command_return_as_reply></p>
+			<table width='100%'>
+				<tbody>
+				<tr>
+					<td width='270'>"._('SMS command keyword') . "</td><td>".$edit_command_keyword."</td>
+				</tr>
+				<tr>
+					<td>"._('SMS command exec path') . "</td><td>" . $sms_command_bin.'/'.$core_config['user']['uid'] . "</td>
+				</tr>
+				<tr>
+					<td colspan=2>"._('Pass these parameter to command exec field')."</td>
+				</tr>
+				<tr>
+					<td colspan=2>
+						<ul>
+							<li>{SMSDATETIME} " . _('will be replaced by SMS incoming date/time') . "</li>
+							<li>{SMSSENDER} " . _('will be replaced by sender number') . "</li>
+							<li>{COMMANDKEYWORD} " . _('will be replaced by command keyword') . "</li>
+							<li>{COMMANDPARAM} " . _('will be replaced by command parameter passed to server from SMS') . "</li>
+							<li>{COMMANDRAW} " . _('will be replaced by SMS raw message') . "</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>"._('SMS command exec')."</td><td><input type=text size=30 maxlength=200 name=edit_command_exec value=\"$edit_command_exec\"></td>
+				</tr>
+				<tr>
+					<td>"._('Make return as reply')."</td><td><input type=checkbox name=edit_command_return_as_reply $edit_command_return_as_reply></td>
+				</tr>
+				</tbody>
+			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
-			<p>"._b('index.php?app=menu&inc=feature_sms_command&op=sms_command_list');
+			"._b('index.php?app=menu&inc=feature_sms_command&op=sms_command_list');
 		echo $content;
 		break;
 	case "sms_command_edit_yes":
@@ -151,18 +167,37 @@ switch ($op) {
 		$content .= "
 			<h2>" . _('Manage command') . "</h2>
 			<h3>" . _('Add SMS command') . "</h3>
-			<p>
 			<form action=index.php?app=menu&inc=feature_sms_command&op=sms_command_add_yes method=post>
-			<p>" . _('SMS command keyword') . ": <input type=text size=10 maxlength=10 name=add_command_keyword value=\"$add_command_keyword\">
-			<p>" . _('Pass these parameter to command exec field') . ":
-			<p>{SMSDATETIME} " . _('will be replaced by SMS incoming date/time') . "
-			<p>{SMSSENDER} " . _('will be replaced by sender number') . "
-			<p>{COMMANDKEYWORD} " . _('will be replaced by command keyword') . "
-			<p>{COMMANDPARAM} " . _('will be replaced by command parameter passed to server from SMS') . "
-			<p>{COMMANDRAW} " . _('will be replaced by SMS raw message') . "
-			<p>" . _('SMS command exec path') . ": " . $sms_command_bin.'/'.$core_config['user']['uid'] . "
-			<p>" . _('SMS command exec') . ": <input type=text size=30 maxlength=200 name=add_command_exec value=\"$add_command_exec\">
-			<p>" . _('Make return as reply') . " : <input type=checkbox name=add_command_return_as_reply></p>
+			<table width='100%'>
+				<tbody>
+				<tr>
+					<td width='270'>"._('SMS command keyword') . "</td><td><input type=text size=10 maxlength=10 name=add_command_keyword value=\"$add_command_keyword\"></td>
+				</tr>
+				<tr>
+					<td>"._('SMS command exec path') . "</td><td>" . $sms_command_bin.'/'.$core_config['user']['uid'] . "</td>
+				</tr>
+				<tr>
+					<td colspan=2>"._('Pass these parameter to command exec field')."</td>
+				</tr>
+				<tr>
+					<td colspan=2>
+						<ul>
+							<li>{SMSDATETIME} " . _('will be replaced by SMS incoming date/time') . "</li>
+							<li>{SMSSENDER} " . _('will be replaced by sender number') . "</li>
+							<li>{COMMANDKEYWORD} " . _('will be replaced by command keyword') . "</li>
+							<li>{COMMANDPARAM} " . _('will be replaced by command parameter passed to server from SMS') . "</li>
+							<li>{COMMANDRAW} " . _('will be replaced by SMS raw message') . "</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>"._('SMS command exec')."</td><td><input type=text size=30 maxlength=200 name=add_command_exec value=\"$add_command_exec\"></td>
+				</tr>
+				<tr>
+					<td>"._('Make return as reply')."</td><td><input type=checkbox name=add_command_return_as_reply></td>
+				</tr>
+				</tbody>
+			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
 			"._b('index.php?app=menu&inc=feature_sms_command&op=sms_command_list');
