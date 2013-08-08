@@ -26,18 +26,16 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage board')."</h2>
 			<p>"._button('index.php?app=menu&inc=feature_sms_board&op=sms_board_add', _('Add SMS board'))."
-			<table cellpadding=1 cellspacing=2 border=0 width=100% class=sortable>
+			<table width=100% class=sortable>
 			<thead><tr>";
 		if (isadmin()) {
 			$content .= "
-				<th width=4>*</th>
 				<th width=20%>"._('Keyword')."</th>
 				<th width=50%>"._('Forward')."</th>
 				<th width=20%>"._('User')."</th>
 				<th width=10%>"._('Action')."</th>";
 		} else {
 			$content .= "
-				<th width=4>*</th>
 				<th width=20%>"._('Keyword')."</th>
 				<th width=70%>"._('Forward')."</th>
 				<th width=10%>"._('Action')."</th>";
@@ -59,20 +57,19 @@ switch ($op) {
 				$action .= "<a href=index.php?app=menu&inc=feature_sms_board&op=sms_board_edit&board_id=".$db_row['board_id'].">$icon_edit</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS board with all its messages ?')." ("._('keyword').": ".$db_row['board_keyword'].")','index.php?app=menu&inc=feature_sms_board&op=sms_board_del&board_id=".$db_row['board_id']."')\">$icon_delete</a>";
 				if (isadmin()) {
-					$option_owner = "<td class=$td_class>$owner</td>";
+					$option_owner = "<td class=$td_class align=center>$owner</td>";
 				}
 				$content .= "
 					<tr>
-						<td class=$td_class>&nbsp;$i.</td>
-						<td class=$td_class>".$db_row['board_keyword']."</td>
-						<td class=$td_class>".$db_row['board_forward_email']."</td>
+						<td class=$td_class align=center>".$db_row['board_keyword']."</td>
+						<td class=$td_class align=center>".$db_row['board_forward_email']."</td>
 						".$option_owner."
 						<td class=$td_class align=center>$action</td>
 					</tr>";
 			}
 		}
 		$content .= "</tbody></table>
-			<p>"._button('index.php?app=menu&inc=feature_sms_board&op=sms_board_add', _('Add SMS board'));
+			"._button('index.php?app=menu&inc=feature_sms_board&op=sms_board_add', _('Add SMS board'));
 		echo $content;
 		break;
 	case "sms_board_edit":
@@ -81,6 +78,7 @@ switch ($op) {
 		$db_row = dba_fetch_array($db_result);
 		$edit_board_keyword = $db_row['board_keyword'];
 		$edit_email = $db_row['board_forward_email'];
+		$edit_css = $db_row['board_css'];
 		$edit_template = $db_row['board_pref_template'];
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
@@ -88,21 +86,23 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage board')."</h2>
 			<h3>"._('Edit SMS board')."</h3>
-			<p>
 			<form action=index.php?app=menu&inc=feature_sms_board&op=sms_board_edit_yes method=post>
 			<input type=hidden name=board_id value=$board_id>
 			<input type=hidden name=edit_board_keyword value=$edit_board_keyword>
-			<table width=100% cellpadding=1 cellspacing=2 border=0>
+			<table width=100%>
 			<tr>
-				<td width=270>"._('SMS board keyword')."</td><td width=5>:</td><td>$edit_board_keyword</td>
+				<td width=270>"._('SMS board keyword')."</td><td>".$edit_board_keyword."</td>
 			</tr>
 			<tr>
-				<td>"._('Forward to email')."</td><td>:</td><td><input type=text size=30 name=edit_email value=\"$edit_email\"></td>
+				<td>"._('Forward to email')."</td><td><input type=text size=30 name=edit_email value=\"".$edit_email."\"></td>
 			</tr>
 			<tr>
-				<td colspan=3>
-				"._('Template').":
-				<br><textarea name=edit_template rows=5 cols=60>$edit_template</textarea>
+				<td>"._('CSS URL')."</td><td><input type=text size=30 name=edit_css value=\"".$edit_css."\"></td>
+			</tr>
+			<tr>
+				<td colspan=2>
+					"._('Row template')."<br />
+					<textarea name=edit_template style='width: 35em; height: 8em;'>".$edit_template."</textarea>
 				</td>
 			</tr>
 			</table>
@@ -114,16 +114,19 @@ switch ($op) {
 	case "sms_board_edit_yes":
 		$edit_board_keyword = $_POST['edit_board_keyword'];
 		$edit_email = $_POST['edit_email'];
+		$edit_css = $_POST['edit_css'];
 		$edit_template = $_POST['edit_template'];
 		if ($board_id) {
 			if (!$edit_template) {
-				$edit_template = "<font color=black size=-1>{SENDER}</font><br>";
-				$edit_template .= "<font color=black size=-2><i>{DATETIME}</i></font><br>";
-				$edit_template .= "<font color=black size=-1>{MESSAGE}</font>";
+				$edit_template = "<div class=sms_board_row>\n";
+				$edit_template .= "\t<div class=sender>{SENDER}</div>\n";
+				$edit_template .= "\t<div class=datetime>{DATETIME}</div>\n";
+				$edit_template .= "\t<div class=message>{MESSAGE}</div>\n";
+				$edit_template .= "</div>\n";
 			}
 			$db_query = "
 				UPDATE "._DB_PREF_."_featureBoard
-				SET c_timestamp='".mktime()."',board_forward_email='$edit_email',board_pref_template='$edit_template'
+				SET c_timestamp='".mktime()."',board_forward_email='$edit_email',board_css='$edit_css',board_pref_template='$edit_template'
 				WHERE board_id='$board_id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('SMS board has been saved')." ("._('keyword').": $edit_board_keyword)";
@@ -157,23 +160,16 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage board')."</h2>
 			<h3>"._('Add SMS board')."</h3>
-			<p>
 			<form action=index.php?app=menu&inc=feature_sms_board&op=sms_board_add_yes method=post>
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td width=270>"._('SMS board keyword')."</td><td width=5>:</td><td><input type=text size=30 maxlength=30 name=add_board_keyword value=\"$add_board_keyword\"></td>
+				<td width=270>"._('SMS board keyword')."</td><td><input type=text size=30 maxlength=30 name=add_board_keyword value=\"$add_board_keyword\"></td>
 			</tr>
 			<tr>
-				<td colspan=3><p>"._('Leave them empty if you dont know what to fill in these boxes below')."</td>
+				<td>"._('Forward to email')."</td><td><input type=text size=30 name=add_email value=\"$add_email\"></td>
 			</tr>
 			<tr>
-				<td>"._('Forward to email')."</td><td>:</td><td><input type=text size=30 name=add_email value=\"$add_email\"></td>
-			</tr>
-			<tr>
-				<td colspan=3>
-					<p>"._('Template').":
-					<p><textarea name=add_template rows=5 cols=60>$add_template</textarea>
-				</td>
+				<td>"._('CSS URL')."</td><td><input type=text size=30 name=add_css value=\"$add_css\"></td>
 			</tr>
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
@@ -184,17 +180,20 @@ switch ($op) {
 	case "sms_board_add_yes":
 		$add_board_keyword = strtoupper($_POST['add_board_keyword']);
 		$add_email = $_POST['add_email'];
+		$add_css = $_POST['add_css'];
 		$add_template = $_POST['add_template'];
 		if ($add_board_keyword) {
 			if (checkavailablekeyword($add_board_keyword)) {
 				if (!$add_template) {
-					$add_template = "<font color=black size=-1>{SENDER}</font><br>";
-					$add_template .= "<font color=black size=-2><i>{DATETIME}</i></font><br>";
-					$add_template .= "<font color=black size=-1>{MESSAGE}</font>";
+					$add_template = "<div class=sms_board_row>\n";
+					$add_template .= "\t<div class=sender>{SENDER}</div>\n";
+					$add_template .= "\t<div class=datetime>{DATETIME}</div>\n";
+					$add_template .= "\t<div class=message>{MESSAGE}</div>\n";
+					$add_template .= "</div>\n";
 				}
 				$db_query = "
-					INSERT INTO "._DB_PREF_."_featureBoard (uid,board_keyword,board_forward_email,board_pref_template)
-					VALUES ('$uid','$add_board_keyword','$add_email','$add_template')";
+					INSERT INTO "._DB_PREF_."_featureBoard (uid,board_keyword,board_forward_email,board_css,board_pref_template)
+					VALUES ('$uid','$add_board_keyword','$add_email','$add_css','$add_template')";
 				if ($new_uid = @dba_insert_id($db_query)) {
 					$_SESSION['error_string'] = _('SMS board has been added')." ("._('keyword').": $add_board_keyword)";
 				} else {

@@ -159,21 +159,26 @@ function sms_board_output_rss($keyword,$line="10",$format="RSS0.91") {
 }
 
 // part of SMS board
-function sms_board_output_html($keyword,$line="10",$pref_bodybgcolor="#E0D0C0",$pref_oddbgcolor="#EEDDCC",$pref_evenbgcolor="#FFEEDD") {
+function sms_board_output_html($keyword,$line="10") {
 	global $core_config;
 	$web_title = $core_config['main']['cfg_web_title'];
 	$keyword = strtoupper($keyword);
 	if (!$line) { $line = "10"; };
-	if (!$pref_bodybgcolor) { $pref_bodybgcolor = "#E0D0C0"; }
-	if (!$pref_oddbgcolor) { $pref_oddbgcolor = "#EEDDCC"; }
-	if (!$pref_evenbgcolor) { $pref_evenbgcolor = "#FFEEDD"; }
-	$db_query = "SELECT board_pref_template FROM "._DB_PREF_."_featureBoard WHERE board_keyword='$keyword'";
+	$db_query = "SELECT board_css,board_pref_template FROM "._DB_PREF_."_featureBoard WHERE board_keyword='$keyword'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
-		$template = $db_row['board_pref_template'];
+		$css_url = trim($db_row['board_css']);
+		if (! $css_url) {
+			$css_url = $core_config['http_path']['themes'].'/common/jscss/sms_board.css';
+		}
+		$template = trim($db_row['board_pref_template']);
 		$db_query1 = "SELECT * FROM "._DB_PREF_."_featureBoard_log WHERE in_keyword='$keyword' ORDER BY in_datetime DESC LIMIT $line";
 		$db_result1 = dba_query($db_query1);
-		$content = "<html>\n<head>\n<title>$web_title - "._('Keyword').": $keyword</title>\n<meta name=\"author\" content=\"http://playsms.org\">\n</head>\n<body bgcolor=\"$pref_bodybgcolor\" topmargin=\"0\" leftmargin=\"0\">\n<table width=100% cellpadding=2 cellspacing=2>\n";
+		$css = "\n<!-- ADDITIONAL CSS BEGIN -->\n";
+		$css .= trim(file_get_contents($css_url))."\n";
+		$css .= "<!-- ADDITIONAL CSS END -->\n";
+		$content = "<html>\n<head>\n<title>".$keyword."</title>\n<meta name=\"author\" content=\"http://playsms.org\">\n".$css."\n</head>\n";
+		$content .= "<body>\n<div class=sms_board_view>\n";
 		$i = 0;
 		while ($db_row1 = dba_fetch_array($db_result1)) {
 			$i++;
@@ -185,13 +190,13 @@ function sms_board_output_html($keyword,$line="10",$pref_bodybgcolor="#E0D0C0",$
 			$tmp_template = str_replace("{DATETIME}",$datetime,$tmp_template);
 			$tmp_template = str_replace("{MESSAGE}",$message,$tmp_template);
 			if (($i % 2) == 0) {
-				$pref_zigzagcolor = "$pref_evenbgcolor";
+				$td_class = "sms_board_row_even";
 			} else {
-				$pref_zigzagcolor = "$pref_oddbgcolor";
+				$td_class = "sms_board_row_odd";
 			}
-			$content .= "\n<tr><td width=100% bgcolor=\"$pref_zigzagcolor\">\n$tmp_template</td></tr>\n\n";
+			$content .= "\n<div class=".$td_class.">\n".trim($tmp_template)."\n</div>\n";
 		}
-		$content .= "</table>\n</body>\n</html>\n";
+		$content .= "\n</div>\n</body>\n</html>\n";
 		return $content;
 	}
 }

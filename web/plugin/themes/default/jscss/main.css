@@ -61,6 +61,7 @@ table.main {
 table tbody, table td {
 	padding: 5px;
 	margin: 0px;
+	vertical-align: top;
 	/* color: #FFF; */
 	/* background-color: ; */
 }

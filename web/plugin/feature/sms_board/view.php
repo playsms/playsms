@@ -21,18 +21,18 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage board')."</h2>
 			<h3>"._('View board')." : ".$board_keyword."</h3>
-			<table cellpadding=1 cellspacing=2 border=0 width=100%>
-				<tr><td width=270>"._('PHP serialize output')."</td><td>:</td><td><a href=\"".$output_serialize."\" target=_blank>".$output_serialize."</a></td></tr>
-				<tr><td>"._('JSON output')."</td><td>:</td><td><a href=\"".$output_json."\" target=_blank>".$output_json."</a></td></tr>
-				<tr><td>"._('XML output')."</td><td>:</td><td><a href=\"".$output_xml."\" target=_blank>".$output_xml."</a></td></tr>
-				<tr><td>"._('RSS 0.91 output')."</td><td>:</td><td><a href=\"".$output_rss091."\" target=_blank>".$output_rss091."</a></td></tr>
-				<tr><td>"._('RSS 1.0 output')."</td><td>:</td><td><a href=\"".$output_rss10."\" target=_blank>".$output_rss10."</a></td></tr>
-				<tr><td>"._('RSS 2.0 output')."</td><td>:</td><td><a href=\"".$output_rss20."\" target=_blank>".$output_rss20."</a></td></tr>
-				<tr><td>"._('RSS ATOM output')."</td><td>:</td><td><a href=\"".$output_atom."\" target=_blank>".$output_atom."</a></td></tr>
-				<tr><td>"._('MBOX output')."</td><td>:</td><td><a href=\"".$output_mbox."\" target=_blank>".$output_mbox."</a></td></tr>
-				<tr><td>"._('HTML output')."</td><td>:</td><td><a href=\"".$output_html."\" target=_blank>".$output_html."</a></td></tr>
+			<table width=100%>
+				<tr><td width=270>"._('PHP serialize output')."</td><td><a href=\"".$output_serialize."\" target=_blank>".$output_serialize."</a></td></tr>
+				<tr><td>"._('JSON output')."</td><td><a href=\"".$output_json."\" target=_blank>".$output_json."</a></td></tr>
+				<tr><td>"._('XML output')."</td><td><a href=\"".$output_xml."\" target=_blank>".$output_xml."</a></td></tr>
+				<tr><td>"._('RSS 0.91 output')."</td><td><a href=\"".$output_rss091."\" target=_blank>".$output_rss091."</a></td></tr>
+				<tr><td>"._('RSS 1.0 output')."</td><td><a href=\"".$output_rss10."\" target=_blank>".$output_rss10."</a></td></tr>
+				<tr><td>"._('RSS 2.0 output')."</td><td><a href=\"".$output_rss20."\" target=_blank>".$output_rss20."</a></td></tr>
+				<tr><td>"._('RSS ATOM output')."</td><td><a href=\"".$output_atom."\" target=_blank>".$output_atom."</a></td></tr>
+				<tr><td>"._('MBOX output')."</td><td><a href=\"".$output_mbox."\" target=_blank>".$output_mbox."</a></td></tr>
+				<tr><td>"._('HTML output')."</td><td><a href=\"".$output_html."\" target=_blank>".$output_html."</a></td></tr>
 			</table>
-			<p>"._b('index.php?app=menu&inc=feature_sms_board&op=sms_board_list');
+			"._b('index.php?app=menu&inc=feature_sms_board&op=sms_board_list');
 		echo $content;
 		break;
 }

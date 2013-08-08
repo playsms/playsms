@@ -138,6 +138,7 @@ CREATE TABLE `playsms_featureBoard` (
   `uid` int(11) NOT NULL DEFAULT '0',
   `board_keyword` varchar(100) NOT NULL DEFAULT '',
   `board_forward_email` varchar(250) NOT NULL DEFAULT '',
+  `board_css` varchar(250) NOT NULL DEFAULT '',
   `board_pref_template` text NOT NULL,
   PRIMARY KEY (`board_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
