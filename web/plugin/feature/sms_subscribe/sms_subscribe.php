@@ -15,22 +15,20 @@ switch ($op) {
 		}
 		$content .= "
 			<h2>"._('Manage subscribe')."</h2>
-			<p>"._button('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_add', _('Add SMS subscribe'));
+			"._button('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_add', _('Add SMS subscribe'));
 		$content .= "
-			<table cellpadding=1 cellspacing=2 border=0 width=100% class=sortable>
+			<table width=100% class=sortable>
 			<thead><tr>";
 		if (isadmin()) {
 			$content .= "
-				<th width=5>*</th>
 				<th width=20%>"._('Keyword')."</th>
-				<th width=20%>"._('User')."</th>
 				<th width=20%>"._('Members')."</th>
 				<th width=20%>"._('Messages')."</th>
+				<th width=20%>"._('User')."</th>
 				<th width=10%>"._('Status')."</th>
 				<th width=10%>"._('Action')."</th>";
 		} else {
 			$content .= "
-				<th width=5>*</th>
 				<th width=20%>"._('Keyword')."</th>
 				<th width=30%>"._('Members')."</th>
 				<th width=30%>"._('Messages')."</th>
@@ -63,15 +61,14 @@ switch ($op) {
 				$action = "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=".$db_row['subscribe_id'].">$icon_edit</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS subscribe ?')." ("._('keyword').": ".$db_row['subscribe_keyword'].")','index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_del&subscribe_id=".$db_row['subscribe_id']."')\">$icon_delete</a>";
 				if (isadmin()) {
-					$option_owner = "<td class=$td_class>$owner</td>";
+					$option_owner = "<td class=$td_class align=center>$owner</td>";
 				}
 				$content .= "
 					<tr>
-						<td class=$td_class>&nbsp;$i.</td>
-						<td class=$td_class>".$db_row['subscribe_keyword']."</td>
-						".$option_owner."
+						<td class=$td_class align=center>".$db_row['subscribe_keyword']."</td>
 						<td class=$td_class align=center><a href=index.php?app=menu&inc=feature_sms_subscribe&op=mbr_list&subscribe_id=".$db_row['subscribe_id'].">".$members."</a></td>
 						<td class=$td_class align=center><a href=index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id=".$db_row['subscribe_id'].">".$messages."</a></td>
+						".$option_owner."
 						<td class=$td_class align=center>$subscribe_status</td>
 						<td class=$td_class align=center>$action</td>
 					</tr>";
@@ -79,7 +76,7 @@ switch ($op) {
 		}
 		$content .= "</tbody>
 			</table>
-			<p>"._button('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_add', _('Add SMS subscribe'));
+			"._button('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_add', _('Add SMS subscribe'));
 		echo $content;
 		break;
 	case "sms_subscribe_status" :
@@ -101,22 +98,16 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage subscribe')."</h2>
 			<h3>"._('Add SMS subscribe')."</h3>
-			<p>
 			<form name=\"form_subscribe_add\" id=\"form_subscribe_add\" action=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_add_yes method=post>
-			<table width=100% cellpadding=1 cellspacing=2 border=0>
+			<table width=100%>
 			<tr>
-				<td width=270>"._('SMS subscribe keyword')."</td><td width=5>:</td><td><input type=text size=10 maxlength=10 name=add_subscribe_keyword value=\"$add_subscribe_keyword\"></td>
+				<td width=270>"._('SMS subscribe keyword')."</td><td><input type=text size=10 maxlength=10 name=add_subscribe_keyword value=\"$add_subscribe_keyword\"></td>
 			</tr>
 			<tr>
-				<td width=270>"._('SMS subscribe parameter')."</td>
-				<td width=5>:</td>
-				<td>
-					<input type=text size=10 maxlength=20 name=add_subscribe_param value=\"$add_subscribe_param\">
-				</td>
+				<td width=270>"._('SMS subscribe parameter')."</td><td>	<input type=text size=10 maxlength=20 name=add_subscribe_param value=\"$add_subscribe_param\"></td>
 			</tr>
 			<tr>
-				<td style=\"vertical-align:top;\">"._('SMS subscribe reply')."</td>
-				<td style=\"vertical-align:top;\">:</td>
+				<td>"._('SMS subscribe reply')."</td>
 				<td>
 					<textarea maxlength=\"140\" name=\"add_subscribe_msg\" id=\"add_subscribe_msg\" value=\"\" cols=\"35\" rows=\"3\" 
 						onClick=\"SmsSetCounter_Abstract('add_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\" 
@@ -132,15 +123,14 @@ switch ($op) {
 				</td>
 			</tr>
 			<tr>
-				<td width=270>"._('SMS unsubscribe parameter')."</td>
-				<td width=5>:</td>
+				<td>"._('SMS unsubscribe parameter')."</td>
+				
 				<td>
 					<input type=text size=10 maxlength=20 name=add_unsubscribe_param value=\"$add_unsubscribe_param\">
 				</td>
 			</tr>
 			<tr>
-				<td style=\"vertical-align:top;\">"._('SMS unsubscribe reply')."</td>
-				<td style=\"vertical-align:top;\">:</td>
+				<td>"._('SMS unsubscribe reply')."</td>
 				<td>
 					<textarea maxlength=\"140\" name=\"add_unsubscribe_msg\" id=\"add_unsubscribe_msg\" value=\"\" cols=\"35\" rows=\"3\" 
 						onClick=\"SmsSetCounter_Abstract('add_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\" 
@@ -156,15 +146,14 @@ switch ($op) {
 				</td>
 			</tr>
 			<tr>
-				<td width=270>"._('SMS forward parameter')."</td>
-				<td width=5>:</td>
+				<td>"._('SMS forward parameter')."</td>
+				
 				<td>
 					<input type=text size=10 maxlength=20 name=add_forward_param value=\"$add_forward_param\">
 				</td>
 			</tr>
 			<tr>
-				<td style=\"vertical-align:top;\">"._('Unknown format reply')."</td>
-				<td style=\"vertical-align:top;\">:</td>
+				<td>"._('Unknown format reply')."</td>
 				<td>
 					<textarea maxlength=\"140\" name=\"add_unknown_format_msg\" id=\"add_unknown_format_msg\" value=\"\" cols=\"35\" rows=\"3\" 
 						onClick=\"SmsSetCounter_Abstract('add_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\" 
@@ -180,8 +169,7 @@ switch ($op) {
 				</td>
 			</tr>
 			<tr>
-				<td style=\"vertical-align:top;\">"._('Already a member reply')."</td>
-				<td style=\"vertical-align:top;\">:</td>
+				<td>"._('Already a member reply')."</td>
 				<td>
 					<textarea maxlength=\"140\" name=\"add_already_member_msg\" id=\"add_already_member_msg\" value=\"\" cols=\"35\" rows=\"3\" 
 						onClick=\"SmsSetCounter_Abstract('add_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\" 
@@ -199,7 +187,7 @@ switch ($op) {
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
-			<p>"._b('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
+			"._b('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
 		echo $content;
 		break;
 	case "sms_subscribe_add_yes" :
@@ -250,24 +238,22 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage subscribe')."</h2>
 			<h3>"._('Edit SMS subscribe')."</h3>
-			<p>
 			<form name=\"form_subscribe_edit\" id=\"form_subscribe_edit\" action=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_edit_yes method=post>
 			<input type=hidden name=subscribe_id value=\"$subscribe_id\">
 			<input type=hidden name=edit_subscribe_keyword value=\"$edit_subscribe_keyword\">
-			<table width=100% cellpadding=1 cellspacing=2 border=0>
+			<table width=100%>
 			<tr>
-				<td width=270>"._('SMS subscribe keyword')."</td><td width=5>:</td><td>$edit_subscribe_keyword</td>
+				<td width=270>"._('SMS subscribe keyword')."</td><td>$edit_subscribe_keyword</td>
 			</tr>
 			<tr>
 				<td width=270>"._('SMS subscribe parameter')."</td>
-				<td width=5>:</td>
+				
 				<td>
 					<input type=text size=10 maxlength=20 name=edit_subscribe_param value=\"$edit_subscribe_param\">
 				</td>
 			</tr>
 			<tr>
-				<td style=\"vertical-align:top;\">"._('SMS subscribe reply')."</td>
-				<td style=\"vertical-align:top;\">:</td>
+				<td>"._('SMS subscribe reply')."</td>
 				<td>
 					<textarea maxlength=\"140\" name=\"edit_subscribe_msg\" id=\"edit_subscribe_msg\" value=\"\" cols=\"35\" rows=\"3\" 
 						onClick=\"SmsSetCounter_Abstract('edit_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\" 
@@ -284,14 +270,13 @@ switch ($op) {
 			</tr>
 			<tr>
 				<td width=270>"._('SMS unsubscribe parameter')."</td>
-				<td width=5>:</td>
+				
 				<td>
 					<input type=text size=10 maxlength=20 name=edit_unsubscribe_param value=\"$edit_unsubscribe_param\">
 				</td>
 			</tr>
 			<tr>
-				<td style=\"vertical-align:top;\">"._('SMS unsubscribe reply')."</td>
-				<td style=\"vertical-align:top;\">:</td>
+				<td>"._('SMS unsubscribe reply')."</td>
 				<td>
 					<textarea maxlength=\"140\" name=\"edit_unsubscribe_msg\" id=\"edit_unsubscribe_msg\" value=\"\" cols=\"35\" rows=\"3\" 
 						onClick=\"SmsSetCounter_Abstract('edit_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\" 
@@ -308,14 +293,13 @@ switch ($op) {
 			</tr>
 			<tr>
 				<td width=270>"._('SMS forward parameter')."</td>
-				<td width=5>:</td>
+				
 				<td>
 					<input type=text size=10 maxlength=20 name=edit_forward_param value=\"$edit_forward_param\">
 				</td>
 			</tr>
 			<tr>
-				<td style=\"vertical-align:top;\">"._('Unknown format reply')."</td>
-				<td style=\"vertical-align:top;\">:</td>
+				<td>"._('Unknown format reply')."</td>
 				<td>
 					<textarea maxlength=\"140\" name=\"edit_unknown_format_msg\" id=\"edit_unknown_format_msg\" value=\"\" cols=\"35\" rows=\"3\" 
 						onClick=\"SmsSetCounter_Abstract('edit_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\" 
@@ -331,8 +315,7 @@ switch ($op) {
 				</td>
 			</tr>
 			<tr>
-				<td style=\"vertical-align:top;\">"._('Already a member reply')."</td>
-				<td style=\"vertical-align:top;\">:</td>
+				<td>"._('Already a member reply')."</td>
 				<td>
 					<textarea maxlength=\"140\" name=\"edit_already_member_msg\" id=\"edit_already_member_msg\" value=\"\" cols=\"35\" rows=\"3\" 
 						onClick=\"SmsSetCounter_Abstract('edit_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\" 
@@ -350,7 +333,7 @@ switch ($op) {
 		</table>
 		<p><input type=submit class=button value=\""._('Save')."\">
 		</form>
-		<p>"._b('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
+		"._b('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
 		echo $content;
 		break;
 	case "sms_subscribe_edit_yes" :
@@ -408,10 +391,8 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage subscribe')."</h2>
 			<h3>"._('Member list for keyword')." $subscribe_name</h3>
-			<p>
-			<table cellpadding=1 cellspacing=2 border=0 width=100% class=sortable>
+			<table width=100% class=sortable>
 			<thead><tr>
-				<th width=4>*</th>
 				<th width=50%>"._('Phone number')."</th>
 				<th width=40%>"._('Member join datetime')."</th>
 				<th width=10%>"._('Action')."</th>
@@ -424,7 +405,6 @@ switch ($op) {
 			$action = "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this member ?')."','index.php?app=menu&inc=feature_sms_subscribe&op=mbr_del&subscribe_id=$subscribe_id&mbr_id=".$db_row['member_id']."')\">$icon_delete</a>";
 			$content .= "
 				<tr>
-					<td class=$td_class>&nbsp;$i.</td>
 					<td class=$td_class align=center>".$db_row['member_number']."</td>
 					<td class=$td_class align=center>".$db_row['member_since']."</td>
 					<td class=$td_class align=center>$action</td>
@@ -432,7 +412,7 @@ switch ($op) {
 		}
 		$content .= "</tbody>
 			</table>
-			<p>"._b('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
+			"._b('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
 		echo $content;
 		break;
 	case "mbr_del" :
@@ -452,10 +432,9 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage subscribe')."</h2>
 			<h3>"._('SMS messages list for keyword')." $subscribe_name</h3>
-			<p>"._button('index.php?app=menu&inc=feature_sms_subscribe&op=msg_add&&subscribe_id='.$subscribe_id, _('Add message'))."
-			<table cellpadding=1 cellspacing=2 border=0 width=100% class=sortable>
+			"._button('index.php?app=menu&inc=feature_sms_subscribe&op=msg_add&&subscribe_id='.$subscribe_id, _('Add message'))."
+			<table width=100% class=sortable>
 			<thead><tr>
-				<th width=4>*</th>
 				<th width=40%>"._('Message')."</th>
 				<th width=20%>"._('Created')."</th>
 				<th width=20%>"._('Last update')."</th>
@@ -474,7 +453,6 @@ switch ($op) {
 			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this message?')."','index.php?app=menu&inc=feature_sms_subscribe&op=msg_del&subscribe_id=$subscribe_id&msg_id=".$db_row['msg_id']."')\">$icon_delete</a>";
 			$content .= "
 				<tr>
-					<td class=$td_class>&nbsp;$i.</td>
 					<td class=$td_class>".$db_row['msg']."</td>
 					<td class=$td_class align=center>".core_display_datetime($db_row['create_datetime'])."</td>
 					<td class=$td_class align=center>".core_display_datetime($db_row['update_datetime'])."</td>
@@ -484,8 +462,8 @@ switch ($op) {
 		}
 		$content .= "</tbody>
 			</table>
-			<p>"._button('index.php?app=menu&inc=feature_sms_subscribe&op=msg_add&&subscribe_id='.$subscribe_id, _('Add message'))."
-			<p>"._b('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
+			"._button('index.php?app=menu&inc=feature_sms_subscribe&op=msg_add&&subscribe_id='.$subscribe_id, _('Add message'))."
+			"._b('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
 		echo $content;
 		break;
 	case "msg_edit" :
@@ -503,20 +481,20 @@ switch ($op) {
 			<form action=index.php?app=menu&inc=feature_sms_subscribe&op=msg_edit_yes method=post>
 			<input type=hidden value=$subscribe_id name=subscribe_id>
 			<input type=hidden value=$msg_id name=msg_id>
-			<table width=100% cellpadding=1 cellspacing=2 border=0>
+			<table width=100%>
 			<tr>
-				<td width=270>"._('SMS subscribe keyword')."</td><td width=5>:</td><td>$subscribe_name</td>
+				<td width=270>"._('SMS subscribe keyword')."</td><td>$subscribe_name</td>
 			</tr>
 			<tr>
-				<td colspan=3>
-					"._('Message body').":
-					<p><textarea name=edit_mbr_msg rows=5 cols=60>$edit_mbr_msg</textarea>
+				<td colspan=2>
+					"._('Message body')."<br />
+					<textarea name=edit_mbr_msg rows=5 cols=60>$edit_mbr_msg</textarea>
 				</td>
 			</tr>
 			</table>
 			<input type=submit class=button value=\""._('Save')."\">
 			</form>
-			<p>"._b('index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id='.$subscribe_id);
+			"._b('index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id='.$subscribe_id);
 		echo $content;
 		break;
 	case "msg_edit_yes" :
@@ -550,20 +528,20 @@ switch ($op) {
 			<h3>"._('Add message')."</h3>
 			<form action=index.php?app=menu&inc=feature_sms_subscribe&op=msg_add_yes method=post>
 			<input type=hidden value=$subscribe_id name=subscribe_id>
-			<table width=100% cellpadding=1 cellspacing=2 border=0>
+			<table width=100%>
 			<tr>
-				<td width=270>"._('SMS subscribe keyword')."</td><td width=5>:</td><td>$subscribe_name</td>
+				<td width=270>"._('SMS subscribe keyword')."</td><td>$subscribe_name</td>
 			</tr>
 			<tr>
-				<td colspan=3>
-					"._('Message body').":
-					<p><textarea name=add_mbr_message rows=5 cols=60></textarea>
+				<td colspan=2>
+					"._('Message body')."<br />
+					<textarea name=add_mbr_message rows=5 cols=60></textarea>
 				</td>
 			</tr>
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
-			<p>"._b('index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id='.$subscribe_id);
+			"._b('index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id='.$subscribe_id);
 		echo $content;
 		break;
 	case "msg_add_yes" :
@@ -614,16 +592,17 @@ switch ($op) {
 			<input type=hidden value=$message name=msg>
 			<input type=hidden value=$subscribe_id name=subscribe_id>
 			<input type=hidden value=$msg_id name=msg_id>
-			<table width=100% cellpadding=1 cellspacing=2 border=0>
-			<tr><td width=270>"._('SMS subscribe keyword')."</td><td width=5>:</td><td>$subscribe_name</td></tr>
-			<tr><td>"._('Message ID')."</td><td>:</td><td>".$msg_id."</td></tr>
-			<tr><td>"._('Message')."</td><td>:</td><td>".$message."</td></tr>
-			<tr><td>"._('Sent')."</td><td>:</td><td>".$counter."</td></tr>
+			<table width=100%>
+			<tr><td width=270>"._('SMS subscribe keyword')."</td><td>$subscribe_name</td></tr>
+			<tr><td>"._('Message ID')."</td><td>".$msg_id."</td></tr>
+			<tr><td>"._('Message')."</td><td>".$message."</td></tr>
+			<tr><td>"._('Sent')."</td><td>".$counter."</td></tr>
 			</table>
+			<br />
 			<p>"._('Send this message to all members')."</p>
-			<input type=submit value=\""._('Send')."\" class=\"button\" />
+			<p><input type=submit value=\""._('Send')."\" class=\"button\" />
 			</form>
-			<p>"._b('index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id='.$subscribe_id);
+			"._b('index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id='.$subscribe_id);
 		echo $content;
 		break;
 	case "msg_send" :
