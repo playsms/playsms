@@ -23,41 +23,36 @@ switch ($op) {
 		}
 		$content .= "
 			<h2>"._('Manage clickatell')."</h2>
-			<p>
 			<form action=index.php?app=menu&inc=gateway_clickatell&op=manage_save method=post>
-			<table width=100% cellpadding=1 cellspacing=2 border=0>
+			<table width=100%>
 			<tr>
-				<td width=270>"._('Gateway name')."</td><td width=5>:</td><td>clickatell $status_active</td>
+				<td width=270>"._('Gateway name')."</td><td>clickatell $status_active</td>
 			</tr>
 			<tr>
-				<td>"._('API ID')."</td><td>:</td><td><input type=text size=20 maxlength=20 name=up_api_id value=\"".$clickatell_param['api_id']."\"></td>
-			</tr>	
-			<tr>
-				<td>"._('Username')."</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_username value=\"".$clickatell_param['username']."\"></td>
+				<td>"._('API ID')."</td><td><input type=text size=20 maxlength=20 name=up_api_id value=\"".$clickatell_param['api_id']."\"></td>
 			</tr>
 			<tr>
-				<td>"._('Password')."</td><td>:</td><td><input type=password size=30 maxlength=30 name=up_password value=\"\"> ("._('Fill to change the password').")</td>
-			</tr>	
-			<tr>
-				<td>"._('Module sender ID')."</td><td>:</td><td><input type=text size=30 maxlength=16 name=up_sender value=\"".$clickatell_param['global_sender']."\"> ("._('Max. 16 numeric or 11 alphanumeric char. empty to disable').")</td>
-			</tr>	
-			<tr>
-				<td>"._('Module timezone')."</td><td>:</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"".$clickatell_param['datetime_timezone']."\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td>
+				<td>"._('Username')."</td><td><input type=text size=30 maxlength=30 name=up_username value=\"".$clickatell_param['username']."\"></td>
 			</tr>
 			<tr>
-				<td>"._('Clickatell API URL')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_send_url value=\"".$clickatell_param['send_url']."\"> ("._('No trailing slash')." \"/\")</td>
+				<td>"._('Password')."</td><td><input type=password size=30 maxlength=30 name=up_password value=\"\"> "._hint('Fill to change the password')."</td>
 			</tr>
 			<tr>
-				<td>"._('Additional URL parameter')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_additional_param value=\"".$clickatell_param['additional_param']."\"></td>
+				<td>"._('Module sender ID')."</td><td><input type=text size=30 maxlength=16 name=up_sender value=\"".$clickatell_param['global_sender']."\"> "._hint('Max. 16 numeric or 11 alphanumeric char. empty to disable')."</td>
 			</tr>
-			<!--
 			<tr>
-				<td>"._('Clickatell incoming path')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_incoming_path value=\"".$clickatell_param['incoming_path']."\"> ("._('No trailing slash')." \"/\")</td>
-			</tr>	
-			-->
-			</table>	
-					<p><input type=submit class=button value=\""._('Save')."\">
+				<td>"._('Module timezone')."</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"".$clickatell_param['datetime_timezone']."\"> "._hint('Eg: +0700 for Jakarta/Bangkok timezone')."</td>
+			</tr>
+			<tr>
+				<td>"._('Clickatell API URL')."</td><td><input type=text size=30 maxlength=250 name=up_send_url value=\"".$clickatell_param['send_url']."\"> "._hint(_('No trailing slash')." \"/\"")."</td>
+			</tr>
+			<tr>
+				<td>"._('Additional URL parameter')."</td><td><input type=text size=30 maxlength=250 name=up_additional_param value=\"".$clickatell_param['additional_param']."\"></td>
+			</tr>
+			</table>
+			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
+			<br />
 			"._('Notes').":<br />
 			- "._('Your callback URL is')." ".$callback_url."<br />
 			- "._('Your callback URL should be accessible from Clickatell')."<br />

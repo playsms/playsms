@@ -20,30 +20,31 @@ switch ($op) {
 		}
 		$content .= "
 			<h2>"._('Manage uplink')."</h2>
-			<p>
 			<form action=index.php?app=menu&inc=gateway_uplink&op=manage_save method=post>
-			<table width=100% cellpadding=1 cellspacing=2 border=0>
-			<tr>
-				<td width=270>"._('Gateway name')."</td><td width=5>:</td><td>uplink $status_active</td>
-			</tr>
-			<tr>
-				<td>"._('Master URL')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_master value=\"".$uplink_param['master']."\"></td>
-			</tr>
-			<tr>
-				<td>"._('Additional URL parameter')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_additional_param value=\"".$uplink_param['additional_param']."\"></td>
-			</tr>
-			<tr>
-				<td>"._('Webservice username')."</td><td>:</td><td><input type=text size=30 maxlength=30 name=up_username value=\"".$uplink_param['username']."\"></td>
-			</tr>
-			<tr>
-				<td>"._('Webservice token')."</td><td>:</td><td><input type=text size=30 maxlength=32 name=up_token value=\"\"></td>
-			</tr>
-			<tr>
-				<td>"._('Module sender ID')."</td><td>:</td><td><input type=text size=30 maxlength=16 name=up_global_sender value=\"".$uplink_param['global_sender']."\"> ("._('Max. 16 numeric or 11 alphanumeric char. empty to disable').")</td>
-			</tr>
-			<tr>
-				<td>"._('Module timezone')."</td><td>:</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"".$uplink_param['datetime_timezone']."\"> ("._('Eg: +0700 for Jakarta/Bangkok timezone').")</td>
-			</tr>
+			<table width=100%>
+				<tbody>
+				<tr>
+					<td width=270>"._('Gateway name')."</td><td>uplink $status_active</td>
+				</tr>
+				<tr>
+					<td>"._('Master URL')."</td><td><input type=text size=30 maxlength=250 name=up_master value=\"".$uplink_param['master']."\"></td>
+				</tr>
+				<tr>
+					<td>"._('Additional URL parameter')."</td><td><input type=text size=30 maxlength=250 name=up_additional_param value=\"".$uplink_param['additional_param']."\"></td>
+				</tr>
+				<tr>
+					<td>"._('Webservice username')."</td><td><input type=text size=30 maxlength=30 name=up_username value=\"".$uplink_param['username']."\"></td>
+				</tr>
+				<tr>
+					<td>"._('Webservice token')."</td><td><input type=text size=30 maxlength=32 name=up_token value=\"\"></td>
+				</tr>
+				<tr>
+					<td>"._('Module sender ID')."</td><td><input type=text size=30 maxlength=16 name=up_global_sender value=\"".$uplink_param['global_sender']."\"> "._hint('Max. 16 numeric or 11 alphanumeric char. empty to disable')."</td>
+				</tr>
+				<tr>
+					<td>"._('Module timezone')."</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"".$uplink_param['datetime_timezone']."\"> "._hint('Eg: +0700 for Jakarta/Bangkok timezone')."</td>
+				</tr>
+				</tbody>
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>";

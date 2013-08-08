@@ -22,17 +22,19 @@ switch ($op) {
 		}
 		$content .= "
 			<h2>"._('Manage dev')."</h2>
-			<p>
-			<table width=100% cellpadding=1 cellspacing=2 border=0>
-			<tr><td width=270>"._('Gateway name')."</td><td width=5>:</td><td>dev $status_active</td></tr>
+			<table width=100%>
+				<tbody><tr><td width=270>"._('Gateway name')."</td><td>dev $status_active</td></tr></tbody>
 			</table>
+			<br />
 			<h3>"._('Simulate incoming SMS')."</h3>
 			<form action=\"index.php?app=menu&inc=gateway_dev&op=simulate\" method=post>
-			<table width=100% cellpadding=1 cellspacing=2 border=0>
-			<tr><td width=270>"._('Message')."</td><td>:</td><td><input type=text name=message value=\"$message\" size=30 maxlength=250></td></tr>
-			<tr><td>"._('Sender')."</td><td>:</td><td><input type=text name=sender value=\"$sender\" size=20 maxlength=20></td></tr>
-			<tr><td>"._('Receiver')."</td><td>:</td><td><input type=text name=receiver value=\"$receiver\" size=20 maxlength=20></td></tr>
-			<tr><td>"._('Date/Time')."</td><td>:</td><td><input type=text name=datetime value=\"$datetime\" size=20 maxlength=20></td></tr>
+			<table width=100%>
+				<tbody>
+				<tr><td width=270>"._('Message')."</td><td><input type=text name=message value=\"$message\" size=30 maxlength=250></td></tr>
+				<tr><td>"._('Sender')."</td><td><input type=text name=sender value=\"$sender\" size=30 maxlength=20></td></tr>
+				<tr><td>"._('Receiver')."</td><td><input type=text name=receiver value=\"$receiver\" size=30 maxlength=20></td></tr>
+				<tr><td>"._('Date/Time')."</td><td><input type=text name=datetime value=\"$datetime\" size=30 maxlength=20></td></tr>
+				</tbody>
 			</table>
 			<p><input type=submit class=button value=\""._('Submit')."\">
 			</form>";

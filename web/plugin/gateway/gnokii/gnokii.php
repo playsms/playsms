@@ -12,41 +12,36 @@ if ($gw == $gnokii_param['name']) {
 	$status_active = "<span class=status_inactive />";
 }
 
-switch ($op)
-{
+switch ($op) {
 	case "manage":
-		if ($err = $_SESSION['error_string'])
-		{
+		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
-	    <h2>"._('Manage gnokii')."</h2>
-	    <p>
-	    <form action=index.php?app=menu&inc=gateway_gnokii&op=manage_save method=post>
-	<table width=100% cellpadding=1 cellspacing=2 border=0>
-	    <tr>
-		<td width=270>"._('Gateway name')."</td><td width=5>:</td><td>gnokii $status_active</td>
-	    </tr>
-	    <tr>
-		<td>"._('Gnokii installation path')."</td><td>:</td><td><input type=text size=30 maxlength=250 name=up_path value=\"".$gnokii_param['path']."\"> ("._('No trailing slash')." \"/\")</td>
-	    </tr>	    
-	</table>	    
-	    <p><input type=submit class=button value=\""._('Save')."\">
-	    </form>
-	";
+			<h2>"._('Manage gnokii')."</h2>
+			<form action=index.php?app=menu&inc=gateway_gnokii&op=manage_save method=post>
+			<table width=100%>
+				<tbody>
+				<tr>
+					<td width=270>"._('Gateway name')."</td><td>gnokii $status_active</td>
+				</tr>
+				<tr>
+					<td>"._('Gnokii installation path')."</td><td><input type=text size=30 maxlength=250 name=up_path value=\"".$gnokii_param['path']."\"> "._hint(_('No trailing slash')." \"/\"")."</td>
+				</tr>
+				</tbody>
+			</table>
+			<p><input type=submit class=button value=\""._('Save')."\">
+			</form>";
 		echo $content;
 		break;
 	case "manage_save":
 		$up_path = $_POST['up_path'];
 		$_SESSION['error_string'] = _('No changes has been made');
-		if ($up_path)
-		{
+		if ($up_path) {
 			$db_query = "
-		UPDATE "._DB_PREF_."_gatewayGnokii_config 
-		SET c_timestamp='".mktime()."',cfg_path='$up_path'
-	    ";
-			if (@dba_affected_rows($db_query))
-			{
+				UPDATE "._DB_PREF_."_gatewayGnokii_config 
+				SET c_timestamp='".mktime()."',cfg_path='$up_path'";
+			if (@dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('Gateway module configurations has been saved');
 			}
 		}

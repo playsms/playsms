@@ -12,22 +12,20 @@ if ($gw == $gammu_param['name']) {
 	$status_active = "<span class=status_inactive />";
 }
 
-switch ($op)
-{
+switch ($op) {
 	case "manage":
-		if ($err = $_SESSION['error_string'])
-		{
+		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
-	    <h2>"._('Manage gammu')."</h2>
-	    <p>
-	<table width=100% cellpadding=1 cellspacing=2 border=0>
-	    <tr>
-		<td width=270>"._('Gateway name')."</td><td width=5>:</td><td>gammu $status_active</td>
-	    </tr>
-	</table>	    
-	";
+			<h2>"._('Manage gammu')."</h2>
+			<table width=100%>
+				<tbody>
+				<tr>
+					<td width=270>"._('Gateway name')."</td><td>gammu $status_active</td>
+				</tr>
+				</tbody>
+			</table>";
 		echo $content;
 		break;
 	case "manage_activate":
