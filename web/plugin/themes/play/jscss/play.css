@@ -183,6 +183,7 @@
 	background-color: #2ECC71;
 	color: #2ECC71;
 	display: inline-block;
+	border-radius: 3px;
 }
 
 .status_unhandled {
@@ -191,6 +192,7 @@
 	background-color: #E74C3C;
 	color: #E74C3C;
 	display: inline-block;
+	border-radius: 3px;
 }
 
 .status_sent {
@@ -199,6 +201,7 @@
 	background-color: #2ECC71;
 	color: #2ECC71;
 	display: inline-block;
+	border-radius: 3px;
 }
 
 .status_failed {
@@ -207,6 +210,7 @@
 	background-color: #E74C3C;
 	color: #E74C3C;
 	display: inline-block;
+	border-radius: 3px;
 }
 
 .status_delivered {
@@ -215,6 +219,7 @@
 	background-color: #3498DB;
 	color: #3498DB;
 	display: inline-block;
+	border-radius: 3px;
 }
 
 .status_pending {
@@ -223,6 +228,7 @@
 	background-color: #F1C40F;
 	color: #F1C40F;
 	display: inline-block;
+	border-radius: 3px;
 }
 
 .status_active {
@@ -231,6 +237,7 @@
 	background-color: #2ECC71;
 	color: #2ECC71;
 	display: inline-block;
+	border-radius: 3px;
 }
 
 .status_inactive {
@@ -239,8 +246,32 @@
 	background-color: #E74C3C;
 	color: #E74C3C;
 	display: inline-block;
+	border-radius: 3px;
 }
 
 .hint {
 	font-size: 9pt;
+	width: 20px;
+	height: 17px;;
+	background-image: url('../images/hint.gif');
+	background-repeat: no-repeat;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.hint:hover .hint_text {
+	display: block;
+	width: 200px;
+	padding: 5px;
+	border: 2px dotted #CCC;
+	border-radius: 3px;
+	margin-left: 20px;
+}
+
+.hint_text {
+	position: absolute;
+	z-index: 1;
+	display: none;
+	background-color: #DDD;
+	color: #444;
 }

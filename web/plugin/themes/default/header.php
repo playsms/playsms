@@ -37,6 +37,7 @@
 							#profile_pic {
 								background-image:url('<?php echo $core_config['user']['opt']['gravatar']; ?>');
 								background-color: #2980B9;
+								background-repeat: no-repeat;
 								margin-left: 174px;
 								width: 80px;
 								height: 80px;

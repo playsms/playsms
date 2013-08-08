@@ -128,7 +128,7 @@ function _button($url, $title) {
 }
 
 function themes_hint($text) {
-	$content = "<span class=hint>"._($text)."</span>";
+	$content = "<span class=hint><div class=hint_text>"._($text)."</div></span>";
 	return $content;
 }
 

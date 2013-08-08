@@ -136,6 +136,11 @@ input,select,option,textarea {
 	padding-left: 5px;
 }
 
+input[type=checkbox] {
+	border-radius: 3px;
+	background: #FFF;
+}
+
 button,.button {
 	font-weight: normal;
 	color: #FFF;
@@ -149,10 +154,6 @@ button,.button {
 	-o-transition: background-color 0.5s ease;
 	transition: background-color 0.5s ease;
 	border-radius: 3px;
-}
-
-button:hover,.button:hover {
-	background-color: #566B7F;
 }
 
 ul {
@@ -369,6 +370,7 @@ li {
 	background-color: #2ECC71;
 	color: #2ECC71;
 	display: inline-block;
+	border-radius: 3px;
 }
 
 .status_unhandled {
@@ -377,6 +379,7 @@ li {
 	background-color: #E74C3C;
 	color: #E74C3C;
 	display: inline-block;
+	border-radius: 3px;
 }
 
 .status_sent {
@@ -385,6 +388,7 @@ li {
 	background-color: #2ECC71;
 	color: #2ECC71;
 	display: inline-block;
+	border-radius: 3px;
 }
 
 .status_failed {
@@ -393,6 +397,7 @@ li {
 	background-color: #E74C3C;
 	color: #E74C3C;
 	display: inline-block;
+	border-radius: 3px;
 }
 
 .status_delivered {
@@ -401,6 +406,7 @@ li {
 	background-color: #3498DB;
 	color: #3498DB;
 	display: inline-block;
+	border-radius: 3px;
 }
 
 .status_pending {
@@ -409,6 +415,7 @@ li {
 	background-color: #F1C40F;
 	color: #F1C40F;
 	display: inline-block;
+	border-radius: 3px;
 }
 
 .status_active {
@@ -417,6 +424,7 @@ li {
 	background-color: #2ECC71;
 	color: #2ECC71;
 	display: inline-block;
+	border-radius: 3px;
 }
 
 .status_inactive {
@@ -425,8 +433,32 @@ li {
 	background-color: #E74C3C;
 	color: #E74C3C;
 	display: inline-block;
+	border-radius: 3px;
 }
 
 .hint {
 	font-size: 9pt;
+	width: 20px;
+	height: 17px;;
+	background-image: url('../images/hint.gif');
+	background-repeat: no-repeat;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.hint:hover .hint_text {
+	display: block;
+	width: 200px;
+	padding: 5px;
+	border: 2px dotted #CCC;
+	border-radius: 3px;
+	margin-left: 20px;
+}
+
+.hint_text {
+	position: absolute;
+	z-index: 1;
+	display: none;
+	background-color: #DDD;
+	color: #444;
 }
