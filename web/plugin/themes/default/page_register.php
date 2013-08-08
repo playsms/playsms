@@ -1,11 +1,11 @@
 <?php defined('_SECURE_') or die('Forbidden'); ?>
 <?php include $apps_path['themes']."/".$themes_module."/header.php"; ?>
 
-<table width="100%" border=0 cellpadding=0 cellspacing=0>
+<table width='100%'>
 	<tbody>
 	<tr>
 		<td align="center">
-		<table width=360 border=0 cellpadding=0 cellspacing=0 bgcolor=#2C3E50>
+		<table style='border-radius: 3px; background-color: #2C3E50; width: 360px'>
 			<tbody>
 			<tr>
 				<td>
@@ -13,7 +13,7 @@
 				<input type=hidden name=app value=page>
 				<input type=hidden name=inc value=login>
 				<input type=hidden name=op value=auth_register>
-				<table width="100%" border="0" cellpadding="2" cellspacing="2">
+				<table width="100%">
 					<tbody>
 					<tr><td>&nbsp;</td></tr>
 					<tr>
