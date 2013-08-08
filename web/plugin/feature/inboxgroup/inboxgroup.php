@@ -27,13 +27,12 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Group inbox')."</h2>
 			<p>"._button('index.php?app=menu&inc=feature_inboxgroup&op=add', _('Add group inbox'))."
-			<table width='100%' cellpadding='1' cellspacing='2' border='0' class='sortable'>
+			<table width='100%' class='sortable'>
 			<thead><tr>
-				<th width='4'>*</th>
 				<th width='20%'>"._('Receiver number')."</th>
-				<th width='40%'>"._('Keywords')."</th>
-				<th width='10%'>"._('Members')."</th>
-				<th width='10%'>"._('Catch-all')."</th>
+				<th width='30%'>"._('Keywords')."</th>
+				<th width='15%'>"._('Members')."</th>
+				<th width='15%'>"._('Catch-all')."</th>
 				<th width='10%'>"._('Status')."</th>
 				<th width='10%'>"._('Action')."</th>
 			</tr></thead>
@@ -51,7 +50,6 @@ switch ($op) {
 			$td_class = (($i+1) % 2) ? "row_odd" : "row_even";
 			$content .= "
 				<tr class='".$td_class."'>
-					<td align='center'>".($i+1).".</td>
 					<td align='center'>".$data[$i]['in_receiver']."</td>
 					<td align='center'>".str_replace(',',', ',$data[$i]['keywords'])."</td>
 					<td align='center'>".$c_members."</td>
@@ -74,10 +72,10 @@ switch ($op) {
 		$content .= "<h3>"._('Add group inbox')."</h3>";
 		$content .= "
 			<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&op=add_submit'>
-			<table cellpadding='1' cellspacing='2' border='0'>
-			<tr><td>"._('Receiver number')."</td><td>:</td><td><input type='text' name='in_receiver' maxlength='20' size='20'> &nbsp; ("._('For example a short code').")</td></tr>
-			<tr><td>"._('Keywords')."</td><td>:</td><td><input type='text' name='keywords' maxlength='100' size=30> &nbsp; ("._('Seperate with comma for multiple items').")</td></tr>
-			<tr><td>"._('Description')."</td><td>:</td><td><input type='text' name='description' maxlength='100' size=30></td></tr>
+			<table width='100%'>
+			<tr><td width='270'>"._('Receiver number')."</td><td><input type='text' name='in_receiver' maxlength='20' size='20'>"._hint('For example a short code')."</td></tr>
+			<tr><td>"._('Keywords')."</td><td><input type='text' name='keywords' maxlength='100' size=30>"._hint('Seperate with comma for multiple items')."</td></tr>
+			<tr><td>"._('Description')."</td><td><input type='text' name='description' maxlength='100' size=30></td></tr>
 			</table>
 			<p><input class='button' type='submit' value='"._('Save')."'></p>
 			</form>
@@ -117,11 +115,11 @@ switch ($op) {
 		$content .= "
 			<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&op=edit_submit'>
 			<input type='hidden' name='rid' value='$rid'>
-			<table cellpadding='1' cellspacing='2' border='0'>
-			<tr><td>"._('Receiver number')."</td><td>:</td><td>".$in_receiver."</td></tr>
-			<tr><td>"._('Keywords')."</td><td>:</td><td><input type='text' name='keywords' value='$keywords' maxlength='100' size=30> &nbsp; ("._('Seperate with comma for multiple items').")</td></tr>
-			<tr><td>"._('Description')."</td><td>:</td><td><input type='text' name='description' value='$description' maxlength='100' size=30></td></tr>
-			<tr><td>"._('Exclusive')."</td><td>:</td><td><select name='exclusive'>".$option_exclusive."</select> ("._('Restrict sender to regular members or catch-all members only').")</td></tr>
+			<table width='100%'>
+			<tr><td width='270'>"._('Receiver number')."</td><td>".$in_receiver."</td></tr>
+			<tr><td>"._('Keywords')."</td><td><input type='text' name='keywords' value='$keywords' maxlength='100' size=30>"._hint('Seperate with comma for multiple items')."</td></tr>
+			<tr><td>"._('Description')."</td><td><input type='text' name='description' value='$description' maxlength='100' size=30></td></tr>
+			<tr><td>"._('Exclusive')."</td><td><select name='exclusive'>".$option_exclusive."</select>"._hint('Restrict sender to regular members or catch-all members only')."</td></tr>
 			</table>
 			<p><input class='button' type='submit' value='"._('Save')."'></p>
 			</form>
@@ -165,13 +163,13 @@ switch ($op) {
 		$content .= "<h2>"._('Group inbox')."</h2>";
 		$content .= "<h3>"._('Delete group inbox')."</h3>";
 		$content .= "
-			<table cellpadding='1' cellspacing='2' border='0'>
-			<tr><td>"._('Receiver number')."</td><td>:</td><td>".$in_receiver."</td></tr>
-			<tr><td>"._('Keywords')."</td><td>:</td><td>".$keywords."</td></tr>
-			<tr><td>"._('Description')."</td><td>:</td><td>".$description."</td></tr>
-			<tr><td>"._('Members')."</td><td>:</td><td>".$c_members."</td></tr>
-			<tr><td>"._('Catch-all')."</td><td>:</td><td>".$c_catchall."</td></tr>
-			<tr><td>"._('Status')."</td><td>:</td><td>".$c_status."</td></tr>
+			<table width='100%'>
+			<tr><td width='270'>"._('Receiver number')."</td><td>".$in_receiver."</td></tr>
+			<tr><td>"._('Keywords')."</td><td>".$keywords."</td></tr>
+			<tr><td>"._('Description')."</td><td>".$description."</td></tr>
+			<tr><td>"._('Members')."</td><td>".$c_members."</td></tr>
+			<tr><td>"._('Catch-all')."</td><td>".$c_catchall."</td></tr>
+			<tr><td>"._('Status')."</td><td>".$c_status."</td></tr>
 			</table>
 			<p>"._('Are you sure you want to delete this group inbox ?')."</p>
 			<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&op=del_submit'>

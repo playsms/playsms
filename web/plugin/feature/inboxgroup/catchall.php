@@ -27,31 +27,26 @@ switch ($op) {
 		$content .= "<h2>"._('Group inbox')."</h2>";
 		$content .= "<h3>"._('Catch-all list')."</h3>";
 		$content .= "
-			<table cellpadding='1' cellspacing='2' border='0'>
-			<tr><td>"._('Receiver number')."</td><td>:</td><td>".$in_receiver."</td></tr>
-			<tr><td>"._('Keywords')."</td><td>:</td><td>".$keywords."</td></tr>
-			<tr><td>"._('Description')."</td><td>:</td><td>".$description."</td></tr>
-			<tr><td>"._('Members')."</td><td>:</td><td>".$c_members."</td></tr>
-			<tr><td>"._('Catch-all')."</td><td>:</td><td>".$c_catchall."</td></tr>
-			<tr><td>"._('Status')."</td><td>:</td><td>".$c_status."</td></tr>
+			<table width='100%'>
+			<tr><td width='270'>"._('Receiver number')."</td><td>".$in_receiver."</td></tr>
+			<tr><td>"._('Keywords')."</td><td>".$keywords."</td></tr>
+			<tr><td>"._('Description')."</td><td>".$description."</td></tr>
+			<tr><td>"._('Members')."</td><td>".$c_members."</td></tr>
+			<tr><td>"._('Catch-all')."</td><td>".$c_catchall."</td></tr>
+			<tr><td>"._('Status')."</td><td>".$c_status."</td></tr>
 			</table>
-			<table cellpadding='1' cellspacing='2' border='0'>
-			<tr>
-				<td>
-					<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall_add&rid=".$rid."'>
-					<input class='button' type='submit' value='"._('Add catch-all')."'>
-					</form>
-				</td>
-				<td>
-					<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall_delete&rid=".$rid."'>
-					<input class='button' type='submit' value='"._('Delete catch-all')."'>
-					</form>
-				</td>
-			</tr>
-			</table>
-			<table width='100%' cellpadding='1' cellspacing='2' border='0' class='sortable'>
+			<div style='float: left'>
+				<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall_add&rid=".$rid."'>
+				<input class='button' type='submit' value='"._('Add catch-all')."'>
+				</form>
+			</div>
+			<div>
+				<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall_delete&rid=".$rid."'>
+				<input class='button' type='submit' value='"._('Delete catch-all')."'>
+				</form>
+			</div>
+			<table width='100%' class='sortable'>
 			<thead><tr>
-				<th width='4'>*</th>
 				<th width='30%'>"._('Username')."</th>
 				<th width='50%'>"._('Name')."</th>
 				<th width='20%'>"._('Mobile')."</th>
@@ -69,7 +64,6 @@ switch ($op) {
 				$td_class = (($j+1) % 2) ? "row_odd" : "row_even";
 				$content .= "
 					<tr class='".$td_class."'>
-						<td align='center'>".$j.".</td>
 						<td align='center'>".$c_username."</td>
 						<td align='center'>".$c_name."</td>
 						<td align='center'>".$c_mobile."</td>
@@ -79,20 +73,16 @@ switch ($op) {
 		$content .= "
 			</tbody>
 			</table>
-			<table cellpadding='1' cellspacing='2' border='0'>
-			<tr>
-				<td>
-					<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall_add&rid=".$rid."'>
-					<input class='button' type='submit' value='"._('Add catch-all')."'>
-					</form>
-				</td>
-				<td>
-					<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall_delete&rid=".$rid."'>
-					<input class='button' type='submit' value='"._('Delete catch-all')."'>
-					</form>
-				</td>
-			</tr>
-			</table>
+			<div style='float: left'>
+				<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall_add&rid=".$rid."'>
+				<input class='button' type='submit' value='"._('Add catch-all')."'>
+				</form>
+			</div>
+			<div>
+				<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall_delete&rid=".$rid."'>
+				<input class='button' type='submit' value='"._('Delete catch-all')."'>
+				</form>
+			</div>
 		"._b('index.php?app=menu&inc=feature_inboxgroup&op=list');
 		echo $content;
 		break;
@@ -113,13 +103,13 @@ switch ($op) {
 		$content .= "<h2>"._('Group inbox')."</h2>";
 		$content .= "<h3>"._('Add catch-all')."</h3>";
 		$content .= "
-			<table cellpadding='1' cellspacing='2' border='0'>
-			<tr><td>"._('Receiver number')."</td><td>:</td><td>".$in_receiver."</td></tr>
-			<tr><td>"._('Keywords')."</td><td>:</td><td>".$keywords."</td></tr>
-			<tr><td>"._('Description')."</td><td>:</td><td>".$description."</td></tr>
-			<tr><td>"._('Members')."</td><td>:</td><td>".$c_members."</td></tr>
-			<tr><td>"._('Catch-all')."</td><td>:</td><td>".$c_catchall."</td></tr>
-			<tr><td>"._('Status')."</td><td>:</td><td>".$c_status."</td></tr>
+			<table width='100%'>
+			<tr><td width='270'>"._('Receiver number')."</td><td>".$in_receiver."</td></tr>
+			<tr><td>"._('Keywords')."</td><td>".$keywords."</td></tr>
+			<tr><td>"._('Description')."</td><td>".$description."</td></tr>
+			<tr><td>"._('Members')."</td><td>".$c_members."</td></tr>
+			<tr><td>"._('Catch-all')."</td><td>".$c_catchall."</td></tr>
+			<tr><td>"._('Status')."</td><td>".$c_status."</td></tr>
 			</table>";
 		$list_of_users = '';
 		// get admins
@@ -135,25 +125,24 @@ switch ($op) {
 		$content .= "
 			<form action=\"index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall_add_submit\" method=\"post\">
 			<input type=hidden name='rid' value='".$rid."'>
-			<table cellpadding=1 cellspacing=2 border=0>
-			<tr>
-				<td nowrap>
-					"._('All users').":<br />
-					<select name=\"uids_dump[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['uids_dump[]'],this.form['uids[]'])\">$list_of_users</select>
-				</td>
-				<td width=10>&nbsp;</td>
-				<td align=center valign=middle>
-					<input type=\"button\" class=\"button\" value=\"&gt;&gt;\" onclick=\"moveSelectedOptions(this.form['uids_dump[]'],this.form['uids[]'])\"><br><br>
-					<input type=\"button\" class=\"button\" value=\""._('All')." &gt;&gt;\" onclick=\"moveAllOptions(this.form['uids_dump[]'],this.form['uids[]'])\"><br><br>
-					<input type=\"button\" class=\"button\" value=\"&lt;&lt;\" onclick=\"moveSelectedOptions(this.form['uids[]'],this.form['uids_dump[]'])\"><br><br>
-					<input type=\"button\" class=\"button\" value=\""._('All')." &lt;&lt;\" onclick=\"moveAllOptions(this.form['uids[]'],this.form['uids_dump[]'])\">
-				</td>
-				<td width=10>&nbsp;</td>
-				<td nowrap>
-					"._('Selected users').":<br>
-					<select name=\"uids[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['uids[]'],this.form['uids_dump[]'])\"></select>
-				</td>
-			</tr>
+			<table>
+				<tbody>
+				<tr>
+					<td nowrap>
+						"._('All users').":<br />
+						<select name=\"uids_dump[]\" id=\"msg_combo_sendto\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['uids_dump[]'],this.form['uids[]'])\">$list_of_users</select>
+					</td>
+					<td align=center valign=middle>
+						<br />
+						<p><input type=\"button\" class=\"button\" value=\"&gt;\" onclick=\"moveSelectedOptions(this.form['uids_dump[]'],this.form['uids[]'])\"></p>
+						<p><input type=\"button\" class=\"button\" value=\"&lt;\" onclick=\"moveSelectedOptions(this.form['uids[]'],this.form['uids_dump[]'])\"></p>
+					</td>
+					<td nowrap>
+						"._('Selected users').":<br>
+						<select name=\"uids[]\" id=\"msg_combo_sendto\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['uids[]'],this.form['uids_dump[]'])\"></select>
+					</td>
+				</tr>
+				</tbody>
 			</table>
 			<p>"._('Press submit button to add selected users to catch-all list')."</p>
 			<p><input class='button' type='submit' value='Submit' onClick=\"selectAllOptions(this.form['uids[]'])\"></p>
@@ -200,13 +189,13 @@ switch ($op) {
 		$content .= "<h2>"._('Group inbox')."</h2>";
 		$content .= "<h3>"._('Delete catch-all')."</h3>";
 		$content .= "
-			<table cellpadding='1' cellspacing='2' border='0'>
-			<tr><td>"._('Receiver number')."</td><td>:</td><td>".$in_receiver."</td></tr>
-			<tr><td>"._('Keywords')."</td><td>:</td><td>".$keywords."</td></tr>
-			<tr><td>"._('Description')."</td><td>:</td><td>".$description."</td></tr>
-			<tr><td>"._('Members')."</td><td>:</td><td>".$c_members."</td></tr>
-			<tr><td>"._('Catch-all')."</td><td>:</td><td>".$c_catchall."</td></tr>
-			<tr><td>"._('Status')."</td><td>:</td><td>".$c_status."</td></tr>
+			<table width='100%>
+			<tr><td width='270'>"._('Receiver number')."</td><td>".$in_receiver."</td></tr>
+			<tr><td>"._('Keywords')."</td><td>".$keywords."</td></tr>
+			<tr><td>"._('Description')."</td><td>".$description."</td></tr>
+			<tr><td>"._('Members')."</td><td>".$c_members."</td></tr>
+			<tr><td>"._('Catch-all')."</td><td>".$c_catchall."</td></tr>
+			<tr><td>"._('Status')."</td><td>".$c_status."</td></tr>
 			</table>";
 		$list_of_catchall = '';
 		// get catchall
@@ -223,25 +212,24 @@ switch ($op) {
 		$content .= "
 			<form action=\"index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall_delete_submit\" method=\"post\">
 			<input type=hidden name='rid' value='".$rid."'>
-			<table cellpadding=1 cellspacing=2 border=0>
-			<tr>
-				<td nowrap>
-					"._('Current catchall').":<br />
-					<select name=\"uids_dump[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['uids_dump[]'],this.form['uids[]'])\">$list_of_users</select>
-				</td>
-				<td width=10>&nbsp;</td>
-				<td align=center valign=middle>
-					<input type=\"button\" class=\"button\" value=\"&gt;&gt;\" onclick=\"moveSelectedOptions(this.form['uids_dump[]'],this.form['uids[]'])\"><br><br>
-					<input type=\"button\" class=\"button\" value=\""._('All')." &gt;&gt;\" onclick=\"moveAllOptions(this.form['uids_dump[]'],this.form['uids[]'])\"><br><br>
-					<input type=\"button\" class=\"button\" value=\"&lt;&lt;\" onclick=\"moveSelectedOptions(this.form['uids[]'],this.form['uids_dump[]'])\"><br><br>
-					<input type=\"button\" class=\"button\" value=\""._('All')." &lt;&lt;\" onclick=\"moveAllOptions(this.form['uids[]'],this.form['uids_dump[]'])\">
-				</td>		
-				<td width=10>&nbsp;</td>
-				<td nowrap>
-				    "._('Selected catchall').":<br>
-				    <select name=\"uids[]\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['uids[]'],this.form['uids_dump[]'])\"></select>
-				</td>
-			</tr>
+			<table>
+				<tbody>
+				<tr>
+					<td nowrap>
+						"._('Current catchall').":<br />
+						<select name=\"uids_dump[]\" id=\"msg_combo_sendto\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['uids_dump[]'],this.form['uids[]'])\">$list_of_users</select>
+					</td>
+					<td align=center valign=middle>
+						<br />
+						<p><input type=\"button\" class=\"button\" value=\"&gt;\" onclick=\"moveSelectedOptions(this.form['uids_dump[]'],this.form['uids[]'])\"></p>
+						<p><input type=\"button\" class=\"button\" value=\"&lt;\" onclick=\"moveSelectedOptions(this.form['uids[]'],this.form['uids_dump[]'])\"></p>
+					</td>		
+					<td nowrap>
+					    "._('Selected catchall').":<br>
+					    <select name=\"uids[]\" id=\"msg_combo_sendto\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['uids[]'],this.form['uids_dump[]'])\"></select>
+					</td>
+				</tr>
+				</tbody>
 			</table>
 			<p>"._('Press submit button to remove selected catchall from catch-all list')."</p>
 			<p><input class='button' type='submit' value='Submit' onClick=\"selectAllOptions(this.form['uids[]'])\"></p>
