@@ -11,7 +11,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 	$kannel_param['global_sender']	= $db_row['cfg_global_sender'];
 	$kannel_param['bearerbox_host']	= $db_row['cfg_bearerbox_host'];
 	$kannel_param['sendsms_host']	= ( $db_row['cfg_sendsms_host'] ? $db_row['cfg_sendsms_host'] : $kannel_param['bearerbox_host'] );
-	$kannel_param['sendsms_port']	= $db_row['cfg_sendsms_port'];
+	$kannel_param['sendsms_port']	= ( $db_row['cfg_sendsms_port'] ? $db_row['cfg_sendsms_port'] : '13131' );
 	$kannel_param['playsms_web']	= $db_row['cfg_playsms_web'];
 	// Handle DLR options in Kannel - emmanuel
 	$kannel_param['dlr']            = $db_row['cfg_dlr'];
@@ -21,7 +21,7 @@ if ($db_row = dba_fetch_array($db_result)) {
         //fixme edward Adding New Parameter HTTP Kannel Admin
         $kannel_param['admin_url']              = $db_row['cfg_admin_url'];
         $kannel_param['admin_password']              = $db_row['cfg_admin_password'];
-        $kannel_param['admin_port']             = $db_row['cfg_admin_port'];
+        $kannel_param['admin_port']             = ( $db_row['cfg_admin_port'] ? $db_row['cfg_admin_port'] : '13000' );
         //end of fixme edward Adding New Parameter HTTP Kannel Admin
 }
 

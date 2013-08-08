@@ -74,7 +74,7 @@ switch ($op) {
 					<td>" . _('Send SMS hostname or IP') . "</td><td><input type=text size=30 maxlength=250 name=up_sendsms_host value=\"" . $kannel_param['sendsms_host'] . "\"> "._hint('Kannel specific')."</td>
 				</tr>
 				<tr>
-					<td>" . _('Send SMS port') . "</td><td><input type=text size=10 maxlength=10 name=up_sendsms_port value=\"" . $kannel_param['sendsms_port'] . "\"> "._hint('Kannel specific')."</td>
+					<td>" . _('Send SMS port') . "</td><td><input type=text size=30 maxlength=10 name=up_sendsms_port value=\"" . $kannel_param['sendsms_port'] . "\"> "._hint('Kannel specific')."</td>
 				</tr>
 				<!-- Handle DLR config (emmanuel) -->
 				<tr>
