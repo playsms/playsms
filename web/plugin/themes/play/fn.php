@@ -21,6 +21,7 @@ function theme_play_build_menu() {
 	  $content .= "<li class=\"dropdown pull-right\">";
 	  $content .= '<a href="#" class="dropdown-toggle">'.$username.'</a>';
 	  $content .= '<ul class="dropdown-menu">';
+	  $content .= '<li><a href="index.php?app=menu&inc=user_pref&op=user_pref">'._('Preferences').'</a></li>';
 	  $content .= '<li><a href="index.php?app=page&op=auth_logout">Logout</a></li>';
 	  $content .= "</ul>";
 	  $content .= "</li>";
