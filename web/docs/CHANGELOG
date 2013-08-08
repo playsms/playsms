@@ -8,7 +8,11 @@ Version 0.9.9.1-git - 130817
 - add DBHOST and DBPORT on install script
 - add common place to put common js files, themes/common/jscss
 - add sendsms_host option in kannel gateway module (lucastx)
-- upgrade themes default
+- add option to load/parse .html and .md files on page_welcome
+- add hints with tooltip
+- add new option CSS URL to decorate sms_board
+- upgrade themes default, re-design
+- upgrade all plugins to match new themes stuffs
 - remove unused js and css files on themes default
 - remove dTree js and css files
 - remove themes 'work2'
