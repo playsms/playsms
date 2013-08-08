@@ -15,13 +15,12 @@ switch ($op) {
 		}
 		$content .= "
 				<h2>"._('Manage quiz')."</h2>
-				<p>"._button('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add', _('Add SMS quiz'));
+				"._button('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add', _('Add SMS quiz'));
 		$content .= "
-			<table cellpadding=1 cellspacing=2 border=0 width=100% class=sortable>
+			<table width=100% class=sortable>
 			<thead><tr>";
 		if (isadmin()) {
 			$content .= "
-				<th width=5>*</th>
 				<th width=20%>"._('Keyword')."</th>
 				<th width=40%>"._('Question')."</th>
 				<th width=20%>"._('User')."</th>
@@ -29,7 +28,6 @@ switch ($op) {
 				<th width=10%>"._('Action')."</th>";
 		} else {
 			$content .= "
-				<th width=5>*</th>
 				<th width=20%>"._('Keyword')."</th>
 				<th width=60%>"._('Question')."</th>
 				<th width=10%>"._('Status')."</th>
@@ -56,13 +54,12 @@ switch ($op) {
 				$action .= "<a href=index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=".$db_row['quiz_id'].">$icon_edit</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS quiz with all its choices and answers ?')." ("._('keyword').": ".$db_row['quiz_keyword'].")','index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_del&quiz_id=".$db_row['quiz_id']."')\">$icon_delete</a>";
 				if (isadmin()) {
-					$option_owner = "<td class=$td_class>$owner</td>";
+					$option_owner = "<td class=$td_class align=center>$owner</td>";
 				}
 				$content .= "
 					<tr>
-						<td class=$td_class>&nbsp;$i.</td>
-						<td class=$td_class>".$db_row['quiz_keyword']."</td>
-						<td class=$td_class>".$db_row['quiz_question']."</td>
+						<td class=$td_class align=center>".$db_row['quiz_keyword']."</td>
+						<td class=$td_class align=center>".$db_row['quiz_question']."</td>
 						".$option_owner."
 						<td class=$td_class align=center>$quiz_status</td>
 						<td class=$td_class align=center>$action</td>
@@ -71,7 +68,7 @@ switch ($op) {
 		}
 		$content .= "</tbody>
 			</table>
-			<p>"._button('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add', _('Add SMS quiz'));
+			"._button('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add', _('Add SMS quiz'));
 		echo $content;
 		break;
 	case "sms_quiz_add" :
@@ -81,28 +78,27 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage quiz')."</h2>
 			<h3>"._('Add SMS quiz')."</h3>
-			<p>
 			<form action=index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add_yes method=post>
-			<table width=100% cellpadding=1 cellspacing=2 border=0>
+			<table width=100%>
 			<tr>
-				<td width=270>"._('SMS quiz keyword')."</td><td width=5>:</td><td><input type=text size=10 maxlength=10 name=add_quiz_keyword value=\"$add_quiz_keyword\"></td>
+				<td width=270>"._('SMS quiz keyword')."</td><td><input type=text size=10 maxlength=10 name=add_quiz_keyword value=\"$add_quiz_keyword\"></td>
 			</tr>
 			<tr>
-				<td>"._('SMS quiz question')."</td><td>:</td><td><input type=text size=30 maxlength=100 name=add_quiz_question value=\"$add_quiz_question\"></td>
+				<td>"._('SMS quiz question')."</td><td><input type=text size=30 maxlength=100 name=add_quiz_question value=\"$add_quiz_question\"></td>
 			</tr>
 			<tr>
-				<td>"._('SMS quiz answer')."</td><td>:</td><td><input type=text size=30 maxlength=100 name=add_quiz_answer value=\"$add_quiz_answer\"></td>
+				<td>"._('SMS quiz answer')."</td><td><input type=text size=30 maxlength=100 name=add_quiz_answer value=\"$add_quiz_answer\"></td>
 			</tr>
 			<tr>
-				<td>"._('Reply message on correct')."</td><td>:</td><td><input type=text size=30 maxlength=100 name=add_quiz_msg_correct value=\"$add_quiz_msg_correct\"></td>
+				<td>"._('Reply message on correct')."</td><td><input type=text size=30 maxlength=100 name=add_quiz_msg_correct value=\"$add_quiz_msg_correct\"></td>
 			</tr>
 			<tr>
-				<td>"._('Reply message on incorrect')."</td><td>:</td><td><input type=text size=30 maxlength=100 name=add_quiz_msg_incorrect value=\"$add_quiz_msg_incorrect\"></td>
+				<td>"._('Reply message on incorrect')."</td><td><input type=text size=30 maxlength=100 name=add_quiz_msg_incorrect value=\"$add_quiz_msg_incorrect\"></td>
 			</tr>
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
-			<p>"._b('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list');
+			"._b('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list');
 		echo $content;
 		break;
 	case "sms_quiz_add_yes" :
@@ -145,30 +141,29 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage quiz')."</h2>
 			<h3>"._('Edit SMS quiz')."</h3>
-			<p>
 			<form action=index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_edit_yes method=post>
 			<input type=hidden name=quiz_id value=\"$quiz_id\">
 			<input type=hidden name=edit_quiz_keyword value=\"$edit_quiz_keyword\">
-			<table width=100% cellpadding=1 cellspacing=2 border=0>
+			<table width=100%>
 			<tr>
-				<td width=270>"._('SMS quiz keyword')."</td><td width=5>:</td><td>$edit_quiz_keyword</td>
+				<td width=270>"._('SMS quiz keyword')."</td><td>$edit_quiz_keyword</td>
 			</tr>
 			<tr>
-				<td>"._('SMS quiz question')."</td><td>:</td><td><input type=text size=30 maxlength=100 name=edit_quiz_question value=\"$edit_quiz_question\"></td>
+				<td>"._('SMS quiz question')."</td><td><input type=text size=30 maxlength=100 name=edit_quiz_question value=\"$edit_quiz_question\"></td>
 			</tr>
 			<tr>
-				<td>"._('SMS quiz answer')."</td><td>:</td><td><input type=text size=30 maxlength=100 name=edit_quiz_answer value=\"$edit_quiz_answer\"></td>
+				<td>"._('SMS quiz answer')."</td><td><input type=text size=30 maxlength=100 name=edit_quiz_answer value=\"$edit_quiz_answer\"></td>
 			</tr>
 			<tr>
-				<td>"._('Reply message on correct')."</td><td>:</td><td><input type=text size=30 maxlength=100 name=edit_quiz_msg_correct value=\"$edit_quiz_msg_correct\"></td>
+				<td>"._('Reply message on correct')."</td><td><input type=text size=30 maxlength=100 name=edit_quiz_msg_correct value=\"$edit_quiz_msg_correct\"></td>
 			</tr>
 			<tr>
-				<td>"._('Reply message on incorrect')."</td><td>:</td><td><input type=text size=30 maxlength=100 name=edit_quiz_msg_incorrect value=\"$edit_quiz_msg_incorrect\"></td>
+				<td>"._('Reply message on incorrect')."</td><td><input type=text size=30 maxlength=100 name=edit_quiz_msg_incorrect value=\"$edit_quiz_msg_incorrect\"></td>
 			</tr>
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
-			<p>"._b('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list');
+			"._b('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list');
 		echo $content;
 		break;
 	case "sms_quiz_edit_yes" :
@@ -206,12 +201,11 @@ switch ($op) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureQuiz_log WHERE quiz_id='$quiz_id' ORDER BY in_datetime DESC";
 		$db_result = dba_query($db_query);
 		$content .= "
-			<table cellpadding=1 cellspacing=2 border=0 width=100% class=sortable>
+			<table width=100% class=sortable>
 			<thead><tr>
-				<th width=5>*</th>
-				<th width=20%>"._('Datetime')."</th>
+				<th width=30%>"._('Datetime')."</th>
 				<th width=20%>"._('Sender')."</th>
-				<th width=40%>"._('Answer')."</th>
+				<th width=30%>"._('Answer')."</th>
 				<th width=10%>"._('Status')."</th>
 				<th width=10%>"._('Action')."</th>
 			</tr></thead>
@@ -228,17 +222,16 @@ switch ($op) {
 			$action = "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this answer ?')."','index.php?app=menu&inc=feature_sms_quiz&op=sms_answer_del&quiz_id=$quiz_id&answer_id=".$db_row['answer_id']."')\">$icon_delete</a>";
 			$content .= "
 				<tr>
-					<td class=$td_class>&nbsp;$i.</td>
-					<td class=$td_class>".$db_row['in_datetime']."</td>
-					<td class=$td_class>".$db_row['quiz_sender']."</td>
-					<td class=$td_class>".$db_row['quiz_answer']."</td>
+					<td class=$td_class align=center>".$db_row['in_datetime']."</td>
+					<td class=$td_class align=center>".$db_row['quiz_sender']."</td>
+					<td class=$td_class align=center>".$db_row['quiz_answer']."</td>
 					<td class=$td_class align=center>$iscorrect</td>
 					<td class=$td_class align=center>$action</td>
 				</tr>";
 		}
 		$content .= "</tbody>
 			</table>
-			<p>"._b('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list');
+			"._b('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list');
 		echo $content;
 		break;
 	case "sms_answer_del" :
