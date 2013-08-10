@@ -436,6 +436,24 @@ li {
 	border-radius: 3px;
 }
 
+.status_enabled {
+	width: 34px;
+	height: 17px;
+	background-color: #3FDD82;
+	color: #3FDD82;
+	display: inline-block;
+	border-radius: 3px;
+}
+
+.status_disabled {
+	width: 34px;
+	height: 17px;
+	background-color: #F85D4D;
+	color: #F85D4D;
+	display: inline-block;
+	border-radius: 3px;
+}
+
 .hint {
 	font-size: 9pt;
 	width: 20px;

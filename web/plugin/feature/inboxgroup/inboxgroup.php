@@ -40,7 +40,7 @@ switch ($op) {
 		$data = inboxgroup_getdataall();
 		for ($i=0;$i<count($data);$i++) {
 			$c_rid = $data[$i]['id'];
-			$c_status = $data[$i]['status'] ? "<a href='index.php?app=menu&inc=feature_inboxgroup&op=disable&rid=".$c_rid."'><font color='green'>"._('enabled')."</font></a>" : "<a href='index.php?app=menu&inc=feature_inboxgroup&op=enable&rid=".$c_rid."'><font color='red'>"._('disabled')."</font></a>";
+			$c_status = $data[$i]['status'] ? "<a href='index.php?app=menu&inc=feature_inboxgroup&op=disable&rid=".$c_rid."'><span class=status_enabled /></a>" : "<a href='index.php?app=menu&inc=feature_inboxgroup&op=enable&rid=".$c_rid."'><span class=status_disabled /></a>";
 			$c_members = count(inboxgroup_getmembers($c_rid));
 			$c_members = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid=".$c_rid."'>".$c_members."</a>";
 			$c_catchall = count(inboxgroup_getcatchall($c_rid));
@@ -156,7 +156,7 @@ switch ($op) {
 		$c_catchall = count(inboxgroup_getcatchall($rid));
 		$c_catchall = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid=".$rid."'>".$c_catchall."</a>";
 		$c_status = $data
-		['status'] ? "<font color='green'>"._('enabled')."</font>" : "<font color='red'>"._('disabled')."</font>";
+		['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
 		if ($error_content) {
 			$content .= $error_content;
 		}

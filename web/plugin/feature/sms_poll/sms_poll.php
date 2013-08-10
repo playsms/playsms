@@ -56,9 +56,9 @@ switch ($op) {
 			if ($owner = uid2username($db_row['uid'])) {
 				$i++;
 				$td_class = ($i % 2) ? "row_odd" : "row_even";
-				$poll_status = "<a href=\"index.php?app=menu&inc=feature_sms_poll&op=sms_poll_status&poll_id=".$db_row['poll_id']."&ps=1\"><font color=red>"._('disabled')."</font></a>";
+				$poll_status = "<a href=\"index.php?app=menu&inc=feature_sms_poll&op=sms_poll_status&poll_id=".$db_row['poll_id']."&ps=1\"><span class=status_disabled /></a>";
 				if ($db_row['poll_enable']) {
-					$poll_status = "<a href=\"index.php?app=menu&inc=feature_sms_poll&op=sms_poll_status&poll_id=".$db_row['poll_id']."&ps=0\"><font color=green>"._('enabled')."</font></a>";
+					$poll_status = "<a href=\"index.php?app=menu&inc=feature_sms_poll&op=sms_poll_status&poll_id=".$db_row['poll_id']."&ps=0\"><span class=status_enabled /></a>";
 				}
 				$action = "<a href=index.php?app=menu&inc=feature_sms_poll&route=view&op=list&poll_id=".$db_row['poll_id'].">$icon_view</a>&nbsp;";
 				$action .= "<a href=index.php?app=menu&inc=feature_sms_poll&op=sms_poll_edit&poll_id=".$db_row['poll_id'].">$icon_edit</a>&nbsp;";

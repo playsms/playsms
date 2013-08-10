@@ -20,7 +20,7 @@ switch ($op) {
 		$c_members = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid=".$rid."'>".$c_members."</a>";
 		$c_catchall = count(inboxgroup_getcatchall($rid));
 		$c_catchall = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid=".$rid."'>".$c_catchall."</a>";
-		$c_status = $data['status'] ? "<font color='green'>"._('enabled')."</font>" : "<font color='red'>"._('disabled')."</font>";
+		$c_status = $data['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
 		if ($error_content) {
 			$content .= $error_content;
 		}
@@ -97,7 +97,7 @@ switch ($op) {
 		$c_members = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid=".$rid."'>".$c_members."</a>";
 		$c_catchall = count(inboxgroup_getcatchall($rid));
 		$c_catchall = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid=".$rid."'>".$c_catchall."</a>";
-		$c_status = $data['status'] ? "<font color='green'>"._('enabled')."</font>" : "<font color='red'>"._('disabled')."</font>";
+		$c_status = $data['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
 		if ($error_content) {
 			$content .= $error_content;
 		}
@@ -183,7 +183,7 @@ switch ($op) {
 		$c_members = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid=".$rid."'>".$c_members."</a>";
 		$c_catchall = count(inboxgroup_getcatchall($rid));
 		$c_catchall = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid=".$rid."'>".$c_catchall."</a>";
-		$c_status = $data['status'] ? "<font color='green'>"._('enabled')."</font>" : "<font color='red'>"._('disabled')."</font>";
+		$c_status = $data['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
 		if ($error_content) {
 			$content .= $error_content;
 		}

@@ -54,9 +54,9 @@ switch ($op) {
 				if (!$messages) { $messages = 0; }
 				$i++;
 				$td_class = ($i % 2) ? "row_odd" : "row_even";
-				$subscribe_status = "<a href=\"index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_status&subscribe_id=".$db_row['subscribe_id']."&ps=1\"><font color=red>"._('disabled')."</font></a>";
+				$subscribe_status = "<a href=\"index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_status&subscribe_id=".$db_row['subscribe_id']."&ps=1\"><span class=status_disabled /></a>";
 				if ($db_row['subscribe_enable']) {
-					$subscribe_status = "<a href=\"index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_status&subscribe_id=".$db_row['subscribe_id']."&ps=0\"><font color=green>"._('enabled')."</font></a>";
+					$subscribe_status = "<a href=\"index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_status&subscribe_id=".$db_row['subscribe_id']."&ps=0\"><span class=status_enabled /></a>";
 				}
 				$action = "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=".$db_row['subscribe_id'].">$icon_edit</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS subscribe ?')." ("._('keyword').": ".$db_row['subscribe_keyword'].")','index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_del&subscribe_id=".$db_row['subscribe_id']."')\">$icon_delete</a>";

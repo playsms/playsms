@@ -46,9 +46,9 @@ switch ($op) {
 			if ($owner = uid2username($db_row['uid'])) {
 				$i++;
 				$td_class = ($i % 2) ? "row_odd" : "row_even";
-				$quiz_status = "<a href=\"index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_status&quiz_id=".$db_row['quiz_id']."&ps=1\"><font color=red>"._('disabled')."</font></a>";
+				$quiz_status = "<a href=\"index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_status&quiz_id=".$db_row['quiz_id']."&ps=1\"><span class=status_disabled /></a>";
 				if ($db_row['quiz_enable']) {
-					$quiz_status = "<a href=\"index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_status&quiz_id=".$db_row['quiz_id']."&ps=0\"><font color=green>"._('enabled')."</font></a>";
+					$quiz_status = "<a href=\"index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_status&quiz_id=".$db_row['quiz_id']."&ps=0\"><span class=status_enabled /></a>";
 				}
 				$action = "<a href=index.php?app=menu&inc=feature_sms_quiz&op=sms_answer_view&quiz_id=".$db_row['quiz_id'].">$icon_view</a>&nbsp;";
 				$action .= "<a href=index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=".$db_row['quiz_id'].">$icon_edit</a>&nbsp;";
