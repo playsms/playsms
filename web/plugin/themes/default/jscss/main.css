@@ -88,8 +88,26 @@ p {
 	margin: 0 0 5px 0;
 }
 
+code {
+	background-color: #F0F0F0;
+	color: #0F0F0F;
+	border: 1px solid #CCC;
+	font-family: Monospace;
+	font-size: 12pt;
+}
+
+blockquote {
+	background-color: #ECF0F1;
+	color: #555;
+	padding-left: 3px solid #95A5A6;
+	width: 600px;
+	overflow: scroll;
+	border: 1px solid #CCC;
+	font-size: 12pt;
+}
+
 h1 {
-	font-size: 22pt;
+	font-size: 26pt;
 	font-weight: normal;
 	text-align: left;
 	color: #FFF;
@@ -99,7 +117,7 @@ h1 {
 }
 
 h2 {
-	font-size: 18pt;
+	font-size: 22pt;
 	font-weight: normal;
 	text-align: left;
 	color: #FFF;
@@ -109,7 +127,7 @@ h2 {
 }
 
 h3 {
-	font-size: 16pt;
+	font-size: 18pt;
 	font-weight: normal;
 	text-align: left;
 	color: #FFF;
@@ -119,7 +137,7 @@ h3 {
 }
 
 h4 {
-	font-size: 14pt;
+	font-size: 16pt;
 	font-weight: normal;
 	text-align: left;
 	color: #FFF;
