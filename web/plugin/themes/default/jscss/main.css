@@ -444,6 +444,7 @@ li {
 	background-repeat: no-repeat;
 	display: inline-block;
 	cursor: pointer;
+	margin-left: 2px;
 }
 
 .hint:hover .hint_text {
@@ -461,4 +462,19 @@ li {
 	display: none;
 	background-color: #DDD;
 	color: #444;
+}
+
+.youarehere {
+	font-weight: normal;
+	color: #FFF;
+	background-color: #F1C40F;
+	border: 0;
+	cursor: pointer;
+	text-decoration: none;
+	padding: 6px 20px 6px 20px;
+	-webkit-transition: background-color 0.5s ease;
+	-moz-transition: background-color 0.5s ease;
+	-o-transition: background-color 0.5s ease;
+	transition: background-color 0.5s ease;
+	border-radius: 3px;
 }

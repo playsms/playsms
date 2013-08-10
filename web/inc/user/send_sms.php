@@ -94,8 +94,10 @@ switch ($op) {
 
 		if ($bulk == 1) {
 			$content .= _button('index.php?app=menu&inc=send_sms&op=sendsmstopv&bulk=2', _('View numbers'));
+			$c_title = _('Phonebook groups');
 		} else if ($bulk == 2){
 			$content .= _button('index.php?app=menu&inc=send_sms&op=sendsmstopv&bulk=1', _('View groups'));
+			$c_title = _('Phonebook numbers');
 		}
 
 		$content .= "
@@ -103,7 +105,7 @@ switch ($op) {
 				<tbody>
 				<tr>
 					<td nowrap>
-						"._('Phonebook')."<br />
+						".$c_title."<br />
 						<select name=\"p_num_dump[]\" id=msg_combo_phonebook multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\">$list_of_number</select>
 					</td>
 					<td align=center valign=middle>
@@ -121,7 +123,7 @@ switch ($op) {
 			<p>"._('Send to')."<br><input type=text size=30 maxlength=250 name=p_num_text value=\"".$to."\"></p>
 			<p>"._('Message')."</p>
 			".$sms_template."
-			<textarea cols=\"55\" rows=\"3\" onFocus=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" name=\"message\" id=\"ta_sms_content\">".$message."</textarea>
+			<textarea cols=\"50\" rows=\"4\" onFocus=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" name=\"message\" id=\"ta_sms_content\">".$message."</textarea>
 			<br />
 			<p><input type=\"text\" id=txtcount name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
 			<input type=\"hidden\" value=\"".$core_config['user']['opt']['sms_footer_length']."\" name=\"footerlen\"> 
