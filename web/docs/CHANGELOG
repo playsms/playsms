@@ -19,6 +19,9 @@ Version 0.9.9.1-git - 130817
 - remove themes 'km2'
 - remove column 'status' on inbox, incoming and outgoing tables
 - fix #90 webservices list all incoming SMS on ta=in regardless of uid
+- fix #89 forward sms_subscribe should check sms_sender (ibsoman)
+- fix #88 addslashes on sms_subscribe message (ibsoman)
+- fix #87 correcting mistake and addslashes before sms_autoreply reply (ibsoman)
 - fix search categories in user_mgmnt
 - fix plugin loader, wrongly use counter variable
 
