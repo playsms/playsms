@@ -615,7 +615,7 @@ switch ($op) {
 		$db_query = "SELECT msg FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id='$subscribe_id' AND msg_id='$msg_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$message = $db_row['msg'];
+		$message = addslashes($db_row['msg']);
 		$counter = $db_row['counter'];
 		$db_query = "SELECT member_number FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id='$subscribe_id'";
 		$db_result = dba_query($db_query);
