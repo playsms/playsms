@@ -9,7 +9,7 @@ msgid "Action"
 msgstr "Ação"
 
 msgid "Add SMS board"
-msgstr "Adicionar board SMS"
+msgstr "Adicionar quadro SMS"
 
 msgid "Are you sure you want to delete SMS board with all its messages ?"
 msgstr "Tem certeza que quer remover o board SMS com todas as suas mensagens?"
@@ -18,14 +18,13 @@ msgid "Date and time"
 msgstr "Data e hora"
 
 msgid "Edit SMS board"
-msgstr "Editar board SMS"
+msgstr "Editar quadro SMS"
 
 msgid "Fail to add SMS board"
-msgstr "Falha ao adicionar o board SMS"
+msgstr "Falha ao adicionar o quadro SMS"
 
-#, fuzzy
 msgid "Fail to edit SMS board"
-msgstr "Falha ao adicionar o board SMS"
+msgstr "Falha ao adicionar o quadro SMS"
 
 msgid "Forward"
 msgstr "Encaminhar"
@@ -37,59 +36,58 @@ msgid "Forward to email"
 msgstr "Encaminhar pro e-mail"
 
 msgid "HTML output"
-msgstr ""
+msgstr "Saída HTML"
 
 msgid "JSON output"
-msgstr ""
+msgstr "Saída JSON"
 
 msgid "Keyword"
 msgstr "Palavra-chave"
 
 msgid "Leave them empty if you dont know what to fill in these boxes below"
-msgstr "Deixe vazio se não quiser preencher os campos abaixo"
+msgstr "Deixe vazio se não souber o que preencher nos campos abaixo"
 
 msgid "MBOX output"
-msgstr ""
+msgstr "Saída MBOX"
 
 msgid "Manage board"
-msgstr "Administrar board"
+msgstr "Administrar quadro"
 
 msgid "Message"
 msgstr "Mensagem"
 
 msgid "PHP serialize output"
-msgstr ""
+msgstr "Saída PHP serialize"
 
 msgid "RSS 0.91 output"
-msgstr ""
+msgstr "Saída RSS 0.91"
 
 msgid "RSS 1.0 output"
-msgstr ""
+msgstr "Saída RSS 1.0"
 
 msgid "RSS 2.0 output"
-msgstr ""
+msgstr "Saída RSS 2.0"
 
 msgid "RSS ATOM output"
-msgstr ""
+msgstr "Saída RSS ATOM"
 
 msgid "Receiver"
-msgstr ""
+msgstr "Destinatário"
 
-#, fuzzy
 msgid "SMS Board"
-msgstr "Adicionar board SMS"
+msgstr "Quadro SMS"
 
 msgid "SMS board has been added"
-msgstr "O board SMS foi adicionado"
+msgstr "O quadro SMS foi adicionado"
 
 msgid "SMS board has been saved"
-msgstr "O board SMS foi salvo"
+msgstr "O quadro SMS foi salvo"
 
 msgid "SMS board keyword"
-msgstr "Palavra-chave do board SMS"
+msgstr "Palavra-chave do quadro SMS"
 
 msgid "SMS board with all its messages has been deleted"
-msgstr "O board SMS foi removido com todas as suas mensagens"
+msgstr "O quadro SMS foi removido com todas as suas mensagens"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr "A palavra-chave já existe, está reservada ou em uso por outro recurso"
@@ -101,17 +99,16 @@ msgid "Sender"
 msgstr "Remetente"
 
 msgid "Template"
-msgstr "Template"
+msgstr "Modelo"
 
 msgid "User"
 msgstr "Usuário"
 
-#, fuzzy
 msgid "View board"
-msgstr "Administrar board"
+msgstr "Administrar quadro"
 
 msgid "XML output"
-msgstr ""
+msgstr "Saída XML"
 
 msgid "You must fill all fields"
 msgstr "Preencha todos os campos"

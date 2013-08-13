@@ -33,7 +33,7 @@ msgid "Keyword"
 msgstr "Palavra-chave"
 
 msgid "Make return as reply"
-msgstr ""
+msgstr "Enviar return como resposta"
 
 msgid "Manage command"
 msgstr "Administrar comando"
@@ -84,8 +84,7 @@ msgid "will be replaced by command keyword"
 msgstr "será substituído pela palavra-chave do comando"
 
 msgid "will be replaced by command parameter passed to server from SMS"
-msgstr ""
-"será substituído pelo parâmetro do comando passado pro servidor por SMS"
+msgstr "será substituído pelo parâmetro do comando passado pro servidor por SMS"
 
 msgid "will be replaced by sender number"
 msgstr "será substituído pelo número do remetente"

@@ -14,10 +14,8 @@ msgstr "Adicionar quiz SMS"
 msgid "Answer"
 msgstr "Resposta"
 
-msgid ""
-"Are you sure you want to delete SMS quiz with all its choices and answers ?"
-msgstr ""
-"Tem certeza que quer remover o quiz SMs com todas as opções e respostas?"
+msgid "Are you sure you want to delete SMS quiz with all its choices and answers ?"
+msgstr "Tem certeza que quer remover o quiz SMs com todas as opções e respostas?"
 
 msgid "Are you sure you want to delete this answer ?"
 msgstr "Tem certeza que quer remover essa resposta?"
@@ -28,13 +26,11 @@ msgstr "Data/hora"
 msgid "Edit SMS quiz"
 msgstr "Editar quiz SMS"
 
-#, fuzzy
 msgid "Fail to add SMS quiz"
-msgstr "Adicionar quiz SMS"
+msgstr "Falha ao adicionar quiz SMS"
 
-#, fuzzy
 msgid "Fail to edit SMS quiz"
-msgstr "Editar quiz SMS"
+msgstr "Falha ao editar quiz SMS"
 
 msgid "Keyword"
 msgstr "Palavra-chave"
@@ -48,13 +44,11 @@ msgstr "Pergunta"
 msgid "Received answer list for keyword"
 msgstr "Lista de respostas recebidas pra palavra-chave"
 
-#, fuzzy
 msgid "Reply message on correct"
-msgstr "Mensagem quando estiver correto"
+msgstr "Mensagem de resposta quando estiver correto"
 
-#, fuzzy
 msgid "Reply message on incorrect"
-msgstr "Mensagem quando estiver incorreto"
+msgstr "Mensagem de resposta quando estiver incorreto"
 
 msgid "SMS quiz already exists, reserved or use by other feature"
 msgstr "O quiz SMS já existe, está reservado ou em uso por outro recurso"
@@ -90,7 +84,7 @@ msgid "Sender"
 msgstr "Remetente"
 
 msgid "Status"
-msgstr "Estado"
+msgstr ""
 
 msgid "User"
 msgstr "Usuário"
@@ -98,21 +92,17 @@ msgstr "Usuário"
 msgid "You must fill all field"
 msgstr "Preencha todos os campos"
 
-#, fuzzy
 msgid "correct"
-msgstr "Incorreto"
+msgstr "incorreto"
 
-#, fuzzy
 msgid "disabled"
-msgstr "Desabilitado"
+msgstr "desabilitado"
 
-#, fuzzy
 msgid "enabled"
-msgstr "Habilitado"
+msgstr "habilitado"
 
-#, fuzzy
 msgid "incorrect"
-msgstr "Incorreto"
+msgstr "incorreto"
 
 msgid "keyword"
 msgstr "palavra-chave"

@@ -1,20 +1,20 @@
 msgid "Count"
-msgstr ""
+msgstr "Contador"
 
 msgid "Date/Time"
-msgstr ""
+msgstr "Data/hora"
 
 msgid "Group"
-msgstr ""
+msgstr "Grupo"
 
 msgid "Message"
-msgstr ""
+msgstr "Mensagem"
 
 msgid "Queue Code"
-msgstr ""
+msgstr "Código na fila"
 
 msgid "User"
-msgstr ""
+msgstr "Usuário"
 
 msgid "View SMS queue"
-msgstr ""
+msgstr "Visualizar fila de SMS"

@@ -6,16 +6,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "API key"
-msgstr ""
+msgstr "Chave API"
 
 msgid "API secret"
-msgstr ""
+msgstr "Segredo API"
 
 msgid "Active"
 msgstr "Ativo"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Ex: +0300 para Brasilia"
 
 msgid "Fill to change the API secret"
 msgstr "Preencha pra mudar a senha"
@@ -33,44 +33,43 @@ msgid "Inactive"
 msgstr "Inativo"
 
 msgid "Manage nexmo"
-msgstr ""
+msgstr "Gerenciar nexmo"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
+msgstr "Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
 
 msgid "Module sender ID"
-msgstr ""
+msgstr "Módulo ID remetente"
 
 msgid "Module timezone"
-msgstr ""
+msgstr "Módulo fuso horário"
 
 msgid "Nexmo URL"
-msgstr ""
+msgstr "URL Nexmo"
 
 msgid "Nexmo is a bulk SMS provider"
-msgstr ""
+msgstr "Nexmo é um provedor de SMS em massa"
 
 msgid "Nexmo will push DLR and incoming SMS to your callback URL"
-msgstr ""
+msgstr "Nexmo irá enviar DLR e SMS para sua URL de callback"
 
 msgid "No changes has been made"
 msgstr "Nenhuma mudança feita"
 
 msgid "Notes"
-msgstr ""
+msgstr "Anotações"
 
 msgid "Save"
 msgstr "Salvar"
 
 msgid "Your callback URL is"
-msgstr ""
+msgstr "Sua URL callback é"
 
 msgid "Your callback URL should be accessible from Nexmo"
-msgstr ""
+msgstr "Sua URL callback deve estar acessível pelo Nexmo"
 
 msgid "click here to activate"
 msgstr "clique aqui para ativar"
 
 msgid "free credits are available for testing purposes"
-msgstr ""
+msgstr "créditos gratúitos estão disponíveis para testes"

@@ -27,7 +27,7 @@ msgid "Manage gnokii"
 msgstr "Administrar gnokii"
 
 msgid "No changes has been made"
-msgstr ""
+msgstr "Nenhuma alteração foi realizada"
 
 msgid "No trailing slash"
 msgstr "Sem barra no final"
