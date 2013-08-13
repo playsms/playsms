@@ -1,37 +1,27 @@
 nav {
-	font-family: Helvetica, Arial;
-	font-size: 10pt;
-	line-height: 1;
-	margin: 10px auto;
+	margin: 10px 10px 0 10px;
 	padding: 0;
 	width: 254px;
 }
 
 .menu-item {
 	background: #FCFCFC;
-	width: 254px;
 }
 
 /*Menu Header Styles*/
 .menu-item h4 {
 	/* border-bottom: 1px solid rgba(0,0,0,0.3); */
 	/* border-top: 1px solid rgba(255,255,255,0.2); */
-	color: #FFF;
-	background: #2980B9; /* Old browsers */
-	font-size: 12pt;
 	font-family: Helvetica, Arial;
+	font-size: 12pt;
+	color: #FFF;
+	background: #2980B9;
 	padding: 7px 12px;
-}
-
-.menu-item h4:hover {
-	/* background: #2980B9; */ /* Old browsers */
 }
 
 .menu-item h4 a {
 	color: #FFF;
-	display: block;
-	text-decoration: none;
-	width: 254px;
+	background: #2980B9;
 }
 
 /*ul Styles*/
@@ -42,7 +32,7 @@ nav {
 	height: 0;
 	list-style-type: none;
 	overflow: hidden;
-	padding: 0px;
+	padding: 0;
 
 	/*Animation*/
 	-webkit-transition: height 1s ease;
@@ -56,34 +46,20 @@ nav {
 	height: 242px;
 }
 
-.menu-item ul a {
-	margin-left: 20px;
-	text-decoration: none;
-	color: #AAA;
-	display: block;
-	width: 240px;
-}
-
 /*li Styles*/
 .menu-item li {
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #EEE;
+}
+
+.menu-item li a {
+	color: #555;
+	background: none;
+	display: block;
+	text-decoration: none;
+	margin-left: 20px;
+	text-decoration: none;
 }
 
 .menu-item li:hover {
-	background: #eee;
-}
-
-/*First Item Styles*/
-.alpha p {
-	padding: 8px 12px;
-	color: #aaa;
-}
-
-.alpha p a {
-	color: #aaa;
-	font-style: italic;
-}
-
-.alpha p a:hover {
-	color: #ccc;
+	background: #EEE;
 }

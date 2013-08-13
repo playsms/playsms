@@ -33,7 +33,7 @@ function default_hook_themes_buildmenu($menu_config) {
 	$content .= "<nav>\n";
 	foreach ($menu_config as $menu_title => $array_menu) {
 		$content .= "<div class=\"menu-item\">\n";
-		$content .= "<h4>".$menu_title."</h4>\n";
+		$content .= "<h4><a href=#>".$menu_title."</a></h4>\n";
 		$content .= "<ul>\n";
 		foreach ($array_menu as $sub_menu) {
 			$sub_menu_url = $sub_menu[0];
