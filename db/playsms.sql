@@ -1528,7 +1528,6 @@ CREATE TABLE `playsms_gatewayTwilio` (
   `local_slid` int(11) NOT NULL DEFAULT '0',
   `remote_slid` varchar(40) NOT NULL DEFAULT '0',
   `status` tinyint(4) NOT NULL DEFAULT '0',
-  `network` varchar(20) NOT NULL DEFAULT '',
   `error_text` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -1567,9 +1566,10 @@ CREATE TABLE `playsms_gatewayTwilio_config` (
 
 LOCK TABLES `playsms_gatewayTwilio_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayTwilio_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayTwilio_config` VALUES (0,'twilio','https://api.twilio.com/2010-04-01','12345678','87654321','+10000000000','+0700');
+INSERT INTO `playsms_gatewayTwilio_config` VALUES (0,'twilio','https://api.twilio.com','12345678','87654321','+10000000000','+0700');
 /*!40000 ALTER TABLE `playsms_gatewayTwilio_config` ENABLE KEYS */;
 UNLOCK TABLES;
+
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

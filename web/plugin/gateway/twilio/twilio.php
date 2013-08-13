@@ -27,9 +27,9 @@ switch ($op) {
 			<table width=100% cellpadding=1 cellspacing=2 border=0>
 				<tbody>
 				<tr><td width=270>"._('Gateway name')."</td><td>twilio $status_active</td></tr>
-				<tr><td>"._('Twilio URL')."</td><td><input type=text size=30 maxlength=250 name=up_url value=\"".$twilio_param['url']."\"></td></tr>
-				<tr><td>"._('Account SID')."</td><td><input type=text size=30 maxlength=30 name=up_account_sid value=\"".$twilio_param['account_sid']."\"></td></tr>
-				<tr><td>"._('Auth Token')."</td><td><input type=password size=30 maxlength=30 name=up_auth_token value=\"\"> "._hint('Fill to change the Auth Token')."</td></tr>
+				<tr><td>"._('Twilio URL')."</td><td>".$twilio_param['url']."</td></tr>
+				<tr><td>"._('Account SID')."</td><td><input type=text size=30 maxlength=40 name=up_account_sid value=\"".$twilio_param['account_sid']."\"></td></tr>
+				<tr><td>"._('Auth Token')."</td><td><input type=password size=30 maxlength=40 name=up_auth_token value=\"\"> "._hint('Fill to change the Auth Token')."</td></tr>
 				<tr><td>"._('Module sender ID')."</td><td><input type=text size=30 maxlength=16 name=up_global_sender value=\"".$twilio_param['global_sender']."\"> "._hint('Max. 16 numeric or 11 alphanumeric char. empty to disable')."</td></tr>
 				<tr><td>"._('Module timezone')."</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"".$twilio_param['datetime_timezone']."\"> "._hint('Eg: +0700 for Jakarta/Bangkok timezone')."</td></tr>
 				</tbody>
@@ -45,20 +45,18 @@ switch ($op) {
 		echo $content;
 		break;
 	case "manage_save":
-		$up_url = $_POST['up_url'];
 		$up_account_sid = $_POST['up_account_sid'];
 		$up_auth_token = $_POST['up_auth_token'];
 		$up_global_sender = $_POST['up_global_sender'];
 		$up_global_timezone = $_POST['up_global_timezone'];
 		$_SESSION['error_string'] = _('No changes has been made');
-		if ($up_url && $up_account_sid) {
+		if ($up_account_sid) {
 			if ($up_auth_token) {
 				$auth_token_change = "cfg_auth_token='$up_auth_token',";
 			}
 			$db_query = "
 				UPDATE "._DB_PREF_."_gatewayTwilio_config 
 				SET c_timestamp='".mktime()."',
-				cfg_url='$up_url',
 				cfg_account_sid='$up_account_sid',
 				".$auth_token_change."
 				cfg_global_sender='$up_global_sender',
