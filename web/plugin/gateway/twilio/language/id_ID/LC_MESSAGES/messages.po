@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "API key"
+msgstr "Kunci API"
+
+msgid "API secret"
+msgstr "Kata rahasia API"
+
+msgid "Active"
+msgstr "Aktif"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Misalnya: +0700 untuk zona waktu Jakarta/Bangkok"
+
+msgid "Fill to change the API secret"
+msgstr "Isi untuk merubah kata sandi"
+
+msgid "Gateway has been activated"
+msgstr "Gateway telah diaktifkan"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Konfigurasi modul gateway telah disimpan"
+
+msgid "Gateway name"
+msgstr "Nama gateway"
+
+msgid "Inactive"
+msgstr "Nonaktif"
+
+msgid "Manage nexmo"
+msgstr "Pengaturan nexmo"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+"Maks. 16 karakter numerik atau 11 alfanumerik. kosongkan untuk menonaktifkan"
+
+msgid "Module sender ID"
+msgstr "ID pengirim modul"
+
+msgid "Module timezone"
+msgstr "Zona waktu modul"
+
+msgid "Nexmo URL"
+msgstr "nexmo URL"
+
+msgid "Nexmo is a bulk SMS provider"
+msgstr "Nexmo adalah penyedia SMS bulk"
+
+msgid "Nexmo will push DLR and incoming SMS to your callback URL"
+msgstr "Nexmo akan mengirim DLR dan SMS yang masuk ke URL callback anda"
+
+msgid "No changes has been made"
+msgstr "Tidak ada perubahan yang dilakukan"
+
+msgid "Notes"
+msgstr "Catatan"
+
+msgid "Save"
+msgstr "Simpan"
+
+msgid "Your callback URL is"
+msgstr "URL callback anda adalah"
+
+msgid "Your callback URL should be accessible from Nexmo"
+msgstr "Callback URL seharusnya dapat diakses oleh Nexmo"
+
+msgid "click here to activate"
+msgstr "Klik di sini untuk mengaktifkan"
+
+msgid "free credits are available for testing purposes"
+msgstr "Kredit gratis tersedia untuk tujuan percobaan"

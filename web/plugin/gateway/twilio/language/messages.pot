@@ -1,0 +1,68 @@
+msgid "API key"
+msgstr ""
+
+msgid "API secret"
+msgstr ""
+
+msgid "Active"
+msgstr ""
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Fill to change the API secret"
+msgstr ""
+
+msgid "Gateway has been activated"
+msgstr ""
+
+msgid "Gateway module configurations has been saved"
+msgstr ""
+
+msgid "Gateway name"
+msgstr ""
+
+msgid "Inactive"
+msgstr ""
+
+msgid "Manage nexmo"
+msgstr ""
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+
+msgid "Module sender ID"
+msgstr ""
+
+msgid "Module timezone"
+msgstr ""
+
+msgid "Nexmo URL"
+msgstr ""
+
+msgid "Nexmo is a bulk SMS provider"
+msgstr ""
+
+msgid "Nexmo will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
+msgid "No changes has been made"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Your callback URL is"
+msgstr ""
+
+msgid "Your callback URL should be accessible from Nexmo"
+msgstr ""
+
+msgid "click here to activate"
+msgstr ""
+
+msgid "free credits are available for testing purposes"
+msgstr ""

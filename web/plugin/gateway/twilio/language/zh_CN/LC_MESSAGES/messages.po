@@ -1,0 +1,75 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "API key"
+msgstr ""
+
+msgid "API secret"
+msgstr ""
+
+msgid "Active"
+msgstr "活跃"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Fill to change the API secret"
+msgstr "填写改变密码"
+
+msgid "Gateway has been activated"
+msgstr "网关已激活"
+
+msgid "Gateway module configurations has been saved"
+msgstr "网关模块的配置已保存"
+
+msgid "Gateway name"
+msgstr "网关名"
+
+msgid "Inactive"
+msgstr "不活跃"
+
+msgid "Manage nexmo"
+msgstr ""
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "最多16个数字或11个字母，不可空"
+
+msgid "Module sender ID"
+msgstr "全球发件人"
+
+msgid "Module timezone"
+msgstr ""
+
+msgid "Nexmo URL"
+msgstr ""
+
+msgid "Nexmo is a bulk SMS provider"
+msgstr ""
+
+msgid "Nexmo will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
+msgid "No changes has been made"
+msgstr "没有做出改变"
+
+msgid "Notes"
+msgstr ""
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Your callback URL is"
+msgstr ""
+
+msgid "Your callback URL should be accessible from Nexmo"
+msgstr ""
+
+msgid "click here to activate"
+msgstr "点击这里激活"
+
+msgid "free credits are available for testing purposes"
+msgstr ""

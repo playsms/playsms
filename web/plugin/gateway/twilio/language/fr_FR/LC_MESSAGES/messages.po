@@ -1,0 +1,84 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: 2012-08-09 12:04+0000\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "API key"
+msgstr ""
+
+msgid "API secret"
+msgstr ""
+
+msgid "Active"
+msgstr "Active"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Ex: +0700 pour Jakarta/Bangkok"
+
+msgid "Fill to change the API secret"
+msgstr "Remplir pour changer le mot de passe"
+
+msgid "Gateway has been activated"
+msgstr "Passerelle activée"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Configurations de la passerelle sauvergardées"
+
+msgid "Gateway name"
+msgstr "Nom passerelle"
+
+msgid "Inactive"
+msgstr "Inactive"
+
+msgid "Manage nexmo"
+msgstr "Gérer nexmo"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+"Max : 16 caractères numériques ou 11 alphanumériques. vide pour désactiver"
+
+msgid "Module sender ID"
+msgstr "ID module émetteur"
+
+msgid "Module timezone"
+msgstr "Zone de temps"
+
+msgid "Nexmo URL"
+msgstr "URL nexmo"
+
+msgid "Nexmo is a bulk SMS provider"
+msgstr ""
+
+msgid "Nexmo will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
+msgid "No changes has been made"
+msgstr "Aucun changement apporté"
+
+msgid "Notes"
+msgstr ""
+
+msgid "Save"
+msgstr "Sauvegarder"
+
+msgid "Your callback URL is"
+msgstr ""
+
+msgid "Your callback URL should be accessible from Nexmo"
+msgstr ""
+
+msgid "click here to activate"
+msgstr "cliquez pour activer"
+
+msgid "free credits are available for testing purposes"
+msgstr ""
