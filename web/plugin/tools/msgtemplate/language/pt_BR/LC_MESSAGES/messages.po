@@ -1,44 +1,44 @@
 msgid "Add message template"
-msgstr ""
+msgstr "Adicionar modelo de mensagem"
 
 msgid "Content"
-msgstr ""
+msgstr "Conteúdo"
 
 msgid "Delete selection"
-msgstr ""
+msgstr "Remover seleção"
 
 msgid "Edit message template"
-msgstr ""
+msgstr "Editar modelo de mensagem"
 
 msgid "Fail to add message template"
-msgstr ""
+msgstr "Falha ao adicionar modelo de mensagem"
 
 msgid "Fail to edit message template"
-msgstr ""
+msgstr "Falha ao editar modelo de mensagem"
 
 msgid "Message template"
-msgstr ""
+msgstr "Modelo de mensagem"
 
 msgid "Message template content"
-msgstr ""
+msgstr "Conteúdo do modelo de mensagem"
 
 msgid "Message template has been edited"
-msgstr ""
+msgstr "Modelo de mensagem foi adicionado"
 
 msgid "Message template has been saved"
-msgstr ""
+msgstr "Modelo de mensagem foi salvo"
 
 msgid "Message template name"
-msgstr ""
+msgstr "Nome do modelo de mensagem"
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 msgid "Selected message template has been deleted"
-msgstr ""
+msgstr "Modelo de mensagem selecionado foi removido"
 
 msgid "You must fill all fields"
-msgstr ""
+msgstr "Você deve preencher todos os campos"

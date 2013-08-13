@@ -6,76 +6,76 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Cancel send from file"
-msgstr ""
+msgstr "Cancelar envio de arquivo"
 
 msgid "Confirmation"
-msgstr ""
+msgstr "Confirmação"
 
 msgid "Destination number"
-msgstr ""
+msgstr "Número de destino"
 
 msgid "Fail to remove cancelled entries from database"
-msgstr ""
+msgstr "Falha ao remover as entradas canceladas do banco de dados"
 
 msgid "Found invalid entries in uploaded file"
-msgstr ""
+msgstr "Encontradas entradas inválidas no arquivo enviado"
 
 msgid "Found valid entries in uploaded file"
-msgstr ""
+msgstr "Encontradas entradas válidas no arquivo enviado"
 
 msgid "Invalid CSV file"
-msgstr ""
+msgstr "Arquivo CSV inválido"
 
 msgid "Invalid entries"
-msgstr ""
+msgstr "Entradas inválidas"
 
 msgid "Invalid session ID"
-msgstr ""
+msgstr "ID de sessão inválido"
 
 msgid "Message"
-msgstr ""
+msgstr "Mensagem"
 
 msgid "Please select CSV file"
-msgstr ""
+msgstr "Por favor selecione arquivo CSV"
 
 msgid "SMS has been sent to valid numbers in uploaded file"
-msgstr ""
+msgstr "O SMS foi enviado para os números válidos no arquivo enviado"
 
 msgid "Send SMS to valid entries"
-msgstr ""
+msgstr "Enviar SMS para entradas válidas"
 
 msgid "Send from file"
-msgstr ""
+msgstr "Enviar de arquivo"
 
 msgid "Send from file has been cancelled"
-msgstr ""
+msgstr "Enviar de arquivo foi cancelado"
 
 msgid "Upload file"
-msgstr ""
+msgstr "Enviar arquivo"
 
 msgid "Uploaded file"
-msgstr ""
+msgstr "Arquivo enviado"
 
 msgid "Username"
-msgstr ""
+msgstr "Usuário"
 
 msgid "Valid entries"
-msgstr ""
+msgstr "Entradas válidas"
 
 msgid "Your choice"
-msgstr ""
+msgstr "Sua escolha"
 
 msgid "format : destination number, message"
-msgstr ""
+msgstr "formato: número do destinatário, mensagem"
 
 msgid "format : destination number, message, username"
-msgstr ""
+msgstr "formato: número do destinatário, mensagem, usuário"
 
 msgid "invalid entries"
-msgstr ""
+msgstr "entradas inválidas"
 
 msgid "of"
-msgstr ""
+msgstr "de"
 
 msgid "valid entries"
-msgstr ""
+msgstr "entradas válidas"

@@ -17,10 +17,8 @@ msgstr "Adicionar votação SMS"
 msgid "Add choice to this poll"
 msgstr "Adicionar opção pra essa votação"
 
-msgid ""
-"Are you sure you want to delete SMS poll with all its choices and votes ?"
-msgstr ""
-"Tem certeza que quer remover a votação SMS com todas as opções e votos?"
+msgid "Are you sure you want to delete SMS poll with all its choices and votes ?"
+msgstr "Tem certeza que quer remover a votação SMS com todas as opções e votos?"
 
 msgid "Are you sure you want to delete choice ?"
 msgstr "Tem certeza que quer remover essa opção?"
@@ -31,7 +29,6 @@ msgstr "A opção já existe"
 msgid "Choice has been added"
 msgstr "A opção foi adicionada"
 
-#, fuzzy
 msgid "Choice keyword"
 msgstr "Palavra-chave da opção"
 
@@ -51,10 +48,10 @@ msgid "Fail to delete SMS poll choice"
 msgstr "Falha ao remover a opçao da votação SMS"
 
 msgid "Graph output"
-msgstr ""
+msgstr "Saída Graph"
 
 msgid "JSON output"
-msgstr ""
+msgstr "Saída JSON"
 
 msgid "Keyword"
 msgstr "Palavra-chave"
@@ -63,16 +60,16 @@ msgid "Manage poll"
 msgstr "Administrar votação"
 
 msgid "PHP serialize output"
-msgstr ""
+msgstr "Saída PHP serialize"
 
 msgid "Reply message on invalid answer"
-msgstr ""
+msgstr "Mensagem de retorno caso resposta inválida"
 
 msgid "Reply message on valid answer"
-msgstr ""
+msgstr "Mensagem de retorno caso mensagem válida"
 
 msgid "Reply message when invalid answer"
-msgstr ""
+msgstr "Mensagem de retorno quando resposta inválida"
 
 msgid "SMS poll already exists, reserved or use by other feature"
 msgstr "A votação SMS já existe, está reservada ou em uso por outro recurso"
@@ -80,9 +77,8 @@ msgstr "A votação SMS já existe, está reservada ou em uso por outro recurso"
 msgid "SMS poll choice and all its voters has been deleted"
 msgstr "A opção da votação SMS foi removida com todos os seus votos"
 
-#, fuzzy
 msgid "SMS poll graph"
-msgstr "Palavra-chave da votação SMS"
+msgstr "Gráfico da votação SMS"
 
 msgid "SMS poll has been added"
 msgstr "A votação SMS foi adicionada"
@@ -106,10 +102,10 @@ msgid "Save"
 msgstr "Salvar"
 
 msgid "Status"
-msgstr "Estado"
+msgstr ""
 
 msgid "This poll has 0 votes!"
-msgstr ""
+msgstr "Essa votação tem 0 votos!"
 
 msgid "Title"
 msgstr "Título"
@@ -118,25 +114,22 @@ msgid "User"
 msgstr "Usuário"
 
 msgid "View"
-msgstr ""
+msgstr "Visualizar"
 
-#, fuzzy
 msgid "View poll"
-msgstr "Administrar votação"
+msgstr "Visualizar votação"
 
 msgid "XML output"
-msgstr ""
+msgstr "Saída XML"
 
 msgid "You must fill all fields"
 msgstr "Preencha todos os campos"
 
-#, fuzzy
 msgid "disabled"
-msgstr "Desabilitado"
+msgstr "desabilitado"
 
-#, fuzzy
 msgid "enabled"
-msgstr "Habilitado"
+msgstr "habilitado"
 
 msgid "keyword"
 msgstr "palavra-chave"

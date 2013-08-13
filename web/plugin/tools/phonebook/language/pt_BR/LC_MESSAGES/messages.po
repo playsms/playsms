@@ -1,125 +1,125 @@
 msgid "Add contact"
-msgstr ""
+msgstr "Adicionar contato"
 
 msgid "Add group"
-msgstr ""
+msgstr "Adicionar grupo"
 
 msgid "Code"
-msgstr ""
+msgstr "Código"
 
 msgid "Contact has been added"
-msgstr ""
+msgstr "Contato foi adicionado"
 
 msgid "Contact has been edited"
-msgstr ""
+msgstr "Contato foi editado"
 
 msgid "Contact is already exists"
-msgstr ""
+msgstr "Contato já existe"
 
 msgid "Contacts has been imported"
-msgstr ""
+msgstr "Contatos foram importados"
 
 msgid "Delete selection"
-msgstr ""
+msgstr "Remover seleção"
 
 msgid "Edit contact"
-msgstr ""
+msgstr "Editar contato"
 
 msgid "Edit group"
-msgstr ""
+msgstr "Ediar grupo"
 
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 msgid "Export"
-msgstr ""
+msgstr "Exportar"
 
 msgid "Fail to upload CSV file for phonebook"
-msgstr ""
+msgstr "Falha ao enviar o arquivo CSV para lista de contato"
 
 msgid "Group"
-msgstr ""
+msgstr "Grupo"
 
 msgid "Group code"
-msgstr ""
+msgstr "Código de grupo"
 
 msgid "Group code has been added"
-msgstr ""
+msgstr "Código do grupo foi adicionado"
 
 msgid "Group code is already exists"
-msgstr ""
+msgstr "Código do grupo já existe"
 
 msgid "Group code used by keyword"
-msgstr ""
+msgstr "Código do grupo utilizado por palavra-chave"
 
 msgid "Group has been edited"
-msgstr ""
+msgstr "Grupo foi editado"
 
 msgid "Group name"
-msgstr ""
+msgstr "Nome do grupo"
 
 msgid "Import"
-msgstr ""
+msgstr "Importar"
 
 msgid "Import above phonebook entries ?"
-msgstr ""
+msgstr "Importar as entradas acima aos contatos?"
 
 msgid "Import confirmation"
-msgstr ""
+msgstr "Confirmação de importação"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Celular"
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 msgid "No changes has been made"
-msgstr ""
+msgstr "Nenhuma alteração realizada"
 
 msgid "Note"
-msgstr ""
+msgstr "Anotações"
 
 msgid "Phonebook"
-msgstr ""
+msgstr "Contatos"
 
 msgid "Please select CSV file for phonebook entries"
-msgstr ""
+msgstr "Por favor selecione o arquivo CSV para entradas dos contatos"
 
 msgid "Publish"
-msgstr ""
+msgstr "Publicar"
 
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 msgid "Selected contact has been deleted"
-msgstr ""
+msgstr "Os contatos selecionados foram removidos"
 
 msgid "Selected group has been deleted"
-msgstr ""
+msgstr "O grupo selecionado foi removido"
 
 msgid "Unpublish"
-msgstr ""
+msgstr "Despublicar"
 
 msgid "You must fill all field"
-msgstr ""
+msgstr "Você deve preencher todos os campos"
 
 msgid "broadcast SMS from single SMS"
-msgstr ""
+msgstr "distribuir SMS de outro SMS"
 
 msgid "code"
-msgstr ""
+msgstr "código"
 
 msgid "format"
-msgstr ""
+msgstr "formato"
 
 msgid "group"
-msgstr ""
+msgstr "grupo"
 
 msgid "mobile"
-msgstr ""
+msgstr "celular"
 
 msgid "name"
-msgstr ""
+msgstr "nome"
 
 msgid "please use uppercase and make it short"
-msgstr ""
+msgstr "por favor use somente letras maiúsculas e seja curto"

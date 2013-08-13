@@ -15,16 +15,16 @@ msgid "Bearerbox hostname or IP"
 msgstr "Hostname ou IP do bearerbox"
 
 msgid "Delivered to SMSC"
-msgstr ""
+msgstr "Recebido pelo SMSC"
 
 msgid "Delivered to phone"
-msgstr ""
+msgstr "Recebido pelo telefone"
 
 msgid "Delivery Report"
-msgstr ""
+msgstr "Confirmação de recebimento"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Ex: +0300 para Brasília"
 
 msgid "Fill to change the password"
 msgstr "Preencha pra mudar a senha"
@@ -39,59 +39,58 @@ msgid "Gateway name"
 msgstr "Nome do gateway"
 
 msgid "HTTP Kannel admin password"
-msgstr ""
+msgstr "Senha de administrador HTTP Kannel"
 
 msgid "HTTP Kannel admin port"
-msgstr ""
+msgstr "Porta HTTP de administração Kannel"
 
 msgid "Inactive"
 msgstr "Inativo"
 
 msgid "Kannel admin password"
-msgstr ""
+msgstr "Senha de administrador Kannel"
 
 msgid "Kannel admin port"
-msgstr ""
+msgstr "Porta de administração Kannel"
 
 msgid "Kannel configuration file"
-msgstr ""
+msgstr "Arquivo de configuração Kannel"
 
 msgid "Kannel specific"
 msgstr "Específico do kannel"
 
 msgid "Kannel status"
-msgstr ""
+msgstr "Status do Kannel"
 
 msgid "Manage kannel"
 msgstr "Administrar kannel"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
+msgstr "Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
 
 msgid "Module sender ID"
-msgstr ""
+msgstr "Mósulo ID Remetente"
 
 msgid "Module timezone"
-msgstr ""
+msgstr "Módulo Fuso Horário"
 
 msgid "No changes has been made"
 msgstr "Nenhuma mudança feita"
 
 msgid "Non-Delivered to SMSC"
-msgstr ""
+msgstr "Não entregue ao SMSC"
 
 msgid "Non-Delivered to phone"
-msgstr ""
+msgstr "Não entregue ao celular"
 
 msgid "Password"
 msgstr "Senha"
 
 msgid "Queued on SMSC"
-msgstr ""
+msgstr "Em fila no SMSC"
 
 msgid "Restart Kannel"
-msgstr ""
+msgstr "Reiniciar Kannel"
 
 msgid "Save"
 msgstr "Salvar"
@@ -100,10 +99,10 @@ msgid "Send SMS port"
 msgstr "Porta de envio de SMS"
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "URL to playSMS, empty it to set it to base URL"
-msgstr ""
+msgstr "URL para playSMS, em branco para para o padrão"
 
 msgid "Username"
 msgstr "Usuário"
