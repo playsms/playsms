@@ -61,3 +61,6 @@ msgstr "destino"
 
 msgid "prefix"
 msgstr "prefixo"
+
+msgid "Back"
+msgstr "Voltar"

@@ -17,7 +17,7 @@ msgstr "Resposta"
 msgid ""
 "Are you sure you want to delete SMS quiz with all its choices and answers ?"
 msgstr ""
-"Tem certeza que quer remover o quiz SMs com todas as opções e respostas?"
+"Tem certeza que quer remover o quiz SMS com todas as opções e respostas?"
 
 msgid "Are you sure you want to delete this answer ?"
 msgstr "Tem certeza que quer remover essa resposta?"
@@ -81,6 +81,9 @@ msgstr "O quiz SMS foi removido com todas as suas mensagens"
 
 msgid "Save"
 msgstr "Salvar"
+
+msgid "Back"
+msgstr "Voltar"
 
 msgid "Sender"
 msgstr "Remetente"

@@ -18,7 +18,7 @@ msgid "Clickatell is a bulk SMS provider"
 msgstr "Clickatell é um provedor de SMS em massa"
 
 msgid "Clickatell will push DLR and incoming SMS to your callback URL"
-msgstr ""
+msgstr "Clickatell irá enviar DLR ou SMS recebido para sua URL de callback"
 
 msgid "Gateway has been activated"
 msgstr "Gateway foi ativado"
@@ -44,9 +44,8 @@ msgstr "Nenhuma mudança feita"
 msgid "No trailing slash"
 msgstr "Sem barra no final"
 
-#, fuzzy
 msgid "Notes"
-msgstr "Anotação"
+msgstr "Observações"
 
 msgid "Password"
 msgstr "Senha"
@@ -61,7 +60,7 @@ msgid "Your callback URL is"
 msgstr "Sua URL de callback é"
 
 msgid "Your callback URL should be accessible from Clickatell"
-msgstr ""
+msgstr "Sua url de callback deve ser acessível pelo Clickatell"
 
 msgid "free credits are available for testing purposes"
 msgstr "créditos gratuitos estão disponíveis pra testes"

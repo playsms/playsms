@@ -17,7 +17,6 @@ msgstr "Gateway foi ativado"
 msgid "Gateway name"
 msgstr "Nome do gateway"
 
-#, fuzzy
 msgid "Manage dev"
 msgstr "Administrar dev"
 

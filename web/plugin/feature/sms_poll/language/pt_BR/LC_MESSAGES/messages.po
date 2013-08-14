@@ -15,7 +15,7 @@ msgid "Add SMS poll"
 msgstr "Adicionar votação SMS"
 
 msgid "Add choice to this poll"
-msgstr "Adicionar opção pra essa votação"
+msgstr "Adicionar opção para essa votação"
 
 msgid ""
 "Are you sure you want to delete SMS poll with all its choices and votes ?"
@@ -102,6 +102,9 @@ msgstr "A votação SMS foi salva"
 
 msgid "Save"
 msgstr "Salvar"
+
+msgid "Back"
+msgstr "Voltar"
 
 msgid "Status"
 msgstr ""

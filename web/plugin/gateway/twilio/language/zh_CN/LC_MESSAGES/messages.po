@@ -11,6 +11,9 @@ msgstr ""
 msgid "Auth Token"
 msgstr ""
 
+msgid "Callback URL"
+msgstr ""
+
 msgid "Gateway has been activated"
 msgstr "网关已激活"
 
@@ -39,9 +42,6 @@ msgid "Save"
 msgstr "保存"
 
 msgid "Twilio URL"
-msgstr ""
-
-msgid "Your callback URL is"
 msgstr ""
 
 msgid "Your callback URL should be accessible from twilio"
