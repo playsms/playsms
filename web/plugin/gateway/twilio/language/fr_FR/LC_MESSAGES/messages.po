@@ -13,20 +13,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "API key"
+msgid "Account SID"
 msgstr ""
 
-msgid "API secret"
+msgid "Auth Token"
 msgstr ""
-
-msgid "Active"
-msgstr "Active"
-
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Ex: +0700 pour Jakarta/Bangkok"
-
-msgid "Fill to change the API secret"
-msgstr "Remplir pour changer le mot de passe"
 
 msgid "Gateway has been activated"
 msgstr "Passerelle activée"
@@ -37,30 +28,14 @@ msgstr "Configurations de la passerelle sauvergardées"
 msgid "Gateway name"
 msgstr "Nom passerelle"
 
-msgid "Inactive"
-msgstr "Inactive"
-
 msgid "Manage twilio"
 msgstr "Gérer twilio"
-
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Max : 16 caractères numériques ou 11 alphanumériques. vide pour désactiver"
 
 msgid "Module sender ID"
 msgstr "ID module émetteur"
 
 msgid "Module timezone"
 msgstr "Zone de temps"
-
-msgid "Twilio URL"
-msgstr "URL twilio"
-
-msgid "Twilio is a bulk SMS provider"
-msgstr ""
-
-msgid "Twilio will push DLR and incoming SMS to your callback URL"
-msgstr ""
 
 msgid "No changes has been made"
 msgstr "Aucun changement apporté"
@@ -71,14 +46,20 @@ msgstr ""
 msgid "Save"
 msgstr "Sauvegarder"
 
+msgid "Twilio URL"
+msgstr "URL twilio"
+
 msgid "Your callback URL is"
 msgstr ""
 
-msgid "Your callback URL should be accessible from Twilio"
+msgid "Your callback URL should be accessible from twilio"
 msgstr ""
 
-msgid "click here to activate"
-msgstr "cliquez pour activer"
-
 msgid "free credits are available for testing purposes"
+msgstr ""
+
+msgid "twilio is a bulk SMS provider"
+msgstr ""
+
+msgid "twilio will push DLR and incoming SMS to your callback URL"
 msgstr ""

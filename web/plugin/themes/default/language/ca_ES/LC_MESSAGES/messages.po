@@ -23,9 +23,6 @@ msgstr "He oblidat la contrasenya"
 msgid "Home"
 msgstr "Inici"
 
-msgid "Logged in"
-msgstr "Heu entrat"
-
 msgid "Login"
 msgstr "Entrar"
 
@@ -46,9 +43,6 @@ msgstr "Recuperar contrasenya"
 
 msgid "Register an account"
 msgstr "Registrar un compte"
-
-msgid "Status"
-msgstr "Estat"
 
 msgid "Username"
 msgstr "Usuari"

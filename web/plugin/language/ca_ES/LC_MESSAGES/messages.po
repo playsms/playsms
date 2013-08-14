@@ -426,6 +426,14 @@ msgstr "Número(s) telefònic(s)"
 msgid "Phonebook"
 msgstr "Agenda"
 
+#, fuzzy
+msgid "Phonebook groups"
+msgstr "Agenda"
+
+#, fuzzy
+msgid "Phonebook numbers"
+msgstr "Número(s) telefònic(s)"
+
 msgid "Pick Date & Time"
 msgstr "Seleccionar data i hora"
 
@@ -627,6 +635,10 @@ msgstr "Rang de IPs per webservices"
 msgid "Webservices token"
 msgstr "Token de webservices"
 
+#, fuzzy
+msgid "Webservices username"
+msgstr "Token de webservices"
+
 msgid "Website email"
 msgstr "Correu electrònic de contacte"
 
@@ -705,6 +717,9 @@ msgstr "encuat"
 
 msgid "reply"
 msgstr "Respondre"
+
+msgid "resend"
+msgstr ""
 
 msgid "row"
 msgstr "línia"

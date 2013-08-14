@@ -6,9 +6,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Active"
-msgstr "Active"
-
 msgid "Additional URL parameter"
 msgstr "Autres paramètres URL"
 
@@ -24,12 +21,6 @@ msgstr "Délivré au téléphone"
 msgid "Delivery Report"
 msgstr ""
 
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Ex: +0700 pour Jakarta/Bangkok"
-
-msgid "Fill to change the password"
-msgstr "Remplir pour changer le mot de passe"
-
 msgid "Gateway has been activated"
 msgstr "Passerelle activée"
 
@@ -38,15 +29,6 @@ msgstr "La configuration de la passerelle a été sauvegardée"
 
 msgid "Gateway name"
 msgstr "Nom passerelle"
-
-msgid "HTTP Kannel admin password"
-msgstr "HTTP Kannel mot de passe admin"
-
-msgid "HTTP Kannel admin port"
-msgstr "HTTP Kannel port admin"
-
-msgid "Inactive"
-msgstr "Inactive"
 
 msgid "Kannel admin password"
 msgstr "Kannel mot de passe admin"
@@ -57,18 +39,11 @@ msgstr "Kannel port admin"
 msgid "Kannel configuration file"
 msgstr "Fichier de configuration kannel"
 
-msgid "Kannel specific"
-msgstr "Spécifique à Kannel"
-
 msgid "Kannel status"
 msgstr "Kannel port admin"
 
 msgid "Manage kannel"
 msgstr "Gérer kannel"
-
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Max : 16 caractères numériques ou 11 alphanumériques. vide pour désactiver"
 
 msgid "Module sender ID"
 msgstr "ID module émetteur"
@@ -97,20 +72,17 @@ msgstr "Redémarrer Kannel"
 msgid "Save"
 msgstr "Sauvegarder"
 
+msgid "Send SMS hostname or IP"
+msgstr "Hostname ou IP du Send SMS"
+
 msgid "Send SMS port"
 msgstr "Port d'envoi des SMS"
 
 msgid "Status"
 msgstr ""
 
-msgid "URL to playSMS, empty it to set it to base URL"
-msgstr "vide pour garder son adresse par défaut"
-
 msgid "Username"
 msgstr "Nom utilisateur"
-
-msgid "click here to activate"
-msgstr "cliquez pour activer"
 
 msgid "playSMS web URL"
 msgstr "URL de playSMS"

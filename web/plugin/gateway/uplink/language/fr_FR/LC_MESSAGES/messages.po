@@ -5,14 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Active"
-msgstr "Active"
-
 msgid "Additional URL parameter"
 msgstr "Autres paramètres URL"
-
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Ex: +0700 pour Jakarta/Bangkok"
 
 msgid "Gateway has been activated"
 msgstr "Passerelle activée"
@@ -23,17 +17,11 @@ msgstr "Configurations passerelles sauvegardées"
 msgid "Gateway name"
 msgstr "Nom passerelle"
 
-msgid "Inactive"
-msgstr "Inactive"
-
 msgid "Manage uplink"
 msgstr "Gérer uplink"
 
 msgid "Master URL"
 msgstr "URL maitre"
-
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "Max. 16 car num ou 11 car alpha. vide=inactif"
 
 msgid "Module sender ID"
 msgstr "Émetteur global"
@@ -50,5 +38,5 @@ msgstr "Sauvegarder"
 msgid "Webservice token"
 msgstr ""
 
-msgid "click here to activate"
-msgstr "Cliquez pour activer"
+msgid "Webservice username"
+msgstr ""

@@ -430,6 +430,14 @@ msgstr "Numéro(s)"
 msgid "Phonebook"
 msgstr "Carnet d'addresse"
 
+#, fuzzy
+msgid "Phonebook groups"
+msgstr "Carnet d'addresse"
+
+#, fuzzy
+msgid "Phonebook numbers"
+msgstr "Numéro(s)"
+
 msgid "Pick Date & Time"
 msgstr "Choir Date & Heure"
 
@@ -638,6 +646,10 @@ msgstr "Titre du Site"
 msgid "Webservices token"
 msgstr "Titre du Site"
 
+#, fuzzy
+msgid "Webservices username"
+msgstr "Titre du Site"
+
 msgid "Website email"
 msgstr "Email du Site"
 
@@ -717,6 +729,9 @@ msgstr ""
 #, fuzzy
 msgid "reply"
 msgstr "Reéssayer"
+
+msgid "resend"
+msgstr ""
 
 msgid "row"
 msgstr "ligne"

@@ -183,13 +183,5 @@ msgstr "Vous devez remplir tous les champs"
 msgid "Your SMS has been delivered to queue"
 msgstr "Votre SMS a été delivré à la queue"
 
-#, fuzzy
-msgid "disabled"
-msgstr "Désactiver"
-
-#, fuzzy
-msgid "enabled"
-msgstr "Activé"
-
 msgid "keyword"
 msgstr "mot-clé"

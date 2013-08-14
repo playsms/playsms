@@ -5,9 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Active"
-msgstr ""
-
 msgid "Gateway has been activated"
 msgstr ""
 
@@ -20,9 +17,6 @@ msgstr ""
 msgid "Gnokii installation path"
 msgstr ""
 
-msgid "Inactive"
-msgstr ""
-
 msgid "Manage gnokii"
 msgstr "Manage gnokii"
 
@@ -33,7 +27,4 @@ msgid "No trailing slash"
 msgstr ""
 
 msgid "Save"
-msgstr ""
-
-msgid "click here to activate"
 msgstr ""

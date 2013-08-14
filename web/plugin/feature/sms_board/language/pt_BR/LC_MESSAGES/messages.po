@@ -14,6 +14,9 @@ msgstr "Adicionar quadro SMS"
 msgid "Are you sure you want to delete SMS board with all its messages ?"
 msgstr "Tem certeza que quer remover o board SMS com todas as suas mensagens?"
 
+msgid "CSS URL"
+msgstr ""
+
 msgid "Date and time"
 msgstr "Data e hora"
 
@@ -44,9 +47,6 @@ msgstr "Saída JSON"
 msgid "Keyword"
 msgstr "Palavra-chave"
 
-msgid "Leave them empty if you dont know what to fill in these boxes below"
-msgstr "Deixe vazio se não souber o que preencher nos campos abaixo"
-
 msgid "MBOX output"
 msgstr "Saída MBOX"
 
@@ -74,6 +74,10 @@ msgstr "Saída RSS ATOM"
 msgid "Receiver"
 msgstr "Destinatário"
 
+#, fuzzy
+msgid "Row template"
+msgstr "Modelo"
+
 msgid "SMS Board"
 msgstr "Quadro SMS"
 
@@ -97,9 +101,6 @@ msgstr "Salvar"
 
 msgid "Sender"
 msgstr "Remetente"
-
-msgid "Template"
-msgstr "Modelo"
 
 msgid "User"
 msgstr "Usuário"

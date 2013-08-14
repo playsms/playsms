@@ -22,7 +22,8 @@ msgstr "Action"
 msgid "Add SMS custom"
 msgstr "Ajouter script URL"
 
-msgid "Are you sure you want to delete SMS custom keyword ?"
+#, fuzzy
+msgid "Are you sure you want to delete SMS custom ?"
 msgstr "Voulez-vous supprimer le Mot clé du script URL ?"
 
 msgid "Edit SMS custom"

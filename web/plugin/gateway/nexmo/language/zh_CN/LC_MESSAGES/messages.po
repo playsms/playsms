@@ -11,15 +11,6 @@ msgstr ""
 msgid "API secret"
 msgstr ""
 
-msgid "Active"
-msgstr "活跃"
-
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
-
-msgid "Fill to change the API secret"
-msgstr "填写改变密码"
-
 msgid "Gateway has been activated"
 msgstr "网关已激活"
 
@@ -29,14 +20,8 @@ msgstr "网关模块的配置已保存"
 msgid "Gateway name"
 msgstr "网关名"
 
-msgid "Inactive"
-msgstr "不活跃"
-
 msgid "Manage nexmo"
 msgstr ""
-
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "最多16个数字或11个字母，不可空"
 
 msgid "Module sender ID"
 msgstr "全球发件人"
@@ -67,9 +52,6 @@ msgstr ""
 
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr ""
-
-msgid "click here to activate"
-msgstr "点击这里激活"
 
 msgid "free credits are available for testing purposes"
 msgstr ""

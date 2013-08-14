@@ -170,11 +170,5 @@ msgstr ""
 msgid "Your SMS has been delivered to queue"
 msgstr ""
 
-msgid "disabled"
-msgstr ""
-
-msgid "enabled"
-msgstr ""
-
 msgid "keyword"
 msgstr ""

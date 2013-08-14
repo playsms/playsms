@@ -5,9 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Active"
-msgstr "活跃"
-
 msgid "Date/Time"
 msgstr ""
 
@@ -19,9 +16,6 @@ msgstr "网关已激活"
 
 msgid "Gateway name"
 msgstr "网关名"
-
-msgid "Inactive"
-msgstr "不活跃"
 
 #, fuzzy
 msgid "Manage dev"
@@ -44,6 +38,3 @@ msgstr ""
 
 msgid "This is a test incoming SMS message"
 msgstr ""
-
-msgid "click here to activate"
-msgstr "点击这里激活"

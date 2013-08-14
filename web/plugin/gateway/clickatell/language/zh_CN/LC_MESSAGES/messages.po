@@ -8,26 +8,17 @@ msgstr ""
 msgid "API ID"
 msgstr "应用程序界面地址"
 
-msgid "Active"
-msgstr "活跃"
-
 msgid "Additional URL parameter"
 msgstr "增加的链接参数"
 
 msgid "Clickatell API URL"
 msgstr "Clickatell应用程序界面链接"
 
-msgid "Clickatell incoming path"
-msgstr "Clickatell传入路径"
-
 msgid "Clickatell is a bulk SMS provider"
 msgstr ""
 
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgid "Clickatell will push DLR and incoming SMS to your callback URL"
 msgstr ""
-
-msgid "Fill to change the password"
-msgstr "填写改变密码"
 
 msgid "Gateway has been activated"
 msgstr "网关已激活"
@@ -38,14 +29,8 @@ msgstr "网关模块的配置已保存"
 msgid "Gateway name"
 msgstr "网关名"
 
-msgid "Inactive"
-msgstr "不活跃"
-
 msgid "Manage clickatell"
 msgstr "管理 clickatell"
-
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "最多16个数字或11个字母，不能空"
 
 msgid "Module sender ID"
 msgstr "全球发件人"
@@ -59,7 +44,8 @@ msgstr "没有改变"
 msgid "No trailing slash"
 msgstr "没有结尾的斜线"
 
-msgid "Note"
+#, fuzzy
+msgid "Notes"
 msgstr "注意"
 
 msgid "Password"
@@ -74,8 +60,8 @@ msgstr "用户名"
 msgid "Your callback URL is"
 msgstr "你的回调链接是"
 
-msgid "click here to activate"
-msgstr "点击这里激活"
+msgid "Your callback URL should be accessible from Clickatell"
+msgstr ""
 
 msgid "free credits are available for testing purposes"
 msgstr ""

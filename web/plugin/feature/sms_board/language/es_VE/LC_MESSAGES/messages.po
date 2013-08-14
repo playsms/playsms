@@ -15,6 +15,9 @@ msgid "Are you sure you want to delete SMS board with all its messages ?"
 msgstr ""
 "Etes-vous certain de vouloir supprimer ce service avec tous ses messages ?"
 
+msgid "CSS URL"
+msgstr ""
+
 msgid "Date and time"
 msgstr "Fecha & Hora"
 
@@ -46,9 +49,6 @@ msgstr ""
 msgid "Keyword"
 msgstr "Clave"
 
-msgid "Leave them empty if you dont know what to fill in these boxes below"
-msgstr "Déjas vacias si usted no sabe que rellenar en estos campos abajo"
-
 msgid "MBOX output"
 msgstr ""
 
@@ -77,6 +77,10 @@ msgid "Receiver"
 msgstr ""
 
 #, fuzzy
+msgid "Row template"
+msgstr "Plantilla"
+
+#, fuzzy
 msgid "SMS Board"
 msgstr "Añadir pizarra SMS"
 
@@ -100,9 +104,6 @@ msgstr "Guardar"
 
 msgid "Sender"
 msgstr "Emisor"
-
-msgid "Template"
-msgstr "Plantilla"
 
 msgid "User"
 msgstr "Usuario"

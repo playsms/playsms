@@ -19,15 +19,6 @@ msgstr ""
 msgid "API secret"
 msgstr ""
 
-msgid "Active"
-msgstr "Active"
-
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Ex: +0700 pour Jakarta/Bangkok"
-
-msgid "Fill to change the API secret"
-msgstr "Remplir pour changer le mot de passe"
-
 msgid "Gateway has been activated"
 msgstr "Passerelle activée"
 
@@ -37,15 +28,8 @@ msgstr "Configurations de la passerelle sauvergardées"
 msgid "Gateway name"
 msgstr "Nom passerelle"
 
-msgid "Inactive"
-msgstr "Inactive"
-
 msgid "Manage nexmo"
 msgstr "Gérer nexmo"
-
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Max : 16 caractères numériques ou 11 alphanumériques. vide pour désactiver"
 
 msgid "Module sender ID"
 msgstr "ID module émetteur"
@@ -76,9 +60,6 @@ msgstr ""
 
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr ""
-
-msgid "click here to activate"
-msgstr "cliquez pour activer"
 
 msgid "free credits are available for testing purposes"
 msgstr ""

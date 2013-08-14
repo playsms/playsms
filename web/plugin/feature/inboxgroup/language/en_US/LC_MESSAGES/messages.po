@@ -17,9 +17,6 @@ msgstr ""
 msgid "Add member"
 msgstr ""
 
-msgid "All"
-msgstr ""
-
 msgid "All users"
 msgstr ""
 
@@ -92,9 +89,6 @@ msgstr ""
 msgid "Fail to enable group inbox"
 msgstr ""
 
-msgid "For example a short code"
-msgstr ""
-
 msgid "Group inbox"
 msgstr ""
 
@@ -155,9 +149,6 @@ msgstr ""
 msgid "Receiver number does not exists"
 msgstr ""
 
-msgid "Restrict sender to regular members or catch-all members only"
-msgstr ""
-
 msgid "Save"
 msgstr ""
 
@@ -170,9 +161,6 @@ msgstr ""
 msgid "Selected users"
 msgstr ""
 
-msgid "Seperate with comma for multiple items"
-msgstr ""
-
 msgid "Status"
 msgstr ""
 
@@ -183,12 +171,6 @@ msgid "Yes"
 msgstr ""
 
 msgid "You must fill all fields"
-msgstr ""
-
-msgid "disabled"
-msgstr ""
-
-msgid "enabled"
 msgstr ""
 
 msgid "no"

@@ -5,20 +5,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "API key"
-msgstr "Kunci API"
+msgid "Account SID"
+msgstr ""
 
-msgid "API secret"
-msgstr "Kata rahasia API"
-
-msgid "Active"
-msgstr "Aktif"
-
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Misalnya: +0700 untuk zona waktu Jakarta/Bangkok"
-
-msgid "Fill to change the API secret"
-msgstr "Isi untuk merubah kata sandi"
+msgid "Auth Token"
+msgstr ""
 
 msgid "Gateway has been activated"
 msgstr "Gateway telah diaktifkan"
@@ -29,30 +20,14 @@ msgstr "Konfigurasi modul gateway telah disimpan"
 msgid "Gateway name"
 msgstr "Nama gateway"
 
-msgid "Inactive"
-msgstr "Nonaktif"
-
 msgid "Manage twilio"
 msgstr "Pengaturan twilio"
-
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Maks. 16 karakter numerik atau 11 alfanumerik. kosongkan untuk menonaktifkan"
 
 msgid "Module sender ID"
 msgstr "ID pengirim modul"
 
 msgid "Module timezone"
 msgstr "Zona waktu modul"
-
-msgid "Twilio URL"
-msgstr "twilio URL"
-
-msgid "Twilio is a bulk SMS provider"
-msgstr "Twilio adalah penyedia SMS bulk"
-
-msgid "Twilio will push DLR and incoming SMS to your callback URL"
-msgstr "Twilio akan mengirim DLR dan SMS yang masuk ke URL callback anda"
 
 msgid "No changes has been made"
 msgstr "Tidak ada perubahan yang dilakukan"
@@ -63,14 +38,20 @@ msgstr "Catatan"
 msgid "Save"
 msgstr "Simpan"
 
+msgid "Twilio URL"
+msgstr "twilio URL"
+
 msgid "Your callback URL is"
 msgstr "URL callback anda adalah"
 
-msgid "Your callback URL should be accessible from Twilio"
+msgid "Your callback URL should be accessible from twilio"
 msgstr "Callback URL seharusnya dapat diakses oleh Twilio"
-
-msgid "click here to activate"
-msgstr "Klik di sini untuk mengaktifkan"
 
 msgid "free credits are available for testing purposes"
 msgstr "Kredit gratis tersedia untuk tujuan percobaan"
+
+msgid "twilio is a bulk SMS provider"
+msgstr "Twilio adalah penyedia SMS bulk"
+
+msgid "twilio will push DLR and incoming SMS to your callback URL"
+msgstr "Twilio akan mengirim DLR dan SMS yang masuk ke URL callback anda"

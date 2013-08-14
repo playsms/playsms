@@ -8,25 +8,16 @@ msgstr ""
 msgid "API ID"
 msgstr ""
 
-msgid "Active"
-msgstr "Active"
-
 msgid "Additional URL parameter"
 msgstr ""
 
 msgid "Clickatell API URL"
 msgstr ""
 
-msgid "Clickatell incoming path"
-msgstr ""
-
 msgid "Clickatell is a bulk SMS provider"
 msgstr ""
 
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
-
-msgid "Fill to change the password"
+msgid "Clickatell will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
 msgid "Gateway has been activated"
@@ -38,13 +29,7 @@ msgstr ""
 msgid "Gateway name"
 msgstr ""
 
-msgid "Inactive"
-msgstr ""
-
 msgid "Manage clickatell"
-msgstr ""
-
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
 
 msgid "Module sender ID"
@@ -59,7 +44,7 @@ msgstr ""
 msgid "No trailing slash"
 msgstr ""
 
-msgid "Note"
+msgid "Notes"
 msgstr ""
 
 msgid "Password"
@@ -74,7 +59,7 @@ msgstr ""
 msgid "Your callback URL is"
 msgstr ""
 
-msgid "click here to activate"
+msgid "Your callback URL should be accessible from Clickatell"
 msgstr ""
 
 msgid "free credits are available for testing purposes"

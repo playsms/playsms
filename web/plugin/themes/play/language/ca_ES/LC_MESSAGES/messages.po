@@ -41,6 +41,9 @@ msgstr "Nom"
 msgid "Password"
 msgstr "Contrasenya"
 
+msgid "Preferences"
+msgstr ""
+
 msgid "Recover password"
 msgstr "Recuperar contrasenya"
 

@@ -11,7 +11,7 @@ msgstr "Tindakan"
 msgid "Add SMS custom"
 msgstr "Tambah SMS kustom"
 
-msgid "Are you sure you want to delete SMS custom keyword ?"
+msgid "Are you sure you want to delete SMS custom ?"
 msgstr "Anda yakin ingin menghapus kata kunci SMS kustom"
 
 msgid "Edit SMS custom"

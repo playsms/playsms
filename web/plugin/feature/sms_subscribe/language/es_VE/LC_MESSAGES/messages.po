@@ -183,13 +183,5 @@ msgstr "Ud. debe rellenar todos los campos"
 msgid "Your SMS has been delivered to queue"
 msgstr "Su mensaje ha sido enviado a la cola de proceso"
 
-#, fuzzy
-msgid "disabled"
-msgstr "Deshabilitado"
-
-#, fuzzy
-msgid "enabled"
-msgstr "Habilitado"
-
 msgid "keyword"
 msgstr "clave"

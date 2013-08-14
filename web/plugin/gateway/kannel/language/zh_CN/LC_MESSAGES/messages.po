@@ -5,9 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Active"
-msgstr "活跃"
-
 msgid "Additional URL parameter"
 msgstr "附加链接参数"
 
@@ -23,12 +20,6 @@ msgstr ""
 msgid "Delivery Report"
 msgstr ""
 
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
-
-msgid "Fill to change the password"
-msgstr "填写改变密码"
-
 msgid "Gateway has been activated"
 msgstr "网关已激活"
 
@@ -37,15 +28,6 @@ msgstr "网关模块的配置已保存"
 
 msgid "Gateway name"
 msgstr "网关名"
-
-msgid "HTTP Kannel admin password"
-msgstr ""
-
-msgid "HTTP Kannel admin port"
-msgstr ""
-
-msgid "Inactive"
-msgstr "不活跃"
 
 msgid "Kannel admin password"
 msgstr ""
@@ -56,17 +38,11 @@ msgstr ""
 msgid "Kannel configuration file"
 msgstr ""
 
-msgid "Kannel specific"
-msgstr ""
-
 msgid "Kannel status"
 msgstr ""
 
 msgid "Manage kannel"
 msgstr "管理kannel"
-
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "最多16个数字或11个字母，不可空"
 
 msgid "Module sender ID"
 msgstr "全球发件人"
@@ -95,20 +71,18 @@ msgstr ""
 msgid "Save"
 msgstr "发送"
 
+#, fuzzy
+msgid "Send SMS hostname or IP"
+msgstr "发送短信端口"
+
 msgid "Send SMS port"
 msgstr "发送短信端口"
 
 msgid "Status"
 msgstr ""
 
-msgid "URL to playSMS, empty it to set it to base URL"
-msgstr ""
-
 msgid "Username"
 msgstr "用户名"
-
-msgid "click here to activate"
-msgstr "点击这里激活"
 
 msgid "playSMS web URL"
 msgstr "短信网络链接"

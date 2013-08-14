@@ -182,13 +182,5 @@ msgstr "你必须填满全部空白"
 msgid "Your SMS has been delivered to queue"
 msgstr "你的短信已在队列中"
 
-#, fuzzy
-msgid "disabled"
-msgstr "禁用"
-
-#, fuzzy
-msgid "enabled"
-msgstr "使用"
-
 msgid "keyword"
 msgstr "关键字"

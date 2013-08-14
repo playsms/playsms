@@ -5,15 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Active"
-msgstr "Ativo"
-
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Ex: +0300 para Brasília"
-
-msgid "Fill to change the password"
-msgstr "Preencha pra mudar a senha"
-
 msgid "Gateway has been activated"
 msgstr "Gateway foi ativado"
 
@@ -23,14 +14,8 @@ msgstr "Configurações do módulo de gateway foram salvas"
 msgid "Gateway name"
 msgstr "Nome do gateway"
 
-msgid "Inactive"
-msgstr "Inativo"
-
 msgid "Manage msgtoolbox"
 msgstr "Gerenciar msgtoolbox"
-
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
 
 msgid "Module sender ID"
 msgstr "Módulo ID Remetente"
@@ -52,9 +37,6 @@ msgstr "Salvar"
 
 msgid "Username"
 msgstr "Usuário"
-
-msgid "click here to activate"
-msgstr "clique aqui para ativar"
 
 msgid "msgtoolbox URL"
 msgstr "URL msgtoolbox"

@@ -170,11 +170,5 @@ msgstr "Preencha todos os campos"
 msgid "Your SMS has been delivered to queue"
 msgstr "Seu SMS foi enviado para a fila"
 
-msgid "disabled"
-msgstr "Desabilitado"
-
-msgid "enabled"
-msgstr "Habilitado"
-
 msgid "keyword"
 msgstr "palavra-chave"

@@ -5,9 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Active"
-msgstr ""
-
 msgid "Date/Time"
 msgstr ""
 
@@ -18,9 +15,6 @@ msgid "Gateway has been activated"
 msgstr ""
 
 msgid "Gateway name"
-msgstr ""
-
-msgid "Inactive"
 msgstr ""
 
 #, fuzzy
@@ -43,7 +37,4 @@ msgid "Submit"
 msgstr ""
 
 msgid "This is a test incoming SMS message"
-msgstr ""
-
-msgid "click here to activate"
 msgstr ""

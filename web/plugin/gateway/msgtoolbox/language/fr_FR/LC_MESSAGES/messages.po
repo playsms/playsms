@@ -13,15 +13,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Active"
-msgstr "Active"
-
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Ex: +0700 pour Jakarta/Bangkok"
-
-msgid "Fill to change the password"
-msgstr "Remplir pour changer le mot de passe"
-
 msgid "Gateway has been activated"
 msgstr "Passerelle activée"
 
@@ -31,15 +22,8 @@ msgstr "Configurations de la passerelle sauvergardées"
 msgid "Gateway name"
 msgstr "Nom passerelle"
 
-msgid "Inactive"
-msgstr "Inactive"
-
 msgid "Manage msgtoolbox"
 msgstr "Gérer msgtoolbox"
-
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Max : 16 caractères numériques ou 11 alphanumériques. vide pour désactiver"
 
 msgid "Module sender ID"
 msgstr "ID module émetteur"
@@ -61,9 +45,6 @@ msgstr "Sauvegarder"
 
 msgid "Username"
 msgstr "Not utilisateur"
-
-msgid "click here to activate"
-msgstr "cliquez pour activer"
 
 msgid "msgtoolbox URL"
 msgstr "URL msgtoolbox"

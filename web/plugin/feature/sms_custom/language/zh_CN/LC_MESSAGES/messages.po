@@ -11,7 +11,8 @@ msgstr "行动"
 msgid "Add SMS custom"
 msgstr "增加短信自定义"
 
-msgid "Are you sure you want to delete SMS custom keyword ?"
+#, fuzzy
+msgid "Are you sure you want to delete SMS custom ?"
 msgstr "确定删除短信自定义关键字 ?"
 
 msgid "Edit SMS custom"

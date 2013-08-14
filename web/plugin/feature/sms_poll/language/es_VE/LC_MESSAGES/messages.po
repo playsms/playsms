@@ -117,9 +117,6 @@ msgstr "Título"
 msgid "User"
 msgstr "Usuario"
 
-msgid "View"
-msgstr ""
-
 #, fuzzy
 msgid "View poll"
 msgstr "Administrar Encuesta"
@@ -129,14 +126,6 @@ msgstr ""
 
 msgid "You must fill all fields"
 msgstr "Ud. debe rellenar todos los campos"
-
-#, fuzzy
-msgid "disabled"
-msgstr "Deshabilitado"
-
-#, fuzzy
-msgid "enabled"
-msgstr "Habilitado"
 
 msgid "keyword"
 msgstr "Clave"

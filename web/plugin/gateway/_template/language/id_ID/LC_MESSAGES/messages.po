@@ -5,9 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Active"
-msgstr "Aktif"
-
 msgid "Gateway has been activated"
 msgstr "Gateway telah diaktifkan"
 
@@ -16,9 +13,6 @@ msgstr "Konfigurasi modul gateway telah disimpan"
 
 msgid "Gateway name"
 msgstr "Nama gateway"
-
-msgid "Inactive"
-msgstr "Nonaktif"
 
 msgid "Manage template"
 msgstr "Pengaturan template"
@@ -34,6 +28,3 @@ msgstr "Simpan"
 
 msgid "Template installation path"
 msgstr "Jalur instalasi template"
-
-msgid "click here to activate"
-msgstr "klik di sini untuk mengaktifkan"

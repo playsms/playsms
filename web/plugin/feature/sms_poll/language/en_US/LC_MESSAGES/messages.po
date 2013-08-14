@@ -114,23 +114,13 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-msgid "View"
-msgstr ""
-
-#, fuzzy
 msgid "View poll"
-msgstr "Manage poll"
+msgstr ""
 
 msgid "XML output"
 msgstr ""
 
 msgid "You must fill all fields"
-msgstr ""
-
-msgid "disabled"
-msgstr ""
-
-msgid "enabled"
 msgstr ""
 
 msgid "keyword"

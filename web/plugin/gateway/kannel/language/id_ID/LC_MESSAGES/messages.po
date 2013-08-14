@@ -5,9 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Active"
-msgstr "Aktif"
-
 msgid "Additional URL parameter"
 msgstr "Parameter URL tambahan"
 
@@ -23,12 +20,6 @@ msgstr "Dikirim ke telepon"
 msgid "Delivery Report"
 msgstr "Laporan terkirim"
 
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Misalnya: +0700 untuk zona waktu Jakarta/Bangkok"
-
-msgid "Fill to change the password"
-msgstr "Isi untuk merubah kata sandi"
-
 msgid "Gateway has been activated"
 msgstr "Gateway telah diaktifkan"
 
@@ -37,15 +28,6 @@ msgstr "Konfigurasi modul gateway telah disimpan"
 
 msgid "Gateway name"
 msgstr "Nama gateway"
-
-msgid "HTTP Kannel admin password"
-msgstr "Password admin HTTP kannel"
-
-msgid "HTTP Kannel admin port"
-msgstr "Port admin HTTP kannel"
-
-msgid "Inactive"
-msgstr "Nonaktif"
 
 msgid "Kannel admin password"
 msgstr "Password admin kannel"
@@ -56,18 +38,11 @@ msgstr "Port admin kannel"
 msgid "Kannel configuration file"
 msgstr "File konfigurasi kannel"
 
-msgid "Kannel specific"
-msgstr "Spesifik untuk kannel"
-
 msgid "Kannel status"
 msgstr "Status kannel"
 
 msgid "Manage kannel"
 msgstr "Pengaturan kannel"
-
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Maks. 16 numerik atau 11 karakter alfanumerik. kosongkan untuk menonaktifkan"
 
 msgid "Module sender ID"
 msgstr "Pengirim global"
@@ -96,20 +71,17 @@ msgstr "Restart kannel"
 msgid "Save"
 msgstr "Simpan"
 
+msgid "Send SMS hostname or IP"
+msgstr "Nama alamat Send SMS atau IP"
+
 msgid "Send SMS port"
 msgstr "Port untuk send SMS"
 
 msgid "Status"
 msgstr "Status"
 
-msgid "URL to playSMS, empty it to set it to base URL"
-msgstr "URL untuk playSMS, kosongkan untuk mengaturnya ke URL dasar"
-
 msgid "Username"
 msgstr "Nama Pengguna"
-
-msgid "click here to activate"
-msgstr "Klik di sini untuk mengaktifkan"
 
 msgid "playSMS web URL"
 msgstr "Alamat web playSMS"

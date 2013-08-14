@@ -17,8 +17,10 @@ msgstr "Adicionar votação SMS"
 msgid "Add choice to this poll"
 msgstr "Adicionar opção pra essa votação"
 
-msgid "Are you sure you want to delete SMS poll with all its choices and votes ?"
-msgstr "Tem certeza que quer remover a votação SMS com todas as opções e votos?"
+msgid ""
+"Are you sure you want to delete SMS poll with all its choices and votes ?"
+msgstr ""
+"Tem certeza que quer remover a votação SMS com todas as opções e votos?"
 
 msgid "Are you sure you want to delete choice ?"
 msgstr "Tem certeza que quer remover essa opção?"
@@ -113,9 +115,6 @@ msgstr "Título"
 msgid "User"
 msgstr "Usuário"
 
-msgid "View"
-msgstr "Visualizar"
-
 msgid "View poll"
 msgstr "Visualizar votação"
 
@@ -124,12 +123,6 @@ msgstr "Saída XML"
 
 msgid "You must fill all fields"
 msgstr "Preencha todos os campos"
-
-msgid "disabled"
-msgstr "desabilitado"
-
-msgid "enabled"
-msgstr "habilitado"
 
 msgid "keyword"
 msgstr "palavra-chave"

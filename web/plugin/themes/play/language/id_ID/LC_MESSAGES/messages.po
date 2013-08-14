@@ -32,6 +32,9 @@ msgstr "Nama"
 msgid "Password"
 msgstr "Kata sandi"
 
+msgid "Preferences"
+msgstr ""
+
 msgid "Recover password"
 msgstr "Dapatkan kata sandi"
 

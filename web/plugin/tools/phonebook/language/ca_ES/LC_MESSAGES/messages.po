@@ -35,8 +35,8 @@ msgstr "El contacte ja existeix"
 msgid "Contacts has been imported"
 msgstr "Els contactes s'han importat"
 
-msgid "Delete selection"
-msgstr "Esborrar selecció"
+msgid "Delete"
+msgstr ""
 
 msgid "Edit contact"
 msgstr "Editar contacte"

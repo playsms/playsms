@@ -96,12 +96,6 @@ msgstr ""
 msgid "correct"
 msgstr ""
 
-msgid "disabled"
-msgstr ""
-
-msgid "enabled"
-msgstr ""
-
 msgid "incorrect"
 msgstr ""
 

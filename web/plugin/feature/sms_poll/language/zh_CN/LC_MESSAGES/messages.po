@@ -116,9 +116,6 @@ msgstr "标题"
 msgid "User"
 msgstr "用户"
 
-msgid "View"
-msgstr ""
-
 #, fuzzy
 msgid "View poll"
 msgstr "管理投票"
@@ -128,14 +125,6 @@ msgstr ""
 
 msgid "You must fill all fields"
 msgstr "你必须填满全部空白"
-
-#, fuzzy
-msgid "disabled"
-msgstr "禁用"
-
-#, fuzzy
-msgid "enabled"
-msgstr "使用"
 
 msgid "keyword"
 msgstr "关键字"

@@ -11,15 +11,6 @@ msgstr ""
 msgid "API secret"
 msgstr ""
 
-msgid "Active"
-msgstr ""
-
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
-
-msgid "Fill to change the API secret"
-msgstr ""
-
 msgid "Gateway has been activated"
 msgstr ""
 
@@ -29,13 +20,7 @@ msgstr ""
 msgid "Gateway name"
 msgstr ""
 
-msgid "Inactive"
-msgstr ""
-
 msgid "Manage nexmo"
-msgstr ""
-
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
 
 msgid "Module sender ID"
@@ -66,9 +51,6 @@ msgid "Your callback URL is"
 msgstr ""
 
 msgid "Your callback URL should be accessible from Nexmo"
-msgstr ""
-
-msgid "click here to activate"
 msgstr ""
 
 msgid "free credits are available for testing purposes"

@@ -11,7 +11,8 @@ msgstr "Acción"
 msgid "Add SMS custom"
 msgstr "Añadir SMS personalizado"
 
-msgid "Are you sure you want to delete SMS custom keyword ?"
+#, fuzzy
+msgid "Are you sure you want to delete SMS custom ?"
 msgstr "Está Ud. seguro de querer eliminar esta clave SMS personalizado ?"
 
 msgid "Edit SMS custom"

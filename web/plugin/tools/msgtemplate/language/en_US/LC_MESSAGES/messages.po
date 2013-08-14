@@ -4,7 +4,7 @@ msgstr ""
 msgid "Content"
 msgstr ""
 
-msgid "Delete selection"
+msgid "Delete"
 msgstr ""
 
 msgid "Edit message template"

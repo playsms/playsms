@@ -14,9 +14,6 @@ msgstr "Lupa Kata sandi"
 msgid "Home"
 msgstr "Beranda"
 
-msgid "Logged in"
-msgstr "Telah masuk"
-
 msgid "Login"
 msgstr "Masuk"
 
@@ -37,9 +34,6 @@ msgstr "Pulihkan kata sandi"
 
 msgid "Register an account"
 msgstr "Daftarkan akun"
-
-msgid "Status"
-msgstr "Status"
 
 msgid "Username"
 msgstr "Nama pengguna"

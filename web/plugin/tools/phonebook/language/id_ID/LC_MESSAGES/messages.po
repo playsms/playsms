@@ -19,8 +19,8 @@ msgstr "Kontak sudah ada"
 msgid "Contacts has been imported"
 msgstr "Kontak telah di-impor"
 
-msgid "Delete selection"
-msgstr "Hapus pilihan"
+msgid "Delete"
+msgstr ""
 
 msgid "Edit contact"
 msgstr "Ubah kontak"

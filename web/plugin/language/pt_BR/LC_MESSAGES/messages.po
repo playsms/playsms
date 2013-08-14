@@ -424,6 +424,14 @@ msgstr "Número(s) de telefone"
 msgid "Phonebook"
 msgstr "Contatos"
 
+#, fuzzy
+msgid "Phonebook groups"
+msgstr "Contatos"
+
+#, fuzzy
+msgid "Phonebook numbers"
+msgstr "Número(s) de telefone"
+
 msgid "Pick Date & Time"
 msgstr "Escolher data & hora"
 
@@ -595,7 +603,8 @@ msgid "Username should be at least 3 characters"
 msgstr "Nome de usuário deve ter pelo menos 3 caracteres"
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
-msgstr "Caracteres válidos para nome de usuário são letras, números, ponto ou traço"
+msgstr ""
+"Caracteres válidos para nome de usuário são letras, números, ponto ou traço"
 
 msgid "View"
 msgstr "Visualizar"
@@ -627,6 +636,10 @@ msgstr "Range de IP para webservices"
 msgid "Webservices token"
 msgstr "Token de webservices"
 
+#, fuzzy
+msgid "Webservices username"
+msgstr "Token de webservices"
+
 msgid "Website email"
 msgstr "E-mail do website"
 
@@ -652,7 +665,8 @@ msgid "You must select receiver and your message should not be empty"
 msgstr "Você deve escolher um destinatário e sua mensagem não pode estar vazia"
 
 msgid "You must select receiver group and your message should not be empty"
-msgstr "Você deve escolher um grupo destinatário e sua mensagem não pode estar vazia"
+msgstr ""
+"Você deve escolher um grupo destinatário e sua mensagem não pode estar vazia"
 
 msgid "Your SMS has been delivered to queue"
 msgstr "Seu SMS foi emitido pra fila"
@@ -706,6 +720,9 @@ msgstr "em fila"
 #, fuzzy
 msgid "reply"
 msgstr "Responder"
+
+msgid "resend"
+msgstr ""
 
 msgid "row"
 msgstr "linha"

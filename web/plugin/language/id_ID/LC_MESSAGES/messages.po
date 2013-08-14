@@ -416,6 +416,12 @@ msgstr "Nomor telepon"
 msgid "Phonebook"
 msgstr "Buku telepon"
 
+msgid "Phonebook groups"
+msgstr "Grup buku telepon"
+
+msgid "Phonebook numbers"
+msgstr "Nomor telepon"
+
 msgid "Pick Date & Time"
 msgstr "Pilih waktu & tanggal"
 
@@ -615,6 +621,9 @@ msgstr "IP webservices"
 msgid "Webservices token"
 msgstr "Token webservices"
 
+msgid "Webservices username"
+msgstr "Username webservices"
+
 msgid "Website email"
 msgstr "Email situs"
 
@@ -692,6 +701,9 @@ msgstr "antri"
 
 msgid "reply"
 msgstr "balas"
+
+msgid "resend"
+msgstr ""
 
 msgid "row"
 msgstr "baris"

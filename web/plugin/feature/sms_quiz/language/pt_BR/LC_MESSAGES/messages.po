@@ -14,8 +14,10 @@ msgstr "Adicionar quiz SMS"
 msgid "Answer"
 msgstr "Resposta"
 
-msgid "Are you sure you want to delete SMS quiz with all its choices and answers ?"
-msgstr "Tem certeza que quer remover o quiz SMs com todas as opções e respostas?"
+msgid ""
+"Are you sure you want to delete SMS quiz with all its choices and answers ?"
+msgstr ""
+"Tem certeza que quer remover o quiz SMs com todas as opções e respostas?"
 
 msgid "Are you sure you want to delete this answer ?"
 msgstr "Tem certeza que quer remover essa resposta?"
@@ -94,12 +96,6 @@ msgstr "Preencha todos os campos"
 
 msgid "correct"
 msgstr "incorreto"
-
-msgid "disabled"
-msgstr "desabilitado"
-
-msgid "enabled"
-msgstr "habilitado"
 
 msgid "incorrect"
 msgstr "incorreto"

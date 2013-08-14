@@ -116,9 +116,6 @@ msgstr "Judul"
 msgid "User"
 msgstr "Pengguna"
 
-msgid "View"
-msgstr "Lihat"
-
 msgid "View poll"
 msgstr "Lihat polling"
 
@@ -127,12 +124,6 @@ msgstr "Keluaran XML"
 
 msgid "You must fill all fields"
 msgstr "Anda harus mengisi semua kolom"
-
-msgid "disabled"
-msgstr "nonaktif"
-
-msgid "enabled"
-msgstr "aktif"
 
 msgid "keyword"
 msgstr "kata kunci"

@@ -8,26 +8,17 @@ msgstr ""
 msgid "API ID"
 msgstr "API ID"
 
-msgid "Active"
-msgstr "Aktif"
-
 msgid "Additional URL parameter"
 msgstr "Parameter URL tambahan"
 
 msgid "Clickatell API URL"
 msgstr "URL Clickatell API"
 
-msgid "Clickatell incoming path"
-msgstr "Jalur masuk Clickatell"
-
 msgid "Clickatell is a bulk SMS provider"
 msgstr "Clickatell adalah penyedia SMS bulk"
 
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Contoh: +0700 untuk zona waktu Jakarta/Bangkok"
-
-msgid "Fill to change the password"
-msgstr "Isi untuk merubah kata sandi"
+msgid "Clickatell will push DLR and incoming SMS to your callback URL"
+msgstr ""
 
 msgid "Gateway has been activated"
 msgstr "Gateway telah diaktifkan"
@@ -38,15 +29,8 @@ msgstr "Konfigurasi modul gateway telah disimpan"
 msgid "Gateway name"
 msgstr "Nama gateway"
 
-msgid "Inactive"
-msgstr "Nonaktif"
-
 msgid "Manage clickatell"
 msgstr "Pengaturan clickatell"
-
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Maks. 16 numerik atau 11 karakter alfanumerik. kosongkan untuk menonaktifkan"
 
 msgid "Module sender ID"
 msgstr "Pengirim global"
@@ -60,7 +44,7 @@ msgstr "Tidak ada perubahan yang terjadi"
 msgid "No trailing slash"
 msgstr "Tanpa garis miring"
 
-msgid "Note"
+msgid "Notes"
 msgstr "Catatan"
 
 msgid "Password"
@@ -75,8 +59,8 @@ msgstr "Nama pengguna"
 msgid "Your callback URL is"
 msgstr "URL balasan anda adalah"
 
-msgid "click here to activate"
-msgstr "klik di sini untuk mengaktifkan"
+msgid "Your callback URL should be accessible from Clickatell"
+msgstr ""
 
 msgid "free credits are available for testing purposes"
 msgstr "pulsa gratis tersedia untuk tujuan tes"

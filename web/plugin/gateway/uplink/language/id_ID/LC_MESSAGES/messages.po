@@ -5,14 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Active"
-msgstr "Aktif"
-
 msgid "Additional URL parameter"
 msgstr "Parameter URL tambahan"
-
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Misalnya: +0700 untuk zona waktu Jakarta/Bangkok"
 
 msgid "Gateway has been activated"
 msgstr "Gateway telah diaktifkan"
@@ -23,18 +17,11 @@ msgstr "Konfigurasi modul gateway telah disimpan"
 msgid "Gateway name"
 msgstr "Nama gateway"
 
-msgid "Inactive"
-msgstr "Nonaktif"
-
 msgid "Manage uplink"
 msgstr "Pengaturan uplink"
 
 msgid "Master URL"
 msgstr "URL Utama"
-
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Maks. 16 karakter numerik atau 11 alfanumerik. kosongkan untuk menonaktifkan"
 
 msgid "Module sender ID"
 msgstr "Pengirim global"
@@ -51,5 +38,5 @@ msgstr "Simpan"
 msgid "Webservice token"
 msgstr "Token webservices"
 
-msgid "click here to activate"
-msgstr "Klik di sini untuk mengaktifkan"
+msgid "Webservice username"
+msgstr "Username webservices"

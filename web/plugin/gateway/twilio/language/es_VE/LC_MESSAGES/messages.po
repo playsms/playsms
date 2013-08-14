@@ -5,19 +5,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "API key"
+msgid "Account SID"
 msgstr ""
 
-msgid "API secret"
-msgstr ""
-
-msgid "Active"
-msgstr ""
-
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
-
-msgid "Fill to change the API secret"
+msgid "Auth Token"
 msgstr ""
 
 msgid "Gateway has been activated"
@@ -29,28 +20,13 @@ msgstr ""
 msgid "Gateway name"
 msgstr ""
 
-msgid "Inactive"
-msgstr ""
-
 msgid "Manage twilio"
-msgstr ""
-
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
 
 msgid "Module sender ID"
 msgstr ""
 
 msgid "Module timezone"
-msgstr ""
-
-msgid "Twilio URL"
-msgstr ""
-
-msgid "Twilio is a bulk SMS provider"
-msgstr ""
-
-msgid "Twilio will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
 msgid "No changes has been made"
@@ -62,14 +38,20 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
+msgid "Twilio URL"
+msgstr ""
+
 msgid "Your callback URL is"
 msgstr ""
 
-msgid "Your callback URL should be accessible from Twilio"
-msgstr ""
-
-msgid "click here to activate"
+msgid "Your callback URL should be accessible from twilio"
 msgstr ""
 
 msgid "free credits are available for testing purposes"
+msgstr ""
+
+msgid "twilio is a bulk SMS provider"
+msgstr ""
+
+msgid "twilio will push DLR and incoming SMS to your callback URL"
 msgstr ""

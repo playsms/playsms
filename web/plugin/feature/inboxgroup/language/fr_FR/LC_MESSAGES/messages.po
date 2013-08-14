@@ -29,9 +29,6 @@ msgstr "Service boite groupe"
 msgid "Add member"
 msgstr "Ajouter membre"
 
-msgid "All"
-msgstr "Tous"
-
 msgid "All users"
 msgstr "Utilisateurs"
 
@@ -112,9 +109,6 @@ msgstr "Echec d'édition du numéro récepteur"
 msgid "Fail to enable group inbox"
 msgstr "Echec d'activation du numéro récepteur"
 
-msgid "For example a short code"
-msgstr "Shortcode par exemple"
-
 msgid "Group inbox"
 msgstr "Service boite groupe"
 
@@ -181,9 +175,6 @@ msgstr "Numéro récepteur"
 msgid "Receiver number does not exists"
 msgstr "Numéro de récepteur non existant"
 
-msgid "Restrict sender to regular members or catch-all members only"
-msgstr "Membres réguliers ou aux membres du fourre-tout uniquement"
-
 msgid "Save"
 msgstr ""
 
@@ -196,9 +187,6 @@ msgstr "Membres sélectionnés"
 msgid "Selected users"
 msgstr "Utilisateurs Sélectionnés"
 
-msgid "Seperate with comma for multiple items"
-msgstr "éléments separés par une virgule"
-
 msgid "Status"
 msgstr "Status"
 
@@ -210,12 +198,6 @@ msgstr "Oui"
 
 msgid "You must fill all fields"
 msgstr "Vous devez remplir tous les champs"
-
-msgid "disabled"
-msgstr "désactivé"
-
-msgid "enabled"
-msgstr "Activé"
 
 msgid "no"
 msgstr "non"

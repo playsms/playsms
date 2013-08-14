@@ -19,7 +19,7 @@ msgstr ""
 msgid "Contacts has been imported"
 msgstr ""
 
-msgid "Delete selection"
+msgid "Delete"
 msgstr ""
 
 msgid "Edit contact"

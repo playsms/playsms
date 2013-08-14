@@ -118,9 +118,6 @@ msgstr "Titre"
 msgid "User"
 msgstr "Compte"
 
-msgid "View"
-msgstr ""
-
 #, fuzzy
 msgid "View poll"
 msgstr "Service sondage"
@@ -130,14 +127,6 @@ msgstr ""
 
 msgid "You must fill all fields"
 msgstr "Vous devez remplir tous les champs"
-
-#, fuzzy
-msgid "disabled"
-msgstr "Désactivé"
-
-#, fuzzy
-msgid "enabled"
-msgstr "Activé"
 
 msgid "keyword"
 msgstr "mot-clé"

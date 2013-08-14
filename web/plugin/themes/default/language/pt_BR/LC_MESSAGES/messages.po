@@ -14,9 +14,6 @@ msgstr "Recuperar Senha"
 msgid "Home"
 msgstr "Inicio"
 
-msgid "Logged in"
-msgstr "Logado"
-
 msgid "Login"
 msgstr "Logar"
 
@@ -37,9 +34,6 @@ msgstr "Recuperar senha"
 
 msgid "Register an account"
 msgstr "Registrar uma conta"
-
-msgid "Status"
-msgstr ""
 
 msgid "Username"
 msgstr "Usuário"

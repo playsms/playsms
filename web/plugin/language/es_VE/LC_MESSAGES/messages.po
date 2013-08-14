@@ -424,6 +424,14 @@ msgstr "Numero(s) telefónico(s)"
 msgid "Phonebook"
 msgstr "Directorio"
 
+#, fuzzy
+msgid "Phonebook groups"
+msgstr "Directorio"
+
+#, fuzzy
+msgid "Phonebook numbers"
+msgstr "Numero(s) telefónico(s)"
+
 msgid "Pick Date & Time"
 msgstr "Seleccionar fecha y hora"
 
@@ -632,6 +640,10 @@ msgstr "Título del sitio WEB"
 msgid "Webservices token"
 msgstr "Título del sitio WEB"
 
+#, fuzzy
+msgid "Webservices username"
+msgstr "Título del sitio WEB"
+
 msgid "Website email"
 msgstr "Correo de contacto"
 
@@ -711,6 +723,9 @@ msgstr ""
 #, fuzzy
 msgid "reply"
 msgstr "Responder"
+
+msgid "resend"
+msgstr ""
 
 msgid "row"
 msgstr "línea"

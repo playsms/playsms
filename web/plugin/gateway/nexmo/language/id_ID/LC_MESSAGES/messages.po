@@ -11,15 +11,6 @@ msgstr "Kunci API"
 msgid "API secret"
 msgstr "Kata rahasia API"
 
-msgid "Active"
-msgstr "Aktif"
-
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Misalnya: +0700 untuk zona waktu Jakarta/Bangkok"
-
-msgid "Fill to change the API secret"
-msgstr "Isi untuk merubah kata sandi"
-
 msgid "Gateway has been activated"
 msgstr "Gateway telah diaktifkan"
 
@@ -29,15 +20,8 @@ msgstr "Konfigurasi modul gateway telah disimpan"
 msgid "Gateway name"
 msgstr "Nama gateway"
 
-msgid "Inactive"
-msgstr "Nonaktif"
-
 msgid "Manage nexmo"
 msgstr "Pengaturan nexmo"
-
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Maks. 16 karakter numerik atau 11 alfanumerik. kosongkan untuk menonaktifkan"
 
 msgid "Module sender ID"
 msgstr "ID pengirim modul"
@@ -68,9 +52,6 @@ msgstr "URL callback anda adalah"
 
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr "Callback URL seharusnya dapat diakses oleh Nexmo"
-
-msgid "click here to activate"
-msgstr "Klik di sini untuk mengaktifkan"
 
 msgid "free credits are available for testing purposes"
 msgstr "Kredit gratis tersedia untuk tujuan percobaan"

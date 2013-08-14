@@ -14,6 +14,9 @@ msgstr "增加短信面板"
 msgid "Are you sure you want to delete SMS board with all its messages ?"
 msgstr "确定删除短信面板和全部短信 ?"
 
+msgid "CSS URL"
+msgstr ""
+
 msgid "Date and time"
 msgstr "日期和时间"
 
@@ -45,9 +48,6 @@ msgstr ""
 msgid "Keyword"
 msgstr "关键字"
 
-msgid "Leave them empty if you dont know what to fill in these boxes below"
-msgstr "留下空白如果你不知道下面框内填什么"
-
 msgid "MBOX output"
 msgstr ""
 
@@ -76,6 +76,10 @@ msgid "Receiver"
 msgstr ""
 
 #, fuzzy
+msgid "Row template"
+msgstr "模板"
+
+#, fuzzy
 msgid "SMS Board"
 msgstr "增加短信面板"
 
@@ -99,9 +103,6 @@ msgstr "保存"
 
 msgid "Sender"
 msgstr "发件人"
-
-msgid "Template"
-msgstr "模板"
 
 msgid "User"
 msgstr "用户"

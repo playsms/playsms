@@ -424,6 +424,14 @@ msgstr "电话号码"
 msgid "Phonebook"
 msgstr "电话簿"
 
+#, fuzzy
+msgid "Phonebook groups"
+msgstr "电话簿"
+
+#, fuzzy
+msgid "Phonebook numbers"
+msgstr "电话号码"
+
 msgid "Pick Date & Time"
 msgstr "选择日期和时间"
 
@@ -632,6 +640,10 @@ msgstr "网站名称"
 msgid "Webservices token"
 msgstr "网站名称"
 
+#, fuzzy
+msgid "Webservices username"
+msgstr "网站名称"
+
 msgid "Website email"
 msgstr "网站邮件"
 
@@ -711,6 +723,9 @@ msgstr ""
 #, fuzzy
 msgid "reply"
 msgstr "回复"
+
+msgid "resend"
+msgstr ""
 
 msgid "row"
 msgstr "行"

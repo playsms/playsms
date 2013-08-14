@@ -17,9 +17,6 @@ msgstr "Adicionar Grupo de caixa de entrada"
 msgid "Add member"
 msgstr "Adicionar membro"
 
-msgid "All"
-msgstr "Todos"
-
 msgid "All users"
 msgstr "Todos os usuários"
 
@@ -92,9 +89,6 @@ msgstr "Falha ao editar grupo de caixa de entrada"
 msgid "Fail to enable group inbox"
 msgstr "Falha ao habilitar grupo de caixa de entrada"
 
-msgid "For example a short code"
-msgstr "Por exemplo, um código curto"
-
 msgid "Group inbox"
 msgstr "Grupo de caixa de entrada"
 
@@ -138,25 +132,28 @@ msgid "Number"
 msgstr "Número"
 
 msgid "Press submit button to add selected users to catch-all list"
-msgstr "Pressione o botão enviar para adicionar o usuários selecionados à lista coringa"
+msgstr ""
+"Pressione o botão enviar para adicionar o usuários selecionados à lista "
+"coringa"
 
 msgid "Press submit button to add selected users to member list"
-msgstr "Pressione o botão enviar para adicionar o usuários selecionados para uma lista de membros"
+msgstr ""
+"Pressione o botão enviar para adicionar o usuários selecionados para uma "
+"lista de membros"
 
 msgid "Press submit button to remove selected catchall from catch-all list"
 msgstr "Pressione o botão enviar para remover os coringas da lista de coringas"
 
 msgid "Press submit button to remove selected members from member list"
-msgstr "Pressione o botão enviar para remover os membros selecionados da lista de membros"
+msgstr ""
+"Pressione o botão enviar para remover os membros selecionados da lista de "
+"membros"
 
 msgid "Receiver number"
 msgstr "Número do destinatário"
 
 msgid "Receiver number does not exists"
 msgstr "Número do destinatário não existe"
-
-msgid "Restrict sender to regular members or catch-all members only"
-msgstr "Restringir remetente para membros regulares o membros de coringa"
 
 msgid "Save"
 msgstr "Salvar"
@@ -170,9 +167,6 @@ msgstr "Membros selecionados"
 msgid "Selected users"
 msgstr "Usuários selecionados"
 
-msgid "Seperate with comma for multiple items"
-msgstr "Separados por vírtula para múltiplos ítens"
-
 msgid "Status"
 msgstr ""
 
@@ -184,12 +178,6 @@ msgstr "Sim"
 
 msgid "You must fill all fields"
 msgstr "Você deve preencher todos os campos"
-
-msgid "disabled"
-msgstr "desabilitado"
-
-msgid "enabled"
-msgstr "habilitado"
 
 msgid "no"
 msgstr "não"

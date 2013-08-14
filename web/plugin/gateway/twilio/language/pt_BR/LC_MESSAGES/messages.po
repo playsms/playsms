@@ -5,20 +5,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "API key"
-msgstr "Chave API"
+msgid "Account SID"
+msgstr ""
 
-msgid "API secret"
-msgstr "Segredo do API"
-
-msgid "Active"
-msgstr "Ativo"
-
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Ex: +0300 para Brasília"
-
-msgid "Fill to change the API secret"
-msgstr "Preencha pra mudar a senha"
+msgid "Auth Token"
+msgstr ""
 
 msgid "Gateway has been activated"
 msgstr "Gateway foi ativado"
@@ -29,29 +20,14 @@ msgstr "Configurações do módulo de gateway foram salvas"
 msgid "Gateway name"
 msgstr "Nome do gateway"
 
-msgid "Inactive"
-msgstr "Inativo"
-
 msgid "Manage twilio"
 msgstr "Gerenciar twilio"
-
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
 
 msgid "Module sender ID"
 msgstr "Módulo ID Remetente"
 
 msgid "Module timezone"
 msgstr "Módulo de Fuso horário"
-
-msgid "Twilio URL"
-msgstr "URL Twilio"
-
-msgid "Twilio is a bulk SMS provider"
-msgstr "Twilio é um provedor de SMS em massa"
-
-msgid "Twilio will push DLR and incoming SMS to your callback URL"
-msgstr "Twilio irá entregar DLR e SMS para sua URL callback"
 
 msgid "No changes has been made"
 msgstr "Nenhuma mudança feita"
@@ -62,14 +38,23 @@ msgstr "Anotações"
 msgid "Save"
 msgstr "Salvar"
 
+msgid "Twilio URL"
+msgstr "URL Twilio"
+
 msgid "Your callback URL is"
 msgstr "Sua URL de callback é"
 
-msgid "Your callback URL should be accessible from Twilio"
+#, fuzzy
+msgid "Your callback URL should be accessible from twilio"
 msgstr "Sua URL de callback deve estar acessível pelo Twilio"
-
-msgid "click here to activate"
-msgstr "clique aqui para ativar"
 
 msgid "free credits are available for testing purposes"
 msgstr "créditos grátis estão disponíveis para testes"
+
+#, fuzzy
+msgid "twilio is a bulk SMS provider"
+msgstr "Twilio é um provedor de SMS em massa"
+
+#, fuzzy
+msgid "twilio will push DLR and incoming SMS to your callback URL"
+msgstr "Twilio irá entregar DLR e SMS para sua URL callback"

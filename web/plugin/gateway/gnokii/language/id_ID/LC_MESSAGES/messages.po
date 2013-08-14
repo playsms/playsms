@@ -5,9 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Active"
-msgstr "Aktif"
-
 msgid "Gateway has been activated"
 msgstr "Gateway telah diaktifkan"
 
@@ -20,9 +17,6 @@ msgstr "Nama gateway"
 msgid "Gnokii installation path"
 msgstr "Jalur instalasi Gnokii"
 
-msgid "Inactive"
-msgstr "Nonaktif"
-
 msgid "Manage gnokii"
 msgstr "Pengaturan gnokii"
 
@@ -34,6 +28,3 @@ msgstr "Tanpa garis miring"
 
 msgid "Save"
 msgstr "Simpan"
-
-msgid "click here to activate"
-msgstr "klik di sini untuk mengaktifkan"

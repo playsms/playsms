@@ -4,8 +4,8 @@ msgstr "Tambah template pesan"
 msgid "Content"
 msgstr "Isi"
 
-msgid "Delete selection"
-msgstr "Hapus pilihan"
+msgid "Delete"
+msgstr ""
 
 msgid "Edit message template"
 msgstr "Ubah template pesan"

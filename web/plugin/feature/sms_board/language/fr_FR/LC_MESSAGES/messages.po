@@ -15,6 +15,9 @@ msgstr "Ajouter un service de rédirection"
 msgid "Are you sure you want to delete SMS board with all its messages ?"
 msgstr "Voulez-vous supprimer ce service avec tous ses messages ?"
 
+msgid "CSS URL"
+msgstr ""
+
 msgid "Date and time"
 msgstr "Date & Heure"
 
@@ -46,10 +49,6 @@ msgstr ""
 msgid "Keyword"
 msgstr "Mot-clé"
 
-msgid "Leave them empty if you dont know what to fill in these boxes below"
-msgstr ""
-"Laisser vide si vous ne savez pas comment remplir les champs ci-dessous"
-
 msgid "MBOX output"
 msgstr ""
 
@@ -78,6 +77,10 @@ msgid "Receiver"
 msgstr ""
 
 #, fuzzy
+msgid "Row template"
+msgstr "Modèle"
+
+#, fuzzy
 msgid "SMS Board"
 msgstr "Ajouter un service de rédirection"
 
@@ -101,9 +104,6 @@ msgstr "Sauvegarder"
 
 msgid "Sender"
 msgstr "Émetteur"
-
-msgid "Template"
-msgstr "Modèle"
 
 msgid "User"
 msgstr "Compte"

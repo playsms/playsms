@@ -11,15 +11,6 @@ msgstr "Chave API"
 msgid "API secret"
 msgstr "Segredo API"
 
-msgid "Active"
-msgstr "Ativo"
-
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Ex: +0300 para Brasilia"
-
-msgid "Fill to change the API secret"
-msgstr "Preencha pra mudar a senha"
-
 msgid "Gateway has been activated"
 msgstr "Gateway foi ativado"
 
@@ -29,14 +20,8 @@ msgstr "Configurações do módulo de gateway foram salvas"
 msgid "Gateway name"
 msgstr "Nome do gateway"
 
-msgid "Inactive"
-msgstr "Inativo"
-
 msgid "Manage nexmo"
 msgstr "Gerenciar nexmo"
-
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
 
 msgid "Module sender ID"
 msgstr "Módulo ID remetente"
@@ -67,9 +52,6 @@ msgstr "Sua URL callback é"
 
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr "Sua URL callback deve estar acessível pelo Nexmo"
-
-msgid "click here to activate"
-msgstr "clique aqui para ativar"
 
 msgid "free credits are available for testing purposes"
 msgstr "créditos gratúitos estão disponíveis para testes"

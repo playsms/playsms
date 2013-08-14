@@ -5,9 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Active"
-msgstr ""
-
 msgid "Date/Time"
 msgstr ""
 
@@ -20,12 +17,8 @@ msgstr ""
 msgid "Gateway name"
 msgstr ""
 
-msgid "Inactive"
-msgstr ""
-
-#, fuzzy
 msgid "Manage dev"
-msgstr "Manage gnokii"
+msgstr ""
 
 msgid "Message"
 msgstr ""
@@ -43,7 +36,4 @@ msgid "Submit"
 msgstr ""
 
 msgid "This is a test incoming SMS message"
-msgstr ""
-
-msgid "click here to activate"
 msgstr ""

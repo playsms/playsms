@@ -17,9 +17,6 @@ msgstr "Tambah grup kotak masuk"
 msgid "Add member"
 msgstr "Tambah anggota"
 
-msgid "All"
-msgstr "Semua"
-
 msgid "All users"
 msgstr "Semua pengguna"
 
@@ -92,9 +89,6 @@ msgstr "Gagal mengubah grup kotak masuk"
 msgid "Fail to enable group inbox"
 msgstr "Gagal mengaktifkan grup kotak masuk"
 
-msgid "For example a short code"
-msgstr "Misalnya kode pendek"
-
 msgid "Group inbox"
 msgstr "Grup kotak masuk"
 
@@ -161,10 +155,6 @@ msgstr "Penerima nomor"
 msgid "Receiver number does not exists"
 msgstr "Nomor penerima tidak ada"
 
-msgid "Restrict sender to regular members or catch-all members only"
-msgstr ""
-"Batasi pengirim ke anggota biasa atau hanya anggota kotak tangkap semua"
-
 msgid "Save"
 msgstr "Simpan"
 
@@ -177,9 +167,6 @@ msgstr "Anggota yang dipilih"
 msgid "Selected users"
 msgstr "Pengguna yang dipilih"
 
-msgid "Seperate with comma for multiple items"
-msgstr "Pisahkan dengan koma untuk beberapa item"
-
 msgid "Status"
 msgstr "Status"
 
@@ -191,12 +178,6 @@ msgstr "Ya"
 
 msgid "You must fill all fields"
 msgstr "Anda harus mengisi semua kolom"
-
-msgid "disabled"
-msgstr "Nonaktif"
-
-msgid "enabled"
-msgstr "Aktif"
 
 msgid "no"
 msgstr "tidak"

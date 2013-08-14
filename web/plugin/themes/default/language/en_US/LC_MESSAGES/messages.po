@@ -14,9 +14,6 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-msgid "Logged in"
-msgstr ""
-
 msgid "Login"
 msgstr ""
 
@@ -36,9 +33,6 @@ msgid "Recover password"
 msgstr ""
 
 msgid "Register an account"
-msgstr ""
-
-msgid "Status"
 msgstr ""
 
 msgid "Username"

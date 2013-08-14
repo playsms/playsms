@@ -97,12 +97,6 @@ msgstr "Anda harus mengisi semua kolom"
 msgid "correct"
 msgstr "benar"
 
-msgid "disabled"
-msgstr "nonaktif"
-
-msgid "enabled"
-msgstr "aktif"
-
 msgid "incorrect"
 msgstr "salah"
 

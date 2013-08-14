@@ -105,14 +105,6 @@ msgid "correct"
 msgstr "Incorrecto"
 
 #, fuzzy
-msgid "disabled"
-msgstr "Deshabilitado"
-
-#, fuzzy
-msgid "enabled"
-msgstr "Habilitado"
-
-#, fuzzy
 msgid "incorrect"
 msgstr "Incorrecto"
 
