@@ -35,11 +35,11 @@ nav {
 	padding: 0;
 
 	/*Animation*/
-	-webkit-transition: height 1s ease;
-	-moz-transition: height 1s ease;
-	-o-transition: height 1s ease;
-	-ms-transition: height 1s ease;
-	transition: height 1s ease;
+	-webkit-transition: height 0.5s ease;
+	-moz-transition: height 0.5s ease;
+	-o-transition: height 0.5s ease;
+	-ms-transition: height 0.5s ease;
+	transition: height 0.5s ease;
 }
 
 .menu-item:hover ul {

@@ -19,6 +19,7 @@ if (!$core_config['daemon_process']) {
 	ob_start();
 }
 
+
 // DB config defines
 define('_DB_TYPE_', $core_config['db']['type']);
 define('_DB_HOST_', $core_config['db']['host']);
@@ -26,6 +27,8 @@ define('_DB_PORT_', $core_config['db']['port']);
 define('_DB_USER_', $core_config['db']['user']);
 define('_DB_PASS_', $core_config['db']['pass']);
 define('_DB_NAME_', $core_config['db']['name']);
+
+$core_config['db']['pref'] = 'playsms';
 define('_DB_PREF_', $core_config['db']['pref']);
 
 // SMTP config defines

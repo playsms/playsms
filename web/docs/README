@@ -2,7 +2,7 @@ README
 ------
 
 http://www.playsms.org
-Version 0.9.9.1-beta1
+Version 0.9.9.1-git
 
 
 Description
@@ -92,4 +92,4 @@ fr_FR	: Emmanuel Chanson (emmanuel), Elingui Pascal Uriel (elinguiuriel)
 zh_CN	: Frank Van Caenegem (fvancaen)
 es_VE	: Alfredo Hernandez (alfredo)
 ca_ES	: Joan (aseques)
-pt_BR	: Lucas Teixeira (lucastx)
+pt_BR	: Lucas Teixeira (lucastx), Gabriel Schanuel (gschanuel)

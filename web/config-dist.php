@@ -7,7 +7,6 @@ $core_config['db']['port'] = '#DBPORT#';	// database port
 $core_config['db']['user'] = '#DBUSER#';	// database username
 $core_config['db']['pass'] = '#DBPASS#';	// database password
 $core_config['db']['name'] = '#DBNAME#';	// database name
-$core_config['db']['pref'] = 'playsms';		// table's prefix without trailing underscore
 
 // SMTP configuration
 $core_config['smtp']['relm'] = ''; // yes, not realm, its relm

@@ -1,8 +1,9 @@
 CHANGELOG
 ---------
 
-Version 0.9.9.1-beta1 - 130814
+Version 0.9.9.1-git - 130817
 - update log level to 3 for clickatell getsmsstatus
+- update lang, more new translations on pt_BR (gschanuel)
 - add new webservices type of action IX to get SMS on user's inbox
 - add logger_print() at the begining and the end of webservices
 - add DBHOST and DBPORT on install script
@@ -11,7 +12,7 @@ Version 0.9.9.1-beta1 - 130814
 - add option to load/parse .html and .md files on page_welcome
 - add hints with tooltip
 - add new option CSS URL to decorate sms_board
-- add new gateway Twilio
+- add new gateway Twilio twilio.com
 - upgrade themes default, re-design
 - upgrade all plugins to match new themes stuffs
 - remove unused js and css files on themes default
@@ -93,7 +94,7 @@ Version 0.9.8 - 130517
 - add inline @<username> and #<group code> handler
 - add simple reply and forward feature on inbox and incoming SMS
 - add IP validations with network masks for playSMS web services
-- add new gateway module for Nexmo
+- add new gateway module for Nexmo nexmo.com
 - add new gateway module Dev for development or simulation
 - add export output to PHP serialize, json, xml and image for sms_poll
 - add export output to PHP serialize, json, xml, rss feeds, html for sms_board
