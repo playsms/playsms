@@ -308,7 +308,7 @@ msgid "Last update"
 msgstr "Última atualização"
 
 msgid "License"
-msgstr "Lisença"
+msgstr "Licença"
 
 msgid "Local number length"
 msgstr "Tamanho dos números locais"

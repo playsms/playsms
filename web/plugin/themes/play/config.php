@@ -9,7 +9,7 @@ $theme_play_head1 = $web_title;
 // $theme_play_head2 = "Pls dont bomb my modem, peace...";
 // or just disable it
 // $theme_play_head2 = "";
-$theme_play_head2 = "Change ".__FILE__." to customize";
+$theme_play_head2 = _('Change') . __FILE__ . _('to customize');
 
 // If you have a custom logo, you can enable it here, just change
 // the value of $theme_image to the logo filename the theme
