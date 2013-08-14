@@ -83,11 +83,10 @@ switch ($op) {
 				</tr>
 				<tr>
 					<td>"._('Group code')."</td>
-					<td><input type=text name=group_code size=10> ("._('please use uppercase and make it short').")</td>
+					<td><input type=text name=group_code size=10> "._hint(_('Group code used by keyword')." BC ("._('broadcast SMS from single SMS').")<br />"._('please use uppercase and make it short')."")."</td>
 				</tr>
 			</tbody>
 			</table>
-			<p>"._('Note').": "._('Group code used by keyword')." BC ("._('broadcast SMS from single SMS').")
 			<p><input type=submit class=button value=\""._('Save')."\"> 
 			</form>
 			<p>"._b('index.php?app=menu&inc=tools_phonebook&route=group&op=list');
@@ -109,7 +108,7 @@ switch ($op) {
 			</tr>
 			<tr>
 				<td>"._('Group code')."</td>
-				<td><input type=text name=group_code value=\"".phonebook_groupid2code($gpid)."\" size=10> ("._('please use uppercase and make it short').")</td>
+				<td><input type=text name=group_code value=\"".phonebook_groupid2code($gpid)."\" size=10> "._hint('please use uppercase and make it short')."</td>
 			</tr>
 			</tbody>
 			</table>

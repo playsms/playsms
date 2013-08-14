@@ -11,9 +11,9 @@ switch ($op) {
 			<h3>"._('Import')."</h3>
 			<p>
 			<form action=\"index.php?app=menu&inc=tools_phonebook&route=import&op=import\" enctype=\"multipart/form-data\" method=\"post\">
-			"._('Please select CSV file for phonebook entries')." ("._('format')." : "._('Name').", "._('Mobile').", "._('Email').", "._('Group code').")<br>
-			<p><input type=\"file\" name=\"fnpb\">
-			<p><input type=\"submit\" value=\""._('Import')."\" class=\"button\">
+			"._('Please select CSV file for phonebook entries')."<br />
+			<input type=\"file\" name=\"fnpb\"> "._hint(_('format')." : "._('Name').", "._('Mobile').", "._('Email').", "._('Group code'))."<br />
+			<input type=\"submit\" value=\""._('Import')."\" class=\"button\">
 			</form>
 			<p>"._b('index.php?app=menu&inc=tools_phonebook&op=phonebook_list');
 		if ($err = $_SESSION['error_string']) {

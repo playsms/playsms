@@ -13,16 +13,16 @@ switch ($op) {
 		if (isadmin()) {
 			$content .= "
 				<form action=\"index.php?app=menu&inc=tools_sendfromfile&op=upload_confirm\" enctype=\"multipart/form-data\" method=\"post\">
-					"._('Please select CSV file')." ("._('format : destination number, message, username').")<br>
-					<p><input type=\"file\" name=\"fncsv\">
-					<p><input type=\"submit\" value=\""._('Upload file')."\" class=\"button\">
+					"._('Please select CSV file')."<br />
+					<input type=\"file\" name=\"fncsv\"> "._hint(_('format : destination number, message, username'))."<br />
+					<input type=\"submit\" value=\""._('Upload file')."\" class=\"button\">
 				</form>";
 		} else {
 			$content .= "
 				<form action=\"index.php?app=menu&inc=tools_sendfromfile&op=upload_confirm\" enctype=\"multipart/form-data\" method=\"post\">
-					"._('Please select CSV file')." ("._('format : destination number, message').")<br>
-					<p><input type=\"file\" name=\"fncsv\">
-					<p><input type=\"submit\" value=\""._('Upload file')."\" class=\"button\">
+					"._('Please select CSV file')."<br />
+					<input type=\"file\" name=\"fncsv\"> "._hint(_('format : destination number, message'))."<br />
+					<input type=\"submit\" value=\""._('Upload file')."\" class=\"button\">
 				</form>";
 		}
 		if ($err = $_SESSION['error_string']) {
