@@ -18,15 +18,12 @@ if (is_array($requests)) {
 	logger_print("pushed ".$log, 2, "twilio callback");
 }
 
-$remote_slid = $requests['messageId'];
+$remote_slid = $requests['SmsSid'];
 
 // delivery receipt
-$client_ref = $requests['client-ref'];
-$status = $requests['status'];
-if ($remote_slid && $client_ref && $status) {
-	$db_query = "
-		SELECT local_slid FROM "._DB_PREF_."_gatewayTwilio 
-		WHERE local_slid='$client_ref' AND remote_slid='$remote_slid'";
+$status = $requests['SmsStatus'];
+if ($remote_slid && $status) {
+	$db_query = "SELECT local_slid FROM "._DB_PREF_."_gatewayTwilio WHERE remote_slid='$remote_slid'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$smslog_id = $db_row['local_slid'];
@@ -35,9 +32,7 @@ if ($remote_slid && $client_ref && $status) {
 		$uid = $data['uid'];
 		$p_status = $data['p_status'];
 		switch ($status) {
-			case "delivered": $p_status = 3; break; // delivered
-			case "buffered":
-			case "accepted": $p_status = 1; break; // sent
+			case "sent": $p_status = 1; break; // delivered
 			default:
 				$p_status = 2; break; // failed
 		}

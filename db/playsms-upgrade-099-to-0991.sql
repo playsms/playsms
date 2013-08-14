@@ -40,6 +40,7 @@ CREATE TABLE `playsms_gatewayTwilio_config` (
   `c_timestamp` int(11) NOT NULL DEFAULT '0',
   `cfg_name` varchar(20) NOT NULL DEFAULT 'twilio',
   `cfg_url` varchar(250) DEFAULT NULL,
+  `cfg_callback_url` varchar(250) DEFAULT NULL,
   `cfg_account_sid` varchar(100) DEFAULT NULL,
   `cfg_auth_token` varchar(100) DEFAULT NULL,
   `cfg_global_sender` varchar(20) DEFAULT NULL,
@@ -53,7 +54,7 @@ CREATE TABLE `playsms_gatewayTwilio_config` (
 
 LOCK TABLES `playsms_gatewayTwilio_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayTwilio_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayTwilio_config` VALUES (0,'twilio','https://api.twilio.com','12345678','87654321','+10000000000','+0700');
+INSERT INTO `playsms_gatewayTwilio_config` VALUES (0,'twilio','https://api.twilio.com','http://localhost/playsms/plugin/gateway/twilio/callback.php','12345678','87654321','+10000000000','+0700');
 /*!40000 ALTER TABLE `playsms_gatewayTwilio_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
