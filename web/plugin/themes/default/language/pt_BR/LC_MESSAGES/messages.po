@@ -6,37 +6,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "Forgot password"
-msgstr "Senha"
+msgstr "Recuperar Senha"
 
 msgid "Home"
-msgstr ""
+msgstr "Inicio"
 
 msgid "Logged in"
-msgstr ""
+msgstr "Logado"
 
 msgid "Login"
-msgstr ""
+msgstr "Logar"
 
 msgid "Logout"
-msgstr ""
+msgstr "Sair"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Celular"
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 msgid "Password"
 msgstr "Senha"
 
 msgid "Recover password"
-msgstr ""
+msgstr "Recuperar senha"
 
 msgid "Register an account"
-msgstr ""
+msgstr "Registrar uma conta"
 
 msgid "Status"
 msgstr ""

@@ -1,5 +1,5 @@
 msgid "Log file"
-msgstr ""
+msgstr "Arquivo de log"
 
 msgid "View log"
-msgstr ""
+msgstr "Visualizar log"

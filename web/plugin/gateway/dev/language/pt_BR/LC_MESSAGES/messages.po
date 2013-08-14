@@ -9,10 +9,10 @@ msgid "Active"
 msgstr "Ativo"
 
 msgid "Date/Time"
-msgstr ""
+msgstr "Data/Hora"
 
 msgid "Fail to simulate incoming SMS"
-msgstr ""
+msgstr "Falha ao simular chegada de SMS"
 
 msgid "Gateway has been activated"
 msgstr "Gateway foi ativado"
@@ -25,25 +25,25 @@ msgstr "Inativo"
 
 #, fuzzy
 msgid "Manage dev"
-msgstr "Administrar gnokii"
+msgstr "Administrar dev"
 
 msgid "Message"
-msgstr ""
+msgstr "Mensagem"
 
 msgid "Receiver"
-msgstr ""
+msgstr "Destinatário"
 
 msgid "Sender"
-msgstr ""
+msgstr "Remetente"
 
 msgid "Simulate incoming SMS"
-msgstr ""
+msgstr "Simular chegada de SMS"
 
 msgid "Submit"
-msgstr ""
+msgstr "Enviar"
 
 msgid "This is a test incoming SMS message"
-msgstr ""
+msgstr "Este é um teste de chegada de mensagem SMS"
 
 msgid "click here to activate"
 msgstr "clique aqui para ativar"

@@ -30,7 +30,7 @@ msgid "Keyword"
 msgstr "Palavra-chave"
 
 msgid "Make return as reply"
-msgstr ""
+msgstr "Enviar return como resposta"
 
 msgid "Manage custom"
 msgstr "Administrar personalizado"
@@ -39,22 +39,22 @@ msgid "Pass these parameter to custom URL field"
 msgstr "Use esses parâmetros no campo de URL"
 
 msgid "SMS custom URL"
-msgstr "URL do customizado"
+msgstr "URL do SMS personalizado"
 
 msgid "SMS custom already exists, reserved or use by other feature"
 msgstr "O customizado já existe, está reservado ou em uso por outro recurso"
 
 msgid "SMS custom has been added"
-msgstr "O customizado foi adicionado"
+msgstr "O SMS personalizado foi adicionado"
 
 msgid "SMS custom has been deleted"
-msgstr "O customizado foi removido"
+msgstr "O SMS personalizado foi removido"
 
 msgid "SMS custom has been saved"
-msgstr "Customizado SMS foi salvo"
+msgstr "SMS personalizado foi salvo"
 
 msgid "SMS custom keyword"
-msgstr "Palavra-chave"
+msgstr "Palavra-chave do SMS personalizado"
 
 msgid "Save"
 msgstr "Salvar"

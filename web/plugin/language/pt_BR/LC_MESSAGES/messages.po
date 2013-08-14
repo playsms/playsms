@@ -6,10 +6,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "About"
-msgstr ""
+msgstr "Sobre"
 
 msgid "About playSMS"
-msgstr ""
+msgstr "Sobre o playSMS"
 
 msgid "Action"
 msgstr "Ação"
@@ -36,7 +36,7 @@ msgid "Address"
 msgstr "Endereço"
 
 msgid "Administration"
-msgstr ""
+msgstr "Administração"
 
 msgid "Administrator"
 msgstr "Administrador"
@@ -57,10 +57,10 @@ msgid "All outgoing SMS"
 msgstr "Todas os SMS's saindo"
 
 msgid "Always add plus sign"
-msgstr ""
+msgstr "Sempre adicionar o sinal de +"
 
 msgid "Always choose to send as unicode"
-msgstr ""
+msgstr "Sempre enviar como unicode"
 
 msgid "Application information"
 msgstr "Informações da aplicação"
@@ -81,10 +81,10 @@ msgid "Are you sure you want to delete user ?"
 msgstr "Tem certeza que quer remover o usuário?"
 
 msgid "Auto remove plus sign"
-msgstr ""
+msgstr "Autoremover o sinal de +"
 
 msgid "Auto replace prefix 0"
-msgstr ""
+msgstr "Substituir o prefixo 0 automaticamente"
 
 msgid "Back"
 msgstr "Voltar"
@@ -96,7 +96,7 @@ msgid "City"
 msgstr "Cidade"
 
 msgid "Comma seperated"
-msgstr ""
+msgstr "Separado por vírgula"
 
 msgid "Content"
 msgstr "Conteúdo"
@@ -105,7 +105,7 @@ msgid "Country"
 msgstr "País"
 
 msgid "Created"
-msgstr ""
+msgstr "Criado"
 
 msgid "Credit"
 msgstr "Crédito"
@@ -117,22 +117,22 @@ msgid "Date time"
 msgstr "Data & hora"
 
 msgid "Default"
-msgstr "Fuso horário do gateway"
+msgstr "Padrão"
 
 msgid "Default SMS rate"
 msgstr "Taxa padrão de SMS"
 
 msgid "Default credit for user"
-msgstr ""
+msgstr "Crédito padrão para usuário"
 
 msgid "Default language"
-msgstr ""
+msgstr "Idioma padrão"
 
 msgid "Default sender ID"
-msgstr "SMS Sender ID"
+msgstr "ID padrão de remetente"
 
 msgid "Default timezone"
-msgstr "Fuso horário do gateway"
+msgstr "Fuso horário padrão"
 
 msgid "Delete"
 msgstr "Remover"
@@ -156,7 +156,7 @@ msgid "Edit message template"
 msgstr "Editar modelo de mensagem"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Exemplo: +0700 pro fuso Jakarta/Bangkok"
+msgstr "Exemplo: +0300 pro Brasília"
 
 msgid "Email"
 msgstr "E-mail"
@@ -165,16 +165,16 @@ msgid "Email is already in use by other username"
 msgstr "Esse e-mail já é usado por outro usuário"
 
 msgid "Enable forgot password"
-msgstr ""
+msgstr "Habilitar recuperação de senha"
 
 msgid "Enable public registration"
-msgstr ""
+msgstr "Habilitar registro público"
 
 msgid "Enable webservices"
-msgstr ""
+msgstr "Habilitar webservices"
 
 msgid "Export"
-msgstr ""
+msgstr "Exportar"
 
 msgid "F.A.Q"
 msgstr ""
@@ -196,16 +196,16 @@ msgid "Fail to edit message template"
 msgstr "Falha ao editar modelo de mensagem"
 
 msgid "Fail to recover password"
-msgstr ""
+msgstr "Falha ao recuperar senha"
 
 msgid "Fail to register an account"
-msgstr ""
+msgstr "Falha ao registrar uma conta"
 
 msgid "Fail to save preferences"
 msgstr "Falha ao salvar preferências"
 
 msgid "Fail to send email"
-msgstr ""
+msgstr "Falha ao enviar e-mail"
 
 msgid "Fail to sent SMS"
 msgstr "Falha ao enviar SMS"
@@ -293,7 +293,7 @@ msgid "Incoming SMS"
 msgstr "SMS's chegando"
 
 msgid "Installation Guide"
-msgstr ""
+msgstr "Guia de Instalação"
 
 msgid "International format"
 msgstr "Formato internacional"
@@ -305,13 +305,13 @@ msgid "Keyword"
 msgstr "Palavra-chave"
 
 msgid "Last update"
-msgstr ""
+msgstr "Última atualização"
 
 msgid "License"
-msgstr ""
+msgstr "Lisença"
 
 msgid "Local number length"
-msgstr ""
+msgstr "Tamanho dos números locais"
 
 msgid "Login information"
 msgstr "Informações de login"
@@ -338,7 +338,7 @@ msgid "Max. 30 alphanumeric characters"
 msgstr "Máx. de 30 letras e dígitos"
 
 msgid "Maximum SMS count"
-msgstr ""
+msgstr "Contagem máxima de SMS"
 
 msgid "Message"
 msgstr "Mensagem"
@@ -359,7 +359,7 @@ msgid "Message template name"
 msgstr "Nome do modelo de mensagem"
 
 msgid "Min length to detect missing country code"
-msgstr ""
+msgstr "Tamanho mínimo para detectar a falta do código do país"
 
 msgid "Mobile"
 msgstr "Celular"
@@ -371,16 +371,16 @@ msgid "Mobile number"
 msgstr "Número(s) de telefone"
 
 msgid "My Account"
-msgstr ""
+msgstr "Minha conta"
 
 msgid "Name"
 msgstr "Nome"
 
 msgid "New account registration"
-msgstr ""
+msgstr "Registro de nova conta"
 
 msgid "New webservices token"
-msgstr ""
+msgstr "Novo token de webservice"
 
 msgid "No changes made"
 msgstr "Sem mudanças"
@@ -401,16 +401,16 @@ msgid "Password"
 msgstr "Senha"
 
 msgid "Password does not match"
-msgstr ""
+msgstr "As senhas não conferem"
 
 msgid "Password has been sent to your email"
-msgstr ""
+msgstr "A senha foi enviada para seu email"
 
 msgid "Password recovery"
-msgstr ""
+msgstr "Recuperação de senha"
 
 msgid "Password should be at least 4 characters"
-msgstr ""
+msgstr "A senha deve ter no mínimo 4 caracteres"
 
 msgid "Pending"
 msgstr "Pendente"
@@ -447,10 +447,10 @@ msgid "Preferences has been saved and webservices token updated"
 msgstr "Preferências foram salvas e senhas atualizadas"
 
 msgid "Prefix or country code"
-msgstr ""
+msgstr "Prefixo ou código do país"
 
 msgid "Public registration disabled"
-msgstr ""
+msgstr "Registro público desativado"
 
 msgid "Re-Type Password"
 msgstr "Re-digite a senha"
@@ -463,13 +463,13 @@ msgid "Receiver"
 msgstr "Destinatário"
 
 msgid "Recover password disabled"
-msgstr ""
+msgstr "Recuperação de senha desativada"
 
 msgid "Registered"
 msgstr "Entregue"
 
 msgid "Replace prefix 0 or padding local numbers"
-msgstr ""
+msgstr "Substituir prefixo 0 ou número local"
 
 msgid "Reply"
 msgstr "Responder"
@@ -490,7 +490,7 @@ msgid "Save template"
 msgstr "Salvar modelo"
 
 msgid "Search"
-msgstr ""
+msgstr "Pesquisar"
 
 msgid "Select action"
 msgstr "Selecionar ação"
@@ -544,10 +544,10 @@ msgid "Timezone"
 msgstr "Fuso horário"
 
 msgid "To"
-msgstr ""
+msgstr "Para"
 
 msgid "Tools"
-msgstr ""
+msgstr "Ferramentas"
 
 msgid "Unable to update login session"
 msgstr "Incapaz de atualizar a sessão de login"
@@ -592,45 +592,40 @@ msgid "Username"
 msgstr "Usuário"
 
 msgid "Username should be at least 3 characters"
-msgstr ""
+msgstr "Nome de usuário deve ter pelo menos 3 caracteres"
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
-msgstr ""
+msgstr "Caracteres válidos para nome de usuário são letras, números, ponto ou traço"
 
 msgid "View"
 msgstr "Visualizar"
 
-#, fuzzy
 msgid "View administrator"
-msgstr "Administrador"
+msgstr "Visualizar Administrador"
 
 msgid "View groups"
-msgstr ""
+msgstr "Visualizar grupos"
 
-#, fuzzy
 msgid "View normal user"
-msgstr "Usuário normal"
+msgstr "Visualizar usuários"
 
-#, fuzzy
 msgid "View numbers"
-msgstr "Número(s) de telefone"
+msgstr "Visualizar números"
 
 msgid "Webapp Token"
-msgstr ""
+msgstr "Token de webapp"
 
 msgid "Webapp token"
-msgstr ""
+msgstr "Token de webapp"
 
 msgid "Webservices"
 msgstr ""
 
-#, fuzzy
 msgid "Webservices IP range"
-msgstr "Título do website"
+msgstr "Range de IP para webservices"
 
-#, fuzzy
 msgid "Webservices token"
-msgstr "Título do website"
+msgstr "Token de webservices"
 
 msgid "Website email"
 msgstr "E-mail do website"
@@ -639,7 +634,7 @@ msgid "Website title"
 msgstr "Título do website"
 
 msgid "Welcome to playSMS"
-msgstr ""
+msgstr "Bem vindo ao playSMS"
 
 msgid "You have been logged out"
 msgstr "Você desconectou"
@@ -657,20 +652,19 @@ msgid "You must select receiver and your message should not be empty"
 msgstr "Você deve escolher um destinatário e sua mensagem não pode estar vazia"
 
 msgid "You must select receiver group and your message should not be empty"
-msgstr ""
-"Você deve escolher um grupo destinatário e sua mensagem não pode estar vazia"
+msgstr "Você deve escolher um grupo destinatário e sua mensagem não pode estar vazia"
 
 msgid "Your SMS has been delivered to queue"
 msgstr "Seu SMS foi emitido pra fila"
 
 msgid "Your email format is invalid"
-msgstr ""
+msgstr "Seu formato de e-mail é inválido"
 
 msgid "Your message"
 msgstr "Mensagem"
 
 msgid "Your mobile format is invalid"
-msgstr ""
+msgstr "Seu número de celular é inválido"
 
 msgid "Zipcode"
 msgstr "CEP"
@@ -683,13 +677,13 @@ msgstr "falha"
 
 #, fuzzy
 msgid "forward"
-msgstr "Encaminhar PV pro e-mail"
+msgstr "encaminhar"
 
 msgid "from"
 msgstr "de"
 
 msgid "generated on user creation"
-msgstr ""
+msgstr "gerado durante a criação do usuário"
 
 msgid "handled"
 msgstr "tratadas"
@@ -698,7 +692,7 @@ msgid "mobile"
 msgstr "Celular"
 
 msgid "no"
-msgstr ""
+msgstr "não"
 
 msgid "not set"
 msgstr "não configurado"
@@ -707,7 +701,7 @@ msgid "number"
 msgstr "número"
 
 msgid "queued"
-msgstr ""
+msgstr "em fila"
 
 #, fuzzy
 msgid "reply"
@@ -729,4 +723,4 @@ msgid "username"
 msgstr "usuário"
 
 msgid "yes"
-msgstr ""
+msgstr "sim"

@@ -24,7 +24,7 @@ msgid "Clickatell is a bulk SMS provider"
 msgstr "Clickatell é um provedor de SMS em massa"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Ex: +0300 para Brasília"
 
 msgid "Fill to change the password"
 msgstr "Preencha pra mudar a senha"
@@ -45,14 +45,13 @@ msgid "Manage clickatell"
 msgstr "Administrar clickatell"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
+msgstr "Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
 
 msgid "Module sender ID"
-msgstr ""
+msgstr "Módulo ID Remetente"
 
 msgid "Module timezone"
-msgstr ""
+msgstr "Módulo Fuso Horário"
 
 msgid "No changes has been made"
 msgstr "Nenhuma mudança feita"
@@ -61,7 +60,7 @@ msgid "No trailing slash"
 msgstr "Sem barra no final"
 
 msgid "Note"
-msgstr ""
+msgstr "Anotação"
 
 msgid "Password"
 msgstr "Senha"
