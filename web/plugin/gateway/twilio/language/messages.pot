@@ -25,7 +25,7 @@ msgstr ""
 msgid "Inactive"
 msgstr ""
 
-msgid "Manage nexmo"
+msgid "Manage twilio"
 msgstr ""
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
@@ -37,13 +37,13 @@ msgstr ""
 msgid "Module timezone"
 msgstr ""
 
-msgid "Nexmo URL"
+msgid "Twilio URL"
 msgstr ""
 
-msgid "Nexmo is a bulk SMS provider"
+msgid "Twilio is a bulk SMS provider"
 msgstr ""
 
-msgid "Nexmo will push DLR and incoming SMS to your callback URL"
+msgid "Twilio will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
 msgid "No changes has been made"
@@ -58,7 +58,7 @@ msgstr ""
 msgid "Your callback URL is"
 msgstr ""
 
-msgid "Your callback URL should be accessible from Nexmo"
+msgid "Your callback URL should be accessible from Twilio"
 msgstr ""
 
 msgid "click here to activate"

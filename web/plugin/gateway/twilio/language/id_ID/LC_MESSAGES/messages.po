@@ -32,8 +32,8 @@ msgstr "Nama gateway"
 msgid "Inactive"
 msgstr "Nonaktif"
 
-msgid "Manage nexmo"
-msgstr "Pengaturan nexmo"
+msgid "Manage twilio"
+msgstr "Pengaturan twilio"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
@@ -45,14 +45,14 @@ msgstr "ID pengirim modul"
 msgid "Module timezone"
 msgstr "Zona waktu modul"
 
-msgid "Nexmo URL"
-msgstr "nexmo URL"
+msgid "Twilio URL"
+msgstr "twilio URL"
 
-msgid "Nexmo is a bulk SMS provider"
-msgstr "Nexmo adalah penyedia SMS bulk"
+msgid "Twilio is a bulk SMS provider"
+msgstr "Twilio adalah penyedia SMS bulk"
 
-msgid "Nexmo will push DLR and incoming SMS to your callback URL"
-msgstr "Nexmo akan mengirim DLR dan SMS yang masuk ke URL callback anda"
+msgid "Twilio will push DLR and incoming SMS to your callback URL"
+msgstr "Twilio akan mengirim DLR dan SMS yang masuk ke URL callback anda"
 
 msgid "No changes has been made"
 msgstr "Tidak ada perubahan yang dilakukan"
@@ -66,8 +66,8 @@ msgstr "Simpan"
 msgid "Your callback URL is"
 msgstr "URL callback anda adalah"
 
-msgid "Your callback URL should be accessible from Nexmo"
-msgstr "Callback URL seharusnya dapat diakses oleh Nexmo"
+msgid "Your callback URL should be accessible from Twilio"
+msgstr "Callback URL seharusnya dapat diakses oleh Twilio"
 
 msgid "click here to activate"
 msgstr "Klik di sini untuk mengaktifkan"
