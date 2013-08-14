@@ -25,6 +25,9 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
+msgid "Preferences"
+msgstr ""
+
 msgid "Recover password"
 msgstr ""
 

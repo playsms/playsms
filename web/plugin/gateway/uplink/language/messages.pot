@@ -1,10 +1,4 @@
-msgid "Active"
-msgstr ""
-
 msgid "Additional URL parameter"
-msgstr ""
-
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
 msgid "Gateway has been activated"
@@ -16,16 +10,10 @@ msgstr ""
 msgid "Gateway name"
 msgstr ""
 
-msgid "Inactive"
-msgstr ""
-
 msgid "Manage uplink"
 msgstr ""
 
 msgid "Master URL"
-msgstr ""
-
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
 
 msgid "Module sender ID"
@@ -43,5 +31,5 @@ msgstr ""
 msgid "Webservice token"
 msgstr ""
 
-msgid "click here to activate"
+msgid "Webservice username"
 msgstr ""

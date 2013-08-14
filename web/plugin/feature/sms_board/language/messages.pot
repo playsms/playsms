@@ -7,6 +7,9 @@ msgstr ""
 msgid "Are you sure you want to delete SMS board with all its messages ?"
 msgstr ""
 
+msgid "CSS URL"
+msgstr ""
+
 msgid "Date and time"
 msgstr ""
 
@@ -37,9 +40,6 @@ msgstr ""
 msgid "Keyword"
 msgstr ""
 
-msgid "Leave them empty if you dont know what to fill in these boxes below"
-msgstr ""
-
 msgid "MBOX output"
 msgstr ""
 
@@ -67,6 +67,9 @@ msgstr ""
 msgid "Receiver"
 msgstr ""
 
+msgid "Row template"
+msgstr ""
+
 msgid "SMS Board"
 msgstr ""
 
@@ -89,9 +92,6 @@ msgid "Save"
 msgstr ""
 
 msgid "Sender"
-msgstr ""
-
-msgid "Template"
 msgstr ""
 
 msgid "User"

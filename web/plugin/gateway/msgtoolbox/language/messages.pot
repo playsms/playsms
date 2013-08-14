@@ -1,12 +1,3 @@
-msgid "Active"
-msgstr ""
-
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
-
-msgid "Fill to change the password"
-msgstr ""
-
 msgid "Gateway has been activated"
 msgstr ""
 
@@ -16,13 +7,7 @@ msgstr ""
 msgid "Gateway name"
 msgstr ""
 
-msgid "Inactive"
-msgstr ""
-
 msgid "Manage msgtoolbox"
-msgstr ""
-
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
 
 msgid "Module sender ID"
@@ -44,9 +29,6 @@ msgid "Save"
 msgstr ""
 
 msgid "Username"
-msgstr ""
-
-msgid "click here to activate"
 msgstr ""
 
 msgid "msgtoolbox URL"

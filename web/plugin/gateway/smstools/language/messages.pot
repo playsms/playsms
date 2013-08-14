@@ -1,17 +1,8 @@
-msgid "Active"
-msgstr ""
-
 msgid "Gateway has been activated"
 msgstr ""
 
 msgid "Gateway name"
 msgstr ""
 
-msgid "Inactive"
-msgstr ""
-
 msgid "Manage smstools"
-msgstr ""
-
-msgid "click here to activate"
 msgstr ""

@@ -409,6 +409,12 @@ msgstr ""
 msgid "Phonebook"
 msgstr ""
 
+msgid "Phonebook groups"
+msgstr ""
+
+msgid "Phonebook numbers"
+msgstr ""
+
 msgid "Pick Date & Time"
 msgstr ""
 
@@ -607,6 +613,9 @@ msgstr ""
 msgid "Webservices token"
 msgstr ""
 
+msgid "Webservices username"
+msgstr ""
+
 msgid "Website email"
 msgstr ""
 
@@ -683,6 +692,9 @@ msgid "queued"
 msgstr ""
 
 msgid "reply"
+msgstr ""
+
+msgid "resend"
 msgstr ""
 
 msgid "row"

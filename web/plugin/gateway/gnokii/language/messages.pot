@@ -1,6 +1,3 @@
-msgid "Active"
-msgstr ""
-
 msgid "Gateway has been activated"
 msgstr ""
 
@@ -13,9 +10,6 @@ msgstr ""
 msgid "Gnokii installation path"
 msgstr ""
 
-msgid "Inactive"
-msgstr ""
-
 msgid "Manage gnokii"
 msgstr ""
 
@@ -26,7 +20,4 @@ msgid "No trailing slash"
 msgstr ""
 
 msgid "Save"
-msgstr ""
-
-msgid "click here to activate"
 msgstr ""
