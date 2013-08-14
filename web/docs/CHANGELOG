@@ -1,7 +1,7 @@
 CHANGELOG
 ---------
 
-Version 0.9.9.1-git - 130817
+Version 0.9.9.1-beta1 - 130814
 - update log level to 3 for clickatell getsmsstatus
 - add new webservices type of action IX to get SMS on user's inbox
 - add logger_print() at the begining and the end of webservices
@@ -11,6 +11,7 @@ Version 0.9.9.1-git - 130817
 - add option to load/parse .html and .md files on page_welcome
 - add hints with tooltip
 - add new option CSS URL to decorate sms_board
+- add new gateway Twilio
 - upgrade themes default, re-design
 - upgrade all plugins to match new themes stuffs
 - remove unused js and css files on themes default
