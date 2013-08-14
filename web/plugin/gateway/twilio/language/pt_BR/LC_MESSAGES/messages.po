@@ -6,10 +6,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Account SID"
-msgstr ""
+msgstr "SID da conta"
 
 msgid "Auth Token"
-msgstr ""
+msgstr "Token de autenticação"
+
+msgid "Callback URL"
+msgstr "URL de callback"
 
 msgid "Gateway has been activated"
 msgstr "Gateway foi ativado"
@@ -21,7 +24,7 @@ msgid "Gateway name"
 msgstr "Nome do gateway"
 
 msgid "Manage twilio"
-msgstr "Gerenciar twilio"
+msgstr "Administrar twilio"
 
 msgid "Module sender ID"
 msgstr "Módulo ID Remetente"
@@ -33,7 +36,7 @@ msgid "No changes has been made"
 msgstr "Nenhuma mudança feita"
 
 msgid "Notes"
-msgstr "Anotações"
+msgstr "Observações"
 
 msgid "Save"
 msgstr "Salvar"
@@ -41,20 +44,14 @@ msgstr "Salvar"
 msgid "Twilio URL"
 msgstr "URL Twilio"
 
-msgid "Your callback URL is"
-msgstr "Sua URL de callback é"
-
-#, fuzzy
 msgid "Your callback URL should be accessible from twilio"
-msgstr "Sua URL de callback deve estar acessível pelo Twilio"
+msgstr "Sua URL de callback deve ser acessível pelo Twilio"
 
 msgid "free credits are available for testing purposes"
 msgstr "créditos grátis estão disponíveis para testes"
 
-#, fuzzy
 msgid "twilio is a bulk SMS provider"
 msgstr "Twilio é um provedor de SMS em massa"
 
-#, fuzzy
 msgid "twilio will push DLR and incoming SMS to your callback URL"
 msgstr "Twilio irá entregar DLR e SMS para sua URL callback"

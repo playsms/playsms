@@ -71,15 +71,14 @@ msgstr "Reiniciar Kannel"
 msgid "Save"
 msgstr "Salvar"
 
-#, fuzzy
 msgid "Send SMS hostname or IP"
-msgstr "Hostname ou IP do bearerbox"
+msgstr "Enviar hostname do SMS ou IP"
 
 msgid "Send SMS port"
 msgstr "Porta de envio de SMS"
 
 msgid "Status"
-msgstr "Status"
+msgstr ""
 
 msgid "Username"
 msgstr "Usuário"

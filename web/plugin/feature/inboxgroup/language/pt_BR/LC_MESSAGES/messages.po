@@ -26,6 +26,12 @@ msgstr "Tem certeza que deseja remover este grupo de caixa de entrada?"
 msgid "Cancel"
 msgstr "Cancelar"
 
+msgid "Seperate with comma for multiple items"
+msgstr "Separado por vírgula para múltiplos ítens"
+
+msgid "For example a short code"
+msgstr "Um código curto, por exemplo"
+
 msgid "Catch-all"
 msgstr "Coringa"
 
@@ -184,3 +190,6 @@ msgstr "não"
 
 msgid "yes"
 msgstr "sim"
+
+msgid "Back"
+msgstr "Voltar"

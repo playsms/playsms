@@ -33,7 +33,7 @@ msgid "Keyword"
 msgstr "Palavra-chave"
 
 msgid "Make return as reply"
-msgstr "Enviar return como resposta"
+msgstr "Enviar saída do comando como resposta"
 
 msgid "Manage command"
 msgstr "Administrar comando"
@@ -65,6 +65,9 @@ msgstr "Palavra-chave do comando SMS"
 msgid "Save"
 msgstr "Salvar"
 
+msgid "Back"
+msgstr "voltar"
+
 msgid "User"
 msgstr "Usuário"
 
@@ -78,7 +81,7 @@ msgid "will be replaced by SMS incoming date/time"
 msgstr "será substituído pela data/hora de chegada do SMS"
 
 msgid "will be replaced by SMS raw message"
-msgstr "será substituído pelo número do remetente"
+msgstr "será substituído pelo SMS puro"
 
 msgid "will be replaced by command keyword"
 msgstr "será substituído pela palavra-chave do comando"

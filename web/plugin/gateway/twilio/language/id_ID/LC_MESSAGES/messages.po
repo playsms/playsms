@@ -11,6 +11,10 @@ msgstr ""
 msgid "Auth Token"
 msgstr ""
 
+#, fuzzy
+msgid "Callback URL"
+msgstr "URL callback anda adalah"
+
 msgid "Gateway has been activated"
 msgstr "Gateway telah diaktifkan"
 
@@ -40,9 +44,6 @@ msgstr "Simpan"
 
 msgid "Twilio URL"
 msgstr "twilio URL"
-
-msgid "Your callback URL is"
-msgstr "URL callback anda adalah"
 
 msgid "Your callback URL should be accessible from twilio"
 msgstr "Callback URL seharusnya dapat diakses oleh Twilio"

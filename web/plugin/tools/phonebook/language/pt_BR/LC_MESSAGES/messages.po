@@ -5,7 +5,7 @@ msgid "Add group"
 msgstr "Adicionar grupo"
 
 msgid "Code"
-msgstr "Cdigo"
+msgstr "Código"
 
 msgid "Contact has been added"
 msgstr "Contato foi adicionado"
@@ -14,13 +14,13 @@ msgid "Contact has been edited"
 msgstr "Contato foi editado"
 
 msgid "Contact is already exists"
-msgstr "Contato j existe"
+msgstr "Contato já existe"
 
 msgid "Contacts has been imported"
 msgstr "Contatos foram importados"
 
 msgid "Delete"
-msgstr ""
+msgstr "Remover"
 
 msgid "Edit contact"
 msgstr "Editar contato"
@@ -41,16 +41,16 @@ msgid "Group"
 msgstr "Grupo"
 
 msgid "Group code"
-msgstr "Cdigo de grupo"
+msgstr "Código de grupo"
 
 msgid "Group code has been added"
-msgstr "Cdigo do grupo foi adicionado"
+msgstr "Código do grupo foi adicionado"
 
 msgid "Group code is already exists"
-msgstr "Cdigo do grupo j existe"
+msgstr "Código do grupo já existe"
 
 msgid "Group code used by keyword"
-msgstr "Cdigo do grupo utilizado por palavra-chave"
+msgstr "Código do grupo utilizado por palavra-chave"
 
 msgid "Group has been edited"
 msgstr "Grupo foi editado"
@@ -77,7 +77,7 @@ msgid "No changes has been made"
 msgstr "Nenhuma alterao realizada"
 
 msgid "Note"
-msgstr "Anotaes"
+msgstr "Observações"
 
 msgid "Phonebook"
 msgstr "Contatos"
@@ -101,13 +101,13 @@ msgid "Unpublish"
 msgstr "Despublicar"
 
 msgid "You must fill all field"
-msgstr "Voc deve preencher todos os campos"
+msgstr "Você deve preencher todos os campos"
 
 msgid "broadcast SMS from single SMS"
 msgstr "distribuir SMS de outro SMS"
 
 msgid "code"
-msgstr "cdigo"
+msgstr "código"
 
 msgid "format"
 msgstr "formato"
@@ -123,3 +123,6 @@ msgstr "nome"
 
 msgid "please use uppercase and make it short"
 msgstr "por favor use somente letras maisculas e seja curto"
+
+msgid "Back"
+msgstr "Voltar"

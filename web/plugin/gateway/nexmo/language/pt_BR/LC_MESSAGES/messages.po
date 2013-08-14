@@ -21,7 +21,7 @@ msgid "Gateway name"
 msgstr "Nome do gateway"
 
 msgid "Manage nexmo"
-msgstr "Gerenciar nexmo"
+msgstr "Administrar nexmo"
 
 msgid "Module sender ID"
 msgstr "Módulo ID remetente"

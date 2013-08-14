@@ -15,7 +15,7 @@ msgid "Are you sure you want to delete SMS board with all its messages ?"
 msgstr "Tem certeza que quer remover o board SMS com todas as suas mensagens?"
 
 msgid "CSS URL"
-msgstr ""
+msgstr "URL do CSS"
 
 msgid "Date and time"
 msgstr "Data e hora"
@@ -74,9 +74,8 @@ msgstr "Saída RSS ATOM"
 msgid "Receiver"
 msgstr "Destinatário"
 
-#, fuzzy
 msgid "Row template"
-msgstr "Modelo"
+msgstr "Linha Modelo"
 
 msgid "SMS Board"
 msgstr "Quadro SMS"
@@ -98,6 +97,9 @@ msgstr "A palavra-chave já existe, está reservada ou em uso por outro recurso"
 
 msgid "Save"
 msgstr "Salvar"
+
+msgid "Back"
+msgstr "Voltar"
 
 msgid "Sender"
 msgstr "Remetente"
