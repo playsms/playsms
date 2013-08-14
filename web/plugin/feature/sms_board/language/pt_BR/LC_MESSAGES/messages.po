@@ -118,3 +118,7 @@ msgstr "de"
 
 msgid "keyword"
 msgstr "palavra-chave"
+
+msgid "Back"
+msgstr "Voltar"
+

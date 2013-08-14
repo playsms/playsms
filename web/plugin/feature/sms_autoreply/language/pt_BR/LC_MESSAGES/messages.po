@@ -88,3 +88,6 @@ msgstr "Preencha todos os campos"
 
 msgid "keyword"
 msgstr "palavra-chave"
+
+msgid "Back"
+msgstr "Voltar"

@@ -69,7 +69,7 @@ msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr "Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
 
 msgid "Module sender ID"
-msgstr "Mósulo ID Remetente"
+msgstr "Módulo ID Remetente"
 
 msgid "Module timezone"
 msgstr "Módulo Fuso Horário"

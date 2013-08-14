@@ -33,7 +33,7 @@ msgid "Inactive"
 msgstr "Inativo"
 
 msgid "Manage nexmo"
-msgstr "Gerenciar nexmo"
+msgstr "Administrar nexmo"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr "Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
@@ -57,7 +57,7 @@ msgid "No changes has been made"
 msgstr "Nenhuma mudança feita"
 
 msgid "Notes"
-msgstr "Anotações"
+msgstr "Observações"
 
 msgid "Save"
 msgstr "Salvar"

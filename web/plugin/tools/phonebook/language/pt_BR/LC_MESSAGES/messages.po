@@ -77,7 +77,7 @@ msgid "No changes has been made"
 msgstr "Nenhuma alteração realizada"
 
 msgid "Note"
-msgstr "Anotações"
+msgstr "Observações"
 
 msgid "Phonebook"
 msgstr "Contatos"

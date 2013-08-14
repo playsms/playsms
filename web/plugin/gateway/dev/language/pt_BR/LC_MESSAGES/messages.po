@@ -23,7 +23,6 @@ msgstr "Nome do gateway"
 msgid "Inactive"
 msgstr "Inativo"
 
-#, fuzzy
 msgid "Manage dev"
 msgstr "Administrar dev"
 

@@ -85,3 +85,7 @@ msgstr "será substituído pelo parâmetro passado pro servidor por SMS"
 
 msgid "will be replaced by sender number"
 msgstr "será substituído pelo número do remetente"
+
+msgid "Back"
+msgstr "Voltar"
+

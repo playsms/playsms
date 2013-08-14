@@ -196,3 +196,6 @@ msgstr "não"
 
 msgid "yes"
 msgstr "sim"
+
+msgid "Back"
+msgstr "Voltar"

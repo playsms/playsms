@@ -196,7 +196,7 @@ switch ($op) {
 			<tr><td>" . _('State or Province') . "</td><td><input type=text size=30 maxlength=100 name=up_state value=\"$state\"></td></tr>
 			<tr><td>" . _('Country') . "</td><td><select name=up_country>$option_country</select></td></tr>
 			<tr><td>" . _('Zipcode') . "</td><td><input type=text size=10 maxlength=10 name=up_zipcode value=\"$zipcode\"></td></tr>
-			<tr><td>Active language</td><td><select name=up_language_module>$option_language_module</select></td></tr>
+			<tr><td>" . _('Active language') . "</td><td><select name=up_language_module>$option_language_module</select></td></tr>
 			<tr><td colspan=2>&nbsp;</td></tr>
 			<tr><td colspan=2><h3>" . _('Application options') . "</h3></td></tr>
 			<tr><td>" . _('Webservices username') . "</td><td>".$c_username."</td></tr>

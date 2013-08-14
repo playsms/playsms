@@ -27,7 +27,7 @@ msgid "Inactive"
 msgstr "Inativo"
 
 msgid "Manage msgtoolbox"
-msgstr "Gerenciar msgtoolbox"
+msgstr "Administrar msgtoolbox"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr "Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"

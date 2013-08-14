@@ -8,6 +8,12 @@ msgstr ""
 msgid "API key"
 msgstr "Chave API"
 
+msgid "Account SID"
+msgstr "SID da conta"
+
+msgid "Auth Token"
+msgstr "Token de autenticação"
+
 msgid "API secret"
 msgstr "Segredo do API"
 
@@ -32,8 +38,8 @@ msgstr "Nome do gateway"
 msgid "Inactive"
 msgstr "Inativo"
 
-msgid "Manage nexmo"
-msgstr "Gerenciar nexmo"
+msgid "Manage twilio"
+msgstr "Administrar twilio"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr "Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
@@ -44,20 +50,20 @@ msgstr "Módulo ID Remetente"
 msgid "Module timezone"
 msgstr "Módulo de Fuso horário"
 
-msgid "Nexmo URL"
-msgstr "URL Nexmo"
+msgid "Twilio URL"
+msgstr "URL Twilio"
 
-msgid "Nexmo is a bulk SMS provider"
-msgstr "Nexmo é um provedor de SMS em massa"
+msgid "twilio is a bulk SMS provider"
+msgstr "Twilio é um provedor de SMS em massa"
 
-msgid "Nexmo will push DLR and incoming SMS to your callback URL"
-msgstr "Nexmo irá entregar DLR e SMS para sua URL callback"
+msgid "twilio will push DLR and incoming SMS to your callback URL"
+msgstr "Twilio irá entregar DLR e SMS recebidos para sua URL de callback"
 
 msgid "No changes has been made"
 msgstr "Nenhuma mudança feita"
 
 msgid "Notes"
-msgstr "Anotações"
+msgstr "Observações"
 
 msgid "Save"
 msgstr "Salvar"
@@ -65,8 +71,8 @@ msgstr "Salvar"
 msgid "Your callback URL is"
 msgstr "Sua URL de callback é"
 
-msgid "Your callback URL should be accessible from Nexmo"
-msgstr "Sua URL de callback deve estar acessível pelo Nexmo"
+msgid "Your callback URL should be accessible from twilio"
+msgstr "Sua URL de callback deve estar acessível pelo twilio"
 
 msgid "click here to activate"
 msgstr "clique aqui para ativar"

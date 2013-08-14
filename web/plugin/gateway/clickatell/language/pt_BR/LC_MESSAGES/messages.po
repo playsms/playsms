@@ -60,7 +60,7 @@ msgid "No trailing slash"
 msgstr "Sem barra no final"
 
 msgid "Note"
-msgstr "Anotação"
+msgstr "Observação"
 
 msgid "Password"
 msgstr "Senha"
@@ -73,6 +73,12 @@ msgstr "Usuário"
 
 msgid "Your callback URL is"
 msgstr "Sua URL de callback é"
+
+msgid "Clickatell will push DLR and incoming SMS to your callback URL"
+msgstr "Clickatell irá retornar DLR e SMS recebidos para sua URL de callback"
+
+msgid "Your callback URL should be accessible from Clickatell"
+msgstr "Sua URL de callback deve ser acessível pelo Clickatell"
 
 msgid "click here to activate"
 msgstr "clique aqui para ativar"

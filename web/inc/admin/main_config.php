@@ -92,7 +92,7 @@ switch ($op) {
 			<td>"._('Active themes')."</td><td><select name='edit_themes_module'>$option_themes_module</select></td>
 		</tr>
 		<tr>
-			<td>Default language</td><td><select name='edit_language_module'>$option_language_module</select></td>
+			<td>"._('Default language')."</td><td><select name='edit_language_module'>$option_language_module</select></td>
 		</tr>
 		</tbody>
 		</table>

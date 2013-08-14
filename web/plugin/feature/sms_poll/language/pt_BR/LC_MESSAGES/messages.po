@@ -136,3 +136,7 @@ msgstr "palavra-chave"
 
 msgid "title"
 msgstr "título"
+
+msgid "Back"
+msgstr "Voltar"
+
