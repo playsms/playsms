@@ -21,10 +21,10 @@ msgid "Delivery Report"
 msgstr "Confirmação de recebimento"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Ex: +0300 para fuso horário de Brasília"
 
 msgid "Fill to change the password"
-msgstr ""
+msgstr "Preencha para alterar a senha"
 
 msgid "Gateway has been activated"
 msgstr "Gateway foi ativado"
@@ -35,13 +35,11 @@ msgstr "Configurações do módulo de gateway foram salvas"
 msgid "Gateway name"
 msgstr "Nome do gateway"
 
-#, fuzzy
 msgid "HTTP Kannel admin password"
-msgstr "Senha de administrador Kannel"
+msgstr "Senha HTTP de administrador Kannel"
 
-#, fuzzy
 msgid "HTTP Kannel admin port"
-msgstr "Porta de administração Kannel"
+msgstr "Porta HTTP de administração Kannel"
 
 msgid "Kannel admin password"
 msgstr "Senha de administrador Kannel"
@@ -53,7 +51,7 @@ msgid "Kannel configuration file"
 msgstr "Arquivo de configuração Kannel"
 
 msgid "Kannel specific"
-msgstr ""
+msgstr "Específico do Kannel"
 
 msgid "Kannel status"
 msgstr "Status do Kannel"
@@ -62,10 +60,10 @@ msgid "Manage kannel"
 msgstr "Administrar kannel"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
+msgstr "Máximo 16 números ou 11 letras. Deixe em branco para desabilitar"
 
 msgid "Module sender ID"
-msgstr "Mósulo ID Remetente"
+msgstr "Módulo ID Remetente"
 
 msgid "Module timezone"
 msgstr "Módulo Fuso Horário"
@@ -101,7 +99,7 @@ msgid "Status"
 msgstr ""
 
 msgid "URL to playSMS, empty it to set it to base URL"
-msgstr ""
+msgstr "URL do playSMS, deixe em branco para usar a URL base"
 
 msgid "Username"
 msgstr "Usuário"
