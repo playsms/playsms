@@ -82,6 +82,9 @@ msgstr ""
 msgid "Fail to enable group inbox"
 msgstr ""
 
+msgid "For example a short code"
+msgstr ""
+
 msgid "Group inbox"
 msgstr ""
 
@@ -142,6 +145,9 @@ msgstr ""
 msgid "Receiver number does not exists"
 msgstr ""
 
+msgid "Restrict sender to regular members or catch-all members only"
+msgstr ""
+
 msgid "Save"
 msgstr ""
 
@@ -152,6 +158,9 @@ msgid "Selected members"
 msgstr ""
 
 msgid "Selected users"
+msgstr ""
+
+msgid "Seperate with comma for multiple items"
 msgstr ""
 
 msgid "Status"
