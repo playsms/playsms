@@ -176,10 +176,12 @@ button:hover, .button:hover {
 
 ul {
 	color: #FFF;
+	font-size: 10pt;
 }
 
 li {
 	color: #FFF;
+	font-size: 10pt;
 }
 
 .font18pt {
