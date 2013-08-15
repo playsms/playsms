@@ -187,16 +187,16 @@ switch ($op) {
 			<td>" . _('Email') . " $nd</td><td><input type='text' size=30 maxlength='30' name='add_email' value=\"$add_email\"></td>
 		</tr>
 		<tr>
-			<td>" . _('Mobile') . "</td><td><input type='text' size='16' maxlength='16' name='add_mobile' value=\"$add_mobile\"> " . _hint('Max. 16 numeric or 11 alphanumeric characters') . "</td>
+			<td>" . _('Mobile') . "</td><td><input type='text' size='16' maxlength='16' name='add_mobile' value=\"$add_mobile\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric characters')) . "</td>
 		</tr>
 		<tr>
-			<td>" . _('SMS sender ID') . "</td><td><input type='text' size='16' maxlength='16' name='add_sender' value=\"$add_sender\"> " . _hint('Max. 16 numeric or 11 alphanumeric characters') . "</td>
+			<td>" . _('SMS sender ID') . "</td><td><input type='text' size='16' maxlength='16' name='add_sender' value=\"$add_sender\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric characters')) . "</td>
 		</tr>
 		<tr>
-			<td>" . _('SMS footer') . "</td><td><input type='text' size=30 maxlength='30' name='add_footer' value=\"$add_footer\"> " . _hint('Max. 30 alphanumeric characters') . "</td>
+			<td>" . _('SMS footer') . "</td><td><input type='text' size=30 maxlength='30' name='add_footer' value=\"$add_footer\"> " . _hint(_('Max. 30 alphanumeric characters')) . "</td>
 		</tr>	    	    	    
 		<tr>
-			<td>" . _('Timezone') . "</td><td><input type='text' size='5' maxlength='5' name='add_datetime_timezone' value=\"$add_datetime_timezone\"> " . _hint('Eg: +0700 for Jakarta/Bangkok timezone') . "</td>
+			<td>" . _('Timezone') . "</td><td><input type='text' size='5' maxlength='5' name='add_datetime_timezone' value=\"$add_datetime_timezone\"> " . _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')) . "</td>
 		</tr>
 		<tr>
 			<td>" . _('Credit') . "</td><td><input type='text' size='5' maxlength='30' name='add_credit' value=\"" . $core_config['main']['cfg_default_credit'] . "\"></td>

@@ -108,7 +108,7 @@ switch ($op) {
 			</tr>
 			<tr>
 				<td>"._('Group code')."</td>
-				<td><input type=text name=group_code value=\"".phonebook_groupid2code($gpid)."\" size=10> "._hint('please use uppercase and make it short')."</td>
+				<td><input type=text name=group_code value=\"".phonebook_groupid2code($gpid)."\" size=10> "._hint(_('please use uppercase and make it short'))."</td>
 			</tr>
 			</tbody>
 			</table>

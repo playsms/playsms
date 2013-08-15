@@ -190,7 +190,7 @@ switch ($op) {
 			<tr><td colspan=2><h3>" . _('Personal information') . "</h3></td></tr>
 			<tr><td>" . _('Name') . " $nd</td><td><input type=text size=30 maxlength=100 name=up_name value=\"$name\"></td></tr>
 			<tr><td>" . _('Email') . " $nd</td><td><input type=text size=30 maxlength=30 name=up_email value=\"$email\"></td></tr>
-			<tr><td>" . _('Mobile') . "</td><td><input type=text size=16 maxlength=16 name=up_mobile value=\"$mobile\"> " . _hint('Max. 16 numeric or 11 alphanumeric characters') . "</td></tr>
+			<tr><td>" . _('Mobile') . "</td><td><input type=text size=16 maxlength=16 name=up_mobile value=\"$mobile\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric characters')) . "</td></tr>
 			<tr><td>" . _('Address') . "</td><td><input type=text size=30 maxlength=250 name=up_address value=\"$address\"></td></tr>
 			<tr><td>" . _('City') . "</td><td><input type=text size=30 maxlength=100 name=up_city value=\"$city\"></td></tr>
 			<tr><td>" . _('State or Province') . "</td><td><input type=text size=30 maxlength=100 name=up_state value=\"$state\"></td></tr>
@@ -203,16 +203,16 @@ switch ($op) {
 			<tr><td>" . _('Webservices token') . "</td><td>".$token."</td></tr>
 			<tr><td>" . _('New webservices token') . "</td><td><select name='up_new_token'>" . $option_new_token . "</select></td></tr>
 			<tr><td>" . _('Enable webservices') . "</td><td><select name='up_enable_webservices'>" . $option_enable_webservices . "</select></td></tr>
-			<tr><td>" . _('Webservices IP range') . "</td><td><input type=text size=30 maxlength=100 name=up_webservices_ip value=\"$webservices_ip\"> "._hint('Comma seperated')."</td></tr>
-			<tr><td>" . _('Timezone') . "</td><td><input type=text size=5 maxlength=5 name=up_datetime_timezone value=\"$datetime_timezone\"> " . _hint('Eg: +0700 for Jakarta/Bangkok timezone') . "</td></tr>
+			<tr><td>" . _('Webservices IP range') . "</td><td><input type=text size=30 maxlength=100 name=up_webservices_ip value=\"$webservices_ip\"> "._hint(_('Comma seperated'))."</td></tr>
+			<tr><td>" . _('Timezone') . "</td><td><input type=text size=5 maxlength=5 name=up_datetime_timezone value=\"$datetime_timezone\"> " . _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')) . "</td></tr>
 			".$option_sender_id."
-			<tr><td>" . _('SMS footer') . "</td><td><input type=text size=30 maxlength=30 name=up_footer value=\"$footer\"> " . _hint('Max. 30 alphanumeric characters') . "</td></tr>
+			<tr><td>" . _('SMS footer') . "</td><td><input type=text size=30 maxlength=30 name=up_footer value=\"$footer\"> " . _hint(_('Max. 30 alphanumeric characters')) . "</td></tr>
 			".$option_credit."
 			<tr><td>" . _('Forward SMS to inbox') . "</td><td><select name='up_fwd_to_inbox'>" . $option_fwd_to_inbox . "</select></td></tr>
 			<tr><td>" . _('Forward SMS to email') . "</td><td><select name='up_fwd_to_email'>" . $option_fwd_to_email . "</select></td></tr>
 			<tr><td>" . _('Forward SMS to mobile') . "</td><td><select name='up_fwd_to_mobile'>" . $option_fwd_to_mobile . "</select></td></tr>
-			<tr><td>" . _('Local number length') . "</td><td><input type=text size=5 maxlength=5 name='up_local_length' value=\"$local_length\"> " . _hint('Min length to detect missing country code') . "</td></tr>
-			<tr><td>" . _('Prefix or country code') . "</td><td><input type=text size=5 maxlength=5 name='up_replace_zero' value=\"$replace_zero\"> " . _hint('Replace prefix 0 or padding local numbers') . "</td></tr>
+			<tr><td>" . _('Local number length') . "</td><td><input type=text size=5 maxlength=5 name='up_local_length' value=\"$local_length\"> " . _hint(_('Min length to detect missing country code')) . "</td></tr>
+			<tr><td>" . _('Prefix or country code') . "</td><td><input type=text size=5 maxlength=5 name='up_replace_zero' value=\"$replace_zero\"> " . _hint(_('Replace prefix 0 or padding local numbers')) . "</td></tr>
 			<tr><td>" . _('Auto remove plus sign') . "</td><td><select name='up_plus_sign_remove'>" . $option_plus_sign_remove . "</select></td></tr>
 			<tr><td>" . _('Always add plus sign') . "</td><td><select name='up_plus_sign_add'>" . $option_plus_sign_add . "</select></td></tr>
 			<tr><td>" . _('Always choose to send as unicode') . "</td><td><select name='up_send_as_unicode'>" . $option_send_as_unicode . "</select></td></tr>

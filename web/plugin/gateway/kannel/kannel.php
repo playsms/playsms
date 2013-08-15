@@ -59,22 +59,22 @@ switch ($op) {
 					<td>" . _('Username') . "</td><td><input type=text size=30 maxlength=30 name=up_username value=\"" . $kannel_param['username'] . "\"></td>
 				</tr>
 				<tr>
-					<td>" . _('Password') . "</td><td><input type=password size=30 maxlength=30 name=up_password value=\"\"> "._hint('Fill to change the password')."</td>
+					<td>" . _('Password') . "</td><td><input type=password size=30 maxlength=30 name=up_password value=\"\"> "._hint(_('Fill to change the password'))."</td>
 				</tr>
 				<tr>
-					<td>"._('Module sender ID')."</td><td><input type=text size=30 maxlength=16 name=up_global_sender value=\"".$kannel_param['global_sender']."\"> "._hint('Max. 16 numeric or 11 alphanumeric char. empty to disable')."</td>
+					<td>"._('Module sender ID')."</td><td><input type=text size=30 maxlength=16 name=up_global_sender value=\"".$kannel_param['global_sender']."\"> "._hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable'))."</td>
 				</tr>
 				<tr>
-					<td>" . _('Module timezone') . "</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"" . $kannel_param['datetime_timezone'] . "\"> "._hint('Eg: +0700 for Jakarta/Bangkok timezone')."</td>
+					<td>" . _('Module timezone') . "</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"" . $kannel_param['datetime_timezone'] . "\"> "._hint(_('Eg: +0700 for Jakarta/Bangkok timezone'))."</td>
 				</tr>
 				<tr>
-					<td>" . _('Bearerbox hostname or IP') . "</td><td><input type=text size=30 maxlength=250 name=up_bearerbox_host value=\"" . $kannel_param['bearerbox_host'] . "\"> "._hint('Kannel specific')."</td>
+					<td>" . _('Bearerbox hostname or IP') . "</td><td><input type=text size=30 maxlength=250 name=up_bearerbox_host value=\"" . $kannel_param['bearerbox_host'] . "\"> "._hint(_('Kannel specific'))."</td>
 				</tr>
 				<tr>
-					<td>" . _('Send SMS hostname or IP') . "</td><td><input type=text size=30 maxlength=250 name=up_sendsms_host value=\"" . $kannel_param['sendsms_host'] . "\"> "._hint('Kannel specific')."</td>
+					<td>" . _('Send SMS hostname or IP') . "</td><td><input type=text size=30 maxlength=250 name=up_sendsms_host value=\"" . $kannel_param['sendsms_host'] . "\"> "._hint(_('Kannel specific'))."</td>
 				</tr>
 				<tr>
-					<td>" . _('Send SMS port') . "</td><td><input type=text size=30 maxlength=10 name=up_sendsms_port value=\"" . $kannel_param['sendsms_port'] . "\"> "._hint('Kannel specific')."</td>
+					<td>" . _('Send SMS port') . "</td><td><input type=text size=30 maxlength=10 name=up_sendsms_port value=\"" . $kannel_param['sendsms_port'] . "\"> "._hint(_('Kannel specific'))."</td>
 				</tr>
 				<!-- Handle DLR config (emmanuel) -->
 				<tr>
@@ -85,14 +85,14 @@ switch ($op) {
 					<td>" . _('Additional URL parameter') . "</td><td><input type=text size=30 maxlength=250 name=up_additional_param value=\"" . $kannel_param['additional_param'] . "\"></td>
 				</tr>
 				<tr>
-					<td>" . _('playSMS web URL') . "</td><td><input type=text size=30 maxlength=250 name=up_playsms_web value=\"" . $kannel_param['playsms_web'] . "\"> "._hint('URL to playSMS, empty it to set it to base URL')."</td>
+					<td>" . _('playSMS web URL') . "</td><td><input type=text size=30 maxlength=250 name=up_playsms_web value=\"" . $kannel_param['playsms_web'] . "\"> "._hint(_('URL to playSMS, empty it to set it to base URL'))."</td>
 				</tr>
 				<!-- Fixme Edward Added Kanel HTTP Admin Parameter-->
 				<tr>
-					<td>" . _('Kannel admin password') . "</td><td><input type=password size=30 maxlength=250 name=up_admin_password value=\"\"> "._hint('HTTP Kannel admin password')."</td>
+					<td>" . _('Kannel admin password') . "</td><td><input type=password size=30 maxlength=250 name=up_admin_password value=\"\"> "._hint(_('HTTP Kannel admin password'))."</td>
 				</tr>
 				<tr>
-					<td>" . _('Kannel admin port') . "</td><td><input type=text size=30 maxlength=250 name=up_admin_port value=\"" . $kannel_param['admin_port'] . "\"> "._hint('HTTP Kannel admin port')."</td>
+					<td>" . _('Kannel admin port') . "</td><td><input type=text size=30 maxlength=250 name=up_admin_port value=\"" . $kannel_param['admin_port'] . "\"> "._hint(_('HTTP Kannel admin port'))."</td>
 				</tr>
 				<tr>
 					<td>" . _('Kannel configuration file') . "<br />".$core_config['plugin']['kannel']['kannelconf']."</td><td><textarea name='up_kannelconf' rows='20' style='width: 100%; border: 1px solid #333; padding: 4px; '>".$up_kannelconf."</textarea></td>

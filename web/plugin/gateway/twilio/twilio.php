@@ -26,9 +26,9 @@ switch ($op) {
 				<tr><td>"._('Twilio URL')."</td><td>".$core_config['plugin']['twilio']['url']."</td></tr>
 				<tr><td>"._('Callback URL')."</td><td><input type=text size=30 maxlength=250 name=up_callback_url value=\"".$core_config['plugin']['twilio']['callback_url']."\"></td></tr>
 				<tr><td>"._('Account SID')."</td><td><input type=text size=30 maxlength=40 name=up_account_sid value=\"".$core_config['plugin']['twilio']['account_sid']."\"></td></tr>
-				<tr><td>"._('Auth Token')."</td><td><input type=password size=30 maxlength=40 name=up_auth_token value=\"\"> "._hint('Fill to change the Auth Token')."</td></tr>
-				<tr><td>"._('Module sender ID')."</td><td><input type=text size=30 maxlength=16 name=up_global_sender value=\"".$core_config['plugin']['twilio']['global_sender']."\"> "._hint('Max. 16 numeric or 11 alphanumeric char. empty to disable')."</td></tr>
-				<tr><td>"._('Module timezone')."</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"".$core_config['plugin']['twilio']['datetime_timezone']."\"> "._hint('Eg: +0700 for Jakarta/Bangkok timezone')."</td></tr>
+				<tr><td>"._('Auth Token')."</td><td><input type=password size=30 maxlength=40 name=up_auth_token value=\"\"> "._hint(_('Fill to change the Auth Token'))."</td></tr>
+				<tr><td>"._('Module sender ID')."</td><td><input type=text size=30 maxlength=16 name=up_global_sender value=\"".$core_config['plugin']['twilio']['global_sender']."\"> "._hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable'))."</td></tr>
+				<tr><td>"._('Module timezone')."</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"".$core_config['plugin']['twilio']['datetime_timezone']."\"> "._hint(_('Eg: +0700 for Jakarta/Bangkok timezone'))."</td></tr>
 				</tbody>
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">

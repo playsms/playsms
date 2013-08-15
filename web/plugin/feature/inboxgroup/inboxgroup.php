@@ -73,8 +73,8 @@ switch ($op) {
 		$content .= "
 			<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&op=add_submit'>
 			<table width='100%'>
-			<tr><td width='270'>"._('Receiver number')."</td><td><input type='text' name='in_receiver' maxlength='20' size='20'>"._hint('For example a short code')."</td></tr>
-			<tr><td>"._('Keywords')."</td><td><input type='text' name='keywords' maxlength='100' size=30>"._hint('Seperate with comma for multiple items')."</td></tr>
+			<tr><td width='270'>"._('Receiver number')."</td><td><input type='text' name='in_receiver' maxlength='20' size='20'>"._hint(_('For example a short code'))."</td></tr>
+			<tr><td>"._('Keywords')."</td><td><input type='text' name='keywords' maxlength='100' size=30>"._hint(_('Seperate with comma for multiple items'))."</td></tr>
 			<tr><td>"._('Description')."</td><td><input type='text' name='description' maxlength='100' size=30></td></tr>
 			</table>
 			<p><input class='button' type='submit' value='"._('Save')."'></p>
@@ -117,9 +117,9 @@ switch ($op) {
 			<input type='hidden' name='rid' value='$rid'>
 			<table width='100%'>
 			<tr><td width='270'>"._('Receiver number')."</td><td>".$in_receiver."</td></tr>
-			<tr><td>"._('Keywords')."</td><td><input type='text' name='keywords' value='$keywords' maxlength='100' size=30>"._hint('Seperate with comma for multiple items')."</td></tr>
+			<tr><td>"._('Keywords')."</td><td><input type='text' name='keywords' value='$keywords' maxlength='100' size=30>"._hint(_('Seperate with comma for multiple items'))."</td></tr>
 			<tr><td>"._('Description')."</td><td><input type='text' name='description' value='$description' maxlength='100' size=30></td></tr>
-			<tr><td>"._('Exclusive')."</td><td><select name='exclusive'>".$option_exclusive."</select>"._hint('Restrict sender to regular members or catch-all members only')."</td></tr>
+			<tr><td>"._('Exclusive')."</td><td><select name='exclusive'>".$option_exclusive."</select>"._hint(_('Restrict sender to regular members or catch-all members only'))."</td></tr>
 			</table>
 			<p><input class='button' type='submit' value='"._('Save')."'></p>
 			</form>
