@@ -15,7 +15,7 @@ msgid "Gateway name"
 msgstr "Nome do gateway"
 
 msgid "Manage msgtoolbox"
-msgstr "Gerenciar msgtoolbox"
+msgstr "Administrar msgtoolbox"
 
 msgid "Module sender ID"
 msgstr "Módulo ID Remetente"

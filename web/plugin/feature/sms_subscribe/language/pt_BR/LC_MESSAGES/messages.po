@@ -137,6 +137,9 @@ msgstr "Resposta pra desinscrição"
 msgid "Save"
 msgstr "Salvar"
 
+msgid "Back"
+msgstr "Voltar"
+
 msgid "Send"
 msgstr "Enviar"
 

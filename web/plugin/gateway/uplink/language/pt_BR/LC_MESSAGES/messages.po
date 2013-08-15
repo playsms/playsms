@@ -38,6 +38,5 @@ msgstr "Salvar"
 msgid "Webservice token"
 msgstr "Token de webservice"
 
-#, fuzzy
 msgid "Webservice username"
-msgstr "Token de webservice"
+msgstr "Usuário de webservice"

@@ -9,23 +9,22 @@ msgid "Action"
 msgstr "Ação"
 
 msgid "Add SMS custom"
-msgstr "Adicionar customizado"
+msgstr "Adicionar SMS personalizado"
 
-#, fuzzy
 msgid "Are you sure you want to delete SMS custom ?"
-msgstr "Tem certeza que quer remover a palavra-chave?"
+msgstr "Tem certeza que quer remover o SMS personalizado?"
 
 msgid "Edit SMS custom"
-msgstr "Editar customizado"
+msgstr "Editar SMS personalizado"
 
 msgid "Fail to add SMS custom"
-msgstr "Falha ao adicionar o customizado"
+msgstr "Falha ao adicionar o SMS personalizado"
 
 msgid "Fail to delete SMS custom"
-msgstr "Falha ao remover o customizado"
+msgstr "Falha ao remover o SMS personalizado"
 
 msgid "Fail to save SMS custom"
-msgstr "Falha ao salvar o customizado"
+msgstr "Falha ao salvar o SMS personalizado"
 
 msgid "Keyword"
 msgstr "Palavra-chave"
@@ -43,7 +42,7 @@ msgid "SMS custom URL"
 msgstr "URL do SMS personalizado"
 
 msgid "SMS custom already exists, reserved or use by other feature"
-msgstr "O customizado já existe, está reservado ou em uso por outro recurso"
+msgstr "O SMS personalizado já existe, está reservado ou em uso por outro recurso"
 
 msgid "SMS custom has been added"
 msgstr "O SMS personalizado foi adicionado"
@@ -59,6 +58,9 @@ msgstr "Palavra-chave do SMS personalizado"
 
 msgid "Save"
 msgstr "Salvar"
+
+msgid "Back"
+msgstr "Voltar"
 
 msgid "URL"
 msgstr ""
@@ -76,10 +78,10 @@ msgid "will be replaced by SMS incoming date/time"
 msgstr "será substituído pela data/hora de chegada do SMS"
 
 msgid "will be replaced by SMS raw message"
-msgstr "será substituído pelo número do remetente"
+msgstr "será substituído pela mensagem SMS pura"
 
 msgid "will be replaced by custom keyword"
-msgstr "será substituído pela palavra-chave do customizado"
+msgstr "será substituído pela palavra-chave do personalizado"
 
 msgid "will be replaced by custom parameter passed to server from SMS"
 msgstr "será substituído pelo parâmetro passado pro servidor por SMS"

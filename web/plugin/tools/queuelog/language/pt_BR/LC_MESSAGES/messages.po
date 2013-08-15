@@ -11,10 +11,10 @@ msgid "Message"
 msgstr "Mensagem"
 
 msgid "Queue Code"
-msgstr "Cdigo na fila"
+msgstr "Código na fila"
 
 msgid "User"
-msgstr "Usurio"
+msgstr "Usuário"
 
 msgid "View SMS queue"
 msgstr "Visualizar fila de SMS"
