@@ -33,7 +33,7 @@ msgid "Keyword"
 msgstr "Kata kunci"
 
 msgid "Make return as reply"
-msgstr "Membuat kembali menjadi balasan"
+msgstr "Membuat kembalian menjadi balasan"
 
 msgid "Manage command"
 msgstr "Pengaturan perintah SMS"
