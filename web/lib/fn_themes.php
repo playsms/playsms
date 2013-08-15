@@ -100,6 +100,15 @@ function themes_search_session() {
 }
 
 function themes_button_back($url) {
+
+	// fixme anton - "Back" untranslated without this
+	global $apps_path;
+	if (function_exists('bindtextdomain')) {
+		bindtextdomain('messages', $apps_path['plug'].'/language/');
+		bind_textdomain_codeset('messages', 'UTF-8');
+		textdomain('messages');
+	}
+
 	$content = themes_button($url, _('Back'), 'button_back');
 	return $content;
 }
