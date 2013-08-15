@@ -1,3 +1,10 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 msgid "Add contact"
 msgstr "Adicionar contato"
 
@@ -122,4 +129,4 @@ msgid "name"
 msgstr "nome"
 
 msgid "please use uppercase and make it short"
-msgstr "por favor use somente letras maiúsculas e seja curto"
+msgstr "por favor use somente letras maisculas e seja curto"
