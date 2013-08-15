@@ -20,6 +20,12 @@ msgstr ""
 msgid "Clickatell will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Fill to change the password"
+msgstr ""
+
 msgid "Gateway has been activated"
 msgstr "网关已激活"
 
@@ -31,6 +37,9 @@ msgstr "网关名"
 
 msgid "Manage clickatell"
 msgstr "管理 clickatell"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
 
 msgid "Module sender ID"
 msgstr "全球发件人"

@@ -11,6 +11,12 @@ msgstr ""
 msgid "API secret"
 msgstr ""
 
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Fill to change the API secret"
+msgstr ""
+
 msgid "Gateway has been activated"
 msgstr "网关已激活"
 
@@ -21,6 +27,9 @@ msgid "Gateway name"
 msgstr "网关名"
 
 msgid "Manage nexmo"
+msgstr ""
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
 
 msgid "Module sender ID"
@@ -46,6 +55,9 @@ msgstr ""
 
 msgid "Save"
 msgstr "保存"
+
+msgid "Use JSON format URL"
+msgstr ""
 
 msgid "Your callback URL is"
 msgstr ""

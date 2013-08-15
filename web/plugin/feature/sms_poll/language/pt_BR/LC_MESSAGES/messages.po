@@ -103,9 +103,6 @@ msgstr "A votação SMS foi salva"
 msgid "Save"
 msgstr "Salvar"
 
-msgid "Back"
-msgstr "Voltar"
-
 msgid "Status"
 msgstr ""
 

@@ -8,6 +8,9 @@ msgstr ""
 msgid "Additional URL parameter"
 msgstr "附加链接参数"
 
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
 msgid "Gateway has been activated"
 msgstr "网关已激活"
 
@@ -22,6 +25,9 @@ msgstr "管理uplink"
 
 msgid "Master URL"
 msgstr "主网址"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
 
 msgid "Module sender ID"
 msgstr "全球发件人"

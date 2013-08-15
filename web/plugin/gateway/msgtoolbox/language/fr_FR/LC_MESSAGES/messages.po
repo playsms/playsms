@@ -8,10 +8,16 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "PO-Revision-Date: 2012-08-09 12:04+0000\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR\n"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Fill to change the password"
+msgstr ""
 
 msgid "Gateway has been activated"
 msgstr "Passerelle activée"
@@ -24,6 +30,9 @@ msgstr "Nom passerelle"
 
 msgid "Manage msgtoolbox"
 msgstr "Gérer msgtoolbox"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
 
 msgid "Module sender ID"
 msgstr "ID module émetteur"

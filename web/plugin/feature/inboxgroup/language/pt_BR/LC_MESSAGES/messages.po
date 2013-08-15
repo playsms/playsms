@@ -26,12 +26,6 @@ msgstr "Tem certeza que deseja remover este grupo de caixa de entrada?"
 msgid "Cancel"
 msgstr "Cancelar"
 
-msgid "Seperate with comma for multiple items"
-msgstr "Separado por vírgula para múltiplos ítens"
-
-msgid "For example a short code"
-msgstr "Um código curto, por exemplo"
-
 msgid "Catch-all"
 msgstr "Coringa"
 
@@ -94,6 +88,9 @@ msgstr "Falha ao editar grupo de caixa de entrada"
 
 msgid "Fail to enable group inbox"
 msgstr "Falha ao habilitar grupo de caixa de entrada"
+
+msgid "For example a short code"
+msgstr "Um código curto, por exemplo"
 
 msgid "Group inbox"
 msgstr "Grupo de caixa de entrada"
@@ -161,6 +158,9 @@ msgstr "Número do destinatário"
 msgid "Receiver number does not exists"
 msgstr "Número do destinatário não existe"
 
+msgid "Restrict sender to regular members or catch-all members only"
+msgstr ""
+
 msgid "Save"
 msgstr "Salvar"
 
@@ -172,6 +172,9 @@ msgstr "Membros selecionados"
 
 msgid "Selected users"
 msgstr "Usuários selecionados"
+
+msgid "Seperate with comma for multiple items"
+msgstr "Separado por vírgula para múltiplos ítens"
 
 msgid "Status"
 msgstr ""
@@ -190,6 +193,3 @@ msgstr "não"
 
 msgid "yes"
 msgstr "sim"
-
-msgid "Back"
-msgstr "Voltar"

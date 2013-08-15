@@ -20,6 +20,12 @@ msgstr "Dikirim ke telepon"
 msgid "Delivery Report"
 msgstr "Laporan terkirim"
 
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Fill to change the password"
+msgstr ""
+
 msgid "Gateway has been activated"
 msgstr "Gateway telah diaktifkan"
 
@@ -28,6 +34,14 @@ msgstr "Konfigurasi modul gateway telah disimpan"
 
 msgid "Gateway name"
 msgstr "Nama gateway"
+
+#, fuzzy
+msgid "HTTP Kannel admin password"
+msgstr "Password admin kannel"
+
+#, fuzzy
+msgid "HTTP Kannel admin port"
+msgstr "Port admin kannel"
 
 msgid "Kannel admin password"
 msgstr "Password admin kannel"
@@ -38,11 +52,17 @@ msgstr "Port admin kannel"
 msgid "Kannel configuration file"
 msgstr "File konfigurasi kannel"
 
+msgid "Kannel specific"
+msgstr ""
+
 msgid "Kannel status"
 msgstr "Status kannel"
 
 msgid "Manage kannel"
 msgstr "Pengaturan kannel"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
 
 msgid "Module sender ID"
 msgstr "Pengirim global"
@@ -79,6 +99,9 @@ msgstr "Port untuk send SMS"
 
 msgid "Status"
 msgstr "Status"
+
+msgid "URL to playSMS, empty it to set it to base URL"
+msgstr ""
 
 msgid "Username"
 msgstr "Nama Pengguna"

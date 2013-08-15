@@ -2,7 +2,7 @@ msgid "Add message template"
 msgstr "Adicionar modelo de mensagem"
 
 msgid "Content"
-msgstr "Conteúdo"
+msgstr "Contedo"
 
 msgid "Delete"
 msgstr "Remover"
@@ -20,7 +20,7 @@ msgid "Message template"
 msgstr "Modelo de mensagem"
 
 msgid "Message template content"
-msgstr "Conteúdo do modelo de mensagem"
+msgstr "Contedo do modelo de mensagem"
 
 msgid "Message template has been edited"
 msgstr "Modelo de mensagem foi adicionado"
@@ -41,7 +41,4 @@ msgid "Selected message template has been deleted"
 msgstr "Modelo de mensagem selecionado foi removido"
 
 msgid "You must fill all fields"
-msgstr "Você deve preencher todos os campos"
-
-msgid "Back"
-msgstr "Voltar"
+msgstr "Voc deve preencher todos os campos"

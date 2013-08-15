@@ -82,9 +82,6 @@ msgstr "O quiz SMS foi removido com todas as suas mensagens"
 msgid "Save"
 msgstr "Salvar"
 
-msgid "Back"
-msgstr "Voltar"
-
 msgid "Sender"
 msgstr "Remetente"
 

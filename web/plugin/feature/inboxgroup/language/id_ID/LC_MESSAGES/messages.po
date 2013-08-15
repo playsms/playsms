@@ -89,6 +89,9 @@ msgstr "Gagal mengubah grup kotak masuk"
 msgid "Fail to enable group inbox"
 msgstr "Gagal mengaktifkan grup kotak masuk"
 
+msgid "For example a short code"
+msgstr ""
+
 msgid "Group inbox"
 msgstr "Grup kotak masuk"
 
@@ -155,6 +158,9 @@ msgstr "Penerima nomor"
 msgid "Receiver number does not exists"
 msgstr "Nomor penerima tidak ada"
 
+msgid "Restrict sender to regular members or catch-all members only"
+msgstr ""
+
 msgid "Save"
 msgstr "Simpan"
 
@@ -166,6 +172,9 @@ msgstr "Anggota yang dipilih"
 
 msgid "Selected users"
 msgstr "Pengguna yang dipilih"
+
+msgid "Seperate with comma for multiple items"
+msgstr ""
 
 msgid "Status"
 msgstr "Status"

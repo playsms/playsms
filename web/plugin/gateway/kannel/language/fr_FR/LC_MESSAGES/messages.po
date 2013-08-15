@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Language: fr_FR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR\n"
 
 msgid "Additional URL parameter"
 msgstr "Autres paramètres URL"
@@ -21,6 +21,12 @@ msgstr "Délivré au téléphone"
 msgid "Delivery Report"
 msgstr ""
 
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Fill to change the password"
+msgstr ""
+
 msgid "Gateway has been activated"
 msgstr "Passerelle activée"
 
@@ -29,6 +35,14 @@ msgstr "La configuration de la passerelle a été sauvegardée"
 
 msgid "Gateway name"
 msgstr "Nom passerelle"
+
+#, fuzzy
+msgid "HTTP Kannel admin password"
+msgstr "Kannel mot de passe admin"
+
+#, fuzzy
+msgid "HTTP Kannel admin port"
+msgstr "Kannel port admin"
 
 msgid "Kannel admin password"
 msgstr "Kannel mot de passe admin"
@@ -39,11 +53,17 @@ msgstr "Kannel port admin"
 msgid "Kannel configuration file"
 msgstr "Fichier de configuration kannel"
 
+msgid "Kannel specific"
+msgstr ""
+
 msgid "Kannel status"
 msgstr "Kannel port admin"
 
 msgid "Manage kannel"
 msgstr "Gérer kannel"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
 
 msgid "Module sender ID"
 msgstr "ID module émetteur"
@@ -79,6 +99,9 @@ msgid "Send SMS port"
 msgstr "Port d'envoi des SMS"
 
 msgid "Status"
+msgstr ""
+
+msgid "URL to playSMS, empty it to set it to base URL"
 msgstr ""
 
 msgid "Username"

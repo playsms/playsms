@@ -11,6 +11,12 @@ msgstr "Kunci API"
 msgid "API secret"
 msgstr "Kata rahasia API"
 
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Fill to change the API secret"
+msgstr ""
+
 msgid "Gateway has been activated"
 msgstr "Gateway telah diaktifkan"
 
@@ -22,6 +28,9 @@ msgstr "Nama gateway"
 
 msgid "Manage nexmo"
 msgstr "Pengaturan nexmo"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
 
 msgid "Module sender ID"
 msgstr "ID pengirim modul"
@@ -46,6 +55,9 @@ msgstr "Catatan"
 
 msgid "Save"
 msgstr "Simpan"
+
+msgid "Use JSON format URL"
+msgstr ""
 
 msgid "Your callback URL is"
 msgstr "URL callback anda adalah"

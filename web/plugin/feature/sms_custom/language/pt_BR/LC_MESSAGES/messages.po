@@ -42,7 +42,8 @@ msgid "SMS custom URL"
 msgstr "URL do SMS personalizado"
 
 msgid "SMS custom already exists, reserved or use by other feature"
-msgstr "O SMS personalizado já existe, está reservado ou em uso por outro recurso"
+msgstr ""
+"O SMS personalizado já existe, está reservado ou em uso por outro recurso"
 
 msgid "SMS custom has been added"
 msgstr "O SMS personalizado foi adicionado"
@@ -58,9 +59,6 @@ msgstr "Palavra-chave do SMS personalizado"
 
 msgid "Save"
 msgstr "Salvar"
-
-msgid "Back"
-msgstr "Voltar"
 
 msgid "URL"
 msgstr ""

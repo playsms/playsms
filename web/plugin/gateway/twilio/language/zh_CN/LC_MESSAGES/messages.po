@@ -14,6 +14,12 @@ msgstr ""
 msgid "Callback URL"
 msgstr ""
 
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Fill to change the Auth Token"
+msgstr ""
+
 msgid "Gateway has been activated"
 msgstr "网关已激活"
 
@@ -24,6 +30,9 @@ msgid "Gateway name"
 msgstr "网关名"
 
 msgid "Manage twilio"
+msgstr ""
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
 
 msgid "Module sender ID"

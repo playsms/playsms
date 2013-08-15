@@ -5,6 +5,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Fill to change the password"
+msgstr ""
+
 msgid "Gateway has been activated"
 msgstr "Gateway foi ativado"
 
@@ -16,6 +22,9 @@ msgstr "Nome do gateway"
 
 msgid "Manage msgtoolbox"
 msgstr "Administrar msgtoolbox"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
 
 msgid "Module sender ID"
 msgstr "Módulo ID Remetente"

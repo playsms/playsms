@@ -8,6 +8,9 @@ msgstr ""
 msgid "Additional URL parameter"
 msgstr "Parâmetro de URL adicional"
 
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
 msgid "Gateway has been activated"
 msgstr "Gateway foi ativado"
 
@@ -22,6 +25,9 @@ msgstr "Administrar uplink"
 
 msgid "Master URL"
 msgstr "URL mestre"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
 
 msgid "Module sender ID"
 msgstr "Módulo ID Remetente"

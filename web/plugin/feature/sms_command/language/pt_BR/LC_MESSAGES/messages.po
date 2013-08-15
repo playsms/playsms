@@ -65,9 +65,6 @@ msgstr "Palavra-chave do comando SMS"
 msgid "Save"
 msgstr "Salvar"
 
-msgid "Back"
-msgstr "voltar"
-
 msgid "User"
 msgstr "Usuário"
 
