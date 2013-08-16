@@ -9,7 +9,7 @@ msgid "Additional URL parameter"
 msgstr "Parâmetro de URL adicional"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Ex: +0300 para fuso horário de Brasília"
 
 msgid "Gateway has been activated"
 msgstr "Gateway foi ativado"
@@ -27,7 +27,7 @@ msgid "Master URL"
 msgstr "URL mestre"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
+msgstr "Máximo 16 números ou 11 letras. Deixe em branco para desabilitar"
 
 msgid "Module sender ID"
 msgstr "Módulo ID Remetente"

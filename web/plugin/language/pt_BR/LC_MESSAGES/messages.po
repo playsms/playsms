@@ -156,7 +156,7 @@ msgid "Edit message template"
 msgstr "Editar modelo de mensagem"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Exemplo: +0300 para o fuso horário de Brasília"
+msgstr "Ex: +0300 para o fuso horário de Brasília"
 
 msgid "Email"
 msgstr "E-mail"
