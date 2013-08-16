@@ -1,8 +1,15 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 msgid "Add message template"
 msgstr "Adicionar modelo de mensagem"
 
 msgid "Content"
-msgstr "Contedo"
+msgstr "Conteúdo"
 
 msgid "Delete"
 msgstr "Remover"
@@ -20,7 +27,7 @@ msgid "Message template"
 msgstr "Modelo de mensagem"
 
 msgid "Message template content"
-msgstr "Contedo do modelo de mensagem"
+msgstr "Conteúdo do modelo de mensagem"
 
 msgid "Message template has been edited"
 msgstr "Modelo de mensagem foi adicionado"
@@ -41,4 +48,4 @@ msgid "Selected message template has been deleted"
 msgstr "Modelo de mensagem selecionado foi removido"
 
 msgid "You must fill all fields"
-msgstr "Voc deve preencher todos os campos"
+msgstr "Você deve preencher todos os campos"

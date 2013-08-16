@@ -15,10 +15,10 @@ msgid "Callback URL"
 msgstr "URL de callback"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Ex: +0300 para fuso horário de Brasília"
 
 msgid "Fill to change the Auth Token"
-msgstr ""
+msgstr "Preencha para alterar o Token de autenticação"
 
 msgid "Gateway has been activated"
 msgstr "Gateway foi ativado"
@@ -33,7 +33,7 @@ msgid "Manage twilio"
 msgstr "Administrar twilio"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
+msgstr "Máximo 16 números ou 11 letras. Deixe em branco para desabilitar"
 
 msgid "Module sender ID"
 msgstr "Módulo ID Remetente"
