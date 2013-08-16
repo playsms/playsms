@@ -95,10 +95,10 @@ switch ($op) {
 					<td>" . _('Kannel admin port') . "</td><td><input type=text size=30 maxlength=250 name=up_admin_port value=\"" . $kannel_param['admin_port'] . "\"> "._hint(_('HTTP Kannel admin port'))."</td>
 				</tr>
 				<tr>
-					<td>" . _('Kannel configuration file') . "<br />".$core_config['plugin']['kannel']['kannelconf']."</td><td><textarea name='up_kannelconf' rows='20' style='width: 100%; border: 1px solid #333; padding: 4px; '>".$up_kannelconf."</textarea></td>
+					<td>" . _('Kannel configuration file') . "<br />".$core_config['plugin']['kannel']['kannelconf']."</td><td><textarea name='up_kannelconf' style='height: 20em; width: 100%'>".$up_kannelconf."</textarea></td>
 				</tr>
 				<tr>
-					<td>" . _('Kannel status') . "</td><td><textarea rows='20' style='width: 100%; border: 1px solid #333; padding: 4px; '>".$kannel_status."</textarea></td>
+					<td>" . _('Kannel status') . "</td><td><textarea rows='20' style='height: 20em; width: 100%'>".$kannel_status."</textarea></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
