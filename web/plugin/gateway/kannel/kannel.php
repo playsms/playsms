@@ -41,10 +41,10 @@ switch ($op) {
 		//End Of Fixme Edward, Browse /etc/kannel.conf to Show on web Page
 
 		$admin_port = $core_config['plugin']['kannel']['admin_port'];
-		$admin_url = $core_config['plugin']['kannel']['bearerbox_host'];
+		$admin_url = $core_config['plugin']['kannel']['sendsms_host'];
 		$admin_url = ( $admin_port ? $admin_url.':'.$admin_port : $admin_url );
 		$admin_password = $core_config['plugin']['kannel']['admin_password'];
-		$url = 'http://'.$admin_url.'/status?password='.$admin_password;
+		$url = 'http://'.$admin_url.'/status?password='.urlencode($admin_password);
 		$kannel_status = file_get_contents($url);
 
 		$content .= "
