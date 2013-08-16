@@ -2,7 +2,7 @@ README
 ------
 
 http://www.playsms.org
-Version 0.9.9.1-git
+Version 0.9.9.1
 
 
 Description
@@ -29,7 +29,7 @@ Feature Highlights
 - SMS quiz, serve quizzes on SMS
 - SMS subscribe, manage user subscribes to a service using SMS
 - Create your own features, tools, themes and gateway modules as a plugin
-- Supports Gammu, Gnokii, Kannel, SMS Server Tools, Msgtoolbox, Nexmo and Clickatell
+- Supports Gammu, Gnokii, Kannel, smstools3, Msgtoolbox, Nexmo, Twilio and Clickatell
 - Supports simulation tools to simulate incoming and outgoing SMS
 - Webservices for sending SMS, retrieving delivery reports, checking credits, etc
 - Long SMS support, length of text is configurable
