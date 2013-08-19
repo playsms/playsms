@@ -282,7 +282,7 @@ msgid "Inbox"
 msgstr "Caixa de entrada"
 
 msgid "Incoming SMS"
-msgstr "SMS's recebído"
+msgstr "SMS's recebídos"
 
 msgid "Installation Guide"
 msgstr "Guia de Instalação"

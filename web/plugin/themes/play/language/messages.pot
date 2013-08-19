@@ -1,3 +1,6 @@
+msgid "Cancel"
+msgstr ""
+
 msgid "Email"
 msgstr ""
 
@@ -32,6 +35,9 @@ msgid "Recover password"
 msgstr ""
 
 msgid "Register an account"
+msgstr ""
+
+msgid "Submit"
 msgstr ""
 
 msgid "Username"
