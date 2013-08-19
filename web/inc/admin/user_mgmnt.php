@@ -46,9 +46,9 @@ switch ($op) {
 		for ($i=0;$i<count($list);$i++) {
 			$j--;
 			$td_class = ($j % 2) ? "row_odd" : "row_even";
-			$action = "<a href=\"index.php?app=menu&inc=user_pref&op=user_pref&uname=" . $list[$i]['username'] . "\">$icon_edit</a>";
-			$action .= "<a href=\"index.php?app=menu&inc=user_config&op=user_config&uname=" . $list[$i]['username'] . "\">$icon_edit</a>";
-			$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $list[$i]['username'] . ")','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">$icon_delete</a>";
+			$action = "<a href=\"index.php?app=menu&inc=user_pref&op=user_pref&uname=" . $list[$i]['username'] . "\">".$core_config['icon']['edit']."</a>";
+			$action .= "<a href=\"index.php?app=menu&inc=user_config&op=user_config&uname=" . $list[$i]['username'] . "\">".$core_config['icon']['edit']."</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $list[$i]['username'] . ")','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">".$core_config['icon']['delete']."</a>";
 			$content .= "
 				<tr>
 					<td class='$td_class' valign=top align=center>" . core_display_datetime($list[$i]['register_datetime']) . "</td>
@@ -104,9 +104,9 @@ switch ($op) {
 			$list[$i] = core_display_data($list[$i]);
 			$j--;
 			$td_class = ($j % 2) ? "row_odd" : "row_even";
-			$action = "<a href=\"index.php?app=menu&inc=user_pref&op=user_pref&uname=" . $list[$i]['username'] . "\">$icon_edit</a>";
-			$action .= "<a href=\"index.php?app=menu&inc=user_config&op=user_config&uname=" . $list[$i]['username'] . "\">$icon_edit</a>";
-			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">$icon_delete</a>";
+			$action = "<a href=\"index.php?app=menu&inc=user_pref&op=user_pref&uname=" . $list[$i]['username'] . "\">".$core_config['icon']['edit']."</a>";
+			$action .= "<a href=\"index.php?app=menu&inc=user_config&op=user_config&uname=" . $list[$i]['username'] . "\">".$core_config['icon']['edit']."</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">".$core_config['icon']['delete']."</a>";
 			$content .= "
 				<tr>
 					<td class='$td_class' valign=top align=center>" . core_display_datetime($list[$i]['register_datetime']) . "</td>

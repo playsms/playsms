@@ -44,8 +44,8 @@ switch ($op) {
 			if ($owner = uid2username($db_row['uid'])) {
 				$i++;
 				$td_class = ($i % 2) ? "row_odd" : "row_even";
-				$action = "<a href=index.php?app=menu&inc=feature_sms_custom&op=sms_custom_edit&custom_id=" . $db_row['custom_id'] . ">$icon_edit</a>&nbsp;";
-				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS custom ?') . " (" . _('keyword') . ": " . $db_row['custom_keyword'] . ")','index.php?app=menu&inc=feature_sms_custom&op=sms_custom_del&custom_id=" . $db_row['custom_id'] . "')\">$icon_delete</a>";
+				$action = "<a href=index.php?app=menu&inc=feature_sms_custom&op=sms_custom_edit&custom_id=" . $db_row['custom_id'] . ">".$core_config['icon']['edit']."</a>&nbsp;";
+				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS custom ?') . " (" . _('keyword') . ": " . $db_row['custom_keyword'] . ")','index.php?app=menu&inc=feature_sms_custom&op=sms_custom_del&custom_id=" . $db_row['custom_id'] . "')\">".$core_config['icon']['delete']."</a>";
 				$custom_url = $db_row['custom_url'];
 				if (isadmin()) {
 					$show_owner = "<td class=$td_class align=center>".$owner."</td>";

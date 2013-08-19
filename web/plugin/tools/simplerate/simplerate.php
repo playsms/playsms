@@ -21,8 +21,8 @@ switch ($op) {
 		while ($db_row = dba_fetch_array($db_result)) {
 			$i++;
 			$td_class = ($i % 2) ? "row_odd" : "row_even";
-			$action = "<a href=index.php?app=menu&inc=tools_simplerate&op=simplerate_edit&rateid=".$db_row['id'].">$icon_edit</a>";
-			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete rate ?')." ("._('destination').": ".$db_row['dst'].", "._('prefix').": ".$db_row['prefix'].")','index.php?app=menu&inc=tools_simplerate&op=simplerate_del&rateid=".$db_row['id']."')\">$icon_delete</a>";
+			$action = "<a href=index.php?app=menu&inc=tools_simplerate&op=simplerate_edit&rateid=".$db_row['id'].">".$core_config['icon']['edit']."</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete rate ?')." ("._('destination').": ".$db_row['dst'].", "._('prefix').": ".$db_row['prefix'].")','index.php?app=menu&inc=tools_simplerate&op=simplerate_del&rateid=".$db_row['id']."')\">".$core_config['icon']['delete']."</a>";
 			$content .= "
 				<tr>
 					<td class='$td_class' align='center'>".$db_row['dst']."</td>
