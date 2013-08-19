@@ -55,7 +55,7 @@ $menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=send_sms&op=
 $menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_inbox&op=user_inbox", _('Inbox'));
 $menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_incoming&op=user_incoming", _('Incoming SMS'));
 $menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_outgoing&op=user_outgoing", _('Outgoing SMS'));
-//$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_pref&op=user_pref", _('Preferences'));
+$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_config&op=user_config", _('User configuration'));
 
 // fixme anton - uncomment this if you want to know what are available in $core_config
 //print_r($core_config); die();
