@@ -162,7 +162,7 @@ switch ($op) {
 			<form action=\"index.php?app=menu&inc=user_config&op=user_config_save".$url_uname."\" method=post enctype=\"multipart/form-data\">
 			<table width=100%>
 			<tbody>
-			<tr><td colspan=2><h3>" . _('Application option') . "</h3></td></tr>
+			<tr><td colspan=2><h3>" . _('Application options') . "</h3></td></tr>
 			<tr><td width=270>" . _('Username') . "</td><td>".$c_username."</td></tr>
 			<tr><td>" . _('Mobile') . " $nd</td><td><input type=text size=16 maxlength=16 name=up_mobile value=\"$mobile\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric characters')) . "</td></tr>
 			".$option_sender_id."
