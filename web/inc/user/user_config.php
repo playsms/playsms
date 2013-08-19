@@ -150,17 +150,19 @@ switch ($op) {
 		} else {
 			$option_sender_id = "<tr><td>" . _('SMS sender ID') . "</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"$sender\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td></tr>";
 		}
-		$content .= "<h2>" . _('User configuration') . "</h2>";
 		if ($uname && isadmin()) {
+			$content .= "<h2>" . _('Manage user') . "</h2>";
 			$option_credit = "<tr><td>" . _('Credit') . "</td><td><input type=text size=10 maxlength=10 name=up_credit value=\"$credit\"></td></tr>";
 			$button_delete = "<input type=button class=button value='". _('Delete') ."' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=menu&inc=user_mgmnt&op=user_del".$url_uname."')\">";
 		} else {
+			$content .= "<h2>" . _('User configuration') . "</h2>";
 			$option_credit = "<tr><td>" . _('Credit') . "</td><td>$credit</td></tr>";
 		}
 		$content .= "
 			<form action=\"index.php?app=menu&inc=user_config&op=user_config_save".$url_uname."\" method=post enctype=\"multipart/form-data\">
 			<table width=100%>
 			<tbody>
+			<tr><td colspan=2><h3>" . _('Application option') . "</h3></td></tr>
 			<tr><td width=270>" . _('Username') . "</td><td>".$c_username."</td></tr>
 			<tr><td>" . _('Mobile') . " $nd</td><td><input type=text size=16 maxlength=16 name=up_mobile value=\"$mobile\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric characters')) . "</td></tr>
 			".$option_sender_id."
