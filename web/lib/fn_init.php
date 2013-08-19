@@ -65,6 +65,7 @@ if (! function_exists('_')) {
 /**
  * Include essential functions
  */
+include_once $apps_path['libs']."/version.php";
 include_once $apps_path['libs']."/fn_dba.php";
 include_once $apps_path['libs']."/fn_user.php";
 include_once $apps_path['libs']."/fn_auth.php";

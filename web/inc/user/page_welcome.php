@@ -28,6 +28,7 @@ if (file_exists($fn)) {
 	$fd = @fopen($fn, "r");
 	$fc = @fread($fd, filesize($fn));
 	@fclose($fd);
+	$fc = str_replace('{VERSION}', $core_config['version'], $fc);
 	$fi = pathinfo($fn);
 	if ($fi['extension'] == 'md') {
 		$content .= Parsedown::instance()->parse($fc);
