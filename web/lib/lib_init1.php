@@ -41,6 +41,10 @@ $icon_view = "<img src=\"".$http_path['themes']."/".$themes_module."/images/view
 $icon_calendar = "<img src=\"".$http_path['themes']."/".$themes_module."/images/cal.gif\" alt=\""._('Pick Date & Time')."\" title=\""._('Pick Date & Time')."\" border=0>";
 $icon_sendsms = "<img src=\"".$http_path['themes']."/".$themes_module."/images/sendsms.gif\" alt=\""._('Send SMS')."\" title=\""._('Send SMS')."\" border=0>";
 $icon_phonebook = "<img src=\"".$http_path['themes']."/".$themes_module."/images/phonebook_action.gif\" alt=\""._('Phonebook')."\" title=\""._('Phonebook')."\" border=0>";
+$icon_export = "<img src=\"".$http_path['themes']."/".$themes_module."/images/export.gif\" alt=\""._('Export')."\" title=\""._('Export')."\" border=0>";
+$icon_import = "<img src=\"".$http_path['themes']."/".$themes_module."/images/import.gif\" alt=\""._('Import')."\" title=\""._('Import')."\" border=0>";
+$icon_publish = "<img src=\"".$http_path['themes']."/".$themes_module."/images/publish.gif\" alt=\""._('Publish')."\" title=\""._('Publish')."\" border=0>";
+$icon_unpublish = "<img src=\"".$http_path['themes']."/".$themes_module."/images/unpublish.gif\" alt=\""._('Unpublish')."\" title=\""._('Unpublish')."\" border=0>";
 
 // menus
 $core_config['menutab']['home'] = _('Home');
