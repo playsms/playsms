@@ -33,19 +33,19 @@ $reserved_keywords = array ("BC");
 $core_config['reserved_keywords'] = $reserved_keywords;
 
 // action icon
-$core_config['icon']['edit'] 		= "<img class=icon id=icon_edit src=\"".$http_path['themes']."/".$themes_module."/images/edit_action.gif\" alt=\""._('Edit')."\" title=\""._('Edit')."\" border=0>";
-$core_config['icon']['delete'] 		= "<img class=icon id=icon_delete src=\"".$http_path['themes']."/".$themes_module."/images/delete_action.gif\" alt=\""._('Delete')."\" title=\""._('Delete')."\" border=0>";
-$core_config['icon']['view'] 		= "<img class=icon id=icon_view src=\"".$http_path['themes']."/".$themes_module."/images/view_action.gif\" alt=\""._('View')."\" title=\""._('View')."\" border=0>";
-$core_config['icon']['manage'] 		= "<img class=icon id=icon_manage src=\"".$http_path['themes']."/".$themes_module."/images/manage_action.gif\" alt=\""._('Manage')."\" title=\""._('Manage')."\" border=0>";
-$core_config['icon']['reply'] 		= "<img class=icon id=icon_reply src=\"".$http_path['themes']."/".$themes_module."/images/reply_action.gif\" alt=\""._('Reply')."\" title=\""._('Reply')."\" border=0>";
-$core_config['icon']['forward'] 	= "<img class=icon id=icon_forward src=\"".$http_path['themes']."/".$themes_module."/images/forward_action.gif\" alt=\""._('Forward')."\" title=\""._('Forward')."\" border=0>";
-$core_config['icon']['export'] 		= "<img class=icon id=icon_export src=\"".$http_path['themes']."/".$themes_module."/images/export.gif\" alt=\""._('Export')."\" title=\""._('Export')."\" border=0>";
-$core_config['icon']['import'] 		= "<img class=icon id=icon_import src=\"".$http_path['themes']."/".$themes_module."/images/import.gif\" alt=\""._('Import')."\" title=\""._('Import')."\" border=0>";
-$core_config['icon']['publish'] 	= "<img class=icon id=icon_publish src=\"".$http_path['themes']."/".$themes_module."/images/publish.gif\" alt=\""._('Publish')."\" title=\""._('Publish')."\" border=0>";
-$core_config['icon']['unpublish'] 	= "<img class=icon id=icon_unpublish src=\"".$http_path['themes']."/".$themes_module."/images/unpublish.gif\" alt=\""._('Unpublish')."\" title=\""._('Unpublish')."\" border=0>";
-$core_config['icon']['phonebook'] 	= "<img class=icon id=icon_phonebook src=\"".$http_path['themes']."/".$themes_module."/images/phonebook_action.gif\" alt=\""._('Phonebook')."\" title=\""._('Phonebook')."\" border=0>";
-$core_config['icon']['sendsms'] 	= "<img class=icon id=icon_sendsms src=\"".$http_path['themes']."/".$themes_module."/images/sendsms.gif\" alt=\""._('Send SMS')."\" title=\""._('Send SMS')."\" border=0>";
-$core_config['icon']['calendar'] 	= "<img class=icon id=icon_calendar src=\"".$http_path['themes']."/".$themes_module."/images/cal.gif\" alt=\""._('Pick Date & Time')."\" title=\""._('Pick Date & Time')."\" border=0>";
+$core_config['icon']['edit'] 		= "<img class=icon id=icon_edit src=\"".$http_path['themes']."/".$themes_module."/images/edit_action.gif\" alt=\""._('Edit')."\" title=\""._('Edit')."\">";
+$core_config['icon']['delete'] 		= "<img class=icon id=icon_delete src=\"".$http_path['themes']."/".$themes_module."/images/delete_action.gif\" alt=\""._('Delete')."\" title=\""._('Delete')."\">";
+$core_config['icon']['view'] 		= "<img class=icon id=icon_view src=\"".$http_path['themes']."/".$themes_module."/images/view_action.gif\" alt=\""._('View')."\" title=\""._('View')."\">";
+$core_config['icon']['manage'] 		= "<img class=icon id=icon_manage src=\"".$http_path['themes']."/".$themes_module."/images/manage_action.gif\" alt=\""._('Manage')."\" title=\""._('Manage')."\">";
+$core_config['icon']['reply'] 		= "<img class=icon id=icon_reply src=\"".$http_path['themes']."/".$themes_module."/images/reply_action.gif\" alt=\""._('Reply')."\" title=\""._('Reply')."\">";
+$core_config['icon']['forward'] 	= "<img class=icon id=icon_forward src=\"".$http_path['themes']."/".$themes_module."/images/forward_action.gif\" alt=\""._('Forward')."\" title=\""._('Forward')."\">";
+$core_config['icon']['export'] 		= "<img class=icon id=icon_export src=\"".$http_path['themes']."/".$themes_module."/images/export.gif\" alt=\""._('Export')."\" title=\""._('Export')."\">";
+$core_config['icon']['import'] 		= "<img class=icon id=icon_import src=\"".$http_path['themes']."/".$themes_module."/images/import.gif\" alt=\""._('Import')."\" title=\""._('Import')."\">";
+$core_config['icon']['publish'] 	= "<img class=icon id=icon_publish src=\"".$http_path['themes']."/".$themes_module."/images/publish.gif\" alt=\""._('Publish')."\" title=\""._('Publish')."\">";
+$core_config['icon']['unpublish'] 	= "<img class=icon id=icon_unpublish src=\"".$http_path['themes']."/".$themes_module."/images/unpublish.gif\" alt=\""._('Unpublish')."\" title=\""._('Unpublish')."\">";
+$core_config['icon']['phonebook'] 	= "<img class=icon id=icon_phonebook src=\"".$http_path['themes']."/".$themes_module."/images/phonebook_action.gif\" alt=\""._('Phonebook')."\" title=\""._('Phonebook')."\">";
+$core_config['icon']['sendsms'] 	= "<img class=icon id=icon_sendsms src=\"".$http_path['themes']."/".$themes_module."/images/sendsms.gif\" alt=\""._('Send SMS')."\" title=\""._('Send SMS')."\">";
+$core_config['icon']['calendar'] 	= "<img class=icon id=icon_calendar src=\"".$http_path['themes']."/".$themes_module."/images/cal.gif\" alt=\""._('Pick Date & Time')."\" title=\""._('Pick Date & Time')."\">";
 
 // menus
 $core_config['menutab']['home'] = _('Home');

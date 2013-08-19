@@ -165,6 +165,18 @@ input,select,option {
 	margin-bottom: 2px;
 }
 
+img.icon {
+	border: 1px;
+	border-radius: 3px;
+	background-color: #EEE;
+	padding: 1px 2px 1px 2px;
+	margin-right: 2px;
+}
+
+img.icon:hover {
+	background-color: #FFF;
+}
+
 button,.button {
 	font-weight: normal;
 	color: #FFF;
