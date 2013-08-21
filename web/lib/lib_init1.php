@@ -32,7 +32,7 @@ if (valid()) {
 $reserved_keywords = array ("BC");
 $core_config['reserved_keywords'] = $reserved_keywords;
 
-// action icon
+// action icons
 $core_config['icon']['edit'] 		= "<img class=icon id=icon_edit src=\"".$http_path['themes']."/".$themes_module."/images/edit_action.gif\" alt=\""._('Edit')."\" title=\""._('Edit')."\">";
 $core_config['icon']['delete'] 		= "<img class=icon id=icon_delete src=\"".$http_path['themes']."/".$themes_module."/images/delete_action.gif\" alt=\""._('Delete')."\" title=\""._('Delete')."\">";
 $core_config['icon']['view'] 		= "<img class=icon id=icon_view src=\"".$http_path['themes']."/".$themes_module."/images/view_action.gif\" alt=\""._('View')."\" title=\""._('View')."\">";
@@ -43,6 +43,8 @@ $core_config['icon']['export'] 		= "<img class=icon id=icon_export src=\"".$http
 $core_config['icon']['import'] 		= "<img class=icon id=icon_import src=\"".$http_path['themes']."/".$themes_module."/images/import.gif\" alt=\""._('Import')."\" title=\""._('Import')."\">";
 $core_config['icon']['publish'] 	= "<img class=icon id=icon_publish src=\"".$http_path['themes']."/".$themes_module."/images/publish.gif\" alt=\""._('Publish')."\" title=\""._('Publish')."\">";
 $core_config['icon']['unpublish'] 	= "<img class=icon id=icon_unpublish src=\"".$http_path['themes']."/".$themes_module."/images/unpublish.gif\" alt=\""._('Unpublish')."\" title=\""._('Unpublish')."\">";
+$core_config['icon']['user_pref'] 	= "<img class=icon id=icon_user_pref src=\"".$http_path['themes']."/".$themes_module."/images/action_user_pref.png\" alt=\""._('User preference')."\" title=\""._('User preference')."\">";
+$core_config['icon']['user_config'] 	= "<img class=icon id=icon_user_config src=\"".$http_path['themes']."/".$themes_module."/images/action_user_config.png\" alt=\""._('User configuration')."\" title=\""._('User configuration')."\">";
 $core_config['icon']['phonebook'] 	= "<img class=icon id=icon_phonebook src=\"".$http_path['themes']."/".$themes_module."/images/phonebook_action.gif\" alt=\""._('Phonebook')."\" title=\""._('Phonebook')."\">";
 $core_config['icon']['sendsms'] 	= "<img class=icon id=icon_sendsms src=\"".$http_path['themes']."/".$themes_module."/images/sendsms.gif\" alt=\""._('Send SMS')."\" title=\""._('Send SMS')."\">";
 $core_config['icon']['calendar'] 	= "<img class=icon id=icon_calendar src=\"".$http_path['themes']."/".$themes_module."/images/cal.gif\" alt=\""._('Pick Date & Time')."\" title=\""._('Pick Date & Time')."\">";
