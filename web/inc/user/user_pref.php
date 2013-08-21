@@ -11,6 +11,7 @@ if (($uname = $_REQUEST['uname']) && isadmin()) {
 
 switch ($op) {
 	case "user_pref":
+		$referrer = ( $_SESSION['referrer'] ? $_SESSION['referrer'] : 'user_list_tab1' );
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -25,7 +26,6 @@ switch ($op) {
 			$sender = core_sanitize_sender($c_user[0]['sender']);
 		} else {
 			$_SESSION['error_string'] = _('User does not exists').' ('._('username').': '.$uname.')';
-			$referrer = ( $_SESSION['referrer'] ? $_SESSION['referrer'] : 'user_list_tab1' );
 			header("Location: index.php?app=menu&inc=user_mgmnt&op=".$referrer);
 			exit();
 		}
@@ -45,6 +45,7 @@ switch ($op) {
 		if ($uname && isadmin()) {
 			$content .= "<h2>" . _('Manage user') . "</h2>";
 			$button_delete = "<input type=button class=button value='". _('Delete') ."' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=menu&inc=user_mgmnt&op=user_del".$url_uname."')\">";
+			$button_back = _b('index.php?app=menu&inc=user_mgmnt&op='.$referrer);
 		} else {
 			$content .= "<h2>" . _('Preferences') . "</h2>";
 		}
@@ -68,7 +69,8 @@ switch ($op) {
 			</tbody>
 			</table>
 			<input type=submit class=button value='" . _('Save') . "'> ".$button_delete."
-			</form>";
+			</form>
+			".$button_back;
 		echo $content;
 		break;
 	case "user_pref_save":
