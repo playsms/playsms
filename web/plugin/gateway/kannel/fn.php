@@ -51,6 +51,15 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 		}
 		$URL .= "&coding=2";
 	}
+	// Unicode autodetect
+	else {
+		if (function_exists('mb_check_encoding')) {
+			if (mb_check_encoding($sms_msg,"UTF-8")){
+				$URL .= "&charset=UTF-8&coding=2";
+				logger_print("unicode autodetected", 3, "kannel outgoing");
+			}
+		}
+	}
 
 	$URL .= "&account=".$account;
 	$URL .= "&text=".urlencode($sms_msg);
