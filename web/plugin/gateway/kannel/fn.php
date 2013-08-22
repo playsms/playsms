@@ -8,6 +8,8 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	$sms_footer = stripslashes($sms_footer);
 	$sms_msg = stripslashes($sms_msg);
 	$ok = false;
+	$account = uid2username($uid);
+	$msg_type = 1;
 
 	if ($sms_footer) {
 		$sms_msg = $sms_msg.$sms_footer;
@@ -18,9 +20,9 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	setsmsdeliverystatus($smslog_id,$uid,$p_status);
 
 	if ($sms_type=='flash') {
-		$sms_type = 0; //flash
+		$msg_type = 0; //flash
 	} else {
-		$sms_type = 1; // text, default
+		$msg_type = 1; // text, default
 	}
 
 	// this doesn't work properly if kannel is not on the same server with playSMS
@@ -38,7 +40,9 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	$URL .= "&dlr-mask=".$kannel_param['dlr']."&dlr-url=".urlencode($dlr_url);
 	// end of Handle DLR options config (emmanuel)
 
-	$URL .= "&mclass=".$sms_type;
+	if ($sms_type=='flash') {
+		$URL .= "&mclass=".$msg_type;
+	}
 
 	if ($unicode) {
 		if (function_exists('mb_convert_encoding')) {
@@ -47,7 +51,17 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 		}
 		$URL .= "&coding=2";
 	}
+	// Unicode autodetect
+	else {
+		if (function_exists('mb_check_encoding')) {
+			if (mb_check_encoding($sms_msg,"UTF-8")){
+				$URL .= "&charset=UTF-8&coding=2";
+				logger_print("unicode autodetected", 3, "kannel outgoing");
+			}
+		}
+	}
 
+	$URL .= "&account=".$account;
 	$URL .= "&text=".urlencode($sms_msg);
 
 	// fixme anton - patch 1.4.3, dlr requries smsc-id, you should add at least smsc=<your smsc-id in kannel.conf> from web
