@@ -8,6 +8,7 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	$sms_footer = stripslashes($sms_footer);
 	$sms_msg = stripslashes($sms_msg);
 	$ok = false;
+	$account = uid2username($uid);
 
 	if ($sms_footer) {
 		$sms_msg = $sms_msg.$sms_footer;
@@ -48,6 +49,7 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 		$URL .= "&coding=2";
 	}
 
+	$URL .= "&account=".$account;
 	$URL .= "&text=".urlencode($sms_msg);
 
 	// fixme anton - patch 1.4.3, dlr requries smsc-id, you should add at least smsc=<your smsc-id in kannel.conf> from web
