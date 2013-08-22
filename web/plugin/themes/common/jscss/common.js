@@ -102,9 +102,17 @@ function SmsTextCounter() {
         return result;
 }
 
+function containsNonLatinCodepoints(s) {
+	return /[^\u0000-\u00ff]/.test(s);
+}
+
 function SmsSetCounter() {
         var ilen = SmsTextCounter();
         document.fm_sendsms.txtcount.value  = ilen ;
+        var msg = document.fm_sendsms.message;
+        var msg_unicode = document.fm_sendsms.msg_unicode;
+	var detect = containsNonLatinCodepoints(msg.value);
+	msg_unicode.checked = detect;
 }
 
 /* ############################
