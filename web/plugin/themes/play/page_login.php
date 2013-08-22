@@ -25,7 +25,7 @@
         </div>
         <div class="actions">
         <input type="submit" value="<?php echo _('Submit'); ?>" class="btn primary">
-        <input type="reset" value="<?php echo _('Cancel'); ?> class="btn">
+        <input type="reset" value="<?php echo _('Cancel'); ?>" class="btn">
         </div>
     </div>
     <div>
