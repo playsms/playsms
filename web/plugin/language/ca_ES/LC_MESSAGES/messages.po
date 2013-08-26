@@ -155,6 +155,10 @@ msgstr "Eliminar la Plantilla de Missatge"
 msgid "Delete selection"
 msgstr "Esborrar la selecció"
 
+#, fuzzy
+msgid "Delete user"
+msgstr "Esborrar"
+
 msgid "Delivered"
 msgstr "Entregat"
 
@@ -237,6 +241,10 @@ msgstr "Enviar com a missatge ràpid"
 msgid "Footer"
 msgstr "Firma del SMS"
 
+#, fuzzy
+msgid "Forward"
+msgstr "Reenviar"
+
 msgid "Forward PV to email"
 msgstr "Enviar PV al correu"
 
@@ -287,6 +295,10 @@ msgstr "API HTTP"
 
 msgid "Home"
 msgstr "Principal"
+
+#, fuzzy
+msgid "Import"
+msgstr "Exportar"
 
 msgid "Inbox"
 msgstr "Safata d'Entrada"
@@ -437,6 +449,10 @@ msgstr "Número(s) telefònic(s)"
 msgid "Pick Date & Time"
 msgstr "Seleccionar data i hora"
 
+#, fuzzy
+msgid "Pick date & time"
+msgstr "Seleccionar data i hora"
+
 msgid "Please select"
 msgstr "Si us plau seleccioni"
 
@@ -462,6 +478,9 @@ msgstr "Prefix o codi de país"
 msgid "Public registration disabled"
 msgstr "Registre públic desactivat"
 
+msgid "Publish"
+msgstr ""
+
 msgid "Re-Type Password"
 msgstr "Reescriviu la contrasenya"
 
@@ -482,6 +501,9 @@ msgstr "Reemplaça el prefix 0 o afegeix als números locals"
 
 msgid "Reply"
 msgstr "Respondre"
+
+msgid "Resend"
+msgstr ""
 
 msgid "SMS character"
 msgstr "Caràcters del SMS"
@@ -565,6 +587,9 @@ msgstr "Impossible actualitzar la sessió de l'usuari"
 msgid "Unicode message"
 msgstr "Enviar en Unicode"
 
+msgid "Unpublish"
+msgstr ""
+
 msgid "Use"
 msgstr "Utilitzar"
 
@@ -576,6 +601,23 @@ msgstr "Usuari"
 
 msgid "User already exists"
 msgstr "L'usuari ja existeix"
+
+#, fuzzy
+msgid "User configuration"
+msgstr "Configuració Principal"
+
+#, fuzzy
+msgid "User configuration has been saved"
+msgstr "La configuració principal ha estat guardada"
+
+#, fuzzy
+msgid "User configuration has been saved and password updated"
+msgstr "Les preferències s'han guardat i la contrasenya s'ha actualitzat"
+
+#, fuzzy
+msgid "User configuration has been saved and webservices token updated"
+msgstr ""
+"Les preferències s'han guardat i el token de webservices s'ha actualitzat"
 
 msgid "User does not exists"
 msgstr "L'usuari no existeix"
@@ -594,6 +636,10 @@ msgstr "L'usuari no pot ser eliminat"
 
 msgid "User level"
 msgstr "Privilegis d'usuari"
+
+#, fuzzy
+msgid "User preference"
+msgstr "Preferències"
 
 msgid "Username"
 msgstr "Usuari"

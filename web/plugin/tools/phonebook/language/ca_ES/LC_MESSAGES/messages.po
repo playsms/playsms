@@ -101,9 +101,6 @@ msgstr "Agenda"
 msgid "Please select CSV file for phonebook entries"
 msgstr "Si us plau trieu el fitxer CSV per les entrades de l'agenda"
 
-msgid "Publish"
-msgstr "Publicar"
-
 msgid "Save"
 msgstr "Guardar"
 
@@ -112,9 +109,6 @@ msgstr "El contacte marcat s'ha esborrat"
 
 msgid "Selected group has been deleted"
 msgstr "El grup marcat s'ha esborrat"
-
-msgid "Unpublish"
-msgstr "Despublicar"
 
 msgid "You must fill all field"
 msgstr "Heu d'omplir tots els camps"

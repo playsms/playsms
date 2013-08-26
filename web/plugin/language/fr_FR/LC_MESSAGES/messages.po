@@ -152,6 +152,10 @@ msgstr "Supprimer le modèle"
 msgid "Delete selection"
 msgstr "Supprimer la sélection"
 
+#, fuzzy
+msgid "Delete user"
+msgstr "Supprimer"
+
 msgid "Delivered"
 msgstr "Delivré"
 
@@ -237,6 +241,10 @@ msgstr "Envoyer un message flash"
 msgid "Footer"
 msgstr "Pied de page SMS"
 
+#, fuzzy
+msgid "Forward"
+msgstr "Transfert PV à email"
+
 msgid "Forward PV to email"
 msgstr "Transfert PV à email"
 
@@ -291,6 +299,9 @@ msgstr ""
 
 msgid "Home"
 msgstr "Accueil"
+
+msgid "Import"
+msgstr ""
 
 msgid "Inbox"
 msgstr "Boite de réception"
@@ -441,6 +452,10 @@ msgstr "Numéro(s)"
 msgid "Pick Date & Time"
 msgstr "Choir Date & Heure"
 
+#, fuzzy
+msgid "Pick date & time"
+msgstr "Choir Date & Heure"
+
 msgid "Please select"
 msgstr "Sélectionnez SVP"
 
@@ -466,6 +481,9 @@ msgstr ""
 msgid "Public registration disabled"
 msgstr "Enregistrement public"
 
+msgid "Publish"
+msgstr ""
+
 msgid "Re-Type Password"
 msgstr "Re-taper le Mot de passe"
 
@@ -487,6 +505,9 @@ msgstr ""
 
 msgid "Reply"
 msgstr "Reéssayer"
+
+msgid "Resend"
+msgstr ""
 
 msgid "SMS character"
 msgstr "Caractères SMS"
@@ -570,6 +591,9 @@ msgstr "Impossible de mettre à jour la session"
 msgid "Unicode message"
 msgstr "Envoyer un message unicode"
 
+msgid "Unpublish"
+msgstr ""
+
 msgid "Use"
 msgstr "Utilisateur"
 
@@ -582,6 +606,22 @@ msgstr "Utilisateur"
 #, fuzzy
 msgid "User already exists"
 msgstr "L'utilisateur existe déjà"
+
+#, fuzzy
+msgid "User configuration"
+msgstr "Configuration Principale"
+
+#, fuzzy
+msgid "User configuration has been saved"
+msgstr "Configuration principale enregistrée"
+
+#, fuzzy
+msgid "User configuration has been saved and password updated"
+msgstr "Préférences sauvegarde et mot de passe mis à jour"
+
+#, fuzzy
+msgid "User configuration has been saved and webservices token updated"
+msgstr "Préférences sauvegarde et mot de passe mis à jour"
 
 #, fuzzy
 msgid "User does not exists"
@@ -601,6 +641,10 @@ msgstr "L'utilisateur pas supprimable"
 
 msgid "User level"
 msgstr "Privilège Utilisateur"
+
+#, fuzzy
+msgid "User preference"
+msgstr "Préférences"
 
 msgid "Username"
 msgstr "Nom utilisateur"

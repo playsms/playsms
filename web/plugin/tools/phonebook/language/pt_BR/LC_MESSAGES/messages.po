@@ -92,9 +92,6 @@ msgstr "Contatos"
 msgid "Please select CSV file for phonebook entries"
 msgstr "Por favor selecione o arquivo CSV para entradas dos contatos"
 
-msgid "Publish"
-msgstr "Publicar"
-
 msgid "Save"
 msgstr "Salvar"
 
@@ -103,9 +100,6 @@ msgstr "Os contatos selecionados foram removidos"
 
 msgid "Selected group has been deleted"
 msgstr "O grupo selecionado foi removido"
-
-msgid "Unpublish"
-msgstr "Despublicar"
 
 msgid "You must fill all field"
 msgstr "Você deve preencher todos os campos"

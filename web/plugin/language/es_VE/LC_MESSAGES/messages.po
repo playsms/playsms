@@ -146,6 +146,10 @@ msgstr "Eliminar la Plantilla de Mensaje"
 msgid "Delete selection"
 msgstr "Borrar la selección"
 
+#, fuzzy
+msgid "Delete user"
+msgstr "Borrar"
+
 msgid "Delivered"
 msgstr "Entregado"
 
@@ -231,6 +235,10 @@ msgstr "Enviar como mensaje rápido"
 msgid "Footer"
 msgstr "Firma del SMS"
 
+#, fuzzy
+msgid "Forward"
+msgstr "Firma del correo reenviado"
+
 msgid "Forward PV to email"
 msgstr "Firma del correo reenviado"
 
@@ -285,6 +293,9 @@ msgstr ""
 
 msgid "Home"
 msgstr "Principal"
+
+msgid "Import"
+msgstr ""
 
 msgid "Inbox"
 msgstr "Bandeja de Entrada"
@@ -435,6 +446,10 @@ msgstr "Numero(s) telefónico(s)"
 msgid "Pick Date & Time"
 msgstr "Seleccionar fecha y hora"
 
+#, fuzzy
+msgid "Pick date & time"
+msgstr "Seleccionar fecha y hora"
+
 msgid "Please select"
 msgstr "Por favor seleccione"
 
@@ -460,6 +475,9 @@ msgstr ""
 msgid "Public registration disabled"
 msgstr ""
 
+msgid "Publish"
+msgstr ""
+
 msgid "Re-Type Password"
 msgstr "Re-ingresar contraseña"
 
@@ -481,6 +499,9 @@ msgstr ""
 
 msgid "Reply"
 msgstr "Responder"
+
+msgid "Resend"
+msgstr ""
 
 msgid "SMS character"
 msgstr "Caracteres del SMS"
@@ -564,6 +585,9 @@ msgstr "Imposible actualizar la sesión de usuario"
 msgid "Unicode message"
 msgstr "Enviar en Unicode"
 
+msgid "Unpublish"
+msgstr ""
+
 msgid "Use"
 msgstr "Usuario"
 
@@ -576,6 +600,22 @@ msgstr "Usuario"
 #, fuzzy
 msgid "User already exists"
 msgstr "El usuario ya existe "
+
+#, fuzzy
+msgid "User configuration"
+msgstr "Configuración Principal"
+
+#, fuzzy
+msgid "User configuration has been saved"
+msgstr "La configuración principal ha sido guardada"
+
+#, fuzzy
+msgid "User configuration has been saved and password updated"
+msgstr "Las preferencias han sido guardadas y la contraseña actualizada"
+
+#, fuzzy
+msgid "User configuration has been saved and webservices token updated"
+msgstr "Las preferencias han sido guardadas y la contraseña actualizada"
 
 #, fuzzy
 msgid "User does not exists"
@@ -595,6 +635,10 @@ msgstr "Usuario no puede ser eliminado"
 
 msgid "User level"
 msgstr "Privilegios de usuario"
+
+#, fuzzy
+msgid "User preference"
+msgstr "Preferencias"
 
 msgid "Username"
 msgstr "Usuario"

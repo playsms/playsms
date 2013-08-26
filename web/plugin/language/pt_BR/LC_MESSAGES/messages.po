@@ -146,6 +146,10 @@ msgstr "Remover modelo de mensagem"
 msgid "Delete selection"
 msgstr "Remover seleção"
 
+#, fuzzy
+msgid "Delete user"
+msgstr "Remover"
+
 msgid "Delivered"
 msgstr "Entregue"
 
@@ -227,6 +231,10 @@ msgstr "Enviar como mensagem flash"
 msgid "Footer"
 msgstr "Assinatura"
 
+#, fuzzy
+msgid "Forward"
+msgstr "encaminhar"
+
 msgid "Forward PV to email"
 msgstr "Encaminhar PV para o e-mail"
 
@@ -277,6 +285,10 @@ msgstr ""
 
 msgid "Home"
 msgstr "Início"
+
+#, fuzzy
+msgid "Import"
+msgstr "Exportar"
 
 msgid "Inbox"
 msgstr "Caixa de entrada"
@@ -425,6 +437,10 @@ msgstr "Número(s) de telefone"
 msgid "Pick Date & Time"
 msgstr "Escolher data & hora"
 
+#, fuzzy
+msgid "Pick date & time"
+msgstr "Escolher data & hora"
+
 msgid "Please select"
 msgstr "Selecione"
 
@@ -449,6 +465,9 @@ msgstr "Prefixo ou código do país"
 msgid "Public registration disabled"
 msgstr "Registro público desativado"
 
+msgid "Publish"
+msgstr ""
+
 msgid "Re-Type Password"
 msgstr "Re-digite a senha"
 
@@ -469,6 +488,10 @@ msgstr "Substituir prefixo 0 ou número local"
 
 msgid "Reply"
 msgstr "Responder"
+
+#, fuzzy
+msgid "Resend"
+msgstr "reenviar"
 
 msgid "SMS character"
 msgstr "Caractere SMS"
@@ -551,6 +574,9 @@ msgstr "Incapaz de atualizar a sessão de login"
 msgid "Unicode message"
 msgstr "Mensagem unicode"
 
+msgid "Unpublish"
+msgstr ""
+
 msgid "Use"
 msgstr "Usar"
 
@@ -562,6 +588,22 @@ msgstr "Usuário"
 
 msgid "User already exists"
 msgstr "O usuário já existe"
+
+#, fuzzy
+msgid "User configuration"
+msgstr "Configurações principais"
+
+#, fuzzy
+msgid "User configuration has been saved"
+msgstr "As mudanças nas configurações principais foram salvas"
+
+#, fuzzy
+msgid "User configuration has been saved and password updated"
+msgstr "Preferências foram salvas e senhas atualizadas"
+
+#, fuzzy
+msgid "User configuration has been saved and webservices token updated"
+msgstr "Preferências foram salvas e tokens de webservice atualizados"
 
 msgid "User does not exists"
 msgstr "O usuário não existe"
@@ -580,6 +622,10 @@ msgstr "O usuário é imune a remoção"
 
 msgid "User level"
 msgstr "Nível de usuário"
+
+#, fuzzy
+msgid "User preference"
+msgstr "Preferências"
 
 msgid "Username"
 msgstr "Usuário"

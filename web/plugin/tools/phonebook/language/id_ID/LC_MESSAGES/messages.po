@@ -85,9 +85,6 @@ msgstr "Buku telepon"
 msgid "Please select CSV file for phonebook entries"
 msgstr "Pilih berkas CSV untuk isian buku telepon"
 
-msgid "Publish"
-msgstr "Publikasikan"
-
 msgid "Save"
 msgstr "Simpan"
 
@@ -96,9 +93,6 @@ msgstr "Kontak terpilih telah dihapus"
 
 msgid "Selected group has been deleted"
 msgstr "Grup terpilih telah dihapus"
-
-msgid "Unpublish"
-msgstr "Tidak dipublikasi"
 
 msgid "You must fill all field"
 msgstr "Anda harus mengisi semua isian"

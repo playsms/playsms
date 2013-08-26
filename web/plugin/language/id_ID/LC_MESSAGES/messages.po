@@ -146,6 +146,10 @@ msgstr "Hapus pola pesan"
 msgid "Delete selection"
 msgstr "Hapus pilihan"
 
+#, fuzzy
+msgid "Delete user"
+msgstr "Hapus"
+
 msgid "Delivered"
 msgstr "Diterima"
 
@@ -227,6 +231,10 @@ msgstr "Pesan flash"
 msgid "Footer"
 msgstr "Catatan kaki"
 
+#, fuzzy
+msgid "Forward"
+msgstr "teruskan"
+
 msgid "Forward PV to email"
 msgstr "Teruskan PV ke email"
 
@@ -277,6 +285,10 @@ msgstr "HTTP API"
 
 msgid "Home"
 msgstr "Beranda"
+
+#, fuzzy
+msgid "Import"
+msgstr "Ekspor"
 
 msgid "Inbox"
 msgstr "Kotak masuk"
@@ -425,6 +437,10 @@ msgstr "Nomor telepon"
 msgid "Pick Date & Time"
 msgstr "Pilih waktu & tanggal"
 
+#, fuzzy
+msgid "Pick date & time"
+msgstr "Pilih waktu & tanggal"
+
 msgid "Please select"
 msgstr "Silakan pilih"
 
@@ -449,6 +465,9 @@ msgstr "Kode awalan atau kode negara"
 msgid "Public registration disabled"
 msgstr "Pendaftaran umum dinonaktifkan"
 
+msgid "Publish"
+msgstr ""
+
 msgid "Re-Type Password"
 msgstr "Ketik ulang kata sandi"
 
@@ -469,6 +488,9 @@ msgstr "Ganti prefix 0 atau gabungkan nomor lokal"
 
 msgid "Reply"
 msgstr "Balas"
+
+msgid "Resend"
+msgstr ""
 
 msgid "SMS character"
 msgstr "Karakter SMS"
@@ -551,6 +573,9 @@ msgstr "Tidak dapat memperbaharui sesi login"
 msgid "Unicode message"
 msgstr "Pesan unicode"
 
+msgid "Unpublish"
+msgstr ""
+
 msgid "Use"
 msgstr "Pengguna"
 
@@ -562,6 +587,22 @@ msgstr "Pengguna"
 
 msgid "User already exists"
 msgstr "Pengguna sudah ada"
+
+#, fuzzy
+msgid "User configuration"
+msgstr "Konfigurasi utama"
+
+#, fuzzy
+msgid "User configuration has been saved"
+msgstr "Perubahan konfigurasi utama telah disimpan"
+
+#, fuzzy
+msgid "User configuration has been saved and password updated"
+msgstr "Preferensi sudah disimpan dan kata sandi sudah diperbaharui"
+
+#, fuzzy
+msgid "User configuration has been saved and webservices token updated"
+msgstr "Preferensi sudah disimpan dan token webservices sudah diperbaharui"
 
 msgid "User does not exists"
 msgstr "Pengguna tidak ada"
@@ -580,6 +621,10 @@ msgstr "Pengguna kebal untuk dihapus"
 
 msgid "User level"
 msgstr "Tingkatan pengguna"
+
+#, fuzzy
+msgid "User preference"
+msgstr "Preferensi"
 
 msgid "Username"
 msgstr "Nama pengguna"

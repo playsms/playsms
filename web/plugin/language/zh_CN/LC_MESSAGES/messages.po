@@ -146,6 +146,10 @@ msgstr "删除信息模版"
 msgid "Delete selection"
 msgstr "删除选择"
 
+#, fuzzy
+msgid "Delete user"
+msgstr "删除"
+
 msgid "Delivered"
 msgstr "已传送的"
 
@@ -231,6 +235,10 @@ msgstr "发送为瞬时信息"
 msgid "Footer"
 msgstr "短信页脚"
 
+#, fuzzy
+msgid "Forward"
+msgstr "转发邮件页脚"
+
 msgid "Forward PV to email"
 msgstr "转发邮件页脚"
 
@@ -285,6 +293,9 @@ msgstr ""
 
 msgid "Home"
 msgstr "主页"
+
+msgid "Import"
+msgstr ""
 
 msgid "Inbox"
 msgstr "收件箱"
@@ -435,6 +446,10 @@ msgstr "电话号码"
 msgid "Pick Date & Time"
 msgstr "选择日期和时间"
 
+#, fuzzy
+msgid "Pick date & time"
+msgstr "选择日期和时间"
+
 msgid "Please select"
 msgstr "请选择"
 
@@ -460,6 +475,9 @@ msgstr ""
 msgid "Public registration disabled"
 msgstr ""
 
+msgid "Publish"
+msgstr ""
+
 msgid "Re-Type Password"
 msgstr "再次输入密码"
 
@@ -481,6 +499,9 @@ msgstr ""
 
 msgid "Reply"
 msgstr "回复"
+
+msgid "Resend"
+msgstr ""
 
 msgid "SMS character"
 msgstr "短信字符"
@@ -564,6 +585,9 @@ msgstr "不能更新登陆会话"
 msgid "Unicode message"
 msgstr "发送为非代码信息"
 
+msgid "Unpublish"
+msgstr ""
+
 msgid "Use"
 msgstr "用户"
 
@@ -576,6 +600,22 @@ msgstr "用户"
 #, fuzzy
 msgid "User already exists"
 msgstr "用户已存在"
+
+#, fuzzy
+msgid "User configuration"
+msgstr "主要构造"
+
+#, fuzzy
+msgid "User configuration has been saved"
+msgstr "主要构造变化已被保存"
+
+#, fuzzy
+msgid "User configuration has been saved and password updated"
+msgstr "偏好已被保存且密码已更新"
+
+#, fuzzy
+msgid "User configuration has been saved and webservices token updated"
+msgstr "偏好已被保存且密码已更新"
 
 #, fuzzy
 msgid "User does not exists"
@@ -595,6 +635,10 @@ msgstr "用户删除无效"
 
 msgid "User level"
 msgstr "用户等级"
+
+#, fuzzy
+msgid "User preference"
+msgstr "偏好"
 
 msgid "Username"
 msgstr "用户名"
