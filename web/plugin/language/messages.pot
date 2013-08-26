@@ -139,6 +139,9 @@ msgstr ""
 msgid "Delete selection"
 msgstr ""
 
+msgid "Delete user"
+msgstr ""
+
 msgid "Delivered"
 msgstr ""
 
@@ -220,6 +223,9 @@ msgstr ""
 msgid "Footer"
 msgstr ""
 
+msgid "Forward"
+msgstr ""
+
 msgid "Forward PV to email"
 msgstr ""
 
@@ -269,6 +275,9 @@ msgid "HTTP API"
 msgstr ""
 
 msgid "Home"
+msgstr ""
+
+msgid "Import"
 msgstr ""
 
 msgid "Inbox"
@@ -418,6 +427,9 @@ msgstr ""
 msgid "Pick Date & Time"
 msgstr ""
 
+msgid "Pick date & time"
+msgstr ""
+
 msgid "Please select"
 msgstr ""
 
@@ -442,6 +454,9 @@ msgstr ""
 msgid "Public registration disabled"
 msgstr ""
 
+msgid "Publish"
+msgstr ""
+
 msgid "Re-Type Password"
 msgstr ""
 
@@ -461,6 +476,9 @@ msgid "Replace prefix 0 or padding local numbers"
 msgstr ""
 
 msgid "Reply"
+msgstr ""
+
+msgid "Resend"
 msgstr ""
 
 msgid "SMS character"
@@ -544,6 +562,9 @@ msgstr ""
 msgid "Unicode message"
 msgstr ""
 
+msgid "Unpublish"
+msgstr ""
+
 msgid "Use"
 msgstr ""
 
@@ -554,6 +575,18 @@ msgid "User"
 msgstr ""
 
 msgid "User already exists"
+msgstr ""
+
+msgid "User configuration"
+msgstr ""
+
+msgid "User configuration has been saved"
+msgstr ""
+
+msgid "User configuration has been saved and password updated"
+msgstr ""
+
+msgid "User configuration has been saved and webservices token updated"
 msgstr ""
 
 msgid "User does not exists"
@@ -572,6 +605,9 @@ msgid "User is immune to deletion"
 msgstr ""
 
 msgid "User level"
+msgstr ""
+
+msgid "User preference"
 msgstr ""
 
 msgid "Username"

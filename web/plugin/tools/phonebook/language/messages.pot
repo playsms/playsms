@@ -85,9 +85,6 @@ msgstr ""
 msgid "Please select CSV file for phonebook entries"
 msgstr ""
 
-msgid "Publish"
-msgstr ""
-
 msgid "Save"
 msgstr ""
 
@@ -95,9 +92,6 @@ msgid "Selected contact has been deleted"
 msgstr ""
 
 msgid "Selected group has been deleted"
-msgstr ""
-
-msgid "Unpublish"
 msgstr ""
 
 msgid "You must fill all field"
