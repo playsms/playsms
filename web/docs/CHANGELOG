@@ -1,7 +1,7 @@
 CHANGELOG
 ---------
 
-Version 0.9.9.1 - 130817
+Version 0.9.9.1 - 130826
 - add new webservices type of action IX to get SMS on user's inbox
 - add logger_print() at the begining and the end of webservices
 - add DBHOST and DBPORT on install script
@@ -11,10 +11,14 @@ Version 0.9.9.1 - 130817
 - add hints with tooltip
 - add new option CSS URL to decorate sms_board
 - add new gateway Twilio twilio.com
+- add lib/version.php contains version number
+- add automatically set Unicode if non-latin chars typed and vice versa (dvoryanchikov)
+- update kannel gateway related to account and dcs (dvoryanchikov)
 - update log level to 3 for clickatell getsmsstatus
 - update lang, more new translations on pt_BR (gschanuel)
 - upgrade themes default, re-design
 - upgrade all plugins to match new themes stuffs
+- upgrade action icons, use common icons for all themes but can be overriden
 - remove unused js and css files on themes default
 - remove dTree js and css files
 - remove themes 'work2'
