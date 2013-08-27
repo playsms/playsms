@@ -14,7 +14,7 @@ body {
 
 .main {
 	text-align: center;
-	width: 1024px;
+	width: 1000px;
 	height: 100%;
 	margin-left: auto;
 	margin-right: auto;
@@ -163,6 +163,7 @@ input,select,option {
 	border: 1px solid #ECF0F1;
 	padding-left: 5px;
 	margin-bottom: 2px;
+	border-radius: 3px;
 }
 
 img.icon {
