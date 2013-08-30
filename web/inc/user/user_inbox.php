@@ -58,12 +58,12 @@ switch ($op) {
 			}
 			$c_message = "<div id=\"user_inbox_msg\">".$in_msg."</div><div id=\"msg_label\">".$in_datetime."&nbsp;".$in_status."</div><div id=\"msg_option\">".$reply."&nbsp".$forward."</div>";
 			$i--;
-			$td_class = ($i % 2) ? "row_odd" : "row_even";
+			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr>
-					<td valign=top class=$td_class align=center>$current_sender</td>
-					<td valign=top class=$td_class align=left>$c_message</td>
-					<td valign=top class=$td_class align=center>
+				<tr class=$tr_class>
+					<td valign=top align=center>$current_sender</td>
+					<td valign=top align=left>$c_message</td>
+					<td valign=top align=center>
 						<input type=hidden name=itemid".$j." value=\"$in_id\">
 						<input type=checkbox name=checkid".$j.">
 					</td>

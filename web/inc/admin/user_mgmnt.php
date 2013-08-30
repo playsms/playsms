@@ -44,19 +44,19 @@ switch ($op) {
 			<tbody>";
 		$j = $nav['top'];
 		for ($i=0;$i<count($list);$i++) {
-			$j--;
-			$td_class = ($j % 2) ? "row_odd" : "row_even";
 			$action = "<a href=\"index.php?app=menu&inc=user_pref&op=user_pref&uname=" . $list[$i]['username'] . "\">".$core_config['icon']['user_pref']."</a>";
 			$action .= "<a href=\"index.php?app=menu&inc=user_config&op=user_config&uname=" . $list[$i]['username'] . "\">".$core_config['icon']['user_config']."</a>";
 			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">".$core_config['icon']['user_delete']."</a>";
+			$j--;
+			$tr_class = ($j % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr>
-					<td class='$td_class' valign=top align=center>" . core_display_datetime($list[$i]['register_datetime']) . "</td>
-					<td class='$td_class' valign=top align=center>" . $list[$i]['username'] . "</td>
-					<td class='$td_class' valign=top align=center>" . $list[$i]['name'] . "</td>
-					<td class='$td_class' valign=top align=center>" . $list[$i]['mobile'] . "</td>	
-					<td class='$td_class' valign=top align=center>" . rate_getusercredit($list[$i]['username']) . "</td>	
-					<td class='$td_class' valign=top align=center>$action</td>
+				<tr class=$tr_class>
+					<td valign=top align=center>" . core_display_datetime($list[$i]['register_datetime']) . "</td>
+					<td valign=top align=center>" . $list[$i]['username'] . "</td>
+					<td valign=top align=center>" . $list[$i]['name'] . "</td>
+					<td valign=top align=center>" . $list[$i]['mobile'] . "</td>	
+					<td valign=top align=center>" . rate_getusercredit($list[$i]['username']) . "</td>	
+					<td valign=top align=center>$action</td>
 				</tr>";
 		}
 		$content .= "
@@ -102,19 +102,19 @@ switch ($op) {
 		$j = $nav['top'];
 		for ($i=0;$i<count($list);$i++) {
 			$list[$i] = core_display_data($list[$i]);
-			$j--;
-			$td_class = ($j % 2) ? "row_odd" : "row_even";
 			$action = "<a href=\"index.php?app=menu&inc=user_pref&op=user_pref&uname=" . $list[$i]['username'] . "\">".$core_config['icon']['user_pref']."</a>";
 			$action .= "<a href=\"index.php?app=menu&inc=user_config&op=user_config&uname=" . $list[$i]['username'] . "\">".$core_config['icon']['user_config']."</a>";
 			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">".$core_config['icon']['user_delete']."</a>";
+			$j--;
+			$tr_class = ($j % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr>
-					<td class='$td_class' valign=top align=center>" . core_display_datetime($list[$i]['register_datetime']) . "</td>
-					<td class='$td_class' valign=top align=center>" . $list[$i]['username'] . "</td>
-					<td class='$td_class' valign=top align=center>" . $list[$i]['name'] . "</td>
-					<td class='$td_class' valign=top align=center>" . $list[$i]['mobile'] . "</td>	
-					<td class='$td_class' valign=top align=center>" . rate_getusercredit($list[$i]['username']) . "</td>	
-					<td class='$td_class' valign=top align=center>$action</td>
+				<tr class=$tr_class>
+					<td valign=top align=center>" . core_display_datetime($list[$i]['register_datetime']) . "</td>
+					<td valign=top align=center>" . $list[$i]['username'] . "</td>
+					<td valign=top align=center>" . $list[$i]['name'] . "</td>
+					<td valign=top align=center>" . $list[$i]['mobile'] . "</td>	
+					<td valign=top align=center>" . rate_getusercredit($list[$i]['username']) . "</td>	
+					<td valign=top align=center>$action</td>
 				</tr>";
 		}
 		$content .= "

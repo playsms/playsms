@@ -259,6 +259,14 @@ li {
 	background-color: #8F9D9E;
 }
 
+.row_odd:hover {
+	background-color: #444;
+}
+
+.row_even:hover {
+	background-color: #444;
+}
+
 .error_string {
 	font-weight: normal;
 	color: #ff0000;

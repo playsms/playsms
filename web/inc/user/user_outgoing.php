@@ -82,12 +82,12 @@ switch ($op) {
 			}
 			$c_message = "<div id=\"user_outgoing_msg\">".$p_msg."</div><div id=\"msg_label\">".$p_datetime."&nbsp;".$p_status."</div><div id=\"msg_option\">".$resend."&nbsp".$forward."</div>";
 			$i--;
-			$td_class = ($i % 2) ? "row_odd" : "row_even";
+			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr>
-					<td valign=top class=$td_class align=center>$current_p_dst</td>
-					<td valign=top class=$td_class align=left>$c_message</td>
-					<td valign=top class=$td_class align=center>
+				<tr class=$tr_class>
+					<td valign=top align=center>$current_p_dst</td>
+					<td valign=top align=left>$c_message</td>
+					<td valign=top align=center>
 						<input type=hidden name=itemid".$j." value=\"$smslog_id\">
 						<input type=checkbox name=checkid".$j.">
 					</td>		  
