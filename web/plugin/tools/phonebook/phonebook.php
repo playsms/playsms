@@ -62,15 +62,15 @@ switch ($op) {
 			$email = $list[$j]['email'];
 			$group_code = strtoupper($list[$j]['code']);
 			$i--;
-			$td_class = ($i % 2) ? "row_odd" : "row_even";
+			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$c_i = "<a href=\"index.php?app=menu&inc=tools_phonebook&op=phonebook_edit&id=".$pid."\">".$i.".</a>";
 			$content .= "
-				<tr>
-					<td valign=top class=$td_class align=center>$name</td>
-					<td valign=top class=$td_class align=center>$mobile</td>
-					<td valign=top class=$td_class align=center>$email</td>
-					<td valign=top class=$td_class align=center>$group_code</td>
-					<td valign=top class=$td_class align=center>
+				<tr class=$tr_class>
+					<td valign=top align=center>$name</td>
+					<td valign=top align=center>$mobile</td>
+					<td valign=top align=center>$email</td>
+					<td valign=top align=center>$group_code</td>
+					<td valign=top align=center>
 						<input type=hidden name=itemid".$j." value=\"$pid\">
 						<input type=checkbox name=checkid".$j.">
 					</td>

@@ -44,13 +44,13 @@ switch ($op) {
 			$name = $list[$j]['name'];
 			$code = $list[$j]['code'];
 			$i++;
-			$td_class = ($i % 2) ? "row_odd" : "row_even";
+			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$c_i = "<a href=\"index.php?app=menu&inc=tools_phonebook&route=group&op=edit&gpid=".$gpid."\">".$i.".</a>";
 			$content .= "
-				<tr>
-					<td valign=top class=$td_class align=center>$name</td>
-					<td valign=top class=$td_class align=center>$code</td>
-					<td valign=top class=$td_class align=center>
+				<tr class=$tr_class>
+					<td valign=top align=center>$name</td>
+					<td valign=top align=center>$code</td>
+					<td valign=top align=center>
 						<input type=hidden name=itemid".$j." value=\"".$gpid."\">
 						<input type=checkbox name=checkid".$j.">
 					</td>

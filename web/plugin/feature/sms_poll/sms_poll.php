@@ -54,8 +54,6 @@ switch ($op) {
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = uid2username($db_row['uid'])) {
-				$i++;
-				$td_class = ($i % 2) ? "row_odd" : "row_even";
 				$poll_status = "<a href=\"index.php?app=menu&inc=feature_sms_poll&op=sms_poll_status&poll_id=".$db_row['poll_id']."&ps=1\"><span class=status_disabled /></a>";
 				if ($db_row['poll_enable']) {
 					$poll_status = "<a href=\"index.php?app=menu&inc=feature_sms_poll&op=sms_poll_status&poll_id=".$db_row['poll_id']."&ps=0\"><span class=status_enabled /></a>";
@@ -64,15 +62,17 @@ switch ($op) {
 				$action .= "<a href=index.php?app=menu&inc=feature_sms_poll&op=sms_poll_edit&poll_id=".$db_row['poll_id'].">".$core_config['icon']['edit']."</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS poll with all its choices and votes ?')." ("._('keyword').": ".$db_row['poll_keyword'].")','index.php?app=menu&inc=feature_sms_poll&op=sms_poll_del&poll_id=".$db_row['poll_id']."')\">".$core_config['icon']['delete']."</a>";
 				if (isadmin()) {
-					$option_owner = "<td class=$td_class align=center>$owner</td>";
+					$option_owner = "<td align=center>$owner</td>";
 				}
+				$i++;
+				$tr_class = ($i % 2) ? "row_odd" : "row_even";
 				$content .= "
-					<tr>
-						<td class=$td_class align=center>".$db_row['poll_keyword']."</td>
-						<td class=$td_class align=center>".$db_row['poll_title']."</td>
+					<tr class=$tr_class>
+						<td align=center>".$db_row['poll_keyword']."</td>
+						<td align=center>".$db_row['poll_title']."</td>
 						".$option_owner."
-						<td class=$td_class align=center>$poll_status</td>
-						<td class=$td_class align=center>$action</td>
+						<td align=center>$poll_status</td>
+						<td align=center>$action</td>
 					</tr>";
 			}
 		}
@@ -136,16 +136,16 @@ switch ($op) {
 			<tbody>";
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
-			$i++;
-			$td_class = ($i % 2) ? "row_odd" : "row_even";
 			$choice_id = $db_row['choice_id'];
 			$choice_keyword = $db_row['choice_keyword'];
 			$choice_title = $db_row['choice_title'];
+			$i++;
+			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr>
-					<td class=$td_class align=center>$choice_keyword</td>
-					<td class=$td_class align=center>$choice_title</td>
-					<td class=$td_class align=center><a href=\"javascript:ConfirmURL('"._('Are you sure you want to delete choice ?')." ("._('title').": ".addslashes($choice_title).", "._('keyword').": ".$choice_keyword.")','index.php?app=menu&inc=feature_sms_poll&op=sms_poll_choice_del&poll_id=$poll_id&choice_id=$choice_id');\">".$core_config['icon']['delete']."</a></td>
+				<tr class=$tr_class>
+					<td align=center>$choice_keyword</td>
+					<td align=center>$choice_title</td>
+					<td align=center><a href=\"javascript:ConfirmURL('"._('Are you sure you want to delete choice ?')." ("._('title').": ".addslashes($choice_title).", "._('keyword').": ".$choice_keyword.")','index.php?app=menu&inc=feature_sms_poll&op=sms_poll_choice_del&poll_id=$poll_id&choice_id=$choice_id');\">".$core_config['icon']['delete']."</a></td>
 				</tr>";	
 		}
 		$content .= "</tbody>

@@ -100,7 +100,7 @@ switch ($op) {
 					$j++;
 					$tr_class = ($j % 2) ? "row_odd" : "row_even";
 					$content .= "
-						<tr class='".$tr_class."'>
+						<tr class=$tr_class>
 							<td>&nbsp;".$j.".</td>
 							<td align='center'>".$item_valid[$i][0]."</td>
 							<td>".$item_valid[$i][1]."</td>
@@ -128,7 +128,7 @@ switch ($op) {
 					$j++;
 					$tr_class = ($j % 2) ? "row_odd" : "row_even";
 					$content .= "
-						<tr class='".$tr_class."'>
+						<tr class=$tr_class>
 							<td>&nbsp;".$j.".</td>
 							<td align='center'>".$item_invalid[$i][0]."</td>
 							<td>".$item_invalid[$i][1]."</td>

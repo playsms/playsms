@@ -51,20 +51,20 @@ switch ($op) {
 		$i=0;
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = uid2username($db_row['uid'])) {
-				$i++;
-				$td_class = ($i % 2) ? "row_odd" : "row_even";
 				$action = "<a href=index.php?app=menu&inc=feature_sms_board&route=view&op=list&board_id=".$db_row['board_id'].">".$core_config['icon']['view']."</a>&nbsp;";
 				$action .= "<a href=index.php?app=menu&inc=feature_sms_board&op=sms_board_edit&board_id=".$db_row['board_id'].">".$core_config['icon']['edit']."</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS board with all its messages ?')." ("._('keyword').": ".$db_row['board_keyword'].")','index.php?app=menu&inc=feature_sms_board&op=sms_board_del&board_id=".$db_row['board_id']."')\">".$core_config['icon']['delete']."</a>";
 				if (isadmin()) {
-					$option_owner = "<td class=$td_class align=center>$owner</td>";
+					$option_owner = "<td align=center>$owner</td>";
 				}
+				$i++;
+				$tr_class = ($i % 2) ? "row_odd" : "row_even";
 				$content .= "
-					<tr>
-						<td class=$td_class align=center>".$db_row['board_keyword']."</td>
-						<td class=$td_class align=center>".$db_row['board_forward_email']."</td>
+					<tr class=$tr_class>
+						<td align=center>".$db_row['board_keyword']."</td>
+						<td align=center>".$db_row['board_forward_email']."</td>
 						".$option_owner."
-						<td class=$td_class align=center>$action</td>
+						<td align=center>$action</td>
 					</tr>";
 			}
 		}

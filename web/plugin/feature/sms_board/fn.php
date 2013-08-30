@@ -190,11 +190,11 @@ function sms_board_output_html($keyword,$line="10") {
 			$tmp_template = str_replace("{DATETIME}",$datetime,$tmp_template);
 			$tmp_template = str_replace("{MESSAGE}",$message,$tmp_template);
 			if (($i % 2) == 0) {
-				$td_class = "sms_board_row_even";
+				$tr_class = "sms_board_row_even";
 			} else {
-				$td_class = "sms_board_row_odd";
+				$tr_class = "sms_board_row_odd";
 			}
-			$content .= "\n<div class=".$td_class.">\n".trim($tmp_template)."\n</div>\n";
+			$content .= "\n<div class=".$tr_class.">\n".trim($tmp_template)."\n</div>\n";
 		}
 		$content .= "\n</div>\n</body>\n</html>\n";
 		return $content;

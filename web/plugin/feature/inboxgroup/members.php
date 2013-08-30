@@ -59,12 +59,12 @@ switch ($op) {
 			$c_uid = $members[$i]['uid'];
 			$c_user = user_getdatabyuid($c_uid);
 			if ($c_username = $c_user['username']) {
-				$j++;
 				$c_name = $c_user['name'];
 				$c_mobile = $c_user['mobile'];
-				$td_class = (($j+1) % 2) ? "row_odd" : "row_even";
+				$j++;
+				$tr_class = (($j+1) % 2) ? "row_odd" : "row_even";
 				$content .= "
-					<tr class='".$td_class."'>
+					<tr class=$tr_class>
 						<td align='center'>".$c_username."</td>
 						<td align='center'>".$c_name."</td>
 						<td align='center'>".$c_mobile."</td>

@@ -44,8 +44,6 @@ switch ($op) {
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = uid2username($db_row['uid'])) {
-				$i++;
-				$td_class = ($i % 2) ? "row_odd" : "row_even";
 				$quiz_status = "<a href=\"index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_status&quiz_id=".$db_row['quiz_id']."&ps=1\"><span class=status_disabled /></a>";
 				if ($db_row['quiz_enable']) {
 					$quiz_status = "<a href=\"index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_status&quiz_id=".$db_row['quiz_id']."&ps=0\"><span class=status_enabled /></a>";
@@ -54,15 +52,17 @@ switch ($op) {
 				$action .= "<a href=index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=".$db_row['quiz_id'].">".$core_config['icon']['edit']."</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS quiz with all its choices and answers ?')." ("._('keyword').": ".$db_row['quiz_keyword'].")','index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_del&quiz_id=".$db_row['quiz_id']."')\">".$core_config['icon']['delete']."</a>";
 				if (isadmin()) {
-					$option_owner = "<td class=$td_class align=center>$owner</td>";
+					$option_owner = "<td align=center>$owner</td>";
 				}
+				$i++;
+				$tr_class = ($i % 2) ? "row_odd" : "row_even";
 				$content .= "
-					<tr>
-						<td class=$td_class align=center>".$db_row['quiz_keyword']."</td>
-						<td class=$td_class align=center>".$db_row['quiz_question']."</td>
+					<tr class=$tr_class>
+						<td align=center>".$db_row['quiz_keyword']."</td>
+						<td align=center>".$db_row['quiz_question']."</td>
 						".$option_owner."
-						<td class=$td_class align=center>$quiz_status</td>
-						<td class=$td_class align=center>$action</td>
+						<td align=center>$quiz_status</td>
+						<td align=center>$action</td>
 					</tr>";
 			}
 		}
@@ -212,21 +212,21 @@ switch ($op) {
 			<tbody>";
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
-			$i++;
-			$td_class = ($i % 2) ? "row_odd" : "row_even";
 			if ($db_row['quiz_answer'] == $db_answer_row['quiz_answer']) {
 				$iscorrect = "<font color=green>"._('correct')."</font>";
 			} else {
 				$iscorrect = "<font color=red>"._('incorrect')."</font>";
 			}
 			$action = "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this answer ?')."','index.php?app=menu&inc=feature_sms_quiz&op=sms_answer_del&quiz_id=$quiz_id&answer_id=".$db_row['answer_id']."')\">".$core_config['icon']['delete']."</a>";
+			$i++;
+			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr>
-					<td class=$td_class align=center>".$db_row['in_datetime']."</td>
-					<td class=$td_class align=center>".$db_row['quiz_sender']."</td>
-					<td class=$td_class align=center>".$db_row['quiz_answer']."</td>
-					<td class=$td_class align=center>$iscorrect</td>
-					<td class=$td_class align=center>$action</td>
+				<tr class=$tr_class>
+					<td align=center>".$db_row['in_datetime']."</td>
+					<td align=center>".$db_row['quiz_sender']."</td>
+					<td align=center>".$db_row['quiz_answer']."</td>
+					<td align=center>$iscorrect</td>
+					<td align=center>$action</td>
 				</tr>";
 		}
 		$content .= "</tbody>

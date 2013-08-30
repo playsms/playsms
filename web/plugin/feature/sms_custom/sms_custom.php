@@ -42,20 +42,20 @@ switch ($op) {
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = uid2username($db_row['uid'])) {
-				$i++;
-				$td_class = ($i % 2) ? "row_odd" : "row_even";
 				$action = "<a href=index.php?app=menu&inc=feature_sms_custom&op=sms_custom_edit&custom_id=" . $db_row['custom_id'] . ">".$core_config['icon']['edit']."</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS custom ?') . " (" . _('keyword') . ": " . $db_row['custom_keyword'] . ")','index.php?app=menu&inc=feature_sms_custom&op=sms_custom_del&custom_id=" . $db_row['custom_id'] . "')\">".$core_config['icon']['delete']."</a>";
 				$custom_url = $db_row['custom_url'];
 				if (isadmin()) {
-					$show_owner = "<td class=$td_class align=center>".$owner."</td>";
+					$show_owner = "<td align=center>".$owner."</td>";
 				}
+				$i++;
+				$tr_class = ($i % 2) ? "row_odd" : "row_even";
 				$content .= "
-					<tr>
-						<td class=$td_class align=center>" . $db_row['custom_keyword'] . "</td>
-						<td class=$td_class>" . $custom_url . "</td>
+					<tr class=$tr_class>
+						<td align=center>" . $db_row['custom_keyword'] . "</td>
+						<td>" . $custom_url . "</td>
 						".$show_owner."
-						<td class=$td_class align=center>$action</td>
+						<td align=center>$action</td>
 					</tr>";
 			}
 		}

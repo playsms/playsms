@@ -52,8 +52,6 @@ switch ($op) {
 				$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id = '".$db_row['subscribe_id']."'";
 				$messages = @dba_num_rows($db_query);
 				if (!$messages) { $messages = 0; }
-				$i++;
-				$td_class = ($i % 2) ? "row_odd" : "row_even";
 				$subscribe_status = "<a href=\"index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_status&subscribe_id=".$db_row['subscribe_id']."&ps=1\"><span class=status_disabled /></a>";
 				if ($db_row['subscribe_enable']) {
 					$subscribe_status = "<a href=\"index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_status&subscribe_id=".$db_row['subscribe_id']."&ps=0\"><span class=status_enabled /></a>";
@@ -61,16 +59,18 @@ switch ($op) {
 				$action = "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=".$db_row['subscribe_id'].">".$core_config['icon']['edit']."</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS subscribe ?')." ("._('keyword').": ".$db_row['subscribe_keyword'].")','index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_del&subscribe_id=".$db_row['subscribe_id']."')\">".$core_config['icon']['delete']."</a>";
 				if (isadmin()) {
-					$option_owner = "<td class=$td_class align=center>$owner</td>";
+					$option_owner = "<td align=center>$owner</td>";
 				}
+				$i++;
+				$tr_class = ($i % 2) ? "row_odd" : "row_even";
 				$content .= "
-					<tr>
-						<td class=$td_class align=center>".$db_row['subscribe_keyword']."</td>
-						<td class=$td_class align=center><a href=index.php?app=menu&inc=feature_sms_subscribe&op=mbr_list&subscribe_id=".$db_row['subscribe_id'].">".$members."</a></td>
-						<td class=$td_class align=center><a href=index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id=".$db_row['subscribe_id'].">".$messages."</a></td>
+					<tr class=$tr_class>
+						<td align=center>".$db_row['subscribe_keyword']."</td>
+						<td align=center><a href=index.php?app=menu&inc=feature_sms_subscribe&op=mbr_list&subscribe_id=".$db_row['subscribe_id'].">".$members."</a></td>
+						<td align=center><a href=index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id=".$db_row['subscribe_id'].">".$messages."</a></td>
 						".$option_owner."
-						<td class=$td_class align=center>$subscribe_status</td>
-						<td class=$td_class align=center>$action</td>
+						<td align=center>$subscribe_status</td>
+						<td align=center>$action</td>
 					</tr>";
 			}
 		}
@@ -400,14 +400,14 @@ switch ($op) {
 			<tbody>";
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
-			$i++;
-			$td_class = ($i % 2) ? "row_odd" : "row_even";
 			$action = "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this member ?')."','index.php?app=menu&inc=feature_sms_subscribe&op=mbr_del&subscribe_id=$subscribe_id&mbr_id=".$db_row['member_id']."')\">".$core_config['icon']['delete']."</a>";
+			$i++;
+			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr>
-					<td class=$td_class align=center>".$db_row['member_number']."</td>
-					<td class=$td_class align=center>".$db_row['member_since']."</td>
-					<td class=$td_class align=center>$action</td>
+				<tr class=$tr_class>
+					<td align=center>".$db_row['member_number']."</td>
+					<td align=center>".$db_row['member_since']."</td>
+					<td align=center>$action</td>
 					</tr>";
 		}
 		$content .= "</tbody>
@@ -446,18 +446,18 @@ switch ($op) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id='$subscribe_id'";
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
-			$i++;
-			$td_class = ($i % 2) ? "row_odd" : "row_even";
 			$action = "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=msg_view&subscribe_id=".$db_row['subscribe_id']."&msg_id=".$db_row['msg_id'].">".$core_config['icon']['view']."</a>&nbsp;";
 			$action .= "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=msg_edit&subscribe_id=$subscribe_id&msg_id=".$db_row['msg_id'].">".$core_config['icon']['edit']."</a>&nbsp;";
 			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this message?')."','index.php?app=menu&inc=feature_sms_subscribe&op=msg_del&subscribe_id=$subscribe_id&msg_id=".$db_row['msg_id']."')\">".$core_config['icon']['delete']."</a>";
+			$i++;
+			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr>
-					<td class=$td_class>".$db_row['msg']."</td>
-					<td class=$td_class align=center>".core_display_datetime($db_row['create_datetime'])."</td>
-					<td class=$td_class align=center>".core_display_datetime($db_row['update_datetime'])."</td>
-					<td class=$td_class align=center>".$db_row['counter']."</td>
-					<td class=$td_class align=center>$action</td>
+				<tr class=$tr_class>
+					<td>".$db_row['msg']."</td>
+					<td align=center>".core_display_datetime($db_row['create_datetime'])."</td>
+					<td align=center>".core_display_datetime($db_row['update_datetime'])."</td>
+					<td align=center>".$db_row['counter']."</td>
+					<td align=center>$action</td>
 					</tr>";
 		}
 		$content .= "</tbody>

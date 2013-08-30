@@ -38,16 +38,16 @@ switch ($op) {
 		$db_result = dba_query($db_query);
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
-			$i++;
 			$tid = $db_row['tid'];
 			$temp_title = $db_row['t_title'];
 			$temp_text = $db_row['t_text'];
-			$td_class = ($i % 2) ? "row_odd" : "row_even";
+			$i++;
+			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr>
-					<td class=\"$td_class\" align=left><a href=\"index.php?app=menu&inc=tools_msgtemplate&op=edit&tid=$tid\">$temp_title</a></td>
-					<td class=\"$td_class\" align=left>$temp_text</td>
-					<td class=\"$td_class\" align=\"center\"><input type=hidden name=tid".$i." value=\"".$db_row['tid']."\"><input type=checkbox name=chkid".$i."></td>
+				<tr class=$tr_class>
+					<td align=left><a href=\"index.php?app=menu&inc=tools_msgtemplate&op=edit&tid=$tid\">$temp_title</a></td>
+					<td align=left>$temp_text</td>
+					<td align=\"center\"><input type=hidden name=tid".$i." value=\"".$db_row['tid']."\"><input type=checkbox name=chkid".$i."></td>
 					<input type=hidden name=tid".$i." value=\"".$db_row['tid']."\">
 				</tr>";
 		}

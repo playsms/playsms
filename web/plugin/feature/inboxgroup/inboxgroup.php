@@ -47,9 +47,9 @@ switch ($op) {
 			$c_catchall = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid=".$c_rid."'>".$c_catchall."</a>";
 			$c_action = "<a href='index.php?app=menu&inc=feature_inboxgroup&op=edit&rid=".$c_rid."'>".$core_config['icon']['edit']."</a> ";
 			$c_action .= "<a href='index.php?app=menu&inc=feature_inboxgroup&op=del&rid=".$c_rid."'>".$core_config['icon']['delete']."</a> ";
-			$td_class = (($i+1) % 2) ? "row_odd" : "row_even";
+			$tr_class = (($i+1) % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr class='".$td_class."'>
+				<tr class=$tr_class>
 					<td align='center'>".$data[$i]['in_receiver']."</td>
 					<td align='center'>".str_replace(',',', ',$data[$i]['keywords'])."</td>
 					<td align='center'>".$c_members."</td>
