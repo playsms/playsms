@@ -1,7 +1,7 @@
 CHANGELOG
 ---------
 
-Version 0.9.9.1 - 130826
+Version 0.9.9.1 - 130902
 - add new webservices type of action IX to get SMS on user's inbox
 - add logger_print() at the begining and the end of webservices
 - add DBHOST and DBPORT on install script
