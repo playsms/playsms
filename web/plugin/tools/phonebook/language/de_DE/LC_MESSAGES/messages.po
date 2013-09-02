@@ -1,0 +1,125 @@
+msgid "Add contact"
+msgstr "Kontakt hinzufügen"
+
+msgid "Add group"
+msgstr "Gruppe hinzufügen"
+
+msgid "Code"
+msgstr "Kürzel"
+
+msgid "Contact has been added"
+msgstr "Kontakt wurde hinzugefügt"
+
+msgid "Contact has been edited"
+msgstr "Kontakt wurde geändert"
+
+msgid "Contact is already exists"
+msgstr "Kontakt existiert bereits"
+
+msgid "Contacts has been imported"
+msgstr "Kontakte wurden importiert"
+
+msgid "Delete selection"
+msgstr "Auswahl löschen"
+
+msgid "Edit contact"
+msgstr "Kontakt editieren"
+
+msgid "Edit group"
+msgstr "Gruppe editieren"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Export"
+msgstr "Export"
+
+msgid "Fail to upload CSV file for phonebook"
+msgstr "Fehler beim Hochladen der CSV-Datei für Telefonbuch"
+
+msgid "Group"
+msgstr "Gruppe"
+
+msgid "Group code"
+msgstr "Gruppenkürzel"
+
+msgid "Group code has been added"
+msgstr "Gruppenkürzel wurde hinzugefügt"
+
+msgid "Group code is already exists"
+msgstr "Gruppenkürzel existiert bereits"
+
+msgid "Group code used by keyword"
+msgstr "Gruppenkürzel wird von einem Schlagwort verwendet"
+
+msgid "Group has been edited"
+msgstr "Gruppe wurde geändert"
+
+msgid "Group name"
+msgstr "Gruppenname"
+
+msgid "Import"
+msgstr "Import"
+
+msgid "Import above phonebook entries ?"
+msgstr "Importiere obige Telefonbucheinträge?"
+
+msgid "Import confirmation"
+msgstr "Import-Bestätigung"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "No changes has been made"
+msgstr "Es wurden KEINE Änderungen vorgenommen"
+
+msgid "Note"
+msgstr "Bemerkung"
+
+msgid "Phonebook"
+msgstr "Telefonbuch"
+
+msgid "Please select CSV file for phonebook entries"
+msgstr "Bitte CSV-Datei für Telefonbuch-Einträge auswählen"
+
+msgid "Publish"
+msgstr "Veröffentlichen"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Selected contact has been deleted"
+msgstr "Gewählte Kontakte wurden gelöscht"
+
+msgid "Selected group has been deleted"
+msgstr "Gewählte Grupppe wurde geändert"
+
+msgid "Unpublish"
+msgstr "Veröffentlichung zurückziehen"
+
+msgid "You must fill all field"
+msgstr "Es müssen alle Felder ausgefüllt werden"
+
+msgid "broadcast SMS from single SMS"
+msgstr "Sammel-SMS aus einfacher SMS "
+
+msgid "code"
+msgstr "Kürzel"
+
+msgid "format"
+msgstr "Format"
+
+msgid "group"
+msgstr "Gruppe"
+
+msgid "mobile"
+msgstr "Mobil"
+
+msgid "name"
+msgstr "Name"
+
+msgid "please use uppercase and make it short"
+msgstr "Bitte in Großbuchstaben und kurz"

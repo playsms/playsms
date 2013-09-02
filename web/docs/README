@@ -88,9 +88,10 @@ p-walker (p-walker)
 
 Translators
 -----------
-id_ID	: Anton Raharja (anton), Andry Rachmadany (hangsbreaker)
-fr_FR	: Emmanuel Chanson (emmanuel), Elingui Pascal Uriel (elinguiuriel)
-zh_CN	: Frank Van Caenegem (fvancaen)
-es_VE	: Alfredo Hernandez (alfredo)
 ca_ES	: Joan (aseques)
+de_DE	: Andre Gronwald (andre)
+es_VE	: Alfredo Hernandez (alfredo)
+fr_FR	: Emmanuel Chanson (emmanuel), Elingui Pascal Uriel (elinguiuriel)
+id_ID	: Anton Raharja (anton), Andry Rachmadany (hangsbreaker)
 pt_BR	: Lucas Teixeira (lucastx), Gabriel Schanuel (gschanuel)
+zh_CN	: Frank Van Caenegem (fvancaen)

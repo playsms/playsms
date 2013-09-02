@@ -11,6 +11,7 @@ Version 0.9.9.1 - 130902
 - add hints with tooltip
 - add new option CSS URL to decorate sms_board
 - add new gateway Twilio twilio.com
+- add new language de_DE Deutsch (andre)
 - add lib/version.php contains version number
 - add automatically set Unicode if non-latin chars typed and vice versa (dvoryanchikov)
 - update kannel gateway related to account and dcs (dvoryanchikov)

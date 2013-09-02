@@ -1,0 +1,712 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-20 13:19+0200\n"
+"Language: de_DE\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "About"
+msgstr "Über"
+
+msgid "About playSMS"
+msgstr "Über playSMS"
+
+msgid "Action"
+msgstr "Aktion"
+
+msgid "Active gateway module"
+msgstr "Ausgewähltes Gatway-Modul"
+
+msgid "Active language"
+msgstr "Ausgewählte Sprache"
+
+msgid "Active themes"
+msgstr "Ausgewähltes Theme"
+
+msgid "Add"
+msgstr "Hinzufügen"
+
+msgid "Add message template"
+msgstr "Nachrichten-Vorlage hinzufügen"
+
+msgid "Add user"
+msgstr "Benutzer hinzufügen"
+
+msgid "Address"
+msgstr "Adresse"
+
+msgid "Administration"
+msgstr "Administration"
+
+msgid "Administrator"
+msgstr "Administrator"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "All Inbox"
+msgstr "Alle Inbox"
+
+msgid "All inbox"
+msgstr "Alle Inbox"
+
+msgid "All incoming SMS"
+msgstr "Alle empfangenen SMS"
+
+msgid "All outgoing SMS"
+msgstr "Alle gesendeten SMS"
+
+msgid "Always add plus sign"
+msgstr "Immer Plus-Zeichen hinzufügen"
+
+msgid "Always choose to send as unicode"
+msgstr "Unicode immer vorausgewählt"
+
+msgid "Application information"
+msgstr "Applikationsinformation"
+
+msgid "Application options"
+msgstr "Applikationseinstellungen"
+
+msgid "Are you sure you want to delete outgoing SMS ?"
+msgstr "Gesendete SMS wirklich löschen?"
+
+msgid "Are you sure you want to delete this SMS ?"
+msgstr "Diese SMS wirklich löschen?"
+
+msgid "Are you sure you want to delete user"
+msgstr "User wirklich löschen?"
+
+msgid "Are you sure you want to delete user ?"
+msgstr "User wirklich löschen?"
+
+msgid "Auto remove plus sign"
+msgstr "Plus-Zeichen automatisch entfernen"
+
+msgid "Auto replace prefix 0"
+msgstr "Automatisch führende 0 ersetzen"
+
+msgid "Back"
+msgstr "zurück"
+
+msgid "Changelog"
+msgstr "Changelog"
+
+msgid "City"
+msgstr "Stadt"
+
+msgid "Comma seperated"
+msgstr "Komma-separiert"
+
+msgid "Content"
+msgstr "Inhalt"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Created"
+msgstr "Erstellt"
+
+msgid "Credit"
+msgstr "Guthaben"
+
+msgid "Currently logged in user is immune to deletion"
+msgstr "Aktuell eingeloggter Benutzer darf nicht gelöscht werden"
+
+msgid "Date time"
+msgstr "Datum Uhrzeit"
+
+msgid "Default"
+msgstr "Standard"
+
+msgid "Default SMS rate"
+msgstr "Standard SMS Rate"
+
+msgid "Default credit for user"
+msgstr "Standard Guthaben für Benutzer"
+
+msgid "Default language"
+msgstr "Standard Sprache"
+
+msgid "Default sender ID"
+msgstr "Standard Sender-ID"
+
+msgid "Default timezone"
+msgstr "Standard Zeitzone"
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Delete all templates ?"
+msgstr "Alle Vorlagen löschen?"
+
+msgid "Delete message template"
+msgstr "Nachrichten-Vorlage löschen"
+
+msgid "Delete selection"
+msgstr "Auswahl löschen"
+
+msgid "Delivered"
+msgstr "Übermittelt"
+
+msgid "Edit"
+msgstr "Ändern"
+
+msgid "Edit message template"
+msgstr "Nachrichten-Vorlage ändern"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Bsp.: +0100 für Berlin"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Email is already in use by other username"
+msgstr "Email ist bereits für anderen user hinterlegt"
+
+msgid "Enable forgot password"
+msgstr "Aktiviere Passwort zurücksetzen"
+
+msgid "Enable public registration"
+msgstr "Aktiviere öffentliche Registrierung"
+
+msgid "Enable webservices"
+msgstr "Aktiviere Webservice"
+
+msgid "Export"
+msgstr "Export"
+
+msgid "F.A.Q"
+msgstr "FAQ"
+
+msgid "Fail sent SMS, no credit"
+msgstr "Fehler beim SMS-Versand, kein Guthaben"
+
+msgid "Fail to delete SMS"
+msgstr "Fehler beim Löschen der SMS"
+
+msgid "Fail to delete incoming SMS"
+msgstr "Fehler beim Löschen der empfangenen SMS"
+
+msgid "Fail to delete user"
+msgstr "Fehler beim Löschen des Benutzers"
+
+msgid "Fail to edit message template"
+msgstr "Fehler beim Ändern der Nachrichten-Vorlage"
+
+msgid "Fail to recover password"
+msgstr "Fehler beim Zurücksetzen des Passworts"
+
+msgid "Fail to register an account"
+msgstr "Fehler beim Registrieren eines Accounts"
+
+msgid "Fail to save preferences"
+msgstr "Fehler beim Speichern der Einstellungen"
+
+msgid "Fail to send email"
+msgstr "Fehler beim Senden der Email"
+
+msgid "Fail to sent SMS"
+msgstr "Fehler beim Senden der SMS"
+
+msgid "Failed"
+msgstr "Fehler"
+
+msgid "Feature"
+msgstr "Erweiterungen"
+
+msgid "Fill to change password for username"
+msgstr "Ausfüllen zum Ändern des Passworts für username"
+
+msgid "Fill to update"
+msgstr "Ausfüllen zum aktualisieren"
+
+msgid "Flash message"
+msgstr "Flash-Nachricht"
+
+msgid "Footer"
+msgstr "Fußzeile"
+
+msgid "Forward PV to email"
+msgstr "Leite PV als Email weiter"
+
+msgid "Forward PV to inbox"
+msgstr "Leite PV an inbox weiter"
+
+msgid "Forward PV to mobile"
+msgstr "Leite PV an Mobiltelefon weiter"
+
+msgid "Forward Private WebSMS"
+msgstr "Leite private WebSMS weiter"
+
+msgid "Forward SMS to email"
+msgstr "Leite SMS als Email weiter"
+
+msgid "Forward SMS to inbox"
+msgstr "Leite SMS an inbox weiter"
+
+msgid "Forward SMS to mobile"
+msgstr "Leite SMS an Mobiltelefon weiter"
+
+msgid "Forward from"
+msgstr "Weiterleiten von"
+
+msgid "Forwarded email footer"
+msgstr "Fußzeile in weitergeleiteter Email"
+
+msgid "From"
+msgstr "Von"
+
+msgid "Full name"
+msgstr "Vollständiger Name"
+
+msgid "Gateway"
+msgstr "Gateway"
+
+msgid "Go"
+msgstr "Los"
+
+msgid "Group"
+msgstr "Gruppe"
+
+msgid "Group code"
+msgstr "Gruppenkuerzel"
+
+msgid "HTTP API"
+msgstr "HTTP API"
+
+msgid "Home"
+msgstr "Start"
+
+msgid "Inbox"
+msgstr "Inbox"
+
+msgid "Incoming SMS"
+msgstr "Empfangene SMS"
+
+msgid "Installation Guide"
+msgstr "Installationsanlaeitung"
+
+msgid "International format"
+msgstr "Internationales Format"
+
+msgid "Invalid username or password"
+msgstr "Ungültiger Benutzername oder Passwort"
+
+msgid "Keyword"
+msgstr "Schlagwort"
+
+msgid "Last update"
+msgstr "Letztes Upate"
+
+msgid "License"
+msgstr "Lizenz"
+
+msgid "Local number length"
+msgstr "Lokale Rufnummernlänge"
+
+msgid "Login information"
+msgstr "Login Information"
+
+msgid "Logout"
+msgstr "Logout"
+
+msgid "Main configuration"
+msgstr "Hauptkonfiguration"
+
+msgid "Main configuration changes has been saved"
+msgstr "Änderungen der Hauptkonfiguration wurden gepseichert"
+
+msgid "Manage"
+msgstr "Verwalten"
+
+msgid "Manage user"
+msgstr "Benutzerverwaltung"
+
+msgid "Max. 16 numeric or 11 alphanumeric characters"
+msgstr "Max. 16 numerische oder 11 alphanumerische Zeichen"
+
+msgid "Max. 30 alphanumeric characters"
+msgstr "Max. 30 alphanumerische Zeichen"
+
+msgid "Maximum SMS count"
+msgstr "Maximale Anzahl SMS"
+
+msgid "Message"
+msgstr "Nachricht"
+
+msgid "Message template"
+msgstr "Nachrichten-Vorlage"
+
+msgid "Message template content"
+msgstr "Inhalt Nachrichten-Vorlage"
+
+msgid "Message template has been edited"
+msgstr "Nachrichten-Vorlage wurde geändert"
+
+msgid "Message template has been saved"
+msgstr "Nachrichten-Vorlage wurde gespeichert"
+
+msgid "Message template name"
+msgstr "Name der Nachrichten-Vorlage"
+
+msgid "Min length to detect missing country code"
+msgstr "Minimale Länge um fehldenden Ländercode zu erkennen"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Mobile is already in use by other username"
+msgstr "Mobilrufnummer ist bereits von anderen Benutzer verwendet"
+
+msgid "Mobile number"
+msgstr "Mobilrufnummer"
+
+msgid "My Account"
+msgstr "Mein Account"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "New account registration"
+msgstr "Neue Account-Registrierung"
+
+msgid "New webservices token"
+msgstr "Neuer Webservice-Token"
+
+msgid "No changes made"
+msgstr "Keine Änderungen vorgenommen"
+
+msgid "Normal User"
+msgstr "Einfacher Benutzer"
+
+msgid "Normal user"
+msgstr "Einfacher Benutzer"
+
+msgid "Or"
+msgstr "Qr"
+
+msgid "Outgoing SMS"
+msgstr "Gesendete SMS"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Password does not match"
+msgstr "Passwörter stimmen nicht überein"
+
+msgid "Password has been sent to your email"
+msgstr "Passwort wurde per Mail verschickt"
+
+msgid "Password recovery"
+msgstr "Passwort-Rücksetzung"
+
+msgid "Password should be at least 4 characters"
+msgstr "Passwort muss aus mind. 4 Zeichen bestehen"
+
+msgid "Pending"
+msgstr "bevorstehend"
+
+msgid "Personal information"
+msgstr "Persönliche Information"
+
+msgid "Phone number(s)"
+msgstr "Rufnummern"
+
+msgid "Phonebook"
+msgstr "Telefonbuch"
+
+msgid "Pick Date & Time"
+msgstr "Verwende Datum und Zeit"
+
+msgid "Please select"
+msgstr "Bitte wählen"
+
+msgid "Please select template"
+msgstr "Bitte Vorlage auswählen"
+
+msgid "Preferences"
+msgstr "Einstellungen"
+
+msgid "Preferences has been saved"
+msgstr "Einstellungen wurden gespeichert"
+
+msgid "Preferences has been saved and password updated"
+msgstr "Einstellungen wurden gespeichert und das Passwort aktualisiert"
+
+msgid "Preferences has been saved and webservices token updated"
+msgstr "Einstellungen wurden gespeichert und der Webservice-Token aktualisiert"
+
+msgid "Prefix or country code"
+msgstr "Präfix oder Ländercode"
+
+msgid "Public registration disabled"
+msgstr "Öffentliche Registrierung deaktiviert"
+
+msgid "Re-Type Password"
+msgstr "Passwort erneut eingeben"
+
+msgid "Re-type password"
+msgstr "Passwort erneut eingeben"
+
+msgid "Receiver"
+msgstr "Empfänger"
+
+msgid "Recover password disabled"
+msgstr "Passwort-Rücksetzung deaktiviert"
+
+msgid "Registered"
+msgstr "Regstriert"
+
+msgid "Replace prefix 0 or padding local numbers"
+msgstr "Ersetze führende 0 oder Auffüllen lokaler Nummern"
+
+msgid "Reply"
+msgstr "Antwort"
+
+msgid "SMS character"
+msgstr "SMS Zeichen"
+
+msgid "SMS footer"
+msgstr "SMS Fußzeile"
+
+msgid "SMS sender ID"
+msgstr "SMS Sender-ID"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Save template"
+msgstr "Vorlage speichern"
+
+msgid "Search"
+msgstr "Suche"
+
+msgid "Select action"
+msgstr "Auswahl Aktion"
+
+msgid "Selected incoming SMS has been deleted"
+msgstr "Ausgewählte empfangene SMS wurde gelöscht"
+
+msgid "Selected message template has been deleted"
+msgstr "Ausgewählte Nachrichten-Vorlage wurde gelöscht"
+
+msgid "Selected outgoing SMS has been deleted"
+msgstr "Ausgewählte gesendete SMS wurde gelöscht"
+
+msgid "Send"
+msgstr "Absenden"
+
+msgid "Send SMS"
+msgstr "Sende SMS"
+
+msgid "Send as flash message"
+msgstr "Sende als flash SMS"
+
+msgid "Send as unicode message"
+msgstr "Sende als Unicode-Nachricht"
+
+msgid "Send broadcast SMS"
+msgstr "Sende Sammel-SMS"
+
+msgid "Send to"
+msgstr "Sende an"
+
+msgid "Send to group"
+msgstr "Sende an Gruppe"
+
+msgid "Sender"
+msgstr "Absender"
+
+msgid "Sent"
+msgstr "Gesendet"
+
+msgid "State or Province"
+msgstr "Staat oder Region"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Time"
+msgstr "Zeit"
+
+msgid "Timezone"
+msgstr "Zeitzone"
+
+msgid "To"
+msgstr "An"
+
+msgid "Tools"
+msgstr "Werkzeuge"
+
+msgid "Unable to update login session"
+msgstr "Login Session kann nicht aktualisiert werden"
+
+msgid "Unicode message"
+msgstr "Unicode Nachricht"
+
+msgid "Use"
+msgstr "Benutze"
+
+msgid "Use template"
+msgstr "Vorlage benutzen"
+
+msgid "User"
+msgstr "Benutzer"
+
+msgid "User already exists"
+msgstr "Benutzer existiert bereits"
+
+msgid "User does not exists"
+msgstr "Benutzer existiert nicht"
+
+msgid "User has been added"
+msgstr "Benutzer wurde hinzugefügt"
+
+msgid "User has been deleted"
+msgstr "Benutzer wurde gelöscht"
+
+msgid "User is already exists"
+msgstr "Benutzer existiert bereits"
+
+msgid "User is immune to deletion"
+msgstr "Benutzer dürfen nicht gelöscht werden"
+
+msgid "User level"
+msgstr "Benutzer Level"
+
+msgid "Username"
+msgstr "Benutzername"
+
+msgid "Username should be at least 3 characters"
+msgstr "Benutzername muss mindestens 3 Zeichen lang sein"
+
+msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr "Zulässige Zeichen für den Benutzernamen sind Buchstaben, Zahlen, Punkt oder Gedankenstrich"
+
+msgid "View"
+msgstr "Anzeigen"
+
+msgid "View administrator"
+msgstr "Zeige Administratoren"
+
+msgid "View groups"
+msgstr "Zeige Gruppen"
+
+msgid "View normal user"
+msgstr "Zeige Benutzer"
+
+msgid "View numbers"
+msgstr "Zeige Kennzahlen"
+
+msgid "Webapp Token"
+msgstr "Webapp Token"
+
+msgid "Webapp token"
+msgstr "Webapp Token"
+
+msgid "Webservices"
+msgstr "Webservices"
+
+msgid "Webservices IP range"
+msgstr "Webservices IP-Bereich"
+
+msgid "Webservices token"
+msgstr "Webservices Token"
+
+msgid "Website email"
+msgstr "Webseiten Email"
+
+msgid "Website title"
+msgstr "Webseiten Titel"
+
+msgid "Welcome to playSMS"
+msgstr "Willkommen zu playSMS"
+
+msgid "You have been logged out"
+msgstr "Sie wurden ausgeloggt"
+
+msgid "You have no access to this page"
+msgstr "Sie haben keinen Zugriff zu dieser Seite"
+
+msgid "You must fill all field"
+msgstr "Sie müssen alle Felder ausfüllen"
+
+msgid "You must fill all fields"
+msgstr "Sie müssen alle Felder ausfüllen"
+
+msgid "You must select receiver and your message should not be empty"
+msgstr "Sie müssen den Empfänger auswählen und die Nachricht darf nicht leer sein"
+
+msgid "You must select receiver group and your message should not be empty"
+msgstr "Sie müssen die Empfänger-Gruppe auswählen und die Nachricht darf nicht leer sein"
+
+msgid "Your SMS has been delivered to queue"
+msgstr "Ihre SMS wurde an die Zustell-Queue übermittelt"
+
+msgid "Your email format is invalid"
+msgstr "Das Email-Format ist ungültig"
+
+msgid "Your message"
+msgstr "Ihre Nachricht"
+
+msgid "Your mobile format is invalid"
+msgstr "Ihr Mobilrufnummern-Format ist ungültig"
+
+msgid "Zipcode"
+msgstr "PLZ"
+
+msgid "email"
+msgstr "Email"
+
+msgid "failed"
+msgstr "gescheitert"
+
+msgid "forward"
+msgstr "weiterleiten"
+
+msgid "from"
+msgstr "von"
+
+msgid "generated on user creation"
+msgstr "generiert bei Benutzer-Erstellung"
+
+msgid "handled"
+msgstr "erledigt"
+
+msgid "mobile"
+msgstr "Mobil"
+
+msgid "no"
+msgstr "nein"
+
+msgid "not set"
+msgstr "nicht gesetzt"
+
+msgid "number"
+msgstr "Nummer"
+
+msgid "queued"
+msgstr "eingereiht"
+
+msgid "reply"
+msgstr "antworten"
+
+msgid "row"
+msgstr "Zeile"
+
+msgid "shared by"
+msgstr "geteilt von"
+
+msgid "to"
+msgstr "an"
+
+msgid "unhandled"
+msgstr "unerledigt"
+
+msgid "username"
+msgstr "Benutzername"
+
+msgid "yes"
+msgstr "ja"

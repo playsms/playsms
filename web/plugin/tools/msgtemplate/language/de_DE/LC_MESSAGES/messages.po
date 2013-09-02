@@ -1,0 +1,44 @@
+msgid "Add message template"
+msgstr ""
+
+msgid "Content"
+msgstr "Inhalt"
+
+msgid "Delete selection"
+msgstr "Auswahl löschen"
+
+msgid "Edit message template"
+msgstr "Editiere Nachrichten-Vorlage"
+
+msgid "Fail to add message template"
+msgstr "Fehler beim Hinzufügen der Nachrichten-Vorlage"
+
+msgid "Fail to edit message template"
+msgstr "Fehler beim Editieren der Nachrichten-Vorlage"
+
+msgid "Message template"
+msgstr "Nachrichten-Vorlage"
+
+msgid "Message template content"
+msgstr "Nachrichten-Vorlage Inhalt"
+
+msgid "Message template has been edited"
+msgstr "Nachrichten-Vorlage wurde editiert"
+
+msgid "Message template has been saved"
+msgstr "Nachrichten-Vorlage wurde gespeichert"
+
+msgid "Message template name"
+msgstr "Nachrichten-Vorlagen Name"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Selected message template has been deleted"
+msgstr "Gewählte Nachrichten-Vorlage wurde gelöscht"
+
+msgid "You must fill all fields"
+msgstr "Es müssen alle Felder ausgefüllt werden"

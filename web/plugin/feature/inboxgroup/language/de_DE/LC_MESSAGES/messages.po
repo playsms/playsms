@@ -1,0 +1,198 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr "Aktion"
+
+msgid "Add catch-all"
+msgstr "Hinzufügen Catch-All"
+
+msgid "Add group inbox"
+msgstr "Hinzufügen Gruppen-Inbox"
+
+msgid "Add member"
+msgstr "Hinzufügen Mitglied"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "All users"
+msgstr "Alle Benutzer"
+
+msgid "Are you sure you want to delete this group inbox ?"
+msgstr "Gruppen-Inbox wirklich löschen?"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Catch-all"
+msgstr "Catch-All"
+
+msgid "Catch-all has been added"
+msgstr "Catch-All wurde hinzugefügt"
+
+msgid "Catch-all has been deleted"
+msgstr "Catch-All wurde gelöscht"
+
+msgid "Catch-all list"
+msgstr "Catch-All Liste"
+
+msgid "Current catchall"
+msgstr "Aktuelle Catch-All"
+
+msgid "Current members"
+msgstr "Aktuelle Mitglieder"
+
+msgid "Delete catch-all"
+msgstr "Lösche Catch-All"
+
+msgid "Delete group inbox"
+msgstr "Lösche Gruppen-Inbox"
+
+msgid "Delete member"
+msgstr "Lösche Mitglied"
+
+msgid "Description"
+msgstr "Beschreibung"
+
+msgid "Edit group inbox"
+msgstr "Editiere Gruppen-Inbox"
+
+msgid "Exclusive"
+msgstr "Exklusiv"
+
+msgid "Fail to add catch-all"
+msgstr "Fehler beim Catch-All Hinzufügen"
+
+msgid "Fail to add group inbox"
+msgstr "Fehler beim Hinzufügen der Gruppen-Inbox"
+
+msgid "Fail to add member"
+msgstr "Fehler beim Hinzufügen des Mitglieds"
+
+msgid "Fail to delete catch-all"
+msgstr "Fehler beim Catch-All Löschen"
+
+msgid "Fail to delete group inbox"
+msgstr "Fehler beim Löschen der Gruppen-Inbox"
+
+msgid "Fail to delete member"
+msgstr "Fehler beim Löschen des Mitglieds"
+
+msgid "Fail to disable group inbox"
+msgstr "Fehler beim deaktivieren der Gruppen-Inbox"
+
+msgid "Fail to edit group inbox"
+msgstr "Fehler beim editieren der Grupen-Inbox"
+
+msgid "Fail to enable group inbox"
+msgstr "Fehler beim aktivieren der Gruppen-Inbox"
+
+msgid "For example a short code"
+msgstr "Als Beispiel ein kurzer Code"
+
+msgid "Group inbox"
+msgstr "Gruppen-Inbox"
+
+msgid "Group inbox has been added"
+msgstr "Gruppen-Inbox wurde hinzugefügt"
+
+msgid "Group inbox has been deleted"
+msgstr "Gruppen-Inbox wurde gelöscht"
+
+msgid "Group inbox has been disabled"
+msgstr "Gruppen-Inbox wurde deaktiviert"
+
+msgid "Group inbox has been edited"
+msgstr "Gruppen-Inbox wurde geändert"
+
+msgid "Group inbox has been enabled"
+msgstr "Gruppen-Inbox wurde aktiviert"
+
+msgid "Keywords"
+msgstr "Schlagworte"
+
+msgid "Member has been added"
+msgstr "Mitglied wurde hinzugefügt"
+
+msgid "Member has been deleted"
+msgstr "Mitglied wurde gelöscht"
+
+msgid "Member list"
+msgstr "Mitgliederliste"
+
+msgid "Members"
+msgstr "Mitglieder"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Number"
+msgstr "Nummer"
+
+msgid "Press submit button to add selected users to catch-all list"
+msgstr "Drücke Ausführen, um gewählten Benutzer zur Catch-All-Liste hinzuzufügen"
+
+msgid "Press submit button to add selected users to member list"
+msgstr "Drücke Ausführen, um gewählten Benutzer zur Mitgliederliste hinzuzufügen"
+
+msgid "Press submit button to remove selected catchall from catch-all list"
+msgstr "Drücke Ausführen, um gewählten Catch-All von Catch-All-Liste zu streichen"
+
+msgid "Press submit button to remove selected members from member list"
+msgstr "Drücke Ausführen, um ausgewählte Mitglieder von Mitgliederliste zu streichen"
+
+msgid "Receiver number"
+msgstr "Empfängernummer"
+
+msgid "Receiver number does not exists"
+msgstr "Empfängernummer existiert nicht"
+
+msgid "Restrict sender to regular members or catch-all members only"
+msgstr "Sender auf gültige Mitglieder oder Catch-All-Mitglieder beschränken"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Selected catchall"
+msgstr "Ausgewählter Catch-All"
+
+msgid "Selected members"
+msgstr "Ausgewählte Mitglieder"
+
+msgid "Selected users"
+msgstr "Ausgewählte Benutzer"
+
+msgid "Seperate with comma for multiple items"
+msgstr "Mit Komma trennen für mehrere Objekte"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Username"
+msgstr "Benutzername"
+
+msgid "Yes"
+msgstr "ja"
+
+msgid "You must fill all fields"
+msgstr "Es müssen alle Felder ausgefüllt werden"
+
+msgid "disabled"
+msgstr "deaktiviert"
+
+msgid "enabled"
+msgstr "aktiviert"
+
+msgid "no"
+msgstr "nein"
+
+msgid "yes"
+msgstr "ja"

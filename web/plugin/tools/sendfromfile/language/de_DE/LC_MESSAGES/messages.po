@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Cancel send from file"
+msgstr "Aus Datei senden abbrechen"
+
+msgid "Confirmation"
+msgstr "Bestätigung"
+
+msgid "Destination number"
+msgstr "Zielnummer"
+
+msgid "Fail to remove cancelled entries from database"
+msgstr "Fehler beim Löschen abgebrochener Einträge aus der Datenbank"
+
+msgid "Found invalid entries in uploaded file"
+msgstr "Ungültige Einträge in hochgeladener Datei gefunden"
+
+msgid "Found valid entries in uploaded file"
+msgstr "Gültige Einträge in hochgeladener Datei gefunden"
+
+msgid "Invalid CSV file"
+msgstr "Ungültige CSV-Datei"
+
+msgid "Invalid entries"
+msgstr "Ungültige Einträge"
+
+msgid "Invalid session ID"
+msgstr "Ungültige Session-ID"
+
+msgid "Message"
+msgstr "Nachricht"
+
+msgid "Please select CSV file"
+msgstr "Bitte CSV-Datei auswählen"
+
+msgid "SMS has been sent to valid numbers in uploaded file"
+msgstr "SMS wurde an die gültigen Nummern aus der CSV-Datei verschickt"
+
+msgid "Send SMS to valid entries"
+msgstr "Sende SMS an gültige Einträge"
+
+msgid "Send from file"
+msgstr "Sende SMS aus Datei"
+
+msgid "Send from file has been cancelled"
+msgstr "Sende aus Datei wurde abgebrochen"
+
+msgid "Upload file"
+msgstr "Datei hochladen"
+
+msgid "Uploaded file"
+msgstr "Datei hochgeladen"
+
+msgid "Username"
+msgstr "Benutzername"
+
+msgid "Valid entries"
+msgstr "Gültige Eintrgäe"
+
+msgid "Your choice"
+msgstr "Ihre Auswahl"
+
+msgid "format : destination number, message"
+msgstr "Format: Zielrufnummer, Nachricht"
+
+msgid "format : destination number, message, username"
+msgstr "Format: zielrufnummer, Nachricht, Benutzername"
+
+msgid "invalid entries"
+msgstr "Ungültige Einträge"
+
+msgid "of"
+msgstr "von"
+
+msgid "valid entries"
+msgstr "Gültige Einträge"
