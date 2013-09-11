@@ -58,9 +58,13 @@ function inboxgroup_hook_interceptincomingsms($sms_datetime, $sms_sender, $messa
 				// proceed only if receiver id exists
 				if ($data['id'] && $data['status']) {
 					// forward to catch all users (if any)
-					inboxgroup_forwardcatchall($data, $log_in_id, $sms_sender, $msg['content']);
-					// set handled
-					$ret['hooked'] = true;
+					// save incoming SMS in log
+					if ($log_in_id = inboxgroup_saveinlog($data['id'], $sms_datetime, $sms_sender, $keyword, $msg['content'], $sms_receiver)) {
+						// forward to non catch all users (members, if any)
+						inboxgroup_forwardcatchall($data, $log_in_id, $sms_sender, $msg['content']);
+						// set handled
+						$ret['hooked'] = true;
+					}
 				}
 			}
 		}
@@ -139,9 +143,12 @@ function inboxgroup_extractmessage($message) {
 	return $ret;
 }
 
-function inboxgroup_getdata($sms_receiver, $keyword) {
+function inboxgroup_getdata($sms_receiver, $keyword='') {
 	$ret = array();
-	$db_query = "SELECT * FROM "._DB_PREF_."_featureInboxgroup WHERE deleted='0' AND in_receiver='$sms_receiver' AND keywords LIKE '%".$keyword."%'";
+	if (trim($keyword)) {
+		$the_keyword = "AND keywords LIKE '%".trim($keyword)."%'";
+	}
+	$db_query = "SELECT * FROM "._DB_PREF_."_featureInboxgroup WHERE deleted='0' AND in_receiver='$sms_receiver' ".$the_keyword;
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$ret = $db_row;
