@@ -40,15 +40,6 @@ if ($type && $slid && $uid) {
 		$p_status = $stat - 3;
 	}
 	setsmsdeliverystatus($slid,$uid,$p_status);
-	// log dlr
-	$db_query = "SELECT kannel_dlr_id FROM "._DB_PREF_."_gatewayKannel_dlr WHERE smslog_id='$slid'";
-	$db_result = dba_num_rows($db_query);
-	if ($db_result > 0) {
-		$db_query = "UPDATE "._DB_PREF_."_gatewayKannel_dlr SET c_timestamp='".mktime()."',kannel_dlr_type='$type' WHERE smslog_id='$slid'";
-		$db_result = dba_query($db_query);
-	} else {
-		$db_query = "INSERT INTO "._DB_PREF_."_gatewayKannel_dlr (smslog_id,kannel_dlr_type) VALUES ('$slid','$type')";
-		$db_result = dba_query($db_query);
-	}
 }
+
 ?>

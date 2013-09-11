@@ -835,31 +835,6 @@ INSERT INTO `playsms_gatewayKannel_config` VALUES (0,'kannel','/var/spool/playsm
 UNLOCK TABLES;
 
 --
--- Table structure for table `playsms_gatewayKannel_dlr`
---
-
-DROP TABLE IF EXISTS `playsms_gatewayKannel_dlr`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `playsms_gatewayKannel_dlr` (
-  `c_timestamp` int(11) NOT NULL DEFAULT '0',
-  `kannel_dlr_id` int(11) NOT NULL AUTO_INCREMENT,
-  `smslog_id` int(11) NOT NULL DEFAULT '0',
-  `kannel_dlr_type` tinyint(4) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`kannel_dlr_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `playsms_gatewayKannel_dlr`
---
-
-LOCK TABLES `playsms_gatewayKannel_dlr` WRITE;
-/*!40000 ALTER TABLE `playsms_gatewayKannel_dlr` DISABLE KEYS */;
-/*!40000 ALTER TABLE `playsms_gatewayKannel_dlr` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `playsms_gatewayMsgtoolbox`
 --
 
