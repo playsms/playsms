@@ -9,5 +9,10 @@ cd $CWD
 
 CWD=`pwd`
 cd $PLAYSMS_BIN
+./recvsmsd $PLAYSMS_PATH >/dev/null 2>&1 &
+cd $CWD
+
+CWD=`pwd`
+cd $PLAYSMS_BIN
 ./sendsmsd $PLAYSMS_PATH >/dev/null 2>&1 &
 cd $CWD

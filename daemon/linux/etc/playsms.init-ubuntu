@@ -21,8 +21,9 @@
 
 . /lib/lsb/init-functions
 
-PIDFILE1=/var/run/playsms.pid
-PIDFILE2=/var/run/sendsms.pid
+PIDFILE1=/var/run/playsmsd.pid
+PIDFILE2=/var/run/recvsmsd.pid
+PIDFILE3=/var/run/sendsmsd.pid
 
 # We require the config file in /etc/default/playsms to be
 # available, otherwise exit
@@ -36,7 +37,7 @@ fi
 case "$1" in
   start)
     log_daemon_msg "Starting playSMS daemon"
-    log_progress_msg "playsms"
+    log_progress_msg "playsmsd"
     DAEMON=$PLAYSMS_BIN/playsmsd
     DAEMON_OPTIONS=$PLAYSMS_PATH
     start-stop-daemon --start --background --make-pidfile \
@@ -44,12 +45,21 @@ case "$1" in
 	--exec $DAEMON -- $DAEMON_OPTIONS
     log_end_msg 0
 
-    log_daemon_msg "Starting sendsms daemon"
-    log_progress_msg "sendsms"
-    DAEMON=$PLAYSMS_BIN/sendsmsd
+    log_daemon_msg "Starting recvsms daemon"
+    log_progress_msg "recvsmsd"
+    DAEMON=$PLAYSMS_BIN/recvsmsd
     DAEMON_OPTIONS=$PLAYSMS_PATH
     start-stop-daemon --start --background --make-pidfile \
 	--pidfile $PIDFILE2 \
+	--exec $DAEMON -- $DAEMON_OPTIONS
+    log_end_msg 0
+
+    log_daemon_msg "Starting sendsms daemon"
+    log_progress_msg "sendsmsd"
+    DAEMON=$PLAYSMS_BIN/sendsmsd
+    DAEMON_OPTIONS=$PLAYSMS_PATH
+    start-stop-daemon --start --background --make-pidfile \
+	--pidfile $PIDFILE3 \
 	--exec $DAEMON -- $DAEMON_OPTIONS
     log_end_msg 0
     ;;
@@ -61,10 +71,16 @@ case "$1" in
     	--pidfile $PIDFILE1
     log_end_msg 0
 
-    log_daemon_msg "Stopping sendsms daemon"
-    log_progress_msg "sendsms"
+    log_daemon_msg "Stopping recvsms daemon"
+    log_progress_msg "recvsmsd"
     start-stop-daemon --stop --retry 5 \
     	--pidfile $PIDFILE2
+    log_end_msg 0
+
+    log_daemon_msg "Stopping sendsms daemon"
+    log_progress_msg "sendsmsd"
+    start-stop-daemon --stop --retry 5 \
+    	--pidfile $PIDFILE3
     log_end_msg 0
     ;;
 
