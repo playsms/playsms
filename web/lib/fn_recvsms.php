@@ -1,6 +1,28 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
+function recvsms($sms_datetime,$sms_sender,$message,$sms_receiver="") {
+	global $core_config;
+	$ret = dba_add(_DB_PREF_.'_tblRecvSMS', array('flag_processed' => 1, 'sms_datetime' => $sms_datetime, 'sms_sender' => $sms_sender, 'message' => $message, 'sms_receiver' => $sms_receiver));
+	return $ret;
+}
+
+function recvsmsd() {
+	$list = dba_search(_DB_PREF_.'_tblRecvSMS', '*', array('flag_processed' => 1));
+	$j = 0;
+	for ($j=0;$j<count($list);$j++) {
+		if ($id = $list[$j]['id']) {
+			$sms_datetime = $list[$j]['sms_datetime'];
+			$sms_sender = $list[$j]['sms_sender'];
+			$message = $list[$j]['message'];
+			$sms_receiver = $list[$j]['sms_receiver'];
+			if (dba_update(_DB_PREF_.'_tblRecvSMS', array('flag_processed' => 2), array('id' => $id))) {
+				setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
+			}
+		}
+	}
+}
+
 /*
  * Check available keyword or keyword that hasn't been added
  *
