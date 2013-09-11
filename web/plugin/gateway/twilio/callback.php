@@ -50,7 +50,7 @@ $message = urldecode($requests['text']);
 $sms_receiver = $requests['to'];
 if ($remote_slid && $message) {
 	logger_print("incoming message_id:".$remote_slid." s:".$sms_sender." d:".$sms_receiver, 2, "twilio callback");
-	setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
+	recvsms($sms_datetime,$sms_sender,$message,$sms_receiver);
 }
 
 ?>
