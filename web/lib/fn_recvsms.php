@@ -4,11 +4,12 @@ defined('_SECURE_') or die('Forbidden');
 function recvsms($sms_datetime,$sms_sender,$message,$sms_receiver="") {
 	global $core_config;
 	$ret = dba_add(_DB_PREF_.'_tblRecvSMS', array('flag_processed' => 1, 'sms_datetime' => $sms_datetime, 'sms_sender' => $sms_sender, 'message' => $message, 'sms_receiver' => $sms_receiver));
+	logger_print("dt:".$sms_datetime." sender:".$sms_sender." m:".$message." receiver:".$sms_receiver, 3, "recvsms");
 	return $ret;
 }
 
 function recvsmsd() {
-	$list = dba_search(_DB_PREF_.'_tblRecvSMS', '*', array('flag_processed' => 1));
+	$list = dba_search(_DB_PREF_.'_tblRecvSMS', '*', array('flag_processed' => 1), '', array('LIMIT' => 200));
 	$j = 0;
 	for ($j=0;$j<count($list);$j++) {
 		if ($id = $list[$j]['id']) {
@@ -17,6 +18,7 @@ function recvsmsd() {
 			$message = $list[$j]['message'];
 			$sms_receiver = $list[$j]['sms_receiver'];
 			if (dba_update(_DB_PREF_.'_tblRecvSMS', array('flag_processed' => 2), array('id' => $id))) {
+				logger_print("id:".$id." dt:".$sms_datetime." sender:".$sms_sender." m:".$message." receiver:".$sms_receiver, 3, "recvsmsd");
 				setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
 			}
 		}
