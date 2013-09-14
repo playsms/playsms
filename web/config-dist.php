@@ -45,14 +45,20 @@ $core_config['logauditfile']	= 'audit.log';
 // are we using http or https ? the default is using http instead https
 $core_config['ishttps']		= false;
 
+// are we using recvsmsd or not. the default is using recvsmsd
+$core_config['isrecvsmsd']	= true;
+
+// limit the number of incoming SMS processed by recvsmsd in one time
+$core_config['recvsmsd_limit']	= 200;
+
 // are we using sendsmsd or not. the default is using sendsmsd
 $core_config['issendsmsd']	= true;
 
-// limit the number of queue processed by sendsmsd in one time
-$core_config['sendsmsd_queue']	= 30;
-
 // limit the length of each queue processed by sendsmsd in one time
 $core_config['sendsmsd_limit']	= 1000;
+
+// limit the number of queue processed by sendsmsd in one time
+$core_config['sendsmsd_queue']	= 30;
 
 // webservices require username
 $core_config['webservices_username']	= true;
