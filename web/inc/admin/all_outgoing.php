@@ -24,7 +24,7 @@ switch ($op) {
 			</div>";
 
 		$content = "
-			<h2>"._('Outgoing SMS')."</h2>
+			<h2>"._('All outgoing SMS')."</h2>
 			<p>".$search['form']."</p>
 			<form name=\"fm_outgoing\" action=\"index.php?app=menu&inc=all_outgoing&op=actions\" method=post onSubmit=\"return SureConfirm()\">
 			".$actions_box."
