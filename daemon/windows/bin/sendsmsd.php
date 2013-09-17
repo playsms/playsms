@@ -30,7 +30,7 @@ if ($continue) {
 		}
 		$list = dba_search(_DB_PREF_.'_tblSMSOutgoing_queue', 'queue_code', array('flag' => '0'), '', $extras);
 		foreach ($list as $db_row) {
-			$queue .= $db_row['queue_code'].' ';
+			$queue .= 'Q_'.$db_row['queue_code'].' ';
 		}
 		if ($queue = trim($queue)) {
 			echo $queue;
@@ -38,7 +38,10 @@ if ($continue) {
 		exit();
 	}
 	if ((trim($argv[2]) == '_PROCESS_') && trim($argv[3])){
-		sendsmsd($argv[3], $core_config['sendsmsd_limit']);
+		$c_queue = explode('_', trim($argv[3]));
+		if ($c_queue[0]=='Q' && trim($c_queue[1])) {
+			sendsmsd(trim($c_queue[1]), $core_config['sendsmsd_limit']);
+		}
 	}
 }
 
