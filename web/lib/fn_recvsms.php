@@ -5,9 +5,12 @@ function recvsms($sms_datetime,$sms_sender,$message,$sms_receiver="") {
 	global $core_config;
 	if ($core_config['isrecvsmsd']) {
 		$c_isrecvsmsd = 1;
+		// save to db and mark as queued (flag_processed = 1)
 		$ret = dba_add(_DB_PREF_.'_tblRecvSMS', array('flag_processed' => 1, 'sms_datetime' => $sms_datetime, 'sms_sender' => $sms_sender, 'message' => $message, 'sms_receiver' => $sms_receiver));
 	} else {
 		$c_isrecvsmsd = 0;
+		// save to db but mark as processed (flag_processed = 2) and then directly call setsmsincomingaction()
+		$ret = dba_add(_DB_PREF_.'_tblRecvSMS', array('flag_processed' => 2, 'sms_datetime' => $sms_datetime, 'sms_sender' => $sms_sender, 'message' => $message, 'sms_receiver' => $sms_receiver));
 		setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
 	}
 	logger_print("isrecvsmsd:".$c_isrecvsmsd." dt:".$sms_datetime." sender:".$sms_sender." m:".$message." receiver:".$sms_receiver, 3, "recvsms");
