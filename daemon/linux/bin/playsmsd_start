@@ -19,7 +19,7 @@ cd $CWD
 
 CWD=`pwd`
 cd $PLAYSMS_BIN
-./dlrd $PLAYSMS_PATH >/dev/null 2>&1 &
+./dlrssmsd $PLAYSMS_PATH >/dev/null 2>&1 &
 cd $CWD
 
 exit 0

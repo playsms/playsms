@@ -73,7 +73,7 @@ start)
             printf "%s\n" "Ok"
         fi
 
-        # Starting dlrd
+        # Starting dlrssmsd
         printf "%-50s" "Starting $DAEMOND..."
         cd $DAEMON_PATH
         ./$DAEMOND $DAEMONOPTS > /dev/null 2>&1 &
