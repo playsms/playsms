@@ -1,0 +1,100 @@
+#: clickatell.php:8
+msgid "Active"
+msgstr "Aktif"
+
+#: clickatell.php:12
+msgid "Inactive"
+msgstr "Nonaktif"
+
+#: clickatell.php:12
+msgid "click here to activate"
+msgstr "klik di sini untuk mengaktifkan"
+
+#: clickatell.php:23 config.php:18
+msgid "Manage clickatell"
+msgstr "Pengaturan clickatell"
+
+#: clickatell.php:28
+msgid "Gateway name"
+msgstr "Nama gateway"
+
+#: clickatell.php:31
+msgid "API ID"
+msgstr "API ID"
+
+#: clickatell.php:34
+msgid "Username"
+msgstr "Nama pengguna"
+
+#: clickatell.php:37
+msgid "Password"
+msgstr "Kata sandi"
+
+#: clickatell.php:37
+msgid "Fill to change the password"
+msgstr "Isi untuk merubah kata sandi"
+
+#: clickatell.php:40
+msgid "Global sender"
+msgstr "Pengirim global"
+
+#: clickatell.php:40
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Maks. 16 numerik atau 11 karakter alfanumerik. kosongkan untuk menonaktifkan"
+
+#: clickatell.php:43
+msgid "Clickatell API URL"
+msgstr "URL Clickatell API"
+
+#: clickatell.php:43 clickatell.php:46
+msgid "No trailing slash"
+msgstr "Tanpa garis miring"
+
+#: clickatell.php:46
+msgid "Additional URL parameter"
+msgstr "Parameter URL tambahan"
+
+#: clickatell.php:46
+msgid "Clickatell incoming path"
+msgstr "Jalur masuk Clickatell"
+
+#: clickatell.php:49
+msgid "Note"
+msgstr "Catatan"
+
+#: clickatell.php:50
+msgid "Your callback URL is"
+msgstr "URL balasan anda adalah"
+
+#: clickatell.php:51
+msgid "If you are using callback URL to receive incoming sms you may ignore "
+msgstr "Jika anda menggunakan URL callback untuk menerima SMS masuk, anda dapat menghiraukan ini"
+
+msgid "Clickatell Incoming Path"
+msgstr "Path untuk SMS masuk dari Clickatell"
+
+msgid "Clickatell is a bulk SMS provider"
+msgstr "Clickatell adalah penyedia SMS bulk"
+
+msgid "free credits are available for testing purposes"
+msgstr "pulsa gratis tersedia untuk tujuan tes"
+
+#: clickatell.php:52
+msgid "Send SMS message without footer banner"
+msgstr "Kirim SMS tanpa banner footer"
+
+#: clickatell.php:53
+msgid "Save"
+msgstr "Simpan"
+
+#: clickatell.php:65
+msgid "No changes has been made"
+msgstr "Tidak ada perubahan yang terjadi"
+
+#: clickatell.php:80
+msgid "Gateway module configurations has been saved"
+msgstr "Konfigurasi modul gateway telah disimpan"
+
+#: clickatell.php:88
+msgid "Gateway has been activated"
+msgstr "Gateway telah diaktifkan"

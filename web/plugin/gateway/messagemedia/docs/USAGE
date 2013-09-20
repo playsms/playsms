@@ -1,0 +1,4 @@
+TOOLS:
+- You can test Incoming SMS by using the following command:
+
+lynx -dump "http://your_host_ip/playsms/plugin/gateway/messagemedia/callback.php?phone=123456789&message=test+reply&id=0"
