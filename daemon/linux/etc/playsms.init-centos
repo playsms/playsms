@@ -20,7 +20,7 @@ DAEMON_PATH=$PLAYSMS_BIN/_playsms
 DAEMONP=playsmsd
 DAEMONR=recvsmsd
 DAEMONS=sendsmsd
-DAEMOND=dlrd
+DAEMOND=dlrssmsd
 DAEMONOPTS=$PLAYSMS_PATH
 
 NAME=playsms
