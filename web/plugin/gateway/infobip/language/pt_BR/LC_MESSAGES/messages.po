@@ -5,137 +5,137 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/clickatell/config.php:29
-#: plugin/gateway/clickatell/clickatell.php:24
-#: plugin/gateway/clickatell/clickatell.php:27
-msgid "Manage clickatell"
-msgstr "Administrar clickatell"
+#: plugin/gateway/infobip/config.php:29
+#: plugin/gateway/infobip/infobip.php:24
+#: plugin/gateway/infobip/infobip.php:27
+msgid "Manage infobip"
+msgstr "Administrar infobip"
 
-#: plugin/gateway/clickatell/clickatell.php:9
+#: plugin/gateway/infobip/infobip.php:9
 msgid "Active"
 msgstr "Ativo"
 
-#: plugin/gateway/clickatell/clickatell.php:13
+#: plugin/gateway/infobip/infobip.php:13
 msgid "Inactive"
 msgstr "Inativo"
 
-#: plugin/gateway/clickatell/clickatell.php:13
+#: plugin/gateway/infobip/infobip.php:13
 msgid "click here to activate"
 msgstr "clique aqui para ativar"
 
-#: plugin/gateway/clickatell/clickatell.php:29
-#: plugin/gateway/clickatell/clickatell.php:32
+#: plugin/gateway/infobip/infobip.php:29
+#: plugin/gateway/infobip/infobip.php:32
 msgid "Gateway name"
 msgstr "Nome do gateway"
 
-#: plugin/gateway/clickatell/clickatell.php:32
-#: plugin/gateway/clickatell/clickatell.php:35
+#: plugin/gateway/infobip/infobip.php:32
+#: plugin/gateway/infobip/infobip.php:35
 msgid "API ID"
 msgstr "ID da API"
 
-#: plugin/gateway/clickatell/clickatell.php:35
-#: plugin/gateway/clickatell/clickatell.php:38
+#: plugin/gateway/infobip/infobip.php:35
+#: plugin/gateway/infobip/infobip.php:38
 msgid "Username"
 msgstr "Usuário"
 
-#: plugin/gateway/clickatell/clickatell.php:38
-#: plugin/gateway/clickatell/clickatell.php:41
+#: plugin/gateway/infobip/infobip.php:38
+#: plugin/gateway/infobip/infobip.php:41
 msgid "Password"
 msgstr "Senha"
 
-#: plugin/gateway/clickatell/clickatell.php:38
-#: plugin/gateway/clickatell/clickatell.php:41
+#: plugin/gateway/infobip/infobip.php:38
+#: plugin/gateway/infobip/infobip.php:41
 msgid "Fill to change the password"
 msgstr "Preencha pra mudar a senha"
 
-#: plugin/gateway/clickatell/clickatell.php:41
-#: plugin/gateway/clickatell/clickatell.php:44
+#: plugin/gateway/infobip/infobip.php:41
+#: plugin/gateway/infobip/infobip.php:44
 msgid "Module sender ID"
 msgstr ""
 
-#: plugin/gateway/clickatell/clickatell.php:41
-#: plugin/gateway/clickatell/clickatell.php:44
+#: plugin/gateway/infobip/infobip.php:41
+#: plugin/gateway/infobip/infobip.php:44
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
 "Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
 
-#: plugin/gateway/clickatell/clickatell.php:44
-#: plugin/gateway/clickatell/clickatell.php:47
+#: plugin/gateway/infobip/infobip.php:44
+#: plugin/gateway/infobip/infobip.php:47
 msgid "Module timezone"
 msgstr ""
 
-#: plugin/gateway/clickatell/clickatell.php:44
-#: plugin/gateway/clickatell/clickatell.php:47
+#: plugin/gateway/infobip/infobip.php:44
+#: plugin/gateway/infobip/infobip.php:47
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
-#: plugin/gateway/clickatell/clickatell.php:47
-#: plugin/gateway/clickatell/clickatell.php:50
-msgid "Clickatell API URL"
-msgstr "URL da API do clickatell"
+#: plugin/gateway/infobip/infobip.php:47
+#: plugin/gateway/infobip/infobip.php:50
+msgid "Infobip API URL"
+msgstr "URL da API do infobip"
 
-#: plugin/gateway/clickatell/clickatell.php:47
-#: plugin/gateway/clickatell/clickatell.php:54
-#: plugin/gateway/clickatell/clickatell.php:50
-#: plugin/gateway/clickatell/clickatell.php:57
+#: plugin/gateway/infobip/infobip.php:47
+#: plugin/gateway/infobip/infobip.php:54
+#: plugin/gateway/infobip/infobip.php:50
+#: plugin/gateway/infobip/infobip.php:57
 msgid "No trailing slash"
 msgstr "Sem barra no final"
 
-#: plugin/gateway/clickatell/clickatell.php:50
-#: plugin/gateway/clickatell/clickatell.php:53
+#: plugin/gateway/infobip/infobip.php:50
+#: plugin/gateway/infobip/infobip.php:53
 msgid "Additional URL parameter"
 msgstr "Parâmetro de URL adicional"
 
-#: plugin/gateway/clickatell/clickatell.php:54
-#: plugin/gateway/clickatell/clickatell.php:57
-msgid "Clickatell incoming path"
-msgstr "Caminho de chegada do clickatell"
+#: plugin/gateway/infobip/infobip.php:54
+#: plugin/gateway/infobip/infobip.php:57
+msgid "Infobip incoming path"
+msgstr "Caminho de chegada do infobip"
 
-#: plugin/gateway/clickatell/clickatell.php:59
-#: plugin/gateway/clickatell/clickatell.php:62
+#: plugin/gateway/infobip/infobip.php:59
+#: plugin/gateway/infobip/infobip.php:62
 msgid "Note"
 msgstr ""
 
-#: plugin/gateway/clickatell/clickatell.php:60
-#: plugin/gateway/clickatell/clickatell.php:63
+#: plugin/gateway/infobip/infobip.php:60
+#: plugin/gateway/infobip/infobip.php:63
 msgid "Your callback URL is"
 msgstr "Sua URL de callback é"
 
-#: plugin/gateway/clickatell/clickatell.php:61
-#: plugin/gateway/clickatell/clickatell.php:64
-msgid "Clickatell is a bulk SMS provider"
-msgstr "Clickatell é um provedor de SMS em massa"
+#: plugin/gateway/infobip/infobip.php:61
+#: plugin/gateway/infobip/infobip.php:64
+msgid "Infobip is a bulk SMS provider"
+msgstr "Infobip é um provedor de SMS em massa"
 
-#: plugin/gateway/clickatell/clickatell.php:61
-#: plugin/gateway/clickatell/clickatell.php:64
+#: plugin/gateway/infobip/infobip.php:61
+#: plugin/gateway/infobip/infobip.php:64
 msgid "free credits are available for testing purposes"
 msgstr "créditos gratuitos estão disponíveis pra testes"
 
-#: plugin/gateway/clickatell/clickatell.php:62
-#: plugin/gateway/clickatell/clickatell.php:65
+#: plugin/gateway/infobip/infobip.php:62
+#: plugin/gateway/infobip/infobip.php:65
 msgid "Send SMS message without footer banner"
 msgstr "Enviar mensagem SMS sem banner no rodapé"
 
-#: plugin/gateway/clickatell/clickatell.php:63
-#: plugin/gateway/clickatell/clickatell.php:66
-#: plugin/gateway/clickatell/clickatell.php:65
+#: plugin/gateway/infobip/infobip.php:63
+#: plugin/gateway/infobip/infobip.php:66
+#: plugin/gateway/infobip/infobip.php:65
 msgid "Save"
 msgstr "Salvar"
 
-#: plugin/gateway/clickatell/clickatell.php:77
-#: plugin/gateway/clickatell/clickatell.php:80
-#: plugin/gateway/clickatell/clickatell.php:79
+#: plugin/gateway/infobip/infobip.php:77
+#: plugin/gateway/infobip/infobip.php:80
+#: plugin/gateway/infobip/infobip.php:79
 msgid "No changes has been made"
 msgstr "Nenhuma mudança feita"
 
-#: plugin/gateway/clickatell/clickatell.php:97
-#: plugin/gateway/clickatell/clickatell.php:100
-#: plugin/gateway/clickatell/clickatell.php:99
+#: plugin/gateway/infobip/infobip.php:97
+#: plugin/gateway/infobip/infobip.php:100
+#: plugin/gateway/infobip/infobip.php:99
 msgid "Gateway module configurations has been saved"
 msgstr "Configurações do módulo de gateway foram salvas"
 
-#: plugin/gateway/clickatell/clickatell.php:105
-#: plugin/gateway/clickatell/clickatell.php:108
-#: plugin/gateway/clickatell/clickatell.php:107
+#: plugin/gateway/infobip/infobip.php:105
+#: plugin/gateway/infobip/infobip.php:108
+#: plugin/gateway/infobip/infobip.php:107
 msgid "Gateway has been activated"
 msgstr "Gateway foi ativado"

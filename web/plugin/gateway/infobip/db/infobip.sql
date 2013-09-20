@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS `playsms_gatewayInfobip_config`;
 CREATE TABLE `playsms_gatewayInfobip_config` (
   `c_timestamp` int(11) NOT NULL DEFAULT '0',
-  `cfg_name` varchar(20) DEFAULT 'clickatell',
+  `cfg_name` varchar(20) DEFAULT 'infobip',
   `cfg_username` varchar(100) DEFAULT NULL,
   `cfg_password` varchar(100) DEFAULT NULL,
   `cfg_sender` varchar(20) DEFAULT NULL,
