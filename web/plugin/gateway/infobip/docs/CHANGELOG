@@ -1,0 +1,18 @@
+Version 1.4 - 2013-09-15
+- add $arr_menu for 0.9.9.1 compatibility
+
+Version 1.3 (compatible with playsms-0.9.8)
+- replace $add_menu by $menu_config in config.php (compatibility 0.9.8)
+- add get_gateway function call (compatibility 0.9.8)
+
+Version 1.2
+- modifiy $core_config['menu']['main_tab']['gateway']; by $core_config['menutab']['gateway']; for 0.9.8 compatibility
+- add fr_FR translation
+
+Version 1.1
+- add dlr push processing
+- add status field in infobip_apidata table
+- add radio button to select push or pull method
+
+Version 1.0
+- changelog started
