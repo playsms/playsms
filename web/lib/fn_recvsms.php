@@ -313,4 +313,9 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 	return $ok;
 }
 
+function getsmsinbox() {
+	$gw = gateway_get();
+	x_hook($gw,'getsmsinbox');
+}
+
 ?>

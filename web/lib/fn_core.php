@@ -26,35 +26,6 @@ function x_hook($c_plugin, $c_function, $c_param=array()) {
 	}
 }
 
-function getsmsinbox() {
-	$gw = gateway_get();
-	x_hook($gw,'getsmsinbox');
-}
-
-function getsmsstatus() {
-	$gw = gateway_get();
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status='0' AND p_gateway='$gw'";
-	$db_result = dba_query($db_query);
-	while ($db_row = dba_fetch_array($db_result)) {
-		$uid = $db_row['uid'];
-		$smslog_id = $db_row['smslog_id'];
-		$p_datetime = $db_row['p_datetime'];
-		$p_update = $db_row['p_update'];
-		$gpid = $db_row['p_gpid'];
-		x_hook($gw,'getsmsstatus',array($gpid,$uid,$smslog_id,$p_datetime,$p_update));
-	}
-}
-
-function getsmsoutgoing($smslog_id) {
-	$data = array();
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
-	$db_result = dba_query($db_query);
-	if ($db_row = dba_fetch_array($db_result)) {
-		$data = $db_row;
-	}
-	return $data;
-}
-
 function playsmsd() {
 	global $core_config;
 	// plugin tools

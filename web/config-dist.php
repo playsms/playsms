@@ -45,6 +45,12 @@ $core_config['logauditfile']	= 'audit.log';
 // are we using http or https ? the default is using http instead https
 $core_config['ishttps']		= false;
 
+// are we using dlrd or not. the default is using dlrd
+$core_config['isdlrd']		= true;
+
+// limit the number of DLR processed by dlrd in one time
+$core_config['dlrd_limit']	= 100;
+
 // are we using recvsmsd or not. the default is using recvsmsd
 $core_config['isrecvsmsd']	= true;
 

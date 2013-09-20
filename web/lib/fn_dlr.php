@@ -59,4 +59,18 @@ function setsmsdeliverystatus($smslog_id,$uid,$p_status) {
 	return $ok;
 }
 
+function getsmsstatus() {
+	$gw = gateway_get();
+	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status='0' AND p_gateway='$gw'";
+	$db_result = dba_query($db_query);
+	while ($db_row = dba_fetch_array($db_result)) {
+		$uid = $db_row['uid'];
+		$smslog_id = $db_row['smslog_id'];
+		$p_datetime = $db_row['p_datetime'];
+		$p_update = $db_row['p_update'];
+		$gpid = $db_row['p_gpid'];
+		x_hook($gw,'getsmsstatus',array($gpid,$uid,$smslog_id,$p_datetime,$p_update));
+	}
+}
+
 ?>

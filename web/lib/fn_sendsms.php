@@ -479,4 +479,14 @@ function sendsms_get_template() {
 	return $templates;
 }
 
+function getsmsoutgoing($smslog_id) {
+	$data = array();
+	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
+	$db_result = dba_query($db_query);
+	if ($db_row = dba_fetch_array($db_result)) {
+		$data = $db_row;
+	}
+	return $data;
+}
+
 ?>
