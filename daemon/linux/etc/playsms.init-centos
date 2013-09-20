@@ -15,7 +15,7 @@ else
         exit 1
 fi
 
-DAEMON_PATH=$PLAYSMS_BIN
+DAEMON_PATH=$PLAYSMS_BIN/_playsms
 
 DAEMONP=playsmsd
 DAEMONR=recvsmsd

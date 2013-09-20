@@ -39,7 +39,7 @@ case "$1" in
   start)
     log_daemon_msg "Starting playSMS daemon"
     log_progress_msg "playsmsd"
-    DAEMON=$PLAYSMS_BIN/playsmsd
+    DAEMON=$PLAYSMS_BIN/_playsms/playsmsd
     DAEMON_OPTIONS=$PLAYSMS_PATH
     start-stop-daemon --start --background --make-pidfile \
 	--pidfile $PIDFILE1 \
@@ -48,7 +48,7 @@ case "$1" in
 
     log_daemon_msg "Starting recvsms daemon"
     log_progress_msg "recvsmsd"
-    DAEMON=$PLAYSMS_BIN/recvsmsd
+    DAEMON=$PLAYSMS_BIN/_playsms/recvsmsd
     DAEMON_OPTIONS=$PLAYSMS_PATH
     start-stop-daemon --start --background --make-pidfile \
 	--pidfile $PIDFILE2 \
@@ -57,7 +57,7 @@ case "$1" in
 
     log_daemon_msg "Starting sendsms daemon"
     log_progress_msg "sendsmsd"
-    DAEMON=$PLAYSMS_BIN/sendsmsd
+    DAEMON=$PLAYSMS_BIN/_playsms/sendsmsd
     DAEMON_OPTIONS=$PLAYSMS_PATH
     start-stop-daemon --start --background --make-pidfile \
 	--pidfile $PIDFILE3 \
@@ -66,7 +66,7 @@ case "$1" in
 
     log_daemon_msg "Starting dlr daemon"
     log_progress_msg "dlrssmsd"
-    DAEMON=$PLAYSMS_BIN/dlrssmsd
+    DAEMON=$PLAYSMS_BIN/_playsms/dlrssmsd
     DAEMON_OPTIONS=$PLAYSMS_PATH
     start-stop-daemon --start --background --make-pidfile \
 	--pidfile $PIDFILE4 \
