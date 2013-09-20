@@ -16,7 +16,12 @@ if ($remote_addr != $kannel_param['bearerbox_host'] && $remote_host != $kannel_p
 	exit();
 }
 
-$t = trim($_REQUEST['t']); 	// sms_datetime
+// fixme anton
+// most kannel compiled without "--enable-localtime" options, therefor the message arrival saved in GMT
+// use datetime_now value instead of values supplied by kannel
+//$t = trim($_REQUEST['t']); 	// sms_datetime
+$t = trim($core_config['datetime']['now']);
+
 $q = trim($_REQUEST['q']); 	// sms_sender
 $a = trim($_REQUEST['a']); 	// message
 $Q = trim($_REQUEST['Q']); 	// sms_receiver
