@@ -3,10 +3,10 @@
 . /etc/default/playsms
 
 while true; do
-	for QUEUE in `$(which php) -q $PLAYSMS_BIN/sendsmsd.php $PLAYSMS_PATH _GETQUEUE_`; do
+	for QUEUE in `$(which php) -q $PLAYSMS_BIN/_playsms/sendsmsd.php $PLAYSMS_PATH _GETQUEUE_`; do
 		EXISTS=`ps ax | grep $QUEUE | grep sendsmsd.php`
 		if [ -z "$EXISTS" ]; then
-			$(which php) -q $PLAYSMS_BIN/sendsmsd.php $PLAYSMS_PATH _PROCESS_ $QUEUE >/dev/null 2>&1 &
+			$(which php) -q $PLAYSMS_BIN/_playsms/sendsmsd.php $PLAYSMS_PATH _PROCESS_ $QUEUE >/dev/null 2>&1 &
 		fi
 	done
 	sleep 2;
