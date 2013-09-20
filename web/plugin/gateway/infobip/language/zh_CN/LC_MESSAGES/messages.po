@@ -1,0 +1,146 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-01 08:26+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: plugin/gateway/clickatell/config.php:29
+#: plugin/gateway/clickatell/clickatell.php:24
+#: plugin/gateway/clickatell/clickatell.php:27
+msgid "Manage clickatell"
+msgstr "管理 clickatell"
+
+#: plugin/gateway/clickatell/clickatell.php:9
+msgid "Active"
+msgstr "活跃"
+
+#: plugin/gateway/clickatell/clickatell.php:13
+msgid "Inactive"
+msgstr "不活跃"
+
+#: plugin/gateway/clickatell/clickatell.php:13
+msgid "click here to activate"
+msgstr "点击这里激活"
+
+#: plugin/gateway/clickatell/clickatell.php:29
+#: plugin/gateway/clickatell/clickatell.php:32
+msgid "Gateway name"
+msgstr "网关名"
+
+#: plugin/gateway/clickatell/clickatell.php:32
+#: plugin/gateway/clickatell/clickatell.php:35
+msgid "API ID"
+msgstr "应用程序界面地址"
+
+#: plugin/gateway/clickatell/clickatell.php:35
+#: plugin/gateway/clickatell/clickatell.php:38
+msgid "Username"
+msgstr "用户名"
+
+#: plugin/gateway/clickatell/clickatell.php:38
+#: plugin/gateway/clickatell/clickatell.php:41
+msgid "Password"
+msgstr "密码"
+
+#: plugin/gateway/clickatell/clickatell.php:38
+#: plugin/gateway/clickatell/clickatell.php:41
+msgid "Fill to change the password"
+msgstr "填写改变密码"
+
+#: plugin/gateway/clickatell/clickatell.php:41
+#: plugin/gateway/clickatell/clickatell.php:44
+#, fuzzy
+msgid "Module sender ID"
+msgstr "全球发件人"
+
+#: plugin/gateway/clickatell/clickatell.php:41
+#: plugin/gateway/clickatell/clickatell.php:44
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "最多16个数字或11个字母，不能空"
+
+#: plugin/gateway/clickatell/clickatell.php:44
+#: plugin/gateway/clickatell/clickatell.php:47
+msgid "Module timezone"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:44
+#: plugin/gateway/clickatell/clickatell.php:47
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:47
+#: plugin/gateway/clickatell/clickatell.php:50
+msgid "Clickatell API URL"
+msgstr "Clickatell应用程序界面链接"
+
+#: plugin/gateway/clickatell/clickatell.php:47
+#: plugin/gateway/clickatell/clickatell.php:54
+#: plugin/gateway/clickatell/clickatell.php:50
+#: plugin/gateway/clickatell/clickatell.php:57
+msgid "No trailing slash"
+msgstr "没有结尾的斜线"
+
+#: plugin/gateway/clickatell/clickatell.php:50
+#: plugin/gateway/clickatell/clickatell.php:53
+msgid "Additional URL parameter"
+msgstr "增加的链接参数"
+
+#: plugin/gateway/clickatell/clickatell.php:54
+#: plugin/gateway/clickatell/clickatell.php:57
+msgid "Clickatell incoming path"
+msgstr "Clickatell传入路径"
+
+#: plugin/gateway/clickatell/clickatell.php:59
+#: plugin/gateway/clickatell/clickatell.php:62
+msgid "Note"
+msgstr "注意"
+
+#: plugin/gateway/clickatell/clickatell.php:60
+#: plugin/gateway/clickatell/clickatell.php:63
+msgid "Your callback URL is"
+msgstr "你的回调链接是"
+
+#: plugin/gateway/clickatell/clickatell.php:61
+#: plugin/gateway/clickatell/clickatell.php:64
+msgid "Clickatell is a bulk SMS provider"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:61
+#: plugin/gateway/clickatell/clickatell.php:64
+msgid "free credits are available for testing purposes"
+msgstr ""
+
+#: plugin/gateway/clickatell/clickatell.php:62
+#: plugin/gateway/clickatell/clickatell.php:65
+msgid "Send SMS message without footer banner"
+msgstr "发送无页脚横幅的短信"
+
+#: plugin/gateway/clickatell/clickatell.php:63
+#: plugin/gateway/clickatell/clickatell.php:66
+#: plugin/gateway/clickatell/clickatell.php:65
+msgid "Save"
+msgstr "保存"
+
+#: plugin/gateway/clickatell/clickatell.php:77
+#: plugin/gateway/clickatell/clickatell.php:80
+#: plugin/gateway/clickatell/clickatell.php:79
+msgid "No changes has been made"
+msgstr "没有改变"
+
+#: plugin/gateway/clickatell/clickatell.php:97
+#: plugin/gateway/clickatell/clickatell.php:100
+#: plugin/gateway/clickatell/clickatell.php:99
+msgid "Gateway module configurations has been saved"
+msgstr "网关模块的配置已保存"
+
+#: plugin/gateway/clickatell/clickatell.php:105
+#: plugin/gateway/clickatell/clickatell.php:108
+#: plugin/gateway/clickatell/clickatell.php:107
+msgid "Gateway has been activated"
+msgstr "网关已激活"
+
+#~ msgid ""
+#~ "If you are using callback URL to receive incoming sms you may ignore "
+#~ "Clickatell Incoming Path"
+#~ msgstr "如果你正在使用回调链接收短信你可以忽略Clickatell 传入路径"

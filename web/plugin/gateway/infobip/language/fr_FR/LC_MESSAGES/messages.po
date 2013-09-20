@@ -1,0 +1,145 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.9.7\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-01 08:26+0700\n"
+"Language-Team: French <LL@li.org>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: plugin/gateway/infobip/config.php:29
+#: plugin/gateway/infobip/infobip.php:24
+#: plugin/gateway/infobip/infobip.php:27
+msgid "Manage infobip"
+msgstr "Gérer infobip"
+
+#: plugin/gateway/infobip/infobip.php:9
+msgid "Active"
+msgstr "Active"
+
+#: plugin/gateway/infobip/infobip.php:13
+msgid "Inactive"
+msgstr "Inactive"
+
+#: plugin/gateway/infobip/infobip.php:13
+msgid "click here to activate"
+msgstr "cliquez pour activer"
+
+#: plugin/gateway/infobip/infobip.php:29
+#: plugin/gateway/infobip/infobip.php:32
+msgid "Gateway name"
+msgstr "Nom passerelle"
+
+#: plugin/gateway/infobip/infobip.php:32
+#: plugin/gateway/infobip/infobip.php:35
+msgid "API ID"
+msgstr "ID API"
+
+#: plugin/gateway/infobip/infobip.php:35
+#: plugin/gateway/infobip/infobip.php:38
+msgid "Username"
+msgstr "Nom utilisateur"
+
+#: plugin/gateway/infobip/infobip.php:38
+#: plugin/gateway/infobip/infobip.php:41
+msgid "Password"
+msgstr "Mot de passe"
+
+#: plugin/gateway/infobip/infobip.php:38
+#: plugin/gateway/infobip/infobip.php:41
+msgid "Fill to change the password"
+msgstr "Remplir pour changer le mot de passe"
+
+#: plugin/gateway/infobip/infobip.php:41
+#: plugin/gateway/infobip/infobip.php:44
+msgid "Module sender ID"
+msgstr "ID module émetteur"
+
+#: plugin/gateway/infobip/infobip.php:41
+#: plugin/gateway/infobip/infobip.php:44
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+"Max : 16 caractères numériques ou 11 alphanumériques. vide pour désactiver"
+
+#: plugin/gateway/infobip/infobip.php:44
+#: plugin/gateway/infobip/infobip.php:47
+msgid "Module timezone"
+msgstr "Zone de temps"
+
+#: plugin/gateway/infobip/infobip.php:44
+#: plugin/gateway/infobip/infobip.php:47
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Ex: +0700 pour Jakarta/Bangkok"
+
+#: plugin/gateway/infobip/infobip.php:47
+#: plugin/gateway/infobip/infobip.php:50
+msgid "Infobip API URL"
+msgstr "URL API infobip"
+
+#: plugin/gateway/infobip/infobip.php:47
+#: plugin/gateway/infobip/infobip.php:54
+#: plugin/gateway/infobip/infobip.php:50
+#: plugin/gateway/infobip/infobip.php:57
+msgid "No trailing slash"
+msgstr "Pas de slash final"
+
+#: plugin/gateway/infobip/infobip.php:50
+#: plugin/gateway/infobip/infobip.php:53
+msgid "Additional URL parameter"
+msgstr "Autres paramètres URL"
+
+#: plugin/gateway/infobip/infobip.php:54
+#: plugin/gateway/infobip/infobip.php:57
+msgid "Infobip incoming path"
+msgstr "Chemin entrant infobip"
+
+#: plugin/gateway/infobip/infobip.php:59
+#: plugin/gateway/infobip/infobip.php:62
+msgid "Note"
+msgstr "Note"
+
+#: plugin/gateway/infobip/infobip.php:60
+#: plugin/gateway/infobip/infobip.php:63
+msgid "Your callback URL is"
+msgstr "Votre URL callback est"
+
+#: plugin/gateway/infobip/infobip.php:61
+#: plugin/gateway/infobip/infobip.php:64
+msgid "Infobip is a bulk SMS provider"
+msgstr "Infobip est un fournisseur Bulk SMS"
+
+#: plugin/gateway/infobip/infobip.php:61
+#: plugin/gateway/infobip/infobip.php:64
+msgid "free credits are available for testing purposes"
+msgstr "crédits gratuits disponible pour des tests"
+
+#: plugin/gateway/infobip/infobip.php:62
+#: plugin/gateway/infobip/infobip.php:65
+msgid "Send SMS message without footer banner"
+msgstr "Envoyer les SMS sans pied de page"
+
+#: plugin/gateway/infobip/infobip.php:63
+#: plugin/gateway/infobip/infobip.php:66
+#: plugin/gateway/infobip/infobip.php:65
+msgid "Save"
+msgstr "Sauvegarder"
+
+#: plugin/gateway/infobip/infobip.php:77
+#: plugin/gateway/infobip/infobip.php:80
+#: plugin/gateway/infobip/infobip.php:79
+msgid "No changes has been made"
+msgstr "Aucun changement effectué"
+
+#: plugin/gateway/infobip/infobip.php:97
+#: plugin/gateway/infobip/infobip.php:100
+#: plugin/gateway/infobip/infobip.php:99
+msgid "Gateway module configurations has been saved"
+msgstr "Configurations passerelle sauvegardées"
+
+#: plugin/gateway/infobip/infobip.php:105
+#: plugin/gateway/infobip/infobip.php:108
+#: plugin/gateway/infobip/infobip.php:107
+msgid "Gateway has been activated"
+msgstr "Passerelle activée"
