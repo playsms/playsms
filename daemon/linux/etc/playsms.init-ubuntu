@@ -37,7 +37,7 @@ fi
 
 case "$1" in
   start)
-    log_daemon_msg "Starting playSMS daemon"
+    log_daemon_msg "Starting playsms daemon"
     log_progress_msg "playsmsd"
     DAEMON=$PLAYSMS_BIN/_playsms/playsmsd
     DAEMON_OPTIONS=$PLAYSMS_PATH
@@ -64,7 +64,7 @@ case "$1" in
 	--exec $DAEMON -- $DAEMON_OPTIONS
     log_end_msg 0
 
-    log_daemon_msg "Starting dlr daemon"
+    log_daemon_msg "Starting dlrssms daemon"
     log_progress_msg "dlrssmsd"
     DAEMON=$PLAYSMS_BIN/_playsms/dlrssmsd
     DAEMON_OPTIONS=$PLAYSMS_PATH
@@ -75,7 +75,7 @@ case "$1" in
     ;;
 
   stop)
-    log_daemon_msg "Stopping playSMS daemon"
+    log_daemon_msg "Stopping playsms daemon"
     log_progress_msg "playsms"
     start-stop-daemon --stop --retry 5 \
     	--pidfile $PIDFILE1
@@ -93,11 +93,62 @@ case "$1" in
     	--pidfile $PIDFILE3
     log_end_msg 0
 
-    log_daemon_msg "Stopping dlr daemon"
+    log_daemon_msg "Stopping dlrssms daemon"
     log_progress_msg "dlrssmsd"
     start-stop-daemon --stop --retry 5 \
     	--pidfile $PIDFILE4
     log_end_msg 0
+    ;;
+
+  status)
+    CPID1=`ps axf|grep playsmsd|grep -v grep|sed -e 's/^ *//g'|cut -d' ' -f1`
+    DPID1=`cat $PIDFILE1`
+    if [ -n "$CPID1" ]; then
+        if [ "$CPID1" = "$DPID1" ]; then
+            log_daemon_msg "playsmsd is running at PID $CPID1"
+        else
+            log_failure_msg "playsmsd is running but PID does not match"
+        fi
+    else
+        log_failure_msg "playsmsd is not running"
+    fi
+
+    CPID2=`ps axf|grep recvsmsd|grep -v grep|sed -e 's/^ *//g'|cut -d' ' -f1`
+    DPID2=`cat $PIDFILE2`
+    if [ -n "$CPID2" ]; then
+        if [ "$CPID2" = "$DPID2" ]; then
+            log_daemon_msg "recvsmsd is running at PID $CPID2"
+        else
+            log_failure_msg "recvsmsd is running but PID does not match"
+        fi
+    else
+        log_failure_msg "recvsmsd is not running"
+    fi
+
+    CPID3=`ps axf|grep sendsmsd|grep -v grep|sed -e 's/^ *//g'|cut -d' ' -f1`
+    DPID3=`cat $PIDFILE3`
+    if [ -n "$CPID3" ]; then
+        if [ "$CPID3" = "$DPID3" ]; then
+            log_daemon_msg "sendsmsd is running at PID $CPID3"
+        else
+            log_failure_msg "sendsmsd is running but PID does not match"
+        fi
+    else
+        log_failure_msg "sendsmsd is not running"
+    fi
+
+    CPID4=`ps axf|grep dlrssmsd|grep -v grep|sed -e 's/^ *//g'|cut -d' ' -f1`
+    DPID4=`cat $PIDFILE4`
+    if [ -n "$CPID4" ]; then
+        if [ "$CPID4" = "$DPID4" ]; then
+            log_daemon_msg "dlrssmsd is running at PID $CPID4"
+        else
+            log_failure_msg "dlrssmsd is running but PID does not match"
+        fi
+    else
+        log_failure_msg "dlrssmsd is not running"
+    fi
+
     ;;
 
   reload|restart|force-reload)
@@ -107,7 +158,7 @@ case "$1" in
     ;;
 
   *)
-    echo "Usage: $0 {start|stop|restart|force-reload}"
+    echo "Usage: $0 {status|start|stop|restart}"
     exit 1
 
 esac
