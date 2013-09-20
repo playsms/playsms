@@ -20,13 +20,15 @@ DAEMON_PATH=$PLAYSMS_BIN
 DAEMONP=playsmsd
 DAEMONR=recvsmsd
 DAEMONS=sendsmsd
+DAEMOND=dlrd
 DAEMONOPTS=$PLAYSMS_PATH
 
 NAME=playsms
-DESC="playsmsd, recvsmsd & sendsmsd daemon init script"
+DESC="playsmsd, recvsmsd, sendsmsd and dlr daemon init script"
 PIDFILEP=/var/run/$DAEMONP.pid
 PIDFILER=/var/run/$DAEMONR.pid
 PIDFILES=/var/run/$DAEMONS.pid
+PIDFILED=/var/run/$DAEMOND.pid
 SCRIPTNAME=/etc/init.d/$NAME
 
 case "$1" in
@@ -48,9 +50,9 @@ start)
         # Starting recvsmsd
         printf "%-50s" "Starting $DAEMONR..."
         cd $DAEMON_PATH
-        ./$DAEMONS $DAEMONOPTS > /dev/null 2>&1 &
+        ./$DAEMONR $DAEMONOPTS > /dev/null 2>&1 &
 	PIDR=$!
-        #echo "Saving PIDS" $PIDS " to " $PIDFILES
+        #echo "Saving PIDR" $PIDR " to " $PIDFILER
         if [ -z $PIDR ]; then
             printf "%s\n" "Fail"
         else
@@ -68,6 +70,19 @@ start)
             printf "%s\n" "Fail"
         else
             echo $PIDS > $PIDFILES
+            printf "%s\n" "Ok"
+        fi
+
+        # Starting dlrd
+        printf "%-50s" "Starting $DAEMOND..."
+        cd $DAEMON_PATH
+        ./$DAEMOND $DAEMONOPTS > /dev/null 2>&1 &
+	PIDD=$!
+        #echo "Saving PIDD" $PIDD " to " $PIDFILED
+        if [ -z $PIDD ]; then
+            printf "%s\n" "Fail"
+        else
+            echo $PIDD > $PIDFILED
             printf "%s\n" "Ok"
         fi
 ;;
@@ -108,6 +123,18 @@ status)
         else
             printf "%s\n" "Service not running"
         fi
+
+        printf "%-50s" "Checking $DAEMOND..."
+        if [ -f $PIDFILED ]; then
+            PIDD=`cat $PIDFILED`
+            if [ -z "`ps axf | grep ${PIDD} | grep -v grep`" ]; then
+                printf "%s\n" "Process dead but pidfile exists"
+            else
+                echo "Running"
+            fi
+        else
+            printf "%s\n" "Service not running"
+        fi
 ;;
 
 stop)
@@ -123,7 +150,7 @@ stop)
         fi
 
         printf "%-50s" "Stopping $DAEMONR"
-            PIDS=`cat $PIDFILER`
+            PIDR=`cat $PIDFILER`
             cd $DAEMON_PATH
         if [ -f $PIDFILER ]; then
             kill -HUP $PIDR
@@ -140,6 +167,17 @@ stop)
             kill -HUP $PIDS
             printf "%s\n" "Ok"
             rm -f $PIDFILES
+        else
+            printf "%s\n" "pidfile not found"
+        fi
+
+        printf "%-50s" "Stopping $DAEMOND"
+            PIDS=`cat $PIDFILED`
+            cd $DAEMON_PATH
+        if [ -f $PIDFILED ]; then
+            kill -HUP $PIDD
+            printf "%s\n" "Ok"
+            rm -f $PIDFILED
         else
             printf "%s\n" "pidfile not found"
         fi

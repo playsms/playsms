@@ -24,6 +24,7 @@
 PIDFILE1=/var/run/playsmsd.pid
 PIDFILE2=/var/run/recvsmsd.pid
 PIDFILE3=/var/run/sendsmsd.pid
+PIDFILE4=/var/run/dlrd.pid
 
 # We require the config file in /etc/default/playsms to be
 # available, otherwise exit
@@ -62,6 +63,15 @@ case "$1" in
 	--pidfile $PIDFILE3 \
 	--exec $DAEMON -- $DAEMON_OPTIONS
     log_end_msg 0
+
+    log_daemon_msg "Starting dlr daemon"
+    log_progress_msg "dlrd"
+    DAEMON=$PLAYSMS_BIN/dlrd
+    DAEMON_OPTIONS=$PLAYSMS_PATH
+    start-stop-daemon --start --background --make-pidfile \
+	--pidfile $PIDFILE4 \
+	--exec $DAEMON -- $DAEMON_OPTIONS
+    log_end_msg 0
     ;;
 
   stop)
@@ -81,6 +91,12 @@ case "$1" in
     log_progress_msg "sendsmsd"
     start-stop-daemon --stop --retry 5 \
     	--pidfile $PIDFILE3
+    log_end_msg 0
+
+    log_daemon_msg "Stopping dlr daemon"
+    log_progress_msg "dlrd"
+    start-stop-daemon --stop --retry 5 \
+    	--pidfile $PIDFILE4
     log_end_msg 0
     ;;
 
