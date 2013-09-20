@@ -25,6 +25,7 @@ if (file_exists($PLAYSMS_PATH)) {
 			if ($apps_path['incs']) {
 				echo "begin cycling\n";
 				recvsmsd();
+				getsmsinbox();
 				echo "session:".mktime()."\n";
 				echo "end cycling\n";
 			}

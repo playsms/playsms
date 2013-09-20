@@ -24,7 +24,8 @@ if (file_exists($PLAYSMS_PATH)) {
 			include $fn;
 			if ($apps_path['incs']) {
 				echo "begin cycling\n";
-				playsmsd();
+				dlrd();
+				getsmsstatus();
 				echo "session:".mktime()."\n";
 				echo "end cycling\n";
 			}
