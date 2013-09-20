@@ -1,0 +1,101 @@
+#: messagemedia.php:8
+msgid "Active"
+msgstr ""
+
+#: messagemedia.php:12
+msgid "Inactive"
+msgstr ""
+
+#: messagemedia.php:12
+msgid "click here to activate"
+msgstr ""
+
+#: messagemedia.php:23 config.php:23
+msgid "Manage messagemedia"
+msgstr "Manage messagemedia"
+
+#: messagemedia.php:28
+msgid "Gateway name"
+msgstr ""
+
+#: messagemedia.php:31
+msgid "API ID"
+msgstr ""
+
+#: messagemedia.php:34
+msgid "Username"
+msgstr ""
+
+#: messagemedia.php:37
+msgid "Password"
+msgstr ""
+
+#: messagemedia.php:37
+msgid "Fill to change the password"
+msgstr ""
+
+#: messagemedia.php:40
+msgid "Global sender"
+msgstr ""
+
+#: messagemedia.php:40
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+
+#: messagemedia.php:43
+msgid "Messagemedia API URL"
+msgstr ""
+
+#: messagemedia.php:43 messagemedia.php:49
+msgid "No trailing slash"
+msgstr ""
+
+#: messagemedia.php:46
+msgid "Additional URL parameter"
+msgstr ""
+
+#: messagemedia.php:49
+msgid "Messagemedia incoming path"
+msgstr ""
+
+#: messagemedia.php:53
+msgid "Note"
+msgstr ""
+
+#: messagemedia.php:54
+msgid "Your callback URL is"
+msgstr ""
+
+#: messagemedia.php:55
+msgid ""
+"If you are using callback URL to receive incoming sms you may ignore "
+"Messagemedia incoming path"
+msgstr ""
+
+#: messagemedia.php:56
+msgid "Messagemedia is a bulk SMS provider"
+msgstr ""
+
+#: messagemedia.php:56
+msgid "free credits are available for testing purposes"
+msgstr ""
+
+#: messagemedia.php:57
+msgid "Send SMS message without footer banner"
+msgstr ""
+
+#: messagemedia.php:58
+msgid "Save"
+msgstr ""
+
+#: messagemedia.php:71
+msgid "No changes has been made"
+msgstr ""
+
+#: messagemedia.php:90
+msgid "Gateway module configurations has been saved"
+msgstr ""
+
+#: messagemedia.php:98
+msgid "Gateway has been activated"
+msgstr ""
