@@ -1,0 +1,19 @@
+playSMS gateway module for messagemedia (http://smsmaster.m4u.com.au)
+
+Plugin  : Gateway MessageMedia for playSMS
+Author  : Emmanuel CHANSON (emmanuelchanson_at_gmail_dot_com)
+Release : 2013-05-23
+License : GPL2
+
+Register your self at MessageMedia website
+and take a note of your username, password and API ID
+those items required for gateway module configuration
+
+Dont forget to point callback setting on MessageMedia control panel
+to callback.php in this directory
+eg:
+prior to 0.9.5.1:
+http://your_playsms_website/plugin/gateway/clickatell/callback.php
+since 0.9.5.1:
+http://your_playsms_website/index.php?app=call&cat=gateway&plugin=clickatell&access=callback
+
