@@ -42,7 +42,7 @@ if ($remote_slid && $client_ref && $status) {
 				$p_status = 2; break; // failed
 		}
 		logger_print("dlr uid:".$uid." smslog_id:".$smslog_id." message_id:".$remote_slid." status:".$status, 2, "nexmo callback");
-		setsmsdeliverystatus($smslog_id,$uid,$p_status);
+		dlr($smslog_id,$uid,$p_status);
 		ob_end_clean();
 		exit();
 	}

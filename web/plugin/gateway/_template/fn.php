@@ -42,7 +42,7 @@ function template_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime=""
 	// 1 = sent
 	// 2 = failed
 	// 3 = delivered
-	// setsmsdeliverystatus($smslog_id,$uid,$p_status);
+	// dlr($smslog_id,$uid,$p_status);
 }
 
 // hook_getsmsinbox

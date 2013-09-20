@@ -40,7 +40,7 @@ function smstools_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime=""
 		}
 
 		$p_status = 1;
-		setsmsdeliverystatus($smslog_id,$uid,$p_status);
+		dlr($smslog_id,$uid,$p_status);
 		if (is_dir($smstools_param['spool_bak'].'/sent')) {
 			@shell_exec('mv '.$fn.' '.$smstools_param['spool_bak'].'/sent/');
 		}
@@ -51,7 +51,7 @@ function smstools_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime=""
 	// set if its failed
 	if (file_exists($efn)) {
 		$p_status = 2;
-		setsmsdeliverystatus($smslog_id,$uid,$p_status);
+		dlr($smslog_id,$uid,$p_status);
 		if (is_dir($smstools_param['spool_bak'].'/failed')) {
 			@shell_exec('mv '.$efn.' '.$smstools_param['spool_bak'].'/failed/');
 		}
@@ -65,7 +65,7 @@ function smstools_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime=""
 	$p_delay = floor(($p_update_stamp - $p_datetime_stamp)/86400);
 	if ($p_delay >= 2) {
 		$p_status = 2;
-		setsmsdeliverystatus($smslog_id,$uid,$p_status);
+		dlr($smslog_id,$uid,$p_status);
 	}
 	return;
 }
@@ -135,7 +135,7 @@ function smstools_hook_getsmsinbox() {
 						$smslog_id = $db_row['smslog_id'];
 						if ($uid && $smslog_id && $status==0) {
 							$p_status = 3;
-							setsmsdeliverystatus($smslog_id,$uid,$p_status);
+							dlr($smslog_id,$uid,$p_status);
 							logger_print("DLR smslog_id:".$smslog_id." p_status:".$p_status, 2, "smstools incoming");
 						}
 						$is_dlr = true;
@@ -214,7 +214,7 @@ function smstools_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',
 		$p_status = 2;
 		logger_print("fail to save outfile:".$fn, 2, "smstools outgoing");
 	}
-	setsmsdeliverystatus($smslog_id,$uid,$p_status);
+	dlr($smslog_id,$uid,$p_status);
 	return $ok;
 }
 

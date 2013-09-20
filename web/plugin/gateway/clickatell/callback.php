@@ -64,7 +64,7 @@ if ($cb_status && $cb_apimsgid) {
 		if ($c_sms_status) {
 			$p_status = $c_sms_status;
 		}
-		setsmsdeliverystatus($smslog_id,$uid,$p_status);
+		dlr($smslog_id,$uid,$p_status);
 	}
 }
 

@@ -17,7 +17,7 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 
 	// set failed first
 	$p_status = 2;
-	setsmsdeliverystatus($smslog_id,$uid,$p_status);
+	dlr($smslog_id,$uid,$p_status);
 
 	if ($sms_type=='flash') {
 		$msg_type = 0; //flash
@@ -87,7 +87,7 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	$ok = true;
 	// set pending
 	$p_status = 0;
-	setsmsdeliverystatus($smslog_id, $uid, $p_status);
+	dlr($smslog_id, $uid, $p_status);
 	}
 	}
 	*/
@@ -103,7 +103,7 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 				$ok = true;
 				// set pending
 				$p_status = 0;
-				setsmsdeliverystatus($smslog_id,$uid,$p_status);
+				dlr($smslog_id,$uid,$p_status);
 			}
 		}
 		fclose ($connection);

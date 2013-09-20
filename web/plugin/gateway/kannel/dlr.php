@@ -39,7 +39,7 @@ if ($type && $slid && $uid) {
 	if ($stat) {
 		$p_status = $stat - 3;
 	}
-	setsmsdeliverystatus($slid,$uid,$p_status);
+	dlr($slid,$uid,$p_status);
 }
 
 ?>

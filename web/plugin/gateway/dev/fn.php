@@ -6,7 +6,7 @@ function dev_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid
 	$ok = false;
 	if ($dev_param['enable_outgoing']) {
 		$p_status = 3;
-		setsmsdeliverystatus($smslog_id,$uid,$p_status);
+		dlr($smslog_id,$uid,$p_status);
 		$ok = true;
 	}
 	return $ok;

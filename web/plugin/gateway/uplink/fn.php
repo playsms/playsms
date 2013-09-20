@@ -70,7 +70,7 @@ function uplink_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	} else {
 		$p_status = 2;
 	}
-	setsmsdeliverystatus($smslog_id,$uid,$p_status);
+	dlr($smslog_id,$uid,$p_status);
 	return $ok;
 }
 
@@ -85,7 +85,7 @@ function uplink_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$
 	// 0 = pending
 	// 1 = delivered
 	// 2 = failed
-	// setsmsdeliverystatus($smslog_id,$uid,$p_status);
+	// dlr($smslog_id,$uid,$p_status);
 	global $uplink_param;
 	$db_query = "SELECT * FROM "._DB_PREF_."_gatewayUplink WHERE up_local_slid='$smslog_id'";
 	$db_result = dba_query($db_query);
@@ -107,10 +107,10 @@ function uplink_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$
 			$r = str_getcsv($response,';','"',"\\");
 			if (($r[0]=='ERR 400') || ($r[0]=='ERR 402')) {
 				$p_status = 2;
-				setsmsdeliverystatus($local_slid,$uid,$p_status);
+				dlr($local_slid,$uid,$p_status);
 			} else {
 				if ($p_status = (int) $r[5]) {
-					setsmsdeliverystatus($local_slid,$uid,$p_status);
+					dlr($local_slid,$uid,$p_status);
 				}
 			}
 		}

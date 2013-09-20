@@ -57,7 +57,7 @@ function twilio_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 			} else {
 				$p_status = 2;
 			}
-			setsmsdeliverystatus($smslog_id,$uid,$p_status);
+			dlr($smslog_id,$uid,$p_status);
 		} else {
 			// even when the response is not what we expected we still print it out for debug purposes
 			$resp = str_replace("\n", " ", $resp);
@@ -67,7 +67,7 @@ function twilio_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	}
 	if (!$ok) {
 		$p_status = 2;
-		setsmsdeliverystatus($smslog_id,$uid,$p_status);
+		dlr($smslog_id,$uid,$p_status);
 	}
 	return $ok;
 }

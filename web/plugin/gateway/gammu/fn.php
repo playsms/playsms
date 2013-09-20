@@ -40,11 +40,11 @@ function gammu_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p
 				if ($i==0) {
 					// sms sent
 					$p_status = 1;
-					setsmsdeliverystatus($smslog_id,$uid,$p_status);
+					dlr($smslog_id,$uid,$p_status);
 				} else if ($i==1) {
 					// failed to sent sms
 					$p_status = 2;
-					setsmsdeliverystatus($smslog_id,$uid,$p_status);
+					dlr($smslog_id,$uid,$p_status);
 				}
 				break;
 			}
@@ -59,7 +59,7 @@ function gammu_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p
 		// set failed if its at least 2 days old
 		if ($p_delay >= 2) {
 			$p_status = 2;
-			setsmsdeliverystatus($smslog_id,$uid,$p_status);
+			dlr($smslog_id,$uid,$p_status);
 		}
 	} else {
 		// delete the file if exists
@@ -148,7 +148,7 @@ function gammu_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gp
 		$p_status = 2;
 		logger_print("fail to save outfile:".$fn, 2, "gammu outgoing");
 	}
-	setsmsdeliverystatus($smslog_id,$uid,$p_status);
+	dlr($smslog_id,$uid,$p_status);
 	return $ok;
 }
 

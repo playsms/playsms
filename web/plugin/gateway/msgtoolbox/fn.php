@@ -68,7 +68,7 @@ function msgtoolbox_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='
 					if ($id) {
 						$ok = true;
 						$p_status = 1; // sms sent
-						setsmsdeliverystatus($smslog_id,$uid,$p_status);
+						dlr($smslog_id,$uid,$p_status);
 					}
 				}	
 			}
@@ -82,7 +82,7 @@ function msgtoolbox_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='
 	}
 	if (!$ok) {
 		$p_status = 2;
-		setsmsdeliverystatus($smslog_id,$uid,$p_status);
+		dlr($smslog_id,$uid,$p_status);
 	}
 	return $ok;
 }

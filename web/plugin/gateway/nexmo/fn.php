@@ -50,7 +50,7 @@ function nexmo_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gp
 			if ($id && ($c_status == 0)) {
 				$ok = true;
 				$p_status = 1;
-				setsmsdeliverystatus($smslog_id,$uid,$p_status);
+				dlr($smslog_id,$uid,$p_status);
 			}
 		} else {
 			// even when the response is not what we expected we still print it out for debug purposes
@@ -61,7 +61,7 @@ function nexmo_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gp
 	}
 	if (!$ok) {
 		$p_status = 2;
-		setsmsdeliverystatus($smslog_id,$uid,$p_status);
+		dlr($smslog_id,$uid,$p_status);
 	}
 	return $ok;
 }
