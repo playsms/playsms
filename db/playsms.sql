@@ -58,7 +58,7 @@ CREATE TABLE `playsms_featureAutoreply_scenario` (
   `autoreply_scenario_param5` varchar(20) NOT NULL DEFAULT '',
   `autoreply_scenario_param6` varchar(20) NOT NULL DEFAULT '',
   `autoreply_scenario_param7` varchar(20) NOT NULL DEFAULT '',
-  `autoreply_scenario_result` text NOT NULL,
+  `autoreply_scenario_result` text NOT NULL DEFAULT '',
   PRIMARY KEY (`autoreply_scenario_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -83,8 +83,8 @@ CREATE TABLE `playsms_featureAutosend` (
   `c_timestamp` int(11) NOT NULL DEFAULT '0',
   `autosend_id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL DEFAULT '0',
-  `autosend_message` varchar(200) NOT NULL,
-  `autosend_number` varchar(20) NOT NULL,
+  `autosend_message` varchar(200) NOT NULL DEFAULT '',
+  `autosend_number` varchar(20) NOT NULL DEFAULT '',
   `autosend_enable` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`autosend_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -109,8 +109,8 @@ DROP TABLE IF EXISTS `playsms_featureAutosend_time`;
 CREATE TABLE `playsms_featureAutosend_time` (
   `c_timestamp` int(11) NOT NULL DEFAULT '0',
   `time_id` int(11) NOT NULL AUTO_INCREMENT,
-  `autosend_id` int(11) NOT NULL,
-  `autosend_time` varchar(20) NOT NULL,
+  `autosend_id` int(11) NOT NULL DEFAULT '0',
+  `autosend_time` varchar(20) NOT NULL DEFAULT '',
   `sent` enum('1','0') NOT NULL DEFAULT '0',
   PRIMARY KEY (`time_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -139,7 +139,7 @@ CREATE TABLE `playsms_featureBoard` (
   `board_keyword` varchar(100) NOT NULL DEFAULT '',
   `board_forward_email` varchar(250) NOT NULL DEFAULT '',
   `board_css` varchar(250) NOT NULL DEFAULT '',
-  `board_pref_template` text NOT NULL,
+  `board_pref_template` text NOT NULL DEFAULT '',
   PRIMARY KEY (`board_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -167,7 +167,7 @@ CREATE TABLE `playsms_featureBoard_log` (
   `in_sender` varchar(20) NOT NULL DEFAULT '',
   `in_masked` varchar(20) NOT NULL DEFAULT '',
   `in_keyword` varchar(20) NOT NULL DEFAULT '',
-  `in_msg` text NOT NULL,
+  `in_msg` text NOT NULL DEFAULT '',
   `in_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`in_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -194,7 +194,7 @@ CREATE TABLE `playsms_featureCommand` (
   `command_id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL DEFAULT '0',
   `command_keyword` varchar(10) NOT NULL DEFAULT '',
-  `command_exec` text NOT NULL,
+  `command_exec` text NOT NULL DEFAULT '',
   `command_return_as_reply` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`command_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -221,7 +221,7 @@ CREATE TABLE `playsms_featureCustom` (
   `custom_id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL DEFAULT '0',
   `custom_keyword` varchar(10) NOT NULL DEFAULT '',
-  `custom_url` text NOT NULL,
+  `custom_url` text NOT NULL DEFAULT '',
   `custom_return_as_reply` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`custom_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -244,12 +244,12 @@ DROP TABLE IF EXISTS `playsms_featureInboxgroup`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_featureInboxgroup` (
-  `c_timestamp` int(11) NOT NULL,
+  `c_timestamp` int(11) NOT NULL DEFAULT '0',
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` bigint(20) NOT NULL,
-  `in_receiver` varchar(20) NOT NULL,
-  `keywords` varchar(100) NOT NULL,
-  `description` varchar(250) NOT NULL,
+  `uid` bigint(20) NOT NULL DEFAULT '0',
+  `in_receiver` varchar(20) NOT NULL DEFAULT '',
+  `keywords` varchar(100) NOT NULL DEFAULT '',
+  `description` varchar(250) NOT NULL DEFAULT '',
   `creation_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `exclusive` tinyint(4) NOT NULL DEFAULT '0',
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
@@ -276,8 +276,8 @@ DROP TABLE IF EXISTS `playsms_featureInboxgroup_catchall`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_featureInboxgroup_catchall` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `rid` int(11) NOT NULL,
-  `uid` bigint(20) NOT NULL,
+  `rid` int(11) NOT NULL DEFAULT '0',
+  `uid` bigint(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -300,12 +300,12 @@ DROP TABLE IF EXISTS `playsms_featureInboxgroup_log_in`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_featureInboxgroup_log_in` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `rid` int(11) NOT NULL,
+  `rid` int(11) NOT NULL DEFAULT '0',
   `sms_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `sms_sender` varchar(20) NOT NULL,
-  `keyword` varchar(100) NOT NULL,
-  `message` text NOT NULL,
-  `sms_receiver` varchar(20) NOT NULL,
+  `sms_sender` varchar(20) NOT NULL DEFAULT '',
+  `keyword` varchar(100) NOT NULL DEFAULT '',
+  `message` text NOT NULL DEFAULT '',
+  `sms_receiver` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -328,10 +328,10 @@ DROP TABLE IF EXISTS `playsms_featureInboxgroup_log_out`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_featureInboxgroup_log_out` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `log_in_id` bigint(20) NOT NULL,
-  `smslog_id` bigint(20) NOT NULL,
+  `log_in_id` bigint(20) NOT NULL DEFAULT '0',
+  `smslog_id` bigint(20) NOT NULL DEFAULT '0',
   `catchall` tinyint(4) NOT NULL DEFAULT '0',
-  `uid` bigint(20) NOT NULL,
+  `uid` bigint(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -354,8 +354,8 @@ DROP TABLE IF EXISTS `playsms_featureInboxgroup_members`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_featureInboxgroup_members` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `rid` int(11) NOT NULL,
-  `uid` bigint(20) NOT NULL,
+  `rid` int(11) NOT NULL DEFAULT '0',
+  `uid` bigint(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -383,10 +383,10 @@ CREATE TABLE `playsms_featurePoll` (
   `poll_title` varchar(250) NOT NULL DEFAULT '',
   `poll_keyword` varchar(10) NOT NULL DEFAULT '',
   `poll_enable` int(11) NOT NULL DEFAULT '0',
-  `poll_msg_valid` varchar(100) NOT NULL,
-  `poll_msg_invalid` varchar(100) NOT NULL,
-  `poll_message_valid` varchar(100) NOT NULL,
-  `poll_message_invalid` varchar(100) NOT NULL,
+  `poll_msg_valid` varchar(100) NOT NULL DEFAULT '',
+  `poll_msg_invalid` varchar(100) NOT NULL DEFAULT '',
+  `poll_message_valid` varchar(100) NOT NULL DEFAULT '',
+  `poll_message_invalid` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`poll_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -464,11 +464,11 @@ CREATE TABLE `playsms_featureQuiz` (
   `c_timestamp` int(11) NOT NULL DEFAULT '0',
   `quiz_id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL DEFAULT '0',
-  `quiz_keyword` varchar(20) NOT NULL,
-  `quiz_question` varchar(100) NOT NULL,
-  `quiz_answer` varchar(20) NOT NULL,
-  `quiz_msg_correct` varchar(100) NOT NULL,
-  `quiz_msg_incorrect` varchar(100) NOT NULL,
+  `quiz_keyword` varchar(20) NOT NULL DEFAULT '',
+  `quiz_question` varchar(100) NOT NULL DEFAULT '',
+  `quiz_answer` varchar(20) NOT NULL DEFAULT '',
+  `quiz_msg_correct` varchar(100) NOT NULL DEFAULT '',
+  `quiz_msg_incorrect` varchar(100) NOT NULL DEFAULT '',
   `quiz_enable` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`quiz_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -496,7 +496,7 @@ CREATE TABLE `playsms_featureQuiz_log` (
   `quiz_id` int(4) NOT NULL DEFAULT '0',
   `quiz_answer` varchar(100) NOT NULL DEFAULT '',
   `quiz_sender` varchar(20) NOT NULL DEFAULT '',
-  `in_datetime` varchar(20) NOT NULL,
+  `in_datetime` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`answer_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -521,13 +521,13 @@ CREATE TABLE `playsms_featureSubscribe` (
   `c_timestamp` int(11) NOT NULL DEFAULT '0',
   `subscribe_id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL DEFAULT '0',
-  `subscribe_keyword` varchar(20) NOT NULL,
+  `subscribe_keyword` varchar(20) NOT NULL DEFAULT '',
   `subscribe_msg` varchar(140) NOT NULL DEFAULT '',
   `unsubscribe_msg` varchar(140) NOT NULL DEFAULT '',
   `subscribe_enable` int(11) NOT NULL DEFAULT '0',
-  `subscribe_param` varchar(20) NOT NULL,
-  `unsubscribe_param` varchar(20) NOT NULL,
-  `forward_param` varchar(20) NOT NULL,
+  `subscribe_param` varchar(20) NOT NULL DEFAULT '',
+  `unsubscribe_param` varchar(20) NOT NULL DEFAULT '',
+  `forward_param` varchar(20) NOT NULL DEFAULT '',
   `unknown_format_msg` varchar(140) NOT NULL DEFAULT '',
   `already_member_msg` varchar(140) NOT NULL DEFAULT '',
   PRIMARY KEY (`subscribe_id`)
@@ -554,8 +554,8 @@ CREATE TABLE `playsms_featureSubscribe_member` (
   `c_timestamp` int(11) NOT NULL DEFAULT '0',
   `member_id` int(11) NOT NULL AUTO_INCREMENT,
   `subscribe_id` int(11) NOT NULL DEFAULT '0',
-  `member_number` varchar(20) NOT NULL,
-  `member_since` varchar(20) NOT NULL,
+  `member_number` varchar(20) NOT NULL DEFAULT '',
+  `member_since` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`member_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -579,8 +579,8 @@ DROP TABLE IF EXISTS `playsms_featureSubscribe_msg`;
 CREATE TABLE `playsms_featureSubscribe_msg` (
   `c_timestamp` int(11) NOT NULL DEFAULT '0',
   `msg_id` int(11) NOT NULL AUTO_INCREMENT,
-  `subscribe_id` int(11) NOT NULL,
-  `msg` varchar(200) NOT NULL,
+  `subscribe_id` int(11) NOT NULL DEFAULT '0',
+  `msg` varchar(200) NOT NULL DEFAULT '',
   `create_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `update_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `counter` tinyint(4) NOT NULL DEFAULT '0',
@@ -605,17 +605,17 @@ DROP TABLE IF EXISTS `playsms_featureSurvey`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_featureSurvey` (
-  `c_timestamp` int(11) NOT NULL,
+  `c_timestamp` int(11) NOT NULL DEFAULT '0',
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) NOT NULL,
+  `uid` int(11) NOT NULL DEFAULT '0',
   `creation_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `keyword` varchar(20) NOT NULL,
-  `title` varchar(100) NOT NULL,
-  `status` tinyint(4) NOT NULL,
-  `deleted` tinyint(4) NOT NULL,
-  `started` tinyint(4) NOT NULL,
-  `running` tinyint(4) NOT NULL,
-  `session` varchar(50) NOT NULL,
+  `keyword` varchar(20) NOT NULL DEFAULT '',
+  `title` varchar(100) NOT NULL DEFAULT '',
+  `status` tinyint(4) NOT NULL DEFAULT '0',
+  `deleted` tinyint(4) NOT NULL DEFAULT '0',
+  `started` tinyint(4) NOT NULL DEFAULT '0',
+  `running` tinyint(4) NOT NULL DEFAULT '0',
+  `session` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -637,24 +637,24 @@ DROP TABLE IF EXISTS `playsms_featureSurvey_log`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_featureSurvey_log` (
-  `c_timestamp` int(11) NOT NULL,
+  `c_timestamp` int(11) NOT NULL DEFAULT '0',
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `survey_id` int(11) NOT NULL,
-  `question_id` int(11) NOT NULL,
-  `member_id` int(11) NOT NULL,
-  `link_id` varchar(50) NOT NULL,
-  `smslog_id` bigint(20) NOT NULL,
-  `session` varchar(50) NOT NULL,
+  `survey_id` int(11) NOT NULL DEFAULT '0',
+  `question_id` int(11) NOT NULL DEFAULT '0',
+  `member_id` int(11) NOT NULL DEFAULT '0',
+  `link_id` varchar(50) NOT NULL DEFAULT '',
+  `smslog_id` bigint(20) NOT NULL DEFAULT '0',
+  `session` varchar(50) NOT NULL DEFAULT '',
   `creation_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `name` varchar(100) NOT NULL,
-  `mobile` varchar(20) NOT NULL,
-  `question_number` int(11) NOT NULL,
-  `question` varchar(140) NOT NULL,
-  `incoming` tinyint(4) NOT NULL,
+  `name` varchar(100) NOT NULL DEFAULT '',
+  `mobile` varchar(20) NOT NULL DEFAULT '',
+  `question_number` int(11) NOT NULL DEFAULT '0',
+  `question` varchar(140) NOT NULL DEFAULT '',
+  `incoming` tinyint(4) NOT NULL DEFAULT '0',
   `in_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `in_sender` varchar(20) NOT NULL,
-  `in_receiver` varchar(20) NOT NULL,
-  `answer` text NOT NULL,
+  `in_sender` varchar(20) NOT NULL DEFAULT '',
+  `in_receiver` varchar(20) NOT NULL DEFAULT '',
+  `answer` text NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -677,9 +677,9 @@ DROP TABLE IF EXISTS `playsms_featureSurvey_members`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_featureSurvey_members` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sid` int(11) NOT NULL,
-  `mobile` varchar(20) NOT NULL,
-  `name` varchar(100) NOT NULL,
+  `sid` int(11) NOT NULL DEFAULT '0',
+  `mobile` varchar(20) NOT NULL DEFAULT '',
+  `name` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -702,8 +702,8 @@ DROP TABLE IF EXISTS `playsms_featureSurvey_questions`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_featureSurvey_questions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sid` int(11) NOT NULL,
-  `question` varchar(140) NOT NULL,
+  `sid` int(11) NOT NULL DEFAULT '0',
+  `question` varchar(140) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -953,12 +953,12 @@ DROP TABLE IF EXISTS `playsms_gatewaySmstools_dlr`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_gatewaySmstools_dlr` (
-  `c_timestamp` int(11) NOT NULL,
+  `c_timestamp` int(11) NOT NULL DEFAULT '0',
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) NOT NULL,
-  `smslog_id` int(11) NOT NULL,
-  `message_id` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `smslog_id` int(11) NOT NULL DEFAULT '0',
+  `message_id` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `smslog_id` (`smslog_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -1010,8 +1010,8 @@ CREATE TABLE `playsms_gatewayUplink` (
   `up_local_slid` int(11) NOT NULL DEFAULT '0',
   `up_remote_slid` int(11) NOT NULL DEFAULT '0',
   `up_status` tinyint(4) NOT NULL DEFAULT '0',
-  `up_remote_queue_code` varchar(32) NOT NULL,
-  `up_dst` varchar(100) NOT NULL,
+  `up_remote_queue_code` varchar(32) NOT NULL DEFAULT '',
+  `up_dst` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`up_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1056,14 +1056,14 @@ DROP TABLE IF EXISTS `playsms_tblBilling`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_tblBilling` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `c_timestamp` int(11) NOT NULL,
+  `c_timestamp` int(11) NOT NULL DEFAULT '0',
   `post_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `smslog_id` int(11) NOT NULL,
-  `rate` float NOT NULL,
+  `smslog_id` int(11) NOT NULL DEFAULT '0',
+  `rate` float NOT NULL DEFAULT '0.0',
   `credit` double NOT NULL DEFAULT '0',
   `count` int(11) NOT NULL DEFAULT '0',
   `charge` double NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1092,11 +1092,11 @@ CREATE TABLE `playsms_tblConfig_main` (
   `cfg_gateway_module` varchar(20) DEFAULT NULL,
   `cfg_gateway_number` varchar(100) DEFAULT NULL,
   `cfg_themes_module` varchar(100) DEFAULT NULL,
-  `cfg_default_rate` float NOT NULL DEFAULT '0',
+  `cfg_default_rate` float NOT NULL DEFAULT '0.0',
   `cfg_language_module` varchar(10) DEFAULT 'en_US',
   `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700',
   `cfg_sms_max_count` tinyint(4) NOT NULL DEFAULT '3',
-  `cfg_default_credit` float NOT NULL DEFAULT '0',
+  `cfg_default_credit` float NOT NULL DEFAULT '0.0',
   `cfg_enable_register` tinyint(4) NOT NULL DEFAULT '0',
   `cfg_enable_forgot` tinyint(4) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -1166,7 +1166,7 @@ CREATE TABLE `playsms_tblSMSIncoming` (
   `in_sender` varchar(100) NOT NULL DEFAULT '',
   `in_receiver` varchar(20) NOT NULL DEFAULT '',
   `in_keyword` varchar(100) NOT NULL DEFAULT '',
-  `in_message` text NOT NULL,
+  `in_message` text NOT NULL DEFAULT '',
   `in_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `in_status` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`in_id`)
@@ -1198,7 +1198,7 @@ CREATE TABLE `playsms_tblSMSOutgoing` (
   `p_src` varchar(100) NOT NULL DEFAULT '',
   `p_dst` varchar(100) NOT NULL DEFAULT '',
   `p_footer` varchar(30) NOT NULL DEFAULT '',
-  `p_msg` text NOT NULL,
+  `p_msg` text NOT NULL DEFAULT '',
   `p_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `p_update` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `p_status` tinyint(4) NOT NULL DEFAULT '0',
@@ -1206,7 +1206,7 @@ CREATE TABLE `playsms_tblSMSOutgoing` (
   `p_credit` tinyint(4) NOT NULL DEFAULT '0',
   `p_sms_type` varchar(100) NOT NULL DEFAULT '',
   `unicode` tinyint(4) NOT NULL DEFAULT '0',
-  `queue_code` varchar(40) NOT NULL,
+  `queue_code` varchar(40) NOT NULL DEFAULT '',
   PRIMARY KEY (`smslog_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1229,19 +1229,19 @@ DROP TABLE IF EXISTS `playsms_tblSMSOutgoing_queue`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_tblSMSOutgoing_queue` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `queue_code` varchar(40) NOT NULL,
+  `queue_code` varchar(40) NOT NULL DEFAULT '',
   `datetime_entry` varchar(20) NOT NULL DEFAULT '000-00-00 00:00:00',
   `datetime_scheduled` varchar(20) NOT NULL DEFAULT '000-00-00 00:00:00',
   `datetime_update` varchar(20) NOT NULL DEFAULT '000-00-00 00:00:00',
-  `flag` tinyint(4) NOT NULL,
+  `flag` tinyint(4) NOT NULL DEFAULT '0',
   `sms_count` int(11) NOT NULL DEFAULT '0',
-  `uid` int(11) NOT NULL,
-  `gpid` int(11) NOT NULL,
-  `sender_id` varchar(100) NOT NULL,
-  `footer` varchar(30) NOT NULL,
-  `message` text NOT NULL,
-  `sms_type` varchar(100) NOT NULL,
-  `unicode` tinyint(4) NOT NULL,
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `gpid` int(11) NOT NULL DEFAULT '0',
+  `sender_id` varchar(100) NOT NULL DEFAULT '',
+  `footer` varchar(30) NOT NULL DEFAULT '',
+  `message` text NOT NULL DEFAULT '',
+  `sms_type` varchar(100) NOT NULL DEFAULT '',
+  `unicode` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `queue_code` (`queue_code`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -1265,10 +1265,10 @@ DROP TABLE IF EXISTS `playsms_tblSMSOutgoing_queue_dst`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_tblSMSOutgoing_queue_dst` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `queue_id` int(11) NOT NULL,
-  `smslog_id` bigint(20) NOT NULL,
-  `flag` tinyint(4) NOT NULL,
-  `dst` varchar(50) NOT NULL,
+  `queue_id` int(11) NOT NULL DEFAULT '0',
+  `smslog_id` bigint(20) NOT NULL DEFAULT '0',
+  `flag` tinyint(4) NOT NULL DEFAULT '0',
+  `dst` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1295,7 +1295,7 @@ CREATE TABLE `playsms_tblUser` (
   `status` tinyint(4) NOT NULL DEFAULT '0',
   `ticket` varchar(100) NOT NULL DEFAULT '',
   `username` varchar(100) NOT NULL DEFAULT '',
-  `password` varchar(32) NOT NULL,
+  `password` varchar(32) NOT NULL DEFAULT '',
   `token` varchar(32) NOT NULL DEFAULT '',
   `enable_webservices` tinyint(4) NOT NULL DEFAULT '0',
   `webservices_ip` varchar(100) NOT NULL DEFAULT '',
@@ -1376,7 +1376,7 @@ CREATE TABLE `playsms_tblUser_country` (
   `c_timestamp` int(11) NOT NULL DEFAULT '0',
   `country_id` int(11) NOT NULL AUTO_INCREMENT,
   `country_name` varchar(200) NOT NULL DEFAULT '',
-  `country_code` varchar(10) NOT NULL,
+  `country_code` varchar(10) NOT NULL DEFAULT '',
   PRIMARY KEY (`country_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=335 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1403,7 +1403,7 @@ CREATE TABLE `playsms_toolsMsgtemplate` (
   `tid` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL DEFAULT '0',
   `t_title` varchar(100) NOT NULL DEFAULT '',
-  `t_text` text NOT NULL,
+  `t_text` text NOT NULL DEFAULT '',
   PRIMARY KEY (`tid`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1426,13 +1426,13 @@ DROP TABLE IF EXISTS `playsms_toolsPhonebook`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_toolsPhonebook` (
-  `c_timestamp` int(11) NOT NULL,
+  `c_timestamp` int(11) NOT NULL DEFAULT '0',
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `gpid` int(11) NOT NULL,
-  `uid` int(11) NOT NULL,
-  `mobile` varchar(100) NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `email` varchar(250) NOT NULL,
+  `gpid` int(11) NOT NULL DEFAULT '0',
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `mobile` varchar(100) NOT NULL DEFAULT '',
+  `name` varchar(250) NOT NULL DEFAULT '',
+  `email` varchar(250) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1454,11 +1454,11 @@ DROP TABLE IF EXISTS `playsms_toolsPhonebook_group`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_toolsPhonebook_group` (
-  `c_timestamp` int(11) NOT NULL,
+  `c_timestamp` int(11) NOT NULL DEFAULT '0',
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `code` varchar(20) NOT NULL,
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(100) NOT NULL DEFAULT '',
+  `code` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1481,12 +1481,12 @@ DROP TABLE IF EXISTS `playsms_toolsSendfromfile`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_toolsSendfromfile` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) NOT NULL,
-  `sid` varchar(50) NOT NULL,
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `sid` varchar(50) NOT NULL DEFAULT '',
   `sms_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `sms_to` varchar(50) NOT NULL,
-  `sms_msg` text NOT NULL,
-  `sms_username` varchar(50) NOT NULL,
+  `sms_to` varchar(50) NOT NULL DEFAULT '',
+  `sms_msg` text NOT NULL DEFAULT '',
+  `sms_username` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1508,11 +1508,11 @@ DROP TABLE IF EXISTS `playsms_toolsSimplerate`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_toolsSimplerate` (
-  `c_timestamp` int(11) NOT NULL,
+  `c_timestamp` int(11) NOT NULL DEFAULT '0',
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `dst` varchar(100) NOT NULL,
-  `prefix` varchar(10) NOT NULL,
-  `rate` float NOT NULL,
+  `dst` varchar(100) NOT NULL DEFAULT '',
+  `prefix` varchar(10) NOT NULL DEFAULT '',
+  `rate` float NOT NULL DEFAULT '0.0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `prefix` (`prefix`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
