@@ -43,7 +43,7 @@ nav {
 }
 
 .menu-item:hover ul {
-	height: 242px;
+	height: 275px; /* 275px = (11 menu item + 1) * (22px per item) + 11px */
 }
 
 /*li Styles*/
