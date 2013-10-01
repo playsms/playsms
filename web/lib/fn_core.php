@@ -363,4 +363,26 @@ function core_array_to_xml($arr=array(), SimpleXMLElement $xml) {
 	return $xml;
 }
 
+/**
+ * XML to array using SimpleXML
+ */
+function core_xml_to_array($xml) {
+	$var = core_object_to_array(simplexml_load_string($xml));
+	return $var;
+}
+
+/**
+ * Object to array
+ */
+function core_object_to_array($data) {
+	if (is_object($data)) {
+		$result = array();
+		foreach ((array)$data as $key => $value) {
+			$result[$key] = core_object_to_array($value);
+		}
+		return $result;
+	}
+	return $data;
+}
+
 ?>
