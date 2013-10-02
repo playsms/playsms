@@ -14,9 +14,6 @@ msgstr "Passwort zurücksetzen"
 msgid "Home"
 msgstr "Startseite"
 
-msgid "Logged in"
-msgstr "eingeloggt"
-
 msgid "Login"
 msgstr "Einloggen"
 
@@ -37,9 +34,6 @@ msgstr "Passwort zurücksetzen"
 
 msgid "Register an account"
 msgstr "Account registrieren"
-
-msgid "Status"
-msgstr "Status"
 
 msgid "Username"
 msgstr "Benutzername"

@@ -11,9 +11,8 @@ msgstr ""
 msgid "Auth Token"
 msgstr ""
 
-#, fuzzy
 msgid "Callback URL"
-msgstr "URL callback anda adalah"
+msgstr "URL callback"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""

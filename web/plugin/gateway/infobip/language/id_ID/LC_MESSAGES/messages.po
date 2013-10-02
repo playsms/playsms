@@ -5,147 +5,83 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/infobip/config.php:29
-#: plugin/gateway/infobip/infobip.php:24
-#: plugin/gateway/infobip/infobip.php:27
-msgid "Manage infobip"
-msgstr "Pengaturan infobip"
-
-#: plugin/gateway/infobip/infobip.php:9
 msgid "Active"
 msgstr "Aktif"
 
-#: plugin/gateway/infobip/infobip.php:13
-msgid "Inactive"
-msgstr "Nonaktif"
+msgid "Additional URL parameter"
+msgstr "Parameter URL tambahan"
 
-#: plugin/gateway/infobip/infobip.php:13
-msgid "click here to activate"
-msgstr "klik di sini untuk mengaktifkan"
+msgid "Create an account to send SMS"
+msgstr ""
 
-#: plugin/gateway/infobip/infobip.php:29
-#: plugin/gateway/infobip/infobip.php:32
-msgid "Gateway name"
-msgstr "Nama gateway"
+msgid "Delivery Report"
+msgstr ""
 
-#: plugin/gateway/infobip/infobip.php:32
-#: plugin/gateway/infobip/infobip.php:35
-msgid "API ID"
-msgstr "API ID"
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
 
-#: plugin/gateway/infobip/infobip.php:35
-#: plugin/gateway/infobip/infobip.php:38
-msgid "Username"
-msgstr "Nama pengguna"
-
-#: plugin/gateway/infobip/infobip.php:38
-#: plugin/gateway/infobip/infobip.php:41
-msgid "Password"
-msgstr "Kata sandi"
-
-#: plugin/gateway/infobip/infobip.php:38
-#: plugin/gateway/infobip/infobip.php:41
 msgid "Fill to change the password"
 msgstr "Isi untuk merubah kata sandi"
 
-#: plugin/gateway/infobip/infobip.php:41
-#: plugin/gateway/infobip/infobip.php:44
-#, fuzzy
-msgid "Module sender ID"
-msgstr "Pengirim global"
+msgid "Gateway has been activated"
+msgstr "Gateway telah diaktifkan"
 
-#: plugin/gateway/infobip/infobip.php:41
-#: plugin/gateway/infobip/infobip.php:44
+msgid "Gateway module configurations has been saved"
+msgstr "Konfigurasi modul gateway telah disimpan"
+
+msgid "Gateway name"
+msgstr "Nama gateway"
+
+msgid "Inactive"
+msgstr "Nonaktif"
+
+msgid "Infobip API URL"
+msgstr "URL Infobip API"
+
+msgid "Infobip incoming path"
+msgstr "Jalur masuk Infobip"
+
+msgid "Infobip is a bulk SMS provider"
+msgstr "Infobip adalah penyedia SMS bulk"
+
+msgid "Manage infobip"
+msgstr "Pengaturan infobip"
+
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
 "Maks. 16 numerik atau 11 karakter alfanumerik. kosongkan untuk menonaktifkan"
 
-#: plugin/gateway/infobip/infobip.php:44
-#: plugin/gateway/infobip/infobip.php:47
+#, fuzzy
+msgid "Module sender ID"
+msgstr "Pengirim global"
+
 msgid "Module timezone"
 msgstr ""
 
-#: plugin/gateway/infobip/infobip.php:44
-#: plugin/gateway/infobip/infobip.php:47
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
-
-#: plugin/gateway/infobip/infobip.php:47
-#: plugin/gateway/infobip/infobip.php:50
-msgid "Infobip API URL"
-msgstr "URL Infobip API"
-
-#: plugin/gateway/infobip/infobip.php:47
-#: plugin/gateway/infobip/infobip.php:54
-#: plugin/gateway/infobip/infobip.php:50
-#: plugin/gateway/infobip/infobip.php:57
-msgid "No trailing slash"
-msgstr "Tanpa garis miring"
-
-#: plugin/gateway/infobip/infobip.php:50
-#: plugin/gateway/infobip/infobip.php:53
-msgid "Additional URL parameter"
-msgstr "Parameter URL tambahan"
-
-#: plugin/gateway/infobip/infobip.php:54
-#: plugin/gateway/infobip/infobip.php:57
-msgid "Infobip incoming path"
-msgstr "Jalur masuk Infobip"
-
-#: plugin/gateway/infobip/infobip.php:59
-#: plugin/gateway/infobip/infobip.php:62
-msgid "Note"
-msgstr "Catatan"
-
-#: plugin/gateway/infobip/infobip.php:60
-#: plugin/gateway/infobip/infobip.php:63
-msgid "Your callback URL is"
-msgstr "URL balasan anda adalah"
-
-#: plugin/gateway/infobip/infobip.php:61
-#: plugin/gateway/infobip/infobip.php:64
-msgid "Infobip is a bulk SMS provider"
-msgstr "Infobip adalah penyedia SMS bulk"
-
-#: plugin/gateway/infobip/infobip.php:61
-#: plugin/gateway/infobip/infobip.php:64
-msgid "free credits are available for testing purposes"
-msgstr "pulsa gratis tersedia untuk tujuan tes"
-
-#: plugin/gateway/infobip/infobip.php:62
-#: plugin/gateway/infobip/infobip.php:65
-msgid "Send SMS message without footer banner"
-msgstr "Kirim SMS tanpa banner footer"
-
-#: plugin/gateway/infobip/infobip.php:63
-#: plugin/gateway/infobip/infobip.php:66
-#: plugin/gateway/infobip/infobip.php:65
-msgid "Save"
-msgstr "Simpan"
-
-#: plugin/gateway/infobip/infobip.php:77
-#: plugin/gateway/infobip/infobip.php:80
-#: plugin/gateway/infobip/infobip.php:79
 msgid "No changes has been made"
 msgstr "Tidak ada perubahan yang terjadi"
 
-#: plugin/gateway/infobip/infobip.php:97
-#: plugin/gateway/infobip/infobip.php:100
-#: plugin/gateway/infobip/infobip.php:99
-msgid "Gateway module configurations has been saved"
-msgstr "Konfigurasi modul gateway telah disimpan"
+msgid "No trailing slash"
+msgstr "Tanpa garis miring"
 
-#: plugin/gateway/infobip/infobip.php:105
-#: plugin/gateway/infobip/infobip.php:108
-#: plugin/gateway/infobip/infobip.php:107
-msgid "Gateway has been activated"
-msgstr "Gateway telah diaktifkan"
+msgid "Note"
+msgstr "Catatan"
 
-#~ msgid ""
-#~ "If you are using callback URL to receive incoming sms you may ignore "
-#~ msgstr ""
-#~ "Jika anda menggunakan URL callback untuk menerima SMS masuk, anda dapat "
-#~ "menghiraukan ini"
+msgid "Password"
+msgstr "Kata sandi"
 
-#~ msgid "Infobip Incoming Path"
-#~ msgstr "Path untuk SMS masuk dari Infobip"
+msgid "Save"
+msgstr "Simpan"
+
+msgid "Username"
+msgstr "Nama pengguna"
+
+msgid "Your callback URL is"
+msgstr "URL balasan anda adalah"
+
+#, fuzzy
+msgid "Your dlr URL is"
+msgstr "URL balasan anda adalah"
+
+msgid "click here to activate"
+msgstr "klik di sini untuk mengaktifkan"

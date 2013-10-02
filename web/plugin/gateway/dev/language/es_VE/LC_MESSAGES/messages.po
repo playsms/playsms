@@ -17,9 +17,8 @@ msgstr ""
 msgid "Gateway name"
 msgstr ""
 
-#, fuzzy
 msgid "Manage dev"
-msgstr "Manage gnokii"
+msgstr ""
 
 msgid "Message"
 msgstr ""

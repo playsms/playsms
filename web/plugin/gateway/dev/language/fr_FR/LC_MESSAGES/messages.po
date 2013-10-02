@@ -17,9 +17,8 @@ msgstr "Passerelle activée"
 msgid "Gateway name"
 msgstr "Nom passerelle"
 
-#, fuzzy
 msgid "Manage dev"
-msgstr "Gérer gnokii"
+msgstr "Gérer dev"
 
 msgid "Message"
 msgstr ""

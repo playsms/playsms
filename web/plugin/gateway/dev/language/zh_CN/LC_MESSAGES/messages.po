@@ -17,9 +17,8 @@ msgstr "网关已激活"
 msgid "Gateway name"
 msgstr "网关名"
 
-#, fuzzy
 msgid "Manage dev"
-msgstr "管理gnokii"
+msgstr "管理dev"
 
 msgid "Message"
 msgstr ""

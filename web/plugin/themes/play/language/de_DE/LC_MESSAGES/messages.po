@@ -5,6 +5,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Cancel"
+msgstr ""
+
 msgid "Email"
 msgstr "Email"
 
@@ -32,11 +35,17 @@ msgstr "Name"
 msgid "Password"
 msgstr "Passwort"
 
+msgid "Preferences"
+msgstr ""
+
 msgid "Recover password"
 msgstr "Passwort zurücksetzen"
 
 msgid "Register an account"
 msgstr "Account registrieren"
+
+msgid "Submit"
+msgstr ""
 
 msgid "Username"
 msgstr "Benutzername"

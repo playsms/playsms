@@ -35,13 +35,11 @@ msgstr "Konfigurasi modul gateway telah disimpan"
 msgid "Gateway name"
 msgstr "Nama gateway"
 
-#, fuzzy
 msgid "HTTP Kannel admin password"
-msgstr "Password admin kannel"
+msgstr ""
 
-#, fuzzy
 msgid "HTTP Kannel admin port"
-msgstr "Port admin kannel"
+msgstr ""
 
 msgid "Kannel admin password"
 msgstr "Password admin kannel"

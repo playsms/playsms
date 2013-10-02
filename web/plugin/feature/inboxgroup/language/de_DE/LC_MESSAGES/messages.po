@@ -17,9 +17,6 @@ msgstr "Hinzufügen Gruppen-Inbox"
 msgid "Add member"
 msgstr "Hinzufügen Mitglied"
 
-msgid "All"
-msgstr "Alle"
-
 msgid "All users"
 msgstr "Alle Benutzer"
 
@@ -138,16 +135,20 @@ msgid "Number"
 msgstr "Nummer"
 
 msgid "Press submit button to add selected users to catch-all list"
-msgstr "Drücke Ausführen, um gewählten Benutzer zur Catch-All-Liste hinzuzufügen"
+msgstr ""
+"Drücke Ausführen, um gewählten Benutzer zur Catch-All-Liste hinzuzufügen"
 
 msgid "Press submit button to add selected users to member list"
-msgstr "Drücke Ausführen, um gewählten Benutzer zur Mitgliederliste hinzuzufügen"
+msgstr ""
+"Drücke Ausführen, um gewählten Benutzer zur Mitgliederliste hinzuzufügen"
 
 msgid "Press submit button to remove selected catchall from catch-all list"
-msgstr "Drücke Ausführen, um gewählten Catch-All von Catch-All-Liste zu streichen"
+msgstr ""
+"Drücke Ausführen, um gewählten Catch-All von Catch-All-Liste zu streichen"
 
 msgid "Press submit button to remove selected members from member list"
-msgstr "Drücke Ausführen, um ausgewählte Mitglieder von Mitgliederliste zu streichen"
+msgstr ""
+"Drücke Ausführen, um ausgewählte Mitglieder von Mitgliederliste zu streichen"
 
 msgid "Receiver number"
 msgstr "Empfängernummer"
@@ -184,12 +185,6 @@ msgstr "ja"
 
 msgid "You must fill all fields"
 msgstr "Es müssen alle Felder ausgefüllt werden"
-
-msgid "disabled"
-msgstr "deaktiviert"
-
-msgid "enabled"
-msgstr "aktiviert"
 
 msgid "no"
 msgstr "nein"

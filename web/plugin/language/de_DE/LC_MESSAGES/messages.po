@@ -147,6 +147,10 @@ msgstr "Nachrichten-Vorlage löschen"
 msgid "Delete selection"
 msgstr "Auswahl löschen"
 
+#, fuzzy
+msgid "Delete user"
+msgstr "Löschen"
+
 msgid "Delivered"
 msgstr "Übermittelt"
 
@@ -228,6 +232,10 @@ msgstr "Flash-Nachricht"
 msgid "Footer"
 msgstr "Fußzeile"
 
+#, fuzzy
+msgid "Forward"
+msgstr "weiterleiten"
+
 msgid "Forward PV to email"
 msgstr "Leite PV als Email weiter"
 
@@ -278,6 +286,10 @@ msgstr "HTTP API"
 
 msgid "Home"
 msgstr "Start"
+
+#, fuzzy
+msgid "Import"
+msgstr "Export"
 
 msgid "Inbox"
 msgstr "Inbox"
@@ -417,7 +429,19 @@ msgstr "Rufnummern"
 msgid "Phonebook"
 msgstr "Telefonbuch"
 
+#, fuzzy
+msgid "Phonebook groups"
+msgstr "Telefonbuch"
+
+#, fuzzy
+msgid "Phonebook numbers"
+msgstr "Rufnummern"
+
 msgid "Pick Date & Time"
+msgstr "Verwende Datum und Zeit"
+
+#, fuzzy
+msgid "Pick date & time"
 msgstr "Verwende Datum und Zeit"
 
 msgid "Please select"
@@ -444,6 +468,9 @@ msgstr "Präfix oder Ländercode"
 msgid "Public registration disabled"
 msgstr "Öffentliche Registrierung deaktiviert"
 
+msgid "Publish"
+msgstr ""
+
 msgid "Re-Type Password"
 msgstr "Passwort erneut eingeben"
 
@@ -464,6 +491,9 @@ msgstr "Ersetze führende 0 oder Auffüllen lokaler Nummern"
 
 msgid "Reply"
 msgstr "Antwort"
+
+msgid "Resend"
+msgstr ""
 
 msgid "SMS character"
 msgstr "SMS Zeichen"
@@ -546,6 +576,9 @@ msgstr "Login Session kann nicht aktualisiert werden"
 msgid "Unicode message"
 msgstr "Unicode Nachricht"
 
+msgid "Unpublish"
+msgstr ""
+
 msgid "Use"
 msgstr "Benutze"
 
@@ -557,6 +590,22 @@ msgstr "Benutzer"
 
 msgid "User already exists"
 msgstr "Benutzer existiert bereits"
+
+#, fuzzy
+msgid "User configuration"
+msgstr "Hauptkonfiguration"
+
+#, fuzzy
+msgid "User configuration has been saved"
+msgstr "Änderungen der Hauptkonfiguration wurden gepseichert"
+
+#, fuzzy
+msgid "User configuration has been saved and password updated"
+msgstr "Einstellungen wurden gespeichert und das Passwort aktualisiert"
+
+#, fuzzy
+msgid "User configuration has been saved and webservices token updated"
+msgstr "Einstellungen wurden gespeichert und der Webservice-Token aktualisiert"
 
 msgid "User does not exists"
 msgstr "Benutzer existiert nicht"
@@ -576,6 +625,10 @@ msgstr "Benutzer dürfen nicht gelöscht werden"
 msgid "User level"
 msgstr "Benutzer Level"
 
+#, fuzzy
+msgid "User preference"
+msgstr "Einstellungen"
+
 msgid "Username"
 msgstr "Benutzername"
 
@@ -583,7 +636,9 @@ msgid "Username should be at least 3 characters"
 msgstr "Benutzername muss mindestens 3 Zeichen lang sein"
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
-msgstr "Zulässige Zeichen für den Benutzernamen sind Buchstaben, Zahlen, Punkt oder Gedankenstrich"
+msgstr ""
+"Zulässige Zeichen für den Benutzernamen sind Buchstaben, Zahlen, Punkt oder "
+"Gedankenstrich"
 
 msgid "View"
 msgstr "Anzeigen"
@@ -615,6 +670,10 @@ msgstr "Webservices IP-Bereich"
 msgid "Webservices token"
 msgstr "Webservices Token"
 
+#, fuzzy
+msgid "Webservices username"
+msgstr "Webservices Token"
+
 msgid "Website email"
 msgstr "Webseiten Email"
 
@@ -637,10 +696,13 @@ msgid "You must fill all fields"
 msgstr "Sie müssen alle Felder ausfüllen"
 
 msgid "You must select receiver and your message should not be empty"
-msgstr "Sie müssen den Empfänger auswählen und die Nachricht darf nicht leer sein"
+msgstr ""
+"Sie müssen den Empfänger auswählen und die Nachricht darf nicht leer sein"
 
 msgid "You must select receiver group and your message should not be empty"
-msgstr "Sie müssen die Empfänger-Gruppe auswählen und die Nachricht darf nicht leer sein"
+msgstr ""
+"Sie müssen die Empfänger-Gruppe auswählen und die Nachricht darf nicht leer "
+"sein"
 
 msgid "Your SMS has been delivered to queue"
 msgstr "Ihre SMS wurde an die Zustell-Queue übermittelt"
@@ -692,6 +754,9 @@ msgstr "eingereiht"
 
 msgid "reply"
 msgstr "antworten"
+
+msgid "resend"
+msgstr ""
 
 msgid "row"
 msgstr "Zeile"

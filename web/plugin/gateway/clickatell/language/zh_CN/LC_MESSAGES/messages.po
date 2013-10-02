@@ -53,9 +53,8 @@ msgstr "没有改变"
 msgid "No trailing slash"
 msgstr "没有结尾的斜线"
 
-#, fuzzy
 msgid "Notes"
-msgstr "注意"
+msgstr ""
 
 msgid "Password"
 msgstr "密码"

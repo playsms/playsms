@@ -89,9 +89,8 @@ msgstr ""
 msgid "Save"
 msgstr "Guardar"
 
-#, fuzzy
 msgid "Send SMS hostname or IP"
-msgstr "Nombre de HOST o IP del Bearerbox"
+msgstr ""
 
 msgid "Send SMS port"
 msgstr "Pueto de envio de SMS"

@@ -89,9 +89,8 @@ msgstr ""
 msgid "Save"
 msgstr "发送"
 
-#, fuzzy
 msgid "Send SMS hostname or IP"
-msgstr "发送短信端口"
+msgstr ""
 
 msgid "Send SMS port"
 msgstr "发送短信端口"

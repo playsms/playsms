@@ -4,14 +4,14 @@ msgstr ""
 msgid "Content"
 msgstr "Inhalt"
 
-msgid "Delete selection"
-msgstr "Auswahl löschen"
+msgid "Delete"
+msgstr ""
 
 msgid "Edit message template"
 msgstr "Editiere Nachrichten-Vorlage"
 
 msgid "Fail to add message template"
-msgstr "Fehler beim Hinzufügen der Nachrichten-Vorlage"
+msgstr "Fehler beim Hinzufgen der Nachrichten-Vorlage"
 
 msgid "Fail to edit message template"
 msgstr "Fehler beim Editieren der Nachrichten-Vorlage"
@@ -38,7 +38,7 @@ msgid "Save"
 msgstr "Speichern"
 
 msgid "Selected message template has been deleted"
-msgstr "Gewählte Nachrichten-Vorlage wurde gelöscht"
+msgstr "Gewhlte Nachrichten-Vorlage wurde gelscht"
 
 msgid "You must fill all fields"
-msgstr "Es müssen alle Felder ausgefüllt werden"
+msgstr "Es mssen alle Felder ausgefllt werden"

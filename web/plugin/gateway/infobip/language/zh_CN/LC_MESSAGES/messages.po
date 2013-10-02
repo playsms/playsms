@@ -5,142 +5,82 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin/gateway/infobip/config.php:29
-#: plugin/gateway/infobip/infobip.php:24
-#: plugin/gateway/infobip/infobip.php:27
-msgid "Manage infobip"
-msgstr "管理 infobip"
-
-#: plugin/gateway/infobip/infobip.php:9
 msgid "Active"
 msgstr "活跃"
 
-#: plugin/gateway/infobip/infobip.php:13
-msgid "Inactive"
-msgstr "不活跃"
+msgid "Additional URL parameter"
+msgstr "增加的链接参数"
 
-#: plugin/gateway/infobip/infobip.php:13
-msgid "click here to activate"
-msgstr "点击这里激活"
+msgid "Create an account to send SMS"
+msgstr ""
 
-#: plugin/gateway/infobip/infobip.php:29
-#: plugin/gateway/infobip/infobip.php:32
-msgid "Gateway name"
-msgstr "网关名"
+msgid "Delivery Report"
+msgstr ""
 
-#: plugin/gateway/infobip/infobip.php:32
-#: plugin/gateway/infobip/infobip.php:35
-msgid "API ID"
-msgstr "应用程序界面地址"
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
 
-#: plugin/gateway/infobip/infobip.php:35
-#: plugin/gateway/infobip/infobip.php:38
-msgid "Username"
-msgstr "用户名"
-
-#: plugin/gateway/infobip/infobip.php:38
-#: plugin/gateway/infobip/infobip.php:41
-msgid "Password"
-msgstr "密码"
-
-#: plugin/gateway/infobip/infobip.php:38
-#: plugin/gateway/infobip/infobip.php:41
 msgid "Fill to change the password"
 msgstr "填写改变密码"
 
-#: plugin/gateway/infobip/infobip.php:41
-#: plugin/gateway/infobip/infobip.php:44
+msgid "Gateway has been activated"
+msgstr "网关已激活"
+
+msgid "Gateway module configurations has been saved"
+msgstr "网关模块的配置已保存"
+
+msgid "Gateway name"
+msgstr "网关名"
+
+msgid "Inactive"
+msgstr "不活跃"
+
+msgid "Infobip API URL"
+msgstr "Infobip应用程序界面链接"
+
+msgid "Infobip incoming path"
+msgstr "Infobip传入路径"
+
+msgid "Infobip is a bulk SMS provider"
+msgstr ""
+
+msgid "Manage infobip"
+msgstr "管理 infobip"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "最多16个数字或11个字母，不能空"
+
 #, fuzzy
 msgid "Module sender ID"
 msgstr "全球发件人"
 
-#: plugin/gateway/infobip/infobip.php:41
-#: plugin/gateway/infobip/infobip.php:44
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "最多16个数字或11个字母，不能空"
-
-#: plugin/gateway/infobip/infobip.php:44
-#: plugin/gateway/infobip/infobip.php:47
 msgid "Module timezone"
 msgstr ""
 
-#: plugin/gateway/infobip/infobip.php:44
-#: plugin/gateway/infobip/infobip.php:47
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
-
-#: plugin/gateway/infobip/infobip.php:47
-#: plugin/gateway/infobip/infobip.php:50
-msgid "Infobip API URL"
-msgstr "Infobip应用程序界面链接"
-
-#: plugin/gateway/infobip/infobip.php:47
-#: plugin/gateway/infobip/infobip.php:54
-#: plugin/gateway/infobip/infobip.php:50
-#: plugin/gateway/infobip/infobip.php:57
-msgid "No trailing slash"
-msgstr "没有结尾的斜线"
-
-#: plugin/gateway/infobip/infobip.php:50
-#: plugin/gateway/infobip/infobip.php:53
-msgid "Additional URL parameter"
-msgstr "增加的链接参数"
-
-#: plugin/gateway/infobip/infobip.php:54
-#: plugin/gateway/infobip/infobip.php:57
-msgid "Infobip incoming path"
-msgstr "Infobip传入路径"
-
-#: plugin/gateway/infobip/infobip.php:59
-#: plugin/gateway/infobip/infobip.php:62
-msgid "Note"
-msgstr "注意"
-
-#: plugin/gateway/infobip/infobip.php:60
-#: plugin/gateway/infobip/infobip.php:63
-msgid "Your callback URL is"
-msgstr "你的回调链接是"
-
-#: plugin/gateway/infobip/infobip.php:61
-#: plugin/gateway/infobip/infobip.php:64
-msgid "Infobip is a bulk SMS provider"
-msgstr ""
-
-#: plugin/gateway/infobip/infobip.php:61
-#: plugin/gateway/infobip/infobip.php:64
-msgid "free credits are available for testing purposes"
-msgstr ""
-
-#: plugin/gateway/infobip/infobip.php:62
-#: plugin/gateway/infobip/infobip.php:65
-msgid "Send SMS message without footer banner"
-msgstr "发送无页脚横幅的短信"
-
-#: plugin/gateway/infobip/infobip.php:63
-#: plugin/gateway/infobip/infobip.php:66
-#: plugin/gateway/infobip/infobip.php:65
-msgid "Save"
-msgstr "保存"
-
-#: plugin/gateway/infobip/infobip.php:77
-#: plugin/gateway/infobip/infobip.php:80
-#: plugin/gateway/infobip/infobip.php:79
 msgid "No changes has been made"
 msgstr "没有改变"
 
-#: plugin/gateway/infobip/infobip.php:97
-#: plugin/gateway/infobip/infobip.php:100
-#: plugin/gateway/infobip/infobip.php:99
-msgid "Gateway module configurations has been saved"
-msgstr "网关模块的配置已保存"
+msgid "No trailing slash"
+msgstr "没有结尾的斜线"
 
-#: plugin/gateway/infobip/infobip.php:105
-#: plugin/gateway/infobip/infobip.php:108
-#: plugin/gateway/infobip/infobip.php:107
-msgid "Gateway has been activated"
-msgstr "网关已激活"
+msgid "Note"
+msgstr "注意"
 
-#~ msgid ""
-#~ "If you are using callback URL to receive incoming sms you may ignore "
-#~ "Infobip Incoming Path"
-#~ msgstr "如果你正在使用回调链接收短信你可以忽略Infobip 传入路径"
+msgid "Password"
+msgstr "密码"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Username"
+msgstr "用户名"
+
+msgid "Your callback URL is"
+msgstr "你的回调链接是"
+
+#, fuzzy
+msgid "Your dlr URL is"
+msgstr "你的回调链接是"
+
+msgid "click here to activate"
+msgstr "点击这里激活"

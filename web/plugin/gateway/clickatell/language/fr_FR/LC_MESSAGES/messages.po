@@ -57,9 +57,8 @@ msgstr "Aucun changement effectué"
 msgid "No trailing slash"
 msgstr "Pas de slash final"
 
-#, fuzzy
 msgid "Notes"
-msgstr "Note"
+msgstr ""
 
 msgid "Password"
 msgstr "Mot de passe"
