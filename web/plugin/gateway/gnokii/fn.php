@@ -16,7 +16,6 @@ function gnokii_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$
 	}
 	// set delivered first
 	$p_status = 1;
-	dlr($smslog_id,$uid,$p_status);
 	// and then check if its not delivered
 	if (file_exists($fn)) {
 		$p_datetime_stamp = strtotime($p_datetime);
@@ -24,16 +23,18 @@ function gnokii_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$
 		$p_delay = floor(($p_update_stamp - $p_datetime_stamp)/86400);
 		// set pending if its under 2 days
 		if ($p_delay <= 2) {
+			// set pending
 			$p_status = 0;
-			dlr($smslog_id,$uid,$p_status);
 		} else {
+			// set failed
 			$p_status = 2;
-			dlr($smslog_id,$uid,$p_status);
 			@unlink ($fn);
 			@unlink ($efn);
 		}
 		return;
 	}
+	// save dlr
+	dlr($smslog_id,$uid,$p_status);
 	// set if its failed
 	if (file_exists($efn)) {
 		$p_status = 2;

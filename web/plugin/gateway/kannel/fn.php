@@ -15,10 +15,6 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 		$sms_msg = $sms_msg.$sms_footer;
 	}
 
-	// set failed first
-	$p_status = 2;
-	dlr($smslog_id,$uid,$p_status);
-
 	if ($sms_type=='flash') {
 		$msg_type = 0; //flash
 	} else {
@@ -100,16 +96,20 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 		while (!feof($connection)) {
 			$rv = fgets($connection, 128);
 			if (($rv == "Sent.") || ($rv == "0: Accepted for delivery") || ($rv == "3: Queued for later delivery")) {
-				$ok = true;
 				// set pending
 				$p_status = 0;
-				dlr($smslog_id,$uid,$p_status);
+				$ok = true;
 			}
 		}
 		fclose ($connection);
-		// good or bad, print it on the log
-		logger_print("smslog_id:".$smslog_id." response:".$rv, 2, "kannel outgoing");
 	}
+	if (!$ok) {
+		// set failed
+		$p_status = 2;
+	}
+	dlr($smslog_id,$uid,$p_status);
+	// good or bad, print it on the log
+	logger_print("smslog_id:".$smslog_id." response:".$rv, 2, "kannel outgoing");
 	return $ok;
 }
 
