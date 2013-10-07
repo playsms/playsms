@@ -1,4 +1,31 @@
 --
+-- Table structure for table `playsms_tblSMSOutgoing_queue`
+--
+
+DROP TABLE IF EXISTS `playsms_tblSMSOutgoing_queue`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `playsms_tblSMSOutgoing_queue` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `queue_code` varchar(40) NOT NULL DEFAULT '',
+  `datetime_entry` varchar(20) NOT NULL DEFAULT '000-00-00 00:00:00',
+  `datetime_scheduled` varchar(20) NOT NULL DEFAULT '000-00-00 00:00:00',
+  `datetime_update` varchar(20) NOT NULL DEFAULT '000-00-00 00:00:00',
+  `flag` int(11) NOT NULL DEFAULT '0',
+  `sms_count` int(11) NOT NULL DEFAULT '0',
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `gpid` int(11) NOT NULL DEFAULT '0',
+  `sender_id` varchar(100) NOT NULL DEFAULT '',
+  `footer` varchar(30) NOT NULL DEFAULT '',
+  `message` text NOT NULL DEFAULT '',
+  `sms_type` varchar(100) NOT NULL DEFAULT '',
+  `unicode` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `queue_code` (`queue_code`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `playsms_tblRecvSMS`
 --
 
