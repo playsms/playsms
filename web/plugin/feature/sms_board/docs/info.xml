@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<playsmsPlugin>
+	<name>sms_board</name>
+	<alias>SMS Board</alias>
+	<description>SMS Board</description>
+	<release>1.0</release>
+	<date>2010-09-25</date>
+	<author>Anton Raharja</author>
+	<langFile>1</langFile>
+	<sqlFile>0</sqlFile>
+	<phpFile>1</phpFile>
+</playsmsPlugin>
