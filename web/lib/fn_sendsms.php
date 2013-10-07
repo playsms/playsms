@@ -239,7 +239,7 @@ function sendsms_process($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$
 
 	// if hooked function returns cancel=true then stop the sending, return false
 	if ($ret_intercept['cancel']) {
-		logger_print("cancelled:$uid,$gpid,$gw,$sms_sender,$sms_to,$sms_type,$unicode", 2, "sendsms_process");
+		logger_print("end with cancelled uid:".$uid." gpid:".$gpid." gw:".$gw." s:".$sms_sender." to:".$sms_to." type:".$sms_type." unicode:".$unicode, 2, "sendsms_process");
 		$ret['status'] = false;
 		return $ret;
 	}
@@ -255,9 +255,12 @@ function sendsms_process($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$
 	logger_print("start", 2, "sendsms_process");
 
 	$ok = false;
-	$p_status = 2;
 	if (rate_cansend($username, $sms_to)) {
 		$p_status = 0;
+	} else {
+		logger_print("end with fail not enough credit smslog_id:".$smslog_id, 2, "sendsms_process");
+		$ret['status'] = false;
+		return $ret;
 	}
 	// we save all info first and then process with gateway module
 	// the thing about this is that message saved may not be the same since gateway may not be able to process
@@ -270,16 +273,15 @@ function sendsms_process($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$
 	// continue to gateway only when save to db is true
 	if ($smslog_id = @dba_insert_id($db_query)) {
 		logger_print("saved smslog_id:".$smslog_id, 2, "sendsms_process");
-		// if pending (p_status=0) then continue, if failed (p_status=2) print log
 		if ($p_status == 0) {
 			logger_print("final message:".$sms_msg.$sms_footer." len:".strlen($sms_msg.$sms_footer), 3, "sendsms");
 			if (x_hook($gw, 'sendsms', array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$smslog_id,$sms_type,$unicode))) {
 				// fixme anton - deduct user's credit as soon as gateway returns true
 				rate_deduct($smslog_id);
 				$ok = true;
+			} else {
+				logger_print("fail no hook for sendsms", 2, "sendsms_process");
 			}
-		} else {
-			logger_print("fail not enough credit smslog_id:".$smslog_id, 2, "sendsms_process");
 		}
 	} else {
 		logger_print("fail to save in db table", 2, "sendsms_process");
