@@ -1,14 +1,10 @@
 Installation:
 - upload the archive file into your server
 - untar/gunzip the file
-# tar xzvf blacklist_mc-vx.y.tgz -C /path/to/playsms/
+# tar xzvf plugin-vx.y.tgz -C /path/to/playsms/web/
 
 or go in playsms/web/ and do
-# tar xzvf blacklist_mc-vx.y.tgz -C ./
+# tar xzvf plugin-vx.y.tgz -C ./
 
 Then create the db go in db/ and do
-# mysql -u <login> -p<password> <playsms_db_name> < /path/to/playsms/plugin/tools/blacklist/db/blacklist.sql
-
-Some core function has to be modified.
-
-Note: If you are in version 0.9.5.2 you have to modify checkavailablekeyword() function in fn.php replace true by false and false by true.
+# mysql -u <login> -p<password> <playsms_db_name> < /path/to/playsms/plugin/tools/plugin/db/plugin.sql

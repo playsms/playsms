@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <playsmsPlugin>
-	<name>cn_ZH</name>
-	<alias>cn_ZH</alias>
+	<name>zh_CN</name>
+	<alias>zh_CN</alias>
 	<description>Language simplified chinese (China)</description>
 	<release>1.0</release>
 	<date>2010-09-25</date>
