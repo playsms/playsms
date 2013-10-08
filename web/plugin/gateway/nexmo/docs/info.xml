@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<playsmsPlugin>
+	<name>nexmo</name>
+	<alias>Gateway Nexmo</alias>
+	<description>Gateway Nexmo</description>
+	<release>1.1</release>
+	<date>2012-11-28</date>
+	<author>Anton Raharja</author>
+	<langFile>1</langFile>
+	<sqlFile>0</sqlFile>
+	<phpFile>1</phpFile>
+</playsmsPlugin>

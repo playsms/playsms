@@ -1,0 +1,38 @@
+msgid "Manage Plugins"
+msgstr ""
+
+msgid "Features"
+msgstr ""
+
+msgid "Gateways"
+msgstr ""
+
+msgid "Themes"
+msgstr ""
+
+msgid "Tools"
+msgstr ""
+
+msgid "Languages"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Version"
+msgstr ""
+
+msgid "Author"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Action"
+msgstr ""

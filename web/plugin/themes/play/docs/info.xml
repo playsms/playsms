@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<playsmsPlugin>
+	<name>play</name>
+	<alias>Theme Play</alias>
+	<description>Theme Play</description>
+	<release>1.0</release>
+	<date>20??-??-??</date>
+	<author>Amin Riza</author>
+	<langFile>1</langFile>
+	<sqlFile>0</sqlFile>
+	<phpFile>1</phpFile>
+</playsmsPlugin>

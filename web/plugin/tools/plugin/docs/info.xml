@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<playsmsPlugin>
+	<name>plugin</name>
+	<alias>Plugin</alias>
+	<description>Plugin Management Module</description>
+	<release>1.3</release>
+	<date>2011-09-22</date>
+	<author>enumanc</author>
+	<langFile>1</langFile>
+	<sqlFile>1</sqlFile>
+	<phpFile>1</phpFile>
+</playsmsPlugin>
