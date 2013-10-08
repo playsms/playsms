@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<playsmsPlugin>
+	<name>fr_FR</name>
+	<alias>fr_FR</alias>
+	<description>Language french (France)</description>
+	<release>1.0</release>
+	<date>2013-09-29</date>
+	<author>Emmanuel Chanson</author>
+	<langFile>1</langFile>
+	<sqlFile>0</sqlFile>
+	<phpFile>1</phpFile>
+</playsmsPlugin>

@@ -1,0 +1,10 @@
+Installation:
+- upload the archive file into your server
+- untar/gunzip the file
+# tar xzvf plugin-vx.y.tgz -C /path/to/playsms/web/
+
+or go in playsms/web/ and do
+# tar xzvf plugin-vx.y.tgz -C ./
+
+Then create the db go in db/ and do
+# mysql -u <login> -p<password> <playsms_db_name> < /path/to/playsms/plugin/tools/plugin/db/plugin.sql

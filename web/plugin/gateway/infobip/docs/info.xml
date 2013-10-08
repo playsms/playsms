@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<playsmsPlugin>
+	<name>infobip</name>
+	<alias>Gateway Infobip</alias>
+	<description>Gateway Infobip</description>
+	<release>1.4</release>
+	<date>2013-09-15</date>
+	<author>enumanc</author>
+	<langFile>1</langFile>
+	<sqlFile>1</sqlFile>
+	<phpFile>1</phpFile>
+</playsmsPlugin>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<playsmsPlugin>
+	<name>de_DE</name>
+	<alias>de_DE</alias>
+	<description>Language german (Germany)</description>
+	<release>1.0</release>
+	<date>2013-08-22</date>
+	<author>Andre Gronwald</author>
+	<langFile>1</langFile>
+	<sqlFile>0</sqlFile>
+	<phpFile>1</phpFile>
+</playsmsPlugin>
