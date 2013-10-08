@@ -83,9 +83,6 @@ function infobip_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$
 	logger_print("url:".$url, 3, "infobip outgoing");
 	$fd = @implode ('', file ($url));
 	$ok = false;
-	// failed
-	$p_status = 2;
-	setsmsdeliverystatus($smslog_id,$uid,$p_status);
 
 	$xml = new SimpleXMLElement($fd);
 	$response = xml2array($xml);
@@ -105,7 +102,6 @@ function infobip_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$
 				$p_status = 1;
 			}
 			logger_print("smslog_id:".$smslog_id." charge:".$c_sms_credit." sms_status:".$p_status." response:".$response['result']['status'], 2, "infobip outgoing");
-			setsmsdeliverystatus($smslog_id,$uid,$p_status);
 			$ok = true;
 		} elseif( $response['result']['status'] == -2 ) {
 			logger_print("smslog_id:".$smslog_id." response:".$response['result']['status']." NOT_ENOUGH_CREDIT", 2, "infobip outgoing");
@@ -120,6 +116,10 @@ function infobip_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$
 		}
 		//$ok = true;
 	}
+	if (!$ok) {
+		$p_status = 2;
+	}
+	dlr($smslog_id,$uid,$p_status);
 	return $ok;
 }
 

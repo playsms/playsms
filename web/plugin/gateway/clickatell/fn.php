@@ -73,7 +73,6 @@ function clickatell_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='
 	$ok = false;
 	// failed
 	$p_status = 2;
-	dlr($smslog_id,$uid,$p_status);
 	if ($fd) {
 		$response = split (":", $fd);
 		$err_code = trim ($response[1]);
@@ -91,7 +90,6 @@ function clickatell_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='
 				$p_status = 1;
 			}
 			logger_print("smslog_id:".$smslog_id." charge:".$c_sms_credit." sms_status:".$p_status." response:".$response[0]." ".$response[1], 2, "clickatell outgoing");
-			dlr($smslog_id,$uid,$p_status);
 		} else {
 			// even when the response is not what we expected we still print it out for debug purposes
 			$fd = str_replace("\n", " ", $fd);
@@ -100,6 +98,7 @@ function clickatell_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='
 		}
 		$ok = true;
 	}
+	dlr($smslog_id,$uid,$p_status);
 	return $ok;
 }
 
