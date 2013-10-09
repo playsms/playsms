@@ -1,5 +1,3 @@
-<!-- BEGIN #
-
 function CheckUncheckAll(the_form) 
 {
         for (var i=0; i < the_form.elements.length; i++) 
@@ -185,5 +183,3 @@ function SmsCountKeyUp_Abstract(maxChar,formName, fieldName)
                 msg.value = msg.value.substring(0, msgMaxLen);
         }
 }
-
-// END -->
