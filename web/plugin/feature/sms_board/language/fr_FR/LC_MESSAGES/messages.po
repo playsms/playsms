@@ -10,7 +10,7 @@ msgid "Action"
 msgstr "Action"
 
 msgid "Add SMS board"
-msgstr "Ajouter un service de rédirection"
+msgstr "Ajouter un service de redirection"
 
 msgid "Are you sure you want to delete SMS board with all its messages ?"
 msgstr "Voulez-vous supprimer ce service avec tous ses messages ?"
@@ -22,14 +22,14 @@ msgid "Date and time"
 msgstr "Date & Heure"
 
 msgid "Edit SMS board"
-msgstr "Éditer le service de rédirection"
+msgstr "Éditer le service de redirection"
 
 msgid "Fail to add SMS board"
-msgstr "Impossible d'ajouter un service de rédirection"
+msgstr "Impossible d'ajouter un service de redirection"
 
 #, fuzzy
 msgid "Fail to edit SMS board"
-msgstr "Impossible d'ajouter un service de rédirection"
+msgstr "Impossible d'ajouter un service de redirection"
 
 msgid "Forward"
 msgstr "Rédirection"
@@ -53,7 +53,7 @@ msgid "MBOX output"
 msgstr ""
 
 msgid "Manage board"
-msgstr "Service rédirection"
+msgstr "Service redirection"
 
 msgid "Message"
 msgstr "Message"
@@ -82,16 +82,16 @@ msgstr "Modèle"
 
 #, fuzzy
 msgid "SMS Board"
-msgstr "Ajouter un service de rédirection"
+msgstr "Ajouter un service de redirection"
 
 msgid "SMS board has been added"
-msgstr "Le service de rédirection a été ajouté"
+msgstr "Le service de redirection a été ajouté"
 
 msgid "SMS board has been saved"
-msgstr "Le service de rédirection a été sauvegardé"
+msgstr "Le service de redirection a été sauvegardé"
 
 msgid "SMS board keyword"
-msgstr "Mot-clé du service de rédirection"
+msgstr "Mot-clé du service de redirection"
 
 msgid "SMS board with all its messages has been deleted"
 msgstr "Le service avec tous ses messages ont été supprimés"
@@ -110,7 +110,7 @@ msgstr "Compte"
 
 #, fuzzy
 msgid "View board"
-msgstr "Service rédirection"
+msgstr "Service redirection"
 
 msgid "XML output"
 msgstr ""
