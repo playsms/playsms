@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<playsmsPlugin>
+<plugin>
 	<name>sms_quiz</name>
 	<alias>SMS Quiz</alias>
 	<description>SMS Quiz</description>
 	<release>1.0</release>
 	<date>2010-09-25</date>
 	<author>Anton Raharja</author>
-	<langFile>1</langFile>
-	<sqlFile>0</sqlFile>
-	<phpFile>1</phpFile>
-</playsmsPlugin>
+	<language_file>1</language_file>
+	<sql_file>0</sql_file>
+	<php_file>1</php_file>
+</plugin>
