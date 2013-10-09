@@ -18,7 +18,7 @@ $content = "
 	</script>";
 
 $content .= "
-	<h2>"._('View plugin')."</h2>
+	<h2>"._('Manage plugin')."</h2>
 	<div id='tab-container' class='tab-container'>
 		<ul class='etabs'>
 			<li class='tab'><a href='#tabs-feature'>" . _('Features') . "</a></li>

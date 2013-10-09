@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin>
-	<name>plugin</name>
-	<alias>Plugin</alias>
-	<description>Plugin Management Module</description>
+	<name>pluginmanager</name>
+	<alias>Plugin Manager</alias>
+	<description>Plugin management module</description>
 	<release>1.3</release>
 	<date>2011-09-22</date>
 	<author>enumanc</author>
