@@ -4,7 +4,7 @@ defined('_SECURE_') or die('Forbidden');
 function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
 	global $kannel_param;
 	global $http_path;
-	logger_print("start smslog_id:".$smslog_id." uid:".$uid." to:".$sms_to, 2, "kannel outgoing");
+	logger_print("start smslog_id:".$smslog_id." uid:".$uid." to:".$sms_to, 3, "kannel outgoing");
 	$sms_sender = stripslashes($sms_sender);
 	$sms_footer = stripslashes($sms_footer);
 	$sms_msg = stripslashes($sms_msg);
@@ -97,7 +97,7 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 		while (!feof($connection)) {
 			$rv = fgets($connection, 128);
 			if (($rv == "Sent.") || ($rv == "0: Accepted for delivery") || ($rv == "3: Queued for later delivery")) {
-				logger_print("smslog_id:".$smslog_id." response:".$rv, 2, "kannel outgoing");
+				logger_print("smslog_id:".$smslog_id." response:".$rv, 3, "kannel outgoing");
 				// set pending
 				$p_status = 0;
 				$ok = true;
@@ -110,7 +110,7 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 		$p_status = 2;
 	}
 	dlr($smslog_id,$uid,$p_status);
-	logger_print("end smslog_id:".$smslog_id." p_status:".$p_status, 2, "kannel outgoing");
+	logger_print("end smslog_id:".$smslog_id." p_status:".$p_status, 3, "kannel outgoing");
 	// good or bad, print it on the log
 	return $ok;
 }
