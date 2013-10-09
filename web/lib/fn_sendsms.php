@@ -360,7 +360,7 @@ function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0,$nofoote
 	if (sendsms_queue_update($queue_code, array('flag' => '0', 'sms_count' => $sms_count))) {
 		logger_print("end queue_code:".$queue_code." sms_count:".$sms_count, 2, "sendsms_pv");
 	} else {
-		logger_print("fail to prepare queue, exit immediately", 2, "sendsms_pv");
+		logger_print("fail to prepare queue, exit immediately queue_code:".$queue_code, 2, "sendsms_pv");
 		return array(FALSE, '', '', $queue_code);
 	}
 
@@ -435,7 +435,7 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0,$nofoot
 			if (sendsms_queue_update($queue_code, array('flag' => '0', 'sms_count' => $sms_count))) {
 				logger_print("end queue_code:".$queue_code." sms_count:".$sms_count, 2, "sendsms_bc");
 			} else {
-				logger_print("fail to prepare queue, exit immediately", 2, "sendsms_bc");
+				logger_print("fail to prepare queue, exit immediately queue_code:".$queue_code, 2, "sendsms_bc");
 				return array(FALSE, '', '', $queue_code);
 			}
 		}
@@ -445,6 +445,7 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0,$nofoot
 		unset($ok);
 		unset($to);
 		unset($queue);
+		logger_print("sendsmsd off immediately process queue_code:".$queue_code, 2, "sendsms_bc");
 		list($ok, $to, $smslog_id, $queue) = sendsmsd($queue_code);
 	}
 
