@@ -207,6 +207,13 @@ li {
 	font-size: 10pt;
 }
 
+pre {
+	border: 1px solid #566B7F;
+	background-color: #566B7F;
+	padding: 10px 5px 5px 5px;
+	margin: 1px;
+}
+
 .font18pt {
 	font-size: 18pt;
 }

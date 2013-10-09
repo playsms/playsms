@@ -15,6 +15,11 @@
     width: 99%;
 }
 
+pre {
+	border: 0;
+	background-color: #FFF;	
+}
+
 .font18pt {
 	font-size: 18pt;
 }

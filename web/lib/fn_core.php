@@ -385,4 +385,28 @@ function core_object_to_array($data) {
 	return $data;
 }
 
+/**
+ * Read documents
+ */
+function core_read_docs($base_dir, $doc) {
+	global $core_config;
+	$content = '';
+	$fn = $base_dir."/docs/".$doc;
+	if (file_exists($fn)) {
+		$fd = @fopen($fn, "r");
+		$fc = @fread($fd, filesize($fn));
+		@fclose($fd);
+		$fc = str_replace('{VERSION}', $core_config['version'], $fc);
+		$fi = pathinfo($fn);
+		if ($fi['extension'] == 'md') {
+			$content .= Parsedown::instance()->parse($fc);
+		} else if ($fi['extension'] == 'html') {
+			$content .= $fc;
+		} else {
+			$content .= '<pre>'.htmlentities($fc).'</pre>';
+		}
+	}
+	return $content;
+}
+
 ?>

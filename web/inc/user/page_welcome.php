@@ -15,29 +15,38 @@ switch ($get) {
 ${'youarehere_'.$get} = 'class=youarehere';
 
 $content = "
-	<h2>"._('Welcome to playSMS')."</h2>
-	<input type=button $youarehere_1 value=\""._('About playSMS')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=page_welcome&get=1')\" class=\"button\" />
-	<input type=button $youarehere_2 value=\""._('Changelog')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=page_welcome&get=2')\" class=\"button\" />
-	<input type=button $youarehere_4 value=\""._('F.A.Q')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=page_welcome&get=4')\" class=\"button\" />
-	<input type=button $youarehere_5 value=\""._('License')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=page_welcome&get=5')\" class=\"button\" />
-	<input type=button $youarehere_6 value=\""._('Webservices')."\" onClick=\"javascript:linkto('index.php?app=menu&inc=page_welcome&get=6')\" class=\"button\" />
-	<p>";
+	<script src='" . $core_config['http_path']['themes'] . "/common/jscss/jquery.easytabs.js' type='text/javascript'></script>
+	<script type='text/javascript'>
+		$(document).ready( function() {
+		$('#tab-container').easytabs();
+	});
+	</script>
 
-$fn = $apps_path['base']."/docs/".$read;
-if (file_exists($fn)) {
-	$fd = @fopen($fn, "r");
-	$fc = @fread($fd, filesize($fn));
-	@fclose($fd);
-	$fc = str_replace('{VERSION}', $core_config['version'], $fc);
-	$fi = pathinfo($fn);
-	if ($fi['extension'] == 'md') {
-		$content .= Parsedown::instance()->parse($fc);
-	} else if ($fi['extension'] == 'html') {
-		$content .= $fc;
-	} else {
-		$content .= '<pre>'.htmlentities($fc).'</pre>';
-	}
-}
+	<h2>"._('Welcome to playSMS')."</h2>
+	<div id='tab-container' class='tab-container'>
+		<ul class='tabs'>
+			<li class='tab'><a href='#tabs-about'>" . _ ( 'About playSMS' ) . "</a></li>
+			<li class='tab'><a href='#tabs-changelog'>" . _ ( 'Changelog' ) . "</a></li>
+			<li class='tab'><a href='#tabs-faq'>" . _ ( 'F.A.Q' ) . "</a></li>
+			<li class='tab'><a href='#tabs-license'>" . _ ( 'License' ) . "</a></li>
+			<li class='tab'><a href='#tabs-webservices'>" . _ ( 'Webservices' ) . "</a></li>
+		</ul>
+		<div id='tabs-about'>
+			" . core_read_docs($apps_path['base'], 'README') . "
+		</div>
+		<div id='tabs-changelog'>
+			" . core_read_docs($apps_path['base'], 'CHANGELOG') . "
+		</div>
+		<div id='tabs-faq'>
+			" . core_read_docs($apps_path['base'], 'FAQ') . "
+		</div>
+		<div id='tabs-license'>
+			" . core_read_docs($apps_path['base'], 'LICENSE') . "
+		</div>
+		<div id='tabs-webservices'>
+			" . core_read_docs($apps_path['base'], 'WEBSERVICES') . "
+		</div>			
+	</div>";
 
 echo $content;
 
