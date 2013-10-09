@@ -28,19 +28,19 @@ $content .= "
 			<li class='tab'><a href='#tabs-lang'>" . _('Languages') . "</a></li>
 		</ul>
 	<div id='tabs-feature'>
-		".pluginmanager_table('feature')."<br />
+		".pluginmanager_display('feature')."<br />
 	</div>
 	<div id='tabs-gateway'>
-		".pluginmanager_table('gateway')."<br />
+		".pluginmanager_display('gateway')."<br />
 	</div>
 	<div id='tabs-theme'>
-		".pluginmanager_table('themes')."<br />
+		".pluginmanager_display('themes')."<br />
 	</div>
 	<div id='tabs-tool'>
-		".pluginmanager_table('tools')."<br />
+		".pluginmanager_display('tools')."<br />
 	</div>
 	<div id='tabs-lang'>
-		".pluginmanager_table('language')."<br />
+		".pluginmanager_display('language')."<br />
 	</div>";
 
 echo $content;

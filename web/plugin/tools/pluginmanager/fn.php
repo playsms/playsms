@@ -48,7 +48,7 @@ function pluginmanager_list($plugin_category) {
 	return $subdir_tab;
 }
 
-function pluginmanager_table($plugin_category) {
+function pluginmanager_display($plugin_category) {
 	global $core_config;
 	$table = "
 		<table id='m' width=100% class=sortable>
