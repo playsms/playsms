@@ -844,8 +844,8 @@ DROP TABLE IF EXISTS `playsms_gatewayMsgtoolbox`;
 CREATE TABLE `playsms_gatewayMsgtoolbox` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `local_slid` int(11) NOT NULL DEFAULT '0',
-  `remote_slid` int(11) NOT NULL DEFAULT '0',
+  `local_smslog_id` int(11) NOT NULL DEFAULT '0',
+  `remote_smslog_id` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -899,8 +899,8 @@ DROP TABLE IF EXISTS `playsms_gatewayNexmo`;
 CREATE TABLE `playsms_gatewayNexmo` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `local_slid` int(11) NOT NULL DEFAULT '0',
-  `remote_slid` varchar(40) NOT NULL DEFAULT '0',
+  `local_smslog_id` int(11) NOT NULL DEFAULT '0',
+  `remote_smslog_id` varchar(40) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   `network` varchar(20) NOT NULL DEFAULT '',
   `error_text` varchar(100) NOT NULL DEFAULT '',
@@ -1007,8 +1007,8 @@ DROP TABLE IF EXISTS `playsms_gatewayUplink`;
 CREATE TABLE `playsms_gatewayUplink` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
   `up_id` int(11) NOT NULL AUTO_INCREMENT,
-  `up_local_slid` int(11) NOT NULL DEFAULT '0',
-  `up_remote_slid` int(11) NOT NULL DEFAULT '0',
+  `up_local_smslog_id` int(11) NOT NULL DEFAULT '0',
+  `up_remote_smslog_id` int(11) NOT NULL DEFAULT '0',
   `up_status` int(11) NOT NULL DEFAULT '0',
   `up_remote_queue_code` varchar(32) NOT NULL DEFAULT '',
   `up_dst` varchar(100) NOT NULL DEFAULT '',
@@ -1537,8 +1537,8 @@ DROP TABLE IF EXISTS `playsms_gatewayTwilio`;
 CREATE TABLE `playsms_gatewayTwilio` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `local_slid` int(11) NOT NULL DEFAULT '0',
-  `remote_slid` varchar(40) NOT NULL DEFAULT '0',
+  `local_smslog_id` int(11) NOT NULL DEFAULT '0',
+  `remote_smslog_id` varchar(40) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   `error_text` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)

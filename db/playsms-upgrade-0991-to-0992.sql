@@ -5,6 +5,15 @@ ALTER TABLE `playsms_tblSMSOutgoing_queue_dst` AUTO_INCREMENT = 1000000 ;
 ALTER TABLE  `playsms_tblSMSOutgoing` ADD UNIQUE (`smslog_id`) ;
 ALTER TABLE `playsms_tblSMSOutgoing_queue_dst` DROP `smslog_id` ;
 
+ALTER TABLE `playsms_gatewayMsgtoolbox` CHANGE `local_slid`  `local_smslog_id` INT( 11 ) NOT NULL DEFAULT '0' ;
+ALTER TABLE `playsms_gatewayMsgtoolbox` CHANGE `remote_slid`  `remote_smslog_id` VARCHAR( 40 ) NOT NULL DEFAULT '';
+ALTER TABLE `playsms_gatewayNexmo` CHANGE `local_slid`  `local_smslog_id` INT( 11 ) NOT NULL DEFAULT '0' ;
+ALTER TABLE `playsms_gatewayNexmo` CHANGE `remote_slid`  `remote_smslog_id` VARCHAR( 40 ) NOT NULL DEFAULT '';
+ALTER TABLE `playsms_gatewayTwilio` CHANGE `local_slid`  `local_smslog_id` INT( 11 ) NOT NULL DEFAULT '0' ;
+ALTER TABLE `playsms_gatewayTwilio` CHANGE `remote_slid`  `remote_smslog_id` VARCHAR( 40 ) NOT NULL DEFAULT '';
+ALTER TABLE `playsms_gatewayUplink` CHANGE `up_local_slid`  `up_local_smslog_id` INT( 11 ) NOT NULL DEFAULT '0' ;
+ALTER TABLE `playsms_gatewayUplink` CHANGE `up_remote_slid`  `up_remote_smslog_id` VARCHAR( 40 ) NOT NULL DEFAULT '';
+
 --
 -- Table structure for table `playsms_tblSMSOutgoing_queue`
 --

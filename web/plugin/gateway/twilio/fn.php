@@ -48,7 +48,7 @@ function twilio_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 			$c_error_text = $c_status.'|'.$resp->code.'|'.$resp->message;
 			logger_print("sent smslog_id:".$smslog_id." message_id:".$c_message_id." status:".$c_status." error:".$c_error_text, 2, "twilio outgoing");
 			$db_query = "
-				INSERT INTO "._DB_PREF_."_gatewayTwilio (local_slid,remote_slid,status,error_text)
+				INSERT INTO "._DB_PREF_."_gatewayTwilio (local_smslog_id,remote_smslog_id,status,error_text)
 				VALUES ('$smslog_id','$c_message_id','$c_status','$c_error_text')";
 			$id = @dba_insert_id($db_query);
 			if ($id && ($c_status == 'queued')) {

@@ -48,24 +48,24 @@ function uplink_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 			$response = explode(' ', $responses);
 			$response_data = explode(',', $response[1]);
 			if ($response[0] == "OK") {
-				$remote_slid = $response_data[0];
+				$remote_smslog_id = $response_data[0];
 				$remote_queue_code = $response_data[1];
 				$dst = $response_data[2];
-				if ($remote_slid || ($remote_queue_code && $dst)) {
+				if ($remote_smslog_id || ($remote_queue_code && $dst)) {
 					$db_query = "
-						INSERT INTO "._DB_PREF_."_gatewayUplink (up_local_slid,up_remote_slid,up_status,up_remote_queue_code,up_dst)
-						VALUES ('$smslog_id','$remote_slid','0','$remote_queue_code','$dst')";
+						INSERT INTO "._DB_PREF_."_gatewayUplink (up_local_smslog_id,up_remote_smslog_id,up_status,up_remote_queue_code,up_dst)
+						VALUES ('$smslog_id','$remote_smslog_id','0','$remote_queue_code','$dst')";
 					if ($up_id = @dba_insert_id($db_query)) {
 						$ok = true;
 					}
 				}
 			}
-			logger_print("smslog_id:".$smslog_id." up_id:".$up_id." status:".$response[0]." remote_slid:".$response_data[0]." remote_queue_code:".$response_data[1]." dst:".$dst, 2, "uplink outgoing");
+			logger_print("smslog_id:".$smslog_id." up_id:".$up_id." status:".$response[0]." remote_smslog_id:".$response_data[0]." remote_queue_code:".$response_data[1]." dst:".$dst, 2, "uplink outgoing");
 		} else {
 			logger_print("smslog_id:".$smslog_id." no response", 2, "uplink outgoing");
 		}
 	}
-	if ($ok && ($remote_slid || $remote_queue_code)) {
+	if ($ok && ($remote_smslog_id || $remote_queue_code)) {
 		$p_status = 0;
 	} else {
 		$p_status = 2;
@@ -87,18 +87,18 @@ function uplink_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$
 	// 2 = failed
 	// dlr($smslog_id,$uid,$p_status);
 	global $uplink_param;
-	$db_query = "SELECT * FROM "._DB_PREF_."_gatewayUplink WHERE up_local_slid='$smslog_id'";
+	$db_query = "SELECT * FROM "._DB_PREF_."_gatewayUplink WHERE up_local_smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
-		$local_slid = $db_row['up_local_slid'];
-		$remote_slid = $db_row['up_remote_slid'];
+		$local_smslog_id = $db_row['up_local_smslog_id'];
+		$remote_smslog_id = $db_row['up_remote_smslog_id'];
 		$remote_queue_code = $db_row['up_remote_queue_code'];
 		$dst = $db_row['up_dst'];
-		if ($local_slid && ($remote_slid || ($remote_queue_code && $dst))) {
+		if ($local_smslog_id && ($remote_smslog_id || ($remote_queue_code && $dst))) {
 			// fixme anton - from playSMS v0.9.6 references to input.php replaced with index.php?app=webservices
 			// I should add autodetect, if its below v0.9.6 should use input.php
-			if ($remote_slid) {
-				$query_string = "index.php?app=webservices&u=".$uplink_param['username']."&h=".$uplink_param['token']."&ta=ds&slid=".$remote_slid;
+			if ($remote_smslog_id) {
+				$query_string = "index.php?app=webservices&u=".$uplink_param['username']."&h=".$uplink_param['token']."&ta=ds&smslog_id=".$remote_smslog_id;
 			} else {
 				$query_string = "index.php?app=webservices&u=".$uplink_param['username']."&h=".$uplink_param['token']."&ta=ds&queue=".$remote_queue_code."&dst=".$dst;
 			}
@@ -107,10 +107,10 @@ function uplink_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$
 			$r = str_getcsv($response,';','"',"\\");
 			if (($r[0]=='ERR 400') || ($r[0]=='ERR 402')) {
 				$p_status = 2;
-				dlr($local_slid,$uid,$p_status);
+				dlr($local_smslog_id,$uid,$p_status);
 			} else {
 				if ($p_status = (int) $r[5]) {
-					dlr($local_slid,$uid,$p_status);
+					dlr($local_smslog_id,$uid,$p_status);
 				}
 			}
 		}

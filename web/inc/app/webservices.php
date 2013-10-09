@@ -28,7 +28,7 @@ $last	= trim($_REQUEST['last']);
 
 // DS
 $queue	= trim($_REQUEST['queue']);
-$slid	= trim($_REQUEST['slid']);
+$smslog_id	= trim($_REQUEST['smslog_id']);
 
 // IN, GET_CONTACT, GET_CONTACT_GROUP
 $kwd	= trim($_REQUEST['kwd']);
@@ -59,7 +59,7 @@ if ($ta) {
 			break;
 		case "DS":
 			if ($u = webservices_validate($h,$u)) {
-				list($ret,$json) = webservices_ds($u,$queue,$src,$dst,$dt,$slid,$c,$last);
+				list($ret,$json) = webservices_ds($u,$queue,$src,$dst,$dt,$smslog_id,$c,$last);
 			} else {
 				$ret = "ERR 100";
 				$json['status'] = 'ERR';

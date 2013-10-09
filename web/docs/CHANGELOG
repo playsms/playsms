@@ -2,6 +2,7 @@ CHANGELOG
 ---------
 
 Version 0.9.9.2 - 131017
+- MAJOR: replace term 'slid' with 'smslog_id'
 - add new plugin pluginmanager to manage plugins (enumanc)
 - add new daemon dlrssmsd and recvsmsd to increase performance
 
