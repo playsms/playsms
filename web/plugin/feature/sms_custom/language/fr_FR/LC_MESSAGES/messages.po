@@ -45,7 +45,7 @@ msgid "Make return as reply"
 msgstr "Activer le renvoi du résultat "
 
 msgid "Manage custom"
-msgstr "Gérer script URL"
+msgstr "Service script URL"
 
 msgid "Pass these parameter to custom URL field"
 msgstr "Passez ces paramètres aux champs du scrip URL"
