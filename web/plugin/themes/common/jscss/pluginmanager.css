@@ -1,12 +1,12 @@
 .tabs {
-	margin: 0 0 1px 0 ;
+	margin: 0 0 1px 1px;
 	padding: 0;
 }
 
 .tab {
 	display: inline-block;
-	zoom:1;
-	*display:inline;
+	zoom: 1;
+	*display: inline;
 	background: #566B7F;
 	border-bottom: #000;
 	-moz-border-radius: 4px 4px 0 0;
@@ -23,6 +23,7 @@
 
 .tab a:hover {
 	/* text-decoration: underline; */
+	
 }
 
 .tab.active {

@@ -21,8 +21,8 @@ $content .= "
 			<li class='tab'><a href='#tabs-feature'>" . _ ( 'Features' ) . "</a></li>
 			<li class='tab'><a href='#tabs-gateway'>" . _ ( 'Gateways' ) . "</a></li>
 			<li class='tab'><a href='#tabs-theme'>" . _ ( 'Themes' ) . "</a></li>
-			<li class='tab'><a href='#tabs-tool'>" . _ ( 'Tools' ) . "</a></li>
-			<li class='tab'><a href='#tabs-lang'>" . _ ( 'Languages' ) . "</a></li>
+			<li class='tab'><a href='#tabs-tools'>" . _ ( 'Tools' ) . "</a></li>
+			<li class='tab'><a href='#tabs-language'>" . _ ( 'Languages' ) . "</a></li>
 		</ul>
 		<div id='tabs-feature'>
 			" . pluginmanager_display ( 'feature' ) . "<br />
@@ -33,10 +33,10 @@ $content .= "
 		<div id='tabs-theme'>
 			" . pluginmanager_display ( 'themes' ) . "<br />
 		</div>
-		<div id='tabs-tool'>
+		<div id='tabs-tools'>
 			" . pluginmanager_display ( 'tools' ) . "<br />
 		</div>
-		<div id='tabs-lang'>
+		<div id='tabs-language'>
 			" . pluginmanager_display ( 'language' ) . "<br />
 		</div>
 	</div>";
