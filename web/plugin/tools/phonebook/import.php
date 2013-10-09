@@ -49,7 +49,7 @@ switch ($op) {
 				if (!empty($parse_phonebook) && strlen($parse_phonebook[$i]) > 1) {
 					$parse_phonebook[$i] = str_replace(";", ",", $parse_phonebook[$i]);
 					$parse_param = explode(",", str_replace("\"", "", $parse_phonebook[$i]));
-					$gid = phonebook_groupcode2id($uid, $parse_param[3]);
+					$gid = phonebook_groupcode2id($uid, trim($parse_param[3]));
 					if ($parse_param[0] && $parse_param[1] && $parse_param[3] && $gid) {
 						$j++;
 						$tr_class = ($j % 2) ? "row_odd" : "row_even";
