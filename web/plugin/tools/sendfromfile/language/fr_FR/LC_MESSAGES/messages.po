@@ -56,7 +56,7 @@ msgid "Send SMS to valid entries"
 msgstr "Envoi de SMS aux entrées valides"
 
 msgid "Send from file"
-msgstr "Envoi dépuis fichier"
+msgstr "Envoi depuis fichier"
 
 msgid "Send from file has been cancelled"
 msgstr "Envoi depuis fichier annulé"
