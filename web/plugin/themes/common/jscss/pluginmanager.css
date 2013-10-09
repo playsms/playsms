@@ -1,5 +1,5 @@
-.etabs {
-	margin: 0;
+.tabs {
+	margin: 0 0 1px 0 ;
 	padding: 0;
 }
 
@@ -7,9 +7,8 @@
 	display: inline-block;
 	zoom:1;
 	*display:inline;
-	background: #444;
-	border: solid 1px #999;
-	border-bottom: none;
+	background: #566B7F;
+	border-bottom: #000;
 	-moz-border-radius: 4px 4px 0 0;
 	-webkit-border-radius: 4px 4px 0 0;
 }
@@ -30,7 +29,7 @@
 	padding-top: 6px;
 	position: relative;
 	top: 1px;
-	border-color: #666;
+	border-bottom: #000;
 }
 
 .tab a.active {
@@ -38,8 +37,7 @@
 }
 
 .tab-container .panel-container {
-	border: solid #666 1px;
-	padding: 10px;
 	-moz-border-radius: 0 4px 4px 4px;
 	-webkit-border-radius: 0 4px 4px 4px;
+	padding: 0;
 }
