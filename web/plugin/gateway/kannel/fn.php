@@ -96,6 +96,7 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 		while (!feof($connection)) {
 			$rv = fgets($connection, 128);
 			if (($rv == "Sent.") || ($rv == "0: Accepted for delivery") || ($rv == "3: Queued for later delivery")) {
+				logger_print("smslog_id:".$smslog_id." response:".$rv, 2, "kannel outgoing");
 				// set pending
 				$p_status = 0;
 				$ok = true;
@@ -109,7 +110,6 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	}
 	dlr($smslog_id,$uid,$p_status);
 	// good or bad, print it on the log
-	logger_print("smslog_id:".$smslog_id." response:".$rv, 2, "kannel outgoing");
 	return $ok;
 }
 
