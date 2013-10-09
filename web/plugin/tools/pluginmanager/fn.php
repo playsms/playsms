@@ -50,7 +50,7 @@ function pluginmanager_list($plugin_category) {
 
 function pluginmanager_display($plugin_category) {
 	global $core_config;
-	$table = "
+	$content = "
 		<table id='m' width=100% class=sortable>
 			<thead><tr>
 				<th width=10%>" . _('Name') . "</th>
@@ -74,7 +74,7 @@ function pluginmanager_display($plugin_category) {
 
 		if ($plugin_info['name']) {
 			$tr_class = ($l % 2) ? "row_odd" : "row_even";
-			$table .= "
+			$content .= "
 				<tr class=$tr_class>
 					<td align=center>" . $plugin_info['name'] . "</td>
 					<td>" . $plugin_info['description'] . "</td>
@@ -85,8 +85,8 @@ function pluginmanager_display($plugin_category) {
 				</tr>";
 		}
 	}
-	$table .= "</tbody></table>";
-	return $table;
+	$content .= "</tbody></table>";
+	return $content;
 }
 
 ?>

@@ -24,12 +24,12 @@ $cb_status = $requests['status'];
 if ($cb_status && $cb_smsid)
 {
 	$db_query = "
-		SELECT local_slid FROM "._DB_PREF_."_gatewayMsgtoolbox 
-		WHERE remote_slid='$cb_smsid' AND (status='10' OR status='11' OR status='21')
+		SELECT local_smslog_id FROM "._DB_PREF_."_gatewayMsgtoolbox 
+		WHERE remote_smslog_id='$cb_smsid' AND (status='10' OR status='11' OR status='21')
 	";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$smslog_id = $db_row['local_slid'];
+	$smslog_id = $db_row['local_smslog_id'];
 	if ($smslog_id)
 	{
 		$data = getsmsoutgoing($smslog_id);

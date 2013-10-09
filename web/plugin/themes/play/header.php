@@ -17,6 +17,8 @@
 	    src="<?php echo $http_path['themes']; ?>/common/jscss/sorttable.js"></script>
     <script type="text/javascript"
 	    src="<?php echo $http_path['themes']; ?>/common/jscss/selectbox.js"></script>
+    <script type="text/javascript"
+    	src="<?php echo $http_path['themes']; ?>/common/jscss/jquery.js"></script>
     
     
     <script type="text/javascript"

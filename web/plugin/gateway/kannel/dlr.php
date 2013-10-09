@@ -18,12 +18,12 @@ if ($remote_addr != $kannel_param['bearerbox_host'] && $remote_host != $kannel_p
 }
 
 $type = $requests['type'];
-$slid = $requests['slid'];
+$smslog_id = $requests['smslog_id'];
 $uid = $requests['uid'];
 
-logger_print("addr:".$remote_addr." host:".$remote_host." type:".$type." slid:".$slid." uid:".$uid, 2, "kannel dlr");
+logger_print("addr:".$remote_addr." host:".$remote_host." type:".$type." smslog_id:".$smslog_id." uid:".$uid, 2, "kannel dlr");
 
-if ($type && $slid && $uid) {
+if ($type && $smslog_id && $uid) {
 	$stat = 0;
 	switch ($type) {
 		case 1: $stat = 6; break;	// delivered to phone = delivered
@@ -39,7 +39,7 @@ if ($type && $slid && $uid) {
 	if ($stat) {
 		$p_status = $stat - 3;
 	}
-	dlr($slid,$uid,$p_status);
+	dlr($smslog_id,$uid,$p_status);
 }
 
 ?>

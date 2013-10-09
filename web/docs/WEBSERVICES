@@ -9,40 +9,40 @@ For example https://playsms.org/trial/index.php?app=webservices
 PARAMETERS
 ----------
 
-h	: webservices token, configured by user from Preferences menu
-u	: username
-p	: password, supplied for ta=get_token
+h		: webservices token, configured by user from Preferences menu
+u		: username
+p		: password, supplied for ta=get_token
 
-ta	: type of action
-	  for example:
-	    pv 		: send private
-	    bc 		: send broadcast
-	    ds 		: delivery status
-	    get_token	: get webservice token
-	    sms_poll 	: poll results from plugin sms_poll
-	    sms_board 	: board results from plugin sms_board
+ta		: type of action
+		  for example:
+		    pv 		: send private
+		    bc 		: send broadcast
+		    ds 		: delivery status
+		    get_token	: get webservice token
+		    sms_poll 	: poll results from plugin sms_poll
+		    sms_board 	: board results from plugin sms_board
 
-format	: output format selection
-          format=json for JSON output
-          format=xml for XML output
-          format=serialize for PHP serialize output
-          format=plain or format is empty for plain text old style output
+format		: output format selection
+	          format=json for JSON output
+	          format=xml for XML output
+	          format=serialize for PHP serialize output
+	          format=plain or format is empty for plain text old style output
 
-to	: destination numbers (for ta=pv) or destination group code (for ta=bc)
-          multiple destination numbers (seperated by comma) can be used when ta=pv
-          
-msg	: message (+ or %20 for spaces, ulrencode for non ascii characters)
-type 	: message type (flash or text)
-unicode : whether message unicode or not (1=unicode, 0=not unicode)
+to		: destination numbers (for ta=pv) or destination group code (for ta=bc)
+		  multiple destination numbers (seperated by comma) can be used when ta=pv
 
-queue	: queue code
-src	: sender number or ID
-dst	: destination number (single number)
-dt	: send SMS date/time
-slid	: SMS Log ID
-last 	: last SMS log ID (this number not included on result)
-c	: number of delivery status that will be retrieved
-kwd	: keyword
+msg		: message (+ or %20 for spaces, ulrencode for non ascii characters)
+type		: message type (flash or text)
+unicode		: whether message unicode or not (1=unicode, 0=not unicode)
+
+queue		: queue code
+src		: sender number or ID
+dst		: destination number (single number)
+dt		: send SMS date/time
+smslog_id	: SMS Log ID
+last		: last SMS log ID (this number not included on result)
+c		: number of delivery status that will be retrieved
+kwd		: keyword
 
 
 ERROR RETURNS
@@ -101,10 +101,10 @@ PROTOCOL
 
 3.  Outgoing SMS and delivery status
     ta		: ds
-    parameters	: u, h, queue, src, dst, dt, slid, c, last
+    parameters	: u, h, queue, src, dst, dt, smslog_id, c, last
     returns	: CSV format:
 		  "SMS log ID";"From";"To";"Message";"Delivery";"Update";"Status"
-    notes	: slid retrieves only 1 delivery report at particular SMS log ID
+    notes	: smslog_id retrieves only 1 delivery report at particular SMS log ID
 		  c retrieves as many as c value
 		  last retrieves from last SMS log ID
 		  if SMS log ID is empty then you can use queue to list it
@@ -214,7 +214,7 @@ EXAMPLE
    if you want plain text format then remove the format=json param
 
    if succeeded returns text with JSON format:
-   {"status":"OK","error":"0","slid":0,"queue":"afb5f34575e30ec4efe4471cf5d1bee4",
+   {"status":"OK","error":"0","smslog_id":0,"queue":"afb5f34575e30ec4efe4471cf5d1bee4",
    "to":"0987654321"}
 
    if error occured returns one of the ERROR RETURNS mentioned above, also in JSON format

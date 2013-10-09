@@ -207,6 +207,13 @@ li {
 	font-size: 10pt;
 }
 
+pre {
+	border: 1px solid #566B7F;
+	background-color: #566B7F;
+	padding: 10px 5px 5px 5px;
+	margin: 1px;
+}
+
 .font18pt {
 	font-size: 18pt;
 }
@@ -555,4 +562,49 @@ li {
 	-o-transition: background-color 0.5s ease;
 	transition: background-color 0.5s ease;
 	border-radius: 3px;
+}
+
+.tabs {
+	margin: 0 0 1px 1px;
+	padding: 0;
+}
+
+.tab {
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	background: #566B7F;
+	border-bottom: #000;
+	-moz-border-radius: 4px 4px 0 0;
+	-webkit-border-radius: 4px 4px 0 0;
+}
+
+.tab a {
+	font-size: 14px;
+	line-height: 2em;
+	display: block;
+	padding: 0 10px;
+	outline: none;
+}
+
+.tab a:hover {
+	/* text-decoration: underline; */
+	
+}
+
+.tab.active {
+	padding-top: 6px;
+	position: relative;
+	top: 1px;
+	border-bottom: #000;
+}
+
+.tab a.active {
+	font-weight: bold;
+}
+
+.tab-container .panel-container {
+	-moz-border-radius: 0 4px 4px 4px;
+	-webkit-border-radius: 0 4px 4px 4px;
+	padding: 0;
 }

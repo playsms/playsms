@@ -36,21 +36,21 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
 				$ret .= "OK ".$smslog_id[$i].",".$queue_code[$i].",".$to[$i]."\n";
 				$json['data'][$i]['status'] = 'OK';
 				$json['data'][$i]['error'] = '0';
-				$json['data'][$i]['slid'] = $smslog_id[$i];
+				$json['data'][$i]['smslog_id'] = $smslog_id[$i];
 				$json['data'][$i]['queue'] = $queue_code[$i];
 				$json['data'][$i]['to'] = $to[$i];
 			} elseif ($ok[$i]==2) { // this doesn't work, but not much an issue now
 				$ret .= "ERR 103 ".$arr_to[$i]."\n";
 				$json['data'][$i]['status'] = 'ERR';
 				$json['data'][$i]['error'] = '103';
-				$json['data'][$i]['slid'] = '';
+				$json['data'][$i]['smslog_id'] = '';
 				$json['data'][$i]['queue'] = '';
 				$json['data'][$i]['to'] = $to[$i];
 			} else {
 				$ret .= "ERR 200 ".$arr_to[$i]."\n";
 				$json['data'][$i]['status'] = 'ERR';
 				$json['data'][$i]['error'] = '200';
-				$json['data'][$i]['slid'] = '';
+				$json['data'][$i]['smslog_id'] = '';
 				$json['data'][$i]['queue'] = '';
 				$json['data'][$i]['to'] = $to[$i];
 			}
@@ -63,7 +63,7 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
 			$ret = "OK ".$smslog_id[0].",".$queue_code[0].",".$to[0];
 			$json['status'] = 'OK';
 			$json['error'] = '0';
-			$json['slid'] = $smslog_id[0];
+			$json['smslog_id'] = $smslog_id[0];
 			$json['queue'] = $queue_code[0];
 			$json['to'] = $to[0];
 		} elseif ($ok[0]==2) {
@@ -107,7 +107,7 @@ function webservices_bc($c_username,$c_gcode,$msg,$type='text',$unicode=0) {
 	return array($ret, $json);
 }
 
-function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',$slid=0,$c=100,$last=false) {
+function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',$smslog_id=0,$c=100,$last=false) {
 	$ret = "ERR 101";
 	$json['status'] = 'ERR';
 	$json['error'] = '101';
@@ -115,8 +115,8 @@ function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',
 		$conditions['uid'] = $uid;
 	}
 	$conditions['flag_deleted'] = 0;
-	if ($slid) {
-		$conditions['smslog_id'] = $slid;
+	if ($smslog_id) {
+		$conditions['smslog_id'] = $smslog_id;
 	}
 	if ($queue_code) {
 		$conditions['queue_code'] = $queue_code;
@@ -157,7 +157,7 @@ function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',
 			$p_update = $db_row['p_update'];
 			$p_status = $db_row['p_status'];
 			$content .= "\"$smslog_id\";\"$p_src\";\"$p_dst\";\"$p_msg\";\"$p_datetime\";\"$p_update\";\"$p_status\"\n";
-			$json['data'][$j]['slid'] = $smslog_id;
+			$json['data'][$j]['smslog_id'] = $smslog_id;
 			$json['data'][$j]['src'] = $p_src;
 			$json['data'][$j]['dst'] = $p_dst;
 			$json['data'][$j]['msg'] = $p_msg;

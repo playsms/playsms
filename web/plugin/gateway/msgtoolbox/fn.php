@@ -54,15 +54,15 @@ function msgtoolbox_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='
 		if ($fd) {
 			$response = split (",", $fd);
 			if (trim($response[0]) == "1") {
-				$remote_slid = trim($response[1]);
-				if ($remote_slid) {
+				$remote_smslog_id = trim($response[1]);
+				if ($remote_smslog_id) {
 					// this is for callback, if callback not used then the status would be sent or failed only
-					// local_slid is local SMS log id (local smslog_id)
-					// remote_slid is remote SMS log id (in API doc its referred to smsid or messageid)			
+					// local_smslog_id is local SMS log id (local smslog_id)
+					// remote_smslog_id is remote SMS log id (in API doc its referred to smsid or messageid)			
                                          // status=10 delivered to gateway
 					$db_query = "
-						INSERT INTO "._DB_PREF_."_gatewayMsgtoolbox (local_slid,remote_slid,status)
-						VALUES ('$smslog_id','$remote_slid','10')
+						INSERT INTO "._DB_PREF_."_gatewayMsgtoolbox (local_smslog_id,remote_smslog_id,status)
+						VALUES ('$smslog_id','$remote_smslog_id','10')
 					    ";
 					$id = @dba_insert_id($db_query);
 					if ($id) {
