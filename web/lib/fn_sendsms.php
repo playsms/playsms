@@ -424,7 +424,7 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0,$nofoot
 					$p_num = $db_row['p_num'];
 					$sms_to = sendsms_getvalidnumber($p_num);
 					if ($smslog_id[$j] = sendsms_queue_push($queue_code,$sms_to)) {
-						$ok[$i] = true;
+						$ok[$j] = true;
 						$sms_count++;
 					}
 					$to[$j] = $sms_to;
