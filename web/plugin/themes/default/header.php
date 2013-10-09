@@ -10,6 +10,7 @@
 <script type="text/javascript" src="<?php echo $http_path['themes']; ?>/common/jscss/common.js"></script>
 <script type="text/javascript" src="<?php echo $http_path['themes']; ?>/common/jscss/selectbox.js"></script>
 <script type="text/javascript" src="<?php echo $http_path['themes']; ?>/common/jscss/sorttable.js"></script>
+<script type="text/javascript" src="<?php echo $http_path['themes']; ?>/common/jscss/jquery.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo $http_path['themes']; ?>/common/jscss/common.css" />
 
 <!-- load specific themes default js and css -->

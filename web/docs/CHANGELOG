@@ -12,6 +12,7 @@ Version 0.9.9.2 - 131017
 - update default daemon files locations from /usr/local/bin/ to /usr/local/bin/_playsms/
 - update all plugin gateway to use recvsms() instead of setsmsincomingaction()
 - update all plugin gateway to use dlr() instead of setsmsdeliverystatus()
+- update themes to load jquery.js
 - fix catchall feature on inboxgroup
 - fix location to hint.png
 - fix fail to finalize queue creation
