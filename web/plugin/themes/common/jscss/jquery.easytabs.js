@@ -1,0 +1,1 @@
+jquery.easytabs.min.js

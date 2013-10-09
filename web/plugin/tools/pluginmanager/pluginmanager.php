@@ -4,8 +4,7 @@ defined ( '_SECURE_' ) or die ( 'Forbidden' );
 if (!isadmin()) { forcenoaccess (); };
 
 $content = "
-	<script src='" . $core_config['http_path']['plug'] . "/tools/pluginmanager/jscss/jquery.hashchange.js' type='text/javascript'></script>
-	<script src='" . $core_config['http_path']['plug'] . "/tools/pluginmanager/jscss/jquery.easytabs.js' type='text/javascript'></script>
+	<script src='" . $core_config['http_path']['themes'] . "/common/jscss/jquery.easytabs.js' type='text/javascript'></script>
 	<script type='text/javascript'>
 		$(document).ready( function() {
 		$('#tab-container').easytabs();
