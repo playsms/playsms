@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+	<name>fr_FR</name>
+	<alias>fr_FR</alias>
+	<description>Language french (France)</description>
+	<release>1.0</release>
+	<date>2013-09-29</date>
+	<author>Emmanuel Chanson</author>
+	<language_file>1</language_file>
+	<sql_file>0</sql_file>
+	<php_file>1</php_file>
+</plugin>

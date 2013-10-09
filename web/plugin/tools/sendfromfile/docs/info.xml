@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+	<name>sendfromfile</name>
+	<alias>Send SMS from CSV File</alias>
+	<description>Send SMS from CSV File</description>
+	<release>1.0</release>
+	<date>2011-09-21</date>
+	<author>Anton Raharja</author>
+	<language_file>1</language_file>
+	<sql_file>0</sql_file>
+	<php_file>1</php_file>
+</plugin>

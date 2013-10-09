@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+	<name>clickatell</name>
+	<alias>Gateway Clickatell</alias>
+	<description>Gateway Clickatell</description>
+	<release>1.1</release>
+	<date>2010-09-25</date>
+	<author>Anton Raharja</author>
+	<language_file>1</language_file>
+	<sql_file>0</sql_file>
+	<php_file>1</php_file>
+</plugin>

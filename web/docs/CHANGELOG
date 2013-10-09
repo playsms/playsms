@@ -1,6 +1,10 @@
 CHANGELOG
 ---------
 
+Version 0.9.9.2 - 131017
+- add new plugin pluginmanager to manage plugins (enumanc)
+- add new daemon dlrssmsd and recvsmsd to increase performance
+
 Version 0.9.9.1 - 130902
 - add new webservices type of action IX to get SMS on user's inbox
 - add logger_print() at the begining and the end of webservices

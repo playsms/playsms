@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+	<name>infobip</name>
+	<alias>Gateway Infobip</alias>
+	<description>Gateway Infobip</description>
+	<release>1.4</release>
+	<date>2013-09-15</date>
+	<author>enumanc</author>
+	<language_file>1</language_file>
+	<sql_file>1</sql_file>
+	<php_file>1</php_file>
+</plugin>
