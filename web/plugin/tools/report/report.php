@@ -1,7 +1,7 @@
 <?php
 if(!valid()){forcenoaccess();};
 
-$slid = $_GET['slid'];
+$smslog_id = $_GET['smslog_id'];
 $sms_price = 25;
 
 switch ($op)
@@ -95,7 +95,7 @@ switch ($op)
 	          <td valign='top' class='$td_class' align='center' width='10%'><a href='index.php?app=menu&inc=tools_report&op=report_sms_list&status=Deleted&uid=$uid'>$num_rows_deleted</a></td>
 	          <!--td valign=top class=$td_class align=center width=10%>$sign $total_price CFP</td-->
 		  <!--td class=$td_class width=4>
-		    <input type=hidden name=slid".$j." value=\"$current_slid\">
+		    <input type=hidden name=smslog_id".$j." value=\"$current_smslog_id\">
 		    <input type=checkbox name=chkid".$j.">
 		</td-->		  
 		</tr>
@@ -222,7 +222,7 @@ switch ($op)
                   <td valign='top' class='$td_class' align='center' width='10%'>$num_rows_failed</td>
                   <!--td valign='top' class='$td_class' align='center' width='10%'>$sign $total_price CFP</td-->
                 <!--td class=$td_class width=4>
-                    <input type=hidden name=slid".$j." value=\"$current_slid\">
+                    <input type=hidden name=smslog_id".$j." value=\"$current_smslog_id\">
                     <input type=checkbox name=chkid".$j.">
                 </td-->
                 </tr>
@@ -313,7 +313,7 @@ switch ($op)
         while ($db_row = dba_fetch_array($db_result))
         {
             $j++;
-            $current_slid = $db_row['smslog_id'];
+            $current_smslog_id = $db_row['smslog_id'];
             $p_dst = $db_row['p_dst'];
             $p_desc = phonebook_number2name($p_dst);
             $current_p_dst = $p_dst;
@@ -383,12 +383,12 @@ switch ($op)
                   <td valign=top class=$td_class align=center width=5%>$p_gpcode</td>
                   <td valign=top class=$td_class align=center width=5%>";
 		  if($status == "Failed") {
-		    $content .= "<a href='index.php?app=menu&inc=tools_report&op=report_recycle&slid=$current_slid&uid=$uid'>$report_icon_resent</a>";
+		    $content .= "<a href='index.php?app=menu&inc=tools_report&op=report_recycle&smslog_id=$current_smslog_id&uid=$uid'>$report_icon_resent</a>";
 		  }
-                    $content .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete outgoing SMS ?')." ("._('to').": `$hide_p_dst`, "._('number').": $i)','index.php?app=menu&inc=user_outgoing&op=user_outgoing_del&slid=$current_slid')\">$icon_delete</a>
+                    $content .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete outgoing SMS ?')." ("._('to').": `$hide_p_dst`, "._('number').": $i)','index.php?app=menu&inc=user_outgoing&op=user_outgoing_del&smslog_id=$current_smslog_id')\">$icon_delete</a>
                   </td>
                 <td class=$td_class width=4>
-                    <input type=hidden name=slid".$j." value=\"$current_slid\">
+                    <input type=hidden name=smslog_id".$j." value=\"$current_smslog_id\">
                     <input type=checkbox name=chkid".$j.">
                 </td>
                 </tr>
@@ -417,7 +417,7 @@ switch ($op)
         break;
 
     case "report_recycle":
-	$smslog_id = $_GET['slid'];
+	$smslog_id = $_GET['smslog_id'];
 	$uid = $_GET['uid'];
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE smslog_id=$smslog_id";
         $db_result = dba_query($db_query);
@@ -435,10 +435,10 @@ switch ($op)
 	if($_POST['delete'] == "Delete selection") {
            for ($i=1;$i<=$item_count;$i++) {
              $chkid = $_POST['chkid'.$i];
-             $slid = $_POST['slid'.$i];
+             $smslog_id = $_POST['smslog_id'.$i];
 
-             if(($chkid=="on") && $slid) {
-                $db_query = "UPDATE "._DB_PREF_."_tblSMSOutgoing SET c_timestamp='".mktime()."',flag_deleted='1' WHERE smslog_id='$slid'";
+             if(($chkid=="on") && $smslog_id) {
+                $db_query = "UPDATE "._DB_PREF_."_tblSMSOutgoing SET c_timestamp='".mktime()."',flag_deleted='1' WHERE smslog_id='$smslog_id'";
                 $db_result = dba_affected_rows($db_query);
              }
            }
@@ -447,7 +447,7 @@ switch ($op)
 	   $l = 0;
            for ($i=1;$i<=$item_count;$i++) {
              $chkid	= $_POST['chkid'.$i];
-             $smslog_id	= $_POST['slid'.$i];
+             $smslog_id	= $_POST['smslog_id'.$i];
 
              if(($chkid=="on") && $smslog_id) {
        		$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE smslog_id=$smslog_id";
