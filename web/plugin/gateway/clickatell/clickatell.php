@@ -4,8 +4,6 @@ if (! isadmin ()) {
 	forcenoaccess ();
 };
 
-include $apps_path ['plug'] . "/gateway/clickatell/config.php";
-
 $gw = gateway_get ();
 
 if ($gw == $clickatell_param ['name']) {

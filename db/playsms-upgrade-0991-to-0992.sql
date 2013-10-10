@@ -38,7 +38,7 @@ CREATE TABLE `playsms_tblSMSOutgoing_queue` (
   `unicode` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `queue_code` (`queue_code`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -57,7 +57,7 @@ CREATE TABLE `playsms_tblRecvSMS` (
   `message` text NOT NULL DEFAULT '',
   `sms_receiver` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,22 +75,25 @@ CREATE TABLE `playsms_tblDLR` (
   `p_status` tinyint(4) NOT NULL DEFAULT '0',
   `uid` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 DROP TABLE IF EXISTS `playsms_gatewayInfobip_config`;
 CREATE TABLE `playsms_gatewayInfobip_config` (
   `c_timestamp` int(11) NOT NULL DEFAULT '0',
-  `cfg_name` varchar(20) DEFAULT 'infobip',
-  `cfg_username` varchar(100) DEFAULT NULL,
-  `cfg_password` varchar(100) DEFAULT NULL,
-  `cfg_sender` varchar(20) DEFAULT NULL,
-  `cfg_send_url` varchar(250) DEFAULT NULL,
+  `cfg_name` varchar(20) NOT NULL DEFAULT 'infobip',
+  `cfg_username` varchar(100) NOT NULL DEFAULT '',
+  `cfg_password` varchar(100) NOT NULL DEFAULT '',
+  `cfg_sender` varchar(20) NOT NULL DEFAULT '',
+  `cfg_send_url` varchar(250) NOT NULL DEFAULT '',
   `cfg_credit` int(11) NOT NULL DEFAULT '0',
-  `cfg_additional_param` varchar(250) DEFAULT NULL,
+  `cfg_additional_param` varchar(250) NOT NULL DEFAULT '',
   `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700',
-  `cfg_dlr_nopush` varchar(1) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `cfg_dlr_nopush` varchar(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `playsms_gatewayInfobip_config` (`cfg_name`,`cfg_send_url`,`cfg_datetime_timezone`,`cfg_dlr_nopush`) VALUES ('infobip','http://api.infobip.com/api/v3','+0700','1') ;
+
 
 DROP TABLE IF EXISTS `playsms_gatewayInfobip_apidata`;
 CREATE TABLE `playsms_gatewayInfobip_apidata` (
@@ -98,7 +101,7 @@ CREATE TABLE `playsms_gatewayInfobip_apidata` (
   `apidata_id` int(11) NOT NULL AUTO_INCREMENT,
   `smslog_id` int(11) NOT NULL DEFAULT '0',
   `apimsgid` varchar(100) NOT NULL DEFAULT '',
-  `status` varchar(15) NOT NULL,
+  `status` varchar(15) NOT NULL DEFAULT '0',
   PRIMARY KEY (`apidata_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
