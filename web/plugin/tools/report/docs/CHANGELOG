@@ -1,0 +1,28 @@
+Version 1.6 - 2013-10-09
+- add docs/info.xml file
+- add 2 statistics link, 1 for admin and 1 for user account
+
+Version 1.5 - 2013-03-07
+- $menutab_tools added instead of 'Tools' in config.php
+- add fr_FR translation
+
+Version 1.4 - 2012-09-21
+- ? Forgotten changes
+
+Version 1.3 - 2012-09-21
+- Add massive recycle function
+
+Version 1.2 - 2011-06-02
+- Add recycle function for Failed SMS
+- Add SMS list page per status (Failed, Sent, Delivered, Pending)
+
+Version 1.1-1 - 2010-10-20
+- fix short tag presence in simplestat.php
+- remove bracket used to display number of SMS information
+
+Version 1.1 - 2010-10-18
+- add statistics view for normal user account
+- plugin access url modified to be compatible with 0.9.5.1 (index.php?app=menu&inc=simplestat&...)
+
+Version 1.0 - 2010-10-11
+- changelog started

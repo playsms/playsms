@@ -1,0 +1,30 @@
+msgid "My Report"
+msgstr ""
+
+msgid "All reports"
+msgstr ""
+
+msgid "Report"
+msgstr ""
+
+msgid "Account"
+msgstr ""
+
+msgid "Pending"
+msgstr ""
+
+msgid "Sent"
+msgstr ""
+
+msgid "Delivered"
+msgstr ""
+
+msgid "Failed"
+msgstr ""
+
+msgid "Deleted"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
