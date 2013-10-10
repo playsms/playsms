@@ -1,0 +1,9 @@
+Installation:
+- upload the archive file into your server
+- untar/gunzip the file
+# tar xzvf simplestat-vx.y.tgz -C /path/to/playsms/
+
+or go in playsms/web/ and do
+# tar xzvf simplestat-vx.y.tgz -C ./
+
+Enjoy
