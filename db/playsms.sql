@@ -1203,7 +1203,7 @@ CREATE TABLE `playsms_tblSMSOutgoing` (
   `p_update` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `p_status` int(11) NOT NULL DEFAULT '0',
   `p_gpid` int(11) NOT NULL DEFAULT '0',
-  `p_credit` int(11) NOT NULL DEFAULT '0',
+  `p_credit` decimal(10,2) NOT NULL DEFAULT '0.0',
   `p_sms_type` varchar(100) NOT NULL DEFAULT '',
   `unicode` int(11) NOT NULL DEFAULT '0',
   `queue_code` varchar(40) NOT NULL DEFAULT '',
