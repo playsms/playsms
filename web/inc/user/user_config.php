@@ -146,14 +146,15 @@ switch ($op) {
 		}
 		//SMS sender ID
 		if ($core_config['denycustomsender']) {
-			$option_sender_id = "<tr><td width=200>" . _('SMS sender ID') . "</td><td>:</td><td><b>".sendsms_get_sender($c_username)."</b></td></tr>";
+			$option_sender_id = "<tr><td>" . _('SMS sender ID') . "</td><td>".sendsms_get_sender($c_username)."</td></tr>";
 		} else {
 			if($uname && isadmin()){
-				$option_sender_id = "<tr><td width=200>" . _('SMS sender ID') . "</td><td>:</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"$sender\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td></tr>";
+				$option_sender_id = "<tr><td>" . _('SMS sender ID') . "</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"$sender\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td></tr>";
 			}else{
-				$option_sender_id = "<tr><td width=200>" . _('SMS sender ID') . "</td><td>:</td><td><b>".sendsms_get_sender($c_username)."</b></td></tr>";
+				$option_sender_id = "<tr><td>" . _('SMS sender ID') . "</td><td>".sendsms_get_sender($c_username)."</td></tr>";
 			}
 		}
+		
 		
 		if ($uname && isadmin()) {
 			$content .= "<h2>" . _('Manage user') . "</h2>";
