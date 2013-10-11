@@ -1060,9 +1060,9 @@ CREATE TABLE `playsms_tblBilling` (
   `post_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `smslog_id` int(11) NOT NULL DEFAULT '0',
   `rate` decimal(10,2) NOT NULL DEFAULT '0.0',
-  `credit` double NOT NULL DEFAULT '0',
+  `credit` decimal(10,2) NOT NULL DEFAULT '0.0',
   `count` int(11) NOT NULL DEFAULT '0',
-  `charge` double NOT NULL DEFAULT '0',
+  `charge` decimal(10,2) NOT NULL DEFAULT '0.0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
