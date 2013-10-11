@@ -69,23 +69,20 @@ function simplebilling_hook_billing_getdata($smslog_id) {
 	return $ret;
 }
 
-function simplebilling_hook_billing_summary($uid) {
+function simplebilling_hook_billing_getdata_by_uid($uid) {
 	$ret = array();
 	logger_print("uid:".$uid, 2, "simplebilling summary");
-	$db_query = ""
-		. "SELECT A.id,A.smslog_id,A.post_datetime,A.rate,A.credit,A.count,A.charge FROM "._DB_PREF_."_tblBilling AS A "
-		. "LEFT JOIN "._DB_PREF_."_tblUser AS B "
-		. "LEFT JOIN "._DB_PREF_."_tblSMSOutgoing AS C"
-		. "WHERE A.smslog_id=C.smslog_id AND B.uid=C.uid AND B.uid=".$uid." AND A.status='1'";
+	$db_query = "SELECT * FROM playsms_tblBilling AS A, playsms_tblUser AS B, playsms_tblSMSOutgoing AS C " .
+		"WHERE A.smslog_id=C.smslog_id AND B.uid=C.uid AND A.status='1' AND B.uid='$uid'";
 	$db_result = dba_query($db_query);
-	if ($db_row = dba_fetch_array($db_result)) {
-		$id = $db_row['A.id'];
-		$smslog_id = $db_row['A.smslog_id'];
-		$post_datetime = $db_row['A.post_datetime'];
-		$rate = $db_row['A.rate'];
-		$credit = $db_row['A.credit'];
-		$count = $db_row['A.count'];
-		$charge = $db_row['A.charge'];
+	while ($db_row = dba_fetch_array($db_result)) {
+		$id = $db_row['id'];
+		$smslog_id = $db_row['smslog_id'];
+		$post_datetime = $db_row['post_datetime'];
+		$rate = $db_row['rate'];
+		$credit = $db_row['credit'];
+		$count = $db_row['count'];
+		$charge = $db_row['charge'];
 		$ret[] = array('id' => $id, 'smslog_id' => $smslog_id, 'post_datetime' => $post_datetime, 'rate' => $rate, 'credit' => $credit, 'count' => $count, 'charge' => $charge);
 	}
 	return $ret;

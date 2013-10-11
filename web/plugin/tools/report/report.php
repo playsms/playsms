@@ -39,10 +39,11 @@ switch ($op) {
 		$num_rows_deleted = $db_row ['count'];
 
 		// BILLING
-		$db_query = "SELECT SUM(p_credit) AS billing FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE uid='$uid' AND flag_deleted='0'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$billing = $db_row ['billing'];
+		$billing = 0;
+		$data = billing_getdata_by_uid($uid);
+		foreach ($data AS $a) {
+			$billing += $a['count'] * $a['rate'];
+		}
 		
 		// BALANCE
 		$balance = $core_config['user']['credit'];
@@ -133,7 +134,12 @@ switch ($op) {
 			$num_rows_failed = $db_row ['count'];
 			$sum_num_rows_failed = ($sum_num_rows_failed + $num_rows_failed);
 
-			$c_billing = '0.0';
+			// BILLING
+			$c_billing = 0;
+			$c_data = billing_getdata_by_uid($c_uid);
+			foreach ($c_data AS $a) {
+				$c_billing += $a['count'] * $a['rate'];
+			}
 			
 			$sum_billing += $c_billing;
 			$sum_balance += $c_balance;
