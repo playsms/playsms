@@ -1309,7 +1309,7 @@ CREATE TABLE `playsms_tblUser` (
   `state` varchar(100) NOT NULL DEFAULT '',
   `country` int(11) NOT NULL DEFAULT '0',
   `zipcode` varchar(10) NOT NULL DEFAULT '',
-  `credit` double NOT NULL DEFAULT '0',
+  `credit` decimal(10,2) NOT NULL DEFAULT '0.0',
   `datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700',
   `language_module` varchar(10) NOT NULL DEFAULT 'en_US',
   `fwd_to_mobile` int(11) NOT NULL DEFAULT '0',
