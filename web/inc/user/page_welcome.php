@@ -2,18 +2,6 @@
 defined('_SECURE_') or die('Forbidden');
 if(!valid()){forcenoaccess();};
 
-$get = ( $_REQUEST['get'] ? $_REQUEST['get'] : 1 );
-switch ($get) {
-	case 1: $read = "README"; break;
-	case 2: $read = "CHANGELOG"; break;
-	case 3: $read = "INSTALL"; break;
-	case 4: $read = "FAQ"; break;
-	case 5: $read = "LICENSE"; break;
-	case 6: $read = "WEBSERVICES"; break;
-}
-
-${'youarehere_'.$get} = 'class=youarehere';
-
 $content = "
 	<script src='" . $core_config['http_path']['themes'] . "/common/jscss/jquery.easytabs.js' type='text/javascript'></script>
 	<script type='text/javascript'>
