@@ -12,12 +12,12 @@ function tpl_apply_core($fn, $tpl) {
 
 function tpl_apply($tpl_name, $tpl) {
 	$themes = themes_get();
-	$fn = APPS_PATH_THEMES.'/'.$themes.'/templates/'.q_sanitize($tpl_name).'.tpl';
+	$fn = _APPS_PATH_THEMES_.'/'.$themes.'/templates/'.q_sanitize($tpl_name).'.tpl';
 	if (file_exists($fn)) {
 		$content = tpl_apply_core($fn, $tpl);
 		return $content;
 	}
-	$fn = APPS_PATH_TPL.'/'.$tpl_name .'.tpl';
+	$fn = _APPS_PATH_TPL_.'/'.$tpl_name .'.tpl';
 	if (file_exists($fn)) {
 		$content = tpl_apply_core($fn, $tpl);
 	}

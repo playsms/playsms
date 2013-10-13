@@ -2,7 +2,7 @@
 defined('_SECURE_') or die('Forbidden');
 if(!valid()){forcenoaccess();};
 
-$t['HTTP_PATH_THEMES'] = HTTP_PATH_THEMES;
+$t['HTTP_PATH_THEMES'] = _HTTP_PATH_THEMES_;
 
 $t['Welcome to playSMS'] = _('Welcome to playSMS');
 $t['About playSMS'] = _('About playSMS');

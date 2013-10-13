@@ -8,6 +8,11 @@ $op = q_sanitize($_REQUEST['op']);
 $page = q_sanitize($_REQUEST['page']);
 $nav = q_sanitize($_REQUEST['nav']);
 
+define('_INC_', $inc);
+define('_OP_', $op);
+define('_PAGE_', $page);
+define('_NAV_', $nav);
+
 // load user's data from user's DB table
 if (valid()) {
 	$username = $_SESSION['username'];
