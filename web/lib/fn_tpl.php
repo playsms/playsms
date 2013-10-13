@@ -11,8 +11,16 @@ function tpl_apply($fn, $tpl) {
 }
 
 function tpl_apply_common($tpl_name, $tpl) {
-	$fn = APPS_PATH_TPL . '/' . $tpl_name . '.tpl';
-	$content = tpl_apply($fn, $tpl);
+	$themes = themes_get();
+	$fn = APPS_PATH_THEMES.'/'.$themes.'/templates/'.$tpl_name.'.tpl';
+	if (file_exists($fn)) {
+		$content = tpl_apply($fn, $tpl);
+		return $content;
+	}
+	$fn = APPS_PATH_TPL.'/'.$tpl_name .'.tpl';
+	if (file_exists($fn)) {
+		$content = tpl_apply($fn, $tpl);
+	}
 	return $content;
 }
 
