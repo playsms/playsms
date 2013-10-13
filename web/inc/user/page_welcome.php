@@ -17,6 +17,6 @@ $t['READ_FAQ'] = core_read_docs($apps_path['base'], 'FAQ');
 $t['READ_LICENSE'] = core_read_docs($apps_path['base'], 'LICENSE');
 $t['READ_WEBSERVICES'] = core_read_docs($apps_path['base'], 'WEBSERVICES');
 
-echo tpl_apply_common('page_welcome', $t);
+echo tpl_apply('page_welcome', $t);
 
 ?>
