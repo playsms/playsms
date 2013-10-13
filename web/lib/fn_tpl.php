@@ -1,6 +1,6 @@
 <?php
 
-function tpl_apply_core($fn, $tpl) {
+function _tpl_apply($fn, $tpl) {
 	$content = trim(file_get_contents($fn));
 	if ($content && is_array($tpl)) {
 		foreach ($tpl as $key => $val) {
@@ -19,7 +19,7 @@ function tpl_apply($tpl_name, $tpl) {
 	$plugin_name = str_replace($plugin_category.'_', '', _INC_);
 	$fn = _APPS_PATH_PLUG_.'/'.$plugin_category.'/'.$plugin_name.'/templates/'.$tpl_name.'.tpl';
 	if (file_exists($fn)) {
-		$content = tpl_apply_core($fn, $tpl);
+		$content = _tpl_apply($fn, $tpl);
 		return $content;
 	}
 
@@ -27,14 +27,14 @@ function tpl_apply($tpl_name, $tpl) {
 	$themes = themes_get();
 	$fn = _APPS_PATH_THEMES_.'/'.$themes.'/templates/'.$tpl_name.'.tpl';
 	if (file_exists($fn)) {
-		$content = tpl_apply_core($fn, $tpl);
+		$content = _tpl_apply($fn, $tpl);
 		return $content;
 	}
 
 	// check from common place on themes
 	$fn = _APPS_PATH_TPL_.'/'.$tpl_name .'.tpl';
 	if (file_exists($fn)) {
-		$content = tpl_apply_core($fn, $tpl);
+		$content = _tpl_apply($fn, $tpl);
 	}
 
 	return $content;
