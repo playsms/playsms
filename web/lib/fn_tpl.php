@@ -6,7 +6,7 @@ function _tpl_set_string($content, $key, $val) {
 }
 
 function _tpl_set_array($content, $key, $val) {
-	preg_match("/<loop\ $key>(.*?)<\/loop>/s", $content, $l);
+	preg_match("/<loop\.".$key.">(.*?)<\/loop\.".$key.">/s", $content, $l);
 	$loop = $l[1];
 	foreach ($val as $v) {
 		$loop_replaced = $loop;
@@ -15,7 +15,9 @@ function _tpl_set_array($content, $key, $val) {
 		}
 		$loop_content .= $loop_replaced;
 	}
-	$content = preg_replace("/<loop\ $key>(.*?)<\/loop>/s", $loop_content, $content);
+	$content = preg_replace("/<loop\.".$key.">(.*?)<\/loop\.".$key.">/s", $loop_content, $content);
+	$content = str_replace("<loop.".$key.">", '', $content);
+	$content = str_replace("</loop.".$key.">", '', $content);
 	return $content;
 }
 
@@ -30,6 +32,8 @@ function _tpl_apply($fn, $tpl) {
 			}
 		}
 	}
+	$content = preg_replace("/<loop\..*?>(.*?)<\/loop\..*?>/s", '', $content);
+	$content = preg_replace("/{(.*?)}/s", '', $content);
 	return $content;
 }
 

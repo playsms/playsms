@@ -13,7 +13,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<loop data>
+		<loop.data>
 		<tr class={data.tr_class}>
 			<td align='center'>{data.in_receiver}</td>
 			<td align='center'>{data.keywords}</td>
@@ -22,7 +22,7 @@
 			<td align='center'>{data.status}</td>
 			<td align='center'>{data.action}</td>
 		</tr>
-		</loop>
+		</loop.data>
 	</tbody>
 </table>
 <p>{Add group inbox}

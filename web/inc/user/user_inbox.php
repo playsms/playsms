@@ -13,29 +13,14 @@ switch ($op) {
 		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = dba_search(_DB_PREF_.'_tblUserInbox', '*', $conditions, $keywords, $extras);
-
-		$actions_box = "
-			<div id=actions_box>
-			<div id=actions_box_left><input type=submit name=go value=\""._('Export')."\" class=button /></div>
-			<div id=actions_box_center>".$nav['form']."</div>
-			<div id=actions_box_right><input type=submit name=go value=\""._('Delete')."\" class=button /></div>
-			</div>";
-
-		$content = "
-			<h2>"._('Inbox')."</h2>
-			".$search['form']."
-			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=user_inbox&op=actions\" method=post onSubmit=\"return SureConfirm()\">
-			".$actions_box."
-			<table width=100% class=\"sortable\">
-			<thead>
-			<tr>
-				<th align=center width=30%>"._('From')."</th>
-				<th align=center width=65%>"._('Message')."</th>
-				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></td>
-			</tr>
-			</thead>
-			<tbody>";
-
+		unset($tpl);
+		$tpl['SEARCH_FORM'] = $search['form'];
+		$tpl['NAV_FORM'] = $nav['form'];
+		$tpl['Inbox'] = _('Inbox');
+		$tpl['Export'] = _('Export');
+		$tpl['Delete'] = _('Delete');
+		$tpl['From'] = _('From');
+		$tpl['Message'] = _('Message');
 		$i = $nav['top'];
 		$j = 0;
 		for ($j=0;$j<count($list);$j++) {
@@ -56,29 +41,26 @@ switch ($op) {
 				$reply = _a('index.php?app=menu&inc=send_sms&op=sendsmstopv&do=reply&message='.urlencode($msg).'&to='.urlencode($in_sender), $core_config['icon']['reply']);
 				$forward = _a('index.php?app=menu&inc=send_sms&op=sendsmstopv&do=forward&message='.urlencode($msg), $core_config['icon']['forward']);
 			}
-			$c_message = "<div id=\"user_inbox_msg\">".$in_msg."</div><div id=\"msg_label\">".$in_datetime."&nbsp;".$in_status."</div><div id=\"msg_option\">".$reply."&nbsp".$forward."</div>";
 			$i--;
 			$tr_class = ($i % 2) ? "row_odd" : "row_even";
-			$content .= "
-				<tr class=$tr_class>
-					<td valign=top align=center>$current_sender</td>
-					<td valign=top align=left>$c_message</td>
-					<td valign=top align=center>
-						<input type=hidden name=itemid".$j." value=\"$in_id\">
-						<input type=checkbox name=checkid".$j.">
-					</td>
-				</tr>";
+			$tpl['data'][] = array(
+			    'tr_class' => $tr_class,
+			    'current_sender' => $current_sender,
+			    'in_msg' => $in_msg,
+			    'in_datetime' => $in_datetime,
+			    'in_status' => $in_status,
+			    'reply' => $reply,
+			    'forward' => $forward,
+			    'in_id' => $in_id,
+			    'j' => $j
+			);
 		}
-
-		$content .= "
-			</tbody>
-			</table>
-			".$actions_box."
-			</form>";
-
+		$error_content = '';
 		if ($err = $_SESSION['error_string']) {
-			echo "<div class=error_string>$err</div>";
+			$error_content = "<div class=error_string>$err</div>";
 		}
+		$tpl['ERROR'] = $error_content;
+		$content = tpl_apply('user_inbox', $tpl);
 		echo $content;
 		break;
 	case "actions":
