@@ -21,47 +21,38 @@ if ($err = $_SESSION['error_string']) {
 // main
 switch ($op) {
 	case 'list':
-		if ($error_content) {
-			$content .= $error_content;
-		}
-		$content .= "
-			<h2>"._('Group inbox')."</h2>
-			<p>"._button('index.php?app=menu&inc=feature_inboxgroup&op=add', _('Add group inbox'))."
-			<table width='100%' class='sortable'>
-			<thead><tr>
-				<th width='20%'>"._('Receiver number')."</th>
-				<th width='30%'>"._('Keywords')."</th>
-				<th width='15%'>"._('Members')."</th>
-				<th width='15%'>"._('Catch-all')."</th>
-				<th width='10%'>"._('Status')."</th>
-				<th width='10%'>"._('Action')."</th>
-			</tr></thead>
-			<tbody>";
+		empty($tpl);
+		$tpl['ERROR'] = $error_content;
+		$tpl['Group inbox'] = _('Group inbox');
+		$tpl['Add group inbox'] = _button('index.php?app=menu&inc=feature_inboxgroup&op=add', _('Add group inbox'));
+		$tpl['Receiver number'] = _('Receiver number');
+		$tpl['Keywords'] = _('Keywords');
+		$tpl['Members'] = _('Members');
+		$tpl['Catch-all'] = _('Catch-all');
+		$tpl['Status'] = _('Status');
+		$tpl['Action'] = _('Action');
 		$data = inboxgroup_getdataall();
 		for ($i=0;$i<count($data);$i++) {
 			$c_rid = $data[$i]['id'];
-			$c_status = $data[$i]['status'] ? "<a href='index.php?app=menu&inc=feature_inboxgroup&op=disable&rid=".$c_rid."'><span class=status_enabled /></a>" : "<a href='index.php?app=menu&inc=feature_inboxgroup&op=enable&rid=".$c_rid."'><span class=status_disabled /></a>";
 			$c_members = count(inboxgroup_getmembers($c_rid));
 			$c_members = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid=".$c_rid."'>".$c_members."</a>";
 			$c_catchall = count(inboxgroup_getcatchall($c_rid));
 			$c_catchall = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid=".$c_rid."'>".$c_catchall."</a>";
+			$c_status = $data[$i]['status'] ? "<a href='index.php?app=menu&inc=feature_inboxgroup&op=disable&rid=".$c_rid."'><span class=status_enabled /></a>" : "<a href='index.php?app=menu&inc=feature_inboxgroup&op=enable&rid=".$c_rid."'><span class=status_disabled /></a>";
 			$c_action = "<a href='index.php?app=menu&inc=feature_inboxgroup&op=edit&rid=".$c_rid."'>".$core_config['icon']['edit']."</a> ";
 			$c_action .= "<a href='index.php?app=menu&inc=feature_inboxgroup&op=del&rid=".$c_rid."'>".$core_config['icon']['delete']."</a> ";
 			$tr_class = (($i+1) % 2) ? "row_odd" : "row_even";
-			$content .= "
-				<tr class=$tr_class>
-					<td align='center'>".$data[$i]['in_receiver']."</td>
-					<td align='center'>".str_replace(',',', ',$data[$i]['keywords'])."</td>
-					<td align='center'>".$c_members."</td>
-					<td align='center'>".$c_catchall."</td>
-					<td align='center'>".$c_status."</td>
-					<td align='center'>".$c_action."</td>
-				</tr>";
+			$tpl['data'][] = array(
+			    'tr_class' => $tr_class,
+			    'in_receiver' => $data[$i]['in_receiver'],
+			    'keywords' => str_replace(',',', ',$data[$i]['keywords']),
+			    'members' => $c_members,
+			    'catchall' => $c_catchall,
+			    'status' => $c_status,
+			    'action' => $c_action
+			    );
 		}
-		$content .= "
-			</tbody>
-			</table>
-			<p>"._button('index.php?app=menu&inc=feature_inboxgroup&op=add', _('Add group inbox'));
+		$content = tpl_apply('inboxgroup_list', $tpl);
 		echo $content;
 		break;
 	case 'add':

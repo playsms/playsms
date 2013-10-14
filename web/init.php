@@ -64,6 +64,29 @@ $http_path['plug']	= $http_path['base'].'/plugin';
 $apps_path['themes']	= $apps_path['plug'].'/themes';
 $http_path['themes']	= $http_path['plug'].'/themes';
 
+// themes directories
+$apps_path['tpl']	= $apps_path['themes'].'/common/templates';
+$http_path['tpl']	= $http_path['themes'].'/common/templates';
+
+// set defines
+define('_APPS_PATH_BASE_', $apps_path['base']);
+define('_HTTP_PATH_BASE_', $http_path['base']);
+
+define('_APPS_PATH_LIBS_', $apps_path['libs']);
+define('_HTTP_PATH_LIBS_', $http_path['libs']);
+
+define('_APPS_PATH_INCS_', $apps_path['incs']);
+define('_HTTP_PATH_INCS_', $http_path['incs']);
+
+define('_APPS_PATH_PLUG_', $apps_path['plug']);
+define('_HTTP_PATH_PLUG_', $http_path['plug']);
+
+define('_APPS_PATH_THEMES_', $apps_path['themes']);
+define('_HTTP_PATH_THEMES_', $http_path['themes']);
+
+define('_APPS_PATH_TPL_', $apps_path['tpl']);
+define('_HTTP_PATH_TPL_', $http_path['tpl']);
+
 // insert to global config
 $core_config['apps_path'] = $apps_path;
 $core_config['http_path'] = $http_path;

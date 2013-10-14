@@ -78,4 +78,22 @@ function billing_getdata($smslog_id) {
 	return $ret;
 }
 
+/**
+ * Get all billing data from specific User ID
+ * @param integer $uid User ID
+ * @return array Billing information
+ */
+function billing_getdata_by_uid($uid) {
+	global $core_config;
+	$ret = array();
+	if ($uid) {
+		for ($c=0;$c<count($core_config['toolslist']);$c++) {
+			if ($ret = x_hook($core_config['toolslist'][$c],'billing_getdata_by_uid',array($uid))) {
+				break;
+			}
+		}
+	}
+	return $ret;
+}
+
 ?>

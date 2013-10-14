@@ -5,6 +5,11 @@ ALTER TABLE `playsms_tblSMSOutgoing_queue_dst` AUTO_INCREMENT = 1000000 ;
 ALTER TABLE  `playsms_tblSMSOutgoing` ADD UNIQUE (`smslog_id`) ;
 ALTER TABLE `playsms_tblSMSOutgoing_queue_dst` DROP `smslog_id` ;
 
+ALTER TABLE  `playsms_tblSMSOutgoing` CHANGE  `p_credit`  `p_credit` DECIMAL( 10,2 ) NOT NULL DEFAULT '0.0' ;
+ALTER TABLE  `playsms_tblUser` CHANGE  `credit`  `credit` DECIMAL( 10,2 ) NOT NULL DEFAULT '0.0' ;
+ALTER TABLE  `playsms_tblBilling` CHANGE  `credit`  `credit` DECIMAL( 10,2 ) NOT NULL DEFAULT '0.0' ;
+ALTER TABLE  `playsms_tblBilling` CHANGE  `charge`  `charge` DECIMAL( 10,2 ) NOT NULL DEFAULT '0.0' ;
+
 ALTER TABLE `playsms_gatewayMsgtoolbox` CHANGE `local_slid`  `local_smslog_id` INT( 11 ) NOT NULL DEFAULT '0' ;
 ALTER TABLE `playsms_gatewayMsgtoolbox` CHANGE `remote_slid`  `remote_smslog_id` VARCHAR( 40 ) NOT NULL DEFAULT '';
 ALTER TABLE `playsms_gatewayNexmo` CHANGE `local_slid`  `local_smslog_id` INT( 11 ) NOT NULL DEFAULT '0' ;

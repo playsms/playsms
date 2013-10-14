@@ -54,7 +54,7 @@ function simplebilling_hook_setsmsdeliverystatus($smslog_id,$uid,$p_status) {
 function simplebilling_hook_billing_getdata($smslog_id) {
 	$ret = array();
 	logger_print("smslog_id:".$smslog_id, 2, "simplebilling getdata");
-	$db_query = "SELECT id,rate,credit,count,charge,status FROM "._DB_PREF_."_tblBilling WHERE smslog_id='$smslog_id'";
+	$db_query = "SELECT id,post_datetime,rate,credit,count,charge,status FROM "._DB_PREF_."_tblBilling WHERE smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$id = $db_row['id'];
@@ -65,6 +65,25 @@ function simplebilling_hook_billing_getdata($smslog_id) {
 		$charge = $db_row['charge'];
 		$status = $db_row['status'];
 		$ret = array('id' => $id, 'smslog_id' => $smslog_id, 'post_datetime' => $post_datetime, 'status' => $status, 'rate' => $rate, 'credit' => $credit, 'count' => $count, 'charge' => $charge);
+	}
+	return $ret;
+}
+
+function simplebilling_hook_billing_getdata_by_uid($uid) {
+	$ret = array();
+	logger_print("uid:".$uid, 2, "simplebilling summary");
+	$db_query = "SELECT * FROM playsms_tblBilling AS A, playsms_tblUser AS B, playsms_tblSMSOutgoing AS C " .
+		"WHERE A.smslog_id=C.smslog_id AND B.uid=C.uid AND A.status='1' AND B.uid='$uid'";
+	$db_result = dba_query($db_query);
+	while ($db_row = dba_fetch_array($db_result)) {
+		$id = $db_row['id'];
+		$smslog_id = $db_row['smslog_id'];
+		$post_datetime = $db_row['post_datetime'];
+		$rate = $db_row['rate'];
+		$credit = $db_row['credit'];
+		$count = $db_row['count'];
+		$charge = $db_row['charge'];
+		$ret[] = array('id' => $id, 'smslog_id' => $smslog_id, 'post_datetime' => $post_datetime, 'rate' => $rate, 'credit' => $credit, 'count' => $count, 'charge' => $charge);
 	}
 	return $ret;
 }

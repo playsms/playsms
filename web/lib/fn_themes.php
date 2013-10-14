@@ -1,6 +1,12 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
+function themes_get() {
+	global $core_config;
+	$ret = $core_config['module']['themes'];
+	return $ret;
+}
+
 function themes_get_menu_tree($menus='') {
 	global $core_config;
 	$menu_config = $core_config['menu'];
