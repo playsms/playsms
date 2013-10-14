@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+#
 # playsms daemon
 # chkconfig: 3456 20 80
 # description: playsms daemon
