@@ -1,23 +1,32 @@
 <?php
 
+function _tpl_set_string($content, $key, $val) {
+	$content = str_replace('{'.$key.'}', $val, $content);
+	return $content;
+}
+
+function _tpl_set_array($content, $key, $val) {
+	preg_match("/<loop\ $key>(.*?)<\/loop>/s", $content, $l);
+	$loop = $l[1];
+	foreach ($val as $v) {
+		$loop_replaced = $loop;
+		foreach ($v as $x => $y) {
+			$loop_replaced = str_replace('{'.$key.'.'.$x.'}', $y, $loop_replaced);
+		}
+		$loop_content .= $loop_replaced;
+	}
+	$content = preg_replace("/<loop\ $key>(.*?)<\/loop>/s", $loop_content, $content);
+	return $content;
+}
+
 function _tpl_apply($fn, $tpl) {
 	$content = trim(file_get_contents($fn));
 	if ($content && is_array($tpl)) {
 		foreach ($tpl as $key => $val) {
 			if (is_array($val)) {
-				unset($loop_content);
-				preg_match("/<loop\ $key>(.*?)<\/loop>/s", $content, $l);
-				$loop = $l[1];
-				foreach ($val as $v) {
-					$loop_replaced = $loop;
-					foreach ($v as $x => $y) {
-						$loop_replaced = str_replace('{'.$key.'.'.$x.'}', $y, $loop_replaced);
-					}
-					$loop_content .= $loop_replaced;
-				}
-				$content = preg_replace("/<loop\ $key>(.*?)<\/loop>/s", $loop_content, $content);
+				$content = _tpl_set_array($content, $key, $val);
 			} else {
-				$content = str_replace('{'.$key.'}', $val, $content);
+				$content = _tpl_set_string($content, $key, $val);
 			}
 		}
 	}
