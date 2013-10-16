@@ -14,13 +14,17 @@ switch ($op) {
 		$extras = array('ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = dba_search(_DB_PREF_.'_tblUserInbox', '*', $conditions, $keywords, $extras);
 		unset($tpl);
-		$tpl['SEARCH_FORM'] = $search['form'];
-		$tpl['NAV_FORM'] = $nav['form'];
-		$tpl['Inbox'] = _('Inbox');
-		$tpl['Export'] = _('Export');
-		$tpl['Delete'] = _('Delete');
-		$tpl['From'] = _('From');
-		$tpl['Message'] = _('Message');
+		$tpl = array(
+			'var' => array(
+				'SEARCH_FORM' => $search['form'],
+				'NAV_FORM' => $nav['form'],
+				'Inbox' => _('Inbox'),
+				'Export' => _('Export'),
+				'Delete' => _('Delete'),
+				'From' => _('From'),
+				'Message' => _('Message')
+			)
+		);
 		$i = $nav['top'];
 		$j = 0;
 		for ($j=0;$j<count($list);$j++) {
@@ -59,8 +63,9 @@ switch ($op) {
 		if ($err = $_SESSION['error_string']) {
 			$error_content = "<div class=error_string>$err</div>";
 		}
-		$tpl['ERROR'] = $error_content;
-		$content = tpl_apply('user_inbox', $tpl);
+		$tpl['var']['ERROR'] = $error_content;
+		$tpl['name'] = 'user_inbox';
+		$content = tpl_apply($tpl);
 		echo $content;
 		break;
 	case "actions":

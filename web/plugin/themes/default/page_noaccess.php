@@ -1,14 +1,17 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
-empty($tpl);
+unset($tpl);
 $tpl = array(
-	'ERROR' => $error_content,
-	'HTTP_PATH_BASE' => $core_config['http_path']['base'],
-	'Home' => _('Home'),
+	'name' => 'page_noaccess',
+	'var' => array(
+		'ERROR' => $error_content,
+		'HTTP_PATH_BASE' => $core_config['http_path']['base'],
+		'Home' => _('Home')
+	)
 );
 
-$content = tpl_apply('page_noaccess', $tpl);
+$content = tpl_apply($tpl);
 
 echo themes_apply($content);
 

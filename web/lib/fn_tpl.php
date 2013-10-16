@@ -45,8 +45,10 @@ function _tpl_apply($fn, $tpl) {
 			}
 			unset($tpl['loop']);
 		}
-		foreach ($tpl as $key => $val) {
-			$content = _tpl_set_string($content, $key, $val);
+		if (isset($tpl['var'])) {
+			foreach ($tpl['var'] as $key => $val) {
+				$content = _tpl_set_string($content, $key, $val);
+			}
 		}
 	}
 	$content = preg_replace("/<if\..*?>(.*?)<\/if\..*?>/s", '', $content);
@@ -54,31 +56,33 @@ function _tpl_apply($fn, $tpl) {
 	return $content;
 }
 
-function tpl_apply($tpl_name, $tpl) {
-	$tpl_name = q_sanitize($tpl_name);
+function tpl_apply($tpl) {
+	if (is_array($tpl) && $tpl['name']) {
+		$tpl_name = q_sanitize($tpl['name']);
 
-	// check from active plugin
-	$inc = explode('_', _INC_);
-	$plugin_category = $inc[0];
-	$plugin_name = str_replace($plugin_category.'_', '', _INC_);
-	$fn = _APPS_PATH_PLUG_.'/'.$plugin_category.'/'.$plugin_name.'/templates/'.$tpl_name.'.tpl';
-	if (file_exists($fn)) {
-		$content = _tpl_apply($fn, $tpl);
-		return $content;
-	}
+		// check from active plugin
+		$inc = explode('_', _INC_);
+		$plugin_category = $inc[0];
+		$plugin_name = str_replace($plugin_category.'_', '', _INC_);
+		$fn = _APPS_PATH_PLUG_.'/'.$plugin_category.'/'.$plugin_name.'/templates/'.$tpl_name.'.tpl';
+		if (file_exists($fn)) {
+			$content = _tpl_apply($fn, $tpl);
+			return $content;
+		}
 
-	// check from active template
-	$themes = themes_get();
-	$fn = _APPS_PATH_THEMES_.'/'.$themes.'/templates/'.$tpl_name.'.tpl';
-	if (file_exists($fn)) {
-		$content = _tpl_apply($fn, $tpl);
-		return $content;
-	}
+		// check from active template
+		$themes = themes_get();
+		$fn = _APPS_PATH_THEMES_.'/'.$themes.'/templates/'.$tpl_name.'.tpl';
+		if (file_exists($fn)) {
+			$content = _tpl_apply($fn, $tpl);
+			return $content;
+		}
 
-	// check from common place on themes
-	$fn = _APPS_PATH_TPL_.'/'.$tpl_name .'.tpl';
-	if (file_exists($fn)) {
-		$content = _tpl_apply($fn, $tpl);
+		// check from common place on themes
+		$fn = _APPS_PATH_TPL_.'/'.$tpl_name .'.tpl';
+		if (file_exists($fn)) {
+			$content = _tpl_apply($fn, $tpl);
+		}
 	}
 
 	return $content;

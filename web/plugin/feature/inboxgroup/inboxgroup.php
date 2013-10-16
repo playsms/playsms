@@ -21,16 +21,20 @@ if ($err = $_SESSION['error_string']) {
 // main
 switch ($op) {
 	case 'list':
-		empty($tpl);
-		$tpl['ERROR'] = $error_content;
-		$tpl['Group inbox'] = _('Group inbox');
-		$tpl['Add group inbox'] = _button('index.php?app=menu&inc=feature_inboxgroup&op=add', _('Add group inbox'));
-		$tpl['Receiver number'] = _('Receiver number');
-		$tpl['Keywords'] = _('Keywords');
-		$tpl['Members'] = _('Members');
-		$tpl['Catch-all'] = _('Catch-all');
-		$tpl['Status'] = _('Status');
-		$tpl['Action'] = _('Action');
+		unset($tpl);
+		$tpl = array(
+			'var' => array(
+				'ERROR' => $error_content,
+				'Group inbox' => _('Group inbox'),
+				'Add group inbox' => _button('index.php?app=menu&inc=feature_inboxgroup&op=add', _('Add group inbox')),
+				'Receiver number' => _('Receiver number'),
+				'Keywords' => _('Keywords'),
+				'Members' => _('Members'),
+				'Catch-all' => _('Catch-all'),
+				'Status' => _('Status'),
+				'Action' => _('Action')
+			)
+		);
 		$data = inboxgroup_getdataall();
 		for ($i=0;$i<count($data);$i++) {
 			$c_rid = $data[$i]['id'];
@@ -52,7 +56,8 @@ switch ($op) {
 			    'action' => $c_action
 			    );
 		}
-		$content = tpl_apply('inboxgroup_list', $tpl);
+		$tpl['name'] = 'inboxgroup_list';
+		$content = tpl_apply($tpl);
 		echo $content;
 		break;
 	case 'add':

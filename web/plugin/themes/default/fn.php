@@ -3,20 +3,27 @@ defined('_SECURE_') or die('Forbidden');
 
 function default_hook_themes_apply($content) {
 	global $core_config, $web_title, $themes_default_charset;
-	empty($tpl);
-	$tpl['INDEX_CONTENT'] = $content;
-	$tpl['WEB_TITLE'] = $web_title;
-	$tpl['THEMES_DEFAULT_CHARSET'] = $themes_default_charset;
-	$tpl['HTTP_PATH_BASE'] = $core_config['http_path']['base'];
-	$tpl['HTTP_PATH_THEMES'] = $core_config['http_path']['themes'];
-	$tpl['THEMES_MODULE'] = themes_get();
-	$tpl['THEMES_MENU_TREE'] = themes_get_menu_tree();
-	$tpl['NAME'] = $core_config['user']['name'];
-	$tpl['USERNAME'] = $core_config['user']['username'];
-	$tpl['GRAVATAR'] = $core_config['user']['opt']['gravatar'];
-	$tpl['Logout'] = _('Logout');
-	$tpl['if']['valid'] = valid();
-	$content = tpl_apply('index', $tpl);
+	unset($tpl);
+	$tpl = array(
+		'name' => 'index',
+		'var' => array(
+			'INDEX_CONTENT' => $content,
+			'WEB_TITLE' => $web_title,
+			'THEMES_DEFAULT_CHARSET' => $themes_default_charset,
+			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
+			'HTTP_PATH_THEMES' => $core_config['http_path']['themes'],
+			'THEMES_MODULE' => themes_get(),
+			'THEMES_MENU_TREE' => themes_get_menu_tree(),
+			'NAME' => $core_config['user']['name'],
+			'USERNAME' => $core_config['user']['username'],
+			'GRAVATAR' => $core_config['user']['opt']['gravatar'],
+			'Logout' => _('Logout')
+		),
+		'if' => array(
+			'valid' => valid()
+		)
+	);
+	$content = tpl_apply($tpl);
 	return $content;
 }
 
