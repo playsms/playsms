@@ -1,0 +1,84 @@
+<html>
+<head>
+	<title>{WEB_TITLE}</title>
+	<meta name="author" content="http://antonraharja.com">
+	<meta http-equiv="Content-Type" content="text/html; charset={THEMES_DEFAULT_CHARSET}">
+</head>
+<body>
+
+<!-- load common js and css -->
+<script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/common.js"></script>
+<script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/selectbox.js"></script>
+<script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/sorttable.js"></script>
+<script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="{HTTP_PATH_THEMES}/common/jscss/common.css" />
+
+<!-- load specific themes default js and css -->
+<link rel="stylesheet" type="text/css" href="{HTTP_PATH_THEMES}/{THEMES_MODULE}/jscss/main.css" />
+<link rel="stylesheet" type="text/css" href="{HTTP_PATH_THEMES}/{THEMES_MODULE}/jscss/menu.css" media="screen" />
+
+<div class="main">
+<table class="main">
+	<tbody>
+	<tr>
+
+		<!-- left menu -->
+		<if.valid>
+		<td style="vertical-align: top; width: 274px;">
+			<table style="vertical-align: top; width: 274px; height: 100%;">
+				<tbody>
+				<tr>
+					<td style="background-color: #2C3E50; vertical-align: top; padding: 10px; height: 100px;">
+						<div style='float: left'>
+							<div style='padding: 0; width: 170px;'><a href="index.php?app=menu&inc=user_pref&op=user_pref">{NAME}</a></div>
+							<div style='padding: 0; width: 170px;'><a href="index.php?app=menu&inc=user_config&op=user_config">{USERNAME}</a></div>
+							<div style='padding: 22px 0 0 0; width: 170px;'><a href="index.php?app=page&op=auth_logout">{Logout}</a></div>
+						</div>
+						<style type='text/css'>
+							#profile_pic {
+								background-image:url('{GRAVATAR}');
+								background-color: #2980B9;
+								background-repeat: no-repeat;
+								margin-left: 174px;
+								width: 80px;
+								height: 80px;
+								cursor: pointer;
+							}
+						</style>
+						<div id=profile_pic onClick="window.location.href='{HTTP_PATH_BASE}'"/>
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color: #34495E; vertical-align: top; padding: 0px;">
+						{THEMES_MENU_TREE}
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</td>
+		</if.valid>
+		<!-- end of left menu -->
+
+		<!-- content -->
+		<td style="vertical-align: top; width: 750px;">
+			<table style="vertical-align: top; width: 100%; height: 100%;">
+				<tbody>
+				<tr>
+					<td style="background-color: #7F8C8D; vertical-align: top; padding: 10px;">
+
+						{INDEX_CONTENT}
+
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</td>
+	</tr>
+	</tbody>
+</table>
+</div>
+
+<!-- kurakura cinta kamu.......sampai mati... -->
+
+</body>
+</html>
