@@ -51,7 +51,6 @@ function _tpl_apply($fn, $tpl) {
 			$content = _tpl_set_string($content, $key, $val);
 		}
 	}
-	$content = preg_replace("/{(.*?)}/s", '', $content);
 	return $content;
 }
 
