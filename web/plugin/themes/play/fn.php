@@ -25,7 +25,8 @@ function play_hook_themes_apply($content) {
 			'Logout' => _('Logout')
 		),
 		'if' => array(
-			'theme_image' => ( !empty($theme_image) ? TRUE : FALSE )
+			'theme_image' => ( !empty($theme_image) ? TRUE : FALSE ),
+			'valid' => valid()
 		)
 	);
 	$content = tpl_apply($tpl);
@@ -60,39 +61,6 @@ function theme_play_build_menu() {
 	  $content .= '</ul>';
   }
   return $content;
-}
-
-function play_hook_themes_buildmenu($menu_config) {
-	global $core_config;
-	$content_tree = "";
-	$tree_index = 1;
-	$open = 0;
-	foreach($menu_config as $key=>$value) {
-		if($tree_index==1){$open = 1;}else{$open = 0;};
-		$content_tree .= "\t\t d.add($tree_index,0,\"$key\",'','','','','',$open);\n";
-		$tree_index++;
-	}
-	$tree_index_top = 1;
-	foreach($menu_config as $key=>$value) {
-		foreach($value as $sub_key1=>$sub_value1) {
-			$content_tree .= "\t\t d.add($tree_index,$tree_index_top,\"".$sub_value1[1]."\", '".$sub_value1[0]."', '', '');\n";
-			$tree_index++;
-		}
-		$tree_index_top++;
-	}
-	$tree_index_top++;
-	$content = "
-        <script type=\"text/javascript\">
-        <!--
-        d = new dTree('d');
-        d.add(0,-1,'"._('Home')."', '".$core_config['http_path']['base']."', '', '_top');
-        $content_tree
-        d.add($tree_index_top,0,'"._('Logout')."', 'index.php?app=page&op=auth_logout', '', '_top');
-        document.write(d);
-        //-->
-        </script>  
-    ";
-        return $content;
 }
 
 function play_hook_themes_navbar($num, $nav, $max_nav, $url, $page) {

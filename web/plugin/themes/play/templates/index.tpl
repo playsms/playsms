@@ -110,7 +110,9 @@
         <div class="container">
           <a class="brand" href="{HTTP_PATH_BASE}">{Home}</a>
           <!-- <ul class="nav"> -->
+          <if.valid>
 	    {THEMES_BUILD_MENU}
+	  </if.valid>
           <!-- </ul> -->
           <!--
           <span class="pull-right">
