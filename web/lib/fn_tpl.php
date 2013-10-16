@@ -37,20 +37,20 @@ function _tpl_apply($fn, $tpl) {
 			foreach ($tpl['if'] as $key => $val) {
 				$content = _tpl_set_bool($content, $key, $val);
 			}
-			$content = preg_replace("/<if\..*?>(.*?)<\/if\..*?>/s", '', $content);
 			unset($tpl['if']);
 		}
 		if (isset($tpl['loop'])) {
 			foreach ($tpl['loop'] as $key => $val) {
 				$content = _tpl_set_array($content, $key, $val);
 			}
-			$content = preg_replace("/<loop\..*?>(.*?)<\/loop\..*?>/s", '', $content);
 			unset($tpl['loop']);
 		}
 		foreach ($tpl as $key => $val) {
 			$content = _tpl_set_string($content, $key, $val);
 		}
 	}
+	$content = preg_replace("/<if\..*?>(.*?)<\/if\..*?>/s", '', $content);
+	$content = preg_replace("/<loop\..*?>(.*?)<\/loop\..*?>/s", '', $content);
 	return $content;
 }
 
