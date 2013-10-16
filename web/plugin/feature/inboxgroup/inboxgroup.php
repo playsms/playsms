@@ -42,7 +42,7 @@ switch ($op) {
 			$c_action = "<a href='index.php?app=menu&inc=feature_inboxgroup&op=edit&rid=".$c_rid."'>".$core_config['icon']['edit']."</a> ";
 			$c_action .= "<a href='index.php?app=menu&inc=feature_inboxgroup&op=del&rid=".$c_rid."'>".$core_config['icon']['delete']."</a> ";
 			$tr_class = (($i+1) % 2) ? "row_odd" : "row_even";
-			$tpl['data'][] = array(
+			$tpl['loop']['data'][] = array(
 			    'tr_class' => $tr_class,
 			    'in_receiver' => $data[$i]['in_receiver'],
 			    'keywords' => str_replace(',',', ',$data[$i]['keywords']),

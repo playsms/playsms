@@ -21,18 +21,36 @@ function _tpl_set_array($content, $key, $val) {
 	return $content;
 }
 
+function _tpl_set_bool($content, $key, $val) {
+	if ($key && !$val) {
+		$content = preg_replace("/<if\.".$key.">(.*?)<\/if\.".$key.">/s", '', $content);
+	}
+	$content = str_replace("<if.".$key.">", '', $content);
+	$content = str_replace("</if.".$key.">", '', $content);
+	return $content;
+}
+
 function _tpl_apply($fn, $tpl) {
 	$content = trim(file_get_contents($fn));
 	if ($content && is_array($tpl)) {
-		foreach ($tpl as $key => $val) {
-			if (is_array($val)) {
-				$content = _tpl_set_array($content, $key, $val);
-			} else {
-				$content = _tpl_set_string($content, $key, $val);
+		if (isset($tpl['if'])) {
+			foreach ($tpl['if'] as $key => $val) {
+				$content = _tpl_set_bool($content, $key, $val);
 			}
+			$content = preg_replace("/<if\..*?>(.*?)<\/if\..*?>/s", '', $content);
+			unset($tpl['if']);
+		}
+		if (isset($tpl['loop'])) {
+			foreach ($tpl['loop'] as $key => $val) {
+				$content = _tpl_set_array($content, $key, $val);
+			}
+			$content = preg_replace("/<loop\..*?>(.*?)<\/loop\..*?>/s", '', $content);
+			unset($tpl['loop']);
+		}
+		foreach ($tpl as $key => $val) {
+			$content = _tpl_set_string($content, $key, $val);
 		}
 	}
-	$content = preg_replace("/<loop\..*?>(.*?)<\/loop\..*?>/s", '', $content);
 	$content = preg_replace("/{(.*?)}/s", '', $content);
 	return $content;
 }
