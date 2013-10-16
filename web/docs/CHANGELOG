@@ -1,12 +1,14 @@
 CHANGELOG
 ---------
 
-Version 0.9.9.2 - 131017
+Version 0.9.9.2 - 131023
 - MAJOR: new install will use engine MySQL InnoDB
 - MAJOR: replace term 'slid' with 'smslog_id'
 - MAJOR: smslog_id is from tblSMSOutgoing_queue_dst and immediately returns on sendsms
+- MAJOR: implement a simple "homemade" template engine
 - add early support for templates to seperate logic and view
 - add new plugin pluginmanager to manage plugins (enumanc)
+- add new plugin report (enumanc)
 - add new gateway Infobip (enumanc)
 - add new daemon dlrssmsd and recvsmsd to increase performance
 - update to immediately cancel send SMS after fail with not enough credit
