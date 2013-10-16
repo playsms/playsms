@@ -1,5 +1,37 @@
 <?php
 
+function play_hook_themes_apply($content) {
+	global $core_config, $web_title, $themes_default_charset, $theme_play_foot1, $theme_play_head1, $theme_play_head2, $theme_image;
+	unset($tpl);
+	$tpl = array(
+		'name' => 'index',
+		'var' => array(
+			'INDEX_CONTENT' => $content,
+			'WEB_TITLE' => $web_title,
+			'THEMES_DEFAULT_CHARSET' => $themes_default_charset,
+			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
+			'HTTP_PATH_THEMES' => $core_config['http_path']['themes'],
+			'THEMES_MODULE' => themes_get(),
+			'THEMES_MENU_TREE' => themes_get_menu_tree(),
+			'THEMES_BUILD_MENU' => theme_play_build_menu(),
+			'THEMES_PLAY_FOOT1' => $theme_play_foot1,
+			'THEMES_PLAY_HEAD1' => $theme_play_head1,
+			'THEMES_PLAY_HEAD2' => $theme_play_head2,
+			'NAME' => $core_config['user']['name'],
+			'USERNAME' => $core_config['user']['username'],
+			'GRAVATAR' => $core_config['user']['opt']['gravatar'],
+			'Home' => _('Home'),
+			'Logged in' => _('Logged in'),
+			'Logout' => _('Logout')
+		),
+		'if' => array(
+			'theme_image' => ( !empty($theme_image) ? TRUE : FALSE )
+		)
+	);
+	$content = tpl_apply($tpl);
+	return $content;
+}
+
 function theme_play_build_menu() {
   global $menu_config, $username;
   $content = '<ul class="nav">';

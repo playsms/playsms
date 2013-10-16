@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title><?php echo $web_title; ?></title>
+    <meta charset="{THEMES_DEFAULT_CHARSET}">
+    <title>{WEB_TITLE}</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -12,27 +12,27 @@
     <![endif]-->
 
     <script type="text/javascript"
-	    src="<?php echo $http_path['themes']; ?>/common/jscss/common.js"></script>
+	    src="{HTTP_PATH_THEMES}/common/jscss/common.js"></script>
     <script type="text/javascript"
-	    src="<?php echo $http_path['themes']; ?>/common/jscss/sorttable.js"></script>
+	    src="{HTTP_PATH_THEMES}/common/jscss/sorttable.js"></script>
     <script type="text/javascript"
-	    src="<?php echo $http_path['themes']; ?>/common/jscss/selectbox.js"></script>
+	    src="{HTTP_PATH_THEMES}/common/jscss/selectbox.js"></script>
     <script type="text/javascript"
-    	src="<?php echo $http_path['themes']; ?>/common/jscss/jquery.js"></script>
+    	src="{HTTP_PATH_THEMES}/common/jscss/jquery.js"></script>
     
     
     <script type="text/javascript"
-	    src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/jquery-1.5.2.min.js"></script>
+	    src="{HTTP_PATH_THEMES}/{THEMES_MODULE}/jscss/jquery-1.5.2.min.js"></script>
     <script type="text/javascript"
-	    src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/bootstrap-dropdown.js"></script>
+	    src="{HTTP_PATH_THEMES}/{THEMES_MODULE}/jscss/bootstrap-dropdown.js"></script>
     <script type="text/javascript"
-	    src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/bootstrap-twipsy.js"></script>
+	    src="{HTTP_PATH_THEMES}/{THEMES_MODULE}/jscss/bootstrap-twipsy.js"></script>
     <script type="text/javascript"
-	    src="<?php echo $http_path['themes']; ?>/<?php echo $themes_module; ?>/jscss/bootstrap-scrollspy.js"></script>
+	    src="{HTTP_PATH_THEMES}/{THEMES_MODULE}/jscss/bootstrap-scrollspy.js"></script>
     <!-- Le styles -->
-    <link href="<?php echo $http_path['themes'].'/'.$themes_module; ?>/jscss/bootstrap.css" rel="stylesheet">
+    <link href="{HTTP_PATH_THEMES}/{THEMES_MODULE}/jscss/bootstrap.css" rel="stylesheet">
     <!-- play styles -->
-    <link href="<?php echo $http_path['themes'].'/'.$themes_module; ?>/jscss/play.css" rel="stylesheet">
+    <link href="{HTTP_PATH_THEMES}/{THEMES_MODULE}/jscss/play.css" rel="stylesheet">
 
     <style type="text/css">
       /* <![CDATA[ */
@@ -108,14 +108,14 @@
     <div class="topbar" data-dropdown="dropdown" >
       <div class="fill">
         <div class="container">
-          <a class="brand" href="<?php echo $http_path['base'];?>"><?php echo _('Home'); ?></a>
+          <a class="brand" href="{HTTP_PATH_BASE}">{Home}</a>
           <!-- <ul class="nav"> -->
-            <?php echo theme_play_build_menu(); ?>
+	    {THEMES_BUILD_MENU}
           <!-- </ul> -->
           <!--
           <span class="pull-right">
             <p>
-                  <?php echo "<a>"._('Logged in') .': '. $username."</a>"; ?>
+                  {Logged in}: {USERNAME}</a>
             </p>
           </span>
           -->
@@ -129,13 +129,15 @@
       <div class="content">
         <div class="page-header">
           <div style="float:left;">
-	<?php if (isset($theme_image)  &&  !empty($theme_image)) { ?>
-          <img style="vertical-align: middle;" src="plugin/themes/play/images/default_logo.png" alt="<?php echo $theme_play_head1; ?>" >
+
+	  <if.theme_image>
+          <img style="vertical-align: middle;" src="plugin/themes/play/images/default_logo.png" alt="{THEMES_PLAY_HEAD1}" >
           </div>
           <div style="float:left; height: 85px; padding-left: 20px;">
-	<?php } ?>
-          <h1 style="line-height: 85px;"><?php echo $theme_play_head1; ?></h1>
-          <h1><small><?php echo $theme_play_head2; ?></small></h1>
+	  </if.theme_image>
+
+          <h1 style="line-height: 85px;">{THEMES_PLAY_HEAD1}</h1>
+          <h1><small>{THEMES_PLAY_HEAD2}</small></h1>
           </div>
           <div style="clear:both;"></div> 
         </div>
@@ -143,3 +145,20 @@
           <div class="span14">
             <!-- playSMS content -->
             <div class="main">
+
+		{INDEX_CONTENT}
+
+            </div> <!-- main -->
+          </div> <!-- span-two-third -->
+        </div> <!-- row -->
+      </div> <!-- content -->
+      <footer>
+      <p>{THEMES_PLAY_FOOT1}</p>
+      </footer>
+    
+    </div> <!-- /container -->
+    <script type="text/javascript"
+	    src="{HTTP_PATH_THEMES}/{THEMES_MODULE}/jscss/play.js"></script>
+  </body>
+</html>
+
