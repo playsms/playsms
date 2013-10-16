@@ -1,7 +1,15 @@
-<?php defined('_SECURE_') or die('Forbidden'); ?>
-<?php include $apps_path['themes']."/".$themes_module."/header.php"; ?>
-<?php echo "<div align='center'>"; ?>
-<?php echo $error_content; ?>
-<?php echo "<p><a href='".$http_path['base']."'>"._('Home')."</a></p>"; ?>
-<?php echo "</div>"; ?>
-<?php include $apps_path['themes']."/".$themes_module."/footer.php"; ?>
+<?php
+defined('_SECURE_') or die('Forbidden');
+
+empty($tpl);
+$tpl = array(
+	'ERROR' => $error_content,
+	'HTTP_PATH_BASE' => $core_config['http_path']['base'],
+	'Home' => _('Home'),
+);
+
+$content = tpl_apply('page_noaccess', $tpl);
+
+echo themes_apply($content);
+
+?>

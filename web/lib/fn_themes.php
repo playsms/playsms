@@ -7,6 +7,14 @@ function themes_get() {
 	return $ret;
 }
 
+function themes_apply($content) {
+	$ret = '';
+	if (themes_get()) {
+		$ret = x_hook(themes_get(),'themes_apply',array($content));
+	}
+	return $ret;
+}
+
 function themes_get_menu_tree($menus='') {
 	global $core_config;
 	$menu_config = $core_config['menu'];

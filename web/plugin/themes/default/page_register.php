@@ -1,69 +1,24 @@
-<?php defined('_SECURE_') or die('Forbidden'); ?>
-<?php include $apps_path['themes']."/".$themes_module."/header.php"; ?>
+<?php
+defined('_SECURE_') or die('Forbidden');
 
-<table width='100%'>
-	<tbody>
-	<tr>
-		<td align="center">
-		<table style='border-radius: 3px; background-color: #2C3E50; width: 360px'>
-			<tbody>
-			<tr>
-				<td>
-				<form action="index.php" method=POST>
-				<input type=hidden name=app value=page>
-				<input type=hidden name=inc value=login>
-				<input type=hidden name=op value=auth_register>
-				<table width="100%">
-					<tbody>
-					<tr><td>&nbsp;</td></tr>
-					<tr>
-						<td align='center' colspan='2'>
-							<a href=<?php echo $http_path['base']?>><?php echo $web_title?></a>
-						</td>
-					</tr>
-					<tr>
-						<td align='center' colspan='2'>
-							<?php echo $error_content?>
-						</td>
-					</tr>
-					<tr>
-						<td width="100" align="right"><?php echo _('Name'); ?> &nbsp;</td>
-						<td>&nbsp;<input type=text name=name maxlength=100 size=20></td>
-					</tr>
-					<tr>
-						<td align="right"><?php echo _('Username'); ?> &nbsp;</td>
-						<td>&nbsp;<input type=text name=username maxlength=100 size=20></td>
-					</tr>
-					<tr>
-						<td align="right"><?php echo _('Mobile'); ?> &nbsp;</td>
-						<td>&nbsp;<input type=text name=mobile maxlength=100 size=20></td>
-					</tr>
-					<tr>
-						<td align="right"><?php echo _('Email'); ?> &nbsp;</td>
-						<td>&nbsp;<input type=text name=email maxlength=100 size=20></td>
-					</tr>
-					<tr>
-						<td>&nbsp;</td>
-						<td>&nbsp;<input type=submit class=button value=<?php echo _('Register an account'); ?>></td>
-					</tr>
+empty($tpl);
+$tpl = array(
+	'HTTP_PATH_BASE' => $http_path['base'],
+	'WEB_TITLE' => $web_title,
+	'ERROR' => $error_content,
+	'Name' => _('Name'),
+	'Username' => _('Username'),
+	'Mobile' => _('Mobile'),
+	'Email' => _('Email'),
+	'Register an account' => _('Register an account'),
+	'Forgot password' => _('Forgot password'),
+	'if' => array(
+		'enable_forgot' => TRUE
+	)
+);
 
-					<?php if ($core_config['main']['cfg_enable_forgot']) { ?>
-					<tr>
-						<td>&nbsp;</td>
-						<td>&nbsp;<?php echo "<a href='index.php?app=page&inc=forgot'>"._('Forgot password')."</a>"; ?></td>
-					</tr>
-					<?php } ?>
+$content = tpl_apply('page_register', $tpl);
 
-					</tbody>
-				</table>
-				</form>
-				</td>
-			</tr>
-			</tbody>
-		</table>
-		</td>
-	</tr>
-	</tbody>
-</table>
+echo themes_apply($content);
 
-<?php include $apps_path['themes']."/".$themes_module."/footer.php"; ?>
+?>

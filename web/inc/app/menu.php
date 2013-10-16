@@ -62,19 +62,6 @@ if ($continue) {
 
 $content = ob_get_clean();
 
-empty($tpl);
-$tpl['INDEX_CONTENT'] = $content;
-$tpl['WEB_TITLE'] = $web_title;
-$tpl['THEMES_DEFAULT_CHARSET'] = $themes_default_charset;
-$tpl['HTTP_PATH_BASE'] = $core_config['http_path']['base'];
-$tpl['HTTP_PATH_THEMES'] = $core_config['http_path']['themes'];
-$tpl['THEMES_MODULE'] = themes_get();
-$tpl['THEMES_MENU_TREE'] = themes_get_menu_tree();
-$tpl['NAME'] = $core_config['user']['name'];
-$tpl['USERNAME'] = $core_config['user']['username'];
-$tpl['GRAVATAR'] = $core_config['user']['opt']['gravatar'];
-$tpl['Logout'] = _('Logout');
-$tpl['if']['valid'] = valid();
-echo tpl_apply('index', $tpl);
+echo themes_apply($content);
 
 ?>
