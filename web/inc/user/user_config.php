@@ -144,12 +144,18 @@ switch ($op) {
 				$selected = "";
 			}
 		}
-
+		//SMS sender ID
 		if ($core_config['denycustomsender']) {
 			$option_sender_id = "<tr><td>" . _('SMS sender ID') . "</td><td>".sendsms_get_sender($c_username)."</td></tr>";
 		} else {
-			$option_sender_id = "<tr><td>" . _('SMS sender ID') . "</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"$sender\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td></tr>";
+			if($uname && isadmin()){
+				$option_sender_id = "<tr><td>" . _('SMS sender ID') . "</td><td><input type=text size=16 maxlength=16 name=up_sender value=\"$sender\"> (" . _('Max. 16 numeric or 11 alphanumeric characters') . ")</td></tr>";
+			}else{
+				$option_sender_id = "<tr><td>" . _('SMS sender ID') . "</td><td>".sendsms_get_sender($c_username)."</td></tr>";
+			}
 		}
+		
+		
 		if ($uname && isadmin()) {
 			$content .= "<h2>" . _('Manage user') . "</h2>";
 			$option_credit = "<tr><td>" . _('Credit') . "</td><td><input type=text size=10 maxlength=10 name=up_credit value=\"$credit\"></td></tr>";
@@ -199,8 +205,10 @@ switch ($op) {
 			'replace_zero', 'plus_sign_remove', 'plus_sign_add', 'send_as_unicode',
 			'new_token', 'enable_webservices', 'webservices_ip'
 		);
-		if (! $core_config['denycustomsender']) {
-			$fields[] = 'sender';
+		if (!$core_config['denycustomsender']) {
+			if ($uname && isadmin()) {
+				$fields[] = 'sender';
+			}
 		}
 		if ($uname && isadmin()) {
 			$fields[] = 'credit';

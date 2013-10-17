@@ -1,10 +1,12 @@
-#!/bin/bash
+#!/bin/sh
+#
 # playsms daemon
 # chkconfig: 3456 20 80
 # description: playsms daemon
 # processname: playsms
 
-. /lib/lsb/init-functions
+# Source function library.
+. /etc/rc.d/init.d/functions
 
 # We require the config file in /etc/default/playsms to be
 # available, otherwise exit
