@@ -2,16 +2,6 @@
 defined('_SECURE_') or die('Forbidden');
 if(!valid()){forcenoaccess();};
 
-if ($route = $_REQUEST['route']) {
-	$fn = $apps_path['plug'].'/tools/phonebook/'.$route.'.php';
-	$fn = core_sanitize_path($fn);
-	if (file_exists($fn)) {
-		include $fn;
-		unset($_SESSION['error_string']);
-		exit();
-	}
-}
-
 switch ($op) {
 	case "phonebook_list":
 		$search_category = array(_('Name') => 'A.name', _('Mobile') => 'mobile', _('Email') => 'email', _('Group code') => 'code');

@@ -2,16 +2,6 @@
 defined('_SECURE_') or die('Forbidden');
 if(!isadmin()){forcenoaccess();};
 
-if ($route = $_REQUEST['route']) {
-	$fn = $apps_path['plug'].'/feature/inboxgroup/'.$route.'.php';
-	$fn = core_sanitize_path($fn);
-	if (file_exists($fn)) {
-		include $fn;
-		unset($_SESSION['error_string']);
-		exit();
-	}
-}
-
 // error messages
 $error_content = '';
 if ($err = $_SESSION['error_string']) {

@@ -46,6 +46,10 @@ if ($continue) {
 					$pn = $core_config[$pc.'list'][$c];
 					$c_fn = $apps_path['plug'].'/'.$pc.'/'.$pn.'/'.$pn.'.php';
 					if (file_exists($c_fn)) {
+						$c_fn_route = $apps_path['plug'].'/'.$pc.'/'.$pn.'/'.$route.'.php';
+						if ($route && file_exists($c_fn_route)) {
+							$c_fn = $c_fn_route;
+						}
 						if (function_exists('bindtextdomain')) {
 							bindtextdomain('messages', $apps_path['plug'].'/'.$pc.'/'.$pn.'/language/');
 							bind_textdomain_codeset('messages', 'UTF-8');

@@ -8,16 +8,6 @@ if ($board_id = $_REQUEST['board_id']) {
 	}
 }
 
-if ($route = $_REQUEST['route']) {
-	$fn = $apps_path['plug'].'/feature/sms_board/'.$route.'.php';
-	$fn = core_sanitize_path($fn);
-	if (file_exists($fn)) {
-		include $fn;
-		unset($_SESSION['error_string']);
-		exit();
-	}
-}
-
 switch ($op) {
 	case "sms_board_list":
 		if ($err = $_SESSION['error_string']) {

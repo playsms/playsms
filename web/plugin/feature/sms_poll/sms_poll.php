@@ -8,16 +8,6 @@ if ($poll_id = $_REQUEST['poll_id']) {
 	}
 }
 
-if ($route = $_REQUEST['route']) {
-	$fn = $apps_path['plug'].'/feature/sms_poll/'.$route.'.php';
-	$fn = core_sanitize_path($fn);
-	if (file_exists($fn)) {
-		include $fn;
-		unset($_SESSION['error_string']);
-		exit();
-	}
-}
-
 switch ($op) {
 	case "sms_poll_list":
 		if ($err = $_SESSION['error_string']) {

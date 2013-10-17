@@ -2,11 +2,6 @@
 defined('_SECURE_') or die('Forbidden');
 if(!valid()){forcenoaccess();};
 
-if (($route = $_REQUEST['route']) && ($route == 'user')) {
-	include $core_config['apps_path']['plug'].'/tools/sendfromfile/sendfromfile_user.php';
-	exit();
-}
-
 switch ($op) {
 	case 'list':
 		$content = '<h2>'._('Send from file').'</h2><p />';
