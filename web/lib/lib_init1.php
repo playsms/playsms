@@ -3,13 +3,19 @@ defined('_SECURE_') or die('Forbidden');
 
 // this file loaded before plugins
 
+// global variables
+$app = q_sanitize($_REQUEST['app']);
 $inc = q_sanitize($_REQUEST['inc']);
 $op = q_sanitize($_REQUEST['op']);
+$route = q_sanitize($_REQUEST['route']);
 $page = q_sanitize($_REQUEST['page']);
 $nav = q_sanitize($_REQUEST['nav']);
 
+// global defines
+define('_APP_', $app);
 define('_INC_', $inc);
 define('_OP_', $op);
+define('_ROUTE_', $route);
 define('_PAGE_', $page);
 define('_NAV_', $nav);
 
