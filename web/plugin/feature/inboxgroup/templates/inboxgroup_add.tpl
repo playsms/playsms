@@ -1,0 +1,12 @@
+{ERROR}
+<h2>{Group inbox}</h2>
+<h3>{Add group inbox}</h3>
+<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&op=add_submit'>
+<table width='100%'>
+	<tr><td width='270'>{Receiver number}</td><td><input type='text' name='in_receiver' maxlength='20' size='20'>{HINT_RECEIVER_NUMBER}</td></tr>
+	<tr><td>{Keywords}</td><td><input type='text' name='keywords' maxlength='100' size=30>{HINT_KEYWORDS}</td></tr>
+	<tr><td>{Description}</td><td><input type='text' name='description' maxlength='100' size=30></td></tr>
+</table>
+<p><input class='button' type='submit' value='{Save}'></p>
+</form>
+{BACK}

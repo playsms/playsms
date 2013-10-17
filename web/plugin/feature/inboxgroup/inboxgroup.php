@@ -1,5 +1,5 @@
-<?php defined('_SECURE_') or die('Forbidden'); ?>
 <?php
+defined('_SECURE_') or die('Forbidden');
 if(!isadmin()){forcenoaccess();};
 
 if ($route = $_REQUEST['route']) {
@@ -64,19 +64,23 @@ switch ($op) {
 		if ($error_content) {
 			$content .= $error_content;
 		}
-		$content .= "<h2>"._('Group inbox')."</h2>";
-		$content .= "<h3>"._('Add group inbox')."</h3>";
-		$content .= "
-			<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&op=add_submit'>
-			<table width='100%'>
-			<tr><td width='270'>"._('Receiver number')."</td><td><input type='text' name='in_receiver' maxlength='20' size='20'>"._hint(_('For example a short code'))."</td></tr>
-			<tr><td>"._('Keywords')."</td><td><input type='text' name='keywords' maxlength='100' size=30>"._hint(_('Seperate with comma for multiple items'))."</td></tr>
-			<tr><td>"._('Description')."</td><td><input type='text' name='description' maxlength='100' size=30></td></tr>
-			</table>
-			<p><input class='button' type='submit' value='"._('Save')."'></p>
-			</form>
-			"._b('index.php?app=menu&inc=feature_inboxgroup&op=list');
-		echo $content;
+		unset($tpl);
+		$tpl = array(
+		    'name' => 'inboxgroup_add',
+		    'var' => array(
+			'ERROR' => $error_content,
+			'Group inbox' => _('Group inbox'),
+			'Add group inbox' => _('Add group inbox'),
+			'Receiver number' => _('Receiver number'),
+			'Keywords' => _('Keywords'),
+			'Description' => _('Description'),
+			'HINT_KEYWORDS' => _hint(_('Seperate with comma for multiple items')),
+			'HINT_RECEIVER_NUMBER' => _hint(_('For example a short code')),
+			'Save' => _('Save'),
+			'BACK' => _b('index.php?app=menu&inc=feature_inboxgroup&op=list')
+		    )
+		);
+		echo tpl_apply($tpl);
 		break;
 	case 'add_submit':
 		$in_receiver = $_REQUEST['in_receiver'];
@@ -106,21 +110,29 @@ switch ($op) {
 		if ($error_content) {
 			$content .= $error_content;
 		}
-		$content .= "<h2>"._('Group inbox')."</h2>";
-		$content .= "<h3>"._('Edit group inbox')."</h3>";
-		$content .= "
-			<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&op=edit_submit'>
-			<input type='hidden' name='rid' value='$rid'>
-			<table width='100%'>
-			<tr><td width='270'>"._('Receiver number')."</td><td>".$in_receiver."</td></tr>
-			<tr><td>"._('Keywords')."</td><td><input type='text' name='keywords' value='$keywords' maxlength='100' size=30>"._hint(_('Seperate with comma for multiple items'))."</td></tr>
-			<tr><td>"._('Description')."</td><td><input type='text' name='description' value='$description' maxlength='100' size=30></td></tr>
-			<tr><td>"._('Exclusive')."</td><td><select name='exclusive'>".$option_exclusive."</select>"._hint(_('Restrict sender to regular members or catch-all members only'))."</td></tr>
-			</table>
-			<p><input class='button' type='submit' value='"._('Save')."'></p>
-			</form>
-			"._b('index.php?app=menu&inc=feature_inboxgroup&op=list');
-		echo $content;
+		unset($tpl);
+		$tpl = array(
+		    'name' => 'inboxgroup_edit',
+		    'var' => array(
+			'ERROR' => $error_content,
+			'Group inbox' => _('Group inbox'),
+			'Edit group inbox' => _('Edit group inbox'),
+			'RID' => $rid,
+			'Receiver number' => _('Receiver number'),
+			'IN_RECEIVER' => $in_receiver,
+			'Keywords' => _('Keywords'),
+			'Description' => _('Description'),
+			'Exclusive' => _('Exclusive'),
+			'KEYWORDS' => $keywords,
+			'DESCRIPTION' => $description,
+			'OPTION_EXCLUSIVE' => $option_exclusive,
+			'HINT_KEYWORDS' => _hint(_('Seperate with comma for multiple items')),
+			'HINT_EXCLUSIVE' => _hint(_('Restrict sender to regular members or catch-all members only')),
+			'Save' => _('Save'),
+			'BACK' => _b('index.php?app=menu&inc=feature_inboxgroup&op=list')
+		    )
+		);
+		echo tpl_apply($tpl);
 		break;
 	case 'edit_submit':
 		$rid = $_REQUEST['rid'];
@@ -151,31 +163,36 @@ switch ($op) {
 		$c_members = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid=".$rid."'>".$c_members."</a>";
 		$c_catchall = count(inboxgroup_getcatchall($rid));
 		$c_catchall = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid=".$rid."'>".$c_catchall."</a>";
-		$c_status = $data
-		['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
+		$c_status = $data['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
 		if ($error_content) {
 			$content .= $error_content;
 		}
-		$content .= "<h2>"._('Group inbox')."</h2>";
-		$content .= "<h3>"._('Delete group inbox')."</h3>";
-		$content .= "
-			<table width='100%'>
-			<tr><td width='270'>"._('Receiver number')."</td><td>".$in_receiver."</td></tr>
-			<tr><td>"._('Keywords')."</td><td>".$keywords."</td></tr>
-			<tr><td>"._('Description')."</td><td>".$description."</td></tr>
-			<tr><td>"._('Members')."</td><td>".$c_members."</td></tr>
-			<tr><td>"._('Catch-all')."</td><td>".$c_catchall."</td></tr>
-			<tr><td>"._('Status')."</td><td>".$c_status."</td></tr>
-			</table>
-			<p>"._('Are you sure you want to delete this group inbox ?')."</p>
-			<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&op=del_submit'>
-			<input type='hidden' name='rid' value='$rid'>
-			<p><input class='button' type='submit' value='"._('Yes')."'></p>
-			</form>
-			<form method='post'action='index.php?app=menu&inc=feature_inboxgroup&op=list'>
-			<p><input class='button' type='submit' value='"._('Cancel')."'></p>
-			</form>";
-		echo $content;
+		unset($tpl);
+		$tpl = array(
+		    'name' => 'inboxgroup_del',
+		    'var' => array(
+			'ERROR' => $error_content,
+			'Group inbox' => _('Group inbox'),
+			'Delete group inbox' => _('Delete group inbox'),
+			'RID' => $rid,
+			'Receiver number' => _('Receiver number'),
+			'Keywords' => _('Keywords'),
+			'Description' => _('Description'),
+			'Members' => _('Members'),
+			'Catch-all' => _('Catch-all'),
+			'Status' => _('Status'),
+			'IN_RECEIVER' => $in_receiver,
+			'KEYWORDS' => $keywords,
+			'DESCRIPTION' => $description,
+			'C_MEMBERS' => $c_members,
+			'C_CATCHALL' => $c_catchall,
+			'C_STATUS' => $c_status,
+			'ARE_YOU_SURE' => _('Are you sure you want to delete this group inbox ?'),
+			'Yes' => _('Yes'),
+			'BACK' => _b('index.php?app=menu&inc=feature_inboxgroup&op=list')
+		    )
+		);
+		echo tpl_apply($tpl);
 		break;
 	case 'del_submit':
 		$rid = $_REQUEST['rid'];

@@ -1,0 +1,14 @@
+{ERROR}
+<h2>{Group inbox}</h2>
+<h3>{Edit group inbox}</h3>
+<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&op=edit_submit'>
+<input type='hidden' name='rid' value='{RID}'>
+<table width='100%'>
+	<tr><td width='270'>{Receiver number}</td><td>{IN_RECEIVER}</td></tr>
+	<tr><td>{Keywords}</td><td><input type='text' name='keywords' value='{KEYWORDS}' maxlength='100' size=30>{HINT_KEYWORDS}</td></tr>
+	<tr><td>{Description}</td><td><input type='text' name='description' value='{DESCRIPTION}' maxlength='100' size=30></td></tr>
+	<tr><td>{Exclusive}</td><td><select name='exclusive'>{OPTION_EXCLUSIVE}</select>{HINT_EXCLUSIVE}</td></tr>
+</table>
+<p><input class='button' type='submit' value='{Save}'></p>
+</form>
+{BACK}
