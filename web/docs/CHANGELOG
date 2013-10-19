@@ -2,11 +2,10 @@ CHANGELOG
 ---------
 
 Version 0.9.9.2 - 131023
-- MAJOR: new install will use engine MySQL InnoDB
-- MAJOR: replace term 'slid' with 'smslog_id'
-- MAJOR: smslog_id is from tblSMSOutgoing_queue_dst and immediately returns on sendsms
-- MAJOR: implement a simple "homemade" template engine
-- add early support for templates to seperate logic and view
+- MAJOR: new install will use MySQL InnoDB
+- MAJOR: replace term 'slid' with 'smslog_id' on all places
+- MAJOR: smslog_id is now from tblSMSOutgoing_queue_dst and immediately returns on sendsms
+- MAJOR: add a simple "homemade" template engine to seperate logic and view
 - add new plugin pluginmanager to manage plugins (enumanc)
 - add new plugin report (enumanc)
 - add new gateway Infobip (enumanc)
@@ -15,7 +14,9 @@ Version 0.9.9.2 - 131023
 - update default daemon files locations from /usr/local/bin/ to /usr/local/bin/_playsms/
 - update all plugin gateway to use recvsms() instead of setsmsincomingaction()
 - update all plugin gateway to use dlr() instead of setsmsdeliverystatus()
+- update all plugin themes to use new template engine
 - update themes to load jquery.js
+- remove route handler on plugins as this is now handled by core
 - fix catchall feature on inboxgroup
 - fix location to hint.png
 - fix fail to finalize queue creation

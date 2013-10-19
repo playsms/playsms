@@ -1,5 +1,5 @@
 <?php
 
-$core_config['version'] = '0.9.9.2-git';
+$core_config['version'] = '0.9.9.2-beta1';
 
 ?>
