@@ -5,9 +5,9 @@ function default_hook_themes_apply($content) {
 	global $core_config, $web_title, $themes_default_charset;
 	unset($tpl);
 	$tpl = array(
-		'name' => 'index',
+		'name' => 'themes_layout',
 		'var' => array(
-			'INDEX_CONTENT' => $content,
+			'CONTENT' => $content,
 			'WEB_TITLE' => $web_title,
 			'THEMES_DEFAULT_CHARSET' => $themes_default_charset,
 			'HTTP_PATH_BASE' => $core_config['http_path']['base'],

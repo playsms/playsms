@@ -64,7 +64,7 @@ function tpl_apply($tpl) {
 		$inc = explode('_', _INC_);
 		$plugin_category = $inc[0];
 		$plugin_name = str_replace($plugin_category.'_', '', _INC_);
-		$fn = _APPS_PATH_PLUG_.'/'.$plugin_category.'/'.$plugin_name.'/templates/'.$tpl_name.'.tpl';
+		$fn = _APPS_PATH_PLUG_.'/'.$plugin_category.'/'.$plugin_name.'/templates/'.$tpl_name.'.html';
 		if (file_exists($fn)) {
 			$content = _tpl_apply($fn, $tpl);
 			return $content;
@@ -72,14 +72,14 @@ function tpl_apply($tpl) {
 
 		// check from active template
 		$themes = themes_get();
-		$fn = _APPS_PATH_THEMES_.'/'.$themes.'/templates/'.$tpl_name.'.tpl';
+		$fn = _APPS_PATH_THEMES_.'/'.$themes.'/templates/'.$tpl_name.'.html';
 		if (file_exists($fn)) {
 			$content = _tpl_apply($fn, $tpl);
 			return $content;
 		}
 
 		// check from common place on themes
-		$fn = _APPS_PATH_TPL_.'/'.$tpl_name .'.tpl';
+		$fn = _APPS_PATH_TPL_.'/'.$tpl_name .'.html';
 		if (file_exists($fn)) {
 			$content = _tpl_apply($fn, $tpl);
 		}

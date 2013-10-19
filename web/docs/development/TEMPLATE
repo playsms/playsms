@@ -4,8 +4,10 @@ PLAYSMS TEMPLATE ENGINE
 Locations
 ---------
 
-Template files are text files with extension .tpl, must be a .tpl file.
-Example: user_inbox.tpl or page_welcome.tpl
+Template files are text files with extension .html, must be a .html file.
+Please avoid to name a template file as index.html
+
+Example: user_inbox.html or page_welcome.html
 
 Template files are located under directory "templates".
 
@@ -38,7 +40,7 @@ echo themes_apply($content);
 ?>
 
 
-File <themes name>/templates/page_noaccess.tpl:
+File <themes name>/templates/page_noaccess.html:
 
 <div align='center'>
 {ERROR}
@@ -48,13 +50,15 @@ File <themes name>/templates/page_noaccess.tpl:
 
 More examples, with demonstrations of logic IF and LOOP in templates, are
 located in:
-- inc/user/user_inbox.php
-- themes/common/templates/user_inbox.tpl
-- inc/user/page_welcome.php
-- themes/common/templates/page_welcome.tpl
 - inc/app/menu.php
+- inc/user/user_inbox.php
+- themes/common/templates/user_inbox.html
+- inc/user/page_welcome.php
+- themes/common/templates/page_welcome.html
+- inc/user/send_sms.php
+- themes/common/templates/send_sms.html
 - plugin/feature/inboxgroup/inboxgroup.php
-- plugin/feature/inboxgroup/templates/inboxgroup.tpl
+- plugin/feature/inboxgroup/templates/inboxgroup.html
 - plugin/themes/default/fn.php
 - plugin/themes/default/page*.php
 - plugin/themes/default/templates/*

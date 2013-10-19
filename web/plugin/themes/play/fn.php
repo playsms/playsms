@@ -4,9 +4,9 @@ function play_hook_themes_apply($content) {
 	global $core_config, $web_title, $themes_default_charset, $theme_play_foot1, $theme_play_head1, $theme_play_head2, $theme_image;
 	unset($tpl);
 	$tpl = array(
-		'name' => 'index',
+		'name' => 'themes_layout',
 		'var' => array(
-			'INDEX_CONTENT' => $content,
+			'CONTENT' => $content,
 			'WEB_TITLE' => $web_title,
 			'THEMES_DEFAULT_CHARSET' => $themes_default_charset,
 			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
