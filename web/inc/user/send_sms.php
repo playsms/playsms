@@ -81,70 +81,49 @@ switch ($op) {
 			$option_msg_unicode = 'checked';
 		}
 
-		$content = '';
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
-		}
-		$content .= "
-			<h2>"._('Send SMS')."</h2>
-			<p>"._('SMS sender ID')." $sms_from</p>
-			<p>"._('SMS footer')." $sms_footer</p>
-			<form name=\"fm_sendsms\" id=\"fm_sendsms\" action=\"index.php?app=menu&inc=send_sms&op=sendsmstopv_yes\" method=\"POST\">
-			<br />";
-
 		if ($bulk == 1) {
-			$content .= _button('index.php?app=menu&inc=send_sms&op=sendsmstopv&bulk=2', _('View numbers'));
+			$button_view .= _button('index.php?app=menu&inc=send_sms&op=sendsmstopv&bulk=2', _('View numbers'));
 			$c_title = _('Phonebook groups');
 		} else if ($bulk == 2){
-			$content .= _button('index.php?app=menu&inc=send_sms&op=sendsmstopv&bulk=1', _('View groups'));
+			$button_view .= _button('index.php?app=menu&inc=send_sms&op=sendsmstopv&bulk=1', _('View groups'));
 			$c_title = _('Phonebook numbers');
 		}
 
-		$content .= "
-			<table>
-				<tbody>
-				<tr>
-					<td nowrap>
-						".$c_title."<br />
-						<select name=\"p_num_dump[]\" id=msg_combo_phonebook multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\">$list_of_number</select>
-					</td>
-					<td align=center valign=middle>
-						<br />
-						<p><input type=\"button\" class=\"button\" value=\"&gt;\" onclick=\"moveSelectedOptions(this.form['p_num_dump[]'],this.form['p_num[]'])\"></p>
-						<p><input type=\"button\" class=\"button\" value=\"&lt;\" onclick=\"moveSelectedOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\"></p>
-					</td>
-					<td nowrap>
-						"._('Send to')."<br />
-						<select name=\"p_num[]\" id=msg_combo_sendto multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['p_num[]'],this.form['p_num_dump[]'])\"></select>
-					</td>
-				</tr>
-				<tr>
-					<td colspan=3>
-			<p>"._('Send to')."<br><input type=text size=30 maxlength=250 name=p_num_text value=\"".$to."\"></p>
-			<p>"._('Message')."</p>
-			".$sms_template."
-			<textarea cols=\"50\" rows=\"4\" onFocus=\"SmsSetCounter();\" onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\" onKeyUp=\"SmsSetCounter();\" name=\"message\" id=\"ta_sms_content\">".$message."</textarea>
-			<br />
-			<p><input type=\"text\" id=txtcount name=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.frmSendSms.message.focus();\" readonly>
-			<input type=\"hidden\" value=\"".$core_config['user']['opt']['sms_footer_length']."\" name=\"footerlen\"> 
-			<input type=\"hidden\" value=\"".$core_config['user']['opt']['per_sms_length']."\" name=\"maxchar\"> 
-			<input type=\"hidden\" value=\"".$core_config['user']['opt']['per_sms_length_unicode']."\" name=\"maxchar_unicode\"> 
-			<input type=\"hidden\" value=\"".$core_config['user']['opt']['max_sms_length']."\" name=\"hiddcount\"> 
-			<input type=\"hidden\" value=\"".$core_config['user']['opt']['max_sms_length_unicode']."\" name=\"hiddcount_unicode\"> 
-			<div style='vertical-align: top; float: left; margin-right: 2em;'><input type=checkbox name=msg_flash>"._('Flash message')."</div>
-			<div style='vertical-align: top;'><input type=checkbox name=msg_unicode ".$option_msg_unicode." onClick=\"SmsSetCounter();\" onkeypress=\"SmsSetCounter();\" onblur=\"SmsSetCounter();\">"._('Unicode message')."</div>
-			<br />
-			<input type=submit class=button value='"._('Send')."' onClick=\"selectAllOptions(this.form['p_num[]'])\">
-					</td>
-				</tr>
-				</tbody>
-			</table>
-			</form>";
-		$content .= "
-			<script type=\"text/javascript\" language=\"JavaScript\">
-				document.forms['fm_sendsms'].elements['message'].focus();
-			</script>";
-		echo $content;
+		$content = '';
+		if ($err = $_SESSION['error_string']) {
+			$error_content = "<div class=error_string>$err</div>";
+		}
+
+		unset($tpl);
+		$tpl = array(
+		    'name' => 'send_sms',
+		    'var' => array(
+			'Send SMS' => _('Send SMS'),
+			'SMS sender ID' => _('SMS sender ID'),
+			'SMS footer' => _('SMS footer'),
+			'Send to' => _('Send to'),
+			'Message' => _('Message'),
+			'Flash message' => _('Flash message'),
+			'Unicode message' => _('Unicode message'),
+			'Send' => _('Send'),
+			'ERROR' => $error_content,
+			'BUTTON_VIEW' => $button_view,
+			'sms_from' => $sms_from,
+			'sms_footer' => $sms_footer,
+			'c_title' => $c_title,
+			'list_of_number' => $list_of_number,
+			'to' => $to,
+			'sms_template' => $sms_template,
+			'message' => $message,
+			'sms_footer_length' => $core_config['user']['opt']['sms_footer_length'],
+			'per_sms_length' => $core_config['user']['opt']['per_sms_length'],
+			'per_sms_length_unicode' => $core_config['user']['opt']['per_sms_length_unicode'],
+			'max_sms_length' => $core_config['user']['opt']['max_sms_length'],
+			'max_sms_length_unicode' => $core_config['user']['opt']['max_sms_length_unicode'],
+			'option_msg_unicode' => $option_msg_unicode
+		    )
+		);
+		echo tpl_apply($tpl);
 		break;
 	case "sendsmstopv_yes":
 		if ($sms_to = trim($_REQUEST['p_num_text'])) {
