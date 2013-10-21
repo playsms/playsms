@@ -9,8 +9,14 @@
 <!-- load common js and css -->
 <script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/common.js"></script>
 <script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/selectbox.js"></script>
-<script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/sorttable.js"></script>
 <script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/jquery.min.js"></script>
+<script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/jquery.tablesorter.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() { 
+		$(".sortable").tablesorter();
+	});
+</script>
+
 <link rel="stylesheet" type="text/css" href="{HTTP_PATH_THEMES}/common/jscss/common.css" />
 
 <!-- load specific themes default js and css -->
