@@ -1,49 +1,79 @@
+<link rel="stylesheet" href="{HTTP_PATH_THEMES}/common/jscss/combobox/select2.css" />
+<style>
+	#fm_sendsms div, #fm_sendsms li { 
+		color: #555;
+		font-family: Helvetica, Arial;
+		font-size: 12pt;
+	}
+</style>
+<script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/combobox/select2.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#msg_combo_sendto").select2({
+			multiple: true,
+			placeholder: "{Send to}",
+			allowClear: true,
+			minimumInputLength: 2,
+			separator: ",",
+			tokenSeparators: [","],
+			ajax: {
+				url: "{HTTP_PATH_BASE}",
+				dataType: 'json',
+				quietMillis: 100,
+				data: function (term, page) {
+					return {
+						app: "webservices",
+						ta: "phonebook",
+						keyword: term
+					};
+				},
+				results: function (data, page) {
+					return { results: data };
+				}
+			}
+		});
+		$("#message").focus();
+	});
+</script>
 {ERROR}
 <h2>{Send SMS}</h2>
-<p>{SMS sender ID} {sms_from}</p>
-<p>{SMS footer} {sms_footer}</p>
 <form name="fm_sendsms" id="fm_sendsms" action="index.php?app=menu&inc=send_sms&op=sendsmstopv_yes" method="POST">
-<br />
-{BUTTON_VIEW}
+<input type="hidden" value="{sms_footer_length}" name="footerlen"> 
+<input type="hidden" value="{per_sms_length}" name="maxchar"> 
+<input type="hidden" value="{per_sms_length_unicode}" name="maxchar_unicode"> 
+<input type="hidden" value="{max_sms_length}" name="hiddcount"> 
+<input type="hidden" value="{max_sms_length_unicode}" name="hiddcount_unicode"> 
 <table>
 	<tbody>
 		<tr>
-			<td nowrap>
-				{c_title}<br />
-				<select name="p_num_dump[]" id=msg_combo_phonebook multiple="multiple" onDblClick="moveSelectedOptions(this.form['p_num_dump[]'],this.form['p_num[]'])">{list_of_number}</select>
-			</td>
-			<td align=center valign=middle>
-				<br />
-				<p><input type="button" class="button" value="&gt;" onclick="moveSelectedOptions(this.form['p_num_dump[]'],this.form['p_num[]'])"></p>
-				<p><input type="button" class="button" value="&lt;" onclick="moveSelectedOptions(this.form['p_num[]'],this.form['p_num_dump[]'])"></p>
-			</td>
-			<td nowrap>
-				{Send to}<br />
-				<select name="p_num[]" id=msg_combo_sendto multiple="multiple" onDblClick="moveSelectedOptions(this.form['p_num[]'],this.form['p_num_dump[]'])"></select>
+			<td>
+				<p>{SMS sender ID} {sms_from}</p>
+				<p>{SMS footer} {sms_footer}</p>
 			</td>
 		</tr>
 		<tr>
-			<td colspan=3>
-				<p>{Send to}<br><input type=text size=30 maxlength=250 name=p_num_text value="{to}"></p>
+			<td>
+				<input type="hidden" name="p_num_text" id="msg_combo_sendto" style="width: 400px">
+			</td>
+		</tr>
+		<tr>
+			<td>
 				<p>{Message}</p>
-				{sms_template}
-				<textarea cols="50" rows="4" onFocus="SmsSetCounter();" onClick="SmsSetCounter();" onkeypress="SmsSetCounter();" onblur="SmsSetCounter();" onKeyUp="SmsSetCounter();" name="message" id="ta_sms_content">{message}</textarea>
-				<br />
-				<p><input type="text" id=txtcount name="txtcount" value="0 char : 0 SMS" size="17" onFocus="document.frmSendSms.message.focus();" readonly>
-				<input type="hidden" value="{sms_footer_length}" name="footerlen"> 
-				<input type="hidden" value="{per_sms_length}" name="maxchar"> 
-				<input type="hidden" value="{per_sms_length_unicode}" name="maxchar_unicode"> 
-				<input type="hidden" value="{max_sms_length}" name="hiddcount"> 
-				<input type="hidden" value="{max_sms_length_unicode}" name="hiddcount_unicode"> 
-				<div style='vertical-align: top; float: left; margin-right: 2em;'><input type=checkbox name=msg_flash>{Flash message}</div>
-				<div style='vertical-align: top;'><input type=checkbox name=msg_unicode {option_msg_unicode} onClick="SmsSetCounter();" onkeypress="SmsSetCounter();" onblur="SmsSetCounter();">{Unicode message}</div>
-				<br />
-				<input type=submit class=button value='{Send}' onClick="selectAllOptions(this.form['p_num[]'])">
+				<p>{sms_template}</p>
+				<p><textarea name="message" id="message" style="width: 400px; height: 100px" onFocus="SmsSetCounter();" onClick="SmsSetCounter();" onkeypress="SmsSetCounter();" onblur="SmsSetCounter();" onKeyUp="SmsSetCounter();">{message}</textarea></p>
+				<p><input type="text" id=txtcount name="txtcount" value="0 char : 0 SMS" size="17" onFocus="document.frmSendSms.message.focus();" readonly></p>
+			</td>
+		<tr>
+			<td>
+				<p><input type=checkbox name=msg_flash>{Flash message}</p>
+				<p><input type=checkbox name=msg_unicode {option_msg_unicode} onClick="SmsSetCounter();" onkeypress="SmsSetCounter();" onblur="SmsSetCounter();">{Unicode message}</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type=submit class=button value='{Send}'>
 			</td>
 		</tr>
 	</tbody>
 </table>
 </form>
-<script type="text/javascript" language="JavaScript">
-	document.forms['fm_sendsms'].elements['message'].focus();
-</script>

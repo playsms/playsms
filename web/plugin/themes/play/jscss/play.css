@@ -3,12 +3,7 @@
 }
 
 #fm_sendsms td {
-    text-align: center;
     vertical-align: middle;
-}
-
-#fm_sendsms td[align="center"] input {
-    width: 100px;
 }
 
 #playsmslogView {
@@ -102,7 +97,6 @@ pre {
 }
 
 #txtcount, #txtcount_un, #txtcount_uk, #txtcount_am {
-	color: #EEE;
 	background-color: transparent;
 	border: 0px solid;
 	font-weight: normal;

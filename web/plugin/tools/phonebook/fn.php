@@ -157,4 +157,30 @@ function phonebook_hook_phonebook_search_group($uid, $keyword="", $count="") {
 	return $ret;
 }
 
+function phonebook_hook_webservices_output($ta,$requests) {
+	global $core_config;
+	$keyword = $requests['keyword'];
+	if (!$keyword) {
+		$keyword = $requests['tag'];
+	}
+	if ($keyword && $core_config['user']['uid']) {
+		$list = phonebook_search_group($core_config['user']['uid'], $keyword);
+		foreach ($list as $data) {
+			$item[] = array('id' => 'gpid_'.$data['gpid'], 'text' => _('Group').': '.$data['group_name'].' ('.$data['code'].')');
+		}
+		$list = phonebook_search($core_config['user']['uid'], $keyword);
+		foreach ($list as $data) {
+			$item[] = array('id' => $data['p_num'], 'text' => $data['p_desc'].' ('.$data['p_num'].')');
+		}
+		if (count($item) == 0) {
+			$item[] = array('id' => $keyword, 'text' => $keyword);
+		}
+		$content = json_encode($item);
+		ob_end_clean();
+		header('Content-Type: text/json; charset=utf-8');
+		$ret = $content;
+	}
+	return $ret;
+}
+
 ?>
