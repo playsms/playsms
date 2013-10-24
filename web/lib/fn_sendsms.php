@@ -286,7 +286,7 @@ function sendsms_process($smslog_id,$sms_sender,$sms_footer,$sms_to,$sms_msg,$ui
 			}
 		}
 	} else {
-		logger_print("fail to save in db table", 2, "sendsms_process");
+		logger_print("fail to save in db table smslog_id:".$smslog_id, 2, "sendsms_process");
 	}
 
 	logger_print("end", 2, "sendsms_process");

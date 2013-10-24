@@ -1191,7 +1191,8 @@ DROP TABLE IF EXISTS `playsms_tblSMSOutgoing`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_tblSMSOutgoing` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
-  `smslog_id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `smslog_id` int(11) DEFAULT NULL,
   `flag_deleted` int(11) NOT NULL DEFAULT '0',
   `uid` int(11) NOT NULL DEFAULT '0',
   `p_gateway` varchar(100) NOT NULL DEFAULT '',
@@ -1207,7 +1208,8 @@ CREATE TABLE `playsms_tblSMSOutgoing` (
   `p_sms_type` varchar(100) NOT NULL DEFAULT '',
   `unicode` int(11) NOT NULL DEFAULT '0',
   `queue_code` varchar(40) NOT NULL DEFAULT '',
-  PRIMARY KEY (`smslog_id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `smslog_id` (`smslog_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

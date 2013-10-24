@@ -1,5 +1,5 @@
 ALTER TABLE  `playsms_tblSMSOutgoing` CHANGE  `smslog_id`  `id` INT( 11 ) NOT NULL AUTO_INCREMENT ;
-ALTER TABLE  `playsms_tblSMSOutgoing` ADD  `smslog_id` INT( 11 ) NOT NULL AFTER  `id` ;
+ALTER TABLE  `playsms_tblSMSOutgoing` ADD  `smslog_id` INT( 11 ) DEFAULT NULL AFTER  `id` ;
 UPDATE `playsms_tblSMSOutgoing` SET `smslog_id` = `id` ;
 ALTER TABLE `playsms_tblSMSOutgoing_queue_dst` AUTO_INCREMENT = 1000000 ;
 ALTER TABLE  `playsms_tblSMSOutgoing` ADD UNIQUE (`smslog_id`) ;
