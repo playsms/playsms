@@ -18,6 +18,13 @@
 			minimumInputLength: 2,
 			separator: ",",
 			tokenSeparators: [","],
+			initSelection : function (element, callback) {
+				var data = [];
+				$(element.val().split(",")).each(function () {
+				    data.push({id: this, text: this});
+				});
+				callback(data);
+			},
 			ajax: {
 				url: "{HTTP_PATH_BASE}",
 				dataType: 'json',
@@ -55,7 +62,7 @@
 		</tr>
 		<tr>
 			<td>
-				<input type="hidden" name="p_num_text" id="msg_combo_sendto" style="width: 400px">
+				<input type="hidden" name="p_num_text" id="msg_combo_sendto" style="width: 400px" value="{to}">
 			</td>
 		</tr>
 		<tr>
