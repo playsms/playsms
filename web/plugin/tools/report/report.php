@@ -83,7 +83,7 @@ switch ($op) {
 		    'name' => 'report_admin',
 		    'var' => array(
 			'Report' => _('Report'),
-			'My report' => _('All reports'),
+			'All reports' => _('All reports'),
 			'User' => _('User'),
 			'Pending' => _('Pending'),
 			'Sent' => _('Sent'),
