@@ -45,33 +45,32 @@ switch ($op) {
 			$billing += $a['count'] * $a['rate'];
 		}
 		
-		// BALANCE
-		$balance = $core_config['user']['credit'];
+		// CREDIT
+		$credit = $core_config['user']['credit'];
 
-		$content = "
-			<h2>" . _('Report') . "</h2>
-			<h3>" . _('My report') . "</h3>
-			<table width=100%>
-				<thead><tr>
-					<th align='center' width='10%'>" . _('Pending') . "</th>
-					<th align='center' width='10%'>" . _('Sent') . "</th>
-					<th align='center' width='10%'>" . _('Delivered') . "</th>
-					<th align='center' width='10%'>" . _('Failed') . "</th>
-					<th align='center' width='10%'>" . _('Deleted') . "</th>
-					<th align='center' width='15%'>" . _('Billing') . "</th>
-					<th align='center' width='15%'>" . _('Balance') . "</th>
-				</tr></thead>
-				<tbody><tr class=row_odd>
-					<td align=center>$num_rows_pending</td>
-					<td align=center>$num_rows_sent</td>
-					<td align=center>$num_rows_delivered</td>
-					<td align=center>$num_rows_failed</td>
-					<td align=center>$num_rows_deleted</td>
-					<td align=center>$billing</td>
-					<td align=center>$balance</td>
-				</tr></tbody>
-			</table>";
-		echo $content;
+		unset($tpl);
+		$tpl = array(
+		    'name' => 'report_user',
+		    'var' => array(
+			'Report' => _('Report'),
+			'My report' => _('My report'),
+			'Pending' => _('Pending'),
+			'Sent' => _('Sent'),
+			'Delivered' => _('Delivered'),
+			'Failed' => _('Failed'),
+			'Deleted' => _('Deleted'),
+			'Billing' => _('Billing'),
+			'Credit' => _('Credit'),
+			'num_rows_pending' => $num_rows_pending,
+			'num_rows_sent' => $num_rows_sent,
+			'num_rows_delivered' => $num_rows_delivered,
+			'num_rows_failed' => $num_rows_failed,
+			'num_rows_deleted' => $num_rows_deleted,
+			'billing' => $billing,
+			'credit' => $credit
+		    )
+		);
+		echo tpl_apply($tpl);
 		break;
 
 	case "report_admin" :
@@ -79,20 +78,21 @@ switch ($op) {
 			forcenoaccess();
 		};
 
-		$content = "
-			<h2>" . _('Report') . "</h2>
-			<h2>" . _('All reports') . "</h2>
-			<table width=100% class=sortable>
-			<thead><tr>
-				<th align='center' width='20%'>" . _('User') . "</th>
-				<th align='center' width='10%'>" . _('Pending') . "</th>
-				<th align='center' width='10%'>" . _('Sent') . "</th>
-				<th align='center' width='10%'>" . _('Delivered') . "</th>
-				<th align='center' width='10%'>" . _('Failed') . "</th>
-				<th align='center' width='20%'>" . _('Billing') . "</th>
-				<th align='center' width='20%'>" . _('Balance') . "</th>
-			</tr></thead>
-			<tbody>";
+		unset($tpl);
+		$tpl = array(
+		    'name' => 'report_admin',
+		    'var' => array(
+			'Report' => _('Report'),
+			'My report' => _('All reports'),
+			'User' => _('User'),
+			'Pending' => _('Pending'),
+			'Sent' => _('Sent'),
+			'Delivered' => _('Delivered'),
+			'Failed' => _('Failed'),
+			'Billing' => _('Billing'),
+			'Credit' => _('Credit'),
+		    )
+		);
 		
 		$l = 0;
 		
@@ -103,7 +103,7 @@ switch ($op) {
 			$l++;
 			$c_username = $db_rowU['username'];
 			$c_uid = $db_rowU['uid'];
-			$c_balance = $db_rowU['credit'];
+			$c_credit = $db_rowU['credit'];
 			$c_status = $db_rowU['status'];
 
 			// SMS SENT
@@ -142,7 +142,7 @@ switch ($op) {
 			}
 			
 			$sum_billing += $c_billing;
-			$sum_balance += $c_balance;
+			$sum_credit += $c_credit;
 			
 			$c_is_admin = '';
 			if ($c_status=='2') {
@@ -151,31 +151,32 @@ switch ($op) {
 			
 			// $td_class = "box_text_odd";
 			$tr_class = ($l & 1) ? 'row_odd' : 'row_even';
-			$content .= "
-				<tr class=$tr_class>
-					<td align=center>$c_username $c_is_admin</td>
-					<td align=center>$num_rows_pending</td>
-					<td align=center>$num_rows_sent</td>
-					<td align=center>$num_rows_delivered</td>
-					<td align=center>$num_rows_failed</td>
-					<td align=center>$c_billing</td>
-					<td align=center>$c_balance</td>
-				</tr>";
+
+			$tpl['loop']['data'][] = array(
+				'tr_class' => $tr_class,
+				'c_username' => $c_username,
+				'c_is_admin' => $c_is_admin,
+				'num_rows_pending' => $num_rows_pending,
+				'num_rows_sent' => $num_rows_sent,
+				'num_rows_delivered' => $num_rows_delivered,
+				'num_rows_failed' => $num_rows_failed,
+				'c_billing' => $c_billing,
+				'c_credit' => $c_credit
+			);
 		}
 
 		$sum_total = ($sum_num_rows_pending + $sum_num_rows_delivered + $sum_num_rows_sent + $sum_num_rows_failed);
-		$content .= "
-			<thead><tr>
-				<th align=center>" . _('Total') . ": ".$sum_total."</td>
-				<th align=center>$sum_num_rows_pending</th>
-				<th align=center>$sum_num_rows_sent</th>
-				<th align=center>$sum_num_rows_delivered</th>
-				<th align=center>$sum_num_rows_failed</th>
-				<th align=center>$sum_billing</th>
-				<th align=center>$sum_balance</th>
-			</tr></thead>
-			</tbody></table>";
-		echo $content;
+
+		$tpl['var']['Total'] = _('Total');
+		$tpl['var']['sum_total'] = $sum_total;
+		$tpl['var']['sum_num_rows_pending'] = $sum_num_rows_pending;
+		$tpl['var']['sum_num_rows_sent'] = $sum_num_rows_sent;
+		$tpl['var']['sum_num_rows_delivered'] = $sum_num_rows_delivered;
+		$tpl['var']['sum_num_rows_failed'] = $sum_num_rows_failed;
+		$tpl['var']['sum_billing'] = $sum_billing;
+		$tpl['var']['sum_credit'] = $sum_credit;
+
+		echo tpl_apply($tpl);
 		break;
 }
 ?>

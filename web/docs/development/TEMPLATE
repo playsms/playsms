@@ -59,6 +59,9 @@ located in:
 - themes/common/templates/send_sms.html
 - plugin/feature/inboxgroup/inboxgroup.php
 - plugin/feature/inboxgroup/templates/inboxgroup.html
+- plugin/tools/report/report.php
+- plugin/tools/report/templates/report_admin.tpl
+- plugin/tools/report/templates/report_user.tpl
 - plugin/themes/default/fn.php
 - plugin/themes/default/page*.php
 - plugin/themes/default/templates/*
