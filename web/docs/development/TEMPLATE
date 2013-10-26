@@ -60,8 +60,10 @@ located in:
 - plugin/feature/inboxgroup/inboxgroup.php
 - plugin/feature/inboxgroup/templates/inboxgroup.html
 - plugin/tools/report/report.php
-- plugin/tools/report/templates/report_admin.tpl
-- plugin/tools/report/templates/report_user.tpl
+- plugin/tools/report/templates/report_admin.html
+- plugin/tools/report/templates/report_user.html
+- plugin/gateway/nexmo/nexmo.php
+- plugin/gateway/nexmo/templates/nexmo.html
 - plugin/themes/default/fn.php
 - plugin/themes/default/page*.php
 - plugin/themes/default/templates/*
