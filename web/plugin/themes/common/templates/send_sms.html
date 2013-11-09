@@ -13,7 +13,7 @@
 	$(document).ready(function() {
 		$("#msg_combo_sendto").select2({
 			multiple: true,
-			placeholder: "{Send to}",
+			/* placeholder: "{Send to}", */
 			allowClear: true,
 			minimumInputLength: 2,
 			separator: ",",
@@ -57,11 +57,11 @@
 		<tr>
 			<td>
 				<p>{SMS sender ID} {sms_from}</p>
-				<p>{SMS footer} {sms_footer}</p>
 			</td>
 		</tr>
 		<tr>
 			<td>
+				<p>{Send to}</p>
 				<input type="hidden" name="p_num_text" id="msg_combo_sendto" style="width: 400px" value="{to}">
 			</td>
 		</tr>
@@ -72,8 +72,10 @@
 				<p><textarea name="message" id="message" style="width: 400px; height: 100px" onFocus="SmsSetCounter();" onClick="SmsSetCounter();" onkeypress="SmsSetCounter();" onblur="SmsSetCounter();" onKeyUp="SmsSetCounter();">{message}</textarea></p>
 				<p><input type="text" id=txtcount name="txtcount" value="0 char : 0 SMS" size="17" onFocus="document.frmSendSms.message.focus();" readonly></p>
 			</td>
+		</tr>
 		<tr>
 			<td>
+				<p><input type=checkbox name=msg_footer checked>{SMS footer} {sms_footer}</p>
 				<p><input type=checkbox name=msg_flash>{Flash message}</p>
 				<p><input type=checkbox name=msg_unicode {option_msg_unicode} onClick="SmsSetCounter();" onkeypress="SmsSetCounter();" onblur="SmsSetCounter();">{Unicode message}</p>
 			</td>
