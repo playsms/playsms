@@ -1,6 +1,6 @@
 .gitignore
+*~
 /.buildpath
 /.settings
-/web/config.php
-*~
 /.project
+/web/config.php
