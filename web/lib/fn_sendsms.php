@@ -298,7 +298,7 @@ function sendsms_process($smslog_id,$sms_sender,$sms_footer,$sms_to,$sms_msg,$ui
 	return $ret;
 }
 
-function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0,$nofooter=false) {
+function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0,$nofooter=false,$sms_footer='',$sms_sender='') {
 	global $core_config;
 	$user = $core_config['user'];
 	if ($username && ($user['username'] != $username)) {
@@ -306,11 +306,12 @@ function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0,$nofoote
 	}
 
 	$uid = $user['uid'];
-	$sms_sender = sendsms_get_sender($username);
+	
+	$sms_sender = ( $sms_sender ? $sms_sender : sendsms_get_sender($username) );
+	$sms_footer = ( $sms_footer ? $sms_footer : $user['footer'] );
 	if ($nofooter) {
-		$user['footer'] = '';
+		$sms_footer = '';
 	}
-	$sms_footer = $user['footer'];
 
 	// fixme anton - fix #71 but not sure whats the correct solution for this
 	//$max_length = ( $unicode ?  $user['opt']['max_sms_length_unicode'] : $user['opt']['max_sms_length'] );
@@ -375,7 +376,7 @@ function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0,$nofoote
 	return array($ok, $to, $smslog_id, $queue);
 }
 
-function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0,$nofooter=false) {
+function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0,$nofooter=false,$sms_footer='',$sms_sender='') {
 	global $core_config;
 	$user = $core_config['user'];
 	if ($username && ($user['username'] != $username)) {
@@ -383,11 +384,12 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0,$nofoot
 	}
 
 	$uid = $user['uid'];
-	$sms_sender = sendsms_get_sender($username);
+	
+	$sms_sender = ( $sms_sender ? $sms_sender : sendsms_get_sender($username) );
+	$sms_footer = ( $sms_footer ? $sms_footer : $user['footer'] );
 	if ($nofooter) {
-		$user['footer'] = '';
+		$sms_footer = '';
 	}
-	$sms_footer = $user['footer'];
 
 	// fixme anton - fix #71 but not sure whats the correct solution for this
 	//$max_length = ( $unicode ?  $user['opt']['max_sms_length_unicode'] : $user['opt']['max_sms_length'] );

@@ -75,13 +75,14 @@ switch ($op) {
 		if ($sms_to = trim($_REQUEST['p_num_text'])) {
 			$sms_to = explode(',', $sms_to);
 		}
-		$msg_footer = $_REQUEST['msg_footer'];
+		$sms_sender = trim($_REQUEST['sms_sender']);
+		$sms_footer = trim($_REQUEST['sms_footer']);
 		$msg_flash = $_REQUEST['msg_flash'];
 		$msg_unicode = $_REQUEST['msg_unicode'];
 		$message = $_REQUEST['message'];
 		if ($sms_to[0] && $message) {
 			$nofooter = true;
-			if ($msg_footer == "on") {
+			if ($sms_footer) {
 				$nofooter = false;
 			}
 			$sms_type = "text";
@@ -109,7 +110,7 @@ switch ($op) {
 
 			// sendsms_bc
 			if (is_array($array_gpid) && $array_gpid[0]) {
-				list($ok_bc,$to_bc,$smslog_id_bc,$queue_bc) = sendsms_bc($username,$array_gpid,$message,$sms_type,$unicode,$nofooter);
+				list($ok_bc,$to_bc,$smslog_id_bc,$queue_bc) = sendsms_bc($username,$array_gpid,$message,$sms_type,$unicode,$nofooter,$sms_footer,$sms_sender);
 			}
 			for ($i=0;$i<count($ok_bc);$i++) {
 				if ($ok_bc[$i]) {
@@ -121,7 +122,7 @@ switch ($op) {
 
 			// sendsms
 			if (is_array($array_sms_to) && $array_sms_to[0]) {
-				list($ok,$to,$smslog_id,$queue) = sendsms($username,$array_sms_to,$message,$sms_type,$unicode,$nofooter);
+				list($ok,$to,$smslog_id,$queue) = sendsms($username,$array_sms_to,$message,$sms_type,$unicode,$nofooter,$sms_footer,$sms_sender);
 			}
 			for ($i=0;$i<count($ok);$i++) {
 				if ($ok[$i]) {

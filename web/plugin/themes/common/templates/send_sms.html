@@ -56,11 +56,6 @@
 	<tbody>
 		<tr>
 			<td>
-				<p>{SMS sender ID} {sms_from}</p>
-			</td>
-		</tr>
-		<tr>
-			<td>
 				<p>{Send to}</p>
 				<input type="hidden" name="p_num_text" id="msg_combo_sendto" style="width: 400px" value="{to}">
 			</td>
@@ -75,7 +70,18 @@
 		</tr>
 		<tr>
 			<td>
-				<p><input type=checkbox name=msg_footer checked>{SMS footer} {sms_footer}</p>
+				<span style="width:195px; display:inline-block" maxlength="16">{SMS sender ID}</span>
+				<input type="text" name="sms_sender" style="width:200px" value="{sms_from}">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<span style="width:195px; display:inline-block" maxlength="30">{SMS footer}</span>
+				<input type="text" name="sms_footer" style="width:200px" value="{sms_footer}">
+			</td>
+		</tr>
+		<tr>
+			<td>
 				<p><input type=checkbox name=msg_flash>{Flash message}</p>
 				<p><input type=checkbox name=msg_unicode {option_msg_unicode} onClick="SmsSetCounter();" onkeypress="SmsSetCounter();" onblur="SmsSetCounter();">{Unicode message}</p>
 			</td>
