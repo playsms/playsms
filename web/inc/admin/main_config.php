@@ -47,58 +47,43 @@ switch ($op) {
 		}
 
 		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+			$error_content = "<div class=error_string>$err</div>";
 		}
-		$content .= "
-		<h2>"._('Main configuration')."</h2>
-		<p>
-		<form action='index.php?app=menu&inc=main_config&op=main_config_save' method='post'>
-		<table width=100%>
-		<tbody>
-		<tr>
-			<td width='270'>"._('Website title')."</td><td><input type='text' size=30 name='edit_web_title' value=\"$web_title\"></td>
-		</tr>
-		<tr>
-			<td>"._('Website email')."</td><td><input type='text' size=30 name='edit_email_service' value=\"$email_service\"></td>
-		</tr>
-		<tr>
-			<td>"._('Forwarded email footer')."</td><td><input type='text' size=30 name='edit_email_footer' value=\"$email_footer\"></td>
-		</tr>
-		<tr>
-			<td>"._('Default sender ID')."</td><td><input type='text' size='20' name='edit_gateway_number' value=\"$gateway_number\"></td>
-		</tr>
-		<tr>
-			<td>"._('Default timezone')."</td><td><input type='text' size='5' maxlength='5' name='edit_gateway_timezone' value=\"$gateway_timezone\"> "._hint(_('Eg: +0700 for Jakarta/Bangkok timezone'))."</td>
-		</tr>
-		<tr>
-			<td>"._('Default SMS rate')."</td><td><input type='text' size='20' name='edit_default_rate' value=\"$default_rate\"></td>
-		</tr>
-		<tr>
-			<td>"._('Maximum SMS count')."</td><td><input type='text' size='2' maxlength='2' name='edit_sms_max_count' value=\"$sms_max_count\"></td>
-		</tr>
-		<tr>
-			<td>"._('Default credit for user')."</td><td><input type='text' size='20' name='edit_default_credit' value=\"$default_credit\"></td>
-		</tr>
-		<tr>
-			<td>"._('Enable public registration')."</td><td><select name='edit_enable_register'>$option_enable_register</select></td>
-		</tr>
-		<tr>
-			<td>"._('Enable forgot password')."</td><td><select name='edit_enable_forgot'>$option_enable_forgot</select></td>
-		</tr>
-		<tr>
-			<td>"._('Active gateway module')."</td><td><select name='edit_gateway_module'>$option_gateway_module</select></td>
-		</tr>
-		<tr>
-			<td>"._('Active themes')."</td><td><select name='edit_themes_module'>$option_themes_module</select></td>
-		</tr>
-		<tr>
-			<td>Default language</td><td><select name='edit_language_module'>$option_language_module</select></td>
-		</tr>
-		</tbody>
-		</table>
-		<p><input type='submit' class='button' value='"._('Save')."'>
-		</form>";
-		echo $content;
+		$tpl = array(
+		    'name' => 'main_config',
+		    'var' => array(
+			'ERROR' => $error_content,
+			'Main configuration' => _('Main configuration'),
+			'Website title' => _('Website title'),
+			'Website email' => _('Website email'),
+			'Forwarded email footer' => _('Forwarded email footer'),
+			'Default sender ID' => _('Default sender ID'),
+			'Default timezone' => _('Default timezone'),
+			'Default SMS rate' => _('Default SMS rate'),
+			'Maximum SMS count' => _('Maximum SMS count'),
+			'Default credit for user' => _('Default credit for user'),
+			'Enable public registration' => _('Enable public registration'),
+			'Enable forgot password' => _('Enable forgot password'),
+			'Active gateway module' => _('Active gateway module'),
+			'Active themes' => _('Active themes'),
+			'Save' => _('Save'),
+			'HINT_TIMEZONE' => _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')),
+			'web_title' => $web_title,
+			'email_service' => $email_service,
+			'email_footer' => $email_footer,
+			'gateway_number' => $gateway_number,
+			'gateway_timezone' => $gateway_timezone,
+			'default_rate' => $default_rate,
+			'sms_max_count' => $sms_max_count,
+			'default_credit' => $default_credit,
+			'option_enable_register' => $option_enable_register,
+			'option_enable_forgot' => $option_enable_forgot,
+			'option_gateway_module' => $option_gateway_module,
+			'option_themes_module' => $option_themes_module,
+			'option_language_module' => $option_language_module
+		    )
+		);
+		echo tpl_apply($tpl);
 		break;
 	case "main_config_save":
 		$edit_web_title = $_POST['edit_web_title'];
