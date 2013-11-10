@@ -136,8 +136,8 @@ if (isset($db_row)) {
 	$default_credit = $db_row['cfg_default_credit'];
 	$enable_register = $db_row['cfg_enable_register'];
 	$enable_forgot = $db_row['cfg_enable_forgot'];
-	$allow_edit_sender = $db_row['cfg_allow_edit_sender'];
-	$allow_edit_footer = $db_row['cfg_allow_edit_footer'];
+	$allow_custom_sender = $db_row['cfg_allow_custom_sender'];
+	$allow_custom_footer = $db_row['cfg_allow_custom_footer'];
 	$core_config['main'] = $db_row;
 }
 

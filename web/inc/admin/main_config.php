@@ -15,23 +15,23 @@ switch ($op) {
 		$option_enable_forgot .= "<option value=\"0\" $selected2>"._('no')."</option>";
 		$selected1 = ""; $selected2 = "";
 		// allow edit sender yes-no option
-		if ($allow_edit_sender) {
+		if ($allow_custom_sender) {
 			$selected1 = "selected";
 		} else {
 			$selected2 = "selected";
 		};
-		$option_allow_edit_sender = "<option value=\"1\" $selected1>" . _('yes') . "</option>";
-		$option_allow_edit_sender .= "<option value=\"0\" $selected2>" . _('no') . "</option>";
+		$option_allow_custom_sender = "<option value=\"1\" $selected1>" . _('yes') . "</option>";
+		$option_allow_custom_sender .= "<option value=\"0\" $selected2>" . _('no') . "</option>";
 		$selected1 = "";
 		$selected2 = "";
 		// allow edit footer yes-no option
-		if ($allow_edit_footer) {
+		if ($allow_custom_footer) {
 			$selected1 = "selected";
 		} else {
 			$selected2 = "selected";
 		};
-		$option_allow_edit_footer = "<option value=\"1\" $selected1>" . _('yes') . "</option>";
-		$option_allow_edit_footer .= "<option value=\"0\" $selected2>" . _('no') . "</option>";
+		$option_allow_custom_footer = "<option value=\"1\" $selected1>" . _('yes') . "</option>";
+		$option_allow_custom_footer .= "<option value=\"0\" $selected2>" . _('no') . "</option>";
 		$selected1 = "";
 		$selected2 = "";
 		// get gateway options
@@ -84,8 +84,8 @@ switch ($op) {
 			'Default credit for user' => _('Default credit for user'),
 			'Enable public registration' => _('Enable public registration'),
 			'Enable forgot password' => _('Enable forgot password'),
-			'Allow edit sender ID' => _('Allow edit sender ID'),
-			'Allow edit SMS footer' => _('Allow edit SMS footer'),
+			'Allow custom sender ID' => _('Allow custom sender ID'),
+			'Allow custom SMS footer' => _('Allow custom SMS footer'),
 			'Active gateway module' => _('Active gateway module'),
 			'Active themes' => _('Active themes'),
 			'Save' => _('Save'),
@@ -100,8 +100,8 @@ switch ($op) {
 			'default_credit' => $default_credit,
 			'option_enable_register' => $option_enable_register,
 			'option_enable_forgot' => $option_enable_forgot,
-			'option_allow_edit_sender' => $option_allow_edit_sender,
-			'option_allow_edit_footer' => $option_allow_edit_footer,
+			'option_allow_custom_sender' => $option_allow_custom_sender,
+			'option_allow_custom_footer' => $option_allow_custom_footer,
 			'option_gateway_module' => $option_gateway_module,
 			'option_themes_module' => $option_themes_module,
 			'option_language_module' => $option_language_module
@@ -123,8 +123,8 @@ switch ($op) {
 		$edit_default_credit = $_POST['edit_default_credit'];
 		$edit_enable_register = $_POST['edit_enable_register'];
 		$edit_enable_forgot = $_POST['edit_enable_forgot'];
-		$edit_allow_edit_sender = $_POST['edit_allow_edit_sender'];
-		$edit_allow_edit_footer = $_POST['edit_allow_edit_footer'];
+		$edit_allow_custom_sender = $_POST['edit_allow_custom_sender'];
+		$edit_allow_custom_footer = $_POST['edit_allow_custom_footer'];
 		$db_query = "
 			UPDATE "._DB_PREF_."_tblConfig_main 
 			SET c_timestamp='".mktime()."',
@@ -141,8 +141,8 @@ switch ($op) {
 				cfg_default_credit='$edit_default_credit',
 				cfg_enable_register='$edit_enable_register',
 				cfg_enable_forgot='$edit_enable_forgot',
-				cfg_allow_edit_sender='$edit_allow_edit_sender',
-				cfg_allow_edit_footer='$edit_allow_edit_footer'";
+				cfg_allow_custom_sender='$edit_allow_custom_sender',
+				cfg_allow_custom_footer='$edit_allow_custom_footer'";
 		$db_result = dba_query($db_query);
 		$_SESSION['error_string'] = _('Main configuration changes has been saved');
 		header("Location: index.php?app=menu&inc=main_config&op=main_config");

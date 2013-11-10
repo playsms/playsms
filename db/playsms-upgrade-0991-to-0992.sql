@@ -20,8 +20,8 @@ ALTER TABLE `playsms_gatewayUplink` CHANGE `up_local_slid`  `up_local_smslog_id`
 ALTER TABLE `playsms_gatewayUplink` CHANGE `up_remote_slid`  `up_remote_smslog_id` VARCHAR( 40 ) NOT NULL DEFAULT '';
 
 ALTER TABLE  `playsms_tblConfig_main`
-ADD  `cfg_allow_edit_sender` INT( 11 ) NOT NULL DEFAULT  '0',
-ADD  `cfg_allow_edit_footer` INT( 11 ) NOT NULL DEFAULT  '0';
+ADD  `cfg_allow_custom_sender` INT( 11 ) NOT NULL DEFAULT  '0',
+ADD  `cfg_allow_custom_footer` INT( 11 ) NOT NULL DEFAULT  '0';
 
 --
 -- Table structure for table `playsms_tblSMSOutgoing_queue`
