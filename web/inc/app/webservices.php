@@ -2,36 +2,39 @@
 defined('_SECURE_') or die('Forbidden');
 
 // parameters
-$h	= trim($_REQUEST['h']);
-$u	= trim($_REQUEST['u']);
-$p	= trim($_REQUEST['p']);
+$h		= trim($_REQUEST['h']);
+$u		= trim($_REQUEST['u']);
+$p		= trim($_REQUEST['p']);
 
 // type of action (ta) or operation (op), ta = op
-$ta	= trim(strtoupper($_REQUEST['ta']));
-$op	= trim(strtoupper($_REQUEST['op']));
+$ta		= trim(strtoupper($_REQUEST['ta']));
+$op		= trim(strtoupper($_REQUEST['op']));
 
 // output format
-$format = trim(strtoupper($_REQUEST['format']));
+$format		= trim(strtoupper($_REQUEST['format']));
 
 // PV, BC
-$to	= trim(strtoupper($_REQUEST['to']));
-$msg	= trim($_REQUEST['msg']);
-$type	= ( trim($_REQUEST['type']) ? trim($_REQUEST['type']) : 'text' );
-$unicode= ( trim($_REQUEST['unicode']) ? trim($_REQUEST['unicode']) : 0 );
+$from		= trim($_REQUEST['from']);
+$to		= trim(strtoupper($_REQUEST['to']));
+$msg		= trim($_REQUEST['msg']);
+$footer		= trim($_REQUEST['footer']);
+$nofooter	= ( trim($_REQUEST['nofooter']) ? TRUE : FALSE );
+$type		= ( trim($_REQUEST['type']) ? trim($_REQUEST['type']) : 'text' );
+$unicode	= ( trim($_REQUEST['unicode']) ? trim($_REQUEST['unicode']) : 0 );
 
 // DS, IN, GET_CONTACT, GET_CONTACT_GROUP
-$src	= trim($_REQUEST['src']);
-$dst	= trim($_REQUEST['dst']);
-$dt	= trim($_REQUEST['dt']);
-$c	= trim($_REQUEST['c']);
-$last	= trim($_REQUEST['last']);
+$src		= trim($_REQUEST['src']);
+$dst		= trim($_REQUEST['dst']);
+$dt		= trim($_REQUEST['dt']);
+$c		= trim($_REQUEST['c']);
+$last		= trim($_REQUEST['last']);
 
 // DS
-$queue	= trim($_REQUEST['queue']);
+$queue		= trim($_REQUEST['queue']);
 $smslog_id	= trim($_REQUEST['smslog_id']);
 
 // IN, GET_CONTACT, GET_CONTACT_GROUP
-$kwd	= trim($_REQUEST['kwd']);
+$kwd		= trim($_REQUEST['kwd']);
 
 if ($op) { $ta = $op; };
 
@@ -41,7 +44,7 @@ if ($ta) {
 	switch ($ta) {
 		case "PV":
 			if ($u = webservices_validate($h,$u)) {
-				list($ret,$json) = webservices_pv($u,$to,$msg,$type,$unicode);
+				list($ret,$json) = webservices_pv($u,$to,$msg,$type,$unicode,$nofooter,$footer,$from);
 			} else {
 				$ret = "ERR 100";
 				$json['status'] = 'ERR';
@@ -50,7 +53,7 @@ if ($ta) {
 			break;
 		case "BC":
 			if ($u = webservices_validate($h,$u)) {
-				list($ret,$json) = webservices_bc($u,$to,$msg,$type,$unicode);
+				list($ret,$json) = webservices_bc($u,$to,$msg,$type,$unicode,$nofooter,$footer,$from);
 			} else {
 				$ret = "ERR 100";
 				$json['status'] = 'ERR';

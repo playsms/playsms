@@ -25,12 +25,12 @@ function webservices_validate($h,$u) {
 	return $ret;
 }
 
-function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
+function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0,$nofooter=FALSE,$footer='',$from='') {
 	$ret = '';
 	$arr_to = explode(',', $to);
 	if ($c_username && $arr_to[1] && $msg) {
 		// multiple destination
-		list($ok,$to,$smslog_id,$queue_code) = sendsms($c_username,$arr_to,$msg,$type,$unicode);
+		list($ok,$to,$smslog_id,$queue_code) = sendsms($c_username,$arr_to,$msg,$type,$unicode,$nofooter,$footer,$from);
 		for ($i=0;$i<count($to);$i++) {
 			if (($ok[$i]==1 || $ok[$i]==true) && $to[$i] && ($queue_code[$i] || $smslog_id[$i])) {
 				$ret .= "OK ".$smslog_id[$i].",".$queue_code[$i].",".$to[$i]."\n";
@@ -58,7 +58,7 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
 		$json['multi'] = true;
 	} elseif ($c_username && $to && $msg) {
 		// single destination
-		list($ok,$to,$smslog_id,$queue_code) = sendsms($c_username,$to,$msg,$type,$unicode);
+		list($ok,$to,$smslog_id,$queue_code) = sendsms($c_username,$to,$msg,$type,$unicode,$nofooter,$footer,$from);
 		if ($ok[0]==1) {
 			$ret = "OK ".$smslog_id[0].",".$queue_code[0].",".$to[0];
 			$json['status'] = 'OK';
@@ -84,11 +84,11 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0) {
 	return array($ret, $json);
 }
 
-function webservices_bc($c_username,$c_gcode,$msg,$type='text',$unicode=0) {
+function webservices_bc($c_username,$c_gcode,$msg,$type='text',$unicode=0,$nofooter=FALSE,$footer='',$from='') {
 	if (($c_uid = username2uid($c_username)) && $c_gcode && $msg) {
 		$c_gpid = phonebook_groupcode2id($c_uid,$c_gcode);
 		// sendsms_bc($c_username,$c_gpid,$message,$sms_type='text',$unicode=0)
-		list($ok,$to,$smslog_id,$queue_code) = sendsms_bc($c_username,$c_gpid,$msg,$type,$unicode);
+		list($ok,$to,$smslog_id,$queue_code) = sendsms_bc($c_username,$c_gpid,$msg,$type,$unicode,$nofooter,$footer,$from);
 		if ($ok[0]) {
 			$ret = "OK ".$queue_code[0];
 			$json['status'] = 'OK';
