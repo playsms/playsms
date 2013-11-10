@@ -60,9 +60,9 @@ function default_hook_themes_buildmenu($menu_config) {
 	$i = 0;
 	foreach ($menu_config as $menu_title => $array_menu) {
 		$i++;
-		$content .= "<div id=\"menu-item-" . $i . "\" class=\"menu-item\">\n";
-		$content .= "<h4><a href=#>".$menu_title."</a></h4>\n";
-		$content .= "<ul>\n";
+		$content .= "<div id=\"menu-box-" . $i . "\" class=\"menu-item\">\n";
+		$content .= "<p><a href=#>" . $menu_title . "</a></p>\n";
+		$content .= "<ul id=\"menu-item-" . $i . "\">\n";
 		foreach ($array_menu as $sub_menu) {
 			$sub_menu_url = $sub_menu[0];
 			$sub_menu_title = $sub_menu[1];

@@ -9,7 +9,7 @@
 }
 
 /*Menu Header Styles*/
-.menu-item h4 {
+.menu-item p {
 	/* border-bottom: 1px solid rgba(0,0,0,0.3); */
 	/* border-top: 1px solid rgba(255,255,255,0.2); */
 	font-family: Helvetica, Arial;
@@ -19,7 +19,7 @@
 	padding: 7px 12px;
 }
 
-.menu-item h4 a {
+.menu-item p a {
 	color: #FFF;
 	background: #2980B9;
 }
@@ -29,21 +29,10 @@
 	background: #FCFCFC;
 	font-size: 10pt;
 	line-height: 22px;
-	height: 0;
 	list-style-type: none;
 	overflow: hidden;
 	padding: 0;
-
-	/*Animation*/
-	-webkit-transition: height 0.5s ease;
-	-moz-transition: height 0.5s ease;
-	-o-transition: height 0.5s ease;
-	-ms-transition: height 0.5s ease;
-	transition: height 0.5s ease;
-}
-
-.menu-item:hover ul {
-	height: 275px; /* 275px = (11 menu item + 1) * (22px per item) + 11px */
+	padding-bottom: 12px;
 }
 
 /*li Styles*/

@@ -14,6 +14,24 @@
 <script type="text/javascript">
 	$(document).ready(function() { 
 		$(".sortable").tablesorter();
+		
+		$("#menu-item-1").hide();
+		$("#menu-item-2").hide();
+		$("#menu-item-3").hide();
+		$("#menu-item-4").hide();
+		
+		$("#menu-box-1").click(function () {
+			$("#menu-item-1").slideToggle(200);
+		});
+		$("#menu-box-2").click(function () {
+			$("#menu-item-2").slideToggle(200);
+		});
+		$("#menu-box-3").click(function () {
+			$("#menu-item-3").slideToggle(200);
+		});
+		$("#menu-box-4").click(function () {
+			$("#menu-item-4").slideToggle(200);
+		});
 	});
 </script>
 
