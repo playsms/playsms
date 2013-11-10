@@ -19,10 +19,6 @@ ALTER TABLE `playsms_gatewayTwilio` CHANGE `remote_slid`  `remote_smslog_id` VAR
 ALTER TABLE `playsms_gatewayUplink` CHANGE `up_local_slid`  `up_local_smslog_id` INT( 11 ) NOT NULL DEFAULT '0' ;
 ALTER TABLE `playsms_gatewayUplink` CHANGE `up_remote_slid`  `up_remote_smslog_id` VARCHAR( 40 ) NOT NULL DEFAULT '';
 
-ALTER TABLE  `playsms_tblConfig_main`
-ADD  `cfg_allow_custom_sender` INT( 11 ) NOT NULL DEFAULT  '0',
-ADD  `cfg_allow_custom_footer` INT( 11 ) NOT NULL DEFAULT  '0';
-
 --
 -- Table structure for table `playsms_tblSMSOutgoing_queue`
 --
@@ -113,4 +109,11 @@ CREATE TABLE `playsms_gatewayInfobip_apidata` (
   `status` varchar(15) NOT NULL DEFAULT '0',
   PRIMARY KEY (`apidata_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+-- after beta2
+
+ALTER TABLE  `playsms_tblConfig_main`
+ADD  `cfg_allow_custom_sender` INT( 11 ) NOT NULL DEFAULT  '0',
+ADD  `cfg_allow_custom_footer` INT( 11 ) NOT NULL DEFAULT  '0';
 
