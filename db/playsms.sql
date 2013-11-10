@@ -1098,7 +1098,9 @@ CREATE TABLE `playsms_tblConfig_main` (
   `cfg_sms_max_count` int(11) NOT NULL DEFAULT '3',
   `cfg_default_credit` decimal(10,2) NOT NULL DEFAULT '0.0',
   `cfg_enable_register` int(11) NOT NULL DEFAULT '0',
-  `cfg_enable_forgot` int(11) NOT NULL DEFAULT '1'
+  `cfg_enable_forgot` int(11) NOT NULL DEFAULT '1',
+  `cfg_allow_edit_sender` int(11) NOT NULL DEFAULT '0',
+  `cfg_allow_edit_footer` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
