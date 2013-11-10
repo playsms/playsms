@@ -56,9 +56,11 @@ function default_hook_themes_buildmenu($menu_config) {
 	</nav> */
 
 	$content = "\n\n<!-- BEGIN LEFT NAVIGATION MENU -->\n\n";
-	$content .= "<nav>\n";
+	$content .= "<div id=\"menu\">\n";
+	$i = 0;
 	foreach ($menu_config as $menu_title => $array_menu) {
-		$content .= "<div class=\"menu-item\">\n";
+		$i++;
+		$content .= "<div id=\"menu-item-" . $i . "\" class=\"menu-item\">\n";
 		$content .= "<h4><a href=#>".$menu_title."</a></h4>\n";
 		$content .= "<ul>\n";
 		foreach ($array_menu as $sub_menu) {
@@ -69,7 +71,7 @@ function default_hook_themes_buildmenu($menu_config) {
 		$content .= "</ul>\n";
 		$content .= "</div>\n";
 	}
-	$content .= "</nav>\n";
+	$content .= "</div>\n";
 	$content .= "\n\n<!-- END LEFT NAVIGATION MENU -->\n\n";
 
 	return $content;
