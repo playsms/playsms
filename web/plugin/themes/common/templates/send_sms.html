@@ -71,13 +71,13 @@
 		<tr>
 			<td>
 				<span style="width:195px; display:inline-block" maxlength="16">{SMS sender ID}</span>
-				<input type="text" name="sms_sender" style="width:200px" value="{sms_from}">
+				<input type="text" name="sms_sender" style="width:200px" {allow_custom_sender} value="{sms_from}">
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<span style="width:195px; display:inline-block" maxlength="30">{SMS footer}</span>
-				<input type="text" name="sms_footer" style="width:200px" value="{sms_footer}">
+				<input type="text" name="sms_footer" style="width:200px" {allow_custom_footer} value="{sms_footer}">
 			</td>
 		</tr>
 		<tr>

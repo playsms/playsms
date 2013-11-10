@@ -307,7 +307,16 @@ function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0,$nofoote
 
 	$uid = $user['uid'];
 	
+	// SMS sender ID
+	if (!$core_config['main']['cfg_allow_custom_sender']) {
+		$sms_sender = '';
+	}
 	$sms_sender = ( $sms_sender ? $sms_sender : sendsms_get_sender($username) );
+
+	// SMS footer
+	if (!$core_config['main']['cfg_allow_custom_footer']) {
+		$sms_footer = '';
+	}
 	$sms_footer = ( $sms_footer ? $sms_footer : $user['footer'] );
 	if ($nofooter) {
 		$sms_footer = '';
@@ -385,7 +394,16 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0,$nofoot
 
 	$uid = $user['uid'];
 	
+	// SMS sender ID
+	if (!$core_config['main']['cfg_allow_custom_sender']) {
+		$sms_sender = '';
+	}
 	$sms_sender = ( $sms_sender ? $sms_sender : sendsms_get_sender($username) );
+
+	// SMS footer
+	if (!$core_config['main']['cfg_allow_custom_footer']) {
+		$sms_footer = '';
+	}
 	$sms_footer = ( $sms_footer ? $sms_footer : $user['footer'] );
 	if ($nofooter) {
 		$sms_footer = '';

@@ -9,14 +9,14 @@ switch ($op) {
 
 		// sender ID
 		$sms_from = sendsms_get_sender($username);
-		if (! $sms_from) {
-			$sms_from = "<i>"._('not set')."</i>";
+		if (!$allow_custom_sender) {
+			$allow_custom_sender = 'readonly';
 		}
 
 		// SMS footer
 		$sms_footer = $core_config['user']['footer'];
-		if (! $sms_footer) {
-			$sms_footer = "<i>"._('not set')."</i>";
+		if (!$allow_custom_footer) {
+			$allow_custom_footer = 'readonly';
 		}
 
 		// message template
@@ -58,6 +58,8 @@ switch ($op) {
 			'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
 			'sms_from' => $sms_from,
 			'sms_footer' => $sms_footer,
+			'allow_custom_sender' => $allow_custom_sender,
+			'allow_custom_footer' => $allow_custom_footer,
 			'to' => $to,
 			'sms_template' => $sms_template,
 			'message' => $message,
