@@ -1,0 +1,61 @@
+{ERROR}
+<h2>{FORM_TITLE}</h2>
+<form action="index.php?app=menu&inc=user_pref&op=user_pref_save{URL_NAME}" method=post enctype="multipart/form-data">
+<table width=100%>
+	<tbody>
+		<tr>
+			<td colspan=2>
+				<h3>{Login information}</h3>
+			</td>
+		</tr>
+		<tr>
+			<td width=270>{Username}</td>
+			<td>{c_username}</td>
+		</tr>
+		<tr>
+			<td>{Password}</td>
+			<td><input type=password size=30 maxlength=30 name=up_password></td>
+		</tr>
+		<tr>
+			<td>{Re-type password}</td>
+			<td><input type=password size=30 maxlength=30 name=up_password_conf></td>
+		</tr>
+		<tr>
+			<td>{Name} {ND}</td>
+			<td><input type=text size=30 maxlength=100 name=up_name value="{name}"></td>
+		</tr>
+		<tr>
+			<td>{Email} {ND}</td>
+			<td><input type=text size=30 maxlength=30 name=up_email value="{email}"></td>
+		</tr>
+		<tr>
+			<td colspan=2>&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan=2><h3>{Personal information}</h3></td>
+		</tr>
+		<tr>
+			<td>{Address}</td>
+			<td><input type=text size=30 maxlength=250 name=up_address value="{address}"></td>
+		</tr>
+		<tr>
+			<td>{City}</td>
+			<td><input type=text size=30 maxlength=100 name=up_city value="{city}"></td>
+		</tr>
+		<tr>
+			<td>{State or Province}</td>
+			<td><input type=text size=30 maxlength=100 name=up_state value="{state}"></td>
+		</tr>
+		<tr>
+			<td>{Country}</td>
+			<td><select name=up_country>{option_country}</select></td>
+		</tr>
+		<tr>
+			<td>{Zipcode}</td>
+			<td><input type=text size=10 maxlength=10 name=up_zipcode value="{zipcode}"></td>
+		</tr>
+	</tbody>
+</table>
+<input type=submit class=button value='{Save}'> {BUTTON_DELETE}
+</form>
+{BUTTON_BACK}

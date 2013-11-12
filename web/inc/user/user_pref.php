@@ -13,7 +13,7 @@ switch ($op) {
 	case "user_pref":
 		$referrer = ( $_SESSION['referrer'] ? $_SESSION['referrer'] : 'user_list_tab1' );
 		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+			$error_content = "<div class=error_string>$err</div>";
 		}
 		if ($c_user = dba_search(_DB_PREF_.'_tblUser', '*', array('username' => $c_username))) {
 			$name = $c_user[0]['name'];
@@ -43,35 +43,46 @@ switch ($op) {
 			$option_country .= "<option value=\"$country_id\" $selected>$country_name</option>\n";
 		}
 		if ($uname && isadmin()) {
-			$content .= "<h2>" . _('Manage user') . "</h2>";
-			$button_delete = "<input type=button class=button value='". _('Delete') ."' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=menu&inc=user_mgmnt&op=user_del".$url_uname."')\">";
-			$button_back = _b('index.php?app=menu&inc=user_mgmnt&op='.$referrer);
+			$form_title = "<h2>" . _('Manage user') . "</h2>";
+			$button_delete = "<input type=button class=button value='" . _('Delete') . "' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=menu&inc=user_mgmnt&op=user_del" . $url_uname . "')\">";
+			$button_back = _b('index.php?app=menu&inc=user_mgmnt&op=' . $referrer);
 		} else {
-			$content .= "<h2>" . _('Preferences') . "</h2>";
+			$form_title = "<h2>" . _('Preferences') . "</h2>";
 		}
-		$content .= "
-			<form action=\"index.php?app=menu&inc=user_pref&op=user_pref_save".$url_uname."\" method=post enctype=\"multipart/form-data\">
-			<table width=100%>
-			<tbody>
-			<tr><td colspan=2><h3>" . _('Login information') . "</h3></td></tr>
-			<tr><td width=270>" . _('Username') . "</td><td>".$c_username."</td></tr>
-			<tr><td>" . _('Password') . "</td><td><input type=password size=30 maxlength=30 name=up_password></td></tr>
-			<tr><td>" . _('Re-type password') . "</td><td><input type=password size=30 maxlength=30 name=up_password_conf></td></tr>
-			<tr><td colspan=2>&nbsp;</td></tr>
-			<tr><td colspan=2><h3>" . _('Personal information') . "</h3></td></tr>
-			<tr><td>" . _('Name') . " $nd</td><td><input type=text size=30 maxlength=100 name=up_name value=\"$name\"></td></tr>
-			<tr><td>" . _('Email') . " $nd</td><td><input type=text size=30 maxlength=30 name=up_email value=\"$email\"></td></tr>
-			<tr><td>" . _('Address') . "</td><td><input type=text size=30 maxlength=250 name=up_address value=\"$address\"></td></tr>
-			<tr><td>" . _('City') . "</td><td><input type=text size=30 maxlength=100 name=up_city value=\"$city\"></td></tr>
-			<tr><td>" . _('State or Province') . "</td><td><input type=text size=30 maxlength=100 name=up_state value=\"$state\"></td></tr>
-			<tr><td>" . _('Country') . "</td><td><select name=up_country>$option_country</select></td></tr>
-			<tr><td>" . _('Zipcode') . "</td><td><input type=text size=10 maxlength=10 name=up_zipcode value=\"$zipcode\"></td></tr>
-			</tbody>
-			</table>
-			<input type=submit class=button value='" . _('Save') . "'> ".$button_delete."
-			</form>
-			".$button_back;
-		echo $content;
+		unset($tpl);
+		$tpl = array(
+		    'name' => 'user_pref',
+		    'var' => array(
+			'Login information' => _('Login information'),
+			'Username' => _('Username'),
+			'Password' => _('Password'),
+			'Re-type password' => _('Re-type password'),
+			'Personal information' => _('Personal information'),
+			'Name' => _('Name'),
+			'Email' => _('Email'),
+			'Address' => _('Address'),
+			'City' => _('City'),
+			'State or Province' => _('State or Province'),
+			'Country' => _('Country'),
+			'Zipcode' => _('Zipcode'),
+			'Save' => _('Save'),
+			'ERROR' => $error_content,
+			'FORM_TITLE' => $form_title,
+			'BUTTON_DELETE' => $button_delete,
+			'BUTTON_BACK' => $button_back,
+			'URL_NAME' => $url_name,
+			'ND' => $nd,
+			'c_username' => $c_username,
+			'name' => $name,
+			'email' => $email,
+			'address' => $address,
+			'city' => $city,
+			'state' => $state,
+			'option_country' => $option_country,
+			'zipcode' => $zipcode
+		    )
+		);
+		echo tpl_apply($tpl);
 		break;
 	case "user_pref_save":
 		$_SESSION['error_string'] = _('No changes made');
