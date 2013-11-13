@@ -145,8 +145,6 @@ switch ($op) {
 			}
 		}
 
-		$option_sender_id = "<tr><td>" . _('SMS sender ID') . "</td><td><input type=text size=30 maxlength=16 name=up_sender value=\"$sender\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric characters')) . "</td></tr>";
-		
 		if ($uname && isadmin()) {
 			$content .= "<h2>" . _('Manage user') . "</h2>";
 			$option_credit = "<tr><td>" . _('Credit') . "</td><td><input type=text size=10 maxlength=10 name=up_credit value=\"$credit\"></td></tr>";
@@ -163,7 +161,8 @@ switch ($op) {
 			<tr><td colspan=2><h3>" . _('Application options') . "</h3></td></tr>
 			<tr><td width=270>" . _('Username') . "</td><td>".$c_username."</td></tr>
 			<tr><td>" . _('Mobile') . " $nd</td><td><input type=text size=30 maxlength=20 name=up_mobile value=\"$mobile\"> " . _hint(_('Max. 20 digits mobile phone number')) . "</td></tr>
-			".$option_sender_id."
+			<tr><td>" . _('Effective SMS sender ID') . "</td><td>" . sendsms_get_sender($c_username) . "</td></tr>
+			<tr><td>" . _('SMS sender ID') . "</td><td><input type=text size=30 maxlength=16 name=up_sender value=\"$sender\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric characters')) . "</td></tr>
 			<tr><td>" . _('SMS footer') . "</td><td><input type=text size=30 maxlength=30 name=up_footer value=\"$footer\"> " . _hint(_('Max. 30 alphanumeric characters')) . "</td></tr>
 			".$option_credit."
 			<tr><td>" . _('Webservices username') . "</td><td>".$c_username."</td></tr>
