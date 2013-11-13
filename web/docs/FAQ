@@ -66,11 +66,9 @@ B. SEND SMS
     Gateway modules which have the ability to set SMS sender ID will 
     set SMS sender ID to the SMS.
     The sender ID is set according to this order:
-	1. Default sender ID (in case it exists)
-	2. Module sender ID (in case it exists)
-	3. Per user SMS sender ID (only editable by the user when
-	   denycustomsender is set to false from config.php, but admin 
-	   can always edit it)
+	1. Default sender ID on Main configuration (in case it exists)
+	2. Module sender ID on active gateway configuration (in case it exists)
+	3. SMS sender ID on User preferences
 
 
 C. RECEIVE SMS

@@ -27,7 +27,6 @@ Array
 
     [logstate] => 3
     [logaudit] => 1
-    [denycustomsender] => 1
     [ishttps] => 
     [issendsmsd] => 
     [daemon_process] => 

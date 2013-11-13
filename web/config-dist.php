@@ -69,8 +69,4 @@ $core_config['sendsmsd_queue']	= 30;
 // webservices require username
 $core_config['webservices_username']	= true;
 
-// do we allow the users to edit the sender number (default = no),
-// only effective when there is no gateway sender ID defined
-$core_config['denycustomsender']	= true;
-
 ?>
