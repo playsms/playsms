@@ -283,11 +283,11 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 					// make sure sms_datetime is in supported format and in user's timezone
 					$sms_datetime = core_display_datetime($sms_datetime);
 					$subject = _('Forward from')." ".$sms_sender;
-					$body = _('Forward Private WebSMS')." ($web_title)\n\n";
-					$body .= _('Date time').": $sms_datetime\n";
-					$body .= _('Sender').": $sender\n";
-					$body .= _('Receiver').": $sms_receiver\n\n";
-					$body .= _('Message').":\n$message\n\n";
+					$body = _('Incoming SMS to email')." ".$web_title."\n\n";
+					$body .= _('Date time').": ".$sms_datetime."\n";
+					$body .= _('Sender').": ".$sender."\n";
+					$body .= _('Receiver').": ".$sms_receiver."\n\n";
+					$body .= _('Message').":\n".$message."\n\n";
 					$body .= $email_footer."\n\n";
 					$body = stripslashes($body);
 					logger_print("send email from:".$email_service." to:".$email." message:".$message, 3, "insertsmstoinbox");
