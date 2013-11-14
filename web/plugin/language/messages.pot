@@ -49,6 +49,12 @@ msgstr ""
 msgid "All outgoing SMS"
 msgstr ""
 
+msgid "Allow custom SMS footer"
+msgstr ""
+
+msgid "Allow custom sender ID"
+msgstr ""
+
 msgid "Always add plus sign"
 msgstr ""
 
@@ -149,6 +155,9 @@ msgid "Edit"
 msgstr ""
 
 msgid "Edit message template"
+msgstr ""
+
+msgid "Effective SMS sender ID"
 msgstr ""
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
@@ -328,6 +337,9 @@ msgstr ""
 msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr ""
 
+msgid "Max. 20 digits mobile phone number"
+msgstr ""
+
 msgid "Max. 30 alphanumeric characters"
 msgstr ""
 
@@ -463,6 +475,9 @@ msgstr ""
 msgid "Re-type password"
 msgstr ""
 
+msgid "Received"
+msgstr ""
+
 msgid "Receiver"
 msgstr ""
 
@@ -487,7 +502,13 @@ msgstr ""
 msgid "SMS footer"
 msgstr ""
 
+msgid "SMS from"
+msgstr ""
+
 msgid "SMS sender ID"
+msgstr ""
+
+msgid "SMS to email"
 msgstr ""
 
 msgid "Save"
