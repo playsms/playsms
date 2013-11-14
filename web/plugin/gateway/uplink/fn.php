@@ -20,10 +20,14 @@ function uplink_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid =
 	// return $ok;
 	global $uplink_param;
 	$sms_sender = stripslashes($sms_sender);
-	$sms_footer = stripslashes($sms_footer);
-	$sms_msg = stripslashes($sms_msg);
+	$sms_footer = ( $sms_footer ? $sms_footer : stripslashes($sms_footer) );
+	$sms_msg = stripslashes($sms_msg) . $sms_footer;
 	$ok = false;
 	if ($sms_to && $sms_msg) {
+		$nofooter = 0;
+		if ($uplink_param['try_disable_footer']) {
+			$nofooter = 1;
+		}
 		if ($unicode) {
 			// fixme anton - this isn't right, encoding should be done in master, not locally
 			/*
@@ -35,7 +39,7 @@ function uplink_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid =
 		}
 		// fixme anton - from playSMS v0.9.5.1 references to input.php replaced with index.php?app=webservices
 		// I should add autodetect, if its below v0.9.5.1 should use input.php
-		$query_string = "index.php?app=webservices&u=" . $uplink_param['username'] . "&h=" . $uplink_param['token'] . "&ta=pv&to=" . urlencode($sms_to) . "&from=" . urlencode($sms_sender) . "&type=$sms_type&msg=" . urlencode($sms_msg) . "&unicode=" . $unicode;
+		$query_string = "index.php?app=webservices&u=" . $uplink_param['username'] . "&h=" . $uplink_param['token'] . "&ta=pv&to=" . urlencode($sms_to) . "&from=" . urlencode($sms_sender) . "&type=$sms_type&msg=" . urlencode($sms_msg) . "&unicode=" . $unicode . "&nofooter=" . $nofooter;
 		$url = $uplink_param['master'] . "/" . $query_string;
 		if ($additional_param = $uplink_param['additional_param']) {
 			$additional_param = "&" . $additional_param;

@@ -111,9 +111,14 @@ CREATE TABLE `playsms_gatewayInfobip_apidata` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
--- after beta2
+-- beta2
 
 ALTER TABLE  `playsms_tblConfig_main`
 ADD  `cfg_allow_custom_sender` INT( 11 ) NOT NULL DEFAULT  '0',
 ADD  `cfg_allow_custom_footer` INT( 11 ) NOT NULL DEFAULT  '0';
+
+
+-- beta3
+
+ALTER TABLE  `playsms_gatewayUplink_config` ADD  `cfg_try_disable_footer` INT(11) NOT NULL DEFAULT '0';
 

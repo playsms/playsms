@@ -18,10 +18,18 @@ if ($gw == $uplink_param['name']) {
 
 switch ($op) {
 	case "manage":
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+		if ($uplink_param['try_disable_footer']) {
+			$selected['yes'] = 'selected';
+		} else {
+			$selected['no'] = 'selected';
 		}
-		$content .= "
+		$option_try_disable_footer = "<option value=\"1\" " . $selected['yes'] . ">" . _('yes') . "</option>";
+		$option_try_disable_footer .= "<option value=\"0\" " . $selected['no'] . ">" . _('no') . "</option>";
+		if ($err = $_SESSION['error_string']) {
+			$error_content = "<div class=error_string>$err</div>";
+		}
+		$content = "
+			" . $error_content . "
 			<h2>" . _('Manage uplink') . "</h2>
 			<form action=index.php?app=menu&inc=gateway_uplink&op=manage_save method=post>
 			<table width=100%>
@@ -45,6 +53,9 @@ switch ($op) {
 					<td>" . _('Module sender ID') . "</td><td><input type=text size=30 maxlength=16 name=up_global_sender value=\"" . $uplink_param['global_sender'] . "\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable')) . "</td>
 				</tr>
 				<tr>
+					<td>" . _('Try to disable SMS footer on master') . "</td><td><select name=up_try_disable_footer>" . $option_try_disable_footer . "</select></td>
+				</tr>
+				<tr>
 					<td>" . _('Module timezone') . "</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"" . $uplink_param['datetime_timezone'] . "\"> " . _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')) . "</td>
 				</tr>
 				</tbody>
@@ -62,9 +73,9 @@ switch ($op) {
 		}
 		$up_global_sender = $_POST['up_global_sender'];
 		$up_global_timezone = $_POST['up_global_timezone'];
-		$up_incoming_path = $_POST['up_incoming_path'];
+		$up_try_disable_footer = $_POST['up_try_disable_footer'];
 		$_SESSION['error_string'] = _('No changes has been made');
-		if ($up_master && $up_username && $up_token) {
+		if ($up_master && $up_username) {
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_gatewayUplink_config
 				SET c_timestamp='" . mktime() . "',
@@ -74,7 +85,7 @@ switch ($op) {
 				" . $update_token . "
 				cfg_global_sender='$up_global_sender',
 				cfg_datetime_timezone='$up_global_timezone',
-				cfg_incoming_path='$up_incoming_path'";
+				cfg_try_disable_footer='$up_try_disable_footer'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('Gateway module configurations has been saved');
 			}

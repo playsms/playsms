@@ -13,6 +13,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 	$uplink_param['path'] = $db_row['cfg_incoming_path'];
 	$uplink_param['additional_param'] = $db_row['cfg_additional_param'];
 	$uplink_param['datetime_timezone'] = $db_row['cfg_datetime_timezone'];
+	$uplink_param['try_disable_footer'] = $db_row['cfg_try_disable_footer'];
 }
 
 // save plugin's parameters or options in $core_config

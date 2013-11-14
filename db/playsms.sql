@@ -1033,7 +1033,8 @@ CREATE TABLE `playsms_gatewayUplink_config` (
   `cfg_global_sender` varchar(20) DEFAULT NULL,
   `cfg_incoming_path` varchar(250) DEFAULT NULL,
   `cfg_additional_param` varchar(250) DEFAULT NULL,
-  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700'
+  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700',
+  `cfg_try_disable_footer` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
