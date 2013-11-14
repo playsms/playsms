@@ -1,30 +1,41 @@
 CHANGELOG
 ---------
 
-Version 0.9.9.2 - 131023
+Version 0.9.9.2 - 131119
 - MAJOR: new install will use MySQL InnoDB
 - MAJOR: replace term 'slid' with 'smslog_id' on all places
 - MAJOR: smslog_id is now from tblSMSOutgoing_queue_dst and immediately returns
-  on sendsms
+         after sending SMS
 - MAJOR: add a simple "homemade" template engine to seperate logic and view
+- add $app and $route as global variables just like $inc, $op, $page and $nav
+- add 2 new options in main configuration: allow custom SMS sender ID and allow
+  custom SMS footer
+- add Twitter bootstrap files to themes/common/jscss/, preparations
 - add new plugin pluginmanager to manage plugins (enumanc)
 - add new plugin report (enumanc)
 - add new gateway Infobip (enumanc)
 - add new daemon dlrssmsd and recvsmsd to increase performance
 - update to immediately cancel send SMS after fail with not enough credit
-- update default daemon files locations from /usr/local/bin/ to
-  /usr/local/bin/_playsms/
 - update all plugin gateway to use recvsms() instead of setsmsincomingaction()
 - update all plugin gateway to use dlr() instead of setsmsdeliverystatus()
 - update all plugin themes to use new template engine
 - update themes to load jquery.js
+- update Send SMS page for better user experience
+- update to allow override page_welcome.php by placing a replacement in
+  plugin/themes/<active themes>/
+- update default gateway on 1st installation to "dev"
+- update default daemon files locations from /usr/local/bin/ to
+  /usr/local/bin/_playsms/
 - remove route handler on plugins as this is now handled by core
+- remove option "denycustomsender" from config.php and other places
 - fix catchall feature on inboxgroup
 - fix location to hint.png
 - fix fail to finalize queue creation
 - fix icons for reply, resend and forward link
-- fix datetime for incoming SMS to use $datetime_now value instead of supplied
-  by Kannel
+- fix datetime on SMS to use $datetime_now instead of supplied by Kannel
+- fix webservices for GET_CONTACT and GET_CONTACT_GROUP
+- fix #78 add $from, $footer and $nofooter param to webservices
+- fix #109 sms sender ID and sms footer can be changed from Send SMS page
 
 Version 0.9.9.1 - 130902
 - add new webservices type of action IX to get SMS on user's inbox
