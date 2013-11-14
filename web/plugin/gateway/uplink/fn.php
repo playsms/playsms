@@ -109,12 +109,13 @@ function uplink_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_date
 			}
 			$url = $uplink_param['master'] . "/" . $query_string;
 			$response = trim(@implode('', file($url)));
+			// logger_print("r:" . $response, 2, "uplink_hook_getsmsmstatus");
 			$r = str_getcsv($response, ';', '"', "\\");
 			if (($r[0] == 'ERR 400') || ($r[0] == 'ERR 402')) {
 				$p_status = 2;
 				dlr($local_smslog_id, $uid, $p_status);
 			} else {
-				if ($p_status = (int) $r[5]) {
+				if ($p_status = (int) $r[6]) {
 					dlr($local_smslog_id, $uid, $p_status);
 				}
 			}
