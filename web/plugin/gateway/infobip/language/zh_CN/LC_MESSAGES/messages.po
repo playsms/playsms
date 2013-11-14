@@ -5,17 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Active"
-msgstr "活跃"
-
 msgid "Additional URL parameter"
 msgstr "增加的链接参数"
-
-msgid "Create an account to send SMS"
-msgstr ""
-
-msgid "Delivery Report"
-msgstr ""
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
@@ -32,16 +23,13 @@ msgstr "网关模块的配置已保存"
 msgid "Gateway name"
 msgstr "网关名"
 
-msgid "Inactive"
-msgstr "不活跃"
-
 msgid "Infobip API URL"
 msgstr "Infobip应用程序界面链接"
 
-msgid "Infobip incoming path"
-msgstr "Infobip传入路径"
-
 msgid "Infobip is a bulk SMS provider"
+msgstr ""
+
+msgid "Infobip will push DLR and incoming SMS to above URL"
 msgstr ""
 
 msgid "Manage infobip"
@@ -63,7 +51,8 @@ msgstr "没有改变"
 msgid "No trailing slash"
 msgstr "没有结尾的斜线"
 
-msgid "Note"
+#, fuzzy
+msgid "Notes"
 msgstr "注意"
 
 msgid "Password"
@@ -75,12 +64,15 @@ msgstr "保存"
 msgid "Username"
 msgstr "用户名"
 
+#, fuzzy
+msgid "Your DLR URL is"
+msgstr "你的回调链接是"
+
 msgid "Your callback URL is"
 msgstr "你的回调链接是"
 
-#, fuzzy
-msgid "Your dlr URL is"
-msgstr "你的回调链接是"
+msgid "Your callback URL should be accessible from Infobip"
+msgstr ""
 
-msgid "click here to activate"
-msgstr "点击这里激活"
+msgid "create an account to send SMS"
+msgstr ""

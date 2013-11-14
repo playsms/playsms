@@ -57,6 +57,14 @@ msgstr "Alle empfangenen SMS"
 msgid "All outgoing SMS"
 msgstr "Alle gesendeten SMS"
 
+#, fuzzy
+msgid "Allow custom SMS footer"
+msgstr "SMS Fußzeile"
+
+#, fuzzy
+msgid "Allow custom sender ID"
+msgstr "Standard Sender-ID"
+
 msgid "Always add plus sign"
 msgstr "Immer Plus-Zeichen hinzufügen"
 
@@ -159,6 +167,10 @@ msgstr "Ändern"
 
 msgid "Edit message template"
 msgstr "Nachrichten-Vorlage ändern"
+
+#, fuzzy
+msgid "Effective SMS sender ID"
+msgstr "SMS Sender-ID"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Bsp.: +0100 für Berlin"
@@ -339,6 +351,9 @@ msgstr "Benutzerverwaltung"
 msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "Max. 16 numerische oder 11 alphanumerische Zeichen"
 
+msgid "Max. 20 digits mobile phone number"
+msgstr ""
+
 msgid "Max. 30 alphanumeric characters"
 msgstr "Max. 30 alphanumerische Zeichen"
 
@@ -477,6 +492,10 @@ msgstr "Passwort erneut eingeben"
 msgid "Re-type password"
 msgstr "Passwort erneut eingeben"
 
+#, fuzzy
+msgid "Received"
+msgstr "Empfänger"
+
 msgid "Receiver"
 msgstr "Empfänger"
 
@@ -501,8 +520,16 @@ msgstr "SMS Zeichen"
 msgid "SMS footer"
 msgstr "SMS Fußzeile"
 
+#, fuzzy
+msgid "SMS from"
+msgstr "SMS Fußzeile"
+
 msgid "SMS sender ID"
 msgstr "SMS Sender-ID"
+
+#, fuzzy
+msgid "SMS to email"
+msgstr "Leite SMS als Email weiter"
 
 msgid "Save"
 msgstr "Speichern"

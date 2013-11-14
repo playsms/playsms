@@ -41,6 +41,9 @@ msgstr ""
 msgid "Recover password"
 msgstr "Dapatkan kata sandi"
 
+msgid "Register"
+msgstr ""
+
 msgid "Register an account"
 msgstr "Daftar akun"
 

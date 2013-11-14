@@ -56,6 +56,14 @@ msgstr "全部收到的短信"
 msgid "All outgoing SMS"
 msgstr "全部发出的短信"
 
+#, fuzzy
+msgid "Allow custom SMS footer"
+msgstr "短信页脚"
+
+#, fuzzy
+msgid "Allow custom sender ID"
+msgstr "网关号"
+
 msgid "Always add plus sign"
 msgstr ""
 
@@ -158,6 +166,10 @@ msgstr "编辑"
 
 msgid "Edit message template"
 msgstr "编辑信息模版"
+
+#, fuzzy
+msgid "Effective SMS sender ID"
+msgstr "短信发件人"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
@@ -345,6 +357,9 @@ msgstr "管理用户"
 msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "最多16个数字或11个字母"
 
+msgid "Max. 20 digits mobile phone number"
+msgstr ""
+
 msgid "Max. 30 alphanumeric characters"
 msgstr "最多30个字母"
 
@@ -485,6 +500,10 @@ msgstr "再次输入密码"
 msgid "Re-type password"
 msgstr "再次输入密码"
 
+#, fuzzy
+msgid "Received"
+msgstr "收件人"
+
 msgid "Receiver"
 msgstr "收件人"
 
@@ -509,8 +528,16 @@ msgstr "短信字符"
 msgid "SMS footer"
 msgstr "短信页脚"
 
+#, fuzzy
+msgid "SMS from"
+msgstr "短信页脚"
+
 msgid "SMS sender ID"
 msgstr "短信发件人"
+
+#, fuzzy
+msgid "SMS to email"
+msgstr "转发邮件页脚"
 
 msgid "Save"
 msgstr "保存"

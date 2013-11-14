@@ -41,6 +41,9 @@ msgstr ""
 msgid "Recover password"
 msgstr ""
 
+msgid "Register"
+msgstr ""
+
 msgid "Register an account"
 msgstr ""
 

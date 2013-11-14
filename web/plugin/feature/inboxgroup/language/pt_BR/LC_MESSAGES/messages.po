@@ -23,9 +23,6 @@ msgstr "Todos os usuários"
 msgid "Are you sure you want to delete this group inbox ?"
 msgstr "Tem certeza que deseja remover este grupo de caixa de entrada?"
 
-msgid "Cancel"
-msgstr "Cancelar"
-
 msgid "Catch-all"
 msgstr "Coringa"
 

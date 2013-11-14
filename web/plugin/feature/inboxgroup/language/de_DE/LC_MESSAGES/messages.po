@@ -23,9 +23,6 @@ msgstr "Alle Benutzer"
 msgid "Are you sure you want to delete this group inbox ?"
 msgstr "Gruppen-Inbox wirklich löschen?"
 
-msgid "Cancel"
-msgstr "Abbrechen"
-
 msgid "Catch-all"
 msgstr "Catch-All"
 

@@ -36,9 +36,6 @@ msgstr "Utilisateurs"
 msgid "Are you sure you want to delete this group inbox ?"
 msgstr "Voulez-vous supprimer le numéro récepteur ?"
 
-msgid "Cancel"
-msgstr "Annuler"
-
 msgid "Catch-all"
 msgstr "Fourre-tout"
 

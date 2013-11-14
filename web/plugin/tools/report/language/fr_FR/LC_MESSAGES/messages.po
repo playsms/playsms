@@ -1,30 +1,36 @@
-msgid "My Report"
-msgstr "Mon rapport"
-
 msgid "All reports"
 msgstr "Rapports"
 
-msgid "Report"
-msgstr "Rapport"
+msgid "Billing"
+msgstr ""
 
-msgid "Account"
-msgstr "Compte"
+msgid "Credit"
+msgstr ""
+
+msgid "Deleted"
+msgstr "Supprim"
+
+msgid "Delivered"
+msgstr "Dlivrs"
+
+msgid "Failed"
+msgstr "En chec"
+
+#, fuzzy
+msgid "My report"
+msgstr "Mon rapport"
 
 msgid "Pending"
 msgstr "En attente"
 
+msgid "Report"
+msgstr "Rapport"
+
 msgid "Sent"
-msgstr "Envoyés"
-
-msgid "Delivered"
-msgstr "Délivrés"
-
-msgid "Failed"
-msgstr "En échec"
-
-msgid "Deleted"
-msgstr "Supprimé"
+msgstr "Envoys"
 
 msgid "Total"
 msgstr "Total"
 
+msgid "User"
+msgstr ""

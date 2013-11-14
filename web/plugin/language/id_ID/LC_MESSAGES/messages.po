@@ -56,6 +56,14 @@ msgstr "Semua SMS masuk"
 msgid "All outgoing SMS"
 msgstr "Semua SMS keluar"
 
+#, fuzzy
+msgid "Allow custom SMS footer"
+msgstr "Catatan kaki SMS"
+
+#, fuzzy
+msgid "Allow custom sender ID"
+msgstr "ID default pengirim"
+
 msgid "Always add plus sign"
 msgstr "Selalu menambahkan tanda plus"
 
@@ -158,6 +166,10 @@ msgstr "Sunting"
 
 msgid "Edit message template"
 msgstr "Ubah pola pesan"
+
+#, fuzzy
+msgid "Effective SMS sender ID"
+msgstr "ID pengirim SMS"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Misalnya: +0700 untuk zona waktu Jakarta/Bangkok"
@@ -338,6 +350,9 @@ msgstr "Pengaturan pengguna"
 msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "Maks. 16 karakter numerik atau 11 alfanumerik"
 
+msgid "Max. 20 digits mobile phone number"
+msgstr ""
+
 msgid "Max. 30 alphanumeric characters"
 msgstr "Maks. 30 karakter alfanumerik"
 
@@ -474,6 +489,10 @@ msgstr "Ketik ulang kata sandi"
 msgid "Re-type password"
 msgstr "Ketik ulang kata sandi"
 
+#, fuzzy
+msgid "Received"
+msgstr "Penerima"
+
 msgid "Receiver"
 msgstr "Penerima"
 
@@ -498,8 +517,16 @@ msgstr "Karakter SMS"
 msgid "SMS footer"
 msgstr "Catatan kaki SMS"
 
+#, fuzzy
+msgid "SMS from"
+msgstr "Catatan kaki SMS"
+
 msgid "SMS sender ID"
 msgstr "ID pengirim SMS"
+
+#, fuzzy
+msgid "SMS to email"
+msgstr "Teruskan SMS ke email"
 
 msgid "Save"
 msgstr "Simpan"

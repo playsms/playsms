@@ -5,17 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Active"
-msgstr "Aktif"
-
 msgid "Additional URL parameter"
 msgstr "Parameter URL tambahan"
-
-msgid "Create an account to send SMS"
-msgstr ""
-
-msgid "Delivery Report"
-msgstr ""
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
@@ -32,17 +23,14 @@ msgstr "Konfigurasi modul gateway telah disimpan"
 msgid "Gateway name"
 msgstr "Nama gateway"
 
-msgid "Inactive"
-msgstr "Nonaktif"
-
 msgid "Infobip API URL"
 msgstr "URL Infobip API"
 
-msgid "Infobip incoming path"
-msgstr "Jalur masuk Infobip"
-
 msgid "Infobip is a bulk SMS provider"
 msgstr "Infobip adalah penyedia SMS bulk"
+
+msgid "Infobip will push DLR and incoming SMS to above URL"
+msgstr ""
 
 msgid "Manage infobip"
 msgstr "Pengaturan infobip"
@@ -64,7 +52,8 @@ msgstr "Tidak ada perubahan yang terjadi"
 msgid "No trailing slash"
 msgstr "Tanpa garis miring"
 
-msgid "Note"
+#, fuzzy
+msgid "Notes"
 msgstr "Catatan"
 
 msgid "Password"
@@ -76,12 +65,15 @@ msgstr "Simpan"
 msgid "Username"
 msgstr "Nama pengguna"
 
+#, fuzzy
+msgid "Your DLR URL is"
+msgstr "URL balasan anda adalah"
+
 msgid "Your callback URL is"
 msgstr "URL balasan anda adalah"
 
-#, fuzzy
-msgid "Your dlr URL is"
-msgstr "URL balasan anda adalah"
+msgid "Your callback URL should be accessible from Infobip"
+msgstr ""
 
-msgid "click here to activate"
-msgstr "klik di sini untuk mengaktifkan"
+msgid "create an account to send SMS"
+msgstr ""

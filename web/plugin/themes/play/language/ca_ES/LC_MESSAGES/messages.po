@@ -50,6 +50,9 @@ msgstr ""
 msgid "Recover password"
 msgstr "Recuperar contrasenya"
 
+msgid "Register"
+msgstr ""
+
 msgid "Register an account"
 msgstr "Registrar un compte"
 

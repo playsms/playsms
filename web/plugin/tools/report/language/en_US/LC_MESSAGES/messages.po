@@ -1,19 +1,13 @@
-msgid "My Report"
-msgstr ""
-
 msgid "All reports"
 msgstr ""
 
-msgid "Report"
+msgid "Billing"
 msgstr ""
 
-msgid "Account"
+msgid "Credit"
 msgstr ""
 
-msgid "Pending"
-msgstr ""
-
-msgid "Sent"
+msgid "Deleted"
 msgstr ""
 
 msgid "Delivered"
@@ -22,9 +16,20 @@ msgstr ""
 msgid "Failed"
 msgstr ""
 
-msgid "Deleted"
+msgid "My report"
+msgstr ""
+
+msgid "Pending"
+msgstr ""
+
+msgid "Report"
+msgstr ""
+
+msgid "Sent"
 msgstr ""
 
 msgid "Total"
 msgstr ""
 
+msgid "User"
+msgstr ""

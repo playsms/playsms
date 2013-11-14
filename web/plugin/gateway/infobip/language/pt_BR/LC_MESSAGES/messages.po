@@ -5,17 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Active"
-msgstr "Ativo"
-
 msgid "Additional URL parameter"
 msgstr "Parâmetro de URL adicional"
-
-msgid "Create an account to send SMS"
-msgstr ""
-
-msgid "Delivery Report"
-msgstr ""
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
@@ -32,17 +23,14 @@ msgstr "Configurações do módulo de gateway foram salvas"
 msgid "Gateway name"
 msgstr "Nome do gateway"
 
-msgid "Inactive"
-msgstr "Inativo"
-
 msgid "Infobip API URL"
 msgstr "URL da API do infobip"
 
-msgid "Infobip incoming path"
-msgstr "Caminho de chegada do infobip"
-
 msgid "Infobip is a bulk SMS provider"
 msgstr "Infobip é um provedor de SMS em massa"
+
+msgid "Infobip will push DLR and incoming SMS to above URL"
+msgstr ""
 
 msgid "Manage infobip"
 msgstr "Administrar infobip"
@@ -63,7 +51,7 @@ msgstr "Nenhuma mudança feita"
 msgid "No trailing slash"
 msgstr "Sem barra no final"
 
-msgid "Note"
+msgid "Notes"
 msgstr ""
 
 msgid "Password"
@@ -75,12 +63,15 @@ msgstr "Salvar"
 msgid "Username"
 msgstr "Usuário"
 
+#, fuzzy
+msgid "Your DLR URL is"
+msgstr "Sua URL de callback é"
+
 msgid "Your callback URL is"
 msgstr "Sua URL de callback é"
 
-#, fuzzy
-msgid "Your dlr URL is"
-msgstr "Sua URL de callback é"
+msgid "Your callback URL should be accessible from Infobip"
+msgstr ""
 
-msgid "click here to activate"
-msgstr "clique aqui para ativar"
+msgid "create an account to send SMS"
+msgstr ""

@@ -23,9 +23,6 @@ msgstr "Semua pengguna"
 msgid "Are you sure you want to delete this group inbox ?"
 msgstr "Apakah anda yakin ingin menghapus grup kotak masuk ini ?"
 
-msgid "Cancel"
-msgstr "Batal"
-
 msgid "Catch-all"
 msgstr "Kotak tangkap semua"
 

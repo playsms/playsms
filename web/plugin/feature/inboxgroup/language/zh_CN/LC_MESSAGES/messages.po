@@ -23,9 +23,6 @@ msgstr ""
 msgid "Are you sure you want to delete this group inbox ?"
 msgstr ""
 
-msgid "Cancel"
-msgstr ""
-
 msgid "Catch-all"
 msgstr ""
 
