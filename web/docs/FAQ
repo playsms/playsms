@@ -157,7 +157,7 @@ E. SMS BOARD
     oddbgcolor	: set odd row backround color
     evenbgcolor	: set even row backround color
     eg:
-	http://playsms/index.php?app=webservices&ta=sms_board&keyword=INFO&line=15
+      http://playsms/index.php?app=webservices&ta=sms_board&keyword=INFO&line=15
     
 3.  What output formats available for SMS board webservices?
     Answer:
@@ -169,9 +169,9 @@ E. SMS BOARD
     Use IFRAME html tag. Customize your IFRAME to match your main 
     website look and feel.
     eg:
-	<IFRAME 
-	  src="http://playsms/index.php?app=webservices&ta=sms_board&keyword=INFO">
-	</IFRAME>
+      <IFRAME 
+      src="http://playsms/index.php?app=webservices&ta=sms_board&keyword=INFO">
+      </IFRAME>
     Note: other solution may be available.
 
 
@@ -262,7 +262,7 @@ H. SMS POLL
     Answer:
     For example polling with keyword PRES
     Webpage for poll named PRES would be accessable trough this url: 
-    http://your_playsms_web_domain/index.php?app=webservices&ta=sms_poll&keyword=PRES
+    http://your_playsms/index.php?app=webservices&ta=sms_poll&keyword=PRES
     Other parameter you can use:
     bodybgcolor	: set body background color
     refresh=yes	: check latest incoming sms and refresh webpage output
@@ -418,6 +418,3 @@ M. CONTACT
     Answer:
     Please visit http://www.playsms.org/support
 
-
---
-Anton Raharja

@@ -12,7 +12,7 @@ Minimum Required Software
 - Operating System Linux (install on MS Windows or BSD is also possible)
 - Web Server (for example Apache2 or lighttpd)
 - Database Server MySQL 5.x.x or latest stable release
-- PHP 5.x.x or latest stable release with mysql module enabled and CLI version installed
+- PHP 5.x.x or latest stable release with mysql module enabled and CLI version
 - PHP gettext extension (this is a must for text translation)
 - PHP multibyte string function (should be able to call mb_convert_encoding)
 - Access to SMTP server (playSMS will use this to send email)
@@ -24,7 +24,7 @@ Minimum Required Server Administrator (or Developer)
 - Understand howto make sure installed PHP has MySQL module enabled/loaded
 - Understand howto create/drop MySQL database
 - Understand howto insert SQL statements into created database
-- Basic knowledges to operate and manage Linux (skill to navigate in console mode)
+- Basic knowledges to manage Linux (skill to navigate in console mode)
 
 
 INSTALLATION
@@ -33,8 +33,8 @@ There are 2 methods available to install playSMS:
 1. Using install-script
 2. Step-by-step
 
-If you are using Ubuntu server, relatively new and not much core changes, then I suggest
-you to use 1st method, using install-script.
+If you are using Ubuntu server, relatively new and not much core changes, then
+I suggest you to use 1st method, using install-script.
 
 
 INSTALLATION on Linux using install-script
@@ -46,7 +46,7 @@ playSMS Web Interface using install script:
     # tar -zxf playsms-x.x.x.tar.gz -C /usr/local/src
 
     Note: x.x.x may vary according to the package name you've download.
-          For example playsms-0.9.9.tar.gz
+          For example playsms-0.9.9.2.tar.gz
 
 2.  Edit install.conf, read it, understand it and make changes to suit your
     system configuration
@@ -68,17 +68,23 @@ playSMS Web Interface using install script:
       is correct
     - edit install.conf again if you think your install data is wrong
     - after successful installation, please run command "ps ax" and see
-      if playsmsd and sendsmsd are running
+      if playsmsd, sendsmsd, recvsmsd and dlrssmsd are running
 
-      # ps ax | grep sms
-      2756 ?        S      0:00 /bin/bash ./playsmsd /var/www/playsms
-      2759 ?        S      0:00 /bin/bash ./sendsmsd /var/www/playsms
+      # ps ax | grep playsms
+      3165 ? S 0:02 /bin/bash /usr/local/bin/_playsms/playsmsd /var/www/playsms
+      3181 ? S 0:02 /bin/bash /usr/local/bin/_playsms/recvsmsd /var/www/playsms
+      3200 ? S 0:01 /bin/bash /usr/local/bin/_playsms/sendsmsd /var/www/playsms
+      3217 ? S 0:02 /bin/bash /usr/local/bin/_playsms/dlrssmsd /var/www/playsms
 
-    - stop here and review your installation steps when playsmsd and sendsmsd aren't running
-    - consider to ask question in playSMS mailing list when you encountered any problem
+    - stop here and review your installation steps when above daemon scripts
+      aren't running
+    - consider to ask question in playSMS mailing list or facebook group when
+      you encountered any problem
     - if all seems to be correctly installed you may try to login from web
 
-      browse http://<your web server IP>/playsms/ and login using default administrator user
+      browse http://<your web server IP>/playsms/ and login using default
+      administrator user
+
       username: admin
       password: admin
 
@@ -92,18 +98,22 @@ playSMS Web Interface step-by-step installation:
     # tar -zxf playsms-x.x.x.tar.gz -C /usr/local/src
 
     Note: x.x.x may vary according to the package name you've download.
-          For example playsms-0.9.9.tar.gz
+          For example playsms-0.9.9.2.tar.gz
 
-2.  Create playSMS web root, spool and log and set ownership to user www-data or web server user
+2.  Create playSMS web root, spool and log and set ownership to user www-data or
+    web server user
 
-    # mkdir -p /var/www/playsms /var/spool/playsms /var/log/playsms /var/lib/playsms
+    # mkdir -p /var/www/playsms /var/spool/playsms /var/log/playsms \
+      /var/lib/playsms
 
-    # chown -R www-data /var/www/playsms /var/spool/playsms /var/log/playsms /var/lib/playsms
+    # chown -R www-data /var/www/playsms /var/spool/playsms /var/log/playsms \
+      /var/lib/playsms
 
-    Note: There are Linux distributions using 'apache' as web server user instead of 'www-data'.
+    Note: There are Linux distributions using 'apache' as web server user
+          instead of 'www-data'.
 
-3.  Copy files and directories inside 'web' directory to playSMS web root and set ownership again to
-    user www-data or web server user, just to make sure
+3.  Copy files and directories inside 'web' directory to playSMS web root and
+    set ownership again to user www-data or web server user, just to make sure
 
     # cp -rR /usr/local/src/playsms-x.x.x/web/* /var/www/playsms
 
@@ -115,9 +125,10 @@ playSMS Web Interface step-by-step installation:
 
     # mysql -u root -p playsms < /usr/local/src/playsms-x.x.x/db/playsms.sql
 
-    Note: You don't need to use MySQL root access nor this method to setup playSMS
-    database, but this is beyond our scope. You should read MySQL manual for custom
-    installation method or howto insert SQL statements into existing database.
+    Note: You don't need to use MySQL root access nor this method to setup
+          playSMS database, but this is beyond our scope. You should read MySQL
+          manual for custom installation method or howto insert SQL statements
+          into existing database.
 
 5.  Copy config-dist.php to config.php and then edit config.php
 
@@ -127,38 +138,42 @@ playSMS Web Interface step-by-step installation:
 
     Note: Please read and fill all fields with correct values
 
-6.  Enter daemon/linux directory, copy playsms, playsmsd* and sendsmsd*
+6.  Enter daemon/linux directory, copy files and folder inside
 
     # mkdir -p /etc/default /usr/local/bin
 
     # cp /usr/local/src/playsms-x.x.x/daemon/linux/etc/playsms /etc/default/
 
-    # cp /usr/local/src/playsms-x.x.x/daemon/linux/bin/* /usr/local/bin/
+    # cp -rR /usr/local/src/playsms-x.x.x/daemon/linux/bin/* /usr/local/bin/
 
 7.  Just to make sure every paths are correct, please edit /etc/default/playsms
 
     # vi /etc/default/playsms
 
-    Note: Make sure that PLAYSMS_PATH is pointing to a correct playSMS installation path (in this example
-    to /var/www/playsms), and also make sure that PLAYSMS_BIN is pointing to a correct playSMS daemon 
-    scripts path (in this example to /usr/local/bin)
+    Note: Make sure that PLAYSMS_PATH is pointing to a correct playSMS
+          installation path (in this example to /var/www/playsms), and also make
+          sure that PLAYSMS_BIN is pointing to a correct playSMS daemon scripts
+          path (in this example to /usr/local/bin)
 
-8.  There are two choices to get playSMS daemon starts automatically on every boot. You need to choose one
+8.  There are two choices to get playSMS daemon starts automatically on boot.
+    You need to choose one:
 
-    A. Using init script. When you are installing playSMS on Debian based distro (like Ubuntu), you may use
-       contributed init script. Copy the init script to /etc/init.d/ and program it to start at boot
+    A. Using init script. When you are installing playSMS on Debian based distro
+       (like Ubuntu), you may use contributed init script. Copy the init script
+       to /etc/init.d/ and program it to start at boot
 
-       # cp /usr/local/src/playsms-x.x.x/daemon/linux/etc/playsms.init-ubuntu /etc/init.d/playsms
+       # cp /usr/local/src/playsms-x.x.x/daemon/linux/etc/playsms.init-ubuntu \
+         /etc/init.d/playsms
 
        # update-rc.d playsms defaults
 
-    B. Using rc.local. Look for rc.local on /etc, /etc/init.d or /etc/rc.d/init.d
+    B. Using rc.local. Look for rc.local on /etc, /etc/init.d, /etc/rc.d/init.d
        When you found it edit that rc.local and put:
 
        "/usr/local/bin/playsmsd_start" (without quotes, remove quotes)
 
-       on the bottom of the file (before exit if theres an exit command). This way playsmsd_start
-       will start automatically on boot.
+       on the bottom of the file (before exit if theres an exit command).
+       This way playsmsd_start will start automatically on boot.
 
     Note: Just like any other steps before, you need 'root' access to do this.
 
@@ -176,25 +191,29 @@ playSMS Web Interface step-by-step installation:
     - after successful installation, please run command "ps ax" and see 
       if playsmsd and sendsmsd are running
 
-      # ps ax | grep sms
-      2756 ?        S      0:00 /bin/bash ./playsmsd /var/www/playsms
-      2759 ?        S      0:00 /bin/bash ./sendsmsd /var/www/playsms
+      # ps ax | grep playsms
+      3165 ? S 0:02 /bin/bash /usr/local/bin/_playsms/playsmsd /var/www/playsms
+      3181 ? S 0:02 /bin/bash /usr/local/bin/_playsms/recvsmsd /var/www/playsms
+      3200 ? S 0:01 /bin/bash /usr/local/bin/_playsms/sendsmsd /var/www/playsms
+      3217 ? S 0:02 /bin/bash /usr/local/bin/_playsms/dlrssmsd /var/www/playsms
 
-    - stop here and review your installation steps when playsmsd and sendsmsd aren't running
-    - consider to ask question in playSMS mailing list when you encountered any problem
+    - stop here and review your installation steps when above daemon scripts
+      aren't running
+    - consider to ask question in playSMS mailing list or facebook group when
+      you encountered any problem
     - if all seems to be correctly installed you may try to login from web
 
-      browse http://<your web server IP>/playsms/ and login using default administrator user
+      browse http://<your web server IP>/playsms/ and login using default
+      administrator user
+
       username: admin
       password: admin
 
 
-Please continue to follow INSTALL_SMSSERVERTOOLS to use SMS Server Tools (smstools3) as your gateway
-module, or follow INSTALL_KANNEL if you want to use Kannel instead.
+If you have GSM modem and plan to use it with playSMS, please continue to follow
+instructions in INSTALL_SMSSERVERTOOLS to use SMS Server Tools (smstools3) as
+your gateway module, or follow INSTALL_KANNEL if you want to use Kannel.
 
-Gnokii and Gammu also supported, please follow INSTALL_GNOKII if you want to use Gnokii as your
-gateway module, or INSTALL_GAMMU if you want to use Gammu instead.
+Gnokii and Gammu also supported, please follow INSTALL_GNOKII if you want to use
+Gnokii as your gateway module, or INSTALL_GAMMU if you want to use Gammu.
 
-
---
-Anton Raharja

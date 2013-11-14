@@ -7,9 +7,9 @@ Version {VERSION}
 
 Description
 -----------
-playSMS is a flexible Web-based Mobile Portal System that it can be made to fit to 
-various services such as an SMS gateway, personal messaging systems, corporate and 
-group communication tools
+playSMS is a flexible Web-based SMS portal that it can be made to fit to 
+various services such as an SMS gateway, personal messaging systems, corporate
+and group communication tools
 
 
 Feature Highlights
@@ -24,19 +24,20 @@ Feature Highlights
 - SMS autoreply, for easy autoreplying formatted incoming SMS
 - SMS board, forward received SMS to email, html page, json, xml and rss feeds
 - SMS command, execute server side shell script using SMS
-- SMS custom, forward incoming SMS to custom application, locally or external URL
+- SMS custom, forward incoming SMS to custom application on external URL
 - SMS poll, manage polling system using SMS, exports graph, json and xml
 - SMS quiz, serve quizzes on SMS
 - SMS subscribe, manage user subscribes to a service using SMS
 - Create your own features, tools, themes and gateway modules as a plugin
-- Supports Gammu, Gnokii, Kannel, smstools3, Msgtoolbox, Nexmo, Twilio and Clickatell
+- Supports Uplink, Gammu, Gnokii, Kannel, smstools3, Msgtoolbox, Nexmo, Twilio,
+  Clickatell and Infobip
 - Supports simulation tools to simulate incoming and outgoing SMS
-- Webservices for sending SMS, retrieving delivery reports, checking credits, etc
+- Webservices for sending SMS, retrieve delivery reports, checking credits, etc
 - Long SMS support, length of text is configurable
 - Rate SMS by destination prefix
 - SMS credit system per user
 - Timezone settings
-- Multi-language user interface (English, French, Bahasa Indonesia and a few others)
+- Multi-language (English, French, Bahasa Indonesia and a few others)
 - Easily add new language for user interface
 - Web-based interface with easy template engine for customization
 
@@ -95,3 +96,4 @@ fr_FR	: Emmanuel Chanson (emmanuel), Elingui Pascal Uriel (elinguiuriel)
 id_ID	: Anton Raharja (anton), Andry Rachmadany (hangsbreaker)
 pt_BR	: Lucas Teixeira (lucastx), Gabriel Schanuel (gschanuel)
 zh_CN	: Frank Van Caenegem (fvancaen)
+
