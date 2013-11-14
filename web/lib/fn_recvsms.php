@@ -282,7 +282,7 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 				if ($email = $user['email']) {
 					// make sure sms_datetime is in supported format and in user's timezone
 					$sms_datetime = core_display_datetime($sms_datetime);
-					$subject = _('SMS from')." ".$sms_sender;
+					$subject = _('SMS from')." ".$sender;
 					$body = $web_title."\n\n";
 					$body .= _('SMS to email')."\n\n";
 					$body .= _('Received').": ".$sms_datetime."\n";
