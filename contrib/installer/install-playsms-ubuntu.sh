@@ -164,7 +164,7 @@ sed -i "s|#PATHSPO#|$PATHSPO|g" /etc/default/playsms
 echo -n .
 sed -i "s|#PATHLIB#|$PATHLIB|g" /etc/default/playsms
 echo -n .
-cp daemon/linux/bin/* $PATHBIN
+cp -rR daemon/linux/bin/* $PATHBIN
 echo -n .
 cp daemon/linux/etc/playsms.init-ubuntu /etc/init.d/playsms
 set +e
