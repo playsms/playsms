@@ -1,5 +1,12 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
+if(!valid()){forcenoaccess();};
+
+if ($poll_id = $_REQUEST['poll_id']) {
+        if (! ($poll_id = dba_valid(_DB_PREF_.'_featurePoll', 'poll_id', $poll_id))) {
+                forcenoaccess();
+        }
+}
 
 switch ($op) {
 	case 'list':
