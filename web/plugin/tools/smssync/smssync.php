@@ -16,6 +16,7 @@ switch ($op) {
 		if ($list['tools']['smssync']['enable']) {
 			$option_enable = 'checked';
 		}
+		$sync_url = $core_config['http_path']['base'].'/plugin/tools/smssync/sync.php';
 		unset($tpl);
 		$tpl = array(
 			'name' => 'smssync',
@@ -25,10 +26,12 @@ switch ($op) {
 				'HINT_ENABLE' => _hint(_('Check to enable receiving push messages from SMSSync app')),
 				'SECRET' => $smssync_secret,
 				'CHECKED' => $option_enable,
+				'SYNC_URL' => $sync_url,
 				'SMS Sync' => _('SMS Sync'),
 				'Configure SMS Sync' => _("Configure SMS Sync"),
 				'Secret key' => _('Secret key'),
 				'Enable SMS Sync' => _('Enable SMS Sync'),
+				'Sync URL' => _('Sync URL'),
 				'Save' => _('Save')
 			)
 		);
