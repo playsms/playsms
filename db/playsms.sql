@@ -1614,6 +1614,21 @@ CREATE TABLE `playsms_gatewayInfobip_apidata` (
   PRIMARY KEY (`apidata_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
+--
+-- Table structure for table `playsms_tblRegistry`
+--
+
+DROP TABLE IF EXISTS `playsms_tblRegistry`;
+CREATE TABLE IF NOT EXISTS `playsms_tblRegistry` (
+  `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group` varchar(250) NOT NULL DEFAULT '',
+  `family` varchar(250) NOT NULL DEFAULT '',
+  `key` varchar(250) NOT NULL DEFAULT '',
+  `value` varchar(250) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

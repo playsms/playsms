@@ -207,13 +207,13 @@ function dba_search($db_table, $fields='*', $conditions='', $keywords='', $extra
 	}
 	if (is_array($conditions)) {
 		foreach ($conditions as $key => $val) {
-			$q_conditions .= "AND ".$key."='".$val."' ";
+			$q_conditions .= "AND `".$key."`='".$val."' ";
 		}
 	}
 	if (is_array($keywords)) {
 		$q_keywords = "AND (";
 		foreach ($keywords as $key => $val) {
-			$q_keywords .= "OR ".$key." LIKE '".$val."' ";
+			$q_keywords .= "OR `".$key."` LIKE '".$val."' ";
 		}
 		$q_keywords .= ")";
 		$q_keywords = str_replace("(OR","(",$q_keywords);
@@ -225,7 +225,7 @@ function dba_search($db_table, $fields='*', $conditions='', $keywords='', $extra
 	}
 	if (is_array($extras)) {
 		foreach ($extras as $key => $val) {
-			$q_extras .= $key." ".$val." ";
+			$q_extras .= "`".$key."` ".$val." ";
 		}
 	}
 	$db_query = "SELECT ".$q_fields." FROM ".$db_table." ".$join." ".$q_where." ".$q_sql_where." ".$q_extras;
@@ -240,13 +240,13 @@ function dba_count($db_table, $conditions='', $keywords='', $extras='', $join=''
 	$ret = 0;
 	if (is_array($conditions)) {
 		foreach ($conditions as $key => $val) {
-			$q_conditions .= "AND ".$key."='".$val."' ";
+			$q_conditions .= "AND `".$key."`='".$val."' ";
 		}
 	}
 	if (is_array($keywords)) {
 		$q_keywords = "AND (";
 		foreach ($keywords as $key => $val) {
-			$q_keywords .= "OR ".$key." LIKE '".$val."' ";
+			$q_keywords .= "OR `".$key."` LIKE '".$val."' ";
 		}
 		$q_keywords .= ")";
 		$q_keywords = str_replace("(OR","(",$q_keywords);
@@ -258,7 +258,7 @@ function dba_count($db_table, $conditions='', $keywords='', $extras='', $join=''
 	}
 	if (is_array($extras)) {
 		foreach ($extras as $key => $val) {
-			$q_extras .= $key." ".$val." ";
+			$q_extras .= "`".$key."` ".$val." ";
 		}
 	}
 	$db_query = "SELECT COUNT(*) AS count FROM ".$db_table." ".$join." ".$q_where." ".$q_sql_where." ".$q_extras;
@@ -273,7 +273,7 @@ function dba_add($db_table, $items) {
 	$ret = false;
 	if (is_array($items)) {
 		foreach ($items as $key => $val) {
-			$sets .= $key.",";
+			$sets .= "`".$key."`,";
 			$vals .= "'".$val."',";
 		}
 		if ($sets && $vals) {
@@ -293,13 +293,13 @@ function dba_update($db_table, $items, $condition='', $operand='AND') {
 	global $core_config;
 	if (is_array($items)) {
 		foreach ($items as $key => $val) {
-			$sets .= $key."='".$val."',";
+			$sets .= "`".$key."`='".$val."',";
 		}
 		if ($sets) {
 			$sets = substr($sets, 0, -1);
 			if (is_array($condition)) {
 				foreach ($condition as $key => $val){ 
-					$q_condition .= " ".$operand." ".$key."='".$val."'";
+					$q_condition .= " ".$operand." `".$key."`='".$val."'";
 				}
 				if ($q_condition) {
 					$q_condition = " WHERE 1=1 ".$q_condition;
@@ -318,7 +318,7 @@ function dba_remove($db_table, $condition='', $operand='AND') {
 	$ret = false;
 	if (is_array($condition)) {
 		foreach ($condition as $key => $val){ 
-			$q_condition .= $operand." ".$key."='".$val."' ";
+			$q_condition .= $operand." `".$key."`='".$val."' ";
 		}
 		if ($q_condition) {
 			$q_condition = "WHERE ".substr($q_condition, 3);
@@ -335,7 +335,7 @@ function dba_isavail($db_table, $conditions='', $operand='OR') {
 	$ret = false;
 	if (is_array($conditions)) {
 		foreach ($conditions as $key => $val) {
-			$q_condition .= $operand." ".$key."='".$val."' ";
+			$q_condition .= $operand." `".$key."`='".$val."' ";
 		}
 		if ($q_condition) {
 			$q_condition = "WHERE ".substr($q_condition, 3);

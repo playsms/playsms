@@ -122,3 +122,20 @@ ADD  `cfg_allow_custom_footer` INT( 11 ) NOT NULL DEFAULT  '0';
 
 ALTER TABLE  `playsms_gatewayUplink_config` ADD  `cfg_try_disable_footer` INT(11) NOT NULL DEFAULT '0';
 
+
+-- trunk
+
+--
+-- Table structure for table `playsms_tblRegistry`
+--
+
+DROP TABLE IF EXISTS `playsms_tblRegistry`;
+CREATE TABLE IF NOT EXISTS `playsms_tblRegistry` (
+  `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group` varchar(250) NOT NULL DEFAULT '',
+  `family` varchar(250) NOT NULL DEFAULT '',
+  `key` varchar(250) NOT NULL DEFAULT '',
+  `value` varchar(250) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
