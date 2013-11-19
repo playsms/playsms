@@ -123,7 +123,7 @@ ADD  `cfg_allow_custom_footer` INT( 11 ) NOT NULL DEFAULT  '0';
 ALTER TABLE  `playsms_gatewayUplink_config` ADD  `cfg_try_disable_footer` INT(11) NOT NULL DEFAULT '0';
 
 
--- trunk
+-- beta 4
 
 --
 -- Table structure for table `playsms_tblRegistry`

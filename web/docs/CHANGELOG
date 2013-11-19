@@ -1,7 +1,7 @@
 CHANGELOG
 ---------
 
-Version 0.9.9.2 - 131119
+Version 0.9.9.2-beta4 - NA
 - MAJOR: new install will use MySQL InnoDB
 - MAJOR: replace term 'slid' with 'smslog_id' on all places
 - MAJOR: smslog_id is now from tblSMSOutgoing_queue_dst and immediately returns
@@ -11,10 +11,14 @@ Version 0.9.9.2 - 131119
 - add 2 new options in main configuration: allow custom SMS sender ID and allow
   custom SMS footer
 - add Twitter bootstrap files to themes/common/jscss/, preparations
+- add registry service for developers, they don't need to create database for
+  plugin's configurations when they need to
 - add new plugin pluginmanager to manage plugins (enumanc)
 - add new plugin report (enumanc)
+- add new plugin SMS Sync for SMSSync app http://smssync.ushahidi.com/
 - add new gateway Infobip (enumanc)
 - add new daemon dlrssmsd and recvsmsd to increase performance
+- add new option "Try to disable SMS footer on master" on uplink gateway
 - update to immediately cancel send SMS after fail with not enough credit
 - update all plugin gateway to use recvsms() instead of setsmsincomingaction()
 - update all plugin gateway to use dlr() instead of setsmsdeliverystatus()
@@ -34,6 +38,7 @@ Version 0.9.9.2 - 131119
 - fix icons for reply, resend and forward link
 - fix datetime on SMS to use $datetime_now instead of supplied by Kannel
 - fix webservices for GET_CONTACT and GET_CONTACT_GROUP
+- fix wrong column $p_status while checking webservices returns, uplink gateway
 - fix #78 add $from, $footer and $nofooter param to webservices
 - fix #109 sms sender ID and sms footer can be changed from Send SMS page
 
