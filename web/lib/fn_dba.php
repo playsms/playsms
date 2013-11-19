@@ -225,7 +225,7 @@ function dba_search($db_table, $fields='*', $conditions='', $keywords='', $extra
 	}
 	if (is_array($extras)) {
 		foreach ($extras as $key => $val) {
-			$q_extras .= "`".$key."` ".$val." ";
+			$q_extras .= $key." ".$val." ";
 		}
 	}
 	$db_query = "SELECT ".$q_fields." FROM ".$db_table." ".$join." ".$q_where." ".$q_sql_where." ".$q_extras;
@@ -258,7 +258,7 @@ function dba_count($db_table, $conditions='', $keywords='', $extras='', $join=''
 	}
 	if (is_array($extras)) {
 		foreach ($extras as $key => $val) {
-			$q_extras .= "`".$key."` ".$val." ";
+			$q_extras .= $key." ".$val." ";
 		}
 	}
 	$db_query = "SELECT COUNT(*) AS count FROM ".$db_table." ".$join." ".$q_where." ".$q_sql_where." ".$q_extras;
