@@ -41,8 +41,17 @@ msgstr "Aucun changement apporté"
 msgid "Save"
 msgstr "Sauvegarder"
 
+msgid "Try to disable SMS footer on master"
+msgstr ""
+
 msgid "Webservice token"
 msgstr ""
 
 msgid "Webservice username"
+msgstr ""
+
+msgid "no"
+msgstr ""
+
+msgid "yes"
 msgstr ""
