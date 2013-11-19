@@ -21,6 +21,8 @@ $sms_sender = $r['from'];
 $message = $r['message'];
 $sms_receiver = $r['sent_to'];
 
+$ok = FALSE;
+
 if ($smssync_enable && ($r['secret'] == $smssync_secret) && $message_id) {
 	$db_table = _DB_PREF_.'_toolsSmssysnc';
 	$conditions = array('message_id' => $message_id);
@@ -30,11 +32,28 @@ if ($smssync_enable && ($r['secret'] == $smssync_secret) && $message_id) {
 			$items = array('message_id' => $message_id, 'recvsms_id' => $recvsms_id);
 			dba_add($db_table, $items);
 			logger_print("saved message_id:".$message_id." recvsms_id:".$recvsms_id, 3, "smssync sync");
+			$ret = array(
+				'payload' => array(
+					'success' => true,
+					'error' => NULL
+				)
+			);
+			$ok = TRUE;
 		} else {
 			logger_print("fail to save message_id:".$message_id, 3, "smssync sync");
 		}
 	}
 }
 
-?>
+if (! $ok) {
+	$ret = array(
+		'payload' => array(
+			'success' => "false",
+			'error' => "Unable to process"
+		)
+	);
+}
 
+echo json_encode($ret);
+
+?>
