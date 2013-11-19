@@ -139,3 +139,15 @@ CREATE TABLE IF NOT EXISTS `playsms_tblRegistry` (
   `value` varchar(250) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Table structure for table `playsms_toolsSmssysnc`
+--
+
+DROP TABLE IF EXISTS `playsms_toolsSmssysnc`;
+CREATE TABLE IF NOT EXISTS `playsms_toolsSmssysnc` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `message_id` varchar(250) DEFAULT '',
+  `recvsms_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
