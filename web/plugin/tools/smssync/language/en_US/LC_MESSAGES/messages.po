@@ -1,0 +1,5 @@
+msgid "Log file"
+msgstr ""
+
+msgid "View log"
+msgstr ""
