@@ -1044,7 +1044,7 @@ CREATE TABLE `playsms_gatewayUplink_config` (
 
 LOCK TABLES `playsms_gatewayUplink_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayUplink_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayUplink_config` VALUES (0,'uplink','http://playsms.master.url','','','','','/var/spool/playsms','','+0700');
+INSERT INTO `playsms_gatewayUplink_config` VALUES (0,'uplink','http://playsms.master.url','','','','','/var/spool/playsms','','+0700',0);
 /*!40000 ALTER TABLE `playsms_gatewayUplink_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
