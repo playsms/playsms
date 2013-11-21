@@ -27,7 +27,7 @@ $ok = FALSE;
 if ($sms_sync_enable && $c_uid && ($r['secret'] == $sms_sync_secret) && $message_id) {
 	$db_table = _DB_PREF_.'_featureSmssysnc';
 	$conditions = array('uid' => $c_uid, 'message_id' => $message_id);
-	if (dba_isavail($db_table, $conditions)) {
+	if (dba_isavail($db_table, $conditions, 'AND')) {
 		logger_print("saving uid:".$c_uid." dt:".$sms_datetime." ts:".$r['sent_timestamp']." message_id:".$message_id." s:".$sms_sender." m:".$message." r:".$sms_receiver, 3, "sms_sync sync");
 		// if keyword does not exists (checkavailablekeyword == TRUE)
 		// then prefix the message with an @username so that it will be routed to $c_uid's inbox
@@ -38,7 +38,7 @@ if ($sms_sync_enable && $c_uid && ($r['secret'] == $sms_sync_secret) && $message
 			$message = "@" . uid2username($c_uid) . " " . $message;
 		}
 		if ($recvsms_id = recvsms($sms_datetime, $sms_sender, $message, $sms_receiver)) {
-			$items = array('message_id' => $message_id, 'recvsms_id' => $recvsms_id);
+			$items = array('uid' => $c_uid, 'message_id' => $message_id, 'recvsms_id' => $recvsms_id);
 			dba_add($db_table, $items);
 			logger_print("saved uid:" . $c_uid . " message_id:" . $message_id . " recvsms_id:" . $recvsms_id, 3, "sms_sync sync");
 			$ret = array(
