@@ -11,8 +11,9 @@ switch ($op)
 			<h2>"._('View log')."</h2>
 			<p>"._('Log file').": ".$core_config['apps_path']['logs']."/playsms.log</p>
 			<p>
-			<!-- <textarea id=\"playsmslogView\" rows=\"27\" cols=\"70\" readonly=\"yes\" wrap=\"off\">".$log."</textarea> -->
-			<textarea id=\"playsmslogView\" style=\"width: 725px; height: 520px; border: 1px solid #ECF0F1; padding: 5px; font-size: 10pt;\" wrap=off>".$log."</textarea>
+			<div style=\"height: 90%\">
+				<textarea id=\"playsmslogView\" style=\"width: 100%; height: 100%; border: 1px solid #ECF0F1; padding: 5px; font-size: 10pt;\" wrap=off>".$log."</textarea>
+			</div>
 			</p>
 			<script language='javascript' type='text/javascript'>
 				<!--//

@@ -43,11 +43,11 @@ switch ($op) {
 			$option_country .= "<option value=\"$country_id\" $selected>$country_name</option>\n";
 		}
 		if ($uname && isadmin()) {
-			$form_title = "<h2>" . _('Manage user') . "</h2>";
+			$form_title = _('Manage user');
 			$button_delete = "<input type=button class=button value='" . _('Delete') . "' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=menu&inc=user_mgmnt&op=user_del" . $url_uname . "')\">";
 			$button_back = _b('index.php?app=menu&inc=user_mgmnt&op=' . $referrer);
 		} else {
-			$form_title = "<h2>" . _('Preferences') . "</h2>";
+			$form_title = _('Preferences');
 		}
 		unset($tpl);
 		$tpl = array(
