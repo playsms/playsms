@@ -43,7 +43,7 @@ if ($sms_sync_enable && $c_uid && ($r['secret'] == $sms_sync_secret) && $message
 			logger_print("saved uid:" . $c_uid . " message_id:" . $message_id . " recvsms_id:" . $recvsms_id, 3, "sms_sync sync");
 			$ret = array(
 			    'payload' => array(
-				'success' => true,
+				'success' => "true",
 				'error' => NULL
 			    )
 			);
