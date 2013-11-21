@@ -1,16 +1,15 @@
 {ERROR}
-<h2>{SMS Sync}</h2>
-<h3>{Configure SMS Sync}</h3>
-<form action="index.php?app=menu&inc=tools_smssync&op=smssync_save" method=POST>
+<h2>{Manage sync}</h2>
+<form action="index.php?app=menu&inc=feature_sms_sync&op=sms_sync_save" method=POST>
 <table width=100%>
 	<tbody>
 		<tr>
 			<td width=270>{Enable SMS Sync}</td>
-			<td><input type=checkbox name=smssync_enable value=1 {CHECKED}> {HINT_ENABLE}</td>
+			<td><input type=checkbox name=sms_sync_enable value=1 {CHECKED}> {HINT_ENABLE}</td>
 		</tr>
 		<tr>
 			<td width=270>{Secret key}</td>
-			<td><input type=text name=smssync_secret size=30 maxlength=30 value="{SECRET}"> {HINT_SECRET}</td>
+			<td><input type=text name=sms_sync_secret size=30 maxlength=30 value="{SECRET}"> {HINT_SECRET}</td>
 		</tr>
 		<tr>
 			<td width=270>{Sync URL}</td>

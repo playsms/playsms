@@ -133,6 +133,7 @@ DROP TABLE IF EXISTS `playsms_tblRegistry`;
 CREATE TABLE IF NOT EXISTS `playsms_tblRegistry` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL DEFAULT '0',
   `group` varchar(250) NOT NULL DEFAULT '',
   `family` varchar(250) NOT NULL DEFAULT '',
   `key` varchar(250) NOT NULL DEFAULT '',
@@ -141,12 +142,13 @@ CREATE TABLE IF NOT EXISTS `playsms_tblRegistry` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Table structure for table `playsms_toolsSmssysnc`
+-- Table structure for table `playsms_featureSmssysnc`
 --
 
-DROP TABLE IF EXISTS `playsms_toolsSmssysnc`;
-CREATE TABLE IF NOT EXISTS `playsms_toolsSmssysnc` (
+DROP TABLE IF EXISTS `playsms_featureSmssysnc`;
+CREATE TABLE IF NOT EXISTS `playsms_featureSmssysnc` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL DEFAULT '0',
   `message_id` varchar(250) DEFAULT '',
   `recvsms_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
