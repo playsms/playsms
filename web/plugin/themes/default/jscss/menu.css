@@ -1,11 +1,13 @@
 #menu {
 	margin: 10px 10px 0 10px;
 	padding: 0;
-	width: 254px;
+	width: 100%;
 }
 
 .menu-item {
-	background: #FCFCFC;
+	/*background: #FCFCFC;*/
+	/*width: 20%;*/
+	display: inline-block;
 }
 
 /*Menu Header Styles*/
@@ -15,13 +17,17 @@
 	font-family: Helvetica, Arial;
 	font-size: 12pt;
 	color: #FFF;
-	background: #2980B9;
+	/*background: #2980B9;*/
 	padding: 7px 12px;
+	margin: 0;
 }
 
+.menu-item p:hover {
+	background: #2980B9;
+}
 .menu-item p a {
 	color: #FFF;
-	background: #2980B9;
+	background: none;
 }
 
 /*ul Styles*/
@@ -31,8 +37,11 @@
 	line-height: 22px;
 	list-style-type: none;
 	overflow: hidden;
-	padding: 0;
-	padding-bottom: 12px;
+	margin: 0;
+	padding: 8px 0 12px 0;
+	position: absolute;
+	z-index: 5;
+	width: 200px;
 }
 
 /*li Styles*/
@@ -43,8 +52,7 @@
 .menu-item li a {
 	color: #555;
 	background: none;
-	display: block;
-	text-decoration: none;
+	/* display: block; */
 	margin-left: 20px;
 	text-decoration: none;
 }

@@ -1,9 +1,6 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
-// default charset
-$themes_default_charset = 'UTF-8';
-
 // themes 'default' action icons
 //$core_config['icon']['edit'] 		= "<img class=icon id=icon_edit src=\"".$http_path['themes']."/default/images/action_edit.png\" alt=\""._('Edit')."\" title=\""._('Edit')."\">";
 //$core_config['icon']['delete'] 	= "<img class=icon id=icon_delete src=\"".$http_path['themes']."/default/images/action_delete.png\" alt=\""._('Delete')."\" title=\""._('Delete')."\">";

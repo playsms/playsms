@@ -2,14 +2,13 @@
 defined('_SECURE_') or die('Forbidden');
 
 function default_hook_themes_apply($content) {
-	global $core_config, $web_title, $themes_default_charset;
+	global $core_config, $web_title;
 	unset($tpl);
 	$tpl = array(
 		'name' => 'themes_layout',
 		'var' => array(
 			'CONTENT' => $content,
 			'WEB_TITLE' => $web_title,
-			'THEMES_DEFAULT_CHARSET' => $themes_default_charset,
 			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
 			'HTTP_PATH_THEMES' => $core_config['http_path']['themes'],
 			'THEMES_MODULE' => themes_get(),
@@ -55,7 +54,7 @@ function default_hook_themes_buildmenu($menu_config) {
 		</div>
 	</nav> */
 
-	$content = "\n\n<!-- BEGIN LEFT NAVIGATION MENU -->\n\n";
+	$content = "\n\n<!-- BEGIN NAVIGATION MENU -->\n\n";
 	$content .= "<div id=\"menu\">\n";
 	$i = 0;
 	foreach ($menu_config as $menu_title => $array_menu) {
@@ -72,7 +71,7 @@ function default_hook_themes_buildmenu($menu_config) {
 		$content .= "</div>\n";
 	}
 	$content .= "</div>\n";
-	$content .= "\n\n<!-- END LEFT NAVIGATION MENU -->\n\n";
+	$content .= "\n\n<!-- END NAVIGATION MENU -->\n\n";
 
 	return $content;
 }

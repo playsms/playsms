@@ -6,7 +6,7 @@ body {
 	font-family: Helvetica, Arial;
 	font-size: 12pt;
 	width: 100%;
-	min-height: 100%;
+	height: 100%;
 	margin: 0px;
 	color: #FFF;
 	background-color: #ECF0F1;
@@ -49,7 +49,7 @@ table,tr {
 	font-weight: normal;
 	color: #FFF;
 	/* background-color: ; */
-	margin: 0 0 0 1px;
+	/*margin: 0 0 0 1px;*/
 }
 
 table.main {
