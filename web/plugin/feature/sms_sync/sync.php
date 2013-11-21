@@ -10,12 +10,12 @@ if (! $called_from_hook_call) {
 }
 
 $r = $_REQUEST;
+$c_uid = $r['uid'];
 
-$list = registry_search('feature', 'sms_sync');
+$list = registry_search($c_uid, 'feature', 'sms_sync');
 $sms_sync_secret = $list['feature']['sms_sync']['secret'];
 $sms_sync_enable = $list['feature']['sms_sync']['enable'];
 
-$c_uid = $r['uid'];
 $message_id = $r['message_id'];
 $sms_datetime = $core_config['datetime']['now'];
 $sms_sender = $r['from'];

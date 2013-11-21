@@ -31,7 +31,9 @@ switch ($op) {
 				'Secret key' => _('Secret key'),
 				'Enable SMS Sync' => _('Enable SMS Sync'),
 				'Sync URL' => _('Sync URL'),
-				'Save' => _('Save')
+			'Notes' => _('Notes'),
+			'Download SMSSync app for Android from' => _('Download SMSSync app for Android from'),
+			'Save' => _('Save')
 			)
 		);
 		echo tpl_apply($tpl);
