@@ -70,6 +70,7 @@ function default_hook_themes_buildmenu($menu_config) {
 		$content .= "</ul>\n";
 		$content .= "</div>\n";
 	}
+	$content .= "<div class=\"menu-item\"><p><a href=\"index.php?app=page&op=auth_logout\">"._('Logout')."</a></p></div>";
 	$content .= "</div>\n";
 	$content .= "\n\n<!-- END NAVIGATION MENU -->\n\n";
 

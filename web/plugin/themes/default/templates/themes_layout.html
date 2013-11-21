@@ -49,30 +49,12 @@
 		<if.valid>
 		<!-- top menu -->
 		<tr>
-			<td style="vertical-align: top; width: 100%; height: 130px;">
+			<td style="vertical-align: top; width: 100%; height: 40px;">
 				<table style="vertical-align: top; width: 100%;">
 					<tbody>
 					<tr>
-						<td style="background-color: #2C3E50; vertical-align: top; padding: 10px; height: 100px;">
-							<style type='text/css'>
-								#profile_pic {
-									background-image:url('{GRAVATAR}');
-									background-color: #2980B9;
-									background-repeat: no-repeat;
-									/* margin-left: 174px; */
-									width: 80px;
-									height: 80px;
-									cursor: pointer;
-									display: inline;
-									float: left;
-								}
-							</style>
-							<div id=profile_pic onClick="window.location.href='{HTTP_PATH_BASE}'"/>
-							<div style='display: inline;'>
-								<div style='padding: 90px; display: inline;'><a href="index.php?app=menu&inc=user_pref&op=user_pref">{NAME}</a></div>
-								<div style='padding: 90px; display: inline;'><a href="index.php?app=menu&inc=user_config&op=user_config">{USERNAME}</a></div>
-								<div style='padding: 22px 0 0 90px;'><a href="index.php?app=page&op=auth_logout">{Logout}</a></div>
-							</div>
+						<td style="background-color: #2C3E50; vertical-align: top; padding: 10px 10px 10px 20px; height: 40px;">
+							<p>Hi {NAME} ({USERNAME})</p>
 						</td>
 					</tr>
 					<tr>

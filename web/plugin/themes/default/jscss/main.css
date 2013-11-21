@@ -55,6 +55,7 @@ table,tr {
 table.main {
 	text-align: left;
 	width: 100%;
+	min-width: 520px;
 	margin: 0px;
 }
 
