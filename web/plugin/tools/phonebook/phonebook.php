@@ -34,10 +34,10 @@ switch ($op) {
 			<table class=ps_table class=\"sortable\">
 			<thead>
 			<tr>
-				<th align=center width=25%>"._('Name')."</th>
-				<th align=center width=25%>"._('Mobile')."</th>
-				<th align=center width=30%>"._('Email')."</th>
-				<th align=center width=15%>"._('Group code')."</th>
+				<th width=25%>"._('Name')."</th>
+				<th width=25%>"._('Mobile')."</th>
+				<th width=30%>"._('Email')."</th>
+				<th width=15%>"._('Group code')."</th>
 				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></td>
 			</tr>
 			</thead>
@@ -56,11 +56,11 @@ switch ($op) {
 			$c_i = "<a href=\"index.php?app=menu&inc=tools_phonebook&op=phonebook_edit&id=".$pid."\">".$i.".</a>";
 			$content .= "
 				<tr class=$tr_class>
-					<td valign=top align=center>$name</td>
-					<td valign=top align=center>$mobile</td>
-					<td valign=top align=center>$email</td>
-					<td valign=top align=center>$group_code</td>
-					<td valign=top align=center>
+					<td>$name</td>
+					<td>$mobile</td>
+					<td>$email</td>
+					<td>$group_code</td>
+					<td>
 						<input type=hidden name=itemid".$j." value=\"$pid\">
 						<input type=checkbox name=checkid".$j.">
 					</td>

@@ -26,12 +26,12 @@ switch ($op) {
 		$content = "
 			<h2>"._('Message template')."</h2>
 			".$actions_box."
-			<table width=\"100%\" cellpadding=1 cellspacing=2 border=\"0\" class=\"sortable\">
+			<table class=ps_table class=\"sortable\">
 			<form name=\"$fm_name\" action=\"index.php?app=menu&inc=tools_msgtemplate&op=actions\" method=post>
 			<thead><tr>
 				<th width=\"30%\">&nbsp;"._('Name')."</th>
 				<th width=\"65%\">&nbsp;"._('Content')."</th>
-				<th width=5% class=\"sorttable_nosort\" align=\"center\"><input type=checkbox onclick=CheckUncheckAll(document.".$fm_name.")></th>
+				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.".$fm_name.")></th>
 			</tr></thead>
 			<tbody>";
 		$db_query = "SELECT * FROM "._DB_PREF_."_toolsMsgtemplate WHERE uid='$uid' ORDER BY t_title";
@@ -45,9 +45,9 @@ switch ($op) {
 			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
 				<tr class=$tr_class>
-					<td align=left><a href=\"index.php?app=menu&inc=tools_msgtemplate&op=edit&tid=$tid\">$temp_title</a></td>
-					<td align=left>$temp_text</td>
-					<td align=\"center\"><input type=hidden name=tid".$i." value=\"".$db_row['tid']."\"><input type=checkbox name=chkid".$i."></td>
+					<td><a href=\"index.php?app=menu&inc=tools_msgtemplate&op=edit&tid=$tid\">$temp_title</a></td>
+					<td>$temp_text</td>
+					<td><input type=hidden name=tid".$i." value=\"".$db_row['tid']."\"><input type=checkbox name=chkid".$i."></td>
 					<input type=hidden name=tid".$i." value=\"".$db_row['tid']."\">
 				</tr>";
 		}

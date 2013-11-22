@@ -25,10 +25,10 @@ switch ($op) {
 			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
 				<tr class=$tr_class>
-					<td align='center'>".$db_row['dst']."</td>
-					<td align='center'>".$db_row['prefix']."</td>	
-					<td align='center'>".$db_row['rate']."</td>	
-					<td align='center'>$action</td>
+					<td>".$db_row['dst']."</td>
+					<td>".$db_row['prefix']."</td>	
+					<td>".$db_row['rate']."</td>	
+					<td>$action</td>
 				</tr>";
 		}
 		$content .= "

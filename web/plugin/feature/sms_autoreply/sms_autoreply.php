@@ -36,15 +36,15 @@ switch ($op) {
 				$action = "<a href=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=".$db_row['autoreply_id'].">".$core_config['icon']['manage']."</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS autoreply ?')." ("._('keyword').": ".$db_row['autoreply_keyword'].")','index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_del&autoreply_id=".$db_row['autoreply_id']."')\">".$core_config['icon']['delete']."</a>";
 				if (isadmin()) {
-					$option_owner = "<td align=center>$owner</td>";
+					$option_owner = "<td>$owner</td>";
 				}
 				$i++;
 				$tr_class = ($i % 2) ? "row_odd" : "row_even";
 				$content .= "
 					<tr class=$tr_class>
-						<td align=center>".$db_row['autoreply_keyword']."</td>
+						<td>".$db_row['autoreply_keyword']."</td>
 						".$option_owner."
-						<td align=center>$action</td>
+						<td>$action</td>
 					</tr>";
 			}
 		}
@@ -92,16 +92,16 @@ switch ($op) {
 				$action = "<a href=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit&autoreply_id=$autoreply_id&autoreply_scenario_id=".$db_row['autoreply_scenario_id'].">".$core_config['icon']['edit']."</a>";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this SMS autoreply scenario ?')."','index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_del&autoreply_id=$autoreply_id&autoreply_scenario_id=".$db_row['autoreply_scenario_id']."')\">".$core_config['icon']['delete']."</a>";
 				if (isadmin()) {
-					$option_owner = "<td align=center>$owner</td>";
+					$option_owner = "<td>$owner</td>";
 				}
 				$j++;
 				$tr_class = ($j % 2) ? "row_odd" : "row_even";
 				$content .= "
 					<tr class=$tr_class>
-						<td align=center>$list_of_param</td>
+						<td>$list_of_param</td>
 						<td align=left>".$db_row['autoreply_scenario_result']."</td>
 						".$option_owner."
-						<td align=center>$action</td>
+						<td>$action</td>
 					</tr>";
 			}
 		}

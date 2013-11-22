@@ -51,12 +51,12 @@ switch ($op) {
 			$tr_class = ($j % 2) ? "row_odd" : "row_even";
 			$content .= "
 				<tr class=$tr_class>
-					<td valign=top align=center>" . core_display_datetime($list[$i]['register_datetime']) . "</td>
-					<td valign=top align=center>" . $list[$i]['username'] . "</td>
-					<td valign=top align=center>" . $list[$i]['name'] . "</td>
-					<td valign=top align=center>" . $list[$i]['mobile'] . "</td>	
-					<td valign=top align=center>" . rate_getusercredit($list[$i]['username']) . "</td>	
-					<td valign=top align=center>$action</td>
+					<td>" . core_display_datetime($list[$i]['register_datetime']) . "</td>
+					<td>" . $list[$i]['username'] . "</td>
+					<td>" . $list[$i]['name'] . "</td>
+					<td>" . $list[$i]['mobile'] . "</td>	
+					<td>" . rate_getusercredit($list[$i]['username']) . "</td>	
+					<td>$action</td>
 				</tr>";
 		}
 		$content .= "
@@ -109,12 +109,12 @@ switch ($op) {
 			$tr_class = ($j % 2) ? "row_odd" : "row_even";
 			$content .= "
 				<tr class=$tr_class>
-					<td valign=top align=center>" . core_display_datetime($list[$i]['register_datetime']) . "</td>
-					<td valign=top align=center>" . $list[$i]['username'] . "</td>
-					<td valign=top align=center>" . $list[$i]['name'] . "</td>
-					<td valign=top align=center>" . $list[$i]['mobile'] . "</td>	
-					<td valign=top align=center>" . rate_getusercredit($list[$i]['username']) . "</td>	
-					<td valign=top align=center>$action</td>
+					<td>" . core_display_datetime($list[$i]['register_datetime']) . "</td>
+					<td>" . $list[$i]['username'] . "</td>
+					<td>" . $list[$i]['name'] . "</td>
+					<td>" . $list[$i]['mobile'] . "</td>	
+					<td>" . rate_getusercredit($list[$i]['username']) . "</td>	
+					<td>$action</td>
 				</tr>";
 		}
 		$content .= "

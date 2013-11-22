@@ -97,9 +97,9 @@ switch ($op) {
 					$content .= "
 						<tr class=$tr_class>
 							<td>&nbsp;".$j.".</td>
-							<td align='center'>".$item_valid[$i][0]."</td>
+							<td>".$item_valid[$i][0]."</td>
 							<td>".$item_valid[$i][1]."</td>
-							<td align='center'>".$item_valid[$i][2]."</td>
+							<td>".$item_valid[$i][2]."</td>
 						</tr>";
 				}
 			}
@@ -125,9 +125,9 @@ switch ($op) {
 					$content .= "
 						<tr class=$tr_class>
 							<td>&nbsp;".$j.".</td>
-							<td align='center'>".$item_invalid[$i][0]."</td>
+							<td>".$item_invalid[$i][0]."</td>
 							<td>".$item_invalid[$i][1]."</td>
-							<td align='center'>".$item_invalid[$i][2]."</td>
+							<td>".$item_invalid[$i][2]."</td>
 						</tr>";
 				}
 			}

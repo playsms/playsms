@@ -45,16 +45,16 @@ switch ($op) {
 				$action .= "<a href=index.php?app=menu&inc=feature_sms_board&op=sms_board_edit&board_id=".$db_row['board_id'].">".$core_config['icon']['edit']."</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS board with all its messages ?')." ("._('keyword').": ".$db_row['board_keyword'].")','index.php?app=menu&inc=feature_sms_board&op=sms_board_del&board_id=".$db_row['board_id']."')\">".$core_config['icon']['delete']."</a>";
 				if (isadmin()) {
-					$option_owner = "<td align=center>$owner</td>";
+					$option_owner = "<td>$owner</td>";
 				}
 				$i++;
 				$tr_class = ($i % 2) ? "row_odd" : "row_even";
 				$content .= "
 					<tr class=$tr_class>
-						<td align=center>".$db_row['board_keyword']."</td>
-						<td align=center>".$db_row['board_forward_email']."</td>
+						<td>".$db_row['board_keyword']."</td>
+						<td>".$db_row['board_forward_email']."</td>
 						".$option_owner."
-						<td align=center>$action</td>
+						<td>$action</td>
 					</tr>";
 			}
 		}

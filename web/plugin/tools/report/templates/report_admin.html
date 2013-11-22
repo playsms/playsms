@@ -3,37 +3,37 @@
 <table class=ps_table class=sortable>
 	<thead>
 		<tr>
-			<th align='center' width='20%'>{User}</th>
-			<th align='center' width='10%'>{Pending}</th>
-			<th align='center' width='10%'>{Sent}</th>
-			<th align='center' width='10%'>{Delivered}</th>
-			<th align='center' width='10%'>{Failed}</th>
-			<th align='center' width='20%'>{Billing}</th>
-			<th align='center' width='20%'>{Credit}</th>
+			<th width=20%>{User}</th>
+			<th width=10%>{Pending}</th>
+			<th width=10%>{Sent}</th>
+			<th width=10%>{Delivered}</th>
+			<th width=10%>{Failed}</th>
+			<th width=20%>{Billing}</th>
+			<th width=20%>{Credit}</th>
 		</tr>
 	</thead>
 	<tbody>
 		<loop.data>
 			<tr class={data.tr_class}>
-				<td align=center>{data.c_username} {data.c_is_admin}</td>
-				<td align=center>{data.num_rows_pending}</td>
-				<td align=center>{data.num_rows_sent}</td>
-				<td align=center>{data.num_rows_delivered}</td>
-				<td align=center>{data.num_rows_failed}</td>
-				<td align=center>{data.c_billing}</td>
-				<td align=center>{data.c_credit}</td>
+				<td>{data.c_username} {data.c_is_admin}</td>
+				<td>{data.num_rows_pending}</td>
+				<td>{data.num_rows_sent}</td>
+				<td>{data.num_rows_delivered}</td>
+				<td>{data.num_rows_failed}</td>
+				<td>{data.c_billing}</td>
+				<td>{data.c_credit}</td>
 			</tr>
 		</loop.data>
 
 		<thead>
 			<tr>
-				<th align=center>{Total}: {sum_total}</td>
-				<th align=center>{sum_num_rows_pending}</th>
-				<th align=center>{sum_num_rows_sent}</th>
-				<th align=center>{sum_num_rows_delivered}</th>
-				<th align=center>{sum_num_rows_failed}</th>
-				<th align=center>{sum_billing}</th>
-				<th align=center>{sum_credit}</th>
+				<th>{Total}: {sum_total}</td>
+				<th>{sum_num_rows_pending}</th>
+				<th>{sum_num_rows_sent}</th>
+				<th>{sum_num_rows_delivered}</th>
+				<th>{sum_num_rows_failed}</th>
+				<th>{sum_billing}</th>
+				<th>{sum_credit}</th>
 			</tr>
 		</thead>
 	</tbody>

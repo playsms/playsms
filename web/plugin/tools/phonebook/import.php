@@ -55,11 +55,11 @@ switch ($op) {
 						$tr_class = ($j % 2) ? "row_odd" : "row_even";
 						$content .= "
 							<tr class=$tr_class>
-							<td align=center>$j.</td>
-							<td align=center>$parse_param[0]</td>
-							<td align=center>$parse_param[1]</td>
-							<td align=center>$parse_param[2]</td>
-							<td align=center>$parse_param[3]</td>
+							<td>$j.</td>
+							<td>$parse_param[0]</td>
+							<td>$parse_param[1]</td>
+							<td>$parse_param[2]</td>
+							<td>$parse_param[3]</td>
 							</tr>";
 						$k = $j - 1;
 						$_SESSION['tmp'][$session_import][$k] = $parse_param;

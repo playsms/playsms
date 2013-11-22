@@ -59,18 +59,18 @@ switch ($op) {
 				$action = "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=".$db_row['subscribe_id'].">".$core_config['icon']['edit']."</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS subscribe ?')." ("._('keyword').": ".$db_row['subscribe_keyword'].")','index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_del&subscribe_id=".$db_row['subscribe_id']."')\">".$core_config['icon']['delete']."</a>";
 				if (isadmin()) {
-					$option_owner = "<td align=center>$owner</td>";
+					$option_owner = "<td>$owner</td>";
 				}
 				$i++;
 				$tr_class = ($i % 2) ? "row_odd" : "row_even";
 				$content .= "
 					<tr class=$tr_class>
-						<td align=center>".$db_row['subscribe_keyword']."</td>
-						<td align=center><a href=index.php?app=menu&inc=feature_sms_subscribe&op=mbr_list&subscribe_id=".$db_row['subscribe_id'].">".$members."</a></td>
-						<td align=center><a href=index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id=".$db_row['subscribe_id'].">".$messages."</a></td>
+						<td>".$db_row['subscribe_keyword']."</td>
+						<td><a href=index.php?app=menu&inc=feature_sms_subscribe&op=mbr_list&subscribe_id=".$db_row['subscribe_id'].">".$members."</a></td>
+						<td><a href=index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id=".$db_row['subscribe_id'].">".$messages."</a></td>
 						".$option_owner."
-						<td align=center>$subscribe_status</td>
-						<td align=center>$action</td>
+						<td>$subscribe_status</td>
+						<td>$action</td>
 					</tr>";
 			}
 		}
@@ -405,9 +405,9 @@ switch ($op) {
 			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
 				<tr class=$tr_class>
-					<td align=center>".$db_row['member_number']."</td>
-					<td align=center>".$db_row['member_since']."</td>
-					<td align=center>$action</td>
+					<td>".$db_row['member_number']."</td>
+					<td>".$db_row['member_since']."</td>
+					<td>$action</td>
 					</tr>";
 		}
 		$content .= "</tbody>
@@ -454,10 +454,10 @@ switch ($op) {
 			$content .= "
 				<tr class=$tr_class>
 					<td>".$db_row['msg']."</td>
-					<td align=center>".core_display_datetime($db_row['create_datetime'])."</td>
-					<td align=center>".core_display_datetime($db_row['update_datetime'])."</td>
-					<td align=center>".$db_row['counter']."</td>
-					<td align=center>$action</td>
+					<td>".core_display_datetime($db_row['create_datetime'])."</td>
+					<td>".core_display_datetime($db_row['update_datetime'])."</td>
+					<td>".$db_row['counter']."</td>
+					<td>$action</td>
 					</tr>";
 		}
 		$content .= "</tbody>

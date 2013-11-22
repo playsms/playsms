@@ -29,9 +29,9 @@ switch ($op) {
 			<table class=ps_table class=\"sortable\">
 			<thead>
 			<tr>
-				<th align=center width=30%>"._('To')."</th>
-				<th align=center width=65%>"._('Message')."</th>
-				<th align=center width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_outgoing)></td>
+				<th width=30%>"._('To')."</th>
+				<th width=65%>"._('Message')."</th>
+				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_outgoing)></td>
 			</tr>
 			</thead>
 			<tbody>";
@@ -85,9 +85,9 @@ switch ($op) {
 			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
 				<tr class=$tr_class>
-					<td valign=top align=center>$current_p_dst</td>
-					<td valign=top align=left>$c_message</td>
-					<td valign=top align=center>
+					<td>$current_p_dst</td>
+					<td>$c_message</td>
+					<td>
 						<input type=hidden name=itemid".$j." value=\"$smslog_id\">
 						<input type=checkbox name=checkid".$j.">
 					</td>		  

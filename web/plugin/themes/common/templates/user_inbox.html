@@ -10,21 +10,21 @@
 <table class=ps_table class="sortable">
 	<thead>
 		<tr>
-			<th align=center width=30%>{From}</th>
-			<th align=center width=65%>{Message}</th>
+			<th width=30%>{From}</th>
+			<th width=65%>{Message}</th>
 			<th width=5% class="sorttable_nosort"><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></th>
 		</tr>
 	</thead>
 	<tbody>
 		<loop.data>
 		<tr class={data.tr_class}>
-			<td valign=top align=center>{data.current_sender}</td>
-			<td valign=top align=left>
+			<td>{data.current_sender}</td>
+			<td>
 				<div id="user_inbox_msg">{data.in_msg}</div>
 				<div id="msg_label">{data.in_datetime}&nbsp;{data.in_status}</div>
 				<div id="msg_option">{data.reply}&nbsp{data.forward}</div>
 			</td>
-			<td valign=top align=center>
+			<td>
 				<input type=hidden name=itemid{data.j} value={data.in_id}>
 				<input type=checkbox name=checkid{data.j}>
 			</td>

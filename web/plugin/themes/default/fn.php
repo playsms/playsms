@@ -31,7 +31,7 @@ function default_hook_themes_buildmenu($menu_config) {
 	$content .= "<div id='container'>\n";
 	$content .= "<nav class='navbar navbar-default navbar-fixed-top' role='navigation'>";
 	$content .= "<ul class='nav navbar-nav'>\n";
-	$content .= "<li><a href='http://playsms.org' target='_blank' class='brand'>playSMS</a></li>";
+	$content .= "<li><a href='" . $core_config['main']['cfg_main_website_url'] . "' target='_blank' class='brand'>" . $core_config['main']['cfg_main_website_name'] . "</a></li>";
 	$content .= "<li class='active'><a href='" . _HTTP_PATH_BASE_ . "'>" . _('Home') . "</a></li>\n";
 	foreach ($menu_config as $menu_title => $array_menu) {
 		$content .= "<li class='dropdown'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $menu_title . " <b class='caret'></b></a>\n";

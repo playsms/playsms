@@ -76,12 +76,12 @@ function pluginmanager_display($plugin_category) {
 			$tr_class = ($l % 2) ? "row_odd" : "row_even";
 			$content .= "
 				<tr class=$tr_class>
-					<td align=center>" . $plugin_info['name'] . "</td>
+					<td>" . $plugin_info['name'] . "</td>
 					<td>" . $plugin_info['description'] . "</td>
-					<td align=center>" . $plugin_info['release'] . "</td>
-					<td align=center>" . $plugin_info['author'] . "</td>
-					<td align=center>" . $plugin_info['date'] . "</td>
-					<td align=center>" . $plugin_info['status'] . "</td>
+					<td>" . $plugin_info['release'] . "</td>
+					<td>" . $plugin_info['author'] . "</td>
+					<td>" . $plugin_info['date'] . "</td>
+					<td>" . $plugin_info['status'] . "</td>
 				</tr>";
 		}
 	}

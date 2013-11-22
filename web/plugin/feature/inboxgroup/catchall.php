@@ -64,9 +64,9 @@ switch ($op) {
 				$tr_class = (($j+1) % 2) ? "row_odd" : "row_even";
 				$content .= "
 					<tr class=$tr_class>
-						<td align='center'>".$c_username."</td>
-						<td align='center'>".$c_name."</td>
-						<td align='center'>".$c_mobile."</td>
+						<td>".$c_username."</td>
+						<td>".$c_name."</td>
+						<td>".$c_mobile."</td>
 					</tr>";
 			}
 		}
@@ -132,7 +132,7 @@ switch ($op) {
 						"._('All users').":<br />
 						<select name=\"uids_dump[]\" id=\"msg_combo_sendto\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['uids_dump[]'],this.form['uids[]'])\">$list_of_users</select>
 					</td>
-					<td align=center valign=middle>
+					<td>
 						<br />
 						<p><input type=\"button\" class=\"button\" value=\"&gt;\" onclick=\"moveSelectedOptions(this.form['uids_dump[]'],this.form['uids[]'])\"></p>
 						<p><input type=\"button\" class=\"button\" value=\"&lt;\" onclick=\"moveSelectedOptions(this.form['uids[]'],this.form['uids_dump[]'])\"></p>
@@ -219,7 +219,7 @@ switch ($op) {
 						"._('Current catchall').":<br />
 						<select name=\"uids_dump[]\" id=\"msg_combo_sendto\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['uids_dump[]'],this.form['uids[]'])\">$list_of_users</select>
 					</td>
-					<td align=center valign=middle>
+					<td>
 						<br />
 						<p><input type=\"button\" class=\"button\" value=\"&gt;\" onclick=\"moveSelectedOptions(this.form['uids_dump[]'],this.form['uids[]'])\"></p>
 						<p><input type=\"button\" class=\"button\" value=\"&lt;\" onclick=\"moveSelectedOptions(this.form['uids[]'],this.form['uids_dump[]'])\"></p>

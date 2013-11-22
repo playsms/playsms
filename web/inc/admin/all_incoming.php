@@ -30,10 +30,10 @@ switch ($op) {
 			<table class=ps_table class=\"sortable\">
 			<thead>
 			<tr>
-				<th align=center width=20%>"._('User')."</th>
-				<th align=center width=25%>"._('From')."</th>
-				<th align=center width=20%>"._('Keyword')."</th>
-				<th align=center width=30%>"._('Content')."</th>
+				<th width=20%>"._('User')."</th>
+				<th width=25%>"._('From')."</th>
+				<th width=20%>"._('Keyword')."</th>
+				<th width=30%>"._('Content')."</th>
 				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_incoming)></td>
 			</tr>
 			</thead>
@@ -71,11 +71,11 @@ switch ($op) {
 			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
 				<tr class=$tr_class>
-					<td valign=top align=center>$in_username</td>
-					<td valign=top align=center>$current_sender</td>
-					<td valign=top align=center>$in_keyword $c_feature</td>
-					<td valign=top align=left>$c_message</td>
-					<td valign=top align=center>
+					<td>$in_username</td>
+					<td>$current_sender</td>
+					<td>$in_keyword $c_feature</td>
+					<td>$c_message</td>
+					<td>
 						<input type=hidden name=itemid".$j." value=\"$in_id\">
 						<input type=checkbox name=checkid".$j.">
 					</td>

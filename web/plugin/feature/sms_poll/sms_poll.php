@@ -52,17 +52,17 @@ switch ($op) {
 				$action .= "<a href=index.php?app=menu&inc=feature_sms_poll&op=sms_poll_edit&poll_id=".$db_row['poll_id'].">".$core_config['icon']['edit']."</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS poll with all its choices and votes ?')." ("._('keyword').": ".$db_row['poll_keyword'].")','index.php?app=menu&inc=feature_sms_poll&op=sms_poll_del&poll_id=".$db_row['poll_id']."')\">".$core_config['icon']['delete']."</a>";
 				if (isadmin()) {
-					$option_owner = "<td align=center>$owner</td>";
+					$option_owner = "<td>$owner</td>";
 				}
 				$i++;
 				$tr_class = ($i % 2) ? "row_odd" : "row_even";
 				$content .= "
 					<tr class=$tr_class>
-						<td align=center>".$db_row['poll_keyword']."</td>
-						<td align=center>".$db_row['poll_title']."</td>
+						<td>".$db_row['poll_keyword']."</td>
+						<td>".$db_row['poll_title']."</td>
 						".$option_owner."
-						<td align=center>$poll_status</td>
-						<td align=center>$action</td>
+						<td>$poll_status</td>
+						<td>$action</td>
 					</tr>";
 			}
 		}
@@ -133,9 +133,9 @@ switch ($op) {
 			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
 				<tr class=$tr_class>
-					<td align=center>$choice_keyword</td>
-					<td align=center>$choice_title</td>
-					<td align=center><a href=\"javascript:ConfirmURL('"._('Are you sure you want to delete choice ?')." ("._('title').": ".addslashes($choice_title).", "._('keyword').": ".$choice_keyword.")','index.php?app=menu&inc=feature_sms_poll&op=sms_poll_choice_del&poll_id=$poll_id&choice_id=$choice_id');\">".$core_config['icon']['delete']."</a></td>
+					<td>$choice_keyword</td>
+					<td>$choice_title</td>
+					<td><a href=\"javascript:ConfirmURL('"._('Are you sure you want to delete choice ?')." ("._('title').": ".addslashes($choice_title).", "._('keyword').": ".$choice_keyword.")','index.php?app=menu&inc=feature_sms_poll&op=sms_poll_choice_del&poll_id=$poll_id&choice_id=$choice_id');\">".$core_config['icon']['delete']."</a></td>
 				</tr>";	
 		}
 		$content .= "</tbody>

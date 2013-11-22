@@ -12,18 +12,18 @@ switch ($op) {
 			<table class=ps_table cellpadding=1 cellspacing=2 border=0 class=\"sortable\">
 			<thead>
 			<tr>
-				<th align=center width=30%>"._('Queue Code')."</th>
-				<th align=center width=20%>"._('Date/Time')."</th>
+				<th width=30%>"._('Queue Code')."</th>
+				<th width=20%>"._('Date/Time')."</th>
 		";
 		if (isadmin()) {
 			$content .= "
-				<th align=center width=10%>"._('User')."</th>
+				<th width=10%>"._('User')."</th>
 			";
 		}
 		$content .= "
-				<th align=center width=20%>"._('Group')."</th>
-				<th align=center width=10%>"._('Count')."</th>
-				<th align=center width=20%>"._('Message')."</th>
+				<th width=20%>"._('Group')."</th>
+				<th width=10%>"._('Count')."</th>
+				<th width=20%>"._('Message')."</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -40,18 +40,18 @@ switch ($op) {
 			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
 				<tr class=$tr_class>
-					<td valign=top align=center>".$c_queue_code."</td>
-					<td valign=top align=center>".$c_datetime_entry."</td>
+					<td>".$c_queue_code."</td>
+					<td>".$c_datetime_entry."</td>
 			";
 			if (isadmin()) {
 				$content .= "
-					<td valign=top align=center>".$c_username."</td>
+					<td>".$c_username."</td>
 				";
 			}
 			$content .= "
-					<td valign=top align=center>".$c_group."</td>
-					<td valign=top align=center>".$c_count."</td>
-					<td valign=top align=left>".$c_message."</td>
+					<td>".$c_group."</td>
+					<td>".$c_count."</td>
+					<td>".$c_message."</td>
 				</tr>
 			";
 		}
