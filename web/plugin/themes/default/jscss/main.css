@@ -8,9 +8,10 @@ body {
 	width: 100%;
 	height: 100%;
 	margin: 0px;
-	color: #FFF;
+	color: #2C3E50;
 	//background-color: #ECF0F1;
-	background-color: #7F8C8D;
+	//background-color: #7F8C8D;
+	background-color: #FFF;
 }
 
 #main {
@@ -55,7 +56,7 @@ body {
 
 a {
 	font-weight: normal;
-	color: #FFF;
+	color: #7F8C8D;
 	text-decoration: none;
 	cursor: pointer;
 	-webkit-transition: background-color 0.5s ease;
@@ -65,12 +66,12 @@ a {
 }
 
 a:visited {
-	color: #FFF;
+	color: #7F8C8D;
 	text-decoration: none;
 }
 
 a:hover {
-	color: #FFF;
+	color: #7F8C8D;
 	text-decoration: none;
 	background-color: #7F8C8D;
 }
@@ -79,7 +80,7 @@ table,tr {
 	border-spacing: 0;
 	border-collapse: collapse;
 	font-weight: normal;
-	color: #FFF;
+	color: #7F8C8D;
 }
 
 table tbody, table td {
@@ -92,6 +93,7 @@ table thead, table th {
 	font-weight: normal;
 	text-align: center;
 	background-color: #566B7F;
+	color: #FFF;
 	padding: 5px;
 	margin-bottom: 0px;
 }
@@ -131,7 +133,7 @@ h1 {
 	font-size: 26pt;
 	font-weight: normal;
 	text-align: left;
-	color: #FFF;
+	color: #7F8C8D;
 	margin-top: 0;
 	margin-bottom: 20px;
 }
@@ -140,7 +142,7 @@ h2 {
 	font-size: 22pt;
 	font-weight: normal;
 	text-align: left;
-	color: #FFF;
+	color: #7F8C8D;
 	margin-top: 0px;
 	margin-bottom: 20px;
 }
@@ -149,7 +151,7 @@ h3 {
 	font-size: 18pt;
 	font-weight: normal;
 	text-align: left;
-	color: #FFF;
+	color: #7F8C8D;
 	margin-top: 0px;
 	margin-bottom: 20px;
 }
@@ -158,7 +160,7 @@ h4 {
 	font-size: 16pt;
 	font-weight: normal;
 	text-align: left;
-	color: #FFF;
+	color: #7F8C8D;
 	margin-top: 0px;
 	margin-bottom: 20px;
 }
@@ -192,12 +194,12 @@ img.icon {
 }
 
 img.icon:hover {
-	background-color: #FFF;
+	background-color: #ECF0F1;
 }
 
 button,.button {
 	font-weight: normal;
-	color: #FFF;
+	color: #ECF0F1;
 	background-color: #455A6F;
 	border: 0;
 	cursor: pointer;
@@ -215,18 +217,19 @@ button:hover, .button:hover {
 }
 
 ul {
-	color: #FFF;
+	color: #7F8C8D;
 	font-size: 10pt;
 }
 
 li {
-	color: #FFF;
+	color: #7F8C8D;
 	font-size: 10pt;
 }
 
 pre {
 	border: 1px solid #566B7F;
 	background-color: #566B7F;
+	color: #FFF;
 	padding: 10px 5px 5px 5px;
 	margin: 1px;
 }
@@ -264,7 +267,7 @@ pre {
 }
 
 .color_white {
-	color: #FFF;
+	color: #ECF0F1;
 }
 
 .color_gray {
@@ -277,10 +280,18 @@ pre {
 	background-color: #9FAEAF;
 }
 
+.row_odd a {
+	color: #FFF;
+}
+
 .row_even {
 	font-weight: normal;
 	color: #FFF;
 	background-color: #8F9D9E;
+}
+
+.row_even a {
+	color: #FFF;
 }
 
 .row_odd:hover {
@@ -293,7 +304,7 @@ pre {
 
 .error_string {
 	font-weight: normal;
-	color: #ff0000;
+	color: #C0392B;
 	background-color: #ededed;
 	margin: 0 0 10px 0;
 	text-align: center;
@@ -313,7 +324,7 @@ pre {
 }
 
 #txtcount, #txtcount_un, #txtcount_uk, #txtcount_am {
-	color: #EEE;
+	color: #7F8C8D;
 	background-color: transparent;
 	border: 0px solid;
 	font-weight: normal;
@@ -568,7 +579,7 @@ pre {
 
 .youarehere {
 	font-weight: normal;
-	color: #FFF;
+	color: #ECF0F1;
 	background-color: #F1C40F;
 	border: 0;
 	cursor: pointer;
@@ -590,7 +601,7 @@ pre {
 	display: inline-block;
 	zoom: 1;
 	*display: inline;
-	background: #566B7F;
+	background-color: #566B7F;
 	border-bottom: #000;
 	-moz-border-radius: 4px 4px 0 0;
 	-webkit-border-radius: 4px 4px 0 0;
@@ -602,6 +613,7 @@ pre {
 	display: block;
 	padding: 0 10px;
 	outline: none;
+	color: #FFF;
 }
 
 .tab a:hover {
