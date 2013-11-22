@@ -1,7 +1,9 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
-if(!isadmin()){forcenoaccess();};
+if (!valid()) {
+	forcenoaccess();
+};
 
 // error messages
 $error_content = '';
