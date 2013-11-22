@@ -1,65 +1,40 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<title>{WEB_TITLE}</title>
 	<meta name="author" content="http://antonraharja.com">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="initial-scale=1, width=device-width, height=device-height">
+
+	<!-- load bootstrap 3 css -->
+	<link rel="stylesheet" type="text/css" href="{HTTP_PATH_THEMES}/{THEMES_MODULE}/jscss/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="{HTTP_PATH_THEMES}/common/jscss/common.css" />
+	<link rel="stylesheet" type="text/css" href="{HTTP_PATH_THEMES}/{THEMES_MODULE}/jscss/main.css" />
+
 </head>
 <body>
 
 <!-- load common js and css -->
-<script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/common.js"></script>
-<script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/selectbox.js"></script>
 <script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/jquery.min.js"></script>
 <script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/jquery.tablesorter.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() { 
 		$(".sortable").tablesorter();
-		
-		$("#menu-item-1").hide();
-		$("#menu-item-2").hide();
-		$("#menu-item-3").hide();
-		$("#menu-item-4").hide();
-		$("#menu-item-login").hide();
-		
-		$("#menu-box-1").hover(function () {
-			$("#menu-item-1").slideToggle(400);
-		});
-		$("#menu-box-2").hover(function () {
-			$("#menu-item-2").slideToggle(400);
-		});
-		$("#menu-box-3").hover(function () {
-			$("#menu-item-3").slideToggle(400);
-		});
-		$("#menu-box-4").hover(function () {
-			$("#menu-item-4").slideToggle(400);
-		});
-		$("#menu-box-login").hover(function () {
-			$("#menu-item-login").slideToggle(400);
-		});
 	});
 </script>
+<script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/common.js"></script>
+<script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/selectbox.js"></script>
 
-<link rel="stylesheet" type="text/css" href="{HTTP_PATH_THEMES}/common/jscss/common.css" />
 
-<!-- load specific themes default js and css -->
-<link rel="stylesheet" type="text/css" href="{HTTP_PATH_THEMES}/{THEMES_MODULE}/jscss/main.css" />
-<link rel="stylesheet" type="text/css" href="{HTTP_PATH_THEMES}/{THEMES_MODULE}/jscss/menu.css" />
-
-<div id="main">
+<div class="container">
 	<if.valid>
-	<div style="background-color: #34495E; position: absolute; z-index: 1; height: 33px; width: 100%;"></div>
-	<div class="container">
-		<div id="top-bar">
-			<div id="top-menu">{THEMES_MENU_TREE}</div>
+		<div class="row">
+			{THEMES_MENU_TREE}
 		</div>
-	</div>
 	</if.valid>
-	<div class="container">
-		<div id="content">
-			{CONTENT}
-		</div>
-
+	<div class="row">
+		{CONTENT}
 	</div>
 </div>
 
