@@ -29,7 +29,7 @@ switch ($op) {
 				<td class=label-sizer>" . _ ( 'Gateway name' ) . "</td><td>clickatell $status_active</td>
 			</tr>
 			<tr>
-				<td>" . _ ( 'API ID' ) . "</td><td><input type=text size=20 maxlength=20 name=up_api_id value=\"" . $clickatell_param ['api_id'] . "\"></td>
+				<td>" . _ ( 'API ID' ) . "</td><td><input type=text size=30 maxlength=20 name=up_api_id value=\"" . $clickatell_param ['api_id'] . "\"></td>
 			</tr>
 			<tr>
 				<td>" . _ ( 'Username' ) . "</td><td><input type=text size=30 maxlength=30 name=up_username value=\"" . $clickatell_param ['username'] . "\"></td>

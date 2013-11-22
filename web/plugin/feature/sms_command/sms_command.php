@@ -88,7 +88,7 @@ switch ($op) {
 			<table width='100%'>
 				<tbody>
 				<tr>
-					<td width='270'>"._('SMS command keyword') . "</td><td>".$edit_command_keyword."</td>
+					<td class=label-sizer>"._('SMS command keyword') . "</td><td>".$edit_command_keyword."</td>
 				</tr>
 				<tr>
 					<td>"._('SMS command exec path') . "</td><td>" . $sms_command_bin.'/'.$core_config['user']['uid'] . "</td>
@@ -171,7 +171,7 @@ switch ($op) {
 			<table width='100%'>
 				<tbody>
 				<tr>
-					<td width='270'>"._('SMS command keyword') . "</td><td><input type=text size=10 maxlength=10 name=add_command_keyword value=\"$add_command_keyword\"></td>
+					<td class=label-sizer>"._('SMS command keyword') . "</td><td><input type=text size=10 maxlength=10 name=add_command_keyword value=\"$add_command_keyword\"></td>
 				</tr>
 				<tr>
 					<td>"._('SMS command exec path') . "</td><td>" . $sms_command_bin.'/'.$core_config['user']['uid'] . "</td>

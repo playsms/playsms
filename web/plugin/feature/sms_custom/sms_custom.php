@@ -85,7 +85,7 @@ switch ($op) {
 			<table width='100%'>
 				<tbody>
 				<tr>
-					<td width='270'>"._('SMS custom keyword') . "</td><td>".$edit_custom_keyword."</td>
+					<td class=label-sizer>"._('SMS custom keyword') . "</td><td>".$edit_custom_keyword."</td>
 				</tr>
 				<tr>
 					<td colspan=2>"._('Pass these parameter to custom URL field')."</td>
@@ -158,7 +158,7 @@ switch ($op) {
 			<table width='100%'>
 				<tbody>
 				<tr>
-					<td width='270'>"._('SMS custom keyword') . "</td><td><input type=text size=10 maxlength=10 name=add_custom_keyword value=\"$add_custom_keyword\"></td>
+					<td class=label-sizer>"._('SMS custom keyword') . "</td><td><input type=text size=10 maxlength=10 name=add_custom_keyword value=\"$add_custom_keyword\"></td>
 				</tr>
 				<tr>
 					<td colspan=2>"._('Pass these parameter to custom URL field')."</td>

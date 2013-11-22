@@ -6,6 +6,24 @@ body {
 	height: 100%;
 }
 
+@media (max-width: 600px) {
+	input[size="30"], input[type="password"],select {
+		width: 140px;
+	}
+	.label-sizer {
+		width: 140px;
+	}
+}
+
+@media (min-width: 600px) {
+	input[size="30"], input[type="password"],select {
+		width: 300px;
+	}
+	.label-sizer {
+		width: 300px;
+	}
+}
+
 /* Wrapper for page content to push down footer */
 #main-body {
 	min-height: 100%;
@@ -29,10 +47,6 @@ body {
 
 #main-footer p {
 	padding-top: 15px;
-}
-
-.label-sizer {
-	width: 200px;
 }
 
 #playsmslog_view {
