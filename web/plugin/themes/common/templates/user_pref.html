@@ -1,13 +1,9 @@
 {ERROR}
 <h2>{FORM_TITLE}</h2>
 <form action="index.php?app=menu&inc=user_pref&op=user_pref_save{URL_NAME}" method=post enctype="multipart/form-data">
+<h3>{Login information}</h3>
 <table class=ps_table>
 	<tbody>
-		<tr>
-			<td colspan=2>
-				<h3>{Login information}</h3>
-			</td>
-		</tr>
 		<tr>
 			<td width=270>{Username}</td>
 			<td>{c_username}</td>
@@ -28,14 +24,14 @@
 			<td>{Email} {ND}</td>
 			<td><input type=text size=30 maxlength=30 name=up_email value="{email}"></td>
 		</tr>
+	</tbody>
+</table>
+
+<h3>{Personal information}</h3>
+<table class=ps_table>
+	<tbody>
 		<tr>
-			<td colspan=2>&nbsp;</td>
-		</tr>
-		<tr>
-			<td colspan=2><h3>{Personal information}</h3></td>
-		</tr>
-		<tr>
-			<td>{Address}</td>
+			<td width=270>{Address}</td>
 			<td><input type=text size=30 maxlength=250 name=up_address value="{address}"></td>
 		</tr>
 		<tr>
@@ -56,6 +52,7 @@
 		</tr>
 	</tbody>
 </table>
+
 <input type=submit class=button value='{Save}'> {BUTTON_DELETE}
 </form>
 {BUTTON_BACK}

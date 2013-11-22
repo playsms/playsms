@@ -369,7 +369,7 @@ table.sortable thead, table.sortable th, table.sortable_nosort thead, table.sort
 	display: inline-block;
 	zoom: 1;
 	*display: inline;
-	background-color: #566B7F;
+	background-color: #d35400;
 	border-bottom: #000;
 	-moz-border-radius: 4px 4px 0 0;
 	-webkit-border-radius: 4px 4px 0 0;

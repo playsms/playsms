@@ -155,10 +155,10 @@ switch ($op) {
 			$option_credit = "<tr><td>" . _('Credit') . "</td><td>$credit</td></tr>";
 		}
 		$content .= "
-			<form action=\"index.php?app=menu&inc=user_config&op=user_config_save".$url_uname."\" method=post enctype=\"multipart/form-data\">
+			<form action=\"index.php?app=menu&inc=user_config&op=user_config_save" . $url_uname . "\" method=post enctype=\"multipart/form-data\">
+			<h3>" . _('Application options') . "</h3>
 			<table class=ps_table>
 			<tbody>
-			<tr><td colspan=2><h3>" . _('Application options') . "</h3></td></tr>
 			<tr><td width=270>" . _('Username') . "</td><td>".$c_username."</td></tr>
 			<tr><td>" . _('Mobile') . " $nd</td><td><input type=text size=30 maxlength=20 name=up_mobile value=\"$mobile\"> " . _hint(_('Max. 20 digits mobile phone number')) . "</td></tr>
 			<tr><td>" . _('Effective SMS sender ID') . "</td><td>" . sendsms_get_sender($c_username) . "</td></tr>
