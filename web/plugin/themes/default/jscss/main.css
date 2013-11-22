@@ -2,6 +2,10 @@ body {
 	padding-top: 70px;
 }
 
+#playsmslog_view {
+	height: 400px;
+}
+
 table .table .table-striped {
 	//width: 100%;
 }
