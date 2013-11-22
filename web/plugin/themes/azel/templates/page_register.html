@@ -1,0 +1,65 @@
+<table width='100%'>
+	<tbody>
+	<tr>
+		<td align="center">
+		<table style='border-radius: 3px; background-color: #2C3E50; width: 300px'>
+			<tbody>
+			<tr>
+				<td>
+				<form action="index.php" method=POST>
+				<input type=hidden name=app value=page>
+				<input type=hidden name=inc value=login>
+				<input type=hidden name=op value=auth_register>
+				<table width="100%">
+					<tbody>
+					<tr><td>&nbsp;</td></tr>
+					<tr>
+						<td align='center' colspan='2'>
+							<p><a href={HTTP_PATH_BASE}>{WEB_TITLE}</a>
+							<p>{Register an account}
+						</td>
+					</tr>
+					<tr>
+						<td align='center' colspan='2'>
+							{ERROR}
+						</td>
+					</tr>
+					<tr>
+						<td width="100" align="right">{Name} &nbsp;</td>
+						<td>&nbsp;<input type=text name=name maxlength=100 style="width:135px"></td>
+					</tr>
+					<tr>
+						<td align="right">{Username} &nbsp;</td>
+						<td>&nbsp;<input type=text name=username maxlength=100 style="width:135px"></td>
+					</tr>
+					<tr>
+						<td align="right">{Mobile} &nbsp;</td>
+						<td>&nbsp;<input type=text name=mobile maxlength=100 style="width:135px"></td>
+					</tr>
+					<tr>
+						<td align="right">{Email} &nbsp;</td>
+						<td>&nbsp;<input type=text name=email maxlength=100 style="width:135px"></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td>&nbsp;<input type=submit class=button value='{Submit}'></td>
+					</tr>
+
+					<if.enable_forgot>
+					<tr>
+						<td>&nbsp;</td>
+						<td>&nbsp;<a href='index.php?app=page&inc=forgot'>{Forgot password}</a></td>
+					</tr>
+					</if.enable_forgot>
+
+					</tbody>
+				</table>
+				</form>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+		</td>
+	</tr>
+	</tbody>
+</table>

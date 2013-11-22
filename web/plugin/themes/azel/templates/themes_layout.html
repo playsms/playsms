@@ -1,0 +1,86 @@
+<html>
+<head>
+	<title>{WEB_TITLE}</title>
+	<meta name="author" content="http://antonraharja.com">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="initial-scale=1, width=device-width, height=device-height">
+</head>
+<body>
+
+<!-- load common js and css -->
+<script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/common.js"></script>
+<script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/selectbox.js"></script>
+<script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/jquery.min.js"></script>
+<script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/jquery.tablesorter.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() { 
+		$(".sortable").tablesorter();
+		
+		$("#menu-item-1").hide();
+		$("#menu-item-2").hide();
+		$("#menu-item-3").hide();
+		$("#menu-item-4").hide();
+		$("#menu-item-login").hide();
+		
+		$("#menu-box-1").mouseover(function () {
+			$("#menu-item-1").slideDown(400);
+		});
+		$("#menu-box-2").mouseover(function () {
+			$("#menu-item-2").slideDown(400);
+		});
+		$("#menu-box-3").mouseover(function () {
+			$("#menu-item-3").slideDown(400);
+		});
+		$("#menu-box-4").mouseover(function () {
+			$("#menu-item-4").slideDown(400);
+		});
+		$("#menu-box-login").mouseover(function () {
+			$("#menu-item-login").slideDown(400);
+		});
+
+		$("#menu-box-1").mouseout(function () {
+			$("#menu-item-1").slideUp(400);
+		});
+		$("#menu-box-2").mouseout(function () {
+			$("#menu-item-2").slideUp(400);
+		});
+		$("#menu-box-3").mouseout(function () {
+			$("#menu-item-3").slideUp(400);
+		});
+		$("#menu-box-4").mouseout(function () {
+			$("#menu-item-4").slideUp(400);
+		});
+		$("#menu-box-login").mouseout(function () {
+			$("#menu-item-login").slideUp(400);
+		});
+
+	});
+</script>
+
+<link rel="stylesheet" type="text/css" href="{HTTP_PATH_THEMES}/common/jscss/common.css" />
+
+<!-- load specific themes azel js and css -->
+<link rel="stylesheet" type="text/css" href="{HTTP_PATH_THEMES}/{THEMES_MODULE}/jscss/main.css" />
+<link rel="stylesheet" type="text/css" href="{HTTP_PATH_THEMES}/{THEMES_MODULE}/jscss/menu.css" />
+
+<div id="main">
+	<if.valid>
+	<div style="background-color: #34495E; position: absolute; z-index: 1; height: 33px; width: 100%;"></div>
+	<div class="container">
+		<div id="top-bar">
+			<div id="top-menu">{THEMES_MENU_TREE}</div>
+		</div>
+	</div>
+	</if.valid>
+	<div class="container">
+		<div id="content">
+			{CONTENT}
+		</div>
+
+	</div>
+</div>
+
+<!-- kurakura cinta kamu.......sampai mati... -->
+
+</body>
+</html>
