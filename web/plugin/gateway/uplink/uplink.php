@@ -35,7 +35,7 @@ switch ($op) {
 			<table class=ps_table>
 				<tbody>
 				<tr>
-					<td width=270>" . _('Gateway name') . "</td><td>uplink $status_active</td>
+					<td class=label-sizer>" . _('Gateway name') . "</td><td>uplink $status_active</td>
 				</tr>
 				<tr>
 					<td>" . _('Master URL') . "</td><td><input type=text size=30 maxlength=250 name=up_master value=\"" . $uplink_param['master'] . "\"></td>

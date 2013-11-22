@@ -174,7 +174,7 @@ switch ($op) {
 		<table class=ps_table>
 		<tbody>
 		<tr>
-			<td width=270>" . _('User level') . "</td><td><select name='add_status'>$option_status</select></td>
+			<td class=label-sizer>" . _('User level') . "</td><td><select name='add_status'>$option_status</select></td>
 		</tr>
 		<tr>
 			<td>" . _('Username') . " $nd</td><td><input type='text' size=30 maxlength='30' name='add_username' value=\"$add_username\"></td>

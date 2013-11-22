@@ -78,7 +78,7 @@ switch ($op) {
 			<table class=ps_table>
 			<tbody>
 				<tr>
-					<td width=270>"._('Group name')."</td>
+					<td class=label-sizer>"._('Group name')."</td>
 					<td><input type=text name=group_name size=30></td>
 				</tr>
 				<tr>
@@ -103,7 +103,7 @@ switch ($op) {
 			<table class=ps_table>
 			<tbody>
 			<tr>
-				<td width=270>"._('Group name')."</td>
+				<td class=label-sizer>"._('Group name')."</td>
 				<td><input type=text name=group_name value=\"".phonebook_groupid2name($gpid)."\" size=30></td>
 			</tr>
 			<tr>

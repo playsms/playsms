@@ -18,7 +18,7 @@ switch ($op) {
 			<h2>"._('Manage poll')."</h2>
 			<h3>"._('View poll')." : ".$poll_keyword."</h3>
 			<table class=ps_table>
-				<tr><td width=270>"._('PHP serialize output')."</td><td>:</td><td><a href=\"".$output_serialize."\" target=_blank>".$output_serialize."</a></td></tr>
+				<tr><td class=label-sizer>"._('PHP serialize output')."</td><td>:</td><td><a href=\"".$output_serialize."\" target=_blank>".$output_serialize."</a></td></tr>
 				<tr><td>"._('JSON output')."</td><td>:</td><td><a href=\"".$output_json."\" target=_blank>".$output_json."</a></td></tr>
 				<tr><td>"._('XML output')."</td><td>:</td><td><a href=\"".$output_xml."\" target=_blank>".$output_xml."</a></td></tr>
 				<tr><td>"._('Graph output')."</td><td>:</td><td><a href=\"".$output_graph."\" target=_blank>".$output_graph."</a></td></tr>

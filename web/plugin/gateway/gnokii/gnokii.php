@@ -23,7 +23,7 @@ switch ($op) {
 			<table class=ps_table>
 				<tbody>
 				<tr>
-					<td width=270>"._('Gateway name')."</td><td>gnokii $status_active</td>
+					<td class=label-sizer>"._('Gateway name')."</td><td>gnokii $status_active</td>
 				</tr>
 				<tr>
 					<td>"._('Gnokii installation path')."</td><td><input type=text size=30 maxlength=250 name=up_path value=\"".$gnokii_param['path']."\"> "._hint(_('No trailing slash')." \"/\"")."</td>

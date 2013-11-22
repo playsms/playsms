@@ -81,7 +81,7 @@ switch ($op) {
 			<input type=hidden name=edit_board_keyword value=$edit_board_keyword>
 			<table class=ps_table>
 			<tr>
-				<td width=270>"._('SMS board keyword')."</td><td>".$edit_board_keyword."</td>
+				<td class=label-sizer>"._('SMS board keyword')."</td><td>".$edit_board_keyword."</td>
 			</tr>
 			<tr>
 				<td>"._('Forward to email')."</td><td><input type=text size=30 name=edit_email value=\"".$edit_email."\"></td>
@@ -153,7 +153,7 @@ switch ($op) {
 			<form action=index.php?app=menu&inc=feature_sms_board&op=sms_board_add_yes method=post>
 			<table class=ps_table cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td width=270>"._('SMS board keyword')."</td><td><input type=text size=30 maxlength=30 name=add_board_keyword value=\"$add_board_keyword\"></td>
+				<td class=label-sizer>"._('SMS board keyword')."</td><td><input type=text size=30 maxlength=30 name=add_board_keyword value=\"$add_board_keyword\"></td>
 			</tr>
 			<tr>
 				<td>"._('Forward to email')."</td><td><input type=text size=30 name=add_email value=\"$add_email\"></td>

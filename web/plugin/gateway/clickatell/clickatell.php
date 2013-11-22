@@ -26,7 +26,7 @@ switch ($op) {
 			<form action=index.php?app=menu&inc=gateway_clickatell&op=manage_save method=post>
 			<table class=ps_table>
 			<tr>
-				<td width=270>" . _ ( 'Gateway name' ) . "</td><td>clickatell $status_active</td>
+				<td class=label-sizer>" . _ ( 'Gateway name' ) . "</td><td>clickatell $status_active</td>
 			</tr>
 			<tr>
 				<td>" . _ ( 'API ID' ) . "</td><td><input type=text size=20 maxlength=20 name=up_api_id value=\"" . $clickatell_param ['api_id'] . "\"></td>

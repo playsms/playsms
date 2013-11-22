@@ -22,7 +22,7 @@ switch ($op) {
 			<table class=ps_table>
 				<tbody>
 				<tr>
-					<td width=270>"._('Gateway name')."</td><td>smstools $status_active</td>
+					<td class=label-sizer>"._('Gateway name')."</td><td>smstools $status_active</td>
 				</tr>
 				</tbody>
 			</table>";

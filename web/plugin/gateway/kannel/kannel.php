@@ -53,7 +53,7 @@ switch ($op) {
 			<table class=ps_table cellpadding=1 cellspacing=2 border=0>
 				<tbody>
 				<tr>
-					<td width=270>" . _('Gateway name') . "</td><td>kannel $status_active</td>
+					<td class=label-sizer>" . _('Gateway name') . "</td><td>kannel $status_active</td>
 				</tr>
 				<tr>
 					<td>" . _('Username') . "</td><td><input type=text size=30 maxlength=30 name=up_username value=\"" . $kannel_param['username'] . "\"></td>

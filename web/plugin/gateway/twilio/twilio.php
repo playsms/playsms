@@ -22,7 +22,7 @@ switch ($op) {
 			<form action=index.php?app=menu&inc=gateway_twilio&op=manage_save method=post>
 			<table class=ps_table cellpadding=1 cellspacing=2 border=0>
 				<tbody>
-				<tr><td width=270>"._('Gateway name')."</td><td>twilio $status_active</td></tr>
+				<tr><td class=label-sizer>"._('Gateway name')."</td><td>twilio $status_active</td></tr>
 				<tr><td>"._('Twilio URL')."</td><td>".$core_config['plugin']['twilio']['url']."</td></tr>
 				<tr><td>"._('Callback URL')."</td><td><input type=text size=30 maxlength=250 name=up_callback_url value=\"".$core_config['plugin']['twilio']['callback_url']."\"></td></tr>
 				<tr><td>"._('Account SID')."</td><td><input type=text size=30 maxlength=40 name=up_account_sid value=\"".$core_config['plugin']['twilio']['account_sid']."\"></td></tr>

@@ -159,7 +159,7 @@ switch ($op) {
 			<h3>" . _('Application options') . "</h3>
 			<table class=ps_table>
 			<tbody>
-			<tr><td width=270>" . _('Username') . "</td><td>".$c_username."</td></tr>
+			<tr><td class=label-sizer>" . _('Username') . "</td><td>".$c_username."</td></tr>
 			<tr><td>" . _('Mobile') . " $nd</td><td><input type=text size=30 maxlength=20 name=up_mobile value=\"$mobile\"> " . _hint(_('Max. 20 digits mobile phone number')) . "</td></tr>
 			<tr><td>" . _('Effective SMS sender ID') . "</td><td>" . sendsms_get_sender($c_username) . "</td></tr>
 			<tr><td>" . _('SMS sender ID') . "</td><td><input type=text size=30 maxlength=16 name=up_sender value=\"$sender\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric characters')) . "</td></tr>

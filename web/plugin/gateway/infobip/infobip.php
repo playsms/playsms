@@ -30,7 +30,7 @@ switch ($op) {
 			<form action=index.php?app=menu&inc=gateway_infobip&op=manage_save method=post>
 			<table class=ps_table>
 			<tr>
-				<td width=270>" . _ ( 'Gateway name' ) . "</td><td>infobip $status_active</td>
+				<td class=label-sizer>" . _ ( 'Gateway name' ) . "</td><td>infobip $status_active</td>
 			</tr>
 			<tr>
 				<td>" . _ ( 'Username' ) . "</td><td><input type=text size=30 maxlength=30 name=up_username value=\"" . $infobip_param ['username'] . "\"></td>
