@@ -28,34 +28,48 @@ function default_hook_themes_apply($content) {
 
 function default_hook_themes_buildmenu($menu_config) {
 	global $core_config;
-	$content .= "<div id='container'>\n";
-	$content .= "<nav class='navbar navbar-default navbar-fixed-top' role='navigation'>";
-	$content .= "<ul class='nav navbar-nav'>\n";
-	$content .= "<li><a href='" . $core_config['main']['cfg_main_website_url'] . "' target='_blank' class='brand'>" . $core_config['main']['cfg_main_website_name'] . "</a></li>";
-	$content .= "<li class='active'><a href='" . _HTTP_PATH_BASE_ . "'>" . _('Home') . "</a></li>\n";
+	$main_menu = "";
 	foreach ($menu_config as $menu_title => $array_menu) {
-		$content .= "<li class='dropdown'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $menu_title . " <b class='caret'></b></a>\n";
-		$content .= "<ul class='dropdown-menu'>\n";
+		$main_menu .= "<li class='dropdown'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $menu_title . " <b class='caret'></b></a>";
+		$main_menu .= "<ul class='dropdown-menu'>";
 		foreach ($array_menu as $sub_menu) {
 			$sub_menu_url = $sub_menu[0];
 			$sub_menu_title = $sub_menu[1];
-			$content .= "<li><a href='" . $sub_menu_url . "'>" . $sub_menu_title . "</a></li>\n";
+			$main_menu .= "<li><a href='" . $sub_menu_url . "'>" . $sub_menu_title . "</a></li>";
 		}
-		$content .= "</ul>\n";
-		$content .= "</li>\n";
+		$main_menu .= "</ul>";
+		$main_menu .= "</li>";
 	}
-	$content .= "<li class='dropdown'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $core_config['user']['name'] . " (" . $core_config['user']['username'] . ") <b class='caret'></b></a>\n";
-	$content .= "<ul class='dropdown-menu'>\n";
-	$content .= "<li><a href='index.php?app=menu&inc=user_config&op=user_config'>" . _('User configuration') . "</a></li>\n";
-	$content .= "<li><a href='index.php?app=menu&inc=user_pref&op=user_pref'>" . _('Preferences') . "</a></li>\n";
-	$content .= "<li><a href='index.php?app=page&op=auth_logout'>" . _('Logout') . "</a></li>\n";
-	$content .= "</ul>\n";
-	$content .= "</li>\n";
-
-	$content .= "</ul>\n";
-	$content .= "</nav>\n";
-	$content .= "</div>\n";
-
+	
+	$content = "
+		<nav class='navbar navbar-inverse navbar-fixed-top' role='navigation'>
+			<div class='container'>
+				<div class='navbar-header'>
+					<button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
+						<span class='icon-bar'></span>
+						<span class='icon-bar'></span>
+						<span class='icon-bar'></span>
+					</button>
+					<a class='navbar-brand' href='" . $core_config['main']['cfg_main_website_url'] . "' target='_blank' class='brand'>" . $core_config['main']['cfg_main_website_name'] . "</a>
+				</div>
+				<ul class='nav navbar-nav navbar-right'>
+					<li class='dropdown'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $core_config['user']['name'] . " (" . $core_config['user']['username'] . ") <b class='caret'></b></a>
+						<ul class='dropdown-menu'>
+							<li><a href='index.php?app=menu&inc=user_config&op=user_config'>" . _('User configuration') . "</a></li>
+							<li><a href='index.php?app=menu&inc=user_pref&op=user_pref'>" . _('Preferences') . "</a></li>
+							<li><a href='index.php?app=page&op=auth_logout'>" . _('Logout') . "</a></li>
+						</ul>
+					</li>
+				</ul>
+				<div class='navbar-collapse collapse'>
+					<ul class='nav navbar-nav'>
+						<li class='active'><a href='" . _HTTP_PATH_BASE_ . "'>" . _('Home') . "</a></li>
+						".$main_menu."
+					</ul>
+				</div>
+			</div>
+		</nav>
+	";
 	return $content;
 }
 

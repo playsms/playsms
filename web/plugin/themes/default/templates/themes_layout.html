@@ -3,13 +3,32 @@
 <head>
 	<title>{WEB_TITLE}</title>
 	<meta name="author" content="http://antonraharja.com">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="{HTTP_PATH_THEMES}/{THEMES_MODULE}/jscss/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="{HTTP_PATH_THEMES}/common/jscss/common.css" />
 	<link rel="stylesheet" type="text/css" href="{HTTP_PATH_THEMES}/{THEMES_MODULE}/jscss/main.css" />
-	<link rel="stylesheet" type="text/css" href="{HTTP_PATH_THEMES}/{THEMES_MODULE}/jscss/normalize.css" />
+        <style type="text/css">
+		.navbar-right {float: right !important;}
 
+		@media(max-width:767px) {
+			.navbar-right {margin-right:20px;}
+			.navbar-header:after {
+				clear: none;
+			}
+			.navbar-nav.navbar-right > li { float: left; }
+
+			.navbar-collapse:before {clear:both;}
+
+			.navbar-collapse {overflow-y: hidden;}
+			.navbar-collapse.in {overflow-y: visible;}
+
+			.navbar-collapse.in > ul {border-top: 1px double #101010;}
+		}
+
+        </style>
 </head>
 <body>
 
@@ -20,18 +39,22 @@
 <script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/common.js"></script>
 <script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/selectbox.js"></script>
 
-
-<div class="container">
+<div id="main-body">
 	<if.valid>
-		<div class="row">
+		<div id="main-menu">
 			{THEMES_MENU_TREE}
 		</div>
 	</if.valid>
-	<div class="row">
-		{CONTENT}
+	<div id="main-content">
+		<div class="container">
+			{CONTENT}
+		</div>
 	</div>
-	<div class="row">
-		
+</div>
+
+<div id="main-footer">
+	<div class="container">
+		<p class="text-muted credit"><a href="http://playsms.org" target="_blank">playSMS</a> free and open source SMS software</p>
 	</div>
 </div>
 
