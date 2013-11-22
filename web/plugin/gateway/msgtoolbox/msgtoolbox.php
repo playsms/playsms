@@ -21,7 +21,7 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage msgtoolbox')."</h2>
 			<form action=index.php?app=menu&inc=gateway_msgtoolbox&op=manage_save method=post>
-			<table width=100%>
+			<table class=ps_table>
 				<tbody>
 				<tr>
 					<td width=270>"._('Gateway name')."</td><td>msgtoolbox $status_active</td>

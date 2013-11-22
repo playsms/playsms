@@ -70,7 +70,7 @@ switch ($op) {
 			<h2>"._('Message template')."</h2>
 			<h3>"._('Add message template')."</h3>
 			<form action=\"index.php?app=menu&inc=tools_msgtemplate&op=actions&go=add\" method=\"post\">
-			<table width=100%>
+			<table class=ps_table>
 			<tr>
 				<td width=270>"._('Message template name')."</td><td><input type=\"text\" size=\"30\" maxlength=\"100\" name=\"t_title\"></td>
 			</tr>
@@ -95,7 +95,7 @@ switch ($op) {
 			<h3>"._('Edit message template')."</h3>
 			<form action=\"index.php?app=menu&inc=tools_msgtemplate&op=actions&go=edit\" method=\"post\">
 			<input type=hidden name=tid value=\"$tid\">
-			<table width=100%>
+			<table class=ps_table>
 			<tr>
 				<td width=270>"._('Message template name')."</td><td><input type=\"text\" size=\"30\" maxlength=\"100\" name=\"t_title\" value=\"".$db_row['t_title']."\"></td>
 			</tr>

@@ -19,7 +19,7 @@ switch ($op) {
 		}
 		$content .= "
 			<h2>"._('Manage gammu')."</h2>
-			<table width=100%>
+			<table class=ps_table>
 				<tbody>
 				<tr>
 					<td width=270>"._('Gateway name')."</td><td>gammu $status_active</td>

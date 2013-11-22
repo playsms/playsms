@@ -27,7 +27,7 @@ switch ($op) {
 			<p>".$search['form']."</p>
 			<form name=\"fm_incoming\" action=\"index.php?app=menu&inc=all_incoming&op=actions\" method=post onSubmit=\"return SureConfirm()\">
 			".$actions_box."
-			<table width=100% class=\"sortable\">
+			<table class=ps_table class=\"sortable\">
 			<thead>
 			<tr>
 				<th align=center width=20%>"._('User')."</th>

@@ -21,7 +21,7 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage board')."</h2>
 			<h3>"._('View board')." : ".$board_keyword."</h3>
-			<table width=100%>
+			<table class=ps_table>
 				<tr><td width=270>"._('PHP serialize output')."</td><td><a href=\"".$output_serialize."\" target=_blank>".$output_serialize."</a></td></tr>
 				<tr><td>"._('JSON output')."</td><td><a href=\"".$output_json."\" target=_blank>".$output_json."</a></td></tr>
 				<tr><td>"._('XML output')."</td><td><a href=\"".$output_xml."\" target=_blank>".$output_xml."</a></td></tr>

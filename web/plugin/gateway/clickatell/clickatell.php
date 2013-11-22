@@ -24,7 +24,7 @@ switch ($op) {
 		$content .= "
 			<h2>" . _ ( 'Manage clickatell' ) . "</h2>
 			<form action=index.php?app=menu&inc=gateway_clickatell&op=manage_save method=post>
-			<table width=100%>
+			<table class=ps_table>
 			<tr>
 				<td width=270>" . _ ( 'Gateway name' ) . "</td><td>clickatell $status_active</td>
 			</tr>

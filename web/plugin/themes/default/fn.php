@@ -31,7 +31,7 @@ function default_hook_themes_buildmenu($menu_config) {
 	$content .= "<div id='container'>\n";
 	$content .= "<nav class='navbar navbar-default navbar-fixed-top' role='navigation'>";
 	$content .= "<ul class='nav navbar-nav'>\n";
-
+	$content .= "<li><a href='http://playsms.org' target='_blank' class='brand'>playSMS</a></li>";
 	$content .= "<li class='active'><a href='" . _HTTP_PATH_BASE_ . "'>" . _('Home') . "</a></li>\n";
 	foreach ($menu_config as $menu_title => $array_menu) {
 		$content .= "<li class='dropdown'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $menu_title . " <b class='caret'></b></a>\n";
@@ -44,7 +44,7 @@ function default_hook_themes_buildmenu($menu_config) {
 		$content .= "</ul>\n";
 		$content .= "</li>\n";
 	}
-	$content .= "<li class='dropdown pull-right'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $core_config['user']['name'] . " (" . $core_config['user']['username'] . ") <b class='caret'></b></a>\n";
+	$content .= "<li class='dropdown'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $core_config['user']['name'] . " (" . $core_config['user']['username'] . ") <b class='caret'></b></a>\n";
 	$content .= "<ul class='dropdown-menu'>\n";
 	$content .= "<li><a href='index.php?app=menu&inc=user_config&op=user_config'>" . _('User configuration') . "</a></li>\n";
 	$content .= "<li><a href='index.php?app=menu&inc=user_pref&op=user_pref'>" . _('Preferences') . "</a></li>\n";

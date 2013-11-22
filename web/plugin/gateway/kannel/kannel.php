@@ -50,7 +50,7 @@ switch ($op) {
 		$content .= "
 			<h2>" . _('Manage kannel') . "</h2>
 			<form action=index.php?app=menu&inc=gateway_kannel&op=manage_save method=post>
-			<table width=100% cellpadding=1 cellspacing=2 border=0>
+			<table class=ps_table cellpadding=1 cellspacing=2 border=0>
 				<tbody>
 				<tr>
 					<td width=270>" . _('Gateway name') . "</td><td>kannel $status_active</td>

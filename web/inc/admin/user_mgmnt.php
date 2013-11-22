@@ -31,8 +31,8 @@ switch ($op) {
 			<input type='button' value='" . _('Add user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
 			<input type='button' value='" . _('View normal user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab2')\" class=\"button\" />
 			<p>".$search['form']."</p>
-			<table width=100%><tbody><tr><td>".$nav['form']."</td></tr></tbody></table>
-			<table width=100% class=\"sortable\">
+			<table class=ps_table><tbody><tr><td>".$nav['form']."</td></tr></tbody></table>
+			<table class=ps_table class=\"sortable\">
 			<thead><tr>
 				<th width='20%'>" . _('Registered') . "</th>
 				<th width='20%'>" . _('Username') . "</th>
@@ -61,7 +61,7 @@ switch ($op) {
 		}
 		$content .= "
 			</tbody></table>
-			<table width=100%><tbody><tr><td>".$nav['form']."</td></tr></tbody></table>";
+			<table class=ps_table><tbody><tr><td>".$nav['form']."</td></tr></tbody></table>";
 		echo $content;
 		break;
 	case "user_list_tab2":
@@ -88,8 +88,8 @@ switch ($op) {
 			<input type='button' value='" . _('Add user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
 			<input type='button' value='" . _('View administrator') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab1')\" class=\"button\" />
 			<p>".$search['form']."</p>
-			<table width=100%><tbody><tr><td>".$nav['form']."</td></tr></tbody></table>
-			<table width=100% class=\"sortable\">
+			<table class=ps_table><tbody><tr><td>".$nav['form']."</td></tr></tbody></table>
+			<table class=ps_table class=\"sortable\">
 			<thead><tr>
 				<th width='20%'>" . _('Registered') . "</th>
 				<th width='20%'>" . _('Username') . "</th>
@@ -119,7 +119,7 @@ switch ($op) {
 		}
 		$content .= "
 			</tbody></table>
-			<table width=100%><tbody><tr><td>".$nav['form']."</td></tr></tbody></table>";
+			<table class=ps_table><tbody><tr><td>".$nav['form']."</td></tr></tbody></table>";
 		echo $content;
 		break;
 	case "user_del":
@@ -171,7 +171,7 @@ switch ($op) {
 		<h2>"._('Manage user')."</h2>
 		<h3>"._('Add user')."</h3>
 		<form action='index.php?app=menu&inc=user_mgmnt&op=user_add_yes' method='post'>
-		<table width=100%>
+		<table class=ps_table>
 		<tbody>
 		<tr>
 			<td width=270>" . _('User level') . "</td><td><select name='add_status'>$option_status</select></td>

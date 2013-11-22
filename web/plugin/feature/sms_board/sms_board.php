@@ -16,7 +16,7 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage board')."</h2>
 			<p>"._button('index.php?app=menu&inc=feature_sms_board&op=sms_board_add', _('Add SMS board'))."
-			<table width=100% class=sortable>
+			<table class=ps_table class=sortable>
 			<thead><tr>";
 		if (isadmin()) {
 			$content .= "
@@ -79,7 +79,7 @@ switch ($op) {
 			<form action=index.php?app=menu&inc=feature_sms_board&op=sms_board_edit_yes method=post>
 			<input type=hidden name=board_id value=$board_id>
 			<input type=hidden name=edit_board_keyword value=$edit_board_keyword>
-			<table width=100%>
+			<table class=ps_table>
 			<tr>
 				<td width=270>"._('SMS board keyword')."</td><td>".$edit_board_keyword."</td>
 			</tr>
@@ -151,7 +151,7 @@ switch ($op) {
 			<h2>"._('Manage board')."</h2>
 			<h3>"._('Add SMS board')."</h3>
 			<form action=index.php?app=menu&inc=feature_sms_board&op=sms_board_add_yes method=post>
-			<table width=100% cellpadding=1 cellspacing=2 border=0>
+			<table class=ps_table cellpadding=1 cellspacing=2 border=0>
 			<tr>
 				<td width=270>"._('SMS board keyword')."</td><td><input type=text size=30 maxlength=30 name=add_board_keyword value=\"$add_board_keyword\"></td>
 			</tr>

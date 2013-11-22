@@ -28,7 +28,7 @@ switch ($op) {
 		$content .= "
 			<h2>" . _ ( 'Manage infobip' ) . "</h2>
 			<form action=index.php?app=menu&inc=gateway_infobip&op=manage_save method=post>
-			<table width=100%>
+			<table class=ps_table>
 			<tr>
 				<td width=270>" . _ ( 'Gateway name' ) . "</td><td>infobip $status_active</td>
 			</tr>

@@ -17,7 +17,7 @@ switch ($op) {
 				<h2>"._('Manage quiz')."</h2>
 				"._button('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add', _('Add SMS quiz'));
 		$content .= "
-			<table width=100% class=sortable>
+			<table class=ps_table class=sortable>
 			<thead><tr>";
 		if (isadmin()) {
 			$content .= "
@@ -79,7 +79,7 @@ switch ($op) {
 			<h2>"._('Manage quiz')."</h2>
 			<h3>"._('Add SMS quiz')."</h3>
 			<form action=index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add_yes method=post>
-			<table width=100%>
+			<table class=ps_table>
 			<tr>
 				<td width=270>"._('SMS quiz keyword')."</td><td><input type=text size=10 maxlength=10 name=add_quiz_keyword value=\"$add_quiz_keyword\"></td>
 			</tr>
@@ -144,7 +144,7 @@ switch ($op) {
 			<form action=index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_edit_yes method=post>
 			<input type=hidden name=quiz_id value=\"$quiz_id\">
 			<input type=hidden name=edit_quiz_keyword value=\"$edit_quiz_keyword\">
-			<table width=100%>
+			<table class=ps_table>
 			<tr>
 				<td width=270>"._('SMS quiz keyword')."</td><td>$edit_quiz_keyword</td>
 			</tr>
@@ -201,7 +201,7 @@ switch ($op) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureQuiz_log WHERE quiz_id='$quiz_id' ORDER BY in_datetime DESC";
 		$db_result = dba_query($db_query);
 		$content .= "
-			<table width=100% class=sortable>
+			<table class=ps_table class=sortable>
 			<thead><tr>
 				<th width=30%>"._('Datetime')."</th>
 				<th width=20%>"._('Sender')."</th>
