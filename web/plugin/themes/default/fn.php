@@ -28,10 +28,9 @@ function default_hook_themes_apply($content) {
 
 function default_hook_themes_buildmenu($menu_config) {
 	global $core_config;
-	$content = "<div id='navbar'>\n";
-	$content .= "<div id='navbar-inner'>\n";
 	$content .= "<div id='container'>\n";
-	$content .= "<ul class='nav nav-pills'>\n";
+	$content .= "<nav class='navbar navbar-default navbar-fixed-top' role='navigation'>";
+	$content .= "<ul class='nav navbar-nav'>\n";
 
 	$content .= "<li class='active'><a href='" . _HTTP_PATH_BASE_ . "'>" . _('Home') . "</a></li>\n";
 	foreach ($menu_config as $menu_title => $array_menu) {
@@ -54,8 +53,7 @@ function default_hook_themes_buildmenu($menu_config) {
 	$content .= "</li>\n";
 
 	$content .= "</ul>\n";
-	$content .= "</div>\n";
-	$content .= "</div>\n";
+	$content .= "</nav>\n";
 	$content .= "</div>\n";
 
 	return $content;
