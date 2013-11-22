@@ -57,27 +57,27 @@
 		<tr>
 			<td>
 				<p>{Send to}</p>
-				<input type="hidden" name="p_num_text" id="msg_combo_sendto" style="width: 400px" value="{to}">
+				<input type="hidden" name="p_num_text" id="msg_combo_sendto" style="width: 300px" value="{to}">
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<p>{Message}</p>
 				<p>{sms_template}</p>
-				<p><textarea name="message" id="message" style="width: 400px; height: 100px" onFocus="SmsSetCounter();" onClick="SmsSetCounter();" onkeypress="SmsSetCounter();" onblur="SmsSetCounter();" onKeyUp="SmsSetCounter();">{message}</textarea></p>
+				<p><textarea name="message" id="message" style="width: 300px; height: 200px" onFocus="SmsSetCounter();" onClick="SmsSetCounter();" onkeypress="SmsSetCounter();" onblur="SmsSetCounter();" onKeyUp="SmsSetCounter();">{message}</textarea></p>
 				<p><input type="text" id=txtcount name="txtcount" value="0 char : 0 SMS" size="17" onFocus="document.frmSendSms.message.focus();" readonly></p>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<span style="width:195px; display:inline-block" maxlength="16">{SMS sender ID}</span>
-				<input type="text" name="sms_sender" style="width:200px" {allow_custom_sender} value="{sms_from}">
+				<span style="width:145px; display:inline-block" maxlength="16">{SMS sender ID}</span>
+				<input type="text" name="sms_sender" style="width:150px" {allow_custom_sender} value="{sms_from}">
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<span style="width:195px; display:inline-block" maxlength="30">{SMS footer}</span>
-				<input type="text" name="sms_footer" style="width:200px" {allow_custom_footer} value="{sms_footer}">
+				<span style="width:145px; display:inline-block" maxlength="30">{SMS footer}</span>
+				<input type="text" name="sms_footer" style="width:150px" {allow_custom_footer} value="{sms_footer}">
 			</td>
 		</tr>
 		<tr>
