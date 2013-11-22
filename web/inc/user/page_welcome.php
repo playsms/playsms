@@ -4,6 +4,9 @@ if(!valid()){forcenoaccess();};
 
 $fn = _APPS_PATH_THEMES_.'/'.themes_get().'/page_welcome.php';
 
+$doc = strtoupper(trim($_REQUEST['doc']));
+$doc = ( $doc ? $doc : 'README' );
+
 if (file_exists($fn)) {
 	include $fn;
 } else {
@@ -18,13 +21,10 @@ if (file_exists($fn)) {
 			'F.A.Q' => _('F.A.Q'),
 			'License' => _('License'),
 			'Webservices' => _('Webservices'),
-			'READ_README' => core_read_docs($apps_path['base'], 'README'),
-			'READ_CHANGELOG' => core_read_docs($apps_path['base'], 'CHANGELOG'),
-			'READ_FAQ' => core_read_docs($apps_path['base'], 'FAQ'),
-			'READ_LICENSE' => core_read_docs($apps_path['base'], 'LICENSE'),
-			'READ_WEBSERVICES' => core_read_docs($apps_path['base'], 'WEBSERVICES'),	
-		)
+			'WELCOME_CONTENT' => core_read_docs($apps_path['base'], $doc)
+	    )
 	);
+	$tpl['var'][$doc . '_ACTIVE'] = 'class=active';
 	echo tpl_apply($tpl);
 }
 ?>
