@@ -14,12 +14,12 @@ $content = "
 $content .= "
 	<h2>" . _ ( 'Manage plugin' ) . "</h2>
 	<div id='tab-container' class='tab-container'>
-		<ul class='tabs'>
-			<li class='tab'><a href='#tabs-feature'>" . _ ( 'Features' ) . "</a></li>
-			<li class='tab'><a href='#tabs-gateway'>" . _ ( 'Gateways' ) . "</a></li>
-			<li class='tab'><a href='#tabs-theme'>" . _ ( 'Themes' ) . "</a></li>
-			<li class='tab'><a href='#tabs-tools'>" . _ ( 'Tools' ) . "</a></li>
-			<li class='tab'><a href='#tabs-language'>" . _ ( 'Languages' ) . "</a></li>
+		<ul class='nav nav-tabs'>
+			<li><a href='#tabs-feature'>" . _ ( 'Features' ) . "</a></li>
+			<li><a href='#tabs-gateway'>" . _ ( 'Gateways' ) . "</a></li>
+			<li><a href='#tabs-theme'>" . _ ( 'Themes' ) . "</a></li>
+			<li><a href='#tabs-tools'>" . _ ( 'Tools' ) . "</a></li>
+			<li><a href='#tabs-language'>" . _ ( 'Languages' ) . "</a></li>
 		</ul>
 		<div id='tabs-feature'>
 			" . pluginmanager_display ( 'feature' ) . "<br />

@@ -7,11 +7,12 @@ body {
 }
 
 pre {
-	border-left: 1px solid #ddd;
+	/*border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
 	border-top: none;
-	border-radius: 0;
+	border-radius: 0;*/
+	border: none;
 	background: none;
 }
 
