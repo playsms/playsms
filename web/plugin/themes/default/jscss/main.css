@@ -49,6 +49,11 @@ body {
 	padding-top: 15px;
 }
 
+.nav_form {
+	width: 100%;
+	text-align: center;
+}
+
 #playsmslog_view {
 	height: 400px;
 }

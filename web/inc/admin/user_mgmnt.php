@@ -31,8 +31,8 @@ switch ($op) {
 			<input type='button' value='" . _('Add user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
 			<input type='button' value='" . _('View normal user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab2')\" class=\"button\" />
 			<p>".$search['form']."</p>
-			<table class=ps_table><tbody><tr><td>".$nav['form']."</td></tr></tbody></table>
-			<table class=ps_table class=\"sortable\">
+			<div class=nav_form>".$nav['form']."</div>
+			<div class=table-responsive><table class=ps_table class=\"sortable\">
 			<thead><tr>
 				<th width='20%'>" . _('Registered') . "</th>
 				<th width='20%'>" . _('Username') . "</th>
@@ -60,8 +60,8 @@ switch ($op) {
 				</tr>";
 		}
 		$content .= "
-			</tbody></table>
-			<table class=ps_table><tbody><tr><td>".$nav['form']."</td></tr></tbody></table>";
+			</tbody></table></div>
+			<div class=nav_form>".$nav['form']."</div>";
 		echo $content;
 		break;
 	case "user_list_tab2":
@@ -88,8 +88,8 @@ switch ($op) {
 			<input type='button' value='" . _('Add user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
 			<input type='button' value='" . _('View administrator') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab1')\" class=\"button\" />
 			<p>".$search['form']."</p>
-			<table class=ps_table><tbody><tr><td>".$nav['form']."</td></tr></tbody></table>
-			<table class=ps_table class=\"sortable\">
+			<div class=nav_form>".$nav['form']."</div>
+			<div class=table-responsive><table class=ps_table class=\"sortable\">
 			<thead><tr>
 				<th width='20%'>" . _('Registered') . "</th>
 				<th width='20%'>" . _('Username') . "</th>
@@ -118,8 +118,8 @@ switch ($op) {
 				</tr>";
 		}
 		$content .= "
-			</tbody></table>
-			<table class=ps_table><tbody><tr><td>".$nav['form']."</td></tr></tbody></table>";
+			</tbody></table></div>
+			<div class=nav_form>".$nav['form']."</div>";
 		echo $content;
 		break;
 	case "user_del":
