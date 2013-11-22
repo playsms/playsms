@@ -7,7 +7,7 @@ body {
 }
 
 @media (max-width: 600px) {
-	input[size="30"], input[type="password"],select {
+	input[size="30"],select {
 		width: 140px;
 	}
 	.label-sizer {
@@ -16,7 +16,7 @@ body {
 }
 
 @media (min-width: 600px) {
-	input[size="30"], input[type="password"],select {
+	input[size="30"],select {
 		width: 300px;
 	}
 	.label-sizer {
