@@ -9,9 +9,8 @@ switch ($op)
 		$log = playsmslog_view();
 		$content = "
 			<h2>"._('View log')."</h2>
-			<p>"._('Log file').": ".$core_config['apps_path']['logs']."/playsms.log</p>
-			<p>
-			<div style=\"height: 90%\">
+			<h3>" . $core_config['apps_path']['logs'] . "/playsms.log</h3>
+			<div style=\"height: 70%\">
 				<textarea id=\"playsmslogView\" style=\"width: 100%; height: 100%; border: 1px solid #ECF0F1; padding: 5px; font-size: 10pt;\" wrap=off>".$log."</textarea>
 			</div>
 			</p>
