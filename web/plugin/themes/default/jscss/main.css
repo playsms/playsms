@@ -6,6 +6,15 @@ body {
 	height: 400px;
 }
 
+pre {
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	border-top: none;
+	border-radius: 0;
+	background: none;
+}
+
 input,select,option {
 	font-size: 12pt;
 	font-weight: normal;
@@ -358,50 +367,4 @@ table.sortable thead, table.sortable th, table.sortable_nosort thead, table.sort
 	-o-transition: background-color 0.5s ease;
 	transition: background-color 0.5s ease;
 	border-radius: 3px;
-}
-
-.tabs {
-	margin: 0 0 1px 1px;
-	padding: 0;
-}
-
-.tab {
-	display: inline-block;
-	zoom: 1;
-	*display: inline;
-	background-color: #d35400;
-	border-bottom: #000;
-	-moz-border-radius: 4px 4px 0 0;
-	-webkit-border-radius: 4px 4px 0 0;
-}
-
-.tab a {
-	font-size: 14px;
-	line-height: 2em;
-	display: block;
-	padding: 0 10px;
-	outline: none;
-	color: #FFF;
-}
-
-.tab a:hover {
-	/* text-decoration: underline; */
-	
-}
-
-.tab.active {
-	padding-top: 6px;
-	position: relative;
-	top: 1px;
-	border-bottom: #000;
-}
-
-.tab a.active {
-	font-weight: bold;
-}
-
-.tab-container .panel-container {
-	-moz-border-radius: 0 4px 4px 4px;
-	-webkit-border-radius: 0 4px 4px 4px;
-	padding: 0;
 }
