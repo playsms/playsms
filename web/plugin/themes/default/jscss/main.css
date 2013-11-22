@@ -17,6 +17,15 @@ input,select,option {
 	border-radius: 3px;
 }
 
+textarea {
+	font-size: 10pt;
+	font-weight: normal;
+	color: #738384;
+	background-color: #ECF0F1;
+	border: 1px solid #ECF0F1;
+	padding-left: 5px;
+}
+
 table .table .table-striped {
 	//width: 100%;
 }
