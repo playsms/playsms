@@ -57,6 +57,9 @@ function default_hook_themes_buildmenu($menu_config) {
 	$content = "\n\n<!-- BEGIN NAVIGATION MENU -->\n\n";
 	$content .= "<div id=\"menu\">\n";
 	$i = 0;
+	$content .= "<div id=\"menu-box-0\" class=\"menu-item\">\n";
+	$content .= "<p><a href=index.php>" . _('Home') . "</a></p>\n";
+	$content .= "</div>";
 	foreach ($menu_config as $menu_title => $array_menu) {
 		$i++;
 		$content .= "<div id=\"menu-box-" . $i . "\" class=\"menu-item\">\n";
@@ -70,7 +73,14 @@ function default_hook_themes_buildmenu($menu_config) {
 		$content .= "</ul>\n";
 		$content .= "</div>\n";
 	}
-	$content .= "<div class=\"menu-item\"><p><a href=\"index.php?app=page&op=auth_logout\">"._('Logout')."</a></p></div>";
+	$content .= "<div id=\"menu-box-login\" class=\"menu-item\">\n";
+	$content .= "<p><a href=#>" . $core_config['user']['name'] . " (" . $core_config['user']['username'] . ")</a></p>\n";
+	$content .= "<ul id=\"menu-item-login\">\n";
+	$content .= "<li><a href=\"index.php?app=menu&inc=user_config&op=user_config\">" . _('User configuration') . "</a></li>\n";
+	$content .= "<li><a href=\"index.php?app=menu&inc=user_pref&op=user_pref\">" . _('Preferences') . "</a></li>\n";
+	$content .= "<li><a href=\"index.php?app=page&op=auth_logout\">" . _('Logout') . "</a></li>\n";
+	$content .= "</ul>\n";
+	$content .= "</div>\n";
 	$content .= "</div>\n";
 	$content .= "\n\n<!-- END NAVIGATION MENU -->\n\n";
 

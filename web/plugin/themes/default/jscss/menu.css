@@ -1,7 +1,21 @@
 #menu {
-	margin: 10px 10px 0 10px;
 	padding: 0;
 	width: 100%;
+}
+
+#menu-box-login {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 200px;
+}
+
+#menu-box-login p {
+	text-align: right;
+}
+
+#menu-item-login {
+	width: 200px;
 }
 
 .menu-item {
@@ -41,11 +55,13 @@
 	position: absolute;
 	z-index: 5;
 	width: 150px;
+	text-align: left;
 }
 
 /*li Styles*/
 .menu-item li {
 	border-bottom: 1px solid #EEE;
+	text-align: left;
 }
 
 .menu-item li a {

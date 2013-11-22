@@ -9,16 +9,48 @@ body {
 	height: 100%;
 	margin: 0px;
 	color: #FFF;
-	background-color: #ECF0F1;
+	//background-color: #ECF0F1;
+	background-color: #7F8C8D;
 }
 
-.main {
+#main {
 	text-align: center;
 	width: 100%;
-	height: 100%;
+	height: 100% !important;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: #7F8C8D;
+}
+
+.container {
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+}
+
+#top-bar {
+	background-color: #34495E;
+	vertical-align: top;
+	text-align: left;
+	width:80%;
+	padding: 0;
+	margin: 0;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	z-index: 2;
+}
+
+#top-menu {
+	display: inline-block;
+}
+
+#content {
+	vertical-align: top;
+	text-align: left;
+	width: 75%;
+	padding: 10px 0 10px 0px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 a {
@@ -48,23 +80,12 @@ table,tr {
 	border-collapse: collapse;
 	font-weight: normal;
 	color: #FFF;
-	/* background-color: ; */
-	/*margin: 0 0 0 1px;*/
-}
-
-table.main {
-	text-align: left;
-	width: 100%;
-	min-width: 520px;
-	margin: 0px;
 }
 
 table tbody, table td {
 	padding: 5px;
 	margin: 0px;
 	vertical-align: top;
-	/* color: #FFF; */
-	/* background-color: ; */
 }
 
 table thead, table th {
@@ -82,7 +103,6 @@ table.sortable thead, table.sortable th, table.sortable_nosort thead, table.sort
 span,div {
 	font-weight: normal;
 	color: #FFF;
-	/* background-color: ; */
 }
 
 p {
@@ -100,7 +120,7 @@ code {
 blockquote {
 	background-color: #ECF0F1;
 	color: #555;
-	padding-left: 3px solid #95A5A6;
+	padding-left: 3px;
 	width: 600px;
 	overflow: scroll;
 	border: 1px solid #CCC;
@@ -112,7 +132,6 @@ h1 {
 	font-weight: normal;
 	text-align: left;
 	color: #FFF;
-	/* background-color: ; */
 	margin-top: 0;
 	margin-bottom: 20px;
 }
@@ -122,7 +141,6 @@ h2 {
 	font-weight: normal;
 	text-align: left;
 	color: #FFF;
-	/* background-color: ; */
 	margin-top: 0px;
 	margin-bottom: 20px;
 }
@@ -132,7 +150,6 @@ h3 {
 	font-weight: normal;
 	text-align: left;
 	color: #FFF;
-	/* background-color: ; */
 	margin-top: 0px;
 	margin-bottom: 20px;
 }
@@ -142,7 +159,6 @@ h4 {
 	font-weight: normal;
 	text-align: left;
 	color: #FFF;
-	/* background-color: ; */
 	margin-top: 0px;
 	margin-bottom: 20px;
 }

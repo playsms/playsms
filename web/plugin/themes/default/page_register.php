@@ -13,7 +13,8 @@ $tpl = array(
 		'Mobile' => _('Mobile'),
 		'Email' => _('Email'),
 		'Register an account' => _('Register an account'),
-		'Forgot password' => _('Forgot password')
+	'Submit' => _('Submit'),
+	'Forgot password' => _('Forgot password')
 	),
 	'if' => array(
 		'enable_forgot' => $core_config['main']['cfg_enable_forgot']
