@@ -1101,7 +1101,9 @@ CREATE TABLE `playsms_tblConfig_main` (
   `cfg_enable_register` int(11) NOT NULL DEFAULT '0',
   `cfg_enable_forgot` int(11) NOT NULL DEFAULT '1',
   `cfg_allow_custom_sender` int(11) NOT NULL DEFAULT '0',
-  `cfg_allow_custom_footer` int(11) NOT NULL DEFAULT '0'
+  `cfg_allow_custom_footer` int(11) NOT NULL DEFAULT '0',
+  `cfg_main_website_name` varchar(250) NOT NULL DEFAULT '',
+  `cfg_main_website_url` varchar(250) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1111,7 +1113,7 @@ CREATE TABLE `playsms_tblConfig_main` (
 
 LOCK TABLES `playsms_tblConfig_main` WRITE;
 /*!40000 ALTER TABLE `playsms_tblConfig_main` DISABLE KEYS */;
-INSERT INTO `playsms_tblConfig_main` VALUES (1332916845,'playSMS','noreply@playsms.org','powered by playSMS','dev','000','default',0,'en_US','+0700',3,0,0,1,0,0);
+INSERT INTO `playsms_tblConfig_main` VALUES (1332916845,'playSMS','noreply@playsms.org','powered by playSMS','dev','000','default',0,'en_US','+0700',3,0,0,1,0,0,'playSMS','http://www.playsms.org');
 /*!40000 ALTER TABLE `playsms_tblConfig_main` ENABLE KEYS */;
 UNLOCK TABLES;
 

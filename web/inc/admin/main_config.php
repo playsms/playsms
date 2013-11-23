@@ -77,6 +77,8 @@ switch ($op) {
 			'Website title' => _('Website title'),
 			'Website email' => _('Website email'),
 			'Forwarded email footer' => _('Forwarded email footer'),
+			'Main website name' => _('Main website name'),
+			'Main website URL' => _('Main website URL'),
 			'Default sender ID' => _('Default sender ID'),
 			'Default timezone' => _('Default timezone'),
 			'Default SMS rate' => _('Default SMS rate'),
@@ -93,6 +95,8 @@ switch ($op) {
 			'web_title' => $web_title,
 			'email_service' => $email_service,
 			'email_footer' => $email_footer,
+			'main_website_name' => $main_website_name,
+			'main_website_url' => $main_website_url,
 			'gateway_number' => $gateway_number,
 			'gateway_timezone' => $gateway_timezone,
 			'default_rate' => $default_rate,
@@ -113,6 +117,8 @@ switch ($op) {
 		$edit_web_title = $_POST['edit_web_title'];
 		$edit_email_service = $_POST['edit_email_service'];
 		$edit_email_footer = $_POST['edit_email_footer'];
+		$edit_main_website_name = $_POST['edit_main_website_name'];
+		$edit_main_website_url = $_POST['edit_main_website_url'];
 		$edit_gateway_number = core_sanitize_sender($_POST['edit_gateway_number']);
 		$edit_gateway_timezone = $_POST['edit_gateway_timezone'];
 		$edit_default_rate = $_POST['edit_default_rate'];
@@ -131,6 +137,8 @@ switch ($op) {
 				cfg_web_title='$edit_web_title',
 				cfg_email_service='$edit_email_service',
 				cfg_email_footer='$edit_email_footer',
+				cfg_main_website_name='$edit_main_website_name',
+				cfg_main_website_url='$edit_main_website_url',
 				cfg_gateway_number='$edit_gateway_number',
 				cfg_default_rate='$edit_default_rate',
 				cfg_datetime_timezone='$edit_gateway_timezone',

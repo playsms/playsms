@@ -138,6 +138,8 @@ if (isset($db_row)) {
 	$enable_forgot = $db_row['cfg_enable_forgot'];
 	$allow_custom_sender = $db_row['cfg_allow_custom_sender'];
 	$allow_custom_footer = $db_row['cfg_allow_custom_footer'];
+	$main_website_name = $db_row['cfg_main_website_name'];
+	$main_website_url = $db_row['cfg_main_website_url'];
 	$core_config['main'] = $db_row;
 }
 
