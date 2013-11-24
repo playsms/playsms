@@ -27,7 +27,7 @@ switch ($op) {
 			<p>".$search['form']."</p>
 			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=all_inbox&op=actions\" method=post onSubmit=\"return SureConfirm()\">
 			".$actions_box."
-			<div class=table-responsive><table class=ps_table class=\"sortable\">
+			<div class=table-responsive><table class=ps_table class=sortable>
 			<thead>
 			<tr>
 				<th width=20%>"._('User')."</th>

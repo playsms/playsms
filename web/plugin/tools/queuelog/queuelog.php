@@ -9,7 +9,7 @@ switch ($op) {
 		$content = "
 			<h2>"._('View SMS queue')."</h2>
 			<p>".$nav['form']."</p>
-			<table class=ps_table cellpadding=1 cellspacing=2 border=0 class=\"sortable\">
+			<table class=ps_table class=sortable>
 			<thead>
 			<tr>
 				<th width=30%>"._('Queue Code')."</th>

@@ -45,7 +45,7 @@ switch ($op) {
 				<input class='button' type='submit' value='"._('Delete catch-all')."'>
 				</form>
 			</div>
-			<table width='100%' class='sortable'>
+			<table class=ps_table class=sortable>
 			<thead><tr>
 				<th width='30%'>"._('Username')."</th>
 				<th width='50%'>"._('Name')."</th>

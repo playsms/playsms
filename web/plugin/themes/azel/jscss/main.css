@@ -117,7 +117,7 @@ table thead, table th {
 	margin-bottom: 0px;
 }
 
-table.sortable thead, table.sortable th, table.sortable_nosort thead, table.sortable_nosort th {
+table.sortable thead, table.sortable th {
 	cursor: pointer;
 }
 

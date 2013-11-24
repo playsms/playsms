@@ -117,7 +117,7 @@ switch ($op) {
 		$db_query = "SELECT choice_id,choice_title,choice_keyword FROM "._DB_PREF_."_featurePoll_choice WHERE poll_id='$poll_id' ORDER BY choice_keyword";
 		$db_result = dba_query($db_query);
 		$content .= "
-			<table cellpadding=1 cellspacing=2 border=0 width=100% class=sortable>
+			<table class=ps_table class=sortable>
 			<thead><tr>
 				<th width=20%>"._('Choice keyword')."</th>
 				<th width=70%>"._('Title')."</th>

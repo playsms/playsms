@@ -21,7 +21,7 @@ switch ($op) {
 		}
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCustom ".$query_user_only." ORDER BY custom_keyword";
 		$db_result = dba_query($db_query);
-		$content .= "<table cellpadding=1 cellspacing=2 border=0 width=100% class=sortable>";
+		$content .= "<table class=ps_table class=sortable>";
 		if (isadmin()) {
 			$content .= "
 				<thead><tr>

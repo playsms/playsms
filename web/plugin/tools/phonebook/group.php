@@ -28,12 +28,12 @@ switch ($op) {
 			<p>".$search['form']."</p>
 			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=tools_phonebook&route=group&op=actions\" method=post>
 			".$actions_box."
-			<table class=ps_table class=\"sortable\">
+			<table class=ps_table class=sortable>
 			<thead>
 			<tr>
 				<th width=60%>"._('Name')."</th>
 				<th width=35%>"._('Code')."</th>
-				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></td>
+				<th width=5%><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></td>
 			</tr>
 			</thead>
 			<tbody>";

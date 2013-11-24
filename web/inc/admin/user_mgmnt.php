@@ -32,7 +32,7 @@ switch ($op) {
 			<input type='button' value='" . _('View normal user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab2')\" class=\"button\" />
 			<p>".$search['form']."</p>
 			<div class=nav_form>".$nav['form']."</div>
-			<div class=table-responsive><table class=ps_table class=\"sortable\">
+			<div class=table-responsive><table class=ps_table class=sortable>
 			<thead><tr>
 				<th width='20%'>" . _('Registered') . "</th>
 				<th width='20%'>" . _('Username') . "</th>
@@ -89,7 +89,7 @@ switch ($op) {
 			<input type='button' value='" . _('View administrator') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab1')\" class=\"button\" />
 			<p>".$search['form']."</p>
 			<div class=nav_form>".$nav['form']."</div>
-			<div class=table-responsive><table class=ps_table class=\"sortable\">
+			<div class=table-responsive><table class=ps_table class=sortable>
 			<thead><tr>
 				<th width='20%'>" . _('Registered') . "</th>
 				<th width='20%'>" . _('Username') . "</th>

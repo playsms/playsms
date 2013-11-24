@@ -81,7 +81,7 @@ switch ($op) {
 			$content .= _('Found valid entries in uploaded file').' ('._('valid entries').': '.$valid.' '._('of').' '.$num_of_rows.')<p />';
 			$content .= '<h3>'._('Valid entries').'</h3><p />';
 			$content .= "
-				<table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
+				<table class=ps_table class=sortable>
 				<thead><tr>
 					<th width=4>*</th>
 					<th width='20%'>"._('Destination number')."</th>
@@ -110,7 +110,7 @@ switch ($op) {
 			$content .= _('Found invalid entries in uploaded file').' ('._('invalid entries').': '.$invalid.' '._('of').' '.$num_of_rows.')<p />';
 			$content .= '<h3>'._('Invalid entries').'</h3><p />';
 			$content .= "
-				<table cellpadding=1 cellspacing=2 border=0 width=100% class=\"sortable\">
+				<table class=ps_table class=sortable>
 				<thead><tr>
 					<th width=4>*</th>
 					<th width='20%'>"._('Destination number')."</th>

@@ -26,12 +26,12 @@ switch ($op) {
 		$content = "
 			<h2>"._('Message template')."</h2>
 			".$actions_box."
-			<table class=ps_table class=\"sortable\">
+			<table class=ps_table class=sortable>
 			<form name=\"$fm_name\" action=\"index.php?app=menu&inc=tools_msgtemplate&op=actions\" method=post>
 			<thead><tr>
 				<th width=\"30%\">&nbsp;"._('Name')."</th>
 				<th width=\"65%\">&nbsp;"._('Content')."</th>
-				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.".$fm_name.")></th>
+				<th width=5%><input type=checkbox onclick=CheckUncheckAll(document.".$fm_name.")></th>
 			</tr></thead>
 			<tbody>";
 		$db_query = "SELECT * FROM "._DB_PREF_."_toolsMsgtemplate WHERE uid='$uid' ORDER BY t_title";
