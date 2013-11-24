@@ -10,6 +10,7 @@ $tpl = array(
 		'ERROR' => $error_content,
 		'Username' => _('Username'),
 		'Email' => _('Email'),
+		'Login' => _('Login'),
 		'Recover password' => _('Recover password'),
 	'Submit' => _('Submit'),
 	'Register an account' => _('Register an account')

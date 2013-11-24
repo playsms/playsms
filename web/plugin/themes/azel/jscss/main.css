@@ -150,7 +150,6 @@ blockquote {
 h1 {
 	font-size: 26pt;
 	font-weight: normal;
-	text-align: left;
 	color: #7F8C8D;
 	margin-top: 0;
 	margin-bottom: 20px;
@@ -159,7 +158,6 @@ h1 {
 h2 {
 	font-size: 22pt;
 	font-weight: normal;
-	text-align: left;
 	color: #7F8C8D;
 	margin-top: 0px;
 	margin-bottom: 20px;
@@ -168,7 +166,6 @@ h2 {
 h3 {
 	font-size: 18pt;
 	font-weight: normal;
-	text-align: left;
 	color: #7F8C8D;
 	margin-top: 0px;
 	margin-bottom: 20px;
@@ -177,7 +174,6 @@ h3 {
 h4 {
 	font-size: 16pt;
 	font-weight: normal;
-	text-align: left;
 	color: #7F8C8D;
 	margin-top: 0px;
 	margin-bottom: 20px;
@@ -196,8 +192,8 @@ input,select,option {
 	font-size: 12pt;
 	font-weight: normal;
 	color: #738384;
-	background-color: #ECF0F1;
-	border: 1px solid #ECF0F1;
+	background-color: #bdc3c7;
+	border: 1px solid #bdc3c7;
 	padding-left: 5px;
 	margin-bottom: 2px;
 	border-radius: 3px;

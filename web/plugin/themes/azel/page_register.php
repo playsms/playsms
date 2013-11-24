@@ -12,6 +12,7 @@ $tpl = array(
 		'Username' => _('Username'),
 		'Mobile' => _('Mobile'),
 		'Email' => _('Email'),
+		'Login' => _('Login'),
 		'Register an account' => _('Register an account'),
 	'Submit' => _('Submit'),
 	'Forgot password' => _('Forgot password')
