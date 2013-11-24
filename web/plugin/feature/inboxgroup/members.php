@@ -62,9 +62,8 @@ switch ($op) {
 				$c_name = $c_user['name'];
 				$c_mobile = $c_user['mobile'];
 				$j++;
-				$tr_class = (($j+1) % 2) ? "row_odd" : "row_even";
 				$content .= "
-					<tr class=$tr_class>
+					<tr>
 						<td>".$c_username."</td>
 						<td>".$c_name."</td>
 						<td>".$c_mobile."</td>

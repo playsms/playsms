@@ -48,9 +48,8 @@ switch ($op) {
 					$option_owner = "<td>$owner</td>";
 				}
 				$i++;
-				$tr_class = ($i % 2) ? "row_odd" : "row_even";
 				$content .= "
-					<tr class=$tr_class>
+					<tr>
 						<td>".$db_row['board_keyword']."</td>
 						<td>".$db_row['board_forward_email']."</td>
 						".$option_owner."

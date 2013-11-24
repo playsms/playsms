@@ -67,9 +67,8 @@ switch ($op) {
 			}
 			$c_message = "<div id=\"user_incoming_msg\">".$in_message."</div><div id=\"msg_label\">".$in_datetime."&nbsp;".$in_status."</div><div id=\"msg_option\">".$reply."&nbsp".$forward."</div>";
 			$i--;
-			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr class=$tr_class>
+				<tr>
 					<td>$current_sender</td>
 					<td>$in_keyword $c_feature</td>
 					<td>$c_message</td>

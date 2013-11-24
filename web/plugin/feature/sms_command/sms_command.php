@@ -51,9 +51,8 @@ switch ($op) {
 					$show_owner = "<td>".$owner."</td>";
 				}
 				$i++;
-				$tr_class = ($i % 2) ? "row_odd" : "row_even";
 				$content .= "
-					<tr class=$tr_class>
+					<tr>
 						<td>" . $db_row['command_keyword'] . "</td>
 						<td>" . stripslashes($command_exec) . "</td>
 						".$show_owner."

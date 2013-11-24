@@ -39,9 +39,8 @@ switch ($op) {
 					$option_owner = "<td>$owner</td>";
 				}
 				$i++;
-				$tr_class = ($i % 2) ? "row_odd" : "row_even";
 				$content .= "
-					<tr class=$tr_class>
+					<tr>
 						<td>".$db_row['autoreply_keyword']."</td>
 						".$option_owner."
 						<td>$action</td>
@@ -95,9 +94,8 @@ switch ($op) {
 					$option_owner = "<td>$owner</td>";
 				}
 				$j++;
-				$tr_class = ($j % 2) ? "row_odd" : "row_even";
 				$content .= "
-					<tr class=$tr_class>
+					<tr>
 						<td>$list_of_param</td>
 						<td align=left>".$db_row['autoreply_scenario_result']."</td>
 						".$option_owner."

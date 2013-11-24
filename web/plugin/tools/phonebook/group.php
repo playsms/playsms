@@ -44,10 +44,9 @@ switch ($op) {
 			$name = $list[$j]['name'];
 			$code = $list[$j]['code'];
 			$i++;
-			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$c_i = "<a href=\"index.php?app=menu&inc=tools_phonebook&route=group&op=edit&gpid=".$gpid."\">".$i.".</a>";
 			$content .= "
-				<tr class=$tr_class>
+				<tr>
 					<td>$name</td>
 					<td>$code</td>
 					<td>

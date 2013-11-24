@@ -49,9 +49,8 @@ switch ($op) {
 					$show_owner = "<td>".$owner."</td>";
 				}
 				$i++;
-				$tr_class = ($i % 2) ? "row_odd" : "row_even";
 				$content .= "
-					<tr class=$tr_class>
+					<tr>
 						<td>" . $db_row['custom_keyword'] . "</td>
 						<td>" . $custom_url . "</td>
 						".$show_owner."

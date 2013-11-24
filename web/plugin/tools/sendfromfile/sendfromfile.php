@@ -93,9 +93,8 @@ switch ($op) {
 			for ($i=0;$i<count($item_valid);$i++) {
 				if ($item_valid[$i][0] && $item_valid[$i][1] && $item_valid[$i][2]) {
 					$j++;
-					$tr_class = ($j % 2) ? "row_odd" : "row_even";
 					$content .= "
-						<tr class=$tr_class>
+						<tr>
 							<td>&nbsp;".$j.".</td>
 							<td>".$item_valid[$i][0]."</td>
 							<td>".$item_valid[$i][1]."</td>
@@ -121,9 +120,8 @@ switch ($op) {
 			for ($i=0;$i<count($item_invalid);$i++) {
 				if ($item_invalid[$i][0] || $item_invalid[$i][1] || $item_invalid[$i][2]) {
 					$j++;
-					$tr_class = ($j % 2) ? "row_odd" : "row_even";
 					$content .= "
-						<tr class=$tr_class>
+						<tr>
 							<td>&nbsp;".$j.".</td>
 							<td>".$item_invalid[$i][0]."</td>
 							<td>".$item_invalid[$i][1]."</td>

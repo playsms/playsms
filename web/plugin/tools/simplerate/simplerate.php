@@ -22,9 +22,8 @@ switch ($op) {
 			$action = "<a href=index.php?app=menu&inc=tools_simplerate&op=simplerate_edit&rateid=".$db_row['id'].">".$core_config['icon']['edit']."</a>";
 			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete rate ?')." ("._('destination').": ".$db_row['dst'].", "._('prefix').": ".$db_row['prefix'].")','index.php?app=menu&inc=tools_simplerate&op=simplerate_del&rateid=".$db_row['id']."')\">".$core_config['icon']['delete']."</a>";
 			$i++;
-			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr class=$tr_class>
+				<tr>
 					<td>".$db_row['dst']."</td>
 					<td>".$db_row['prefix']."</td>	
 					<td>".$db_row['rate']."</td>	

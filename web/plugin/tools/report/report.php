@@ -149,8 +149,6 @@ switch ($op) {
 				$c_is_admin = $nd;
 			}
 			
-			// $td_class = "box_text_odd";
-			$tr_class = ($l & 1) ? 'row_odd' : 'row_even';
 
 			$tpl['loop']['data'][] = array(
 				'tr_class' => $tr_class,

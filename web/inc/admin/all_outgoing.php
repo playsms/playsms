@@ -88,9 +88,8 @@ switch ($op) {
 			}
 			$c_message = "<div id=\"all_outgoing_msg\">".$p_msg."</div><div id=\"msg_label\">".$p_datetime."&nbsp;".$p_status."</div><div id=\"msg_option\">".$resend."&nbsp".$forward."</div>";
 			$i--;
-			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr class=$tr_class>
+				<tr>
 					<td>$p_username</td>
 					<td>$p_gateway</td>
 					<td>$current_p_dst</td>

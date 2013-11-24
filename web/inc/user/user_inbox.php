@@ -46,7 +46,6 @@ switch ($op) {
 				$forward = _a('index.php?app=menu&inc=send_sms&op=sendsmstopv&do=forward&message='.urlencode($msg), $core_config['icon']['forward']);
 			}
 			$i--;
-			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$tpl['loop']['data'][] = array(
 			    'tr_class' => $tr_class,
 			    'current_sender' => $current_sender,

@@ -12,14 +12,6 @@ body {
 	width: 100%;
 }
 
-.sms_board_row_even {
-	background-color: #E0E0E0;
-}
-
-.sms_board_row_odd {
-	background-color: #D0D0D0;
-}
-
 .sms_board_row {
 	padding: 2px 2px 4px 2px;
 }

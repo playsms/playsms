@@ -42,9 +42,8 @@ switch ($op) {
 			$temp_title = $db_row['t_title'];
 			$temp_text = $db_row['t_text'];
 			$i++;
-			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr class=$tr_class>
+				<tr>
 					<td><a href=\"index.php?app=menu&inc=tools_msgtemplate&op=edit&tid=$tid\">$temp_title</a></td>
 					<td>$temp_text</td>
 					<td><input type=hidden name=tid".$i." value=\"".$db_row['tid']."\"><input type=checkbox name=chkid".$i."></td>

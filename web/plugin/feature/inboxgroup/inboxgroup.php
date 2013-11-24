@@ -35,7 +35,6 @@ switch ($op) {
 			$c_status = $data[$i]['status'] ? "<a href='index.php?app=menu&inc=feature_inboxgroup&op=disable&rid=".$c_rid."'><span class=status_enabled /></a>" : "<a href='index.php?app=menu&inc=feature_inboxgroup&op=enable&rid=".$c_rid."'><span class=status_disabled /></a>";
 			$c_action = "<a href='index.php?app=menu&inc=feature_inboxgroup&op=edit&rid=".$c_rid."'>".$core_config['icon']['edit']."</a> ";
 			$c_action .= "<a href='index.php?app=menu&inc=feature_inboxgroup&op=del&rid=".$c_rid."'>".$core_config['icon']['delete']."</a> ";
-			$tr_class = (($i+1) % 2) ? "row_odd" : "row_even";
 			$tpl['loop']['data'][] = array(
 			    'tr_class' => $tr_class,
 			    'in_receiver' => $data[$i]['in_receiver'],

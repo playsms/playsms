@@ -62,9 +62,8 @@ switch ($op) {
 					$option_owner = "<td>$owner</td>";
 				}
 				$i++;
-				$tr_class = ($i % 2) ? "row_odd" : "row_even";
 				$content .= "
-					<tr class=$tr_class>
+					<tr>
 						<td>".$db_row['subscribe_keyword']."</td>
 						<td><a href=index.php?app=menu&inc=feature_sms_subscribe&op=mbr_list&subscribe_id=".$db_row['subscribe_id'].">".$members."</a></td>
 						<td><a href=index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id=".$db_row['subscribe_id'].">".$messages."</a></td>
@@ -404,9 +403,8 @@ switch ($op) {
 		while ($db_row = dba_fetch_array($db_result)) {
 			$action = "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this member ?')."','index.php?app=menu&inc=feature_sms_subscribe&op=mbr_del&subscribe_id=$subscribe_id&mbr_id=".$db_row['member_id']."')\">".$core_config['icon']['delete']."</a>";
 			$i++;
-			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr class=$tr_class>
+				<tr>
 					<td>".$db_row['member_number']."</td>
 					<td>".$db_row['member_since']."</td>
 					<td>$action</td>
@@ -452,9 +450,8 @@ switch ($op) {
 			$action .= "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=msg_edit&subscribe_id=$subscribe_id&msg_id=".$db_row['msg_id'].">".$core_config['icon']['edit']."</a>&nbsp;";
 			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this message?')."','index.php?app=menu&inc=feature_sms_subscribe&op=msg_del&subscribe_id=$subscribe_id&msg_id=".$db_row['msg_id']."')\">".$core_config['icon']['delete']."</a>";
 			$i++;
-			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr class=$tr_class>
+				<tr>
 					<td>".$db_row['msg']."</td>
 					<td>".core_display_datetime($db_row['create_datetime'])."</td>
 					<td>".core_display_datetime($db_row['update_datetime'])."</td>

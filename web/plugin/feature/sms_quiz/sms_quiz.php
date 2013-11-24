@@ -55,9 +55,8 @@ switch ($op) {
 					$option_owner = "<td>$owner</td>";
 				}
 				$i++;
-				$tr_class = ($i % 2) ? "row_odd" : "row_even";
 				$content .= "
-					<tr class=$tr_class>
+					<tr>
 						<td>".$db_row['quiz_keyword']."</td>
 						<td>".$db_row['quiz_question']."</td>
 						".$option_owner."
@@ -219,9 +218,8 @@ switch ($op) {
 			}
 			$action = "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this answer ?')."','index.php?app=menu&inc=feature_sms_quiz&op=sms_answer_del&quiz_id=$quiz_id&answer_id=".$db_row['answer_id']."')\">".$core_config['icon']['delete']."</a>";
 			$i++;
-			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr class=$tr_class>
+				<tr>
 					<td>".$db_row['in_datetime']."</td>
 					<td>".$db_row['quiz_sender']."</td>
 					<td>".$db_row['quiz_answer']."</td>

@@ -61,9 +61,8 @@ switch ($op) {
 			}
 			$c_message = "<div id=\"all_inbox_msg\">".$in_msg."</div><div id=\"msg_label\">".$in_datetime."</div><div id=\"msg_option\">".$reply.$forward."</div>";
 			$i--;
-			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr class=$tr_class>
+				<tr>
 					<td>$in_username</td>
 					<td>$current_sender</td>
 					<td>$c_message</td>

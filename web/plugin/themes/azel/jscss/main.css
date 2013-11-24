@@ -293,34 +293,6 @@ pre {
 	color: #BDC3C7;
 }
 
-.row_odd {
-	font-weight: normal;
-	color: #FFF;
-	background-color: #9FAEAF;
-}
-
-.row_odd a {
-	color: #FFF;
-}
-
-.row_even {
-	font-weight: normal;
-	color: #FFF;
-	background-color: #8F9D9E;
-}
-
-.row_even a {
-	color: #FFF;
-}
-
-.row_odd:hover {
-	background-color: #444;
-}
-
-.row_even:hover {
-	background-color: #444;
-}
-
 .error_string {
 	font-weight: normal;
 	color: #C0392B;

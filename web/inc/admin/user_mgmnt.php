@@ -48,9 +48,8 @@ switch ($op) {
 			$action .= "<a href=\"index.php?app=menu&inc=user_config&op=user_config&uname=" . $list[$i]['username'] . "\">".$core_config['icon']['user_config']."</a>";
 			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">".$core_config['icon']['user_delete']."</a>";
 			$j--;
-			$tr_class = ($j % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr class=$tr_class>
+				<tr>
 					<td>" . core_display_datetime($list[$i]['register_datetime']) . "</td>
 					<td>" . $list[$i]['username'] . "</td>
 					<td>" . $list[$i]['name'] . "</td>
@@ -106,9 +105,8 @@ switch ($op) {
 			$action .= "<a href=\"index.php?app=menu&inc=user_config&op=user_config&uname=" . $list[$i]['username'] . "\">".$core_config['icon']['user_config']."</a>";
 			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">".$core_config['icon']['user_delete']."</a>";
 			$j--;
-			$tr_class = ($j % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr class=$tr_class>
+				<tr>
 					<td>" . core_display_datetime($list[$i]['register_datetime']) . "</td>
 					<td>" . $list[$i]['username'] . "</td>
 					<td>" . $list[$i]['name'] . "</td>

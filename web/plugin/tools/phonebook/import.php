@@ -52,9 +52,8 @@ switch ($op) {
 					$gid = phonebook_groupcode2id($uid, $parse_param[3]);
 					if ($parse_param[0] && $parse_param[1] && $parse_param[3] && $gid) {
 						$j++;
-						$tr_class = ($j % 2) ? "row_odd" : "row_even";
 						$content .= "
-							<tr class=$tr_class>
+							<tr>
 							<td>$j.</td>
 							<td>$parse_param[0]</td>
 							<td>$parse_param[1]</td>

@@ -73,9 +73,8 @@ function pluginmanager_display($plugin_category) {
 		}
 
 		if ($plugin_info['name']) {
-			$tr_class = ($l % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr class=$tr_class>
+				<tr>
 					<td>" . $plugin_info['name'] . "</td>
 					<td>" . $plugin_info['description'] . "</td>
 					<td>" . $plugin_info['release'] . "</td>

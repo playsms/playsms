@@ -37,9 +37,8 @@ switch ($op) {
 			$c_count = $data[$c]['count'];
 			$c_message = stripslashes(core_display_text($data[$c]['message'], 15));
 			$i = $count - $nav['offset'] + $c + 1 - count($data);
-			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr class=$tr_class>
+				<tr>
 					<td>".$c_queue_code."</td>
 					<td>".$c_datetime_entry."</td>
 			";

@@ -55,9 +55,8 @@ switch ($op) {
 					$option_owner = "<td>$owner</td>";
 				}
 				$i++;
-				$tr_class = ($i % 2) ? "row_odd" : "row_even";
 				$content .= "
-					<tr class=$tr_class>
+					<tr>
 						<td>".$db_row['poll_keyword']."</td>
 						<td>".$db_row['poll_title']."</td>
 						".$option_owner."
@@ -130,9 +129,8 @@ switch ($op) {
 			$choice_keyword = $db_row['choice_keyword'];
 			$choice_title = $db_row['choice_title'];
 			$i++;
-			$tr_class = ($i % 2) ? "row_odd" : "row_even";
 			$content .= "
-				<tr class=$tr_class>
+				<tr>
 					<td>$choice_keyword</td>
 					<td>$choice_title</td>
 					<td><a href=\"javascript:ConfirmURL('"._('Are you sure you want to delete choice ?')." ("._('title').": ".addslashes($choice_title).", "._('keyword').": ".$choice_keyword.")','index.php?app=menu&inc=feature_sms_poll&op=sms_poll_choice_del&poll_id=$poll_id&choice_id=$choice_id');\">".$core_config['icon']['delete']."</a></td>
