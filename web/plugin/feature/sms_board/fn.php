@@ -175,7 +175,9 @@ function sms_board_output_html($keyword,$line="10") {
 		$db_query1 = "SELECT * FROM "._DB_PREF_."_featureBoard_log WHERE in_keyword='$keyword' ORDER BY in_datetime DESC LIMIT $line";
 		$db_result1 = dba_query($db_query1);
 		$css = "\n<!-- ADDITIONAL CSS BEGIN -->\n";
+		$css .= "<style type='text/css'>\n";
 		$css .= trim(file_get_contents($css_url))."\n";
+		$css .= "</style>\n";
 		$css .= "<!-- ADDITIONAL CSS END -->\n";
 		$content = "<html>\n<head>\n<title>".$keyword."</title>\n<meta name=\"author\" content=\"http://playsms.org\">\n".$css."\n</head>\n";
 		$content .= "<body>\n<div class=sms_board_view>\n";
@@ -189,9 +191,9 @@ function sms_board_output_html($keyword,$line="10") {
 			$tmp_template = str_replace("{SENDER}",$sender,$tmp_template);
 			$tmp_template = str_replace("{DATETIME}",$datetime,$tmp_template);
 			$tmp_template = str_replace("{MESSAGE}",$message,$tmp_template);
-			$content .= "\n<div class=".$tr_class.">\n".trim($tmp_template)."\n</div>\n";
+			$content .= trim($tmp_template)."\n";
 		}
-		$content .= "\n</div>\n</body>\n</html>\n";
+		$content .= "</div>\n</body>\n</html>\n";
 		return $content;
 	}
 }
@@ -237,6 +239,7 @@ function sms_board_hook_webservices_output($ta,$requests) {
 				$evenbgcolor = $requests['evenbgcolor'];
 				$content = sms_board_output_html($keyword,$line,$bodybgcolor,$oddbgcolor,$evenbgcolor);
 				ob_end_clean();
+				header('Content-Type: text/html; charset=utf-8');
 				$ret = $content;
 		}
 	}

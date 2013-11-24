@@ -1,6 +1,8 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
+$board_id = $_REQUEST['board_id'];
+
 switch ($op) {
 	case 'list':
 		$conditions['board_id'] = $board_id;

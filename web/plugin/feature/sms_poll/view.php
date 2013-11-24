@@ -2,8 +2,10 @@
 defined('_SECURE_') or die('Forbidden');
 if(!valid()){forcenoaccess();};
 
+$poll_id = $_REQUEST['poll_id'];
+
 switch ($op) {
-	case 'list':
+	case 'list':	
 		$conditions['poll_id'] = $poll_id;
 		$list = dba_search(_DB_PREF_.'_featurePoll', '*', $conditions);
 		$poll_keyword = $list[0]['poll_keyword'];
