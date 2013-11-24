@@ -54,8 +54,8 @@ function pluginmanager_display($plugin_category) {
 		<div class=table-responsive>
 		<table class=playsms-table-list id='pluginmanager_view'>
 			<thead><tr>
-				<th width=10%>" . _('Name') . "</th>
-				<th width=30%>" . _('Description') . "</th>
+				<th width=15%>" . _('Name') . "</th>
+				<th width=25%>" . _('Description') . "</th>
 				<th width=10%>" . _('Version') . "</th>
 				<th width=20%>" . _('Author') . "</th>
 				<th width=20%>" . _('Date') . "</th>
