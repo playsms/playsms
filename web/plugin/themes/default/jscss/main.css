@@ -367,34 +367,6 @@ table.sortable thead, table.sortable th {
 	border-radius: 3px;
 }
 
-.hint {
-	font-size: 9pt;
-	width: 20px;
-	height: 17px;;
-	background-image: url('../../common/images/hint.png');
-	background-repeat: no-repeat;
-	display: inline-block;
-	cursor: pointer;
-	margin-left: 2px;
-}
-
-.hint:hover .hint_text {
-	display: block;
-	width: 200px;
-	padding: 5px;
-	border: 2px dotted #CCC;
-	border-radius: 3px;
-	margin-left: 20px;
-}
-
-.hint_text {
-	position: absolute;
-	z-index: 1;
-	display: none;
-	background-color: #DDD;
-	color: #444;
-}
-
 .youarehere {
 	font-weight: normal;
 	color: #ECF0F1;
