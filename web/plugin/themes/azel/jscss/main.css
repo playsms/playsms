@@ -74,7 +74,7 @@ body {
 
 a {
 	font-weight: normal;
-	color: #7F8C8D;
+	color: #2c3e50;
 	text-decoration: none;
 	cursor: pointer;
 	-webkit-transition: background-color 0.5s ease;
@@ -84,12 +84,12 @@ a {
 }
 
 a:visited {
-	color: #7F8C8D;
+	color: #2c3e50;
 	text-decoration: none;
 }
 
 a:hover {
-	color: #7F8C8D;
+	color: #ecf0f1;
 	text-decoration: none;
 	background-color: #7F8C8D;
 }
@@ -123,7 +123,6 @@ table.sortable thead, table.sortable th {
 
 span,div {
 	font-weight: normal;
-	color: #FFF;
 }
 
 p {
