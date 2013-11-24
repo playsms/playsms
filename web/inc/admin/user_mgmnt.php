@@ -32,14 +32,14 @@ switch ($op) {
 			<input type='button' value='" . _('View normal user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab2')\" class=\"button\" />
 			<p>".$search['form']."</p>
 			<div class=nav_form>".$nav['form']."</div>
-			<div class=table-responsive><table class=playsms-table class=sortable>
+			<div class=table-responsive><table class=playsms-table-list>
 			<thead><tr>
 				<th width='20%'>" . _('Registered') . "</th>
 				<th width='20%'>" . _('Username') . "</th>
 				<th width='20%'>" . _('Name') . "</th>
 				<th width='20%'>" . _('Mobile') . "</th>
 				<th width='10%'>" . _('Credit') . "</th>
-				<th width='10% class='sortable_nosort'>" . _('Action') . "</th>
+				<th width='10%>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
 		$j = $nav['top'];
@@ -89,14 +89,14 @@ switch ($op) {
 			<input type='button' value='" . _('View administrator') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab1')\" class=\"button\" />
 			<p>".$search['form']."</p>
 			<div class=nav_form>".$nav['form']."</div>
-			<div class=table-responsive><table class=playsms-table class=sortable>
+			<div class=table-responsive><table class=playsms-table-list>
 			<thead><tr>
 				<th width='20%'>" . _('Registered') . "</th>
 				<th width='20%'>" . _('Username') . "</th>
 				<th width='20%'>" . _('Name') . "</th>
 				<th width='20%'>" . _('Mobile') . "</th>
 				<th width='10%'>" . _('Credit') . "</th>
-				<th width='10% class='sortable_nosort'>" . _('Action') . "</th>
+				<th width='10%>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
 		$j = $nav['top'];

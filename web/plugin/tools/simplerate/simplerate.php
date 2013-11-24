@@ -7,7 +7,7 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage SMS rate')."</h2>
 			<p>"._button('index.php?app=menu&inc=tools_simplerate&op=simplerate_add', _('Add rate'))."
-			<table class=playsms-table class=sortable>
+			<table class=playsms-table-list>
 			<thead><tr>
 				<th width='50%'>"._('Destination')."</th>
 				<th width='20%'>"._('Prefix')."</th>

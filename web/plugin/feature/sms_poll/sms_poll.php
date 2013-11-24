@@ -17,7 +17,7 @@ switch ($op) {
 			<h2>"._('Manage poll')."</h2>
 			"._button('index.php?app=menu&inc=feature_sms_poll&op=sms_poll_add', _('Add SMS poll'));
 		$content .= "
-			<table class=playsms-table class=sortable>
+			<table class=playsms-table-list>
 			<thead><tr>";
 		if (isadmin()) {
 			$content .= "
@@ -117,7 +117,7 @@ switch ($op) {
 		$db_query = "SELECT choice_id,choice_title,choice_keyword FROM "._DB_PREF_."_featurePoll_choice WHERE poll_id='$poll_id' ORDER BY choice_keyword";
 		$db_result = dba_query($db_query);
 		$content .= "
-			<table class=playsms-table class=sortable>
+			<table class=playsms-table-list>
 			<thead><tr>
 				<th width=20%>"._('Choice keyword')."</th>
 				<th width=70%>"._('Title')."</th>

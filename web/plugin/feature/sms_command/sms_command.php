@@ -23,7 +23,7 @@ switch ($op) {
 		}
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCommand ".$query_user_only." ORDER BY command_keyword";
 		$db_result = dba_query($db_query);
-		$content .= "<table class=playsms-table class=sortable>";
+		$content .= "<table class=playsms-table-list>";
 		if (isadmin()) {
 			$content .= "
 				<thead><tr>

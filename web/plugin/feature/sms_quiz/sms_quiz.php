@@ -17,7 +17,7 @@ switch ($op) {
 				<h2>"._('Manage quiz')."</h2>
 				"._button('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add', _('Add SMS quiz'));
 		$content .= "
-			<table class=playsms-table class=sortable>
+			<table class=playsms-table-list>
 			<thead><tr>";
 		if (isadmin()) {
 			$content .= "
@@ -201,7 +201,7 @@ switch ($op) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureQuiz_log WHERE quiz_id='$quiz_id' ORDER BY in_datetime DESC";
 		$db_result = dba_query($db_query);
 		$content .= "
-			<table class=playsms-table class=sortable>
+			<table class=playsms-table-list>
 			<thead><tr>
 				<th width=30%>"._('Datetime')."</th>
 				<th width=20%>"._('Sender')."</th>

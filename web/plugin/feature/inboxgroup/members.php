@@ -46,7 +46,7 @@ switch ($op) {
 				<input class='button' type='submit' value='"._('Delete member')."'>
 				</form>
 			</div>
-			<table class=playsms-table class=sortable>
+			<table class=playsms-table-list>
 			<thead><tr>
 				<th width='30%'>"._('Username')."</th>
 				<th width='50%'>"._('Name')."</th>

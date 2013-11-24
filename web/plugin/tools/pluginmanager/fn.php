@@ -51,7 +51,7 @@ function pluginmanager_list($plugin_category) {
 function pluginmanager_display($plugin_category) {
 	global $core_config;
 	$content = "
-		<table class=playsms-table class=sortable id='pluginmanager_view'>
+		<table class=playsms-table-list id='pluginmanager_view'>
 			<thead><tr>
 				<th width=10%>" . _('Name') . "</th>
 				<th width=30%>" . _('Description') . "</th>

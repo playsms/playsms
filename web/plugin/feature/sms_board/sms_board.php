@@ -16,7 +16,7 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage board')."</h2>
 			<p>"._button('index.php?app=menu&inc=feature_sms_board&op=sms_board_add', _('Add SMS board'))."
-			<table class=playsms-table class=sortable>
+			<table class=playsms-table-list>
 			<thead><tr>";
 		if (isadmin()) {
 			$content .= "

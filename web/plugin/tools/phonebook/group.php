@@ -28,7 +28,7 @@ switch ($op) {
 			<p>".$search['form']."</p>
 			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=tools_phonebook&route=group&op=actions\" method=post>
 			".$actions_box."
-			<table class=playsms-table class=sortable>
+			<table class=playsms-table-list>
 			<thead>
 			<tr>
 				<th width=60%>"._('Name')."</th>

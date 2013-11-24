@@ -26,7 +26,7 @@ switch ($op) {
 		$content = "
 			<h2>"._('Message template')."</h2>
 			".$actions_box."
-			<table class=playsms-table class=sortable>
+			<table class=playsms-table-list>
 			<form name=\"$fm_name\" action=\"index.php?app=menu&inc=tools_msgtemplate&op=actions\" method=post>
 			<thead><tr>
 				<th width=\"30%\">&nbsp;"._('Name')."</th>
