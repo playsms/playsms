@@ -107,6 +107,20 @@ table,tr {
         hyphens: auto;
 }
 
+.playsms-table-list tr:nth-of-type(odd) {
+	background-color: #EEE;
+	
+}
+
+.playsms-table-list tr:nth-of-type(even) {
+	background-color: #E0E0E0;
+	
+}
+
+.playsms-table-list tr:hover {
+	background-color: #191919;
+}
+
 table tbody, table td {
 	padding: 5px;
 	margin: 0px;
