@@ -1,0 +1,60 @@
+<table width='100%'>
+	<tbody>
+	<tr>
+		<td align="center">
+		<table style='border-radius: 3px; background-color: #F0F0F0; width: 300px; padding: 10px;'>
+			<tbody>
+			<tr>
+				<td>
+				<form action="index.php" method=POST>
+				<input type=hidden name=app value=page>
+				<input type=hidden name=inc value=login>
+				<input type=hidden name=op value=auth_login>
+				<table width="80%" align="center">
+					<tbody>
+					<tr><td>&nbsp;</td></tr>
+					
+					<tr>
+						<td align="center">
+							<h1><a href={HTTP_PATH_BASE}>{WEB_TITLE}</a></h1>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							{ERROR}
+						</td>
+					</tr>
+					<tr>
+						<td><input type=text class=form-control placeholder="{Username}" name=username maxlength=100></td>
+					</tr>
+					<tr>
+						<td><input type=password class=form-control placeholder="{Password}" name=password maxlength=100></td>
+					</tr>
+					<tr>
+						<td><input type=submit class=button value='{Login}'></td>
+					</tr>
+
+					<if.enable_register>
+					<tr>
+						<td><a href='index.php?app=page&inc=register'>{Register an account}</a></td>
+					</tr>
+					</if.enable_register>
+
+					<if.enable_forgot>
+					<tr>
+						<td><a href='index.php?app=page&inc=forgot'>{Forgot password}</a></td>
+					</tr>
+					</if.enable_forgot>
+
+					<tr><td>&nbsp;</td></tr>
+					</tbody>
+				</table>
+				</form>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+		</td>
+	</tr>
+	</tbody>
+</table>
