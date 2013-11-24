@@ -1,0 +1,18 @@
+README
+------
+
+Replace bootstrap.min.css with other bootstrap.min.* for different color sets.
+
+For example if you want to see Ubuntu colors in your themes then replace
+bootstrap.min.css with bootstrap.min.ubuntu.css
+
+# cp bootstrap.min.ubuntu.css bootstrap.min.css
+
+Note that by default bootstrap.min.css is the same as bootstrap.min.orig.css
+
+Also note that the Ubuntu css and Flatly css are suppose to be used on Internet
+because it requires to get fonts from CDN. When you apply it locally without the
+Internet it will slow you down.
+
+--
+Anton Raharja
