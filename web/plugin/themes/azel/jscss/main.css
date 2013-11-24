@@ -14,6 +14,24 @@ body {
 	background-color: #FFF;
 }
 
+@media (max-width: 600px) {
+	input[size="30"],select {
+		width: 140px;
+	}
+	.label-sizer {
+		width: 140px;
+	}
+}
+
+@media (min-width: 600px) {
+	input[size="30"],select {
+		width: 300px;
+	}
+	.label-sizer {
+		width: 300px;
+	}
+}
+
 #main {
 	text-align: center;
 	width: 100%;
@@ -81,6 +99,7 @@ table,tr {
 	border-collapse: collapse;
 	font-weight: normal;
 	color: #7F8C8D;
+	width: 100%;
 }
 
 table tbody, table td {
@@ -323,7 +342,7 @@ pre {
 	vertical-align: bottom;
 }
 
-#txtcount, #txtcount_un, #txtcount_uk, #txtcount_am {
+#txtcount {
 	color: #7F8C8D;
 	background-color: transparent;
 	border: 0px solid;

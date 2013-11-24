@@ -1,3 +1,21 @@
+@media (max-width: 600px) {
+	input[size="30"],select {
+		width: 140px;
+	}
+	.label-sizer {
+		width: 140px;
+	}
+}
+
+@media (min-width: 600px) {
+	input[size="30"],select {
+		width: 300px;
+	}
+	.label-sizer {
+		width: 300px;
+	}
+}
+
 #fm_smstemplate {
 	display: none;
 }
