@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin>
-	<name>smssync</name>
+	<name>sms_sync</name>
 	<alias>SMS Sync</alias>
 	<description>Receive push messages from SMSSync app</description>
 	<release>1.0</release>
