@@ -6,4 +6,7 @@ $(document).ready(function() {
 	$('.playsms-table-list').addClass('table-hover');
 	$('.playsms-table-list').addClass('table-condensed');
 	$('.playsms-table-list').tablesorter();
+	$('.playsms-table').addClass('table');
+	$('.playsms-table').addClass('table-hover');
+	$('.playsms-table').addClass('table-condensed');
 });
