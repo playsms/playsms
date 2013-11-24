@@ -1,12 +1,13 @@
 CHANGELOG
 ---------
 
-Version 0.9.9.2-beta4 - NA
+Version 0.9.9.2-beta5 - NA
 - MAJOR: new install will use MySQL InnoDB
 - MAJOR: replace term 'slid' with 'smslog_id' on all places
 - MAJOR: smslog_id is now from tblSMSOutgoing_queue_dst and immediately returns
          after sending SMS
 - MAJOR: add a simple "homemade" template engine to seperate logic and view
+- MAJOR: re-write default themes, added 2 new themes, use bootstrap 3 heavily
 - add $app and $route as global variables just like $inc, $op, $page and $nav
 - add 2 new options in main configuration: allow custom SMS sender ID and allow
   custom SMS footer
@@ -39,6 +40,7 @@ Version 0.9.9.2-beta4 - NA
 - fix datetime on SMS to use $datetime_now instead of supplied by Kannel
 - fix webservices for GET_CONTACT and GET_CONTACT_GROUP
 - fix wrong column $p_status while checking webservices returns, uplink gateway
+- fix sms_board and sms_poll, both should use $_REQUEST to get parameters
 - fix #78 add $from, $footer and $nofooter param to webservices
 - fix #109 sms sender ID and sms footer can be changed from Send SMS page
 
