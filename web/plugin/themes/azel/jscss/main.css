@@ -100,6 +100,11 @@ table,tr {
 	font-weight: normal;
 	color: #7F8C8D;
 	width: 100%;
+	word-break: break-all;
+	-ms-word-break: break-all;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+        hyphens: auto;
 }
 
 table tbody, table td {
@@ -319,41 +324,28 @@ pre {
 
 #user_inbox_msg {
 	padding-bottom: 12px;
-	word-wrap: break-word;
-	width: 28em;
 }
 
 #user_incoming_msg {
 	padding-bottom: 12px;
-	word-wrap: break-word;
-	width: 19em;
 }
 
 #user_outgoing_msg {
 	padding-left: 2px;
 	padding-right: 2px;
 	padding-bottom: 12px;
-	word-break:keep-all;
-	word-wrap: break-word;
-	width: 28em;
 }
 
 #all_inbox_msg {
 	padding-bottom: 12px;
-	word-wrap: break-word;
-	width: 21em;
 }
 
 #all_incoming_msg {
 	padding-bottom: 12px;
-	word-wrap: break-word;
-	width: 12em;
 }
 
 #all_outgoing_msg {
 	padding-bottom: 12px;
-	word-wrap: break-word;
-	width: 14em;
 }
 
 #navbar {
