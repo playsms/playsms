@@ -9,6 +9,7 @@ switch ($op) {
 		$content = "
 			<h2>"._('View SMS queue')."</h2>
 			<p>".$nav['form']."</p>
+			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead>
 			<tr>
@@ -56,6 +57,7 @@ switch ($op) {
 		}
 		$content .= "
 			</tbody></table>
+			</div>
 			<p>".$nav['form']."</p>
 		";
 		echo $content;

@@ -51,6 +51,7 @@ function pluginmanager_list($plugin_category) {
 function pluginmanager_display($plugin_category) {
 	global $core_config;
 	$content = "
+		<div class=table-responsive>
 		<table class=playsms-table-list id='pluginmanager_view'>
 			<thead><tr>
 				<th width=10%>" . _('Name') . "</th>
@@ -81,7 +82,7 @@ function pluginmanager_display($plugin_category) {
 				</tr>";
 		}
 	}
-	$content .= "</tbody></table>";
+	$content .= "</tbody></table></div>";
 	return $content;
 }
 

@@ -17,6 +17,7 @@ switch ($op) {
 			<h2>"._('Manage subscribe')."</h2>
 			"._button('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_add', _('Add SMS subscribe'));
 		$content .= "
+			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>";
 		if (isadmin()) {
@@ -75,6 +76,7 @@ switch ($op) {
 		}
 		$content .= "</tbody>
 			</table>
+			</div>
 			"._button('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_add', _('Add SMS subscribe'));
 		echo $content;
 		break;
@@ -392,6 +394,7 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage subscribe')."</h2>
 			<h3>"._('Member list for keyword')." $subscribe_name</h3>
+			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>
 				<th width=50%>"._('Phone number')."</th>
@@ -410,8 +413,10 @@ switch ($op) {
 					<td>$action</td>
 					</tr>";
 		}
-		$content .= "</tbody>
+		$content .= "
+			</tbody>
 			</table>
+			</div>
 			"._b('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
 		echo $content;
 		break;
@@ -433,6 +438,7 @@ switch ($op) {
 			<h2>"._('Manage subscribe')."</h2>
 			<h3>"._('SMS messages list for keyword')." $subscribe_name</h3>
 			"._button('index.php?app=menu&inc=feature_sms_subscribe&op=msg_add&&subscribe_id='.$subscribe_id, _('Add message'))."
+			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>
 				<th width=40%>"._('Message')."</th>
@@ -459,8 +465,10 @@ switch ($op) {
 					<td>$action</td>
 					</tr>";
 		}
-		$content .= "</tbody>
+		$content .= "
+			</tbody>
 			</table>
+			</div>
 			"._button('index.php?app=menu&inc=feature_sms_subscribe&op=msg_add&&subscribe_id='.$subscribe_id, _('Add message'))."
 			"._b('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
 		echo $content;

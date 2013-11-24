@@ -7,6 +7,7 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage SMS rate')."</h2>
 			<p>"._button('index.php?app=menu&inc=tools_simplerate&op=simplerate_add', _('Add rate'))."
+			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>
 				<th width='50%'>"._('Destination')."</th>
@@ -32,6 +33,7 @@ switch ($op) {
 		}
 		$content .= "
 			</tbody></table>
+			</div>
 			"._button('index.php?app=menu&inc=tools_simplerate&op=simplerate_add', _('Add rate'));
 		if ($err = $_SESSION['error_string']) {
 			echo "<div class=error_string>$err</div>";

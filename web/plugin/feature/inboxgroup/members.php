@@ -46,6 +46,7 @@ switch ($op) {
 				<input class='button' type='submit' value='"._('Delete member')."'>
 				</form>
 			</div>
+			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>
 				<th width='30%'>"._('Username')."</th>
@@ -73,6 +74,7 @@ switch ($op) {
 		$content .= "
 			</tbody>
 			</table>
+			</div>
 			<div style='float: left'>
 				<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&route=members&op=members_add&rid=".$rid."'>
 				<input class='button' type='submit' value='"._('Add member')."'>

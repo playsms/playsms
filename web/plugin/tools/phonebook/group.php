@@ -28,6 +28,7 @@ switch ($op) {
 			<p>".$search['form']."</p>
 			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=tools_phonebook&route=group&op=actions\" method=post>
 			".$actions_box."
+			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead>
 			<tr>
@@ -59,6 +60,7 @@ switch ($op) {
 		$content .= "
 			</tbody>
 			</table>
+			</div>
 			".$actions_box."
 			</form>
 			"._b('index.php?app=menu&inc=tools_phonebook&op=phonebook_list');

@@ -26,6 +26,7 @@ switch ($op) {
 			".$search['form']."
 			<form name=\"fm_incoming\" action=\"index.php?app=menu&inc=user_incoming&op=actions\" method=post onSubmit=\"return SureConfirm()\">
 			".$actions_box."
+			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead>
 			<tr>
@@ -82,6 +83,7 @@ switch ($op) {
 		$content .= "
 			</tbody>
 			</table>
+			</div>
 			".$actions_box."
 			</form>";
 

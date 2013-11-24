@@ -27,7 +27,7 @@ switch ($op) {
 		$content = "
 			<h2>"._('Phonebook')."</h2>
 			<h3>"._('Import confirmation')."</h3>
-			<p>
+			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>
 				<th width=\"4\">*</th>
@@ -68,6 +68,7 @@ switch ($op) {
 			}
 			$content .= "
 				</tbody></table>
+				</div>
 				<p>"._('Import above phonebook entries ?')."
 				<form action=\"index.php?app=menu&inc=tools_phonebook&route=import&op=import_yes\" method=\"post\">
 				<input type=\"hidden\" name=\"number_of_row\" value=\"$j\">

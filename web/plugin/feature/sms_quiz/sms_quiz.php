@@ -17,6 +17,7 @@ switch ($op) {
 				<h2>"._('Manage quiz')."</h2>
 				"._button('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add', _('Add SMS quiz'));
 		$content .= "
+			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>";
 		if (isadmin()) {
@@ -65,8 +66,10 @@ switch ($op) {
 					</tr>";
 			}
 		}
-		$content .= "</tbody>
+		$content .= "
+			</tbody>
 			</table>
+			</div>
 			"._button('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add', _('Add SMS quiz'));
 		echo $content;
 		break;
@@ -200,6 +203,7 @@ switch ($op) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureQuiz_log WHERE quiz_id='$quiz_id' ORDER BY in_datetime DESC";
 		$db_result = dba_query($db_query);
 		$content .= "
+			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>
 				<th width=30%>"._('Datetime')."</th>
@@ -229,6 +233,7 @@ switch ($op) {
 		}
 		$content .= "</tbody>
 			</table>
+			</div>
 			"._b('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list');
 		echo $content;
 		break;

@@ -16,6 +16,7 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage board')."</h2>
 			<p>"._button('index.php?app=menu&inc=feature_sms_board&op=sms_board_add', _('Add SMS board'))."
+			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>";
 		if (isadmin()) {
@@ -57,7 +58,10 @@ switch ($op) {
 					</tr>";
 			}
 		}
-		$content .= "</tbody></table>
+		$content .= "
+			</tbody>
+			</table>
+			</div>
 			"._button('index.php?app=menu&inc=feature_sms_board&op=sms_board_add', _('Add SMS board'));
 		echo $content;
 		break;

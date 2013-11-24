@@ -13,7 +13,10 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage autoreply')."</h2>
 			"._button('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_add', _('Add SMS autoreply'));
-		$content .= "<table class=playsms-table-list><thead><tr>";
+		$content .= "
+			<div class=table-responsive>
+			<table class=playsms-table-list>
+			<thead><tr>";
 		if (isadmin()) {
 			$content .= "
 				<th width=70%>"._('Keyword')."</th>
@@ -47,8 +50,10 @@ switch ($op) {
 					</tr>";
 			}
 		}
-		$content .= "</tbody>
+		$content .= "
+			</tbody>
 			</table>
+			</div>
 			"._button('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_add', _('Add SMS autoreply'));
 		if ($err = $_SESSION['error_string']) {
 			echo "<div class=error_string>$err</div>";
@@ -65,7 +70,9 @@ switch ($op) {
 			<h2>"._('Manage autoreply')."</h2>
 			<p>"._('SMS autoreply keyword').": ".$manage_autoreply_keyword."</p>
 			"._button('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id='.$autoreply_id, _('Add SMS autoreply scenario'))."
-			<table class=playsms-table-list><thead><tr>";
+			<div class=table-responsive>
+			<table class=playsms-table-list>
+			<thead><tr>";
 		if (isadmin()) {
 			$content .= "
 				<th width=20%>"._('Param')."</th>
@@ -104,7 +111,9 @@ switch ($op) {
 			}
 		}
 		$content .= "
+			</tbody>
 			</table>
+			</div>
 			</form>
 			"._button('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id='.$autoreply_id, _('Add SMS autoreply scenario'))."
 			"._b('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_list');

@@ -21,7 +21,9 @@ switch ($op) {
 		}
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCustom ".$query_user_only." ORDER BY custom_keyword";
 		$db_result = dba_query($db_query);
-		$content .= "<table class=playsms-table-list>";
+		$content .= "
+			<div class=table-responsive>
+			<table class=playsms-table-list>";
 		if (isadmin()) {
 			$content .= "
 				<thead><tr>
@@ -61,6 +63,7 @@ switch ($op) {
 		$content .= "
 			</tbody>
 			</table>
+			</div>
 			"._button('index.php?app=menu&inc=feature_sms_custom&op=sms_custom_add', _('Add SMS custom'));
 		echo $content;
 		break;

@@ -26,6 +26,7 @@ switch ($op) {
 		$content = "
 			<h2>"._('Message template')."</h2>
 			".$actions_box."
+			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<form name=\"$fm_name\" action=\"index.php?app=menu&inc=tools_msgtemplate&op=actions\" method=post>
 			<thead><tr>
@@ -53,6 +54,7 @@ switch ($op) {
 		$content .= "
 			</tbody>
 			</table>
+			</div>
 			<input type=\"hidden\" name=\"item_count\" value=\"$i\">
 			".$actions_box."
 			</form>";

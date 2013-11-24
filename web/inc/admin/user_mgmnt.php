@@ -32,6 +32,7 @@ switch ($op) {
 			<input type='button' value='" . _('View normal user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab2')\" class=\"button\" />
 			<p>".$search['form']."</p>
 			<div class=nav_form>".$nav['form']."</div>
+			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>
 				<th width='20%'>" . _('Registered') . "</th>
@@ -60,6 +61,7 @@ switch ($op) {
 		}
 		$content .= "
 			</tbody></table>
+			</div>
 			<div class=nav_form>".$nav['form']."</div>";
 		echo $content;
 		break;
@@ -87,6 +89,7 @@ switch ($op) {
 			<input type='button' value='" . _('Add user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
 			<input type='button' value='" . _('View administrator') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab1')\" class=\"button\" />
 			<p>".$search['form']."</p>
+			<div class=table-responsive>
 			<div class=nav_form>".$nav['form']."</div>
 			<table class=playsms-table-list>
 			<thead><tr>
@@ -117,6 +120,7 @@ switch ($op) {
 		}
 		$content .= "
 			</tbody></table>
+			</div>
 			<div class=nav_form>".$nav['form']."</div>";
 		echo $content;
 		break;

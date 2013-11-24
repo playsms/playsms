@@ -79,8 +79,9 @@ switch ($op) {
 		$content .= _('Uploaded file').': '.$filename.'<p />';
 		if ($valid) {
 			$content .= _('Found valid entries in uploaded file').' ('._('valid entries').': '.$valid.' '._('of').' '.$num_of_rows.')<p />';
-			$content .= '<h3>'._('Valid entries').'</h3><p />';
+			$content .= '<h3>'._('Valid entries').'</h3>';
 			$content .= "
+				<div class=table-responsive>
 				<table class=playsms-table-list>
 				<thead><tr>
 					<th width=4>*</th>
@@ -102,13 +103,14 @@ switch ($op) {
 						</tr>";
 				}
 			}
-			$content .= "</tbody></table>";
+			$content .= "</tbody></table></div>";
 		}
 		if ($invalid) {
 			$content .= '<p /><br />';
 			$content .= _('Found invalid entries in uploaded file').' ('._('invalid entries').': '.$invalid.' '._('of').' '.$num_of_rows.')<p />';
-			$content .= '<h3>'._('Invalid entries').'</h3><p />';
+			$content .= '<h3>'._('Invalid entries').'</h3>';
 			$content .= "
+				<div class=table-responsive>
 				<table class=playsms-table-list>
 				<thead><tr>
 					<th width=4>*</th>
@@ -129,7 +131,7 @@ switch ($op) {
 						</tr>";
 				}
 			}
-			$content .= "</tbody></table>";
+			$content .= "</tbody></table></div>";
 		}
 		$content .= '<h3>'._('Your choice').': </h3><p />';
 		$content .= "<form action=\"index.php?app=menu&inc=tools_sendfromfile&op=upload_cancel\" method=\"post\">";
