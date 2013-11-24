@@ -348,6 +348,12 @@ msgstr "主要构造"
 msgid "Main configuration changes has been saved"
 msgstr "主要构造变化已被保存"
 
+msgid "Main website URL"
+msgstr ""
+
+msgid "Main website name"
+msgstr ""
+
 msgid "Manage"
 msgstr "管理"
 

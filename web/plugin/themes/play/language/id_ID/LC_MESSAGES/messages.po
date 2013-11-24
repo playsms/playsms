@@ -50,5 +50,8 @@ msgstr "Daftar akun"
 msgid "Submit"
 msgstr ""
 
+msgid "User configuration"
+msgstr ""
+
 msgid "Username"
 msgstr "Username"

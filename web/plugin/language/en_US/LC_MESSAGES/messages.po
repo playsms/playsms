@@ -335,6 +335,12 @@ msgstr ""
 msgid "Main configuration changes has been saved"
 msgstr ""
 
+msgid "Main website URL"
+msgstr ""
+
+msgid "Main website name"
+msgstr ""
+
 msgid "Manage"
 msgstr ""
 

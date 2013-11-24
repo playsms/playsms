@@ -22,10 +22,19 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
+msgid "Preferences"
+msgstr ""
+
 msgid "Recover password"
 msgstr ""
 
 msgid "Register an account"
+msgstr ""
+
+msgid "Submit"
+msgstr ""
+
+msgid "User configuration"
 msgstr ""
 
 msgid "Username"

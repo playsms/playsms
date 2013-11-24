@@ -29,11 +29,20 @@ msgstr "Nama"
 msgid "Password"
 msgstr "Kata sandi"
 
+msgid "Preferences"
+msgstr ""
+
 msgid "Recover password"
 msgstr "Pulihkan kata sandi"
 
 msgid "Register an account"
 msgstr "Daftarkan akun"
+
+msgid "Submit"
+msgstr ""
+
+msgid "User configuration"
+msgstr ""
 
 msgid "Username"
 msgstr "Nama pengguna"

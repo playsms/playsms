@@ -342,6 +342,12 @@ msgstr "Hauptkonfiguration"
 msgid "Main configuration changes has been saved"
 msgstr "Änderungen der Hauptkonfiguration wurden gepseichert"
 
+msgid "Main website URL"
+msgstr ""
+
+msgid "Main website name"
+msgstr ""
+
 msgid "Manage"
 msgstr "Verwalten"
 

@@ -1,7 +1,7 @@
 msgid "Check to enable receiving push messages from SMSSync app"
 msgstr ""
 
-msgid "Configure SMS Sync"
+msgid "Download SMSSync app for Android from"
 msgstr ""
 
 msgid "Enable SMS Sync"
@@ -10,7 +10,10 @@ msgstr ""
 msgid "Fail to save SMS Sync configuration"
 msgstr ""
 
-msgid "SMS Sync"
+msgid "Manage sync"
+msgstr ""
+
+msgid "Notes"
 msgstr ""
 
 msgid "SMS Sync configuration has been saved"

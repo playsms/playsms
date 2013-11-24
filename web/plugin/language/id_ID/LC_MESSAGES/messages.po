@@ -341,6 +341,12 @@ msgstr "Konfigurasi utama"
 msgid "Main configuration changes has been saved"
 msgstr "Perubahan konfigurasi utama telah disimpan"
 
+msgid "Main website URL"
+msgstr ""
+
+msgid "Main website name"
+msgstr ""
+
 msgid "Manage"
 msgstr "Atur"
 

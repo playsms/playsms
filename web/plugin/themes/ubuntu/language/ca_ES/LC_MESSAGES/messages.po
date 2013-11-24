@@ -38,11 +38,20 @@ msgstr "Nom"
 msgid "Password"
 msgstr "Contrasenya"
 
+msgid "Preferences"
+msgstr ""
+
 msgid "Recover password"
 msgstr "Recuperar contrasenya"
 
 msgid "Register an account"
 msgstr "Registrar un compte"
+
+msgid "Submit"
+msgstr ""
+
+msgid "User configuration"
+msgstr ""
 
 msgid "Username"
 msgstr "Usuari"

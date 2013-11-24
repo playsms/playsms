@@ -351,6 +351,12 @@ msgstr "Configuració Principal"
 msgid "Main configuration changes has been saved"
 msgstr "La configuració principal ha estat guardada"
 
+msgid "Main website URL"
+msgstr ""
+
+msgid "Main website name"
+msgstr ""
+
 msgid "Manage"
 msgstr "Administrar"
 

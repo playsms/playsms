@@ -50,5 +50,8 @@ msgstr "Account registrieren"
 msgid "Submit"
 msgstr ""
 
+msgid "User configuration"
+msgstr ""
+
 msgid "Username"
 msgstr "Benutzername"
