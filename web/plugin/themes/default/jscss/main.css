@@ -55,10 +55,6 @@ body {
 	text-align: center;
 }
 
-#playsmslog_view {
-	height: 400px;
-}
-
 pre {
 	/*border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
@@ -158,7 +154,7 @@ table.sortable thead, table.sortable th, table.sortable_nosort thead, table.sort
 	vertical-align: bottom;
 }
 
-#txtcount, #txtcount_un, #txtcount_uk, #txtcount_am {
+#txtcount {
 	color: #7F8C8D;
 	background-color: transparent;
 	border: 0px solid;

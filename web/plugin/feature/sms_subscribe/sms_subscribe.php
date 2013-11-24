@@ -96,6 +96,7 @@ switch ($op) {
 		}
 		$add_forward_param = 'BC';
 		$content .= "
+			<link rel='stylesheet' type='text/css' href="._HTTP_PATH_THEMES_."/common/jscss/sms_subscribe.css />
 			<h2>"._('Manage subscribe')."</h2>
 			<h3>"._('Add SMS subscribe')."</h3>
 			<form name=\"form_subscribe_add\" id=\"form_subscribe_add\" action=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_add_yes method=post>
@@ -236,6 +237,7 @@ switch ($op) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
+			<link rel='stylesheet' type='text/css' href="._HTTP_PATH_THEMES_."/common/jscss/sms_subscribe.css />
 			<h2>"._('Manage subscribe')."</h2>
 			<h3>"._('Edit SMS subscribe')."</h3>
 			<form name=\"form_subscribe_edit\" id=\"form_subscribe_edit\" action=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_edit_yes method=post>
