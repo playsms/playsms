@@ -9,5 +9,6 @@ $(document).ready(function() {
 	$('.playsms-table').addClass('table');
 	$('.playsms-table').addClass('table-hover');
 	$('.playsms-table').addClass('table-condensed');
-	$('[rel=tooltip]').tooltip();
+	$('.playsms-tooltip').tooltip();
+	$('.playsms-mandatory').tooltip();
 });

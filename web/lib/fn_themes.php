@@ -151,12 +151,21 @@ function _button($url, $title) {
 }
 
 function themes_hint($text) {
-	$content = "<i class='glyphicon glyphicon-info-sign' data-toggle=tooltip title='".$text."' rel=tooltip></i>";
+	$content = "<i class='glyphicon glyphicon-info-sign playsms-tooltip' data-toggle=tooltip title='".$text."' rel=tooltip></i>";
 	return $content;
 }
 
 function _hint($text) {
 	return themes_hint($text);
+}
+
+function themes_mandatory($text) {
+	$content = $text." <i class='glyphicon glyphicon-exclamation-sign playsms-mandatory' data-toggle=tooltip title='"._('This field is required')."' rel=tooltip></i>";
+	return $content;
+}
+
+function _mandatory($text) {
+	return themes_mandatory($text);
 }
 
 ?>

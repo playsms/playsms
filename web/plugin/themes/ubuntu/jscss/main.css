@@ -26,6 +26,8 @@ body {
 
 /* Wrapper for page content to push down footer */
 #main-body {
+	min-width: 340px;
+	width: auto !important;
 	min-height: 100%;
 	height: auto;
 	//height: auto;
@@ -147,15 +149,16 @@ table.sortable thead, table.sortable th {
 	padding: 3px;
 }
 
-.required {
+.playsms-mandatory {
 	float: right;
 	margin-top: 5px;
-	width: 10px;
-	height: 10px;
-	background-color: #3498DB;
-	color: #3498DB;
 	display: inline-block;
 	vertical-align: bottom;
+}
+
+.playsms-tooltip {
+	margin-top: 5px;
+	display: inline-block;
 }
 
 #txtcount {
