@@ -64,7 +64,7 @@ switch ($op) {
 			<h3>"._('Edit rate')."</h3>
 			<form action='index.php?app=menu&inc=tools_simplerate&op=simplerate_edit_save' method='post'>
 			<input type='hidden' name='rateid' value=\"$rateid\">
-			<table width='100%'>
+			<table class=ps_table>
 			<tr>
 				<td class=label-sizer>"._('Destination')."</td><td><input type='text' size=30 maxlength='30' name='up_dst' value=\"$dst\"></td>
 			</tr>
@@ -108,7 +108,7 @@ switch ($op) {
 			<h2>"._('Manage SMS rate')."</h2>
 			<h3>"._('Add rate')."</h3>
 			<form action='index.php?app=menu&inc=tools_simplerate&op=simplerate_add_yes' method='post'>
-			<table width='100%'>
+			<table class=ps_table>
 			<tr>
 				<td class=label-sizer>"._('Destination')."</td><td><input type='text' size=30 maxlength='30' name='add_dst' value=\"$add_dst\"></td>
 			</tr>

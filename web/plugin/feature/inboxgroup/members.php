@@ -27,7 +27,7 @@ switch ($op) {
 		$content .= "<h2>"._('Group inbox')."</h2>";
 		$content .= "<h3>"._('Member list')."</h3>";
 		$content .= "
-			<table width='100%'>
+			<table class=ps_table>
 			<tr><td class=label-sizer>"._('Receiver number')."</td><td>".$in_receiver."</td></tr>
 			<tr><td>"._('Keywords')."</td><td>".$keywords."</td></tr>
 			<tr><td>"._('Description')."</td><td>".$description."</td></tr>
@@ -104,7 +104,7 @@ switch ($op) {
 		$content .= "<h2>"._('Group inbox')."</h2>";
 		$content .= "<h3>"._('Add member')."</h3>";
 		$content .= "
-			<table width='100%'>
+			<table class=ps_table>
 			<tr><td class=label-sizer>"._('Receiver number')."</td><td>".$in_receiver."</td></tr>
 			<tr><td>"._('Keywords')."</td><td>".$keywords."</td></tr>
 			<tr><td>"._('Description')."</td><td>".$description."</td></tr>

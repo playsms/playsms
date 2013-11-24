@@ -137,7 +137,7 @@ switch ($op) {
 			<h2>"._('Manage autoreply')."</h2>
 			<h3>"._('Add SMS autoreply')."</h3>
 			<form action=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_add_yes method=post>
-			<table width='100%'>
+			<table class=ps_table>
 				<tbody>
 				<tr>
 					<td class=label-sizer>"._('SMS autoreply keyword')."</td>
