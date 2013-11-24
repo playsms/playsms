@@ -20,7 +20,7 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage twilio')."</h2>
 			<form action=index.php?app=menu&inc=gateway_twilio&op=manage_save method=post>
-			<table class=ps_table cellpadding=1 cellspacing=2 border=0>
+			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 				<tbody>
 				<tr><td class=label-sizer>"._('Gateway name')."</td><td>twilio $status_active</td></tr>
 				<tr><td>"._('Twilio URL')."</td><td>".$core_config['plugin']['twilio']['url']."</td></tr>

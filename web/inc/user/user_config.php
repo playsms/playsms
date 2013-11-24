@@ -157,7 +157,7 @@ switch ($op) {
 		$content .= "
 			<form action=\"index.php?app=menu&inc=user_config&op=user_config_save" . $url_uname . "\" method=post enctype=\"multipart/form-data\">
 			<h3>" . _('Application options') . "</h3>
-			<table class=ps_table>
+			<table class=playsms-table>
 			<tbody>
 			<tr><td class=label-sizer>" . _('Username') . "</td><td>".$c_username."</td></tr>
 			<tr><td>" . _('Mobile') . " $nd</td><td><input type=text size=30 maxlength=20 name=up_mobile value=\"$mobile\"> " . _hint(_('Max. 20 digits mobile phone number')) . "</td></tr>

@@ -7,7 +7,7 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage SMS rate')."</h2>
 			<p>"._button('index.php?app=menu&inc=tools_simplerate&op=simplerate_add', _('Add rate'))."
-			<table class=ps_table class=sortable>
+			<table class=playsms-table class=sortable>
 			<thead><tr>
 				<th width='50%'>"._('Destination')."</th>
 				<th width='20%'>"._('Prefix')."</th>
@@ -64,7 +64,7 @@ switch ($op) {
 			<h3>"._('Edit rate')."</h3>
 			<form action='index.php?app=menu&inc=tools_simplerate&op=simplerate_edit_save' method='post'>
 			<input type='hidden' name='rateid' value=\"$rateid\">
-			<table class=ps_table>
+			<table class=playsms-table>
 			<tr>
 				<td class=label-sizer>"._('Destination')."</td><td><input type='text' size=30 maxlength='30' name='up_dst' value=\"$dst\"></td>
 			</tr>
@@ -108,7 +108,7 @@ switch ($op) {
 			<h2>"._('Manage SMS rate')."</h2>
 			<h3>"._('Add rate')."</h3>
 			<form action='index.php?app=menu&inc=tools_simplerate&op=simplerate_add_yes' method='post'>
-			<table class=ps_table>
+			<table class=playsms-table>
 			<tr>
 				<td class=label-sizer>"._('Destination')."</td><td><input type='text' size=30 maxlength='30' name='add_dst' value=\"$add_dst\"></td>
 			</tr>

@@ -21,7 +21,7 @@ switch ($op) {
 		}
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCustom ".$query_user_only." ORDER BY custom_keyword";
 		$db_result = dba_query($db_query);
-		$content .= "<table class=ps_table class=sortable>";
+		$content .= "<table class=playsms-table class=sortable>";
 		if (isadmin()) {
 			$content .= "
 				<thead><tr>
@@ -82,7 +82,7 @@ switch ($op) {
 			<form action=index.php?app=menu&inc=feature_sms_custom&op=sms_custom_edit_yes method=post>
 			<input type=hidden name=custom_id value=$custom_id>
 			<input type=hidden name=edit_custom_keyword value=$edit_custom_keyword>
-			<table class=ps_table>
+			<table class=playsms-table>
 				<tbody>
 				<tr>
 					<td class=label-sizer>"._('SMS custom keyword') . "</td><td>".$edit_custom_keyword."</td>
@@ -155,7 +155,7 @@ switch ($op) {
 			<h2>" . _('Manage custom') . "</h2>
 			<h3>" . _('Add SMS custom') . "</h3>
 			<form action=index.php?app=menu&inc=feature_sms_custom&op=sms_custom_add_yes method=post>
-			<table class=ps_table>
+			<table class=playsms-table>
 				<tbody>
 				<tr>
 					<td class=label-sizer>"._('SMS custom keyword') . "</td><td><input type=text size=10 maxlength=10 name=add_custom_keyword value=\"$add_custom_keyword\"></td>

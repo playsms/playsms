@@ -28,7 +28,7 @@ switch ($op) {
 			<p>".$search['form']."</p>
 			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=tools_phonebook&route=group&op=actions\" method=post>
 			".$actions_box."
-			<table class=ps_table class=sortable>
+			<table class=playsms-table class=sortable>
 			<thead>
 			<tr>
 				<th width=60%>"._('Name')."</th>
@@ -75,7 +75,7 @@ switch ($op) {
 			<h3>"._('Add group')."</h3>
 			<p>
 			<form action=\"index.php?app=menu&inc=tools_phonebook&route=group&op=actions&go=add\" method=POST>
-			<table class=ps_table>
+			<table class=playsms-table>
 			<tbody>
 				<tr>
 					<td class=label-sizer>"._('Group name')."</td>
@@ -100,7 +100,7 @@ switch ($op) {
 			<p>
 			<form action=\"index.php?app=menu&inc=tools_phonebook&route=group&op=actions&go=edit\" method=POST>
 			<input type=hidden name=gpid value=\"$gpid\">
-			<table class=ps_table>
+			<table class=playsms-table>
 			<tbody>
 			<tr>
 				<td class=label-sizer>"._('Group name')."</td>

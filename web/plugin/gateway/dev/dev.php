@@ -22,13 +22,13 @@ switch ($op) {
 		}
 		$content .= "
 			<h2>"._('Manage dev')."</h2>
-			<table class=ps_table>
+			<table class=playsms-table>
 				<tbody><tr><td class=label-sizer>"._('Gateway name')."</td><td>dev $status_active</td></tr></tbody>
 			</table>
 			<br />
 			<h3>"._('Simulate incoming SMS')."</h3>
 			<form action=\"index.php?app=menu&inc=gateway_dev&op=simulate\" method=post>
-			<table class=ps_table>
+			<table class=playsms-table>
 				<tbody>
 				<tr><td class=label-sizer>"._('Message')."</td><td><input type=text name=message value=\"$message\" size=30 maxlength=250></td></tr>
 				<tr><td>"._('Sender')."</td><td><input type=text name=sender value=\"$sender\" size=30 maxlength=20></td></tr>

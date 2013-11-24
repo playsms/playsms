@@ -13,7 +13,7 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage autoreply')."</h2>
 			"._button('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_add', _('Add SMS autoreply'));
-		$content .= "<table class=ps_table class=sortable><thead><tr>";
+		$content .= "<table class=playsms-table class=sortable><thead><tr>";
 		if (isadmin()) {
 			$content .= "
 				<th width=70%>"._('Keyword')."</th>
@@ -66,7 +66,7 @@ switch ($op) {
 			<h2>"._('Manage autoreply')."</h2>
 			<p>"._('SMS autoreply keyword').": ".$manage_autoreply_keyword."</p>
 			"._button('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id='.$autoreply_id, _('Add SMS autoreply scenario'))."
-			<table class=ps_table class=sortable><thead><tr>";
+			<table class=playsms-table class=sortable><thead><tr>";
 		if (isadmin()) {
 			$content .= "
 				<th width=20%>"._('Param')."</th>
@@ -137,7 +137,7 @@ switch ($op) {
 			<h2>"._('Manage autoreply')."</h2>
 			<h3>"._('Add SMS autoreply')."</h3>
 			<form action=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_add_yes method=post>
-			<table class=ps_table>
+			<table class=playsms-table>
 				<tbody>
 				<tr>
 					<td class=label-sizer>"._('SMS autoreply keyword')."</td>
@@ -194,7 +194,7 @@ switch ($op) {
 			<h3>"._('Add SMS autoreply scenario')."</h3>
 			<form action=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add_yes method=post>
 			<input type=hidden name=autoreply_id value=\"$autoreply_id\">
-			<table class=ps_table>
+			<table class=playsms-table>
 				<tbody>
 				<tr>
 					<td class=label-sizer>"._('SMS autoreply keyword')."</td><td>".$autoreply_keyword."</td>
@@ -256,7 +256,7 @@ switch ($op) {
 			<form action=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit_yes method=post>
 			<input type=hidden name=autoreply_id value=\"$autoreply_id\">
 			<input type=hidden name=autoreply_scenario_id value=\"$autoreply_scenario_id\">
-			<table class=ps_table>
+			<table class=playsms-table>
 				<tbody>
 				<tr>
 					<td class=label-sizer>"._('SMS autoreply keyword')."</td><td>".$autoreply_keyword."</td>

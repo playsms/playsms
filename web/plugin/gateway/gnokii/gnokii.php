@@ -20,7 +20,7 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage gnokii')."</h2>
 			<form action=index.php?app=menu&inc=gateway_gnokii&op=manage_save method=post>
-			<table class=ps_table>
+			<table class=playsms-table>
 				<tbody>
 				<tr>
 					<td class=label-sizer>"._('Gateway name')."</td><td>gnokii $status_active</td>

@@ -27,7 +27,7 @@ switch ($op) {
 		$content .= "<h2>"._('Group inbox')."</h2>";
 		$content .= "<h3>"._('Catch-all list')."</h3>";
 		$content .= "
-			<table class=ps_table>
+			<table class=playsms-table>
 			<tr><td class=label-sizer>"._('Receiver number')."</td><td>".$in_receiver."</td></tr>
 			<tr><td>"._('Keywords')."</td><td>".$keywords."</td></tr>
 			<tr><td>"._('Description')."</td><td>".$description."</td></tr>
@@ -45,7 +45,7 @@ switch ($op) {
 				<input class='button' type='submit' value='"._('Delete catch-all')."'>
 				</form>
 			</div>
-			<table class=ps_table class=sortable>
+			<table class=playsms-table class=sortable>
 			<thead><tr>
 				<th width='30%'>"._('Username')."</th>
 				<th width='50%'>"._('Name')."</th>
@@ -103,7 +103,7 @@ switch ($op) {
 		$content .= "<h2>"._('Group inbox')."</h2>";
 		$content .= "<h3>"._('Add catch-all')."</h3>";
 		$content .= "
-			<table class=ps_table>
+			<table class=playsms-table>
 			<tr><td class=label-sizer>"._('Receiver number')."</td><td>".$in_receiver."</td></tr>
 			<tr><td>"._('Keywords')."</td><td>".$keywords."</td></tr>
 			<tr><td>"._('Description')."</td><td>".$description."</td></tr>

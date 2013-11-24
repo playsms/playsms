@@ -17,7 +17,7 @@ switch ($op) {
 			<h2>"._('Manage subscribe')."</h2>
 			"._button('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_add', _('Add SMS subscribe'));
 		$content .= "
-			<table class=ps_table class=sortable>
+			<table class=playsms-table class=sortable>
 			<thead><tr>";
 		if (isadmin()) {
 			$content .= "
@@ -100,7 +100,7 @@ switch ($op) {
 			<h2>"._('Manage subscribe')."</h2>
 			<h3>"._('Add SMS subscribe')."</h3>
 			<form name=\"form_subscribe_add\" id=\"form_subscribe_add\" action=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_add_yes method=post>
-			<table class=ps_table>
+			<table class=playsms-table>
 			<tr>
 				<td class=label-sizer>"._('SMS subscribe keyword')."</td><td><input type=text size=10 maxlength=10 name=add_subscribe_keyword value=\"$add_subscribe_keyword\"></td>
 			</tr>
@@ -243,7 +243,7 @@ switch ($op) {
 			<form name=\"form_subscribe_edit\" id=\"form_subscribe_edit\" action=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_edit_yes method=post>
 			<input type=hidden name=subscribe_id value=\"$subscribe_id\">
 			<input type=hidden name=edit_subscribe_keyword value=\"$edit_subscribe_keyword\">
-			<table class=ps_table>
+			<table class=playsms-table>
 			<tr>
 				<td class=label-sizer>"._('SMS subscribe keyword')."</td><td>$edit_subscribe_keyword</td>
 			</tr>
@@ -393,7 +393,7 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage subscribe')."</h2>
 			<h3>"._('Member list for keyword')." $subscribe_name</h3>
-			<table class=ps_table class=sortable>
+			<table class=playsms-table class=sortable>
 			<thead><tr>
 				<th width=50%>"._('Phone number')."</th>
 				<th width=40%>"._('Member join datetime')."</th>
@@ -435,7 +435,7 @@ switch ($op) {
 			<h2>"._('Manage subscribe')."</h2>
 			<h3>"._('SMS messages list for keyword')." $subscribe_name</h3>
 			"._button('index.php?app=menu&inc=feature_sms_subscribe&op=msg_add&&subscribe_id='.$subscribe_id, _('Add message'))."
-			<table class=ps_table class=sortable>
+			<table class=playsms-table class=sortable>
 			<thead><tr>
 				<th width=40%>"._('Message')."</th>
 				<th width=20%>"._('Created')."</th>
@@ -483,7 +483,7 @@ switch ($op) {
 			<form action=index.php?app=menu&inc=feature_sms_subscribe&op=msg_edit_yes method=post>
 			<input type=hidden value=$subscribe_id name=subscribe_id>
 			<input type=hidden value=$msg_id name=msg_id>
-			<table class=ps_table>
+			<table class=playsms-table>
 			<tr>
 				<td class=label-sizer>"._('SMS subscribe keyword')."</td><td>$subscribe_name</td>
 			</tr>
@@ -530,7 +530,7 @@ switch ($op) {
 			<h3>"._('Add message')."</h3>
 			<form action=index.php?app=menu&inc=feature_sms_subscribe&op=msg_add_yes method=post>
 			<input type=hidden value=$subscribe_id name=subscribe_id>
-			<table class=ps_table>
+			<table class=playsms-table>
 			<tr>
 				<td class=label-sizer>"._('SMS subscribe keyword')."</td><td>$subscribe_name</td>
 			</tr>
@@ -594,7 +594,7 @@ switch ($op) {
 			<input type=hidden value=$message name=msg>
 			<input type=hidden value=$subscribe_id name=subscribe_id>
 			<input type=hidden value=$msg_id name=msg_id>
-			<table class=ps_table>
+			<table class=playsms-table>
 			<tr><td class=label-sizer>"._('SMS subscribe keyword')."</td><td>$subscribe_name</td></tr>
 			<tr><td>"._('Message ID')."</td><td>".$msg_id."</td></tr>
 			<tr><td>"._('Message')."</td><td>".$message."</td></tr>

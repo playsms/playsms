@@ -31,7 +31,7 @@ switch ($op) {
 			<p>".$search['form']."</p>
 			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=tools_phonebook&op=actions\" method=post>
 			".$actions_box."
-			<table class=ps_table class=sortable>
+			<table class=playsms-table class=sortable>
 			<thead>
 			<tr>
 				<th width=25%>"._('Name')."</th>
@@ -91,7 +91,7 @@ switch ($op) {
 			<h3>"._('Add contact')."</h3>
 			<p>
 			<form action=\"index.php?app=menu&inc=tools_phonebook&op=actions&go=add\" name=fm_addphone method=POST>
-			<table class=ps_table>
+			<table class=playsms-table>
 			<tbody>
 			<tr><td class=label-sizer>"._('Group')."</td><td><select name=gpid>$list_of_group</select></td></tr>
 			<tr><td>"._('Name')."</td><td><input type=text name=name size=30></td></tr>
@@ -123,7 +123,7 @@ switch ($op) {
 			<p>
 			<form action=\"index.php?app=menu&inc=tools_phonebook&op=actions&go=edit\" name=fm_addphone method=POST>
 			<input type=hidden name=id value=\"".$id."\">
-			<table class=ps_table>
+			<table class=playsms-table>
 			<tbody>
 			<tr><td width=100>"._('Group')."</td><td><select name=gpid>$list_of_group</select></td></tr>
 			<tr><td>"._('Name')."</td><td><input type=text name=name value=\"".$list[0]['name']."\" size=30></td></tr>

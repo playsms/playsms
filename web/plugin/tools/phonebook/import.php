@@ -28,7 +28,7 @@ switch ($op) {
 			<h2>"._('Phonebook')."</h2>
 			<h3>"._('Import confirmation')."</h3>
 			<p>
-			<table class=ps_table class=sortable>
+			<table class=playsms-table class=sortable>
 			<thead><tr>
 				<th width=\"4\">*</th>
 				<th width=\"30%\">"._('Name')."</th>

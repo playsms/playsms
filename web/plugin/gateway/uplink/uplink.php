@@ -32,7 +32,7 @@ switch ($op) {
 			" . $error_content . "
 			<h2>" . _('Manage uplink') . "</h2>
 			<form action=index.php?app=menu&inc=gateway_uplink&op=manage_save method=post>
-			<table class=ps_table>
+			<table class=playsms-table>
 				<tbody>
 				<tr>
 					<td class=label-sizer>" . _('Gateway name') . "</td><td>uplink $status_active</td>

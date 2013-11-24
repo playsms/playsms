@@ -24,7 +24,7 @@ switch ($op)
 	    <h2>"._('Manage template')."</h2>
 	    <p>
 	    <form action=index.php?app=menu&inc=gateway_template&op=manage_save method=post>
-	    <table class=ps_table cellpadding=1 cellspacing=2 border=0>
+	    <table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 		<tr>
 		    <td class=label-sizer>"._('Gateway name')."</td><td>template $status_active</td>
 		</tr>

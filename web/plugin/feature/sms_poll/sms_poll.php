@@ -17,7 +17,7 @@ switch ($op) {
 			<h2>"._('Manage poll')."</h2>
 			"._button('index.php?app=menu&inc=feature_sms_poll&op=sms_poll_add', _('Add SMS poll'));
 		$content .= "
-			<table class=ps_table class=sortable>
+			<table class=playsms-table class=sortable>
 			<thead><tr>";
 		if (isadmin()) {
 			$content .= "
@@ -96,7 +96,7 @@ switch ($op) {
 			<form action=index.php?app=menu&inc=feature_sms_poll&op=sms_poll_edit_yes method=post>
 			<input type=hidden name=poll_id value=\"$poll_id\">
 			<input type=hidden name=edit_poll_keyword value=\"$edit_poll_keyword\">
-			<table class=ps_table>
+			<table class=playsms-table>
 			<tr>
 				<td class=label-sizer>"._('SMS poll keyword')."</td><td>$edit_poll_keyword</td>
 			</tr>
@@ -117,7 +117,7 @@ switch ($op) {
 		$db_query = "SELECT choice_id,choice_title,choice_keyword FROM "._DB_PREF_."_featurePoll_choice WHERE poll_id='$poll_id' ORDER BY choice_keyword";
 		$db_result = dba_query($db_query);
 		$content .= "
-			<table class=ps_table class=sortable>
+			<table class=playsms-table class=sortable>
 			<thead><tr>
 				<th width=20%>"._('Choice keyword')."</th>
 				<th width=70%>"._('Title')."</th>
@@ -144,7 +144,7 @@ switch ($op) {
 			<p>"._('Add choice to this poll')."
 			<form action=\"index.php?app=menu&inc=feature_sms_poll&op=sms_poll_choice_add\" method=post>
 			<input type=hidden name=poll_id value=\"$poll_id\">
-			<table class=ps_table cellpadding=1 cellspacing=2 border=0>
+			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 			<tr>
 				<td class=label-sizer>"._('Choice keyword')."</td><td><input type=text size=3 maxlength=10 name=add_choice_keyword></td>
 			</tr>
@@ -248,7 +248,7 @@ switch ($op) {
 			<h2>"._('Manage poll')."</h2>
 			<h3>"._('Add SMS poll')."</h3>
 			<form action=\"index.php?app=menu&inc=feature_sms_poll&op=sms_poll_add_yes\" method=\"post\">
-			<table class=ps_table>
+			<table class=playsms-table>
 			<tr>
 				<td class=label-sizer>"._('SMS poll keyword')."</td><td><input type=text size=10 maxlength=10 name=add_poll_keyword value=\"$add_poll_keyword\"></td>
 			</tr>

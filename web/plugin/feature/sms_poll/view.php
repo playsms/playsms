@@ -17,7 +17,7 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage poll')."</h2>
 			<h3>"._('View poll')." : ".$poll_keyword."</h3>
-			<table class=ps_table>
+			<table class=playsms-table>
 				<tr><td class=label-sizer>"._('PHP serialize output')."</td><td>:</td><td><a href=\"".$output_serialize."\" target=_blank>".$output_serialize."</a></td></tr>
 				<tr><td>"._('JSON output')."</td><td>:</td><td><a href=\"".$output_json."\" target=_blank>".$output_json."</a></td></tr>
 				<tr><td>"._('XML output')."</td><td>:</td><td><a href=\"".$output_xml."\" target=_blank>".$output_xml."</a></td></tr>
