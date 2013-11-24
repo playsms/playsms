@@ -39,7 +39,7 @@ switch ($op) {
 				<th width='20%'>" . _('Name') . "</th>
 				<th width='20%'>" . _('Mobile') . "</th>
 				<th width='10%'>" . _('Credit') . "</th>
-				<th width='10%>" . _('Action') . "</th>
+				<th width='10%'>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
 		$j = $nav['top'];
@@ -95,7 +95,7 @@ switch ($op) {
 				<th width='20%'>" . _('Name') . "</th>
 				<th width='20%'>" . _('Mobile') . "</th>
 				<th width='10%'>" . _('Credit') . "</th>
-				<th width='10%>" . _('Action') . "</th>
+				<th width='10%'>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
 		$j = $nav['top'];
