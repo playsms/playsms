@@ -129,11 +129,11 @@ table tbody, table td {
 
 table thead, table th {
 	font-weight: normal;
-	text-align: center;
 	background-color: #566B7F;
 	color: #FFF;
 	padding: 5px;
 	margin-bottom: 0px;
+	text-align: left;
 }
 
 table.sortable thead, table.sortable th {

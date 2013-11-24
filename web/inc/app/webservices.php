@@ -38,7 +38,7 @@ $kwd		= trim($_REQUEST['kwd']);
 
 if ($op) { $ta = $op; };
 
-logger_print("begin u:".$u." h:".$h." ip:".$_SERVER['REMOTE_ADDR']." ta:".$ta, 3, "webservices");
+//logger_print("begin u:".$u." h:".$h." ip:".$_SERVER['REMOTE_ADDR']." ta:".$ta, 3, "webservices");
 
 if ($ta) {
 	switch ($ta) {
@@ -193,6 +193,6 @@ if ($format=='JSON') {
 	echo $ret;
 }
 
-logger_print("end u:".$u." h:".$h." ip:".$_SERVER['REMOTE_ADDR']." ta:".$ta, 3, "webservices");
+//logger_print("end u:".$u." h:".$h." ip:".$_SERVER['REMOTE_ADDR']." ta:".$ta, 3, "webservices");
 
 ?>

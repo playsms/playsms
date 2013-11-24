@@ -68,10 +68,7 @@ function pluginmanager_display($plugin_category) {
 		if ($fc = file_get_contents($xml_file)) {
 			$plugin_info = core_xml_to_array($fc);
 			$plugin_info['status'] = $subdir_tab[$l]['status'];
-		} else {
-			logger_print("XML info file not present:" . $error, 2, "plugin");
 		}
-
 		if ($plugin_info['name']) {
 			$content .= "
 				<tr>
