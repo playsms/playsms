@@ -4,7 +4,7 @@ defined ( '_SECURE_' ) or die ( 'Forbidden' );
 if (!isadmin()) { forcenoaccess (); };
 
 $content = "
-	<script src='" . $core_config['http_path']['themes'] . "/common/jscss/jquery.easytabs.min.js' type='text/javascript'></script>
+	<script src='" . _HTTP_PATH_THEMES_ . "/common/jscss/jquery.easytabs.min.js' type='text/javascript'></script>
 	<script type='text/javascript'>
 		$(document).ready( function() {
 		$('#tab-container').easytabs();
@@ -14,7 +14,7 @@ $content = "
 $content .= "
 	<h2>" . _ ( 'Manage plugin' ) . "</h2>
 	<div id='tab-container' class='tab-container'>
-		<ul class='nav nav-tabs'>
+		<ul class='nav nav-pills nav-justified'>
 			<li><a href='#tabs-feature'>" . _ ( 'Features' ) . "</a></li>
 			<li><a href='#tabs-gateway'>" . _ ( 'Gateways' ) . "</a></li>
 			<li><a href='#tabs-theme'>" . _ ( 'Themes' ) . "</a></li>
