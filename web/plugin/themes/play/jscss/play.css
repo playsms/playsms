@@ -6,10 +6,6 @@
     vertical-align: middle;
 }
 
-#playsmslog_view {
-    width: 99%;
-}
-
 pre {
 	border: 0;
 	background-color: #FFF;	
@@ -96,7 +92,7 @@ pre {
 	vertical-align: bottom;
 }
 
-#txtcount, #txtcount_un, #txtcount_uk, #txtcount_am {
+#txtcount {
 	background-color: transparent;
 	border: 0px solid;
 	font-weight: normal;
