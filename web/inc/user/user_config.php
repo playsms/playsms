@@ -166,7 +166,7 @@ switch ($op) {
 			<tr><td>" . _('SMS footer') . "</td><td><input type=text size=30 maxlength=30 name=up_footer value=\"$footer\"> " . _hint(_('Max. 30 alphanumeric characters')) . "</td></tr>
 			".$option_credit."
 			<tr><td>" . _('Webservices username') . "</td><td>".$c_username."</td></tr>
-			<tr><td>" . _('Webservices token') . "</td><td>".$token."</td></tr>
+			<tr><td>" . _('Webservices token') . "</td><td><input type=text size=30 value=\"".$token."\" disabled></td></tr>
 			<tr><td>" . _('New webservices token') . "</td><td><select name='up_new_token'>" . $option_new_token . "</select></td></tr>
 			<tr><td>" . _('Enable webservices') . "</td><td><select name='up_enable_webservices'>" . $option_enable_webservices . "</select></td></tr>
 			<tr><td>" . _('Webservices IP range') . "</td><td><input type=text size=30 maxlength=100 name=up_webservices_ip value=\"$webservices_ip\"> "._hint(_('Comma seperated'))."</td></tr>
