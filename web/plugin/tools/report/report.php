@@ -146,7 +146,7 @@ switch ($op) {
 			
 			$c_is_admin = '';
 			if ($c_status=='2') {
-				$c_is_admin = $nd;
+				$c_is_admin = "<i class='glyphicon glyphicon-wrench playsms-mandatory' data-toggle=tooltip title='"._('This user is administrator')."' rel=tooltip></i>";
 			}
 			
 
