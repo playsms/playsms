@@ -6,7 +6,7 @@ body {
 	height: 100%;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
 	input[size="30"],select {
 		width: 140px;
 	}
@@ -15,7 +15,7 @@ body {
 	}
 }
 
-@media (min-width: 600px) {
+@media (min-width: 767px) {
 	input[size="30"],select {
 		width: 300px;
 	}
