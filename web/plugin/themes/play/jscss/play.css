@@ -9,10 +9,10 @@
 
 @media (min-width: 767px) {
 	input[size="30"],select {
-		width: 280px;
+		width: 220px;
 	}
 	.label-sizer {
-		width: 280px;
+		width: 220px;
 	}
 }
 

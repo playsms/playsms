@@ -1,1 +1,370 @@
-/* still empty */
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
+input, select, option {
+	font-size: 12pt;
+	font-weight: normal;
+	color: #738384;
+	background-color: #ECF0F1;
+	border: 1px solid #ECF0F1;
+	padding-left: 5px;
+	margin-bottom: 2px;
+	border-radius: 3px;
+}
+
+input[size="30"], select {
+	width: 400px;
+}
+
+textarea {
+	font-size: 10pt;
+	font-weight: normal;
+	color: #738384;
+	background-color: #ECF0F1;
+	border: 1px solid #ECF0F1;
+	padding-left: 5px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+}
+
+table.sortable thead, table.sortable th {
+	cursor: pointer;
+}
+
+.error_string {
+	font-weight: normal;
+	font-size: medium;
+	color: #c0392b;
+	background-color: #ecf0f1;
+	margin: 0 0 10px 0;
+	text-align: center;
+	padding: 3px;
+}
+
+.status_handled {
+	width: 10px;
+	height: 10px;
+	background-color: #2ECC71;
+	color: #2ECC71;
+	display: inline-block;
+	border-radius: 3px;
+}
+
+.status_unhandled {
+	width: 10px;
+	height: 10px;
+	background-color: #E74C3C;
+	color: #E74C3C;
+	display: inline-block;
+	border-radius: 3px;
+}
+
+.status_sent {
+	width: 10px;
+	height: 10px;
+	background-color: #2ECC71;
+	color: #2ECC71;
+	display: inline-block;
+	border-radius: 3px;
+}
+
+.status_failed {
+	width: 10px;
+	height: 10px;
+	background-color: #E74C3C;
+	color: #E74C3C;
+	display: inline-block;
+	border-radius: 3px;
+}
+
+.status_delivered {
+	width: 10px;
+	height: 10px;
+	background-color: #3498DB;
+	color: #3498DB;
+	display: inline-block;
+	border-radius: 3px;
+}
+
+.status_pending {
+	width: 10px;
+	height: 10px;
+	background-color: #F1C40F;
+	color: #F1C40F;
+	display: inline-block;
+	border-radius: 3px;
+}
+
+.status_active {
+	width: 10px;
+	height: 10px;
+	background-color: #2ECC71;
+	color: #2ECC71;
+	display: inline-block;
+	border-radius: 3px;
+}
+
+.status_inactive {
+	width: 10px;
+	height: 10px;
+	background-color: #E74C3C;
+	color: #E74C3C;
+	display: inline-block;
+	border-radius: 3px;
+}
+
+.status_enabled {
+	width: 34px;
+	height: 17px;
+	background-color: #3FDD82;
+	color: #3FDD82;
+	display: inline-block;
+	border-radius: 3px;
+}
+
+.status_disabled {
+	width: 34px;
+	height: 17px;
+	background-color: #F85D4D;
+	color: #F85D4D;
+	display: inline-block;
+	border-radius: 3px;
+}
+
+.label-sizer {
+	width: 300px;
+}
+
+.navbar-right { float: right !important; }
+
+.playsms-nav-form {
+	width: 100%;
+	text-align: center;
+}
+
+.playsms-mandatory {
+	float: right;
+	margin-top: 5px;
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+.playsms-tooltip {
+	margin-top: 5px;
+	display: inline-block;
+}
+
+/* IDs */
+
+/* Wrapper for page content to push down footer */
+#main-body {
+	min-width: 340px;
+	width: auto !important;
+	min-height: 100%;
+	height: auto;
+	//height: auto;
+	/* Negative indent footer by its height */
+	margin: 0 auto -50px;
+	/* Pad bottom by footer height */
+	padding: 70px 0 50px 0;
+}
+
+#main-content {
+	height: 100%;
+}
+
+/* Set the fixed height of the footer here */
+#main-footer {
+	height: 50px;
+	background-color: #f5f5f5;
+}
+
+#main-footer p {
+	margin-top: 15px;
+	text-align: center;
+}
+
+#txtcount {
+	color: #7F8C8D;
+	background-color: transparent;
+	border: 0px solid;
+	font-weight: normal;
+	
+}
+
+#user_inbox_msg {
+	padding-bottom: 12px;
+	word-break: break-all;
+	-ms-word-break: break-all;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+        hyphens: auto;
+}
+
+#user_incoming_msg {
+	padding-bottom: 12px;
+	word-break: break-all;
+	-ms-word-break: break-all;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+        hyphens: auto;
+}
+
+#user_outgoing_msg {
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-bottom: 12px;
+	word-break: break-all;
+	-ms-word-break: break-all;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+        hyphens: auto;
+}
+
+#all_inbox_msg {
+	padding-bottom: 12px;
+	word-break: break-all;
+	-ms-word-break: break-all;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+        hyphens: auto;
+}
+
+#all_incoming_msg {
+	padding-bottom: 12px;
+	word-break: break-all;
+	-ms-word-break: break-all;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+        hyphens: auto;
+}
+
+#all_outgoing_msg {
+	padding-bottom: 12px;
+	word-break: break-all;
+	-ms-word-break: break-all;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+        hyphens: auto;
+}
+
+#msg_label {
+	font-size: 11pt;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+#msg_option {
+	font-size: 11pt;
+	text-align: left;
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-bottom: 12px;
+}
+
+#msg_template {
+	text-align: left;
+}
+
+#msg_template_select {
+	width: 280px;
+}
+
+#msg_flash, #msg_unicode {
+	margin-right: 5px;
+}
+
+#msg_combo_sendto {
+	width: 280px;
+	height: 100px;
+	margin-bottom: 10px;
+}
+
+#message {
+	width: 280px;
+	height: 150px;
+}
+
+#actions_box {
+	margin-right: 1px;
+	margin-left: -1px;
+	padding: 0;
+	width: 100%;
+	clear: both;
+}
+
+#actions_box_left {
+	text-align: left;
+	float: left;
+	width: 25%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#actions_box_center {
+	text-align: center;
+	float: left;
+	width: 50%;
+	padding: 4px 0 0 0;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#actions_box_right {
+	text-align: right;
+	float: left;
+	width: 25%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#actions_box_right input {
+	margin-right: -3px;
+}
+
+#search_box {
+	text-align: left;
+	margin-right: 5px;
+}
+
+#search_box_select {
+	float: left;
+	text-align: left;
+	margin-right: 5px;
+}
+
+#search_box_input {
+	text-align: left;
+}
+
+#button_back input {
+	margin: 20px 0 0 1px;
+}
+
+@media (max-width: 767px) {
+	input[size="30"], select, textarea, .label-sizer {
+		width: 280px;
+	}
+	.navbar-right { float: left !important; }
+	.navbar-header:after { clear: none; }
+	.navbar-nav.navbar-right > li { float: left; }
+	.navbar-collapse:before { clear: both; }
+	.navbar-collapse { overflow-y: hidden; }
+	.navbar-collapse.in { overflow-y: visible; }
+	.navbar-collapse.in > ul { border-top: none; }
+	#nav-login { border: none; }
+}
+
+@media (max-width: 383px) {
+	input[size="30"], select, textarea, .label-sizer {
+		width: 140px;
+	}
+}
+
