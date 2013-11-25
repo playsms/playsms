@@ -27,7 +27,7 @@ switch ($op) {
 			$input_values .= "<input type=\"hidden\" name=\"content_".$i."\" value=\"".$c_templates[$i]['text']."\">";
 		}
 		if ($c_templates[0]) {
-			$sms_template = "<div id=msg_template><select name=\"smstemplate\" onClick=\"SetSmsTemplate();\">$option_values</select></div>";
+			$sms_template = "<div id=msg_template><select name=smstemplate id=msg_template_select onClick=\"SetSmsTemplate();\">$option_values</select></div>";
 		}
 
 		// unicode option

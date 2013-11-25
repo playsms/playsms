@@ -17,8 +17,8 @@ input, select, option {
 	border-radius: 3px;
 }
 
-input[size="30"],select {
-	width: 300px;
+input[size="30"], select {
+	width: 280px;
 }
 
 textarea {
@@ -28,14 +28,13 @@ textarea {
 	background-color: #ECF0F1;
 	border: 1px solid #ECF0F1;
 	padding-left: 5px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
 }
 
 table {
-	word-break: break-all;
-	-ms-word-break: break-all;
-	-webkit-hyphens: auto;
-	-moz-hyphens: auto;
-        hyphens: auto;
 }
 
 table.sortable thead, table.sortable th {
@@ -44,11 +43,11 @@ table.sortable thead, table.sortable th {
 
 .error_string {
 	font-weight: normal;
-	color: #C0392B;
-	background-color: #ededed;
+	font-size: medium;
+	color: #c0392b;
+	background-color: #ecf0f1;
 	margin: 0 0 10px 0;
 	text-align: center;
-	border: 1px solid #737A3A;
 	padding: 3px;
 }
 
@@ -143,7 +142,7 @@ table.sortable thead, table.sortable th {
 }
 
 .label-sizer {
-	width: 300px;
+	width: 280px;
 }
 
 .navbar-right { float: right !important; }
@@ -205,35 +204,64 @@ table.sortable thead, table.sortable th {
 
 #user_inbox_msg {
 	padding-bottom: 12px;
+	word-break: break-all;
+	-ms-word-break: break-all;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+        hyphens: auto;
 }
 
 #user_incoming_msg {
 	padding-bottom: 12px;
+	word-break: break-all;
+	-ms-word-break: break-all;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+        hyphens: auto;
 }
 
 #user_outgoing_msg {
 	padding-left: 2px;
 	padding-right: 2px;
 	padding-bottom: 12px;
+	word-break: break-all;
+	-ms-word-break: break-all;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+        hyphens: auto;
 }
 
 #all_inbox_msg {
 	padding-bottom: 12px;
+	word-break: break-all;
+	-ms-word-break: break-all;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+        hyphens: auto;
 }
 
 #all_incoming_msg {
 	padding-bottom: 12px;
+	word-break: break-all;
+	-ms-word-break: break-all;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+        hyphens: auto;
 }
 
 #all_outgoing_msg {
 	padding-bottom: 12px;
+	word-break: break-all;
+	-ms-word-break: break-all;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+        hyphens: auto;
 }
 
 #msg_label {
 	font-size: 11pt;
 	padding-left: 2px;
 	padding-right: 2px;
-	/* float: left; */
 }
 
 #msg_option {
@@ -248,14 +276,23 @@ table.sortable thead, table.sortable th {
 	text-align: left;
 }
 
-#msg_combo_phonebook {
-	width: 15em;
-	height: 10em;
+#msg_template_select {
+	width: 280px;
+}
+
+#msg_flash, #msg_unicode {
+	margin-right: 5px;
 }
 
 #msg_combo_sendto {
-	width: 15em;
-	height: 10em;
+	width: 280px;
+	height: 100px;
+	margin-bottom: 10px;
+}
+
+#message {
+	width: 280px;
+	height: 150px;
 }
 
 #actions_box {
@@ -314,9 +351,9 @@ table.sortable thead, table.sortable th {
 	margin: 20px 0 0 1px;
 }
 
-@media (max-width: 767px) {
-	input[size="30"], .label-sizer {
-		width: 140px;
+@media (max-width: 768px) {
+	input[size="30"], select, textarea, .label-sizer {
+		width: 280px;
 	}
 	.navbar-right { float: left !important; }
 	.navbar-header:after { clear: none; }
@@ -326,5 +363,11 @@ table.sortable thead, table.sortable th {
 	.navbar-collapse.in { overflow-y: visible; }
 	.navbar-collapse.in > ul { border-top: none; }
 	#nav-login { border: none; }
+}
+
+@media (max-width: 384px) {
+	input[size="30"], select, textarea, .label-sizer {
+		width: 140px;
+	}
 }
 
