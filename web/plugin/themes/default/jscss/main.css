@@ -18,7 +18,7 @@ input, select, option {
 }
 
 input[size="30"], select {
-	width: 280px;
+	width: 400px;
 }
 
 textarea {
@@ -142,7 +142,7 @@ table.sortable thead, table.sortable th {
 }
 
 .label-sizer {
-	width: 280px;
+	width: 300px;
 }
 
 .navbar-right { float: right !important; }
@@ -351,7 +351,7 @@ table.sortable thead, table.sortable th {
 	margin: 20px 0 0 1px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 	input[size="30"], select, textarea, .label-sizer {
 		width: 280px;
 	}
@@ -365,7 +365,7 @@ table.sortable thead, table.sortable th {
 	#nav-login { border: none; }
 }
 
-@media (max-width: 384px) {
+@media (max-width: 383px) {
 	input[size="30"], select, textarea, .label-sizer {
 		width: 140px;
 	}

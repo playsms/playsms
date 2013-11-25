@@ -57,15 +57,15 @@ function default_hook_themes_buildmenu($menu_config) {
 						<ul class='nav navbar-nav'>
 							<li class='active'><a href='" . _HTTP_PATH_BASE_ . "'>" . _('Home') . "</a></li>
 							".$main_menu."
-						</ul>
-						<ul id=nav-login class='nav navbar-nav navbar-right'>
 							<li class='dropdown'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $core_config['user']['name'] . " (" . $core_config['user']['username'] . ") <b class='caret'></b></a>
 								<ul class='dropdown-menu'>
 									<li><a href='index.php?app=menu&inc=user_config&op=user_config'>" . _('User configuration') . "</a></li>
 									<li><a href='index.php?app=menu&inc=user_pref&op=user_pref'>" . _('Preferences') . "</a></li>
-									<li><a href='index.php?app=page&op=auth_logout'>" . _('Logout') . "</a></li>
 								</ul>
 							</li>
+						</ul>
+						<ul id=nav-login class='nav navbar-nav navbar-right'>
+							<li><a href='index.php?app=page&op=auth_logout'>" . _('Logout') . "</a></li>
 						</ul>
 					</div>
 				</div>
