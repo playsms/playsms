@@ -315,10 +315,7 @@ table.sortable thead, table.sortable th {
 }
 
 @media (max-width: 767px) {
-	input[size="30"],select {
-		width: 140px;
-	}
-	.label-sizer {
+	input[size="30"], .label-sizer {
 		width: 140px;
 	}
 	.navbar-right { float: left !important; }
@@ -327,7 +324,7 @@ table.sortable thead, table.sortable th {
 	.navbar-collapse:before { clear: both; }
 	.navbar-collapse { overflow-y: hidden; }
 	.navbar-collapse.in { overflow-y: visible; }
-	.navbar-collapse.in > ul { border-top: 1px double #101010; }
+	.navbar-collapse.in > ul { border-top: none; }
 	#nav-login { border: none; }
 }
 
