@@ -12,7 +12,7 @@ if (file_exists($fn)) {
 		'name' => 'page_welcome',
 		'var' => array(
 			'Welcome to playSMS' => _('Welcome to playSMS'),
-			'Version' => _('Version'),
+			'version' => _('version'),
 			'VERSION' => $core_config['version']
 		)
 	);
