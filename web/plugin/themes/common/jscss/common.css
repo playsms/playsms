@@ -359,7 +359,6 @@ table.sortable thead, table.sortable th {
 	.navbar-collapse { overflow-y: hidden; }
 	.navbar-collapse.in { overflow-y: visible; }
 	.navbar-collapse.in > ul { border-top: none; }
-	#nav-login { border: none; }
 }
 
 @media (max-width: 383px) {
