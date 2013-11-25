@@ -70,7 +70,7 @@ switch ($op) {
 			'FORM_TITLE' => $form_title,
 			'BUTTON_DELETE' => $button_delete,
 			'BUTTON_BACK' => $button_back,
-			'URL_NAME' => $url_name,
+			'URL_UNAME' => $url_uname,
 			'c_username' => $c_username,
 			'name' => $name,
 			'email' => $email,
