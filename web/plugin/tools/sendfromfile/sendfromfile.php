@@ -170,6 +170,7 @@ switch ($op) {
 				if ($c_sms_to && $c_sms_msg && $c_username) {
 					$type = 'text';
 					$unicode = '0';
+					$c_sms_msg = addslashes($c_sms_msg);
 					list($ok,$to,$smslog_id,$queue) = sendsms($c_username,$c_sms_to,$c_sms_msg,$type,$unicode);
 				}
 			}

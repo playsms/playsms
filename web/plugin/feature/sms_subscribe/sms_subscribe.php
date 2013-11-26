@@ -635,6 +635,7 @@ switch ($op) {
 			}
 			if ($sms_to[0]) {
 				$unicode = core_detect_unicode($message);
+				$message = addslashes($message);
 				list($ok, $to, $smslog_id, $queue) = sendsms($username, $sms_to, $message, 'text', $unicode);
 				if ($ok[0]) {
 					$counter++;

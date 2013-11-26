@@ -90,6 +90,7 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 		if (is_array($bc_to) && count($bc_to)>0) {
 			$unicode = core_detect_unicode($message);
 			logger_print('BC sender:'.$sms_sender.' keyword:'.$subscribe_keyword.' count:'.count($bc_to).' m:'.$message, 3, "sms_subscribe");
+			$message = addslashes($message);
 			list($ok, $to, $smslog_id, $queue) = sendsms($username, $bc_to, $message, 'text', $unicode);
 			return true;
 		} else {
@@ -159,6 +160,7 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 			}
 		}
 		if ($message) {
+			$message = addslashes($message);
 			list($ok,$to,$smslog_id,$queue) = sendsms($username, $sms_to, $message);
 			$ok = $ok[0];
 		}
