@@ -155,7 +155,17 @@ CREATE TABLE IF NOT EXISTS `playsms_featureSmssysnc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
--- trunk
+-- beta 5
 
 ALTER TABLE  `playsms_tblConfig_main` ADD  `cfg_main_website_name` varchar(250) NOT NULL DEFAULT '';
 ALTER TABLE  `playsms_tblConfig_main` ADD  `cfg_main_website_url` varchar(250) NOT NULL DEFAULT '';
+
+
+-- release candidate 1
+
+ALTER TABLE  `playsms_tblRegistry`
+CHANGE  `group`  `registry_group` VARCHAR( 250 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  '',
+CHANGE  `family`  `registry_family` VARCHAR( 250 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  '',
+CHANGE  `key`  `registry_key` VARCHAR( 250 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  '',
+CHANGE  `value`  `registry_value` VARCHAR( 250 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  ''
+
