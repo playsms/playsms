@@ -159,6 +159,10 @@ table.sortable thead, table.sortable th {
 	display: inline-block;
 }
 
+.playsms-icon {
+	margin-right: 10px;
+}
+
 /* IDs */
 
 /* Wrapper for page content to push down footer */
