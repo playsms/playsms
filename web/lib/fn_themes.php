@@ -35,7 +35,6 @@ function themes_buildmenu($menu_config) {
 }
 
 function themes_navbar($num, $nav, $max_nav, $url, $page) {
-	global $core_config;
 	$search = themes_search_session();
 	if ($search['keyword']) {
 		$search_url = '&search_keyword='.urlencode($search['keyword']);
@@ -45,8 +44,8 @@ function themes_navbar($num, $nav, $max_nav, $url, $page) {
 	}
 	$url = $url.$search_url;
 	$nav_pages = '';
-	if ($core_config['module']['themes']) {
-		$nav_pages = x_hook($core_config['module']['themes'],'themes_navbar',array($num, $nav, $max_nav, $url, $page));
+	if ($theme = themes_get()) {
+		$nav_pages = x_hook($theme,'themes_navbar',array($num, $nav, $max_nav, $url, $page));
 	}
 	return $nav_pages;
 }

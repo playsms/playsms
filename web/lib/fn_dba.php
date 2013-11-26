@@ -207,13 +207,13 @@ function dba_search($db_table, $fields='*', $conditions='', $keywords='', $extra
 	}
 	if (is_array($conditions)) {
 		foreach ($conditions as $key => $val) {
-			$q_conditions .= "AND `".$key."`='".$val."' ";
+			$q_conditions .= "AND ".$key."='".$val."' ";
 		}
 	}
 	if (is_array($keywords)) {
 		$q_keywords = "AND (";
 		foreach ($keywords as $key => $val) {
-			$q_keywords .= "OR `".$key."` LIKE '".$val."' ";
+			$q_keywords .= "OR ".$key." LIKE '".$val."' ";
 		}
 		$q_keywords .= ")";
 		$q_keywords = str_replace("(OR","(",$q_keywords);
@@ -240,13 +240,13 @@ function dba_count($db_table, $conditions='', $keywords='', $extras='', $join=''
 	$ret = 0;
 	if (is_array($conditions)) {
 		foreach ($conditions as $key => $val) {
-			$q_conditions .= "AND `".$key."`='".$val."' ";
+			$q_conditions .= "AND ".$key."='".$val."' ";
 		}
 	}
 	if (is_array($keywords)) {
 		$q_keywords = "AND (";
 		foreach ($keywords as $key => $val) {
-			$q_keywords .= "OR `".$key."` LIKE '".$val."' ";
+			$q_keywords .= "OR ".$key." LIKE '".$val."' ";
 		}
 		$q_keywords .= ")";
 		$q_keywords = str_replace("(OR","(",$q_keywords);
@@ -266,6 +266,8 @@ function dba_count($db_table, $conditions='', $keywords='', $extras='', $join=''
 	if ($db_row = dba_fetch_array($db_result)) {
 		$ret = $db_row['count'];
 	}
+	// fixme anton - just to make sure, if its empty then should be 0
+	$ret = ( trim($ret) ? trim($ret) : 0 );
 	return $ret;
 }
 

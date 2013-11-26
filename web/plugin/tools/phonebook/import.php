@@ -9,11 +9,19 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Phonebook')."</h2>
 			<h3>"._('Import')."</h3>
-			<p>
-			<form action=\"index.php?app=menu&inc=tools_phonebook&route=import&op=import\" enctype=\"multipart/form-data\" method=\"post\">
-			"._('Please select CSV file for phonebook entries')."<br />
-			<input type=\"file\" name=\"fnpb\"> "._hint(_('format')." : "._('Name').", "._('Mobile').", "._('Email').", "._('Group code'))."<br />
-			<input type=\"submit\" value=\""._('Import')."\" class=\"button\">
+			<table class=ps_table>
+				<tbody>
+					<tr>
+						<td>
+							<form action=\"index.php?app=menu&inc=tools_phonebook&route=import&op=import\" enctype=\"multipart/form-data\" method=\"post\">
+							<p>"._('Please select CSV file for phonebook entries')."</p>
+							<p><input type=\"file\" size=30 name=\"fnpb\"></p>
+							<p>".ucwords(_('format'))." : "._('Name').", "._('Mobile').", "._('Email').", "._('Group code')."</p>
+							<input type=\"submit\" value=\""._('Import')."\" class=\"button\">
+						</td>
+					</tr>
+				</tbody>
+			</table>
 			</form>
 			<p>"._b('index.php?app=menu&inc=tools_phonebook&op=phonebook_list');
 		if ($err = $_SESSION['error_string']) {
@@ -30,11 +38,11 @@ switch ($op) {
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>
-				<th width=\"4\">*</th>
-				<th width=\"30%\">"._('Name')."</th>
-				<th width=\"20%\">"._('Mobile')."</th>
+				<th width=\"5%\">*</th>
+				<th width=\"25%\">"._('Name')."</th>
+				<th width=\"25%\">"._('Mobile')."</th>
 				<th width=\"30%\">"._('Email')."</th>
-				<th width=\"20%\">"._('Group code')."</th>
+				<th width=\"15%\">"._('Group code')."</th>
 			</tr></thead><tbody>";
 		if (file_exists($fnpb_tmpname)) {
 			$fp = fopen($fnpb_tmpname, "r");
@@ -88,6 +96,7 @@ switch ($op) {
 		$num = $_POST['number_of_row'];
 		$session_import = $_POST['session_import'];
 		$data = $_SESSION['tmp'][$session_import];
+		//$i = 0;
 		foreach ($data as $d) {
 			$name = trim($d[0]);
 			$mobile = trim($d[1]);
@@ -96,9 +105,12 @@ switch ($op) {
 				$gpid = phonebook_groupcode2id($uid, $group_code);
 			}
 			if ($name && $mobile && $gpid) {
-				dba_remove(_DB_PREF_.'_toolsPhonebook', array('name' => $name, 'gpid' => $gpid, 'uid' => $uid));
+				dba_remove(_DB_PREF_.'_toolsPhonebook', array('name' => $name, 'gpid' => $gpid, 'uid' => $uid), 'AND');
 				dba_add(_DB_PREF_.'_toolsPhonebook', array('uid' => $uid, 'name' => $name, 'mobile' => $mobile, 'email' => $email, 'gpid' => $gpid));
+				//$i++;
+				//logger_print("no:".$i." gpid:".$gpid." uid:".$uid." name:".$name." mobile:".$mobile." email:".$email, 3, "phonebook import");
 			}
+			unset($gpid);
 		}
 		$_SESSION['error_string'] = _('Contacts has been imported');
 		header("Location: index.php?app=menu&inc=tools_phonebook&route=import&op=list");

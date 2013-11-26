@@ -4,7 +4,7 @@ if(!valid()){forcenoaccess();};
 
 switch ($op) {
 	case "list":
-		$search_category = array(_('Name') => 'name', _('Code'));
+		$search_category = array(_('Name') => 'name', _('Group code') => 'code');
 		$base_url = 'index.php?app=menu&inc=tools_phonebook&route=group&op=list';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array('uid' => $core_config['user']['uid']);
@@ -33,7 +33,7 @@ switch ($op) {
 			<thead>
 			<tr>
 				<th width=60%>"._('Name')."</th>
-				<th width=35%>"._('Code')."</th>
+				<th width=35%>"._('Group code')."</th>
 				<th width=5%><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></td>
 			</tr>
 			</thead>
@@ -84,7 +84,7 @@ switch ($op) {
 				</tr>
 				<tr>
 					<td>"._('Group code')."</td>
-					<td><input type=text name=group_code size=10> "._hint(_('Group code used by keyword')." BC ("._('broadcast SMS from single SMS').")<br />"._('please use uppercase and make it short')."")."</td>
+					<td><input type=text name=group_code size=10> "._hint(_('Group code used by keyword')." BC ("._('broadcast SMS from single SMS').") "._('please use uppercase and make it short')."")."</td>
 				</tr>
 			</tbody>
 			</table>
