@@ -72,6 +72,7 @@ function sms_quiz_handle($list, $sms_datetime, $sms_sender, $quiz_keyword, $quiz
 		if ($logged = @dba_insert_id($db_query)) {
 			if ($message && ($username = uid2username($list['uid']))) {
 				$unicode = core_detect_unicode($message);
+				$message = stripslashes($message);
 				list($ok, $to, $smslog_id, $queue) = sendsms($username, $sms_to, $message, 'text', $unicode);
 			}
 			$ok = true;
