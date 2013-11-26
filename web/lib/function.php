@@ -23,51 +23,84 @@ include $apps_path['libs']."/lib_init1.php";
 for ($i=0;$i<count($plugins_category);$i++) {
 	if ($pc = $plugins_category[$i]) {
 		// get plugins
-		$dir = $apps_path['plug']."/".$pc."/";
+		$dir = $apps_path['plug'].'/'.$pc.'/';
 		unset($core_config[$pc.'list']);
 		unset($tmp_core_config[$pc.'list']);
 		$fd = opendir($dir);
-		$j = 0;
-		$pc_names = '';
-		while(false !== (${$pc} = readdir($fd)))
-		{
+		$pc_names = array();
+		while(false !== ($pl_name = readdir($fd))) {
 			// plugin's dir prefixed with dot or underscore will not be loaded
-			if (substr(${$pc},0,1) != "." && substr(${$pc},0,1) != "_" ) {
-				$pc_names[$j] = ${$pc};
-				$j++;
+			if (substr($pl_name, 0, 1) != "." && substr($pl_name, 0, 1) != "_" ) {
+				// exeptions for themes/common
+				if (! (($pc == 'themes') && ($pl_name == 'common'))) {
+					$pc_names[] = $pl_name;
+				}
 			}
 		}
 		closedir();
 		sort($pc_names);
-		for ($k=0;$k<count($pc_names);$k++) {
-			if (is_dir($dir.$pc_names[$k])) {
-				$tmp_core_config[$pc.'list'][] = $pc_names[$k];
-			}
-		}
-		// load each plugin's config and libaries
-		$d = 0;
-		for ($c=0;$c<count($tmp_core_config[$pc.'list']);$c++)
-		{
-			$c_fn1 = $dir.$tmp_core_config[$pc.'list'][$c]."/config.php";
-			if (file_exists($c_fn1))
-			{
-				if (function_exists('bindtextdomain')) {
-					bindtextdomain('messages', $dir.$tmp_core_config[$pc.'list'][$c].'/language/');
-					bind_textdomain_codeset('messages', 'UTF-8');
-					textdomain('messages');
-				}
-				include $c_fn1;
-				$c_fn2 = $dir.$tmp_core_config[$pc.'list'][$c]."/fn.php";
-				if (file_exists($c_fn2))
-				{
-					include $c_fn2;
-					$core_config[$pc.'list'][$d] = $tmp_core_config[$pc.'list'][$c];
-					$d++;
-				}
+		for ($j=0;$j<count($pc_names);$j++) {
+			if (is_dir($dir.$pc_names[$j])) {
+				$core_config[$pc.'list'][] = $pc_names[$j];
 			}
 		}
 	}
 }
+
+// load common items for themes
+$c_fn1 = $apps_path['plug'].'/themes/common/config.php';
+if (file_exists($c_fn1)) {
+	include $c_fn1;
+	$c_fn2 = $apps_path['plug'].'/themes/common/fn.php';
+	if (file_exists($c_fn2)) {
+		include $c_fn2;
+	}
+}
+
+// load active themes
+$dir = $apps_path['plug'].'/';
+$pc = 'themes';
+$pl = themes_get();
+$pl_dir = $dir.$pc.'/'.$pl;
+$c_fn1 = $pl_dir.'/config.php';
+if (file_exists($c_fn1)) {
+	if (function_exists('bindtextdomain') && file_exists($pl_dir.'/language/')) {
+		bindtextdomain('messages', $plugin_dir.'/language/');
+		bind_textdomain_codeset('messages', 'UTF-8');
+		textdomain('messages');
+	}
+	include $c_fn1;
+	$c_fn2 = $pl_dir.'/fn.php';
+	if (file_exists($c_fn2)) {
+		include $c_fn2;
+	}
+}
+
+// load each plugin's config and libaries
+$dir = $apps_path['plug'].'/';
+$pcs = array('language', 'gateway', 'feature', 'tools');
+foreach ($pcs as $pc) {
+	for ($i=0;$i<count($core_config[$pc.'list']);$i++) {
+		$pl = $core_config[$pc.'list'][$i];
+		$pl_dir = $dir.$pc.'/'.$pl;
+		$c_fn1 = $pl_dir.'/config.php';
+		if (file_exists($c_fn1)) {
+			if (function_exists('bindtextdomain') && file_exists($pl_dir.'/language')) {
+				bindtextdomain('messages', $pl_dir.'/language/');
+				bind_textdomain_codeset('messages', 'UTF-8');
+				textdomain('messages');
+			}
+			include $c_fn1;
+			$c_fn2 = $pl_dir.'/fn.php';
+			if (file_exists($c_fn2)) {
+				include $c_fn2;
+			}
+		}
+	}
+}
+
+//print_r($plugin); die();
+//print_r($core_config); die();
 
 if (function_exists('bindtextdomain')) {
 	bindtextdomain('messages', $apps_path['plug'].'/language/');
