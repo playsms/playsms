@@ -174,6 +174,10 @@ table.sortable thead, table.sortable th {
 	padding: 70px 0 50px 0;
 }
 
+#main-menu {
+	width: 100%;
+}
+
 #main-content {
 	height: 100%;
 }

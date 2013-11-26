@@ -1,7 +1,11 @@
 .navbar-right { float: right !important; }
+
 @media (max-width: 767px) {
-	input[size="30"], select, textarea, .label-sizer {
-		width: 280px;
+	input[size="30"], select, textarea {
+		width: 270px;
+	}
+	.label-sizer {
+		width: 270px;
 	}
 	.navbar-right { float: left !important; }
 	.navbar-header:after { clear: none; }
@@ -13,7 +17,10 @@
 }
 
 @media (max-width: 383px) {
-	input[size="30"], select, textarea, .label-sizer {
-		width: 140px;
+	input[size="30"], select, textarea {
+		width: 130px;
+	}
+	.label-sizer {
+		width: 130px;
 	}
 }
