@@ -295,8 +295,6 @@ table.sortable thead, table.sortable th {
 }
 
 #actions_box {
-	margin-right: 1px;
-	margin-left: -1px;
 	padding: 0;
 	width: 100%;
 	clear: both;
