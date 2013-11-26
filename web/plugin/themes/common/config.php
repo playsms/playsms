@@ -12,5 +12,6 @@ $core_config['icon']['resend']		= "<span class='playsms-icon glyphicon glyphicon
 $core_config['icon']['user_pref'] 	= "<span class='playsms-icon glyphicon glyphicon-user' alt='"._('User preference')."' title='"._('User preference')."'></span>";
 $core_config['icon']['user_config'] 	= "<span class='playsms-icon glyphicon glyphicon-wrench' alt='"._('User configuration')."' title='"._('User configuration')."'></span>";
 $core_config['icon']['user_delete'] 	= "<span class='playsms-icon glyphicon glyphicon-trash' alt='"._('Delete user')."' title='"._('Delete user')."'></span>";
+$core_config['icon']['admin']		= "<span class='playsms-icon glyphicon glyphicon-certificate' alt='"._('This user is an administrator')."' title='"._('This user is an administrator')."'></span>";
 
 ?>

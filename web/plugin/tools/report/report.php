@@ -146,7 +146,7 @@ switch ($op) {
 			
 			$c_is_admin = '';
 			if ($c_status=='2') {
-				$c_is_admin = "<i class='glyphicon glyphicon-asterisk playsms-mandatory' data-toggle=tooltip title='"._('This user is administrator')."' rel=tooltip></i>";
+				$c_is_admin = $core_config['icon']['admin'];
 			}
 			
 
