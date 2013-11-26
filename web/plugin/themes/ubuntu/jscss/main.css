@@ -1,1 +1,19 @@
-/* empty */
+.navbar-right { float: right !important; }
+@media (max-width: 767px) {
+	input[size="30"], select, textarea, .label-sizer {
+		width: 280px;
+	}
+	.navbar-right { float: left !important; }
+	.navbar-header:after { clear: none; }
+	.navbar-nav.navbar-right > li { float: left; }
+	.navbar-collapse:before { clear: both; }
+	.navbar-collapse { overflow-y: hidden; }
+	.navbar-collapse.in { overflow-y: visible; }
+	.navbar-collapse.in > ul { border-top: none; }
+}
+
+@media (max-width: 383px) {
+	input[size="30"], select, textarea, .label-sizer {
+		width: 140px;
+	}
+}

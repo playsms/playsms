@@ -1,94 +1,22 @@
+.navbar-right { float: right !important; }
+
 @media (max-width: 767px) {
-	input[size="30"],select {
+	input[size="30"], select, textarea, .label-sizer {
+		width: 280px;
+	}
+	.navbar-right { float: left !important; }
+	.navbar-header:after { clear: none; }
+	.navbar-nav.navbar-right > li { float: left; }
+	.navbar-collapse:before { clear: both; }
+	.navbar-collapse { overflow-y: hidden; }
+	.navbar-collapse.in { overflow-y: visible; }
+	.navbar-collapse.in > ul { border-top: none; }
+}
+
+@media (max-width: 383px) {
+	input[size="30"], select, textarea, .label-sizer {
 		width: 140px;
 	}
-	.label-sizer {
-		width: 140px;
-	}
-}
-
-@media (min-width: 767px) {
-	input[size="30"],select {
-		width: 220px;
-	}
-	.label-sizer {
-		width: 220px;
-	}
-}
-
-table {
-	word-break: break-all;
-	-ms-word-break: break-all;
-	-webkit-hyphens: auto;
-	-moz-hyphens: auto;
-        hyphens: auto;
-}
-
-#fm_smstemplate {
-	display: none;
-}
-
-#fm_sendsms td {
-    vertical-align: middle;
-}
-
-pre {
-	border: 0;
-	background-color: #FFF;	
-}
-
-.error_string {
-	font-weight: normal;
-	color: #ff0000;
-	background-color: #ededed;
-	margin: 0 0 10px 0;
-	text-align: center;
-	border: 1px solid #737A3A;
-	padding: 3px;
-}
-
-.required {
-	float: right;
-	margin-top: 5px;
-	width: 10px;
-	height: 10px;
-	background-color: #3498DB;
-	color: #3498DB;
-	display: inline-block;
-	vertical-align: bottom;
-}
-
-#txtcount {
-	background-color: transparent;
-	border: 0px solid;
-	font-weight: normal;
-	
-}
-
-#user_inbox_msg {
-	padding-bottom: 12px;
-}
-
-#user_incoming_msg {
-	padding-bottom: 12px;
-}
-
-#user_outgoing_msg {
-	padding-left: 2px;
-	padding-right: 2px;
-	padding-bottom: 12px;
-}
-
-#all_inbox_msg {
-	padding-bottom: 12px;
-}
-
-#all_incoming_msg {
-	padding-bottom: 12px;
-}
-
-#all_outgoing_msg {
-	padding-bottom: 12px;
 }
 
 #navbar {
@@ -178,136 +106,4 @@ pre {
 
 #button_back input {
 	margin: 20px 0 0 1px;
-}
-
-.status_handled {
-	width: 10px;
-	height: 10px;
-	background-color: #2ECC71;
-	color: #2ECC71;
-	display: inline-block;
-	border-radius: 3px;
-}
-
-.status_unhandled {
-	width: 10px;
-	height: 10px;
-	background-color: #E74C3C;
-	color: #E74C3C;
-	display: inline-block;
-	border-radius: 3px;
-}
-
-.status_sent {
-	width: 10px;
-	height: 10px;
-	background-color: #2ECC71;
-	color: #2ECC71;
-	display: inline-block;
-	border-radius: 3px;
-}
-
-.status_failed {
-	width: 10px;
-	height: 10px;
-	background-color: #E74C3C;
-	color: #E74C3C;
-	display: inline-block;
-	border-radius: 3px;
-}
-
-.status_delivered {
-	width: 10px;
-	height: 10px;
-	background-color: #3498DB;
-	color: #3498DB;
-	display: inline-block;
-	border-radius: 3px;
-}
-
-.status_pending {
-	width: 10px;
-	height: 10px;
-	background-color: #F1C40F;
-	color: #F1C40F;
-	display: inline-block;
-	border-radius: 3px;
-}
-
-.status_active {
-	width: 10px;
-	height: 10px;
-	background-color: #2ECC71;
-	color: #2ECC71;
-	display: inline-block;
-	border-radius: 3px;
-}
-
-.status_inactive {
-	width: 10px;
-	height: 10px;
-	background-color: #E74C3C;
-	color: #E74C3C;
-	display: inline-block;
-	border-radius: 3px;
-}
-
-.status_enabled {
-	width: 34px;
-	height: 17px;
-	background-color: #3FDD82;
-	color: #3FDD82;
-	display: inline-block;
-	border-radius: 3px;
-}
-
-.status_disabled {
-	width: 34px;
-	height: 17px;
-	background-color: #F85D4D;
-	color: #F85D4D;
-	display: inline-block;
-	border-radius: 3px;
-}
-
-.tabs {
-	margin: 1px;
-	padding: 1px;
-}
-
-.tab {
-	display: inline-block;
-	*display: inline;
-	background: #FFF;
-	margin-left: 1px;
-	-moz-border-radius: 4px 4px 0 0;
-	-webkit-border-radius: 4px 4px 0 0;
-}
-
-.tab a {
-	font-size: 14px;
-	display: block;
-	outline: none;
-}
-
-.tab a:hover {
-	/* text-decoration: underline; */
-	margin: 0;
-}
-
-.tab.active {
-	position: relative;
-	top: 1px;
-	-moz-border-radius: 4px 4px 0 0;
-	-webkit-border-radius: 4px 4px 0 0;
-}
-
-.tab a.active {
-	font-weight: bold;
-	margin: 0;
-}
-
-.tab-container .panel-container {
-	-moz-border-radius: 0 4px 4px 4px;
-	-webkit-border-radius: 0 4px 4px 4px;
 }
