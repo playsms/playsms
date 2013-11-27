@@ -6,20 +6,25 @@ switch ($op) {
 	case 'list':
 		$content = '<h2>'._('Send from file').'</h2><p />';
 		if (isadmin()) {
-			$content .= "
-				<form action=\"index.php?app=menu&inc=tools_sendfromfile&op=upload_confirm\" enctype=\"multipart/form-data\" method=\"post\">
-					"._('Please select CSV file')."<br />
-					<input type=\"file\" name=\"fncsv\"> "._hint(_('format : destination number, message, username'))."<br />
-					<input type=\"submit\" value=\""._('Upload file')."\" class=\"button\">
-				</form>";
+			$info_format = _('format : destination number, message, username');
 		} else {
-			$content .= "
-				<form action=\"index.php?app=menu&inc=tools_sendfromfile&op=upload_confirm\" enctype=\"multipart/form-data\" method=\"post\">
-					"._('Please select CSV file')."<br />
-					<input type=\"file\" name=\"fncsv\"> "._hint(_('format : destination number, message'))."<br />
-					<input type=\"submit\" value=\""._('Upload file')."\" class=\"button\">
-				</form>";
+			$info_format = _('format : destination number, message');
 		}
+		$content .= "
+			<table class=ps_table>
+				<tbody>
+					<tr>
+						<td>
+							<form action=\"index.php?app=menu&inc=tools_sendfromfile&op=upload_confirm\" enctype=\"multipart/form-data\" method=\"post\">
+							<p>"._('Please select CSV file')."</p>
+							<p><input type=\"file\" size=30 name=\"fncsv\"></p>
+							<p class=text-info>".$info_format."</p>
+							<p><input type=\"submit\" value=\""._('Upload file')."\" class=\"button\"></p>
+							</form>
+						</td>
+					</tr>
+				</tbody>
+			</table>";
 		if ($err = $_SESSION['error_string']) {
 			echo "<div class=error_string>$err</div>";
 		}
@@ -84,10 +89,10 @@ switch ($op) {
 				<div class=table-responsive>
 				<table class=playsms-table-list>
 				<thead><tr>
-					<th width=4>*</th>
-					<th width='20%'>"._('Destination number')."</th>
-					<th width='60%'>"._('Message')."</th>
-					<th width='20%'>"._('Username')."</th>
+					<th width=5%>*</th>
+					<th width=20%>"._('Destination number')."</th>
+					<th width=55%>"._('Message')."</th>
+					<th width=20%>"._('Username')."</th>
 				</tr></thead>
 				<tbody>";
 			$j = 0;
@@ -124,7 +129,7 @@ switch ($op) {
 					$j++;
 					$content .= "
 						<tr>
-							<td>&nbsp;".$j.".</td>
+							<td>".$j.".</td>
 							<td>".$item_invalid[$i][0]."</td>
 							<td>".$item_invalid[$i][1]."</td>
 							<td>".$item_invalid[$i][2]."</td>

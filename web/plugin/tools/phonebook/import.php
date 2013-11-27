@@ -16,13 +16,13 @@ switch ($op) {
 							<form action=\"index.php?app=menu&inc=tools_phonebook&route=import&op=import\" enctype=\"multipart/form-data\" method=\"post\">
 							<p>"._('Please select CSV file for phonebook entries')."</p>
 							<p><input type=\"file\" size=30 name=\"fnpb\"></p>
-							<p>".ucwords(_('format'))." : "._('Name').", "._('Mobile').", "._('Email').", "._('Group code')."</p>
-							<input type=\"submit\" value=\""._('Import')."\" class=\"button\">
+							<p class=text-info>"._('format')." : "._('Name').", "._('Mobile').", "._('Email').", "._('Group code')."</p>
+							<p><input type=\"submit\" value=\""._('Import')."\" class=\"button\"></p>
+							</form>
 						</td>
 					</tr>
 				</tbody>
 			</table>
-			</form>
 			<p>"._b('index.php?app=menu&inc=tools_phonebook&op=phonebook_list');
 		if ($err = $_SESSION['error_string']) {
 			echo "<div class=error_string>$err</div>";
