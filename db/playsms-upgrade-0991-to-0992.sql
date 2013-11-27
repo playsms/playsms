@@ -164,8 +164,8 @@ ALTER TABLE  `playsms_tblConfig_main` ADD  `cfg_main_website_url` varchar(250) N
 -- release candidate 1
 
 ALTER TABLE  `playsms_tblRegistry`
-CHANGE  `group`  `registry_group` VARCHAR( 250 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  '',
-CHANGE  `family`  `registry_family` VARCHAR( 250 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  '',
-CHANGE  `key`  `registry_key` VARCHAR( 250 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  '',
-CHANGE  `value`  `registry_value` VARCHAR( 250 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  ''
+CHANGE  `group`  `registry_group` VARCHAR( 250 ) NOT NULL DEFAULT  '',
+CHANGE  `family`  `registry_family` VARCHAR( 250 ) NOT NULL DEFAULT  '',
+CHANGE  `key`  `registry_key` VARCHAR( 250 ) NOT NULL DEFAULT  '',
+CHANGE  `value`  `registry_value` VARCHAR( 250 ) NOT NULL DEFAULT  '' ;
 
