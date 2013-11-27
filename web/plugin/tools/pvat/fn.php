@@ -36,6 +36,8 @@ function pvat_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $s
 		$ret = pvat_handle($in);
 	}
 
+	// fixme anton - until we can come up with better logic, we should disable this
+	/*
 	// check for reply message, only if hasn't hooked
 	if (! $ret['hooked']) {
 		$c_sms_sender = str_replace('+','',$sms_sender);
@@ -63,7 +65,7 @@ function pvat_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $s
 				}
 			}
 		}
-	}
+	}*/
 
 	return $ret;
 }
