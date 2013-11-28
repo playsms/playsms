@@ -63,19 +63,19 @@ $core_config['menutab']['gateway'] = _('Gateway');
 $core_config['menutab']['administration'] = _('Administration');
 
 $menutab_my_account = $core_config['menutab']['my_account'];
-$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=send_sms&op=sendsmstopv&bulk=1", _('Send SMS'));
-$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_inbox&op=user_inbox", _('Inbox'));
-$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_incoming&op=user_incoming", _('Incoming SMS'));
-$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_outgoing&op=user_outgoing", _('Outgoing SMS'));
+$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=send_sms&op=sendsmstopv&bulk=1", _('Send SMS'), 1);
+$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_inbox&op=user_inbox", _('Inbox'), 1);
+$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_incoming&op=user_incoming", _('Incoming SMS'), 1);
+$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_outgoing&op=user_outgoing", _('Outgoing SMS'), 1);
 
 if (isadmin()) {
 	// administrator menus
 	$menutab_administration = $core_config['menutab']['administration'];
-	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_inbox&op=all_inbox", _('All inbox'));
-	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_incoming&op=all_incoming", _('All incoming SMS'));
-	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_outgoing&op=all_outgoing", _('All outgoing SMS'));
-	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=user_mgmnt&op=user_list", _('Manage user'));
-	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=main_config&op=main_config", _('Main configuration'));
+	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_inbox&op=all_inbox", _('All inbox'), 1);
+	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_incoming&op=all_incoming", _('All incoming SMS'), 1);
+	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_outgoing&op=all_outgoing", _('All outgoing SMS'), 1);
+	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=user_mgmnt&op=user_list", _('Manage user'), 2);
+	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=main_config&op=main_config", _('Main configuration'), 2);
 	//ksort($menu_config[$menutab_administration]);
 }
 

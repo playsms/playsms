@@ -42,9 +42,17 @@ function theme_play_build_menu() {
 		$content .= "<li class=\"dropdown\">";
 		$content .= '<a href="#" class="dropdown-toggle">'.$cat.'</a>';
 		$content .= '<ul class="dropdown-menu">';
-		foreach ($value as $sub_key => $menu) {
-			$content .= '<li><a href="'.$menu[0].'">'.$menu[1].'</a></li>';
+		foreach ($value as $sub_key => $sub_menu) {
+			$sub_menu_url = $sub_menu[0];
+			$sub_menu_title = $sub_menu[1];
+			$sub_menu_index = ( $sub_menu[2] ? $sub_menu[2] : 3 );
+			$m[$sub_menu_index.'.'.$sub_menu_title] = "<li><a href='" . $sub_menu_url . "'>" . $sub_menu_title . "</a></li>";
 		}
+		ksort($m);
+		foreach ($m as $mm) {
+			$content .= $mm;
+		}
+		unset($m);
 		$content .= "</ul>";
 		$content .= "</li>";
 	}

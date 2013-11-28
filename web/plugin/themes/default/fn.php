@@ -35,8 +35,14 @@ function default_hook_themes_buildmenu($menu_config) {
 		foreach ($array_menu as $sub_menu) {
 			$sub_menu_url = $sub_menu[0];
 			$sub_menu_title = $sub_menu[1];
-			$main_menu .= "<li><a href='" . $sub_menu_url . "'>" . $sub_menu_title . "</a></li>";
+			$sub_menu_index = ( $sub_menu[2] ? $sub_menu[2] : 3 );
+			$m[$sub_menu_index.'.'.$sub_menu_title] = "<li><a href='" . $sub_menu_url . "'>" . $sub_menu_title . "</a></li>";
 		}
+		ksort($m);
+		foreach ($m as $mm) {
+			$main_menu .= $mm;
+		}
+		unset($m);
 		$main_menu .= "</ul>";
 		$main_menu .= "</li>";
 	}
