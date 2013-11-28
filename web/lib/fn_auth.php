@@ -148,13 +148,20 @@ function auth_forgot() {
 					$new_password_coded = md5($new_password);
 					$db_query = "UPDATE "._DB_PREF_."_tblUser SET password='$new_password_coded' WHERE username='$username' AND email='$email'";
 					if (@dba_affected_rows($db_query)) {
-						$subject = "[SMSGW] "._('Password recovery');
+						$subject = _('Password recovery');
 						$body = $core_config['main']['cfg_web_title']."\n";
 						$body .= $core_config['http_path']['base']."\n\n";
 						$body .= _('Username')."\t: ".$username."\n";
 						$body .= _('Password')."\t: ".$new_password."\n\n";
 						$body .= $core_config['main']['cfg_email_footer']."\n\n";
-						if (sendmail($core_config['main']['cfg_email_service'],$email,$subject,$body)) {
+						$data = array(
+							'mail_from_name' => $core_config['main']['cfg_web_title'],
+							'mail_from' => $core_config['main']['cfg_email_service'],
+							'mail_to' => $email,
+							'mail_subject' => $subject,
+							'mail_body' => $body
+						);
+						if (sendmail($data)) {
 							$_SESSION['error_string'] = _('Password has been sent to your email');
 						} else {
 							$_SESSION['error_string'] = _('Fail to send email');
@@ -238,15 +245,21 @@ function auth_register() {
 			}
 			if ($ok) {
 				logger_print("u:".$username." email:".$email." ip:".$_SERVER['REMOTE_ADDR'], 2, "register");
-				$subject = "[SMSGW] "._('New account registration');
+				$subject = _('New account registration');
 				$body = $core_config['main']['cfg_web_title']."\n";
 				$body .= $core_config['http_path']['base']."\n\n";
 				$body .= _('Username')."\t: $username\n";
 				$body .= _('Password')."\t: $password\n\n";
 				$body .= $core_config['main']['cfg_email_footer']."\n\n";
 				$_SESSION['error_string'] = _('User has been added')." ("._('username').": ".$username.")";
-				$_SESSION['error_string'] .= "<br />";
-				if (sendmail($core_config['main']['cfg_email_service'],$email,$subject,$body)) {
+				$data = array(
+					'mail_from_name' => $core_config['main']['cfg_web_title'],
+					'mail_from' => $core_config['main']['cfg_email_service'],
+					'mail_to' => $email,
+					'mail_subject' => $subject,
+					'mail_body' => $body
+				);
+				if (sendmail($data)) {
 					$_SESSION['error_string'] .= _('Password has been sent to your email');
 				} else {
 					$_SESSION['error_string'] .= _('Fail to send email');

@@ -292,7 +292,14 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 					$body .= $email_footer."\n\n";
 					$body = stripslashes($body);
 					logger_print("send email from:".$email_service." to:".$email." message:".$message, 3, "insertsmstoinbox");
-					sendmail($email_service,$email,$subject,$body);
+					$data = array(
+						'mail_from_name' => $core_config['main']['cfg_web_title'],
+						'mail_from' => $email_service,
+						'mail_to' => $email,
+						'mail_subject' => $subject,
+						'mail_body' => $body
+					);
+					sendmail($data);
 					logger_print("sent email from:".$email_service." to:".$email." message:".$message, 3, "insertsmstoinbox");
 				}
 				$ok = true;
