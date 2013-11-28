@@ -1,3 +1,3 @@
 <?php
-$plugin_config['language']['es_VE']['title'] = 'Spanish (Venezuela)';
+$core_config['plugin']['es_VE']['title'] = 'Spanish (Venezuela)';
 ?>

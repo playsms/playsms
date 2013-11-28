@@ -8,7 +8,7 @@ if ($command_id = $_REQUEST['command_id']) {
 	}
 }
 
-$sms_command_bin = $plugin_config['feature']['sms_command']['bin'];
+$sms_command_bin = $core_config['plugin']['sms_command']['bin'];
 
 switch ($op) {
 	case "sms_command_list":

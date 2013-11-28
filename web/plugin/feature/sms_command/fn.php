@@ -55,7 +55,7 @@ function sms_command_hook_setsmsincomingaction($sms_datetime,$sms_sender,$comman
 }
 
 function sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$command_keyword,$command_param='',$raw_message='') {
-	global $plugin_config;
+	global $core_config;
 	$ok = false;
 	$command_keyword = strtoupper(trim($command_keyword));
 	$command_param = trim($command_param);
@@ -72,7 +72,7 @@ function sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$comm
 		$command_exec = str_replace("{COMMANDKEYWORD}","\"$command_keyword\"",$command_exec);
 		$command_exec = str_replace("{COMMANDPARAM}","\"$command_param\"",$command_exec);
 		$command_exec = str_replace("{COMMANDRAW}","\"$raw_message\"",$command_exec);
-		$command_exec = $plugin_config['feature']['sms_command']['bin']."/".$db_row['uid']."/".$command_exec;
+		$command_exec = $core_config['plugin']['sms_command']['bin']."/".$db_row['uid']."/".$command_exec;
 		logger_print("command_exec:".$command_exec, 3, "sms command");
 		$command_output = shell_exec(stripslashes($command_exec));
 		if ($command_return_as_reply == 1) {
