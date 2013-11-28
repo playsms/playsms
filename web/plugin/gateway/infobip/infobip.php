@@ -4,7 +4,7 @@ if (! isadmin ()) {
 	forcenoaccess ();
 };
 
-$gw = gateway_get ();
+$gw = core_gateway_get ();
 
 if ($gw == $infobip_param ['name']) {
 	$status_active = "<span class=status_active />";

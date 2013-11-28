@@ -37,7 +37,7 @@ switch ($op) {
 		// get gateway options
 		for ($i=0;$i<count($core_config['gatewaylist']);$i++) {
 			$gateway = $core_config['gatewaylist'][$i];
-			$gw = gateway_get();
+			$gw = core_gateway_get();
 			if ($gateway == $gw) $selected = "selected";
 			$option_gateway_module .= "<option value=\"$gateway\" $selected>$gateway</option>";
 			$selected = "";

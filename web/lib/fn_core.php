@@ -37,7 +37,7 @@ function playsmsd() {
 		x_hook($core_config['featurelist'][$c],'playsmsd');
 	}
 	// plugin gateway
-	$gw = gateway_get();
+	$gw = core_gateway_get();
 	x_hook($gw,'playsmsd');
 }
 
@@ -121,7 +121,7 @@ function core_get_timezone($username='') {
 		$ret  = $list[0]['datetime_timezone'];
 	}
 	if (! $ret) {
-		$gw = gateway_get();
+		$gw = core_gateway_get();
 		if (! ($ret = $core_config['plugin'][$gw]['datetime_timezone'])) {
 			$ret = $core_config['main']['cfg_datetime_timezone'];
 		}
@@ -155,7 +155,7 @@ function core_datetime_offset($tz=0) {
  */
 function core_display_datetime($time, $tz=0) {
 	global $core_config;
-	$gw = gateway_get();
+	$gw = core_gateway_get();
 	$time = trim($time);
 	$ret = $time;
 	if ($time && ($time != '0000-00-00 00:00:00')) {
@@ -187,7 +187,7 @@ function core_display_datetime($time, $tz=0) {
  */
 function core_adjust_datetime($time, $tz=0) {
 	global $core_config;
-	$gw = gateway_get();
+	$gw = core_gateway_get();
 	$time = trim($time);
 	$ret = $time;
 	if ($time && ($time != '0000-00-00 00:00:00')) {
@@ -446,6 +446,17 @@ function core_download($content, $fn='', $content_type='') {
 	header('Content-Disposition: attachment; filename='.$fn);
 	echo $content;
 	die();
+}
+
+/**
+ * Get active gateway plugin
+ * @global array $core_config
+ * @return string
+ */
+function core_gateway_get() {
+	global $core_config;
+	$ret = $core_config['module']['gateway'];
+	return $ret;
 }
 
 ?>

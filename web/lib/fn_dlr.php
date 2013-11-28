@@ -52,7 +52,7 @@ function setsmsdeliverystatus($smslog_id,$uid,$p_status) {
 			for ($c=0;$c<count($core_config['featurelist']);$c++) {
 				x_hook($core_config['featurelist'][$c],'setsmsdeliverystatus',array($smslog_id,$uid,$p_status));
 			}
-			$gw = gateway_get();
+			$gw = core_gateway_get();
 			x_hook($gw,'setsmsdeliverystatus',array($smslog_id,$uid,$p_status));
 		}
 	}
@@ -60,7 +60,7 @@ function setsmsdeliverystatus($smslog_id,$uid,$p_status) {
 }
 
 function getsmsstatus() {
-	$gw = gateway_get();
+	$gw = core_gateway_get();
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status='0' AND p_gateway='$gw'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {

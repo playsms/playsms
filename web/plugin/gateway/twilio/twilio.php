@@ -4,7 +4,7 @@ if(!isadmin()){forcenoaccess();};
 
 include $apps_path['plug']."/gateway/twilio/config.php";
 
-$gw = gateway_get();
+$gw = core_gateway_get();
 
 if ($gw == $core_config['plugin']['twilio']['name']) {
 	$status_active = "<span class=status_active />";

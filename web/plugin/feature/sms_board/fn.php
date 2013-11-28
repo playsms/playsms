@@ -57,7 +57,7 @@ function sms_board_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$board_
 	if ($sms_sender && $board_keyword && $board_param) {
 		// masked sender sets here
 		$masked_sender = substr_replace($sms_sender,'xxxx',-4);
-		$gw = gateway_get();
+		$gw = core_gateway_get();
 		$db_query = "
 			INSERT INTO "._DB_PREF_."_featureBoard_log
 			(in_gateway,in_sender,in_masked,in_keyword,in_msg,in_datetime)

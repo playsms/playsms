@@ -4,7 +4,7 @@ if(!isadmin()){forcenoaccess();};
 
 include $apps_path['plug']."/gateway/gammu/config.php";
 
-$gw = gateway_get();
+$gw = core_gateway_get();
 
 if ($gw == $gammu_param['name']) {
 	$status_active = "<span class=status_active />";

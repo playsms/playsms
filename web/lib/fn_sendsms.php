@@ -207,7 +207,7 @@ function sendsms_process($smslog_id,$sms_sender,$sms_footer,$sms_to,$sms_msg,$ui
 	$ok = false;
 
 	// get active gateway module
-	$gw = gateway_get();
+	$gw = core_gateway_get();
 
 	$user = $core_config['user'];
 	if ($uid && ($user['uid'] != $uid)) {
@@ -474,7 +474,7 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0,$nofoot
 
 function sendsms_get_sender($username) {
 	global $core_config;
-	if ($username && ($gw = gateway_get())) {
+	if ($username && ($gw = core_gateway_get())) {
 		if ($core_config['main']['cfg_gateway_number']) {
 			// 1st priority is "Default sender ID" from main configuration
 			$sms_sender = $core_config['main']['cfg_gateway_number'];

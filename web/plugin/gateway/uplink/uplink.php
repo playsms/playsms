@@ -7,7 +7,7 @@ if (!isadmin()) {
 
 include $apps_path['plug'] . "/gateway/uplink/config.php";
 
-$gw = gateway_get();
+$gw = core_gateway_get();
 
 if ($gw == $uplink_param['name']) {
 	$status_active = "<span class=status_active />";

@@ -4,7 +4,7 @@ if (!isadmin()) { forcenoaccess(); };
 
 include $apps_path['plug'] . "/gateway/kannel/config.php";
 
-$gw = gateway_get();
+$gw = core_gateway_get();
 
 if ($gw == $kannel_param['name']) {
 	$status_active = "<span class=status_active />";

@@ -4,7 +4,7 @@ if(!isadmin()){forcenoaccess();};
 
 include $apps_path['plug']."/gateway/template/config.php";
 
-$gw = gateway_get();
+$gw = core_gateway_get();
 
 if ($gw == $template_param['name']) {
 	$status_active = "<span class=status_active />";

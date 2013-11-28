@@ -116,7 +116,7 @@ function interceptincomingsms($sms_datetime,$sms_sender,$message,$sms_receiver="
 function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="") {
 	global $core_config;
 
-	$gw = gateway_get();
+	$gw = core_gateway_get();
 
 	// make sure sms_datetime is in supported format and in GMT+0
 	$sms_datetime = core_adjust_datetime($sms_datetime);
@@ -322,7 +322,7 @@ function insertsmstoinbox($sms_datetime,$sms_sender,$target_user,$message,$sms_r
 }
 
 function getsmsinbox() {
-	$gw = gateway_get();
+	$gw = core_gateway_get();
 	x_hook($gw,'getsmsinbox');
 }
 
