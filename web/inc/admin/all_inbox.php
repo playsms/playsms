@@ -104,9 +104,9 @@ switch ($op) {
 						$list[$i]['in_sender'],
 						$list[$i]['in_msg']);
 				}
-				$content = csv_format($data);
+				$content = core_csv_format($data);
 				$fn = 'all_inbox-'.$core_config['datetime']['now_stamp'].'.csv';
-				download($content, $fn, 'text/csv');
+				core_download($content, $fn, 'text/csv');
 				break;
 			case _('Delete'):
 				for ($i=0;$i<$nav['limit'];$i++) {

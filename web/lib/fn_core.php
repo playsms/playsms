@@ -409,4 +409,43 @@ function core_read_docs($base_dir, $doc) {
 	return $content;
 }
 
+/**
+ * Convert array to CSV formatted string
+ * @param array $item
+ * @return string
+ */
+function core_csv_format($item) {
+	if (is_array($item)) {
+		$ret = '';
+		for ($i=0;$i<count($item);$i++) {
+			foreach ($item[$i] as $key => $val) {
+				$val = str_replace('"', "'", $val);
+				$ret .= '"'.$val.'",';
+			}
+			$ret = substr($ret, 0, -1);
+			$ret .= "\n";
+		}
+	}
+	return $ret;
+}
+
+/**
+ * Download content as a file
+ * @param string $content
+ * @param string $fn
+ * @param string $content_type
+ */
+function core_download($content, $fn='', $content_type='') {
+	$fn = ( $fn ? $fn : 'download.txt' );
+	$content_type = ( $content_type ? $content_type : 'text/plain' );
+	ob_end_clean();
+	header('Pragma: public');
+	header('Expires: 0');
+	header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+	header('Content-Type: '.$content_type);
+	header('Content-Disposition: attachment; filename='.$fn);
+	echo $content;
+	die();
+}
+
 ?>

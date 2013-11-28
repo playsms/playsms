@@ -159,9 +159,9 @@ switch ($op) {
 						$list[$i]['email'],
 						$list[$i]['code']);
 				}
-				$content = csv_format($data);
+				$content = core_csv_format($data);
 				$fn = 'phonebook-'.$core_config['datetime']['now_stamp'].'.csv';
-				download($content, $fn, 'text/csv');
+				core_download($content, $fn, 'text/csv');
 				break;
 			case _('Delete'):
 				for ($i=0;$i<$nav['limit'];$i++) {

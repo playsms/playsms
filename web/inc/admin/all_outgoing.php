@@ -135,9 +135,9 @@ switch ($op) {
 						$list[$i]['p_msg'].$list[$i]['p_footer'],
 						$list[$i]['p_status']);
 				}
-				$content = csv_format($data);
+				$content = core_csv_format($data);
 				$fn = 'all_outgoing-'.$core_config['datetime']['now_stamp'].'.csv';
-				download($content, $fn, 'text/csv');
+				core_download($content, $fn, 'text/csv');
 				break;
 			case _('Delete'):
 				for ($i=0;$i<$nav['limit'];$i++) {

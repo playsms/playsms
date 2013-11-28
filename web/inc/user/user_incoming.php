@@ -112,9 +112,9 @@ switch ($op) {
 						$list[$i]['in_feature'],
 						( $list[$i]['in_status'] == 1 ? _('handled') : _('unhandled')));
 				}
-				$content = csv_format($data);
+				$content = core_csv_format($data);
 				$fn = 'user_incoming-'.$core_config['datetime']['now_stamp'].'.csv';
-				download($content, $fn, 'text/csv');
+				core_download($content, $fn, 'text/csv');
 				break;
 			case _('Delete'):
 				for ($i=0;$i<$nav['limit'];$i++) {

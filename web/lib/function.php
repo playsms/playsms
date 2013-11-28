@@ -13,8 +13,6 @@ include $apps_path['libs']."/fn_phonebook.php";
 include $apps_path['libs']."/fn_themes.php";
 include $apps_path['libs']."/fn_tpl.php";
 include $apps_path['libs']."/fn_webservices.php";
-include $apps_path['libs']."/fn_csv.php";
-include $apps_path['libs']."/fn_download.php";
 
 // init global variables
 
