@@ -1,16 +1,10 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
-function themes_get() {
-	global $core_config;
-	$ret = $core_config['module']['themes'];
-	return $ret;
-}
-
 function themes_apply($content) {
 	$ret = '';
-	if (themes_get()) {
-		$ret = x_hook(themes_get(),'themes_apply',array($content));
+	if (core_themes_get()) {
+		$ret = x_hook(core_themes_get(),'themes_apply',array($content));
 	}
 	return $ret;
 }
@@ -44,7 +38,7 @@ function themes_navbar($num, $nav, $max_nav, $url, $page) {
 	}
 	$url = $url.$search_url;
 	$nav_pages = '';
-	if ($theme = themes_get()) {
+	if ($theme = core_themes_get()) {
 		$nav_pages = x_hook($theme,'themes_navbar',array($num, $nav, $max_nav, $url, $page));
 	}
 	return $nav_pages;

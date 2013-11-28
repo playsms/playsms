@@ -115,7 +115,7 @@ if (file_exists($c_fn1)) {
 // load active themes
 $dir = $apps_path['plug'].'/';
 $pc = 'themes';
-$pl = themes_get();
+$pl = core_themes_get();
 $pl_dir = $dir.$pc.'/'.$pl;
 $c_fn1 = $pl_dir.'/config.php';
 if (file_exists($c_fn1)) {

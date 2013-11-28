@@ -470,4 +470,15 @@ function core_lang_get() {
 	return $ret;
 }
 
+/**
+ * Get active themes
+ * @global array $core_config
+ * @return string
+ */
+function core_themes_get() {
+	global $core_config;
+	$ret = $core_config['module']['themes'];
+	return $ret;
+}
+
 ?>

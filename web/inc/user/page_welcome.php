@@ -2,7 +2,7 @@
 defined('_SECURE_') or die('Forbidden');
 if(!valid()){forcenoaccess();};
 
-$fn = _APPS_PATH_THEMES_.'/'.themes_get().'/page_welcome.php';
+$fn = _APPS_PATH_THEMES_.'/'.core_themes_get().'/page_welcome.php';
 
 if (file_exists($fn)) {
 	include $fn;

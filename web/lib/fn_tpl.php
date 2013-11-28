@@ -71,7 +71,7 @@ function tpl_apply($tpl) {
 		}
 
 		// check from active template
-		$themes = themes_get();
+		$themes = core_themes_get();
 		$fn = _APPS_PATH_THEMES_.'/'.$themes.'/templates/'.$tpl_name.'.html';
 		if (file_exists($fn)) {
 			$content = _tpl_apply($fn, $tpl);
