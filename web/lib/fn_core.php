@@ -459,4 +459,15 @@ function core_gateway_get() {
 	return $ret;
 }
 
+/**
+ * Get active language
+ * @global array $core_config
+ * @return string
+ */
+function core_lang_get() {
+	global $core_config;
+	$ret = $core_config['module']['language'];
+	return $ret;
+}
+
 ?>

@@ -4,7 +4,6 @@ defined('_SECURE_') or die('Forbidden');
 // main functions
 include $apps_path['libs']."/fn_rate.php";
 include $apps_path['libs']."/fn_billing.php";
-include $apps_path['libs']."/fn_lang.php";
 include $apps_path['libs']."/fn_dlr.php";
 include $apps_path['libs']."/fn_recvsms.php";
 include $apps_path['libs']."/fn_sendsms.php";
