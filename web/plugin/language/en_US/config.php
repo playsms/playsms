@@ -1,3 +1,3 @@
 <?php
-$plugin['language']['en_US']['title'] = 'English (United States)';
+$plugin_config['language']['en_US']['title'] = 'English (United States)';
 ?>

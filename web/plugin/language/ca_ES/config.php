@@ -1,3 +1,3 @@
 <?php
-$plugin['language']['ca_ES']['title'] = 'Catalan (Spain)';
+$plugin_config['language']['ca_ES']['title'] = 'Catalan (Spain)';
 ?>
