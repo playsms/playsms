@@ -113,38 +113,9 @@ for ($i=0;$i<count($plugins_category);$i++) {
 	}
 }
 
-// load common items for themes
-$c_fn1 = $apps_path['plug'].'/themes/common/config.php';
-if (file_exists($c_fn1)) {
-	include $c_fn1;
-	$c_fn2 = $apps_path['plug'].'/themes/common/fn.php';
-	if (file_exists($c_fn2)) {
-		include $c_fn2;
-	}
-}
-
-// load active themes
+// load each plugin's config
 $dir = $apps_path['plug'].'/';
-$pc = 'themes';
-$pl = core_themes_get();
-$pl_dir = $dir.$pc.'/'.$pl;
-$c_fn1 = $pl_dir.'/config.php';
-if (file_exists($c_fn1)) {
-	if (function_exists('bindtextdomain') && file_exists($pl_dir.'/language/')) {
-		bindtextdomain('messages', $plugin_dir.'/language/');
-		bind_textdomain_codeset('messages', 'UTF-8');
-		textdomain('messages');
-	}
-	include $c_fn1;
-	$c_fn2 = $pl_dir.'/fn.php';
-	if (file_exists($c_fn2)) {
-		include $c_fn2;
-	}
-}
-
-// load each plugin's config and libaries
-$dir = $apps_path['plug'].'/';
-$pcs = array('language', 'gateway', 'feature', 'tools');
+$pcs = array('themes', 'language', 'gateway', 'feature', 'tools');
 foreach ($pcs as $pc) {
 	for ($i=0;$i<count($core_config[$pc.'list']);$i++) {
 		$pl = $core_config[$pc.'list'][$i];
@@ -157,16 +128,78 @@ foreach ($pcs as $pc) {
 				textdomain('messages');
 			}
 			include $c_fn1;
-			$c_fn2 = $pl_dir.'/fn.php';
-			if (file_exists($c_fn2)) {
-				include $c_fn2;
-			}
 		}
 	}
 }
 
-//print_r($plugin); die();
-//print_r($core_config); die();
+// load each plugin's libs
+$dir = $apps_path['plug'].'/';
+$pcs = array('feature', 'tools');
+foreach ($pcs as $pc) {
+	for ($i=0;$i<count($core_config[$pc.'list']);$i++) {
+		$pl = $core_config[$pc.'list'][$i];
+		$pl_dir = $dir.$pc.'/'.$pl;
+		$c_fn1 = $pl_dir.'/fn.php';
+		if (file_exists($c_fn1)) {
+			if (function_exists('bindtextdomain') && file_exists($pl_dir.'/language')) {
+				bindtextdomain('messages', $pl_dir.'/language/');
+				bind_textdomain_codeset('messages', 'UTF-8');
+				textdomain('messages');
+			}
+			include $c_fn1;
+		}
+	}
+}
+
+// load active themes libs
+$dir = $apps_path['plug'].'/';
+$pc = 'themes';
+$pl = core_themes_get();
+$pl_dir = $dir.$pc.'/'.$pl;
+$c_fn1 = $pl_dir.'/fn.php';
+if (file_exists($c_fn1)) {
+	if (function_exists('bindtextdomain') && file_exists($pl_dir.'/language/')) {
+		bindtextdomain('messages', $plugin_dir.'/language/');
+		bind_textdomain_codeset('messages', 'UTF-8');
+		textdomain('messages');
+	}
+	include $c_fn1;
+}
+
+// load common items for themes
+$c_fn1 = $apps_path['plug'].'/themes/common/config.php';
+if (file_exists($c_fn1)) {
+	include $c_fn1;
+	$c_fn2 = $apps_path['plug'].'/themes/common/fn.php';
+	if (file_exists($c_fn2)) {
+		include $c_fn2;
+	}
+}
+
+// themes icons
+$icons = $core_config['plugin'][core_themes_get()]['icon'];
+if (is_array($icons)) {
+	foreach ($icons as $icon_action => $icon_url) {
+		if ($icon_action && $icon_url) {
+			$core_config['icon'][$icon_action] = $icon_url;
+		}
+	}
+}
+	
+// load active gateway libs
+$dir = $apps_path['plug'].'/';
+$pc = 'gateway';
+$pl = core_gateway_get();
+$pl_dir = $dir.$pc.'/'.$pl;
+$c_fn1 = $pl_dir.'/fn.php';
+if (file_exists($c_fn1)) {
+	if (function_exists('bindtextdomain') && file_exists($pl_dir.'/language/')) {
+		bindtextdomain('messages', $plugin_dir.'/language/');
+		bind_textdomain_codeset('messages', 'UTF-8');
+		textdomain('messages');
+	}
+	include $c_fn1;
+}
 
 if (function_exists('bindtextdomain')) {
 	bindtextdomain('messages', $apps_path['plug'].'/language/');
