@@ -34,17 +34,17 @@
 						<td><input type=submit class=button value='{Login}'></td>
 					</tr>
 
-					<if.enable_register>
+					<tr><td>&nbsp;</td></tr>
 					<tr>
-						<td><a href='index.php?app=page&inc=register'>{Register an account}</a></td>
+						<td>
+							<if.enable_register>
+								<p><a href='index.php?app=page&inc=register'>{Register an account}</a></p>
+							</if.enable_register>
+							<if.enable_forgot>
+								<p><a href='index.php?app=page&inc=forgot'>{Forgot password}</a></p>
+							</if.enable_forgot>
+						</td>
 					</tr>
-					</if.enable_register>
-
-					<if.enable_forgot>
-					<tr>
-						<td><a href='index.php?app=page&inc=forgot'>{Forgot password}</a></td>
-					</tr>
-					</if.enable_forgot>
 
 					<tr><td>&nbsp;</td></tr>
 					</tbody>
