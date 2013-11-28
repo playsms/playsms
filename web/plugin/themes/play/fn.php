@@ -34,7 +34,7 @@ function play_hook_themes_apply($content) {
 }
 
 function theme_play_build_menu() {
-  global $menu_config, $username;
+  global $menu_config, $username, $name;
   $content = '<ul class="nav">';
   $i = 0;
 	foreach ($menu_config as $cat => $value) {
@@ -60,7 +60,7 @@ function theme_play_build_menu() {
 	if (valid()) { 
 	  $content .= '<ul class="nav secondary-nav">';
 	  $content .= "<li class=\"dropdown pull-right\">";
-	  $content .= '<a href="#" class="dropdown-toggle">'.$username.'</a>';
+	  $content .= '<a href="#" class="dropdown-toggle">'.$name.' ('.$username.')</a>';
 	  $content .= '<ul class="dropdown-menu">';
 		$content .= '<li><a href="index.php?app=menu&inc=user_config&op=user_config">' . _('User configuration') . '</a></li>';
 		$content .= '<li><a href="index.php?app=menu&inc=user_pref&op=user_pref">'._('Preferences').'</a></li>';

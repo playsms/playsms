@@ -30,8 +30,13 @@ function ubuntu_hook_themes_buildmenu($menu_config) {
 	global $core_config;
 	$main_menu = "";
 	foreach ($menu_config as $menu_title => $array_menu) {
-		$main_menu .= "<li class='dropdown'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $menu_title . " <b class='caret'></b></a>";
-		$main_menu .= "<ul class='dropdown-menu'>";
+		if ($menu_title == $core_config['menutab']['my_account']) {
+			$main_menu .= "<li class='dropdown'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $core_config['user']['name'] . " (".$core_config['user']['username'].") <b class='caret'></b></a>";
+			$main_menu .= "<ul class='dropdown-menu'>";
+		} else {
+			$main_menu .= "<li class='dropdown'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $menu_title . " <b class='caret'></b></a>";
+			$main_menu .= "<ul class='dropdown-menu'>";
+		}
 		foreach ($array_menu as $sub_menu) {
 			$sub_menu_url = $sub_menu[0];
 			$sub_menu_title = $sub_menu[1];
@@ -43,6 +48,11 @@ function ubuntu_hook_themes_buildmenu($menu_config) {
 			$main_menu .= $mm;
 		}
 		unset($m);
+		if ($menu_title == $core_config['menutab']['my_account']) {
+			$main_menu .= "<li><hr /></li>";
+			$main_menu .= "<li><a href='index.php?app=menu&inc=user_config&op=user_config'>" . _('User configuration') . "</a></li>";
+			$main_menu .= "<li><a href='index.php?app=menu&inc=user_pref&op=user_pref'>" . _('Preferences') . "</a></li>";
+		}
 		$main_menu .= "</ul>";
 		$main_menu .= "</li>";
 	}
@@ -63,12 +73,6 @@ function ubuntu_hook_themes_buildmenu($menu_config) {
 						<ul class='nav navbar-nav'>
 							<li class='active'><a href='" . _HTTP_PATH_BASE_ . "'>" . _('Home') . "</a></li>
 							".$main_menu."
-							<li class='dropdown'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $core_config['user']['name'] . " (" . $core_config['user']['username'] . ") <b class='caret'></b></a>
-								<ul class='dropdown-menu'>
-									<li><a href='index.php?app=menu&inc=user_config&op=user_config'>" . _('User configuration') . "</a></li>
-									<li><a href='index.php?app=menu&inc=user_pref&op=user_pref'>" . _('Preferences') . "</a></li>
-								</ul>
-							</li>
 						</ul>
 						<ul id=nav-login class='nav navbar-nav navbar-right'>
 							<li><a href='index.php?app=page&op=auth_logout'>" . _('Logout') . "</a></li>
