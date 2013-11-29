@@ -19,8 +19,8 @@ $core_config['plugin']['msgtoolbox'] = $msgtoolbox_param;
 //$gateway_number = $msgtoolbox_param['global_sender'];
 
 // insert to left menu array
-if (isadmin()) {
-	$menutab_gateway = $core_config['menutab']['gateway'];
-	$menu_config[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_msgtoolbox&op=manage", _('Manage msgtoolbox'));
-}
+//if (isadmin()) {
+//	$menutab_gateway = $core_config['menutab']['gateway'];
+//	$menu_config[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_msgtoolbox&op=manage", _('Manage msgtoolbox'));
+//}
 ?>

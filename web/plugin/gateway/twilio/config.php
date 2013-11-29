@@ -19,8 +19,8 @@ $core_config['plugin']['twilio'] = $twilio_param;
 //$gateway_number = $twilio_param['global_sender'];
 
 // insert to left menu array
-if (isadmin()) {
-	$menutab_gateway = $core_config['menutab']['gateway'];
-	$menu_config[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_twilio&op=manage", _('Manage twilio'));
-}
+//if (isadmin()) {
+//	$menutab_gateway = $core_config['menutab']['gateway'];
+//	$menu_config[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_twilio&op=manage", _('Manage twilio'));
+//}
 ?>

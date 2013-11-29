@@ -59,7 +59,6 @@ $core_config['menutab']['home'] = _('Home');
 $core_config['menutab']['my_account'] = _('My Account');
 $core_config['menutab']['tools'] = _('Tools');
 $core_config['menutab']['feature'] = _('Feature');
-$core_config['menutab']['gateway'] = _('Gateway');
 $core_config['menutab']['administration'] = _('Administration');
 
 $menutab_my_account = $core_config['menutab']['my_account'];

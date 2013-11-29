@@ -21,11 +21,11 @@ $core_config ['plugin'] ['infobip'] = $infobip_param;
 // $gateway_number = $infobip_param['sender'];
 
 // insert to left menu array
-if (isadmin ()) {
-	$menutab_gateway = $core_config ['menutab'] ['gateway'];
-	$menu_config [$menutab_gateway] [] = array (
-			"index.php?app=menu&inc=gateway_infobip&op=manage",
-			_ ( 'Manage infobip' ) 
-	);
-}
+//if (isadmin ()) {
+//	$menutab_gateway = $core_config ['menutab'] ['gateway'];
+//	$menu_config [$menutab_gateway] [] = array (
+//			"index.php?app=menu&inc=gateway_infobip&op=manage",
+//			_ ( 'Manage infobip' ) 
+//	);
+//}
 ?>

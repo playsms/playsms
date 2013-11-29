@@ -8,8 +8,8 @@ $gammu_param['path'] = "/var/spool/gammu";
 $core_config['plugin']['gammu'] = $gammu_param;
 
 // insert to left menu array
-if (isadmin()) {
-	$menutab_gateway = $core_config['menutab']['gateway'];
-	$menu_config[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_gammu&op=manage", _('Manage gammu'));
-}
+//if (isadmin()) {
+//	$menutab_gateway = $core_config['menutab']['gateway'];
+//	$menu_config[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_gammu&op=manage", _('Manage gammu'));
+//}
 ?>

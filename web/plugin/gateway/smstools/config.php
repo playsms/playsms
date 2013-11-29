@@ -9,8 +9,8 @@ $smstools_param['spool_bak'] = "/var/spool/smsbackup";
 $core_config['plugin']['smstools'] = $smstools_param;
 
 // insert to left menu array
-if (isadmin()) {
-	$menutab_gateway = $core_config['menutab']['gateway'];
-	$menu_config[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_smstools&op=manage", _('Manage smstools'));
-}
+//if (isadmin()) {
+//	$menutab_gateway = $core_config['menutab']['gateway'];
+//	$menu_config[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_smstools&op=manage", _('Manage smstools'));
+//}
 ?>

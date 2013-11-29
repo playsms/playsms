@@ -38,10 +38,10 @@ $core_config['plugin']['kannel'] = $kannel_param;
 //$gateway_number = $kannel_param['global_sender'];
 
 // insert to left menu array
-if (isadmin()) {
-	$menutab_gateway = $core_config['menutab']['gateway'];
-	$menu_config[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_kannel&op=manage", _('Manage kannel'));
-}
+//if (isadmin()) {
+//	$menutab_gateway = $core_config['menutab']['gateway'];
+//	$menu_config[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_kannel&op=manage", _('Manage kannel'));
+//}
 
 // Test for DLR checkbox
 /* DLR Kannel value
