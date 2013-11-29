@@ -1,7 +1,7 @@
 CHANGELOG
 ---------
 
-Version 0.9.9.2-beta5 - NA
+Version 0.9.9.2-beta6 - 131129
 - MAJOR: new install will use MySQL InnoDB
 - MAJOR: replace term 'slid' with 'smslog_id' on all places
 - MAJOR: smslog_id is now from tblSMSOutgoing_queue_dst and immediately returns
@@ -18,6 +18,7 @@ Version 0.9.9.2-beta5 - NA
 - add new plugin report (enumanc)
 - add new plugin SMS Sync for SMSSync app http://smssync.ushahidi.com/
 - add new gateway Infobip (enumanc)
+- add new plugin tools gatewaymanager to replace Gateway menus
 - add new daemon dlrssmsd and recvsmsd to increase performance
 - add new option "Try to disable SMS footer on master" on uplink gateway
 - update to immediately cancel send SMS after fail with not enough credit
@@ -31,8 +32,19 @@ Version 0.9.9.2-beta5 - NA
 - update default gateway on 1st installation to "dev"
 - update default daemon files locations from /usr/local/bin/ to
   /usr/local/bin/_playsms/
+- sendmail() and plainoldsendmail make over. sendmail() now receives array as
+  parameters, this will allow more parameters such as attachments, cc and bcc,
+  SMTP connection details and others
+- update icons
+- update function.php to load only active plugins, including themes, lang and
+  gateway. this fixes icons as well
+- remove lib init1 and init2, include them in function.php
+- remove lib/fn_csv.php and lib/fn_download.php, move them to lib/fn_core.php
+- remove lib/fn_gateway.php and lib/fn_lang.php, move them to lib/fn_core.php
 - remove route handler on plugins as this is now handled by core
 - remove option "denycustomsender" from config.php and other places
+- remove auto route replies to inbox, the routing for non @username replies to
+  inbox has some disadvantages with current logic so I decided to comment it
 - fix catchall feature on inboxgroup
 - fix location to hint.png
 - fix fail to finalize queue creation
@@ -43,6 +55,9 @@ Version 0.9.9.2-beta5 - NA
 - fix sms_board and sms_poll, both should use $_REQUEST to get parameters
 - fix #78 add $from, $footer and $nofooter param to webservices
 - fix #109 sms sender ID and sms footer can be changed from Send SMS page
+- fix #116 addslashes, not stripslashes, before feeding to sendsms()
+- fix #118 regression bug giving back-tick quotes to keyword on dba_search()
+  and dba_count()
 
 Version 0.9.9.1 - 130902
 - add new webservices type of action IX to get SMS on user's inbox

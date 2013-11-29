@@ -161,7 +161,7 @@ ALTER TABLE  `playsms_tblConfig_main` ADD  `cfg_main_website_name` varchar(250) 
 ALTER TABLE  `playsms_tblConfig_main` ADD  `cfg_main_website_url` varchar(250) NOT NULL DEFAULT '';
 
 
--- release candidate 1
+-- beta 6
 
 ALTER TABLE  `playsms_tblRegistry`
 CHANGE  `group`  `registry_group` VARCHAR( 250 ) NOT NULL DEFAULT  '',
