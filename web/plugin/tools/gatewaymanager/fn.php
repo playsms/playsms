@@ -38,8 +38,8 @@ function gatewaymanager_display() {
 		<div class=table-responsive>
 		<table class=playsms-table-list id='gatewaymanager_view'>
 			<thead><tr>
-				<th width=15%>" . _('Name') . "</th>
-				<th width=65%>" . _('Description') . "</th>
+				<th width=30%>" . _('Name') . "</th>
+				<th width=50%>" . _('Description') . "</th>
 				<th width=10%>" . _('Version') . "</th>
 				<th width=10%>" . _('Action') . "</th>
 			</tr></thead>
@@ -54,17 +54,28 @@ function gatewaymanager_display() {
 			$gateway_info['status'] = $subdir_tab[$l]['status'];
 		}
 		if ($gateway_info['name']) {
-			$content .= "
-				<tr>
-					<td>" . $gateway_info['name'] . "</td>
-					<td>" . $gateway_info['description'] . "</td>
-					<td>" . $gateway_info['release'] . "</td>
-					<td>
-						<a href='index.php?app=menu&inc=gateway_".$c_gateway."&op=manage'><span class='glyphicon glyphicon-wrench'></span></a>&nbsp;
-						".$gateway_info['status']."&nbsp;
-					</td>
-				</tr>";
+			$gw_list[$gateway_info['name']] = array(
+				'link' => "<a href='index.php?app=menu&inc=gateway_".$c_gateway."&op=manage",
+				'name' => $gateway_info['name'],
+				'description' => $gateway_info['description'],
+				'release' => $gateway_info['release'],
+				'status' => $gateway_info['status']
+			);
 		}
+	}
+	ksort($gw_list);
+	foreach ($gw_list as $gw) {
+		$content .= "
+			<tr>
+				<td>" . $gw['name'] . "</td>
+				<td>" . $gw['description'] . "</td>
+				<td>" . $gw['release'] . "</td>
+				<td>
+					<a href='".$gw['link']."'><span class='glyphicon glyphicon-wrench'></span></a>&nbsp;
+					".$gw['status']."&nbsp;
+				</td>
+			</tr>";
+		
 	}
 	$content .= "</tbody></table></div>";
 	return $content;
