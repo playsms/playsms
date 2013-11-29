@@ -8,10 +8,22 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
+msgid "Delete"
+msgstr ""
+
+msgid "Delete user"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
 msgid "Email"
 msgstr ""
 
 msgid "Forgot password"
+msgstr ""
+
+msgid "Forward"
 msgstr ""
 
 msgid "Home"
@@ -24,6 +36,9 @@ msgid "Login"
 msgstr ""
 
 msgid "Logout"
+msgstr ""
+
+msgid "Manage"
 msgstr ""
 
 msgid "Mobile"
@@ -47,11 +62,23 @@ msgstr ""
 msgid "Register an account"
 msgstr ""
 
+msgid "Reply"
+msgstr ""
+
+msgid "Resend"
+msgstr ""
+
 msgid "Submit"
 msgstr ""
 
 msgid "User configuration"
 msgstr ""
 
+msgid "User preference"
+msgstr ""
+
 msgid "Username"
 msgstr "Username"
+
+msgid "View"
+msgstr ""

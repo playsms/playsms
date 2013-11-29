@@ -11,9 +11,6 @@ msgstr "Adicionar contato"
 msgid "Add group"
 msgstr "Adicionar grupo"
 
-msgid "Code"
-msgstr "Código"
-
 msgid "Contact has been added"
 msgstr "Contato foi adicionado"
 

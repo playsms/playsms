@@ -4,9 +4,6 @@ msgstr "Tambah kontak"
 msgid "Add group"
 msgstr "Tambah grup"
 
-msgid "Code"
-msgstr "Kode"
-
 msgid "Contact has been added"
 msgstr "Kontak telah ditambah"
 

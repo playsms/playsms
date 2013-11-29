@@ -588,6 +588,9 @@ msgstr "Propinsi"
 msgid "Status"
 msgstr "Status"
 
+msgid "This field is required"
+msgstr ""
+
 msgid "Time"
 msgstr "Waktu"
 
@@ -797,6 +800,9 @@ msgstr "tidak tertangani"
 
 msgid "username"
 msgstr "nama pengguna"
+
+msgid "version"
+msgstr ""
 
 msgid "yes"
 msgstr "ya"

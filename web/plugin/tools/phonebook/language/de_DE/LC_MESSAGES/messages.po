@@ -4,9 +4,6 @@ msgstr "Kontakt hinzufgen"
 msgid "Add group"
 msgstr "Gruppe hinzufgen"
 
-msgid "Code"
-msgstr "Krzel"
-
 msgid "Contact has been added"
 msgstr "Kontakt wurde hinzugefgt"
 

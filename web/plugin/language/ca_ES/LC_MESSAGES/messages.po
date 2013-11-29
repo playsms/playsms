@@ -601,6 +601,9 @@ msgstr "Estat o província"
 msgid "Status"
 msgstr "Estat"
 
+msgid "This field is required"
+msgstr ""
+
 msgid "Time"
 msgstr "Hora"
 
@@ -814,6 +817,9 @@ msgstr "No Processat"
 
 msgid "username"
 msgstr "usuari"
+
+msgid "version"
+msgstr ""
 
 msgid "yes"
 msgstr "si"

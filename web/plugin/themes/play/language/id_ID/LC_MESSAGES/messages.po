@@ -8,11 +8,23 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
+msgid "Delete"
+msgstr ""
+
+msgid "Delete user"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
 msgid "Email"
 msgstr "Email"
 
 msgid "Forgot password"
 msgstr "Lupa kata sandi"
+
+msgid "Forward"
+msgstr ""
 
 msgid "Home"
 msgstr "Beranda"
@@ -25,6 +37,9 @@ msgstr "Masuk"
 
 msgid "Logout"
 msgstr "Keluar"
+
+msgid "Manage"
+msgstr ""
 
 msgid "Mobile"
 msgstr "Ponsel"
@@ -47,11 +62,23 @@ msgstr ""
 msgid "Register an account"
 msgstr "Daftar akun"
 
+msgid "Reply"
+msgstr ""
+
+msgid "Resend"
+msgstr ""
+
 msgid "Submit"
 msgstr ""
 
 msgid "User configuration"
 msgstr ""
 
+msgid "User preference"
+msgstr ""
+
 msgid "Username"
 msgstr "Username"
+
+msgid "View"
+msgstr ""

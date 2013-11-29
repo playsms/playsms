@@ -605,6 +605,9 @@ msgstr "État ou Province"
 msgid "Status"
 msgstr "Status"
 
+msgid "This field is required"
+msgstr ""
+
 msgid "Time"
 msgstr "Heure"
 
@@ -824,6 +827,9 @@ msgstr "Non géré"
 
 msgid "username"
 msgstr "Login"
+
+msgid "version"
+msgstr ""
 
 msgid "yes"
 msgstr "oui"

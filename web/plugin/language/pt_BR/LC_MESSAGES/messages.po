@@ -589,6 +589,9 @@ msgstr "Estado ou província"
 msgid "Status"
 msgstr ""
 
+msgid "This field is required"
+msgstr ""
+
 msgid "Time"
 msgstr "Hora"
 
@@ -799,6 +802,9 @@ msgstr "não tratadas"
 
 msgid "username"
 msgstr "usuário"
+
+msgid "version"
+msgstr ""
 
 msgid "yes"
 msgstr "sim"

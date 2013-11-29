@@ -17,11 +17,23 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
+msgid "Delete"
+msgstr ""
+
+msgid "Delete user"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
 msgid "Email"
 msgstr "Email"
 
 msgid "Forgot password"
 msgstr "Contrasenya perduda"
+
+msgid "Forward"
+msgstr ""
 
 msgid "Home"
 msgstr "Principal"
@@ -34,6 +46,9 @@ msgstr "Usuari"
 
 msgid "Logout"
 msgstr "Sortir"
+
+msgid "Manage"
+msgstr ""
 
 msgid "Mobile"
 msgstr "Mòbil"
@@ -56,11 +71,23 @@ msgstr ""
 msgid "Register an account"
 msgstr "Registrar un compte"
 
+msgid "Reply"
+msgstr ""
+
+msgid "Resend"
+msgstr ""
+
 msgid "Submit"
 msgstr ""
 
 msgid "User configuration"
 msgstr ""
 
+msgid "User preference"
+msgstr ""
+
 msgid "Username"
 msgstr "Usuari"
+
+msgid "View"
+msgstr ""

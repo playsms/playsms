@@ -4,9 +4,6 @@ msgstr ""
 msgid "Add group"
 msgstr ""
 
-msgid "Code"
-msgstr ""
-
 msgid "Contact has been added"
 msgstr ""
 

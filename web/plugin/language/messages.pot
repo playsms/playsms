@@ -571,6 +571,9 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
+msgid "This field is required"
+msgstr ""
+
 msgid "Time"
 msgstr ""
 
@@ -773,6 +776,9 @@ msgid "unhandled"
 msgstr ""
 
 msgid "username"
+msgstr ""
+
+msgid "version"
 msgstr ""
 
 msgid "yes"

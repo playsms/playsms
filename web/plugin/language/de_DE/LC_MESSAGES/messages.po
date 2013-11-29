@@ -591,6 +591,9 @@ msgstr "Staat oder Region"
 msgid "Status"
 msgstr "Status"
 
+msgid "This field is required"
+msgstr ""
+
 msgid "Time"
 msgstr "Zeit"
 
@@ -805,6 +808,9 @@ msgstr "unerledigt"
 
 msgid "username"
 msgstr "Benutzername"
+
+msgid "version"
+msgstr ""
 
 msgid "yes"
 msgstr "ja"

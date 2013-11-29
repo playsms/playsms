@@ -20,9 +20,6 @@ msgstr "Afegir contacte"
 msgid "Add group"
 msgstr "Afegir grup"
 
-msgid "Code"
-msgstr "Codi"
-
 msgid "Contact has been added"
 msgstr "El contacte s'ha afegit"
 
