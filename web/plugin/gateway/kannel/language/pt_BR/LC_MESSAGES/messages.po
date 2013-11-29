@@ -47,7 +47,15 @@ msgstr "Senha de administrador Kannel"
 msgid "Kannel admin port"
 msgstr "Porta de administração Kannel"
 
+#, fuzzy
+msgid "Kannel configuration"
+msgstr "Arquivo de configuração Kannel"
+
 msgid "Kannel configuration file"
+msgstr "Arquivo de configuração Kannel"
+
+#, fuzzy
+msgid "Kannel configuration file must be writable"
 msgstr "Arquivo de configuração Kannel"
 
 msgid "Kannel specific"

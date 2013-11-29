@@ -47,7 +47,15 @@ msgstr "Password admin kannel"
 msgid "Kannel admin port"
 msgstr "Port admin kannel"
 
+#, fuzzy
+msgid "Kannel configuration"
+msgstr "File konfigurasi kannel"
+
 msgid "Kannel configuration file"
+msgstr "File konfigurasi kannel"
+
+#, fuzzy
+msgid "Kannel configuration file must be writable"
 msgstr "File konfigurasi kannel"
 
 msgid "Kannel specific"

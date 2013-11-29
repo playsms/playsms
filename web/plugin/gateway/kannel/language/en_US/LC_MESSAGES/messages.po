@@ -47,7 +47,13 @@ msgstr ""
 msgid "Kannel admin port"
 msgstr ""
 
+msgid "Kannel configuration"
+msgstr ""
+
 msgid "Kannel configuration file"
+msgstr ""
+
+msgid "Kannel configuration file must be writable"
 msgstr ""
 
 msgid "Kannel specific"
