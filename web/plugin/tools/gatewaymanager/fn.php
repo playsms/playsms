@@ -55,7 +55,7 @@ function gatewaymanager_display() {
 		}
 		if ($gateway_info['name']) {
 			$gw_list[$gateway_info['name']] = array(
-				'link' => "<a href='index.php?app=menu&inc=gateway_".$c_gateway."&op=manage",
+				'link' => "index.php?app=menu&inc=gateway_".$c_gateway."&op=manage",
 				'name' => $gateway_info['name'],
 				'description' => $gateway_info['description'],
 				'release' => $gateway_info['release'],
