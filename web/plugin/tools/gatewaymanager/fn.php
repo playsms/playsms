@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Get gateway plugin status
+ * @global array $core_config
+ * @param string $name gateway name
+ * @return boolean
+ */
 function gatewaymanager_get_status($name) {
 	global $core_config;
 	if ($core_config['module']['gateway'] == $name) {
@@ -10,6 +16,32 @@ function gatewaymanager_get_status($name) {
 	return $ret;
 }
 
+/**
+ * Activate selected gateway plugin
+ * @global array $core_config
+ * @param string $name gateway name
+ * @return boolean
+ */
+function gatewaymanager_set_active($name) {
+	global $core_config;
+	$ret = FALSE;	
+	$fn1 = $core_config['apps_path']['plug'] . '/gateway/' . $name . '/config.php';
+	$fn2 = $core_config['apps_path']['plug'] . '/gateway/' . $name . '/config.php';
+	if (file_exists($fn1) && file_exists($fn2) && ($core_config['module']['gateway'] != $name)) {
+		$items = array('cfg_gateway_module' => $name);
+		if (dba_update(_DB_PREF_.'_tblConfig_main', $items)) {
+			$core_config['module']['gateway'] = $name;
+			$ret = TRUE;
+		}
+	}
+	return $ret;
+}
+
+/**
+ * List gateway plugins and load its configuration
+ * @global array $core_config
+ * @return string gateway plugins configuration
+ */
 function gatewaymanager_list() {
 	global $core_config;
 	$upload_path = $core_config['apps_path']['plug'] . '/gateway/';
@@ -32,18 +64,13 @@ function gatewaymanager_list() {
 	return $subdir_tab;
 }
 
+/**
+ * Display gateways on UI
+ * @global array $core_config
+ * @return string
+ */
 function gatewaymanager_display() {
 	global $core_config;
-	$content = "
-		<div class=table-responsive>
-		<table class=playsms-table-list id='gatewaymanager_view'>
-			<thead><tr>
-				<th width=30%>" . _('Name') . "</th>
-				<th width=50%>" . _('Description') . "</th>
-				<th width=10%>" . _('Version') . "</th>
-				<th width=10%>" . _('Action') . "</th>
-			</tr></thead>
-			<tbody>";
 	$subdir_tab = gatewaymanager_list();
 	for ($l = 0; $l < sizeof($subdir_tab); $l++) {
 		unset($gateway_info);
@@ -64,16 +91,23 @@ function gatewaymanager_display() {
 		}
 	}
 	ksort($gw_list);
+	$content = "
+		<div class=table-responsive>
+		<table class=playsms-table-list id='gatewaymanager_view'>
+			<thead><tr>
+				<th width=30%>" . _('Name') . "</th>
+				<th width=50%>" . _('Description') . "</th>
+				<th width=10%>" . _('Status') . "</th>
+				<th width=10%>" . _('Action') . "</th>
+			</tr></thead>
+			<tbody>";
 	foreach ($gw_list as $gw) {
 		$content .= "
 			<tr>
 				<td>" . $gw['name'] . "</td>
 				<td>" . $gw['description'] . "</td>
-				<td>" . $gw['release'] . "</td>
-				<td>
-					<a href='".$gw['link']."'><span class='glyphicon glyphicon-wrench'></span></a>&nbsp;
-					".$gw['status']."&nbsp;
-				</td>
+				<td><a href='index.php?app=menu&inc=tools_gatewaymanager&op=toggle_status&name=".$gw['name']."'>" . $gw['status'] . "</a></td>
+				<td><a href='".$gw['link']."'><span class='glyphicon glyphicon-wrench'></span></a></td>
 			</tr>";
 		
 	}
