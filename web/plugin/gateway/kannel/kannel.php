@@ -109,6 +109,7 @@ switch ($op) {
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>";
+		$content .= _b('index.php?app=menu&inc=tools_gatewaymanager&op=gatewaymanager_list');
 		echo $content;
 		break;
 	case "manage_save":

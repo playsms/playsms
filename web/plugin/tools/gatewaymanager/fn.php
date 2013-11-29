@@ -22,9 +22,9 @@ function gatewaymanager_list() {
 			$subdir_tab[$z]['version'] .= trim(file_get_contents($apps_path['plug'] . '/gateway/' . $f . '/docs/VERSION'));
 			$subdir_tab[$z]['date'] .= date($core_config['datetime']['format'], filemtime($upload_path . $f));
 			if (gatewaymanager_get_status($fn)) {
-				$subdir_tab[$z][status] .= '<span class=status_enabled />';
+				$subdir_tab[$z][status] .= '<span class=status_enabled></span>';
 			} else {
-				$subdir_tab[$z][status] .= '<span class=status_disabled />';
+				$subdir_tab[$z][status] .= '<span class=status_disabled></span>';
 			}
 			$z++;
 		}
@@ -39,11 +39,8 @@ function gatewaymanager_display() {
 		<table class=playsms-table-list id='gatewaymanager_view'>
 			<thead><tr>
 				<th width=15%>" . _('Name') . "</th>
-				<th width=25%>" . _('Description') . "</th>
+				<th width=65%>" . _('Description') . "</th>
 				<th width=10%>" . _('Version') . "</th>
-				<th width=20%>" . _('Author') . "</th>
-				<th width=20%>" . _('Date') . "</th>
-				<th width=10%>" . _('Status') . "</th>
 				<th width=10%>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
@@ -62,10 +59,10 @@ function gatewaymanager_display() {
 					<td>" . $gateway_info['name'] . "</td>
 					<td>" . $gateway_info['description'] . "</td>
 					<td>" . $gateway_info['release'] . "</td>
-					<td>" . $gateway_info['author'] . "</td>
-					<td>" . $gateway_info['date'] . "</td>
-					<td>" . $gateway_info['status'] . "</td>
-					<td><a href='index.php?app=menu&inc=gateway_".$c_gateway."&op=manage'><span class='glyphicon glyphicon-wrench'></span></a></td>
+					<td>
+						<a href='index.php?app=menu&inc=gateway_".$c_gateway."&op=manage'><span class='glyphicon glyphicon-wrench'></span></a>&nbsp;
+						".$gateway_info['status']."&nbsp;
+					</td>
 				</tr>";
 		}
 	}
