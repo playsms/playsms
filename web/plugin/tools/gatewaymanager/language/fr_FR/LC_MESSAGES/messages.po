@@ -1,0 +1,36 @@
+msgid "Author"
+msgstr "Auteur"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Features"
+msgstr "Services"
+
+msgid "Gateways"
+msgstr "Passerelles"
+
+msgid "Languages"
+msgstr "Langues"
+
+#, fuzzy
+msgid "Manage gateway"
+msgstr "Gestion des gateways"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Status"
+msgstr "Statut"
+
+msgid "Themes"
+msgstr "Thmes"
+
+msgid "Tools"
+msgstr "Outils"
+
+msgid "Version"
+msgstr "Version"
