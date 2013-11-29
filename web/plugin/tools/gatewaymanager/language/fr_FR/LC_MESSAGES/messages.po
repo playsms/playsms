@@ -11,5 +11,8 @@ msgstr "Gestion des gateways"
 msgid "Name"
 msgstr "Nom"
 
-msgid "Version"
-msgstr "Version"
+msgid "Status"
+msgstr ""
+
+msgid "You have enabled gateway plugin"
+msgstr ""

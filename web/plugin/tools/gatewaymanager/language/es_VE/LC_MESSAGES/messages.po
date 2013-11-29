@@ -10,5 +10,8 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-msgid "Version"
+msgid "Status"
+msgstr ""
+
+msgid "You have enabled gateway plugin"
 msgstr ""
