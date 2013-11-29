@@ -33,18 +33,26 @@ function simplerate_getbyid($id) {
 }
 
 function simplerate_getbyprefix($p_dst) {
-	global $default_rate;
-	$rate = $default_rate;
+	global $core_config;
+	$found = FALSE;
+	$rate = $core_config['main']['cfg_default_rate'];
 	$prefix = preg_replace('/[^0-9.]*/','',$p_dst);
 	$m = ( strlen($prefix) > 10 ? 10 : strlen($prefix) );
 	for ($i=$m+1;$i>0;$i--) {
 		$prefix = substr($prefix, 0, $i);
-		$db_query = "SELECT rate FROM "._DB_PREF_."_toolsSimplerate WHERE prefix='$prefix'";
+		$db_query = "SELECT id,dst,prefix,rate FROM "._DB_PREF_."_toolsSimplerate WHERE prefix='$prefix'";
 		$db_result = dba_query($db_query);
-		if ($db_row = dba_fetch_array($db_result)) {
+		$db_row = dba_fetch_array($db_result);
+		if ($db_row['id']) {
 			$rate = $db_row['rate'];
+			$found = TRUE;
 			break;
 		}
+	}
+	if ($found) {
+		logger_print("found rate id:".$db_row['id']." prefix:".$db_row['prefix']." rate:".$rate." description:".$db_row['dst'], 2, "simplerate getbyprefix");
+	} else {
+		logger_print("rate not found p_dst:".$p_dst, 2, "simplerate getbyprefix");
 	}
 	$rate = ( ($rate > 0) ? $rate : 0 );
 	return $rate;
@@ -78,9 +86,6 @@ function simplerate_hook_rate_cansend($username, $sms_to) {
 	global $default_rate;
 	$credit = rate_getusercredit($username);
 	$maxrate = simplerate_getbyprefix($sms_to);
-	if ($default_rate > $maxrate) {
-		$maxrate = $default_rate;
-	}
 	logger_print("check username:".$username." sms_to:".$sms_to." credit:".$credit." maxrate:".$maxrate, 2, "simplerate cansend");
 	if ($ok = ( ($credit >= $maxrate) ? true : false )) {
 		logger_print("allowed username:".$username." sms_to:".$sms_to." credit:".$credit." maxrate:".$maxrate, 2, "simplerate cansend");
