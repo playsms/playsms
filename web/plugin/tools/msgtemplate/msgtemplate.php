@@ -20,18 +20,18 @@ switch ($op) {
 			<div id=actions_box>
 			<div id=actions_box_left>"._button('index.php?app=menu&inc=tools_msgtemplate&op=add', _('Add message template'))."</div>
 			<div id=actions_box_center>&nbsp;</div>
-			<div id=actions_box_right><input type=submit name=go value=\""._('Delete')."\" class=button onClick=\"return SureConfirm()\"/></div>
+			<div id=actions_box_right><input type=submit name=go value='"._('Delete')."' class=button onClick='return SureConfirm()'/></div>
 			</div>";
 
 		$content = "
 			<h2>"._('Message template')."</h2>
-			<form name=\"$fm_name\" action=\"index.php?app=menu&inc=tools_msgtemplate&op=actions\" method=post>
+			<form name='$fm_name' action='index.php?app=menu&inc=tools_msgtemplate&op=actions' method=post>
 			".$actions_box."
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>
-				<th width=\"30%\">&nbsp;"._('Name')."</th>
-				<th width=\"65%\">&nbsp;"._('Content')."</th>
+				<th width=30%>"._('Name')."</th>
+				<th width=65%>"._('Content')."</th>
 				<th width=5%><input type=checkbox onclick=CheckUncheckAll(document.".$fm_name.")></th>
 			</tr></thead>
 			<tbody>";
@@ -45,19 +45,28 @@ switch ($op) {
 			$i++;
 			$content .= "
 				<tr>
-					<td><a href=\"index.php?app=menu&inc=tools_msgtemplate&op=edit&tid=$tid\">$temp_title</a></td>
+					<td><a href='index.php?app=menu&inc=tools_msgtemplate&op=edit&tid=$tid'>$temp_title</a></td>
 					<td>$temp_text</td>
 					<td><input type=checkbox name=chkid".$i."></td>
-					<input type=hidden name=chkid_value".$i." value=\"".$db_row['tid']."\">
+					<input type=hidden name=chkid_value".$i." value='".$db_row['tid']."'>
 				</tr>";
 		}
 		$content .= "
 			</tbody>
 			</table>
 			</div>
-			<input type=\"hidden\" name=\"item_count\" value=\"$i\">
+			<input type='hidden' name='item_count' value='$i'>
 			".$actions_box."
-			</form>";
+			</form>
+			<p>&nbsp;</p>
+			<div class=text-info>
+				<p>"._('Notes')."</p>
+				<ul>
+					<li>#NAME# will be replaced with the name listed in phonebook</li>
+					<li>#NUM# will be replaced with the phone number listed in phonebook</li>
+				</ul>
+			</div>
+		";
 		if ($err = $_SESSION['error_string']) {
 			echo "<div class=error_string>$err</div>";
 		}
@@ -70,16 +79,16 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Message template')."</h2>
 			<h3>"._('Add message template')."</h3>
-			<form action=\"index.php?app=menu&inc=tools_msgtemplate&op=actions&go=add\" method=\"post\">
+			<form action='index.php?app=menu&inc=tools_msgtemplate&op=actions&go=add' method='post'>
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>"._('Message template name')."</td><td><input type=\"text\" size=\"30\" maxlength=\"100\" name=\"t_title\"></td>
+				<td class=label-sizer>"._('Message template name')."</td><td><input type=text size=30 maxlength=100 name=t_title></td>
 			</tr>
 			<tr>
-				<td>"._('Message template content')."</td><td><input type=text name=t_text size=\"30\"></td>
+				<td>"._('Message template content')."</td><td><input type=text name=t_text size=30></td>
 			</tr>	
 			</table>	
-			<p><input type=\"submit\" class=\"button\" value=\""._('Save')."\">
+			<p><input type='submit' class='button' value='"._('Save')."'>
 			</form>
 			<p>"._b('index.php?app=menu&inc=tools_msgtemplate&op=list');
 			echo $content;
@@ -94,18 +103,18 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Message template')."</h2>
 			<h3>"._('Edit message template')."</h3>
-			<form action=\"index.php?app=menu&inc=tools_msgtemplate&op=actions&go=edit\" method=\"post\">
-			<input type=hidden name=tid value=\"$tid\">
+			<form action='index.php?app=menu&inc=tools_msgtemplate&op=actions&go=edit' method='post'>
+			<input type=hidden name=tid value='$tid'>
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>"._('Message template name')."</td><td><input type=\"text\" size=\"30\" maxlength=\"100\" name=\"t_title\" value=\"".$db_row['t_title']."\"></td>
+				<td class=label-sizer>"._('Message template name')."</td><td><input type=text size=30 maxlength=100 name=t_title value='".$db_row['t_title']."'></td>
 			</tr>
 			<tr>
-				<td>"._('Message template content')."</td><td><input type=text name=t_text size=\"30\" value=\"".$db_row['t_text']."\"></td>
+				<td>"._('Message template content')."</td><td><input type=text name=t_text size=30 value='".$db_row['t_text']."'></td>
 			</tr>	
 			</table>
-			<p><input type=\"submit\" class=\"button\" value=\""._('Save')."\">
-			<input type=\"hidden\" name=\"item_count\" value=\"$i\">
+			<p><input type='submit' class='button' value='"._('Save')."'>
+			<input type='hidden' name='item_count' value='$i'>
 			</form>
 			<p>"._b('index.php?app=menu&inc=tools_msgtemplate&op=list');
 		echo $content;
