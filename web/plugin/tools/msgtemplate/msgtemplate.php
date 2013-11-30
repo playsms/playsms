@@ -25,10 +25,10 @@ switch ($op) {
 
 		$content = "
 			<h2>"._('Message template')."</h2>
+			<form name=\"$fm_name\" action=\"index.php?app=menu&inc=tools_msgtemplate&op=actions\" method=post>
 			".$actions_box."
 			<div class=table-responsive>
 			<table class=playsms-table-list>
-			<form name=\"$fm_name\" action=\"index.php?app=menu&inc=tools_msgtemplate&op=actions\" method=post>
 			<thead><tr>
 				<th width=\"30%\">&nbsp;"._('Name')."</th>
 				<th width=\"65%\">&nbsp;"._('Content')."</th>
@@ -47,8 +47,8 @@ switch ($op) {
 				<tr>
 					<td><a href=\"index.php?app=menu&inc=tools_msgtemplate&op=edit&tid=$tid\">$temp_title</a></td>
 					<td>$temp_text</td>
-					<td><input type=hidden name=tid".$i." value=\"".$db_row['tid']."\"><input type=checkbox name=chkid".$i."></td>
-					<input type=hidden name=tid".$i." value=\"".$db_row['tid']."\">
+					<td><input type=checkbox name=chkid".$i."></td>
+					<input type=hidden name=chkid_value".$i." value=\"".$db_row['tid']."\">
 				</tr>";
 		}
 		$content .= "
@@ -151,11 +151,11 @@ switch ($op) {
 				$item_count = $_POST['item_count'];
 				for ($i=1;$i<=$item_count;$i++) {
 					$chkid[$i] = $_POST['chkid'.$i];
-					$tid[$i] = $_POST['tid'.$i];
+					$chkid_value[$i] = $_POST['chkid_value'.$i];
 				}
 				for ($i=1;$i<=$item_count;$i++) {
-					if (($chkid[$i] == 'on') && $tid[$i]) {
-						$db_query = "DELETE FROM "._DB_PREF_."_toolsMsgtemplate WHERE tid='".$tid[$i]."'";
+					if (($chkid[$i] == 'on') && $chkid_value[$i]) {
+						$db_query = "DELETE FROM "._DB_PREF_."_toolsMsgtemplate WHERE tid='".$chkid_value[$i]."'";
 						$db_result = dba_affected_rows($db_query);
 					}
 				}
