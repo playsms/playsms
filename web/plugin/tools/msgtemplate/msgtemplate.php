@@ -62,8 +62,8 @@ switch ($op) {
 			<div class=text-info>
 				<p>"._('Notes')."</p>
 				<ul>
-					<li>#NAME# will be replaced with the name listed in phonebook</li>
-					<li>#NUM# will be replaced with the phone number listed in phonebook</li>
+					<li>#NAME# "._('will be replaced with the name listed in phonebook')."</li>
+					<li>#NUM# "._('will be replaced with the phone number listed in phonebook')."</li>
 				</ul>
 			</div>
 		";
