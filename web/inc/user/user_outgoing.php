@@ -23,7 +23,7 @@ switch ($op) {
 
 		$content = "
 			<h2>"._('Outgoing SMS')."</h2>
-			".$search['form']."
+			<p>".$search['form']."</p>
 			<form name=\"fm_outgoing\" action=\"index.php?app=menu&inc=user_outgoing&op=actions\" method=post onSubmit=\"return SureConfirm()\">
 			".$actions_box."
 			<div class=table-responsive>
@@ -32,7 +32,7 @@ switch ($op) {
 			<tr>
 				<th width=30%>"._('To')."</th>
 				<th width=65%>"._('Message')."</th>
-				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_outgoing)></td>
+				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_outgoing)></th>
 			</tr>
 			</thead>
 			<tbody>";
