@@ -34,6 +34,9 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
+msgid "Notes"
+msgstr ""
+
 msgid "Save"
 msgstr ""
 
@@ -41,4 +44,10 @@ msgid "Selected message template has been deleted"
 msgstr ""
 
 msgid "You must fill all fields"
+msgstr ""
+
+msgid "will be replaced with the name listed in phonebook"
+msgstr ""
+
+msgid "will be replaced with the phone number listed in phonebook"
 msgstr ""

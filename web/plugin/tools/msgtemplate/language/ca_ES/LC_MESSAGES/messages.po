@@ -50,6 +50,9 @@ msgstr "Nom de la plantilla de missatge"
 msgid "Name"
 msgstr "Nom"
 
+msgid "Notes"
+msgstr ""
+
 msgid "Save"
 msgstr "Guardar"
 
@@ -58,3 +61,9 @@ msgstr "La plantilla seleccionada s'ha esborrat"
 
 msgid "You must fill all fields"
 msgstr "Heu d'omplir tots els camps"
+
+msgid "will be replaced with the name listed in phonebook"
+msgstr ""
+
+msgid "will be replaced with the phone number listed in phonebook"
+msgstr ""

@@ -34,6 +34,9 @@ msgstr "Nachrichten-Vorlagen Name"
 msgid "Name"
 msgstr "Name"
 
+msgid "Notes"
+msgstr ""
+
 msgid "Save"
 msgstr "Speichern"
 
@@ -42,3 +45,9 @@ msgstr "Gewhlte Nachrichten-Vorlage wurde gelscht"
 
 msgid "You must fill all fields"
 msgstr "Es mssen alle Felder ausgefllt werden"
+
+msgid "will be replaced with the name listed in phonebook"
+msgstr ""
+
+msgid "will be replaced with the phone number listed in phonebook"
+msgstr ""

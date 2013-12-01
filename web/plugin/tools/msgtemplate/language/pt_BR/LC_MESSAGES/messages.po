@@ -41,6 +41,9 @@ msgstr "Nome do modelo de mensagem"
 msgid "Name"
 msgstr "Nome"
 
+msgid "Notes"
+msgstr ""
+
 msgid "Save"
 msgstr "Salvar"
 
@@ -49,3 +52,9 @@ msgstr "Modelo de mensagem selecionado foi removido"
 
 msgid "You must fill all fields"
 msgstr "Você deve preencher todos os campos"
+
+msgid "will be replaced with the name listed in phonebook"
+msgstr ""
+
+msgid "will be replaced with the phone number listed in phonebook"
+msgstr ""

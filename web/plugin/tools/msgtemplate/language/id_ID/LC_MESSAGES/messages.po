@@ -34,6 +34,9 @@ msgstr "Nama template pesan"
 msgid "Name"
 msgstr "Nama"
 
+msgid "Notes"
+msgstr ""
+
 msgid "Save"
 msgstr "Simpan"
 
@@ -42,3 +45,9 @@ msgstr "Template pesan terpilih telah dihapus"
 
 msgid "You must fill all fields"
 msgstr "Anda harus mengisi semua isian"
+
+msgid "will be replaced with the name listed in phonebook"
+msgstr ""
+
+msgid "will be replaced with the phone number listed in phonebook"
+msgstr ""
