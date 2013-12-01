@@ -481,4 +481,53 @@ function core_themes_get() {
 	return $ret;
 }
 
+/**
+ * Get status of plugin, loaded or not
+ * @param integer $uid
+ * @param string $plugin_category
+ * @param string $plugin_name
+ * @return boolean
+ */
+function core_plugin_get_status($uid, $plugin_category, $plugin_name) {
+	$ret = FALSE;
+	// check config.php and fn.php
+	$plugin_category = core_sanitize_path($plugin_category);
+	$plugin_name = core_sanitize_path($plugin_name);
+	$fn_cnf = _APPS_PATH_PLUG_.'/'.$plugin_category.'/'.$plugin_name.'/config.php';
+	$fn_lib = _APPS_PATH_PLUG_.'/'.$plugin_category.'/'.$plugin_name.'/fn.php';
+	if (file_exists($fn_cnf) && $fn_lib) {
+		// check plugin_status registry
+		$status = registry_search($uid, $plugin_category, $plugin_name, 'enabled');
+		// $status = 1 for disabled
+		// $status = 2 for enabled
+		if ($status == 2) {
+			$ret = TRUE;
+		}
+	}
+	return $ret;
+}
+
+/**
+ * Set status of plugin
+ * @param integer $uid
+ * @param string $plugin_category
+ * @param string $plugin_name
+ * @param boolean $plugin_status
+ * @return boolean
+ */
+function core_plugin_set_status($uid, $plugin_category, $plugin_name, $plugin_status) {
+	$ret = FALSE;
+	$status = core_plugin_get_status($uid, $plugin_category, $plugin_name);
+	if ((($status==2) && $plugin_status) || ($status==1 && (! $plugin_status))) {
+		$ret = TRUE;
+	} else {
+		$plugin_status = ( $plugin_status ? 2 : 1 );
+		$items = array('enabled' => $plugin_status);
+		if (registry_update($uid, $plugin_category, $plugin_name, $items)) {
+			$ret = TRUE;
+		}
+	}
+	return $ret;
+}
+
 ?>
