@@ -14,15 +14,20 @@ switch ($op) {
 			<thead>
 			<tr>
 				<th width=30%>"._('Queue Code')."</th>
-				<th width=20%>"._('Scheduled')."</th>
 		";
 		if (isadmin()) {
 			$content .= "
 				<th width=10%>"._('User')."</th>
+				<th width=20%>"._('Scheduled')."</th>
+				<th width=10%>"._('Group')."</th>
+			";
+		} else {
+			$content .= "
+				<th width=20%>"._('Scheduled')."</th>
+				<th width=20%>"._('Group')."</th>
 			";
 		}
 		$content .= "
-				<th width=20%>"._('Group')."</th>
 				<th width=10%>"._('Count')."</th>
 				<th width=20%>"._('Message')."</th>
 			</tr>
@@ -32,7 +37,7 @@ switch ($op) {
 		$data = queuelog_get($nav['limit'], $nav['offset']);
 		for ($c=count($data)-1;$c>=0;$c--) {
 			$c_queue_code = $data[$c]['queue_code'];
-			$c_datetime_scheduled = $data[$c]['datetime_scheduled'];
+			$c_datetime_scheduled = core_display_datetime($data[$c]['datetime_scheduled']);
 			$c_username = uid2username($data[$c]['uid']);
 			$c_group = phonebook_groupid2code($data[$c]['gpid']);
 			$c_count = $data[$c]['count'];
