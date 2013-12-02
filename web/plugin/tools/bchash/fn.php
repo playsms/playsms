@@ -15,7 +15,7 @@ defined('_SECURE_') or die('Forbidden');
  * @return
  *   array $ret
  */
-function bchash_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $sms_receiver) {
+function bchash_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver) {
 	$ret = array();
 
 	// continue only when keyword does not exists

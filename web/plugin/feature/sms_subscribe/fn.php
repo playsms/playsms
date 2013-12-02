@@ -187,7 +187,7 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
  * @return
  *   array $ret
  */
-function sms_subscribe_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $sms_receiver) {
+function sms_subscribe_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver) {
 	$msg = explode(" ", $message);
 	$bc = strtoupper($msg[0]);
 	$keyword = '';
@@ -207,7 +207,7 @@ function sms_subscribe_hook_interceptincomingsms($sms_datetime, $sms_sender, $me
 	$message = trim($message);
 	$hooked = false;
 	if ($keyword && $message) {
-		logger_print("interceptincomingsms k:".$keyword." m:".$message, 1, "sms_subscribe");
+		logger_print("recvsms_intercept k:".$keyword." m:".$message, 1, "sms_subscribe");
 		// if not available then the keyword is exists
 		if (! sms_subscribe_hook_checkavailablekeyword($keyword)) {
 			$c_uid = mobile2uid($sms_sender);
@@ -217,7 +217,7 @@ function sms_subscribe_hook_interceptincomingsms($sms_datetime, $sms_sender, $me
 				if ($list[0]['subscribe_id']) {
 					$forward_param = ( $list[0]['forward_param'] ? $list[0]['forward_param'] : 'BC' );
 					$sms_datetime = core_display_datetime($sms_datetime);
-					logger_print("interceptincomingsms dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." uid:".$c_uid." username:".$c_username." bc:".$bc." keyword:".$keyword." message:".$message." fwd:".$forward_param, 3, "sms_subscribe");
+					logger_print("recvsms_intercept dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." uid:".$c_uid." username:".$c_username." bc:".$bc." keyword:".$keyword." message:".$message." fwd:".$forward_param, 3, "sms_subscribe");
 					$hooked = true;
 				}
 			}

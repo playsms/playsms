@@ -32,7 +32,7 @@ function inboxgroup_hook_checkavailablekeyword($keyword) {
  * @return
  *   array $ret
  */
-function inboxgroup_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $sms_receiver) {
+function inboxgroup_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver) {
 	$ret = array();
 	// proceed only when $message and $sms_receiver aren't empty
 	if ($message && $sms_receiver) {
@@ -94,7 +94,7 @@ function inboxgroup_forwardmembers($data, $log_in_id, $sms_sender, $message) {
 					//logger_print("forwardmembers sendsms smslog_id:".$smslog_id[0]." to:".$sms_to, 2, "inboxgroup");
 					//inboxgroup_saveoutlog($log_in_id, $smslog_id[0], 0, $users[$i]['uid']);
 					$c_username = uid2username($users[$i]['uid']);
-					insertsmstoinbox(core_get_datetime(),$sms_sender,$c_username,$message,$data['in_receiver']);
+					recvsms_inbox_add(core_get_datetime(),$sms_sender,$c_username,$message,$data['in_receiver']);
 				}
 			}
 		}
@@ -123,7 +123,7 @@ function inboxgroup_forwardcatchall($data, $log_in_id, $sms_sender, $message) {
 					//logger_print("forwardcatchall sendsms smslog_id:".$smslog_id[0]." to:".$sms_to, 2, "inboxgroup");
 					//inboxgroup_saveoutlog($log_in_id, $smslog_id[0], 1, $users[$i]['uid']);
 					$c_username = uid2username($users[$i]['uid']);
-					insertsmstoinbox(core_get_datetime(),$sms_sender,$c_username,$message,$data['in_receiver']);
+					recvsms_inbox_add(core_get_datetime(),$sms_sender,$c_username,$message,$data['in_receiver']);
 				}
 			}
 		}

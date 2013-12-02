@@ -38,6 +38,10 @@ Version 0.9.9.2-beta6 - 131129
 - update icons
 - update function.php to load only active plugins, including themes, lang and
   gateway. this fixes icons as well
+- update interceptsendsms() to sendsms_intercept()
+- update interceptincomingsms() to recvsms_intercept()
+- update interceptsmstoinbox() to recvsms_inbox_add_intercept()
+- update insertsmstoinbox() to recvsms_inbox_add()
 - remove lib init1 and init2, include them in function.php
 - remove lib/fn_csv.php and lib/fn_download.php, move them to lib/fn_core.php
 - remove lib/fn_gateway.php and lib/fn_lang.php, move them to lib/fn_core.php

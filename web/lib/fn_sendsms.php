@@ -32,13 +32,13 @@ function sendsms_manipulate_prefix($number, $user) {
 	return $number;
 }
 
-function interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0) {
+function sendsms_intercept($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0) {
 	global $core_config;
 	$ret = array();
 	$ret_final = array();
 	// feature list
 	for ($c=0;$c<count($core_config['featurelist']);$c++) {
-		$ret = x_hook($core_config['featurelist'][$c],'interceptsendsms',array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode));
+		$ret = x_hook($core_config['featurelist'][$c],'sendsms_intercept',array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode));
 		if ($ret['modified']) {
 			$sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
 			$sms_footer = ( $ret['param']['sms_footer'] ? $ret['param']['sms_footer'] : $sms_footer );
@@ -62,7 +62,7 @@ function interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,
 	}
 	// tools list
 	for ($c=0;$c<count($core_config['toolslist']);$c++) {
-		$ret = x_hook($core_config['toolslist'][$c],'interceptsendsms',array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode));
+		$ret = x_hook($core_config['toolslist'][$c],'sendsms_intercept',array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode));
 		if ($ret['modified']) {
 			$sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
 			$sms_footer = ( $ret['param']['sms_footer'] ? $ret['param']['sms_footer'] : $sms_footer );
@@ -225,7 +225,7 @@ function sendsms_process($smslog_id,$sms_sender,$sms_footer,$sms_to,$sms_msg,$ui
 	$sms_datetime = core_adjust_datetime(core_get_datetime(), core_get_timezone($username));
 
 	// sent sms will be handled by plugin/tools/* first
-	$ret_intercept = interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode);
+	$ret_intercept = sendsms_intercept($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode);
 	if ($ret_intercept['modified']) {
 		$sms_sender = ( $ret_intercept['param']['sms_sender'] ? $ret_intercept['param']['sms_sender'] : $sms_sender );
 		$sms_footer = ( $ret_intercept['param']['sms_footer'] ? $ret_intercept['param']['sms_footer'] : $sms_footer );

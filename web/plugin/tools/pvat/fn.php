@@ -15,7 +15,7 @@ defined('_SECURE_') or die('Forbidden');
  * @return
  *   array $ret
  */
-function pvat_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $sms_receiver) {
+function pvat_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver) {
 	$ret = array();
 
 	// continue only when keyword does not exists
@@ -58,7 +58,7 @@ function pvat_hook_interceptincomingsms($sms_datetime, $sms_sender, $message, $s
 				$p = floor(($c2 - $c1)/86400);
 				if ($p <= 1) {
 					logger_print("reply u:".$c_username." uid:".$db_row['uid']." dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." m:".$message, 3, "pvat");
-					insertsmstoinbox($sms_datetime, $sms_sender, $c_username, $message, $sms_receiver);
+					recvsms_inbox_add($sms_datetime, $sms_sender, $c_username, $message, $sms_receiver);
 					logger_print("reply end", 3, "pvat");
 					$ret['uid'] = $db_row['uid'];
 					$ret['hooked'] = true;
@@ -91,7 +91,7 @@ function pvat_handle($in) {
 		$c_username = str_replace('"', '', $c_username);
 		if ($c_uid = username2uid($c_username)) {
 			logger_print("insert u:".$c_username." uid:".$c_uid." dt:".$in['sms_datetime']." s:".$in['sms_sender']." r:".$in['sms_receiver']." m:".$in['message'], 3, "pvat");
-			insertsmstoinbox($in['sms_datetime'], $in['sms_sender'], $c_username, $in['message'], $in['sms_receiver']);
+			recvsms_inbox_add($in['sms_datetime'], $in['sms_sender'], $c_username, $in['message'], $in['sms_receiver']);
 			logger_print("insert end", 3, "pvat");
 			$ret['uid'] = $c_uid;
 			$ret['hooked'] = true;

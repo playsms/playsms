@@ -23,7 +23,7 @@ defined('_SECURE_') or die('Forbidden');
  * @return
  *   array $ret
  */
-function msgtemplate_hook_interceptsendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode) {
+function msgtemplate_hook_sendsms_intercept($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode) {
 	// parameters modified
 	$ret['modified'] = true;
 
