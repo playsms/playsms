@@ -504,7 +504,12 @@ function sendsms_get_template() {
 	return $templates;
 }
 
-function getsmsoutgoing($smslog_id) {
+/**
+ * Get SMS data from $smslog_id
+ * @param integer $smslog_id
+ * @return array
+ */
+function sendsms_get_sms($smslog_id) {
 	$data = array();
 	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);

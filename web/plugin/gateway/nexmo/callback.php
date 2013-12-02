@@ -31,7 +31,7 @@ if ($remote_smslog_id && $client_ref && $status) {
 	$db_row = dba_fetch_array($db_result);
 	$smslog_id = $db_row['local_smslog_id'];
 	if ($smslog_id) {
-		$data = getsmsoutgoing($smslog_id);
+		$data = sendsms_get_sms($smslog_id);
 		$uid = $data['uid'];
 		$p_status = $data['p_status'];
 		switch ($status) {
