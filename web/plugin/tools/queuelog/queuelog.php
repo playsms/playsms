@@ -8,7 +8,7 @@ switch ($op) {
 		$nav = themes_nav($count, "index.php?app=menu&inc=tools_queuelog&op=queuelog_list");
 		$content = "
 			<h2>"._('View SMS queue')."</h2>
-			<p>".$nav['form']."</p>
+			<div align=center>".$nav['form']."</div>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead>
@@ -68,7 +68,7 @@ switch ($op) {
 		$content .= "
 			</tbody></table>
 			</div>
-			<p>".$nav['form']."</p>
+			<div align=center>".$nav['form']."</div>
 		";
 		echo $content;
 		break;
