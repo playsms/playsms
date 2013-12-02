@@ -1,3 +1,6 @@
+version 1.4
+- remove easytabs js, replaced with bootstrap 3
+
 Version 1.3
 - replace 'javascript expandable/collapse script' by easytabs library
 - add ./plugin/<plugin_type>/<plugin_name>/doc/info.xml

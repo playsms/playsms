@@ -3,7 +3,7 @@
 	<name>pluginmanager</name>
 	<alias>Plugin Manager</alias>
 	<description>Plugin management module</description>
-	<release>1.3</release>
+	<release>1.4</release>
 	<date>2011-09-22</date>
 	<author>enumanc</author>
 	<language_file>1</language_file>
