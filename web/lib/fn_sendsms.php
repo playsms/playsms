@@ -104,7 +104,7 @@ function sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$gpid=0,$sms
 	global $core_config;
 	$ret = FALSE;
 	$dt = date($core_config['datetime']['format'], mktime());
-	$sms_schedule = ( trim($sms_schedule) ? trim($sms_schedule) : $dt );
+	$sms_schedule = ( trim($sms_schedule) ? core_adjust_datetime($sms_schedule) : $dt );
 	$queue_code = md5(uniqid($uid.$gpid, true));
 	logger_print("saving queue_code:".$queue_code." src:".$sms_sender, 2, "sendsms_queue_create");
 	$db_query = "INSERT INTO "._DB_PREF_."_tblSMSOutgoing_queue ";
@@ -146,7 +146,7 @@ function sendsmsd($single_queue='', $sendsmsd_limit=0, $sendsmsd_offset=0) {
 	global $core_config;
 	if ($single_queue) {
 		$queue_sql = "AND queue_code='".$single_queue."'";
-		logger_print("single queue queue_code:".$single_queue, 2, "sendsmsd");
+		//logger_print("single queue queue_code:".$single_queue, 2, "sendsmsd");
 	}
 	$sendsmsd_limit = (int) $sendsmsd_limit;
 	if ($sendsmsd_limit > 0) {
@@ -156,7 +156,9 @@ function sendsmsd($single_queue='', $sendsmsd_limit=0, $sendsmsd_offset=0) {
 	if ($sendsmsd_offset > 0) {
 		$sql_offset = "OFFSET ".$sendsmsd_offset;
 	}
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing_queue WHERE flag='0' ".$queue_sql." ".$sql_limit." ".$sql_offset;
+	$sql_schedule = "AND datetime_scheduled < '".$core_config['datetime']['now']."'";
+	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing_queue WHERE flag='0' ".$sql_schedule." ".$queue_sql." ".$sql_limit." ".$sql_offset;
+	//logger_print("q: ".$db_query, 3, "sendsmsd");
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$c_queue_id = $db_row['id'];

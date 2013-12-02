@@ -53,6 +53,7 @@ switch ($op) {
 			'Flash message' => _('Flash message'),
 			'Unicode message' => _('Unicode message'),
 			'Send' => _('Send'),
+			'Schedule' => _('Schedule'),
 			'ERROR' => $error_content,
 			'HTTP_PATH_BASE' => _HTTP_PATH_BASE_,
 			'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
@@ -62,6 +63,7 @@ switch ($op) {
 			'allow_custom_footer' => $allow_custom_footer,
 			'to' => $to,
 			'sms_template' => $sms_template,
+			'sms_schedule' => core_display_datetime($core_config['datetime']['now']),
 			'message' => $message,
 			'sms_footer_length' => $core_config['user']['opt']['sms_footer_length'],
 			'per_sms_length' => $core_config['user']['opt']['per_sms_length'],
@@ -79,6 +81,7 @@ switch ($op) {
 		}
 		$sms_sender = trim($_REQUEST['sms_sender']);
 		$sms_footer = trim($_REQUEST['sms_footer']);
+		$sms_schedule = trim($_REQUEST['sms_schedule']);
 		$msg_flash = $_REQUEST['msg_flash'];
 		$msg_unicode = $_REQUEST['msg_unicode'];
 		$message = $_REQUEST['message'];
@@ -112,7 +115,7 @@ switch ($op) {
 
 			// sendsms_bc
 			if (is_array($array_gpid) && $array_gpid[0]) {
-				list($ok_bc,$to_bc,$smslog_id_bc,$queue_bc) = sendsms_bc($username,$array_gpid,$message,$sms_type,$unicode,$nofooter,$sms_footer,$sms_sender);
+				list($ok_bc,$to_bc,$smslog_id_bc,$queue_bc) = sendsms_bc($username,$array_gpid,$message,$sms_type,$unicode,$nofooter,$sms_footer,$sms_sender,$sms_schedule);
 			}
 			for ($i=0;$i<count($ok_bc);$i++) {
 				if ($ok_bc[$i]) {
@@ -124,7 +127,7 @@ switch ($op) {
 
 			// sendsms
 			if (is_array($array_sms_to) && $array_sms_to[0]) {
-				list($ok,$to,$smslog_id,$queue) = sendsms($username,$array_sms_to,$message,$sms_type,$unicode,$nofooter,$sms_footer,$sms_sender);
+				list($ok,$to,$smslog_id,$queue) = sendsms($username,$array_sms_to,$message,$sms_type,$unicode,$nofooter,$sms_footer,$sms_sender,$sms_schedule);
 			}
 			for ($i=0;$i<count($ok);$i++) {
 				if ($ok[$i]) {
