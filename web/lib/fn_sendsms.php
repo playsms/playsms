@@ -156,8 +156,7 @@ function sendsmsd($single_queue='', $sendsmsd_limit=0, $sendsmsd_offset=0) {
 	if ($sendsmsd_offset > 0) {
 		$sql_offset = "OFFSET ".$sendsmsd_offset;
 	}
-	$sql_schedule = "AND datetime_scheduled < '".$core_config['datetime']['now']."'";
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing_queue WHERE flag='0' ".$sql_schedule." ".$queue_sql." ".$sql_limit." ".$sql_offset;
+	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing_queue WHERE flag='0' ".$queue_sql." ".$sql_limit." ".$sql_offset;
 	//logger_print("q: ".$db_query, 3, "sendsmsd");
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
@@ -171,48 +170,55 @@ function sendsmsd($single_queue='', $sendsmsd_limit=0, $sendsmsd_offset=0) {
 		$c_sms_type = $db_row['sms_type'];
 		$c_unicode = $db_row['unicode'];
 		$c_sms_count = $db_row['sms_count'];
-		logger_print("start processing queue_code:".$c_queue_code." sms_count:".$c_sms_count." uid:".$c_uid." gpid:".$c_gpid." sender_id:".$c_sender_id, 2, "sendsmsd");
-		$counter = 0;
-		$db_query2 = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing_queue_dst WHERE queue_id='$c_queue_id' AND flag='0'";
-		$db_result2 = dba_query($db_query2);
-		while ($db_row2 = dba_fetch_array($db_result2)) {
-			$counter++;
+		$c_schedule = $db_row['datetime_scheduled'];
+		$c_username = uid2username($c_uid);
+		// fixme anton - need to check datetime timezone stuffs
+		$c_current_datetime = $core_config['datetime']['now'];
+		logger_print("c_schedule:".$c_schedule." c_current:".$c_current_datetime, 3, "sendsmsd");
+		if (strtotime($c_current_datetime) >= strtotime($c_schedule)) {
+			logger_print("start processing queue_code:".$c_queue_code." sms_count:".$c_sms_count." uid:".$c_uid." gpid:".$c_gpid." sender_id:".$c_sender_id, 2, "sendsmsd");
+			$counter = 0;
+			$db_query2 = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing_queue_dst WHERE queue_id='$c_queue_id' AND flag='0'";
+			$db_result2 = dba_query($db_query2);
+			while ($db_row2 = dba_fetch_array($db_result2)) {
+				$counter++;
 
-			// queue_dst ID is SMS Log ID
-			$c_smslog_id = $db_row2['id'];
+				// queue_dst ID is SMS Log ID
+				$c_smslog_id = $db_row2['id'];
 
-			$c_dst = $db_row2['dst'];
-			$c_flag = 2;
-			$c_ok = false;
-			logger_print("sending queue_code:".$c_queue_code." smslog_id:".$c_smslog_id." to:".$c_dst." sms_count:".$c_sms_count." counter:".$counter, 2, "sendsmsd");
-			$ret = sendsms_process($c_smslog_id,$c_sender_id,$c_footer,$c_dst,$c_message,$c_uid,$c_gpid,$c_sms_type,$c_unicode,$c_queue_code);
-			$c_dst = $ret['to'];
-			if ($ret['status']) {
-				$c_ok = true;
-				$c_flag = 1;
+				$c_dst = $db_row2['dst'];
+				$c_flag = 2;
+				$c_ok = false;
+				logger_print("sending queue_code:".$c_queue_code." smslog_id:".$c_smslog_id." to:".$c_dst." sms_count:".$c_sms_count." counter:".$counter, 2, "sendsmsd");
+				$ret = sendsms_process($c_smslog_id,$c_sender_id,$c_footer,$c_dst,$c_message,$c_uid,$c_gpid,$c_sms_type,$c_unicode,$c_queue_code);
+				$c_dst = $ret['to'];
+				if ($ret['status']) {
+					$c_ok = true;
+					$c_flag = 1;
+				}
+				logger_print("result queue_code:".$c_queue_code." to:".$c_dst." flag:".$c_flag." smslog_id:".$c_smslog_id, 2, "sendsmsd");
+				$db_query3 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue_dst SET flag='$c_flag' WHERE id='$c_smslog_id'";
+				$db_result3 = dba_query($db_query3);
+				$ok[] = $c_ok;
+				$to[] = $c_dst;
+				$smslog_id[] = $c_smslog_id;
+				$queue[] = $c_queue_code;
 			}
-			logger_print("result queue_code:".$c_queue_code." to:".$c_dst." flag:".$c_flag." smslog_id:".$c_smslog_id, 2, "sendsmsd");
-			$db_query3 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue_dst SET flag='$c_flag' WHERE id='$c_smslog_id'";
-			$db_result3 = dba_query($db_query3);
-			$ok[] = $c_ok;
-			$to[] = $c_dst;
-			$smslog_id[] = $c_smslog_id;
-			$queue[] = $c_queue_code;
-		}
-		$db_query = "SELECT count(*) AS count FROM "._DB_PREF_."_tblSMSOutgoing_queue_dst WHERE queue_id='$c_queue_id' AND NOT flag ='0'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$sms_processed = ( $db_row['count'] ? $db_row['count'] : 0 );
-		if ($sms_processed >= $c_sms_count) {
-			$dt = date($core_config['datetime']['format'], mktime());
-			$db_query5 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue SET flag='1', datetime_update='".$dt."' WHERE id='$c_queue_id'";
-			if ($db_result5 = dba_affected_rows($db_query5)) {
-				logger_print("finish processing queue_code:".$c_queue_code." uid:".$c_uid." sender_id:".$c_sender_id." sms_count:".$c_sms_count, 2, "sendsmsd");
+			$db_query = "SELECT count(*) AS count FROM "._DB_PREF_."_tblSMSOutgoing_queue_dst WHERE queue_id='$c_queue_id' AND NOT flag ='0'";
+			$db_result = dba_query($db_query);
+			$db_row = dba_fetch_array($db_result);
+			$sms_processed = ( $db_row['count'] ? $db_row['count'] : 0 );
+			if ($sms_processed >= $c_sms_count) {
+				$dt = date($core_config['datetime']['format'], mktime());
+				$db_query5 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue SET flag='1', datetime_update='".$dt."' WHERE id='$c_queue_id'";
+				if ($db_result5 = dba_affected_rows($db_query5)) {
+					logger_print("finish processing queue_code:".$c_queue_code." uid:".$c_uid." sender_id:".$c_sender_id." sms_count:".$c_sms_count, 2, "sendsmsd");
+				} else {
+					logger_print("fail to finalize process queue_code:".$c_queue_code." uid:".$c_uid." sender_id:".$c_sender_id." sms_processed:".$sms_processed, 2, "sendsmsd");
+				}
 			} else {
-				logger_print("fail to finalize process queue_code:".$c_queue_code." uid:".$c_uid." sender_id:".$c_sender_id." sms_processed:".$sms_processed, 2, "sendsmsd");
+				logger_print("partially processing queue_code:".$c_queue_code." uid:".$c_uid." sender_id:".$c_sender_id." sms_count:".$c_sms_count." sms_processed:".$sms_processed." counter:".$counter, 2, "sendsmsd");
 			}
-		} else {
-			logger_print("partially processing queue_code:".$c_queue_code." uid:".$c_uid." sender_id:".$c_sender_id." sms_count:".$c_sms_count." sms_processed:".$sms_processed." counter:".$counter, 2, "sendsmsd");
 		}
 	}
 	return array($ok, $to, $smslog_id, $queue);
