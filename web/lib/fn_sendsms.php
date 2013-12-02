@@ -238,11 +238,7 @@ function sendsms_process($smslog_id,$sms_sender,$sms_footer,$sms_to,$sms_msg,$ui
 
 	$sms_to = sendsms_getvalidnumber($sms_to);
 	$sms_to = sendsms_manipulate_prefix($sms_to, $user);
-
-	// make sure sms_datetime is in supported format and in GMT+0
-	// timezone used for outgoing message is not module timezone, but default timezone
-	// module gateway may have set already to +0000 (such kannel and clickatell)
-	$sms_datetime = core_adjust_datetime(core_get_datetime(), core_get_timezone($username));
+	$sms_datetime = core_get_datetime();
 
 	// sent sms will be handled by plugin/tools/* first
 	$ret_intercept = sendsms_intercept($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode);
