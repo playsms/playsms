@@ -103,7 +103,7 @@ function sendsms_intercept($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0
 function sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0,$sms_schedule='') {
 	global $core_config;
 	$ret = FALSE;
-	$dt = date($core_config['datetime']['format'], mktime());
+	$dt = core_get_datetime();
 	$sms_schedule = ( trim($sms_schedule) ? core_adjust_datetime($sms_schedule) : $dt );
 	$queue_code = md5(uniqid($uid.$gpid, true));
 	logger_print("saving queue_code:".$queue_code." src:".$sms_sender, 2, "sendsms_queue_create");
@@ -171,10 +171,8 @@ function sendsmsd($single_queue='', $sendsmsd_limit=0, $sendsmsd_offset=0) {
 		$c_unicode = $db_row['unicode'];
 		$c_sms_count = $db_row['sms_count'];
 		$c_schedule = $db_row['datetime_scheduled'];
-		$c_username = uid2username($c_uid);
-		// fixme anton - need to check datetime timezone stuffs
-		$c_current_datetime = $core_config['datetime']['now'];
-		logger_print("c_schedule:".$c_schedule." c_current:".$c_current_datetime, 3, "sendsmsd");
+		$c_current = core_get_datetime();
+		logger_print("delivery datetime qeueue:".$c_queue_code." scheduled:".$c_schedule." current:".$c_current, 3, "sendsmsd");
 		if (strtotime($c_current_datetime) >= strtotime($c_schedule)) {
 			logger_print("start processing queue_code:".$c_queue_code." sms_count:".$c_sms_count." uid:".$c_uid." gpid:".$c_gpid." sender_id:".$c_sender_id, 2, "sendsmsd");
 			$counter = 0;
@@ -209,7 +207,7 @@ function sendsmsd($single_queue='', $sendsmsd_limit=0, $sendsmsd_offset=0) {
 			$db_row = dba_fetch_array($db_result);
 			$sms_processed = ( $db_row['count'] ? $db_row['count'] : 0 );
 			if ($sms_processed >= $c_sms_count) {
-				$dt = date($core_config['datetime']['format'], mktime());
+				$dt = core_get_datetime();
 				$db_query5 = "UPDATE "._DB_PREF_."_tblSMSOutgoing_queue SET flag='1', datetime_update='".$dt."' WHERE id='$c_queue_id'";
 				if ($db_result5 = dba_affected_rows($db_query5)) {
 					logger_print("finish processing queue_code:".$c_queue_code." uid:".$c_uid." sender_id:".$c_sender_id." sms_count:".$c_sms_count, 2, "sendsmsd");
