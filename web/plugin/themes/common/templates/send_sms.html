@@ -39,7 +39,7 @@
 		$("#message").focus();
 		$("#msg_schedule").datetimepicker({
 			language: 'en',
-			defaultDate: '{sms_schedule}',
+			format: 'YYYY-MM-DD HH:mm:ss'
 		});
 	});
 </script>
@@ -63,7 +63,7 @@
 			<td>
 				<p>{Schedule}</p>
 				<div class="input-group date" id="msg_schedule" style="width: 284px">
-					<input type="text" name="sms_schedule" data-format="YYYY-MM-DD HH:MM:SS"  class="form-control" value="{sms_schedule}"/>
+					<input type="text" name="sms_schedule" class="form-control" value="{sms_schedule}"/>
 					<span class="input-group-addon">
 						<span class="glyphicon glyphicon-calendar"></span>
 					</span>
