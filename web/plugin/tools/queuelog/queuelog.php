@@ -46,15 +46,20 @@ switch ($op) {
 			$content .= "
 				<tr>
 					<td>".$c_queue_code."</td>
-					<td>".$c_datetime_scheduled."</td>
 			";
 			if (isadmin()) {
 				$content .= "
 					<td>".$c_username."</td>
+					<td>".$c_datetime_scheduled."</td>
+					<td>".$c_group."</td>
+				";
+			} else {
+				$content .= "
+					<td>".$c_datetime_scheduled."</td>
+					<td>".$c_group."</td>
 				";
 			}
 			$content .= "
-					<td>".$c_group."</td>
 					<td>".$c_count."</td>
 					<td>".$c_message."</td>
 				</tr>
