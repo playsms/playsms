@@ -172,8 +172,8 @@ function sendsmsd($single_queue='', $sendsmsd_limit=0, $sendsmsd_offset=0) {
 		$c_sms_count = $db_row['sms_count'];
 		$c_schedule = $db_row['datetime_scheduled'];
 		$c_current = core_get_datetime();
-		//logger_print("delivery datetime qeueue:".$c_queue_code." scheduled:".$c_schedule." current:".$c_current, 3, "sendsmsd");
-		if (strtotime($c_current_datetime) >= strtotime($c_schedule)) {
+		// logger_print("delivery datetime qeueue:".$c_queue_code." scheduled:".$c_schedule." current:".$c_current, 3, "sendsmsd");
+		if (strtotime($c_current) >= strtotime($c_schedule)) {
 			logger_print("start processing queue_code:".$c_queue_code." sms_count:".$c_sms_count." uid:".$c_uid." gpid:".$c_gpid." sender_id:".$c_sender_id, 2, "sendsmsd");
 			$counter = 0;
 			$db_query2 = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing_queue_dst WHERE queue_id='$c_queue_id' AND flag='0'";
