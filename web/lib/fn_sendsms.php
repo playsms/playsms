@@ -87,15 +87,29 @@ function sendsms_intercept($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0
 	return $ret_final;
 }
 
-function sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0) {
+/**
+ * Create SMS queue
+ * @global array $core_config
+ * @param string $sms_sender
+ * @param string $sms_footer
+ * @param string $sms_msg
+ * @param integer $uid
+ * @param integer $gpid
+ * @param string $sms_type
+ * @param integer $unicode
+ * @param string $sms_schedule
+ * @return string Queue code
+ */
+function sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0,$sms_schedule='') {
 	global $core_config;
 	$ret = FALSE;
 	$dt = date($core_config['datetime']['format'], mktime());
+	$sms_schedule = ( trim($sms_schedule) ? trim($sms_schedule) : $dt );
 	$queue_code = md5(uniqid($uid.$gpid, true));
 	logger_print("saving queue_code:".$queue_code." src:".$sms_sender, 2, "sendsms_queue_create");
 	$db_query = "INSERT INTO "._DB_PREF_."_tblSMSOutgoing_queue ";
 	$db_query .= "(queue_code,datetime_entry,datetime_scheduled,uid,gpid,sender_id,footer,message,sms_type,unicode,flag) ";
-	$db_query .= "VALUES ('$queue_code','".$dt."','".$dt."','$uid','$gpid','$sms_sender','$sms_footer','$sms_msg','$sms_type','$unicode','2')";
+	$db_query .= "VALUES ('$queue_code','".$dt."','".$sms_schedule."','$uid','$gpid','$sms_sender','$sms_footer','$sms_msg','$sms_type','$unicode','2')";
 	if ($id = @dba_insert_id($db_query)) {
 		logger_print("saved queue_code:".$queue_code." id:".$id , 2, "sendsms_queue_create");
 		$ret = $queue_code;
@@ -298,7 +312,21 @@ function sendsms_process($smslog_id,$sms_sender,$sms_footer,$sms_to,$sms_msg,$ui
 	return $ret;
 }
 
-function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0,$nofooter=false,$sms_footer='',$sms_sender='') {
+/**
+ * Send SMS
+ * @global array $core_config
+ * @param string $username
+ * @param string $sms_to
+ * @param string $message
+ * @param string $sms_type
+ * @param integer $unicode
+ * @param boolean $nofooter
+ * @param string $sms_footer
+ * @param string $sms_sender
+ * @param string $sms_schedule
+ * @return array array($status, $sms_to, $smslog_id, $queue)
+ */
+function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0,$nofooter=false,$sms_footer='',$sms_sender='',$sms_schedule='') {
 	global $core_config;
 	$user = $core_config['user'];
 	if ($username && ($user['username'] != $username)) {
@@ -331,14 +359,14 @@ function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0,$nofoote
 	}
 	$sms_msg = $message;
 
-	logger_print("start uid:".$uid." sender:".$sms_sender, 2, "sendsms_pv");
-	logger_print("footer:".$sms_footer." maxlength:".$max_length." msgcount:".strlen($sms_msg)." message:".$sms_msg, 3, "sendsms_pv");
+	logger_print("start uid:".$uid." sender:".$sms_sender, 2, "sendsms");
+	logger_print("footer:".$sms_footer." maxlength:".$max_length." msgcount:".strlen($sms_msg)." message:".$sms_msg, 3, "sendsms");
 
 	// create a queue
-	$queue_code = sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,0,$sms_type,$unicode);
+	$queue_code = sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,0,$sms_type,$unicode,$sms_schedule);
 	if (! $queue_code) {
 		// when unable to create a queue then immediately returns FALSE, no point to continue
-		logger_print("fail to finalize queue creation, exit immediately", 2, "sendsms_pv");
+		logger_print("fail to finalize queue creation, exit immediately", 2, "sendsms");
 		return array(FALSE, '', '', '');
 	}
 
@@ -368,9 +396,9 @@ function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0,$nofoote
 	}
 
 	if (sendsms_queue_update($queue_code, array('flag' => '0', 'sms_count' => $sms_count))) {
-		logger_print("end queue_code:".$queue_code." sms_count:".$sms_count, 2, "sendsms_pv");
+		logger_print("end queue_code:".$queue_code." sms_count:".$sms_count, 2, "sendsms");
 	} else {
-		logger_print("fail to prepare queue, exit immediately queue_code:".$queue_code, 2, "sendsms_pv");
+		logger_print("fail to prepare queue, exit immediately queue_code:".$queue_code, 2, "sendsms");
 		return array(FALSE, '', '', $queue_code);
 	}
 
@@ -378,14 +406,28 @@ function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0,$nofoote
 		unset($ok);
 		unset($to);
 		unset($queue);
-		logger_print("sendsmsd off immediately process queue_code:".$queue_code, 2, "sendsms_pv");
+		logger_print("sendsmsd off immediately process queue_code:".$queue_code, 2, "sendsms");
 		list($ok, $to, $smslog_id, $queue) = sendsmsd($queue_code);
 	}
 
 	return array($ok, $to, $smslog_id, $queue);
 }
 
-function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0,$nofooter=false,$sms_footer='',$sms_sender='') {
+/**
+ * Send SMS to phonebook group
+ * @global array $core_config
+ * @param string $username
+ * @param integer $gpid
+ * @param string $message
+ * @param string $sms_type
+ * @param integer $unicode
+ * @param boolean $nofooter
+ * @param string $sms_footer
+ * @param string $sms_sender
+ * @param string $sms_schedule
+ * @return array array($status, $sms_to, $smslog_id, $queue)
+ */
+function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0,$nofooter=false,$sms_footer='',$sms_sender='',$sms_schedule='') {
 	global $core_config;
 	$user = $core_config['user'];
 	if ($username && ($user['username'] != $username)) {
@@ -431,7 +473,7 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0,$nofoot
 			logger_print("start uid:".$uid." gpid:".$c_gpid." sender:".$sms_sender, 2, "sendsms_bc");
 			logger_print("footer:".$sms_footer." maxlength:".$max_length." msgcount:".strlen($sms_msg)." message:".$sms_msg, 3, "sendsms_bc");
 			// create a queue
-			$queue_code = sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$c_gpid,$sms_type,$unicode);
+			$queue_code = sendsms_queue_create($sms_sender,$sms_footer,$sms_msg,$uid,$c_gpid,$sms_type,$unicode,$sms_schedule);
 			if (! $queue_code) {
 				// when unable to create a queue then immediately returns FALSE, no point to continue
 				logger_print("fail to finalize queue creation, exit immediately", 2, "sendsms_bc");
