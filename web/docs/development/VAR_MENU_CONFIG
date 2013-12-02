@@ -9,7 +9,7 @@ Array
         (
             [0] => Array
                 (
-                    [0] => index.php?app=menu&inc=send_sms&op=sendsmstopv
+                    [0] => index.php?app=menu&inc=send_sms&op=send_sms
                     [1] => Send SMS
                 )
 

@@ -3,7 +3,7 @@ defined('_SECURE_') or die('Forbidden');
 if(!valid()){forcenoaccess();};
 
 switch ($op) {
-	case "sendsmstopv":
+	case "send_sms":
 		$to = $_REQUEST['to'];
 		$message = stripslashes($_REQUEST['message']);
 
@@ -73,7 +73,7 @@ switch ($op) {
 		);
 		echo tpl_apply($tpl);
 		break;
-	case "sendsmstopv_yes":
+	case "send_sms_yes":
 		if ($sms_to = trim($_REQUEST['p_num_text'])) {
 			$sms_to = explode(',', $sms_to);
 		}
@@ -138,7 +138,7 @@ switch ($op) {
 		} else {
 			$_SESSION['error_string'] = _('You must select receiver and your message should not be empty');
 		}
-		header("Location: index.php?app=menu&inc=send_sms&op=sendsmstopv&message=".urlencode(stripslashes($message)));
+		header("Location: index.php?app=menu&inc=send_sms&op=send_sms&message=".urlencode(stripslashes($message)));
 		exit();
 		break;
 }

@@ -10,7 +10,7 @@ function CheckUncheckAll(the_form) {
 function PopupSendSms(ta, tg) {
 	var pv = "PV";
 	if (ta == pv) {
-		var url = "menu.php?inc=send_sms&op=sendsmstopv&dst_p_num=" + tg;
+		var url = "menu.php?inc=send_sms&op=send_sms&dst_p_num=" + tg;
 	} else {
 		var url = "menu.php?inc=send_sms&op=sendsmstogr&dst_gp_code=" + tg;
 	}
@@ -21,7 +21,7 @@ function PopupSendSms(ta, tg) {
 }
 
 function PopupReplySms(tg, mssg) {
-	var url = "menu.php?inc=send_sms&op=sendsmstopv&dst_p_num=" + tg + "&message=" + mssg;
+	var url = "menu.php?inc=send_sms&op=send_sms&dst_p_num=" + tg + "&message=" + mssg;
 
 	newwin = window.open("", "WinSendSms", "scrollbars", "resizable=yes")
 	newwin.moveTo(20, 100)

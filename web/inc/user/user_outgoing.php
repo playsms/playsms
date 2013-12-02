@@ -78,8 +78,8 @@ switch ($op) {
 			$msg = $list[$j]['p_msg'];
 			$p_msg = core_display_text($msg);
 			if ($msg && $p_dst) {
-				$resend = _a('index.php?app=menu&inc=send_sms&op=sendsmstopv&do=reply&message='.urlencode($msg).'&to='.urlencode($p_dst), $core_config['icon']['resend']);
-				$forward = _a('index.php?app=menu&inc=send_sms&op=sendsmstopv&do=forward&message='.urlencode($msg), $core_config['icon']['forward']);
+				$resend = _a('index.php?app=menu&inc=send_sms&op=send_sms&do=reply&message='.urlencode($msg).'&to='.urlencode($p_dst), $core_config['icon']['resend']);
+				$forward = _a('index.php?app=menu&inc=send_sms&op=send_sms&do=forward&message='.urlencode($msg), $core_config['icon']['forward']);
 			}
 			$c_message = "<div id=\"user_outgoing_msg\">".$p_msg."</div><div id=\"msg_label\">".$p_datetime."&nbsp;".$p_status."</div><div id=\"msg_option\">".$resend."&nbsp".$forward."</div>";
 			$i--;
