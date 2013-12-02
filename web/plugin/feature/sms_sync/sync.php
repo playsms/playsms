@@ -17,7 +17,7 @@ $sms_sync_secret = $list['feature']['sms_sync']['secret'];
 $sms_sync_enable = $list['feature']['sms_sync']['enable'];
 
 $message_id = $r['message_id'];
-$sms_datetime = $core_config['datetime']['now'];
+$sms_datetime = core_get_datetime();
 $sms_sender = $r['from'];
 $message = $r['message'];
 $sms_receiver = $r['sent_to'];
