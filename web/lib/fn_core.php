@@ -86,7 +86,7 @@ function core_display_data($data) {
 }
 
 /*
- * Get current date and time
+ * Get current server date and time in GMT+0
  * @param $format
  *    output format 'date' for date only and 'time' for time only
  * @return
@@ -94,7 +94,9 @@ function core_display_data($data) {
  */
 function core_get_datetime($format='') {
 	global $core_config;
-	$ret = date($core_config['datetime']['format'], mktime());
+	$tz = core_get_timezone();
+	$dt = date($core_config['datetime']['format'], time());
+	$ret = core_adjust_datetime($dt, $tz);
 	if (strtolower(trim($format)) == 'date') {
 		$arr = explode(' ', $ret);
 		$ret = $arr[0];
@@ -121,10 +123,7 @@ function core_get_timezone($username='') {
 		$ret  = $list[0]['datetime_timezone'];
 	}
 	if (! $ret) {
-		$gw = core_gateway_get();
-		if (! ($ret = $core_config['plugin'][$gw]['datetime_timezone'])) {
-			$ret = $core_config['main']['cfg_datetime_timezone'];
-		}
+		$ret = $core_config['main']['cfg_datetime_timezone'];
 	}
 	return $ret;
 }
@@ -155,15 +154,12 @@ function core_datetime_offset($tz=0) {
  */
 function core_display_datetime($time, $tz=0) {
 	global $core_config;
-	$gw = core_gateway_get();
 	$time = trim($time);
 	$ret = $time;
 	if ($time && ($time != '0000-00-00 00:00:00')) {
 		if (! $tz) {
 			if (! ($tz = $core_config['user']['datetime_timezone'])) {
-				if (! ($tz = $core_config['plugin'][$gw]['datetime_timezone'])) {
-					$tz = $core_config['main']['cfg_datetime_timezone'];
-				}
+				$tz = $core_config['main']['cfg_datetime_timezone'];
 			}
 		}
 		$time = strtotime($time);
@@ -187,15 +183,12 @@ function core_display_datetime($time, $tz=0) {
  */
 function core_adjust_datetime($time, $tz=0) {
 	global $core_config;
-	$gw = core_gateway_get();
 	$time = trim($time);
 	$ret = $time;
 	if ($time && ($time != '0000-00-00 00:00:00')) {
 		if (! $tz) {
 			if (! ($tz = $core_config['user']['datetime_timezone'])) {
-				if (! ($tz = $core_config['plugin'][$gw]['datetime_timezone'])) {
-					$tz = $core_config['main']['cfg_datetime_timezone'];
-				}
+				$tz = $core_config['main']['cfg_datetime_timezone'];
 			}
 		}
 		$time = strtotime($time);
