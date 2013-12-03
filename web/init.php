@@ -164,6 +164,8 @@ $fn1 = $apps_path['plug'].'/themes/'.$themes_module.'/config.php';
 $fn2 = $apps_path['plug'].'/themes/'.$themes_module.'/fn.php';
 if (file_exists($fn1) && file_exists($fn2)) {
 	$core_config['module']['themes'] = $themes_module;
+} else {
+	$core_config['module']['themes'] = 'default';
 }
 
 // verify selected language_module exists
@@ -171,6 +173,8 @@ $fn1 = $apps_path['plug'].'/language/'.$language_module.'/config.php';
 $fn2 = $apps_path['plug'].'/language/'.$language_module.'/fn.php';
 if (file_exists($fn1) && file_exists($fn2)) {
 	$core_config['module']['language'] = $language_module;
+} else {
+	$core_config['module']['language'] = 'en_US';
 }
 
 if (valid()) {
