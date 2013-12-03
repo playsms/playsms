@@ -177,7 +177,7 @@ function phonebook_hook_webservices_output($ta,$requests) {
 			$keyword = substr($keyword, 1);
 			$list = phonebook_search_user($core_config['user']['uid'], $keyword);
 			foreach ($list as $data) {
-				$item[] = array('id' => 'uid_'.$data['uid'], 'text' => '@'.$data['name']);
+				$item[] = array('id' => '@'.$data['username'], 'text' => '@'.$data['name']);
 			}
 		} else {
 			$list = phonebook_search_group($core_config['user']['uid'], $keyword);

@@ -107,11 +107,10 @@ switch ($op) {
 					if ($c_gpid = substr(trim($sms_to[$i]), 5)) {
 						$array_gpid[] = $c_gpid;
 					}
-				} if (substr(trim($sms_to[$i]), 0, 4) == 'uid_') {
-					/* fixme anton - I will work on this tonight
-					if ($c_uid = substr(trim($sms_to[$i]), 4)) {
-						$array_uid[] = $c_uid;
-					}*/
+				} if (substr(trim($sms_to[$i]), 0, 1) == '@') {
+					if ($c_username = substr(trim($sms_to[$i]), 1)) {
+						$array_username[] = $c_username;
+					}
 				} else {
 					$array_sms_to[] = trim($sms_to[$i]);
 				}
@@ -119,6 +118,24 @@ switch ($op) {
 			
 			$sms_queued = 0;
 			$sms_failed = 0;
+
+			// sendsms_im
+			if (is_array($array_username) && $array_username[0]) {
+				$im_sender = '@'.$core_config['user']['username'];
+				foreach ($array_username as $target_user) {
+					$im_sender = '@'.$core_config['user']['username'];
+					if (recvsms_inbox_add(core_get_datetime(), $im_sender, $target_user, $message)) {
+						$ok_im[] = $target_user;
+					}
+				}
+			}
+			for ($i=0;$i<count($ok_im);$i++) {
+				if ($ok_im[$i]) {
+					$sms_queued++;
+				} else {
+					$sms_failed++;
+				}
+			}
 
 			// sendsms_bc
 			if (is_array($array_gpid) && $array_gpid[0]) {
