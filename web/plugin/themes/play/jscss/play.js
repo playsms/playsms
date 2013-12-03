@@ -1,6 +1,0 @@
-$(function(){
-
-  $('.button')
-    .addClass('btn');
-
-});
