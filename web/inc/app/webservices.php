@@ -17,6 +17,7 @@ $format		= trim(strtoupper($_REQUEST['format']));
 $from		= trim($_REQUEST['from']);
 $to		= trim(strtoupper($_REQUEST['to']));
 $msg		= trim($_REQUEST['msg']);
+$schedule	= trim($_REQUEST['schedule']);
 $footer		= trim($_REQUEST['footer']);
 $nofooter	= ( trim($_REQUEST['nofooter']) ? TRUE : FALSE );
 $type		= ( trim($_REQUEST['type']) ? trim($_REQUEST['type']) : 'text' );
@@ -44,7 +45,7 @@ if ($ta) {
 	switch ($ta) {
 		case "PV":
 			if ($u = webservices_validate($h,$u)) {
-				list($ret,$json) = webservices_pv($u,$to,$msg,$type,$unicode,$nofooter,$footer,$from);
+				list($ret,$json) = webservices_pv($u,$to,$msg,$type,$unicode,$nofooter,$footer,$from,$schedule);
 			} else {
 				$ret = "ERR 100";
 				$json['status'] = 'ERR';
@@ -53,7 +54,7 @@ if ($ta) {
 			break;
 		case "BC":
 			if ($u = webservices_validate($h,$u)) {
-				list($ret,$json) = webservices_bc($u,$to,$msg,$type,$unicode,$nofooter,$footer,$from);
+				list($ret,$json) = webservices_bc($u,$to,$msg,$type,$unicode,$nofooter,$footer,$from,$schedule);
 			} else {
 				$ret = "ERR 100";
 				$json['status'] = 'ERR';

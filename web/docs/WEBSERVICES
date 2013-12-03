@@ -36,6 +36,8 @@ footer		: SMS footer (for ta=pv pr ta=bc)
 nofooter	: remove SMS footer
 
 msg		: message (+ or %20 for spaces, urlencode for non ascii chars)
+schedule	: schedule message delivery, insert date and time with format
+		  YYYY-MM-DD hh:mm:ss, for example: 2013-11-19 15:20:00
 type		: message type (flash or text)
 unicode		: whether message unicode or not (1=unicode, 0=not unicode)
 
