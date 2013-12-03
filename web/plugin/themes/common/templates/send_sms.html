@@ -44,64 +44,74 @@
 	});
 </script>
 {ERROR}
-<h2>{Send SMS}</h2>
-<form name="fm_sendsms" id="fm_sendsms" action="index.php?app=menu&inc=send_sms&op=send_sms_yes" method="POST">
+<form name="fm_sendsms" id="fm_sendsms" action="index.php?app=menu&inc=send_sms&op=send_sms_yes" method="POST" role="form">
 <input type="hidden" value="{sms_footer_length}" name="footerlen"> 
 <input type="hidden" value="{per_sms_length}" name="maxchar"> 
 <input type="hidden" value="{per_sms_length_unicode}" name="maxchar_unicode"> 
 <input type="hidden" value="{max_sms_length}" name="hiddcount"> 
 <input type="hidden" value="{max_sms_length_unicode}" name="hiddcount_unicode"> 
-<table>
-	<tbody>
-		<tr>
-			<td>
-				<p>{Send to}</p>
-				<input type="hidden" name="p_num_text" id=msg_combo_sendto style="width: 280px; height: 50px" value="{to}">
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<p>{Message}</p>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>{Send SMS}</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-group">
+				<label for="msg_combo_sendto">{Send to}</label>
+				<p><input type="hidden" name="p_num_text" id=msg_combo_sendto style="width: 280px; height: 50px" value="{to}"></p>
+			</div>
+			<div class="form-group">
+				<label for="message">{Message}</label>
 				<p>{sms_template}</p>
 				<p><textarea name="message" id=message onFocus="SmsSetCounter();" onClick="SmsSetCounter();" onkeypress="SmsSetCounter();" onblur="SmsSetCounter();" onKeyUp="SmsSetCounter();">{message}</textarea></p>
 				<p><input type="text" id=txtcount name="txtcount" value="0 char : 0 SMS" size="17" onFocus="document.frmSendSms.message.focus();" readonly></p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<span style="width:140px; display:inline-block" maxlength="16">{SMS sender ID}</span>
-				<input type="text" name="sms_sender" style="width:140px" {allow_custom_sender} value="{sms_from}">
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<span style="width:140px; display:inline-block" maxlength="30">{SMS footer}</span>
-				<input type="text" name="sms_footer" style="width:140px" {allow_custom_footer} value="{sms_footer}">
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<p><input type=checkbox name=msg_flash id="msg_flash">{Flash message}</p>
-				<p><input type=checkbox name=msg_unicode id="msg_unicode" {option_msg_unicode} onClick="SmsSetCounter();" onkeypress="SmsSetCounter();" onblur="SmsSetCounter();">{Unicode message}</p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<p>{Schedule}</p>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label for="msg_sender">{SMS sender ID}</label>
+				<p><input type="text" name="sms_sender" id="msg_sender" style="width:284px" {allow_custom_sender} value="{sms_from}"></p>
+			</div>
+			<div class="form-group">
+				<label for="msg_footer">{SMS footer}</label>
+				<p><input type="text" name="sms_footer" id="msg_footer" style="width: 284px" {allow_custom_footer} value="{sms_footer}"></p>
+			</div>
+			<div class="form-group">
+				<label for="msg_options">{Options}</label>
+				<div id="msg_options">
+					<div class="checkbox">
+						<label>
+							<input type=checkbox name=msg_flash id="msg_flash">{Flash message}
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type=checkbox name=msg_unicode id="msg_unicode" {option_msg_unicode} onClick="SmsSetCounter();" onkeypress="SmsSetCounter();" onblur="SmsSetCounter();">{Unicode message}
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label for="msg_schedule">{Schedule}</label>
 				<div class="input-group date" id="msg_schedule" style="width: 284px">
 					<input type="text" name="sms_schedule" class="form-control" value="{sms_schedule}" readonly/>
 					<span class="input-group-addon">
 						<span class="glyphicon glyphicon-calendar"></span>
 					</span>
 				</div>
-				<br />
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<input type=submit class=button value='{Send}'>
-			</td>
-		</tr>
-	</tbody>
-</table>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+				<div class="form-group">
+					<input type=submit class=button value='{Send}'>
+				</div>
+		</div>
+	</div>
+</div>
 </form>

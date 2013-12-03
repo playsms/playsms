@@ -54,6 +54,7 @@ switch ($op) {
 			'Unicode message' => _('Unicode message'),
 			'Send' => _('Send'),
 			'Schedule' => _('Schedule'),
+			'Options' => _('Options'),
 			'ERROR' => $error_content,
 			'HTTP_PATH_BASE' => _HTTP_PATH_BASE_,
 			'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
