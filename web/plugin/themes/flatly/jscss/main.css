@@ -2,7 +2,7 @@
 
 @media (max-width: 767px) {
 	input[size="30"], select, textarea {
-		width: 280px;
+		width: 270px;
 	}
 	.label-sizer {
 		width: 280px;
