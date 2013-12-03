@@ -13,7 +13,7 @@ switch ($op) {
 			<table class=playsms-table-list>
 			<thead>
 			<tr>
-				<th width=30%>"._('Queue Code')."</th>
+				<th width=25%>"._('Queue Code')."</th>
 		";
 		if (isadmin()) {
 			$content .= "
@@ -29,7 +29,7 @@ switch ($op) {
 		}
 		$content .= "
 				<th width=10%>"._('Count')."</th>
-				<th width=20%>"._('Message')."</th>
+				<th width=25%>"._('Message')."</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -41,8 +41,7 @@ switch ($op) {
 			$c_username = uid2username($data[$c]['uid']);
 			$c_group = phonebook_groupid2code($data[$c]['gpid']);
 			$c_count = $data[$c]['count'];
-			$c_message = stripslashes(core_display_text($data[$c]['message'], 15));
-			$i = $count - $nav['offset'] + $c + 1 - count($data);
+			$c_message = stripslashes(core_display_text($data[$c]['message']));
 			$content .= "
 				<tr>
 					<td>".$c_queue_code."</td>
