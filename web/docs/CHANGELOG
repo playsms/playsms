@@ -1,13 +1,15 @@
 CHANGELOG
 ---------
 
-Version 0.9.9.2-beta6 - 131129
+Version 0.9.9.2-rc - 131204
 - MAJOR: new install will use MySQL InnoDB
 - MAJOR: replace term 'slid' with 'smslog_id' on all places
 - MAJOR: smslog_id is now from tblSMSOutgoing_queue_dst and immediately returns
          after sending SMS
 - MAJOR: add a simple "homemade" template engine to seperate logic and view
 - MAJOR: re-write default themes, added 2 new themes, use bootstrap 3 heavily
+- MAJOR: rename function names interceptsendsms(), interceptincomingsms(),
+         interceptsmstoinbox() and getsmsoutgoing()
 - add $app and $route as global variables just like $inc, $op, $page and $nav
 - add 2 new options in main configuration: allow custom SMS sender ID and allow
   custom SMS footer
@@ -21,6 +23,11 @@ Version 0.9.9.2-beta6 - 131129
 - add new plugin tools gatewaymanager to replace Gateway menus
 - add new daemon dlrssmsd and recvsmsd to increase performance
 - add new option "Try to disable SMS footer on master" on uplink gateway
+- add SMS schedule, accessible from Send SMS page
+- add message scheduling to webservices ta=pv and ta=bc
+- add simple instant messaging service, send to @username will push message to
+  username's inbox
+- update Send SMS page, make over to use grid system and remove table
 - update to immediately cancel send SMS after fail with not enough credit
 - update all plugin gateway to use recvsms() instead of setsmsincomingaction()
 - update all plugin gateway to use dlr() instead of setsmsdeliverystatus()
@@ -32,6 +39,7 @@ Version 0.9.9.2-beta6 - 131129
 - update default gateway on 1st installation to "dev"
 - update default daemon files locations from /usr/local/bin/ to
   /usr/local/bin/_playsms/
+- update rename term "sendsmstopv" to "send_sms"
 - sendmail() and plainoldsendmail make over. sendmail() now receives array as
   parameters, this will allow more parameters such as attachments, cc and bcc,
   SMTP connection details and others
@@ -43,6 +51,9 @@ Version 0.9.9.2-beta6 - 131129
 - update interceptsmstoinbox() to recvsms_inbox_add_intercept()
 - update insertsmstoinbox() to recvsms_inbox_add()
 - update getsmsoutgoing() to sendsms_get_sms()
+- update to make sure date/time are in GMT+0 including when saving to storage
+- update default themes is 'default', default lang is 'en_US', just in case if
+  selected themes was themes 'play' which has been removed recently
 - remove lib init1 and init2, include them in function.php
 - remove lib/fn_csv.php and lib/fn_download.php, move them to lib/fn_core.php
 - remove lib/fn_gateway.php and lib/fn_lang.php, move them to lib/fn_core.php
@@ -50,6 +61,7 @@ Version 0.9.9.2-beta6 - 131129
 - remove option "denycustomsender" from config.php and other places
 - remove auto route replies to inbox, the routing for non @username replies to
   inbox has some disadvantages with current logic so I decided to comment it
+- remove themes play, themes play moved to repo playSMS-extra-plugin
 - fix catchall feature on inboxgroup
 - fix location to hint.png
 - fix fail to finalize queue creation
@@ -58,11 +70,15 @@ Version 0.9.9.2-beta6 - 131129
 - fix webservices for GET_CONTACT and GET_CONTACT_GROUP
 - fix wrong column $p_status while checking webservices returns, uplink gateway
 - fix sms_board and sms_poll, both should use $_REQUEST to get parameters
+- fix always use default rate when rate set with value zero, simplerate
 - fix #78 add $from, $footer and $nofooter param to webservices
 - fix #109 sms sender ID and sms footer can be changed from Send SMS page
+- fix #113 add https://github.com/Eonasdan/bootstrap-datetimepicker and
+  moment js (momentjs.com) and then add datetimepicker in Send SMS page
 - fix #116 addslashes, not stripslashes, before feeding to sendsms()
 - fix #118 regression bug giving back-tick quotes to keyword on dba_search()
   and dba_count()
+- fix #123 unable to delete message template, wrong form scope
 
 Version 0.9.9.1 - 130902
 - add new webservices type of action IX to get SMS on user's inbox
