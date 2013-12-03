@@ -417,6 +417,10 @@ msgstr "Einfacher Benutzer"
 msgid "Normal user"
 msgstr "Einfacher Benutzer"
 
+#, fuzzy
+msgid "Options"
+msgstr "Aktion"
+
 msgid "Or"
 msgstr "Qr"
 
@@ -542,6 +546,9 @@ msgstr "Speichern"
 
 msgid "Save template"
 msgstr "Vorlage speichern"
+
+msgid "Schedule"
+msgstr ""
 
 msgid "Search"
 msgstr "Suche"

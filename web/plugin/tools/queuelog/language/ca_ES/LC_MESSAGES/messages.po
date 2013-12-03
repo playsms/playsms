@@ -20,9 +20,6 @@ msgstr ""
 msgid "Count"
 msgstr "Total"
 
-msgid "Date/Time"
-msgstr "Data/Hora"
-
 msgid "Group"
 msgstr "Grup"
 
@@ -31,6 +28,9 @@ msgstr "Missatge"
 
 msgid "Queue Code"
 msgstr "Codi cua"
+
+msgid "Scheduled"
+msgstr ""
 
 msgid "User"
 msgstr "Usuari"

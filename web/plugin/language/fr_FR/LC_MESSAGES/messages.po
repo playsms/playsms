@@ -429,6 +429,10 @@ msgstr "Utilisateur"
 msgid "Normal user"
 msgstr "Utilisateur"
 
+#, fuzzy
+msgid "Options"
+msgstr "Action"
+
 msgid "Or"
 msgstr "Ou"
 
@@ -556,6 +560,9 @@ msgstr "Enregistrer"
 
 msgid "Save template"
 msgstr "Enregistrer"
+
+msgid "Schedule"
+msgstr ""
 
 msgid "Search"
 msgstr ""

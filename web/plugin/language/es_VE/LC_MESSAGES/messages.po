@@ -423,6 +423,10 @@ msgstr "Usuario sin Privilegios"
 msgid "Normal user"
 msgstr "Usuario sin Privilegios"
 
+#, fuzzy
+msgid "Options"
+msgstr "Acción"
+
 msgid "Or"
 msgstr "O"
 
@@ -550,6 +554,9 @@ msgstr "Guardar"
 
 msgid "Save template"
 msgstr "Guardar Plantilla de Mensaje"
+
+msgid "Schedule"
+msgstr ""
 
 msgid "Search"
 msgstr ""

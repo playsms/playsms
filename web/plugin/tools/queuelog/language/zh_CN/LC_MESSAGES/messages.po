@@ -1,9 +1,6 @@
 msgid "Count"
 msgstr ""
 
-msgid "Date/Time"
-msgstr ""
-
 msgid "Group"
 msgstr ""
 
@@ -11,6 +8,9 @@ msgid "Message"
 msgstr ""
 
 msgid "Queue Code"
+msgstr ""
+
+msgid "Scheduled"
 msgstr ""
 
 msgid "User"

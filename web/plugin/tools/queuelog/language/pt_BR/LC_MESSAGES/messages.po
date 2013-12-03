@@ -8,9 +8,6 @@ msgstr ""
 msgid "Count"
 msgstr "Contador"
 
-msgid "Date/Time"
-msgstr "Data/hora"
-
 msgid "Group"
 msgstr "Grupo"
 
@@ -19,6 +16,9 @@ msgstr "Mensagem"
 
 msgid "Queue Code"
 msgstr "Código na fila"
+
+msgid "Scheduled"
+msgstr ""
 
 msgid "User"
 msgstr "Usuário"

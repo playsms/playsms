@@ -403,6 +403,9 @@ msgstr ""
 msgid "Normal user"
 msgstr ""
 
+msgid "Options"
+msgstr ""
+
 msgid "Or"
 msgstr ""
 
@@ -521,6 +524,9 @@ msgid "Save"
 msgstr ""
 
 msgid "Save template"
+msgstr ""
+
+msgid "Schedule"
 msgstr ""
 
 msgid "Search"

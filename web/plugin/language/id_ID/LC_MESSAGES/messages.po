@@ -416,6 +416,10 @@ msgstr "Pengguna normal"
 msgid "Normal user"
 msgstr "Pengguna normal"
 
+#, fuzzy
+msgid "Options"
+msgstr "Tindakan"
+
 msgid "Or"
 msgstr "Atau"
 
@@ -539,6 +543,9 @@ msgstr "Simpan"
 
 msgid "Save template"
 msgstr "Simpan pola"
+
+msgid "Schedule"
+msgstr ""
 
 msgid "Search"
 msgstr "Cari"

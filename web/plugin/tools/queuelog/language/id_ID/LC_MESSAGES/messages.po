@@ -1,9 +1,6 @@
 msgid "Count"
 msgstr "Hitung"
 
-msgid "Date/Time"
-msgstr "Waktu/Jam"
-
 msgid "Group"
 msgstr "Grup"
 
@@ -12,6 +9,9 @@ msgstr "Pesan"
 
 msgid "Queue Code"
 msgstr "Kode antrian"
+
+msgid "Scheduled"
+msgstr ""
 
 msgid "User"
 msgstr "Pengguna"
