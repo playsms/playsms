@@ -107,6 +107,11 @@ switch ($op) {
 					if ($c_gpid = substr(trim($sms_to[$i]), 5)) {
 						$array_gpid[] = $c_gpid;
 					}
+				} if (substr(trim($sms_to[$i]), 0, 4) == 'uid_') {
+					/* fixme anton - I will work on this tonight
+					if ($c_uid = substr(trim($sms_to[$i]), 4)) {
+						$array_uid[] = $c_uid;
+					}*/
 				} else {
 					$array_sms_to[] = trim($sms_to[$i]);
 				}

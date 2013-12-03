@@ -157,6 +157,15 @@ function phonebook_hook_phonebook_search_group($uid, $keyword="", $count="") {
 	return $ret;
 }
 
+function phonebook_search_user($uid, $keyword="") {
+	$ret = array();
+	if ($uid) {
+		$keywords = array('name' => '%'.$keyword.'%', 'username' => '%'.$keyword.'%');
+		$ret = dba_search(_DB_PREF_.'_tblUser', '*', '', $keywords);
+	}
+	return $ret;
+}
+
 function phonebook_hook_webservices_output($ta,$requests) {
 	global $core_config;
 	$keyword = $requests['keyword'];
@@ -164,16 +173,24 @@ function phonebook_hook_webservices_output($ta,$requests) {
 		$keyword = $requests['tag'];
 	}
 	if ($keyword && $core_config['user']['uid']) {
-		$list = phonebook_search_group($core_config['user']['uid'], $keyword);
-		foreach ($list as $data) {
-			$item[] = array('id' => 'gpid_'.$data['gpid'], 'text' => _('Group').': '.$data['group_name'].' ('.$data['code'].')');
-		}
-		$list = phonebook_search($core_config['user']['uid'], $keyword);
-		foreach ($list as $data) {
-			$item[] = array('id' => $data['p_num'], 'text' => $data['p_desc'].' ('.$data['p_num'].')');
-		}
-		if (count($item) == 0) {
-			$item[] = array('id' => $keyword, 'text' => $keyword);
+		if (substr($keyword, 0, 1) == '@') {
+			$keyword = substr($keyword, 1);
+			$list = phonebook_search_user($core_config['user']['uid'], $keyword);
+			foreach ($list as $data) {
+				$item[] = array('id' => 'uid_'.$data['uid'], 'text' => '@'.$data['name']);
+			}
+		} else {
+			$list = phonebook_search_group($core_config['user']['uid'], $keyword);
+			foreach ($list as $data) {
+				$item[] = array('id' => 'gpid_'.$data['gpid'], 'text' => _('Group').': '.$data['group_name'].' ('.$data['code'].')');
+			}
+			$list = phonebook_search($core_config['user']['uid'], $keyword);
+			foreach ($list as $data) {
+				$item[] = array('id' => $data['p_num'], 'text' => $data['p_desc'].' ('.$data['p_num'].')');
+			}
+			if (count($item) == 0) {
+				$item[] = array('id' => $keyword, 'text' => $keyword);
+			}
 		}
 		$content = json_encode($item);
 		ob_end_clean();
