@@ -69,18 +69,6 @@
 		</tr>
 		<tr>
 			<td>
-				<p>{Schedule}</p>
-				<div class="input-group date" id="msg_schedule" style="width: 284px">
-					<input type="text" name="sms_schedule" class="form-control" value="{sms_schedule}" readonly/>
-					<span class="input-group-addon">
-						<span class="glyphicon glyphicon-calendar"></span>
-					</span>
-				</div>
-				<br />
-			</td>
-		</tr>
-		<tr>
-			<td>
 				<span style="width:140px; display:inline-block" maxlength="16">{SMS sender ID}</span>
 				<input type="text" name="sms_sender" style="width:140px" {allow_custom_sender} value="{sms_from}">
 			</td>
@@ -95,6 +83,18 @@
 			<td>
 				<p><input type=checkbox name=msg_flash id="msg_flash">{Flash message}</p>
 				<p><input type=checkbox name=msg_unicode id="msg_unicode" {option_msg_unicode} onClick="SmsSetCounter();" onkeypress="SmsSetCounter();" onblur="SmsSetCounter();">{Unicode message}</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>{Schedule}</p>
+				<div class="input-group date" id="msg_schedule" style="width: 284px">
+					<input type="text" name="sms_schedule" class="form-control" value="{sms_schedule}" readonly/>
+					<span class="input-group-addon">
+						<span class="glyphicon glyphicon-calendar"></span>
+					</span>
+				</div>
+				<br />
 			</td>
 		</tr>
 		<tr>
