@@ -2,10 +2,10 @@
 
 @media (max-width: 767px) {
 	input[size="30"], select, textarea {
-		width: 290px;
+		width: 280px;
 	}
 	.label-sizer {
-		width: 290px;
+		width: 280px;
 	}
 	.navbar-right { float: left !important; }
 	.navbar-header:after { clear: none; }
@@ -18,9 +18,9 @@
 
 @media (max-width: 383px) {
 	input[size="30"], select, textarea {
-		width: 150px;
+		width: 130px;
 	}
 	.label-sizer {
-		width: 150px;
+		width: 140px;
 	}
 }
