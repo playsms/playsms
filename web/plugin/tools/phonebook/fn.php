@@ -179,18 +179,20 @@ function phonebook_hook_webservices_output($ta,$requests) {
 			foreach ($list as $data) {
 				$item[] = array('id' => '@'.$data['username'], 'text' => '@'.$data['name']);
 			}
-		} else {
+		} else if (substr($keyword, 0, 1) == '#') {
+			$keyword = substr($keyword, 1);
 			$list = phonebook_search_group($core_config['user']['uid'], $keyword);
 			foreach ($list as $data) {
-				$item[] = array('id' => 'gpid_'.$data['gpid'], 'text' => _('Group').': '.$data['group_name'].' ('.$data['code'].')');
+				$item[] = array('id' => '#'.$data['code'], 'text' => _('Group').': '.$data['group_name'].' ('.$data['code'].')');
 			}
+		} else {
 			$list = phonebook_search($core_config['user']['uid'], $keyword);
 			foreach ($list as $data) {
 				$item[] = array('id' => $data['p_num'], 'text' => $data['p_desc'].' ('.$data['p_num'].')');
 			}
-			if (count($item) == 0) {
-				$item[] = array('id' => $keyword, 'text' => $keyword);
-			}
+		}
+		if (count($item) == 0) {
+			$item[] = array('id' => $keyword, 'text' => $keyword);
 		}
 		$content = json_encode($item);
 		ob_end_clean();

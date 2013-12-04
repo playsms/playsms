@@ -58,6 +58,8 @@ switch ($op) {
 			'ERROR' => $error_content,
 			'HTTP_PATH_BASE' => _HTTP_PATH_BASE_,
 			'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
+			'HINT_SEND_TO' => _('prefix with # for groups and @ for users'),
+			'HINT_SCHEDULE' => _('format').' YYYY-MM-DD hh:mm',
 			'sms_from' => $sms_from,
 			'sms_footer' => $sms_footer,
 			'allow_custom_sender' => $allow_custom_sender,
@@ -103,8 +105,9 @@ switch ($op) {
 
 			// get destinations
 			for ($i=0;$i<count($sms_to);$i++) {
-				if (substr(trim($sms_to[$i]), 0, 5) == 'gpid_') {
-					if ($c_gpid = substr(trim($sms_to[$i]), 5)) {
+				if (substr(trim($sms_to[$i]), 0, 1) == '#') {
+					if ($c_group_code = substr(trim($sms_to[$i]), 1)) {
+						$c_gpid = phonebook_groupcode2id($core_config['user']['uid'], $c_group_code);
 						$array_gpid[] = $c_gpid;
 					}
 				} if (substr(trim($sms_to[$i]), 0, 1) == '@') {
