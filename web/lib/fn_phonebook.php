@@ -72,6 +72,12 @@ function phonebook_getmembercountbyid($gpid) {
 	return $count;
 }
 
+/**
+ * Get members of a group, search by group ID
+ * @param integer $gpid group ID
+ * @param string $orderby field name
+ * @return array array(id, p_desc, p_num)
+ */
 function phonebook_getdatabyid($gpid, $orderby="") {
 	global $core_config;
 	$ret = array();

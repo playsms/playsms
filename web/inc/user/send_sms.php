@@ -108,7 +108,12 @@ switch ($op) {
 				if (substr(trim($sms_to[$i]), 0, 1) == '#') {
 					if ($c_group_code = substr(trim($sms_to[$i]), 1)) {
 						$c_gpid = phonebook_groupcode2id($core_config['user']['uid'], $c_group_code);
-						$array_gpid[] = $c_gpid;
+						$members = phonebook_getdatabyid($c_gpid);
+						foreach ($members as $member) {
+							if (trim($member['p_num'])) {
+								$array_sms_to[] = trim($member['p_num']);
+							}
+						}
 					}
 				} else if (substr(trim($sms_to[$i]), 0, 1) == '@') {
 					if ($c_username = substr(trim($sms_to[$i]), 1)) {
@@ -118,6 +123,9 @@ switch ($op) {
 					$array_sms_to[] = trim($sms_to[$i]);
 				}
 			}
+			
+			// remove duplicates destinations
+			array_unique($array_sms_to);
 			
 			$sms_queued = 0;
 			$sms_failed = 0;
@@ -140,6 +148,7 @@ switch ($op) {
 				}
 			}
 
+			/* fixme anton - soon sendsms_bc will be removed
 			// sendsms_bc
 			if (is_array($array_gpid) && $array_gpid[0]) {
 				list($ok_bc,$to_bc,$smslog_id_bc,$queue_bc) = sendsms_bc($username,$array_gpid,$message,$sms_type,$unicode,$nofooter,$sms_footer,$sms_sender,$sms_schedule);
@@ -151,6 +160,7 @@ switch ($op) {
 					$sms_failed++;
 				}
 			}
+			*/
 
 			// sendsms
 			if (is_array($array_sms_to) && $array_sms_to[0]) {
@@ -172,5 +182,3 @@ switch ($op) {
 		exit();
 		break;
 }
-
-?>

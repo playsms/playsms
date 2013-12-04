@@ -85,6 +85,12 @@ function phonebook_hook_phonebook_getmembercountbyid($gpid) {
 	return $count;
 }
 
+/**
+ * Get members of a group, search by group ID
+ * @param integer $gpid Group ID
+ * @param string $orderby
+ * @return array
+ */
 function phonebook_hook_phonebook_getdatabyid($gpid, $orderby="") {
 	$ret = array();
 	$db_query = "SELECT id, name AS p_desc, mobile AS p_num FROM "._DB_PREF_."_toolsPhonebook WHERE gpid='$gpid'";
