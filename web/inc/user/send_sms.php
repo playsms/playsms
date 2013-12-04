@@ -110,7 +110,7 @@ switch ($op) {
 						$c_gpid = phonebook_groupcode2id($core_config['user']['uid'], $c_group_code);
 						$array_gpid[] = $c_gpid;
 					}
-				} if (substr(trim($sms_to[$i]), 0, 1) == '@') {
+				} else if (substr(trim($sms_to[$i]), 0, 1) == '@') {
 					if ($c_username = substr(trim($sms_to[$i]), 1)) {
 						$array_username[] = $c_username;
 					}
