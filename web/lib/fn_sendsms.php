@@ -486,14 +486,15 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0,$nofoot
 			if (is_array($rows)) {
 				foreach ($rows as $key => $db_row) {
 					$p_num = $db_row['p_num'];
-					$sms_to = sendsms_getvalidnumber($p_num);
-					if ($smslog_id[$j] = sendsms_queue_push($queue_code,$sms_to)) {
-						$ok[$j] = true;
-						$sms_count++;
+					if ($sms_to = sendsms_getvalidnumber($p_num)) {
+						if ($smslog_id[$j] = sendsms_queue_push($queue_code,$sms_to)) {
+							$ok[$j] = true;
+							$sms_count++;
+						}
+						$to[$j] = $sms_to;
+						$queue[$j] = $queue_code;
+						$j++;
 					}
-					$to[$j] = $sms_to;
-					$queue[$j] = $queue_code;
-					$j++;
 				}
 			}
 			if (sendsms_queue_update($queue_code, array('flag' => '0', 'sms_count' => $sms_count))) {
