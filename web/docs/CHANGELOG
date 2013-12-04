@@ -1,7 +1,7 @@
 CHANGELOG
 ---------
 
-Version 0.9.9.2-rc - 131204
+Version 0.9.9.2 - 131205
 - MAJOR: new install will use MySQL InnoDB
 - MAJOR: replace term 'slid' with 'smslog_id' on all places
 - MAJOR: smslog_id is now from tblSMSOutgoing_queue_dst and immediately returns
@@ -44,6 +44,8 @@ Version 0.9.9.2-rc - 131204
   parameters, this will allow more parameters such as attachments, cc and bcc,
   SMTP connection details and others
 - update icons
+- update Send SMS page to use prefix # for sending to group and @ for sending
+  IM to another playSMS user
 - update function.php to load only active plugins, including themes, lang and
   gateway. this fixes icons as well
 - update interceptsendsms() to sendsms_intercept()
