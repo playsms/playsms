@@ -37,4 +37,15 @@ function queuelog_countall() {
 	return $ret;
 }
 
-?>
+function queuelog_delete($queue) {
+	global $core_config;
+	$ret = FALSE;
+	if ($core_config['user']['status'] != 2) {
+		$user_query = "AND uid='".$core_config['user']['uid']."'";
+	}
+	$db_query = "DELETE FROM "._DB_PREF_."_tblSMSOutgoing_queue WHERE flag='0' AND queue_code='".$queue."' ".$user_query;
+	if ($db_result = dba_affected_rows($db_query)) {
+		$ret = TRUE;
+	}
+	return $ret;
+}

@@ -6,7 +6,10 @@ switch ($op) {
 	case "queuelog_list":
 		$count = queuelog_countall();
 		$nav = themes_nav($count, "index.php?app=menu&inc=tools_queuelog&op=queuelog_list");
-		$content = "
+		if ($err = $_SESSION['error_string']) {
+			$error_content = "<div class=error_string>$err</div>";
+		}
+		$content = $error_content."
 			<h2>"._('View SMS queue')."</h2>
 			<div align=center>".$nav['form']."</div>
 			<div class=table-responsive>
@@ -40,6 +43,7 @@ switch ($op) {
 			$c_username = uid2username($data[$c]['uid']);
 			$c_count = $data[$c]['count'];
 			$c_message = stripslashes(core_display_text($data[$c]['message']));
+			$c_action = "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete queue")) . " " . $c_queue_code . " ?','index.php?app=menu&inc=tools_queuelog&op=queuelog_delete&queue=" . $c_queue_code . "')\">".$core_config['icon']['delete']."</a>";
 			$content .= "
 				<tr>
 			";
@@ -68,6 +72,13 @@ switch ($op) {
 		";
 		echo $content;
 		break;
+	case "queuelog_delete":
+		if ($queue = $_REQUEST['queue']) {
+			if (queuelog_delete($queue)) {
+				$_SESSION['error_string'] = _('Queue has been remove');
+			}
+		}
+		header("Location: index.php?app=menu&inc=tools_queuelog&op=queuelog_list");
+		exit();
+		break;
 }
-
-?>
