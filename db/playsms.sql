@@ -760,7 +760,7 @@ CREATE TABLE `playsms_gatewayClickatell_config` (
   `cfg_incoming_path` varchar(250) DEFAULT NULL,
   `cfg_credit` int(11) NOT NULL DEFAULT '0',
   `cfg_additional_param` varchar(250) DEFAULT NULL,
-  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700'
+  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -770,7 +770,7 @@ CREATE TABLE `playsms_gatewayClickatell_config` (
 
 LOCK TABLES `playsms_gatewayClickatell_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayClickatell_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayClickatell_config` VALUES (0,'clickatell','123456','playsms','playsms','PlaySMS','https://api.clickatell.com/http','/var/spool/playsms',10,'','+0700');
+INSERT INTO `playsms_gatewayClickatell_config` VALUES (0,'clickatell','123456','playsms','playsms','PlaySMS','https://api.clickatell.com/http','/var/spool/playsms',10,'','');
 /*!40000 ALTER TABLE `playsms_gatewayClickatell_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -818,7 +818,7 @@ CREATE TABLE `playsms_gatewayKannel_config` (
   `cfg_playsms_web` varchar(250) DEFAULT NULL,
   `cfg_dlr` int(11) NOT NULL DEFAULT '31',
   `cfg_additional_param` varchar(250) DEFAULT NULL,
-  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700',
+  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '',
   `cfg_admin_url` varchar(250) DEFAULT NULL,
   `cfg_admin_password` varchar(50) DEFAULT NULL,
   `cfg_admin_port` int(11) NOT NULL DEFAULT '0'
@@ -830,7 +830,7 @@ CREATE TABLE `playsms_gatewayKannel_config` (
 --
 
 LOCK TABLES `playsms_gatewayKannel_config` WRITE;
-INSERT INTO `playsms_gatewayKannel_config` VALUES (0,'kannel','/var/spool/playsms','playsms','playsms','','127.0.0.1','127.0.0.1','13131','http://localhost/playsms','31','','+0700','','',0);
+INSERT INTO `playsms_gatewayKannel_config` VALUES (0,'kannel','/var/spool/playsms','playsms','playsms','','127.0.0.1','127.0.0.1','13131','http://localhost/playsms','31','','','','',0);
 /*!40000 ALTER TABLE `playsms_gatewayKannel_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -875,7 +875,7 @@ CREATE TABLE `playsms_gatewayMsgtoolbox_config` (
   `cfg_username` varchar(100) DEFAULT NULL,
   `cfg_password` varchar(100) DEFAULT NULL,
   `cfg_global_sender` varchar(20) DEFAULT NULL,
-  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700'
+  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -885,7 +885,7 @@ CREATE TABLE `playsms_gatewayMsgtoolbox_config` (
 
 LOCK TABLES `playsms_gatewayMsgtoolbox_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayMsgtoolbox_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayMsgtoolbox_config` VALUES (0,'msgtoolbox','http://serverX.msgtoolbox.com/api/current/send/message.php','1','playsms','password','playSMS','+0700');
+INSERT INTO `playsms_gatewayMsgtoolbox_config` VALUES (0,'msgtoolbox','http://serverX.msgtoolbox.com/api/current/send/message.php','1','playsms','password','playSMS','');
 /*!40000 ALTER TABLE `playsms_gatewayMsgtoolbox_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -931,7 +931,7 @@ CREATE TABLE `playsms_gatewayNexmo_config` (
   `cfg_api_key` varchar(100) DEFAULT NULL,
   `cfg_api_secret` varchar(100) DEFAULT NULL,
   `cfg_global_sender` varchar(20) DEFAULT NULL,
-  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700'
+  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -941,7 +941,7 @@ CREATE TABLE `playsms_gatewayNexmo_config` (
 
 LOCK TABLES `playsms_gatewayNexmo_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayNexmo_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayNexmo_config` VALUES (0,'nexmo','https://rest.nexmo.com/sms/json','12345678','87654321','playSMS','+0700');
+INSERT INTO `playsms_gatewayNexmo_config` VALUES (0,'nexmo','https://rest.nexmo.com/sms/json','12345678','87654321','playSMS','');
 /*!40000 ALTER TABLE `playsms_gatewayNexmo_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1033,7 +1033,7 @@ CREATE TABLE `playsms_gatewayUplink_config` (
   `cfg_global_sender` varchar(20) DEFAULT NULL,
   `cfg_incoming_path` varchar(250) DEFAULT NULL,
   `cfg_additional_param` varchar(250) DEFAULT NULL,
-  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700',
+  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '',
   `cfg_try_disable_footer` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1044,7 +1044,7 @@ CREATE TABLE `playsms_gatewayUplink_config` (
 
 LOCK TABLES `playsms_gatewayUplink_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayUplink_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayUplink_config` VALUES (0,'uplink','http://playsms.master.url','','','','','/var/spool/playsms','','+0700',0);
+INSERT INTO `playsms_gatewayUplink_config` VALUES (0,'uplink','http://playsms.master.url','','','','','/var/spool/playsms','','',0);
 /*!40000 ALTER TABLE `playsms_gatewayUplink_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1095,7 +1095,7 @@ CREATE TABLE `playsms_tblConfig_main` (
   `cfg_themes_module` varchar(100) DEFAULT NULL,
   `cfg_default_rate` decimal(10,2) NOT NULL DEFAULT '0.0',
   `cfg_language_module` varchar(10) DEFAULT 'en_US',
-  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700',
+  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '',
   `cfg_sms_max_count` int(11) NOT NULL DEFAULT '3',
   `cfg_default_credit` decimal(10,2) NOT NULL DEFAULT '0.0',
   `cfg_enable_register` int(11) NOT NULL DEFAULT '0',
@@ -1113,7 +1113,7 @@ CREATE TABLE `playsms_tblConfig_main` (
 
 LOCK TABLES `playsms_tblConfig_main` WRITE;
 /*!40000 ALTER TABLE `playsms_tblConfig_main` DISABLE KEYS */;
-INSERT INTO `playsms_tblConfig_main` VALUES (1332916845,'playSMS','noreply@playsms.org','powered by playSMS','dev','000','default',0,'en_US','+0700',3,0,0,1,0,0,'playSMS','http://www.playsms.org');
+INSERT INTO `playsms_tblConfig_main` VALUES (1332916845,'playSMS','noreply@playsms.org','powered by playSMS','dev','000','default',0,'en_US','',3,0,0,1,0,0,'playSMS','http://www.playsms.org');
 /*!40000 ALTER TABLE `playsms_tblConfig_main` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1317,8 +1317,8 @@ CREATE TABLE `playsms_tblUser` (
   `country` int(11) NOT NULL DEFAULT '0',
   `zipcode` varchar(10) NOT NULL DEFAULT '',
   `credit` decimal(10,2) NOT NULL DEFAULT '0.0',
-  `datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700',
-  `language_module` varchar(10) NOT NULL DEFAULT 'en_US',
+  `datetime_timezone` varchar(30) NOT NULL DEFAULT '',
+  `language_module` varchar(10) NOT NULL DEFAULT '',
   `fwd_to_mobile` int(11) NOT NULL DEFAULT '0',
   `fwd_to_email` int(11) NOT NULL DEFAULT '1',
   `fwd_to_inbox` int(11) NOT NULL DEFAULT '1',
@@ -1339,7 +1339,7 @@ CREATE TABLE `playsms_tblUser` (
 
 LOCK TABLES `playsms_tblUser` WRITE;
 /*!40000 ALTER TABLE `playsms_tblUser` DISABLE KEYS */;
-INSERT INTO `playsms_tblUser` VALUES (1332916885,1,2,'dd4aa3580e3de07858d812dcc094c32f','admin','21232f297a57a5a743894a0e4a801fc3','',0,'127.0.0.1, 192.168.*.*','Administrator','+62000000000','noreply@playsms.org','playSMS','@admin','','','',132,'',0,'+0700','en_US',0,1,1,'',1,0,0,0,'','');
+INSERT INTO `playsms_tblUser` VALUES (1332916885,1,2,'dd4aa3580e3de07858d812dcc094c32f','admin','21232f297a57a5a743894a0e4a801fc3','',0,'127.0.0.1, 192.168.*.*','Administrator','+62000000000','noreply@playsms.org','playSMS','@admin','','','',132,'',0,'','en_US',0,1,1,'',1,0,0,0,'','');
 /*!40000 ALTER TABLE `playsms_tblUser` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1576,7 +1576,7 @@ CREATE TABLE `playsms_gatewayTwilio_config` (
   `cfg_account_sid` varchar(100) DEFAULT NULL,
   `cfg_auth_token` varchar(100) DEFAULT NULL,
   `cfg_global_sender` varchar(20) DEFAULT NULL,
-  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700'
+  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1586,7 +1586,7 @@ CREATE TABLE `playsms_gatewayTwilio_config` (
 
 LOCK TABLES `playsms_gatewayTwilio_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayTwilio_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayTwilio_config` VALUES (0,'twilio','https://api.twilio.com','http://localhost/playsms/plugin/gateway/twilio/callback.php','12345678','87654321','+10000000000','+0700');
+INSERT INTO `playsms_gatewayTwilio_config` VALUES (0,'twilio','https://api.twilio.com','http://localhost/playsms/plugin/gateway/twilio/callback.php','12345678','87654321','+10000000000','');
 /*!40000 ALTER TABLE `playsms_gatewayTwilio_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1600,11 +1600,11 @@ CREATE TABLE `playsms_gatewayInfobip_config` (
   `cfg_send_url` varchar(250) NOT NULL DEFAULT '',
   `cfg_credit` int(11) NOT NULL DEFAULT '0',
   `cfg_additional_param` varchar(250) NOT NULL DEFAULT '',
-  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '+0700',
+  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '',
   `cfg_dlr_nopush` varchar(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `playsms_gatewayInfobip_config` (`cfg_name`,`cfg_send_url`,`cfg_datetime_timezone`,`cfg_dlr_nopush`) VALUES ('infobip','http://api.infobip.com/api/v3','+0700','1') ;
+INSERT INTO `playsms_gatewayInfobip_config` (`cfg_name`,`cfg_send_url`,`cfg_datetime_timezone`,`cfg_dlr_nopush`) VALUES ('infobip','http://api.infobip.com/api/v3','','1') ;
 
 DROP TABLE IF EXISTS `playsms_gatewayInfobip_apidata`;
 CREATE TABLE `playsms_gatewayInfobip_apidata` (
