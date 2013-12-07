@@ -125,7 +125,7 @@ switch ($op) {
 		$up_sendsms_host = $_POST['up_sendsms_host'];
 		$up_sendsms_port = $_POST['up_sendsms_port'];
 		$up_playsms_web = ( $_POST['up_playsms_web'] ? $_POST['up_playsms_web'] : $http_path['base'] );
-		$up_additional_param = ( $_POST['up_additional_param'] ? $_POST['up_additional_param'] : "smsc=default" );
+		$up_additional_param = $_POST['up_additional_param'];
 
 		$up_kannelconf = $_POST['up_kannelconf'];
 		$up_kannelconf = stripslashes($up_kannelconf);

@@ -28,10 +28,6 @@ if ($db_row = dba_fetch_array($db_result)) {
 // default path for kannel.conf, please edit the path if different from default
 $kannel_param['kannelconf'] = '/etc/kannel/kannel.conf';
 
-if (! $kannel_param['additional_param']) {
-	$kannel_param['additional_param'] = "smsc=default";
-}
-
 // save plugin's parameters or options in $core_config
 $core_config['plugin']['kannel'] = $kannel_param;
 
