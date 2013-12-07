@@ -1,24 +1,32 @@
 DESCRIPTION
 -----------
+
 This document explain about how to install and setup playSMS
 
 
 REQUIREMENT
 -----------
+
 Minimum Required Hardware
 - Web server capable hardware
+- GSM modem, single/modem pool (optional, only when you plan to use Kannel,
+  Gammu, Gnokii or smstools gateway plugins)
+- Internet connection (optional, only when you plan to use Clickatell, Nexmo,
+  Twilio, Infobip gateway plugins)
+- LAN (optional, only when you plan to link 2 playSMS on different server in
+  the same network using Uplink gateway plugin)
 
 Minimum Required Software
-- Operating System Linux (install on MS Windows or BSD is also possible)
-- Web Server (for example Apache2 or lighttpd)
+- Operating System Linux (install on MS Windows or BSD is possible)
+- Web Server (for example Apache2, nginx or lighttpd)
 - Database Server MySQL 5.x.x or latest stable release
-- PHP 5.x.x or latest stable release with mysql module enabled and CLI version
+- PHP 5.x.x or latest stable release with mysql module enabled
+- PHP CLI (very important, do not forget this)
 - PHP gettext extension (this is a must for text translation)
 - PHP multibyte string function (should be able to call mb_convert_encoding)
 - Access to SMTP server (playSMS will use this to send email)
 - lynx, wget or curl, a console web browser (example scripts require lynx)
 - Downloaded playSMS package from SF.net or latest source code from Github
-- Selected gateway application. Recommended to use Kannel or SMS Server Tools
 
 Minimum Required Server Administrator (or Developer)
 - Understand howto make sure installed PHP has MySQL module enabled/loaded
@@ -29,16 +37,18 @@ Minimum Required Server Administrator (or Developer)
 
 INSTALLATION
 ------------
+
 There are 2 methods available to install playSMS:
-1. Using install-script
-2. Step-by-step
+1. INSTALLATION on Linux using install-script
+2. INSTALLATION on Linux step by step
 
 If you are using Ubuntu server, relatively new and not much core changes, then
 I suggest you to use 1st method, using install-script.
 
 
-INSTALLATION on Linux using install-script
-------------------------------------------
+1. INSTALLATION on Linux using install-script
+---------------------------------------------
+
 playSMS Web Interface using install script:
 
 1.  Extract playSMS package somewhere (Usually in /usr/local/src).
@@ -89,8 +99,10 @@ playSMS Web Interface using install script:
       password: admin
 
 
-INSTALLATION on Linux step by step
-----------------------------------
+
+2. INSTALLATION on Linux step by step
+-------------------------------------
+
 playSMS Web Interface step-by-step installation:
 
 1.  Extract playSMS package somewhere (Usually in /usr/local/src).
@@ -208,6 +220,7 @@ playSMS Web Interface step-by-step installation:
 
       username: admin
       password: admin
+
 
 
 If you have GSM modem and plan to use it with playSMS, please continue to follow
