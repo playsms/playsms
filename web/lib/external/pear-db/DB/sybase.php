@@ -28,7 +28,7 @@
 /**
  * Obtain the DB_common class so it can be extended from
  */
-require_once 'DB/common.php';
+require_once LIBS.'DB/common.php';
 
 /**
  * The methods PEAR DB uses to interact with PHP's sybase extension

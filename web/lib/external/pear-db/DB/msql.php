@@ -30,7 +30,7 @@
 /**
  * Obtain the DB_common class so it can be extended from
  */
-require_once 'DB/common.php';
+require_once LIBS.'DB/common.php';
 
 /**
  * The methods PEAR DB uses to interact with PHP's msql extension
@@ -145,7 +145,7 @@ class DB_msql extends DB_common
      *
      * Example of how to connect:
      * <code>
-     * require_once 'DB.php';
+     * require_once LIBS.'DB.php';
      * 
      * // $dsn = 'msql://hostname/dbname';  // use a TCP connection
      * $dsn = 'msql:///dbname';             // use a socket

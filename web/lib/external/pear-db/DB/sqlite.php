@@ -28,7 +28,7 @@
 /**
  * Obtain the DB_common class so it can be extended from
  */
-require_once 'DB/common.php';
+require_once LIBS.'DB/common.php';
 
 /**
  * The methods PEAR DB uses to interact with PHP's sqlite extension
@@ -175,7 +175,7 @@ class DB_sqlite extends DB_common
      *
      * Example of connecting to a database in read-only mode:
      * <code>
-     * require_once 'DB.php';
+     * require_once LIBS.'DB.php';
      * 
      * $dsn = 'sqlite:///path/and/name/of/db/file?mode=0400';
      * $options = array(

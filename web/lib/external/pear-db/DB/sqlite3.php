@@ -201,7 +201,7 @@ class DB_sqlite3 extends DB_common
       return NULL;
     }
     
-	// }}}    
+    // }}}    
   // {{{  string modifyLimitQuery(string $query, int $from, int $count [,mixed $params])
     
     
@@ -276,7 +276,7 @@ class DB_sqlite3 extends DB_common
      
      function numCols($result)
      {
-	     return sqlite3_column_count($result);
+         return sqlite3_column_count($result);
      }
           
      // }}}
@@ -392,4 +392,3 @@ class DB_sqlite3 extends DB_common
 
 
 }  
-?>

@@ -28,7 +28,7 @@
 /**
  * Obtain the DB_common class so it can be extended from
  */
-require_once 'DB/common.php';
+require_once LIBS.'DB/common.php';
 
 /**
  * The methods PEAR DB uses to interact with PHP's pgsql extension
@@ -186,7 +186,7 @@ class DB_pgsql extends DB_common
      *
      * Example of connecting to a new link via a socket:
      * <code>
-     * require_once 'DB.php';
+     * require_once LIBS.'DB.php';
      * 
      * $dsn = 'pgsql://user:pass@unix(/tmp)/dbname?new_link=true';
      * $options = array(

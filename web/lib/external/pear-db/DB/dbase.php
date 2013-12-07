@@ -27,7 +27,7 @@
 /**
  * Obtain the DB_common class so it can be extended from
  */
-require_once 'DB/common.php';
+require_once LIBS.'DB/common.php';
 
 /**
  * The methods PEAR DB uses to interact with PHP's dbase extension
@@ -170,7 +170,7 @@ class DB_dbase extends DB_common
      *
      * Example of how to connect and establish a new dBase file if necessary:
      * <code>
-     * require_once 'DB.php';
+     * require_once LIBS.'DB.php';
      *
      * $dsn = array(
      *     'phptype'  => 'dbase',

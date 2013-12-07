@@ -26,7 +26,7 @@
 /**
  * Obtain the DB_common class so it can be extended from
  */
-require_once 'DB/common.php';
+require_once LIBS.'DB/common.php';
 
 /**
  * The methods PEAR DB uses to interact with PHP's mysqli extension
@@ -252,7 +252,7 @@ class DB_mysqli extends DB_common
      *
      * Example of how to connect using SSL:
      * <code>
-     * require_once 'DB.php';
+     * require_once LIBS.'DB.php';
      * 
      * $dsn = array(
      *     'phptype'  => 'mysqli',
