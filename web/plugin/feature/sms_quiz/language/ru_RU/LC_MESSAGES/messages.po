@@ -1,0 +1,111 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "Action"
+msgstr "Действие"
+
+msgid "Add SMS quiz"
+msgstr "Добавить викторину"
+
+msgid "Answer"
+msgstr "Ответ"
+
+msgid ""
+"Are you sure you want to delete SMS quiz with all its choices and answers ?"
+msgstr ""
+"Вы уверены, что хотите удаить викторину со всеми вариантами и ответами?"
+
+msgid "Are you sure you want to delete this answer ?"
+msgstr "Вы уверены, что хотите удалить этот ответ?"
+
+msgid "Datetime"
+msgstr "Дата время"
+
+msgid "Edit SMS quiz"
+msgstr "Изменить викторину"
+
+msgid "Fail to add SMS quiz"
+msgstr "Не удалось добавить викторину"
+
+msgid "Fail to edit SMS quiz"
+msgstr "Не удалось изменить викторину"
+
+msgid "Keyword"
+msgstr "Ключевое слово"
+
+msgid "Manage quiz"
+msgstr "Викторины"
+
+msgid "Question"
+msgstr "Вопрос"
+
+msgid "Received answer list for keyword"
+msgstr "Полученные ответы для ключевого слова"
+
+msgid "Reply message on correct"
+msgstr "Текст сообщения при правильном ответе"
+
+msgid "Reply message on incorrect"
+msgstr "Текст сообщения при неправиьном ответе"
+
+msgid "SMS quiz already exists, reserved or use by other feature"
+msgstr ""
+"Викторина уже существует, зарезервирована или используется другими модулями"
+
+msgid "SMS quiz answer"
+msgstr "Ответ"
+
+msgid "SMS quiz answer messages has been deleted"
+msgstr "Ответы удалены"
+
+msgid "SMS quiz has been added"
+msgstr "Викторина добавлена"
+
+msgid "SMS quiz has been saved"
+msgstr "Викторина сохранена"
+
+msgid "SMS quiz keyword"
+msgstr "Ключевое слово"
+
+msgid "SMS quiz question"
+msgstr "Текст вопроса"
+
+msgid "SMS quiz status has been changed"
+msgstr "Состояние викторины изменено"
+
+msgid "SMS quiz with all its messages has been deleted"
+msgstr "Викторина со всеми её сообщениями была удалена"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Sender"
+msgstr "Отправитель"
+
+msgid "Status"
+msgstr "Состояние"
+
+msgid "User"
+msgstr "Пользователь"
+
+msgid "You must fill all field"
+msgstr "Необходимо заполнить все поля"
+
+msgid "correct"
+msgstr "правиьно"
+
+msgid "incorrect"
+msgstr "неправиьно"
+
+msgid "keyword"
+msgstr "ключевое слово"

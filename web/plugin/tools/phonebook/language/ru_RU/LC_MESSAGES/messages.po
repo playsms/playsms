@@ -1,0 +1,127 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Add contact"
+msgstr "Добавить контакт"
+
+msgid "Add group"
+msgstr "Добавить групу"
+
+msgid "Contact has been added"
+msgstr "Контакт добавлен"
+
+msgid "Contact has been edited"
+msgstr "Контакт изменён"
+
+msgid "Contact is already exists"
+msgstr "Контакт уже существует"
+
+msgid "Contacts has been imported"
+msgstr "Контакты импортированы"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Edit contact"
+msgstr "Редактировать контакт"
+
+msgid "Edit group"
+msgstr "Редактировать группу"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Export"
+msgstr "Экспорт"
+
+msgid "Fail to upload CSV file for phonebook"
+msgstr "Не удалось загрузить CSV файл контактов"
+
+msgid "Group"
+msgstr "Группы"
+
+msgid "Group code"
+msgstr "Код группы"
+
+msgid "Group code has been added"
+msgstr "Код группы добавлен"
+
+msgid "Group code is already exists"
+msgstr "Код группы уже существует"
+
+msgid "Group code used by keyword"
+msgstr "Зарезервировано ключевое слово"
+
+msgid "Group has been edited"
+msgstr "Группа изменена"
+
+msgid "Group name"
+msgstr "Имя группы"
+
+msgid "Import"
+msgstr "Импорт"
+
+msgid "Import above phonebook entries ?"
+msgstr "Импортировать следующие записи?"
+
+msgid "Import confirmation"
+msgstr "Подтверждение импорта"
+
+msgid "Mobile"
+msgstr "Мобильный"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "No changes has been made"
+msgstr "Нет изменений"
+
+msgid "Note"
+msgstr "Замека"
+
+msgid "Phonebook"
+msgstr "Контакты"
+
+msgid "Please select CSV file for phonebook entries"
+msgstr "Выберите CSV файл контактов"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Selected contact has been deleted"
+msgstr "Выбранные контакты удалены"
+
+msgid "Selected group has been deleted"
+msgstr "Выбранные группы удалены"
+
+msgid "You must fill all field"
+msgstr "Необходимо заполнить все поля"
+
+msgid "broadcast SMS from single SMS"
+msgstr "Массовая рассылка"
+
+msgid "code"
+msgstr "код"
+
+msgid "format"
+msgstr "формат"
+
+msgid "group"
+msgstr "группа"
+
+msgid "mobile"
+msgstr "мобильный"
+
+msgid "name"
+msgstr "имя"
+
+msgid "please use uppercase and make it short"
+msgstr "придумайте короткое слово в верхнем регистре"

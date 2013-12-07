@@ -1,0 +1,63 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "Additional URL parameter"
+msgstr "Дополнительный параметр URL"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Например +0400 для Москвы"
+
+msgid "Gateway has been activated"
+msgstr "Шлюз активирован"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Настройки шлюза схранены"
+
+msgid "Gateway name"
+msgstr "Название шлюза"
+
+msgid "Manage uplink"
+msgstr "Управление uplink"
+
+msgid "Master URL"
+msgstr "Master URL"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Максимум 16 цифр или 11 символов, чтобы отключить оставьте пустым"
+
+msgid "Module sender ID"
+msgstr "Имя отправителя"
+
+msgid "Module timezone"
+msgstr "Часовой пояс"
+
+msgid "No changes has been made"
+msgstr "Нет изменений"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Try to disable SMS footer on master"
+msgstr "Попытаться отключить подпись сообщения"
+
+msgid "Webservice token"
+msgstr "Webservice token"
+
+msgid "Webservice username"
+msgstr "Webservice username"
+
+msgid "no"
+msgstr "нет"
+
+msgid "yes"
+msgstr "да"

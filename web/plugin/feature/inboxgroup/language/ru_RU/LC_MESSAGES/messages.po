@@ -1,0 +1,194 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "Action"
+msgstr "Действие"
+
+msgid "Add catch-all"
+msgstr "Добавить перехватывающего"
+
+msgid "Add group inbox"
+msgstr "Добавить общий ящик"
+
+msgid "Add member"
+msgstr "Добавить участника"
+
+msgid "All users"
+msgstr "Все пользователи"
+
+msgid "Are you sure you want to delete this group inbox ?"
+msgstr "Вы уверены, что хотите удалить эту группу принятых?"
+
+msgid "Catch-all"
+msgstr "Перехватывающие"
+
+msgid "Catch-all has been added"
+msgstr "Перехват добавлен"
+
+msgid "Catch-all has been deleted"
+msgstr "Перехват удалён"
+
+msgid "Catch-all list"
+msgstr "Перехватывающие"
+
+msgid "Current catchall"
+msgstr "Текущие перехватывающие"
+
+msgid "Current members"
+msgstr "Текущие участники"
+
+msgid "Delete catch-all"
+msgstr "Удалить пеерехватывающего"
+
+msgid "Delete group inbox"
+msgstr "Удалить общий ящик"
+
+msgid "Delete member"
+msgstr "Удалить участника"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Edit group inbox"
+msgstr "Редактировать группу принятых"
+
+msgid "Exclusive"
+msgstr "Закрытый"
+
+msgid "Fail to add catch-all"
+msgstr "Не удалось добавить перехватывающего"
+
+msgid "Fail to add group inbox"
+msgstr "Не удалось добавить общий ящик"
+
+msgid "Fail to add member"
+msgstr "Не удалось добавить участника"
+
+msgid "Fail to delete catch-all"
+msgstr "Не удалось удалить перехватывающего"
+
+msgid "Fail to delete group inbox"
+msgstr "Не удалось удалить общий ящик"
+
+msgid "Fail to delete member"
+msgstr "Не удалось удалить участника"
+
+msgid "Fail to disable group inbox"
+msgstr "Не удалось отключить общий ящик"
+
+msgid "Fail to edit group inbox"
+msgstr "Не удалось изменить общий ящик"
+
+msgid "Fail to enable group inbox"
+msgstr "Не удалось включить общий ящик"
+
+msgid "For example a short code"
+msgstr "Например, короткий номер"
+
+msgid "Group inbox"
+msgstr "Общие ящики"
+
+msgid "Group inbox has been added"
+msgstr "Общий ящик добавлен"
+
+msgid "Group inbox has been deleted"
+msgstr "Общий ящик удалён"
+
+msgid "Group inbox has been disabled"
+msgstr "Общий ящик отключён"
+
+msgid "Group inbox has been edited"
+msgstr "Общий ящик изменён"
+
+msgid "Group inbox has been enabled"
+msgstr "Общий ящик включён"
+
+msgid "Keywords"
+msgstr "Ключевые слова"
+
+msgid "Member has been added"
+msgstr "Участник добавлен"
+
+msgid "Member has been deleted"
+msgstr "Участник удалён"
+
+msgid "Member list"
+msgstr "Список участников"
+
+msgid "Members"
+msgstr "Участники"
+
+msgid "Mobile"
+msgstr "Мобильный"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "Number"
+msgstr "Номер"
+
+msgid "Press submit button to add selected users to catch-all list"
+msgstr ""
+"Нажмите подтвердить, чтобы добавить выбранных пользователей к перехватывающим"
+
+msgid "Press submit button to add selected users to member list"
+msgstr ""
+"Нажмите подтвердить, чтобы добавить выбранных пользователей к участникам"
+
+msgid "Press submit button to remove selected catchall from catch-all list"
+msgstr "Нажмите подтвердить, чтобы удалить выбранных перехватывающих из списка"
+
+msgid "Press submit button to remove selected members from member list"
+msgstr "Нажмите подтвердить, чтобы удалить выбранных участников из списка"
+
+msgid "Receiver number"
+msgstr "Номер получателя"
+
+msgid "Receiver number does not exists"
+msgstr "Номер получателя не существует"
+
+msgid "Restrict sender to regular members or catch-all members only"
+msgstr "Ограничить номер отправителя списком участников или перехватывающих"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Selected catchall"
+msgstr "Выбранные перехватывающие"
+
+msgid "Selected members"
+msgstr "Выбранные участники"
+
+msgid "Selected users"
+msgstr "Выбранные пользователи"
+
+msgid "Seperate with comma for multiple items"
+msgstr "Для ввода нескольких значений разделяйте запятыми"
+
+msgid "Status"
+msgstr "Состояние"
+
+msgid "Username"
+msgstr "Имя пользователя"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "You must fill all fields"
+msgstr "Необходимо заполнить все поля"
+
+msgid "no"
+msgstr "нет"
+
+msgid "yes"
+msgstr "да"

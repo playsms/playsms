@@ -1,0 +1,87 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "Cancel send from file"
+msgstr "Отменить отправку из файла"
+
+msgid "Confirmation"
+msgstr "Подтверждение"
+
+msgid "Destination number"
+msgstr "Номер получателя"
+
+msgid "Fail to remove cancelled entries from database"
+msgstr "Не удалось удалить отменённые задания из БД"
+
+msgid "Found invalid entries in uploaded file"
+msgstr "Недействительные записи в загруженном файле"
+
+msgid "Found valid entries in uploaded file"
+msgstr "Допустимые записи в загруженном файле"
+
+msgid "Invalid CSV file"
+msgstr "Недействительный CSV файл"
+
+msgid "Invalid entries"
+msgstr "Недействительные записи"
+
+msgid "Invalid session ID"
+msgstr "Недействительный номер сеанса"
+
+msgid "Message"
+msgstr "Сообщение"
+
+msgid "Please select CSV file"
+msgstr "Выберите CSV файл"
+
+msgid "SMS has been sent to valid numbers in uploaded file"
+msgstr "СМС отправлены на действительные номера в загруженном файле"
+
+msgid "Send SMS to valid entries"
+msgstr "Отправить СМС действительным получателям"
+
+msgid "Send from file"
+msgstr "Отправка из файла"
+
+msgid "Send from file has been cancelled"
+msgstr "Отправка из файла была отменена"
+
+msgid "Upload file"
+msgstr "Загрузить файл"
+
+msgid "Uploaded file"
+msgstr "Загруженный файл"
+
+msgid "Username"
+msgstr "Имя пользователя"
+
+msgid "Valid entries"
+msgstr "Действительные записи"
+
+msgid "Your choice"
+msgstr "Ваш выбор"
+
+msgid "format : destination number, message"
+msgstr "формат: номер получателя, сообщение"
+
+msgid "format : destination number, message, username"
+msgstr "формат: номер получателя, сообщение, имя пользователя"
+
+msgid "invalid entries"
+msgstr "недействительные записи"
+
+msgid "of"
+msgstr "из"
+
+msgid "valid entries"
+msgstr "действительные записи"

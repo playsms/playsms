@@ -1,0 +1,69 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "Action"
+msgstr "Действие"
+
+msgid "Add rate"
+msgstr "Добавить тариф"
+
+msgid "Are you sure you want to delete rate ?"
+msgstr "Вы уверены, что хотите удалить тариф?"
+
+msgid "Destination"
+msgstr "Назначение"
+
+msgid "Edit rate"
+msgstr "Редактировать тариф"
+
+msgid "Fail to delete rate"
+msgstr "Не удалось удалить тариф"
+
+msgid "Fail to save rate"
+msgstr "Не удалось сохранить тариф"
+
+msgid "Manage SMS rate"
+msgstr "Тарификация"
+
+msgid "No changes made!"
+msgstr "Нет изменений"
+
+msgid "Prefix"
+msgstr "Префикс"
+
+msgid "Rate"
+msgstr "Тариф"
+
+msgid "Rate has been added"
+msgstr "Тариф добавлен"
+
+msgid "Rate has been deleted"
+msgstr "Тариф удалён"
+
+msgid "Rate has been saved"
+msgstr "Тариф сохранён"
+
+msgid "Rate is already exists"
+msgstr "Тариф уже существует"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "You must fill all fields"
+msgstr "Необходимо заполнить все поля"
+
+msgid "destination"
+msgstr "назначение"
+
+msgid "prefix"
+msgstr "префикс"

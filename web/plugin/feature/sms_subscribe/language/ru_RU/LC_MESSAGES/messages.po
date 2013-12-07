@@ -1,0 +1,181 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "Action"
+msgstr "Действие"
+
+msgid "Add SMS subscribe"
+msgstr "Добавить рассылку"
+
+msgid "Add message"
+msgstr "Добавить сообщение"
+
+msgid "Already a member reply"
+msgstr "Ответ, еси уже подписан"
+
+msgid "Are you sure you want to delete SMS subscribe ?"
+msgstr "Вы уверены, что хотите удалить рассылку?"
+
+msgid "Are you sure you want to delete this member ?"
+msgstr "Вы уверены, что хотите удалить этого подписчика?"
+
+msgid "Are you sure you want to delete this message?"
+msgstr "Вы уверены, что хотите удалить это сообщение?"
+
+msgid "Created"
+msgstr "Создано"
+
+msgid "Edit SMS subscribe"
+msgstr "Изменить рассылку"
+
+msgid "Edit message"
+msgstr "Редактировать сообщение"
+
+msgid "Fail to add SMS subscribe"
+msgstr "Не удалось добавить рассылку"
+
+msgid "Fail to add message"
+msgstr "Не удалось добавить сообщение"
+
+msgid "Fail to edit SMS subscribe"
+msgstr "Не удалось изменить рассылку"
+
+msgid "Fail to edit message"
+msgstr "Не удалось изменить сообщение"
+
+msgid "Fail to send SMS"
+msgstr "Не удалось отправитьь сообщение"
+
+msgid "Keyword"
+msgstr "Ключевое слово"
+
+msgid "Last update"
+msgstr "Последнее обновление"
+
+msgid "Manage subscribe"
+msgstr "Рассылки"
+
+msgid "Member has been deleted"
+msgstr "Подписчик удалён"
+
+msgid "Member join datetime"
+msgstr "Дата подписки"
+
+msgid "Member list for keyword"
+msgstr "Подписчики по ключевому слову"
+
+msgid "Members"
+msgstr "Подписчики"
+
+msgid "Message"
+msgstr "Сообщение"
+
+msgid "Message ID"
+msgstr "ID сообщения"
+
+msgid "Message body"
+msgstr "Текст сообщения"
+
+msgid "Message detail"
+msgstr "Детали сообщения"
+
+msgid "Message has been added"
+msgstr "Сообщение добавлено"
+
+msgid "Message has been deleted"
+msgstr "Сообщение удалено"
+
+msgid "Message has been edited"
+msgstr "Сообщение изменено"
+
+msgid "Messages"
+msgstr "Сообщения"
+
+msgid "Phone number"
+msgstr "Номер телефоа"
+
+msgid "SMS forward parameter"
+msgstr "Параметры переадресации СМС"
+
+msgid "SMS messages list for keyword"
+msgstr "Список сообщений по ключевому слову"
+
+msgid "SMS subscribe already exists, reserved or use by other feature"
+msgstr ""
+"Рассылка уже существует, зарезервирована или используется другими модулями"
+
+msgid "SMS subscribe has been added"
+msgstr "Рассылка добавлена"
+
+msgid "SMS subscribe has been saved"
+msgstr "Рассылка сохранена"
+
+msgid "SMS subscribe keyword"
+msgstr "Ключевое слово рассылки"
+
+msgid "SMS subscribe parameter"
+msgstr "Параметр подписки"
+
+msgid "SMS subscribe reply"
+msgstr "Ответ об успешной подписке"
+
+msgid "SMS subscribe status has been changed"
+msgstr "Состояние рассылки изменено"
+
+msgid "SMS subscribe with all its messages and members has been deleted"
+msgstr "Рассыка со всеми её сообщениями и подписчиками удалена"
+
+msgid "SMS unsubscribe parameter"
+msgstr "Параметр отмены подписки"
+
+msgid "SMS unsubscribe reply"
+msgstr "Ответ об успешной отмене подписки"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Send"
+msgstr "Отправить"
+
+msgid "Send this message to all members"
+msgstr "Отправить это сообщение всем подписчикам"
+
+msgid "Sent"
+msgstr "Отправлено"
+
+msgid "Status"
+msgstr "Состояние"
+
+msgid "Unknown format reply"
+msgstr "Ответ о неизвестном формате"
+
+msgid "User"
+msgstr "Пользователь"
+
+msgid "View members"
+msgstr "Посмотреть пользователей"
+
+msgid "View messages"
+msgstr "Посмотреть сообщения"
+
+msgid "You have no member"
+msgstr "У Вас нет подписчиков"
+
+msgid "You must fill all fields"
+msgstr "Необходимо заполнить все поля"
+
+msgid "Your SMS has been delivered to queue"
+msgstr "Ваше СМС поставлено в очередь"
+
+msgid "keyword"
+msgstr "ключевое слово"

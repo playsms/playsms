@@ -1,0 +1,75 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "API key"
+msgstr "API key"
+
+msgid "API secret"
+msgstr "API secret"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Например +0400 для  Москвы"
+
+msgid "Fill to change the API secret"
+msgstr "Заполните для изменения API secret"
+
+msgid "Gateway has been activated"
+msgstr "Шлюз активирван"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Настройки шлюза сохранены"
+
+msgid "Gateway name"
+msgstr "Название шлюза"
+
+msgid "Manage nexmo"
+msgstr "Управление nexmo"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Максимум 16 цифр или 11 символов, чтобы отключить оставьте пустым"
+
+msgid "Module sender ID"
+msgstr "Имя отправителя"
+
+msgid "Module timezone"
+msgstr "Часовой пояс"
+
+msgid "Nexmo URL"
+msgstr "Nexmo URL"
+
+msgid "Nexmo is a bulk SMS provider"
+msgstr "Nexmo это массовый СМС провайдер"
+
+msgid "Nexmo will push DLR and incoming SMS to your callback URL"
+msgstr "Nexmo тправит DLR и входящие СМС на Ваш callback URL"
+
+msgid "No changes has been made"
+msgstr "нет изменений"
+
+msgid "Notes"
+msgstr "Примечания"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Use JSON format URL"
+msgstr "Испоьзовать формат JSON"
+
+msgid "Your callback URL is"
+msgstr "Ваш callback URL"
+
+msgid "Your callback URL should be accessible from Nexmo"
+msgstr "Ваш callback URL должен быть доступен с стороны Nexmo"
+
+msgid "free credits are available for testing purposes"
+msgstr "бесплатный лимит доступен для целей тестирования"
