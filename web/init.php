@@ -28,6 +28,10 @@ define('_DB_USER_', $core_config['db']['user']);
 define('_DB_PASS_', $core_config['db']['pass']);
 define('_DB_NAME_', $core_config['db']['name']);
 
+// defines DSN
+define('_DB_DSN_', $core_config['db']['dsn']);
+define('_DB_OPT_', $core_config['db']['options']);
+
 $core_config['db']['pref'] = 'playsms';
 define('_DB_PREF_', $core_config['db']['pref']);
 
@@ -212,5 +216,3 @@ if (! ($core_config['module']['gateway'] && $core_config['module']['themes'] && 
 
 // fixme anton - uncomment this if you want to know what are available in $core_config
 //print_r($core_config); die();
-
-?>

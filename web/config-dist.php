@@ -8,6 +8,13 @@ $core_config['db']['user'] = '#DBUSER#';	// database username
 $core_config['db']['pass'] = '#DBPASS#';	// database password
 $core_config['db']['name'] = '#DBNAME#';	// database name
 
+// alternatively you can pass DSN and connect options
+// ref:
+// - http://pear.php.net/manual/en/package.database.db.intro-dsn.php
+// - http://pear.php.net/manual/en/package.database.db.intro-connect.php
+// $core_config['db']['dsn'] = '';
+// $core_config['db']['options'] = '';
+
 // SMTP configuration
 $core_config['smtp']['relm'] = ''; // yes, not realm, its relm
 $core_config['smtp']['user'] = '';
@@ -68,5 +75,3 @@ $core_config['sendsmsd_queue']	= 30;
 
 // webservices require username
 $core_config['webservices_username']	= true;
-
-?>
