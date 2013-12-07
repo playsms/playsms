@@ -17,17 +17,23 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.4\n"
 
+msgid "Action"
+msgstr ""
+
+msgid "Are you sure you want to delete queue"
+msgstr ""
+
 msgid "Count"
 msgstr "Total"
-
-msgid "Group"
-msgstr "Grup"
 
 msgid "Message"
 msgstr "Missatge"
 
 msgid "Queue Code"
 msgstr "Codi cua"
+
+msgid "Queue has been remove"
+msgstr ""
 
 msgid "Scheduled"
 msgstr ""

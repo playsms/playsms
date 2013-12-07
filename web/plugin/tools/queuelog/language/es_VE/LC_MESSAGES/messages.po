@@ -1,13 +1,19 @@
-msgid "Count"
+msgid "Action"
 msgstr ""
 
-msgid "Group"
+msgid "Are you sure you want to delete queue"
+msgstr ""
+
+msgid "Count"
 msgstr ""
 
 msgid "Message"
 msgstr ""
 
 msgid "Queue Code"
+msgstr ""
+
+msgid "Queue has been remove"
 msgstr ""
 
 msgid "Scheduled"

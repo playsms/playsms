@@ -1,5 +1,5 @@
 <?php
 
-$core_config['version'] = '0.9.9.2';
+$core_config['version'] = '1.0-trunk';
 
 ?>

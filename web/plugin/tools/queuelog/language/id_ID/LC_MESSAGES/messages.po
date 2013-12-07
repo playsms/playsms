@@ -1,14 +1,20 @@
+msgid "Action"
+msgstr ""
+
+msgid "Are you sure you want to delete queue"
+msgstr ""
+
 msgid "Count"
 msgstr "Hitung"
-
-msgid "Group"
-msgstr "Grup"
 
 msgid "Message"
 msgstr "Pesan"
 
 msgid "Queue Code"
 msgstr "Kode antrian"
+
+msgid "Queue has been remove"
+msgstr ""
 
 msgid "Scheduled"
 msgstr ""

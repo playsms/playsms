@@ -762,6 +762,9 @@ msgstr "e-mail"
 msgid "failed"
 msgstr "falha"
 
+msgid "format YYYY-MM-DD hh:mm"
+msgstr ""
+
 msgid "forward"
 msgstr "encaminhar"
 
@@ -785,6 +788,9 @@ msgstr "não configurado"
 
 msgid "number"
 msgstr "número"
+
+msgid "prefix with # for groups and @ for users"
+msgstr ""
 
 msgid "queued"
 msgstr "em fila"

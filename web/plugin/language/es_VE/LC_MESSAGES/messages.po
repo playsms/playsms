@@ -779,6 +779,9 @@ msgstr "Correo electrónico"
 msgid "failed"
 msgstr "falló"
 
+msgid "format YYYY-MM-DD hh:mm"
+msgstr ""
+
 #, fuzzy
 msgid "forward"
 msgstr "Firma del correo reenviado"
@@ -803,6 +806,9 @@ msgstr "No configurado"
 
 msgid "number"
 msgstr "número"
+
+msgid "prefix with # for groups and @ for users"
+msgstr ""
 
 msgid "queued"
 msgstr ""

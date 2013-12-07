@@ -760,6 +760,9 @@ msgstr "email"
 msgid "failed"
 msgstr "gagal"
 
+msgid "format YYYY-MM-DD hh:mm"
+msgstr ""
+
 msgid "forward"
 msgstr "teruskan"
 
@@ -783,6 +786,9 @@ msgstr "belum diatur"
 
 msgid "number"
 msgstr "nomor"
+
+msgid "prefix with # for groups and @ for users"
+msgstr ""
 
 msgid "queued"
 msgstr "antri"

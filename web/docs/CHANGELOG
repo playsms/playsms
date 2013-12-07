@@ -1,6 +1,9 @@
 CHANGELOG
 ---------
 
+Version 1.0 - NA
+- add new language Russian ru_RU (dvoryanchikov)
+
 Version 0.9.9.2 - 131205
 - MAJOR: new install will use MySQL InnoDB
 - MAJOR: replace term 'slid' with 'smslog_id' on all places
