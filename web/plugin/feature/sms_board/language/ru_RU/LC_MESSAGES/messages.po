@@ -1,0 +1,129 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "Action"
+msgstr "Действие"
+
+msgid "Add SMS board"
+msgstr "Добавить доску объявлений"
+
+msgid "Are you sure you want to delete SMS board with all its messages ?"
+msgstr ""
+"Вы уверены, что хотите удалить доску объявлений со всеми её сообщениями?"
+
+msgid "CSS URL"
+msgstr "CSS URL"
+
+msgid "Date and time"
+msgstr "Дата и время"
+
+msgid "Edit SMS board"
+msgstr "Редактировать доску объявлений"
+
+msgid "Fail to add SMS board"
+msgstr "Не удалось добавить доску объявлений"
+
+msgid "Fail to edit SMS board"
+msgstr "Не удалось изменить доску объявлений"
+
+msgid "Forward"
+msgstr "Переадресация"
+
+msgid "Forward WebSMS"
+msgstr "Переадресация на WebSMS"
+
+msgid "Forward to email"
+msgstr "Переадресация на email"
+
+msgid "HTML output"
+msgstr "HTML формат"
+
+msgid "JSON output"
+msgstr "JSON формат"
+
+msgid "Keyword"
+msgstr "Ключевое слово"
+
+msgid "MBOX output"
+msgstr "MBOX формат"
+
+msgid "Manage board"
+msgstr "Доски объявлений"
+
+msgid "Message"
+msgstr "Сообщение"
+
+msgid "PHP serialize output"
+msgstr "PHP serialize формат"
+
+msgid "RSS 0.91 output"
+msgstr "RSS 0.91 формат"
+
+msgid "RSS 1.0 output"
+msgstr "RSS 1.0 формат"
+
+msgid "RSS 2.0 output"
+msgstr "RSS 2.0 формат"
+
+msgid "RSS ATOM output"
+msgstr "RSS ATOM формат"
+
+msgid "Receiver"
+msgstr "Получатель"
+
+msgid "Row template"
+msgstr "Шаблон строки"
+
+msgid "SMS Board"
+msgstr "Доска объявлений"
+
+msgid "SMS board has been added"
+msgstr "Доска объявлений добавлена"
+
+msgid "SMS board has been saved"
+msgstr "Доска объявлений сохранена"
+
+msgid "SMS board keyword"
+msgstr "Ключевое слово"
+
+msgid "SMS board with all its messages has been deleted"
+msgstr "Доска объявлений со всеми её сообщениями удалена"
+
+msgid "SMS keyword already exists, reserved or use by other feature"
+msgstr ""
+"Ключевое слово уже существует, зарезервировано или используется другими "
+"модулями"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Sender"
+msgstr "Отправитель"
+
+msgid "User"
+msgstr "Пользователь"
+
+msgid "View board"
+msgstr "Посмотреть объявления"
+
+msgid "XML output"
+msgstr "XML формат"
+
+msgid "You must fill all fields"
+msgstr "Необходимо заполнить все поля"
+
+msgid "from"
+msgstr "от"
+
+msgid "keyword"
+msgstr "ключевое слово"

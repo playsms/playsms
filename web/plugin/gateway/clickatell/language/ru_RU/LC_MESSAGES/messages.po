@@ -1,0 +1,82 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "API ID"
+msgstr "API ID"
+
+msgid "Additional URL parameter"
+msgstr "Дополнительные параметры URL"
+
+msgid "Clickatell API URL"
+msgstr "Clickatell API URL"
+
+msgid "Clickatell is a bulk SMS provider"
+msgstr "Clickatell это массовый СМС првайдер"
+
+msgid "Clickatell will push DLR and incoming SMS to your callback URL"
+msgstr "Clickatell отправит DLR и входящие SMS на Ваш callback URL"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Например +0400 для Москвы"
+
+msgid "Fill to change the password"
+msgstr "Заполните для изменения пароля"
+
+msgid "Gateway has been activated"
+msgstr "Шлюз активирован"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Настройки шлюза сохранены"
+
+msgid "Gateway name"
+msgstr "Название шлюза"
+
+msgid "Manage clickatell"
+msgstr "Сlickatell"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+"Максимум 16 цифр или 11 латинских символов, оставьте пустым, чтобы отключить"
+
+msgid "Module sender ID"
+msgstr "Имя отправителя"
+
+msgid "Module timezone"
+msgstr "Часовой пояс"
+
+msgid "No changes has been made"
+msgstr "Нет изменений"
+
+msgid "No trailing slash"
+msgstr "без наклонной черты в конце"
+
+msgid "Notes"
+msgstr "Примечания"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Username"
+msgstr "Имя пользователя"
+
+msgid "Your callback URL is"
+msgstr "Ваш callback URL"
+
+msgid "Your callback URL should be accessible from Clickatell"
+msgstr "Ваш callback URL должен быть доступен со стороны Clickatell"
+
+msgid "free credits are available for testing purposes"
+msgstr "бесплантый лимит доступен для целей тестирования"

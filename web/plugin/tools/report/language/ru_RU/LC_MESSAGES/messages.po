@@ -1,0 +1,47 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "All reports"
+msgstr "Все отчёты"
+
+msgid "Billing"
+msgstr "Потрачено"
+
+msgid "Credit"
+msgstr "Баланс"
+
+msgid "Deleted"
+msgstr "Удалено"
+
+msgid "Delivered"
+msgstr "Доставлено"
+
+msgid "Failed"
+msgstr "Ошибок"
+
+msgid "My report"
+msgstr "Мой отчёт"
+
+msgid "Pending"
+msgstr "Ожидает"
+
+msgid "Report"
+msgstr "Отчёт"
+
+msgid "Sent"
+msgstr "Отправлено"
+
+msgid "Total"
+msgstr "Всего"
+
+msgid "User"
+msgstr "Пользователь"

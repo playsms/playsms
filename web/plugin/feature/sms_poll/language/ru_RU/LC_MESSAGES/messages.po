@@ -1,0 +1,137 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "Action"
+msgstr "Действие"
+
+msgid "Add"
+msgstr "Добавить"
+
+msgid "Add SMS poll"
+msgstr "Добавить голосование"
+
+msgid "Add choice to this poll"
+msgstr "Добавить варианты"
+
+msgid ""
+"Are you sure you want to delete SMS poll with all its choices and votes ?"
+msgstr "Вы уверены, что хотите удалить голосование со всеми его резуьтатами?"
+
+msgid "Are you sure you want to delete choice ?"
+msgstr "Вы уверены, что хотите удалить вариант?"
+
+msgid "Choice already exists"
+msgstr "Вариант уже существует"
+
+msgid "Choice has been added"
+msgstr "Вариант добавлен"
+
+msgid "Choice keyword"
+msgstr "Ключевое слово"
+
+msgid "Choice title"
+msgstr "Заголовок"
+
+msgid "Edit SMS poll"
+msgstr "Изменить голосование"
+
+msgid "Edit SMS poll choices"
+msgstr "Изменить варианты"
+
+msgid "Fail to add SMS poll"
+msgstr "Не удалось добавить голосование"
+
+msgid "Fail to delete SMS poll choice"
+msgstr "Не удалось удалить вариант"
+
+msgid "Graph output"
+msgstr "График"
+
+msgid "JSON output"
+msgstr "JSON формат"
+
+msgid "Keyword"
+msgstr "Ключевое слово"
+
+msgid "Manage poll"
+msgstr "Голосования"
+
+msgid "PHP serialize output"
+msgstr "PHP serialize формат"
+
+msgid "Reply message on invalid answer"
+msgstr "Ответ при невалидном выборе"
+
+msgid "Reply message on valid answer"
+msgstr "Ответ при валидном выборе"
+
+msgid "Reply message when invalid answer"
+msgstr "Ответ при невалидном выборе"
+
+msgid "SMS poll already exists, reserved or use by other feature"
+msgstr ""
+"Голосование уже существует, зарезервировано или используется другими модулями"
+
+msgid "SMS poll choice and all its voters has been deleted"
+msgstr "Вариант со всемии его выбравшими удалён"
+
+msgid "SMS poll graph"
+msgstr "График голосования"
+
+msgid "SMS poll has been added"
+msgstr "Голосование добавлено"
+
+msgid "SMS poll keyword"
+msgstr "Ключевое слово"
+
+msgid "SMS poll status has been changed"
+msgstr "Состояние голосования изменено"
+
+msgid "SMS poll title"
+msgstr "Название голосования"
+
+msgid "SMS poll with all its messages has been deleted"
+msgstr "Голосование со всеми результатами удалено"
+
+msgid "SMS poll with has been saved"
+msgstr "Голосование сохранено"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Status"
+msgstr "Состояние"
+
+msgid "This poll has 0 votes!"
+msgstr "Никто не проголосовал!"
+
+msgid "Title"
+msgstr "Название"
+
+msgid "User"
+msgstr "Пользователь"
+
+msgid "View poll"
+msgstr "Посмотреть результаты"
+
+msgid "XML output"
+msgstr "XML формат"
+
+msgid "You must fill all fields"
+msgstr "Необходимо заполнить все поля"
+
+msgid "keyword"
+msgstr "ключевое слово"
+
+msgid "title"
+msgstr "название"

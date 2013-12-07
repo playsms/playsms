@@ -1,0 +1,45 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "Date/Time"
+msgstr "Дата/Время"
+
+msgid "Fail to simulate incoming SMS"
+msgstr "Не удалось симулировать входящее СМС"
+
+msgid "Gateway has been activated"
+msgstr "Шлюз активирован"
+
+msgid "Gateway name"
+msgstr "Название шлюза"
+
+msgid "Manage dev"
+msgstr "Тестовый"
+
+msgid "Message"
+msgstr "Сообщение"
+
+msgid "Receiver"
+msgstr "Получатель"
+
+msgid "Sender"
+msgstr "Отправитель"
+
+msgid "Simulate incoming SMS"
+msgstr "Симулировать входящее СМС"
+
+msgid "Submit"
+msgstr "Принять"
+
+msgid "This is a test incoming SMS message"
+msgstr "Это тестовое входящее сообщение"

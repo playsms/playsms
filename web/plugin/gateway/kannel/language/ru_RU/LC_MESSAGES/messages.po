@@ -1,0 +1,120 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "Additional URL parameter"
+msgstr "Дополнительный параметр URL"
+
+msgid "Bearerbox hostname or IP"
+msgstr "IP адрес или имя сервера bearerbox"
+
+msgid "Delivered to SMSC"
+msgstr "Доставлено на SMSC"
+
+msgid "Delivered to phone"
+msgstr "Доставлено на телефон"
+
+msgid "Delivery Report"
+msgstr "Отчёты о доставке"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Например, +0400 для Москвы"
+
+msgid "Fill to change the password"
+msgstr "Заполните для изменения пароля"
+
+msgid "Gateway has been activated"
+msgstr "Шлюз активирован"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Конфигурация шлюза сохранена"
+
+msgid "Gateway name"
+msgstr "Название шлюза"
+
+msgid "HTTP Kannel admin password"
+msgstr "Пароль администратора Kannel"
+
+msgid "HTTP Kannel admin port"
+msgstr "Порт для администрирования Kannel"
+
+msgid "Kannel admin password"
+msgstr "Пароль администратора Kannel"
+
+msgid "Kannel admin port"
+msgstr "Порт для администрирования Kannel"
+
+msgid "Kannel configuration"
+msgstr "Конфигурация Kannel"
+
+msgid "Kannel configuration file"
+msgstr "Файл конфигурации Kannel"
+
+msgid "Kannel configuration file must be writable"
+msgstr "Файл конфигурации Kannel должен быть доступен на запись"
+
+msgid "Kannel specific"
+msgstr "Настройки Kannel"
+
+msgid "Kannel status"
+msgstr "Состояние Kannel"
+
+msgid "Manage kannel"
+msgstr "Управление Kannel"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Максимум 16 цифр или 11 символов, чтобы отключить оставьте пустым"
+
+msgid "Module sender ID"
+msgstr "Имя отправителя"
+
+msgid "Module timezone"
+msgstr "часовой пояс"
+
+msgid "No changes has been made"
+msgstr "Нет изменений"
+
+msgid "Non-Delivered to SMSC"
+msgstr "Не доставлено на SMSC"
+
+msgid "Non-Delivered to phone"
+msgstr "Не доставлено на телефон"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Queued on SMSC"
+msgstr "Поставлено в очередь на SMSC"
+
+msgid "Restart Kannel"
+msgstr "Перезапустить Kannel"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Send SMS hostname or IP"
+msgstr "IP адрес или имя сервера sendsms"
+
+msgid "Send SMS port"
+msgstr "Порт для отправки СМС"
+
+msgid "Status"
+msgstr "Состояние"
+
+msgid "URL to playSMS, empty it to set it to base URL"
+msgstr "URL playSMS сервера, оставьте пустым для использования базового URL"
+
+msgid "Username"
+msgstr "Имя пользователя"
+
+msgid "playSMS web URL"
+msgstr "URL playSMS сервера"

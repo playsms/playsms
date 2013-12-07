@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "Action"
+msgstr "Действие"
+
+msgid "Add SMS custom"
+msgstr "Добавить запрос URL"
+
+msgid "Are you sure you want to delete SMS custom ?"
+msgstr "Вы уверены, что хотите удалить запрос URL?"
+
+msgid "Edit SMS custom"
+msgstr "Изменить запрос url"
+
+msgid "Fail to add SMS custom"
+msgstr "Не удалось добавить запрос url"
+
+msgid "Fail to delete SMS custom"
+msgstr "Не удалось удалить запрос url"
+
+msgid "Fail to save SMS custom"
+msgstr "Не удалось сохранить запрос url"
+
+msgid "Keyword"
+msgstr "Ключевое слово"
+
+msgid "Make return as reply"
+msgstr "Отправить результат в ответе"
+
+msgid "Manage custom"
+msgstr "Запрос URL"
+
+msgid "Pass these parameter to custom URL field"
+msgstr "Эти параметры могут быть переданы странице в строке вызова"
+
+msgid "SMS custom URL"
+msgstr "URL адрес"
+
+msgid "SMS custom already exists, reserved or use by other feature"
+msgstr ""
+"URL адрес уже существует, зарезервирован или используется другими модулями"
+
+msgid "SMS custom has been added"
+msgstr "Запрос URL добавлен"
+
+msgid "SMS custom has been deleted"
+msgstr "Запрос URL удалён"
+
+msgid "SMS custom has been saved"
+msgstr "Запрос URL сохранён"
+
+msgid "SMS custom keyword"
+msgstr "Ключевое слово запроса"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "User"
+msgstr "Пользователь"
+
+msgid "You must fill all fields"
+msgstr "Необходимо заполнить все поля"
+
+msgid "keyword"
+msgstr "ключевое слово"
+
+msgid "will be replaced by SMS incoming date/time"
+msgstr "будет заменён на дату/время входящего СМС"
+
+msgid "will be replaced by SMS raw message"
+msgstr "будет заменён на текст входящего сообщения"
+
+msgid "will be replaced by custom keyword"
+msgstr "будет заменён на ключевое слово"
+
+msgid "will be replaced by custom parameter passed to server from SMS"
+msgstr "будет заменён на параметр, переданный в смс"
+
+msgid "will be replaced by sender number"
+msgstr "будет заменён на номер отправителя"

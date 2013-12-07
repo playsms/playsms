@@ -1,0 +1,810 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-11 22:14+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "About"
+msgstr "О программе"
+
+msgid "About playSMS"
+msgstr "О playSMS"
+
+msgid "Action"
+msgstr "Действие"
+
+msgid "Active gateway module"
+msgstr "Активный шлюз"
+
+msgid "Active language"
+msgstr "Язык"
+
+msgid "Active themes"
+msgstr "Тема"
+
+msgid "Add"
+msgstr "Добавить"
+
+msgid "Add message template"
+msgstr "Добавить шаблон"
+
+msgid "Add user"
+msgstr "Добавить пользователя"
+
+msgid "Address"
+msgstr "Адрес"
+
+msgid "Administration"
+msgstr "Администрирование"
+
+msgid "Administrator"
+msgstr "Администратор"
+
+msgid "All"
+msgstr "Все"
+
+msgid "All Inbox"
+msgstr "Все Принятые"
+
+msgid "All inbox"
+msgstr "Все принятые"
+
+msgid "All incoming SMS"
+msgstr "Все входящие СМС"
+
+msgid "All outgoing SMS"
+msgstr "Все исходящие СМС"
+
+msgid "Allow custom SMS footer"
+msgstr "Разрешить изменение подписи СМС"
+
+msgid "Allow custom sender ID"
+msgstr "Разрешить изменение имени отправителя"
+
+msgid "Always add plus sign"
+msgstr "Всегда добавлять знак +"
+
+msgid "Always choose to send as unicode"
+msgstr "Юникод по умолчанию"
+
+msgid "Application information"
+msgstr "Информация о приложении"
+
+msgid "Application options"
+msgstr "Настройки приложения"
+
+msgid "Are you sure you want to delete outgoing SMS ?"
+msgstr "Вы уверены, что хотите удалить исходящее СМС?"
+
+msgid "Are you sure you want to delete this SMS ?"
+msgstr "Вы уверены, что хотите удалить это СМС?"
+
+msgid "Are you sure you want to delete user"
+msgstr "Вы уверены, что хотите удалить пользователя"
+
+msgid "Are you sure you want to delete user ?"
+msgstr "Вы уверены, что хотите удалить пользователя?"
+
+msgid "Auto remove plus sign"
+msgstr "Автоматически удалять знак +"
+
+msgid "Auto replace prefix 0"
+msgstr "Автоматически заменять префикс 0"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "Changelog"
+msgstr "Изменения"
+
+msgid "City"
+msgstr "Город"
+
+msgid "Comma seperated"
+msgstr "Разделённый запятыми"
+
+msgid "Content"
+msgstr "Содержимое"
+
+msgid "Country"
+msgstr "Страна"
+
+msgid "Created"
+msgstr "Создан"
+
+msgid "Credit"
+msgstr "Баланс"
+
+msgid "Currently logged in user is immune to deletion"
+msgstr "Невозможно удалить пользователя, выполнившего вход"
+
+msgid "Date time"
+msgstr "Дата время"
+
+msgid "Default"
+msgstr "По умолчанию"
+
+msgid "Default SMS rate"
+msgstr "Цена СМС по умолчанию"
+
+msgid "Default credit for user"
+msgstr "Баланс пользователя по умолчанию "
+
+msgid "Default language"
+msgstr "Язык по умолчанию"
+
+msgid "Default sender ID"
+msgstr "Имя отправителя по умолчанию"
+
+msgid "Default timezone"
+msgstr "Часовой пояс по умолчанию"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Delete all templates ?"
+msgstr "Удалить все шаблоны?"
+
+msgid "Delete message template"
+msgstr "Удалить шаблон"
+
+msgid "Delete selection"
+msgstr "Удалить выбранное"
+
+msgid "Delete user"
+msgstr "Удалить пользователя"
+
+msgid "Delivered"
+msgstr "Доставлено"
+
+msgid "Edit"
+msgstr "Редактировать"
+
+msgid "Edit message template"
+msgstr "Редактировать шаблон"
+
+msgid "Effective SMS sender ID"
+msgstr "СМС будет отправлено от имени"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Например: +0400 для Москвы"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Email is already in use by other username"
+msgstr "Email уже используется другим пользователем"
+
+msgid "Enable forgot password"
+msgstr "Включить восстановление пароля"
+
+msgid "Enable public registration"
+msgstr "Включить регистрацию"
+
+msgid "Enable webservices"
+msgstr "Включить веб-сервисы"
+
+msgid "Export"
+msgstr "Экспорт"
+
+msgid "F.A.Q"
+msgstr "Ча.Во."
+
+msgid "Fail sent SMS, no credit"
+msgstr "Не удалось отправить СМС, недостаточно средств"
+
+msgid "Fail to delete SMS"
+msgstr "Не удалось удалить СМС"
+
+msgid "Fail to delete incoming SMS"
+msgstr "Не удалось удалить входящее СМС"
+
+msgid "Fail to delete user"
+msgstr "Не удалось удалить пользователя"
+
+msgid "Fail to edit message template"
+msgstr "Не удалось изменить шаблон"
+
+msgid "Fail to recover password"
+msgstr "Не удалось восстановить пароль"
+
+msgid "Fail to register an account"
+msgstr "Не удалось зарегистрировать пользователя"
+
+msgid "Fail to save preferences"
+msgstr "Не удалось сохранить настройки"
+
+msgid "Fail to send email"
+msgstr "Не удалось отправить email"
+
+msgid "Fail to sent SMS"
+msgstr "На удалось отправить СМС"
+
+msgid "Failed"
+msgstr "Отказ"
+
+msgid "Feature"
+msgstr "Функции"
+
+msgid "Fill to change password for username"
+msgstr "Заполните для изменения пароля"
+
+msgid "Fill to update"
+msgstr "Заполните для обновления"
+
+msgid "Flash message"
+msgstr "Всплывающее СМС"
+
+msgid "Footer"
+msgstr "Подпись"
+
+msgid "Forward"
+msgstr "Переадресация"
+
+msgid "Forward PV to email"
+msgstr "Переадресация ЛС на email"
+
+msgid "Forward PV to inbox"
+msgstr "Переадресация ЛС в Принятые"
+
+msgid "Forward PV to mobile"
+msgstr "Переадресация ЛС на мобильный"
+
+msgid "Forward Private WebSMS"
+msgstr "Переадресация личного сообщения"
+
+msgid "Forward SMS to email"
+msgstr "Переадресация СМС на email"
+
+msgid "Forward SMS to inbox"
+msgstr "Переадресация СМС в Принятые"
+
+msgid "Forward SMS to mobile"
+msgstr "Переадресация СМС на мобильный"
+
+msgid "Forward from"
+msgstr "Отправитель"
+
+msgid "Forwarded email footer"
+msgstr "Подпись переадресованного сообщения"
+
+msgid "From"
+msgstr "От"
+
+msgid "Full name"
+msgstr "Полное имя"
+
+msgid "Gateway"
+msgstr "Шлюз"
+
+msgid "Go"
+msgstr "Вперёд"
+
+msgid "Group"
+msgstr "Группа"
+
+msgid "Group code"
+msgstr "Код группы"
+
+msgid "HTTP API"
+msgstr "HTTP API"
+
+msgid "Home"
+msgstr "Главная"
+
+msgid "Import"
+msgstr "Импортировать"
+
+msgid "Inbox"
+msgstr "Принятые"
+
+msgid "Incoming SMS"
+msgstr "Входящие СМС"
+
+msgid "Installation Guide"
+msgstr "Инструкция по установке"
+
+msgid "International format"
+msgstr "Международный формат"
+
+msgid "Invalid username or password"
+msgstr "Неправильное имя пользователя или пароль"
+
+msgid "Keyword"
+msgstr "Ключевое слово"
+
+msgid "Last update"
+msgstr "Последнее обновление"
+
+msgid "License"
+msgstr "Пользовательское соглашение"
+
+msgid "Local number length"
+msgstr "Длина местного номера"
+
+msgid "Login information"
+msgstr "Регистрационная информация"
+
+msgid "Logout"
+msgstr "Выйти"
+
+msgid "Main configuration"
+msgstr "Конфигурация"
+
+msgid "Main configuration changes has been saved"
+msgstr "Конфигурация сохранена"
+
+msgid "Main website URL"
+msgstr "Ссылка на сайт"
+
+msgid "Main website name"
+msgstr "Название сайта"
+
+msgid "Manage"
+msgstr "Редактировать"
+
+msgid "Manage user"
+msgstr "Управление пользователями"
+
+msgid "Max. 16 numeric or 11 alphanumeric characters"
+msgstr "Макс. 16 цифр или 11 символов"
+
+msgid "Max. 20 digits mobile phone number"
+msgstr "Номер мобильного, макс. 20 цифр"
+
+msgid "Max. 30 alphanumeric characters"
+msgstr "Макс. 30 символов"
+
+msgid "Maximum SMS count"
+msgstr "Макс. СМС сегментов"
+
+msgid "Message"
+msgstr "Сообщение"
+
+msgid "Message template"
+msgstr "Шабон сообщения"
+
+msgid "Message template content"
+msgstr "Текст шаблона"
+
+msgid "Message template has been edited"
+msgstr "Шаблон отредактирован"
+
+msgid "Message template has been saved"
+msgstr "Шаблон сохранён"
+
+msgid "Message template name"
+msgstr "Название шаблона"
+
+msgid "Min length to detect missing country code"
+msgstr "Минимальная длина номера для определения отсутствующего кода страны"
+
+msgid "Mobile"
+msgstr "Мобильный"
+
+msgid "Mobile is already in use by other username"
+msgstr "Номер уже используется другим пользователем"
+
+msgid "Mobile number"
+msgstr "Номер мобильного"
+
+msgid "My Account"
+msgstr "Мой профиль"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "New account registration"
+msgstr "Регистрация нового пользователя"
+
+msgid "New webservices token"
+msgstr "Новый токен для веб-сервисов"
+
+msgid "No changes made"
+msgstr "Нет изменений"
+
+msgid "Normal User"
+msgstr "Обычный пользователь"
+
+msgid "Normal user"
+msgstr "Обычный пользователь"
+
+msgid "Options"
+msgstr "Параметры"
+
+msgid "Or"
+msgstr "Или"
+
+msgid "Outgoing SMS"
+msgstr "Исходящие СМС"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Password does not match"
+msgstr "Пароли не совпвдают"
+
+msgid "Password has been sent to your email"
+msgstr "Пароль был выслан на ваш email"
+
+msgid "Password recovery"
+msgstr "Восстановление пароля"
+
+msgid "Password should be at least 4 characters"
+msgstr "Минимальная длина пароля 4 знака"
+
+msgid "Pending"
+msgstr "Ожидает"
+
+msgid "Personal information"
+msgstr "Персональная информация"
+
+msgid "Phone number(s)"
+msgstr "Номер(а)"
+
+msgid "Phonebook"
+msgstr "Контакты"
+
+msgid "Phonebook groups"
+msgstr "Группы контактов"
+
+msgid "Phonebook numbers"
+msgstr "Номера контактов"
+
+msgid "Pick Date & Time"
+msgstr "Выбрать дату/время"
+
+msgid "Pick date & time"
+msgstr "Выбрать дату и время"
+
+msgid "Please select"
+msgstr "Выберите"
+
+msgid "Please select template"
+msgstr "Выберите шаблон"
+
+msgid "Preferences"
+msgstr "Профиль"
+
+msgid "Preferences has been saved"
+msgstr "Настройки сохранены"
+
+msgid "Preferences has been saved and password updated"
+msgstr "Настройки сохранены, пароль изменён"
+
+msgid "Preferences has been saved and webservices token updated"
+msgstr "Настройки сохранены, токен изменён"
+
+msgid "Prefix or country code"
+msgstr "Код страны или префикс"
+
+msgid "Public registration disabled"
+msgstr "Регистрация отключена"
+
+msgid "Publish"
+msgstr "Опубликовать"
+
+msgid "Re-Type Password"
+msgstr "Повторите пароль"
+
+msgid "Re-type password"
+msgstr "Повторите пароль"
+
+msgid "Received"
+msgstr "Получено"
+
+msgid "Receiver"
+msgstr "Получатель"
+
+msgid "Recover password disabled"
+msgstr "Восстановление пароля отключено"
+
+msgid "Registered"
+msgstr "Зарегистрирован"
+
+msgid "Replace prefix 0 or padding local numbers"
+msgstr "Заменить префикс 0 или дополнить местные номера"
+
+msgid "Reply"
+msgstr "Ответить"
+
+msgid "Resend"
+msgstr "Повторить"
+
+msgid "SMS character"
+msgstr "СМС символы"
+
+msgid "SMS footer"
+msgstr "Подпись СМС"
+
+msgid "SMS from"
+msgstr "Отправитель"
+
+msgid "SMS sender ID"
+msgstr "Имя отправителя СМС"
+
+msgid "SMS to email"
+msgstr "Переадресация СМС на email"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Save template"
+msgstr "Сохранить шаблон"
+
+msgid "Schedule"
+msgstr "Запланировать"
+
+msgid "Search"
+msgstr "Поиск"
+
+msgid "Select action"
+msgstr "Выберите действие"
+
+msgid "Selected incoming SMS has been deleted"
+msgstr "Выбранные принятые СМС удалены"
+
+msgid "Selected message template has been deleted"
+msgstr "Выбранные шаблоны удалены"
+
+msgid "Selected outgoing SMS has been deleted"
+msgstr "Выбранные исходящие СМС удалены"
+
+msgid "Send"
+msgstr "Отправить"
+
+msgid "Send SMS"
+msgstr "Отправка СМС"
+
+msgid "Send as flash message"
+msgstr "Отправить как всплывающее СМС"
+
+msgid "Send as unicode message"
+msgstr "Отправить в юникоде"
+
+msgid "Send broadcast SMS"
+msgstr "Рассылка"
+
+msgid "Send to"
+msgstr "Кому"
+
+msgid "Send to group"
+msgstr "Группе"
+
+msgid "Sender"
+msgstr "Отправитель"
+
+msgid "Sent"
+msgstr "Отправлено"
+
+msgid "State or Province"
+msgstr "Штат или регион"
+
+msgid "Status"
+msgstr "Состояние"
+
+msgid "This field is required"
+msgstr "обязательное поле"
+
+msgid "Time"
+msgstr "Время"
+
+msgid "Timezone"
+msgstr "Часовой пояс"
+
+msgid "To"
+msgstr "Кому"
+
+msgid "Tools"
+msgstr "Инструменты"
+
+msgid "Unable to update login session"
+msgstr "Не удалось обновить сеанс"
+
+msgid "Unicode message"
+msgstr "Содержит русские символы"
+
+msgid "Unpublish"
+msgstr "Отменить публикацию"
+
+msgid "Use"
+msgstr "Использовать"
+
+msgid "Use template"
+msgstr "Применить шаблон"
+
+msgid "User"
+msgstr "Пользователь"
+
+msgid "User already exists"
+msgstr "Пользователь уже существует"
+
+msgid "User configuration"
+msgstr "Настройки"
+
+msgid "User configuration has been saved"
+msgstr "Пользовательские настройки сохранены"
+
+msgid "User configuration has been saved and password updated"
+msgstr "Пользовательские настройки сохранены, пароль обновлён"
+
+msgid "User configuration has been saved and webservices token updated"
+msgstr "Пользовательские настройки сохранены, токен изменён"
+
+msgid "User does not exists"
+msgstr "Пользователь не существует"
+
+msgid "User has been added"
+msgstr "Пользователь добавлен"
+
+msgid "User has been deleted"
+msgstr "Пользователь удалён"
+
+msgid "User is already exists"
+msgstr "Пользователь уже существует"
+
+msgid "User is immune to deletion"
+msgstr "Пользователь не может быть удалён"
+
+msgid "User level"
+msgstr "Уровень доступа"
+
+msgid "User preference"
+msgstr "Пользовательские настройки"
+
+msgid "Username"
+msgstr "Имя пользователя"
+
+msgid "Username should be at least 3 characters"
+msgstr "Имя пользователя должно состоять минимум из 3х знаков"
+
+msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr "Имя пользователя может содержать буквы, цифры, точки и тире"
+
+msgid "View"
+msgstr "Показать"
+
+msgid "View administrator"
+msgstr "Показать администраторов"
+
+msgid "View groups"
+msgstr "Показать группы"
+
+msgid "View normal user"
+msgstr "Показать пользователей"
+
+msgid "View numbers"
+msgstr "Показать номера"
+
+msgid "Webapp Token"
+msgstr "Токен"
+
+msgid "Webapp token"
+msgstr "токен"
+
+msgid "Webservices"
+msgstr "веб-сервисы"
+
+msgid "Webservices IP range"
+msgstr "Диапазон IP для веб-сервисов"
+
+msgid "Webservices token"
+msgstr "Токен для веб-сервисов"
+
+msgid "Webservices username"
+msgstr "Имя пользователя для веб-сервисов"
+
+msgid "Website email"
+msgstr "Email сайта"
+
+msgid "Website title"
+msgstr "Название сайта"
+
+msgid "Welcome to playSMS"
+msgstr "Добро пожаловать"
+
+msgid "You have been logged out"
+msgstr "Сеанс работы завершён"
+
+msgid "You have no access to this page"
+msgstr "У Вас нет доступа к этой странице"
+
+msgid "You must fill all field"
+msgstr "Вы должны заполнить все поля"
+
+msgid "You must fill all fields"
+msgstr "Вы должны заполнить все поля"
+
+msgid "You must select receiver and your message should not be empty"
+msgstr "Вы должны выбрать получателей и заполнить текст сообщения"
+
+msgid "You must select receiver group and your message should not be empty"
+msgstr "Вы должны выбрать группу получателей и заполнить текст сообщения"
+
+msgid "Your SMS has been delivered to queue"
+msgstr "Сообщение успешно поставлено в очередь"
+
+msgid "Your email format is invalid"
+msgstr "Неправильный формат email адреса"
+
+msgid "Your message"
+msgstr "Ваше сообщение"
+
+msgid "Your mobile format is invalid"
+msgstr "Неправильный формат номера телефона"
+
+msgid "Zipcode"
+msgstr "Индекс"
+
+msgid "email"
+msgstr "email"
+
+msgid "failed"
+msgstr "отказ"
+
+msgid "format YYYY-MM-DD hh:mm"
+msgstr "формат ГГГГ-ММ-ДД чч:мм"
+
+msgid "forward"
+msgstr "переслать"
+
+msgid "from"
+msgstr "от"
+
+msgid "generated on user creation"
+msgstr "сгенерировано при создании пользователя"
+
+msgid "handled"
+msgstr "обработано"
+
+msgid "mobile"
+msgstr "мобильный"
+
+msgid "no"
+msgstr "нет"
+
+msgid "not set"
+msgstr "не установлено"
+
+msgid "number"
+msgstr "номер"
+
+msgid "prefix with # for groups and @ for users"
+msgstr "# для поиска групп, @ для поиска пользователей"
+
+msgid "queued"
+msgstr "запланировано"
+
+msgid "reply"
+msgstr "ответить"
+
+msgid "resend"
+msgstr "повторить"
+
+msgid "row"
+msgstr "строка"
+
+msgid "shared by"
+msgstr "опубликовано"
+
+msgid "to"
+msgstr "кому"
+
+msgid "unhandled"
+msgstr "не обработано"
+
+msgid "username"
+msgstr "имя пользователя"
+
+msgid "version"
+msgstr "версия"
+
+msgid "yes"
+msgstr "да"

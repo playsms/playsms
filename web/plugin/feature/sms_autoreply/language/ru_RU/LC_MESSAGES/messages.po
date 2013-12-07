@@ -1,0 +1,98 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "Action"
+msgstr "Действие"
+
+msgid "Add SMS autoreply"
+msgstr "Добавить автоответ"
+
+msgid "Add SMS autoreply scenario"
+msgstr "Добавить сценарий"
+
+msgid "Are you sure you want to delete SMS autoreply ?"
+msgstr "Вы уверены, что хотите удалить автоответ?"
+
+msgid "Are you sure you want to delete this SMS autoreply scenario ?"
+msgstr "Вы уверены, что хотите удалить сценарий?"
+
+msgid "Edit SMS autoreply scenario"
+msgstr "Редактировать сценарий"
+
+msgid "Fail to add SMS autoreply"
+msgstr "Не удалось добавить автоответ"
+
+msgid "Fail to add SMS autoreply scenario"
+msgstr "Не удалось добавить сценарий"
+
+msgid "Fail to delete SMS autoreply"
+msgstr "Не удалось удалить автоответ"
+
+msgid "Fail to delete SMS autoreply scenario"
+msgstr "Не удалось удалить сценарий"
+
+msgid "Fail to edit SMS autoreply scenario"
+msgstr "Не удалось изменить сценарий"
+
+msgid "Keyword"
+msgstr "Ключевое слово"
+
+msgid "Manage autoreply"
+msgstr "Автоответчик"
+
+msgid "Param"
+msgstr "Параметр"
+
+msgid "Return"
+msgstr "Ответ"
+
+msgid "SMS autoreply has been deleted"
+msgstr "Автоответ удалён"
+
+msgid "SMS autoreply keyword"
+msgstr "Ключевое слово"
+
+msgid "SMS autoreply keyword has been added"
+msgstr "Ключевое слово добавлено"
+
+msgid "SMS autoreply scenario has been added"
+msgstr "Сценарий добавлен"
+
+msgid "SMS autoreply scenario has been deleted"
+msgstr "Сценарий удалён"
+
+msgid "SMS autoreply scenario has been edited"
+msgstr "Сценарий Изменён"
+
+msgid "SMS autoreply scenario parameter"
+msgstr "Ключевое слово"
+
+msgid "SMS autoreply scenario replies with"
+msgstr "Отвечать"
+
+msgid "SMS keyword already exists, reserved or use by other feature"
+msgstr ""
+"Ключевое слово уже существует, зарезервировано или используется другими "
+"модулями"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "User"
+msgstr "Полльзователь"
+
+msgid "You must fill all fields"
+msgstr "Необходимо заполнить все поля"
+
+msgid "keyword"
+msgstr "ключевое слово"
