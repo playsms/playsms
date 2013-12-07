@@ -56,7 +56,7 @@ switch ($op) {
 			$c_i = "<a href=\"index.php?app=menu&inc=tools_phonebook&op=phonebook_edit&id=".$pid."\">".$i.".</a>";
 			$content .= "
 				<tr>
-					<td>$name</td>
+					<td><a href='index.php?app=menu&inc=tools_phonebook&op=phonebook_edit&id=".$pid."'>$name</a></td>
 					<td>$mobile</td>
 					<td>$email</td>
 					<td>$group_code</td>
