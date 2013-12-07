@@ -46,6 +46,11 @@ if (isset($app)) {
 			// $app=page to access a page inside themes
 			// by default this is used for displaying 'forgot password' page and 'register an account' page
 			// login, logout, register, forgot password, noaccess
+			if (function_exists('bindtextdomain')) {
+				bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
+				bind_textdomain_codeset('messages', 'UTF-8');
+				textdomain('messages');
+			}
 			logger_audit();
 			switch ($op) {
 				case 'auth_login':
