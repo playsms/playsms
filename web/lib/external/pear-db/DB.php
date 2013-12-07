@@ -24,11 +24,10 @@
  * @link       http://pear.php.net/package/DB
  */
 
-
 /**
  * Obtain the PEAR class so it can be extended from
  */
-require_once LIBS.'PEAR.php';
+require_once 'PEAR.php';
 
 
 // {{{ constants
@@ -453,9 +452,9 @@ class DB
 
         if (isset($options['debug']) && $options['debug'] >= 2) {
             // expose php errors with sufficient debug level
-            include_once LIBS."DB/{$type}.php";
+            include_once "DB/{$type}.php";
         } else {
-            @include_once LIBS."DB/{$type}.php";
+            @include_once "DB/{$type}.php";
         }
 
         $classname = "DB_${type}";
@@ -531,9 +530,9 @@ class DB
 
         if (isset($options['debug']) && $options['debug'] >= 2) {
             // expose php errors with sufficient debug level
-            include_once LIBS."DB/${type}.php";
+            include_once "DB/${type}.php";
         } else {
-            @include_once LIBS."DB/${type}.php";
+            @include_once "DB/${type}.php";
         }
 
         $classname = "DB_${type}";
