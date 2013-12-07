@@ -12,8 +12,8 @@ $core_config['db']['name'] = '#DBNAME#';	// database name
 // ref:
 // - http://pear.php.net/manual/en/package.database.db.intro-dsn.php
 // - http://pear.php.net/manual/en/package.database.db.intro-connect.php
-// $core_config['db']['dsn'] = '';
-// $core_config['db']['options'] = '';
+//$core_config['db']['dsn'] = 'mysql://root:password@localhost/playsms';
+//$core_config['db']['options'] = $options = array('debug' => 2, 'portability' => DB_PORTABILITY_ALL);
 
 // SMTP configuration
 $core_config['smtp']['relm'] = ''; // yes, not realm, its relm
