@@ -21,24 +21,17 @@ switch ($op) {
 		$content = "
 			<h2>"._('Phonebook')."</h2>
 			<p>".$search['form']."</p>
+			<form name=fm_phonebook_list id=fm_phonebook_list action='index.php?app=menu&inc=tools_phonebook&op=actions' method=post>
+			<input type=hidden name=go value=delete>
 			<div class=actions_box>
 				<div class=pull-left>
 					<a href='index.php?app=menu&inc=tools_phonebook&route=group&op=list'>".$core_config['icon']['group']."</a>
 					<a href='index.php?app=menu&inc=tools_phonebook&route=import&op=list'>".$core_config['icon']['import']."</a>
 					<a href='index.php?app=menu&inc=tools_phonebook&op=actions&go=export'>".$core_config['icon']['export']."</a>
-				</div>
-				<div class=pull-right>
-					".$nav['form']."
-				</div>
-			</div>
-			<form name=fm_phonebook_list id=fm_phonebook_list action='index.php?app=menu&inc=tools_phonebook&op=actions' method=post>
-			<input type=hidden name=go value=delete>
-			<div class=actions_box>
-				<div class=pull-left>
 					<a href='index.php?app=menu&inc=tools_phonebook&op=phonebook_add'>".$core_config['icon']['add']."</a>
 				</div>
 				<div class=pull-right>
-					<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', 'fm_phonebook_list');\">".$core_config['icon']['delete']."</a>
+					<a href='#' onClick=\"return SubmitConfirm('" . _('Are you sure you want to delete these items ?') . "', 'fm_phonebook_list');\">" . $core_config['icon']['delete'] . "</a>						
 				</div>
 			</div>
 			<div class=table-responsive>
@@ -81,6 +74,7 @@ switch ($op) {
 			</tbody>
 			</table>
 			</div>
+			<div class=pull-right>".$nav['form']."</div>
 			</form>";
 
 		if ($err = $_SESSION['error_string']) {
