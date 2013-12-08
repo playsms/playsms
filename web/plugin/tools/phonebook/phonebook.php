@@ -13,8 +13,8 @@ switch ($op) {
 		$join .= 'INNER JOIN playsms_toolsPhonebook_group_contacts AS C ON A.id = C.pid AND C.gpid = B.id';
 		$count = dba_count(_DB_PREF_.'_toolsPhonebook AS A', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
-		$extras = array('ORDER BY' => 'A.name, mobile', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$fields = 'A.id AS pid, A.name AS name, A.mobile AS mobile, A.email AS email, B.code AS code';
+		$extras = array('GROUP BY' => 'A.id', 'ORDER BY' => 'A.name, mobile', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
+		$fields = 'A.id AS pid, A.name AS name, A.mobile AS mobile, A.email AS email, GROUP_CONCAT(B.code ORDER BY B.code ASC) AS code';
 		$list = dba_search(_DB_PREF_.'_toolsPhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
 
 		$actions_box = "
