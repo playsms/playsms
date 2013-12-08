@@ -24,6 +24,9 @@ switch ($op) {
 					<a href='index.php?app=menu&inc=tools_phonebook&op=phonebook_add'>".$core_config['icon']['add']."</a>
 				</div>
 				<div id=actions_box_center>".$nav['form']."</div>
+				<div id=actions_box_right>
+					<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', 'fm_phonebook_list');\">".$core_config['icon']['delete']."</a>
+				</div>
 			</div>";
 
 		$content = "
@@ -43,10 +46,7 @@ switch ($op) {
 				<th width=25%>"._('Mobile')."</th>
 				<th width=30%>"._('Email')."</th>
 				<th width=15%>"._('Group code')."</th>
-				<th width=5%>
-					<input type=checkbox onclick=CheckUncheckAll(document.fm_phonebook_list)>
-					<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', 'fm_phonebook_list');\">".$core_config['icon']['delete']."</a>
-				</th>
+				<th width=5%><input type=checkbox onclick=CheckUncheckAll(document.fm_phonebook_list)></th>
 			</tr>
 			</thead>
 			<tbody>";

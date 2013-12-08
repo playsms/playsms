@@ -37,10 +37,7 @@ switch ($op) {
 			<tr>
 				<th width=60%>"._('Name')."</th>
 				<th width=35%>"._('Group code')."</th>
-				<th width=5%>
-					<input type=checkbox onclick=CheckUncheckAll(document.fm_phonebook_group_list)>
-					<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', 'fm_phonebook_group_list');\">".$core_config['icon']['delete']."</a>
-				</th>
+				<th width=5%>"._('Action')."</th>
 			</tr>
 			</thead>
 			<tbody>";
@@ -56,8 +53,7 @@ switch ($op) {
 					<td><a href='index.php?app=menu&inc=tools_phonebook&route=group&op=edit&gpid=".$gpid."'>$name</a></td>
 					<td>$code</td>
 					<td>
-						<input type=hidden name=itemid".$j." value=\"".$gpid."\">
-						<input type=checkbox name=checkid".$j.">
+						<a href='index.php?app=menu&inc=tools_phonebook&route=group&op=actions&go=delete&gpid=".$gpid."' onClick=\"return SureConfirm();\">".$core_config['icon']['delete']."</a>
 					</td>
 				</tr>";
 		}
@@ -133,20 +129,16 @@ switch ($op) {
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case 'delete':
-				for ($i=0;$i<$nav['limit'];$i++) {
-					$checkid = $_POST['checkid'.$i];
-					$gpid = $_POST['itemid'.$i];
-					if(($checkid=="on") && $gpid) {
-						if (! dba_count(_DB_PREF_.'_toolsPhonebook_group_contacts', array('gpid' => $gpid))) {
-							if (dba_remove(_DB_PREF_.'_toolsPhonebook_group', array('id' => $gpid))) {
-								$_SESSION['error_string'] = _('Selected group has been deleted');
-							} else {
-								$_SESSION['error_string'] = _('Fail to delete group');
-							}
-							
+				if ($gpid = $_REQUEST['gpid']) {
+					if (! dba_count(_DB_PREF_.'_toolsPhonebook_group_contacts', array('gpid' => $gpid))) {
+						if (dba_remove(_DB_PREF_.'_toolsPhonebook_group', array('uid' => $core_config['user']['uid'], 'id' => $gpid))) {
+							$_SESSION['error_string'] = _('Selected group has been deleted');
 						} else {
-							$_SESSION['error_string'] = _('Unable to delete group until the group is empty');
+							$_SESSION['error_string'] = _('Fail to delete group');
 						}
+
+					} else {
+						$_SESSION['error_string'] = _('Unable to delete group until the group is empty');
 					}
 				}
 				$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&search_category='.$search['category'].'&page='.$nav['page'].'&nav='.$nav['nav'];
