@@ -178,9 +178,37 @@ table.sortable thead, table.sortable th {
 	margin-right: -3px;
 }
 
+.search_box {
+	text-align: left;
+	margin-right: 5px;
+}
+
+.search_box_select {
+	float: left;
+	text-align: left;
+	margin-right: 5px;
+}
+
+.search_box_input {
+	text-align: left;
+}
+
+.search_input_category {
+	width: 130px;
+}
+
+.search_input_keyword {
+	width: 270px;
+}
+
 .playsms-nav-form {
 	width: 100%;
 	text-align: center;
+}
+
+.playsms-nav-bar {
+	padding: 0;
+	margin: 0;
 }
 
 .playsms-mandatory {
@@ -332,21 +360,6 @@ table.sortable thead, table.sortable th {
 #message {
 	width: 280px;
 	height: 100px;
-}
-
-#search_box {
-	text-align: left;
-	margin-right: 5px;
-}
-
-#search_box_select {
-	float: left;
-	text-align: left;
-	margin-right: 5px;
-}
-
-#search_box_input {
-	text-align: left;
 }
 
 #button_back {

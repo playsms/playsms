@@ -93,9 +93,9 @@ function default_hook_themes_navbar($num, $nav, $max_nav, $url, $page) {
 		$nav_end = (($nav) * $max_nav);
 		$start = 1;
 		$end = ceil($num/$max_nav);
-		$nav_pages = "<div id='navbar'>";
+		$nav_pages = "<div class=playsms-nav-bar>";
 		$nav_pages .= "<a href='".$url."&page=1&nav=1'> << </a>";
-		$nav_pages .= ($start==$nav) ? " &nbsp; < &nbsp; " : "<a href='".$url."&page=".((($nav-2)*$max_nav)+1)."&nav=".($nav-1)."'> &nbsp; < &nbsp; </a>";
+		$nav_pages .= ($start==$nav) ? " < " : "<a href='".$url."&page=".((($nav-2)*$max_nav)+1)."&nav=".($nav-1)."'> < </a>";
 		$nav_pages .= ($start==$nav) ? "" : " ... ";
 		for($i=$nav_start;$i<=$nav_end;$i++) {
 			if($i>$num){ break; };
@@ -105,8 +105,8 @@ function default_hook_themes_navbar($num, $nav, $max_nav, $url, $page) {
 				$nav_pages .= "<a href='".$url."&page=".$i."&nav=".$nav."'>".$i."</a> ";
 			}
 		}
-		$nav_pages .= ($end==$nav) ? "" : " ... ";
-		$nav_pages .= ($end==$nav) ? " &nbsp; > &nbsp; " : "<a href='".$url."&page=".(($nav*$max_nav)+1)."&nav=".($nav+1)."'> &nbsp; > &nbsp; </a>";
+		$nav_pages .= ($end==$nav) ? "" : "..";
+		$nav_pages .= ($end==$nav) ? " > " : "<a href='".$url."&page=".(($nav*$max_nav)+1)."&nav=".($nav+1)."'> > </a>";
 		$nav_pages .= "<a href='".$url."&page=".$num."&nav=".$end."'> >> </a>";
 		$nav_pages .= "</div>";
 	}
