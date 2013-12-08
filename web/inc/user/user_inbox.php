@@ -19,10 +19,11 @@ switch ($op) {
 				'SEARCH_FORM' => $search['form'],
 				'NAV_FORM' => $nav['form'],
 				'Inbox' => _('Inbox'),
-				'Export' => _('Export'),
-				'Delete' => _('Delete'),
+				'Export' => $core_config['icon']['export'],
+				'Delete' => $core_config['icon']['delete'],
 				'From' => _('From'),
-				'Message' => _('Message')
+				'Message' => _('Message'),
+				'ARE_YOU_SURE' => _('Are you sure you want to delete these items ?')
 			)
 		);
 		$i = $nav['top'];
@@ -72,7 +73,7 @@ switch ($op) {
 		$search = themes_search_session();
 		$go = $_REQUEST['go'];
 		switch ($go) {
-			case _('Export'):
+			case 'export':
 				$conditions = array('in_uid' => $uid, 'in_hidden' => 0);
 				$list = dba_search(_DB_PREF_.'_tblUserInbox', '*', $conditions, $search['dba_keywords']);
 				$data[0] = array(_('User'), _('Time'), _('From'), _('Message'));
@@ -88,7 +89,7 @@ switch ($op) {
 				$fn = 'user_inbox-'.$core_config['datetime']['now_stamp'].'.csv';
 				core_download($content, $fn, 'text/csv');
 				break;
-			case _('Delete'):
+			case 'delete':
 				for ($i=0;$i<$nav['limit'];$i++) {
 					$checkid = $_POST['checkid'.$i];
 					$itemid = $_POST['itemid'.$i];
@@ -103,5 +104,3 @@ switch ($op) {
 		}
 		break;
 }
-
-?>

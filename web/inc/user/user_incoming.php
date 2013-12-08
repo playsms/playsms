@@ -14,18 +14,18 @@ switch ($op) {
 		$extras = array('ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = dba_search(_DB_PREF_.'_tblSMSIncoming', '*', $conditions, $keywords, $extras);
 
-		$actions_box = "
-			<div class=actions_box>
-			<div class=actions_box_left><input type=submit name=go value=\""._('Export')."\" class=button /></div>
-			<div class=actions_box_center>".$nav['form']."</div>
-			<div class=actions_box_right><input type=submit name=go value=\""._('Delete')."\" class=button /></div>
-			</div>";
-
 		$content = "
 			<h2>"._('Incoming SMS')."</h2>
 			<p>".$search['form']."</p>
-			<form name=\"fm_incoming\" action=\"index.php?app=menu&inc=user_incoming&op=actions\" method=post onSubmit=\"return SureConfirm()\">
-			".$actions_box."
+			<div class=actions_box>
+				<div class=pull-left><a href=\"index.php?app=menu&inc=user_incoming&op=actions&go=export\">".$core_config['icon']['export']."</a></div>
+				<div class=pull-right>".$nav['form']."</div>
+			</div>
+			<form id=fm_incoming name=fm_incoming action=\"index.php?app=menu&inc=user_incoming&op=actions\" method=post onSubmit=\"return SureConfirm()\">
+			<input type=hidden name=go value=delete>
+			<div class=pull-right>
+				<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', 'fm_incoming');\">".$core_config['icon']['delete']."</a>
+			</div>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead>
@@ -84,7 +84,6 @@ switch ($op) {
 			</tbody>
 			</table>
 			</div>
-			".$actions_box."
 			</form>";
 
 		if ($err = $_SESSION['error_string']) {
@@ -97,7 +96,7 @@ switch ($op) {
 		$search = themes_search_session();
 		$go = $_REQUEST['go'];
 		switch ($go) {
-			case _('Export'):
+			case 'export':
 				$conditions = array('in_uid' => $uid, 'flag_deleted' => 0);
 				$list = dba_search(_DB_PREF_.'_tblSMSIncoming', '*', $conditions, $search['dba_keywords']);
 				$data[0] = array(_('User'), _('Time'), _('From'), _('Keyword'), _('Content'), _('Feature'), _('Status'));
@@ -116,7 +115,7 @@ switch ($op) {
 				$fn = 'user_incoming-'.$core_config['datetime']['now_stamp'].'.csv';
 				core_download($content, $fn, 'text/csv');
 				break;
-			case _('Delete'):
+			case 'delete':
 				for ($i=0;$i<$nav['limit'];$i++) {
 					$checkid = $_POST['checkid'.$i];
 					$itemid = $_POST['itemid'.$i];
@@ -131,5 +130,3 @@ switch ($op) {
 		}
 		break;
 }
-
-?>

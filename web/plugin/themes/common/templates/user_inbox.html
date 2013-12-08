@@ -1,11 +1,14 @@
 {ERROR}
 <h2>{Inbox}</h2>
 <p>{SEARCH_FORM}</p>
-<form name="fm_inbox" action="index.php?app=menu&inc=user_inbox&op=actions" method=post onSubmit="return SureConfirm()">
 <div class=actions_box>
-	<div class=actions_box_left><input type=submit name=go value="{Export}" class=button /></div>
-	<div class=actions_box_center>{NAV_FORM}</div>
-	<div class=actions_box_right><input type=submit name=go value="{Delete}" class=button /></div>
+	<div class=pull-left><a href="index.php?app=menu&inc=user_inbox&op=actions&go=export">{Export}</a></div>
+	<div class=pull-right>{NAV_FORM}</div>
+</div>
+<form id="fm_inbox" name="fm_inbox" action="index.php?app=menu&inc=user_inbox&op=actions" method=post onSubmit="return SureConfirm()">
+<input type=hidden name=go value="delete">
+<div class="pull-right">
+	<a href='#' onClick="return SubmitConfirm('{ARE_YOU_SURE}', 'fm_inbox');">{Delete}</a>
 </div>
 <div class=table-responsive>
 <table class=playsms-table-list>
@@ -33,10 +36,5 @@
 		</loop.data>
 	</tbody>
 </table>
-</div>
-<div class=actions_box>
-	<div class=actions_box_left><input type=submit name=go value="{Export}" class=button /></div>
-	<div class=actions_box_center>{NAV_FORM}</div>
-	<div class=actions_box_right><input type=submit name=go value="{Delete}" class=button /></div>
 </div>
 </form>

@@ -34,11 +34,10 @@ switch ($op) {
 			<form name=fm_phonebook_list id=fm_phonebook_list action='index.php?app=menu&inc=tools_phonebook&op=actions' method=post>
 			<input type=hidden name=go value=delete>
 			<div class=actions_box>
-				<div class=actions_box_left>
+				<div class=pull-left>
 					<a href='index.php?app=menu&inc=tools_phonebook&op=phonebook_add'>".$core_config['icon']['add']."</a>
 				</div>
-				<div class=actions_box_center></div>
-				<div class=actions_box_right>
+				<div class=pull-right>
 					<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', 'fm_phonebook_list');\">".$core_config['icon']['delete']."</a>
 				</div>
 			</div>
