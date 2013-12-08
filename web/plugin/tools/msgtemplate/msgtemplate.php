@@ -15,18 +15,16 @@ if ($tid = $_REQUEST['tid']) {
 switch ($op) {
 	case "list":
 		$fm_name = "fm_smstemp";
-
-		$actions_box = "
-			<div class=actions_box>
-			<div class=actions_box_left>"._button('index.php?app=menu&inc=tools_msgtemplate&op=add', _('Add message template'))."</div>
-			<div class=actions_box_center>&nbsp;</div>
-			<div class=actions_box_right><input type=submit name=go value='"._('Delete')."' class=button onClick='return SureConfirm()'/></div>
-			</div>";
-
 		$content = "
 			<h2>"._('Message template')."</h2>
-			<form name='$fm_name' action='index.php?app=menu&inc=tools_msgtemplate&op=actions' method=post>
-			".$actions_box."
+			<form id=$fm_name name=$fm_name action='index.php?app=menu&inc=tools_msgtemplate&op=actions' method=post>
+			<input type=hidden name=go value=delete>
+			<div class=actions_box>
+			<div class=pull-left><a href='index.php?app=menu&inc=tools_msgtemplate&op=add'>".$core_config['icon']['add']."</a></div>
+			<div class=pull-right>
+				<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', '".$fm_name."');\">".$core_config['icon']['delete']."</a>
+			</div>
+			</div>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>
@@ -56,9 +54,7 @@ switch ($op) {
 			</table>
 			</div>
 			<input type='hidden' name='item_count' value='$i'>
-			".$actions_box."
 			</form>
-			<p>&nbsp;</p>
 			<div class=text-info>
 				<p>"._('Notes')."</p>
 				<ul>
@@ -156,7 +152,7 @@ switch ($op) {
 				header("Location: index.php?app=menu&inc=tools_msgtemplate&op=list");
 				exit();
 				break;
-			case _('Delete'):
+			case "delete":
 				$item_count = $_POST['item_count'];
 				for ($i=1;$i<=$item_count;$i++) {
 					$chkid[$i] = $_POST['chkid'.$i];
@@ -174,5 +170,3 @@ switch ($op) {
 				break;
 		}
 }
-
-?>
