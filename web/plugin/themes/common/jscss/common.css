@@ -325,6 +325,15 @@ table.sortable thead, table.sortable th {
         hyphens: auto;
 }
 
+#sandbox_msg {
+	padding-bottom: 12px;
+	word-break: break-all;
+	-ms-word-break: break-all;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+        hyphens: auto;
+}
+
 #msg_label {
 	font-size: 11pt;
 	padding-left: 2px;

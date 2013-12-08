@@ -4,12 +4,11 @@ if(!isadmin()){forcenoaccess();};
 
 switch ($op) {
 	case "sandbox":
-		$search_category = array(_('User') => 'username', _('Time') => 'in_datetime', _('From') => 'in_sender', _('Content') => 'in_message');
+		$search_category = array(_('Time') => 'in_datetime', _('From') => 'in_sender', _('Content') => 'in_message');
 		$base_url = 'index.php?app=menu&inc=sandbox&op=sandbox';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array('flag_deleted' => 0, 'in_keyword' => '', 'in_status' => 0);
 		$keywords = $search['dba_keywords'];
-		$join = 'INNER JOIN '._DB_PREF_.'_tblUser AS B ON in_uid=B.uid';
 		$count = dba_count(_DB_PREF_.'_tblSMSIncoming', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
@@ -32,9 +31,8 @@ switch ($op) {
 			<table class=playsms-table-list>
 			<thead>
 			<tr>
-				<th width=20%>"._('User')."</th>
-				<th width=25%>"._('From')."</th>
-				<th width=50%>"._('Content')."</th>
+				<th width=20%>"._('From')."</th>
+				<th width=75%>"._('Content')."</th>
 				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_sandbox)></th>
 			</tr>
 			</thead>
@@ -71,7 +69,6 @@ switch ($op) {
 			$i--;
 			$content .= "
 				<tr>
-					<td>$in_username</td>
 					<td>$current_sender</td>
 					<td>$c_message</td>
 					<td>
@@ -102,11 +99,10 @@ switch ($op) {
 				$conditions = array('flag_deleted' => 0, 'in_keyword' => '', 'in_status' => 0);
 				$join = 'INNER JOIN '._DB_PREF_.'_tblUser AS B ON in_uid=B.uid';
 				$list = dba_search(_DB_PREF_.'_tblSMSIncoming', '*', $conditions, $search['dba_keywords'], '', $join);
-				$data[0] = array(_('User'), _('Time'), _('From'), _('Content'));
+				$data[0] = array(_('Time'), _('From'), _('Content'));
 				for ($i=0;$i<count($list);$i++) {
 					$j = $i + 1;
 					$data[$j] = array(
-						$list[$i]['username'],
 						core_display_datetime($list[$i]['in_datetime']),
 						$list[$i]['in_sender'],
 						$list[$i]['in_message']

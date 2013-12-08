@@ -31,8 +31,8 @@ switch ($op) {
 			<table class=playsms-table-list>
 			<thead>
 			<tr>
-				<th width=30%>"._('To')."</th>
-				<th width=65%>"._('Message')."</th>
+				<th width=20%>"._('To')."</th>
+				<th width=75%>"._('Message')."</th>
 				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_outgoing)></th>
 			</tr>
 			</thead>

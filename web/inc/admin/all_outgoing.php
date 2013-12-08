@@ -35,8 +35,8 @@ switch ($op) {
 			<tr>
 				<th width=20%>"._('User')."</th>
 				<th width=15%>"._('Gateway')."</th>
-				<th width=25%>"._('To')."</th>
-				<th width=35%>"._('Message')."</th>
+				<th width=20%>"._('To')."</th>
+				<th width=40%>"._('Message')."</th>
 				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_all_outgoing)></th>
 			</tr>
 			</thead>
