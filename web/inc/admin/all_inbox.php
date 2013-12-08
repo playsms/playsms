@@ -15,18 +15,18 @@ switch ($op) {
 		$extras = array('ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = dba_search(_DB_PREF_.'_tblUserInbox', '*', $conditions, $keywords, $extras, $join);
 
-		$actions_box = "
-			<div class=actions_box>
-			<div class=actions_box_left><input type=submit name=go value=\""._('Export')."\" class=button /></div>
-			<div class=actions_box_center>".$nav['form']."</div>
-			<div class=actions_box_right><input type=submit name=go value=\""._('Delete')."\" class=button /></div>
-			</div>";
-
 		$content = "
 			<h2>"._('All inbox')."</h2>
 			<p>".$search['form']."</p>
-			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=all_inbox&op=actions\" method=post onSubmit=\"return SureConfirm()\">
-			".$actions_box."
+			<div class=actions_box>
+				<div class=pull-left><a href=\"index.php?app=menu&inc=all_inbox&op=actions&go=export\">".$core_config['icon']['export']."</a></div>
+				<div class=pull-right>".$nav['form']."</div>
+			</div>
+			<form id=fm_all_inbox name=fm_all_inbox action=\"index.php?app=menu&inc=all_inbox&op=actions\" method=post>
+			<input type=hidden name=go value=delete>
+			<div class=pull-right>
+				<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', 'fm_all_inbox');\">".$core_config['icon']['delete']."</a>
+			</div>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead>
@@ -34,7 +34,7 @@ switch ($op) {
 				<th width=20%>"._('User')."</th>
 				<th width=25%>"._('From')."</th>
 				<th width=50%>"._('Message')."</th>
-				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></th>
+				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_all_inbox)></th>
 			</tr>
 			</thead>
 			<tbody>";
@@ -78,7 +78,6 @@ switch ($op) {
 			</tbody>
 			</table>
 			</div>
-			".$actions_box."
 			</form>";
 
 		if ($err = $_SESSION['error_string']) {
@@ -91,7 +90,7 @@ switch ($op) {
 		$search = themes_search_session();
 		$go = $_REQUEST['go'];
 		switch ($go) {
-			case _('Export'):
+			case 'export':
 				$conditions = array('in_hidden' => 0);
 				$join = 'INNER JOIN '._DB_PREF_.'_tblUser AS B ON in_uid=B.uid';
 				$list = dba_search(_DB_PREF_.'_tblUserInbox', '*', $conditions, $search['dba_keywords'], '', $join);
@@ -108,7 +107,7 @@ switch ($op) {
 				$fn = 'all_inbox-'.$core_config['datetime']['now_stamp'].'.csv';
 				core_download($content, $fn, 'text/csv');
 				break;
-			case _('Delete'):
+			case 'delete':
 				for ($i=0;$i<$nav['limit'];$i++) {
 					$checkid = $_POST['checkid'.$i];
 					$itemid = $_POST['itemid'.$i];

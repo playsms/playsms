@@ -21,7 +21,7 @@ switch ($op) {
 				<div class=pull-left><a href=\"index.php?app=menu&inc=user_incoming&op=actions&go=export\">".$core_config['icon']['export']."</a></div>
 				<div class=pull-right>".$nav['form']."</div>
 			</div>
-			<form id=fm_incoming name=fm_incoming action=\"index.php?app=menu&inc=user_incoming&op=actions\" method=post onSubmit=\"return SureConfirm()\">
+			<form id=fm_incoming name=fm_incoming action=\"index.php?app=menu&inc=user_incoming&op=actions\" method=post>
 			<input type=hidden name=go value=delete>
 			<div class=pull-right>
 				<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', 'fm_incoming');\">".$core_config['icon']['delete']."</a>
