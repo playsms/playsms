@@ -238,6 +238,7 @@ function dba_search($db_table, $fields='*', $conditions='', $keywords='', $extra
 		}
 	}
 	$db_query = "SELECT ".$q_fields." FROM ".$db_table." ".$join." ".$q_where." ".$q_sql_where." ".$q_extras;
+	// logger_print("q: ".$db_query, 3, "dba_search");
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[] = $db_row;

@@ -54,8 +54,9 @@ function phonebook_hook_phonebook_number2name($mobile, $c_username='') {
 		if (strlen($mobile) > 7) { $mobile = substr($mobile,3); }
 		$db_query = "
 			SELECT A.name AS name FROM "._DB_PREF_."_toolsPhonebook AS A
-			INNER JOIN "._DB_PREF_."_toolsPhonebook_group AS B ON A.gpid=B.id
-			WHERE mobile LIKE '%".$mobile."' AND B.uid='$uid'";
+			INNER JOIN "._DB_PREF_."_toolsPhonebook_group AS B ON A.uid=B.uid
+			INNER JOIN "._DB_PREF_."_toolsPhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid
+			WHERE A.mobile LIKE '%".$mobile."' AND B.uid='$uid'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$name = $db_row['name'];
@@ -77,7 +78,7 @@ function phonebook_hook_phonebook_number2name($mobile, $c_username='') {
 
 function phonebook_hook_phonebook_getmembercountbyid($gpid) {
 	$count = 0;
-	$db_query = "SELECT COUNT(*) as count FROM "._DB_PREF_."_toolsPhonebook WHERE gpid='$gpid'";
+	$db_query = "SELECT COUNT(*) as count FROM "._DB_PREF_."_toolsPhonebook_group_contacts WHERE gpid='$gpid'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$count = ( $db_row['count'] ? $db_row['count'] : 0 );
@@ -89,11 +90,15 @@ function phonebook_hook_phonebook_getmembercountbyid($gpid) {
  * Get members of a group, search by group ID
  * @param integer $gpid Group ID
  * @param string $orderby
- * @return array
+ * @return array array(id, p_desc, p_num)
  */
 function phonebook_hook_phonebook_getdatabyid($gpid, $orderby="") {
 	$ret = array();
-	$db_query = "SELECT id, name AS p_desc, mobile AS p_num FROM "._DB_PREF_."_toolsPhonebook WHERE gpid='$gpid'";
+	$db_query = "
+		SELECT A.id AS id, A.name AS p_desc, A.mobile AS p_num FROM "._DB_PREF_."_toolsPhonebook AS A
+		INNER JOIN "._DB_PREF_."_toolsPhonebook_group AS B ON A.uid=B.uid
+		INNER JOIN "._DB_PREF_."_toolsPhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid
+		WHERE gpid='$gpid'";
 	if ($orderby) {
 		$db_query .= " ORDER BY ".$orderby;
 	}
@@ -107,10 +112,11 @@ function phonebook_hook_phonebook_getdatabyid($gpid, $orderby="") {
 function phonebook_hook_phonebook_getdatabyuid($uid, $orderby="") {
 	$ret = array();
 	$db_query = "
-		SELECT A.id AS pid, gpid, A.name AS p_desc, mobile AS p_num, email, B.name AS group_name, code 
+		SELECT A.id AS pid, B.id AS gpid, A.name AS p_desc, A.mobile AS p_num, A.email AS email, B.name AS group_name, B.code AS code
 		FROM "._DB_PREF_."_toolsPhonebook AS A
-		INNER JOIN "._DB_PREF_."_toolsPhonebook_group AS B ON A.gpid=B.id
-		WHERE mobile LIKE '%".$mobile."' AND B.uid='$uid'";
+		INNER JOIN "._DB_PREF_."_toolsPhonebook_group AS B ON A.uid=B.uid
+		INNER JOIN "._DB_PREF_."_toolsPhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid
+		WHERE A.mobile LIKE '%".$mobile."' AND B.uid='$uid'";
 	if ($orderby) {
 		$db_query .= " ORDER BY ".$orderby;
 	}
@@ -137,13 +143,14 @@ function phonebook_hook_phonebook_getgroupbyuid($uid, $orderby="") {
 function phonebook_hook_phonebook_search($uid, $keyword="", $count="") {
 	$ret = array();
 	if ($keyword) {
-		$fields = 'A.id AS pid,gpid,A.name AS p_desc,A.mobile AS p_num,email,B.name AS group_name,code';
+		$fields = 'A.id AS pid, B.id AS gpid, A.name AS p_desc, A.mobile AS p_num, A.email AS email, B.name AS group_name, B.code AS code';
+		$join = "INNER JOIN "._DB_PREF_."_toolsPhonebook_group AS B ON A.uid=B.uid ";
+		$join .= "INNER JOIN "._DB_PREF_."_toolsPhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid";
 		$conditions = array('A.uid' => $uid);
 		$keywords = array('A.name' => '%'.$keyword.'%', 'A.mobile' => '%'.$keyword.'%', 'A.email' => '%'.$keyword.'%');
 		if ((int) $count) {
 			$extras = array('LIMIT' => $count);
 		}
-		$join = "INNER JOIN "._DB_PREF_."_toolsPhonebook_group AS B ON A.gpid=B.id";
 		$ret = dba_search(_DB_PREF_.'_toolsPhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
 	}
 	return $ret;
@@ -152,7 +159,7 @@ function phonebook_hook_phonebook_search($uid, $keyword="", $count="") {
 function phonebook_hook_phonebook_search_group($uid, $keyword="", $count="") {
 	$ret = array();
 	if ($keyword) {
-		$fields = 'id AS gpid,name AS group_name,code';
+		$fields = 'id AS gpid, name AS group_name, code';
 		$conditions = array('uid' => $uid);
 		$keywords = array('name' => '%'.$keyword.'%', 'code' => '%'.$keyword.'%');
 		if ((int) $count) {
@@ -174,6 +181,9 @@ function phonebook_search_user($uid, $keyword="") {
 
 function phonebook_hook_webservices_output($ta,$requests) {
 	global $core_config;
+	if (! valid()) {
+		return FALSE;
+	}
 	$keyword = $requests['keyword'];
 	if (!$keyword) {
 		$keyword = $requests['tag'];
@@ -208,4 +218,3 @@ function phonebook_hook_webservices_output($ta,$requests) {
 	return $ret;
 }
 
-?>
