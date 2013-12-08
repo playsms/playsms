@@ -15,22 +15,18 @@ switch ($op) {
 		$fields = 'id, name, code';
 		$list = dba_search(_DB_PREF_.'_toolsPhonebook_group', $fields, $conditions, $keywords, $extras);
 
-		$actions_box = "
-			<div id=actions_box>
-				<div id=actions_box_left>
-					<a href='index.php?app=menu&inc=tools_phonebook&route=group&op=add'>".$core_config['icon']['add']."</a>
-				</div>
-				<div id=actions_box_center>".$nav['form']."</div>
-			</div>";
-
-
 		$content = "
 			<h2>"._('Phonebook')."</h2>
 			<h3>"._('Group')."</h3>
 			<p>".$search['form']."</p>
 			<form id=fm_phonebook_group_list name=fm_phonebook_group_list action='index.php?app=menu&inc=tools_phonebook&route=group&op=actions' method=post>
 			<input type=hidden name=go value=delete>
-			".$actions_box."
+			<div class=actions_box>
+				<div class=pull-left>
+					<a href='index.php?app=menu&inc=tools_phonebook&route=group&op=add'>".$core_config['icon']['add']."</a>
+				</div>
+				<div class=pull-right>".$nav['form']."</div>
+			</div>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead>
@@ -62,7 +58,6 @@ switch ($op) {
 			</tbody>
 			</table>
 			</div>
-			".$actions_box."
 			</form>
 			"._b('index.php?app=menu&inc=tools_phonebook&op=phonebook_list');
 
