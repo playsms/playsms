@@ -1,14 +1,15 @@
 {ERROR}
 <h2>{Inbox}</h2>
 <p>{SEARCH_FORM}</p>
-<div class=actions_box>
-	<div class=pull-left><a href="index.php?app=menu&inc=user_inbox&op=actions&go=export">{Export}</a></div>
-	<div class=pull-right>{NAV_FORM}</div>
-</div>
 <form id="fm_inbox" name="fm_inbox" action="index.php?app=menu&inc=user_inbox&op=actions" method=post>
 <input type=hidden name=go value="delete">
-<div class="pull-right">
-	<a href='#' onClick="return SubmitConfirm('{ARE_YOU_SURE}', 'fm_inbox');">{Delete}</a>
+<div class=actions_box>
+	<div class=pull-left>
+		<a href="index.php?app=menu&inc=user_inbox&op=actions&go=export">{Export}</a>
+	</div>
+	<div class="pull-right">
+		<a href='#' onClick="return SubmitConfirm('{ARE_YOU_SURE}', 'fm_inbox');">{Delete}</a>
+	</div>
 </div>
 <div class=table-responsive>
 <table class=playsms-table-list>
@@ -37,4 +38,5 @@
 	</tbody>
 </table>
 </div>
+<div class=pull-right>{NAV_FORM}</div>
 </form>

@@ -16,24 +16,18 @@ switch ($op) {
 		$extras = array('ORDER BY' => 'smslog_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = dba_search($table.' AS A', '*', $conditions, $keywords, $extras, $join);
 
-		$actions_box = "
-			<div class=actions_box>
-			<div class=actions_box_left><input type=submit name=go value=\""._('Export')."\" class=button /></div>
-			<div class=actions_box_center>".$nav['form']."</div>
-			<div class=actions_box_right><input type=submit name=go value=\""._('Delete')."\" class=button /></div>
-			</div>";
-
 		$content = "
 			<h2>"._('All outgoing SMS')."</h2>
 			<p>".$search['form']."</p>
-			<div class=actions_box>
-				<div class=pull-left><a href=\"index.php?app=menu&inc=all_outgoing&op=actions&go=export\">".$core_config['icon']['export']."</a></div>
-				<div class=pull-right>".$nav['form']."</div>
-			</div>
 			<form id=fm_all_outgoing name=fm_all_outgoing action=\"index.php?app=menu&inc=all_outgoing&op=actions\" method=post onSubmit=\"return SureConfirm()\">
 			<input type=hidden name=go value=delete>
-			<div class=pull-right>
-				<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', 'fm_all_outgoing');\">".$core_config['icon']['delete']."</a>
+			<div class=actions_box>
+				<div class=pull-left>
+					<a href=\"index.php?app=menu&inc=all_outgoing&op=actions&go=export\">".$core_config['icon']['export']."</a>
+				</div>
+				<div class=pull-right>
+					<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', 'fm_all_outgoing');\">".$core_config['icon']['delete']."</a>
+				</div>
 			</div>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
@@ -113,6 +107,7 @@ switch ($op) {
 			</tbody>
 			</table>
 			</div>
+			<div class=pull-right>".$nav['form']."</div>
 			</form>";
 
 		if ($err = $_SESSION['error_string']) {

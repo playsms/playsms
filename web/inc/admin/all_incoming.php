@@ -18,14 +18,15 @@ switch ($op) {
 		$content = "
 			<h2>"._('All incoming SMS')."</h2>
 			<p>".$search['form']."</p>
-			<div class=actions_box>
-				<div class=pull-left><a href=\"index.php?app=menu&inc=all_incoming&op=actions&go=export\">".$core_config['icon']['export']."</a></div>
-				<div class=pull-right>".$nav['form']."</div>
-			</div>
 			<form id=fm_all_incoming name=fm_all_incoming action=\"index.php?app=menu&inc=all_incoming&op=actions\" method=post onSubmit=\"return SureConfirm()\">
 			<input type=hidden name=go value=delete>
-			<div class=pull-right>
-				<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', 'fm_all_incoming');\">".$core_config['icon']['delete']."</a>
+			<div class=actions_box>
+				<div class=pull-left>
+					<a href=\"index.php?app=menu&inc=all_incoming&op=actions&go=export\">".$core_config['icon']['export']."</a>
+				</div>
+				<div class=pull-right>
+					<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', 'fm_all_incoming');\">".$core_config['icon']['delete']."</a>
+				</div>
 			</div>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
@@ -86,6 +87,7 @@ switch ($op) {
 			</tbody>
 			</table>
 			</div>
+			<div class=pull-right>".$nav['form']."</div>
 			</form>";
 
 		if ($err = $_SESSION['error_string']) {
