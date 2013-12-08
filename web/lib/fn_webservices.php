@@ -198,7 +198,7 @@ function webservices_in($c_username,$src='',$dst='',$kwd='',$datetime='',$c=100,
 	$ret = "ERR 101";
 	$json['status'] = 'ERR';
 	$json['error'] = '101';
-	$conditions['flag_deleted'] = 0;
+	$conditions = array('flag_deleted' => 0, 'in_status' => 1);
 	if ($uid = username2uid($c_username)) {
 		$conditions['in_uid'] = $uid;
 	}
@@ -222,6 +222,7 @@ function webservices_in($c_username,$src='',$dst='',$kwd='',$datetime='',$c=100,
 	if ($last) {
 		$extras['AND in_id'] = '>'.$last;
 	}
+	$extras['AND in_keyword'] = '!= ""';
 	$extras['ORDER BY'] = 'in_datetime DESC';
 	if ($c) {
 		$extras['LIMIT'] = $c;

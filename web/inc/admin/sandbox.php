@@ -7,7 +7,7 @@ switch ($op) {
 		$search_category = array(_('Time') => 'in_datetime', _('From') => 'in_sender', _('Content') => 'in_message');
 		$base_url = 'index.php?app=menu&inc=sandbox&op=sandbox';
 		$search = themes_search($search_category, $base_url);
-		$conditions = array('flag_deleted' => 0, 'in_keyword' => '', 'in_status' => 0);
+		$conditions = array('flag_deleted' => 0, 'in_status' => 0);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_.'_tblSMSIncoming', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
@@ -96,8 +96,7 @@ switch ($op) {
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case 'export':
-				$conditions = array('flag_deleted' => 0, 'in_keyword' => '', 'in_status' => 0);
-				$join = 'INNER JOIN '._DB_PREF_.'_tblUser AS B ON in_uid=B.uid';
+				$conditions = array('flag_deleted' => 0, 'in_status' => 0);
 				$list = dba_search(_DB_PREF_.'_tblSMSIncoming', '*', $conditions, $search['dba_keywords'], '', $join);
 				$data[0] = array(_('Time'), _('From'), _('Content'));
 				for ($i=0;$i<count($list);$i++) {

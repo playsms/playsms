@@ -7,11 +7,11 @@ switch ($op) {
 		$search_category = array(_('Time') => 'in_datetime', _('From') => 'in_sender', _('Keyword') => 'in_keyword', _('Content') => 'in_message', _('Feature') => 'in_feature');
 		$base_url = 'index.php?app=menu&inc=user_incoming&op=user_incoming';
 		$search = themes_search($search_category, $base_url);
-		$conditions = array('in_uid' => $uid, 'flag_deleted' => 0);
+		$conditions = array('in_uid' => $uid, 'flag_deleted' => 0, 'in_status' => 1);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_.'_tblSMSIncoming', $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
-		$extras = array('AND in_keyword' => '!=""', 'ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
+		$extras = array('AND in_keyword' => '!= ""', 'ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = dba_search(_DB_PREF_.'_tblSMSIncoming', '*', $conditions, $keywords, $extras);
 
 		$content = "
@@ -99,8 +99,9 @@ switch ($op) {
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case 'export':
-				$conditions = array('in_uid' => $uid, 'flag_deleted' => 0);
-				$list = dba_search(_DB_PREF_.'_tblSMSIncoming', '*', $conditions, $search['dba_keywords']);
+				$conditions = array('in_uid' => $uid, 'flag_deleted' => 0, 'in_status' => 1);
+				$extras = array('AND in_keyword' => '!= ""'); 
+				$list = dba_search(_DB_PREF_.'_tblSMSIncoming', '*', $conditions, $search['dba_keywords'], $extras);
 				$data[0] = array(_('User'), _('Time'), _('From'), _('Keyword'), _('Content'), _('Feature'), _('Status'));
 				for ($i=0;$i<count($list);$i++) {
 					$j = $i + 1;

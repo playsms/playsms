@@ -7,12 +7,12 @@ switch ($op) {
 		$search_category = array(_('User') => 'username', _('Time') => 'in_datetime', _('From') => 'in_sender', _('Keyword') => 'in_keyword', _('Content') => 'in_message', _('Feature') => 'in_feature');
 		$base_url = 'index.php?app=menu&inc=all_incoming&op=all_incoming';
 		$search = themes_search($search_category, $base_url);
-		$conditions = array('flag_deleted' => 0);
+		$conditions = array('flag_deleted' => 0, 'in_status' => 1);
 		$keywords = $search['dba_keywords'];
 		$join = 'INNER JOIN '._DB_PREF_.'_tblUser AS B ON in_uid=B.uid';
 		$count = dba_count(_DB_PREF_.'_tblSMSIncoming', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
-		$extras = array('AND in_keyword' => '!=""', 'ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
+		$extras = array('AND in_keyword' => '!= ""', 'ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = dba_search(_DB_PREF_.'_tblSMSIncoming', '*', $conditions, $keywords, $extras, $join);
 
 		$content = "
@@ -101,9 +101,10 @@ switch ($op) {
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case 'export':
-				$conditions = array('flag_deleted' => 0);
+				$conditions = array('flag_deleted' => 0, 'in_status' => 1);
 				$join = 'INNER JOIN '._DB_PREF_.'_tblUser AS B ON in_uid=B.uid';
-				$list = dba_search(_DB_PREF_.'_tblSMSIncoming', '*', $conditions, $search['dba_keywords'], '', $join);
+				$extras = array('AND in_keyword' => '!= ""');
+				$list = dba_search(_DB_PREF_.'_tblSMSIncoming', '*', $conditions, $search['dba_keywords'], $extras, $join);
 				$data[0] = array(_('User'), _('Time'), _('From'), _('Keyword'), _('Content'), _('Feature'), _('Status'));
 				for ($i=0;$i<count($list);$i++) {
 					$j = $i + 1;
