@@ -17,10 +17,10 @@ switch ($op) {
 		$fm_name = "fm_smstemp";
 
 		$actions_box = "
-			<div id=actions_box>
-			<div id=actions_box_left>"._button('index.php?app=menu&inc=tools_msgtemplate&op=add', _('Add message template'))."</div>
-			<div id=actions_box_center>&nbsp;</div>
-			<div id=actions_box_right><input type=submit name=go value='"._('Delete')."' class=button onClick='return SureConfirm()'/></div>
+			<div class=actions_box>
+			<div class=actions_box_left>"._button('index.php?app=menu&inc=tools_msgtemplate&op=add', _('Add message template'))."</div>
+			<div class=actions_box_center>&nbsp;</div>
+			<div class=actions_box_right><input type=submit name=go value='"._('Delete')."' class=button onClick='return SureConfirm()'/></div>
 			</div>";
 
 		$content = "

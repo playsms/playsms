@@ -15,10 +15,10 @@ switch ($op) {
 		$list = dba_search(_DB_PREF_.'_tblSMSOutgoing', '*', $conditions, $keywords, $extras);
 
 		$actions_box = "
-			<div id=actions_box>
-			<div id=actions_box_left><input type=submit name=go value=\""._('Export')."\" class=button /></div>
-			<div id=actions_box_center>".$nav['form']."</div>
-			<div id=actions_box_right><input type=submit name=go value=\""._('Delete')."\" class=button /></div>
+			<div class=actions_box>
+			<div class=actions_box_left><input type=submit name=go value=\""._('Export')."\" class=button /></div>
+			<div class=actions_box_center>".$nav['form']."</div>
+			<div class=actions_box_right><input type=submit name=go value=\""._('Delete')."\" class=button /></div>
 			</div>";
 
 		$content = "
