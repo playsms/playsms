@@ -11,7 +11,7 @@ switch ($op) {
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_.'_tblSMSIncoming', $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
-		$extras = array('ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
+		$extras = array('AND in_keyword' => '!=""', 'ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = dba_search(_DB_PREF_.'_tblSMSIncoming', '*', $conditions, $keywords, $extras);
 
 		$content = "
