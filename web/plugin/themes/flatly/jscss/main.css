@@ -23,4 +23,7 @@
 	.label-sizer {
 		width: 140px;
 	}
+	.dropdown-menu hr {
+		display: none;
+	}
 }
