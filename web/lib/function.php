@@ -73,6 +73,7 @@ if (isadmin()) {
 	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_inbox&op=all_inbox", _('All inbox'), 1);
 	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_incoming&op=all_incoming", _('All incoming SMS'), 1);
 	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_outgoing&op=all_outgoing", _('All outgoing SMS'), 1);
+	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=sandbox&op=sandbox", _('Sandbox'), 1);
 	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=user_mgmnt&op=user_list", _('Manage user'), 2);
 	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=main_config&op=main_config", _('Main configuration'), 2);
 	//ksort($menu_config[$menutab_administration]);
