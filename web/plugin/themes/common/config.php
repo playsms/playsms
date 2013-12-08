@@ -2,6 +2,7 @@
 defined('_SECURE_') or die('Forbidden');
 
 // common action icons
+$core_config['icon']['add']		= "<span class='playsms-icon glyphicon glyphicon-plus' alt='"._('Add')."' title='"._('Add')."'></span>";
 $core_config['icon']['edit']		= "<span class='playsms-icon glyphicon glyphicon-cog' alt='"._('Edit')."' title='"._('Edit')."'></span>";
 $core_config['icon']['delete']		= "<span class='playsms-icon glyphicon glyphicon-trash' alt='"._('Delete')."' title='"._('Delete')."'></span>";
 $core_config['icon']['view']		= "<span class='playsms-icon glyphicon glyphicon-eye-open' alt='"._('View')."' title='"._('View')."'></span>";
@@ -13,5 +14,8 @@ $core_config['icon']['user_pref'] 	= "<span class='playsms-icon glyphicon glyphi
 $core_config['icon']['user_config'] 	= "<span class='playsms-icon glyphicon glyphicon-wrench' alt='"._('User configuration')."' title='"._('User configuration')."'></span>";
 $core_config['icon']['user_delete'] 	= "<span class='playsms-icon glyphicon glyphicon-trash' alt='"._('Delete user')."' title='"._('Delete user')."'></span>";
 $core_config['icon']['admin']		= "<span class='playsms-icon glyphicon glyphicon-certificate' alt='"._('This user is an administrator')."' title='"._('This user is an administrator')."'></span>";
+$core_config['icon']['export']		= "<span class='playsms-icon glyphicon glyphicon-export' alt='"._('Export')."' title='"._('Export')."'></span>";
+$core_config['icon']['import']		= "<span class='playsms-icon glyphicon glyphicon-import' alt='"._('Import')."' title='"._('Import')."'></span>";
+$core_config['icon']['group']		= "<span class='playsms-icon glyphicon glyphicon-briefcase' alt='"._('Group')."' title='"._('Group')."'></span>";
 
 ?>

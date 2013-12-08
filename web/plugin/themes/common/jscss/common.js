@@ -46,6 +46,15 @@ function SureConfirm() {
 	}
 }
 
+function SubmitConfirm(text, form_name) {
+	if (confirm(text)) {
+		document.getElementById(form_name).submit();
+		return true;
+	} else {
+		return false;
+	}
+}
+
 function SetSmsTemplate() {
 	sellength = document.forms.fm_sendsms.smstemplate.length;
 	for (i = 0; i < sellength; i++) {

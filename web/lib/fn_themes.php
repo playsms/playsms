@@ -134,8 +134,8 @@ function _a($url, $title='') {
 	return themes_link($url, $title);
 }
 
-function themes_button($url, $title, $class='buttons') {
-	$content = "<div id=\"".$class."\"><input type=button class=button value=\"".$title."\" onClick=\"javascript:window.location.href='".$url."'\" /></div>";
+function themes_button($url, $title, $class='') {
+	$content = "<a href=# class=\"button $class\" value=\"".$title."\" onClick=\"javascript:window.location.href='".$url."'\" />".$title."</a>";
 	return $content;
 }
 

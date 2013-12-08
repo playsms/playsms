@@ -17,16 +17,19 @@ switch ($op) {
 
 		$actions_box = "
 			<div id=actions_box>
-			<div id=actions_box_left><input type=button class=button value=\""._('Add group')."\" onClick=\"javascript:window.location.href='index.php?app=menu&inc=tools_phonebook&route=group&op=add'\"></div>
-			<div id=actions_box_center>".$nav['form']."</div>
-			<div id=actions_box_right><input type=submit name=go value=\""._('Delete')."\" class=button onClick=\"return SureConfirm()\"/></div>
+				<div id=actions_box_left>
+					<a href='index.php?app=menu&inc=tools_phonebook&route=group&op=add'>".$core_config['icon']['add']."</a>
+				</div>
+				<div id=actions_box_center>".$nav['form']."</div>
 			</div>";
+
 
 		$content = "
 			<h2>"._('Phonebook')."</h2>
 			<h3>"._('Group')."</h3>
 			<p>".$search['form']."</p>
-			<form name=\"fm_inbox\" action=\"index.php?app=menu&inc=tools_phonebook&route=group&op=actions\" method=post>
+			<form name=\"fm_phonebook_group_list\" action=\"index.php?app=menu&inc=tools_phonebook&route=group&op=actions\" method=post>
+			<input type=hidden name=go value=delete>
 			".$actions_box."
 			<div class=table-responsive>
 			<table class=playsms-table-list>
@@ -34,7 +37,10 @@ switch ($op) {
 			<tr>
 				<th width=60%>"._('Name')."</th>
 				<th width=35%>"._('Group code')."</th>
-				<th width=5%><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></td>
+				<th width=5%>
+					<input type=checkbox onclick=CheckUncheckAll(document.fm_phonebook_group_list)>
+					<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', 'fm_phonebook_group_list');\">".$core_config['icon']['delete']."</a>
+				</th>
 			</tr>
 			</thead>
 			<tbody>";
@@ -127,7 +133,7 @@ switch ($op) {
 		$search = themes_search_session();
 		$go = $_REQUEST['go'];
 		switch ($go) {
-			case _('Delete'):
+			case 'delete':
 				for ($i=0;$i<$nav['limit'];$i++) {
 					$checkid = $_POST['checkid'.$i];
 					$itemid = $_POST['itemid'.$i];
