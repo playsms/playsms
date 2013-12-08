@@ -77,11 +77,11 @@ switch ($op) {
 			$content .= "
 				</tbody></table>
 				</div>
-				<p>"._('Import above phonebook entries ?')."
+				<p>"._('Import above phonebook entries ?')."</p>
 				<form action=\"index.php?app=menu&inc=tools_phonebook&route=import&op=import_yes\" method=\"post\">
 				<input type=\"hidden\" name=\"number_of_row\" value=\"$j\">
 				<input type=\"hidden\" name=\"session_import\" value=\"".$session_import."\">
-				<input type=\"submit\" class=\"button\" value=\""._('Import')."\">
+				<p><input type=\"submit\" class=\"button\" value=\""._('Import')."\"></p>
 				</form>
 				<p>"._b('index.php?app=menu&inc=tools_phonebook&route=import&op=list');
 			echo $content;
