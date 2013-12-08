@@ -23,7 +23,7 @@ $nofooter	= ( trim($_REQUEST['nofooter']) ? TRUE : FALSE );
 $type		= ( trim($_REQUEST['type']) ? trim($_REQUEST['type']) : 'text' );
 $unicode	= ( trim($_REQUEST['unicode']) ? trim($_REQUEST['unicode']) : 0 );
 
-// DS, IN, GET_CONTACT, GET_CONTACT_GROUP
+// DS, IN, SX, IX, GET_CONTACT, GET_CONTACT_GROUP
 $src		= trim($_REQUEST['src']);
 $dst		= trim($_REQUEST['dst']);
 $dt		= trim($_REQUEST['dt']);
@@ -73,6 +73,15 @@ if ($ta) {
 		case "IN":
 			if ($u = webservices_validate($h,$u)) {
 				list($ret,$json) = webservices_in($u,$src,$dst,$kwd,$dt,$c,$last);
+			} else {
+				$ret = "ERR 100";
+				$json['status'] = 'ERR';
+				$json['error'] = '100';
+			}
+			break;
+		case "SX":
+			if ($u = webservices_validate($h,$u)) {
+				list($ret,$json) = webservices_sx($u,$src,$dst,$dt,$c,$last);
 			} else {
 				$ret = "ERR 100";
 				$json['status'] = 'ERR';

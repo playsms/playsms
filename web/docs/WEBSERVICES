@@ -124,39 +124,46 @@ PROTOCOL
     notes	: c retrieves as many as c value
 		  last retrieves from last ID
 
-5.  Inbox SMS
+5.  Sandbox
+    ta		: sx
+    parameters	: u, h, src, dst, kwd, dt, c, last, format
+    returns	: text depends on selected format
+    notes	: c retrieves as many as c value
+		  last retrieves from last ID
+
+6.  Inbox SMS
     ta		: ix
     parameters	: u, h, src, dst, dt, c, last, format
     returns	: text depends on selected format
     notes	: c retrieves as many as c value
     		  last retrieves from last ID
 
-6.  User credits
+7.  User credits
     ta		: cr
     parameters	: u, h, format
     returns	: user's credit
 
-7.  Get token
+8.  Get token
     ta		: get_token
     parameters	: u, p, format
     returns	: webservice token
 
-8.  Get contact list by name, mobile or email
+9.  Get contact list by name, mobile or email
     ta		: get_contact
     parameters	: u, h, kwd, c, format
     returns	: list of contacts
 
-9. Get group contact list by name or code
+10. Get group contact list by name or code
     ta		: get_contact_group
     parameters	: u, h, kwd, c, format
     returns	: list of group contacts
 
-10. Get SMS poll results
+11. Get SMS poll results
     ta		: sms_poll
     parameters	: <please read in SMS poll menu>
     returns	: <please read in SMS poll menu>
 
-11. Get SMS board results
+12. Get SMS board results
     ta		: sms_board
     parameters	: <please read in SMS board menu>
     returns	: <please read in SMS board menu>
