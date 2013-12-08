@@ -17,11 +17,11 @@ msgstr ""
 msgid "Add message template"
 msgstr "Afegir plantilla de missatge"
 
+msgid "Are you sure you want to delete these items ?"
+msgstr ""
+
 msgid "Content"
 msgstr "Contingut"
-
-msgid "Delete"
-msgstr ""
 
 msgid "Edit message template"
 msgstr "Editar plantilla de missatge"

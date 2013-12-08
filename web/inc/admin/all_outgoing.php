@@ -17,7 +17,7 @@ switch ($op) {
 		$list = dba_search($table.' AS A', '*', $conditions, $keywords, $extras, $join);
 
 		$content = "
-			<h2>"._('All outgoing SMS')."</h2>
+			<h2>"._('All outgoing messages')."</h2>
 			<p>".$search['form']."</p>
 			<form id=fm_all_outgoing name=fm_all_outgoing action=\"index.php?app=menu&inc=all_outgoing&op=actions\" method=post onSubmit=\"return SureConfirm()\">
 			<input type=hidden name=go value=delete>

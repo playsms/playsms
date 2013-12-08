@@ -1,8 +1,14 @@
+msgid "Action"
+msgstr ""
+
 msgid "Add contact"
 msgstr "Kontakt hinzufgen"
 
 msgid "Add group"
 msgstr "Gruppe hinzufgen"
+
+msgid "Are you sure you want to delete these items ?"
+msgstr ""
 
 msgid "Contact has been added"
 msgstr "Kontakt wurde hinzugefgt"
@@ -10,14 +16,8 @@ msgstr "Kontakt wurde hinzugefgt"
 msgid "Contact has been edited"
 msgstr "Kontakt wurde gendert"
 
-msgid "Contact is already exists"
-msgstr "Kontakt existiert bereits"
-
 msgid "Contacts has been imported"
 msgstr "Kontakte wurden importiert"
-
-msgid "Delete"
-msgstr ""
 
 msgid "Edit contact"
 msgstr "Kontakt editieren"
@@ -28,8 +28,8 @@ msgstr "Gruppe editieren"
 msgid "Email"
 msgstr "Email"
 
-msgid "Export"
-msgstr "Export"
+msgid "Fail to delete group"
+msgstr ""
 
 msgid "Fail to upload CSV file for phonebook"
 msgstr "Fehler beim Hochladen der CSV-Datei fr Telefonbuch"
@@ -91,7 +91,18 @@ msgstr "Gewhlte Kontakte wurden gelscht"
 msgid "Selected group has been deleted"
 msgstr "Gewhlte Grupppe wurde gendert"
 
+msgid "Unable to delete group until the group is empty"
+msgstr ""
+
 msgid "You must fill all field"
+msgstr "Es mssen alle Felder ausgefllt werden"
+
+#, fuzzy
+msgid "You must fill mandatory fields"
+msgstr "Es mssen alle Felder ausgefllt werden"
+
+#, fuzzy
+msgid "You must fill required fields"
 msgstr "Es mssen alle Felder ausgefllt werden"
 
 msgid "broadcast SMS from single SMS"
@@ -105,12 +116,6 @@ msgstr "Format"
 
 msgid "group"
 msgstr "Gruppe"
-
-msgid "mobile"
-msgstr "Mobil"
-
-msgid "name"
-msgstr "Name"
 
 msgid "please use uppercase and make it short"
 msgstr "Bitte in Grobuchstaben und kurz"

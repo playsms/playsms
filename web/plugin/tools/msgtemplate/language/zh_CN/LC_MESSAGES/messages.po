@@ -1,10 +1,10 @@
 msgid "Add message template"
 msgstr ""
 
-msgid "Content"
+msgid "Are you sure you want to delete these items ?"
 msgstr ""
 
-msgid "Delete"
+msgid "Content"
 msgstr ""
 
 msgid "Edit message template"

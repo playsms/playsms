@@ -53,7 +53,15 @@ msgstr "Todos los entrantes"
 msgid "All incoming SMS"
 msgstr "Todos los SMS entrantes"
 
+#, fuzzy
+msgid "All incoming messages"
+msgstr "Todos los SMS entrantes"
+
 msgid "All outgoing SMS"
+msgstr "Todos los SMS salientes"
+
+#, fuzzy
+msgid "All outgoing messages"
 msgstr "Todos los SMS salientes"
 
 #, fuzzy
@@ -78,6 +86,10 @@ msgstr "Información del programa"
 
 msgid "Are you sure you want to delete outgoing SMS ?"
 msgstr "Está Ud. seguro de querer borrar el SMS saliente ?"
+
+#, fuzzy
+msgid "Are you sure you want to delete these items ?"
+msgstr "Está Ud. seguro de querer borrar este SMS"
 
 msgid "Are you sure you want to delete this SMS ?"
 msgstr "Está Ud. seguro de querer borrar este SMS"
@@ -315,6 +327,10 @@ msgstr "Bandeja de Entrada"
 msgid "Incoming SMS"
 msgstr "SMS Entrantes"
 
+#, fuzzy
+msgid "Incoming messages"
+msgstr "Enviar en Unicode"
+
 msgid "Installation Guide"
 msgstr ""
 
@@ -433,6 +449,10 @@ msgstr "O"
 msgid "Outgoing SMS"
 msgstr "SMS salientes"
 
+#, fuzzy
+msgid "Outgoing messages"
+msgstr "SMS salientes"
+
 msgid "Password"
 msgstr "Contraseña"
 
@@ -548,6 +568,9 @@ msgstr "ID Remitente del SMS"
 #, fuzzy
 msgid "SMS to email"
 msgstr "Firma del correo reenviado"
+
+msgid "Sandbox"
+msgstr ""
 
 msgid "Save"
 msgstr "Guardar"

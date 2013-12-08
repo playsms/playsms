@@ -59,7 +59,15 @@ msgstr "Toutes les boites"
 msgid "All incoming SMS"
 msgstr "Tous les SMS entrant"
 
+#, fuzzy
+msgid "All incoming messages"
+msgstr "Tous les SMS entrant"
+
 msgid "All outgoing SMS"
+msgstr "Tous les SMS sortant"
+
+#, fuzzy
+msgid "All outgoing messages"
 msgstr "Tous les SMS sortant"
 
 #, fuzzy
@@ -84,6 +92,10 @@ msgstr ""
 
 msgid "Are you sure you want to delete outgoing SMS ?"
 msgstr "Voulez supprimer le message sortant ?"
+
+#, fuzzy
+msgid "Are you sure you want to delete these items ?"
+msgstr "Voulez vous vraiment supprimer ce SMS ?"
 
 msgid "Are you sure you want to delete this SMS ?"
 msgstr "Voulez vous vraiment supprimer ce SMS ?"
@@ -321,6 +333,10 @@ msgstr "Boite de réception"
 msgid "Incoming SMS"
 msgstr "SMS entrant"
 
+#, fuzzy
+msgid "Incoming messages"
+msgstr "Envoyer un message unicode"
+
 msgid "Installation Guide"
 msgstr ""
 
@@ -439,6 +455,10 @@ msgstr "Ou"
 msgid "Outgoing SMS"
 msgstr "SMS sortant"
 
+#, fuzzy
+msgid "Outgoing messages"
+msgstr "SMS sortant"
+
 msgid "Password"
 msgstr "Mot de passe"
 
@@ -554,6 +574,9 @@ msgstr "ID Émetteur SMS"
 #, fuzzy
 msgid "SMS to email"
 msgstr "Transfert PV à email"
+
+msgid "Sandbox"
+msgstr ""
 
 msgid "Save"
 msgstr "Enregistrer"

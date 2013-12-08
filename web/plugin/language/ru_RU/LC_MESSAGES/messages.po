@@ -60,7 +60,15 @@ msgstr "Все принятые"
 msgid "All incoming SMS"
 msgstr "Все входящие СМС"
 
+#, fuzzy
+msgid "All incoming messages"
+msgstr "Все входящие СМС"
+
 msgid "All outgoing SMS"
+msgstr "Все исходящие СМС"
+
+#, fuzzy
+msgid "All outgoing messages"
 msgstr "Все исходящие СМС"
 
 msgid "Allow custom SMS footer"
@@ -83,6 +91,10 @@ msgstr "Настройки приложения"
 
 msgid "Are you sure you want to delete outgoing SMS ?"
 msgstr "Вы уверены, что хотите удалить исходящее СМС?"
+
+#, fuzzy
+msgid "Are you sure you want to delete these items ?"
+msgstr "Вы уверены, что хотите удалить это СМС?"
 
 msgid "Are you sure you want to delete this SMS ?"
 msgstr "Вы уверены, что хотите удалить это СМС?"
@@ -309,6 +321,10 @@ msgstr "Принятые"
 msgid "Incoming SMS"
 msgstr "Входящие СМС"
 
+#, fuzzy
+msgid "Incoming messages"
+msgstr "Содержит русские символы"
+
 msgid "Installation Guide"
 msgstr "Инструкция по установке"
 
@@ -426,6 +442,10 @@ msgstr "Или"
 msgid "Outgoing SMS"
 msgstr "Исходящие СМС"
 
+#, fuzzy
+msgid "Outgoing messages"
+msgstr "Исходящие СМС"
+
 msgid "Password"
 msgstr "Пароль"
 
@@ -533,6 +553,9 @@ msgstr "Имя отправителя СМС"
 
 msgid "SMS to email"
 msgstr "Переадресация СМС на email"
+
+msgid "Sandbox"
+msgstr ""
 
 msgid "Save"
 msgstr "Сохранить"

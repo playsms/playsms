@@ -1,8 +1,14 @@
+msgid "Action"
+msgstr ""
+
 msgid "Add contact"
 msgstr "Tambah kontak"
 
 msgid "Add group"
 msgstr "Tambah grup"
+
+msgid "Are you sure you want to delete these items ?"
+msgstr ""
 
 msgid "Contact has been added"
 msgstr "Kontak telah ditambah"
@@ -10,14 +16,8 @@ msgstr "Kontak telah ditambah"
 msgid "Contact has been edited"
 msgstr "Kontak telah diubah"
 
-msgid "Contact is already exists"
-msgstr "Kontak sudah ada"
-
 msgid "Contacts has been imported"
 msgstr "Kontak telah di-impor"
-
-msgid "Delete"
-msgstr ""
 
 msgid "Edit contact"
 msgstr "Ubah kontak"
@@ -28,8 +28,8 @@ msgstr "Ubah grup"
 msgid "Email"
 msgstr "Email"
 
-msgid "Export"
-msgstr "Ekspor"
+msgid "Fail to delete group"
+msgstr ""
 
 msgid "Fail to upload CSV file for phonebook"
 msgstr "Gagal untuk memasukkan berkas CSV ke buku telepon"
@@ -91,7 +91,18 @@ msgstr "Kontak terpilih telah dihapus"
 msgid "Selected group has been deleted"
 msgstr "Grup terpilih telah dihapus"
 
+msgid "Unable to delete group until the group is empty"
+msgstr ""
+
 msgid "You must fill all field"
+msgstr "Anda harus mengisi semua isian"
+
+#, fuzzy
+msgid "You must fill mandatory fields"
+msgstr "Anda harus mengisi semua isian"
+
+#, fuzzy
+msgid "You must fill required fields"
 msgstr "Anda harus mengisi semua isian"
 
 msgid "broadcast SMS from single SMS"
@@ -105,12 +116,6 @@ msgstr "format"
 
 msgid "group"
 msgstr "grup"
-
-msgid "mobile"
-msgstr "handphone"
-
-msgid "name"
-msgstr "nama"
 
 msgid "please use uppercase and make it short"
 msgstr "gunakan hurup besar dan singkat saja"

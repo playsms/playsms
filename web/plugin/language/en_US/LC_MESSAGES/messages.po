@@ -53,7 +53,13 @@ msgstr ""
 msgid "All incoming SMS"
 msgstr ""
 
+msgid "All incoming messages"
+msgstr ""
+
 msgid "All outgoing SMS"
+msgstr ""
+
+msgid "All outgoing messages"
 msgstr ""
 
 msgid "Allow custom SMS footer"
@@ -75,6 +81,9 @@ msgid "Application options"
 msgstr ""
 
 msgid "Are you sure you want to delete outgoing SMS ?"
+msgstr ""
+
+msgid "Are you sure you want to delete these items ?"
 msgstr ""
 
 msgid "Are you sure you want to delete this SMS ?"
@@ -302,6 +311,9 @@ msgstr ""
 msgid "Incoming SMS"
 msgstr ""
 
+msgid "Incoming messages"
+msgstr ""
+
 msgid "Installation Guide"
 msgstr ""
 
@@ -419,6 +431,9 @@ msgstr ""
 msgid "Outgoing SMS"
 msgstr ""
 
+msgid "Outgoing messages"
+msgstr ""
+
 msgid "Password"
 msgstr ""
 
@@ -525,6 +540,9 @@ msgid "SMS sender ID"
 msgstr ""
 
 msgid "SMS to email"
+msgstr ""
+
+msgid "Sandbox"
 msgstr ""
 
 msgid "Save"

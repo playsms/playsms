@@ -15,7 +15,7 @@ switch ($op) {
 		$list = dba_search(_DB_PREF_.'_tblSMSOutgoing', '*', $conditions, $keywords, $extras);
 
 		$content = "
-			<h2>"._('Outgoing SMS')."</h2>
+			<h2>"._('Outgoing messages')."</h2>
 			<p>".$search['form']."</p>
 			<form id=fm_outgoing name=fm_outgoing action=\"index.php?app=menu&inc=user_outgoing&op=actions\" method=post>
 			<input type=hidden name=go value=delete>

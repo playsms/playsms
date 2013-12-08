@@ -54,7 +54,15 @@ msgstr "Alle Inbox"
 msgid "All incoming SMS"
 msgstr "Alle empfangenen SMS"
 
+#, fuzzy
+msgid "All incoming messages"
+msgstr "Alle empfangenen SMS"
+
 msgid "All outgoing SMS"
+msgstr "Alle gesendeten SMS"
+
+#, fuzzy
+msgid "All outgoing messages"
 msgstr "Alle gesendeten SMS"
 
 #, fuzzy
@@ -79,6 +87,10 @@ msgstr "Applikationseinstellungen"
 
 msgid "Are you sure you want to delete outgoing SMS ?"
 msgstr "Gesendete SMS wirklich löschen?"
+
+#, fuzzy
+msgid "Are you sure you want to delete these items ?"
+msgstr "Diese SMS wirklich löschen?"
 
 msgid "Are you sure you want to delete this SMS ?"
 msgstr "Diese SMS wirklich löschen?"
@@ -309,6 +321,10 @@ msgstr "Inbox"
 msgid "Incoming SMS"
 msgstr "Empfangene SMS"
 
+#, fuzzy
+msgid "Incoming messages"
+msgstr "Unicode Nachricht"
+
 msgid "Installation Guide"
 msgstr "Installationsanlaeitung"
 
@@ -427,6 +443,10 @@ msgstr "Qr"
 msgid "Outgoing SMS"
 msgstr "Gesendete SMS"
 
+#, fuzzy
+msgid "Outgoing messages"
+msgstr "Gesendete SMS"
+
 msgid "Password"
 msgstr "Passwort"
 
@@ -540,6 +560,9 @@ msgstr "SMS Sender-ID"
 #, fuzzy
 msgid "SMS to email"
 msgstr "Leite SMS als Email weiter"
+
+msgid "Sandbox"
+msgstr ""
 
 msgid "Save"
 msgstr "Speichern"

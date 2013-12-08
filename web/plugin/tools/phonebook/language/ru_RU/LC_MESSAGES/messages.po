@@ -10,11 +10,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Action"
+msgstr ""
+
 msgid "Add contact"
 msgstr "Добавить контакт"
 
 msgid "Add group"
 msgstr "Добавить групу"
+
+msgid "Are you sure you want to delete these items ?"
+msgstr ""
 
 msgid "Contact has been added"
 msgstr "Контакт добавлен"
@@ -22,14 +28,8 @@ msgstr "Контакт добавлен"
 msgid "Contact has been edited"
 msgstr "Контакт изменён"
 
-msgid "Contact is already exists"
-msgstr "Контакт уже существует"
-
 msgid "Contacts has been imported"
 msgstr "Контакты импортированы"
-
-msgid "Delete"
-msgstr "Удалить"
 
 msgid "Edit contact"
 msgstr "Редактировать контакт"
@@ -40,8 +40,8 @@ msgstr "Редактировать группу"
 msgid "Email"
 msgstr "Email"
 
-msgid "Export"
-msgstr "Экспорт"
+msgid "Fail to delete group"
+msgstr ""
 
 msgid "Fail to upload CSV file for phonebook"
 msgstr "Не удалось загрузить CSV файл контактов"
@@ -103,7 +103,18 @@ msgstr "Выбранные контакты удалены"
 msgid "Selected group has been deleted"
 msgstr "Выбранные группы удалены"
 
+msgid "Unable to delete group until the group is empty"
+msgstr ""
+
 msgid "You must fill all field"
+msgstr "Необходимо заполнить все поля"
+
+#, fuzzy
+msgid "You must fill mandatory fields"
+msgstr "Необходимо заполнить все поля"
+
+#, fuzzy
+msgid "You must fill required fields"
 msgstr "Необходимо заполнить все поля"
 
 msgid "broadcast SMS from single SMS"
@@ -117,12 +128,6 @@ msgstr "формат"
 
 msgid "group"
 msgstr "группа"
-
-msgid "mobile"
-msgstr "мобильный"
-
-msgid "name"
-msgstr "имя"
 
 msgid "please use uppercase and make it short"
 msgstr "придумайте короткое слово в верхнем регистре"

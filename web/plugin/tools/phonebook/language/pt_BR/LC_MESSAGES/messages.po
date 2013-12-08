@@ -5,11 +5,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Action"
+msgstr ""
+
 msgid "Add contact"
 msgstr "Adicionar contato"
 
 msgid "Add group"
 msgstr "Adicionar grupo"
+
+msgid "Are you sure you want to delete these items ?"
+msgstr ""
 
 msgid "Contact has been added"
 msgstr "Contato foi adicionado"
@@ -17,14 +23,8 @@ msgstr "Contato foi adicionado"
 msgid "Contact has been edited"
 msgstr "Contato foi editado"
 
-msgid "Contact is already exists"
-msgstr "Contato já existe"
-
 msgid "Contacts has been imported"
 msgstr "Contatos foram importados"
-
-msgid "Delete"
-msgstr "Remover"
 
 msgid "Edit contact"
 msgstr "Editar contato"
@@ -35,8 +35,8 @@ msgstr "Ediar grupo"
 msgid "Email"
 msgstr "E-mail"
 
-msgid "Export"
-msgstr "Exportar"
+msgid "Fail to delete group"
+msgstr ""
 
 msgid "Fail to upload CSV file for phonebook"
 msgstr "Falha ao enviar o arquivo CSV para lista de contato"
@@ -98,7 +98,18 @@ msgstr "Os contatos selecionados foram removidos"
 msgid "Selected group has been deleted"
 msgstr "O grupo selecionado foi removido"
 
+msgid "Unable to delete group until the group is empty"
+msgstr ""
+
 msgid "You must fill all field"
+msgstr "Você deve preencher todos os campos"
+
+#, fuzzy
+msgid "You must fill mandatory fields"
+msgstr "Você deve preencher todos os campos"
+
+#, fuzzy
+msgid "You must fill required fields"
 msgstr "Você deve preencher todos os campos"
 
 msgid "broadcast SMS from single SMS"
@@ -112,12 +123,6 @@ msgstr "formato"
 
 msgid "group"
 msgstr "grupo"
-
-msgid "mobile"
-msgstr "celular"
-
-msgid "name"
-msgstr "nome"
 
 msgid "please use uppercase and make it short"
 msgstr "por favor use somente letras maisculas e seja curto"

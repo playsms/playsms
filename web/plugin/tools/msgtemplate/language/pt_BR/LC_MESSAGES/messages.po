@@ -8,11 +8,11 @@ msgstr ""
 msgid "Add message template"
 msgstr "Adicionar modelo de mensagem"
 
+msgid "Are you sure you want to delete these items ?"
+msgstr ""
+
 msgid "Content"
 msgstr "Conteúdo"
-
-msgid "Delete"
-msgstr "Remover"
 
 msgid "Edit message template"
 msgstr "Editar modelo de mensagem"

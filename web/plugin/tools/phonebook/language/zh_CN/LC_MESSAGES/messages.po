@@ -1,7 +1,13 @@
+msgid "Action"
+msgstr ""
+
 msgid "Add contact"
 msgstr ""
 
 msgid "Add group"
+msgstr ""
+
+msgid "Are you sure you want to delete these items ?"
 msgstr ""
 
 msgid "Contact has been added"
@@ -10,13 +16,7 @@ msgstr ""
 msgid "Contact has been edited"
 msgstr ""
 
-msgid "Contact is already exists"
-msgstr ""
-
 msgid "Contacts has been imported"
-msgstr ""
-
-msgid "Delete"
 msgstr ""
 
 msgid "Edit contact"
@@ -28,7 +28,7 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-msgid "Export"
+msgid "Fail to delete group"
 msgstr ""
 
 msgid "Fail to upload CSV file for phonebook"
@@ -91,7 +91,16 @@ msgstr ""
 msgid "Selected group has been deleted"
 msgstr ""
 
+msgid "Unable to delete group until the group is empty"
+msgstr ""
+
 msgid "You must fill all field"
+msgstr ""
+
+msgid "You must fill mandatory fields"
+msgstr ""
+
+msgid "You must fill required fields"
 msgstr ""
 
 msgid "broadcast SMS from single SMS"
@@ -104,12 +113,6 @@ msgid "format"
 msgstr ""
 
 msgid "group"
-msgstr ""
-
-msgid "mobile"
-msgstr ""
-
-msgid "name"
 msgstr ""
 
 msgid "please use uppercase and make it short"

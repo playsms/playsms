@@ -62,7 +62,15 @@ msgstr "Tots els d'entrada"
 msgid "All incoming SMS"
 msgstr "Tots els SMS d'entrada"
 
+#, fuzzy
+msgid "All incoming messages"
+msgstr "Tots els SMS d'entrada"
+
 msgid "All outgoing SMS"
+msgstr "Tots els SMS de sortida"
+
+#, fuzzy
+msgid "All outgoing messages"
 msgstr "Tots els SMS de sortida"
 
 #, fuzzy
@@ -87,6 +95,10 @@ msgstr "Opcions del programa"
 
 msgid "Are you sure you want to delete outgoing SMS ?"
 msgstr "Està segur de voler esborrar el SMS de sortida ?"
+
+#, fuzzy
+msgid "Are you sure you want to delete these items ?"
+msgstr "Està segur de voler esborrar aquest SMS"
 
 msgid "Are you sure you want to delete this SMS ?"
 msgstr "Està segur de voler esborrar aquest SMS"
@@ -318,6 +330,10 @@ msgstr "Safata d'Entrada"
 msgid "Incoming SMS"
 msgstr "SMS Entrants"
 
+#, fuzzy
+msgid "Incoming messages"
+msgstr "Enviar en Unicode"
+
 msgid "Installation Guide"
 msgstr "Guia d'instal·lació"
 
@@ -436,6 +452,10 @@ msgstr "O"
 msgid "Outgoing SMS"
 msgstr "SMS de sortida"
 
+#, fuzzy
+msgid "Outgoing messages"
+msgstr "SMS de sortida"
+
 msgid "Password"
 msgstr "Contrasenya"
 
@@ -550,6 +570,9 @@ msgstr "ID Remitent del SMS"
 #, fuzzy
 msgid "SMS to email"
 msgstr "Reenviar els SMS al correu"
+
+msgid "Sandbox"
+msgstr ""
 
 msgid "Save"
 msgstr "Guardar"

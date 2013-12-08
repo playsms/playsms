@@ -1,11 +1,11 @@
 msgid "Add message template"
 msgstr "Tambah template pesan"
 
+msgid "Are you sure you want to delete these items ?"
+msgstr ""
+
 msgid "Content"
 msgstr "Isi"
-
-msgid "Delete"
-msgstr ""
 
 msgid "Edit message template"
 msgstr "Ubah template pesan"
