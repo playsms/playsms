@@ -153,7 +153,7 @@ switch ($op) {
 			case 'export':
 				$fields = 'A.id AS pid, A.name AS name, A.mobile AS mobile, A.email AS email, B.code AS code';
 				$join = 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group AS B ON A.uid=B.uid ';
-				$join .= 'INNER JOIN playsms_toolsPhonebook_group_contacts AS C ON A.id = C.pid AND C.gpid = B.id';
+				$join .= 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group_contacts AS C ON A.id = C.pid AND C.gpid = B.id';
 				$conditions = array('B.uid' => $core_config['user']['uid'], 'C.gpid=B.id');
 				$keywords = $search['dba_keywords'];
 				$extras = array('ORDER BY' => 'A.name, mobile', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
