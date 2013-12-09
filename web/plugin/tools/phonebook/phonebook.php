@@ -59,7 +59,7 @@ switch ($op) {
 			$groupconditions = array('B.uid' => $core_config['user']['uid'], 'C.pid' => $list[$j]['pid']);
 			$groupextras = array('ORDER BY' => 'B.code ASC', 'LIMIT' => $nav['limit']);
 			$groupjoin = 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group_contacts AS C ON C.gpid = B.id';
-			$grouplist = dba_search(_DB_PREF_.'_toolsPhonebook_group AS B', $groupfields, $groupconditions, $keywords, $groupextras, $groupjoin);
+			$grouplist = dba_search(_DB_PREF_.'_toolsPhonebook_group AS B', $groupfields, $groupconditions, '', $groupextras, $groupjoin);
 			for ($k=0;$k<count($grouplist);$k++) {
 				$group_code .= "<a href=\"index.php?app=menu&inc=tools_phonebook&route=group&op=edit&gpid=".$grouplist[$k]['id']."\">".strtoupper($grouplist[$k]['code'])."</a>&nbsp;";
 			}
