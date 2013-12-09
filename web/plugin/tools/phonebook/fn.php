@@ -143,7 +143,7 @@ function phonebook_hook_phonebook_getgroupbyuid($uid, $orderby="") {
 function phonebook_hook_phonebook_search($uid, $keyword="", $count="") {
 	$ret = array();
 	if ($keyword) {
-		$fields = 'A.id AS pid, B.id AS gpid, A.name AS p_desc, A.mobile AS p_num, A.email AS email, B.name AS group_name, B.code AS code';
+		$fields = 'DISTINCT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email';
 		$join = "INNER JOIN "._DB_PREF_."_toolsPhonebook_group AS B ON A.uid=B.uid ";
 		$join .= "INNER JOIN "._DB_PREF_."_toolsPhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid";
 		$conditions = array('A.uid' => $uid);
