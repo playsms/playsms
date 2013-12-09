@@ -16,3 +16,7 @@ CREATE TABLE IF NOT EXISTS `playsms_toolsPhonebook_group_contacts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE `playsms_toolsPhonebook` DROP `gpid` ;
+
+-- core config
+INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) VALUES ('1', 'core', 'config', 'playsms_version', '1.0-beta1');
+

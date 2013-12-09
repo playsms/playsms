@@ -73,59 +73,6 @@ LOCK TABLES `playsms_featureAutoreply_scenario` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `playsms_featureAutosend`
---
-
-DROP TABLE IF EXISTS `playsms_featureAutosend`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `playsms_featureAutosend` (
-  `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
-  `autosend_id` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) NOT NULL DEFAULT '0',
-  `autosend_message` varchar(200) NOT NULL DEFAULT '',
-  `autosend_number` varchar(20) NOT NULL DEFAULT '',
-  `autosend_enable` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`autosend_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `playsms_featureAutosend`
---
-
-LOCK TABLES `playsms_featureAutosend` WRITE;
-/*!40000 ALTER TABLE `playsms_featureAutosend` DISABLE KEYS */;
-/*!40000 ALTER TABLE `playsms_featureAutosend` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `playsms_featureAutosend_time`
---
-
-DROP TABLE IF EXISTS `playsms_featureAutosend_time`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `playsms_featureAutosend_time` (
-  `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
-  `time_id` int(11) NOT NULL AUTO_INCREMENT,
-  `autosend_id` int(11) NOT NULL DEFAULT '0',
-  `autosend_time` varchar(20) NOT NULL DEFAULT '',
-  `sent` enum('1','0') NOT NULL DEFAULT '0',
-  PRIMARY KEY (`time_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `playsms_featureAutosend_time`
---
-
-LOCK TABLES `playsms_featureAutosend_time` WRITE;
-/*!40000 ALTER TABLE `playsms_featureAutosend_time` DISABLE KEYS */;
-/*!40000 ALTER TABLE `playsms_featureAutosend_time` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `playsms_featureBoard`
 --
 
@@ -1013,7 +960,7 @@ CREATE TABLE `playsms_gatewayUplink` (
   `up_remote_queue_code` varchar(32) NOT NULL DEFAULT '',
   `up_dst` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`up_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1330,7 +1277,7 @@ CREATE TABLE `playsms_tblUser` (
   `register_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `lastupdate_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1385,7 +1332,7 @@ CREATE TABLE `playsms_tblUser_country` (
   `country_name` varchar(200) NOT NULL DEFAULT '',
   `country_code` varchar(10) NOT NULL DEFAULT '',
   PRIMARY KEY (`country_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=335 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=335;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1412,7 +1359,7 @@ CREATE TABLE `playsms_toolsMsgtemplate` (
   `t_title` varchar(100) NOT NULL DEFAULT '',
   `t_text` text NOT NULL DEFAULT '',
   PRIMARY KEY (`tid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1621,23 +1568,7 @@ CREATE TABLE `playsms_gatewayInfobip_apidata` (
   `apimsgid` varchar(100) NOT NULL DEFAULT '',
   `status` varchar(15) NOT NULL DEFAULT '0',
   PRIMARY KEY (`apidata_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
---
--- Table structure for table `playsms_tblRegistry`
---
-
-DROP TABLE IF EXISTS `playsms_tblRegistry`;
-CREATE TABLE IF NOT EXISTS `playsms_tblRegistry` (
-  `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) NOT NULL DEFAULT '0',
-  `registry_group` varchar(250) NOT NULL DEFAULT '',
-  `registry_family` varchar(250) NOT NULL DEFAULT '',
-  `registry_key` varchar(250) NOT NULL DEFAULT '',
-  `registry_value` varchar(250) NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 --
 -- Table structure for table `playsms_featureSmssysnc`
@@ -1651,6 +1582,20 @@ CREATE TABLE IF NOT EXISTS `playsms_featureSmssysnc` (
   `recvsms_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+DROP TABLE IF EXISTS `playsms_tblRegistry`;
+CREATE TABLE IF NOT EXISTS `playsms_tblRegistry` (
+  `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `registry_group` varchar(250) NOT NULL DEFAULT '',
+  `registry_family` varchar(250) NOT NULL DEFAULT '',
+  `registry_key` varchar(250) NOT NULL DEFAULT '',
+  `registry_value` varchar(250) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+INSERT INTO `playsms_tblRegistry` (`c_timestamp`, `id`, `uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) VALUES (0, 1, 1, 'core', 'config', 'playsms_version', '1.0');
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
