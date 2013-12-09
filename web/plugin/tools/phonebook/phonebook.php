@@ -8,7 +8,7 @@ switch ($op) {
 		$base_url = 'index.php?app=menu&inc=tools_phonebook&op=phonebook_list';
 		$search = themes_search($search_category, $base_url);
 		
-		$fields = 'A.id AS pid, A.name AS name, A.mobile AS mobile, A.email AS email, B.code AS code';
+		$fields = 'DISTINCT A.id AS pid, A.name AS name, A.mobile AS mobile, A.email AS email';
 		$join = 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group AS B ON A.uid=B.uid ';
 		$join .= 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid';
 		$conditions = array('B.uid' => $core_config['user']['uid']);
@@ -54,7 +54,15 @@ switch ($op) {
 			$name = $list[$j]['name'];
 			$mobile = $list[$j]['mobile'];
 			$email = $list[$j]['email'];
-			$group_code = strtoupper($list[$j]['code']);
+			$group_code = "";
+			$groupfields = 'B.id AS id, B.code AS code';
+			$groupconditions = array('B.uid' => $core_config['user']['uid'], 'C.pid' => $list[$j]['pid']);
+			$groupextras = array('ORDER BY' => 'B.code ASC', 'LIMIT' => $nav['limit']);
+			$groupjoin = 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group_contacts AS C ON C.gpid = B.id';
+			$grouplist = dba_search(_DB_PREF_.'_toolsPhonebook_group AS B', $groupfields, $groupconditions, $keywords, $groupextras, $groupjoin);
+			for ($k=0;$k<count($grouplist);$k++) {
+				$group_code .= "<a href=\"index.php?app=menu&inc=tools_phonebook&route=group&op=edit&gpid=".$grouplist[$k]['id']."\">".strtoupper($grouplist[$k]['code'])."</a>&nbsp;";
+			}
 			$i--;
 			$c_i = "<a href=\"index.php?app=menu&inc=tools_phonebook&op=phonebook_edit&id=".$pid."\">".$i.".</a>";
 			$content .= "
@@ -153,7 +161,7 @@ switch ($op) {
 			case 'export':
 				$fields = 'A.id AS pid, A.name AS name, A.mobile AS mobile, A.email AS email, B.code AS code';
 				$join = 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group AS B ON A.uid=B.uid ';
-				$join .= 'INNER JOIN playsms_toolsPhonebook_group_contacts AS C ON A.id = C.pid AND C.gpid = B.id';
+				$join .= 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group_contacts AS C ON A.id = C.pid AND C.gpid = B.id';
 				$conditions = array('B.uid' => $core_config['user']['uid'], 'C.gpid=B.id');
 				$keywords = $search['dba_keywords'];
 				$extras = array('ORDER BY' => 'A.name, mobile', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
