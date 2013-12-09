@@ -175,6 +175,34 @@ if ($ta) {
 				$json['error'] = '100';
 			}
 			break;
+		case "SET_TOKEN":
+			if ($u = webservices_validate($h,$u)) {
+				$user = user_getdatabyusername($u);
+				if ($uid = $user['uid']) {
+					$token = md5($uid._PID_);
+					$items = array('token' => $token);
+					$conditions = array('uid' => $uid);
+					if (dba_update(_DB_PREF_.'_tblUser', $items, $conditions)) {
+						$ret = "OK ".$token;
+						$json['status'] = 'OK';
+						$json['error'] = '0';
+						$json['token'] = $token;
+					} else {
+						$ret = "ERR 100";
+						$json['status'] = 'ERR';
+						$json['error'] = '100';
+					}
+				} else {
+					$ret = "ERR 100";
+					$json['status'] = 'ERR';
+					$json['error'] = '100';
+				}
+			} else {
+				$ret = "ERR 100";
+				$json['status'] = 'ERR';
+				$json['error'] = '100';
+			}
+			break;
 		default:
 			if ($ta) {
 				// output do not require valid login

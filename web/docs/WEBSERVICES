@@ -148,22 +148,27 @@ PROTOCOL
     parameters	: u, p, format
     returns	: webservice token
 
-9.  Get contact list by name, mobile or email
+9.  Set token
+    ta		: set_token
+    parameters	: u, h, format
+    returns	: webservice token
+
+10.  Get contact list by name, mobile or email
     ta		: get_contact
     parameters	: u, h, kwd, c, format
     returns	: list of contacts
 
-10. Get group contact list by name or code
+11. Get group contact list by name or code
     ta		: get_contact_group
     parameters	: u, h, kwd, c, format
     returns	: list of group contacts
 
-11. Get SMS poll results
+12. Get SMS poll results
     ta		: sms_poll
     parameters	: <please read in SMS poll menu>
     returns	: <please read in SMS poll menu>
 
-12. Get SMS board results
+13. Get SMS board results
     ta		: sms_board
     parameters	: <please read in SMS board menu>
     returns	: <please read in SMS board menu>
