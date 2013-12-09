@@ -5,14 +5,17 @@ if(!valid()){forcenoaccess();};
 switch ($op) {
 	case "phonebook_list":
 		$search_category = array(_('Name') => 'A.name', _('Mobile') => 'mobile', _('Email') => 'email', _('Group code') => 'code');
+		$group_search_category = array(_('Group code') => 'code');
 		$base_url = 'index.php?app=menu&inc=tools_phonebook&op=phonebook_list';
 		$search = themes_search($search_category, $base_url);
+		$groupsearch= themes_search($group_search_category, $base_url);
 		
 		$fields = 'DISTINCT A.id AS pid, A.name AS name, A.mobile AS mobile, A.email AS email';
 		$join = 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group AS B ON A.uid=B.uid ';
 		$join .= 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid';
 		$conditions = array('B.uid' => $core_config['user']['uid']);
 		$keywords = $search['dba_keywords'];
+		$groupkeywords = $groupsearch['dba_keywords'];
 		$count = dba_count(_DB_PREF_.'_toolsPhonebook AS A', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'A.name, mobile', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
@@ -59,7 +62,7 @@ switch ($op) {
 			$groupconditions = array('B.uid' => $core_config['user']['uid'], 'C.pid' => $list[$j]['pid']);
 			$groupextras = array('ORDER BY' => 'B.code ASC', 'LIMIT' => $nav['limit']);
 			$groupjoin = 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group_contacts AS C ON C.gpid = B.id';
-			$grouplist = dba_search(_DB_PREF_.'_toolsPhonebook_group AS B', $groupfields, $groupconditions, $keywords, $groupextras, $groupjoin);
+			$grouplist = dba_search(_DB_PREF_.'_toolsPhonebook_group AS B', $groupfields, $groupconditions, $groupkeywords, $groupextras, $groupjoin);
 			for ($k=0;$k<count($grouplist);$k++) {
 				$group_code .= "<a href=\"index.php?app=menu&inc=tools_phonebook&route=group&op=edit&gpid=".$grouplist[$k]['id']."\">".strtoupper($grouplist[$k]['code'])."</a>&nbsp;";
 			}
