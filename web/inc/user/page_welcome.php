@@ -2,6 +2,8 @@
 defined('_SECURE_') or die('Forbidden');
 if(!valid()){forcenoaccess();};
 
+logger_print("AAA", 1, "BBB");
+
 $fn = _APPS_PATH_THEMES_.'/'.core_themes_get().'/page_welcome.php';
 
 if (file_exists($fn)) {

@@ -26,16 +26,41 @@ function x_hook($c_plugin, $c_function, $c_param=array()) {
 	}
 }
 
+/**
+ * Call other function that hook caller function
+ * @global array $core_config
+ * @param string $function_name
+ * @param array $arguments
+ * @return string
+ */
+function core_call_hook($function_name='', $arguments='') {
+	global $core_config;
+	$ret = NULL;
+	if (! ($function_name && is_array($arguments))) {
+		$f = debug_backtrace(0,2);
+		$function_name = $f[1]['function'];
+		$arguments = $f[1]['args'];
+	}
+	$found = FALSE;
+	for ($c=0;$c<count($core_config['toolslist']);$c++) {
+		if ($ret = x_hook($core_config['toolslist'][$c],$function_name,$arguments)) {
+			$found = TRUE;
+			break;
+		}
+	}
+	if (! $found) {
+		for ($c=0;$c<count($core_config['featurelist']);$c++) {
+			if ($ret = x_hook($core_config['featurelist'][$c],$function_name,$arguments)) {
+				break;
+			}
+		}
+	}
+	return $ret;
+}
+
 function playsmsd() {
 	global $core_config;
-	// plugin tools
-	for ($c=0;$c<count($core_config['toolslist']);$c++) {
-		x_hook($core_config['toolslist'][$c],'playsmsd');
-	}
-	// plugin feature
-	for ($c=0;$c<count($core_config['featurelist']);$c++) {
-		x_hook($core_config['featurelist'][$c],'playsmsd');
-	}
+	core_call_hook();
 	// plugin gateway
 	$gw = core_gateway_get();
 	x_hook($gw,'playsmsd');

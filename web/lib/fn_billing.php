@@ -9,17 +9,8 @@ defined('_SECURE_') or die('Forbidden');
  * @return boolean TRUE if posted
  */
 function billing_post($smslog_id,$rate,$credit,$count,$charge) {
-	global $core_config;
-	$ok = false;
-	if ($smslog_id) {
-		for ($c=0;$c<count($core_config['toolslist']);$c++) {
-			if (x_hook($core_config['toolslist'][$c],'billing_post',array($smslog_id,$rate,$credit,$count,$charge))) {
-				$ok = true;
-				break;
-			}
-		}
-	}
-	return $ok;
+	$ret = core_call_hook();
+	return $ret;
 }
 
 /**
@@ -28,17 +19,8 @@ function billing_post($smslog_id,$rate,$credit,$count,$charge) {
  * @return boolean TRUE if rollback succeeded
  */
 function billing_rollback($smslog_id) {
-	global $core_config;
-	$ok = false;
-	if ($smslog_id) {
-		for ($c=0;$c<count($core_config['toolslist']);$c++) {
-			if (x_hook($core_config['toolslist'][$c],'billing_rollback',array($smslog_id))) {
-				$ok = true;
-				break;
-			}
-		}
-	}
-	return $ok;
+	$ret = core_call_hook();
+	return $ret;
 }
 
 /**
@@ -47,17 +29,8 @@ function billing_rollback($smslog_id) {
  * @return boolean TRUE if finalization succeeded
  */
 function billing_finalize($smslog_id) {
-	global $core_config;
-	$ok = false;
-	if ($smslog_id) {
-		for ($c=0;$c<count($core_config['toolslist']);$c++) {
-			if (x_hook($core_config['toolslist'][$c],'billing_finalize',array($smslog_id))) {
-				$ok = true;
-				break;
-			}
-		}
-	}
-	return $ok;
+	$ret = core_call_hook();
+	return $ret;
 }
 
 /**
@@ -66,15 +39,7 @@ function billing_finalize($smslog_id) {
  * @return array Billing information
  */
 function billing_getdata($smslog_id) {
-	global $core_config;
-	$ret = array();
-	if ($smslog_id) {
-		for ($c=0;$c<count($core_config['toolslist']);$c++) {
-			if ($ret = x_hook($core_config['toolslist'][$c],'billing_getdata',array($smslog_id))) {
-				break;
-			}
-		}
-	}
+	$ret = core_call_hook();
 	return $ret;
 }
 
@@ -84,15 +49,7 @@ function billing_getdata($smslog_id) {
  * @return array Billing information
  */
 function billing_getdata_by_uid($uid) {
-	global $core_config;
-	$ret = array();
-	if ($uid) {
-		for ($c=0;$c<count($core_config['toolslist']);$c++) {
-			if ($ret = x_hook($core_config['toolslist'][$c],'billing_getdata_by_uid',array($uid))) {
-				break;
-			}
-		}
-	}
+	$ret = core_call_hook();
 	return $ret;
 }
 
