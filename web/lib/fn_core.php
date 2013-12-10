@@ -37,7 +37,11 @@ function core_call_hook($function_name='', $arguments='') {
 	global $core_config;
 	$ret = NULL;
 	if (! ($function_name && is_array($arguments))) {
-		$f = debug_backtrace(0,2);
+		if (_PHP_VER_ >= 50400) {
+			$f = debug_backtrace(0, 2); // PHP 5.4.0 and above
+		} else {
+			$f = debug_backtrace(); // PHP prior to 5.4.0
+		}
 		$function_name = $f[1]['function'];
 		$arguments = $f[1]['args'];
 	}

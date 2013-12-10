@@ -7,6 +7,12 @@ define('_SECURE_', 1);
 // generate a unique Process ID
 define('_PID_', uniqid('PID'));
 
+// get PHP version
+if (!defined('_PHP_VER_')) {
+    $version = explode('.', PHP_VERSION);
+    define('_PHP_VER_', ($version[0] * 10000 + $version[1] * 100 + $version[2]));
+}
+
 $core_config['daemon_process'] = $DAEMON_PROCESS;
 
 if (!$core_config['daemon_process']) {
