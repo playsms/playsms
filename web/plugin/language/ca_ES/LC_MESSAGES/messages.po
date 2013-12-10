@@ -777,6 +777,9 @@ msgstr "Correu electrònic"
 msgid "failed"
 msgstr "fallit"
 
+msgid "format YYYY-MM-DD hh:mm"
+msgstr ""
+
 msgid "forward"
 msgstr "Reenviar"
 
@@ -800,6 +803,9 @@ msgstr "No configurat"
 
 msgid "number"
 msgstr "número"
+
+msgid "prefix with # for groups and @ for users"
+msgstr ""
 
 msgid "queued"
 msgstr "encuat"

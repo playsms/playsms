@@ -785,6 +785,9 @@ msgstr "email"
 msgid "failed"
 msgstr "Echec"
 
+msgid "format YYYY-MM-DD hh:mm"
+msgstr ""
+
 #, fuzzy
 msgid "forward"
 msgstr "Transfert PV à email"
@@ -809,6 +812,9 @@ msgstr "non sélectionné"
 
 msgid "number"
 msgstr "Numéro"
+
+msgid "prefix with # for groups and @ for users"
+msgstr ""
 
 msgid "queued"
 msgstr ""

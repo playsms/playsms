@@ -779,6 +779,9 @@ msgstr "电子邮件"
 msgid "failed"
 msgstr "发送失败"
 
+msgid "format YYYY-MM-DD hh:mm"
+msgstr ""
+
 #, fuzzy
 msgid "forward"
 msgstr "转发邮件页脚"
@@ -803,6 +806,9 @@ msgstr "为设置"
 
 msgid "number"
 msgstr "号码"
+
+msgid "prefix with # for groups and @ for users"
+msgstr ""
 
 msgid "queued"
 msgstr ""

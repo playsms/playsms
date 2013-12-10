@@ -768,6 +768,9 @@ msgstr "Email"
 msgid "failed"
 msgstr "gescheitert"
 
+msgid "format YYYY-MM-DD hh:mm"
+msgstr ""
+
 msgid "forward"
 msgstr "weiterleiten"
 
@@ -791,6 +794,9 @@ msgstr "nicht gesetzt"
 
 msgid "number"
 msgstr "Nummer"
+
+msgid "prefix with # for groups and @ for users"
+msgstr ""
 
 msgid "queued"
 msgstr "eingereiht"

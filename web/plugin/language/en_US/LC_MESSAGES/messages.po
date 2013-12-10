@@ -743,6 +743,9 @@ msgstr ""
 msgid "failed"
 msgstr ""
 
+msgid "format YYYY-MM-DD hh:mm"
+msgstr ""
+
 msgid "forward"
 msgstr ""
 
@@ -765,6 +768,9 @@ msgid "not set"
 msgstr ""
 
 msgid "number"
+msgstr ""
+
+msgid "prefix with # for groups and @ for users"
 msgstr ""
 
 msgid "queued"
