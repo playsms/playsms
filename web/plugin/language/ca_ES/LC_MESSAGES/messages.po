@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-10-11 22:14+0700\n"
-"PO-Revision-Date: 2013-05-08 15:00+0200\n"
+"PO-Revision-Date: 2013-12-10 15:42+0100\n"
 "Last-Translator: Joan <aseques@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -65,19 +65,17 @@ msgstr "Tots els SMS d'entrada"
 msgid "All outgoing SMS"
 msgstr "Tots els SMS de sortida"
 
-#, fuzzy
 msgid "Allow custom SMS footer"
-msgstr "Firma del SMS"
+msgstr "Permètre firma personalizada de SMS"
 
-#, fuzzy
 msgid "Allow custom sender ID"
-msgstr "Número de la plataforma"
+msgstr "Permetre ID d'enviador personalitzat"
 
 msgid "Always add plus sign"
 msgstr "Sempre afegir el signe més"
 
 msgid "Always choose to send as unicode"
-msgstr ""
+msgstr "Sempre escollir enviar com a unicode"
 
 msgid "Application information"
 msgstr "Informació del programa"
@@ -163,9 +161,8 @@ msgstr "Eliminar la Plantilla de Missatge"
 msgid "Delete selection"
 msgstr "Esborrar la selecció"
 
-#, fuzzy
 msgid "Delete user"
-msgstr "Esborrar"
+msgstr "Esborrar usuari"
 
 msgid "Delivered"
 msgstr "Entregat"
@@ -176,9 +173,8 @@ msgstr "Editar"
 msgid "Edit message template"
 msgstr "Editar la Plantilla de Missatge"
 
-#, fuzzy
 msgid "Effective SMS sender ID"
-msgstr "ID Remitent del SMS"
+msgstr "Remitent efectiu del SMS"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "p.ex: +0700 per Jakarta/Bangkok"
@@ -196,7 +192,7 @@ msgid "Enable public registration"
 msgstr "Habilitar registre públic"
 
 msgid "Enable webservices"
-msgstr ""
+msgstr "Habilitar webservices"
 
 msgid "Export"
 msgstr "Exportar"
@@ -246,14 +242,12 @@ msgstr "Omplir per a canviar la contrasenya de l'usuari"
 msgid "Fill to update"
 msgstr "Omplir per actualitzar"
 
-#, fuzzy
 msgid "Flash message"
-msgstr "Enviar com a missatge ràpid"
+msgstr "Missatge flash"
 
 msgid "Footer"
 msgstr "Firma del SMS"
 
-#, fuzzy
 msgid "Forward"
 msgstr "Reenviar"
 
@@ -308,9 +302,8 @@ msgstr "API HTTP"
 msgid "Home"
 msgstr "Principal"
 
-#, fuzzy
 msgid "Import"
-msgstr "Exportar"
+msgstr "Importar"
 
 msgid "Inbox"
 msgstr "Safata d'Entrada"
@@ -352,10 +345,10 @@ msgid "Main configuration changes has been saved"
 msgstr "La configuració principal ha estat guardada"
 
 msgid "Main website URL"
-msgstr ""
+msgstr "URL principal de la web"
 
 msgid "Main website name"
-msgstr ""
+msgstr "Nom principal de la web"
 
 msgid "Manage"
 msgstr "Administrar"
@@ -367,7 +360,7 @@ msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "Max. 16 caràcters numèrics o 11 alfanumèrics"
 
 msgid "Max. 20 digits mobile phone number"
-msgstr ""
+msgstr "Num. mòbil de max. 20 dígits"
 
 msgid "Max. 30 alphanumeric characters"
 msgstr "Max. 30 caràcters alfanumèrics"
@@ -426,9 +419,8 @@ msgstr "Usuari Normal"
 msgid "Normal user"
 msgstr "Usuari normal"
 
-#, fuzzy
 msgid "Options"
-msgstr "Acció"
+msgstr "Opcions"
 
 msgid "Or"
 msgstr "O"
@@ -463,18 +455,15 @@ msgstr "Número(s) telefònic(s)"
 msgid "Phonebook"
 msgstr "Agenda"
 
-#, fuzzy
 msgid "Phonebook groups"
-msgstr "Agenda"
+msgstr "Grups de agenda"
 
-#, fuzzy
 msgid "Phonebook numbers"
-msgstr "Número(s) telefònic(s)"
+msgstr "Números de l'agenda"
 
 msgid "Pick Date & Time"
 msgstr "Seleccionar data i hora"
 
-#, fuzzy
 msgid "Pick date & time"
 msgstr "Seleccionar data i hora"
 
@@ -504,7 +493,7 @@ msgid "Public registration disabled"
 msgstr "Registre públic desactivat"
 
 msgid "Publish"
-msgstr ""
+msgstr "Publicar"
 
 msgid "Re-Type Password"
 msgstr "Reescriviu la contrasenya"
@@ -512,9 +501,8 @@ msgstr "Reescriviu la contrasenya"
 msgid "Re-type password"
 msgstr "Reescriviu la contrasenya"
 
-#, fuzzy
 msgid "Received"
-msgstr "Destinatari"
+msgstr "Rebut"
 
 msgid "Receiver"
 msgstr "Destinatari"
@@ -532,7 +520,7 @@ msgid "Reply"
 msgstr "Respondre"
 
 msgid "Resend"
-msgstr ""
+msgstr "Reenviar"
 
 msgid "SMS character"
 msgstr "Caràcters del SMS"
@@ -540,14 +528,12 @@ msgstr "Caràcters del SMS"
 msgid "SMS footer"
 msgstr "Firma del SMS"
 
-#, fuzzy
 msgid "SMS from"
-msgstr "Firma del SMS"
+msgstr "SMS de"
 
 msgid "SMS sender ID"
 msgstr "ID Remitent del SMS"
 
-#, fuzzy
 msgid "SMS to email"
 msgstr "Reenviar els SMS al correu"
 
@@ -558,7 +544,7 @@ msgid "Save template"
 msgstr "Guardar Plantilla de Missatge"
 
 msgid "Schedule"
-msgstr ""
+msgstr "Programar"
 
 msgid "Search"
 msgstr "Buscar"
@@ -609,7 +595,7 @@ msgid "Status"
 msgstr "Estat"
 
 msgid "This field is required"
-msgstr ""
+msgstr "Aquest camp és obligatori"
 
 msgid "Time"
 msgstr "Hora"
@@ -626,12 +612,11 @@ msgstr "Eines"
 msgid "Unable to update login session"
 msgstr "Impossible actualitzar la sessió de l'usuari"
 
-#, fuzzy
 msgid "Unicode message"
-msgstr "Enviar en Unicode"
+msgstr "MIssatge en unicode"
 
 msgid "Unpublish"
-msgstr ""
+msgstr "Despublicar"
 
 msgid "Use"
 msgstr "Utilitzar"
@@ -645,22 +630,20 @@ msgstr "Usuari"
 msgid "User already exists"
 msgstr "L'usuari ja existeix"
 
-#, fuzzy
 msgid "User configuration"
-msgstr "Configuració Principal"
+msgstr "Configuració d'usuari"
 
-#, fuzzy
 msgid "User configuration has been saved"
-msgstr "La configuració principal ha estat guardada"
+msgstr "La configuració d'usuari s'ha guardat"
 
-#, fuzzy
 msgid "User configuration has been saved and password updated"
-msgstr "Les preferències s'han guardat i la contrasenya s'ha actualitzat"
+msgstr ""
+"Les preferències d'usuari s'han guardat i la contrasenya s'ha actualitzat"
 
-#, fuzzy
 msgid "User configuration has been saved and webservices token updated"
 msgstr ""
-"Les preferències s'han guardat i el token de webservices s'ha actualitzat"
+"Les preferències d'usuari s'han guardat i el token de webservices s'ha "
+"actualitzat"
 
 msgid "User does not exists"
 msgstr "L'usuari no existeix"
@@ -680,9 +663,8 @@ msgstr "L'usuari no pot ser eliminat"
 msgid "User level"
 msgstr "Privilegis d'usuari"
 
-#, fuzzy
 msgid "User preference"
-msgstr "Preferències"
+msgstr "Preferències d'usuari"
 
 msgid "Username"
 msgstr "Usuari"
@@ -700,14 +682,13 @@ msgid "View administrator"
 msgstr "Vista administrador"
 
 msgid "View groups"
-msgstr ""
+msgstr "Veure grups"
 
 msgid "View normal user"
 msgstr "Vista usuari normal"
 
-#, fuzzy
 msgid "View numbers"
-msgstr "Número(s) telefònic(s)"
+msgstr "Veure números"
 
 msgid "Webapp Token"
 msgstr "Token webapp"
@@ -724,9 +705,8 @@ msgstr "Rang de IPs per webservices"
 msgid "Webservices token"
 msgstr "Token de webservices"
 
-#, fuzzy
 msgid "Webservices username"
-msgstr "Token de webservices"
+msgstr "Usuari de webservices"
 
 msgid "Website email"
 msgstr "Correu electrònic de contacte"
@@ -778,7 +758,7 @@ msgid "failed"
 msgstr "fallit"
 
 msgid "format YYYY-MM-DD hh:mm"
-msgstr ""
+msgstr "format AAAA-MM-DD hh:mm"
 
 msgid "forward"
 msgstr "Reenviar"
@@ -805,7 +785,7 @@ msgid "number"
 msgstr "número"
 
 msgid "prefix with # for groups and @ for users"
-msgstr ""
+msgstr "prefixa # per grups i @ per usuaris"
 
 msgid "queued"
 msgstr "encuat"
@@ -814,7 +794,7 @@ msgid "reply"
 msgstr "Respondre"
 
 msgid "resend"
-msgstr ""
+msgstr "reenviar"
 
 msgid "row"
 msgstr "línia"
@@ -832,7 +812,8 @@ msgid "username"
 msgstr "usuari"
 
 msgid "version"
-msgstr ""
+msgstr "versió"
 
 msgid "yes"
 msgstr "si"
+

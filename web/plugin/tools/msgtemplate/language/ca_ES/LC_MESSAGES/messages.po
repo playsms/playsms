@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2013-05-08 15:41+0200\n"
+"PO-Revision-Date: 2013-12-10 15:49+0100\n"
 "Last-Translator: Joan <aseques@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -21,7 +21,7 @@ msgid "Content"
 msgstr "Contingut"
 
 msgid "Delete"
-msgstr ""
+msgstr "Esborrar"
 
 msgid "Edit message template"
 msgstr "Editar plantilla de missatge"
@@ -51,7 +51,7 @@ msgid "Name"
 msgstr "Nom"
 
 msgid "Notes"
-msgstr ""
+msgstr "Notes"
 
 msgid "Save"
 msgstr "Guardar"
@@ -63,7 +63,8 @@ msgid "You must fill all fields"
 msgstr "Heu d'omplir tots els camps"
 
 msgid "will be replaced with the name listed in phonebook"
-msgstr ""
+msgstr "es remplaçarà per el nom que hi hagi a l'agenda"
 
 msgid "will be replaced with the phone number listed in phonebook"
-msgstr ""
+msgstr "es remplaçarà per el nom que hi hagi a l'agenda"
+

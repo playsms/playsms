@@ -1,17 +1,35 @@
-msgid "Action"
+# Header entry was created by Lokalize.
+#
+# Joan <aseques@gmail.com>, 2013.
+msgid ""
 msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Mime-Version: 1.0"
+"Last-Translator: Joan <aseques@gmail.com>\n"
+"PO-Revision-Date: 2013-12-10 15:48+0100\n"
+"Project-Id-Version: \n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.4\n"
+
+msgid "Action"
+msgstr "Acció"
 
 msgid "Description"
-msgstr ""
+msgstr "Descripció"
 
 msgid "Manage gateway"
-msgstr ""
+msgstr "Gestionar sortida"
 
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 msgid "Status"
-msgstr ""
+msgstr "Estat"
 
 msgid "You have enabled gateway plugin"
-msgstr ""
+msgstr "Heu activat el plugin de sortides"
+

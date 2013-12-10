@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 17:59+0700\n"
-"PO-Revision-Date: 2013-05-08 15:31+0200\n"
+"PO-Revision-Date: 2013-12-10 15:33+0100\n"
 "Last-Translator: Joan <aseques@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -39,7 +39,7 @@ msgid "Password"
 msgstr "Contrasenya"
 
 msgid "Preferences"
-msgstr ""
+msgstr "Preferències"
 
 msgid "Recover password"
 msgstr "Recuperar contrasenya"
@@ -48,10 +48,11 @@ msgid "Register an account"
 msgstr "Registrar un compte"
 
 msgid "Submit"
-msgstr ""
+msgstr "Enviar"
 
 msgid "User configuration"
-msgstr ""
+msgstr "Configuració d'usuari"
 
 msgid "Username"
 msgstr "Usuari"
+
