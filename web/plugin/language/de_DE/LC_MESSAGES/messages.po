@@ -284,6 +284,18 @@ msgstr "Leite SMS an Mobiltelefon weiter"
 msgid "Forward from"
 msgstr "Weiterleiten von"
 
+#, fuzzy
+msgid "Forward message to email"
+msgstr "Leite PV als Email weiter"
+
+#, fuzzy
+msgid "Forward message to inbox"
+msgstr "Leite PV an inbox weiter"
+
+#, fuzzy
+msgid "Forward message to mobile"
+msgstr "Leite PV an Mobiltelefon weiter"
+
 msgid "Forwarded email footer"
 msgstr "Fußzeile in weitergeleiteter Email"
 
@@ -383,6 +395,10 @@ msgid "Maximum SMS count"
 msgstr "Maximale Anzahl SMS"
 
 msgid "Message"
+msgstr "Nachricht"
+
+#, fuzzy
+msgid "Message from"
 msgstr "Nachricht"
 
 msgid "Message template"
@@ -610,6 +626,10 @@ msgstr "Sende als Unicode-Nachricht"
 
 msgid "Send broadcast SMS"
 msgstr "Sende Sammel-SMS"
+
+#, fuzzy
+msgid "Send message"
+msgstr "Unicode Nachricht"
 
 msgid "Send to"
 msgstr "Sende an"

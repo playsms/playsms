@@ -293,6 +293,18 @@ msgstr "Reenviar els SMS al mòbil"
 msgid "Forward from"
 msgstr "Reenviar de"
 
+#, fuzzy
+msgid "Forward message to email"
+msgstr "Enviar PV al correu"
+
+#, fuzzy
+msgid "Forward message to inbox"
+msgstr "Enviar PV a l'entrada"
+
+#, fuzzy
+msgid "Forward message to mobile"
+msgstr "Enviar PV al mòbil"
+
 msgid "Forwarded email footer"
 msgstr "Firma del correu reenviat"
 
@@ -392,6 +404,10 @@ msgid "Maximum SMS count"
 msgstr "Nombre màxim de SMS"
 
 msgid "Message"
+msgstr "Missatge"
+
+#, fuzzy
+msgid "Message from"
 msgstr "Missatge"
 
 msgid "Message template"
@@ -620,6 +636,10 @@ msgstr "Enviar en Unicode"
 
 msgid "Send broadcast SMS"
 msgstr "Enviar SMS Massiu"
+
+#, fuzzy
+msgid "Send message"
+msgstr "Enviar en Unicode"
 
 msgid "Send to"
 msgstr "Enviar a "

@@ -275,6 +275,15 @@ msgstr ""
 msgid "Forward from"
 msgstr ""
 
+msgid "Forward message to email"
+msgstr ""
+
+msgid "Forward message to inbox"
+msgstr ""
+
+msgid "Forward message to mobile"
+msgstr ""
+
 msgid "Forwarded email footer"
 msgstr ""
 
@@ -373,6 +382,10 @@ msgstr ""
 
 msgid "Message"
 msgstr ""
+
+#, fuzzy
+msgid "Message from"
+msgstr "Message template"
 
 msgid "Message template"
 msgstr "Message template"
@@ -588,6 +601,9 @@ msgid "Send as unicode message"
 msgstr ""
 
 msgid "Send broadcast SMS"
+msgstr ""
+
+msgid "Send message"
 msgstr ""
 
 msgid "Send to"

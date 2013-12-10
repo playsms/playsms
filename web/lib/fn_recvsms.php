@@ -282,9 +282,8 @@ function recvsms_inbox_add($sms_datetime,$sms_sender,$target_user,$message,$sms_
 				if ($email = $user['email']) {
 					// make sure sms_datetime is in supported format and in user's timezone
 					$sms_datetime = core_display_datetime($sms_datetime);
-					$subject = _('SMS from')." ".$sender;
+					$subject = _('Message from')." ".$sender;
 					$body = $web_title."\n\n";
-					$body .= _('SMS to email')."\n\n";
 					$body .= _('Received').": ".$sms_datetime."\n";
 					$body .= _('Receiver').": ".$sms_receiver."\n";
 					$body .= _('Sender').": ".$sender."\n\n";

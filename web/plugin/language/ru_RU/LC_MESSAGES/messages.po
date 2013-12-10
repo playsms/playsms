@@ -282,6 +282,18 @@ msgstr "Переадресация СМС на мобильный"
 msgid "Forward from"
 msgstr "Отправитель"
 
+#, fuzzy
+msgid "Forward message to email"
+msgstr "Переадресация ЛС на email"
+
+#, fuzzy
+msgid "Forward message to inbox"
+msgstr "Переадресация ЛС в Принятые"
+
+#, fuzzy
+msgid "Forward message to mobile"
+msgstr "Переадресация ЛС на мобильный"
+
 msgid "Forwarded email footer"
 msgstr "Подпись переадресованного сообщения"
 
@@ -379,6 +391,10 @@ msgid "Maximum SMS count"
 msgstr "Макс. СМС сегментов"
 
 msgid "Message"
+msgstr "Сообщение"
+
+#, fuzzy
+msgid "Message from"
 msgstr "Сообщение"
 
 msgid "Message template"
@@ -598,6 +614,10 @@ msgstr "Отправить в юникоде"
 
 msgid "Send broadcast SMS"
 msgstr "Рассылка"
+
+#, fuzzy
+msgid "Send message"
+msgstr "Содержит русские символы"
 
 msgid "Send to"
 msgstr "Кому"

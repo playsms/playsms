@@ -45,7 +45,7 @@ switch ($op) {
 		$tpl = array(
 		    'name' => 'send_sms',
 		    'var' => array(
-			'Send SMS' => _('Send SMS'),
+			'Send message' => _('Send message'),
 			'SMS sender ID' => _('SMS sender ID'),
 			'SMS footer' => _('SMS footer'),
 			'Send to' => _('Send to'),

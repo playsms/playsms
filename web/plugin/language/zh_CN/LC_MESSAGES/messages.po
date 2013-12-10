@@ -291,6 +291,18 @@ msgstr "转发邮件页脚"
 msgid "Forward from"
 msgstr "转发邮件页脚"
 
+#, fuzzy
+msgid "Forward message to email"
+msgstr "转发邮件页脚"
+
+#, fuzzy
+msgid "Forward message to inbox"
+msgstr "转发邮件页脚"
+
+#, fuzzy
+msgid "Forward message to mobile"
+msgstr "转发邮件页脚"
+
 msgid "Forwarded email footer"
 msgstr "转发邮件页脚"
 
@@ -389,6 +401,10 @@ msgid "Maximum SMS count"
 msgstr ""
 
 msgid "Message"
+msgstr "消息"
+
+#, fuzzy
+msgid "Message from"
 msgstr "消息"
 
 msgid "Message template"
@@ -618,6 +634,10 @@ msgstr "发送为非代码信息"
 
 msgid "Send broadcast SMS"
 msgstr "发送广播短信"
+
+#, fuzzy
+msgid "Send message"
+msgstr "发送为非代码信息"
 
 msgid "Send to"
 msgstr "发送到"

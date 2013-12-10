@@ -297,6 +297,18 @@ msgstr "Transfert PV au mobile"
 msgid "Forward from"
 msgstr "Transfert PV à email"
 
+#, fuzzy
+msgid "Forward message to email"
+msgstr "Transfert PV à email"
+
+#, fuzzy
+msgid "Forward message to inbox"
+msgstr "Transfert PV à Boite de réception"
+
+#, fuzzy
+msgid "Forward message to mobile"
+msgstr "Transfert PV au mobile"
+
 msgid "Forwarded email footer"
 msgstr "Pied de pas des mails"
 
@@ -395,6 +407,10 @@ msgid "Maximum SMS count"
 msgstr "Nombre Maximum de SMS"
 
 msgid "Message"
+msgstr "Message"
+
+#, fuzzy
+msgid "Message from"
 msgstr "Message"
 
 msgid "Message template"
@@ -624,6 +640,10 @@ msgstr "Envoyer un message unicode"
 
 msgid "Send broadcast SMS"
 msgstr "Diffusion de SMS"
+
+#, fuzzy
+msgid "Send message"
+msgstr "Envoyer un message unicode"
 
 msgid "Send to"
 msgstr "Envoyer à"

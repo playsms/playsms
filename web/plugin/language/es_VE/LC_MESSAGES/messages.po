@@ -291,6 +291,18 @@ msgstr "Firma del correo reenviado"
 msgid "Forward from"
 msgstr "Firma del correo reenviado"
 
+#, fuzzy
+msgid "Forward message to email"
+msgstr "Firma del correo reenviado"
+
+#, fuzzy
+msgid "Forward message to inbox"
+msgstr "Firma del correo reenviado"
+
+#, fuzzy
+msgid "Forward message to mobile"
+msgstr "Firma del correo reenviado"
+
 msgid "Forwarded email footer"
 msgstr "Firma del correo reenviado"
 
@@ -389,6 +401,10 @@ msgid "Maximum SMS count"
 msgstr ""
 
 msgid "Message"
+msgstr "Mensaje"
+
+#, fuzzy
+msgid "Message from"
 msgstr "Mensaje"
 
 msgid "Message template"
@@ -618,6 +634,10 @@ msgstr "Enviar en Unicode"
 
 msgid "Send broadcast SMS"
 msgstr "Enviar SMS Masivo"
+
+#, fuzzy
+msgid "Send message"
+msgstr "Enviar en Unicode"
 
 msgid "Send to"
 msgstr "Enviar a "

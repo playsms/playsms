@@ -283,6 +283,18 @@ msgstr "Encaminhar SMS para o celular"
 msgid "Forward from"
 msgstr "Encaminhar de"
 
+#, fuzzy
+msgid "Forward message to email"
+msgstr "Encaminhar PV para o e-mail"
+
+#, fuzzy
+msgid "Forward message to inbox"
+msgstr "Encaminhar PV para caixa de entrada"
+
+#, fuzzy
+msgid "Forward message to mobile"
+msgstr "Encaminhar PV para o celular"
+
 msgid "Forwarded email footer"
 msgstr "Assinatura do e-mail encaminhado"
 
@@ -382,6 +394,10 @@ msgid "Maximum SMS count"
 msgstr "Contagem máxima de SMS"
 
 msgid "Message"
+msgstr "Mensagem"
+
+#, fuzzy
+msgid "Message from"
 msgstr "Mensagem"
 
 msgid "Message template"
@@ -608,6 +624,10 @@ msgstr "Enviar como mensagem unicode"
 
 msgid "Send broadcast SMS"
 msgstr "Enviar SMS broadcast"
+
+#, fuzzy
+msgid "Send message"
+msgstr "Mensagem unicode"
 
 msgid "Send to"
 msgstr "Enviar para"

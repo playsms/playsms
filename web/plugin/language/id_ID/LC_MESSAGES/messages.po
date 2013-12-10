@@ -283,6 +283,18 @@ msgstr "Teruskan SMS ke ponsel"
 msgid "Forward from"
 msgstr "Teruskan dari"
 
+#, fuzzy
+msgid "Forward message to email"
+msgstr "Teruskan PV ke email"
+
+#, fuzzy
+msgid "Forward message to inbox"
+msgstr "Teruskan PV ke inbox"
+
+#, fuzzy
+msgid "Forward message to mobile"
+msgstr "Teruskan PV ke ponsel"
+
 msgid "Forwarded email footer"
 msgstr "Footer email"
 
@@ -382,6 +394,10 @@ msgid "Maximum SMS count"
 msgstr "Jumlah SMS maksimal"
 
 msgid "Message"
+msgstr "Pesan"
+
+#, fuzzy
+msgid "Message from"
 msgstr "Pesan"
 
 msgid "Message template"
@@ -607,6 +623,10 @@ msgstr "Kirim sebagai pesan unicode"
 
 msgid "Send broadcast SMS"
 msgstr "Kirim banyak SMS"
+
+#, fuzzy
+msgid "Send message"
+msgstr "Pesan unicode"
 
 msgid "Send to"
 msgstr "Kirim ke"
