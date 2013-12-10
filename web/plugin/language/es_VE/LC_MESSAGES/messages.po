@@ -590,10 +590,18 @@ msgstr "Seleccione una acción"
 msgid "Selected incoming SMS has been deleted"
 msgstr "Los SMS entrantes seleccionados han sido eliminados"
 
+#, fuzzy
+msgid "Selected incoming message has been deleted"
+msgstr "Los SMS entrantes seleccionados han sido eliminados"
+
 msgid "Selected message template has been deleted"
 msgstr "La Plantilla de Mensaje seleccionada ha sido eliminada"
 
 msgid "Selected outgoing SMS has been deleted"
+msgstr "Los SMS Enviados seleccionados han sido eliminados"
+
+#, fuzzy
+msgid "Selected outgoing message has been deleted"
 msgstr "Los SMS Enviados seleccionados han sido eliminados"
 
 msgid "Send"
@@ -789,6 +797,10 @@ msgstr ""
 
 msgid "Your message"
 msgstr "Su mensaje"
+
+#, fuzzy
+msgid "Your message has been delivered to queue"
+msgstr "Su mensaje ha sido enviado a la cola de procesamiento"
 
 msgid "Your mobile format is invalid"
 msgstr ""

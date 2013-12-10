@@ -174,7 +174,7 @@ switch ($op) {
 				}
 			}
 			
-			$_SESSION['error_string'] = _('Your SMS has been delivered to queue')." ("._('queued').": ".$sms_queued.", "._('failed').": ".$sms_failed.")";
+			$_SESSION['error_string'] = _('Your message has been delivered to queue')." ("._('queued').": ".$sms_queued.", "._('failed').": ".$sms_failed.")";
 		} else {
 			$_SESSION['error_string'] = _('You must select receiver and your message should not be empty');
 		}

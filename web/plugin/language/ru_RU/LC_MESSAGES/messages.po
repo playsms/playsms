@@ -570,10 +570,18 @@ msgstr "Выберите действие"
 msgid "Selected incoming SMS has been deleted"
 msgstr "Выбранные принятые СМС удалены"
 
+#, fuzzy
+msgid "Selected incoming message has been deleted"
+msgstr "Выбранные принятые СМС удалены"
+
 msgid "Selected message template has been deleted"
 msgstr "Выбранные шаблоны удалены"
 
 msgid "Selected outgoing SMS has been deleted"
+msgstr "Выбранные исходящие СМС удалены"
+
+#, fuzzy
+msgid "Selected outgoing message has been deleted"
 msgstr "Выбранные исходящие СМС удалены"
 
 msgid "Send"
@@ -755,6 +763,10 @@ msgstr "Неправильный формат email адреса"
 
 msgid "Your message"
 msgstr "Ваше сообщение"
+
+#, fuzzy
+msgid "Your message has been delivered to queue"
+msgstr "Сообщение успешно поставлено в очередь"
 
 msgid "Your mobile format is invalid"
 msgstr "Неправильный формат номера телефона"

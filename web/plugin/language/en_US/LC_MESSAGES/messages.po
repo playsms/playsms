@@ -563,10 +563,16 @@ msgstr ""
 msgid "Selected incoming SMS has been deleted"
 msgstr ""
 
+msgid "Selected incoming message has been deleted"
+msgstr ""
+
 msgid "Selected message template has been deleted"
 msgstr ""
 
 msgid "Selected outgoing SMS has been deleted"
+msgstr ""
+
+msgid "Selected outgoing message has been deleted"
 msgstr ""
 
 msgid "Send"
@@ -747,6 +753,9 @@ msgid "Your email format is invalid"
 msgstr ""
 
 msgid "Your message"
+msgstr ""
+
+msgid "Your message has been delivered to queue"
 msgstr ""
 
 msgid "Your mobile format is invalid"

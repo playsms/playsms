@@ -580,10 +580,18 @@ msgstr "Selecionar ação"
 msgid "Selected incoming SMS has been deleted"
 msgstr "O SMS recebido selecionado foi removido"
 
+#, fuzzy
+msgid "Selected incoming message has been deleted"
+msgstr "O SMS recebido selecionado foi removido"
+
 msgid "Selected message template has been deleted"
 msgstr "O modelo de mensagem selecionado foi removido"
 
 msgid "Selected outgoing SMS has been deleted"
+msgstr "O SMS enviado selecionado foi removido"
+
+#, fuzzy
+msgid "Selected outgoing message has been deleted"
 msgstr "O SMS enviado selecionado foi removido"
 
 msgid "Send"
@@ -772,6 +780,10 @@ msgstr "Seu formato de e-mail é inválido"
 
 msgid "Your message"
 msgstr "Sua mensagem"
+
+#, fuzzy
+msgid "Your message has been delivered to queue"
+msgstr "Seu SMS foi enviado para a fila"
 
 msgid "Your mobile format is invalid"
 msgstr "Seu número de celular é inválido"

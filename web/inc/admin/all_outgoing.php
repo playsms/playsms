@@ -150,7 +150,7 @@ switch ($op) {
 					}
 				}
 				$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&page='.$nav['page'].'&nav='.$nav['nav'];
-				$_SESSION['error_string'] = _('Selected outgoing SMS has been deleted');
+				$_SESSION['error_string'] = _('Selected outgoing message has been deleted');
 				header("Location: ".$ref);
 		}
 		break;

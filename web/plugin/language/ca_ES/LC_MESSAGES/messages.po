@@ -592,10 +592,18 @@ msgstr "Seleccioni una acció"
 msgid "Selected incoming SMS has been deleted"
 msgstr "Els SMS entrants seleccionats han estat eliminats"
 
+#, fuzzy
+msgid "Selected incoming message has been deleted"
+msgstr "Els SMS entrants seleccionats han estat eliminats"
+
 msgid "Selected message template has been deleted"
 msgstr "La Plantilla de Missatge seleccionada ha estat eliminada"
 
 msgid "Selected outgoing SMS has been deleted"
+msgstr "Els SMS Enviats seleccionats han estat eliminats"
+
+#, fuzzy
+msgid "Selected outgoing message has been deleted"
 msgstr "Els SMS Enviats seleccionats han estat eliminats"
 
 msgid "Send"
@@ -787,6 +795,10 @@ msgstr "El vostre format de correu no és vàlid"
 
 msgid "Your message"
 msgstr "El seu missatge"
+
+#, fuzzy
+msgid "Your message has been delivered to queue"
+msgstr "El seu missatge ha estat enviat a la cua de processament"
 
 msgid "Your mobile format is invalid"
 msgstr "El format del mòbil no és vàlid"

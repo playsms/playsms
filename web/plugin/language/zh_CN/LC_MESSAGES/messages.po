@@ -590,10 +590,18 @@ msgstr "选择行为"
 msgid "Selected incoming SMS has been deleted"
 msgstr "选择的收到的短信已删除"
 
+#, fuzzy
+msgid "Selected incoming message has been deleted"
+msgstr "选择的收到的短信已删除"
+
 msgid "Selected message template has been deleted"
 msgstr "选择的信息模版已被删除"
 
 msgid "Selected outgoing SMS has been deleted"
+msgstr "选择的发送短信已被删除"
+
+#, fuzzy
+msgid "Selected outgoing message has been deleted"
 msgstr "选择的发送短信已被删除"
 
 msgid "Send"
@@ -789,6 +797,10 @@ msgstr ""
 
 msgid "Your message"
 msgstr "你的信息"
+
+#, fuzzy
+msgid "Your message has been delivered to queue"
+msgstr "你的短信已在发送序列中"
 
 msgid "Your mobile format is invalid"
 msgstr ""

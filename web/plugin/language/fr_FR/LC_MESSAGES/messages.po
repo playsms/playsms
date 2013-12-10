@@ -596,10 +596,18 @@ msgstr "Sélectionner action"
 msgid "Selected incoming SMS has been deleted"
 msgstr "SMS sélectionés supprimés"
 
+#, fuzzy
+msgid "Selected incoming message has been deleted"
+msgstr "SMS sélectionés supprimés"
+
 msgid "Selected message template has been deleted"
 msgstr "Modèles sélectionnés supprimés"
 
 msgid "Selected outgoing SMS has been deleted"
+msgstr "Sélectionner les SMS sortant à sipprimer"
+
+#, fuzzy
+msgid "Selected outgoing message has been deleted"
 msgstr "Sélectionner les SMS sortant à sipprimer"
 
 msgid "Send"
@@ -795,6 +803,10 @@ msgstr ""
 
 msgid "Your message"
 msgstr "Votre message"
+
+#, fuzzy
+msgid "Your message has been delivered to queue"
+msgstr "Message mis dans la queue"
 
 msgid "Your mobile format is invalid"
 msgstr ""

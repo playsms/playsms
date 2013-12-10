@@ -579,10 +579,18 @@ msgstr "Pilih tindakan"
 msgid "Selected incoming SMS has been deleted"
 msgstr "SMS masuk telah dihapus"
 
+#, fuzzy
+msgid "Selected incoming message has been deleted"
+msgstr "SMS masuk telah dihapus"
+
 msgid "Selected message template has been deleted"
 msgstr "Pola pesan telah dihapus"
 
 msgid "Selected outgoing SMS has been deleted"
+msgstr "SMS keluar yang dipilih telah dihapus"
+
+#, fuzzy
+msgid "Selected outgoing message has been deleted"
 msgstr "SMS keluar yang dipilih telah dihapus"
 
 msgid "Send"
@@ -770,6 +778,10 @@ msgstr "Formail email tidak valid"
 
 msgid "Your message"
 msgstr "Pesan anda"
+
+#, fuzzy
+msgid "Your message has been delivered to queue"
+msgstr "SMS anda telah dikirim ke antrian"
 
 msgid "Your mobile format is invalid"
 msgstr "Nomor anda tidak valid"

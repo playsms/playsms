@@ -582,10 +582,18 @@ msgstr "Auswahl Aktion"
 msgid "Selected incoming SMS has been deleted"
 msgstr "Ausgewählte empfangene SMS wurde gelöscht"
 
+#, fuzzy
+msgid "Selected incoming message has been deleted"
+msgstr "Ausgewählte empfangene SMS wurde gelöscht"
+
 msgid "Selected message template has been deleted"
 msgstr "Ausgewählte Nachrichten-Vorlage wurde gelöscht"
 
 msgid "Selected outgoing SMS has been deleted"
+msgstr "Ausgewählte gesendete SMS wurde gelöscht"
+
+#, fuzzy
+msgid "Selected outgoing message has been deleted"
 msgstr "Ausgewählte gesendete SMS wurde gelöscht"
 
 msgid "Send"
@@ -778,6 +786,10 @@ msgstr "Das Email-Format ist ungültig"
 
 msgid "Your message"
 msgstr "Ihre Nachricht"
+
+#, fuzzy
+msgid "Your message has been delivered to queue"
+msgstr "Ihre SMS wurde an die Zustell-Queue übermittelt"
 
 msgid "Your mobile format is invalid"
 msgstr "Ihr Mobilrufnummern-Format ist ungültig"
