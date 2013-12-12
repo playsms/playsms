@@ -183,10 +183,10 @@ switch ($op) {
 			<td>" . _mandatory('Password') . "</td><td><input type='password' size=30 maxlength='30' name='add_password' value=\"$add_password\"></td>
 		</tr>
 		<tr>
-			<td>" . _mandatory('Full name') . "</td><td><input type='text' size=30 maxlength='30' name='add_name' value=\"$add_name\"></td>
+			<td>" . _mandatory('Full name') . "</td><td><input type='text' size=30 maxlength='100' name='add_name' value=\"$add_name\"></td>
 		</tr>
 		<tr>
-			<td>" . _mandatory('Email') . "</td><td><input type='text' size=30 maxlength='30' name='add_email' value=\"$add_email\"></td>
+			<td>" . _mandatory('Email') . "</td><td><input type='text' size=30 maxlength='250' name='add_email' value=\"$add_email\"></td>
 		</tr>
 		<tr>
 			<td>" . _('Mobile') . "</td><td><input type='text' size='16' maxlength='16' name='add_mobile' value=\"$add_mobile\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric characters')) . "</td>
