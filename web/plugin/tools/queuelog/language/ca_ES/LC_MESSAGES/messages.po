@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 17:59+0700\n"
-"PO-Revision-Date: 2013-05-08 15:33+0200\n"
+"PO-Revision-Date: 2013-12-11 15:08+0100\n"
 "Last-Translator: Joan <aseques@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -18,10 +18,10 @@ msgstr ""
 "X-Generator: Lokalize 1.4\n"
 
 msgid "Action"
-msgstr ""
+msgstr "Acció"
 
 msgid "Are you sure you want to delete queue"
-msgstr ""
+msgstr "Esteu segur que voleu esborrar la cua"
 
 msgid "Count"
 msgstr "Total"
@@ -33,13 +33,14 @@ msgid "Queue Code"
 msgstr "Codi cua"
 
 msgid "Queue has been remove"
-msgstr ""
+msgstr "S'ha esborrat la cua"
 
 msgid "Scheduled"
-msgstr ""
+msgstr "Programat"
 
 msgid "User"
 msgstr "Usuari"
 
 msgid "View SMS queue"
 msgstr "Veure la cua de SMS"
+
