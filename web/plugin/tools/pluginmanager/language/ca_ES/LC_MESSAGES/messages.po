@@ -1,35 +1,53 @@
-msgid "Author"
+# Header entry was created by Lokalize.
+#
+# Joan <aseques@gmail.com>, 2013.
+msgid ""
 msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Mime-Version: 1.0"
+"Last-Translator: Joan <aseques@gmail.com>\n"
+"PO-Revision-Date: 2013-12-11 15:07+0100\n"
+"Project-Id-Version: \n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.4\n"
+
+msgid "Author"
+msgstr "Autor"
 
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 msgid "Description"
-msgstr ""
+msgstr "Descripció"
 
 msgid "Features"
-msgstr ""
+msgstr "Característiques"
 
 msgid "Gateways"
-msgstr ""
+msgstr "Sortides"
 
 msgid "Languages"
-msgstr ""
+msgstr "Idiomes"
 
 msgid "Manage plugin"
-msgstr ""
+msgstr "Gestionar plugin"
 
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 msgid "Status"
-msgstr ""
+msgstr "Estat"
 
 msgid "Themes"
-msgstr ""
+msgstr "Temes"
 
 msgid "Tools"
-msgstr ""
+msgstr "Eines"
 
 msgid "Version"
-msgstr ""
+msgstr "Versió"
+
