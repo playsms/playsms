@@ -20,6 +20,7 @@ switch ($op) {
 			<h3>"._('Group')."</h3>
 			<p>".$search['form']."</p>
 			<form id=fm_phonebook_group_list name=fm_phonebook_group_list action='index.php?app=menu&inc=tools_phonebook&route=group&op=actions' method=post>
+			"._CSRF_FORM_."
 			<input type=hidden name=go value=delete>
 			<div class=actions_box>
 				<div class=pull-left>
@@ -72,6 +73,7 @@ switch ($op) {
 			<h3>"._('Add group')."</h3>
 			<p>
 			<form action=\"index.php?app=menu&inc=tools_phonebook&route=group&op=actions&go=add\" method=POST>
+			"._CSRF_FORM_."
 			<table class=playsms-table>
 			<tbody>
 				<tr>
@@ -96,6 +98,7 @@ switch ($op) {
 			<h3>"._('Edit group')."</h3>
 			<p>
 			<form action=\"index.php?app=menu&inc=tools_phonebook&route=group&op=actions&go=edit\" method=POST>
+			"._CSRF_FORM_."
 			<input type=hidden name=gpid value=\"$gpid\">
 			<table class=playsms-table>
 			<tbody>

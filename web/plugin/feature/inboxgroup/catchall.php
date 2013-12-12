@@ -37,11 +37,13 @@ switch ($op) {
 			</table>
 			<div style='float: left'>
 				<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall_add&rid=".$rid."'>
+				"._CSRF_FORM_."
 				<input class='button' type='submit' value='"._('Add catch-all')."'>
 				</form>
 			</div>
 			<div>
 				<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall_delete&rid=".$rid."'>
+				"._CSRF_FORM_."
 				<input class='button' type='submit' value='"._('Delete catch-all')."'>
 				</form>
 			</div>
@@ -76,11 +78,13 @@ switch ($op) {
 			</div>
 			<div style='float: left'>
 				<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall_add&rid=".$rid."'>
+				"._CSRF_FORM_."
 				<input class='button' type='submit' value='"._('Add catch-all')."'>
 				</form>
 			</div>
 			<div>
 				<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall_delete&rid=".$rid."'>
+				"._CSRF_FORM_."
 				<input class='button' type='submit' value='"._('Delete catch-all')."'>
 				</form>
 			</div>
@@ -125,6 +129,7 @@ switch ($op) {
 		}
 		$content .= "
 			<form action=\"index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall_add_submit\" method=\"post\">
+			"._CSRF_FORM_."
 			<input type=hidden name='rid' value='".$rid."'>
 			<table>
 				<tbody>
@@ -212,6 +217,7 @@ switch ($op) {
 		}
 		$content .= "
 			<form action=\"index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall_delete_submit\" method=\"post\">
+			"._CSRF_FORM_."
 			<input type=hidden name='rid' value='".$rid."'>
 			<table>
 				<tbody>

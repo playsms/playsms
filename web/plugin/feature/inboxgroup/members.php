@@ -38,11 +38,13 @@ switch ($op) {
 			<table>
 			<div style='float: left'>
 				<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&route=members&op=members_add&rid=".$rid."'>
+				"._CSRF_FORM_."
 				<input class='button' type='submit' value='"._('Add member')."'>
 				</form>
 			</div>
 			<div>
 				<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&route=members&op=members_delete&rid=".$rid."'>
+				"._CSRF_FORM_."
 				<input class='button' type='submit' value='"._('Delete member')."'>
 				</form>
 			</div>
@@ -77,11 +79,13 @@ switch ($op) {
 			</div>
 			<div style='float: left'>
 				<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&route=members&op=members_add&rid=".$rid."'>
+				"._CSRF_FORM_."
 				<input class='button' type='submit' value='"._('Add member')."'>
 				</form>
 			</div>
 			<div>
 				<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&route=members&op=members_delete&rid=".$rid."'>
+				"._CSRF_FORM_."
 				<input class='button' type='submit' value='"._('Delete member')."'>
 				</form>
 			</div>
@@ -126,6 +130,7 @@ switch ($op) {
 		}
 		$content .= "
 			<form action=\"index.php?app=menu&inc=feature_inboxgroup&route=members&op=members_add_submit\" method=\"post\">
+			"._CSRF_FORM_."
 			<input type=hidden name='rid' value='".$rid."'>
 			<table>
 				<tbody>
@@ -213,6 +218,7 @@ switch ($op) {
 		}
 		$content .= "
 			<form action=\"index.php?app=menu&inc=feature_inboxgroup&route=members&op=members_delete_submit\" method=\"post\">
+			"._CSRF_FORM_."
 			<input type=hidden name='rid' value='".$rid."'>
 			<table>
 				<tbody>

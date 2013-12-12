@@ -144,6 +144,7 @@ switch ($op) {
 			<h2>"._('Manage autoreply')."</h2>
 			<h3>"._('Add SMS autoreply')."</h3>
 			<form action=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_add_yes method=post>
+			"._CSRF_FORM_."
 			<table class=playsms-table>
 				<tbody>
 				<tr>
@@ -200,6 +201,7 @@ switch ($op) {
 			<h2>"._('Manage autoreply')."</h2>
 			<h3>"._('Add SMS autoreply scenario')."</h3>
 			<form action=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add_yes method=post>
+			"._CSRF_FORM_."
 			<input type=hidden name=autoreply_id value=\"$autoreply_id\">
 			<table class=playsms-table>
 				<tbody>
@@ -261,6 +263,7 @@ switch ($op) {
 			<h2>"._('Manage autoreply')."</h2>
 			<h3>"._('Edit SMS autoreply scenario')."</h3>
 			<form action=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit_yes method=post>
+			"._CSRF_FORM_."
 			<input type=hidden name=autoreply_id value=\"$autoreply_id\">
 			<input type=hidden name=autoreply_scenario_id value=\"$autoreply_scenario_id\">
 			<table class=playsms-table>

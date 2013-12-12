@@ -22,6 +22,7 @@ switch ($op) {
 			<h2>"._('Phonebook')."</h2>
 			<p>".$search['form']."</p>
 			<form name=fm_phonebook_list id=fm_phonebook_list action='index.php?app=menu&inc=tools_phonebook&op=actions' method=post>
+			"._CSRF_FORM_."
 			<input type=hidden name=go value=delete>
 			<div class=actions_box>
 				<div class=pull-left>
@@ -102,6 +103,7 @@ switch ($op) {
 			<h2>"._('Phonebook')."</h2>
 			<h3>"._('Add contact')."</h3>
 			<form action=\"index.php?app=menu&inc=tools_phonebook&op=actions&go=add\" name=fm_addphone method=POST>
+			"._CSRF_FORM_."
 			<table class=playsms-table>
 			<tbody>
 			<tr><td class=label-sizer>"._('Group')."</td><td><select name=gpids[] multiple>$list_of_group</select></td></tr>
@@ -136,6 +138,7 @@ switch ($op) {
 			<h2>"._('Phonebook')."</h2>
 			<h3>"._('Edit contact')."</h3>
 			<form action=\"index.php?app=menu&inc=tools_phonebook&op=actions&go=edit\" name=fm_addphone method=POST>
+			"._CSRF_FORM_."
 			<input type=hidden name=pid value=\"".$pid."\">
 			<table class=playsms-table>
 			<tbody>

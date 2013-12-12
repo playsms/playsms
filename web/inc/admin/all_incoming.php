@@ -18,7 +18,8 @@ switch ($op) {
 		$content = "
 			<h2>"._('All incoming messages')."</h2>
 			<p>".$search['form']."</p>
-			<form id=fm_all_incoming name=fm_all_incoming action=\"index.php?app=menu&inc=all_incoming&op=actions\" method=post onSubmit=\"return SureConfirm()\">
+			<form id=fm_all_incoming name=fm_all_incoming action=\"index.php?app=menu&inc=all_incoming&op=actions\" method=POST>
+			"._CSRF_FORM_."
 			<input type=hidden name=go value=delete>
 			<div class=actions_box>
 				<div class=pull-left>

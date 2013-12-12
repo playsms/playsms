@@ -11,6 +11,7 @@
 </table>
 <br />
 <form method='post' action='index.php?app=menu&inc=feature_inboxgroup&op=del_submit'>
+{CSRF_FORM}
 <input type='hidden' name='rid' value='{RID}'>
 <p>{ARE_YOU_SURE}</p>
 <p><input class='button' type='submit' value='{Yes}'></p>

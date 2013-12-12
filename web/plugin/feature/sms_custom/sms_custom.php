@@ -82,6 +82,7 @@ switch ($op) {
 			<h2>" . _('Manage custom') . "</h2>
 			<h3>" . _('Edit SMS custom') . "</h3>
 			<form action=index.php?app=menu&inc=feature_sms_custom&op=sms_custom_edit_yes method=post>
+			"._CSRF_FORM_."
 			<input type=hidden name=custom_id value=$custom_id>
 			<input type=hidden name=edit_custom_keyword value=$edit_custom_keyword>
 			<table class=playsms-table>
@@ -157,6 +158,7 @@ switch ($op) {
 			<h2>" . _('Manage custom') . "</h2>
 			<h3>" . _('Add SMS custom') . "</h3>
 			<form action=index.php?app=menu&inc=feature_sms_custom&op=sms_custom_add_yes method=post>
+			"._CSRF_FORM_."
 			<table class=playsms-table>
 				<tbody>
 				<tr>

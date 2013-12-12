@@ -17,7 +17,8 @@ switch ($op) {
 		$content = "
 			<h2>"._('Sandbox')."</h2>
 			<p>".$search['form']."</p>
-			<form id=fm_sandbox name=fm_sandbox action=\"index.php?app=menu&inc=sandbox&op=actions\" method=post onSubmit=\"return SureConfirm()\">
+			<form id=fm_sandbox name=fm_sandbox action=\"index.php?app=menu&inc=sandbox&op=actions\" method=POST>
+			"._CSRF_FORM_."
 			<input type=hidden name=go value=delete>
 			<div class=actions_box>
 				<div class=pull-left>

@@ -21,6 +21,7 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Manage msgtoolbox')."</h2>
 			<form action=index.php?app=menu&inc=gateway_msgtoolbox&op=manage_save method=post>
+			"._CSRF_FORM_."
 			<table class=playsms-table>
 				<tbody>
 				<tr>

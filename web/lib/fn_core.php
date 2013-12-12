@@ -552,4 +552,66 @@ function core_plugin_set_status($uid, $plugin_category, $plugin_name, $plugin_st
 	return $ret;
 }
 
-?>
+/**
+ * Set CSRF token value and form
+ * @return array array(value, form)
+ */
+function core_csrf_set() {
+	$ret = array();
+	$csrf_token = md5(_PID_.mktime());
+	if ($_SESSION['X-CSRF-Token'] = $csrf_token) {
+		$ret['value'] = $csrf_token;
+		$ret['form'] = '<input type="hidden" name="X-CSRF-Token" value="'.$csrf_token.'">';
+	}
+	return $ret;
+}
+
+/**
+ * Set CSRF token
+ * @return string
+ */
+function core_csrf_set_token() {
+	$csrf_token = md5(_PID_.mktime());
+	if ($_SESSION['X-CSRF-Token'] = $csrf_token) {
+		$ret = $csrf_token;
+	}
+	return $ret;
+}
+
+/**
+ * Get CSRF token value and form
+ * @return array array(value, form)
+ */
+function core_csrf_get() {
+	$ret = array();
+	if ($csrf_token = $_SESSION['X-CSRF-Token']) {
+		$ret['value'] = $csrf_token;
+		$ret['form'] = '<input type="hidden" name="X-CSRF-Token" value="'.$csrf_token.'">';
+	}
+	return $ret;
+}
+
+/**
+ * Get CSRF token
+ * @return string token
+ */
+function core_csrf_get_token() {
+	if ($csrf_token = $_SESSION['X-CSRF-Token']) {
+		$ret = $csrf_token;
+	}
+	return $ret;
+}
+
+/**
+ * Validate CSRF token
+ * @return boolean
+ */
+function core_csrf_validate() {
+	$submitted_token = $_POST['X-CSRF-Token'];
+	$token = core_csrf_get_token();
+	if ($token && $submitted_token && ($token == $submitted_token)) {
+		return TRUE;
+	} else {
+		return FALSE;
+	}
+}

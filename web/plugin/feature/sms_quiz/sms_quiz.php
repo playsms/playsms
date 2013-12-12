@@ -81,6 +81,7 @@ switch ($op) {
 			<h2>"._('Manage quiz')."</h2>
 			<h3>"._('Add SMS quiz')."</h3>
 			<form action=index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add_yes method=post>
+			"._CSRF_FORM_."
 			<table class=playsms-table>
 			<tr>
 				<td class=label-sizer>"._('SMS quiz keyword')."</td><td><input type=text size=10 maxlength=10 name=add_quiz_keyword value=\"$add_quiz_keyword\"></td>
@@ -144,6 +145,7 @@ switch ($op) {
 			<h2>"._('Manage quiz')."</h2>
 			<h3>"._('Edit SMS quiz')."</h3>
 			<form action=index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_edit_yes method=post>
+			"._CSRF_FORM_."
 			<input type=hidden name=quiz_id value=\"$quiz_id\">
 			<input type=hidden name=edit_quiz_keyword value=\"$edit_quiz_keyword\">
 			<table class=playsms-table>

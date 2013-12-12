@@ -80,6 +80,7 @@ switch ($op) {
 			<h2>"._('Manage board')."</h2>
 			<h3>"._('Edit SMS board')."</h3>
 			<form action=index.php?app=menu&inc=feature_sms_board&op=sms_board_edit_yes method=post>
+			"._CSRF_FORM_."
 			<input type=hidden name=board_id value=$board_id>
 			<input type=hidden name=edit_board_keyword value=$edit_board_keyword>
 			<table class=playsms-table>
@@ -154,6 +155,7 @@ switch ($op) {
 			<h2>"._('Manage board')."</h2>
 			<h3>"._('Add SMS board')."</h3>
 			<form action=index.php?app=menu&inc=feature_sms_board&op=sms_board_add_yes method=post>
+			"._CSRF_FORM_."
 			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 			<tr>
 				<td class=label-sizer>"._('SMS board keyword')."</td><td><input type=text size=30 maxlength=30 name=add_board_keyword value=\"$add_board_keyword\"></td>

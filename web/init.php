@@ -104,6 +104,21 @@ $core_config['http_path'] = $http_path;
 // load init functions
 include_once $apps_path['libs']."/fn_init.php";
 
+// enable anti-CSRF for anything but webservices
+$c_app = ( $_GET['app'] ? strtolower($_GET['app']) : strtolower($_POST['app']) );
+if (! (($c_app == 'ws') || ($c_app == 'webservices'))) {
+	$csrf = array();
+	// print_r($_POST); print_r($_SESSION);
+	if ($_POST) {
+		core_csrf_validate() or die();
+	}
+	$csrf = core_csrf_set();
+	define('_CSRF_TOKEN_', $csrf['value']);
+	define('_CSRF_FORM_', $csrf['form']);
+	unset($csrf);
+}
+unset($c_app);
+
 // if magic quotes gps is set to Off (which is recommended) then addslashes all requests
 if (! get_magic_quotes_gpc()) {
 	foreach($_GET as $key => $val){$_GET[$key]=pl_addslashes($val);}

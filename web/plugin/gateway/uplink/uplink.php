@@ -32,6 +32,7 @@ switch ($op) {
 			" . $error_content . "
 			<h2>" . _('Manage uplink') . "</h2>
 			<form action=index.php?app=menu&inc=gateway_uplink&op=manage_save method=post>
+			"._CSRF_FORM_."
 			<table class=playsms-table>
 				<tbody>
 				<tr>

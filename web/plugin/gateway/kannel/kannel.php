@@ -50,6 +50,7 @@ switch ($op) {
 		$content .= "
 			<h2>" . _('Manage kannel') . "</h2>
 			<form action=index.php?app=menu&inc=gateway_kannel&op=manage_save method=post>
+			"._CSRF_FORM_."
 			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 				<tbody>
 				<tr>

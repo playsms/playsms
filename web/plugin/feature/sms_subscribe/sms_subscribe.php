@@ -101,6 +101,7 @@ switch ($op) {
 			<h2>"._('Manage subscribe')."</h2>
 			<h3>"._('Add SMS subscribe')."</h3>
 			<form name=\"form_subscribe_add\" id=\"form_subscribe_add\" action=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_add_yes method=post>
+			"._CSRF_FORM_."
 			<table class=playsms-table>
 			<tr>
 				<td class=label-sizer>"._('SMS subscribe keyword')."</td><td><input type=text size=10 maxlength=10 name=add_subscribe_keyword value=\"$add_subscribe_keyword\"></td>
@@ -242,6 +243,7 @@ switch ($op) {
 			<h2>"._('Manage subscribe')."</h2>
 			<h3>"._('Edit SMS subscribe')."</h3>
 			<form name=\"form_subscribe_edit\" id=\"form_subscribe_edit\" action=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_edit_yes method=post>
+			"._CSRF_FORM_."
 			<input type=hidden name=subscribe_id value=\"$subscribe_id\">
 			<input type=hidden name=edit_subscribe_keyword value=\"$edit_subscribe_keyword\">
 			<table class=playsms-table>
@@ -486,6 +488,7 @@ switch ($op) {
 			<h2>"._('Manage subscribe')."</h2>
 			<h3>"._('Edit message')."</h3>
 			<form action=index.php?app=menu&inc=feature_sms_subscribe&op=msg_edit_yes method=post>
+			"._CSRF_FORM_."
 			<input type=hidden value=$subscribe_id name=subscribe_id>
 			<input type=hidden value=$msg_id name=msg_id>
 			<table class=playsms-table>
@@ -534,6 +537,7 @@ switch ($op) {
 			<h2>"._('Manage subscribe')."</h2>
 			<h3>"._('Add message')."</h3>
 			<form action=index.php?app=menu&inc=feature_sms_subscribe&op=msg_add_yes method=post>
+			"._CSRF_FORM_."
 			<input type=hidden value=$subscribe_id name=subscribe_id>
 			<table class=playsms-table>
 			<tr>
@@ -596,6 +600,7 @@ switch ($op) {
 			<h2>"._('Manage subscribe')."</h2>
 			<h3>"._('Message detail')."</h3>
 			<form action=index.php?app=menu&inc=feature_sms_subscribe&op=msg_send method=post>
+			"._CSRF_FORM_."
 			<input type=hidden value=$message name=msg>
 			<input type=hidden value=$subscribe_id name=subscribe_id>
 			<input type=hidden value=$msg_id name=msg_id>

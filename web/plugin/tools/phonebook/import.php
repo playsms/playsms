@@ -13,7 +13,8 @@ switch ($op) {
 				<tbody>
 					<tr>
 						<td>
-							<form action=\"index.php?app=menu&inc=tools_phonebook&route=import&op=import\" enctype=\"multipart/form-data\" method=\"post\">
+							<form action=\"index.php?app=menu&inc=tools_phonebook&route=import&op=import\" enctype=\"multipart/form-data\" method=POST>
+							"._CSRF_FORM_."
 							<p>"._('Please select CSV file for phonebook entries')."</p>
 							<p><input type=\"file\" size=30 name=\"fnpb\"></p>
 							<p class=text-info>"._('format')." : "._('Name').", "._('Mobile').", "._('Email').", "._('Group code')."</p>
@@ -78,7 +79,8 @@ switch ($op) {
 				</tbody></table>
 				</div>
 				<p>"._('Import above phonebook entries ?')."</p>
-				<form action=\"index.php?app=menu&inc=tools_phonebook&route=import&op=import_yes\" method=\"post\">
+				<form action=\"index.php?app=menu&inc=tools_phonebook&route=import&op=import_yes\" method=POST>
+				"._CSRF_FORM_."
 				<input type=\"hidden\" name=\"number_of_row\" value=\"$j\">
 				<input type=\"hidden\" name=\"session_import\" value=\"".$session_import."\">
 				<p><input type=\"submit\" class=\"button\" value=\""._('Import')."\"></p>

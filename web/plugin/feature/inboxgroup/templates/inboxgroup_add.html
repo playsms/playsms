@@ -2,6 +2,7 @@
 <h2>{Group inbox}</h2>
 <h3>{Add group inbox}</h3>
 <form method='post' action='index.php?app=menu&inc=feature_inboxgroup&op=add_submit'>
+{CSRF_FORM}
 <table class=playsms-table>
 	<tr><td class=label-sizer>{Receiver number}</td><td><input type='text' name='in_receiver' maxlength='20' size=30>{HINT_RECEIVER_NUMBER}</td></tr>
 	<tr><td>{Keywords}</td><td><input type='text' name='keywords' maxlength='100' size=30>{HINT_KEYWORDS}</td></tr>

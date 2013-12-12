@@ -170,7 +170,8 @@ switch ($op) {
 		$content .= "
 		<h2>"._('Manage user')."</h2>
 		<h3>"._('Add user')."</h3>
-		<form action='index.php?app=menu&inc=user_mgmnt&op=user_add_yes' method='post'>
+		<form action='index.php?app=menu&inc=user_mgmnt&op=user_add_yes' method=POST>
+		"._CSRF_FORM_."
 		<table class=playsms-table>
 		<tbody>
 		<tr>

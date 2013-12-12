@@ -17,7 +17,8 @@ switch ($op) {
 		$content = "
 			<h2>"._('Outgoing messages')."</h2>
 			<p>".$search['form']."</p>
-			<form id=fm_outgoing name=fm_outgoing action=\"index.php?app=menu&inc=user_outgoing&op=actions\" method=post>
+			<form id=fm_outgoing name=fm_outgoing action=\"index.php?app=menu&inc=user_outgoing&op=actions\" method=POST>
+			"._CSRF_FORM_."
 			<input type=hidden name=go value=delete>
 			<div class=actions_box>
 				<div class=pull-left>

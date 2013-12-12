@@ -17,7 +17,8 @@ switch ($op) {
 		$fm_name = "fm_smstemp";
 		$content = "
 			<h2>"._('Message template')."</h2>
-			<form id=$fm_name name=$fm_name action='index.php?app=menu&inc=tools_msgtemplate&op=actions' method=post>
+			<form id=$fm_name name=$fm_name action='index.php?app=menu&inc=tools_msgtemplate&op=actions' method=POST>
+			"._CSRF_FORM_."
 			<input type=hidden name=go value=delete>
 			<div class=actions_box>
 			<div class=pull-left><a href='index.php?app=menu&inc=tools_msgtemplate&op=add'>".$core_config['icon']['add']."</a></div>
@@ -75,7 +76,8 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Message template')."</h2>
 			<h3>"._('Add message template')."</h3>
-			<form action='index.php?app=menu&inc=tools_msgtemplate&op=actions&go=add' method='post'>
+			<form action='index.php?app=menu&inc=tools_msgtemplate&op=actions&go=add' method=POST>
+			"._CSRF_FORM_."
 			<table class=playsms-table>
 			<tr>
 				<td class=label-sizer>"._('Message template name')."</td><td><input type=text size=30 maxlength=100 name=t_title></td>
@@ -99,7 +101,8 @@ switch ($op) {
 		$content .= "
 			<h2>"._('Message template')."</h2>
 			<h3>"._('Edit message template')."</h3>
-			<form action='index.php?app=menu&inc=tools_msgtemplate&op=actions&go=edit' method='post'>
+			<form action='index.php?app=menu&inc=tools_msgtemplate&op=actions&go=edit' method=POST>
+			"._CSRF_FORM_."
 			<input type=hidden name=tid value='$tid'>
 			<table class=playsms-table>
 			<tr>

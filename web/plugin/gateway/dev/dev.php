@@ -28,6 +28,7 @@ switch ($op) {
 			<br />
 			<h3>"._('Simulate incoming SMS')."</h3>
 			<form action=\"index.php?app=menu&inc=gateway_dev&op=simulate\" method=post>
+			"._CSRF_FORM_."
 			<table class=playsms-table>
 				<tbody>
 				<tr><td class=label-sizer>"._('Message')."</td><td><input type=text name=message value=\"$message\" size=30 maxlength=250></td></tr>

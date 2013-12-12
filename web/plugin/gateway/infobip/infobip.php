@@ -28,6 +28,7 @@ switch ($op) {
 		$content .= "
 			<h2>" . _ ( 'Manage infobip' ) . "</h2>
 			<form action=index.php?app=menu&inc=gateway_infobip&op=manage_save method=post>
+			"._CSRF_FORM_."
 			<table class=playsms-table>
 			<tr>
 				<td class=label-sizer>" . _ ( 'Gateway name' ) . "</td><td>infobip $status_active</td>

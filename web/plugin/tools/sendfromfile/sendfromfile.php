@@ -16,6 +16,7 @@ switch ($op) {
 					<tr>
 						<td>
 							<form action=\"index.php?app=menu&inc=tools_sendfromfile&op=upload_confirm\" enctype=\"multipart/form-data\" method=\"post\">
+							"._CSRF_FORM_."
 							<p>"._('Please select CSV file')."</p>
 							<p><input type=\"file\" size=30 name=\"fncsv\"></p>
 							<p class=text-info>".$info_format."</p>
@@ -140,11 +141,11 @@ switch ($op) {
 		}
 		$content .= '<h3>'._('Your choice').': </h3><p />';
 		$content .= "<form action=\"index.php?app=menu&inc=tools_sendfromfile&op=upload_cancel\" method=\"post\">";
-		$content .= "<input type=hidden name=sid value='".$sid."'>";
+		$content .= _CSRF_FORM_."<input type=hidden name=sid value='".$sid."'>";
 		$content .= "<input type=\"submit\" value=\""._('Cancel send from file')."\" class=\"button\"></p>";
 		$content .= "</form>";
 		$content .= "<form action=\"index.php?app=menu&inc=tools_sendfromfile&op=upload_process\" method=\"post\">";
-		$content .= "<input type=hidden name=sid value='".$sid."'>";
+		$content .= _CSRF_FORM_."<input type=hidden name=sid value='".$sid."'>";
 		$content .= "<input type=\"submit\" value=\""._('Send SMS to valid entries')."\" class=\"button\"></p>";
 		$content .= "</form>";
 		echo $content;

@@ -58,6 +58,9 @@ function _tpl_apply($fn, $tpl) {
 
 function tpl_apply($tpl) {
 	if (is_array($tpl) && $tpl['name']) {
+		// inject anti-CSRF hidden field
+		$tpl['var']['CSRF_FORM'] = _CSRF_FORM_;
+		
 		$tpl_name = q_sanitize($tpl['name']);
 
 		// check from active plugin

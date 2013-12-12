@@ -64,6 +64,7 @@ switch ($op) {
 			<h2>"._('Manage SMS rate')."</h2>
 			<h3>"._('Edit rate')."</h3>
 			<form action='index.php?app=menu&inc=tools_simplerate&op=simplerate_edit_save' method='post'>
+			"._CSRF_FORM_."
 			<input type='hidden' name='rateid' value=\"$rateid\">
 			<table class=playsms-table>
 			<tr>
@@ -109,6 +110,7 @@ switch ($op) {
 			<h2>"._('Manage SMS rate')."</h2>
 			<h3>"._('Add rate')."</h3>
 			<form action='index.php?app=menu&inc=tools_simplerate&op=simplerate_add_yes' method='post'>
+			"._CSRF_FORM_."
 			<table class=playsms-table>
 			<tr>
 				<td class=label-sizer>"._('Destination')."</td><td><input type='text' size=30 maxlength='30' name='add_dst' value=\"$add_dst\"></td>
