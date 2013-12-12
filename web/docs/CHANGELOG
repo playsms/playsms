@@ -1,8 +1,40 @@
 CHANGELOG
 ---------
 
-Version 1.0 - NA
+Version 1.0-beta1 - 131213
+- MAJOR: add core_call_hook(), utilizing debug_backtrace() to replace the way
+         functions call hooking plugin's functions
+- MAJOR: user_incoming and all_incoming now only shows SMS with matched keyword,
+         or handled SMS
+- MAJOR: fix #155 SECURITY HOLE, CSRF exploit
+         http://www.exploit-db.com/exploits/30177/
+- remove default timezone and language from database, tblUser
+- add an option to allow/disallow regular user access to sms_command
+- add dlr-storage=internal and mo-recode=true, and a few other changes in
+  contrib/kannel/kannel.conf
+- add ta=SX webservices handler for retrieving sandbox messages
+- add DB DSN options
 - add new language Russian ru_RU (dvoryanchikov)
+- update catalan language ca_ES (aseques)
+- update inluded php-db to version 1.7.14
+- update to try to limit browser zoom, viewer should not be able to zoom/scale
+- use sendsms() and remove sendsms_bc() while sending SMS, the goal was to
+  remove duplicated entries when user send to group and numbers that actually
+  already included in group
+- fix #100 1 contact in multiple group, also major changes on the backend
+- fix #119 missing phonebook edit
+- fix #127 queuelog entries should be removable
+- fix #128 add webservices method ta=set_token to update webservices token
+- fix #129 remove smsc=default, kannel gateway, users might miss this when
+  debugging
+- fix #137 add new admin menu, sandbox, since now all incoming sms and user
+  incoming sms only shown handled SMS
+- fix #146 security fix: prevent use of special characters such as ; or /
+  (dvoryanchikov)
+- fix #147 fixes in localization (dvoryanchikov)
+- fix #148 fix duplication of search results at send_sms page (dvoryanchikov)
+- fix #151 email field length in user_pref too short, and possibly in other
+  places as well
 
 Version 0.9.9.2 - 131205
 - MAJOR: new install will use MySQL InnoDB
