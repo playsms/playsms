@@ -1,0 +1,50 @@
+UPGRADE
+-------
+Upgrade to playSMS version 1.0-beta1 from unmodified playSMS version 0.9.9.2
+
+Assumed that your old playSMS (0.9.9.2) was installed like this:
+- Your playSMS 0.9.9.2 web location is in /var/www/playsms/
+- Your playSMS 0.9.9.2 daemon files location are in /usr/local/bin/
+- Your playSMS 0.9.9.2 database name is 'playsms'
+
+And, assumed that your new playSMS (1.0-beta1) was extracted at:
+- /usr/local/src/playsms
+
+Follow below steps carefully to upgrade from unmodified 0.9.9.2 to 1.0-beta1:
+
+1. Stop playsmsd and sendsmsd:
+
+	/etc/init.d/playsms stop
+
+2. Move and backup old files and database (please note on the 'slash'):
+
+	mkdir -p /root/backup-0.9.9.2
+	cd /root/backup-0.9.9.2
+	mkdir www bin etc db
+	mv /var/www/playsms/* www/
+	mv /usr/local/bin/playsms* /usr/local/bin/sendsms* bin/
+	mysqldump -uroot -p playsms --add-drop-table > db/playsms.sql
+	cp /etc/default/playsms etc/playsms
+	cp /etc/init.d/playsms etc/playsms.init
+
+3. Quick install new files and copy old config.php:
+
+	cd /usr/local/src/playsms
+	cp -rR web/* /var/www/playsms/
+	cp -rR daemon/linux/bin/* /usr/local/bin/
+	cp /root/backup-0.9.9.2/www/config.php /var/www/playsms/
+
+4. Update database:
+
+	cd /usr/local/src/playsms
+	mysql -uroot -p playsms < db/playsms-upgrade-0992-to-10.sql
+
+5. Start again playsmsd and sendsmsd:
+
+	/etc/init.d/playsms start
+
+6. Upgrade complete, browse playSMS as usual.
+
+
+--
+Anton Raharja
