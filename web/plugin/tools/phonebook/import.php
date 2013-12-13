@@ -1,6 +1,6 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
-if(!valid()){forcenoaccess();};
+if(!valid()){auth_block();};
 
 $uid = $core_config['user']['uid'];
 

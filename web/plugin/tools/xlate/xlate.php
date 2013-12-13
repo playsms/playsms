@@ -1,7 +1,7 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
-if(!valid()){forcenoaccess();};
+if(!valid()){auth_block();};
 
 // empty
 

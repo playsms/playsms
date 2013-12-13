@@ -1,6 +1,6 @@
 <?php defined('_SECURE_') or die('Forbidden'); ?>
 <?php
-if(!isadmin()){forcenoaccess();};
+if(!isadmin()){auth_block();};
 
 // error messages
 $error_content = '';

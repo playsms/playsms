@@ -78,7 +78,7 @@ function isadmin() {
 /**
  * Force forward to noaccess page
  */
-function forcenoaccess() {
+function auth_block() {
 	global $core_config;
 	$_SESSION['error_string'] = _('You have no access to this page');
 	logger_print("WARNING: no access. sid:".$_SESSION['sid']." ip:".$_SERVER['REMOTE_ADDR']." uid:".$core_config['user']['uid']." app:"._APP_." inc:"._INC_." op:"._OP_." route:"._ROUTE_, 2, "auth_block");

@@ -1,7 +1,7 @@
 <?php
 
 if (!valid()) {
-	forcenoaccess();
+	auth_block();
 };
 
 $smslog_id = $_GET ['smslog_id'];
@@ -75,7 +75,7 @@ switch ($op) {
 
 	case "report_admin" :
 		if (!isadmin()) {
-			forcenoaccess();
+			auth_block();
 		};
 
 		unset($tpl);

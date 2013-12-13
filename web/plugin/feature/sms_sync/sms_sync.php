@@ -2,7 +2,7 @@
 defined('_SECURE_') or die('Forbidden');
 
 if (!valid()) {
-	forcenoaccess();
+	auth_block();
 };
 
 // error messages

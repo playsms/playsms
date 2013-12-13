@@ -138,7 +138,7 @@ if (! (($c_app == 'ws') || ($c_app == 'webservices'))) {
 	if ($_POST) {
 		if (! core_csrf_validate()) {
 			logger_print("WARNING: possible CSRF attack. sid:".$_SESSION['sid']." ip:".$_SERVER['REMOTE_ADDR'], 2, "init");
-			forcenoaccess();
+			auth_block();
 		}
 	}
 	$csrf = core_csrf_set();

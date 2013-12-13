@@ -1,10 +1,10 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
-if(!valid()){forcenoaccess();};
+if(!valid()){auth_block();};
 
 if ($board_id = $_REQUEST['board_id']) {
 	if (! ($board_id = dba_valid(_DB_PREF_.'_featureBoard', 'board_id', $board_id))) {
-		forcenoaccess();
+		auth_block();
 	}
 }
 

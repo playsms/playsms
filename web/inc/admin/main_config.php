@@ -1,6 +1,6 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
-if(!isadmin()){forcenoaccess();};
+if(!isadmin()){auth_block();};
 
 switch ($op) {
 	case "main_config":

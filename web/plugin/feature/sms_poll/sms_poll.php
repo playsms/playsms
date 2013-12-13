@@ -1,10 +1,10 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
-if(!valid()){forcenoaccess();};
+if(!valid()){auth_block();};
 
 if ($poll_id = $_REQUEST['poll_id']) {
 	if (! ($poll_id = dba_valid(_DB_PREF_.'_featurePoll', 'poll_id', $poll_id))) {
-		forcenoaccess();
+		auth_block();
 	}
 }
 

@@ -1,6 +1,6 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
-if(!isadmin()){forcenoaccess();};
+if(!isadmin()){auth_block();};
 
 include $apps_path['plug']."/gateway/dev/config.php";
 

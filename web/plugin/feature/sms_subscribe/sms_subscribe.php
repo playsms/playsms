@@ -1,10 +1,10 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
-if(!valid()) {forcenoaccess();};
+if(!valid()) {auth_block();};
 
 if ($subscribe_id = $_REQUEST['subscribe_id']) {
 	if (! ($subscribe_id = dba_valid(_DB_PREF_.'_featureSubscribe', 'subscribe_id', $subscribe_id))) {
-		forcenoaccess();
+		auth_block();
 	}
 }
 

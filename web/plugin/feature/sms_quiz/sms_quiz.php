@@ -1,10 +1,10 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
-if (!valid()){forcenoaccess();};
+if (!valid()){auth_block();};
 
 if ($quiz_id = $_REQUEST['quiz_id']) {
 	if (! ($quiz_id = dba_valid(_DB_PREF_.'_featureQuiz', 'quiz_id', $quiz_id))) {
-		forcenoaccess();
+		auth_block();
 	}
 }
 

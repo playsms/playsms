@@ -1,7 +1,7 @@
 <?php
 defined ( '_SECURE_' ) or die ( 'Forbidden' );
 if (! isadmin ()) {
-	forcenoaccess ();
+	auth_block ();
 };
 
 $gw = core_gateway_get ();

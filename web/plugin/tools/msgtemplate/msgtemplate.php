@@ -1,6 +1,6 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
-if(!valid()){forcenoaccess();};
+if(!valid()){auth_block();};
 
 $gpid = $_REQUEST['gpid'];
 $pid = $_REQUEST['pid'];
@@ -8,7 +8,7 @@ $tid = $_REQUEST['tid'];
 
 if ($tid = $_REQUEST['tid']) {
 	if (! ($tid = dba_valid(_DB_PREF_.'_toolsMsgtemplate', 'tid', $tid))) {
-		forcenoaccess();
+		auth_block();
 	}
 }
 
