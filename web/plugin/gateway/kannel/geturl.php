@@ -16,8 +16,10 @@ if ($remote_addr != $kannel_param['bearerbox_host'] && $remote_host != $kannel_p
 	exit();
 }
 
-// sms_datetime, do not compile Kannel with --enable-localtime to save datetime in GMT+0, which is what we need
-$t = trim($_REQUEST['t']); 
+// sms_datetime, Kannel must be compiled with --disable-localtime to save time in UTC, GMT+0
+// in case Kannel compiled without --disable-localtime then use this instead:
+//$t = trim($_REQUEST['t']);
+$t = core_display_datetime(trim($_REQUEST['t']));
 
 $q = trim($_REQUEST['q']); 	// sms_sender
 $a = trim($_REQUEST['a']); 	// message
