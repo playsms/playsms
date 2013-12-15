@@ -2,8 +2,6 @@
 defined('_SECURE_') or die('Forbidden');
 if(!auth_isvalid()){auth_block();};
 
-logger_print("AAA", 1, "BBB");
-
 $fn = _APPS_PATH_THEMES_.'/'.core_themes_get().'/page_welcome.php';
 
 if (file_exists($fn)) {
@@ -21,4 +19,3 @@ if (file_exists($fn)) {
 	$tpl['var'][$doc . '_ACTIVE'] = 'class=active';
 	echo tpl_apply($tpl);
 }
-?>
