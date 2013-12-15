@@ -25,7 +25,7 @@ function infobip_hook_playsmsd() {
 			$p_datetime = $db_row ['p_datetime'];
 			$p_update = $db_row ['p_update'];
 			$gpid = $db_row ['p_gpid'];
-			x_hook ( 'infobip', 'getsmsstatus', array (
+			core_hook ( 'infobip', 'getsmsstatus', array (
 					$gpid,
 					$uid,
 					$smslog_id,
@@ -58,7 +58,7 @@ function infobip_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid 
 		if (function_exists ( 'mb_convert_encoding' )) {
 			$sms_msg = mb_convert_encoding ( $sms_msg, "UCS-2BE", "auto" );
 		}
-		$sms_msg = str2hex ( $sms_msg );
+		$sms_msg = core_str2hex ( $sms_msg );
 		$unicode = 8;
 		$smsType = "&binary";
 	}

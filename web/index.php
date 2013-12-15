@@ -40,7 +40,7 @@ if (isset($app)) {
 				bind_textdomain_codeset('messages', 'UTF-8');
 				textdomain('messages');
 			}
-			x_hook($plugin,'call',array($_REQUEST));
+			core_hook($plugin,'call',array($_REQUEST));
 			break;
 		case 'page':
 			// $app=page to access a page inside themes

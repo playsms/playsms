@@ -1,7 +1,7 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
-function q_sanitize($var) {
+function core_query_sanitize($var) {
 	$var = str_replace("/","",$var);
 	$var = str_replace("|","",$var);
 	$var = str_replace("\\","",$var);
@@ -19,7 +19,7 @@ function core_sanitize_path($var) {
 	return $var;
 }
 
-function x_hook($c_plugin, $c_function, $c_param=array()) {
+function core_hook($c_plugin, $c_function, $c_param=array()) {
 	$c_fn = $c_plugin.'_hook_'.$c_function;
 	if ($c_plugin && $c_function && function_exists($c_fn)) {
 		return call_user_func_array($c_fn, $c_param);
@@ -47,14 +47,14 @@ function core_call_hook($function_name='', $arguments='') {
 	}
 	$found = FALSE;
 	for ($c=0;$c<count($core_config['toolslist']);$c++) {
-		if ($ret = x_hook($core_config['toolslist'][$c],$function_name,$arguments)) {
+		if ($ret = core_hook($core_config['toolslist'][$c],$function_name,$arguments)) {
 			$found = TRUE;
 			break;
 		}
 	}
 	if (! $found) {
 		for ($c=0;$c<count($core_config['featurelist']);$c++) {
-			if ($ret = x_hook($core_config['featurelist'][$c],$function_name,$arguments)) {
+			if ($ret = core_hook($core_config['featurelist'][$c],$function_name,$arguments)) {
 				break;
 			}
 		}
@@ -67,10 +67,10 @@ function playsmsd() {
 	core_call_hook();
 	// plugin gateway
 	$gw = core_gateway_get();
-	x_hook($gw,'playsmsd');
+	core_hook($gw,'playsmsd');
 }
 
-function str2hex($string)  {
+function core_str2hex($string)  {
 	$hex = '';
 	$len = strlen($string);
 	for ($i = 0; $i < $len; $i++) {

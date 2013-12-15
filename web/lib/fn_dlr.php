@@ -47,13 +47,13 @@ function setsmsdeliverystatus($smslog_id,$uid,$p_status) {
 		$ok = true;
 		if ($p_status > 0) {
 			for ($c=0;$c<count($core_config['toolslist']);$c++) {
-				x_hook($core_config['toolslist'][$c],'setsmsdeliverystatus',array($smslog_id,$uid,$p_status));
+				core_hook($core_config['toolslist'][$c],'setsmsdeliverystatus',array($smslog_id,$uid,$p_status));
 			}
 			for ($c=0;$c<count($core_config['featurelist']);$c++) {
-				x_hook($core_config['featurelist'][$c],'setsmsdeliverystatus',array($smslog_id,$uid,$p_status));
+				core_hook($core_config['featurelist'][$c],'setsmsdeliverystatus',array($smslog_id,$uid,$p_status));
 			}
 			$gw = core_gateway_get();
-			x_hook($gw,'setsmsdeliverystatus',array($smslog_id,$uid,$p_status));
+			core_hook($gw,'setsmsdeliverystatus',array($smslog_id,$uid,$p_status));
 		}
 	}
 	return $ok;
@@ -69,6 +69,6 @@ function getsmsstatus() {
 		$p_datetime = $db_row['p_datetime'];
 		$p_update = $db_row['p_update'];
 		$gpid = $db_row['p_gpid'];
-		x_hook($gw,'getsmsstatus',array($gpid,$uid,$smslog_id,$p_datetime,$p_update));
+		core_hook($gw,'getsmsstatus',array($gpid,$uid,$smslog_id,$p_datetime,$p_update));
 	}
 }

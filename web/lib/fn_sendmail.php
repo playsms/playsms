@@ -40,7 +40,7 @@ function sendmail($data=array()) {
 	global $core_config;
 	$ok = false;
 	for ($c=0;$c<count($core_config['toolslist']);$c++) {
-		if (x_hook($core_config['toolslist'][$c],'sendmail',array($data))) {
+		if (core_hook($core_config['toolslist'][$c],'sendmail',array($data))) {
 			logger_print("sent from:".$data['mail_from']." to:".$data['mail_to']." subject:".$data['mail_subject'], 2, "sendmail");
 			$ok = true;
 			break;

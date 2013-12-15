@@ -435,6 +435,6 @@ function webservices_get_contact_group($c_uid, $name, $count) {
 
 function webservices_output($ta,$requests) {
 	$ta = strtolower($ta);
-	$ret = x_hook($ta,'webservices_output',array($ta,$requests));
+	$ret = core_hook($ta,'webservices_output',array($ta,$requests));
 	return $ret;
 }

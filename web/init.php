@@ -115,12 +115,12 @@ empty($_REQUEST);
 $_REQUEST = array_merge($_GET, $_POST);
 
 // global variables
-$app = q_sanitize($_REQUEST['app']);
-$inc = q_sanitize($_REQUEST['inc']);
-$op = q_sanitize($_REQUEST['op']);
-$route = q_sanitize($_REQUEST['route']);
-$page = q_sanitize($_REQUEST['page']);
-$nav = q_sanitize($_REQUEST['nav']);
+$app = core_query_sanitize($_REQUEST['app']);
+$inc = core_query_sanitize($_REQUEST['inc']);
+$op = core_query_sanitize($_REQUEST['op']);
+$route = core_query_sanitize($_REQUEST['route']);
+$page = core_query_sanitize($_REQUEST['page']);
+$nav = core_query_sanitize($_REQUEST['nav']);
 
 // global defines
 define('_APP_', $app);

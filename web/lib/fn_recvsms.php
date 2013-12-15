@@ -61,7 +61,7 @@ function checkavailablekeyword($keyword) {
 		for ($c=0;$c<count($core_config['featurelist']);$c++) {
 			// checkavailablekeyword() on hooks will return TRUE as well if keyword is available
 			// so we're looking for FALSE value
-			if (x_hook($core_config['featurelist'][$c],'checkavailablekeyword',array($keyword)) === FALSE) {
+			if (core_hook($core_config['featurelist'][$c],'checkavailablekeyword',array($keyword)) === FALSE) {
 				$ok = false;
 				break;
 			}
@@ -76,7 +76,7 @@ function recvsms_intercept($sms_datetime,$sms_sender,$message,$sms_receiver="") 
 	$ret_final = array();
 	// feature list
 	for ($c=0;$c<count($core_config['featurelist']);$c++) {
-		$ret = x_hook($core_config['featurelist'][$c],'recvsms_intercept',array($sms_datetime,$sms_sender,$message,$sms_receiver));
+		$ret = core_hook($core_config['featurelist'][$c],'recvsms_intercept',array($sms_datetime,$sms_sender,$message,$sms_receiver));
 		if ($ret['modified']) {
 			$sms_datetime = ( $ret['param']['sms_datetime'] ? $ret['param']['sms_datetime'] : $sms_datetime );
 			$sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
@@ -94,7 +94,7 @@ function recvsms_intercept($sms_datetime,$sms_sender,$message,$sms_receiver="") 
 	}
 	// tools list
 	for ($c=0;$c<count($core_config['toolslist']);$c++) {
-		$ret = x_hook($core_config['toolslist'][$c],'recvsms_intercept',array($sms_datetime,$sms_sender,$message,$sms_receiver));
+		$ret = core_hook($core_config['toolslist'][$c],'recvsms_intercept',array($sms_datetime,$sms_sender,$message,$sms_receiver));
 		if ($ret['modified']) {
 			$sms_datetime = ( $ret['param']['sms_datetime'] ? $ret['param']['sms_datetime'] : $sms_datetime );
 			$sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
@@ -165,7 +165,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 		default:
 			for ($c=0;$c<count($core_config['featurelist']);$c++) {
 				$c_feature = $core_config['featurelist'][$c];
-				$ret = x_hook($c_feature,'setsmsincomingaction',array($sms_datetime,$sms_sender,$target_keyword,$message,$sms_receiver,$raw_message));
+				$ret = core_hook($c_feature,'setsmsincomingaction',array($sms_datetime,$sms_sender,$target_keyword,$message,$sms_receiver,$raw_message));
 				if ($ok = $ret['status']) {
 					$c_uid = $ret['uid'];
 					logger_print("feature:".$c_feature." datetime:".$sms_datetime." sender:".$sms_sender." receiver:".$sms_receiver." keyword:".$target_keyword." message:".$message." raw:".$raw_message, 3, "setsmsincomingaction");
@@ -222,7 +222,7 @@ function recvsms_inbox_add_intercept($sms_datetime,$sms_sender,$target_user,$mes
 			$message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
 			$sms_receiver = ( $ret['param']['sms_receiver'] ? $ret['param']['sms_receiver'] : $sms_receiver );
 		}
-		$ret = x_hook($core_config['featurelist'][$c],'recvsms_inbox_add_intercept',array($sms_datetime,$sms_sender,$target_user,$message,$sms_receiver));
+		$ret = core_hook($core_config['featurelist'][$c],'recvsms_inbox_add_intercept',array($sms_datetime,$sms_sender,$target_user,$message,$sms_receiver));
 	}
 	// tools list
 	for ($c=0;$c<count($core_config['toolslist']);$c++) {
@@ -239,7 +239,7 @@ function recvsms_inbox_add_intercept($sms_datetime,$sms_sender,$target_user,$mes
 			$message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
 			$sms_receiver = ( $ret['param']['sms_receiver'] ? $ret['param']['sms_receiver'] : $sms_receiver );
 		}
-		$ret = x_hook($core_config['toolslist'][$c],'recvsms_inbox_add_intercept',array($sms_datetime,$sms_sender,$target_user,$message,$sms_receiver));
+		$ret = core_hook($core_config['toolslist'][$c],'recvsms_inbox_add_intercept',array($sms_datetime,$sms_sender,$target_user,$message,$sms_receiver));
 	}
 	return $ret_final;
 }
@@ -322,5 +322,5 @@ function recvsms_inbox_add($sms_datetime,$sms_sender,$target_user,$message,$sms_
 
 function getsmsinbox() {
 	$gw = core_gateway_get();
-	x_hook($gw,'getsmsinbox');
+	core_hook($gw,'getsmsinbox');
 }

@@ -4,7 +4,7 @@ defined('_SECURE_') or die('Forbidden');
 function themes_apply($content) {
 	$ret = '';
 	if (core_themes_get()) {
-		$ret = x_hook(core_themes_get(),'themes_apply',array($content));
+		$ret = core_hook(core_themes_get(),'themes_apply',array($content));
 	}
 	return $ret;
 }
@@ -23,7 +23,7 @@ function themes_buildmenu($menu_config) {
 	global $core_config;
 	$menu = '';
 	if ($core_config['module']['themes']) {
-		$menu = x_hook($core_config['module']['themes'],'themes_buildmenu',array($menu_config));
+		$menu = core_hook($core_config['module']['themes'],'themes_buildmenu',array($menu_config));
 	}
 	return $menu;
 }
@@ -39,7 +39,7 @@ function themes_navbar($num, $nav, $max_nav, $url, $page) {
 	$url = $url.$search_url;
 	$nav_pages = '';
 	if ($theme = core_themes_get()) {
-		$nav_pages = x_hook($theme,'themes_navbar',array($num, $nav, $max_nav, $url, $page));
+		$nav_pages = core_hook($theme,'themes_navbar',array($num, $nav, $max_nav, $url, $page));
 	}
 	return $nav_pages;
 }
@@ -117,7 +117,7 @@ function themes_button_back($url) {
 function themes_link($url, $title='', $css_class="", $css_id="") {
 	$ret = '';
 	if (core_themes_get()) {
-		$ret = x_hook(core_themes_get(),'themes_link',array($url, $title, $css_class, $css_id));
+		$ret = core_hook(core_themes_get(),'themes_link',array($url, $title, $css_class, $css_id));
 	}
 	if (! $ret) {
 		$c_title = ( $title ? $title : $url );
@@ -131,7 +131,7 @@ function themes_link($url, $title='', $css_class="", $css_id="") {
 function themes_button($url, $title, $css_class='', $css_id='') {
 	$ret = '';
 	if (core_themes_get()) {
-		$ret = x_hook(core_themes_get(),'themes_button',array($url, $title, $css_class, $css_id));
+		$ret = core_hook(core_themes_get(),'themes_button',array($url, $title, $css_class, $css_id));
 	}
 	if (! $ret) {
 		$css_class = ( $css_class ? " ".$css_class : '' );
@@ -144,7 +144,7 @@ function themes_button($url, $title, $css_class='', $css_id='') {
 function themes_hint($text) {
 	$ret = '';
 	if (core_themes_get()) {
-		$ret = x_hook(core_themes_get(),'themes_hint',array($text));
+		$ret = core_hook(core_themes_get(),'themes_hint',array($text));
 	}
 	if (! $ret) {
 		$ret = "<i class='glyphicon glyphicon-info-sign playsms-tooltip' data-toggle=tooltip title='".$text."' rel=tooltip></i>";
@@ -155,7 +155,7 @@ function themes_hint($text) {
 function themes_mandatory($text) {
 	$ret = '';
 	if (core_themes_get()) {
-		$ret = x_hook(core_themes_get(),'themes_mandatory',array($text));
+		$ret = core_hook(core_themes_get(),'themes_mandatory',array($text));
 	}
 	if (! $ret) {
 		$ret = $text." <i class='glyphicon glyphicon-exclamation-sign playsms-mandatory' data-toggle=tooltip title='"._('This field is required')."' rel=tooltip></i>";

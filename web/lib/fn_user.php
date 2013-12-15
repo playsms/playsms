@@ -35,7 +35,7 @@ function user_getdatabyusername($username) {
 }
 
 function user_getfieldbyuid($uid, $field) {
-	$field = q_sanitize($field);
+	$field = core_query_sanitize($field);
 	if ($uid && $field) {
 		$db_query = "SELECT $field FROM "._DB_PREF_."_tblUser WHERE uid='$uid'";
 		$db_result = dba_query($db_query);

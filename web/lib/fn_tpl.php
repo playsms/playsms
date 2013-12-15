@@ -61,7 +61,7 @@ function tpl_apply($tpl) {
 		// inject anti-CSRF hidden field
 		$tpl['var']['CSRF_FORM'] = _CSRF_FORM_;
 		
-		$tpl_name = q_sanitize($tpl['name']);
+		$tpl_name = core_query_sanitize($tpl['name']);
 
 		// check from active plugin
 		$inc = explode('_', _INC_);
