@@ -51,7 +51,7 @@ $menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_inbox&o
 $menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_incoming&op=user_incoming", _('Incoming messages'), 1);
 $menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_outgoing&op=user_outgoing", _('Outgoing messages'), 1);
 
-if (isadmin()) {
+if (auth_isadmin()) {
 	// administrator menus
 	$menutab_administration = $core_config['menutab']['administration'];
 	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_inbox&op=all_inbox", _('All inbox'), 1);

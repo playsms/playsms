@@ -74,7 +74,7 @@ switch ($op) {
 		break;
 
 	case "report_admin" :
-		if (!isadmin()) {
+		if (!auth_isadmin()) {
 			auth_block();
 		};
 

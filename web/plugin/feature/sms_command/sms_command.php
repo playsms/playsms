@@ -4,7 +4,7 @@ defined('_SECURE_') or die('Forbidden');
 if ($core_config['plugin']['sms_command']['allow_user_access']) {
 	if (!valid()) { auth_block(); };
 } else {
-	if (!isadmin()) { auth_block(); };
+	if (!auth_isadmin()) { auth_block(); };
 }
 
 if ($command_id = $_REQUEST['command_id']) {
@@ -23,7 +23,7 @@ switch ($op) {
 		$content .= "
 			<h2>" . _('Manage command') . "</h2>
 			"._button('index.php?app=menu&inc=feature_sms_command&op=sms_command_add', _('Add SMS command'));
-		if (! isadmin()) {
+		if (! auth_isadmin()) {
 			$query_user_only = "WHERE uid='$uid'";
 		}
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCommand ".$query_user_only." ORDER BY command_keyword";
@@ -31,7 +31,7 @@ switch ($op) {
 		$content .= "
 			<div class=table-responsive>
 			<table class=playsms-table-list>";
-		if (isadmin()) {
+		if (auth_isadmin()) {
 			$content .= "
 				<thead><tr>
 					<th width=20%>" . _('Keyword') . "</th>
@@ -54,7 +54,7 @@ switch ($op) {
 				$action = "<a href=index.php?app=menu&inc=feature_sms_command&op=sms_command_edit&command_id=" . $db_row['command_id'] . ">".$core_config['icon']['edit']."</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS command ?') . " (" . _('keyword') . ": " . $db_row['command_keyword'] . ")','index.php?app=menu&inc=feature_sms_command&op=sms_command_del&command_id=" . $db_row['command_id'] . "')\">".$core_config['icon']['delete']."</a>";
 				$command_exec = $sms_command_bin.'/'.$db_row['uid'].'/'.$db_row['command_exec'];
-				if (isadmin()) {
+				if (auth_isadmin()) {
 					$show_owner = "<td>".$owner."</td>";
 				}
 				$i++;

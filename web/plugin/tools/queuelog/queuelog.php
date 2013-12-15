@@ -17,7 +17,7 @@ switch ($op) {
 			<thead>
 			<tr>
 		";
-		if (isadmin()) {
+		if (auth_isadmin()) {
 			$content .= "
 				<th width=20%>"._('Queue Code')."</th>
 				<th width=15%>"._('User')."</th>
@@ -47,7 +47,7 @@ switch ($op) {
 			$content .= "
 				<tr>
 			";
-			if (isadmin()) {
+			if (auth_isadmin()) {
 				$content .= "
 					<td>".$c_queue_code."</td>
 					<td>".$c_username."</td>

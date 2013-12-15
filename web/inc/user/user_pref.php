@@ -4,7 +4,7 @@ if(!valid()){auth_block();};
 
 $c_username = $core_config['user']['username'];
 
-if (($uname = $_REQUEST['uname']) && isadmin()) {
+if (($uname = $_REQUEST['uname']) && auth_isadmin()) {
 	$c_username = trim($uname);
 	$url_uname = '&uname='.$c_username;
 }
@@ -42,7 +42,7 @@ switch ($op) {
 			}
 			$option_country .= "<option value=\"$country_id\" $selected>$country_name</option>\n";
 		}
-		if ($uname && isadmin()) {
+		if ($uname && auth_isadmin()) {
 			$form_title = _('Manage user');
 			$button_delete = "<input type=button class=button value='" . _('Delete') . "' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=menu&inc=user_mgmnt&op=user_del" . $url_uname . "')\">";
 			$button_back = _b('index.php?app=menu&inc=user_mgmnt&op=' . $referrer);

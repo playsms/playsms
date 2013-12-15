@@ -65,7 +65,7 @@ function valid() {
  * Check if visitor has admin access level
  * @return boolean TRUE if valid and visitor has admin access level
  */
-function isadmin() {
+function auth_isadmin() {
 	if (valid()) {
 		if ($_SESSION['status']==2) {
 			return true;

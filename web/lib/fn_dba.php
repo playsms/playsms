@@ -373,7 +373,7 @@ function dba_valid($db_table, $field, $value) {
 	$ret = false;
 	if ($db_table && $field && $value) {
 		$conditions[$field] = $value;
-		if (! isadmin()) {
+		if (! auth_isadmin()) {
 			$conditions['uid'] = $core_config['user']['uid'];
 		}
 		if ($list = dba_search($db_table, $field, $conditions)) {

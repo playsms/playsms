@@ -20,7 +20,7 @@ switch ($op) {
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>";
-		if (isadmin()) {
+		if (auth_isadmin()) {
 			$content .= "
 				<th width=20%>"._('Keyword')."</th>
 				<th width=20%>"._('Members')."</th>
@@ -40,7 +40,7 @@ switch ($op) {
 			</tr></thead>
 			<tbody>";
 		$i = 0;
-		if (! isadmin()) {
+		if (! auth_isadmin()) {
 			$query_user_only = "WHERE uid='$uid'";
 		}
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe ".$query_user_only." ORDER BY subscribe_id";
@@ -59,7 +59,7 @@ switch ($op) {
 				}
 				$action = "<a href=index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=".$db_row['subscribe_id'].">".$core_config['icon']['edit']."</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS subscribe ?')." ("._('keyword').": ".$db_row['subscribe_keyword'].")','index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_del&subscribe_id=".$db_row['subscribe_id']."')\">".$core_config['icon']['delete']."</a>";
-				if (isadmin()) {
+				if (auth_isadmin()) {
 					$option_owner = "<td>$owner</td>";
 				}
 				$i++;

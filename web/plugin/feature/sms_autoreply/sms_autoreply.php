@@ -17,7 +17,7 @@ switch ($op) {
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>";
-		if (isadmin()) {
+		if (auth_isadmin()) {
 			$content .= "
 				<th width=70%>"._('Keyword')."</th>
 				<th width=20%>"._('User')."</th>
@@ -28,7 +28,7 @@ switch ($op) {
 				<th width=10%>"._('Action')."</th>";
 		}
 		$content .= "</tr></thead><tbody>";
-		if (! isadmin()) {
+		if (! auth_isadmin()) {
 			$query_user_only = "WHERE uid='$uid'";
 		}
 		$db_query = "SELECT * FROM "._DB_PREF_."_featureAutoreply ".$query_user_only." ORDER BY autoreply_keyword";
@@ -38,7 +38,7 @@ switch ($op) {
 			if ($owner = uid2username($db_row['uid'])) {
 				$action = "<a href=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=".$db_row['autoreply_id'].">".$core_config['icon']['manage']."</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS autoreply ?')." ("._('keyword').": ".$db_row['autoreply_keyword'].")','index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_del&autoreply_id=".$db_row['autoreply_id']."')\">".$core_config['icon']['delete']."</a>";
-				if (isadmin()) {
+				if (auth_isadmin()) {
 					$option_owner = "<td>$owner</td>";
 				}
 				$i++;
@@ -73,7 +73,7 @@ switch ($op) {
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>";
-		if (isadmin()) {
+		if (auth_isadmin()) {
 			$content .= "
 				<th width=20%>"._('Param')."</th>
 				<th width=50%>"._('Return')."</th>
@@ -97,7 +97,7 @@ switch ($op) {
 				}
 				$action = "<a href=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit&autoreply_id=$autoreply_id&autoreply_scenario_id=".$db_row['autoreply_scenario_id'].">".$core_config['icon']['edit']."</a>";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this SMS autoreply scenario ?')."','index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_del&autoreply_id=$autoreply_id&autoreply_scenario_id=".$db_row['autoreply_scenario_id']."')\">".$core_config['icon']['delete']."</a>";
-				if (isadmin()) {
+				if (auth_isadmin()) {
 					$option_owner = "<td>$owner</td>";
 				}
 				$j++;

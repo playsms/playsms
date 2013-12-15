@@ -1,7 +1,7 @@
 <?php
 defined ( '_SECURE_' ) or die ( 'Forbidden' );
 
-if (!isadmin()) { auth_block (); };
+if (!auth_isadmin()) { auth_block (); };
 
 $content .= "
 	<h2>" . _ ( 'Manage plugin' ) . "</h2>

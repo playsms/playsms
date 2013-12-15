@@ -4,7 +4,7 @@ if(!valid()){auth_block();};
 
 $c_username = $core_config['user']['username'];
 
-if (($uname = $_REQUEST['uname']) && isadmin()) {
+if (($uname = $_REQUEST['uname']) && auth_isadmin()) {
 	$c_username = trim($uname);
 	$url_uname = '&uname='.$c_username;
 }
@@ -145,7 +145,7 @@ switch ($op) {
 			}
 		}
 
-		if ($uname && isadmin()) {
+		if ($uname && auth_isadmin()) {
 			$content .= "<h2>" . _('Manage user') . "</h2>";
 			$option_credit = "<tr><td>" . _('Credit') . "</td><td><input type=text size=10 maxlength=10 name=up_credit value=\"$credit\"></td></tr>";
 			$button_delete = "<input type=button class=button value='". _('Delete') ."' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=menu&inc=user_mgmnt&op=user_del".$url_uname."')\">";
@@ -196,7 +196,7 @@ switch ($op) {
 			'replace_zero', 'plus_sign_remove', 'plus_sign_add', 'send_as_unicode',
 			'new_token', 'enable_webservices', 'webservices_ip', 'sender'
 		);
-		if ($uname && isadmin()) {
+		if ($uname && auth_isadmin()) {
 			$fields[] = 'credit';
 		}
 		for ($i=0;$i<count($fields);$i++) {

@@ -16,7 +16,7 @@ switch ($op) {
 		$content .= "
 			<h2>" . _('Manage custom') . "</h2>
 			"._button('index.php?app=menu&inc=feature_sms_custom&op=sms_custom_add', _('Add SMS custom'));
-		if (! isadmin()) {
+		if (! auth_isadmin()) {
 			$query_user_only = "WHERE uid='$uid'";
 		}
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCustom ".$query_user_only." ORDER BY custom_keyword";
@@ -24,7 +24,7 @@ switch ($op) {
 		$content .= "
 			<div class=table-responsive>
 			<table class=playsms-table-list>";
-		if (isadmin()) {
+		if (auth_isadmin()) {
 			$content .= "
 				<thead><tr>
 					<th width=20%>" . _('Keyword') . "</th>
@@ -47,7 +47,7 @@ switch ($op) {
 				$action = "<a href=index.php?app=menu&inc=feature_sms_custom&op=sms_custom_edit&custom_id=" . $db_row['custom_id'] . ">".$core_config['icon']['edit']."</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS custom ?') . " (" . _('keyword') . ": " . $db_row['custom_keyword'] . ")','index.php?app=menu&inc=feature_sms_custom&op=sms_custom_del&custom_id=" . $db_row['custom_id'] . "')\">".$core_config['icon']['delete']."</a>";
 				$custom_url = $db_row['custom_url'];
-				if (isadmin()) {
+				if (auth_isadmin()) {
 					$show_owner = "<td>".$owner."</td>";
 				}
 				$i++;

@@ -1,7 +1,7 @@
 <?php
 
 defined('_SECURE_') or die('Forbidden');
-if (!isadmin()) {
+if (!auth_isadmin()) {
 	auth_block();
 };
 

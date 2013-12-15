@@ -19,7 +19,7 @@ switch ($op) {
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>";
-		if (isadmin()) {
+		if (auth_isadmin()) {
 			$content .= "
 				<th width=20%>"._('Keyword')."</th>
 				<th width=50%>"._('Forward')."</th>
@@ -34,7 +34,7 @@ switch ($op) {
 		$content .= "
 			</tr></thead>
 			<tbody>";
-		if (! isadmin()) {
+		if (! auth_isadmin()) {
 			$query_user_only = "WHERE uid='$uid'";
 		}
 		$db_query = "SELECT * FROM "._DB_PREF_."_featureBoard ".$query_user_only." ORDER BY board_keyword";
@@ -45,7 +45,7 @@ switch ($op) {
 				$action = "<a href=index.php?app=menu&inc=feature_sms_board&route=view&op=list&board_id=".$db_row['board_id'].">".$core_config['icon']['view']."</a>&nbsp;";
 				$action .= "<a href=index.php?app=menu&inc=feature_sms_board&op=sms_board_edit&board_id=".$db_row['board_id'].">".$core_config['icon']['edit']."</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS board with all its messages ?')." ("._('keyword').": ".$db_row['board_keyword'].")','index.php?app=menu&inc=feature_sms_board&op=sms_board_del&board_id=".$db_row['board_id']."')\">".$core_config['icon']['delete']."</a>";
-				if (isadmin()) {
+				if (auth_isadmin()) {
 					$option_owner = "<td>$owner</td>";
 				}
 				$i++;
