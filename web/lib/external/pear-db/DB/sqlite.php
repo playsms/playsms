@@ -959,5 +959,3 @@ class DB_sqlite extends DB_common
  * c-basic-offset: 4
  * End:
  */
-
-?>

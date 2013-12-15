@@ -12,5 +12,3 @@ defined('_SECURE_') or die('Forbidden');
 //$core_config['plugin']['default']['icon']['user_pref'] 	= "<span class='playsms-icon glyphicon glyphicon-user' alt='"._('User preference')."' title='"._('User preference')."'></span>";
 //$core_config['plugin']['default']['icon']['user_config'] 	= "<span class='playsms-icon glyphicon glyphicon-wrench' alt='"._('User configuration')."' title='"._('User configuration')."'></span>";
 //$core_config['plugin']['default']['icon']['user_delete'] 	= "<span class='playsms-icon glyphicon glyphicon-trash' alt='"._('Delete user')."' title='"._('Delete user')."'></span>";
-
-?>

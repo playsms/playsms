@@ -1078,5 +1078,3 @@ class DB_ibase extends DB_common
  * c-basic-offset: 4
  * End:
  */
-
-?>

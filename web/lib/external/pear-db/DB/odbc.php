@@ -879,5 +879,3 @@ class DB_odbc extends DB_common
  * c-basic-offset: 4
  * End:
  */
-
-?>

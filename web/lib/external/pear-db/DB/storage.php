@@ -502,5 +502,3 @@ class DB_storage extends PEAR
  * c-basic-offset: 4
  * End:
  */
-
-?>

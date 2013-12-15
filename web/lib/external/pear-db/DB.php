@@ -1485,5 +1485,3 @@ class DB_row
  * c-basic-offset: 4
  * End:
  */
-
-?>

@@ -14,5 +14,3 @@ $tpl = array(
 $content = tpl_apply($tpl);
 
 echo themes_apply($content);
-
-?>

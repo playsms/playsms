@@ -201,5 +201,3 @@ $core_config['menu'] = $menu_config;
 //print_r($core_config); die();
 
 // end of global variables after plugins
-
-?>

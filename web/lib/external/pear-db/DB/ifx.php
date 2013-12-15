@@ -679,5 +679,3 @@ class DB_ifx extends DB_common
  * c-basic-offset: 4
  * End:
  */
-
-?>

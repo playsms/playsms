@@ -112,5 +112,3 @@ function default_hook_themes_navbar($num, $nav, $max_nav, $url, $page) {
 	}
 	return $nav_pages;
 }
-
-?>
