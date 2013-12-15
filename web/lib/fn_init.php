@@ -1,5 +1,5 @@
 <?php
-defined('_SECURE_') or die('ERR403');
+defined('_SECURE_') or die('Forbidden');
 
 /*
  start init functions
