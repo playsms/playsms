@@ -235,4 +235,3 @@ switch ($op) {
 		exit();
 		break;
 }
-?>

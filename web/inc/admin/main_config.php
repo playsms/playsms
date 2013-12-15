@@ -157,5 +157,3 @@ switch ($op) {
 		exit();
 		break;
 }
-
-?>

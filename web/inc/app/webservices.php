@@ -232,5 +232,3 @@ if ($format=='JSON') {
 }
 
 //logger_print("end u:".$u." h:".$h." ip:".$_SERVER['REMOTE_ADDR']." ta:".$ta, 3, "webservices");
-
-?>

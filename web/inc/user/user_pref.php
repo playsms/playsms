@@ -130,4 +130,3 @@ switch ($op) {
 		exit();
 		break;
 }
-?>

@@ -101,4 +101,3 @@ if (auth_isvalid()) {
 }
 
 unset($_SESSION['error_string']);
-?>

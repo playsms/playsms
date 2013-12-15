@@ -73,5 +73,3 @@ if (function_exists('bindtextdomain')) {
 $content = ob_get_clean();
 
 echo themes_apply($content);
-
-?>

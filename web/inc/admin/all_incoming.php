@@ -137,5 +137,3 @@ switch ($op) {
 		}
 		break;
 }
-
-?>

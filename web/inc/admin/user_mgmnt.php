@@ -259,4 +259,3 @@ switch ($op) {
 		exit();
 		break;
 }
-?>
