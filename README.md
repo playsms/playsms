@@ -1,6 +1,10 @@
 README
 ------
 
+playSMS version 1.0-trunk
+
+Release date unknown
+
 Official project website:
 http://playsms.org
 

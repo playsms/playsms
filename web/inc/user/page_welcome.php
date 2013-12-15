@@ -31,7 +31,7 @@ if (file_exists($fn)) {
 		'var' => array(
 			'Welcome to playSMS' => _('Welcome to playSMS'),
 			'version' => _('version'),
-			'VERSION' => $core_config['version']
+			'VERSION' => core_get_version()
 		)
 	);
 	$tpl['var'][$doc . '_ACTIVE'] = 'class=active';
