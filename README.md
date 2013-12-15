@@ -58,7 +58,7 @@ Feature Highlights
 License
 -------
 
-playSMS is licensed as GPLv3
+playSMS is licensed under the version 3 of GNU General Public License (GPLv3)
 
 You may find detail information about GPLv3 here:
 http://www.gnu.org/licenses/gpl-3.0.html
