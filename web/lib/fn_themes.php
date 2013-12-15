@@ -167,7 +167,7 @@ function themes_hint($text) {
 	if (! $ret) {
 		$ret = "<i class='glyphicon glyphicon-info-sign playsms-tooltip' data-toggle=tooltip title='".$text."' rel=tooltip></i>";
 	}
-	return $content;
+	return $ret;
 }
 
 function themes_mandatory($text) {
@@ -178,7 +178,7 @@ function themes_mandatory($text) {
 	if (! $ret) {
 		$ret = $text." <i class='glyphicon glyphicon-exclamation-sign playsms-mandatory' data-toggle=tooltip title='"._('This field is required')."' rel=tooltip></i>";
 	}
-	return $content;
+	return $ret;
 }
 
 /* define shortcuts */
