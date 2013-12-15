@@ -12,7 +12,7 @@ defined('_SECURE_') or die('Forbidden');
 function webservices_validate($h,$u) {
 	global $core_config;
 	$ret = false;
-	if ($c_uid = validatetoken($h)) {
+	if ($c_uid = auth_validate_token($h)) {
 		$c_u = uid2username($c_uid);
 		if ($core_config['webservices_username']) {
 			if ($c_u && $u && ($c_u == $u)) {

@@ -7,7 +7,7 @@ defined('_SECURE_') or die('Forbidden');
  * @param string $password Password
  * @return boolean TRUE when validated or boolean FALSE when validation failed
  */
-function validatelogin($username,$password) {
+function auth_validate_login($username,$password) {
 	logger_print("login attempt u:".$username." p:".md5($password)." ip:".$_SERVER['REMOTE_ADDR'], 3, "login");
 	$db_query = "SELECT password FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 	$db_result = dba_query($db_query);
@@ -27,7 +27,7 @@ function validatelogin($username,$password) {
  * @param string $token Token
  * @return string User ID when validated or boolean FALSE when validation failed
  */
-function validatetoken($token) {
+function auth_validate_token($token) {
 	$token = trim($token);
 	logger_print("login attempt t:".$token." ip:".$_SERVER['REMOTE_ADDR'], 3, "login");
 	if ($token) {
@@ -95,7 +95,7 @@ function auth_login() {
 	$username = trim($_REQUEST['username']);
 	$password = trim($_REQUEST['password']);
 	if ($username && $password) {
-		if (validatelogin($username,$password)) {
+		if (auth_validate_login($username,$password)) {
 			$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',ticket='1' WHERE username='$username'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['sid'] = session_id();

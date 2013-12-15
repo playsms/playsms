@@ -127,7 +127,7 @@ if ($ta) {
 			}
 			break;
 		case "GET_TOKEN":
-			if (validatelogin($u,$p)) {
+			if (auth_validate_login($u,$p)) {
 				$user = user_getdatabyusername($u);
 				if ($user['uid']) {
 					$continue = false;
