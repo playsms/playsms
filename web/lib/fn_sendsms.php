@@ -563,5 +563,3 @@ function sendsms_get_sms($smslog_id) {
 	}
 	return $data;
 }
-
-?>

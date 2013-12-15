@@ -76,5 +76,3 @@ include_once $apps_path['libs']."/fn_core.php";
 /*
  * end of init functions
  */
-
-?>

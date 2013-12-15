@@ -126,5 +126,3 @@ function user_mobile2uid($mobile) {
 	}
 	return $uid;
 }
-
-?>

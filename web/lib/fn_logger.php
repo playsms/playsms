@@ -64,5 +64,3 @@ function logger_audit() {
 		}
 	}
 }
-
-?>

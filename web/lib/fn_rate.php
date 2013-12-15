@@ -25,5 +25,3 @@ function rate_refund($smslog_id) {
 	$ret = core_call_hook();
 	return $ret;
 }
-
-?>

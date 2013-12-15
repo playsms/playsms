@@ -154,5 +154,3 @@ function themes_mandatory($text) {
 function _mandatory($text) {
 	return themes_mandatory($text);
 }
-
-?>

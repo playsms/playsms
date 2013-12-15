@@ -41,5 +41,3 @@ function registry_search($uid, $registry_group, $registry_family = '', $registry
 	}
 	return $ret;
 }
-
-?>

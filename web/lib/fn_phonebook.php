@@ -66,5 +66,3 @@ function phonebook_search_group($uid, $keyword="", $count="") {
 	$ret = core_call_hook();
 	return $ret;
 }
-
-?>

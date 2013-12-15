@@ -438,5 +438,3 @@ function webservices_output($ta,$requests) {
 	$ret = x_hook($ta,'webservices_output',array($ta,$requests));
 	return $ret;
 }
-
-?>

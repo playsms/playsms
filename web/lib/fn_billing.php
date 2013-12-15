@@ -52,5 +52,3 @@ function billing_getdata_by_uid($uid) {
 	$ret = core_call_hook();
 	return $ret;
 }
-
-?>

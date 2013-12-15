@@ -72,5 +72,3 @@ function getsmsstatus() {
 		x_hook($gw,'getsmsstatus',array($gpid,$uid,$smslog_id,$p_datetime,$p_update));
 	}
 }
-
-?>

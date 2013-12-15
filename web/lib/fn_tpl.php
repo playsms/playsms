@@ -90,5 +90,3 @@ function tpl_apply($tpl) {
 
 	return $content;
 }
-
-?>

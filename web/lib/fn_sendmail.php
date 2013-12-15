@@ -48,5 +48,3 @@ function sendmail($data=array()) {
 	}
 	return $ok;
 }
-
-?>

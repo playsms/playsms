@@ -324,5 +324,3 @@ function getsmsinbox() {
 	$gw = core_gateway_get();
 	x_hook($gw,'getsmsinbox');
 }
-
-?>

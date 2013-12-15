@@ -274,5 +274,3 @@ function auth_register() {
 	header("Location: ".$core_config['http_path']['base']);
 	exit();
 }
-
-?>
