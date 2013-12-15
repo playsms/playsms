@@ -54,7 +54,7 @@ function auth_validate_token($token) {
  * Check if ticket is valid, that visitor has access or validated
  * @return boolean TRUE if valid
  */
-function valid() {
+function auth_isvalid() {
 	if ($_SESSION['username'] && $_SESSION['valid']) {
 		return true;
 	}
@@ -66,7 +66,7 @@ function valid() {
  * @return boolean TRUE if valid and visitor has admin access level
  */
 function auth_isadmin() {
-	if (valid()) {
+	if (auth_isvalid()) {
 		if ($_SESSION['status']==2) {
 			return true;
 		} else {

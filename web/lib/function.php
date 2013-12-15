@@ -15,7 +15,7 @@ include $apps_path['libs']."/fn_webservices.php";
 // init global variables
 
 // load user's data from user's DB table
-if (valid()) {
+if (auth_isvalid()) {
 	$username = $_SESSION['username'];
 	$core_config['user'] = user_getdatabyusername($username);;
 	$uid = $core_config['user']['uid'];

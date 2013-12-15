@@ -1,7 +1,7 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
-if (!valid()) {
+if (!auth_isvalid()) {
 	auth_block();
 };
 

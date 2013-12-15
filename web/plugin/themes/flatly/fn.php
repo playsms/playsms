@@ -19,7 +19,7 @@ function flatly_hook_themes_apply($content) {
 			'Logout' => _('Logout')
 		),
 		'if' => array(
-			'valid' => valid()
+			'valid' => auth_isvalid()
 		)
 	);
 	$content = tpl_apply($tpl);

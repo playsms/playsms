@@ -2,7 +2,7 @@
 defined('_SECURE_') or die('Forbidden');
 
 if ($core_config['plugin']['sms_command']['allow_user_access']) {
-	if (!valid()) { auth_block(); };
+	if (!auth_isvalid()) { auth_block(); };
 } else {
 	if (!auth_isadmin()) { auth_block(); };
 }

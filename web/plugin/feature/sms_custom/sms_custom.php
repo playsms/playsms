@@ -1,6 +1,6 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
-if (!valid()) { auth_block(); };
+if (!auth_isvalid()) { auth_block(); };
 
 if ($custom_id = $_REQUEST['custom_id']) {
 	if (! ($custom_id = dba_valid(_DB_PREF_.'_featureCustom', 'custom_id', $custom_id))) {

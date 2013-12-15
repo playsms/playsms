@@ -181,7 +181,7 @@ function phonebook_search_user($uid, $keyword="") {
 
 function phonebook_hook_webservices_output($ta,$requests) {
 	global $core_config;
-	if (! valid()) {
+	if (! auth_isvalid()) {
 		return FALSE;
 	}
 	$keyword = $requests['keyword'];

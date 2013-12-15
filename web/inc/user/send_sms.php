@@ -1,6 +1,6 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
-if(!valid()){auth_block();};
+if(!auth_isvalid()){auth_block();};
 
 switch ($op) {
 	case "send_sms":

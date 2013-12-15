@@ -85,7 +85,7 @@ if ($err = $_SESSION['error_string']) {
 }
 
 // frontpage
-if (valid()) {
+if (auth_isvalid()) {
 	$core_config['default_include'] = ( empty($core_config['default_include']) ? $core_config['default_include'] = 'page_welcome' : $core_config['default_include'] );
 	$core_config['default_option'] = ( empty($core_config['default_option']) ? $core_config['default_option'] = 'page_welcome' : $core_config['default_option'] );
 	ob_end_clean();

@@ -1,6 +1,6 @@
 <?php
 
-if (!valid()) {
+if (!auth_isvalid()) {
 	auth_block();
 };
 

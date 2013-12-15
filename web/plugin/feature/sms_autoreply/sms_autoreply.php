@@ -1,6 +1,6 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
-if(!valid()){auth_block();};
+if(!auth_isvalid()){auth_block();};
 
 if ($autoreply_id = $_REQUEST['autoreply_id']) {
 	if (! ($autoreply_id = dba_valid(_DB_PREF_.'_featureAutoreply', 'autoreply_id', $autoreply_id))) {

@@ -221,7 +221,7 @@ if (file_exists($fn1) && file_exists($fn2)) {
 	$core_config['module']['language'] = 'en_US';
 }
 
-if (valid()) {
+if (auth_isvalid()) {
 	setuserlang($_SESSION['username']);
 } else {
 	setuserlang();
