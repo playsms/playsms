@@ -26,7 +26,7 @@ switch ($op) {
 				</tr>
 				</tbody>
 			</table>";
-		$content .= _b('index.php?app=menu&inc=tools_gatewaymanager&op=gatewaymanager_list');
+		$content .= _back('index.php?app=menu&inc=tools_gatewaymanager&op=gatewaymanager_list');
 		echo $content;
 		break;
 	case "manage_activate":

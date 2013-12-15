@@ -116,7 +116,7 @@ switch ($op) {
 			</div>
 			</form>
 			"._button('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id='.$autoreply_id, _('Add SMS autoreply scenario'))."
-			"._b('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_list');
+			"._back('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_list');
 		if ($err = $_SESSION['error_string']) {
 			echo "<div class=error_string>$err</div>";
 		}
@@ -155,7 +155,7 @@ switch ($op) {
 			</table>
 			<p><input type=submit class=button value="._('Save')."></p>
 			</form>
-			"._b('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_list');
+			"._back('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_list');
 		if ($err = $_SESSION['error_string']) {
 			echo "<div class=error_string>$err</div>";
 		}
@@ -221,7 +221,7 @@ switch ($op) {
 			</table>
 			<p><input type=submit class=button value="._('Save').">
 			</form>
-			"._b('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id='.$autoreply_id);
+			"._back('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id='.$autoreply_id);
 		if ($err = $_SESSION['error_string']) {
 			echo "<div class=error_string>$err</div>";
 		}
@@ -291,7 +291,7 @@ switch ($op) {
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\"></p>
 			</form>
-			"._b('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id='.$autoreply_id);
+			"._back('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id='.$autoreply_id);
 		if ($err = $_SESSION['error_string']) {
 			echo "<div class=error_string>$err</div>";
 		}

@@ -114,7 +114,7 @@ switch ($op) {
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
-			"._b('index.php?app=menu&inc=feature_sms_custom&op=sms_custom_list');
+			"._back('index.php?app=menu&inc=feature_sms_custom&op=sms_custom_list');
 		echo $content;
 		break;
 	case "sms_custom_edit_yes":
@@ -188,7 +188,7 @@ switch ($op) {
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
-			"._b('index.php?app=menu&inc=feature_sms_custom&op=sms_custom_list');
+			"._back('index.php?app=menu&inc=feature_sms_custom&op=sms_custom_list');
 		echo $content;
 		break;
 	case "sms_custom_add_yes":

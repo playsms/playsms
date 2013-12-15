@@ -101,7 +101,7 @@ switch ($op) {
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
-			"._b('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list');
+			"._back('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list');
 		echo $content;
 		break;
 	case "sms_quiz_add_yes" :
@@ -167,7 +167,7 @@ switch ($op) {
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
-			"._b('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list');
+			"._back('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list');
 		echo $content;
 		break;
 	case "sms_quiz_edit_yes" :
@@ -236,7 +236,7 @@ switch ($op) {
 		$content .= "</tbody>
 			</table>
 			</div>
-			"._b('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list');
+			"._back('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list');
 		echo $content;
 		break;
 	case "sms_answer_del" :

@@ -114,41 +114,71 @@ function themes_button_back($url) {
 	return $content;
 }
 
-function _b($url) {
-	return themes_button_back($url);
+function themes_link($url, $title='', $css_class="", $css_id="") {
+	$ret = '';
+	if (core_themes_get()) {
+		$ret = x_hook(core_themes_get(),'themes_link',array($url, $title, $css_class, $css_id));
+	}
+	if (! $ret) {
+		$c_title = ( $title ? $title : $url );
+		$css_class = ( $css_class ? " class=\"".$css_class."\"" : '' );
+		$css_id = ( $css_id ? " id=\"".$css_id."\"" : '' );
+		$ret = "<a href=\"".$url."\"".$css_class.$css_id.">".$c_title."</a>";
+	}
+	return $ret;
 }
 
-function themes_link($url, $title='') {
-	$c_title = ( $title ? $title : $url );
-	$content = "<a href=\"".$url."\">".$c_title."</a>";
+function themes_button($url, $title, $css_class='', $css_id='') {
+	$ret = '';
+	if (core_themes_get()) {
+		$ret = x_hook(core_themes_get(),'themes_button',array($url, $title, $css_class, $css_id));
+	}
+	if (! $ret) {
+		$css_class = ( $css_class ? " ".$css_class : '' );
+		$css_id = ( $css_id ? " id=\"".$css_id."\"" : '' );
+		$ret = "<a href=# class=\"button".$css_class."\" ".$css_id."value=\"".$title."\" onClick=\"javascript:window.location.href='".$url."'\" />".$title."</a>";
+	}
+	return $ret;
+}
+
+function themes_hint($text) {
+	$ret = '';
+	if (core_themes_get()) {
+		$ret = x_hook(core_themes_get(),'themes_hint',array($text));
+	}
+	if (! $ret) {
+		$ret = "<i class='glyphicon glyphicon-info-sign playsms-tooltip' data-toggle=tooltip title='".$text."' rel=tooltip></i>";
+	}
 	return $content;
 }
+
+function themes_mandatory($text) {
+	$ret = '';
+	if (core_themes_get()) {
+		$ret = x_hook(core_themes_get(),'themes_mandatory',array($text));
+	}
+	if (! $ret) {
+		$ret = $text." <i class='glyphicon glyphicon-exclamation-sign playsms-mandatory' data-toggle=tooltip title='"._('This field is required')."' rel=tooltip></i>";
+	}
+	return $content;
+}
+
+/* define shortcuts */
 
 function _a($url, $title='') {
 	return themes_link($url, $title);
 }
 
-function themes_button($url, $title, $class='') {
-	$content = "<a href=# class=\"button $class\" value=\"".$title."\" onClick=\"javascript:window.location.href='".$url."'\" />".$title."</a>";
-	return $content;
+function _back($url) {
+	return themes_button_back($url);
 }
 
 function _button($url, $title) {
 	return themes_button($url, $title);
 }
 
-function themes_hint($text) {
-	$content = "<i class='glyphicon glyphicon-info-sign playsms-tooltip' data-toggle=tooltip title='".$text."' rel=tooltip></i>";
-	return $content;
-}
-
 function _hint($text) {
 	return themes_hint($text);
-}
-
-function themes_mandatory($text) {
-	$content = $text." <i class='glyphicon glyphicon-exclamation-sign playsms-mandatory' data-toggle=tooltip title='"._('This field is required')."' rel=tooltip></i>";
-	return $content;
 }
 
 function _mandatory($text) {

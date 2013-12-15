@@ -149,7 +149,7 @@ switch ($op) {
 			$content .= "<h2>" . _('Manage user') . "</h2>";
 			$option_credit = "<tr><td>" . _('Credit') . "</td><td><input type=text size=10 maxlength=10 name=up_credit value=\"$credit\"></td></tr>";
 			$button_delete = "<input type=button class=button value='". _('Delete') ."' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=menu&inc=user_mgmnt&op=user_del".$url_uname."')\">";
-			$button_back = _b('index.php?app=menu&inc=user_mgmnt&op='.$referrer);
+			$button_back = _back('index.php?app=menu&inc=user_mgmnt&op='.$referrer);
 		} else {
 			$content .= "<h2>" . _('User configuration') . "</h2>";
 			$option_credit = "<tr><td>" . _('Credit') . "</td><td>$credit</td></tr>";

@@ -125,7 +125,7 @@ switch ($op) {
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
-			"._b('index.php?app=menu&inc=feature_sms_command&op=sms_command_list');
+			"._back('index.php?app=menu&inc=feature_sms_command&op=sms_command_list');
 		echo $content;
 		break;
 	case "sms_command_edit_yes":
@@ -209,7 +209,7 @@ switch ($op) {
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
-			"._b('index.php?app=menu&inc=feature_sms_command&op=sms_command_list');
+			"._back('index.php?app=menu&inc=feature_sms_command&op=sms_command_list');
 		echo $content;
 		break;
 	case "sms_command_add_yes":

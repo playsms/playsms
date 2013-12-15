@@ -66,7 +66,7 @@ switch ($op) {
 			'HINT_KEYWORDS' => _hint(_('Seperate with comma for multiple items')),
 			'HINT_RECEIVER_NUMBER' => _hint(_('For example a short code')),
 			'Save' => _('Save'),
-			'BACK' => _b('index.php?app=menu&inc=feature_inboxgroup&op=list')
+			'BACK' => _back('index.php?app=menu&inc=feature_inboxgroup&op=list')
 		    )
 		);
 		echo tpl_apply($tpl);
@@ -118,7 +118,7 @@ switch ($op) {
 			'HINT_KEYWORDS' => _hint(_('Seperate with comma for multiple items')),
 			'HINT_EXCLUSIVE' => _hint(_('Restrict sender to regular members or catch-all members only')),
 			'Save' => _('Save'),
-			'BACK' => _b('index.php?app=menu&inc=feature_inboxgroup&op=list')
+			'BACK' => _back('index.php?app=menu&inc=feature_inboxgroup&op=list')
 		    )
 		);
 		echo tpl_apply($tpl);
@@ -178,7 +178,7 @@ switch ($op) {
 			'C_STATUS' => $c_status,
 			'ARE_YOU_SURE' => _('Are you sure you want to delete this group inbox ?'),
 			'Yes' => _('Yes'),
-			'BACK' => _b('index.php?app=menu&inc=feature_inboxgroup&op=list')
+			'BACK' => _back('index.php?app=menu&inc=feature_inboxgroup&op=list')
 		    )
 		);
 		echo tpl_apply($tpl);

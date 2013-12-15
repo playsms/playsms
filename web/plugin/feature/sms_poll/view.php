@@ -50,7 +50,7 @@ switch ($op) {
 		} else {
 			$content .= "<img src=\"".$output_graph."\">";
 		}
-		$content .= _b('index.php?app=menu&inc=feature_sms_poll&op=sms_poll_list');
+		$content .= _back('index.php?app=menu&inc=feature_sms_poll&op=sms_poll_list');
 		echo $content;
 		break;
 }

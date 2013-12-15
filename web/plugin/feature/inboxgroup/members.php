@@ -89,7 +89,7 @@ switch ($op) {
 				<input class='button' type='submit' value='"._('Delete member')."'>
 				</form>
 			</div>
-		"._b('index.php?app=menu&inc=feature_inboxgroup&op=list');
+		"._back('index.php?app=menu&inc=feature_inboxgroup&op=list');
 		echo $content;
 		break;
 	case 'members_add':
@@ -154,7 +154,7 @@ switch ($op) {
 			<p>"._('Press submit button to add selected users to member list')."</p>
 			<p><input class='button' type='submit' value='Submit' onClick=\"selectAllOptions(this.form['uids[]'])\"></p>
 			</form>
-		"._b('index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid='.$rid);
+		"._back('index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid='.$rid);
 		echo $content;
 		break;
 	case 'members_add_submit':
@@ -242,7 +242,7 @@ switch ($op) {
 			<p>"._('Press submit button to remove selected members from member list')."</p>
 			<p><input class='button' type='submit' value='Submit' onClick=\"selectAllOptions(this.form['uids[]'])\"></p>
 			</form>
-		"._b('index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid='.$rid);
+		"._back('index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid='.$rid);
 		echo $content;
 		break;
 	case 'members_delete_submit':

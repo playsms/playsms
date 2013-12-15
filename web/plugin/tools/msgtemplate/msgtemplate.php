@@ -88,7 +88,7 @@ switch ($op) {
 			</table>	
 			<p><input type='submit' class='button' value='"._('Save')."'>
 			</form>
-			<p>"._b('index.php?app=menu&inc=tools_msgtemplate&op=list');
+			<p>"._back('index.php?app=menu&inc=tools_msgtemplate&op=list');
 			echo $content;
 		break;
 	case "edit":
@@ -115,7 +115,7 @@ switch ($op) {
 			<p><input type='submit' class='button' value='"._('Save')."'>
 			<input type='hidden' name='item_count' value='$i'>
 			</form>
-			<p>"._b('index.php?app=menu&inc=tools_msgtemplate&op=list');
+			<p>"._back('index.php?app=menu&inc=tools_msgtemplate&op=list');
 		echo $content;
 		break;
 	case "actions":

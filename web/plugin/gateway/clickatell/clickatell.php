@@ -59,7 +59,7 @@ switch ($op) {
 			- " . _ ( 'Your callback URL should be accessible from Clickatell' ) . "<br />
 			- " . _ ( 'Clickatell will push DLR and incoming SMS to your callback URL' ) . "<br />
 			- " . _ ( 'Clickatell is a bulk SMS provider' ) . ", <a href=\"https://www.clickatell.com/register/\" target=\"_blank\">" . _ ( 'free credits are available for testing purposes' ) . "</a><br />";
-		$content .= _b('index.php?app=menu&inc=tools_gatewaymanager&op=gatewaymanager_list');
+		$content .= _back('index.php?app=menu&inc=tools_gatewaymanager&op=gatewaymanager_list');
 		echo $content;
 		break;
 	case "manage_save" :

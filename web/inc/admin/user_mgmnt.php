@@ -211,7 +211,7 @@ switch ($op) {
 		</table>
 		<input type='submit' class='button' value='" . _('Save') . "'>
 		</form>
-		<p>"._b('index.php?app=menu&inc=user_mgmnt&op=user_list');
+		<p>"._back('index.php?app=menu&inc=user_mgmnt&op=user_list');
 		echo $content;
 		break;
 	case "user_add_yes":

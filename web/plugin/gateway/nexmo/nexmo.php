@@ -43,7 +43,7 @@ switch ($op) {
 			'NEXMO_PUSH_DLR' => _('Nexmo will push DLR and incoming SMS to your callback URL'),
 			'NEXMO_IS_BULK' => _('Nexmo is a bulk SMS provider'),
 			'NEXMO_FREE_CREDIT' => _('free credits are available for testing purposes'),
-			'BUTTON_BACK' => _b('index.php?app=menu&inc=tools_gatewaymanager&op=gatewaymanager_list'),
+			'BUTTON_BACK' => _back('index.php?app=menu&inc=tools_gatewaymanager&op=gatewaymanager_list'),
 			'status_active' => $status_active,
 			'nexmo_param_url' => $nexmo_param['url'],
 			'nexmo_param_api_key' => $nexmo_param['api_key'],

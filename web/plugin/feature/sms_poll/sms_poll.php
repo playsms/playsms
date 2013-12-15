@@ -160,7 +160,7 @@ switch ($op) {
 			</table>
 			<p><input type=submit class=button value=\""._('Add')."\">
 			</form>
-			"._b('index.php?app=menu&inc=feature_sms_poll&op=sms_poll_list');
+			"._back('index.php?app=menu&inc=feature_sms_poll&op=sms_poll_list');
 		echo $content;
 		break;
 	case "sms_poll_edit_yes":
@@ -271,7 +271,7 @@ switch ($op) {
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
-			"._b('index.php?app=menu&inc=feature_sms_poll&op=sms_poll_list');
+			"._back('index.php?app=menu&inc=feature_sms_poll&op=sms_poll_list');
 		echo $content;
 		break;
 	case "sms_poll_add_yes":

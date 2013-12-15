@@ -190,7 +190,7 @@ switch ($op) {
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
-			"._b('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
+			"._back('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
 		echo $content;
 		break;
 	case "sms_subscribe_add_yes" :
@@ -338,7 +338,7 @@ switch ($op) {
 		</table>
 		<p><input type=submit class=button value=\""._('Save')."\">
 		</form>
-		"._b('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
+		"._back('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
 		echo $content;
 		break;
 	case "sms_subscribe_edit_yes" :
@@ -419,7 +419,7 @@ switch ($op) {
 			</tbody>
 			</table>
 			</div>
-			"._b('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
+			"._back('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
 		echo $content;
 		break;
 	case "mbr_del" :
@@ -472,7 +472,7 @@ switch ($op) {
 			</table>
 			</div>
 			"._button('index.php?app=menu&inc=feature_sms_subscribe&op=msg_add&&subscribe_id='.$subscribe_id, _('Add message'))."
-			"._b('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
+			"._back('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
 		echo $content;
 		break;
 	case "msg_edit" :
@@ -504,7 +504,7 @@ switch ($op) {
 			</table>
 			<input type=submit class=button value=\""._('Save')."\">
 			</form>
-			"._b('index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id='.$subscribe_id);
+			"._back('index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id='.$subscribe_id);
 		echo $content;
 		break;
 	case "msg_edit_yes" :
@@ -552,7 +552,7 @@ switch ($op) {
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
-			"._b('index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id='.$subscribe_id);
+			"._back('index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id='.$subscribe_id);
 		echo $content;
 		break;
 	case "msg_add_yes" :
@@ -614,7 +614,7 @@ switch ($op) {
 			<p>"._('Send this message to all members')."</p>
 			<p><input type=submit value=\""._('Send')."\" class=\"button\" />
 			</form>
-			"._b('index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id='.$subscribe_id);
+			"._back('index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id='.$subscribe_id);
 		echo $content;
 		break;
 	case "msg_send" :

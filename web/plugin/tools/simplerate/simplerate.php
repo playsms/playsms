@@ -79,7 +79,7 @@ switch ($op) {
 			</table>	
 			<p><input type='submit' class='button' value='"._('Save')."'>
 			</form>
-			<p>"._b('index.php?app=menu&inc=tools_simplerate&op=simplerate_list');
+			<p>"._back('index.php?app=menu&inc=tools_simplerate&op=simplerate_list');
 		echo $content;
 		break;
 	case "simplerate_edit_save":
@@ -124,7 +124,7 @@ switch ($op) {
 			</table>	
 			<p><input type='submit' class='button' value='"._('Save')."'>
 			</form>
-			<p>"._b('index.php?app=menu&inc=tools_simplerate&op=simplerate_list');
+			<p>"._back('index.php?app=menu&inc=tools_simplerate&op=simplerate_list');
 		echo $content;
 		break;
 	case "simplerate_add_yes":
