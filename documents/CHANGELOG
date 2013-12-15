@@ -1,13 +1,24 @@
 CHANGELOG
 ---------
 
-Version 1.0-beta1 - 131213
+Version 1.0-beta2 - 131215
 - MAJOR: add core_call_hook(), utilizing debug_backtrace() to replace the way
          functions call hooking plugin's functions
 - MAJOR: user_incoming and all_incoming now only shows SMS with matched keyword,
          or handled SMS
 - MAJOR: fix #155 SECURITY HOLE, CSRF exploit
          http://www.exploit-db.com/exploits/30177/
+- MAJOR: rename q_sanitize() to core_query_sanitize(), 
+         str2hex() to core_str2hex(), x_hook() to core_hook()
+- MAJOR: rename _b() to _back(), themes functions now mostly hook-able
+- MAJOR: rename uid2username() to user_uid2username(), 
+         username2uid() to user_username2uid(), 
+         mobile2uid() to user_mobile2uid()
+- MAJOR: rename valid() to auth_isvalid()
+- MAJOR: rename isadmin() to auth_isadmin()
+- MAJOR: rename validatelogin() to auth_validate_login(),
+         validatetoken() to auth_validate_token()
+- MAJOR: rename forcenoaccess() to auth_block() in lib/fn_auth.php
 - remove default timezone and language from database, tblUser
 - add an option to allow/disallow regular user access to sms_command
 - add dlr-storage=internal and mo-recode=true, and a few other changes in
@@ -21,6 +32,7 @@ Version 1.0-beta1 - 131213
 - use sendsms() and remove sendsms_bc() while sending SMS, the goal was to
   remove duplicated entries when user send to group and numbers that actually
   already included in group
+- fix wrong date/time on incoming sms when using Kannel gateway
 - fix #100 1 contact in multiple group, also major changes on the backend
 - fix #119 missing phonebook edit
 - fix #127 queuelog entries should be removable
