@@ -1,4 +1,4 @@
-Documentations (installation steps, FAQs, development docs, etc) are available in <this folder>/web/docs/
+Documentations (installation steps, FAQs, development docs, etc) are available in folder documents.
 
 Get more information about this project at the official project website http://www.playsms.org
 
