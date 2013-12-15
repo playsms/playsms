@@ -13,7 +13,7 @@ function webservices_validate($h,$u) {
 	global $core_config;
 	$ret = false;
 	if ($c_uid = auth_validate_token($h)) {
-		$c_u = uid2username($c_uid);
+		$c_u = user_uid2username($c_uid);
 		if ($core_config['webservices_username']) {
 			if ($c_u && $u && ($c_u == $u)) {
 				$ret = $c_u;
@@ -85,7 +85,7 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0,$nofooter=F
 }
 
 function webservices_bc($c_username,$c_gcode,$msg,$type='text',$unicode=0,$nofooter=FALSE,$footer='',$from='',$schedule) {
-	if (($c_uid = username2uid($c_username)) && $c_gcode && $msg) {
+	if (($c_uid = user_username2uid($c_username)) && $c_gcode && $msg) {
 		$c_gpid = phonebook_groupcode2id($c_uid,$c_gcode);
 		// sendsms_bc($c_username,$c_gpid,$message,$sms_type='text',$unicode=0)
 		list($ok,$to,$smslog_id,$queue_code) = sendsms_bc($c_username,$c_gpid,$msg,$type,$unicode,$nofooter,$footer,$from,$schedule);
@@ -111,7 +111,7 @@ function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',
 	$ret = "ERR 101";
 	$json['status'] = 'ERR';
 	$json['error'] = '101';
-	if ($uid = username2uid($c_username)) {
+	if ($uid = user_username2uid($c_username)) {
 		$conditions['uid'] = $uid;
 	}
 	$conditions['flag_deleted'] = 0;
@@ -199,7 +199,7 @@ function webservices_in($c_username,$src='',$dst='',$kwd='',$datetime='',$c=100,
 	$json['status'] = 'ERR';
 	$json['error'] = '101';
 	$conditions = array('flag_deleted' => 0, 'in_status' => 1);
-	if ($uid = username2uid($c_username)) {
+	if ($uid = user_username2uid($c_username)) {
 		$conditions['in_uid'] = $uid;
 	}
 	if ($src) {
@@ -330,7 +330,7 @@ function webservices_ix($c_username,$src='',$dst='',$datetime='',$c=100,$last=fa
 	$json['status'] = 'ERR';
 	$json['error'] = '101';
 	$conditions['in_hidden'] = 0;
-	if ($uid = username2uid($c_username)) {
+	if ($uid = user_username2uid($c_username)) {
 		$conditions['in_uid'] = $uid;
 	}
 	if ($src) {

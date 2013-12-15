@@ -44,7 +44,7 @@ switch ($op) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureQuiz ".$query_user_only." ORDER BY quiz_id";
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
-			if ($owner = uid2username($db_row['uid'])) {
+			if ($owner = user_uid2username($db_row['uid'])) {
 				$quiz_status = "<a href=\"index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_status&quiz_id=".$db_row['quiz_id']."&ps=1\"><span class=status_disabled /></a>";
 				if ($db_row['quiz_enable']) {
 					$quiz_status = "<a href=\"index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_status&quiz_id=".$db_row['quiz_id']."&ps=0\"><span class=status_enabled /></a>";

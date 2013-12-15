@@ -107,7 +107,7 @@ switch ($op) {
 				for ($i=0;$i<count($list);$i++) {
 					$j = $i + 1;
 					$data[$j] = array(
-						uid2username($list[$i]['in_uid']),
+						user_uid2username($list[$i]['in_uid']),
 						core_display_datetime($list[$i]['in_datetime']),
 						$list[$i]['in_sender'],
 						$list[$i]['in_keyword'],

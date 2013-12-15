@@ -43,7 +43,7 @@ switch ($op) {
 		$content .= "<tbody>";
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
-			if ($owner = uid2username($db_row['uid'])) {
+			if ($owner = user_uid2username($db_row['uid'])) {
 				$action = "<a href=index.php?app=menu&inc=feature_sms_custom&op=sms_custom_edit&custom_id=" . $db_row['custom_id'] . ">".$core_config['icon']['edit']."</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS custom ?') . " (" . _('keyword') . ": " . $db_row['custom_keyword'] . ")','index.php?app=menu&inc=feature_sms_custom&op=sms_custom_del&custom_id=" . $db_row['custom_id'] . "')\">".$core_config['icon']['delete']."</a>";
 				$custom_url = $db_row['custom_url'];

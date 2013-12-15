@@ -64,7 +64,7 @@ function sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$comm
 	$db_row = dba_fetch_array($db_result);
 	$command_exec = $db_row['command_exec'];
 	$command_return_as_reply = $db_row['command_return_as_reply'];
-	$username   = uid2username($db_row['uid']);
+	$username   = user_uid2username($db_row['uid']);
 	if ($command_keyword && $command_exec && $username) {
 		$sms_datetime = core_display_datetime($sms_datetime);
 		$command_exec = str_replace("{SMSDATETIME}","\"$sms_datetime\"",$command_exec);

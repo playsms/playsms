@@ -40,7 +40,7 @@ function bchash_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $sm
 
 function bchash_handle($in) {
 	$ret = array();
-	$c_uid = mobile2uid($in['sms_sender']);
+	$c_uid = user_mobile2uid($in['sms_sender']);
 	$in['sms_datetime'] = core_display_datetime($in['sms_datetime']);
 	$x = array();
 	for ($i=0;$i<count($in['msg']);$i++) {
@@ -59,7 +59,7 @@ function bchash_handle($in) {
 		$c_group_code = str_replace("'", '', $c_group_code);
 		$c_group_code = str_replace('"', '', $c_group_code);
 		if ($c_uid && ($c_gpid = phonebook_groupcode2id($c_uid, $c_group_code))) {
-			$c_username = uid2username($c_uid);
+			$c_username = user_uid2username($c_uid);
 			logger_print("bc g:".$c_group_code." gpid:".$c_gpid." uid:".$c_uid." dt:".$in['sms_datetime']." s:".$in['sms_sender']." r:".$in['sms_receiver']." m:".$in['message'], 3, "bchash");
 			sendsms_bc($c_username, $c_gpid, $in['message']);
 			logger_print("bc end", 3, "bchash");

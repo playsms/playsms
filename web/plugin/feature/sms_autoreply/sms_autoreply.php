@@ -35,7 +35,7 @@ switch ($op) {
 		$db_result = dba_query($db_query);
 		$i=0;
 		while ($db_row = dba_fetch_array($db_result)) {
-			if ($owner = uid2username($db_row['uid'])) {
+			if ($owner = user_uid2username($db_row['uid'])) {
 				$action = "<a href=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=".$db_row['autoreply_id'].">".$core_config['icon']['manage']."</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS autoreply ?')." ("._('keyword').": ".$db_row['autoreply_keyword'].")','index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_del&autoreply_id=".$db_row['autoreply_id']."')\">".$core_config['icon']['delete']."</a>";
 				if (auth_isadmin()) {
@@ -90,7 +90,7 @@ switch ($op) {
 		$db_result = dba_query($db_query);
 		$j=0;
 		while ($db_row = dba_fetch_array($db_result)) {
-			if ($owner = uid2username($o_uid)) {
+			if ($owner = user_uid2username($o_uid)) {
 				$list_of_param = "";
 				for ($i=1;$i<=7;$i++) {
 					$list_of_param .= $db_row['autoreply_scenario_param'.$i]."&nbsp;";

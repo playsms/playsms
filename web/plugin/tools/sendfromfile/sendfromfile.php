@@ -48,7 +48,7 @@ switch ($op) {
 					$sms_msg = trim($data[1]);
 					if (auth_isadmin()) {
 						$sms_username = trim($data[2]);
-						$uid = username2uid($sms_username);
+						$uid = user_username2uid($sms_username);
 					} else {
 						$sms_username = $core_config['user']['username'];
 						$uid = $core_config['user']['uid'];

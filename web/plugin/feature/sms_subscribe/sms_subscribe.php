@@ -46,7 +46,7 @@ switch ($op) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe ".$query_user_only." ORDER BY subscribe_id";
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
-			if ($owner = uid2username($db_row['uid'])) {
+			if ($owner = user_uid2username($db_row['uid'])) {
 				$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id = '".$db_row['subscribe_id']."'";
 				$members = @dba_num_rows($db_query);
 				if (!$members) { $members = 0; }
@@ -622,7 +622,7 @@ switch ($op) {
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$c_uid = $db_row['uid'];
-		$username = uid2username($c_uid);
+		$username = user_uid2username($c_uid);
 		$msg_id = $_POST['msg_id'];
 		$db_query = "SELECT msg FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id='$subscribe_id' AND msg_id='$msg_id'";
 		$db_result = dba_query($db_query);

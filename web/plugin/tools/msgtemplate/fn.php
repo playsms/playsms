@@ -28,7 +28,7 @@ function msgtemplate_hook_sendsms_intercept($sms_sender,$sms_footer,$sms_to,$sms
 	$ret['modified'] = true;
 
 	// the modification to $sms_msg
-	$c_username = uid2username($uid);
+	$c_username = user_uid2username($uid);
 	$text = $sms_msg;
 	$text = str_replace('#NAME#', phonebook_number2name($sms_to, $c_username), $text);
 	$text = str_replace('#NUM#', $sms_to, $text);

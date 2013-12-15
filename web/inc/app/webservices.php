@@ -108,7 +108,7 @@ if ($ta) {
 			break;
 		case "GET_CONTACT":
 			if ($u = webservices_validate($h,$u)) {
-				$c_uid = username2uid($u);
+				$c_uid = user_username2uid($u);
 				list($ret,$json) = webservices_get_contact($c_uid, $kwd, $c);
 			} else {
 				$ret = "ERR 100";
@@ -118,7 +118,7 @@ if ($ta) {
 			break;
 		case "GET_CONTACT_GROUP":
 			if ($u = webservices_validate($h,$u)) {
-				$c_uid = username2uid($u);
+				$c_uid = user_username2uid($u);
 				list($ret,$json) = webservices_get_contact_group($c_uid, $kwd, $c);
 			} else {
 				$ret = "ERR 100";

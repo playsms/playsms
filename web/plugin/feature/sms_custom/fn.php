@@ -57,7 +57,7 @@ function sms_custom_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$custo
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$custom_url = $db_row['custom_url'];
-	$username = uid2username($db_row['uid']);
+	$username = user_uid2username($db_row['uid']);
 	$custom_return_as_reply = $db_row['custom_return_as_reply'];
 	if ($custom_keyword && $custom_url && $username) {
 		$sms_datetime = core_display_datetime($sms_datetime);

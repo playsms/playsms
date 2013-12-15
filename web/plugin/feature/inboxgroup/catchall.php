@@ -165,7 +165,7 @@ switch ($op) {
 			$uids = $_REQUEST['uids'];
 			for ($i=0;$i<count($uids);$i++) {
 				$c_uid = $uids[$i];
-				$c_username = uid2username($c_uid);
+				$c_username = user_uid2username($c_uid);
 				if (inboxgroup_catchalladd($rid, $c_uid)) {
 					$_SESSION['error_string'] .= _('Catch-all has been added')." ("._('Username').": ".$c_username.")<br />";
 				} else {
@@ -253,7 +253,7 @@ switch ($op) {
 			$uids = $_REQUEST['uids'];
 			for ($i=0;$i<count($uids);$i++) {
 				$c_uid = $uids[$i];
-				$c_username = uid2username($c_uid);
+				$c_username = user_uid2username($c_uid);
 				if (inboxgroup_catchalldel($rid, $c_uid)) {
 					$_SESSION['error_string'] .= _('Catch-all has been deleted')." ("._('Username').": ".$c_username.")<br />";
 				} else {

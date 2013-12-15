@@ -30,7 +30,7 @@ function user_getdatabyuid($uid) {
 }
 
 function user_getdatabyusername($username) {
-	$uid = username2uid($username);
+	$uid = user_username2uid($username);
 	return user_getdatabyuid($uid);
 }
 
@@ -47,7 +47,7 @@ function user_getfieldbyuid($uid, $field) {
 }
 
 function user_getfieldbyusername($username, $field) {
-	$uid = username2uid($username);
+	$uid = user_username2uid($username);
 	return user_getfieldbyuid($uid, $field);
 }
 
@@ -82,7 +82,7 @@ function user_add_validate($item) {
 				$ret['error_string'] = _('Your mobile format is invalid')." (".$item['mobile'].")";
 				$ret['status'] = false;
 			}
-			$c_uid = mobile2uid($item['mobile']);
+			$c_uid = user_mobile2uid($item['mobile']);
 			$c_user = dba_search(_DB_PREF_.'_tblUser', '*', array('uid' => $c_uid));
 			if ($c_user[0]['username'] && ($c_user[0]['username'] != $item['username'])) {
 				$ret['error_string'] = _('Mobile is already in use by other username') . " (" . _('mobile') . ": ".$item['mobile'].", " . _('username') . ": " . $c_user[0]['username'] . ") ";
@@ -93,7 +93,7 @@ function user_add_validate($item) {
 	return $ret;
 }
 
-function uid2username($uid) {
+function user_uid2username($uid) {
 	if ($uid) {
 		$db_query = "SELECT username FROM "._DB_PREF_."_tblUser WHERE uid='$uid'";
 		$db_result = dba_query($db_query);
@@ -103,7 +103,7 @@ function uid2username($uid) {
 	return $username;
 }
 
-function username2uid($username) {
+function user_username2uid($username) {
 	if ($username) {
 		$db_query = "SELECT uid FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 		$db_result = dba_query($db_query);
@@ -113,7 +113,7 @@ function username2uid($username) {
 	return $uid;
 }
 
-function mobile2uid($mobile) {
+function user_mobile2uid($mobile) {
 	if ($mobile) {
 		// remove +
 		$mobile = str_replace('+','',$mobile);

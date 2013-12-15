@@ -124,7 +124,7 @@ switch ($op) {
 		break;
 	case "user_del":
 		$up['username'] = $_REQUEST['uname'];
-		$del_uid = username2uid($up['username']);
+		$del_uid = user_username2uid($up['username']);
 		$_SESSION['error_string'] = _('Fail to delete user') . " ".$up['username'];
 		if (($del_uid > 1) && ($del_uid != $uid)) {
 			$condition = array('uid' => $del_uid);

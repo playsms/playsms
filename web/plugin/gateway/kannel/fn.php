@@ -9,7 +9,7 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	$sms_footer = stripslashes($sms_footer);
 	$sms_msg = stripslashes($sms_msg);
 	$ok = false;
-	$account = uid2username($uid);
+	$account = user_uid2username($uid);
 	$msg_type = 1;
 
 	if ($sms_footer) {

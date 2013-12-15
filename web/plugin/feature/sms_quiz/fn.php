@@ -70,7 +70,7 @@ function sms_quiz_handle($list, $sms_datetime, $sms_sender, $quiz_keyword, $quiz
 		$answer = strtoupper($quiz_param);
 		$db_query = "INSERT INTO " . _DB_PREF_ . "_featureQuiz_log (quiz_id,quiz_answer,quiz_sender,in_datetime) VALUES ('$quiz_id','$answer','$sms_to','".core_get_datetime()."')";
 		if ($logged = @dba_insert_id($db_query)) {
-			if ($message && ($username = uid2username($list['uid']))) {
+			if ($message && ($username = user_uid2username($list['uid']))) {
 				$unicode = core_detect_unicode($message);
 				$message = addslashes($message);
 				list($ok, $to, $smslog_id, $queue) = sendsms($username, $sms_to, $message, 'text', $unicode);

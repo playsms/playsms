@@ -120,7 +120,7 @@ switch ($op) {
 				for ($i=0;$i<count($list);$i++) {
 					$j = $i + 1;
 					$data[$j] = array(
-						uid2username($list[$i]['uid']),
+						user_uid2username($list[$i]['uid']),
 						core_display_datetime($list[$i]['p_datetime']),
 						$list[$i]['p_dst'],
 						$list[$i]['p_msg'],

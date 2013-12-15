@@ -166,7 +166,7 @@ switch ($op) {
 			$uids = $_REQUEST['uids'];
 			for ($i=0;$i<count($uids);$i++) {
 				$c_uid = $uids[$i];
-				$c_username = uid2username($c_uid);
+				$c_username = user_uid2username($c_uid);
 				if (inboxgroup_membersadd($rid, $c_uid)) {
 					$_SESSION['error_string'] .= _('Member has been added')." ("._('Username').": ".$c_username.")<br />";
 				} else {
@@ -254,7 +254,7 @@ switch ($op) {
 			$uids = $_REQUEST['uids'];
 			for ($i=0;$i<count($uids);$i++) {
 				$c_uid = $uids[$i];
-				$c_username = uid2username($c_uid);
+				$c_username = user_uid2username($c_uid);
 				if (inboxgroup_membersdel($rid, $c_uid)) {
 					$_SESSION['error_string'] .= _('Member has been deleted')." ("._('Username').": ".$c_username.")<br />";
 				} else {

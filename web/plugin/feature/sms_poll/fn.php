@@ -75,7 +75,7 @@ function sms_poll_handle($list,$sms_datetime,$sms_sender,$poll_keyword,$poll_par
 					INSERT INTO "._DB_PREF_."_featurePoll_log 
 					(poll_id,choice_id,poll_sender,in_datetime) 
 					VALUES ('$poll_id','$choice_id','$sms_sender','".core_get_datetime()."')";
-				if (($new_id = @dba_insert_id($db_query)) && ($c_username = uid2username($list['uid']))) {
+				if (($new_id = @dba_insert_id($db_query)) && ($c_username = user_uid2username($list['uid']))) {
 					if ($poll_message_valid = $list['poll_message_valid']) {
 						$unicode = core_detect_unicode($poll_message_valid);
 						$poll_message_valid = addslashes($poll_message_valid);
@@ -85,7 +85,7 @@ function sms_poll_handle($list,$sms_datetime,$sms_sender,$poll_keyword,$poll_par
 				}
 			}
 		} else {
-			if (($poll_message_invalid = $list['poll_message_invalid']) && ($c_username = uid2username($list['uid']))) {
+			if (($poll_message_invalid = $list['poll_message_invalid']) && ($c_username = user_uid2username($list['uid']))) {
 				$unicode = core_detect_unicode($poll_message_invalid);
 				$poll_message_invalid = addslashes($poll_message_invalid);
 				list($ok, $to, $smslog_id, $queue_code) = sendsms($c_username, $sms_sender, $poll_message_invalid, 'text', $unicode);

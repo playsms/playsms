@@ -46,7 +46,7 @@ function phonebook_hook_phonebook_number2name($mobile, $c_username='') {
 	$name = '';
 	if ($mobile) {
 		// if username supplied use it, else use global username
-		$c_uid = username2uid($c_username);
+		$c_uid = user_username2uid($c_username);
 		$uid = $c_uid ? $c_uid : $core_config['user']['uid'];
 		// remove +
 		$mobile = str_replace('+','',$mobile);

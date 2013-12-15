@@ -50,7 +50,7 @@ switch ($op) {
 		$content .= "<tbody>";
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
-			if ($owner = uid2username($db_row['uid'])) {
+			if ($owner = user_uid2username($db_row['uid'])) {
 				$action = "<a href=index.php?app=menu&inc=feature_sms_command&op=sms_command_edit&command_id=" . $db_row['command_id'] . ">".$core_config['icon']['edit']."</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS command ?') . " (" . _('keyword') . ": " . $db_row['command_keyword'] . ")','index.php?app=menu&inc=feature_sms_command&op=sms_command_del&command_id=" . $db_row['command_id'] . "')\">".$core_config['icon']['delete']."</a>";
 				$command_exec = $sms_command_bin.'/'.$db_row['uid'].'/'.$db_row['command_exec'];

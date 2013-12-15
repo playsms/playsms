@@ -44,7 +44,7 @@ switch ($op) {
 		$db_query = "SELECT * FROM "._DB_PREF_."_featurePoll ".$query_user_only." ORDER BY poll_id";
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
-			if ($owner = uid2username($db_row['uid'])) {
+			if ($owner = user_uid2username($db_row['uid'])) {
 				$poll_status = "<a href=\"index.php?app=menu&inc=feature_sms_poll&op=sms_poll_status&poll_id=".$db_row['poll_id']."&ps=1\"><span class=status_disabled /></a>";
 				if ($db_row['poll_enable']) {
 					$poll_status = "<a href=\"index.php?app=menu&inc=feature_sms_poll&op=sms_poll_status&poll_id=".$db_row['poll_id']."&ps=0\"><span class=status_enabled /></a>";

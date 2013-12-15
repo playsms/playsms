@@ -148,8 +148,8 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 	}
 	switch ($target_keyword) {
 		case "BC":
-			$c_uid = mobile2uid($sms_sender);
-			$c_username = uid2username($c_uid);
+			$c_uid = user_mobile2uid($sms_sender);
+			$c_username = user_uid2username($c_uid);
 			$c_feature = 'core';
 			$array_target_group = explode(" ",$message);
 			$target_group = strtoupper(trim($array_target_group[0]));

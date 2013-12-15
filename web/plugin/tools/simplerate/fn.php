@@ -119,7 +119,7 @@ function simplerate_hook_rate_deduct($smslog_id) {
 
                         $rate = simplerate_getbyprefix($p_dst);
 			$charge = $count * $rate;
-			$username = uid2username($uid);
+			$username = user_uid2username($uid);
 			$credit = rate_getusercredit($username);
 			$remaining = $credit - $charge;
 			logger_print("deduct smslog_id:".$smslog_id." msglen:".$p_msg_len." count:".$count." rate:".$rate." charge:".$charge." credit:".$credit." remaining:".$remaining, 2, "simplerate deduct");
@@ -153,7 +153,7 @@ function simplerate_hook_rate_refund($smslog_id) {
 				$status = $bill['status'];
 				logger_print("rolling smslog_id:".$smslog_id, 2, "simplerate refund");
 				if ($status == '2') {
-					$username = uid2username($uid);
+					$username = user_uid2username($uid);
 					$credit = rate_getusercredit($username);
 					$remaining = $credit + $charge;
 					if (rate_setusercredit($uid, $remaining)) {

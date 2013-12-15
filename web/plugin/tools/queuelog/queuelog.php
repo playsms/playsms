@@ -40,7 +40,7 @@ switch ($op) {
 		for ($c=count($data)-1;$c>=0;$c--) {
 			$c_queue_code = $data[$c]['queue_code'];
 			$c_datetime_scheduled = core_display_datetime($data[$c]['datetime_scheduled']);
-			$c_username = uid2username($data[$c]['uid']);
+			$c_username = user_uid2username($data[$c]['uid']);
 			$c_count = $data[$c]['count'];
 			$c_message = stripslashes(core_display_text($data[$c]['message']));
 			$c_action = "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete queue")) . " " . $c_queue_code . " ?','index.php?app=menu&inc=tools_queuelog&op=queuelog_delete&queue=" . $c_queue_code . "')\">".$core_config['icon']['delete']."</a>";
