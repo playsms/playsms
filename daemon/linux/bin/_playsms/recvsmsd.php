@@ -32,5 +32,3 @@ if (file_exists($PLAYSMS_PATH)) {
 		}
 	}
 }
-
-?>
