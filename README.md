@@ -17,6 +17,7 @@ http://facebook.com/playsmsusergroup
 
 Description
 -----------
+
 playSMS is a flexible Web-based SMS portal that it can be made to fit to 
 various services such as an SMS gateway, personal messaging systems, corporate
 and group communication tools
@@ -24,6 +25,7 @@ and group communication tools
 
 Feature Highlights
 ------------------
+
 - Multiple database engine supported
 - Send SMS to single mobile phone (web2mobile)
 - Send SMS broadcasted to a group of mobile phones (web2mobiles, bulk SMS)
@@ -54,6 +56,7 @@ Feature Highlights
 
 License
 -------
+
 playSMS is licensed as GPLv3
 
 You may find detail information about GPLv3 here:
@@ -64,46 +67,50 @@ The GPLv3 text is included in file LICENSE.md
 
 Installation
 ------------
+
 Please read INSTALL and then FAQ
 
 
 Project Founder
 ---------------
+
 Anton Raharja (anton)
 
 
 Contributors
 ------------
-Aaron Simmons
-Adeagbo Tunji (adetunjiha)
-Alexey Dvoryanchikov (dvoryanchikov)
-Amin Riza (ajiwo)
-Anton Raharja (anton)
-Avudz (avudz)
-Edward Halley (fhalley)
-Elingui Pascal Uriel (elinguiuriel)
-Emmanuel Chanson (emmanuel)
-Endy Muhardin (endymuhardin)
-Eugene Trotsan (eugene)
-Helge Larsen
-Ibrahim AS (ibsoman)
-Jeremy Mueller (jeremymueller)
-Joan (aseques)
-Lucas Teixeira (lucastx)
-Stephane Rosa (srosa)
-T.K Thapa (thapa)
-Wahyu HP (kendokar)
-Yoan Talagrand (yoan)
-p-walker (p-walker)
+
+- Aaron Simmons
+- Adeagbo Tunji (adetunjiha)
+- Alexey Dvoryanchikov (dvoryanchikov)
+- Amin Riza (ajiwo)
+- Anton Raharja (anton)
+- Avudz (avudz)
+- Edward Halley (fhalley)
+- Elingui Pascal Uriel (elinguiuriel)
+- Emmanuel Chanson (emmanuel)
+- Endy Muhardin (endymuhardin)
+- Eugene Trotsan (eugene)
+- Helge Larsen
+- Ibrahim AS (ibsoman)
+- Jeremy Mueller (jeremymueller)
+- Joan (aseques)
+- Lucas Teixeira (lucastx)
+- Stephane Rosa (srosa)
+- T.K Thapa (thapa)
+- Wahyu HP (kendokar)
+- Yoan Talagrand (yoan)
+- p-walker (p-walker)
 
 
 Translators
 -----------
-ca_ES	: Joan (aseques)
-de_DE	: Andre Gronwald (andre)
-es_VE	: Alfredo Hernandez (alfredo)
-fr_FR	: Emmanuel Chanson (emmanuel), Elingui Pascal Uriel (elinguiuriel)
-id_ID	: Anton Raharja (anton), Andry Rachmadany (hangsbreaker)
-pt_BR	: Lucas Teixeira (lucastx), Gabriel Schanuel (gschanuel)
-ru_RU	: Alexey Dvoryanchikov (dvoryanchikov)
-zh_CN	: Frank Van Caenegem (fvancaen)
+
+- ca_ES	: Joan (aseques)
+- de_DE	: Andre Gronwald (andre)
+- es_VE	: Alfredo Hernandez (alfredo)
+- fr_FR	: Emmanuel Chanson (emmanuel), Elingui Pascal Uriel (elinguiuriel)
+- id_ID	: Anton Raharja (anton), Andry Rachmadany (hangsbreaker)
+- pt_BR	: Lucas Teixeira (lucastx), Gabriel Schanuel (gschanuel)
+- ru_RU	: Alexey Dvoryanchikov (dvoryanchikov)
+- zh_CN	: Frank Van Caenegem (fvancaen)
