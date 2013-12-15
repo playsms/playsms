@@ -18,9 +18,10 @@ http://facebook.com/playsmsusergroup
 Description
 -----------
 
-playSMS is a flexible Web-based SMS portal that it can be made to fit to 
-various services such as an SMS gateway, personal messaging systems, corporate
-and group communication tools
+playSMS is a free and open source SMS software. A flexible Web-based mobile
+portal system that it can be made to fit to various services such as an SMS
+gateway, bulk SMS provider, personal messaging system, corporate and group
+communication tools
 
 
 Feature Highlights
