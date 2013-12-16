@@ -90,6 +90,12 @@ function themes_search($search_category=array(), $url='') {
 	$ret['keyword'] = $_REQUEST['search_keyword'];
 	$ret['url'] = ( trim($url) ? trim($url) : $_SERVER['REQUEST_URI'] );
 	$ret['category'] = $_REQUEST['search_category'];
+        global $apps_path;
+        if (function_exists('bindtextdomain')) {
+                bindtextdomain('messages', $apps_path['plug'].'/language/');
+                bind_textdomain_codeset('messages', 'UTF-8');
+                textdomain('messages');
+        }
 	$option_search_category = "<option value=\"\">"._('Search')."</option>";
 	foreach ($search_category as $key => $val) {
 		if ( $selected = ( $ret['category'] == $val ? 'selected' : '' ) ) {
@@ -167,7 +173,7 @@ function themes_hint($text) {
 	if (! $ret) {
 		$ret = "<i class='glyphicon glyphicon-info-sign playsms-tooltip' data-toggle=tooltip title='".$text."' rel=tooltip></i>";
 	}
-	return $content;
+	return $ret;
 }
 
 function themes_mandatory($text) {
@@ -178,7 +184,7 @@ function themes_mandatory($text) {
 	if (! $ret) {
 		$ret = $text." <i class='glyphicon glyphicon-exclamation-sign playsms-mandatory' data-toggle=tooltip title='"._('This field is required')."' rel=tooltip></i>";
 	}
-	return $content;
+	return $ret;
 }
 
 /* define shortcuts */
