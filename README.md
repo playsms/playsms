@@ -6,12 +6,15 @@ playSMS version 1.0-trunk
 Release date unknown
 
 Official project website:
+
 http://playsms.org
 
 Official playSMS user group forum:
+
 http://groups.google.com/group/playsmsusergroup
 
 Official playSMS Facebook page:
+
 http://facebook.com/playsmsusergroup
 
 
@@ -91,27 +94,9 @@ Anton Raharja (anton)
 Contributors
 ------------
 
-- Aaron Simmons
-- Adeagbo Tunji (adetunjiha)
-- Alexey Dvoryanchikov (dvoryanchikov)
-- Amin Riza (ajiwo)
-- Anton Raharja (anton)
-- Avudz (avudz)
-- Edward Halley (fhalley)
-- Elingui Pascal Uriel (elinguiuriel)
-- Emmanuel Chanson (emmanuel)
-- Endy Muhardin (endymuhardin)
-- Eugene Trotsan (eugene)
-- Helge Larsen
-- Ibrahim AS (ibsoman)
-- Jeremy Mueller (jeremymueller)
-- Joan (aseques)
-- Lucas Teixeira (lucastx)
-- Stephane Rosa (srosa)
-- T.K Thapa (thapa)
-- Wahyu HP (kendokar)
-- Yoan Talagrand (yoan)
-- p-walker (p-walker)
+Information about code contributors can be found in this URL:
+
+https://github.com/antonraharja/playSMS/graphs/contributors
 
 
 Translators
