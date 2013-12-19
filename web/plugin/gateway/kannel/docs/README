@@ -5,4 +5,4 @@ Outgoing SMS use kannel cgi sendsms
 Plugin	: Gateway Kannel for playSMS
 Author	: Anton Raharja
 Release	: 100925
-License	: GPL
+License	: GPLv3

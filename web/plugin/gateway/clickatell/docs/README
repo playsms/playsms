@@ -1,7 +1,7 @@
 Plugin	: Gateway Clickatell for playSMS
 Author	: Anton Raharja
 Release	: 100925
-License	: GPL
+License	: GPLv3
 
 playSMS gateway module for clickatell.com
 

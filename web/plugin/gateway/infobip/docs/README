@@ -2,7 +2,7 @@ Plugin	: Gateway Infobip for playSMS
 Author	: enumanc (enumanc_at_gmail_dot_com)
 Release	: 1.4
 Date	: 2013-09-15
-License	: GPL2
+License	: GPLv3
 
 playSMS gateway module for infobip.com
 

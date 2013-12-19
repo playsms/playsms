@@ -1,6 +1,6 @@
 Plugin	: Receive incoming SMS sent to group Inbox and forward it to members Inbox
 Author	: Anton Raharja
 Release	: 110922
-License	: GPL
+License	: GPLv3
 
 Development costs donated by Steven Delport (steven at linux.org.na).

@@ -1,8 +1,4 @@
 # French language for playSMS.
-# Copyright (C) 2012 GPL
-# This file is distributed under the same license as the GPL package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.9.7\n"
