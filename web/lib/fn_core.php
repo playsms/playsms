@@ -368,16 +368,55 @@ function core_net_match($network, $ip) {
 	}
 }
 
+
+/**
+ * Function: core_string_to_gsm()
+ * This function encodes an UTF-8 string into GSM 03.38
+ * Since UTF-8 is largely ASCII compatible, and GSM 03.38 is somewhat compatible, unnecessary conversions are removed.
+ * Specials chars such as € can be encoded by using an escape char \x1B in front of a backwards compatible (similar) char.
+ * UTF-8 chars which doesn't have a GSM 03.38 equivalent is replaced with a question mark.
+ * UTF-8 continuation bytes (\x08-\xBF) are replaced when encountered in their valid places, but
+ * any continuation bytes outside of a valid UTF-8 sequence is not processed.
+ * Based on https://github.com/onlinecity/php-smpp
+ *
+ * @param string $string
+ * @return string
+ */
+function core_string_to_gsm($string)
+{
+    $dict = array(
+        '@' => "\x00", '£' => "\x01", '$' => "\x02", '¥' => "\x03", 'è' => "\x04", 'é' => "\x05", 'ù' => "\x06", 'ì' => "\x07", 'ò' => "\x08", 'Ç' => "\x09", 'Ø' => "\x0B", 'ø' => "\x0C", 'Å' => "\x0E", 'å' => "\x0F",
+        'Δ' => "\x10", '_' => "\x11", 'Φ' => "\x12", 'Γ' => "\x13", 'Λ' => "\x14", 'Ω' => "\x15", 'Π' => "\x16", 'Ψ' => "\x17", 'Σ' => "\x18", 'Θ' => "\x19", 'Ξ' => "\x1A", 'Æ' => "\x1C", 'æ' => "\x1D", 'ß' => "\x1E", 'É' => "\x1F",
+        // all \x2? removed
+        // all \x3? removed
+        // all \x4? removed
+        'Ä' => "\x5B", 'Ö' => "\x5C", 'Ñ' => "\x5D", 'Ü' => "\x5E", '§' => "\x5F",
+        '¿' => "\x60",
+        'ä' => "\x7B", 'ö' => "\x7C", 'ñ' => "\x7D", 'ü' => "\x7E", 'à' => "\x7F",
+        '^' => "\x1B\x14", '{' => "\x1B\x28", '}' => "\x1B\x29", '\\' => "\x1B\x2F", '[' => "\x1B\x3C", '~' => "\x1B\x3D", ']' => "\x1B\x3E", '|' => "\x1B\x40", '€' => "\x1B\x65"
+    );
+    $converted = strtr($string, $dict);
+    return $converted;
+}
+
+/**
+ * Function: core_detect_unicode()
+ * This function returns an boolean indicating if string needs to be converted to utf
+ *  to be send as an SMS
+ *  @param $text
+ *      string to check
+ * @return
+ *    unicode
+ */
+
 function core_detect_unicode($text) {
 	$unicode = 0;
-	if (function_exists('mb_detect_encoding')) {
-		$encoding = mb_detect_encoding($text, 'auto');
-		if ($encoding != 'ASCII') {
-			$unicode = 1;
-		}
-	} else {
-		$unicode = false;
-	}
+    $textgsm=core_string_to_gsm($text);
+    // Detect unconverted UTF-8 chars from codepages U+0080-U+07FF, U+0080-U+FFFF and U+010000-U+10FFFF
+    if (preg_match_all('/([\\xC0-\\xDF].)|([\\xE0-\\xEF]..)|([\\xF0-\\xFF]...)/m',$textgsm))
+        $unicode = 1;
+    else
+        $unicode = 0;
 	return $unicode;
 }
 
