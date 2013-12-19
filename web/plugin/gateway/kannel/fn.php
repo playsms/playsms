@@ -1,6 +1,18 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
+// hook_sendsms
+// called by main sms sender
+// return true for success delivery
+// $sms_sender	: sender mobile number
+// $sms_footer	: sender sms footer or sms sender ID
+// $sms_to	: destination sms number
+// $sms_msg	: sms message tobe delivered
+// $uid		: sender User ID
+// $gpid	: group phonebook id (optional)
+// $smslog_id	: sms ID
+// $sms_type : type of the message (defaults to text)
+// $unicode : send as unicode (boolean)
 function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
 	global $kannel_param;
 	global $http_path;
@@ -47,15 +59,6 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 			$URL .= "&charset=UTF-16BE";
 		}
 		$URL .= "&coding=2";
-	}
-	// Unicode autodetect
-	else {
-		if (function_exists('mb_check_encoding')) {
-			if (mb_check_encoding($sms_msg,"UTF-8")){
-				$URL .= "&charset=UTF-8&coding=2";
-				logger_print("unicode autodetected", 3, "kannel outgoing");
-			}
-		}
 	}
 
 	$URL .= "&account=".$account;
