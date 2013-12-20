@@ -53,6 +53,10 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 		$URL .= "&mclass=".$msg_type;
 	}
 
+    //Automatically setting the unicode flag if necessary
+    if (!$unicode)
+        $unicode=core_detect_unicode($sms_msg);
+
 	if ($unicode) {
 		if (function_exists('mb_convert_encoding')) {
 			$sms_msg = mb_convert_encoding($sms_msg, "UCS-2BE", "auto");
