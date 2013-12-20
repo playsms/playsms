@@ -403,20 +403,24 @@ function core_string_to_gsm($string)
  * Function: core_detect_unicode()
  * This function returns an boolean indicating if string needs to be converted to utf
  *  to be send as an SMS
- *  @param $text
+ * @param $text
  *      string to check
- * @return
- *    unicode
+ * @return int unicode
  */
-
 function core_detect_unicode($text) {
 	$unicode = 0;
     $textgsm=core_string_to_gsm($text);
-    // Detect unconverted UTF-8 chars from codepages U+0080-U+07FF, U+0080-U+FFFF and U+010000-U+10FFFF
-    if (preg_match_all('/([\\xC0-\\xDF].)|([\\xE0-\\xEF]..)|([\\xF0-\\xFF]...)/m',$textgsm))
-        $unicode = 1;
-    else
-        $unicode = 0;
+
+    $match=preg_match_all('/([\\xC0-\\xDF].)|([\\xE0-\\xEF]..)|([\\xF0-\\xFF]...)/m',$textgsm,$matches);
+    if ($match!==FALSE) {
+        if ($match==0) {
+            $unicode = 0;
+        } else {
+            $unicode = 1;
+        }
+    } else {
+        //TODO broken regexp in this case, warn user
+    }
 	return $unicode;
 }
 
