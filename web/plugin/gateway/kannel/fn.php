@@ -60,6 +60,13 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 		}
 		$URL .= "&coding=2";
 	}
+	else {
+		if ($sms_footer) {
+			if (core_detect_unicode($sms_footer)) {
+				$URL .= "&charset=UTF-8&coding=2";
+			}
+		}
+	}
 
 	$URL .= "&account=".$account;
 	$URL .= "&text=".urlencode($sms_msg);
