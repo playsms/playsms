@@ -21,9 +21,9 @@ switch ($op) {
 		$content = "
 			<h2>"._('Phonebook')."</h2>
 			<p>".$search['form']."</p>
-			<form name=fm_phonebook_list id=fm_phonebook_list action='index.php?app=menu&inc=tools_phonebook&op=actions' method=post>
+			<form name=fm_phonebook_list id=fm_phonebook_list action='index.php?app=menu&inc=tools_phonebook' method=post>
 			"._CSRF_FORM_."
-			<input type=hidden name=go value=delete>
+			<input type=hidden id=action_route name=route value=''>
 			<div class=actions_box>
 				<div class=pull-left>
 					<a href='index.php?app=menu&inc=tools_phonebook&route=group&op=list'>".$core_config['icon']['group']."</a>
@@ -31,8 +31,21 @@ switch ($op) {
 					<a href='index.php?app=menu&inc=tools_phonebook&op=actions&go=export'>".$core_config['icon']['export']."</a>
 					<a href='index.php?app=menu&inc=tools_phonebook&op=phonebook_add'>".$core_config['icon']['add']."</a>
 				</div>
+				<script type='text/javascript'>
+					$(document).ready(function() {
+						$('#action_move').click(function(){
+							$('input[name=route]').attr('value','phonebook_move');
+							$('#fm_phonebook_list').submit();
+						});
+						$('#action_delete').click(function(){
+							$('input[name=route]').attr('value','phonebook_delete');
+							$('#fm_phonebook_list').submit();
+						});
+					});
+				</script>
 				<div class=pull-right>
-					<a href='#' onClick=\"return SubmitConfirm('" . _('Are you sure you want to delete these items ?') . "', 'fm_phonebook_list');\">" . $core_config['icon']['delete'] . "</a>						
+					<!-- <a href='#' id=action_move>" . $core_config['icon']['move'] . "</a> -->
+					<a href='#' id=action_delete>" . $core_config['icon']['delete'] . "</a>
 				</div>
 			</div>
 			<div class=table-responsive>
@@ -47,7 +60,7 @@ switch ($op) {
 			</tr>
 			</thead>
 			<tbody>";
-
+ 
 		$i = $nav['top'];
 		$j = 0;
 		for ($j=0;$j<count($list);$j++) {
@@ -73,8 +86,8 @@ switch ($op) {
 					<td>$email</td>
 					<td>$group_code</td>
 					<td>
-						<input type=hidden name=itemid".$j." value=\"$pid\">
-						<input type=checkbox name=checkid".$j.">
+						<input type=hidden name=itemid[".$j."] value=\"$pid\">
+						<input type=checkbox name=checkid[".$j."]>
 					</td>
 				</tr>";
 		}
@@ -181,20 +194,6 @@ switch ($op) {
 				$content = core_csv_format($data);
 				$fn = 'phonebook-'.$core_config['datetime']['now_stamp'].'.csv';
 				core_download($content, $fn, 'text/csv');
-				break;
-			case 'delete':
-				for ($i=0;$i<$nav['limit'];$i++) {
-					$checkid = $_POST['checkid'.$i];
-					$itemid = $_POST['itemid'.$i];
-					if(($checkid=="on") && $itemid) {
-						dba_remove(_DB_PREF_.'_toolsPhonebook', array('id' => $itemid));
-						dba_remove(_DB_PREF_.'_toolsPhonebook_group_contacts', array('pid' => $itemid));
-					}
-				}
-				$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&search_category='.$search['category'].'&page='.$nav['page'].'&nav='.$nav['nav'];
-				$_SESSION['error_string'] = _('Selected contact has been deleted');
-				header("Location: ".$ref);
-				exit();
 				break;
 			case 'add':
 				$uid = $core_config['user']['uid'];
