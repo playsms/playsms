@@ -18,8 +18,8 @@ foreach ($checkid as $key => $val) {
 
 }
 
-$search = $_SESSION['tmp']['themes_search'];
-$nav = $_SESSION['tmp']['themes_nav'];
+$search = themes_search_session();
+$nav = themes_nav_session();
 
 $ref = $nav['url'].'&search_keyword='.$search['keyword'].'&search_category='.$search['category'].'&page='.$nav['page'].'&nav='.$nav['nav'];
 if ($found) {
