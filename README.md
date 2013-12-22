@@ -1,9 +1,9 @@
 README
 ------
 
-playSMS version 1.0-trunk
+playSMS version 1.0
 
-Release date unknown
+Release date 131231
 
 Official project website:
 
@@ -30,32 +30,37 @@ communication tools
 Feature Highlights
 ------------------
 
-- Multiple database engine supported
+- Multiple database engine supported (using PHP PEAR DB)
 - Send SMS to single mobile phone (web2mobile)
 - Send SMS broadcasted to a group of mobile phones (web2mobiles, bulk SMS)
 - Support sending text, flash and unicode message
-- Capable of handling large amount of SMS (about 500 thousand SMS per month)
+- Capable of handling large amount of SMS (500k SMS monthly)
 - Receive private SMS to Inbox and forward it to email (mobile2web)
 - Forward single SMS from mobile to a group of mobile phones (mobile2mobiles)
 - SMS autoreply, for easy autoreplying formatted incoming SMS
-- SMS board, forward received SMS to email, html page, json, xml and rss feeds
+- SMS board, forward received SMS to email, export output in JSON and a few
+  other formats
 - SMS command, execute server side shell script using SMS
-- SMS custom, forward incoming SMS to custom application on external URL
-- SMS poll, manage polling system using SMS, exports graph, json and xml
+- SMS custom, forward incoming SMS to custom apps, locally or external URL
+- SMS poll, manage polling system using SMS, export output in graph, JSON and
+  other formats
 - SMS quiz, serve quizzes on SMS
 - SMS subscribe, manage user subscribes to a service using SMS
+- SMS sync to utilize SMSSync app from smssync.ushahidi.com
 - Create your own features, tools, themes and gateway modules as a plugin
-- Supports Uplink, Gammu, Gnokii, Kannel, smstools3, Msgtoolbox, Nexmo, Twilio,
-  Clickatell and Infobip
-- Supports simulation tools to simulate incoming and outgoing SMS
-- Webservices for sending SMS, retrieve delivery reports, checking credits, etc
+- Supports Gammu, Gnokii, Kannel, SMS Server Tools, Msgtoolbox, Uplink, Nexmo,
+  Twilio, Infobip and Clickatell
+- Supports simulation gateway for testing incoming and outgoing SMS
+- Webservices for sending SMS, retrieving delivery reports, checking credits
+  and more
 - Long SMS support, length of text is configurable
 - Rate SMS by destination prefix
 - SMS credit system per user
 - Timezone settings
-- Multi-language (English, French, Bahasa Indonesia and a few others)
+- Multi-language user interface (English, French, Bahasa Indonesia, Russian and
+  a few others)
 - Easily add new language for user interface
-- Web-based interface with easy template engine for customization
+- Web-based interface
 
 
 License

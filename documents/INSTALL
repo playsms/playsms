@@ -56,7 +56,7 @@ playSMS Web Interface using install script:
     # tar -zxf playsms-x.x.x.tar.gz -C /usr/local/src
 
     Note: x.x.x may vary according to the package name you've download.
-          For example playsms-0.9.9.2.tar.gz
+          For example playsms-1.0.tar.gz
 
 2.  Edit install.conf, read it, understand it and make changes to suit your
     system configuration
@@ -110,7 +110,7 @@ playSMS Web Interface step-by-step installation:
     # tar -zxf playsms-x.x.x.tar.gz -C /usr/local/src
 
     Note: x.x.x may vary according to the package name you've download.
-          For example playsms-0.9.9.2.tar.gz
+          For example playsms-1.0.tar.gz
 
 2.  Create playSMS web root, spool and log and set ownership to user www-data or
     web server user

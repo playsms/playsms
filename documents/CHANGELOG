@@ -1,7 +1,8 @@
 CHANGELOG
 ---------
 
-Version 1.0-beta2 - 131215
+Version 1.0 - 131231
+
 - MAJOR: add core_call_hook(), utilizing debug_backtrace() to replace the way
          functions call hooking plugin's functions
 - MAJOR: user_incoming and all_incoming now only shows SMS with matched keyword,
@@ -48,7 +49,9 @@ Version 1.0-beta2 - 131215
 - fix #151 email field length in user_pref too short, and possibly in other
   places as well
 
+
 Version 0.9.9.2 - 131205
+
 - MAJOR: new install will use MySQL InnoDB
 - MAJOR: replace term 'slid' with 'smslog_id' on all places
 - MAJOR: smslog_id is now from tblSMSOutgoing_queue_dst and immediately returns
@@ -129,7 +132,9 @@ Version 0.9.9.2 - 131205
   and dba_count()
 - fix #123 unable to delete message template, wrong form scope
 
+
 Version 0.9.9.1 - 130902
+
 - add new webservices type of action IX to get SMS on user's inbox
 - add logger_print() at the begining and the end of webservices
 - add DBHOST and DBPORT on install script
@@ -161,7 +166,9 @@ Version 0.9.9.1 - 130902
 - fix search categories in user_mgmnt
 - fix plugin loader, wrongly use counter variable
 
+
 Version 0.9.9 - 130625
+
 - update sendsmsd daemon to enable parallel multi queue processing
 - update config.php to include options for sendsmsd queue number and queue
   length limit
@@ -208,7 +215,9 @@ Version 0.9.9 - 130625
 - fix #72 add option to check option to send message as unicode by default
 - fix #71 wrong formula to calculate max. length per SMS for unicode messages
 
+
 Version 0.9.8 - 130517
+
 - MAJOR: webservice now using hash token instead of username password (aseques)
 - MAJOR: change the login method to use PHP session
 - MAJOR: change the way to show $error_string, now using PHP session
@@ -273,11 +282,15 @@ Version 0.9.8 - 130517
   (p-walker)
 - fix bugs on various plugins
 
+
 Version 0.9.7.1 - 120905
+
 - MAJOR: fix security bug, non-admin can send SMS with other account from
   sendfromfile
 
+
 Version 0.9.7 - 120903
+
 - MAJOR: all outgoing SMS are to be sent to a queue in database first and then
          the queue will be processed either directly or through new daemon
          sendsmsd
@@ -356,7 +369,9 @@ Version 0.9.7 - 120903
 - fix #3555158 question mark issue on the web by setting bind_textdomain_codeset
   (lucastx)
 
+
 Version 0.9.6 - 120328
+
 - MAJOR: move SMS sender ID logic in sendsms() and hooks to sendsms_get_sender()
 - MAJOR: all 'mobile' terms that related to sending SMS are replaced by 'sender'
 - MAJOR: all old 'sender' terms that are related to sending SMS are replaced by
@@ -392,7 +407,9 @@ Version 0.9.6 - 120328
 - fix #3414232 sms_poll log table missing datetime field
 - fix #3479182 spaces leading a message break keyword parsing (jeremymueller)
 
+
 Version 0.9.5.3 - 110910
+
 - MAJOR: fix security hole RFI http://www.exploit-db.com/exploits/17792/
 - add new option to allow/disallow forwards to inbox, email and mobile for each
   users
@@ -423,7 +440,9 @@ Version 0.9.5.3 - 110910
 - fix #3216652 the bar graph image on the poll results page is broken
   (jeremymueller)
 
+
 Version 0.9.5.2 - 101115
+
 - MAJOR: all SMS date/time will be adjusted to GMT+0 in database
 - MAJOR: themes structure changed, for example loginpage.php to page_login.php
 - add method to modify parameters in interceptincomingsms() and
@@ -442,7 +461,9 @@ Version 0.9.5.2 - 101115
 - fix #3095660 should be switch()
 - fix #3097366 str_replace issue
 
+
 Version 0.9.5.1 - 101020
+
 - MAJOR: gateway uplink will work only with master installed with
   playSMS >= 0.9.5.1
 - MAJOR: fix empty msg handled by gnokii/smstools due to single quote in $lc
@@ -477,7 +498,9 @@ Version 0.9.5.1 - 101020
 - fix long words in displayed SMS message on the web by splitting 25 chars per
   word max
 
+
 Version 0.9.5 - 101010
+
 - add multi-language support per plugin bases
 - add support unicode in uplink
 - add unicode message option in websend2group
@@ -551,7 +574,9 @@ Version 0.9.5 - 101010
 - remove js PopupReplySMS() and phone_add option from inbox and incoming pages
 - remove manually inserted plugins name in config.php, now load automatically
 
+
 Version 0.9.4 - 080713
+
 - on themes, add loginpage.php and rename welcome.php to default.php
 - remove bin/kannel_incoming.sh
 - kannel can only pass MOs to playSMS using geturl method, see
@@ -567,7 +592,9 @@ Version 0.9.4 - 080713
 - fix user preferences unable to modify email
 - change default login type to non multi session login
 
+
 Version 0.9.3 - 080520
+
 - NOTE: PHP PEAR and PEAR-DB are removed from playSMS package, install them
   manually
 - fn_sendsms.php, websend2pv(), websend2group() returns array status, dest,
@@ -592,20 +619,26 @@ Version 0.9.3 - 080520
 - remove target_keyword from gateways, now parsed from $message on
   setsmsincomingaction()
 
+
 Version 0.9.2 - 080406
+
 - fix uplink incoming path not to use gnokii incoming path
 - fix links on plugin/themes/default/welcome.php should point to index.php
 - fix problem when sending message on some php version (please confirm)
 - add autodetection for paths, making playsms configuration simpler
 
+
 Version 0.9.1 - 080308
+
 - Add new gateway for sms server tools (compatible with smstools and smstools3)
 - Add manual for sms server tools
 - Add more UI control possibilities to themes
 - Remove frames
 - Fix issues with input.php, add xml output to delivery status retrieval
 
+
 Version 0.9 - 080304
+
 - Introduce hooks, some function are hookable, eg: setsmsincomingaction(),
   lib/fn_core.php
 - Introduce themes, new look and feel (hanan)
@@ -620,7 +653,9 @@ Version 0.9 - 080304
 - Fix bugs on incoming sms handler on all features
 - Lots of database changes, forget about upgrading from 0.8.1 (sorry..)
 
+
 Version 0.8.1 - 060506
+
 - Add all incoming sms without known keyword/code inserted to user 'admin' inbox
 - Add new feature multi-session login
 - Fix age calc procedure, move it to $apps_path[incs]/admin/commoncustomcmd.php
@@ -629,7 +664,9 @@ Version 0.8.1 - 060506
 - Fix autoreply unable to reply requests
 - Change playsmsd from bash shell script to php script
 
+
 Version 0.8 - 041214
+
 - Add new function, public phonebook for sharing phonebooks number
 - Add new function, unicode message support for gateway module Clickatell
 - Add new function, flash message support for gateway module Clickatell
@@ -678,12 +715,16 @@ Version 0.8 - 041214
 - Default font changed to Verdana (hehehe, just curious :p)
 - Done changes on file FAQ and INSTALL
 
+
 Version 0.7.1 - 040722
+
 - Fix starter daemon in directory bin
 - Includes security patch against SQL injection when magic_quotes_gpc "Off"
   (Thanks to Noam Rathaus, Beyond Security)
 
+
 Version 0.7 - 040716
+
 - Major changes (again :p), they are:
   1. Some field names in some tables changed (eg: featBoard, 'tag' replaced by
      'code')
@@ -723,7 +764,9 @@ Version 0.7 - 040716
 - Fix lang (misstyped in Indonesian) on $apps_path[base]/inc/user/user_pref.php
 - Done many changes on INSTALL (less requirements, and more informative)
 
+
 Version 0.6 - 040626
+
 - Introduce new convention on tables name:
   featXxxxx[_yyyyy] eg: featCommand, featCommand_log
 - Major changes on tables name, sql file for database upgrade available
@@ -741,7 +784,9 @@ Version 0.6 - 040626
   on gw_send_sms() causing authentication failed (thx to frankster on the forum)
 - Done changes on file README, INSTALL and FAQ
 
+
 Version 0.5.1 - 040616
+
 - Some tables name changed, tblConfig removed
 - Some variables name changed
 - Fix error calculating message length causing $sms_msg > 160 char
@@ -750,7 +795,9 @@ Version 0.5.1 - 040616
 - Add stripslashes on some output variables
 - Add and change some note on file INSTALL and FAQ
 
+
 Version 0.5 - 040216
+
 - Major changes on INSTALL and FAQ
 - Major changes on library structures and codes
 - Add gateway module plugin system, possibility to use any gateway other than
@@ -761,14 +808,18 @@ Version 0.5 - 040216
 - Remove NOW() from SQL query, increase database compatibility
 - Remove $apps_path[smsd] due to use of gateway module
 
+
 Version 0.4.1 - 040211
+
 - Add more FAQs about SMS command
 - Add notes to ws.php
 - Add background operator (&) to smsd command in smsd_start shell script
 - Fix some unsuitable datetiming for incoming SMS
 - Minor enhancements
 
+
 Version 0.4 - 040209
+
 - INSTALL and FAQ changed
 - Starting from this release there will be no raw directory
 - Used of 2 frames instead of 4
@@ -781,31 +832,43 @@ Version 0.4 - 040209
 - Add more reserved tags (maybe used on next release)
 - Add SMS command
 
+
 Version 0.3 - 040111
+
 - Add delivery status (DS) retrieval in ws.php, output in CSV form
 - Add pending status time limit in getsmsstatus() at custom_function.php
 - Add SMS poll system
 
+
 Version 0.2.1 - 040106
+
 - Fatal error on how to use dba_insert_id() in custom_function.php
 - Path and database access parameter now in array $apps_path and $db_param
 
+
 Version 0.2 - 040104
+
 - Libraries placed on different directory defined by $libs_path in config.php
 - Multiple database engine supported (anything compatible to PEAR DB)
 - Add very early stage of webservices function (not SOAP, please see ws.php)
 - Clean some codes on custom_function.php
 
+
 Version 0.1.2 - 031231
+
 - Some important changes on INSTALL, add FAQ
 - Add more reserved tags (maybe used on next release)
 - Minor interface enhancements
 
+
 Version 0.1.1 - 031217
+
 - Natural language changed to English
 - Add some reserved SMS tags on config.php
 - Minor enhancements
 
+
 Initial release - version 0.1 - 031216
+
 - Change Log started
 
