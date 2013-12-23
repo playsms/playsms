@@ -310,7 +310,7 @@ function sendsms_process($smslog_id,$sms_sender,$sms_footer,$sms_to,$sms_msg,$ui
 	if ($id = @dba_insert_id($db_query)) {
 		logger_print("saved smslog_id:".$smslog_id." id:".$id, 2, "sendsms_process");
 		if ($p_status == 0) {
-			logger_print("final smslog_id:".$smslog_id." message:".$sms_msg.$sms_footer." len:".strlen($sms_msg.$sms_footer), 3, "sendsms");
+			logger_print("final smslog_id:".$smslog_id." gw:".$gw." message:".$sms_msg.$sms_footer." len:".strlen($sms_msg.$sms_footer), 3, "sendsms");
 			if (core_hook($gw, 'sendsms', array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$smslog_id,$sms_type,$unicode))) {
 				// fixme anton - deduct user's credit as soon as gateway returns true
 				rate_deduct($smslog_id);

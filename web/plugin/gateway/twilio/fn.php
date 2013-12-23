@@ -18,6 +18,8 @@ function twilio_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	$sms_msg = stripslashes($sms_msg);
 	$ok = false;
 
+	logger_print("sendsms start", 3, "twilio_hook_sendsms");
+
 	if ($sms_footer) {
 		$sms_msg = $sms_msg.$sms_footer;
 	}
@@ -69,6 +71,9 @@ function twilio_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 		$p_status = 2;
 		dlr($smslog_id,$uid,$p_status);
 	}
+
+	logger_print("sendsms end", 3, "twilio_hook_sendsms");
+
 	return $ok;
 }
 
