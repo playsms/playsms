@@ -107,7 +107,11 @@ function SmsSetCounter() {
 	var msg_unicode = document.fm_sendsms.msg_unicode;
 	var detect = containsNonLatinCodepoints(msg.value + ftr.value);
 	msg_unicode.checked = detect;
-	document.forms.fm_sendsms.footerlen.value = ftr.value.length + 1;
+	if (ftr.value.length > 0) {
+		document.forms.fm_sendsms.footerlen.value = ftr.value.length + 1;
+	} else {
+		document.forms.fm_sendsms.footerlen.value = 0;
+	}
 	var ilen = SmsTextCounter();
 	document.fm_sendsms.txtcount.value = ilen;
 }
