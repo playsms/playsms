@@ -91,7 +91,9 @@ function gammu_hook_getsmsinbox() {
 			$sms_sender = $arr_fn[3];
 			// message is in UTF-16, need to convert it to UTF-8
 			$message = file_get_contents($fn);
-			$message = mb_convert_encoding($message, "UTF-8", "UTF-16");
+			if (! core_detect_unicode($message)) {
+				$message = mb_convert_encoding($message, "UTF-8", "UTF-16");
+			}
 			@unlink($fn);
 			// continue process only when incoming sms file can be deleted
 			if (! file_exists($fn)) {
