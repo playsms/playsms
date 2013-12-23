@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin>
-	<name>twillio</name>
-	<alias>Gateway Twillio</alias>
-	<description>Gateway Twillio</description>
+	<name>twilio</name>
+	<alias>Gateway Twilio</alias>
+	<description>Gateway Twilio</description>
 	<release>1.0</release>
 	<date>2013-08-13</date>
 	<author>Anton Raharja</author>
