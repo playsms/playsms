@@ -53,9 +53,9 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 		$URL .= "&mclass=".$msg_type;
 	}
 
-    //Automatically setting the unicode flag if necessary
-    if (!$unicode)
-        $unicode=core_detect_unicode($sms_msg);
+	//Automatically setting the unicode flag if necessary
+	if (!$unicode)
+		$unicode=core_detect_unicode($sms_msg);
 
 	if ($unicode) {
 		if (function_exists('mb_convert_encoding')) {
@@ -63,13 +63,6 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 			$URL .= "&charset=UTF-16BE";
 		}
 		$URL .= "&coding=2";
-	}
-	else {
-		if ($sms_footer) {
-			if (core_detect_unicode($sms_footer)) {
-				$URL .= "&charset=UTF-8&coding=2";
-			}
-		}
 	}
 
 	$URL .= "&account=".$account;
