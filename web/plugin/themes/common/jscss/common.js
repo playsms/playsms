@@ -102,12 +102,18 @@ function containsNonLatinCodepoints(s) {
 }
 
 function SmsSetCounter() {
+	var msg = document.fm_sendsms.message;
+	var ftr = document.fm_sendsms.msg_footer;
+	var msg_unicode = document.fm_sendsms.msg_unicode;
+	var detect = containsNonLatinCodepoints(msg.value + ftr.value);
+	msg_unicode.checked = detect;
+	if (ftr.value.length > 0) {
+		document.forms.fm_sendsms.footerlen.value = ftr.value.length + 1;
+	} else {
+		document.forms.fm_sendsms.footerlen.value = 0;
+	}
 	var ilen = SmsTextCounter();
 	document.fm_sendsms.txtcount.value = ilen;
-	var msg = document.fm_sendsms.message;
-	var msg_unicode = document.fm_sendsms.msg_unicode;
-	var detect = containsNonLatinCodepoints(msg.value);
-	msg_unicode.checked = detect;
 }
 
 /* ############################
