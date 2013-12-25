@@ -5,17 +5,25 @@ if(!auth_isvalid()){auth_block();};
 $checkid = $_REQUEST['checkid'];
 $itemid = $_REQUEST['itemid'];
 
-$c_itemid = array();
+$items = array();
 foreach ($checkid as $key => $val) {
 	if (strtoupper($val) == 'ON') {
-		if ($c_itemid = $itemid[$key]) {
-			if (dba_remove(_DB_PREF_.'_toolsPhonebook', array('uid' => $core_config['user']['uid'], 'id' => $c_itemid))) {
-				dba_remove(_DB_PREF_.'_toolsPhonebook_group_contacts', array('pid' => $c_itemid));
-				$found = TRUE;
-			}
+		if ($itemid[$key]) {
+			$items[] = $itemid[$key];
 		}
 	}
 
+}
+
+switch (_OP_) {
+	case 'delete':
+		foreach ($items as $item) {
+			if (dba_remove(_DB_PREF_.'_toolsPhonebook', array('uid' => $core_config['user']['uid'], 'id' => $item))) {
+				dba_remove(_DB_PREF_.'_toolsPhonebook_group_contacts', array('pid' => $item));
+				$found = TRUE;
+			}
+		}
+		break;
 }
 
 $search = themes_search_session();

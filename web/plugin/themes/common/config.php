@@ -18,3 +18,4 @@ $core_config['icon']['export']		= "<span class='playsms-icon glyphicon glyphicon
 $core_config['icon']['import']		= "<span class='playsms-icon glyphicon glyphicon-import' alt='"._('Import')."' title='"._('Import')."'></span>";
 $core_config['icon']['group']		= "<span class='playsms-icon glyphicon glyphicon-briefcase' alt='"._('Group')."' title='"._('Group')."'></span>";
 $core_config['icon']['move']		= "<span class='playsms-icon glyphicon glyphicon glyphicon-move' alt='"._('Move')."' title='"._('Move')."'></span>";
+$core_config['icon']['go']		= "<span class='playsms-icon glyphicon glyphicon-cog' alt='"._('Go')."' title='"._('Go')."'></span>";

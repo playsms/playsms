@@ -33,19 +33,18 @@ switch ($op) {
 				</div>
 				<script type='text/javascript'>
 					$(document).ready(function() {
-						$('#action_move').click(function(){
-							$('input[name=route]').attr('value','phonebook_move');
-							$('#fm_phonebook_list').submit();
-						});
-						$('#action_delete').click(function(){
-							$('input[name=route]').attr('value','phonebook_delete');
+						$('#action_go').click(function(){
+							$('input[name=route]').attr('value','phonebook_go');
 							$('#fm_phonebook_list').submit();
 						});
 					});
 				</script>
 				<div class=pull-right>
-					<!-- <a href='#' id=action_move>" . $core_config['icon']['move'] . "</a> -->
-					<a href='#' id=action_delete>" . $core_config['icon']['delete'] . "</a>
+					<select name=op class=search_input_category>
+						<option value=>"._('Select')."</option>
+						<option value=delete>"._('Delete')."</option>
+					</select>
+					<a href='#' id=action_go>" . $core_config['icon']['go'] . "</a>
 				</div>
 			</div>
 			<div class=table-responsive>
