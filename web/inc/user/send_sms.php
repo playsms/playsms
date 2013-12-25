@@ -92,7 +92,12 @@ switch ($op) {
 			'per_sms_length_unicode' => $core_config['user']['opt']['per_sms_length_unicode'],
 			'max_sms_length' => $core_config['user']['opt']['max_sms_length'],
 			'max_sms_length_unicode' => $core_config['user']['opt']['max_sms_length_unicode'],
-			'option_msg_unicode' => $option_msg_unicode
+			'option_msg_unicode' => $option_msg_unicode,
+			'lang' => substr($core_config['user']['language_module'], 0, 2)
+		    ),
+		    'if' => array(
+			'calendar' => file_exists($apps_path['themes'].'/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.'.substr($core_config['user']['language_module'], 0, 2).'.js'),
+			'combobox' => file_exists($apps_path['themes'].'/common/jscss/combobox/select2_locale_'.substr($core_config['user']['language_module'], 0, 2).'.js')
 		    )
 		);
 		echo tpl_apply($tpl);

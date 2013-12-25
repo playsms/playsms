@@ -2,9 +2,11 @@
 <script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/moment/moment.min.js"></script>
 <link rel="stylesheet" href="{HTTP_PATH_THEMES}/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css" />
 <script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
-<link rel="stylesheet" href="{HTTP_PATH_THEMES}/common/jscss/combobox/select2.css" />
+<if.calendar><script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.{lang}.js"></script>
+</if.calendar><link rel="stylesheet" href="{HTTP_PATH_THEMES}/common/jscss/combobox/select2.css" />
 <script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/combobox/select2.min.js"></script>
-<script type="text/javascript">
+<if.combobox><script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/combobox/select2_locale_{lang}.js"></script>
+</if.combobox><script type="text/javascript">
 	$(document).ready(function() {
 		$("#msg_combo_sendto").select2({
 			multiple: true,
@@ -37,8 +39,8 @@
 			}
 		});
 		$("#message").focus();
-		$("#msg_schedule").datetimepicker({
-			language: 'en',
+		$("#msg_schedule").datetimepicker({<if.calendar>
+			language: '{lang}',</if.calendar>
 			format: 'YYYY-MM-DD HH:mm'
 		});
 	});
