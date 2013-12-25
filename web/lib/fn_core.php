@@ -45,16 +45,16 @@ function core_hook($c_plugin, $c_function, $c_param=array()) {
 }
 
 /**
- * Call other function that hook caller function
+ * Call function that hook caller function
  * @global array $core_config
  * @param string $function_name
  * @param array $arguments
  * @return string
  */
-function core_call_hook($function_name='', $arguments='') {
+function core_call_hook($function_name='', $arguments=array()) {
 	global $core_config;
 	$ret = NULL;
-	if (! ($function_name && is_array($arguments))) {
+	if (! $function_name) {
 		if (_PHP_VER_ >= 50400) {
 			$f = debug_backtrace(0, 2); // PHP 5.4.0 and above
 		} else {
