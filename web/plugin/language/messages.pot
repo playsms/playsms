@@ -532,6 +532,9 @@ msgstr ""
 msgid "Resend"
 msgstr ""
 
+msgid "SMS"
+msgstr ""
+
 msgid "SMS character"
 msgstr ""
 
@@ -770,6 +773,9 @@ msgid "Your mobile format is invalid"
 msgstr ""
 
 msgid "Zipcode"
+msgstr ""
+
+msgid "chars"
 msgstr ""
 
 msgid "email"

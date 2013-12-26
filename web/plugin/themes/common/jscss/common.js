@@ -72,6 +72,8 @@ function SmsTextCounter() {
 	var maxChar_unicode = document.forms.fm_sendsms.maxchar_unicode.value;
 	var maxlimit = document.fm_sendsms.hiddcount.value;
 	var maxlimit_unicode = document.fm_sendsms.hiddcount_unicode.value;
+	var chars = document.fm_sendsms.chars.value;
+	var SMS = document.fm_sendsms.SMS.value;
 	var limit;
 	var devider;
 	var msgcount;
@@ -93,7 +95,7 @@ function SmsTextCounter() {
 		msg.value = msg.value.substring(0, limit);
 	}
 	msgcount = Math.ceil((msg.value.length + footerlen) / devider);
-	result = msg.value.length + ' char : ' + msgcount + ' SMS';
+	result = msg.value.length + footerlen + ' ' + chars + ' : ' + msgcount + ' ' + SMS;
 	return result;
 }
 
