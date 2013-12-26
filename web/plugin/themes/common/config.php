@@ -1,6 +1,12 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
+if (function_exists('bindtextdomain')) {
+	bindtextdomain('messages', $apps_path['plug'].'/language/');
+	bind_textdomain_codeset('messages', 'UTF-8');
+	textdomain('messages');
+}
+
 // common action icons
 $core_config['icon']['add']		= "<span class='playsms-icon glyphicon glyphicon-plus' alt='"._('Add')."' title='"._('Add')."'></span>";
 $core_config['icon']['edit']		= "<span class='playsms-icon glyphicon glyphicon-cog' alt='"._('Edit')."' title='"._('Edit')."'></span>";
