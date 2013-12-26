@@ -1,0 +1,141 @@
+# Header entry was created by Lokalize.
+#
+# Joan <aseques@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2013-05-08 15:01+0200\n"
+"Last-Translator: Joan <aseques@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.4\n"
+
+msgid "Action"
+msgstr ""
+
+msgid "Add contact"
+msgstr "Afegir contacte"
+
+msgid "Add group"
+msgstr "Afegir grup"
+
+msgid "Are you sure you want to delete these items ?"
+msgstr ""
+
+msgid "Contact has been added"
+msgstr "El contacte s'ha afegit"
+
+msgid "Contact has been edited"
+msgstr "El contacte s'ha editat"
+
+msgid "Contacts has been imported"
+msgstr "Els contactes s'han importat"
+
+msgid "Edit contact"
+msgstr "Editar contacte"
+
+msgid "Edit group"
+msgstr "Editar grup"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Fail to delete group"
+msgstr ""
+
+msgid "Fail to upload CSV file for phonebook"
+msgstr "Error al carregar el CSV per l'agenda"
+
+msgid "Group"
+msgstr "Grup"
+
+msgid "Group code"
+msgstr "Codi grup"
+
+msgid "Group code has been added"
+msgstr "S'ha afegit el codi de grup"
+
+msgid "Group code is already exists"
+msgstr "El codi de grup ja existeix"
+
+msgid "Group code used by keyword"
+msgstr "Codi de grup funciona amb paraula clau"
+
+msgid "Group has been edited"
+msgstr "El grup s'ha editat"
+
+msgid "Group name"
+msgstr "Nom del grup"
+
+msgid "Import"
+msgstr "Import"
+
+msgid "Import above phonebook entries ?"
+msgstr "Importar les entrades de telèfon de sobre ?"
+
+msgid "Import confirmation"
+msgstr "Confirmar importació"
+
+msgid "Mobile"
+msgstr "Mòbil"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "No changes has been made"
+msgstr "No s'han fet canvis"
+
+msgid "Note"
+msgstr "Nota"
+
+msgid "Phonebook"
+msgstr "Agenda"
+
+msgid "Please select CSV file for phonebook entries"
+msgstr "Si us plau trieu el fitxer CSV per les entrades de l'agenda"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Selected contact has been deleted"
+msgstr "El contacte marcat s'ha esborrat"
+
+#, fuzzy
+msgid "Selected contact moved to new group"
+msgstr "El contacte marcat s'ha esborrat"
+
+msgid "Selected group has been deleted"
+msgstr "El grup marcat s'ha esborrat"
+
+msgid "Unable to delete group until the group is empty"
+msgstr ""
+
+msgid "You must fill all field"
+msgstr "Heu d'omplir tots els camps"
+
+#, fuzzy
+msgid "You must fill mandatory fields"
+msgstr "Heu d'omplir tots els camps"
+
+#, fuzzy
+msgid "You must fill required fields"
+msgstr "Heu d'omplir tots els camps"
+
+msgid "broadcast SMS from single SMS"
+msgstr "distribuir SMS a partir d'un SMS"
+
+msgid "code"
+msgstr "codi"
+
+msgid "format"
+msgstr "format"
+
+msgid "group"
+msgstr "grup"
+
+msgid "please use uppercase and make it short"
+msgstr "si us plau feu servir majúscules i un nom curt"

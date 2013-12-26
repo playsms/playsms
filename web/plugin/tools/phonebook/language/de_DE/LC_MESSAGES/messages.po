@@ -88,6 +88,10 @@ msgstr "Speichern"
 msgid "Selected contact has been deleted"
 msgstr "Gewhlte Kontakte wurden gelscht"
 
+#, fuzzy
+msgid "Selected contact moved to new group"
+msgstr "Gewhlte Kontakte wurden gelscht"
+
 msgid "Selected group has been deleted"
 msgstr "Gewhlte Grupppe wurde gendert"
 

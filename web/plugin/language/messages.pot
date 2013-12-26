@@ -406,6 +406,9 @@ msgstr ""
 msgid "Mobile number"
 msgstr ""
 
+msgid "Move to"
+msgstr ""
+
 msgid "My Account"
 msgstr ""
 
@@ -563,6 +566,9 @@ msgid "Schedule"
 msgstr ""
 
 msgid "Search"
+msgstr ""
+
+msgid "Select"
 msgstr ""
 
 msgid "Select action"
