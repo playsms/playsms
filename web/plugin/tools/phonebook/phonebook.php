@@ -18,6 +18,11 @@ switch ($op) {
 		$extras = array('ORDER BY' => 'A.name, mobile', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = dba_search(_DB_PREF_.'_toolsPhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
 
+		$phonebook_groups = phonebook_search_group($core_config['user']['uid']);
+		foreach ($phonebook_groups as $group) {
+			$action_move_options .= '<option value=move_'.$group['gpid'].'>'._('Move to').' '.$group['group_name'].' ('.$group['code'].')</option>';
+		}
+
 		$content = "
 			<h2>"._('Phonebook')."</h2>
 			<p>".$search['form']."</p>
@@ -43,6 +48,7 @@ switch ($op) {
 					<select name=op class=search_input_category>
 						<option value=>"._('Select')."</option>
 						<option value=delete>"._('Delete')."</option>
+						".$action_move_options."
 					</select>
 					<a href='#' id=action_go>" . $core_config['icon']['go'] . "</a>
 				</div>

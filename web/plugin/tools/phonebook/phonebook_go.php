@@ -20,18 +20,32 @@ switch (_OP_) {
 		foreach ($items as $item) {
 			if (dba_remove(_DB_PREF_.'_toolsPhonebook', array('uid' => $core_config['user']['uid'], 'id' => $item))) {
 				dba_remove(_DB_PREF_.'_toolsPhonebook_group_contacts', array('pid' => $item));
-				$found = TRUE;
+				$_SESSION['error_string'] = _('Selected contact has been deleted');
 			}
 		}
 		break;
+}
+
+$gpid = 0;
+$ops = explode('_', _OP_);
+if (($ops[0] == 'move') && $ops[1]) {
+	$gpid = $ops[1];
+}
+
+if ($gpid && (dba_valid(_DB_PREF_.'_toolsPhonebook_group', 'id', $gpid))) {
+	foreach ($items as $item) {
+		if (dba_remove(_DB_PREF_.'_toolsPhonebook_group_contacts', array('pid' => $item))) {
+			$data = array('pid' => $item, 'gpid' => $gpid);
+			if (dba_add(_DB_PREF_.'_toolsPhonebook_group_contacts', $data)) {
+				$_SESSION['error_string'] = _('Selected contact moved to new group');
+			}
+		}
+	}
 }
 
 $search = themes_search_session();
 $nav = themes_nav_session();
 
 $ref = $nav['url'].'&search_keyword='.$search['keyword'].'&search_category='.$search['category'].'&page='.$nav['page'].'&nav='.$nav['nav'];
-if ($found) {
-	$_SESSION['error_string'] = _('Selected contact has been deleted');
-}
 header("Location: ".$ref);
 exit();
