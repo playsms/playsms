@@ -210,7 +210,7 @@ if (isset($db_row)) {
 $sms_max_count = ( (int)$sms_max_count < 1 ? 1 : (int)$sms_max_count );
 $core_config['main']['cfg_sms_max_count'] = $sms_max_count;
 $core_config['main']['per_sms_length'] = ( $core_config['main']['cfg_sms_max_count'] > 1 ? 153 : 160 );
-$core_config['main']['per_sms_length_unicode'] = ( $core_config['main']['cfg_sms_max_count'] > 1 ? 63 : 70 );
+$core_config['main']['per_sms_length_unicode'] = ( $core_config['main']['cfg_sms_max_count'] > 1 ? 67 : 70 );
 $core_config['main']['max_sms_length'] = $core_config['main']['cfg_sms_max_count'] * $core_config['main']['per_sms_length'];
 $core_config['main']['max_sms_length_unicode'] = $core_config['main']['cfg_sms_max_count'] * $core_config['main']['per_sms_length_unicode'];
 
