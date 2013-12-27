@@ -19,7 +19,7 @@ $core_config['icon']['resend']		= "<span class='playsms-icon glyphicon glyphicon
 $core_config['icon']['user_pref'] 	= "<span class='playsms-icon glyphicon glyphicon-user' alt='"._('User preference')."' title='"._('User preference')."'></span>";
 $core_config['icon']['user_config'] 	= "<span class='playsms-icon glyphicon glyphicon-wrench' alt='"._('User configuration')."' title='"._('User configuration')."'></span>";
 $core_config['icon']['user_delete'] 	= "<span class='playsms-icon glyphicon glyphicon-trash' alt='"._('Delete user')."' title='"._('Delete user')."'></span>";
-$core_config['icon']['admin']		= "<span class='playsms-icon glyphicon glyphicon-certificate' alt='"._('This user is an administrator')."' title='"._('This user is an administrator')."'></span>";
+$core_config['icon']['admin']		= "<span class='playsms-icon glyphicon glyphicon-certificate' alt='"._('Administrator')."' title='"._('Administrator')."'></span>";
 $core_config['icon']['export']		= "<span class='playsms-icon glyphicon glyphicon-export' alt='"._('Export')."' title='"._('Export')."'></span>";
 $core_config['icon']['import']		= "<span class='playsms-icon glyphicon glyphicon-import' alt='"._('Import')."' title='"._('Import')."'></span>";
 $core_config['icon']['group']		= "<span class='playsms-icon glyphicon glyphicon-briefcase' alt='"._('Group')."' title='"._('Group')."'></span>";

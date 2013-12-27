@@ -108,6 +108,7 @@ switch ($op) {
 			'Allow custom SMS footer' => _('Allow custom SMS footer'),
 			'Active gateway module' => _('Active gateway module'),
 			'Active themes' => _('Active themes'),
+			'Default language' => _('Default language'),
 			'Save' => _('Save'),
 			'HINT_TIMEZONE' => _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')),
 			'web_title' => $web_title,
