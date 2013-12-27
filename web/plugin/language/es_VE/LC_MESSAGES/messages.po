@@ -434,6 +434,9 @@ msgstr "Correo electrónico ya en uso"
 msgid "Mobile number"
 msgstr "Numero(s) telefónico(s)"
 
+msgid "Move to"
+msgstr ""
+
 msgid "My Account"
 msgstr ""
 
@@ -568,6 +571,9 @@ msgstr "Responder"
 msgid "Resend"
 msgstr ""
 
+msgid "SMS"
+msgstr ""
+
 msgid "SMS character"
 msgstr "Caracteres del SMS"
 
@@ -599,6 +605,10 @@ msgstr ""
 
 msgid "Search"
 msgstr ""
+
+#, fuzzy
+msgid "Select"
+msgstr "Seleccione una acción"
 
 msgid "Select action"
 msgstr "Seleccione una acción"
@@ -827,6 +837,9 @@ msgstr ""
 
 msgid "Zipcode"
 msgstr "Código postal"
+
+msgid "chars"
+msgstr ""
 
 msgid "email"
 msgstr "Correo electrónico"

@@ -427,6 +427,9 @@ msgstr "Email sudah digunakan oleh pengguna lain"
 msgid "Mobile number"
 msgstr "Nomor telepon"
 
+msgid "Move to"
+msgstr ""
+
 msgid "My Account"
 msgstr "Akun saya"
 
@@ -557,6 +560,9 @@ msgstr "Balas"
 msgid "Resend"
 msgstr ""
 
+msgid "SMS"
+msgstr ""
+
 msgid "SMS character"
 msgstr "Karakter SMS"
 
@@ -588,6 +594,10 @@ msgstr ""
 
 msgid "Search"
 msgstr "Cari"
+
+#, fuzzy
+msgid "Select"
+msgstr "Pilih tindakan"
 
 msgid "Select action"
 msgstr "Pilih tindakan"
@@ -808,6 +818,9 @@ msgstr "Nomor anda tidak valid"
 
 msgid "Zipcode"
 msgstr "Kode POS"
+
+msgid "chars"
+msgstr ""
 
 msgid "email"
 msgstr "email"

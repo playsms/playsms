@@ -95,6 +95,10 @@ msgstr "Salvar"
 msgid "Selected contact has been deleted"
 msgstr "Os contatos selecionados foram removidos"
 
+#, fuzzy
+msgid "Selected contact moved to new group"
+msgstr "Os contatos selecionados foram removidos"
+
 msgid "Selected group has been deleted"
 msgstr "O grupo selecionado foi removido"
 

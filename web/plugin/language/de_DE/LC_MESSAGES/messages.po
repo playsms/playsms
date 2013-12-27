@@ -428,6 +428,9 @@ msgstr "Mobilrufnummer ist bereits von anderen Benutzer verwendet"
 msgid "Mobile number"
 msgstr "Mobilrufnummer"
 
+msgid "Move to"
+msgstr ""
+
 msgid "My Account"
 msgstr "Mein Account"
 
@@ -560,6 +563,9 @@ msgstr "Antwort"
 msgid "Resend"
 msgstr ""
 
+msgid "SMS"
+msgstr ""
+
 msgid "SMS character"
 msgstr "SMS Zeichen"
 
@@ -591,6 +597,10 @@ msgstr ""
 
 msgid "Search"
 msgstr "Suche"
+
+#, fuzzy
+msgid "Select"
+msgstr "Auswahl Aktion"
 
 msgid "Select action"
 msgstr "Auswahl Aktion"
@@ -816,6 +826,9 @@ msgstr "Ihr Mobilrufnummern-Format ist ungültig"
 
 msgid "Zipcode"
 msgstr "PLZ"
+
+msgid "chars"
+msgstr ""
 
 msgid "email"
 msgstr "Email"

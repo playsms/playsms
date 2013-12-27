@@ -3,15 +3,13 @@
 # Joan <aseques@gmail.com>, 2013.
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Mime-Version: 1.0"
-"Last-Translator: Joan <aseques@gmail.com>\n"
-"PO-Revision-Date: 2013-12-11 15:07+0100\n"
 "Project-Id-Version: \n"
+"PO-Revision-Date: 2013-12-11 15:07+0100\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.4\n"
 
@@ -50,4 +48,3 @@ msgstr "Eines"
 
 msgid "Version"
 msgstr "Versió"
-

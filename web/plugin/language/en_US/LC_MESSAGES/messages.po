@@ -414,6 +414,9 @@ msgstr ""
 msgid "Mobile number"
 msgstr ""
 
+msgid "Move to"
+msgstr ""
+
 msgid "My Account"
 msgstr ""
 
@@ -540,6 +543,9 @@ msgstr ""
 msgid "Resend"
 msgstr ""
 
+msgid "SMS"
+msgstr ""
+
 msgid "SMS character"
 msgstr ""
 
@@ -568,6 +574,9 @@ msgid "Schedule"
 msgstr ""
 
 msgid "Search"
+msgstr ""
+
+msgid "Select"
 msgstr ""
 
 msgid "Select action"
@@ -778,6 +787,9 @@ msgid "Your mobile format is invalid"
 msgstr ""
 
 msgid "Zipcode"
+msgstr ""
+
+msgid "chars"
 msgstr ""
 
 msgid "email"

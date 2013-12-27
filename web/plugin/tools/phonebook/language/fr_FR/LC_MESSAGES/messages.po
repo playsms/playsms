@@ -88,6 +88,9 @@ msgstr ""
 msgid "Selected contact has been deleted"
 msgstr ""
 
+msgid "Selected contact moved to new group"
+msgstr ""
+
 msgid "Selected group has been deleted"
 msgstr ""
 

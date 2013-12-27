@@ -434,6 +434,9 @@ msgstr "电子邮件已被其他用户使用"
 msgid "Mobile number"
 msgstr "电话号码"
 
+msgid "Move to"
+msgstr ""
+
 msgid "My Account"
 msgstr ""
 
@@ -568,6 +571,9 @@ msgstr "回复"
 msgid "Resend"
 msgstr ""
 
+msgid "SMS"
+msgstr ""
+
 msgid "SMS character"
 msgstr "短信字符"
 
@@ -599,6 +605,10 @@ msgstr ""
 
 msgid "Search"
 msgstr ""
+
+#, fuzzy
+msgid "Select"
+msgstr "选择行为"
 
 msgid "Select action"
 msgstr "选择行为"
@@ -827,6 +837,9 @@ msgstr ""
 
 msgid "Zipcode"
 msgstr "邮政编码"
+
+msgid "chars"
+msgstr ""
 
 msgid "email"
 msgstr "电子邮件"

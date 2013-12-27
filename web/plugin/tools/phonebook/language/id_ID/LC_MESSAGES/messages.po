@@ -88,6 +88,10 @@ msgstr "Simpan"
 msgid "Selected contact has been deleted"
 msgstr "Kontak terpilih telah dihapus"
 
+#, fuzzy
+msgid "Selected contact moved to new group"
+msgstr "Kontak terpilih telah dihapus"
+
 msgid "Selected group has been deleted"
 msgstr "Grup terpilih telah dihapus"
 

@@ -440,6 +440,9 @@ msgstr "Email déjà utilisé"
 msgid "Mobile number"
 msgstr "Numéro(s)"
 
+msgid "Move to"
+msgstr ""
+
 msgid "My Account"
 msgstr "Mon Compte"
 
@@ -574,6 +577,9 @@ msgstr "Reéssayer"
 msgid "Resend"
 msgstr ""
 
+msgid "SMS"
+msgstr ""
+
 msgid "SMS character"
 msgstr "Caractères SMS"
 
@@ -605,6 +611,10 @@ msgstr ""
 
 msgid "Search"
 msgstr ""
+
+#, fuzzy
+msgid "Select"
+msgstr "Sélectionner action"
 
 msgid "Select action"
 msgstr "Sélectionner action"
@@ -833,6 +843,9 @@ msgstr ""
 
 msgid "Zipcode"
 msgstr "Code Zip"
+
+msgid "chars"
+msgstr ""
 
 msgid "email"
 msgstr "email"
