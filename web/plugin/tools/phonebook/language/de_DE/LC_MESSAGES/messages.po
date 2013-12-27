@@ -7,9 +7,6 @@ msgstr "Kontakt hinzufgen"
 msgid "Add group"
 msgstr "Gruppe hinzufgen"
 
-msgid "Are you sure you want to delete these items ?"
-msgstr ""
-
 msgid "Contact has been added"
 msgstr "Kontakt wurde hinzugefgt"
 
@@ -18,6 +15,9 @@ msgstr "Kontakt wurde gendert"
 
 msgid "Contacts has been imported"
 msgstr "Kontakte wurden importiert"
+
+msgid "Delete"
+msgstr ""
 
 msgid "Edit contact"
 msgstr "Kontakt editieren"
@@ -67,6 +67,9 @@ msgstr "Import-Besttigung"
 msgid "Mobile"
 msgstr "Mobil"
 
+msgid "Move to"
+msgstr ""
+
 msgid "Name"
 msgstr "Name"
 
@@ -84,6 +87,9 @@ msgstr "Bitte CSV-Datei fr Telefonbuch-Eintrge auswhlen"
 
 msgid "Save"
 msgstr "Speichern"
+
+msgid "Select"
+msgstr ""
 
 msgid "Selected contact has been deleted"
 msgstr "Gewhlte Kontakte wurden gelscht"

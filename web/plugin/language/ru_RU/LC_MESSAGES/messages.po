@@ -863,4 +863,3 @@ msgstr "версия"
 
 msgid "yes"
 msgstr "да"
-

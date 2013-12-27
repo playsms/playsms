@@ -53,4 +53,3 @@ msgstr "Настройки"
 
 msgid "Username"
 msgstr "Имя пользователя"
-

@@ -23,9 +23,6 @@ msgstr "Afegir contacte"
 msgid "Add group"
 msgstr "Afegir grup"
 
-msgid "Are you sure you want to delete these items ?"
-msgstr ""
-
 msgid "Contact has been added"
 msgstr "El contacte s'ha afegit"
 
@@ -34,6 +31,9 @@ msgstr "El contacte s'ha editat"
 
 msgid "Contacts has been imported"
 msgstr "Els contactes s'han importat"
+
+msgid "Delete"
+msgstr ""
 
 msgid "Edit contact"
 msgstr "Editar contacte"
@@ -83,6 +83,9 @@ msgstr "Confirmar importació"
 msgid "Mobile"
 msgstr "Mòbil"
 
+msgid "Move to"
+msgstr ""
+
 msgid "Name"
 msgstr "Nom"
 
@@ -100,6 +103,9 @@ msgstr "Si us plau trieu el fitxer CSV per les entrades de l'agenda"
 
 msgid "Save"
 msgstr "Guardar"
+
+msgid "Select"
+msgstr ""
 
 msgid "Selected contact has been deleted"
 msgstr "El contacte marcat s'ha esborrat"

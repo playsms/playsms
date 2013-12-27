@@ -14,9 +14,6 @@ msgstr "Adicionar contato"
 msgid "Add group"
 msgstr "Adicionar grupo"
 
-msgid "Are you sure you want to delete these items ?"
-msgstr ""
-
 msgid "Contact has been added"
 msgstr "Contato foi adicionado"
 
@@ -25,6 +22,9 @@ msgstr "Contato foi editado"
 
 msgid "Contacts has been imported"
 msgstr "Contatos foram importados"
+
+msgid "Delete"
+msgstr ""
 
 msgid "Edit contact"
 msgstr "Editar contato"
@@ -74,6 +74,9 @@ msgstr "Confirmação de importação"
 msgid "Mobile"
 msgstr "Celular"
 
+msgid "Move to"
+msgstr ""
+
 msgid "Name"
 msgstr "Nome"
 
@@ -91,6 +94,9 @@ msgstr "Por favor selecione o arquivo CSV para entradas dos contatos"
 
 msgid "Save"
 msgstr "Salvar"
+
+msgid "Select"
+msgstr ""
 
 msgid "Selected contact has been deleted"
 msgstr "Os contatos selecionados foram removidos"

@@ -7,9 +7,6 @@ msgstr "Tambah kontak"
 msgid "Add group"
 msgstr "Tambah grup"
 
-msgid "Are you sure you want to delete these items ?"
-msgstr ""
-
 msgid "Contact has been added"
 msgstr "Kontak telah ditambah"
 
@@ -18,6 +15,9 @@ msgstr "Kontak telah diubah"
 
 msgid "Contacts has been imported"
 msgstr "Kontak telah di-impor"
+
+msgid "Delete"
+msgstr ""
 
 msgid "Edit contact"
 msgstr "Ubah kontak"
@@ -67,6 +67,9 @@ msgstr "Konfirmasi impor"
 msgid "Mobile"
 msgstr "Handphone"
 
+msgid "Move to"
+msgstr ""
+
 msgid "Name"
 msgstr "Nama"
 
@@ -84,6 +87,9 @@ msgstr "Pilih berkas CSV untuk isian buku telepon"
 
 msgid "Save"
 msgstr "Simpan"
+
+msgid "Select"
+msgstr ""
 
 msgid "Selected contact has been deleted"
 msgstr "Kontak terpilih telah dihapus"

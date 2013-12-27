@@ -19,9 +19,6 @@ msgstr "Добавить контакт"
 msgid "Add group"
 msgstr "Добавить групу"
 
-msgid "Are you sure you want to delete these items ?"
-msgstr "Вы уверены, что хотите удалить выбранные элементы?"
-
 msgid "Contact has been added"
 msgstr "Контакт добавлен"
 
@@ -30,6 +27,9 @@ msgstr "Контакт изменён"
 
 msgid "Contacts has been imported"
 msgstr "Контакты импортированы"
+
+msgid "Delete"
+msgstr ""
 
 msgid "Edit contact"
 msgstr "Редактировать контакт"
@@ -79,6 +79,9 @@ msgstr "Подтверждение импорта"
 msgid "Mobile"
 msgstr "Мобильный"
 
+msgid "Move to"
+msgstr ""
+
 msgid "Name"
 msgstr "Имя"
 
@@ -96,6 +99,9 @@ msgstr "Выберите CSV файл контактов"
 
 msgid "Save"
 msgstr "Сохранить"
+
+msgid "Select"
+msgstr ""
 
 msgid "Selected contact has been deleted"
 msgstr "Выбранные контакты удалены"
@@ -132,4 +138,3 @@ msgstr "группа"
 
 msgid "please use uppercase and make it short"
 msgstr "придумайте короткое слово в верхнем регистре"
-

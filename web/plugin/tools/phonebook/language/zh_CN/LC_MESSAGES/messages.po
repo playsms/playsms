@@ -7,9 +7,6 @@ msgstr ""
 msgid "Add group"
 msgstr ""
 
-msgid "Are you sure you want to delete these items ?"
-msgstr ""
-
 msgid "Contact has been added"
 msgstr ""
 
@@ -17,6 +14,9 @@ msgid "Contact has been edited"
 msgstr ""
 
 msgid "Contacts has been imported"
+msgstr ""
+
+msgid "Delete"
 msgstr ""
 
 msgid "Edit contact"
@@ -67,6 +67,9 @@ msgstr ""
 msgid "Mobile"
 msgstr ""
 
+msgid "Move to"
+msgstr ""
+
 msgid "Name"
 msgstr ""
 
@@ -83,6 +86,9 @@ msgid "Please select CSV file for phonebook entries"
 msgstr ""
 
 msgid "Save"
+msgstr ""
+
+msgid "Select"
 msgstr ""
 
 msgid "Selected contact has been deleted"
