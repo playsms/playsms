@@ -32,7 +32,7 @@ $PieChart->draw3DPie(150,120,array("WriteValues"=>TRUE,"DataGapAngle"=>4,"DataGa
 $myPicture->setFontProperties(array("FontName"=>$c_path."/lib/pChart/fonts/pf_arma_five.ttf","FontSize"=>8));
 $myPicture->setShadow(TRUE,array("X"=>1,"Y"=>1,"R"=>0,"G"=>0,"B"=>0,"Alpha"=>20));
 /* Write the legend box */
-$myPicture->setFontProperties(array("FontName"=>$c_path."/lib/pChart/fonts/Silkscreen.ttf","FontSize"=>8,"R"=>100,"G"=>100,"B"=>100));
+$myPicture->setFontProperties(array("FontName"=>$c_path."/lib/pChart/fonts/calibri.ttf","FontSize"=>10,"R"=>100,"G"=>100,"B"=>100));
 $PieChart->drawPieLegend(3,8,array("Style"=>LEGEND_NOBORDER,"Mode"=>LEGEND_HORIZONTAL));
 
 /* Render the picture (choose the best way) */

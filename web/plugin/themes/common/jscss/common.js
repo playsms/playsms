@@ -82,7 +82,7 @@ function SmsTextCounter() {
 		limit = maxlimit_unicode;
 		devider = 70;
 		if (msg.value.length > 70) {
-			devider = 63;
+			devider = 67;
 		}
 	} else {
 		limit = maxlimit;

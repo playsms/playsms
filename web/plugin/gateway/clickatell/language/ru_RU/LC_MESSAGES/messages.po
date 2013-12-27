@@ -22,7 +22,7 @@ msgid "Clickatell API URL"
 msgstr "Clickatell API URL"
 
 msgid "Clickatell is a bulk SMS provider"
-msgstr "Clickatell это массовый СМС првайдер"
+msgstr "Clickatell это массовый СМС провайдер"
 
 msgid "Clickatell will push DLR and incoming SMS to your callback URL"
 msgstr "Clickatell отправит DLR и входящие SMS на Ваш callback URL"

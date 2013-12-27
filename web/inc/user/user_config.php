@@ -179,7 +179,7 @@ switch ($op) {
 			<table class=playsms-table>
 			<tbody>
 			<tr><td class=label-sizer>" . _('Username') . "</td><td>".$c_username."</td></tr>
-			<tr><td>" . _mandatory('Mobile') . "</td><td><input type=text size=30 maxlength=20 name=up_mobile value=\"$mobile\"> " . _hint(_('Max. 20 digits mobile phone number')) . "</td></tr>
+			<tr><td>" . _mandatory(_('Mobile')) . "</td><td><input type=text size=30 maxlength=20 name=up_mobile value=\"$mobile\"> " . _hint(_('Max. 20 digits mobile phone number')) . "</td></tr>
 			<tr><td>" . _('Effective SMS sender ID') . "</td><td>" . sendsms_get_sender($c_username) . "</td></tr>
 			<tr><td>" . _('SMS sender ID') . "</td><td><input type=text size=30 maxlength=16 name=up_sender value=\"$sender\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric characters')) . "</td></tr>
 			<tr><td>" . _('SMS footer') . "</td><td><input type=text size=30 maxlength=30 name=up_footer value=\"$footer\"> " . _hint(_('Max. 30 alphanumeric characters')) . "</td></tr>
@@ -189,7 +189,7 @@ switch ($op) {
 			<tr><td>" . _('New webservices token') . "</td><td><select name='up_new_token'>" . $option_new_token . "</select></td></tr>
 			<tr><td>" . _('Enable webservices') . "</td><td><select name='up_enable_webservices'>" . $option_enable_webservices . "</select></td></tr>
 			<tr><td>" . _('Webservices IP range') . "</td><td><input type=text size=30 maxlength=100 name=up_webservices_ip value=\"$webservices_ip\"> "._hint(_('Comma seperated'))."</td></tr>
-			<tr><td>Active language</td><td><select name=up_language_module>$option_language_module</select></td></tr>
+			<tr><td>" . _('Active language') . "</td><td><select name=up_language_module>$option_language_module</select></td></tr>
 			<tr><td>" . _('Timezone') . "</td><td><input type=text size=5 maxlength=5 name=up_datetime_timezone value=\"$datetime_timezone\"> " . _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')) . "</td></tr>
 			<tr><td>" . _('Forward message to inbox') . "</td><td><select name='up_fwd_to_inbox'>" . $option_fwd_to_inbox . "</select></td></tr>
 			<tr><td>" . _('Forward message to email') . "</td><td><select name='up_fwd_to_email'>" . $option_fwd_to_email . "</select></td></tr>
