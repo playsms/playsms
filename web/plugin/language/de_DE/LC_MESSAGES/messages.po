@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-20 13:19+0200\n"
+"POT-Creation-Date: 2013-12-30 10:07+0100\n"
 "Language: de_DE\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -368,13 +368,13 @@ msgid "Main configuration"
 msgstr "Hauptkonfiguration"
 
 msgid "Main configuration changes has been saved"
-msgstr "Änderungen der Hauptkonfiguration wurden gepseichert"
+msgstr "Änderungen der Hauptkonfiguration wurden gespeichert"
 
 msgid "Main website URL"
-msgstr ""
+msgstr "Haupt-URL"
 
 msgid "Main website name"
-msgstr ""
+msgstr "Website-Name"
 
 msgid "Manage"
 msgstr "Verwalten"
@@ -386,7 +386,7 @@ msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "Max. 16 numerische oder 11 alphanumerische Zeichen"
 
 msgid "Max. 20 digits mobile phone number"
-msgstr ""
+msgstr "Max. 20 Zeichen lange Mobilfunknummer"
 
 msgid "Max. 30 alphanumeric characters"
 msgstr "Max. 30 alphanumerische Zeichen"
@@ -399,7 +399,7 @@ msgstr "Nachricht"
 
 #, fuzzy
 msgid "Message from"
-msgstr "Nachricht"
+msgstr "Nachricht von"
 
 msgid "Message template"
 msgstr "Nachrichten-Vorlage"
@@ -429,7 +429,7 @@ msgid "Mobile number"
 msgstr "Mobilrufnummer"
 
 msgid "Move to"
-msgstr ""
+msgstr "Verschieben nach"
 
 msgid "My Account"
 msgstr "Mein Account"
@@ -457,7 +457,7 @@ msgid "Options"
 msgstr "Aktion"
 
 msgid "Or"
-msgstr "Qr"
+msgstr "Oder"
 
 msgid "Outgoing SMS"
 msgstr "Gesendete SMS"
@@ -488,7 +488,7 @@ msgid "Personal information"
 msgstr "Persönliche Information"
 
 msgid "Phone number(s)"
-msgstr "Rufnummern"
+msgstr "Rufnummer(n)"
 
 msgid "Phonebook"
 msgstr "Telefonbuch"
@@ -533,7 +533,7 @@ msgid "Public registration disabled"
 msgstr "Öffentliche Registrierung deaktiviert"
 
 msgid "Publish"
-msgstr ""
+msgstr "Veröffentlichen"
 
 msgid "Re-Type Password"
 msgstr "Passwort erneut eingeben"
@@ -561,10 +561,10 @@ msgid "Reply"
 msgstr "Antwort"
 
 msgid "Resend"
-msgstr ""
+msgstr "Erneut senden"
 
 msgid "SMS"
-msgstr ""
+msgstr "SMS"
 
 msgid "SMS character"
 msgstr "SMS Zeichen"
@@ -584,7 +584,7 @@ msgid "SMS to email"
 msgstr "Leite SMS als Email weiter"
 
 msgid "Sandbox"
-msgstr ""
+msgstr "Sandbox"
 
 msgid "Save"
 msgstr "Speichern"
@@ -593,7 +593,7 @@ msgid "Save template"
 msgstr "Vorlage speichern"
 
 msgid "Schedule"
-msgstr ""
+msgstr "Planen"
 
 msgid "Search"
 msgstr "Suche"
@@ -681,7 +681,7 @@ msgid "Unicode message"
 msgstr "Unicode Nachricht"
 
 msgid "Unpublish"
-msgstr ""
+msgstr "Veröffentlichung widerrufen"
 
 msgid "Use"
 msgstr "Benutze"
@@ -740,9 +740,7 @@ msgid "Username should be at least 3 characters"
 msgstr "Benutzername muss mindestens 3 Zeichen lang sein"
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
-msgstr ""
-"Zulässige Zeichen für den Benutzernamen sind Buchstaben, Zahlen, Punkt oder "
-"Gedankenstrich"
+msgstr "Zulässige Zeichen für den Benutzernamen sind Buchstaben, Zahlen, Punkt oder Gedankenstrich"
 
 msgid "View"
 msgstr "Anzeigen"
@@ -804,9 +802,7 @@ msgstr ""
 "Sie müssen den Empfänger auswählen und die Nachricht darf nicht leer sein"
 
 msgid "You must select receiver group and your message should not be empty"
-msgstr ""
-"Sie müssen die Empfänger-Gruppe auswählen und die Nachricht darf nicht leer "
-"sein"
+msgstr "Sie müssen die Empfänger-Gruppe auswählen und die Nachricht darf nicht leer sein"
 
 msgid "Your SMS has been delivered to queue"
 msgstr "Ihre SMS wurde an die Zustell-Queue übermittelt"
@@ -828,7 +824,7 @@ msgid "Zipcode"
 msgstr "PLZ"
 
 msgid "chars"
-msgstr ""
+msgstr "Zeichen"
 
 msgid "email"
 msgstr "Email"
@@ -837,7 +833,7 @@ msgid "failed"
 msgstr "gescheitert"
 
 msgid "format YYYY-MM-DD hh:mm"
-msgstr ""
+msgstr "Format JJJJ-MM-TT hh:mm"
 
 msgid "forward"
 msgstr "weiterleiten"
@@ -873,7 +869,7 @@ msgid "reply"
 msgstr "antworten"
 
 msgid "resend"
-msgstr ""
+msgstr "erneut senden"
 
 msgid "row"
 msgstr "Zeile"
@@ -891,7 +887,7 @@ msgid "username"
 msgstr "Benutzername"
 
 msgid "version"
-msgstr ""
+msgstr "Version"
 
 msgid "yes"
 msgstr "ja"
