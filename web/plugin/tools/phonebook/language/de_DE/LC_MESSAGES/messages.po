@@ -1,23 +1,23 @@
 msgid "Action"
-msgstr ""
+msgstr "Aktion"
 
 msgid "Add contact"
-msgstr "Kontakt hinzufgen"
+msgstr "Kontakt hinzufügen"
 
 msgid "Add group"
-msgstr "Gruppe hinzufgen"
+msgstr "Gruppe hinzufügen"
 
 msgid "Contact has been added"
-msgstr "Kontakt wurde hinzugefgt"
+msgstr "Kontakt wurde hinzugefügt"
 
 msgid "Contact has been edited"
-msgstr "Kontakt wurde gendert"
+msgstr "Kontakt wurde geändert"
 
 msgid "Contacts has been imported"
 msgstr "Kontakte wurden importiert"
 
 msgid "Delete"
-msgstr ""
+msgstr "Entfernen"
 
 msgid "Edit contact"
 msgstr "Kontakt editieren"
@@ -29,28 +29,28 @@ msgid "Email"
 msgstr "Email"
 
 msgid "Fail to delete group"
-msgstr ""
+msgstr "Fehler beim Löschen der Gruppe"
 
 msgid "Fail to upload CSV file for phonebook"
-msgstr "Fehler beim Hochladen der CSV-Datei fr Telefonbuch"
+msgstr "Fehler beim Hochladen der CSV-Datei für Telefonbuch"
 
 msgid "Group"
 msgstr "Gruppe"
 
 msgid "Group code"
-msgstr "Gruppenkrzel"
+msgstr "Gruppenkürzel"
 
 msgid "Group code has been added"
-msgstr "Gruppenkrzel wurde hinzugefgt"
+msgstr "Gruppenkürzel wurde hinzugefgt"
 
 msgid "Group code is already exists"
-msgstr "Gruppenkrzel existiert bereits"
+msgstr "Gruppenkürzel existiert bereits"
 
 msgid "Group code used by keyword"
-msgstr "Gruppenkrzel wird von einem Schlagwort verwendet"
+msgstr "Gruppenkürzel wird von einem Schlagwort verwendet"
 
 msgid "Group has been edited"
-msgstr "Gruppe wurde gendert"
+msgstr "Gruppe wurde geändert"
 
 msgid "Group name"
 msgstr "Gruppenname"
@@ -59,22 +59,22 @@ msgid "Import"
 msgstr "Import"
 
 msgid "Import above phonebook entries ?"
-msgstr "Importiere obige Telefonbucheintrge?"
+msgstr "Importiere obige Telefonbucheinträge?"
 
 msgid "Import confirmation"
-msgstr "Import-Besttigung"
+msgstr "Import-Bestätigung"
 
 msgid "Mobile"
 msgstr "Mobil"
 
 msgid "Move to"
-msgstr ""
+msgstr "Verschieben nach"
 
 msgid "Name"
 msgstr "Name"
 
 msgid "No changes has been made"
-msgstr "Es wurden KEINE nderungen vorgenommen"
+msgstr "Es wurden KEINE Änderungen vorgenommen"
 
 msgid "Note"
 msgstr "Bemerkung"
@@ -89,7 +89,7 @@ msgid "Save"
 msgstr "Speichern"
 
 msgid "Select"
-msgstr ""
+msgstr "Auswählen"
 
 msgid "Selected contact has been deleted"
 msgstr "Gewhlte Kontakte wurden gelscht"
@@ -102,24 +102,24 @@ msgid "Selected group has been deleted"
 msgstr "Gewhlte Grupppe wurde gendert"
 
 msgid "Unable to delete group until the group is empty"
-msgstr ""
+msgstr "Gruppe kann nicht gelöscht werden bevor sie nicht leer ist"
 
 msgid "You must fill all field"
-msgstr "Es mssen alle Felder ausgefllt werden"
+msgstr "Es müssen alle Felder ausgefüllt werden"
 
 #, fuzzy
 msgid "You must fill mandatory fields"
-msgstr "Es mssen alle Felder ausgefllt werden"
+msgstr "Es müssen alle Felder ausgefüllt werden"
 
 #, fuzzy
 msgid "You must fill required fields"
-msgstr "Es mssen alle Felder ausgefllt werden"
+msgstr "Es müssen alle Felder ausgefüllt werden"
 
 msgid "broadcast SMS from single SMS"
 msgstr "Sammel-SMS aus einfacher SMS "
 
 msgid "code"
-msgstr "Krzel"
+msgstr "Kürzel"
 
 msgid "format"
 msgstr "Format"
