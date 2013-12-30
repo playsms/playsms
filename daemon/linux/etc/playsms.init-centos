@@ -172,7 +172,7 @@ stop)
         fi
 
         printf "%-50s" "Stopping $DAEMOND"
-            PIDS=`cat $PIDFILED`
+            PIDD=`cat $PIDFILED`
             cd $DAEMON_PATH
         if [ -f $PIDFILED ]; then
             kill -HUP $PIDD
