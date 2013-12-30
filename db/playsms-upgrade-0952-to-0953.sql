@@ -59,7 +59,7 @@ CREATE TABLE `playsms_featureSurvey_log` (
 `in_datetime` VARCHAR( 20 ) NOT NULL DEFAULT '0000-00-00 00:00:00' ,
 `in_sender` VARCHAR( 20 ) NOT NULL ,
 `in_receiver` VARCHAR( 20 ) NOT NULL ,
-`answer` text NOT NULL ,
+`answer` text NOT NULL,
 PRIMARY KEY ( `id` )
 ) ENGINE = MYISAM DEFAULT CHARSET=utf8;
 

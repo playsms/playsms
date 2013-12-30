@@ -58,7 +58,7 @@ CREATE TABLE `playsms_featureAutoreply_scenario` (
   `autoreply_scenario_param5` varchar(20) NOT NULL DEFAULT '',
   `autoreply_scenario_param6` varchar(20) NOT NULL DEFAULT '',
   `autoreply_scenario_param7` varchar(20) NOT NULL DEFAULT '',
-  `autoreply_scenario_result` text NOT NULL DEFAULT '',
+  `autoreply_scenario_result` text NOT NULL,
   PRIMARY KEY (`autoreply_scenario_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -86,7 +86,7 @@ CREATE TABLE `playsms_featureBoard` (
   `board_keyword` varchar(100) NOT NULL DEFAULT '',
   `board_forward_email` varchar(250) NOT NULL DEFAULT '',
   `board_css` varchar(250) NOT NULL DEFAULT '',
-  `board_pref_template` text NOT NULL DEFAULT '',
+  `board_pref_template` text NOT NULL,
   PRIMARY KEY (`board_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -114,7 +114,7 @@ CREATE TABLE `playsms_featureBoard_log` (
   `in_sender` varchar(20) NOT NULL DEFAULT '',
   `in_masked` varchar(20) NOT NULL DEFAULT '',
   `in_keyword` varchar(20) NOT NULL DEFAULT '',
-  `in_msg` text NOT NULL DEFAULT '',
+  `in_msg` text NOT NULL,
   `in_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`in_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -141,7 +141,7 @@ CREATE TABLE `playsms_featureCommand` (
   `command_id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL DEFAULT '0',
   `command_keyword` varchar(10) NOT NULL DEFAULT '',
-  `command_exec` text NOT NULL DEFAULT '',
+  `command_exec` text NOT NULL,
   `command_return_as_reply` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`command_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -168,7 +168,7 @@ CREATE TABLE `playsms_featureCustom` (
   `custom_id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL DEFAULT '0',
   `custom_keyword` varchar(10) NOT NULL DEFAULT '',
-  `custom_url` text NOT NULL DEFAULT '',
+  `custom_url` text NOT NULL,
   `custom_return_as_reply` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`custom_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -251,7 +251,7 @@ CREATE TABLE `playsms_featureInboxgroup_log_in` (
   `sms_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `sms_sender` varchar(20) NOT NULL DEFAULT '',
   `keyword` varchar(100) NOT NULL DEFAULT '',
-  `message` text NOT NULL DEFAULT '',
+  `message` text NOT NULL,
   `sms_receiver` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -601,7 +601,7 @@ CREATE TABLE `playsms_featureSurvey_log` (
   `in_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `in_sender` varchar(20) NOT NULL DEFAULT '',
   `in_receiver` varchar(20) NOT NULL DEFAULT '',
-  `answer` text NOT NULL DEFAULT '',
+  `answer` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1095,7 +1095,7 @@ CREATE TABLE `playsms_tblRecvSMS` (
   `flag_processed` int(11) NOT NULL DEFAULT '0',
   `sms_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `sms_sender` varchar(20) NOT NULL DEFAULT '',
-  `message` text NOT NULL DEFAULT '',
+  `message` text NOT NULL,
   `sms_receiver` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1118,7 +1118,7 @@ CREATE TABLE `playsms_tblSMSIncoming` (
   `in_sender` varchar(100) NOT NULL DEFAULT '',
   `in_receiver` varchar(20) NOT NULL DEFAULT '',
   `in_keyword` varchar(100) NOT NULL DEFAULT '',
-  `in_message` text NOT NULL DEFAULT '',
+  `in_message` text NOT NULL,
   `in_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `in_status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`in_id`)
@@ -1151,7 +1151,7 @@ CREATE TABLE `playsms_tblSMSOutgoing` (
   `p_src` varchar(100) NOT NULL DEFAULT '',
   `p_dst` varchar(100) NOT NULL DEFAULT '',
   `p_footer` varchar(30) NOT NULL DEFAULT '',
-  `p_msg` text NOT NULL DEFAULT '',
+  `p_msg` text NOT NULL,
   `p_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `p_update` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `p_status` int(11) NOT NULL DEFAULT '0',
@@ -1193,7 +1193,7 @@ CREATE TABLE `playsms_tblSMSOutgoing_queue` (
   `gpid` int(11) NOT NULL DEFAULT '0',
   `sender_id` varchar(100) NOT NULL DEFAULT '',
   `footer` varchar(30) NOT NULL DEFAULT '',
-  `message` text NOT NULL DEFAULT '',
+  `message` text NOT NULL,
   `sms_type` varchar(100) NOT NULL DEFAULT '',
   `unicode` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -1357,7 +1357,7 @@ CREATE TABLE `playsms_toolsMsgtemplate` (
   `tid` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL DEFAULT '0',
   `t_title` varchar(100) NOT NULL DEFAULT '',
-  `t_text` text NOT NULL DEFAULT '',
+  `t_text` text NOT NULL,
   PRIMARY KEY (`tid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1446,7 +1446,7 @@ CREATE TABLE `playsms_toolsSendfromfile` (
   `sid` varchar(50) NOT NULL DEFAULT '',
   `sms_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `sms_to` varchar(50) NOT NULL DEFAULT '',
-  `sms_msg` text NOT NULL DEFAULT '',
+  `sms_msg` text NOT NULL,
   `sms_username` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
