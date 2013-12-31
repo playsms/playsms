@@ -1,8 +1,8 @@
 msgid "Add message template"
-msgstr ""
+msgstr "Nachrichten-Vorlage hinzufügen"
 
 msgid "Are you sure you want to delete these items ?"
-msgstr ""
+msgstr "Möchten Sie diese Elemente wirklich löschen?"
 
 msgid "Content"
 msgstr "Inhalt"
@@ -11,7 +11,7 @@ msgid "Edit message template"
 msgstr "Editiere Nachrichten-Vorlage"
 
 msgid "Fail to add message template"
-msgstr "Fehler beim Hinzufgen der Nachrichten-Vorlage"
+msgstr "Fehler beim Hinzufügen der Nachrichten-Vorlage"
 
 msgid "Fail to edit message template"
 msgstr "Fehler beim Editieren der Nachrichten-Vorlage"
@@ -35,19 +35,19 @@ msgid "Name"
 msgstr "Name"
 
 msgid "Notes"
-msgstr ""
+msgstr "Anmerkungen"
 
 msgid "Save"
 msgstr "Speichern"
 
 msgid "Selected message template has been deleted"
-msgstr "Gewhlte Nachrichten-Vorlage wurde gelscht"
+msgstr "Gewählte Nachrichten-Vorlage wurde gelöscht"
 
 msgid "You must fill all fields"
-msgstr "Es mssen alle Felder ausgefllt werden"
+msgstr "Es müssen alle Felder ausgefüllt werden"
 
 msgid "will be replaced with the name listed in phonebook"
-msgstr ""
+msgstr "wird durch Name aus dem Telefonbuch ersetzt"
 
 msgid "will be replaced with the phone number listed in phonebook"
-msgstr ""
+msgstr "wird durch die Rufnummer aus dem Telefonbuch ersetzt"
