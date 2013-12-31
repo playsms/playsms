@@ -1,0 +1,26 @@
+msgid "Action"
+msgstr "Aktion"
+
+msgid "Are you sure you want to delete queue"
+msgstr "Möchten Sie wirklich die Warteschlange löschen?"
+
+msgid "Count"
+msgstr "Anzahl"
+
+msgid "Message"
+msgstr "Nachricht"
+
+msgid "Queue Code"
+msgstr "Queue Code"
+
+msgid "Queue has been remove"
+msgstr "Queue wurde gelöscht"
+
+msgid "Scheduled"
+msgstr "Geplant"
+
+msgid "User"
+msgstr "Benutzer"
+
+msgid "View SMS queue"
+msgstr "Zeige SMS Queue"
