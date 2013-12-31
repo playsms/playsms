@@ -12,7 +12,7 @@ msgid "Confirmation"
 msgstr "Bestätigung"
 
 msgid "Destination number"
-msgstr "Zielnummer"
+msgstr "Zielrufnummer"
 
 msgid "Fail to remove cancelled entries from database"
 msgstr "Fehler beim Löschen abgebrochener Einträge aus der Datenbank"
@@ -69,7 +69,7 @@ msgid "format : destination number, message"
 msgstr "Format: Zielrufnummer, Nachricht"
 
 msgid "format : destination number, message, username"
-msgstr "Format: zielrufnummer, Nachricht, Benutzername"
+msgstr "Format: Zielrufnummer, Nachricht, Benutzername"
 
 msgid "invalid entries"
 msgstr "Ungültige Einträge"
