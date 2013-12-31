@@ -148,6 +148,9 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 		$sms_receiver = ( $ret_intercept['param']['sms_receiver'] ? $ret_intercept['param']['sms_receiver'] : $sms_receiver );
 	}
 
+	// log it
+	logger_print("dt:".$sms_datetime." sender:".$sms_sender." m:".$message." receiver:".$sms_receiver, 3, "setsmsincomingaction");
+
 	// if hooked function returns cancel=true then stop the processing incoming sms, return false
 	if ($ret_intercept['cancel']) {
 		logger_print("cancelled datetime:".$sms_datetime." sender:".$sms_sender." receiver:".$sms_receiver." message:".$message, 3, "setsmsincomingaction");
