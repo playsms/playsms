@@ -452,9 +452,9 @@ class DB
 
         if (isset($options['debug']) && $options['debug'] >= 2) {
             // expose php errors with sufficient debug level
-            include_once "DB/{$type}.php";
+            include_once LIBS."DB/{$type}.php";
         } else {
-            @include_once "DB/{$type}.php";
+            @include_once LIBS."DB/{$type}.php";
         }
 
         $classname = "DB_${type}";
@@ -530,9 +530,9 @@ class DB
 
         if (isset($options['debug']) && $options['debug'] >= 2) {
             // expose php errors with sufficient debug level
-            include_once "DB/${type}.php";
+            include_once LIBS."DB/${type}.php";
         } else {
-            @include_once "DB/${type}.php";
+            @include_once LIBS."DB/${type}.php";
         }
 
         $classname = "DB_${type}";
