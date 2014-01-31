@@ -679,7 +679,9 @@ msgid "User configuration has been saved and password updated"
 msgstr "BenutzerEinstellungen wurden gespeichert und das Passwort aktualisiert"
 
 msgid "User configuration has been saved and webservices token updated"
-msgstr "Benutzereinstellungen wurden gespeichert und der Webservice-Token aktualisiert"
+msgstr ""
+"Benutzereinstellungen wurden gespeichert und der Webservice-Token "
+"aktualisiert"
 
 msgid "User does not exists"
 msgstr "Benutzer existiert nicht"
@@ -709,7 +711,9 @@ msgid "Username should be at least 3 characters"
 msgstr "Benutzername muss mindestens 3 Zeichen lang sein"
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
-msgstr "Zulässige Zeichen für den Benutzernamen sind Buchstaben, Zahlen, Punkt oder Gedankenstrich"
+msgstr ""
+"Zulässige Zeichen für den Benutzernamen sind Buchstaben, Zahlen, Punkt oder "
+"Gedankenstrich"
 
 msgid "View"
 msgstr "Anzeigen"
@@ -766,10 +770,13 @@ msgid "You must fill all fields"
 msgstr "Sie müssen alle Felder ausfüllen"
 
 msgid "You must select receiver and your message should not be empty"
-msgstr "Sie müssen den Empfänger auswählen und die Nachricht darf nicht leer sein"
+msgstr ""
+"Sie müssen den Empfänger auswählen und die Nachricht darf nicht leer sein"
 
 msgid "You must select receiver group and your message should not be empty"
-msgstr "Sie müssen die Empfänger-Gruppe auswählen und die Nachricht darf nicht leer sein"
+msgstr ""
+"Sie müssen die Empfänger-Gruppe auswählen und die Nachricht darf nicht leer "
+"sein"
 
 msgid "Your SMS has been delivered to queue"
 msgstr "Ihre SMS wurde an die Zustell-Queue übermittelt"
