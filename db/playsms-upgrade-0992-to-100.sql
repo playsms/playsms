@@ -31,3 +31,4 @@ INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `
 -- 1.0.0
 
 UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0.0' WHERE `id` = 1 ;
+ALTER TABLE  `playsms_toolsPhonebook_group` ADD  `flag_sender` INT NOT NULL DEFAULT  '0' ;

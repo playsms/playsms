@@ -1412,6 +1412,7 @@ CREATE TABLE `playsms_toolsPhonebook_group` (
   `uid` int(11) NOT NULL DEFAULT '0',
   `name` varchar(100) NOT NULL DEFAULT '',
   `code` varchar(20) NOT NULL DEFAULT '',
+  `flag_sender` int(11) NOT NULL DEFAULT  '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1595,7 +1596,7 @@ CREATE TABLE IF NOT EXISTS `playsms_tblRegistry` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
-INSERT INTO `playsms_tblRegistry` (`c_timestamp`, `id`, `uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) VALUES (0, 1, 1, 'core', 'config', 'playsms_version', '1.0');
+INSERT INTO `playsms_tblRegistry` (`c_timestamp`, `id`, `uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) VALUES (0, 1, 1, 'core', 'config', 'playsms_version', '1.0.0');
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
