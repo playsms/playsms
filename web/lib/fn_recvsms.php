@@ -230,6 +230,7 @@ function recvsms_inbox_add_intercept($sms_datetime,$sms_sender,$target_user,$mes
 	$ret_final = array();
 	// feature list
 	for ($c=0;$c<count($core_config['featurelist']);$c++) {
+		$ret = core_hook($core_config['featurelist'][$c],'recvsms_inbox_add_intercept',array($sms_datetime,$sms_sender,$target_user,$message,$sms_receiver));
 		if ($ret['modified']) {
 			$ret_final['modified'] = $ret['modified'];
 			$ret_final['param']['sms_datetime'] = $ret['param']['sms_datetime'];
@@ -243,10 +244,12 @@ function recvsms_inbox_add_intercept($sms_datetime,$sms_sender,$target_user,$mes
 			$message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
 			$sms_receiver = ( $ret['param']['sms_receiver'] ? $ret['param']['sms_receiver'] : $sms_receiver );
 		}
-		$ret = core_hook($core_config['featurelist'][$c],'recvsms_inbox_add_intercept',array($sms_datetime,$sms_sender,$target_user,$message,$sms_receiver));
+		if ($ret['uid']) { $ret_final['uid'] = $ret['uid']; };
+		if ($ret['hooked']) { $ret_final['hooked'] = $ret['hooked']; };
 	}
 	// tools list
 	for ($c=0;$c<count($core_config['toolslist']);$c++) {
+		$ret = core_hook($core_config['toolslist'][$c],'recvsms_inbox_add_intercept',array($sms_datetime,$sms_sender,$target_user,$message,$sms_receiver));
 		if ($ret['modified']) {
 			$ret_final['modified'] = $ret['modified'];
 			$ret_final['param']['sms_datetime'] = $ret['param']['sms_datetime'];
@@ -260,7 +263,8 @@ function recvsms_inbox_add_intercept($sms_datetime,$sms_sender,$target_user,$mes
 			$message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
 			$sms_receiver = ( $ret['param']['sms_receiver'] ? $ret['param']['sms_receiver'] : $sms_receiver );
 		}
-		$ret = core_hook($core_config['toolslist'][$c],'recvsms_inbox_add_intercept',array($sms_datetime,$sms_sender,$target_user,$message,$sms_receiver));
+		if ($ret['uid']) { $ret_final['uid'] = $ret['uid']; };
+		if ($ret['hooked']) { $ret_final['hooked'] = $ret['hooked']; };
 	}
 	return $ret_final;
 }
