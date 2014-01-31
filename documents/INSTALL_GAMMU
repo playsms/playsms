@@ -82,7 +82,3 @@ II. Install with apt-get
 6. Run gammu-smsd
     # /etc/init.d/gammu-smsd start
    Note: You don't need to put the script in /etc/rc.local
-
-
---
-Anton Raharja

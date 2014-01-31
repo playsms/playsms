@@ -288,4 +288,3 @@ EXAMPLE
 
    if error occured returns one of the ERROR RETURNS mentioned above,
    also in JSON format
-

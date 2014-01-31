@@ -56,7 +56,3 @@ Step by step how to install SMS Server Tools for playSMS as follows:
 Note if you are using Ubuntu or Debian and alike:
 - To get smstools3 running automatically on every boot, type this command:
     # update-rc.d sms3 defaults
-
-
---
-Anton Raharja

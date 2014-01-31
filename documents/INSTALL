@@ -1,22 +1,24 @@
 DESCRIPTION
 -----------
 
-This document explain about how to install and setup playSMS
+This document explains about how to install and setup playSMS version 1.0
 
 
 REQUIREMENT
 -----------
 
-Minimum Required Hardware
+Minimum required hardware:
 - Web server capable hardware
-- GSM modem, single/modem pool (optional, only when you plan to use Kannel,
-  Gammu, Gnokii or smstools gateway plugins)
-- Internet connection (optional, only when you plan to use Clickatell, Nexmo,
-  Twilio, Infobip gateway plugins)
-- LAN (optional, only when you plan to link 2 playSMS on different server in
-  the same network using Uplink gateway plugin)
 
-Minimum Required Software
+Optional hardware or infrastructure:
+- GSM modem, single/modem pool (only when you plan to use Kannel, Gammu, Gnokii
+  or smstools gateway plugins)
+- Internet connection (only when you plan to use Clickatell, Nexmo, Twilio,
+  Infobip gateway plugins)
+- LAN (only when you plan to link 2 playSMS on different server in the same
+  network using Uplink gateway plugin)
+
+Minimum required softwares:
 - Operating System Linux (install on MS Windows or BSD is possible)
 - Web Server (for example Apache2, nginx or lighttpd)
 - Database Server MySQL 5.x.x or latest stable release
@@ -28,7 +30,8 @@ Minimum Required Software
 - lynx, wget or curl, a console web browser (example scripts require lynx)
 - Downloaded playSMS package from SF.net or latest source code from Github
 
-Minimum Required Server Administrator (or Developer)
+Minimum required server administrator (or developer):
+- Understand howto make sure required softwares are installed
 - Understand howto make sure installed PHP has MySQL module enabled/loaded
 - Understand howto create/drop MySQL database
 - Understand howto insert SQL statements into created database
@@ -38,11 +41,11 @@ Minimum Required Server Administrator (or Developer)
 INSTALLATION
 ------------
 
-There are 2 methods available to install playSMS:
+There are 2 methods explained in this document to install playSMS:
 1. INSTALLATION on Linux using install-script
 2. INSTALLATION on Linux step by step
 
-If you are using Ubuntu server, relatively new and not much core changes, then
+If you are using Ubuntu server, relatively fresh and not much core changes, then
 I suggest you to use 1st method, using install-script.
 
 
@@ -53,22 +56,19 @@ playSMS Web Interface using install script:
 
 1.  Extract playSMS package somewhere (Usually in /usr/local/src).
 
-    # tar -zxf playsms-x.x.x.tar.gz -C /usr/local/src
-
-    Note: x.x.x may vary according to the package name you've download.
-          For example playsms-1.0.tar.gz
+    # tar -zxf playsms-1.0.0.tar.gz -C /usr/local/src
 
 2.  Edit install.conf, read it, understand it and make changes to suit your
     system configuration
 
-    # cd /usr/local/src/playsms-x.x.x/contrib/installer
+    # cd /usr/local/src/playsms-1.0.0/contrib/installer
 
     # vi install.conf
 
 3.  Run installer script. Be warned that the script have been tested only on 
     Ubuntu server or desktop.
 
-    # cd /usr/local/src/playsms-x.x.x/contrib/installer
+    # cd /usr/local/src/playsms-1.0.0/contrib/installer
 
     # ./install-playsms-ubuntu.sh
 
@@ -99,7 +99,6 @@ playSMS Web Interface using install script:
       password: admin
 
 
-
 2. INSTALLATION on Linux step by step
 -------------------------------------
 
@@ -107,10 +106,7 @@ playSMS Web Interface step-by-step installation:
 
 1.  Extract playSMS package somewhere (Usually in /usr/local/src).
 
-    # tar -zxf playsms-x.x.x.tar.gz -C /usr/local/src
-
-    Note: x.x.x may vary according to the package name you've download.
-          For example playsms-1.0.tar.gz
+    # tar -zxf playsms-1.0.0.tar.gz -C /usr/local/src
 
 2.  Create playSMS web root, spool and log and set ownership to user www-data or
     web server user
@@ -127,7 +123,7 @@ playSMS Web Interface step-by-step installation:
 3.  Copy files and directories inside 'web' directory to playSMS web root and
     set ownership again to user www-data or web server user, just to make sure
 
-    # cp -rR /usr/local/src/playsms-x.x.x/web/* /var/www/playsms
+    # cp -rR /usr/local/src/playsms-1.0.0/web/* /var/www/playsms
 
     # chown -R www-data /var/www/playsms
 
@@ -135,7 +131,7 @@ playSMS Web Interface step-by-step installation:
 
     # mysqladmin -u root -p create playsms
 
-    # mysql -u root -p playsms < /usr/local/src/playsms-x.x.x/db/playsms.sql
+    # mysql -u root -p playsms < /usr/local/src/playsms-1.0.0/db/playsms.sql
 
     Note: You don't need to use MySQL root access nor this method to setup
           playSMS database, but this is beyond our scope. You should read MySQL
@@ -154,9 +150,9 @@ playSMS Web Interface step-by-step installation:
 
     # mkdir -p /etc/default /usr/local/bin
 
-    # cp /usr/local/src/playsms-x.x.x/daemon/linux/etc/playsms /etc/default/
+    # cp /usr/local/src/playsms-1.0.0/daemon/linux/etc/playsms /etc/default/
 
-    # cp -rR /usr/local/src/playsms-x.x.x/daemon/linux/bin/* /usr/local/bin/
+    # cp -rR /usr/local/src/playsms-1.0.0/daemon/linux/bin/* /usr/local/bin/
 
 7.  Just to make sure every paths are correct, please edit /etc/default/playsms
 
@@ -174,7 +170,7 @@ playSMS Web Interface step-by-step installation:
        (like Ubuntu), you may use contributed init script. Copy the init script
        to /etc/init.d/ and program it to start at boot
 
-       # cp /usr/local/src/playsms-x.x.x/daemon/linux/etc/playsms.init-ubuntu \
+       # cp /usr/local/src/playsms-1.0.0/daemon/linux/etc/playsms.init-ubuntu \
          /etc/init.d/playsms
 
        # update-rc.d playsms defaults
@@ -222,11 +218,9 @@ playSMS Web Interface step-by-step installation:
       password: admin
 
 
-
 If you have GSM modem and plan to use it with playSMS, please continue to follow
 instructions in INSTALL_SMSSERVERTOOLS to use SMS Server Tools (smstools3) as
 your gateway module, or follow INSTALL_KANNEL if you want to use Kannel.
 
 Gnokii and Gammu also supported, please follow INSTALL_GNOKII if you want to use
 Gnokii as your gateway module, or INSTALL_GAMMU if you want to use Gammu.
-

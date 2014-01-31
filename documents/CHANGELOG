@@ -1,7 +1,7 @@
 CHANGELOG
 ---------
 
-Version 1.0 - 131231
+Version 1.0 - 140203
 
 - MAJOR: add core_call_hook(), utilizing debug_backtrace() to replace the way
          functions call hooking plugin's functions

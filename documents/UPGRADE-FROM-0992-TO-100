@@ -1,16 +1,17 @@
 UPGRADE
 -------
-Upgrade to playSMS version 1.0-beta1 from unmodified playSMS version 0.9.9.2
+
+Upgrade to playSMS version 1.0.0 from unmodified playSMS version 0.9.9.2
 
 Assumed that your old playSMS (0.9.9.2) was installed like this:
 - Your playSMS 0.9.9.2 web location is in /var/www/playsms/
 - Your playSMS 0.9.9.2 daemon files location are in /usr/local/bin/
 - Your playSMS 0.9.9.2 database name is 'playsms'
 
-And, assumed that your new playSMS (1.0-beta1) was extracted at:
+And, assumed that your new playSMS (1.0.0) was extracted at:
 - /usr/local/src/playsms
 
-Follow below steps carefully to upgrade from unmodified 0.9.9.2 to 1.0-beta1:
+Follow below steps carefully to upgrade from unmodified 0.9.9.2 to 1.0.0:
 
 1. Stop playsmsd and sendsmsd:
 
@@ -37,14 +38,10 @@ Follow below steps carefully to upgrade from unmodified 0.9.9.2 to 1.0-beta1:
 4. Update database:
 
 	cd /usr/local/src/playsms
-	mysql -uroot -p playsms < db/playsms-upgrade-0992-to-10.sql
+	mysql -uroot -p playsms < db/playsms-upgrade-0992-to-100.sql
 
 5. Start again playsmsd and sendsmsd:
 
 	/etc/init.d/playsms start
 
 6. Upgrade complete, browse playSMS as usual.
-
-
---
-Anton Raharja

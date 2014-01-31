@@ -1,5 +1,6 @@
 UPGRADE
 -------
+
 Upgrade to playSMS version 0.9.7 from unmodified playSMS version 0.9.6
 
 Steps to upgrade:
@@ -13,7 +14,3 @@ Steps to upgrade:
     for example:
     # cd [this playSMS package directory]/db
     # mysql -u [database username] -p [old playSMS database name] < playsms-upgrade-096-to-097.sql
-
-
---
-Anton Raharja

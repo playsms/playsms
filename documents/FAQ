@@ -1,17 +1,14 @@
 FAQ (Frequently Asked Questions)
 --------------------------------
 
-Q: Why the core codes are licensed as GPL version 2?
-A: GPL is one of the open source license, choosing this will force 
-   users or developers to contribute back when they modify the core.
-
-Q: Why plugins and API related codes are licensed as LGPL?
-A: So that you can create your own or modify from others a playSMS 
-   plugins and merge them with your proprietary software comfortably.
+Q: Why is playSMS licensed as GPL version 3?
+A: GPLv3 is one of the open source license, choosing this will force
+   anyone distributing this software to contribute back when they modify it.
 
 
 A. LOGIN
 --------
+
 1.  How to login for the first time after installation?
     Answer:
     Browse playSMS URL and login with username admin and password admin
@@ -29,6 +26,7 @@ A. LOGIN
 
 B. SEND SMS
 -----------    
+
 1.  How to send one SMS from web?
     Answer:
     Use Send SMS page.
@@ -73,6 +71,7 @@ B. SEND SMS
 
 C. RECEIVE SMS
 --------------    
+
 1.  Can I receive SMS?
     Answer:
     Yes, your incoming SMS are stored on your Inbox. Current version
@@ -99,29 +98,29 @@ C. RECEIVE SMS
     Answer:
     When you create a group in your phonebook you will be asked for 
     a Group Code. Use that Group Code as parameter to forward SMS to 
-    group using special keyword BC you may forward SMS to your group:
-        BC [group code] [your message]
+    group using special character # you can forward SMS to your group:
+        #[group code] [your message]
     or as long as the SMS contains #[group code] (since playSMS 0.9.8)
 
     eg: 
-	BC DEV thx for joining our crussade :)
-	bc DEV dont forget to read function.php
-	Bc DEV testing only, sending this SMS to group code DEV
+	#DEV thx for joining our crussade :)
 	#DEV its nice to meet you all
+	#Dev dont forget to read function.php
+	#dev testing only, sending this SMS to group code DEV
 	To all of you in #DEV please get this bug fixed asap!
 
-    Note: playSMS will use Mobile number sets in user Preferences to
-    authenticate keyword BC
+    Note: playSMS will use Mobile number sets in user's Preferences menu to
+    authenticate this feature
 
 4.  What happened to the received/incoming SMS without keyword PV 
     or keyword (or messages) with @ sign ?
     Answer:
-    They will only be shown in All Incoming SMS menu as an 'unhandled' 
-    SMS where only admin users have access to them.
+    They will only be shown in Sandbox menu, only administrators can view them.
 
 
 D. WEBSERVICES
 --------------
+
 1.  Can I use my own application or 3rd party application to send SMS
     using playSMS?
     Answer:
@@ -131,12 +130,13 @@ D. WEBSERVICES
 2.  Can I retrieve delivery status remotely so I can process it from
     other application?
     Answer:
-    Yes, delivery statuses are retrieved in CSV or XML format, more 
-    information about this feature can be read in docs/WEBSERVICES
+    Yes, delivery statuses are retrieved in CSV, XML and some other formats.
+    More information about this feature can be read in docs/WEBSERVICES
 
 
 E. SMS BOARD
 ------------
+
 1.  What is SMS board?
     Answer:
     Administrator can add new SMS board with keyword other than PV and
@@ -177,6 +177,7 @@ E. SMS BOARD
 
 F. SMS COMMAND
 --------------    
+
 1.  Can I command server todo something?
     Answer:
     Yes. Login as admin user and configure SMS command feature.
@@ -213,6 +214,7 @@ F. SMS COMMAND
 
 G. SMS CUSTOM
 -------------    
+
 1.  What is SMS custom?
     Answer:
     SMS custom is used to process incoming SMS by passing the SMS
@@ -247,6 +249,7 @@ G. SMS CUSTOM
 
 H. SMS POLL
 -----------
+
 1.  How to use SMS poll system?
     Answer:
     Add new poll or list/edit/delete it. Write down poll keyword and 
@@ -278,6 +281,7 @@ H. SMS POLL
 
 I. SMS QUIZ
 -----------
+
 1.  What is SMS quiz system?
     Answer:
     Administrator can add quiz keywords, questions and answers, and 
@@ -300,6 +304,7 @@ I. SMS QUIZ
     
 J. SMS SUBSCRIBE
 ----------------
+
 1.  What is SMS subscribe system?
     Answer:
     Administrator can add SMS keyword which people can subscribe to.
@@ -327,6 +332,7 @@ J. SMS SUBSCRIBE
 
 K. GATEWAY MODULE
 -----------------    
+
 1.  I've heard that from version 0.5 playSMS support any gateway other
     than gnokii. Is this true?
     Answer:
@@ -365,6 +371,7 @@ K. GATEWAY MODULE
 
 L. SMS RATE AND CREDIT
 ----------------------
+
 1.  What is Manage SMS rate menu in Administration drop-down menu?
     Answer:
     It is where administrator can set rate by prefix.
@@ -394,11 +401,13 @@ L. SMS RATE AND CREDIT
 
 M. CONTACT
 ----------    
+
 1.  Is there any place where I can discuss playSMS matters?
     Answer:
-    Yes. playSMS mailing list. It is intended for general users but
-    focus on developers. Please join the group by sending empty email
-    to playsms-devel-subscribe@yahoogroups.com
+    Yes. playSMS user group forum or mailing list. It is intended for general
+    users but focus on developers.
+    Please visit and join the group:
+    http://groups.google.com/group/playsmsusergroup
 
 2.  What is the official website for playSMS?
     Answer:
@@ -406,15 +415,12 @@ M. CONTACT
 
 3.  Should I tell you guys when I install playSMS on my site?
     Answer:
-    Please send email to the mailing list.
+    No, its not mandatory, but it would be a great info for the rest.
     
 4.  If I have wishes, what should I do?
     Answer:
     If its about playSMS, please visit http://www.playsms.org/support
-    If its about your life, you have to stay on your path, be brave
-    and never give up!
     
 5.  If I found bugs and/or security holes, what should I do?
     Answer:
     Please visit http://www.playsms.org/support
-

@@ -1,5 +1,6 @@
 INSTALL GNOKII
 --------------
+
 If you want to use default gateway module (gnokii), then you must install gnokii on the 
 same server where playSMS installed. 
 
@@ -72,7 +73,3 @@ II  Gnokii installation from source:
     on the bottom of the file (before exit if theres exit command). This way gnokii_smsd_start 
     will start automatically on boot. 
     Note: you need 'root' access to do this
-
-
---
-Anton Raharja

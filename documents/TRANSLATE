@@ -7,6 +7,7 @@ NOTE: playsms is using a layered structure for the translations, so for
 
 CREATE NEW TRANSLATIONS
 -----------------------
+
 To create a NEW tranlation of playsms, you will have copy the translation template
  to your destination language
 For example, to translate from english (en_US) to catalan (ca_ES) you should do the
@@ -78,6 +79,3 @@ For any time there are new .po files their correspondant .mo files need to be
 
 ##To regenerate the .mo file from the .po files on the system (/var/www/playsms is you web path)
 bash 3-regenerating-mo-files.sh /var/www/playsms
-
---
-Joan

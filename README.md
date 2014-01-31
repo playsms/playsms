@@ -3,13 +3,13 @@ README
 
 playSMS version 1.0
 
-Release date 131231
+Release date 140203
 
 Official project website:
 
 http://playsms.org
 
-Official playSMS user group forum:
+Official playSMS user group forum and mailing list:
 
 http://groups.google.com/group/playsmsusergroup
 
@@ -21,9 +21,9 @@ http://facebook.com/playsmsusergroup
 Description
 -----------
 
-playSMS is a free and open source SMS software. A flexible Web-based mobile
-portal system that it can be made to fit to various services such as an SMS
-gateway, bulk SMS provider, personal messaging system, corporate and group
+playSMS is a free and open source SMS management software. A flexible Web-based
+mobile portal system that it can be made to fit to various services such as an
+SMS gateway, bulk SMS provider, personal messaging system, corporate and group
 communication tools
 
 
@@ -34,19 +34,19 @@ Feature Highlights
 - Send SMS to single mobile phone (web2mobile)
 - Send SMS broadcasted to a group of mobile phones (web2mobiles, bulk SMS)
 - Support sending text, flash and unicode message
-- Capable of handling large amount of SMS (500k SMS monthly)
+- Capable of handling large amount of SMS (user reports 500k SMS monthly)
 - Receive private SMS to Inbox and forward it to email (mobile2web)
 - Forward single SMS from mobile to a group of mobile phones (mobile2mobiles)
 - SMS autoreply, for easy autoreplying formatted incoming SMS
 - SMS board, forward received SMS to email, export output in JSON and a few
   other formats
 - SMS command, execute server side shell script using SMS
-- SMS custom, forward incoming SMS to custom apps, locally or external URL
+- SMS custom, forward incoming SMS to custom apps, locally or on external URL
 - SMS poll, manage polling system using SMS, export output in graph, JSON and
   other formats
 - SMS quiz, serve quizzes on SMS
 - SMS subscribe, manage user subscribes to a service using SMS
-- SMS sync to utilize SMSSync app from smssync.ushahidi.com
+- SMS sync to utilize SMSSync app from http://smssync.ushahidi.com
 - Create your own features, tools, themes and gateway modules as a plugin
 - Supports Gammu, Gnokii, Kannel, SMS Server Tools, Msgtoolbox, Uplink, Nexmo,
   Twilio, Infobip and Clickatell
@@ -76,7 +76,7 @@ WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
 A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with
-playSMS.  If not, see <http://www.gnu.org/licenses/>.
+playSMS. If not, see <http://www.gnu.org/licenses/>.
 
 You may find detail information about GPLv3 here:
 http://www.gnu.org/licenses/gpl-3.0.html

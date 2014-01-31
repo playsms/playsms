@@ -1,5 +1,6 @@
 UPGRADE
 -------
+
 Upgrade to playSMS version 0.9.9 from unmodified playSMS version 0.9.8
 
 Please note, it is assumed that your old playSMS was installed this way:
@@ -44,7 +45,3 @@ Start again playsmsd and sendsmsd:
 /etc/init.d/playsms start
 
 Upgrade complete, browse playSMS as usual.
-
-
---
-Anton Raharja
