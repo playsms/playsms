@@ -146,6 +146,7 @@ switch ($op) {
 			case 'add':
 				$group_name = $_POST['group_name'];
 				$group_code = strtoupper(trim($_POST['group_code']));
+				$group_code = core_sanitize_alphanumeric($group_code);
 				$uid = $core_config['user']['uid'];
 				$_SESSION['error_string'] = _('You must fill all field');
 				if ($group_name && $group_code) {
@@ -166,6 +167,7 @@ switch ($op) {
 				$gpid = $_POST['gpid'];
 				$group_name = $_POST['group_name'];
 				$group_code = strtoupper(trim($_POST['group_code']));
+				$group_code = core_sanitize_alphanumeric($group_code);
 				$uid = $core_config['user']['uid'];
 				$_SESSION['error_string'] = _('You must fill all field');
 				if ($gpid && $group_name && $group_code) {
@@ -185,5 +187,3 @@ switch ($op) {
 		}
 		break;
 }
-
-?>

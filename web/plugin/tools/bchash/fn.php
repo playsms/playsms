@@ -51,13 +51,8 @@ function bchash_handle($in) {
 	}
 	$y = array_unique($x);
 	foreach ($y as $key => $c_group_code) {
-		$c_group_code = str_replace(',', '', $c_group_code);
-		$c_group_code = str_replace(':', '', $c_group_code);
-		$c_group_code = str_replace(';', '', $c_group_code);
-		$c_group_code = str_replace('!', '', $c_group_code);
-		$c_group_code = str_replace('?', '', $c_group_code);
-		$c_group_code = str_replace("'", '', $c_group_code);
-		$c_group_code = str_replace('"', '', $c_group_code);
+		$c_group_code = strtoupper($c_group_code);
+		$c_group_code = core_sanitize_alphanumeric($c_group_code);
 		if ($c_uid && ($c_gpid = phonebook_groupcode2id($c_uid, $c_group_code))) {
 			$c_username = user_uid2username($c_uid);
 			logger_print("bc g:".$c_group_code." gpid:".$c_gpid." uid:".$c_uid." dt:".$in['sms_datetime']." s:".$in['sms_sender']." r:".$in['sms_receiver']." m:".$in['message'], 3, "bchash");
@@ -69,5 +64,3 @@ function bchash_handle($in) {
 	}
 	return $ret;
 }
-
-?>
