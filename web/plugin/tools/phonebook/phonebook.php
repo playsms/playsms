@@ -74,13 +74,13 @@ switch ($op) {
 			$mobile = $list[$j]['mobile'];
 			$email = $list[$j]['email'];
 			$group_code = "";
-			$groupfields = 'B.id AS id, B.code AS code';
+			$groupfields = 'B.id AS id, B.code AS code, B.flag_sender AS flag_sender';
 			$groupconditions = array('B.uid' => $core_config['user']['uid'], 'C.pid' => $list[$j]['pid']);
 			$groupextras = array('ORDER BY' => 'B.code ASC', 'LIMIT' => $nav['limit']);
 			$groupjoin = 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group_contacts AS C ON C.gpid = B.id';
 			$grouplist = dba_search(_DB_PREF_.'_toolsPhonebook_group AS B', $groupfields, $groupconditions, '', $groupextras, $groupjoin);
 			for ($k=0;$k<count($grouplist);$k++) {
-				$group_code .= "<a href=\"index.php?app=menu&inc=tools_phonebook&route=group&op=edit&gpid=".$grouplist[$k]['id']."\">".strtoupper($grouplist[$k]['code'])."</a>&nbsp;";
+				$group_code .= $phonebook_flag_sender[$grouplist[$k]['flag_sender']]."<a href=\"index.php?app=menu&inc=tools_phonebook&route=group&op=edit&gpid=".$grouplist[$k]['id']."\">".strtoupper($grouplist[$k]['code'])."</a><br />";
 			}
 			$i--;
 			$c_i = "<a href=\"index.php?app=menu&inc=tools_phonebook&op=phonebook_edit&id=".$pid."\">".$i.".</a>";

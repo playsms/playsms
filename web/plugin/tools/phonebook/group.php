@@ -12,7 +12,7 @@ switch ($op) {
 		$count = dba_count(_DB_PREF_.'_toolsPhonebook_group', $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'name', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$fields = 'id, name, code';
+		$fields = 'id, name, code, flag_sender';
 		$list = dba_search(_DB_PREF_.'_toolsPhonebook_group', $fields, $conditions, $keywords, $extras);
 
 		$content = "
@@ -44,11 +44,12 @@ switch ($op) {
 			$gpid = $list[$j]['id'];
 			$name = $list[$j]['name'];
 			$code = $list[$j]['code'];
+			$flag_sender = (int) $list[$j]['flag_sender'];
 			$i++;
 			$content .= "
 				<tr>
 					<td><a href='index.php?app=menu&inc=tools_phonebook&route=group&op=edit&gpid=".$gpid."'>$name</a></td>
-					<td>$code</td>
+					<td>".$phonebook_flag_sender[$flag_sender]." ".$code."</td>
 					<td>
 						<a href='index.php?app=menu&inc=tools_phonebook&route=group&op=actions&go=delete&gpid=".$gpid."' onClick=\"return SureConfirm();\">".$core_config['icon']['delete']."</a>
 					</td>
@@ -68,6 +69,10 @@ switch ($op) {
 		echo $content;
 		break;
 	case "add":
+		$option_flag_sender = "
+			<option value='0'>"._('Me only')."</option>
+			<option value='1'>"._('Members')."</option>
+			<option value='2'>"._('Anyone')."</option>";
 		$content = "
 			<h2>"._('Phonebook')."</h2>
 			<h3>"._('Add group')."</h3>
@@ -84,6 +89,10 @@ switch ($op) {
 					<td>"._('Group code')."</td>
 					<td><input type=text name=group_code size=10> "._hint(_('Group code used by keyword')." BC ("._('broadcast SMS from single SMS').") "._('please use uppercase and make it short')."")."</td>
 				</tr>
+				<tr>
+					<td>"._('Allow broadcast from mobile')."</td>
+					<td><select name=flag_sender>".$option_flag_sender."</select></td>
+				</tr>
 			</tbody>
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\"> 
@@ -93,6 +102,12 @@ switch ($op) {
 		break;
 	case "edit":
 		$gpid = $_REQUEST['gpid'];
+		$group = phonebook_getgroupbyid($gpid);
+		${'selected_'.$group['flag_sender']} = 'selected';
+		$option_flag_sender = "
+			<option value='0' $selected_0>"._('Me only')."</option>
+			<option value='1' $selected_1>"._('Members')."</option>
+			<option value='2' $selected_2>"._('Anyone')."</option>";
 		$content = "
 			<h2>"._('Phonebook')."</h2>
 			<h3>"._('Edit group')."</h3>
@@ -109,6 +124,10 @@ switch ($op) {
 			<tr>
 				<td>"._('Group code')."</td>
 				<td><input type=text name=group_code value=\"".phonebook_groupid2code($gpid)."\" size=10> "._hint(_('please use uppercase and make it short'))."</td>
+			</tr>
+			<tr>
+				<td>"._('Allow broadcast from mobile')."</td>
+				<td><select name=flag_sender>".$option_flag_sender."</select></td>
 			</tr>
 			</tbody>
 			</table>
@@ -147,6 +166,7 @@ switch ($op) {
 				$group_name = $_POST['group_name'];
 				$group_code = strtoupper(trim($_POST['group_code']));
 				$group_code = core_sanitize_alphanumeric($group_code);
+				$flag_sender = (int) $_POST['flag_sender'];
 				$uid = $core_config['user']['uid'];
 				$_SESSION['error_string'] = _('You must fill all field');
 				if ($group_name && $group_code) {
@@ -155,7 +175,12 @@ switch ($op) {
 					if ($db_row = dba_fetch_array($db_result)) {
 						$_SESSION['error_string'] = _('Group code is already exists')." ("._('code').": $group_code)";
 					} else {
-						$db_query = "INSERT INTO "._DB_PREF_."_toolsPhonebook_group (uid,name,code) VALUES ('$uid','$group_name','$group_code')";
+						$db_query = "SELECT flag_sender FROM "._DB_PREF_."_toolsPhonebook_group WHERE code='$group_code' AND flag_sender<>0";
+						$db_result = dba_query($db_query);
+						if ($db_row = dba_fetch_array($db_result)) {
+							$flag_sender = 0;
+						}
+						$db_query = "INSERT INTO "._DB_PREF_."_toolsPhonebook_group (uid,name,code,flag_sender) VALUES ('$uid','$group_name','$group_code','$flag_sender')";
 						$db_result = dba_query($db_query);
 						$_SESSION['error_string'] = _('Group code has been added')." ("._('group').": $group_name, "._('code').": $group_code)";
 					}
@@ -168,6 +193,7 @@ switch ($op) {
 				$group_name = $_POST['group_name'];
 				$group_code = strtoupper(trim($_POST['group_code']));
 				$group_code = core_sanitize_alphanumeric($group_code);
+				$flag_sender = (int) $_POST['flag_sender'];
 				$uid = $core_config['user']['uid'];
 				$_SESSION['error_string'] = _('You must fill all field');
 				if ($gpid && $group_name && $group_code) {
@@ -176,7 +202,12 @@ switch ($op) {
 					if ($db_row = dba_fetch_array($db_result)) {
 						$_SESSION['error_string'] = _('No changes has been made');
 					} else {
-						$db_query = "UPDATE "._DB_PREF_."_toolsPhonebook_group SET c_timestamp='".mktime()."',name='$group_name',code='$group_code' WHERE uid='$uid' AND id='$gpid'";
+						$db_query = "SELECT flag_sender FROM "._DB_PREF_."_toolsPhonebook_group WHERE code='$group_code' AND flag_sender<>0";
+						$db_result = dba_query($db_query);
+						if ($db_row = dba_fetch_array($db_result)) {
+							$flag_sender = 0;
+						}
+						$db_query = "UPDATE "._DB_PREF_."_toolsPhonebook_group SET c_timestamp='".mktime()."',name='$group_name',code='$group_code',flag_sender='$flag_sender' WHERE uid='$uid' AND id='$gpid'";
 						$db_result = dba_query($db_query);
 						$_SESSION['error_string'] = _('Group has been edited')." ("._('group').": $group_name, "._('code')." $group_code)";
 					}

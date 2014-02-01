@@ -242,7 +242,6 @@ function phonebook_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, 
 	if (! checkavailablekeyword($m[0])) {
 		return $ret;
 	}
-	logger_print("recvsms_intercept dt:".core_display_datetime($sms_datetime)." s:".$sms_sender." r:".$sms_receiver." m:".$message, 3, "phonebook");
 	// scan for #<sender's phonebook group code> and @<username>
 	$found_bc = FALSE;
 	$found_pv = FALSE;
@@ -262,6 +261,9 @@ function phonebook_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, 
 			}
 		}
 	}
+	if ($found_bc || $found_pv) {
+		logger_print("recvsms_intercept dt:".core_display_datetime($sms_datetime)." s:".$sms_sender." r:".$sms_receiver." m:".$message, 3, "phonebook");
+	}
 	if ($found_bc) {
 		$groups = array_unique($bc);
 		foreach ($groups as $key => $c_group_code) {
@@ -275,6 +277,37 @@ function phonebook_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, 
 				logger_print("bc end", 3, "phonebook");
 				$ret['uid'] = $c_uid;
 				$ret['hooked'] = true;
+			} else {
+				// check the group_code for flag_sender<>0
+				$db_query = "SELECT id,uid,flag_sender FROM "._DB_PREF_."_toolsPhonebook_group WHERE code='$c_group_code' AND flag_sender<>0";
+				$db_result = dba_query($db_query);
+				if ($db_row = dba_fetch_array($db_result)) {
+					$c_gpid = $db_row['id'];
+					$c_uid = $db_row['uid'];
+					$c_flag_sender = $db_row['flag_sender'];
+					if ($c_flag_sender == 2) {
+						$c_username = user_uid2username($c_uid);
+						logger_print("bc mobile flag_sender:".$c_flag_sender." username:".$c_username." uid:".$c_uid." g:".$c_group_code." gpid:".$c_gpid." uid:".$c_uid." dt:".core_display_datetime($sms_datetime)." s:".$sms_sender." r:".$sms_receiver." m:".$message, 3, "phonebook");
+						$sender = phonebook_number2name($sms_sender, $c_username);
+						sendsms_bc($c_username, $c_gpid, $sender.":".$message);
+						logger_print("bc mobile end", 3, "phonebook");
+						$ret['uid'] = $c_uid;
+						$ret['hooked'] = true;
+					} else if ($c_flag_sender == 1) {
+						// check whether sms_sender belongs to c_group_code
+						$sms_sender = substr($sms_sender, 3);
+						$members = phonebook_search($c_uid, $sms_sender);
+						if (count($members) > 0) {
+							$c_username = user_uid2username($c_uid);
+							logger_print("bc mobile flag_sender:".$c_flag_sender." username:".$c_username." uid:".$c_uid." g:".$c_group_code." gpid:".$c_gpid." uid:".$c_uid." dt:".core_display_datetime($sms_datetime)." s:".$sms_sender." r:".$sms_receiver." m:".$message, 3, "phonebook");
+							$sender = phonebook_number2name($sms_sender, $c_username);
+							sendsms_bc($c_username, $c_gpid, $sender.":".$message);
+							logger_print("bc mobile end", 3, "phonebook");
+							$ret['uid'] = $c_uid;
+							$ret['hooked'] = true;
+						}
+					}
+				}
 			}
 		}
 	}
