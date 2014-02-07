@@ -106,6 +106,7 @@ function gnokii_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 		logger_print("fail to save outfile:".$fn, 2, "gnokii outgoing");
 	}
 	dlr($smslog_id,$uid,$p_status);
+	@unlink ($fn);
 	return $ok;
 }
 
