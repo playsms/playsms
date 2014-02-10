@@ -94,32 +94,29 @@ msgstr "Auswhlen"
 msgid "Selected contact has been deleted"
 msgstr "Gewhlte Kontakte wurden gelscht"
 
-#, fuzzy
 msgid "Selected contact moved to new group"
-msgstr "Gewhlte Kontakte wurden gelscht"
+msgstr "Gewählter Kontakt wurde in neue Gruppe verschoben"
 
 msgid "Selected group has been deleted"
-msgstr "Gewhlte Grupppe wurde gendert"
+msgstr "Gewählte Grupppe wurde geändert"
 
 msgid "Unable to delete group until the group is empty"
-msgstr "Gruppe kann nicht gelscht werden bevor sie nicht leer ist"
+msgstr "Gruppe kann nicht gelöscht werden bevor sie nicht leer ist"
 
 msgid "You must fill all field"
-msgstr "Es mssen alle Felder ausgefllt werden"
+msgstr "Es müssen alle Felder ausgefüllt werden"
 
-#, fuzzy
 msgid "You must fill mandatory fields"
-msgstr "Es mssen alle Felder ausgefllt werden"
+msgstr "Es müssen alle Pflichtfelder ausgefüllt werden"
 
-#, fuzzy
 msgid "You must fill required fields"
-msgstr "Es mssen alle Felder ausgefllt werden"
+msgstr "Es müssen die Pflichtfelder ausgefüllt werden"
 
 msgid "broadcast SMS from single SMS"
-msgstr "Sammel-SMS aus einfacher SMS "
+msgstr "Sammel-SMS aus einfacher SMS"
 
 msgid "code"
-msgstr "Krzel"
+msgstr "Kürzel"
 
 msgid "format"
 msgstr "Format"
@@ -128,4 +125,4 @@ msgid "group"
 msgstr "Gruppe"
 
 msgid "please use uppercase and make it short"
-msgstr "Bitte in Grobuchstaben und kurz"
+msgstr "Bitte in Grßobuchstaben und kurz"
