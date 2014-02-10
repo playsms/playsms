@@ -19,10 +19,10 @@ if (is_array($requests)) {
 }
 
 $remote_smslog_id = $requests['SmsSid'];
+$status = $requests['SmsStatus'];
 
 // delivery receipt
-$status = $requests['SmsStatus'];
-if ($remote_smslog_id && $status) {
+if ($remote_smslog_id && $status && ($status != 'received')) {
 	$db_query = "SELECT local_smslog_id FROM "._DB_PREF_."_gatewayTwilio WHERE remote_smslog_id='$remote_smslog_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -39,18 +39,19 @@ if ($remote_smslog_id && $status) {
 		logger_print("dlr uid:".$uid." smslog_id:".$smslog_id." message_id:".$remote_smslog_id." status:".$status, 2, "twilio callback");
 		dlr($smslog_id,$uid,$p_status);
 		ob_end_clean();
-		exit();
 	}
+	exit();
 }
 
 // incoming message
-$sms_datetime = urldecode($requests['message-timestamp']);
-$sms_sender = $requests['msisdn'];
-$message = urldecode($requests['text']);
-$sms_receiver = $requests['to'];
-if ($remote_smslog_id && $message) {
+$sms_datetime = core_adjust_datetime($core_config['datetime']['now']);
+$sms_sender = $requests['From'];
+$message = urldecode($requests['Body']);
+$sms_receiver = $requests['To'];
+
+// ref: https://www.twilio.com/docs/api/rest/sms#list
+if ($remote_smslog_id && $message && ($status == 'received')) {
 	logger_print("incoming message_id:".$remote_smslog_id." s:".$sms_sender." d:".$sms_receiver, 2, "twilio callback");
 	recvsms($sms_datetime,$sms_sender,$message,$sms_receiver);
 }
 
-?>
