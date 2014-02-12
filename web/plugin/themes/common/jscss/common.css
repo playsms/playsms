@@ -227,11 +227,17 @@ table.sortable thead, table.sortable th {
 	margin-right: 10px;
 }
 
+.playsms-login-box {
+	border-radius: 3px;
+	background-color: #F0F0F0;
+	width: 300px;
+}
+
 /* IDs */
 
 /* Wrapper for page content to push down footer */
 #main-body {
-	min-width: 340px;
+	min-width: 305px;
 	width: auto !important;
 	min-height: 100%;
 	height: auto;

@@ -1,6 +1,6 @@
 .navbar-right { float: right !important; }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
 	input[size="30"], select, textarea {
 		width: 270px;
 	}
@@ -16,12 +16,24 @@
 	.navbar-collapse.in > ul { border-top: none; }
 }
 
-@media (max-width: 383px) {
+@media (max-width: 384px) {
 	input[size="30"], select, textarea {
 		width: 130px;
 	}
 	.label-sizer {
 		width: 140px;
+	}
+	.dropdown-menu hr {
+		display: none;
+	}
+}
+
+@media (max-width: 320px) {
+	input[size="30"], select, textarea {
+		width: 110px;
+	}
+	.label-sizer {
+		width: 120px;
 	}
 	.dropdown-menu hr {
 		display: none;
