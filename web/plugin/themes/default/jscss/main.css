@@ -45,10 +45,10 @@
 
 @media (max-width: 240px) {
 	input[size="30"], select, textarea {
-		width: 80px;
+		width: 75px;
 	}
 	.label-sizer {
-		width: 90px;
+		width: 85px;
 	}
 	.dropdown-menu hr {
 		display: none;
