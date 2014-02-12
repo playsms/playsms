@@ -253,6 +253,7 @@ table.sortable thead, table.sortable th {
 }
 
 #main-content {
+	padding-top: 20px;
 	height: 100%;
 }
 
