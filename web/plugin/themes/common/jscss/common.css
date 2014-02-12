@@ -230,22 +230,22 @@ table.sortable thead, table.sortable th {
 .playsms-login-box {
 	border-radius: 3px;
 	background-color: #F0F0F0;
-	width: 300px;
+	width: 100%;
+	max-width: 320px;
 }
 
 /* IDs */
 
 /* Wrapper for page content to push down footer */
 #main-body {
-	min-width: 305px;
+	// min-width: 240px;
 	width: auto !important;
 	min-height: 100%;
 	height: auto;
-	//height: auto;
 	/* Negative indent footer by its height */
-	margin: 0 auto -50px;
+	margin: 0 auto -70px;
 	/* Pad bottom by footer height */
-	padding: 70px 0 50px 0;
+	padding: 40px 0 70px 0;
 }
 
 #main-menu {
@@ -258,13 +258,14 @@ table.sortable thead, table.sortable th {
 
 /* Set the fixed height of the footer here */
 #main-footer {
-	height: 50px;
+	height: 70px;
 	background-color: #f5f5f5;
 }
 
 #main-footer p {
-	margin-top: 15px;
+	margin-top: 17px;
 	text-align: center;
+	vertical-align: center;
 }
 
 #txtcount {
