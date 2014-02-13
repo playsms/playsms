@@ -10,6 +10,18 @@
 	.dropdown-menu hr {
 		display: none;
 	}
+}
+
+@media (max-width: 600px) {
+	input[size="30"], select, textarea {
+		width: 251px;
+	}
+	.label-sizer {
+		width: 261px;
+	}
+	.dropdown-menu hr {
+		display: none;
+	}
 	.navbar-right { float: left !important; }
 	.navbar-header:after { clear: none; }
 	.navbar-nav.navbar-right > li { float: left; }
