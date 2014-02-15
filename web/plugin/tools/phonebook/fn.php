@@ -262,7 +262,7 @@ function phonebook_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, 
 		}
 	}
 	if ($found_bc || $found_pv) {
-		logger_print("recvsms_intercept dt:".core_display_datetime($sms_datetime)." s:".$sms_sender." r:".$sms_receiver." m:".$message, 3, "phonebook");
+		logger_print("recvsms_intercept dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." m:".$message, 3, "phonebook");
 	}
 	if ($found_bc) {
 		$groups = array_unique($bc);
@@ -272,7 +272,7 @@ function phonebook_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, 
 			$c_uid = user_mobile2uid($sms_sender);
 			if ($c_uid && ($c_gpid = phonebook_groupcode2id($c_uid, $c_group_code))) {
 				$c_username = user_uid2username($c_uid);
-				logger_print("bc g:".$c_group_code." gpid:".$c_gpid." uid:".$c_uid." dt:".core_display_datetime($sms_datetime)." s:".$sms_sender." r:".$sms_receiver." m:".$message, 3, "phonebook");
+				logger_print("bc g:".$c_group_code." gpid:".$c_gpid." uid:".$c_uid." dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." m:".$message, 3, "phonebook");
 				sendsms_bc($c_username, $c_gpid, $message);
 				logger_print("bc end", 3, "phonebook");
 				$ret['uid'] = $c_uid;
@@ -287,7 +287,7 @@ function phonebook_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, 
 					$c_flag_sender = $db_row['flag_sender'];
 					if ($c_flag_sender == 2) {
 						$c_username = user_uid2username($c_uid);
-						logger_print("bc mobile flag_sender:".$c_flag_sender." username:".$c_username." uid:".$c_uid." g:".$c_group_code." gpid:".$c_gpid." uid:".$c_uid." dt:".core_display_datetime($sms_datetime)." s:".$sms_sender." r:".$sms_receiver." m:".$message, 3, "phonebook");
+						logger_print("bc mobile flag_sender:".$c_flag_sender." username:".$c_username." uid:".$c_uid." g:".$c_group_code." gpid:".$c_gpid." uid:".$c_uid." dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." m:".$message, 3, "phonebook");
 						$sender = trim(phonebook_number2name($sms_sender, $c_username));
 						$sender = ( $sender ? $sender : $sms_sender );
 						sendsms_bc($c_username, $c_gpid, $sender.":".$message);
@@ -300,7 +300,7 @@ function phonebook_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, 
 						$members = phonebook_search($c_uid, $sms_sender);
 						if (count($members) > 0) {
 							$c_username = user_uid2username($c_uid);
-							logger_print("bc mobile flag_sender:".$c_flag_sender." username:".$c_username." uid:".$c_uid." g:".$c_group_code." gpid:".$c_gpid." uid:".$c_uid." dt:".core_display_datetime($sms_datetime)." s:".$sms_sender." r:".$sms_receiver." m:".$message, 3, "phonebook");
+							logger_print("bc mobile flag_sender:".$c_flag_sender." username:".$c_username." uid:".$c_uid." g:".$c_group_code." gpid:".$c_gpid." uid:".$c_uid." dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." m:".$message, 3, "phonebook");
 							$sender = trim(phonebook_number2name($sms_sender, $c_username));
 							$sender = ( $sender ? $sender : $sms_sender );
 							sendsms_bc($c_username, $c_gpid, $sender.":".$message);
@@ -318,8 +318,8 @@ function phonebook_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, 
 		foreach ($users as $key => $c_username) {
 			$c_username = core_sanitize_username($c_username);
 			if ($c_uid = user_username2uid($c_username)) {
-				logger_print("pv u:".$c_username." uid:".$c_uid." dt:".core_display_datetime($sms_datetime)." s:".$sms_sender." r:".$sms_receiver." m:".$message, 3, "phonebook");
-				recvsms_inbox_add(core_display_datetime($sms_datetime), $sms_sender, $c_username, $message, $sms_receiver);
+				logger_print("pv u:".$c_username." uid:".$c_uid." dt:".$sms_datetime." s:".$sms_sender." r:".$sms_receiver." m:".$message, 3, "phonebook");
+				recvsms_inbox_add($sms_datetime, $sms_sender, $c_username, $message, $sms_receiver);
 				logger_print("pv end", 3, "phonebook");
 				$ret['uid'] = $c_uid;
 				$ret['hooked'] = true;

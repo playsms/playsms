@@ -134,24 +134,38 @@ function core_display_data($data) {
 
 /*
  * Get current server date and time in GMT+0
- * @param $format
- *    output format 'date' for date only and 'time' for time only
  * @return
  *    current date and time
  */
-function core_get_datetime($format='') {
+function core_get_datetime() {
 	global $core_config;
 	$tz = core_get_timezone();
 	$dt = date($core_config['datetime']['format'], time());
 	$ret = core_adjust_datetime($dt, $tz);
-	if (strtolower(trim($format)) == 'date') {
-		$arr = explode(' ', $ret);
-		$ret = $arr[0];
-	}
-	if (strtolower(trim($format)) == 'time') {
-		$arr = explode(' ', $ret);
-		$ret = $arr[1];
-	}
+	return $ret;
+}
+
+/*
+ * Get current server date in GMT+0
+ * @return
+ *    current date
+ */
+function core_get_date() {
+	$ret = core_get_datetime();
+	$arr = explode(' ', $ret);
+	$ret = $arr[0];
+	return $ret;
+}
+
+/*
+ * Get current server time in GMT+0
+ * @return
+ *    current time
+ */
+function core_get_time() {
+	$ret = core_get_datetime();
+	$arr = explode(' ', $ret);
+	$ret = $arr[1];
 	return $ret;
 }
 

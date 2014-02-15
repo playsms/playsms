@@ -24,11 +24,11 @@ function recvsms($sms_datetime,$sms_sender,$message,$sms_receiver="") {
 	if ($core_config['isrecvsmsd']) {
 		$c_isrecvsmsd = 1;
 		// save to db and mark as queued (flag_processed = 1)
-		$ret = dba_add(_DB_PREF_.'_tblRecvSMS', array('flag_processed' => 1, 'sms_datetime' => $sms_datetime, 'sms_sender' => $sms_sender, 'message' => $message, 'sms_receiver' => $sms_receiver));
+		$ret = dba_add(_DB_PREF_.'_tblRecvSMS', array('flag_processed' => 1, 'sms_datetime' => core_adjust_datetime($sms_datetime), 'sms_sender' => $sms_sender, 'message' => $message, 'sms_receiver' => $sms_receiver));
 	} else {
 		$c_isrecvsmsd = 0;
 		// save to db but mark as processed (flag_processed = 2) and then directly call setsmsincomingaction()
-		$ret = dba_add(_DB_PREF_.'_tblRecvSMS', array('flag_processed' => 2, 'sms_datetime' => $sms_datetime, 'sms_sender' => $sms_sender, 'message' => $message, 'sms_receiver' => $sms_receiver));
+		$ret = dba_add(_DB_PREF_.'_tblRecvSMS', array('flag_processed' => 2, 'sms_datetime' => core_adjust_datetime($sms_datetime), 'sms_sender' => $sms_sender, 'message' => $message, 'sms_receiver' => $sms_receiver));
 		setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
 	}
 	logger_print("isrecvsmsd:".$c_isrecvsmsd." dt:".$sms_datetime." sender:".$sms_sender." m:".$message." receiver:".$sms_receiver, 3, "recvsms");
@@ -47,8 +47,8 @@ function recvsmsd() {
 			$message = $list[$j]['message'];
 			$sms_receiver = $list[$j]['sms_receiver'];
 			if (dba_update(_DB_PREF_.'_tblRecvSMS', array('flag_processed' => 2), array('id' => $id))) {
-				logger_print("id:".$id." dt:".$sms_datetime." sender:".$sms_sender." m:".$message." receiver:".$sms_receiver, 3, "recvsmsd");
-				setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver);
+				logger_print("id:".$id." dt:".core_display_datetime($sms_datetime)." sender:".$sms_sender." m:".$message." receiver:".$sms_receiver, 3, "recvsmsd");
+				setsmsincomingaction(core_display_datetime($sms_datetime),$sms_sender,$message,$sms_receiver);
 			}
 		}
 	}
@@ -136,9 +136,6 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 
 	$gw = core_gateway_get();
 
-	// make sure sms_datetime is in supported format and in GMT+0
-	$sms_datetime = core_adjust_datetime($sms_datetime);
-
 	// incoming sms will be handled by plugin/tools/* first
 	$ret_intercept = recvsms_intercept($sms_datetime,$sms_sender,$message,$sms_receiver);
 	if ($ret_intercept['modified']) {
@@ -218,7 +215,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 		INSERT INTO "._DB_PREF_."_tblSMSIncoming 
 		(in_uid,in_feature,in_gateway,in_sender,in_receiver,in_keyword,in_message,in_datetime,in_status)
 		VALUES
-		('$c_uid','$c_feature','$gw','$sms_sender','$sms_receiver','$target_keyword','$message','$sms_datetime','$c_status')";
+		('$c_uid','$c_feature','$gw','$sms_sender','$sms_receiver','$target_keyword','$message','".core_adjust_datetime($sms_datetime)."','$c_status')";
 	$db_result = dba_query($db_query);
 
 	return $ok;
@@ -295,7 +292,7 @@ function recvsms_inbox_add($sms_datetime,$sms_sender,$target_user,$message,$sms_
 				$db_query = "
 					INSERT INTO "._DB_PREF_."_tblUserInbox
 					(in_sender,in_receiver,in_uid,in_msg,in_datetime) 
-					VALUES ('$sms_sender','$sms_receiver','$uid','$message','$sms_datetime')
+					VALUES ('$sms_sender','$sms_receiver','$uid','$message','".core_adjust_datetime($sms_datetime)."')
 				";
 				logger_print("saving sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user, 2, "recvsms_inbox_add");
 				if ($cek_ok = @dba_insert_id($db_query)) {

@@ -163,6 +163,7 @@ switch ($op) {
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
+		$add_datetime_timezone = $_REQUEST['add_datetime_timezone'];
 		$add_datetime_timezone = ( $add_datetime_timezone ? $add_datetime_timezone : core_get_timezone() );
 
 		// get language options
