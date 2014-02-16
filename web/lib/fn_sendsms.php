@@ -248,7 +248,7 @@ function sendsms_process($smslog_id,$sms_sender,$sms_footer,$sms_to,$sms_msg,$ui
 	$gw = core_gateway_get();
 
 	$user = $core_config['user'];
-	if ($uid && ($user['uid'] != $uid) && auth_isadmin()) {
+	if ($uid && ($user['uid'] != $uid)) {
 		$user = user_getdatabyuid($uid);
 	}
 
