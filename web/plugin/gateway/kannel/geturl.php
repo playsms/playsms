@@ -16,14 +16,13 @@ if ($remote_addr != $kannel_param['bearerbox_host'] && $remote_host != $kannel_p
 	exit();
 }
 
-// sms_datetime, Kannel must be compiled with --disable-localtime to save time in UTC, GMT+0
-// in case Kannel compiled without --disable-localtime then use this instead:
-//$t = trim($_REQUEST['t']);
-$t = core_display_datetime(trim($_REQUEST['t']));
+// if the arrival time is in UTC then we need to adjust it with this:
+//$t = core_display_datetime($_REQUEST['t']);
+$t = trim($_REQUEST['t']);	// assumed the arrival time is in local time not UTC
 
-$q = trim($_REQUEST['q']); 	// sms_sender
-$a = trim($_REQUEST['a']); 	// message
-$Q = trim($_REQUEST['Q']); 	// sms_receiver
+$q = trim($_REQUEST['q']);	// sms_sender
+$a = trim($_REQUEST['a']);	// message
+$Q = trim($_REQUEST['Q']);	// sms_receiver
 
 logger_print("addr:".$remote_addr." host:".$remote_host." t:".$t." q:".$q." a:".$a." Q:".$Q, 3, "kannel incoming");
 
@@ -32,4 +31,3 @@ if ($t && $q && $a) {
 	// $sms_datetime, $sms_sender, $message, $sms_receiver
 	recvsms($t, $q, $a, $Q);
 }
-?>
