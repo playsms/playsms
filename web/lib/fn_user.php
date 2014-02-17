@@ -155,7 +155,7 @@ function user_add($data=array()) {
 	$ret['status'] = FALSE;
 	$ret['error_string'] = _('Fail to register an account');
 	$data = ( trim($data['username']) ? $data : $_REQUEST );
-	if (!auth_isadmin() && $core_config['main']['cfg_enable_register']) {
+	if (auth_isadmin() || $core_config['main']['cfg_enable_register']) {
 		foreach ($data as $key => $val) {
 			$data['key'] = trim($val);
 		}
