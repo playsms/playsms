@@ -235,45 +235,18 @@ switch ($op) {
 		break;
 	case "user_add_yes":
 		$add['email'] = $_POST['add_email'];
-		$add['username'] = core_sanitize_username($_POST['add_username']);
-		$add['name'] = $_POST['add_name'];
-		$add['mobile'] = $_POST['add_mobile'];
-		$add['sender'] = core_sanitize_sender($_POST['add_sender']);
-		$add['footer'] = $_POST['add_footer'];
-		$add['password'] = $_POST['add_password'];
-		$add['password'] = md5($add['password']);
-		$add['token'] = md5(uniqid($add['username'], true));
-		$add['credit'] = $_POST['add_credit'];
 		$add['status'] = $_POST['add_status'];
+		$add['username'] = $_POST['add_username'];
+		$add['password'] = $_POST['add_password'];
+		$add['mobile'] = $_POST['add_mobile'];
+		$add['name'] = $_POST['add_name'];
+		$add['credit'] = $_POST['add_credit'];
+		$add['sender'] = $_POST['add_sender'];
+		$add['footer'] = $_POST['add_footer'];
 		$add['datetime_timezone'] = $_POST['add_datetime_timezone'];
 		$add['language_module'] = $_POST['add_language_module'];
-		$next = true;
-		if ($add['email'] && $add['username'] && $add['name'] && $add['password']) {
-			$v = user_add_validate($add);
-			if ($v['status']) {
-				$conditions = array('username' => $add['username'], 'email' => $add['email']);
-				if (trim($add['mobile'])) {
-					$conditions['mobile'] = trim($add['mobile']);
-				}
-				if (!dba_isavail(_DB_PREF_.'_tblUser', $conditions)) {
-					$_SESSION['error_string'] = _('User already exists');
-					$next = false;
-				}
-				if ($next) {
-					$dt = core_adjust_datetime(core_get_datetime());
-					$add['register_datetime'] = $dt;
-					$add['lastupdate_datetime'] = $dt;
-					if ($new_uid = dba_add(_DB_PREF_.'_tblUser', $add)) {
-						rate_setusercredit($new_uid, $add['credit']);
-						$_SESSION['error_string'] = _('User has been added') . " (" . _('username') . ": ".$add['username'].")";
-					}
-				}
-			} else {
-				$_SESSION['error_string'] = $v['error_string'];
-			}
-		} else {
-			$_SESSION['error_string'] = _('You must fill all fields');
-		}
+		$ret = user_add($add);
+		$_SESSION['error_string'] = $ret['error_string'];
 		header("Location: index.php?app=menu&inc=user_mgmnt&op=user_add");
 		exit();
 		break;
