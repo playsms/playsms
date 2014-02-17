@@ -251,12 +251,12 @@ switch ($op) {
 		if ($add['email'] && $add['username'] && $add['name'] && $add['password']) {
 			$v = user_add_validate($add);
 			if ($v['status']) {
-				$item = array('username' => $add['username'], 'email' => $add['email']);
-				if ($add['mobile']) {
-					$item['mobile'] = $add['mobile'];
+				$conditions = array('username' => $add['username'], 'email' => $add['email']);
+				if (trim($add['mobile'])) {
+					$conditions['mobile'] = trim($add['mobile']);
 				}
-				if (! dba_isavail($item)) {
-					$_SESSION['error_string'] = _('User already exists') . " (" . _('username') . ": " . $add['username'] . ")";
+				if (!dba_isavail(_DB_PREF_.'_tblUser', $conditions)) {
+					$_SESSION['error_string'] = _('User already exists');
 					$next = false;
 				}
 				if ($next) {
