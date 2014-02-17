@@ -213,7 +213,7 @@ function user_add($data=array()) {
 					$mail_data = array(
 						'mail_from_name' => $core_config['main']['cfg_web_title'],
 						'mail_from' => $core_config['main']['cfg_email_service'],
-						'mail_to' => $email,
+						'mail_to' => $data['email'],
 						'mail_subject' => $subject,
 						'mail_body' => $body);
 					if (! sendmail($mail_data)) {
