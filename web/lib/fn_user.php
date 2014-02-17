@@ -202,11 +202,9 @@ function user_add($data=array()) {
 					$body = $core_config['main']['cfg_web_title']."\n";
 					$body .= $core_config['http_path']['base']."\n\n";
 					$body .= _('Username')."\t: ".$data['username']."\n";
-					$body .= _('Password')."\t: ".$new_password."\n";
-					$body .= _('Mobile')."\t: ".$data['mobile']."\n";
-					if ($data['credit']) {
-						$body .= _('Credit')."\t: ".$data['credit']."\n";
-					}
+					$body .= _('Password')."\t: ".$new_password."\n\n";
+					$body .= _('Mobile')."  \t: ".$data['mobile']."\n";
+					$body .= _('Credit')."  \t: ".$data['credit']."\n";
 					$body .= "\n";
 					$body .= $core_config['main']['cfg_email_footer']."\n\n";
 					$ret['error_string'] = _('User has been added')." ("._('username').": ".$data['username'].")";
