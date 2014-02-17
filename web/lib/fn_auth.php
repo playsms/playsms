@@ -207,88 +207,14 @@ function auth_forgot() {
  *
  */
 function auth_register() {
-	global $core_config;
-	$ok = false;
-	if ($core_config['main']['cfg_enable_register']) {
-		$username = trim($_REQUEST['username']);
-		$username = core_sanitize_username($username);
-		$email = trim($_REQUEST['email']);
-		$name = trim($_REQUEST['name']);
-		$mobile = trim($_REQUEST['mobile']);
-		$_SESSION['error_string'] = _('Fail to register an account');
-		if ($username && $email && $name && $mobile) {
-			$continue = true;
-			
-			// check username
-			$db_query = "SELECT username FROM "._DB_PREF_."_tblUser WHERE username='$username'";
-			$db_result = dba_query($db_query);
-			if ($db_row = dba_fetch_array($db_result)) {
-				$_SESSION['error_string'] = _('User is already exists')." ("._('username').": ".$username.")";
-				$continue = false;
-			} 
-			
-			// check email
-			if ($continue) {
-				$db_query = "SELECT username FROM "._DB_PREF_."_tblUser WHERE email='$email'";
-				$db_result = dba_query($db_query);
-				if ($db_row = dba_fetch_array($db_result)) {
-					$_SESSION['error_string'] = _('User is already exists')." ("._('email').": ".$email.")";
-					$continue = false;
-				}
-			}
-			
-			// check mobile
-			if ($continue) {
-				$db_query = "SELECT username FROM "._DB_PREF_."_tblUser WHERE mobile='$mobile'";
-				$db_result = dba_query($db_query);
-				if ($db_row = dba_fetch_array($db_result)) {
-					$_SESSION['error_string'] = _('User is already exists')." ("._('mobile').": ".$mobile.")";
-					$continue = false;
-				}
-			}
-			
-			if ($continue) {
-				$password = core_get_random_string();
-				$password_coded = md5($password);
-				$footer = '@'.$username;
-				if (preg_match("/^(.+)(.+)\\.(.+)$/",$email,$arr)) {
-					// by default the status is 3 (normal user)
-					$dt = core_get_datetime();
-					$db_query = "
-						INSERT INTO "._DB_PREF_."_tblUser (status,username,password,name,mobile,email,footer,credit,register_datetime,lastupdate_datetime)
-						VALUES ('3','$username','$password_coded','$name','$mobile','$email','$footer','".$core_config['main']['cfg_default_credit']."','$dt','$dt')
-					";
-					if ($new_uid = @dba_insert_id($db_query)) {
-						$ok = true;
-					}
-				}
-			}
-			if ($ok) {
-				logger_print("u:".$username." email:".$email." ip:".$_SERVER['REMOTE_ADDR'], 2, "register");
-				$subject = _('New account registration');
-				$body = $core_config['main']['cfg_web_title']."\n";
-				$body .= $core_config['http_path']['base']."\n\n";
-				$body .= _('Username')."\t: $username\n";
-				$body .= _('Password')."\t: $password\n\n";
-				$body .= $core_config['main']['cfg_email_footer']."\n\n";
-				$_SESSION['error_string'] = _('User has been added')." ("._('username').": ".$username.")";
-				$data = array(
-					'mail_from_name' => $core_config['main']['cfg_web_title'],
-					'mail_from' => $core_config['main']['cfg_email_service'],
-					'mail_to' => $email,
-					'mail_subject' => $subject,
-					'mail_body' => $body
-				);
-				if (sendmail($data)) {
-					$_SESSION['error_string'] .= _('Password has been sent to your email');
-				} else {
-					$_SESSION['error_string'] .= _('Fail to send email');
-				}
-			}
-		}
-	} else {
-		$_SESSION['error_string'] = _('Public registration disabled');
-	}
-	header("Location: ".$core_config['http_path']['base']);
+	$data['name'] = $_REQUEST['name'];
+	$data['username'] = $_REQUEST['username'];
+	$data['mobile'] = $_REQUEST['mobile'];
+	$data['email'] = $_REQUEST['email'];
+	$data['status'] = $_REQUEST['status'] = 3; // force non-admin
+	$data['password'] = ''; // force generate random password
+	$ret = user_add($data);
+	$_SESSION['error_string'] = $ret['error_string'];
+	header("Location: index.php?app=page&inc=register");
 	exit();
 }

@@ -197,7 +197,7 @@ function user_add($data=array()) {
 					$ret['error_string'] = _('Fail to register an account');
 				}
 				if ($ret['status']) {
-					logger_print("u:".$data['username']." email:".$data['email']." ip:".$_SERVER['REMOTE_ADDR']." mobile:".$data['mobile']." credit:".$data['credit'], 2, "register");
+					logger_print("u:".$data['username']." uid:".$ret['uid']." email:".$data['email']." ip:".$_SERVER['REMOTE_ADDR']." mobile:".$data['mobile']." credit:".$data['credit'], 2, "register");
 					$subject = _('New account registration');
 					$body = $core_config['main']['cfg_web_title']."\n";
 					$body .= $core_config['http_path']['base']."\n\n";
