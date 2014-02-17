@@ -69,48 +69,6 @@ function user_getfieldbyusername($username, $field) {
 	return user_getfieldbyuid($uid, $field);
 }
 
-function user_add_validate($item) {
-	$ret['status'] = true;
-	if (is_array($item)) {
-		if ($item['password'] && (strlen($item['password']) < 4)) {
-			$ret['error_string'] = _('Password should be at least 4 characters');
-			$ret['status'] = false;
-		}
-		if ($item['username'] && (strlen($item['username']) < 3)) {
-			$ret['error_string'] = _('Username should be at least 3 characters')." (".$item['username'].")";
-			$ret['status'] = false;
-		}
-		if ($item['username'] && (! preg_match('/([A-Za-z0-9\.\-])/', $item['username']))) {
-			$ret['error_string'] = _('Valid characters for username are alphabets, numbers, dot or dash')." (".$item['username'].")";
-			$ret['status'] = false;
-		}
-		if ($item['email']) {
-			if (! preg_match('/^(.+)@(.+)\.(.+)$/', $item['email'])) {
-				$ret['error_string'] = _('Your email format is invalid')." (".$item['email'].")";
-				$ret['status'] = false;
-			}
-			$c_user = dba_search(_DB_PREF_.'_tblUser', '*', array('email' => $item['email']));
-			if ($c_user[0]['username'] && ($c_user[0]['username'] != $item['username'])) {
-				$ret['error_string'] = _('Email is already in use by other username') . " (" . _('email') . ": ".$item['email'].", " . _('username') . ": " . $c_user[0]['username'] . ") ";
-				$ret['status'] = false;
-			}
-		}
-		if ($item['mobile']) {
-			if (! preg_match('/([0-9\+\- ])/', $item['mobile'])) {
-				$ret['error_string'] = _('Your mobile format is invalid')." (".$item['mobile'].")";
-				$ret['status'] = false;
-			}
-			$c_uid = user_mobile2uid($item['mobile']);
-			$c_user = dba_search(_DB_PREF_.'_tblUser', '*', array('uid' => $c_uid));
-			if ($c_user[0]['username'] && ($c_user[0]['username'] != $item['username'])) {
-				$ret['error_string'] = _('Mobile is already in use by other username') . " (" . _('mobile') . ": ".$item['mobile'].", " . _('username') . ": " . $c_user[0]['username'] . ") ";
-				$ret['status'] = false;
-			}
-		}
-	}
-	return $ret;
-}
-
 function user_uid2username($uid) {
 	if ($uid) {
 		$db_query = "SELECT username FROM "._DB_PREF_."_tblUser WHERE uid='$uid'";
@@ -146,63 +104,97 @@ function user_mobile2uid($mobile) {
 }
 
 /**
- * Add new user
+ * Validate data for user registration
  * @param array $data User data
  * @return array $ret('error_string', 'status')
  */
+function user_add_validate($data=array()) {
+	$ret['status'] = true;
+	if (is_array($data)) {
+		foreach ($data as $key => $val) {
+			$data[$key] = trim($val);
+		}
+		if ($data['password'] && (strlen($data['password']) < 4)) {
+			$ret['error_string'] = _('Password should be at least 4 characters');
+			$ret['status'] = false;
+		}
+		if ($ret['status'] && $data['username'] && (strlen($data['username']) < 3)) {
+			$ret['error_string'] = _('Username should be at least 3 characters')." (".$data['username'].")";
+			$ret['status'] = false;
+		}
+		if ($ret['status'] && $data['username'] && (! preg_match('/([A-Za-z0-9\.\-])/', $data['username']))) {
+			$ret['error_string'] = _('Valid characters for username are alphabets, numbers, dot or dash')." (".$data['username'].")";
+			$ret['status'] = false;
+		}
+		if ($ret['status'] && (! preg_match('/^(.+)@(.+)\.(.+)$/', $data['email']))) {
+			$ret['error_string'] = _('Your email format is invalid')." (".$data['email'].")";
+			$ret['status'] = false;
+		}
+
+		// check if username is exists
+		if ($ret['status'] && dba_isexists(_DB_PREF_.'_tblUser', array('username' => $data['username']))) {
+			$ret['error_string'] = _('User is already exists')." ("._('username').": ".$data['username'].")";
+			$ret['status'] = false;
+		}
+
+		// check if email is exists
+		if ($ret['status'] && dba_isexists(_DB_PREF_.'_tblUser', array('email' => $data['email']))) {
+			$ret['error_string'] = _('User with this email is already exists')." ("._('email').": ".$data['email'].")";
+			$ret['status'] = false;
+		}
+
+		// check mobile, must check for duplication only when filled
+		if ($data['mobile']) {
+			if ($ret['status'] && (! preg_match('/([0-9\+\- ])/', $data['mobile']))) {
+				$ret['error_string'] = _('Your mobile format is invalid')." (".$data['mobile'].")";
+				$ret['status'] = false;
+			}
+			if ($ret['status'] && dba_isexists(_DB_PREF_.'_tblUser', array('mobile' => $data['mobile']))) {
+				$ret['error_string'] = _('User with this mobile is already exists')." ("._('mobile').": ".$data['mobile'].")";
+				$ret['status'] = false;
+			}
+		}
+	}
+	return $ret;
+}
+
+/**
+ * Add new user
+ * @param array $data User data
+ * @return array $ret('error_string', 'status', 'uid')
+ */
 function user_add($data=array()) {
 	global $core_config;
+	$ret['error_string'] = _('Unknown error has occurred');
 	$ret['status'] = FALSE;
-	$ret['error_string'] = _('Fail to register an account');
+	$ret['uid'] = 0;
 	$data = ( trim($data['username']) ? $data : $_REQUEST );
 	if (auth_isadmin() || $core_config['main']['cfg_enable_register']) {
 		foreach ($data as $key => $val) {
-			$data['key'] = trim($val);
+			$data[$key] = trim($val);
 		}
-		$data['status'] = ( trim($data['status']) ? trim($data['status']) : 3 );
+		$data['status'] = ( $data['status'] ? $data['status'] : 3 );
 		$data['status'] = ( auth_isadmin() ? $data['status'] : 3 );
-		$data['username'] = core_sanitize_username(trim($data['username']));
-		$data['password'] = ( trim($data['password']) ? trim($data['password']) : core_get_random_string(10) );
+		$data['username'] = core_sanitize_username($data['username']);
+		$data['password'] = ( $data['password'] ? $data['password'] : core_get_random_string(10) );
 		$new_password = $data['password'];
 		$data['password'] = md5($new_password);
 		$data['token'] = md5(uniqid($data['username'].$data['password'], true));
-		$data['credit'] = ( trim($data['credit']) ? trim($data['credit']) : $core_config['main']['cfg_default_credit'] );
+		$data['credit'] = ( $data['credit'] ? $data['credit'] : $core_config['main']['cfg_default_credit'] );
+		$data['sender'] = ( $data['sender'] ? core_sanitize_sender($data['sender']) : '' );
 		$data['footer'] = '@'.$data['username'];
 		$dt = core_get_datetime();
 		$data['register_datetime'] = $dt;
 		$data['lastupdate_datetime'] = $dt;
-		$data['sender'] = ( trim($data['sender']) ? core_sanitize_sender(trim($data['sender'])) : '' );
+		$data['webservices_ip'] = ( trim($data['webservices_ip']) ? trim($data['webservices_ip']) : '127.0.0.1, 192.168.*.*' );
 		$v = user_add_validate($data);
 		if ($v['status']) {
-			if ($username && $email && $name && $mobile) {
-				$continue = TRUE;
-
-				// check username
-				if (! dba_isavail(_DB_PREF_.'_tblUser', $data['username'])) {
-					$ret['error_string'] = _('User is already exists')." ("._('username').": ".$username.")";
-					$continue = FALSE;
-				}
-
-				// check email
-				if ($continue) {
-					if (! dba_isavail(_DB_PREF_.'_tblUser', $data['email'])) {
-						$ret['error_string'] = _('User with this email is already exists')." ("._('email').": ".$email.")";
-						$continue = FALSE;
-					}
-				}
-
-				// check mobile
-				if ($continue) {
-					if (! dba_isavail(_DB_PREF_.'_tblUser', $data['email'])) {
-						$ret['error_string'] = _('User with this mobile is already exists')." ("._('mobile').": ".$mobile.")";
-						$continue = FALSE;
-					}
-				}
-
-				if ($continue) {
-					if (dba_add(_DB_PREF_.'_tblUser', $data)) {
-						$ret['status'] = TRUE;
-					}
+			if ($data['username'] && $data['email'] && $data['name']) {
+				if ($new_uid = dba_add(_DB_PREF_.'_tblUser', $data)) {
+					$ret['status'] = TRUE;
+					$ret['uid'] = $new_uid;
+				} else {
+					$ret['error_string'] = _('Fail to register an account');
 				}
 				if ($ret['status']) {
 					logger_print("u:".$data['username']." email:".$data['email']." ip:".$_SERVER['REMOTE_ADDR']." mobile:".$data['mobile']." credit:".$data['credit'], 2, "register");
@@ -225,9 +217,11 @@ function user_add($data=array()) {
 						'mail_subject' => $subject,
 						'mail_body' => $body);
 					if (! sendmail($mail_data)) {
-						$ret['error_string'] = _('User has been addedd but failed to send email')." ("._('username').": ".$data['username'].")";
+						$ret['error_string'] = _('User has been added but failed to send email')." ("._('username').": ".$data['username'].")";
 					}
 				}
+			} else {
+				$ret['error_string'] = _('You must fill all required fields');
 			}
 		} else {
 			$ret['error_string'] = $v['error_string'];
