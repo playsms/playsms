@@ -171,6 +171,7 @@ function user_add($data=array()) {
 		$dt = core_get_datetime();
 		$data['register_datetime'] = $dt;
 		$data['lastupdate_datetime'] = $dt;
+		$data['sender'] = ( trim($data['sender']) ? core_sanitize_sender(trim($data['sender'])) : '' );
 		$v = user_add_validate($data);
 		if ($v['status']) {
 			if ($username && $email && $name && $mobile) {
