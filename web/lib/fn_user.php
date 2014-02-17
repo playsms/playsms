@@ -156,33 +156,35 @@ function user_add($data=array()) {
 	$ret['error_string'] = _('Fail to register an account');
 	$data = ( trim($data['username']) ? $data : $_REQUEST );
 	if (!auth_isadmin() && $core_config['main']['cfg_enable_register']) {
+		foreach ($data as $key => $val) {
+			$data['key'] = trim($val);
+		}
 		$data['status'] = ( trim($data['status']) ? trim($data['status']) : 3 );
 		$data['status'] = ( auth_isadmin() ? $data['status'] : 3 );
-		$username = core_sanitize_username(trim($data['username']));
-		$email = trim($data['email']);
-		$name = trim($data['name']);
-		$mobile = trim($data['mobile']);
-		$password = ( trim($data['password']) ? trim($data['password']) : core_get_random_string(10) );
-		$credit = ( trim($data['credit']) ? trim($data['credit']) : $core_config['main']['cfg_default_credit'] );
-		$footer = '@'.$username;
+		$data['username'] = core_sanitize_username(trim($data['username']));
+		$data['password'] = ( trim($data['password']) ? trim($data['password']) : core_get_random_string(10) );
+		$new_password = $data['password'];
+		$data['password'] = md5($new_password);
+		$data['token'] = md5(uniqid($data['username'].$data['password'], true));
+		$data['credit'] = ( trim($data['credit']) ? trim($data['credit']) : $core_config['main']['cfg_default_credit'] );
+		$data['footer'] = '@'.$data['username'];
+		$dt = core_get_datetime();
+		$data['register_datetime'] = $dt;
+		$data['lastupdate_datetime'] = $dt;
 		$v = user_add_validate($data);
 		if ($v['status']) {
 			if ($username && $email && $name && $mobile) {
 				$continue = TRUE;
 
 				// check username
-				$db_query = "SELECT username FROM "._DB_PREF_."_tblUser WHERE username='$username'";
-				$db_result = dba_query($db_query);
-				if ($db_row = dba_fetch_array($db_result)) {
+				if (! dba_isavail(_DB_PREF_.'_tblUser', $data['username'])) {
 					$ret['error_string'] = _('User is already exists')." ("._('username').": ".$username.")";
 					$continue = FALSE;
 				}
 
 				// check email
 				if ($continue) {
-					$db_query = "SELECT username FROM "._DB_PREF_."_tblUser WHERE email='$email'";
-					$db_result = dba_query($db_query);
-					if ($db_row = dba_fetch_array($db_result)) {
+					if (! dba_isavail(_DB_PREF_.'_tblUser', $data['email'])) {
 						$ret['error_string'] = _('User with this email is already exists')." ("._('email').": ".$email.")";
 						$continue = FALSE;
 					}
@@ -190,51 +192,39 @@ function user_add($data=array()) {
 
 				// check mobile
 				if ($continue) {
-					$db_query = "SELECT username FROM "._DB_PREF_."_tblUser WHERE mobile='$mobile'";
-					$db_result = dba_query($db_query);
-					if ($db_row = dba_fetch_array($db_result)) {
+					if (! dba_isavail(_DB_PREF_.'_tblUser', $data['email'])) {
 						$ret['error_string'] = _('User with this mobile is already exists')." ("._('mobile').": ".$mobile.")";
 						$continue = FALSE;
 					}
 				}
 
 				if ($continue) {
-					$password_coded = md5($password);
-					$dt = core_get_datetime();
-					$db_query = "
-						INSERT INTO "._DB_PREF_."_tblUser
-						(status, username, password, name, mobile, email, footer, credit, register_datetime, lastupdate_datetime)
-						VALUES
-						('$status','$username','$password_coded','$name','$mobile','$email','$footer','$credit','$dt','$dt')";
-					if ($new_uid = @dba_insert_id($db_query)) {
+					if (dba_add(_DB_PREF_.'_tblUser', $data)) {
 						$ret['status'] = TRUE;
 					}
 				}
 				if ($ret['status']) {
-					logger_print("u:".$username." email:".$email." ip:".$_SERVER['REMOTE_ADDR']." mobile:".$mobile." credit:".$credit, 2, "register");
+					logger_print("u:".$data['username']." email:".$data['email']." ip:".$_SERVER['REMOTE_ADDR']." mobile:".$data['mobile']." credit:".$data['credit'], 2, "register");
 					$subject = _('New account registration');
 					$body = $core_config['main']['cfg_web_title']."\n";
 					$body .= $core_config['http_path']['base']."\n\n";
-					$body .= _('Username')."\t: $username\n";
-					$body .= _('Password')."\t: $password\n";
-					$body .= _('Mobile')."\t: $mobile\n";
-					if ($credit) {
-						$body .= _('Credit')."\t: $credit\n";
+					$body .= _('Username')."\t: ".$data['username']."\n";
+					$body .= _('Password')."\t: ".$new_password."\n";
+					$body .= _('Mobile')."\t: ".$data['mobile']."\n";
+					if ($data['credit']) {
+						$body .= _('Credit')."\t: ".$data['credit']."\n";
 					}
 					$body .= "\n";
 					$body .= $core_config['main']['cfg_email_footer']."\n\n";
-					$ret['error_string'] = _('User has been added')." ("._('username').": ".$username.")";
-					$data = array(
+					$ret['error_string'] = _('User has been added')." ("._('username').": ".$data['username'].")";
+					$mail_data = array(
 						'mail_from_name' => $core_config['main']['cfg_web_title'],
 						'mail_from' => $core_config['main']['cfg_email_service'],
 						'mail_to' => $email,
 						'mail_subject' => $subject,
-						'mail_body' => $body
-					);
-					if (sendmail($data)) {
-						$ret['error_string'] .= _('Password has been sent to your email');
-					} else {
-						$ret['error_string'] .= _('User has been addedd but failed to send email')." ("._('username').": ".$username.")";
+						'mail_body' => $body);
+					if (! sendmail($mail_data)) {
+						$ret['error_string'] = _('User has been addedd but failed to send email')." ("._('username').": ".$data['username'].")";
 					}
 				}
 			}
@@ -242,7 +232,7 @@ function user_add($data=array()) {
 			$ret['error_string'] = $v['error_string'];
 		}
 	} else {
-		$ret['error_string'] = _('Public registration disabled');
+		$ret['error_string'] = _('Public registration is disabled');
 	}
 	return $ret;
 }
