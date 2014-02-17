@@ -211,7 +211,7 @@ function auth_register() {
 	$data['username'] = $_REQUEST['username'];
 	$data['mobile'] = $_REQUEST['mobile'];
 	$data['email'] = $_REQUEST['email'];
-	$data['status'] = $_REQUEST['status'] = 3; // force non-admin
+	$data['status'] = 3; // force non-admin
 	$data['password'] = ''; // force generate random password
 	$ret = user_add($data);
 	$_SESSION['error_string'] = $ret['error_string'];
