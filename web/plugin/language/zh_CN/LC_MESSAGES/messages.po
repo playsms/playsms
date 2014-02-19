@@ -539,6 +539,9 @@ msgstr ""
 msgid "Public registration disabled"
 msgstr ""
 
+msgid "Public registration is disabled"
+msgstr ""
+
 msgid "Publish"
 msgstr ""
 
@@ -689,6 +692,9 @@ msgstr "不能更新登陆会话"
 msgid "Unicode message"
 msgstr "发送为非代码信息"
 
+msgid "Unknown error has occurred"
+msgstr ""
+
 msgid "Unpublish"
 msgstr ""
 
@@ -728,6 +734,10 @@ msgstr "用户已存在"
 msgid "User has been added"
 msgstr "用户已添加"
 
+#, fuzzy
+msgid "User has been added but failed to send email"
+msgstr "用户已被删除"
+
 msgid "User has been deleted"
 msgstr "用户已被删除"
 
@@ -743,6 +753,14 @@ msgstr "用户等级"
 #, fuzzy
 msgid "User preference"
 msgstr "偏好"
+
+#, fuzzy
+msgid "User with this email is already exists"
+msgstr "用户已存在"
+
+#, fuzzy
+msgid "User with this mobile is already exists"
+msgstr "用户已存在"
 
 msgid "Username"
 msgstr "用户名"
@@ -811,6 +829,10 @@ msgid "You must fill all field"
 msgstr "你必须添满全部空白"
 
 msgid "You must fill all fields"
+msgstr "你必须填写全部空白"
+
+#, fuzzy
+msgid "You must fill all required fields"
 msgstr "你必须填写全部空白"
 
 msgid "You must select receiver and your message should not be empty"

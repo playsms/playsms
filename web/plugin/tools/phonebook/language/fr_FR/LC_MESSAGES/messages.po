@@ -7,6 +7,12 @@ msgstr ""
 msgid "Add group"
 msgstr ""
 
+msgid "Allow broadcast from mobile"
+msgstr ""
+
+msgid "Anyone"
+msgstr ""
+
 msgid "Contact has been added"
 msgstr ""
 
@@ -62,6 +68,12 @@ msgid "Import above phonebook entries ?"
 msgstr ""
 
 msgid "Import confirmation"
+msgstr ""
+
+msgid "Me only"
+msgstr ""
+
+msgid "Members"
 msgstr ""
 
 msgid "Mobile"

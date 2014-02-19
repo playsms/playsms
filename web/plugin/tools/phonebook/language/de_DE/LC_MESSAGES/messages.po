@@ -7,6 +7,13 @@ msgstr "Kontakt hinzufgen"
 msgid "Add group"
 msgstr "Gruppe hinzufgen"
 
+#, fuzzy
+msgid "Allow broadcast from mobile"
+msgstr "Sammel-SMS aus einfacher SMS"
+
+msgid "Anyone"
+msgstr ""
+
 msgid "Contact has been added"
 msgstr "Kontakt wurde hinzugefgt"
 
@@ -64,6 +71,12 @@ msgstr "Importiere obige Telefonbucheintrge?"
 msgid "Import confirmation"
 msgstr "Import-Besttigung"
 
+msgid "Me only"
+msgstr ""
+
+msgid "Members"
+msgstr ""
+
 msgid "Mobile"
 msgstr "Mobil"
 
@@ -95,28 +108,28 @@ msgid "Selected contact has been deleted"
 msgstr "Gewhlte Kontakte wurden gelscht"
 
 msgid "Selected contact moved to new group"
-msgstr "Gewählter Kontakt wurde in neue Gruppe verschoben"
+msgstr "Gewhlter Kontakt wurde in neue Gruppe verschoben"
 
 msgid "Selected group has been deleted"
-msgstr "Gewählte Grupppe wurde geändert"
+msgstr "Gewhlte Grupppe wurde gendert"
 
 msgid "Unable to delete group until the group is empty"
-msgstr "Gruppe kann nicht gelöscht werden bevor sie nicht leer ist"
+msgstr "Gruppe kann nicht gelscht werden bevor sie nicht leer ist"
 
 msgid "You must fill all field"
-msgstr "Es müssen alle Felder ausgefüllt werden"
+msgstr "Es mssen alle Felder ausgefllt werden"
 
 msgid "You must fill mandatory fields"
-msgstr "Es müssen alle Pflichtfelder ausgefüllt werden"
+msgstr "Es mssen alle Pflichtfelder ausgefllt werden"
 
 msgid "You must fill required fields"
-msgstr "Es müssen die Pflichtfelder ausgefüllt werden"
+msgstr "Es mssen die Pflichtfelder ausgefllt werden"
 
 msgid "broadcast SMS from single SMS"
 msgstr "Sammel-SMS aus einfacher SMS"
 
 msgid "code"
-msgstr "Kürzel"
+msgstr "Krzel"
 
 msgid "format"
 msgstr "Format"
@@ -125,4 +138,4 @@ msgid "group"
 msgstr "Gruppe"
 
 msgid "please use uppercase and make it short"
-msgstr "Bitte in Grßobuchstaben und kurz"
+msgstr "Bitte in Grobuchstaben und kurz"

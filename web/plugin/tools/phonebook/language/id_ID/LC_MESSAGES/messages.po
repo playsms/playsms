@@ -7,6 +7,13 @@ msgstr "Tambah kontak"
 msgid "Add group"
 msgstr "Tambah grup"
 
+#, fuzzy
+msgid "Allow broadcast from mobile"
+msgstr "sebarkan SMS dari satu SMS"
+
+msgid "Anyone"
+msgstr ""
+
 msgid "Contact has been added"
 msgstr "Kontak telah ditambah"
 
@@ -63,6 +70,12 @@ msgstr "Impor isi buku telepon diatas ?"
 
 msgid "Import confirmation"
 msgstr "Konfirmasi impor"
+
+msgid "Me only"
+msgstr ""
+
+msgid "Members"
+msgstr ""
 
 msgid "Mobile"
 msgstr "Handphone"

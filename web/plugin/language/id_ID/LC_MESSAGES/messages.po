@@ -529,6 +529,10 @@ msgstr "Kode awalan atau kode negara"
 msgid "Public registration disabled"
 msgstr "Pendaftaran umum dinonaktifkan"
 
+#, fuzzy
+msgid "Public registration is disabled"
+msgstr "Pendaftaran umum dinonaktifkan"
+
 msgid "Publish"
 msgstr ""
 
@@ -677,6 +681,9 @@ msgstr "Tidak dapat memperbaharui sesi login"
 msgid "Unicode message"
 msgstr "Pesan unicode"
 
+msgid "Unknown error has occurred"
+msgstr ""
+
 msgid "Unpublish"
 msgstr ""
 
@@ -714,6 +721,10 @@ msgstr "Pengguna tidak ada"
 msgid "User has been added"
 msgstr "Pengguna telah ditambah"
 
+#, fuzzy
+msgid "User has been added but failed to send email"
+msgstr "Pengguna telah dihapus"
+
 msgid "User has been deleted"
 msgstr "Pengguna telah dihapus"
 
@@ -729,6 +740,14 @@ msgstr "Tingkatan pengguna"
 #, fuzzy
 msgid "User preference"
 msgstr "Preferensi"
+
+#, fuzzy
+msgid "User with this email is already exists"
+msgstr "Pengguna sudah ada"
+
+#, fuzzy
+msgid "User with this mobile is already exists"
+msgstr "Pengguna sudah ada"
 
 msgid "Username"
 msgstr "Nama pengguna"
@@ -792,6 +811,10 @@ msgid "You must fill all field"
 msgstr "Anda harus mengisi semua kolom"
 
 msgid "You must fill all fields"
+msgstr "Anda harus mengisi semua kolom"
+
+#, fuzzy
+msgid "You must fill all required fields"
 msgstr "Anda harus mengisi semua kolom"
 
 msgid "You must select receiver and your message should not be empty"

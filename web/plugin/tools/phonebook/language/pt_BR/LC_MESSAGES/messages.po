@@ -14,6 +14,13 @@ msgstr "Adicionar contato"
 msgid "Add group"
 msgstr "Adicionar grupo"
 
+#, fuzzy
+msgid "Allow broadcast from mobile"
+msgstr "distribuir SMS de outro SMS"
+
+msgid "Anyone"
+msgstr ""
+
 msgid "Contact has been added"
 msgstr "Contato foi adicionado"
 
@@ -70,6 +77,12 @@ msgstr "Importar as entradas acima aos contatos?"
 
 msgid "Import confirmation"
 msgstr "Confirmação de importação"
+
+msgid "Me only"
+msgstr ""
+
+msgid "Members"
+msgstr ""
 
 msgid "Mobile"
 msgstr "Celular"

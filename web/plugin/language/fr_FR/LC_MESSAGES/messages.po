@@ -545,6 +545,10 @@ msgstr ""
 msgid "Public registration disabled"
 msgstr "Enregistrement public"
 
+#, fuzzy
+msgid "Public registration is disabled"
+msgstr "Enregistrement public"
+
 msgid "Publish"
 msgstr ""
 
@@ -695,6 +699,9 @@ msgstr "Impossible de mettre à jour la session"
 msgid "Unicode message"
 msgstr "Envoyer un message unicode"
 
+msgid "Unknown error has occurred"
+msgstr ""
+
 msgid "Unpublish"
 msgstr ""
 
@@ -734,6 +741,10 @@ msgstr "L'utilisateur existe déjà"
 msgid "User has been added"
 msgstr "Utilisateur ajouté"
 
+#, fuzzy
+msgid "User has been added but failed to send email"
+msgstr "Utilisateur supprimé"
+
 msgid "User has been deleted"
 msgstr "Utilisateur supprimé"
 
@@ -749,6 +760,14 @@ msgstr "Privilège Utilisateur"
 #, fuzzy
 msgid "User preference"
 msgstr "Préférences"
+
+#, fuzzy
+msgid "User with this email is already exists"
+msgstr "L'utilisateur existe déjà"
+
+#, fuzzy
+msgid "User with this mobile is already exists"
+msgstr "L'utilisateur existe déjà"
 
 msgid "Username"
 msgstr "Nom utilisateur"
@@ -817,6 +836,10 @@ msgid "You must fill all field"
 msgstr "Vous devez remplir tous les champs"
 
 msgid "You must fill all fields"
+msgstr "Vous devez remplir tous les champs"
+
+#, fuzzy
+msgid "You must fill all required fields"
 msgstr "Vous devez remplir tous les champs"
 
 msgid "You must select receiver and your message should not be empty"

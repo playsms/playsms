@@ -513,6 +513,9 @@ msgstr ""
 msgid "Public registration disabled"
 msgstr ""
 
+msgid "Public registration is disabled"
+msgstr ""
+
 msgid "Publish"
 msgstr ""
 
@@ -654,6 +657,9 @@ msgstr ""
 msgid "Unicode message"
 msgstr ""
 
+msgid "Unknown error has occurred"
+msgstr ""
+
 msgid "Unpublish"
 msgstr ""
 
@@ -687,6 +693,9 @@ msgstr ""
 msgid "User has been added"
 msgstr ""
 
+msgid "User has been added but failed to send email"
+msgstr ""
+
 msgid "User has been deleted"
 msgstr ""
 
@@ -700,6 +709,12 @@ msgid "User level"
 msgstr ""
 
 msgid "User preference"
+msgstr ""
+
+msgid "User with this email is already exists"
+msgstr ""
+
+msgid "User with this mobile is already exists"
 msgstr ""
 
 msgid "Username"
@@ -763,6 +778,9 @@ msgid "You must fill all field"
 msgstr ""
 
 msgid "You must fill all fields"
+msgstr ""
+
+msgid "You must fill all required fields"
 msgstr ""
 
 msgid "You must select receiver and your message should not be empty"

@@ -529,6 +529,10 @@ msgstr "Prefixo ou código do país"
 msgid "Public registration disabled"
 msgstr "Registro público desativado"
 
+#, fuzzy
+msgid "Public registration is disabled"
+msgstr "Registro público desativado"
+
 msgid "Publish"
 msgstr ""
 
@@ -678,6 +682,9 @@ msgstr "Incapaz de atualizar a sessão de login"
 msgid "Unicode message"
 msgstr "Mensagem unicode"
 
+msgid "Unknown error has occurred"
+msgstr ""
+
 msgid "Unpublish"
 msgstr ""
 
@@ -715,6 +722,10 @@ msgstr "O usuário não existe"
 msgid "User has been added"
 msgstr "O usuário foi adicionado"
 
+#, fuzzy
+msgid "User has been added but failed to send email"
+msgstr "O usuário foi removido"
+
 msgid "User has been deleted"
 msgstr "O usuário foi removido"
 
@@ -730,6 +741,14 @@ msgstr "Nível de usuário"
 #, fuzzy
 msgid "User preference"
 msgstr "Preferências"
+
+#, fuzzy
+msgid "User with this email is already exists"
+msgstr "O usuário já existe"
+
+#, fuzzy
+msgid "User with this mobile is already exists"
+msgstr "O usuário já existe"
 
 msgid "Username"
 msgstr "Usuário"
@@ -793,6 +812,10 @@ msgid "You must fill all field"
 msgstr "Preencha todos os campos"
 
 msgid "You must fill all fields"
+msgstr "Preencha todos os campos"
+
+#, fuzzy
+msgid "You must fill all required fields"
 msgstr "Preencha todos os campos"
 
 msgid "You must select receiver and your message should not be empty"

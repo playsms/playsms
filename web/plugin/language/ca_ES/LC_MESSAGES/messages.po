@@ -542,6 +542,10 @@ msgstr "Prefix o codi de país"
 msgid "Public registration disabled"
 msgstr "Registre públic desactivat"
 
+#, fuzzy
+msgid "Public registration is disabled"
+msgstr "Registre públic desactivat"
+
 msgid "Publish"
 msgstr ""
 
@@ -691,6 +695,9 @@ msgstr "Impossible actualitzar la sessió de l'usuari"
 msgid "Unicode message"
 msgstr "Enviar en Unicode"
 
+msgid "Unknown error has occurred"
+msgstr ""
+
 msgid "Unpublish"
 msgstr ""
 
@@ -729,6 +736,10 @@ msgstr "L'usuari no existeix"
 msgid "User has been added"
 msgstr "L'usuari ha estat afegit"
 
+#, fuzzy
+msgid "User has been added but failed to send email"
+msgstr "L'usuari ha estat eliminat"
+
 msgid "User has been deleted"
 msgstr "L'usuari ha estat eliminat"
 
@@ -744,6 +755,14 @@ msgstr "Privilegis d'usuari"
 #, fuzzy
 msgid "User preference"
 msgstr "Preferències"
+
+#, fuzzy
+msgid "User with this email is already exists"
+msgstr "L'usuari ja existeix "
+
+#, fuzzy
+msgid "User with this mobile is already exists"
+msgstr "L'usuari ja existeix "
 
 msgid "Username"
 msgstr "Usuari"
@@ -808,6 +827,10 @@ msgid "You must fill all field"
 msgstr "Cal omplir tots els camps"
 
 msgid "You must fill all fields"
+msgstr "Cal omplir tots els camps"
+
+#, fuzzy
+msgid "You must fill all required fields"
 msgstr "Cal omplir tots els camps"
 
 msgid "You must select receiver and your message should not be empty"

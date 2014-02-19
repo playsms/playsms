@@ -23,6 +23,13 @@ msgstr "Afegir contacte"
 msgid "Add group"
 msgstr "Afegir grup"
 
+#, fuzzy
+msgid "Allow broadcast from mobile"
+msgstr "distribuir SMS a partir d'un SMS"
+
+msgid "Anyone"
+msgstr ""
+
 msgid "Contact has been added"
 msgstr "El contacte s'ha afegit"
 
@@ -79,6 +86,12 @@ msgstr "Importar les entrades de telèfon de sobre ?"
 
 msgid "Import confirmation"
 msgstr "Confirmar importació"
+
+msgid "Me only"
+msgstr ""
+
+msgid "Members"
+msgstr ""
 
 msgid "Mobile"
 msgstr "Mòbil"

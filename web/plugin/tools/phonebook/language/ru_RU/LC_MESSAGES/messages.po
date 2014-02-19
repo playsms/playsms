@@ -19,6 +19,13 @@ msgstr "Добавить контакт"
 msgid "Add group"
 msgstr "Добавить групу"
 
+#, fuzzy
+msgid "Allow broadcast from mobile"
+msgstr "Массовая рассылка"
+
+msgid "Anyone"
+msgstr ""
+
 msgid "Contact has been added"
 msgstr "Контакт добавлен"
 
@@ -75,6 +82,12 @@ msgstr "Импортировать следующие записи?"
 
 msgid "Import confirmation"
 msgstr "Подтверждение импорта"
+
+msgid "Me only"
+msgstr ""
+
+msgid "Members"
+msgstr ""
 
 msgid "Mobile"
 msgstr "Мобильный"

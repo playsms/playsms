@@ -519,6 +519,10 @@ msgstr "Код страны или префикс"
 msgid "Public registration disabled"
 msgstr "Регистрация отключена"
 
+#, fuzzy
+msgid "Public registration is disabled"
+msgstr "Регистрация отключена"
+
 msgid "Publish"
 msgstr "Опубликовать"
 
@@ -660,6 +664,9 @@ msgstr "Не удалось обновить сеанс"
 msgid "Unicode message"
 msgstr "Содержит русские символы"
 
+msgid "Unknown error has occurred"
+msgstr ""
+
 msgid "Unpublish"
 msgstr "Отменить публикацию"
 
@@ -693,6 +700,10 @@ msgstr "Пользователь не существует"
 msgid "User has been added"
 msgstr "Пользователь добавлен"
 
+#, fuzzy
+msgid "User has been added but failed to send email"
+msgstr "Пользователь удалён"
+
 msgid "User has been deleted"
 msgstr "Пользователь удалён"
 
@@ -707,6 +718,14 @@ msgstr "Уровень доступа"
 
 msgid "User preference"
 msgstr "Пользовательские настройки"
+
+#, fuzzy
+msgid "User with this email is already exists"
+msgstr "Пользователь уже существует"
+
+#, fuzzy
+msgid "User with this mobile is already exists"
+msgstr "Пользователь уже существует"
 
 msgid "Username"
 msgstr "Имя пользователя"
@@ -769,6 +788,10 @@ msgid "You must fill all field"
 msgstr "Вы должны заполнить все поля"
 
 msgid "You must fill all fields"
+msgstr "Вы должны заполнить все поля"
+
+#, fuzzy
+msgid "You must fill all required fields"
 msgstr "Вы должны заполнить все поля"
 
 msgid "You must select receiver and your message should not be empty"
