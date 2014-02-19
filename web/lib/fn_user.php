@@ -109,6 +109,7 @@ function user_mobile2uid($mobile) {
  * @return array $ret('error_string', 'status')
  */
 function user_add_validate($data=array()) {
+	global $core_config;
 	$ret['status'] = true;
 	if (is_array($data)) {
 		foreach ($data as $key => $val) {
@@ -131,20 +132,29 @@ function user_add_validate($data=array()) {
 			$ret['status'] = false;
 		}
 
+		// current user, to check an edit action
+		$current['username'] =  $core_config['user']['username'];
+		$current['email'] =  $core_config['user']['email'];
+		$current['mobile'] =  $core_config['user']['mobile'];
+
 		// check if username is exists
-		if ($ret['status'] && dba_isexists(_DB_PREF_.'_tblUser', array('username' => $data['username']))) {
-			$ret['error_string'] = _('User is already exists')." ("._('username').": ".$data['username'].")";
-			$ret['status'] = false;
+		if ($data['username'] && ($data['username'] != $current['username'])) {
+			if ($ret['status'] && dba_isexists(_DB_PREF_.'_tblUser', array('username' => $data['username']))) {
+				$ret['error_string'] = _('User is already exists')." ("._('username').": ".$data['username'].")";
+				$ret['status'] = false;
+			}
 		}
 
 		// check if email is exists
-		if ($ret['status'] && dba_isexists(_DB_PREF_.'_tblUser', array('email' => $data['email']))) {
-			$ret['error_string'] = _('User with this email is already exists')." ("._('email').": ".$data['email'].")";
-			$ret['status'] = false;
+		if ($data['email'] && ($data['email'] != $current['email'])) {
+			if ($ret['status'] && dba_isexists(_DB_PREF_.'_tblUser', array('email' => $data['email']))) {
+				$ret['error_string'] = _('User with this email is already exists')." ("._('email').": ".$data['email'].")";
+				$ret['status'] = false;
+			}
 		}
 
 		// check mobile, must check for duplication only when filled
-		if ($data['mobile']) {
+		if ($data['mobile'] && ($data['mobile'] != $current['mobile'])) {
 			if ($ret['status'] && (! preg_match('/([0-9\+\- ])/', $data['mobile']))) {
 				$ret['error_string'] = _('Your mobile format is invalid')." (".$data['mobile'].")";
 				$ret['status'] = false;
