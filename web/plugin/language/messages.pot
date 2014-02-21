@@ -712,6 +712,9 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
+msgid "Username is empty"
+msgstr ""
+
 msgid "Username should be at least 3 characters"
 msgstr ""
 

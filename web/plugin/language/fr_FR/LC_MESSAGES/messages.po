@@ -772,6 +772,10 @@ msgstr "L'utilisateur existe déjà"
 msgid "Username"
 msgstr "Nom utilisateur"
 
+#, fuzzy
+msgid "Username is empty"
+msgstr "Nom utilisateur"
+
 msgid "Username should be at least 3 characters"
 msgstr ""
 

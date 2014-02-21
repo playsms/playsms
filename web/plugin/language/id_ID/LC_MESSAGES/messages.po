@@ -752,6 +752,10 @@ msgstr "Pengguna sudah ada"
 msgid "Username"
 msgstr "Nama pengguna"
 
+#, fuzzy
+msgid "Username is empty"
+msgstr "Nama pengguna"
+
 msgid "Username should be at least 3 characters"
 msgstr "Nama pengguna minimal 3 karakter"
 

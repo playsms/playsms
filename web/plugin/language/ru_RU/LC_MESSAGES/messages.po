@@ -730,6 +730,10 @@ msgstr "Пользователь уже существует"
 msgid "Username"
 msgstr "Имя пользователя"
 
+#, fuzzy
+msgid "Username is empty"
+msgstr "Имя пользователя"
+
 msgid "Username should be at least 3 characters"
 msgstr "Имя пользователя должно состоять минимум из 3х знаков"
 

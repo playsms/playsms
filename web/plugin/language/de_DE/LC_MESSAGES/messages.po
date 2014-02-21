@@ -726,6 +726,10 @@ msgstr "Benutzer existiert bereits"
 msgid "Username"
 msgstr "Benutzername"
 
+#, fuzzy
+msgid "Username is empty"
+msgstr "Benutzername"
+
 msgid "Username should be at least 3 characters"
 msgstr "Benutzername muss mindestens 3 Zeichen lang sein"
 
