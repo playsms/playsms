@@ -37,7 +37,6 @@ switch ($op) {
 			$token = $c_user[0]['token'];
 			$webservices_ip = $c_user[0]['webservices_ip'];
 			$enable_webservices = $c_user[0]['enable_webservices'];
-			$mobile = $c_user[0]['mobile'];
 			$sender = core_sanitize_sender($c_user[0]['sender']);
 			$footer = $c_user[0]['footer'];
 			$datetime_timezone = core_get_timezone($c_username);
@@ -179,7 +178,6 @@ switch ($op) {
 			<table class=playsms-table>
 			<tbody>
 			<tr><td class=label-sizer>" . _('Username') . "</td><td>".$c_username."</td></tr>
-			<tr><td>" . _mandatory(_('Mobile')) . "</td><td><input type=text size=30 maxlength=20 name=up_mobile value=\"$mobile\"> " . _hint(_('Max. 20 digits mobile phone number')) . "</td></tr>
 			<tr><td>" . _('Effective SMS sender ID') . "</td><td>" . sendsms_get_sender($c_username) . "</td></tr>
 			<tr><td>" . _('SMS sender ID') . "</td><td><input type=text size=30 maxlength=16 name=up_sender value=\"$sender\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric characters')) . "</td></tr>
 			<tr><td>" . _('SMS footer') . "</td><td><input type=text size=30 maxlength=30 name=up_footer value=\"$footer\"> " . _hint(_('Max. 30 alphanumeric characters')) . "</td></tr>
@@ -209,7 +207,7 @@ switch ($op) {
 	case "user_config_save":
 		$_SESSION['error_string'] = _('No changes made');
 		$fields = array(
-			'mobile', 'footer', 'datetime_timezone', 'language_module',
+			'footer', 'datetime_timezone', 'language_module',
 			'fwd_to_inbox', 'fwd_to_email', 'fwd_to_mobile', 'local_length',
 			'replace_zero', 'plus_sign_remove', 'plus_sign_add', 'send_as_unicode',
 			'new_token', 'enable_webservices', 'webservices_ip', 'sender'
@@ -220,34 +218,28 @@ switch ($op) {
 		for ($i=0;$i<count($fields);$i++) {
 			$up[$fields[$i]] = trim($_POST['up_'.$fields[$i]]);
 		}
-		$up['username'] = $c_username;
 		$up['lastupdate_datetime'] = core_adjust_datetime(core_get_datetime());
-		if ($up['mobile']) {
-			$v = user_add_validate($up);
-			if ($v['status']) {
-				$continue = true;
-				if ($up['new_token']) {
-					$up['token'] = md5(mktime().$c_username.$up['email']);
-				}
-				unset($up['new_token']);
-				if ($continue) {
-					if (dba_update(_DB_PREF_.'_tblUser', $up, array('username' => $c_username))) {
-						if ($up['password']) {
-							$_SESSION['error_string'] = _('User configuration has been saved and password updated');
-						} else if ($up['token']) {
-							$_SESSION['error_string'] = _('User configuration has been saved and webservices token updated');
-						} else {
-							$_SESSION['error_string'] = _('User configuration has been saved');
-						}
+		if ($up['username'] = $c_username) {
+			$continue = true;
+			if ($up['new_token']) {
+				$up['token'] = md5(mktime().$c_username.$up['email']);
+			}
+			unset($up['new_token']);
+			if ($continue) {
+				if (dba_update(_DB_PREF_.'_tblUser', $up, array('username' => $c_username))) {
+					if ($up['password']) {
+						$_SESSION['error_string'] = _('User configuration has been saved and password updated');
+					} else if ($up['token']) {
+						$_SESSION['error_string'] = _('User configuration has been saved and webservices token updated');
 					} else {
-						$_SESSION['error_string'] = _('Fail to save preferences');
+						$_SESSION['error_string'] = _('User configuration has been saved');
 					}
+				} else {
+					$_SESSION['error_string'] = _('Fail to save preferences');
 				}
-			} else {
-				$_SESSION['error_string'] = $v['error_string'];
 			}
 		} else {
-			$_SESSION['error_string'] = _('You must fill all field');
+			$_SESSION['error_string'] = _('Username is empty');
 		}
 		header("Location: index.php?app=menu&inc=user_config&op=user_config".$url_uname);
 		exit();

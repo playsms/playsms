@@ -36,6 +36,7 @@ switch ($op) {
 		if ($c_user = dba_search(_DB_PREF_.'_tblUser', '*', array('username' => $c_username))) {
 			$name = $c_user[0]['name'];
 			$email = $c_user[0]['email'];
+			$mobile = $c_user[0]['mobile'];
 			$address = $c_user[0]['address'];
 			$city = $c_user[0]['city'];
 			$state = $c_user[0]['state'];
@@ -78,6 +79,7 @@ switch ($op) {
 			'Personal information' => _('Personal information'),
 			'Name' => _mandatory(_('Name')),
 			'Email' => _mandatory(_('Email')),
+			'Mobile' => _('Mobile'),
 			'Address' => _('Address'),
 			'City' => _('City'),
 			'State or Province' => _('State or Province'),
@@ -92,6 +94,7 @@ switch ($op) {
 			'c_username' => $c_username,
 			'name' => $name,
 			'email' => $email,
+			'mobile' => $mobile,
 			'address' => $address,
 			'city' => $city,
 			'state' => $state,
@@ -104,7 +107,7 @@ switch ($op) {
 	case "user_pref_save":
 		$_SESSION['error_string'] = _('No changes made');
 		$fields = array(
-			'name', 'email', 'address', 'city', 'state', 'country', 'password', 'zipcode'
+			'name', 'email', 'mobile', 'address', 'city', 'state', 'country', 'password', 'zipcode'
 		);
 		for ($i=0;$i<count($fields);$i++) {
 			$up[$fields[$i]] = trim($_POST['up_'.$fields[$i]]);
