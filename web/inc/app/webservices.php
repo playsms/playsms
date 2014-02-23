@@ -225,7 +225,7 @@ if ($ta) {
 			if ($ta) {
 				// output do not require valid login
 				$ret = webservices_output($ta,$_REQUEST);
-				echo $ret;
+				_p($ret);
 				exit();
 			} else {
 				// default error return
@@ -237,16 +237,16 @@ if ($ta) {
 }
 
 if ($format=='JSON') {
-	echo json_encode($json);
+	_p(json_encode($json));
 } else if ($format=='SERIALIZE') {
-	echo serialize($json);
+	_p(serialize($json));
 } else if ($format=='XML') {
 	$xml = core_array_to_xml($json, new SimpleXMLElement('<response/>'));
 	ob_end_clean();
 	header('Content-Type: text/xml');
-	echo $xml->asXML();
+	_p($xml->asXML());
 } else if ($format=='' || $format=='PLAIN') {
-	echo $ret;
+	_p($ret);
 }
 
 //logger_print("end u:".$u." h:".$h." ip:".$_SERVER['REMOTE_ADDR']." ta:".$ta, 3, "webservices");

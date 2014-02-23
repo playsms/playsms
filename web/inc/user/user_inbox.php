@@ -84,7 +84,7 @@ switch ($op) {
 		$tpl['var']['ERROR'] = $error_content;
 		$tpl['name'] = 'user_inbox';
 		$content = tpl_apply($tpl);
-		echo $content;
+		_p($content);
 		break;
 	case "actions":
 		$nav = themes_nav_session();

@@ -130,7 +130,7 @@ switch ($op) {
 			'option_language_module' => $option_language_module
 		    )
 		);
-		echo tpl_apply($tpl);
+		_p(tpl_apply($tpl));
 		break;
 	case "main_config_save":
 		$edit_web_title = $_POST['edit_web_title'];

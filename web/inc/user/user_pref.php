@@ -102,7 +102,7 @@ switch ($op) {
 			'zipcode' => $zipcode
 		    )
 		);
-		echo tpl_apply($tpl);
+		_p(tpl_apply($tpl));
 		break;
 	case "user_pref_save":
 		$_SESSION['error_string'] = _('No changes made');

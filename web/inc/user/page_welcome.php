@@ -35,5 +35,5 @@ if (file_exists($fn)) {
 		)
 	);
 	$tpl['var'][$doc . '_ACTIVE'] = 'class=active';
-	echo tpl_apply($tpl);
+	_p(tpl_apply($tpl));
 }

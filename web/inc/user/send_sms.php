@@ -102,7 +102,7 @@ switch ($op) {
 			'combobox' => file_exists($apps_path['themes'].'/common/jscss/combobox/select2_locale_'.substr($core_config['user']['language_module'], 0, 2).'.js')
 		    )
 		);
-		echo tpl_apply($tpl);
+		_p(tpl_apply($tpl));
 		break;
 	case "send_sms_yes":
 		if ($sms_to = trim($_REQUEST['p_num_text'])) {

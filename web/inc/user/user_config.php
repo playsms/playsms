@@ -202,7 +202,7 @@ switch ($op) {
 			<input type=submit class=button value='" . _('Save') . "'> ".$button_delete."
 			</form>
 			".$button_back;
-		echo $content;
+		_p($content);
 		break;
 	case "user_config_save":
 		$_SESSION['error_string'] = _('No changes made');

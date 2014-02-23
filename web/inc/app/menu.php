@@ -90,4 +90,4 @@ if (function_exists('bindtextdomain')) {
 
 $content = ob_get_clean();
 
-echo themes_apply($content);
+_p(themes_apply($content));

@@ -80,7 +80,7 @@ switch ($op) {
 			</tbody></table>
 			</div>
 			<div class=pull-right>".$nav['form']."</div>";
-		echo $content;
+		_p($content);
 		break;
 	case "user_list_tab2":
 		$search_var = array(
@@ -138,7 +138,7 @@ switch ($op) {
 			</tbody></table>
 			</div>
 			<div class=pull-right>".$nav['form']."</div>";
-		echo $content;
+		_p($content);
 		break;
 	case "user_add":
 		if ($err = $_SESSION['error_string']) {
@@ -212,7 +212,7 @@ switch ($op) {
 		<input type='submit' class='button' value='" . _('Save') . "'>
 		</form>
 		<p>"._back('index.php?app=menu&inc=user_mgmnt&op=user_list');
-		echo $content;
+		_p($content);
 		break;
 	case "user_add_yes":
 		$add['email'] = $_POST['add_email'];

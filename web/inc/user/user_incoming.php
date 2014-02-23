@@ -108,9 +108,9 @@ switch ($op) {
 			</form>";
 
 		if ($err = $_SESSION['error_string']) {
-			echo "<div class=error_string>$err</div>";
+			_p("<div class=error_string>$err</div>");
 		}
-		echo $content;
+		_p($content);
 		break;
 	case "actions":
 		$nav = themes_nav_session();

@@ -339,7 +339,7 @@ function core_net_match($network, $ip) {
 	$orig_network = $network;
 	$ip = trim($ip);
 	if ($ip == $network) {
-		// echo "used network ($network) for ($ip)\n";
+		//_p("used network ($network) for ($ip)\n");
 		return TRUE;
 	}
 	$network = str_replace(' ', '', $network);
@@ -361,7 +361,7 @@ function core_net_match($network, $ip) {
 		}
 	}
 
-	// echo "from original network($orig_network), used network ($network) for ($ip)\n";
+	//_p("from original network($orig_network), used network ($network) for ($ip)\n");
 
 	$d = strpos($network, '-');
 	if ($d === FALSE) {
@@ -517,7 +517,7 @@ function core_download($content, $fn='', $content_type='') {
 	header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 	header('Content-Type: '.$content_type);
 	header('Content-Disposition: attachment; filename='.$fn);
-	echo $content;
+	_p($content);
 	die();
 }
 
@@ -678,4 +678,23 @@ function core_get_version() {
 	} else {
 		return '';
 	}	
+}
+
+/**
+ * Print output
+ * @return string
+ */
+function core_print($content) {
+	global $core_config;
+	echo $content;
+}
+
+/* Shortcuts */
+
+/**
+ * Shortcut to core_print() for printing output to display
+ * @return string
+ */
+function _p($content) {
+	return core_print($content);
 }
