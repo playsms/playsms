@@ -140,25 +140,6 @@ switch ($op) {
 			<div class=pull-right>".$nav['form']."</div>";
 		echo $content;
 		break;
-	case "user_del":
-		$up['username'] = $_REQUEST['uname'];
-		$del_uid = user_username2uid($up['username']);
-		$_SESSION['error_string'] = _('Fail to delete user') . " ".$up['username'];
-		if (($del_uid > 1) && ($del_uid != $uid)) {
-			$condition = array('uid' => $del_uid);
-			if (dba_remove(_DB_PREF_.'_tblUser', $condition)) {
-				$_SESSION['error_string'] = _('User has been deleted') . " (" . _('username') . ": ".$up['username'].")";
-			}
-		}
-		if (($del_uid == 1) || ($up['username'] == "admin")) {
-			$_SESSION['error_string'] = _('User is immune to deletion') . " (" . _('username') . " ".$up['username'].")";
-		} else if ($del_uid == $uid) {
-			$_SESSION['error_string'] = _('Currently logged in user is immune to deletion');
-		}
-		$referrer = ( $_SESSION['referrer'] ? $_SESSION['referrer'] : 'user_list_tab1' );
-		header("Location: index.php?app=menu&inc=user_mgmnt&op=".$referrer);
-		exit();
-		break;
 	case "user_add":
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
@@ -248,6 +229,15 @@ switch ($op) {
 		$ret = user_add($add);
 		$_SESSION['error_string'] = $ret['error_string'];
 		header("Location: index.php?app=menu&inc=user_mgmnt&op=user_add");
+		exit();
+		break;
+	case "user_del":
+		$up['username'] = $_REQUEST['uname'];
+		$del_uid = user_username2uid($up['username']);
+		$ret = user_remove($del_uid);
+		$_SESSION['error_string'] = $ret['error_string'];
+		$referrer = ( $_SESSION['referrer'] ? $_SESSION['referrer'] : 'user_list_tab1' );
+		header("Location: index.php?app=menu&inc=user_mgmnt&op=".$referrer);
 		exit();
 		break;
 }

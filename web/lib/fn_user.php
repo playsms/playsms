@@ -235,3 +235,31 @@ function user_add($data=array()) {
 	}
 	return $ret;
 }
+
+/**
+ * Delete existing user
+ * @param integer $uid User ID
+ * @return array $ret('error_string', 'status')
+ */
+function user_remove($uid) {
+	global $core_config;
+	$ret['error_string'] = _('Unknown error has occurred');
+	$ret['status'] = FALSE;
+	if ($username = user_uid2username($uid)) {
+		if (! ($uid == 1 || $username == 'admin')) {
+			if ($uid == $core_config['user']['uid']) {
+				$ret['error_string'] = _('Currently logged in user is immune to deletion');
+			} else {
+				if (dba_remove(_DB_PREF_.'_tblUser', array('uid' => $uid))) {
+					$ret['error_string'] = _('User has been removed') . " (" . _('username') . " ".$username.")";
+					$ret['status'] = TRUE;
+				}
+			}
+		} else {
+			$ret['error_string'] = _('User is immune to deletion') . " (" . _('username') . " ".$username.")";
+		}
+	} else {
+		$ret['error_string'] = _('User does not exists');
+	}
+	return $ret;
+}
