@@ -35,7 +35,7 @@ switch ($op) {
 				<tr><td>"._('HTML output')."</td><td><a href=\"".$output_html."\" target=_blank>".$output_html."</a></td></tr>
 			</table>
 			"._back('index.php?app=menu&inc=feature_sms_board&op=sms_board_list');
-		echo $content;
+		_p($content);
 		break;
 }
 

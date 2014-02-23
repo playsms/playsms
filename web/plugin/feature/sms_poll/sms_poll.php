@@ -71,7 +71,7 @@ switch ($op) {
 			</table>
 			</div>
 			"._button('index.php?app=menu&inc=feature_sms_poll&op=sms_poll_add', _('Add SMS poll'));
-		echo $content;
+		_p($content);
 		break;
 	case "sms_poll_view":
 		$db_query = "SELECT poll_keyword FROM "._DB_PREF_."_featurePoll WHERE poll_id='$poll_id'";
@@ -161,7 +161,7 @@ switch ($op) {
 			<p><input type=submit class=button value=\""._('Add')."\">
 			</form>
 			"._back('index.php?app=menu&inc=feature_sms_poll&op=sms_poll_list');
-		echo $content;
+		_p($content);
 		break;
 	case "sms_poll_edit_yes":
 		$edit_poll_keyword = strtoupper($_POST['edit_poll_keyword']);
@@ -272,7 +272,7 @@ switch ($op) {
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
 			"._back('index.php?app=menu&inc=feature_sms_poll&op=sms_poll_list');
-		echo $content;
+		_p($content);
 		break;
 	case "sms_poll_add_yes":
 		$add_poll_keyword = strtoupper($_POST['add_poll_keyword']);

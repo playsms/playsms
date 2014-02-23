@@ -72,7 +72,7 @@ switch ($op) {
 			</table>
 			</div>
 			"._button('index.php?app=menu&inc=feature_sms_command&op=sms_command_add', _('Add SMS command'));
-		echo $content;
+		_p($content);
 		break;
 	case "sms_command_edit":
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCommand WHERE command_id='$command_id'";
@@ -126,7 +126,7 @@ switch ($op) {
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
 			"._back('index.php?app=menu&inc=feature_sms_command&op=sms_command_list');
-		echo $content;
+		_p($content);
 		break;
 	case "sms_command_edit_yes":
 		$edit_command_return_as_reply = ( $_POST['edit_command_return_as_reply'] == 'on' ? '1' : '0' );
@@ -210,7 +210,7 @@ switch ($op) {
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
 			"._back('index.php?app=menu&inc=feature_sms_command&op=sms_command_list');
-		echo $content;
+		_p($content);
 		break;
 	case "sms_command_add_yes":
 		$add_command_return_as_reply = ( $_POST['add_command_return_as_reply'] == 'on' ? '1' : '0' );

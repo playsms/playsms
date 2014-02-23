@@ -78,7 +78,7 @@ switch ($op) {
 			</table>
 			</div>
 			"._button('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_add', _('Add SMS subscribe'));
-		echo $content;
+		_p($content);
 		break;
 	case "sms_subscribe_status" :
 		$ps = $_REQUEST['ps'];
@@ -191,7 +191,7 @@ switch ($op) {
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
 			"._back('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
-		echo $content;
+		_p($content);
 		break;
 	case "sms_subscribe_add_yes" :
 		$add_subscribe_keyword = strtoupper($_POST['add_subscribe_keyword']);
@@ -339,7 +339,7 @@ switch ($op) {
 		<p><input type=submit class=button value=\""._('Save')."\">
 		</form>
 		"._back('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
-		echo $content;
+		_p($content);
 		break;
 	case "sms_subscribe_edit_yes" :
 		$edit_subscribe_keyword = strtoupper($_POST['edit_subscribe_keyword']);
@@ -420,7 +420,7 @@ switch ($op) {
 			</table>
 			</div>
 			"._back('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
-		echo $content;
+		_p($content);
 		break;
 	case "mbr_del" :
 		if ($subscribe_id && ($mbr_id = $_REQUEST['mbr_id'])) {
@@ -473,7 +473,7 @@ switch ($op) {
 			</div>
 			"._button('index.php?app=menu&inc=feature_sms_subscribe&op=msg_add&&subscribe_id='.$subscribe_id, _('Add message'))."
 			"._back('index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list');
-		echo $content;
+		_p($content);
 		break;
 	case "msg_edit" :
 		$msg_id = $_REQUEST['msg_id'];
@@ -505,7 +505,7 @@ switch ($op) {
 			<input type=submit class=button value=\""._('Save')."\">
 			</form>
 			"._back('index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id='.$subscribe_id);
-		echo $content;
+		_p($content);
 		break;
 	case "msg_edit_yes" :
 		$edit_mbr_msg = $_POST['edit_mbr_msg'];
@@ -553,7 +553,7 @@ switch ($op) {
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
 			"._back('index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id='.$subscribe_id);
-		echo $content;
+		_p($content);
 		break;
 	case "msg_add_yes" :
 		$add_mbr_message = $_POST['add_mbr_message'];
@@ -615,7 +615,7 @@ switch ($op) {
 			<p><input type=submit value=\""._('Send')."\" class=\"button\" />
 			</form>
 			"._back('index.php?app=menu&inc=feature_sms_subscribe&op=msg_list&subscribe_id='.$subscribe_id);
-		echo $content;
+		_p($content);
 		break;
 	case "msg_send" :
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id='$subscribe_id'";

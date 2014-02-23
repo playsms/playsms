@@ -90,7 +90,7 @@ switch ($op) {
 				</form>
 			</div>
 		"._back('index.php?app=menu&inc=feature_inboxgroup&op=list');
-		echo $content;
+		_p($content);
 		break;
 	case 'members_add':
 		$rid = $_REQUEST['rid'];
@@ -155,7 +155,7 @@ switch ($op) {
 			<p><input class='button' type='submit' value='Submit' onClick=\"selectAllOptions(this.form['uids[]'])\"></p>
 			</form>
 		"._back('index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid='.$rid);
-		echo $content;
+		_p($content);
 		break;
 	case 'members_add_submit':
 		$rid = $_REQUEST['rid'];
@@ -243,7 +243,7 @@ switch ($op) {
 			<p><input class='button' type='submit' value='Submit' onClick=\"selectAllOptions(this.form['uids[]'])\"></p>
 			</form>
 		"._back('index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid='.$rid);
-		echo $content;
+		_p($content);
 		break;
 	case 'members_delete_submit':
 		$rid = $_REQUEST['rid'];

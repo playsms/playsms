@@ -56,9 +56,9 @@ switch ($op) {
 			</div>
 			"._button('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_add', _('Add SMS autoreply'));
 		if ($err = $_SESSION['error_string']) {
-			echo "<div class=error_string>$err</div>";
+			_p("<div class=error_string>$err</div>");
 		}
-		echo $content;
+		_p($content);
 		break;
 	case "sms_autoreply_manage":
 		$db_query = "SELECT * FROM "._DB_PREF_."_featureAutoreply WHERE autoreply_id='$autoreply_id'";
@@ -118,9 +118,9 @@ switch ($op) {
 			"._button('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id='.$autoreply_id, _('Add SMS autoreply scenario'))."
 			"._back('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_list');
 		if ($err = $_SESSION['error_string']) {
-			echo "<div class=error_string>$err</div>";
+			_p("<div class=error_string>$err</div>");
 		}
-		echo $content;
+		_p($content);
 		break;
 	case "sms_autoreply_del":
 		$db_query = "SELECT autoreply_keyword FROM "._DB_PREF_."_featureAutoreply WHERE autoreply_id='$autoreply_id'";
@@ -157,9 +157,9 @@ switch ($op) {
 			</form>
 			"._back('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_list');
 		if ($err = $_SESSION['error_string']) {
-			echo "<div class=error_string>$err</div>";
+			_p("<div class=error_string>$err</div>");
 		}
-		echo $content;
+		_p($content);
 		break;
 	case "sms_autoreply_add_yes":
 		$add_autoreply_keyword = trim(strtoupper($_POST['add_autoreply_keyword']));
@@ -223,9 +223,9 @@ switch ($op) {
 			</form>
 			"._back('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id='.$autoreply_id);
 		if ($err = $_SESSION['error_string']) {
-			echo "<div class=error_string>$err</div>";
+			_p("<div class=error_string>$err</div>");
 		}
-		echo $content;
+		_p($content);
 		break;
 	case "sms_autoreply_scenario_add_yes":
 		$add_autoreply_scenario_result = $_POST['add_autoreply_scenario_result'];
@@ -293,9 +293,9 @@ switch ($op) {
 			</form>
 			"._back('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id='.$autoreply_id);
 		if ($err = $_SESSION['error_string']) {
-			echo "<div class=error_string>$err</div>";
+			_p("<div class=error_string>$err</div>");
 		}
-		echo $content;
+		_p($content);
 		break;
 	case "sms_autoreply_scenario_edit_yes":
 		$autoreply_scenario_id = $_POST['autoreply_scenario_id'];

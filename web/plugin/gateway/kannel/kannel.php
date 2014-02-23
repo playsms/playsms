@@ -115,7 +115,7 @@ switch ($op) {
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>";
 		$content .= _back('index.php?app=menu&inc=tools_gatewaymanager&op=gatewaymanager_list');
-		echo $content;
+		_p($content);
 		break;
 	case "manage_save":
 		$up_username = $_POST['up_username'];
@@ -222,5 +222,3 @@ switch ($op) {
 		break;
 		//end Of Fixme Edward, Adding New Case To Handle Button Restart Kannel Services
 }
-
-?>

@@ -60,7 +60,7 @@ switch ($op) {
 			- " . _ ( 'Clickatell will push DLR and incoming SMS to your callback URL' ) . "<br />
 			- " . _ ( 'Clickatell is a bulk SMS provider' ) . ", <a href=\"https://www.clickatell.com/register/\" target=\"_blank\">" . _ ( 'free credits are available for testing purposes' ) . "</a><br />";
 		$content .= _back('index.php?app=menu&inc=tools_gatewaymanager&op=gatewaymanager_list');
-		echo $content;
+		_p($content);
 		break;
 	case "manage_save" :
 		$up_api_id = $_POST ['up_api_id'];
@@ -102,5 +102,3 @@ switch ($op) {
 		exit ();
 		break;
 }
-
-?>

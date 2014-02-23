@@ -56,9 +56,7 @@ if ($cb_status && $cb_smsid)
 		dlr($smslog_id,$uid,$p_status);
 		
 		ob_end_clean();
-		echo 'OK'; // must response with unformated text OK according to msgtoolbox API
+		_p('OK'); // must response with unformated text OK according to msgtoolbox API
 		exit();
 	}
 }
-
-?>

@@ -26,9 +26,9 @@ switch ($op) {
 			</table>
 			<p>"._back('index.php?app=menu&inc=tools_phonebook&op=phonebook_list');
 		if ($err = $_SESSION['error_string']) {
-			echo "<div class=error_string>$err</div>";
+			_p("<div class=error_string>$err</div>");
 		}
-		echo $content;
+		_p($content);
 		break;
 	case "import":
 		$fnpb = $_FILES['fnpb'];
@@ -86,7 +86,7 @@ switch ($op) {
 				<p><input type=\"submit\" class=\"button\" value=\""._('Import')."\"></p>
 				</form>
 				<p>"._back('index.php?app=menu&inc=tools_phonebook&route=import&op=list');
-			echo $content;
+			_p($content);
 		} else {
 			$_SESSION['error_string'] = _('Fail to upload CSV file for phonebook');
 			header("Location: index.php?app=menu&inc=tools_phonebook&route=import&op=list");

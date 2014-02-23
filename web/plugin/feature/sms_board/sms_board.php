@@ -63,7 +63,7 @@ switch ($op) {
 			</table>
 			</div>
 			"._button('index.php?app=menu&inc=feature_sms_board&op=sms_board_add', _('Add SMS board'));
-		echo $content;
+		_p($content);
 		break;
 	case "sms_board_edit":
 		$db_query = "SELECT * FROM "._DB_PREF_."_featureBoard WHERE board_id='$board_id'";
@@ -103,7 +103,7 @@ switch ($op) {
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
 			"._back('index.php?app=menu&inc=feature_sms_board&op=sms_board_list');
-		echo $content;
+		_p($content);
 		break;
 	case "sms_board_edit_yes":
 		$edit_board_keyword = $_POST['edit_board_keyword'];
@@ -170,7 +170,7 @@ switch ($op) {
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
 			"._back('index.php?app=menu&inc=feature_sms_board&op=sms_board_list');
-		echo $content;
+		_p($content);
 		break;
 	case "sms_board_add_yes":
 		$add_board_keyword = strtoupper($_POST['add_board_keyword']);

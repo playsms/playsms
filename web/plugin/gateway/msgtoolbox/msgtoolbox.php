@@ -49,7 +49,7 @@ switch ($op) {
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>";
 		$content .= _back('index.php?app=menu&inc=tools_gatewaymanager&op=gatewaymanager_list');
-		echo $content;
+		_p($content);
 		break;
 	case "manage_save":
 		$up_url = $_POST['up_url'];
@@ -88,5 +88,3 @@ switch ($op) {
 		exit();
 		break;
 }
-
-?>

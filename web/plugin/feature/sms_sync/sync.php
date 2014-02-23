@@ -64,7 +64,5 @@ if ($sms_sync_enable && $c_uid && ($r['secret'] == $sms_sync_secret) && $message
 			)
 		);
 	}
-	echo json_encode($ret);
+	_p(json_encode($ret));
 }
-
-?>

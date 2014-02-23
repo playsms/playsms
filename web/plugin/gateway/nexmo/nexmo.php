@@ -52,7 +52,7 @@ switch ($op) {
 			'callback_url' => $callback_url
 		    )
 		);
-		echo tpl_apply($tpl);
+		_p(tpl_apply($tpl));
 		break;
 	case "manage_save":
 		$up_url = $_POST['up_url'];
@@ -88,5 +88,3 @@ switch ($op) {
 		exit();
 		break;
 }
-
-?>

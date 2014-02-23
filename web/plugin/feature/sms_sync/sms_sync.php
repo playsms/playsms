@@ -38,7 +38,7 @@ switch ($op) {
 			'Save' => _('Save')
 			)
 		);
-		echo tpl_apply($tpl);
+		_p(tpl_apply($tpl));
 		break;
 	case "sms_sync_save":
 		$items['secret'] = $_POST['sms_sync_secret'];

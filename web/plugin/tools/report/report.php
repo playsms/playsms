@@ -70,7 +70,7 @@ switch ($op) {
 			'credit' => $credit
 		    )
 		);
-		echo tpl_apply($tpl);
+		_p(tpl_apply($tpl));
 		break;
 
 	case "report_admin" :
@@ -174,7 +174,7 @@ switch ($op) {
 		$tpl['var']['sum_billing'] = $sum_billing;
 		$tpl['var']['sum_credit'] = $sum_credit;
 
-		echo tpl_apply($tpl);
+		_p(tpl_apply($tpl));
 		break;
 }
 ?>

@@ -64,9 +64,9 @@ switch ($op) {
 			"._back('index.php?app=menu&inc=tools_phonebook&op=phonebook_list');
 
 		if ($err = $_SESSION['error_string']) {
-			echo "<div class=error_string>$err</div>";
+			_p("<div class=error_string>$err</div>");
 		}
-		echo $content;
+		_p($content);
 		break;
 	case "add":
 		$option_flag_sender = "
@@ -98,7 +98,7 @@ switch ($op) {
 			<p><input type=submit class=button value=\""._('Save')."\"> 
 			</form>
 			<p>"._back('index.php?app=menu&inc=tools_phonebook&route=group&op=list');
-		echo $content;
+		_p($content);
 		break;
 	case "edit":
 		$gpid = $_REQUEST['gpid'];
@@ -136,9 +136,9 @@ switch ($op) {
 			</form>
 			<p>"._back('index.php?app=menu&inc=tools_phonebook&route=group&op=list');
 		if ($err = $_SESSION['error_string']) {
-			echo "<div class=error_string>$err</div>";
+			_p("<div class=error_string>$err</div>");
 		}
-		echo $content;
+		_p($content);
 		break;
 	case "actions":
 		$nav = themes_nav_session();

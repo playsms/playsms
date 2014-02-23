@@ -27,9 +27,9 @@ switch ($op) {
 				</tbody>
 			</table>";
 		if ($err = $_SESSION['error_string']) {
-			echo "<div class=error_string>$err</div>";
+			_p("<div class=error_string>$err</div>");
 		}
-		echo $content;
+		_p($content);
 		break;
 	case 'upload_confirm':
 		$filename = $_FILES['fncsv']['name'];
@@ -148,7 +148,7 @@ switch ($op) {
 		$content .= _CSRF_FORM_."<input type=hidden name=sid value='".$sid."'>";
 		$content .= "<input type=\"submit\" value=\""._('Send SMS to valid entries')."\" class=\"button\"></p>";
 		$content .= "</form>";
-		echo $content;
+		_p($content);
 		break;
 	case 'upload_cancel':
 		if ($sid = $_REQUEST['sid']) {

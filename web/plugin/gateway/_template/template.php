@@ -35,7 +35,7 @@ switch ($op)
 	    </table>	    
 	    <p><input type=submit class=button value=\""._('Save')."\">
 	    </form>";
-		echo $content;
+		_p($content);
 		break;
 	case "manage_save":
 		$up_path = $_POST['up_path'];
@@ -62,5 +62,3 @@ switch ($op)
 		exit();
 		break;
 }
-
-?>

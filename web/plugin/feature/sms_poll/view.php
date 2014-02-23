@@ -51,7 +51,7 @@ switch ($op) {
 			$content .= "<img src=\"".$output_graph."\">";
 		}
 		$content .= _back('index.php?app=menu&inc=feature_sms_poll&op=sms_poll_list');
-		echo $content;
+		_p($content);
 		break;
 }
 

@@ -71,7 +71,7 @@ switch ($op) {
 			</table>
 			</div>
 			"._button('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add', _('Add SMS quiz'));
-		echo $content;
+		_p($content);
 		break;
 	case "sms_quiz_add" :
 		if ($err = $_SESSION['error_string']) {
@@ -102,7 +102,7 @@ switch ($op) {
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
 			"._back('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list');
-		echo $content;
+		_p($content);
 		break;
 	case "sms_quiz_add_yes" :
 		$add_quiz_keyword = strtoupper($_POST['add_quiz_keyword']);
@@ -168,7 +168,7 @@ switch ($op) {
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
 			"._back('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list');
-		echo $content;
+		_p($content);
 		break;
 	case "sms_quiz_edit_yes" :
 		$edit_quiz_keyword = $_POST['edit_quiz_keyword'];
@@ -237,7 +237,7 @@ switch ($op) {
 			</table>
 			</div>
 			"._back('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list');
-		echo $content;
+		_p($content);
 		break;
 	case "sms_answer_del" :
 		$answer_id = $_REQUEST['answer_id'];

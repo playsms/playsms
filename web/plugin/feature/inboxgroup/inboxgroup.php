@@ -47,7 +47,7 @@ switch ($op) {
 		}
 		$tpl['name'] = 'inboxgroup_list';
 		$content = tpl_apply($tpl);
-		echo $content;
+		_p($content);
 		break;
 	case 'add':
 		if ($error_content) {
@@ -69,7 +69,7 @@ switch ($op) {
 			'BACK' => _back('index.php?app=menu&inc=feature_inboxgroup&op=list')
 		    )
 		);
-		echo tpl_apply($tpl);
+		_p(tpl_apply($tpl));
 		break;
 	case 'add_submit':
 		$in_receiver = $_REQUEST['in_receiver'];
@@ -121,7 +121,7 @@ switch ($op) {
 			'BACK' => _back('index.php?app=menu&inc=feature_inboxgroup&op=list')
 		    )
 		);
-		echo tpl_apply($tpl);
+		_p(tpl_apply($tpl));
 		break;
 	case 'edit_submit':
 		$rid = $_REQUEST['rid'];
@@ -181,7 +181,7 @@ switch ($op) {
 			'BACK' => _back('index.php?app=menu&inc=feature_inboxgroup&op=list')
 		    )
 		);
-		echo tpl_apply($tpl);
+		_p(tpl_apply($tpl));
 		break;
 	case 'del_submit':
 		$rid = $_REQUEST['rid'];

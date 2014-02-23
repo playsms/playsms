@@ -36,9 +36,9 @@ switch ($op) {
 			</div>
 			"._button('index.php?app=menu&inc=tools_simplerate&op=simplerate_add', _('Add rate'));
 		if ($err = $_SESSION['error_string']) {
-			echo "<div class=error_string>$err</div>";
+			_p("<div class=error_string>$err</div>");
 		}
-		echo $content;
+		_p($content);
 		break;
 	case "simplerate_del":
 		$rateid = $_REQUEST['rateid'];
@@ -80,7 +80,7 @@ switch ($op) {
 			<p><input type='submit' class='button' value='"._('Save')."'>
 			</form>
 			<p>"._back('index.php?app=menu&inc=tools_simplerate&op=simplerate_list');
-		echo $content;
+		_p($content);
 		break;
 	case "simplerate_edit_save":
 		$rateid = $_POST['rateid'];
@@ -125,7 +125,7 @@ switch ($op) {
 			<p><input type='submit' class='button' value='"._('Save')."'>
 			</form>
 			<p>"._back('index.php?app=menu&inc=tools_simplerate&op=simplerate_list');
-		echo $content;
+		_p($content);
 		break;
 	case "simplerate_add_yes":
 		$add_dst = $_POST['add_dst'];

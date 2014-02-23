@@ -16,6 +16,4 @@ switch ($op) {
 $content = $error_string;
 $content .= "<h2>" . _ ( 'Manage gateway' ) . "</h2>";
 $content .= gatewaymanager_display ();
-echo $content;
-
-?>
+_p($content);

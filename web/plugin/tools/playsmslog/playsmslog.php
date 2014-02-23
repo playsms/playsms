@@ -16,7 +16,7 @@ switch ($op)
 				'View log' => _('View log')
 			)
 		);
-		echo tpl_apply($tpl);
+		_p(tpl_apply($tpl));
 		break;
 }
 

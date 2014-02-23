@@ -65,9 +65,9 @@ switch ($op) {
 			</div>
 		";
 		if ($err = $_SESSION['error_string']) {
-			echo "<div class=error_string>$err</div>";
+			_p("<div class=error_string>$err</div>");
 		}
-		echo $content;
+		_p($content);
 		break;
 	case "add":
 		if ($err = $_SESSION['error_string']) {
@@ -89,7 +89,7 @@ switch ($op) {
 			<p><input type='submit' class='button' value='"._('Save')."'>
 			</form>
 			<p>"._back('index.php?app=menu&inc=tools_msgtemplate&op=list');
-			echo $content;
+			_p($content);
 		break;
 	case "edit":
 		$db_query = "SELECT * FROM "._DB_PREF_."_toolsMsgtemplate WHERE tid='$tid'";
@@ -116,7 +116,7 @@ switch ($op) {
 			<input type='hidden' name='item_count' value='$i'>
 			</form>
 			<p>"._back('index.php?app=menu&inc=tools_msgtemplate&op=list');
-		echo $content;
+		_p($content);
 		break;
 	case "actions":
 		$go = $_REQUEST['go'];

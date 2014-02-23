@@ -29,6 +29,6 @@ $content .= "
 			" . pluginmanager_display ( 'language' ) . "
 		</div>
 	</div>";
-echo $content;
+_p($content);
 
 ?>

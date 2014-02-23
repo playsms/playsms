@@ -70,7 +70,7 @@ switch ($op) {
 			</div>
 			<div align=center>".$nav['form']."</div>
 		";
-		echo $content;
+		_p($content);
 		break;
 	case "queuelog_delete":
 		if ($queue = $_REQUEST['queue']) {

@@ -27,7 +27,7 @@ switch ($op) {
 				</tbody>
 			</table>";
 		$content .= _back('index.php?app=menu&inc=tools_gatewaymanager&op=gatewaymanager_list');
-		echo $content;
+		_p($content);
 		break;
 	case "manage_activate":
 		$db_query = "UPDATE "._DB_PREF_."_tblConfig_main SET c_timestamp='".mktime()."',cfg_gateway_module='smstools'";
@@ -37,5 +37,3 @@ switch ($op) {
 		exit();
 		break;
 }
-
-?>

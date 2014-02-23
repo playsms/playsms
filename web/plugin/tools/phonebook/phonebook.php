@@ -105,9 +105,9 @@ switch ($op) {
 			</form>";
 
 		if ($err = $_SESSION['error_string']) {
-			echo "<div class=error_string>$err</div>";
+			_p("<div class=error_string>$err</div>");
 		}
-		echo $content;
+		_p($content);
 		break;
 	case "phonebook_add":
 		$phone = trim(urlencode($_REQUEST['phone']));
@@ -134,9 +134,9 @@ switch ($op) {
 			</form>
 			<p>"._back('index.php?app=menu&inc=tools_phonebook&op=phonebook_list');
 		if ($err = $_SESSION['error_string']) {
-			echo "<div class=error_string>$err</div>";
+			_p("<div class=error_string>$err</div>");
 		}
-		echo $content;
+		_p($content);
 		break;
 	case "phonebook_edit":
 		$uid = $core_config['user']['uid'];
@@ -170,9 +170,9 @@ switch ($op) {
 			</form>
 			<p>"._back('index.php?app=menu&inc=tools_phonebook&op=phonebook_list');
 		if ($err = $_SESSION['error_string']) {
-			echo "<div class=error_string>$err</div>";
+			_p("<div class=error_string>$err</div>");
 		}
-		echo $content;
+		_p($content);
 		break;
 	case "actions":
 		$nav = themes_nav_session();
