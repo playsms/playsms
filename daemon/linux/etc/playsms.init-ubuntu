@@ -50,9 +50,9 @@ case "$1" in
   status)
     RUNNING=`ps uf -C playsmsd | grep schedule`
     if [ -n "$RUNNING" ]; then
-	log_daemon_msg "playsmsd schedule is running"
+	log_daemon_msg "playsmsd is running"
     else
-	log_failure_msg "playsmsd schedule is not running"
+	log_failure_msg "playsmsd is not running"
     fi
     ;;
 
