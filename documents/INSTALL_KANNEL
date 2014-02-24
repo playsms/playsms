@@ -1,11 +1,30 @@
 INSTALL KANNEL
 --------------
 
-Due to complexity of installation process for kannel, we decide to leave this
-module for experts.
+1. Install Kannel
 
-On some Linux distro you can easily use "apt-get install kannel" to install
-Kannel.
+	# apt-get install kannel
 
-Well experts, there's something you should see and understand on
-contrib/kannel/kannel.conf, the part after SMS SERVICE 'Default'.
+2. Edit /etc/default/kannel to activate smsbox
+
+	# sed -i 's/#START_SMSBOX/START_SMSBOX/' /etc/default/kannel
+
+3. Backup original kannel.conf
+
+	# cp /etc/kannel/kannel.conf /etc/kannel/kannel.conf.dist
+
+4. Copy contributed kannel.conf in playSMS source to /etc/kannel/
+
+	# cp <playSMS source folder>/contrib/kannel/kannel.conf /etc/kannel/
+	# ls -l /etc/kannel/
+
+5. Edit /etc/kannel/kannel.conf. Replace http://CHANGE_THIS_TO_YOUR_PLAYSMS_URL
+   with your playSMS URL, for example with http://localhost/playsms.
+
+6. Read the rest of kannel.conf and setup your Kannel. You need to understand
+   how to configure kannel.conf, how to add modems and smscs when needed.
+
+7. Restart kannel
+
+	# /etc/init.d/kannel restart
+
