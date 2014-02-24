@@ -1,9 +1,0 @@
-#!/bin/bash
-
-. /etc/default/playsms
-
-while true
-do
-    $(which php) -q $PLAYSMS_BIN/_playsms/playsmsd.php $PLAYSMS_PATH
-    sleep 2;
-done

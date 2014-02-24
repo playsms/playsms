@@ -1,0 +1,174 @@
+#!/usr/bin/php -q
+<?php
+
+/**
+ * This file is part of playSMS.
+ *
+ * playSMS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * playSMS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+set_time_limit(600);
+
+//error_reporting(0);
+error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
+
+// playSMS installation location
+$PLAYSMS_INSTALL_PATH = '/var/www/playsms';
+
+// playSMS daemon location
+$PLAYSMS_DAEMON_PATH = '/usr/local/bin';
+
+// set default DAEMON_SLEEP at 1 seconds
+$DAEMON_SLEEP = 1;
+
+// DO NOT CHANGE ANYTHING BELOW THE LINE
+// ------------------------------------------------------
+
+// Usage:
+// playsmsd <COMMAND> <LOOP_FLAG> <CMD_PARAM>
+
+// Daemon service
+$COMMAND = strtolower($argv[1]);
+
+// Loop flag: loop => execute in a loop, once => execute only once
+$LOOP_FLAG = ( strtolower($argv[2]) ? strtolower($argv[2]) : 'loop' );
+
+// Service parameters
+$CMD_PARAM = $argv[3];
+
+// playsmsd
+$PLAYSMSD_BIN = "$PLAYSMS_DAEMON_PATH/playsmsd";
+
+switch ($COMMAND) {
+	case 'start':
+		$is_running = ( shell_exec("ps uf -C playsmsd | grep schedule") ? TRUE : FALSE );
+		if ($is_running) {
+			echo "playsmsd is already running - stop first to restart\n";
+			exit();
+		}
+		exec("$PLAYSMSD_BIN schedule >/dev/null 2>&1 &");
+		exec("$PLAYSMSD_BIN dlrssmsd >/dev/null 2>&1 &");
+		exec("$PLAYSMSD_BIN recvsmsd >/dev/null 2>&1 &");
+		exec("$PLAYSMSD_BIN sendsmsd >/dev/null 2>&1 &");
+		$is_running = ( shell_exec("ps uf -C playsmsd | grep schedule") ? TRUE : FALSE );
+		if ($is_running) {
+			echo "playsmsd has been started\n";
+		} else {
+			echo "Unable to start playsmsd\n";
+		}
+		exit();
+		break;
+	case 'stop':
+		echo "playsmsd will be killed\n";
+		exec("killall playsmsd >/dev/null 2>&1");
+		break;
+	case 'schedule':
+	case 'dlrssmsd':
+	case 'recvsmsd':
+	case 'sendsmsd':
+		$continue = TRUE;
+		break;
+	default:
+		echo "Usage: playsmsd <start|stop>\n";
+		$continue = FALSE;
+}
+
+if ($continue && file_exists($PLAYSMS_INSTALL_PATH)) {
+	chdir($PLAYSMS_INSTALL_PATH);
+
+	// mark this process as a DAEMON_PROCESS
+	$DAEMON_PROCESS = true;
+
+	// set default DAEMON_SLEEP at 2 seconds
+	$DAEMON_SLEEP = 2;
+
+	if ($LOOP_FLAG == 'once') {
+		$continue = FALSE;
+		if (file_exists('init.php')) {
+			include 'init.php';
+			$fn = $apps_path['libs'].'/function.php';
+			if ($core_config['daemon_process'] && file_exists($fn)) {
+				include_once $fn;
+				if ($apps_path['incs']) {
+					$continue = TRUE;
+				}
+			}
+		}
+		if ($continue) {
+			if ($COMMAND == 'sendsmsd') {
+				$param = explode('_', $CMD_PARAM);
+				if (($param[0] == 'Q') && ($queue = $param[1])) {
+					sendsmsd($queue, $core_config['sendsmsd_limit']);
+				}
+			}
+		} // if continue
+	} else if ($LOOP_FLAG == 'loop') {
+		while (TRUE) {
+			$continue = FALSE;
+			if (file_exists('init.php')) {
+				include 'init.php';
+				$fn = $apps_path['libs'].'/function.php';
+				if ($core_config['daemon_process'] && file_exists($fn)) {
+					include_once $fn;
+					if ($apps_path['incs']) {
+						$continue = TRUE;
+					}
+				}
+			}
+			if ($continue) {
+				echo $COMMAND." begin cycling\n";
+				echo $COMMAND." start time:".mktime()."\n";
+				if ($COMMAND == 'schedule') {
+					playsmsd();
+				}
+				if ($COMMAND == 'dlrssmsd') {
+					dlrd();
+					getsmsstatus();
+				}
+				if ($COMMAND == 'recvsmsd') {
+					recvsmsd();
+					getsmsinbox();
+				}
+				if ($COMMAND == 'sendsmsd') {
+					$queue = array();
+					if ((int) $core_config['sendsmsd_queue'] > 0) {
+						$extas = array('LIMIT' => (int) $core_config['sendsmsd_queue']);
+					}
+					$list = dba_search(_DB_PREF_.'_tblSMSOutgoing_queue', 'queue_code', array('flag' => '0'), '', $extras);
+					foreach ($list as $db_row) {
+						$queue[] = 'Q_'.$db_row['queue_code'];
+					}
+					if (count($queue) > 0) {
+						foreach ($queue as $q) {
+							$is_running = ( shell_exec("ps uf -C playsmsd | grep $q") ? TRUE : FALSE );
+							if (! $is_running) {
+								$RUN_THIS = "$PLAYSMSD_BIN sendsmsd once $q >/dev/null 2>&1 &";
+								echo $COMMAND." execute: ".$RUN_THIS."\n";
+								exec($RUN_THIS);
+							}
+						}
+					}
+				}
+				echo $COMMAND." end time:".mktime()."\n";
+				echo $COMMAND." end cycling\n\n";
+				if ($core_config['daemon']['sleep'] > 0) {
+					$DAEMON_SLEEP = $core_config['daemon']['sleep'];
+				}
+				sleep($DAEMON_SLEEP);
+			} // if continue
+		} // while TRUE
+	}
+}
+
+exit();

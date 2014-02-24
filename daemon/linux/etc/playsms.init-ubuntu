@@ -19,19 +19,16 @@
 #		     to send and receive sms
 ### END INIT INFO
 
+PLAYSMS_BIN=/usr/local/bin
+
+# DO NOT CHANGE BELOW THIS LINE
+
 . /lib/lsb/init-functions
 
-PIDFILE1=/var/run/playsmsd.pid
-PIDFILE2=/var/run/recvsmsd.pid
-PIDFILE3=/var/run/sendsmsd.pid
-PIDFILE4=/var/run/dlrssmsd.pid
+DAEMON=$PLAYSMS_BIN/playsmsd
 
-# We require the config file in /etc/default/playsms to be
-# available, otherwise exit
-if [ -e /etc/default/playsms ] ; then
-	. /etc/default/playsms
-else
-	log_failure_msg "Could not read /etc/default/playsms"
+if [ ! -x $DAEMON ]; then
+	log_failure_msg "Unable to find and run playsmsd"
 	exit 1
 fi
 
@@ -39,116 +36,24 @@ case "$1" in
   start)
     log_daemon_msg "Starting playsms daemon"
     log_progress_msg "playsmsd"
-    DAEMON=$PLAYSMS_BIN/_playsms/playsmsd
-    DAEMON_OPTIONS=$PLAYSMS_PATH
-    start-stop-daemon --start --background --make-pidfile \
-	--pidfile $PIDFILE1 \
-	--exec $DAEMON -- $DAEMON_OPTIONS
-    log_end_msg 0
-
-    log_daemon_msg "Starting recvsms daemon"
-    log_progress_msg "recvsmsd"
-    DAEMON=$PLAYSMS_BIN/_playsms/recvsmsd
-    DAEMON_OPTIONS=$PLAYSMS_PATH
-    start-stop-daemon --start --background --make-pidfile \
-	--pidfile $PIDFILE2 \
-	--exec $DAEMON -- $DAEMON_OPTIONS
-    log_end_msg 0
-
-    log_daemon_msg "Starting sendsms daemon"
-    log_progress_msg "sendsmsd"
-    DAEMON=$PLAYSMS_BIN/_playsms/sendsmsd
-    DAEMON_OPTIONS=$PLAYSMS_PATH
-    start-stop-daemon --start --background --make-pidfile \
-	--pidfile $PIDFILE3 \
-	--exec $DAEMON -- $DAEMON_OPTIONS
-    log_end_msg 0
-
-    log_daemon_msg "Starting dlrssms daemon"
-    log_progress_msg "dlrssmsd"
-    DAEMON=$PLAYSMS_BIN/_playsms/dlrssmsd
-    DAEMON_OPTIONS=$PLAYSMS_PATH
-    start-stop-daemon --start --background --make-pidfile \
-	--pidfile $PIDFILE4 \
-	--exec $DAEMON -- $DAEMON_OPTIONS
+    $DAEMON start >/dev/null 2>&1
     log_end_msg 0
     ;;
 
   stop)
     log_daemon_msg "Stopping playsms daemon"
     log_progress_msg "playsms"
-    start-stop-daemon --stop --retry 5 \
-    	--pidfile $PIDFILE1
-    log_end_msg 0
-
-    log_daemon_msg "Stopping recvsms daemon"
-    log_progress_msg "recvsmsd"
-    start-stop-daemon --stop --retry 5 \
-    	--pidfile $PIDFILE2
-    log_end_msg 0
-
-    log_daemon_msg "Stopping sendsms daemon"
-    log_progress_msg "sendsmsd"
-    start-stop-daemon --stop --retry 5 \
-    	--pidfile $PIDFILE3
-    log_end_msg 0
-
-    log_daemon_msg "Stopping dlrssms daemon"
-    log_progress_msg "dlrssmsd"
-    start-stop-daemon --stop --retry 5 \
-    	--pidfile $PIDFILE4
+    $DAEMON stop >/dev/null 2>&1
     log_end_msg 0
     ;;
 
   status)
-    CPID1=`ps axf|grep playsmsd|grep -v grep|sed -e 's/^ *//g'|cut -d' ' -f1`
-    DPID1=`cat $PIDFILE1`
-    if [ -n "$CPID1" ]; then
-        if [ "$CPID1" = "$DPID1" ]; then
-            log_daemon_msg "playsmsd is running at PID $CPID1"
-        else
-            log_failure_msg "playsmsd is running but PID does not match"
-        fi
+    RUNNING=`ps uf -C playsmsd | grep schedule`
+    if [ -n "$RUNNING" ]; then
+	log_daemon_msg "playsmsd schedule is running"
     else
-        log_failure_msg "playsmsd is not running"
+	log_failure_msg "playsmsd schedule is not running"
     fi
-
-    CPID2=`ps axf|grep recvsmsd|grep -v grep|sed -e 's/^ *//g'|cut -d' ' -f1`
-    DPID2=`cat $PIDFILE2`
-    if [ -n "$CPID2" ]; then
-        if [ "$CPID2" = "$DPID2" ]; then
-            log_daemon_msg "recvsmsd is running at PID $CPID2"
-        else
-            log_failure_msg "recvsmsd is running but PID does not match"
-        fi
-    else
-        log_failure_msg "recvsmsd is not running"
-    fi
-
-    CPID3=`ps axf|grep sendsmsd|grep -v grep|sed -e 's/^ *//g'|cut -d' ' -f1`
-    DPID3=`cat $PIDFILE3`
-    if [ -n "$CPID3" ]; then
-        if [ "$CPID3" = "$DPID3" ]; then
-            log_daemon_msg "sendsmsd is running at PID $CPID3"
-        else
-            log_failure_msg "sendsmsd is running but PID does not match"
-        fi
-    else
-        log_failure_msg "sendsmsd is not running"
-    fi
-
-    CPID4=`ps axf|grep dlrssmsd|grep -v grep|sed -e 's/^ *//g'|cut -d' ' -f1`
-    DPID4=`cat $PIDFILE4`
-    if [ -n "$CPID4" ]; then
-        if [ "$CPID4" = "$DPID4" ]; then
-            log_daemon_msg "dlrssmsd is running at PID $CPID4"
-        else
-            log_failure_msg "dlrssmsd is running but PID does not match"
-        fi
-    else
-        log_failure_msg "dlrssmsd is not running"
-    fi
-
     ;;
 
   reload|restart|force-reload)
