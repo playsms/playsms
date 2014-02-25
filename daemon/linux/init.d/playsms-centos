@@ -20,25 +20,23 @@ fi
 
 case "$1" in
   start)
-    echo "Starting playsms daemon"
-    echo -n "playsmsd"
+    echo -n "Starting playsms daemon"
     $DAEMON start >/dev/null 2>&1
-    echo "[OK]"
+    echo " [OK]"
     ;;
 
   stop)
-    echo "Stopping playsms daemon"
-    echo -n "playsms"
+    echo -n "Stopping playsms daemon"
     $DAEMON stop >/dev/null 2>&1
-    echo "[OK]"
+    echo " [OK]"
     ;;
 
   status)
     RUNNING=`ps uf -C playsmsd | grep schedule`
     if [ -n "$RUNNING" ]; then
-	echo "playsmsd schedule is running"
+	echo "playsmsd is running"
     else
-	echo "[ERROR] playsmsd schedule is not running"
+	echo "playsmsd is not running"
     fi
     ;;
 

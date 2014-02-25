@@ -89,7 +89,7 @@ switch ($COMMAND) {
 		$continue = TRUE;
 		break;
 	default:
-		echo "Usage: playsmsd <start|stop>\n";
+		echo "Usage: playsmsd <start|stop|status>\n";
 		$continue = FALSE;
 }
 
