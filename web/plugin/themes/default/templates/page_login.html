@@ -2,7 +2,7 @@
 	<tbody>
 	<tr>
 		<td align="center">
-		<table style='border-radius: 3px; background-color: #F0F0F0; width: 300px; padding: 10px;'>
+		<table style='border-radius: 3px; background-color: #F0F0F0; width: 400px; padding: 10px;'>
 			<tbody>
 			<tr>
 				<td>
@@ -13,7 +13,16 @@
 				<input type=hidden name=op value=auth_login>
 				<table width="80%" align="center">
 					<tbody>
-					<tr><td>&nbsp;</td></tr>
+					<tr>	
+						<td>
+							&nbsp;
+							<?php if (isset($theme_image)  &&  !empty($theme_image)) { ?>
+							  <div align="center">
+						          <img style="vertical-align: bottom;" src="plugin/themes/play/images/default_logo.png" alt="<?php echo $theme_play_head1; ?>" >
+						          </div>
+						        <?php } ?>
+						</td>
+					</tr>
 					
 					<tr>
 						<td align="center">
