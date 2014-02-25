@@ -73,6 +73,15 @@ switch ($COMMAND) {
 		echo "playsmsd will be killed\n";
 		exec("killall playsmsd >/dev/null 2>&1");
 		break;
+	case 'status':
+		$is_running = ( shell_exec("ps uf -C playsmsd | grep schedule") ? TRUE : FALSE );
+		if ($is_running) {
+			echo "playsmsd is running\n";
+		} else {
+			echo "playsmsd is not running\n";
+		}
+		exit();
+		break;
 	case 'schedule':
 	case 'dlrssmsd':
 	case 'recvsmsd':
