@@ -63,6 +63,7 @@ echo
 echo "playSMS source path = $PATHSRC"
 echo
 echo "playSMS web path    = $PATHWEB"
+echo "playSMS lib path    = $PATHLIB"
 echo "playSMS bin path    = $PATHBIN"
 echo "playSMS log path    = $PATHLOG"
 echo
@@ -122,7 +123,7 @@ set -e
 echo -n .
 cd $PATHSRC
 echo -n .
-mkdir -p $PATHWEB $PATHLOG
+mkdir -p $PATHWEB $PATHLIB $PATHLOG
 echo -n .
 cp -rR web/* $PATHWEB
 set +e
@@ -146,13 +147,14 @@ sed -i "s/#DBPASS#/$DBPASS/g" $PATHWEB/config.php
 echo -n .
 sed -i "s|#PATHLOG#|$PATHLOG|g" $PATHWEB/config.php
 echo -n .
-chown -R $WEBSERVERUSER.$WEBSERVERGROUP $PATHWEB $PATHLOG
+chown -R $WEBSERVERUSER.$WEBSERVERGROUP $PATHWEB $PATHLIB $PATHLOG
 echo -n .
 mkdir -p /etc $PATHBIN
 echo -n .
 touch /etc/playsmsd.conf
 echo -n .
 echo "PLAYSMS_PATH=$PATHWEB" > /etc/playsmsd.conf
+echo "PLAYSMS_LIB=$PATHLIB" >> /etc/playsmsd.conf
 echo "PLAYSMS_BIN=$PATHBIN" >> /etc/playsmsd.conf
 echo "PLAYSMS_LOG=$PATHLOG" >> /etc/playsmsd.conf
 echo "DAEMON_SLEEP=1" >> /etc/playsmsd.conf

@@ -1,4 +1,5 @@
 PLAYSMS_PATH=/var/www/playsms
+PLAYSMS_LIB=/var/lib/playsms
 PLAYSMS_BIN=/usr/local/bin
 PLAYSMS_LOG=/var/log/playsms
 #DAEMON_SLEEP=1
