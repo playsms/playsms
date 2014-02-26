@@ -19,13 +19,9 @@
 #		     to send and receive sms
 ### END INIT INFO
 
-PLAYSMS_BIN=/usr/local/bin
-
-# DO NOT CHANGE BELOW THIS LINE
-
 . /lib/lsb/init-functions
 
-DAEMON=$PLAYSMS_BIN/playsmsd
+DAEMON=$(which playsmsd)
 
 if [ ! -x $DAEMON ]; then
 	log_failure_msg "Unable to find and run playsmsd"

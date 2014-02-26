@@ -18,25 +18,57 @@
  * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-set_time_limit(600);
-
-//error_reporting(0);
-error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
-
-// playSMS installation location
-$PLAYSMS_INSTALL_PATH = '/var/www/playsms';
-
-// playSMS daemon location
-$PLAYSMS_DAEMON_PATH = '/usr/local/bin';
-
-// set default DAEMON_SLEEP at 1 seconds
-$DAEMON_SLEEP = 1;
-
-// DO NOT CHANGE ANYTHING BELOW THE LINE
-// ------------------------------------------------------
-
 // Usage:
 // playsmsd <COMMAND> <LOOP_FLAG> <CMD_PARAM>
+
+error_reporting(0);
+
+$ini = @parse_ini_file('/etc/default/playsms');
+$PLAYSMSD_CONF = '/etc/default/playsms';
+
+if (! ($ini['PLAYSMS_PATH'] && $ini['PLAYSMS_BIN'])) {
+	$ini = @parse_ini_file('/etc/sysconfig/playsms');
+	$PLAYSMSD_CONF = '/etc/default/playsms';
+}
+
+if (! ($ini['PLAYSMS_PATH'] && $ini['PLAYSMS_BIN'])) {
+	$ini = @parse_ini_file('./playsmsd.conf');
+	$PLAYSMSD_CONF = '/etc/default/playsms';
+}
+
+if (! ($ini['PLAYSMS_PATH'] && $ini['PLAYSMS_BIN'])) {
+	$ini = @parse_ini_file('~/playsmsd.conf');
+	$PLAYSMSD_CONF = '/etc/default/playsms';
+}
+
+if (! ($ini['PLAYSMS_PATH'] && $ini['PLAYSMS_BIN'])) {
+	$ini = @parse_ini_file('/etc/playsmsd.conf');
+	$PLAYSMSD_CONF = '/etc/default/playsms';
+}
+
+// playSMS installation location
+$PLAYSMS_INSTALL_PATH = ( $ini['PLAYSMS_PATH '] ? $ini['PLAYSMS_PATH '] : '/var/www/playsms' );
+
+// playSMS daemon location
+$PLAYSMS_DAEMON_PATH = ( $ini['PLAYSMS_BIN'] ? $ini['PLAYSMS_BIN'] : '/usr/local/bin' );
+
+// playSMS log location
+$PLAYSMS_LOG_PATH = ( $ini['PLAYSMS_LOG'] ? $ini['PLAYSMS_LOG'] : '/var/log/playsms' );
+
+// set default DAEMON_SLEEP at 1 second
+$DAEMON_SLEEP = ( $ini['DAEMON_SLEEP'] >= 1 ? $ini['DAEMON_SLEEP'] : 1 );
+
+// set PHP script maximum execution time
+$MAX_EXECUTION_TIME = ( $ini['MAX_EXECUTION_TIME'] >= 600 ? $ini['MAX_EXECUTION_TIME'] : 600 );
+
+// set PHP error reporting level
+$ERROR_REPORTING = ( isset($ini['ERROR_REPORTING']) ? $ini['ERROR_REPORTING'] : 'E_ALL ^ (E_NOTICE | E_WARNING)' );
+
+set_time_limit($MAX_EXECUTION_TIME);
+
+error_reporting($ERROR_REPORTING);
+
+$core_config['daemon'] = $ini;
 
 // Daemon service
 $COMMAND = strtolower($argv[1]);
@@ -82,6 +114,17 @@ switch ($COMMAND) {
 		}
 		exit();
 		break;
+	case 'check':
+		echo "playsms installation check\n";
+		echo "PLAYSMSD_CONF = ".$PLAYSMSD_CONF."\n";
+		echo "PLAYSMS_PATH = ".$PLAYSMS_INSTALL_PATH."\n";
+		echo "PLAYSMS_BIN = ".$PLAYSMS_DAEMON_PATH."\n";
+		echo "PLAYSMS_LOG = ".$PLAYSMS_LOG_PATH."\n";
+		echo "DAEMON_SLEEP = ".$DAEMON_SLEEP."\n";
+		echo "MAX_EXECUTION_TIME = ".$MAX_EXECUTION_TIME."\n";
+		echo "ERROR_REPORTING = ".$ERROR_REPORTING."\n";
+		exit();
+		break;
 	case 'schedule':
 	case 'dlrssmsd':
 	case 'recvsmsd':
@@ -89,7 +132,7 @@ switch ($COMMAND) {
 		$continue = TRUE;
 		break;
 	default:
-		echo "Usage: playsmsd <start|stop|status>\n";
+		echo "Usage: playsmsd <start|stop|status|check>\n";
 		$continue = FALSE;
 }
 

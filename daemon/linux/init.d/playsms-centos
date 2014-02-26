@@ -5,13 +5,9 @@
 # description: playsms daemon
 # processname: playsms
 
-PLAYSMS_BIN=/usr/local/bin
-
-# DO NOT CHANGE BELOW THIS LINE
-
 . /lib/lsb/init-functions
 
-DAEMON=$PLAYSMS_BIN/playsmsd
+DAEMON=$(which playsmsd)
 
 if [ ! -x $DAEMON ]; then
 	echo "[ERROR] Unable to find and run playsmsd"

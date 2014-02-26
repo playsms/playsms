@@ -63,10 +63,8 @@ echo
 echo "playSMS source path = $PATHSRC"
 echo
 echo "playSMS web path    = $PATHWEB"
-echo "playSMS log path    = $PATHLOG"
-echo "playSMS lib path    = $PATHLIB"
-echo "playSMS spool path  = $PATHSPO"
 echo "playSMS bin path    = $PATHBIN"
+echo "playSMS log path    = $PATHLOG"
 echo
 
 echo "=================================================================="
@@ -124,7 +122,7 @@ set -e
 echo -n .
 cd $PATHSRC
 echo -n .
-mkdir -p $PATHWEB $PATHLOG $PATHLIB $PATHSPO
+mkdir -p $PATHWEB $PATHLOG
 echo -n .
 cp -rR web/* $PATHWEB
 set +e
@@ -148,33 +146,35 @@ sed -i "s/#DBPASS#/$DBPASS/g" $PATHWEB/config.php
 echo -n .
 sed -i "s|#PATHLOG#|$PATHLOG|g" $PATHWEB/config.php
 echo -n .
-chown -R $WEBSERVERUSER.$WEBSERVERGROUP $PATHWEB $PATHLOG $PATHLIB $PATHSPO
+chown -R $WEBSERVERUSER.$WEBSERVERGROUP $PATHWEB $PATHLOG
 echo -n .
-mkdir -p /etc/default $PATHBIN
+mkdir -p /etc $PATHBIN
 echo -n .
-cp daemon/linux/etc/playsms-install-script /etc/default/playsms
+touch /etc/playsmsd.conf
 echo -n .
-sed -i "s|#PATHWEB#|$PATHWEB|g" /etc/default/playsms
+echo "PLAYSMS_PATH=$PATHWEB" > /etc/playsmsd.conf
+echo "PLAYSMS_BIN=$PATHBIN" >> /etc/playsmsd.conf
+echo "PLAYSMS_LOG=$PATHLOG" >> /etc/playsmsd.conf
+echo "DAEMON_SLEEP=1" >> /etc/playsmsd.conf
+echo "MAX_EXECUTION_TIME=600" >> /etc/playsmsd.conf
+echo "ERROR_REPORTING=E_ALL ^ (E_NOTICE | E_WARNING)" >> /etc/playsmsd.conf
 echo -n .
-sed -i "s|#PATHBIN#|$PATHBIN|g" /etc/default/playsms
+cp -rR daemon/linux/bin/playsmsd $PATHBIN
 echo -n .
-sed -i "s|#PATHLOG#|$PATHLOG|g" /etc/default/playsms
-echo -n .
-sed -i "s|#PATHSPO#|$PATHSPO|g" /etc/default/playsms
-echo -n .
-sed -i "s|#PATHLIB#|$PATHLIB|g" /etc/default/playsms
-echo -n .
-cp -rR daemon/linux/bin/* $PATHBIN
-echo -n .
-cp daemon/linux/etc/playsms.init-ubuntu /etc/init.d/playsms
+cp daemon/linux/init.d/playsms-ubuntu /etc/init.d/playsms
 set +e
 echo -n .
 update-rc.d playsms defaults >/dev/null 2>&1
+echo -n .
 echo "end"
+echo
+$PATHBIN/playsmsd check
 echo
 /etc/init.d/playsms stop >/dev/null 2>&1
 sleep 2
 /etc/init.d/playsms start
+echo
+$PATHBIN/playsmsd status
 echo
 
 echo "playSMS has been successfully installed on your system"
