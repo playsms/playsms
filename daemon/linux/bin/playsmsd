@@ -23,31 +23,27 @@
 
 error_reporting(0);
 
-$ini = @parse_ini_file('/etc/default/playsms');
-$PLAYSMSD_CONF = '/etc/default/playsms';
+$ini = array();
 
-if (! ($ini['PLAYSMS_PATH'] && $ini['PLAYSMS_BIN'])) {
-	$ini = @parse_ini_file('/etc/sysconfig/playsms');
-	$PLAYSMSD_CONF = '/etc/default/playsms';
-}
+$ini_files = array(
+	'/etc/default/playsms',
+	'/etc/sysconfig/playsms',
+	'./playsmsd.conf',
+	'~/playsmsd.conf',
+	'/etc/playsmsd.conf',
+	'/usr/local/etc/playsmsd.conf');
 
-if (! ($ini['PLAYSMS_PATH'] && $ini['PLAYSMS_BIN'])) {
-	$ini = @parse_ini_file('./playsmsd.conf');
-	$PLAYSMSD_CONF = '/etc/default/playsms';
-}
-
-if (! ($ini['PLAYSMS_PATH'] && $ini['PLAYSMS_BIN'])) {
-	$ini = @parse_ini_file('~/playsmsd.conf');
-	$PLAYSMSD_CONF = '/etc/default/playsms';
-}
-
-if (! ($ini['PLAYSMS_PATH'] && $ini['PLAYSMS_BIN'])) {
-	$ini = @parse_ini_file('/etc/playsmsd.conf');
-	$PLAYSMSD_CONF = '/etc/default/playsms';
+foreach ($ini_files as $PLAYSMSD_CONF) {
+	if (file_exists($PLAYSMSD_CONF)) {
+		$ini = @parse_ini_file($PLAYSMSD_CONF);
+		if ($ini['PLAYSMS_PATH'] && $ini['PLAYSMS_BIN'] && $ini['PLAYSMS_LOG']) {
+			break;
+		}
+	}
 }
 
 // playSMS installation location
-$PLAYSMS_INSTALL_PATH = ( $ini['PLAYSMS_PATH '] ? $ini['PLAYSMS_PATH '] : '/var/www/playsms' );
+$PLAYSMS_INSTALL_PATH = ( $ini['PLAYSMS_PATH'] ? $ini['PLAYSMS_PATH'] : '/var/www/playsms' );
 
 // playSMS daemon location
 $PLAYSMS_DAEMON_PATH = ( $ini['PLAYSMS_BIN'] ? $ini['PLAYSMS_BIN'] : '/usr/local/bin' );
