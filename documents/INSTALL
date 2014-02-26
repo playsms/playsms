@@ -145,7 +145,7 @@ playSMS Web Interface step-by-step installation:
 
 6.  Enter daemon/linux directory, copy files and folder inside
 
-    # cp /usr/local/src/playsms-1.0.0/daemon/linux/etc/playsms \
+    # cp /usr/local/src/playsms-1.0.0/daemon/linux/etc/playsmsd.conf \
       /etc/playsmsd.conf
     # cp /usr/local/src/playsms-1.0.0/daemon/linux/bin/playsmsd \
       /usr/local/bin/
