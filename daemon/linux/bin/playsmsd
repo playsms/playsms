@@ -45,6 +45,9 @@ foreach ($ini_files as $PLAYSMSD_CONF) {
 // playSMS installation location
 $PLAYSMS_INSTALL_PATH = ( $ini['PLAYSMS_PATH'] ? $ini['PLAYSMS_PATH'] : '/var/www/playsms' );
 
+// playSMS lib location
+$PLAYSMS_LIB_PATH = ( $ini['PLAYSMS_LIB'] ? $ini['PLAYSMS_LIB'] : '/var/lib/playsms' );
+
 // playSMS daemon location
 $PLAYSMS_DAEMON_PATH = ( $ini['PLAYSMS_BIN'] ? $ini['PLAYSMS_BIN'] : '/usr/local/bin' );
 
@@ -114,6 +117,7 @@ switch ($COMMAND) {
 		echo "playsms installation check\n";
 		echo "PLAYSMSD_CONF = ".$PLAYSMSD_CONF."\n";
 		echo "PLAYSMS_PATH = ".$PLAYSMS_INSTALL_PATH."\n";
+		echo "PLAYSMS_LIB = ".$PLAYSMS_LIB_PATH."\n";
 		echo "PLAYSMS_BIN = ".$PLAYSMS_DAEMON_PATH."\n";
 		echo "PLAYSMS_LOG = ".$PLAYSMS_LOG_PATH."\n";
 		echo "DAEMON_SLEEP = ".$DAEMON_SLEEP."\n";
@@ -121,27 +125,21 @@ switch ($COMMAND) {
 		echo "ERROR_REPORTING = ".$ERROR_REPORTING."\n";
 		exit();
 		break;
-	case 'schedule':
-	case 'dlrssmsd':
-	case 'recvsmsd':
-	case 'sendsmsd':
-		$continue = TRUE;
-		break;
-	default:
-		echo "Usage: playsmsd <start|stop|status|check>\n";
-		$continue = FALSE;
 }
 
-if ($continue && file_exists($PLAYSMS_INSTALL_PATH)) {
+if (! $COMMAND) {
+	echo "Usage: playsmsd <start|stop|status|check>\n";
+	exit();
+}
+
+if (file_exists($PLAYSMS_INSTALL_PATH)) {
 	chdir($PLAYSMS_INSTALL_PATH);
 
 	// mark this process as a DAEMON_PROCESS
 	$DAEMON_PROCESS = true;
 
-	// set default DAEMON_SLEEP at 2 seconds
-	$DAEMON_SLEEP = 2;
-
 	if ($LOOP_FLAG == 'once') {
+		// execute one time only
 		$continue = FALSE;
 		if (file_exists('init.php')) {
 			include 'init.php';
@@ -154,14 +152,24 @@ if ($continue && file_exists($PLAYSMS_INSTALL_PATH)) {
 			}
 		}
 		if ($continue) {
+
+			// MAIN ONCE BLOCK
+
 			if ($COMMAND == 'sendsmsd') {
-				$param = explode('_', $CMD_PARAM);
-				if (($param[0] == 'Q') && ($queue = $param[1])) {
-					sendsmsd($queue, $core_config['sendsmsd_limit']);
+				if ($CMD_PARAM) {
+					$param = explode('_', $CMD_PARAM);
+					if (($param[0] == 'Q') && ($queue = $param[1])) {
+						sendsmsd($queue, $core_config['sendsmsd_limit']);
+					}
 				}
 			}
+
+			// END OF ONCE BLOCK
+
 		} // if continue
+		exit();
 	} else if ($LOOP_FLAG == 'loop') {
+		// execute in a loop
 		while (TRUE) {
 			$continue = FALSE;
 			if (file_exists('init.php')) {
@@ -175,20 +183,19 @@ if ($continue && file_exists($PLAYSMS_INSTALL_PATH)) {
 				}
 			}
 			if ($continue) {
-				echo $COMMAND." begin cycling\n";
 				echo $COMMAND." start time:".mktime()."\n";
+
+				// MAIN LOOP BLOCK
+
 				if ($COMMAND == 'schedule') {
 					playsmsd();
-				}
-				if ($COMMAND == 'dlrssmsd') {
+				} else if ($COMMAND == 'dlrssmsd') {
 					dlrd();
 					getsmsstatus();
-				}
-				if ($COMMAND == 'recvsmsd') {
+				} else if ($COMMAND == 'recvsmsd') {
 					recvsmsd();
 					getsmsinbox();
-				}
-				if ($COMMAND == 'sendsmsd') {
+				} else if ($COMMAND == 'sendsmsd') {
 					$queue = array();
 					if ((int) $core_config['sendsmsd_queue'] > 0) {
 						$extas = array('LIMIT' => (int) $core_config['sendsmsd_queue']);
@@ -207,16 +214,16 @@ if ($continue && file_exists($PLAYSMS_INSTALL_PATH)) {
 							}
 						}
 					}
+				} else {
+					// reserved for custom daemon services
+					echo $COMMAND." custom service\n";
 				}
+
+				// END OF MAIN LOOP BLOCK
+
 				echo $COMMAND." end time:".mktime()."\n";
-				echo $COMMAND." end cycling\n\n";
-				if ($core_config['daemon']['sleep'] > 0) {
-					$DAEMON_SLEEP = $core_config['daemon']['sleep'];
-				}
 				sleep($DAEMON_SLEEP);
 			} // if continue
 		} // while TRUE
 	}
 }
-
-exit();
