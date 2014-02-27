@@ -251,12 +251,12 @@ function user_remove($uid) {
 				$ret['error_string'] = _('Currently logged in user is immune to deletion');
 			} else {
 				if (dba_remove(_DB_PREF_.'_tblUser', array('uid' => $uid))) {
-					$ret['error_string'] = _('User has been removed') . " (" . _('username') . " ".$username.")";
+					$ret['error_string'] = _('User has been removed') . " (" . _('username') . ": ".$username.")";
 					$ret['status'] = TRUE;
 				}
 			}
 		} else {
-			$ret['error_string'] = _('User is immune to deletion') . " (" . _('username') . " ".$username.")";
+			$ret['error_string'] = _('User is immune to deletion') . " (" . _('username') . ": ".$username.")";
 		}
 	} else {
 		$ret['error_string'] = _('User does not exists');
