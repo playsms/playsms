@@ -273,11 +273,9 @@ function user_session_set($uid='') {
 	if (! $core_config['daemon_process']) {
 		$uid = ( $uid ? $uid : $core_config['user']['uid'] );
 		$c_items = array(
-			'sid' => $_SESSION['sid'],
 			'ip' => $_SERVER['REMOTE_ADDR'],
 			'last_update' => core_get_datetime(),
-			'http_user_agent' => $_SERVER['HTTP_USER_AGENT'],
-			'uid' => $uid
+			'http_user_agent' => $_SERVER['HTTP_USER_AGENT']
 		);
 		$items[$_SESSION['sid']] = json_encode($c_items);
 		registry_update($uid, 'auth', 'login_session', $items);
@@ -296,9 +294,9 @@ function user_session_get($uid='', $sid='') {
 	$uid = ( $uid ? $uid : $core_config['user']['uid'] );
 	$s = registry_search($uid, 'auth', 'login_session');
 	$sessions = $s['auth']['login_session'];
-	foreach ($sessions as $session) {
-		$tmp_ret = core_object_to_array(json_decode($session));
-		$c_ret[$tmp_ret['sid']] = $tmp_ret;
+	foreach ($sessions as $key => $val) {
+		$tmp_ret = core_object_to_array(json_decode($val));
+		$c_ret[$key] = $tmp_ret;
 	}
 	if ($sid) {
 		$ret[$sid] = $c_ret[$sid];
