@@ -272,5 +272,27 @@ if (! ($core_config['module']['gateway'] && $core_config['module']['themes'] && 
 	die(_('FATAL ERROR').' : '._('Fail to load gateway, themes or language module'));
 }
 
+// load user's data from user's DB table
+if (auth_isvalid()) {
+	$username = $_SESSION['username'];
+	$core_config['user'] = user_getdatabyusername($username);
+	$uid = $core_config['user']['uid'];
+	$sender = core_sanitize_sender($core_config['user']['sender']);
+	$footer = $core_config['user']['footer'];
+	$mobile = $core_config['user']['mobile'];
+	$email = $core_config['user']['email'];
+	$name = $core_config['user']['name'];
+	$status = $core_config['user']['status'];
+	// save login session information
+	if (! $core_config['daemon_process']) {
+		$core_config['user']['last_update'] = core_get_datetime();
+		$core_config['user']['ip'] = $_SERVER['REMOTE_ADDR'];
+		$items = array(
+		    'last_update' => $core_config['user']['last_update'],
+		    'ip' => $core_config['user']['ip']);
+		registry_update($core_config['user']['uid'], 'auth', 'login_session', $items);
+	}
+}
+
 // fixme anton - uncomment this if you want to know what are available in $core_config
 //print_r($core_config); die();

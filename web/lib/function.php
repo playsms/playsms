@@ -30,17 +30,8 @@ include $apps_path['libs']."/fn_webservices.php";
 
 // init global variables
 
-// load user's data from user's DB table
+// load additional user's data from user's DB table
 if (auth_isvalid()) {
-	$username = $_SESSION['username'];
-	$core_config['user'] = user_getdatabyusername($username);;
-	$uid = $core_config['user']['uid'];
-	$sender = core_sanitize_sender($core_config['user']['sender']);
-	$footer = $core_config['user']['footer'];
-	$mobile = $core_config['user']['mobile'];
-	$email = $core_config['user']['email'];
-	$name = $core_config['user']['name'];
-	$status = $core_config['user']['status'];
 	$userstatus = ( $status == 2 ? _('Administrator') : _('Normal User') );
 	$core_config['user']['opt']['sms_footer_length'] = ( strlen($footer) > 0 ? strlen($footer) + 1 : 0 );
 	$core_config['user']['opt']['per_sms_length'] = $core_config['main']['per_sms_length'] - $core_config['user']['opt']['sms_footer_length'];
@@ -48,12 +39,6 @@ if (auth_isvalid()) {
 	$core_config['user']['opt']['max_sms_length'] = $core_config['main']['max_sms_length'] - $core_config['user']['opt']['sms_footer_length'];
 	$core_config['user']['opt']['max_sms_length_unicode'] = $core_config['main']['max_sms_length_unicode'] - $core_config['user']['opt']['sms_footer_length'];
 	$core_config['user']['opt']['gravatar'] = "https://www.gravatar.com/avatar/".md5(strtolower(trim($core_config['user']['email'])));
-
-	// save login session information
-	if (! $core_config['daemon_process']) {
-		$items = array('ip' => $_SERVER['REMOTE_ADDR']);
-		registry_update($core_config['user']['uid'], 'auth', 'login_session', $items);
-	}
 }
 
 // reserved important keywords
