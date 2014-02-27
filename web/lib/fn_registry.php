@@ -25,7 +25,7 @@ function registry_update($uid, $registry_group, $registry_family, $items) {
 	if (is_array($items)) {
 		foreach ($items as $key => $val) {
 			$conditions = array('uid' => $uid, 'registry_group' => $registry_group, 'registry_family' => $registry_family, 'registry_key' => $key);
-			$values = array('c_timestamp' => mktime(), 'registry_value' => $val);
+			$values = array('c_timestamp' => strtotime(core_get_datetime()), 'registry_value' => $val);
 			if (dba_count($db_table, $conditions)) {
 				$ret[$key] = dba_update($db_table, $values, $conditions);
 			} else {
