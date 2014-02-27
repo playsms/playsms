@@ -3,9 +3,6 @@
 
 # This is the default init.d script for Playsms.
 
-# Make sure that the Playsms binaries can be found in $BOXPATH or somewhere
-# else along $PATH.  run_playsms_box has to be in $BOXPATH.
-
 ### BEGIN INIT INFO
 # Provides:          playsms
 # Required-Start:    $local_fs $remote_fs
