@@ -37,7 +37,7 @@ function gammu_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p
 		for ($j=0;$j<count($fn[$i]);$j++) {
 			if (preg_match("/".$sms_id."/", $fn[$i][$j])) {
 				$the_fn = $dir[$i].$fn[$i][$j];
-				if ($i==0) {
+				if ($i===0) {
 					// sms sent
 					$p_status = 1;
 					dlr($smslog_id,$uid,$p_status);
