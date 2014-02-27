@@ -263,3 +263,57 @@ function user_remove($uid) {
 	}
 	return $ret;
 }
+
+/**
+ * Save user's login session information
+ * @param integer $uid User ID
+ */
+function user_session_set($uid='') {
+	global $core_config;
+	if (! $core_config['daemon_process']) {
+		$uid = ( $uid ? $uid : $core_config['user']['uid'] );
+		$c_items = array(
+			'sid' => $_SESSION['sid'],
+			'ip' => $_SERVER['REMOTE_ADDR'],
+			'last_update' => core_get_datetime(),
+			'http_user_agent' => $_SERVER['HTTP_USER_AGENT'],
+			'uid' => $uid
+		);
+		$items[$_SESSION['sid']] = json_encode($c_items);
+		registry_update($uid, 'auth', 'login_session', $items);
+	}
+}
+
+/**
+ * Get user's login session information
+ * @param integer $uid User ID
+ * @param string $sid Session ID
+ * @return array Sessions
+ */
+function user_session_get($uid='', $sid='') {
+	global $core_config;
+	$ret = array();
+	$uid = ( $uid ? $uid : $core_config['user']['uid'] );
+	$s = registry_search($uid, 'auth', 'login_session');
+	$sessions = $s['auth']['login_session'];
+	foreach ($sessions as $session) {
+		$tmp_ret = core_object_to_array(json_decode($session));
+		$c_ret[$tmp_ret['sid']] = $tmp_ret;
+	}
+	if ($sid) {
+		$ret[$sid] = $c_ret[$sid];
+	} else {
+		$ret = $c_ret;
+	}
+	return $ret;
+}
+
+/**
+ * Remove user's login session information
+ * @param integer $uid User ID
+ * @param string $sid Session ID
+ * @return boolean/integer
+ */
+function user_session_remove($uid, $sid) {
+	return registry_remove($uid, 'auth', 'login_session', $sid);
+}
