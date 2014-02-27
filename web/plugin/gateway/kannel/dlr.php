@@ -41,5 +41,3 @@ if ($type && $smslog_id && $uid) {
 	}
 	dlr($smslog_id,$uid,$p_status);
 }
-
-?>

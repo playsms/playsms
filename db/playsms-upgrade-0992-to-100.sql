@@ -28,7 +28,11 @@ DELETE FROM `playsms_tblRegistry` WHERE `registry_group` = 'core' AND `registry_
 INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) VALUES ('1', 'core', 'config', 'playsms_version', '1.0.0') ;
 
 
+-- 1.0-beta3
+
+
 -- 1.0.0
 
 UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0.0' WHERE `id` = 1 ;
 ALTER TABLE  `playsms_toolsPhonebook_group` ADD  `flag_sender` INT NOT NULL DEFAULT  '0' ;
+DROP TABLE IF EXISTS `playsms_gatewayKannel_config` ;

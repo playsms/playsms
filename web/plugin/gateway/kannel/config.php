@@ -1,43 +1,20 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
-$db_query = "SELECT * FROM "._DB_PREF_."_gatewayKannel_config";
-$db_result = dba_query($db_query);
-if ($db_row = dba_fetch_array($db_result)) {
-	$kannel_param['name']		= $db_row['cfg_name'];
-	$kannel_param['path']		= $db_row['cfg_incoming_path'];
-	$kannel_param['username']		= $db_row['cfg_username'];
-	$kannel_param['password']		= $db_row['cfg_password'];
-	$kannel_param['global_sender']	= $db_row['cfg_global_sender'];
-	$kannel_param['bearerbox_host']	= $db_row['cfg_bearerbox_host'];
-	$kannel_param['sendsms_host']	= ( $db_row['cfg_sendsms_host'] ? $db_row['cfg_sendsms_host'] : $kannel_param['bearerbox_host'] );
-	$kannel_param['sendsms_port']	= ( $db_row['cfg_sendsms_port'] ? $db_row['cfg_sendsms_port'] : '13131' );
-	$kannel_param['playsms_web']	= $db_row['cfg_playsms_web'];
-	// Handle DLR options in Kannel - emmanuel
-	$kannel_param['dlr']            = $db_row['cfg_dlr'];
-	// end of Handle DLR options in Kannel - emmanuel
-	$kannel_param['additional_param']	= $db_row['cfg_additional_param'];
-	$kannel_param['datetime_timezone']	= $db_row['cfg_datetime_timezone'];
-        //fixme edward Adding New Parameter HTTP Kannel Admin
-        $kannel_param['admin_url']              = $db_row['cfg_admin_url'];
-        $kannel_param['admin_password']              = $db_row['cfg_admin_password'];
-        $kannel_param['admin_port']             = ( $db_row['cfg_admin_port'] ? $db_row['cfg_admin_port'] : '13000' );
-        //end of fixme edward Adding New Parameter HTTP Kannel Admin
-}
-
-// default path for kannel.conf, please edit the path if different from default
-$kannel_param['kannelconf'] = '/etc/kannel/kannel.conf';
+// get kannel config from registry
+$data = registry_search(1, 'gateway', 'kannel');
+$kannel_param = $data['gateway']['kannel'];
+$kannel_param['name'] = 'kannel';
+$kannel_param['playsms_web'] = ( $kannel_param['playsms_web'] ? $kannel_param['playsms_web'] : _HTTP_PATH_BASE_ );
+$kannel_param['bearerbox_host'] = ( $kannel_param['bearerbox_host'] ? $kannel_param['bearerbox_host'] : 'localhost' );
+$kannel_param['sendsms_host'] = ( $kannel_param['sendsms_host'] ? $kannel_param['sendsms_host'] : $kannel_param['bearerbox_host'] );
+$kannel_param['sendsms_port'] = ( $kannel_param['sendsms_port'] ? $kannel_param['sendsms_port'] : '13131' );
+$kannel_param['admin_host'] = ( $kannel_param['admin_host'] ? $kannel_param['admin_host'] : $kannel_param['bearerbox_host'] );
+$kannel_param['admin_port'] = ( $kannel_param['admin_port'] ? $kannel_param['admin_port'] : '13000' );
+$kannel_param['local_time'] = ( $kannel_param['local_time'] ? 1 : 0 );
 
 // save plugin's parameters or options in $core_config
 $core_config['plugin']['kannel'] = $kannel_param;
-
-//$gateway_number = $kannel_param['global_sender'];
-
-// insert to left menu array
-//if (isadmin()) {
-//	$menutab_gateway = $core_config['menutab']['gateway'];
-//	$menu_config[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_kannel&op=manage", _('Manage kannel'));
-//}
 
 // Test for DLR checkbox
 /* DLR Kannel value
@@ -273,4 +250,3 @@ if( $kannel_param['dlr'] == 0 ) {
   $checked[4] = "checked";
 
 } 
-?>

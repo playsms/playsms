@@ -17,8 +17,12 @@ if ($remote_addr != $kannel_param['bearerbox_host'] && $remote_host != $kannel_p
 }
 
 // if the arrival time is in UTC then we need to adjust it with this:
-//$t = core_display_datetime($_REQUEST['t']);
-$t = trim($_REQUEST['t']);	// assumed the arrival time is in local time not UTC
+if ($kannel_param['local_time']) {
+	$t = trim($_REQUEST['t']);
+} else {
+	// in UTC
+	$t = core_display_datetime($_REQUEST['t']);
+}
 
 $q = trim($_REQUEST['q']);	// sms_sender
 $a = trim($_REQUEST['a']);	// message

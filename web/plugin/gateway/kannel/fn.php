@@ -137,5 +137,3 @@ function kannel_hook_call($requests) {
 		logger_print("end load geturl", 2, "kannel call");
 	}
 }
-
-?>
