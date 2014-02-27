@@ -165,6 +165,7 @@ function auth_logout() {
  */
 function auth_forgot() {
 	global $core_config;
+	$ok = FALSE;
 	if ($core_config['main']['cfg_enable_forgot']) {
 		$username = trim($_REQUEST['username']);
 		$email = trim($_REQUEST['email']);
@@ -191,7 +192,8 @@ function auth_forgot() {
 							'mail_body' => $body
 						);
 						if (sendmail($data)) {
-							$_SESSION['error_string'] = _('Password has been sent to your email');
+							$_SESSION['error_string'] = _('Password has been emailed')." ("._('Username').": ".$username.")";
+							$ok = TRUE;
 						} else {
 							$_SESSION['error_string'] = _('Fail to send email');
 						}
@@ -207,7 +209,11 @@ function auth_forgot() {
 	} else {
 		$_SESSION['error_string'] = _('Recover password disabled');
 	}
-	header("Location: ".$core_config['http_path']['base']);
+	if ($ok) {
+		header("Location: ".$core_config['http_path']['base']);
+	} else {
+		header("Location: index.php?app=page&inc=forgot");
+	}
 	exit();
 }
 
@@ -225,6 +231,10 @@ function auth_register() {
 	$data['password'] = ''; // force generate random password
 	$ret = user_add($data);
 	$_SESSION['error_string'] = $ret['error_string'];
-	header("Location: ".$core_config['http_path']['base']);
+	if ($ret['status']) {
+		header("Location: ".$core_config['http_path']['base']);
+	} else {
+		header("Location: index.php?app=page&inc=register");
+	}
 	exit();
 }
