@@ -83,10 +83,14 @@ function auth_validate_token($token) {
  * @return boolean TRUE if valid
  */
 function auth_isvalid() {
-	if ($_SESSION['username'] && $_SESSION['valid']) {
-		return true;
+	if ($_SESSION['sid'] && $_SESSION['uid'] && $_SESSION['valid']) {
+		$s = user_session_get($_SESSION['uid']);
+		$items = $s[$_SESSION['sid']];
+		if ($items['uid'] && $items['ip'] && $items['last_update']) {
+			return TRUE;
+		}
 	}
-	return false;
+	return FALSE;
 }
 
 /**
@@ -132,6 +136,10 @@ function auth_login() {
 				$_SESSION['uid'] = $c_user['uid'];
 				$_SESSION['status'] = $c_user['status'];
 				$_SESSION['valid'] = true;
+				// save session in registry
+				if (! $core_config['daemon_process']) {
+					user_session_set($c_user['uid']);
+				}
 				logger_print("u:".$username." status:".$_SESSION['status']." sid:".$_SESSION['sid']." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
 			} else {
 				$_SESSION['error_string'] = _('Unable to update login session');
@@ -150,10 +158,10 @@ function auth_login() {
  */
 function auth_logout() {
 	global $core_config;
-	registry_remove($core_config['user']['uid'], 'auth', 'login_session', $_SESSION['sid']);
+	user_session_remove($_SESSION['uid'], $_SESSION['sid']);
 	$db_query = "UPDATE "._DB_PREF_."_tblUser SET ticket='0' WHERE username='".$_SESSION['username']."'";
 	$db_result = dba_query($db_query);
-	logger_print("u:".$_SESSION['username']." status:".$_SESSION['status']." sid:".$_SESSION['sid']." ip:".$_SERVER['REMOTE_ADDR'], 2, "logout");
+	logger_print("u:".$_SESSION['username']." uid:".$_SESSION['uid']." status:".$_SESSION['status']." sid:".$_SESSION['sid']." ip:".$_SERVER['REMOTE_ADDR'], 2, "logout");
 	@session_destroy();
 	$_SESSION['error_string'] = _('You have been logged out');
 	header("Location: ".$core_config['http_path']['base']);

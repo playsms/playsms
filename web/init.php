@@ -277,23 +277,15 @@ if (auth_isvalid()) {
 	$username = $_SESSION['username'];
 	$core_config['user'] = user_getdatabyusername($username);
 	$uid = $core_config['user']['uid'];
-	$sender = core_sanitize_sender($core_config['user']['sender']);
+	$sender = $core_config['user']['sender'];
 	$footer = $core_config['user']['footer'];
 	$mobile = $core_config['user']['mobile'];
 	$email = $core_config['user']['email'];
 	$name = $core_config['user']['name'];
 	$status = $core_config['user']['status'];
-	// save login session information
 	if (! $core_config['daemon_process']) {
-		$core_config['user']['sid'] = $_SESSION['sid'];
-		$core_config['user']['last_update'] = core_get_datetime();
-		$core_config['user']['ip'] = $_SERVER['REMOTE_ADDR'];
-		$items[$_SESSION['sid']] = json_encode(array(
-		    'username' => $username,
-		    'ip' => $core_config['user']['ip'],
-		    'last_update' => $core_config['user']['last_update']
-		));
-		registry_update($uid, 'auth', 'login_session', $items);
+		// save login session information
+		user_session_set();
 	}
 }
 
