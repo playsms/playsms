@@ -303,7 +303,7 @@ function recvsms_inbox_add($sms_datetime,$sms_sender,$target_user,$message,$sms_
 			if ($fwd_to_email = $user['fwd_to_email']) {
 				if ($email = $user['email']) {
 					// make sure sms_datetime is in supported format and in user's timezone
-					$sms_datetime = core_display_datetime($sms_datetime);
+					$sms_datetime = core_adjust_datetime($sms_datetime);
 					$subject = _('Message from')." ".$sender;
 					$body = $web_title."\n\n";
 					$body .= _('Received').": ".$sms_datetime."\n";
