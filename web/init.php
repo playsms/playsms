@@ -285,12 +285,15 @@ if (auth_isvalid()) {
 	$status = $core_config['user']['status'];
 	// save login session information
 	if (! $core_config['daemon_process']) {
+		$core_config['user']['sid'] = $_SESSION['sid'];
 		$core_config['user']['last_update'] = core_get_datetime();
 		$core_config['user']['ip'] = $_SERVER['REMOTE_ADDR'];
-		$items = array(
-		    'last_update' => $core_config['user']['last_update'],
-		    'ip' => $core_config['user']['ip']);
-		registry_update($core_config['user']['uid'], 'auth', 'login_session', $items);
+		$items[$_SESSION['sid']] = json_encode(array(
+		    'username' => $username,
+		    'ip' => $core_config['user']['ip'],
+		    'last_update' => $core_config['user']['last_update']
+		));
+		registry_update($uid, 'auth', 'login_session', $items);
 	}
 }
 

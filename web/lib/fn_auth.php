@@ -150,7 +150,7 @@ function auth_login() {
  */
 function auth_logout() {
 	global $core_config;
-	registry_remove($core_config['user']['uid'], 'auth', 'login_session');
+	registry_remove($core_config['user']['uid'], 'auth', 'login_session', $_SESSION['sid']);
 	$db_query = "UPDATE "._DB_PREF_."_tblUser SET ticket='0' WHERE username='".$_SESSION['username']."'";
 	$db_result = dba_query($db_query);
 	logger_print("u:".$_SESSION['username']." status:".$_SESSION['status']." sid:".$_SESSION['sid']." ip:".$_SERVER['REMOTE_ADDR'], 2, "logout");
