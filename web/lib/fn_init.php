@@ -84,12 +84,14 @@ if (! function_exists('_')) {
  * Include essential functions
  */
 include_once $apps_path['libs']."/fn_dba.php";
-include_once $apps_path['libs']."/fn_registry.php";
-include_once $apps_path['libs']."/fn_user.php";
-include_once $apps_path['libs']."/fn_auth.php";
-include_once $apps_path['libs']."/fn_logger.php";
-include_once $apps_path['libs']."/fn_sendmail.php";
 include_once $apps_path['libs']."/fn_core.php";
+include_once $apps_path['libs']."/fn_registry.php";
+include_once $apps_path['libs']."/fn_sendmail.php";
+include_once $apps_path['libs']."/fn_user.php";
+include_once $apps_path['libs']."/fn_logger.php";
+include_once $apps_path['libs']."/fn_auth.php";
+include_once $apps_path['libs']."/fn_tpl.php";
+include_once $apps_path['libs']."/fn_themes.php";
 
 /*
  * end of init functions

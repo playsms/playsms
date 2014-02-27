@@ -20,14 +20,12 @@
 defined('_SECURE_') or die('Forbidden');
 
 // main functions
+include $apps_path['libs']."/fn_phonebook.php";
 include $apps_path['libs']."/fn_rate.php";
 include $apps_path['libs']."/fn_billing.php";
 include $apps_path['libs']."/fn_dlr.php";
 include $apps_path['libs']."/fn_recvsms.php";
 include $apps_path['libs']."/fn_sendsms.php";
-include $apps_path['libs']."/fn_phonebook.php";
-include $apps_path['libs']."/fn_themes.php";
-include $apps_path['libs']."/fn_tpl.php";
 include $apps_path['libs']."/fn_webservices.php";
 
 // init global variables
