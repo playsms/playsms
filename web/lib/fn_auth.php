@@ -35,6 +35,16 @@ function auth_validate_login($username,$password) {
 	if ($password && $res_password && ($password==$res_password)) {
 		logger_print("valid login u:".$username." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
 		return true;
+	} else {
+		$ret = registry_search(1, 'auth', 'tmp_password', $username);
+		$tmp_password = $ret['auth']['tmp_password'][$username];
+		if ($password && $tmp_password && ($password==$tmp_password)) {
+			logger_print("valid login u:".$username." ip:".$_SERVER['REMOTE_ADDR'].' using temporary password', 2, "login");
+			if (! registry_remove(1, 'auth', 'tmp_password', $username)) {
+				logger_print("WARNING: unable to remove temporary password after successful login", 3, "login");
+			}
+			return true;
+		}
 	}
 	logger_print("invalid login u:".$username." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
 	return false;
@@ -164,15 +174,14 @@ function auth_forgot() {
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result)) {
 				if ($password = $db_row['password']) {
-					$new_password = core_get_random_string();
-					$new_password_coded = md5($new_password);
-					$db_query = "UPDATE "._DB_PREF_."_tblUser SET password='$new_password_coded' WHERE username='$username' AND email='$email'";
-					if (@dba_affected_rows($db_query)) {
+					$tmp_password = core_get_random_string();
+					$tmp_password_coded = md5($tmp_password);
+					if (registry_update(1, 'auth', 'tmp_password', array($username => $tmp_password_coded))) {
 						$subject = _('Password recovery');
 						$body = $core_config['main']['cfg_web_title']."\n";
 						$body .= $core_config['http_path']['base']."\n\n";
 						$body .= _('Username')."\t: ".$username."\n";
-						$body .= _('Password')."\t: ".$new_password."\n\n";
+						$body .= _('Password')."\t: ".$tmp_password."\n\n";
 						$body .= $core_config['main']['cfg_email_footer']."\n\n";
 						$data = array(
 							'mail_from_name' => $core_config['main']['cfg_web_title'],

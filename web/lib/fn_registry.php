@@ -60,3 +60,19 @@ function registry_search($uid, $registry_group, $registry_family = '', $registry
 	}
 	return $ret;
 }
+
+function registry_remove($uid, $registry_group, $registry_family = '', $registry_key = '') {
+	$ret = FALSE;
+	$db_table = _DB_PREF_.'_tblRegistry';
+	if ($registry_group && $registry_family && $registry_key) {
+		$conditions = array('uid' => $uid, 'registry_group' => $registry_group, 'registry_family' => $registry_family, 'registry_key' => $registry_key);
+		$ret = dba_remove($db_table, $conditions);
+	} else if ($registry_group && $registry_family) {
+		$conditions = array('uid' => $uid, 'registry_group' => $registry_group, 'registry_family' => $registry_family);
+		$ret = dba_remove($db_table, $conditions);
+	} else if ($registry_group) {
+		$conditions = array('uid' => $uid, 'registry_group' => $registry_group);
+		$ret = dba_remove($db_table, $conditions);
+	}
+	return $ret;
+}
