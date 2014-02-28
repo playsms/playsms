@@ -167,7 +167,17 @@ if (file_exists($c_fn1)) {
 	}
 }
 
-// themes icons
+// themes main overrides
+$mains = $core_config['plugin'][core_themes_get()]['main'];
+if (is_array($mains)) {
+	foreach ($mains as $main_key => $main_val) {
+		if ($main_key && $main_val) {
+			$core_config['main'][$main_key] = $main_val;
+		}
+	}
+}
+
+// themes icons overrides
 $icons = $core_config['plugin'][core_themes_get()]['icon'];
 if (is_array($icons)) {
 	foreach ($icons as $icon_action => $icon_url) {
@@ -176,7 +186,7 @@ if (is_array($icons)) {
 		}
 	}
 }
-	
+
 // load active gateway libs
 $dir = $apps_path['plug'].'/';
 $pc = 'gateway';

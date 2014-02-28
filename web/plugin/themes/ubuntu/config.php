@@ -1,6 +1,10 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
+// default loaded page/plugin
+//$core_config['plugin']['ubuntu']['main']['default_inc']	= 'tools_report';
+//$core_config['plugin']['ubuntu']['main']['default_op']	= 'report_user';
+
 // override common action icons
 //$core_config['plugin']['ubuntu']['icon']['edit']		= "<span class='playsms-icon glyphicon glyphicon-cog' alt='"._('Edit')."' title='"._('Edit')."'></span>";
 //$core_config['plugin']['ubuntu']['icon']['delete']		= "<span class='playsms-icon glyphicon glyphicon-trash' alt='"._('Delete')."' title='"._('Delete')."'></span>";
