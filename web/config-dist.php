@@ -75,3 +75,6 @@ $core_config['sendsmsd_queue']	= 30;
 
 // webservices require username
 $core_config['webservices_username']	= true;
+
+// enable or disable custom logo
+$core_config['cfg_enable_logo']	= false;

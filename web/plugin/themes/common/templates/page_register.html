@@ -14,8 +14,17 @@
 				<input type=hidden name=op value=auth_register>
 				<table width="80%" align="center">
 					<tbody>
-					<tr><td>&nbsp;</td></tr>
-					
+                    <if.enable_logo>
+                        <tr>
+                            <td>
+                                &nbsp;
+                                <div align="center">
+                                    <img style="vertical-align: bottom;" src="plugin/themes/common/images/default_logo.png" alt="<?php echo $theme_play_head1; ?>" >
+                                </div>
+                            </td>
+                        </tr>
+                    </if.enable_logo>
+
 					<tr>
 						<td align="center">
 							<h1><a href={HTTP_PATH_BASE}>{WEB_TITLE}</a></h1>

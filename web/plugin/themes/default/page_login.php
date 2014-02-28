@@ -15,8 +15,9 @@ $tpl = array(
 		'Forgot password' => _('Forgot password')
 	),
 	'if' => array(
-		'enable_register' => $core_config['main']['cfg_enable_register'],
-		'enable_forgot' => $core_config['main']['cfg_enable_forgot']
+		'enable_register' => $core_config['cfg_enable_logo'],
+		'enable_forgot' => $core_config['main']['cfg_enable_forgot'],
+        'enable_logo' => $core_config['cfg_enable_logo']
 	)
 );
 
