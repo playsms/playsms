@@ -214,6 +214,10 @@ $core_config['main']['per_sms_length_unicode'] = ( $core_config['main']['cfg_sms
 $core_config['main']['max_sms_length'] = $core_config['main']['cfg_sms_max_count'] * $core_config['main']['per_sms_length'];
 $core_config['main']['max_sms_length_unicode'] = $core_config['main']['cfg_sms_max_count'] * $core_config['main']['per_sms_length_unicode'];
 
+// default loaded page/plugin
+$core_config['main']['default_inc'] = 'page_welcome';
+$core_config['main']['default_op'] = 'page_welcome';
+
 // verify selected gateway_module exists
 $fn1 = $apps_path['plug'].'/gateway/'.$gateway_module.'/config.php';
 $fn2 = $apps_path['plug'].'/gateway/'.$gateway_module.'/fn.php';

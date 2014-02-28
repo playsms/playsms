@@ -104,10 +104,8 @@ if ($err = $_SESSION['error_string']) {
 
 // frontpage
 if (auth_isvalid()) {
-	$core_config['default_include'] = ( empty($core_config['default_include']) ? $core_config['default_include'] = 'page_welcome' : $core_config['default_include'] );
-	$core_config['default_option'] = ( empty($core_config['default_option']) ? $core_config['default_option'] = 'page_welcome' : $core_config['default_option'] );
 	ob_end_clean();
-	header("Location: index.php?app=menu&inc=".$core_config['default_include']."&op=".$core_config['default_option']);
+	header("Location: index.php?app=menu&inc=".$core_config['main']['default_inc']."&op=".$core_config['main']['default_op']);
 	exit();
 } else {
 	if (function_exists('bindtextdomain')) {
