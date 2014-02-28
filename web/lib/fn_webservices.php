@@ -347,7 +347,7 @@ function webservices_ix($c_username,$src='',$dst='',$datetime='',$c=100,$last=fa
 	$ret = "ERR 101";
 	$json['status'] = 'ERR';
 	$json['error'] = '101';
-	$conditions['in_hidden'] = 0;
+	$conditions['flag_deleted'] = 0;
 	if ($uid = user_username2uid($c_username)) {
 		$conditions['in_uid'] = $uid;
 	}

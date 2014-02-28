@@ -1264,12 +1264,12 @@ DROP TABLE IF EXISTS `playsms_tblUserInbox`;
 CREATE TABLE `playsms_tblUserInbox` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
   `in_id` int(11) NOT NULL AUTO_INCREMENT,
+  `flag_deleted` int(11) NOT NULL DEFAULT '0',
   `in_sender` varchar(20) NOT NULL DEFAULT '',
   `in_receiver` varchar(20) NOT NULL DEFAULT '',
   `in_uid` int(11) NOT NULL DEFAULT '0',
   `in_msg` varchar(200) NOT NULL DEFAULT '',
   `in_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `in_hidden` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`in_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
