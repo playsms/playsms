@@ -239,18 +239,6 @@ if (file_exists($fn1) && file_exists($fn2)) {
 	$core_config['module']['language'] = 'en_US';
 }
 
-if (auth_isvalid()) {
-	setuserlang($_SESSION['username']);
-} else {
-	setuserlang();
-}
-
-if (function_exists('bindtextdomain')) {
-	bindtextdomain('messages', $apps_path['plug'].'/language/');
-	bind_textdomain_codeset('messages', 'UTF-8');
-	textdomain('messages');
-}
-
 // set global variable
 $date_format		= "Y-m-d";
 $time_format		= "H:i:s";
@@ -272,8 +260,8 @@ if (! ($core_config['module']['gateway'] && $core_config['module']['themes'] && 
 	die(_('FATAL ERROR').' : '._('Fail to load gateway, themes or language module'));
 }
 
-// load user's data from user's DB table
 if (auth_isvalid()) {
+	// load user's data from user's DB table
 	$username = $_SESSION['username'];
 	$core_config['user'] = user_getdatabyusername($username);
 	$uid = $core_config['user']['uid'];
@@ -287,6 +275,16 @@ if (auth_isvalid()) {
 		// save login session information
 		user_session_set();
 	}
+	// set user lang
+	setuserlang($username);
+} else {
+	setuserlang();
+}
+
+if (function_exists('bindtextdomain')) {
+	bindtextdomain('messages', $apps_path['plug'].'/language/');
+	bind_textdomain_codeset('messages', 'UTF-8');
+	textdomain('messages');
 }
 
 // fixme anton - uncomment this if you want to know what are available in $core_config
