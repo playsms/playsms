@@ -74,8 +74,6 @@ switch ($op) {
 			if ($c_feature = $list[$j]['in_feature']) {
 				$c_feature = "<br />".$c_feature;
 			}
-			$in_status = ( $list[$j]['in_status'] == 1 ? '<span class=status_handled />' : '<span class=status_unhandled />' );
-			$in_status = strtolower($in_status);
 			$msg = $list[$j]['in_message'];
 			$in_message = core_display_text($msg);
 			$reply = '';
@@ -84,7 +82,7 @@ switch ($op) {
 				$reply = _a('index.php?app=menu&inc=send_sms&op=send_sms&do=reply&message='.urlencode($msg).'&to='.urlencode($in_sender), $core_config['icon']['reply']);
 				$forward = _a('index.php?app=menu&inc=send_sms&op=send_sms&do=forward&message='.urlencode($msg), $core_config['icon']['forward']);
 			}
-			$c_message = "<div id=\"sandbox_msg\">".$in_message."</div><div id=\"msg_label\">".$in_datetime."&nbsp;".$in_status."</div><div id=\"msg_option\">".$reply.$forward."</div>";
+			$c_message = "<div id=\"sandbox_msg\">".$in_message."</div><div id=\"msg_label\">".$in_datetime."</div><div id=\"msg_option\">".$reply.$forward."</div>";
 			$i--;
 			$content .= "
 				<tr>
