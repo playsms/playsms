@@ -28,10 +28,10 @@ switch ($op) {
 		$conditions = array('flag_deleted' => 0);
 		$keywords = $search['dba_keywords'];
 		$join = 'INNER JOIN '._DB_PREF_.'_tblUser AS B ON in_uid=B.uid';
-		$count = dba_count(_DB_PREF_.'_tblUserInbox', $conditions, $keywords, '', $join);
+		$count = dba_count(_DB_PREF_.'_tblUser_inbox', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = dba_search(_DB_PREF_.'_tblUserInbox', '*', $conditions, $keywords, $extras, $join);
+		$list = dba_search(_DB_PREF_.'_tblUser_inbox', '*', $conditions, $keywords, $extras, $join);
 
 		$content = "
 			<h2>"._('All inbox')."</h2>
@@ -114,7 +114,7 @@ switch ($op) {
 			case 'export':
 				$conditions = array('flag_deleted' => 0);
 				$join = 'INNER JOIN '._DB_PREF_.'_tblUser AS B ON in_uid=B.uid';
-				$list = dba_search(_DB_PREF_.'_tblUserInbox', '*', $conditions, $search['dba_keywords'], '', $join);
+				$list = dba_search(_DB_PREF_.'_tblUser_inbox', '*', $conditions, $search['dba_keywords'], '', $join);
 				$data[0] = array(_('User'), _('Time'), _('From'), _('Message'));
 				for ($i=0;$i<count($list);$i++) {
 					$j = $i + 1;
@@ -134,7 +134,7 @@ switch ($op) {
 					$itemid = $_POST['itemid'.$i];
 					if(($checkid=="on") && $itemid) {
 						$up = array('c_timestamp' => mktime(), 'flag_deleted' => '1');
-						dba_update(_DB_PREF_.'_tblUserInbox', $up, array('in_id' => $itemid));
+						dba_update(_DB_PREF_.'_tblUser_inbox', $up, array('in_id' => $itemid));
 					}
 				}
 				$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&page='.$nav['page'].'&nav='.$nav['nav'];

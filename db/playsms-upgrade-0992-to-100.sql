@@ -37,4 +37,4 @@ UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0.0' WHERE `id` = 1 ;
 ALTER TABLE  `playsms_toolsPhonebook_group` ADD  `flag_sender` INT NOT NULL DEFAULT  '0' ;
 DROP TABLE IF EXISTS `playsms_gatewayKannel_config` ;
 ALTER TABLE  `playsms_tblUserInbox` CHANGE  `in_hidden`  `flag_deleted` INT( 11 ) NOT NULL DEFAULT  '0' ;
-
+RENAME TABLE  `playsms_tblUserInbox` TO `playsms_tblUser_inbox` ;

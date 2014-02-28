@@ -377,7 +377,7 @@ function webservices_ix($c_username,$src='',$dst='',$datetime='',$c=100,$last=fa
 	if ($uid) {
 		$content = '';
 		$j = 0;
-		$list = dba_search(_DB_PREF_.'_tblUserInbox', '*', $conditions, $keywords, $extras);
+		$list = dba_search(_DB_PREF_.'_tblUser_inbox', '*', $conditions, $keywords, $extras);
 		foreach ($list as $db_row) {
 			$id = $db_row['in_id'];
 			$src = $db_row['in_sender'];

@@ -1255,13 +1255,13 @@ INSERT INTO `playsms_tblUser` VALUES (1332916885,1,2,'dd4aa3580e3de07858d812dcc0
 UNLOCK TABLES;
 
 --
--- Table structure for table `playsms_tblUserInbox`
+-- Table structure for table `playsms_tblUser_inbox`
 --
 
-DROP TABLE IF EXISTS `playsms_tblUserInbox`;
+DROP TABLE IF EXISTS `playsms_tblUser_inbox`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `playsms_tblUserInbox` (
+CREATE TABLE `playsms_tblUser_inbox` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
   `in_id` int(11) NOT NULL AUTO_INCREMENT,
   `flag_deleted` int(11) NOT NULL DEFAULT '0',
@@ -1275,12 +1275,12 @@ CREATE TABLE `playsms_tblUserInbox` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `playsms_tblUserInbox`
+-- Dumping data for table `playsms_tblUser_inbox`
 --
 
-LOCK TABLES `playsms_tblUserInbox` WRITE;
-/*!40000 ALTER TABLE `playsms_tblUserInbox` DISABLE KEYS */;
-/*!40000 ALTER TABLE `playsms_tblUserInbox` ENABLE KEYS */;
+LOCK TABLES `playsms_tblUser_inbox` WRITE;
+/*!40000 ALTER TABLE `playsms_tblUser_inbox` DISABLE KEYS */;
+/*!40000 ALTER TABLE `playsms_tblUser_inbox` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
