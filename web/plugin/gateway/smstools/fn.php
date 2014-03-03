@@ -2,17 +2,17 @@
 defined('_SECURE_') or die('Forbidden');
 
 function smstools_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="") {
-	global $smstools_param;
+	global $plugin_config;
 	// p_status :
 	// 0 = pending
 	// 1 = sent/delivered
 	// 2 = failed
 	if ($gpid) {
-		$fn = $smstools_param['spool_dir']."/sent/out.$gpid.$uid.$smslog_id";
-		$efn = $smstools_param['spool_dir']."/failed/out.$gpid.$uid.$smslog_id";
+		$fn = $plugin_config['smstools']['spool_dir']."/sent/out.$gpid.$uid.$smslog_id";
+		$efn = $plugin_config['smstools']['spool_dir']."/failed/out.$gpid.$uid.$smslog_id";
 	} else {
-		$fn = $smstools_param['spool_dir']."/sent/out.0.$uid.$smslog_id";
-		$efn = $smstools_param['spool_dir']."/failed/out.0.$uid.$smslog_id";
+		$fn = $plugin_config['smstools']['spool_dir']."/sent/out.0.$uid.$smslog_id";
+		$efn = $plugin_config['smstools']['spool_dir']."/failed/out.0.$uid.$smslog_id";
 	}
 	// set if its sent/delivered
 	if (file_exists($fn)) {
@@ -41,8 +41,8 @@ function smstools_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime=""
 
 		$p_status = 1;
 		dlr($smslog_id,$uid,$p_status);
-		if (is_dir($smstools_param['spool_bak'].'/sent')) {
-			@shell_exec('mv '.$fn.' '.$smstools_param['spool_bak'].'/sent/');
+		if (is_dir($plugin_config['smstools']['spool_bak'].'/sent')) {
+			@shell_exec('mv '.$fn.' '.$plugin_config['smstools']['spool_bak'].'/sent/');
 		}
 		if (file_exists($fn)) {
 			@unlink($fn);
@@ -52,8 +52,8 @@ function smstools_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime=""
 	if (file_exists($efn)) {
 		$p_status = 2;
 		dlr($smslog_id,$uid,$p_status);
-		if (is_dir($smstools_param['spool_bak'].'/failed')) {
-			@shell_exec('mv '.$efn.' '.$smstools_param['spool_bak'].'/failed/');
+		if (is_dir($plugin_config['smstools']['spool_bak'].'/failed')) {
+			@shell_exec('mv '.$efn.' '.$plugin_config['smstools']['spool_bak'].'/failed/');
 		}
 		if (file_exists($efn)) {
 			@unlink($efn);
@@ -71,11 +71,11 @@ function smstools_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime=""
 }
 
 function smstools_hook_getsmsinbox() {
-	global $smstools_param;
-	$handle = @opendir($smstools_param['spool_dir']."/incoming");
+	global $plugin_config;
+	$handle = @opendir($plugin_config['smstools']['spool_dir']."/incoming");
 	while ($sms_in_file = @readdir($handle)) {
-		$fn = $smstools_param['spool_dir']."/incoming/$sms_in_file";
-		$fn_bak = $smstools_param['spool_bak']."/incoming/$sms_in_file";
+		$fn = $plugin_config['smstools']['spool_dir']."/incoming/$sms_in_file";
+		$fn_bak = $plugin_config['smstools']['spool_bak']."/incoming/$sms_in_file";
 
 		$lines = @file ($fn);
 		$start = 0;
@@ -95,9 +95,9 @@ function smstools_hook_getsmsinbox() {
 		// copy to backup folder instead of delete it directly from original spool dir.
 		// playSMS does the backup since probably not many smstools3 users configure
 		// an eventhandler to backup incoming sms
-		if (is_dir($smstools_param['spool_bak'].'/incoming') && $start) {
+		if (is_dir($plugin_config['smstools']['spool_bak'].'/incoming') && $start) {
 			logger_print("infile backup:".$fn_bak, 2, "smstools incoming");
-			@shell_exec('mv '.$fn.' '.$smstools_param['spool_bak'].'/incoming/');
+			@shell_exec('mv '.$fn.' '.$plugin_config['smstools']['spool_bak'].'/incoming/');
 		} else {
 			@unlink($fn);
 		}
@@ -157,7 +157,7 @@ function smstools_hook_getsmsinbox() {
 }
 
 function smstools_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
-	global $smstools_param;
+	global $plugin_config;
 	$sms_sender = stripslashes($sms_sender);
 	$sms_footer = stripslashes($sms_footer);
 	$sms_msg = stripslashes($sms_msg);
@@ -184,8 +184,8 @@ function smstools_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',
 	$the_msg .= "\n$sms_msg";
 
 	// try to backup outgoing file first
-	$fn_bak = $smstools_param['spool_bak']."/outgoing/out.$sms_id";
-	if (is_dir($smstools_param['spool_bak'].'/outgoing')) {
+	$fn_bak = $plugin_config['smstools']['spool_bak']."/outgoing/out.$sms_id";
+	if (is_dir($plugin_config['smstools']['spool_bak'].'/outgoing')) {
 		umask(0);
 		$fd = @fopen($fn_bak, 'w+');
 		@fputs($fd, $the_msg);
@@ -193,7 +193,7 @@ function smstools_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',
 	}
 
 	// copy from backup if exists, or create new one in spool dir
-	$fn = $smstools_param['spool_dir']."/outgoing/out.$sms_id";
+	$fn = $plugin_config['smstools']['spool_dir']."/outgoing/out.$sms_id";
 	if (file_exists($fn_bak)) {
 		logger_print("outfile backup:".$fn_bak, 2, "smstools outgoing");
 		@shell_exec('cp '.$fn_bak.' '.$fn);

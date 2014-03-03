@@ -2,7 +2,7 @@
 defined ( '_SECURE_' ) or die ( 'Forbidden' );
 
 function infobip_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datetime = "", $p_update = "") {
-	global $infobip_param;
+	global $plugin_config;
 	list ( $c_sms_credit, $c_sms_status ) = infobip_getsmsstatus ( $smslog_id );
 	// pending
 	$p_status = 0;
@@ -13,8 +13,8 @@ function infobip_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_dat
 }
 
 function infobip_hook_playsmsd() {
-	global $infobip_param;
-	if ($infobip_param['dlr_nopush'] == '1') {
+	global $plugin_config;
+	if ($plugin_config['infobip']['dlr_nopush'] == '1') {
 		// force to check p_status=1 (sent) as getsmsstatus only check for p_status=0 (pending)
 		// $db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status=0 OR p_status=1";
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE p_status='1' AND p_gateway='infobip'";
@@ -37,7 +37,7 @@ function infobip_hook_playsmsd() {
 }
 
 function infobip_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
-	global $infobip_param;
+	global $plugin_config;
 	$ok = false;
 
 	$sms_from = $sms_sender;
@@ -66,21 +66,21 @@ function infobip_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid 
 	// fixme anton - if sms_from is not set in gateway_number and global number, we cannot pass it to infobip
 	$set_sms_from = ($sms_from == $sms_sender ? '' : urlencode ( $sms_from ));
 	
-	// query_string = "sendmsg?api_id=".$infobip_param['api_id']."&user=".$infobip_param['username']."&password=".$infobip_param['password']."&to=".urlencode($sms_to)."&msg_type=$sms_type&text=".urlencode($sms_msg)."&unicode=".$unicode.$set_sms_from;
-	$query_string = "sendsms/plain?user=" . $infobip_param['username'] . "&password=" . $infobip_param['password'];
+	// query_string = "sendmsg?api_id=".$plugin_config['infobip']['api_id']."&user=".$plugin_config['infobip']['username']."&password=".$plugin_config['infobip']['password']."&to=".urlencode($sms_to)."&msg_type=$sms_type&text=".urlencode($sms_msg)."&unicode=".$unicode.$set_sms_from;
+	$query_string = "sendsms/plain?user=" . $plugin_config['infobip']['username'] . "&password=" . $plugin_config['infobip']['password'];
 	$query_string .= "&GSM=" . urlencode ( $sms_to ) . $smsType . "=" . urlencode ( $sms_msg ) . "&sender=" . $sms_from;
 	$query_string .= "&IsFlash=" . $sms_type . "&DataCoding=" . $unicode;
 	
-	$url = $infobip_param['send_url'] . "/" . $query_string;
+	$url = $plugin_config['infobip']['send_url'] . "/" . $query_string;
 	
-	$dlr_nopush = $infobip_param['dlr_nopush'];
+	$dlr_nopush = $plugin_config['infobip']['dlr_nopush'];
 	if ($dlr_nopush == '0') {
 		$additional_param = "&nopush=0";
 	} elseif ($dlr_nopush == '1') {
 		$additional_param = "&nopush=1";
 	}
 	
-	if ($additional_param = $infobip_param['additional_param']) {
+	if ($additional_param = $plugin_config['infobip']['additional_param']) {
 		$additional_param .= "&" . $additional_param;
 	}
 	
@@ -129,26 +129,26 @@ function infobip_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid 
 function infobip_hook_getsmsinbox() {
 	// fixme anton - infobip will only receive incoming sms from callback url
 	/*
-	 * global $infobip_param; $handle = @opendir($infobip_param['incoming_path']); while ($sms_in_file = @readdir($handle)) { if (eregi("^ERR.in",$sms_in_file) && !eregi("^[.]",$sms_in_file)) { $fn = $infobip_param['incoming_path']."/$sms_in_file"; $tobe_deleted = $fn; $lines = @file ($fn); $sms_datetime = trim($lines[0]); $sms_sender = trim($lines[1]); $message = ""; for ($lc=2;$lc<count($lines);$lc++) { $message .= trim($lines[$lc]); } // collected: // $sms_datetime, $sms_sender, $message, $sms_receiver setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver); @unlink($tobe_deleted); } }
+	 * global $plugin_config; $handle = @opendir($plugin_config['infobip']['incoming_path']); while ($sms_in_file = @readdir($handle)) { if (eregi("^ERR.in",$sms_in_file) && !eregi("^[.]",$sms_in_file)) { $fn = $plugin_config['infobip']['incoming_path']."/$sms_in_file"; $tobe_deleted = $fn; $lines = @file ($fn); $sms_datetime = trim($lines[0]); $sms_sender = trim($lines[1]); $message = ""; for ($lc=2;$lc<count($lines);$lc++) { $message .= trim($lines[$lc]); } // collected: // $sms_datetime, $sms_sender, $message, $sms_receiver setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver); @unlink($tobe_deleted); } }
 	 */
 }
 
 function infobip_getsmsstatus($smslog_id) {
-	global $infobip_param;
+	global $plugin_config;
 	
 	// Be carefull nopush should be set to 1 and no Push url should be defined on infobip account !
 	// infobip dlr url if defined overset this config
-	if ($infobip_param['dlr_nopush'] == '1') {
+	if ($plugin_config['infobip']['dlr_nopush'] == '1') {
 		$c_sms_status = 0;
 		$c_sms_credit = 0;
 		$db_query = "SELECT apimsgid FROM " . _DB_PREF_ . "_gatewayInfobip_apidata WHERE smslog_id='$smslog_id'";
 		$db_result = dba_query ( $db_query );
 		$db_row = dba_fetch_array ( $db_result );
 		if ($apimsgid = $db_row['apimsgid']) {
-			// $query_string = "getmsgcharge?api_id=".$infobip_param['api_id']."&user=".$infobip_param['username']."&password=".$infobip_param['password']."&apimsgid=$apimsgid";
-			$query_string = "pull?user=" . $infobip_param['username'] . "&password=" . $infobip_param['password'] . "&messageid=$apimsgid";
-			// $url = $infobip_param['send_url']."/".$query_string;
-			$url = $infobip_param['send_url'] . "/dr/" . $query_string;
+			// $query_string = "getmsgcharge?api_id=".$plugin_config['infobip']['api_id']."&user=".$plugin_config['infobip']['username']."&password=".$plugin_config['infobip']['password']."&apimsgid=$apimsgid";
+			$query_string = "pull?user=" . $plugin_config['infobip']['username'] . "&password=" . $plugin_config['infobip']['password'] . "&messageid=$apimsgid";
+			// $url = $plugin_config['infobip']['send_url']."/".$query_string;
+			$url = $plugin_config['infobip']['send_url'] . "/dr/" . $query_string;
 			logger_print ( "smslog_id:" . $smslog_id . " apimsgid:" . $apimsgid . " url:" . $url, 2, "infobip getsmsstatus" );
 			$fd = @implode ( '', file ( $url ) );
 			logger_print ( "fd: " . $fd, 3, "infobip debug" );

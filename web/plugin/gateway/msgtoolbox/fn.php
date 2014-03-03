@@ -12,12 +12,12 @@ defined('_SECURE_') or die('Forbidden');
 // $uid			: sender User ID
 // $smslog_id		: sms ID
 function msgtoolbox_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
-	// global $msgtoolbox_param;   // global all variables needed, eg: varibles from config.php
+	// global $plugin_config;   // global all variables needed, eg: varibles from config.php
 	// ...
 	// ...
 	// return true or false
 	// return $ok;
-	global $msgtoolbox_param;
+	global $plugin_config;
 	$sms_sender = stripslashes($sms_sender);
 	$sms_footer = stripslashes($sms_footer);
 	$sms_msg = stripslashes($sms_msg);
@@ -38,11 +38,11 @@ function msgtoolbox_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='
 		}
 		// fixme anton - from playSMS v0.9.5.1 references to input.php replaced with index.php?app=webservices
 		// I should add autodetect, if its below v0.9.5.1 should use input.php
-		$query_string = "username=".$msgtoolbox_param['username']."&password=".$msgtoolbox_param['password']."&to=".urlencode($sms_to)."&from=".urlencode($sms_sender)."&message=".urlencode($sms_msg).$unicode."&route=".$msgtoolbox_param['route'];
-		$url = $msgtoolbox_param['url']."?".$query_string;
+		$query_string = "username=".$plugin_config['msgtoolbox']['username']."&password=".$plugin_config['msgtoolbox']['password']."&to=".urlencode($sms_to)."&from=".urlencode($sms_sender)."&message=".urlencode($sms_msg).$unicode."&route=".$plugin_config['msgtoolbox']['route'];
+		$url = $plugin_config['msgtoolbox']['url']."?".$query_string;
 
 		/* not used
-		if ($additional_param = $msgtoolbox_param['additional_param']) {
+		if ($additional_param = $plugin_config['msgtoolbox']['additional_param']) {
 			$additional_param = "&".$additional_param;
 		}
 		$url .= $additional_param;

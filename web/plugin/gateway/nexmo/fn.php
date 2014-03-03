@@ -12,7 +12,7 @@ defined('_SECURE_') or die('Forbidden');
 // $uid		: sender User ID
 // $smslog_id	: sms ID
 function nexmo_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
-	global $nexmo_param;
+	global $plugin_config;
 	$sms_sender = stripslashes($sms_sender);
 	$sms_footer = stripslashes($sms_footer);
 	$sms_msg = stripslashes($sms_msg);
@@ -32,8 +32,8 @@ function nexmo_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gp
 				$unicode = "&type=unicode"; // added at the of query string if unicode
 			}
 		}
-		$query_string = "api_key=".$nexmo_param['api_key']."&api_secret=".$nexmo_param['api_secret']."&to=".urlencode($sms_to)."&from=".urlencode($sms_sender)."&text=".urlencode($sms_msg).$unicode."&status-report-req=1&client-ref=".$smslog_id;
-		$url = $nexmo_param['url']."?".$query_string;
+		$query_string = "api_key=".$plugin_config['nexmo']['api_key']."&api_secret=".$plugin_config['nexmo']['api_secret']."&to=".urlencode($sms_to)."&from=".urlencode($sms_sender)."&text=".urlencode($sms_msg).$unicode."&status-report-req=1&client-ref=".$smslog_id;
+		$url = $plugin_config['nexmo']['url']."?".$query_string;
 
 		logger_print($url, 3, "nexmo outgoing");
 		$resp = json_decode(file_get_contents($url), true);

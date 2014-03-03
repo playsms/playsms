@@ -4,21 +4,18 @@ defined ( '_SECURE_' ) or die ( 'Forbidden' );
 $db_query = "SELECT * FROM " . _DB_PREF_ . "_gatewayInfobip_config";
 $db_result = dba_query ( $db_query );
 if ($db_row = dba_fetch_array ( $db_result )) {
-	$infobip_param['name'] = $db_row['cfg_name'];
-	$infobip_param['username'] = $db_row['cfg_username'];
-	$infobip_param['password'] = $db_row['cfg_password'];
-	$infobip_param['global_sender'] = $db_row['cfg_sender'];
-	$infobip_param['send_url'] = ( $db_row['cfg_send_url'] ? $db_row['cfg_send_url'] : 'http://api.infobip.com/api/v3' );
-	$infobip_param['additional_param'] = $db_row['cfg_additional_param'];
-	$infobip_param['datetime_timezone'] = $db_row['cfg_datetime_timezone'];
-	//$infobip_param['dlr_nopush'] = $db_row['cfg_dlr_nopush'];
-	$infobip_param['dlr_nopush'] = 1;
+	$plugin_config['infobip']['name'] = $db_row['cfg_name'];
+	$plugin_config['infobip']['username'] = $db_row['cfg_username'];
+	$plugin_config['infobip']['password'] = $db_row['cfg_password'];
+	$plugin_config['infobip']['global_sender'] = $db_row['cfg_sender'];
+	$plugin_config['infobip']['send_url'] = ( $db_row['cfg_send_url'] ? $db_row['cfg_send_url'] : 'http://api.infobip.com/api/v3' );
+	$plugin_config['infobip']['additional_param'] = $db_row['cfg_additional_param'];
+	$plugin_config['infobip']['datetime_timezone'] = $db_row['cfg_datetime_timezone'];
+	//$plugin_config['infobip']['dlr_nopush'] = $db_row['cfg_dlr_nopush'];
+	$plugin_config['infobip']['dlr_nopush'] = 1;
 }
 
-// save plugin's parameters or options in $core_config
-$plugin_config['infobip'] = $infobip_param;
-
-// $gateway_number = $infobip_param['sender'];
+// $gateway_number = $plugin_config['infobip']['sender'];
 
 // insert to left menu array
 //if (isadmin ()) {

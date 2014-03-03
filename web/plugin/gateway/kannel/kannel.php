@@ -6,7 +6,7 @@ include $core_config['apps_path']['plug'] . "/gateway/kannel/config.php";
 
 $gw = core_gateway_get();
 
-if ($gw == $kannel_param['name']) {
+if ($gw == $plugin_config['kannel']['name']) {
 	$status_active = "<span class=status_active />";
 } else {
 	$status_active = "<span class=status_inactive />";
@@ -31,7 +31,7 @@ switch ($op) {
 		$up_dlr_box .= "<input type='checkbox' name='dlr_box[]' value='8' ".$checked[3]."> "._('Delivered to SMSC')."<br />";
 		$up_dlr_box .= "<input type='checkbox' name='dlr_box[]' value='16' ".$checked[4]."> "._('Non-Delivered to SMSC')."<br />";
 		// end of Handle DLR options config (emmanuel)
-		if ($kannel_param['local_time']) {
+		if ($plugin_config['kannel']['local_time']) {
 			$selected1 = 'selected';
 		} else {
 			$selected2 = 'selected';
@@ -57,28 +57,28 @@ switch ($op) {
 					<td class=label-sizer>" . _('Gateway name') . "</td><td>kannel $status_active</td>
 				</tr>
 				<tr>
-					<td>" . _('Username') . "</td><td><input type=text size=30 maxlength=30 name=up_username value=\"" . $kannel_param['username'] . "\"></td>
+					<td>" . _('Username') . "</td><td><input type=text size=30 maxlength=30 name=up_username value=\"" . $plugin_config['kannel']['username'] . "\"></td>
 				</tr>
 				<tr>
 					<td>" . _('Password') . "</td><td><input type=password size=30 maxlength=30 name=up_password value=\"\"> "._hint(_('Fill to change the password'))."</td>
 				</tr>
 				<tr>
-					<td>"._('Module sender ID')."</td><td><input type=text size=30 maxlength=16 name=up_global_sender value=\"".$kannel_param['global_sender']."\"> "._hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable'))."</td>
+					<td>"._('Module sender ID')."</td><td><input type=text size=30 maxlength=16 name=up_global_sender value=\"".$plugin_config['kannel']['global_sender']."\"> "._hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable'))."</td>
 				</tr>
 				<tr>
-					<td>" . _('Module timezone') . "</td><td><input type=text size=5 maxlength=5 name=up_module_timezone value=\"" . $kannel_param['module_timezone'] . "\"> "._hint(_('Eg: +0700 for Jakarta/Bangkok timezone'))."</td>
+					<td>" . _('Module timezone') . "</td><td><input type=text size=5 maxlength=5 name=up_module_timezone value=\"" . $plugin_config['kannel']['module_timezone'] . "\"> "._hint(_('Eg: +0700 for Jakarta/Bangkok timezone'))."</td>
 				</tr>
 				<tr>
 					<td>" . _('Incoming SMS time is in local time') . "</td><td><select name=up_local_time>".$option_local_time."</select> "._hint(_('Select no if the incoming SMS time is in UTC'))."</td>
 				</tr>
 				<tr>
-					<td>" . _('Bearerbox hostname or IP') . "</td><td><input type=text size=30 maxlength=250 name=up_bearerbox_host value=\"" . $kannel_param['bearerbox_host'] . "\"> "._hint(_('Kannel specific'))."</td>
+					<td>" . _('Bearerbox hostname or IP') . "</td><td><input type=text size=30 maxlength=250 name=up_bearerbox_host value=\"" . $plugin_config['kannel']['bearerbox_host'] . "\"> "._hint(_('Kannel specific'))."</td>
 				</tr>
 				<tr>
-					<td>" . _('Send SMS hostname or IP') . "</td><td><input type=text size=30 maxlength=250 name=up_sendsms_host value=\"" . $kannel_param['sendsms_host'] . "\"> "._hint(_('Kannel specific'))."</td>
+					<td>" . _('Send SMS hostname or IP') . "</td><td><input type=text size=30 maxlength=250 name=up_sendsms_host value=\"" . $plugin_config['kannel']['sendsms_host'] . "\"> "._hint(_('Kannel specific'))."</td>
 				</tr>
 				<tr>
-					<td>" . _('Send SMS port') . "</td><td><input type=text size=30 maxlength=10 name=up_sendsms_port value=\"" . $kannel_param['sendsms_port'] . "\"> "._hint(_('Kannel specific'))."</td>
+					<td>" . _('Send SMS port') . "</td><td><input type=text size=30 maxlength=10 name=up_sendsms_port value=\"" . $plugin_config['kannel']['sendsms_port'] . "\"> "._hint(_('Kannel specific'))."</td>
 				</tr>
 				<!-- Handle DLR config (emmanuel) -->
 				<tr>
@@ -86,17 +86,17 @@ switch ($op) {
 				</tr>
 				<!-- end of Handle DLR config (emmanuel) -->
 				<tr>
-					<td>" . _('Additional URL parameter') . "</td><td><input type=text size=30 maxlength=250 name=up_additional_param value=\"" . $kannel_param['additional_param'] . "\"></td>
+					<td>" . _('Additional URL parameter') . "</td><td><input type=text size=30 maxlength=250 name=up_additional_param value=\"" . $plugin_config['kannel']['additional_param'] . "\"></td>
 				</tr>
 				<tr>
-					<td>" . _('playSMS web URL') . "</td><td><input type=text size=30 maxlength=250 name=up_playsms_web value=\"" . $kannel_param['playsms_web'] . "\"> "._hint(_('URL to playSMS, empty it to set it to base URL'))."</td>
+					<td>" . _('playSMS web URL') . "</td><td><input type=text size=30 maxlength=250 name=up_playsms_web value=\"" . $plugin_config['kannel']['playsms_web'] . "\"> "._hint(_('URL to playSMS, empty it to set it to base URL'))."</td>
 				</tr>
 				<!-- Fixme Edward Added Kanel HTTP Admin Parameter-->
 				<tr>
-					<td>" . _('Kannel admin host') . "</td><td><input type=text size=30 maxlength=250 name=up_admin_host value=\"" . $kannel_param['admin_host'] . " \"> "._hint(_('HTTP Kannel admin host'))."</td>
+					<td>" . _('Kannel admin host') . "</td><td><input type=text size=30 maxlength=250 name=up_admin_host value=\"" . $plugin_config['kannel']['admin_host'] . " \"> "._hint(_('HTTP Kannel admin host'))."</td>
 				</tr>
 				<tr>
-					<td>" . _('Kannel admin port') . "</td><td><input type=text size=30 maxlength=250 name=up_admin_port value=\"" . $kannel_param['admin_port'] . "\"> "._hint(_('HTTP Kannel admin port'))."</td>
+					<td>" . _('Kannel admin port') . "</td><td><input type=text size=30 maxlength=250 name=up_admin_port value=\"" . $plugin_config['kannel']['admin_port'] . "\"> "._hint(_('HTTP Kannel admin port'))."</td>
 				</tr>
 				<tr>
 					<td>" . _('Kannel admin password') . "</td><td><input type=password size=30 maxlength=250 name=up_admin_password value=\"\"> "._hint(_('HTTP Kannel admin password'))."</td>

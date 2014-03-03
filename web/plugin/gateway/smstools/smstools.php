@@ -6,7 +6,7 @@ include $core_config['apps_path']['plug']."/gateway/smstools/config.php";
 
 $gw = core_gateway_get();
 
-if ($gw == $smstools_param['name']) {
+if ($gw == $plugin_config['smstools']['name']) {
 	$status_active = "<span class=status_active />";
 } else {
 	$status_active = "<span class=status_inactive />";

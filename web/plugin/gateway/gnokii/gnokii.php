@@ -6,7 +6,7 @@ include $core_config['apps_path']['plug']."/gateway/gnokii/config.php";
 
 $gw = core_gateway_get();
 
-if ($gw == $gnokii_param['name']) {
+if ($gw == $plugin_config['gnokii']['name']) {
 	$status_active = "<span class=status_active />";
 } else {
 	$status_active = "<span class=status_inactive />";
@@ -27,7 +27,7 @@ switch ($op) {
 					<td class=label-sizer>"._('Gateway name')."</td><td>gnokii $status_active</td>
 				</tr>
 				<tr>
-					<td>"._('Gnokii installation path')."</td><td><input type=text size=30 maxlength=250 name=up_path value=\"".$gnokii_param['path']."\"> "._hint(_('No trailing slash')." \"/\"")."</td>
+					<td>"._('Gnokii installation path')."</td><td><input type=text size=30 maxlength=250 name=up_path value=\"".$plugin_config['gnokii']['path']."\"> "._hint(_('No trailing slash')." \"/\"")."</td>
 				</tr>
 				</tbody>
 			</table>

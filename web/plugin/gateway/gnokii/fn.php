@@ -2,17 +2,17 @@
 defined('_SECURE_') or die('Forbidden');
 
 function gnokii_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="") {
-	global $gnokii_param;
+	global $plugin_config;
 	// p_status :
 	// 0 = pending
 	// 1 = delivered
 	// 2 = failed
 	if ($gpid) {
-		$fn = $gnokii_param['path']."/out.$gpid.$uid.$smslog_id";
-		$efn = $gnokii_param['path']."/ERR.out.$gpid.$uid.$smslog_id";
+		$fn = $plugin_config['gnokii']['path']."/out.$gpid.$uid.$smslog_id";
+		$efn = $plugin_config['gnokii']['path']."/ERR.out.$gpid.$uid.$smslog_id";
 	} else {
-		$fn = $gnokii_param['path']."/out.0.$uid.$smslog_id";
-		$efn = $gnokii_param['path']."/ERR.out.0.$uid.$smslog_id";
+		$fn = $plugin_config['gnokii']['path']."/out.0.$uid.$smslog_id";
+		$efn = $plugin_config['gnokii']['path']."/ERR.out.0.$uid.$smslog_id";
 	}
 	// set delivered first
 	$p_status = 1;
@@ -47,11 +47,11 @@ function gnokii_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$
 }
 
 function gnokii_hook_getsmsinbox() {
-	global $gnokii_param;
-	$handle = @opendir($gnokii_param['path']);
+	global $plugin_config;
+	$handle = @opendir($plugin_config['gnokii']['path']);
 	while ($sms_in_file = @readdir($handle)) {
 		if (preg_match("/^ERR.in/i",$sms_in_file) && !preg_match("/^[.]/i",$sms_in_file)) {
-			$fn = $gnokii_param['path']."/$sms_in_file";
+			$fn = $plugin_config['gnokii']['path']."/$sms_in_file";
 			// logger_print("infile:".$fn, 2, "gnokii incoming");
 			$tobe_deleted = $fn;
 			$lines = @file ($fn);
@@ -76,7 +76,7 @@ function gnokii_hook_getsmsinbox() {
 }
 
 function gnokii_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
-	global $gnokii_param;
+	global $plugin_config;
 	$sms_sender = stripslashes($sms_sender);
 	$sms_footer = stripslashes($sms_footer);
 	$sms_msg = stripslashes($sms_msg);
@@ -90,7 +90,7 @@ function gnokii_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	$sms_msg = str_replace("\n", " ", $sms_msg);
 	$sms_msg = str_replace("\r", " ", $sms_msg);
 	$the_msg = "$sms_to\n$sms_msg";
-	$fn = $gnokii_param['path']."/out.$sms_id";
+	$fn = $plugin_config['gnokii']['path']."/out.$sms_id";
 	logger_print("saving outfile:".$fn, 2, "gnokii outgoing");
 	umask(0);
 	$fd = @fopen($fn, "w+");

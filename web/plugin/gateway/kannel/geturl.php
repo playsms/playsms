@@ -10,14 +10,14 @@ $remote_addr = $_SERVER['REMOTE_ADDR'];
 // srosa 20100531: added var below
 $remote_host = $_SERVER['HTTP_HOST'];
 // srosa 20100531: changed test below to allow hostname in bearerbox_host instead of ip
-// if ($remote_addr != $kannel_param['bearerbox_host'])
-if ($remote_addr != $kannel_param['bearerbox_host'] && $remote_host != $kannel_param['bearerbox_host']) {
-	logger_print("exit remote_addr:".$remote_addr." remote_host:".$remote_host." bearerbox_host:".$kannel_param['bearerbox_host'], 2, "kannel incoming");
+// if ($remote_addr != $plugin_config['kannel']['bearerbox_host'])
+if ($remote_addr != $plugin_config['kannel']['bearerbox_host'] && $remote_host != $plugin_config['kannel']['bearerbox_host']) {
+	logger_print("exit remote_addr:".$remote_addr." remote_host:".$remote_host." bearerbox_host:".$plugin_config['kannel']['bearerbox_host'], 2, "kannel incoming");
 	exit();
 }
 
 // if the arrival time is in UTC then we need to adjust it with this:
-if ($kannel_param['local_time']) {
+if ($plugin_config['kannel']['local_time']) {
 	$t = trim($_REQUEST['t']);
 } else {
 	// in UTC

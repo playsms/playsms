@@ -14,7 +14,7 @@ defined('_SECURE_') or die('Forbidden');
 // $sms_type : type of the message (defaults to text)
 // $unicode : send as unicode (boolean)
 function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
-	global $core_config, $kannel_param;
+	global $core_config, $plugin_config;
 	logger_print("start smslog_id:".$smslog_id." uid:".$uid." to:".$sms_to, 3, "kannel outgoing");
 	$sms_sender = stripslashes($sms_sender);
 	$sms_footer = stripslashes($sms_footer);
@@ -37,15 +37,15 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	// $dlr_url = $core_config['http_path']['base'] . "/plugin/gateway/kannel/dlr.php?type=%d&smslog_id=$smslog_id&uid=$uid";
 
 	// prior to 0.9.5.1
-	// $dlr_url = $kannel_param['playsms_web'] . "/plugin/gateway/kannel/dlr.php?type=%d&smslog_id=".$smslog_id."&uid=".$uid;
+	// $dlr_url = $plugin_config['kannel']['playsms_web'] . "/plugin/gateway/kannel/dlr.php?type=%d&smslog_id=".$smslog_id."&uid=".$uid;
 	// since 0.9.5.1
-	$dlr_url = $kannel_param['playsms_web'] . "/index.php?app=call&cat=gateway&plugin=kannel&access=dlr&type=%d&smslog_id=".$smslog_id."&uid=".$uid;
+	$dlr_url = $plugin_config['kannel']['playsms_web'] . "/index.php?app=call&cat=gateway&plugin=kannel&access=dlr&type=%d&smslog_id=".$smslog_id."&uid=".$uid;
 
-	$URL = "/cgi-bin/sendsms?username=".urlencode($kannel_param['username'])."&password=".urlencode($kannel_param['password']);
+	$URL = "/cgi-bin/sendsms?username=".urlencode($plugin_config['kannel']['username'])."&password=".urlencode($plugin_config['kannel']['password']);
 	$URL .= "&from=".urlencode($sms_sender)."&to=".urlencode($sms_to);
 	// Handle DLR options config (emmanuel)
 	//$URL .= "&dlr-mask=31&dlr-url=".urlencode($dlr_url);
-	$URL .= "&dlr-mask=".$kannel_param['dlr']."&dlr-url=".urlencode($dlr_url);
+	$URL .= "&dlr-mask=".$plugin_config['kannel']['dlr']."&dlr-url=".urlencode($dlr_url);
 	// end of Handle DLR options config (emmanuel)
 
 	if ($sms_type=='flash') {
@@ -68,13 +68,13 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	$URL .= "&text=".urlencode($sms_msg);
 
 	// fixme anton - patch 1.4.3, dlr requries smsc-id, you should add at least smsc=<your smsc-id in kannel.conf> from web
-	if ($additional_param = $kannel_param['additional_param']) {
+	if ($additional_param = $plugin_config['kannel']['additional_param']) {
 		$additional_param = "&".$additional_param;
 	}
 	$URL .= $additional_param;
 	$URL = str_replace("&&", "&", $URL);
 
-	logger_print("http://".$kannel_param['sendsms_host'].":".$kannel_param['sendsms_port'].$URL, 3, "kannel outgoing");
+	logger_print("http://".$plugin_config['kannel']['sendsms_host'].":".$plugin_config['kannel']['sendsms_port'].$URL, 3, "kannel outgoing");
 
 	// srosa 20100531: Due to improper http response from Kannel, file_get_contents cannot be used.
 	// One issue is that Kannel responds with HTTP 202 whereas file_get_contents expect HTTP 200
@@ -93,8 +93,8 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	}
 	*/
 	// fixme anton - deprecated when using PHP5
-	//$connection = fsockopen($kannel_param['sendsms_host'],$kannel_param['sendsms_port'],&$error_number,&$error_description,60);
-	$connection = fsockopen($kannel_param['sendsms_host'],$kannel_param['sendsms_port'],$error_number,$error_description,60);
+	//$connection = fsockopen($plugin_config['kannel']['sendsms_host'],$plugin_config['kannel']['sendsms_port'],&$error_number,&$error_description,60);
+	$connection = fsockopen($plugin_config['kannel']['sendsms_host'],$plugin_config['kannel']['sendsms_port'],$error_number,$error_description,60);
 	if ($connection) {
 		socket_set_blocking($connection, false);
 		fputs($connection, "GET ".$URL." HTTP/1.0\r\n\r\n");

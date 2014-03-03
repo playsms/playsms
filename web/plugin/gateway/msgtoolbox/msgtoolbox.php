@@ -6,7 +6,7 @@ include $core_config['apps_path']['plug']."/gateway/msgtoolbox/config.php";
 
 $gw = core_gateway_get();
 
-if ($gw == $msgtoolbox_param['name']) {
+if ($gw == $plugin_config['msgtoolbox']['name']) {
 	$status_active = "<span class=status_active />";
 } else {
 	$status_active = "<span class=status_inactive />";
@@ -28,21 +28,21 @@ switch ($op) {
 					<td class=label-sizer>"._('Gateway name')."</td><td>msgtoolbox $status_active</td>
 				</tr>
 				<tr>
-					<td>"._('msgtoolbox URL')."</td><td><input type=text size=30 maxlength=250 name=up_url value=\"".$msgtoolbox_param['url']."\"></td>
+					<td>"._('msgtoolbox URL')."</td><td><input type=text size=30 maxlength=250 name=up_url value=\"".$plugin_config['msgtoolbox']['url']."\"></td>
 				</tr>
 				<tr>
-					<td>"._('Route')."</td><td><input type=text size=5 maxlength=5 name=up_route value=\"".$msgtoolbox_param['route']."\"></td>
+					<td>"._('Route')."</td><td><input type=text size=5 maxlength=5 name=up_route value=\"".$plugin_config['msgtoolbox']['route']."\"></td>
 				</tr>
-				<td>"._('Username')."</td><td><input type=text size=30 maxlength=30 name=up_username value=\"".$msgtoolbox_param['username']."\"></td>
+				<td>"._('Username')."</td><td><input type=text size=30 maxlength=30 name=up_username value=\"".$plugin_config['msgtoolbox']['username']."\"></td>
 				</tr>
 				<tr>
 					<td>"._('Password')."</td><td><input type=password size=30 maxlength=30 name=up_password value=\"\"> "._hint(_('Fill to change the password'))."</td>
 				</tr>
 				<tr>
-					<td>"._('Module sender ID')."</td><td><input type=text size=30 maxlength=16 name=up_global_sender value=\"".$msgtoolbox_param['global_sender']."\"> "._hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable'))."</td>
+					<td>"._('Module sender ID')."</td><td><input type=text size=30 maxlength=16 name=up_global_sender value=\"".$plugin_config['msgtoolbox']['global_sender']."\"> "._hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable'))."</td>
 				</tr>
 				<tr>
-					<td>"._('Module timezone')."</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"".$msgtoolbox_param['datetime_timezone']."\"> "._hint(_('Eg: +0700 for Jakarta/Bangkok timezone'))."</td>
+					<td>"._('Module timezone')."</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"".$plugin_config['msgtoolbox']['datetime_timezone']."\"> "._hint(_('Eg: +0700 for Jakarta/Bangkok timezone'))."</td>
 				</tr>
 				</tbody>
 			</table>

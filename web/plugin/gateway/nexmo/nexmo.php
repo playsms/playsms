@@ -6,7 +6,7 @@ include $core_config['apps_path']['plug']."/gateway/nexmo/config.php";
 
 $gw = core_gateway_get();
 
-if ($gw == $nexmo_param['name']) {
+if ($gw == $plugin_config['nexmo']['name']) {
 	$status_active = "<span class=status_active />";
 } else {
 	$status_active = "<span class=status_inactive />";
@@ -45,10 +45,10 @@ switch ($op) {
 			'NEXMO_FREE_CREDIT' => _('free credits are available for testing purposes'),
 			'BUTTON_BACK' => _back('index.php?app=menu&inc=tools_gatewaymanager&op=gatewaymanager_list'),
 			'status_active' => $status_active,
-			'nexmo_param_url' => $nexmo_param['url'],
-			'nexmo_param_api_key' => $nexmo_param['api_key'],
-			'nexmo_param_global_sender' => $nexmo_param['global_sender'],
-			'nexmo_param_datetime_timezone' => $nexmo_param['datetime_timezone'],
+			'nexmo_param_url' => $plugin_config['nexmo']['url'],
+			'nexmo_param_api_key' => $plugin_config['nexmo']['api_key'],
+			'nexmo_param_global_sender' => $plugin_config['nexmo']['global_sender'],
+			'nexmo_param_datetime_timezone' => $plugin_config['nexmo']['datetime_timezone'],
 			'callback_url' => $callback_url
 		    )
 		);

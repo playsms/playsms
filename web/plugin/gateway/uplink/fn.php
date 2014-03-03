@@ -13,19 +13,19 @@ defined('_SECURE_') or die('Forbidden');
 // $uid			: sender User ID
 // $smslog_id		: sms ID
 function uplink_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
-	// global $uplink_param;   // global all variables needed, eg: varibles from config.php
+	// global $plugin_config;   // global all variables needed, eg: varibles from config.php
 	// ...
 	// ...
 	// return true or false
 	// return $ok;
-	global $uplink_param;
+	global $plugin_config;
 	$sms_sender = stripslashes($sms_sender);
 	$sms_footer = ( $sms_footer ? $sms_footer : stripslashes($sms_footer) );
 	$sms_msg = stripslashes($sms_msg) . $sms_footer;
 	$ok = false;
 	if ($sms_to && $sms_msg) {
 		$nofooter = 0;
-		if ($uplink_param['try_disable_footer']) {
+		if ($plugin_config['uplink']['try_disable_footer']) {
 			$nofooter = 1;
 		}
 		if ($unicode) {
@@ -39,9 +39,9 @@ function uplink_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid =
 		}
 		// fixme anton - from playSMS v0.9.5.1 references to input.php replaced with index.php?app=webservices
 		// I should add autodetect, if its below v0.9.5.1 should use input.php
-		$query_string = "index.php?app=webservices&u=" . $uplink_param['username'] . "&h=" . $uplink_param['token'] . "&ta=pv&to=" . urlencode($sms_to) . "&from=" . urlencode($sms_sender) . "&type=$sms_type&msg=" . urlencode($sms_msg) . "&unicode=" . $unicode . "&nofooter=" . $nofooter;
-		$url = $uplink_param['master'] . "/" . $query_string;
-		if ($additional_param = $uplink_param['additional_param']) {
+		$query_string = "index.php?app=webservices&u=" . $plugin_config['uplink']['username'] . "&h=" . $plugin_config['uplink']['token'] . "&ta=pv&to=" . urlencode($sms_to) . "&from=" . urlencode($sms_sender) . "&type=$sms_type&msg=" . urlencode($sms_msg) . "&unicode=" . $unicode . "&nofooter=" . $nofooter;
+		$url = $plugin_config['uplink']['master'] . "/" . $query_string;
+		if ($additional_param = $plugin_config['uplink']['additional_param']) {
 			$additional_param = "&" . $additional_param;
 		}
 		$url .= $additional_param;
@@ -85,13 +85,13 @@ function uplink_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid =
 // $p_datetime	: first sms delivery datetime
 // $p_update	: last status update datetime
 function uplink_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datetime = "", $p_update = "") {
-	// global $uplink_param;
+	// global $plugin_config;
 	// p_status :
 	// 0 = pending
 	// 1 = delivered
 	// 2 = failed
 	// dlr($smslog_id,$uid,$p_status);
-	global $uplink_param;
+	global $plugin_config;
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_gatewayUplink WHERE up_local_smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
@@ -103,11 +103,11 @@ function uplink_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_date
 			// fixme anton - from playSMS v0.9.6 references to input.php replaced with index.php?app=webservices
 			// I should add autodetect, if its below v0.9.6 should use input.php
 			if ($remote_smslog_id) {
-				$query_string = "index.php?app=webservices&u=" . $uplink_param['username'] . "&h=" . $uplink_param['token'] . "&ta=ds&smslog_id=" . $remote_smslog_id;
+				$query_string = "index.php?app=webservices&u=" . $plugin_config['uplink']['username'] . "&h=" . $plugin_config['uplink']['token'] . "&ta=ds&smslog_id=" . $remote_smslog_id;
 			} else {
-				$query_string = "index.php?app=webservices&u=" . $uplink_param['username'] . "&h=" . $uplink_param['token'] . "&ta=ds&queue=" . $remote_queue_code . "&dst=" . $dst;
+				$query_string = "index.php?app=webservices&u=" . $plugin_config['uplink']['username'] . "&h=" . $plugin_config['uplink']['token'] . "&ta=ds&queue=" . $remote_queue_code . "&dst=" . $dst;
 			}
-			$url = $uplink_param['master'] . "/" . $query_string;
+			$url = $plugin_config['uplink']['master'] . "/" . $query_string;
 			$response = trim(@implode('', file($url)));
 			// logger_print("r:" . $response, 2, "uplink_hook_getsmsmstatus");
 			$r = str_getcsv($response, ';', '"', "\\");
