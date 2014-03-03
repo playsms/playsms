@@ -224,6 +224,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 				echo $COMMAND." end time:".mktime()."\n";
 				sleep($DAEMON_SLEEP);
 			} // if continue
+			ob_end_clean();
 		} // while TRUE
 	}
 }
