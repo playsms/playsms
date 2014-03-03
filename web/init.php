@@ -292,4 +292,8 @@ if (function_exists('bindtextdomain')) {
 }
 
 // fixme anton - uncomment this if you want to know what are available in $core_config
+//print_r($icon_config); die();
+//print_r($menu_config); die();
+//print_r($plugin_config); die();
+//print_r($user_config); die();
 //print_r($core_config); die();
