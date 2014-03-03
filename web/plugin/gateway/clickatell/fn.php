@@ -2,7 +2,7 @@
 defined ( '_SECURE_' ) or die ( 'Forbidden' );
 
 function clickatell_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datetime = "", $p_update = "") {
-	global $clickatell_param;
+	global $plugin_config;
 	list ( $c_sms_credit, $c_sms_status ) = clickatell_getsmsstatus ( $smslog_id );
 	// pending
 	$p_status = 0;
@@ -11,6 +11,7 @@ function clickatell_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_
 	}
 	dlr ( $smslog_id, $uid, $p_status );
 }
+
 function clickatell_hook_playsmsd() {
 	// force to check p_status=1 (sent) as getsmsstatus only check for p_status=0 (pending)
 	// $db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status=0 OR p_status=1";
@@ -31,8 +32,9 @@ function clickatell_hook_playsmsd() {
 		) );
 	}
 }
+
 function clickatell_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
-	global $clickatell_param;
+	global $plugin_config;
 	$sms_sender = stripslashes ( $sms_sender );
 	$sms_footer = stripslashes ( $sms_footer );
 	$sms_msg = stripslashes ( $sms_msg );
@@ -70,10 +72,10 @@ function clickatell_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $u
 	// fixme anton - if sms_from is not set in gateway_number and global number, we cannot pass it to clickatell
 	$set_sms_from = ($sms_from == $sms_sender ? '' : "&from=" . urlencode ( $sms_from ));
 	
-	$query_string = "sendmsg?api_id=" . $clickatell_param['api_id'] . "&user=" . $clickatell_param['username'] . "&password=" . $clickatell_param['password'] . "&to=" . urlencode ( $sms_to ) . "&msg_type=$sms_type&text=" . urlencode ( $sms_msg ) . "&unicode=" . $unicode . $set_sms_from;
-	$url = $clickatell_param['send_url'] . "/" . $query_string;
+	$query_string = "sendmsg?api_id=" . $plugin_config['clickatell']['api_id'] . "&user=" . $plugin_config['clickatell']['username'] . "&password=" . $plugin_config['clickatell']['password'] . "&to=" . urlencode ( $sms_to ) . "&msg_type=$sms_type&text=" . urlencode ( $sms_msg ) . "&unicode=" . $unicode . $set_sms_from;
+	$url = $plugin_config['clickatell']['send_url'] . "/" . $query_string;
 	
-	if ($additional_param = $clickatell_param['additional_param']) {
+	if ($additional_param = $plugin_config['clickatell']['additional_param']) {
 		$additional_param = "&" . $additional_param;
 	} else {
 		$additional_param = "&deliv_ack=1&callback=3";
@@ -114,16 +116,17 @@ function clickatell_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $u
 	dlr ( $smslog_id, $uid, $p_status );
 	return $ok;
 }
+
 function clickatell_getsmsstatus($smslog_id) {
-	global $clickatell_param;
+	global $plugin_config;
 	$c_sms_status = 0;
 	$c_sms_credit = 0;
 	$db_query = "SELECT apimsgid FROM " . _DB_PREF_ . "_gatewayClickatell_apidata WHERE smslog_id='$smslog_id'";
 	$db_result = dba_query ( $db_query );
 	$db_row = dba_fetch_array ( $db_result );
 	if ($apimsgid = $db_row['apimsgid']) {
-		$query_string = "getmsgcharge?api_id=" . $clickatell_param['api_id'] . "&user=" . $clickatell_param['username'] . "&password=" . $clickatell_param['password'] . "&apimsgid=$apimsgid";
-		$url = $clickatell_param['send_url'] . "/" . $query_string;
+		$query_string = "getmsgcharge?api_id=" . $plugin_config['clickatell']['api_id'] . "&user=" . $plugin_config['clickatell']['username'] . "&password=" . $plugin_config['clickatell']['password'] . "&apimsgid=$apimsgid";
+		$url = $plugin_config['clickatell']['send_url'] . "/" . $query_string;
 		logger_print ( "smslog_id:" . $smslog_id . " apimsgid:" . $apimsgid . " url:" . $url, 3, "clickatell getsmsstatus" );
 		$fd = @implode ( '', file ( $url ) );
 		if ($fd) {
@@ -167,12 +170,14 @@ function clickatell_getsmsstatus($smslog_id) {
 			$c_sms_status 
 	);
 }
+
 function clickatell_setsmsapimsgid($smslog_id, $apimsgid) {
 	if ($smslog_id && $apimsgid) {
 		$db_query = "INSERT INTO " . _DB_PREF_ . "_gatewayClickatell_apidata (smslog_id,apimsgid) VALUES ('$smslog_id','$apimsgid')";
 		$db_result = dba_query ( $db_query );
 	}
 }
+
 function clickatell_hook_call($requests) {
 	global $core_config;
 	$called_from_hook_call = true;
@@ -184,5 +189,3 @@ function clickatell_hook_call($requests) {
 		logger_print ( "end load callback", 2, "clickatell call" );
 	}
 }
-
-?>
