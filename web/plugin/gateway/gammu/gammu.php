@@ -6,7 +6,7 @@ include $core_config['apps_path']['plug']."/gateway/gammu/config.php";
 
 $gw = core_gateway_get();
 
-if ($gw == $gammu_param['name']) {
+if ($gw == $plugin_config['gammu']['name']) {
 	$status_active = "<span class=status_active />";
 } else {
 	$status_active = "<span class=status_inactive />";

@@ -2,7 +2,7 @@
 defined('_SECURE_') or die('Forbidden');
 
 function gammu_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="") {
-	global $gammu_param;
+	global $plugin_config;
 	// p_status :
 	// 0 = pending
 	// 1 = sent/delivered
@@ -12,9 +12,9 @@ function gammu_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p
 	$sms_id = $smslog_id.'10001'.$uid.'10001'.$gpid;
 
 	// sent dir
-	$dir[0] = $gammu_param['path'].'/sent/';
+	$dir[0] = $plugin_config['gammu']['path'].'/sent/';
 	// error dir
-	$dir[1] = $gammu_param['path'].'/error/';
+	$dir[1] = $plugin_config['gammu']['path'].'/error/';
 
 	// list all files in sent and error dir
 	$fn = array();
@@ -71,11 +71,11 @@ function gammu_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p
 
 function gammu_hook_getsmsinbox() {
 	// IN20101017_091747_00_+628123423141312345_00.txt
-	global $gammu_param;
-	$handle = @opendir($gammu_param['path']."/inbox");
+	global $plugin_config;
+	$handle = @opendir($plugin_config['gammu']['path']."/inbox");
 	while ($sms_in_file = @readdir($handle)) {
 		if ($sms_in_file != "." && $sms_in_file != "..") {
-			$fn = $gammu_param['path']."/inbox/$sms_in_file";
+			$fn = $plugin_config['gammu']['path']."/inbox/$sms_in_file";
 			// logger_print("infile:".$fn, 2, "gammu incoming");
 			$the_fn = str_replace('IN','',basename($fn));
 			$arr_fn = explode('_', $the_fn);
@@ -114,7 +114,7 @@ function gammu_hook_getsmsinbox() {
 }
 
 function gammu_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
-	global $gammu_param;
+	global $plugin_config;
 	$sms_sender = stripslashes($sms_sender);
 	$sms_footer = stripslashes($sms_footer);
 	$sms_msg = stripslashes($sms_msg);
@@ -137,7 +137,7 @@ function gammu_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gp
 	}
 	}
 	*/
-	$fn = $gammu_param['path']."/outbox/OUT".$sms_id;
+	$fn = $plugin_config['gammu']['path']."/outbox/OUT".$sms_id;
 	logger_print("saving outfile:".$fn, 2, "gammu outgoing");
 	umask(0);
 	$fd = @fopen($fn, "w+");
