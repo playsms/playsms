@@ -14,8 +14,7 @@ defined('_SECURE_') or die('Forbidden');
 // $sms_type : type of the message (defaults to text)
 // $unicode : send as unicode (boolean)
 function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
-	global $kannel_param;
-	global $http_path;
+	global $core_config, $kannel_param;
 	logger_print("start smslog_id:".$smslog_id." uid:".$uid." to:".$sms_to, 3, "kannel outgoing");
 	$sms_sender = stripslashes($sms_sender);
 	$sms_footer = stripslashes($sms_footer);
@@ -35,7 +34,7 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	}
 
 	// this doesn't work properly if kannel is not on the same server with playSMS
-	// $dlr_url = $http_path['base'] . "/plugin/gateway/kannel/dlr.php?type=%d&smslog_id=$smslog_id&uid=$uid";
+	// $dlr_url = $core_config['http_path']['base'] . "/plugin/gateway/kannel/dlr.php?type=%d&smslog_id=$smslog_id&uid=$uid";
 
 	// prior to 0.9.5.1
 	// $dlr_url = $kannel_param['playsms_web'] . "/plugin/gateway/kannel/dlr.php?type=%d&smslog_id=".$smslog_id."&uid=".$uid;
@@ -121,7 +120,7 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 }
 
 function kannel_hook_call($requests) {
-	global $core_config, $http_path;
+	global $core_config;
 	$called_from_hook_call = true;
 	$access = $requests['access'];
 	if ($access == 'dlr') {

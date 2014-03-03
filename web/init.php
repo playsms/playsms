@@ -71,52 +71,49 @@ $c_php_self = $_SERVER['PHP_SELF'];
 $c_http_host = $_SERVER['HTTP_HOST'];
 
 // base application directory
-$core_config['apps_path']['base']        = dirname($c_script_filename);
+$core_config['apps_path']['base']	= dirname($c_script_filename);
 
 // base application http path
-$http_path['base']        = ( $core_config['ishttps'] ? "https://" : "http://" ).$c_http_host.( dirname($c_php_self)=='/' ? '/' : dirname($c_php_self) );
+$core_config['http_path']['base']	= ( $core_config['ishttps'] ? "https://" : "http://" ).$c_http_host.( dirname($c_php_self)=='/' ? '/' : dirname($c_php_self) );
 
 // libraries directory
 $core_config['apps_path']['libs']	= $core_config['apps_path']['base'].'/lib';
-$http_path['libs']	= $http_path['base'].'/lib';
+$core_config['http_path']['libs']	= $core_config['http_path']['base'].'/lib';
 
 // core plugins directories
 $core_config['apps_path']['incs']	= $core_config['apps_path']['base'].'/inc';
-$http_path['incs']	= $http_path['base'].'/inc';
+$core_config['http_path']['incs']	= $core_config['http_path']['base'].'/inc';
 
 // plugins directory
 $core_config['apps_path']['plug']	= $core_config['apps_path']['base'].'/plugin';
-$http_path['plug']	= $http_path['base'].'/plugin';
+$core_config['http_path']['plug']	= $core_config['http_path']['base'].'/plugin';
 
 // themes directories
 $core_config['apps_path']['themes']	= $core_config['apps_path']['plug'].'/themes';
-$http_path['themes']	= $http_path['plug'].'/themes';
+$core_config['http_path']['themes']	= $core_config['http_path']['plug'].'/themes';
 
 // themes directories
 $core_config['apps_path']['tpl']	= $core_config['apps_path']['themes'].'/common/templates';
-$http_path['tpl']	= $http_path['themes'].'/common/templates';
+$core_config['http_path']['tpl']	= $core_config['http_path']['themes'].'/common/templates';
 
 // set defines
 define('_APPS_PATH_BASE_', $core_config['apps_path']['base']);
-define('_HTTP_PATH_BASE_', $http_path['base']);
+define('_HTTP_PATH_BASE_', $core_config['http_path']['base']);
 
 define('_APPS_PATH_LIBS_', $core_config['apps_path']['libs']);
-define('_HTTP_PATH_LIBS_', $http_path['libs']);
+define('_HTTP_PATH_LIBS_', $core_config['http_path']['libs']);
 
 define('_APPS_PATH_INCS_', $core_config['apps_path']['incs']);
-define('_HTTP_PATH_INCS_', $http_path['incs']);
+define('_HTTP_PATH_INCS_', $core_config['http_path']['incs']);
 
 define('_APPS_PATH_PLUG_', $core_config['apps_path']['plug']);
-define('_HTTP_PATH_PLUG_', $http_path['plug']);
+define('_HTTP_PATH_PLUG_', $core_config['http_path']['plug']);
 
 define('_APPS_PATH_THEMES_', $core_config['apps_path']['themes']);
-define('_HTTP_PATH_THEMES_', $http_path['themes']);
+define('_HTTP_PATH_THEMES_', $core_config['http_path']['themes']);
 
 define('_APPS_PATH_TPL_', $core_config['apps_path']['tpl']);
-define('_HTTP_PATH_TPL_', $http_path['tpl']);
-
-// insert to global config
-$core_config['http_path'] = $http_path;
+define('_HTTP_PATH_TPL_', $core_config['http_path']['tpl']);
 
 // load init functions
 include_once $core_config['apps_path']['libs']."/fn_init.php";

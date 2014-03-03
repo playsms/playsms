@@ -5,7 +5,7 @@ unset($tpl);
 $tpl = array(
 	'name' => 'page_register',
 	'var' => array(
-		'HTTP_PATH_BASE' => $http_path['base'],
+		'HTTP_PATH_BASE' => $core_config['http_path']['base'],
 		'WEB_TITLE' => $web_title,
 		'ERROR' => $error_content,
 		'Name' => _('Name'),

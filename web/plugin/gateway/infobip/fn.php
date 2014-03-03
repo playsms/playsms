@@ -199,7 +199,7 @@ function infobip_setsmsapimsgid($smslog_id, $apimsgid) {
 }
 
 function infobip_hook_call($requests) {
-	global $core_config, $http_path;
+	global $core_config;
 	$called_from_hook_call = true;
 	$access = $requests ['access'];
 	
