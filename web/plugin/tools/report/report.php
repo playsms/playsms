@@ -4,7 +4,7 @@ if (!auth_isvalid()) {
 	auth_block();
 };
 
-$smslog_id = $_GET ['smslog_id'];
+$smslog_id = $_GET['smslog_id'];
 
 switch ($op) {
 	case "report_user" :
@@ -12,31 +12,31 @@ switch ($op) {
 		$db_query = "SELECT COUNT(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE uid='$uid' AND p_status='0' AND flag_deleted='0'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$num_rows_pending = $db_row ['count'];
+		$num_rows_pending = $db_row['count'];
 
 		// SMS SENT
 		$db_query = "SELECT COUNT(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE uid='$uid' AND p_status='1' AND flag_deleted='0'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$num_rows_sent = $db_row ['count'];
+		$num_rows_sent = $db_row['count'];
 
 		// SMS DELIVERED
 		$db_query = "SELECT COUNT(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE uid='$uid' AND p_status='3' AND flag_deleted='0'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$num_rows_delivered = $db_row ['count'];
+		$num_rows_delivered = $db_row['count'];
 
 		// SMS FAILED
 		$db_query = "SELECT COUNT(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE uid='$uid' AND p_status='2' AND flag_deleted='0'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$num_rows_failed = $db_row ['count'];
+		$num_rows_failed = $db_row['count'];
 
 		// SMS DELETED
 		$db_query = "SELECT COUNT(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE uid='$uid' AND flag_deleted='1'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$num_rows_deleted = $db_row ['count'];
+		$num_rows_deleted = $db_row['count'];
 
 		// BILLING
 		$billing = 0;
@@ -110,28 +110,28 @@ switch ($op) {
 			$db_query = "SELECT COUNT(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE uid='$c_uid' AND p_status='1' AND flag_deleted='0'";
 			$db_result = dba_query($db_query);
 			$db_row = dba_fetch_array($db_result);
-			$num_rows_sent = $db_row ['count'];
+			$num_rows_sent = $db_row['count'];
 			$sum_num_rows_sent = ($sum_num_rows_sent + $num_rows_sent);
 
 			// SMS PENDING
 			$db_query = "SELECT COUNT(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE uid='$c_uid' AND p_status='0' AND flag_deleted='0'";
 			$db_result = dba_query($db_query);
 			$db_row = dba_fetch_array($db_result);
-			$num_rows_pending = $db_row ['count'];
+			$num_rows_pending = $db_row['count'];
 			$sum_num_rows_pending = ($sum_num_rows_pending + $num_rows_pending);
 
 			// SMS DELIVERED
 			$db_query = "SELECT COUNT(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE uid='$c_uid' AND p_status='3' AND flag_deleted='0'";
 			$db_result = dba_query($db_query);
 			$db_row = dba_fetch_array($db_result);
-			$num_rows_delivered = $db_row ['count'];
+			$num_rows_delivered = $db_row['count'];
 			$sum_num_rows_delivered = ($sum_num_rows_delivered + $num_rows_delivered);
 
 			// SMS FAILED
 			$db_query = "SELECT COUNT(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE uid='$c_uid' AND p_status='2' AND flag_deleted='0'";
 			$db_result = dba_query($db_query);
 			$db_row = dba_fetch_array($db_result);
-			$num_rows_failed = $db_row ['count'];
+			$num_rows_failed = $db_row['count'];
 			$sum_num_rows_failed = ($sum_num_rows_failed + $num_rows_failed);
 
 			// BILLING

@@ -2,14 +2,14 @@
 if (! $called_from_hook_call) {
 	chdir ( "../../../" );
 	include "init.php";
-	include $core_config['apps_path'] ['libs'] . "/function.php";
+	include $core_config['apps_path']['libs'] . "/function.php";
 	chdir ( "plugin/gateway/infobip" );
 	$requests = $_REQUEST;
 }
 
-$remote_addr = $_SERVER ['REMOTE_ADDR'];
+$remote_addr = $_SERVER['REMOTE_ADDR'];
 // srosa 20100531: added var below
-$remote_host = $_SERVER ['HTTP_HOST'];
+$remote_host = $_SERVER['HTTP_HOST'];
 // srosa 20100531: changed test below to allow hostname in bearerbox_host instead of ip
 // if ($remote_addr != $kannel_param['bearerbox_host'])
 // if ($remote_addr != $kannel_param['bearerbox_host'] && $remote_host != $kannel_param['bearerbox_host']) {
@@ -22,22 +22,22 @@ $xml = file_get_contents ( 'php://input' );
 logger_print ( "dlr request: " . $xml, 3, "infobip dlr" );
 
 preg_match_all ( '/id=\"([0-9]+)\"/', $xml, $result );
-$apimsgid = $result [1] [0];
+$apimsgid = $result[1][0];
 logger_print ( "apimsgid: " . $apimsgid, 3, "infobip dlr" );
 
 if (preg_match_all ( '/status=\"([A-Z]+)\"/', $xml, $result )) {
-	$status = $result [1] [0];
+	$status = $result[1][0];
 }
 
 $db_query = "SELECT smslog_id FROM " . _DB_PREF_ . "_gatewayInfobip_apidata WHERE apimsgid='$apimsgid'";
 $db_result = dba_query ( $db_query );
 $db_row = dba_fetch_array ( $db_result );
-$smslog_id = $db_row ['smslog_id'];
+$smslog_id = $db_row['smslog_id'];
 
 $db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
 $db_result = dba_query ( $db_query );
 $db_row = dba_fetch_array ( $db_result );
-$uid = $db_row ['uid'];
+$uid = $db_row['uid'];
 
 logger_print ( "addr:" . $remote_addr . " host:" . $remote_host . " type:" . $status . " smslog_id:" . $smslog_id . " uid:" . $uid, 2, "infobip dlr" );
 

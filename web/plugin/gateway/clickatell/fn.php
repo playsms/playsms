@@ -17,11 +17,11 @@ function clickatell_hook_playsmsd() {
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE p_status='1' AND p_gateway='clickatell'";
 	$db_result = dba_query ( $db_query );
 	while ( $db_row = dba_fetch_array ( $db_result ) ) {
-		$uid = $db_row ['uid'];
-		$smslog_id = $db_row ['smslog_id'];
-		$p_datetime = $db_row ['p_datetime'];
-		$p_update = $db_row ['p_update'];
-		$gpid = $db_row ['p_gpid'];
+		$uid = $db_row['uid'];
+		$smslog_id = $db_row['smslog_id'];
+		$p_datetime = $db_row['p_datetime'];
+		$p_update = $db_row['p_update'];
+		$gpid = $db_row['p_gpid'];
 		core_hook ( 'clickatell', 'getsmsstatus', array (
 				$gpid,
 				$uid,
@@ -70,10 +70,10 @@ function clickatell_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $u
 	// fixme anton - if sms_from is not set in gateway_number and global number, we cannot pass it to clickatell
 	$set_sms_from = ($sms_from == $sms_sender ? '' : "&from=" . urlencode ( $sms_from ));
 	
-	$query_string = "sendmsg?api_id=" . $clickatell_param ['api_id'] . "&user=" . $clickatell_param ['username'] . "&password=" . $clickatell_param ['password'] . "&to=" . urlencode ( $sms_to ) . "&msg_type=$sms_type&text=" . urlencode ( $sms_msg ) . "&unicode=" . $unicode . $set_sms_from;
-	$url = $clickatell_param ['send_url'] . "/" . $query_string;
+	$query_string = "sendmsg?api_id=" . $clickatell_param['api_id'] . "&user=" . $clickatell_param['username'] . "&password=" . $clickatell_param['password'] . "&to=" . urlencode ( $sms_to ) . "&msg_type=$sms_type&text=" . urlencode ( $sms_msg ) . "&unicode=" . $unicode . $set_sms_from;
+	$url = $clickatell_param['send_url'] . "/" . $query_string;
 	
-	if ($additional_param = $clickatell_param ['additional_param']) {
+	if ($additional_param = $clickatell_param['additional_param']) {
 		$additional_param = "&" . $additional_param;
 	} else {
 		$additional_param = "&deliv_ack=1&callback=3";
@@ -88,9 +88,9 @@ function clickatell_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $u
 	$p_status = 2;
 	if ($fd) {
 		$response = split ( ":", $fd );
-		$err_code = trim ( $response [1] );
-		if ((strtoupper ( $response [0] ) == "ID")) {
-			if ($apimsgid = trim ( $response [1] )) {
+		$err_code = trim ( $response[1] );
+		if ((strtoupper ( $response[0] ) == "ID")) {
+			if ($apimsgid = trim ( $response[1] )) {
 				clickatell_setsmsapimsgid ( $smslog_id, $apimsgid );
 				list ( $c_sms_credit, $c_sms_status ) = clickatell_getsmsstatus ( $smslog_id );
 				// pending
@@ -102,7 +102,7 @@ function clickatell_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $u
 				// sent
 				$p_status = 1;
 			}
-			logger_print ( "smslog_id:" . $smslog_id . " charge:" . $c_sms_credit . " sms_status:" . $p_status . " response:" . $response [0] . " " . $response [1], 2, "clickatell outgoing" );
+			logger_print ( "smslog_id:" . $smslog_id . " charge:" . $c_sms_credit . " sms_status:" . $p_status . " response:" . $response[0] . " " . $response[1], 2, "clickatell outgoing" );
 		} else {
 			// even when the response is not what we expected we still print it out for debug purposes
 			$fd = str_replace ( "\n", " ", $fd );
@@ -121,21 +121,21 @@ function clickatell_getsmsstatus($smslog_id) {
 	$db_query = "SELECT apimsgid FROM " . _DB_PREF_ . "_gatewayClickatell_apidata WHERE smslog_id='$smslog_id'";
 	$db_result = dba_query ( $db_query );
 	$db_row = dba_fetch_array ( $db_result );
-	if ($apimsgid = $db_row ['apimsgid']) {
-		$query_string = "getmsgcharge?api_id=" . $clickatell_param ['api_id'] . "&user=" . $clickatell_param ['username'] . "&password=" . $clickatell_param ['password'] . "&apimsgid=$apimsgid";
-		$url = $clickatell_param ['send_url'] . "/" . $query_string;
+	if ($apimsgid = $db_row['apimsgid']) {
+		$query_string = "getmsgcharge?api_id=" . $clickatell_param['api_id'] . "&user=" . $clickatell_param['username'] . "&password=" . $clickatell_param['password'] . "&apimsgid=$apimsgid";
+		$url = $clickatell_param['send_url'] . "/" . $query_string;
 		logger_print ( "smslog_id:" . $smslog_id . " apimsgid:" . $apimsgid . " url:" . $url, 3, "clickatell getsmsstatus" );
 		$fd = @implode ( '', file ( $url ) );
 		if ($fd) {
 			$response = split ( " ", $fd );
-			$err_code = trim ( $response [1] );
+			$err_code = trim ( $response[1] );
 			$credit = 0;
-			if ((strtoupper ( trim ( $response [2] ) ) == "CHARGE:")) {
-				$credit = intval ( trim ( $response [3] ) );
+			if ((strtoupper ( trim ( $response[2] ) ) == "CHARGE:")) {
+				$credit = intval ( trim ( $response[3] ) );
 			}
 			$c_sms_credit = $credit;
-			if ((strtoupper ( trim ( $response [4] ) ) == "STATUS:")) {
-				$status = trim ( $response [5] );
+			if ((strtoupper ( trim ( $response[4] ) ) == "STATUS:")) {
+				$status = trim ( $response[5] );
 				switch ($status) {
 					case "001" :
 					case "002" :
@@ -176,9 +176,9 @@ function clickatell_setsmsapimsgid($smslog_id, $apimsgid) {
 function clickatell_hook_call($requests) {
 	global $core_config;
 	$called_from_hook_call = true;
-	$access = $requests ['access'];
+	$access = $requests['access'];
 	if ($access == 'callback') {
-		$fn = $core_config['apps_path'] ['plug'] . '/gateway/clickatell/callback.php';
+		$fn = $core_config['apps_path']['plug'] . '/gateway/clickatell/callback.php';
 		logger_print ( "start load:" . $fn, 2, "clickatell call" );
 		include $fn;
 		logger_print ( "end load callback", 2, "clickatell call" );

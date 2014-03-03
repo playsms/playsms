@@ -14,17 +14,17 @@ function infobip_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_dat
 
 function infobip_hook_playsmsd() {
 	global $infobip_param;
-	if ($infobip_param ['dlr_nopush'] == '1') {
+	if ($infobip_param['dlr_nopush'] == '1') {
 		// force to check p_status=1 (sent) as getsmsstatus only check for p_status=0 (pending)
 		// $db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status=0 OR p_status=1";
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE p_status='1' AND p_gateway='infobip'";
 		$db_result = dba_query ( $db_query );
 		while ( $db_row = dba_fetch_array ( $db_result ) ) {
-			$uid = $db_row ['uid'];
-			$smslog_id = $db_row ['smslog_id'];
-			$p_datetime = $db_row ['p_datetime'];
-			$p_update = $db_row ['p_update'];
-			$gpid = $db_row ['p_gpid'];
+			$uid = $db_row['uid'];
+			$smslog_id = $db_row['smslog_id'];
+			$p_datetime = $db_row['p_datetime'];
+			$p_update = $db_row['p_update'];
+			$gpid = $db_row['p_gpid'];
 			core_hook ( 'infobip', 'getsmsstatus', array (
 					$gpid,
 					$uid,
@@ -67,20 +67,20 @@ function infobip_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid 
 	$set_sms_from = ($sms_from == $sms_sender ? '' : urlencode ( $sms_from ));
 	
 	// query_string = "sendmsg?api_id=".$infobip_param['api_id']."&user=".$infobip_param['username']."&password=".$infobip_param['password']."&to=".urlencode($sms_to)."&msg_type=$sms_type&text=".urlencode($sms_msg)."&unicode=".$unicode.$set_sms_from;
-	$query_string = "sendsms/plain?user=" . $infobip_param ['username'] . "&password=" . $infobip_param ['password'];
+	$query_string = "sendsms/plain?user=" . $infobip_param['username'] . "&password=" . $infobip_param['password'];
 	$query_string .= "&GSM=" . urlencode ( $sms_to ) . $smsType . "=" . urlencode ( $sms_msg ) . "&sender=" . $sms_from;
 	$query_string .= "&IsFlash=" . $sms_type . "&DataCoding=" . $unicode;
 	
-	$url = $infobip_param ['send_url'] . "/" . $query_string;
+	$url = $infobip_param['send_url'] . "/" . $query_string;
 	
-	$dlr_nopush = $infobip_param ['dlr_nopush'];
+	$dlr_nopush = $infobip_param['dlr_nopush'];
 	if ($dlr_nopush == '0') {
 		$additional_param = "&nopush=0";
 	} elseif ($dlr_nopush == '1') {
 		$additional_param = "&nopush=1";
 	}
 	
-	if ($additional_param = $infobip_param ['additional_param']) {
+	if ($additional_param = $infobip_param['additional_param']) {
 		$additional_param .= "&" . $additional_param;
 	}
 	
@@ -93,8 +93,8 @@ function infobip_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid 
 	$response = core_xml_to_array( $xml );
 	
 	if ($response) {
-		if ($response ['result'] ['status'] == 0) {
-			if ($apimsgid = trim ( $response ['result'] ['messageid'] )) {
+		if ($response['result']['status'] == 0) {
+			if ($apimsgid = trim ( $response['result']['messageid'] )) {
 				infobip_setsmsapimsgid ( $smslog_id, $apimsgid );
 				list ( $c_sms_credit, $c_sms_status ) = infobip_getsmsstatus ( $smslog_id );
 				// pending
@@ -106,14 +106,14 @@ function infobip_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid 
 				// sent
 				$p_status = 1;
 			}
-			logger_print ( "smslog_id:" . $smslog_id . " charge:" . $c_sms_credit . " p_status:" . $p_status . " response:" . $response ['result'] ['status'], 2, "infobip outgoing" );
-		} elseif ($response ['result'] ['status'] == - 2) {
-			logger_print ( "smslog_id:" . $smslog_id . " response:" . $response ['result'] ['status'] . " NOT_ENOUGH_CREDIT", 2, "infobip outgoing" );
+			logger_print ( "smslog_id:" . $smslog_id . " charge:" . $c_sms_credit . " p_status:" . $p_status . " response:" . $response['result']['status'], 2, "infobip outgoing" );
+		} elseif ($response['result']['status'] == - 2) {
+			logger_print ( "smslog_id:" . $smslog_id . " response:" . $response['result']['status'] . " NOT_ENOUGH_CREDIT", 2, "infobip outgoing" );
 		} else {
 			// even when the response is not what we expected we still print it out for debug purposes
 			$fd = str_replace ( "\n", " ", $fd );
 			$fd = str_replace ( "\r", " ", $fd );
-			logger_print ( "smslog_id:" . $smslog_id . " response:" . $response ['result'] ['status'] . " UNKNOWN_CODE", 2, "infobip outgoing" );
+			logger_print ( "smslog_id:" . $smslog_id . " response:" . $response['result']['status'] . " UNKNOWN_CODE", 2, "infobip outgoing" );
 		}
 		$ok = true;
 	} else {
@@ -138,17 +138,17 @@ function infobip_getsmsstatus($smslog_id) {
 	
 	// Be carefull nopush should be set to 1 and no Push url should be defined on infobip account !
 	// infobip dlr url if defined overset this config
-	if ($infobip_param ['dlr_nopush'] == '1') {
+	if ($infobip_param['dlr_nopush'] == '1') {
 		$c_sms_status = 0;
 		$c_sms_credit = 0;
 		$db_query = "SELECT apimsgid FROM " . _DB_PREF_ . "_gatewayInfobip_apidata WHERE smslog_id='$smslog_id'";
 		$db_result = dba_query ( $db_query );
 		$db_row = dba_fetch_array ( $db_result );
-		if ($apimsgid = $db_row ['apimsgid']) {
+		if ($apimsgid = $db_row['apimsgid']) {
 			// $query_string = "getmsgcharge?api_id=".$infobip_param['api_id']."&user=".$infobip_param['username']."&password=".$infobip_param['password']."&apimsgid=$apimsgid";
-			$query_string = "pull?user=" . $infobip_param ['username'] . "&password=" . $infobip_param ['password'] . "&messageid=$apimsgid";
+			$query_string = "pull?user=" . $infobip_param['username'] . "&password=" . $infobip_param['password'] . "&messageid=$apimsgid";
 			// $url = $infobip_param['send_url']."/".$query_string;
-			$url = $infobip_param ['send_url'] . "/dr/" . $query_string;
+			$url = $infobip_param['send_url'] . "/dr/" . $query_string;
 			logger_print ( "smslog_id:" . $smslog_id . " apimsgid:" . $apimsgid . " url:" . $url, 2, "infobip getsmsstatus" );
 			$fd = @implode ( '', file ( $url ) );
 			logger_print ( "fd: " . $fd, 3, "infobip debug" );
@@ -163,12 +163,12 @@ function infobip_getsmsstatus($smslog_id) {
 				preg_match_all ( '/id=\"([0-9]+)\"/', $fd, $result );
 				// print_r($result);
 				// print "id:\t".$result[1][0]."\n";
-				$apimsgid = $result [1] [0];
+				$apimsgid = $result[1][0];
 				logger_print ( "apimsgid: " . $apimsgid, 3, "infobip debug" );
 				
 				if (preg_match_all ( '/status=\"([A-Z]+)\"/', $fd, $result )) {
 					// status = trim($response[5]);
-					$status = $result [1] [0];
+					$status = $result[1][0];
 					switch ($status) {
 						case "DELIVERED" :
 							$c_sms_status = 3;
@@ -201,17 +201,17 @@ function infobip_setsmsapimsgid($smslog_id, $apimsgid) {
 function infobip_hook_call($requests) {
 	global $core_config;
 	$called_from_hook_call = true;
-	$access = $requests ['access'];
+	$access = $requests['access'];
 	
 	if ($access == 'callback') {
-		$fn = $core_config['apps_path'] ['plug'] . '/gateway/infobip/callback.php';
+		$fn = $core_config['apps_path']['plug'] . '/gateway/infobip/callback.php';
 		logger_print ( "start load:" . $fn, 2, "infobip call" );
 		include $fn;
 		logger_print ( "end load callback", 2, "infobip call" );
 	}
 	
 	if ($access == 'dlr') {
-		$fn = $core_config['apps_path'] ['plug'] . '/gateway/infobip/dlr.php';
+		$fn = $core_config['apps_path']['plug'] . '/gateway/infobip/dlr.php';
 		logger_print ( "start load:" . $fn, 2, "infobip dlr call" );
 		include $fn;
 		logger_print ( "end load callback", 2, "infobip dlr call" );

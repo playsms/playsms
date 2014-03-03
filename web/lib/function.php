@@ -216,7 +216,6 @@ if (function_exists('bindtextdomain')) {
 //print_r($plugin_config); die();
 //print_r($user_config); die();
 //print_r($core_config); die();
-
 //print_r($GLOBALS); die();
 
 // end of global variables after plugins
