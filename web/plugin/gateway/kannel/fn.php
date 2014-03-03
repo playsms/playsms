@@ -120,7 +120,8 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 }
 
 function kannel_hook_call($requests) {
-	global $core_config;
+	// please note that we must globalize these 3 variables
+	global $core_config, $plugin_config, $user_config;
 	$called_from_hook_call = true;
 	$access = $requests['access'];
 	if ($access == 'dlr') {
