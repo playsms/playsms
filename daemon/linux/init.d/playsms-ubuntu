@@ -36,7 +36,7 @@ case "$1" in
   stop)
     log_daemon_msg "Stopping playsms daemon"
     log_progress_msg "playsms"
-    $DAEMON stop >/dev/null 2>&1
+    killall playsmsd >/dev/null 2>&1
     log_end_msg 0
     ;;
 

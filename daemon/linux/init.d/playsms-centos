@@ -23,7 +23,7 @@ case "$1" in
 
   stop)
     echo -n "Stopping playsms daemon"
-    $DAEMON stop >/dev/null 2>&1
+    killall playsmsd >/dev/null 2>&1
     echo " [OK]"
     ;;
 
