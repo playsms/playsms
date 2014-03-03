@@ -13,9 +13,6 @@ $plugin_config['kannel']['admin_host'] = ( $plugin_config['kannel']['admin_host'
 $plugin_config['kannel']['admin_port'] = ( $plugin_config['kannel']['admin_port'] ? $plugin_config['kannel']['admin_port'] : '13000' );
 $plugin_config['kannel']['local_time'] = ( $plugin_config['kannel']['local_time'] ? 1 : 0 );
 
-// save plugin's parameters or options in $core_config
-$plugin_config['kannel'] = $plugin_config['kannel'];
-
 // Test for DLR checkbox
 /* DLR Kannel value
            1: Delivered to phone
