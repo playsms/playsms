@@ -1,0 +1,50 @@
+USER CONFIG
+-----------
+
+Example of $user_config
+
+Array
+(
+    [c_timestamp] => 1393824298
+    [uid] => 1
+    [status] => 2
+    [ticket] => 1
+    [username] => admin
+    [password] => 21232f297a57a5a743894a0e4a801fc3
+    [token] => 477f3866ca51afd61941f60bb712f453
+    [enable_webservices] => 1
+    [webservices_ip] => 127.0.0.1, 192.168.*.*
+    [name] => Administrator
+    [mobile] => +62987654321
+    [email] => noreply@playsms.org
+    [sender] => playSMS
+    [footer] => @admin
+    [address] => Jl. Jalan Melulu No.1
+    [city] => 
+    [state] => 
+    [country] => 132
+    [zipcode] => 
+    [credit] => 0.00
+    [datetime_timezone] => +0700
+    [language_module] => en_US
+    [fwd_to_mobile] => 0
+    [fwd_to_email] => 1
+    [fwd_to_inbox] => 1
+    [replace_zero] => 
+    [plus_sign_remove] => 1
+    [plus_sign_add] => 0
+    [send_as_unicode] => 0
+    [local_length] => 0
+    [register_datetime] => 
+    [lastupdate_datetime] => 2014-02-21 08:42:15
+    [opt] => Array
+        (
+            [sms_footer_length] => 7
+            [per_sms_length] => 146
+            [per_sms_length_unicode] => 60
+            [max_sms_length] => 452
+            [max_sms_length_unicode] => 194
+            [gravatar] => https://www.gravatar.com/avatar/ffffffffffffffffffffff
+        )
+
+)

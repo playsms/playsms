@@ -11,7 +11,7 @@ Array
             [host] => localhost
             [port] => 3306
             [user] => root
-            [pass] => dbpassword
+            [pass] => password
             [name] => playsms
             [pref] => playsms
         )
@@ -26,18 +26,28 @@ Array
         )
 
     [logstate] => 3
+    [logfile] => playsms.log
     [logaudit] => 1
+    [logauditfile] => audit.log
     [ishttps] => 
-    [issendsmsd] => 
+    [isdlrd] => 1
+    [dlrd_limit] => 100
+    [isrecvsmsd] => 1
+    [recvsmsd_limit] => 200
+    [issendsmsd] => 1
+    [sendsmsd_limit] => 1000
+    [sendsmsd_queue] => 30
+    [webservices_username] => 1
     [daemon_process] => 
     [apps_path] => Array
         (
-            [logs] => /var/log/playsms/playsms
-            [base] => /home/anton/Data/git/playSMS/web
-            [libs] => /home/anton/Data/git/playSMS/web/lib
-            [incs] => /home/anton/Data/git/playSMS/web/inc
-            [plug] => /home/anton/Data/git/playSMS/web/plugin
-            [themes] => /home/anton/Data/git/playSMS/web/plugin/themes
+            [logs] => /var/log/playsms
+            [base] => /home/git/foss/playSMS/web
+            [libs] => /home/git/foss/playSMS/web/lib
+            [incs] => /home/git/foss/playSMS/web/inc
+            [plug] => /home/git/foss/playSMS/web/plugin
+            [themes] => /home/git/foss/playSMS/web/plugin/themes
+            [tpl] => /home/git/foss/playSMS/web/plugin/themes/common/templates
         )
 
     [http_path] => Array
@@ -47,6 +57,7 @@ Array
             [incs] => http://localhost/playsms/inc
             [plug] => http://localhost/playsms/plugin
             [themes] => http://localhost/playsms/plugin/themes
+            [tpl] => http://localhost/playsms/plugin/themes/common/templates
         )
 
     [plugins_category] => Array
@@ -60,93 +71,43 @@ Array
 
     [main] => Array
         (
-            [c_timestamp] => 1367208908
-            [cfg_web_title] => Free SMS with playSMS Open Source SMS Gateway
-            [cfg_email_service] => noreply-smsgw@playsms.org
-            [cfg_email_footer] => powered by playSMS http://www.playsms.org
-            [cfg_gateway_module] => gammu
-            [cfg_gateway_number] => 
+            [c_timestamp] => 1393262940
+            [cfg_web_title] => playSMS
+            [cfg_email_service] => noreply@playsms.org
+            [cfg_email_footer] => powered by playSMS
+            [cfg_gateway_module] => dev
+            [cfg_gateway_number] => 000
             [cfg_themes_module] => default
-            [cfg_default_rate] => 500
+            [cfg_default_rate] => 0.00
             [cfg_language_module] => en_US
             [cfg_datetime_timezone] => +0700
-            [cfg_sms_max_count] => 6
-            [cfg_default_credit] => 5000
+            [cfg_sms_max_count] => 3
+            [cfg_default_credit] => 2000.00
             [cfg_enable_register] => 1
             [cfg_enable_forgot] => 1
+            [cfg_allow_custom_sender] => 0
+            [cfg_allow_custom_footer] => 0
+            [cfg_main_website_name] => playSMS
+            [cfg_main_website_url] => http://www.playsms.org
             [per_sms_length] => 153
-            [per_sms_length_unicode] => 63
-            [max_sms_length] => 918
-            [max_sms_length_unicode] => 378
+            [per_sms_length_unicode] => 67
+            [max_sms_length] => 459
+            [max_sms_length_unicode] => 201
+            [default_inc] => page_welcome
+            [default_op] => page_welcome
         )
 
     [module] => Array
         (
-            [gateway] => gammu
+            [gateway] => dev
             [themes] => default
             [language] => en_US
         )
 
     [datetime] => Array
         (
-            [date_now] => 2013-04-29
-            [time_now] => 11:23:42
-            [now] => 2013-04-29 11:23:42
             [format] => Y-m-d H:i:s
-            [now_stamp] => 20130429112342
-            [format_stamp] => YmdHis
-        )
-
-    [user] => Array
-        (
-            [c_timestamp] => 1367207728
-            [uid] => 1
-            [status] => 2
-            [ticket] => 1
-            [username] => admin
-            [password] => 21232f297a57a5a743894a0e4a801fc3
-            [token] => 4d1bb53b69a966d27ae6185a3d0c8c78
-            [enable_webservices] => 0
-            [webservices_ip] => 127.0.0.1, 192.168.*.*
-            [name] => Administrator
-            [sender] => 
-            [email] => noreply@playsms.sf.net
-            [mobile] => +620000000000
-            [footer] => @admin
-            [dailysms] => 0
-            [gender] => 0
-            [age] => 38
-            [address] => -
-            [city] => 
-            [state] => 
-            [country] => 132
-            [birthday] => 
-            [marital] => 0
-            [education] => 0
-            [zipcode] => 
-            [junktimestamp] => 1291797479
-            [credit] => 49400
-            [datetime_timezone] => +0700
-            [language_module] => en_US
-            [fwd_to_mobile] => 0
-            [fwd_to_email] => 1
-            [fwd_to_inbox] => 1
-            [replace_zero] => 
-            [plus_sign_remove] => 1
-            [plus_sign_add] => 0
-            [send_as_unicode] => 0
-            [local_length] => 9
-            [register_datetime] => 0000-00-00 00:00:00
-            [lastupdate_datetime] => 2013-04-24 15:25:32
-            [opt] => Array
-                (
-                    [sms_footer_length] => 7
-                    [per_sms_length] => 146
-                    [per_sms_length_unicode] => 56
-                    [max_sms_length] => 911
-                    [max_sms_length_unicode] => 371
-                )
-
+            [now_stamp] => 20140303123217
         )
 
     [reserved_keywords] => Array
@@ -160,23 +121,23 @@ Array
             [my_account] => My Account
             [tools] => Tools
             [feature] => Feature
-            [gateway] => Gateway
             [administration] => Administration
         )
 
     [toolslist] => Array
         (
-            [0] => bchash
+            [0] => gatewaymanager
             [1] => msgtemplate
             [2] => phonebook
             [3] => plainoldsendmail
             [4] => playsmslog
-            [5] => pvat
+            [5] => pluginmanager
             [6] => queuelog
-            [7] => sendfromfile
-            [8] => simplebilling
-            [9] => simplerate
-            [10] => xlate
+            [7] => report
+            [8] => sendfromfile
+            [9] => simplebilling
+            [10] => simplerate
+            [11] => xlate
         )
 
     [featurelist] => Array
@@ -189,389 +150,42 @@ Array
             [5] => sms_poll
             [6] => sms_quiz
             [7] => sms_subscribe
-        )
-
-    [plugin] => Array
-        (
-            [clickatell] => Array
-                (
-                    [name] => clickatell
-                    [api_id] => 888888
-                    [username] => anton
-                    [password] => asdf1234
-                    [global_sender] => 
-                    [send_url] => https://api.clickatell.com/http
-                    [incoming_path] => 
-                    [additional_param] => deliv_ack=1&callback=3
-                    [datetime_timezone] => +0700
-                )
-
-            [gammu] => Array
-                (
-                    [name] => gammu
-                    [path] => /var/spool/gammu
-                )
-
-            [gnokii] => Array
-                (
-                    [name] => gnokii
-                    [path] => /var/spool/playsms
-                )
-
-            [kannel] => Array
-                (
-                    [name] => kannel
-                    [path] => /var/spool/playsms
-                    [username] => playsms
-                    [password] => rahasiadongbro
-                    [global_sender] => +6283870099005
-                    [bearerbox_host] => 127.0.0.1
-                    [sendsms_port] => 13131
-                    [playsms_web] => http://localhost/sms
-                    [dlr] => 31
-                    [additional_param] => smsc=gsm1
-                    [datetime_timezone] => +0000
-                    [admin_url] => 
-                    [admin_password] => rahasiadongbro
-                    [admin_port] => 13000
-                    [kannelconf] => /etc/kannel/kannel.conf
-                )
-
-            [msgtoolbox] => Array
-                (
-                    [name] => msgtoolbox
-                    [url] => http://serverX.msgtoolbox.com/api/current/send/message.php
-                    [route] => 1
-                    [username] => playsms
-                    [password] => asdf1234
-                    [global_sender] => playSMS
-                    [datetime_timezone] => +0700
-                )
-
-            [nexmo] => Array
-                (
-                    [name] => nexmo
-                    [url] => https://rest.nexmo.com/sms/json
-                    [api_key] => 12345678
-                    [api_secret] => 87654321
-                    [global_sender] => playSMS
-                    [datetime_timezone] => +0700
-                )
-
-            [smstools] => Array
-                (
-                    [name] => smstools
-                    [spool_dir] => /var/spool/sms
-                    [spool_bak] => /var/spool/smsbackup
-                )
-
-            [uplink] => Array
-                (
-                    [name] => uplink
-                    [master] => http://app.playsms.org
-                    [username] => 
-                    [password] => 4f4b46f6edd33480e494743b9082aa
-                    [token] => 4f4b46f6edd33480e494743b9082aa99
-                    [global_sender] => 
-                    [path] => 
-                    [additional_param] => 
-                    [datetime_timezone] => +0700
-                )
-
+            [8] => sms_sync
         )
 
     [gatewaylist] => Array
         (
             [0] => clickatell
-            [1] => gammu
-            [2] => gnokii
-            [3] => kannel
-            [4] => msgtoolbox
-            [5] => nexmo
-            [6] => smstools
-            [7] => uplink
+            [1] => dev
+            [2] => gammu
+            [3] => gnokii
+            [4] => infobip
+            [5] => kannel
+            [6] => msgtoolbox
+            [7] => nexmo
+            [8] => smstools
+            [9] => twilio
+            [10] => uplink
         )
 
     [themeslist] => Array
         (
             [0] => default
-            [1] => km2
-            [2] => play
-            [3] => work2
+            [1] => flatly
+            [2] => ubuntu
         )
 
     [languagelist] => Array
         (
             [0] => ca_ES
-            [1] => en_US
-            [2] => es_VE
-            [3] => fr_FR
-            [4] => id_ID
-            [5] => pt_BR
-            [6] => zh_CN
-        )
-
-    [menu] => Array
-        (
-            [My Account] => Array
-                (
-                    [0] => Array
-                        (
-                            [0] => index.php?app=menu&inc=send_sms&op=sendsmstopv
-                            [1] => Send SMS
-                        )
-
-                    [1] => Array
-                        (
-                            [0] => index.php?app=menu&inc=user_inbox&op=user_inbox
-                            [1] => Inbox
-                        )
-
-                    [2] => Array
-                        (
-                            [0] => index.php?app=menu&inc=user_incoming&op=user_incoming
-                            [1] => Incoming SMS
-                        )
-
-                    [3] => Array
-                        (
-                            [0] => index.php?app=menu&inc=user_outgoing&op=user_outgoing
-                            [1] => Outgoing SMS
-                        )
-
-                    [4] => Array
-                        (
-                            [0] => index.php?app=menu&inc=user_pref&op=user_pref
-                            [1] => Preferences
-                        )
-
-                )
-
-            [Tools] => Array
-                (
-                    [0] => Array
-                        (
-                            [0] => index.php?app=menu&inc=tools_msgtemplate&op=list
-                            [1] => Message template
-                        )
-
-                    [1] => Array
-                        (
-                            [0] => index.php?app=menu&inc=tools_phonebook&op=phonebook_list
-                            [1] => Phonebook
-                        )
-
-                    [2] => Array
-                        (
-                            [0] => index.php?app=menu&inc=tools_sendfromfile&op=list
-                            [1] => Send from file
-                        )
-
-                )
-
-            [Administration] => Array
-                (
-                    [0] => Array
-                        (
-                            [0] => index.php?app=menu&inc=tools_playsmslog&op=playsmslog_list
-                            [1] => View log
-                        )
-
-                    [1] => Array
-                        (
-                            [0] => index.php?app=menu&inc=tools_queuelog&op=queuelog_list
-                            [1] => View SMS queue
-                        )
-
-                    [2] => Array
-                        (
-                            [0] => index.php?app=menu&inc=tools_simplerate&op=simplerate_list
-                            [1] => Manage SMS rate
-                        )
-
-                    [3] => Array
-                        (
-                            [0] => index.php?app=menu&inc=all_inbox&op=all_inbox
-                            [1] => All inbox
-                        )
-
-                    [4] => Array
-                        (
-                            [0] => index.php?app=menu&inc=all_incoming&op=all_incoming
-                            [1] => All incoming SMS
-                        )
-
-                    [5] => Array
-                        (
-                            [0] => index.php?app=menu&inc=all_outgoing&op=all_outgoing
-                            [1] => All outgoing SMS
-                        )
-
-                    [6] => Array
-                        (
-                            [0] => index.php?app=menu&inc=user_mgmnt&op=user_list
-                            [1] => Manage user
-                        )
-
-                    [7] => Array
-                        (
-                            [0] => index.php?app=menu&inc=main_config&op=main_config
-                            [1] => Main configuration
-                        )
-
-                )
-
-            [Feature] => Array
-                (
-                    [0] => Array
-                        (
-                            [0] => index.php?app=menu&inc=feature_inboxgroup&op=list
-                            [1] => Group inbox
-                        )
-
-                    [1] => Array
-                        (
-                            [0] => index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_list
-                            [1] => Manage autoreply
-                        )
-
-                    [2] => Array
-                        (
-                            [0] => index.php?app=menu&inc=feature_sms_board&op=sms_board_list
-                            [1] => Manage board
-                        )
-
-                    [3] => Array
-                        (
-                            [0] => index.php?app=menu&inc=feature_sms_command&op=sms_command_list
-                            [1] => Manage command
-                        )
-
-                    [4] => Array
-                        (
-                            [0] => index.php?app=menu&inc=feature_sms_custom&op=sms_custom_list
-                            [1] => Manage custom
-                        )
-
-                    [5] => Array
-                        (
-                            [0] => index.php?app=menu&inc=feature_sms_poll&op=sms_poll_list
-                            [1] => Manage poll
-                        )
-
-                    [6] => Array
-                        (
-                            [0] => index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list
-                            [1] => Manage quiz
-                        )
-
-                    [7] => Array
-                        (
-                            [0] => index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list
-                            [1] => Manage subscribe
-                        )
-
-                )
-
-            [Gateway] => Array
-                (
-                    [0] => Array
-                        (
-                            [0] => index.php?app=menu&inc=gateway_clickatell&op=manage
-                            [1] => Manage clickatell
-                        )
-
-                    [1] => Array
-                        (
-                            [0] => index.php?app=menu&inc=gateway_gammu&op=manage
-                            [1] => Manage gammu
-                        )
-
-                    [2] => Array
-                        (
-                            [0] => index.php?app=menu&inc=gateway_gnokii&op=manage
-                            [1] => Manage gnokii
-                        )
-
-                    [3] => Array
-                        (
-                            [0] => index.php?app=menu&inc=gateway_kannel&op=manage
-                            [1] => Manage kannel
-                        )
-
-                    [4] => Array
-                        (
-                            [0] => index.php?app=menu&inc=gateway_msgtoolbox&op=manage
-                            [1] => Manage msgtoolbox
-                        )
-
-                    [5] => Array
-                        (
-                            [0] => index.php?app=menu&inc=gateway_nexmo&op=manage
-                            [1] => Manage nexmo
-                        )
-
-                    [6] => Array
-                        (
-                            [0] => index.php?app=menu&inc=gateway_smstools&op=manage
-                            [1] => Manage smstools
-                        )
-
-                    [7] => Array
-                        (
-                            [0] => index.php?app=menu&inc=gateway_uplink&op=manage
-                            [1] => Manage uplink
-                        )
-
-                )
-
-        )
-
-    [plugins] => Array
-        (
-            [language] => Array
-                (
-                    [ca_ES] => Array
-                        (
-                            [title] => Catalan (Spain)
-                        )
-
-                    [en_US] => Array
-                        (
-                            [title] => English (United States)
-                        )
-
-                    [es_VE] => Array
-                        (
-                            [title] => Spanish (Venezuela)
-                        )
-
-                    [fr_FR] => Array
-                        (
-                            [title] => French (France)
-                        )
-
-                    [id_ID] => Array
-                        (
-                            [title] => Indonesian (Indonesia)
-                        )
-
-                    [pt_BR] => Array
-                        (
-                            [title] => Portuguese (Brazil)
-                        )
-
-                    [zh_CN] => Array
-                        (
-                            [title] => Chinese (China)
-                        )
-
-                )
-
+            [1] => de_DE
+            [2] => en_US
+            [3] => es_VE
+            [4] => fr_FR
+            [5] => id_ID
+            [6] => pt_BR
+            [7] => ru_RU
+            [8] => zh_CN
         )
 
 )
-
-
---
-Anton Raharja

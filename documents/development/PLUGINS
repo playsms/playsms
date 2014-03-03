@@ -1,5 +1,6 @@
 PLUGINS
 -------
+
 playSMS plugin's files and folders are under directory web/plugins and categorized 
 into 5 different categories, they are:
 - tools
@@ -11,6 +12,7 @@ into 5 different categories, they are:
 
 Tools
 -----
+
 Here are installed plugins with no specific SMS related features but used by playSMS.
 
 Core functions that you can 'hook' from tools plugins:
@@ -43,6 +45,7 @@ Core functions that you can 'hook' from tools plugins:
 
 Feature
 -------
+
 Here are installed plugins which contain specific SMS related features and directly handle 
 incoming or outgoing SMS.
 
@@ -60,6 +63,7 @@ Core functions that you can 'hook' from feature plugins:
 
 Gateway
 -------
+
 Here are installed plugins that hasve ability to actually send and/or receive SMS, and directly 
 connected to SMS gateway applications or services.
 
@@ -75,6 +79,7 @@ Core functions that you can 'hook' from gateway plugins:
 
 Themes
 ------
+
 Here are installed playSMS's themes.
 
 Core functions that you can 'hook' from themes plugins:
@@ -85,6 +90,7 @@ Core functions that you can 'hook' from themes plugins:
 
 Language
 --------
+
 Here are installed language database based on gettext for core/main files only. But each plugin's 
 language files are reside under each plugin's directory.
 
@@ -117,6 +123,7 @@ The plugin structure will be:
 
 DIRECT ACCESS
 -------------
+
 Since version 0.9.5.1 playSMS will use single gate for all its routines.
 For example, prior to 0.9.5.1 accessing menus referenced to menu.php, now its changed.
 
@@ -148,7 +155,3 @@ Prior to 0.9.5.1:
 http://localhost/playsms/plugin/gateway/kannel/geturl.php?t=%t&q=%q&a=%a
 Since 0.9.5.1:
 http://localhost/playsms/index.php?app=call&cat=gateway&plugin=kannel&access=geturl&t=%t&q=%q&a=%a
-
-
---
-Anton Raharja

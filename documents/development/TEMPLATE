@@ -1,5 +1,5 @@
 PLAYSMS TEMPLATE ENGINE
-
+-----------------------
 
 Locations
 ---------
@@ -70,7 +70,3 @@ located in:
 - plugin/themes/play/fn.php
 - plugin/themes/play/page*.php
 - plugin/themes/play/templates/*
-
-
---
-Anton Raharja

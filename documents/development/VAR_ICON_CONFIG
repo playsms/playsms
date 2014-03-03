@@ -1,0 +1,25 @@
+ICON CONFIG
+-----------
+
+Example of $icon_config
+
+Array
+(
+    [add] => <span class='playsms-icon glyphicon glyphicon-plus' alt='Add' title='Add'></span>
+    [edit] => <span class='playsms-icon glyphicon glyphicon-cog' alt='Edit' title='Edit'></span>
+    [delete] => <span class='playsms-icon glyphicon glyphicon-trash' alt='Delete' title='Delete'></span>
+    [view] => <span class='playsms-icon glyphicon glyphicon-eye-open' alt='View' title='View'></span>
+    [manage] => <span class='playsms-icon glyphicon glyphicon-folder-open' alt='Manage' title='Manage'></span>
+    [forward] => <span class='playsms-icon glyphicon glyphicon-new-window' alt='Forward' title='Forward'></span>
+    [reply] => <span class='playsms-icon glyphicon glyphicon-log-out' alt='Reply' title='Reply'></span>
+    [resend] => <span class='playsms-icon glyphicon glyphicon-log-in' alt='Resend' title='Resend'></span>
+    [user_pref] => <span class='playsms-icon glyphicon glyphicon-user' alt='User preference' title='User preference'></span>
+    [user_config] => <span class='playsms-icon glyphicon glyphicon-wrench' alt='User configuration' title='User configuration'></span>
+    [user_delete] => <span class='playsms-icon glyphicon glyphicon-trash' alt='Delete user' title='Delete user'></span>
+    [admin] => <span class='playsms-icon glyphicon glyphicon-certificate' alt='Administrator' title='Administrator'></span>
+    [export] => <span class='playsms-icon glyphicon glyphicon-export' alt='Export' title='Export'></span>
+    [import] => <span class='playsms-icon glyphicon glyphicon-import' alt='Import' title='Import'></span>
+    [group] => <span class='playsms-icon glyphicon glyphicon-briefcase' alt='Group' title='Group'></span>
+    [move] => <span class='playsms-icon glyphicon glyphicon glyphicon-move' alt='Move' title='Move'></span>
+    [go] => <span class='playsms-icon glyphicon glyphicon-cog' alt='Go' title='Go'></span>
+)

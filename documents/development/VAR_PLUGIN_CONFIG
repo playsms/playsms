@@ -1,0 +1,174 @@
+PLUGIN CONFIG
+-------------
+
+Example of $plugin_config
+
+Array
+(
+    [ca_ES] => Array
+        (
+            [title] => Catalan (Spain)
+        )
+
+    [de_DE] => Array
+        (
+            [title] => Deutsch (Deutschland)
+        )
+
+    [en_US] => Array
+        (
+            [title] => English (United States)
+        )
+
+    [es_VE] => Array
+        (
+            [title] => Spanish (Venezuela)
+        )
+
+    [fr_FR] => Array
+        (
+            [title] => French (France)
+        )
+
+    [id_ID] => Array
+        (
+            [title] => Indonesian (Indonesia)
+        )
+
+    [pt_BR] => Array
+        (
+            [title] => Portuguese (Brazil)
+        )
+
+    [ru_RU] => Array
+        (
+            [title] => Russian (Russia)
+        )
+
+    [zh_CN] => Array
+        (
+            [title] => Chinese (China)
+        )
+
+    [clickatell] => Array
+        (
+            [name] => clickatell
+            [api_id] => 123456
+            [username] => playsms
+            [password] => playsms
+            [global_sender] => PlaySMS
+            [send_url] => https://api.clickatell.com/http
+            [additional_param] => deliv_ack=1&callback=3
+            [datetime_timezone] => 
+        )
+
+    [dev] => Array
+        (
+            [name] => dev
+            [enable_incoming] => 1
+            [enable_outgoing] => 1
+        )
+
+    [gammu] => Array
+        (
+            [name] => gammu
+            [path] => /var/spool/gammu
+        )
+
+    [gnokii] => Array
+        (
+            [name] => gnokii
+            [path] => /var/spool/playsms
+        )
+
+    [infobip] => Array
+        (
+            [name] => infobip
+            [username] => 
+            [password] => 
+            [global_sender] => 
+            [send_url] => http://api.infobip.com/api/v3
+            [additional_param] => 
+            [datetime_timezone] => 
+            [dlr_nopush] => 1
+        )
+
+    [kannel] => Array
+        (
+            [username] => playsms
+            [global_sender] => playSMS
+            [global_timezone] => +0700
+            [bearerbox_host] => localhost
+            [sendsms_host] => localhost
+            [sendsms_port] => 13131
+            [playsms_web] => http://localhost/playsms
+            [additional_param] => smsc=default
+            [dlr] => 31
+            [admin_host] => localhost               
+            [admin_port] => 13000
+            [admin_password] => playsms
+            [password] => playsms
+            [module_timezone] => +0700
+            [local_time] => 1
+            [name] => kannel
+        )
+
+    [msgtoolbox] => Array
+        (
+            [name] => msgtoolbox
+            [url] => http://serverX.msgtoolbox.com/api/current/send/message.php
+            [route] => 1
+            [username] => playsms
+            [password] => password
+            [global_sender] => playSMS
+            [datetime_timezone] => 
+        )
+
+    [nexmo] => Array
+        (
+            [name] => nexmo
+            [url] => https://rest.nexmo.com/sms/json
+            [api_key] => 12345678
+            [api_secret] => 87654321
+            [global_sender] => playSMS
+            [datetime_timezone] => 
+        )
+
+    [smstools] => Array
+        (
+            [name] => smstools
+            [spool_dir] => /var/spool/sms
+            [spool_bak] => /var/spool/smsbackup
+        )
+
+    [twilio] => Array
+        (
+            [name] => twilio
+            [url] => https://api.twilio.com
+            [callback_url] => http://localhost/playsms/plugin/gateway/twilio/callback.php
+            [account_sid] => 12345678
+            [auth_token] => 87654321
+            [global_sender] => +10000000000
+            [datetime_timezone] => 
+        )
+
+    [uplink] => Array
+        (
+            [name] => uplink
+            [master] => http://playsms.master.url
+            [username] => 
+            [token] => 
+            [global_sender] => 
+            [path] => /var/spool/playsms
+            [additional_param] => 
+            [datetime_timezone] => 
+            [try_disable_footer] => 0
+        )
+
+    [sms_command] => Array
+        (
+            [bin] => /var/lib/playsms/sms_command
+            [allow_user_access] => 
+        )
+
+)
