@@ -146,7 +146,7 @@ switch ($op) {
 			
 			$c_is_admin = '';
 			if ($c_status=='2') {
-				$c_is_admin = $core_config['icon']['admin'];
+				$c_is_admin = $icon_config['admin'];
 			}
 			
 

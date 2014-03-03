@@ -37,8 +37,8 @@ switch ($op) {
 				'SEARCH_FORM' => $search['form'],
 				'NAV_FORM' => $nav['form'],
 				'Inbox' => _('Inbox'),
-				'Export' => $core_config['icon']['export'],
-				'Delete' => $core_config['icon']['delete'],
+				'Export' => $icon_config['export'],
+				'Delete' => $icon_config['delete'],
 				'From' => _('From'),
 				'Message' => _('Message'),
 				'ARE_YOU_SURE' => _('Are you sure you want to delete these items ?')
@@ -61,8 +61,8 @@ switch ($op) {
 			$reply = '';
 			$forward = '';
 			if ($msg && $in_sender) {
-				$reply = _a('index.php?app=menu&inc=send_sms&op=send_sms&do=reply&message='.urlencode($msg).'&to='.urlencode($in_sender), $core_config['icon']['reply']);
-				$forward = _a('index.php?app=menu&inc=send_sms&op=send_sms&do=forward&message='.urlencode($msg), $core_config['icon']['forward']);
+				$reply = _a('index.php?app=menu&inc=send_sms&op=send_sms&do=reply&message='.urlencode($msg).'&to='.urlencode($in_sender), $icon_config['reply']);
+				$forward = _a('index.php?app=menu&inc=send_sms&op=send_sms&do=forward&message='.urlencode($msg), $icon_config['forward']);
 			}
 			$i--;
 			$tpl['loop']['data'][] = array(

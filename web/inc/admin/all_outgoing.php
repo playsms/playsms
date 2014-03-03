@@ -42,10 +42,10 @@ switch ($op) {
 			<input type=hidden name=go value=delete>
 			<div class=actions_box>
 				<div class=pull-left>
-					<a href=\"index.php?app=menu&inc=all_outgoing&op=actions&go=export\">".$core_config['icon']['export']."</a>
+					<a href=\"index.php?app=menu&inc=all_outgoing&op=actions&go=export\">".$icon_config['export']."</a>
 				</div>
 				<div class=pull-right>
-					<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', 'fm_all_outgoing');\">".$core_config['icon']['delete']."</a>
+					<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', 'fm_all_outgoing');\">".$icon_config['delete']."</a>
 				</div>
 			</div>
 			<div class=table-responsive>
@@ -104,8 +104,8 @@ switch ($op) {
 			$msg = $list[$j]['p_msg'];
 			$p_msg = core_display_text($msg);
 			if ($msg && $p_dst) {
-				$resend = _a('index.php?app=menu&inc=send_sms&op=send_sms&do=reply&message='.urlencode($msg).'&to='.urlencode($p_dst), $core_config['icon']['resend']);
-				$forward = _a('index.php?app=menu&inc=send_sms&op=send_sms&do=forward&message='.urlencode($msg), $core_config['icon']['forward']);
+				$resend = _a('index.php?app=menu&inc=send_sms&op=send_sms&do=reply&message='.urlencode($msg).'&to='.urlencode($p_dst), $icon_config['resend']);
+				$forward = _a('index.php?app=menu&inc=send_sms&op=send_sms&do=forward&message='.urlencode($msg), $icon_config['forward']);
 			}
 			$c_message = "<div id=\"all_outgoing_msg\">".$p_msg."</div><div id=\"msg_label\">".$p_datetime."&nbsp;".$p_status."</div><div id=\"msg_option\">".$resend."&nbsp".$forward."</div>";
 			$i--;

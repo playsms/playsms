@@ -31,10 +31,10 @@ switch ($op) {
 			<input type=hidden id=action_route name=route value=''>
 			<div class=actions_box>
 				<div class=pull-left>
-					<a href='index.php?app=menu&inc=tools_phonebook&route=group&op=list'>".$core_config['icon']['group']."</a>
-					<a href='index.php?app=menu&inc=tools_phonebook&route=import&op=list'>".$core_config['icon']['import']."</a>
-					<a href='index.php?app=menu&inc=tools_phonebook&op=actions&go=export'>".$core_config['icon']['export']."</a>
-					<a href='index.php?app=menu&inc=tools_phonebook&op=phonebook_add'>".$core_config['icon']['add']."</a>
+					<a href='index.php?app=menu&inc=tools_phonebook&route=group&op=list'>".$icon_config['group']."</a>
+					<a href='index.php?app=menu&inc=tools_phonebook&route=import&op=list'>".$icon_config['import']."</a>
+					<a href='index.php?app=menu&inc=tools_phonebook&op=actions&go=export'>".$icon_config['export']."</a>
+					<a href='index.php?app=menu&inc=tools_phonebook&op=phonebook_add'>".$icon_config['add']."</a>
 				</div>
 				<script type='text/javascript'>
 					$(document).ready(function() {
@@ -50,7 +50,7 @@ switch ($op) {
 						<option value=delete>"._('Delete')."</option>
 						".$action_move_options."
 					</select>
-					<a href='#' id=action_go>" . $core_config['icon']['go'] . "</a>
+					<a href='#' id=action_go>" . $icon_config['go'] . "</a>
 				</div>
 			</div>
 			<div class=table-responsive>

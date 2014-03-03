@@ -21,9 +21,9 @@ switch ($op) {
 			"._CSRF_FORM_."
 			<input type=hidden name=go value=delete>
 			<div class=actions_box>
-			<div class=pull-left><a href='index.php?app=menu&inc=tools_msgtemplate&op=add'>".$core_config['icon']['add']."</a></div>
+			<div class=pull-left><a href='index.php?app=menu&inc=tools_msgtemplate&op=add'>".$icon_config['add']."</a></div>
 			<div class=pull-right>
-				<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', '".$fm_name."');\">".$core_config['icon']['delete']."</a>
+				<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', '".$fm_name."');\">".$icon_config['delete']."</a>
 			</div>
 			</div>
 			<div class=table-responsive>
