@@ -28,8 +28,7 @@ function themes_apply($content) {
 }
 
 function themes_get_menu_tree($menus='') {
-	global $core_config;
-	$menu_config = $core_config['menu'];
+	global $menu_config;
 	if ($menus) {
 		$menu_config = $menus;
 	}

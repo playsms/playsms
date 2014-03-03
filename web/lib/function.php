@@ -210,9 +210,6 @@ if (function_exists('bindtextdomain')) {
 
 // init global variables after plugins
 
-// load menus into core_config
-$core_config['menu'] = $menu_config;
-
 // fixme anton - uncomment this if you want to know what are available in global config arrays
 //print_r($menu_config); die();
 //print_r($core_config); die();
