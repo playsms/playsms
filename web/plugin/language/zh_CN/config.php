@@ -1,2 +1,2 @@
 <?php
-$core_config['plugin']['zh_CN']['title'] = 'Chinese (China)';
+$plugin_config['zh_CN']['title'] = 'Chinese (China)';

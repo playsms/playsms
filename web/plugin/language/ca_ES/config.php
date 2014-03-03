@@ -1,2 +1,2 @@
 <?php
-$core_config['plugin']['ca_ES']['title'] = 'Catalan (Spain)';
+$plugin_config['ca_ES']['title'] = 'Catalan (Spain)';

@@ -14,7 +14,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 }
 
 // save plugin's parameters or options in $core_config
-$core_config['plugin']['twilio'] = $twilio_param;
+$plugin_config['twilio'] = $twilio_param;
 
 //$gateway_number = $twilio_param['global_sender'];
 
@@ -23,4 +23,3 @@ $core_config['plugin']['twilio'] = $twilio_param;
 //	$menutab_gateway = $core_config['menutab']['gateway'];
 //	$menu_config[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_twilio&op=manage", _('Manage twilio'));
 //}
-?>

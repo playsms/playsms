@@ -40,10 +40,10 @@ switch ($op) {
 			<option value=1 $selected1>"._('Yes')."</option>
 			<option value=0 $selected2>"._('No')."</option>
 			";
-		$admin_port = $core_config['plugin']['kannel']['admin_port'];
-		$admin_host = $core_config['plugin']['kannel']['sendsms_host'];
+		$admin_port = $plugin_config['kannel']['admin_port'];
+		$admin_host = $plugin_config['kannel']['sendsms_host'];
 		$admin_host = ( $admin_port ? $admin_host.':'.$admin_port : $admin_host );
-		$admin_password = $core_config['plugin']['kannel']['admin_password'];
+		$admin_password = $plugin_config['kannel']['admin_password'];
 		$url = 'http://'.$admin_host.'/status?password='.urlencode($admin_password);
 		$kannel_status = file_get_contents($url);
 
@@ -151,10 +151,10 @@ switch ($op) {
 		break;
 
 	case "manage_restart":
-		$admin_port = $core_config['plugin']['kannel']['admin_port'];
-		$admin_host = $core_config['plugin']['kannel']['bearerbox_host'];
+		$admin_port = $plugin_config['kannel']['admin_port'];
+		$admin_host = $plugin_config['kannel']['bearerbox_host'];
 		$admin_host = ( $admin_port ? $admin_host.':'.$admin_port : $admin_host );
-		$admin_password = $core_config['plugin']['kannel']['admin_password'];
+		$admin_password = $plugin_config['kannel']['admin_password'];
 		$url = 'http://'.$admin_host.'/restart?password='.$admin_password;
 		$restart = file_get_contents($url);
 		$_SESSION['error_string']   = _('Restart Kannel').' - '._('Status').': '.$restart;

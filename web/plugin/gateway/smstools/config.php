@@ -6,7 +6,7 @@ $smstools_param['spool_dir'] = "/var/spool/sms";
 $smstools_param['spool_bak'] = "/var/spool/smsbackup";
 
 // save plugin's parameters or options in $core_config
-$core_config['plugin']['smstools'] = $smstools_param;
+$plugin_config['smstools'] = $smstools_param;
 
 // insert to left menu array
 //if (isadmin()) {

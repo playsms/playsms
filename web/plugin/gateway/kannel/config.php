@@ -14,7 +14,7 @@ $kannel_param['admin_port'] = ( $kannel_param['admin_port'] ? $kannel_param['adm
 $kannel_param['local_time'] = ( $kannel_param['local_time'] ? 1 : 0 );
 
 // save plugin's parameters or options in $core_config
-$core_config['plugin']['kannel'] = $kannel_param;
+$plugin_config['kannel'] = $kannel_param;
 
 // Test for DLR checkbox
 /* DLR Kannel value

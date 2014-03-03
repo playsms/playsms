@@ -1,3 +1,3 @@
 <?php
-$core_config['plugin']['ru_RU']['title'] = 'Russian (Russia)';
+$plugin_config['ru_RU']['title'] = 'Russian (Russia)';
 

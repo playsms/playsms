@@ -17,7 +17,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 }
 
 // save plugin's parameters or options in $core_config
-$core_config['plugin']['uplink'] = $uplink_param;
+$plugin_config['uplink'] = $uplink_param;
 
 //$gateway_number = $uplink_param['global_sender'];
 // insert to left menu array
@@ -25,4 +25,3 @@ $core_config['plugin']['uplink'] = $uplink_param;
 //	$menutab_gateway = $core_config['menutab']['gateway'];
 //	$menu_config[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_uplink&op=manage", _('Manage uplink'));
 //}
-?>

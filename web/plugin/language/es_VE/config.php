@@ -1,2 +1,2 @@
 <?php
-$core_config['plugin']['es_VE']['title'] = 'Spanish (Venezuela)';
+$plugin_config['es_VE']['title'] = 'Spanish (Venezuela)';

@@ -1,2 +1,2 @@
 <?php
-$core_config['plugin']['pt_BR']['title'] = 'Portuguese (Brazil)';
+$plugin_config['pt_BR']['title'] = 'Portuguese (Brazil)';

@@ -9,12 +9,10 @@ defined('_SECURE_') or die('Forbidden');
  * @return
  *   TRUE if keyword is available
  */
-function sms_command_hook_checkavailablekeyword($keyword)
-{
+function sms_command_hook_checkavailablekeyword($keyword) {
 	$ok = true;
 	$db_query = "SELECT command_id FROM "._DB_PREF_."_featureCommand WHERE command_keyword='$keyword'";
-	if ($db_result = dba_num_rows($db_query))
-	{
+	if ($db_result = dba_num_rows($db_query)) {
 		$ok = false;
 	}
 	return $ok;
@@ -36,16 +34,13 @@ function sms_command_hook_checkavailablekeyword($keyword)
  * @return $ret
  *   array of keyword owner uid and status, TRUE if incoming sms handled
  */
-function sms_command_hook_setsmsincomingaction($sms_datetime,$sms_sender,$command_keyword,$command_param='',$sms_receiver='',$raw_message='')
-{
+function sms_command_hook_setsmsincomingaction($sms_datetime,$sms_sender,$command_keyword,$command_param='',$sms_receiver='',$raw_message='') {
 	$ok = false;
 	$db_query = "SELECT uid,command_id FROM "._DB_PREF_."_featureCommand WHERE command_keyword='$command_keyword'";
 	$db_result = dba_query($db_query);
-	if ($db_row = dba_fetch_array($db_result))
-	{
+	if ($db_row = dba_fetch_array($db_result)) {
 		$c_uid = $db_row['uid'];
-		if (sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$command_keyword,$command_param,$raw_message))
-		{
+		if (sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$command_keyword,$command_param,$raw_message)) {
 			$ok = true;
 		}
 	}
@@ -55,7 +50,7 @@ function sms_command_hook_setsmsincomingaction($sms_datetime,$sms_sender,$comman
 }
 
 function sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$command_keyword,$command_param='',$raw_message='') {
-	global $core_config;
+	global $plugin_config;
 	$ok = false;
 	$command_keyword = strtoupper(trim($command_keyword));
 	$command_param = trim($command_param);
@@ -73,7 +68,7 @@ function sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$comm
 		$command_exec = str_replace("{COMMANDPARAM}",escapeshellarg($command_param),$command_exec);
 		$command_exec = str_replace("{COMMANDRAW}",escapeshellarg($raw_message),$command_exec);
 		$command_exec = str_replace("/","",$command_exec);
-		$command_exec = $core_config['plugin']['sms_command']['bin']."/".$db_row['uid']."/".$command_exec;
+		$command_exec = $plugin_config['sms_command']['bin']."/".$db_row['uid']."/".$command_exec;
 		$command_exec = escapeshellcmd($command_exec);
 		logger_print("command_exec:".addslashes($command_exec), 3, "sms command");
 		$command_output = shell_exec($command_exec);
@@ -90,5 +85,3 @@ function sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$comm
 	}
 	return $ok;
 }
-
-?>

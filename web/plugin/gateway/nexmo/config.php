@@ -13,7 +13,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 }
 
 // save plugin's parameters or options in $core_config
-$core_config['plugin']['nexmo'] = $nexmo_param;
+$plugin_config['nexmo'] = $nexmo_param;
 
 //$gateway_number = $nexmo_param['global_sender'];
 
@@ -22,4 +22,3 @@ $core_config['plugin']['nexmo'] = $nexmo_param;
 //	$menutab_gateway = $core_config['menutab']['gateway'];
 //	$menu_config[$menutab_gateway][] = array("index.php?app=menu&inc=gateway_nexmo&op=manage", _('Manage nexmo'));
 //}
-?>

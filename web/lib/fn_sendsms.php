@@ -536,14 +536,14 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0,$nofoot
 }
 
 function sendsms_get_sender($username) {
-	global $core_config;
+	global $core_config, $plugin_config;
 	if ($username && ($gw = core_gateway_get())) {
 		if ($core_config['main']['cfg_gateway_number']) {
 			// 1st priority is "Default sender ID" from main configuration
 			$sms_sender = $core_config['main']['cfg_gateway_number'];
-		} else if ($core_config['plugin'][$gw]['global_sender']) {
+		} else if ($plugin_config[$gw]['global_sender']) {
 			// 2nd priority is "Module sender ID" from gateway module setting
-			$sms_sender = $core_config['plugin'][$gw]['global_sender'];
+			$sms_sender = $plugin_config[$gw]['global_sender'];
 		} else {
 			// 3rd priority is "SMS sender ID" from user preferences
 			$sms_sender = $core_config['user']['sender'];

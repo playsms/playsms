@@ -1,7 +1,7 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
-if ($core_config['plugin']['sms_command']['allow_user_access']) {
+if ($plugin_config['sms_command']['allow_user_access']) {
 	if (!auth_isvalid()) { auth_block(); };
 } else {
 	if (!auth_isadmin()) { auth_block(); };
@@ -13,7 +13,7 @@ if ($command_id = $_REQUEST['command_id']) {
 	}
 }
 
-$sms_command_bin = $core_config['plugin']['sms_command']['bin'];
+$sms_command_bin = $plugin_config['sms_command']['bin'];
 
 switch ($op) {
 	case "sms_command_list":

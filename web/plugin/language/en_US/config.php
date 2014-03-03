@@ -1,2 +1,2 @@
 <?php
-$core_config['plugin']['en_US']['title'] = 'English (United States)';
+$plugin_config['en_US']['title'] = 'English (United States)';

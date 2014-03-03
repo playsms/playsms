@@ -9,7 +9,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 }
 
 // save plugin's parameters or options in $core_config
-$core_config['plugin']['gnokii'] = $gnokii_param;
+$plugin_config['gnokii'] = $gnokii_param;
 
 // insert to left menu array
 //if (isadmin()) {

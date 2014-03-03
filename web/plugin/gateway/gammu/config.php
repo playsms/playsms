@@ -5,7 +5,7 @@ $gammu_param['name'] = "gammu";
 $gammu_param['path'] = "/var/spool/gammu";
 
 // save plugin's parameters or options in $core_config
-$core_config['plugin']['gammu'] = $gammu_param;
+$plugin_config['gammu'] = $gammu_param;
 
 // insert to left menu array
 //if (isadmin()) {

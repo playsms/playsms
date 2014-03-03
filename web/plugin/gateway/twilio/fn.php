@@ -12,7 +12,7 @@ defined('_SECURE_') or die('Forbidden');
 // $uid		: sender User ID
 // $smslog_id	: sms ID
 function twilio_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
-	global $core_config;
+	global $plugin_config;
 	$sms_sender = stripslashes($sms_sender);
 	$sms_footer = stripslashes($sms_footer);
 	$sms_msg = stripslashes($sms_msg);
@@ -25,25 +25,25 @@ function twilio_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 	}
 
 	if ($sms_sender && $sms_to && $sms_msg) {
-		$url = $core_config['plugin']['twilio']['url'].'/2010-04-01/Accounts/'.$core_config['plugin']['twilio']['account_sid'].'/SMS/Messages.json';
+		$url = $plugin_config['twilio']['url'].'/2010-04-01/Accounts/'.$plugin_config['twilio']['account_sid'].'/SMS/Messages.json';
 		$data = array(
 				'To' => $sms_to,
 				'From' => $sms_sender,
 				'Body' => $sms_msg,
 			);
-		if (trim($core_config['plugin']['twilio']['callback_url'])) {
-			$data['StatusCallback'] = trim($core_config['plugin']['twilio']['callback_url']);
+		if (trim($plugin_config['twilio']['callback_url'])) {
+			$data['StatusCallback'] = trim($plugin_config['twilio']['callback_url']);
 		}
 		if (function_exists('curl_init')) {
 			$ch = curl_init($url);
-			curl_setopt($ch, CURLOPT_USERPWD, $core_config['plugin']['twilio']['account_sid'] . ':' . $core_config['plugin']['twilio']['auth_token']);
+			curl_setopt($ch, CURLOPT_USERPWD, $plugin_config['twilio']['account_sid'] . ':' . $plugin_config['twilio']['auth_token']);
 			curl_setopt($ch, CURLOPT_TIMEOUT, 30);
 			curl_setopt($ch, CURLOPT_POST, 1);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 			$returns = curl_exec($ch);
 			curl_close($ch);
-			logger_print("url:".$url." callback:".$core_config['plugin']['twilio']['callback_url'], 3, "twilio outgoing");
+			logger_print("url:".$url." callback:".$plugin_config['twilio']['callback_url'], 3, "twilio outgoing");
 			$resp = json_decode($returns);
 			if ($resp->status) {
 				$c_status = $resp->status;
@@ -80,5 +80,3 @@ function twilio_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 
 	return $ok;
 }
-
-?>

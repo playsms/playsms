@@ -168,7 +168,7 @@ if (file_exists($c_fn1)) {
 }
 
 // themes main overrides
-$mains = $core_config['plugin'][core_themes_get()]['main'];
+$mains = $plugin_config[core_themes_get()]['main'];
 if (is_array($mains)) {
 	foreach ($mains as $main_key => $main_val) {
 		if ($main_key && $main_val) {
@@ -178,7 +178,7 @@ if (is_array($mains)) {
 }
 
 // themes icons overrides
-$icons = $core_config['plugin'][core_themes_get()]['icon'];
+$icons = $plugin_config[core_themes_get()]['icon'];
 if (is_array($icons)) {
 	foreach ($icons as $icon_action => $icon_url) {
 		if ($icon_action && $icon_url) {
@@ -213,6 +213,7 @@ if (function_exists('bindtextdomain')) {
 // fixme anton - uncomment this if you want to know what are available in global config arrays
 //print_r($icon_config); die();
 //print_r($menu_config); die();
+//print_r($plugin_config); die();
 //print_r($core_config); die();
 
 // end of global variables after plugins
