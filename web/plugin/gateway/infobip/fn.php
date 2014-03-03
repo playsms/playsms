@@ -199,22 +199,21 @@ function infobip_setsmsapimsgid($smslog_id, $apimsgid) {
 }
 
 function infobip_hook_call($requests) {
-	global $apps_path, $http_path, $core_config, $infobip_param;
+	global $core_config, $http_path;
 	$called_from_hook_call = true;
 	$access = $requests ['access'];
 	
 	if ($access == 'callback') {
-		$fn = $apps_path ['plug'] . '/gateway/infobip/callback.php';
+		$fn = $core_config['apps_path'] ['plug'] . '/gateway/infobip/callback.php';
 		logger_print ( "start load:" . $fn, 2, "infobip call" );
 		include $fn;
 		logger_print ( "end load callback", 2, "infobip call" );
 	}
 	
 	if ($access == 'dlr') {
-		$fn = $apps_path ['plug'] . '/gateway/infobip/dlr.php';
+		$fn = $core_config['apps_path'] ['plug'] . '/gateway/infobip/dlr.php';
 		logger_print ( "start load:" . $fn, 2, "infobip dlr call" );
 		include $fn;
 		logger_print ( "end load callback", 2, "infobip dlr call" );
 	}
 }
-?>

@@ -18,7 +18,7 @@
  */
 
 include 'init.php';
-include $apps_path['libs'].'/function.php';
+include $core_config['apps_path']['libs'].'/function.php';
 
 
 // fixme anton
@@ -32,7 +32,7 @@ if (isset($app)) {
 		case 'menu':
 			// $app=menu to access menus, replacement of direct access to menu.php
 			logger_audit();
-			$fn = $apps_path['incs'].'/app/menu.php';
+			$fn = $core_config['apps_path']['incs'].'/app/menu.php';
 			if (file_exists($fn)) {
 				include $fn;
 			}
@@ -41,7 +41,7 @@ if (isset($app)) {
 		case 'webservice':
 		case 'webservices':
 			// $app=webservices to access webservices, replacement of input.php and output.php
-			$fn = $apps_path['incs'].'/app/webservices.php';
+			$fn = $core_config['apps_path']['incs'].'/app/webservices.php';
 			if (file_exists($fn)) {
 				include $fn;
 			}
@@ -54,7 +54,7 @@ if (isset($app)) {
 			// plugin's name such as kannel, sms_board or sms_subscribe
 			$plugin = trim($_REQUEST['plugin']);
 			if (function_exists('bindtextdomain')) {
-				bindtextdomain('messages', $apps_path['plug'].'/'.$cat.'/'.$plugin.'/language/');
+				bindtextdomain('messages', $core_config['apps_path']['plug'].'/'.$cat.'/'.$plugin.'/language/');
 				bind_textdomain_codeset('messages', 'UTF-8');
 				textdomain('messages');
 			}
@@ -65,7 +65,7 @@ if (isset($app)) {
 			// by default this is used for displaying 'forgot password' page and 'register an account' page
 			// login, logout, register, forgot password, noaccess
 			if (function_exists('bindtextdomain')) {
-				bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
+				bindtextdomain('messages', $core_config['apps_path']['themes'].'/'.$themes_module.'/language/');
 				bind_textdomain_codeset('messages', 'UTF-8');
 				textdomain('messages');
 			}
@@ -109,7 +109,7 @@ if (auth_isvalid()) {
 	exit();
 } else {
 	if (function_exists('bindtextdomain')) {
-		bindtextdomain('messages', $apps_path['themes'].'/'.$themes_module.'/language/');
+		bindtextdomain('messages', $core_config['apps_path']['themes'].'/'.$themes_module.'/language/');
 		bind_textdomain_codeset('messages', 'UTF-8');
 		textdomain('messages');
 	}

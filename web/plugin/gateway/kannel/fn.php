@@ -121,17 +121,17 @@ function kannel_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$g
 }
 
 function kannel_hook_call($requests) {
-	global $apps_path, $http_path, $core_config, $kannel_param;
+	global $core_config, $http_path;
 	$called_from_hook_call = true;
 	$access = $requests['access'];
 	if ($access == 'dlr') {
-		$fn = $apps_path['plug'].'/gateway/kannel/dlr.php';
+		$fn = $core_config['apps_path']['plug'].'/gateway/kannel/dlr.php';
 		logger_print("start load:".$fn, 2, "kannel call");
 		include $fn;
 		logger_print("end load dlr", 2, "kannel call");
 	}
 	if ($access == 'geturl') {
-		$fn = $apps_path['plug'].'/gateway/kannel/geturl.php';
+		$fn = $core_config['apps_path']['plug'].'/gateway/kannel/geturl.php';
 		logger_print("start load:".$fn, 2, "kannel call");
 		include $fn;
 		logger_print("end load geturl", 2, "kannel call");

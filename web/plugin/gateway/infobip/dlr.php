@@ -2,7 +2,7 @@
 if (! $called_from_hook_call) {
 	chdir ( "../../../" );
 	include "init.php";
-	include $apps_path ['libs'] . "/function.php";
+	include $core_config['apps_path'] ['libs'] . "/function.php";
 	chdir ( "plugin/gateway/infobip" );
 	$requests = $_REQUEST;
 }

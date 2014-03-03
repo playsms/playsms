@@ -20,13 +20,13 @@
 defined('_SECURE_') or die('Forbidden');
 
 // main functions
-include $apps_path['libs']."/fn_phonebook.php";
-include $apps_path['libs']."/fn_rate.php";
-include $apps_path['libs']."/fn_billing.php";
-include $apps_path['libs']."/fn_dlr.php";
-include $apps_path['libs']."/fn_recvsms.php";
-include $apps_path['libs']."/fn_sendsms.php";
-include $apps_path['libs']."/fn_webservices.php";
+include $core_config['apps_path']['libs']."/fn_phonebook.php";
+include $core_config['apps_path']['libs']."/fn_rate.php";
+include $core_config['apps_path']['libs']."/fn_billing.php";
+include $core_config['apps_path']['libs']."/fn_dlr.php";
+include $core_config['apps_path']['libs']."/fn_recvsms.php";
+include $core_config['apps_path']['libs']."/fn_sendsms.php";
+include $core_config['apps_path']['libs']."/fn_webservices.php";
 
 // init global variables
 
@@ -80,7 +80,7 @@ if (auth_isadmin()) {
 for ($i=0;$i<count($plugins_category);$i++) {
 	if ($pc = $plugins_category[$i]) {
 		// get plugins
-		$dir = $apps_path['plug'].'/'.$pc.'/';
+		$dir = $core_config['apps_path']['plug'].'/'.$pc.'/';
 		unset($core_config[$pc.'list']);
 		unset($tmp_core_config[$pc.'list']);
 		$fd = opendir($dir);
@@ -105,7 +105,7 @@ for ($i=0;$i<count($plugins_category);$i++) {
 }
 
 // load each plugin's config
-$dir = $apps_path['plug'].'/';
+$dir = $core_config['apps_path']['plug'].'/';
 $pcs = array('themes', 'language', 'gateway', 'feature', 'tools');
 foreach ($pcs as $pc) {
 	for ($i=0;$i<count($core_config[$pc.'list']);$i++) {
@@ -124,7 +124,7 @@ foreach ($pcs as $pc) {
 }
 
 // load each plugin's libs
-$dir = $apps_path['plug'].'/';
+$dir = $core_config['apps_path']['plug'].'/';
 $pcs = array('feature', 'tools');
 foreach ($pcs as $pc) {
 	for ($i=0;$i<count($core_config[$pc.'list']);$i++) {
@@ -143,7 +143,7 @@ foreach ($pcs as $pc) {
 }
 
 // load active themes libs
-$dir = $apps_path['plug'].'/';
+$dir = $core_config['apps_path']['plug'].'/';
 $pc = 'themes';
 $pl = core_themes_get();
 $pl_dir = $dir.$pc.'/'.$pl;
@@ -158,10 +158,10 @@ if (file_exists($c_fn1)) {
 }
 
 // load common items for themes
-$c_fn1 = $apps_path['plug'].'/themes/common/config.php';
+$c_fn1 = $core_config['apps_path']['plug'].'/themes/common/config.php';
 if (file_exists($c_fn1)) {
 	include $c_fn1;
-	$c_fn2 = $apps_path['plug'].'/themes/common/fn.php';
+	$c_fn2 = $core_config['apps_path']['plug'].'/themes/common/fn.php';
 	if (file_exists($c_fn2)) {
 		include $c_fn2;
 	}
@@ -188,7 +188,7 @@ if (is_array($icons)) {
 }
 
 // load active gateway libs
-$dir = $apps_path['plug'].'/';
+$dir = $core_config['apps_path']['plug'].'/';
 $pc = 'gateway';
 $pl = core_gateway_get();
 $pl_dir = $dir.$pc.'/'.$pl;
@@ -203,7 +203,7 @@ if (file_exists($c_fn1)) {
 }
 
 if (function_exists('bindtextdomain')) {
-	bindtextdomain('messages', $apps_path['plug'].'/language/');
+	bindtextdomain('messages', $core_config['apps_path']['plug'].'/language/');
 	bind_textdomain_codeset('messages', 'UTF-8');
 	textdomain('messages');
 }
@@ -216,5 +216,7 @@ if (function_exists('bindtextdomain')) {
 //print_r($plugin_config); die();
 //print_r($user_config); die();
 //print_r($core_config); die();
+
+//print_r($GLOBALS); die();
 
 // end of global variables after plugins

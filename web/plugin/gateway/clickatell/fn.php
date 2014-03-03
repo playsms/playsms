@@ -174,11 +174,11 @@ function clickatell_setsmsapimsgid($smslog_id, $apimsgid) {
 	}
 }
 function clickatell_hook_call($requests) {
-	global $apps_path, $http_path, $core_config, $clickatell_param;
+	global $core_config, $http_path;
 	$called_from_hook_call = true;
 	$access = $requests ['access'];
 	if ($access == 'callback') {
-		$fn = $apps_path ['plug'] . '/gateway/clickatell/callback.php';
+		$fn = $core_config['apps_path'] ['plug'] . '/gateway/clickatell/callback.php';
 		logger_print ( "start load:" . $fn, 2, "clickatell call" );
 		include $fn;
 		logger_print ( "end load callback", 2, "clickatell call" );

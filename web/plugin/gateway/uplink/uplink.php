@@ -5,7 +5,7 @@ if (!auth_isadmin()) {
 	auth_block();
 };
 
-include $apps_path['plug'] . "/gateway/uplink/config.php";
+include $core_config['apps_path']['plug'] . "/gateway/uplink/config.php";
 
 $gw = core_gateway_get();
 

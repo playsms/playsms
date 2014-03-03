@@ -2,7 +2,7 @@
 defined('_SECURE_') or die('Forbidden');
 
 if (function_exists('bindtextdomain')) {
-	bindtextdomain('messages', $apps_path['plug'].'/language/');
+	bindtextdomain('messages', $core_config['apps_path']['plug'].'/language/');
 	bind_textdomain_codeset('messages', 'UTF-8');
 	textdomain('messages');
 }

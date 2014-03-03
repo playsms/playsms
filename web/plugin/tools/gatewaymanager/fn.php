@@ -51,7 +51,7 @@ function gatewaymanager_list() {
 		$template = preg_match('/^_/', $fn, $match);
 		if (is_dir($upload_path . $fn) && $f != "." && $f != ".." && $template != true && $fn != 'common') {
 			$subdir_tab[$z]['name'] .= $fn;
-			$subdir_tab[$z]['version'] .= trim(file_get_contents($apps_path['plug'] . '/gateway/' . $f . '/docs/VERSION'));
+			$subdir_tab[$z]['version'] .= trim(file_get_contents($core_config['apps_path']['plug'] . '/gateway/' . $f . '/docs/VERSION'));
 			$subdir_tab[$z]['date'] .= date($core_config['datetime']['format'], filemtime($upload_path . $f));
 			if (gatewaymanager_get_status($fn)) {
 				$subdir_tab[$z][status] .= '<span class=status_enabled></span>';

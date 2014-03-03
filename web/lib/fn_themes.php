@@ -86,15 +86,15 @@ function themes_nav_session() {
 }
 
 function themes_search($search_category=array(), $url='') {
+	global $core_config;
 	$ret['keyword'] = $_REQUEST['search_keyword'];
 	$ret['url'] = ( trim($url) ? trim($url) : $_SERVER['REQUEST_URI'] );
 	$ret['category'] = $_REQUEST['search_category'];
-        global $apps_path;
-        if (function_exists('bindtextdomain')) {
-                bindtextdomain('messages', $apps_path['plug'].'/language/');
-                bind_textdomain_codeset('messages', 'UTF-8');
-                textdomain('messages');
-        }
+	if (function_exists('bindtextdomain')) {
+		bindtextdomain('messages', $core_config['apps_path']['plug'].'/language/');
+		bind_textdomain_codeset('messages', 'UTF-8');
+		textdomain('messages');
+	}
 	$option_search_category = "<option value=\"\">"._('Search')."</option>";
 	foreach ($search_category as $key => $val) {
 		if ( $selected = ( $ret['category'] == $val ? 'selected' : '' ) ) {
@@ -124,11 +124,11 @@ function themes_search_session() {
 }
 
 function themes_button_back($url) {
+	global $core_config;
 
 	// fixme anton - "Back" untranslated without this
-	global $apps_path;
 	if (function_exists('bindtextdomain')) {
-		bindtextdomain('messages', $apps_path['plug'].'/language/');
+		bindtextdomain('messages', $core_config['apps_path']['plug'].'/language/');
 		bind_textdomain_codeset('messages', 'UTF-8');
 		textdomain('messages');
 	}

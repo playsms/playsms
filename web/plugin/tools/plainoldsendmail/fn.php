@@ -2,8 +2,8 @@
 defined('_SECURE_') or die('Forbidden');
 
 function plainoldsendmail_hook_sendmail($data=array()) {
-	global $apps_path;
-	
+	global $core_config;
+
 	if (is_array($data)) {
 		$mail_from_name		= $data['mail_from_name'];
 		$mail_from		= $data['mail_from'];
@@ -34,13 +34,13 @@ function plainoldsendmail_hook_sendmail($data=array()) {
 	
 	logger_print("start from:".$mail_from." to:".$mail_to." subject:".$mail_subject, 2, "plainoldsendmail");
 	if (!class_exists(email_message_class)) {
-		include_once $apps_path['plug']."/tools/plainoldsendmail/lib/external/mimemessage/email_message.php";
+		include_once $core_config['apps_path']['plug']."/tools/plainoldsendmail/lib/external/mimemessage/email_message.php";
 	}
 	if (!class_exists(smtp_message_class)) {
-		include_once $apps_path['plug']."/tools/plainoldsendmail/lib/external/mimemessage/smtp_message.php";
+		include_once $core_config['apps_path']['plug']."/tools/plainoldsendmail/lib/external/mimemessage/smtp_message.php";
 	}
 	if (!class_exists(smtp_class)) {
-		include_once $apps_path['plug']."/tools/plainoldsendmail/lib/external/mimemessage/smtp/smtp.php";
+		include_once $core_config['apps_path']['plug']."/tools/plainoldsendmail/lib/external/mimemessage/smtp/smtp.php";
 	}
 
 	$from_name		= $mail_from_name;
@@ -121,5 +121,3 @@ function plainoldsendmail_hook_sendmail($data=array()) {
 		return true;
 	}
 }
-
-?>

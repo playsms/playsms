@@ -71,56 +71,55 @@ $c_php_self = $_SERVER['PHP_SELF'];
 $c_http_host = $_SERVER['HTTP_HOST'];
 
 // base application directory
-$apps_path['base']        = dirname($c_script_filename);
+$core_config['apps_path']['base']        = dirname($c_script_filename);
 
 // base application http path
 $http_path['base']        = ( $core_config['ishttps'] ? "https://" : "http://" ).$c_http_host.( dirname($c_php_self)=='/' ? '/' : dirname($c_php_self) );
 
 // libraries directory
-$apps_path['libs']	= $apps_path['base'].'/lib';
+$core_config['apps_path']['libs']	= $core_config['apps_path']['base'].'/lib';
 $http_path['libs']	= $http_path['base'].'/lib';
 
 // core plugins directories
-$apps_path['incs']	= $apps_path['base'].'/inc';
+$core_config['apps_path']['incs']	= $core_config['apps_path']['base'].'/inc';
 $http_path['incs']	= $http_path['base'].'/inc';
 
 // plugins directory
-$apps_path['plug']	= $apps_path['base'].'/plugin';
+$core_config['apps_path']['plug']	= $core_config['apps_path']['base'].'/plugin';
 $http_path['plug']	= $http_path['base'].'/plugin';
 
 // themes directories
-$apps_path['themes']	= $apps_path['plug'].'/themes';
+$core_config['apps_path']['themes']	= $core_config['apps_path']['plug'].'/themes';
 $http_path['themes']	= $http_path['plug'].'/themes';
 
 // themes directories
-$apps_path['tpl']	= $apps_path['themes'].'/common/templates';
+$core_config['apps_path']['tpl']	= $core_config['apps_path']['themes'].'/common/templates';
 $http_path['tpl']	= $http_path['themes'].'/common/templates';
 
 // set defines
-define('_APPS_PATH_BASE_', $apps_path['base']);
+define('_APPS_PATH_BASE_', $core_config['apps_path']['base']);
 define('_HTTP_PATH_BASE_', $http_path['base']);
 
-define('_APPS_PATH_LIBS_', $apps_path['libs']);
+define('_APPS_PATH_LIBS_', $core_config['apps_path']['libs']);
 define('_HTTP_PATH_LIBS_', $http_path['libs']);
 
-define('_APPS_PATH_INCS_', $apps_path['incs']);
+define('_APPS_PATH_INCS_', $core_config['apps_path']['incs']);
 define('_HTTP_PATH_INCS_', $http_path['incs']);
 
-define('_APPS_PATH_PLUG_', $apps_path['plug']);
+define('_APPS_PATH_PLUG_', $core_config['apps_path']['plug']);
 define('_HTTP_PATH_PLUG_', $http_path['plug']);
 
-define('_APPS_PATH_THEMES_', $apps_path['themes']);
+define('_APPS_PATH_THEMES_', $core_config['apps_path']['themes']);
 define('_HTTP_PATH_THEMES_', $http_path['themes']);
 
-define('_APPS_PATH_TPL_', $apps_path['tpl']);
+define('_APPS_PATH_TPL_', $core_config['apps_path']['tpl']);
 define('_HTTP_PATH_TPL_', $http_path['tpl']);
 
 // insert to global config
-$core_config['apps_path'] = $apps_path;
 $core_config['http_path'] = $http_path;
 
 // load init functions
-include_once $apps_path['libs']."/fn_init.php";
+include_once $core_config['apps_path']['libs']."/fn_init.php";
 
 // if magic quotes gps is set to Off (which is recommended) then addslashes all requests
 if (! get_magic_quotes_gpc()) {
@@ -219,15 +218,15 @@ $core_config['main']['default_inc'] = 'page_welcome';
 $core_config['main']['default_op'] = 'page_welcome';
 
 // verify selected gateway_module exists
-$fn1 = $apps_path['plug'].'/gateway/'.$gateway_module.'/config.php';
-$fn2 = $apps_path['plug'].'/gateway/'.$gateway_module.'/fn.php';
+$fn1 = $core_config['apps_path']['plug'].'/gateway/'.$gateway_module.'/config.php';
+$fn2 = $core_config['apps_path']['plug'].'/gateway/'.$gateway_module.'/fn.php';
 if (file_exists($fn1) && file_exists($fn2)) {
 	$core_config['module']['gateway'] = $gateway_module;
 }
 
 // verify selected themes_module exists
-$fn1 = $apps_path['plug'].'/themes/'.$themes_module.'/config.php';
-$fn2 = $apps_path['plug'].'/themes/'.$themes_module.'/fn.php';
+$fn1 = $core_config['apps_path']['plug'].'/themes/'.$themes_module.'/config.php';
+$fn2 = $core_config['apps_path']['plug'].'/themes/'.$themes_module.'/fn.php';
 if (file_exists($fn1) && file_exists($fn2)) {
 	$core_config['module']['themes'] = $themes_module;
 } else {
@@ -235,8 +234,8 @@ if (file_exists($fn1) && file_exists($fn2)) {
 }
 
 // verify selected language_module exists
-$fn1 = $apps_path['plug'].'/language/'.$language_module.'/config.php';
-$fn2 = $apps_path['plug'].'/language/'.$language_module.'/fn.php';
+$fn1 = $core_config['apps_path']['plug'].'/language/'.$language_module.'/config.php';
+$fn2 = $core_config['apps_path']['plug'].'/language/'.$language_module.'/fn.php';
 if (file_exists($fn1) && file_exists($fn2)) {
 	$core_config['module']['language'] = $language_module;
 } else {
@@ -286,7 +285,7 @@ if (auth_isvalid()) {
 }
 
 if (function_exists('bindtextdomain')) {
-	bindtextdomain('messages', $apps_path['plug'].'/language/');
+	bindtextdomain('messages', $core_config['apps_path']['plug'].'/language/');
 	bind_textdomain_codeset('messages', 'UTF-8');
 	textdomain('messages');
 }
