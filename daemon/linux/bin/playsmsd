@@ -143,10 +143,10 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 		$continue = FALSE;
 		if (file_exists('init.php')) {
 			include 'init.php';
-			$fn = $apps_path['libs'].'/function.php';
+			$fn = $core_config['apps_path']['libs'].'/function.php';
 			if ($core_config['daemon_process'] && file_exists($fn)) {
 				include_once $fn;
-				if ($apps_path['incs']) {
+				if ($core_config['apps_path']['incs']) {
 					$continue = TRUE;
 				}
 			}
@@ -174,10 +174,10 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 			$continue = FALSE;
 			if (file_exists('init.php')) {
 				include 'init.php';
-				$fn = $apps_path['libs'].'/function.php';
+				$fn = $core_config['apps_path']['libs'].'/function.php';
 				if ($core_config['daemon_process'] && file_exists($fn)) {
 					include_once $fn;
-					if ($apps_path['incs']) {
+					if ($core_config['apps_path']['incs']) {
 						$continue = TRUE;
 					}
 				}
