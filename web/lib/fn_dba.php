@@ -387,12 +387,12 @@ function dba_isexists($db_table, $conditions='', $operand='OR') {
 }
 
 function dba_valid($db_table, $field, $value) {
-	global $core_config;
+	global $user_config;
 	$ret = false;
 	if ($db_table && $field && $value) {
 		$conditions[$field] = $value;
 		if (! auth_isadmin()) {
-			$conditions['uid'] = $core_config['user']['uid'];
+			$conditions['uid'] = $user_config['uid'];
 		}
 		if ($list = dba_search($db_table, $field, $conditions)) {
 			$ret = $list[0][$field];

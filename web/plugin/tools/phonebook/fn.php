@@ -60,12 +60,12 @@ function phonebook_hook_phonebook_groupcode2id($uid,$code) {
 }
 
 function phonebook_hook_phonebook_number2name($mobile, $c_username='') {
-	global $core_config;
+	global $user_config;
 	$name = '';
 	if ($mobile) {
 		// if username supplied use it, else use global username
 		$c_uid = user_username2uid($c_username);
-		$uid = $c_uid ? $c_uid : $core_config['user']['uid'];
+		$uid = $c_uid ? $c_uid : $user_config['uid'];
 		// remove +
 		$mobile = str_replace('+','',$mobile);
 		// remove first 3 digits if phone number length more than 7
@@ -197,7 +197,7 @@ function phonebook_hook_phonebook_search_user($uid=0, $keyword="", $count=0) {
 }
 
 function phonebook_hook_webservices_output($ta,$requests) {
-	global $core_config;
+	global $user_config;
 	if (! auth_isvalid()) {
 		return FALSE;
 	}
@@ -205,7 +205,7 @@ function phonebook_hook_webservices_output($ta,$requests) {
 	if (!$keyword) {
 		$keyword = $requests['tag'];
 	}
-	if ($keyword && $core_config['user']['uid']) {
+	if ($keyword && $user_config['uid']) {
 		if (substr($keyword, 0, 1) == '@') {
 			$keyword = substr($keyword, 1);
 			$list = phonebook_search_user(0, $keyword);
@@ -214,12 +214,12 @@ function phonebook_hook_webservices_output($ta,$requests) {
 			}
 		} else if (substr($keyword, 0, 1) == '#') {
 			$keyword = substr($keyword, 1);
-			$list = phonebook_search_group($core_config['user']['uid'], $keyword);
+			$list = phonebook_search_group($user_config['uid'], $keyword);
 			foreach ($list as $data) {
 				$item[] = array('id' => '#'.$data['code'], 'text' => _('Group').': '.$data['group_name'].' ('.$data['code'].')');
 			}
 		} else {
-			$list = phonebook_search($core_config['user']['uid'], $keyword);
+			$list = phonebook_search($user_config['uid'], $keyword);
 			foreach ($list as $data) {
 				$item[] = array('id' => $data['p_num'], 'text' => $data['p_desc'].' ('.$data['p_num'].')');
 			}

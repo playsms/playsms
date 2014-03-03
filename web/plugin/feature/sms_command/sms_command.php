@@ -99,7 +99,7 @@ switch ($op) {
 					<td class=label-sizer>"._('SMS command keyword') . "</td><td>".$edit_command_keyword."</td>
 				</tr>
 				<tr>
-					<td>"._('SMS command exec path') . "</td><td>" . $sms_command_bin.'/'.$core_config['user']['uid'] . "</td>
+					<td>"._('SMS command exec path') . "</td><td>" . $sms_command_bin.'/'.$user_config['uid'] . "</td>
 				</tr>
 				<tr>
 					<td colspan=2>"._('Pass these parameter to command exec field')."</td>
@@ -183,7 +183,7 @@ switch ($op) {
 					<td class=label-sizer>"._('SMS command keyword') . "</td><td><input type=text size=10 maxlength=10 name=add_command_keyword value=\"$add_command_keyword\"></td>
 				</tr>
 				<tr>
-					<td>"._('SMS command exec path') . "</td><td>" . $sms_command_bin.'/'.$core_config['user']['uid'] . "</td>
+					<td>"._('SMS command exec path') . "</td><td>" . $sms_command_bin.'/'.$user_config['uid'] . "</td>
 				</tr>
 				<tr>
 					<td colspan=2>"._('Pass these parameter to command exec field')."</td>

@@ -2,7 +2,7 @@
 defined('_SECURE_') or die('Forbidden');
 
 function ubuntu_hook_themes_apply($content) {
-	global $core_config, $web_title;
+	global $core_config, $user_config, $web_title;
 	unset($tpl);
 	$tpl = array(
 		'name' => 'themes_layout',
@@ -13,9 +13,9 @@ function ubuntu_hook_themes_apply($content) {
 			'HTTP_PATH_THEMES' => $core_config['http_path']['themes'],
 			'THEMES_MODULE' => core_themes_get(),
 			'THEMES_MENU_TREE' => themes_get_menu_tree(),
-			'NAME' => $core_config['user']['name'],
-			'USERNAME' => $core_config['user']['username'],
-			'GRAVATAR' => $core_config['user']['opt']['gravatar'],
+			'NAME' => $user_config['name'],
+			'USERNAME' => $user_config['username'],
+			'GRAVATAR' => $user_config['opt']['gravatar'],
 			'Logout' => _('Logout')
 		),
 		'if' => array(
@@ -27,11 +27,11 @@ function ubuntu_hook_themes_apply($content) {
 }
 
 function ubuntu_hook_themes_buildmenu($menu_config) {
-	global $core_config;
+	global $core_config, $user_config;
 	$main_menu = "";
 	foreach ($menu_config as $menu_title => $array_menu) {
 		if ($menu_title == $core_config['menutab']['my_account']) {
-			$main_menu .= "<li class='dropdown'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $core_config['user']['name'] . " (".$core_config['user']['username'].") <b class='caret'></b></a>";
+			$main_menu .= "<li class='dropdown'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $user_config['name'] . " (".$user_config['username'].") <b class='caret'></b></a>";
 			$main_menu .= "<ul class='dropdown-menu'>";
 		} else {
 			$main_menu .= "<li class='dropdown'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $menu_title . " <b class='caret'></b></a>";

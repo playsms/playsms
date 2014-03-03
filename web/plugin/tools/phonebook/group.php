@@ -7,7 +7,7 @@ switch ($op) {
 		$search_category = array(_('Name') => 'name', _('Group code') => 'code');
 		$base_url = 'index.php?app=menu&inc=tools_phonebook&route=group&op=list';
 		$search = themes_search($search_category, $base_url);
-		$conditions = array('uid' => $core_config['user']['uid']);
+		$conditions = array('uid' => $user_config['uid']);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_.'_toolsPhonebook_group', $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
@@ -148,7 +148,7 @@ switch ($op) {
 			case 'delete':
 				if ($gpid = $_REQUEST['gpid']) {
 					if (! dba_count(_DB_PREF_.'_toolsPhonebook_group_contacts', array('gpid' => $gpid))) {
-						if (dba_remove(_DB_PREF_.'_toolsPhonebook_group', array('uid' => $core_config['user']['uid'], 'id' => $gpid))) {
+						if (dba_remove(_DB_PREF_.'_toolsPhonebook_group', array('uid' => $user_config['uid'], 'id' => $gpid))) {
 							$_SESSION['error_string'] = _('Selected group has been deleted');
 						} else {
 							$_SESSION['error_string'] = _('Fail to delete group');
@@ -167,7 +167,7 @@ switch ($op) {
 				$group_code = strtoupper(trim($_POST['group_code']));
 				$group_code = core_sanitize_alphanumeric($group_code);
 				$flag_sender = (int) $_POST['flag_sender'];
-				$uid = $core_config['user']['uid'];
+				$uid = $user_config['uid'];
 				$_SESSION['error_string'] = _('You must fill all field');
 				if ($group_name && $group_code) {
 					$db_query = "SELECT code FROM "._DB_PREF_."_toolsPhonebook_group WHERE uid='$uid' AND code='$group_code'";
@@ -194,7 +194,7 @@ switch ($op) {
 				$group_code = strtoupper(trim($_POST['group_code']));
 				$group_code = core_sanitize_alphanumeric($group_code);
 				$flag_sender = (int) $_POST['flag_sender'];
-				$uid = $core_config['user']['uid'];
+				$uid = $user_config['uid'];
 				$_SESSION['error_string'] = _('You must fill all field');
 				if ($gpid && $group_name && $group_code) {
 					$db_query = "SELECT code FROM "._DB_PREF_."_toolsPhonebook_group WHERE uid='$uid' AND code='$group_code' AND NOT id='$gpid'";

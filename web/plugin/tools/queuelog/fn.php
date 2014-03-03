@@ -2,10 +2,10 @@
 defined('_SECURE_') or die('Forbidden');
 
 function queuelog_get($line_per_page='', $limit='') {
-	global $core_config;
+	global $user_config;
 	$ret = array();
-	if ($core_config['user']['status'] != 2) {
-		$user_query = "AND uid='".$core_config['user']['uid']."'";
+	if ($user_config['status'] != 2) {
+		$user_query = "AND uid='".$user_config['uid']."'";
 	}
 	if ($line_per_page) {
 		$line_per_page_query = "LIMIT $line_per_page";
@@ -24,10 +24,10 @@ function queuelog_get($line_per_page='', $limit='') {
 }
 
 function queuelog_countall() {
-	global $core_config;
+	global $user_config;
 	$ret = 0;
-	if ($core_config['user']['status'] != 2) {
-		$user_query = "AND uid='".$core_config['user']['uid']."'";
+	if ($user_config['status'] != 2) {
+		$user_query = "AND uid='".$user_config['uid']."'";
 	}
 	$db_query = "SELECT count(*) AS count FROM "._DB_PREF_."_tblSMSOutgoing_queue WHERE flag='0' ".$user_query;
 	$db_result = dba_query($db_query);
@@ -38,10 +38,10 @@ function queuelog_countall() {
 }
 
 function queuelog_delete($queue) {
-	global $core_config;
+	global $user_config;
 	$ret = FALSE;
-	if ($core_config['user']['status'] != 2) {
-		$user_query = "AND uid='".$core_config['user']['uid']."'";
+	if ($user_config['status'] != 2) {
+		$user_query = "AND uid='".$user_config['uid']."'";
 	}
 	$db_query = "DELETE FROM "._DB_PREF_."_tblSMSOutgoing_queue WHERE flag='0' AND queue_code='".$queue."' ".$user_query;
 	if ($db_result = dba_affected_rows($db_query)) {

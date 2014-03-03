@@ -214,12 +214,12 @@ function core_datetime_offset($tz=0) {
  *    formatted date/time with adjusted timezone
  */
 function core_display_datetime($time, $tz=0) {
-	global $core_config;
+	global $core_config, $user_config;
 	$time = trim($time);
 	$ret = $time;
 	if ($time && ($time != '0000-00-00 00:00:00')) {
 		if (! $tz) {
-			if (! ($tz = $core_config['user']['datetime_timezone'])) {
+			if (! ($tz = $user_config['datetime_timezone'])) {
 				$tz = $core_config['main']['cfg_datetime_timezone'];
 			}
 		}
@@ -243,12 +243,12 @@ function core_display_datetime($time, $tz=0) {
  *    formatted date/time with adjusted timezone
  */
 function core_adjust_datetime($time, $tz=0) {
-	global $core_config;
+	global $core_config, $user_config;
 	$time = trim($time);
 	$ret = $time;
 	if ($time && ($time != '0000-00-00 00:00:00')) {
 		if (! $tz) {
-			if (! ($tz = $core_config['user']['datetime_timezone'])) {
+			if (! ($tz = $user_config['datetime_timezone'])) {
 				$tz = $core_config['main']['cfg_datetime_timezone'];
 			}
 		}

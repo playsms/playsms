@@ -46,7 +46,7 @@ switch ($op) {
 		}
 		
 		// CREDIT
-		$credit = $core_config['user']['credit'];
+		$credit = $user_config['credit'];
 
 		unset($tpl);
 		$tpl = array(

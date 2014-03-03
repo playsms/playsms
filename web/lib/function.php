@@ -33,12 +33,12 @@ include $apps_path['libs']."/fn_webservices.php";
 // load additional user's data from user's DB table
 if (auth_isvalid()) {
 	$userstatus = ( $status == 2 ? _('Administrator') : _('Normal User') );
-	$core_config['user']['opt']['sms_footer_length'] = ( strlen($footer) > 0 ? strlen($footer) + 1 : 0 );
-	$core_config['user']['opt']['per_sms_length'] = $core_config['main']['per_sms_length'] - $core_config['user']['opt']['sms_footer_length'];
-	$core_config['user']['opt']['per_sms_length_unicode'] = $core_config['main']['per_sms_length_unicode'] - $core_config['user']['opt']['sms_footer_length'];
-	$core_config['user']['opt']['max_sms_length'] = $core_config['main']['max_sms_length'] - $core_config['user']['opt']['sms_footer_length'];
-	$core_config['user']['opt']['max_sms_length_unicode'] = $core_config['main']['max_sms_length_unicode'] - $core_config['user']['opt']['sms_footer_length'];
-	$core_config['user']['opt']['gravatar'] = "https://www.gravatar.com/avatar/".md5(strtolower(trim($core_config['user']['email'])));
+	$user_config['opt']['sms_footer_length'] = ( strlen($footer) > 0 ? strlen($footer) + 1 : 0 );
+	$user_config['opt']['per_sms_length'] = $core_config['main']['per_sms_length'] - $user_config['opt']['sms_footer_length'];
+	$user_config['opt']['per_sms_length_unicode'] = $core_config['main']['per_sms_length_unicode'] - $user_config['opt']['sms_footer_length'];
+	$user_config['opt']['max_sms_length'] = $core_config['main']['max_sms_length'] - $user_config['opt']['sms_footer_length'];
+	$user_config['opt']['max_sms_length_unicode'] = $core_config['main']['max_sms_length_unicode'] - $user_config['opt']['sms_footer_length'];
+	$user_config['opt']['gravatar'] = "https://www.gravatar.com/avatar/".md5(strtolower(trim($user_config['email'])));
 }
 
 // reserved important keywords
@@ -214,6 +214,7 @@ if (function_exists('bindtextdomain')) {
 //print_r($icon_config); die();
 //print_r($menu_config); die();
 //print_r($plugin_config); die();
+//print_r($user_config); die();
 //print_r($core_config); die();
 
 // end of global variables after plugins

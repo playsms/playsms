@@ -267,14 +267,14 @@ if (! ($core_config['module']['gateway'] && $core_config['module']['themes'] && 
 if (auth_isvalid()) {
 	// load user's data from user's DB table
 	$username = $_SESSION['username'];
-	$core_config['user'] = user_getdatabyusername($username);
-	$uid = $core_config['user']['uid'];
-	$sender = $core_config['user']['sender'];
-	$footer = $core_config['user']['footer'];
-	$mobile = $core_config['user']['mobile'];
-	$email = $core_config['user']['email'];
-	$name = $core_config['user']['name'];
-	$status = $core_config['user']['status'];
+	$user_config = user_getdatabyusername($username);
+	$uid = $user_config['uid'];
+	$sender = $user_config['sender'];
+	$footer = $user_config['footer'];
+	$mobile = $user_config['mobile'];
+	$email = $user_config['email'];
+	$name = $user_config['name'];
+	$status = $user_config['status'];
 	if (! $core_config['daemon_process']) {
 		// save login session information
 		user_session_set();

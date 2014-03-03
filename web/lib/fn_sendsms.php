@@ -241,13 +241,13 @@ function sendsmsd($single_queue='', $sendsmsd_limit=0, $sendsmsd_offset=0) {
 }
 
 function sendsms_process($smslog_id,$sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0,$queue_code='') {
-	global $core_config;
+	global $user_config;
 	$ok = false;
 
 	// get active gateway module
 	$gw = core_gateway_get();
 
-	$user = $core_config['user'];
+	$user = $user_config;
 	if ($uid && ($user['uid'] != $uid)) {
 		$user = user_getdatabyuid($uid);
 	}
@@ -347,8 +347,8 @@ function sendsms_process($smslog_id,$sms_sender,$sms_footer,$sms_to,$sms_msg,$ui
  * @return array array($status, $sms_to, $smslog_id, $queue)
  */
 function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0,$nofooter=false,$sms_footer='',$sms_sender='',$sms_schedule='') {
-	global $core_config;
-	$user = $core_config['user'];
+	global $core_config, $user_config;
+	$user = $user_config;
 	if ($username && ($user['username'] != $username)) {
 		$user = user_getdatabyusername($username);
 	}
@@ -448,8 +448,8 @@ function sendsms($username,$sms_to,$message,$sms_type='text',$unicode=0,$nofoote
  * @return array array($status, $sms_to, $smslog_id, $queue)
  */
 function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0,$nofooter=false,$sms_footer='',$sms_sender='',$sms_schedule='') {
-	global $core_config;
-	$user = $core_config['user'];
+	global $core_config, $user_config;
+	$user = $user_config;
 	if ($username && ($user['username'] != $username)) {
 		$user = user_getdatabyusername($username);
 	}
@@ -536,7 +536,7 @@ function sendsms_bc($username,$gpid,$message,$sms_type='text',$unicode=0,$nofoot
 }
 
 function sendsms_get_sender($username) {
-	global $core_config, $plugin_config;
+	global $core_config, $plugin_config, $user_config;
 	if ($username && ($gw = core_gateway_get())) {
 		if ($core_config['main']['cfg_gateway_number']) {
 			// 1st priority is "Default sender ID" from main configuration
@@ -546,8 +546,8 @@ function sendsms_get_sender($username) {
 			$sms_sender = $plugin_config[$gw]['global_sender'];
 		} else {
 			// 3rd priority is "SMS sender ID" from user preferences
-			$sms_sender = $core_config['user']['sender'];
-			if ($core_config['user']['username'] != $username) {
+			$sms_sender = $user_config['sender'];
+			if ($user_config['username'] != $username) {
 				$sms_sender = user_getfieldbyusername($username, 'sender');
 			}
 		}

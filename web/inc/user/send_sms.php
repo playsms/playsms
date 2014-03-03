@@ -32,7 +32,7 @@ switch ($op) {
 		}
 
 		// SMS footer
-		$sms_footer = $core_config['user']['footer'];
+		$sms_footer = $user_config['footer'];
 		if (!$allow_custom_footer) {
 			$allow_custom_footer = 'readonly';
 		}
@@ -49,7 +49,7 @@ switch ($op) {
 		}
 
 		// unicode option
-		if ($core_config['user']['send_as_unicode']) {
+		if ($user_config['send_as_unicode']) {
 			$option_msg_unicode = 'checked';
 		}
 
@@ -87,19 +87,19 @@ switch ($op) {
 			// 'sms_schedule' => core_display_datetime(core_get_datetime()),
 			'sms_schedule' => '',
 			'message' => $message,
-			'sms_footer_length' => $core_config['user']['opt']['sms_footer_length'],
-			'per_sms_length' => $core_config['user']['opt']['per_sms_length'],
-			'per_sms_length_unicode' => $core_config['user']['opt']['per_sms_length_unicode'],
-			'max_sms_length' => $core_config['user']['opt']['max_sms_length'],
-			'max_sms_length_unicode' => $core_config['user']['opt']['max_sms_length_unicode'],
+			'sms_footer_length' => $user_config['opt']['sms_footer_length'],
+			'per_sms_length' => $user_config['opt']['per_sms_length'],
+			'per_sms_length_unicode' => $user_config['opt']['per_sms_length_unicode'],
+			'max_sms_length' => $user_config['opt']['max_sms_length'],
+			'max_sms_length_unicode' => $user_config['opt']['max_sms_length_unicode'],
 			'option_msg_unicode' => $option_msg_unicode,
-			'lang' => substr($core_config['user']['language_module'], 0, 2),
+			'lang' => substr($user_config['language_module'], 0, 2),
 			'chars' => _('chars'),
 			'SMS' => _('SMS')
 		    ),
 		    'if' => array(
-			'calendar' => file_exists($apps_path['themes'].'/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.'.substr($core_config['user']['language_module'], 0, 2).'.js'),
-			'combobox' => file_exists($apps_path['themes'].'/common/jscss/combobox/select2_locale_'.substr($core_config['user']['language_module'], 0, 2).'.js')
+			'calendar' => file_exists($apps_path['themes'].'/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.'.substr($user_config['language_module'], 0, 2).'.js'),
+			'combobox' => file_exists($apps_path['themes'].'/common/jscss/combobox/select2_locale_'.substr($user_config['language_module'], 0, 2).'.js')
 		    )
 		);
 		_p(tpl_apply($tpl));
@@ -132,7 +132,7 @@ switch ($op) {
 			for ($i=0;$i<count($sms_to);$i++) {
 				if (substr(trim($sms_to[$i]), 0, 1) == '#') {
 					if ($c_group_code = substr(trim($sms_to[$i]), 1)) {
-						$c_gpid = phonebook_groupcode2id($core_config['user']['uid'], $c_group_code);
+						$c_gpid = phonebook_groupcode2id($user_config['uid'], $c_group_code);
 						$members = phonebook_getdatabyid($c_gpid);
 						foreach ($members as $member) {
 							if (trim($member['p_num'])) {
@@ -157,9 +157,9 @@ switch ($op) {
 
 			// sendsms_im
 			if (is_array($array_username) && $array_username[0]) {
-				$im_sender = '@'.$core_config['user']['username'];
+				$im_sender = '@'.$user_config['username'];
 				foreach ($array_username as $target_user) {
-					$im_sender = '@'.$core_config['user']['username'];
+					$im_sender = '@'.$user_config['username'];
 					if (recvsms_inbox_add(core_get_datetime(), $im_sender, $target_user, $message)) {
 						$ok_im[] = $target_user;
 					}

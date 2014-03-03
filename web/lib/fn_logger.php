@@ -20,10 +20,10 @@
 defined('_SECURE_') or die('Forbidden');
 
 function logger_print($log, $level, $label) {
-	global $core_config;
+	global $core_config, $user_config;
 	$logfile = ( $core_config['logfile'] ? $core_config['logfile'] : 'playsms.log' );
 	$level = (int) $level;
-	$username = ( $core_config['user']['username'] ? $core_config['user']['username'] : '-' );
+	$username = ( $user_config['username'] ? $user_config['username'] : '-' );
 	if (logger_get_level() >= $level) {
 		$type = 'L'.$level;
 		$fn = $core_config['apps_path']['logs'].'/'.$logfile;
@@ -50,7 +50,7 @@ function logger_set_level($level=0) {
 }
 
 function logger_audit() {
-	global $core_config;
+	global $core_config, $user_config;
 	if ($core_config['logaudit']) {
 		foreach ($_GET as $key => $val) {
 			if(stristr($key, 'password') === FALSE) {
@@ -68,7 +68,7 @@ function logger_audit() {
 		}
 		$log = trim($log);
 		$logauditfile = ( $core_config['logauditfile'] ? $core_config['logauditfile'] : 'audit.log' );
-		$username = ( $core_config['user']['username'] ? $core_config['user']['username'] : '-' );
+		$username = ( $user_config['username'] ? $user_config['username'] : '-' );
 		$ip = $_SERVER['REMOTE_ADDR'];
 		$fn = $core_config['apps_path']['logs'].'/'.$logauditfile;
 		if ($fd = fopen($fn, 'a+')) {

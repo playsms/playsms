@@ -18,7 +18,7 @@ foreach ($checkid as $key => $val) {
 switch (_OP_) {
 	case 'delete':
 		foreach ($items as $item) {
-			if (dba_remove(_DB_PREF_.'_toolsPhonebook', array('uid' => $core_config['user']['uid'], 'id' => $item))) {
+			if (dba_remove(_DB_PREF_.'_toolsPhonebook', array('uid' => $user_config['uid'], 'id' => $item))) {
 				dba_remove(_DB_PREF_.'_toolsPhonebook_group_contacts', array('pid' => $item));
 				$_SESSION['error_string'] = _('Selected contact has been deleted');
 			}

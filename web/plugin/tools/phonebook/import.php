@@ -2,7 +2,7 @@
 defined('_SECURE_') or die('Forbidden');
 if(!auth_isvalid()){auth_block();};
 
-$uid = $core_config['user']['uid'];
+$uid = $user_config['uid'];
 
 switch ($op) {
 	case "list":

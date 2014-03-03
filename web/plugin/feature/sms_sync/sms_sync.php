@@ -13,12 +13,12 @@ if ($err = $_SESSION['error_string']) {
 
 switch ($op) {
 	case "sms_sync_list":
-		$list = registry_search($core_config['user']['uid'], 'feature', 'sms_sync');
+		$list = registry_search($user_config['uid'], 'feature', 'sms_sync');
 		$sms_sync_secret = $list['feature']['sms_sync']['secret'];
 		if ($list['feature']['sms_sync']['enable']) {
 			$option_enable = 'checked';
 		}
-		$sync_url = $core_config['http_path']['base'].'/plugin/feature/sms_sync/sync.php?uid='.$core_config['user']['uid'];
+		$sync_url = $core_config['http_path']['base'].'/plugin/feature/sms_sync/sync.php?uid='.$user_config['uid'];
 		unset($tpl);
 		$tpl = array(
 			'name' => 'sms_sync',
@@ -43,7 +43,7 @@ switch ($op) {
 	case "sms_sync_save":
 		$items['secret'] = $_POST['sms_sync_secret'];
 		$items['enable'] = ( trim($_POST['sms_sync_enable']) ? 1 : 0 );
-		if (registry_update($core_config['user']['uid'], 'feature', 'sms_sync', $items)) {
+		if (registry_update($user_config['uid'], 'feature', 'sms_sync', $items)) {
 			$_SESSION['error_string'] = _('SMS Sync configuration has been saved');
 		} else {
 			$_SESSION['error_string'] = _('Fail to save SMS Sync configuration');

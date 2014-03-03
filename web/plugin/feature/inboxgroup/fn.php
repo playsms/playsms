@@ -233,9 +233,9 @@ function inboxgroup_dataexists($in_receiver) {
 }
 
 function inboxgroup_dataadd($in_receiver, $keywords, $description) {
-	global $core_config;
+	global $user_config;
 	$dt = core_get_datetime();
-	$uid = $core_config['user']['uid'];
+	$uid = $user_config['uid'];
 	$keywords = str_replace(' ', '', $keywords);
 	$keywords = trim(strtoupper($keywords));
 	$keywords = explode(',', $keywords);

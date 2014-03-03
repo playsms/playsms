@@ -20,7 +20,7 @@
 defined('_SECURE_') or die('Forbidden');
 if(!auth_isvalid()){auth_block();};
 
-$c_username = $core_config['user']['username'];
+$c_username = $user_config['username'];
 
 if (($uname = $_REQUEST['uname']) && auth_isadmin()) {
 	$c_username = trim($uname);

@@ -11,14 +11,14 @@ switch ($op) {
 		$fields = 'DISTINCT A.id AS pid, A.name AS name, A.mobile AS mobile, A.email AS email';
 		$join = 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group AS B ON A.uid=B.uid ';
 		$join .= 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid';
-		$conditions = array('B.uid' => $core_config['user']['uid']);
+		$conditions = array('B.uid' => $user_config['uid']);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_.'_toolsPhonebook AS A', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'A.name, mobile', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = dba_search(_DB_PREF_.'_toolsPhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
 
-		$phonebook_groups = phonebook_search_group($core_config['user']['uid']);
+		$phonebook_groups = phonebook_search_group($user_config['uid']);
 		foreach ($phonebook_groups as $group) {
 			$action_move_options .= '<option value=move_'.$group['gpid'].'>'._('Move to').' '.$group['group_name'].' ('.$group['code'].')</option>';
 		}
@@ -75,7 +75,7 @@ switch ($op) {
 			$email = $list[$j]['email'];
 			$group_code = "";
 			$groupfields = 'B.id AS id, B.code AS code, B.flag_sender AS flag_sender';
-			$groupconditions = array('B.uid' => $core_config['user']['uid'], 'C.pid' => $list[$j]['pid']);
+			$groupconditions = array('B.uid' => $user_config['uid'], 'C.pid' => $list[$j]['pid']);
 			$groupextras = array('ORDER BY' => 'B.code ASC', 'LIMIT' => $nav['limit']);
 			$groupjoin = 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group_contacts AS C ON C.gpid = B.id';
 			$grouplist = dba_search(_DB_PREF_.'_toolsPhonebook_group AS B', $groupfields, $groupconditions, '', $groupextras, $groupjoin);
@@ -111,7 +111,7 @@ switch ($op) {
 		break;
 	case "phonebook_add":
 		$phone = trim(urlencode($_REQUEST['phone']));
-		$uid = $core_config['user']['uid'];
+		$uid = $user_config['uid'];
 		$db_query = "SELECT * FROM "._DB_PREF_."_toolsPhonebook_group WHERE uid='$uid'";
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
@@ -139,7 +139,7 @@ switch ($op) {
 		_p($content);
 		break;
 	case "phonebook_edit":
-		$uid = $core_config['user']['uid'];
+		$uid = $user_config['uid'];
 		$pid = $_REQUEST['pid'];
 		$list = dba_search(_DB_PREF_.'_toolsPhonebook', 'name, mobile, email', array('id' => $pid, 'uid' => $uid));
 		$db_query = "SELECT * FROM "._DB_PREF_."_toolsPhonebook_group WHERE uid='$uid'";
@@ -183,7 +183,7 @@ switch ($op) {
 				$fields = 'A.id AS pid, A.name AS name, A.mobile AS mobile, A.email AS email, B.code AS code';
 				$join = 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group AS B ON A.uid=B.uid ';
 				$join .= 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group_contacts AS C ON A.id = C.pid AND C.gpid = B.id';
-				$conditions = array('B.uid' => $core_config['user']['uid'], 'C.gpid=B.id');
+				$conditions = array('B.uid' => $user_config['uid'], 'C.gpid=B.id');
 				$keywords = $search['dba_keywords'];
 				$extras = array('ORDER BY' => 'A.name, mobile', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 				$list = dba_search(_DB_PREF_.'_toolsPhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
@@ -201,7 +201,7 @@ switch ($op) {
 				core_download($content, $fn, 'text/csv');
 				break;
 			case 'add':
-				$uid = $core_config['user']['uid'];
+				$uid = $user_config['uid'];
 				$gpids = $_POST['gpids'];
 				if (is_array($gpids)) {
 					foreach ($gpids as $gpid) {
@@ -244,7 +244,7 @@ switch ($op) {
 				exit();
 				break;
 			case 'edit':
-				$uid = $core_config['user']['uid'];
+				$uid = $user_config['uid'];
 				$c_pid = $_POST['pid'];
 				$gpids = $_POST['gpids'];
 				if (is_array($gpids)) {

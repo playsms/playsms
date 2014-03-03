@@ -50,8 +50,8 @@ switch ($op) {
 						$sms_username = trim($data[2]);
 						$uid = user_username2uid($sms_username);
 					} else {
-						$sms_username = $core_config['user']['username'];
-						$uid = $core_config['user']['uid'];
+						$sms_username = $user_config['username'];
+						$uid = $user_config['uid'];
 						$data[2] = $sms_username;
 					}
 					if ($sms_to && $sms_msg && $uid) {

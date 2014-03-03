@@ -242,12 +242,12 @@ function user_add($data=array()) {
  * @return array $ret('error_string', 'status')
  */
 function user_remove($uid) {
-	global $core_config;
+	global $user_config;
 	$ret['error_string'] = _('Unknown error has occurred');
 	$ret['status'] = FALSE;
 	if ($username = user_uid2username($uid)) {
 		if (! ($uid == 1 || $username == 'admin')) {
-			if ($uid == $core_config['user']['uid']) {
+			if ($uid == $user_config['uid']) {
 				$ret['error_string'] = _('Currently logged in user is immune to deletion');
 			} else {
 				if (dba_remove(_DB_PREF_.'_tblUser', array('uid' => $uid))) {
@@ -269,9 +269,9 @@ function user_remove($uid) {
  * @param integer $uid User ID
  */
 function user_session_set($uid='') {
-	global $core_config;
+	global $core_config, $user_config;
 	if (! $core_config['daemon_process']) {
-		$uid = ( $uid ? $uid : $core_config['user']['uid'] );
+		$uid = ( $uid ? $uid : $user_config['uid'] );
 		$c_items = array(
 			'ip' => $_SERVER['REMOTE_ADDR'],
 			'last_update' => core_get_datetime(),
@@ -289,9 +289,9 @@ function user_session_set($uid='') {
  * @return array Sessions
  */
 function user_session_get($uid='', $sid='') {
-	global $core_config;
+	global $user_config;
 	$ret = array();
-	$uid = ( $uid ? $uid : $core_config['user']['uid'] );
+	$uid = ( $uid ? $uid : $user_config['uid'] );
 	$s = registry_search($uid, 'auth', 'login_session');
 	$sessions = $s['auth']['login_session'];
 	foreach ($sessions as $key => $val) {
