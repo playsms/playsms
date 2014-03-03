@@ -19,16 +19,15 @@ if (! $clickatell_param ['additional_param']) {
 }
 
 // save plugin's parameters or options in $core_config
-$core_config ['plugin'] ['clickatell'] = $clickatell_param;
+$plugin_config['clickatell'] = $clickatell_param;
 
 // $gateway_number = $clickatell_param['sender'];
 
 // insert to left menu array
 //if (isadmin ()) {
-//	$menutab_gateway = $core_config ['menutab'] ['gateway'];
+//	$menutab_gateway = $core_config['menutab'] ['gateway'];
 //	$menu_config [$menutab_gateway] [] = array (
 //			"index.php?app=menu&inc=gateway_clickatell&op=manage",
 //			_ ( 'Manage clickatell' ) 
 //	);
 //}
-?>

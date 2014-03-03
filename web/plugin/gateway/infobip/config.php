@@ -16,16 +16,15 @@ if ($db_row = dba_fetch_array ( $db_result )) {
 }
 
 // save plugin's parameters or options in $core_config
-$core_config ['plugin'] ['infobip'] = $infobip_param;
+$plugin_config['infobip'] = $infobip_param;
 
 // $gateway_number = $infobip_param['sender'];
 
 // insert to left menu array
 //if (isadmin ()) {
-//	$menutab_gateway = $core_config ['menutab'] ['gateway'];
+//	$menutab_gateway = $core_config['menutab'] ['gateway'];
 //	$menu_config [$menutab_gateway] [] = array (
 //			"index.php?app=menu&inc=gateway_infobip&op=manage",
 //			_ ( 'Manage infobip' ) 
 //	);
 //}
-?>
