@@ -179,8 +179,8 @@ function clickatell_setsmsapimsgid($smslog_id, $apimsgid) {
 }
 
 function clickatell_hook_call($requests) {
-	// please note that we must globalize these 3 variables
-	global $core_config, $plugin_config, $user_config;
+	// please note that we must globalize these 2 variables
+	global $core_config, $plugin_config;
 	$called_from_hook_call = true;
 	$access = $requests['access'];
 	if ($access == 'callback') {
