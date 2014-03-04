@@ -119,9 +119,9 @@ function webservices_bc($c_username,$c_gcode,$msg,$type='text',$unicode=0,$nofoo
 }
 
 function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',$smslog_id=0,$c=100,$last=false) {
-	$ret = "ERR 101";
+	$ret = "ERR 501";
 	$json['status'] = 'ERR';
-	$json['error'] = '101';
+	$json['error'] = '501';
 	if ($uid = user_username2uid($c_username)) {
 		$conditions['uid'] = $uid;
 	}
@@ -205,9 +205,9 @@ function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',
 }
 
 function webservices_in($c_username,$src='',$dst='',$kwd='',$datetime='',$c=100,$last=false) {
-	$ret = "ERR 101";
+	$ret = "ERR 501";
 	$json['status'] = 'ERR';
-	$json['error'] = '101';
+	$json['error'] = '501';
 	$conditions = array('flag_deleted' => 0, 'in_status' => 1);
 	if ($uid = user_username2uid($c_username)) {
 		$conditions['in_uid'] = $uid;
@@ -272,9 +272,9 @@ function webservices_in($c_username,$src='',$dst='',$kwd='',$datetime='',$c=100,
 }
 
 function webservices_sx($c_username,$src='',$dst='',$datetime='',$c=100,$last=false) {
-	$ret = "ERR 101";
+	$ret = "ERR 501";
 	$json['status'] = 'ERR';
-	$json['error'] = '101';
+	$json['error'] = '501';
 	$u = user_getdatabyusername($c_username);
 	if ($u['status'] != 2) {
 		return array($ret, $json);
@@ -334,9 +334,9 @@ function webservices_sx($c_username,$src='',$dst='',$datetime='',$c=100,$last=fa
 }
 
 function webservices_ix($c_username,$src='',$dst='',$datetime='',$c=100,$last=false) {
-	$ret = "ERR 101";
+	$ret = "ERR 501";
 	$json['status'] = 'ERR';
-	$json['error'] = '101';
+	$json['error'] = '501';
 	$conditions['flag_deleted'] = 0;
 	if ($uid = user_username2uid($c_username)) {
 		$conditions['in_uid'] = $uid;

@@ -70,7 +70,7 @@ OK [WEBSERVICE_TOKEN]                 : action successful and returns webservice
 Unsuccessful actions:
 
 ERR 100 : authentication failed
-ERR 101 : type of action not valid
+ERR 101 : type of action is invalid or unknown
 ERR 102 : one or more field empty
 ERR 103 : not enough credit for this operation
 ERR 104 : webservice token is not available
@@ -83,6 +83,7 @@ ERR 301 : destination group or message is empty
 ERR 400 : no delivery status available
 ERR 401 : no delivery status retrieved and SMS still in queue
 ERR 402 : no delivery status retrieved and SMS has been processed from queue
+ERR 501 : no data returned or result is empty
 
 There might appear new error codes in the future, you should be aware that new
 codes might appear with this syntax
@@ -91,7 +92,7 @@ ERR 1xx : authentication or parameter erorrs
 ERR 2xx : specific pv errors
 ERR 3xx : specific bc errors
 ERR 4xx : delivery status errors
-
+ERR 5xx : others
 
 PROTOCOL
 --------
