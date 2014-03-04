@@ -67,7 +67,6 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0,$nofooter=F
 			$json['data'][$i]['queue'] = $queue_code[$i];
 			$json['data'][$i]['to'] = $to[$i];
 		}
-		$json['multi'] = true;
 	} elseif ($c_username && $to && $msg) {
 		// single destination
 		list($ok,$to,$smslog_id,$queue_code) = sendsms($c_username,$to,$msg,$type,$unicode,$nofooter,$footer,$from,$schedule);
@@ -183,7 +182,6 @@ function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',
 			$ret = $content;
 			unset($json['status']);
 			unset($json['error']);
-			$json['multi'] = true;
 		} else {
 			if (dba_search(_DB_PREF_.'_tblSMSOutgoing_queue', 'id', array('queue_code' => $queue_code, 'flag' => 0))) {
 				// exists in queue but not yet processed
@@ -268,7 +266,6 @@ function webservices_in($c_username,$src='',$dst='',$kwd='',$datetime='',$c=100,
 			$ret = $content;
 			unset($json['status']);
 			unset($json['error']);
-			$json['multi'] = true;
 		}
 	}
 	return array($ret, $json);
@@ -331,7 +328,6 @@ function webservices_sx($c_username,$src='',$dst='',$datetime='',$c=100,$last=fa
 			$ret = $content;
 			unset($json['status']);
 			unset($json['error']);
-			$json['multi'] = true;
 		}
 	}
 	return array($ret, $json);
@@ -391,7 +387,6 @@ function webservices_ix($c_username,$src='',$dst='',$datetime='',$c=100,$last=fa
 			$ret = $content;
 			unset($json['status']);
 			unset($json['error']);
-			$json['multi'] = true;
 		}
 	}
 	return array($ret, $json);
@@ -424,7 +419,6 @@ function webservices_get_contact($c_uid, $name, $count) {
 	$json['status'] = 'OK';
 	$json['error'] = '0';
 	$json['data'] = $list;
-	$json['multi'] = true;
 	return array($ret, $json);
 }
 
@@ -441,7 +435,6 @@ function webservices_get_contact_group($c_uid, $name, $count) {
 	$json['status'] = 'OK';
 	$json['error'] = '0';
 	$json['data'] = $list;
-	$json['multi'] = true;
 	return array($ret, $json);
 }
 
