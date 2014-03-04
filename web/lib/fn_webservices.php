@@ -54,24 +54,18 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0,$nofooter=F
 				$ret .= "OK ".$smslog_id[$i].",".$queue_code[$i].",".$to[$i]."\n";
 				$json['data'][$i]['status'] = 'OK';
 				$json['data'][$i]['error'] = '0';
-				$json['data'][$i]['smslog_id'] = $smslog_id[$i];
-				$json['data'][$i]['queue'] = $queue_code[$i];
-				$json['data'][$i]['to'] = $to[$i];
 			} elseif ($ok[$i]==2) { // this doesn't work, but not much an issue now
 				$ret .= "ERR 103 ".$arr_to[$i]."\n";
 				$json['data'][$i]['status'] = 'ERR';
 				$json['data'][$i]['error'] = '103';
-				$json['data'][$i]['smslog_id'] = '';
-				$json['data'][$i]['queue'] = '';
-				$json['data'][$i]['to'] = $to[$i];
 			} else {
 				$ret .= "ERR 200 ".$arr_to[$i]."\n";
 				$json['data'][$i]['status'] = 'ERR';
 				$json['data'][$i]['error'] = '200';
-				$json['data'][$i]['smslog_id'] = '';
-				$json['data'][$i]['queue'] = '';
-				$json['data'][$i]['to'] = $to[$i];
 			}
+			$json['data'][$i]['smslog_id'] = $smslog_id[$i];
+			$json['data'][$i]['queue'] = $queue_code[$i];
+			$json['data'][$i]['to'] = $to[$i];
 		}
 		$json['multi'] = true;
 	} elseif ($c_username && $to && $msg) {
@@ -81,9 +75,6 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0,$nofooter=F
 			$ret = "OK ".$smslog_id[0].",".$queue_code[0].",".$to[0];
 			$json['status'] = 'OK';
 			$json['error'] = '0';
-			$json['smslog_id'] = $smslog_id[0];
-			$json['queue'] = $queue_code[0];
-			$json['to'] = $to[0];
 		} elseif ($ok[0]==2) {
 			$ret = "ERR 103";
 			$json['status'] = 'ERR';
@@ -93,6 +84,9 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0,$nofooter=F
 			$json['status'] = 'ERR';
 			$json['error'] = '200';
 		}
+		$json['smslog_id'] = $smslog_id[0];
+		$json['queue'] = $queue_code[0];
+		$json['to'] = $to[0];
 		logger_print("returns:".$ret." to:".$to[0]." smslog_id:".$smslog_id[0]." queue_code:".$queue_code[0], 2, "webservices_pv");
 	} else {
 		$ret = "ERR 201";
@@ -111,12 +105,12 @@ function webservices_bc($c_username,$c_gcode,$msg,$type='text',$unicode=0,$nofoo
 			$ret = "OK ".$queue_code[0];
 			$json['status'] = 'OK';
 			$json['error'] = '0';
-			$json['queue'] = $queue_code[0];
 		} else {
 			$ret = "ERR 300";
 			$json['status'] = 'ERR';
 			$json['error'] = '300';
 		}
+		$json['queue'] = $queue_code[0];
 	} else {
 		$ret = "ERR 301";
 		$json['status'] = 'ERR';
