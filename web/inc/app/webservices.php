@@ -57,7 +57,7 @@ $kwd		= trim($_REQUEST['kwd']);
 
 if ($op) { $ta = $op; };
 
-//logger_print("begin u:".$u." h:".$h." ip:".$_SERVER['REMOTE_ADDR']." ta:".$ta, 3, "webservices");
+$log_this = FALSE;
 
 if ($ta) {
 	switch ($ta) {
@@ -69,6 +69,7 @@ if ($ta) {
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
+			$log_this = TRUE;
 			break;
 		case "BC":
 			if ($u = webservices_validate($h,$u)) {
@@ -78,6 +79,7 @@ if ($ta) {
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
+			$log_this = TRUE;
 			break;
 		case "DS":
 			if ($u = webservices_validate($h,$u)) {
@@ -87,6 +89,7 @@ if ($ta) {
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
+			$log_this = TRUE;
 			break;
 		case "IN":
 			if ($u = webservices_validate($h,$u)) {
@@ -96,6 +99,7 @@ if ($ta) {
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
+			$log_this = TRUE;
 			break;
 		case "SX":
 			if ($u = webservices_validate($h,$u)) {
@@ -105,6 +109,7 @@ if ($ta) {
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
+			$log_this = TRUE;
 			break;
 		case "IX":
 			if ($u = webservices_validate($h,$u)) {
@@ -114,6 +119,7 @@ if ($ta) {
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
+			$log_this = TRUE;
 			break;
 		case "CR":
 			if ($u = webservices_validate($h,$u)) {
@@ -123,6 +129,7 @@ if ($ta) {
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
+			$log_this = TRUE;
 			break;
 		case "GET_CONTACT":
 			if ($u = webservices_validate($h,$u)) {
@@ -133,6 +140,7 @@ if ($ta) {
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
+			$log_this = TRUE;
 			break;
 		case "GET_CONTACT_GROUP":
 			if ($u = webservices_validate($h,$u)) {
@@ -143,6 +151,7 @@ if ($ta) {
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
+			$log_this = TRUE;
 			break;
 		case "GET_TOKEN":
 			if (auth_validate_login($u,$p)) {
@@ -192,6 +201,7 @@ if ($ta) {
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
+			$log_this = TRUE;
 			break;
 		case "SET_TOKEN":
 			if ($u = webservices_validate($h,$u)) {
@@ -220,6 +230,7 @@ if ($ta) {
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
+			$log_this = TRUE;
 			break;
 		default:
 			if ($ta) {
@@ -249,4 +260,6 @@ if ($format=='JSON') {
 	_p($ret);
 }
 
-//logger_print("end u:".$u." h:".$h." ip:".$_SERVER['REMOTE_ADDR']." ta:".$ta, 3, "webservices");
+if ($log_this) {
+	logger_print("u:".$u." ip:".$_SERVER['REMOTE_ADDR']." ta:".$ta, 3, "webservices");
+}
