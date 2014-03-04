@@ -92,6 +92,7 @@ include_once $core_config['apps_path']['libs']."/fn_logger.php";
 include_once $core_config['apps_path']['libs']."/fn_auth.php";
 include_once $core_config['apps_path']['libs']."/fn_tpl.php";
 include_once $core_config['apps_path']['libs']."/fn_themes.php";
+include_once $core_config['apps_path']['libs']."/fn_notif.php";
 
 /*
  * end of init functions
