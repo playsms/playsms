@@ -53,3 +53,35 @@ CREATE TABLE IF NOT EXISTS `playsms_tblNotif` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 DROP TABLE IF EXISTS `playsms_tblConfig_main`;
+
+DROP TABLE IF EXISTS `playsms_tblRegistry`;
+CREATE TABLE IF NOT EXISTS `playsms_tblRegistry` (
+  `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `registry_group` varchar(255) NOT NULL DEFAULT '',
+  `registry_family` varchar(255) NOT NULL DEFAULT '',
+  `registry_key` varchar(255) NOT NULL DEFAULT '',
+  `registry_value` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
+
+INSERT INTO `playsms_tblRegistry` (`c_timestamp`, `id`, `uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) VALUES
+(0, 1, 1, 'core', 'config', 'playsms_version', '1.0.0'),
+(0, 2, 1, 'core', 'main_config', 'web_title', 'playSMS'),
+(0, 3, 1, 'core', 'main_config', 'email_service', 'noreply@playsms.org'),
+(0, 4, 1, 'core', 'main_config', 'email_footer', 'Powered by playSMS'),
+(0, 5, 1, 'core', 'main_config', 'main_website_name', 'playSMS'),
+(0, 6, 1, 'core', 'main_config', 'main_website_url', 'http://www.playsms.org'),
+(0, 7, 1, 'core', 'main_config', 'gateway_number', '1234'),
+(0, 8, 1, 'core', 'main_config', 'gateway_timezone', '+0700'),
+(0, 9, 1, 'core', 'main_config', 'default_rate', '0'),
+(0, 10, 1, 'core', 'main_config', 'gateway_module', 'dev'),
+(0, 11, 1, 'core', 'main_config', 'themes_module', 'default'),
+(0, 12, 1, 'core', 'main_config', 'language_module', 'en_US'),
+(0, 13, 1, 'core', 'main_config', 'sms_max_count', '3'),
+(0, 14, 1, 'core', 'main_config', 'default_credit', '0'),
+(0, 15, 1, 'core', 'main_config', 'enable_register', '0'),
+(0, 16, 1, 'core', 'main_config', 'enable_forgot', '1'),
+(0, 17, 1, 'core', 'main_config', 'allow_custom_sender', '0'),
+(0, 18, 1, 'core', 'main_config', 'allow_custom_footer', '0');

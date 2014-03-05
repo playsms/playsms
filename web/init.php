@@ -183,7 +183,7 @@ if (! ($dba_object = dba_connect(_DB_USER_,_DB_PASS_,_DB_NAME_,_DB_HOST_,_DB_POR
 // set charset to UTF-8
 dba_query("SET NAMES utf8");
 
-// get main config
+// get main config from registry and load it to $core_config['main']
 $result = registry_search(1, 'core', 'main_config');
 foreach ($result['core']['main_config'] as $key => $val) {
 	if ($key == 'gateway_module' && ! $val) {
@@ -205,29 +205,10 @@ foreach ($result['core']['main_config'] as $key => $val) {
 	$core_config['main'][$key] = $val;
 }
 
-// this is only temporary, we will remove this on the next version
-// this block will check if nothing on registry then save some default value
 if (! $core_config['main']) {
-	$items = array(
-		'web_title' => $_POST['edit_web_title'],
-		'email_service' => $_POST['edit_email_service'],
-		'email_footer' => $_POST['edit_email_footer'],
-		'main_website_name' => $_POST['edit_main_website_name'],
-		'main_website_url' => $_POST['edit_main_website_url'],
-		'gateway_number' => core_sanitize_sender($_POST['edit_gateway_number']),
-		'gateway_timezone' => $_POST['edit_gateway_timezone'],
-		'default_rate' => (float) $_POST['edit_default_rate'],
-		'gateway_module' => ( $_POST['edit_gateway_module'] ? $_POST['edit_gateway_module'] : 'dev' ),
-		'themes_module' => ( $_POST['edit_themes_module'] ? $_POST['edit_themes_module'] : 'default' ),
-		'language_module' => ( $_POST['edit_language_module'] ? $_POST['edit_language_module'] : 'en_US' ),
-		'sms_max_count' => (int) ( $_POST['edit_sms_max_count'] > 1 ? $_POST['edit_sms_max_count'] : 1 ),
-		'default_credit' => (float) $_POST['edit_default_credit'],
-		'enable_register' => (int) $_POST['edit_enable_register'],
-		'enable_forgot' => (int) $_POST['edit_enable_forgot'],
-		'allow_custom_sender' => $_POST['edit_allow_custom_sender'],
-		'allow_custom_footer' => $_POST['edit_allow_custom_footer']
-	);
-	$result = registry_update(1, 'core', 'main_config', $items);
+	logger_print("Fail to load main config from registry", 1, "init");
+	ob_end_clean();
+	die(_('FATAL ERROR').' : '._('Fail to load main config from registry'));
 }
 
 // max sms text length
