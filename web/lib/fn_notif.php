@@ -25,21 +25,23 @@ defined('_SECURE_') or die('Forbidden');
  * @param string $label Notification label
  * @param string $subject Notification subject
  * @param string $body Notification body
- * @param array $data Additional data (currently unused)
+ * @param array $data Additional data, json encoded
  * @return boolean
  */
 function notif_add($uid, $label, $subject, $body, $data=array()) {
 	$ret = FALSE;
-	if ($id = md5(_PID_.$uid.$label.$subject.$body)) {
-		$items = array(
-		    'dt' => core_get_datetime(),
-		    'label' => $label,
-		    'subject' => $subject,
-		    'body' => $body,
-		    'flag_unread' => 1);
-		if ($ret = registry_update($uid, 'notif', $id, $items)) {
-			logger_print('uid:'.$uid.' id:'.$id.' label:'.$label.' subject:'.$subject, 2, 'notif_add');
-		}
+	$db_table = _DB_PREF_.'_tblNotif';
+	$items = array(
+	    'uid' => $uid,
+	    'last_update' => core_get_datetime(),
+	    'label' => $label,
+	    'subject' => $subject,
+	    'body' => $body,
+	    'flag_unread' => 1,
+	    'data' => json_encode($data));
+	if ($result = dba_add($db_table, $items)) {
+		logger_print('uid:'.$uid.' id:'.$result.' label:'.$label.' subject:'.$subject, 2, 'notif_add');
+		$ret = TRUE;
 	}
 	return $ret;
 }
@@ -52,8 +54,10 @@ function notif_add($uid, $label, $subject, $body, $data=array()) {
  */
 function notif_remove($uid, $id) {
 	$ret = FALSE;
-	if ($ret = registry_remove($uid, 'notif', $id)) {
+	$db_table = _DB_PREF_.'_tblNotif';
+	if ($result = dba_remove($db_table, array('uid' => $uid, 'id' => $id))) {
 		logger_print('uid:'.$uid.' id:'.$id, 2, 'notif_remove');
+		$ret = TRUE;
 	}
 	return $ret;
 }
@@ -68,14 +72,31 @@ function notif_remove($uid, $id) {
 function notif_update($uid, $id, $data) {
 	$ret = FALSE;
 	$replaced = '';
-	$result = registry_search($uid, 'notif', $id);
-	$current_data = $result['notif'][$id];
-	foreach ($data as $key => $val) {
-		$current_data[$key] = $val;
-		$replaced = $key.':'.$val.' ';
+	$db_table = _DB_PREF_.'_tblNotif';
+	$result = dba_search($db_table, '*', array('uid' => $uid, 'id' => $id));
+	foreach ($result[0] as $key => $val) {
+		$items[$key] = ( $data[$key] ? $data[$key] : $val );
+		if ($data[$key]) {
+			$replaced = $key.':'.$val.' ';
+		}
 	}
-	if ($ret = registry_update($uid, 'notif', $id, $current_data)) {
-		logger_print('uid:'.$uid.' id:'.$id.' '.trim($replaced), 2, 'notif_update');
+	if ($items && trim($replaced)) {
+		if (dba_update($db_table, $items, array('id' => $id))) {
+			logger_print('uid:'.$uid.' id:'.$id.' '.trim($replaced), 2, 'notif_update');
+			$ret = TRUE;
+		}
 	}
 	return $ret;
+}
+
+/**
+ * Search notification
+ * @param integer $uid User ID
+ * @param array $conditions Search criteria
+ * @return array
+ */
+function notif_search($uid, $conditions) {
+	$db_table = _DB_PREF_.'_tblNotif';
+	$results = dba_search($db_table, '*', $conditions, array('uid' => $uid, 'id' => $uid));
+	return $results;
 }
