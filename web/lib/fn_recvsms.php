@@ -337,6 +337,9 @@ function recvsms_inbox_add($sms_datetime,$sms_sender,$target_user,$message,$sms_
 			}
 		}
 	}
+	if ($ok && $uid && $sms_sender) {
+		notif_add($uid, 'recvsms_inbox_add', 'New inbox from '.$sms_sender, 'You have received a new message from '.$sms_sender);
+	}
 	return $ok;
 }
 
