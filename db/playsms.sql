@@ -1562,6 +1562,19 @@ CREATE TABLE IF NOT EXISTS `playsms_tblRegistry` (
 
 INSERT INTO `playsms_tblRegistry` (`c_timestamp`, `id`, `uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) VALUES (0, 1, 1, 'core', 'config', 'playsms_version', '1.0.0');
 
+DROP TABLE IF EXISTS `playsms_tblNotif`;
+CREATE TABLE IF NOT EXISTS `playsms_tblNotif` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `last_update` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `label` varchar(255) DEFAULT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  `body` varchar(255) DEFAULT NULL,
+  `flag` int(11) NOT NULL DEFAULT '0',
+  `data` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

@@ -38,3 +38,15 @@ ALTER TABLE  `playsms_toolsPhonebook_group` ADD  `flag_sender` INT NOT NULL DEFA
 DROP TABLE IF EXISTS `playsms_gatewayKannel_config` ;
 ALTER TABLE  `playsms_tblUserInbox` CHANGE  `in_hidden`  `flag_deleted` INT( 11 ) NOT NULL DEFAULT  '0' ;
 RENAME TABLE  `playsms_tblUserInbox` TO `playsms_tblUser_inbox` ;
+
+DROP TABLE IF EXISTS `playsms_tblNotif`;
+CREATE TABLE IF NOT EXISTS `playsms_tblNotif` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `last_update` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `label` varchar(255) DEFAULT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  `body` varchar(255) DEFAULT NULL,
+  `flag` int(11) NOT NULL DEFAULT '0',
+  `data` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
