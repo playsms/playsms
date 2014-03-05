@@ -68,11 +68,4 @@ switch ($op) {
 		header("Location: index.php?app=menu&inc=gateway_twilio&op=manage");
 		exit();
 		break;
-	case "manage_activate":
-		$db_query = "UPDATE "._DB_PREF_."_tblConfig_main SET c_timestamp='".mktime()."',cfg_gateway_module='twilio'";
-		$db_result = dba_query($db_query);
-		$_SESSION['error_string'] = _('Gateway has been activated');
-		header("Location: index.php?app=menu&inc=gateway_twilio&op=manage");
-		exit();
-		break;
 }

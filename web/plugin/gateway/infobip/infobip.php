@@ -93,12 +93,4 @@ switch ($op) {
 		}
 		header ( "Location: index.php?app=menu&inc=gateway_infobip&op=manage" );
 		break;
-	case "manage_activate" :
-		$db_query = "UPDATE " . _DB_PREF_ . "_tblConfig_main SET c_timestamp='" . mktime () . "',cfg_gateway_module='infobip'";
-		$db_result = dba_query ( $db_query );
-		$error_string = _ ( 'Gateway has been activated' );
-		header ( "Location: index.php?app=menu&inc=gateway_infobip&op=manage&err=" . urlencode ( $error_string ) );
-		break;
 }
-
-?>

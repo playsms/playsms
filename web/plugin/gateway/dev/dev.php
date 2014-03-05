@@ -42,13 +42,6 @@ switch ($op) {
 		$content .= _back('index.php?app=menu&inc=tools_gatewaymanager&op=gatewaymanager_list');
 		_p($content);
 		break;
-	case "manage_activate":
-		$db_query = "UPDATE "._DB_PREF_."_tblConfig_main SET c_timestamp='".mktime()."',cfg_gateway_module='dev'";
-		$db_result = dba_query($db_query);
-		$_SESSION['error_string'] = _('Gateway has been activated');
-		header("Location: index.php?app=menu&inc=gateway_dev&op=manage");
-		exit();
-		break;
 	case "simulate":
 		$sms_sender = ( $_REQUEST['sender'] ? $_REQUEST['sender'] : '+629876543210' );
 		$sms_receiver = ( $_REQUEST['receiver'] ? $_REQUEST['receiver'] : '1234' );
