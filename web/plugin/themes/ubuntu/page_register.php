@@ -2,6 +2,11 @@
 defined('_SECURE_') or die('Forbidden');
 
 unset($tpl);
+// error string
+if ($_SESSION['error_string']) {
+	$error_content = '<div class="error_string">'.$_SESSION['error_string'].'</div>';
+}
+
 $tpl = array(
 	'name' => 'page_register',
 	'var' => array(

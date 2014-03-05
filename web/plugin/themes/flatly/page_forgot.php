@@ -1,6 +1,11 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
+// error string
+if ($_SESSION['error_string']) {
+	$error_content = '<div class="error_string">'.$_SESSION['error_string'].'</div>';
+}
+
 unset($tpl);
 $tpl = array(
 	'name' => 'page_forgot',
