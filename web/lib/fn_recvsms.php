@@ -296,7 +296,7 @@ function recvsms_inbox_add($sms_datetime,$sms_sender,$target_user,$message,$sms_
 				";
 				logger_print("saving sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user, 2, "recvsms_inbox_add");
 				if ($inbox_id = @dba_insert_id($db_query)) {
-					logger_print("saved id:'.$inbox_id.' sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user, 2, "recvsms_inbox_add");
+					logger_print("saved id:".$inbox_id." sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user, 2, "recvsms_inbox_add");
 					notif_add($uid, 'recvsms_inbox_add', _('New inbox from').' '.$sms_sender, $message, array('inbox_id' => $inbox_id));
 					$ok = TRUE;
 				}
