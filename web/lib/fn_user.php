@@ -275,7 +275,8 @@ function user_session_set($uid='') {
 		$c_items = array(
 			'ip' => $_SERVER['REMOTE_ADDR'],
 			'last_update' => core_get_datetime(),
-			'http_user_agent' => $_SERVER['HTTP_USER_AGENT']
+			'http_user_agent' => $_SERVER['HTTP_USER_AGENT'],
+			'hash' => md5($uid.$_SERVER['REMOTE_ADDR'].$_SERVER['HTTP_USER_AGENT'])
 		);
 		$items[$_SESSION['sid']] = json_encode($c_items);
 		registry_update($uid, 'auth', 'login_session', $items);
