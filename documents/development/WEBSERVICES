@@ -1,7 +1,7 @@
 WEBSERVICES ACCESS
 ------------------
 
-URL: http://[playSMS_web_domain_or_url]/index.php?app=webservices
+URL: http://[playSMS_domain_or_url]/index.php?app=webservices
 
 For example https://playsms.org/trial/index.php?app=webservices
 
@@ -54,21 +54,6 @@ kwd		: keyword
 ERROR RETURNS
 -------------
 
-Successful actions:
-
-OK [QUEUE_CODE]                       : action successful and returns Queue Code
-                                        this is only when "ta=bc"
-OK [SMS_LOG_ID],[QUEUE_CODE],[NUMBER] : action successful and returns it's
-					SMS Log ID,
-                                        it's Queue Code and destination number
-                                        this is only when "ta=pv"
-OK [CREDIT]                           : action successful and returns
-					user's credit
-OK [WEBSERVICE_TOKEN]                 : action successful and returns webservice
-					token
-
-Unsuccessful actions:
-
 ERR 100 : authentication failed
 ERR 101 : type of action is invalid or unknown
 ERR 102 : one or more field empty
@@ -93,6 +78,7 @@ ERR 2xx : specific pv errors
 ERR 3xx : specific bc errors
 ERR 4xx : delivery status errors
 ERR 5xx : others
+
 
 PROTOCOL
 --------
@@ -154,7 +140,7 @@ PROTOCOL
     parameters	: u, h, format
     returns	: webservice token
 
-10.  Get contact list by name, mobile or email
+10. Get contact list by name, mobile or email
     ta		: get_contact
     parameters	: u, h, kwd, c, format
     returns	: list of contacts
@@ -178,51 +164,10 @@ PROTOCOL
 EXAMPLE
 -------
 
-1. Example webservice URL:
-   http://x.com/index.php?app=webservices&ta=cr&u=anton&
-   h=b09ba37b03b21e4ffb99b6d4ece735c1
+1. Send SMS
 
-   Explanation:
+   Example webservice URL:
 
-   playSMS webservices in x.com with type of action (ta) cr (User credits)
-   accessed by user or apps using a username (u) and webservices token (h)
-
-   if succeeded returns: OK <user's credits> (eg: OK 4500)
-
-   if error occured returns one of the ERROR RETURNS mentioned above
-
-2. Example webservice URL:
-   http://x.com/index.php?app=webservices&u=anton&
-   h=471bb53b69a966e27ae818ee3d0c8c78&ta=ds&dt=2013
-
-   Explanation:
-
-   playSMS webservices in x.com with type of action (ta) ds (Delivery status)
-   accessed by user or apps using a username (u) and webservices token (h) with
-   parameter query date/time (dt) 2013 the service will be looking for delivery
-   statuses on year 2013
-
-   if succeeded returns CSV format, for example:
-   "59";"playSMS";"62899911111";"2013-05-01 17:59:46";"2013-05-01 17:59:48";"3";
-   "60";"playSMS";"08999922222";"2013-05-02 04:59:46";"2013-05-02 11:59:46";"2";
-
-   if error occured returns one of the ERROR RETURNS mentioned above
-
-3. Example webservice URL:
-   http://x.com/index.php?app=webservices&ta=get_token&u=operator&p=s*cretpwd%!
-
-   Explanation:
-
-   playSMS webservices in x.com with type of action (ta) get_token
-   (get webservice token) accessed by user or apps using a username (u)
-   and password (p)
-
-   if succeeded returns text with format: OK <webservice token>
-   OK 6d1bb53b49a986d2eae6185a3d0c8c61
-
-   if error occured returns one of the ERROR RETURNS mentioned above
-
-4. Example webservice URL:
    http://x.com/index.php?app=webservices&u=anton&
    h=a45a02791b2fe2fedb078c39fd83637a&ta=pv&to=0987654321&msg=test+only&
    format=json
@@ -243,7 +188,10 @@ EXAMPLE
    if error occured returns one of the ERROR RETURNS mentioned above,
    also in JSON format
 
-5. Example webservice URL:
+2. List of incoming SMS
+
+   Example webservice URL:
+
    http://x.com/index.php?app=webservices&u=anton&
    h=482ac0069592c647289e52dfef88be68&ta=in&kwd=IDOL&format=xml
 
@@ -272,7 +220,10 @@ EXAMPLE
    if error occured returns one of the ERROR RETURNS mentioned above, also in
    XML format
 
-6. Example webservice URL:
+3. List of contacts on phonebook
+
+   Example webservice URL:
+
    http://x.com/index.php?app=webservices&u=anton&
    h=482ac0069592c647289e52dfef88be68&kwd=anton&ta=get_contact&format=json
 
