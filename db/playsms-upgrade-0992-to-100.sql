@@ -42,6 +42,7 @@ RENAME TABLE  `playsms_tblUserInbox` TO `playsms_tblUser_inbox` ;
 DROP TABLE IF EXISTS `playsms_tblNotif`;
 CREATE TABLE IF NOT EXISTS `playsms_tblNotif` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL DEFAULT '0',
   `last_update` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `label` varchar(255) DEFAULT NULL,
   `subject` varchar(255) DEFAULT NULL,
