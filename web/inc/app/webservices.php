@@ -63,9 +63,8 @@ if ($ta) {
 	switch ($ta) {
 		case "PV":
 			if ($u = webservices_validate($h,$u)) {
-				list($ret,$json) = webservices_pv($u,$to,$msg,$type,$unicode,$nofooter,$footer,$from,$schedule);
+				$json = webservices_pv($u,$to,$msg,$type,$unicode,$nofooter,$footer,$from,$schedule);
 			} else {
-				$ret = "ERR 100";
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
@@ -73,9 +72,8 @@ if ($ta) {
 			break;
 		case "BC":
 			if ($u = webservices_validate($h,$u)) {
-				list($ret,$json) = webservices_bc($u,$to,$msg,$type,$unicode,$nofooter,$footer,$from,$schedule);
+				$json = webservices_bc($u,$to,$msg,$type,$unicode,$nofooter,$footer,$from,$schedule);
 			} else {
-				$ret = "ERR 100";
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
@@ -83,9 +81,8 @@ if ($ta) {
 			break;
 		case "DS":
 			if ($u = webservices_validate($h,$u)) {
-				list($ret,$json) = webservices_ds($u,$queue,$src,$dst,$dt,$smslog_id,$c,$last);
+				$json = webservices_ds($u,$queue,$src,$dst,$dt,$smslog_id,$c,$last);
 			} else {
-				$ret = "ERR 100";
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
@@ -93,9 +90,8 @@ if ($ta) {
 			break;
 		case "IN":
 			if ($u = webservices_validate($h,$u)) {
-				list($ret,$json) = webservices_in($u,$src,$dst,$kwd,$dt,$c,$last);
+				$json = webservices_in($u,$src,$dst,$kwd,$dt,$c,$last);
 			} else {
-				$ret = "ERR 100";
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
@@ -103,9 +99,8 @@ if ($ta) {
 			break;
 		case "SX":
 			if ($u = webservices_validate($h,$u)) {
-				list($ret,$json) = webservices_sx($u,$src,$dst,$dt,$c,$last);
+				$json = webservices_sx($u,$src,$dst,$dt,$c,$last);
 			} else {
-				$ret = "ERR 100";
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
@@ -113,9 +108,8 @@ if ($ta) {
 			break;
 		case "IX":
 			if ($u = webservices_validate($h,$u)) {
-				list($ret,$json) = webservices_ix($u,$src,$dst,$dt,$c,$last);
+				$json = webservices_ix($u,$src,$dst,$dt,$c,$last);
 			} else {
-				$ret = "ERR 100";
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
@@ -123,9 +117,8 @@ if ($ta) {
 			break;
 		case "CR":
 			if ($u = webservices_validate($h,$u)) {
-				list($ret,$json) = webservices_cr($u);
+				$json = webservices_cr($u);
 			} else {
-				$ret = "ERR 100";
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
@@ -134,9 +127,8 @@ if ($ta) {
 		case "GET_CONTACT":
 			if ($u = webservices_validate($h,$u)) {
 				$c_uid = user_username2uid($u);
-				list($ret,$json) = webservices_get_contact($c_uid, $kwd, $c);
+				$json = webservices_get_contact($c_uid, $kwd, $c);
 			} else {
-				$ret = "ERR 100";
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
@@ -145,9 +137,8 @@ if ($ta) {
 		case "GET_CONTACT_GROUP":
 			if ($u = webservices_validate($h,$u)) {
 				$c_uid = user_username2uid($u);
-				list($ret,$json) = webservices_get_contact_group($c_uid, $kwd, $c);
+				$json = webservices_get_contact_group($c_uid, $kwd, $c);
 			} else {
-				$ret = "ERR 100";
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
@@ -158,7 +149,6 @@ if ($ta) {
 				$user = user_getdatabyusername($u);
 				if ($user['uid']) {
 					$continue = false;
-					$ret = "ERR 106";
 					$json['status'] = 'ERR';
 					$json['error'] = '106';
 					$ip = explode(',', $user['webservices_ip']);
@@ -174,30 +164,25 @@ if ($ta) {
 						if ($token = $user['token']) {
 							$continue = true;
 						} else {
-							$ret = "ERR 104";
 							$json['status'] = 'ERR';
 							$json['error'] = '104';
 						}
 					}
 					if ($continue) {
 						if ($user['enable_webservices']) {
-							$ret = "OK ".$token;
 							$json['status'] = 'OK';
 							$json['error'] = '0';
 							$json['token'] = $token;
 						} else {
-							$ret = "ERR 105";
 							$json['status'] = 'ERR';
 							$json['error'] = '105';
 						}
 					}
 				} else {
-					$ret = "ERR 100";
 					$json['status'] = 'ERR';
 					$json['error'] = '100';
 				}
 			} else {
-				$ret = "ERR 100";
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
@@ -211,22 +196,18 @@ if ($ta) {
 					$items = array('token' => $token);
 					$conditions = array('uid' => $uid);
 					if (dba_update(_DB_PREF_.'_tblUser', $items, $conditions)) {
-						$ret = "OK ".$token;
 						$json['status'] = 'OK';
 						$json['error'] = '0';
 						$json['token'] = $token;
 					} else {
-						$ret = "ERR 100";
 						$json['status'] = 'ERR';
 						$json['error'] = '100';
 					}
 				} else {
-					$ret = "ERR 100";
 					$json['status'] = 'ERR';
 					$json['error'] = '100';
 				}
 			} else {
-				$ret = "ERR 100";
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
@@ -240,26 +221,27 @@ if ($ta) {
 				exit();
 			} else {
 				// default error return
-				$ret = "ERR 102";
 				$json['status'] = 'ERR';
 				$json['error'] = '102';
 			}
 	}
 }
 
-if ($format=='JSON') {
-	_p(json_encode($json));
-} else if ($format=='SERIALIZE') {
+if ($log_this) {
+	logger_print("u:".$u." ip:".$_SERVER['REMOTE_ADDR']." ta:".$ta, 3, "webservices");
+}
+
+if ($format=='SERIALIZE') {
+	ob_end_clean();
+	header('Content-Type: text/plain');
 	_p(serialize($json));
 } else if ($format=='XML') {
 	$xml = core_array_to_xml($json, new SimpleXMLElement('<response/>'));
 	ob_end_clean();
 	header('Content-Type: text/xml');
 	_p($xml->asXML());
-} else if ($format=='' || $format=='PLAIN') {
-	_p($ret);
-}
-
-if ($log_this) {
-	logger_print("u:".$u." ip:".$_SERVER['REMOTE_ADDR']." ta:".$ta, 3, "webservices");
+} else {
+	ob_end_clean();
+	header('Content-Type: application/json');
+	_p(json_encode($json));
 }

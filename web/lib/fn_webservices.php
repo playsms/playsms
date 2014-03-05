@@ -51,15 +51,12 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0,$nofooter=F
 		list($ok,$to,$smslog_id,$queue_code) = sendsms($c_username,$arr_to,$msg,$type,$unicode,$nofooter,$footer,$from,$schedule);
 		for ($i=0;$i<count($to);$i++) {
 			if (($ok[$i]==1 || $ok[$i]==true) && $to[$i] && ($queue_code[$i] || $smslog_id[$i])) {
-				$ret .= "OK ".$smslog_id[$i].",".$queue_code[$i].",".$to[$i]."\n";
 				$json['data'][$i]['status'] = 'OK';
 				$json['data'][$i]['error'] = '0';
 			} elseif ($ok[$i]==2) { // this doesn't work, but not much an issue now
-				$ret .= "ERR 103 ".$arr_to[$i]."\n";
 				$json['data'][$i]['status'] = 'ERR';
 				$json['data'][$i]['error'] = '103';
 			} else {
-				$ret .= "ERR 200 ".$arr_to[$i]."\n";
 				$json['data'][$i]['status'] = 'ERR';
 				$json['data'][$i]['error'] = '200';
 			}
@@ -71,15 +68,12 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0,$nofooter=F
 		// single destination
 		list($ok,$to,$smslog_id,$queue_code) = sendsms($c_username,$to,$msg,$type,$unicode,$nofooter,$footer,$from,$schedule);
 		if ($ok[0]==1) {
-			$ret = "OK ".$smslog_id[0].",".$queue_code[0].",".$to[0];
 			$json['status'] = 'OK';
 			$json['error'] = '0';
 		} elseif ($ok[0]==2) {
-			$ret = "ERR 103";
 			$json['status'] = 'ERR';
 			$json['error'] = '103';
 		} else {
-			$ret = "ERR 200";
 			$json['status'] = 'ERR';
 			$json['error'] = '200';
 		}
@@ -88,11 +82,10 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0,$nofooter=F
 		$json['to'] = $to[0];
 		logger_print("returns:".$ret." to:".$to[0]." smslog_id:".$smslog_id[0]." queue_code:".$queue_code[0], 2, "webservices_pv");
 	} else {
-		$ret = "ERR 201";
 		$json['status'] = 'ERR';
 		$json['error'] = '201';
 	}
-	return array($ret, $json);
+	return $json;
 }
 
 function webservices_bc($c_username,$c_gcode,$msg,$type='text',$unicode=0,$nofooter=FALSE,$footer='',$from='',$schedule) {
@@ -101,25 +94,21 @@ function webservices_bc($c_username,$c_gcode,$msg,$type='text',$unicode=0,$nofoo
 		// sendsms_bc($c_username,$c_gpid,$message,$sms_type='text',$unicode=0)
 		list($ok,$to,$smslog_id,$queue_code) = sendsms_bc($c_username,$c_gpid,$msg,$type,$unicode,$nofooter,$footer,$from,$schedule);
 		if ($ok[0]) {
-			$ret = "OK ".$queue_code[0];
 			$json['status'] = 'OK';
 			$json['error'] = '0';
 		} else {
-			$ret = "ERR 300";
 			$json['status'] = 'ERR';
 			$json['error'] = '300';
 		}
 		$json['queue'] = $queue_code[0];
 	} else {
-		$ret = "ERR 301";
 		$json['status'] = 'ERR';
 		$json['error'] = '301';
 	}
-	return array($ret, $json);
+	return $json;
 }
 
 function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',$smslog_id=0,$c=100,$last=false) {
-	$ret = "ERR 501";
 	$json['status'] = 'ERR';
 	$json['error'] = '501';
 	if ($uid = user_username2uid($c_username)) {
@@ -156,7 +145,6 @@ function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',
 		$extras['LIMIT'] = 100;
 	}
 	if ($uid) {
-		$content = '';
 		$j = 0;
 		$list = dba_search(_DB_PREF_.'_tblSMSOutgoing', '*', $conditions, $keywords, $extras);
 		foreach ($list as $db_row) {
@@ -167,7 +155,6 @@ function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',
 			$p_datetime = $db_row['p_datetime'];
 			$p_update = $db_row['p_update'];
 			$p_status = $db_row['p_status'];
-			$content .= "\"$smslog_id\";\"$p_src\";\"$p_dst\";\"$p_msg\";\"$p_datetime\";\"$p_update\";\"$p_status\"\n";
 			$json['data'][$j]['smslog_id'] = $smslog_id;
 			$json['data'][$j]['src'] = $p_src;
 			$json['data'][$j]['dst'] = $p_dst;
@@ -177,35 +164,29 @@ function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',
 			$json['data'][$j]['status'] = $p_status;
 			$j++;
 		}
-		// if DS available by checking content
-		if ($content) {
-			$ret = $content;
+		if ($j > 0) {
 			unset($json['status']);
 			unset($json['error']);
 		} else {
 			if (dba_search(_DB_PREF_.'_tblSMSOutgoing_queue', 'id', array('queue_code' => $queue_code, 'flag' => 0))) {
 				// exists in queue but not yet processed
-				$ret = "ERR 401";
 				$json['status'] = 'ERR';
 				$json['error'] = '401';
 			} else if (dba_search(_DB_PREF_.'_tblSMSOutgoing_queue', 'id', array('queue_code' => $queue_code, 'flag' => 1))) {
 				// exists in queue and have been processed
-				$ret = "ERR 402";
 				$json['status'] = 'ERR';
 				$json['error'] = '402';
 			} else {
 				// not exists anywhere, wrong query
-				$ret = "ERR 400";
 				$json['status'] = 'ERR';
 				$json['error'] = '400';
 			}
 		}
 	}
-	return array($ret, $json);
+	return $json;
 }
 
 function webservices_in($c_username,$src='',$dst='',$kwd='',$datetime='',$c=100,$last=false) {
-	$ret = "ERR 501";
 	$json['status'] = 'ERR';
 	$json['error'] = '501';
 	$conditions = array('flag_deleted' => 0, 'in_status' => 1);
@@ -240,7 +221,6 @@ function webservices_in($c_username,$src='',$dst='',$kwd='',$datetime='',$c=100,
 		$extras['LIMIT'] = 100;
 	}
 	if ($uid) {
-		$content = '';
 		$j = 0;
 		$list = dba_search(_DB_PREF_.'_tblSMSIncoming', '*', $conditions, $keywords, $extras);
 		foreach ($list as $db_row) {
@@ -251,7 +231,6 @@ function webservices_in($c_username,$src='',$dst='',$kwd='',$datetime='',$c=100,
 			$message = str_replace('"', "'", $db_row['in_message']);
 			$datetime = $db_row['in_datetime'];
 			$status = $db_row['in_status'];
-			$content .= "\"$id\";\"$src\";\"$dst\";\"$kwd\";\"$message\";\"$datetime\";\"$status\"\n";
 			$json['data'][$j]['id'] = $id;
 			$json['data'][$j]['src'] = $src;
 			$json['data'][$j]['dst'] = $dst;
@@ -261,23 +240,20 @@ function webservices_in($c_username,$src='',$dst='',$kwd='',$datetime='',$c=100,
 			$json['data'][$j]['status'] = $status;
 			$j++;
 		}
-		// if DS available by checking content
-		if ($content) {
-			$ret = $content;
+		if ($j > 0) {
 			unset($json['status']);
 			unset($json['error']);
 		}
 	}
-	return array($ret, $json);
+	return $json;
 }
 
 function webservices_sx($c_username,$src='',$dst='',$datetime='',$c=100,$last=false) {
-	$ret = "ERR 501";
 	$json['status'] = 'ERR';
 	$json['error'] = '501';
 	$u = user_getdatabyusername($c_username);
 	if ($u['status'] != 2) {
-		return array($ret, $json);
+		return $json;
 	}
 	$uid = $u['uid'];
 	$conditions = array('flag_deleted' => 0, 'in_status' => 0);
@@ -305,7 +281,6 @@ function webservices_sx($c_username,$src='',$dst='',$datetime='',$c=100,$last=fa
 		$extras['LIMIT'] = 100;
 	}
 	if ($uid) {
-		$content = '';
 		$j = 0;
 		$list = dba_search(_DB_PREF_.'_tblSMSIncoming', '*', $conditions, $keywords, $extras);
 		foreach ($list as $db_row) {
@@ -315,7 +290,6 @@ function webservices_sx($c_username,$src='',$dst='',$datetime='',$c=100,$last=fa
 			$message = str_replace('"', "'", $db_row['in_message']);
 			$datetime = $db_row['in_datetime'];
 			$status = $db_row['in_status'];
-			$content .= "\"$id\";\"$src\";\"$dst\";\"$message\";\"$datetime\"\n";
 			$json['data'][$j]['id'] = $id;
 			$json['data'][$j]['src'] = $src;
 			$json['data'][$j]['dst'] = $dst;
@@ -323,18 +297,15 @@ function webservices_sx($c_username,$src='',$dst='',$datetime='',$c=100,$last=fa
 			$json['data'][$j]['dt'] = $datetime;
 			$j++;
 		}
-		// if DS available by checking content
-		if ($content) {
-			$ret = $content;
+		if ($j > 0) {
 			unset($json['status']);
 			unset($json['error']);
 		}
 	}
-	return array($ret, $json);
+	return $json;
 }
 
 function webservices_ix($c_username,$src='',$dst='',$datetime='',$c=100,$last=false) {
-	$ret = "ERR 501";
 	$json['status'] = 'ERR';
 	$json['error'] = '501';
 	$conditions['flag_deleted'] = 0;
@@ -365,7 +336,6 @@ function webservices_ix($c_username,$src='',$dst='',$datetime='',$c=100,$last=fa
 		$extras['LIMIT'] = 100;
 	}
 	if ($uid) {
-		$content = '';
 		$j = 0;
 		$list = dba_search(_DB_PREF_.'_tblUser_inbox', '*', $conditions, $keywords, $extras);
 		foreach ($list as $db_row) {
@@ -374,7 +344,6 @@ function webservices_ix($c_username,$src='',$dst='',$datetime='',$c=100,$last=fa
 			$dst = $db_row['in_receiver'];
 			$message = str_replace('"', "'", $db_row['in_msg']);
 			$datetime = $db_row['in_datetime'];
-			$content .= "\"$id\";\"$src\";\"$dst\";\"$message\";\"$datetime\"\n";
 			$json['data'][$j]['id'] = $id;
 			$json['data'][$j]['src'] = $src;
 			$json['data'][$j]['dst'] = $dst;
@@ -382,60 +351,37 @@ function webservices_ix($c_username,$src='',$dst='',$datetime='',$c=100,$last=fa
 			$json['data'][$j]['dt'] = $datetime;
 			$j++;
 		}
-		// if DS available by checking content
-		if ($content) {
-			$ret = $content;
+		if ($j > 0) {
 			unset($json['status']);
 			unset($json['error']);
 		}
 	}
-	return array($ret, $json);
+	return $json;
 }
 
 function webservices_cr($c_username) {
 	$credit = rate_getusercredit($c_username);
 	$credit = ( $credit ? $credit : '0' );
-	$ret = "OK ".$credit;
 	$json['status'] = 'OK';
 	$json['error'] = '0';
 	$json['credit'] = $credit;
-	return array($ret, $json);
+	return $json;
 }
 
 function webservices_get_contact($c_uid, $name, $count) {
-	$ret = '';
 	$list = phonebook_search($c_uid, $name, $count);
-	foreach ($list as $db_row) {
-		if ($db_row['pid']) {
-			$ret .= '"'.$db_row['pid'].'",';
-			$ret .= '"'.$db_row['gpid'].'",';
-			$ret .= '"'.$db_row['p_desc'].'",';
-			$ret .= '"'.$db_row['p_num'].'",';
-			$ret .= '"'.$db_row['email'].'",';
-			$ret .= '"'.$db_row['group_name'].'",';
-			$ret .= '"'.$db_row['code'].'"'."\n";
-		}
-	}
 	$json['status'] = 'OK';
 	$json['error'] = '0';
 	$json['data'] = $list;
-	return array($ret, $json);
+	return $json;
 }
 
 function webservices_get_contact_group($c_uid, $name, $count) {
-	$ret = '';
 	$list = phonebook_search_group($c_uid, $name, $count);
-	foreach ($list as $db_row) {
-		if ($db_row['gpid']) {
-			$ret .= '"'.$db_row['gpid'].'",';
-			$ret .= '"'.$db_row['group_name'].'",';
-			$ret .= '"'.$db_row['code'].'"'."\n";
-		}
-	}
 	$json['status'] = 'OK';
 	$json['error'] = '0';
 	$json['data'] = $list;
-	return array($ret, $json);
+	return $json;
 }
 
 function webservices_output($ta,$requests) {
