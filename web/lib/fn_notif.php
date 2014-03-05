@@ -24,9 +24,10 @@ defined('_SECURE_') or die('Forbidden');
  * @param integer $uid User ID
  * @param string $subject Notification subject
  * @param string $body Notification body
+ * @param array $data Additional data (currently unused)
  * @return boolean
  */
-function notif_add($uid, $subject, $body, $flag=0) {
+function notif_add($uid, $subject, $body, $data=array()) {
 	$ret = FALSE;
 	if ($id = md5(_PID_.$uid.$subject.$body)) {
 		$items = array(
@@ -59,7 +60,7 @@ function notif_remove($uid, $id) {
  * Update notification
  * @param integer $uid User ID
  * @param string $id Notification ID
- * @param array $data Data
+ * @param array $data Updated data
  * @return boolean
  */
 function notif_update($uid, $id, $data) {
