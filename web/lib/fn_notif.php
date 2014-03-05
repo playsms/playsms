@@ -22,21 +22,23 @@ defined('_SECURE_') or die('Forbidden');
 /**
  * Add notification
  * @param integer $uid User ID
+ * @param string $label Notification label
  * @param string $subject Notification subject
  * @param string $body Notification body
  * @param array $data Additional data (currently unused)
  * @return boolean
  */
-function notif_add($uid, $subject, $body, $data=array()) {
+function notif_add($uid, $label, $subject, $body, $data=array()) {
 	$ret = FALSE;
-	if ($id = md5(_PID_.$uid.$subject.$body)) {
+	if ($id = md5(_PID_.$uid.$label.$subject.$body)) {
 		$items = array(
 		    'dt' => core_get_datetime(),
+		    'label' => $label,
 		    'subject' => $subject,
 		    'body' => $body,
 		    'flag_unread' => 1);
 		if ($ret = registry_update($uid, 'notif', $id, $items)) {
-			logger_print('uid:'.$uid.' id:'.$id.' subject:'.$subject, 2, 'notif_add');
+			logger_print('uid:'.$uid.' id:'.$id.' label:'.$label.' subject:'.$subject, 2, 'notif_add');
 		}
 	}
 	return $ret;
