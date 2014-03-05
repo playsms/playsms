@@ -279,7 +279,7 @@ function recvsms_inbox_add($sms_datetime,$sms_sender,$target_user,$message,$sms_
 		$sms_receiver = ( $ret_intercept['param']['sms_receiver'] ? $ret_intercept['param']['sms_receiver'] : $sms_receiver );
 	}
 
-	$ok = false;
+	$ok = FALSE;
 	if ($sms_sender && $target_user && $message) {
 		$user = user_getdatabyusername($target_user);
 		if ($uid = $user['uid']) {
@@ -295,8 +295,9 @@ function recvsms_inbox_add($sms_datetime,$sms_sender,$target_user,$message,$sms_
 					VALUES ('$sms_sender','$sms_receiver','$uid','$message','".core_adjust_datetime($sms_datetime)."')
 				";
 				logger_print("saving sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user, 2, "recvsms_inbox_add");
-				if ($cek_ok = @dba_insert_id($db_query)) {
+				if (@dba_insert_id($db_query)) {
 					logger_print("saved sender:".$sms_sender." receiver:".$sms_receiver." target:".$target_user, 2, "recvsms_inbox_add");
+					$ok = TRUE;
 				}
 			}
 			// forward to email
@@ -321,7 +322,6 @@ function recvsms_inbox_add($sms_datetime,$sms_sender,$target_user,$message,$sms_
 					sendmail($data);
 					logger_print("sent email from:".$email_service." to:".$email." message:".$message, 3, "recvsms_inbox_add");
 				}
-				$ok = true;
 			}
 			// forward to mobile
 			if ($fwd_to_mobile = $user['fwd_to_mobile']) {
