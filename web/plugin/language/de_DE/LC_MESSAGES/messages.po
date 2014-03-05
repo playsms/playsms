@@ -513,7 +513,6 @@ msgstr "Präfix oder Ländercode"
 msgid "Public registration disabled"
 msgstr "Öffentliche Registrierung deaktiviert"
 
-#, fuzzy
 msgid "Public registration is disabled"
 msgstr "Öffentliche Registrierung deaktiviert"
 
@@ -696,9 +695,8 @@ msgstr "Benutzer existiert nicht"
 msgid "User has been added"
 msgstr "Benutzer wurde hinzugefügt"
 
-#, fuzzy
 msgid "User has been added but failed to send email"
-msgstr "Benutzer wurde gelöscht"
+msgstr "Benutzer wurde hinzugefügt, aber Email-Versand an Benutzer ist fehlgeschlagen"
 
 msgid "User has been deleted"
 msgstr "Benutzer wurde gelöscht"
@@ -715,28 +713,23 @@ msgstr "Benutzer Level"
 msgid "User preference"
 msgstr "Benutzereinstellungen"
 
-#, fuzzy
 msgid "User with this email is already exists"
-msgstr "Benutzer existiert bereits"
+msgstr "Benutzer mit dieser Email-Adresse existiert bereits"
 
-#, fuzzy
 msgid "User with this mobile is already exists"
-msgstr "Benutzer existiert bereits"
+msgstr "Benutzer mit dieser Mobilfunknummer existiert bereits"
 
 msgid "Username"
 msgstr "Benutzername"
 
-#, fuzzy
 msgid "Username is empty"
-msgstr "Benutzername"
+msgstr "Benutzername ist leer"
 
 msgid "Username should be at least 3 characters"
 msgstr "Benutzername muss mindestens 3 Zeichen lang sein"
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
-msgstr ""
-"Zulässige Zeichen für den Benutzernamen sind Buchstaben, Zahlen, Punkt oder "
-"Gedankenstrich"
+msgstr "Zulässige Zeichen für den Benutzernamen sind Buchstaben, Zahlen, Punkt oder Minus"
 
 msgid "View"
 msgstr "Anzeigen"
@@ -792,18 +785,14 @@ msgstr "Sie müssen alle Felder ausfüllen"
 msgid "You must fill all fields"
 msgstr "Sie müssen alle Felder ausfüllen"
 
-#, fuzzy
 msgid "You must fill all required fields"
-msgstr "Sie müssen alle Felder ausfüllen"
+msgstr "Sie müssen alle notwendigen Felder ausfüllen"
 
 msgid "You must select receiver and your message should not be empty"
-msgstr ""
-"Sie müssen den Empfänger auswählen und die Nachricht darf nicht leer sein"
+msgstr "Sie müssen den Empfänger auswählen und die Nachricht darf nicht leer sein"
 
 msgid "You must select receiver group and your message should not be empty"
-msgstr ""
-"Sie müssen die Empfänger-Gruppe auswählen und die Nachricht darf nicht leer "
-"sein"
+msgstr "Sie müssen die Empfänger-Gruppe auswählen und die Nachricht darf nicht leer sein"
 
 msgid "Your SMS has been delivered to queue"
 msgstr "Ihre SMS wurde an die Zustell-Queue übermittelt"
