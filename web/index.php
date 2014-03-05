@@ -20,6 +20,7 @@
 include 'init.php';
 include $core_config['apps_path']['libs'].'/function.php';
 
+$current_themes = core_themes_get();
 
 // fixme anton
 // load app extensions from index, such as menu, webservices and callbacks
@@ -49,23 +50,21 @@ if (isset($app)) {
 		case 'call':
 			// $app=call to access subroutine in a plugin
 			// can be used to replace callback.php in clickatell or dlr.php and geturl.php in kannel
-			// plugin's category such as feature, tools or gateway
-			$cat = trim($_REQUEST['cat']);
-			// plugin's name such as kannel, sms_board or sms_subscribe
-			$plugin = trim($_REQUEST['plugin']);
-			if (function_exists('bindtextdomain')) {
-				bindtextdomain('messages', $core_config['apps_path']['plug'].'/'.$cat.'/'.$plugin.'/language/');
-				bind_textdomain_codeset('messages', 'UTF-8');
-				textdomain('messages');
+			if (_CAT_ && _PLUGIN_) {
+				if (function_exists('bindtextdomain')) {
+					bindtextdomain('messages', $core_config['apps_path']['plug'].'/'._CAT_.'/'._PLUGIN_.'/language/');
+					bind_textdomain_codeset('messages', 'UTF-8');
+					textdomain('messages');
+				}
+				core_hook($plugin,'call',array($_REQUEST));
 			}
-			core_hook($plugin,'call',array($_REQUEST));
 			break;
 		case 'page':
 			// $app=page to access a page inside themes
 			// by default this is used for displaying 'forgot password' page and 'register an account' page
 			// login, logout, register, forgot password, noaccess
 			if (function_exists('bindtextdomain')) {
-				bindtextdomain('messages', $core_config['apps_path']['themes'].'/'.$themes_module.'/language/');
+				bindtextdomain('messages', $core_config['apps_path']['themes'].'/'.$current_themes.'/language/');
 				bind_textdomain_codeset('messages', 'UTF-8');
 				textdomain('messages');
 			}
@@ -80,26 +79,17 @@ if (isset($app)) {
 					}
 					break;
 				default:
-					// error messages
-					$error_content = '';
-					if ($err = $_SESSION['error_string']) {
-						$error_content = "<div class=error_string>$err</div>";
-					}
 					// load page
-					$fn = $core_config['apps_path']['themes'].'/'.$core_config['module']['themes'].'/page_'.$inc.'.php';
-					if (file_exists($fn)) {
-						include $fn;
+					if (_INC_) {
+						$fn = $core_config['apps_path']['themes'].'/'.$current_themes.'/page_'._INC_.'.php';
+						if (file_exists($fn)) {
+							include $fn;
+						}
 					}
 			}
 	}
 	unset($_SESSION['error_string']);
 	exit();
-}
-
-// error messages
-$error_content = '';
-if ($err = $_SESSION['error_string']) {
-	$error_content = "<div class=error_string>$err</div>";
 }
 
 // frontpage
@@ -109,11 +99,11 @@ if (auth_isvalid()) {
 	exit();
 } else {
 	if (function_exists('bindtextdomain')) {
-		bindtextdomain('messages', $core_config['apps_path']['themes'].'/'.$themes_module.'/language/');
+		bindtextdomain('messages', $core_config['apps_path']['themes'].'/'.$current_themes.'/language/');
 		bind_textdomain_codeset('messages', 'UTF-8');
 		textdomain('messages');
 	}
-	include $core_config['apps_path']['themes'].'/'.$core_config['module']['themes'].'/page_login.php';
+	include $core_config['apps_path']['themes'].'/'.$current_themes.'/page_login.php';
 }
 
 unset($_SESSION['error_string']);

@@ -136,6 +136,11 @@ $route = core_query_sanitize($_REQUEST['route']);
 $page = core_query_sanitize($_REQUEST['page']);
 $nav = core_query_sanitize($_REQUEST['nav']);
 
+// plugin's category such as feature, tools or gateway
+$cat = core_query_sanitize($_REQUEST['cat']);
+// plugin's name such as kannel, sms_board or sms_subscribe
+$plugin = core_query_sanitize($_REQUEST['plugin']);
+
 // global defines
 define('_APP_', $app);
 define('_INC_', $inc);
@@ -143,6 +148,8 @@ define('_OP_', $op);
 define('_ROUTE_', $route);
 define('_PAGE_', $page);
 define('_NAV_', $nav);
+define('_CAT_', $cat);
+define('_PLUGIN_', $plugin);
 
 // enable anti-CSRF for anything but webservices
 $c_app = ( $_GET['app'] ? strtolower($_GET['app']) : strtolower($_POST['app']) );
