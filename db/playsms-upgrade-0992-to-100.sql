@@ -72,3 +72,5 @@ INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `
 (1, 'core', 'main_config', 'enable_forgot', '1'),
 (1, 'core', 'main_config', 'allow_custom_sender', '0'),
 (1, 'core', 'main_config', 'allow_custom_footer', '0');
+
+DROP TABLE `playsms_featureSurvey`, `playsms_featureSurvey_log`, `playsms_featureSurvey_members`, `playsms_featureSurvey_questions`;
