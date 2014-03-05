@@ -35,7 +35,7 @@ function simplerate_getbyid($id) {
 function simplerate_getbyprefix($p_dst) {
 	global $core_config;
 	$found = FALSE;
-	$rate = $core_config['main']['cfg_default_rate'];
+	$rate = $core_config['main']['default_rate'];
 	$prefix = preg_replace('/[^0-9.]*/','',$p_dst);
 	$m = ( strlen($prefix) > 10 ? 10 : strlen($prefix) );
 	for ($i=$m+1;$i>0;$i--) {
@@ -111,7 +111,7 @@ function simplerate_hook_rate_deduct($smslog_id) {
                         $sms_length = ( $unicode ? 70 : 160 );
                         $p_msg_len = strlen($p_msg) + strlen($p_footer);
                         $count = 1;
-                        if ($core_config['main']['cfg_sms_max_count'] > 1) {
+                        if ($core_config['main']['sms_max_count'] > 1) {
                                 if ($p_msg_len > $sms_length) {
                                         $count = ceil($p_msg_len / ($sms_length - 7));
                                 }

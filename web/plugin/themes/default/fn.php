@@ -67,7 +67,7 @@ function default_hook_themes_buildmenu($menu_config) {
 							<span class='icon-bar'></span>
 							<span class='icon-bar'></span>
 						</button>
-						<a href='" . $core_config['main']['cfg_main_website_url'] . "' class='brand navbar-brand'>" . $core_config['main']['cfg_main_website_name'] . "</a>
+						<a href='" . $core_config['main']['main_website_url'] . "' class='brand navbar-brand'>" . $core_config['main']['main_website_name'] . "</a>
 					</div>
 					<div class='navbar-collapse collapse'>
 						<ul class='nav navbar-nav'>

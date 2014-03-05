@@ -176,7 +176,7 @@ function user_add($data=array()) {
 	$ret['status'] = FALSE;
 	$ret['uid'] = 0;
 	$data = ( trim($data['username']) ? $data : $_REQUEST );
-	if (auth_isadmin() || $core_config['main']['cfg_enable_register']) {
+	if (auth_isadmin() || $core_config['main']['enable_register']) {
 		foreach ($data as $key => $val) {
 			$data[$key] = trim($val);
 		}
@@ -187,7 +187,7 @@ function user_add($data=array()) {
 		$new_password = $data['password'];
 		$data['password'] = md5($new_password);
 		$data['token'] = md5(uniqid($data['username'].$data['password'], true));
-		$data['credit'] = ( $data['credit'] ? $data['credit'] : $core_config['main']['cfg_default_credit'] );
+		$data['credit'] = ( $data['credit'] ? $data['credit'] : $core_config['main']['default_credit'] );
 		$data['sender'] = ( $data['sender'] ? core_sanitize_sender($data['sender']) : '' );
 		$data['footer'] = '@'.$data['username'];
 		$dt = core_get_datetime();
@@ -206,17 +206,17 @@ function user_add($data=array()) {
 				if ($ret['status']) {
 					logger_print("u:".$data['username']." uid:".$ret['uid']." email:".$data['email']." ip:".$_SERVER['REMOTE_ADDR']." mobile:".$data['mobile']." credit:".$data['credit'], 2, "register");
 					$subject = _('New account registration');
-					$body = $core_config['main']['cfg_web_title']."\n";
+					$body = $core_config['main']['web_title']."\n";
 					$body .= $core_config['http_path']['base']."\n\n";
 					$body .= _('Username').": ".$data['username']."\n";
 					$body .= _('Password').": ".$new_password."\n";
 					$body .= _('Mobile').": ".$data['mobile']."\n";
 					$body .= _('Credit').": ".$data['credit']."\n\n";
-					$body .= $core_config['main']['cfg_email_footer']."\n\n";
+					$body .= $core_config['main']['email_footer']."\n\n";
 					$ret['error_string'] = _('User has been added and password has been emailed')." ("._('username').": ".$data['username'].")";
 					$mail_data = array(
-						'mail_from_name' => $core_config['main']['cfg_web_title'],
-						'mail_from' => $core_config['main']['cfg_email_service'],
+						'mail_from_name' => $core_config['main']['web_title'],
+						'mail_from' => $core_config['main']['email_service'],
 						'mail_to' => $data['email'],
 						'mail_subject' => $subject,
 						'mail_body' => $body);

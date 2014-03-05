@@ -23,7 +23,7 @@ $tpl = array(
 	'Forgot password' => _('Forgot password')
     ),
 	'if' => array(
-		'enable_forgot' => $core_config['main']['cfg_enable_forgot']
+		'enable_forgot' => $core_config['main']['enable_forgot']
 	)
 );
 

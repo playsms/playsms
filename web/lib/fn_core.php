@@ -184,7 +184,7 @@ function core_get_timezone($username='') {
 		$ret  = $list[0]['datetime_timezone'];
 	}
 	if (! $ret) {
-		$ret = $core_config['main']['cfg_datetime_timezone'];
+		$ret = $core_config['main']['datetime_timezone'];
 	}
 	return $ret;
 }
@@ -220,7 +220,7 @@ function core_display_datetime($time, $tz=0) {
 	if ($time && ($time != '0000-00-00 00:00:00')) {
 		if (! $tz) {
 			if (! ($tz = $user_config['datetime_timezone'])) {
-				$tz = $core_config['main']['cfg_datetime_timezone'];
+				$tz = $core_config['main']['datetime_timezone'];
 			}
 		}
 		$time = strtotime($time);
@@ -249,7 +249,7 @@ function core_adjust_datetime($time, $tz=0) {
 	if ($time && ($time != '0000-00-00 00:00:00')) {
 		if (! $tz) {
 			if (! ($tz = $user_config['datetime_timezone'])) {
-				$tz = $core_config['main']['cfg_datetime_timezone'];
+				$tz = $core_config['main']['datetime_timezone'];
 			}
 		}
 		$time = strtotime($time);

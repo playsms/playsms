@@ -139,7 +139,7 @@ function sms_board_output_rss($keyword,$line="10",$format="RSS0.91") {
 	$format_output = ( $format ? $format : "RSS0.91" );
 	include_once $core_config['apps_path']['plug']."/feature/sms_board/lib/external/feedcreator/feedcreator.class.php";
 	$rss = new UniversalFeedCreator();
-	$rss->title = $core_config['main']['cfg_web_title'];
+	$rss->title = $core_config['main']['web_title'];
 	$rss->description = _('SMS Board').' '.$keyword;
 	$db_query1 = "SELECT * FROM "._DB_PREF_."_featureBoard_log WHERE in_keyword='$keyword' ORDER BY in_datetime DESC LIMIT $line";
 	$db_result1 = dba_query($db_query1);
@@ -161,7 +161,7 @@ function sms_board_output_rss($keyword,$line="10",$format="RSS0.91") {
 // part of SMS board
 function sms_board_output_html($keyword,$line="10") {
 	global $core_config;
-	$web_title = $core_config['main']['cfg_web_title'];
+	$web_title = $core_config['main']['web_title'];
 	$keyword = strtoupper($keyword);
 	if (!$line) { $line = "10"; };
 	$db_query = "SELECT board_css,board_pref_template FROM "._DB_PREF_."_featureBoard WHERE board_keyword='$keyword'";

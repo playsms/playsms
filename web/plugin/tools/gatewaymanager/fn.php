@@ -28,8 +28,8 @@ function gatewaymanager_set_active($name) {
 	$fn1 = $core_config['apps_path']['plug'] . '/gateway/' . $name . '/config.php';
 	$fn2 = $core_config['apps_path']['plug'] . '/gateway/' . $name . '/config.php';
 	if (file_exists($fn1) && file_exists($fn2) && ($core_config['module']['gateway'] != $name)) {
-		$items = array('cfg_gateway_module' => $name);
-		if (dba_update(_DB_PREF_.'_tblConfig_main', $items)) {
+		$items = array('gateway_module' => $name);
+		if (registry_update(1, 'core', 'main_config', $items)) {
 			$core_config['module']['gateway'] = $name;
 			$ret = TRUE;
 		}

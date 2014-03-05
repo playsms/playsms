@@ -184,38 +184,60 @@ if (! ($dba_object = dba_connect(_DB_USER_,_DB_PASS_,_DB_NAME_,_DB_HOST_,_DB_POR
 dba_query("SET NAMES utf8");
 
 // get main config
-$db_query = "SELECT * FROM "._DB_PREF_."_tblConfig_main";
-$db_result = dba_query($db_query);
-$db_row = dba_fetch_array($db_result);
-if (isset($db_row)) {
-	$web_title = $db_row['cfg_web_title'];
-	$email_service = $db_row['cfg_email_service'];
-	$email_footer = $db_row['cfg_email_footer'];
-	$gateway_number = core_sanitize_sender($db_row['cfg_gateway_number']);
-	$gateway_timezone = $db_row['cfg_datetime_timezone'];
-	$gateway_module = ( $db_row['cfg_gateway_module'] ? $db_row['cfg_gateway_module'] : 'smstools' );
-	$themes_module = ( $db_row['cfg_themes_module'] ? $db_row['cfg_themes_module'] : 'default' );
-	$language_module = ( $db_row['cfg_language_module'] ? $db_row['cfg_language_module'] : 'en_US' );
-	$default_rate = $db_row['cfg_default_rate'];
-	$sms_max_count = $db_row['cfg_sms_max_count'];
-	$default_credit = $db_row['cfg_default_credit'];
-	$enable_register = $db_row['cfg_enable_register'];
-	$enable_forgot = $db_row['cfg_enable_forgot'];
-	$allow_custom_sender = $db_row['cfg_allow_custom_sender'];
-	$allow_custom_footer = $db_row['cfg_allow_custom_footer'];
-	$main_website_name = $db_row['cfg_main_website_name'];
-	$main_website_url = $db_row['cfg_main_website_url'];
-	$core_config['main'] = $db_row;
+$result = registry_search(1, 'core', 'main_config');
+foreach ($result['core']['main_config'] as $key => $val) {
+	if ($key == 'gateway_module' && ! $val) {
+		$val = 'dev';
+	}
+	if ($key == 'themes_module' && ! $val) {
+		$val = 'default';
+	}
+	if ($key == 'language_module' && ! $val) {
+		$val = 'en_US';
+	}
+	if ($key == 'default_rate' || $key == 'default_credit') {
+		$val = (float) $val;
+	}
+	if ($key == 'sms_max_count' || $key == 'enable_register' || $key == 'enable_forgot') {
+		$val = (int) $val;
+	}
+	${$key} = $val;
+	$core_config['main'][$key] = $val;
+}
+
+// this is only temporary, we will remove this on the next version
+// this block will check if nothing on registry then save some default value
+if (! $core_config['main']) {
+	$items = array(
+		'web_title' => $_POST['edit_web_title'],
+		'email_service' => $_POST['edit_email_service'],
+		'email_footer' => $_POST['edit_email_footer'],
+		'main_website_name' => $_POST['edit_main_website_name'],
+		'main_website_url' => $_POST['edit_main_website_url'],
+		'gateway_number' => core_sanitize_sender($_POST['edit_gateway_number']),
+		'gateway_timezone' => $_POST['edit_gateway_timezone'],
+		'default_rate' => (float) $_POST['edit_default_rate'],
+		'gateway_module' => ( $_POST['edit_gateway_module'] ? $_POST['edit_gateway_module'] : 'dev' ),
+		'themes_module' => ( $_POST['edit_themes_module'] ? $_POST['edit_themes_module'] : 'default' ),
+		'language_module' => ( $_POST['edit_language_module'] ? $_POST['edit_language_module'] : 'en_US' ),
+		'sms_max_count' => (int) ( $_POST['edit_sms_max_count'] > 1 ? $_POST['edit_sms_max_count'] : 1 ),
+		'default_credit' => (float) $_POST['edit_default_credit'],
+		'enable_register' => (int) $_POST['edit_enable_register'],
+		'enable_forgot' => (int) $_POST['edit_enable_forgot'],
+		'allow_custom_sender' => $_POST['edit_allow_custom_sender'],
+		'allow_custom_footer' => $_POST['edit_allow_custom_footer']
+	);
+	$result = registry_update(1, 'core', 'main_config', $items);
 }
 
 // max sms text length
 // single text sms can be 160 char instead of 1*153
 $sms_max_count = ( (int)$sms_max_count < 1 ? 1 : (int)$sms_max_count );
-$core_config['main']['cfg_sms_max_count'] = $sms_max_count;
-$core_config['main']['per_sms_length'] = ( $core_config['main']['cfg_sms_max_count'] > 1 ? 153 : 160 );
-$core_config['main']['per_sms_length_unicode'] = ( $core_config['main']['cfg_sms_max_count'] > 1 ? 67 : 70 );
-$core_config['main']['max_sms_length'] = $core_config['main']['cfg_sms_max_count'] * $core_config['main']['per_sms_length'];
-$core_config['main']['max_sms_length_unicode'] = $core_config['main']['cfg_sms_max_count'] * $core_config['main']['per_sms_length_unicode'];
+$core_config['main']['sms_max_count'] = $sms_max_count;
+$core_config['main']['per_sms_length'] = ( $core_config['main']['sms_max_count'] > 1 ? 153 : 160 );
+$core_config['main']['per_sms_length_unicode'] = ( $core_config['main']['sms_max_count'] > 1 ? 67 : 70 );
+$core_config['main']['max_sms_length'] = $core_config['main']['sms_max_count'] * $core_config['main']['per_sms_length'];
+$core_config['main']['max_sms_length_unicode'] = $core_config['main']['sms_max_count'] * $core_config['main']['per_sms_length_unicode'];
 
 // default loaded page/plugin
 $core_config['main']['default_inc'] = 'page_welcome';

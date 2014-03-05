@@ -202,7 +202,7 @@ switch ($op) {
 			<td>" . _('Timezone') . "</td><td><input type='text' size='5' maxlength='5' name='add_datetime_timezone' value=\"$add_datetime_timezone\"> " . _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')) . "</td>
 		</tr>
 		<tr>
-			<td>" . _('Credit') . "</td><td><input type='text' size='5' maxlength='30' name='add_credit' value=\"" . $core_config['main']['cfg_default_credit'] . "\"></td>
+			<td>" . _('Credit') . "</td><td><input type='text' size='5' maxlength='30' name='add_credit' value=\"" . $core_config['main']['default_credit'] . "\"></td>
 		</tr>
 		<tr>
 			<td>" . _('Active language') . "</td><td><select name='add_language_module'>$option_language_module</select></td>

@@ -314,7 +314,7 @@ function recvsms_inbox_add($sms_datetime,$sms_sender,$target_user,$message,$sms_
 					$body = stripslashes($body);
 					logger_print("send email from:".$email_service." to:".$email." message:".$message, 3, "recvsms_inbox_add");
 					$data = array(
-						'mail_from_name' => $core_config['main']['cfg_web_title'],
+						'mail_from_name' => $core_config['main']['web_title'],
 						'mail_from' => $email_service,
 						'mail_to' => $email,
 						'mail_subject' => $subject,

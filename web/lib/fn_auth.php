@@ -175,7 +175,7 @@ function auth_logout() {
 function auth_forgot() {
 	global $core_config;
 	$ok = FALSE;
-	if ($core_config['main']['cfg_enable_forgot']) {
+	if ($core_config['main']['enable_forgot']) {
 		$username = trim($_REQUEST['username']);
 		$email = trim($_REQUEST['email']);
 		$_SESSION['error_string'] = _('Fail to recover password');
@@ -188,14 +188,14 @@ function auth_forgot() {
 					$tmp_password_coded = md5($tmp_password);
 					if (registry_update(1, 'auth', 'tmp_password', array($username => $tmp_password_coded))) {
 						$subject = _('Password recovery');
-						$body = $core_config['main']['cfg_web_title']."\n";
+						$body = $core_config['main']['web_title']."\n";
 						$body .= $core_config['http_path']['base']."\n\n";
 						$body .= _('Username')."\t: ".$username."\n";
 						$body .= _('Password')."\t: ".$tmp_password."\n\n";
-						$body .= $core_config['main']['cfg_email_footer']."\n\n";
+						$body .= $core_config['main']['email_footer']."\n\n";
 						$data = array(
-							'mail_from_name' => $core_config['main']['cfg_web_title'],
-							'mail_from' => $core_config['main']['cfg_email_service'],
+							'mail_from_name' => $core_config['main']['web_title'],
+							'mail_from' => $core_config['main']['email_service'],
 							'mail_to' => $email,
 							'mail_subject' => $subject,
 							'mail_body' => $body

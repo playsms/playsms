@@ -133,44 +133,26 @@ switch ($op) {
 		_p(tpl_apply($tpl));
 		break;
 	case "main_config_save":
-		$edit_web_title = $_POST['edit_web_title'];
-		$edit_email_service = $_POST['edit_email_service'];
-		$edit_email_footer = $_POST['edit_email_footer'];
-		$edit_main_website_name = $_POST['edit_main_website_name'];
-		$edit_main_website_url = $_POST['edit_main_website_url'];
-		$edit_gateway_number = core_sanitize_sender($_POST['edit_gateway_number']);
-		$edit_gateway_timezone = $_POST['edit_gateway_timezone'];
-		$edit_default_rate = $_POST['edit_default_rate'];
-		$edit_gateway_module = $_POST['edit_gateway_module'];
-		$edit_themes_module = $_POST['edit_themes_module'];
-		$edit_language_module = $_POST['edit_language_module'];
-		$edit_sms_max_count = ( $_POST['edit_sms_max_count'] > 1 ? $_POST['edit_sms_max_count'] : 1 );
-		$edit_default_credit = $_POST['edit_default_credit'];
-		$edit_enable_register = $_POST['edit_enable_register'];
-		$edit_enable_forgot = $_POST['edit_enable_forgot'];
-		$edit_allow_custom_sender = $_POST['edit_allow_custom_sender'];
-		$edit_allow_custom_footer = $_POST['edit_allow_custom_footer'];
-		$db_query = "
-			UPDATE "._DB_PREF_."_tblConfig_main 
-			SET c_timestamp='".mktime()."',
-				cfg_web_title='$edit_web_title',
-				cfg_email_service='$edit_email_service',
-				cfg_email_footer='$edit_email_footer',
-				cfg_main_website_name='$edit_main_website_name',
-				cfg_main_website_url='$edit_main_website_url',
-				cfg_gateway_number='$edit_gateway_number',
-				cfg_default_rate='$edit_default_rate',
-				cfg_datetime_timezone='$edit_gateway_timezone',
-				cfg_gateway_module='$edit_gateway_module',
-				cfg_themes_module='$edit_themes_module',
-				cfg_language_module='$edit_language_module',
-				cfg_sms_max_count='$edit_sms_max_count',
-				cfg_default_credit='$edit_default_credit',
-				cfg_enable_register='$edit_enable_register',
-				cfg_enable_forgot='$edit_enable_forgot',
-				cfg_allow_custom_sender='$edit_allow_custom_sender',
-				cfg_allow_custom_footer='$edit_allow_custom_footer'";
-		$db_result = dba_query($db_query);
+		$items = array(
+			'web_title' => $_POST['edit_web_title'],
+			'email_service' => $_POST['edit_email_service'],
+			'email_footer' => $_POST['edit_email_footer'],
+			'main_website_name' => $_POST['edit_main_website_name'],
+			'main_website_url' => $_POST['edit_main_website_url'],
+			'gateway_number' => core_sanitize_sender($_POST['edit_gateway_number']),
+			'gateway_timezone' => $_POST['edit_gateway_timezone'],
+			'default_rate' => (float) $_POST['edit_default_rate'],
+			'gateway_module' => ( $_POST['edit_gateway_module'] ? $_POST['edit_gateway_module'] : 'dev' ),
+			'themes_module' => ( $_POST['edit_themes_module'] ? $_POST['edit_themes_module'] : 'default' ),
+			'language_module' => ( $_POST['edit_language_module'] ? $_POST['edit_language_module'] : 'en_US' ),
+			'sms_max_count' => (int) ( $_POST['edit_sms_max_count'] > 1 ? $_POST['edit_sms_max_count'] : 1 ),
+			'default_credit' => (float) $_POST['edit_default_credit'],
+			'enable_register' => (int) $_POST['edit_enable_register'],
+			'enable_forgot' => (int) $_POST['edit_enable_forgot'],
+			'allow_custom_sender' => $_POST['edit_allow_custom_sender'],
+			'allow_custom_footer' => $_POST['edit_allow_custom_footer']
+		);
+		$result = registry_update(1, 'core', 'main_config', $items);
 		$_SESSION['error_string'] = _('Main configuration changes has been saved');
 		header("Location: index.php?app=menu&inc=main_config&op=main_config");
 		exit();

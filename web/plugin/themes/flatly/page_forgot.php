@@ -21,7 +21,7 @@ $tpl = array(
 	'Register an account' => _('Register an account')
     ),
 	'if' => array(
-		'enable_register' => $core_config['main']['cfg_enable_register']
+		'enable_register' => $core_config['main']['enable_register']
 	)
 );
 

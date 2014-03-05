@@ -51,3 +51,5 @@ CREATE TABLE IF NOT EXISTS `playsms_tblNotif` (
   `data` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+DROP TABLE IF EXISTS `playsms_tblConfig_main`;
