@@ -169,10 +169,6 @@ if (! (($c_app == 'ws') || ($c_app == 'webservices'))) {
 }
 unset($c_app);
 
-// plugins category
-$plugins_category = array('tools','feature','gateway','themes','language');
-$core_config['plugins_category'] = $plugins_category;
-
 // connect to database
 if (! ($dba_object = dba_connect(_DB_USER_,_DB_PASS_,_DB_NAME_,_DB_HOST_,_DB_PORT_))) {
 	// logger_print("Fail to connect to database", 4, "init");
@@ -186,21 +182,6 @@ dba_query("SET NAMES utf8");
 // get main config from registry and load it to $core_config['main']
 $result = registry_search(1, 'core', 'main_config');
 foreach ($result['core']['main_config'] as $key => $val) {
-	if ($key == 'gateway_module' && ! $val) {
-		$val = 'dev';
-	}
-	if ($key == 'themes_module' && ! $val) {
-		$val = 'default';
-	}
-	if ($key == 'language_module' && ! $val) {
-		$val = 'en_US';
-	}
-	if ($key == 'default_rate' || $key == 'default_credit') {
-		$val = (float) $val;
-	}
-	if ($key == 'sms_max_count' || $key == 'enable_register' || $key == 'enable_forgot') {
-		$val = (int) $val;
-	}
 	${$key} = $val;
 	$core_config['main'][$key] = $val;
 }
@@ -211,6 +192,29 @@ if (! $core_config['main']) {
 	die(_('FATAL ERROR').' : '._('Fail to load main config from registry'));
 }
 
+// default loaded page/plugin
+$core_config['main']['default_inc'] = 'page_welcome';
+$core_config['main']['default_op'] = 'page_welcome';
+
+// set global date/time variables
+$date_format            = "Y-m-d";
+$time_format            = "H:i:s";
+$datetime_format        = $date_format." ".$time_format;
+$date_now               = date($date_format, time());
+$time_now               = date($time_format, time());
+$datetime_now           = date($datetime_format, time());
+$datetime_format_stamp	= "YmdHis";
+$datetime_now_stamp     = date($datetime_format_stamp, time());
+
+$core_config['datetime']['format'] 	= $datetime_format;
+$core_config['datetime']['now_stamp']		= $datetime_now_stamp;
+
+// --- playSMS Specifics --- //
+
+// plugins category
+$plugins_category = array('tools','feature','gateway','themes','language');
+$core_config['plugins_category'] = $plugins_category;
+
 // max sms text length
 // single text sms can be 160 char instead of 1*153
 $sms_max_count = ( (int)$sms_max_count < 1 ? 1 : (int)$sms_max_count );
@@ -220,9 +224,9 @@ $core_config['main']['per_sms_length_unicode'] = ( $core_config['main']['sms_max
 $core_config['main']['max_sms_length'] = $core_config['main']['sms_max_count'] * $core_config['main']['per_sms_length'];
 $core_config['main']['max_sms_length_unicode'] = $core_config['main']['sms_max_count'] * $core_config['main']['per_sms_length_unicode'];
 
-// default loaded page/plugin
-$core_config['main']['default_inc'] = 'page_welcome';
-$core_config['main']['default_op'] = 'page_welcome';
+// reserved important keywords
+$reserved_keywords = array ("BC");
+$core_config['reserved_keywords'] = $reserved_keywords;
 
 // verify selected gateway_module exists
 $fn1 = $core_config['apps_path']['plug'].'/gateway/'.$gateway_module.'/config.php';
@@ -249,21 +253,6 @@ if (file_exists($fn1) && file_exists($fn2)) {
 	$core_config['module']['language'] = 'en_US';
 }
 
-// set global variable
-$date_format		= "Y-m-d";
-$time_format		= "H:i:s";
-$datetime_format 	= $date_format." ".$time_format;
-$date_now		= date($date_format, time());
-$time_now		= date($time_format, time());
-$datetime_now		= date($datetime_format, time());
-
-$core_config['datetime']['format'] 	= $datetime_format;
-
-$datetime_format_stamp	= "YmdHis";
-$datetime_now_stamp	= date($datetime_format_stamp, time());
-
-$core_config['datetime']['now_stamp']		= $datetime_now_stamp;
-
 if (! ($core_config['module']['gateway'] && $core_config['module']['themes'] && $core_config['module']['language'])) {
 	logger_print("Fail to load gateway, themes or language module", 1, "init");
 	ob_end_clean();
@@ -281,6 +270,12 @@ if (auth_isvalid()) {
 	$email = $user_config['email'];
 	$name = $user_config['name'];
 	$status = $user_config['status'];
+	$user_config['opt']['sms_footer_length'] = ( strlen($footer) > 0 ? strlen($footer) + 1 : 0 );
+	$user_config['opt']['per_sms_length'] = $core_config['main']['per_sms_length'] - $user_config['opt']['sms_footer_length'];
+	$user_config['opt']['per_sms_length_unicode'] = $core_config['main']['per_sms_length_unicode'] - $user_config['opt']['sms_footer_length'];
+	$user_config['opt']['max_sms_length'] = $core_config['main']['max_sms_length'] - $user_config['opt']['sms_footer_length'];
+	$user_config['opt']['max_sms_length_unicode'] = $core_config['main']['max_sms_length_unicode'] - $user_config['opt']['sms_footer_length'];
+	$user_config['opt']['gravatar'] = "https://www.gravatar.com/avatar/".md5(strtolower(trim($user_config['email'])));
 	if (! $core_config['daemon_process']) {
 		// save login session information
 		user_session_set();
@@ -297,9 +292,35 @@ if (function_exists('bindtextdomain')) {
 	textdomain('messages');
 }
 
-// fixme anton - uncomment this if you want to know what are available in $core_config
+// menus
+$core_config['menutab']['home'] = _('Home');
+$core_config['menutab']['my_account'] = _('My Account');
+$core_config['menutab']['tools'] = _('Tools');
+$core_config['menutab']['feature'] = _('Feature');
+$core_config['menutab']['administration'] = _('Administration');
+
+$menutab_my_account = $core_config['menutab']['my_account'];
+$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=send_sms&op=send_sms", _('Send message'), 1);
+$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_inbox&op=user_inbox", _('Inbox'), 1);
+$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_incoming&op=user_incoming", _('Incoming messages'), 1);
+$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_outgoing&op=user_outgoing", _('Outgoing messages'), 1);
+
+if (auth_isadmin()) {
+	// administrator menus
+	$menutab_administration = $core_config['menutab']['administration'];
+	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_inbox&op=all_inbox", _('All inbox'), 1);
+	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_incoming&op=all_incoming", _('All incoming messages'), 1);
+	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_outgoing&op=all_outgoing", _('All outgoing messages'), 1);
+	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=sandbox&op=sandbox", _('Sandbox'), 1);
+	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=user_mgmnt&op=user_list", _('Manage user'), 2);
+	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=main_config&op=main_config", _('Main configuration'), 2);
+	//ksort($menu_config[$menutab_administration]);
+}
+
+// fixme anton - debug
 //print_r($icon_config); die();
 //print_r($menu_config); die();
 //print_r($plugin_config); die();
 //print_r($user_config); die();
 //print_r($core_config); die();
+//print_r($GLOBALS); die();

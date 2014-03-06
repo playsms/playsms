@@ -28,57 +28,9 @@ include $core_config['apps_path']['libs']."/fn_recvsms.php";
 include $core_config['apps_path']['libs']."/fn_sendsms.php";
 include $core_config['apps_path']['libs']."/fn_webservices.php";
 
-// init global variables
-
-// load additional user's data from user's DB table
-if (auth_isvalid()) {
-	$userstatus = ( $status == 2 ? _('Administrator') : _('Normal User') );
-	$user_config['opt']['sms_footer_length'] = ( strlen($footer) > 0 ? strlen($footer) + 1 : 0 );
-	$user_config['opt']['per_sms_length'] = $core_config['main']['per_sms_length'] - $user_config['opt']['sms_footer_length'];
-	$user_config['opt']['per_sms_length_unicode'] = $core_config['main']['per_sms_length_unicode'] - $user_config['opt']['sms_footer_length'];
-	$user_config['opt']['max_sms_length'] = $core_config['main']['max_sms_length'] - $user_config['opt']['sms_footer_length'];
-	$user_config['opt']['max_sms_length_unicode'] = $core_config['main']['max_sms_length_unicode'] - $user_config['opt']['sms_footer_length'];
-	$user_config['opt']['gravatar'] = "https://www.gravatar.com/avatar/".md5(strtolower(trim($user_config['email'])));
-}
-
-// reserved important keywords
-$reserved_keywords = array ("BC");
-$core_config['reserved_keywords'] = $reserved_keywords;
-
-// menus
-$core_config['menutab']['home'] = _('Home');
-$core_config['menutab']['my_account'] = _('My Account');
-$core_config['menutab']['tools'] = _('Tools');
-$core_config['menutab']['feature'] = _('Feature');
-$core_config['menutab']['administration'] = _('Administration');
-
-$menutab_my_account = $core_config['menutab']['my_account'];
-$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=send_sms&op=send_sms", _('Send message'), 1);
-$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_inbox&op=user_inbox", _('Inbox'), 1);
-$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_incoming&op=user_incoming", _('Incoming messages'), 1);
-$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_outgoing&op=user_outgoing", _('Outgoing messages'), 1);
-
-if (auth_isadmin()) {
-	// administrator menus
-	$menutab_administration = $core_config['menutab']['administration'];
-	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_inbox&op=all_inbox", _('All inbox'), 1);
-	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_incoming&op=all_incoming", _('All incoming messages'), 1);
-	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_outgoing&op=all_outgoing", _('All outgoing messages'), 1);
-	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=sandbox&op=sandbox", _('Sandbox'), 1);
-	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=user_mgmnt&op=user_list", _('Manage user'), 2);
-	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=main_config&op=main_config", _('Main configuration'), 2);
-	//ksort($menu_config[$menutab_administration]);
-}
-
-// fixme anton - uncomment this if you want to know what are available in global config arrays
-//print_r($menu_config); die();
-//print_r($core_config); die();
-
-// end of init global variables
-
 // load plugin's config and libraries
-for ($i=0;$i<count($plugins_category);$i++) {
-	if ($pc = $plugins_category[$i]) {
+for ($i=0;$i<count($core_config['plugins_category']);$i++) {
+	if ($pc = $core_config['plugins_category'][$i]) {
 		// get plugins
 		$dir = $core_config['apps_path']['plug'].'/'.$pc.'/';
 		unset($core_config[$pc.'list']);
@@ -208,14 +160,10 @@ if (function_exists('bindtextdomain')) {
 	textdomain('messages');
 }
 
-// init global variables after plugins
-
-// fixme anton - uncomment this if you want to know what are available in global config arrays
+// fixme anton - debug
 //print_r($icon_config); die();
 //print_r($menu_config); die();
 //print_r($plugin_config); die();
 //print_r($user_config); die();
 //print_r($core_config); die();
 //print_r($GLOBALS); die();
-
-// end of global variables after plugins
