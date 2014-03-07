@@ -151,6 +151,18 @@ function themes_link($url, $title='', $css_class="", $css_id="") {
 	return $ret;
 }
 
+function themes_url($url) {
+	$ret = '';
+	if (core_themes_get()) {
+		$ret = core_hook(core_themes_get(),'themes_url',array($url));
+	}
+	if (! $ret) {
+		// we will do clean URL mod here when necessary
+		$ret = $url;
+	}
+	return $ret;
+}
+
 function themes_button($url, $title, $css_class='', $css_id='') {
 	$ret = '';
 	if (core_themes_get()) {
@@ -188,8 +200,12 @@ function themes_mandatory($text) {
 
 /* define shortcuts */
 
-function _a($url, $title='') {
-	return themes_link($url, $title);
+function _a($url, $title='', $css_class='', $css_id='') {
+	return themes_link($url, $title, $css_class, $css_id);
+}
+
+function _u($url) {
+	return themes_url($url);
 }
 
 function _back($url) {
