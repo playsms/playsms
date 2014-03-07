@@ -38,17 +38,9 @@ if ($continue) {
 	}
 }
 
+// core menus for non-admin or regular users
 if ($continue) {
-	// core menus for non-admin or regular users
 	$c_fn = $core_config['apps_path']['incs']."/user/".$inc.".php";
-	if (file_exists($c_fn)) {
-		include $c_fn;
-		$continue = FALSE;
-	}
-}
-if ($continue) {
-	// core menus for visitors (not user)
-	$c_fn = $core_config['apps_path']['incs']."/common/".$inc.".php";
 	if (file_exists($c_fn)) {
 		include $c_fn;
 		$continue = FALSE;
