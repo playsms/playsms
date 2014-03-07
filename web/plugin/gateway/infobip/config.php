@@ -21,7 +21,7 @@ if ($db_row = dba_fetch_array ( $db_result )) {
 //if (isadmin ()) {
 //	$menutab_gateway = $core_config['menutab']['gateway'];
 //	$menu_config[$menutab_gateway][] = array (
-//			"index.php?app=menu&inc=gateway_infobip&op=manage",
+//			"index.php?app=main&inc=gateway_infobip&op=manage",
 //			_ ( 'Manage infobip' ) 
 //	);
 //}

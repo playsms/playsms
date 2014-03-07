@@ -27,7 +27,7 @@ switch (_OP_) {
 		}
 		$content .= "
 			<h2>" . _ ( 'Manage infobip' ) . "</h2>
-			<form action=index.php?app=menu&inc=gateway_infobip&op=manage_save method=post>
+			<form action=index.php?app=main&inc=gateway_infobip&op=manage_save method=post>
 			"._CSRF_FORM_."
 			<table class=playsms-table>
 			<tr>
@@ -61,7 +61,7 @@ switch (_OP_) {
 			- " . _ ( 'Your callback URL should be accessible from Infobip' ) . "<br />
 			- " . _ ( 'Infobip will push DLR and incoming SMS to above URL' ) . "<br />
 			- " . _ ( 'Infobip is a bulk SMS provider' ) . ", <a href=\"http://www.infobip.com\" target=\"_blank\">" . _ ( 'create an account to send SMS' ) . "</a>";
-		$content .= _back('index.php?app=menu&inc=tools_gatewaymanager&op=gatewaymanager_list');
+		$content .= _back('index.php?app=main&inc=tools_gatewaymanager&op=gatewaymanager_list');
 		_p($content);
 		break;
 	case "manage_save" :
@@ -91,6 +91,6 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _ ( 'Gateway module configurations has been saved' );
 			}
 		}
-		header ( "Location: index.php?app=menu&inc=gateway_infobip&op=manage" );
+		header ( "Location: index.php?app=main&inc=gateway_infobip&op=manage" );
 		break;
 }

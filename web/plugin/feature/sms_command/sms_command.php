@@ -22,7 +22,7 @@ switch (_OP_) {
 		}
 		$content .= "
 			<h2>" . _('Manage command') . "</h2>
-			"._button('index.php?app=menu&inc=feature_sms_command&op=sms_command_add', _('Add SMS command'));
+			"._button('index.php?app=main&inc=feature_sms_command&op=sms_command_add', _('Add SMS command'));
 		if (! auth_isadmin()) {
 			$query_user_only = "WHERE uid='$uid'";
 		}
@@ -51,8 +51,8 @@ switch (_OP_) {
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = user_uid2username($db_row['uid'])) {
-				$action = "<a href=\""._u('index.php?app=menu&inc=feature_sms_command&op=sms_command_edit&command_id='.$db_row['command_id'])."\">".$icon_config['edit']."</a>&nbsp;";
-				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS command ?') . " (" . _('keyword') . ": " . $db_row['command_keyword'] . ")','"._u('index.php?app=menu&inc=feature_sms_command&op=sms_command_del&command_id='.$db_row['command_id'])."')\">".$icon_config['delete']."</a>";
+				$action = "<a href=\""._u('index.php?app=main&inc=feature_sms_command&op=sms_command_edit&command_id='.$db_row['command_id'])."\">".$icon_config['edit']."</a>&nbsp;";
+				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS command ?') . " (" . _('keyword') . ": " . $db_row['command_keyword'] . ")','"._u('index.php?app=main&inc=feature_sms_command&op=sms_command_del&command_id='.$db_row['command_id'])."')\">".$icon_config['delete']."</a>";
 				$command_exec = $sms_command_bin.'/'.$db_row['uid'].'/'.$db_row['command_exec'];
 				if (auth_isadmin()) {
 					$show_owner = "<td>".$owner."</td>";
@@ -71,7 +71,7 @@ switch (_OP_) {
 			</tbody>
 			</table>
 			</div>
-			"._button('index.php?app=menu&inc=feature_sms_command&op=sms_command_add', _('Add SMS command'));
+			"._button('index.php?app=main&inc=feature_sms_command&op=sms_command_add', _('Add SMS command'));
 		_p($content);
 		break;
 	case "sms_command_edit":
@@ -89,7 +89,7 @@ switch (_OP_) {
 		$content .= "
 			<h2>" . _('Manage command') . "</h2>
 			<h3>" . _('Edit SMS command') . "</h3>
-			<form action=index.php?app=menu&inc=feature_sms_command&op=sms_command_edit_yes method=post>
+			<form action=index.php?app=main&inc=feature_sms_command&op=sms_command_edit_yes method=post>
 			"._CSRF_FORM_."
 			<input type=hidden name=command_id value=$command_id>
 			<input type=hidden name=edit_command_keyword value=$edit_command_keyword>
@@ -125,7 +125,7 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
-			"._back('index.php?app=menu&inc=feature_sms_command&op=sms_command_list');
+			"._back('index.php?app=main&inc=feature_sms_command&op=sms_command_list');
 		_p($content);
 		break;
 	case "sms_command_edit_yes":
@@ -149,7 +149,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_command&op=sms_command_edit&command_id=$command_id");
+		header("Location: index.php?app=main&inc=feature_sms_command&op=sms_command_edit&command_id=$command_id");
 		exit();
 		break;
 	case "sms_command_del":
@@ -165,7 +165,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('Fail to delete SMS command') . " (" . _('keyword') . ": $keyword_name)";
 			}
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_command&op=sms_command_list");
+		header("Location: index.php?app=main&inc=feature_sms_command&op=sms_command_list");
 		exit();
 		break;
 	case "sms_command_add":
@@ -175,7 +175,7 @@ switch (_OP_) {
 		$content .= "
 			<h2>" . _('Manage command') . "</h2>
 			<h3>" . _('Add SMS command') . "</h3>
-			<form action=index.php?app=menu&inc=feature_sms_command&op=sms_command_add_yes method=post>
+			<form action=index.php?app=main&inc=feature_sms_command&op=sms_command_add_yes method=post>
 			"._CSRF_FORM_."
 			<table class=playsms-table>
 				<tbody>
@@ -209,7 +209,7 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
-			"._back('index.php?app=menu&inc=feature_sms_command&op=sms_command_list');
+			"._back('index.php?app=main&inc=feature_sms_command&op=sms_command_list');
 		_p($content);
 		break;
 	case "sms_command_add_yes":
@@ -236,7 +236,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_command&op=sms_command_add");
+		header("Location: index.php?app=main&inc=feature_sms_command&op=sms_command_add");
 		exit();
 		break;
 }

@@ -26,7 +26,7 @@ switch (_OP_) {
 				</tr>
 				</tbody>
 			</table>";
-		$content .= _back('index.php?app=menu&inc=tools_gatewaymanager&op=gatewaymanager_list');
+		$content .= _back('index.php?app=main&inc=tools_gatewaymanager&op=gatewaymanager_list');
 		_p($content);
 		break;
 }

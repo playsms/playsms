@@ -82,7 +82,7 @@ function gatewaymanager_display() {
 		}
 		if ($gateway_info['name']) {
 			$gw_list[$gateway_info['name']] = array(
-				'link' => "index.php?app=menu&inc=gateway_".$c_gateway."&op=manage",
+				'link' => "index.php?app=main&inc=gateway_".$c_gateway."&op=manage",
 				'name' => $gateway_info['name'],
 				'description' => $gateway_info['description'],
 				'release' => $gateway_info['release'],
@@ -106,7 +106,7 @@ function gatewaymanager_display() {
 			<tr>
 				<td>" . $gw['name'] . "</td>
 				<td>" . $gw['description'] . "</td>
-				<td><a href='"._u('index.php?app=menu&inc=tools_gatewaymanager&op=toggle_status&name='.$gw['name'])."'>" . $gw['status'] . "</a></td>
+				<td><a href='"._u('index.php?app=main&inc=tools_gatewaymanager&op=toggle_status&name='.$gw['name'])."'>" . $gw['status'] . "</a></td>
 				<td><a href='"._u($gw['link'])."'><span class='glyphicon glyphicon-wrench'></span></a></td>
 			</tr>";
 		

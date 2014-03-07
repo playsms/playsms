@@ -89,7 +89,7 @@ if (_APP_) {
 	// no _APP_ then load default page
 	if (auth_isvalid()) {
 		ob_end_clean();
-		header("Location: index.php?app=menu&inc=".$core_config['main']['default_inc']."&op=".$core_config['main']['default_op']);
+		header("Location: index.php?app=main&inc=".$core_config['main']['default_inc']."&op=".$core_config['main']['default_op']);
 		exit();
 	} else {
 		if (function_exists('bindtextdomain')) {

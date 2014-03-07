@@ -34,9 +34,7 @@ switch (_OP_) {
 				<tr><td>"._('MBOX output')."</td><td><a href=\""._u($output_mbox)."\" target=_blank>"._u($output_mbox)."</a></td></tr>
 				<tr><td>"._('HTML output')."</td><td><a href=\""._u($output_html)."\" target=_blank>"._u($output_html)."</a></td></tr>
 			</table>
-			"._back('index.php?app=menu&inc=feature_sms_board&op=sms_board_list');
+			"._back('index.php?app=main&inc=feature_sms_board&op=sms_board_list');
 		_p($content);
 		break;
 }
-
-?>

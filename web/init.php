@@ -284,20 +284,20 @@ $core_config['menutab']['feature'] = _('Feature');
 $core_config['menutab']['administration'] = _('Administration');
 
 $menutab_my_account = $core_config['menutab']['my_account'];
-$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=send_sms&op=send_sms", _('Send message'), 1);
-$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_inbox&op=user_inbox", _('Inbox'), 1);
-$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_incoming&op=user_incoming", _('Incoming messages'), 1);
-$menu_config[$menutab_my_account][] = array("index.php?app=menu&inc=user_outgoing&op=user_outgoing", _('Outgoing messages'), 1);
+$menu_config[$menutab_my_account][] = array("index.php?app=main&inc=send_sms&op=send_sms", _('Send message'), 1);
+$menu_config[$menutab_my_account][] = array("index.php?app=main&inc=user_inbox&op=user_inbox", _('Inbox'), 1);
+$menu_config[$menutab_my_account][] = array("index.php?app=main&inc=user_incoming&op=user_incoming", _('Incoming messages'), 1);
+$menu_config[$menutab_my_account][] = array("index.php?app=main&inc=user_outgoing&op=user_outgoing", _('Outgoing messages'), 1);
 
 if (auth_isadmin()) {
 	// administrator menus
 	$menutab_administration = $core_config['menutab']['administration'];
-	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_inbox&op=all_inbox", _('All inbox'), 1);
-	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_incoming&op=all_incoming", _('All incoming messages'), 1);
-	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=all_outgoing&op=all_outgoing", _('All outgoing messages'), 1);
-	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=sandbox&op=sandbox", _('Sandbox'), 1);
-	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=user_mgmnt&op=user_list", _('Manage user'), 2);
-	$menu_config[$menutab_administration][] = array("index.php?app=menu&inc=main_config&op=main_config", _('Main configuration'), 2);
+	$menu_config[$menutab_administration][] = array("index.php?app=main&inc=all_inbox&op=all_inbox", _('All inbox'), 1);
+	$menu_config[$menutab_administration][] = array("index.php?app=main&inc=all_incoming&op=all_incoming", _('All incoming messages'), 1);
+	$menu_config[$menutab_administration][] = array("index.php?app=main&inc=all_outgoing&op=all_outgoing", _('All outgoing messages'), 1);
+	$menu_config[$menutab_administration][] = array("index.php?app=main&inc=sandbox&op=sandbox", _('Sandbox'), 1);
+	$menu_config[$menutab_administration][] = array("index.php?app=main&inc=user_mgmnt&op=user_list", _('Manage user'), 2);
+	$menu_config[$menutab_administration][] = array("index.php?app=main&inc=main_config&op=main_config", _('Main configuration'), 2);
 	//ksort($menu_config[$menutab_administration]);
 }
 

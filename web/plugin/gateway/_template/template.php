@@ -22,7 +22,7 @@ switch (_OP_) {
 		$content .= "
 	    <h2>"._('Manage template')."</h2>
 	    <p>
-	    <form action=index.php?app=menu&inc=gateway_template&op=manage_save method=post>
+	    <form action=index.php?app=main&inc=gateway_template&op=manage_save method=post>
 	    "._CSRF_FORM_."
 	    <table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 		<tr>
@@ -50,7 +50,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('Gateway module configurations has been saved');
 			}
 		}
-		header("Location: index.php?app=menu&inc=gateway_template&op=manage");
+		header("Location: index.php?app=main&inc=gateway_template&op=manage");
 		exit();
 		break;
 }

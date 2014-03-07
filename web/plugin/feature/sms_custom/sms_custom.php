@@ -15,7 +15,7 @@ switch (_OP_) {
 		}
 		$content .= "
 			<h2>" . _('Manage custom') . "</h2>
-			"._button('index.php?app=menu&inc=feature_sms_custom&op=sms_custom_add', _('Add SMS custom'));
+			"._button('index.php?app=main&inc=feature_sms_custom&op=sms_custom_add', _('Add SMS custom'));
 		if (! auth_isadmin()) {
 			$query_user_only = "WHERE uid='$uid'";
 		}
@@ -44,8 +44,8 @@ switch (_OP_) {
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = user_uid2username($db_row['uid'])) {
-				$action = "<a href=\""._u('index.php?app=menu&inc=feature_sms_custom&op=sms_custom_edit&custom_id='.$db_row['custom_id'])."\">".$icon_config['edit']."</a>&nbsp;";
-				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS custom ?') . " (" . _('keyword') . ": " . $db_row['custom_keyword'] . ")','"._u('index.php?app=menu&inc=feature_sms_custom&op=sms_custom_del&custom_id='.$db_row['custom_id'])."')\">".$icon_config['delete']."</a>";
+				$action = "<a href=\""._u('index.php?app=main&inc=feature_sms_custom&op=sms_custom_edit&custom_id='.$db_row['custom_id'])."\">".$icon_config['edit']."</a>&nbsp;";
+				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS custom ?') . " (" . _('keyword') . ": " . $db_row['custom_keyword'] . ")','"._u('index.php?app=main&inc=feature_sms_custom&op=sms_custom_del&custom_id='.$db_row['custom_id'])."')\">".$icon_config['delete']."</a>";
 				$custom_url = $db_row['custom_url'];
 				if (auth_isadmin()) {
 					$show_owner = "<td>".$owner."</td>";
@@ -64,7 +64,7 @@ switch (_OP_) {
 			</tbody>
 			</table>
 			</div>
-			"._button('index.php?app=menu&inc=feature_sms_custom&op=sms_custom_add', _('Add SMS custom'));
+			"._button('index.php?app=main&inc=feature_sms_custom&op=sms_custom_add', _('Add SMS custom'));
 		_p($content);
 		break;
 	case "sms_custom_edit":
@@ -81,7 +81,7 @@ switch (_OP_) {
 		$content .= "
 			<h2>" . _('Manage custom') . "</h2>
 			<h3>" . _('Edit SMS custom') . "</h3>
-			<form action=index.php?app=menu&inc=feature_sms_custom&op=sms_custom_edit_yes method=post>
+			<form action=index.php?app=main&inc=feature_sms_custom&op=sms_custom_edit_yes method=post>
 			"._CSRF_FORM_."
 			<input type=hidden name=custom_id value=$custom_id>
 			<input type=hidden name=edit_custom_keyword value=$edit_custom_keyword>
@@ -114,7 +114,7 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
-			"._back('index.php?app=menu&inc=feature_sms_custom&op=sms_custom_list');
+			"._back('index.php?app=main&inc=feature_sms_custom&op=sms_custom_list');
 		_p($content);
 		break;
 	case "sms_custom_edit_yes":
@@ -131,7 +131,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_custom&op=sms_custom_edit&custom_id=$custom_id");
+		header("Location: index.php?app=main&inc=feature_sms_custom&op=sms_custom_edit&custom_id=$custom_id");
 		exit();
 		break;
 	case "sms_custom_del":
@@ -147,7 +147,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('Fail to delete SMS custom') . " (" . _('keyword') . ": $keyword_name)";
 			}
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_custom&op=sms_custom_list");
+		header("Location: index.php?app=main&inc=feature_sms_custom&op=sms_custom_list");
 		exit();
 		break;
 	case "sms_custom_add":
@@ -157,7 +157,7 @@ switch (_OP_) {
 		$content .= "
 			<h2>" . _('Manage custom') . "</h2>
 			<h3>" . _('Add SMS custom') . "</h3>
-			<form action=index.php?app=menu&inc=feature_sms_custom&op=sms_custom_add_yes method=post>
+			<form action=index.php?app=main&inc=feature_sms_custom&op=sms_custom_add_yes method=post>
 			"._CSRF_FORM_."
 			<table class=playsms-table>
 				<tbody>
@@ -188,7 +188,7 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
-			"._back('index.php?app=menu&inc=feature_sms_custom&op=sms_custom_list');
+			"._back('index.php?app=main&inc=feature_sms_custom&op=sms_custom_list');
 		_p($content);
 		break;
 	case "sms_custom_add_yes":
@@ -209,7 +209,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_custom&op=sms_custom_add");
+		header("Location: index.php?app=main&inc=feature_sms_custom&op=sms_custom_add");
 		exit();
 		break;
 }

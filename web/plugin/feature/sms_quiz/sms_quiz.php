@@ -15,7 +15,7 @@ switch (_OP_) {
 		}
 		$content .= "
 				<h2>"._('Manage quiz')."</h2>
-				"._button('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add', _('Add SMS quiz'));
+				"._button('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_add', _('Add SMS quiz'));
 		$content .= "
 			<div class=table-responsive>
 			<table class=playsms-table-list>
@@ -45,13 +45,13 @@ switch (_OP_) {
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = user_uid2username($db_row['uid'])) {
-				$quiz_status = "<a href=\""._u('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_status&quiz_id='.$db_row['quiz_id'].'&ps=1')."\"><span class=status_disabled /></a>";
+				$quiz_status = "<a href=\""._u('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_status&quiz_id='.$db_row['quiz_id'].'&ps=1')."\"><span class=status_disabled /></a>";
 				if ($db_row['quiz_enable']) {
-					$quiz_status = "<a href=\""._u('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_status&quiz_id='.$db_row['quiz_id'].'&ps=0')."\"><span class=status_enabled /></a>";
+					$quiz_status = "<a href=\""._u('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_status&quiz_id='.$db_row['quiz_id'].'&ps=0')."\"><span class=status_enabled /></a>";
 				}
-				$action = "<a href=\""._u('index.php?app=menu&inc=feature_sms_quiz&op=sms_answer_view&quiz_id='.$db_row['quiz_id'])."\">".$icon_config['view']."</a>&nbsp;";
-				$action .= "<a href=\""._u('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id='.$db_row['quiz_id'])."\">".$icon_config['edit']."</a>&nbsp;";
-				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS quiz with all its choices and answers ?')." ("._('keyword').": ".$db_row['quiz_keyword'].")','"._u('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_del&quiz_id='.$db_row['quiz_id'])."')\">".$icon_config['delete']."</a>";
+				$action = "<a href=\""._u('index.php?app=main&inc=feature_sms_quiz&op=sms_answer_view&quiz_id='.$db_row['quiz_id'])."\">".$icon_config['view']."</a>&nbsp;";
+				$action .= "<a href=\""._u('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id='.$db_row['quiz_id'])."\">".$icon_config['edit']."</a>&nbsp;";
+				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS quiz with all its choices and answers ?')." ("._('keyword').": ".$db_row['quiz_keyword'].")','"._u('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_del&quiz_id='.$db_row['quiz_id'])."')\">".$icon_config['delete']."</a>";
 				if (auth_isadmin()) {
 					$option_owner = "<td>$owner</td>";
 				}
@@ -70,7 +70,7 @@ switch (_OP_) {
 			</tbody>
 			</table>
 			</div>
-			"._button('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add', _('Add SMS quiz'));
+			"._button('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_add', _('Add SMS quiz'));
 		_p($content);
 		break;
 	case "sms_quiz_add" :
@@ -80,7 +80,7 @@ switch (_OP_) {
 		$content .= "
 			<h2>"._('Manage quiz')."</h2>
 			<h3>"._('Add SMS quiz')."</h3>
-			<form action=index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add_yes method=post>
+			<form action=index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_add_yes method=post>
 			"._CSRF_FORM_."
 			<table class=playsms-table>
 			<tr>
@@ -101,7 +101,7 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
-			"._back('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list');
+			"._back('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_list');
 		_p($content);
 		break;
 	case "sms_quiz_add_yes" :
@@ -126,7 +126,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all field');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_add");
+		header("Location: index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_add");
 		exit();
 		break;
 	case "sms_quiz_edit" :
@@ -144,7 +144,7 @@ switch (_OP_) {
 		$content .= "
 			<h2>"._('Manage quiz')."</h2>
 			<h3>"._('Edit SMS quiz')."</h3>
-			<form action=index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_edit_yes method=post>
+			<form action=index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_edit_yes method=post>
 			"._CSRF_FORM_."
 			<input type=hidden name=quiz_id value=\"$quiz_id\">
 			<input type=hidden name=edit_quiz_keyword value=\"$edit_quiz_keyword\">
@@ -167,7 +167,7 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
-			"._back('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list');
+			"._back('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_list');
 		_p($content);
 		break;
 	case "sms_quiz_edit_yes" :
@@ -189,7 +189,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all field');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=$quiz_id");
+		header("Location: index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=$quiz_id");
 		exit();
 		break;
 	case "sms_answer_view" :
@@ -222,7 +222,7 @@ switch (_OP_) {
 			} else {
 				$iscorrect = "<font color=red>"._('incorrect')."</font>";
 			}
-			$action = "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this answer ?')."','"._u('index.php?app=menu&inc=feature_sms_quiz&op=sms_answer_del&quiz_id='.$quiz_id.'&answer_id='.$db_row['answer_id'])."')\">".$icon_config['delete']."</a>";
+			$action = "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this answer ?')."','"._u('index.php?app=main&inc=feature_sms_quiz&op=sms_answer_del&quiz_id='.$quiz_id.'&answer_id='.$db_row['answer_id'])."')\">".$icon_config['delete']."</a>";
 			$i++;
 			$content .= "
 				<tr>
@@ -236,7 +236,7 @@ switch (_OP_) {
 		$content .= "</tbody>
 			</table>
 			</div>
-			"._back('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list');
+			"._back('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_list');
 		_p($content);
 		break;
 	case "sms_answer_del" :
@@ -250,7 +250,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('SMS quiz answer messages has been deleted');
 			}
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_quiz&op=sms_answer_view&quiz_id=$quiz_id");
+		header("Location: index.php?app=main&inc=feature_sms_quiz&op=sms_answer_view&quiz_id=$quiz_id");
 		exit();
 		break;
 	case "sms_quiz_status" :
@@ -260,7 +260,7 @@ switch (_OP_) {
 		if ($db_result > 0) {
 			$_SESSION['error_string'] = _('SMS quiz status has been changed');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list");
+		header("Location: index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_list");
 		exit();
 		break;
 	case "sms_quiz_del" :
@@ -273,7 +273,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('SMS quiz with all its messages has been deleted')." ("._('keyword').": $quiz_keyword)";
 			}
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list");
+		header("Location: index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_list");
 		exit();
 		break;
 }

@@ -25,13 +25,13 @@ function template_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',
 }
 
 // hook_playsmsd
-// used by index.php?app=menu&inc=daemon to execute custom commands
+// used by index.php?app=main&inc=daemon to execute custom commands
 function template_hook_playsmsd() {
 	// custom commands
 }
 
 // hook_getsmsstatus
-// called by index.php?app=menu&inc=daemon (periodic daemon) to set sms status
+// called by index.php?app=main&inc=daemon (periodic daemon) to set sms status
 // no returns needed
 // $p_datetime	: first sms delivery datetime
 // $p_update	: last status update datetime

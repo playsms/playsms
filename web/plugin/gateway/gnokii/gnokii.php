@@ -19,7 +19,7 @@ switch (_OP_) {
 		}
 		$content .= "
 			<h2>"._('Manage gnokii')."</h2>
-			<form action=index.php?app=menu&inc=gateway_gnokii&op=manage_save method=post>
+			<form action=index.php?app=main&inc=gateway_gnokii&op=manage_save method=post>
 			"._CSRF_FORM_."
 			<table class=playsms-table>
 				<tbody>
@@ -33,7 +33,7 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>";
-		$content .= _back('index.php?app=menu&inc=tools_gatewaymanager&op=gatewaymanager_list');
+		$content .= _back('index.php?app=main&inc=tools_gatewaymanager&op=gatewaymanager_list');
 		_p($content);
 		break;
 	case "manage_save":
@@ -47,7 +47,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('Gateway module configurations has been saved');
 			}
 		}
-		header("Location: index.php?app=menu&inc=gateway_gnokii&op=manage");
+		header("Location: index.php?app=main&inc=gateway_gnokii&op=manage");
 		exit();
 		break;
 }

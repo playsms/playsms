@@ -203,7 +203,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must select receiver and your message should not be empty');
 		}
-		header("Location: index.php?app=menu&inc=send_sms&op=send_sms&message=".urlencode(stripslashes($message)));
+		header("Location: index.php?app=main&inc=send_sms&op=send_sms&message=".urlencode(stripslashes($message)));
 		exit();
 		break;
 }

@@ -24,7 +24,7 @@ if (! $plugin_config['clickatell']['additional_param']) {
 //if (isadmin ()) {
 //	$menutab_gateway = $core_config['menutab']['gateway'];
 //	$menu_config[$menutab_gateway][] = array (
-//			"index.php?app=menu&inc=gateway_clickatell&op=manage",
+//			"index.php?app=main&inc=gateway_clickatell&op=manage",
 //			_ ( 'Manage clickatell' ) 
 //	);
 //}

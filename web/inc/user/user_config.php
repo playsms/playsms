@@ -52,7 +52,7 @@ switch (_OP_) {
 			$credit = rate_getusercredit($c_username);
 		} else {
 			$_SESSION['error_string'] = _('User does not exists').' ('._('username').': '.$uname.')';
-			header("Location: index.php?app=menu&inc=user_mgmnt&op=".$referrer);
+			header("Location: index.php?app=main&inc=user_mgmnt&op=".$referrer);
 			exit();
 		}
 
@@ -165,14 +165,14 @@ switch (_OP_) {
 		if ($uname && auth_isadmin()) {
 			$content .= "<h2>" . _('Manage user') . "</h2>";
 			$option_credit = "<tr><td>" . _('Credit') . "</td><td><input type=text size=10 maxlength=10 name=up_credit value=\"$credit\"></td></tr>";
-			$button_delete = "<input type=button class=button value='". _('Delete') ."' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=menu&inc=user_mgmnt&op=user_del".$url_uname."')\">";
-			$button_back = _back('index.php?app=menu&inc=user_mgmnt&op='.$referrer);
+			$button_delete = "<input type=button class=button value='". _('Delete') ."' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=main&inc=user_mgmnt&op=user_del".$url_uname."')\">";
+			$button_back = _back('index.php?app=main&inc=user_mgmnt&op='.$referrer);
 		} else {
 			$content .= "<h2>" . _('User configuration') . "</h2>";
 			$option_credit = "<tr><td>" . _('Credit') . "</td><td>$credit</td></tr>";
 		}
 		$content .= "
-			<form action=\"index.php?app=menu&inc=user_config&op=user_config_save" . $url_uname . "\" method=POST enctype=\"multipart/form-data\">
+			<form action=\"index.php?app=main&inc=user_config&op=user_config_save" . $url_uname . "\" method=POST enctype=\"multipart/form-data\">
 			"._CSRF_FORM_."
 			<h3>" . _('Application options') . "</h3>
 			<table class=playsms-table>
@@ -241,7 +241,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Username is empty');
 		}
-		header("Location: index.php?app=menu&inc=user_config&op=user_config".$url_uname);
+		header("Location: index.php?app=main&inc=user_config&op=user_config".$url_uname);
 		exit();
 		break;
 }

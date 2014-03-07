@@ -13,7 +13,7 @@ switch (_OP_) {
 				<tbody>
 					<tr>
 						<td>
-							<form action=\"index.php?app=menu&inc=tools_phonebook&route=import&op=import\" enctype=\"multipart/form-data\" method=POST>
+							<form action=\"index.php?app=main&inc=tools_phonebook&route=import&op=import\" enctype=\"multipart/form-data\" method=POST>
 							"._CSRF_FORM_."
 							<p>"._('Please select CSV file for phonebook entries')."</p>
 							<p><input type=\"file\" size=30 name=\"fnpb\"></p>
@@ -24,7 +24,7 @@ switch (_OP_) {
 					</tr>
 				</tbody>
 			</table>
-			<p>"._back('index.php?app=menu&inc=tools_phonebook&op=phonebook_list');
+			<p>"._back('index.php?app=main&inc=tools_phonebook&op=phonebook_list');
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}
@@ -79,17 +79,17 @@ switch (_OP_) {
 				</tbody></table>
 				</div>
 				<p>"._('Import above phonebook entries ?')."</p>
-				<form action=\"index.php?app=menu&inc=tools_phonebook&route=import&op=import_yes\" method=POST>
+				<form action=\"index.php?app=main&inc=tools_phonebook&route=import&op=import_yes\" method=POST>
 				"._CSRF_FORM_."
 				<input type=\"hidden\" name=\"number_of_row\" value=\"$j\">
 				<input type=\"hidden\" name=\"session_import\" value=\"".$session_import."\">
 				<p><input type=\"submit\" class=\"button\" value=\""._('Import')."\"></p>
 				</form>
-				<p>"._back('index.php?app=menu&inc=tools_phonebook&route=import&op=list');
+				<p>"._back('index.php?app=main&inc=tools_phonebook&route=import&op=list');
 			_p($content);
 		} else {
 			$_SESSION['error_string'] = _('Fail to upload CSV file for phonebook');
-			header("Location: index.php?app=menu&inc=tools_phonebook&route=import&op=list");
+			header("Location: index.php?app=main&inc=tools_phonebook&route=import&op=list");
 			exit();
 		}
 		break;
@@ -134,7 +134,7 @@ switch (_OP_) {
 			unset($gpid);
 		}
 		$_SESSION['error_string'] = _('Contacts has been imported');
-		header("Location: index.php?app=menu&inc=tools_phonebook&route=import&op=list");
+		header("Location: index.php?app=main&inc=tools_phonebook&route=import&op=list");
 		exit();
 		break;
 }

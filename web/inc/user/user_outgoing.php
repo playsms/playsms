@@ -23,7 +23,7 @@ if(!auth_isvalid()){auth_block();};
 switch (_OP_) {
 	case "user_outgoing":
 		$search_category = array(_('Time') => 'p_datetime', _('To') => 'p_dst', _('Message') => 'p_msg', _('Footer') => 'p_footer');
-		$base_url = 'index.php?app=menu&inc=user_outgoing&op=user_outgoing';
+		$base_url = 'index.php?app=main&inc=user_outgoing&op=user_outgoing';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array('uid' => $uid, 'flag_deleted' => 0);
 		$keywords = $search['dba_keywords'];
@@ -35,12 +35,12 @@ switch (_OP_) {
 		$content = "
 			<h2>"._('Outgoing messages')."</h2>
 			<p>".$search['form']."</p>
-			<form id=fm_outgoing name=fm_outgoing action=\"index.php?app=menu&inc=user_outgoing&op=actions\" method=POST>
+			<form id=fm_outgoing name=fm_outgoing action=\"index.php?app=main&inc=user_outgoing&op=actions\" method=POST>
 			"._CSRF_FORM_."
 			<input type=hidden name=go value=delete>
 			<div class=actions_box>
 				<div class=pull-left>
-					<a href=\""._u('index.php?app=menu&inc=user_outgoing&op=actions&go=export')."\">".$icon_config['export']."</a>
+					<a href=\""._u('index.php?app=main&inc=user_outgoing&op=actions&go=export')."\">".$icon_config['export']."</a>
 				</div>
 				<div class=pull-right>
 					<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', 'fm_outgoing');\">".$icon_config['delete']."</a>
@@ -98,8 +98,8 @@ switch (_OP_) {
 			$msg = $list[$j]['p_msg'];
 			$p_msg = core_display_text($msg);
 			if ($msg && $p_dst) {
-				$resend = _a('index.php?app=menu&inc=send_sms&op=send_sms&do=reply&message='.urlencode($msg).'&to='.urlencode($p_dst), $icon_config['resend']);
-				$forward = _a('index.php?app=menu&inc=send_sms&op=send_sms&do=forward&message='.urlencode($msg), $icon_config['forward']);
+				$resend = _a('index.php?app=main&inc=send_sms&op=send_sms&do=reply&message='.urlencode($msg).'&to='.urlencode($p_dst), $icon_config['resend']);
+				$forward = _a('index.php?app=main&inc=send_sms&op=send_sms&do=forward&message='.urlencode($msg), $icon_config['forward']);
 			}
 			$c_message = "<div id=\"user_outgoing_msg\">".$p_msg."</div><div id=\"msg_label\">".$p_datetime."&nbsp;".$p_status."</div><div id=\"msg_option\">".$resend."&nbsp".$forward."</div>";
 			$i--;

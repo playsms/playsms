@@ -12,7 +12,7 @@ switch (_OP_) {
 	case "sms_autoreply_list":
 		$content .= "
 			<h2>"._('Manage autoreply')."</h2>
-			"._button('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_add', _('Add SMS autoreply'));
+			"._button('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_add', _('Add SMS autoreply'));
 		$content .= "
 			<div class=table-responsive>
 			<table class=playsms-table-list>
@@ -36,8 +36,8 @@ switch (_OP_) {
 		$i=0;
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = user_uid2username($db_row['uid'])) {
-				$action = "<a href=\""._u('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id='.$db_row['autoreply_id'])."\">".$icon_config['manage']."</a>&nbsp;";
-				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS autoreply ?')." ("._('keyword').": ".$db_row['autoreply_keyword'].")','"._u('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_del&autoreply_id='.$db_row['autoreply_id'])."')\">".$icon_config['delete']."</a>";
+				$action = "<a href=\""._u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id='.$db_row['autoreply_id'])."\">".$icon_config['manage']."</a>&nbsp;";
+				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS autoreply ?')." ("._('keyword').": ".$db_row['autoreply_keyword'].")','"._u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_del&autoreply_id='.$db_row['autoreply_id'])."')\">".$icon_config['delete']."</a>";
 				if (auth_isadmin()) {
 					$option_owner = "<td>$owner</td>";
 				}
@@ -54,7 +54,7 @@ switch (_OP_) {
 			</tbody>
 			</table>
 			</div>
-			"._button('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_add', _('Add SMS autoreply'));
+			"._button('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_add', _('Add SMS autoreply'));
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}
@@ -69,7 +69,7 @@ switch (_OP_) {
 		$content .= "
 			<h2>"._('Manage autoreply')."</h2>
 			<p>"._('SMS autoreply keyword').": ".$manage_autoreply_keyword."</p>
-			"._button('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id='.$autoreply_id, _('Add SMS autoreply scenario'))."
+			"._button('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id='.$autoreply_id, _('Add SMS autoreply scenario'))."
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>";
@@ -95,8 +95,8 @@ switch (_OP_) {
 				for ($i=1;$i<=7;$i++) {
 					$list_of_param .= $db_row['autoreply_scenario_param'.$i]."&nbsp;";
 				}
-				$action = "<a href=\""._u('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit&autoreply_id='.$autoreply_id.'&autoreply_scenario_id='.$db_row['autoreply_scenario_id'])."\">".$icon_config['edit']."</a>";
-				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this SMS autoreply scenario ?')."','"._u('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_del&autoreply_id='.$autoreply_id.'&autoreply_scenario_id='.$db_row['autoreply_scenario_id'])."')\">".$icon_config['delete']."</a>";
+				$action = "<a href=\""._u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit&autoreply_id='.$autoreply_id.'&autoreply_scenario_id='.$db_row['autoreply_scenario_id'])."\">".$icon_config['edit']."</a>";
+				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this SMS autoreply scenario ?')."','"._u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_del&autoreply_id='.$autoreply_id.'&autoreply_scenario_id='.$db_row['autoreply_scenario_id'])."')\">".$icon_config['delete']."</a>";
 				if (auth_isadmin()) {
 					$option_owner = "<td>$owner</td>";
 				}
@@ -115,8 +115,8 @@ switch (_OP_) {
 			</table>
 			</div>
 			</form>
-			"._button('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id='.$autoreply_id, _('Add SMS autoreply scenario'))."
-			"._back('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_list');
+			"._button('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id='.$autoreply_id, _('Add SMS autoreply scenario'))."
+			"._back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list');
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}
@@ -136,14 +136,14 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('Fail to delete SMS autoreply')." ("._('keyword').": $keyword_name";
 			}
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_list");
+		header("Location: index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list");
 		exit();
 		break;
 	case "sms_autoreply_add":
 		$content .= "
 			<h2>"._('Manage autoreply')."</h2>
 			<h3>"._('Add SMS autoreply')."</h3>
-			<form action=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_add_yes method=post>
+			<form action=index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_add_yes method=post>
 			"._CSRF_FORM_."
 			<table class=playsms-table>
 				<tbody>
@@ -155,7 +155,7 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value='"._('Save')."'></p>
 			</form>
-			"._back('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_list');
+			"._back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list');
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}
@@ -177,7 +177,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_add");
+		header("Location: index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_add");
 		exit();
 		break;
 		// scenario
@@ -189,7 +189,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('SMS autoreply scenario has been deleted');
 			}
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=".$autoreply_id."");
+		header("Location: index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=".$autoreply_id."");
 		exit();
 		break;
 	case "sms_autoreply_scenario_add":
@@ -200,7 +200,7 @@ switch (_OP_) {
 		$content .= "
 			<h2>"._('Manage autoreply')."</h2>
 			<h3>"._('Add SMS autoreply scenario')."</h3>
-			<form action=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add_yes method=post>
+			<form action=index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add_yes method=post>
 			"._CSRF_FORM_."
 			<input type=hidden name=autoreply_id value=\"$autoreply_id\">
 			<table class=playsms-table>
@@ -221,7 +221,7 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value='"._('Save')."'>
 			</form>
-			"._back('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id='.$autoreply_id);
+			"._back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id='.$autoreply_id);
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}
@@ -250,7 +250,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=$autoreply_id");
+		header("Location: index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=$autoreply_id");
 		exit();
 		break;
 	case "sms_autoreply_scenario_edit":
@@ -262,7 +262,7 @@ switch (_OP_) {
 		$content .= "
 			<h2>"._('Manage autoreply')."</h2>
 			<h3>"._('Edit SMS autoreply scenario')."</h3>
-			<form action=index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit_yes method=post>
+			<form action=index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit_yes method=post>
 			"._CSRF_FORM_."
 			<input type=hidden name=autoreply_id value=\"$autoreply_id\">
 			<input type=hidden name=autoreply_scenario_id value=\"$autoreply_scenario_id\">
@@ -291,7 +291,7 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\"></p>
 			</form>
-			"._back('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id='.$autoreply_id);
+			"._back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id='.$autoreply_id);
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}
@@ -319,7 +319,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit&autoreply_id=$autoreply_id&autoreply_scenario_id=$autoreply_scenario_id");
+		header("Location: index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit&autoreply_id=$autoreply_id&autoreply_scenario_id=$autoreply_scenario_id");
 		exit();
 		break;
 }

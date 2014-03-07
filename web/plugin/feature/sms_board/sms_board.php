@@ -15,7 +15,7 @@ switch (_OP_) {
 		}
 		$content .= "
 			<h2>"._('Manage board')."</h2>
-			<p>"._button('index.php?app=menu&inc=feature_sms_board&op=sms_board_add', _('Add SMS board'))."
+			<p>"._button('index.php?app=main&inc=feature_sms_board&op=sms_board_add', _('Add SMS board'))."
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>";
@@ -42,9 +42,9 @@ switch (_OP_) {
 		$i=0;
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = user_uid2username($db_row['uid'])) {
-				$action = "<a href=\""._u('index.php?app=menu&inc=feature_sms_board&route=view&op=list&board_id='.$db_row['board_id'])."\">".$icon_config['view']."</a>&nbsp;";
-				$action .= "<a href=\""._u('index.php?app=menu&inc=feature_sms_board&op=sms_board_edit&board_id='.$db_row['board_id'])."\">".$icon_config['edit']."</a>&nbsp;";
-				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS board with all its messages ?')." ("._('keyword').": ".$db_row['board_keyword'].")','"._u('index.php?app=menu&inc=feature_sms_board&op=sms_board_del&board_id='.$db_row['board_id'])."')\">".$icon_config['delete']."</a>";
+				$action = "<a href=\""._u('index.php?app=main&inc=feature_sms_board&route=view&op=list&board_id='.$db_row['board_id'])."\">".$icon_config['view']."</a>&nbsp;";
+				$action .= "<a href=\""._u('index.php?app=main&inc=feature_sms_board&op=sms_board_edit&board_id='.$db_row['board_id'])."\">".$icon_config['edit']."</a>&nbsp;";
+				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS board with all its messages ?')." ("._('keyword').": ".$db_row['board_keyword'].")','"._u('index.php?app=main&inc=feature_sms_board&op=sms_board_del&board_id='.$db_row['board_id'])."')\">".$icon_config['delete']."</a>";
 				if (auth_isadmin()) {
 					$option_owner = "<td>$owner</td>";
 				}
@@ -62,7 +62,7 @@ switch (_OP_) {
 			</tbody>
 			</table>
 			</div>
-			"._button('index.php?app=menu&inc=feature_sms_board&op=sms_board_add', _('Add SMS board'));
+			"._button('index.php?app=main&inc=feature_sms_board&op=sms_board_add', _('Add SMS board'));
 		_p($content);
 		break;
 	case "sms_board_edit":
@@ -79,7 +79,7 @@ switch (_OP_) {
 		$content .= "
 			<h2>"._('Manage board')."</h2>
 			<h3>"._('Edit SMS board')."</h3>
-			<form action=index.php?app=menu&inc=feature_sms_board&op=sms_board_edit_yes method=post>
+			<form action=index.php?app=main&inc=feature_sms_board&op=sms_board_edit_yes method=post>
 			"._CSRF_FORM_."
 			<input type=hidden name=board_id value=$board_id>
 			<input type=hidden name=edit_board_keyword value=$edit_board_keyword>
@@ -102,7 +102,7 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
-			"._back('index.php?app=menu&inc=feature_sms_board&op=sms_board_list');
+			"._back('index.php?app=main&inc=feature_sms_board&op=sms_board_list');
 		_p($content);
 		break;
 	case "sms_board_edit_yes":
@@ -130,7 +130,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_board&op=sms_board_edit&board_id=$board_id");
+		header("Location: index.php?app=main&inc=feature_sms_board&op=sms_board_edit&board_id=$board_id");
 		exit();
 		break;
 	case "sms_board_del":
@@ -144,7 +144,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('SMS board with all its messages has been deleted')." ("._('keyword').": $board_keyword)";
 			}
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_board&op=sms_board_list");
+		header("Location: index.php?app=main&inc=feature_sms_board&op=sms_board_list");
 		exit();
 		break;
 	case "sms_board_add":
@@ -154,7 +154,7 @@ switch (_OP_) {
 		$content .= "
 			<h2>"._('Manage board')."</h2>
 			<h3>"._('Add SMS board')."</h3>
-			<form action=index.php?app=menu&inc=feature_sms_board&op=sms_board_add_yes method=post>
+			<form action=index.php?app=main&inc=feature_sms_board&op=sms_board_add_yes method=post>
 			"._CSRF_FORM_."
 			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 			<tr>
@@ -169,7 +169,7 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
-			"._back('index.php?app=menu&inc=feature_sms_board&op=sms_board_list');
+			"._back('index.php?app=main&inc=feature_sms_board&op=sms_board_list');
 		_p($content);
 		break;
 	case "sms_board_add_yes":
@@ -200,7 +200,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_sms_board&op=sms_board_add");
+		header("Location: index.php?app=main&inc=feature_sms_board&op=sms_board_add");
 		exit();
 		break;
 }

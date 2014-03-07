@@ -15,7 +15,7 @@ switch (_OP_) {
 				<tbody>
 					<tr>
 						<td>
-							<form action=\"index.php?app=menu&inc=tools_sendfromfile&op=upload_confirm\" enctype=\"multipart/form-data\" method=\"post\">
+							<form action=\"index.php?app=main&inc=tools_sendfromfile&op=upload_confirm\" enctype=\"multipart/form-data\" method=\"post\">
 							"._CSRF_FORM_."
 							<p>"._('Please select CSV file')."</p>
 							<p><input type=\"file\" size=30 name=\"fncsv\"></p>
@@ -76,7 +76,7 @@ switch (_OP_) {
 			}
 		} else {
 			$_SESSION['error_string'] = _('Invalid CSV file');
-			header("Location: index.php?app=menu&inc=tools_sendfromfile&op=list");
+			header("Location: index.php?app=main&inc=tools_sendfromfile&op=list");
 			exit();
 			break;
 		}
@@ -140,11 +140,11 @@ switch (_OP_) {
 			$content .= "</tbody></table></div>";
 		}
 		$content .= '<h3>'._('Your choice').': </h3><p />';
-		$content .= "<form action=\"index.php?app=menu&inc=tools_sendfromfile&op=upload_cancel\" method=\"post\">";
+		$content .= "<form action=\"index.php?app=main&inc=tools_sendfromfile&op=upload_cancel\" method=\"post\">";
 		$content .= _CSRF_FORM_."<input type=hidden name=sid value='".$sid."'>";
 		$content .= "<input type=\"submit\" value=\""._('Cancel send from file')."\" class=\"button\"></p>";
 		$content .= "</form>";
-		$content .= "<form action=\"index.php?app=menu&inc=tools_sendfromfile&op=upload_process\" method=\"post\">";
+		$content .= "<form action=\"index.php?app=main&inc=tools_sendfromfile&op=upload_process\" method=\"post\">";
 		$content .= _CSRF_FORM_."<input type=hidden name=sid value='".$sid."'>";
 		$content .= "<input type=\"submit\" value=\""._('Send SMS to valid entries')."\" class=\"button\"></p>";
 		$content .= "</form>";
@@ -161,7 +161,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Invalid session ID');
 		}
-		header("Location: index.php?app=menu&inc=tools_sendfromfile&op=list");
+		header("Location: index.php?app=main&inc=tools_sendfromfile&op=list");
 		exit();
 		break;
 	case 'upload_process':
@@ -186,7 +186,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Invalid session ID');
 		}
-		header("Location: index.php?app=menu&inc=tools_sendfromfile&op=list");
+		header("Location: index.php?app=main&inc=tools_sendfromfile&op=list");
 		exit();
 		break;
 }

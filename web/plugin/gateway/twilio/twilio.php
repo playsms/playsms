@@ -19,7 +19,7 @@ switch (_OP_) {
 		}
 		$content .= "
 			<h2>"._('Manage twilio')."</h2>
-			<form action=index.php?app=menu&inc=gateway_twilio&op=manage_save method=post>
+			<form action=index.php?app=main&inc=gateway_twilio&op=manage_save method=post>
 			"._CSRF_FORM_."
 			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 				<tbody>
@@ -39,7 +39,7 @@ switch (_OP_) {
 			- "._('Your callback URL should be accessible from twilio')."<br />
 			- "._('twilio will push DLR and incoming SMS to your callback URL')."<br />
 			- "._('twilio is a bulk SMS provider').", <a href=\"http://www.twilio.com\" target=\"_blank\">"._('free credits are available for testing purposes')."</a><br />";
-		$content .= _back('index.php?app=menu&inc=tools_gatewaymanager&op=gatewaymanager_list');
+		$content .= _back('index.php?app=main&inc=tools_gatewaymanager&op=gatewaymanager_list');
 		_p($content);
 		break;
 	case "manage_save":
@@ -65,7 +65,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('Gateway module configurations has been saved');
 			}
 		}
-		header("Location: index.php?app=menu&inc=gateway_twilio&op=manage");
+		header("Location: index.php?app=main&inc=gateway_twilio&op=manage");
 		exit();
 		break;
 }

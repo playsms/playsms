@@ -50,8 +50,8 @@ function default_hook_themes_buildmenu($menu_config) {
 		unset($m);
 		if ($menu_title == $core_config['menutab']['my_account']) {
 			$main_menu .= "<li><hr /></li>";
-			$main_menu .= "<li><a href='"._u('index.php?app=menu&inc=user_config&op=user_config')."'>" . _('User configuration') . "</a></li>";
-			$main_menu .= "<li><a href='"._u('index.php?app=menu&inc=user_pref&op=user_pref')."'>" . _('Preferences') . "</a></li>";
+			$main_menu .= "<li><a href='"._u('index.php?app=main&inc=user_config&op=user_config')."'>" . _('User configuration') . "</a></li>";
+			$main_menu .= "<li><a href='"._u('index.php?app=main&inc=user_pref&op=user_pref')."'>" . _('Preferences') . "</a></li>";
 		}
 		$main_menu .= "</ul>";
 		$main_menu .= "</li>";

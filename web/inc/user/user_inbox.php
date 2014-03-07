@@ -23,7 +23,7 @@ if(!auth_isvalid()){auth_block();};
 switch (_OP_) {
 	case "user_inbox":
 		$search_category = array(_('Time') => 'in_datetime', _('From') => 'in_sender', _('Message') => 'in_msg');
-		$base_url = 'index.php?app=menu&inc=user_inbox&op=user_inbox';
+		$base_url = 'index.php?app=main&inc=user_inbox&op=user_inbox';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array('in_uid' => $uid, 'flag_deleted' => 0);
 		$keywords = $search['dba_keywords'];
@@ -61,8 +61,8 @@ switch (_OP_) {
 			$reply = '';
 			$forward = '';
 			if ($msg && $in_sender) {
-				$reply = _a('index.php?app=menu&inc=send_sms&op=send_sms&do=reply&message='.urlencode($msg).'&to='.urlencode($in_sender), $icon_config['reply']);
-				$forward = _a('index.php?app=menu&inc=send_sms&op=send_sms&do=forward&message='.urlencode($msg), $icon_config['forward']);
+				$reply = _a('index.php?app=main&inc=send_sms&op=send_sms&do=reply&message='.urlencode($msg).'&to='.urlencode($in_sender), $icon_config['reply']);
+				$forward = _a('index.php?app=main&inc=send_sms&op=send_sms&do=forward&message='.urlencode($msg), $icon_config['forward']);
 			}
 			$i--;
 			$tpl['loop']['data'][] = array(

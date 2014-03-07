@@ -17,11 +17,11 @@ switch (_OP_) {
 		$fm_name = "fm_smstemp";
 		$content = "
 			<h2>"._('Message template')."</h2>
-			<form id=$fm_name name=$fm_name action='index.php?app=menu&inc=tools_msgtemplate&op=actions' method=POST>
+			<form id=$fm_name name=$fm_name action='index.php?app=main&inc=tools_msgtemplate&op=actions' method=POST>
 			"._CSRF_FORM_."
 			<input type=hidden name=go value=delete>
 			<div class=actions_box>
-			<div class=pull-left><a href='"._u('index.php?app=menu&inc=tools_msgtemplate&op=add')."'>".$icon_config['add']."</a></div>
+			<div class=pull-left><a href='"._u('index.php?app=main&inc=tools_msgtemplate&op=add')."'>".$icon_config['add']."</a></div>
 			<div class=pull-right>
 				<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', '".$fm_name."');\">".$icon_config['delete']."</a>
 			</div>
@@ -44,7 +44,7 @@ switch (_OP_) {
 			$i++;
 			$content .= "
 				<tr>
-					<td><a href='"._u('index.php?app=menu&inc=tools_msgtemplate&op=edit&tid=$tid')."'>".$temp_title."</a></td>
+					<td><a href='"._u('index.php?app=main&inc=tools_msgtemplate&op=edit&tid=$tid')."'>".$temp_title."</a></td>
 					<td>$temp_text</td>
 					<td><input type=checkbox name=chkid".$i."></td>
 					<input type=hidden name=chkid_value".$i." value='".$db_row['tid']."'>
@@ -76,7 +76,7 @@ switch (_OP_) {
 		$content .= "
 			<h2>"._('Message template')."</h2>
 			<h3>"._('Add message template')."</h3>
-			<form action='index.php?app=menu&inc=tools_msgtemplate&op=actions&go=add' method=POST>
+			<form action='index.php?app=main&inc=tools_msgtemplate&op=actions&go=add' method=POST>
 			"._CSRF_FORM_."
 			<table class=playsms-table>
 			<tr>
@@ -88,7 +88,7 @@ switch (_OP_) {
 			</table>	
 			<p><input type='submit' class='button' value='"._('Save')."'>
 			</form>
-			<p>"._back('index.php?app=menu&inc=tools_msgtemplate&op=list');
+			<p>"._back('index.php?app=main&inc=tools_msgtemplate&op=list');
 			_p($content);
 		break;
 	case "edit":
@@ -101,7 +101,7 @@ switch (_OP_) {
 		$content .= "
 			<h2>"._('Message template')."</h2>
 			<h3>"._('Edit message template')."</h3>
-			<form action='index.php?app=menu&inc=tools_msgtemplate&op=actions&go=edit' method=POST>
+			<form action='index.php?app=main&inc=tools_msgtemplate&op=actions&go=edit' method=POST>
 			"._CSRF_FORM_."
 			<input type=hidden name=tid value='$tid'>
 			<table class=playsms-table>
@@ -115,7 +115,7 @@ switch (_OP_) {
 			<p><input type='submit' class='button' value='"._('Save')."'>
 			<input type='hidden' name='item_count' value='$i'>
 			</form>
-			<p>"._back('index.php?app=menu&inc=tools_msgtemplate&op=list');
+			<p>"._back('index.php?app=main&inc=tools_msgtemplate&op=list');
 		_p($content);
 		break;
 	case "actions":
@@ -135,7 +135,7 @@ switch (_OP_) {
 				} else {
 					$_SESSION['error_string'] = _('You must fill all fields');
 				}
-				header("Location: index.php?app=menu&inc=tools_msgtemplate&op=add");
+				header("Location: index.php?app=main&inc=tools_msgtemplate&op=add");
 				exit();
 				break;
 			case "edit":
@@ -152,7 +152,7 @@ switch (_OP_) {
 				} else {
 					$_SESSION['error_string'] = _('You must fill all fields');
 				}
-				header("Location: index.php?app=menu&inc=tools_msgtemplate&op=list");
+				header("Location: index.php?app=main&inc=tools_msgtemplate&op=list");
 				exit();
 				break;
 			case "delete":
@@ -168,7 +168,7 @@ switch (_OP_) {
 					}
 				}
 				$_SESSION['error_string'] = _('Selected message template has been deleted');
-				header("Location: index.php?app=menu&inc=tools_msgtemplate&op=list");
+				header("Location: index.php?app=main&inc=tools_msgtemplate&op=list");
 				exit();
 				break;
 		}

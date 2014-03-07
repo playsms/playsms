@@ -17,9 +17,9 @@ switch (_OP_) {
 		$keywords = $data['keywords'];
 		$description = $data['description'];
 		$c_members = count(inboxgroup_getmembers($rid));
-		$c_members = "<a href='"._u('index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid='.$rid)."'>".$c_members."</a>";
+		$c_members = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid='.$rid)."'>".$c_members."</a>";
 		$c_catchall = count(inboxgroup_getcatchall($rid));
-		$c_catchall = "<a href='"._u('index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid)."'>".$c_catchall."</a>";
+		$c_catchall = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid)."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
 		if ($error_content) {
 			$content .= $error_content;
@@ -37,13 +37,13 @@ switch (_OP_) {
 			</table>
 			<table>
 			<div style='float: left'>
-				<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&route=members&op=members_add&rid=".$rid."'>
+				<form method='post' action='index.php?app=main&inc=feature_inboxgroup&route=members&op=members_add&rid=".$rid."'>
 				"._CSRF_FORM_."
 				<input class='button' type='submit' value='"._('Add member')."'>
 				</form>
 			</div>
 			<div>
-				<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&route=members&op=members_delete&rid=".$rid."'>
+				<form method='post' action='index.php?app=main&inc=feature_inboxgroup&route=members&op=members_delete&rid=".$rid."'>
 				"._CSRF_FORM_."
 				<input class='button' type='submit' value='"._('Delete member')."'>
 				</form>
@@ -78,18 +78,18 @@ switch (_OP_) {
 			</table>
 			</div>
 			<div style='float: left'>
-				<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&route=members&op=members_add&rid=".$rid."'>
+				<form method='post' action='index.php?app=main&inc=feature_inboxgroup&route=members&op=members_add&rid=".$rid."'>
 				"._CSRF_FORM_."
 				<input class='button' type='submit' value='"._('Add member')."'>
 				</form>
 			</div>
 			<div>
-				<form method='post' action='index.php?app=menu&inc=feature_inboxgroup&route=members&op=members_delete&rid=".$rid."'>
+				<form method='post' action='index.php?app=main&inc=feature_inboxgroup&route=members&op=members_delete&rid=".$rid."'>
 				"._CSRF_FORM_."
 				<input class='button' type='submit' value='"._('Delete member')."'>
 				</form>
 			</div>
-		"._back('index.php?app=menu&inc=feature_inboxgroup&op=list');
+		"._back('index.php?app=main&inc=feature_inboxgroup&op=list');
 		_p($content);
 		break;
 	case 'members_add':
@@ -99,9 +99,9 @@ switch (_OP_) {
 		$keywords = $data['keywords'];
 		$description = $data['description'];
 		$c_members = count(inboxgroup_getmembers($rid));
-		$c_members = "<a href='"._u('index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid='.$rid)."'>".$c_members."</a>";
+		$c_members = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid='.$rid)."'>".$c_members."</a>";
 		$c_catchall = count(inboxgroup_getcatchall($rid));
-		$c_catchall = "<a href='"._u('index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid)."'>".$c_catchall."</a>";
+		$c_catchall = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid)."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
 		if ($error_content) {
 			$content .= $error_content;
@@ -129,7 +129,7 @@ switch (_OP_) {
 			$list_of_users .= "<option value='".$users[$i]['uid']."'>".$users[$i]['name']." ".$users[$i]['mobile']."</option>";
 		}
 		$content .= "
-			<form action=\"index.php?app=menu&inc=feature_inboxgroup&route=members&op=members_add_submit\" method=\"post\">
+			<form action=\"index.php?app=main&inc=feature_inboxgroup&route=members&op=members_add_submit\" method=\"post\">
 			"._CSRF_FORM_."
 			<input type=hidden name='rid' value='".$rid."'>
 			<table>
@@ -154,7 +154,7 @@ switch (_OP_) {
 			<p>"._('Press submit button to add selected users to member list')."</p>
 			<p><input class='button' type='submit' value='Submit' onClick=\"selectAllOptions(this.form['uids[]'])\"></p>
 			</form>
-		"._back('index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid='.$rid);
+		"._back('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid='.$rid);
 		_p($content);
 		break;
 	case 'members_add_submit':
@@ -176,7 +176,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Receiver number does not exists');
 		}
-		header("Location: index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid=".$rid);
+		header("Location: index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid=".$rid);
 		exit();
 		break;
 	case 'members_delete':
@@ -186,9 +186,9 @@ switch (_OP_) {
 		$keywords = $data['keywords'];
 		$description = $data['description'];
 		$c_members = count(inboxgroup_getmembers($rid));
-		$c_members = "<a href='"._u('index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid='.$rid)."'>".$c_members."</a>";
+		$c_members = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid='.$rid)."'>".$c_members."</a>";
 		$c_catchall = count(inboxgroup_getcatchall($rid));
-		$c_catchall = "<a href='"._u('index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid)."'>".$c_catchall."</a>";
+		$c_catchall = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid)."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
 		if ($error_content) {
 			$content .= $error_content;
@@ -217,7 +217,7 @@ switch (_OP_) {
 			}
 		}
 		$content .= "
-			<form action=\"index.php?app=menu&inc=feature_inboxgroup&route=members&op=members_delete_submit\" method=\"post\">
+			<form action=\"index.php?app=main&inc=feature_inboxgroup&route=members&op=members_delete_submit\" method=\"post\">
 			"._CSRF_FORM_."
 			<input type=hidden name='rid' value='".$rid."'>
 			<table>
@@ -242,7 +242,7 @@ switch (_OP_) {
 			<p>"._('Press submit button to remove selected members from member list')."</p>
 			<p><input class='button' type='submit' value='Submit' onClick=\"selectAllOptions(this.form['uids[]'])\"></p>
 			</form>
-		"._back('index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid='.$rid);
+		"._back('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid='.$rid);
 		_p($content);
 		break;
 	case 'members_delete_submit':
@@ -264,7 +264,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Receiver number does not exists');
 		}
-		header("Location: index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid=".$rid);
+		header("Location: index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid=".$rid);
 		exit();
 		break;
 }

@@ -16,7 +16,7 @@ switch (_OP_) {
 			'var' => array(
 				'ERROR' => $error_content,
 				'Group inbox' => _('Group inbox'),
-				'Add group inbox' => _button('index.php?app=menu&inc=feature_inboxgroup&op=add', _('Add group inbox')),
+				'Add group inbox' => _button('index.php?app=main&inc=feature_inboxgroup&op=add', _('Add group inbox')),
 				'Receiver number' => _('Receiver number'),
 				'Keywords' => _('Keywords'),
 				'Members' => _('Members'),
@@ -29,12 +29,12 @@ switch (_OP_) {
 		for ($i=0;$i<count($data);$i++) {
 			$c_rid = $data[$i]['id'];
 			$c_members = count(inboxgroup_getmembers($c_rid));
-			$c_members = "<a href='"._u('index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid='.$c_rid)."'>".$c_members."</a>";
+			$c_members = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid='.$c_rid)."'>".$c_members."</a>";
 			$c_catchall = count(inboxgroup_getcatchall($c_rid));
-			$c_catchall = "<a href='"._u('index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$c_rid)."'>".$c_catchall."</a>";
-			$c_status = $data[$i]['status'] ? "<a href='"._u('index.php?app=menu&inc=feature_inboxgroup&op=disable&rid='.$c_rid)."'><span class=status_enabled /></a>" : "<a href='"._u('index.php?app=menu&inc=feature_inboxgroup&op=enable&rid='.$c_rid)."'><span class=status_disabled /></a>";
-			$c_action = "<a href='"._u('index.php?app=menu&inc=feature_inboxgroup&op=edit&rid='.$c_rid)."'>".$icon_config['edit']."</a> ";
-			$c_action .= "<a href='"._u('index.php?app=menu&inc=feature_inboxgroup&op=del&rid='.$c_rid)."'>".$icon_config['delete']."</a> ";
+			$c_catchall = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$c_rid)."'>".$c_catchall."</a>";
+			$c_status = $data[$i]['status'] ? "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&op=disable&rid='.$c_rid)."'><span class=status_enabled /></a>" : "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&op=enable&rid='.$c_rid)."'><span class=status_disabled /></a>";
+			$c_action = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&op=edit&rid='.$c_rid)."'>".$icon_config['edit']."</a> ";
+			$c_action .= "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&op=del&rid='.$c_rid)."'>".$icon_config['delete']."</a> ";
 			$tpl['loop']['data'][] = array(
 			    'tr_class' => $tr_class,
 			    'in_receiver' => $data[$i]['in_receiver'],
@@ -66,7 +66,7 @@ switch (_OP_) {
 			'HINT_KEYWORDS' => _hint(_('Seperate with comma for multiple items')),
 			'HINT_RECEIVER_NUMBER' => _hint(_('For example a short code')),
 			'Save' => _('Save'),
-			'BACK' => _back('index.php?app=menu&inc=feature_inboxgroup&op=list')
+			'BACK' => _back('index.php?app=main&inc=feature_inboxgroup&op=list')
 		    )
 		);
 		_p(tpl_apply($tpl));
@@ -84,7 +84,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_inboxgroup&op=add");
+		header("Location: index.php?app=main&inc=feature_inboxgroup&op=add");
 		exit();
 		break;
 	case 'edit':
@@ -118,7 +118,7 @@ switch (_OP_) {
 			'HINT_KEYWORDS' => _hint(_('Seperate with comma for multiple items')),
 			'HINT_EXCLUSIVE' => _hint(_('Restrict sender to regular members or catch-all members only')),
 			'Save' => _('Save'),
-			'BACK' => _back('index.php?app=menu&inc=feature_inboxgroup&op=list')
+			'BACK' => _back('index.php?app=main&inc=feature_inboxgroup&op=list')
 		    )
 		);
 		_p(tpl_apply($tpl));
@@ -139,7 +139,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=menu&inc=feature_inboxgroup&op=edit&rid=".$rid);
+		header("Location: index.php?app=main&inc=feature_inboxgroup&op=edit&rid=".$rid);
 		exit();
 		break;
 	case 'del':
@@ -149,9 +149,9 @@ switch (_OP_) {
 		$keywords = $data['keywords'];
 		$description = $data['description'];
 		$c_members = count(inboxgroup_getmembers($rid));
-		$c_members = "<a href='"._u('index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid='.$rid)."'>".$c_members."</a>";
+		$c_members = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid='.$rid)."'>".$c_members."</a>";
 		$c_catchall = count(inboxgroup_getcatchall($rid));
-		$c_catchall = "<a href='"._u('index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid)."'>".$c_catchall."</a>";
+		$c_catchall = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid)."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
 		if ($error_content) {
 			$content .= $error_content;
@@ -178,7 +178,7 @@ switch (_OP_) {
 			'C_STATUS' => $c_status,
 			'ARE_YOU_SURE' => _('Are you sure you want to delete this group inbox ?'),
 			'Yes' => _('Yes'),
-			'BACK' => _back('index.php?app=menu&inc=feature_inboxgroup&op=list')
+			'BACK' => _back('index.php?app=main&inc=feature_inboxgroup&op=list')
 		    )
 		);
 		_p(tpl_apply($tpl));
@@ -196,7 +196,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Receiver number does not exists');
 		}
-		header("Location: index.php?app=menu&inc=feature_inboxgroup&op=list&rid=".$rid);
+		header("Location: index.php?app=main&inc=feature_inboxgroup&op=list&rid=".$rid);
 		exit();
 		break;
 	case 'enable':
@@ -212,7 +212,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Receiver number does not exists');
 		}
-		header("Location: index.php?app=menu&inc=feature_inboxgroup&op=list&rid=".$rid);
+		header("Location: index.php?app=main&inc=feature_inboxgroup&op=list&rid=".$rid);
 		exit();
 		break;
 	case 'disable':
@@ -228,7 +228,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Receiver number does not exists');
 		}
-		header("Location: index.php?app=menu&inc=feature_inboxgroup&op=list&rid=".$rid);
+		header("Location: index.php?app=main&inc=feature_inboxgroup&op=list&rid=".$rid);
 		exit();
 		break;
 }

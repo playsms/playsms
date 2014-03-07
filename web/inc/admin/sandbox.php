@@ -23,7 +23,7 @@ if(!auth_isadmin()){auth_block();};
 switch (_OP_) {
 	case "sandbox":
 		$search_category = array(_('Time') => 'in_datetime', _('From') => 'in_sender', _('Content') => 'in_message');
-		$base_url = 'index.php?app=menu&inc=sandbox&op=sandbox';
+		$base_url = 'index.php?app=main&inc=sandbox&op=sandbox';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array('flag_deleted' => 0, 'in_status' => 0);
 		$keywords = $search['dba_keywords'];
@@ -35,12 +35,12 @@ switch (_OP_) {
 		$content = "
 			<h2>"._('Sandbox')."</h2>
 			<p>".$search['form']."</p>
-			<form id=fm_sandbox name=fm_sandbox action=\"index.php?app=menu&inc=sandbox&op=actions\" method=POST>
+			<form id=fm_sandbox name=fm_sandbox action=\"index.php?app=main&inc=sandbox&op=actions\" method=POST>
 			"._CSRF_FORM_."
 			<input type=hidden name=go value=delete>
 			<div class=actions_box>
 				<div class=pull-left>
-					<a href=\""._u('index.php?app=menu&inc=sandbox&op=actions&go=export')."\">".$icon_config['export']."</a>
+					<a href=\""._u('index.php?app=main&inc=sandbox&op=actions&go=export')."\">".$icon_config['export']."</a>
 				</div>
 				<div class=pull-right>
 					<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', 'fm_sandbox');\">".$icon_config['delete']."</a>
@@ -79,8 +79,8 @@ switch (_OP_) {
 			$reply = '';
 			$forward = '';
 			if ($msg && $in_sender) {
-				$reply = _a('index.php?app=menu&inc=send_sms&op=send_sms&do=reply&message='.urlencode($msg).'&to='.urlencode($in_sender), $icon_config['reply']);
-				$forward = _a('index.php?app=menu&inc=send_sms&op=send_sms&do=forward&message='.urlencode($msg), $icon_config['forward']);
+				$reply = _a('index.php?app=main&inc=send_sms&op=send_sms&do=reply&message='.urlencode($msg).'&to='.urlencode($in_sender), $icon_config['reply']);
+				$forward = _a('index.php?app=main&inc=send_sms&op=send_sms&do=forward&message='.urlencode($msg), $icon_config['forward']);
 			}
 			$c_message = "<div id=\"sandbox_msg\">".$in_message."</div><div id=\"msg_label\">".$in_datetime."</div><div id=\"msg_option\">".$reply.$forward."</div>";
 			$i--;

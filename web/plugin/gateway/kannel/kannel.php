@@ -49,7 +49,7 @@ switch (_OP_) {
 
 		$content .= "
 			<h2>" . _('Manage kannel') . "</h2>
-			<form action=index.php?app=menu&inc=gateway_kannel&op=manage_save method=post>
+			<form action=index.php?app=main&inc=gateway_kannel&op=manage_save method=post>
 			"._CSRF_FORM_."
 			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 				<tbody>
@@ -106,14 +106,14 @@ switch (_OP_) {
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
-					<td><input type='button' value=\""._('Restart Kannel')."\" class='button' onClick=\"parent.location.href='index.php?app=menu&inc=gateway_kannel&op=manage_restart'\"></td>
+					<td><input type='button' value=\""._('Restart Kannel')."\" class='button' onClick=\"parent.location.href='index.php?app=main&inc=gateway_kannel&op=manage_restart'\"></td>
 				</tr>
 				</tbody>
 				<!-- End Of Fixme Edward Added Kanel HTTP Admin Parameter--> 
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>";
-		$content .= _back('index.php?app=menu&inc=tools_gatewaymanager&op=gatewaymanager_list');
+		$content .= _back('index.php?app=main&inc=tools_gatewaymanager&op=gatewaymanager_list');
 		_p($content);
 		break;
 	case "manage_save":
@@ -146,7 +146,7 @@ switch (_OP_) {
 			$items['admin_password'] = $_POST['up_admin_password'];
 		}
 		registry_update(1, 'gateway', 'kannel', $items);
-		header("Location: index.php?app=menu&inc=gateway_kannel&op=manage");
+		header("Location: index.php?app=main&inc=gateway_kannel&op=manage");
 		exit();
 		break;
 
@@ -158,7 +158,7 @@ switch (_OP_) {
 		$url = 'http://'.$admin_host.'/restart?password='.$admin_password;
 		$restart = file_get_contents($url);
 		$_SESSION['error_string']   = _('Restart Kannel').' - '._('Status').': '.$restart;
-		header("Location: index.php?app=menu&inc=gateway_kannel&op=manage");
+		header("Location: index.php?app=main&inc=gateway_kannel&op=manage");
 		exit();
 		break;
 		//end Of Fixme Edward, Adding New Case To Handle Button Restart Kannel Services

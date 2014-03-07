@@ -27,7 +27,7 @@ switch (_OP_) {
 			</table>
 			<br />
 			<h3>"._('Simulate incoming SMS')."</h3>
-			<form action=\"index.php?app=menu&inc=gateway_dev&op=simulate\" method=post>
+			<form action=\"index.php?app=main&inc=gateway_dev&op=simulate\" method=post>
 			"._CSRF_FORM_."
 			<table class=playsms-table>
 				<tbody>
@@ -39,7 +39,7 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value=\""._('Submit')."\">
 			</form>";
-		$content .= _back('index.php?app=menu&inc=tools_gatewaymanager&op=gatewaymanager_list');
+		$content .= _back('index.php?app=main&inc=tools_gatewaymanager&op=gatewaymanager_list');
 		_p($content);
 		break;
 	case "simulate":
@@ -55,7 +55,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Fail to simulate incoming SMS');
 		}
-		header("Location: index.php?app=menu&inc=gateway_dev&op=manage");
+		header("Location: index.php?app=main&inc=gateway_dev&op=manage");
 		exit();
 		break;
 }

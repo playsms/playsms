@@ -23,7 +23,7 @@ if(!auth_isadmin()){auth_block();};
 switch (_OP_) {
 	case "user_list":
 		$referrer = ( $_SESSION['referrer'] ? $_SESSION['referrer'] : 'user_list_tab1' );
-		header("Location: index.php?app=menu&inc=user_mgmnt&op=".$referrer);
+		header("Location: index.php?app=main&inc=user_mgmnt&op=".$referrer);
 		break;
 	case "user_list_tab1":
 		$search_var = array(
@@ -36,7 +36,7 @@ switch (_OP_) {
 		$conditions = array('status' => 2);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_.'_tblUser', $conditions, $keywords);
-		$nav = themes_nav($count, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab1");
+		$nav = themes_nav($count, "index.php?app=main&inc=user_mgmnt&op=user_list_tab1");
 		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = dba_search(_DB_PREF_.'_tblUser', '*', $conditions, $keywords, $extras);
 		$_SESSION['referrer'] = 'user_list_tab1';
@@ -46,8 +46,8 @@ switch (_OP_) {
 		$content .= "
 			<h2>" . _('Manage user') . "</h2>
 			<h3>" . _('Administrator') . "</h3>
-			<input type='button' value='" . _('Add user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
-			<input type='button' value='" . _('View normal user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab2')\" class=\"button\" />
+			<input type='button' value='" . _('Add user') . "' onClick=\"javascript:linkto('index.php?app=main&inc=user_mgmnt&op=user_add')\" class=\"button\" />
+			<input type='button' value='" . _('View normal user') . "' onClick=\"javascript:linkto('index.php?app=main&inc=user_mgmnt&op=user_list_tab2')\" class=\"button\" />
 			<p>".$search['form']."</p>			
 			<div class=table-responsive>
 			<table class=playsms-table-list>
@@ -62,9 +62,9 @@ switch (_OP_) {
 			<tbody>";
 		$j = $nav['top'];
 		for ($i=0;$i<count($list);$i++) {
-			$action = "<a href=\""._u('index.php?app=menu&inc=user_pref&op=user_pref&uname='.$list[$i]['username'])."\">".$icon_config['user_pref']."</a>";
-			$action .= "<a href=\""._u('index.php?app=menu&inc=user_config&op=user_config&uname='.$list[$i]['username'])."\">".$icon_config['user_config']."</a>";
-			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=menu&inc=user_mgmnt&op=user_del&uname='.$list[$i]['username'])."')\">".$icon_config['user_delete']."</a>";
+			$action = "<a href=\""._u('index.php?app=main&inc=user_pref&op=user_pref&uname='.$list[$i]['username'])."\">".$icon_config['user_pref']."</a>";
+			$action .= "<a href=\""._u('index.php?app=main&inc=user_config&op=user_config&uname='.$list[$i]['username'])."\">".$icon_config['user_config']."</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=main&inc=user_mgmnt&op=user_del&uname='.$list[$i]['username'])."')\">".$icon_config['user_delete']."</a>";
 			$j--;
 			$content .= "
 				<tr>
@@ -93,7 +93,7 @@ switch (_OP_) {
 		$conditions = array('status' => 3);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_.'_tblUser', $conditions, $keywords);
-		$nav = themes_nav($count, "index.php?app=menu&inc=user_mgmnt&op=user_list_tab2");
+		$nav = themes_nav($count, "index.php?app=main&inc=user_mgmnt&op=user_list_tab2");
 		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = dba_search(_DB_PREF_.'_tblUser', '*', $conditions, $keywords, $extras);
 		$_SESSION['referrer'] = 'user_list_tab2';
@@ -103,8 +103,8 @@ switch (_OP_) {
 		$content .= "
 			<h2>" . _('Manage user') . "</h2>
 			<h3>" . _('Normal user') . "</h3>
-			<input type='button' value='" . _('Add user') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_add')\" class=\"button\" />
-			<input type='button' value='" . _('View administrator') . "' onClick=\"javascript:linkto('index.php?app=menu&inc=user_mgmnt&op=user_list_tab1')\" class=\"button\" />
+			<input type='button' value='" . _('Add user') . "' onClick=\"javascript:linkto('index.php?app=main&inc=user_mgmnt&op=user_add')\" class=\"button\" />
+			<input type='button' value='" . _('View administrator') . "' onClick=\"javascript:linkto('index.php?app=main&inc=user_mgmnt&op=user_list_tab1')\" class=\"button\" />
 			<p>".$search['form']."</p>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
@@ -120,9 +120,9 @@ switch (_OP_) {
 		$j = $nav['top'];
 		for ($i=0;$i<count($list);$i++) {
 			$list[$i] = core_display_data($list[$i]);
-			$action = "<a href=\""._u('index.php?app=menu&inc=user_pref&op=user_pref&uname='.$list[$i]['username'])."\">".$icon_config['user_pref']."</a>";
-			$action .= "<a href=\""._u('index.php?app=menu&inc=user_config&op=user_config&uname='.$list[$i]['username'])."\">".$icon_config['user_config']."</a>";
-			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=menu&inc=user_mgmnt&op=user_del&uname='.$list[$i]['username'])."')\">".$icon_config['user_delete']."</a>";
+			$action = "<a href=\""._u('index.php?app=main&inc=user_pref&op=user_pref&uname='.$list[$i]['username'])."\">".$icon_config['user_pref']."</a>";
+			$action .= "<a href=\""._u('index.php?app=main&inc=user_config&op=user_config&uname='.$list[$i]['username'])."\">".$icon_config['user_config']."</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=main&inc=user_mgmnt&op=user_del&uname='.$list[$i]['username'])."')\">".$icon_config['user_delete']."</a>";
 			$j--;
 			$content .= "
 				<tr>
@@ -170,7 +170,7 @@ switch (_OP_) {
 		$content .= "
 		<h2>"._('Manage user')."</h2>
 		<h3>"._('Add user')."</h3>
-		<form action='index.php?app=menu&inc=user_mgmnt&op=user_add_yes' method=POST>
+		<form action='index.php?app=main&inc=user_mgmnt&op=user_add_yes' method=POST>
 		"._CSRF_FORM_."
 		<table class=playsms-table>
 		<tbody>
@@ -211,7 +211,7 @@ switch (_OP_) {
 		</table>
 		<input type='submit' class='button' value='" . _('Save') . "'>
 		</form>
-		<p>"._back('index.php?app=menu&inc=user_mgmnt&op=user_list');
+		<p>"._back('index.php?app=main&inc=user_mgmnt&op=user_list');
 		_p($content);
 		break;
 	case "user_add_yes":
@@ -228,7 +228,7 @@ switch (_OP_) {
 		$add['language_module'] = $_POST['add_language_module'];
 		$ret = user_add($add);
 		$_SESSION['error_string'] = $ret['error_string'];
-		header("Location: index.php?app=menu&inc=user_mgmnt&op=user_add");
+		header("Location: index.php?app=main&inc=user_mgmnt&op=user_add");
 		exit();
 		break;
 	case "user_del":
@@ -237,7 +237,7 @@ switch (_OP_) {
 		$ret = user_remove($del_uid);
 		$_SESSION['error_string'] = $ret['error_string'];
 		$referrer = ( $_SESSION['referrer'] ? $_SESSION['referrer'] : 'user_list_tab1' );
-		header("Location: index.php?app=menu&inc=user_mgmnt&op=".$referrer);
+		header("Location: index.php?app=main&inc=user_mgmnt&op=".$referrer);
 		exit();
 		break;
 }

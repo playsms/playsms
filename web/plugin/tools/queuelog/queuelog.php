@@ -5,7 +5,7 @@ if(!auth_isvalid()){auth_block();};
 switch (_OP_) {
 	case "queuelog_list":
 		$count = queuelog_countall();
-		$nav = themes_nav($count, "index.php?app=menu&inc=tools_queuelog&op=queuelog_list");
+		$nav = themes_nav($count, "index.php?app=main&inc=tools_queuelog&op=queuelog_list");
 		if ($err = $_SESSION['error_string']) {
 			$error_content = "<div class=error_string>$err</div>";
 		}
@@ -43,7 +43,7 @@ switch (_OP_) {
 			$c_username = user_uid2username($data[$c]['uid']);
 			$c_count = $data[$c]['count'];
 			$c_message = stripslashes(core_display_text($data[$c]['message']));
-			$c_action = "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete queue")) . " " . $c_queue_code . " ?','"._u('index.php?app=menu&inc=tools_queuelog&op=queuelog_delete&queue='.$c_queue_code)."')\">".$icon_config['delete']."</a>";
+			$c_action = "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete queue")) . " " . $c_queue_code . " ?','"._u('index.php?app=main&inc=tools_queuelog&op=queuelog_delete&queue='.$c_queue_code)."')\">".$icon_config['delete']."</a>";
 			$content .= "
 				<tr>
 			";
@@ -78,7 +78,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('Queue has been remove');
 			}
 		}
-		header("Location: index.php?app=menu&inc=tools_queuelog&op=queuelog_list");
+		header("Location: index.php?app=main&inc=tools_queuelog&op=queuelog_list");
 		exit();
 		break;
 }
