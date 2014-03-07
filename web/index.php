@@ -20,13 +20,11 @@
 include 'init.php';
 include $core_config['apps_path']['libs'].'/function.php';
 
-$current_themes = core_themes_get();
-
 // fixme anton
 // load app extensions from index, such as menu, webservices and callbacks
-// using _APP_ you can do up to load another application from playSMS if you need to
+// using _APP_ you can even load another application from playSMS if you need to
 // but the point is to make a single gate into playSMS, that is through index.php
-if (isset(_APP_)) {
+if (_APP_) {
 	switch (_APP_) {
 		case 'mn':
 		case 'menu':
@@ -63,7 +61,7 @@ if (isset(_APP_)) {
 			// by default this is used for displaying 'forgot password' page and 'register an account' page
 			// login, logout, register, forgot password, noaccess
 			if (function_exists('bindtextdomain')) {
-				bindtextdomain('messages', $core_config['apps_path']['themes'].'/'.$current_themes.'/language/');
+				bindtextdomain('messages', $core_config['apps_path']['themes'].'/'.core_themes_get().'/language/');
 				bind_textdomain_codeset('messages', 'UTF-8');
 				textdomain('messages');
 			}
@@ -80,29 +78,27 @@ if (isset(_APP_)) {
 				default:
 					// load page
 					if (_INC_) {
-						$fn = $core_config['apps_path']['themes'].'/'.$current_themes.'/page_'._INC_.'.php';
+						$fn = $core_config['apps_path']['themes'].'/'.core_themes_get().'/page_'._INC_.'.php';
 						if (file_exists($fn)) {
 							include $fn;
 						}
 					}
 			}
 	}
-	unset($_SESSION['error_string']);
-	exit();
-}
-
-// frontpage
-if (auth_isvalid()) {
-	ob_end_clean();
-	header("Location: index.php?app=menu&inc=".$core_config['main']['default_inc']."&op=".$core_config['main']['default_op']);
-	exit();
 } else {
-	if (function_exists('bindtextdomain')) {
-		bindtextdomain('messages', $core_config['apps_path']['themes'].'/'.$current_themes.'/language/');
-		bind_textdomain_codeset('messages', 'UTF-8');
-		textdomain('messages');
+	// no _APP_ then load default page
+	if (auth_isvalid()) {
+		ob_end_clean();
+		header("Location: index.php?app=menu&inc=".$core_config['main']['default_inc']."&op=".$core_config['main']['default_op']);
+		exit();
+	} else {
+		if (function_exists('bindtextdomain')) {
+			bindtextdomain('messages', $core_config['apps_path']['themes'].'/'.core_themes_get().'/language/');
+			bind_textdomain_codeset('messages', 'UTF-8');
+			textdomain('messages');
+		}
+		include $core_config['apps_path']['themes'].'/'.core_themes_get().'/page_login.php';
 	}
-	include $core_config['apps_path']['themes'].'/'.$current_themes.'/page_login.php';
 }
 
 unset($_SESSION['error_string']);

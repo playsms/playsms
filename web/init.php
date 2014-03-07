@@ -31,6 +31,7 @@ if (!defined('_PHP_VER_')) {
     define('_PHP_VER_', ($version[0] * 10000 + $version[1] * 100 + $version[2]));
 }
 
+// $DAEMON_PROCESS is special variable passed by daemon script
 $core_config['daemon_process'] = $DAEMON_PROCESS;
 
 if (!$core_config['daemon_process']) {
@@ -42,7 +43,6 @@ if (!$core_config['daemon_process']) {
 	@session_start();
 	ob_start();
 }
-
 
 // DB config defines
 define('_DB_TYPE_', $core_config['db']['type']);
@@ -129,19 +129,17 @@ empty($_REQUEST);
 $_REQUEST = array_merge($_GET, $_POST);
 
 // global defines
-define('_APP_', core_query_sanitize($_REQUEST['app']);
-define('_INC_', core_query_sanitize($_REQUEST['inc']);
-define('_OP_', core_query_sanitize($_REQUEST['op']);
-define('_ROUTE_', core_query_sanitize($_REQUEST['route']);
-define('_PAGE_', core_query_sanitize($_REQUEST['page']);
+define('_APP_', core_query_sanitize($_REQUEST['app']));
+define('_INC_', core_query_sanitize($_REQUEST['inc']));
+define('_OP_', core_query_sanitize($_REQUEST['op']));
+define('_ROUTE_', core_query_sanitize($_REQUEST['route']));
+define('_PAGE_', core_query_sanitize($_REQUEST['page']));
 define('_NAV_', core_query_sanitize($_REQUEST['nav']));
-define('_CAT_', core_query_sanitize($_REQUEST['cat']);
-define('_PLUGIN_', core_query_sanitize($_REQUEST['plugin'])
+define('_CAT_', core_query_sanitize($_REQUEST['cat']));
+define('_PLUGIN_', core_query_sanitize($_REQUEST['plugin']));
 
 // enable anti-CSRF for anything but webservices
-$c_app = ( $_GET['app'] ? strtolower($_GET['app']) : strtolower($_POST['app']) );
-if (! (($c_app == 'ws') || ($c_app == 'webservices'))) {
-	$csrf = array();
+if (! ((_APP_ == 'ws') || (_APP_ == 'webservices'))) {
 	// print_r($_POST); print_r($_SESSION);
 	if ($_POST) {
 		if (! core_csrf_validate()) {
@@ -154,7 +152,6 @@ if (! (($c_app == 'ws') || ($c_app == 'webservices'))) {
 	define('_CSRF_FORM_', $csrf['form']);
 	unset($csrf);
 }
-unset($c_app);
 
 // connect to database
 if (! ($dba_object = dba_connect(_DB_USER_,_DB_PASS_,_DB_NAME_,_DB_HOST_,_DB_PORT_))) {
