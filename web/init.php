@@ -191,7 +191,7 @@ $datetime_format_stamp	= "YmdHis";
 $datetime_now_stamp     = date($datetime_format_stamp, time());
 
 $core_config['datetime']['format'] 	= $datetime_format;
-$core_config['datetime']['now_stamp']		= $datetime_now_stamp;
+$core_config['datetime']['now_stamp']	= $datetime_now_stamp;
 
 // --- playSMS Specifics --- //
 
