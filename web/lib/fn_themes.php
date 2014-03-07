@@ -143,6 +143,7 @@ function themes_link($url, $title='', $css_class="", $css_id="") {
 		$ret = core_hook(core_themes_get(),'themes_link',array($url, $title, $css_class, $css_id));
 	}
 	if (! $ret) {
+		$url = _u($url);
 		$c_title = ( $title ? $title : $url );
 		$css_class = ( $css_class ? " class=\"".$css_class."\"" : '' );
 		$css_id = ( $css_id ? " id=\"".$css_id."\"" : '' );

@@ -62,9 +62,9 @@ switch ($op) {
 			<tbody>";
 		$j = $nav['top'];
 		for ($i=0;$i<count($list);$i++) {
-			$action = "<a href=\"index.php?app=menu&inc=user_pref&op=user_pref&uname=" . $list[$i]['username'] . "\">".$icon_config['user_pref']."</a>";
-			$action .= "<a href=\"index.php?app=menu&inc=user_config&op=user_config&uname=" . $list[$i]['username'] . "\">".$icon_config['user_config']."</a>";
-			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">".$icon_config['user_delete']."</a>";
+			$action = "<a href=\""._u('index.php?app=menu&inc=user_pref&op=user_pref&uname='.$list[$i]['username'])."\">".$icon_config['user_pref']."</a>";
+			$action .= "<a href=\""._u('index.php?app=menu&inc=user_config&op=user_config&uname='.$list[$i]['username'])."\">".$icon_config['user_config']."</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=menu&inc=user_mgmnt&op=user_del&uname='.$list[$i]['username'])."')\">".$icon_config['user_delete']."</a>";
 			$j--;
 			$content .= "
 				<tr>
@@ -120,9 +120,9 @@ switch ($op) {
 		$j = $nav['top'];
 		for ($i=0;$i<count($list);$i++) {
 			$list[$i] = core_display_data($list[$i]);
-			$action = "<a href=\"index.php?app=menu&inc=user_pref&op=user_pref&uname=" . $list[$i]['username'] . "\">".$icon_config['user_pref']."</a>";
-			$action .= "<a href=\"index.php?app=menu&inc=user_config&op=user_config&uname=" . $list[$i]['username'] . "\">".$icon_config['user_config']."</a>";
-			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','index.php?app=menu&inc=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "')\">".$icon_config['user_delete']."</a>";
+			$action = "<a href=\""._u('index.php?app=menu&inc=user_pref&op=user_pref&uname='.$list[$i]['username'])."\">".$icon_config['user_pref']."</a>";
+			$action .= "<a href=\""._u('index.php?app=menu&inc=user_config&op=user_config&uname='.$list[$i]['username'])."\">".$icon_config['user_config']."</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=menu&inc=user_mgmnt&op=user_del&uname='.$list[$i]['username'])."')\">".$icon_config['user_delete']."</a>";
 			$j--;
 			$content .= "
 				<tr>

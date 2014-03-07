@@ -41,7 +41,7 @@ switch ($op) {
 			<input type=hidden name=go value=delete>
 			<div class=actions_box>
 				<div class=pull-left>
-					<a href=\"index.php?app=menu&inc=all_incoming&op=actions&go=export\">".$icon_config['export']."</a>
+					<a href=\""._u('index.php?app=menu&inc=all_incoming&op=actions&go=export')."\">".$icon_config['export']."</a>
 				</div>
 				<div class=pull-right>
 					<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', 'fm_all_incoming');\">".$icon_config['delete']."</a>
