@@ -54,7 +54,7 @@ $kwd		= trim($_REQUEST['kwd']);
 $log_this = FALSE;
 
 if (_OP_) {
-	switch (_OP_) {
+	switch (strtoupper(_OP_)) {
 		case "PV":
 			if ($u = webservices_validate($h,$u)) {
 				$json = webservices_pv($u,$to,$msg,$type,$unicode,$nofooter,$footer,$from,$schedule);
