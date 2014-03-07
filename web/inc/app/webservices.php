@@ -24,9 +24,6 @@ $h		= trim($_REQUEST['h']);
 $u		= trim($_REQUEST['u']);
 $p		= trim($_REQUEST['p']);
 
-// type of action (ta) or operation (op), ta = op
-$ta		= trim(strtoupper($_REQUEST['ta']));
-
 // output format
 $format		= trim(strtoupper($_REQUEST['format']));
 
@@ -54,12 +51,10 @@ $smslog_id	= trim($_REQUEST['smslog_id']);
 // IN, GET_CONTACT, GET_CONTACT_GROUP
 $kwd		= trim($_REQUEST['kwd']);
 
-if (_OP_) { $ta = _OP_; };
-
 $log_this = FALSE;
 
-if ($ta) {
-	switch ($ta) {
+if (_OP_) {
+	switch (_OP_) {
 		case "PV":
 			if ($u = webservices_validate($h,$u)) {
 				$json = webservices_pv($u,$to,$msg,$type,$unicode,$nofooter,$footer,$from,$schedule);
@@ -213,9 +208,9 @@ if ($ta) {
 			$log_this = TRUE;
 			break;
 		default:
-			if ($ta) {
+			if (_OP_) {
 				// output do not require valid login
-				$ret = webservices_output($ta,$_REQUEST);
+				$ret = webservices_output(_OP_,$_REQUEST);
 				_p($ret);
 				exit();
 			} else {
@@ -227,7 +222,7 @@ if ($ta) {
 }
 
 if ($log_this) {
-	logger_print("u:".$u." ip:".$_SERVER['REMOTE_ADDR']." ta:".$ta, 3, "webservices");
+	logger_print("u:".$u." ip:".$_SERVER['REMOTE_ADDR']." op:"._OP_, 3, "webservices");
 }
 
 if ($format=='SERIALIZE') {

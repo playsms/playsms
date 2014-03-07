@@ -1,9 +1,9 @@
 WEBSERVICES ACCESS
 ------------------
 
-URL: http://[playSMS_domain_or_url]/index.php?app=webservices
+Webservices URL	: http://[playSMS_domain_or_url]/index.php?app=ws
 
-For example https://playsms.org/trial/index.php?app=webservices
+For example	: https://playsms.org/trial/index.php?app=ws
 
 
 PARAMETERS
@@ -11,9 +11,9 @@ PARAMETERS
 
 h		: webservices token, configured by user from Preferences menu
 u		: username
-p		: password, supplied for ta=get_token
+p		: password, supplied for op=get_token
 
-ta		: type of action
+op		: operation or type of action
 		  for example:
 		    pv 		: send private
 		    bc 		: send broadcast
@@ -28,11 +28,11 @@ format		: output format selection
 	          format=serialize for PHP serialize output
 	          format=plain or empty for plain text old style output
 
-from		: SMS sender ID (for ta=pv or ta=bc)
-to		: destination numbers (for ta=pv) or destination group code
-		  (for ta=bc). multiple destination numbers (seperated by comma)
-		  can be used when ta=pv
-footer		: SMS footer (for ta=pv pr ta=bc)
+from		: SMS sender ID (for op=pv or op=bc)
+to		: destination numbers (for op=pv) or destination group code
+		  (for op=bc). multiple destination numbers (seperated by comma)
+		  can be used when op=pv
+footer		: SMS footer (for op=pv pr op=bc)
 nofooter	: remove SMS footer
 
 msg		: message (+ or %20 for spaces, urlencode for non ascii chars)
@@ -168,9 +168,8 @@ EXAMPLE
 
    Example webservice URL:
 
-   http://x.com/index.php?app=webservices&u=anton&
-   h=a45a02791b2fe2fedb078c39fd83637a&ta=pv&to=0987654321&msg=test+only&
-   format=json
+   http://x.com/index.php?app=ws&u=anton&h=a45a02791b2fe2fedb078c39fd83637a
+   &op=pv&to=0987654321&msg=test+only
 
    Explanation:
 
@@ -192,8 +191,8 @@ EXAMPLE
 
    Example webservice URL:
 
-   http://x.com/index.php?app=webservices&u=anton&
-   h=482ac0069592c647289e52dfef88be68&ta=in&kwd=IDOL&format=xml
+   http://x.com/index.php?app=ws&u=anton&h=482ac0069592c647289e52dfef88be68
+   &op=in&kwd=IDOL&format=xml
 
    Explanation:
 
@@ -224,8 +223,8 @@ EXAMPLE
 
    Example webservice URL:
 
-   http://x.com/index.php?app=webservices&u=anton&
-   h=482ac0069592c647289e52dfef88be68&kwd=anton&ta=get_contact&format=json
+   http://x.com/index.php?app=ws&u=anton&h=482ac0069592c647289e52dfef88be68
+   &op=get_contact&kwd=anton
 
    Explanation:
 

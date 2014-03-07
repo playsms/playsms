@@ -198,7 +198,7 @@ function sms_board_output_html($keyword,$line="10") {
 	}
 }
 
-function sms_board_hook_webservices_output($ta,$requests) {
+function sms_board_hook_webservices_output($operation, $requests) {
 	$keyword = $requests['keyword'];
 	if (!$keyword) {
 		$keyword = $requests['tag'];

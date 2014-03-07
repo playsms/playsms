@@ -196,7 +196,7 @@ function phonebook_hook_phonebook_search_user($uid=0, $keyword="", $count=0) {
 	return $ret;
 }
 
-function phonebook_hook_webservices_output($ta,$requests) {
+function phonebook_hook_webservices_output($operation, $requests) {
 	global $user_config;
 	if (! auth_isvalid()) {
 		return FALSE;

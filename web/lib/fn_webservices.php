@@ -384,8 +384,8 @@ function webservices_get_contact_group($c_uid, $name, $count) {
 	return $json;
 }
 
-function webservices_output($ta,$requests) {
-	$ta = strtolower($ta);
-	$ret = core_hook($ta,'webservices_output',array($ta,$requests));
+function webservices_output($operation, $requests) {
+	$operation = strtolower($operation);
+	$ret = core_hook($operation, 'webservices_output', array($operation, $requests));
 	return $ret;
 }

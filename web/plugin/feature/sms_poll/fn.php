@@ -153,7 +153,7 @@ function sms_poll_output_graph($keyword, $list) {
 	exit();
 }
 
-function sms_poll_hook_webservices_output($ta,$requests) {
+function sms_poll_hook_webservices_output($operation, $requests) {
 	global $core_config;
 	$ret = '';
 	if ($keyword = $requests['keyword']) {
