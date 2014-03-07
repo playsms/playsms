@@ -24,7 +24,7 @@ switch ($op) {
 			<input type=hidden name=go value=delete>
 			<div class=actions_box>
 				<div class=pull-left>
-					<a href='"._u('index.php?app=menu&inc=tools_phonebook&route=group&op=add').">".$icon_config['add']."</a>
+					<a href='"._u('index.php?app=menu&inc=tools_phonebook&route=group&op=add')."'>".$icon_config['add']."</a>
 				</div>
 				<div class=pull-right>".$nav['form']."</div>
 			</div>

@@ -153,7 +153,7 @@ switch ($op) {
 				</tr>
 				</tbody>
 			</table>
-			<p><input type=submit class=button value="._('Save')."></p>
+			<p><input type=submit class=button value='"._('Save')."'></p>
 			</form>
 			"._back('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_list');
 		if ($err = $_SESSION['error_string']) {
@@ -219,7 +219,7 @@ switch ($op) {
 				<td>"._('SMS autoreply scenario replies with')."</td><td><input type=text size=30 name=add_autoreply_scenario_result value=\"$add_autoreply_scenario_result\"></td>
 			</tr>
 			</table>
-			<p><input type=submit class=button value="._('Save').">
+			<p><input type=submit class=button value='"._('Save')."'>
 			</form>
 			"._back('index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id='.$autoreply_id);
 		if ($err = $_SESSION['error_string']) {

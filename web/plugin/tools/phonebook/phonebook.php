@@ -31,10 +31,10 @@ switch ($op) {
 			<input type=hidden id=action_route name=route value=''>
 			<div class=actions_box>
 				<div class=pull-left>
-					<a href='"._u('index.php?app=menu&inc=tools_phonebook&route=group&op=list').">".$icon_config['group']."</a>
-					<a href='"._u('index.php?app=menu&inc=tools_phonebook&route=import&op=list').">".$icon_config['import']."</a>
-					<a href='"._u('index.php?app=menu&inc=tools_phonebook&op=actions&go=export').">".$icon_config['export']."</a>
-					<a href='"._u('index.php?app=menu&inc=tools_phonebook&op=phonebook_add').">".$icon_config['add']."</a>
+					<a href='"._u('index.php?app=menu&inc=tools_phonebook&route=group&op=list')."'>".$icon_config['group']."</a>
+					<a href='"._u('index.php?app=menu&inc=tools_phonebook&route=import&op=list')."'>".$icon_config['import']."</a>
+					<a href='"._u('index.php?app=menu&inc=tools_phonebook&op=actions&go=export')."'>".$icon_config['export']."</a>
+					<a href='"._u('index.php?app=menu&inc=tools_phonebook&op=phonebook_add')."'>".$icon_config['add']."</a>
 				</div>
 				<script type='text/javascript'>
 					$(document).ready(function() {

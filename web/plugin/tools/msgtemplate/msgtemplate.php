@@ -44,7 +44,7 @@ switch ($op) {
 			$i++;
 			$content .= "
 				<tr>
-					<td><a href='"._u('index.php?app=menu&inc=tools_msgtemplate&op=edit&tid=$tid').">".$temp_title."</a></td>
+					<td><a href='"._u('index.php?app=menu&inc=tools_msgtemplate&op=edit&tid=$tid')."'>".$temp_title."</a></td>
 					<td>$temp_text</td>
 					<td><input type=checkbox name=chkid".$i."></td>
 					<input type=hidden name=chkid_value".$i." value='".$db_row['tid']."'>
