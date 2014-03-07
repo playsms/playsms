@@ -19,12 +19,8 @@
 
 defined('_SECURE_') or die('Forbidden');
 
-// DB.php is part of PHP PEAR-DB package
-// previously removed in 0.9.2 but re-added in this release due to its complicated installation
-define('LIBS', $core_config['apps_path']['libs'].'/external/pear-db/');
-include_once LIBS.'DB.php';
-
-// --------------------------------------------------------------------------//
+// load DP.php, DB.php is part of PHP PEAR-DB package
+include_once 'DB.php';
 
 function dba_connect($username,$password,$dbname,$hostname,$port="",$persistant="true") {
 	global $core_config;
