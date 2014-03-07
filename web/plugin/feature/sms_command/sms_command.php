@@ -15,7 +15,7 @@ if ($command_id = $_REQUEST['command_id']) {
 
 $sms_command_bin = $plugin_config['sms_command']['bin'];
 
-switch ($op) {
+switch (_OP_) {
 	case "sms_command_list":
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";

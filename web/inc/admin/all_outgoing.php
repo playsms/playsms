@@ -20,7 +20,7 @@
 defined('_SECURE_') or die('Forbidden');
 if(!auth_isadmin()){auth_block();};
 
-switch ($op) {
+switch (_OP_) {
 	case "all_outgoing":
 		$search_category = array(_('User') => 'username', _('Gateway') => 'p_gateway', _('Time') => 'p_datetime', _('To') => 'p_dst', _('Message') => 'p_msg', _('Footer') => 'p_footer');
 		$base_url = 'index.php?app=menu&inc=all_outgoing&op=all_outgoing';

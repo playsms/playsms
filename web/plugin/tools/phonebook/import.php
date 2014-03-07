@@ -4,7 +4,7 @@ if(!auth_isvalid()){auth_block();};
 
 $uid = $user_config['uid'];
 
-switch ($op) {
+switch (_OP_) {
 	case "list":
 		$content .= "
 			<h2>"._('Phonebook')."</h2>

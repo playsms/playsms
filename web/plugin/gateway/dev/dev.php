@@ -12,7 +12,7 @@ if ($gw == $plugin_config['dev']['name']) {
 	$status_active = "<span class=status_inactive />";
 }
 
-switch ($op) {
+switch (_OP_) {
 	case "manage":
 		$sender = '+629876543210';
 		$receiver = '1234';

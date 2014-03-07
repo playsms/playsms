@@ -20,7 +20,7 @@
 defined('_SECURE_') or die('Forbidden');
 if(!auth_isadmin()){auth_block();};
 
-switch ($op) {
+switch (_OP_) {
 	case "sandbox":
 		$search_category = array(_('Time') => 'in_datetime', _('From') => 'in_sender', _('Content') => 'in_message');
 		$base_url = 'index.php?app=menu&inc=sandbox&op=sandbox';

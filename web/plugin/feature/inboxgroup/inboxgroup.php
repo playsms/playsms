@@ -9,7 +9,7 @@ if ($err = $_SESSION['error_string']) {
 }
 
 // main
-switch ($op) {
+switch (_OP_) {
 	case 'list':
 		unset($tpl);
 		$tpl = array(

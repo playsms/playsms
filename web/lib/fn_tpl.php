@@ -83,8 +83,8 @@ function tpl_apply($tpl) {
 		$tpl_name = core_query_sanitize($tpl['name']);
 
 		// check from active plugin
-		$inc = explode('_', _INC_);
-		$plugin_category = $inc[0];
+		$c_inc = explode('_', _INC_);
+		$plugin_category = $c_inc[0];
 		$plugin_name = str_replace($plugin_category.'_', '', _INC_);
 		$fn = _APPS_PATH_PLUG_.'/'.$plugin_category.'/'.$plugin_name.'/templates/'.$tpl_name.'.html';
 		if (file_exists($fn)) {

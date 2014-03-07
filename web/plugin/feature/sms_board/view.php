@@ -3,7 +3,7 @@ defined('_SECURE_') or die('Forbidden');
 
 $board_id = $_REQUEST['board_id'];
 
-switch ($op) {
+switch (_OP_) {
 	case 'list':
 		$conditions['board_id'] = $board_id;
 		$list = dba_search(_DB_PREF_.'_featureBoard', '*', $conditions);

@@ -12,7 +12,7 @@ if ($tid = $_REQUEST['tid']) {
 	}
 }
 
-switch ($op) {
+switch (_OP_) {
 	case "list":
 		$fm_name = "fm_smstemp";
 		$content = "

@@ -16,7 +16,7 @@ $callback_url = $_SERVER['HTTP_HOST'] . dirname ( $_SERVER['PHP_SELF'] ) . "/plu
 $callback_url = str_replace ( "//", "/", $callback_url );
 $callback_url = "http://" . $callback_url;
 
-switch ($op) {
+switch (_OP_) {
 	case "manage" :
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";

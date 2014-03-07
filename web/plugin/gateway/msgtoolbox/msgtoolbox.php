@@ -13,7 +13,7 @@ if ($gw == $plugin_config['msgtoolbox']['name']) {
 }
 
 
-switch ($op) {
+switch (_OP_) {
 	case "manage":
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";

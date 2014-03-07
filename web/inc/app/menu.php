@@ -31,7 +31,7 @@ if (function_exists('bindtextdomain')) {
 
 // core menus for admin users
 if ($continue) {
-	$c_fn = $core_config['apps_path']['incs']."/admin/".$inc.".php";
+	$c_fn = $core_config['apps_path']['incs']."/admin/"._INC_.".php";
 	if (file_exists($c_fn)) {
 		include $c_fn;
 		$continue = FALSE;
@@ -40,7 +40,7 @@ if ($continue) {
 
 // core menus for non-admin or regular users
 if ($continue) {
-	$c_fn = $core_config['apps_path']['incs']."/user/".$inc.".php";
+	$c_fn = $core_config['apps_path']['incs']."/user/"._INC_.".php";
 	if (file_exists($c_fn)) {
 		include $c_fn;
 		$continue = FALSE;
@@ -52,12 +52,12 @@ if ($continue) {
 	for ($i=0;$i<count($plugins_category);$i++) {
 		if ($pc = $plugins_category[$i]) {
 			for ($c=0;$c<count($core_config[$pc.'list']);$c++) {
-				if ($inc == $pc.'_'.$core_config[$pc.'list'][$c]) {
+				if (_INC_ == $pc.'_'.$core_config[$pc.'list'][$c]) {
 					$pn = $core_config[$pc.'list'][$c];
 					$c_fn = $core_config['apps_path']['plug'].'/'.$pc.'/'.$pn.'/'.$pn.'.php';
 					if (file_exists($c_fn)) {
-						$c_fn_route = $core_config['apps_path']['plug'].'/'.$pc.'/'.$pn.'/'.$route.'.php';
-						if ($route && file_exists($c_fn_route)) {
+						$c_fn_route = $core_config['apps_path']['plug'].'/'.$pc.'/'.$pn.'/'._ROUTE_.'.php';
+						if (_ROUTE_ && file_exists($c_fn_route)) {
 							$c_fn = $c_fn_route;
 						}
 						if (function_exists('bindtextdomain')) {

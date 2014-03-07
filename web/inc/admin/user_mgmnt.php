@@ -20,7 +20,7 @@
 defined('_SECURE_') or die('Forbidden');
 if(!auth_isadmin()){auth_block();};
 
-switch ($op) {
+switch (_OP_) {
 	case "user_list":
 		$referrer = ( $_SESSION['referrer'] ? $_SESSION['referrer'] : 'user_list_tab1' );
 		header("Location: index.php?app=menu&inc=user_mgmnt&op=".$referrer);

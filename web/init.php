@@ -128,28 +128,15 @@ if (! get_magic_quotes_gpc()) {
 empty($_REQUEST);
 $_REQUEST = array_merge($_GET, $_POST);
 
-// global variables
-$app = core_query_sanitize($_REQUEST['app']);
-$inc = core_query_sanitize($_REQUEST['inc']);
-$op = core_query_sanitize($_REQUEST['op']);
-$route = core_query_sanitize($_REQUEST['route']);
-$page = core_query_sanitize($_REQUEST['page']);
-$nav = core_query_sanitize($_REQUEST['nav']);
-
-// plugin's category such as feature, tools or gateway
-$cat = core_query_sanitize($_REQUEST['cat']);
-// plugin's name such as kannel, sms_board or sms_subscribe
-$plugin = core_query_sanitize($_REQUEST['plugin']);
-
 // global defines
-define('_APP_', $app);
-define('_INC_', $inc);
-define('_OP_', $op);
-define('_ROUTE_', $route);
-define('_PAGE_', $page);
-define('_NAV_', $nav);
-define('_CAT_', $cat);
-define('_PLUGIN_', $plugin);
+define('_APP_', core_query_sanitize($_REQUEST['app']);
+define('_INC_', core_query_sanitize($_REQUEST['inc']);
+define('_OP_', core_query_sanitize($_REQUEST['op']);
+define('_ROUTE_', core_query_sanitize($_REQUEST['route']);
+define('_PAGE_', core_query_sanitize($_REQUEST['page']);
+define('_NAV_', core_query_sanitize($_REQUEST['nav']));
+define('_CAT_', core_query_sanitize($_REQUEST['cat']);
+define('_PLUGIN_', core_query_sanitize($_REQUEST['plugin'])
 
 // enable anti-CSRF for anything but webservices
 $c_app = ( $_GET['app'] ? strtolower($_GET['app']) : strtolower($_POST['app']) );

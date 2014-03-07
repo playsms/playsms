@@ -9,7 +9,7 @@ if ($err = $_SESSION['error_string']) {
 }
 
 // main
-switch ($op) {
+switch (_OP_) {
 	case 'members':
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);

@@ -2,7 +2,7 @@
 defined('_SECURE_') or die('Forbidden');
 if(!auth_isvalid()){auth_block();};
 
-switch ($op) {
+switch (_OP_) {
 	case "list":
 		$search_category = array(_('Name') => 'name', _('Group code') => 'code');
 		$base_url = 'index.php?app=menu&inc=tools_phonebook&route=group&op=list';

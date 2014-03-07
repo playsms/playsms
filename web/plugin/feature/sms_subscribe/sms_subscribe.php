@@ -8,7 +8,7 @@ if ($subscribe_id = $_REQUEST['subscribe_id']) {
 	}
 }
 
-switch ($op) {
+switch (_OP_) {
 	case "sms_subscribe_list" :
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";

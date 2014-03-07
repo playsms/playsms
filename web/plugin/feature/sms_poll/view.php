@@ -4,7 +4,7 @@ if(!auth_isvalid()){auth_block();};
 
 $poll_id = $_REQUEST['poll_id'];
 
-switch ($op) {
+switch (_OP_) {
 	case 'list':	
 		$conditions['poll_id'] = $poll_id;
 		$list = dba_search(_DB_PREF_.'_featurePoll', '*', $conditions);

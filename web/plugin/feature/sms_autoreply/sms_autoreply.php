@@ -8,7 +8,7 @@ if ($autoreply_id = $_REQUEST['autoreply_id']) {
 	}
 }
 
-switch ($op) {
+switch (_OP_) {
 	case "sms_autoreply_list":
 		$content .= "
 			<h2>"._('Manage autoreply')."</h2>

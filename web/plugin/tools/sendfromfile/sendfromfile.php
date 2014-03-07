@@ -2,7 +2,7 @@
 defined('_SECURE_') or die('Forbidden');
 if(!auth_isvalid()){auth_block();};
 
-switch ($op) {
+switch (_OP_) {
 	case 'list':
 		$content = '<h2>'._('Send from file').'</h2><p />';
 		if (auth_isadmin()) {

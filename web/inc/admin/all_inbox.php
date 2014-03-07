@@ -20,7 +20,7 @@
 defined('_SECURE_') or die('Forbidden');
 if(!auth_isadmin()){auth_block();};
 
-switch ($op) {
+switch (_OP_) {
 	case "all_inbox":
 		$search_category = array(_('User') => 'username', _('Time') => 'in_datetime', _('From') => 'in_sender', _('Message') => 'in_msg');
 		$base_url = 'index.php?app=menu&inc=all_inbox&op=all_inbox';

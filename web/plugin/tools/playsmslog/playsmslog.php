@@ -3,8 +3,7 @@ defined('_SECURE_') or die('Forbidden');
 
 if(!auth_isadmin()){auth_block();};
 
-switch ($op)
-{
+switch (_OP_) {
 	case "playsmslog_list":
 		unset($tpl);
 		$tpl = array(
@@ -19,5 +18,3 @@ switch ($op)
 		_p(tpl_apply($tpl));
 		break;
 }
-
-?>

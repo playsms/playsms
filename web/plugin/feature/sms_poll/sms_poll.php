@@ -8,7 +8,7 @@ if ($poll_id = $_REQUEST['poll_id']) {
 	}
 }
 
-switch ($op) {
+switch (_OP_) {
 	case "sms_poll_list":
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";

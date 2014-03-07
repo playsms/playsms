@@ -2,7 +2,7 @@
 defined('_SECURE_') or die('Forbidden');
 if(!auth_isvalid()){auth_block();};
 
-switch ($op) {
+switch (_OP_) {
 	case "queuelog_list":
 		$count = queuelog_countall();
 		$nav = themes_nav($count, "index.php?app=menu&inc=tools_queuelog&op=queuelog_list");

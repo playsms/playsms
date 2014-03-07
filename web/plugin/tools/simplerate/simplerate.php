@@ -2,7 +2,7 @@
 defined('_SECURE_') or die('Forbidden');
 if(!auth_isadmin()){auth_block();};
 
-switch ($op) {
+switch (_OP_) {
 	case "simplerate_list":
 		$content .= "
 			<h2>"._('Manage SMS rate')."</h2>

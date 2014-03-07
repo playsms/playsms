@@ -16,7 +16,7 @@ if ($gw == $plugin_config['uplink']['name']) {
 }
 
 
-switch ($op) {
+switch (_OP_) {
 	case "manage":
 		if ($plugin_config['uplink']['try_disable_footer']) {
 			$selected['yes'] = 'selected';

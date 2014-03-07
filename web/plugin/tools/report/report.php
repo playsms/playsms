@@ -6,7 +6,7 @@ if (!auth_isvalid()) {
 
 $smslog_id = $_GET['smslog_id'];
 
-switch ($op) {
+switch (_OP_) {
 	case "report_user" :
 		// SMS PENDING
 		$db_query = "SELECT COUNT(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE uid='$uid' AND p_status='0' AND flag_deleted='0'";

@@ -20,7 +20,7 @@
 defined('_SECURE_') or die('Forbidden');
 if(!auth_isvalid()){auth_block();};
 
-switch ($op) {
+switch (_OP_) {
 	case "user_outgoing":
 		$search_category = array(_('Time') => 'p_datetime', _('To') => 'p_dst', _('Message') => 'p_msg', _('Footer') => 'p_footer');
 		$base_url = 'index.php?app=menu&inc=user_outgoing&op=user_outgoing';

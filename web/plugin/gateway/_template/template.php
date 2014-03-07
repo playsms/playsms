@@ -13,8 +13,7 @@ if ($gw == $template_param['name']) {
 }
 
 
-switch ($op)
-{
+switch (_OP_) {
 	case "manage":
 		if ($err = $_SESSION['error_string'])
 		{

@@ -24,14 +24,13 @@ $current_themes = core_themes_get();
 
 // fixme anton
 // load app extensions from index, such as menu, webservices and callbacks
-// using $app you can do up to load another application from playSMS if you need to
+// using _APP_ you can do up to load another application from playSMS if you need to
 // but the point is to make a single gate into playSMS, that is through index.php
-$app = $_REQUEST['app'];
-if (isset($app)) {
-	switch ($app) {
+if (isset(_APP_)) {
+	switch (_APP_) {
 		case 'mn':
 		case 'menu':
-			// $app=menu to access menus, replacement of direct access to menu.php
+			// _APP_=menu to access menus, replacement of direct access to menu.php
 			logger_audit();
 			$fn = $core_config['apps_path']['incs'].'/app/menu.php';
 			if (file_exists($fn)) {
@@ -41,14 +40,14 @@ if (isset($app)) {
 		case 'ws':
 		case 'webservice':
 		case 'webservices':
-			// $app=webservices to access webservices, replacement of input.php and output.php
+			// _APP_=webservices to access webservices, replacement of input.php and output.php
 			$fn = $core_config['apps_path']['incs'].'/app/webservices.php';
 			if (file_exists($fn)) {
 				include $fn;
 			}
 			break;
 		case 'call':
-			// $app=call to access subroutine in a plugin
+			// _APP_=call to access subroutine in a plugin
 			// can be used to replace callback.php in clickatell or dlr.php and geturl.php in kannel
 			if (_CAT_ && _PLUGIN_) {
 				if (function_exists('bindtextdomain')) {
@@ -56,11 +55,11 @@ if (isset($app)) {
 					bind_textdomain_codeset('messages', 'UTF-8');
 					textdomain('messages');
 				}
-				core_hook($plugin,'call',array($_REQUEST));
+				core_hook(_PLUGIN_, 'call', array($_REQUEST));
 			}
 			break;
 		case 'page':
-			// $app=page to access a page inside themes
+			// _APP_=page to access a page inside themes
 			// by default this is used for displaying 'forgot password' page and 'register an account' page
 			// login, logout, register, forgot password, noaccess
 			if (function_exists('bindtextdomain')) {
@@ -69,13 +68,13 @@ if (isset($app)) {
 				textdomain('messages');
 			}
 			logger_audit();
-			switch ($op) {
+			switch (_OP_) {
 				case 'auth_login':
 				case 'auth_logout':
 				case 'auth_forgot':
 				case 'auth_register':
-					if (function_exists($op)) {
-						call_user_func($op);
+					if (function_exists(_OP_)) {
+						call_user_func(_OP_);
 					}
 					break;
 				default:

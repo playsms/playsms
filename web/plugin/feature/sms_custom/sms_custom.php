@@ -8,7 +8,7 @@ if ($custom_id = $_REQUEST['custom_id']) {
 	}
 }
 
-switch ($op) {
+switch (_OP_) {
 	case "sms_custom_list":
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";

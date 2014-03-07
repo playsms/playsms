@@ -26,7 +26,6 @@ $p		= trim($_REQUEST['p']);
 
 // type of action (ta) or operation (op), ta = op
 $ta		= trim(strtoupper($_REQUEST['ta']));
-$op		= trim(strtoupper($_REQUEST['op']));
 
 // output format
 $format		= trim(strtoupper($_REQUEST['format']));
@@ -55,7 +54,7 @@ $smslog_id	= trim($_REQUEST['smslog_id']);
 // IN, GET_CONTACT, GET_CONTACT_GROUP
 $kwd		= trim($_REQUEST['kwd']);
 
-if ($op) { $ta = $op; };
+if (_OP_) { $ta = _OP_; };
 
 $log_this = FALSE;
 

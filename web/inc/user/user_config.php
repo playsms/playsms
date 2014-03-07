@@ -27,7 +27,7 @@ if (($uname = $_REQUEST['uname']) && auth_isadmin()) {
 	$url_uname = '&uname='.$c_username;
 }
 
-switch ($op) {
+switch (_OP_) {
 	case "user_config":
 		$referrer = ( $_SESSION['referrer'] ? $_SESSION['referrer'] : 'user_list_tab1' );
 		if ($err = $_SESSION['error_string']) {

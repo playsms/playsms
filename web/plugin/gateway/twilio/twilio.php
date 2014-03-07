@@ -12,7 +12,7 @@ if ($gw == $plugin_config['twilio']['name']) {
 	$status_active = "<span class=status_inactive />";
 }
 
-switch ($op) {
+switch (_OP_) {
 	case "manage":
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";

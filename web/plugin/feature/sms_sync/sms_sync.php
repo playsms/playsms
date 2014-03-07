@@ -11,7 +11,7 @@ if ($err = $_SESSION['error_string']) {
 	$error_content = "<div class=error_string>$err</div>";
 }
 
-switch ($op) {
+switch (_OP_) {
 	case "sms_sync_list":
 		$list = registry_search($user_config['uid'], 'feature', 'sms_sync');
 		$sms_sync_secret = $list['feature']['sms_sync']['secret'];

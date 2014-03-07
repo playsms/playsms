@@ -20,7 +20,7 @@
 defined('_SECURE_') or die('Forbidden');
 if(!auth_isadmin()){auth_block();};
 
-switch ($op) {
+switch (_OP_) {
 	case "main_config":
 		// enable register yes-no option
 		if ($enable_register) { $selected1 = "selected"; } else { $selected2 = "selected"; };
