@@ -46,6 +46,6 @@ if ($gpid && (dba_valid(_DB_PREF_.'_toolsPhonebook_group', 'id', $gpid))) {
 $search = themes_search_session();
 $nav = themes_nav_session();
 
-$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&search_category='.$search['category'].'&page='.$nav['page'].'&nav='.$nav['nav'];
+$ref = $search['url'].'&search_keyword='.$search['keyword'].'&search_category='.$search['category'].'&page='.$nav['page'].'&nav='.$nav['nav'];
 header("Location: ".$ref);
 exit();
