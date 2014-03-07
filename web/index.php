@@ -26,11 +26,11 @@ include $core_config['apps_path']['libs'].'/function.php';
 // but the point is to make a single gate into playSMS, that is through index.php
 if (_APP_) {
 	switch (_APP_) {
-		case 'mn':
 		case 'menu':
-			// _APP_=menu to access menus, replacement of direct access to menu.php
+		case 'main':
+			// _APP_=main to access main application
 			logger_audit();
-			$fn = $core_config['apps_path']['incs'].'/app/menu.php';
+			$fn = $core_config['apps_path']['incs'].'/app/main.php';
 			if (file_exists($fn)) {
 				include $fn;
 			}
