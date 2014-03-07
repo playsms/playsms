@@ -21,7 +21,7 @@ switch ($op) {
 			"._CSRF_FORM_."
 			<input type=hidden name=go value=delete>
 			<div class=actions_box>
-			<div class=pull-left><a href='index.php?app=menu&inc=tools_msgtemplate&op=add'>".$icon_config['add']."</a></div>
+			<div class=pull-left><a href='"._u('index.php?app=menu&inc=tools_msgtemplate&op=add')."'>".$icon_config['add']."</a></div>
 			<div class=pull-right>
 				<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', '".$fm_name."');\">".$icon_config['delete']."</a>
 			</div>
@@ -44,7 +44,7 @@ switch ($op) {
 			$i++;
 			$content .= "
 				<tr>
-					<td><a href='index.php?app=menu&inc=tools_msgtemplate&op=edit&tid=$tid'>$temp_title</a></td>
+					<td><a href='"._u('index.php?app=menu&inc=tools_msgtemplate&op=edit&tid=$tid').">".$temp_title."</a></td>
 					<td>$temp_text</td>
 					<td><input type=checkbox name=chkid".$i."></td>
 					<input type=hidden name=chkid_value".$i." value='".$db_row['tid']."'>

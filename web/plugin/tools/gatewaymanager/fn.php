@@ -106,8 +106,8 @@ function gatewaymanager_display() {
 			<tr>
 				<td>" . $gw['name'] . "</td>
 				<td>" . $gw['description'] . "</td>
-				<td><a href='index.php?app=menu&inc=tools_gatewaymanager&op=toggle_status&name=".$gw['name']."'>" . $gw['status'] . "</a></td>
-				<td><a href='".$gw['link']."'><span class='glyphicon glyphicon-wrench'></span></a></td>
+				<td><a href='"._u('index.php?app=menu&inc=tools_gatewaymanager&op=toggle_status&name='.$gw['name'])."'>" . $gw['status'] . "</a></td>
+				<td><a href='"._u($gw['link'])."'><span class='glyphicon glyphicon-wrench'></span></a></td>
 			</tr>";
 		
 	}

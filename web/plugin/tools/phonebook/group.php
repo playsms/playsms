@@ -24,7 +24,7 @@ switch ($op) {
 			<input type=hidden name=go value=delete>
 			<div class=actions_box>
 				<div class=pull-left>
-					<a href='index.php?app=menu&inc=tools_phonebook&route=group&op=add'>".$icon_config['add']."</a>
+					<a href='"._u('index.php?app=menu&inc=tools_phonebook&route=group&op=add').">".$icon_config['add']."</a>
 				</div>
 				<div class=pull-right>".$nav['form']."</div>
 			</div>
@@ -48,10 +48,10 @@ switch ($op) {
 			$i++;
 			$content .= "
 				<tr>
-					<td><a href='index.php?app=menu&inc=tools_phonebook&route=group&op=edit&gpid=".$gpid."'>$name</a></td>
+					<td><a href='"._u('index.php?app=menu&inc=tools_phonebook&route=group&op=edit&gpid='.$gpid)."'>".$name."</a></td>
 					<td>".$phonebook_flag_sender[$flag_sender]." ".$code."</td>
 					<td>
-						<a href='index.php?app=menu&inc=tools_phonebook&route=group&op=actions&go=delete&gpid=".$gpid."' onClick=\"return SureConfirm();\">".$icon_config['delete']."</a>
+						<a href='"._u('index.php?app=menu&inc=tools_phonebook&route=group&op=actions&go=delete&gpid='.$gpid)."' onClick=\"return SureConfirm();\">".$icon_config['delete']."</a>
 					</td>
 				</tr>";
 		}

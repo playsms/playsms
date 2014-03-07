@@ -20,8 +20,8 @@ switch ($op) {
 		$db_query = "SELECT * FROM "._DB_PREF_."_toolsSimplerate ORDER BY dst";
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
-			$action = "<a href=index.php?app=menu&inc=tools_simplerate&op=simplerate_edit&rateid=".$db_row['id'].">".$icon_config['edit']."</a>";
-			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete rate ?')." ("._('destination').": ".$db_row['dst'].", "._('prefix').": ".$db_row['prefix'].")','index.php?app=menu&inc=tools_simplerate&op=simplerate_del&rateid=".$db_row['id']."')\">".$icon_config['delete']."</a>";
+			$action = "<a href=\""._u('index.php?app=menu&inc=tools_simplerate&op=simplerate_edit&rateid='.$db_row['id'])."\">".$icon_config['edit']."</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete rate ?')." ("._('destination').": ".$db_row['dst'].", "._('prefix').": ".$db_row['prefix'].")','"._u('index.php?app=menu&inc=tools_simplerate&op=simplerate_del&rateid='.$db_row['id'])."')\">".$icon_config['delete']."</a>";
 			$i++;
 			$content .= "
 				<tr>
