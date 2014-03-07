@@ -45,13 +45,13 @@ switch ($op) {
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = user_uid2username($db_row['uid'])) {
-				$poll_status = "<a href=\"index.php?app=menu&inc=feature_sms_poll&op=sms_poll_status&poll_id=".$db_row['poll_id']."&ps=1\"><span class=status_disabled /></a>";
+				$poll_status = "<a href=\""._u('index.php?app=menu&inc=feature_sms_poll&op=sms_poll_status&poll_id='.$db_row['poll_id'].'&ps=1')."\"><span class=status_disabled /></a>";
 				if ($db_row['poll_enable']) {
-					$poll_status = "<a href=\"index.php?app=menu&inc=feature_sms_poll&op=sms_poll_status&poll_id=".$db_row['poll_id']."&ps=0\"><span class=status_enabled /></a>";
+					$poll_status = "<a href=\""._u('index.php?app=menu&inc=feature_sms_poll&op=sms_poll_status&poll_id='.$db_row['poll_id'].'&ps=0')."\"><span class=status_enabled /></a>";
 				}
-				$action = "<a href=index.php?app=menu&inc=feature_sms_poll&route=view&op=list&poll_id=".$db_row['poll_id'].">".$icon_config['view']."</a>&nbsp;";
-				$action .= "<a href=index.php?app=menu&inc=feature_sms_poll&op=sms_poll_edit&poll_id=".$db_row['poll_id'].">".$icon_config['edit']."</a>&nbsp;";
-				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS poll with all its choices and votes ?')." ("._('keyword').": ".$db_row['poll_keyword'].")','index.php?app=menu&inc=feature_sms_poll&op=sms_poll_del&poll_id=".$db_row['poll_id']."')\">".$icon_config['delete']."</a>";
+				$action = "<a href=\""._u('index.php?app=menu&inc=feature_sms_poll&route=view&op=list&poll_id='.$db_row['poll_id'])."\">".$icon_config['view']."</a>&nbsp;";
+				$action .= "<a href=\""._u('index.php?app=menu&inc=feature_sms_poll&op=sms_poll_edit&poll_id='.$db_row['poll_id'])."\">".$icon_config['edit']."</a>&nbsp;";
+				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS poll with all its choices and votes ?')." ("._('keyword').": ".$db_row['poll_keyword'].")','"._u('index.php?app=menu&inc=feature_sms_poll&op=sms_poll_del&poll_id='.$db_row['poll_id'])."')\">".$icon_config['delete']."</a>";
 				if (auth_isadmin()) {
 					$option_owner = "<td>$owner</td>";
 				}
@@ -138,7 +138,7 @@ switch ($op) {
 				<tr>
 					<td>$choice_keyword</td>
 					<td>$choice_title</td>
-					<td><a href=\"javascript:ConfirmURL('"._('Are you sure you want to delete choice ?')." ("._('title').": ".addslashes($choice_title).", "._('keyword').": ".$choice_keyword.")','index.php?app=menu&inc=feature_sms_poll&op=sms_poll_choice_del&poll_id=$poll_id&choice_id=$choice_id');\">".$icon_config['delete']."</a></td>
+					<td><a href=\"javascript:ConfirmURL('"._('Are you sure you want to delete choice ?')." ("._('title').": ".addslashes($choice_title).", "._('keyword').": ".$choice_keyword.")','"._u('index.php?app=menu&inc=feature_sms_poll&op=sms_poll_choice_del&poll_id='.$poll_id.'&choice_id='.$choice_id)."');\">".$icon_config['delete']."</a></td>
 				</tr>";	
 		}
 		$content .= "

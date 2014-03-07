@@ -17,9 +17,9 @@ switch ($op) {
 		$keywords = $data['keywords'];
 		$description = $data['description'];
 		$c_members = count(inboxgroup_getmembers($rid));
-		$c_members = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid=".$rid."'>".$c_members."</a>";
+		$c_members = "<a href='"._u('index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid='.$rid)."'>".$c_members."</a>";
 		$c_catchall = count(inboxgroup_getcatchall($rid));
-		$c_catchall = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid=".$rid."'>".$c_catchall."</a>";
+		$c_catchall = "<a href='"._u('index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid)."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
 		if ($error_content) {
 			$content .= $error_content;
@@ -98,9 +98,9 @@ switch ($op) {
 		$keywords = $data['keywords'];
 		$description = $data['description'];
 		$c_members = count(inboxgroup_getmembers($rid));
-		$c_members = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid=".$rid."'>".$c_members."</a>";
+		$c_members = "<a href='"._u('index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid='.$rid)."'>".$c_members."</a>";
 		$c_catchall = count(inboxgroup_getcatchall($rid));
-		$c_catchall = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid=".$rid."'>".$c_catchall."</a>";
+		$c_catchall = "<a href='"._u('index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid)."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
 		if ($error_content) {
 			$content .= $error_content;
@@ -185,9 +185,9 @@ switch ($op) {
 		$keywords = $data['keywords'];
 		$description = $data['description'];
 		$c_members = count(inboxgroup_getmembers($rid));
-		$c_members = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid=".$rid."'>".$c_members."</a>";
+		$c_members = "<a href='"._u('index.php?app=menu&inc=feature_inboxgroup&route=members&op=members&rid='.$rid)."'>".$c_members."</a>";
 		$c_catchall = count(inboxgroup_getcatchall($rid));
-		$c_catchall = "<a href='index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid=".$rid."'>".$c_catchall."</a>";
+		$c_catchall = "<a href='"._u('index.php?app=menu&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid)."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
 		if ($error_content) {
 			$content .= $error_content;

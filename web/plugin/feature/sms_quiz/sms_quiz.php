@@ -45,13 +45,13 @@ switch ($op) {
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = user_uid2username($db_row['uid'])) {
-				$quiz_status = "<a href=\"index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_status&quiz_id=".$db_row['quiz_id']."&ps=1\"><span class=status_disabled /></a>";
+				$quiz_status = "<a href=\""._u('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_status&quiz_id='.$db_row['quiz_id'].'&ps=1')."\"><span class=status_disabled /></a>";
 				if ($db_row['quiz_enable']) {
-					$quiz_status = "<a href=\"index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_status&quiz_id=".$db_row['quiz_id']."&ps=0\"><span class=status_enabled /></a>";
+					$quiz_status = "<a href=\""._u('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_status&quiz_id='.$db_row['quiz_id'].'&ps=0')."\"><span class=status_enabled /></a>";
 				}
-				$action = "<a href=index.php?app=menu&inc=feature_sms_quiz&op=sms_answer_view&quiz_id=".$db_row['quiz_id'].">".$icon_config['view']."</a>&nbsp;";
-				$action .= "<a href=index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=".$db_row['quiz_id'].">".$icon_config['edit']."</a>&nbsp;";
-				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS quiz with all its choices and answers ?')." ("._('keyword').": ".$db_row['quiz_keyword'].")','index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_del&quiz_id=".$db_row['quiz_id']."')\">".$icon_config['delete']."</a>";
+				$action = "<a href=\""._u('index.php?app=menu&inc=feature_sms_quiz&op=sms_answer_view&quiz_id='.$db_row['quiz_id'])."\">".$icon_config['view']."</a>&nbsp;";
+				$action .= "<a href=\""._u('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id='.$db_row['quiz_id'])."\">".$icon_config['edit']."</a>&nbsp;";
+				$action .= "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete SMS quiz with all its choices and answers ?')." ("._('keyword').": ".$db_row['quiz_keyword'].")','"._u('index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_del&quiz_id='.$db_row['quiz_id'])."')\">".$icon_config['delete']."</a>";
 				if (auth_isadmin()) {
 					$option_owner = "<td>$owner</td>";
 				}
@@ -222,7 +222,7 @@ switch ($op) {
 			} else {
 				$iscorrect = "<font color=red>"._('incorrect')."</font>";
 			}
-			$action = "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this answer ?')."','index.php?app=menu&inc=feature_sms_quiz&op=sms_answer_del&quiz_id=$quiz_id&answer_id=".$db_row['answer_id']."')\">".$icon_config['delete']."</a>";
+			$action = "<a href=\"javascript: ConfirmURL('"._('Are you sure you want to delete this answer ?')."','"._u('index.php?app=menu&inc=feature_sms_quiz&op=sms_answer_del&quiz_id='.$quiz_id.'&answer_id='.$db_row['answer_id'])."')\">".$icon_config['delete']."</a>";
 			$i++;
 			$content .= "
 				<tr>

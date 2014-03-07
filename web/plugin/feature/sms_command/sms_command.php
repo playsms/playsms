@@ -51,8 +51,8 @@ switch ($op) {
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = user_uid2username($db_row['uid'])) {
-				$action = "<a href=index.php?app=menu&inc=feature_sms_command&op=sms_command_edit&command_id=" . $db_row['command_id'] . ">".$icon_config['edit']."</a>&nbsp;";
-				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS command ?') . " (" . _('keyword') . ": " . $db_row['command_keyword'] . ")','index.php?app=menu&inc=feature_sms_command&op=sms_command_del&command_id=" . $db_row['command_id'] . "')\">".$icon_config['delete']."</a>";
+				$action = "<a href=\""._u('index.php?app=menu&inc=feature_sms_command&op=sms_command_edit&command_id='.$db_row['command_id'])."\">".$icon_config['edit']."</a>&nbsp;";
+				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS command ?') . " (" . _('keyword') . ": " . $db_row['command_keyword'] . ")','"._u('index.php?app=menu&inc=feature_sms_command&op=sms_command_del&command_id='.$db_row['command_id'])."')\">".$icon_config['delete']."</a>";
 				$command_exec = $sms_command_bin.'/'.$db_row['uid'].'/'.$db_row['command_exec'];
 				if (auth_isadmin()) {
 					$show_owner = "<td>".$owner."</td>";
