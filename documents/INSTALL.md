@@ -99,10 +99,10 @@ playSMS Web Interface using install script:
 
    * Run several checks
 
-    ```
-    playsmsd status
-    playsmsd check
-    ```
+     ```
+     playsmsd status
+     playsmsd check
+     ```
 
    * Stop here and review your installation steps when playsmsd is not
      running
@@ -112,10 +112,10 @@ playSMS Web Interface using install script:
      by browsing **http://<your web server IP>/playsms/** and login using
      default administrator user
 
-    ```
-    username: admin
-    password: admin
-    ```
+     ```
+     username: admin
+     password: admin
+     ```
 
 ### Method 2:. Installation on Linux step by step
 
@@ -178,8 +178,9 @@ playSMS Web Interface step-by-step installation:
 6. Enter daemon/linux directory, copy files and folder inside
 
    ```
-   cp /usr/local/src/playsms-1.0.0/daemon/linux/etc/playsmsd.conf /etc/playsmsd.conf
-   cp /usr/local/src/playsms-1.0.0/daemon/linux/bin/playsmsd /usr/local/bin/
+   cd /usr/local/src/playsms-1.0.0/daemon/linux
+   cp etc/playsmsd.conf /etc/playsmsd.conf
+   cp bin/playsmsd /usr/local/bin/
    ```
 
 7. Just to make sure every paths are correct, please edit /etc/playsmsd.conf
@@ -205,7 +206,8 @@ playSMS Web Interface step-by-step installation:
       the init script to */etc/init.d/* and program it to start at boot
 
      ```
-     cp /usr/local/src/playsms-1.0.0/daemon/linux/etc/playsms.init-ubuntu /etc/init.d/playsms
+     cd /usr/local/src/playsms-1.0.0/daemon/linux
+     cp etc/playsms.init-ubuntu /etc/init.d/playsms
      update-rc.d playsms defaults
      ```
 
@@ -256,10 +258,10 @@ playSMS Web Interface step-by-step installation:
 
    * Run several checks
 
-    ```
-    playsmsd status
-    playsmsd check
-    ```
+     ```
+     playsmsd status
+     playsmsd check
+     ```
 
    * Stop here and review your installation steps when playsmsd is not
      running
@@ -269,10 +271,10 @@ playSMS Web Interface step-by-step installation:
      by browsing **http://<your web server IP>/playsms/** and login using
      default administrator user
 
-    ```
-    username: admin
-    password: admin
-    ```
+     ```
+     username: admin
+     password: admin
+     ```
 
 ## Gateway Installation
 
