@@ -136,10 +136,7 @@ playSMS Web Interface step-by-step installation:
    chown -R www-data /var/www/playsms /var/log/playsms /var/lib/playsms
    ```
    
-   Note: 
-   
-   * There are Linux distributions using 'apache' as web server user
-     instead of 'www-data'.
+   There are Linux distributions using 'apache' as web server user instead of 'www-data'.
 
 3. Copy files and directories inside 'web' directory to playSMS web root
    and set ownership again to user www-data or web server user, just to
@@ -157,12 +154,8 @@ playSMS Web Interface step-by-step installation:
    mysql -u root -p playsms < /usr/local/src/playsms-1.0.0/db/playsms.sql
    ```
 
-   Note:
-    
-   * You don't need to use MySQL root access nor this method to setup
-     playSMS database, but this is beyond our scope. You should read MySQL
-     manual for custom installation method or howto insert SQL statements
-     into existing database.
+   You don't need to use MySQL root access nor this method to setup playSMS database, but this is beyond our scope. 
+   You should read MySQL manual for custom installation method or howto insert SQL statements into existing database.
 
 5. Copy config-dist.php to config.php and then edit config.php
 
@@ -171,9 +164,7 @@ playSMS Web Interface step-by-step installation:
    vi /var/www/playsms/config.php
    ```
 
-   Note:
-   
-   * Please read and fill all fields with correct values
+   Please read and fill all fields with correct values
 
 6. Enter daemon/linux directory, copy files and folder inside
 
@@ -189,12 +180,9 @@ playSMS Web Interface step-by-step installation:
    vi /etc/playsmsd.conf
    ```
 
-   Note:
-    
-   * Make sure that PLAYSMS_PATH is pointing to a correct playSMS
-    installation path (in this example to /var/www/playsms), and also make
-    sure that PLAYSMS_BIN is pointing to a correct playSMS daemon scripts
-    path (in this example to /usr/local/bin)
+   Make sure that PLAYSMS_PATH is pointing to a correct playSMS installation path (in this example to /var/www/playsms),
+   and also make sure that PLAYSMS_BIN is pointing to a correct playSMS daemon scripts path (in this example to
+   /usr/local/bin)
 
 8. There are two choices to get playSMS daemon starts automatically on
    boot.
@@ -220,10 +208,7 @@ playSMS Web Interface step-by-step installation:
       on the bottom of the file (before exit if theres an exit command).
       This way playsmsd will start automatically on boot.
 
-      Note:
-      
-      * Just like any other steps before, you need 'root' access to do
-        this.
+      Just like any other steps before, you need 'root' access to do this.
 
 9. Start playsmsd manually, no need to reboot your OS
 
