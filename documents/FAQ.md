@@ -1,13 +1,11 @@
-FAQ (Frequently Asked Questions)
---------------------------------
+# FAQ (Frequently Asked Questions)
 
-Q: Why is playSMS licensed as GPL version 3?
-A: GPLv3 is one of the open source license, choosing this will force
-   anyone distributing this software to contribute back when they modify it.
+Why is playSMS licensed as GPL version 3?
 
+Answer:
+GPLv3 is one of the open source license, choosing this will force anyone distributing this software to contribute back when they modify it.
 
-A. LOGIN
---------
+## 1. LOGIN
 
 1.  How to login for the first time after installation?
     Answer:
@@ -23,9 +21,7 @@ A. LOGIN
     Change your default password given by Administrator, create group
     and add mobile phone number to phonebook.
 
-
-B. SEND SMS
------------    
+## 2. SEND SMS
 
 1.  How to send one SMS from web?
     Answer:
@@ -38,10 +34,10 @@ B. SEND SMS
 3.  Is there any delivery status reported?
     Answer:
     Yes. Go to Outgoing SMS page.
-    Status "Failed" is for failed attempt.
-    Status "Pending" is for queued SMS (on server).
-    Status "Sent" is for SMS sent (SMS sent to gateway).
-    Status "Delivered" is for SMS delivered to phone.
+    * Status "Failed" is for failed attempt.
+    * Status "Pending" is for queued SMS (on server).
+    * Status "Sent" is for SMS sent (SMS sent to gateway).
+    * Status "Delivered" is for SMS delivered to phone.
 
 4.  Can we delete Outgoing SMS?
     Answer:
@@ -63,14 +59,13 @@ B. SEND SMS
     gateway module with no ability to set SMS sender ID.
     Gateway modules which have the ability to set SMS sender ID will 
     set SMS sender ID to the SMS.
+
     The sender ID is set according to this order:
 	1. Default sender ID on Main configuration (in case it exists)
 	2. Module sender ID on active gateway configuration (in case it exists)
 	3. SMS sender ID on User preferences
 
-
-C. RECEIVE SMS
---------------    
+## 3. RECEIVE SMS
 
 1.  Can I receive SMS?
     Answer:
@@ -81,35 +76,38 @@ C. RECEIVE SMS
 2.  How do I receive SMS?
     Answer:
     Tell people to send SMS to your playSMS number with format:
-        PV [your_username] [their message]
+    `PV [your_username] [their message]`
+    
     or this format (since playSMS 0.9.5.2):
-        @[your username] [their message]
-    or as long as the SMS contains @[your username] (since playSMS 0.9.8)
+    `@[your username] [their message]`
+    
+    or as long as the SMS contains `@[your username]` (since playSMS 0.9.8)
 
     eg: 
-	PV devteam your application works!
-	pv devteam i want to help you developing this application :)
-	@devteam your application rocks!
-	@devteam I want to help but dunno wht todo, any idea?
-	@admin bro, please set me as admin too !!
-	Hi @admin, nice to know that now we have a free SMS service!
+	* PV devteam your application works!
+	* pv devteam i want to help you developing this application :)
+	* @devteam your application rocks!
+	* @devteam I want to help but dunno wht todo, any idea?
+	* @admin bro, please set me as admin too !!
+	* Hi @admin, nice to know that now we have a free SMS service!
 	
 3.  Can I forward SMS from my mobile phone to my phonebook group?
     Answer:
     When you create a group in your phonebook you will be asked for 
     a Group Code. Use that Group Code as parameter to forward SMS to 
     group using special character # you can forward SMS to your group:
-        #[group code] [your message]
+    `#[group code] [your message]`
+    
     or as long as the SMS contains #[group code] (since playSMS 0.9.8)
 
     eg: 
-	#DEV thx for joining our crussade :)
-	#DEV its nice to meet you all
-	#Dev dont forget to read function.php
-	#dev testing only, sending this SMS to group code DEV
-	To all of you in #DEV please get this bug fixed asap!
+	* #DEV thx for joining our crussade :)
+	* #DEV its nice to meet you all
+	* #Dev dont forget to read function.php
+	* #dev testing only, sending this SMS to group code DEV
+	* To all of you in #DEV please get this bug fixed asap!
 
-    Note: playSMS will use Mobile number sets in user's Preferences menu to
+    playSMS will use Mobile number sets in user's Preferences menu to
     authenticate this feature
 
 4.  What happened to the received/incoming SMS without keyword PV 
@@ -117,9 +115,7 @@ C. RECEIVE SMS
     Answer:
     They will only be shown in Sandbox menu, only administrators can view them.
 
-
-D. WEBSERVICES
---------------
+## 4. WEBSERVICES
 
 1.  Can I use my own application or 3rd party application to send SMS
     using playSMS?
@@ -133,9 +129,7 @@ D. WEBSERVICES
     Yes, delivery statuses are retrieved in CSV, XML and some other formats.
     More information about this feature can be read in docs/WEBSERVICES
 
-
-E. SMS BOARD
-------------
+## 5. SMS BOARD
 
 1.  What is SMS board?
     Answer:
@@ -150,14 +144,16 @@ E. SMS BOARD
     For example you've added SMS board with keyword INFO. The web page 
     for keyword INFO (referred as SMS board INFO) would be accessable
     through this url: 
-    http://playsms/index.php?app=webservices&ta=sms_board&keyword=INFO
+    `http://playsms/index.php?app=webservices&ta=sms_board&keyword=INFO`
+
     Other parameter you can use to refine the display:
-    line	: show x line number of rows 
-    bodybgcolor	: set body background color
-    oddbgcolor	: set odd row backround color
-    evenbgcolor	: set even row backround color
+    * line : show x line number of rows 
+    * bodybgcolor : set body background color
+    * oddbgcolor : set odd row backround color
+    * evenbgcolor	: set even row backround color
+    
     eg:
-      http://playsms/index.php?app=webservices&ta=sms_board&keyword=INFO&line=15
+    http://playsms/index.php?app=webservices&ta=sms_board&keyword=INFO&line=15
     
 3.  What output formats available for SMS board webservices?
     Answer:
@@ -168,15 +164,17 @@ E. SMS BOARD
     Answer:
     Use IFRAME html tag. Customize your IFRAME to match your main 
     website look and feel.
+    
     eg:
-      <IFRAME 
-      src="http://playsms/index.php?app=webservices&ta=sms_board&keyword=INFO">
-      </IFRAME>
-    Note: other solution may be available.
+    ```
+    <IFRAME 
+    src="http://playsms/index.php?app=webservices&ta=sms_board&keyword=INFO">
+    </IFRAME>
+    ```
+    
+    Other solution may be available.
 
-
-F. SMS COMMAND
---------------    
+## 6. SMS COMMAND
 
 1.  Can I command server todo something?
     Answer:
@@ -186,22 +184,25 @@ F. SMS COMMAND
     Answer:
     Add new SMS command and associate a command that will be executed
     on incoming SMS that matched your keyword.
+    
     On incoming SMS, playSMS will pass variables to the command.
+    
     They are:
-    	{SMSDATETIME} replaced by incoming SMS date/time
-    	{SMSSENDER} replaced by sender mobile phone number
-    	{COMMANDKEYWORD} replaced by incoming SMS keyword
-    	{COMMANDPARAM} replaced by incoming SMS parameter    
-    	{COMMANDRAW} replaced by SMS raw message
+    * {SMSDATETIME} replaced by incoming SMS date/time
+    * {SMSSENDER} replaced by sender mobile phone number
+    * {COMMANDKEYWORD} replaced by incoming SMS keyword
+    * {COMMANDPARAM} replaced by incoming SMS parameter    
+    * {COMMANDRAW} replaced by SMS raw message
 
 3.  How to utilized a defined SMS command?
     Answer:
     Send SMS to your playSMS with format:
-    	[COMMAND KEYWORD] [COMMAND PARAM]
+    `[COMMAND KEYWORD] [COMMAND PARAM]`
+    
     eg: 
-	reg email devteam@playsms.org
-	retr pop3 pop3.ngoprek.org devteam mypwd
-	uptime
+	* reg email devteam@playsms.org
+	* retr pop3 pop3.ngoprek.org devteam mypwd
+	* uptime
 
 4.  What commands are available from SMS command?
     Answer:
@@ -212,8 +213,7 @@ F. SMS COMMAND
     playSMS will pickup output of executed command as reply to sender
 
 
-G. SMS CUSTOM
--------------    
+## 7. SMS CUSTOM
 
 1.  What is SMS custom?
     Answer:
