@@ -286,4 +286,4 @@ When succeeded playSMS will returns OK status message in JSON format:
 {"status":"OK","error":"0","data":[{"pid":"13674","gpid":"2","p_desc":"Anton Raharja","p_num":"08901230659","email":"","group_name":"Test Group","code":"TESTGROUP"}],"multi":true}
 ```
 
-When error occurred playSMS will returns one of the return code, also in XML format.
+When error occurred playSMS will returns one of the return code, also in JSON format.
