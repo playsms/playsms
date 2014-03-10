@@ -3,7 +3,9 @@
 Why is playSMS licensed as GPL version 3?
 
 Answer:
-GPLv3 is one of the open source license, choosing this will force anyone distributing this software to contribute back when they modify it.
+GPLv3 is one of the open source license, choosing this will force anyone that
+distributing this software to contribute back when they modify it.
+
 
 ## 1. LOGIN
 
@@ -20,6 +22,7 @@ GPLv3 is one of the open source license, choosing this will force anyone distrib
     Answer:
     Change your default password given by Administrator, create group
     and add mobile phone number to phonebook.
+
 
 ## 2. SEND SMS
 
@@ -64,6 +67,7 @@ GPLv3 is one of the open source license, choosing this will force anyone distrib
 	1. Default sender ID on Main configuration (in case it exists)
 	2. Module sender ID on active gateway configuration (in case it exists)
 	3. SMS sender ID on User preferences
+
 
 ## 3. RECEIVE SMS
 
@@ -115,6 +119,7 @@ GPLv3 is one of the open source license, choosing this will force anyone distrib
     Answer:
     They will only be shown in Sandbox menu, only administrators can view them.
 
+
 ## 4. WEBSERVICES
 
 1.  Can I use my own application or 3rd party application to send SMS
@@ -128,6 +133,7 @@ GPLv3 is one of the open source license, choosing this will force anyone distrib
     Answer:
     Yes, delivery statuses are retrieved in CSV, XML and some other formats.
     More information about this feature can be read in docs/WEBSERVICES
+
 
 ## 5. SMS BOARD
 
@@ -174,6 +180,7 @@ GPLv3 is one of the open source license, choosing this will force anyone distrib
     
     Other solution may be available.
 
+
 ## 6. SMS COMMAND
 
 1.  Can I command server todo something?
@@ -219,73 +226,82 @@ GPLv3 is one of the open source license, choosing this will force anyone distrib
     Answer:
     SMS custom is used to process incoming SMS by passing the SMS
     information to another application in other server using HTTP.
-    [sender] --GSM-- [playSMS] --IP-- [other host processing SMS]
+    `[sender] --GSM-- [playSMS] --IP-- [other host processing SMS]`
 
 2.  How to setup SMS custom?
     Answer:
     Add new SMS custom from menu, and then set custom URL of the host
     handling SMS.
+
     On incoming SMS, playSMS will pass variables to the URL.
+
     They are:
-    	{SMSDATETIME} replaced by SMS incoming date/time
-    	{SMSSENDER} replaced by sender mobile phones number
-    	{CUSTOMKEYWORD} replaced by custom keyword
-    	{CUSTOMPARAM} replaced by custom parameter
-    	{CUSTOMRAW} replaced by SMS raw message
+    * {SMSDATETIME} replaced by SMS incoming date/time
+    * {SMSSENDER} replaced by sender mobile phones number
+    * {CUSTOMKEYWORD} replaced by custom keyword
+    * {CUSTOMPARAM} replaced by custom parameter
+    * {CUSTOMRAW} replaced by SMS raw message
 
 3.  How to utilized a defined SMS custom?
     Answer:
     Send SMS to your playSMS with format:
-    	[CUSTOM KEYWORD] [CUSTOM PARAM]
+    `[CUSTOM KEYWORD] [CUSTOM PARAM]`
+
     eg: 
-	reg email devteam@playsms.org
-	retr pop3 pop3.ngoprek.org devteam mypwd
-	uptime
+	* reg email devteam@playsms.org
+	* retr pop3 pop3.ngoprek.org devteam mypwd
+	* uptime
 
 4.  What is the check box 'Make return as reply' for?
     Answer:
     playSMS will pickup output of URL/other host as reply to sender
 
 
-H. SMS POLL
------------
+## 8. SMS POLL
 
 1.  How to use SMS poll system?
     Answer:
     Add new poll or list/edit/delete it. Write down poll keyword and 
     each choice keyword you have defined.
+
     Tell  voters to send SMS to playSMS SMS gateway mobile number with
     format:
-    [POLL KEYWORD] [CHOICE KEYWORD]
+    `[POLL KEYWORD] [CHOICE KEYWORD]`
+
     eg:
-    food chicken
-    pres 3
+        * food chicken
+        * pres 3
 
 2.  Howto show results of SMS poll in other website?
     Answer:
     For example polling with keyword PRES
+
     Webpage for poll named PRES would be accessable trough this url: 
     http://your_playsms/index.php?app=webservices&ta=sms_poll&keyword=PRES
+
     Other parameter you can use:
-    bodybgcolor	: set body background color
-    refresh=yes	: check latest incoming sms and refresh webpage output
-    Use IFRAME html tag.
-    eg:
-	<IFRAME src="http://your_playsms_web_domain/index.php?app=webservices
-	&ta=sms_poll&keyword=PRES"></IFRAME>
+    * bodybgcolor : set body background color
+    * refresh=yes : check latest incoming sms and refresh webpage output
+
+    Using IFRAME html tag:
+
+    ```
+    <IFRAME src="http://your_playsms_web_domain/index.php?app=webservices&
+    ta=sms_poll&keyword=PRES"></IFRAME>
+    ```
 
 3.  What output formats available for SMS poll webservices?
     Answer:
     PHP serialize, json, xml, and graph. Please see menu view in SMS poll.
 
 
-I. SMS QUIZ
------------
+## 9. SMS QUIZ
 
 1.  What is SMS quiz system?
     Answer:
     Administrator can add quiz keywords, questions and answers, and 
     define message reply for participants. 
+
     Once a participant send message with quiz keyword and quiz answer
     keyword, system will reply with a message to tell participant 
     whether the answer is correct or incorrect.
@@ -295,15 +311,16 @@ I. SMS QUIZ
     Add new quiz or list/edit/delete it. Write down quiz keyword, quiz
     question, quiz answer and message to participants for correct and 
     incorrect message.
+
     Tell  participants to send SMS to playSMS mobile number with 
     format:
-    [QUIZ KEYWORD] [ANSWER KEYWORD]
+    `[QUIZ KEYWORD] [ANSWER KEYWORD]`
+
     eg:
-    soccer germany
+        * soccer germany
    
     
-J. SMS SUBSCRIBE
-----------------
+## 10. SMS SUBSCRIBE
 
 1.  What is SMS subscribe system?
     Answer:
@@ -315,29 +332,32 @@ J. SMS SUBSCRIBE
     Answer:
     Add new subscribe or list/edit/delete it. Write down subscribe 
     keyword, subscribe message, and unsubscribe message.
+
     When a number has subscribed the system will automatically send 
     a subscribe message, and when a number has unsubscribe the system 
     will automatically send an unsubscribe message.
+
     Add message to each subscribe keyword, this message will be sent 
     to all subscribed number.    
+
     Tell  people to send SMS to playSMS SMS gateway mobile number with
     format:
-    [SUBSCRIBE KEYWORD] [INSTRUCTION]
+    `[SUBSCRIBE KEYWORD] [INSTRUCTION]`
+
     eg:
-    PLAYSMS REG
-    PLAYSMS UNREG
-    theclub REG
-    theclub off
+        * PLAYSMS REG
+        * PLAYSMS UNREG
+        * theclub REG
+        * theclub off
     
 
-K. GATEWAY MODULE
------------------    
+## 11. GATEWAY MODULE
 
 1.  I've heard that from version 0.5 playSMS support any gateway other
     than gnokii. Is this true?
     Answer:
     Yes. From version 0.5 you can write a gateway module and place on 
-    $apps_path[plug]/gateway to load it.
+    `$apps_path[plug]/gateway` to load it.
 
 2.  So if I don't have GSM modem or nokia 5110, say I have access to 
     an SMSC or Internet SMS Gateway like http://www.clickatell.com can
@@ -346,13 +366,15 @@ K. GATEWAY MODULE
     Yes. Use gateway module kannel for connecting directly to an SMSC
     or use gateway module clickatell and uplink for connecting to 
     other sms gateway/server such as Clickatell or another playSMS.
-    Please see $apps_path[plug]/gateway/clickatell/ for Clickatell and
-    $apps_path[plug]/gateway/uplink/ for Uplink.
+
+    Please see `$apps_path[plug]/gateway/clickatell/` for Clickatell and
+    `$apps_path[plug]/gateway/uplink/` for Uplink.
         
 3.  Is kannel (http://kannel.org) supported by playSMS?
     Answer:
     Yes, starting version 0.6
-    Please see $apps_path[plug]/gateway/kannel/
+
+    Please see `$apps_path[plug]/gateway/kannel/`
 
 4.  How can I configure each gateway module?
     Answer: 
@@ -369,8 +391,7 @@ K. GATEWAY MODULE
     Yes.
 
 
-L. SMS RATE AND CREDIT
-----------------------
+## 12. SMS RATE AND CREDIT
 
 1.  What is Manage SMS rate menu in Administration drop-down menu?
     Answer:
@@ -399,13 +420,13 @@ L. SMS RATE AND CREDIT
     Only sent SMS.
 
 
-M. CONTACT
-----------    
+## 13. CONTACT
 
 1.  Is there any place where I can discuss playSMS matters?
     Answer:
     Yes. playSMS user group forum or mailing list. It is intended for general
     users but focus on developers.
+
     Please visit and join the group:
     http://groups.google.com/group/playsmsusergroup
 

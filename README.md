@@ -16,9 +16,11 @@ Official playSMS Facebook page:
 
 * http://facebook.com/playsmsusergroup
 
+
 ## Description
 
 playSMS is a free and open source SMS management software. A flexible Web-based mobile portal system that it can be made to fit to various services such as an SMS gateway, bulk SMS provider, personal messaging system, corporate and group communication tools
+
 
 ## Feature Highlights
 
@@ -55,6 +57,7 @@ playSMS is a free and open source SMS management software. A flexible Web-based 
 * Easily add new language for user interface
 * Web-based interface
 
+
 ## License
 
 playSMS is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -69,19 +72,23 @@ http://www.gnu.org/licenses/gpl-3.0.html
 
 The GPLv3 full text is included in file [LICENSE.md](LICENSE.md)
 
+
 ## Installation
 
 Please read [INSTALL](documents/INSTALL.md "playSMS installation document") and then [FAQ](documents/FAQ.md "Frequently Asked Questions").
 
+
 ## Project Founder
 
 [Anton Raharja (anton)](http://antonraharja.com "Anton Raharja")
+
 
 ## Contributors
 
 Information about code contributors can be found in this URL:
 
 https://github.com/antonraharja/playSMS/graphs/contributors
+
 
 ## Translators
 

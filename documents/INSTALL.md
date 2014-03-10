@@ -2,9 +2,11 @@
 
 This document explains about how to install and setup playSMS version 1.0.0
 
+
 ## Requirements
 
-Most of on the requirements on this list must be fulfilled. Please read this part before starting the installation.
+Most of on the requirements on this list must be fulfilled. Please read this
+part before starting the installation.
 
 Minimum required hardware:
 
@@ -12,10 +14,12 @@ Minimum required hardware:
 
 Optional hardware or infrastructure:
 
-* GSM modem, single/modem pool (only when you plan to use Kannel, Gammu,     Gnokii or smstools gateway plugins)
-* Internet connection (only when you plan to use Clickatell, Nexmo,
-  Twilio, Infobip gateway plugins)
-* LAN (only when you plan to link 2 playSMS on different server in the       same network using Uplink gateway plugin)
+* GSM modem, single/modem pool (only when you plan to use Kannel, Gammu, Gnokii
+  or smstools gateway plugins)
+* Internet connection (only when you plan to use Clickatell, Nexmo, Twilio,
+  Infobip gateway plugins)
+* LAN (only when you plan to link 2 playSMS on different server in the same
+  network using Uplink gateway plugin)
 
 Minimum required softwares:
 
@@ -43,6 +47,7 @@ Minimum required server administrator (or developer):
 * Understand howto insert SQL statements into created database
 * Basic knowledges to manage Linux (skill to navigate in console mode)
 
+
 ## Installation
 
 There are 2 methods explained in this document to install playSMS:
@@ -52,7 +57,9 @@ There are 2 methods explained in this document to install playSMS:
 
 You should pick only one method, do not do both methods.
 
-If you are using Ubuntu server, relatively fresh and not much core changes, then I suggest you to use **1st method**, using install-script.
+If you are using Ubuntu server, relatively fresh and not much core changes, then
+I suggest you to use **1st method**, using install-script.
+
 
 ### Method 1: Installation on Linux using install-script
 
@@ -65,7 +72,7 @@ playSMS Web Interface using install script:
    ls -l /usr/local/src/
    ```
 
-2. Edit install.conf, read it, understand it and make changes to suit your    system configuration
+2. Edit install.conf, read and make changes to suit your system configuration
 
    ```
    cd /usr/local/src/playsms-1.0.0/contrib/installer
@@ -83,10 +90,10 @@ playSMS Web Interface using install script:
    Note:
    
    * You must read and verify the install data presented when running
-     script *install-playsms-ubuntu.sh*, and continue only when the data
+     script `install-playsms-ubuntu.sh`, and continue only when the data
      is correct
    * Edit install.conf again if you think your install data is wrong
-   * After successful installation, please run command *ps ax* and see if
+   * After successful installation, please run command `ps ax` and see if
      playsmsd is running
 
      ```
@@ -109,13 +116,14 @@ playSMS Web Interface using install script:
    * Consider to ask question in playSMS forum when you encountered a
      problem
    * If all seems to be correctly installed you may try to login from web
-     by browsing **http://<your web server IP>/playsms/** and login using
+     by browsing `http://<your web server IP>/playsms/` and login using
      default administrator user
 
      ```
      username: admin
      password: admin
      ```
+
 
 ### Method 2:. Installation on Linux step by step
 
@@ -154,8 +162,11 @@ playSMS Web Interface step-by-step installation:
    mysql -u root -p playsms < /usr/local/src/playsms-1.0.0/db/playsms.sql
    ```
 
-   You don't need to use MySQL root access nor this method to setup playSMS database, but this is beyond our scope. 
-   You should read MySQL manual for custom installation method or howto insert SQL statements into existing database.
+   You don't need to use MySQL root access nor this method to setup playSMS
+   database, but this is beyond our scope.
+ 
+   You should read MySQL manual for custom installation method or howto insert
+   SQL statements into existing database.
 
 5. Copy config-dist.php to config.php and then edit config.php
 
@@ -180,8 +191,9 @@ playSMS Web Interface step-by-step installation:
    vi /etc/playsmsd.conf
    ```
 
-   Make sure that PLAYSMS_PATH is pointing to a correct playSMS installation path (in this example to /var/www/playsms),
-   and also make sure that PLAYSMS_BIN is pointing to a correct playSMS daemon scripts path (in this example to
+   Make sure that PLAYSMS_PATH is pointing to a correct playSMS installation
+   path (in this example to /var/www/playsms), and make sure that PLAYSMS_BIN
+   is pointing to a correct playSMS daemon scripts path (in this example to
    /usr/local/bin)
 
 8. There are two choices to get playSMS daemon starts automatically on
@@ -203,7 +215,7 @@ playSMS Web Interface step-by-step installation:
       
       When you found it edit that rc.local and put:
 
-      *"/usr/local/bin/playsmsd start"* (without quotes, remove quotes)
+      `/usr/local/bin/playsmsd start"`
 
       on the bottom of the file (before exit if theres an exit command).
       This way playsmsd will start automatically on boot.
@@ -227,10 +239,10 @@ playSMS Web Interface step-by-step installation:
    Note:
    
    * You must read and verify the install data presented when running
-     script *install-playsms-ubuntu.sh*, and continue only when the data
+     script `install-playsms-ubuntu.sh`, and continue only when the data
      is correct
    * Edit install.conf again if you think your install data is wrong
-   * After successful installation, please run command *ps ax* and see if
+   * After successful installation, please run command `ps ax` and see if
      playsmsd is running
 
      ```
@@ -253,7 +265,7 @@ playSMS Web Interface step-by-step installation:
    * Consider to ask question in playSMS forum when you encountered a
      problem
    * If all seems to be correctly installed you may try to login from web
-     by browsing **http://<your web server IP>/playsms/** and login using
+     by browsing `http://<your web server IP>/playsms/` and login using
      default administrator user
 
      ```
@@ -261,8 +273,12 @@ playSMS Web Interface step-by-step installation:
      password: admin
      ```
 
+
 ## Gateway Installation
 
-If you have GSM modem and plan to use it with playSMS, please continue to follow instructions in INSTALL_SMSSERVERTOOLS to use SMS Server Tools (smstools3) as your gateway module, or follow INSTALL_KANNEL if you want to use Kannel.
+If you have GSM modem and plan to use it with playSMS, please continue to follow
+instructions in INSTALL_SMSSERVERTOOLS to use SMS Server Tools (smstools3) as
+your gateway module, or follow INSTALL_KANNEL if you want to use Kannel.
 
-Gnokii and Gammu also supported, please follow INSTALL_GNOKII if you want to use Gnokii as your gateway module, or INSTALL_GAMMU if you want to use Gammu.
+Gnokii and Gammu also supported, please follow INSTALL_GNOKII if you want to use
+Gnokii as your gateway module, or INSTALL_GAMMU if you want to use Gammu.
