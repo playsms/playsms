@@ -215,7 +215,7 @@ playSMS Web Interface step-by-step installation:
       
       When you found it edit that rc.local and put:
 
-      `/usr/local/bin/playsmsd start"`
+      `/usr/local/bin/playsmsd start`
 
       on the bottom of the file (before exit if theres an exit command).
       This way playsmsd will start automatically on boot.
