@@ -25,11 +25,11 @@ $u		= trim($_REQUEST['u']);
 $p		= trim($_REQUEST['p']);
 
 // output format
-$format		= trim(strtoupper($_REQUEST['format']));
+$format		= strtoupper(trim($_REQUEST['format']));
 
 // PV, BC
 $from		= trim($_REQUEST['from']);
-$to		= trim(strtoupper($_REQUEST['to']));
+$to		= trim($_REQUEST['to']);
 $msg		= trim($_REQUEST['msg']);
 $schedule	= trim($_REQUEST['schedule']);
 $footer		= trim($_REQUEST['footer']);
@@ -52,6 +52,24 @@ $smslog_id	= trim($_REQUEST['smslog_id']);
 $kwd		= trim($_REQUEST['kwd']);
 
 $log_this = FALSE;
+
+$ws_error_string = array(
+	'100' => 'authentication failed',
+	'101' => 'type of action is invalid or unknown',
+	'102' => 'one or more field empty',
+	'103' => 'not enough credit for this operation',
+	'104' => 'webservice token is not available',
+	'105' => 'webservice token not enable for this user',
+	'106' => 'webservice token not allowed from this IP address',
+	'200' => 'send private failed',
+	'201' => 'destination number or message is empty',
+	'300' => 'send broadcast failed',
+	'301' => 'destination group or message is empty',
+	'400' => 'no delivery status available',
+	'401' => 'no delivery status retrieved and SMS still in queue',
+	'402' => 'no delivery status retrieved and SMS has been processed from queue',
+	'501' => 'no data returned or result is empty'
+);
 
 if (_OP_) {
 	switch (strtoupper(_OP_)) {
@@ -223,6 +241,10 @@ if (_OP_) {
 
 if ($log_this) {
 	logger_print("u:".$u." ip:".$_SERVER['REMOTE_ADDR']." op:"._OP_, 3, "webservices");
+}
+
+if ($json['error'] && ($error_string = $ws_error_string[$json['error']])) {
+	$json['error_string'] = $error_string;
 }
 
 if ($format=='SERIALIZE') {
