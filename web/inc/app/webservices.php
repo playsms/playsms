@@ -243,9 +243,8 @@ if ($log_this) {
 	logger_print("u:".$u." ip:".$_SERVER['REMOTE_ADDR']." op:"._OP_, 3, "webservices");
 }
 
-if ($json['error'] && ($error_string = $ws_error_string[$json['error']])) {
-	$json['error_string'] = $error_string;
-}
+// add an error_string to json response
+$json['error_string'] = $ws_error_string[$json['error']];
 
 if ($format=='SERIALIZE') {
 	ob_end_clean();
