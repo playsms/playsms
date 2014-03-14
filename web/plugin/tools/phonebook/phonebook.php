@@ -185,7 +185,7 @@ switch (_OP_) {
 				$join .= 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group_contacts AS C ON A.id = C.pid AND C.gpid = B.id';
 				$conditions = array('B.uid' => $user_config['uid'], 'C.gpid=B.id');
 				$keywords = $search['dba_keywords'];
-				$extras = array('ORDER BY' => 'A.name, mobile', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
+				$extras = array('ORDER BY' => 'A.name, mobile', 'LIMIT' => $phonebook_row_limit);
 				$list = dba_search(_DB_PREF_.'_toolsPhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
 				$data[0] = array(_('Name'), _('Mobile'), _('Email'), _('Group code'));
 				for ($i=0;$i<count($list);$i++) {
