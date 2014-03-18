@@ -98,13 +98,12 @@ function auth_isvalid() {
  * @return boolean TRUE if valid and visitor has admin access level
  */
 function auth_isadmin() {
-	if (auth_isvalid()) {
-		if ($_SESSION['status']==2) {
-			return true;
-		} else {
-			return false;
+	if ($_SESSION['status'] ==  2) {
+		if (auth_isvalid()) {
+			return TRUE;
 		}
 	}
+	return FALSE;
 }
 
 /**
