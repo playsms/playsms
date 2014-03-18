@@ -1052,7 +1052,6 @@ CREATE TABLE `playsms_tblUser` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `status` int(11) NOT NULL DEFAULT '0',
-  `ticket` varchar(100) NOT NULL DEFAULT '',
   `username` varchar(100) NOT NULL DEFAULT '',
   `password` varchar(32) NOT NULL DEFAULT '',
   `token` varchar(32) NOT NULL DEFAULT '',

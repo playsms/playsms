@@ -79,7 +79,7 @@ function auth_validate_token($token) {
 }
 
 /**
- * Check if ticket is valid, that visitor has access or validated
+ * Check if visitor has been validated
  * @return boolean TRUE if valid
  */
 function auth_isvalid() {
@@ -127,22 +127,17 @@ function auth_login() {
 	$password = trim($_REQUEST['password']);
 	if ($username && $password) {
 		if (auth_validate_login($username,$password)) {
-			$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',ticket='1' WHERE username='$username'";
-			if (@dba_affected_rows($db_query)) {
-				$_SESSION['sid'] = session_id();
-				$_SESSION['username'] = $username;
-				$c_user = user_getdatabyusername($username);
-				$_SESSION['uid'] = $c_user['uid'];
-				$_SESSION['status'] = $c_user['status'];
-				$_SESSION['valid'] = true;
-				// save session in registry
-				if (! $core_config['daemon_process']) {
-					user_session_set($c_user['uid']);
-				}
-				logger_print("u:".$username." status:".$_SESSION['status']." sid:".$_SESSION['sid']." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
-			} else {
-				$_SESSION['error_string'] = _('Unable to update login session');
+			$_SESSION['sid'] = session_id();
+			$_SESSION['username'] = $username;
+			$c_user = user_getdatabyusername($username);
+			$_SESSION['uid'] = $c_user['uid'];
+			$_SESSION['status'] = $c_user['status'];
+			$_SESSION['valid'] = true;
+			// save session in registry
+			if (! $core_config['daemon_process']) {
+				user_session_set($c_user['uid']);
 			}
+			logger_print("u:".$username." status:".$_SESSION['status']." sid:".$_SESSION['sid']." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
 		} else {
 			$_SESSION['error_string'] = _('Invalid username or password');
 		}
@@ -158,8 +153,6 @@ function auth_login() {
 function auth_logout() {
 	global $core_config;
 	user_session_remove($_SESSION['uid'], $_SESSION['sid']);
-	$db_query = "UPDATE "._DB_PREF_."_tblUser SET ticket='0' WHERE username='".$_SESSION['username']."'";
-	$db_result = dba_query($db_query);
 	logger_print("u:".$_SESSION['username']." uid:".$_SESSION['uid']." status:".$_SESSION['status']." sid:".$_SESSION['sid']." ip:".$_SERVER['REMOTE_ADDR'], 2, "logout");
 	@session_destroy();
 	$_SESSION['error_string'] = _('You have been logged out');
