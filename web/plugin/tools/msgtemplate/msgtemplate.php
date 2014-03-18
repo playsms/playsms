@@ -34,7 +34,7 @@ switch (_OP_) {
 				<th width=5%><input type=checkbox onclick=CheckUncheckAll(document.".$fm_name.")></th>
 			</tr></thead>
 			<tbody>";
-		$db_query = "SELECT * FROM "._DB_PREF_."_toolsMsgtemplate WHERE uid='$uid' ORDER BY t_title";
+		$db_query = "SELECT * FROM "._DB_PREF_."_toolsMsgtemplate WHERE uid='".$user_config['uid']."' ORDER BY t_title";
 		$db_result = dba_query($db_query);
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
@@ -125,7 +125,7 @@ switch (_OP_) {
 				$t_title = $_POST['t_title'];
 				$t_text = $_POST['t_text'];
 				if ($t_title && $t_text) {
-					$db_query = "INSERT INTO "._DB_PREF_."_toolsMsgtemplate (uid,t_title,t_text) VALUES ('$uid','$t_title','$t_text')";
+					$db_query = "INSERT INTO "._DB_PREF_."_toolsMsgtemplate (uid,t_title,t_text) VALUES ('".$user_config['uid']."','$t_title','$t_text')";
 					$db_result = dba_insert_id($db_query);
 					if ($db_result > 0) {
 						$_SESSION['error_string'] = _('Message template has been saved');

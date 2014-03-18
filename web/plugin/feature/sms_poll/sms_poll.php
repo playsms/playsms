@@ -39,7 +39,7 @@ switch (_OP_) {
 			<tbody>";
 		$i=0;
 		if (! auth_isadmin()) {
-			$query_user_only = "WHERE uid='$uid'";
+			$query_user_only = "WHERE uid='".$user_config['uid']."'";
 		}
 		$db_query = "SELECT * FROM "._DB_PREF_."_featurePoll ".$query_user_only." ORDER BY poll_id";
 		$db_result = dba_query($db_query);
@@ -283,7 +283,7 @@ switch (_OP_) {
 			if (checkavailablekeyword($add_poll_keyword)) {
 				$db_query = "
 					INSERT INTO "._DB_PREF_."_featurePoll (uid,poll_keyword,poll_title,poll_message_valid,poll_message_invalid)
-					VALUES ('$uid','$add_poll_keyword','$add_poll_title','$add_poll_message_valid','$add_poll_message_invalid')";
+					VALUES ('".$user_config['uid']."','$add_poll_keyword','$add_poll_title','$add_poll_message_valid','$add_poll_message_invalid')";
 				if ($new_poll_id = @dba_insert_id($db_query)) {
 					$_SESSION['error_string'] = _('SMS poll has been added')." ("._('keyword').": $add_poll_keyword)";
 				} else {

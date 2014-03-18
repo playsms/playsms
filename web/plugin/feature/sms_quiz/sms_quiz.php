@@ -39,7 +39,7 @@ switch (_OP_) {
 			<tbody>";
 		$i = 0;
 		if (! auth_isadmin()) {
-			$query_user_only = "WHERE uid='$uid'";
+			$query_user_only = "WHERE uid='".$user_config['uid']."'";
 		}
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureQuiz ".$query_user_only." ORDER BY quiz_id";
 		$db_result = dba_query($db_query);
@@ -114,7 +114,7 @@ switch (_OP_) {
 			if (checkavailablekeyword($add_quiz_keyword)) {
 				$db_query = "
 					INSERT INTO " . _DB_PREF_ . "_featureQuiz (uid,quiz_keyword,quiz_question,quiz_answer,quiz_msg_correct,quiz_msg_incorrect)
-					VALUES ('$uid','$add_quiz_keyword','$add_quiz_question','$add_quiz_answer','$add_quiz_msg_correct','$add_quiz_msg_incorrect')";
+					VALUES ('".$user_config['uid']."','$add_quiz_keyword','$add_quiz_question','$add_quiz_answer','$add_quiz_msg_correct','$add_quiz_msg_incorrect')";
 				if ($new_uid = @ dba_insert_id($db_query)) {
 					$_SESSION['error_string'] = _('SMS quiz has been added')." ("._('keyword').": $add_quiz_keyword)";
 				} else {

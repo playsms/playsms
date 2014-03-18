@@ -35,7 +35,7 @@ switch (_OP_) {
 			</tr></thead>
 			<tbody>";
 		if (! auth_isadmin()) {
-			$query_user_only = "WHERE uid='$uid'";
+			$query_user_only = "WHERE uid='".$user_config['uid']."'";
 		}
 		$db_query = "SELECT * FROM "._DB_PREF_."_featureBoard ".$query_user_only." ORDER BY board_keyword";
 		$db_result = dba_query($db_query);
@@ -188,7 +188,7 @@ switch (_OP_) {
 				}
 				$db_query = "
 					INSERT INTO "._DB_PREF_."_featureBoard (uid,board_keyword,board_forward_email,board_css,board_pref_template)
-					VALUES ('$uid','$add_board_keyword','$add_email','$add_css','$add_template')";
+					VALUES ('".$user_config['uid']."','$add_board_keyword','$add_email','$add_css','$add_template')";
 				if ($new_uid = @dba_insert_id($db_query)) {
 					$_SESSION['error_string'] = _('SMS board has been added')." ("._('keyword').": $add_board_keyword)";
 				} else {
