@@ -26,7 +26,7 @@ switch (_OP_) {
 		$message = stripslashes($_REQUEST['message']);
 
 		// sender ID
-		$sms_from = sendsms_get_sender($username);
+		$sms_from = sendsms_get_sender($user_config['username']);
 		if (!$allow_custom_sender) {
 			$allow_custom_sender = 'readonly';
 		}
@@ -176,7 +176,7 @@ switch (_OP_) {
 			/* fixme anton - soon sendsms_bc will be removed
 			// sendsms_bc
 			if (is_array($array_gpid) && $array_gpid[0]) {
-				list($ok_bc,$to_bc,$smslog_id_bc,$queue_bc) = sendsms_bc($username,$array_gpid,$message,$sms_type,$unicode,$nofooter,$sms_footer,$sms_sender,$sms_schedule);
+				list($ok_bc,$to_bc,$smslog_id_bc,$queue_bc) = sendsms_bc($user_config['username'],$array_gpid,$message,$sms_type,$unicode,$nofooter,$sms_footer,$sms_sender,$sms_schedule);
 			}
 			for ($i=0;$i<count($ok_bc);$i++) {
 				if ($ok_bc[$i]) {
@@ -189,7 +189,7 @@ switch (_OP_) {
 
 			// sendsms
 			if (is_array($array_sms_to) && $array_sms_to[0]) {
-				list($ok,$to,$smslog_id,$queue) = sendsms($username,$array_sms_to,$message,$sms_type,$unicode,$nofooter,$sms_footer,$sms_sender,$sms_schedule);
+				list($ok,$to,$smslog_id,$queue) = sendsms($user_config['username'],$array_sms_to,$message,$sms_type,$unicode,$nofooter,$sms_footer,$sms_sender,$sms_schedule);
 			}
 			for ($i=0;$i<count($ok);$i++) {
 				if ($ok[$i]) {

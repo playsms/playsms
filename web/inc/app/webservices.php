@@ -203,10 +203,10 @@ if (_OP_) {
 		case "SET_TOKEN":
 			if ($u = webservices_validate($h,$u)) {
 				$user = user_getdatabyusername($u);
-				if ($uid = $user['uid']) {
-					$token = md5($uid._PID_);
+				if ($c_uid = $user['uid']) {
+					$token = md5($c_uid._PID_);
 					$items = array('token' => $token);
-					$conditions = array('uid' => $uid);
+					$conditions = array('uid' => $c_uid);
 					if (dba_update(_DB_PREF_.'_tblUser', $items, $conditions)) {
 						$json['status'] = 'OK';
 						$json['error'] = '0';
