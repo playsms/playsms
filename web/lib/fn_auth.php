@@ -182,6 +182,8 @@ function auth_forgot() {
 						$subject = _('Password recovery');
 						$body = $core_config['main']['web_title']."\n";
 						$body .= $core_config['http_path']['base']."\n\n";
+						$body .= _('You or someone else have requested a password recovery')."\n\n";
+						$body .= _('This temporary password will be removed once you have logged in successfully')."\n\n";
 						$body .= _('Username')."\t: ".$username."\n";
 						$body .= _('Password')."\t: ".$tmp_password."\n\n";
 						$body .= $core_config['main']['email_footer']."\n\n";
