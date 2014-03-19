@@ -22,8 +22,10 @@ if(!auth_isvalid()){auth_block();};
 
 switch (_OP_) {
 	case "send_sms":
-		$to = $_REQUEST['to'];
-		$message = stripslashes($_REQUEST['message']);
+
+		// get $to and $message from session or query string
+		$to = stripslashes($_REQUEST['to']);
+		$message = ( stripslashes($_REQUEST['message']) ? stripslashes($_REQUEST['message']) : trim($_SESSION['tmp']['message']) );
 
 		// sender ID
 		$sms_from = sendsms_get_sender($user_config['username']);
@@ -114,6 +116,7 @@ switch (_OP_) {
 		$msg_flash = $_REQUEST['msg_flash'];
 		$msg_unicode = $_REQUEST['msg_unicode'];
 		$message = $_REQUEST['message'];
+		$_SESSION['tmp']['message'] = $message;
 		if ($sms_to[0] && $message) {
 			$nofooter = true;
 			if ($sms_footer) {
@@ -173,20 +176,6 @@ switch (_OP_) {
 				}
 			}
 
-			/* fixme anton - soon sendsms_bc will be removed
-			// sendsms_bc
-			if (is_array($array_gpid) && $array_gpid[0]) {
-				list($ok_bc,$to_bc,$smslog_id_bc,$queue_bc) = sendsms_bc($user_config['username'],$array_gpid,$message,$sms_type,$unicode,$nofooter,$sms_footer,$sms_sender,$sms_schedule);
-			}
-			for ($i=0;$i<count($ok_bc);$i++) {
-				if ($ok_bc[$i]) {
-					$sms_queued++;
-				} else {
-					$sms_failed++;
-				}
-			}
-			*/
-
 			// sendsms
 			if (is_array($array_sms_to) && $array_sms_to[0]) {
 				list($ok,$to,$smslog_id,$queue) = sendsms($user_config['username'],$array_sms_to,$message,$sms_type,$unicode,$nofooter,$sms_footer,$sms_sender,$sms_schedule);
@@ -203,7 +192,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must select receiver and your message should not be empty');
 		}
-		header("Location: index.php?app=main&inc=send_sms&op=send_sms&message=".urlencode(stripslashes($message)));
+		header("Location: index.php?app=main&inc=send_sms&op=send_sms");
 		exit();
 		break;
 }
