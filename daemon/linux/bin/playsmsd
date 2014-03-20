@@ -1,6 +1,5 @@
 #!/usr/bin/php -q
 <?php
-
 /**
  * This file is part of playSMS.
  *
@@ -17,7 +16,6 @@
  * You should have received a copy of the GNU General Public License
  * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 // Usage:
 // playsmsd <COMMAND> <LOOP_FLAG> <CMD_PARAM>
 
@@ -26,12 +24,12 @@ error_reporting(0);
 $ini = array();
 
 $ini_files = array(
-	'/etc/default/playsms',
-	'/etc/sysconfig/playsms',
-	'./playsmsd.conf',
-	'~/playsmsd.conf',
-	'/etc/playsmsd.conf',
-	'/usr/local/etc/playsmsd.conf');
+    '/etc/default/playsms',
+    '/etc/sysconfig/playsms',
+    './playsmsd.conf',
+    '~/playsmsd.conf',
+    '/etc/playsmsd.conf',
+    '/usr/local/etc/playsmsd.conf');
 
 foreach ($ini_files as $PLAYSMSD_CONF) {
 	if (file_exists($PLAYSMSD_CONF)) {
@@ -115,19 +113,19 @@ switch ($COMMAND) {
 		break;
 	case 'check':
 		echo "playsms installation check\n";
-		echo "PLAYSMSD_CONF = ".$PLAYSMSD_CONF."\n";
-		echo "PLAYSMS_PATH = ".$PLAYSMS_INSTALL_PATH."\n";
-		echo "PLAYSMS_LIB = ".$PLAYSMS_LIB_PATH."\n";
-		echo "PLAYSMS_BIN = ".$PLAYSMS_DAEMON_PATH."\n";
-		echo "PLAYSMS_LOG = ".$PLAYSMS_LOG_PATH."\n";
-		echo "DAEMON_SLEEP = ".$DAEMON_SLEEP."\n";
-		echo "MAX_EXECUTION_TIME = ".$MAX_EXECUTION_TIME."\n";
-		echo "ERROR_REPORTING = ".$ERROR_REPORTING."\n";
+		echo "PLAYSMSD_CONF = " . $PLAYSMSD_CONF . "\n";
+		echo "PLAYSMS_PATH = " . $PLAYSMS_INSTALL_PATH . "\n";
+		echo "PLAYSMS_LIB = " . $PLAYSMS_LIB_PATH . "\n";
+		echo "PLAYSMS_BIN = " . $PLAYSMS_DAEMON_PATH . "\n";
+		echo "PLAYSMS_LOG = " . $PLAYSMS_LOG_PATH . "\n";
+		echo "DAEMON_SLEEP = " . $DAEMON_SLEEP . "\n";
+		echo "MAX_EXECUTION_TIME = " . $MAX_EXECUTION_TIME . "\n";
+		echo "ERROR_REPORTING = " . $ERROR_REPORTING . "\n";
 		exit();
 		break;
 }
 
-if (! $COMMAND) {
+if (!$COMMAND) {
 	echo "Usage: playsmsd <start|stop|status|check>\n";
 	exit();
 }
@@ -143,7 +141,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 		$continue = FALSE;
 		if (file_exists('init.php')) {
 			include 'init.php';
-			$fn = $core_config['apps_path']['libs'].'/function.php';
+			$fn = $core_config['apps_path']['libs'] . '/function.php';
 			if ($core_config['daemon_process'] && file_exists($fn)) {
 				include_once $fn;
 				if ($core_config['apps_path']['incs']) {
@@ -165,7 +163,6 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 			}
 
 			// END OF ONCE BLOCK
-
 		} // if continue
 		exit();
 	} else if ($LOOP_FLAG == 'loop') {
@@ -174,7 +171,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 			$continue = FALSE;
 			if (file_exists('init.php')) {
 				include 'init.php';
-				$fn = $core_config['apps_path']['libs'].'/function.php';
+				$fn = $core_config['apps_path']['libs'] . '/function.php';
 				if ($core_config['daemon_process'] && file_exists($fn)) {
 					include_once $fn;
 					if ($core_config['apps_path']['incs']) {
@@ -183,7 +180,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 				}
 			}
 			if ($continue) {
-				echo $COMMAND." start time:".mktime()."\n";
+				echo $COMMAND . " start time:" . mktime() . "\n";
 
 				// MAIN LOOP BLOCK
 
@@ -200,28 +197,28 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 					if ((int) $core_config['sendsmsd_queue'] > 0) {
 						$extas = array('LIMIT' => (int) $core_config['sendsmsd_queue']);
 					}
-					$list = dba_search(_DB_PREF_.'_tblSMSOutgoing_queue', 'queue_code', array('flag' => '0'), '', $extras);
+					$list = dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'queue_code', array('flag' => '0'), '', $extras);
 					foreach ($list as $db_row) {
-						$queue[] = 'Q_'.$db_row['queue_code'];
+						$queue[] = 'Q_' . $db_row['queue_code'];
 					}
 					if (count($queue) > 0) {
 						foreach ($queue as $q) {
 							$is_running = ( shell_exec("ps uf -C playsmsd | grep $q") ? TRUE : FALSE );
-							if (! $is_running) {
+							if (!$is_running) {
 								$RUN_THIS = "$PLAYSMSD_BIN sendsmsd once $q >/dev/null 2>&1 &";
-								echo $COMMAND." execute: ".$RUN_THIS."\n";
+								echo $COMMAND . " execute: " . $RUN_THIS . "\n";
 								exec($RUN_THIS);
 							}
 						}
 					}
 				} else {
 					// reserved for custom daemon services
-					echo $COMMAND." custom service\n";
+					echo $COMMAND . " custom service\n";
 				}
 
 				// END OF MAIN LOOP BLOCK
 
-				echo $COMMAND." end time:".mktime()."\n";
+				echo $COMMAND . " end time:" . mktime() . "\n";
 				sleep($DAEMON_SLEEP);
 			} // if continue
 			ob_end_clean();
