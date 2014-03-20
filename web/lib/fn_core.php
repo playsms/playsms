@@ -81,11 +81,14 @@ function core_call_hook($function_name='', $arguments=array()) {
 }
 
 function playsmsd() {
-	global $core_config;
+	// tools and feature
 	core_call_hook();
+
 	// plugin gateway
-	$gw = core_gateway_get();
-	core_hook($gw,'playsmsd');
+	core_hook(core_gateway_get(), 'playsmsd');
+
+	// plugin themes
+	core_hook(core_themes_get(), 'playsmsd');
 }
 
 function core_str2hex($string)  {
