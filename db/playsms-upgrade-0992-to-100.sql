@@ -76,3 +76,5 @@ INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `
 DROP TABLE `playsms_featureSurvey`, `playsms_featureSurvey_log`, `playsms_featureSurvey_members`, `playsms_featureSurvey_questions`;
 
 ALTER TABLE `playsms_tblUser` DROP `ticket` ;
+
+ALTER TABLE `playsms_tblRegistry` CHANGE `registry_value` `registry_value` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';

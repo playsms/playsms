@@ -1409,7 +1409,7 @@ CREATE TABLE IF NOT EXISTS `playsms_tblRegistry` (
   `registry_group` varchar(250) NOT NULL DEFAULT '',
   `registry_family` varchar(250) NOT NULL DEFAULT '',
   `registry_key` varchar(250) NOT NULL DEFAULT '',
-  `registry_value` varchar(250) NOT NULL DEFAULT '',
+  `registry_value` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
