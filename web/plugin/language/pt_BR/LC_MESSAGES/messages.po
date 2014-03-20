@@ -115,6 +115,10 @@ msgstr ""
 msgid "City"
 msgstr "Cidade"
 
+#, fuzzy
+msgid "Comma separated"
+msgstr "Separado por vírgula"
+
 msgid "Comma seperated"
 msgstr "Separado por vírgula"
 
@@ -439,6 +443,9 @@ msgstr "Nome"
 msgid "New account registration"
 msgstr "Registro de nova conta"
 
+msgid "New inbox from"
+msgstr ""
+
 msgid "New webservices token"
 msgstr "Novo token de webservice"
 
@@ -470,6 +477,10 @@ msgstr "Senha"
 
 msgid "Password does not match"
 msgstr "As senhas não conferem"
+
+#, fuzzy
+msgid "Password has been emailed"
+msgstr "A senha foi enviada para seu email"
 
 msgid "Password has been sent to your email"
 msgstr "A senha foi enviada para seu email"
@@ -664,6 +675,10 @@ msgstr ""
 msgid "This field is required"
 msgstr ""
 
+msgid ""
+"This temporary password will be removed once you have logged in successfully"
+msgstr ""
+
 msgid "Time"
 msgstr "Hora"
 
@@ -723,10 +738,18 @@ msgid "User has been added"
 msgstr "O usuário foi adicionado"
 
 #, fuzzy
+msgid "User has been added and password has been emailed"
+msgstr "O usuário foi removido"
+
+#, fuzzy
 msgid "User has been added but failed to send email"
 msgstr "O usuário foi removido"
 
 msgid "User has been deleted"
+msgstr "O usuário foi removido"
+
+#, fuzzy
+msgid "User has been removed"
 msgstr "O usuário foi removido"
 
 msgid "User is already exists"
@@ -828,6 +851,9 @@ msgstr "Você deve escolher um destinatário e sua mensagem não pode estar vazi
 msgid "You must select receiver group and your message should not be empty"
 msgstr ""
 "Você deve escolher um grupo destinatário e sua mensagem não pode estar vazia"
+
+msgid "You or someone else have requested a password recovery"
+msgstr ""
 
 msgid "Your SMS has been delivered to queue"
 msgstr "Seu SMS foi enviado para a fila"

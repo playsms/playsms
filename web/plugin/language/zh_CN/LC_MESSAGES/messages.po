@@ -115,6 +115,9 @@ msgstr ""
 msgid "City"
 msgstr "城市"
 
+msgid "Comma separated"
+msgstr ""
+
 msgid "Comma seperated"
 msgstr ""
 
@@ -446,6 +449,9 @@ msgstr "名字"
 msgid "New account registration"
 msgstr ""
 
+msgid "New inbox from"
+msgstr ""
+
 msgid "New webservices token"
 msgstr ""
 
@@ -477,6 +483,10 @@ msgstr "密码"
 
 msgid "Password does not match"
 msgstr ""
+
+#, fuzzy
+msgid "Password has been emailed"
+msgstr "用户已被删除"
 
 msgid "Password has been sent to your email"
 msgstr ""
@@ -673,6 +683,10 @@ msgstr "状态"
 msgid "This field is required"
 msgstr ""
 
+msgid ""
+"This temporary password will be removed once you have logged in successfully"
+msgstr ""
+
 msgid "Time"
 msgstr "时间"
 
@@ -735,10 +749,18 @@ msgid "User has been added"
 msgstr "用户已添加"
 
 #, fuzzy
+msgid "User has been added and password has been emailed"
+msgstr "用户已被删除"
+
+#, fuzzy
 msgid "User has been added but failed to send email"
 msgstr "用户已被删除"
 
 msgid "User has been deleted"
+msgstr "用户已被删除"
+
+#, fuzzy
+msgid "User has been removed"
 msgstr "用户已被删除"
 
 msgid "User is already exists"
@@ -844,6 +866,9 @@ msgstr "你必须选择收件人并且你的信息不能为空"
 
 msgid "You must select receiver group and your message should not be empty"
 msgstr "你必须选择收件群并且你的信息不能为空"
+
+msgid "You or someone else have requested a password recovery"
+msgstr ""
 
 msgid "Your SMS has been delivered to queue"
 msgstr "你的短信已在发送序列中"

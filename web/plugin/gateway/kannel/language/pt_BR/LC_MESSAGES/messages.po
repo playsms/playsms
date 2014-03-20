@@ -11,6 +11,10 @@ msgstr "Parâmetro de URL adicional"
 msgid "Bearerbox hostname or IP"
 msgstr "Hostname ou IP do bearerbox"
 
+#, fuzzy
+msgid "Changes has been made"
+msgstr "Nenhuma mudança feita"
+
 msgid "Delivered to SMSC"
 msgstr "Recebido pelo SMSC"
 
@@ -26,14 +30,12 @@ msgstr "Ex: +0300 para fuso horário de Brasília"
 msgid "Fill to change the password"
 msgstr "Preencha para alterar a senha"
 
-msgid "Gateway has been activated"
-msgstr "Gateway foi ativado"
-
-msgid "Gateway module configurations has been saved"
-msgstr "Configurações do módulo de gateway foram salvas"
-
 msgid "Gateway name"
 msgstr "Nome do gateway"
+
+#, fuzzy
+msgid "HTTP Kannel admin host"
+msgstr "Porta HTTP de administração Kannel"
 
 msgid "HTTP Kannel admin password"
 msgstr "Senha HTTP de administrador Kannel"
@@ -41,22 +43,18 @@ msgstr "Senha HTTP de administrador Kannel"
 msgid "HTTP Kannel admin port"
 msgstr "Porta HTTP de administração Kannel"
 
+msgid "Incoming SMS time is in local time"
+msgstr ""
+
+#, fuzzy
+msgid "Kannel admin host"
+msgstr "Porta de administração Kannel"
+
 msgid "Kannel admin password"
 msgstr "Senha de administrador Kannel"
 
 msgid "Kannel admin port"
 msgstr "Porta de administração Kannel"
-
-#, fuzzy
-msgid "Kannel configuration"
-msgstr "Arquivo de configuração Kannel"
-
-msgid "Kannel configuration file"
-msgstr "Arquivo de configuração Kannel"
-
-#, fuzzy
-msgid "Kannel configuration file must be writable"
-msgstr "Arquivo de configuração Kannel"
 
 msgid "Kannel specific"
 msgstr "Específico do Kannel"
@@ -76,8 +74,8 @@ msgstr "Módulo ID Remetente"
 msgid "Module timezone"
 msgstr "Módulo Fuso Horário"
 
-msgid "No changes has been made"
-msgstr "Nenhuma mudança feita"
+msgid "No"
+msgstr ""
 
 msgid "Non-Delivered to SMSC"
 msgstr "Não entregue ao SMSC"
@@ -97,6 +95,9 @@ msgstr "Reiniciar Kannel"
 msgid "Save"
 msgstr "Salvar"
 
+msgid "Select no if the incoming SMS time is in UTC"
+msgstr ""
+
 msgid "Send SMS hostname or IP"
 msgstr "Enviar hostname do SMS ou IP"
 
@@ -111,6 +112,9 @@ msgstr "URL do playSMS, deixe em branco para usar a URL base"
 
 msgid "Username"
 msgstr "Usuário"
+
+msgid "Yes"
+msgstr ""
 
 msgid "playSMS web URL"
 msgstr "URL web do playSMS"

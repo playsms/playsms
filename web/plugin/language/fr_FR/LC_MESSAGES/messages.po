@@ -121,6 +121,9 @@ msgstr ""
 msgid "City"
 msgstr "Vile"
 
+msgid "Comma separated"
+msgstr ""
+
 msgid "Comma seperated"
 msgstr ""
 
@@ -452,6 +455,9 @@ msgstr "Nom"
 msgid "New account registration"
 msgstr "Nouveau compte"
 
+msgid "New inbox from"
+msgstr ""
+
 msgid "New webservices token"
 msgstr ""
 
@@ -483,6 +489,10 @@ msgstr "Mot de passe"
 
 msgid "Password does not match"
 msgstr ""
+
+#, fuzzy
+msgid "Password has been emailed"
+msgstr "Mot de passe envoyé par mail"
 
 msgid "Password has been sent to your email"
 msgstr "Mot de passe envoyé par mail"
@@ -680,6 +690,10 @@ msgstr "Status"
 msgid "This field is required"
 msgstr ""
 
+msgid ""
+"This temporary password will be removed once you have logged in successfully"
+msgstr ""
+
 msgid "Time"
 msgstr "Heure"
 
@@ -742,10 +756,18 @@ msgid "User has been added"
 msgstr "Utilisateur ajouté"
 
 #, fuzzy
+msgid "User has been added and password has been emailed"
+msgstr "Utilisateur supprimé"
+
+#, fuzzy
 msgid "User has been added but failed to send email"
 msgstr "Utilisateur supprimé"
 
 msgid "User has been deleted"
+msgstr "Utilisateur supprimé"
+
+#, fuzzy
+msgid "User has been removed"
 msgstr "Utilisateur supprimé"
 
 msgid "User is already exists"
@@ -851,6 +873,9 @@ msgstr "Sellectionner un reception & Le message ne doit pas etre vide"
 
 msgid "You must select receiver group and your message should not be empty"
 msgstr "Selectionnez un group de reception & Le message ne doit pas etre vide"
+
+msgid "You or someone else have requested a password recovery"
+msgstr ""
 
 msgid "Your SMS has been delivered to queue"
 msgstr "Message mis dans la queue"

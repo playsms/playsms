@@ -5,9 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Gateway has been activated"
-msgstr "网关已激活"
-
 msgid "Gateway module configurations has been saved"
 msgstr "网关模块的配置已保存"
 

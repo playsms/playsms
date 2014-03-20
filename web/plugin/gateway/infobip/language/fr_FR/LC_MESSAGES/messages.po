@@ -18,9 +18,6 @@ msgstr "Ex: +0700 pour Jakarta/Bangkok"
 msgid "Fill to change the password"
 msgstr "Remplir pour changer le mot de passe"
 
-msgid "Gateway has been activated"
-msgstr "Passerelle activée"
-
 msgid "Gateway module configurations has been saved"
 msgstr "Configurations passerelle sauvegardées"
 

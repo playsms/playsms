@@ -124,6 +124,10 @@ msgstr "Canvis"
 msgid "City"
 msgstr "Ciutat"
 
+#, fuzzy
+msgid "Comma separated"
+msgstr "Separat per comes"
+
 msgid "Comma seperated"
 msgstr "Separat per comes"
 
@@ -449,6 +453,9 @@ msgstr "Nom"
 msgid "New account registration"
 msgstr "Registrar un nou compte"
 
+msgid "New inbox from"
+msgstr ""
+
 msgid "New webservices token"
 msgstr "Nou token de webservices"
 
@@ -480,6 +487,10 @@ msgstr "Contrasenya"
 
 msgid "Password does not match"
 msgstr "La contrasenya no coincideix"
+
+#, fuzzy
+msgid "Password has been emailed"
+msgstr "S'ha enviat la contrasenya per correu"
 
 msgid "Password has been sent to your email"
 msgstr "S'ha enviat la contrasenya per correu"
@@ -676,6 +687,10 @@ msgstr "Estat"
 msgid "This field is required"
 msgstr ""
 
+msgid ""
+"This temporary password will be removed once you have logged in successfully"
+msgstr ""
+
 msgid "Time"
 msgstr "Hora"
 
@@ -737,10 +752,18 @@ msgid "User has been added"
 msgstr "L'usuari ha estat afegit"
 
 #, fuzzy
+msgid "User has been added and password has been emailed"
+msgstr "L'usuari ha estat eliminat"
+
+#, fuzzy
 msgid "User has been added but failed to send email"
 msgstr "L'usuari ha estat eliminat"
 
 msgid "User has been deleted"
+msgstr "L'usuari ha estat eliminat"
+
+#, fuzzy
+msgid "User has been removed"
 msgstr "L'usuari ha estat eliminat"
 
 msgid "User is already exists"
@@ -843,6 +866,9 @@ msgstr "ha de seleccionar un destinatari i/o el missatge no pot ser buit"
 msgid "You must select receiver group and your message should not be empty"
 msgstr ""
 "Ha de seleccionar un grup destinatari i/o el seu missatge no pot ser buit"
+
+msgid "You or someone else have requested a password recovery"
+msgstr ""
 
 msgid "Your SMS has been delivered to queue"
 msgstr "El seu missatge ha estat enviat a la cua de processament"

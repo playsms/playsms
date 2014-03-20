@@ -11,9 +11,6 @@ msgstr ""
 msgid "Fail to simulate incoming SMS"
 msgstr ""
 
-msgid "Gateway has been activated"
-msgstr "网关已激活"
-
 msgid "Gateway name"
 msgstr "网关名"
 

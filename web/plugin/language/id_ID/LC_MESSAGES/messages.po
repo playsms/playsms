@@ -115,6 +115,10 @@ msgstr "Catatan perubahan"
 msgid "City"
 msgstr "Kota"
 
+#, fuzzy
+msgid "Comma separated"
+msgstr "Dipisahkan koma"
+
 msgid "Comma seperated"
 msgstr "Dipisahkan koma"
 
@@ -439,6 +443,9 @@ msgstr "Nama"
 msgid "New account registration"
 msgstr "Pendaftaran akun baru"
 
+msgid "New inbox from"
+msgstr ""
+
 msgid "New webservices token"
 msgstr "Token webservices baru"
 
@@ -470,6 +477,10 @@ msgstr "Kata sandi"
 
 msgid "Password does not match"
 msgstr "Kata sandi tidak cocok"
+
+#, fuzzy
+msgid "Password has been emailed"
+msgstr "Password telah dikirim ke email Anda"
 
 msgid "Password has been sent to your email"
 msgstr "Password telah dikirim ke email Anda"
@@ -663,6 +674,10 @@ msgstr "Status"
 msgid "This field is required"
 msgstr ""
 
+msgid ""
+"This temporary password will be removed once you have logged in successfully"
+msgstr ""
+
 msgid "Time"
 msgstr "Waktu"
 
@@ -722,10 +737,18 @@ msgid "User has been added"
 msgstr "Pengguna telah ditambah"
 
 #, fuzzy
+msgid "User has been added and password has been emailed"
+msgstr "Pengguna telah dihapus"
+
+#, fuzzy
 msgid "User has been added but failed to send email"
 msgstr "Pengguna telah dihapus"
 
 msgid "User has been deleted"
+msgstr "Pengguna telah dihapus"
+
+#, fuzzy
+msgid "User has been removed"
 msgstr "Pengguna telah dihapus"
 
 msgid "User is already exists"
@@ -826,6 +849,9 @@ msgstr "Anda harus memilih penerima dan pesan anda tidak boleh kosong"
 
 msgid "You must select receiver group and your message should not be empty"
 msgstr "Anda harus memilih kelompok penerima dan pesan anda tidak boleh kosong"
+
+msgid "You or someone else have requested a password recovery"
+msgstr ""
 
 msgid "Your SMS has been delivered to queue"
 msgstr "SMS anda telah dikirim ke antrian"

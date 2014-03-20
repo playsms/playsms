@@ -11,6 +11,10 @@ msgstr "附加链接参数"
 msgid "Bearerbox hostname or IP"
 msgstr ""
 
+#, fuzzy
+msgid "Changes has been made"
+msgstr "没有做出改变"
+
 msgid "Delivered to SMSC"
 msgstr ""
 
@@ -26,14 +30,11 @@ msgstr ""
 msgid "Fill to change the password"
 msgstr ""
 
-msgid "Gateway has been activated"
-msgstr "网关已激活"
-
-msgid "Gateway module configurations has been saved"
-msgstr "网关模块的配置已保存"
-
 msgid "Gateway name"
 msgstr "网关名"
+
+msgid "HTTP Kannel admin host"
+msgstr ""
 
 msgid "HTTP Kannel admin password"
 msgstr ""
@@ -41,19 +42,16 @@ msgstr ""
 msgid "HTTP Kannel admin port"
 msgstr ""
 
+msgid "Incoming SMS time is in local time"
+msgstr ""
+
+msgid "Kannel admin host"
+msgstr ""
+
 msgid "Kannel admin password"
 msgstr ""
 
 msgid "Kannel admin port"
-msgstr ""
-
-msgid "Kannel configuration"
-msgstr ""
-
-msgid "Kannel configuration file"
-msgstr ""
-
-msgid "Kannel configuration file must be writable"
 msgstr ""
 
 msgid "Kannel specific"
@@ -74,8 +72,8 @@ msgstr "全球发件人"
 msgid "Module timezone"
 msgstr ""
 
-msgid "No changes has been made"
-msgstr "没有做出改变"
+msgid "No"
+msgstr ""
 
 msgid "Non-Delivered to SMSC"
 msgstr ""
@@ -95,6 +93,9 @@ msgstr ""
 msgid "Save"
 msgstr "发送"
 
+msgid "Select no if the incoming SMS time is in UTC"
+msgstr ""
+
 msgid "Send SMS hostname or IP"
 msgstr ""
 
@@ -109,6 +110,9 @@ msgstr ""
 
 msgid "Username"
 msgstr "用户名"
+
+msgid "Yes"
+msgstr ""
 
 msgid "playSMS web URL"
 msgstr "短信网络链接"

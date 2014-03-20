@@ -11,6 +11,10 @@ msgstr "Parameter URL tambahan"
 msgid "Bearerbox hostname or IP"
 msgstr "Nama alamat Bearerbox atau IP"
 
+#, fuzzy
+msgid "Changes has been made"
+msgstr "Tidak ada perubahan yang terjadi"
+
 msgid "Delivered to SMSC"
 msgstr "Dikirim ke SMSC"
 
@@ -26,14 +30,12 @@ msgstr ""
 msgid "Fill to change the password"
 msgstr ""
 
-msgid "Gateway has been activated"
-msgstr "Gateway telah diaktifkan"
-
-msgid "Gateway module configurations has been saved"
-msgstr "Konfigurasi modul gateway telah disimpan"
-
 msgid "Gateway name"
 msgstr "Nama gateway"
+
+#, fuzzy
+msgid "HTTP Kannel admin host"
+msgstr "Port admin kannel"
 
 msgid "HTTP Kannel admin password"
 msgstr ""
@@ -41,22 +43,18 @@ msgstr ""
 msgid "HTTP Kannel admin port"
 msgstr ""
 
+msgid "Incoming SMS time is in local time"
+msgstr ""
+
+#, fuzzy
+msgid "Kannel admin host"
+msgstr "Port admin kannel"
+
 msgid "Kannel admin password"
 msgstr "Password admin kannel"
 
 msgid "Kannel admin port"
 msgstr "Port admin kannel"
-
-#, fuzzy
-msgid "Kannel configuration"
-msgstr "File konfigurasi kannel"
-
-msgid "Kannel configuration file"
-msgstr "File konfigurasi kannel"
-
-#, fuzzy
-msgid "Kannel configuration file must be writable"
-msgstr "File konfigurasi kannel"
 
 msgid "Kannel specific"
 msgstr ""
@@ -76,8 +74,8 @@ msgstr "Pengirim global"
 msgid "Module timezone"
 msgstr "Zona waktu modul"
 
-msgid "No changes has been made"
-msgstr "Tidak ada perubahan yang terjadi"
+msgid "No"
+msgstr ""
 
 msgid "Non-Delivered to SMSC"
 msgstr "Tidak dikirim ke SMSC"
@@ -97,6 +95,9 @@ msgstr "Restart kannel"
 msgid "Save"
 msgstr "Simpan"
 
+msgid "Select no if the incoming SMS time is in UTC"
+msgstr ""
+
 msgid "Send SMS hostname or IP"
 msgstr "Nama alamat Send SMS atau IP"
 
@@ -111,6 +112,9 @@ msgstr ""
 
 msgid "Username"
 msgstr "Nama Pengguna"
+
+msgid "Yes"
+msgstr ""
 
 msgid "playSMS web URL"
 msgstr "Alamat web playSMS"

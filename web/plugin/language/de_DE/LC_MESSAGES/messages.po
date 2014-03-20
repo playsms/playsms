@@ -111,6 +111,10 @@ msgstr "Änderungen"
 msgid "City"
 msgstr "Stadt"
 
+#, fuzzy
+msgid "Comma separated"
+msgstr "Komma-separiert"
+
 msgid "Comma seperated"
 msgstr "Komma-separiert"
 
@@ -426,6 +430,9 @@ msgstr "Name"
 msgid "New account registration"
 msgstr "Neue Account-Registrierung"
 
+msgid "New inbox from"
+msgstr ""
+
 msgid "New webservices token"
 msgstr "Neuer Webservice-Token"
 
@@ -455,6 +462,10 @@ msgstr "Passwort"
 
 msgid "Password does not match"
 msgstr "Passwörter stimmen nicht überein"
+
+#, fuzzy
+msgid "Password has been emailed"
+msgstr "Passwort wurde per Email verschickt"
 
 msgid "Password has been sent to your email"
 msgstr "Passwort wurde per Email verschickt"
@@ -639,6 +650,10 @@ msgstr "Status"
 msgid "This field is required"
 msgstr "Dieses Feld wird benötigt"
 
+msgid ""
+"This temporary password will be removed once you have logged in successfully"
+msgstr ""
+
 msgid "Time"
 msgstr "Zeit"
 
@@ -695,10 +710,20 @@ msgstr "Benutzer existiert nicht"
 msgid "User has been added"
 msgstr "Benutzer wurde hinzugefügt"
 
+#, fuzzy
+msgid "User has been added and password has been emailed"
+msgstr ""
+"Benutzer wurde hinzugefügt, aber Email-Versand an Benutzer ist fehlgeschlagen"
+
 msgid "User has been added but failed to send email"
-msgstr "Benutzer wurde hinzugefügt, aber Email-Versand an Benutzer ist fehlgeschlagen"
+msgstr ""
+"Benutzer wurde hinzugefügt, aber Email-Versand an Benutzer ist fehlgeschlagen"
 
 msgid "User has been deleted"
+msgstr "Benutzer wurde gelöscht"
+
+#, fuzzy
+msgid "User has been removed"
 msgstr "Benutzer wurde gelöscht"
 
 msgid "User is already exists"
@@ -729,7 +754,9 @@ msgid "Username should be at least 3 characters"
 msgstr "Benutzername muss mindestens 3 Zeichen lang sein"
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
-msgstr "Zulässige Zeichen für den Benutzernamen sind Buchstaben, Zahlen, Punkt oder Minus"
+msgstr ""
+"Zulässige Zeichen für den Benutzernamen sind Buchstaben, Zahlen, Punkt oder "
+"Minus"
 
 msgid "View"
 msgstr "Anzeigen"
@@ -789,10 +816,16 @@ msgid "You must fill all required fields"
 msgstr "Sie müssen alle notwendigen Felder ausfüllen"
 
 msgid "You must select receiver and your message should not be empty"
-msgstr "Sie müssen den Empfänger auswählen und die Nachricht darf nicht leer sein"
+msgstr ""
+"Sie müssen den Empfänger auswählen und die Nachricht darf nicht leer sein"
 
 msgid "You must select receiver group and your message should not be empty"
-msgstr "Sie müssen die Empfänger-Gruppe auswählen und die Nachricht darf nicht leer sein"
+msgstr ""
+"Sie müssen die Empfänger-Gruppe auswählen und die Nachricht darf nicht leer "
+"sein"
+
+msgid "You or someone else have requested a password recovery"
+msgstr ""
 
 msgid "Your SMS has been delivered to queue"
 msgstr "Ihre SMS wurde an die Zustell-Queue übermittelt"

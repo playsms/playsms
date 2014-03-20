@@ -29,9 +29,6 @@ msgstr "Eg: +0700 per la zona horària Jakarta/Bangkok"
 msgid "Fill to change the Auth Token"
 msgstr "Omple per canviar el Token d'autenticació"
 
-msgid "Gateway has been activated"
-msgstr "S'ha activat la sortida"
-
 msgid "Gateway module configurations has been saved"
 msgstr "Les configuracions del modul de sortida s'han guardat"
 

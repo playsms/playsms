@@ -18,9 +18,6 @@ msgstr "Дата/Время"
 msgid "Fail to simulate incoming SMS"
 msgstr "Не удалось симулировать входящее СМС"
 
-msgid "Gateway has been activated"
-msgstr "Шлюз активирован"
-
 msgid "Gateway name"
 msgstr "Название шлюза"
 

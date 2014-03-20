@@ -14,9 +14,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.4\n"
 
-msgid "Gateway has been activated"
-msgstr "S'ha activat la sortida"
-
 msgid "Gateway module configurations has been saved"
 msgstr "S'han guardat les configuracions del modul de sortida"
 

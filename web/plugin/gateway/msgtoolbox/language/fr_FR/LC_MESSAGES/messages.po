@@ -19,9 +19,6 @@ msgstr ""
 msgid "Fill to change the password"
 msgstr ""
 
-msgid "Gateway has been activated"
-msgstr "Passerelle activée"
-
 msgid "Gateway module configurations has been saved"
 msgstr "Configurations de la passerelle sauvergardées"
 
