@@ -63,7 +63,7 @@ switch (_OP_) {
 		// get themes options
 		for ($i=0;$i<count($core_config['themeslist']);$i++) {
 			$themes = $core_config['themeslist'][$i];
-			if ($themes == $themes_module) $selected = "selected";
+			if ($themes == core_themes_get()) $selected = "selected";
 			$option_themes_module .= "<option value=\"$themes\" $selected>$themes</option>";
 			$selected = "";
 		}
@@ -78,7 +78,7 @@ switch (_OP_) {
 		}
 		if (is_array($lang_list)) {
 			foreach ($lang_list as $key => $val) {
-				if ($val == $language_module) $selected = "selected";
+				if ($val == core_lang_get()) $selected = "selected";
 				$option_language_module .= "<option value=\"".$val."\" $selected>".$key."</option>";
 				$selected = "";
 			}

@@ -531,8 +531,7 @@ function core_download($content, $fn='', $content_type='') {
  */
 function core_gateway_get() {
 	global $core_config;
-	$ret = $core_config['module']['gateway'];
-	return $ret;
+	return $core_config['main']['gateway_module'];
 }
 
 /**
@@ -542,8 +541,7 @@ function core_gateway_get() {
  */
 function core_lang_get() {
 	global $core_config;
-	$ret = $core_config['module']['language'];
-	return $ret;
+	return $core_config['main']['language_module'];
 }
 
 /**
@@ -553,8 +551,7 @@ function core_lang_get() {
  */
 function core_themes_get() {
 	global $core_config;
-	$ret = $core_config['module']['themes'];
-	return $ret;
+	return $core_config['main']['themes_module'];
 }
 
 /**

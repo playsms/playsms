@@ -40,7 +40,6 @@ switch (_OP_) {
 			$sender = core_sanitize_sender($c_user[0]['sender']);
 			$footer = $c_user[0]['footer'];
 			$datetime_timezone = core_get_timezone($c_username);
-			$language_module = $c_user[0]['language_module'];
 			$fwd_to_inbox = $c_user[0]['fwd_to_inbox'];
 			$fwd_to_email = $c_user[0]['fwd_to_email'];
 			$fwd_to_mobile = $c_user[0]['fwd_to_mobile'];
@@ -156,7 +155,7 @@ switch (_OP_) {
 		$option_language_module .= "<option value=\"\">"._('Default')."</option>";
 		if (is_array($lang_list)) {
 			foreach ($lang_list as $key => $val) {
-				if ($val == $language_module) $selected = "selected";
+				if ($val == core_lang_get()) $selected = "selected";
 				$option_language_module .= "<option value=\"".$val."\" $selected>".$key."</option>";
 				$selected = "";
 			}

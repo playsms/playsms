@@ -214,32 +214,34 @@ $core_config['main']['max_sms_length_unicode'] = $core_config['main']['sms_max_c
 $reserved_keywords = array("BC");
 $core_config['reserved_keywords'] = $reserved_keywords;
 
+
 // verify selected gateway_module exists
-$fn1 = $core_config['apps_path']['plug'] . '/gateway/' . $gateway_module . '/config.php';
-$fn2 = $core_config['apps_path']['plug'] . '/gateway/' . $gateway_module . '/fn.php';
+$continue = FALSE;
+$fn1 = $core_config['apps_path']['plug'] . '/gateway/' . core_gateway_get() . '/config.php';
+$fn2 = $core_config['apps_path']['plug'] . '/gateway/' . core_gateway_get() . '/fn.php';
 if (file_exists($fn1) && file_exists($fn2)) {
-	$core_config['module']['gateway'] = $gateway_module;
+	$continue = TRUE;
 }
 
 // verify selected themes_module exists
-$fn1 = $core_config['apps_path']['plug'] . '/themes/' . $themes_module . '/config.php';
-$fn2 = $core_config['apps_path']['plug'] . '/themes/' . $themes_module . '/fn.php';
-if (file_exists($fn1) && file_exists($fn2)) {
-	$core_config['module']['themes'] = $themes_module;
+$fn1 = $core_config['apps_path']['plug'] . '/themes/' . core_themes_get() . '/config.php';
+$fn2 = $core_config['apps_path']['plug'] . '/themes/' . core_themes_get() . '/fn.php';
+if ($continue && file_exists($fn1) && file_exists($fn2)) {
+	$continue = TRUE;
 } else {
-	$core_config['module']['themes'] = 'default';
+	$continue = FALSE;
 }
 
 // verify selected language_module exists
-$fn1 = $core_config['apps_path']['plug'] . '/language/' . $language_module . '/config.php';
-$fn2 = $core_config['apps_path']['plug'] . '/language/' . $language_module . '/fn.php';
-if (file_exists($fn1) && file_exists($fn2)) {
-	$core_config['module']['language'] = $language_module;
+$fn1 = $core_config['apps_path']['plug'] . '/language/' . core_lang_get() . '/config.php';
+$fn2 = $core_config['apps_path']['plug'] . '/language/' . core_lang_get() . '/fn.php';
+if ($continue && file_exists($fn1) && file_exists($fn2)) {
+	$continue = TRUE;
 } else {
-	$core_config['module']['language'] = 'en_US';
+	$continue = FALSE;
 }
 
-if (!($core_config['module']['gateway'] && $core_config['module']['themes'] && $core_config['module']['language'])) {
+if (! $continue) {
 	logger_print("Fail to load gateway, themes or language module", 1, "init");
 	ob_end_clean();
 	die(_('FATAL ERROR') . ' : ' . _('Fail to load gateway, themes or language module'));

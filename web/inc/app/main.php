@@ -75,7 +75,7 @@ if ($continue) {
 }
 
 if (function_exists('bindtextdomain')) {
-	bindtextdomain('messages', $core_config['apps_path']['themes'].'/'.$themes_module.'/language/');
+	bindtextdomain('messages', $core_config['apps_path']['themes'].'/'.core_themes_get().'/language/');
 	bind_textdomain_codeset('messages', 'UTF-8');
 	textdomain('messages');
 }

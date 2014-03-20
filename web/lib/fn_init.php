@@ -55,19 +55,19 @@ function pl_addslashes($data) {
  */
 function setuserlang($username="") {
 	global $core_config;
-	$language_module = $core_config['module']['language'];
+	$c_lang_module = core_lang_get();
 	$db_query = "SELECT language_module FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	if (trim($db_row['language_module'])) {
-		$language_module = $db_row['language_module'];
+		$c_lang_module = $db_row['language_module'];
 	}
 	if (defined('LC_MESSAGES')) {
-        	// linux
-	        setlocale(LC_MESSAGES, $language_module, $language_module.'.utf8', $language_module.'.utf-8', $language_module.'.UTF8', $language_module.'.UTF-8');
+		// linux
+		setlocale(LC_MESSAGES, $c_lang_module, $c_lang_module.'.utf8', $c_lang_module.'.utf-8', $c_lang_module.'.UTF8', $c_lang_module.'.UTF-8');
 	} else {
-        	// windows
-	        putenv("LC_ALL={$language_module}");
+		// windows
+		putenv('LC_ALL={'.$c_lang_module.'}');
 	}
 }
 

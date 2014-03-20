@@ -1,21 +1,20 @@
 <?php
 
 function pluginmanager_get_status($plugin_category, $name) {
-	global $core_config;
 	if ($plugin_category == "gateway") {
-		if ($core_config['module']['gateway'] == $name) {
+		if (core_gateway_get() == $name) {
 			$ret = TRUE;
 		} else {
 			$ret = FALSE;
 		}
 	} else	if ($plugin_category == "themes") {
-		if ($core_config['module']['themes'] == $name) {
+		if (core_themes_get() == $name) {
 			$ret = TRUE;
 		} else {
 			$ret = FALSE;
 		}
 	} else	if ($plugin_category == "language") {
-		if ($core_config['module']['language'] == $name) {
+		if (core_lang_get() == $name) {
 			$ret = TRUE;
 		} else {
 			$ret = FALSE;

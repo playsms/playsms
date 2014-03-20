@@ -158,7 +158,7 @@ switch (_OP_) {
 		}
 		if (is_array($lang_list)) {
 			foreach ($lang_list as $key => $val) {
-				if ($val == $language_module) $selected = "selected";
+				if ($val == core_lang_get()) $selected = "selected";
 				$option_language_module .= "<option value=\"".$val."\" $selected>".$key."</option>";
 				$selected = "";
 			}
