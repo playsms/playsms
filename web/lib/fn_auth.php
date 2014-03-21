@@ -51,6 +51,37 @@ function auth_validate_login($username,$password) {
 }
 
 /**
+ * Validate email and password
+ * @param string $email Username
+ * @param string $password Password
+ * @return boolean TRUE when validated or boolean FALSE when validation failed
+ */
+function auth_validate_email($email,$password) {
+	logger_print("login attempt email:".$email." p:".md5($password)." ip:".$_SERVER['REMOTE_ADDR'], 3, "login");
+	$db_query = "SELECT password FROM "._DB_PREF_."_tblUser WHERE email='$email'";
+	$db_result = dba_query($db_query);
+	$db_row = dba_fetch_array($db_result);
+	$res_password = trim($db_row['password']);
+	$password = md5($password);
+	if ($password && $res_password && ($password==$res_password)) {
+		logger_print("valid login email:".$email." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
+		return true;
+	} else {
+		$ret = registry_search(1, 'auth', 'tmp_password', $email);
+		$tmp_password = $ret['auth']['tmp_password'][$email];
+		if ($password && $tmp_password && ($password==$tmp_password)) {
+			logger_print("valid login email:".$email." ip:".$_SERVER['REMOTE_ADDR'].' using temporary password', 2, "login");
+			if (! registry_remove(1, 'auth', 'tmp_password', $email)) {
+				logger_print("WARNING: unable to remove temporary password after successful login", 3, "login");
+			}
+			return true;
+		}
+	}
+	logger_print("invalid login email:".$email." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
+	return false;
+}
+
+/**
  * Validate token
  * @param string $token Token
  * @return string User ID when validated or boolean FALSE when validation failed
