@@ -127,7 +127,11 @@ function user_add_validate($data=array()) {
 			$ret['status'] = false;
 		}
 		if ($ret['status'] && (! preg_match('/^(.+)@(.+)\.(.+)$/', $data['email']))) {
-			$ret['error_string'] = _('Your email format is invalid')." (".$data['email'].")";
+			if ($data['email']) {
+				$ret['error_string'] = _('Your email format is invalid')." (".$data['email'].")";
+			} else {
+				$ret['error_string'] = _('Your email format is invalid');
+			}
 			$ret['status'] = false;
 		}
 
