@@ -56,6 +56,24 @@ if (_APP_) {
 				core_hook(_PLUGIN_, 'call', array($_REQUEST));
 			}
 			break;
+		case 'auth':
+			// _APP_=auth to access auth functions
+			// by default this is used for displaying 'forgot password' page and 'register an account' page
+			// login, logout, register, forgot password, noaccess
+			logger_audit();
+			switch (_OP_) {
+				case 'login':
+				case 'logout':
+				case 'register':
+				case 'forgot':
+				case 'block':
+					$fn = $core_config['apps_path']['incs'].'/app/auth_'._OP_.'.php';
+					if (file_exists($fn)) {
+						include $fn;
+					}
+					break;
+			}
+			break;
 		case 'page':
 			// _APP_=page to access a page inside themes
 			// by default this is used for displaying 'forgot password' page and 'register an account' page
@@ -66,23 +84,11 @@ if (_APP_) {
 				textdomain('messages');
 			}
 			logger_audit();
-			switch (_OP_) {
-				case 'auth_login':
-				case 'auth_logout':
-				case 'auth_forgot':
-				case 'auth_register':
-					if (function_exists(_OP_)) {
-						call_user_func(_OP_);
-					}
-					break;
-				default:
-					// load page
-					if (_INC_) {
-						$fn = $core_config['apps_path']['themes'].'/'.core_themes_get().'/page_'._INC_.'.php';
-						if (file_exists($fn)) {
-							include $fn;
-						}
-					}
+			if (_INC_) {
+				$fn = $core_config['apps_path']['themes'].'/'.core_themes_get().'/page_'._INC_.'.php';
+				if (file_exists($fn)) {
+					include $fn;
+				}
 			}
 	}
 } else {

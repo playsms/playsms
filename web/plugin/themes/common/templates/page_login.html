@@ -9,9 +9,8 @@
 				<td>
 				<form action="index.php" method=POST>
 				{CSRF_FORM}
-				<input type=hidden name=app value=page>
-				<input type=hidden name=inc value=login>
-				<input type=hidden name=op value=auth_login>
+				<input type=hidden name=app value=auth>
+				<input type=hidden name=op value=login>
 				<table width="80%" align="center">
 					<tbody>
 					<tr><td>&nbsp;</td></tr>
@@ -33,10 +32,10 @@
 					<tr>
 						<td>
 							<if.enable_register>
-							<p><a href='index.php?app=page&inc=register'>{Register an account}</a></p>
+							<p><a href='index.php?app=auth&op=register'>{Register an account}</a></p>
 							</if.enable_register>
 							<if.enable_forgot>
-							<p><a href='index.php?app=page&inc=forgot'>{Forgot password}</a></p>
+							<p><a href='index.php?app=auth&op=forgot'>{Forgot password}</a></p>
 							</if.enable_forgot>
 						</td>
 					</tr>
