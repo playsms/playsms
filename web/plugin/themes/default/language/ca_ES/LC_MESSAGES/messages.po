@@ -14,44 +14,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.4\n"
 
-msgid "Email"
-msgstr "Email"
-
-msgid "Forgot password"
-msgstr "He oblidat la contrasenya"
-
 msgid "Home"
 msgstr "Inici"
-
-msgid "Login"
-msgstr "Entrar"
 
 msgid "Logout"
 msgstr "Sortir"
 
-msgid "Mobile"
-msgstr "Mòbil"
-
-msgid "Name"
-msgstr "Nom"
-
-msgid "Password"
-msgstr "Contrasenya"
-
 msgid "Preferences"
 msgstr "Preferències"
 
-msgid "Recover password"
-msgstr "Recuperar contrasenya"
-
-msgid "Register an account"
-msgstr "Registrar un compte"
-
-msgid "Submit"
-msgstr "Enviar"
-
 msgid "User configuration"
 msgstr "Configuració d'usuari"
-
-msgid "Username"
-msgstr "Usuari"

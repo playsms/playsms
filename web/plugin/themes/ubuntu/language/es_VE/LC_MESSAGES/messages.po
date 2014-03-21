@@ -5,44 +5,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Email"
-msgstr ""
-
-msgid "Forgot password"
-msgstr "Contraseña"
-
 msgid "Home"
-msgstr ""
-
-msgid "Login"
 msgstr ""
 
 msgid "Logout"
 msgstr ""
 
-msgid "Mobile"
-msgstr ""
-
-msgid "Name"
-msgstr ""
-
-msgid "Password"
-msgstr "Contraseña"
-
 msgid "Preferences"
-msgstr ""
-
-msgid "Recover password"
-msgstr ""
-
-msgid "Register an account"
-msgstr ""
-
-msgid "Submit"
 msgstr ""
 
 msgid "User configuration"
 msgstr ""
-
-msgid "Username"
-msgstr "Usuario"

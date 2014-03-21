@@ -12,44 +12,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
-msgid "Email"
-msgstr "Email"
-
-msgid "Forgot password"
-msgstr "Восстановление пароля"
-
 msgid "Home"
 msgstr "Главная"
-
-msgid "Login"
-msgstr "Вход"
 
 msgid "Logout"
 msgstr "Выход"
 
-msgid "Mobile"
-msgstr "Мобильный"
-
-msgid "Name"
-msgstr "Имя"
-
-msgid "Password"
-msgstr "Пароль"
-
 msgid "Preferences"
 msgstr "Профиль"
 
-msgid "Recover password"
-msgstr "Восстановление пароля"
-
-msgid "Register an account"
-msgstr "Регистрация"
-
-msgid "Submit"
-msgstr "Принять"
-
 msgid "User configuration"
 msgstr "Настройки"
-
-msgid "Username"
-msgstr "Имя пользователя"
