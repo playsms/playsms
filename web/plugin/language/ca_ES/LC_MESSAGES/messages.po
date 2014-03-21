@@ -270,6 +270,10 @@ msgid "Footer"
 msgstr "Firma del SMS"
 
 #, fuzzy
+msgid "Forgot password"
+msgstr "Habilitar recordar contrasenya"
+
+#, fuzzy
 msgid "Forward"
 msgstr "Reenviar"
 
@@ -371,6 +375,9 @@ msgstr "Llicència"
 msgid "Local number length"
 msgstr "Longitud del número local"
 
+msgid "Login"
+msgstr ""
+
 msgid "Login information"
 msgstr "Informació de la sessió"
 
@@ -440,6 +447,9 @@ msgstr "Correu electrònic ja en ús"
 
 msgid "Mobile number"
 msgstr "Número(s) telefònic(s)"
+
+msgid "Move"
+msgstr ""
 
 msgid "Move to"
 msgstr ""
@@ -573,8 +583,16 @@ msgstr "Destinatari"
 msgid "Receiver"
 msgstr "Destinatari"
 
+#, fuzzy
+msgid "Recover password"
+msgstr "Recuperar contrasenya desactivat"
+
 msgid "Recover password disabled"
 msgstr "Recuperar contrasenya desactivat"
+
+#, fuzzy
+msgid "Register an account"
+msgstr "Error al registrar un compte"
 
 msgid "Registered"
 msgstr "Entregat"
@@ -683,6 +701,9 @@ msgstr "Estat o província"
 
 msgid "Status"
 msgstr "Estat"
+
+msgid "Submit"
+msgstr ""
 
 msgid "This field is required"
 msgstr ""

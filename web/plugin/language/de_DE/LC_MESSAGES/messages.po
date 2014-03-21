@@ -253,6 +253,10 @@ msgstr "Flash-Nachricht"
 msgid "Footer"
 msgstr "Fußzeile"
 
+#, fuzzy
+msgid "Forgot password"
+msgstr "Aktiviere Passwort zurücksetzen"
+
 msgid "Forward"
 msgstr "Weiterleiten"
 
@@ -349,6 +353,9 @@ msgstr "Lizenz"
 msgid "Local number length"
 msgstr "Lokale Rufnummernlänge"
 
+msgid "Login"
+msgstr ""
+
 msgid "Login information"
 msgstr "Login Information"
 
@@ -417,6 +424,10 @@ msgstr "Mobilrufnummer ist bereits von anderem Benutzer verwendet"
 
 msgid "Mobile number"
 msgstr "Mobilrufnummer"
+
+#, fuzzy
+msgid "Move"
+msgstr "Verschieben nach"
 
 msgid "Move to"
 msgstr "Verschieben nach"
@@ -542,8 +553,16 @@ msgstr "Empfangen"
 msgid "Receiver"
 msgstr "Empfänger"
 
+#, fuzzy
+msgid "Recover password"
+msgstr "Passwort-Rücksetzung deaktiviert"
+
 msgid "Recover password disabled"
 msgstr "Passwort-Rücksetzung deaktiviert"
+
+#, fuzzy
+msgid "Register an account"
+msgstr "Fehler beim Registrieren eines Accounts"
 
 msgid "Registered"
 msgstr "Registriert"
@@ -646,6 +665,9 @@ msgstr "Staat oder Region"
 
 msgid "Status"
 msgstr "Status"
+
+msgid "Submit"
+msgstr ""
 
 msgid "This field is required"
 msgstr "Dieses Feld wird benötigt"

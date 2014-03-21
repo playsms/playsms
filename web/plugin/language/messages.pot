@@ -244,6 +244,9 @@ msgstr ""
 msgid "Footer"
 msgstr ""
 
+msgid "Forgot password"
+msgstr ""
+
 msgid "Forward"
 msgstr ""
 
@@ -340,6 +343,9 @@ msgstr ""
 msgid "Local number length"
 msgstr ""
 
+msgid "Login"
+msgstr ""
+
 msgid "Login information"
 msgstr ""
 
@@ -407,6 +413,9 @@ msgid "Mobile is already in use by other username"
 msgstr ""
 
 msgid "Mobile number"
+msgstr ""
+
+msgid "Move"
 msgstr ""
 
 msgid "Move to"
@@ -532,7 +541,13 @@ msgstr ""
 msgid "Receiver"
 msgstr ""
 
+msgid "Recover password"
+msgstr ""
+
 msgid "Recover password disabled"
+msgstr ""
+
+msgid "Register an account"
 msgstr ""
 
 msgid "Registered"
@@ -635,6 +650,9 @@ msgid "State or Province"
 msgstr ""
 
 msgid "Status"
+msgstr ""
+
+msgid "Submit"
 msgstr ""
 
 msgid "This field is required"

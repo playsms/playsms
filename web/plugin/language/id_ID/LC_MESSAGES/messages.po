@@ -260,6 +260,10 @@ msgid "Footer"
 msgstr "Catatan kaki"
 
 #, fuzzy
+msgid "Forgot password"
+msgstr "Aktifkan lupa kata sandi"
+
+#, fuzzy
 msgid "Forward"
 msgstr "teruskan"
 
@@ -361,6 +365,9 @@ msgstr "Lisensi"
 msgid "Local number length"
 msgstr "Panjang nomor lokal"
 
+msgid "Login"
+msgstr ""
+
 msgid "Login information"
 msgstr "Informasi login"
 
@@ -430,6 +437,9 @@ msgstr "Email sudah digunakan oleh pengguna lain"
 
 msgid "Mobile number"
 msgstr "Nomor telepon"
+
+msgid "Move"
+msgstr ""
 
 msgid "Move to"
 msgstr ""
@@ -560,8 +570,16 @@ msgstr "Penerima"
 msgid "Receiver"
 msgstr "Penerima"
 
+#, fuzzy
+msgid "Recover password"
+msgstr "Pemulihan kata sandi dinonaktifkan"
+
 msgid "Recover password disabled"
 msgstr "Pemulihan kata sandi dinonaktifkan"
+
+#, fuzzy
+msgid "Register an account"
+msgstr "Gagal untuk mendaftarkan akun"
 
 msgid "Registered"
 msgstr "Terdaftar"
@@ -670,6 +688,9 @@ msgstr "Propinsi"
 
 msgid "Status"
 msgstr "Status"
+
+msgid "Submit"
+msgstr ""
 
 msgid "This field is required"
 msgstr ""

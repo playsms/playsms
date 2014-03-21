@@ -263,6 +263,10 @@ msgid "Footer"
 msgstr "短信页脚"
 
 #, fuzzy
+msgid "Forgot password"
+msgstr "无效用户名或密码"
+
+#, fuzzy
 msgid "Forward"
 msgstr "转发邮件页脚"
 
@@ -367,6 +371,9 @@ msgstr ""
 msgid "Local number length"
 msgstr ""
 
+msgid "Login"
+msgstr ""
+
 msgid "Login information"
 msgstr "登陆信息"
 
@@ -436,6 +443,9 @@ msgstr "电子邮件已被其他用户使用"
 
 msgid "Mobile number"
 msgstr "电话号码"
+
+msgid "Move"
+msgstr ""
 
 msgid "Move to"
 msgstr ""
@@ -569,7 +579,14 @@ msgstr "收件人"
 msgid "Receiver"
 msgstr "收件人"
 
+#, fuzzy
+msgid "Recover password"
+msgstr "无效用户名或密码"
+
 msgid "Recover password disabled"
+msgstr ""
+
+msgid "Register an account"
 msgstr ""
 
 msgid "Registered"
@@ -679,6 +696,9 @@ msgstr "州或省"
 
 msgid "Status"
 msgstr "状态"
+
+msgid "Submit"
+msgstr ""
 
 msgid "This field is required"
 msgstr ""

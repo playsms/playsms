@@ -259,6 +259,10 @@ msgstr "Всплывающее СМС"
 msgid "Footer"
 msgstr "Подпись"
 
+#, fuzzy
+msgid "Forgot password"
+msgstr "Включить восстановление пароля"
+
 msgid "Forward"
 msgstr "Переслать"
 
@@ -355,6 +359,9 @@ msgstr "Пользовательское соглашение"
 msgid "Local number length"
 msgstr "Длина местного номера"
 
+msgid "Login"
+msgstr ""
+
 msgid "Login information"
 msgstr "Регистрационная информация"
 
@@ -423,6 +430,10 @@ msgstr "Номер уже используется другим пользова
 
 msgid "Mobile number"
 msgstr "Номер мобильного"
+
+#, fuzzy
+msgid "Move"
+msgstr "Переместить в"
 
 msgid "Move to"
 msgstr "Переместить в"
@@ -549,8 +560,16 @@ msgstr "Получено"
 msgid "Receiver"
 msgstr "Получатель"
 
+#, fuzzy
+msgid "Recover password"
+msgstr "Восстановление пароля отключено"
+
 msgid "Recover password disabled"
 msgstr "Восстановление пароля отключено"
+
+#, fuzzy
+msgid "Register an account"
+msgstr "Не удалось зарегистрировать пользователя"
 
 msgid "Registered"
 msgstr "Зарегистрирован"
@@ -653,6 +672,9 @@ msgstr "Штат или регион"
 
 msgid "Status"
 msgstr "Состояние"
+
+msgid "Submit"
+msgstr ""
 
 msgid "This field is required"
 msgstr "обязательное поле"

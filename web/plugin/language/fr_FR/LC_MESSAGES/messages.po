@@ -269,6 +269,10 @@ msgid "Footer"
 msgstr "Pied de page SMS"
 
 #, fuzzy
+msgid "Forgot password"
+msgstr "Mot de passe perdu"
+
+#, fuzzy
 msgid "Forward"
 msgstr "Transfert PV à email"
 
@@ -373,6 +377,9 @@ msgstr ""
 msgid "Local number length"
 msgstr ""
 
+msgid "Login"
+msgstr ""
+
 msgid "Login information"
 msgstr "Information de Login"
 
@@ -442,6 +449,9 @@ msgstr "Email déjà utilisé"
 
 msgid "Mobile number"
 msgstr "Numéro(s)"
+
+msgid "Move"
+msgstr ""
 
 msgid "Move to"
 msgstr ""
@@ -576,8 +586,16 @@ msgstr "Récepteur"
 msgid "Receiver"
 msgstr "Récepteur"
 
+#, fuzzy
+msgid "Recover password"
+msgstr "Recouvrement de mot de passe désastivé"
+
 msgid "Recover password disabled"
 msgstr "Recouvrement de mot de passe désastivé"
+
+#, fuzzy
+msgid "Register an account"
+msgstr "Echec d'enregistrement du compte"
 
 msgid "Registered"
 msgstr "Delivré"
@@ -686,6 +704,9 @@ msgstr "État ou Province"
 
 msgid "Status"
 msgstr "Status"
+
+msgid "Submit"
+msgstr ""
 
 msgid "This field is required"
 msgstr ""

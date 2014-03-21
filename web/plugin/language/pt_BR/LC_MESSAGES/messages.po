@@ -260,6 +260,10 @@ msgid "Footer"
 msgstr "Assinatura"
 
 #, fuzzy
+msgid "Forgot password"
+msgstr "Habilitar recuperação de senha"
+
+#, fuzzy
 msgid "Forward"
 msgstr "encaminhar"
 
@@ -361,6 +365,9 @@ msgstr "Licença"
 msgid "Local number length"
 msgstr "Tamanho dos números locais"
 
+msgid "Login"
+msgstr ""
+
 msgid "Login information"
 msgstr "Informações de login"
 
@@ -430,6 +437,9 @@ msgstr "Esse e-mail já é usado por outro usuário"
 
 msgid "Mobile number"
 msgstr "Número(s) de telefone"
+
+msgid "Move"
+msgstr ""
 
 msgid "Move to"
 msgstr ""
@@ -560,8 +570,16 @@ msgstr "Destinatário"
 msgid "Receiver"
 msgstr "Destinatário"
 
+#, fuzzy
+msgid "Recover password"
+msgstr "Recuperação de senha desativada"
+
 msgid "Recover password disabled"
 msgstr "Recuperação de senha desativada"
+
+#, fuzzy
+msgid "Register an account"
+msgstr "Falha ao registrar uma conta"
 
 msgid "Registered"
 msgstr "Entregue"
@@ -670,6 +688,9 @@ msgid "State or Province"
 msgstr "Estado ou província"
 
 msgid "Status"
+msgstr ""
+
+msgid "Submit"
 msgstr ""
 
 msgid "This field is required"

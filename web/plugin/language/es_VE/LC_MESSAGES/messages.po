@@ -263,6 +263,10 @@ msgid "Footer"
 msgstr "Firma del SMS"
 
 #, fuzzy
+msgid "Forgot password"
+msgstr "Contraseña o usuario inválido"
+
+#, fuzzy
 msgid "Forward"
 msgstr "Firma del correo reenviado"
 
@@ -367,6 +371,9 @@ msgstr ""
 msgid "Local number length"
 msgstr ""
 
+msgid "Login"
+msgstr ""
+
 msgid "Login information"
 msgstr "Información de la sesión"
 
@@ -436,6 +443,9 @@ msgstr "Correo electrónico ya en uso"
 
 msgid "Mobile number"
 msgstr "Numero(s) telefónico(s)"
+
+msgid "Move"
+msgstr ""
 
 msgid "Move to"
 msgstr ""
@@ -569,7 +579,14 @@ msgstr "Destinatario"
 msgid "Receiver"
 msgstr "Destinatario"
 
+#, fuzzy
+msgid "Recover password"
+msgstr "Contraseña o usuario inválido"
+
 msgid "Recover password disabled"
+msgstr ""
+
+msgid "Register an account"
 msgstr ""
 
 msgid "Registered"
@@ -679,6 +696,9 @@ msgstr "Estado o provincia"
 
 msgid "Status"
 msgstr "Estado"
+
+msgid "Submit"
+msgstr ""
 
 msgid "This field is required"
 msgstr ""

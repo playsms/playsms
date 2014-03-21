@@ -14,6 +14,7 @@ cd $PLAYSMS
 touch plugin/language/messages.pot
 find lib/ -iname "*.php" -exec xgettext -L PHP --omit-header --no-location --sort-output --from-code=utf-8 -j -o plugin/language/messages.pot {} \;
 find inc/ -iname "*.php" -exec xgettext -L PHP --omit-header --no-location --sort-output --from-code=utf-8 -j -o plugin/language/messages.pot {} \;
+find plugin/themes/common/ -iname "*.php" -exec xgettext -L PHP --omit-header --no-location --sort-output --from-code=utf-8 -j -o plugin/language/messages.pot {} \;
 cd $CWD
 
 ##Themes,plugins and tools strings
