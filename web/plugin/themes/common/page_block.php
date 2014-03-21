@@ -8,7 +8,7 @@ if ($_SESSION['error_string']) {
 
 unset($tpl);
 $tpl = array(
-	'name' => 'page_noaccess',
+	'name' => 'page_block',
 	'var' => array(
 		'ERROR' => $error_content,
 		'HTTP_PATH_BASE' => $core_config['http_path']['base'],

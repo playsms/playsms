@@ -88,23 +88,22 @@ if (_APP_) {
 				$fn = $core_config['apps_path']['themes'].'/'.core_themes_get().'/page_'._INC_.'.php';
 				if (file_exists($fn)) {
 					include $fn;
+				} else {
+					$fn = $core_config['apps_path']['themes'].'/common/page_'._INC_.'.php';
+					if (file_exists($fn)) {
+						include $fn;
+					}
 				}
 			}
 	}
 } else {
 	// no _APP_ then load default page
 	if (auth_isvalid()) {
-		ob_end_clean();
 		header("Location: index.php?app=main&inc=".$core_config['main']['default_inc']."&op=".$core_config['main']['default_op']);
-		exit();
 	} else {
-		if (function_exists('bindtextdomain')) {
-			bindtextdomain('messages', $core_config['apps_path']['themes'].'/'.core_themes_get().'/language/');
-			bind_textdomain_codeset('messages', 'UTF-8');
-			textdomain('messages');
-		}
-		include $core_config['apps_path']['themes'].'/'.core_themes_get().'/page_login.php';
+		header("Location: index.php?app=page&inc=login");
 	}
+	exit();
 }
 
 unset($_SESSION['error_string']);

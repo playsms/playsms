@@ -111,6 +111,6 @@ function auth_isadmin() {
  */
 function auth_block() {
 	global $core_config;
-	header("Location: index.php?app=auth&op=block");
+	header("Location: index.php?app=page&inc=block");
 	exit();
 }
