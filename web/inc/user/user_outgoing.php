@@ -25,7 +25,7 @@ switch (_OP_) {
 		$search_category = array(_('Time') => 'p_datetime', _('To') => 'p_dst', _('Message') => 'p_msg', _('Footer') => 'p_footer');
 		$base_url = 'index.php?app=main&inc=user_outgoing&op=user_outgoing';
 		$search = themes_search($search_category, $base_url);
-		$conditions = array('uid' => $uid, 'flag_deleted' => 0);
+		$conditions = array('uid' => $user_config['uid'], 'flag_deleted' => 0);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_.'_tblSMSOutgoing', $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
@@ -132,7 +132,7 @@ switch (_OP_) {
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case 'export':
-				$conditions = array('uid' => $uid, 'flag_deleted' => 0);
+				$conditions = array('uid' => $user_config['uid'], 'flag_deleted' => 0);
 				$list = dba_search(_DB_PREF_.'_tblSMSOutgoing', '*', $conditions, $search['dba_keywords']);
 				$data[0] = array(_('User'), _('Time'), _('To'), _('Message'), _('Status'));
 				for ($i=0;$i<count($list);$i++) {
@@ -154,7 +154,7 @@ switch (_OP_) {
 					$itemid = $_POST['itemid'.$i];
 					if(($checkid=="on") && $itemid) {
 						$up = array('c_timestamp' => mktime(), 'flag_deleted' => '1');
-						dba_update(_DB_PREF_.'_tblSMSOutgoing', $up, array('uid' => $uid, 'smslog_id' => $itemid));
+						dba_update(_DB_PREF_.'_tblSMSOutgoing', $up, array('uid' => $user_config['uid'], 'smslog_id' => $itemid));
 					}
 				}
 				$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&page='.$nav['page'].'&nav='.$nav['nav'];

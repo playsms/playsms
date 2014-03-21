@@ -8,7 +8,7 @@ This document explains about how to install and setup playSMS version 1.0.0
 Most of on the requirements on this list must be fulfilled. Please read this
 part before starting the installation.
 
-Minimum required hardware:
+**Minimum required hardware:**
 
 * Web server capable hardware
 
@@ -21,24 +21,23 @@ Optional hardware or infrastructure:
 * LAN (only when you plan to link 2 playSMS on different server in the same
   network using Uplink gateway plugin)
 
-Minimum required softwares:
+**Minimum required softwares:**
 
-* Operating System Linux (install on MS Windows or BSD is possible, but
-  currently not supported)
-* Web Server (for example Apache2, nginx or lighttpd)
+* Operating System Linux
+* Web server software (for example Apache2, nginx or lighttpd)
 * Database Server MySQL 5.x.x or latest stable release
-* PHP 5.x.x or latest stable release with mysql module enabled
+* PHP 5.3 or latest stable release with mysql module enabled
 * PHP CLI (very important, do not forget this)
 * PHP PEAR and PHP PEAR-DB (very important, do not forget this)
-* PHP gettext extension (this is a must for text translation)
-* PHP multibyte string function (should be able to call
-  **mb_convert_encoding**)
+* PHP gettext extension (for text translation)
+* PHP mbstring extension (for unicode detection)
+* PHP GD extension (to draw graphs)
 * Access to SMTP server (playSMS will use this to send email)
 * Console browser such as lynx, wget or curl
 * Downloaded playSMS package from SF.net or latest source code from
   Github
 
-Minimum required server administrator (or developer):
+**Minimum required server administrator (or developer):**
 
 * Understand howto make sure required softwares are installed
 * Understand howto make sure installed PHP has MySQL module
@@ -275,6 +274,8 @@ playSMS Web Interface step-by-step installation:
 
 
 ## Gateway Installation
+
+Next, choose a gateway to work on.
 
 If you have GSM modem and plan to use it with playSMS, please continue to follow
 instructions in INSTALL_SMSSERVERTOOLS to use SMS Server Tools (smstools3) as

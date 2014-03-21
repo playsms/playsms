@@ -12,6 +12,10 @@ msgstr "Autres paramètres URL"
 msgid "Bearerbox hostname or IP"
 msgstr "Hostname ou IP du Bearerbox"
 
+#, fuzzy
+msgid "Changes has been made"
+msgstr "Aucune modification éffectuée"
+
 msgid "Delivered to SMSC"
 msgstr "Délivré au SMSC"
 
@@ -27,14 +31,12 @@ msgstr ""
 msgid "Fill to change the password"
 msgstr ""
 
-msgid "Gateway has been activated"
-msgstr "Passerelle activée"
-
-msgid "Gateway module configurations has been saved"
-msgstr "La configuration de la passerelle a été sauvegardée"
-
 msgid "Gateway name"
 msgstr "Nom passerelle"
+
+#, fuzzy
+msgid "HTTP Kannel admin host"
+msgstr "Kannel port admin"
 
 #, fuzzy
 msgid "HTTP Kannel admin password"
@@ -44,22 +46,18 @@ msgstr "Kannel mot de passe admin"
 msgid "HTTP Kannel admin port"
 msgstr "Kannel port admin"
 
+msgid "Incoming SMS time is in local time"
+msgstr ""
+
+#, fuzzy
+msgid "Kannel admin host"
+msgstr "Kannel port admin"
+
 msgid "Kannel admin password"
 msgstr "Kannel mot de passe admin"
 
 msgid "Kannel admin port"
 msgstr "Kannel port admin"
-
-#, fuzzy
-msgid "Kannel configuration"
-msgstr "Fichier de configuration kannel"
-
-msgid "Kannel configuration file"
-msgstr "Fichier de configuration kannel"
-
-#, fuzzy
-msgid "Kannel configuration file must be writable"
-msgstr "Fichier de configuration kannel"
 
 msgid "Kannel specific"
 msgstr ""
@@ -79,8 +77,8 @@ msgstr "ID module émetteur"
 msgid "Module timezone"
 msgstr "Zone de temps"
 
-msgid "No changes has been made"
-msgstr "Aucune modification éffectuée"
+msgid "No"
+msgstr ""
 
 msgid "Non-Delivered to SMSC"
 msgstr "Non délivré au SMSC"
@@ -100,6 +98,9 @@ msgstr "Redémarrer Kannel"
 msgid "Save"
 msgstr "Sauvegarder"
 
+msgid "Select no if the incoming SMS time is in UTC"
+msgstr ""
+
 msgid "Send SMS hostname or IP"
 msgstr "Hostname ou IP du Send SMS"
 
@@ -114,6 +115,9 @@ msgstr ""
 
 msgid "Username"
 msgstr "Nom utilisateur"
+
+msgid "Yes"
+msgstr ""
 
 msgid "playSMS web URL"
 msgstr "URL de playSMS"

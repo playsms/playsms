@@ -24,9 +24,6 @@ msgstr "Например +0400 для  Москвы"
 msgid "Fill to change the API secret"
 msgstr "Заполните для изменения API secret"
 
-msgid "Gateway has been activated"
-msgstr "Шлюз активирван"
-
 msgid "Gateway module configurations has been saved"
 msgstr "Настройки шлюза сохранены"
 

@@ -25,7 +25,7 @@ switch (_OP_) {
 		$search_category = array(_('Time') => 'in_datetime', _('From') => 'in_sender', _('Message') => 'in_msg');
 		$base_url = 'index.php?app=main&inc=user_inbox&op=user_inbox';
 		$search = themes_search($search_category, $base_url);
-		$conditions = array('in_uid' => $uid, 'flag_deleted' => 0);
+		$conditions = array('in_uid' => $user_config['uid'], 'flag_deleted' => 0);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_.'_tblUser_inbox', $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
@@ -92,7 +92,7 @@ switch (_OP_) {
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case 'export':
-				$conditions = array('in_uid' => $uid, 'flag_deleted' => 0);
+				$conditions = array('in_uid' => $user_config['uid'], 'flag_deleted' => 0);
 				$list = dba_search(_DB_PREF_.'_tblUser_inbox', '*', $conditions, $search['dba_keywords']);
 				$data[0] = array(_('User'), _('Time'), _('From'), _('Message'));
 				for ($i=0;$i<count($list);$i++) {
@@ -113,7 +113,7 @@ switch (_OP_) {
 					$itemid = $_POST['itemid'.$i];
 					if(($checkid=="on") && $itemid) {
 						$up = array('c_timestamp' => mktime(), 'flag_deleted' => '1');
-						dba_update(_DB_PREF_.'_tblUser_inbox', $up, array('in_uid' => $uid, 'in_id' => $itemid));
+						dba_update(_DB_PREF_.'_tblUser_inbox', $up, array('in_uid' => $user_config['uid'], 'in_id' => $itemid));
 					}
 				}
 				$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&page='.$nav['page'].'&nav='.$nav['nav'];

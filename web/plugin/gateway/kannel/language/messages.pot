@@ -4,6 +4,9 @@ msgstr ""
 msgid "Bearerbox hostname or IP"
 msgstr ""
 
+msgid "Changes has been made"
+msgstr ""
+
 msgid "Delivered to SMSC"
 msgstr ""
 
@@ -19,13 +22,10 @@ msgstr ""
 msgid "Fill to change the password"
 msgstr ""
 
-msgid "Gateway has been activated"
-msgstr ""
-
-msgid "Gateway module configurations has been saved"
-msgstr ""
-
 msgid "Gateway name"
+msgstr ""
+
+msgid "HTTP Kannel admin host"
 msgstr ""
 
 msgid "HTTP Kannel admin password"
@@ -34,19 +34,16 @@ msgstr ""
 msgid "HTTP Kannel admin port"
 msgstr ""
 
+msgid "Incoming SMS time is in local time"
+msgstr ""
+
+msgid "Kannel admin host"
+msgstr ""
+
 msgid "Kannel admin password"
 msgstr ""
 
 msgid "Kannel admin port"
-msgstr ""
-
-msgid "Kannel configuration"
-msgstr ""
-
-msgid "Kannel configuration file"
-msgstr ""
-
-msgid "Kannel configuration file must be writable"
 msgstr ""
 
 msgid "Kannel specific"
@@ -67,7 +64,7 @@ msgstr ""
 msgid "Module timezone"
 msgstr ""
 
-msgid "No changes has been made"
+msgid "No"
 msgstr ""
 
 msgid "Non-Delivered to SMSC"
@@ -88,6 +85,9 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
+msgid "Select no if the incoming SMS time is in UTC"
+msgstr ""
+
 msgid "Send SMS hostname or IP"
 msgstr ""
 
@@ -101,6 +101,9 @@ msgid "URL to playSMS, empty it to set it to base URL"
 msgstr ""
 
 msgid "Username"
+msgstr ""
+
+msgid "Yes"
 msgstr ""
 
 msgid "playSMS web URL"

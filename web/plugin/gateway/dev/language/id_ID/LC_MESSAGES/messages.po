@@ -11,9 +11,6 @@ msgstr "Tanggal/Jam"
 msgid "Fail to simulate incoming SMS"
 msgstr "Gagal simulasikan SMS masuk"
 
-msgid "Gateway has been activated"
-msgstr "Gateway telah diaktifkan"
-
 msgid "Gateway name"
 msgstr "Nama gateway"
 

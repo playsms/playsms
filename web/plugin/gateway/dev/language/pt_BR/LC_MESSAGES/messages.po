@@ -11,9 +11,6 @@ msgstr "Data/Hora"
 msgid "Fail to simulate incoming SMS"
 msgstr "Falha ao simular chegada de SMS"
 
-msgid "Gateway has been activated"
-msgstr "Gateway foi ativado"
-
 msgid "Gateway name"
 msgstr "Nome do gateway"
 

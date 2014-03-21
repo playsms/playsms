@@ -8,7 +8,7 @@
  */
 function gatewaymanager_get_status($name) {
 	global $core_config;
-	if ($core_config['module']['gateway'] == $name) {
+	if (core_gateway_get() == $name) {
 		$ret = TRUE;
 	} else {
 		$ret = FALSE;
@@ -24,13 +24,13 @@ function gatewaymanager_get_status($name) {
  */
 function gatewaymanager_set_active($name) {
 	global $core_config;
-	$ret = FALSE;	
+	$ret = FALSE;
 	$fn1 = $core_config['apps_path']['plug'] . '/gateway/' . $name . '/config.php';
 	$fn2 = $core_config['apps_path']['plug'] . '/gateway/' . $name . '/config.php';
-	if (file_exists($fn1) && file_exists($fn2) && ($core_config['module']['gateway'] != $name)) {
+	if (file_exists($fn1) && file_exists($fn2) && (core_gateway_get() != $name)) {
 		$items = array('gateway_module' => $name);
 		if (registry_update(1, 'core', 'main_config', $items)) {
-			$core_config['module']['gateway'] = $name;
+			$core_config['main']['gateway_module'] = $name;
 			$ret = TRUE;
 		}
 	}

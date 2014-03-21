@@ -29,7 +29,7 @@ switch (_OP_) {
 		}
 		$content .= "</tr></thead><tbody>";
 		if (! auth_isadmin()) {
-			$query_user_only = "WHERE uid='$uid'";
+			$query_user_only = "WHERE uid='".$user_config['uid']."'";
 		}
 		$db_query = "SELECT * FROM "._DB_PREF_."_featureAutoreply ".$query_user_only." ORDER BY autoreply_keyword";
 		$db_result = dba_query($db_query);
@@ -165,7 +165,7 @@ switch (_OP_) {
 		$add_autoreply_keyword = trim(strtoupper($_POST['add_autoreply_keyword']));
 		if ($add_autoreply_keyword) {
 			if (checkavailablekeyword($add_autoreply_keyword)) {
-				$db_query = "INSERT INTO "._DB_PREF_."_featureAutoreply (uid,autoreply_keyword) VALUES ('$uid','$add_autoreply_keyword')";
+				$db_query = "INSERT INTO "._DB_PREF_."_featureAutoreply (uid,autoreply_keyword) VALUES ('".$user_config['uid']."','$add_autoreply_keyword')";
 				if ($new_uid = @dba_insert_id($db_query)) {
 					$_SESSION['error_string'] = _('SMS autoreply keyword has been added')." ("._('keyword').": $add_autoreply_keyword)";
 				} else {

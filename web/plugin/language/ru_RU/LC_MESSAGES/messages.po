@@ -117,6 +117,10 @@ msgstr "Изменения"
 msgid "City"
 msgstr "Город"
 
+#, fuzzy
+msgid "Comma separated"
+msgstr "Разделённый запятыми"
+
 msgid "Comma seperated"
 msgstr "Разделённый запятыми"
 
@@ -432,6 +436,9 @@ msgstr "Имя"
 msgid "New account registration"
 msgstr "Регистрация нового пользователя"
 
+msgid "New inbox from"
+msgstr ""
+
 msgid "New webservices token"
 msgstr "Новый токен для веб-сервисов"
 
@@ -461,6 +468,10 @@ msgstr "Пароль"
 
 msgid "Password does not match"
 msgstr "Пароли не совпвдают"
+
+#, fuzzy
+msgid "Password has been emailed"
+msgstr "Пароль был выслан на ваш email"
 
 msgid "Password has been sent to your email"
 msgstr "Пароль был выслан на ваш email"
@@ -646,6 +657,10 @@ msgstr "Состояние"
 msgid "This field is required"
 msgstr "обязательное поле"
 
+msgid ""
+"This temporary password will be removed once you have logged in successfully"
+msgstr ""
+
 msgid "Time"
 msgstr "Время"
 
@@ -701,10 +716,18 @@ msgid "User has been added"
 msgstr "Пользователь добавлен"
 
 #, fuzzy
+msgid "User has been added and password has been emailed"
+msgstr "Пользователь удалён"
+
+#, fuzzy
 msgid "User has been added but failed to send email"
 msgstr "Пользователь удалён"
 
 msgid "User has been deleted"
+msgstr "Пользователь удалён"
+
+#, fuzzy
+msgid "User has been removed"
 msgstr "Пользователь удалён"
 
 msgid "User is already exists"
@@ -803,6 +826,9 @@ msgstr "Вы должны выбрать получателей и заполн�
 
 msgid "You must select receiver group and your message should not be empty"
 msgstr "Вы должны выбрать группу получателей и заполнить текст сообщения"
+
+msgid "You or someone else have requested a password recovery"
+msgstr ""
 
 msgid "Your SMS has been delivered to queue"
 msgstr "Сообщение успешно поставлено в очередь"

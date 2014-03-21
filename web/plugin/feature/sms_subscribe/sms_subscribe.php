@@ -41,7 +41,7 @@ switch (_OP_) {
 			<tbody>";
 		$i = 0;
 		if (! auth_isadmin()) {
-			$query_user_only = "WHERE uid='$uid'";
+			$query_user_only = "WHERE uid='".$user_config['uid']."'";
 		}
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe ".$query_user_only." ORDER BY subscribe_id";
 		$db_result = dba_query($db_query);
@@ -207,7 +207,7 @@ switch (_OP_) {
 			if (checkavailablekeyword($add_subscribe_keyword)) {
 				$db_query = "
 					INSERT INTO " . _DB_PREF_ . "_featureSubscribe (uid,subscribe_keyword,subscribe_msg,unsubscribe_msg, subscribe_param, unsubscribe_param, forward_param, unknown_format_msg, already_member_msg)
-					VALUES ('$uid','$add_subscribe_keyword','$add_subscribe_msg','$add_unsubscribe_msg','$add_subscribe_param','$add_unsubscribe_param','$add_forward_param','$add_unknown_format_msg','$add_already_member_msg')";
+					VALUES ('".$user_config['uid']."','$add_subscribe_keyword','$add_subscribe_msg','$add_unsubscribe_msg','$add_subscribe_param','$add_unsubscribe_param','$add_forward_param','$add_unknown_format_msg','$add_already_member_msg')";
 				if ($new_uid = @ dba_insert_id($db_query)) {
 					$_SESSION['error_string'] = _('SMS subscribe has been added')." ("._('keyword').": $add_subscribe_keyword)";
 				} else {

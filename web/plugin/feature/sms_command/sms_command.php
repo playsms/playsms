@@ -24,7 +24,7 @@ switch (_OP_) {
 			<h2>" . _('Manage command') . "</h2>
 			"._button('index.php?app=main&inc=feature_sms_command&op=sms_command_add', _('Add SMS command'));
 		if (! auth_isadmin()) {
-			$query_user_only = "WHERE uid='$uid'";
+			$query_user_only = "WHERE uid='".$user_config['uid']."'";
 		}
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCommand ".$query_user_only." ORDER BY command_keyword";
 		$db_result = dba_query($db_query);
@@ -140,7 +140,7 @@ switch (_OP_) {
 			$edit_command_exec = str_replace("|", "", $edit_command_exec);
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureCommand SET c_timestamp='" . mktime() . "',command_exec='$edit_command_exec',command_return_as_reply='$edit_command_return_as_reply' WHERE command_keyword='$edit_command_keyword'";
 			if (@dba_affected_rows($db_query)) {
-				$c_dir = $sms_command_bin."/".$uid;
+				$c_dir = $sms_command_bin."/".$user_config['uid'];
 				@shell_exec("mkdir -p \"".$c_dir."\"");
 				$_SESSION['error_string'] = _('SMS command has been saved') . " (" . _('keyword') . ": $edit_command_keyword)";
 			} else {
@@ -222,9 +222,9 @@ switch (_OP_) {
 			$add_command_exec = str_replace("|", "", $add_command_exec);
 			$add_command_exec = str_replace("\\", "", $add_command_exec);
 			if (checkavailablekeyword($add_command_keyword)) {
-				$db_query = "INSERT INTO " . _DB_PREF_ . "_featureCommand (uid,command_keyword,command_exec,command_return_as_reply) VALUES ('$uid','$add_command_keyword','$add_command_exec','$add_command_return_as_reply')";
+				$db_query = "INSERT INTO " . _DB_PREF_ . "_featureCommand (uid,command_keyword,command_exec,command_return_as_reply) VALUES ('".$user_config['uid']."','$add_command_keyword','$add_command_exec','$add_command_return_as_reply')";
 				if ($new_uid = @dba_insert_id($db_query)) {
-					$c_dir = $sms_command_bin."/".$uid;
+					$c_dir = $sms_command_bin."/".$user_config['uid'];
 					@shell_exec("mkdir -p \"".$c_dir."\"");
 					$_SESSION['error_string'] = _('SMS command has been added') . " (" . _('keyword') . " $add_command_keyword)";
 				} else {

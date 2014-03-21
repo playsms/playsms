@@ -18,6 +18,10 @@ msgstr "Дополнительный параметр URL"
 msgid "Bearerbox hostname or IP"
 msgstr "IP адрес или имя сервера bearerbox"
 
+#, fuzzy
+msgid "Changes has been made"
+msgstr "Нет изменений"
+
 msgid "Delivered to SMSC"
 msgstr "Доставлено на SMSC"
 
@@ -33,14 +37,12 @@ msgstr "Например, +0400 для Москвы"
 msgid "Fill to change the password"
 msgstr "Заполните для изменения пароля"
 
-msgid "Gateway has been activated"
-msgstr "Шлюз активирован"
-
-msgid "Gateway module configurations has been saved"
-msgstr "Конфигурация шлюза сохранена"
-
 msgid "Gateway name"
 msgstr "Название шлюза"
+
+#, fuzzy
+msgid "HTTP Kannel admin host"
+msgstr "Порт для администрирования Kannel"
 
 msgid "HTTP Kannel admin password"
 msgstr "Пароль администратора Kannel"
@@ -48,20 +50,18 @@ msgstr "Пароль администратора Kannel"
 msgid "HTTP Kannel admin port"
 msgstr "Порт для администрирования Kannel"
 
+msgid "Incoming SMS time is in local time"
+msgstr ""
+
+#, fuzzy
+msgid "Kannel admin host"
+msgstr "Порт для администрирования Kannel"
+
 msgid "Kannel admin password"
 msgstr "Пароль администратора Kannel"
 
 msgid "Kannel admin port"
 msgstr "Порт для администрирования Kannel"
-
-msgid "Kannel configuration"
-msgstr "Конфигурация Kannel"
-
-msgid "Kannel configuration file"
-msgstr "Файл конфигурации Kannel"
-
-msgid "Kannel configuration file must be writable"
-msgstr "Файл конфигурации Kannel должен быть доступен на запись"
 
 msgid "Kannel specific"
 msgstr "Настройки Kannel"
@@ -81,8 +81,8 @@ msgstr "Имя отправителя"
 msgid "Module timezone"
 msgstr "часовой пояс"
 
-msgid "No changes has been made"
-msgstr "Нет изменений"
+msgid "No"
+msgstr ""
 
 msgid "Non-Delivered to SMSC"
 msgstr "Не доставлено на SMSC"
@@ -102,6 +102,9 @@ msgstr "Перезапустить Kannel"
 msgid "Save"
 msgstr "Сохранить"
 
+msgid "Select no if the incoming SMS time is in UTC"
+msgstr ""
+
 msgid "Send SMS hostname or IP"
 msgstr "IP адрес или имя сервера sendsms"
 
@@ -116,6 +119,9 @@ msgstr "URL playSMS сервера, оставьте пустым для исп�
 
 msgid "Username"
 msgstr "Имя пользователя"
+
+msgid "Yes"
+msgstr ""
 
 msgid "playSMS web URL"
 msgstr "URL playSMS сервера"

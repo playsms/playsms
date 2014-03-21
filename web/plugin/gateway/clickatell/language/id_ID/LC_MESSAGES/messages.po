@@ -26,9 +26,6 @@ msgstr ""
 msgid "Fill to change the password"
 msgstr ""
 
-msgid "Gateway has been activated"
-msgstr "Gateway telah diaktifkan"
-
 msgid "Gateway module configurations has been saved"
 msgstr "Konfigurasi modul gateway telah disimpan"
 

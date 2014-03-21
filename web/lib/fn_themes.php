@@ -37,10 +37,9 @@ function themes_get_menu_tree($menus='') {
 }
 
 function themes_buildmenu($menu_config) {
-	global $core_config;
 	$menu = '';
-	if ($core_config['module']['themes']) {
-		$menu = core_hook($core_config['module']['themes'],'themes_buildmenu',array($menu_config));
+	if (core_themes_get()) {
+		$menu = core_hook(core_themes_get(),'themes_buildmenu',array($menu_config));
 	}
 	return $menu;
 }

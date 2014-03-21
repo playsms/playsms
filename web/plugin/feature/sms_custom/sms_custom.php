@@ -17,7 +17,7 @@ switch (_OP_) {
 			<h2>" . _('Manage custom') . "</h2>
 			"._button('index.php?app=main&inc=feature_sms_custom&op=sms_custom_add', _('Add SMS custom'));
 		if (! auth_isadmin()) {
-			$query_user_only = "WHERE uid='$uid'";
+			$query_user_only = "WHERE uid='".$user_config['uid']."'";
 		}
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCustom ".$query_user_only." ORDER BY custom_keyword";
 		$db_result = dba_query($db_query);
@@ -197,7 +197,7 @@ switch (_OP_) {
 		$add_custom_url = $_POST['add_custom_url'];
 		if ($add_custom_keyword && $add_custom_url) {
 			if (checkavailablekeyword($add_custom_keyword)) {
-				$db_query = "INSERT INTO " . _DB_PREF_ . "_featureCustom (uid,custom_keyword,custom_url,custom_return_as_reply) VALUES ('$uid','$add_custom_keyword','$add_custom_url','$add_custom_return_as_reply')";
+				$db_query = "INSERT INTO " . _DB_PREF_ . "_featureCustom (uid,custom_keyword,custom_url,custom_return_as_reply) VALUES ('".$user_config['uid']."','$add_custom_keyword','$add_custom_url','$add_custom_return_as_reply')";
 				if ($new_uid = @dba_insert_id($db_query)) {
 					$_SESSION['error_string'] = _('SMS custom has been added') . " (" . _('keyword') . " $add_custom_keyword)";
 				} else {

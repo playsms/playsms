@@ -115,6 +115,9 @@ msgstr ""
 msgid "City"
 msgstr "Ciudad"
 
+msgid "Comma separated"
+msgstr ""
+
 msgid "Comma seperated"
 msgstr ""
 
@@ -446,6 +449,9 @@ msgstr "Nombre"
 msgid "New account registration"
 msgstr ""
 
+msgid "New inbox from"
+msgstr ""
+
 msgid "New webservices token"
 msgstr ""
 
@@ -477,6 +483,10 @@ msgstr "Contraseña"
 
 msgid "Password does not match"
 msgstr ""
+
+#, fuzzy
+msgid "Password has been emailed"
+msgstr "El usuario ha sido eliminado"
 
 msgid "Password has been sent to your email"
 msgstr ""
@@ -673,6 +683,10 @@ msgstr "Estado"
 msgid "This field is required"
 msgstr ""
 
+msgid ""
+"This temporary password will be removed once you have logged in successfully"
+msgstr ""
+
 msgid "Time"
 msgstr "Hora"
 
@@ -735,10 +749,18 @@ msgid "User has been added"
 msgstr "El usuario ha sido añadido"
 
 #, fuzzy
+msgid "User has been added and password has been emailed"
+msgstr "El usuario ha sido eliminado"
+
+#, fuzzy
 msgid "User has been added but failed to send email"
 msgstr "El usuario ha sido eliminado"
 
 msgid "User has been deleted"
+msgstr "El usuario ha sido eliminado"
+
+#, fuzzy
+msgid "User has been removed"
 msgstr "El usuario ha sido eliminado"
 
 msgid "User is already exists"
@@ -844,6 +866,9 @@ msgstr "debe seleccionar un destinatario y/o su mensaje no puede estar vacio"
 
 msgid "You must select receiver group and your message should not be empty"
 msgstr "Debe seleccionar un destinatario y/o su menasaje no puede estar vacio"
+
+msgid "You or someone else have requested a password recovery"
+msgstr ""
 
 msgid "Your SMS has been delivered to queue"
 msgstr "Su mensaje ha sido enviado a la cola de procesamiento"

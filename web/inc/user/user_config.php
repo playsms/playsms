@@ -40,7 +40,6 @@ switch (_OP_) {
 			$sender = core_sanitize_sender($c_user[0]['sender']);
 			$footer = $c_user[0]['footer'];
 			$datetime_timezone = core_get_timezone($c_username);
-			$language_module = $c_user[0]['language_module'];
 			$fwd_to_inbox = $c_user[0]['fwd_to_inbox'];
 			$fwd_to_email = $c_user[0]['fwd_to_email'];
 			$fwd_to_mobile = $c_user[0]['fwd_to_mobile'];
@@ -156,7 +155,7 @@ switch (_OP_) {
 		$option_language_module .= "<option value=\"\">"._('Default')."</option>";
 		if (is_array($lang_list)) {
 			foreach ($lang_list as $key => $val) {
-				if ($val == $language_module) $selected = "selected";
+				if ($val == core_lang_get()) $selected = "selected";
 				$option_language_module .= "<option value=\"".$val."\" $selected>".$key."</option>";
 				$selected = "";
 			}
@@ -165,44 +164,69 @@ switch (_OP_) {
 		if ($uname && auth_isadmin()) {
 			$content .= "<h2>" . _('Manage user') . "</h2>";
 			$option_credit = "<tr><td>" . _('Credit') . "</td><td><input type=text size=10 maxlength=10 name=up_credit value=\"$credit\"></td></tr>";
-			$button_delete = "<input type=button class=button value='". _('Delete') ."' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=main&inc=user_mgmnt&op=user_del".$url_uname."')\">";
-			$button_back = _back('index.php?app=main&inc=user_mgmnt&op='.$referrer);
+			$button_delete = "<input type=button class=button value='" . _('Delete') . "' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=main&inc=user_mgmnt&op=user_del" . $url_uname . "')\">";
+			$button_back = _back('index.php?app=main&inc=user_mgmnt&op=' . $referrer);
 		} else {
 			$content .= "<h2>" . _('User configuration') . "</h2>";
 			$option_credit = "<tr><td>" . _('Credit') . "</td><td>$credit</td></tr>";
 		}
-		$content .= "
-			<form action=\"index.php?app=main&inc=user_config&op=user_config_save" . $url_uname . "\" method=POST enctype=\"multipart/form-data\">
-			"._CSRF_FORM_."
-			<h3>" . _('Application options') . "</h3>
-			<table class=playsms-table>
-			<tbody>
-			<tr><td class=label-sizer>" . _('Username') . "</td><td>".$c_username."</td></tr>
-			<tr><td>" . _('Effective SMS sender ID') . "</td><td>" . sendsms_get_sender($c_username) . "</td></tr>
-			<tr><td>" . _('SMS sender ID') . "</td><td><input type=text size=30 maxlength=16 name=up_sender value=\"$sender\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric characters')) . "</td></tr>
-			<tr><td>" . _('SMS footer') . "</td><td><input type=text size=30 maxlength=30 name=up_footer value=\"$footer\"> " . _hint(_('Max. 30 alphanumeric characters')) . "</td></tr>
-			".$option_credit."
-			<tr><td>" . _('Webservices username') . "</td><td>".$c_username."</td></tr>
-			<tr><td>" . _('Webservices token') . "</td><td><input type=text size=30 value=\"".$token."\" disabled></td></tr>
-			<tr><td>" . _('New webservices token') . "</td><td><select name='up_new_token'>" . $option_new_token . "</select></td></tr>
-			<tr><td>" . _('Enable webservices') . "</td><td><select name='up_enable_webservices'>" . $option_enable_webservices . "</select></td></tr>
-			<tr><td>" . _('Webservices IP range') . "</td><td><input type=text size=30 maxlength=100 name=up_webservices_ip value=\"$webservices_ip\"> "._hint(_('Comma seperated'))."</td></tr>
-			<tr><td>" . _('Active language') . "</td><td><select name=up_language_module>$option_language_module</select></td></tr>
-			<tr><td>" . _('Timezone') . "</td><td><input type=text size=5 maxlength=5 name=up_datetime_timezone value=\"$datetime_timezone\"> " . _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')) . "</td></tr>
-			<tr><td>" . _('Forward message to inbox') . "</td><td><select name='up_fwd_to_inbox'>" . $option_fwd_to_inbox . "</select></td></tr>
-			<tr><td>" . _('Forward message to email') . "</td><td><select name='up_fwd_to_email'>" . $option_fwd_to_email . "</select></td></tr>
-			<tr><td>" . _('Forward message to mobile') . "</td><td><select name='up_fwd_to_mobile'>" . $option_fwd_to_mobile . "</select></td></tr>
-			<tr><td>" . _('Local number length') . "</td><td><input type=text size=5 maxlength=5 name='up_local_length' value=\"$local_length\"> " . _hint(_('Min length to detect missing country code')) . "</td></tr>
-			<tr><td>" . _('Prefix or country code') . "</td><td><input type=text size=5 maxlength=5 name='up_replace_zero' value=\"$replace_zero\"> " . _hint(_('Replace prefix 0 or padding local numbers')) . "</td></tr>
-			<tr><td>" . _('Auto remove plus sign') . "</td><td><select name='up_plus_sign_remove'>" . $option_plus_sign_remove . "</select></td></tr>
-			<tr><td>" . _('Always add plus sign') . "</td><td><select name='up_plus_sign_add'>" . $option_plus_sign_add . "</select></td></tr>
-			<tr><td>" . _('Always choose to send as unicode') . "</td><td><select name='up_send_as_unicode'>" . $option_send_as_unicode . "</select></td></tr>
-			</tbody>
-			</table>
-			<input type=submit class=button value='" . _('Save') . "'> ".$button_delete."
-			</form>
-			".$button_back;
-		_p($content);
+		$tpl = array(
+		    'name' => 'user_config',
+		    'var' => array(
+			'Application options' => _('Application options'),
+			'Username' => _('Username'),
+			'Effective SMS sender ID' => _('Effective SMS sender ID'),
+			'SMS sender ID' => _('SMS sender ID'),
+			'SMS footer' => _('SMS footer'),
+			'Webservices username' => _('Webservices username'),
+			'Webservices token' => _('Webservices token'),
+			'New webservices token' => _('New webservices token'),
+			'Enable webservices' => _('Enable webservices'),
+			'Webservices IP range' => _('Webservices IP range'),
+			'Active language' => _('Active language'),
+			'Timezone' => _('Timezone'),
+			'Forward message to inbox' => _('Forward message to inbox'),
+			'Forward message to email' => _('Forward message to email'),
+			'Forward message to mobile' => _('Forward message to mobile'),
+			'Local number length' => _('Local number length'),
+			'Prefix or country code' => _('Prefix or country code'),
+			'Auto remove plus sign' => _('Auto remove plus sign'),
+			'Always add plus sign' => _('Always add plus sign'),
+			'Always choose to send as unicode' => _('Always choose to send as unicode'),
+			'Save' => _('Save'),
+			'ERROR' => $error_content,
+			'FORM_TITLE' => $form_title,
+			'BUTTON_DELETE' => $button_delete,
+			'BUTTON_BACK' => $button_back,
+			'URL_UNAME' => $url_uname,
+			'HINT_MAX_CHARS' => _hint(_('Max. 16 numeric or 11 alphanumeric characters')),
+			'HINT_MAX_ALPHANUMERIC' => _hint(_('Max. 30 alphanumeric characters')),
+			'HINT_COMMA_SEPARATED' => _hint(_('Comma separated')),
+			'HINT_TIMEZONE' => _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')),
+			'HINT_LOCAL_LENGTH' => _hint(_('Min length to detect missing country code')),
+			'HINT_REPLACE_ZERO' => _hint(_('Replace prefix 0 or padding local numbers')),
+			'option_credit' => $option_credit,
+			'option_new_token' => $option_new_token,
+			'option_enable_webservices' => $option_enable_webservices,
+			'option_language_module' => $option_language_module,
+			'option_fwd_to_inbox' => $option_fwd_to_inbox,
+			'option_fwd_to_email' => $option_fwd_to_email,
+			'option_fwd_to_mobile' => $option_fwd_to_mobile,
+			'option_plus_sign_remove' => $option_plus_sign_remove,
+			'option_plus_sign_add' => $option_plus_sign_add,
+			'option_send_as_unicode' => $option_send_as_unicode,
+			'c_username' => $c_username,
+			'effective_sender_id' => sendsms_get_sender($c_username),
+			'sender' => $sender,
+			'footer' => $footer,
+			'token' => $token,
+			'webservices_ip' => $webservices_ip,
+			'datetime_timezone' => $datetime_timezone,
+			'local_length' => $local_length,
+			'replace_zero' => $replace_zero,
+		    )
+		);
+		_p(tpl_apply($tpl));
 		break;
 	case "user_config_save":
 		$_SESSION['error_string'] = _('No changes made');

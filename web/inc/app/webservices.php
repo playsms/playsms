@@ -203,10 +203,10 @@ if (_OP_) {
 		case "SET_TOKEN":
 			if ($u = webservices_validate($h,$u)) {
 				$user = user_getdatabyusername($u);
-				if ($uid = $user['uid']) {
-					$token = md5($uid._PID_);
+				if ($c_uid = $user['uid']) {
+					$token = md5($c_uid._PID_);
 					$items = array('token' => $token);
-					$conditions = array('uid' => $uid);
+					$conditions = array('uid' => $c_uid);
 					if (dba_update(_DB_PREF_.'_tblUser', $items, $conditions)) {
 						$json['status'] = 'OK';
 						$json['error'] = '0';
@@ -243,9 +243,8 @@ if ($log_this) {
 	logger_print("u:".$u." ip:".$_SERVER['REMOTE_ADDR']." op:"._OP_, 3, "webservices");
 }
 
-if ($json['error'] && ($error_string = $ws_error_string[$json['error']])) {
-	$json['error_string'] = $error_string;
-}
+// add an error_string to json response
+$json['error_string'] = $ws_error_string[$json['error']];
 
 if ($format=='SERIALIZE') {
 	ob_end_clean();

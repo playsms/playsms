@@ -17,9 +17,6 @@ msgstr "Ex: +0300 para fuso horário de Brasília"
 msgid "Fill to change the API secret"
 msgstr "Preencha para alterar o segredo API"
 
-msgid "Gateway has been activated"
-msgstr "Gateway foi ativado"
-
 msgid "Gateway module configurations has been saved"
 msgstr "Configurações do módulo de gateway foram salvas"
 

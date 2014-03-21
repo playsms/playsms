@@ -103,6 +103,9 @@ msgstr ""
 msgid "City"
 msgstr ""
 
+msgid "Comma separated"
+msgstr ""
+
 msgid "Comma seperated"
 msgstr ""
 
@@ -418,6 +421,9 @@ msgstr ""
 msgid "New account registration"
 msgstr ""
 
+msgid "New inbox from"
+msgstr ""
+
 msgid "New webservices token"
 msgstr ""
 
@@ -446,6 +452,9 @@ msgid "Password"
 msgstr ""
 
 msgid "Password does not match"
+msgstr ""
+
+msgid "Password has been emailed"
 msgstr ""
 
 msgid "Password has been sent to your email"
@@ -631,6 +640,10 @@ msgstr ""
 msgid "This field is required"
 msgstr ""
 
+msgid ""
+"This temporary password will be removed once you have logged in successfully"
+msgstr ""
+
 msgid "Time"
 msgstr ""
 
@@ -685,10 +698,16 @@ msgstr ""
 msgid "User has been added"
 msgstr ""
 
+msgid "User has been added and password has been emailed"
+msgstr ""
+
 msgid "User has been added but failed to send email"
 msgstr ""
 
 msgid "User has been deleted"
+msgstr ""
+
+msgid "User has been removed"
 msgstr ""
 
 msgid "User is already exists"
@@ -782,6 +801,9 @@ msgid "You must select receiver and your message should not be empty"
 msgstr ""
 
 msgid "You must select receiver group and your message should not be empty"
+msgstr ""
+
+msgid "You or someone else have requested a password recovery"
 msgstr ""
 
 msgid "Your SMS has been delivered to queue"

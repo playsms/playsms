@@ -1,6 +1,3 @@
-msgid "Gateway has been activated"
-msgstr ""
-
 msgid "Gateway module configurations has been saved"
 msgstr ""
 

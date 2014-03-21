@@ -11,9 +11,6 @@ msgstr "Parameter URL tambahan"
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
-msgid "Gateway has been activated"
-msgstr "Gateway telah diaktifkan"
-
 msgid "Gateway module configurations has been saved"
 msgstr "Konfigurasi modul gateway telah disimpan"
 

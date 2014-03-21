@@ -11,9 +11,6 @@ msgstr ""
 msgid "Fail to simulate incoming SMS"
 msgstr ""
 
-msgid "Gateway has been activated"
-msgstr "Passerelle activée"
-
 msgid "Gateway name"
 msgstr "Nom passerelle"
 

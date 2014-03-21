@@ -1052,7 +1052,6 @@ CREATE TABLE `playsms_tblUser` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `status` int(11) NOT NULL DEFAULT '0',
-  `ticket` varchar(100) NOT NULL DEFAULT '',
   `username` varchar(100) NOT NULL DEFAULT '',
   `password` varchar(32) NOT NULL DEFAULT '',
   `token` varchar(32) NOT NULL DEFAULT '',
@@ -1091,7 +1090,7 @@ CREATE TABLE `playsms_tblUser` (
 
 LOCK TABLES `playsms_tblUser` WRITE;
 /*!40000 ALTER TABLE `playsms_tblUser` DISABLE KEYS */;
-INSERT INTO `playsms_tblUser` VALUES (1332916885,1,2,'dd4aa3580e3de07858d812dcc094c32f','admin','21232f297a57a5a743894a0e4a801fc3','',0,'127.0.0.1, 192.168.*.*','Administrator','+62000000000','noreply@playsms.org','playSMS','@admin','','','',132,'',0,'','en_US',0,1,1,'',1,0,0,0,'','');
+INSERT INTO `playsms_tblUser` VALUES (0,1,2,'admin','21232f297a57a5a743894a0e4a801fc3','',0,'127.0.0.1, 192.168.*.*','Administrator','+62000000000','noreply@playsms.org','playSMS','@admin','','','',132,'',0,'','en_US',0,1,1,'',1,0,0,0,'','');
 /*!40000 ALTER TABLE `playsms_tblUser` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1410,7 +1409,7 @@ CREATE TABLE IF NOT EXISTS `playsms_tblRegistry` (
   `registry_group` varchar(250) NOT NULL DEFAULT '',
   `registry_family` varchar(250) NOT NULL DEFAULT '',
   `registry_key` varchar(250) NOT NULL DEFAULT '',
-  `registry_value` varchar(250) NOT NULL DEFAULT '',
+  `registry_value` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
