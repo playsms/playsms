@@ -17,7 +17,9 @@ venv
 
 .gitignore
 *~
-/.buildpath
-/.settings
-/.project
+.buildpath
+.settings
+.project
+.codio
+
 /web/config.php
