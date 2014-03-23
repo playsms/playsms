@@ -61,6 +61,11 @@ function clickatell_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $u
 			$sms_type = "SMS_TEXT";
 	}
 	
+	//Automatically setting the unicode flag if necessary
+	if (!$unicode) {
+		$unicode=core_detect_unicode($sms_msg);
+	}
+
 	if ($unicode) {
 		if (function_exists ( 'mb_convert_encoding' )) {
 			$sms_msg = mb_convert_encoding ( $sms_msg, "UCS-2BE", "auto" );
@@ -72,7 +77,7 @@ function clickatell_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $u
 	// fixme anton - if sms_from is not set in gateway_number and global number, we cannot pass it to clickatell
 	$set_sms_from = ($sms_from == $sms_sender ? '' : "&from=" . urlencode ( $sms_from ));
 	
-	$query_string = "sendmsg?api_id=" . $plugin_config['clickatell']['api_id'] . "&user=" . $plugin_config['clickatell']['username'] . "&password=" . $plugin_config['clickatell']['password'] . "&to=" . urlencode ( $sms_to ) . "&msg_type=$sms_type&text=" . urlencode ( utf8_decode($sms_msg) ) . "&unicode=" . $unicode . $set_sms_from;
+	$query_string = "sendmsg?api_id=" . $plugin_config['clickatell']['api_id'] . "&user=" . $plugin_config['clickatell']['username'] . "&password=" . $plugin_config['clickatell']['password'] . "&to=" . urlencode ( $sms_to ) . "&msg_type=$sms_type&text=" . urlencode ( $sms_msg ) . "&unicode=" . $unicode . $set_sms_from;
 	$url = $plugin_config['clickatell']['send_url'] . "/" . $query_string;
 	
 	if ($additional_param = $plugin_config['clickatell']['additional_param']) {
