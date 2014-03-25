@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr ""
+
+msgid "Add"
+msgstr ""
+
+msgid "Add SMS poll"
+msgstr ""
+
+msgid "Add choice to this poll"
+msgstr ""
+
+msgid ""
+"Are you sure you want to delete SMS poll with all its choices and votes ?"
+msgstr ""
+
+msgid "Are you sure you want to delete choice ?"
+msgstr ""
+
+msgid "Choice already exists"
+msgstr ""
+
+msgid "Choice has been added"
+msgstr ""
+
+msgid "Choice keyword"
+msgstr ""
+
+msgid "Choice title"
+msgstr ""
+
+msgid "Edit SMS poll"
+msgstr ""
+
+msgid "Edit SMS poll choices"
+msgstr ""
+
+msgid "Fail to add SMS poll"
+msgstr ""
+
+msgid "Fail to delete SMS poll choice"
+msgstr ""
+
+msgid "Graph output"
+msgstr ""
+
+msgid "JSON output"
+msgstr ""
+
+msgid "Keyword"
+msgstr ""
+
+msgid "Manage poll"
+msgstr "Manage poll"
+
+msgid "PHP serialize output"
+msgstr ""
+
+msgid "Reply message on invalid answer"
+msgstr ""
+
+msgid "Reply message on valid answer"
+msgstr ""
+
+msgid "Reply message when invalid answer"
+msgstr ""
+
+msgid "SMS poll already exists, reserved or use by other feature"
+msgstr ""
+
+msgid "SMS poll choice and all its voters has been deleted"
+msgstr ""
+
+msgid "SMS poll graph"
+msgstr ""
+
+msgid "SMS poll has been added"
+msgstr ""
+
+msgid "SMS poll keyword"
+msgstr ""
+
+msgid "SMS poll status has been changed"
+msgstr ""
+
+msgid "SMS poll title"
+msgstr ""
+
+msgid "SMS poll with all its messages has been deleted"
+msgstr ""
+
+msgid "SMS poll with has been saved"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "This poll has 0 votes!"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "View poll"
+msgstr ""
+
+msgid "XML output"
+msgstr ""
+
+msgid "You must fill all fields"
+msgstr ""
+
+msgid "keyword"
+msgstr ""
+
+msgid "title"
+msgstr ""
