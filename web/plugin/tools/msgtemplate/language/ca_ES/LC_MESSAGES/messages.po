@@ -1,10 +1,10 @@
 # Header entry was created by Lokalize.
 #
-# Joan <aseques@gmail.com>, 2012, 2013.
+# Joan <aseques@gmail.com>, 2012, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2013-05-08 15:41+0200\n"
+"PO-Revision-Date: 2014-03-25 14:43+0100\n"
 "Last-Translator: Joan <aseques@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -12,13 +12,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 1.5\n"
 
 msgid "Add message template"
 msgstr "Afegir plantilla de missatge"
 
 msgid "Are you sure you want to delete these items ?"
-msgstr ""
+msgstr "Esteu segur que voleu esborrar aquests elements?"
 
 msgid "Content"
 msgstr "Contingut"
@@ -51,7 +51,7 @@ msgid "Name"
 msgstr "Nom"
 
 msgid "Notes"
-msgstr ""
+msgstr "Notes"
 
 msgid "Save"
 msgstr "Guardar"
@@ -63,7 +63,8 @@ msgid "You must fill all fields"
 msgstr "Heu d'omplir tots els camps"
 
 msgid "will be replaced with the name listed in phonebook"
-msgstr ""
+msgstr "es reemplaçarà amb el nom que hi ha a l'agenda"
 
 msgid "will be replaced with the phone number listed in phonebook"
-msgstr ""
+msgstr "es reemplaçarà amb número de telèfon que hi ha a l'agenda"
+

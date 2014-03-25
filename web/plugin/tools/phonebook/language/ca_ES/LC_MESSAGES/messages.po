@@ -1,10 +1,10 @@
 # Header entry was created by Lokalize.
 #
-# Joan <aseques@gmail.com>, 2013.
+# Joan <aseques@gmail.com>, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2013-05-08 15:01+0200\n"
+"PO-Revision-Date: 2014-03-25 14:47+0100\n"
 "Last-Translator: Joan <aseques@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -12,10 +12,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 1.5\n"
 
 msgid "Action"
-msgstr ""
+msgstr "Acció"
 
 msgid "Add contact"
 msgstr "Afegir contacte"
@@ -23,12 +23,11 @@ msgstr "Afegir contacte"
 msgid "Add group"
 msgstr "Afegir grup"
 
-#, fuzzy
 msgid "Allow broadcast from mobile"
-msgstr "distribuir SMS a partir d'un SMS"
+msgstr "Permetre difusió des de mòbil"
 
 msgid "Anyone"
-msgstr ""
+msgstr "Qualsevol"
 
 msgid "Contact has been added"
 msgstr "El contacte s'ha afegit"
@@ -40,7 +39,7 @@ msgid "Contacts has been imported"
 msgstr "Els contactes s'han importat"
 
 msgid "Delete"
-msgstr ""
+msgstr "Esborrar"
 
 msgid "Edit contact"
 msgstr "Editar contacte"
@@ -52,7 +51,7 @@ msgid "Email"
 msgstr "Email"
 
 msgid "Fail to delete group"
-msgstr ""
+msgstr "Error esborrant grup"
 
 msgid "Fail to upload CSV file for phonebook"
 msgstr "Error al carregar el CSV per l'agenda"
@@ -88,16 +87,16 @@ msgid "Import confirmation"
 msgstr "Confirmar importació"
 
 msgid "Me only"
-msgstr ""
+msgstr "Només jo"
 
 msgid "Members"
-msgstr ""
+msgstr "Membres"
 
 msgid "Mobile"
 msgstr "Mòbil"
 
 msgid "Move to"
-msgstr ""
+msgstr "Moure a"
 
 msgid "Name"
 msgstr "Nom"
@@ -118,31 +117,28 @@ msgid "Save"
 msgstr "Guardar"
 
 msgid "Select"
-msgstr ""
+msgstr "Seleccionar"
 
 msgid "Selected contact has been deleted"
 msgstr "El contacte marcat s'ha esborrat"
 
-#, fuzzy
 msgid "Selected contact moved to new group"
-msgstr "El contacte marcat s'ha esborrat"
+msgstr "El contacte marcat s'ha mogut a un nou grup"
 
 msgid "Selected group has been deleted"
 msgstr "El grup marcat s'ha esborrat"
 
 msgid "Unable to delete group until the group is empty"
-msgstr ""
+msgstr "No es pot esborrar el grup fins que sigui buit"
 
 msgid "You must fill all field"
 msgstr "Heu d'omplir tots els camps"
 
-#, fuzzy
 msgid "You must fill mandatory fields"
-msgstr "Heu d'omplir tots els camps"
+msgstr "Heu d'omplir tots els camps obligatoris"
 
-#, fuzzy
 msgid "You must fill required fields"
-msgstr "Heu d'omplir tots els camps"
+msgstr "Heu d'omplir tots els camps requerits"
 
 msgid "broadcast SMS from single SMS"
 msgstr "distribuir SMS a partir d'un SMS"
@@ -158,3 +154,4 @@ msgstr "grup"
 
 msgid "please use uppercase and make it short"
 msgstr "si us plau feu servir majúscules i un nom curt"
+
