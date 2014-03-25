@@ -23,3 +23,5 @@ venv
 .codio
 
 /web/config.php
+
+.svn
