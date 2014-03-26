@@ -32,6 +32,11 @@ switch (_OP_) {
 		$option_enable_forgot = "<option value=\"1\" $selected1>"._('yes')."</option>";
 		$option_enable_forgot .= "<option value=\"0\" $selected2>"._('no')."</option>";
 		$selected1 = ""; $selected2 = "";
+                // enable logo yes-no option
+                if ($enable_logo) { $selected1 = "selected"; } else { $selected2 = "selected"; };
+                $option_enable_logo = "<option value=\"1\" $selected1>"._('yes')."</option>";
+                $option_enable_logo .= "<option value=\"0\" $selected2>"._('no')."</option>";
+                $selected1 = ""; $selected2 = "";
 		// allow edit sender yes-no option
 		if ($allow_custom_sender) {
 			$selected1 = "selected";
@@ -104,6 +109,7 @@ switch (_OP_) {
 			'Default credit for user' => _('Default credit for user'),
 			'Enable public registration' => _('Enable public registration'),
 			'Enable forgot password' => _('Enable forgot password'),
+			'Enable logo' => _('Enable logo'),
 			'Allow custom sender ID' => _('Allow custom sender ID'),
 			'Allow custom SMS footer' => _('Allow custom SMS footer'),
 			'Active gateway module' => _('Active gateway module'),
@@ -123,6 +129,7 @@ switch (_OP_) {
 			'default_credit' => $default_credit,
 			'option_enable_register' => $option_enable_register,
 			'option_enable_forgot' => $option_enable_forgot,
+			'option_enable_logo' => $option_enable_logo,
 			'option_allow_custom_sender' => $option_allow_custom_sender,
 			'option_allow_custom_footer' => $option_allow_custom_footer,
 			'option_gateway_module' => $option_gateway_module,
@@ -149,6 +156,7 @@ switch (_OP_) {
 			'default_credit' => (float) $_POST['edit_default_credit'],
 			'enable_register' => (int) $_POST['edit_enable_register'],
 			'enable_forgot' => (int) $_POST['edit_enable_forgot'],
+			'enable_logo' => (int) $_POST['edit_enable_logo'],
 			'allow_custom_sender' => $_POST['edit_allow_custom_sender'],
 			'allow_custom_footer' => $_POST['edit_allow_custom_footer']
 		);
