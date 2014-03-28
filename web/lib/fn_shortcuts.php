@@ -56,3 +56,10 @@ function _hint($text) {
 function _mandatory($text) {
 	return themes_mandatory($text);
 }
+
+
+// lib/fn_logger.php
+
+function _log($log, $level, $label) {
+	return logger_print($log, $level, $label);
+}
