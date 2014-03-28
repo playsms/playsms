@@ -688,13 +688,3 @@ function core_print($content) {
 	global $core_config;
 	echo $content;
 }
-
-/* Shortcuts */
-
-/**
- * Shortcut to core_print() for printing output to display
- * @return string
- */
-function _p($content) {
-	return core_print($content);
-}

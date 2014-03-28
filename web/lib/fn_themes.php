@@ -197,29 +197,3 @@ function themes_mandatory($text) {
 	}
 	return $ret;
 }
-
-/* define shortcuts */
-
-function _a($url, $title='', $css_class='', $css_id='') {
-	return themes_link($url, $title, $css_class, $css_id);
-}
-
-function _u($url) {
-	return themes_url($url);
-}
-
-function _back($url) {
-	return themes_button_back($url);
-}
-
-function _button($url, $title) {
-	return themes_button($url, $title);
-}
-
-function _hint($text) {
-	return themes_hint($text);
-}
-
-function _mandatory($text) {
-	return themes_mandatory($text);
-}
