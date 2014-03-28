@@ -18,25 +18,30 @@
  */
 
 defined('_SECURE_') or die('Forbidden');
+
 if(!auth_isadmin()){auth_block();};
 
 switch (_OP_) {
+
 	case "main_config":
 		// enable register yes-no option
 		if ($enable_register) { $selected1 = "selected"; } else { $selected2 = "selected"; };
 		$option_enable_register = "<option value=\"1\" $selected1>"._('yes')."</option>";
 		$option_enable_register .= "<option value=\"0\" $selected2>"._('no')."</option>";
 		$selected1 = ""; $selected2 = "";
+
 		// enable forgot yes-no option
 		if ($enable_forgot) { $selected1 = "selected"; } else { $selected2 = "selected"; };
 		$option_enable_forgot = "<option value=\"1\" $selected1>"._('yes')."</option>";
 		$option_enable_forgot .= "<option value=\"0\" $selected2>"._('no')."</option>";
 		$selected1 = ""; $selected2 = "";
+
                 // enable logo yes-no option
                 if ($enable_logo) { $selected1 = "selected"; } else { $selected2 = "selected"; };
                 $option_enable_logo = "<option value=\"1\" $selected1>"._('yes')."</option>";
                 $option_enable_logo .= "<option value=\"0\" $selected2>"._('no')."</option>";
                 $selected1 = ""; $selected2 = "";
+
 		// allow edit sender yes-no option
 		if ($allow_custom_sender) {
 			$selected1 = "selected";
@@ -47,6 +52,7 @@ switch (_OP_) {
 		$option_allow_custom_sender .= "<option value=\"0\" $selected2>" . _('no') . "</option>";
 		$selected1 = "";
 		$selected2 = "";
+
 		// allow edit footer yes-no option
 		if ($allow_custom_footer) {
 			$selected1 = "selected";
@@ -57,6 +63,7 @@ switch (_OP_) {
 		$option_allow_custom_footer .= "<option value=\"0\" $selected2>" . _('no') . "</option>";
 		$selected1 = "";
 		$selected2 = "";
+
 		// get gateway options
 		for ($i=0;$i<count($core_config['gatewaylist']);$i++) {
 			$gateway = $core_config['gatewaylist'][$i];
@@ -65,6 +72,7 @@ switch (_OP_) {
 			$option_gateway_module .= "<option value=\"$gateway\" $selected>$gateway</option>";
 			$selected = "";
 		}
+
 		// get themes options
 		for ($i=0;$i<count($core_config['themeslist']);$i++) {
 			$themes = $core_config['themeslist'][$i];
@@ -72,6 +80,7 @@ switch (_OP_) {
 			$option_themes_module .= "<option value=\"$themes\" $selected>$themes</option>";
 			$selected = "";
 		}
+
 		// get language options
 		$lang_list = '';
 		for ($i=0;$i<count($core_config['languagelist']);$i++) {
@@ -88,6 +97,8 @@ switch (_OP_) {
 				$selected = "";
 			}
 		}
+
+		// display
 
 		if ($err = $_SESSION['error_string']) {
 			$error_content = "<div class=error_string>$err</div>";
@@ -139,6 +150,7 @@ switch (_OP_) {
 		);
 		_p(tpl_apply($tpl));
 		break;
+
 	case "main_config_save":
 		$items = array(
 			'web_title' => $_POST['edit_web_title'],
@@ -165,4 +177,5 @@ switch (_OP_) {
 		header("Location: index.php?app=main&inc=main_config&op=main_config");
 		exit();
 		break;
+
 }
