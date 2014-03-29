@@ -17,9 +17,10 @@ $tpl = array(
 		'Email' => _('Email'),
 		'Recover password' => _('Recover password'),
 		'Login' => _('Login'),
-	'Submit' => _('Submit'),
-	'Register an account' => _('Register an account')
-    ),
+		'Submit' => _('Submit'),
+		'Register an account' => _('Register an account'),
+		'logo_url' => $core_config['main']['logo_url']
+	),
 	'if' => array(
 		'enable_register' => $core_config['main']['enable_register'],
 		'enable_logo' => $core_config['main']['enable_logo']

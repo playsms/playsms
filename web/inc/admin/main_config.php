@@ -121,37 +121,63 @@ switch (_OP_) {
 			'Enable public registration' => _('Enable public registration'),
 			'Enable forgot password' => _('Enable forgot password'),
 			'Enable logo' => _('Enable logo'),
+			'Logo URL' => _('Logo URL'),
 			'Allow custom sender ID' => _('Allow custom sender ID'),
 			'Allow custom SMS footer' => _('Allow custom SMS footer'),
 			'Active gateway module' => _('Active gateway module'),
 			'Active themes' => _('Active themes'),
 			'Default language' => _('Default language'),
 			'Save' => _('Save'),
-			'HINT_TIMEZONE' => _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')),
-			'web_title' => $web_title,
-			'email_service' => $email_service,
-			'email_footer' => $email_footer,
-			'main_website_name' => $main_website_name,
-			'main_website_url' => $main_website_url,
-			'gateway_number' => $gateway_number,
-			'gateway_timezone' => $gateway_timezone,
-			'default_rate' => $default_rate,
-			'sms_max_count' => $sms_max_count,
-			'default_credit' => $default_credit,
-			'option_enable_register' => $option_enable_register,
-			'option_enable_forgot' => $option_enable_forgot,
-			'option_enable_logo' => $option_enable_logo,
-			'option_allow_custom_sender' => $option_allow_custom_sender,
-			'option_allow_custom_footer' => $option_allow_custom_footer,
-			'option_gateway_module' => $option_gateway_module,
-			'option_themes_module' => $option_themes_module,
-			'option_language_module' => $option_language_module
+			'HINT_TIMEZONE' 		=> _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')),
+			'HINT_ENABLE_LOGO'		=> _hint(_('Logo by default will be displayed at login, register and forgot password page')),
+			'web_title' 			=> $core_config['main']['web_title'],
+			'email_service' 		=> $core_config['main']['email_service'],
+			'email_footer' 			=> $core_config['main']['email_footer'],
+			'main_website_name' 		=> $core_config['main']['main_website_name'],
+			'main_website_url' 		=> $core_config['main']['main_website_url'],
+			'gateway_number' 		=> $core_config['main']['gateway_number'],
+			'gateway_timezone' 		=> $core_config['main']['gateway_timezone'],
+			'default_rate' 			=> $core_config['main']['default_rate'],
+			'sms_max_count' 		=> $core_config['main']['sms_max_count'],
+			'default_credit' 		=> $core_config['main']['default_credit'],
+			'logo_url' 			=> $core_config['main']['logo_url'],
+			'option_enable_logo' 		=> $option_enable_logo,
+			'option_enable_register' 	=> $option_enable_register,
+			'option_enable_forgot' 		=> $option_enable_forgot,
+			'option_allow_custom_sender' 	=> $option_allow_custom_sender,
+			'option_allow_custom_footer' 	=> $option_allow_custom_footer,
+			'option_gateway_module' 	=> $option_gateway_module,
+			'option_themes_module' 		=> $option_themes_module,
+			'option_language_module' 	=> $option_language_module
 		    )
 		);
 		_p(tpl_apply($tpl));
 		break;
 
 	case "main_config_save":
+
+		// logo
+		
+		$enable_logo = $_POST['edit_enable_logo'];
+		$logo_url = trim($_POST['edit_logo_url']);
+
+		if (! $logo_url) {
+			$themes_logo = _APPS_PATH_THEMES_.'/'.core_themes_get().'/images/logo.png';
+			$themes_logo_url = _HTTP_PATH_THEMES_.'/'.core_themes_get().'/images/logo.png';
+
+			$default_logo = _APPS_PATH_THEMES_.'/common/images/logo.png';
+			$default_logo_url = _HTTP_PATH_THEMES_.'/common/images/logo.png';
+
+			$logo_url = ( file_exists($themes_logo) ? $themes_logo_url : $default_logo_url );
+
+			// force to disable logo when neither themes_logo or default_logo exists
+			if (! file_exists($default_logo)) {
+				$enable_logo = 0;
+			}
+		}
+
+		// save
+
 		$items = array(
 			'web_title' => $_POST['edit_web_title'],
 			'email_service' => $_POST['edit_email_service'],
@@ -168,11 +194,13 @@ switch (_OP_) {
 			'default_credit' => (float) $_POST['edit_default_credit'],
 			'enable_register' => (int) $_POST['edit_enable_register'],
 			'enable_forgot' => (int) $_POST['edit_enable_forgot'],
-			'enable_logo' => (int) $_POST['edit_enable_logo'],
+			'enable_logo' => (int) $enable_logo,
+			'logo_url' => $logo_url,
 			'allow_custom_sender' => $_POST['edit_allow_custom_sender'],
 			'allow_custom_footer' => $_POST['edit_allow_custom_footer']
 		);
 		$result = registry_update(1, 'core', 'main_config', $items);
+
 		$_SESSION['error_string'] = _('Main configuration changes has been saved');
 		header("Location: index.php?app=main&inc=main_config&op=main_config");
 		exit();

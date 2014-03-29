@@ -17,12 +17,13 @@ $tpl = array(
 		'Password' => _('Password'),
 		'Login' => _('Login'),
 		'Register an account' => _('Register an account'),
-		'Forgot password' => _('Forgot password')
+		'Forgot password' => _('Forgot password'),
+		'logo_url' => $core_config['main']['logo_url']
 	),
 	'if' => array(
 		'enable_register' => $core_config['main']['enable_register'],
 		'enable_forgot' => $core_config['main']['enable_forgot'],
-		'enable_logo' => $core_config['main']['enable_logo']
+		'enable_logo' => $core_config['main']['enable_logo'],
 	)
 );
 

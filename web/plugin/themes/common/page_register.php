@@ -18,10 +18,11 @@ $tpl = array(
 		'Mobile' => _('Mobile'),
 		'Email' => _('Email'),
 		'Register an account' => _('Register an account'),
-	'Login' => _('Login'),
-	'Submit' => _('Submit'),
-	'Forgot password' => _('Forgot password')
-    ),
+		'Login' => _('Login'),
+		'Submit' => _('Submit'),
+		'Forgot password' => _('Forgot password'),
+		'logo_url' => $core_config['main']['logo_url']
+	),
 	'if' => array(
 		'enable_forgot' => $core_config['main']['enable_forgot'],
 		'enable_logo' => $core_config['main']['enable_logo']
