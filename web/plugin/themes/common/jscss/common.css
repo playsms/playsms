@@ -234,6 +234,14 @@ table.sortable thead, table.sortable th {
 	max-width: 320px;
 }
 
+.playsms-logo {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 30px;
+	padding-bottom: 20px;
+}
+
 /* IDs */
 
 /* Wrapper for page content to push down footer */
