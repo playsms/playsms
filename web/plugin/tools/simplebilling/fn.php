@@ -71,7 +71,7 @@ function simplebilling_hook_billing_getdata($smslog_id) {
 
 function simplebilling_hook_billing_getdata_by_uid($uid) {
 	$ret = array();
-	logger_print("uid:".$uid, 2, "simplebilling summary");
+	// logger_print("uid:".$uid, 2, "simplebilling summary");
 	$db_query = "SELECT * FROM playsms_tblBilling AS A, playsms_tblUser AS B, playsms_tblSMSOutgoing AS C " .
 		"WHERE A.smslog_id=C.smslog_id AND B.uid=C.uid AND A.status='1' AND B.uid='$uid'";
 	$db_result = dba_query($db_query);
@@ -87,5 +87,3 @@ function simplebilling_hook_billing_getdata_by_uid($uid) {
 	}
 	return $ret;
 }
-
-?>
