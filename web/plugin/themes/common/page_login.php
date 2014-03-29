@@ -24,6 +24,7 @@ $tpl = array(
 		'enable_register' => $core_config['main']['enable_register'],
 		'enable_forgot' => $core_config['main']['enable_forgot'],
 		'enable_logo' => $core_config['main']['enable_logo'],
+		'logo_replace_title' => ( $core_config['main']['logo_replace_title'] ? FALSE : TRUE ),
 	)
 );
 
