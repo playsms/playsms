@@ -31,7 +31,7 @@ if (function_exists('bindtextdomain')) {
 
 // core menus for admin users
 if ($continue) {
-	$c_fn = _APPS_PATH_INCS_.'/admin/'._INC_.".php";
+	$c_fn = _APPS_PATH_INCS_.'/admin/'._INC_.'.php';
 	if (file_exists($c_fn)) {
 		include $c_fn;
 		$continue = FALSE;
@@ -40,7 +40,7 @@ if ($continue) {
 
 // core menus for non-admin or regular users
 if ($continue) {
-	$c_fn = _APPS_PATH_INCS_.'/user/'._INC_.".php";
+	$c_fn = _APPS_PATH_INCS_.'/user/'._INC_.'.php';
 	if (file_exists($c_fn)) {
 		include $c_fn;
 		$continue = FALSE;
@@ -53,12 +53,8 @@ if ($continue && _INC_) {
 	$plugin_category = $p[0];
 	$plugin_name = $p[1];
 	$plugin_dir = _APPS_PATH_PLUG_.'/'.$plugin_category.'/'.$plugin_name;
-	if (_ROUTE_) {
-		$load_file = _ROUTE_.'.php';
-	} else {
-		$load_file = $plugin_name.'.php';
-	}
-	$plugin_file = $plugin_dir.'/'.$load_file;
+	$file_name = ( _ROUTE_ ? _ROUTE_.'.php' : $plugin_name.'.php' );
+	$plugin_file = $plugin_dir.'/'.$file_name;
 	if (file_exists($plugin_file)) {
 		if (function_exists('bindtextdomain')) {
 			bindtextdomain('messages', $plugin_dir.'/language/');
