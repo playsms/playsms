@@ -192,7 +192,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must select receiver and your message should not be empty');
 		}
-		header("Location: index.php?app=main&inc=send_sms&op=send_sms");
+		header("Location: "._u('index.php?app=main&inc=send_sms&op=send_sms'));
 		exit();
 		break;
 }

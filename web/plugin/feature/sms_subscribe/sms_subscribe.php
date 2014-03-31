@@ -87,7 +87,7 @@ switch (_OP_) {
 		if ($db_result > 0) {
 			$_SESSION['error_string'] = _('SMS subscribe status has been changed');
 		}
-		header("Location: index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_list");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_list'));
 		exit();
 		break;
 	case "sms_subscribe_add" :
@@ -219,7 +219,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_add");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_add'));
 		exit();
 		break;
 	case "sms_subscribe_edit" :
@@ -366,7 +366,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=$subscribe_id");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id='.$subscribe_id));
 		exit();
 		break;
 	case "sms_subscribe_del" :
@@ -384,7 +384,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('SMS subscribe with all its messages and members has been deleted')." ("._('keyword').": $subscribe_keyword)";
 			}
 		}
-		header("Location: index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_list");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_list'));
 		exit();
 		break;
 	case "mbr_list" :
@@ -429,7 +429,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] =_('Member has been deleted');
 			}
 		}
-		header("Location: index.php?app=main&inc=feature_sms_subscribe&op=mbr_list&subscribe_id=$subscribe_id");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_subscribe&op=mbr_list&subscribe_id='.$subscribe_id));
 		exit();
 		break;
 	case "msg_list" :
@@ -522,7 +522,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=main&inc=feature_sms_subscribe&op=msg_edit&subscribe_id=$subscribe_id&msg_id=$msg_id");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_subscribe&op=msg_edit&subscribe_id='.$subscribe_id.'&msg_id='.$msg_id));
 		exit();
 		break;
 	case "msg_add" :
@@ -570,7 +570,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=main&inc=feature_sms_subscribe&op=msg_add&subscribe_id=$subscribe_id");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_subscribe&op=msg_add&subscribe_id='.$subscribe_id));
 		exit();
 		break;
 	case "msg_del" :
@@ -581,7 +581,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('Message has been deleted');
 			}
 		}
-		header("Location: index.php?app=main&inc=feature_sms_subscribe&op=msg_list&subscribe_id=".$subscribe_id);
+		header("Location: "._u('index.php?app=main&inc=feature_sms_subscribe&op=msg_list&subscribe_id='.$subscribe_id));
 		exit();
 		break;
 	case "msg_view" :
@@ -655,7 +655,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=main&inc=feature_sms_subscribe&op=msg_view&msg_id=$msg_id&subscribe_id=$subscribe_id");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_subscribe&op=msg_view&msg_id='.$msg_id.'&subscribe_id='.$subscribe_id));
 		exit();
 		break;
 

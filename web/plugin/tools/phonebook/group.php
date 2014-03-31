@@ -159,7 +159,7 @@ switch (_OP_) {
 					}
 				}
 				$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&search_category='.$search['category'].'&page='.$nav['page'].'&nav='.$nav['nav'];
-				header("Location: ".$ref);
+				header("Location: "._u($ref));
 				exit();
 				break;
 			case 'add':
@@ -185,7 +185,7 @@ switch (_OP_) {
 						$_SESSION['error_string'] = _('Group code has been added')." ("._('group').": $group_name, "._('code').": $group_code)";
 					}
 				}
-				header("Location: index.php?app=main&inc=tools_phonebook&route=group&op=list");
+				header("Location: "._u('index.php?app=main&inc=tools_phonebook&route=group&op=list'));
 				exit();
 				break;
 			case 'edit':
@@ -212,7 +212,7 @@ switch (_OP_) {
 						$_SESSION['error_string'] = _('Group has been edited')." ("._('group').": $group_name, "._('code')." $group_code)";
 					}
 				}
-				header("Location: index.php?app=main&inc=tools_phonebook&route=group&op=edit&gpid=$gpid");
+				header("Location: "._u('index.php?app=main&inc=tools_phonebook&route=group&op=edit&gpid='.$gpid));
 				exit();
 				break;
 		}

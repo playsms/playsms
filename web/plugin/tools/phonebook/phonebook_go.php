@@ -47,5 +47,5 @@ $search = themes_search_session();
 $nav = themes_nav_session();
 
 $ref = $search['url'].'&search_keyword='.$search['keyword'].'&search_category='.$search['category'].'&page='.$nav['page'].'&nav='.$nav['nav'];
-header("Location: ".$ref);
+header("Location: "._u($ref));
 exit();

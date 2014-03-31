@@ -55,7 +55,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Fail to simulate incoming SMS');
 		}
-		header("Location: index.php?app=main&inc=gateway_dev&op=manage");
+		header("Location: "._u('index.php?app=main&inc=gateway_dev&op=manage'));
 		exit();
 		break;
 }

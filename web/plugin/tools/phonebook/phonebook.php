@@ -240,7 +240,7 @@ switch (_OP_) {
 				} else {
 					$_SESSION['error_string'] = _('You must fill required fields');
 				}
-				header("Location: index.php?app=main&inc=tools_phonebook&op=phonebook_add");
+				header("Location: "._u('index.php?app=main&inc=tools_phonebook&op=phonebook_add'));
 				exit();
 				break;
 			case 'edit':
@@ -287,7 +287,7 @@ switch (_OP_) {
 				} else {
 					$_SESSION['error_string'] = _('You must fill required fields');
 				}
-				header("Location: index.php?app=main&inc=tools_phonebook&op=phonebook_list");
+				header("Location: "._u('index.php?app=main&inc=tools_phonebook&op=phonebook_list'));
 				exit();
 				break;
 		}

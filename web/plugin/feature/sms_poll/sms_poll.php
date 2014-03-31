@@ -78,7 +78,7 @@ switch (_OP_) {
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$poll_keyword = $db_row['poll_keyword'];
-		header("Location: index.php?app=webservices&ta=sms_poll&keyword=".$poll_keyword);
+		header("Location: "._u('index.php?app=webservices&ta=sms_poll&keyword='.$poll_keyword));
 		exit();
 		break;
 	case "sms_poll_edit":
@@ -179,7 +179,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit&poll_id=$poll_id");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit&poll_id='.$poll_id));
 		exit();
 		break;
 	case "sms_poll_status":
@@ -189,7 +189,7 @@ switch (_OP_) {
 		if ($db_result > 0) {
 			$_SESSION['error_string'] = _('SMS poll status has been changed');
 		}
-		header("Location: index.php?app=main&inc=feature_sms_poll&op=sms_poll_list");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_list'));
 		exit();
 		break;
 	case "sms_poll_del":
@@ -202,7 +202,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('SMS poll with all its messages has been deleted')." ("._('keyword').": $poll_keyword)";
 			}
 		}
-		header("Location: index.php?app=main&inc=feature_sms_poll&op=sms_poll_list");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_list'));
 		exit();
 		break;
 	case "sms_poll_choice_add":
@@ -225,7 +225,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit&poll_id=$poll_id");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit&poll_id='.$poll_id));
 		exit();
 		break;
 	case "sms_poll_choice_del":
@@ -243,7 +243,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('SMS poll choice and all its voters has been deleted')." ("._('keyword').": $choice_keyword)";
 			}
 		}
-		header("Location: index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit&poll_id=$poll_id");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit&poll_id='.$poll_id));
 		exit();
 		break;
 	case "sms_poll_add":
@@ -296,9 +296,9 @@ switch (_OP_) {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
 		if ($new_poll_id) {
-			header("Location: index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit&poll_id=".$new_poll_id);
+			header("Location: "._u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit&poll_id='.$new_poll_id));
 		} else {
-			header("Location: index.php?app=main&inc=feature_sms_poll&op=sms_poll_add");
+			header("Location: "._u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_add'));
 		}
 		exit();
 		break;

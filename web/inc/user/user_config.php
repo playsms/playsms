@@ -51,7 +51,7 @@ switch (_OP_) {
 			$credit = rate_getusercredit($c_username);
 		} else {
 			$_SESSION['error_string'] = _('User does not exists').' ('._('username').': '.$uname.')';
-			header("Location: index.php?app=main&inc=user_mgmnt&op=".$referrer);
+			header("Location: "._u('index.php?app=main&inc=user_mgmnt&op='.$referrer));
 			exit();
 		}
 
@@ -265,7 +265,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Username is empty');
 		}
-		header("Location: index.php?app=main&inc=user_config&op=user_config".$url_uname);
+		header("Location: "._u('index.php?app=main&inc=user_config&op=user_config'.$url_uname));
 		exit();
 		break;
 }

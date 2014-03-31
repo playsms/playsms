@@ -159,7 +159,7 @@ switch (_OP_) {
 				}
 				$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&page='.$nav['page'].'&nav='.$nav['nav'];
 				$_SESSION['error_string'] = _('Selected outgoing message has been deleted');
-				header("Location: ".$ref);
+				header("Location: "._u($ref));
 		}
 		break;
 }

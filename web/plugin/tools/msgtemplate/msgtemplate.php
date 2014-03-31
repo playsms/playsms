@@ -135,7 +135,7 @@ switch (_OP_) {
 				} else {
 					$_SESSION['error_string'] = _('You must fill all fields');
 				}
-				header("Location: index.php?app=main&inc=tools_msgtemplate&op=add");
+				header("Location: "._u('index.php?app=main&inc=tools_msgtemplate&op=add'));
 				exit();
 				break;
 			case "edit":
@@ -152,7 +152,7 @@ switch (_OP_) {
 				} else {
 					$_SESSION['error_string'] = _('You must fill all fields');
 				}
-				header("Location: index.php?app=main&inc=tools_msgtemplate&op=list");
+				header("Location: "._u('index.php?app=main&inc=tools_msgtemplate&op=list'));
 				exit();
 				break;
 			case "delete":
@@ -168,7 +168,7 @@ switch (_OP_) {
 					}
 				}
 				$_SESSION['error_string'] = _('Selected message template has been deleted');
-				header("Location: index.php?app=main&inc=tools_msgtemplate&op=list");
+				header("Location: "._u('index.php?app=main&inc=tools_msgtemplate&op=list'));
 				exit();
 				break;
 		}

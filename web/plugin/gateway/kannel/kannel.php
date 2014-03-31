@@ -146,7 +146,7 @@ switch (_OP_) {
 			$items['admin_password'] = $_POST['up_admin_password'];
 		}
 		registry_update(1, 'gateway', 'kannel', $items);
-		header("Location: index.php?app=main&inc=gateway_kannel&op=manage");
+		header("Location: "._u('index.php?app=main&inc=gateway_kannel&op=manage'));
 		exit();
 		break;
 
@@ -158,8 +158,7 @@ switch (_OP_) {
 		$url = 'http://'.$admin_host.'/restart?password='.$admin_password;
 		$restart = file_get_contents($url);
 		$_SESSION['error_string']   = _('Restart Kannel').' - '._('Status').': '.$restart;
-		header("Location: index.php?app=main&inc=gateway_kannel&op=manage");
+		header("Location: "._u('index.php?app=main&inc=gateway_kannel&op=manage'));
 		exit();
 		break;
-		//end Of Fixme Edward, Adding New Case To Handle Button Restart Kannel Services
 }

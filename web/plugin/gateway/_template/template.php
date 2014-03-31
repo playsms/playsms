@@ -50,7 +50,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('Gateway module configurations has been saved');
 			}
 		}
-		header("Location: index.php?app=main&inc=gateway_template&op=manage");
+		header("Location: "._u('index.php?app=main&inc=gateway_template&op=manage'));
 		exit();
 		break;
 }

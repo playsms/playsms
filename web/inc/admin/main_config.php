@@ -240,8 +240,7 @@ switch (_OP_) {
 		$result = registry_update(1, 'core', 'main_config', $items);
 		
 		$_SESSION['error_string'] = _('Main configuration changes has been saved');
-		header("Location: index.php?app=main&inc=main_config&op=main_config");
+		header("Location: "._u('index.php?app=main&inc=main_config&op=main_config'));
 		exit();
 		break;
-	}
-	
+}

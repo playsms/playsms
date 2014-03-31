@@ -126,7 +126,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all field');
 		}
-		header("Location: index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_add");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_add'));
 		exit();
 		break;
 	case "sms_quiz_edit" :
@@ -189,7 +189,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all field');
 		}
-		header("Location: index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=$quiz_id");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id='.$quiz_id));
 		exit();
 		break;
 	case "sms_answer_view" :
@@ -250,7 +250,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('SMS quiz answer messages has been deleted');
 			}
 		}
-		header("Location: index.php?app=main&inc=feature_sms_quiz&op=sms_answer_view&quiz_id=$quiz_id");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_quiz&op=sms_answer_view&quiz_id='.$quiz_id));
 		exit();
 		break;
 	case "sms_quiz_status" :
@@ -260,7 +260,7 @@ switch (_OP_) {
 		if ($db_result > 0) {
 			$_SESSION['error_string'] = _('SMS quiz status has been changed');
 		}
-		header("Location: index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_list");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_list'));
 		exit();
 		break;
 	case "sms_quiz_del" :
@@ -273,7 +273,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('SMS quiz with all its messages has been deleted')." ("._('keyword').": $quiz_keyword)";
 			}
 		}
-		header("Location: index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_list");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_list'));
 		exit();
 		break;
 }

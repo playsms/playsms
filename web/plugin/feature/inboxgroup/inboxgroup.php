@@ -84,7 +84,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=main&inc=feature_inboxgroup&op=add");
+		header("Location: "._u('index.php?app=main&inc=feature_inboxgroup&op=add'));
 		exit();
 		break;
 	case 'edit':
@@ -139,7 +139,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=main&inc=feature_inboxgroup&op=edit&rid=".$rid);
+		header("Location: "._u('index.php?app=main&inc=feature_inboxgroup&op=edit&rid='.$rid));
 		exit();
 		break;
 	case 'del':
@@ -196,7 +196,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Receiver number does not exists');
 		}
-		header("Location: index.php?app=main&inc=feature_inboxgroup&op=list&rid=".$rid);
+		header("Location: "._u('index.php?app=main&inc=feature_inboxgroup&op=list&rid='.$rid));
 		exit();
 		break;
 	case 'enable':
@@ -212,7 +212,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Receiver number does not exists');
 		}
-		header("Location: index.php?app=main&inc=feature_inboxgroup&op=list&rid=".$rid);
+		header("Location: "._u('index.php?app=main&inc=feature_inboxgroup&op=list&rid='.$rid));
 		exit();
 		break;
 	case 'disable':
@@ -228,7 +228,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Receiver number does not exists');
 		}
-		header("Location: index.php?app=main&inc=feature_inboxgroup&op=list&rid=".$rid);
+		header("Location: "._u('index.php?app=main&inc=feature_inboxgroup&op=list&rid='.$rid));
 		exit();
 		break;
 }

@@ -48,7 +48,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Fail to save SMS Sync configuration');
 		}
-		header("Location: index.php?app=main&inc=feature_sms_sync&op=sms_sync_list");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_sync&op=sms_sync_list'));
 		exit();
 		break;
 }

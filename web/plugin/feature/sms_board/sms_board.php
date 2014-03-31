@@ -130,7 +130,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=main&inc=feature_sms_board&op=sms_board_edit&board_id=$board_id");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_board&op=sms_board_edit&board_id='.$board_id));
 		exit();
 		break;
 	case "sms_board_del":
@@ -144,7 +144,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('SMS board with all its messages has been deleted')." ("._('keyword').": $board_keyword)";
 			}
 		}
-		header("Location: index.php?app=main&inc=feature_sms_board&op=sms_board_list");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_board&op=sms_board_list'));
 		exit();
 		break;
 	case "sms_board_add":
@@ -200,7 +200,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=main&inc=feature_sms_board&op=sms_board_add");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_board&op=sms_board_add'));
 		exit();
 		break;
 }

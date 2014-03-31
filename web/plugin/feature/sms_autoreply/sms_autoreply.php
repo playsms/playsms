@@ -136,7 +136,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('Fail to delete SMS autoreply')." ("._('keyword').": $keyword_name";
 			}
 		}
-		header("Location: index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list'));
 		exit();
 		break;
 	case "sms_autoreply_add":
@@ -177,7 +177,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_add");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_add'));
 		exit();
 		break;
 		// scenario
@@ -189,7 +189,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('SMS autoreply scenario has been deleted');
 			}
 		}
-		header("Location: index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=".$autoreply_id."");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id='.$autoreply_id));
 		exit();
 		break;
 	case "sms_autoreply_scenario_add":
@@ -250,7 +250,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=$autoreply_id");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id='.$autoreply_id));
 		exit();
 		break;
 	case "sms_autoreply_scenario_edit":
@@ -319,7 +319,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit&autoreply_id=$autoreply_id&autoreply_scenario_id=$autoreply_scenario_id");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit&autoreply_id='.$autoreply_id.'&autoreply_scenario_id='.$autoreply_scenario_id));
 		exit();
 		break;
 }

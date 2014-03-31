@@ -91,7 +91,7 @@ switch (_OP_) {
 			_p($content);
 		} else {
 			$_SESSION['error_string'] = _('Fail to upload CSV file for phonebook');
-			header("Location: index.php?app=main&inc=tools_phonebook&route=import&op=list");
+			header("Location: "._u('index.php?app=main&inc=tools_phonebook&route=import&op=list'));
 			exit();
 		}
 		break;
@@ -136,7 +136,7 @@ switch (_OP_) {
 			unset($gpid);
 		}
 		$_SESSION['error_string'] = _('Contacts has been imported');
-		header("Location: index.php?app=main&inc=tools_phonebook&route=import&op=list");
+		header("Location: "._u('index.php?app=main&inc=tools_phonebook&route=import&op=list'));
 		exit();
 		break;
 }

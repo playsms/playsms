@@ -26,5 +26,5 @@ if (auth_isvalid()) {
 	$_SESSION['error_string'] = _('You have been logged out');
 }
 
-header("Location: ".$core_config['http_path']['base']);
+header("Location: "._u($core_config['http_path']['base']));
 exit();

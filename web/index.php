@@ -99,9 +99,9 @@ if (_APP_) {
 } else {
 	// no _APP_ then load default page
 	if (auth_isvalid()) {
-		header("Location: index.php?app=main&inc=".$core_config['main']['default_inc']."&op=".$core_config['main']['default_op']);
+		header("Location: "._u('index.php?app=main&inc='.$core_config['main']['default_inc'].'&op='.$core_config['main']['default_op']));
 	} else {
-		header("Location: index.php?app=page&inc=login");
+		header("Location: "._u('index.php?app=page&inc=login'));
 	}
 	exit();
 }

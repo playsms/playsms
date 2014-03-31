@@ -131,7 +131,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=main&inc=feature_sms_custom&op=sms_custom_edit&custom_id=$custom_id");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_custom&op=sms_custom_edit&custom_id='.$custom_id));
 		exit();
 		break;
 	case "sms_custom_del":
@@ -147,7 +147,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('Fail to delete SMS custom') . " (" . _('keyword') . ": $keyword_name)";
 			}
 		}
-		header("Location: index.php?app=main&inc=feature_sms_custom&op=sms_custom_list");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_custom&op=sms_custom_list'));
 		exit();
 		break;
 	case "sms_custom_add":
@@ -209,7 +209,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=main&inc=feature_sms_custom&op=sms_custom_add");
+		header("Location: "._u('index.php?app=main&inc=feature_sms_custom&op=sms_custom_add'));
 		exit();
 		break;
 }

@@ -23,7 +23,7 @@ if(!auth_isadmin()){auth_block();};
 switch (_OP_) {
 	case "user_list":
 		$referrer = ( $_SESSION['referrer'] ? $_SESSION['referrer'] : 'user_list_tab1' );
-		header("Location: index.php?app=main&inc=user_mgmnt&op=".$referrer);
+		header("Location: "._u('index.php?app=main&inc=user_mgmnt&op='.$referrer));
 		break;
 	case "user_list_tab1":
 		$search_var = array(
@@ -228,7 +228,7 @@ switch (_OP_) {
 		$add['language_module'] = $_POST['add_language_module'];
 		$ret = user_add($add);
 		$_SESSION['error_string'] = $ret['error_string'];
-		header("Location: index.php?app=main&inc=user_mgmnt&op=user_add");
+		header("Location: "._u('index.php?app=main&inc=user_mgmnt&op=user_add'));
 		exit();
 		break;
 	case "user_del":
@@ -237,7 +237,7 @@ switch (_OP_) {
 		$ret = user_remove($del_uid);
 		$_SESSION['error_string'] = $ret['error_string'];
 		$referrer = ( $_SESSION['referrer'] ? $_SESSION['referrer'] : 'user_list_tab1' );
-		header("Location: index.php?app=main&inc=user_mgmnt&op=".$referrer);
+		header("Location: "._u('index.php?app=main&inc=user_mgmnt&op='.$referrer));
 		exit();
 		break;
 }

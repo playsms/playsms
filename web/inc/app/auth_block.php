@@ -22,9 +22,9 @@ defined('_SECURE_') or die('Forbidden');
 if (auth_isvalid()) {
 	$_SESSION['error_string'] = _('You have no access to this page');
 	logger_print("WARNING: no access or blocked. sid:".$_SESSION['sid']." ip:".$_SERVER['REMOTE_ADDR']." uid:".$user_config['uid']." app:"._APP_." inc:"._INC_." op:"._OP_." route:"._ROUTE_, 2, "auth_block");
-	header("Location: index.php?app=page&inc=block");
+	header("Location: "._u('index.php?app=page&inc=block'));
 } else {
-	header("Location: index.php?app=page&inc=login");
+	header("Location: "._u('index.php?app=page&inc=login'));
 }
 
 exit();

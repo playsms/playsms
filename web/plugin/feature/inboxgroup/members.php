@@ -176,7 +176,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Receiver number does not exists');
 		}
-		header("Location: index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid=".$rid);
+		header("Location: "._u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid='.$rid));
 		exit();
 		break;
 	case 'members_delete':
@@ -264,7 +264,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Receiver number does not exists');
 		}
-		header("Location: index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid=".$rid);
+		header("Location: "._u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid='.$rid));
 		exit();
 		break;
 }

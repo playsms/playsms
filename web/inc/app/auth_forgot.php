@@ -71,8 +71,9 @@ if (! auth_isvalid()) {
 }
 
 if ($ok) {
-	header("Location: ".$core_config['http_path']['base']);
+	header("Location: "._u($core_config['http_path']['base']));
 } else {
-	header("Location: index.php?app=page&inc=forgot");
+	header("Location: "._u('index.php?app=page&inc=forgot'));
 }
+
 exit();

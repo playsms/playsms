@@ -78,7 +78,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('Queue has been remove');
 			}
 		}
-		header("Location: index.php?app=main&inc=tools_queuelog&op=queuelog_list");
+		header("Location: "._u('index.php?app=main&inc=tools_queuelog&op=queuelog_list'));
 		exit();
 		break;
 }

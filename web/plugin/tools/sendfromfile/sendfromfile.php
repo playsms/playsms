@@ -76,7 +76,7 @@ switch (_OP_) {
 			}
 		} else {
 			$_SESSION['error_string'] = _('Invalid CSV file');
-			header("Location: index.php?app=main&inc=tools_sendfromfile&op=list");
+			header("Location: "._u('index.php?app=main&inc=tools_sendfromfile&op=list'));
 			exit();
 			break;
 		}
@@ -161,7 +161,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Invalid session ID');
 		}
-		header("Location: index.php?app=main&inc=tools_sendfromfile&op=list");
+		header("Location: "._u('index.php?app=main&inc=tools_sendfromfile&op=list'));
 		exit();
 		break;
 	case 'upload_process':
@@ -186,7 +186,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Invalid session ID');
 		}
-		header("Location: index.php?app=main&inc=tools_sendfromfile&op=list");
+		header("Location: "._u('index.php?app=main&inc=tools_sendfromfile&op=list'));
 		exit();
 		break;
 }

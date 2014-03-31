@@ -49,7 +49,7 @@ switch (_OP_) {
 		if (@dba_affected_rows($db_query)) {
 			$_SESSION['error_string'] = _('Rate has been deleted')." ("._('destination').": $dst, "._('prefix').": $prefix)";
 		}
-		header("Location: index.php?app=main&inc=tools_simplerate&op=simplerate_list");
+		header("Location: "._u('index.php?app=main&inc=tools_simplerate&op=simplerate_list'));
 		exit();
 		break;
 	case "simplerate_edit":
@@ -99,7 +99,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=main&inc=tools_simplerate&op=simplerate_edit&rateid=$rateid");
+		header("Location: "._u('index.php?app=main&inc=tools_simplerate&op=simplerate_edit&rateid='.$rateid));
 		exit();
 		break;
 	case "simplerate_add":
@@ -148,7 +148,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
-		header("Location: index.php?app=main&inc=tools_simplerate&op=simplerate_add");
+		header("Location: "._u('index.php?app=main&inc=tools_simplerate&op=simplerate_add'));
 		exit();
 		break;
 }
