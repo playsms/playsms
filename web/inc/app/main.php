@@ -24,14 +24,14 @@ ob_start();
 $continue = TRUE;
 
 if (function_exists('bindtextdomain')) {
-	bindtextdomain('messages', $core_config['apps_path']['plug'].'/language/');
+	bindtextdomain('messages', _APPS_PATH_PLUG_.'/language/');
 	bind_textdomain_codeset('messages', 'UTF-8');
 	textdomain('messages');
 }
 
 // core menus for admin users
 if ($continue) {
-	$c_fn = $core_config['apps_path']['incs']."/admin/"._INC_.".php";
+	$c_fn = _APPS_PATH_INCS_.'/admin/'._INC_.".php";
 	if (file_exists($c_fn)) {
 		include $c_fn;
 		$continue = FALSE;
@@ -40,7 +40,7 @@ if ($continue) {
 
 // core menus for non-admin or regular users
 if ($continue) {
-	$c_fn = $core_config['apps_path']['incs']."/user/"._INC_.".php";
+	$c_fn = _APPS_PATH_INCS_.'/user/'._INC_.".php";
 	if (file_exists($c_fn)) {
 		include $c_fn;
 		$continue = FALSE;
@@ -70,7 +70,7 @@ if ($continue && _INC_) {
 }
 
 if (function_exists('bindtextdomain')) {
-	bindtextdomain('messages', $core_config['apps_path']['themes'].'/'.core_themes_get().'/language/');
+	bindtextdomain('messages', _APPS_PATH_THEMES_.'/'.core_themes_get().'/language/');
 	bind_textdomain_codeset('messages', 'UTF-8');
 	textdomain('messages');
 }
