@@ -47,30 +47,25 @@ if ($continue) {
 	}
 }
 
-// plugins
-if ($continue) {
-	for ($i=0;$i<count($plugins_category);$i++) {
-		if ($pc = $plugins_category[$i]) {
-			for ($c=0;$c<count($core_config[$pc.'list']);$c++) {
-				if (_INC_ == $pc.'_'.$core_config[$pc.'list'][$c]) {
-					$pn = $core_config[$pc.'list'][$c];
-					$c_fn = $core_config['apps_path']['plug'].'/'.$pc.'/'.$pn.'/'.$pn.'.php';
-					if (file_exists($c_fn)) {
-						$c_fn_route = $core_config['apps_path']['plug'].'/'.$pc.'/'.$pn.'/'._ROUTE_.'.php';
-						if (_ROUTE_ && file_exists($c_fn_route)) {
-							$c_fn = $c_fn_route;
-						}
-						if (function_exists('bindtextdomain')) {
-							bindtextdomain('messages', $core_config['apps_path']['plug'].'/'.$pc.'/'.$pn.'/language/');
-							bind_textdomain_codeset('messages', 'UTF-8');
-							textdomain('messages');
-						}
-						include_once $c_fn;
-						break;
-					}
-				}
-			}
+// load plugin
+if ($continue && _INC_) {
+	$p = explode('_', _INC_, 2);
+	$plugin_category = $p[0];
+	$plugin_name = $p[1];
+	$plugin_dir = _APPS_PATH_PLUG_.'/'.$plugin_category.'/'.$plugin_name;
+	if (_ROUTE_) {
+		$load_file = _ROUTE_.'.php';
+	} else {
+		$load_file = $plugin_name.'.php';
+	}
+	$plugin_file = $plugin_dir.'/'.$load_file;
+	if (file_exists($plugin_file)) {
+		if (function_exists('bindtextdomain')) {
+			bindtextdomain('messages', $plugin_dir.'/language/');
+			bind_textdomain_codeset('messages', 'UTF-8');
+			textdomain('messages');
 		}
+		include_once $plugin_file;
 	}
 }
 
