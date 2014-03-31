@@ -141,7 +141,6 @@ function auth_isadmin() {
  * Display page for blocked access
  */
 function auth_block() {
-	global $core_config;
-	header("Location: index.php?app=page&inc=block");
+	header("Location: index.php?app=auth&op=block");
 	exit();
 }
