@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
  */
-include "config.php";
+include 'config.php';
 
 // security, checked by essential files under subdir
 define('_SECURE_', 1);
@@ -34,10 +34,10 @@ if (!defined('_PHP_VER_')) {
 $core_config['daemon_process'] = $DAEMON_PROCESS;
 
 if (!$core_config['daemon_process']) {
-	if (trim($SERVER_PROTOCOL) == "HTTP/1.1") {
-		header("Cache-Control: no-cache, must-revalidate");
+	if (trim($SERVER_PROTOCOL) == 'HTTP/1.1') {
+		header('Cache-Control: no-cache, must-revalidate');
 	} else {
-		header("Pragma: no-cache");
+		header('Pragma: no-cache');
 	}
 	@session_start();
 	ob_start();
@@ -73,7 +73,7 @@ $c_http_host = $_SERVER['HTTP_HOST'];
 $core_config['apps_path']['base'] = dirname($c_script_filename);
 
 // base application http path
-$core_config['http_path']['base'] = ( $core_config['ishttps'] ? "https://" : "http://" ) . $c_http_host . ( dirname($c_php_self) == '/' ? '/' : dirname($c_php_self) );
+$core_config['http_path']['base'] = ( $core_config['ishttps'] ? 'https://' : 'http://' ) . $c_http_host . ( dirname($c_php_self) == '/' ? '/' : dirname($c_php_self) );
 
 // libraries directory
 $core_config['apps_path']['libs'] = $core_config['apps_path']['base'] . '/lib';
@@ -115,7 +115,7 @@ define('_APPS_PATH_TPL_', $core_config['apps_path']['tpl']);
 define('_HTTP_PATH_TPL_', $core_config['http_path']['tpl']);
 
 // load init functions
-include_once $core_config['apps_path']['libs'] . "/fn_init.php";
+include_once _APPS_PATH_LIBS_ . '/fn_init.php';
 
 // if magic quotes gps is set to Off (which is recommended) then addslashes all requests
 if (!get_magic_quotes_gpc()) {
@@ -146,7 +146,7 @@ if (!((_APP_ == 'ws') || (_APP_ == 'webservices'))) {
 	// print_r($_POST); print_r($_SESSION);
 	if ($_POST) {
 		if (!core_csrf_validate()) {
-			logger_print("WARNING: possible CSRF attack. sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "init");
+			logger_print('WARNING: possible CSRF attack. sid:' . $_SESSION['sid'] . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'init');
 			auth_block();
 		}
 	}
@@ -158,13 +158,13 @@ if (!((_APP_ == 'ws') || (_APP_ == 'webservices'))) {
 
 // connect to database
 if (!($dba_object = dba_connect(_DB_USER_, _DB_PASS_, _DB_NAME_, _DB_HOST_, _DB_PORT_))) {
-	// logger_print("Fail to connect to database", 4, "init");
+	// logger_print('Fail to connect to database', 4, 'init');
 	ob_end_clean();
 	die(_('FATAL ERROR') . ' : ' . _('Fail to connect to database'));
 }
 
 // set charset to UTF-8
-dba_query("SET NAMES utf8");
+dba_query('SET NAMES utf8');
 
 // get main config from registry and load it to $core_config['main']
 $result = registry_search(1, 'core', 'main_config');
@@ -174,7 +174,7 @@ foreach ($result['core']['main_config'] as $key => $val) {
 }
 
 if (!$core_config['main']) {
-	logger_print("Fail to load main config from registry", 1, "init");
+	logger_print('Fail to load main config from registry', 1, 'init');
 	ob_end_clean();
 	die(_('FATAL ERROR') . ' : ' . _('Fail to load main config from registry'));
 }
@@ -184,19 +184,22 @@ $core_config['main']['default_inc'] = 'page_welcome';
 $core_config['main']['default_op'] = 'page_welcome';
 
 // set global date/time variables
-$date_format = "Y-m-d";
-$time_format = "H:i:s";
-$datetime_format = $date_format . " " . $time_format;
+$date_format = 'Y-m-d';
+$time_format = 'H:i:s';
+$datetime_format = $date_format . ' ' . $time_format;
 $date_now = date($date_format, time());
 $time_now = date($time_format, time());
 $datetime_now = date($datetime_format, time());
-$datetime_format_stamp = "YmdHis";
+$datetime_format_stamp = 'YmdHis';
 $datetime_now_stamp = date($datetime_format_stamp, time());
 
 $core_config['datetime']['format'] = $datetime_format;
 $core_config['datetime']['now_stamp'] = $datetime_now_stamp;
 
+
 // --- playSMS Specifics --- //
+
+
 // plugins category
 $plugins_category = array('tools', 'feature', 'gateway', 'themes', 'language');
 $core_config['plugins_category'] = $plugins_category;
@@ -211,21 +214,20 @@ $core_config['main']['max_sms_length'] = $core_config['main']['sms_max_count'] *
 $core_config['main']['max_sms_length_unicode'] = $core_config['main']['sms_max_count'] * $core_config['main']['per_sms_length_unicode'];
 
 // reserved important keywords
-$reserved_keywords = array("BC");
+$reserved_keywords = array('BC');
 $core_config['reserved_keywords'] = $reserved_keywords;
-
 
 // verify selected gateway_module exists
 $continue = FALSE;
-$fn1 = $core_config['apps_path']['plug'] . '/gateway/' . core_gateway_get() . '/config.php';
-$fn2 = $core_config['apps_path']['plug'] . '/gateway/' . core_gateway_get() . '/fn.php';
+$fn1 = _APPS_PATH_PLUG_ . '/gateway/' . core_gateway_get() . '/config.php';
+$fn2 = _APPS_PATH_PLUG_ . '/gateway/' . core_gateway_get() . '/fn.php';
 if (file_exists($fn1) && file_exists($fn2)) {
 	$continue = TRUE;
 }
 
 // verify selected themes_module exists
-$fn1 = $core_config['apps_path']['plug'] . '/themes/' . core_themes_get() . '/config.php';
-$fn2 = $core_config['apps_path']['plug'] . '/themes/' . core_themes_get() . '/fn.php';
+$fn1 = _APPS_PATH_PLUG_ . '/themes/' . core_themes_get() . '/config.php';
+$fn2 = _APPS_PATH_PLUG_ . '/themes/' . core_themes_get() . '/fn.php';
 if ($continue && file_exists($fn1) && file_exists($fn2)) {
 	$continue = TRUE;
 } else {
@@ -233,8 +235,8 @@ if ($continue && file_exists($fn1) && file_exists($fn2)) {
 }
 
 // verify selected language_module exists
-$fn1 = $core_config['apps_path']['plug'] . '/language/' . core_lang_get() . '/config.php';
-$fn2 = $core_config['apps_path']['plug'] . '/language/' . core_lang_get() . '/fn.php';
+$fn1 = _APPS_PATH_PLUG_ . '/language/' . core_lang_get() . '/config.php';
+$fn2 = _APPS_PATH_PLUG_ . '/language/' . core_lang_get() . '/fn.php';
 if ($continue && file_exists($fn1) && file_exists($fn2)) {
 	$continue = TRUE;
 } else {
@@ -242,7 +244,7 @@ if ($continue && file_exists($fn1) && file_exists($fn2)) {
 }
 
 if (! $continue) {
-	logger_print("Fail to load gateway, themes or language module", 1, "init");
+	logger_print('Fail to load gateway, themes or language module', 1, 'init');
 	ob_end_clean();
 	die(_('FATAL ERROR') . ' : ' . _('Fail to load gateway, themes or language module'));
 }
@@ -255,7 +257,7 @@ if (auth_isvalid()) {
 	$user_config['opt']['per_sms_length_unicode'] = $core_config['main']['per_sms_length_unicode'] - $user_config['opt']['sms_footer_length'];
 	$user_config['opt']['max_sms_length'] = $core_config['main']['max_sms_length'] - $user_config['opt']['sms_footer_length'];
 	$user_config['opt']['max_sms_length_unicode'] = $core_config['main']['max_sms_length_unicode'] - $user_config['opt']['sms_footer_length'];
-	$user_config['opt']['gravatar'] = "https://www.gravatar.com/avatar/" . md5(strtolower(trim($user_config['email'])));
+	$user_config['opt']['gravatar'] = 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($user_config['email'])));
 	if (!$core_config['daemon_process']) {
 		// save login session information
 		user_session_set();
@@ -267,7 +269,7 @@ if (auth_isvalid()) {
 }
 
 if (function_exists('bindtextdomain')) {
-	bindtextdomain('messages', $core_config['apps_path']['plug'] . '/language/');
+	bindtextdomain('messages', _APPS_PATH_PLUG_ . '/language/');
 	bind_textdomain_codeset('messages', 'UTF-8');
 	textdomain('messages');
 }
@@ -280,20 +282,20 @@ $core_config['menutab']['feature'] = _('Feature');
 $core_config['menutab']['administration'] = _('Administration');
 
 $menutab_my_account = $core_config['menutab']['my_account'];
-$menu_config[$menutab_my_account][] = array("index.php?app=main&inc=send_sms&op=send_sms", _('Send message'), 1);
-$menu_config[$menutab_my_account][] = array("index.php?app=main&inc=user_inbox&op=user_inbox", _('Inbox'), 1);
-$menu_config[$menutab_my_account][] = array("index.php?app=main&inc=user_incoming&op=user_incoming", _('Incoming messages'), 1);
-$menu_config[$menutab_my_account][] = array("index.php?app=main&inc=user_outgoing&op=user_outgoing", _('Outgoing messages'), 1);
+$menu_config[$menutab_my_account][] = array('index.php?app=main&inc=send_sms&op=send_sms', _('Send message'), 1);
+$menu_config[$menutab_my_account][] = array('index.php?app=main&inc=user_inbox&op=user_inbox', _('Inbox'), 1);
+$menu_config[$menutab_my_account][] = array('index.php?app=main&inc=user_incoming&op=user_incoming', _('Incoming messages'), 1);
+$menu_config[$menutab_my_account][] = array('index.php?app=main&inc=user_outgoing&op=user_outgoing', _('Outgoing messages'), 1);
 
 if (auth_isadmin()) {
 	// administrator menus
 	$menutab_administration = $core_config['menutab']['administration'];
-	$menu_config[$menutab_administration][] = array("index.php?app=main&inc=all_inbox&op=all_inbox", _('All inbox'), 1);
-	$menu_config[$menutab_administration][] = array("index.php?app=main&inc=all_incoming&op=all_incoming", _('All incoming messages'), 1);
-	$menu_config[$menutab_administration][] = array("index.php?app=main&inc=all_outgoing&op=all_outgoing", _('All outgoing messages'), 1);
-	$menu_config[$menutab_administration][] = array("index.php?app=main&inc=sandbox&op=sandbox", _('Sandbox'), 1);
-	$menu_config[$menutab_administration][] = array("index.php?app=main&inc=user_mgmnt&op=user_list", _('Manage user'), 2);
-	$menu_config[$menutab_administration][] = array("index.php?app=main&inc=main_config&op=main_config", _('Main configuration'), 2);
+	$menu_config[$menutab_administration][] = array('index.php?app=main&inc=all_inbox&op=all_inbox', _('All inbox'), 1);
+	$menu_config[$menutab_administration][] = array('index.php?app=main&inc=all_incoming&op=all_incoming', _('All incoming messages'), 1);
+	$menu_config[$menutab_administration][] = array('index.php?app=main&inc=all_outgoing&op=all_outgoing', _('All outgoing messages'), 1);
+	$menu_config[$menutab_administration][] = array('index.php?app=main&inc=sandbox&op=sandbox', _('Sandbox'), 1);
+	$menu_config[$menutab_administration][] = array('index.php?app=main&inc=user_mgmnt&op=user_list', _('Manage user'), 2);
+	$menu_config[$menutab_administration][] = array('index.php?app=main&inc=main_config&op=main_config', _('Main configuration'), 2);
 	//ksort($menu_config[$menutab_administration]);
 }
 
