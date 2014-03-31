@@ -146,7 +146,7 @@ function themes_link($url, $title='', $css_class="", $css_id="") {
 		$c_title = ( $title ? $title : $url );
 		$css_class = ( $css_class ? " class=\"".$css_class."\"" : '' );
 		$css_id = ( $css_id ? " id=\"".$css_id."\"" : '' );
-		$ret = "<a href=\"".$url."\"".$css_class.$css_id.">".$c_title."</a>";
+		$ret = "<a href=\""._u($url)."\"".$css_class.$css_id.">".$c_title."</a>";
 	}
 	return $ret;
 }
@@ -171,7 +171,7 @@ function themes_button($url, $title, $css_class='', $css_id='') {
 	if (! $ret) {
 		$css_class = ( $css_class ? " ".$css_class : '' );
 		$css_id = ( $css_id ? " id=\"".$css_id."\"" : '' );
-		$ret = "<a href=# class=\"button".$css_class."\" ".$css_id."value=\"".$title."\" onClick=\"javascript:window.location.href='".$url."'\" />".$title."</a>";
+		$ret = "<a href=# class=\"button".$css_class."\" ".$css_id."value=\"".$title."\" onClick=\"javascript:window.location.href='"._u($url)."'\" />".$title."</a>";
 	}
 	return $ret;
 }
