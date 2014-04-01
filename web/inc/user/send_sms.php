@@ -25,7 +25,7 @@ switch (_OP_) {
 
 		// get $to and $message from session or query string
 		$to = stripslashes($_REQUEST['to']);
-		$message = ( stripslashes($_REQUEST['message']) ? stripslashes($_REQUEST['message']) : trim($_SESSION['tmp']['message']) );
+		$message = ( stripslashes($_REQUEST['message']) ? stripslashes($_REQUEST['message']) : trim(stripslashes($_SESSION['tmp']['message'])) );
 
 		// sender ID
 		$sms_from = sendsms_get_sender($user_config['username']);
