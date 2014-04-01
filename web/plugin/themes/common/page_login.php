@@ -17,7 +17,7 @@ $tpl = array(
 		'Password' => _('Password'),
 		'Login' => _('Login'),
 		'Register an account' => _('Register an account'),
-		'Forgot password' => _('Forgot password'),
+		'Recover password' => _('Recover password'),
 		'logo_url' => $core_config['main']['logo_url']
 	),
 	'if' => array(

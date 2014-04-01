@@ -20,7 +20,7 @@ $tpl = array(
 		'Register an account' => _('Register an account'),
 		'Login' => _('Login'),
 		'Submit' => _('Submit'),
-		'Forgot password' => _('Forgot password'),
+		'Recover password' => _('Recover password'),
 		'logo_url' => $core_config['main']['logo_url']
 	),
 	'if' => array(
