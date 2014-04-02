@@ -12,36 +12,6 @@ switch (_OP_) {
 		// current logged in user
 		$c_uid = $user_config['uid'];
 
-		// SMS PENDING
-		$db_query = "SELECT COUNT(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE uid='$c_uid' AND p_status='0' AND flag_deleted='0'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$num_rows_pending = $db_row['count'];
-
-		// SMS SENT
-		$db_query = "SELECT COUNT(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE uid='$c_uid' AND p_status='1' AND flag_deleted='0'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$num_rows_sent = $db_row['count'];
-
-		// SMS DELIVERED
-		$db_query = "SELECT COUNT(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE uid='$c_uid' AND p_status='3' AND flag_deleted='0'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$num_rows_delivered = $db_row['count'];
-
-		// SMS FAILED
-		$db_query = "SELECT COUNT(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE uid='$c_uid' AND p_status='2' AND flag_deleted='0'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$num_rows_failed = $db_row['count'];
-
-		// SMS DELETED
-		$db_query = "SELECT COUNT(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE uid='$c_uid' AND flag_deleted='1'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$num_rows_deleted = $db_row['count'];
-
 		// BILLING
 		$billing = 0;
 		$data = billing_getdata_by_uid($c_uid);
@@ -65,11 +35,11 @@ switch (_OP_) {
 			'Deleted' => _('Deleted'),
 			'Billing' => _('Billing'),
 			'Credit' => _('Credit'),
-			'num_rows_pending' => $num_rows_pending,
-			'num_rows_sent' => $num_rows_sent,
-			'num_rows_delivered' => $num_rows_delivered,
-			'num_rows_failed' => $num_rows_failed,
-			'num_rows_deleted' => $num_rows_deleted,
+			'num_rows_pending' => report_count_pending($c_uid),
+			'num_rows_sent' => report_count_sent($c_uid),
+			'num_rows_delivered' => report_count_delivered($c_uid),
+			'num_rows_failed' => report_count_failed($c_uid),
+			'num_rows_deleted' => report_count_deleted($c_uid),
 			'billing' => $billing,
 			'credit' => $credit
 		    )
@@ -181,4 +151,3 @@ switch (_OP_) {
 		_p(tpl_apply($tpl));
 		break;
 }
-?>
