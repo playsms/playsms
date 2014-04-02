@@ -52,26 +52,28 @@ CREATE TABLE IF NOT EXISTS `playsms_tblNotif` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-DROP TABLE IF EXISTS `playsms_tblConfig_main`;
+INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) SELECT 1,'core','main_config','web_title',cfg_web_title FROM `playsms_tblConfig_main`;
+INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) SELECT 1,'core','main_config','email_service',cfg_email_service FROM `playsms_tblConfig_main`;
+INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) SELECT 1,'core','main_config','email_footer',cfg_email_footer FROM `playsms_tblConfig_main`;
+INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) SELECT 1,'core','main_config','gateway_module',cfg_gateway_module FROM `playsms_tblConfig_main`;
+INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) SELECT 1,'core','main_config','gateway_number',cfg_gateway_number FROM `playsms_tblConfig_main`;
+INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) SELECT 1,'core','main_config','themes_module',cfg_themes_module FROM `playsms_tblConfig_main`;
+INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) SELECT 1,'core','main_config','default_rate',cfg_default_rate FROM `playsms_tblConfig_main`;
+INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) SELECT 1,'core','main_config','language_module',cfg_language_module FROM `playsms_tblConfig_main`;
+INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) SELECT 1,'core','main_config','datetime_timezone',cfg_datetime_timezone FROM `playsms_tblConfig_main`;
+INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) SELECT 1,'core','main_config','sms_max_count',cfg_sms_max_count FROM `playsms_tblConfig_main`;
+INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) SELECT 1,'core','main_config','default_credit',cfg_default_credit FROM `playsms_tblConfig_main`;
+INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) SELECT 1,'core','main_config','enable_register',cfg_enable_register FROM `playsms_tblConfig_main`;
+INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) SELECT 1,'core','main_config','enable_forgot',cfg_enable_forgot FROM `playsms_tblConfig_main`;
 
 INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) VALUES
-(1, 'core', 'main_config', 'web_title', 'playSMS'),
-(1, 'core', 'main_config', 'email_service', 'noreply@playsms.org'),
-(1, 'core', 'main_config', 'email_footer', 'Powered by playSMS'),
 (1, 'core', 'main_config', 'main_website_name', 'playSMS'),
 (1, 'core', 'main_config', 'main_website_url', 'http://www.playsms.org'),
-(1, 'core', 'main_config', 'gateway_number', '1234'),
 (1, 'core', 'main_config', 'gateway_timezone', '+0700'),
-(1, 'core', 'main_config', 'default_rate', '0'),
-(1, 'core', 'main_config', 'gateway_module', 'dev'),
-(1, 'core', 'main_config', 'themes_module', 'default'),
-(1, 'core', 'main_config', 'language_module', 'en_US'),
-(1, 'core', 'main_config', 'sms_max_count', '3'),
-(1, 'core', 'main_config', 'default_credit', '0'),
-(1, 'core', 'main_config', 'enable_register', '0'),
-(1, 'core', 'main_config', 'enable_forgot', '1'),
 (1, 'core', 'main_config', 'allow_custom_sender', '0'),
 (1, 'core', 'main_config', 'allow_custom_footer', '0');
+
+DROP TABLE IF EXISTS `playsms_tblConfig_main`;
 
 DROP TABLE `playsms_featureSurvey`, `playsms_featureSurvey_log`, `playsms_featureSurvey_members`, `playsms_featureSurvey_questions`;
 
