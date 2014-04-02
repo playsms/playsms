@@ -22,6 +22,7 @@ defined('_SECURE_') or die('Forbidden');
 $ok = FALSE;
 
 if (! auth_isvalid()) {
+	$data = array();
 	$data['name'] = $_REQUEST['name'];
 	$data['username'] = $_REQUEST['username'];
 	$data['mobile'] = $_REQUEST['mobile'];
