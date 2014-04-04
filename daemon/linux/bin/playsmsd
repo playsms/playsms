@@ -24,12 +24,13 @@ error_reporting(0);
 $ini = array();
 
 $ini_files = array(
-    '/etc/default/playsms',
-    '/etc/sysconfig/playsms',
-    './playsmsd.conf',
-    '~/playsmsd.conf',
-    '/etc/playsmsd.conf',
-    '/usr/local/etc/playsmsd.conf');
+	'/etc/default/playsms',
+	'/etc/sysconfig/playsms',
+	'./playsmsd.conf',
+	'~/playsmsd.conf',
+	'/etc/playsmsd.conf',
+	'/usr/local/etc/playsmsd.conf'
+	);
 
 foreach ($ini_files as $PLAYSMSD_CONF) {
 	if (file_exists($PLAYSMSD_CONF)) {
@@ -81,17 +82,15 @@ $PLAYSMSD_BIN = "$PLAYSMS_DAEMON_PATH/playsmsd";
 
 switch ($COMMAND) {
 	case 'start':
-		$is_running = ( shell_exec("ps uf -C playsmsd | grep schedule") ? TRUE : FALSE );
-		if ($is_running) {
-			echo "playsmsd is already running - stop first to restart\n";
+		if (playsmsd_isrunning()) {
+			echo "playsmsd is already running\n";
 			exit();
 		}
-		exec("$PLAYSMSD_BIN schedule >/dev/null 2>&1 &");
-		exec("$PLAYSMSD_BIN dlrssmsd >/dev/null 2>&1 &");
-		exec("$PLAYSMSD_BIN recvsmsd >/dev/null 2>&1 &");
-		exec("$PLAYSMSD_BIN sendsmsd >/dev/null 2>&1 &");
-		$is_running = ( shell_exec("ps uf -C playsmsd | grep schedule") ? TRUE : FALSE );
-		if ($is_running) {
+		exec("nohup $PLAYSMSD_BIN schedule >/dev/null 2>&1 &");
+		exec("nohup $PLAYSMSD_BIN dlrssmsd >/dev/null 2>&1 &");
+		exec("nohup $PLAYSMSD_BIN recvsmsd >/dev/null 2>&1 &");
+		exec("nohup $PLAYSMSD_BIN sendsmsd >/dev/null 2>&1 &");
+		if (playsmsd_isrunning()) {
 			echo "playsmsd has been started\n";
 		} else {
 			echo "Unable to start playsmsd\n";
@@ -99,12 +98,17 @@ switch ($COMMAND) {
 		exit();
 		break;
 	case 'stop':
-		echo "playsmsd will be killed\n";
-		exec("killall playsmsd >/dev/null 2>&1");
+		if (playsmsd_isrunning()) {
+			exec("killall playsmsd >/dev/null 2>&1");
+		}
+		if (playsmsd_isrunning()) {
+			echo "Unable to stop playsmsd\n";
+		} else {
+			echo "playsmsd has been stopped\n";
+		}
 		break;
 	case 'status':
-		$is_running = ( shell_exec("ps uf -C playsmsd | grep schedule") ? TRUE : FALSE );
-		if ($is_running) {
+		if (playsmsd_isrunning()) {
 			echo "playsmsd is running\n";
 		} else {
 			echo "playsmsd is not running\n";
@@ -112,7 +116,7 @@ switch ($COMMAND) {
 		exit();
 		break;
 	case 'check':
-		echo "playsms installation check\n";
+		echo "playsmsd installation check\n\n";
 		echo "PLAYSMSD_CONF = " . $PLAYSMSD_CONF . "\n";
 		echo "PLAYSMS_PATH = " . $PLAYSMS_INSTALL_PATH . "\n";
 		echo "PLAYSMS_LIB = " . $PLAYSMS_LIB_PATH . "\n";
@@ -120,7 +124,9 @@ switch ($COMMAND) {
 		echo "PLAYSMS_LOG = " . $PLAYSMS_LOG_PATH . "\n";
 		echo "DAEMON_SLEEP = " . $DAEMON_SLEEP . "\n";
 		echo "MAX_EXECUTION_TIME = " . $MAX_EXECUTION_TIME . "\n";
-		echo "ERROR_REPORTING = " . $ERROR_REPORTING . "\n";
+		echo "ERROR_REPORTING = " . $ERROR_REPORTING . "\n\n";
+		echo shell_exec("$PLAYSMSD_BIN status");
+		echo "\n";
 		exit();
 		break;
 }
@@ -203,8 +209,8 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 					}
 					if (count($queue) > 0) {
 						foreach ($queue as $q) {
-							$is_running = ( shell_exec("ps uf -C playsmsd | grep $q") ? TRUE : FALSE );
-							if (!$is_running) {
+							$is_sending = ( shell_exec("ps uf -C playsmsd | grep $q") ? TRUE : FALSE );
+							if (!$is_sending) {
 								$RUN_THIS = "$PLAYSMSD_BIN sendsmsd once $q >/dev/null 2>&1 &";
 								echo $COMMAND . " execute: " . $RUN_THIS . "\n";
 								exec($RUN_THIS);
@@ -224,4 +230,26 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 			ob_end_clean();
 		} // while TRUE
 	}
+}
+
+
+// functions
+
+
+/**
+ * Check whether or not playsmsd is running
+ * @return boolean
+ */
+function playsmsd_isrunning() {
+	$is_running = ( shell_exec("ps uf -C playsmsd | grep schedule") ? TRUE : FALSE );
+	if ($is_running) {
+		$is_running = ( shell_exec("ps uf -C playsmsd | grep dlrssmsd") ? TRUE : FALSE );
+	}
+	if ($is_running) {
+		$is_running = ( shell_exec("ps uf -C playsmsd | grep recvsmsd") ? TRUE : FALSE );
+	}
+	if ($is_running) {
+		$is_running = ( shell_exec("ps uf -C playsmsd | grep sendsmsd") ? TRUE : FALSE );
+	}
+	return $is_running;
 }
