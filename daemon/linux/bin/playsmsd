@@ -24,21 +24,26 @@ error_reporting(0);
 $ini = array();
 
 $ini_files = array(
-	'/etc/default/playsms',
-	'/etc/sysconfig/playsms',
 	'./playsmsd.conf',
 	'~/playsmsd.conf',
 	'/etc/playsmsd.conf',
 	'/usr/local/etc/playsmsd.conf'
 	);
 
+$continue = FALSE;
 foreach ($ini_files as $PLAYSMSD_CONF) {
 	if (file_exists($PLAYSMSD_CONF)) {
 		$ini = @parse_ini_file($PLAYSMSD_CONF);
 		if ($ini['PLAYSMS_PATH'] && $ini['PLAYSMS_BIN'] && $ini['PLAYSMS_LOG']) {
+			$continue = TRUE;
 			break;
 		}
 	}
+}
+
+if (! $continue) {
+	echo "Unable to find playsmsd.conf in current directory, home directory, /etc or in /usr/local/etc\n";
+	exit();
 }
 
 // playSMS installation location
