@@ -81,6 +81,7 @@ $CMD_PARAM = $argv[3];
 $PLAYSMSD_BIN = "$PLAYSMS_DAEMON_PATH/playsmsd";
 
 switch ($COMMAND) {
+
 	case 'start':
 		if (playsmsd_isrunning()) {
 			echo "playsmsd is already running\n";
@@ -97,6 +98,7 @@ switch ($COMMAND) {
 		}
 		exit();
 		break;
+
 	case 'stop':
 		if (playsmsd_isrunning()) {
 			exec("killall playsmsd >/dev/null 2>&1");
@@ -107,6 +109,7 @@ switch ($COMMAND) {
 			echo "playsmsd has been stopped\n";
 		}
 		break;
+
 	case 'status':
 		if (playsmsd_isrunning()) {
 			echo "playsmsd is running\n";
@@ -115,6 +118,7 @@ switch ($COMMAND) {
 		}
 		exit();
 		break;
+
 	case 'check':
 		echo "playsmsd installation check\n\n";
 		echo "PLAYSMSD_CONF = " . $PLAYSMSD_CONF . "\n";
@@ -129,9 +133,10 @@ switch ($COMMAND) {
 		echo "\n";
 		exit();
 		break;
+
 }
 
-if (!$COMMAND) {
+if (! $COMMAND) {
 	echo "Usage: playsmsd <start|stop|status|check>\n";
 	exit();
 }
@@ -142,63 +147,73 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 	// mark this process as a DAEMON_PROCESS
 	$DAEMON_PROCESS = true;
 
-	if ($LOOP_FLAG == 'once') {
+	$continue = FALSE;
+	if (file_exists('init.php')) {
+		include 'init.php';
+		$fn = $core_config['apps_path']['libs'] . '/function.php';
+		if ($core_config['daemon_process'] && file_exists($fn)) {
+			include $fn;
+			if ($core_config['apps_path']['incs']) {
+				$continue = TRUE;
+			}
+		}
+	}
+
+	if ($continue && $LOOP_FLAG == 'once') {
+
 		// execute one time only
-		$continue = FALSE;
-		if (file_exists('init.php')) {
-			include 'init.php';
-			$fn = $core_config['apps_path']['libs'] . '/function.php';
-			if ($core_config['daemon_process'] && file_exists($fn)) {
-				include_once $fn;
-				if ($core_config['apps_path']['incs']) {
-					$continue = TRUE;
+
+		// MAIN ONCE BLOCK
+
+		echo $COMMAND . " start time:" . mktime() . "\n";
+		
+		if ($COMMAND == 'sendsmsd') {
+			if ($CMD_PARAM) {
+				$param = explode('_', $CMD_PARAM);
+				if (($param[0] == 'Q') && ($queue = $param[1])) {
+					sendsmsd($queue, $core_config['sendsmsd_limit']);
 				}
 			}
 		}
-		if ($continue) {
 
-			// MAIN ONCE BLOCK
+		// END OF ONCE BLOCK
 
-			if ($COMMAND == 'sendsmsd') {
-				if ($CMD_PARAM) {
-					$param = explode('_', $CMD_PARAM);
-					if (($param[0] == 'Q') && ($queue = $param[1])) {
-						sendsmsd($queue, $core_config['sendsmsd_limit']);
-					}
-				}
-			}
+		echo $COMMAND . " end time:" . mktime() . "\n";
 
-			// END OF ONCE BLOCK
-		} // if continue
 		exit();
-	} else if ($LOOP_FLAG == 'loop') {
+
+	} else if ($continue && $LOOP_FLAG == 'loop') {
+
 		// execute in a loop
-		while (TRUE) {
-			$continue = FALSE;
-			if (file_exists('init.php')) {
-				include 'init.php';
-				$fn = $core_config['apps_path']['libs'] . '/function.php';
-				if ($core_config['daemon_process'] && file_exists($fn)) {
-					include_once $fn;
-					if ($core_config['apps_path']['incs']) {
-						$continue = TRUE;
-					}
-				}
-			}
-			if ($continue) {
-				echo $COMMAND . " start time:" . mktime() . "\n";
 
-				// MAIN LOOP BLOCK
+		$DAEMON_LOOPING = TRUE;
 
-				if ($COMMAND == 'schedule') {
+		while ($DAEMON_LOOPING) {
+
+			echo $COMMAND . " start time:" . mktime() . "\n";
+
+			// re-include init.php on every 'while' to get the most updated configurations
+			include 'init.php';
+
+			// MAIN LOOP BLOCK
+
+			switch ($COMMAND) {
+
+				case 'schedule':
 					playsmsd();
-				} else if ($COMMAND == 'dlrssmsd') {
+					break;
+
+				case 'dlrssmsd':
 					dlrd();
 					getsmsstatus();
-				} else if ($COMMAND == 'recvsmsd') {
+					break;
+
+				case 'recvsmsd':
 					recvsmsd();
 					getsmsinbox();
-				} else if ($COMMAND == 'sendsmsd') {
+					break;
+
+				case 'sendsmsd':
 					$queue = array();
 					if ((int) $core_config['sendsmsd_queue'] > 0) {
 						$extas = array('LIMIT' => (int) $core_config['sendsmsd_queue']);
@@ -217,17 +232,22 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 							}
 						}
 					}
-				} else {
-					// reserved for custom daemon services
-					echo $COMMAND . " custom service\n";
-				}
+					break;
 
-				// END OF MAIN LOOP BLOCK
+				default:
+					$DAEMON_LOOPING = FALSE;
 
-				echo $COMMAND . " end time:" . mktime() . "\n";
-				sleep($DAEMON_SLEEP);
-			} // if continue
-			ob_end_clean();
+			}
+
+			// END OF MAIN LOOP BLOCK
+
+			echo $COMMAND . " end time:" . mktime() . "\n";
+
+			sleep($DAEMON_SLEEP);
+
+			// empty buffer
+			ob_clean();
+
 		} // while TRUE
 	}
 }
