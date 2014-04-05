@@ -108,6 +108,7 @@ switch ($COMMAND) {
 		} else {
 			echo "playsmsd has been stopped\n";
 		}
+		exit();
 		break;
 
 	case 'status':
