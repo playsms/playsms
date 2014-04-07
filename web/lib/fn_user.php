@@ -276,14 +276,16 @@ function user_session_set($uid='') {
 	global $core_config, $user_config;
 	if (! $core_config['daemon_process']) {
 		$uid = ( $uid ? $uid : $user_config['uid'] );
-		$c_items = array(
+		$hash = md5($uid.$_SERVER['REMOTE_ADDR'].$_SERVER['HTTP_USER_AGENT']);
+		$json = array(
 			'ip' => $_SERVER['REMOTE_ADDR'],
 			'last_update' => core_get_datetime(),
 			'http_user_agent' => $_SERVER['HTTP_USER_AGENT'],
-			'hash' => md5($uid.$_SERVER['REMOTE_ADDR'].$_SERVER['HTTP_USER_AGENT'])
+			'sid' => $_SESSION['sid'],
+			'uid' => $uid,
 		);
-		$items[$_SESSION['sid']] = json_encode($c_items);
-		registry_update($uid, 'auth', 'login_session', $items);
+		$item[$hash] = json_encode($json);
+		registry_update($uid, 'auth', 'login_session', $item);
 	}
 }
 
@@ -291,22 +293,28 @@ function user_session_set($uid='') {
  * Get user's login session information
  * @param integer $uid User ID
  * @param string $sid Session ID
- * @return array Sessions
+ * @return array login sessions
  */
 function user_session_get($uid='', $sid='') {
 	global $user_config;
 	$ret = array();
 	$uid = ( $uid ? $uid : $user_config['uid'] );
-	$s = registry_search($uid, 'auth', 'login_session');
-	$sessions = $s['auth']['login_session'];
-	foreach ($sessions as $key => $val) {
-		$tmp_ret = core_object_to_array(json_decode($val));
-		$c_ret[$key] = $tmp_ret;
+	$h = registry_search($uid, 'auth', 'login_session');
+	$hashes = $h['auth']['login_session'];
+	foreach ($hashes as $key => $val) {
+		$d = core_object_to_array(json_decode($val));
+		if ($d['ip'] && $d['last_update'] && $d['http_user_agent'] && $d['sid'] && $d['uid']) {
+			$c_hashes[$key] = $d;
+		}
 	}
 	if ($sid) {
-		$ret[$sid] = $c_ret[$sid];
+		foreach ($c_hashes as $key => $val) {
+			if ($val['sid'] == $sid) {
+				$ret[$key] = $val;
+			}
+		}
 	} else {
-		$ret = $c_ret;
+		$ret = $c_hashes;
 	}
 	return $ret;
 }

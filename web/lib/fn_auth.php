@@ -115,13 +115,10 @@ function auth_validate_token($token) {
  */
 function auth_isvalid() {
 	if ($_SESSION['sid'] && $_SESSION['uid'] && $_SESSION['valid']) {
-		$s = user_session_get($_SESSION['uid']);
-		$items = $s[$_SESSION['sid']];
-		if ($items['ip'] && $items['last_update']) {
-			return TRUE;
-		}
+		return TRUE;
+	} else {
+		return FALSE;
 	}
-	return FALSE;
 }
 
 /**
