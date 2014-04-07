@@ -324,14 +324,18 @@ function user_session_get($uid='', $sid='') {
  * @param string $sid Session ID
  * @return boolean
  */
-function user_session_remove($uid='', $sid='') {
+function user_session_remove($uid='', $sid='', $hash='') {
 	$ret = FALSE;
-	if ($sid) {
+	if ($hash) {
+		if (registry_remove(1, 'auth', 'login_session', $hash)) {
+			return TRUE;
+		}
+	} else if ($sid) {
 		$hash = user_session_get('', $sid);
 		if (registry_remove(1, 'auth', 'login_session', key($hash))) {
 			return TRUE;
 		}
-	} else {
+	} else if ($uid) {
 		$hashes = user_session_get($uid);
 		foreach ($hashes as $hash) {
 			if (registry_remove(1, 'auth', 'login_session', key($hash))) {
