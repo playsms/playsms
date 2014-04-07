@@ -71,14 +71,12 @@ switch (_OP_) {
 		$l = 0;
 		
 		// USER LIST RESTRIVAL
-		$db_queryU = "SELECT * FROM " . _DB_PREF_ . "_tblUser ORDER BY status, username";
-		$db_resultU = dba_query($db_queryU);
-		while ($db_rowU = dba_fetch_array($db_resultU)) {
-			$l++;
-			$c_username = $db_rowU['username'];
-			$c_uid = $db_rowU['uid'];
-			$c_credit = $db_rowU['credit'];
-			$c_status = $db_rowU['status'];
+		$rows = dba_search(_DB_PREF_.'_tblUser', 'username, uid, credit, status', '', '', array('ORDER BY' => 'status'));
+		foreach ($rows as $row) {
+			$c_username = $row['username'];
+			$c_uid = $row['uid'];
+			$c_credit = $row['credit'];
+			$c_status = $row['status'];
 
 			// SMS PENDING
 			$num_rows_pending = report_count_pending($c_uid);
