@@ -285,7 +285,7 @@ function user_session_set($uid='') {
 			'uid' => $uid,
 		);
 		$item[$hash] = json_encode($json);
-		registry_update($uid, 'auth', 'login_session', $item);
+		registry_update(1, 'auth', 'login_session', $item);
 	}
 }
 
@@ -298,24 +298,23 @@ function user_session_set($uid='') {
 function user_session_get($uid='', $sid='') {
 	global $user_config;
 	$ret = array();
-	$uid = ( $uid ? $uid : $user_config['uid'] );
-	$h = registry_search($uid, 'auth', 'login_session');
+	$h = registry_search(1, 'auth', 'login_session');
 	$hashes = $h['auth']['login_session'];
 	foreach ($hashes as $key => $val) {
 		$d = core_object_to_array(json_decode($val));
 		if ($d['ip'] && $d['last_update'] && $d['http_user_agent'] && $d['sid'] && $d['uid']) {
-			$c_hashes[$key] = $d;
-		}
-	}
-	if ($sid) {
-		foreach ($c_hashes as $key => $val) {
-			if ($val['sid'] == $sid) {
-				$ret[$key] = $val;
+			if ($uid && $uid == $d['uid']) {
+				$ret[$key] = $d;
+				return $ret;
 			}
+			if ($sid && $sid == $d['sid']) {
+				$ret[$key] = $d;
+				return $ret;
+			}
+			$c_ret[$key] = $d;
 		}
-	} else {
-		$ret = $c_hashes;
 	}
+	$ret = $c_ret;
 	return $ret;
 }
 
@@ -323,8 +322,22 @@ function user_session_get($uid='', $sid='') {
  * Remove user's login session information
  * @param integer $uid User ID
  * @param string $sid Session ID
- * @return boolean/integer
+ * @return boolean
  */
-function user_session_remove($uid, $sid) {
-	return registry_remove($uid, 'auth', 'login_session', $sid);
+function user_session_remove($uid='', $sid='') {
+	$ret = FALSE;
+	if ($sid) {
+		$hash = user_session_get('', $sid);
+		if (registry_remove(1, 'auth', 'login_session', key($hash))) {
+			return TRUE;
+		}
+	} else {
+		$hashes = user_session_get($uid);
+		foreach ($hashes as $hash) {
+			if (registry_remove(1, 'auth', 'login_session', key($hash))) {
+				$ret = TRUE;
+			}
+		}
+	}
+	return $ret;
 }
