@@ -115,10 +115,12 @@ function auth_validate_token($token) {
  */
 function auth_isvalid() {
 	if ($_SESSION['sid'] && $_SESSION['uid'] && $_SESSION['valid']) {
-		return TRUE;
-	} else {
-		return FALSE;
+		$hash = user_session_get('', $_SESSION['sid']);
+		if ($_SESSION['sid'] == $hash[key($hash)]['sid'] && $_SESSION['uid'] == $hash[key($hash)]['uid']) {
+			return TRUE;
+		}
 	}
+	return FALSE;
 }
 
 /**
