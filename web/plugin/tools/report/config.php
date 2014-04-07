@@ -8,6 +8,10 @@ if (auth_isadmin()) {
 		_('All reports') ,
 		2
 	);
+	$menu_config[$menutab][] = array(
+		"index.php?app=main&inc=tools_report&route=online",
+		_('Whose online')
+	);
 }
 
 $menutab = $core_config['menutab']['my_account'];
