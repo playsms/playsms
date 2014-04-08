@@ -23,7 +23,6 @@ $tpl = array(
 		'Last update' => _('Last update'),
 		'Current IP address' => _('Current IP address'),
 		'User agent' => _('User agent'),
-		'Login status' => 'Login status',
 		'Action' => 'Action',
 	)
 );

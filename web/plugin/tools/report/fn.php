@@ -97,9 +97,9 @@ function report_whoseonline($status=0) {
 
 		$c_idle = (int)(strtotime(core_get_datetime()) - strtotime($val['last_update']));
 		if ($c_idle > 15*60) {
-			$c_login_status = 'idle';
+			$c_login_status = $icon_config['idle'];
 		} else {
-			$c_login_status = 'online';
+			$c_login_status = $icon_config['online'];
 		}
 	
 		$ret[$c_username][] = array(
@@ -113,7 +113,7 @@ function report_whoseonline($status=0) {
 			'hash' => $key,
 			'login_status' => $c_login_status,
 			'last_update' => core_display_datetime($val['last_update']),
-			'action_link' => _a('index.php?app=main&inc=tools_report&route=online&op=kick&hash='.$key, 'kick'),
+			'action_link' => _a('index.php?app=main&inc=tools_report&route=online&op=kick&hash='.$key, $icon_config['delete']),
 		);
 	}
 

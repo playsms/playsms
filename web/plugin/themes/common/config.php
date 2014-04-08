@@ -31,3 +31,6 @@ $icon_config['import']		= "<span class='playsms-icon glyphicon glyphicon-import'
 $icon_config['group']		= "<span class='playsms-icon glyphicon glyphicon-briefcase' alt='"._('Group')."' title='"._('Group')."'></span>";
 $icon_config['move']		= "<span class='playsms-icon glyphicon glyphicon glyphicon-move' alt='"._('Move')."' title='"._('Move')."'></span>";
 $icon_config['go']		= "<span class='playsms-icon glyphicon glyphicon-cog' alt='"._('Go')."' title='"._('Go')."'></span>";
+$icon_config['online']		= "<span class='playsms-icon glyphicon glyphicon-ok-circle' alt='"._('Online')."' title='"._('Online')."'></span>";
+$icon_config['offline']		= "<span class='playsms-icon glyphicon glyphicon-remove-circle' alt='"._('Offline')."' title='"._('Offline')."'></span>";
+$icon_config['idle']		= "<span class='playsms-icon glyphicon glyphicon-time' alt='"._('Idle')."' title='"._('Idle')."'></span>";

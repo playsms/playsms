@@ -6,9 +6,8 @@
 		<tr>
 			<th width=20%>{User}</th>
 			<th width=20%>{Last update}</th>
-			<th width=15%>{Current IP address}</th>
-			<th width=20%>{User agent}</th>
-			<th width=15%>{Login status}</th>
+			<th width=20%>{Current IP address}</th>
+			<th width=30%>{User agent}</th>
 			<th width=10%>{Action}</th>
 		</tr>
 	</thead>
@@ -16,10 +15,9 @@
 		<loop.data>
 			<tr class={data.tr_class}>
 				<td>{data.c_username} {data.c_is_admin}</td>
-				<td>{data.last_update}</td>
+				<td>{data.login_status} {data.last_update}</td>
 				<td>{data.current_ip}</td>
 				<td>{data.user_agent}</td>
-				<td>{data.login_status}</td>
 				<td>{data.action}</td>
 			</tr>
 		</loop.data>
