@@ -100,6 +100,8 @@ function report_whoseonline($status=0, $online_only=FALSE, $idle_only=FALSE) {
 		$is_idle = FALSE;
 		$is_online = FALSE;
 		$c_idle = (int)(strtotime(core_get_datetime()) - strtotime($val['last_update']));
+
+		// last update more than 15 minutes will be considered as idle
 		if ($c_idle > 15*60) {
 			$is_idle = TRUE;
 			$c_login_status = $icon_config['idle'];
@@ -154,4 +156,26 @@ function report_whoseonline_admin($online_only=FALSE, $idle_only=FALSE) {
  */
 function report_whoseonline_user($online_only=FALSE, $idle_only=FALSE) {
 	return report_whoseonline(3, $online_only, $idle_only);
+}
+
+/**
+ * Remove login sessions older than 1 hour idle
+ */
+function report_hook_playsmsd() {
+	global $plugin_config;
+	$plugin_config['report']['current_tick'] = (int)strtotime(core_get_datetime());
+	$period = $plugin_config['report']['current_tick'] - $plugin_config['report']['last_tick'];
+
+	// login session older than 1 hour will be removed
+	if ($period >= 60*60) {
+		$users = report_whoseonline(0, FALSE, TRUE);
+		foreach ($users as $user) {
+			foreach ($user as $hash) {
+				user_session_remove('', '', $hash['hash']);
+				_log('login session removed uid:'.$hash['uid'].' hash:'.$hash['hash'], 3, 'report_hook_playsmsd');
+			}
+		}
+		$plugin_config['report']['last_tick'] = $plugin_config['report']['current_tick'];
+	}
+
 }
