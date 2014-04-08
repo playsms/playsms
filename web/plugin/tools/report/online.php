@@ -28,41 +28,40 @@ $tpl = array(
 	)
 );
 
-$hashes = user_session_get();
-foreach ($hashes as $key => $val) {
-	$c_uid = $val['uid'];
-	$c_user = user_getdatabyuid($c_uid);
-	$c_username = $c_user['username'];
-	$c_status = $c_user['status'];
+// display admin users
 
-	$c_is_admin = '';
-	if ($c_status == '2') {
-		$c_is_admin = $icon_config['admin'];
+$users = report_whoseonline_admin();
+foreach ($users as $user) {
+	foreach ($user as $hash) {
+		$tpl['loop']['data'][] = array(
+			'tr_class' => $tr_class,
+			'c_username' => $hash['username'],
+			'c_is_admin' => $hash['icon_is_admin'],
+			'last_update' => $hash['last_update'],
+			'current_ip' => $hash['ip'],
+			'user_agent' => $hash['http_user_agent'],
+			'login_status' => $hash['login_status'],
+			'action' => $hash['action_link'],
+		);
 	}
+}
 
-	$c_ip = $val['ip'];
-	$c_user_agent = $val['http_user_agent'];
-	$c_last_update = core_display_datetime($val['last_update']);
+// display normal users
 
-	$c_idle = (int)(strtotime(core_get_datetime()) - strtotime($val['last_update']));
-	if ($c_idle > 15*60) {
-		$c_login_status = 'idle';
-	} else {
-		$c_login_status = 'online';
+$users = report_whoseonline_user();
+foreach ($users as $user) {
+	foreach ($user as $hash) {
+		$tpl['loop']['data'][] = array(
+			'tr_class' => $tr_class,
+			'c_username' => $hash['username'],
+			'c_is_admin' => $hash['icon_is_admin'],
+			'last_update' => $hash['last_update'],
+			'current_ip' => $hash['ip'],
+			'user_agent' => $hash['http_user_agent'],
+			'login_status' => $hash['login_status'],
+			'action' => $hash['action_link'],
+		);
 	}
-
-	$c_action = _a('index.php?app=main&inc=tools_report&route=online&op=kick&hash='.$key, 'kick');
-
-	$tpl['loop']['data'][] = array(
-		'tr_class' => $tr_class,
-		'c_username' => $c_username,
-		'c_is_admin' => $c_is_admin,
-		'last_update' => $c_last_update,
-		'current_ip' => $c_ip,
-		'user_agent' => $c_user_agent,
-		'login_status' => $c_login_status,
-		'action' => $c_action,
-	);
 }
 
 _p(tpl_apply($tpl));
