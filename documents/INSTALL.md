@@ -69,58 +69,20 @@ Install playSMS using install script:
    ```
    tar -zxf playsms-1.0.0.tar.gz -C /usr/local/src
    ls -l /usr/local/src/
+   cd /usr/local/src/playsms-1.0.0/contrib/installer
    ```
 
 2. Edit install.conf, read and make changes to suit your system configuration
 
    ```
-   cd /usr/local/src/playsms-1.0.0/contrib/installer
    vi install.conf
    ```
 
 3. Run installer script
 
    ```
-   cd /usr/local/src/playsms-1.0.0/contrib/installer
    ./install-playsms.sh
    ```
-
-   Note:
-   
-   * You must read and verify the install data presented when running
-     script `install-playsms.sh`, and continue only when the data
-     is correct
-   * Edit install.conf again if you think your install data is wrong
-   * After successful installation, please run command `ps ax` and see if
-     playsmsd is running
-
-     ```
-     ps ax | grep playsms
-     4069 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd schedule
-     4071 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd dlrssmsd
-     4073 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd recvsmsd
-     4075 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd sendsmsd
-     ```
-
-   * Run several checks
-
-     ```
-     playsmsd status
-     playsmsd check
-     ```
-
-   * Stop here and review your installation steps when playsmsd is not
-     running
-   * Consider to ask question in playSMS forum when you encountered a
-     problem
-   * If all seems to be correctly installed you may try to login from web
-     by browsing `http://<your web server IP>/playsms/` and login using
-     default administrator user
-
-     ```
-     username: admin
-     password: admin
-     ```
 
 4. Configure rc.local to get playsmsd started on boot
    
@@ -132,6 +94,37 @@ Install playSMS using install script:
 
       on the bottom of the file (before exit if theres an exit command).
       This way playsmsd will start automatically on boot.
+
+Note:
+   
+* After successful installation, please run command `ps ax` and see if
+  playsmsd is running
+
+  ```
+  ps ax | grep playsms
+  4069 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd schedule
+  4071 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd dlrssmsd
+  4073 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd recvsmsd
+  4075 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd sendsmsd
+  ```
+
+* Run several checks
+
+  ```
+  playsmsd status
+  playsmsd check
+  ```
+
+* Stop here and review your installation steps when playsmsd is not running
+* Consider to ask question in playSMS forum when you encountered a problem
+* If all seems to be correctly installed you may try to login from web by
+  browsing `http://<your web server IP>/playsms/` and login using default
+  administrator user
+
+  ```
+  username: admin
+  password: admin
+  ```
 
 
 ### Method 2:. Installation on Linux step by step
@@ -211,43 +204,6 @@ Install playSMS using step-by-step installation:
       playsmsd start
       ```
 
-   Note:
-   
-   * You must read and verify the install data presented when running
-     script `install-playsms.sh`, and continue only when the data
-     is correct
-   * Edit install.conf again if you think your install data is wrong
-   * After successful installation, please run command `ps ax` and see if
-     playsmsd is running
-
-     ```
-     ps ax | grep playsms
-     4069 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd schedule
-     4071 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd dlrssmsd
-     4073 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd recvsmsd
-     4075 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd sendsmsd
-     ```
-
-   * Run several checks
-
-     ```
-     playsmsd status
-     playsmsd check
-     ```
-
-   * Stop here and review your installation steps when playsmsd is not
-     running
-   * Consider to ask question in playSMS forum when you encountered a
-     problem
-   * If all seems to be correctly installed you may try to login from web
-     by browsing `http://<your web server IP>/playsms/` and login using
-     default administrator user
-
-     ```
-     username: admin
-     password: admin
-     ```
-
 9. Configure rc.local to get playsmsd started on boot
    
    Look for rc.local on /etc, /etc/init.d, /etc/rc.d/init.d
@@ -258,6 +214,37 @@ Install playSMS using step-by-step installation:
 
       on the bottom of the file (before exit if theres an exit command).
       This way playsmsd will start automatically on boot.
+
+Note:
+   
+* After successful installation, please run command `ps ax` and see if
+  playsmsd is running
+
+  ```
+  ps ax | grep playsms
+  4069 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd schedule
+  4071 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd dlrssmsd
+  4073 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd recvsmsd
+  4075 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd sendsmsd
+  ```
+
+* Run several checks
+
+  ```
+  playsmsd status
+  playsmsd check
+  ```
+
+* Stop here and review your installation steps when playsmsd is not running
+* Consider to ask question in playSMS forum when you encountered a problem
+* If all seems to be correctly installed you may try to login from web by
+  browsing `http://<your web server IP>/playsms/` and login using default
+  administrator user
+
+  ```
+  username: admin
+  password: admin
+  ```
 
 
 ## Gateway Installation
