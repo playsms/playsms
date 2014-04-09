@@ -62,7 +62,7 @@ I suggest you to use **1st method**, using install-script.
 
 ### Method 1: Installation on Linux using install-script
 
-playSMS Web Interface using install script:
+Install playSMS using install script:
 
 1. Extract playSMS package somewhere (Usually in /usr/local/src).
 
@@ -78,18 +78,17 @@ playSMS Web Interface using install script:
    vi install.conf
    ```
 
-3. Run installer script. Be warned that the script have been tested only on
-   Ubuntu server or desktop.
+3. Run installer script
 
    ```
    cd /usr/local/src/playsms-1.0.0/contrib/installer
-   ./install-playsms-ubuntu.sh
+   ./install-playsms.sh
    ```
 
    Note:
    
    * You must read and verify the install data presented when running
-     script `install-playsms-ubuntu.sh`, and continue only when the data
+     script `install-playsms.sh`, and continue only when the data
      is correct
    * Edit install.conf again if you think your install data is wrong
    * After successful installation, please run command `ps ax` and see if
@@ -137,7 +136,7 @@ playSMS Web Interface using install script:
 
 ### Method 2:. Installation on Linux step by step
 
-playSMS Web Interface step-by-step installation:
+Install playSMS using step-by-step installation:
 
 1. Extract playSMS package somewhere (Usually in /usr/local/src).
 
@@ -192,7 +191,7 @@ playSMS Web Interface step-by-step installation:
    ```
    cd /usr/local/src/playsms-1.0.0/daemon/linux
    cp etc/playsmsd.conf /etc/playsmsd.conf
-   cp bin/playsmsd /usr/local/bin/
+   cp bin/playsmsd /usr/local/bin/playsmsd
    ```
 
 7. Just to make sure every paths are correct, please edit /etc/playsmsd.conf
@@ -215,7 +214,7 @@ playSMS Web Interface step-by-step installation:
    Note:
    
    * You must read and verify the install data presented when running
-     script `install-playsms-ubuntu.sh`, and continue only when the data
+     script `install-playsms.sh`, and continue only when the data
      is correct
    * Edit install.conf again if you think your install data is wrong
    * After successful installation, please run command `ps ax` and see if
