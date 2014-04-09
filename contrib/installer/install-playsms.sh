@@ -163,20 +163,16 @@ echo "ERROR_REPORTING=E_ALL ^ (E_NOTICE | E_WARNING)" >> /etc/playsmsd.conf
 echo -n .
 cp -rR daemon/linux/bin/playsmsd $PATHBIN
 echo -n .
-cp daemon/linux/init.d/playsms-ubuntu /etc/init.d/playsms
-set +e
-echo -n .
-update-rc.d playsms defaults >/dev/null 2>&1
-echo -n .
 echo "end"
 echo
 $PATHBIN/playsmsd check
+sleep 3
 echo
-/etc/init.d/playsms stop >/dev/null 2>&1
-sleep 2
-/etc/init.d/playsms start
+$PATHBIN/playsmsd start
+sleep 3
 echo
 $PATHBIN/playsmsd status
+sleep 3
 echo
 
 echo "playSMS has been successfully installed on your system"

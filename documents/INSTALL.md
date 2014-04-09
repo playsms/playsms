@@ -123,6 +123,17 @@ playSMS Web Interface using install script:
      password: admin
      ```
 
+4. Configure rc.local to get playsmsd started on boot
+   
+   Look for rc.local on /etc, /etc/init.d, /etc/rc.d/init.d
+      
+      When you found it edit that rc.local and put:
+
+      `/usr/local/bin/playsmsd start`
+
+      on the bottom of the file (before exit if theres an exit command).
+      This way playsmsd will start automatically on boot.
+
 
 ### Method 2:. Installation on Linux step by step
 
@@ -195,41 +206,7 @@ playSMS Web Interface step-by-step installation:
    is pointing to a correct playSMS daemon scripts path (in this example to
    /usr/local/bin)
 
-8. There are two choices to get playSMS daemon starts automatically on
-   boot.
-   
-   You need to choose one:
-
-   1. Using init script. When you are installing playSMS on Debian based
-      distro (like Ubuntu), you may use the contributed init script. Copy
-      the init script to */etc/init.d/* and program it to start at boot
-
-     ```
-     cd /usr/local/src/playsms-1.0.0/daemon/linux
-     cp etc/playsms.init-ubuntu /etc/init.d/playsms
-     update-rc.d playsms defaults
-     ```
-
-   2. Using rc.local. Look for rc.local on /etc, /etc/init.d, /etc/rc.d/init.d
-      
-      When you found it edit that rc.local and put:
-
-      `/usr/local/bin/playsmsd start`
-
-      on the bottom of the file (before exit if theres an exit command).
-      This way playsmsd will start automatically on boot.
-
-      Just like any other steps before, you need 'root' access to do this.
-
-9. Start playsmsd manually, no need to reboot your OS
-
-   1. If you are using the init script:
-
-      ```
-      /etc/init.d/playsms start
-      ```
-
-   2. If you are using rc.local:
+8. Start playsmsd now from Linux console, no need to reboot
 
       ```
       playsmsd start
@@ -271,6 +248,17 @@ playSMS Web Interface step-by-step installation:
      username: admin
      password: admin
      ```
+
+9. Configure rc.local to get playsmsd started on boot
+   
+   Look for rc.local on /etc, /etc/init.d, /etc/rc.d/init.d
+      
+      When you found it edit that rc.local and put:
+
+      `/usr/local/bin/playsmsd start`
+
+      on the bottom of the file (before exit if theres an exit command).
+      This way playsmsd will start automatically on boot.
 
 
 ## Gateway Installation
