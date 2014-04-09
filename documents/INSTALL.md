@@ -56,13 +56,10 @@ There are 2 methods explained in this document to install playSMS:
 
 You should pick only one method, do not do both methods.
 
-If you are using Ubuntu server, relatively fresh and not much core changes, then
-I suggest you to use **1st method**, using install-script.
-
 
 ### Method 1: Installation on Linux using install-script
 
-Install playSMS using install script:
+Install playSMS using install script `install-playsms.sh`
 
 1. Extract playSMS package somewhere (Usually in /usr/local/src).
 
@@ -127,9 +124,9 @@ Note:
   ```
 
 
-### Method 2:. Installation on Linux step by step
+### Method 2: Installation on Linux step by step
 
-Install playSMS using step-by-step installation:
+Install playSMS by following step-by-step:
 
 1. Extract playSMS package somewhere (Usually in /usr/local/src).
 
@@ -249,7 +246,7 @@ Note:
 
 ## Gateway Installation
 
-Next, choose a gateway to work on.
+Next, choose a gateway.
 
 If you have GSM modem and plan to use it with playSMS, please continue to follow
 instructions in INSTALL_SMSSERVERTOOLS to use SMS Server Tools (smstools3) as
