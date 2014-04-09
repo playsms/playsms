@@ -221,8 +221,9 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 
 				case 'sendsmsd':
 					$queue = array();
+					$extras = '';
 					if ((int) $core_config['sendsmsd_queue'] > 0) {
-						$extas = array('LIMIT' => (int) $core_config['sendsmsd_queue']);
+						$extras = array('LIMIT' => (int) $core_config['sendsmsd_queue']);
 					}
 					$list = dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'queue_code', array('flag' => '0'), '', $extras);
 					foreach ($list as $db_row) {
