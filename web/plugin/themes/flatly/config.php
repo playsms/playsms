@@ -3,7 +3,8 @@ defined('_SECURE_') or die('Forbidden');
 
 // default loaded page/plugin
 //$plugin_config['flatly']['main']['default_inc']	= 'tools_report';
-//$plugin_config['flatly']['main']['default_op']	= 'report_user';
+//$plugin_config['flatly']['main']['default_route']	= 'user';
+//$plugin_config['flatly']['main']['default_op']	= '';
 
 // override common action icons
 //$plugin_config['flatly']['icon']['edit']		= "<span class='playsms-icon glyphicon glyphicon-cog' alt='"._('Edit')."' title='"._('Edit')."'></span>";
