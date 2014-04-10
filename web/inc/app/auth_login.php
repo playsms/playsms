@@ -19,11 +19,20 @@
 
 defined('_SECURE_') or die('Forbidden');
 
-$username = trim($_REQUEST['username']);
+$username_or_email = trim($_REQUEST['username']);
 $password = trim($_REQUEST['password']);
 
-if ($username && $password) {
-	if (auth_validate_login($username,$password)) {
+if ($username_or_email && $password) {
+	if (auth_validate_login($username_or_email, $password)) {
+		$username = $username_or_email;
+		$validated = TRUE;
+	} else if (auth_validate_email($username_or_email, $password)) {
+		$username = user_email2username($username_or_email);
+		$validated = TRUE;
+	} else {
+		$validated = FALSE;
+	}
+	if ($validated) {
 		$c_user = user_getdatabyusername($username);
 		$_SESSION['sid'] = session_id();
 		$_SESSION['username'] = $c_user['username'];
