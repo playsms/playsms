@@ -75,9 +75,24 @@ switch (_OP_) {
 			<tbody>";
 		$j = $nav['top'];
 		for ($i=0;$i<count($list);$i++) {
+
+			// user preferences
 			$action = "<a href=\""._u('index.php?app=main&inc=user_pref&op=user_pref&uname='.$list[$i]['username'])."&view=".$view."\">".$icon_config['user_pref']."</a>";
+
+			// user configurations
 			$action .= "<a href=\""._u('index.php?app=main&inc=user_config&op=user_config&uname='.$list[$i]['username'])."&view=".$view."\">".$icon_config['user_config']."</a>";
+
+			/*
+			// ban
+			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to ban user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=main&inc=user_mgmnt&op=user_ban&uname='.$list[$i]['username'])."&view=".$view."')\">".$icon_config['ban']."</a>";
+
+			// unban
+			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to unban user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=main&inc=user_mgmnt&op=user_unban&uname='.$list[$i]['username'])."&view=".$view."')\">".$icon_config['unban']."</a>";
+			*/
+		
+			// remove user
 			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=main&inc=user_mgmnt&op=user_del&uname='.$list[$i]['username'])."&view=".$view."')\">".$icon_config['user_delete']."</a>";
+			
 			$j--;
 			$content .= "
 				<tr>

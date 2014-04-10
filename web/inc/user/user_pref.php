@@ -27,9 +27,10 @@ if (($uname = $_REQUEST['uname']) && auth_isadmin()) {
 	$url_uname = '&uname='.$c_username;
 }
 
+$view = $_REQUEST['view'];
+
 switch (_OP_) {
 	case "user_pref":
-		$referrer = ( $_SESSION['referrer'] ? $_SESSION['referrer'] : 'user_list_tab1' );
 		if ($err = $_SESSION['error_string']) {
 			$error_content = "<div class=error_string>$err</div>";
 		}
@@ -45,7 +46,7 @@ switch (_OP_) {
 			$sender = core_sanitize_sender($c_user[0]['sender']);
 		} else {
 			$_SESSION['error_string'] = _('User does not exists').' ('._('username').': '.$uname.')';
-			header("Location: "._u('index.php?app=main&inc=user_mgmnt&op='.$referrer));
+			header("Location: "._u('index.php?app=main&inc=user_mgmnt&op=user_list&view='.$view));
 			exit();
 		}
 
@@ -64,7 +65,7 @@ switch (_OP_) {
 		if ($uname && auth_isadmin()) {
 			$form_title = _('Manage user');
 			$button_delete = "<input type=button class=button value='" . _('Delete') . "' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=main&inc=user_mgmnt&op=user_del" . $url_uname . "')\">";
-			$button_back = _back('index.php?app=main&inc=user_mgmnt&op=' . $referrer);
+			$button_back = _back('index.php?app=main&inc=user_mgmnt&op=user_list&view='.$view);
 		} else {
 			$form_title = _('Preferences');
 		}
@@ -91,6 +92,7 @@ switch (_OP_) {
 			'BUTTON_DELETE' => $button_delete,
 			'BUTTON_BACK' => $button_back,
 			'URL_UNAME' => $url_uname,
+			'VIEW' => $view,
 			'c_username' => $c_username,
 			'name' => $name,
 			'email' => $email,
@@ -147,7 +149,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all field');
 		}
-		header("Location: "._u('index.php?app=main&inc=user_pref&op=user_pref'.$url_uname));
+		header("Location: "._u('index.php?app=main&inc=user_pref&op=user_pref'.$url_uname.'&view='.$view));
 		exit();
 		break;
 }

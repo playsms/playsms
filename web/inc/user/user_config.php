@@ -27,9 +27,10 @@ if (($uname = $_REQUEST['uname']) && auth_isadmin()) {
 	$url_uname = '&uname='.$c_username;
 }
 
+$view = $_REQUEST['view'];
+
 switch (_OP_) {
 	case "user_config":
-		$referrer = ( $_SESSION['referrer'] ? $_SESSION['referrer'] : 'user_list_tab1' );
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -51,7 +52,7 @@ switch (_OP_) {
 			$credit = rate_getusercredit($c_username);
 		} else {
 			$_SESSION['error_string'] = _('User does not exists').' ('._('username').': '.$uname.')';
-			header("Location: "._u('index.php?app=main&inc=user_mgmnt&op='.$referrer));
+			header("Location: "._u('index.php?app=main&inc=user_mgmnt&op=user_list&view='.$view));
 			exit();
 		}
 
@@ -165,7 +166,7 @@ switch (_OP_) {
 			$content .= "<h2>" . _('Manage user') . "</h2>";
 			$option_credit = "<tr><td>" . _('Credit') . "</td><td><input type=text size=10 maxlength=10 name=up_credit value=\"$credit\"></td></tr>";
 			$button_delete = "<input type=button class=button value='" . _('Delete') . "' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=main&inc=user_mgmnt&op=user_del" . $url_uname . "')\">";
-			$button_back = _back('index.php?app=main&inc=user_mgmnt&op=' . $referrer);
+			$button_back = _back('index.php?app=main&inc=user_mgmnt&op=user_list&view='.$view);
 		} else {
 			$content .= "<h2>" . _('User configuration') . "</h2>";
 			$option_credit = "<tr><td>" . _('Credit') . "</td><td>$credit</td></tr>";
@@ -199,6 +200,7 @@ switch (_OP_) {
 			'BUTTON_DELETE' => $button_delete,
 			'BUTTON_BACK' => $button_back,
 			'URL_UNAME' => $url_uname,
+			'VIEW' => $view,
 			'HINT_MAX_CHARS' => _hint(_('Max. 16 numeric or 11 alphanumeric characters')),
 			'HINT_MAX_ALPHANUMERIC' => _hint(_('Max. 30 alphanumeric characters')),
 			'HINT_COMMA_SEPARATED' => _hint(_('Comma separated')),
@@ -265,7 +267,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Username is empty');
 		}
-		header("Location: "._u('index.php?app=main&inc=user_config&op=user_config'.$url_uname));
+		header("Location: "._u('index.php?app=main&inc=user_config&op=user_config'.$url_uname.'&view='.$view));
 		exit();
 		break;
 }

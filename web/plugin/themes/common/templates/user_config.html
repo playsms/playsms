@@ -1,89 +1,91 @@
 {ERROR}
 <h2>{FORM_TITLE}</h2>
-<form action="index.php?app=main&inc=user_config&op=user_config_save{URL_UNAME}" method=post enctype="multipart/form-data">
-	{CSRF_FORM}
-	<h3>{Application options}</h3>
-	<table class=playsms-table>
-		<tbody>
-			<tr>
-				<td class=label-sizer>{Username}</td>
-				<td>{c_username}</td>
-			</tr>
-			<tr>
-				<td>{Effective SMS sender ID}</td>
-				<td>{effective_sender_id}</td>
-			</tr>
-			<tr>
-				<td>{SMS sender ID}</td>
-				<td><input type=text size=30 maxlength=16 name=up_sender value='{sender}'> {HINT_MAX_CHARS}</td>
-			</tr>
-			<tr>
-				<td>{SMS footer}</td>
-				<td><input type=text size=30 maxlength=30 name=up_footer value='{footer}'> {HINT_MAX_ALPHANUMERIC}</td>
-			</tr>
-			{option_credit}
-			<tr>
-				<td>{Webservices username}</td>
-				<td>{c_username}</td>
-			</tr>
-			<tr>
-				<td>{Webservices token}</td>
-				<td><input type=text size=30 value='{token}' disabled></td>
-			</tr>
-			<tr>
-				<td>{New webservices token}</td>
-				<td><select name='up_new_token'>{option_new_token}</select></td>
-			</tr>
-			<tr>
-				<td>{Enable webservices}</td>
-				<td><select name='up_enable_webservices'>{option_enable_webservices}</select></td>
-			</tr>
-			<tr>
-				<td>{Webservices IP range}</td>
-				<td><input type=text size=30 maxlength=100 name=up_webservices_ip value='{webservices_ip}'> {HINT_COMMA_SEPARATED}</td>
-			</tr>
-			<tr>
-				<td>{Active language}</td>
-				<td><select name=up_language_module>{option_language_module}</select></td>
-			</tr>
-			<tr>
-				<td>{Timezone}</td>
-				<td><input type=text size=5 maxlength=5 name=up_datetime_timezone value='{datetime_timezone}'> {HINT_TIMEZONE}</td>
-			</tr>
-			<tr>
-				<td>{Forward message to inbox}</td>
-				<td><select name='up_fwd_to_inbox'>{option_fwd_to_inbox}</select></td>
-			</tr>
-			<tr>
-				<td>{Forward message to email}</td>
-				<td><select name='up_fwd_to_email'>{option_fwd_to_email}</select></td>
-			</tr>
-			<tr>
-				<td>{Forward message to mobile}</td>
-				<td><select name='up_fwd_to_mobile'>{option_fwd_to_mobile}</select></td>
-			</tr>
-			<tr>
-				<td>{Local number length}</td>
-				<td><input type=text size=5 maxlength=5 name='up_local_length' value='{local_length}'> {HINT_LOCAL_LENGTH}</td>
-			</tr>
-			<tr>
-				<td>{Prefix or country code}</td>
-				<td><input type=text size=5 maxlength=5 name='up_replace_zero' value='{replace_zero}'> {HINT_REPLACE_ZERO}</td>
-			</tr>
-			<tr>
-				<td>{Auto remove plus sign}</td>
-				<td><select name='up_plus_sign_remove'>{option_plus_sign_remove}</select></td>
-			</tr>
-			<tr>
-				<td>{Always add plus sign}</td>
-				<td><select name='up_plus_sign_add'>{option_plus_sign_add}</select></td>
-			</tr>
-			<tr>
-				<td>{Always choose to send as unicode}</td>
-				<td><select name='up_send_as_unicode'>{option_send_as_unicode}</select></td>
-			</tr>
-		</tbody>
-	</table>
-	<input type=submit class=button value='{Save}'> {BUTTON_DELETE}
+<form action="index.php?app=main&inc=user_config&op=user_config_save{URL_UNAME}&view={VIEW}" method=post enctype="multipart/form-data">
+{CSRF_FORM}
+
+<h3>{Application options}</h3>
+<table class=playsms-table>
+	<tbody>
+		<tr>
+			<td class=label-sizer>{Username}</td>
+			<td>{c_username}</td>
+		</tr>
+		<tr>
+			<td>{Effective SMS sender ID}</td>
+			<td>{effective_sender_id}</td>
+		</tr>
+		<tr>
+			<td>{SMS sender ID}</td>
+			<td><input type=text size=30 maxlength=16 name=up_sender value='{sender}'> {HINT_MAX_CHARS}</td>
+		</tr>
+		<tr>
+			<td>{SMS footer}</td>
+			<td><input type=text size=30 maxlength=30 name=up_footer value='{footer}'> {HINT_MAX_ALPHANUMERIC}</td>
+		</tr>
+		{option_credit}
+		<tr>
+			<td>{Webservices username}</td>
+			<td>{c_username}</td>
+		</tr>
+		<tr>
+			<td>{Webservices token}</td>
+			<td><input type=text size=30 value='{token}' disabled></td>
+		</tr>
+		<tr>
+			<td>{New webservices token}</td>
+			<td><select name='up_new_token'>{option_new_token}</select></td>
+		</tr>
+		<tr>
+			<td>{Enable webservices}</td>
+			<td><select name='up_enable_webservices'>{option_enable_webservices}</select></td>
+		</tr>
+		<tr>
+			<td>{Webservices IP range}</td>
+			<td><input type=text size=30 maxlength=100 name=up_webservices_ip value='{webservices_ip}'> {HINT_COMMA_SEPARATED}</td>
+		</tr>
+		<tr>
+			<td>{Active language}</td>
+			<td><select name=up_language_module>{option_language_module}</select></td>
+		</tr>
+		<tr>
+			<td>{Timezone}</td>
+			<td><input type=text size=5 maxlength=5 name=up_datetime_timezone value='{datetime_timezone}'> {HINT_TIMEZONE}</td>
+		</tr>
+		<tr>
+			<td>{Forward message to inbox}</td>
+			<td><select name='up_fwd_to_inbox'>{option_fwd_to_inbox}</select></td>
+		</tr>
+		<tr>
+			<td>{Forward message to email}</td>
+			<td><select name='up_fwd_to_email'>{option_fwd_to_email}</select></td>
+		</tr>
+		<tr>
+			<td>{Forward message to mobile}</td>
+			<td><select name='up_fwd_to_mobile'>{option_fwd_to_mobile}</select></td>
+		</tr>
+		<tr>
+			<td>{Local number length}</td>
+			<td><input type=text size=5 maxlength=5 name='up_local_length' value='{local_length}'> {HINT_LOCAL_LENGTH}</td>
+		</tr>
+		<tr>
+			<td>{Prefix or country code}</td>
+			<td><input type=text size=5 maxlength=5 name='up_replace_zero' value='{replace_zero}'> {HINT_REPLACE_ZERO}</td>
+		</tr>
+		<tr>
+			<td>{Auto remove plus sign}</td>
+			<td><select name='up_plus_sign_remove'>{option_plus_sign_remove}</select></td>
+		</tr>
+		<tr>
+			<td>{Always add plus sign}</td>
+			<td><select name='up_plus_sign_add'>{option_plus_sign_add}</select></td>
+		</tr>
+		<tr>
+			<td>{Always choose to send as unicode}</td>
+			<td><select name='up_send_as_unicode'>{option_send_as_unicode}</select></td>
+		</tr>
+	</tbody>
+</table>
+
+<p><input type=submit class=button value='{Save}'> {BUTTON_DELETE}</p>
 </form>
-{BUTTON_BACK}
+<p>{BUTTON_BACK}

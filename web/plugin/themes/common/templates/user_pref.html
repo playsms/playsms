@@ -1,7 +1,8 @@
 {ERROR}
 <h2>{FORM_TITLE}</h2>
-<form action="index.php?app=main&inc=user_pref&op=user_pref_save{URL_UNAME}" method=post enctype="multipart/form-data">
+<form action="index.php?app=main&inc=user_pref&op=user_pref_save{URL_UNAME}&view={VIEW}" method=post enctype="multipart/form-data">
 {CSRF_FORM}
+
 <h3>{Login information}</h3>
 <table class=playsms-table>
 	<tbody>
@@ -58,6 +59,6 @@
 	</tbody>
 </table>
 
-<input type=submit class=button value='{Save}'> {BUTTON_DELETE}
+<p><input type=submit class=button value='{Save}'> {BUTTON_DELETE}</p>
 </form>
-{BUTTON_BACK}
+<p>{BUTTON_BACK}
