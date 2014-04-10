@@ -104,6 +104,26 @@ function user_mobile2uid($mobile) {
 }
 
 /**
+ * Get uid from email
+ * @param  string $email Email
+ * @return integer User ID
+ */
+function user_email2uid($email) {
+	$list = dba_search(_DB_PREF_.'_tblUser', 'uid', array('email' => $email));
+	return $list[0]['uid'];
+}
+
+/**
+ * Get username from email
+ * @param  string $email Email
+ * @return string username
+ */
+function user_email2username($email) {
+	$list = dba_search(_DB_PREF_.'_tblUser', 'username', array('email' => $email));
+	return $list[0]['username'];
+}
+
+/**
  * Validate data for user registration
  * @param array $data User data
  * @return array $ret('error_string', 'status')
