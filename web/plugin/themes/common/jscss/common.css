@@ -371,6 +371,7 @@ table.sortable thead, table.sortable th {
 
 #msg_template_select {
 	width: 280px;
+	outline: none;
 }
 
 #msg_flash, #msg_unicode {
@@ -386,6 +387,8 @@ table.sortable thead, table.sortable th {
 #message {
 	width: 280px;
 	height: 100px;
+	resize: none;
+	outline: none;
 }
 
 #button_back {

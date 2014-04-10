@@ -201,7 +201,7 @@ function phonebook_hook_webservices_output($operation, $requests) {
 	if (! auth_isvalid()) {
 		return FALSE;
 	}
-	$keyword = $requests['keyword'];
+	$keyword = stripslashes($requests['keyword']);
 	if (!$keyword) {
 		$keyword = $requests['tag'];
 	}
@@ -224,14 +224,14 @@ function phonebook_hook_webservices_output($operation, $requests) {
 				$item[] = array('id' => $data['p_num'], 'text' => $data['p_desc'].' ('.$data['p_num'].')');
 			}
 		}
-		if (count($item) == 0) {
-			$item[] = array('id' => $keyword, 'text' => $keyword);
-		}
-		$content = json_encode($item);
-		ob_end_clean();
-		header('Content-Type: text/json; charset=utf-8');
-		$ret = $content;
 	}
+	if (count($item) == 0) {
+		$item[] = array('id' => $keyword, 'text' => $keyword);
+	}
+	$content = json_encode($item);
+	ob_end_clean();
+	header('Content-Type: text/json; charset=utf-8');
+	$ret = $content;
 	return $ret;
 }
 

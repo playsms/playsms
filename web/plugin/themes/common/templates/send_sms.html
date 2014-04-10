@@ -1,12 +1,19 @@
 <script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/jquery/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/moment/moment.min.js"></script>
+
 <link rel="stylesheet" href="{HTTP_PATH_THEMES}/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css" />
 <script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
-<if.calendar><script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.{lang}.js"></script>
-</if.calendar><link rel="stylesheet" href="{HTTP_PATH_THEMES}/common/jscss/combobox/select2.css" />
+<if.calendar>
+<script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.{lang}.js"></script>
+</if.calendar>
+
+<link rel="stylesheet" href="{HTTP_PATH_THEMES}/common/jscss/combobox/select2.css" />
 <script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/combobox/select2.min.js"></script>
-<if.combobox><script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/combobox/select2_locale_{lang}.js"></script>
-</if.combobox><script type="text/javascript">
+<if.combobox>
+<script type="text/javascript" src="{HTTP_PATH_THEMES}/common/jscss/combobox/select2_locale_{lang}.js"></script>
+</if.combobox>
+
+<script type="text/javascript">
 	$(document).ready(function() {
 		$("#msg_combo_sendto").select2({
 			multiple: true,
@@ -18,9 +25,16 @@
 			initSelection : function (element, callback) {
 				var data = [];
 				$(element.val().split(",")).each(function () {
-				    data.push({id: this, text: this});
+					data.push({id: this, text: this});
 				});
 				callback(data);
+			},
+			createSearchChoice: function(term, data) {
+				if ($(data).filter(function () {
+					return this.text.localeCompare(term)===0;
+				}).length===0) {
+					return {id:term, text:term};
+				}
 			},
 			ajax: {
 				url: "{HTTP_PATH_BASE}",
@@ -63,6 +77,7 @@
 	</div>
 </div>
 <div class="row">
+
 	<div class="col-sm-4">
 		<div class="form-group">
 			<label for="msg_combo_sendto">{Send to} {HINT_SEND_TO}</label>
@@ -75,6 +90,7 @@
 			<p><input type="text" id=txtcount name="txtcount" style="width: 100%" value="0 char : 0 SMS" size="17" onFocus="document.frmSendSms.message.focus();" readonly></p>
 		</div>
 	</div>
+
 	<div class="col-sm-4">
 		<div class="form-group">
 			<label for="msg_sender">{SMS sender ID}</label>
@@ -100,6 +116,7 @@
 			</div>
 		</div>
 	</div>
+
 	<div class="col-sm-4">
 		<div class="form-group">
 			<label for="msg_schedule">{Schedule} {HINT_SCHEDULE}</label>
@@ -111,6 +128,7 @@
 			</div>
 		</div>
 	</div>
+
 </div>
 <div class="row">
 	<div class="col-sm-12">
