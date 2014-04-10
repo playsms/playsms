@@ -29,13 +29,13 @@ switch (_OP_) {
 
 		// sender ID
 		$sms_from = sendsms_get_sender($user_config['username']);
-		if (!$allow_custom_sender) {
+		if (!$core_config['main']['allow_custom_sender']) {
 			$allow_custom_sender = 'readonly';
 		}
 
 		// SMS footer
 		$sms_footer = $user_config['footer'];
-		if (!$allow_custom_footer) {
+		if (!$core_config['main']['allow_custom_footer']) {
 			$allow_custom_footer = 'readonly';
 		}
 
@@ -110,8 +110,21 @@ switch (_OP_) {
 		if ($sms_to = trim($_REQUEST['p_num_text'])) {
 			$sms_to = explode(',', $sms_to);
 		}
-		$sms_sender = trim($_REQUEST['sms_sender']);
-		$sms_footer = trim($_REQUEST['sms_footer']);
+
+		// sender ID
+		if ($core_config['main']['allow_custom_sender']) {
+			$sms_sender = trim($_REQUEST['sms_sender']);
+		} else {
+			$sms_sender = sendsms_get_sender($user_config['username']);
+		}
+
+		// SMS footer
+		if ($core_config['main']['allow_custom_footer']) {
+			$sms_footer = trim($_REQUEST['sms_footer']);
+		} else {
+			$sms_footer = $user_config['footer'];
+		}
+
 		$sms_schedule = trim($_REQUEST['sms_schedule']);
 		$msg_flash = $_REQUEST['msg_flash'];
 		$msg_unicode = $_REQUEST['msg_unicode'];
