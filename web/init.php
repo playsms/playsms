@@ -40,8 +40,10 @@ if (!$core_config['daemon_process']) {
 		header('Pragma: no-cache');
 	}
 	@session_start();
-	ob_start();
 }
+
+// output buffering starts even from daemon script
+ob_start();
 
 // DB config defines
 define('_DB_TYPE_', $core_config['db']['type']);

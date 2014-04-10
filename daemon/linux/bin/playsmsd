@@ -279,7 +279,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 			sleep($DAEMON_SLEEP);
 
 			// empty buffer
-			ob_end_clean();
+			ob_end_flush();
 
 		} // while TRUE
 	}
