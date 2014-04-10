@@ -345,3 +345,44 @@ function user_session_remove($uid='', $sid='', $hash='') {
 	}
 	return $ret;
 }
+
+/**
+ * Add user to banned user list
+ * @param string $username username
+ * @return boolean TRUE if user successfully added to banned user list
+ */
+function user_banned_add($username) {
+	$item = array($username => 1);
+	if (registry_update(1, 'auth', 'banned_users', $item)) {
+		return TRUE;
+	} else {
+		return FALSE;
+	}
+}
+
+/**
+ * Remove user from banned user list
+ * @param string $username username
+ * @return boolean TRUE if user successfully removed from banned user list
+ */
+function user_banned_remove($username) {
+	if (registry_remove(1, 'auth', 'banned_users', $username)) {
+		return TRUE;
+	} else {
+		return FALSE;
+	}
+}
+
+/**
+ * Get user ban status
+ * @param string $username username
+ * @return boolean TRUE if user banned
+ */
+function user_banned_get($username) {
+	$ret = registry_search(1, 'auth', 'banned_users', $username);
+	if ($ret['auth']['banned_users'][$username]) {
+		return TRUE;
+	} else {
+		return FALSE;
+	}
+}

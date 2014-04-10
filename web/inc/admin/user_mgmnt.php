@@ -82,13 +82,16 @@ switch (_OP_) {
 			// user configurations
 			$action .= "<a href=\""._u('index.php?app=main&inc=user_config&op=user_config&uname='.$list[$i]['username'])."&view=".$view."\">".$icon_config['user_config']."</a>";
 
-			/*
-			// ban
-			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to ban user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=main&inc=user_mgmnt&op=user_ban&uname='.$list[$i]['username'])."&view=".$view."')\">".$icon_config['ban']."</a>";
-
-			// unban
-			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to unban user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=main&inc=user_mgmnt&op=user_unban&uname='.$list[$i]['username'])."&view=".$view."')\">".$icon_config['unban']."</a>";
-			*/
+			if ($list[$i]['username'] != 'admin' || $list[$i]['username'] != $user_config['username']) {
+				if (user_banned_get($list[$i]['username'])) {
+					// unban
+					$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to unban user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=main&inc=user_mgmnt&op=user_unban&uname='.$list[$i]['username'])."&view=".$view."')\">".$icon_config['unban']."</a>";
+					$banned_icon = $icon_config['ban'];
+				} else {
+					// ban
+					$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to ban user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=main&inc=user_mgmnt&op=user_ban&uname='.$list[$i]['username'])."&view=".$view."')\">".$icon_config['ban']."</a>";
+				}
+			}
 		
 			// remove user
 			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=main&inc=user_mgmnt&op=user_del&uname='.$list[$i]['username'])."&view=".$view."')\">".$icon_config['user_delete']."</a>";
@@ -97,7 +100,7 @@ switch (_OP_) {
 			$content .= "
 				<tr>
 					<td>" . core_display_datetime($list[$i]['register_datetime']) . "</td>
-					<td>" . $list[$i]['username'] . "</td>
+					<td>".$banned_icon."" . $list[$i]['username'] . " </td>
 					<td>" . $list[$i]['name'] . "</td>
 					<td>" . $list[$i]['mobile'] . "</td>	
 					<td>" . rate_getusercredit($list[$i]['username']) . "</td>	
@@ -220,5 +223,29 @@ switch (_OP_) {
 		$_SESSION['error_string'] = $ret['error_string'];
 		header("Location: "._u('index.php?app=main&inc=user_mgmnt&op=user_list&view='.$view));
 		exit();
+		break;
+
+	case "user_unban":
+		if ($_REQUEST['uname'] == 'admin' || $_REQUEST['uname'] == $user_config['username']) {
+			$_SESSION['error_string'] = _('User admin or currently logged in administrator cannot be unbanned');
+		} else if (user_banned_get($_REQUEST['uname'])) {
+			user_banned_remove($_REQUEST['uname']);
+			$_SESSION['error_string'] = _('User has been unbanned');
+		} else {
+			$_SESSION['error_string'] = _('User is not on banned users list');
+		}
+		header("Location: "._u('index.php?app=main&inc=user_mgmnt&op=user_list&view='.$view));
+		break;
+
+	case "user_ban":
+		if ($_REQUEST['uname'] == 'admin' || $_REQUEST['uname'] == $user_config['username']) {
+			$_SESSION['error_string'] = _('User admin or currently logged in administrator cannot be banned');
+		} else if (user_banned_get($_REQUEST['uname'])) {
+			$_SESSION['error_string'] = _('User is already on banned users list');
+		} else {
+			user_banned_add($_REQUEST['uname']);
+			$_SESSION['error_string'] = _('User has been banned');
+		}
+		header("Location: "._u('index.php?app=main&inc=user_mgmnt&op=user_list&view='.$view));
 		break;
 }

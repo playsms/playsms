@@ -27,6 +27,10 @@ defined('_SECURE_') or die('Forbidden');
  */
 function auth_validate_login($username,$password) {
 	logger_print("login attempt u:".$username." p:".md5($password)." ip:".$_SERVER['REMOTE_ADDR'], 3, "login");
+	if (user_banned_get($username)) {
+		logger_print("user banned u:".$username." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
+		return FALSE;	
+	}
 	$db_query = "SELECT password FROM "._DB_PREF_."_tblUser WHERE username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
