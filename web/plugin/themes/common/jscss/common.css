@@ -240,6 +240,7 @@ table.sortable thead, table.sortable th {
 	margin-right: auto;
 	padding-top: 30px;
 	padding-bottom: 20px;
+	max-width: 220px;
 }
 
 /* IDs */
