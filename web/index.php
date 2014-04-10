@@ -103,15 +103,13 @@ if (_APP_) {
 		if ($core_config['main']['default_inc']) {
 			$query_string .= '&inc='.$core_config['main']['default_inc'];
 		} else {
-			$query_string .= '&inc=page_welcome';
-		}
-		if ($core_config['main']['default_op']) {
-			$query_string .= '&op='.$core_config['main']['default_op'];
-		} else {
-			$query_string .= '&inc=page_welcome';
+			$query_string .= '&inc=page_welcome&op=page_welcome';
 		}
 		if ($core_config['main']['default_route']) {
 			$query_string .= '&route='.$core_config['main']['default_route'];
+		}
+		if ($core_config['main']['default_op']) {
+			$query_string .= '&op='.$core_config['main']['default_op'];
 		}
 		header("Location: "._u('index.php?app=main'.$query_string));
 	} else {
