@@ -295,7 +295,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
  * @return integer PID
  */
 function playsmsd_pid_get($process) {
-	return (int)shell_exec("ps f -C playsmsd | grep ".$process." | cut -d' ' -f1 | tr -d '\n'");
+	return (int)shell_exec("ps f -C playsmsd | grep ".$process." | sed -e 's/^ *//' -e 's/ *$//' | cut -d' ' -f1 | tr -d '\n'");
 }
 
 /**
