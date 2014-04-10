@@ -7,12 +7,6 @@ if (function_exists('bindtextdomain')) {
 	textdomain('messages');
 }
 
-// default loaded page/plugin
-//$core_config['main']['default_inc']	= 'tools_report';
-//$core_config['main']['default_op']	= 'report_user';
-$core_config['main']['default_inc']	= 'page_welcome';
-$core_config['main']['default_op']	= 'page_welcome';
-
 // common action icons
 $icon_config['add']		= "<span class='playsms-icon glyphicon glyphicon-plus' alt='"._('Add')."' title='"._('Add')."'></span>";
 $icon_config['edit']		= "<span class='playsms-icon glyphicon glyphicon-cog' alt='"._('Edit')."' title='"._('Edit')."'></span>";

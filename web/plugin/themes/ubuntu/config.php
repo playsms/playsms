@@ -3,7 +3,8 @@ defined('_SECURE_') or die('Forbidden');
 
 // default loaded page/plugin
 //$plugin_config['ubuntu']['main']['default_inc']	= 'tools_report';
-//$plugin_config['ubuntu']['main']['default_op']	= 'report_user';
+//$plugin_config['ubuntu']['main']['default_route']	= 'user';
+//$plugin_config['ubuntu']['main']['default_op']	= '';
 
 // override common action icons
 //$plugin_config['ubuntu']['icon']['edit']		= "<span class='playsms-icon glyphicon glyphicon-cog' alt='"._('Edit')."' title='"._('Edit')."'></span>";

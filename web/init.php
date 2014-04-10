@@ -181,10 +181,6 @@ if (!$core_config['main']) {
 	die(_('FATAL ERROR') . ' : ' . _('Fail to load main config from registry'));
 }
 
-// default loaded page/plugin
-$core_config['main']['default_inc'] = 'page_welcome';
-$core_config['main']['default_op'] = 'page_welcome';
-
 // set global date/time variables
 $date_format = 'Y-m-d';
 $time_format = 'H:i:s';

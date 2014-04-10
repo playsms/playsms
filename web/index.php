@@ -99,7 +99,21 @@ if (_APP_) {
 } else {
 	// no _APP_ then load default page
 	if (auth_isvalid()) {
-		header("Location: "._u('index.php?app=main&inc='.$core_config['main']['default_inc'].'&op='.$core_config['main']['default_op']));
+		$query_string = '';
+		if ($core_config['main']['default_inc']) {
+			$query_string .= '&inc='.$core_config['main']['default_inc'];
+		} else {
+			$query_string .= '&inc=page_welcome';
+		}
+		if ($core_config['main']['default_op']) {
+			$query_string .= '&op='.$core_config['main']['default_op'];
+		} else {
+			$query_string .= '&inc=page_welcome';
+		}
+		if ($core_config['main']['default_route']) {
+			$query_string .= '&route='.$core_config['main']['default_route'];
+		}
+		header("Location: "._u('index.php?app=main'.$query_string));
 	} else {
 		header("Location: "._u('index.php?app=page&inc=login'));
 	}
