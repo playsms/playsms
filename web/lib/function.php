@@ -28,7 +28,7 @@ include $core_config['apps_path']['libs']."/fn_recvsms.php";
 include $core_config['apps_path']['libs']."/fn_sendsms.php";
 include $core_config['apps_path']['libs']."/fn_webservices.php";
 
-// load plugin's config and libraries
+// load list of plugins
 for ($i=0;$i<count($core_config['plugins_category']);$i++) {
 	if ($pc = $core_config['plugins_category'][$i]) {
 		// get plugins
@@ -53,6 +53,16 @@ for ($i=0;$i<count($core_config['plugins_category']);$i++) {
 				$core_config[$pc.'list'][] = $pc_names[$j];
 			}
 		}
+	}
+}
+
+// load common configurations
+$c_fn1 = $core_config['apps_path']['plug'].'/themes/common/config.php';
+if (file_exists($c_fn1)) {
+	include $c_fn1;
+	$c_fn2 = $core_config['apps_path']['plug'].'/themes/common/fn.php';
+	if (file_exists($c_fn2)) {
+		include $c_fn2;
 	}
 }
 
@@ -107,16 +117,6 @@ if (file_exists($c_fn1)) {
 		textdomain('messages');
 	}
 	include $c_fn1;
-}
-
-// load common items for themes
-$c_fn1 = $core_config['apps_path']['plug'].'/themes/common/config.php';
-if (file_exists($c_fn1)) {
-	include $c_fn1;
-	$c_fn2 = $core_config['apps_path']['plug'].'/themes/common/fn.php';
-	if (file_exists($c_fn2)) {
-		include $c_fn2;
-	}
 }
 
 // themes main overrides
