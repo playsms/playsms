@@ -7,7 +7,7 @@ $themes_config['flatly']['main'] = array(
 	'default_inc' => 'tools_report',
 	'default_route' => 'user',
 	'default_op' => '',
-)
+);
 */
 
 // override common action icons
