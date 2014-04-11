@@ -120,7 +120,7 @@ if (file_exists($c_fn1)) {
 }
 
 // themes main overrides
-$mains = $plugin_config[core_themes_get()]['main'];
+$mains = $themes_config[core_themes_get()]['main'];
 if (is_array($mains)) {
 	foreach ($mains as $main_key => $main_val) {
 		if ($main_key && $main_val) {
@@ -130,7 +130,7 @@ if (is_array($mains)) {
 }
 
 // themes icons overrides
-$icons = $plugin_config[core_themes_get()]['icon'];
+$icons = $themes_config[core_themes_get()]['icon'];
 if (is_array($icons)) {
 	foreach ($icons as $icon_action => $icon_url) {
 		if ($icon_action && $icon_url) {
@@ -164,6 +164,7 @@ if (function_exists('bindtextdomain')) {
 //print_r($icon_config); die();
 //print_r($menu_config); die();
 //print_r($plugin_config); die();
+//print_r($themes_config); die();
 //print_r($user_config); die();
 //print_r($core_config); die();
 //print_r($GLOBALS); die();
