@@ -43,7 +43,7 @@ switch (_OP_) {
 		$search = themes_search($search_var);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_.'_tblUser', $conditions, $keywords);
-		$nav = themes_nav($count, "index.php?app=main&inc=user_mgmnt&op=user_list_tab1");
+		$nav = themes_nav($count, "index.php?app=main&inc=user_mgmnt&op=user_list&view=".$view);
 		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = dba_search(_DB_PREF_.'_tblUser', '*', $conditions, $keywords, $extras);
 		if ($err = $_SESSION['error_string']) {
