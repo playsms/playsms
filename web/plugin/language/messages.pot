@@ -19,7 +19,13 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
+msgid "Add administrator"
+msgstr ""
+
 msgid "Add message template"
+msgstr ""
+
+msgid "Add normal user"
 msgstr ""
 
 msgid "Add user"
@@ -73,6 +79,9 @@ msgstr ""
 msgid "Application options"
 msgstr ""
 
+msgid "Are you sure you want to ban user"
+msgstr ""
+
 msgid "Are you sure you want to delete outgoing SMS ?"
 msgstr ""
 
@@ -88,6 +97,9 @@ msgstr ""
 msgid "Are you sure you want to delete user ?"
 msgstr ""
 
+msgid "Are you sure you want to unban user"
+msgstr ""
+
 msgid "Auto remove plus sign"
 msgstr ""
 
@@ -95,6 +107,9 @@ msgid "Auto replace prefix 0"
 msgstr ""
 
 msgid "Back"
+msgstr ""
+
+msgid "Ban"
 msgstr ""
 
 msgid "Changelog"
@@ -182,6 +197,9 @@ msgid "Email is already in use by other username"
 msgstr ""
 
 msgid "Enable forgot password"
+msgstr ""
+
+msgid "Enable logo"
 msgstr ""
 
 msgid "Enable public registration"
@@ -310,6 +328,9 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
+msgid "Idle"
+msgstr ""
+
 msgid "Import"
 msgstr ""
 
@@ -340,6 +361,12 @@ msgstr ""
 msgid "License"
 msgstr ""
 
+msgid "List of administrators"
+msgstr ""
+
+msgid "List of normal users"
+msgstr ""
+
 msgid "Local number length"
 msgstr ""
 
@@ -347,6 +374,13 @@ msgid "Login"
 msgstr ""
 
 msgid "Login information"
+msgstr ""
+
+msgid "Logo URL"
+msgstr ""
+
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
 msgstr ""
 
 msgid "Logout"
@@ -443,6 +477,12 @@ msgid "Normal User"
 msgstr ""
 
 msgid "Normal user"
+msgstr ""
+
+msgid "Offline"
+msgstr ""
+
+msgid "Online"
 msgstr ""
 
 msgid "Options"
@@ -554,6 +594,9 @@ msgid "Registered"
 msgstr ""
 
 msgid "Replace prefix 0 or padding local numbers"
+msgstr ""
+
+msgid "Replace website title with logo"
 msgstr ""
 
 msgid "Reply"
@@ -674,7 +717,16 @@ msgstr ""
 msgid "Tools"
 msgstr ""
 
+msgid "Unable to ban user"
+msgstr ""
+
+msgid "Unable to unban user"
+msgstr ""
+
 msgid "Unable to update login session"
+msgstr ""
+
+msgid "Unban"
 msgstr ""
 
 msgid "Unicode message"
@@ -693,6 +745,9 @@ msgid "Use template"
 msgstr ""
 
 msgid "User"
+msgstr ""
+
+msgid "User admin or currently logged in administrator cannot be unbanned"
 msgstr ""
 
 msgid "User already exists"
@@ -722,16 +777,28 @@ msgstr ""
 msgid "User has been added but failed to send email"
 msgstr ""
 
+msgid "User has been banned"
+msgstr ""
+
 msgid "User has been deleted"
 msgstr ""
 
 msgid "User has been removed"
 msgstr ""
 
+msgid "User has been unbanned"
+msgstr ""
+
 msgid "User is already exists"
 msgstr ""
 
+msgid "User is already on banned users list"
+msgstr ""
+
 msgid "User is immune to deletion"
+msgstr ""
+
+msgid "User is not on banned users list"
 msgstr ""
 
 msgid "User level"
@@ -764,10 +831,16 @@ msgstr ""
 msgid "View administrator"
 msgstr ""
 
+msgid "View administrators"
+msgstr ""
+
 msgid "View groups"
 msgstr ""
 
 msgid "View normal user"
+msgstr ""
+
+msgid "View normal users"
 msgstr ""
 
 msgid "View numbers"

@@ -14,11 +14,20 @@ msgstr ""
 msgid "All reports"
 msgstr "Все отчёты"
 
+msgid "Ban date/time"
+msgstr ""
+
+msgid "Banned users list"
+msgstr ""
+
 msgid "Billing"
 msgstr "Потрачено"
 
 msgid "Credit"
 msgstr "Баланс"
+
+msgid "Current IP address"
+msgstr ""
 
 msgid "Deleted"
 msgstr "Удалено"
@@ -26,8 +35,14 @@ msgstr "Удалено"
 msgid "Delivered"
 msgstr "Доставлено"
 
+msgid "Email"
+msgstr ""
+
 msgid "Failed"
 msgstr "Ошибок"
+
+msgid "Last update"
+msgstr ""
 
 msgid "My report"
 msgstr "Мой отчёт"
@@ -38,11 +53,35 @@ msgstr "Ожидает"
 msgid "Report"
 msgstr "Отчёт"
 
+msgid "Report all users"
+msgstr ""
+
+msgid "Report banned users"
+msgstr ""
+
+msgid "Report whose online"
+msgstr ""
+
 msgid "Sent"
 msgstr "Отправлено"
 
 msgid "Total"
 msgstr "Всего"
 
+msgid "Unable to unban user"
+msgstr ""
+
 msgid "User"
 msgstr "Пользователь"
+
+msgid "User agent"
+msgstr ""
+
+msgid "User has been unbanned"
+msgstr ""
+
+msgid "Whose online"
+msgstr ""
+
+msgid "username"
+msgstr ""

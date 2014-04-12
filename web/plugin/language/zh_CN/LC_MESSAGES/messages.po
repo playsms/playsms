@@ -26,8 +26,16 @@ msgstr "活跃的主题"
 msgid "Add"
 msgstr "添加"
 
+#, fuzzy
+msgid "Add administrator"
+msgstr "管理员"
+
 msgid "Add message template"
 msgstr "增加信息模版"
+
+#, fuzzy
+msgid "Add normal user"
+msgstr "一般用户"
 
 msgid "Add user"
 msgstr "添加用户"
@@ -84,6 +92,10 @@ msgstr "应用信息"
 msgid "Application options"
 msgstr "应用信息"
 
+#, fuzzy
+msgid "Are you sure you want to ban user"
+msgstr "确定删除用户"
+
 msgid "Are you sure you want to delete outgoing SMS ?"
 msgstr "你确定要删除发出的信息吗 ?"
 
@@ -100,6 +112,10 @@ msgstr "确定删除用户"
 msgid "Are you sure you want to delete user ?"
 msgstr "确定删除用户 ?"
 
+#, fuzzy
+msgid "Are you sure you want to unban user"
+msgstr "确定删除用户"
+
 msgid "Auto remove plus sign"
 msgstr ""
 
@@ -108,6 +124,9 @@ msgstr ""
 
 msgid "Back"
 msgstr "返回"
+
+msgid "Ban"
+msgstr ""
 
 msgid "Changelog"
 msgstr ""
@@ -196,6 +215,10 @@ msgid "Email is already in use by other username"
 msgstr "电子邮件已被其他用户使用"
 
 msgid "Enable forgot password"
+msgstr "无效用户名或密码"
+
+#, fuzzy
+msgid "Enable logo"
 msgstr "无效用户名或密码"
 
 msgid "Enable public registration"
@@ -337,6 +360,9 @@ msgstr ""
 msgid "Home"
 msgstr "主页"
 
+msgid "Idle"
+msgstr ""
+
 msgid "Import"
 msgstr ""
 
@@ -368,6 +394,14 @@ msgstr ""
 msgid "License"
 msgstr ""
 
+#, fuzzy
+msgid "List of administrators"
+msgstr "管理员"
+
+#, fuzzy
+msgid "List of normal users"
+msgstr "一般用户"
+
 msgid "Local number length"
 msgstr ""
 
@@ -376,6 +410,13 @@ msgstr ""
 
 msgid "Login information"
 msgstr "登陆信息"
+
+msgid "Logo URL"
+msgstr ""
+
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
 
 msgid "Logout"
 msgstr "注销"
@@ -473,6 +514,12 @@ msgstr "标准用户"
 
 msgid "Normal user"
 msgstr "一般用户"
+
+msgid "Offline"
+msgstr ""
+
+msgid "Online"
+msgstr ""
 
 #, fuzzy
 msgid "Options"
@@ -593,6 +640,9 @@ msgid "Registered"
 msgstr "已传送的"
 
 msgid "Replace prefix 0 or padding local numbers"
+msgstr ""
+
+msgid "Replace website title with logo"
 msgstr ""
 
 msgid "Reply"
@@ -719,8 +769,19 @@ msgstr ""
 msgid "Tools"
 msgstr ""
 
+#, fuzzy
+msgid "Unable to ban user"
+msgstr "不能更新登陆会话"
+
+#, fuzzy
+msgid "Unable to unban user"
+msgstr "不能更新登陆会话"
+
 msgid "Unable to update login session"
 msgstr "不能更新登陆会话"
+
+msgid "Unban"
+msgstr ""
 
 #, fuzzy
 msgid "Unicode message"
@@ -740,6 +801,9 @@ msgstr "使用模版"
 
 msgid "User"
 msgstr "用户"
+
+msgid "User admin or currently logged in administrator cannot be unbanned"
+msgstr ""
 
 #, fuzzy
 msgid "User already exists"
@@ -776,6 +840,10 @@ msgstr "用户已被删除"
 msgid "User has been added but failed to send email"
 msgstr "用户已被删除"
 
+#, fuzzy
+msgid "User has been banned"
+msgstr "用户已添加"
+
 msgid "User has been deleted"
 msgstr "用户已被删除"
 
@@ -783,11 +851,22 @@ msgstr "用户已被删除"
 msgid "User has been removed"
 msgstr "用户已被删除"
 
+#, fuzzy
+msgid "User has been unbanned"
+msgstr "用户已添加"
+
 msgid "User is already exists"
+msgstr "用户已存在"
+
+#, fuzzy
+msgid "User is already on banned users list"
 msgstr "用户已存在"
 
 msgid "User is immune to deletion"
 msgstr "用户删除无效"
+
+msgid "User is not on banned users list"
+msgstr ""
 
 msgid "User level"
 msgstr "用户等级"
@@ -824,11 +903,19 @@ msgstr "查看"
 msgid "View administrator"
 msgstr "管理员"
 
+#, fuzzy
+msgid "View administrators"
+msgstr "管理员"
+
 msgid "View groups"
 msgstr ""
 
 #, fuzzy
 msgid "View normal user"
+msgstr "一般用户"
+
+#, fuzzy
+msgid "View normal users"
 msgstr "一般用户"
 
 #, fuzzy

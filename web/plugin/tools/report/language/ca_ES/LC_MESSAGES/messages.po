@@ -1,21 +1,27 @@
 # Joan <aseques@gmail.com>, 2014.
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-19 17:59+0700\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Joan <aseques@gmail.com>\n"
 "PO-Revision-Date: 2014-03-25 15:30+0100\n"
-"Project-Id-Version: \n"
+"Last-Translator: Joan <aseques@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.5\n"
 
 msgid "All reports"
 msgstr "Tots els informes"
+
+msgid "Ban date/time"
+msgstr ""
+
+msgid "Banned users list"
+msgstr ""
 
 msgid "Billing"
 msgstr "Facturació"
@@ -23,14 +29,23 @@ msgstr "Facturació"
 msgid "Credit"
 msgstr "Crèdit"
 
+msgid "Current IP address"
+msgstr ""
+
 msgid "Deleted"
 msgstr "Esborrats"
 
 msgid "Delivered"
 msgstr "Entregats"
 
+msgid "Email"
+msgstr ""
+
 msgid "Failed"
 msgstr "Fallats"
+
+msgid "Last update"
+msgstr ""
 
 msgid "My report"
 msgstr "El meu informe"
@@ -41,12 +56,35 @@ msgstr "Pendents"
 msgid "Report"
 msgstr "Informe"
 
+msgid "Report all users"
+msgstr ""
+
+msgid "Report banned users"
+msgstr ""
+
+msgid "Report whose online"
+msgstr ""
+
 msgid "Sent"
 msgstr "Enviats"
 
 msgid "Total"
 msgstr "Total"
 
+msgid "Unable to unban user"
+msgstr ""
+
 msgid "User"
 msgstr "Usuari"
 
+msgid "User agent"
+msgstr ""
+
+msgid "User has been unbanned"
+msgstr ""
+
+msgid "Whose online"
+msgstr ""
+
+msgid "username"
+msgstr ""

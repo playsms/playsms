@@ -26,8 +26,16 @@ msgstr "Tema yang aktif"
 msgid "Add"
 msgstr "Tambah"
 
+#, fuzzy
+msgid "Add administrator"
+msgstr "Administrator"
+
 msgid "Add message template"
 msgstr "Tambah pola pesan"
+
+#, fuzzy
+msgid "Add normal user"
+msgstr "Pengguna normal"
 
 msgid "Add user"
 msgstr "Tambah pengguna"
@@ -84,6 +92,10 @@ msgstr "Informasi aplikasi"
 msgid "Application options"
 msgstr "Opsi aplikasi"
 
+#, fuzzy
+msgid "Are you sure you want to ban user"
+msgstr "Anda yakin ingin menghapus pengguna"
+
 msgid "Are you sure you want to delete outgoing SMS ?"
 msgstr "Anda yakin ingin menghapus SMS keluar ?"
 
@@ -100,6 +112,10 @@ msgstr "Anda yakin ingin menghapus pengguna"
 msgid "Are you sure you want to delete user ?"
 msgstr "Anda yakin ingin menghapus pengguna ?"
 
+#, fuzzy
+msgid "Are you sure you want to unban user"
+msgstr "Anda yakin ingin menghapus pengguna"
+
 msgid "Auto remove plus sign"
 msgstr "Otomatis menghapus tanda plus"
 
@@ -108,6 +124,9 @@ msgstr "Otomatis mengganti kode awal dengan 0"
 
 msgid "Back"
 msgstr "Kembali"
+
+msgid "Ban"
+msgstr ""
 
 msgid "Changelog"
 msgstr "Catatan perubahan"
@@ -197,6 +216,10 @@ msgid "Email is already in use by other username"
 msgstr "Email sudah digunakan oleh pengguna lain"
 
 msgid "Enable forgot password"
+msgstr "Aktifkan lupa kata sandi"
+
+#, fuzzy
+msgid "Enable logo"
 msgstr "Aktifkan lupa kata sandi"
 
 msgid "Enable public registration"
@@ -330,6 +353,9 @@ msgstr "HTTP API"
 msgid "Home"
 msgstr "Beranda"
 
+msgid "Idle"
+msgstr ""
+
 #, fuzzy
 msgid "Import"
 msgstr "Ekspor"
@@ -362,6 +388,14 @@ msgstr "Terakhir ubah"
 msgid "License"
 msgstr "Lisensi"
 
+#, fuzzy
+msgid "List of administrators"
+msgstr "Administrator"
+
+#, fuzzy
+msgid "List of normal users"
+msgstr "Pengguna normal"
+
 msgid "Local number length"
 msgstr "Panjang nomor lokal"
 
@@ -370,6 +404,13 @@ msgstr ""
 
 msgid "Login information"
 msgstr "Informasi login"
+
+msgid "Logo URL"
+msgstr ""
+
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
 
 msgid "Logout"
 msgstr "Keluar"
@@ -467,6 +508,12 @@ msgstr "Pengguna normal"
 
 msgid "Normal user"
 msgstr "Pengguna normal"
+
+msgid "Offline"
+msgstr ""
+
+msgid "Online"
+msgstr ""
 
 #, fuzzy
 msgid "Options"
@@ -586,6 +633,9 @@ msgstr "Terdaftar"
 
 msgid "Replace prefix 0 or padding local numbers"
 msgstr "Ganti prefix 0 atau gabungkan nomor lokal"
+
+msgid "Replace website title with logo"
+msgstr ""
 
 msgid "Reply"
 msgstr "Balas"
@@ -711,8 +761,19 @@ msgstr "Ke"
 msgid "Tools"
 msgstr "Alat"
 
+#, fuzzy
+msgid "Unable to ban user"
+msgstr "Tidak dapat memperbaharui sesi login"
+
+#, fuzzy
+msgid "Unable to unban user"
+msgstr "Tidak dapat memperbaharui sesi login"
+
 msgid "Unable to update login session"
 msgstr "Tidak dapat memperbaharui sesi login"
+
+msgid "Unban"
+msgstr ""
 
 msgid "Unicode message"
 msgstr "Pesan unicode"
@@ -731,6 +792,9 @@ msgstr "Gunakan pola"
 
 msgid "User"
 msgstr "Pengguna"
+
+msgid "User admin or currently logged in administrator cannot be unbanned"
+msgstr ""
 
 msgid "User already exists"
 msgstr "Pengguna sudah ada"
@@ -765,6 +829,10 @@ msgstr "Pengguna telah dihapus"
 msgid "User has been added but failed to send email"
 msgstr "Pengguna telah dihapus"
 
+#, fuzzy
+msgid "User has been banned"
+msgstr "Pengguna telah ditambah"
+
 msgid "User has been deleted"
 msgstr "Pengguna telah dihapus"
 
@@ -772,11 +840,22 @@ msgstr "Pengguna telah dihapus"
 msgid "User has been removed"
 msgstr "Pengguna telah dihapus"
 
+#, fuzzy
+msgid "User has been unbanned"
+msgstr "Pengguna telah ditambah"
+
 msgid "User is already exists"
+msgstr "Pengguna sudah ada"
+
+#, fuzzy
+msgid "User is already on banned users list"
 msgstr "Pengguna sudah ada"
 
 msgid "User is immune to deletion"
 msgstr "Pengguna kebal untuk dihapus"
+
+msgid "User is not on banned users list"
+msgstr ""
 
 msgid "User level"
 msgstr "Tingkatan pengguna"
@@ -813,10 +892,18 @@ msgstr "Tampil"
 msgid "View administrator"
 msgstr "Administrator"
 
+#, fuzzy
+msgid "View administrators"
+msgstr "Administrator"
+
 msgid "View groups"
 msgstr "Lihat group"
 
 msgid "View normal user"
+msgstr "Pengguna normal"
+
+#, fuzzy
+msgid "View normal users"
 msgstr "Pengguna normal"
 
 msgid "View numbers"

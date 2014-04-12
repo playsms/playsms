@@ -1,10 +1,19 @@
 msgid "All reports"
 msgstr ""
 
+msgid "Ban date/time"
+msgstr ""
+
+msgid "Banned users list"
+msgstr ""
+
 msgid "Billing"
 msgstr ""
 
 msgid "Credit"
+msgstr ""
+
+msgid "Current IP address"
 msgstr ""
 
 msgid "Deleted"
@@ -13,7 +22,13 @@ msgstr ""
 msgid "Delivered"
 msgstr ""
 
+msgid "Email"
+msgstr ""
+
 msgid "Failed"
+msgstr ""
+
+msgid "Last update"
 msgstr ""
 
 msgid "My report"
@@ -25,11 +40,35 @@ msgstr ""
 msgid "Report"
 msgstr ""
 
+msgid "Report all users"
+msgstr ""
+
+msgid "Report banned users"
+msgstr ""
+
+msgid "Report whose online"
+msgstr ""
+
 msgid "Sent"
 msgstr ""
 
 msgid "Total"
 msgstr ""
 
+msgid "Unable to unban user"
+msgstr ""
+
 msgid "User"
+msgstr ""
+
+msgid "User agent"
+msgstr ""
+
+msgid "User has been unbanned"
+msgstr ""
+
+msgid "Whose online"
+msgstr ""
+
+msgid "username"
 msgstr ""
