@@ -220,6 +220,7 @@ function user_add($data=array()) {
 		$data['webservices_ip'] = ( trim($data['webservices_ip']) ? trim($data['webservices_ip']) : '127.0.0.1, 192.168.*.*' );
 		$v = user_add_validate($data);
 		if ($v['status']) {
+			_log('attempt to register status:'.$data['status'].' u:'.$data['username'].' email:'.$data['email'], 3, 'user_add');
 			if ($data['username'] && $data['email'] && $data['name']) {
 				if ($new_uid = dba_add(_DB_PREF_.'_tblUser', $data)) {
 					$ret['status'] = TRUE;
@@ -228,7 +229,7 @@ function user_add($data=array()) {
 					$ret['error_string'] = _('Fail to register an account');
 				}
 				if ($ret['status']) {
-					logger_print("u:".$data['username']." uid:".$ret['uid']." email:".$data['email']." ip:".$_SERVER['REMOTE_ADDR']." mobile:".$data['mobile']." credit:".$data['credit'], 2, "register");
+					_log('registered status:'.$data['status'].' u:'.$data['username'].' uid:'.$ret['uid'].' email:'.$data['email'].' ip:'.$_SERVER['REMOTE_ADDR'].' mobile:'.$data['mobile'].' credit:'.$data['credit'], 2, 'user_add');
 					$subject = _('New account registration');
 					$body = $core_config['main']['web_title']."\n";
 					$body .= $core_config['http_path']['base']."\n\n";
@@ -270,11 +271,13 @@ function user_remove($uid) {
 	$ret['error_string'] = _('Unknown error has occurred');
 	$ret['status'] = FALSE;
 	if ($username = user_uid2username($uid)) {
-		if (! ($uid == 1 || $username == 'admin')) {
+		if (! ($uid == 1)) {
 			if ($uid == $user_config['uid']) {
 				$ret['error_string'] = _('Currently logged in user is immune to deletion');
 			} else {
 				if (dba_remove(_DB_PREF_.'_tblUser', array('uid' => $uid))) {
+					user_banned_remove($uid);
+					_log('user removed u:'.$username.' uid:'.$uid, 2, 'user_remove');
 					$ret['error_string'] = _('User has been removed') . " (" . _('username') . ": ".$username.")";
 					$ret['status'] = TRUE;
 				}
@@ -368,12 +371,14 @@ function user_session_remove($uid='', $sid='', $hash='') {
 
 /**
  * Add user to banned user list
- * @param string $username username
+ * @param  integer $uid User ID
  * @return boolean TRUE if user successfully added to banned user list
  */
-function user_banned_add($username) {
-	$item = array($username => 1);
+function user_banned_add($uid) {
+	$bantime = core_get_datetime();
+	$item = array($uid => $bantime);
 	if (registry_update(1, 'auth', 'banned_users', $item)) {
+		_log('banned uid:'.$uid.' bantime:'.$bantime, 2, 'user_banned_add');
 		return TRUE;
 	} else {
 		return FALSE;
@@ -382,11 +387,12 @@ function user_banned_add($username) {
 
 /**
  * Remove user from banned user list
- * @param string $username username
+ * @param  integer $uid User ID
  * @return boolean TRUE if user successfully removed from banned user list
  */
-function user_banned_remove($username) {
-	if (registry_remove(1, 'auth', 'banned_users', $username)) {
+function user_banned_remove($uid) {
+	if (registry_remove(1, 'auth', 'banned_users', $uid)) {
+		_log('unbanned uid:'.$uid, 2, 'user_banned_remove');
 		return TRUE;
 	} else {
 		return FALSE;
@@ -395,14 +401,36 @@ function user_banned_remove($username) {
 
 /**
  * Get user ban status
- * @param string $username username
- * @return boolean TRUE if user banned
+ * @param  integer $uid User ID
+ * @return string Ban date/time
  */
-function user_banned_get($username) {
-	$ret = registry_search(1, 'auth', 'banned_users', $username);
-	if ($ret['auth']['banned_users'][$username]) {
-		return TRUE;
+function user_banned_get($uid) {
+	$list = registry_search(1, 'auth', 'banned_users', $uid);
+	if ($list['auth']['banned_users'][$uid]) {
+		return $list['auth']['banned_users'][$uid];
 	} else {
 		return FALSE;
 	}
+}
+
+/**
+ * List all banned users
+ * @return array banned users
+ */
+function user_banned_list() {
+	$ret = array();
+	$list = registry_search(1, 'auth', 'banned_users');
+	foreach ($list['auth']['banned_users'] as $key => $val) {
+		$uid = (int) $key;
+		$username = user_uid2username($uid);
+		$bantime = $val;
+		if ($uid && $username && $bantime) {
+			$ret[] = array(
+				'uid' => $uid,
+				'username' => $username,
+				'bantime' => $bantime,
+			);
+		}
+	}
+	return $ret;
 }
