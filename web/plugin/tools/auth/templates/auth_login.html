@@ -1,25 +1,26 @@
 <table width='100%'>
 	<tbody>
+
 	<tr><td>{ERROR}</td></tr>
 	<tr>
 		<td align="center">
+
 		<table class="playsms-login-box">
 			<tbody>
+
 			<tr>
 				<td>
-				<form action="index.php" method=POST>
+				<form action="{URL_ACTION}" method=POST>
 				{CSRF_FORM}
-				<input type=hidden name=app value=auth>
-				<input type=hidden name=op value=login>
 				<table width="80%" align="center">
 					<tbody>
 
 					<if.enable_logo>
 					<tr>
-		                        	<td>
-		                         		<a href="{HTTP_PATH_BASE}"><img class="playsms-logo" src="{logo_url}" alt="{WEB_TITLE}"></a>
-	                	        	</td>
-	        	                </tr>
+						<td>
+							<a href="{HTTP_PATH_BASE}"><img class="playsms-logo" src="{logo_url}" alt="{WEB_TITLE}"></a>
+						</td>
+					</tr>
 					</if.enable_logo>
 
 					<if.logo_replace_title>
@@ -29,7 +30,7 @@
 						</td>
 					</tr>
 					</if.logo_replace_title>
-					
+
 					<tr>
 						<td><input type=text class=form-control placeholder="{Username or email}" name=username maxlength=100></td>
 					</tr>
@@ -40,25 +41,30 @@
 						<td><input type=submit class=button value='{Login}'></td>
 					</tr>
 					<tr><td>&nbsp;</td></tr>
+
 					<tr>
 						<td>
 							<if.enable_register>
-							<p><a href='index.php?app=page&inc=register'>{Register an account}</a></p>
+							<p><a href="{URL_REGISTER}">{Register an account}</a></p>
 							</if.enable_register>
 							<if.enable_forgot>
-							<p><a href='index.php?app=page&inc=forgot'>{Recover password}</a></p>
+							<p><a href="{URL_FORGOT}">{Recover password}</a></p>
 							</if.enable_forgot>
 						</td>
 					</tr>
 					<tr><td>&nbsp;</td></tr>
+
 					</tbody>
 				</table>
 				</form>
 				</td>
 			</tr>
+
 			</tbody>
 		</table>
+
 		</td>
 	</tr>
+
 	</tbody>
 </table>
