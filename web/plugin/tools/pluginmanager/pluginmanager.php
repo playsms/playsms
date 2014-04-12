@@ -6,7 +6,8 @@ if (!auth_isadmin()) { auth_block (); };
 $content .= "
 	<h2>" . _ ( 'Manage plugin' ) . "</h2>
 	<ul class='nav nav-tabs nav-justified'>
-		<li class=active><a href='#tabs-feature' data-toggle=tab>" . _ ( 'Features' ) . "</a></li>
+		<li class=active><a href='#tabs-feature' data-toggle=tab>" . _ ( 'Core' ) . "</a></li>
+		<li><a href='#tabs-gateway' data-toggle=tab>" . _ ( 'Features' ) . "</a></li>
 		<li><a href='#tabs-gateway' data-toggle=tab>" . _ ( 'Gateways' ) . "</a></li>
 		<li><a href='#tabs-theme' data-toggle=tab>" . _ ( 'Themes' ) . "</a></li>
 		<li><a href='#tabs-tools' data-toggle=tab>" . _ ( 'Tools' ) . "</a></li>
@@ -14,6 +15,9 @@ $content .= "
 	</ul>
 	<div class=tab-content>
 		<div id='tabs-feature' class='tab-pane fade in active'>
+			" . pluginmanager_display ( 'core' ) . "
+		</div>
+		<div id='tabs-feature' class='tab-pane fade'>
 			" . pluginmanager_display ( 'feature' ) . "
 		</div>
 		<div id='tabs-gateway' class='tab-pane fade'>
