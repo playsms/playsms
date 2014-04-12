@@ -26,9 +26,10 @@ defined('_SECURE_') or die('Forbidden');
  * @return boolean TRUE when validated or boolean FALSE when validation failed
  */
 function auth_validate_login($username, $password) {
-	logger_print("login attempt u:".$username." p:".md5($password)." ip:".$_SERVER['REMOTE_ADDR'], 3, "login");
-	if (user_banned_get($username)) {
-		logger_print("user banned u:".$username." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
+	$uid = user_username2uid($username);
+	_log('login attempt u:'.$username.' uid:'.$uid.' p:'.md5($password).' ip:'.$_SERVER['REMOTE_ADDR'], 3, 'auth_validate_login');
+	if (user_banned_get($uid)) {
+		_log('user banned u:'.$username.' uid:'.$uid.' ip:'.$_SERVER['REMOTE_ADDR'], 2, 'auth_validate_login');
 		return FALSE;	
 	}
 	$db_query = "SELECT password FROM "._DB_PREF_."_tblUser WHERE username='$username'";
@@ -37,20 +38,20 @@ function auth_validate_login($username, $password) {
 	$res_password = trim($db_row['password']);
 	$password = md5($password);
 	if ($password && $res_password && ($password==$res_password)) {
-		logger_print("valid login u:".$username." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
+		_log('valid login u:'.$username.' uid:'.$uid.' ip:'.$_SERVER['REMOTE_ADDR'], 2, 'auth_validate_login');
 		return true;
 	} else {
 		$ret = registry_search(1, 'auth', 'tmp_password', $username);
 		$tmp_password = $ret['auth']['tmp_password'][$username];
 		if ($password && $tmp_password && ($password==$tmp_password)) {
-			logger_print("valid login u:".$username." ip:".$_SERVER['REMOTE_ADDR'].' using temporary password', 2, "login");
+			_log('valid login u:'.$username.' uid:'.$uid.' ip:'.$_SERVER['REMOTE_ADDR'].' using temporary password', 2, 'auth_validate_login');
 			if (! registry_remove(1, 'auth', 'tmp_password', $username)) {
-				logger_print("WARNING: unable to remove temporary password after successful login", 3, "login");
+				_log('WARNING: unable to remove temporary password after successful login', 3, 'login');
 			}
 			return true;
 		}
 	}
-	logger_print("invalid login u:".$username." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
+	_log('invalid login u:'.$username.' uid:'.$uid.' ip:'.$_SERVER['REMOTE_ADDR'], 2, 'auth_validate_login');
 	return false;
 }
 
@@ -61,8 +62,8 @@ function auth_validate_login($username, $password) {
  * @return boolean TRUE when validated or boolean FALSE when validation failed
  */
 function auth_validate_email($email, $password) {
-	logger_print("login attempt email:".$email." p:".md5($password)." ip:".$_SERVER['REMOTE_ADDR'], 3, "login");
 	$username = user_email2username($email);
+	_log('login attempt email:'.$email.' u:'.$username.' p:'.md5($password).' ip:'.$_SERVER['REMOTE_ADDR'], 3, 'auth_validate_email');
 	return auth_validate_login($username, $password);
 }
 
@@ -73,7 +74,7 @@ function auth_validate_email($email, $password) {
  */
 function auth_validate_token($token) {
 	$token = trim($token);
-	logger_print("login attempt t:".$token." ip:".$_SERVER['REMOTE_ADDR'], 3, "login");
+	_log('login attempt token:'.$token.' ip:'.$_SERVER['REMOTE_ADDR'], 3, 'auth_validate_token');
 	if ($token) {
 		$db_query = "SELECT uid,username,enable_webservices,webservices_ip FROM "._DB_PREF_."_tblUser WHERE token='$token'";
 		$db_result = dba_query($db_query);
@@ -83,7 +84,11 @@ function auth_validate_token($token) {
 			if (is_array($ip)) {
 				foreach ($ip as $key => $net) {
 					if (core_net_match($net, $_SERVER['REMOTE_ADDR'])) {
-						logger_print("valid login u:".$username." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
+						if (user_banned_get($uid)) {
+							_log('user banned u:'.$username.' uid:'.$uid.' ip:'.$_SERVER['REMOTE_ADDR'], 2, 'auth_validate_token');
+							return FALSE;	
+						}
+						_log('valid login u:'.$username.' uid:'.$uid.' ip:'.$_SERVER['REMOTE_ADDR'], 2, 'auth_validate_token');
 						return $uid;
 					}
 				}
