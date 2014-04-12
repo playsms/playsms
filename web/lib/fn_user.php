@@ -376,6 +376,9 @@ function user_session_remove($uid='', $sid='', $hash='') {
  */
 function user_banned_add($uid) {
 	$bantime = core_get_datetime();
+	if (! user_session_remove($uid)) {
+		return FALSE;
+	}
 	$item = array($uid => $bantime);
 	if (registry_update(1, 'auth', 'banned_users', $item)) {
 		_log('banned uid:'.$uid.' bantime:'.$bantime, 2, 'user_banned_add');
