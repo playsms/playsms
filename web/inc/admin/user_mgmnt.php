@@ -90,6 +90,7 @@ switch (_OP_) {
 				} else {
 					// ban
 					$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to ban user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=main&inc=user_mgmnt&op=user_ban&uname='.$list[$i]['username'])."&view=".$view."')\">".$icon_config['ban']."</a>";
+					$banned_icon = '';
 				}
 			}
 		
