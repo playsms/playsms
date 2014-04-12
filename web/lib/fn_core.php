@@ -754,10 +754,6 @@ function core_print($content) {
 /**
  * Include essential functions
  */
-include_once $core_config['apps_path']['libs']."/fn_registry.php";
-include_once $core_config['apps_path']['libs']."/fn_sendmail.php";
-include_once $core_config['apps_path']['libs']."/fn_user.php";
-include_once $core_config['apps_path']['libs']."/fn_logger.php";
 include_once $core_config['apps_path']['libs']."/fn_tpl.php";
 include_once $core_config['apps_path']['libs']."/fn_themes.php";
 include_once $core_config['apps_path']['libs']."/fn_notif.php";
