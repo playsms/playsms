@@ -1,4 +1,5 @@
-Plugin	: Utilize google translate to translate words
-Author	: Anton Raharja
-Release	: 101103
-License	: GPLv3
+Plugin		: auth
+Category	: core
+Author		: Anton Raharja
+Release		: 140413
+License		: GPLv3
