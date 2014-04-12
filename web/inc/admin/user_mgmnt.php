@@ -232,11 +232,12 @@ switch (_OP_) {
 			$_SESSION['error_string'] = _('User admin or currently logged in administrator cannot be unbanned');
 		} else if (user_banned_get($uid)) {
 			user_banned_remove($uid);
-			$_SESSION['error_string'] = _('User has been unbanned');
+			$_SESSION['error_string'] = _('User has been unbanned').' ('._('username').': '.$_REQUEST['uname'].')';
 		} else {
-			$_SESSION['error_string'] = _('User is not on banned users list');
+			$_SESSION['error_string'] = _('User is not on banned users list').' ('._('username').': '.$_REQUEST['uname'].')';
 		}
 		header("Location: "._u('index.php?app=main&inc=user_mgmnt&op=user_list&view='.$view));
+		exit();
 		break;
 
 	case "user_ban":
@@ -244,11 +245,12 @@ switch (_OP_) {
 		if ($uid && ($uid == 1 || $uid == $user_config['uid'])) {
 			$_SESSION['error_string'] = _('User admin or currently logged in administrator cannot be unbanned');
 		} else if (user_banned_get($uid)) {
-			$_SESSION['error_string'] = _('User is already on banned users list');
+			$_SESSION['error_string'] = _('User is already on banned users list').' ('._('username').': '.$_REQUEST['uname'].')';
 		} else {
 			user_banned_add($uid);
-			$_SESSION['error_string'] = _('User has been banned');
+			$_SESSION['error_string'] = _('User has been banned').' ('._('username').': '.$_REQUEST['uname'].')';
 		}
 		header("Location: "._u('index.php?app=main&inc=user_mgmnt&op=user_list&view='.$view));
+		exit();
 		break;
 }
