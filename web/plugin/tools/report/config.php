@@ -5,12 +5,18 @@ if (auth_isadmin()) {
 	$menutab = $core_config['menutab']['administration'];
 	$menu_config[$menutab][] = array(
 		"index.php?app=main&inc=tools_report&route=admin",
-		_('All reports') ,
+		_('Report all users') ,
 		2
 	);
 	$menu_config[$menutab][] = array(
 		"index.php?app=main&inc=tools_report&route=online",
-		_('Whose online')
+		_('Report whose online'),
+		2
+	);
+	$menu_config[$menutab][] = array(
+		"index.php?app=main&inc=tools_report&route=banned",
+		_('Report banned users'),
+		2
 	);
 }
 

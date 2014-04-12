@@ -1,0 +1,25 @@
+{ERROR}
+<h2>{Report}</h2>
+<h3>{Banned users list}</h3>
+<div class=table-responsive>
+<table class=playsms-table-list>
+	<thead>
+		<tr>
+			<th width=30%>{User}</th>
+			<th width=30%>{Email}</th>
+			<th width=30%>{Ban date/time}</th>
+			<th width=10%>{Action}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<loop.data>
+			<tr class={data.tr_class}>
+				<td>{data.username} {data.is_admin}</td>
+				<td>{data.email}</td>
+				<td>{data.bantime}</td>
+				<td>{data.action}</td>
+			</tr>
+		</loop.data>
+	</tbody>
+</table>
+</div>

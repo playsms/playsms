@@ -159,6 +159,59 @@ function report_whoseonline_user($online_only=FALSE, $idle_only=FALSE) {
 }
 
 /**
+ * Get banned users list
+ * @param  integer $status User status
+ * @return array Banned users
+ */
+function report_banned_list($status=0) {
+	global $icon_config;
+	$ret = array();
+
+	$users = user_banned_list();
+	foreach($users as $user) {
+		$c_user = user_getdatabyuid($user['uid']);
+		$c_username = $c_user['username'];
+		$c_email = $c_user['email'];
+		$c_status = $c_user['status'];
+
+		if ($status && $c_status <> $status) {
+			continue;
+		}
+		
+		$c_is_admin = '';
+		if ($c_status == '2') {
+			$c_is_admin = $icon_config['admin'];
+		}
+
+		$ret[] = array(
+			'username' => $c_username,
+			'icon_is_admin' => $c_is_admin,
+			'email' => $c_email,
+			'bantime' => core_display_datetime($user['bantime']),
+			'action_link' => _a('index.php?app=main&inc=tools_report&route=banned&op=unban&uid='.$user['uid'], $icon_config['unban']),
+		);
+	}
+
+	return $ret;
+}
+
+/**
+ * Get banned admin users list
+ * @return array Banned users
+ */
+function report_banned_admin() {
+	return report_banned_list(2);
+}
+
+/**
+ * Get banned normal users list
+ * @return array Banned users
+ */
+function report_banned_user() {
+	return report_banned_list(3);
+}
+
+/**
  * Remove login sessions older than 1 hour idle
  */
 function report_hook_playsmsd() {
