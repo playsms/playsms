@@ -326,15 +326,18 @@ function user_session_get($uid='', $sid='') {
 	foreach ($hashes as $key => $val) {
 		$d = core_object_to_array(json_decode($val));
 		if ($d['ip'] && $d['last_update'] && $d['http_user_agent'] && $d['sid'] && $d['uid']) {
-			if ($uid && $uid == $d['uid']) {
-				$ret[$key] = $d;
-				return $ret;
+			if ($uid || $sid) {
+				if ($uid && ($uid == $d['uid'])) {
+					$ret[$key] = $d;
+					return $ret;
+				}
+				if ($sid && ($sid == $d['sid'])) {
+					$ret[$key] = $d;
+					return $ret;
+				}
+			} else {
+				$c_ret[$key] = $d;
 			}
-			if ($sid && $sid == $d['sid']) {
-				$ret[$key] = $d;
-				return $ret;
-			}
-			$c_ret[$key] = $d;
 		}
 	}
 	$ret = $c_ret;
@@ -359,11 +362,9 @@ function user_session_remove($uid='', $sid='', $hash='') {
 			return TRUE;
 		}
 	} else if ($uid) {
-		$hashes = user_session_get($uid);
-		foreach ($hashes as $hash) {
-			if (registry_remove(1, 'auth', 'login_session', key($hash))) {
-				$ret = TRUE;
-			}
+		$hash = user_session_get($uid);
+		if (registry_remove(1, 'auth', 'login_session', key($hash))) {
+			$ret = TRUE;
 		}
 	}
 	return $ret;
@@ -376,8 +377,10 @@ function user_session_remove($uid='', $sid='', $hash='') {
  */
 function user_banned_add($uid) {
 	$bantime = core_get_datetime();
-	if (! user_session_remove($uid)) {
-		return FALSE;
+	if (user_session_get($uid)) {
+		if (! user_session_remove($uid)) {
+			return FALSE;
+		}
 	}
 	$item = array($uid => $bantime);
 	if (registry_update(1, 'auth', 'banned_users', $item)) {
