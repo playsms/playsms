@@ -754,7 +754,6 @@ function core_print($content) {
 /**
  * Include essential functions
  */
-include_once $core_config['apps_path']['libs']."/fn_dba.php";
 include_once $core_config['apps_path']['libs']."/fn_registry.php";
 include_once $core_config['apps_path']['libs']."/fn_sendmail.php";
 include_once $core_config['apps_path']['libs']."/fn_user.php";
