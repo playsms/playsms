@@ -130,6 +130,6 @@ function auth_isadmin() {
  * Display page for blocked access
  */
 function auth_block() {
-	header("Location: "._u('index.php?app=main&inc=tools_auth&route=block&op=block'));
+	header("Location: "._u('index.php?app=main&inc=core_auth&route=block&op=block'));
 	exit();
 }

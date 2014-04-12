@@ -25,7 +25,7 @@ if (_OP_ == 'register') {
 	if ($ok) {
 		header("Location: " . _u($core_config['http_path']['base']));
 	} else {
-		header("Location: " . _u('index.php?app=main&inc=tools_auth&route=register'));
+		header("Location: " . _u('index.php?app=main&inc=core_auth&route=register'));
 	}
 	exit();
 } else {
@@ -42,9 +42,9 @@ if (_OP_ == 'register') {
 			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
 			'WEB_TITLE' => $web_title,
 			'ERROR' => $error_content,
-			'URL_ACTION' => _u('index.php?app=main&inc=tools_auth&route=register&op=register') ,
-			'URL_FORGOT' => _u('index.php?app=main&inc=tools_auth&route=forgot') ,
-			'URL_LOGIN' => _u('index.php?app=main&inc=tools_auth&route=login') ,
+			'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=register&op=register') ,
+			'URL_FORGOT' => _u('index.php?app=main&inc=core_auth&route=forgot') ,
+			'URL_LOGIN' => _u('index.php?app=main&inc=core_auth&route=login') ,
 			'Name' => _('Name') ,
 			'Username' => _('Username') ,
 			'Mobile' => _('Mobile') ,

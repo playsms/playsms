@@ -58,7 +58,7 @@ if (_OP_ == 'forgot') {
 	if ($ok) {
 		header("Location: " . _u($core_config['http_path']['base']));
 	} else {
-		header("Location: " . _u('index.php?app=main&inc=tools_auth&route=forgot'));
+		header("Location: " . _u('index.php?app=main&inc=core_auth&route=forgot'));
 	}
 	
 	exit();
@@ -76,9 +76,9 @@ if (_OP_ == 'forgot') {
 			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
 			'WEB_TITLE' => $web_title,
 			'ERROR' => $error_content,
-			'URL_ACTION' => _u('index.php?app=main&inc=tools_auth&route=forgot&op=forgot') ,
-			'URL_REGISTER' => _u('index.php?app=main&inc=tools_auth&route=register') ,
-			'URL_LOGIN' => _u('index.php?app=main&inc=tools_auth&route=login') ,
+			'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=forgot&op=forgot') ,
+			'URL_REGISTER' => _u('index.php?app=main&inc=core_auth&route=register') ,
+			'URL_LOGIN' => _u('index.php?app=main&inc=core_auth&route=login') ,
 			'Username' => _('Username') ,
 			'Email' => _('Email') ,
 			'Recover password' => _('Recover password') ,

@@ -49,9 +49,9 @@ if (_OP_ == 'login') {
 		'var' => array(
 			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
 			'WEB_TITLE' => $web_title,
-			'URL_ACTION' => _u('index.php?app=main&inc=tools_auth&route=login&op=login') ,
-			'URL_REGISTER' => _u('index.php?app=main&inc=tools_auth&route=register') ,
-			'URL_FORGOT' => _u('index.php?app=main&inc=tools_auth&route=forgot') ,
+			'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=login&op=login') ,
+			'URL_REGISTER' => _u('index.php?app=main&inc=core_auth&route=register') ,
+			'URL_FORGOT' => _u('index.php?app=main&inc=core_auth&route=forgot') ,
 			'ERROR' => $error_content,
 			'Username or email' => _('Username or email') ,
 			'Password' => _('Password') ,

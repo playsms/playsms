@@ -95,7 +95,7 @@ if (_APP_) {
 		}
 		header("Location: "._u('index.php?app=main'.$query_string));
 	} else {
-		header("Location: "._u('index.php?app=main&inc=tools_auth&route=login'));
+		header("Location: "._u('index.php?app=main&inc=core_auth&route=login'));
 	}
 	exit();
 }

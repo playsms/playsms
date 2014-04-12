@@ -19,6 +19,68 @@
 
 defined('_SECURE_') or die('Forbidden');
 
+/*
+ start init functions
+ protect from SQL injection when magic_quotes_gpc sets to "Off"
+ */
+function array_add_slashes($array) {
+	if (is_array($array)) {
+		foreach ($array as $key => $value) {
+			if (!is_array($value)) {
+				$value = addslashes($value);
+				$key = addslashes($key);
+				$new_arr[$key] = $value;
+			}
+			if (is_array($value)) {
+				$new_arr[$key] = array_add_slashes($value);
+			}
+		}
+	}
+	return $new_arr;
+}
+
+function pl_addslashes($data) {
+	if (is_array($data)) {
+		$data = array_add_slashes($data);
+	} else {
+		$data = addslashes($data);
+	}
+	return $data;
+}
+
+/**
+ * Set the language for the user, if it's no defined just leave it with the default
+ * @param string $var_username Username
+ * @return boolean TRUE if valid
+ */
+function setuserlang($username="") {
+	global $core_config;
+	$c_lang_module = core_lang_get();
+	$db_query = "SELECT language_module FROM "._DB_PREF_."_tblUser WHERE username='$username'";
+	$db_result = dba_query($db_query);
+	$db_row = dba_fetch_array($db_result);
+	if (trim($db_row['language_module'])) {
+		$c_lang_module = $db_row['language_module'];
+	}
+	if (defined('LC_MESSAGES')) {
+		// linux
+		setlocale(LC_MESSAGES, $c_lang_module, $c_lang_module.'.utf8', $c_lang_module.'.utf-8', $c_lang_module.'.UTF8', $c_lang_module.'.UTF-8');
+	} else {
+		// windows
+		putenv('LC_ALL={'.$c_lang_module.'}');
+	}
+}
+
+// fixme anton
+// enforced to declare function _() for gettext replacement if no PHP gettext extension found
+// it is also possible to completely remove gettext and change multi-lang with translation array
+if (! function_exists('_')) {
+	function _($text) {
+		return $text;
+	}
+}
+
+
 function core_query_sanitize($var) {
 	$var = str_replace("/","",$var);
 	$var = str_replace("|","",$var);
@@ -687,4 +749,53 @@ function core_get_version() {
 function core_print($content) {
 	global $core_config;
 	echo $content;
+}
+
+/**
+ * Include essential functions
+ */
+include_once $core_config['apps_path']['libs']."/fn_dba.php";
+include_once $core_config['apps_path']['libs']."/fn_registry.php";
+include_once $core_config['apps_path']['libs']."/fn_sendmail.php";
+include_once $core_config['apps_path']['libs']."/fn_user.php";
+include_once $core_config['apps_path']['libs']."/fn_logger.php";
+include_once $core_config['apps_path']['libs']."/fn_tpl.php";
+include_once $core_config['apps_path']['libs']."/fn_themes.php";
+include_once $core_config['apps_path']['libs']."/fn_notif.php";
+include_once $core_config['apps_path']['libs']."/fn_shortcuts.php";
+
+$pc = 'core';
+
+$dir = _APPS_PATH_PLUG_.'/'.$pc.'/';
+unset($core_config[$pc.'list']);
+unset($tmp_core_config[$pc.'list']);
+$fd = opendir($dir);
+$pc_names = array();
+while(false !== ($pl_name = readdir($fd))) {
+	// plugin's dir prefixed with dot or underscore will not be loaded
+	if (substr($pl_name, 0, 1) != "." && substr($pl_name, 0, 1) != "_" ) {
+		$pc_names[] = $pl_name;
+	}
+}
+closedir();
+
+sort($pc_names);
+for ($j=0;$j<count($pc_names);$j++) {
+	if (is_dir($dir.$pc_names[$j])) {
+		$core_config[$pc.'list'][] = $pc_names[$j];
+	}
+}
+
+foreach($core_config[$pc.'list'] as $pl) {
+	$c_fn1 = $dir.'/'.$pl.'/config.php';
+	$c_fn2 = $dir.'/'.$pl.'/fn.php';
+	if (file_exists($c_fn1) && file_exists($c_fn2)) {
+		if (function_exists('bindtextdomain') && file_exists($dir.'/'.$pl.'/language')) {
+			bindtextdomain('messages', $pl_dir.'/language/');
+			bind_textdomain_codeset('messages', 'UTF-8');
+			textdomain('messages');
+		}
+		include $c_fn1; // config.php
+		include_once $c_fn2; // fn.php
+	}
 }

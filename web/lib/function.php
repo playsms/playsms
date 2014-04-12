@@ -68,7 +68,7 @@ if (file_exists($c_fn1)) {
 
 // load each plugin's config
 $dir = $core_config['apps_path']['plug'].'/';
-$pcs = array('themes', 'language', 'gateway', 'feature', 'tools');
+$pcs = array('tools', 'themes', 'language', 'gateway', 'feature');
 foreach ($pcs as $pc) {
 	for ($i=0;$i<count($core_config[$pc.'list']);$i++) {
 		$pl = $core_config[$pc.'list'][$i];
@@ -87,7 +87,7 @@ foreach ($pcs as $pc) {
 
 // load each plugin's libs
 $dir = $core_config['apps_path']['plug'].'/';
-$pcs = array('feature', 'tools');
+$pcs = array('tools', 'feature');
 foreach ($pcs as $pc) {
 	for ($i=0;$i<count($core_config[$pc.'list']);$i++) {
 		$pl = $core_config[$pc.'list'][$i];
