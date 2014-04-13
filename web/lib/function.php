@@ -20,13 +20,22 @@
 defined('_SECURE_') or die('Forbidden');
 
 // main functions
-include $core_config['apps_path']['libs']."/fn_phonebook.php";
 include $core_config['apps_path']['libs']."/fn_rate.php";
 include $core_config['apps_path']['libs']."/fn_billing.php";
 include $core_config['apps_path']['libs']."/fn_dlr.php";
 include $core_config['apps_path']['libs']."/fn_recvsms.php";
 include $core_config['apps_path']['libs']."/fn_sendsms.php";
 include $core_config['apps_path']['libs']."/fn_webservices.php";
+
+// load common configurations
+$c_fn1 = $core_config['apps_path']['plug'].'/themes/common/config.php';
+if (file_exists($c_fn1)) {
+	include $c_fn1;
+	$c_fn2 = $core_config['apps_path']['plug'].'/themes/common/fn.php';
+	if (file_exists($c_fn2)) {
+		include $c_fn2;
+	}
+}
 
 // load list of plugins
 for ($i=0;$i<count($core_config['plugins_category']);$i++) {
@@ -53,16 +62,6 @@ for ($i=0;$i<count($core_config['plugins_category']);$i++) {
 				$core_config[$pc.'list'][] = $pc_names[$j];
 			}
 		}
-	}
-}
-
-// load common configurations
-$c_fn1 = $core_config['apps_path']['plug'].'/themes/common/config.php';
-if (file_exists($c_fn1)) {
-	include $c_fn1;
-	$c_fn2 = $core_config['apps_path']['plug'].'/themes/common/fn.php';
-	if (file_exists($c_fn2)) {
-		include $c_fn2;
 	}
 }
 

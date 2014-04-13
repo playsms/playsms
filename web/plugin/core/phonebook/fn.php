@@ -19,47 +19,35 @@
 
 defined('_SECURE_') or die('Forbidden');
 
-function phonebook_hook_phonebook_groupid2name($gpid) {
-	if ($gpid) {
-		$db_query = "SELECT name FROM "._DB_PREF_."_toolsPhonebook_group WHERE id='$gpid'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$name = $db_row['name'];
-	}
-	return $name;
+function phonebook_groupid2name($gpid) {
+	$db_query = "SELECT name FROM "._DB_PREF_."_toolsPhonebook_group WHERE id='$gpid'";
+	$db_result = dba_query($db_query);
+	$db_row = dba_fetch_array($db_result);
+	return $db_row['name'];
 }
 
-function phonebook_hook_phonebook_groupname2id($uid,$name) {
-	if ($uid && $name) {
-		$db_query = "SELECT id FROM "._DB_PREF_."_toolsPhonebook_group WHERE uid='$uid' AND code='$code'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$id = $db_row['id'];
-	}
-	return $id;
+function phonebook_groupname2id($uid,$gp_name) {
+	$db_query = "SELECT id FROM "._DB_PREF_."_toolsPhonebook_group WHERE uid='$uid' AND code='$code'";
+	$db_result = dba_query($db_query);
+	$db_row = dba_fetch_array($db_result);
+	return $db_row['id'];
 }
 
-function phonebook_hook_phonebook_groupid2code($gpid) {
-	if ($gpid) {
-		$db_query = "SELECT code FROM "._DB_PREF_."_toolsPhonebook_group WHERE id='$gpid'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$code = $db_row['code'];
-	}
-	return $code;
+function phonebook_groupid2code($gpid) {
+	$db_query = "SELECT code FROM "._DB_PREF_."_toolsPhonebook_group WHERE id='$gpid'";
+	$db_result = dba_query($db_query);
+	$db_row = dba_fetch_array($db_result);
+	return $db_row['code'];
 }
 
-function phonebook_hook_phonebook_groupcode2id($uid,$code) {
-	if ($uid && $code) {
-		$db_query = "SELECT id FROM "._DB_PREF_."_toolsPhonebook_group WHERE uid='$uid' AND code='$code'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$id = $db_row['id'];
-	}
-	return $id;
+function phonebook_groupcode2id($uid,$gp_code) {
+	$db_query = "SELECT id FROM "._DB_PREF_."_toolsPhonebook_group WHERE uid='$uid' AND code='$code'";
+	$db_result = dba_query($db_query);
+	$db_row = dba_fetch_array($db_result);
+	return $db_row['id'];
 }
 
-function phonebook_hook_phonebook_number2name($mobile, $c_username='') {
+function phonebook_number2name($mobile, $c_username="") {
 	global $user_config;
 	$name = '';
 	if ($mobile) {
@@ -82,7 +70,7 @@ function phonebook_hook_phonebook_number2name($mobile, $c_username='') {
 	return $name;
 }
 
-function phonebook_hook_phonebook_getmembercountbyid($gpid) {
+function phonebook_getmembercountbyid($gpid) {
 	$count = 0;
 	$db_query = "SELECT COUNT(*) as count FROM "._DB_PREF_."_toolsPhonebook_group_contacts WHERE gpid='$gpid'";
 	$db_result = dba_query($db_query);
@@ -92,7 +80,13 @@ function phonebook_hook_phonebook_getmembercountbyid($gpid) {
 	return $count;
 }
 
-function phonebook_hook_phonebook_getdatabyid($gpid, $orderby="") {
+/**
+ * Get members of a group, search by group ID
+ * @param integer $gpid Group ID
+ * @param string $orderby
+ * @return array array(pid, p_desc, p_num, email)
+ */
+function phonebook_getdatabyid($gpid, $orderby="") {
 	$ret = array();
 	$db_query = "
 		SELECT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email
@@ -110,7 +104,13 @@ function phonebook_hook_phonebook_getdatabyid($gpid, $orderby="") {
 	return $ret;
 }
 
-function phonebook_hook_phonebook_getdatabyuid($uid, $orderby="") {
+/**
+ * Get members of a group, search by User ID
+ * @param integer $uid User ID
+ * @param string $orderby
+ * @return array array(pid, p_desc, p_num, email)
+ */
+function phonebook_getdatabyuid($uid, $orderby="") {
 	$ret = array();
 	$db_query = "
 		SELECT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email
@@ -128,7 +128,12 @@ function phonebook_hook_phonebook_getdatabyuid($uid, $orderby="") {
 	return $ret;
 }
 
-function phonebook_hook_phonebook_getgroupbyid($gpid, $orderby="") {
+/**
+ * Get data of a group, search by group ID
+ * @param integer $gpid Group ID
+ * @return array array(gpid, group_name, code, flag_sender)
+ */
+function phonebook_getgroupbyid($gpid) {
 	$ret = array();
 	$db_query = "SELECT id AS gpid, name AS gp_name, code AS gp_code, flag_sender FROM "._DB_PREF_."_toolsPhonebook_group WHERE id='$gpid'";
 	$db_result = dba_query($db_query);
@@ -138,7 +143,13 @@ function phonebook_hook_phonebook_getgroupbyid($gpid, $orderby="") {
 	return $ret;
 }
 
-function phonebook_hook_phonebook_getgroupbyuid($uid, $orderby="") {
+/**
+ * Get data of a group, search by User ID
+ * @param integer $uid User ID
+ * @param string $orderby
+ * @return array array(gpid, group_name, code, flag_sender)
+ */
+function phonebook_getgroupbyuid($uid, $orderby="") {
 	$ret = array();
 	$db_query = "SELECT id AS gpid, name AS gp_name, code AS gp_code, flag_sender FROM "._DB_PREF_."_toolsPhonebook_group WHERE uid='$uid'";
 	if ($orderby) {
@@ -151,7 +162,14 @@ function phonebook_hook_phonebook_getgroupbyuid($uid, $orderby="") {
 	return $ret;
 }
 
-function phonebook_hook_phonebook_search($uid, $keyword="", $count=0) {
+/**
+ * Search members, search by User ID and/or a keyword
+ * @param integer $uid User ID
+ * @param string $keyword Keyword
+ * @param integer $count Search limit
+ * @return array array(pid, p_desc, p_num, email)
+ */
+function phonebook_search($uid, $keyword="", $count=0) {
 	$ret = array();
 	if ($keyword) {
 		$fields = 'DISTINCT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email';
@@ -167,7 +185,14 @@ function phonebook_hook_phonebook_search($uid, $keyword="", $count=0) {
 	return $ret;
 }
 
-function phonebook_hook_phonebook_search_group($uid, $keyword="", $count=0) {
+/**
+ * Search groups, search by User ID and/or a keyword
+ * @param integer $uid User ID
+ * @param string $keyword Keyword
+ * @param integer $count Search limit
+ * @return array array(gpid, group_name, code, flag_sender)
+ */
+function phonebook_search_group($uid, $keyword="", $count=0) {
 	$ret = array();
 	$fields = 'id AS gpid, name AS group_name, code, flag_sender';
 	$conditions = array('uid' => $uid);
@@ -181,7 +206,14 @@ function phonebook_hook_phonebook_search_group($uid, $keyword="", $count=0) {
 	return $ret;
 }
 
-function phonebook_hook_phonebook_search_user($uid=0, $keyword="", $count=0) {
+/**
+ * Search users, search by User ID and/or a keyword
+ * @param integer $uid User ID
+ * @param string $keyword Keyword
+ * @param integer $count Search limit
+ * @return array Array of user's data
+ */
+function phonebook_search_user($uid=0, $keyword="", $count=0) {
 	$ret = array();
 	if ($uid > 0) {
 		$conditions = array('uid' => $uid);
