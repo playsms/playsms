@@ -129,7 +129,7 @@ function report_whoseonline($status=0, $online_only=FALSE, $idle_only=FALSE) {
 			'hash' => $key,
 			'login_status' => $c_login_status,
 			'last_update' => core_display_datetime($val['last_update']),
-			'action_link' => _a('index.php?app=main&inc=tools_report&route=online&op=kick&hash='.$key, $icon_config['delete']),
+			'action_link' => _a('index.php?app=main&inc=feature_report&route=online&op=kick&hash='.$key, $icon_config['delete']),
 		);
 	}
 
@@ -188,7 +188,7 @@ function report_banned_list($status=0) {
 			'icon_is_admin' => $c_is_admin,
 			'email' => $c_email,
 			'bantime' => core_display_datetime($user['bantime']),
-			'action_link' => _a('index.php?app=main&inc=tools_report&route=banned&op=unban&uid='.$user['uid'], $icon_config['unban']),
+			'action_link' => _a('index.php?app=main&inc=feature_report&route=banned&op=unban&uid='.$user['uid'], $icon_config['unban']),
 		);
 	}
 

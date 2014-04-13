@@ -3,5 +3,5 @@ defined('_SECURE_') or die('Forbidden');
 
 if (auth_isadmin()) {
 	$menutab = $core_config['menutab']['administration'];
-	$menu_config[$menutab][] = array("index.php?app=main&inc=tools_gatewaymanager&op=gatewaymanager_list", _('Manage gateway'));
+	$menu_config[$menutab][] = array("index.php?app=main&inc=feature_playsmslog&op=playsmslog_list", _('View log'));
 }

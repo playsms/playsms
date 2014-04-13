@@ -12,7 +12,7 @@ if (_OP_ == 'unban') {
 	} else {
 		$_SESSION['error_string'] = _('Unable to unban user').' ('._('username').': '.user_uid2username($uid).')';
 	}
-	header('Location: '._u('index.php?app=main&inc=tools_report&route=banned'));
+	header('Location: '._u('index.php?app=main&inc=feature_report&route=banned'));
 	exit();
 }
 
