@@ -20,14 +20,14 @@
 defined('_SECURE_') or die('Forbidden');
 if(!auth_isvalid()){auth_block();};
 
-$fn = _APPS_PATH_THEMES_.'/'.core_themes_get().'/page_welcome.php';
+$fn = _APPS_PATH_THEMES_.'/'.core_themes_get().'/welcome.php';
 
 if (file_exists($fn)) {
 	include $fn;
 } else {
 	unset($tpl);
 	$tpl = array(
-		'name' => 'page_welcome',
+		'name' => 'welcome',
 		'var' => array(
 			'Welcome to playSMS' => _('Welcome to playSMS'),
 			'version' => _('version'),

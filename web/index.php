@@ -85,7 +85,7 @@ if (_APP_) {
 		if ($core_config['main']['default_inc']) {
 			$query_string .= '&inc='.$core_config['main']['default_inc'];
 		} else {
-			$query_string .= '&inc=page_welcome&op=page_welcome';
+			$query_string .= '&inc=core_welcome';
 		}
 		if ($core_config['main']['default_route']) {
 			$query_string .= '&route='.$core_config['main']['default_route'];
