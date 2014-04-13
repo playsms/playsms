@@ -32,8 +32,16 @@ msgstr "Thème Actif"
 msgid "Add"
 msgstr "Ajout"
 
+#, fuzzy
+msgid "Add administrator"
+msgstr "Administrateur"
+
 msgid "Add message template"
 msgstr "Ajouter un modèle de SMS"
+
+#, fuzzy
+msgid "Add normal user"
+msgstr "Utilisateur"
 
 msgid "Add user"
 msgstr "Ajout utilisateur"
@@ -90,6 +98,10 @@ msgstr "Information Application"
 msgid "Application options"
 msgstr ""
 
+#, fuzzy
+msgid "Are you sure you want to ban user"
+msgstr "Voulez-vous supprimer l'utilisateur "
+
 msgid "Are you sure you want to delete outgoing SMS ?"
 msgstr "Voulez supprimer le message sortant ?"
 
@@ -106,6 +118,10 @@ msgstr "Voulez-vous supprimer l'utilisateur "
 msgid "Are you sure you want to delete user ?"
 msgstr "Voulez-vous supprimer l'utilisateur ?"
 
+#, fuzzy
+msgid "Are you sure you want to unban user"
+msgstr "Voulez-vous supprimer l'utilisateur "
+
 msgid "Auto remove plus sign"
 msgstr ""
 
@@ -114,6 +130,9 @@ msgstr ""
 
 msgid "Back"
 msgstr "Retour"
+
+msgid "Ban"
+msgstr ""
 
 msgid "Changelog"
 msgstr ""
@@ -202,6 +221,10 @@ msgid "Email is already in use by other username"
 msgstr "Email déjà utilisé"
 
 msgid "Enable forgot password"
+msgstr "Mot de passe perdu"
+
+#, fuzzy
+msgid "Enable logo"
 msgstr "Mot de passe perdu"
 
 msgid "Enable public registration"
@@ -343,6 +366,9 @@ msgstr ""
 msgid "Home"
 msgstr "Accueil"
 
+msgid "Idle"
+msgstr ""
+
 msgid "Import"
 msgstr ""
 
@@ -374,6 +400,14 @@ msgstr ""
 msgid "License"
 msgstr ""
 
+#, fuzzy
+msgid "List of administrators"
+msgstr "Administrateur"
+
+#, fuzzy
+msgid "List of normal users"
+msgstr "Utilisateur"
+
 msgid "Local number length"
 msgstr ""
 
@@ -382,6 +416,13 @@ msgstr ""
 
 msgid "Login information"
 msgstr "Information de Login"
+
+msgid "Logo URL"
+msgstr ""
+
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
 
 msgid "Logout"
 msgstr "Sortie"
@@ -479,6 +520,12 @@ msgstr "Utilisateur"
 
 msgid "Normal user"
 msgstr "Utilisateur"
+
+msgid "Offline"
+msgstr ""
+
+msgid "Online"
+msgstr ""
 
 #, fuzzy
 msgid "Options"
@@ -601,6 +648,9 @@ msgid "Registered"
 msgstr "Delivré"
 
 msgid "Replace prefix 0 or padding local numbers"
+msgstr ""
+
+msgid "Replace website title with logo"
 msgstr ""
 
 msgid "Reply"
@@ -727,8 +777,19 @@ msgstr "À"
 msgid "Tools"
 msgstr "Outils"
 
+#, fuzzy
+msgid "Unable to ban user"
+msgstr "Impossible de mettre à jour la session"
+
+#, fuzzy
+msgid "Unable to unban user"
+msgstr "Impossible de mettre à jour la session"
+
 msgid "Unable to update login session"
 msgstr "Impossible de mettre à jour la session"
+
+msgid "Unban"
+msgstr ""
 
 #, fuzzy
 msgid "Unicode message"
@@ -748,6 +809,9 @@ msgstr "Utiliser le modèle"
 
 msgid "User"
 msgstr "Utilisateur"
+
+msgid "User admin or currently logged in administrator cannot be unbanned"
+msgstr ""
 
 #, fuzzy
 msgid "User already exists"
@@ -784,6 +848,10 @@ msgstr "Utilisateur supprimé"
 msgid "User has been added but failed to send email"
 msgstr "Utilisateur supprimé"
 
+#, fuzzy
+msgid "User has been banned"
+msgstr "Utilisateur ajouté"
+
 msgid "User has been deleted"
 msgstr "Utilisateur supprimé"
 
@@ -791,11 +859,22 @@ msgstr "Utilisateur supprimé"
 msgid "User has been removed"
 msgstr "Utilisateur supprimé"
 
+#, fuzzy
+msgid "User has been unbanned"
+msgstr "Utilisateur ajouté"
+
 msgid "User is already exists"
+msgstr "L'utilisateur existe déjà"
+
+#, fuzzy
+msgid "User is already on banned users list"
 msgstr "L'utilisateur existe déjà"
 
 msgid "User is immune to deletion"
 msgstr "L'utilisateur pas supprimable"
+
+msgid "User is not on banned users list"
+msgstr ""
 
 msgid "User level"
 msgstr "Privilège Utilisateur"
@@ -832,11 +911,19 @@ msgstr "Voir"
 msgid "View administrator"
 msgstr "Administrateur"
 
+#, fuzzy
+msgid "View administrators"
+msgstr "Administrateur"
+
 msgid "View groups"
 msgstr ""
 
 #, fuzzy
 msgid "View normal user"
+msgstr "Utilisateur"
+
+#, fuzzy
+msgid "View normal users"
 msgstr "Utilisateur"
 
 #, fuzzy

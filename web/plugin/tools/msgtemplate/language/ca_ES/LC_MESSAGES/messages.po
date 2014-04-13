@@ -67,4 +67,3 @@ msgstr "es reemplaçarà amb el nom que hi ha a l'agenda"
 
 msgid "will be replaced with the phone number listed in phonebook"
 msgstr "es reemplaçarà amb número de telèfon que hi ha a l'agenda"
-

@@ -35,8 +35,16 @@ msgstr "Temes actius"
 msgid "Add"
 msgstr "Afegir"
 
+#, fuzzy
+msgid "Add administrator"
+msgstr "Administrador"
+
 msgid "Add message template"
 msgstr "Afegir Plantilla de Missatge"
+
+#, fuzzy
+msgid "Add normal user"
+msgstr "Vista usuari normal"
 
 msgid "Add user"
 msgstr "Afegir usuari"
@@ -89,6 +97,10 @@ msgstr "Informació del programa"
 msgid "Application options"
 msgstr "Opcions del programa"
 
+#, fuzzy
+msgid "Are you sure you want to ban user"
+msgstr "Està segur de voler esborrar l'usuari ?"
+
 msgid "Are you sure you want to delete outgoing SMS ?"
 msgstr "Està segur de voler esborrar el SMS de sortida ?"
 
@@ -104,6 +116,10 @@ msgstr "Està segur de voler esborrar l'usuari ?"
 msgid "Are you sure you want to delete user ?"
 msgstr "Està segur de voler esborrar l'usuari ?"
 
+#, fuzzy
+msgid "Are you sure you want to unban user"
+msgstr "Està segur de voler esborrar l'usuari ?"
+
 msgid "Auto remove plus sign"
 msgstr "Auto eliminar el signe més"
 
@@ -112,6 +128,9 @@ msgstr "Auto reemplaçar el prefix 0"
 
 msgid "Back"
 msgstr "Enrere"
+
+msgid "Ban"
+msgstr ""
 
 msgid "Changelog"
 msgstr "Canvis"
@@ -198,6 +217,10 @@ msgid "Email is already in use by other username"
 msgstr "Correu electrònic ja en ús"
 
 msgid "Enable forgot password"
+msgstr "Habilitar recordar contrasenya"
+
+#, fuzzy
+msgid "Enable logo"
 msgstr "Habilitar recordar contrasenya"
 
 msgid "Enable public registration"
@@ -326,6 +349,9 @@ msgstr "API HTTP"
 msgid "Home"
 msgstr "Principal"
 
+msgid "Idle"
+msgstr ""
+
 msgid "Import"
 msgstr "Importar"
 
@@ -356,6 +382,14 @@ msgstr "Última actualització"
 msgid "License"
 msgstr "Llicència"
 
+#, fuzzy
+msgid "List of administrators"
+msgstr "Vista administrador"
+
+#, fuzzy
+msgid "List of normal users"
+msgstr "Vista usuari normal"
+
 msgid "Local number length"
 msgstr "Longitud del número local"
 
@@ -364,6 +398,13 @@ msgstr "Entrar"
 
 msgid "Login information"
 msgstr "Informació de la sessió"
+
+msgid "Logo URL"
+msgstr ""
+
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
 
 msgid "Logout"
 msgstr "Desconnectar"
@@ -460,6 +501,12 @@ msgstr "Usuari Normal"
 
 msgid "Normal user"
 msgstr "Usuari normal"
+
+msgid "Offline"
+msgstr ""
+
+msgid "Online"
+msgstr ""
 
 msgid "Options"
 msgstr "Opcions"
@@ -572,6 +619,9 @@ msgstr "Registrat"
 
 msgid "Replace prefix 0 or padding local numbers"
 msgstr "Reemplaça el prefix 0 o afegeix als números locals"
+
+msgid "Replace website title with logo"
+msgstr ""
 
 msgid "Reply"
 msgstr "Respondre"
@@ -692,8 +742,19 @@ msgstr "A"
 msgid "Tools"
 msgstr "Eines"
 
+#, fuzzy
+msgid "Unable to ban user"
+msgstr "Impossible actualitzar la sessió de l'usuari"
+
+#, fuzzy
+msgid "Unable to unban user"
+msgstr "Impossible actualitzar la sessió de l'usuari"
+
 msgid "Unable to update login session"
 msgstr "Impossible actualitzar la sessió de l'usuari"
+
+msgid "Unban"
+msgstr ""
 
 msgid "Unicode message"
 msgstr "Missatge unicode"
@@ -712,6 +773,9 @@ msgstr "Utilitzar Plantilla de Missatge"
 
 msgid "User"
 msgstr "Usuari"
+
+msgid "User admin or currently logged in administrator cannot be unbanned"
+msgstr ""
 
 msgid "User already exists"
 msgstr "L'usuari ja existeix"
@@ -741,17 +805,32 @@ msgstr "L'usuari s'ha afegit i la contrasenya s'ha enviat per correu"
 msgid "User has been added but failed to send email"
 msgstr "L'usuari s'ha afegit però no s'ha pogut enviar el correu"
 
+#, fuzzy
+msgid "User has been banned"
+msgstr "L'usuari ha estat afegit"
+
 msgid "User has been deleted"
 msgstr "L'usuari ha estat eliminat"
 
 msgid "User has been removed"
 msgstr "L'usuari ha estat eliminat"
 
+#, fuzzy
+msgid "User has been unbanned"
+msgstr "L'usuari ha estat afegit"
+
 msgid "User is already exists"
+msgstr "L'usuari ja existeix "
+
+#, fuzzy
+msgid "User is already on banned users list"
 msgstr "L'usuari ja existeix "
 
 msgid "User is immune to deletion"
 msgstr "L'usuari no pot ser eliminat"
+
+msgid "User is not on banned users list"
+msgstr ""
 
 msgid "User level"
 msgstr "Privilegis d'usuari"
@@ -783,10 +862,18 @@ msgstr "Veure"
 msgid "View administrator"
 msgstr "Vista administrador"
 
+#, fuzzy
+msgid "View administrators"
+msgstr "Vista administrador"
+
 msgid "View groups"
 msgstr "Veure grups"
 
 msgid "View normal user"
+msgstr "Vista usuari normal"
+
+#, fuzzy
+msgid "View normal users"
 msgstr "Vista usuari normal"
 
 msgid "View numbers"

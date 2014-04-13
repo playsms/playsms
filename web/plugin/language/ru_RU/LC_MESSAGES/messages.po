@@ -33,8 +33,16 @@ msgstr "Тема"
 msgid "Add"
 msgstr "Добавить"
 
+#, fuzzy
+msgid "Add administrator"
+msgstr "Администратор"
+
 msgid "Add message template"
 msgstr "Добавить шаблон"
+
+#, fuzzy
+msgid "Add normal user"
+msgstr "Показать пользователей"
 
 msgid "Add user"
 msgstr "Добавить пользователя"
@@ -87,6 +95,10 @@ msgstr "Информация о приложении"
 msgid "Application options"
 msgstr "Настройки приложения"
 
+#, fuzzy
+msgid "Are you sure you want to ban user"
+msgstr "Вы уверены, что хотите удалить пользователя"
+
 msgid "Are you sure you want to delete outgoing SMS ?"
 msgstr "Вы уверены, что хотите удалить исходящее СМС?"
 
@@ -102,6 +114,10 @@ msgstr "Вы уверены, что хотите удалить пользова
 msgid "Are you sure you want to delete user ?"
 msgstr "Вы уверены, что хотите удалить пользователя?"
 
+#, fuzzy
+msgid "Are you sure you want to unban user"
+msgstr "Вы уверены, что хотите удалить пользователя"
+
 msgid "Auto remove plus sign"
 msgstr "Автоматически удалять знак +"
 
@@ -110,6 +126,9 @@ msgstr "Автоматически заменять префикс 0"
 
 msgid "Back"
 msgstr "Назад"
+
+msgid "Ban"
+msgstr ""
 
 msgid "Changelog"
 msgstr "Изменения"
@@ -197,6 +216,10 @@ msgid "Email is already in use by other username"
 msgstr "Email уже используется другим пользователем"
 
 msgid "Enable forgot password"
+msgstr "Включить восстановление пароля"
+
+#, fuzzy
+msgid "Enable logo"
 msgstr "Включить восстановление пароля"
 
 msgid "Enable public registration"
@@ -326,6 +349,9 @@ msgstr "HTTP API"
 msgid "Home"
 msgstr "Главная"
 
+msgid "Idle"
+msgstr ""
+
 msgid "Import"
 msgstr "Импортировать"
 
@@ -356,6 +382,14 @@ msgstr "Последнее обновление"
 msgid "License"
 msgstr "Пользовательское соглашение"
 
+#, fuzzy
+msgid "List of administrators"
+msgstr "Показать администраторов"
+
+#, fuzzy
+msgid "List of normal users"
+msgstr "Показать пользователей"
+
 msgid "Local number length"
 msgstr "Длина местного номера"
 
@@ -364,6 +398,13 @@ msgstr ""
 
 msgid "Login information"
 msgstr "Регистрационная информация"
+
+msgid "Logo URL"
+msgstr ""
+
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
 
 msgid "Logout"
 msgstr "Выйти"
@@ -461,6 +502,12 @@ msgstr "Обычный пользователь"
 
 msgid "Normal user"
 msgstr "Обычный пользователь"
+
+msgid "Offline"
+msgstr ""
+
+msgid "Online"
+msgstr ""
 
 msgid "Options"
 msgstr "Параметры"
@@ -576,6 +623,9 @@ msgstr "Зарегистрирован"
 
 msgid "Replace prefix 0 or padding local numbers"
 msgstr "Заменить префикс 0 или дополнить местные номера"
+
+msgid "Replace website title with logo"
+msgstr ""
 
 msgid "Reply"
 msgstr "Ответить"
@@ -695,8 +745,19 @@ msgstr "Кому"
 msgid "Tools"
 msgstr "Инструменты"
 
+#, fuzzy
+msgid "Unable to ban user"
+msgstr "Не удалось обновить сеанс"
+
+#, fuzzy
+msgid "Unable to unban user"
+msgstr "Не удалось обновить сеанс"
+
 msgid "Unable to update login session"
 msgstr "Не удалось обновить сеанс"
+
+msgid "Unban"
+msgstr ""
 
 msgid "Unicode message"
 msgstr "Содержит русские символы"
@@ -715,6 +776,9 @@ msgstr "Применить шаблон"
 
 msgid "User"
 msgstr "Пользователь"
+
+msgid "User admin or currently logged in administrator cannot be unbanned"
+msgstr ""
 
 msgid "User already exists"
 msgstr "Пользователь уже существует"
@@ -745,6 +809,10 @@ msgstr "Пользователь удалён"
 msgid "User has been added but failed to send email"
 msgstr "Пользователь удалён"
 
+#, fuzzy
+msgid "User has been banned"
+msgstr "Пользователь добавлен"
+
 msgid "User has been deleted"
 msgstr "Пользователь удалён"
 
@@ -752,11 +820,22 @@ msgstr "Пользователь удалён"
 msgid "User has been removed"
 msgstr "Пользователь удалён"
 
+#, fuzzy
+msgid "User has been unbanned"
+msgstr "Пользователь добавлен"
+
 msgid "User is already exists"
+msgstr "Пользователь уже существует"
+
+#, fuzzy
+msgid "User is already on banned users list"
 msgstr "Пользователь уже существует"
 
 msgid "User is immune to deletion"
 msgstr "Пользователь не может быть удалён"
+
+msgid "User is not on banned users list"
+msgstr ""
 
 msgid "User level"
 msgstr "Уровень доступа"
@@ -791,10 +870,18 @@ msgstr "Показать"
 msgid "View administrator"
 msgstr "Показать администраторов"
 
+#, fuzzy
+msgid "View administrators"
+msgstr "Показать администраторов"
+
 msgid "View groups"
 msgstr "Показать группы"
 
 msgid "View normal user"
+msgstr "Показать пользователей"
+
+#, fuzzy
+msgid "View normal users"
 msgstr "Показать пользователей"
 
 msgid "View numbers"

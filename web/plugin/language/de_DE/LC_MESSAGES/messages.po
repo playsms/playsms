@@ -27,8 +27,16 @@ msgstr "Ausgewähltes Theme"
 msgid "Add"
 msgstr "Hinzufügen"
 
+#, fuzzy
+msgid "Add administrator"
+msgstr "Administrator"
+
 msgid "Add message template"
 msgstr "Nachrichten-Vorlage hinzufügen"
+
+#, fuzzy
+msgid "Add normal user"
+msgstr "Zeige Benutzer"
 
 msgid "Add user"
 msgstr "Benutzer hinzufügen"
@@ -81,6 +89,10 @@ msgstr "Applikationsinformation"
 msgid "Application options"
 msgstr "Applikationseinstellungen"
 
+#, fuzzy
+msgid "Are you sure you want to ban user"
+msgstr "User wirklich löschen?"
+
 msgid "Are you sure you want to delete outgoing SMS ?"
 msgstr "Gesendete SMS wirklich löschen?"
 
@@ -96,6 +108,10 @@ msgstr "User wirklich löschen?"
 msgid "Are you sure you want to delete user ?"
 msgstr "User wirklich löschen?"
 
+#, fuzzy
+msgid "Are you sure you want to unban user"
+msgstr "User wirklich löschen?"
+
 msgid "Auto remove plus sign"
 msgstr "Plus-Zeichen automatisch entfernen"
 
@@ -104,6 +120,9 @@ msgstr "Automatisch führende 0 ersetzen"
 
 msgid "Back"
 msgstr "zurück"
+
+msgid "Ban"
+msgstr ""
 
 msgid "Changelog"
 msgstr "Änderungen"
@@ -191,6 +210,10 @@ msgid "Email is already in use by other username"
 msgstr "Email ist bereits von anderem User benutzt"
 
 msgid "Enable forgot password"
+msgstr "Aktiviere Passwort zurücksetzen"
+
+#, fuzzy
+msgid "Enable logo"
 msgstr "Aktiviere Passwort zurücksetzen"
 
 msgid "Enable public registration"
@@ -320,6 +343,9 @@ msgstr "HTTP API"
 msgid "Home"
 msgstr "Startseite"
 
+msgid "Idle"
+msgstr ""
+
 msgid "Import"
 msgstr "Import"
 
@@ -350,6 +376,14 @@ msgstr "Letztes Update"
 msgid "License"
 msgstr "Lizenz"
 
+#, fuzzy
+msgid "List of administrators"
+msgstr "Zeige Administratoren"
+
+#, fuzzy
+msgid "List of normal users"
+msgstr "Zeige Benutzer"
+
 msgid "Local number length"
 msgstr "Lokale Rufnummernlänge"
 
@@ -358,6 +392,13 @@ msgstr ""
 
 msgid "Login information"
 msgstr "Login Information"
+
+msgid "Logo URL"
+msgstr ""
+
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
 
 msgid "Logout"
 msgstr "Abmelden"
@@ -455,6 +496,12 @@ msgstr "Einfacher Benutzer"
 
 msgid "Normal user"
 msgstr "Einfacher Benutzer"
+
+msgid "Offline"
+msgstr ""
+
+msgid "Online"
+msgstr ""
 
 msgid "Options"
 msgstr "Optionen"
@@ -569,6 +616,9 @@ msgstr "Registriert"
 
 msgid "Replace prefix 0 or padding local numbers"
 msgstr "Ersetze führende 0 oder Auffüllen lokaler Nummern"
+
+msgid "Replace website title with logo"
+msgstr ""
 
 msgid "Reply"
 msgstr "Antwort"
@@ -688,8 +738,19 @@ msgstr "An"
 msgid "Tools"
 msgstr "Werkzeuge"
 
+#, fuzzy
+msgid "Unable to ban user"
+msgstr "Login Session kann nicht aktualisiert werden"
+
+#, fuzzy
+msgid "Unable to unban user"
+msgstr "Login Session kann nicht aktualisiert werden"
+
 msgid "Unable to update login session"
 msgstr "Login Session kann nicht aktualisiert werden"
+
+msgid "Unban"
+msgstr ""
 
 msgid "Unicode message"
 msgstr "Unicode Nachricht"
@@ -708,6 +769,9 @@ msgstr "Vorlage benutzen"
 
 msgid "User"
 msgstr "Benutzer"
+
+msgid "User admin or currently logged in administrator cannot be unbanned"
+msgstr ""
 
 msgid "User already exists"
 msgstr "Benutzer existiert bereits"
@@ -741,6 +805,10 @@ msgid "User has been added but failed to send email"
 msgstr ""
 "Benutzer wurde hinzugefügt, aber Email-Versand an Benutzer ist fehlgeschlagen"
 
+#, fuzzy
+msgid "User has been banned"
+msgstr "Benutzer wurde hinzugefügt"
+
 msgid "User has been deleted"
 msgstr "Benutzer wurde gelöscht"
 
@@ -748,11 +816,22 @@ msgstr "Benutzer wurde gelöscht"
 msgid "User has been removed"
 msgstr "Benutzer wurde gelöscht"
 
+#, fuzzy
+msgid "User has been unbanned"
+msgstr "Benutzer wurde hinzugefügt"
+
 msgid "User is already exists"
+msgstr "Benutzer existiert bereits"
+
+#, fuzzy
+msgid "User is already on banned users list"
 msgstr "Benutzer existiert bereits"
 
 msgid "User is immune to deletion"
 msgstr "Benutzer darf nicht gelöscht werden"
+
+msgid "User is not on banned users list"
+msgstr ""
 
 msgid "User level"
 msgstr "Benutzer Level"
@@ -786,10 +865,18 @@ msgstr "Anzeigen"
 msgid "View administrator"
 msgstr "Zeige Administratoren"
 
+#, fuzzy
+msgid "View administrators"
+msgstr "Zeige Administratoren"
+
 msgid "View groups"
 msgstr "Zeige Gruppen"
 
 msgid "View normal user"
+msgstr "Zeige Benutzer"
+
+#, fuzzy
+msgid "View normal users"
 msgstr "Zeige Benutzer"
 
 msgid "View numbers"

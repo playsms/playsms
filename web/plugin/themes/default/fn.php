@@ -75,7 +75,7 @@ function default_hook_themes_buildmenu($menu_config) {
 							".$main_menu."
 						</ul>
 						<ul id=nav-login class='nav navbar-nav navbar-right'>
-							<li><a href='"._u('index.php?app=auth&op=logout')."'>" . _('Logout') . "</a></li>
+							<li><a href='"._u('index.php?app=main&inc=core_auth&route=logout')."'>" . _('Logout') . "</a></li>
 						</ul>
 					</div>
 				</div>

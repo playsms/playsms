@@ -56,24 +56,6 @@ if (_APP_) {
 				core_hook(_PLUGIN_, 'call', array($_REQUEST));
 			}
 			break;
-		case 'auth':
-			// _APP_=auth to access auth functions
-			// by default this is used for displaying 'forgot password' page and 'register an account' page
-			// login, logout, register, forgot password, noaccess
-			logger_audit();
-			switch (_OP_) {
-				case 'login':
-				case 'logout':
-				case 'register':
-				case 'forgot':
-				case 'block':
-					$fn = $core_config['apps_path']['incs'].'/app/auth_'._OP_.'.php';
-					if (file_exists($fn)) {
-						include $fn;
-					}
-					break;
-			}
-			break;
 		case 'page':
 			// _APP_=page to access a page inside themes
 			// by default this is used for displaying 'forgot password' page and 'register an account' page
@@ -113,7 +95,7 @@ if (_APP_) {
 		}
 		header("Location: "._u('index.php?app=main'.$query_string));
 	} else {
-		header("Location: "._u('index.php?app=page&inc=login'));
+		header("Location: "._u('index.php?app=main&inc=core_auth&route=login'));
 	}
 	exit();
 }

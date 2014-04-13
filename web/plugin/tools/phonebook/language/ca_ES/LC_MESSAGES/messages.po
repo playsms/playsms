@@ -154,4 +154,3 @@ msgstr "grup"
 
 msgid "please use uppercase and make it short"
 msgstr "si us plau feu servir majúscules i un nom curt"
-

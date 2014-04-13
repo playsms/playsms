@@ -1,0 +1,84 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Credit"
+msgstr ""
+
+msgid "Currently logged in user is immune to deletion"
+msgstr ""
+
+msgid "Fail to register an account"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
+msgid "New account registration"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Password should be at least 4 characters"
+msgstr ""
+
+msgid "Public registration is disabled"
+msgstr ""
+
+msgid "Unknown error has occurred"
+msgstr ""
+
+msgid "User does not exists"
+msgstr ""
+
+msgid "User has been added and password has been emailed"
+msgstr ""
+
+msgid "User has been added but failed to send email"
+msgstr ""
+
+msgid "User has been removed"
+msgstr ""
+
+msgid "User is already exists"
+msgstr ""
+
+msgid "User is immune to deletion"
+msgstr ""
+
+msgid "User with this email is already exists"
+msgstr ""
+
+msgid "User with this mobile is already exists"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "Username should be at least 3 characters"
+msgstr ""
+
+msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr ""
+
+msgid "You must fill all required fields"
+msgstr ""
+
+msgid "Your email format is invalid"
+msgstr ""
+
+msgid "Your mobile format is invalid"
+msgstr ""
+
+msgid "email"
+msgstr ""
+
+msgid "mobile"
+msgstr ""
+
+msgid "username"
+msgstr ""

@@ -1,0 +1,135 @@
+<?php
+
+/**
+ * This file is part of playSMS.
+ *
+ * playSMS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * playSMS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+defined('_SECURE_') or die('Forbidden');
+
+/**
+ * Validate username and password
+ * @param string $username Username
+ * @param string $password Password
+ * @return boolean TRUE when validated or boolean FALSE when validation failed
+ */
+function auth_validate_login($username, $password) {
+	$uid = user_username2uid($username);
+	_log('login attempt u:'.$username.' uid:'.$uid.' p:'.md5($password).' ip:'.$_SERVER['REMOTE_ADDR'], 3, 'auth_validate_login');
+	if (user_banned_get($uid)) {
+		_log('user banned u:'.$username.' uid:'.$uid.' ip:'.$_SERVER['REMOTE_ADDR'], 2, 'auth_validate_login');
+		return FALSE;	
+	}
+	$db_query = "SELECT password FROM "._DB_PREF_."_tblUser WHERE username='$username'";
+	$db_result = dba_query($db_query);
+	$db_row = dba_fetch_array($db_result);
+	$res_password = trim($db_row['password']);
+	$password = md5($password);
+	if ($password && $res_password && ($password==$res_password)) {
+		_log('valid login u:'.$username.' uid:'.$uid.' ip:'.$_SERVER['REMOTE_ADDR'], 2, 'auth_validate_login');
+		return true;
+	} else {
+		$ret = registry_search(1, 'auth', 'tmp_password', $username);
+		$tmp_password = $ret['auth']['tmp_password'][$username];
+		if ($password && $tmp_password && ($password==$tmp_password)) {
+			_log('valid login u:'.$username.' uid:'.$uid.' ip:'.$_SERVER['REMOTE_ADDR'].' using temporary password', 2, 'auth_validate_login');
+			if (! registry_remove(1, 'auth', 'tmp_password', $username)) {
+				_log('WARNING: unable to remove temporary password after successful login', 3, 'login');
+			}
+			return true;
+		}
+	}
+	_log('invalid login u:'.$username.' uid:'.$uid.' ip:'.$_SERVER['REMOTE_ADDR'], 2, 'auth_validate_login');
+	return false;
+}
+
+/**
+ * Validate email and password
+ * @param string $email Username
+ * @param string $password Password
+ * @return boolean TRUE when validated or boolean FALSE when validation failed
+ */
+function auth_validate_email($email, $password) {
+	$username = user_email2username($email);
+	_log('login attempt email:'.$email.' u:'.$username.' p:'.md5($password).' ip:'.$_SERVER['REMOTE_ADDR'], 3, 'auth_validate_email');
+	return auth_validate_login($username, $password);
+}
+
+/**
+ * Validate token
+ * @param string $token Token
+ * @return string User ID when validated or boolean FALSE when validation failed
+ */
+function auth_validate_token($token) {
+	$token = trim($token);
+	_log('login attempt token:'.$token.' ip:'.$_SERVER['REMOTE_ADDR'], 3, 'auth_validate_token');
+	if ($token) {
+		$db_query = "SELECT uid,username,enable_webservices,webservices_ip FROM "._DB_PREF_."_tblUser WHERE token='$token'";
+		$db_result = dba_query($db_query);
+		$db_row = dba_fetch_array($db_result);
+		if (($uid = trim($db_row['uid'])) && ($username = trim($db_row['username'])) && ($db_row['enable_webservices'])) {
+			$ip = explode(',', $db_row['webservices_ip']);
+			if (is_array($ip)) {
+				foreach ($ip as $key => $net) {
+					if (core_net_match($net, $_SERVER['REMOTE_ADDR'])) {
+						if (user_banned_get($uid)) {
+							_log('user banned u:'.$username.' uid:'.$uid.' ip:'.$_SERVER['REMOTE_ADDR'], 2, 'auth_validate_token');
+							return FALSE;	
+						}
+						_log('valid login u:'.$username.' uid:'.$uid.' ip:'.$_SERVER['REMOTE_ADDR'], 2, 'auth_validate_token');
+						return $uid;
+					}
+				}
+			}
+		}
+	}
+	logger_print("invalid login t:".$token." ip:".$_SERVER['REMOTE_ADDR'], 2, "login");
+	return false;
+}
+
+/**
+ * Check if visitor has been validated
+ * @return boolean TRUE if valid
+ */
+function auth_isvalid() {
+	if ($_SESSION['sid'] && $_SESSION['uid'] && $_SESSION['valid']) {
+		$hash = user_session_get('', $_SESSION['sid']);
+		if ($_SESSION['sid'] == $hash[key($hash)]['sid'] && $_SESSION['uid'] == $hash[key($hash)]['uid']) {
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+
+/**
+ * Check if visitor has admin access level
+ * @return boolean TRUE if valid and visitor has admin access level
+ */
+function auth_isadmin() {
+	if ($_SESSION['status'] ==  2) {
+		if (auth_isvalid()) {
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+
+/**
+ * Display page for blocked access
+ */
+function auth_block() {
+	header("Location: "._u('index.php?app=main&inc=core_auth&route=block&op=block'));
+	exit();
+}
