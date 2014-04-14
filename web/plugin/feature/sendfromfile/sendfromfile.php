@@ -55,7 +55,7 @@ switch (_OP_) {
 						$data[2] = $sms_username;
 					}
 					if ($sms_to && $sms_msg && $uid) {
-						$db_query = "INSERT INTO "._DB_PREF_."_toolsSendfromfile (uid,sid,sms_datetime,sms_to,sms_msg,sms_username) ";
+						$db_query = "INSERT INTO "._DB_PREF_."_featureSendfromfile (uid,sid,sms_datetime,sms_to,sms_msg,sms_username) ";
 						$db_query .= "VALUES ('$uid','$sid','".core_get_datetime()."','$sms_to','".addslashes($sms_msg)."','$sms_username')";
 						if ($db_result = dba_insert_id($db_query)) {
 							$valid++;
@@ -152,7 +152,7 @@ switch (_OP_) {
 		break;
 	case 'upload_cancel':
 		if ($sid = $_REQUEST['sid']) {
-			$db_query = "DELETE FROM "._DB_PREF_."_toolsSendfromfile WHERE sid='$sid'";
+			$db_query = "DELETE FROM "._DB_PREF_."_featureSendfromfile WHERE sid='$sid'";
 			if ($db_result = dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('Send from file has been cancelled');
 			} else {
@@ -167,7 +167,7 @@ switch (_OP_) {
 	case 'upload_process':
 		set_time_limit(600);
 		if ($sid = $_REQUEST['sid']) {
-			$db_query = "SELECT * FROM "._DB_PREF_."_toolsSendfromfile WHERE sid='$sid'";
+			$db_query = "SELECT * FROM "._DB_PREF_."_featureSendfromfile WHERE sid='$sid'";
 			$db_result = dba_query($db_query);
 			while ($db_row = dba_fetch_array($db_result)) {
 				$c_sms_to = $db_row['sms_to'];
@@ -180,7 +180,7 @@ switch (_OP_) {
 					list($ok,$to,$smslog_id,$queue) = sendsms($c_username,$c_sms_to,$c_sms_msg,$type,$unicode);
 				}
 			}
-			$db_query = "DELETE FROM "._DB_PREF_."_toolsSendfromfile WHERE sid='$sid'";
+			$db_query = "DELETE FROM "._DB_PREF_."_featureSendfromfile WHERE sid='$sid'";
 			$db_result = dba_affected_rows($db_query);
 			$_SESSION['error_string'] = _('SMS has been sent to valid numbers in uploaded file');
 		} else {

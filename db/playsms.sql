@@ -1239,13 +1239,13 @@ CREATE TABLE IF NOT EXISTS `playsms_toolsPhonebook_group_contacts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `playsms_toolsSendfromfile`
+-- Table structure for table `playsms_featureSendfromfile`
 --
 
-DROP TABLE IF EXISTS `playsms_toolsSendfromfile`;
+DROP TABLE IF EXISTS `playsms_featureSendfromfile`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `playsms_toolsSendfromfile` (
+CREATE TABLE `playsms_featureSendfromfile` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL DEFAULT '0',
   `sid` varchar(50) NOT NULL DEFAULT '',
@@ -1258,22 +1258,22 @@ CREATE TABLE `playsms_toolsSendfromfile` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `playsms_toolsSendfromfile`
+-- Dumping data for table `playsms_featureSendfromfile`
 --
 
-LOCK TABLES `playsms_toolsSendfromfile` WRITE;
-/*!40000 ALTER TABLE `playsms_toolsSendfromfile` DISABLE KEYS */;
-/*!40000 ALTER TABLE `playsms_toolsSendfromfile` ENABLE KEYS */;
+LOCK TABLES `playsms_featureSendfromfile` WRITE;
+/*!40000 ALTER TABLE `playsms_featureSendfromfile` DISABLE KEYS */;
+/*!40000 ALTER TABLE `playsms_featureSendfromfile` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `playsms_toolsSimplerate`
+-- Table structure for table `playsms_featureSimplerate`
 --
 
-DROP TABLE IF EXISTS `playsms_toolsSimplerate`;
+DROP TABLE IF EXISTS `playsms_featureSimplerate`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `playsms_toolsSimplerate` (
+CREATE TABLE `playsms_featureSimplerate` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `dst` varchar(100) NOT NULL DEFAULT '',
@@ -1285,12 +1285,12 @@ CREATE TABLE `playsms_toolsSimplerate` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `playsms_toolsSimplerate`
+-- Dumping data for table `playsms_featureSimplerate`
 --
 
-LOCK TABLES `playsms_toolsSimplerate` WRITE;
-/*!40000 ALTER TABLE `playsms_toolsSimplerate` DISABLE KEYS */;
-/*!40000 ALTER TABLE `playsms_toolsSimplerate` ENABLE KEYS */;
+LOCK TABLES `playsms_featureSimplerate` WRITE;
+/*!40000 ALTER TABLE `playsms_featureSimplerate` DISABLE KEYS */;
+/*!40000 ALTER TABLE `playsms_featureSimplerate` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

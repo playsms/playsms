@@ -80,3 +80,6 @@ DROP TABLE `playsms_featureSurvey`, `playsms_featureSurvey_log`, `playsms_featur
 ALTER TABLE `playsms_tblUser` DROP `ticket` ;
 
 ALTER TABLE `playsms_tblRegistry` CHANGE `registry_value` `registry_value` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';
+
+RENAME TABLE  `playsms_toolsSimplerate` TO `playsms_featureSimplerate` ;
+RENAME TABLE  `playsms_toolsSendfromfile` TO `playsms_featureSendfromfile` ;
