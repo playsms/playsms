@@ -31,7 +31,7 @@ INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `
 -- 1.0-beta3
 
 
--- 1.0.0
+-- 1.0-beta4
 
 UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0.0' WHERE `id` = 1 ;
 ALTER TABLE  `playsms_toolsPhonebook_group` ADD  `flag_sender` INT NOT NULL DEFAULT  '0' ;
@@ -87,3 +87,9 @@ RENAME TABLE  `playsms_toolsSendfromfile` TO `playsms_featureSendfromfile` ;
 RENAME TABLE  `playsms_toolsPhonebook` TO `playsms_featurePhonebook` ;
 RENAME TABLE  `playsms_toolsPhonebook_group` TO `playsms_featurePhonebook_group` ;
 RENAME TABLE  `playsms_toolsPhonebook_group_contacts` TO `playsms_featurePhonebook_group_contacts` ;
+
+-- core config
+UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-beta4' WHERE `registry_group` = 'core' AND `registry_family` = 'config' AND `registry_key` = 'playsms_version' ;
+
+
+-- 1.0.0
