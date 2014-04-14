@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Add message template"
+msgstr "Adicionar modelo de mensagem"
+
+msgid "Are you sure you want to delete these items ?"
+msgstr ""
+
+msgid "Content"
+msgstr "Conteúdo"
+
+msgid "Edit message template"
+msgstr "Editar modelo de mensagem"
+
+msgid "Fail to add message template"
+msgstr "Falha ao adicionar modelo de mensagem"
+
+msgid "Fail to edit message template"
+msgstr "Falha ao editar modelo de mensagem"
+
+msgid "Message template"
+msgstr "Modelo de mensagem"
+
+msgid "Message template content"
+msgstr "Conteúdo do modelo de mensagem"
+
+msgid "Message template has been edited"
+msgstr "Modelo de mensagem foi adicionado"
+
+msgid "Message template has been saved"
+msgstr "Modelo de mensagem foi salvo"
+
+msgid "Message template name"
+msgstr "Nome do modelo de mensagem"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Notes"
+msgstr ""
+
+msgid "Save"
+msgstr "Salvar"
+
+msgid "Selected message template has been deleted"
+msgstr "Modelo de mensagem selecionado foi removido"
+
+msgid "You must fill all fields"
+msgstr "Você deve preencher todos os campos"
+
+msgid "will be replaced with the name listed in phonebook"
+msgstr ""
+
+msgid "will be replaced with the phone number listed in phonebook"
+msgstr ""

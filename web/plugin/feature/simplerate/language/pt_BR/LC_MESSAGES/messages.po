@@ -1,0 +1,63 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr "Ação"
+
+msgid "Add rate"
+msgstr "Adicionar taxa"
+
+msgid "Are you sure you want to delete rate ?"
+msgstr "Tem certeza que quer remover a taxa?"
+
+msgid "Destination"
+msgstr "Destino"
+
+msgid "Edit rate"
+msgstr "Editar taxa"
+
+msgid "Fail to delete rate"
+msgstr "Falha ao remover a taxa"
+
+msgid "Fail to save rate"
+msgstr "Falha ao salvar a taxa"
+
+msgid "Manage SMS rate"
+msgstr "Administrar taxa de SMS"
+
+msgid "No changes made!"
+msgstr "Nenhuma mudança feita!"
+
+msgid "Prefix"
+msgstr "Prefixo"
+
+msgid "Rate"
+msgstr "Taxa"
+
+msgid "Rate has been added"
+msgstr "A taxa foi adicionada"
+
+msgid "Rate has been deleted"
+msgstr "A taxa foi removida"
+
+msgid "Rate has been saved"
+msgstr "A taxa foi salva"
+
+msgid "Rate is already exists"
+msgstr "A taxa já existe"
+
+msgid "Save"
+msgstr "Salvar"
+
+msgid "You must fill all fields"
+msgstr "Preencha todos os campos"
+
+msgid "destination"
+msgstr "destino"
+
+msgid "prefix"
+msgstr "prefixo"

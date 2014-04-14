@@ -1,0 +1,63 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr "行为"
+
+msgid "Add rate"
+msgstr "增加等级"
+
+msgid "Are you sure you want to delete rate ?"
+msgstr "确定删除等级 ?"
+
+msgid "Destination"
+msgstr "目标"
+
+msgid "Edit rate"
+msgstr "编辑等级"
+
+msgid "Fail to delete rate"
+msgstr "删除等级失败"
+
+msgid "Fail to save rate"
+msgstr "保存等级失败"
+
+msgid "Manage SMS rate"
+msgstr "管理短信等级"
+
+msgid "No changes made!"
+msgstr "没有做出改变"
+
+msgid "Prefix"
+msgstr "前缀"
+
+msgid "Rate"
+msgstr "等级"
+
+msgid "Rate has been added"
+msgstr "等级已添加"
+
+msgid "Rate has been deleted"
+msgstr "等级已删除"
+
+msgid "Rate has been saved"
+msgstr "等级已保存"
+
+msgid "Rate is already exists"
+msgstr "等级已存在"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "You must fill all fields"
+msgstr "你必须填满全部空白"
+
+msgid "destination"
+msgstr "目标"
+
+msgid "prefix"
+msgstr "前缀"

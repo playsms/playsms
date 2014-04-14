@@ -1,0 +1,63 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr "Acción"
+
+msgid "Add rate"
+msgstr "Añadir tarifa"
+
+msgid "Are you sure you want to delete rate ?"
+msgstr "Esta Ud. seguro de querer borrar esta tarifa ?"
+
+msgid "Destination"
+msgstr "Destino"
+
+msgid "Edit rate"
+msgstr "Editar tarifa"
+
+msgid "Fail to delete rate"
+msgstr "Fallo al borrar la tarifa"
+
+msgid "Fail to save rate"
+msgstr "Fallo al eliminar la tarifa"
+
+msgid "Manage SMS rate"
+msgstr "Administración de tarifas deSMS"
+
+msgid "No changes made!"
+msgstr "No se efectuaron cambios!"
+
+msgid "Prefix"
+msgstr "Prefijo"
+
+msgid "Rate"
+msgstr "Tarifa"
+
+msgid "Rate has been added"
+msgstr "La tarifa ha sido añadida"
+
+msgid "Rate has been deleted"
+msgstr "La tarifa ha sido eliminada"
+
+msgid "Rate has been saved"
+msgstr "La tarifa se ha guardado"
+
+msgid "Rate is already exists"
+msgstr "Tarifa ya existe "
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "You must fill all fields"
+msgstr "Ud. debe rellenar todos los campos"
+
+msgid "destination"
+msgstr "destino"
+
+msgid "prefix"
+msgstr "prefijo"

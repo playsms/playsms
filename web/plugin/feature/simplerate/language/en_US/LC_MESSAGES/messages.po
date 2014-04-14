@@ -1,0 +1,63 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr ""
+
+msgid "Add rate"
+msgstr ""
+
+msgid "Are you sure you want to delete rate ?"
+msgstr ""
+
+msgid "Destination"
+msgstr ""
+
+msgid "Edit rate"
+msgstr ""
+
+msgid "Fail to delete rate"
+msgstr ""
+
+msgid "Fail to save rate"
+msgstr ""
+
+msgid "Manage SMS rate"
+msgstr "Manage SMS rate"
+
+msgid "No changes made!"
+msgstr ""
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Rate"
+msgstr ""
+
+msgid "Rate has been added"
+msgstr ""
+
+msgid "Rate has been deleted"
+msgstr ""
+
+msgid "Rate has been saved"
+msgstr ""
+
+msgid "Rate is already exists"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "You must fill all fields"
+msgstr ""
+
+msgid "destination"
+msgstr ""
+
+msgid "prefix"
+msgstr ""

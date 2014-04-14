@@ -1,0 +1,71 @@
+# Header entry was created by Lokalize.
+#
+# Joan <aseques@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2013-01-09 16:29+0100\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.4\n"
+
+msgid "Action"
+msgstr "Acció"
+
+msgid "Add rate"
+msgstr "Afegir tarifa"
+
+msgid "Are you sure you want to delete rate ?"
+msgstr "Esteu segur que voleu esborrar la tarifa?"
+
+msgid "Destination"
+msgstr "Destí"
+
+msgid "Edit rate"
+msgstr "Editar tarifa"
+
+msgid "Fail to delete rate"
+msgstr "Error esborrant tarifa"
+
+msgid "Fail to save rate"
+msgstr "Error guardant tarifa"
+
+msgid "Manage SMS rate"
+msgstr "Gestionar tarifes SMS"
+
+msgid "No changes made!"
+msgstr "No s'han fet canvis!"
+
+msgid "Prefix"
+msgstr "Prefix"
+
+msgid "Rate"
+msgstr "Tarifa"
+
+msgid "Rate has been added"
+msgstr "La tarifa s'ha afegit"
+
+msgid "Rate has been deleted"
+msgstr "La tarifa s'ha el·liminat"
+
+msgid "Rate has been saved"
+msgstr "La tarifa s'ha guardat"
+
+msgid "Rate is already exists"
+msgstr "La tarifa ja existeix"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "You must fill all fields"
+msgstr "Heu d'omplir tots els camps"
+
+msgid "destination"
+msgstr "destí"
+
+msgid "prefix"
+msgstr "prefix"

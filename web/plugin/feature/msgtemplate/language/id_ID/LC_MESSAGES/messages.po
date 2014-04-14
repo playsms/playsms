@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Add message template"
+msgstr "Tambah template pesan"
+
+msgid "Are you sure you want to delete these items ?"
+msgstr ""
+
+msgid "Content"
+msgstr "Isi"
+
+msgid "Edit message template"
+msgstr "Ubah template pesan"
+
+msgid "Fail to add message template"
+msgstr "Gagal menambah template pesan"
+
+msgid "Fail to edit message template"
+msgstr "Gagal mengubah template pesan"
+
+msgid "Message template"
+msgstr "Template pesan"
+
+msgid "Message template content"
+msgstr "Isi template pesan"
+
+msgid "Message template has been edited"
+msgstr "Template pesan telah diubah"
+
+msgid "Message template has been saved"
+msgstr "Template telah disimpan"
+
+msgid "Message template name"
+msgstr "Nama template pesan"
+
+msgid "Name"
+msgstr "Nama"
+
+msgid "Notes"
+msgstr ""
+
+msgid "Save"
+msgstr "Simpan"
+
+msgid "Selected message template has been deleted"
+msgstr "Template pesan terpilih telah dihapus"
+
+msgid "You must fill all fields"
+msgstr "Anda harus mengisi semua isian"
+
+msgid "will be replaced with the name listed in phonebook"
+msgstr ""
+
+msgid "will be replaced with the phone number listed in phonebook"
+msgstr ""

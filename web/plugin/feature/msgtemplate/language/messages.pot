@@ -1,0 +1,53 @@
+msgid "Add message template"
+msgstr ""
+
+msgid "Are you sure you want to delete these items ?"
+msgstr ""
+
+msgid "Content"
+msgstr ""
+
+msgid "Edit message template"
+msgstr ""
+
+msgid "Fail to add message template"
+msgstr ""
+
+msgid "Fail to edit message template"
+msgstr ""
+
+msgid "Message template"
+msgstr ""
+
+msgid "Message template content"
+msgstr ""
+
+msgid "Message template has been edited"
+msgstr ""
+
+msgid "Message template has been saved"
+msgstr ""
+
+msgid "Message template name"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Selected message template has been deleted"
+msgstr ""
+
+msgid "You must fill all fields"
+msgstr ""
+
+msgid "will be replaced with the name listed in phonebook"
+msgstr ""
+
+msgid "will be replaced with the phone number listed in phonebook"
+msgstr ""

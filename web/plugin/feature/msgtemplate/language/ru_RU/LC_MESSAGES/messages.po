@@ -1,0 +1,66 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "Add message template"
+msgstr "Добавить шаблон"
+
+msgid "Are you sure you want to delete these items ?"
+msgstr "Вы уверены, что хотите удалить выбранное?"
+
+msgid "Content"
+msgstr "Текст"
+
+msgid "Edit message template"
+msgstr "Редактировать шаблон"
+
+msgid "Fail to add message template"
+msgstr "Не удалось добавить шаблон"
+
+msgid "Fail to edit message template"
+msgstr "Не удалось изменить шаблон"
+
+msgid "Message template"
+msgstr "Шаблоны"
+
+msgid "Message template content"
+msgstr "Текст шаблона"
+
+msgid "Message template has been edited"
+msgstr "Шаблон изменён"
+
+msgid "Message template has been saved"
+msgstr "Шаблон сохранён"
+
+msgid "Message template name"
+msgstr "Название шаблона"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "Notes"
+msgstr "Примечания"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Selected message template has been deleted"
+msgstr "Выбранные шаблоны удалены"
+
+msgid "You must fill all fields"
+msgstr "Необходимо заполнить все поля"
+
+msgid "will be replaced with the name listed in phonebook"
+msgstr "будет заменён на имя из записной книжки"
+
+msgid "will be replaced with the phone number listed in phonebook"
+msgstr "будет заменён на номер из записной книжки"

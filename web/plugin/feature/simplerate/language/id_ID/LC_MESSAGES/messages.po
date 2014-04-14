@@ -1,0 +1,63 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr "Tindakan"
+
+msgid "Add rate"
+msgstr "Tambah tarif"
+
+msgid "Are you sure you want to delete rate ?"
+msgstr "Anda yakin ingin menghapus tarif?"
+
+msgid "Destination"
+msgstr "Tujuan"
+
+msgid "Edit rate"
+msgstr "Ubah tarif"
+
+msgid "Fail to delete rate"
+msgstr "Gagal menghapus tarif"
+
+msgid "Fail to save rate"
+msgstr "Gagal menyimpan tarif"
+
+msgid "Manage SMS rate"
+msgstr "Pengaturan tarif SMS"
+
+msgid "No changes made!"
+msgstr "Tidak ada perubahan yang dilakukan!"
+
+msgid "Prefix"
+msgstr "Awalan"
+
+msgid "Rate"
+msgstr "Tarif"
+
+msgid "Rate has been added"
+msgstr "Tarif telah ditambahkan"
+
+msgid "Rate has been deleted"
+msgstr "Tarif telah dihapus"
+
+msgid "Rate has been saved"
+msgstr "Tarif telah disimpan"
+
+msgid "Rate is already exists"
+msgstr "Tarif telah ada sebelumnya"
+
+msgid "Save"
+msgstr "Simpan"
+
+msgid "You must fill all fields"
+msgstr "Anda harus mengisi semua kolom"
+
+msgid "destination"
+msgstr "tujuan"
+
+msgid "prefix"
+msgstr "awalan"
