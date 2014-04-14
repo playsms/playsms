@@ -41,7 +41,7 @@ function phonebook_groupid2code($gpid) {
 }
 
 function phonebook_groupcode2id($uid,$gp_code) {
-	$db_query = "SELECT id FROM "._DB_PREF_."_featurePhonebook_group WHERE uid='$uid' AND code='$code'";
+	$db_query = "SELECT id FROM "._DB_PREF_."_featurePhonebook_group WHERE uid='$uid' AND code='$gp_code'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	return $db_row['id'];

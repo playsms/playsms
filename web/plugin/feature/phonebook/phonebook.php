@@ -5,7 +5,7 @@ if(!auth_isvalid()){auth_block();};
 switch (_OP_) {
 	case "phonebook_list":
 		$search_category = array(_('Name') => 'A.name', _('Mobile') => 'mobile', _('Email') => 'email', _('Group code') => 'code');
-		$base_url = 'index.php?app=main&inc=core_phonebook&op=phonebook_list';
+		$base_url = 'index.php?app=main&inc=feature_phonebook&op=phonebook_list';
 		$search = themes_search($search_category, $base_url);
 		
 		$fields = 'DISTINCT A.id AS pid, A.name AS name, A.mobile AS mobile, A.email AS email';
@@ -26,15 +26,15 @@ switch (_OP_) {
 		$content = "
 			<h2>"._('Phonebook')."</h2>
 			<p>".$search['form']."</p>
-			<form name=fm_phonebook_list id=fm_phonebook_list action='index.php?app=main&inc=core_phonebook' method=post>
+			<form name=fm_phonebook_list id=fm_phonebook_list action='index.php?app=main&inc=feature_phonebook' method=post>
 			"._CSRF_FORM_."
 			<input type=hidden id=action_route name=route value=''>
 			<div class=actions_box>
 				<div class=pull-left>
-					<a href='"._u('index.php?app=main&inc=core_phonebook&route=group&op=list')."'>".$icon_config['group']."</a>
-					<a href='"._u('index.php?app=main&inc=core_phonebook&route=import&op=list')."'>".$icon_config['import']."</a>
-					<a href='"._u('index.php?app=main&inc=core_phonebook&op=actions&go=export')."'>".$icon_config['export']."</a>
-					<a href='"._u('index.php?app=main&inc=core_phonebook&op=phonebook_add')."'>".$icon_config['add']."</a>
+					<a href='"._u('index.php?app=main&inc=feature_phonebook&route=group&op=list')."'>".$icon_config['group']."</a>
+					<a href='"._u('index.php?app=main&inc=feature_phonebook&route=import&op=list')."'>".$icon_config['import']."</a>
+					<a href='"._u('index.php?app=main&inc=feature_phonebook&op=actions&go=export')."'>".$icon_config['export']."</a>
+					<a href='"._u('index.php?app=main&inc=feature_phonebook&op=phonebook_add')."'>".$icon_config['add']."</a>
 				</div>
 				<script type='text/javascript'>
 					$(document).ready(function() {
@@ -80,13 +80,13 @@ switch (_OP_) {
 			$groupjoin = 'INNER JOIN '._DB_PREF_.'_featurePhonebook_group_contacts AS C ON C.gpid = B.id';
 			$grouplist = dba_search(_DB_PREF_.'_featurePhonebook_group AS B', $groupfields, $groupconditions, '', $groupextras, $groupjoin);
 			for ($k=0;$k<count($grouplist);$k++) {
-				$group_code .= $phonebook_flag_sender[$grouplist[$k]['flag_sender']]."<a href=\""._u('index.php?app=main&inc=core_phonebook&route=group&op=edit&gpid='.$grouplist[$k]['id'])."\">".strtoupper($grouplist[$k]['code'])."</a><br />";
+				$group_code .= $phonebook_flag_sender[$grouplist[$k]['flag_sender']]."<a href=\""._u('index.php?app=main&inc=feature_phonebook&route=group&op=edit&gpid='.$grouplist[$k]['id'])."\">".strtoupper($grouplist[$k]['code'])."</a><br />";
 			}
 			$i--;
-			$c_i = "<a href=\""._u('index.php?app=main&inc=core_phonebook&op=phonebook_edit&id='.$pid)."\">".$i.".</a>";
+			$c_i = "<a href=\""._u('index.php?app=main&inc=feature_phonebook&op=phonebook_edit&id='.$pid)."\">".$i.".</a>";
 			$content .= "
 				<tr>
-					<td><a href='"._u('index.php?app=main&inc=core_phonebook&op=phonebook_edit&pid='.$pid)."'>".$name."</a></td>
+					<td><a href='"._u('index.php?app=main&inc=feature_phonebook&op=phonebook_edit&pid='.$pid)."'>".$name."</a></td>
 					<td>$mobile</td>
 					<td>$email</td>
 					<td>$group_code</td>
@@ -120,7 +120,7 @@ switch (_OP_) {
 		$content = "
 			<h2>"._('Phonebook')."</h2>
 			<h3>"._('Add contact')."</h3>
-			<form action=\"index.php?app=main&inc=core_phonebook&op=actions&go=add\" name=fm_addphone method=POST>
+			<form action=\"index.php?app=main&inc=feature_phonebook&op=actions&go=add\" name=fm_addphone method=POST>
 			"._CSRF_FORM_."
 			<table class=playsms-table>
 			<tbody>
@@ -132,7 +132,7 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
-			<p>"._back('index.php?app=main&inc=core_phonebook&op=phonebook_list');
+			<p>"._back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}
@@ -155,7 +155,7 @@ switch (_OP_) {
 		$content = "
 			<h2>"._('Phonebook')."</h2>
 			<h3>"._('Edit contact')."</h3>
-			<form action=\"index.php?app=main&inc=core_phonebook&op=actions&go=edit\" name=fm_addphone method=POST>
+			<form action=\"index.php?app=main&inc=feature_phonebook&op=actions&go=edit\" name=fm_addphone method=POST>
 			"._CSRF_FORM_."
 			<input type=hidden name=pid value=\"".$pid."\">
 			<table class=playsms-table>
@@ -168,7 +168,7 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>
-			<p>"._back('index.php?app=main&inc=core_phonebook&op=phonebook_list');
+			<p>"._back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}
@@ -240,7 +240,7 @@ switch (_OP_) {
 				} else {
 					$_SESSION['error_string'] = _('You must fill required fields');
 				}
-				header("Location: "._u('index.php?app=main&inc=core_phonebook&op=phonebook_add'));
+				header("Location: "._u('index.php?app=main&inc=feature_phonebook&op=phonebook_add'));
 				exit();
 				break;
 			case 'edit':
@@ -287,7 +287,7 @@ switch (_OP_) {
 				} else {
 					$_SESSION['error_string'] = _('You must fill required fields');
 				}
-				header("Location: "._u('index.php?app=main&inc=core_phonebook&op=phonebook_list'));
+				header("Location: "._u('index.php?app=main&inc=feature_phonebook&op=phonebook_list'));
 				exit();
 				break;
 		}

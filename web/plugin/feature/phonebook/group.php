@@ -5,7 +5,7 @@ if(!auth_isvalid()){auth_block();};
 switch (_OP_) {
 	case "list":
 		$search_category = array(_('Name') => 'name', _('Group code') => 'code');
-		$base_url = 'index.php?app=main&inc=core_phonebook&route=group&op=list';
+		$base_url = 'index.php?app=main&inc=feature_phonebook&route=group&op=list';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array('uid' => $user_config['uid']);
 		$keywords = $search['dba_keywords'];
@@ -19,12 +19,12 @@ switch (_OP_) {
 			<h2>"._('Phonebook')."</h2>
 			<h3>"._('Group')."</h3>
 			<p>".$search['form']."</p>
-			<form id=fm_phonebook_group_list name=fm_phonebook_group_list action='index.php?app=main&inc=core_phonebook&route=group&op=actions' method=post>
+			<form id=fm_phonebook_group_list name=fm_phonebook_group_list action='index.php?app=main&inc=feature_phonebook&route=group&op=actions' method=post>
 			"._CSRF_FORM_."
 			<input type=hidden name=go value=delete>
 			<div class=actions_box>
 				<div class=pull-left>
-					<a href='"._u('index.php?app=main&inc=core_phonebook&route=group&op=add')."'>".$icon_config['add']."</a>
+					<a href='"._u('index.php?app=main&inc=feature_phonebook&route=group&op=add')."'>".$icon_config['add']."</a>
 				</div>
 				<div class=pull-right>".$nav['form']."</div>
 			</div>
@@ -48,10 +48,10 @@ switch (_OP_) {
 			$i++;
 			$content .= "
 				<tr>
-					<td><a href='"._u('index.php?app=main&inc=core_phonebook&route=group&op=edit&gpid='.$gpid)."'>".$name."</a></td>
+					<td><a href='"._u('index.php?app=main&inc=feature_phonebook&route=group&op=edit&gpid='.$gpid)."'>".$name."</a></td>
 					<td>".$phonebook_flag_sender[$flag_sender]." ".$code."</td>
 					<td>
-						<a href='"._u('index.php?app=main&inc=core_phonebook&route=group&op=actions&go=delete&gpid='.$gpid)."' onClick=\"return SureConfirm();\">".$icon_config['delete']."</a>
+						<a href='"._u('index.php?app=main&inc=feature_phonebook&route=group&op=actions&go=delete&gpid='.$gpid)."' onClick=\"return SureConfirm();\">".$icon_config['delete']."</a>
 					</td>
 				</tr>";
 		}
@@ -61,7 +61,7 @@ switch (_OP_) {
 			</table>
 			</div>
 			</form>
-			"._back('index.php?app=main&inc=core_phonebook&op=phonebook_list');
+			"._back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
 
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
@@ -77,7 +77,7 @@ switch (_OP_) {
 			<h2>"._('Phonebook')."</h2>
 			<h3>"._('Add group')."</h3>
 			<p>
-			<form action=\"index.php?app=main&inc=core_phonebook&route=group&op=actions&go=add\" method=POST>
+			<form action=\"index.php?app=main&inc=feature_phonebook&route=group&op=actions&go=add\" method=POST>
 			"._CSRF_FORM_."
 			<table class=playsms-table>
 			<tbody>
@@ -97,7 +97,7 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\"> 
 			</form>
-			<p>"._back('index.php?app=main&inc=core_phonebook&route=group&op=list');
+			<p>"._back('index.php?app=main&inc=feature_phonebook&route=group&op=list');
 		_p($content);
 		break;
 	case "edit":
@@ -112,7 +112,7 @@ switch (_OP_) {
 			<h2>"._('Phonebook')."</h2>
 			<h3>"._('Edit group')."</h3>
 			<p>
-			<form action=\"index.php?app=main&inc=core_phonebook&route=group&op=actions&go=edit\" method=POST>
+			<form action=\"index.php?app=main&inc=feature_phonebook&route=group&op=actions&go=edit\" method=POST>
 			"._CSRF_FORM_."
 			<input type=hidden name=gpid value=\"$gpid\">
 			<table class=playsms-table>
@@ -134,7 +134,7 @@ switch (_OP_) {
 			<p>"._('Note').": "._('Group code used by keyword')." BC ("._('broadcast SMS from single SMS').")
 			<p><input type=submit class=button value=\""._('Save')."\"> 
 			</form>
-			<p>"._back('index.php?app=main&inc=core_phonebook&route=group&op=list');
+			<p>"._back('index.php?app=main&inc=feature_phonebook&route=group&op=list');
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}
@@ -185,7 +185,7 @@ switch (_OP_) {
 						$_SESSION['error_string'] = _('Group code has been added')." ("._('group').": $group_name, "._('code').": $group_code)";
 					}
 				}
-				header("Location: "._u('index.php?app=main&inc=core_phonebook&route=group&op=list'));
+				header("Location: "._u('index.php?app=main&inc=feature_phonebook&route=group&op=list'));
 				exit();
 				break;
 			case 'edit':
@@ -212,7 +212,7 @@ switch (_OP_) {
 						$_SESSION['error_string'] = _('Group has been edited')." ("._('group').": $group_name, "._('code')." $group_code)";
 					}
 				}
-				header("Location: "._u('index.php?app=main&inc=core_phonebook&route=group&op=edit&gpid='.$gpid));
+				header("Location: "._u('index.php?app=main&inc=feature_phonebook&route=group&op=edit&gpid='.$gpid));
 				exit();
 				break;
 		}
