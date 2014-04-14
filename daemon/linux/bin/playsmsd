@@ -144,7 +144,7 @@ switch ($COMMAND) {
 }
 
 if (!$COMMAND) {
-	echo "Usage: playsmsd <start|stop|status|check>\n";
+	echo "Usage: playsmsd <start|stop|restart|status|check|check_json>\n";
 	exit();
 }
 
