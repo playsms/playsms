@@ -662,8 +662,9 @@ function core_gateway_get() {
  * @return string
  */
 function core_lang_get() {
-	global $core_config;
-	return $core_config['main']['language_module'];
+	global $core_config, $user_config;
+	$lang = ($user_config['language_module'] ? $user_config['language_module'] : $core_config['main']['language_module']);
+	return $lang;
 }
 
 /**
