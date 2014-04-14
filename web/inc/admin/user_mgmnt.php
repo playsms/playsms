@@ -51,8 +51,8 @@ switch (_OP_) {
 		}
 		$content .= "
 			<h2>" . _('Manage user') . "</h2>
-			<input type='button' ".$disabled_on_admin." value='" . _('View administrators') . "' onClick=\"javascript:linkto('"._u('index.php?app=main&inc=user_mgmnt&op=user_list&view=admin')."')\" class=\"button\" />
-			<input type='button' ".$disabled_on_users." value='" . _('View normal users') . "' onClick=\"javascript:linkto('"._u('index.php?app=main&inc=user_mgmnt&op=user_list&view=users')."')\" class=\"button\" />
+			<input type='button' ".$disabled_on_admin." value='" . _('Administrators') . "' onClick=\"javascript:linkto('"._u('index.php?app=main&inc=user_mgmnt&op=user_list&view=admin')."')\" class=\"button\" />
+			<input type='button' ".$disabled_on_users." value='" . _('Normal users') . "' onClick=\"javascript:linkto('"._u('index.php?app=main&inc=user_mgmnt&op=user_list&view=users')."')\" class=\"button\" />
 			".$form_sub_title."
 			<p>".$search['form']."</p>			
 			<div class=actions_box>

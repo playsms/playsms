@@ -49,6 +49,10 @@ msgstr "管理员"
 msgid "Administrator"
 msgstr "管理员"
 
+#, fuzzy
+msgid "Administrators"
+msgstr "管理员"
+
 msgid "All"
 msgstr "全部"
 
@@ -513,6 +517,10 @@ msgid "Normal User"
 msgstr "标准用户"
 
 msgid "Normal user"
+msgstr "一般用户"
+
+#, fuzzy
+msgid "Normal users"
 msgstr "一般用户"
 
 msgid "Offline"

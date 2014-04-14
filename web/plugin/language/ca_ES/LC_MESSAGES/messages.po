@@ -58,6 +58,10 @@ msgstr "Administració"
 msgid "Administrator"
 msgstr "Administrador"
 
+#, fuzzy
+msgid "Administrators"
+msgstr "Administrador"
+
 msgid "All"
 msgstr "Tots"
 
@@ -500,6 +504,10 @@ msgid "Normal User"
 msgstr "Usuari Normal"
 
 msgid "Normal user"
+msgstr "Usuari normal"
+
+#, fuzzy
+msgid "Normal users"
 msgstr "Usuari normal"
 
 msgid "Offline"

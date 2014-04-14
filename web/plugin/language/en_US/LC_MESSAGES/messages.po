@@ -47,6 +47,9 @@ msgstr ""
 msgid "Administrator"
 msgstr ""
 
+msgid "Administrators"
+msgstr ""
+
 msgid "All"
 msgstr ""
 
@@ -485,6 +488,9 @@ msgid "Normal User"
 msgstr ""
 
 msgid "Normal user"
+msgstr ""
+
+msgid "Normal users"
 msgstr ""
 
 msgid "Offline"
