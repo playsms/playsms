@@ -19,8 +19,11 @@
 
 defined('_SECURE_') or die('Forbidden');
 
-// load DP.php, DB.php is part of PHP PEAR-DB package
-include_once 'DB.php';
+// load DB.php, DB.php is part of PHP PEAR-DB package
+@include_once 'DB.php';
+if (! class_exists('DB')) {
+	exit(_('FATAL ERROR') . ' : ' . _('Cannot find PHP PEAR-DB'));
+}
 
 function dba_connect($username,$password,$dbname,$hostname,$port="",$persistant="true") {
 	global $core_config;
