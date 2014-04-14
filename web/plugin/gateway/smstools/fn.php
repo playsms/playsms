@@ -28,7 +28,7 @@ function smstools_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime=""
 			}
 		}
 		if ($smslog_id && $message_id) {
-			$db_query = "INSERT INTO "._DB_PREF_."_gatewaySmstools_dlr (c_timestamp,uid,smslog_id,message_id,status) VALUES ('".mktime()."','$uid','$smslog_id','$message_id','-1')";
+			$db_query = "INSERT INTO "._DB_PREF_."_gatewaysmstools_dlr (c_timestamp,uid,smslog_id,message_id,status) VALUES ('".mktime()."','$uid','$smslog_id','$message_id','-1')";
 			$dlr_id = dba_insert_id($db_query);
 			if ($dlr_id) {
 				logger_print("DLR mapped id:".$dlr_id." uid:".$uid." smslog_id:".$smslog_id." message_id:".$message_id, 2, "smstools getsmsstatus");
@@ -128,7 +128,7 @@ function smstools_hook_getsmsinbox() {
 					}
 					if ($message_id && $status_var[1]) {
 						logger_print("DLR received message_id:".$message_id." status:".$status." info1:".$status_var[1]." info2:".$status_var[2], 2, "smstools incoming");
-						$db_query = "SELECT uid,smslog_id FROM "._DB_PREF_."_gatewaySmstools_dlr WHERE message_id='$message_id'";
+						$db_query = "SELECT uid,smslog_id FROM "._DB_PREF_."_gatewaysmstools_dlr WHERE message_id='$message_id'";
 						$db_result = dba_query($db_query);
 						$db_row = dba_fetch_array($db_result);
 						$uid = $db_row['uid'];

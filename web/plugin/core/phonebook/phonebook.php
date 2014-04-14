@@ -9,14 +9,14 @@ switch (_OP_) {
 		$search = themes_search($search_category, $base_url);
 		
 		$fields = 'DISTINCT A.id AS pid, A.name AS name, A.mobile AS mobile, A.email AS email';
-		$join = 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group AS B ON A.uid=B.uid ';
-		$join .= 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid';
+		$join = 'INNER JOIN '._DB_PREF_.'_featurePhonebook_group AS B ON A.uid=B.uid ';
+		$join .= 'INNER JOIN '._DB_PREF_.'_featurePhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid';
 		$conditions = array('B.uid' => $user_config['uid']);
 		$keywords = $search['dba_keywords'];
-		$count = dba_count(_DB_PREF_.'_toolsPhonebook AS A', $conditions, $keywords, '', $join);
+		$count = dba_count(_DB_PREF_.'_featurePhonebook AS A', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'A.name, mobile', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = dba_search(_DB_PREF_.'_toolsPhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
+		$list = dba_search(_DB_PREF_.'_featurePhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
 
 		$phonebook_groups = phonebook_search_group($user_config['uid']);
 		foreach ($phonebook_groups as $group) {
@@ -77,8 +77,8 @@ switch (_OP_) {
 			$groupfields = 'B.id AS id, B.code AS code, B.flag_sender AS flag_sender';
 			$groupconditions = array('B.uid' => $user_config['uid'], 'C.pid' => $list[$j]['pid']);
 			$groupextras = array('ORDER BY' => 'B.code ASC', 'LIMIT' => $nav['limit']);
-			$groupjoin = 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group_contacts AS C ON C.gpid = B.id';
-			$grouplist = dba_search(_DB_PREF_.'_toolsPhonebook_group AS B', $groupfields, $groupconditions, '', $groupextras, $groupjoin);
+			$groupjoin = 'INNER JOIN '._DB_PREF_.'_featurePhonebook_group_contacts AS C ON C.gpid = B.id';
+			$grouplist = dba_search(_DB_PREF_.'_featurePhonebook_group AS B', $groupfields, $groupconditions, '', $groupextras, $groupjoin);
 			for ($k=0;$k<count($grouplist);$k++) {
 				$group_code .= $phonebook_flag_sender[$grouplist[$k]['flag_sender']]."<a href=\""._u('index.php?app=main&inc=core_phonebook&route=group&op=edit&gpid='.$grouplist[$k]['id'])."\">".strtoupper($grouplist[$k]['code'])."</a><br />";
 			}
@@ -112,7 +112,7 @@ switch (_OP_) {
 	case "phonebook_add":
 		$phone = trim(urlencode($_REQUEST['phone']));
 		$uid = $user_config['uid'];
-		$db_query = "SELECT * FROM "._DB_PREF_."_toolsPhonebook_group WHERE uid='$uid'";
+		$db_query = "SELECT * FROM "._DB_PREF_."_featurePhonebook_group WHERE uid='$uid'";
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
 			$list_of_group .= "<option value=".$db_row['id'].">".$db_row['name']." - "._('code').": ".$db_row['code']."</option>";
@@ -141,13 +141,13 @@ switch (_OP_) {
 	case "phonebook_edit":
 		$uid = $user_config['uid'];
 		$pid = $_REQUEST['pid'];
-		$list = dba_search(_DB_PREF_.'_toolsPhonebook', 'name, mobile, email', array('id' => $pid, 'uid' => $uid));
-		$db_query = "SELECT * FROM "._DB_PREF_."_toolsPhonebook_group WHERE uid='$uid'";
+		$list = dba_search(_DB_PREF_.'_featurePhonebook', 'name, mobile, email', array('id' => $pid, 'uid' => $uid));
+		$db_query = "SELECT * FROM "._DB_PREF_."_featurePhonebook_group WHERE uid='$uid'";
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
 			$selected = '';
 			$conditions = array('gpid' => $db_row['id'], 'pid' => $pid);
-			if (dba_isexists(_DB_PREF_.'_toolsPhonebook_group_contacts', $conditions, 'AND')) {
+			if (dba_isexists(_DB_PREF_.'_featurePhonebook_group_contacts', $conditions, 'AND')) {
 				$selected = 'selected';
 			}
 			$list_of_group .= "<option value=".$db_row['id']." $selected>".$db_row['name']." - "._('code').": ".$db_row['code']."</option>";
@@ -181,12 +181,12 @@ switch (_OP_) {
 		switch ($go) {
 			case 'export':
 				$fields = 'A.id AS pid, A.name AS name, A.mobile AS mobile, A.email AS email, B.code AS code';
-				$join = 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group AS B ON A.uid=B.uid ';
-				$join .= 'INNER JOIN '._DB_PREF_.'_toolsPhonebook_group_contacts AS C ON A.id = C.pid AND C.gpid = B.id';
+				$join = 'INNER JOIN '._DB_PREF_.'_featurePhonebook_group AS B ON A.uid=B.uid ';
+				$join .= 'INNER JOIN '._DB_PREF_.'_featurePhonebook_group_contacts AS C ON A.id = C.pid AND C.gpid = B.id';
 				$conditions = array('B.uid' => $user_config['uid'], 'C.gpid=B.id');
 				$keywords = $search['dba_keywords'];
 				$extras = array('ORDER BY' => 'A.name, mobile', 'LIMIT' => $phonebook_row_limit);
-				$list = dba_search(_DB_PREF_.'_toolsPhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
+				$list = dba_search(_DB_PREF_.'_featurePhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
 				$data[0] = array(_('Name'), _('Mobile'), _('Email'), _('Group code'));
 				for ($i=0;$i<count($list);$i++) {
 					$j = $i + 1;
@@ -213,12 +213,12 @@ switch (_OP_) {
 						$email = str_replace("\'","",$_POST['email']);
 						$email = str_replace("\"","",$email);
 						if ($gpid && $mobile && $name) {
-							$list = dba_search(_DB_PREF_.'_toolsPhonebook', 'id', array('uid' => $uid, 'mobile' => $mobile));
+							$list = dba_search(_DB_PREF_.'_featurePhonebook', 'id', array('uid' => $uid, 'mobile' => $mobile));
 							if ($c_pid = $list[0]['id']) {
 								$save_to_group = TRUE;
 							} else {
 								$items = array('uid' => $uid, 'name' => $name, 'mobile' => $mobile, 'email' => $email);
-								if ($c_pid = dba_add(_DB_PREF_.'_toolsPhonebook', $items)) {
+								if ($c_pid = dba_add(_DB_PREF_.'_featurePhonebook', $items)) {
 									$save_to_group = TRUE;
 								} else {
 									logger_print('fail to add contact gpid:'.$gpid.' pid:'.$c_pid.' m:'.$mobile.' n:'.$name.' e:'.$email, 3, 'phonebook_add');
@@ -226,8 +226,8 @@ switch (_OP_) {
 							}
 							if ($save_to_group) {
 								$items = array('gpid' => $gpid, 'pid' => $c_pid);
-								if (dba_isavail(_DB_PREF_.'_toolsPhonebook_group_contacts', $items, 'AND')) {
-									if (dba_add(_DB_PREF_.'_toolsPhonebook_group_contacts', $items)) {
+								if (dba_isavail(_DB_PREF_.'_featurePhonebook_group_contacts', $items, 'AND')) {
+									if (dba_add(_DB_PREF_.'_featurePhonebook_group_contacts', $items)) {
 										logger_print('contact added to group gpid:'.$gpid.' pid:'.$c_pid.' m:'.$mobile.' n:'.$name.' e:'.$email, 3, 'phonebook_add');
 									} else {
 										logger_print('contact added but fail to save in group gpid:'.$gpid.' pid:'.$c_pid.' m:'.$mobile.' n:'.$name.' e:'.$email, 3, 'phonebook_add');
@@ -261,20 +261,20 @@ switch (_OP_) {
 						if ($c_pid && $gpid && $mobile && $name) {
 							$items = array('name' => $name, 'mobile' => $mobile, 'email' => $email);
 							$conditions = array('id' => $c_pid, 'uid' => $uid);
-							dba_update(_DB_PREF_.'_toolsPhonebook', $items, $conditions, 'AND');
+							dba_update(_DB_PREF_.'_featurePhonebook', $items, $conditions, 'AND');
 							$maps[][$c_pid] = $gpid;
 							logger_print('contact edited gpid:'.$gpid.' pid:'.$c_pid.' m:'.$mobile.' n:'.$name.' e:'.$email, 3, 'phonebook_edit');
 						}
 					}
 					if (is_array($maps)) {
-						dba_remove(_DB_PREF_.'_toolsPhonebook_group_contacts', array('pid' => $c_pid));
+						dba_remove(_DB_PREF_.'_featurePhonebook_group_contacts', array('pid' => $c_pid));
 						foreach ($maps as $map) {
 							foreach ($map as $key => $val) {
 								$gpid = $val;
 								$c_pid = $key;
 								$items = array('gpid' => $gpid, 'pid' => $c_pid);
-								if (dba_isavail(_DB_PREF_.'_toolsPhonebook_group_contacts', $items, 'AND')) {
-									if (dba_add(_DB_PREF_.'_toolsPhonebook_group_contacts', $items)) {
+								if (dba_isavail(_DB_PREF_.'_featurePhonebook_group_contacts', $items, 'AND')) {
+									if (dba_add(_DB_PREF_.'_featurePhonebook_group_contacts', $items)) {
 										logger_print('contact added to group gpid:'.$gpid.' pid:'.$c_pid.' m:'.$mobile.' n:'.$name.' e:'.$email, 3, 'phonebook_edit');
 									} else {
 										logger_print('contact edited but fail to save in group gpid:'.$gpid.' pid:'.$c_pid.' m:'.$mobile.' n:'.$name.' e:'.$email, 3, 'phonebook_edit');

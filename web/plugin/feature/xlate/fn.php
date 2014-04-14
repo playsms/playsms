@@ -32,7 +32,7 @@ function xlate_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $sms
 				}
 				$words = trim($words);
 				// contact google
-				$lib = $core_config['apps_path']['plug'].'/tools/xlate/lib/GoogleTranslate';
+				$lib = $core_config['apps_path']['plug'].'/feature/xlate/lib/GoogleTranslate';
 				// load JSON.php for PHP version lower than 5.2.x
 				require_once($lib.'/JSON.php');
 				require_once($lib.'/googleTranslate.class.php');

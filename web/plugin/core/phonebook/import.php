@@ -109,12 +109,12 @@ switch (_OP_) {
 				$gpid = phonebook_groupcode2id($uid, $group_code);
 			}
 			if ($name && $mobile && $gpid) {
-				$list = dba_search(_DB_PREF_.'_toolsPhonebook', 'id', array('uid' => $uid, 'mobile' => $mobile));
+				$list = dba_search(_DB_PREF_.'_featurePhonebook', 'id', array('uid' => $uid, 'mobile' => $mobile));
 				if ($c_pid = $list[0]['id']) {
 					$save_to_group = TRUE;
 				} else {
 					$items = array('uid' => $uid, 'name' => $name, 'mobile' => $mobile, 'email' => $email);
-					if ($c_pid = dba_add(_DB_PREF_.'_toolsPhonebook', $items)) {
+					if ($c_pid = dba_add(_DB_PREF_.'_featurePhonebook', $items)) {
 						$save_to_group = TRUE;
 					} else {
 						logger_print('fail to add contact gpid:'.$gpid.' pid:'.$c_pid.' m:'.$mobile.' n:'.$name.' e:'.$email, 3, 'phonebook_add');
@@ -122,8 +122,8 @@ switch (_OP_) {
 				}
 				if ($save_to_group) {
 					$items = array('gpid' => $gpid, 'pid' => $c_pid);
-					if (dba_isavail(_DB_PREF_.'_toolsPhonebook_group_contacts', $items, 'AND')) {
-						if (dba_add(_DB_PREF_.'_toolsPhonebook_group_contacts', $items)) {
+					if (dba_isavail(_DB_PREF_.'_featurePhonebook_group_contacts', $items, 'AND')) {
+						if (dba_add(_DB_PREF_.'_featurePhonebook_group_contacts', $items)) {
 							logger_print('contact added to group gpid:'.$gpid.' pid:'.$c_pid.' m:'.$mobile.' n:'.$name.' e:'.$email, 3, 'phonebook_add');
 						} else {
 							logger_print('contact added but fail to save in group gpid:'.$gpid.' pid:'.$c_pid.' m:'.$mobile.' n:'.$name.' e:'.$email, 3, 'phonebook_add');

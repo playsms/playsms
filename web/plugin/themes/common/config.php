@@ -41,7 +41,6 @@ $icon_config = array(
 $core_config['menutab'] = array(
 	'home' => _('Home'),
 	'my_account' => _('My Account'),
-	'tools' => _('Tools'),
 	'feature' => _('Feature'),
 	'administration' => _('Administration'),
 );

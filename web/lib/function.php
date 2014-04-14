@@ -67,7 +67,7 @@ for ($i=0;$i<count($core_config['plugins_category']);$i++) {
 
 // load each plugin's config
 $dir = $core_config['apps_path']['plug'].'/';
-$pcs = array('tools', 'themes', 'language', 'gateway', 'feature');
+$pcs = array('themes', 'language', 'gateway', 'feature');
 foreach ($pcs as $pc) {
 	for ($i=0;$i<count($core_config[$pc.'list']);$i++) {
 		$pl = $core_config[$pc.'list'][$i];
@@ -86,7 +86,7 @@ foreach ($pcs as $pc) {
 
 // load each plugin's libs
 $dir = $core_config['apps_path']['plug'].'/';
-$pcs = array('tools', 'feature');
+$pcs = array('feature');
 foreach ($pcs as $pc) {
 	for ($i=0;$i<count($core_config[$pc.'list']);$i++) {
 		$pl = $core_config[$pc.'list'][$i];

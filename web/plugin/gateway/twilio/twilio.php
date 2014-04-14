@@ -39,7 +39,7 @@ switch (_OP_) {
 			- "._('Your callback URL should be accessible from twilio')."<br />
 			- "._('twilio will push DLR and incoming SMS to your callback URL')."<br />
 			- "._('twilio is a bulk SMS provider').", <a href=\"http://www.twilio.com\" target=\"_blank\">"._('free credits are available for testing purposes')."</a><br />";
-		$content .= _back('index.php?app=main&inc=tools_gatewaymanager&op=gatewaymanager_list');
+		$content .= _back('index.php?app=main&inc=feature_gatewaymanager&op=gatewaymanager_list');
 		_p($content);
 		break;
 	case "manage_save":

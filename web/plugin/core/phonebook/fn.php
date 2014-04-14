@@ -20,28 +20,28 @@
 defined('_SECURE_') or die('Forbidden');
 
 function phonebook_groupid2name($gpid) {
-	$db_query = "SELECT name FROM "._DB_PREF_."_toolsPhonebook_group WHERE id='$gpid'";
+	$db_query = "SELECT name FROM "._DB_PREF_."_featurePhonebook_group WHERE id='$gpid'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	return $db_row['name'];
 }
 
 function phonebook_groupname2id($uid,$gp_name) {
-	$db_query = "SELECT id FROM "._DB_PREF_."_toolsPhonebook_group WHERE uid='$uid' AND code='$code'";
+	$db_query = "SELECT id FROM "._DB_PREF_."_featurePhonebook_group WHERE uid='$uid' AND code='$code'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	return $db_row['id'];
 }
 
 function phonebook_groupid2code($gpid) {
-	$db_query = "SELECT code FROM "._DB_PREF_."_toolsPhonebook_group WHERE id='$gpid'";
+	$db_query = "SELECT code FROM "._DB_PREF_."_featurePhonebook_group WHERE id='$gpid'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	return $db_row['code'];
 }
 
 function phonebook_groupcode2id($uid,$gp_code) {
-	$db_query = "SELECT id FROM "._DB_PREF_."_toolsPhonebook_group WHERE uid='$uid' AND code='$code'";
+	$db_query = "SELECT id FROM "._DB_PREF_."_featurePhonebook_group WHERE uid='$uid' AND code='$code'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	return $db_row['id'];
@@ -59,9 +59,9 @@ function phonebook_number2name($mobile, $c_username="") {
 		// remove first 3 digits if phone number length more than 7
 		if (strlen($mobile) > 7) { $mobile = substr($mobile,3); }
 		$db_query = "
-			SELECT A.name AS name FROM "._DB_PREF_."_toolsPhonebook AS A
-			INNER JOIN "._DB_PREF_."_toolsPhonebook_group AS B ON A.uid=B.uid
-			INNER JOIN "._DB_PREF_."_toolsPhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid
+			SELECT A.name AS name FROM "._DB_PREF_."_featurePhonebook AS A
+			INNER JOIN "._DB_PREF_."_featurePhonebook_group AS B ON A.uid=B.uid
+			INNER JOIN "._DB_PREF_."_featurePhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid
 			WHERE A.mobile LIKE '%".$mobile."' AND B.uid='$uid'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
@@ -72,7 +72,7 @@ function phonebook_number2name($mobile, $c_username="") {
 
 function phonebook_getmembercountbyid($gpid) {
 	$count = 0;
-	$db_query = "SELECT COUNT(*) as count FROM "._DB_PREF_."_toolsPhonebook_group_contacts WHERE gpid='$gpid'";
+	$db_query = "SELECT COUNT(*) as count FROM "._DB_PREF_."_featurePhonebook_group_contacts WHERE gpid='$gpid'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$count = ( $db_row['count'] ? $db_row['count'] : 0 );
@@ -90,9 +90,9 @@ function phonebook_getdatabyid($gpid, $orderby="") {
 	$ret = array();
 	$db_query = "
 		SELECT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email
-		FROM "._DB_PREF_."_toolsPhonebook AS A
-		INNER JOIN "._DB_PREF_."_toolsPhonebook_group AS B ON A.uid=B.uid
-		INNER JOIN "._DB_PREF_."_toolsPhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid
+		FROM "._DB_PREF_."_featurePhonebook AS A
+		INNER JOIN "._DB_PREF_."_featurePhonebook_group AS B ON A.uid=B.uid
+		INNER JOIN "._DB_PREF_."_featurePhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid
 		WHERE B.id='$gpid'";
 	if ($orderby) {
 		$db_query .= " ORDER BY ".$orderby;
@@ -114,9 +114,9 @@ function phonebook_getdatabyuid($uid, $orderby="") {
 	$ret = array();
 	$db_query = "
 		SELECT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email
-		FROM "._DB_PREF_."_toolsPhonebook AS A
-		INNER JOIN "._DB_PREF_."_toolsPhonebook_group AS B ON A.uid=B.uid
-		INNER JOIN "._DB_PREF_."_toolsPhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid
+		FROM "._DB_PREF_."_featurePhonebook AS A
+		INNER JOIN "._DB_PREF_."_featurePhonebook_group AS B ON A.uid=B.uid
+		INNER JOIN "._DB_PREF_."_featurePhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid
 		WHERE B.uid='$uid'";
 	if ($orderby) {
 		$db_query .= " ORDER BY ".$orderby;
@@ -135,7 +135,7 @@ function phonebook_getdatabyuid($uid, $orderby="") {
  */
 function phonebook_getgroupbyid($gpid) {
 	$ret = array();
-	$db_query = "SELECT id AS gpid, name AS gp_name, code AS gp_code, flag_sender FROM "._DB_PREF_."_toolsPhonebook_group WHERE id='$gpid'";
+	$db_query = "SELECT id AS gpid, name AS gp_name, code AS gp_code, flag_sender FROM "._DB_PREF_."_featurePhonebook_group WHERE id='$gpid'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$ret = $db_row;
@@ -151,7 +151,7 @@ function phonebook_getgroupbyid($gpid) {
  */
 function phonebook_getgroupbyuid($uid, $orderby="") {
 	$ret = array();
-	$db_query = "SELECT id AS gpid, name AS gp_name, code AS gp_code, flag_sender FROM "._DB_PREF_."_toolsPhonebook_group WHERE uid='$uid'";
+	$db_query = "SELECT id AS gpid, name AS gp_name, code AS gp_code, flag_sender FROM "._DB_PREF_."_featurePhonebook_group WHERE uid='$uid'";
 	if ($orderby) {
 		$db_query .= " ORDER BY ".$orderby;
 	}
@@ -173,14 +173,14 @@ function phonebook_search($uid, $keyword="", $count=0) {
 	$ret = array();
 	if ($keyword) {
 		$fields = 'DISTINCT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email';
-		$join = "INNER JOIN "._DB_PREF_."_toolsPhonebook_group AS B ON A.uid=B.uid ";
-		$join .= "INNER JOIN "._DB_PREF_."_toolsPhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid";
+		$join = "INNER JOIN "._DB_PREF_."_featurePhonebook_group AS B ON A.uid=B.uid ";
+		$join .= "INNER JOIN "._DB_PREF_."_featurePhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid";
 		$conditions = array('A.uid' => $uid);
 		$keywords = array('A.name' => '%'.$keyword.'%', 'A.mobile' => '%'.$keyword.'%', 'A.email' => '%'.$keyword.'%');
 		if ($count > 0) {
 			$extras = array('LIMIT' => $count);
 		}
-		$ret = dba_search(_DB_PREF_.'_toolsPhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
+		$ret = dba_search(_DB_PREF_.'_featurePhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
 	}
 	return $ret;
 }
@@ -202,7 +202,7 @@ function phonebook_search_group($uid, $keyword="", $count=0) {
 	if ($count > 0) {
 		$extras = array('LIMIT' => $count);
 	}
-	$ret = dba_search(_DB_PREF_.'_toolsPhonebook_group', $fields, $conditions, $keywords, $extras);
+	$ret = dba_search(_DB_PREF_.'_featurePhonebook_group', $fields, $conditions, $keywords, $extras);
 	return $ret;
 }
 
@@ -311,7 +311,7 @@ function phonebook_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, 
 				$ret['hooked'] = true;
 			} else {
 				// check the group_code for flag_sender<>0
-				$db_query = "SELECT id,uid,flag_sender FROM "._DB_PREF_."_toolsPhonebook_group WHERE code='$c_group_code' AND flag_sender<>0";
+				$db_query = "SELECT id,uid,flag_sender FROM "._DB_PREF_."_featurePhonebook_group WHERE code='$c_group_code' AND flag_sender<>0";
 				$db_result = dba_query($db_query);
 				if ($db_row = dba_fetch_array($db_result)) {
 					$c_gpid = $db_row['id'];

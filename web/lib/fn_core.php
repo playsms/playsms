@@ -134,18 +134,9 @@ function core_call_hook($function_name = '', $arguments = array()) {
 		$function_name = $f[1]['function'];
 		$arguments = $f[1]['args'];
 	}
-	$found = FALSE;
-	for ($c = 0; $c < count($core_config['toolslist']); $c++) {
-		if ($ret = core_hook($core_config['toolslist'][$c], $function_name, $arguments)) {
-			$found = TRUE;
+	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
+		if ($ret = core_hook($core_config['featurelist'][$c], $function_name, $arguments)) {
 			break;
-		}
-	}
-	if (!$found) {
-		for ($c = 0; $c < count($core_config['featurelist']); $c++) {
-			if ($ret = core_hook($core_config['featurelist'][$c], $function_name, $arguments)) {
-				break;
-			}
 		}
 	}
 	return $ret;
@@ -153,7 +144,7 @@ function core_call_hook($function_name = '', $arguments = array()) {
 
 function playsmsd() {
 	
-	// tools and feature
+	// plugin feature
 	core_call_hook();
 	
 	// plugin gateway

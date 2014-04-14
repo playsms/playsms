@@ -199,7 +199,7 @@ $core_config['datetime']['now_stamp'] = $datetime_now_stamp;
 
 
 // plugins category
-$plugins_category = array('tools', 'feature', 'gateway', 'themes', 'language');
+$plugins_category = array('feature', 'gateway', 'themes', 'language');
 $core_config['plugins_category'] = $plugins_category;
 
 // max sms text length

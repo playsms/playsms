@@ -82,4 +82,8 @@ ALTER TABLE `playsms_tblUser` DROP `ticket` ;
 ALTER TABLE `playsms_tblRegistry` CHANGE `registry_value` `registry_value` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';
 
 RENAME TABLE  `playsms_toolsSimplerate` TO `playsms_featureSimplerate` ;
+RENAME TABLE  `playsms_toolsMsgtemplate` TO `playsms_featureMsgtemplate` ;
 RENAME TABLE  `playsms_toolsSendfromfile` TO `playsms_featureSendfromfile` ;
+RENAME TABLE  `playsms_toolsPhonebook` TO `playsms_featurePhonebook` ;
+RENAME TABLE  `playsms_toolsPhonebook_group` TO `playsms_featurePhonebook_group` ;
+RENAME TABLE  `playsms_toolsPhonebook_group_contacts` TO `playsms_featurePhonebook_group_contacts` ;

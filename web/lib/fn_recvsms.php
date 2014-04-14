@@ -110,24 +110,6 @@ function recvsms_intercept($sms_datetime,$sms_sender,$message,$sms_receiver="") 
 		if ($ret['uid']) { $ret_final['uid'] = $ret['uid']; };
 		if ($ret['hooked']) { $ret_final['hooked'] = $ret['hooked']; };
 	}
-	// tools list
-	for ($c=0;$c<count($core_config['toolslist']);$c++) {
-		$ret = core_hook($core_config['toolslist'][$c],'recvsms_intercept',array($sms_datetime,$sms_sender,$message,$sms_receiver));
-		if ($ret['modified']) {
-			$sms_datetime = ( $ret['param']['sms_datetime'] ? $ret['param']['sms_datetime'] : $sms_datetime );
-			$sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
-			$message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
-			$sms_receiver = ( $ret['param']['sms_receiver'] ? $ret['param']['sms_receiver'] : $sms_receiver );
-			$ret_final['modified'] = $ret['modified'];
-			$ret_final['cancel'] = $ret['cancel'];
-			$ret_final['param']['sms_datetime'] = $ret['param']['sms_datetime'];
-			$ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
-			$ret_final['param']['message'] = $ret['param']['message'];
-			$ret_final['param']['sms_receiver'] = $ret['param']['sms_receiver'];
-		}
-		if ($ret['uid']) { $ret_final['uid'] = $ret['uid']; };
-		if ($ret['hooked']) { $ret_final['hooked'] = $ret['hooked']; };
-	}
 	return $ret_final;
 }
 
@@ -136,7 +118,7 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 
 	$gw = core_gateway_get();
 
-	// incoming sms will be handled by plugin/tools/* first
+	// incoming sms will be handled by plugins first
 	$ret_intercept = recvsms_intercept($sms_datetime,$sms_sender,$message,$sms_receiver);
 	if ($ret_intercept['modified']) {
 		$sms_datetime = ( $ret_intercept['param']['sms_datetime'] ? $ret_intercept['param']['sms_datetime'] : $sms_datetime );
@@ -244,32 +226,13 @@ function recvsms_inbox_add_intercept($sms_datetime,$sms_sender,$target_user,$mes
 		if ($ret['uid']) { $ret_final['uid'] = $ret['uid']; };
 		if ($ret['hooked']) { $ret_final['hooked'] = $ret['hooked']; };
 	}
-	// tools list
-	for ($c=0;$c<count($core_config['toolslist']);$c++) {
-		$ret = core_hook($core_config['toolslist'][$c],'recvsms_inbox_add_intercept',array($sms_datetime,$sms_sender,$target_user,$message,$sms_receiver));
-		if ($ret['modified']) {
-			$ret_final['modified'] = $ret['modified'];
-			$ret_final['param']['sms_datetime'] = $ret['param']['sms_datetime'];
-			$ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
-			$ret_final['param']['target_user'] = $ret['param']['target_user'];
-			$ret_final['param']['message'] = $ret['param']['message'];
-			$ret_final['param']['sms_receiver'] = $ret['param']['sms_receiver'];
-			$sms_datetime = ( $ret['param']['sms_datetime'] ? $ret['param']['sms_datetime'] : $sms_datetime );
-			$sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
-			$target_user = ( $ret['param']['target_user'] ? $ret['param']['target_user'] : $target_user );
-			$message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
-			$sms_receiver = ( $ret['param']['sms_receiver'] ? $ret['param']['sms_receiver'] : $sms_receiver );
-		}
-		if ($ret['uid']) { $ret_final['uid'] = $ret['uid']; };
-		if ($ret['hooked']) { $ret_final['hooked'] = $ret['hooked']; };
-	}
 	return $ret_final;
 }
 
 function recvsms_inbox_add($sms_datetime,$sms_sender,$target_user,$message,$sms_receiver="") {
 	global $core_config,$web_title,$email_service,$email_footer;
 
-	// sms to inbox will be handled by plugin/tools/* first
+	// sms to inbox will be handled by plugins first
 	$ret_intercept = recvsms_inbox_add_intercept($sms_datetime,$sms_sender,$target_user,$message,$sms_receiver);
 	if ($ret_intercept['param_modified']) {
 		$sms_datetime = ( $ret_intercept['param']['sms_datetime'] ? $ret_intercept['param']['sms_datetime'] : $sms_datetime );

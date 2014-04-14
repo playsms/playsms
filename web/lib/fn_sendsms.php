@@ -78,30 +78,6 @@ function sendsms_intercept($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0
 			$ret_final['param']['unicode'] = $ret['param']['unicode'];
 		}
 	}
-	// tools list
-	for ($c=0;$c<count($core_config['toolslist']);$c++) {
-		$ret = core_hook($core_config['toolslist'][$c],'sendsms_intercept',array($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode));
-		if ($ret['modified']) {
-			$sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
-			$sms_footer = ( $ret['param']['sms_footer'] ? $ret['param']['sms_footer'] : $sms_footer );
-			$sms_to = ( $ret['param']['sms_to'] ? $ret['param']['sms_to'] : $sms_to );
-			$sms_msg = ( $ret['param']['sms_msg'] ? $ret['param']['sms_msg'] : $sms_msg );
-			$uid = ( $ret['param']['uid'] ? $ret['param']['uid'] : $uid );
-			$gpid = ( $ret['param']['gpid'] ? $ret['param']['gpid'] : $gpid );
-			$sms_type = ( $ret['param']['sms_type'] ? $ret['param']['sms_type'] : $sms_type );
-			$unicode = ( $ret['param']['unicode'] ? $ret['param']['unicode'] : $unicode );
-			$ret_final['modified'] = $ret['modified'];
-			$ret_final['cancel'] = $ret['cancel'];
-			$ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
-			$ret_final['param']['sms_footer'] = $ret['param']['sms_footer'];
-			$ret_final['param']['sms_to'] = $ret['param']['sms_to'];
-			$ret_final['param']['sms_msg'] = $ret['param']['sms_msg'];
-			$ret_final['param']['uid'] = $ret['param']['uid'];
-			$ret_final['param']['gpid'] = $ret['param']['gpid'];
-			$ret_final['param']['sms_type'] = $ret['param']['sms_type'];
-			$ret_final['param']['unicode'] = $ret['param']['unicode'];
-		}
-	}
 	return $ret_final;
 }
 
@@ -258,7 +234,7 @@ function sendsms_process($smslog_id,$sms_sender,$sms_footer,$sms_to,$sms_msg,$ui
 	$sms_to = sendsms_manipulate_prefix($sms_to, $user);
 	$sms_datetime = core_get_datetime();
 
-	// sent sms will be handled by plugin/tools/* first
+	// sent sms will be handled by plugins first
 	$ret_intercept = sendsms_intercept($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode);
 	if ($ret_intercept['modified']) {
 		$sms_sender = ( $ret_intercept['param']['sms_sender'] ? $ret_intercept['param']['sms_sender'] : $sms_sender );
@@ -559,8 +535,8 @@ function sendsms_get_sender($username) {
 function sendsms_get_template() {
 	global $core_config;
 	$templates = array();
-	for ($c=0;$c<count($core_config['toolslist']);$c++) {
-		if ($templates = core_hook($core_config['toolslist'][$c],'sendsms_get_template')) {
+	for ($c=0;$c<count($core_config['featurelist']);$c++) {
+		if ($templates = core_hook($core_config['featurelist'][$c],'sendsms_get_template')) {
 			break;
 		}
 	}

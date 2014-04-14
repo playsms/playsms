@@ -10,6 +10,6 @@ $plugin_config['sms_command']['allow_user_access']	= FALSE;
 
 if (auth_isadmin() || $plugin_config['sms_command']['allow_user_access']) {
 	// insert to left menu array
-	$menutab_feature = $core_config['menutab']['feature'];
-	$menu_config[$menutab_feature][] = array("index.php?app=main&inc=feature_sms_command&op=sms_command_list", _('Manage command'));
+	$menutab = $core_config['menutab']['feature'];
+	$menu_config[$menutab][] = array("index.php?app=main&inc=feature_sms_command&op=sms_command_list", _('Manage command'));
 }

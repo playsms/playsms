@@ -10,7 +10,6 @@ $content .= "
 		<li><a href='#tabs-feature' data-toggle=tab>" . _ ( 'Features' ) . "</a></li>
 		<li><a href='#tabs-gateway' data-toggle=tab>" . _ ( 'Gateways' ) . "</a></li>
 		<li><a href='#tabs-theme' data-toggle=tab>" . _ ( 'Themes' ) . "</a></li>
-		<li><a href='#tabs-tools' data-toggle=tab>" . _ ( 'Tools' ) . "</a></li>
 		<li><a href='#tabs-language' data-toggle=tab>" . _ ( 'Languages' ) . "</a></li>
 	</ul>
 	<div class=tab-content>
@@ -25,9 +24,6 @@ $content .= "
 		</div>
 		<div id='tabs-theme' class='tab-pane fade'>
 			" . pluginmanager_display ( 'themes' ) . "
-		</div>
-		<div id='tabs-tools' class='tab-pane fade'>
-			" . pluginmanager_display ( 'tools' ) . "
 		</div>
 		<div id='tabs-language' class='tab-pane fade'>
 			" . pluginmanager_display ( 'language' ) . "

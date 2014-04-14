@@ -18,8 +18,8 @@ foreach ($checkid as $key => $val) {
 switch (_OP_) {
 	case 'delete':
 		foreach ($items as $item) {
-			if (dba_remove(_DB_PREF_.'_toolsPhonebook', array('uid' => $user_config['uid'], 'id' => $item))) {
-				dba_remove(_DB_PREF_.'_toolsPhonebook_group_contacts', array('pid' => $item));
+			if (dba_remove(_DB_PREF_.'_featurePhonebook', array('uid' => $user_config['uid'], 'id' => $item))) {
+				dba_remove(_DB_PREF_.'_featurePhonebook_group_contacts', array('pid' => $item));
 				$_SESSION['error_string'] = _('Selected contact has been deleted');
 			}
 		}
@@ -32,11 +32,11 @@ if (($ops[0] == 'move') && $ops[1]) {
 	$gpid = $ops[1];
 }
 
-if ($gpid && (dba_valid(_DB_PREF_.'_toolsPhonebook_group', 'id', $gpid))) {
+if ($gpid && (dba_valid(_DB_PREF_.'_featurePhonebook_group', 'id', $gpid))) {
 	foreach ($items as $item) {
-		if (dba_remove(_DB_PREF_.'_toolsPhonebook_group_contacts', array('pid' => $item))) {
+		if (dba_remove(_DB_PREF_.'_featurePhonebook_group_contacts', array('pid' => $item))) {
 			$data = array('pid' => $item, 'gpid' => $gpid);
-			if (dba_add(_DB_PREF_.'_toolsPhonebook_group_contacts', $data)) {
+			if (dba_add(_DB_PREF_.'_featurePhonebook_group_contacts', $data)) {
 				$_SESSION['error_string'] = _('Selected contact moved to new group');
 			}
 		}

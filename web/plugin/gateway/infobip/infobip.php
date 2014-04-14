@@ -61,7 +61,7 @@ switch (_OP_) {
 			- " . _ ( 'Your callback URL should be accessible from Infobip' ) . "<br />
 			- " . _ ( 'Infobip will push DLR and incoming SMS to above URL' ) . "<br />
 			- " . _ ( 'Infobip is a bulk SMS provider' ) . ", <a href=\"http://www.infobip.com\" target=\"_blank\">" . _ ( 'create an account to send SMS' ) . "</a>";
-		$content .= _back('index.php?app=main&inc=tools_gatewaymanager&op=gatewaymanager_list');
+		$content .= _back('index.php?app=main&inc=feature_gatewaymanager&op=gatewaymanager_list');
 		_p($content);
 		break;
 	case "manage_save" :

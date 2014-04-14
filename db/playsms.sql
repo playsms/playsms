@@ -1177,13 +1177,13 @@ INSERT INTO `playsms_toolsMsgtemplate` VALUES (0,1,1,'Good morning','Hi u there,
 UNLOCK TABLES;
 
 --
--- Table structure for table `playsms_toolsPhonebook`
+-- Table structure for table `playsms_featurePhonebook`
 --
 
-DROP TABLE IF EXISTS `playsms_toolsPhonebook`;
+DROP TABLE IF EXISTS `playsms_featurePhonebook`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `playsms_toolsPhonebook` (
+CREATE TABLE `playsms_featurePhonebook` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL DEFAULT '0',
@@ -1195,22 +1195,22 @@ CREATE TABLE `playsms_toolsPhonebook` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `playsms_toolsPhonebook`
+-- Dumping data for table `playsms_featurePhonebook`
 --
 
-LOCK TABLES `playsms_toolsPhonebook` WRITE;
-/*!40000 ALTER TABLE `playsms_toolsPhonebook` DISABLE KEYS */;
-/*!40000 ALTER TABLE `playsms_toolsPhonebook` ENABLE KEYS */;
+LOCK TABLES `playsms_featurePhonebook` WRITE;
+/*!40000 ALTER TABLE `playsms_featurePhonebook` DISABLE KEYS */;
+/*!40000 ALTER TABLE `playsms_featurePhonebook` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `playsms_toolsPhonebook_group`
+-- Table structure for table `playsms_featurePhonebook_group`
 --
 
-DROP TABLE IF EXISTS `playsms_toolsPhonebook_group`;
+DROP TABLE IF EXISTS `playsms_featurePhonebook_group`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `playsms_toolsPhonebook_group` (
+CREATE TABLE `playsms_featurePhonebook_group` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL DEFAULT '0',
@@ -1222,16 +1222,16 @@ CREATE TABLE `playsms_toolsPhonebook_group` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `playsms_toolsPhonebook_group`
+-- Dumping data for table `playsms_featurePhonebook_group`
 --
 
-LOCK TABLES `playsms_toolsPhonebook_group` WRITE;
-/*!40000 ALTER TABLE `playsms_toolsPhonebook_group` DISABLE KEYS */;
-/*!40000 ALTER TABLE `playsms_toolsPhonebook_group` ENABLE KEYS */;
+LOCK TABLES `playsms_featurePhonebook_group` WRITE;
+/*!40000 ALTER TABLE `playsms_featurePhonebook_group` DISABLE KEYS */;
+/*!40000 ALTER TABLE `playsms_featurePhonebook_group` ENABLE KEYS */;
 UNLOCK TABLES;
 
-DROP TABLE IF EXISTS `playsms_toolsPhonebook_group_contacts`;
-CREATE TABLE IF NOT EXISTS `playsms_toolsPhonebook_group_contacts` (
+DROP TABLE IF EXISTS `playsms_featurePhonebook_group_contacts`;
+CREATE TABLE IF NOT EXISTS `playsms_featurePhonebook_group_contacts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `gpid` int(11) NOT NULL,
   `pid` int(11) NOT NULL,

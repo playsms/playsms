@@ -9,11 +9,11 @@ switch (_OP_) {
 		$search = themes_search($search_category, $base_url);
 		$conditions = array('uid' => $user_config['uid']);
 		$keywords = $search['dba_keywords'];
-		$count = dba_count(_DB_PREF_.'_toolsPhonebook_group', $conditions, $keywords);
+		$count = dba_count(_DB_PREF_.'_featurePhonebook_group', $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'name', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$fields = 'id, name, code, flag_sender';
-		$list = dba_search(_DB_PREF_.'_toolsPhonebook_group', $fields, $conditions, $keywords, $extras);
+		$list = dba_search(_DB_PREF_.'_featurePhonebook_group', $fields, $conditions, $keywords, $extras);
 
 		$content = "
 			<h2>"._('Phonebook')."</h2>
@@ -147,8 +147,8 @@ switch (_OP_) {
 		switch ($go) {
 			case 'delete':
 				if ($gpid = $_REQUEST['gpid']) {
-					if (! dba_count(_DB_PREF_.'_toolsPhonebook_group_contacts', array('gpid' => $gpid))) {
-						if (dba_remove(_DB_PREF_.'_toolsPhonebook_group', array('uid' => $user_config['uid'], 'id' => $gpid))) {
+					if (! dba_count(_DB_PREF_.'_featurePhonebook_group_contacts', array('gpid' => $gpid))) {
+						if (dba_remove(_DB_PREF_.'_featurePhonebook_group', array('uid' => $user_config['uid'], 'id' => $gpid))) {
 							$_SESSION['error_string'] = _('Selected group has been deleted');
 						} else {
 							$_SESSION['error_string'] = _('Fail to delete group');
@@ -170,17 +170,17 @@ switch (_OP_) {
 				$uid = $user_config['uid'];
 				$_SESSION['error_string'] = _('You must fill all field');
 				if ($group_name && $group_code) {
-					$db_query = "SELECT code FROM "._DB_PREF_."_toolsPhonebook_group WHERE uid='$uid' AND code='$group_code'";
+					$db_query = "SELECT code FROM "._DB_PREF_."_featurePhonebook_group WHERE uid='$uid' AND code='$group_code'";
 					$db_result = dba_query($db_query);
 					if ($db_row = dba_fetch_array($db_result)) {
 						$_SESSION['error_string'] = _('Group code is already exists')." ("._('code').": $group_code)";
 					} else {
-						$db_query = "SELECT flag_sender FROM "._DB_PREF_."_toolsPhonebook_group WHERE code='$group_code' AND flag_sender<>0";
+						$db_query = "SELECT flag_sender FROM "._DB_PREF_."_featurePhonebook_group WHERE code='$group_code' AND flag_sender<>0";
 						$db_result = dba_query($db_query);
 						if ($db_row = dba_fetch_array($db_result)) {
 							$flag_sender = 0;
 						}
-						$db_query = "INSERT INTO "._DB_PREF_."_toolsPhonebook_group (uid,name,code,flag_sender) VALUES ('$uid','$group_name','$group_code','$flag_sender')";
+						$db_query = "INSERT INTO "._DB_PREF_."_featurePhonebook_group (uid,name,code,flag_sender) VALUES ('$uid','$group_name','$group_code','$flag_sender')";
 						$db_result = dba_query($db_query);
 						$_SESSION['error_string'] = _('Group code has been added')." ("._('group').": $group_name, "._('code').": $group_code)";
 					}
@@ -197,17 +197,17 @@ switch (_OP_) {
 				$uid = $user_config['uid'];
 				$_SESSION['error_string'] = _('You must fill all field');
 				if ($gpid && $group_name && $group_code) {
-					$db_query = "SELECT code FROM "._DB_PREF_."_toolsPhonebook_group WHERE uid='$uid' AND code='$group_code' AND NOT id='$gpid'";
+					$db_query = "SELECT code FROM "._DB_PREF_."_featurePhonebook_group WHERE uid='$uid' AND code='$group_code' AND NOT id='$gpid'";
 					$db_result = dba_query($db_query);
 					if ($db_row = dba_fetch_array($db_result)) {
 						$_SESSION['error_string'] = _('No changes has been made');
 					} else {
-						$db_query = "SELECT flag_sender FROM "._DB_PREF_."_toolsPhonebook_group WHERE code='$group_code' AND flag_sender<>0";
+						$db_query = "SELECT flag_sender FROM "._DB_PREF_."_featurePhonebook_group WHERE code='$group_code' AND flag_sender<>0";
 						$db_result = dba_query($db_query);
 						if ($db_row = dba_fetch_array($db_result)) {
 							$flag_sender = 0;
 						}
-						$db_query = "UPDATE "._DB_PREF_."_toolsPhonebook_group SET c_timestamp='".mktime()."',name='$group_name',code='$group_code',flag_sender='$flag_sender' WHERE uid='$uid' AND id='$gpid'";
+						$db_query = "UPDATE "._DB_PREF_."_featurePhonebook_group SET c_timestamp='".mktime()."',name='$group_name',code='$group_code',flag_sender='$flag_sender' WHERE uid='$uid' AND id='$gpid'";
 						$db_result = dba_query($db_query);
 						$_SESSION['error_string'] = _('Group has been edited')." ("._('group').": $group_name, "._('code')." $group_code)";
 					}
