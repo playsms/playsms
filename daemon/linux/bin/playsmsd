@@ -90,21 +90,9 @@ $PLAYSMSD_BIN = "$PLAYSMS_DAEMON_PATH/playsmsd";
 switch ($COMMAND) {
 	case 'start':
 		
-		if (playsmsd_isrunning()) {
-			echo "playsmsd is already running\n";
-			playsmsd_pids_show();
-			exit();
-		}
-		
-		// run playsmsd services
+		// start playsmsd services
 		playsmsd_start();
 		
-		if (playsmsd_isrunning()) {
-			echo "playsmsd has been started\n";
-			playsmsd_pids_show();
-		} else {
-			echo "Unable to start playsmsd\n";
-		}
 		exit();
 		break;
 
@@ -112,12 +100,17 @@ switch ($COMMAND) {
 		
 		// stop playsmsd services
 		playsmsd_stop();
-		if (playsmsd_isrunning()) {
-			echo "Unable to stop playsmsd\n";
-			playsmsd_pids_show();
-		} else {
-			echo "playsmsd has been stopped\n";
-		}
+		
+		exit();
+		break;
+
+	case 'restart':
+		
+		// stop, wait for 5 seconds and then start
+		playsmsd_stop();
+		sleep(5);
+		playsmsd_start();
+		
 		exit();
 		break;
 
@@ -129,22 +122,23 @@ switch ($COMMAND) {
 		} else {
 			echo "playsmsd is not running\n";
 		}
+		
 		exit();
 		break;
 
 	case 'check':
 		
+		// non-JSON output
 		playsmsd_check(FALSE);
 		
-		// non-JSON output
 		exit();
 		break;
 
 	case 'check_json':
 		
+		// JSON output
 		playsmsd_check(TRUE);
 		
-		// JSON output
 		exit();
 		break;
 }
@@ -329,10 +323,25 @@ function playsmsd_isrunning() {
  */
 function playsmsd_start() {
 	global $PLAYSMSD_BIN;
+	
+	if (playsmsd_isrunning()) {
+		echo "playsmsd is already running\n";
+		playsmsd_pids_show();
+		exit();
+	}
+	
+	// run playsmsd services
 	shell_exec("nohup $PLAYSMSD_BIN schedule >/dev/null 2>&1 &");
 	shell_exec("nohup $PLAYSMSD_BIN dlrssmsd >/dev/null 2>&1 &");
 	shell_exec("nohup $PLAYSMSD_BIN recvsmsd >/dev/null 2>&1 &");
 	shell_exec("nohup $PLAYSMSD_BIN sendsmsd >/dev/null 2>&1 &");
+	
+	if (playsmsd_isrunning()) {
+		echo "playsmsd has been started\n";
+		playsmsd_pids_show();
+	} else {
+		echo "Unable to start playsmsd\n";
+	}
 }
 
 /**
@@ -345,6 +354,13 @@ function playsmsd_stop() {
 			echo $key . " at pid " . $val . " will be killed..\n";
 			shell_exec("kill " . $val . " >/dev/null 2>&1");
 		}
+	}
+	
+	if (playsmsd_isrunning()) {
+		echo "Unable to stop playsmsd\n";
+		playsmsd_pids_show();
+	} else {
+		echo "playsmsd has been stopped\n";
 	}
 }
 
