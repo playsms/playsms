@@ -1150,13 +1150,13 @@ INSERT INTO `playsms_tblUser_country` VALUES (0,1,'Afghanistan',''),(0,2,'Albani
 UNLOCK TABLES;
 
 --
--- Table structure for table `playsms_toolsMsgtemplate`
+-- Table structure for table `playsms_featureMsgtemplate`
 --
 
-DROP TABLE IF EXISTS `playsms_toolsMsgtemplate`;
+DROP TABLE IF EXISTS `playsms_featureMsgtemplate`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `playsms_toolsMsgtemplate` (
+CREATE TABLE `playsms_featureMsgtemplate` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
   `tid` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL DEFAULT '0',
@@ -1167,13 +1167,13 @@ CREATE TABLE `playsms_toolsMsgtemplate` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `playsms_toolsMsgtemplate`
+-- Dumping data for table `playsms_featureMsgtemplate`
 --
 
-LOCK TABLES `playsms_toolsMsgtemplate` WRITE;
-/*!40000 ALTER TABLE `playsms_toolsMsgtemplate` DISABLE KEYS */;
-INSERT INTO `playsms_toolsMsgtemplate` VALUES (0,1,1,'Good morning','Hi u there, good morning!!'),(0,2,1,'Good night have a sweet dream','Hi sweetheart, good night and have a sweet dream :*'),(0,3,1,'Meeting Now','Hello #NAME#, please hurry up, boss summons us !');
-/*!40000 ALTER TABLE `playsms_toolsMsgtemplate` ENABLE KEYS */;
+LOCK TABLES `playsms_featureMsgtemplate` WRITE;
+/*!40000 ALTER TABLE `playsms_featureMsgtemplate` DISABLE KEYS */;
+INSERT INTO `playsms_featureMsgtemplate` VALUES (0,1,1,'Good morning','Hi u there, good morning!!'),(0,2,1,'Good night have a sweet dream','Hi sweetheart, good night and have a sweet dream :*'),(0,3,1,'Meeting Now','Hello #NAME#, please hurry up, boss summons us !');
+/*!40000 ALTER TABLE `playsms_featureMsgtemplate` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
