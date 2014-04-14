@@ -20,6 +20,7 @@
 defined('_SECURE_') or die('Forbidden');
 
 // main functions
+include $core_config['apps_path']['libs']."/fn_phonebook.php";
 include $core_config['apps_path']['libs']."/fn_rate.php";
 include $core_config['apps_path']['libs']."/fn_billing.php";
 include $core_config['apps_path']['libs']."/fn_dlr.php";
