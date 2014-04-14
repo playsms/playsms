@@ -1,5 +1,6 @@
 #!/usr/bin/php -q
 <?php
+
 /**
  * This file is part of playSMS.
  *
@@ -16,6 +17,7 @@
  * You should have received a copy of the GNU General Public License
  * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 // Usage:
 // playsmsd <COMMAND> <LOOP_FLAG> <CMD_PARAM>
 
@@ -28,7 +30,7 @@ $ini_files = array(
 	'~/playsmsd.conf',
 	'/etc/playsmsd.conf',
 	'/usr/local/etc/playsmsd.conf'
-	);
+);
 
 $continue = FALSE;
 foreach ($ini_files as $PLAYSMSD_CONF) {
@@ -41,31 +43,31 @@ foreach ($ini_files as $PLAYSMSD_CONF) {
 	}
 }
 
-if (! $continue) {
+if (!$continue) {
 	echo "Unable to find playsmsd.conf in current directory, home directory, /etc or in /usr/local/etc\n";
 	exit();
 }
 
 // playSMS installation location
-$PLAYSMS_INSTALL_PATH = ( $ini['PLAYSMS_PATH'] ? $ini['PLAYSMS_PATH'] : '/var/www/playsms' );
+$PLAYSMS_INSTALL_PATH = ($ini['PLAYSMS_PATH'] ? $ini['PLAYSMS_PATH'] : '/var/www/playsms');
 
 // playSMS lib location
-$PLAYSMS_LIB_PATH = ( $ini['PLAYSMS_LIB'] ? $ini['PLAYSMS_LIB'] : '/var/lib/playsms' );
+$PLAYSMS_LIB_PATH = ($ini['PLAYSMS_LIB'] ? $ini['PLAYSMS_LIB'] : '/var/lib/playsms');
 
 // playSMS daemon location
-$PLAYSMS_DAEMON_PATH = ( $ini['PLAYSMS_BIN'] ? $ini['PLAYSMS_BIN'] : '/usr/local/bin' );
+$PLAYSMS_DAEMON_PATH = ($ini['PLAYSMS_BIN'] ? $ini['PLAYSMS_BIN'] : '/usr/local/bin');
 
 // playSMS log location
-$PLAYSMS_LOG_PATH = ( $ini['PLAYSMS_LOG'] ? $ini['PLAYSMS_LOG'] : '/var/log/playsms' );
+$PLAYSMS_LOG_PATH = ($ini['PLAYSMS_LOG'] ? $ini['PLAYSMS_LOG'] : '/var/log/playsms');
 
 // set default DAEMON_SLEEP at 1 second
-$DAEMON_SLEEP = ( $ini['DAEMON_SLEEP'] >= 1 ? $ini['DAEMON_SLEEP'] : 1 );
+$DAEMON_SLEEP = ($ini['DAEMON_SLEEP'] >= 1 ? $ini['DAEMON_SLEEP'] : 1);
 
 // set PHP script maximum execution time
-$MAX_EXECUTION_TIME = ( $ini['MAX_EXECUTION_TIME'] >= 600 ? $ini['MAX_EXECUTION_TIME'] : 600 );
+$MAX_EXECUTION_TIME = ($ini['MAX_EXECUTION_TIME'] >= 600 ? $ini['MAX_EXECUTION_TIME'] : 600);
 
 // set PHP error reporting level
-$ERROR_REPORTING = ( isset($ini['ERROR_REPORTING']) ? $ini['ERROR_REPORTING'] : 'E_ALL ^ (E_NOTICE | E_WARNING)' );
+$ERROR_REPORTING = (isset($ini['ERROR_REPORTING']) ? $ini['ERROR_REPORTING'] : 'E_ALL ^ (E_NOTICE | E_WARNING)');
 
 set_time_limit($MAX_EXECUTION_TIME);
 
@@ -77,7 +79,7 @@ $core_config['daemon'] = $ini;
 $COMMAND = strtolower($argv[1]);
 
 // Loop flag: loop => execute in a loop, once => execute only once
-$LOOP_FLAG = ( strtolower($argv[2]) ? strtolower($argv[2]) : 'loop' );
+$LOOP_FLAG = (strtolower($argv[2]) ? strtolower($argv[2]) : 'loop');
 
 // Service parameters
 $CMD_PARAM = $argv[3];
@@ -86,31 +88,19 @@ $CMD_PARAM = $argv[3];
 $PLAYSMSD_BIN = "$PLAYSMS_DAEMON_PATH/playsmsd";
 
 switch ($COMMAND) {
-
 	case 'start':
 		if (playsmsd_isrunning()) {
 			echo "playsmsd is already running\n";
-			$pids = playsmsd_pids();
-			echo "schedule at pid ".$pids['schedule']."\n";
-			echo "dlrssmsd at pid ".$pids['dlrssmsd']."\n";
-			echo "recvsmsd at pid ".$pids['recvsmsd']."\n";
-			echo "sendsmsd at pid ".$pids['sendsmsd']."\n";
+			playsmsd_pids_show();
 			exit();
 		}
-
+		
 		// run playsmsd services
-		shell_exec("nohup $PLAYSMSD_BIN schedule >/dev/null 2>&1 &");
-		shell_exec("nohup $PLAYSMSD_BIN dlrssmsd >/dev/null 2>&1 &");
-		shell_exec("nohup $PLAYSMSD_BIN recvsmsd >/dev/null 2>&1 &");
-		shell_exec("nohup $PLAYSMSD_BIN sendsmsd >/dev/null 2>&1 &");
+		playsmsd_start();
 		
 		if (playsmsd_isrunning()) {
 			echo "playsmsd has been started\n";
-			$pids = playsmsd_pids();
-			echo "schedule at pid ".$pids['schedule']."\n";
-			echo "dlrssmsd at pid ".$pids['dlrssmsd']."\n";
-			echo "recvsmsd at pid ".$pids['recvsmsd']."\n";
-			echo "sendsmsd at pid ".$pids['sendsmsd']."\n";
+			playsmsd_pids_show();
 		} else {
 			echo "Unable to start playsmsd\n";
 		}
@@ -118,20 +108,12 @@ switch ($COMMAND) {
 		break;
 
 	case 'stop':
-		$pids = playsmsd_pids();
-		foreach ($pids as $key => $val) {
-			if ($key && $val) {
-				echo $key." at pid ".$val." will be killed..\n";
-				shell_exec("kill ".$val." >/dev/null 2>&1");
-			}
-		}
+		
+		// stop playsmsd services
+		playsmsd_stop();
 		if (playsmsd_isrunning()) {
 			echo "Unable to stop playsmsd\n";
-			$pids = playsmsd_pids();
-			echo "schedule at pid ".$pids['schedule']."\n";
-			echo "dlrssmsd at pid ".$pids['dlrssmsd']."\n";
-			echo "recvsmsd at pid ".$pids['recvsmsd']."\n";
-			echo "sendsmsd at pid ".$pids['sendsmsd']."\n";
+			playsmsd_pids_show();
 		} else {
 			echo "playsmsd has been stopped\n";
 		}
@@ -141,11 +123,7 @@ switch ($COMMAND) {
 	case 'status':
 		if (playsmsd_isrunning()) {
 			echo "playsmsd is running\n";
-			$pids = playsmsd_pids();
-			echo "schedule at pid ".$pids['schedule']."\n";
-			echo "dlrssmsd at pid ".$pids['dlrssmsd']."\n";
-			echo "recvsmsd at pid ".$pids['recvsmsd']."\n";
-			echo "sendsmsd at pid ".$pids['sendsmsd']."\n";
+			playsmsd_pids_show();
 		} else {
 			echo "playsmsd is not running\n";
 		}
@@ -165,20 +143,19 @@ switch ($COMMAND) {
 		echo shell_exec("$PLAYSMSD_BIN status");
 		exit();
 		break;
-
 }
 
-if (! $COMMAND) {
+if (!$COMMAND) {
 	echo "Usage: playsmsd <start|stop|status|check>\n";
 	exit();
 }
 
 if (file_exists($PLAYSMS_INSTALL_PATH)) {
 	chdir($PLAYSMS_INSTALL_PATH);
-
+	
 	// mark this process as a DAEMON_PROCESS
 	$DAEMON_PROCESS = true;
-
+	
 	$continue = FALSE;
 	if (file_exists('init.php')) {
 		include 'init.php';
@@ -190,13 +167,13 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 			}
 		}
 	}
-
+	
 	if ($continue && $LOOP_FLAG == 'once') {
-
+		
 		// execute one time only
-
+		
 		// MAIN ONCE BLOCK
-
+		
 		echo $COMMAND . " start time:" . mktime() . "\n";
 		
 		if ($COMMAND == 'sendqueue') {
@@ -207,30 +184,28 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 				}
 			}
 		}
-
+		
 		// END OF ONCE BLOCK
-
+		
 		echo $COMMAND . " end time:" . mktime() . "\n";
-
+		
 		exit();
-
 	} else if ($continue && $LOOP_FLAG == 'loop') {
-
+		
 		// execute in a loop
-
+		
 		$DAEMON_LOOPING = TRUE;
-
+		
 		while ($DAEMON_LOOPING) {
-
+			
 			echo $COMMAND . " start time:" . mktime() . "\n";
-
+			
 			// re-include init.php on every 'while' to get the most updated configurations
 			include 'init.php';
-
+			
 			// MAIN LOOP BLOCK
-
+			
 			switch ($COMMAND) {
-
 				case 'schedule':
 					playsmsd();
 					break;
@@ -248,16 +223,20 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 				case 'sendsmsd':
 					$queue = array();
 					$extras = '';
-					if ((int) $core_config['sendsmsd_queue'] > 0) {
-						$extras = array('LIMIT' => (int) $core_config['sendsmsd_queue']);
+					if ((int)$core_config['sendsmsd_queue'] > 0) {
+						$extras = array(
+							'LIMIT' => (int)$core_config['sendsmsd_queue']
+						);
 					}
-					$list = dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'queue_code', array('flag' => '0'), '', $extras);
+					$list = dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'queue_code', array(
+						'flag' => '0'
+					) , '', $extras);
 					foreach ($list as $db_row) {
 						$queue[] = 'Q_' . $db_row['queue_code'];
 					}
 					if (count($queue) > 0) {
 						foreach ($queue as $q) {
-							$is_sending = ( playsmsd_pid_get($q) ? TRUE : FALSE );
+							$is_sending = (playsmsd_pid_get($q) ? TRUE : FALSE);
 							if (!$is_sending) {
 								$RUN_THIS = "nohup $PLAYSMSD_BIN sendqueue once $q >/dev/null 2>&1 &";
 								echo $COMMAND . " execute: " . $RUN_THIS . "\n";
@@ -269,24 +248,27 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 
 				default:
 					$DAEMON_LOOPING = FALSE;
-
 			}
-
+			
 			// END OF MAIN LOOP BLOCK
-
+			
 			echo $COMMAND . " end time:" . mktime() . "\n";
-
+			
 			sleep($DAEMON_SLEEP);
-
-			// empty buffer
+			
+			// empty buffer, yes doubled :)
 			ob_end_flush();
-
-		} // while TRUE
+			ob_end_flush();
+		}
+		
+		// while TRUE
+		
+		
 	}
 }
 
-
 // functions
+
 
 
 /**
@@ -295,7 +277,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
  * @return integer PID
  */
 function playsmsd_pid_get($process) {
-	return (int)shell_exec("ps f -C playsmsd | grep ".$process." | sed -e 's/^ *//' -e 's/ *$//' | cut -d' ' -f1 | tr -d '\n'");
+	return trim(shell_exec("ps -eo pid,command | grep " . $process . " | grep -v grep | sed -e 's/^ *//' -e 's/ *$//' | cut -d' ' -f1 | tr '\n' ' '"));
 }
 
 /**
@@ -308,6 +290,17 @@ function playsmsd_pids() {
 	$pids['recvsmsd'] = playsmsd_pid_get('recvsmsd');
 	$pids['sendsmsd'] = playsmsd_pid_get('sendsmsd');
 	return $pids;
+}
+
+/**
+ * Show pids
+ */
+function playsmsd_pids_show() {
+	$pids = playsmsd_pids();
+	echo "schedule at pid " . $pids['schedule'] . "\n";
+	echo "dlrssmsd at pid " . $pids['dlrssmsd'] . "\n";
+	echo "recvsmsd at pid " . $pids['recvsmsd'] . "\n";
+	echo "sendsmsd at pid " . $pids['sendsmsd'] . "\n";
 }
 
 /**
@@ -325,4 +318,28 @@ function playsmsd_isrunning() {
 		}
 	}
 	return $isrunning;
+}
+
+/**
+ * Start playsmsd scripts
+ */
+function playsmsd_start() {
+	global $PLAYSMSD_BIN;
+	shell_exec("nohup $PLAYSMSD_BIN schedule >/dev/null 2>&1 &");
+	shell_exec("nohup $PLAYSMSD_BIN dlrssmsd >/dev/null 2>&1 &");
+	shell_exec("nohup $PLAYSMSD_BIN recvsmsd >/dev/null 2>&1 &");
+	shell_exec("nohup $PLAYSMSD_BIN sendsmsd >/dev/null 2>&1 &");
+}
+
+/**
+ * Stop playsmsd scripts
+ */
+function playsmsd_stop() {
+	$pids = playsmsd_pids();
+	foreach ($pids as $key => $val) {
+		if ($key && $val) {
+			echo $key . " at pid " . $val . " will be killed..\n";
+			shell_exec("kill " . $val . " >/dev/null 2>&1");
+		}
+	}
 }

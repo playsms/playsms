@@ -19,8 +19,6 @@
 
 defined('_SECURE_') or die('Forbidden');
 
-ob_start();
-
 $continue = TRUE;
 
 if (function_exists('bindtextdomain')) {
