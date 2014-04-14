@@ -89,6 +89,7 @@ $PLAYSMSD_BIN = "$PLAYSMS_DAEMON_PATH/playsmsd";
 
 switch ($COMMAND) {
 	case 'start':
+		
 		if (playsmsd_isrunning()) {
 			echo "playsmsd is already running\n";
 			playsmsd_pids_show();
@@ -121,6 +122,7 @@ switch ($COMMAND) {
 		break;
 
 	case 'status':
+		
 		if (playsmsd_isrunning()) {
 			echo "playsmsd is running\n";
 			playsmsd_pids_show();
@@ -131,16 +133,18 @@ switch ($COMMAND) {
 		break;
 
 	case 'check':
-		echo "playsmsd installation check\n";
-		echo "PLAYSMSD_CONF = " . $PLAYSMSD_CONF . "\n";
-		echo "PLAYSMS_PATH = " . $PLAYSMS_INSTALL_PATH . "\n";
-		echo "PLAYSMS_LIB = " . $PLAYSMS_LIB_PATH . "\n";
-		echo "PLAYSMS_BIN = " . $PLAYSMS_DAEMON_PATH . "\n";
-		echo "PLAYSMS_LOG = " . $PLAYSMS_LOG_PATH . "\n";
-		echo "DAEMON_SLEEP = " . $DAEMON_SLEEP . "\n";
-		echo "MAX_EXECUTION_TIME = " . $MAX_EXECUTION_TIME . "\n";
-		echo "ERROR_REPORTING = " . $ERROR_REPORTING . "\n";
-		echo shell_exec("$PLAYSMSD_BIN status");
+		
+		playsmsd_check(FALSE);
+		
+		// non-JSON output
+		exit();
+		break;
+
+	case 'check_json':
+		
+		playsmsd_check(TRUE);
+		
+		// JSON output
 		exit();
 		break;
 }
@@ -340,6 +344,43 @@ function playsmsd_stop() {
 		if ($key && $val) {
 			echo $key . " at pid " . $val . " will be killed..\n";
 			shell_exec("kill " . $val . " >/dev/null 2>&1");
+		}
+	}
+}
+
+/**
+ * Check variables and states of playsmsd
+ * @param  boolean $json TRUE for json output
+ * @return string
+ */
+function playsmsd_check($json) {
+	global $PLAYSMSD_CONF, $DAEMON_SLEEP, $MAX_EXECUTION_TIME, $ERROR_REPORTING;
+	global $PLAYSMS_INSTALL_PATH, $PLAYSMS_LIB_PATH, $PLAYSMS_DAEMON_PATH, $PLAYSMS_LOG_PATH;
+	
+	$data = array(
+		'PLAYSMSD_CONF' => $PLAYSMSD_CONF,
+		'PLAYSMS_PATH' => $PLAYSMS_INSTALL_PATH,
+		'PLAYSMS_LIB' => $PLAYSMS_LIB_PATH,
+		'PLAYSMS_BIN' => $PLAYSMS_DAEMON_PATH,
+		'PLAYSMS_LOG' => $PLAYSMS_LOG_PATH,
+		'DAEMON_SLEEP' => $DAEMON_SLEEP,
+		'MAX_EXECUTION_TIME' => $MAX_EXECUTION_TIME,
+		'ERROR_REPORTING' => $ERROR_REPORTING,
+		'IS_RUNNING' => playsmsd_isrunning() ,
+		'PIDS' => playsmsd_pids() ,
+	);
+	
+	if ($json) {
+		echo json_encode($data);
+	} else {
+		foreach ($data as $key => $val) {
+			if (is_array($val)) {
+				foreach ($val as $k => $v) {
+					echo $key . " " . $k . " = " . $v . "\n";
+				}
+			} else {
+				echo $key . " = " . $val . "\n";
+			}
 		}
 	}
 }
