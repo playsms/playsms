@@ -14,6 +14,9 @@ msgstr ""
 msgid "Author"
 msgstr "Автор"
 
+msgid "Core"
+msgstr ""
+
 msgid "Date"
 msgstr "Дата"
 
@@ -40,9 +43,6 @@ msgstr "Состяние"
 
 msgid "Themes"
 msgstr "Темы"
-
-msgid "Tools"
-msgstr "Инструменты"
 
 msgid "Version"
 msgstr "Версия"

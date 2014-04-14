@@ -8,6 +8,9 @@ msgstr ""
 msgid "Author"
 msgstr "Auteur"
 
+msgid "Core"
+msgstr ""
+
 msgid "Date"
 msgstr "Date"
 
@@ -35,9 +38,6 @@ msgstr "Statut"
 
 msgid "Themes"
 msgstr "Thmes"
-
-msgid "Tools"
-msgstr "Outils"
 
 msgid "Version"
 msgstr "Version"
