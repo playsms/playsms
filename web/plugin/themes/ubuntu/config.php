@@ -4,7 +4,7 @@ defined('_SECURE_') or die('Forbidden');
 // default loaded page/plugin
 /*
 $themes_config['ubuntu']['main'] = array(
-	'default_inc' => 'tools_report',
+	'default_inc' => 'feature_report',
 	'default_route' => 'user',
 	'default_op' => '',
 );

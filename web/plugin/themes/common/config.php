@@ -53,7 +53,7 @@ $menu_config[$menutab] = array(
 	array('index.php?app=main&inc=user_inbox&op=user_inbox', _('Inbox'), 1),
 	array('index.php?app=main&inc=user_incoming&op=user_incoming', _('Incoming messages'), 1),
 	array('index.php?app=main&inc=user_outgoing&op=user_outgoing', _('Outgoing messages'), 1),
-	array("index.php?app=main&inc=core_phonebook&op=phonebook_list", _('Phonebook'), 2),
+	array('index.php?app=main&inc=core_phonebook&op=phonebook_list', _('Phonebook'), 2),
 );
 
 // only if logged in user is an admin then load administration tab
