@@ -86,9 +86,9 @@ switch (_OP_) {
 				<td>"._('Message template content')."</td><td><input type=text name=t_text size=30></td>
 			</tr>	
 			</table>	
-			<p><input type='submit' class='button' value='"._('Save')."'>
+			<p><input type='submit' class='button' value='"._('Save')."'></p>
 			</form>
-			<p>"._back('index.php?app=main&inc=feature_msgtemplate&op=list');
+			"._back('index.php?app=main&inc=feature_msgtemplate&op=list');
 			_p($content);
 		break;
 	case "edit":
@@ -103,19 +103,20 @@ switch (_OP_) {
 			<h3>"._('Edit message template')."</h3>
 			<form action='index.php?app=main&inc=feature_msgtemplate&op=actions&go=edit' method=POST>
 			"._CSRF_FORM_."
-			<input type=hidden name=tid value='$tid'>
+			<input type=hidden name=item_count value='".$i."'>
+			<input type=hidden name=tid value='".$tid."'>
 			<table class=playsms-table>
 			<tr>
 				<td class=label-sizer>"._('Message template name')."</td><td><input type=text size=30 maxlength=100 name=t_title value='".$db_row['t_title']."'></td>
 			</tr>
 			<tr>
 				<td>"._('Message template content')."</td><td><input type=text name=t_text size=30 value='".$db_row['t_text']."'></td>
-			</tr>	
+			</tr>
 			</table>
-			<p><input type='submit' class='button' value='"._('Save')."'>
 			<input type='hidden' name='item_count' value='$i'>
+			<p><input type='submit' class='button' value='"._('Save')."'></p>
 			</form>
-			<p>"._back('index.php?app=main&inc=feature_msgtemplate&op=list');
+			"._back('index.php?app=main&inc=feature_msgtemplate&op=list');
 		_p($content);
 		break;
 	case "actions":

@@ -195,7 +195,7 @@ switch (_OP_) {
 		</table>
 		<p><input type='submit' class='button' value='" . _('Save') . "'></p>
 		</form>
-		<p>"._back('index.php?app=main&inc=user_mgmnt&op=user_list&view='.$view);
+		"._back('index.php?app=main&inc=user_mgmnt&op=user_list&view='.$view);
 		_p($content);
 		break;
 

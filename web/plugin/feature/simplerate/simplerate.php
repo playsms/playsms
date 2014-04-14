@@ -76,10 +76,10 @@ switch (_OP_) {
 			<tr>
 				<td>"._('Rate')."</td><td><input type='text' size='10' maxlength='10' name='up_rate' value=\"$rate\"></td>
 			</tr>
-			</table>	
-			<p><input type='submit' class='button' value='"._('Save')."'>
+			</table>
+			<p><input type='submit' class='button' value='"._('Save')."'></p>
 			</form>
-			<p>"._back('index.php?app=main&inc=feature_simplerate&op=simplerate_list');
+			"._back('index.php?app=main&inc=feature_simplerate&op=simplerate_list');
 		_p($content);
 		break;
 	case "simplerate_edit_save":
@@ -122,9 +122,9 @@ switch (_OP_) {
 				<td>"._('Rate')."</td><td><input type='text' size='10' maxlength='10' name='add_rate' value=\"$add_rate\"></td>
 			</tr>
 			</table>	
-			<p><input type='submit' class='button' value='"._('Save')."'>
+			<input type='submit' class='button' value='"._('Save')."'>
 			</form>
-			<p>"._back('index.php?app=main&inc=feature_simplerate&op=simplerate_list');
+			"._back('index.php?app=main&inc=feature_simplerate&op=simplerate_list');
 		_p($content);
 		break;
 	case "simplerate_add_yes":

@@ -178,6 +178,10 @@ table.sortable thead, table.sortable th {
 	margin-right: -3px;
 }
 
+.button_back {
+	margin: 5px 0 5px 0;
+}
+
 .search_box {
 	text-align: left;
 	margin-right: 5px;
@@ -389,8 +393,4 @@ table.sortable thead, table.sortable th {
 	height: 100px;
 	resize: none;
 	outline: none;
-}
-
-#button_back {
-	margin: 10px 0 10px 0;
 }

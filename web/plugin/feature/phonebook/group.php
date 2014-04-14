@@ -95,9 +95,9 @@ switch (_OP_) {
 				</tr>
 			</tbody>
 			</table>
-			<p><input type=submit class=button value=\""._('Save')."\"> 
+			<p><input type=submit class=button value=\""._('Save')."\"></p>
 			</form>
-			<p>"._back('index.php?app=main&inc=feature_phonebook&route=group&op=list');
+			"._back('index.php?app=main&inc=feature_phonebook&route=group&op=list');
 		_p($content);
 		break;
 	case "edit":
@@ -132,9 +132,9 @@ switch (_OP_) {
 			</tbody>
 			</table>
 			<p>"._('Note').": "._('Group code used by keyword')." BC ("._('broadcast SMS from single SMS').")
-			<p><input type=submit class=button value=\""._('Save')."\"> 
+			<p><input type=submit class=button value=\""._('Save')."\"></p>
 			</form>
-			<p>"._back('index.php?app=main&inc=feature_phonebook&route=group&op=list');
+			"._back('index.php?app=main&inc=feature_phonebook&route=group&op=list');
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}

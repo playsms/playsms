@@ -130,9 +130,9 @@ switch (_OP_) {
 			<tr><td>"._('Email')."</td><td><input type=text name=email size=30></td></tr>
 			</tbody>
 			</table>
-			<p><input type=submit class=button value=\""._('Save')."\">
+			<p><input type=submit class=button value=\""._('Save')."\"></p>
 			</form>
-			<p>"._back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
+			"._back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}
@@ -166,9 +166,9 @@ switch (_OP_) {
 			<tr><td>"._('Email')."</td><td><input type=text name=email value=\"".$list[0]['email']."\" size=30></td></tr>
 			</tbody>
 			</table>
-			<p><input type=submit class=button value=\""._('Save')."\">
+			<p><input type=submit class=button value=\""._('Save')."\"></p>
 			</form>
-			<p>"._back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
+			"._back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}

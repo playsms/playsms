@@ -24,7 +24,7 @@ switch (_OP_) {
 					</tr>
 				</tbody>
 			</table>
-			<p>"._back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
+			"._back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}
@@ -89,7 +89,7 @@ switch (_OP_) {
 				<input type=\"hidden\" name=\"session_import\" value=\"".$session_import."\">
 				<p><input type=\"submit\" class=\"button\" value=\""._('Import')."\"></p>
 				</form>
-				<p>"._back('index.php?app=main&inc=feature_phonebook&route=import&op=list');
+				"._back('index.php?app=main&inc=feature_phonebook&route=import&op=list');
 			_p($content);
 		} else {
 			$_SESSION['error_string'] = _('Fail to upload CSV file for phonebook');
