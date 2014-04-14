@@ -88,17 +88,3 @@ Please read [INSTALL](documents/INSTALL.md "playSMS installation document") and 
 Information about code contributors can be found in this URL:
 
 https://github.com/antonraharja/playSMS/graphs/contributors
-
-
-## Translators
-
-Language | Maintainer
--------- | ----------
-ca_ES    | Joan (aseques)
-de_DE    | Andre Gronwald (andre)
-es_VE    | Alfredo Hernandez (alfredo)
-fr_FR    | Emmanuel Chanson (emmanuel), Elingui P. Uriel (elinguiuriel)
-id_ID    | Anton Raharja (anton), Andry Rachmadany (hangsbreaker)
-pt_BR    | Lucas Teixeira (lucastx), Gabriel Schanuel (gschanuel)
-ru_RU    | Alexey Dvoryanchikov (dvoryanchikov)
-zh_CN    | Frank Van Caenegem (fvancaen)

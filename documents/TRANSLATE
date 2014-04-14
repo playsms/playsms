@@ -79,3 +79,17 @@ For any time there are new .po files their correspondant .mo files need to be
 
 ##To regenerate the .mo file from the .po files on the system (/var/www/playsms is you web path)
 bash 3-regenerating-mo-files.sh /var/www/playsms
+
+
+## Translators
+
+Language | Maintainer
+-------- | ----------
+ca_ES    | Joan (aseques)
+de_DE    | Andre Gronwald (andre)
+es_VE    | Alfredo Hernandez (alfredo)
+fr_FR    | Emmanuel Chanson (emmanuel), Elingui P. Uriel (elinguiuriel)
+id_ID    | Anton Raharja (anton), Andry Rachmadany (hangsbreaker)
+pt_BR    | Lucas Teixeira (lucastx), Gabriel Schanuel (gschanuel)
+ru_RU    | Alexey Dvoryanchikov (dvoryanchikov)
+zh_CN    | Frank Van Caenegem (fvancaen)
