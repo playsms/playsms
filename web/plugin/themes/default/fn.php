@@ -8,7 +8,6 @@ function default_hook_themes_apply($content) {
 		'name' => 'themes_layout',
 		'var' => array(
 			'CONTENT' => $content,
-			'WEB_TITLE' => $web_title,
 			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
 			'HTTP_PATH_THEMES' => $core_config['http_path']['themes'],
 			'THEMES_MODULE' => core_themes_get() ,
@@ -22,7 +21,7 @@ function default_hook_themes_apply($content) {
 			'valid' => auth_isvalid()
 		)
 	);
-	$content = tpl_apply($tpl);
+	$content = tpl_apply($tpl, array('core_config', 'user_config'));
 	return $content;
 }
 

@@ -97,6 +97,10 @@ $core_config['http_path']['themes'] = $core_config['http_path']['plug'] . '/them
 $core_config['apps_path']['tpl'] = $core_config['apps_path']['themes'] . '/common/templates';
 $core_config['http_path']['tpl'] = $core_config['http_path']['themes'] . '/common/templates';
 
+// storage directories
+$core_config['apps_path']['storage'] = $core_config['apps_path']['base'] . '/storage';
+$core_config['http_path']['storage'] = $core_config['http_path']['base'] . '/storage';
+
 // set defines
 define('_APPS_PATH_BASE_', $core_config['apps_path']['base']);
 define('_HTTP_PATH_BASE_', $core_config['http_path']['base']);
@@ -115,6 +119,9 @@ define('_HTTP_PATH_THEMES_', $core_config['http_path']['themes']);
 
 define('_APPS_PATH_TPL_', $core_config['apps_path']['tpl']);
 define('_HTTP_PATH_TPL_', $core_config['http_path']['tpl']);
+
+define('_APPS_PATH_STORAGE_', $core_config['apps_path']['storage']);
+define('_HTTP_PATH_STORAGE_', $core_config['http_path']['storage']);
 
 // load init functions
 include_once _APPS_PATH_LIBS_ . '/fn_core.php';

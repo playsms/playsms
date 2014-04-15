@@ -22,6 +22,7 @@ Version 1.0 - 140203
 - MAJOR: rename forcenoaccess() to auth_block() in lib/fn_auth.php
 - MAJOR: replace all echo() with core_print() or _p()
 - remove default timezone and language from database, tblUser
+- add _APPS_PATH_STORAGE_ to hold files used by plugins, eg: tpl cache files
 - add an option to allow/disallow regular user access to sms_command
 - add dlr-storage=internal and mo-recode=true, and a few other changes in
   contrib/kannel/kannel.conf

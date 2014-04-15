@@ -76,11 +76,16 @@ function _tpl_set_bool($content, $key, $val) {
 
 /**
  * Actual template apply
- * @param  string $fn  Template filename
- * @param  array  $tpl Template data
- * @return string      Manipulated content
+ * @param  string $fn       Template filename
+ * @param  array  $tpl      Template data
+ * @param  array  $injected Injected variable names
+ * @return string           Manipulated content
  */
-function _tpl_apply($fn, $tpl) {
+function _tpl_apply($fn, $tpl, $injected=array()) {
+	foreach ($injected as $global_var) {
+		global ${$global_var};
+	}
+
 	$content = trim(file_get_contents($fn));
 	
 	if ($content && is_array($tpl)) {
@@ -104,11 +109,54 @@ function _tpl_apply($fn, $tpl) {
 				$content = _tpl_set_string($content, $key, $val);
 			}
 		}
+
+		if (isset($tpl['inject'])) {
+			extract($tpl['inject']);
+		}
 	}
 	
 	$content = preg_replace("/<if\..*?>(.*?)<\/if\..*?>/s", '', $content);
 	$content = preg_replace("/<loop\..*?>(.*?)<\/loop\..*?>/s", '', $content);
 	
+	$pattern = "\{\{(.*?)\}\}";
+	preg_match_all("/".$pattern."/", $content, $matches, PREG_SET_ORDER);
+	foreach ($matches as $block) {
+		$chunk = $block[0];
+		$codes = '<?php '.trim($block[1]).' ?>';
+		$content = str_replace($chunk, $codes, $content);
+	}
+
+	// attempt to create cache file for this template in storage directory
+	$cache_file = _PID_.'_'.md5($fn.mktime()).'.compiled';
+	$cache = _APPS_PATH_STORAGE_.'/plugin/core/tpl/'.$cache_file;
+	$fd = @fopen($cache, 'w+');
+	@fwrite($fd, $content);
+	@fclose($fd);
+
+	// when failed, try to create in /tmp
+	if (! file_exists($cache)) {
+		$cache = '/tmp/'.$cache_file;
+		$fd = @fopen($cache, 'w+');
+		@fwrite($fd, $content);
+		@fclose($fd);
+		_log('WARNING: using /tmp to store template cache file. tpl:'.$tpl['name'], 3, '_tpl_apply');
+	}
+
+	// if template cache file created then include it, else use eval()
+	if (file_exists($cache)) {
+		ob_start();
+		include $cache;
+		$content = ob_get_contents();
+		ob_end_clean();
+		@unlink($cache);
+	} else {
+		ob_start();
+		eval('?>'.$content.'<?php ');
+		$content = ob_get_contents();
+		ob_end_clean();
+		_log('WARNING: cannot create template cache file. tpl:'.$tpl['name'], 3, '_tpl_apply');
+	}
+
 	return $content;
 }
 
@@ -129,10 +177,11 @@ function _tpl_name_sanitize($name) {
 
 /**
  * Apply template
- * @param  array  $tpl Template array
- * @return string      Manipulated content
+ * @param  array  $tpl      Template array
+ * @param  array  $injected Injected variable names
+ * @return string           Manipulated content
  */
-function tpl_apply($tpl) {
+function tpl_apply($tpl, $injected=array()) {
 	$content = '';
 	$continue = FALSE;
 	
@@ -153,7 +202,7 @@ function tpl_apply($tpl) {
 		$plugin_name = str_replace($plugin_category . '_', '', _INC_);
 		$fn = _APPS_PATH_PLUG_ . '/' . $plugin_category . '/' . $plugin_name . '/templates/' . $tpl_name . '.html';
 		if (file_exists($fn)) {
-			$content = _tpl_apply($fn, $tpl);
+			$content = _tpl_apply($fn, $tpl, $injected);
 			return $content;
 		}
 		
@@ -161,14 +210,14 @@ function tpl_apply($tpl) {
 		$themes = core_themes_get();
 		$fn = _APPS_PATH_THEMES_ . '/' . $themes . '/templates/' . $tpl_name . '.html';
 		if (file_exists($fn)) {
-			$content = _tpl_apply($fn, $tpl);
+			$content = _tpl_apply($fn, $tpl, $injected);
 			return $content;
 		}
 		
 		// check from common place on themes
 		$fn = _APPS_PATH_TPL_ . '/' . $tpl_name . '.html';
 		if (file_exists($fn)) {
-			$content = _tpl_apply($fn, $tpl);
+			$content = _tpl_apply($fn, $tpl, $injected);
 		}
 	}
 	
