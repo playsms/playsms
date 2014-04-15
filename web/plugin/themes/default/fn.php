@@ -39,11 +39,21 @@ function default_hook_themes_buildmenu($menu_config) {
 			$sub_menu_index = ($sub_menu[2] ? $sub_menu[2] : 3);
 			$m[$sub_menu_index . '.' . $sub_menu_title] = "<li><a href='" . _u($sub_menu_url) . "'>" . $sub_menu_title . "</a></li>";
 		}
+		
 		ksort($m);
 		foreach ($m as $mm) {
 			$main_menu.= $mm;
 		}
 		unset($m);
+		
+		if ($menu_title == $core_config['menutab']['my_account']) {
+			$main_menu.= "
+				<li><hr /></li>
+				<li><a href='" . _u('index.php?app=main&inc=user_config&op=user_config') . "'>" . _('User configuration') . "</a></li>
+				<li><a href='" . _u('index.php?app=main&inc=user_pref&op=user_pref') . "'>" . _('Preferences') . "</a></li>
+			";
+		}
+		
 		$main_menu.= "</ul>";
 		$main_menu.= "</li>";
 	}
@@ -66,12 +76,6 @@ function default_hook_themes_buildmenu($menu_config) {
 							" . $main_menu . "
 						</ul>
 						<ul class='nav navbar-nav navbar-right'>
-							<li class='dropdown'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $user_config['name'] . " (" . $user_config['username'] . ") <b class='caret'></b></a>
-								<ul class='dropdown-menu'>
-									<li><a href='" . _u('index.php?app=main&inc=user_config&op=user_config') . "'>" . _('User configuration') . "</a></li>
-									<li><a href='" . _u('index.php?app=main&inc=user_pref&op=user_pref') . "'>" . _('Preferences') . "</a></li>									
-								</ul>
-							</li>
 							<li><a href='" . _u('index.php?app=main&inc=core_auth&route=logout') . "'>" . $icon_config['logout'] . "</a></li>
 						</ul>
 					</div>
