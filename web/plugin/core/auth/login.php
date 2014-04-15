@@ -7,15 +7,21 @@ if (_OP_ == 'login') {
 	$password = trim($_REQUEST['password']);
 	
 	if ($username_or_email && $password) {
-		if (auth_validate_login($username_or_email, $password)) {
-			$username = $username_or_email;
-			$validated = TRUE;
-		} else if (auth_validate_email($username_or_email, $password)) {
-			$username = user_email2username($username_or_email);
-			$validated = TRUE;
+		$username = '';
+		$validated = FALSE;
+
+		if (preg_match('/^(.+)@(.+)\.(.+)$/', $username_or_email)) {
+			if (auth_validate_email($username_or_email, $password)) {
+				$username = user_email2username($username_or_email);
+				$validated = TRUE;
+			}
 		} else {
-			$validated = FALSE;
+			if (auth_validate_login($username_or_email, $password)) {
+				$username = $username_or_email;
+				$validated = TRUE;
+			}
 		}
+
 		if ($validated) {
 			$c_user = user_getdatabyusername($username);
 			$_SESSION['sid'] = session_id();
