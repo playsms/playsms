@@ -155,11 +155,11 @@ function user_add_validate($data=array()) {
 			$ret['status'] = false;
 		}
 
-		// current data user, to check an edit action
-		$current = user_getdatabyusername($data['username']);
+		// existing data user, to check an edit action
+		$existing = user_getdatabyusername($data['username']);
 
 		// check if username is exists
-		if ($data['username'] && ($data['username'] != $current['username'])) {
+		if ($data['username'] && ($data['username'] == $existing['username'])) {
 			if ($ret['status'] && dba_isexists(_DB_PREF_.'_tblUser', array('username' => $data['username']))) {
 				$ret['error_string'] = _('User is already exists')." ("._('username').": ".$data['username'].")";
 				$ret['status'] = false;
@@ -167,7 +167,7 @@ function user_add_validate($data=array()) {
 		}
 
 		// check if email is exists
-		if ($data['email'] && ($data['email'] != $current['email'])) {
+		if ($data['email'] && ($data['email'] == $existing['email'])) {
 			if ($ret['status'] && dba_isexists(_DB_PREF_.'_tblUser', array('email' => $data['email']))) {
 				$ret['error_string'] = _('User with this email is already exists')." ("._('email').": ".$data['email'].")";
 				$ret['status'] = false;
@@ -175,7 +175,7 @@ function user_add_validate($data=array()) {
 		}
 
 		// check mobile, must check for duplication only when filled
-		if ($data['mobile'] && ($data['mobile'] != $current['mobile'])) {
+		if ($data['mobile'] && ($data['mobile'] == $existing['mobile'])) {
 			if ($ret['status'] && (! preg_match('/([0-9\+\- ])/', $data['mobile']))) {
 				$ret['error_string'] = _('Your mobile format is invalid')." (".$data['mobile'].")";
 				$ret['status'] = false;
