@@ -11,12 +11,13 @@ if (_OP_ == 'register') {
 		$data['username'] = $_REQUEST['username'];
 		$data['mobile'] = $_REQUEST['mobile'];
 		$data['email'] = $_REQUEST['email'];
+
+		// force non-admin, status=3 is normal user
 		$data['status'] = 3;
 		
-		// force non-admin
+		// empty this and playSMS will generate random password
 		$data['password'] = '';
 		
-		// force generate random password
 		$ret = user_add($data);
 		$ok = ($ret['status'] ? TRUE : FALSE);
 		$_SESSION['error_string'] = $ret['error_string'];
