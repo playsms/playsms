@@ -209,7 +209,7 @@ switch (_OP_) {
 						}
 						$db_query = "UPDATE "._DB_PREF_."_featurePhonebook_group SET c_timestamp='".mktime()."',name='$group_name',code='$group_code',flag_sender='$flag_sender' WHERE uid='$uid' AND id='$gpid'";
 						$db_result = dba_query($db_query);
-						$_SESSION['error_string'] = _('Group has been edited')." ("._('group').": $group_name, "._('code')." $group_code)";
+						$_SESSION['error_string'] = _('Group has been edited')." ("._('group').": $group_name, "._('code').": $group_code)";
 					}
 				}
 				header("Location: "._u('index.php?app=main&inc=feature_phonebook&route=group&op=edit&gpid='.$gpid));
