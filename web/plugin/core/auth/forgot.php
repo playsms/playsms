@@ -94,7 +94,5 @@ if (_OP_ == 'forgot') {
 		)
 	);
 	
-	$content = tpl_apply($tpl);
-	
 	_p(tpl_apply($tpl));
 }

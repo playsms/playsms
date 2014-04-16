@@ -74,7 +74,5 @@ if (_OP_ == 'login') {
 		)
 	);
 	
-	$content = tpl_apply($tpl);
-	
 	_p(tpl_apply($tpl));
 }

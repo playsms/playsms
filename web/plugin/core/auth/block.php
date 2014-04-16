@@ -47,7 +47,5 @@ if (_OP_ == 'block') {
 		)
 	);
 	
-	$content = tpl_apply($tpl);
-	
 	_p(tpl_apply($tpl));
 }

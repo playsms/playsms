@@ -63,7 +63,5 @@ if (_OP_ == 'register') {
 		)
 	);
 	
-	$content = tpl_apply($tpl);
-	
 	_p(tpl_apply($tpl));
 }
