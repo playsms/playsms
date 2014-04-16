@@ -125,68 +125,91 @@ function user_email2username($email) {
 
 /**
  * Validate data for user registration
- * @param array $data User data
- * @return array $ret('error_string', 'status')
+ * @param  array   $data User data
+ * @param  boolean $flag_edit TRUE when edit action (currently not inuse)
+ * @return array   $ret('error_string', 'status')
  */
-function user_add_validate($data=array()) {
+function user_add_validate($data=array(), $flag_edit=FALSE) {
 	$ret['status'] = true;
+
 	if (is_array($data)) {
 		foreach ($data as $key => $val) {
 			$data[$key] = trim($val);
 		}
+
+		// password should be at least 4 characters
 		if ($data['password'] && (strlen($data['password']) < 4)) {
 			$ret['error_string'] = _('Password should be at least 4 characters');
 			$ret['status'] = false;
 		}
+
+		// username should be at least 3 characters
 		if ($ret['status'] && $data['username'] && (strlen($data['username']) < 3)) {
 			$ret['error_string'] = _('Username should be at least 3 characters')." (".$data['username'].")";
 			$ret['status'] = false;
 		}
+
+		// username only can contain alphanumeric, dot and dash
 		if ($ret['status'] && $data['username'] && (! preg_match('/([A-Za-z0-9\.\-])/', $data['username']))) {
 			$ret['error_string'] = _('Valid characters for username are alphabets, numbers, dot or dash')." (".$data['username'].")";
 			$ret['status'] = false;
 		}
+
+		// email must be in valid format
 		if ($ret['status'] && (! preg_match('/^(.+)@(.+)\.(.+)$/', $data['email']))) {
 			if ($data['email']) {
 				$ret['error_string'] = _('Your email format is invalid')." (".$data['email'].")";
 			} else {
-				$ret['error_string'] = _('Your email format is invalid');
+				$ret['error_string'] = _('Email address is mandatory');
 			}
 			$ret['status'] = false;
 		}
 
-		// existing data user, to check an edit action
-		$existing = user_getdatabyusername($data['username']);
+		// mobile must be in valid format, but check this only when filled
+		if ($ret['status'] && $data['mobile'] && (! preg_match('/([0-9\+\- ])/', $data['mobile']))) {
+			$ret['error_string'] = _('Your mobile format is invalid')." (".$data['mobile'].")";
+			$ret['status'] = false;
+		}
 
 		// check if username is exists
-		if ($data['username'] && ($data['username'] == $existing['username'])) {
-			if ($ret['status'] && dba_isexists(_DB_PREF_.'_tblUser', array('username' => $data['username']))) {
+		if ($ret['status'] && $data['username'] && dba_isexists(_DB_PREF_.'_tblUser', array('username' => $data['username']))) {
+			if (! $flag_edit) {
 				$ret['error_string'] = _('User is already exists')." ("._('username').": ".$data['username'].")";
 				$ret['status'] = false;
 			}
 		}
 
+		$existing = user_getdatabyusername($data['username']);
+
 		// check if email is exists
-		if ($data['email'] && ($data['email'] == $existing['email'])) {
-			if ($ret['status'] && dba_isexists(_DB_PREF_.'_tblUser', array('email' => $data['email']))) {
+		if ($ret['status'] && $data['email'] && dba_isexists(_DB_PREF_.'_tblUser', array('email' => $data['email']))) {
+			if ($data['email'] != $existing['email']) {
 				$ret['error_string'] = _('User with this email is already exists')." ("._('email').": ".$data['email'].")";
 				$ret['status'] = false;
 			}
 		}
 
 		// check mobile, must check for duplication only when filled
-		if ($data['mobile'] && ($data['mobile'] == $existing['mobile'])) {
-			if ($ret['status'] && (! preg_match('/([0-9\+\- ])/', $data['mobile']))) {
-				$ret['error_string'] = _('Your mobile format is invalid')." (".$data['mobile'].")";
-				$ret['status'] = false;
-			}
-			if ($ret['status'] && dba_isexists(_DB_PREF_.'_tblUser', array('mobile' => $data['mobile']))) {
-				$ret['error_string'] = _('User with this mobile is already exists')." ("._('mobile').": ".$data['mobile'].")";
-				$ret['status'] = false;
+		if ($ret['status'] && $data['mobile']) { 
+			if (dba_isexists(_DB_PREF_.'_tblUser', array('mobile' => $data['mobile']))) {
+				if ($data['mobile'] != $existing['mobile']) {
+					$ret['error_string'] = _('User with this mobile is already exists')." ("._('mobile').": ".$data['mobile'].")";
+					$ret['status'] = false;
+				}
 			}
 		}
 	}
+
 	return $ret;
+}
+
+/**
+ * Validate data for user preferences or configuration edit
+ * @param  array   $data User data
+ * @return array   $ret('error_string', 'status')
+ */
+function user_edit_validate($data=array()) {
+	return user_add_validate($data, TRUE);
 }
 
 /**

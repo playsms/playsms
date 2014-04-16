@@ -117,7 +117,7 @@ switch (_OP_) {
 		$up['username'] = $c_username;
 		$up['lastupdate_datetime'] = core_adjust_datetime(core_get_datetime());
 		if ($up['name'] && $up['email']) {
-			$v = user_add_validate($up);
+			$v = user_edit_validate($up);
 			if ($v['status']) {
 				$continue = true;
 				if ($up['password'] && $_POST['up_password_conf']) {
