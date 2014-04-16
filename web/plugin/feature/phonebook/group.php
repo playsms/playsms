@@ -131,7 +131,6 @@ switch (_OP_) {
 			</tr>
 			</tbody>
 			</table>
-			<p>"._('Note').": "._('Group code used by keyword')." BC ("._('broadcast SMS from single SMS').")
 			<p><input type=submit class=button value=\""._('Save')."\"></p>
 			</form>
 			"._back('index.php?app=main&inc=feature_phonebook&route=group&op=list');
@@ -202,14 +201,23 @@ switch (_OP_) {
 					if ($db_row = dba_fetch_array($db_result)) {
 						$_SESSION['error_string'] = _('No changes has been made');
 					} else {
-						$db_query = "SELECT flag_sender FROM "._DB_PREF_."_featurePhonebook_group WHERE code='$group_code' AND flag_sender<>0";
-						$db_result = dba_query($db_query);
-						if ($db_row = dba_fetch_array($db_result)) {
-							$flag_sender = 0;
+						$string_group_edit = _('Group has been edited');
+
+						// check whether or not theres a group code with the same name and flag_sender <> 0
+						if ($flag_sender > 0) {
+							$db_query = "SELECT flag_sender FROM "._DB_PREF_."_featurePhonebook_group WHERE code='$group_code' AND flag_sender<>0";
+							$db_result = dba_query($db_query);
+							if ($db_row = dba_fetch_array($db_result)) {
+								$flag_sender = 0;
+								$string_group_edit = _('Group has been edited but unable to set broadcast from members or anyone');
+							}
 						}
+
+						// update data
 						$db_query = "UPDATE "._DB_PREF_."_featurePhonebook_group SET c_timestamp='".mktime()."',name='$group_name',code='$group_code',flag_sender='$flag_sender' WHERE uid='$uid' AND id='$gpid'";
 						$db_result = dba_query($db_query);
-						$_SESSION['error_string'] = _('Group has been edited')." ("._('group').": $group_name, "._('code').": $group_code)";
+
+						$_SESSION['error_string'] = $string_group_edit." ("._('group').": $group_name, "._('code').": $group_code)";
 					}
 				}
 				header("Location: "._u('index.php?app=main&inc=feature_phonebook&route=group&op=edit&gpid='.$gpid));
