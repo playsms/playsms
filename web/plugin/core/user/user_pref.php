@@ -64,7 +64,7 @@ switch (_OP_) {
 		}
 		if ($uname && auth_isadmin()) {
 			$form_title = _('Manage user');
-			$button_delete = "<input type=button class=button value='" . _('Delete') . "' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=main&inc=user_mgmnt&op=user_del" . $url_uname . "')\">";
+			$button_delete = "<input type=button class=button value='" . _('Delete') . "' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=main&inc=user_mgmnt&op=user_del" . $url_uname . "&view=".$view."')\">";
 			$button_back = _back('index.php?app=main&inc=user_mgmnt&op=user_list&view='.$view);
 		} else {
 			$form_title = _('Preferences');

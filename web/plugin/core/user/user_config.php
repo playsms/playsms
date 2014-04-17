@@ -31,9 +31,6 @@ $view = $_REQUEST['view'];
 
 switch (_OP_) {
 	case "user_config":
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
-		}
 		if ($c_user = dba_search(_DB_PREF_.'_tblUser', '*', array('username' => $c_username))) {
 			$token = $c_user[0]['token'];
 			$webservices_ip = $c_user[0]['webservices_ip'];
@@ -162,15 +159,22 @@ switch (_OP_) {
 			}
 		}
 
+		// admin or normal users
 		if ($uname && auth_isadmin()) {
 			$content .= "<h2>" . _('Manage user') . "</h2>";
 			$option_credit = "<tr><td>" . _('Credit') . "</td><td><input type=text size=10 maxlength=10 name=up_credit value=\"$credit\"></td></tr>";
-			$button_delete = "<input type=button class=button value='" . _('Delete') . "' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=main&inc=user_mgmnt&op=user_del" . $url_uname . "')\">";
+			$button_delete = "<input type=button class=button value='" . _('Delete') . "' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=main&inc=user_mgmnt&op=user_del" . $url_uname . "&view=".$view."')\">";
 			$button_back = _back('index.php?app=main&inc=user_mgmnt&op=user_list&view='.$view);
 		} else {
 			$content .= "<h2>" . _('User configuration') . "</h2>";
 			$option_credit = "<tr><td>" . _('Credit') . "</td><td>$credit</td></tr>";
 		}
+
+		// error string
+		if ($err = $_SESSION['error_string']) {
+			$error_content = "<div class=error_string>$err</div>";
+		}
+
 		$tpl = array(
 		    'name' => 'user_config',
 		    'var' => array(
@@ -267,7 +271,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Username is empty');
 		}
-		header("Location: "._u('index.php?app=main&inc=user_config&op=user_config'.$url_uname.'&view='.$view));
+		header("Location: "._u('index.php?app=main&inc=core_user&route=user_config&op=user_config'.$url_uname.'&view='.$view));
 		exit();
 		break;
 }

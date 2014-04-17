@@ -77,10 +77,10 @@ switch (_OP_) {
 		for ($i=0;$i<count($list);$i++) {
 
 			// user preferences
-			$action = "<a href=\""._u('index.php?app=main&inc=user_pref&op=user_pref&uname='.$list[$i]['username'])."&view=".$view."\">".$icon_config['user_pref']."</a>";
+			$action = "<a href=\""._u('index.php?app=main&inc=core_user&route=user_pref&op=user_pref&uname='.$list[$i]['username'])."&view=".$view."\">".$icon_config['user_pref']."</a>";
 
 			// user configurations
-			$action .= "<a href=\""._u('index.php?app=main&inc=user_config&op=user_config&uname='.$list[$i]['username'])."&view=".$view."\">".$icon_config['user_config']."</a>";
+			$action .= "<a href=\""._u('index.php?app=main&inc=core_user&route=user_config&op=user_config&uname='.$list[$i]['username'])."&view=".$view."\">".$icon_config['user_config']."</a>";
 
 			if ($list[$i]['uid'] != '1' || $list[$i]['uid'] != $user_config['uid']) {
 				if (user_banned_get($list[$i]['uid'])) {
