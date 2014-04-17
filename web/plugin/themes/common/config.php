@@ -97,7 +97,7 @@ if (auth_isadmin()) {
 			1
 		) ,
 		array(
-			'index.php?app=main&inc=user_mgmnt&op=user_list',
+			'index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list',
 			_('Manage user') ,
 			2
 		) ,

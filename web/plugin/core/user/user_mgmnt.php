@@ -43,7 +43,7 @@ switch (_OP_) {
 		$search = themes_search($search_var);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_.'_tblUser', $conditions, $keywords);
-		$nav = themes_nav($count, "index.php?app=main&inc=user_mgmnt&op=user_list&view=".$view);
+		$nav = themes_nav($count, "index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=".$view);
 		$extras = array('ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
 		$list = dba_search(_DB_PREF_.'_tblUser', '*', $conditions, $keywords, $extras);
 		if ($err = $_SESSION['error_string']) {
@@ -51,13 +51,13 @@ switch (_OP_) {
 		}
 		$content .= "
 			<h2>" . _('Manage user') . "</h2>
-			<input type='button' ".$disabled_on_admin." value='" . _('Administrators') . "' onClick=\"javascript:linkto('"._u('index.php?app=main&inc=user_mgmnt&op=user_list&view=admin')."')\" class=\"button\" />
-			<input type='button' ".$disabled_on_users." value='" . _('Normal users') . "' onClick=\"javascript:linkto('"._u('index.php?app=main&inc=user_mgmnt&op=user_list&view=users')."')\" class=\"button\" />
+			<input type='button' ".$disabled_on_admin." value='" . _('Administrators') . "' onClick=\"javascript:linkto('"._u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=admin')."')\" class=\"button\" />
+			<input type='button' ".$disabled_on_users." value='" . _('Normal users') . "' onClick=\"javascript:linkto('"._u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=users')."')\" class=\"button\" />
 			".$form_sub_title."
 			<p>".$search['form']."</p>			
 			<div class=actions_box>
 				<div class=pull-left>
-					<a href=\""._u('index.php?app=main&inc=user_mgmnt&op=user_add&view='.$view)."\">".$icon_config['add']."</a>
+					<a href=\""._u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_add&view='.$view)."\">".$icon_config['add']."</a>
 				</div>
 				<div class=pull-right>
 				</div>
@@ -85,17 +85,17 @@ switch (_OP_) {
 			if ($list[$i]['uid'] != '1' || $list[$i]['uid'] != $user_config['uid']) {
 				if (user_banned_get($list[$i]['uid'])) {
 					// unban
-					$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to unban user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=main&inc=user_mgmnt&op=user_unban&uname='.$list[$i]['username'])."&view=".$view."')\">".$icon_config['unban']."</a>";
+					$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to unban user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_unban&uname='.$list[$i]['username'])."&view=".$view."')\">".$icon_config['unban']."</a>";
 					$banned_icon = $icon_config['ban'];
 				} else {
 					// ban
-					$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to ban user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=main&inc=user_mgmnt&op=user_ban&uname='.$list[$i]['username'])."&view=".$view."')\">".$icon_config['ban']."</a>";
+					$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to ban user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_ban&uname='.$list[$i]['username'])."&view=".$view."')\">".$icon_config['ban']."</a>";
 					$banned_icon = '';
 				}
 			}
 		
 			// remove user
-			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=main&inc=user_mgmnt&op=user_del&uname='.$list[$i]['username'])."&view=".$view."')\">".$icon_config['user_delete']."</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_del&uname='.$list[$i]['username'])."&view=".$view."')\">".$icon_config['user_delete']."</a>";
 			
 			$j--;
 			$content .= "
@@ -154,7 +154,7 @@ switch (_OP_) {
 		$content .= "
 		<h2>"._('Manage user')."</h2>
 		<h3>".$form_sub_title."</h3>
-		<form action='index.php?app=main&inc=user_mgmnt&op=user_add_yes&view=".$view."' method=POST>
+		<form action='index.php?app=main&inc=core_user&route=user_mgmnt&op=user_add_yes&view=".$view."' method=POST>
 		"._CSRF_FORM_."
 		<table class=playsms-table>
 		<tbody>
@@ -195,7 +195,7 @@ switch (_OP_) {
 		</table>
 		<p><input type='submit' class='button' value='" . _('Save') . "'></p>
 		</form>
-		"._back('index.php?app=main&inc=user_mgmnt&op=user_list&view='.$view);
+		"._back('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view='.$view);
 		_p($content);
 		break;
 
@@ -213,7 +213,7 @@ switch (_OP_) {
 		$add['language_module'] = $_POST['add_language_module'];
 		$ret = user_add($add);
 		$_SESSION['error_string'] = $ret['error_string'];
-		header("Location: "._u('index.php?app=main&inc=user_mgmnt&op=user_add&view='.$view));
+		header("Location: "._u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_add&view='.$view));
 		exit();
 		break;
 
@@ -222,7 +222,7 @@ switch (_OP_) {
 		$del_uid = user_username2uid($up['username']);
 		$ret = user_remove($del_uid);
 		$_SESSION['error_string'] = $ret['error_string'];
-		header("Location: "._u('index.php?app=main&inc=user_mgmnt&op=user_list&view='.$view));
+		header("Location: "._u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view='.$view));
 		exit();
 		break;
 
@@ -239,7 +239,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('User is not on banned users list').' ('._('username').': '.$_REQUEST['uname'].')';
 		}
-		header("Location: "._u('index.php?app=main&inc=user_mgmnt&op=user_list&view='.$view));
+		header("Location: "._u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view='.$view));
 		exit();
 		break;
 
@@ -256,7 +256,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('Unable to ban user').' ('._('username').': '.$_REQUEST['uname'].')';
 			}
 		}
-		header("Location: "._u('index.php?app=main&inc=user_mgmnt&op=user_list&view='.$view));
+		header("Location: "._u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view='.$view));
 		exit();
 		break;
 }

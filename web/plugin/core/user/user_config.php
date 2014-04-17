@@ -49,7 +49,7 @@ switch (_OP_) {
 			$credit = rate_getusercredit($c_username);
 		} else {
 			$_SESSION['error_string'] = _('User does not exists').' ('._('username').': '.$uname.')';
-			header("Location: "._u('index.php?app=main&inc=user_mgmnt&op=user_list&view='.$view));
+			header("Location: "._u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view='.$view));
 			exit();
 		}
 
@@ -163,8 +163,8 @@ switch (_OP_) {
 		if ($uname && auth_isadmin()) {
 			$content .= "<h2>" . _('Manage user') . "</h2>";
 			$option_credit = "<tr><td>" . _('Credit') . "</td><td><input type=text size=10 maxlength=10 name=up_credit value=\"$credit\"></td></tr>";
-			$button_delete = "<input type=button class=button value='" . _('Delete') . "' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=main&inc=user_mgmnt&op=user_del" . $url_uname . "&view=".$view."')\">";
-			$button_back = _back('index.php?app=main&inc=user_mgmnt&op=user_list&view='.$view);
+			$button_delete = "<input type=button class=button value='" . _('Delete') . "' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=main&inc=core_user&route=user_mgmnt&op=user_del" . $url_uname . "&view=".$view."')\">";
+			$button_back = _back('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view='.$view);
 		} else {
 			$content .= "<h2>" . _('User configuration') . "</h2>";
 			$option_credit = "<tr><td>" . _('Credit') . "</td><td>$credit</td></tr>";
