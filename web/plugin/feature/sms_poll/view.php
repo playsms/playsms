@@ -9,10 +9,10 @@ switch (_OP_) {
 		$conditions['poll_id'] = $poll_id;
 		$list = dba_search(_DB_PREF_.'_featurePoll', '*', $conditions);
 		$poll_keyword = $list[0]['poll_keyword'];
-		$output_serialize = $core_config['http_path']['base']."/index.php?app=webservices&ta=sms_poll&keyword=".urlencode($poll_keyword)."&type=serialize";
-		$output_json = $core_config['http_path']['base']."/index.php?app=webservices&ta=sms_poll&keyword=".urlencode($poll_keyword)."&type=json";
-		$output_xml = $core_config['http_path']['base']."/index.php?app=webservices&ta=sms_poll&keyword=".urlencode($poll_keyword)."&type=xml";
-		$output_graph = $core_config['http_path']['base']."/index.php?app=webservices&ta=sms_poll&keyword=".urlencode($poll_keyword)."&type=graph";
+		$output_serialize = $core_config['http_path']['base']."/index.php?app=webservices&op=sms_poll&keyword=".urlencode($poll_keyword)."&type=serialize";
+		$output_json = $core_config['http_path']['base']."/index.php?app=webservices&op=sms_poll&keyword=".urlencode($poll_keyword)."&type=json";
+		$output_xml = $core_config['http_path']['base']."/index.php?app=webservices&op=sms_poll&keyword=".urlencode($poll_keyword)."&type=xml";
+		$output_graph = $core_config['http_path']['base']."/index.php?app=webservices&op=sms_poll&keyword=".urlencode($poll_keyword)."&type=graph";
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}

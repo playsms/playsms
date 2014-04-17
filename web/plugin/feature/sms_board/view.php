@@ -8,15 +8,15 @@ switch (_OP_) {
 		$conditions['board_id'] = $board_id;
 		$list = dba_search(_DB_PREF_.'_featureBoard', '*', $conditions);
 		$board_keyword = $list[0]['board_keyword'];
-		$output_serialize = $core_config['http_path']['base']."/index.php?app=webservices&ta=sms_board&keyword=".urlencode($board_keyword)."&type=serialize";
-		$output_json = $core_config['http_path']['base']."/index.php?app=webservices&ta=sms_board&keyword=".urlencode($board_keyword)."&type=json";
-		$output_xml = $core_config['http_path']['base']."/index.php?app=webservices&ta=sms_board&keyword=".urlencode($board_keyword)."&type=xml";
-		$output_rss091 = $core_config['http_path']['base']."/index.php?app=webservices&ta=sms_board&keyword=".urlencode($board_keyword)."&type=feed&format=rss0.91";
-		$output_rss10 = $core_config['http_path']['base']."/index.php?app=webservices&ta=sms_board&keyword=".urlencode($board_keyword)."&type=feed&format=1.0";
-		$output_rss20 = $core_config['http_path']['base']."/index.php?app=webservices&ta=sms_board&keyword=".urlencode($board_keyword)."&type=feed&format=2.0";
-		$output_atom = $core_config['http_path']['base']."/index.php?app=webservices&ta=sms_board&keyword=".urlencode($board_keyword)."&type=feed&format=atom";
-		$output_mbox = $core_config['http_path']['base']."/index.php?app=webservices&ta=sms_board&keyword=".urlencode($board_keyword)."&type=feed&format=mbox";
-		$output_html = $core_config['http_path']['base']."/index.php?app=webservices&ta=sms_board&keyword=".urlencode($board_keyword)."&type=html";
+		$output_serialize = $core_config['http_path']['base']."/index.php?app=webservices&op=sms_board&keyword=".urlencode($board_keyword)."&type=serialize";
+		$output_json = $core_config['http_path']['base']."/index.php?app=webservices&op=sms_board&keyword=".urlencode($board_keyword)."&type=json";
+		$output_xml = $core_config['http_path']['base']."/index.php?app=webservices&op=sms_board&keyword=".urlencode($board_keyword)."&type=xml";
+		$output_rss091 = $core_config['http_path']['base']."/index.php?app=webservices&op=sms_board&keyword=".urlencode($board_keyword)."&type=feed&format=rss0.91";
+		$output_rss10 = $core_config['http_path']['base']."/index.php?app=webservices&op=sms_board&keyword=".urlencode($board_keyword)."&type=feed&format=1.0";
+		$output_rss20 = $core_config['http_path']['base']."/index.php?app=webservices&op=sms_board&keyword=".urlencode($board_keyword)."&type=feed&format=2.0";
+		$output_atom = $core_config['http_path']['base']."/index.php?app=webservices&op=sms_board&keyword=".urlencode($board_keyword)."&type=feed&format=atom";
+		$output_mbox = $core_config['http_path']['base']."/index.php?app=webservices&op=sms_board&keyword=".urlencode($board_keyword)."&type=feed&format=mbox";
+		$output_html = $core_config['http_path']['base']."/index.php?app=webservices&op=sms_board&keyword=".urlencode($board_keyword)."&type=html";
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
