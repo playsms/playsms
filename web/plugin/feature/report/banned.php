@@ -24,7 +24,7 @@ if ($err = $_SESSION['error_string']) {
 
 $tpl = array(
 	'name' => 'report_banned',
-	'var' => array(
+	'vars' => array(
 		'Report' => _('Report'),
 		'Banned users list' => _('Banned users list'),
 		'ERROR' => $error_content,
@@ -39,7 +39,7 @@ $tpl = array(
 
 $users = report_banned_admin();
 foreach ($users as $user) {
-	$tpl['loop']['data'][] = array(
+	$tpl['loops']['data'][] = array(
 		'tr_class' => $tr_class,
 		'username' => $user['username'],
 		'is_admin' => $user['icon_is_admin'],
@@ -53,7 +53,7 @@ foreach ($users as $user) {
 
 $users = report_banned_user();
 foreach ($users as $user) {
-	$tpl['loop']['data'][] = array(
+	$tpl['loops']['data'][] = array(
 		'tr_class' => $tr_class,
 		'username' => $user['username'],
 		'is_admin' => $user['icon_is_admin'],

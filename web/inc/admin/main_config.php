@@ -133,7 +133,7 @@ switch (_OP_) {
 		}
 		$tpl = array(
 			'name' => 'main_config',
-			'var' => array(
+			'vars' => array(
 				'ERROR' => $error_content,
 				'Main configuration' => _('Main configuration') ,
 				'Website title' => _('Website title') ,

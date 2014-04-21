@@ -22,7 +22,7 @@ switch (_OP_) {
 		unset($tpl);
 		$tpl = array(
 			'name' => 'sms_sync',
-			'var' => array(
+			'vars' => array(
 				'ERROR' => $error_content,
 				'HINT_SECRET' => _hint(_('Secret key is used in SMSSync app')),
 				'HINT_ENABLE' => _hint(_('Check to enable receiving push messages from SMSSync app')),

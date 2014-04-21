@@ -23,7 +23,7 @@ switch (_OP_) {
 		}
 		$tpl = array(
 		    'name' => 'nexmo',
-		    'var' => array(
+		    'vars' => array(
 			'ERROR' => $error_content,
 			'Manage nexmo' => _('Manage nexmo'),
 			'Gateway name' => _('Gateway name'),

@@ -6,7 +6,7 @@ function ubuntu_hook_themes_apply($content) {
 	unset($tpl);
 	$tpl = array(
 		'name' => 'themes_layout',
-		'var' => array(
+		'vars' => array(
 			'CONTENT' => $content,
 			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
 			'HTTP_PATH_THEMES' => $core_config['http_path']['themes'],
@@ -17,7 +17,7 @@ function ubuntu_hook_themes_apply($content) {
 			'GRAVATAR' => $user_config['opt']['gravatar'],
 			'Logout' => _('Logout')
 		) ,
-		'if' => array(
+		'ifs' => array(
 			'valid' => auth_isvalid()
 		)
 	);

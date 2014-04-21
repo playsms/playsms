@@ -177,7 +177,7 @@ switch (_OP_) {
 
 		$tpl = array(
 		    'name' => 'user_config',
-		    'var' => array(
+		    'vars' => array(
 			'Application options' => _('Application options'),
 			'Username' => _('Username'),
 			'Effective SMS sender ID' => _('Effective SMS sender ID'),

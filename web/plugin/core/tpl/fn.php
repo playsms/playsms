@@ -33,7 +33,7 @@ function _tpl_apply($fn, $tpl, $injected = array()) {
 	$t->dir_cache = _APPS_PATH_STORAGE_ . '/plugin/core/tpl';
 	
 	$t->setTemplate($fn);
-	$t->setVars($tpl['var'])->setIfs($tpl['if'])->setLoops($tpl['loop']);
+	$t->setVars($tpl['vars'])->setIfs($tpl['ifs'])->setLoops($tpl['loops']);
 	$t->setInjects($injected);
 	$t->compile();
 	
@@ -74,7 +74,7 @@ function tpl_apply($tpl, $injected = array()) {
 	if ($continue) {
 		
 		// inject anti-CSRF hidden field
-		$tpl['var']['CSRF_FORM'] = _CSRF_FORM_;
+		$tpl['vars']['CSRF_FORM'] = _CSRF_FORM_;
 		
 		// check from active plugin
 		$c_inc = explode('_', _INC_);

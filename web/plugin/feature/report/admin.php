@@ -5,7 +5,7 @@ if (!auth_isadmin()) {
 
 $tpl = array(
 	'name' => 'report_admin',
-	'var' => array(
+	'vars' => array(
 		'Report' => _('Report') ,
 		'All reports' => _('All reports') ,
 		'User' => _('User') ,
@@ -61,7 +61,7 @@ foreach ($rows as $row) {
 		$c_is_admin = $icon_config['admin'];
 	}
 	
-	$tpl['loop']['data'][] = array(
+	$tpl['loops']['data'][] = array(
 		'tr_class' => $tr_class,
 		'c_username' => $c_username,
 		'c_is_admin' => $c_is_admin,
@@ -76,13 +76,13 @@ foreach ($rows as $row) {
 
 $sum_total = ($sum_num_rows_pending + $sum_num_rows_delivered + $sum_num_rows_sent + $sum_num_rows_failed);
 
-$tpl['var']['Total'] = _('Total');
-$tpl['var']['sum_total'] = $sum_total;
-$tpl['var']['sum_num_rows_pending'] = $sum_num_rows_pending;
-$tpl['var']['sum_num_rows_sent'] = $sum_num_rows_sent;
-$tpl['var']['sum_num_rows_delivered'] = $sum_num_rows_delivered;
-$tpl['var']['sum_num_rows_failed'] = $sum_num_rows_failed;
-$tpl['var']['sum_billing'] = $sum_billing;
-$tpl['var']['sum_credit'] = $sum_credit;
+$tpl['vars']['Total'] = _('Total');
+$tpl['vars']['sum_total'] = $sum_total;
+$tpl['vars']['sum_num_rows_pending'] = $sum_num_rows_pending;
+$tpl['vars']['sum_num_rows_sent'] = $sum_num_rows_sent;
+$tpl['vars']['sum_num_rows_delivered'] = $sum_num_rows_delivered;
+$tpl['vars']['sum_num_rows_failed'] = $sum_num_rows_failed;
+$tpl['vars']['sum_billing'] = $sum_billing;
+$tpl['vars']['sum_credit'] = $sum_credit;
 
 _p(tpl_apply($tpl));

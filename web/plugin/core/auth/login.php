@@ -52,7 +52,7 @@ if (_OP_ == 'login') {
 	unset($tpl);
 	$tpl = array(
 		'name' => 'auth_login',
-		'var' => array(
+		'vars' => array(
 			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
 			'WEB_TITLE' => $web_title,
 			'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=login&op=login') ,
@@ -66,7 +66,7 @@ if (_OP_ == 'login') {
 			'Recover password' => _('Recover password') ,
 			'logo_url' => $core_config['main']['logo_url']
 		) ,
-		'if' => array(
+		'ifs' => array(
 			'enable_register' => $core_config['main']['enable_register'],
 			'enable_forgot' => $core_config['main']['enable_forgot'],
 			'enable_logo' => $core_config['main']['enable_logo'],

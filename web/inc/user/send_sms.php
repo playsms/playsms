@@ -64,7 +64,7 @@ switch (_OP_) {
 		unset($tpl);
 		$tpl = array(
 		    'name' => 'send_sms',
-		    'var' => array(
+		    'vars' => array(
 			'Send message' => _('Send message'),
 			'SMS sender ID' => _('SMS sender ID'),
 			'SMS footer' => _('SMS footer'),
@@ -99,7 +99,7 @@ switch (_OP_) {
 			'chars' => _('chars'),
 			'SMS' => _('SMS')
 		    ),
-		    'if' => array(
+		    'ifs' => array(
 			'calendar' => file_exists($core_config['apps_path']['themes'].'/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.'.substr($user_config['language_module'], 0, 2).'.js'),
 			'combobox' => file_exists($core_config['apps_path']['themes'].'/common/jscss/combobox/select2_locale_'.substr($user_config['language_module'], 0, 2).'.js')
 		    )

@@ -72,7 +72,7 @@ switch (_OP_) {
 		unset($tpl);
 		$tpl = array(
 		    'name' => 'user_pref',
-		    'var' => array(
+		    'vars' => array(
 			'Login information' => _('Login information'),
 			'Username' => _('Username'),
 			'Password' => _('Password'),

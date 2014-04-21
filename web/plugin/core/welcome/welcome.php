@@ -28,12 +28,12 @@ if (file_exists($fn)) {
 	unset($tpl);
 	$tpl = array(
 		'name' => 'welcome',
-		'var' => array(
+		'vars' => array(
 			'Welcome to playSMS' => _('Welcome to playSMS'),
 			'version' => _('version'),
 			'VERSION' => core_get_version()
 		)
 	);
-	$tpl['var'][$doc . '_ACTIVE'] = 'class=active';
+	$tpl['vars'][$doc . '_ACTIVE'] = 'class=active';
 	_p(tpl_apply($tpl));
 }

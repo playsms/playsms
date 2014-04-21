@@ -40,7 +40,7 @@ if (_OP_ == 'block') {
 	unset($tpl);
 	$tpl = array(
 		'name' => 'auth_block',
-		'var' => array(
+		'vars' => array(
 			'ERROR' => $error_content,
 			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
 			'Home' => _('Home')

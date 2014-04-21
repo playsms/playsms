@@ -16,7 +16,7 @@ if (_OP_ == 'kick') {
 
 $tpl = array(
 	'name' => 'report_online',
-	'var' => array(
+	'vars' => array(
 		'Report' => _('Report') ,
 		'Whose online' => _('Whose online') ,
 		'User' => _('User') ,
@@ -32,7 +32,7 @@ $tpl = array(
 $users = report_whoseonline_admin();
 foreach ($users as $user) {
 	foreach ($user as $hash) {
-		$tpl['loop']['data'][] = array(
+		$tpl['loops']['data'][] = array(
 			'tr_class' => $tr_class,
 			'c_username' => $hash['username'],
 			'c_is_admin' => $hash['icon_is_admin'],
@@ -50,7 +50,7 @@ foreach ($users as $user) {
 $users = report_whoseonline_user();
 foreach ($users as $user) {
 	foreach ($user as $hash) {
-		$tpl['loop']['data'][] = array(
+		$tpl['loops']['data'][] = array(
 			'tr_class' => $tr_class,
 			'c_username' => $hash['username'],
 			'c_is_admin' => $hash['icon_is_admin'],

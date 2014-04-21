@@ -13,7 +13,7 @@ switch (_OP_) {
 	case 'list':
 		unset($tpl);
 		$tpl = array(
-			'var' => array(
+			'vars' => array(
 				'ERROR' => $error_content,
 				'Group inbox' => _('Group inbox'),
 				'Add group inbox' => _button('index.php?app=main&inc=feature_inboxgroup&op=add', _('Add group inbox')),
@@ -35,7 +35,7 @@ switch (_OP_) {
 			$c_status = $data[$i]['status'] ? "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&op=disable&rid='.$c_rid)."'><span class=status_enabled /></a>" : "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&op=enable&rid='.$c_rid)."'><span class=status_disabled /></a>";
 			$c_action = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&op=edit&rid='.$c_rid)."'>".$icon_config['edit']."</a> ";
 			$c_action .= "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&op=del&rid='.$c_rid)."'>".$icon_config['delete']."</a> ";
-			$tpl['loop']['data'][] = array(
+			$tpl['loops']['data'][] = array(
 			    'tr_class' => $tr_class,
 			    'in_receiver' => $data[$i]['in_receiver'],
 			    'keywords' => str_replace(',',', ',$data[$i]['keywords']),
@@ -56,7 +56,7 @@ switch (_OP_) {
 		unset($tpl);
 		$tpl = array(
 		    'name' => 'inboxgroup_add',
-		    'var' => array(
+		    'vars' => array(
 			'ERROR' => $error_content,
 			'Group inbox' => _('Group inbox'),
 			'Add group inbox' => _('Add group inbox'),
@@ -102,7 +102,7 @@ switch (_OP_) {
 		unset($tpl);
 		$tpl = array(
 		    'name' => 'inboxgroup_edit',
-		    'var' => array(
+		    'vars' => array(
 			'ERROR' => $error_content,
 			'Group inbox' => _('Group inbox'),
 			'Edit group inbox' => _('Edit group inbox'),
@@ -159,7 +159,7 @@ switch (_OP_) {
 		unset($tpl);
 		$tpl = array(
 		    'name' => 'inboxgroup_del',
-		    'var' => array(
+		    'vars' => array(
 			'ERROR' => $error_content,
 			'Group inbox' => _('Group inbox'),
 			'Delete group inbox' => _('Delete group inbox'),

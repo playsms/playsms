@@ -33,7 +33,7 @@ switch (_OP_) {
 		$list = dba_search(_DB_PREF_.'_tblUser_inbox', '*', $conditions, $keywords, $extras);
 		unset($tpl);
 		$tpl = array(
-			'var' => array(
+			'vars' => array(
 				'SEARCH_FORM' => $search['form'],
 				'NAV_FORM' => $nav['form'],
 				'Inbox' => _('Inbox'),
@@ -65,7 +65,7 @@ switch (_OP_) {
 				$forward = _a('index.php?app=main&inc=send_sms&op=send_sms&do=forward&message='.urlencode($msg), $icon_config['forward']);
 			}
 			$i--;
-			$tpl['loop']['data'][] = array(
+			$tpl['loops']['data'][] = array(
 			    'tr_class' => $tr_class,
 			    'current_sender' => $current_sender,
 			    'in_msg' => $in_msg,
@@ -81,7 +81,7 @@ switch (_OP_) {
 		if ($err = $_SESSION['error_string']) {
 			$error_content = "<div class=error_string>$err</div>";
 		}
-		$tpl['var']['ERROR'] = $error_content;
+		$tpl['vars']['ERROR'] = $error_content;
 		$tpl['name'] = 'user_inbox';
 		$content = tpl_apply($tpl);
 		_p($content);

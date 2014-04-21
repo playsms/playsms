@@ -19,7 +19,7 @@ switch (_OP_) {
 		
 		$tpl = array(
 			'name' => 'playsmslog',
-			'var' => array(
+			'vars' => array(
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
 				'LOG_FILE' => $core_config['apps_path']['logs'] . '/playsms.log',
 				'PLAYSMSD_IS_RUNNING' => $playsmsd_is_running,

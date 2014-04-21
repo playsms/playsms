@@ -18,7 +18,7 @@ $credit = $user_config['credit'];
 
 $tpl = array(
 	'name' => 'report_user',
-	'var' => array(
+	'vars' => array(
 		'Report' => _('Report') ,
 		'My report' => _('My report') ,
 		'Pending' => _('Pending') ,

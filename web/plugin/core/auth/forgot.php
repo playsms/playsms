@@ -72,7 +72,7 @@ if (_OP_ == 'forgot') {
 	unset($tpl);
 	$tpl = array(
 		'name' => 'auth_forgot',
-		'var' => array(
+		'vars' => array(
 			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
 			'WEB_TITLE' => $web_title,
 			'ERROR' => $error_content,
@@ -87,7 +87,7 @@ if (_OP_ == 'forgot') {
 			'Register an account' => _('Register an account') ,
 			'logo_url' => $core_config['main']['logo_url']
 		) ,
-		'if' => array(
+		'ifs' => array(
 			'enable_register' => $core_config['main']['enable_register'],
 			'enable_logo' => $core_config['main']['enable_logo'],
 			'logo_replace_title' => ($core_config['main']['logo_replace_title'] ? FALSE : TRUE) ,
