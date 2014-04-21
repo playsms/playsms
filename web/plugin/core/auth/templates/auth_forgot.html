@@ -1,7 +1,7 @@
 <table width='100%'>
 	<tbody>
 
-	<tr><td>{ERROR}</td></tr>
+	<tr><td>{{ ERROR }}</td></tr>
 	<tr>
 		<td align="center">
 
@@ -10,15 +10,15 @@
 
 			<tr>
 				<td>
-				<form action="{URL_ACTION}" method=POST>
-				{CSRF_FORM}
+				<form action="{{ URL_ACTION }}" method=POST>
+				{{ CSRF_FORM }}
 				<table width="80%" align="center">
 					<tbody>
 
 					<if.enable_logo>
 					<tr>
 						<td>
-							<a href="{HTTP_PATH_BASE}"><img class="playsms-logo" src="{logo_url}" alt="{WEB_TITLE}"></a>
+							<a href="{{ HTTP_PATH_BASE }}"><img class="playsms-logo" src="{{ logo_url }}" alt="{{ WEB_TITLE }}"></a>
 						</td>
 					</tr>
 					</if.enable_logo>
@@ -26,34 +26,34 @@
 					<if.logo_replace_title>
 					<tr>
 						<td align="center">
-							<h1><a href={HTTP_PATH_BASE}>{WEB_TITLE}</a></h1>
+							<h1><a href={{ HTTP_PATH_BASE }}>{{ WEB_TITLE }}</a></h1>
 						</td>
 					</tr>
 					</if.logo_replace_title>
 
 					<tr>
 						<td align="center">
-							<h3>{Recover password}</h3>
+							<h3>{{ Recover password }}</h3>
 						</td>
 					</tr>
 					
 					<tr>
-						<td><input type=text class=form-control placeholder="{Username}" name=username maxlength=100></td>
+						<td><input type=text class=form-control placeholder="{{ Username }}" name=username maxlength=100></td>
 					</tr>
 					<tr>
-						<td><input type=text class=form-control placeholder="{Email}" name=email maxlength=100></td>
+						<td><input type=text class=form-control placeholder="{{ Email }}" name=email maxlength=100></td>
 					</tr>
 					<tr>
-						<td><input type=submit class=button value='{Submit}'></td>
+						<td><input type=submit class=button value='{{ Submit }}'></td>
 					</tr>
 					<tr><td>&nbsp;</td></tr>
 
 					<tr>
 						<td>
 							<if.enable_register>
-							<p><a href="{URL_REGISTER}">{Register an account}</a></p>
+							<p><a href="{{ URL_REGISTER }}">{{ Register an account }}</a></p>
 							</if.enable_register>
-							<p><a href="{URL_LOGIN}">{Login}</a></p>
+							<p><a href="{{ URL_LOGIN }}">{{ Login }}</a></p>
 						</td>
 					</tr>
 					<tr><td>&nbsp;</td></tr>

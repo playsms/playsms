@@ -1,30 +1,30 @@
-{ERROR}
-<h2>{Group inbox}</h2>
-<p>{Add group inbox}
+{{ ERROR }}
+<h2>{{ Group inbox }}</h2>
+<p>{{ Add group inbox }}
 <div class=table-responsive>
 <table class=playsms-table-list>
 	<thead>
 		<tr>
-			<th width=20%>{Receiver number}</th>
-			<th width=30%>{Keywords}</th>
-			<th width=15%>{Members}</th>
-			<th width=15%>{Catch-all}</th>
-			<th width=10%>{Status}</th>
-			<th width=10%>{Action}</th>
+			<th width=20%>{{ Receiver number }}</th>
+			<th width=30%>{{ Keywords }}</th>
+			<th width=15%>{{ Members }}</th>
+			<th width=15%>{{ Catch-all }}</th>
+			<th width=10%>{{ Status }}</th>
+			<th width=10%>{{ Action }}</th>
 		</tr>
 	</thead>
 	<tbody>
 		<loop.data>
-		<tr class={data.tr_class}>
-			<td>{data.in_receiver}</td>
-			<td>{data.keywords}</td>
-			<td>{data.members}</td>
-			<td>{data.catchall}</td>
-			<td>{data.status}</td>
-			<td>{data.action}</td>
+		<tr class={{ data.tr_class }}>
+			<td>{{ data.in_receiver }}</td>
+			<td>{{ data.keywords }}</td>
+			<td>{{ data.members }}</td>
+			<td>{{ data.catchall }}</td>
+			<td>{{ data.status }}</td>
+			<td>{{ data.action }}</td>
 		</tr>
 		</loop.data>
 	</tbody>
 </table>
 </div>
-<p>{Add group inbox}
+<p>{{ Add group inbox }}

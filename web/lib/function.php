@@ -19,9 +19,6 @@
 
 defined('_SECURE_') or die('Forbidden');
 
-// load composer based libs/plugins
-include _APPS_PATH_LIBS_ . '/composer/vendor/autoload.php';
-
 // main functions
 include $core_config['apps_path']['libs']."/fn_phonebook.php";
 include $core_config['apps_path']['libs']."/fn_rate.php";

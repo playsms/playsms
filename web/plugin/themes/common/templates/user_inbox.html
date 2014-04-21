@@ -1,43 +1,43 @@
-{ERROR}
-<h2>{Inbox}</h2>
-<p>{SEARCH_FORM}</p>
+{{ ERROR }}
+<h2>{{ Inbox }}</h2>
+<p>{{ SEARCH_FORM }}</p>
 <form id="fm_inbox" name="fm_inbox" action="index.php?app=main&inc=user_inbox&op=actions" method=post>
-{CSRF_FORM}
+{{ CSRF_FORM }}
 <input type=hidden name=go value="delete">
 <div class=actions_box>
 	<div class=pull-left>
-		<a href="index.php?app=main&inc=user_inbox&op=actions&go=export">{Export}</a>
+		<a href="index.php?app=main&inc=user_inbox&op=actions&go=export">{{ Export }}</a>
 	</div>
 	<div class="pull-right">
-		<a href='#' onClick="return SubmitConfirm('{ARE_YOU_SURE}', 'fm_inbox');">{Delete}</a>
+		<a href='#' onClick="return SubmitConfirm('{{ ARE_YOU_SURE }}', 'fm_inbox');">{{ Delete }}</a>
 	</div>
 </div>
 <div class=table-responsive>
 <table class=playsms-table-list>
 	<thead>
 		<tr>
-			<th width=20%>{From}</th>
-			<th width=75%>{Message}</th>
+			<th width=20%>{{ From }}</th>
+			<th width=75%>{{ Message }}</th>
 			<th width=5%><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></th>
 		</tr>
 	</thead>
 	<tbody>
 		<loop.data>
-		<tr class={data.tr_class}>
-			<td>{data.current_sender}</td>
+		<tr class={{ data.tr_class }}>
+			<td>{{ data.current_sender }}</td>
 			<td>
-				<div id="user_inbox_msg">{data.in_msg}</div>
-				<div id="msg_label">{data.in_datetime}&nbsp;{data.in_status}</div>
-				<div id="msg_option">{data.reply}&nbsp{data.forward}</div>
+				<div id="user_inbox_msg">{{ data.in_msg }}</div>
+				<div id="msg_label">{{ data.in_datetime }}&nbsp;{{ data.in_status }}</div>
+				<div id="msg_option">{{ data.reply }}&nbsp{{ data.forward }}</div>
 			</td>
 			<td>
-				<input type=hidden name=itemid{data.j} value={data.in_id}>
-				<input type=checkbox name=checkid{data.j}>
+				<input type=hidden name=itemid{{ data.j }} value={{ data.in_id }}>
+				<input type=checkbox name=checkid{{ data.j }}>
 			</td>
 		</tr>
 		</loop.data>
 	</tbody>
 </table>
 </div>
-<div class=pull-right>{NAV_FORM}</div>
+<div class=pull-right>{{ NAV_FORM }}</div>
 </form>

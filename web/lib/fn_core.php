@@ -818,6 +818,11 @@ function core_print($content) {
 }
 
 /**
+ * Include composer based packages
+ */
+include_once _APPS_PATH_LIBS_ . '/composer/vendor/autoload.php';
+
+/**
  * Include core functions on plugin core
  */
 

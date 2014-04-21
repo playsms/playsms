@@ -1,23 +1,23 @@
-{ERROR}
-<h2>{Manage nexmo}</h2>
+{{ ERROR }}
+<h2>{{ Manage nexmo }}</h2>
 <form action=index.php?app=main&inc=gateway_nexmo&op=manage_save method=post>
-{CSRF_FORM}
+{{ CSRF_FORM }}
 <table class=playsms-table>
 	<tbody>
-		<tr><td class=label-sizer>{Gateway name}</td><td>nexmo {status_active}</td></tr>
-		<tr><td>{Nexmo URL}</td><td><input type=text size=30 maxlength=250 name=up_url value="{nexmo_param_url}"> {HINT_JSON_FORMAT}</td></tr>
-		<tr><td>{API key}</td><td><input type=text size=30 maxlength=30 name=up_api_key value="{nexmo_param_api_key}"></td></tr>
-		<tr><td>{API secret}</td><td><input type=password size=30 maxlength=30 name=up_api_secret value=""> {HINT_FILL_SECRET}</td></tr>
-		<tr><td>{Module sender ID}</td><td><input type=text size=30 maxlength=16 name=up_global_sender value="{nexmo_param_global_sender}"> {HINT_GLOBAL_SENDER}</td></tr>
-		<tr><td>{Module timezone}</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value="{nexmo_param_datetime_timezone}"> {HINT_TIMEZONE}</td></tr>
+		<tr><td class=label-sizer>{{ Gateway name }}</td><td>nexmo {{ status_active }}</td></tr>
+		<tr><td>{{ Nexmo URL }}</td><td><input type=text size=30 maxlength=250 name=up_url value="{{ nexmo_param_url }}"> {{ HINT_JSON_FORMAT }}</td></tr>
+		<tr><td>{{ API key }}</td><td><input type=text size=30 maxlength=30 name=up_api_key value="{{ nexmo_param_api_key }}"></td></tr>
+		<tr><td>{{ API secret }}</td><td><input type=password size=30 maxlength=30 name=up_api_secret value=""> {{ HINT_FILL_SECRET }}</td></tr>
+		<tr><td>{{ Module sender ID }}</td><td><input type=text size=30 maxlength=16 name=up_global_sender value="{{ nexmo_param_global_sender }}"> {{ HINT_GLOBAL_SENDER }}</td></tr>
+		<tr><td>{{ Module timezone }}</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value="{{ nexmo_param_datetime_timezone }}"> {{ HINT_TIMEZONE }}</td></tr>
 	</tbody>
 </table>
-<p><input type=submit class=button value="{Save}">
+<p><input type=submit class=button value="{{ Save }}">
 </form>
 <br />
-{Notes}:<br />
-- {CALLBACK_URL_IS} {callback_url}<br />
-- {CALLBACK_URL_ACCESSIBLE}<br />
-- {NEXMO_PUSH_DLR}<br />
-- {NEXMO_IS_BULK}, <a href="http://www.nexmo.com" target="_blank">{NEXMO_FREE_CREDIT}</a><br />
-{BUTTON_BACK}
+{{ Notes }}:<br />
+- {{ CALLBACK_URL_IS }} {{ callback_url }}<br />
+- {{ CALLBACK_URL_ACCESSIBLE }}<br />
+- {{ NEXMO_PUSH_DLR }}<br />
+- {{ NEXMO_IS_BULK }}, <a href="http://www.nexmo.com" target="_blank">{{ NEXMO_FREE_CREDIT }}</a><br />
+{{ BUTTON_BACK }}

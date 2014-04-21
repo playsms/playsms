@@ -1,12 +1,12 @@
-<link rel="stylesheet" type="text/css" href="{HTTP_PATH_THEMES}/common/jscss/playsmslog.css" />
+<link rel="stylesheet" type="text/css" href="{{ HTTP_PATH_THEMES }}/common/jscss/playsmslog.css" />
 
-<h2>{View log}</h2>
+<h2>{{ View log }}</h2>
 
-<h3>{Daemon status} {PLAYSMSD_IS_RUNNING}</h3>
+<h3>{{ Daemon status }} {{ PLAYSMSD_IS_RUNNING }}</h3>
 
-<h3>{LOG_FILE}</h3>
+<h3>{{ LOG_FILE }}</h3>
 <div class=playsmslog_view>
-	<textarea id=playsmslog_view>{LOG}</textarea>
+	<textarea id=playsmslog_view>{{ LOG }}</textarea>
 </div>
 
 <script language='javascript' type='text/javascript'>

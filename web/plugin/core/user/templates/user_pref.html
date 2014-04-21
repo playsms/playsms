@@ -1,64 +1,64 @@
-{ERROR}
-<h2>{FORM_TITLE}</h2>
-<form action="index.php?app=main&inc=core_user&route=user_pref&op=user_pref_save{URL_UNAME}&view={VIEW}" method=post enctype="multipart/form-data">
-{CSRF_FORM}
+{{ ERROR }}
+<h2>{{ FORM_TITLE }}</h2>
+<form action="index.php?app=main&inc=core_user&route=user_pref&op=user_pref_save{{ URL_UNAME }}&view={{ VIEW }}" method=post enctype="multipart/form-data">
+{{ CSRF_FORM }}
 
-<h3>{Login information}</h3>
+<h3>{{ Login information }}</h3>
 <table class=playsms-table>
 	<tbody>
 		<tr>
-			<td class=label-sizer>{Username}</td>
-			<td>{c_username}</td>
+			<td class=label-sizer>{{ Username }}</td>
+			<td>{{ c_username }}</td>
 		</tr>
 		<tr>
-			<td>{Password}</td>
+			<td>{{ Password }}</td>
 			<td><input type=password size=30 maxlength=30 name=up_password></td>
 		</tr>
 		<tr>
-			<td>{Re-type password}</td>
+			<td>{{ Re-type password }}</td>
 			<td><input type=password size=30 maxlength=30 name=up_password_conf></td>
 		</tr>
 		<tr>
-			<td>{Name}</td>
-			<td><input type=text size=30 maxlength=100 name=up_name value="{name}"></td>
+			<td>{{ Name }}</td>
+			<td><input type=text size=30 maxlength=100 name=up_name value="{{ name }}"></td>
 		</tr>
 		<tr>
-			<td>{Email}</td>
-			<td><input type=text size=30 maxlength=250 name=up_email value="{email}"></td>
+			<td>{{ Email }}</td>
+			<td><input type=text size=30 maxlength=250 name=up_email value="{{ email }}"></td>
 		</tr>
 		<tr>
-			<td>{Mobile}</td>
-			<td><input type=text size=30 maxlength=20 name=up_mobile value="{mobile}"></td>
+			<td>{{ Mobile }}</td>
+			<td><input type=text size=30 maxlength=20 name=up_mobile value="{{ mobile }}"></td>
 		</tr>
 	</tbody>
 </table>
 
-<h3>{Personal information}</h3>
+<h3>{{ Personal information }}</h3>
 <table class=playsms-table>
 	<tbody>
 		<tr>
-			<td class=label-sizer>{Address}</td>
-			<td><input type=text size=30 maxlength=250 name=up_address value="{address}"></td>
+			<td class=label-sizer>{{ Address }}</td>
+			<td><input type=text size=30 maxlength=250 name=up_address value="{{ address }}"></td>
 		</tr>
 		<tr>
-			<td>{City}</td>
-			<td><input type=text size=30 maxlength=100 name=up_city value="{city}"></td>
+			<td>{{ City }}</td>
+			<td><input type=text size=30 maxlength=100 name=up_city value="{{ city }}"></td>
 		</tr>
 		<tr>
-			<td>{State or Province}</td>
-			<td><input type=text size=30 maxlength=100 name=up_state value="{state}"></td>
+			<td>{{ State or Province }}</td>
+			<td><input type=text size=30 maxlength=100 name=up_state value="{{ state }}"></td>
 		</tr>
 		<tr>
-			<td>{Country}</td>
-			<td><select name=up_country>{option_country}</select></td>
+			<td>{{ Country }}</td>
+			<td><select name=up_country>{{ option_country }}</select></td>
 		</tr>
 		<tr>
-			<td>{Zipcode}</td>
-			<td><input type=text size=10 maxlength=10 name=up_zipcode value="{zipcode}"></td>
+			<td>{{ Zipcode }}</td>
+			<td><input type=text size=10 maxlength=10 name=up_zipcode value="{{ zipcode }}"></td>
 		</tr>
 	</tbody>
 </table>
 
-<p><input type=submit class=button value='{Save}'> {BUTTON_DELETE}</p>
+<p><input type=submit class=button value='{{ Save }}'> {{ BUTTON_DELETE }}</p>
 </form>
-<p>{BUTTON_BACK}
+<p>{{ BUTTON_BACK }}
