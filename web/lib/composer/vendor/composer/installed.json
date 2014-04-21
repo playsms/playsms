@@ -1,0 +1,46 @@
+[
+    {
+        "name": "playsms/tpl",
+        "version": "1.0.2",
+        "version_normalized": "1.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/antonraharja/tpl.git",
+            "reference": "7c2cb6440699ffb5e92fd8a94df2e6f070eae28e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/antonraharja/tpl/zipball/7c2cb6440699ffb5e92fd8a94df2e6f070eae28e",
+            "reference": "7c2cb6440699ffb5e92fd8a94df2e6f070eae28e",
+            "shasum": ""
+        },
+        "time": "2014-04-21 04:25:25",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Playsms\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Anton Raharja",
+                "email": "antonrd@gmail.com",
+                "homepage": "http://antonraharja.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "Dead simple PHP template engine",
+        "homepage": "http://github.com/antonraharja/tpl",
+        "keywords": [
+            "layout",
+            "playsms",
+            "template",
+            "tpl"
+        ]
+    }
+]

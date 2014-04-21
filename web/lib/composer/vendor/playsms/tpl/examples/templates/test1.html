@@ -1,0 +1,21 @@
+<div>
+	<h1>TEST 1</h1>
+
+	<p>Title: {{ title }}</p>
+	<p>Content: {{ content }}</p>
+	<p>Data: {{ "This is data" }}</p>
+
+	<if.valid>
+	<p>This content shown only when <strong>if.valid</strong> is TRUE</p>
+	</if.valid>
+
+	<if.something>
+	<p>This content will NOT be shown because <strong>if.something</strong> is FALSE</p>
+	</if.something>
+
+	<loop.data>
+	<div>
+		<p style='background-color: {{ data.hex }}'>Color: {{ data.color }}</p>
+	</div>
+	</loop.data>
+</div>

@@ -1,0 +1,5 @@
+{
+	"require": {
+		"playsms/tpl": "1.*"
+	}
+}

@@ -1,0 +1,22 @@
+{
+    "name": "playsms/tpl",
+    "description": "Dead simple PHP template engine",
+    "keywords": ["template", "tpl", "layout", "playsms"],
+    "homepage": "http://github.com/antonraharja/tpl",
+    "license": "MIT",
+    "version": "1.0.2",
+    "authors": [
+        {
+            "name": "Anton Raharja",
+            "email": "antonrd@gmail.com",
+            "homepage": "http://antonraharja.com",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-0": {
+            "Playsms\\": "src/"
+        }
+    }
+}

@@ -1,0 +1,67 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "68959d59392cd1e06cc4bb70d43fdee0",
+    "packages": [
+        {
+            "name": "playsms/tpl",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/antonraharja/tpl.git",
+                "reference": "7c2cb6440699ffb5e92fd8a94df2e6f070eae28e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/antonraharja/tpl/zipball/7c2cb6440699ffb5e92fd8a94df2e6f070eae28e",
+                "reference": "7c2cb6440699ffb5e92fd8a94df2e6f070eae28e",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Playsms\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anton Raharja",
+                    "email": "antonrd@gmail.com",
+                    "homepage": "http://antonraharja.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Dead simple PHP template engine",
+            "homepage": "http://github.com/antonraharja/tpl",
+            "keywords": [
+                "layout",
+                "playsms",
+                "template",
+                "tpl"
+            ],
+            "time": "2014-04-21 04:25:25"
+        }
+    ],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": [
+
+    ],
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
+}
