@@ -14,50 +14,50 @@
 </if.combobox>
 
 <script type="text/javascript">
-	$(document).ready(function() {{ 
-		$("#msg_combo_sendto").select2({{ 
+	$(document).ready(function() {
+		$("#msg_combo_sendto").select2({
 			multiple: true,
 			/* placeholder: "{{ Send to }}", */
 			allowClear: true,
 			minimumInputLength: 2,
 			separator: ",",
 			tokenSeparators: [","],
-			initSelection : function (element, callback) {{ 
+			initSelection : function (element, callback) {
 				var data = [];
-				$(element.val().split(",")).each(function () {{ 
-					data.push({{ id: this, text: this }});
-				 }});
+				$(element.val().split(",")).each(function () {
+					data.push({id: this, text: this});
+				});
 				callback(data);
-			 }},
-			createSearchChoice: function(term, data) {{ 
-				if ($(data).filter(function () {{ 
+			},
+			createSearchChoice: function(term, data) {
+				if ($(data).filter(function () {
 					return this.text.localeCompare(term)===0;
-				 }}).length===0) {{ 
-					return {{ id:term, text:term }};
-				 }}
-			 }},
-			ajax: {{ 
+				}).length===0) {
+					return {id:term, text:term};
+				}
+			},
+			ajax: {
 				url: "{{ HTTP_PATH_BASE }}",
 				dataType: 'json',
 				quietMillis: 100,
-				data: function (term, page) {{ 
-					return {{ 
+				data: function (term, page) {
+					return {
 						app: "webservices",
 						op: "phonebook",
 						keyword: term
-					 }};
-				 }},
-				results: function (data, page) {{ 
-					return {{  results: data  }};
-				 }}
-			 }}
-		 }});
+					};
+				},
+				results: function (data, page) {
+					return {results: data};
+				}
+			}
+		});
 		$("#message").focus();
-		$("#msg_schedule").datetimepicker({{ <if.calendar>
+		$("#msg_schedule").datetimepicker({<if.calendar>
 			language: '{{ lang }}',</if.calendar>
 			format: 'YYYY-MM-DD HH:mm'
-		 }});
-	 }});
+		});
+	});
 </script>
 {{ ERROR }}
 
