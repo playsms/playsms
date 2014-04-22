@@ -149,7 +149,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all field');
 		}
-		header("Location: "._u('index.php?app=main&inc=user_pref&op=user_pref'.$url_uname.'&view='.$view));
+		header("Location: "._u('index.php?app=main&inc=core_user&route=user_pref&op=user_pref'.$url_uname.'&view='.$view));
 		exit();
 		break;
 }
