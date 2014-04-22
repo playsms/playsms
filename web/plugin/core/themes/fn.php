@@ -84,7 +84,7 @@ function themes_nav_session() {
 	return $_SESSION['tmp']['themes_nav'];
 }
 
-function themes_search($search_category=array(), $url='') {
+function themes_search($search_category=array(), $url='', $keyword_converter=array()) {
 	global $core_config;
 	$ret['keyword'] = $_REQUEST['search_keyword'];
 	$ret['url'] = ( trim($url) ? trim($url) : $_SERVER['REQUEST_URI'] );
@@ -96,11 +96,22 @@ function themes_search($search_category=array(), $url='') {
 	}
 	$option_search_category = "<option value=\"\">"._('Search')."</option>";
 	foreach ($search_category as $key => $val) {
-		if ( $selected = ( $ret['category'] == $val ? 'selected' : '' ) ) {
-			$ret['dba_keywords'] = array($val => '%'.$ret['keyword'].'%' );
+
+		$c_keyword = $ret['keyword'];
+
+		if ($c_function = $keyword_converter[$val]) {
+			if (function_exists($c_function)) {
+				$c_keyword = $c_function ($ret['keyword']);
+			}
 		}
+
+		if ( $selected = ( $ret['category'] == $val ? 'selected' : '' ) ) {
+			$ret['dba_keywords'] = array($val => '%' . $c_keyword . '%' );
+		}
+
 		$option_search_category .= "<option value=\"".$val."\" $selected>".ucfirst($key)."</option>";
-		$tmp_dba_keywords[$val] = '%'.$ret['keyword'].'%';
+
+		$tmp_dba_keywords[$val] = '%' . $c_keyword . '%';
 	}
 	if ((! $ret['category'] ) && $ret['keyword']) {
 		$ret['dba_keywords'] = $tmp_dba_keywords;
