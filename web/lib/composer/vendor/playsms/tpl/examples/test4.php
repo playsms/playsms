@@ -1,4 +1,5 @@
 <?php
+
 include "../src/Playsms/Tpl.php";
 
 $all_fruits = 'Apple, Banana and Orange';

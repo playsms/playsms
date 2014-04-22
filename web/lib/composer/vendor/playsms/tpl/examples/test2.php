@@ -1,4 +1,5 @@
 <?php
+
 include "../src/Playsms/Tpl.php";
 
 $the_data = 'This is the data';

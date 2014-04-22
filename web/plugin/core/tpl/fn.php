@@ -27,11 +27,13 @@ defined('_SECURE_') or die('Forbidden');
  * @return string           Manipulated content
  */
 function _tpl_apply($fn, $tpl, $injected = array()) {
-	$t = new Playsms\Tpl;
+	$t = new \Playsms\Tpl;
 
-	$t->echo = '_p';	
-	$t->dir_cache = _APPS_PATH_STORAGE_ . '/plugin/core/tpl';
-	
+	$t->setConfig(array(
+		'echo' => '_p',
+		'dir_cache' => _APPS_PATH_STORAGE_ . '/plugin/core/tpl',
+	));
+
 	$t->setTemplate($fn);
 	$t->setVars($tpl['vars'])->setIfs($tpl['ifs'])->setLoops($tpl['loops']);
 	$t->setInjects($injected);
