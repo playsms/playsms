@@ -118,6 +118,7 @@ echo
 
 sleep 3
 
+
 echo -n "Start"
 set -e
 echo -n .
@@ -153,13 +154,12 @@ mkdir -p /etc $PATHBIN
 echo -n .
 touch /etc/playsmsd.conf
 echo -n .
-echo "PLAYSMS_PATH=$PATHWEB" > /etc/playsmsd.conf
-echo "PLAYSMS_LIB=$PATHLIB" >> /etc/playsmsd.conf
-echo "PLAYSMS_BIN=$PATHBIN" >> /etc/playsmsd.conf
-echo "PLAYSMS_LOG=$PATHLOG" >> /etc/playsmsd.conf
-echo "DAEMON_SLEEP=1" >> /etc/playsmsd.conf
-echo "MAX_EXECUTION_TIME=600" >> /etc/playsmsd.conf
-echo "ERROR_REPORTING=E_ALL ^ (E_NOTICE | E_WARNING)" >> /etc/playsmsd.conf
+echo "PLAYSMS_PATH=\"$PATHWEB\"" > /etc/playsmsd.conf
+echo "PLAYSMS_LIB=\"$PATHLIB\"" >> /etc/playsmsd.conf
+echo "PLAYSMS_BIN=\"$PATHBIN\"" >> /etc/playsmsd.conf
+echo "PLAYSMS_LOG=\"$PATHLOG\"" >> /etc/playsmsd.conf
+echo "DAEMON_SLEEP=\"1\"" >> /etc/playsmsd.conf
+echo "ERROR_REPORTING=\"E_ALL ^ (E_NOTICE | E_WARNING)\"" >> /etc/playsmsd.conf
 echo -n .
 cp -rR daemon/linux/bin/playsmsd $PATHBIN
 echo -n .
@@ -176,6 +176,10 @@ sleep 3
 echo
 
 echo "playSMS has been successfully installed on your system"
+echo
+echo "When unable to start playsmsd message occurred please check:"
+echo "1. PEAR-DB installed. Install PEAR-DB by running from Linux console: pear install DB"
+echo "2. Manually run playsmsd, eg: playsmsd start, playsmsd status"
 echo
 
 exit 0

@@ -21,6 +21,8 @@
 // Usage:
 // playsmsd <COMMAND> <LOOP_FLAG> <CMD_PARAM>
 
+set_time_limit(0);
+
 error_reporting(0);
 
 $ini = array();
@@ -63,13 +65,8 @@ $PLAYSMS_LOG_PATH = ($ini['PLAYSMS_LOG'] ? $ini['PLAYSMS_LOG'] : '/var/log/plays
 // set default DAEMON_SLEEP at 1 second
 $DAEMON_SLEEP = ($ini['DAEMON_SLEEP'] >= 1 ? $ini['DAEMON_SLEEP'] : 1);
 
-// set PHP script maximum execution time
-$MAX_EXECUTION_TIME = ($ini['MAX_EXECUTION_TIME'] >= 600 ? $ini['MAX_EXECUTION_TIME'] : 600);
-
 // set PHP error reporting level
 $ERROR_REPORTING = (isset($ini['ERROR_REPORTING']) ? $ini['ERROR_REPORTING'] : 'E_ALL ^ (E_NOTICE | E_WARNING)');
-
-set_time_limit($MAX_EXECUTION_TIME);
 
 error_reporting($ERROR_REPORTING);
 
@@ -370,7 +367,7 @@ function playsmsd_stop() {
  * @return string
  */
 function playsmsd_check($json) {
-	global $PLAYSMSD_CONF, $DAEMON_SLEEP, $MAX_EXECUTION_TIME, $ERROR_REPORTING;
+	global $PLAYSMSD_CONF, $DAEMON_SLEEP, $ERROR_REPORTING;
 	global $PLAYSMS_INSTALL_PATH, $PLAYSMS_LIB_PATH, $PLAYSMS_DAEMON_PATH, $PLAYSMS_LOG_PATH;
 	
 	$data = array(
@@ -380,7 +377,6 @@ function playsmsd_check($json) {
 		'PLAYSMS_BIN' => $PLAYSMS_DAEMON_PATH,
 		'PLAYSMS_LOG' => $PLAYSMS_LOG_PATH,
 		'DAEMON_SLEEP' => $DAEMON_SLEEP,
-		'MAX_EXECUTION_TIME' => $MAX_EXECUTION_TIME,
 		'ERROR_REPORTING' => $ERROR_REPORTING,
 		'IS_RUNNING' => playsmsd_isrunning() ,
 		'PIDS' => playsmsd_pids() ,
