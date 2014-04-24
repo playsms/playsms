@@ -32,7 +32,8 @@ if (file_exists($fn)) {
 			'Welcome to playSMS' => _('Welcome to playSMS'),
 			'version' => _('version'),
 			'VERSION' => core_get_version()
-		)
+		),
+		'injects' => array('user_config'),
 	);
 	$tpl['vars'][$doc . '_ACTIVE'] = 'class=active';
 	_p(tpl_apply($tpl));

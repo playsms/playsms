@@ -77,6 +77,11 @@ function tpl_apply($tpl, $injected = array()) {
 		
 		// inject anti-CSRF hidden field
 		$tpl['vars']['CSRF_FORM'] = _CSRF_FORM_;
+
+		// inject global variables
+		if (is_array($tpl['injects']) && !$injected) {
+			$injected = $tpl['injects'];
+		}
 		
 		// check from active plugin
 		$c_inc = explode('_', _INC_);

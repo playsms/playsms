@@ -1,6 +1,13 @@
 <h2>{{ Welcome to playSMS }}</h2>
 
-<p>playSMS {{ version }} {{ VERSION }}</p>
+<div class="row">
+	<div class="col-md-12">
+		<div class="well">
+			<p>{{ ucwords($user_config['name']) }} ({{ $user_config['username']}})</p>
+			<p>playSMS {{ version }} {{ VERSION }}</p>
+		</div>
+	</div>
+</div>
 
 <div class="row">
 	<div class="col-md-4">
