@@ -21,6 +21,8 @@ defined('_SECURE_') or die('Forbidden');
 
 function logger_print($log, $level, $label) {
 	global $core_config, $user_config;
+
+	$host = ( trim($_SERVER['HTTP_HOST']) ? trim($_SERVER['HTTP_HOST']) : '-' );
 	$logfile = ( $core_config['logfile'] ? $core_config['logfile'] : 'playsms.log' );
 	$level = (int) $level;
 	$username = ( $user_config['username'] ? $user_config['username'] : '-' );
@@ -29,7 +31,7 @@ function logger_print($log, $level, $label) {
 		$fn = $core_config['apps_path']['logs'].'/'.$logfile;
 		if ($fd = fopen($fn, 'a+')) {
 			$dt = date($core_config['datetime']['format'], mktime());
-			$message = stripslashes($dt." "._PID_." ".$username." ".$type." ".$label." # ".$log);
+			$message = stripslashes($host." ".$dt." "._PID_." ".$username." ".$type." ".$label." # ".$log);
 			$message = str_replace("\n", " ", $message);
 			$message = str_replace("\r", " ", $message);
 			$message .= "\n";
@@ -51,6 +53,8 @@ function logger_set_level($level=0) {
 
 function logger_audit() {
 	global $core_config, $user_config;
+
+	$host = ( trim($_SERVER['HTTP_HOST']) ? trim($_SERVER['HTTP_HOST']) : '-' );
 	if ($core_config['logaudit']) {
 		foreach ($_GET as $key => $val) {
 			if(stristr($key, 'password') === FALSE) {
@@ -73,7 +77,7 @@ function logger_audit() {
 		$fn = $core_config['apps_path']['logs'].'/'.$logauditfile;
 		if ($fd = fopen($fn, 'a+')) {
 			$dt = date($core_config['datetime']['format'], mktime());
-			$message = stripslashes($dt." "._PID_." ".$username." ip:".$ip." ".$log);
+			$message = stripslashes($host." ".$dt." "._PID_." ".$username." ip:".$ip." ".$log);
 			$message = str_replace("\n", " ", $message);
 			$message = str_replace("\r", " ", $message);
 			$message .= "\n";
