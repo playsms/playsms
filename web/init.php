@@ -33,8 +33,9 @@ if (!defined('_PHP_VER_')) {
 // $DAEMON_PROCESS is special variable passed by daemon script
 $core_config['daemon_process'] = $DAEMON_PROCESS;
 
+// do these when this script wasn't called from daemon script
 if (!$core_config['daemon_process']) {
-	if (trim($SERVER_PROTOCOL) == 'HTTP/1.1') {
+	if (trim($_SERVER['SERVER_PROTOCOL']) == 'HTTP/1.1') {
 		header('Cache-Control: no-cache, must-revalidate');
 	} else {
 		header('Pragma: no-cache');
