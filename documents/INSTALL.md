@@ -36,6 +36,7 @@ Optional hardware or infrastructure:
 * Console browser such as lynx, wget or curl
 * Downloaded playSMS package from SF.net or latest source code from
   Github
+* Properly installed composer from https://getcomposer.org
 
 **Minimum required server administrator (or developer):**
 
