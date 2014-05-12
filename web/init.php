@@ -152,7 +152,7 @@ define('_CAT_', core_query_sanitize($_REQUEST['cat']));
 define('_PLUGIN_', core_query_sanitize($_REQUEST['plugin']));
 
 // enable anti-CSRF for anything but webservices
-if (!((_APP_ == 'ws') || (_APP_ == 'webservices'))) {
+if (! ( (_APP_ == 'ws') || (_APP_ == 'webservices') || ($core_config['init']['ignore_csrf']) )) {
 	// print_r($_POST); print_r($_SESSION);
 	if ($_POST) {
 		if (!core_csrf_validate()) {
