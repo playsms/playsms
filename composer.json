@@ -1,0 +1,14 @@
+{
+	"name": "playsms/playsms",
+	"description": "playSMS is a free and open source SMS portal software",
+	"license": "GPL-3.0+",
+	"config": {
+		"vendor-dir": "web/lib/composer/vendor"
+	},
+	"require": {
+		"playsms/tpl": "1.0.*",
+		"playsms/webservices": "1.0.*",
+		"gregwar/captcha": "1.0.*",
+		"ezyang/htmlpurifier": "4.6.*"
+	}
+}
