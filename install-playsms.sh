@@ -12,6 +12,15 @@ if [ ! -e "$INSTALLCONF" ]; then
 	echo
 	echo "ERROR: unable to find install.conf"
 	echo
+	echo "Please rename install.conf.dist to install.conf"
+	echo "    cp install.conf.dist install.conf"
+	echo
+	echo "Edit install.conf to suit your system configuration"
+	echo "    vi install.conf"
+	echo
+	echo "Please re-run this script once install.conf edited and saved"
+	echo "    ./install-playsms.sh"
+	echo
 	exit 1
 fi
 
@@ -118,11 +127,44 @@ echo
 
 sleep 3
 
+echo "Getting composer from https://getcomposer.com"
+echo
+echo "Please wait while the install script downloading composer"
+echo
+
+cd /tmp/
+
+php -r "readfile('https://getcomposer.org/installer');" | php >/dev/null 2>&1
+
+if [ -e "composer.phar" ]; then
+	rm -f /usr/local/bin/composer /usr/local/bin/composer.phar >/dev/null 2>&1
+	ln -s composer.phar composer >/dev/null 2>&1
+	mv composer composer.phar /usr/local/bin/ >/dev/null 2>&1
+	chmod +x /usr/local/bin/composer /usr/local/bin/composer.phar >/dev/null 2>&1
+fi
+
+echo "Composer has been installed"
+echo
+echo "Pleas wait while composer getting and updating required packages"
+echo
+
+if [ -x "/usr/local/bin/composer.phar" ]; then
+	cd "$PATHSRC"
+	/usr/local/bin/composer.phar update
+else
+	echo "ERROR: unable to get composer from https://getcomposer.com"
+	echo
+	exit 1
+fi
+
+echo
+echo "Composer has been installed and packages has been updated"
+echo
+
+sleep 3
 
 echo -n "Start"
 set -e
-echo -n .
-cd $PATHSRC
 echo -n .
 mkdir -p $PATHWEB $PATHLIB $PATHLOG
 echo -n .
@@ -175,11 +217,20 @@ $PATHBIN/playsmsd status
 sleep 3
 echo
 
-echo "playSMS has been successfully installed on your system"
 echo
-echo "When unable to start playsmsd message occurred please check:"
-echo "1. PEAR-DB installed. Install PEAR-DB by running from Linux console: pear install DB"
-echo "2. Manually run playsmsd, eg: playsmsd start, playsmsd status"
+echo "playSMS has been installed on your system"
+echo
+
+cp install.conf install.conf.backup >/dev/null 2>&1
+
+echo
+echo "Attention"
+echo
+echo "When message \"unable to start playsmsd\" occurred above, please check:"
+echo
+echo "1. PEAR-DB installed. Install PEAR-DB by running from Linux console: \"pear install DB\""
+echo "2. Possibly theres an issue with composer updates, try to run: \"composer update\""
+echo "3. Manually run playsmsd, eg: \"playsmsd start\", and then \"playsmsd status\""
 echo
 
 exit 0

@@ -62,17 +62,19 @@ You should pick only one method, do not do both methods.
 
 Install playSMS using install script `install-playsms.sh`
 
-1. Extract playSMS package somewhere (Usually in /usr/local/src).
+1. Extract playSMS package somewhere (For example in /usr/local/src).
 
    ```
    tar -zxf playsms-1.0.0.tar.gz -C /usr/local/src
    ls -l /usr/local/src/
-   cd /usr/local/src/playsms-1.0.0/contrib/installer
+   cd /usr/local/src/playsms-1.0.0/
    ```
 
-2. Edit install.conf, read and make changes to suit your system configuration
+2. Copy install.conf.dist to install.conf and edit install.conf. 
+   Then read install.conf and make changes to suit your system configuration
 
    ```
+   cp install.conf.dist install.conf
    vi install.conf
    ```
 
@@ -129,7 +131,7 @@ Note:
 
 Install playSMS by following step-by-step:
 
-1. Extract playSMS package somewhere (Usually in /usr/local/src).
+1. Extract playSMS package somewhere (For example in /usr/local/src).
 
    ```
    tar -zxf playsms-1.0.0.tar.gz -C /usr/local/src

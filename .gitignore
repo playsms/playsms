@@ -27,4 +27,7 @@ venv
 web/config.php
 web/lib/composer/*
 
+install.conf
+install.conf.backup
+
 .svn
