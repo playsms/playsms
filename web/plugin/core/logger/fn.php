@@ -19,22 +19,38 @@
 
 defined('_SECURE_') or die('Forbidden');
 
-function logger_print($log, $level, $label) {
+function logger_print($log, $level='', $label='') {
 	global $core_config, $user_config;
 
+	$remote = ( trim($_SERVER['REMOTE_ADDR']) ? trim($_SERVER['REMOTE_ADDR']) : '-' );
 	$host = ( trim($_SERVER['HTTP_HOST']) ? trim($_SERVER['HTTP_HOST']) : '-' );
 	$logfile = ( $core_config['logfile'] ? $core_config['logfile'] : 'playsms.log' );
-	$level = (int) $level;
+
+	// max log length is 255
+	if (strlen($log) > 255) {
+		$log = substr(0, 254, $log);
+	}
+
+	// default level is 2
+	$level = ( (int)$level > 0 ? (int)$level : 2 );
+
+	// label should not have spaces, replace single space with double _
+	$label = str_replace(' ', '__', $label);
+	$label = ( $label ? $label : '-' );
+
 	$username = ( $user_config['username'] ? $user_config['username'] : '-' );
 	if (logger_get_level() >= $level) {
 		$type = 'L'.$level;
 		$fn = $core_config['apps_path']['logs'].'/'.$logfile;
 		if ($fd = fopen($fn, 'a+')) {
 			$dt = date($core_config['datetime']['format'], mktime());
-			$message = stripslashes($host." ".$dt." "._PID_." ".$username." ".$type." ".$label." # ".$log);
+
+			// REMOTE_ADDR HTTP_HOST DATE TIME PID USERNAME TYPE LABEL # LOG
+			$message = stripslashes($remote." ".$host." ".$dt." "._PID_." ".$username." ".$type." ".$label." # ".$log);
 			$message = str_replace("\n", " ", $message);
 			$message = str_replace("\r", " ", $message);
 			$message .= "\n";
+
 			fputs($fd, $message);
 			fclose($fd);
 		}
