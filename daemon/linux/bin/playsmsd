@@ -103,9 +103,9 @@ switch ($COMMAND) {
 
 	case 'restart':
 		
-		// stop, wait for 5 seconds and then start
+		// stop, wait for 2 seconds and then start
 		playsmsd_stop();
-		sleep(5);
+		sleep(2);
 		playsmsd_start();
 		
 		exit();
@@ -138,10 +138,19 @@ switch ($COMMAND) {
 		
 		exit();
 		break;
+
+	case 'log':
+		
+		// View log
+		$debug_file = ($argv[2] ? $argv[2] : '');
+		playsmsd_log($debug_file);
+		
+		exit();
+		break;
 }
 
 if (!$COMMAND) {
-	echo "Usage: playsmsd <start|stop|restart|status|check|check_json>\n";
+	echo "Usage: playsmsd <start|stop|restart|status|check|check_json|log>\n";
 	exit();
 }
 
@@ -169,7 +178,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 		
 		// MAIN ONCE BLOCK
 		
-		echo $COMMAND . " start time:" . mktime() . "\n";
+		//echo $COMMAND . " start time:" . mktime() . "\n";
 		
 		if ($COMMAND == 'sendqueue') {
 			if ($CMD_PARAM) {
@@ -180,9 +189,15 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 			}
 		}
 		
+		if ($COMMAND == 'playsmsd') {
+			if ($CMD_PARAM) {
+				playsmsd_once($CMD_PARAM);
+			}
+		}
+		
 		// END OF ONCE BLOCK
 		
-		echo $COMMAND . " end time:" . mktime() . "\n";
+		//echo $COMMAND . " end time:" . mktime() . "\n";
 		
 		exit();
 	} else if ($continue && $LOOP_FLAG == 'loop') {
@@ -193,7 +208,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 		
 		while ($DAEMON_LOOPING) {
 			
-			echo $COMMAND . " start time:" . mktime() . "\n";
+			//echo $COMMAND . " start time:" . mktime() . "\n";
 			
 			// re-include init.php on every 'while' to get the most updated configurations
 			include 'init.php';
@@ -247,7 +262,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 			
 			// END OF MAIN LOOP BLOCK
 			
-			echo $COMMAND . " end time:" . mktime() . "\n";
+			//echo $COMMAND . " end time:" . mktime() . "\n";
 			
 			sleep($DAEMON_SLEEP);
 			
@@ -394,5 +409,33 @@ function playsmsd_check($json) {
 				echo $key . " = " . $val . "\n";
 			}
 		}
+	}
+}
+
+/**
+ * View log
+ * @param  string $debug_file Save log to debug file
+ */
+function playsmsd_log($debug_file = '') {
+	global $PLAYSMS_LOG_PATH;
+	
+	$log = $PLAYSMS_LOG_PATH . '/playsms.log';
+	if (file_exists($log)) {
+		
+		$process = 'tail -n 0 -f ' . $log . ' 2>&1';
+		if ($debug_file) {
+			@shell_exec('touch ' . $debug_file);
+			if (file_exists($debug_file)) {
+				$process.= '| tee ' . $debug_file;
+			}
+		}
+		
+		$handle = popen($process, 'r');
+		while (!feof($handle)) {
+			$buffer = fgets($handle);
+			echo $buffer;
+			flush();
+		}
+		pclose($handle);
 	}
 }
