@@ -27,24 +27,6 @@ if (function_exists('bindtextdomain')) {
 	textdomain('messages');
 }
 
-// core menus for admin users
-if ($continue) {
-	$c_fn = _APPS_PATH_INCS_.'/admin/'._INC_.'.php';
-	if (file_exists($c_fn)) {
-		include $c_fn;
-		$continue = FALSE;
-	}
-}
-
-// core menus for non-admin or regular users
-if ($continue) {
-	$c_fn = _APPS_PATH_INCS_.'/user/'._INC_.'.php';
-	if (file_exists($c_fn)) {
-		include $c_fn;
-		$continue = FALSE;
-	}
-}
-
 // load plugin
 if ($continue && _INC_) {
 	$p = explode('_', _INC_, 2);
