@@ -65,11 +65,15 @@ msgstr "Код группы добавлен"
 msgid "Group code is already exists"
 msgstr "Код группы уже существует"
 
-msgid "Group code used by keyword"
-msgstr "Зарезервировано ключевое слово"
+msgid "Group code may be used to broadcast SMS to this group"
+msgstr ""
 
 msgid "Group has been edited"
 msgstr "Группа изменена"
+
+msgid ""
+"Group has been edited but unable to set broadcast from members or anyone"
+msgstr ""
 
 msgid "Group name"
 msgstr "Имя группы"
@@ -101,14 +105,15 @@ msgstr "Имя"
 msgid "No changes has been made"
 msgstr "Нет изменений"
 
-msgid "Note"
-msgstr "Замека"
-
 msgid "Phonebook"
 msgstr "Контакты"
 
 msgid "Please select CSV file for phonebook entries"
 msgstr "Выберите CSV файл контактов"
+
+#, fuzzy
+msgid "Please use alphanumeric only and make it short"
+msgstr "придумайте короткое слово в верхнем регистре"
 
 msgid "Save"
 msgstr "Сохранить"
@@ -136,9 +141,6 @@ msgstr "Необходимо заполнить обязательные пол�
 
 msgid "You must fill required fields"
 msgstr "Необходимо заполнить обязательные поля"
-
-msgid "broadcast SMS from single SMS"
-msgstr "Массовая рассылка"
 
 msgid "code"
 msgstr "код"

@@ -133,3 +133,56 @@ function auth_block() {
 	header("Location: "._u('index.php?app=main&inc=core_auth&route=block&op=block'));
 	exit();
 }
+
+/**
+ * Setup user session
+ * @param  string $username Username
+ */
+function auth_session_setup($uid) {
+	global $core_config;
+
+	$c_user = user_getdatabyuid($uid);
+	if ($c_user['username']) {
+		// set session
+		$_SESSION['sid'] = session_id();
+		$_SESSION['username'] = $c_user['username'];
+		$_SESSION['uid'] = $c_user['uid'];
+		$_SESSION['status'] = $c_user['status'];
+		$_SESSION['valid'] = TRUE;
+		if (! is_array($_SESSION['tmp']['login_as'])) {
+			$_SESSION['tmp']['login_as'] = array();
+		}
+
+		// save session in registry
+		if (! $core_config['daemon_process']) {
+			user_session_set($c_user['uid']);
+		}
+	}
+}
+
+function auth_login_as($uid) {
+
+	// save current login
+	array_unshift($_SESSION['tmp']['login_as'], $_SESSION['uid']);
+
+	// setup new session
+	auth_session_setup($uid);
+}
+
+function auth_login_return() {
+
+	// get previous login
+	$previous_login = $_SESSION['tmp']['login_as'][0];
+	array_shift($_SESSION['tmp']['login_as']);
+
+	// return to previous session
+	auth_session_setup($previous_login);
+}
+
+function auth_login_as_check() {
+	if(count($_SESSION['tmp']['login_as']) > 0) {
+		return TRUE;
+	} else {
+		return FALSE;
+	}
+}

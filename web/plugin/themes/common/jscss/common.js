@@ -10,9 +10,9 @@ function CheckUncheckAll(the_form) {
 function PopupSendSms(ta, tg) {
 	var pv = "PV";
 	if (ta == pv) {
-		var url = "menu.php?inc=send_sms&op=send_sms&dst_p_num=" + tg;
+		var url = "menu.php?inc=core_sendsms&op=sendsms&dst_p_num=" + tg;
 	} else {
-		var url = "menu.php?inc=send_sms&op=sendsmstogr&dst_gp_code=" + tg;
+		var url = "menu.php?inc=core_sendsms&op=sendsmstogr&dst_gp_code=" + tg;
 	}
 	newwin = window.open("", "WinSendSms", "scrollbars", "resizable=yes")
 	newwin.moveTo(20, 100)
@@ -21,7 +21,7 @@ function PopupSendSms(ta, tg) {
 }
 
 function PopupReplySms(tg, mssg) {
-	var url = "menu.php?inc=send_sms&op=send_sms&dst_p_num=" + tg + "&message=" + mssg;
+	var url = "menu.php?inc=core_sendsms&op=sendsms&dst_p_num=" + tg + "&message=" + mssg;
 
 	newwin = window.open("", "WinSendSms", "scrollbars", "resizable=yes")
 	newwin.moveTo(20, 100)
@@ -66,6 +66,7 @@ function SetSmsTemplate() {
 
 function SmsTextCounter() {
 	var msg = document.fm_sendsms.message;
+	var msg_len = parseInt(msg.value.length);
 	var msg_unicode = document.fm_sendsms.msg_unicode;
 	var footerlen = parseInt(document.forms.fm_sendsms.footerlen.value);
 	var maxChar = document.forms.fm_sendsms.maxchar.value;
@@ -78,24 +79,25 @@ function SmsTextCounter() {
 	var devider;
 	var msgcount;
 	var result;
+
 	if (msg_unicode.checked) {
 		limit = maxlimit_unicode;
 		devider = 70;
-		if (msg.value.length > 70) {
-			devider = 67;
+		if (msg_len > 70) {
+			devider = 63;
 		}
 	} else {
 		limit = maxlimit;
 		devider = 160;
-		if (msg.value.length > 160) {
+		if (msg_len > 160) {
 			devider = 153;
 		}
 	}
-	if (msg.value.length > limit) {
+	if (msg_len > limit) {
 		msg.value = msg.value.substring(0, limit);
 	}
-	msgcount = Math.ceil((msg.value.length + footerlen) / devider);
-	result = msg.value.length + footerlen + ' ' + chars + ' : ' + msgcount + ' ' + SMS;
+	msgcount = Math.ceil((msg_len + footerlen) / devider);
+	result = msg_len + footerlen + ' ' + chars + ' : ' + msgcount + ' ' + SMS;
 	return result;
 }
 

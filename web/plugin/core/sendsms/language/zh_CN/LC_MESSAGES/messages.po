@@ -1,0 +1,56 @@
+msgid "Flash message"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Options"
+msgstr ""
+
+msgid "Please select template"
+msgstr ""
+
+msgid "SMS"
+msgstr ""
+
+msgid "SMS footer"
+msgstr ""
+
+msgid "SMS sender ID"
+msgstr ""
+
+msgid "Schedule"
+msgstr ""
+
+msgid "Send"
+msgstr ""
+
+msgid "Send message"
+msgstr ""
+
+msgid "Send to"
+msgstr ""
+
+msgid "Unicode message"
+msgstr ""
+
+msgid "You must select receiver and your message should not be empty"
+msgstr ""
+
+msgid "Your message has been delivered to queue"
+msgstr ""
+
+msgid "chars"
+msgstr ""
+
+msgid "failed"
+msgstr ""
+
+msgid "format YYYY-MM-DD hh:mm"
+msgstr ""
+
+msgid "prefix with # for groups and @ for users"
+msgstr ""
+
+msgid "queued"
+msgstr ""

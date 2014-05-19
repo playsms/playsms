@@ -121,7 +121,7 @@ Array
             [my_account] => My Account
             [tools] => Tools
             [feature] => Feature
-            [administration] => Administration
+            [settings] => Settings
         )
 
     [toolslist] => Array

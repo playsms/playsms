@@ -11,6 +11,12 @@ msgstr ""
 msgid "About playSMS"
 msgstr ""
 
+msgid ""
+"Access to unknown domain mapped to this server IP address will be redirected "
+"to this website URL. This website URL should be the primary address for the "
+"service."
+msgstr ""
+
 msgid "Action"
 msgstr ""
 
@@ -33,7 +39,7 @@ msgid "Add message template"
 msgstr ""
 
 msgid "Add normal user"
-msgstr ""
+msgstr "Add user"
 
 msgid "Add user"
 msgstr ""
@@ -83,6 +89,14 @@ msgstr ""
 msgid "Always choose to send as unicode"
 msgstr ""
 
+msgid "Application footer here"
+msgstr ""
+
+msgid ""
+"Application footer here. Go to main configuration or manage site to edit "
+"this footer."
+msgstr ""
+
 msgid "Application information"
 msgstr ""
 
@@ -120,6 +134,21 @@ msgid "Back"
 msgstr ""
 
 msgid "Ban"
+msgstr ""
+
+msgid "Buy"
+msgstr ""
+
+msgid "Buy credit"
+msgstr ""
+
+msgid "Buy credit page"
+msgstr ""
+
+msgid "Buy credit page content"
+msgstr ""
+
+msgid "Buy credit page title"
 msgstr ""
 
 msgid "Changelog"
@@ -167,7 +196,16 @@ msgstr ""
 msgid "Default sender ID"
 msgstr ""
 
+msgid "Default settings"
+msgstr ""
+
+msgid "Default site configuration"
+msgstr ""
+
 msgid "Default timezone"
+msgstr ""
+
+msgid "Default user status on registration"
 msgstr ""
 
 msgid "Delete"
@@ -224,6 +262,9 @@ msgstr ""
 msgid "F.A.Q"
 msgstr ""
 
+msgid "FATAL ERROR"
+msgstr ""
+
 msgid "Fail sent SMS, no credit"
 msgstr ""
 
@@ -258,6 +299,9 @@ msgid "Failed"
 msgstr ""
 
 msgid "Feature"
+msgstr ""
+
+msgid "Features"
 msgstr ""
 
 msgid "Fill to change password for username"
@@ -326,6 +370,9 @@ msgstr ""
 msgid "Go"
 msgstr ""
 
+msgid "Go to main configuration or manage site to edit this page"
+msgstr ""
+
 msgid "Group"
 msgstr ""
 
@@ -353,6 +400,12 @@ msgstr ""
 msgid "Incoming messages"
 msgstr ""
 
+msgid "Information"
+msgstr ""
+
+msgid "Information page"
+msgstr ""
+
 msgid "Installation Guide"
 msgstr ""
 
@@ -368,6 +421,9 @@ msgstr ""
 msgid "Last update"
 msgstr ""
 
+msgid "Layout footer"
+msgstr ""
+
 msgid "License"
 msgstr ""
 
@@ -375,12 +431,15 @@ msgid "List of administrators"
 msgstr ""
 
 msgid "List of normal users"
-msgstr ""
+msgstr "List of users"
 
 msgid "Local number length"
 msgstr ""
 
 msgid "Login"
+msgstr ""
+
+msgid "Login as"
 msgstr ""
 
 msgid "Login information"
@@ -410,6 +469,12 @@ msgstr ""
 
 msgid "Manage"
 msgstr ""
+
+msgid "Manage site"
+msgstr ""
+
+msgid "Manage subusers"
+msgstr "Manage subusers"
 
 msgid "Manage user"
 msgstr ""
@@ -469,6 +534,9 @@ msgstr ""
 msgid "My Account"
 msgstr ""
 
+msgid "My account"
+msgstr ""
+
 msgid "Name"
 msgstr ""
 
@@ -484,14 +552,11 @@ msgstr ""
 msgid "No changes made"
 msgstr ""
 
-msgid "Normal User"
-msgstr ""
-
 msgid "Normal user"
-msgstr ""
+msgstr "User"
 
 msgid "Normal users"
-msgstr ""
+msgstr "Users"
 
 msgid "Offline"
 msgstr ""
@@ -509,6 +574,12 @@ msgid "Outgoing SMS"
 msgstr ""
 
 msgid "Outgoing messages"
+msgstr ""
+
+msgid "Page content"
+msgstr ""
+
+msgid "Page title"
 msgstr ""
 
 msgid "Password"
@@ -551,6 +622,9 @@ msgid "Pick Date & Time"
 msgstr ""
 
 msgid "Pick date & time"
+msgstr ""
+
+msgid "Please run composer.phar update"
 msgstr ""
 
 msgid "Please select"
@@ -601,6 +675,9 @@ msgstr ""
 msgid "Recover password disabled"
 msgstr ""
 
+msgid "Reduce"
+msgstr ""
+
 msgid "Register an account"
 msgstr ""
 
@@ -614,6 +691,9 @@ msgid "Replace website title with logo"
 msgstr ""
 
 msgid "Reply"
+msgstr ""
+
+msgid "Reports"
 msgstr ""
 
 msgid "Resend"
@@ -703,6 +783,9 @@ msgstr ""
 msgid "Sent"
 msgstr ""
 
+msgid "Settings"
+msgstr ""
+
 msgid "State or Province"
 msgstr ""
 
@@ -711,6 +794,9 @@ msgstr ""
 
 msgid "Submit"
 msgstr ""
+
+msgid "Subuser"
+msgstr "Subuser"
 
 msgid "This field is required"
 msgstr ""
@@ -732,6 +818,9 @@ msgid "Tools"
 msgstr ""
 
 msgid "Unable to ban user"
+msgstr ""
+
+msgid "Unable to find composer files"
 msgstr ""
 
 msgid "Unable to unban user"
@@ -852,10 +941,10 @@ msgid "View groups"
 msgstr ""
 
 msgid "View normal user"
-msgstr ""
+msgstr "View user"
 
 msgid "View normal users"
-msgstr ""
+msgstr "View users"
 
 msgid "View numbers"
 msgstr ""
@@ -878,10 +967,19 @@ msgstr ""
 msgid "Webservices username"
 msgstr ""
 
+msgid "Website URL"
+msgstr ""
+
 msgid "Website email"
 msgstr ""
 
 msgid "Website title"
+msgstr ""
+
+msgid "Welcome information content"
+msgstr ""
+
+msgid "Welcome information title"
 msgstr ""
 
 msgid "Welcome to playSMS"
@@ -932,6 +1030,12 @@ msgstr ""
 msgid "chars"
 msgstr ""
 
+msgid "cost"
+msgstr ""
+
+msgid "count"
+msgstr ""
+
 msgid "email"
 msgstr ""
 
@@ -969,6 +1073,9 @@ msgid "prefix with # for groups and @ for users"
 msgstr ""
 
 msgid "queued"
+msgstr ""
+
+msgid "rate"
 msgstr ""
 
 msgid "reply"

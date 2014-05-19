@@ -5,31 +5,284 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Action"
+msgstr ""
+
+msgid "Active language"
+msgstr ""
+
+msgid "Add subuser"
+msgstr ""
+
+msgid "Add user"
+msgstr ""
+
+msgid "Address"
+msgstr ""
+
+msgid "Administrator"
+msgstr ""
+
+msgid "Administrators"
+msgstr ""
+
+msgid "Always add plus sign"
+msgstr ""
+
+msgid "Always choose to send as unicode"
+msgstr ""
+
+msgid "Application options"
+msgstr ""
+
+msgid "Are you sure you want to ban subuser"
+msgstr ""
+
+msgid "Are you sure you want to ban user"
+msgstr ""
+
+msgid "Are you sure you want to delete subuser"
+msgstr ""
+
+msgid "Are you sure you want to delete subuser ?"
+msgstr ""
+
+msgid "Are you sure you want to delete user"
+msgstr ""
+
+msgid "Are you sure you want to delete user ?"
+msgstr ""
+
+msgid "Are you sure you want to unban subuser"
+msgstr ""
+
+msgid "Are you sure you want to unban user"
+msgstr ""
+
+msgid "Auto remove plus sign"
+msgstr ""
+
+msgid "City"
+msgstr ""
+
+msgid "Comma separated"
+msgstr ""
+
+msgid "Country"
+msgstr ""
+
 msgid "Credit"
 msgstr ""
 
 msgid "Currently logged in user is immune to deletion"
 msgstr ""
 
+msgid "Default"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Effective SMS sender ID"
+msgstr ""
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Email address is mandatory"
+msgstr ""
+
+msgid "Enable webservices"
+msgstr ""
+
 msgid "Fail to register an account"
+msgstr ""
+
+msgid "Fail to save preferences"
+msgstr ""
+
+msgid "Forward message to email"
+msgstr ""
+
+msgid "Forward message to inbox"
+msgstr ""
+
+msgid "Forward message to mobile"
+msgstr ""
+
+msgid "List of administrators"
+msgstr ""
+
+msgid "List of normal users"
+msgstr ""
+
+msgid "List of subusers"
+msgstr ""
+
+msgid "Local number length"
+msgstr ""
+
+msgid "Login information"
+msgstr ""
+
+msgid "Manage subuser"
+msgstr ""
+
+msgid "Manage subusers"
+msgstr ""
+
+msgid "Manage user"
+msgstr ""
+
+msgid "Max. 16 numeric or 11 alphanumeric characters"
+msgstr ""
+
+msgid "Max. 30 alphanumeric characters"
+msgstr ""
+
+msgid "Min length to detect missing country code"
 msgstr ""
 
 msgid "Mobile"
 msgstr ""
 
+msgid "Name"
+msgstr ""
+
 msgid "New account registration"
+msgstr ""
+
+msgid "New webservices token"
+msgstr ""
+
+msgid "No changes made"
+msgstr ""
+
+msgid "Normal user"
+msgstr ""
+
+msgid "Normal users"
+msgstr ""
+
+msgid "Parent"
+msgstr ""
+
+msgid "Parent user"
+msgstr ""
+
+msgid ""
+"Parent user is mandatory for subusers only. If no value is given then the "
+"subuser will be automatically assigned to user admin"
 msgstr ""
 
 msgid "Password"
 msgstr ""
 
+msgid "Password does not match"
+msgstr ""
+
 msgid "Password should be at least 4 characters"
 msgstr ""
 
-msgid "Public registration is disabled"
+msgid "Personal information"
+msgstr ""
+
+msgid "Please select"
+msgstr ""
+
+msgid "Preferences"
+msgstr ""
+
+msgid "Preferences has been saved"
+msgstr ""
+
+msgid "Preferences has been saved and password updated"
+msgstr ""
+
+msgid "Preferences has been saved and webservices token updated"
+msgstr ""
+
+msgid "Prefix or country code"
+msgstr ""
+
+msgid "Re-type password"
+msgstr ""
+
+msgid "Registered"
+msgstr ""
+
+msgid "Replace prefix 0 or padding local numbers"
+msgstr ""
+
+msgid "SMS footer"
+msgstr ""
+
+msgid "SMS sender ID"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Select parent user for subuser"
+msgstr ""
+
+msgid "State or Province"
+msgstr ""
+
+msgid "Subuser"
+msgstr ""
+
+msgid "Subusers"
+msgstr ""
+
+msgid "Timezone"
+msgstr ""
+
+msgid "Unable to ban subuser"
+msgstr ""
+
+msgid "Unable to ban user"
+msgstr ""
+
+msgid ""
+"Unable to delete this user until all subusers under this user has been "
+"removed"
+msgstr ""
+
+msgid "Unable to process subuser addition"
+msgstr ""
+
+msgid "Unable to process user addition"
+msgstr ""
+
+msgid "Unable to unban subuser"
+msgstr ""
+
+msgid "Unable to unban user"
 msgstr ""
 
 msgid "Unknown error has occurred"
+msgstr ""
+
+msgid "User admin or currently logged in administrator cannot be banned"
+msgstr ""
+
+msgid "User admin or currently logged in administrator cannot be unbanned"
+msgstr ""
+
+msgid "User configuration"
+msgstr ""
+
+msgid "User configuration has been saved"
+msgstr ""
+
+msgid "User configuration has been saved and password updated"
+msgstr ""
+
+msgid "User configuration has been saved and webservices token updated"
 msgstr ""
 
 msgid "User does not exists"
@@ -41,13 +294,37 @@ msgstr ""
 msgid "User has been added but failed to send email"
 msgstr ""
 
+msgid "User has been banned"
+msgstr ""
+
 msgid "User has been removed"
+msgstr ""
+
+msgid "User has been unbanned"
 msgstr ""
 
 msgid "User is already exists"
 msgstr ""
 
+msgid "User is already on banned subusers list"
+msgstr ""
+
+msgid "User is already on banned users list"
+msgstr ""
+
 msgid "User is immune to deletion"
+msgstr ""
+
+msgid "User is not on banned subusers list"
+msgstr ""
+
+msgid "User is not on banned users list"
+msgstr ""
+
+msgid "User registration is not available"
+msgstr ""
+
+msgid "User status"
 msgstr ""
 
 msgid "User with this email is already exists"
@@ -59,10 +336,25 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
+msgid "Username is empty"
+msgstr ""
+
 msgid "Username should be at least 3 characters"
 msgstr ""
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr ""
+
+msgid "Webservices IP range"
+msgstr ""
+
+msgid "Webservices token"
+msgstr ""
+
+msgid "Webservices username"
+msgstr ""
+
+msgid "You must fill all field"
 msgstr ""
 
 msgid "You must fill all required fields"
@@ -74,11 +366,23 @@ msgstr ""
 msgid "Your mobile format is invalid"
 msgstr ""
 
+msgid "Zipcode"
+msgstr ""
+
 msgid "email"
+msgstr ""
+
+msgid "for subuser only"
 msgstr ""
 
 msgid "mobile"
 msgstr ""
 
+msgid "no"
+msgstr ""
+
 msgid "username"
+msgstr ""
+
+msgid "yes"
 msgstr ""

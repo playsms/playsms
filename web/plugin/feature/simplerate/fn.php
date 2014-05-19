@@ -32,11 +32,14 @@ function simplerate_getbyid($id) {
 	return $rate;
 }
 
-function simplerate_getbyprefix($p_dst) {
+// -----------------------------------------------------------------------------------------
+
+function simplerate_hook_rate_getbyprefix($sms_to) {
 	global $core_config;
 	$found = FALSE;
-	$rate = $core_config['main']['default_rate'];
-	$prefix = preg_replace('/[^0-9.]*/','',$p_dst);
+	$default_rate = ( $core_config['main']['default_rate'] > 0 ? $core_config['main']['default_rate'] : 0 );
+	$rate = $default_rate;
+	$prefix = preg_replace('/[^0-9.]*/','',$sms_to);
 	$m = ( strlen($prefix) > 10 ? 10 : strlen($prefix) );
 	for ($i=$m+1;$i>0;$i--) {
 		$prefix = substr($prefix, 0, $i);
@@ -50,22 +53,20 @@ function simplerate_getbyprefix($p_dst) {
 		}
 	}
 	if ($found) {
-		logger_print("found rate id:".$db_row['id']." prefix:".$db_row['prefix']." rate:".$rate." description:".$db_row['dst'], 2, "simplerate getbyprefix");
+		logger_print("found rate id:".$db_row['id']." prefix:".$db_row['prefix']." rate:".$rate." description:".$db_row['dst']." to:".$sms_to, 3, "simplerate_hook_rate_getbyprefix");
 	} else {
-		logger_print("rate not found p_dst:".$p_dst, 2, "simplerate getbyprefix");
+		logger_print("rate not found to:".$sms_to." default_rate:".$default_rate, 3, "simplerate_hook_rate_getbyprefix");
 	}
 	$rate = ( ($rate > 0) ? $rate : 0 );
 	return $rate;
 }
 
-// -----------------------------------------------------------------------------------------
-
-function simplerate_hook_rate_setusercredit($uid, $remaining=0) {
+function simplerate_hook_rate_setusercredit($uid, $balance=0) {
 	$ok = false;
-	logger_print("saving uid:".$uid." remaining:".$remaining, 2, "simplerate setusercredit");
-	$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".core_get_datetime()."',credit='$remaining' WHERE uid='$uid'";
+	logger_print("saving uid:".$uid." balance:".$balance, 2, "simplerate setusercredit");
+	$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',credit='$balance' WHERE uid='$uid'";
 	if ($db_result = @dba_affected_rows($db_query)) {
-		logger_print("saved uid:".$uid." remaining:".$remaining, 2, "simplerate setusercredit");
+		logger_print("saved uid:".$uid." balance:".$balance, 2, "simplerate setusercredit");
 		$ok = true;
 	}
 	return $ok;
@@ -82,20 +83,65 @@ function simplerate_hook_rate_getusercredit($username) {
 	return $credit;
 }
 
-function simplerate_hook_rate_cansend($username, $sms_to) {
-	global $default_rate;
-	$credit = rate_getusercredit($username);
-	$maxrate = simplerate_getbyprefix($sms_to);
-	logger_print("check username:".$username." sms_to:".$sms_to." credit:".$credit." maxrate:".$maxrate, 2, "simplerate cansend");
-	if ($ok = ( ($credit >= $maxrate) ? true : false )) {
-		logger_print("allowed username:".$username." sms_to:".$sms_to." credit:".$credit." maxrate:".$maxrate, 2, "simplerate cansend");
+function simplerate_hook_rate_getcharges($sms_len, $unicode, $sms_to) {
+	global $core_config;
+
+	// get sms count
+	$length = ( $unicode ? 70 : 160 );
+	$count = 1;
+	if ($core_config['main']['sms_max_count'] > 1) {
+	        if ($sms_len > $length) {
+	                $count = ceil($sms_len / ($length - 7));
+	        }
 	}
-	return $ok;
+
+	// calculate charges
+	$rate = rate_getbyprefix($sms_to);
+	$charge = $count * $rate;
+
+	return array($count, $rate, $charge);
+}
+
+function simplerate_hook_rate_cansend($username, $sms_len, $unicode, $sms_to) {
+	global $core_config;
+
+	list($count, $rate, $charge) = rate_getcharges($sms_len, $unicode, $sms_to);
+
+	// sender's
+	$credit = rate_getusercredit($username);
+	$balance = $credit - $charge;
+
+	// parent's when sender is a subuser
+	$uid = user_username2uid($username);
+	$parent_uid = user_getparentbyuid($uid);
+	if ($parent_uid) {
+		$username_parent = user_uid2username($parent_uid);
+		$credit_parent = rate_getusercredit($username_parent);
+		$balance_parent = $credit_parent - $charge;
+	}
+
+	if ($parent_uid) {
+		if ($balance_parent >= 0) {
+			logger_print("allowed subuser uid:".$uid." parent_uid:".$parent_uid." sms_to:".$sms_to." credit:".$credit." count:".$count." rate:".$rate." charge:".$charge." balance:".$balance." balance_parent:".$balance_parent, 2, "simplerate cansend");
+			return TRUE;
+		} else {
+			logger_print("disallowed subuser uid:".$uid." parent_uid:".$parent_uid." sms_to:".$sms_to." credit:".$credit." count:".$count." rate:".$rate." charge:".$charge." balance:".$balance." balance_parent:".$balance_parent, 2, "simplerate cansend");
+			return FALSE;
+		}
+	} else {
+		if ($balance >= 0) {
+			logger_print("allowed user uid:".$uid." sms_to:".$sms_to." credit:".$credit." count:".$count." rate:".$rate." charge:".$charge." balance:".$balance, 2, "simplerate cansend");
+			return TRUE;
+		} else {
+			logger_print("disallowed user uid:".$uid." sms_to:".$sms_to." credit:".$credit." count:".$count." rate:".$rate." charge:".$charge." balance:".$balance, 2, "simplerate cansend");
+			return FALSE;
+		}
+	}
 }
 
 function simplerate_hook_rate_deduct($smslog_id) {
         global $core_config;
-	$ok = false;
+
 	logger_print("enter smslog_id:".$smslog_id, 2, "simplerate deduct");
 	$db_query = "SELECT p_dst,p_footer,p_msg,uid,unicode FROM "._DB_PREF_."_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);
@@ -107,35 +153,50 @@ function simplerate_hook_rate_deduct($smslog_id) {
                 $unicode = $db_row['unicode'];
 		if ($p_dst && $p_msg && $uid) {
                         
-                        // get sms count
-                        $sms_length = ( $unicode ? 70 : 160 );
+                        // get charge
                         $p_msg_len = strlen($p_msg) + strlen($p_footer);
-                        $count = 1;
-                        if ($core_config['main']['sms_max_count'] > 1) {
-                                if ($p_msg_len > $sms_length) {
-                                        $count = ceil($p_msg_len / ($sms_length - 7));
-                                }
-                        }
+			list($count, $rate, $charge) = rate_getcharges($p_msg_len, $unicode, $p_dst);
 
-                        $rate = simplerate_getbyprefix($p_dst);
-			$charge = $count * $rate;
+                        // sender's
 			$username = user_uid2username($uid);
 			$credit = rate_getusercredit($username);
-			$remaining = $credit - $charge;
-			logger_print("deduct smslog_id:".$smslog_id." msglen:".$p_msg_len." count:".$count." rate:".$rate." charge:".$charge." credit:".$credit." remaining:".$remaining, 2, "simplerate deduct");
-			if (rate_setusercredit($uid, $remaining)) {
+			$balance = $credit - $charge;
+
+			// parent's when sender is a subuser
+			$parent_uid = user_getparentbyuid($uid);
+			if ($parent_uid) {
+				$username_parent = user_uid2username($parent_uid);
+				$credit_parent = rate_getusercredit($username_parent);
+				$balance_parent = $credit_parent - $charge;
+			}
+
+			// if sender have parent then deduct parent first
+			if ($parent_uid) {
+				if (! rate_setusercredit($parent_uid, $balance_parent)) {
+					return FALSE;
+				}
+				logger_print("parent uid:".$uid." parent_uid:".$parent_uid." smslog_id:".$smslog_id." msglen:".$p_msg_len." count:".$count." rate:".$rate." charge:".$charge." credit_parent:".$credit_parent." balance_parent:".$balance_parent, 2, "simplerate deduct");
+			}
+
+			if (rate_setusercredit($uid, $balance)) {
+				logger_print("user uid:".$uid." parent_uid:".$parent_uid." smslog_id:".$smslog_id." msglen:".$p_msg_len." count:".$count." rate:".$rate." charge:".$charge." credit:".$credit." balance:".$balance, 2, "simplerate deduct");
 				if (billing_post($smslog_id, $rate, $credit, $count, $charge)) {
-					$ok = true;
+					logger_print("deduct successful uid:".$uid." parent_uid:".$parent_uid." smslog_id:".$smslog_id, 3, "simplerate deduct");
+					return TRUE;
+				} else {
+					logger_print("deduct failed uid:".$uid." parent_uid:".$parent_uid." smslog_id:".$smslog_id, 3, "simplerate deduct");
+					return FALSE;
 				}
 			}
 		}
 	}
-	return $ok;
+
+	return FALSE;
 }
 
 function simplerate_hook_rate_refund($smslog_id) {
         global $core_config;
-	$ok = false;
+
 	logger_print("start smslog_id:".$smslog_id, 2, "simplerate refund");
 	$db_query = "SELECT p_dst,p_msg,uid FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status='2' AND smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);
@@ -153,18 +214,38 @@ function simplerate_hook_rate_refund($smslog_id) {
 				$status = $bill['status'];
 				logger_print("rolling smslog_id:".$smslog_id, 2, "simplerate refund");
 				if ($status == '2') {
+
+					// sender's
 					$username = user_uid2username($uid);
 					$credit = rate_getusercredit($username);
-					$remaining = $credit + $charge;
-					if (rate_setusercredit($uid, $remaining)) {
-						logger_print("refund smslog_id:".$smslog_id, 2, "simplerate refund");
-						$ok = true;
+					$balance = $credit + $charge;
+
+					// parent's when sender is a subuser
+					$parent_uid = user_getparentbyuid($uid);
+					if ($parent_uid) {
+						$username_parent = user_uid2username($parent_uid);
+						$credit_parent = rate_getusercredit($username_parent);
+						$balance_parent = $credit_parent + $charge;
+					}
+
+					// if sender have parent then deduct parent first
+					if ($parent_uid) {
+						if (! rate_setusercredit($parent_uid, $balance_parent)) {
+							return FALSE;
+						}
+						logger_print("parent uid:".$uid." parent_uid:".$parent_uid." smslog_id:".$smslog_id." credit_parent:".$credit_parent." balance_parent:".$balance_parent, 2, "simplerate refund");
+					}
+
+					if (rate_setusercredit($uid, $balance)) {
+						logger_print("user uid:".$uid." parent_uid:".$parent_uid." smslog_id:".$smslog_id." credit:".$credit." balance:".$balance, 2, "simplerate refund");
+						return TRUE;
 					}
 				}
 			}
 		}
 	}
-	return $ok;
+
+	return FALSE;
 }
 
 function simplerate_hook_setsmsdeliverystatus($smslog_id,$uid,$p_status) {
@@ -178,5 +259,3 @@ function simplerate_hook_setsmsdeliverystatus($smslog_id,$uid,$p_status) {
 		}
 	}
 }
-
-?>

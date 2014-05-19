@@ -76,3 +76,15 @@ function registry_remove($uid, $registry_group, $registry_family = '', $registry
 	}
 	return $ret;
 }
+
+function registry_search_record($search, $keywords='', $extras='') {
+	$db_table = _DB_PREF_.'_tblRegistry';
+
+	foreach ($search as $key => $val) {
+		if ($val) {
+			$conditions[$key] = $val;
+		}
+	}
+
+	return dba_search($db_table, '*', $conditions, $keywords, $extras);
+}

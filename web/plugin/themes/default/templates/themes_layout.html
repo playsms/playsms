@@ -26,6 +26,9 @@
 			<div id="main-menu">
 				{{ THEMES_MENU_TREE }}
 			</div>
+			<div id="main-submenu">
+				{{ THEMES_SUBMENU }}
+			</div>
 		</if.valid>
 		<div id="main-content">
 			{{ CONTENT }}
@@ -36,9 +39,20 @@
 
 <div id="main-footer">
 	<div class="container">
-		<p class="text-muted credit"><a href="http://playsms.org" target="_blank">playSMS</a> free and open source SMS software</p>
+		<p class="text-muted credit">{{ LAYOUT_FOOTER }}</p>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#main-submenu').width( $('#main-content').width() )
+
+		setInterval(function() {
+			$("#submenu-credit-show").load("{{ CREDIT_SHOW_URL }}");
+		}, 3000);
+
+	});
+</script>
 
 <!-- kurakura cinta kamu.......sampai mati... -->
 

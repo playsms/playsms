@@ -5,5 +5,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Refresh"
+msgstr ""
+
 msgid "View log"
 msgstr "Lihat log"
+
+msgid "playSMS daemon is NOT running"
+msgstr ""
+
+msgid "playSMS daemon is running"
+msgstr ""
+
+msgid "playSMS daemon status"
+msgstr ""

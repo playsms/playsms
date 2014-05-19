@@ -87,11 +87,11 @@ switch (_OP_) {
 				</tr>
 				<tr>
 					<td>"._('Group code')."</td>
-					<td><input type=text name=group_code size=10> "._hint(_('Group code used by keyword')." BC ("._('broadcast SMS from single SMS').") "._('please use uppercase and make it short')."")."</td>
+					<td><input type=text name=group_code size=10> "._hint(_('Group code may be used to broadcast SMS to this group').". "._('Please use alphanumeric only and make it short'))."</td>
 				</tr>
 				<tr>
 					<td>"._('Allow broadcast from mobile')."</td>
-					<td><select name=flag_sender>".$option_flag_sender."</select></td>
+					<td><select name=flag_sender>".$option_flag_sender."</select> "._hint('Set permission for broadcasting SMS to this group from mobile phone')."</td>
 				</tr>
 			</tbody>
 			</table>

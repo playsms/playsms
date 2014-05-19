@@ -59,11 +59,15 @@ msgstr "Gruppenkürzel wurde hinzugefügt"
 msgid "Group code is already exists"
 msgstr "Gruppenkürzel existiert bereits"
 
-msgid "Group code used by keyword"
-msgstr "Gruppenkürzel wird von einem Schlagwort verwendet"
+msgid "Group code may be used to broadcast SMS to this group"
+msgstr ""
 
 msgid "Group has been edited"
 msgstr "Gruppe wurde geändert"
+
+msgid ""
+"Group has been edited but unable to set broadcast from members or anyone"
+msgstr ""
 
 msgid "Group name"
 msgstr "Gruppenname"
@@ -95,14 +99,15 @@ msgstr "Name"
 msgid "No changes has been made"
 msgstr "Es wurden KEINE Änderungen vorgenommen"
 
-msgid "Note"
-msgstr "Bemerkung"
-
 msgid "Phonebook"
 msgstr "Telefonbuch"
 
 msgid "Please select CSV file for phonebook entries"
 msgstr "Bitte CSV-Datei für Telefonbuch-Einträge auswählen"
+
+#, fuzzy
+msgid "Please use alphanumeric only and make it short"
+msgstr "Bitte in Großbuchstaben und kurz"
 
 msgid "Save"
 msgstr "Speichern"
@@ -130,9 +135,6 @@ msgstr "Es müssen alle Pflichtfelder ausgefüllt werden"
 
 msgid "You must fill required fields"
 msgstr "Es müssen die Pflichtfelder ausgefüllt werden"
-
-msgid "broadcast SMS from single SMS"
-msgstr "Sammel-SMS aus einfacher SMS"
 
 msgid "code"
 msgstr "Kürzel"

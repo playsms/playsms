@@ -25,13 +25,20 @@ $fn = _APPS_PATH_THEMES_.'/'.core_themes_get().'/welcome.php';
 if (file_exists($fn)) {
 	include $fn;
 } else {
-	unset($tpl);
+
+	$information_title = ( $core_config['main']['information_title'] ? $core_config['main']['information_title'] : _('Welcome information') );
+	$information_content = ( $core_config['main']['information_content'] ? $core_config['main']['information_content'] : _('Go to manage site menu to edit this page') );
+
+	list($information_title, $information_content) = core_display_html(array(
+		$information_title,
+		$information_content,
+	));
+
 	$tpl = array(
 		'name' => 'welcome',
 		'vars' => array(
-			'Welcome to playSMS' => _('Welcome to playSMS'),
-			'version' => _('version'),
-			'VERSION' => core_get_version()
+			'INFORMATION_TITLE' => $information_title,
+			'INFORMATION_CONTENT' => $information_content,
 		),
 		'injects' => array('user_config'),
 	);

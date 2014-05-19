@@ -47,6 +47,9 @@ msgstr ""
 msgid "Password recovery"
 msgstr ""
 
+msgid "Please type the displayed captcha phrase correctly"
+msgstr ""
+
 msgid "Recover password"
 msgstr ""
 
@@ -63,10 +66,16 @@ msgid ""
 "This temporary password will be removed once you have logged in successfully"
 msgstr ""
 
+msgid "Unable to login"
+msgstr ""
+
 msgid "Username"
 msgstr ""
 
 msgid "Username or email"
+msgstr ""
+
+msgid "Verify captcha"
 msgstr ""
 
 msgid "You have been logged out"

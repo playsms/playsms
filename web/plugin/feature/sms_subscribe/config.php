@@ -2,7 +2,7 @@
 defined('_SECURE_') or die('Forbidden');
 
 // insert to left menu array
-$menutab = $core_config['menutab']['feature'];
+$menutab = $core_config['menutab']['features'];
 $menu_config[$menutab][] = array("index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_list", _('Manage subscribe'));
 
 $subscribe_icon_add_message = "<img src=\"".$core_config['http_path']['themes']."/".core_themes_get()."/images/edit_action.gif\" alt=\""._('Add message')."\" title=\""._('Add message')."\" border=0>";

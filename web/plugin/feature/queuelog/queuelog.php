@@ -41,7 +41,10 @@ switch (_OP_) {
 			$c_queue_code = $data[$c]['queue_code'];
 			$c_datetime_scheduled = core_display_datetime($data[$c]['datetime_scheduled']);
 			$c_username = user_uid2username($data[$c]['uid']);
-			$c_count = $data[$c]['count'];
+
+			// total number of SMS in queue
+			$c_count = $data[$c]['sms_count'];
+
 			$c_message = stripslashes(core_display_text($data[$c]['message']));
 			$c_action = "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete queue")) . " " . $c_queue_code . " ?','"._u('index.php?app=main&inc=feature_queuelog&op=queuelog_delete&queue='.$c_queue_code)."')\">".$icon_config['delete']."</a>";
 			$content .= "

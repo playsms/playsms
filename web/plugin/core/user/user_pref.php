@@ -20,21 +20,58 @@
 defined('_SECURE_') or die('Forbidden');
 if(!auth_isvalid()){auth_block();};
 
-$c_username = $user_config['username'];
+$view = $_REQUEST['view'];
 
-if (($uname = $_REQUEST['uname']) && auth_isadmin()) {
-	$c_username = trim($uname);
-	$url_uname = '&uname='.$c_username;
+$uname = $_REQUEST['uname'];
+
+if ((! $uname) || ($uname && $uname == $user_config['username'])) {
+	$user_edited = $user_config;
+	$c_username = $user_config['username'];
+} else if (auth_isadmin()) {
+	$user_edited = user_getdatabyusername($uname);
+	$c_username = $uname;
+	$url_uname = '&uname='.$uname;
+} else {
+	$user_edited = user_getdatabyusername($uname);
+	$c_username = $uname;
+	$url_uname = '&uname='.$uname;
+	if ($user_edited['parent_uid'] == $user_config['uid']) {
+		$is_parent = TRUE;
+	} else {
+		auth_block();
+	}
 }
 
-$view = $_REQUEST['view'];
+$show_status_hint = FALSE;
+$allow_edit_status = FALSE;
+$allow_edit_parent = FALSE;
+
+if (auth_isadmin()) {
+	// if edited user IS NOT currently logged in admin or admin with user ID 1 (username: admin) or status is admin
+	if (! (($user_edited['uid'] == $user_config['uid']) || ($user_edited['uid'] == 1) || ($user_edited['status'] == 2))) {
+		$allow_edit_status = TRUE;
+	}
+
+	$list = user_getsubuserbyuid($user_edited['uid']);
+	if (count($list) > 0) {
+		$show_status_hint = TRUE;
+		$allow_edit_status = FALSE;
+	}
+
+	if ($user_edited['status'] == 4) {
+		$allow_edit_parent = TRUE;
+	}
+}
 
 switch (_OP_) {
 	case "user_pref":
-		if ($err = $_SESSION['error_string']) {
-			$error_content = "<div class=error_string>$err</div>";
-		}
 		if ($c_user = dba_search(_DB_PREF_.'_tblUser', '*', array('username' => $c_username))) {
+			if ($allow_edit_status) {
+				$status = $c_user[0]['status'];
+			}
+			if ($allow_edit_parent) {
+				$parent_uid = $c_user[0]['parent_uid'];
+			}
 			$name = $c_user[0]['name'];
 			$email = $c_user[0]['email'];
 			$mobile = $c_user[0]['mobile'];
@@ -50,9 +87,49 @@ switch (_OP_) {
 			exit();
 		}
 
+		if ($allow_edit_status) {
+			if ($user_edited['status'] == 3) {
+				$selected_users = 'selected';
+			} else {
+				$selected_subusers = 'selected';
+			}
+			$option_status = "
+				<option value='3' ".$selected_users.">" . _('Normal user') . "</option>
+				<option value='4' ".$selected_subusers.">" . _('Subuser') . "</option>
+			";			
+			$select_status = '<select name="up_status">'.$option_status.'</select>';
+		}
+
+		// when allowed to edit parents of subusers
+		if ($allow_edit_parent) {
+			// get list of normal users as parents
+			$option_parents = '<option value="0">--' . _('Select parent user for subuser') . '--</option>';
+
+			// get admins
+			$list = user_getallwithstatus(2);
+			foreach ($list as $parent) {
+				if ($parent['uid'] == $user_edited['parent_uid']) {
+					$selected = 'selected';
+				}
+				$option_parents .= '<option value="'.$parent['uid'].'" '.$selected.'>'.$parent['username'].' - '._('Administrator').'</option>';
+				$selected = '';
+			}
+
+			// get normal users
+			$list = user_getallwithstatus(3);
+			foreach ($list as $parent) {
+				if ($parent['uid'] == $user_edited['parent_uid']) {
+					$selected = 'selected';
+				}
+				$option_parents .= '<option value="'.$parent['uid'].'" '.$selected.'>'.$parent['username'].'</option>';
+				$selected = '';
+			}
+			$select_parents = '<select name="up_parent_uid">'.$option_parents.'</select>';
+		}
+
 		// get country option
 		$option_country = "<option value=\"0\">--" . _('Please select') . "--</option>\n";
-		$result = dba_search(_DB_PREF_.'_tblUser_country', '*', '', '', array('ORDER BY' => 'country_name'));
+		$result = country_search();
 		for ($i=0;$i<count($result);$i++) {
 			$country_id = $result[$i]['country_id'];
 			$country_name = $result[$i]['country_name'];
@@ -62,17 +139,31 @@ switch (_OP_) {
 			}
 			$option_country .= "<option value=\"$country_id\" $selected>$country_name</option>\n";
 		}
-		if ($uname && auth_isadmin()) {
+
+		// admin or normal users
+		if ($uname && (auth_isadmin() || $is_parent)) {
 			$form_title = _('Manage user');
-			$button_delete = "<input type=button class=button value='" . _('Delete') . "' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=main&inc=core_user&route=user_mgmnt&op=user_del" . $url_uname . "&view=".$view."')\">";
-			$button_back = _back('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view='.$view);
+			if ($is_parent) {
+				$button_delete = "<input type=button class=button value='" . _('Delete') . "' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete subuser ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_del" . $url_uname . "')\">";
+				$button_back = _back('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list');
+			} else {
+				$button_delete = "<input type=button class=button value='" . _('Delete') . "' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=main&inc=core_user&route=user_mgmnt&op=user_del" . $url_uname . "&view=".$view."')\">";
+				$button_back = _back('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view='.$view);
+			}
 		} else {
 			$form_title = _('Preferences');
 		}
-		unset($tpl);
+
+		// error string
+		if ($err = $_SESSION['error_string']) {
+			$error_content = "<div class=error_string>$err</div>";
+		}
+
 		$tpl = array(
 		    'name' => 'user_pref',
 		    'vars' => array(
+		    	'User status' => _('User status'),
+		    	'Parent user' =>  _('Parent user') . " (" . _('for subuser only') . ")",
 			'Login information' => _('Login information'),
 			'Username' => _('Username'),
 			'Password' => _('Password'),
@@ -87,12 +178,17 @@ switch (_OP_) {
 			'Country' => _('Country'),
 			'Zipcode' => _('Zipcode'),
 			'Save' => _('Save'),
+			'HINT_STATUS' => _hint('Cannot change status when normal user have subusers'),
+			'HINT_PARENT' => _hint(_('Parent user is mandatory for subusers only. If no value is given then the subuser will be automatically assigned to user admin')),
+			'STATUS' => _('Normal user'),
 			'ERROR' => $error_content,
 			'FORM_TITLE' => $form_title,
 			'BUTTON_DELETE' => $button_delete,
 			'BUTTON_BACK' => $button_back,
 			'URL_UNAME' => $url_uname,
 			'VIEW' => $view,
+			'select_status' => $select_status,
+			'select_parents' => $select_parents,
 			'c_username' => $c_username,
 			'name' => $name,
 			'email' => $email,
@@ -102,7 +198,12 @@ switch (_OP_) {
 			'state' => $state,
 			'option_country' => $option_country,
 			'zipcode' => $zipcode
-		    )
+		    ),
+		    'ifs' => array(
+		    	'edit_status' => $allow_edit_status,
+		    	'edit_parent' => $allow_edit_parent,
+		    	'edit_status_hint' => $show_status_hint,
+		    ),
 		);
 		_p(tpl_apply($tpl));
 		break;
@@ -111,9 +212,28 @@ switch (_OP_) {
 		$fields = array(
 			'name', 'email', 'mobile', 'address', 'city', 'state', 'country', 'password', 'zipcode'
 		);
+
+		if ($allow_edit_status) {
+			_log('saving username:'.$c_username.' status:'.$_POST['up_status'], 3, 'user_pref');
+			$fields[] = 'status';
+		}
+
+		if ($allow_edit_parent) {
+			_log('saving username:'.$c_username.' parent_uid:'.$_POST['up_parent_uid'], 3, 'user_pref');
+			$fields[] = 'parent_uid';
+		}
+
 		for ($i=0;$i<count($fields);$i++) {
 			$up[$fields[$i]] = trim($_POST['up_'.$fields[$i]]);
 		}
+
+		// subuser's parent uid, by default its uid=1
+		if ($_POST['up_parent_uid']) {
+			$up['parent_uid'] = ( $user_edited['status'] == 4 ? $_POST['up_parent_uid'] : 1 );
+		} else {
+			$up['parent_uid'] = 1;
+		}
+
 		$up['username'] = $c_username;
 		$up['lastupdate_datetime'] = core_adjust_datetime(core_get_datetime());
 		if ($up['name'] && $up['email']) {
@@ -149,6 +269,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must fill all field');
 		}
+		_log('saving username:'.$c_username.' error_string:'.$_SESSION['error_string'], 2, 'user_pref');
 		header("Location: "._u('index.php?app=main&inc=core_user&route=user_pref&op=user_pref'.$url_uname.'&view='.$view));
 		exit();
 		break;

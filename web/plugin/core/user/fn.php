@@ -218,25 +218,44 @@ function user_edit_validate($data=array()) {
  * @return array $ret('error_string', 'status', 'uid')
  */
 function user_add($data=array()) {
-	global $core_config;
+	global $core_config, $user_config;
 	$ret['error_string'] = _('Unknown error has occurred');
 	$ret['status'] = FALSE;
 	$ret['uid'] = 0;
 	$data = ( trim($data['username']) ? $data : $_REQUEST );
-	if (auth_isadmin() || $core_config['main']['enable_register']) {
+	if (auth_isadmin() || ($user_config['status'] == 3) || (!auth_isvalid() && $core_config['main']['enable_register'])) {
 		foreach ($data as $key => $val) {
 			$data[$key] = trim($val);
 		}
-		$data['status'] = ( $data['status'] ? $data['status'] : 3 );
-		$data['status'] = ( auth_isadmin() ? $data['status'] : 3 );
+		$data['status'] = ( $data['status'] ? $data['status'] : 4 );
+		$data['status'] = ( auth_isadmin() ? $data['status'] : 4 );
+
+		// logic for parent_uid
+		if ($data['status'] == 4) {
+			$parent_status = user_getfieldbyuid($data['parent_uid'], 'status');
+			if (! (($parent_status == 2) || ($parent_status == 3))) {
+				$data['parent_uid'] = 1;	
+			}
+		} else {
+			$data['parent_uid'] = 0;
+		}
+
 		$data['username'] = core_sanitize_username($data['username']);
 		$data['password'] = ( $data['password'] ? $data['password'] : core_get_random_string(10) );
 		$new_password = $data['password'];
 		$data['password'] = md5($new_password);
 		$data['token'] = md5(uniqid($data['username'].$data['password'], true));
-		$data['credit'] = ( $data['credit'] ? $data['credit'] : $core_config['main']['default_credit'] );
+		
+		// credit set to 0 by default
+		// $data['credit'] = ( $data['credit'] ? $data['credit'] : $core_config['main']['default_credit'] );
+		$data['credit'] = 0;
+		
 		$data['sender'] = ( $data['sender'] ? core_sanitize_sender($data['sender']) : '' );
-		$data['footer'] = '@'.$data['username'];
+		
+		// by default empty SMS footer on new user add or reg
+		// $data['footer'] = ( $data['footer'] ? '@'.$data['footer'] : '@'.$data['username'] );
+		$data['footer'] = '';
+		
 		$dt = core_get_datetime();
 		$data['register_datetime'] = $dt;
 		$data['lastupdate_datetime'] = $dt;
@@ -279,7 +298,7 @@ function user_add($data=array()) {
 			$ret['error_string'] = $v['error_string'];
 		}
 	} else {
-		$ret['error_string'] = _('Public registration is disabled');
+		$ret['error_string'] = _('User registration is not available');
 	}
 	return $ret;
 }
@@ -322,7 +341,11 @@ function user_session_set($uid='') {
 	global $core_config, $user_config;
 	if (! $core_config['daemon_process']) {
 		$uid = ( $uid ? $uid : $user_config['uid'] );
-		$hash = md5($uid.$_SERVER['REMOTE_ADDR'].$_SERVER['HTTP_USER_AGENT']);
+
+		// fixme anton - do not make this based on IP, not working properly when clients assigned ranged dynamic IPs
+		// $hash = md5($uid.$_SERVER['REMOTE_ADDR'].$_SERVER['HTTP_USER_AGENT']);
+		$hash = md5($uid.$_SERVER['HTTP_USER_AGENT']);
+
 		$json = array(
 			'ip' => $_SERVER['REMOTE_ADDR'],
 			'last_update' => core_get_datetime(),
@@ -431,14 +454,21 @@ function user_banned_remove($uid) {
 /**
  * Get user ban status
  * @param  integer $uid User ID
- * @return string Ban date/time
+ * @return mixed Ban date/time or FALSE for non-banned user
  */
 function user_banned_get($uid) {
 	$list = registry_search(1, 'auth', 'banned_users', $uid);
 	if ($list['auth']['banned_users'][$uid]) {
 		return $list['auth']['banned_users'][$uid];
 	} else {
-		return FALSE;
+		// check if this user has parent then check the parent ban status
+		if ($parent_uid = user_getparentbyuid($uid)) {
+			if ($bantime = user_banned_get($parent_uid)) {
+				return $bantime;
+			} else {
+				return FALSE;
+			}
+		}
 	}
 }
 
@@ -462,4 +492,80 @@ function user_banned_list() {
 		}
 	}
 	return $ret;
+}
+
+/**
+ * Set user data by uid
+ * @param  integer $uid  User ID
+ * @param  array   $data User data
+ * @return boolean TRUE when user data updated
+ */
+function user_setdatabyuid($uid, $data) {
+	if ( (int)$uid && is_array($data) ) {
+		$conditions = array('uid' => $uid);
+		if (dba_update(_DB_PREF_.'_tblUser', $data, $conditions)) {
+			return TRUE;
+		}
+	}
+
+	return FALSE;
+}
+
+/**
+ * Set parent for a subuser by uid
+ * @param  integer $uid        User ID
+ * @param  integer $parent_uid Parent user ID
+ * @return boolean             TRUE when parent sets
+ */
+function user_setparentbyuid($uid, $parent_uid) {
+	$uid = (int) $uid;
+	$parent_uid = (int) $parent_uid;
+	if ($uid && $parent_uid) {
+		$parent_status = user_getfieldbyuid($parent_uid, 'status');
+		if ($parent_status == 3) {
+			if (user_setdatabyuid($uid, array('parent_uid' => $parent_uid, 'status' => 4))) {
+				return TRUE;
+			}
+		}
+	}
+
+	return FALSE;
+}
+
+/**
+ * Get parent of a subuser by uid
+ * @param  integer $uid User ID
+ * @return mixed        Parent user ID or FALSE on error
+ */
+function user_getparentbyuid($uid) {
+	$uid = (int) $uid;
+	if ($uid) {
+		$conditions = array('uid' => $uid, 'status' => 4);
+		$list = dba_search(_DB_PREF_.'_tblUser', 'parent_uid', $conditions);
+		$parent_uid = (int)$list[0]['parent_uid'];
+		$parent_status = user_getfieldbyuid($parent_uid, 'status');
+		if (($parent_status == 2) || ($parent_status == 3)) {
+			return $parent_uid;
+		}
+	}
+
+	return FALSE;
+}
+
+/**
+ * Get list of subusers under a user by uid
+ * @param  integer $uid User ID
+ * @return array        Array of subusers
+ */
+function user_getsubuserbyuid($uid) {
+	$uid = (int) $uid;
+	if ($uid) {
+		$parent_status = user_getfieldbyuid($uid, 'status');
+		if (($parent_status == 2) || ($parent_status == 3)) {
+			$conditions = array('parent_uid' => $uid, 'status' => 4);
+			return dba_search(_DB_PREF_.'_tblUser', '*', $conditions);
+		}
+	}
+
+	return array();
 }

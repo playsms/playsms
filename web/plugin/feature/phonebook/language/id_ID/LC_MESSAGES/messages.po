@@ -60,11 +60,15 @@ msgstr "Kode grup telah ditambah"
 msgid "Group code is already exists"
 msgstr "Kode grup sudah ada"
 
-msgid "Group code used by keyword"
-msgstr "Kode grup digunakan oleh kata kunci"
+msgid "Group code may be used to broadcast SMS to this group"
+msgstr ""
 
 msgid "Group has been edited"
 msgstr "Grup telah diubah"
+
+msgid ""
+"Group has been edited but unable to set broadcast from members or anyone"
+msgstr ""
 
 msgid "Group name"
 msgstr "Nama grup"
@@ -96,14 +100,15 @@ msgstr "Nama"
 msgid "No changes has been made"
 msgstr "Tidak ada perubahan"
 
-msgid "Note"
-msgstr "Catatan"
-
 msgid "Phonebook"
 msgstr "Buku telepon"
 
 msgid "Please select CSV file for phonebook entries"
 msgstr "Pilih berkas CSV untuk isian buku telepon"
+
+#, fuzzy
+msgid "Please use alphanumeric only and make it short"
+msgstr "gunakan hurup besar dan singkat saja"
 
 msgid "Save"
 msgstr "Simpan"
@@ -134,9 +139,6 @@ msgstr "Anda harus mengisi semua isian"
 #, fuzzy
 msgid "You must fill required fields"
 msgstr "Anda harus mengisi semua isian"
-
-msgid "broadcast SMS from single SMS"
-msgstr "sebarkan SMS dari satu SMS"
 
 msgid "code"
 msgstr "kode"

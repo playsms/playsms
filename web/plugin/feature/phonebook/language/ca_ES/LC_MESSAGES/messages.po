@@ -68,11 +68,15 @@ msgstr "S'ha afegit el codi de grup"
 msgid "Group code is already exists"
 msgstr "El codi de grup ja existeix"
 
-msgid "Group code used by keyword"
-msgstr "Codi de grup funciona amb paraula clau"
+msgid "Group code may be used to broadcast SMS to this group"
+msgstr ""
 
 msgid "Group has been edited"
 msgstr "El grup s'ha editat"
+
+msgid ""
+"Group has been edited but unable to set broadcast from members or anyone"
+msgstr ""
 
 msgid "Group name"
 msgstr "Nom del grup"
@@ -104,14 +108,15 @@ msgstr "Nom"
 msgid "No changes has been made"
 msgstr "No s'han fet canvis"
 
-msgid "Note"
-msgstr "Nota"
-
 msgid "Phonebook"
 msgstr "Agenda"
 
 msgid "Please select CSV file for phonebook entries"
 msgstr "Si us plau trieu el fitxer CSV per les entrades de l'agenda"
+
+#, fuzzy
+msgid "Please use alphanumeric only and make it short"
+msgstr "si us plau feu servir majúscules i un nom curt"
 
 msgid "Save"
 msgstr "Guardar"
@@ -139,9 +144,6 @@ msgstr "Heu d'omplir tots els camps obligatoris"
 
 msgid "You must fill required fields"
 msgstr "Heu d'omplir tots els camps requerits"
-
-msgid "broadcast SMS from single SMS"
-msgstr "distribuir SMS a partir d'un SMS"
 
 msgid "code"
 msgstr "codi"

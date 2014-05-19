@@ -63,4 +63,18 @@ foreach ($users as $user) {
 	);
 }
 
+// display normal users
+
+$users = report_banned_subuser();
+foreach ($users as $user) {
+	$tpl['loops']['data'][] = array(
+		'tr_class' => $tr_class,
+		'username' => $user['username'],
+		'is_admin' => $user['icon_is_admin'],
+		'email' => $user['email'],
+		'bantime' => $user['bantime'],
+		'action' => $user['action_link'],
+	);
+}
+
 _p(tpl_apply($tpl));

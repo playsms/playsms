@@ -11,6 +11,12 @@ msgstr "Tentang"
 msgid "About playSMS"
 msgstr "Tentang playSMS"
 
+msgid ""
+"Access to unknown domain mapped to this server IP address will be redirected "
+"to this website URL. This website URL should be the primary address for the "
+"service."
+msgstr ""
+
 msgid "Action"
 msgstr "Tindakan"
 
@@ -90,6 +96,16 @@ msgstr "Selalu menambahkan tanda plus"
 msgid "Always choose to send as unicode"
 msgstr "Selalu pilih mengirim sebagai unicode"
 
+#, fuzzy
+msgid "Application footer here"
+msgstr "Opsi aplikasi"
+
+#, fuzzy
+msgid ""
+"Application footer here. Go to main configuration or manage site to edit "
+"this footer."
+msgstr "Perubahan konfigurasi utama telah disimpan"
+
 msgid "Application information"
 msgstr "Informasi aplikasi"
 
@@ -130,6 +146,23 @@ msgid "Back"
 msgstr "Kembali"
 
 msgid "Ban"
+msgstr ""
+
+msgid "Buy"
+msgstr ""
+
+#, fuzzy
+msgid "Buy credit"
+msgstr "Pulsa"
+
+#, fuzzy
+msgid "Buy credit page"
+msgstr "Pulsa"
+
+msgid "Buy credit page content"
+msgstr ""
+
+msgid "Buy credit page title"
 msgstr ""
 
 msgid "Changelog"
@@ -178,8 +211,20 @@ msgstr "Bahasa default"
 msgid "Default sender ID"
 msgstr "ID default pengirim"
 
+#, fuzzy
+msgid "Default settings"
+msgstr "Zona waktu default"
+
+#, fuzzy
+msgid "Default site configuration"
+msgstr "Konfigurasi utama"
+
 msgid "Default timezone"
 msgstr "Zona waktu default"
+
+#, fuzzy
+msgid "Default user status on registration"
+msgstr "Pendaftaran akun baru"
 
 msgid "Delete"
 msgstr "Hapus"
@@ -238,6 +283,9 @@ msgstr "Ekspor"
 msgid "F.A.Q"
 msgstr "F.A.Q"
 
+msgid "FATAL ERROR"
+msgstr ""
+
 msgid "Fail sent SMS, no credit"
 msgstr "Gagal mengirim SMS, tidak ada kredit"
 
@@ -272,6 +320,10 @@ msgid "Failed"
 msgstr "Gagal"
 
 msgid "Feature"
+msgstr "Fitur"
+
+#, fuzzy
+msgid "Features"
 msgstr "Fitur"
 
 msgid "Fill to change password for username"
@@ -345,6 +397,10 @@ msgstr "Gateway"
 msgid "Go"
 msgstr "Jalankan"
 
+#, fuzzy
+msgid "Go to main configuration or manage site to edit this page"
+msgstr "Perubahan konfigurasi utama telah disimpan"
+
 msgid "Group"
 msgstr "Grup"
 
@@ -374,6 +430,14 @@ msgstr "SMS masuk"
 msgid "Incoming messages"
 msgstr "Pesan unicode"
 
+#, fuzzy
+msgid "Information"
+msgstr "Informasi login"
+
+#, fuzzy
+msgid "Information page"
+msgstr "Informasi login"
+
 msgid "Installation Guide"
 msgstr "Panduan Instalasi"
 
@@ -388,6 +452,10 @@ msgstr "Kata kunci"
 
 msgid "Last update"
 msgstr "Terakhir ubah"
+
+#, fuzzy
+msgid "Layout footer"
+msgstr "Catatan kaki SMS"
 
 msgid "License"
 msgstr "Lisensi"
@@ -404,6 +472,9 @@ msgid "Local number length"
 msgstr "Panjang nomor lokal"
 
 msgid "Login"
+msgstr ""
+
+msgid "Login as"
 msgstr ""
 
 msgid "Login information"
@@ -433,6 +504,14 @@ msgstr ""
 
 msgid "Manage"
 msgstr "Atur"
+
+#, fuzzy
+msgid "Manage site"
+msgstr "Pengaturan pengguna"
+
+#, fuzzy
+msgid "Manage subusers"
+msgstr "Pengaturan pengguna"
 
 msgid "Manage user"
 msgstr "Pengaturan pengguna"
@@ -492,6 +571,10 @@ msgstr ""
 msgid "My Account"
 msgstr "Akun saya"
 
+#, fuzzy
+msgid "My account"
+msgstr "Akun saya"
+
 msgid "Name"
 msgstr "Nama"
 
@@ -506,9 +589,6 @@ msgstr "Token webservices baru"
 
 msgid "No changes made"
 msgstr "Tidak ada perubahan yang dilakukan"
-
-msgid "Normal User"
-msgstr "Pengguna normal"
 
 msgid "Normal user"
 msgstr "Pengguna normal"
@@ -536,6 +616,14 @@ msgstr "SMS keluar"
 #, fuzzy
 msgid "Outgoing messages"
 msgstr "SMS keluar"
+
+#, fuzzy
+msgid "Page content"
+msgstr "Isi"
+
+#, fuzzy
+msgid "Page title"
+msgstr "Pengaturan pengguna"
 
 msgid "Password"
 msgstr "Kata sandi"
@@ -580,6 +668,9 @@ msgstr "Pilih waktu & tanggal"
 #, fuzzy
 msgid "Pick date & time"
 msgstr "Pilih waktu & tanggal"
+
+msgid "Please run composer.phar update"
+msgstr ""
 
 msgid "Please select"
 msgstr "Silakan pilih"
@@ -632,6 +723,9 @@ msgstr "Pemulihan kata sandi dinonaktifkan"
 msgid "Recover password disabled"
 msgstr "Pemulihan kata sandi dinonaktifkan"
 
+msgid "Reduce"
+msgstr ""
+
 #, fuzzy
 msgid "Register an account"
 msgstr "Gagal untuk mendaftarkan akun"
@@ -647,6 +741,10 @@ msgstr ""
 
 msgid "Reply"
 msgstr "Balas"
+
+#, fuzzy
+msgid "Reports"
+msgstr "Ekspor"
 
 msgid "Resend"
 msgstr ""
@@ -741,6 +839,9 @@ msgstr "Pengirim"
 msgid "Sent"
 msgstr "Terkirim"
 
+msgid "Settings"
+msgstr ""
+
 msgid "State or Province"
 msgstr "Propinsi"
 
@@ -748,6 +849,9 @@ msgid "Status"
 msgstr "Status"
 
 msgid "Submit"
+msgstr ""
+
+msgid "Subuser"
 msgstr ""
 
 msgid "This field is required"
@@ -771,6 +875,10 @@ msgstr "Alat"
 
 #, fuzzy
 msgid "Unable to ban user"
+msgstr "Tidak dapat memperbaharui sesi login"
+
+#, fuzzy
+msgid "Unable to find composer files"
 msgstr "Tidak dapat memperbaharui sesi login"
 
 #, fuzzy
@@ -935,11 +1043,23 @@ msgstr "Token webservices"
 msgid "Webservices username"
 msgstr "Username webservices"
 
+#, fuzzy
+msgid "Website URL"
+msgstr "Email situs"
+
 msgid "Website email"
 msgstr "Email situs"
 
 msgid "Website title"
 msgstr "Judul situs"
+
+#, fuzzy
+msgid "Welcome information content"
+msgstr "Informasi aplikasi"
+
+#, fuzzy
+msgid "Welcome information title"
+msgstr "Informasi aplikasi"
 
 msgid "Welcome to playSMS"
 msgstr "Selamat datang di playSMS"
@@ -991,6 +1111,13 @@ msgstr "Kode POS"
 msgid "chars"
 msgstr ""
 
+msgid "cost"
+msgstr ""
+
+#, fuzzy
+msgid "count"
+msgstr "Akun saya"
+
 msgid "email"
 msgstr "email"
 
@@ -1029,6 +1156,9 @@ msgstr ""
 
 msgid "queued"
 msgstr "antri"
+
+msgid "rate"
+msgstr ""
 
 msgid "reply"
 msgstr "balas"

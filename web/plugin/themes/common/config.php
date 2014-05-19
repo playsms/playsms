@@ -33,6 +33,9 @@ $icon_config = array(
 	'ban' => "<span class='playsms-icon glyphicon glyphicon-thumbs-down' alt='" . _('Ban') . "' title='" . _('Ban') . "'></span>",
 	'unban' => "<span class='playsms-icon glyphicon glyphicon-thumbs-up' alt='" . _('Unban') . "' title='" . _('Unban') . "'></span>",
 	'logout' => "<span class='playsms-icon glyphicon glyphicon-off' alt='" . _('Logout') . "' title='" . _('Logout') . "'></span>",
+	'reduce' => "<span class='playsms-icon glyphicon glyphicon-minus' alt='" . _('Reduce') . "' title='" . _('Reduce') . "'></span>",
+	'buy' => "<span class='playsms-icon glyphicon glyphicon-usd' alt='" . _('Buy') . "' title='" . _('Buy') . "'></span>",
+	'login_as' => "<span class='playsms-icon glyphicon glyphicon-adjust' alt='" . _('Login as') . "' title='" . _('Login as') . "'></span>",
 );
 
 // menu structure
@@ -40,71 +43,65 @@ $icon_config = array(
 // menu tabs
 $core_config['menutab'] = array(
 	'home' => _('Home') ,
-	'my_account' => _('My Account') ,
-	'feature' => _('Feature') ,
-	'administration' => _('Administration') ,
+	'my_account' => _('My account') ,
+	'reports' => _('Reports') ,
+	'features' => _('Features') ,
+	'settings' => _('Settings') ,
 );
 
 // my account tab
 $menutab = $core_config['menutab']['my_account'];
 $menu_config[$menutab] = array(
 	array(
-		'index.php?app=main&inc=send_sms&op=send_sms',
+		'index.php?app=main&inc=core_sendsms&op=sendsms',
 		_('Send message') ,
 		1
 	) ,
-	array(
-		'index.php?app=main&inc=user_inbox&op=user_inbox',
-		_('Inbox') ,
-		1
-	) ,
-	array(
-		'index.php?app=main&inc=user_incoming&op=user_incoming',
-		_('Incoming messages') ,
-		1
-	) ,
-	array(
-		'index.php?app=main&inc=user_outgoing&op=user_outgoing',
-		_('Outgoing messages') ,
-		1
-	) ,
+);
+// divider
+$menu_config[$menutab][] = array(
+	'#',
+	'-',
+	99
+);
+$menu_config[$menutab][] = array(
+	'index.php?app=main&inc=core_user&route=user_config&op=user_config',
+	_('User configuration') ,
+	99
+);
+$menu_config[$menutab][] = array(
+	'index.php?app=main&inc=core_user&route=user_pref&op=user_pref',
+	_('Preferences') ,
+	99
 );
 
-// only if logged in user is an admin then load administration tab
+// settings tab
 if (auth_isadmin()) {
 	
-	// administrator menus
-	$menutab = $core_config['menutab']['administration'];
-	$menu_config[$menutab] = array(
-		array(
-			'index.php?app=main&inc=all_inbox&op=all_inbox',
-			_('All inbox') ,
-			1
-		) ,
-		array(
-			'index.php?app=main&inc=all_incoming&op=all_incoming',
-			_('All incoming messages') ,
-			1
-		) ,
-		array(
-			'index.php?app=main&inc=all_outgoing&op=all_outgoing',
-			_('All outgoing messages') ,
-			1
-		) ,
-		array(
-			'index.php?app=main&inc=sandbox&op=sandbox',
-			_('Sandbox') ,
-			1
-		) ,
-		array(
-			'index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list',
-			_('Manage user') ,
-			2
-		) ,
-		array(
-			'index.php?app=main&inc=main_config&op=main_config',
-			_('Main configuration') ,
-			2
-		) ,
+	// admin settings
+	$menutab = $core_config['menutab']['settings'];
+	$menu_config[$menutab][] = array(
+		'index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list',
+		_('Manage user') ,
+		3
+	);
+	$menu_config[$menutab][] = array(
+		'index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list',
+		_('Manage subusers') ,
+		3
+	);
+	$menu_config[$menutab][] = array(
+		'index.php?app=main&inc=core_main_config&op=main_config',
+		_('Main configuration') ,
+		3
+	);
+} else if ($user_config['status'] == 3) {
+	
+	// normal user menus
+	$menutab = $core_config['menutab']['settings'];
+	$menu_config[$menutab][] = array(
+		'index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list',
+		_('Manage subusers') ,
+		3
 	);
 }

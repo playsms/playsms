@@ -20,6 +20,12 @@ msgstr "Quant a"
 msgid "About playSMS"
 msgstr "Quant a playSMS"
 
+msgid ""
+"Access to unknown domain mapped to this server IP address will be redirected "
+"to this website URL. This website URL should be the primary address for the "
+"service."
+msgstr ""
+
 msgid "Action"
 msgstr "Acció"
 
@@ -95,6 +101,16 @@ msgstr "Sempre afegir el signe més"
 msgid "Always choose to send as unicode"
 msgstr "Sempre triar enviar com a unicode"
 
+#, fuzzy
+msgid "Application footer here"
+msgstr "Opcions del programa"
+
+#, fuzzy
+msgid ""
+"Application footer here. Go to main configuration or manage site to edit "
+"this footer."
+msgstr "La configuració principal ha estat guardada"
+
 msgid "Application information"
 msgstr "Informació del programa"
 
@@ -134,6 +150,23 @@ msgid "Back"
 msgstr "Enrere"
 
 msgid "Ban"
+msgstr ""
+
+msgid "Buy"
+msgstr ""
+
+#, fuzzy
+msgid "Buy credit"
+msgstr "Crèdit"
+
+#, fuzzy
+msgid "Buy credit page"
+msgstr "Crèdit"
+
+msgid "Buy credit page content"
+msgstr ""
+
+msgid "Buy credit page title"
 msgstr ""
 
 msgid "Changelog"
@@ -181,8 +214,20 @@ msgstr "Idioma per defecte"
 msgid "Default sender ID"
 msgstr "Número de la plataforma"
 
+#, fuzzy
+msgid "Default settings"
+msgstr "Zona horària per defecte"
+
+#, fuzzy
+msgid "Default site configuration"
+msgstr "Configuració Principal"
+
 msgid "Default timezone"
 msgstr "Zona horària per defecte"
+
+#, fuzzy
+msgid "Default user status on registration"
+msgstr "Registrar un nou compte"
 
 msgid "Delete"
 msgstr "Esborrar"
@@ -239,6 +284,9 @@ msgstr "Exportar"
 msgid "F.A.Q"
 msgstr "P.M.F"
 
+msgid "FATAL ERROR"
+msgstr ""
+
 msgid "Fail sent SMS, no credit"
 msgstr "No es pot enviar el SMS, no hi ha saldo"
 
@@ -273,6 +321,10 @@ msgid "Failed"
 msgstr "Fallit"
 
 msgid "Feature"
+msgstr "Servei"
+
+#, fuzzy
+msgid "Features"
 msgstr "Servei"
 
 msgid "Fill to change password for username"
@@ -341,6 +393,10 @@ msgstr "Passarel·la"
 msgid "Go"
 msgstr "Anar"
 
+#, fuzzy
+msgid "Go to main configuration or manage site to edit this page"
+msgstr "La configuració principal ha estat guardada"
+
 msgid "Group"
 msgstr "Grup"
 
@@ -368,6 +424,14 @@ msgstr "SMS Entrants"
 msgid "Incoming messages"
 msgstr "Missatges entrants"
 
+#, fuzzy
+msgid "Information"
+msgstr "Informació de la sessió"
+
+#, fuzzy
+msgid "Information page"
+msgstr "Informació de la sessió"
+
 msgid "Installation Guide"
 msgstr "Guia d'instal·lació"
 
@@ -382,6 +446,10 @@ msgstr "Clau"
 
 msgid "Last update"
 msgstr "Última actualització"
+
+#, fuzzy
+msgid "Layout footer"
+msgstr "Firma del SMS"
 
 msgid "License"
 msgstr "Llicència"
@@ -398,6 +466,10 @@ msgid "Local number length"
 msgstr "Longitud del número local"
 
 msgid "Login"
+msgstr "Entrar"
+
+#, fuzzy
+msgid "Login as"
 msgstr "Entrar"
 
 msgid "Login information"
@@ -427,6 +499,14 @@ msgstr "Nom principal de la web"
 
 msgid "Manage"
 msgstr "Administrar"
+
+#, fuzzy
+msgid "Manage site"
+msgstr "Administrar usuari"
+
+#, fuzzy
+msgid "Manage subusers"
+msgstr "Administrar usuari"
 
 msgid "Manage user"
 msgstr "Administrar usuari"
@@ -485,6 +565,10 @@ msgstr "Moure a"
 msgid "My Account"
 msgstr "El meu compte"
 
+#, fuzzy
+msgid "My account"
+msgstr "El meu compte"
+
 msgid "Name"
 msgstr "Nom"
 
@@ -499,9 +583,6 @@ msgstr "Nou token de webservices"
 
 msgid "No changes made"
 msgstr "No s'han realitzat canvis"
-
-msgid "Normal User"
-msgstr "Usuari Normal"
 
 msgid "Normal user"
 msgstr "Usuari normal"
@@ -527,6 +608,14 @@ msgstr "SMS de sortida"
 
 msgid "Outgoing messages"
 msgstr "Missatges sortints"
+
+#, fuzzy
+msgid "Page content"
+msgstr "Contingut"
+
+#, fuzzy
+msgid "Page title"
+msgstr "Administrar usuari"
 
 msgid "Password"
 msgstr "Contrasenya"
@@ -569,6 +658,9 @@ msgstr "Seleccionar data i hora"
 
 msgid "Pick date & time"
 msgstr "Seleccionar data i hora"
+
+msgid "Please run composer.phar update"
+msgstr ""
 
 msgid "Please select"
 msgstr "Si us plau seleccioni"
@@ -619,6 +711,9 @@ msgstr "Recuperar contrasenya"
 msgid "Recover password disabled"
 msgstr "Recuperar contrasenya desactivat"
 
+msgid "Reduce"
+msgstr ""
+
 msgid "Register an account"
 msgstr "Registrar un compte"
 
@@ -633,6 +728,10 @@ msgstr ""
 
 msgid "Reply"
 msgstr "Respondre"
+
+#, fuzzy
+msgid "Reports"
+msgstr "Exportar"
 
 msgid "Resend"
 msgstr "Reenviar"
@@ -721,6 +820,9 @@ msgstr "Emissor"
 msgid "Sent"
 msgstr "Enviat"
 
+msgid "Settings"
+msgstr ""
+
 msgid "State or Province"
 msgstr "Estat o província"
 
@@ -729,6 +831,9 @@ msgstr "Estat"
 
 msgid "Submit"
 msgstr "Enviar"
+
+msgid "Subuser"
+msgstr ""
 
 msgid "This field is required"
 msgstr "El camp és obligat"
@@ -752,6 +857,10 @@ msgstr "Eines"
 
 #, fuzzy
 msgid "Unable to ban user"
+msgstr "Impossible actualitzar la sessió de l'usuari"
+
+#, fuzzy
+msgid "Unable to find composer files"
 msgstr "Impossible actualitzar la sessió de l'usuari"
 
 #, fuzzy
@@ -905,11 +1014,23 @@ msgstr "Token de webservices"
 msgid "Webservices username"
 msgstr "Usuari de webservices"
 
+#, fuzzy
+msgid "Website URL"
+msgstr "URL principal de la web"
+
 msgid "Website email"
 msgstr "Correu electrònic de contacte"
 
 msgid "Website title"
 msgstr "Títol del lloc WEB"
+
+#, fuzzy
+msgid "Welcome information content"
+msgstr "Informació del programa"
+
+#, fuzzy
+msgid "Welcome information title"
+msgstr "Informació del programa"
 
 msgid "Welcome to playSMS"
 msgstr "Benvingut al playSMS"
@@ -960,6 +1081,13 @@ msgstr "Codi postal"
 msgid "chars"
 msgstr "caràcters"
 
+msgid "cost"
+msgstr ""
+
+#, fuzzy
+msgid "count"
+msgstr "El meu compte"
+
 msgid "email"
 msgstr "Correu electrònic"
 
@@ -998,6 +1126,9 @@ msgstr "prefixe amb # per grups i @ per usuaris"
 
 msgid "queued"
 msgstr "encuat"
+
+msgid "rate"
+msgstr ""
 
 msgid "reply"
 msgstr "Respondre"

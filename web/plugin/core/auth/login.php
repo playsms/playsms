@@ -9,7 +9,7 @@ if (_OP_ == 'login') {
 	if ($username_or_email && $password) {
 		$username = '';
 		$validated = FALSE;
-
+		
 		if (preg_match('/^(.+)@(.+)\.(.+)$/', $username_or_email)) {
 			if (auth_validate_email($username_or_email, $password)) {
 				$username = user_email2username($username_or_email);
@@ -21,20 +21,16 @@ if (_OP_ == 'login') {
 				$validated = TRUE;
 			}
 		}
-
+		
 		if ($validated) {
-			$c_user = user_getdatabyusername($username);
-			$_SESSION['sid'] = session_id();
-			$_SESSION['username'] = $c_user['username'];
-			$_SESSION['uid'] = $c_user['uid'];
-			$_SESSION['status'] = $c_user['status'];
-			$_SESSION['valid'] = true;
-			
-			// save session in registry
-			if (!$core_config['daemon_process']) {
-				user_session_set($c_user['uid']);
+			$uid = user_username2uid($username);
+			auth_session_setup($uid);
+			if (auth_isvalid()) {
+				logger_print("u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "login");
+			} else {
+				logger_print("unable to setup session u:" . $_SESSION['username'] . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "login");
+				$_SESSION['error_string'] = _('Unable to login');
 			}
-			logger_print("u:" . $_SESSION['username'] . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "login");
 		} else {
 			$_SESSION['error_string'] = _('Invalid username or password');
 		}
@@ -49,12 +45,22 @@ if (_OP_ == 'login') {
 		$error_content = '<div class="error_string">' . $_SESSION['error_string'] . '</div>';
 	}
 	
+	$enable_logo = FALSE;
+	$show_web_title = TRUE;
+	
+	if ($core_config['main']['enable_logo'] && $core_config['main']['logo_url']) {
+		$enable_logo = TRUE;
+		if ($core_config['main']['logo_replace_title']) {
+			$show_web_title = FALSE;
+		}
+	}
+	
 	unset($tpl);
 	$tpl = array(
 		'name' => 'auth_login',
 		'vars' => array(
 			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
-			'WEB_TITLE' => $web_title,
+			'WEB_TITLE' => $core_config['main']['web_title'],
 			'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=login&op=login') ,
 			'URL_REGISTER' => _u('index.php?app=main&inc=core_auth&route=register') ,
 			'URL_FORGOT' => _u('index.php?app=main&inc=core_auth&route=forgot') ,
@@ -69,8 +75,8 @@ if (_OP_ == 'login') {
 		'ifs' => array(
 			'enable_register' => $core_config['main']['enable_register'],
 			'enable_forgot' => $core_config['main']['enable_forgot'],
-			'enable_logo' => $core_config['main']['enable_logo'],
-			'logo_replace_title' => ($core_config['main']['logo_replace_title'] ? FALSE : TRUE) ,
+			'enable_logo' => $enable_logo,
+			'show_web_title' => $show_web_title,
 		)
 	);
 	

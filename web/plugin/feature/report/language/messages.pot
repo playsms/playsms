@@ -1,4 +1,25 @@
+msgid "All inbox"
+msgstr ""
+
+msgid "All incoming messages"
+msgstr ""
+
+msgid "All outgoing messages"
+msgstr ""
+
 msgid "All reports"
+msgstr ""
+
+msgid "Amount"
+msgstr ""
+
+msgid "Are you sure you want to delete these items ?"
+msgstr ""
+
+msgid "Are you sure you want to delete these transactions ?"
+msgstr ""
+
+msgid "Balance"
 msgstr ""
 
 msgid "Ban date/time"
@@ -8,6 +29,9 @@ msgid "Banned users list"
 msgstr ""
 
 msgid "Billing"
+msgstr ""
+
+msgid "Content"
 msgstr ""
 
 msgid "Credit"
@@ -28,10 +52,43 @@ msgstr ""
 msgid "Failed"
 msgstr ""
 
+msgid "Feature"
+msgstr ""
+
+msgid "Footer"
+msgstr ""
+
+msgid "From"
+msgstr ""
+
+msgid "Gateway"
+msgstr ""
+
+msgid "Inbox"
+msgstr ""
+
+msgid "Incoming messages"
+msgstr ""
+
+msgid "Keyword"
+msgstr ""
+
 msgid "Last update"
 msgstr ""
 
+msgid "List of my credit transactions"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "My credit transactions"
+msgstr ""
+
 msgid "My report"
+msgstr ""
+
+msgid "Outgoing messages"
 msgstr ""
 
 msgid "Pending"
@@ -49,10 +106,34 @@ msgstr ""
 msgid "Report whose online"
 msgstr ""
 
+msgid "Sandbox"
+msgstr ""
+
+msgid "Selected incoming message has been deleted"
+msgstr ""
+
+msgid "Selected outgoing message has been deleted"
+msgstr ""
+
+msgid "Selected transactions has been deleted"
+msgstr ""
+
 msgid "Sent"
 msgstr ""
 
+msgid "Status"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "To"
+msgstr ""
+
 msgid "Total"
+msgstr ""
+
+msgid "Transaction datetime"
 msgstr ""
 
 msgid "Unable to unban user"
@@ -68,6 +149,21 @@ msgid "User has been unbanned"
 msgstr ""
 
 msgid "Whose online"
+msgstr ""
+
+msgid "cost"
+msgstr ""
+
+msgid "count"
+msgstr ""
+
+msgid "handled"
+msgstr ""
+
+msgid "rate"
+msgstr ""
+
+msgid "unhandled"
 msgstr ""
 
 msgid "username"

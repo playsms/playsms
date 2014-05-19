@@ -8,11 +8,14 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
+msgid "Logged in as"
+msgstr ""
+
 msgid "Logout"
 msgstr ""
 
-msgid "Preferences"
+msgid "Your credit"
 msgstr ""
 
-msgid "User configuration"
+msgid "return"
 msgstr ""

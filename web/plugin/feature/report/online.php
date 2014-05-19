@@ -63,4 +63,22 @@ foreach ($users as $user) {
 	}
 }
 
+// display subusers
+
+$users = report_whoseonline_subuser();
+foreach ($users as $user) {
+	foreach ($user as $hash) {
+		$tpl['loops']['data'][] = array(
+			'tr_class' => $tr_class,
+			'c_username' => $hash['username'],
+			'c_is_admin' => $hash['icon_is_admin'],
+			'last_update' => $hash['last_update'],
+			'current_ip' => $hash['ip'],
+			'user_agent' => $hash['http_user_agent'],
+			'login_status' => $hash['login_status'],
+			'action' => $hash['action_link'],
+		);
+	}
+}
+
 _p(tpl_apply($tpl));

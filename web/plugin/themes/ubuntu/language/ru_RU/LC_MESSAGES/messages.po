@@ -15,11 +15,14 @@ msgstr ""
 msgid "Home"
 msgstr "Главная"
 
+msgid "Logged in as"
+msgstr ""
+
 msgid "Logout"
 msgstr "Выход"
 
-msgid "Preferences"
-msgstr "Профиль"
+msgid "Your credit"
+msgstr ""
 
-msgid "User configuration"
-msgstr "Настройки"
+msgid "return"
+msgstr ""

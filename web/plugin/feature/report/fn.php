@@ -1,17 +1,37 @@
 <?php
 
 /**
+ * Count number of SMS for report
+ * @param  integer $uid          User ID or 0 for all users
+ * @param  integer $dlr_status   Delivery report status
+ * @param  integer $flag_deleted Deleted SMS flagged with 1
+ * @return integer                Number of SMS
+ */
+function report_count($uid=0, $dlr_status=0, $flag_deleted=0) {
+	$sms_count = 0;
+
+	$db_table = _DB_PREF_.'_tblSMSOutgoing';
+	$conditions = array('p_status' => $dlr_status, 'flag_deleted' => $flag_deleted);
+	if ($uid) {
+		$conditions['uid'] = $uid;
+	}
+	$list = dba_search($db_table, 'queue_code', $conditions, '', array('GROUP BY' => 'queue_code'));
+	foreach ($list as $row) {
+		$db_table = _DB_PREF_.'_tblSMSOutgoing_queue';
+		$data = dba_search($db_table, 'sms_count', array('queue_code' => $row['queue_code']));
+		$sms_count += $data[0]['sms_count'];
+	}
+
+	return (int)$sms_count;
+}
+
+/**
  * Report count of pending SMS
  * @param integer $uid User ID
  * @return integer Count of pending SMS
  */
 function report_count_pending($uid=0) {
-	$db_table = _DB_PREF_.'_tblSMSOutgoing';
-	$conditions = array('p_status' => 0, 'flag_deleted' => 0);
-	if ($uid) {
-		$conditions['uid'] = $uid;
-	}
-	return dba_count($db_table, $conditions);
+	return report_count($uid, 0);
 }
 
 /**
@@ -20,26 +40,7 @@ function report_count_pending($uid=0) {
  * @return integer Count of sent SMS
  */
 function report_count_sent($uid=0) {
-	$db_table = _DB_PREF_.'_tblSMSOutgoing';
-	$conditions = array('p_status' => 1, 'flag_deleted' => 0);
-	if ($uid) {
-		$conditions['uid'] = $uid;
-	}
-	return dba_count($db_table, $conditions);
-}
-
-/**
- * Report count of delivered SMS
- * @param integer $uid User ID
- * @return integer Count of delivered SMS
- */
-function report_count_delivered($uid=0) {
-	$db_table = _DB_PREF_.'_tblSMSOutgoing';
-	$conditions = array('p_status' => 3, 'flag_deleted' => 0);
-	if ($uid) {
-		$conditions['uid'] = $uid;
-	}
-	return dba_count($db_table, $conditions);
+	return report_count($uid, 1);
 }
 
 /**
@@ -48,12 +49,16 @@ function report_count_delivered($uid=0) {
  * @return integer Count of failed SMS
  */
 function report_count_failed($uid=0) {
-	$db_table = _DB_PREF_.'_tblSMSOutgoing';
-	$conditions = array('p_status' => 2, 'flag_deleted' => 0);
-	if ($uid) {
-		$conditions['uid'] = $uid;
-	}
-	return dba_count($db_table, $conditions);
+	return report_count($uid, 2);
+}
+
+/**
+ * Report count of delivered SMS
+ * @param integer $uid User ID
+ * @return integer Count of delivered SMS
+ */
+function report_count_delivered($uid=0) {
+	return report_count($uid, 3);
 }
 
 /**
@@ -62,12 +67,13 @@ function report_count_failed($uid=0) {
  * @return integer Count of deleted SMS
  */
 function report_count_deleted($uid=0) {
-	$db_table = _DB_PREF_.'_tblSMSOutgoing';
-	$conditions = array('flag_deleted' => 1);
-	if ($uid) {
-		$conditions['uid'] = $uid;
-	}
-	return dba_count($db_table, $conditions);
+	$deleted_pending = report_count($uid, 0, 1);
+	$deleted_sent = report_count($uid, 1, 1);
+	$deleted_failed = report_count($uid, 2, 1);
+	$deleted_delivered = report_count($uid, 3, 1);
+	$deleted = $deleted_pending + $deleted_sent + $deleted_failed + $deleted_delivered;
+
+	return $deleted;
 }
 
 /**
@@ -159,6 +165,16 @@ function report_whoseonline_user($online_only=FALSE, $idle_only=FALSE) {
 }
 
 /**
+ * Get subuser whose online
+ * @param boolean $online_only Report whose online only
+ * @param boolean $idle_only Report whose online with login status idle only
+ * @return array Whose online data
+ */
+function report_whoseonline_subuser($online_only=FALSE, $idle_only=FALSE) {
+	return report_whoseonline(4, $online_only, $idle_only);
+}
+
+/**
  * Get banned users list
  * @param  integer $status User status
  * @return array Banned users
@@ -209,6 +225,14 @@ function report_banned_admin() {
  */
 function report_banned_user() {
 	return report_banned_list(3);
+}
+
+/**
+ * Get banned subusers list
+ * @return array Banned subusers
+ */
+function report_banned_subuser() {
+	return report_banned_list(4);
 }
 
 /**

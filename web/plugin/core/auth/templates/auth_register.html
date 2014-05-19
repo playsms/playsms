@@ -23,13 +23,13 @@
 					</tr>
 					</if.enable_logo>
 
-					<if.logo_replace_title>
+					<if.show_web_title>
 					<tr>
 						<td align="center">
 							<h1><a href={{ HTTP_PATH_BASE }}>{{ WEB_TITLE }}</a></h1>
 						</td>
 					</tr>
-					</if.logo_replace_title>
+					</if.show_web_title>
 
 					<tr>
 						<td align="center">
@@ -48,6 +48,12 @@
 					</tr>
 					<tr>
 						<td><input type=text class=form-control placeholder="{{ Email }}" name=email maxlength=100></td>
+					</tr>
+					<tr>
+						<td><input type=text class=form-control placeholder="{{ Verify captcha }}" name=captcha maxlength=100></td>
+					</tr>
+					<tr>
+						<td><p class=well>{{ Captcha }} {{ HINT_CAPTCHA }}<br /><img src="{{ CAPTCHA_IMAGE }}"></p></td>
 					</tr>
 					<tr>
 						<td><input type=submit class=button value='{{ Submit }}'></td>

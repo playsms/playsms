@@ -59,10 +59,14 @@ msgstr ""
 msgid "Group code is already exists"
 msgstr ""
 
-msgid "Group code used by keyword"
+msgid "Group code may be used to broadcast SMS to this group"
 msgstr ""
 
 msgid "Group has been edited"
+msgstr ""
+
+msgid ""
+"Group has been edited but unable to set broadcast from members or anyone"
 msgstr ""
 
 msgid "Group name"
@@ -95,13 +99,13 @@ msgstr ""
 msgid "No changes has been made"
 msgstr ""
 
-msgid "Note"
-msgstr ""
-
 msgid "Phonebook"
 msgstr ""
 
 msgid "Please select CSV file for phonebook entries"
+msgstr ""
+
+msgid "Please use alphanumeric only and make it short"
 msgstr ""
 
 msgid "Save"
@@ -129,9 +133,6 @@ msgid "You must fill mandatory fields"
 msgstr ""
 
 msgid "You must fill required fields"
-msgstr ""
-
-msgid "broadcast SMS from single SMS"
 msgstr ""
 
 msgid "code"

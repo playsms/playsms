@@ -2,8 +2,8 @@
 defined('_SECURE_') or die('Forbidden');
 
 function flatly_hook_themes_apply($content) {
-	global $core_config, $user_config, $web_title;
-	unset($tpl);
+	global $core_config, $user_config;
+
 	$tpl = array(
 		'name' => 'themes_layout',
 		'vars' => array(
@@ -12,9 +12,12 @@ function flatly_hook_themes_apply($content) {
 			'HTTP_PATH_THEMES' => $core_config['http_path']['themes'],
 			'THEMES_MODULE' => core_themes_get() ,
 			'THEMES_MENU_TREE' => themes_get_menu_tree() ,
+			'THEMES_SUBMENU' => themes_submenu() ,
+			'CREDIT_SHOW_URL' => _u('index.php?app=ws&op=credit') ,
 			'NAME' => $user_config['name'],
 			'USERNAME' => $user_config['username'],
 			'GRAVATAR' => $user_config['opt']['gravatar'],
+			'LAYOUT_FOOTER' => $core_config['main']['layout_footer'],
 			'Logout' => _('Logout')
 		) ,
 		'ifs' => array(
@@ -22,7 +25,34 @@ function flatly_hook_themes_apply($content) {
 		)
 	);
 	$content = tpl_apply($tpl, array('core_config', 'user_config'));
+
 	return $content;
+}
+
+function flatly_hook_themes_submenu($content='') {
+	global $user_config;
+
+	$separator = "&nbsp;&nbsp;&nbsp;";
+
+	$logged_in = $user_config['username'];
+	$tooltips_logged_in = _('Logged in as').' '.$logged_in;
+
+	$credit = $user_config['credit'];
+	$tooltips_credit = _('Your credit');
+
+	$ret = '<div>';
+	$ret .= '<span class="playsms-icon glyphicon glyphicon-user" alt="'.$tooltips_logged_in.'" title="'.$tooltips_logged_in.'"></span>'.$logged_in;
+	$ret .= $separator.'<span class="playsms-icon glyphicon glyphicon-usd" alt="'.$tooltips_credit.'" title="'.$tooltips_credit.'"></span><div id="submenu-credit-show">'.$credit.'</div>';
+	//$ret .= $separator._a('index.php?app=main&inc=feature_sitemanager&route=buy_credit', _('Buy credit'));
+
+	if (auth_login_as_check()) {
+		$ret .= $separator._a('index.php?app=main&inc=core_auth&route=logout', _('return'));
+	}
+
+	$ret .= $content;
+	$ret .= '</div>';
+
+	return $ret;
 }
 
 function flatly_hook_themes_buildmenu($menu_config) {
@@ -35,8 +65,16 @@ function flatly_hook_themes_buildmenu($menu_config) {
 		foreach ($array_menu as $sub_menu) {
 			$sub_menu_url = $sub_menu[0];
 			$sub_menu_title = $sub_menu[1];
-			$sub_menu_index = ($sub_menu[2] ? $sub_menu[2] : 3);
-			$m[$sub_menu_index . '.' . $sub_menu_title] = "<li><a href='" . _u($sub_menu_url) . "'>" . $sub_menu_title . "</a></li>";
+			$sub_menu_index = (int)( $sub_menu[2] ? $sub_menu[2] : 10 ) + 100;
+
+			// devider or valid entry
+			if (($sub_menu_url == '#') && ($sub_menu_title == '-')) {
+				$m[$sub_menu_index . '.' . $sub_menu_title] = "<li class=\"divider\"></li>";
+			}  else if ($sub_menu_url == '#') {
+				$m[$sub_menu_index . '.' . $sub_menu_title] = "<li>" . $sub_menu_title . "</li>";
+			} else if ($sub_menu_url && $sub_menu_title) {
+				$m[$sub_menu_index . '.' . $sub_menu_title] = "<li><a href='" . _u($sub_menu_url) . "'>" . $sub_menu_title . "</a></li>";
+			}
 		}
 		
 		ksort($m);
@@ -44,14 +82,6 @@ function flatly_hook_themes_buildmenu($menu_config) {
 			$main_menu.= $mm;
 		}
 		unset($m);
-		
-		if ($menu_title == $core_config['menutab']['my_account']) {
-			$main_menu.= "
-				<li><hr /></li>
-				<li><a href='" . _u('index.php?app=main&inc=core_user&route=user_config&op=user_config') . "'>" . _('User configuration') . "</a></li>
-				<li><a href='" . _u('index.php?app=main&inc=core_user&route=user_pref&op=user_pref') . "'>" . _('Preferences') . "</a></li>
-			";
-		}
 		
 		$main_menu.= "</ul>";
 		$main_menu.= "</li>";

@@ -20,3 +20,9 @@ msgstr ""
 
 msgid "This field is required"
 msgstr ""
+
+msgid "no"
+msgstr ""
+
+msgid "yes"
+msgstr ""

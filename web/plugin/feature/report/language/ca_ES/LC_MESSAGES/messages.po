@@ -14,8 +14,29 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.5\n"
 
+msgid "All inbox"
+msgstr ""
+
+msgid "All incoming messages"
+msgstr ""
+
+msgid "All outgoing messages"
+msgstr ""
+
 msgid "All reports"
 msgstr "Tots els informes"
+
+msgid "Amount"
+msgstr ""
+
+msgid "Are you sure you want to delete these items ?"
+msgstr ""
+
+msgid "Are you sure you want to delete these transactions ?"
+msgstr ""
+
+msgid "Balance"
+msgstr ""
 
 msgid "Ban date/time"
 msgstr ""
@@ -25,6 +46,9 @@ msgstr ""
 
 msgid "Billing"
 msgstr "Facturació"
+
+msgid "Content"
+msgstr ""
 
 msgid "Credit"
 msgstr "Crèdit"
@@ -44,11 +68,44 @@ msgstr ""
 msgid "Failed"
 msgstr "Fallats"
 
+msgid "Feature"
+msgstr ""
+
+msgid "Footer"
+msgstr ""
+
+msgid "From"
+msgstr ""
+
+msgid "Gateway"
+msgstr ""
+
+msgid "Inbox"
+msgstr ""
+
+msgid "Incoming messages"
+msgstr ""
+
+msgid "Keyword"
+msgstr ""
+
 msgid "Last update"
+msgstr ""
+
+msgid "List of my credit transactions"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "My credit transactions"
 msgstr ""
 
 msgid "My report"
 msgstr "El meu informe"
+
+msgid "Outgoing messages"
+msgstr ""
 
 msgid "Pending"
 msgstr "Pendents"
@@ -65,11 +122,35 @@ msgstr ""
 msgid "Report whose online"
 msgstr ""
 
+msgid "Sandbox"
+msgstr ""
+
+msgid "Selected incoming message has been deleted"
+msgstr ""
+
+msgid "Selected outgoing message has been deleted"
+msgstr ""
+
+msgid "Selected transactions has been deleted"
+msgstr ""
+
 msgid "Sent"
 msgstr "Enviats"
 
+msgid "Status"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "To"
+msgstr ""
+
 msgid "Total"
 msgstr "Total"
+
+msgid "Transaction datetime"
+msgstr ""
 
 msgid "Unable to unban user"
 msgstr ""
@@ -84,6 +165,21 @@ msgid "User has been unbanned"
 msgstr ""
 
 msgid "Whose online"
+msgstr ""
+
+msgid "cost"
+msgstr ""
+
+msgid "count"
+msgstr ""
+
+msgid "handled"
+msgstr ""
+
+msgid "rate"
+msgstr ""
+
+msgid "unhandled"
 msgstr ""
 
 msgid "username"

@@ -22,7 +22,10 @@
 			<td>{{ SMS footer }}</td>
 			<td><input type=text size=30 maxlength=30 name=up_footer value='{{ footer }}'> {{ HINT_MAX_ALPHANUMERIC }}</td>
 		</tr>
-		{{ option_credit }}
+		<tr>
+			<td>{{ Credit }}</td>
+			<td><input type=text size=5 maxlength=10 value='{{ credit }}' readonly> {{ HINT_MANAGE_CREDIT }}</td>
+		</tr>
 		<tr>
 			<td>{{ Webservices username }}</td>
 			<td>{{ c_username }}</td>

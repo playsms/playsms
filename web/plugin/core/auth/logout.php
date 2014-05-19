@@ -21,9 +21,23 @@ defined('_SECURE_') or die('Forbidden');
 
 if (auth_isvalid()) {
 	user_session_remove($_SESSION['uid'], $_SESSION['sid']);
-	logger_print("u:".$_SESSION['username']." uid:".$_SESSION['uid']." status:".$_SESSION['status']." sid:".$_SESSION['sid']." ip:".$_SERVER['REMOTE_ADDR'], 2, "logout");
-	@session_destroy();
-	$_SESSION['error_string'] = _('You have been logged out');
+
+	// if old_login exists then try to return to it
+	if (auth_login_as_check()) {
+		// try to return
+		auth_login_return();
+
+		if (auth_isvalid()) {
+			logger_print("re-login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "logout");
+		} else {
+			logger_print("fail to re-login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "logout");
+		}
+		header('Location: '._u(_HTTP_PATH_BASE_));
+	} else {
+		logger_print("u:".$_SESSION['username']." uid:".$_SESSION['uid']." status:".$_SESSION['status']." sid:".$_SESSION['sid']." ip:".$_SERVER['REMOTE_ADDR'], 2, "logout");
+		@session_destroy();
+		$_SESSION['error_string'] = _('You have been logged out');
+	}
 }
 
 header("Location: "._u($core_config['http_path']['base']));

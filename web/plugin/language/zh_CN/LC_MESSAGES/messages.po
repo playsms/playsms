@@ -11,6 +11,12 @@ msgstr ""
 msgid "About playSMS"
 msgstr ""
 
+msgid ""
+"Access to unknown domain mapped to this server IP address will be redirected "
+"to this website URL. This website URL should be the primary address for the "
+"service."
+msgstr ""
+
 msgid "Action"
 msgstr "行为"
 
@@ -90,6 +96,16 @@ msgstr ""
 msgid "Always choose to send as unicode"
 msgstr ""
 
+#, fuzzy
+msgid "Application footer here"
+msgstr "应用信息"
+
+#, fuzzy
+msgid ""
+"Application footer here. Go to main configuration or manage site to edit "
+"this footer."
+msgstr "主要构造变化已被保存"
+
 msgid "Application information"
 msgstr "应用信息"
 
@@ -130,6 +146,23 @@ msgid "Back"
 msgstr "返回"
 
 msgid "Ban"
+msgstr ""
+
+msgid "Buy"
+msgstr ""
+
+#, fuzzy
+msgid "Buy credit"
+msgstr "信用"
+
+#, fuzzy
+msgid "Buy credit page"
+msgstr "信用"
+
+msgid "Buy credit page content"
+msgstr ""
+
+msgid "Buy credit page title"
 msgstr ""
 
 msgid "Changelog"
@@ -177,8 +210,19 @@ msgstr "活跃的语言"
 msgid "Default sender ID"
 msgstr "网关号"
 
+#, fuzzy
+msgid "Default settings"
+msgstr "网关号"
+
+#, fuzzy
+msgid "Default site configuration"
+msgstr "主要构造"
+
 msgid "Default timezone"
 msgstr "网关号"
+
+msgid "Default user status on registration"
+msgstr ""
 
 msgid "Delete"
 msgstr "删除"
@@ -237,6 +281,9 @@ msgstr ""
 msgid "F.A.Q"
 msgstr ""
 
+msgid "FATAL ERROR"
+msgstr ""
+
 #, fuzzy
 msgid "Fail sent SMS, no credit"
 msgstr "发送短信失败"
@@ -272,6 +319,10 @@ msgid "Failed"
 msgstr "发送失败的"
 
 msgid "Feature"
+msgstr "特征"
+
+#, fuzzy
+msgid "Features"
 msgstr "特征"
 
 msgid "Fill to change password for username"
@@ -352,6 +403,10 @@ msgstr "网关号"
 msgid "Go"
 msgstr "运行"
 
+#, fuzzy
+msgid "Go to main configuration or manage site to edit this page"
+msgstr "主要构造变化已被保存"
+
 msgid "Group"
 msgstr "群"
 
@@ -380,6 +435,14 @@ msgstr "收件箱"
 msgid "Incoming messages"
 msgstr "发送为非代码信息"
 
+#, fuzzy
+msgid "Information"
+msgstr "登陆信息"
+
+#, fuzzy
+msgid "Information page"
+msgstr "登陆信息"
+
 msgid "Installation Guide"
 msgstr ""
 
@@ -394,6 +457,10 @@ msgstr "关键字"
 
 msgid "Last update"
 msgstr ""
+
+#, fuzzy
+msgid "Layout footer"
+msgstr "短信页脚"
 
 msgid "License"
 msgstr ""
@@ -410,6 +477,9 @@ msgid "Local number length"
 msgstr ""
 
 msgid "Login"
+msgstr ""
+
+msgid "Login as"
 msgstr ""
 
 msgid "Login information"
@@ -439,6 +509,14 @@ msgstr ""
 
 msgid "Manage"
 msgstr "管理"
+
+#, fuzzy
+msgid "Manage site"
+msgstr "管理用户"
+
+#, fuzzy
+msgid "Manage subusers"
+msgstr "管理用户"
 
 msgid "Manage user"
 msgstr "管理用户"
@@ -498,6 +576,9 @@ msgstr ""
 msgid "My Account"
 msgstr ""
 
+msgid "My account"
+msgstr ""
+
 msgid "Name"
 msgstr "名字"
 
@@ -512,9 +593,6 @@ msgstr ""
 
 msgid "No changes made"
 msgstr "没有作出改变"
-
-msgid "Normal User"
-msgstr "标准用户"
 
 msgid "Normal user"
 msgstr "一般用户"
@@ -542,6 +620,14 @@ msgstr "短信发件箱"
 #, fuzzy
 msgid "Outgoing messages"
 msgstr "短信发件箱"
+
+#, fuzzy
+msgid "Page content"
+msgstr "内容"
+
+#, fuzzy
+msgid "Page title"
+msgstr "管理用户"
 
 msgid "Password"
 msgstr "密码"
@@ -588,6 +674,9 @@ msgstr "选择日期和时间"
 #, fuzzy
 msgid "Pick date & time"
 msgstr "选择日期和时间"
+
+msgid "Please run composer.phar update"
+msgstr ""
 
 msgid "Please select"
 msgstr "请选择"
@@ -641,6 +730,9 @@ msgstr "无效用户名或密码"
 msgid "Recover password disabled"
 msgstr ""
 
+msgid "Reduce"
+msgstr ""
+
 msgid "Register an account"
 msgstr ""
 
@@ -655,6 +747,9 @@ msgstr ""
 
 msgid "Reply"
 msgstr "回复"
+
+msgid "Reports"
+msgstr ""
 
 msgid "Resend"
 msgstr ""
@@ -749,6 +844,9 @@ msgstr "发件人"
 msgid "Sent"
 msgstr "已发送的"
 
+msgid "Settings"
+msgstr ""
+
 msgid "State or Province"
 msgstr "州或省"
 
@@ -756,6 +854,9 @@ msgid "Status"
 msgstr "状态"
 
 msgid "Submit"
+msgstr ""
+
+msgid "Subuser"
 msgstr ""
 
 msgid "This field is required"
@@ -779,6 +880,10 @@ msgstr ""
 
 #, fuzzy
 msgid "Unable to ban user"
+msgstr "不能更新登陆会话"
+
+#, fuzzy
+msgid "Unable to find composer files"
 msgstr "不能更新登陆会话"
 
 #, fuzzy
@@ -951,11 +1056,23 @@ msgstr "网站名称"
 msgid "Webservices username"
 msgstr "网站名称"
 
+#, fuzzy
+msgid "Website URL"
+msgstr "网站邮件"
+
 msgid "Website email"
 msgstr "网站邮件"
 
 msgid "Website title"
 msgstr "网站名称"
+
+#, fuzzy
+msgid "Welcome information content"
+msgstr "应用信息"
+
+#, fuzzy
+msgid "Welcome information title"
+msgstr "应用信息"
 
 msgid "Welcome to playSMS"
 msgstr ""
@@ -1007,6 +1124,13 @@ msgstr "邮政编码"
 msgid "chars"
 msgstr ""
 
+msgid "cost"
+msgstr ""
+
+#, fuzzy
+msgid "count"
+msgstr "国家"
+
 msgid "email"
 msgstr "电子邮件"
 
@@ -1045,6 +1169,9 @@ msgid "prefix with # for groups and @ for users"
 msgstr ""
 
 msgid "queued"
+msgstr ""
+
+msgid "rate"
 msgstr ""
 
 #, fuzzy

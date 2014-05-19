@@ -18,6 +18,12 @@ msgstr "О программе"
 msgid "About playSMS"
 msgstr "О playSMS"
 
+msgid ""
+"Access to unknown domain mapped to this server IP address will be redirected "
+"to this website URL. This website URL should be the primary address for the "
+"service."
+msgstr ""
+
 msgid "Action"
 msgstr "Действие"
 
@@ -93,6 +99,16 @@ msgstr "Всегда добавлять знак +"
 msgid "Always choose to send as unicode"
 msgstr "Юникод по умолчанию"
 
+#, fuzzy
+msgid "Application footer here"
+msgstr "Настройки приложения"
+
+#, fuzzy
+msgid ""
+"Application footer here. Go to main configuration or manage site to edit "
+"this footer."
+msgstr "Конфигурация сохранена"
+
 msgid "Application information"
 msgstr "Информация о приложении"
 
@@ -132,6 +148,23 @@ msgid "Back"
 msgstr "Назад"
 
 msgid "Ban"
+msgstr ""
+
+msgid "Buy"
+msgstr ""
+
+#, fuzzy
+msgid "Buy credit"
+msgstr "Баланс"
+
+#, fuzzy
+msgid "Buy credit page"
+msgstr "Баланс"
+
+msgid "Buy credit page content"
+msgstr ""
+
+msgid "Buy credit page title"
 msgstr ""
 
 msgid "Changelog"
@@ -180,8 +213,20 @@ msgstr "Язык по умолчанию"
 msgid "Default sender ID"
 msgstr "Имя отправителя по умолчанию"
 
+#, fuzzy
+msgid "Default settings"
+msgstr "Часовой пояс по умолчанию"
+
+#, fuzzy
+msgid "Default site configuration"
+msgstr "Конфигурация"
+
 msgid "Default timezone"
 msgstr "Часовой пояс по умолчанию"
+
+#, fuzzy
+msgid "Default user status on registration"
+msgstr "Регистрация нового пользователя"
 
 msgid "Delete"
 msgstr "Удалить"
@@ -238,6 +283,9 @@ msgstr "Экспорт"
 msgid "F.A.Q"
 msgstr "Ча.Во."
 
+msgid "FATAL ERROR"
+msgstr ""
+
 msgid "Fail sent SMS, no credit"
 msgstr "Не удалось отправить СМС, недостаточно средств"
 
@@ -272,6 +320,10 @@ msgid "Failed"
 msgstr "Отказ"
 
 msgid "Feature"
+msgstr "Функции"
+
+#, fuzzy
+msgid "Features"
 msgstr "Функции"
 
 msgid "Fill to change password for username"
@@ -341,6 +393,10 @@ msgstr "Шлюз"
 msgid "Go"
 msgstr "Вперёд"
 
+#, fuzzy
+msgid "Go to main configuration or manage site to edit this page"
+msgstr "Конфигурация сохранена"
+
 msgid "Group"
 msgstr "Группа"
 
@@ -368,6 +424,14 @@ msgstr "Входящие СМС"
 msgid "Incoming messages"
 msgstr "Входящие сообщения"
 
+#, fuzzy
+msgid "Information"
+msgstr "Регистрационная информация"
+
+#, fuzzy
+msgid "Information page"
+msgstr "Регистрационная информация"
+
 msgid "Installation Guide"
 msgstr "Инструкция по установке"
 
@@ -382,6 +446,10 @@ msgstr "Ключевое слово"
 
 msgid "Last update"
 msgstr "Последнее обновление"
+
+#, fuzzy
+msgid "Layout footer"
+msgstr "Подпись СМС"
 
 msgid "License"
 msgstr "Пользовательское соглашение"
@@ -398,6 +466,9 @@ msgid "Local number length"
 msgstr "Длина местного номера"
 
 msgid "Login"
+msgstr ""
+
+msgid "Login as"
 msgstr ""
 
 msgid "Login information"
@@ -427,6 +498,14 @@ msgstr "Название сайта"
 
 msgid "Manage"
 msgstr "Редактировать"
+
+#, fuzzy
+msgid "Manage site"
+msgstr "Управление пользователями"
+
+#, fuzzy
+msgid "Manage subusers"
+msgstr "Управление пользователями"
 
 msgid "Manage user"
 msgstr "Управление пользователями"
@@ -486,6 +565,10 @@ msgstr "Переместить в"
 msgid "My Account"
 msgstr "Мой профиль"
 
+#, fuzzy
+msgid "My account"
+msgstr "Мой профиль"
+
 msgid "Name"
 msgstr "Имя"
 
@@ -500,9 +583,6 @@ msgstr "Новый токен для веб-сервисов"
 
 msgid "No changes made"
 msgstr "Нет изменений"
-
-msgid "Normal User"
-msgstr "Обычный пользователь"
 
 msgid "Normal user"
 msgstr "Обычный пользователь"
@@ -528,6 +608,14 @@ msgstr "Исходящие СМС"
 
 msgid "Outgoing messages"
 msgstr "Исходящие сообщения"
+
+#, fuzzy
+msgid "Page content"
+msgstr "Содержимое"
+
+#, fuzzy
+msgid "Page title"
+msgstr "Управление пользователями"
 
 msgid "Password"
 msgstr "Пароль"
@@ -571,6 +659,9 @@ msgstr "Выбрать дату/время"
 
 msgid "Pick date & time"
 msgstr "Выбрать дату и время"
+
+msgid "Please run composer.phar update"
+msgstr ""
 
 msgid "Please select"
 msgstr "Выберите"
@@ -622,6 +713,9 @@ msgstr "Восстановление пароля отключено"
 msgid "Recover password disabled"
 msgstr "Восстановление пароля отключено"
 
+msgid "Reduce"
+msgstr ""
+
 #, fuzzy
 msgid "Register an account"
 msgstr "Не удалось зарегистрировать пользователя"
@@ -637,6 +731,10 @@ msgstr ""
 
 msgid "Reply"
 msgstr "Ответить"
+
+#, fuzzy
+msgid "Reports"
+msgstr "Экспорт"
 
 msgid "Resend"
 msgstr "Повторить"
@@ -725,6 +823,9 @@ msgstr "Отправитель"
 msgid "Sent"
 msgstr "Отправлено"
 
+msgid "Settings"
+msgstr ""
+
 msgid "State or Province"
 msgstr "Штат или регион"
 
@@ -732,6 +833,9 @@ msgid "Status"
 msgstr "Состояние"
 
 msgid "Submit"
+msgstr ""
+
+msgid "Subuser"
 msgstr ""
 
 msgid "This field is required"
@@ -755,6 +859,10 @@ msgstr "Инструменты"
 
 #, fuzzy
 msgid "Unable to ban user"
+msgstr "Не удалось обновить сеанс"
+
+#, fuzzy
+msgid "Unable to find composer files"
 msgstr "Не удалось обновить сеанс"
 
 #, fuzzy
@@ -913,11 +1021,23 @@ msgstr "Токен для веб-сервисов"
 msgid "Webservices username"
 msgstr "Имя пользователя для веб-сервисов"
 
+#, fuzzy
+msgid "Website URL"
+msgstr "Ссылка на сайт"
+
 msgid "Website email"
 msgstr "Email сайта"
 
 msgid "Website title"
 msgstr "Название сайта"
+
+#, fuzzy
+msgid "Welcome information content"
+msgstr "Информация о приложении"
+
+#, fuzzy
+msgid "Welcome information title"
+msgstr "Информация о приложении"
 
 msgid "Welcome to playSMS"
 msgstr "Добро пожаловать"
@@ -968,6 +1088,13 @@ msgstr "Индекс"
 msgid "chars"
 msgstr "симв."
 
+msgid "cost"
+msgstr ""
+
+#, fuzzy
+msgid "count"
+msgstr "Мой профиль"
+
 msgid "email"
 msgstr "email"
 
@@ -1006,6 +1133,9 @@ msgstr "# для поиска групп, @ для поиска пользова
 
 msgid "queued"
 msgstr "запланировано"
+
+msgid "rate"
+msgstr ""
 
 msgid "reply"
 msgstr "ответить"

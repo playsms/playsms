@@ -53,7 +53,7 @@ function simplebilling_hook_setsmsdeliverystatus($smslog_id,$uid,$p_status) {
 
 function simplebilling_hook_billing_getdata($smslog_id) {
 	$ret = array();
-	logger_print("smslog_id:".$smslog_id, 2, "simplebilling getdata");
+	//logger_print("smslog_id:".$smslog_id, 2, "simplebilling getdata");
 	$db_query = "SELECT id,post_datetime,rate,credit,count,charge,status FROM "._DB_PREF_."_tblBilling WHERE smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {

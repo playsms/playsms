@@ -12,6 +12,12 @@ msgstr "Über"
 msgid "About playSMS"
 msgstr "Über playSMS"
 
+msgid ""
+"Access to unknown domain mapped to this server IP address will be redirected "
+"to this website URL. This website URL should be the primary address for the "
+"service."
+msgstr ""
+
 msgid "Action"
 msgstr "Aktion"
 
@@ -87,6 +93,16 @@ msgstr "Immer Plus-Zeichen hinzufügen"
 msgid "Always choose to send as unicode"
 msgstr "Unicode immer vorausgewählt"
 
+#, fuzzy
+msgid "Application footer here"
+msgstr "Applikationseinstellungen"
+
+#, fuzzy
+msgid ""
+"Application footer here. Go to main configuration or manage site to edit "
+"this footer."
+msgstr "Änderungen der Hauptkonfiguration wurden gespeichert"
+
 msgid "Application information"
 msgstr "Applikationsinformation"
 
@@ -126,6 +142,23 @@ msgid "Back"
 msgstr "zurück"
 
 msgid "Ban"
+msgstr ""
+
+msgid "Buy"
+msgstr ""
+
+#, fuzzy
+msgid "Buy credit"
+msgstr "Guthaben"
+
+#, fuzzy
+msgid "Buy credit page"
+msgstr "Guthaben"
+
+msgid "Buy credit page content"
+msgstr ""
+
+msgid "Buy credit page title"
 msgstr ""
 
 msgid "Changelog"
@@ -174,8 +207,20 @@ msgstr "Standard Sprache"
 msgid "Default sender ID"
 msgstr "Standard Sender-ID"
 
+#, fuzzy
+msgid "Default settings"
+msgstr "Standard Zeitzone"
+
+#, fuzzy
+msgid "Default site configuration"
+msgstr "Hauptkonfiguration"
+
 msgid "Default timezone"
 msgstr "Standard Zeitzone"
+
+#, fuzzy
+msgid "Default user status on registration"
+msgstr "Neue Account-Registrierung"
 
 msgid "Delete"
 msgstr "Löschen"
@@ -232,6 +277,9 @@ msgstr "Export"
 msgid "F.A.Q"
 msgstr "FAQ"
 
+msgid "FATAL ERROR"
+msgstr ""
+
 msgid "Fail sent SMS, no credit"
 msgstr "Fehler beim SMS-Versand, kein Guthaben"
 
@@ -266,6 +314,10 @@ msgid "Failed"
 msgstr "Gescheitert"
 
 msgid "Feature"
+msgstr "Erweiterungen"
+
+#, fuzzy
+msgid "Features"
 msgstr "Erweiterungen"
 
 msgid "Fill to change password for username"
@@ -335,6 +387,10 @@ msgstr "Gateway"
 msgid "Go"
 msgstr "Los"
 
+#, fuzzy
+msgid "Go to main configuration or manage site to edit this page"
+msgstr "Änderungen der Hauptkonfiguration wurden gespeichert"
+
 msgid "Group"
 msgstr "Gruppe"
 
@@ -362,6 +418,14 @@ msgstr "Empfangene SMS"
 msgid "Incoming messages"
 msgstr "Empfangene Nachricht"
 
+#, fuzzy
+msgid "Information"
+msgstr "Login Information"
+
+#, fuzzy
+msgid "Information page"
+msgstr "Login Information"
+
 msgid "Installation Guide"
 msgstr "Installationsanleitung"
 
@@ -376,6 +440,10 @@ msgstr "Schlagwort"
 
 msgid "Last update"
 msgstr "Letztes Update"
+
+#, fuzzy
+msgid "Layout footer"
+msgstr "SMS Fußzeile"
 
 msgid "License"
 msgstr "Lizenz"
@@ -392,6 +460,9 @@ msgid "Local number length"
 msgstr "Lokale Rufnummernlänge"
 
 msgid "Login"
+msgstr ""
+
+msgid "Login as"
 msgstr ""
 
 msgid "Login information"
@@ -421,6 +492,14 @@ msgstr "Website-Name"
 
 msgid "Manage"
 msgstr "Verwalten"
+
+#, fuzzy
+msgid "Manage site"
+msgstr "Benutzer verwalten"
+
+#, fuzzy
+msgid "Manage subusers"
+msgstr "Benutzer verwalten"
 
 msgid "Manage user"
 msgstr "Benutzer verwalten"
@@ -480,6 +559,10 @@ msgstr "Verschieben nach"
 msgid "My Account"
 msgstr "Mein Account"
 
+#, fuzzy
+msgid "My account"
+msgstr "Mein Account"
+
 msgid "Name"
 msgstr "Name"
 
@@ -494,9 +577,6 @@ msgstr "Neuer Webservice-Token"
 
 msgid "No changes made"
 msgstr "Keine Änderungen vorgenommen"
-
-msgid "Normal User"
-msgstr "Einfacher Benutzer"
 
 msgid "Normal user"
 msgstr "Einfacher Benutzer"
@@ -522,6 +602,14 @@ msgstr "SMS: Gesendete"
 
 msgid "Outgoing messages"
 msgstr "Nachrichten: Gesendete"
+
+#, fuzzy
+msgid "Page content"
+msgstr "Inhalt"
+
+#, fuzzy
+msgid "Page title"
+msgstr "Benutzer verwalten"
 
 msgid "Password"
 msgstr "Passwort"
@@ -565,6 +653,9 @@ msgstr "Verwende Datum und Zeit"
 
 msgid "Pick date & time"
 msgstr "Verwende Datum und Zeit"
+
+msgid "Please run composer.phar update"
+msgstr ""
 
 msgid "Please select"
 msgstr "Bitte wählen"
@@ -615,6 +706,9 @@ msgstr "Passwort-Rücksetzung deaktiviert"
 msgid "Recover password disabled"
 msgstr "Passwort-Rücksetzung deaktiviert"
 
+msgid "Reduce"
+msgstr ""
+
 #, fuzzy
 msgid "Register an account"
 msgstr "Fehler beim Registrieren eines Accounts"
@@ -630,6 +724,10 @@ msgstr ""
 
 msgid "Reply"
 msgstr "Antwort"
+
+#, fuzzy
+msgid "Reports"
+msgstr "Export"
 
 msgid "Resend"
 msgstr "Erneut senden"
@@ -718,6 +816,9 @@ msgstr "Absender"
 msgid "Sent"
 msgstr "Gesendet"
 
+msgid "Settings"
+msgstr ""
+
 msgid "State or Province"
 msgstr "Staat oder Region"
 
@@ -725,6 +826,9 @@ msgid "Status"
 msgstr "Status"
 
 msgid "Submit"
+msgstr ""
+
+msgid "Subuser"
 msgstr ""
 
 msgid "This field is required"
@@ -748,6 +852,10 @@ msgstr "Werkzeuge"
 
 #, fuzzy
 msgid "Unable to ban user"
+msgstr "Login Session kann nicht aktualisiert werden"
+
+#, fuzzy
+msgid "Unable to find composer files"
 msgstr "Login Session kann nicht aktualisiert werden"
 
 #, fuzzy
@@ -908,11 +1016,23 @@ msgstr "Webservices Token"
 msgid "Webservices username"
 msgstr "Webservices Benutzername"
 
+#, fuzzy
+msgid "Website URL"
+msgstr "Haupt-URL"
+
 msgid "Website email"
 msgstr "Webseiten Email"
 
 msgid "Website title"
 msgstr "Webseiten Titel"
+
+#, fuzzy
+msgid "Welcome information content"
+msgstr "Applikationsinformation"
+
+#, fuzzy
+msgid "Welcome information title"
+msgstr "Applikationsinformation"
 
 msgid "Welcome to playSMS"
 msgstr "Willkommen zu playSMS"
@@ -965,6 +1085,13 @@ msgstr "PLZ"
 msgid "chars"
 msgstr "Zeichen"
 
+msgid "cost"
+msgstr ""
+
+#, fuzzy
+msgid "count"
+msgstr "Mein Account"
+
 msgid "email"
 msgstr "Email"
 
@@ -1003,6 +1130,9 @@ msgstr "Präfix # für Gruppen und @ für Benutzer"
 
 msgid "queued"
 msgstr "eingereiht"
+
+msgid "rate"
+msgstr ""
 
 msgid "reply"
 msgstr "antworten"
