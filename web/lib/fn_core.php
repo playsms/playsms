@@ -242,7 +242,7 @@ function core_display_data($data) {
 }
 
 /*
- * Convert timestamp to datetime
+ * Convert timestamp to datetime in UTC
  * @param $timestamp
  *    timestamp
  * @return
@@ -251,8 +251,7 @@ function core_display_data($data) {
 function core_convert_datetime($timestamp) {
 	global $core_config;
 	$tz = core_get_timezone();
-	$dt = date($core_config['datetime']['format'], $timestamp);
-	$ret = core_adjust_datetime($dt, $tz);
+	$ret = date($core_config['datetime']['format'], $timestamp);
 	return $ret;
 }
 
