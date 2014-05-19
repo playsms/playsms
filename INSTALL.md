@@ -95,10 +95,11 @@ Install playSMS using install script `install-playsms.sh`
       on the bottom of the file (before exit if theres an exit command).
       This way playsmsd will start automatically on boot.
       
-      You can use the provided script for debian/ubuntu
+      You can use the provided script for debian/ubuntu/centos
       ```
       cp daemon/playsms /etc/init.d/playsms
-      update-rc.d-insserv playsms defaults
+      update-rc.d-insserv playsms defaults #debian/ubuntu
+      chkconfig --add playsms #centos
       ```
 
 Note:

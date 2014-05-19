@@ -19,7 +19,11 @@
 #                    to send and receive sms
 ### END INIT INFO
 
-. /lib/lsb/init-functions
+if [ -f /etc/redhat-release ] ; then
+    . /etc/init.d/functions
+else
+    . /lib/lsb/init-functions
+fi
 
 if [ -f /etc/playsmsd.conf ] ; then
     . /etc/playsmsd.conf
