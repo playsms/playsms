@@ -1,0 +1,45 @@
+#!/bin/sh
+# Start/stop the playsms service
+
+# This is the default init.d script for Playsms.
+
+# Make sure that the Playsms binaries can be found in $BOXPATH or somewhere
+# else along $PATH.  run_playsms_box has to be in $BOXPATH.
+
+### BEGIN INIT INFO
+# Provides:          playsms
+# Required-Start:    $local_fs $remote_fs
+# Required-Stop:     $local_fs $remote_fs
+# Should-Start:      $network $named
+# Should-Stop:       $network $named
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: SMS gateway
+# Description:       Playsms is a platform to manage other sms backends
+#                    to send and receive sms
+### END INIT INFO
+
+if [ -f /etc/redhat-release ] ; then
+    . /etc/init.d/functions
+else
+    . /lib/lsb/init-functions
+fi
+
+if [ -f /etc/playsmsd.conf ] ; then
+    . /etc/playsmsd.conf
+else
+    echo "Config file missing, can't start the daemon"
+    exit 0
+fi
+
+
+case "$1" in
+  *)
+    #Passing all the parameters to the playsms daemon
+    DAEMON=$PLAYSMS_BIN/playsmsd
+    DAEMON_OPTIONS=$PLAYSMS_PATH
+    $DAEMON $1
+esac
+
+exit 0
+
