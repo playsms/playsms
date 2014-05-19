@@ -16,19 +16,26 @@
 # Default-Stop:      0 1 6
 # Short-Description: SMS gateway
 # Description:       Playsms is a platform to manage other sms backends
-#		     to send and receive sms
+#                    to send and receive sms
 ### END INIT INFO
 
 . /lib/lsb/init-functions
 
+if [ -f /etc/playsmsd.conf ] ; then
+    . /etc/playsmsd.conf
+else
+    echo "Config file missing, can't start the daemon"
+    exit 0
+fi
+
+
 case "$1" in
   *)
-    #Passing all the paràmeters to the playsms daemon
+    #Passing all the parameters to the playsms daemon
     DAEMON=$PLAYSMS_BIN/playsmsd
     DAEMON_OPTIONS=$PLAYSMS_PATH
     $DAEMON $1
-    exit 1
-
 esac
 
 exit 0
+
