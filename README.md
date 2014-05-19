@@ -1,8 +1,8 @@
 # README
 
-playSMS version **1.0-beta4**
+playSMS version **1.0-beta5**
 
-Release date **140414**
+Release date **140519**
 
 Official project website:
 

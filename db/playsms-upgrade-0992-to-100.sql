@@ -92,7 +92,10 @@ RENAME TABLE  `playsms_toolsPhonebook_group_contacts` TO `playsms_featurePhonebo
 UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-beta4' WHERE `registry_group` = 'core' AND `registry_family` = 'config' AND `registry_key` = 'playsms_version' ;
 
 
--- 1.0.0
+-- 1.0-beta5
+
+-- core config
+UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-beta5' WHERE `registry_group` = 'core' AND `registry_family` = 'config' AND `registry_key` = 'playsms_version' ;
 
 ALTER TABLE `playsms_tblUser` ADD `parent_uid` INT NOT NULL AFTER `c_timestamp`;
 
