@@ -15,6 +15,10 @@ CREATE TABLE IF NOT EXISTS `playsms_toolsPhonebook_group_contacts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `playsms_toolsPhonebook_group_contacts` (`id`,`gpid`,`pid`)
+  SELECT '',gpid,id  
+  FROM playsms_toolsPhonebook;
+
 ALTER TABLE `playsms_toolsPhonebook` DROP `gpid` ;
 
 -- core config
