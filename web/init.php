@@ -76,7 +76,7 @@ $c_http_host = $_SERVER['HTTP_HOST'];
 $core_config['apps_path']['base'] = dirname($c_script_filename);
 
 // base application http path
-$core_config['http_path']['base'] = ( $core_config['ishttps'] ? 'https://' : 'http://' ) . $c_http_host . ( dirname($c_php_self) == '/' ? '/' : dirname($c_php_self) );
+$core_config['http_path']['base'] = ($core_config['ishttps'] ? 'https://' : 'http://') . $c_http_host . (dirname($c_php_self) == '/' ? '/' : dirname($c_php_self));
 
 // libraries directory
 $core_config['apps_path']['libs'] = $core_config['apps_path']['base'] . '/lib';
@@ -130,10 +130,10 @@ include_once _APPS_PATH_LIBS_ . '/fn_core.php';
 // if magic quotes gps is set to Off (which is recommended) then addslashes all requests
 if (!get_magic_quotes_gpc()) {
 	foreach ($_GET as $key => $val) {
-		$_GET[$key] = pl_addslashes($val);
+		$_GET[$key] = core_addslashes($val);
 	}
 	foreach ($_POST as $key => $val) {
-		$_POST[$key] = pl_addslashes($val);
+		$_POST[$key] = core_addslashes($val);
 	}
 }
 
@@ -152,7 +152,8 @@ define('_CAT_', core_query_sanitize($_REQUEST['cat']));
 define('_PLUGIN_', core_query_sanitize($_REQUEST['plugin']));
 
 // enable anti-CSRF for anything but webservices
-if (! ( (_APP_ == 'ws') || (_APP_ == 'webservices') || ($core_config['init']['ignore_csrf']) )) {
+if (!((_APP_ == 'ws') || (_APP_ == 'webservices') || ($core_config['init']['ignore_csrf']))) {
+	
 	// print_r($_POST); print_r($_SESSION);
 	if ($_POST) {
 		if (!core_csrf_validate()) {
@@ -168,6 +169,7 @@ if (! ( (_APP_ == 'ws') || (_APP_ == 'webservices') || ($core_config['init']['ig
 
 // connect to database
 if (!($dba_object = dba_connect(_DB_USER_, _DB_PASS_, _DB_NAME_, _DB_HOST_, _DB_PORT_))) {
+	
 	// logger_print('Fail to connect to database', 4, 'init');
 	ob_end_clean();
 	die(_('FATAL ERROR') . ' : ' . _('Fail to connect to database'));
@@ -179,7 +181,9 @@ dba_query('SET NAMES utf8');
 // get main config from registry and load it to $core_config['main']
 $result = registry_search(1, 'core', 'main_config');
 foreach ($result['core']['main_config'] as $key => $val) {
-	${$key} = $val;
+	$ {
+		$key
+	} = $val;
 	$core_config['main'][$key] = $val;
 }
 
@@ -202,26 +206,78 @@ $datetime_now_stamp = date($datetime_format_stamp, time());
 $core_config['datetime']['format'] = $datetime_format;
 $core_config['datetime']['now_stamp'] = $datetime_now_stamp;
 
-
 // --- playSMS Specifics --- //
 
-
 // plugins category
-$plugins_category = array('feature', 'gateway', 'themes', 'language');
+$plugins_category = array(
+	'feature',
+	'gateway',
+	'themes',
+	'language'
+);
 $core_config['plugins_category'] = $plugins_category;
 
 // max sms text length
 // single text sms can be 160 char instead of 1*153
-$sms_max_count = ( (int) $sms_max_count < 1 ? 1 : (int) $sms_max_count );
+$sms_max_count = ((int)$sms_max_count < 1 ? 1 : (int)$sms_max_count);
 $core_config['main']['sms_max_count'] = $sms_max_count;
-$core_config['main']['per_sms_length'] = ( $core_config['main']['sms_max_count'] > 1 ? 153 : 160 );
-$core_config['main']['per_sms_length_unicode'] = ( $core_config['main']['sms_max_count'] > 1 ? 67 : 70 );
+$core_config['main']['per_sms_length'] = ($core_config['main']['sms_max_count'] > 1 ? 153 : 160);
+$core_config['main']['per_sms_length_unicode'] = ($core_config['main']['sms_max_count'] > 1 ? 67 : 70);
 $core_config['main']['max_sms_length'] = $core_config['main']['sms_max_count'] * $core_config['main']['per_sms_length'];
 $core_config['main']['max_sms_length_unicode'] = $core_config['main']['sms_max_count'] * $core_config['main']['per_sms_length_unicode'];
 
 // reserved important keywords
-$reserved_keywords = array('BC');
+$reserved_keywords = array(
+	'BC'
+);
 $core_config['reserved_keywords'] = $reserved_keywords;
+
+if (auth_isvalid()) {
+	
+	// load user's data from user's DB table
+	$user_config = user_getdatabyusername($_SESSION['username']);
+	$user_config['opt']['sms_footer_length'] = (strlen($footer) > 0 ? strlen($footer) + 1 : 0);
+	$user_config['opt']['per_sms_length'] = $core_config['main']['per_sms_length'] - $user_config['opt']['sms_footer_length'];
+	$user_config['opt']['per_sms_length_unicode'] = $core_config['main']['per_sms_length_unicode'] - $user_config['opt']['sms_footer_length'];
+	$user_config['opt']['max_sms_length'] = $core_config['main']['max_sms_length'] - $user_config['opt']['sms_footer_length'];
+	$user_config['opt']['max_sms_length_unicode'] = $core_config['main']['max_sms_length_unicode'] - $user_config['opt']['sms_footer_length'];
+	$user_config['opt']['gravatar'] = 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($user_config['email'])));
+	if (!$core_config['daemon_process']) {
+		
+		// save login session information
+		user_session_set();
+	}
+}
+
+// override main config with site config for branding purposes distinguished by domain name
+if (!$core_config['daemon_process']) {
+	$s = site_config_getbydomain($_SERVER['HTTP_HOST']);
+	$site_config = site_config_get($s[0]['uid']);
+
+	// if not accessing webservices
+	if (!((_APP_ == 'ws') || (_APP_ == 'webservices'))) {
+		
+		// if site domain does not exists
+		if (!$site_config['domain']) {
+			
+			// if no site domain found and main web_url is exists
+			if ($core_config['main']['web_url']) {
+				
+				// if HTTP_HOST NOT equal to web_url, localhost or 127.0.0.1 then redirect
+				$url = parse_url($core_config['main']['web_url']);
+				if (!(($_SERVER['HTTP_HOST'] == $url['host']) || ($_SERVER['HTTP_HOST'] == 'localhost') || ($_SERVER['HTTP_HOST'] == '127.0.0.1'))) {
+					_log('access to unknown domain:' . $_SERVER['HTTP_HOST'] . ' redirected to web_url:' . $core_config['main']['web_url'], 2, 'init');
+					header('Location: ' . $core_config['main']['web_url']);
+					exit();
+				}
+			}
+		}
+	}
+}
+
+if ((!$core_config['daemon_process']) && $_SERVER['HTTP_HOST'] && $site_config['domain'] && ($_SERVER['HTTP_HOST'] == $site_config['domain'])) {
+	$core_config['main'] = array_merge($core_config['main'], $site_config);
+}
 
 // verify selected gateway_module exists
 $continue = FALSE;
@@ -249,29 +305,18 @@ if ($continue && file_exists($fn1) && file_exists($fn2)) {
 	$continue = FALSE;
 }
 
-if (! $continue) {
+if (!$continue) {
 	logger_print('Fail to load gateway, themes or language module', 1, 'init');
 	ob_end_clean();
 	die(_('FATAL ERROR') . ' : ' . _('Fail to load gateway, themes or language module'));
 }
 
 if (auth_isvalid()) {
-	// load user's data from user's DB table
-	$user_config = user_getdatabyusername($_SESSION['username']);
-	$user_config['opt']['sms_footer_length'] = ( strlen($footer) > 0 ? strlen($footer) + 1 : 0 );
-	$user_config['opt']['per_sms_length'] = $core_config['main']['per_sms_length'] - $user_config['opt']['sms_footer_length'];
-	$user_config['opt']['per_sms_length_unicode'] = $core_config['main']['per_sms_length_unicode'] - $user_config['opt']['sms_footer_length'];
-	$user_config['opt']['max_sms_length'] = $core_config['main']['max_sms_length'] - $user_config['opt']['sms_footer_length'];
-	$user_config['opt']['max_sms_length_unicode'] = $core_config['main']['max_sms_length_unicode'] - $user_config['opt']['sms_footer_length'];
-	$user_config['opt']['gravatar'] = 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($user_config['email'])));
-	if (!$core_config['daemon_process']) {
-		// save login session information
-		user_session_set();
-	}
+	
 	// set user lang
-	setuserlang($_SESSION['username']);
+	core_setuserlang($_SESSION['username']);
 } else {
-	setuserlang();
+	core_setuserlang();
 }
 
 if (function_exists('bindtextdomain')) {
