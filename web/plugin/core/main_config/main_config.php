@@ -244,8 +244,8 @@ switch (_OP_) {
 			'layout_footer' => ($post['edit_layout_footer'] ? $post['edit_layout_footer'] : _('Application footer here. Go to main configuration or manage site to edit this footer.')) ,
 			'buy_credit_page_title' => ($post['edit_buy_credit_page_title'] ? $post['edit_buy_credit_page_title'] : _('Buy credit')) ,
 			'buy_credit_page_content' => ($post['edit_buy_credit_page_content'] ? $post['edit_buy_credit_page_content'] : _('Go to main configuration or manage site to edit this page')) ,
-			'information_title' => ($post['information_title'] ? $post['information_title'] : _('Information')) ,
-			'information_content' => ($post['information_content'] ? $post['information_content'] : _('Go to main configuration or manage site to edit this page')) ,
+			'information_title' => ($post['edit_information_title'] ? $post['edit_information_title'] : _('Information')) ,
+			'information_content' => ($post['edit_information_content'] ? $post['edit_information_content'] : _('Go to main configuration or manage site to edit this page')) ,
 		);
 		$result = registry_update(1, 'core', 'main_config', $items);
 		
