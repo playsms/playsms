@@ -94,6 +94,9 @@ Install playSMS using install script `install-playsms.sh`
 
       on the bottom of the file (before exit if theres an exit command).
       This way playsmsd will start automatically on boot.
+   You can also use the provided init script 
+      cp daemon/playsms /etc/init.d/playsms
+      insserv -v playsms
 
 Note:
    
