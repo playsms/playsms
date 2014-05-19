@@ -113,6 +113,34 @@ function recvsms_intercept($sms_datetime,$sms_sender,$message,$sms_receiver="") 
 	return $ret_final;
 }
 
+function recvsms_intercept_after($sms_datetime,$sms_sender,$message,$sms_receiver="",$feature,$status,$uid) {
+	global $core_config;
+	$ret = array();
+	$ret_final = array();
+	// feature list
+	for ($c=0;$c<count($core_config['featurelist']);$c++) {
+		$ret = core_hook($core_config['featurelist'][$c],'recvsms_intercept_after',array($sms_datetime,$sms_sender,$message,$sms_receiver,$feature,$status,$uid));
+		if ($ret['modified']) {
+			$sms_datetime = ( $ret['param']['sms_datetime'] ? $ret['param']['sms_datetime'] : $sms_datetime );
+			$sms_sender = ( $ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender );
+			$message = ( $ret['param']['message'] ? $ret['param']['message'] : $message );
+			$sms_receiver = ( $ret['param']['sms_receiver'] ? $ret['param']['sms_receiver'] : $sms_receiver );
+			$ret_final['modified'] = $ret['modified'];
+			$ret_final['cancel'] = $ret['cancel'];
+			$ret_final['param']['sms_datetime'] = $ret['param']['sms_datetime'];
+			$ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
+			$ret_final['param']['message'] = $ret['param']['message'];
+			$ret_final['param']['sms_receiver'] = $ret['param']['sms_receiver'];
+			$ret_final['param']['feature'] = $ret['param']['feature'];
+			$ret_final['param']['status'] = $ret['param']['status'];
+			$ret_final['param']['uid'] = $ret['param']['uid'];
+		}
+		if ($ret['uid']) { $ret_final['uid'] = $ret['uid']; };
+		if ($ret['hooked']) { $ret_final['hooked'] = $ret['hooked']; };
+	}
+	return $ret_final;
+}
+
 function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="") {
 	global $core_config;
 
@@ -188,6 +216,18 @@ function setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver="
 		} else {
 			logger_print("unhandled datetime:".$sms_datetime." sender:".$sms_sender." receiver:".$sms_receiver." message:".$message, 3, "setsmsincomingaction");
 		}
+	}
+
+	// incoming sms intercept after
+	$ret_intercept = recvsms_intercept_after($sms_datetime,$sms_sender,$message,$sms_receiver,$c_feature,$c_status,$c_uid);
+	if ($ret_intercept['modified']) {
+		$sms_datetime = ( $ret_intercept['param']['sms_datetime'] ? $ret_intercept['param']['sms_datetime'] : $sms_datetime );
+		$sms_sender = ( $ret_intercept['param']['sms_sender'] ? $ret_intercept['param']['sms_sender'] : $sms_sender );
+		$message = ( $ret_intercept['param']['message'] ? $ret_intercept['param']['message'] : $message );
+		$sms_receiver = ( $ret_intercept['param']['sms_receiver'] ? $ret_intercept['param']['sms_receiver'] : $sms_receiver );
+		$c_feature = ( $ret_intercept['param']['feature'] ? $ret_intercept['param']['feature'] : $c_feature );
+		$c_status = ( $ret_intercept['param']['status'] ? $ret_intercept['param']['status'] : $c_status );
+		$c_uid = ( $ret_intercept['param']['uid'] ? $ret_intercept['param']['uid'] : $c_uid );
 	}
 
 	// fixme anton - all incoming messages set to user with uid=1 if no one owns it

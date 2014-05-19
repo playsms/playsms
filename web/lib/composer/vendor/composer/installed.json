@@ -1,49 +1,5 @@
 [
     {
-        "name": "playsms/tpl",
-        "version": "1.0.3",
-        "version_normalized": "1.0.3.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/antonraharja/tpl.git",
-            "reference": "39c5829cb017231256a7933f4f0291e2e18d924c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/antonraharja/tpl/zipball/39c5829cb017231256a7933f4f0291e2e18d924c",
-            "reference": "39c5829cb017231256a7933f4f0291e2e18d924c",
-            "shasum": ""
-        },
-        "time": "2014-04-22 10:09:13",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Playsms\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Anton Raharja",
-                "email": "antonrd@gmail.com",
-                "homepage": "http://antonraharja.com",
-                "role": "Developer"
-            }
-        ],
-        "description": "Dead simple PHP template engine",
-        "homepage": "http://github.com/antonraharja/tpl",
-        "keywords": [
-            "layout",
-            "playsms",
-            "template",
-            "tpl"
-        ]
-    },
-    {
         "name": "ezyang/htmlpurifier",
         "version": "v4.6.0",
         "version_normalized": "4.6.0.0",
@@ -88,6 +44,50 @@
         "homepage": "http://htmlpurifier.org/",
         "keywords": [
             "html"
+        ]
+    },
+    {
+        "name": "playsms/tpl",
+        "version": "1.0.3",
+        "version_normalized": "1.0.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/antonraharja/tpl.git",
+            "reference": "39c5829cb017231256a7933f4f0291e2e18d924c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/antonraharja/tpl/zipball/39c5829cb017231256a7933f4f0291e2e18d924c",
+            "reference": "39c5829cb017231256a7933f4f0291e2e18d924c",
+            "shasum": ""
+        },
+        "time": "2014-04-22 10:09:13",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Playsms\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Anton Raharja",
+                "email": "antonrd@gmail.com",
+                "homepage": "http://antonraharja.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "Dead simple PHP template engine",
+        "homepage": "http://github.com/antonraharja/tpl",
+        "keywords": [
+            "layout",
+            "playsms",
+            "template",
+            "tpl"
         ]
     },
     {

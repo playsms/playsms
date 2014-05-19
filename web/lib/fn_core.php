@@ -23,7 +23,7 @@ defined('_SECURE_') or die('Forbidden');
  start init functions
  protect from SQL injection when magic_quotes_gpc sets to "Off"
 */
-function array_add_slashes($array) {
+function core_array_add_slashes($array) {
 	if (is_array($array)) {
 		foreach ($array as $key => $value) {
 			if (!is_array($value)) {
@@ -32,16 +32,16 @@ function array_add_slashes($array) {
 				$new_arr[$key] = $value;
 			}
 			if (is_array($value)) {
-				$new_arr[$key] = array_add_slashes($value);
+				$new_arr[$key] = core_array_add_slashes($value);
 			}
 		}
 	}
 	return $new_arr;
 }
 
-function pl_addslashes($data) {
+function core_addslashes($data) {
 	if (is_array($data)) {
-		$data = array_add_slashes($data);
+		$data = core_array_add_slashes($data);
 	} else {
 		$data = addslashes($data);
 	}
@@ -53,7 +53,7 @@ function pl_addslashes($data) {
  * @param string $var_username Username
  * @return boolean TRUE if valid
  */
-function setuserlang($username = "") {
+function core_setuserlang($username = "") {
 	global $core_config;
 	$c_lang_module = core_lang_get();
 	$db_query = "SELECT language_module FROM " . _DB_PREF_ . "_tblUser WHERE username='$username'";
@@ -154,6 +154,22 @@ function playsmsd() {
 	core_hook(core_themes_get() , 'playsmsd');
 }
 
+function playsmsd_once($param) {
+	
+	// plugin feature
+	core_call_hook();
+	
+	// plugin gateway
+	core_hook(core_gateway_get() , 'playsmsd_once', array(
+		$param
+	));
+	
+	// plugin themes
+	core_hook(core_themes_get() , 'playsmsd_once', array(
+		$param
+	));
+}
+
 function core_str2hex($string) {
 	$hex = '';
 	$len = strlen($string);
@@ -161,6 +177,26 @@ function core_str2hex($string) {
 		$hex.= str_pad(dechex(ord($string[$i])) , 2, 0, STR_PAD_LEFT);
 	}
 	return $hex;
+}
+
+/*
+ * Format HTML for safe display on the web
+ * @param mixed $html
+ *    string or array of original HTML content
+ * @return mixed
+ *    formatted and safe HTML content
+*/
+function core_display_html($html) {
+	if (is_array($html)) {
+		foreach ($html as $item) {
+			$ret[] = core_display_html((string)$item);
+		}
+	} else {
+		$hp = new HTMLPurifier;
+		$ret = $hp->purify($html);
+	}
+	
+	return $ret;
 }
 
 /*
@@ -173,10 +209,17 @@ function core_str2hex($string) {
  *    formatted text
 */
 function core_display_text($text, $len = 0) {
-	$text = strip_tags($text);
-	if ($len) {
-		$text = substr($text, 0, $len) . '..';
+	if (is_array($text)) {
+		foreach ($text as $item) {
+			$ret[] = core_display_text((string)$item, $len);
+		}
+	} else {
+		$hp = new HTMLPurifier;
+		$text = $hp->purify($text);
+		$text = strip_tags($text);
+		$text = ($len > 0 ? substr($text, 0, $len) . '..' : $text);
 	}
+	
 	return $text;
 }
 
@@ -196,6 +239,21 @@ function core_display_data($data) {
 		$data = core_display_text($data);
 	}
 	return $data;
+}
+
+/*
+ * Convert timestamp to datetime
+ * @param $timestamp
+ *    timestamp
+ * @return
+ *    current date and time
+*/
+function core_convert_datetime($timestamp) {
+	global $core_config;
+	$tz = core_get_timezone();
+	$dt = date($core_config['datetime']['format'], $timestamp);
+	$ret = core_adjust_datetime($dt, $tz);
+	return $ret;
 }
 
 /*
@@ -337,8 +395,8 @@ function core_adjust_datetime($time, $tz = 0) {
  *
  */
 function core_get_random_string($length = 8) {
+	$valid_chars = "abcdefghjkmnpqrstuxyvwzABCDEFGHJKLMNPQRSTUXYVWZ@#$%&";
 	
-	$valid_chars = "abcdefghijklmnopqrstuxyvwzABCDEFGHIJKLMNOPQRSTUXYVWZ+-*#&@!?";
 	$valid_char_len = strlen($valid_chars);
 	$result = "";
 	for ($i = 0; $i < $length; $i++) {
@@ -589,7 +647,9 @@ function core_array_to_xml($arr = array() , SimpleXMLElement $xml) {
  * XML to array using SimpleXML
  */
 function core_xml_to_array($xml) {
-	$var = core_object_to_array(simplexml_load_string($xml));
+	$loaded = simplexml_load_string($xml);
+	$json = json_encode($loaded);
+	$var = json_decode($json, TRUE);
 	return $var;
 }
 
@@ -653,7 +713,13 @@ function core_download($content, $fn = '', $content_type = '') {
  */
 function core_gateway_get() {
 	global $core_config;
-	return $core_config['main']['gateway_module'];
+	
+	$ret = core_call_hook();
+	if (!$ret) {
+		return $core_config['main']['gateway_module'];
+	}
+	
+	return $ret;
 }
 
 /**
@@ -663,8 +729,13 @@ function core_gateway_get() {
  */
 function core_lang_get() {
 	global $core_config, $user_config;
-	$lang = ($user_config['language_module'] ? $user_config['language_module'] : $core_config['main']['language_module']);
-	return $lang;
+	
+	$ret = core_call_hook();
+	if (!$ret) {
+		return ($user_config['language_module'] ? $user_config['language_module'] : $core_config['main']['language_module']);
+	}
+	
+	return $ret;
 }
 
 /**
@@ -674,7 +745,13 @@ function core_lang_get() {
  */
 function core_themes_get() {
 	global $core_config;
-	return $core_config['main']['themes_module'];
+	
+	$ret = core_call_hook();
+	if (!$ret) {
+		return $core_config['main']['themes_module'];
+	}
+	
+	return $ret;
 }
 
 /**
@@ -742,6 +819,8 @@ function core_csrf_set() {
 		$ret['value'] = $csrf_token;
 		$ret['form'] = '<input type="hidden" name="X-CSRF-Token" value="' . $csrf_token . '">';
 	}
+	
+	//_log('token:'.$csrf_token, 3, 'core_csrf_set');
 	return $ret;
 }
 
@@ -754,6 +833,8 @@ function core_csrf_set_token() {
 	if ($_SESSION['X-CSRF-Token'] = $csrf_token) {
 		$ret = $csrf_token;
 	}
+	
+	//_log('token:'.$csrf_token, 3, 'core_csrf_set_token');
 	return $ret;
 }
 
@@ -767,6 +848,8 @@ function core_csrf_get() {
 		$ret['value'] = $csrf_token;
 		$ret['form'] = '<input type="hidden" name="X-CSRF-Token" value="' . $csrf_token . '">';
 	}
+	
+	//_log('token:'.$csrf_token, 3, 'core_csrf_get');
 	return $ret;
 }
 
@@ -778,6 +861,8 @@ function core_csrf_get_token() {
 	if ($csrf_token = $_SESSION['X-CSRF-Token']) {
 		$ret = $csrf_token;
 	}
+	
+	//_log('token:'.$csrf_token, 3, 'core_csrf_get_token');
 	return $ret;
 }
 
@@ -788,6 +873,8 @@ function core_csrf_get_token() {
 function core_csrf_validate() {
 	$submitted_token = $_POST['X-CSRF-Token'];
 	$token = core_csrf_get_token();
+	
+	//_log('token:'.$token.' submitted_token:'.$submitted_token, 3, 'core_csrf_validate');
 	if ($token && $submitted_token && ($token == $submitted_token)) {
 		return TRUE;
 	} else {
@@ -818,9 +905,47 @@ function core_print($content) {
 }
 
 /**
+ * Check playSMS daemon timer
+ *
+ * Usage:
+ *     if (! core_playsmsd_timer(40)) {
+ *         return;
+ *     }
+ *
+ *     // do below commands every 40 seconds
+ *     ...
+ *     ...
+ * 
+ * @param  integer $period Period between last event and now (in second)
+ * @return boolean         TRUE for period passed
+ */
+function core_playsmsd_timer($period = 60) {
+
+	// default period is 60 seconds
+	$period = ((int)$period <= 0 ? 60 : (int)$period);
+	
+	$now = mktime();
+	$next = floor(($now / $period)) * $period + $period;
+	if (($now + 1) < $next) {
+
+		// it is not the time yet
+		return FALSE;
+	} else {
+
+		// its passed the timer period
+		return TRUE;
+	}
+}
+
+/**
  * Include composer based packages
  */
-include_once _APPS_PATH_LIBS_ . '/composer/vendor/autoload.php';
+if (file_exists(_APPS_PATH_LIBS_ . '/composer/vendor/autoload.php')) {
+	include_once _APPS_PATH_LIBS_ . '/composer/vendor/autoload.php';
+} else {
+	die(_('FATAL ERROR') . ' : ' . _('Unable to find composer files') . ' ' . _('Please run composer.phar update'));
+	exit();
+}
 
 /**
  * Include core functions on plugin core
