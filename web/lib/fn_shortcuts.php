@@ -93,6 +93,16 @@ function _yesno($name, $selected = '', $yes = '', $no = '') {
 	return themes_select_yesno($name, $selected, $yes, $no);
 }
 
+/**
+ * Display error string from function parameter or session
+ * Shortcut to themes_display_error_string()
+ * @param  string $error_string Array of error strings (optional)
+ * @return string HTML string of error strings
+ */
+function _err($error_string=array()) {
+	return themes_display_error_string($error_string);
+}
+
 // lib/fn_logger.php
 
 function _log($log, $level, $label) {

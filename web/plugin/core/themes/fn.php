@@ -271,7 +271,7 @@ function themes_select_options($options = array() , $selected = '') {
  * @param  string $name     Tag name
  * @param  array  $options  Select options
  * @param  string $selected Selected option
- * @return string           Select HTML tag           
+ * @return string           Select HTML tag
  */
 function themes_select($name, $options = array() , $selected = '') {
 	$select_options = themes_select_options($options, $selected);
@@ -295,4 +295,29 @@ function themes_select_yesno($name, $selected, $yes = '', $no = '') {
 		$no => 0,
 	);
 	return themes_select($name, $options, $selected);
+}
+
+/**
+ * Display error string from function parameter or session
+ * @param  string $error_string Array of error strings (optional)
+ * @return string HTML string of error strings
+ */
+function themes_display_error_string($error_string = array()) {
+	$errors = $_SESSION['error_string'];
+	
+	if (!is_array($errors)) {
+		$errors = array(
+			$errors
+		);
+	}
+	
+	if (count($errors) > 0) {
+		foreach ($errors as $err) {
+			if (trim($err)) {
+				$error_content.= '<div class=error_string>' . trim($err) . '</div>';
+			}
+		}
+	}
+	
+	return $error_content;
 }
