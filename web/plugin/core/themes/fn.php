@@ -299,11 +299,15 @@ function themes_select_yesno($name, $selected, $yes = '', $no = '') {
 
 /**
  * Display error string from function parameter or session
- * @param  string $error_string Array of error strings (optional)
+ * @param  array $error_string Array of error strings (optional)
  * @return string HTML string of error strings
  */
 function themes_display_error_string($error_string = array()) {
-	$errors = $_SESSION['error_string'];
+	if (is_array($error_string) && (count($error_string) > 0)) {
+		$errors = $error_string;
+	} else {
+		$errors = $_SESSION['error_string'];
+	}
 	
 	if (!is_array($errors)) {
 		$errors = array(
@@ -311,13 +315,21 @@ function themes_display_error_string($error_string = array()) {
 		);
 	}
 	
-	if (count($errors) > 0) {
-		foreach ($errors as $err) {
-			if (trim($err)) {
-				$error_content.= '<div class=error_string>' . trim($err) . '</div>';
+	if (core_themes_get()) {
+		$ret = core_hook(core_themes_get() , 'themes_display_error_string', array(
+			$errors,
+		));
+	}
+	
+	if (!$ret) {
+		if (count($errors) > 0) {
+			foreach ($errors as $err) {
+				if (trim($err)) {
+					$ret.= '<div class=error_string>' . trim($err) . '</div>';
+				}
 			}
 		}
 	}
 	
-	return $error_content;
+	return $ret;
 }

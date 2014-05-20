@@ -99,7 +99,7 @@ function _yesno($name, $selected = '', $yes = '', $no = '') {
  * @param  string $error_string Array of error strings (optional)
  * @return string HTML string of error strings
  */
-function _err($error_string=array()) {
+function _err_display($error_string=array()) {
 	return themes_display_error_string($error_string);
 }
 
