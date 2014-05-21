@@ -208,9 +208,9 @@ Install playSMS by following step-by-step:
 
 9.  Start playsmsd now from Linux console, no need to reboot
 
-        ```
-        playsmsd start
-        ```
+    ```
+    playsmsd start
+    ```
 
 10. Configure rc.local to get playsmsd started on boot
    
