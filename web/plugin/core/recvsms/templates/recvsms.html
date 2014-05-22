@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="{{ HTTP_PATH_THEMES }}/common/jscss/combobox/select2.css" />
+<script type="text/javascript" src="{{ HTTP_PATH_THEMES }}/common/jscss/combobox/select2.min.js"></script>
+{{ ERROR }}
+<h2>{{ PAGE_TITLE }}</h2>
+<form action="{{ ACTION_URL }}" method=post>
+	{{ CSRF_FORM }}
+	<table class=playsms-table>
+		<tbody>
+			<tr>
+				<td class=label-sizer>{{ Forward sandbox SMS to user }}</td>
+				<td>{{ $select_users }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<p><input type=submit class=button value='{{ Save }}'></p>
+</form>

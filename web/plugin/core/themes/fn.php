@@ -333,3 +333,74 @@ function themes_display_error_string($error_string = array()) {
 	
 	return $ret;
 }
+
+function themes_select_users_single($select_field_name, $selected_value = '', $select_field_css_id = '') {
+	global $user_config;
+	
+	if (auth_isadmin()) {
+		$admins = user_getallwithstatus(2);
+		$users = user_getallwithstatus(3);
+	}
+	$subusers = user_getsubuserbyuid($user_config['uid']);
+	
+	$option_user.= '<option value="0">' . _('Select users') . '</option>';
+	if (count($admins) > 0) {
+		$option_user.= '<optgroup label="' . _('Administrators') . '">';
+		
+		foreach ($admins as $admin) {
+			$selected = '';
+			if ($admin['uid'] == $selected_value) {
+				$selected = 'selected';
+			}
+			$option_user.= '<option value="' . $admin['uid'] . '" ' . $selected . '>' . $admin['name'] . ' (' . $admin['username'] . ') - ' . _('Administrator') . '</option>';
+		}
+		$option_user.= '</optgroup>';
+	}
+	
+	if (count($users) > 0) {
+		
+		$option_user.= '<optgroup label="' . _('Normal users') . '">';
+		
+		foreach ($users as $user) {
+			$selected = '';
+			if ($user['uid'] == $selected_value) {
+				$selected = 'selected';
+			}
+			$option_user.= '<option value="' . $user['uid'] . '" ' . $selected . '>' . $user['name'] . ' (' . $user['username'] . ') - ' . _('Normal user') . '</option>';
+		}
+		$option_user.= '</optgroup>';
+	}
+	
+	if (count($subusers) > 0) {
+		
+		$option_user.= '<optgroup label="' . _('Subusers') . '">';
+		
+		foreach ($subusers as $subuser) {
+			$selected = '';
+			if ($subusers['uid'] == $selected_value) {
+				$selected = 'selected';
+			}
+			$option_user.= '<option value="' . $subuser['uid'] . '"' . $selectcted . '>' . $subuser['name'] . ' (' . $subuser['username'] . ') - ' . _('Subuser') . '</option>';
+		}
+		$option_user.= '</optgroup>';
+	}
+	
+	$select_field_css_id = (trim($select_field_css_id) ? trim($select_field_css_id) : 'playsms-select-users-single-' . $select_field_name);
+	
+	$js = '
+		<script language="javascript" type="text/javascript">
+			$(document).ready(function() {
+				$("#' . $select_field_css_id . '").select2({
+					placeholder: "' . _('Select users') . '",
+					width: "resolve",
+					separator: [\',\'],
+					tokenSeparators: [\',\'],
+				});
+			});
+		</script>
+	';
+	
+	$select_user = $js . PHP_EOL . '<select name="' . $select_field_name . '" id="' . $select_field_css_id . '">' . $option_user . '</select>';
+	
+	return $select_user;
+}
