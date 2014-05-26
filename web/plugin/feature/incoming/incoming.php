@@ -23,18 +23,18 @@ if (!auth_isadmin()) {
 };
 
 switch (_OP_) {
-	case "recvsms":
+	case "incoming":
 		
-		$data = registry_search(1, 'recvsms', 'sandbox_forward_to', 'forward_to');
-		$forward_to = array_unique(unserialize($data['recvsms']['sandbox_forward_to']['forward_to']));
-		$select_users = themes_select_users_multi('uids', $forward_to);
+		$data = registry_search(1, 'feature', 'incoming', 'sandbox_forward_to');
+		$sandbox_forward_to = array_unique(unserialize($data['feature']['incoming']['sandbox_forward_to']));
+		$select_users = themes_select_users_multi('uids', $sandbox_forward_to);
 		
 		$tpl = array(
-			'name' => 'recvsms',
+			'name' => 'incoming',
 			'vars' => array(
 				'ERROR' => _err_display() ,
 				'PAGE_TITLE' => _('Route incoming SMS') ,
-				'ACTION_URL' => _u('index.php?app=main&inc=core_recvsms&op=recvsms_save') ,
+				'ACTION_URL' => _u('index.php?app=main&inc=feature_incoming&op=incoming_save') ,
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
 				'Forward sandbox SMS to users' => _('Forward sandbox SMS to users') ,
 			) ,
@@ -45,14 +45,14 @@ switch (_OP_) {
 		_p(tpl_apply($tpl));
 		break;
 
-	case "recvsms_save":
+	case "incoming_save":
 		$item = array(
-			'forward_to' => serialize(array_unique($_REQUEST['uids'])) ,
+			'sandbox_forward_to' => serialize(array_unique($_REQUEST['uids'])) ,
 		);
-		registry_update(1, 'recvsms', 'sandbox_forward_to', $item);
-		_log('sandbox SMS forward to uid:' . $_REQUEST['uid'], 2, 'recvsms');
+		registry_update(1, 'feature', 'incoming', $item);
+		_log('sandbox SMS forward to uid:' . $_REQUEST['uid'], 2, 'incoming');
 		$_SESSION['error_string'] = _('Incoming SMS route changes has been saved');
-		header("Location: " . _u('index.php?app=main&inc=core_recvsms&op=recvsms'));
+		header("Location: " . _u('index.php?app=main&inc=feature_incoming&op=incoming'));
 		exit();
 		break;
 }
