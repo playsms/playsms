@@ -25,6 +25,10 @@ if (!auth_isadmin()) {
 switch (_OP_) {
 	case "incoming":
 		
+		$data = registry_search(1, 'feature', 'incoming', 'sandbox_prefix');
+		$sandbox_prefix = strtoupper(core_sanitize_alphanumeric($data['feature']['incoming']['sandbox_prefix']));
+		$input_prefix = _input('text', 'sandbox_prefix', $sandbox_prefix, array('size' => 30, 'maxlength' => 30));
+
 		$data = registry_search(1, 'feature', 'incoming', 'sandbox_forward_to');
 		$sandbox_forward_to = array_unique(unserialize($data['feature']['incoming']['sandbox_forward_to']));
 		$select_users = themes_select_users_multi('uids', $sandbox_forward_to);
@@ -36,9 +40,11 @@ switch (_OP_) {
 				'PAGE_TITLE' => _('Route incoming SMS') ,
 				'ACTION_URL' => _u('index.php?app=main&inc=feature_incoming&op=incoming_save') ,
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
+				'Route sandbox SMS by prefixing' => _('Route sandbox SMS by prefixing') ,
 				'Forward sandbox SMS to users' => _('Forward sandbox SMS to users') ,
 			) ,
 			'injects' => array(
+				'input_prefix',
 				'select_users'
 			) ,
 		);
@@ -47,6 +53,7 @@ switch (_OP_) {
 
 	case "incoming_save":
 		$item = array(
+			'sandbox_prefix' => strtoupper(core_sanitize_alphanumeric($_REQUEST['sandbox_prefix'])) ,
 			'sandbox_forward_to' => serialize(array_unique($_REQUEST['uids'])) ,
 		);
 		registry_update(1, 'feature', 'incoming', $item);
