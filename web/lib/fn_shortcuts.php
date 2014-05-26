@@ -99,8 +99,23 @@ function _yesno($name, $selected = '', $yes = '', $no = '') {
  * @param  string $error_string Array of error strings (optional)
  * @return string HTML string of error strings
  */
-function _err_display($error_string=array()) {
+function _err_display($error_string = array()) {
 	return themes_display_error_string($error_string);
+}
+
+/**
+ * Generate HTML input tag
+ * Shortcut to themes_input()
+ * @param  string $type        Input type
+ * @param  string $name        Input name
+ * @param  string $value       Input default value
+ * @param  array  $tag_options Additional input tag parameters
+ * @param  string $css_id      CSS ID
+ * @param  string $css_class   CSS class name
+ * @return string              HTML input tag
+ */
+function _input($type = 'text', $name = '', $value = '', $tag_options = array(), $css_id = '', $css_class = '') {
+	return themes_input($type, $name, $value, $tag_options, $css_id, $css_class);
 }
 
 // lib/fn_logger.php

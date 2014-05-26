@@ -446,7 +446,43 @@ function themes_select_users_multi($select_field_name, $selected_value = array()
 		));
 	}
 	if (!$ret) {
-		$ret = themes_select_users_single($select_field_name.'[]', $selected_value, $select_field_css_id, TRUE);
+		$ret = themes_select_users_single($select_field_name . '[]', $selected_value, $select_field_css_id, TRUE);
 		return $ret;
 	}
+}
+
+/**
+ * Generate HTML input tag
+ * @param  string $type        Input type
+ * @param  string $name        Input name
+ * @param  string $value       Input default value
+ * @param  array  $tag_params Additional input tag parameters
+ * @param  string $css_id      CSS ID
+ * @param  string $css_class   CSS class name
+ * @return string              HTML input tag
+ */
+function themes_input($type = 'text', $name = '', $value = '', $tag_params = array() , $css_id = '', $css_class = '') {
+	$ret = '';
+	
+	if (core_themes_get()) {
+		$ret = core_hook(core_themes_get() , 'themes_input', array(
+			$type,
+			$name,
+			$value,
+			$tag_params,
+			$css_id,
+			$css_class,
+		));
+	}
+	
+	if (!$ret) {
+		if (is_array($tag_params)) {
+			foreach ($tag_params as $key => $val) {
+				$params .= ' ' . $key . '="' . $val . '"';
+			}
+		}
+		$ret = '<input type="' . $type . '" name="' . $name . '" value="' . $value . '" id="' . $css_id . '" class="playsms-input ' . $css_class . '" ' . $params . '>';
+	}
+	
+	return $ret;
 }
