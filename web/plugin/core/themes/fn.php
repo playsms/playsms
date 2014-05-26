@@ -334,73 +334,119 @@ function themes_display_error_string($error_string = array()) {
 	return $ret;
 }
 
-function themes_select_users_single($select_field_name, $selected_value = '', $select_field_css_id = '') {
+function themes_select_users_single($select_field_name, $selected_value = '', $select_field_css_id = '', $flag_multiple = '') {
 	global $user_config;
 	
-	if (auth_isadmin()) {
-		$admins = user_getallwithstatus(2);
-		$users = user_getallwithstatus(3);
+	$ret = '';
+	if (core_themes_get()) {
+		$ret = core_hook(core_themes_get() , 'themes_select_users_single', array(
+			$select_field_name,
+			$selected_value,
+			$select_field_css_id,
+			$flag_multiple,
+		));
 	}
-	$subusers = user_getsubuserbyuid($user_config['uid']);
-	
-	$option_user.= '<option value="0">' . _('Select users') . '</option>';
-	if (count($admins) > 0) {
-		$option_user.= '<optgroup label="' . _('Administrators') . '">';
+	if (!$ret) {
 		
-		foreach ($admins as $admin) {
-			$selected = '';
-			if ($admin['uid'] == $selected_value) {
-				$selected = 'selected';
-			}
-			$option_user.= '<option value="' . $admin['uid'] . '" ' . $selected . '>' . $admin['name'] . ' (' . $admin['username'] . ') - ' . _('Administrator') . '</option>';
+		if (!is_array($selected_value)) {
+			$selected_value = array(
+				$selected_value
+			);
 		}
-		$option_user.= '</optgroup>';
-	}
-	
-	if (count($users) > 0) {
 		
-		$option_user.= '<optgroup label="' . _('Normal users') . '">';
-		
-		foreach ($users as $user) {
-			$selected = '';
-			if ($user['uid'] == $selected_value) {
-				$selected = 'selected';
-			}
-			$option_user.= '<option value="' . $user['uid'] . '" ' . $selected . '>' . $user['name'] . ' (' . $user['username'] . ') - ' . _('Normal user') . '</option>';
+		if (auth_isadmin()) {
+			$admins = user_getallwithstatus(2);
+			$users = user_getallwithstatus(3);
 		}
-		$option_user.= '</optgroup>';
-	}
-	
-	if (count($subusers) > 0) {
+		$subusers = user_getsubuserbyuid($user_config['uid']);
 		
-		$option_user.= '<optgroup label="' . _('Subusers') . '">';
-		
-		foreach ($subusers as $subuser) {
-			$selected = '';
-			if ($subusers['uid'] == $selected_value) {
-				$selected = 'selected';
+		$option_user.= '<option value="0">' . _('Select users') . '</option>';
+		if (count($admins) > 0) {
+			$option_user.= '<optgroup label="' . _('Administrators') . '">';
+			
+			foreach ($admins as $admin) {
+				$selected = '';
+				foreach ($selected_value as $sv) {
+					if ($admin['uid'] == $sv) {
+						$selected = 'selected';
+						break;
+					}
+				}
+				$option_user.= '<option value="' . $admin['uid'] . '" ' . $selected . '>' . $admin['name'] . ' (' . $admin['username'] . ') - ' . _('Administrator') . '</option>';
 			}
-			$option_user.= '<option value="' . $subuser['uid'] . '"' . $selectcted . '>' . $subuser['name'] . ' (' . $subuser['username'] . ') - ' . _('Subuser') . '</option>';
+			$option_user.= '</optgroup>';
 		}
-		$option_user.= '</optgroup>';
-	}
-	
-	$select_field_css_id = (trim($select_field_css_id) ? trim($select_field_css_id) : 'playsms-select-users-single-' . $select_field_name);
-	
-	$js = '
-		<script language="javascript" type="text/javascript">
-			$(document).ready(function() {
-				$("#' . $select_field_css_id . '").select2({
-					placeholder: "' . _('Select users') . '",
-					width: "resolve",
-					separator: [\',\'],
-					tokenSeparators: [\',\'],
+		
+		if (count($users) > 0) {
+			
+			$option_user.= '<optgroup label="' . _('Normal users') . '">';
+			
+			foreach ($users as $user) {
+				$selected = '';
+				foreach ($selected_value as $sv) {
+					if ($user['uid'] == $sv) {
+						$selected = 'selected';
+						break;
+					}
+				}
+				$option_user.= '<option value="' . $user['uid'] . '" ' . $selected . '>' . $user['name'] . ' (' . $user['username'] . ') - ' . _('Normal user') . '</option>';
+			}
+			$option_user.= '</optgroup>';
+		}
+		
+		if (count($subusers) > 0) {
+			
+			$option_user.= '<optgroup label="' . _('Subusers') . '">';
+			
+			foreach ($subusers as $subuser) {
+				$selected = '';
+				foreach ($selected_value as $sv) {
+					if ($subuser['uid'] == $sv) {
+						$selected = 'selected';
+						break;
+					}
+				}
+				$option_user.= '<option value="' . $subuser['uid'] . '"' . $selectcted . '>' . $subuser['name'] . ' (' . $subuser['username'] . ') - ' . _('Subuser') . '</option>';
+			}
+			$option_user.= '</optgroup>';
+		}
+		
+		$select_field_css_id = (trim($select_field_css_id) ? trim($select_field_css_id) : 'playsms-select-users-single-' . core_sanitize_alphanumeric($select_field_name));
+		
+		$js = '
+			<script language="javascript" type="text/javascript">
+				$(document).ready(function() {
+					$("#' . $select_field_css_id . '").select2({
+						placeholder: "' . _('Select users') . '",
+						width: "resolve",
+						separator: [\',\'],
+						tokenSeparators: [\',\'],
+					});
 				});
-			});
-		</script>
-	';
-	
-	$select_user = $js . PHP_EOL . '<select name="' . $select_field_name . '" id="' . $select_field_css_id . '">' . $option_user . '</select>';
-	
-	return $select_user;
+			</script>
+		';
+		
+		if ($flag_multiple) {
+			$flag_multiple = 'multiple="multiple"';
+		}
+		
+		$ret = $js . PHP_EOL . '<select name="' . $select_field_name . '" id="' . $select_field_css_id . '" ' . $flag_multiple . '>' . $option_user . '</select>';
+		
+		return $ret;
+	}
+}
+
+function themes_select_users_multi($select_field_name, $selected_value = array() , $select_field_css_id = '') {
+	$ret = '';
+	if (core_themes_get()) {
+		$ret = core_hook(core_themes_get() , 'themes_select_users_multi', array(
+			$select_field_name,
+			$selected_value,
+			$select_field_css_id,
+		));
+	}
+	if (!$ret) {
+		$ret = themes_select_users_single($select_field_name.'[]', $selected_value, $select_field_css_id, TRUE);
+		return $ret;
+	}
 }

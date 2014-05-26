@@ -26,17 +26,17 @@ switch (_OP_) {
 	case "recvsms":
 		
 		$data = registry_search(1, 'recvsms', 'sandbox_forward_to', 'forward_to');
-		$current_forward_to = $data['recvsms']['sandbox_forward_to']['forward_to'];
-		$select_users = themes_select_users_single('uid', $current_forward_to);
+		$forward_to = array_unique(unserialize($data['recvsms']['sandbox_forward_to']['forward_to']));
+		$select_users = themes_select_users_multi('uids', $forward_to);
 		
 		$tpl = array(
 			'name' => 'recvsms',
 			'vars' => array(
-				'ERROR' => _err_display(),
+				'ERROR' => _err_display() ,
 				'PAGE_TITLE' => _('Route incoming SMS') ,
 				'ACTION_URL' => _u('index.php?app=main&inc=core_recvsms&op=recvsms_save') ,
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
-				'Forward sandbox SMS to user' => _('Forward sandbox SMS to user') ,
+				'Forward sandbox SMS to users' => _('Forward sandbox SMS to users') ,
 			) ,
 			'injects' => array(
 				'select_users'
@@ -47,7 +47,7 @@ switch (_OP_) {
 
 	case "recvsms_save":
 		$item = array(
-			'forward_to' => $_REQUEST['uid']
+			'forward_to' => serialize(array_unique($_REQUEST['uids'])) ,
 		);
 		registry_update(1, 'recvsms', 'sandbox_forward_to', $item);
 		_log('sandbox SMS forward to uid:' . $_REQUEST['uid'], 2, 'recvsms');
