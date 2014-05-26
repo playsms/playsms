@@ -51,7 +51,7 @@ switch (_OP_) {
 		);
 		registry_update(1, 'recvsms', 'sandbox_forward_to', $item);
 		_log('sandbox SMS forward to uid:' . $_REQUEST['uid'], 2, 'recvsms');
-		$_SESSION['error_string'] = _('Route changes has been saved');
+		$_SESSION['error_string'] = _('Incoming SMS route changes has been saved');
 		header("Location: " . _u('index.php?app=main&inc=core_recvsms&op=recvsms'));
 		exit();
 		break;
