@@ -95,6 +95,11 @@ if (auth_isadmin()) {
 		_('Main configuration') ,
 		3
 	);
+	$menu_config[$menutab][] = array(
+		'index.php?app=main&inc=core_recvsms&op=recvsms',
+		_('Route incoming SMS') ,
+		1
+	);
 } else if ($user_config['status'] == 3) {
 	
 	// normal user menus
