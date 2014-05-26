@@ -50,7 +50,6 @@ switch (_OP_) {
 			'sandbox_forward_to' => serialize(array_unique($_REQUEST['uids'])) ,
 		);
 		registry_update(1, 'feature', 'incoming', $item);
-		_log('sandbox SMS forward to uid:' . $_REQUEST['uid'], 2, 'incoming');
 		$_SESSION['error_string'] = _('Incoming SMS route changes has been saved');
 		header("Location: " . _u('index.php?app=main&inc=feature_incoming&op=incoming'));
 		exit();
