@@ -14,10 +14,31 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.4\n"
 
+msgid "Administrator"
+msgstr ""
+
+msgid "Administrators"
+msgstr ""
+
 msgid "Back"
 msgstr ""
 
+msgid "Normal user"
+msgstr ""
+
+msgid "Normal users"
+msgstr ""
+
 msgid "Search"
+msgstr ""
+
+msgid "Select users"
+msgstr ""
+
+msgid "Subuser"
+msgstr ""
+
+msgid "Subusers"
 msgstr ""
 
 msgid "This field is required"

@@ -1,0 +1,8 @@
+msgid "Forward sandbox SMS to users"
+msgstr ""
+
+msgid "Incoming SMS route changes has been saved"
+msgstr ""
+
+msgid "Route incoming SMS"
+msgstr ""
