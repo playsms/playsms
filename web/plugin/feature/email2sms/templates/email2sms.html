@@ -1,0 +1,89 @@
+<script language="javascript" type="text/javascript">
+	$(document).ready(function() {
+		$("#email2sms-show-pin").mouseover(function(){
+			$(this).prev().attr('type','text');
+		});
+		$("#email2sms-show-pin").mouseout(function(){
+			$(this).prev().attr('type','password');
+		});
+		$("#email2sms-protocol").change(function(){
+			change_port();
+		});
+		$("#email2sms-ssl").change(function(e){
+			if(e.target.value==0) {
+				$("#email2sms-novalidate-cert").attr('disabled',true);
+				$("#email2sms-novalidate-cert").val(0);
+			}else{
+				$("#email2sms-novalidate-cert").attr('disabled',false);
+			}
+			change_port();
+		});
+		if($("input[name='port']").val()==""){
+			var port = ($("#email2sms-ssl").val()==1)?'{{ PORT_DEFAULT_SSL }}':'{{ PORT_DEFAULT }}';
+			$("input[name='port']").val(port);
+		}
+	});
+	function change_port(){
+		switch($("select[name='protocol']").val()){
+			case 'imap':
+				var nossl = '143';
+				break;
+			case 'pop3':
+				var nossl = '110';
+				break;
+			case 'nntp':
+				var nossl = '119';
+				break;
+		}
+		var port = ($("#email2sms-ssl").val()==1)?'993':nossl;
+		$("input[name='port']").val(port);
+	}
+</script>
+{{ ERROR }}
+<h2>{{ FORM_TITLE }}</h2>
+<form action="{{ ACTION_URL }}" method=post enctype="multipart/form-data">
+	{{ CSRF_FORM }}
+	<table class=playsms-table>
+		<tbody>
+			<tr>
+				<td class=label-sizer>{{ PIN for email to SMS }}</td>
+				<td><input type="password" size=30 maxlength="6" name="pin" value="{{ $items['features']['email2sms']['pin'] }}" required> <i id="email2sms-show-pin" class="glyphicon glyphicon-eye-open"></i></td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ Enable email to SMS }}</td>
+				<td><select id="email2sms-enable" name="enable">{{ $option_enable }}</select></td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ Email protocol }}</td>
+				<td><select id="email2sms-protocol" name="protocol">{{ $option_protocol }}</select></td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ Use SSL }}</td>
+				<td><select id="email2sms-ssl" name="ssl">{{ $option_ssl }}</select></td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ No validate cert option }}</td>
+				<td><select id="email2sms-novalidate-cert" name="novalidate_cert">{{ $option_novalidate_cert }}</select></td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ Mail server address }}</td>
+				<td><input type="text" size=30 name="server" value="{{ $items['features']['email2sms']['server'] }}"></td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ Mail server port }}</td>
+				<td><input type="text" size=30 name="port" value="{{ $items['features']['email2sms']['port'] }}"></td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ Mailbox username }}</td>
+				<td><input type="text" size=30 name="username" value="{{ $items['features']['email2sms']['username'] }}"></td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ Mailbox password }}</td>
+				<td>
+					<input type="password" size=30 name="password" value=""> {{ HINT_PASSWORD }}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<p><input type=submit class=button value='{{ Save }}'></p>
+</form>
