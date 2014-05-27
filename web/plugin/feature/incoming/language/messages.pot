@@ -1,3 +1,6 @@
+msgid "Fail to insert keyword"
+msgstr ""
+
 msgid "Forward sandbox SMS to users"
 msgstr ""
 
@@ -5,4 +8,10 @@ msgid "Incoming SMS route changes has been saved"
 msgstr ""
 
 msgid "Route incoming SMS"
+msgstr ""
+
+msgid "Route sandbox SMS by inserting keyword"
+msgstr ""
+
+msgid "keyword"
 msgstr ""
