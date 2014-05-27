@@ -25,7 +25,7 @@ venv
 .codio
 
 web/config.php
-web/lib/composer/*
+web/lib/composer
 
 install.conf
 install.conf.backup
