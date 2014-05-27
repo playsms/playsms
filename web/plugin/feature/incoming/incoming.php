@@ -40,7 +40,8 @@ switch (_OP_) {
 				'PAGE_TITLE' => _('Route incoming SMS') ,
 				'ACTION_URL' => _u('index.php?app=main&inc=feature_incoming&op=incoming_save') ,
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
-				'Route sandbox SMS by prefixing' => _('Route sandbox SMS by prefixing') ,
+				'HINT_PREFIX' => _hint('Valid keyword will be prefixed to the message') , 
+				'Route sandbox SMS by inserting keyword' => _('Route sandbox SMS by inserting keyword') ,
 				'Forward sandbox SMS to users' => _('Forward sandbox SMS to users') ,
 			) ,
 			'injects' => array(
@@ -52,12 +53,24 @@ switch (_OP_) {
 		break;
 
 	case "incoming_save":
+
+		// verify keyword for prefixing sandbox message
+		$sandbox_prefix = strtoupper(core_sanitize_alphanumeric($_REQUEST['sandbox_prefix']));
+		if ($sandbox_prefix && checkavailablekeyword($sandbox_prefix)) {
+			$_SESSION['error_string'][] = _('Fail to insert keyword').' ('._('keyword').': '.$sandbox_prefix.')';
+			$sandbox_prefix = '';
+		}
+
+		// serialize user ids before saving
+		$sandbox_forward_to = serialize(array_unique($_REQUEST['uids']));
+
 		$item = array(
-			'sandbox_prefix' => strtoupper(core_sanitize_alphanumeric($_REQUEST['sandbox_prefix'])) ,
-			'sandbox_forward_to' => serialize(array_unique($_REQUEST['uids'])) ,
+			'sandbox_prefix' => $sandbox_prefix ,
+			'sandbox_forward_to' => $sandbox_forward_to ,
 		);
 		registry_update(1, 'feature', 'incoming', $item);
-		$_SESSION['error_string'] = _('Incoming SMS route changes has been saved');
+
+		$_SESSION['error_string'][] = _('Incoming SMS route changes has been saved');
 		header("Location: " . _u('index.php?app=main&inc=feature_incoming&op=incoming'));
 		exit();
 		break;
