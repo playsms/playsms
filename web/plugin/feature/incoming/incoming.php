@@ -44,6 +44,7 @@ switch (_OP_) {
 				'ACTION_URL' => _u('index.php?app=main&inc=feature_incoming&op=incoming_save') ,
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
 				'HINT_PREFIX' => _hint('Valid keyword will be prefixed to the message') ,
+				'Route sandbox SMS' => _('Route sandbox SMS') ,
 				'Route sandbox SMS by inserting keyword' => _('Route sandbox SMS by inserting keyword') ,
 				'Forward sandbox SMS to users' => _('Forward sandbox SMS to users') ,
 			) ,
