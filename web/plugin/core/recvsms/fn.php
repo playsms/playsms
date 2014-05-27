@@ -277,6 +277,7 @@ function setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receive
 	}
 	
 	// incoming sms intercept after
+	unset($ret_intercept);
 	$ret_intercept = recvsms_intercept_after($sms_datetime, $sms_sender, $message, $sms_receiver, $c_feature, $c_status, $c_uid);
 	if ($ret_intercept['modified']) {
 		$sms_datetime = ($ret_intercept['param']['sms_datetime'] ? $ret_intercept['param']['sms_datetime'] : $sms_datetime);
