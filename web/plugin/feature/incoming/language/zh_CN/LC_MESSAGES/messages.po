@@ -10,6 +10,9 @@ msgstr ""
 msgid "Route incoming SMS"
 msgstr ""
 
+msgid "Route sandbox SMS"
+msgstr ""
+
 msgid "Route sandbox SMS by inserting keyword"
 msgstr ""
 
