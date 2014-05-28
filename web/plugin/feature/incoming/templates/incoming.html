@@ -2,20 +2,14 @@
 <script type="text/javascript" src="{{ HTTP_PATH_THEMES }}/common/jscss/combobox/select2.min.js"></script>
 {{ ERROR }}
 <h2>{{ PAGE_TITLE }}</h2>
-<form action="{{ ACTION_URL }}" method=post>
+<form role="form" action="{{ ACTION_URL }}" method=post>
 	{{ CSRF_FORM }}
-	<h3>{{ Route sandbox SMS }}</h3>
-	<table class=playsms-table>
-		<tbody>
-			<tr>
-				<td class=label-sizer>{{ Route sandbox SMS by inserting keyword }}</td>
-				<td>{{ $input_prefix }} {{ HINT_PREFIX }}</td>
-			</tr>
-			<tr>
-				<td class=label-sizer>{{ Forward sandbox SMS to users }}</td>
-				<td>{{ $select_users }}</td>
-			</tr>
-		</tbody>
-	</table>
+	<loop.form>
+	<div class="form-group">
+		<label for="{{ form.id }}">{{ form.label }}</label>
+		{{ form.input }}
+		<p class="help-block">{{ form.help }}</p>
+	</div>
+	</loop.form>
 	<p><input type=submit class=button value='{{ Save }}'></p>
 </form>

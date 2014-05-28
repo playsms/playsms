@@ -24,17 +24,53 @@ if (!auth_isadmin()) {
 
 switch (_OP_) {
 	case "incoming":
+
+		// sandbox match receiver number and sender ID
+		$data = registry_search(1, 'feature', 'incoming', 'sandbox_match_sender_id');
+		$sandbox_match_sender_id = (int)$data['feature']['incoming']['sandbox_match_sender_id'];
+		$select_match_sender_id = _yesno('sandbox_match_sender_id', $sandbox_match_sender_id, '', '', '', 'playsms-sandbox-match-sender-id', 'form-control');
 		
+		// sandbox prefix
 		$data = registry_search(1, 'feature', 'incoming', 'sandbox_prefix');
-		$sandbox_prefix = strtoupper(core_sanitize_alphanumeric($data['feature']['incoming']['sandbox_prefix']));
-		$input_prefix = _input('text', 'sandbox_prefix', $sandbox_prefix, array(
-			'size' => 30,
-			'maxlength' => 30
-		));
+		$sandbox_prefix = trim(strtoupper(core_sanitize_alphanumeric($data['feature']['incoming']['sandbox_prefix'])));
+		unset($params);
+		$params = array(
+			'size' => '100%',
+			'maxlength' => 30,
+			'placeholder' => _('Insert keyword') ,
+		);
+		$input_prefix = _input('text', 'sandbox_prefix', $sandbox_prefix, $params, 'playsms-sandbox-prefix', 'form-control');
 		
+		// sandbox forward to users
 		$data = registry_search(1, 'feature', 'incoming', 'sandbox_forward_to');
 		$sandbox_forward_to = array_unique(unserialize($data['feature']['incoming']['sandbox_forward_to']));
-		$select_users = themes_select_users_multi('uids', $sandbox_forward_to);
+		unset($params);
+		$params = array(
+			'width' => '100%',
+			'placeholder' => _('Select users')
+		);
+		$select_users = themes_select_users_multi('uids', $sandbox_forward_to, $params, 'playsms-route-to-users');
+		
+		$form_data = array(
+			array(
+				'id' => 'playsms-sandbox-match-sender-id',
+				'label' => _('Route all sandbox SMS with matched sender ID') ,
+				'input' => $select_match_sender_id,
+				'help' => _('Route to user inbox if receiver number matched with user sender ID') ,
+			) ,
+			array(
+				'id' => 'playsms-sandbox-prefix',
+				'label' => _('Route all sandbox SMS to keyword') ,
+				'input' => $input_prefix,
+				'help' => _('A valid keyword will be inserted and prefixed to the message') ,
+			) ,
+			array(
+				'id' => 'playsms-route-to-users',
+				'label' => _('Route all sandbox SMS to users') ,
+				'input' => $select_users,
+				'help' => '',
+			) ,
+		);
 		
 		$tpl = array(
 			'name' => 'incoming',
@@ -43,14 +79,10 @@ switch (_OP_) {
 				'PAGE_TITLE' => _('Route incoming SMS') ,
 				'ACTION_URL' => _u('index.php?app=main&inc=feature_incoming&op=incoming_save') ,
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
-				'HINT_PREFIX' => _hint('Valid keyword will be prefixed to the message') ,
-				'Route sandbox SMS' => _('Route sandbox SMS') ,
-				'Route sandbox SMS by inserting keyword' => _('Route sandbox SMS by inserting keyword') ,
-				'Forward sandbox SMS to users' => _('Forward sandbox SMS to users') ,
+				'Save' => _('Save') ,
 			) ,
-			'injects' => array(
-				'input_prefix',
-				'select_users'
+			'loops' => array(
+				'form' => $form_data,
 			) ,
 		);
 		_p(tpl_apply($tpl));
@@ -58,23 +90,30 @@ switch (_OP_) {
 
 	case "incoming_save":
 		
-		// verify keyword for prefixing sandbox message
-		$sandbox_prefix = strtoupper(core_sanitize_alphanumeric($_REQUEST['sandbox_prefix']));
+		// sandbox match receiver number and sender ID
+		$sandbox_match_sender_id = (int)$_REQUEST['sandbox_match_sender_id'];
+		$items['sandbox_match_sender_id'] = $sandbox_match_sender_id;
+		
+		// sandbox prefix
+		$sandbox_prefix = trim(strtoupper(core_sanitize_alphanumeric($_REQUEST['sandbox_prefix'])));
 		if ($sandbox_prefix && checkavailablekeyword($sandbox_prefix)) {
 			$_SESSION['error_string'][] = _('Fail to insert keyword') . ' (' . _('keyword') . ': ' . $sandbox_prefix . ')';
 			$sandbox_prefix = '';
 		}
+		$items['sandbox_prefix'] = $sandbox_prefix;
 		
-		// serialize user ids before saving
+		// sandbox forward to users
 		$sandbox_forward_to = serialize(array_unique($_REQUEST['uids']));
+		$items['sandbox_forward_to'] = $sandbox_forward_to;
 		
-		$item = array(
-			'sandbox_prefix' => $sandbox_prefix,
-			'sandbox_forward_to' => $sandbox_forward_to,
-		);
-		registry_update(1, 'feature', 'incoming', $item);
+		// save to registry
+		if (count($items)) {
+			registry_update(1, 'feature', 'incoming', $items);
+			$_SESSION['error_string'][] = _('Incoming SMS route changes has been saved');
+		} else {
+			$_SESSION['error_string'] = _('No route has been saved');
+		}
 		
-		$_SESSION['error_string'][] = _('Incoming SMS route changes has been saved');
 		header("Location: " . _u('index.php?app=main&inc=feature_incoming&op=incoming'));
 		exit();
 		break;
