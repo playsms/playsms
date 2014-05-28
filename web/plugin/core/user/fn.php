@@ -622,8 +622,8 @@ function user_search($keywords = '', $fields = '', $extras = '') {
 	}
 
 	foreach ($fields as $field) {
-		foreach (keywords as $keyword) {
-			$search.= ' '.$field.' LIKE %'.$keyword.'%';
+		foreach ($keywords as $keyword) {
+			$search.= ' '.$field.' LIKE \'%'.$keyword.'%\'';
 		}
 	}
 
