@@ -127,7 +127,7 @@ function email2sms_hook_playsmsd_once($param) {
 				//$message = trim($email_subject);
 				$message = trim(preg_replace('/' . $items['features']['email2sms']['pin'] . '/', '', $email_subject, -1, $count));
 				if ($count <= 0) {
-					_log('Subject: ' . $email_subject . ' PIN does not match', 2, 'email2sms_hook_playsmsd');
+					_log('PIN does not match. Subject: ' . $email_subject, 2, 'email2sms_hook_playsmsd');
 				}
 				
 				// sendsms
