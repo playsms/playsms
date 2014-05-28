@@ -602,3 +602,45 @@ function user_getsubuserbyuid($uid) {
 	
 	return array();
 }
+
+/**
+ * Search user records
+ * @param  mixed $keywords Array or string of keywords
+ * @param  mixed $fields   Array or string of record fields
+ * @param  mixed $extras   Array or string of record fields
+ * @return array           Array of users
+ */
+function user_search($keywords = '', $fields = '', $extras = '') {
+	$ret = array();
+
+	if (!is_array($keywords)) {
+		$keywords = explode(',', $keywords);
+	}
+	
+	if (!is_array($fields)) {
+		$fields = explode(',', $fields);
+	}
+
+	foreach ($fields as $field) {
+		foreach (keywords as $keyword) {
+			$search.= ' '.$field.' LIKE %'.$keyword.'%';
+		}
+	}
+
+	if (is_array($extras)) {
+		foreach ($extras as $key => $val) {
+			$extra_sql.= ' '.$key.' '.$val;
+		}
+		$extra_sql = trim($extra_sql);
+	} else {
+		$extra_sql = trim($extras);
+	}
+
+	$db_query = 'SELECT * FROM '._DB_PREF_.'_tblUser WHERE '.$search.' '.$extra_sql;
+	$db_result = dba_query($db_query);
+	while ($db_row = dba_fetch_array($db_result)) {
+		$ret[] = $db_row;
+	}
+
+	return $ret;
+}
