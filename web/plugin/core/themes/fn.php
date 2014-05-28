@@ -271,11 +271,19 @@ function themes_select_options($options = array() , $selected = '') {
  * @param  string $name     Tag name
  * @param  array  $options  Select options
  * @param  string $selected Selected option
+ * @param  array  $tag_params  Additional input tag parameters
+ * @param  string $css_id      CSS ID
+ * @param  string $css_class   CSS class name
  * @return string           Select HTML tag
  */
-function themes_select($name, $options = array() , $selected = '') {
+function themes_select($name, $options = array() , $selected = '', $tag_params = array() , $css_id = '', $css_class = '') {
 	$select_options = themes_select_options($options, $selected);
-	$ret = '<select name="' . $name . '">' . $select_options . '</select>';
+	if (is_array($tag_params)) {
+		foreach ($tag_params as $key => $val) {
+			$params.= ' ' . $key . '="' . $val . '"';
+		}
+	}
+	$ret = '<select name="' . $name . '" id="' . $css_id . '" class="playsms-select ' . $css_class . '" ' . $params . '>' . $select_options . '</select>';
 	return $ret;
 }
 
@@ -285,16 +293,19 @@ function themes_select($name, $options = array() , $selected = '') {
  * @param  boolean $selected TRUE if yes/enabled
  * @param  string  $yes      'Yes' or 'Enabled' option
  * @param  string  $no       'No' or 'Disabled' option
+ * @param  array  $tag_params  Additional input tag parameters
+ * @param  string $css_id      CSS ID
+ * @param  string $css_class   CSS class name
  * @return string            Select HTML tag
  */
-function themes_select_yesno($name, $selected, $yes = '', $no = '') {
+function themes_select_yesno($name, $selected, $yes = '', $no = '', $tag_params = array() , $css_id = '', $css_class = '') {
 	$yes = ($yes ? $yes : _('yes'));
 	$no = ($no ? $no : _('no'));
 	$options = array(
 		$yes => 1,
 		$no => 0,
 	);
-	return themes_select($name, $options, $selected);
+	return themes_select($name, $options, $selected, $tag_params, $css_id, $css_class);
 }
 
 /**
@@ -334,7 +345,7 @@ function themes_display_error_string($error_string = array()) {
 	return $ret;
 }
 
-function themes_select_users_single($select_field_name, $selected_value = '', $select_field_css_id = '', $flag_multiple = '') {
+function themes_select_users_single($select_field_name, $selected_value = '', $tag_params = array() , $css_id = '', $css_class = '') {
 	global $user_config;
 	
 	$ret = '';
@@ -342,8 +353,9 @@ function themes_select_users_single($select_field_name, $selected_value = '', $s
 		$ret = core_hook(core_themes_get() , 'themes_select_users_single', array(
 			$select_field_name,
 			$selected_value,
-			$select_field_css_id,
-			$flag_multiple,
+			$tag_params,
+			$css_id,
+			$css_class,
 		));
 	}
 	if (!$ret) {
@@ -411,14 +423,23 @@ function themes_select_users_single($select_field_name, $selected_value = '', $s
 			$option_user.= '</optgroup>';
 		}
 		
-		$select_field_css_id = (trim($select_field_css_id) ? trim($select_field_css_id) : 'playsms-select-users-single-' . core_sanitize_alphanumeric($select_field_name));
+		$css_id = (trim($css_id) ? trim($css_id) : 'playsms-select-users-single-' . core_sanitize_alphanumeric($select_field_name));
+		
+		if (is_array($tag_params)) {
+			foreach ($tag_params as $key => $val) {
+				$params.= ' ' . $key . '="' . $val . '"';
+			}
+		}
+		
+		$placeholder = ($tag_params['placeholder'] ? $tag_params['placeholder'] : _('Select users'));
+		$width = ($tag_params['width'] ? $tag_params['width'] : 'resolve');
 		
 		$js = '
 			<script language="javascript" type="text/javascript">
 				$(document).ready(function() {
-					$("#' . $select_field_css_id . '").select2({
-						placeholder: "' . _('Select users') . '",
-						width: "resolve",
+					$("#' . $css_id . '").select2({
+						placeholder: "' . $placeholder . '",
+						width: "' . $width . '",
 						separator: [\',\'],
 						tokenSeparators: [\',\'],
 					});
@@ -426,27 +447,26 @@ function themes_select_users_single($select_field_name, $selected_value = '', $s
 			</script>
 		';
 		
-		if ($flag_multiple) {
-			$flag_multiple = 'multiple="multiple"';
-		}
-		
-		$ret = $js . PHP_EOL . '<select name="' . $select_field_name . '" id="' . $select_field_css_id . '" ' . $flag_multiple . '>' . $option_user . '</select>';
+		$ret = $js . PHP_EOL . '<select name="' . $select_field_name . '" id="' . $css_id . '" class="playsms-select ' . $css_class . '" ' . $params . '>' . $option_user . '</select>';
 		
 		return $ret;
 	}
 }
 
-function themes_select_users_multi($select_field_name, $selected_value = array() , $select_field_css_id = '') {
+function themes_select_users_multi($select_field_name, $selected_value = array() , $tag_params = array() , $css_id = '', $css_class = '') {
 	$ret = '';
 	if (core_themes_get()) {
 		$ret = core_hook(core_themes_get() , 'themes_select_users_multi', array(
 			$select_field_name,
 			$selected_value,
-			$select_field_css_id,
+			$tag_params,
+			$css_id,
+			$css_class,
 		));
 	}
 	if (!$ret) {
-		$ret = themes_select_users_single($select_field_name . '[]', $selected_value, $select_field_css_id, TRUE);
+		$tag_params['multiple'] = 'multiple';
+		$ret = themes_select_users_single($select_field_name . '[]', $selected_value, $tag_params, $css_id, $css_class);
 		return $ret;
 	}
 }
@@ -456,7 +476,7 @@ function themes_select_users_multi($select_field_name, $selected_value = array()
  * @param  string $type        Input type
  * @param  string $name        Input name
  * @param  string $value       Input default value
- * @param  array  $tag_params Additional input tag parameters
+ * @param  array  $tag_params  Additional input tag parameters
  * @param  string $css_id      CSS ID
  * @param  string $css_class   CSS class name
  * @return string              HTML input tag
@@ -478,7 +498,7 @@ function themes_input($type = 'text', $name = '', $value = '', $tag_params = arr
 	if (!$ret) {
 		if (is_array($tag_params)) {
 			foreach ($tag_params as $key => $val) {
-				$params .= ' ' . $key . '="' . $val . '"';
+				$params.= ' ' . $key . '="' . $val . '"';
 			}
 		}
 		$ret = '<input type="' . $type . '" name="' . $name . '" value="' . $value . '" id="' . $css_id . '" class="playsms-input ' . $css_class . '" ' . $params . '>';

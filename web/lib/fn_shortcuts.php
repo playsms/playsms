@@ -74,10 +74,13 @@ function _options($options = array() , $selected = '') {
  * @param  string $name     Tag name
  * @param  array  $options  Select options
  * @param  string $selected Selected option
+ * @param  array  $tag_params  Additional input tag parameters
+ * @param  string $css_id      CSS ID
+ * @param  string $css_class   CSS class name
  * @return string           Select HTML tag
  */
-function _select($name, $options = array() , $selected = '') {
-	return themes_select($name, $options, $selected);
+function _select($name, $options = array() , $selected = '', $tag_options = array() , $css_id = '', $css_class = '') {
+	return themes_select($name, $options, $selected, $tag_options, $css_id, $css_class);
 }
 
 /**
@@ -87,10 +90,13 @@ function _select($name, $options = array() , $selected = '') {
  * @param  boolean $selected TRUE if yes/enabled
  * @param  string  $yes      'Yes' or 'Enabled' option
  * @param  string  $no       'No' or 'Disabled' option
+ * @param  array  $tag_params  Additional input tag parameters
+ * @param  string $css_id      CSS ID
+ * @param  string $css_class   CSS class name
  * @return string            Select HTML tag
  */
-function _yesno($name, $selected = '', $yes = '', $no = '') {
-	return themes_select_yesno($name, $selected, $yes, $no);
+function _yesno($name, $selected = '', $yes = '', $no = '', $tag_options = array() , $css_id = '', $css_class = '') {
+	return themes_select_yesno($name, $selected, $yes, $no, $tag_options, $css_id, $css_class);
 }
 
 /**
@@ -114,7 +120,7 @@ function _err_display($error_string = array()) {
  * @param  string $css_class   CSS class name
  * @return string              HTML input tag
  */
-function _input($type = 'text', $name = '', $value = '', $tag_options = array(), $css_id = '', $css_class = '') {
+function _input($type = 'text', $name = '', $value = '', $tag_options = array() , $css_id = '', $css_class = '') {
 	return themes_input($type, $name, $value, $tag_options, $css_id, $css_class);
 }
 
