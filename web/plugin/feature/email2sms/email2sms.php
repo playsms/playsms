@@ -26,10 +26,6 @@ if (!auth_isvalid()) {
 switch (_OP_) {
 	case "email2sms":
 		
-		if ($err = $_SESSION['error_string']) {
-			$error_content = "<div class=error_string>$err</div>";
-		}
-		
 		$items = registry_search($user_config['uid'], 'features', 'email2sms');
 		
 		// option enable
@@ -59,7 +55,7 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'email2sms',
 			'vars' => array(
-				'ERROR' => $error_content,
+				'ERROR' => _err_display() ,
 				'FORM_TITLE' => _('Manage email to SMS') ,
 				'ACTION_URL' => _u('index.php?app=main&inc=feature_email2sms&op=email2sms_save') ,
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
@@ -82,37 +78,49 @@ switch (_OP_) {
 				'option_protocol',
 				'option_ssl',
 				'option_novalidate_cert',
-				'items'
+				'items',
 			) ,
 		);
 		_p(tpl_apply($tpl));
 		break;
 
 	case "email2sms_save":
-		$items = array(
-			'pin' => core_sanitize_alphanumeric(substr($_REQUEST['pin'], 0, 6)) ,
-			'enable' => $_REQUEST['enable'],
-			'protocol' => $_REQUEST['protocol'],
-			'ssl' => $_REQUEST['ssl'],
-			'novalidate_cert' => $_REQUEST['novalidate_cert'],
-			'port' => $_REQUEST['port'],
-			'server' => $_REQUEST['server'],
-			'username' => $_REQUEST['username'],
-			'hash' => md5($_REQUEST['username'] . $_REQUEST['server'] . $_REQUEST['port']) ,
-		);
-		if ($_REQUEST['password']) {
-			$items['password'] = $_REQUEST['password'];
-		}
-		registry_update($user_config['uid'], 'features', 'email2sms', $items);
+		$continue = FALSE;
 		
-		if ($_REQUEST['enable']) {
-			$enabled = 'enabled';
-			$_SESSION['error_string'] = _('Email to sms configuration has been save and enabled');
+		$pin = core_sanitize_alphanumeric(substr($_REQUEST['pin'], 0, 40));
+		if ($pin) {
+			$continue = TRUE;
 		} else {
-			$enabled = 'disabled';
-			$_SESSION['error_string'] = _('Email to sms configuration has been save but disabled');
+			$_SESSION['error_string'][] = _('PIN is empty');
+			$_SESSION['error_string'][] = _('Fail to save email to SMS configuration');
 		}
-		_log($enabled . ' uid:' . $user_config['uid'] . ' u:' . $_REQUEST['username'] . ' server:' . $_REQUEST['server'], 2, 'email2sms');
+		
+		if ($continue) {
+			$items = array(
+				'pin' => $pin,
+				'enable' => $_REQUEST['enable'],
+				'protocol' => $_REQUEST['protocol'],
+				'ssl' => $_REQUEST['ssl'],
+				'novalidate_cert' => $_REQUEST['novalidate_cert'],
+				'port' => $_REQUEST['port'],
+				'server' => $_REQUEST['server'],
+				'username' => $_REQUEST['username'],
+				'hash' => md5($_REQUEST['username'] . $_REQUEST['server'] . $_REQUEST['port']) ,
+			);
+			if ($_REQUEST['password']) {
+				$items['password'] = $_REQUEST['password'];
+			}
+			registry_update($user_config['uid'], 'features', 'email2sms', $items);
+			
+			if ($_REQUEST['enable']) {
+				$enabled = 'enabled';
+				$_SESSION['error_string'] = _('Email to SMS configuration has been saved and enabled');
+			} else {
+				$enabled = 'disabled';
+				$_SESSION['error_string'] = _('Email to SMS configuration has been saved but disabled');
+			}
+			_log($enabled . ' uid:' . $user_config['uid'] . ' u:' . $_REQUEST['username'] . ' server:' . $_REQUEST['server'], 2, 'email2sms');
+		}
 		
 		header("Location: " . _u('index.php?app=main&inc=feature_email2sms&op=email2sms'));
 		exit();
