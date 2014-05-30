@@ -18,48 +18,62 @@
  */
 
 defined('_SECURE_') or die('Forbidden');
-if(!auth_isadmin()){auth_block();};
+
+if (!auth_isadmin()) {
+	auth_block();
+};
 
 switch (_OP_) {
 	case "sandbox":
-		$search_category = array(_('Time') => 'in_datetime', _('From') => 'in_sender', _('Content') => 'in_message');
+		$search_category = array(
+			_('Time') => 'in_datetime',
+			_('From') => 'in_sender',
+			_('Content') => 'in_message'
+		);
 		$base_url = 'index.php?app=main&inc=feature_report&route=sandbox&op=sandbox';
 		$search = themes_search($search_category, $base_url);
-		$conditions = array('flag_deleted' => 0, 'in_status' => 0);
+		$conditions = array(
+			'flag_deleted' => 0,
+			'in_status' => 0
+		);
 		$keywords = $search['dba_keywords'];
-		$count = dba_count(_DB_PREF_.'_tblSMSIncoming', $conditions, $keywords, '', $join);
+		$count = dba_count(_DB_PREF_ . '_tblSMSIncoming', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
-		$extras = array('ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = dba_search(_DB_PREF_.'_tblSMSIncoming', '*', $conditions, $keywords, $extras, $join);
-
+		$extras = array(
+			'ORDER BY' => 'in_id DESC',
+			'LIMIT' => $nav['limit'],
+			'OFFSET' => $nav['offset']
+		);
+		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', '*', $conditions, $keywords, $extras, $join);
+		
 		$content = "
-			<h2>"._('Sandbox')."</h2>
-			<p>".$search['form']."</p>
+			<h2>" . _('Sandbox') . "</h2>
+			<p>" . $search['form'] . "</p>
 			<form id=fm_sandbox name=fm_sandbox action=\"index.php?app=main&inc=feature_report&route=sandbox&op=actions\" method=POST>
-			"._CSRF_FORM_."
+			" . _CSRF_FORM_ . "
 			<input type=hidden name=go value=delete>
 			<div class=actions_box>
 				<div class=pull-left>
-					<a href=\""._u('index.php?app=main&inc=feature_report&route=sandbox&op=actions&go=export')."\">".$icon_config['export']."</a>
+					<a href=\"" . _u('index.php?app=main&inc=feature_report&route=sandbox&op=actions&go=export') . "\">" . $icon_config['export'] . "</a>
 				</div>
 				<div class=pull-right>
-					<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', 'fm_sandbox');\">".$icon_config['delete']."</a>
+					<a href='#' onClick=\"return SubmitConfirm('" . _('Are you sure you want to delete these items ?') . "', 'fm_sandbox');\">" . $icon_config['delete'] . "</a>
 				</div>
 			</div>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead>
 			<tr>
-				<th width=20%>"._('From')."</th>
-				<th width=75%>"._('Content')."</th>
+				<th width=20%>" . _('From') . "</th>
+				<th width=75%>" . _('Content') . "</th>
 				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_sandbox)></th>
 			</tr>
 			</thead>
 			<tbody>";
-
+		
 		$i = $nav['top'];
 		$j = 0;
-		for ($j=0;$j<count($list);$j++) {
+		for ($j = 0; $j < count($list); $j++) {
 			$list[$j] = core_display_data($list[$j]);
 			$in_username = $list[$j]['username'];
 			$in_id = $list[$j]['in_id'];
@@ -72,74 +86,88 @@ switch (_OP_) {
 			$in_keyword = $list[$j]['in_keyword'];
 			$in_datetime = core_display_datetime($list[$j]['in_datetime']);
 			if ($c_feature = $list[$j]['in_feature']) {
-				$c_feature = "<br />".$c_feature;
+				$c_feature = "<br />" . $c_feature;
 			}
 			$msg = $list[$j]['in_message'];
 			$in_message = core_display_text($msg);
 			$reply = '';
 			$forward = '';
 			if ($msg && $in_sender) {
-				$reply = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=reply&message='.urlencode($msg).'&to='.urlencode($in_sender), $icon_config['reply']);
-				$forward = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=forward&message='.urlencode($msg), $icon_config['forward']);
+				$reply = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=reply&message=' . urlencode($msg) . '&to=' . urlencode($in_sender) , $icon_config['reply']);
+				$forward = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=forward&message=' . urlencode($msg) , $icon_config['forward']);
 			}
-			$c_message = "<div id=\"sandbox_msg\">".$in_message."</div><div id=\"msg_label\">".$in_datetime."</div><div id=\"msg_option\">".$reply.$forward."</div>";
+			$c_message = "<div id=\"sandbox_msg\">" . $in_message . "</div><div id=\"msg_label\">" . $in_datetime . "</div><div id=\"msg_option\">" . $reply . $forward . "</div>";
 			$i--;
-			$content .= "
+			$content.= "
 				<tr>
 					<td>$current_sender</td>
 					<td>$c_message</td>
 					<td>
-						<input type=hidden name=itemid".$j." value=\"$in_id\">
-						<input type=checkbox name=checkid".$j.">
+						<input type=hidden name=itemid" . $j . " value=\"$in_id\">
+						<input type=checkbox name=checkid" . $j . ">
 					</td>
 				</tr>";
 		}
-
-		$content .= "
+		
+		$content.= "
 			</tbody>
 			</table>
 			</div>
-			<div class=pull-right>".$nav['form']."</div>
+			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>";
-
+		
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}
 		_p($content);
 		break;
+
 	case "actions":
 		$nav = themes_nav_session();
 		$search = themes_search_session();
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case 'export':
-				$conditions = array('flag_deleted' => 0, 'in_status' => 0);
-				$list = dba_search(_DB_PREF_.'_tblSMSIncoming', '*', $conditions, $search['dba_keywords'], '', $join);
-				$data[0] = array(_('Time'), _('From'), _('Content'));
-				for ($i=0;$i<count($list);$i++) {
+				$conditions = array(
+					'flag_deleted' => 0,
+					'in_status' => 0
+				);
+				$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', '*', $conditions, $search['dba_keywords'], '', $join);
+				$data[0] = array(
+					_('Time') ,
+					_('From') ,
+					_('Content')
+				);
+				for ($i = 0; $i < count($list); $i++) {
 					$j = $i + 1;
 					$data[$j] = array(
-						core_display_datetime($list[$i]['in_datetime']),
+						core_display_datetime($list[$i]['in_datetime']) ,
 						$list[$i]['in_sender'],
 						$list[$i]['in_message']
 					);
 				}
 				$content = core_csv_format($data);
-				$fn = 'sandbox-'.$core_config['datetime']['now_stamp'].'.csv';
+				$fn = 'sandbox-' . $core_config['datetime']['now_stamp'] . '.csv';
 				core_download($content, $fn, 'text/csv');
 				break;
+
 			case 'delete':
-				for ($i=0;$i<$nav['limit'];$i++) {
-					$checkid = $_POST['checkid'.$i];
-					$itemid = $_POST['itemid'.$i];
-					if(($checkid=="on") && $itemid) {
-						$up = array('c_timestamp' => mktime(), 'flag_deleted' => '1');
-						dba_update(_DB_PREF_.'_tblSMSIncoming', $up, array('in_id' => $itemid));
+				for ($i = 0; $i < $nav['limit']; $i++) {
+					$checkid = $_POST['checkid' . $i];
+					$itemid = $_POST['itemid' . $i];
+					if (($checkid == "on") && $itemid) {
+						$up = array(
+							'c_timestamp' => mktime() ,
+							'flag_deleted' => '1'
+						);
+						dba_update(_DB_PREF_ . '_tblSMSIncoming', $up, array(
+							'in_id' => $itemid
+						));
 					}
 				}
-				$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&page='.$nav['page'].'&nav='.$nav['nav'];
+				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
 				$_SESSION['error_string'] = _('Selected incoming message has been deleted');
-				header("Location: "._u($ref));
+				header("Location: " . _u($ref));
 		}
 		break;
 }

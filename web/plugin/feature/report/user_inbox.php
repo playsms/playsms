@@ -18,35 +18,49 @@
  */
 
 defined('_SECURE_') or die('Forbidden');
-if(!auth_isvalid()){auth_block();};
+
+if (!auth_isvalid()) {
+	auth_block();
+};
 
 switch (_OP_) {
 	case "user_inbox":
-		$search_category = array(_('Time') => 'in_datetime', _('From') => 'in_sender', _('Message') => 'in_msg');
+		$search_category = array(
+			_('Time') => 'in_datetime',
+			_('From') => 'in_sender',
+			_('Message') => 'in_msg'
+		);
 		$base_url = 'index.php?app=main&inc=feature_report&route=user_inbox&op=user_inbox';
 		$search = themes_search($search_category, $base_url);
-		$conditions = array('in_uid' => $user_config['uid'], 'flag_deleted' => 0);
+		$conditions = array(
+			'in_uid' => $user_config['uid'],
+			'flag_deleted' => 0
+		);
 		$keywords = $search['dba_keywords'];
-		$count = dba_count(_DB_PREF_.'_tblUser_inbox', $conditions, $keywords);
+		$count = dba_count(_DB_PREF_ . '_tblUser_inbox', $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
-		$extras = array('ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
-		$list = dba_search(_DB_PREF_.'_tblUser_inbox', '*', $conditions, $keywords, $extras);
+		$extras = array(
+			'ORDER BY' => 'in_id DESC',
+			'LIMIT' => $nav['limit'],
+			'OFFSET' => $nav['offset']
+		);
+		$list = dba_search(_DB_PREF_ . '_tblUser_inbox', '*', $conditions, $keywords, $extras);
 		unset($tpl);
 		$tpl = array(
 			'vars' => array(
 				'SEARCH_FORM' => $search['form'],
 				'NAV_FORM' => $nav['form'],
-				'Inbox' => _('Inbox'),
+				'Inbox' => _('Inbox') ,
 				'Export' => $icon_config['export'],
 				'Delete' => $icon_config['delete'],
-				'From' => _('From'),
-				'Message' => _('Message'),
+				'From' => _('From') ,
+				'Message' => _('Message') ,
 				'ARE_YOU_SURE' => _('Are you sure you want to delete these items ?')
 			)
 		);
 		$i = $nav['top'];
 		$j = 0;
-		for ($j=0;$j<count($list);$j++) {
+		for ($j = 0; $j < count($list); $j++) {
 			$list[$j] = core_display_data($list[$j]);
 			$in_id = $list[$j]['in_id'];
 			$in_sender = $list[$j]['in_sender'];
@@ -61,20 +75,20 @@ switch (_OP_) {
 			$reply = '';
 			$forward = '';
 			if ($msg && $in_sender) {
-				$reply = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=reply&message='.urlencode($msg).'&to='.urlencode($in_sender), $icon_config['reply']);
-				$forward = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=forward&message='.urlencode($msg), $icon_config['forward']);
+				$reply = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=reply&message=' . urlencode($msg) . '&to=' . urlencode($in_sender) , $icon_config['reply']);
+				$forward = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=forward&message=' . urlencode($msg) , $icon_config['forward']);
 			}
 			$i--;
 			$tpl['loops']['data'][] = array(
-			    'tr_class' => $tr_class,
-			    'current_sender' => $current_sender,
-			    'in_msg' => $in_msg,
-			    'in_datetime' => $in_datetime,
-			    'in_status' => $in_status,
-			    'reply' => $reply,
-			    'forward' => $forward,
-			    'in_id' => $in_id,
-			    'j' => $j
+				'tr_class' => $tr_class,
+				'current_sender' => $current_sender,
+				'in_msg' => $in_msg,
+				'in_datetime' => $in_datetime,
+				'in_status' => $in_status,
+				'reply' => $reply,
+				'forward' => $forward,
+				'in_id' => $in_id,
+				'j' => $j
 			);
 		}
 		$error_content = '';
@@ -86,39 +100,56 @@ switch (_OP_) {
 		$content = tpl_apply($tpl);
 		_p($content);
 		break;
+
 	case "actions":
 		$nav = themes_nav_session();
 		$search = themes_search_session();
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case 'export':
-				$conditions = array('in_uid' => $user_config['uid'], 'flag_deleted' => 0);
-				$list = dba_search(_DB_PREF_.'_tblUser_inbox', '*', $conditions, $search['dba_keywords']);
-				$data[0] = array(_('User'), _('Time'), _('From'), _('Message'));
-				for ($i=0;$i<count($list);$i++) {
+				$conditions = array(
+					'in_uid' => $user_config['uid'],
+					'flag_deleted' => 0
+				);
+				$list = dba_search(_DB_PREF_ . '_tblUser_inbox', '*', $conditions, $search['dba_keywords']);
+				$data[0] = array(
+					_('User') ,
+					_('Time') ,
+					_('From') ,
+					_('Message')
+				);
+				for ($i = 0; $i < count($list); $i++) {
 					$j = $i + 1;
 					$data[$j] = array(
-						user_uid2username($list[$i]['in_uid']),
-						core_display_datetime($list[$i]['in_datetime']),
+						user_uid2username($list[$i]['in_uid']) ,
+						core_display_datetime($list[$i]['in_datetime']) ,
 						$list[$i]['in_sender'],
-						$list[$i]['in_msg']);
+						$list[$i]['in_msg']
+					);
 				}
 				$content = core_csv_format($data);
-				$fn = 'user_inbox-'.$core_config['datetime']['now_stamp'].'.csv';
+				$fn = 'user_inbox-' . $core_config['datetime']['now_stamp'] . '.csv';
 				core_download($content, $fn, 'text/csv');
 				break;
+
 			case 'delete':
-				for ($i=0;$i<$nav['limit'];$i++) {
-					$checkid = $_POST['checkid'.$i];
-					$itemid = $_POST['itemid'.$i];
-					if(($checkid=="on") && $itemid) {
-						$up = array('c_timestamp' => mktime(), 'flag_deleted' => '1');
-						dba_update(_DB_PREF_.'_tblUser_inbox', $up, array('in_uid' => $user_config['uid'], 'in_id' => $itemid));
+				for ($i = 0; $i < $nav['limit']; $i++) {
+					$checkid = $_POST['checkid' . $i];
+					$itemid = $_POST['itemid' . $i];
+					if (($checkid == "on") && $itemid) {
+						$up = array(
+							'c_timestamp' => mktime() ,
+							'flag_deleted' => '1'
+						);
+						dba_update(_DB_PREF_ . '_tblUser_inbox', $up, array(
+							'in_uid' => $user_config['uid'],
+							'in_id' => $itemid
+						));
 					}
 				}
-				$ref = $nav['url'].'&search_keyword='.$search['keyword'].'&page='.$nav['page'].'&nav='.$nav['nav'];
+				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
 				$_SESSION['error_string'] = _('Selected incoming message has been deleted');
-				header("Location: "._u($ref));
+				header("Location: " . _u($ref));
 		}
 		break;
 }

@@ -18,6 +18,7 @@
  */
 
 defined('_SECURE_') or die('Forbidden');
+
 if (!auth_isvalid()) {
 	auth_block();
 };
@@ -34,7 +35,7 @@ switch (_OP_) {
 			'uid' => $user_config['uid'],
 			'flag_deleted' => 0,
 		);
-
+		
 		$keywords = $search['dba_keywords'];
 		$count = dba_count($db_table, $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
@@ -112,7 +113,7 @@ switch (_OP_) {
 					'uid' => $user_config['uid'],
 					'flag_deleted' => 0,
 				);
-
+				
 				$list = dba_search($db_table, '*', $conditions, $search['dba_keywords']);
 				$data[0] = array(
 					_('Transaction datetime') ,
@@ -142,7 +143,7 @@ switch (_OP_) {
 							'delete_datetime' => core_get_datetime() ,
 							'flag_deleted' => '1'
 						);
-
+						
 						dba_update($db_table, $up, array(
 							'id' => $itemid
 						));
