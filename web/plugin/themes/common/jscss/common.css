@@ -372,16 +372,18 @@ table.sortable thead, table.sortable th {
         hyphens: auto;
 }
 
-#msg_label {
-	font-size: 11pt;
-	padding-left: 2px;
+#msg_price {
 	padding-right: 2px;
+	padding-bottom: 2px;
+}
+
+#msg_label {
+	padding-right: 2px;
+	padding-bottom: 2px;
 }
 
 #msg_option {
-	font-size: 11pt;
 	text-align: left;
-	padding-left: 2px;
 	padding-right: 2px;
 	padding-bottom: 12px;
 }

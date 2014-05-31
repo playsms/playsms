@@ -90,8 +90,8 @@ switch (_OP_) {
 			$in_keyword = $list[$j]['in_keyword'];
 			$in_datetime = core_display_datetime($list[$j]['in_datetime']);
 			$in_feature = $list[$j]['in_feature'];
-			$in_status = ($list[$j]['in_status'] == 1 ? '<span class=status_handled />' : '<span class=status_unhandled />');
-			$in_status = strtolower($in_status);
+			//$in_status = ($list[$j]['in_status'] == 1 ? '<span class=status_handled />' : '<span class=status_unhandled />');
+			//$in_status = strtolower($in_status);
 			$c_feature = '';
 			if ($in_feature) {
 				$c_feature = "<br />" . $in_feature;
