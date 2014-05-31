@@ -36,8 +36,8 @@ switch (_OP_) {
 		
 		// option protocol
 		$option_protocol = _options(array(
-			_('IMAP') => 'imap',
-			_('POP3') => 'pop3',
+			'IMAP' => 'imap',
+			'POP3' => 'pop3',
 		) , $items['features']['email2sms']['protocol']);
 		
 		// option ssl

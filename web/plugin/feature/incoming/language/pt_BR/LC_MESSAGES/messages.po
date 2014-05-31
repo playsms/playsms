@@ -1,19 +1,37 @@
-msgid "Fail to insert keyword"
+msgid "A valid keyword will be inserted and prefixed to the message"
 msgstr ""
 
-msgid "Forward sandbox SMS to users"
+msgid "Fail to insert keyword"
 msgstr ""
 
 msgid "Incoming SMS route changes has been saved"
 msgstr ""
 
+msgid "Insert keyword"
+msgstr ""
+
+msgid "No route has been saved"
+msgstr ""
+
+msgid "Route all sandbox SMS to keyword"
+msgstr ""
+
+msgid "Route all sandbox SMS to users"
+msgstr ""
+
+msgid "Route all sandbox SMS with matched sender ID"
+msgstr ""
+
 msgid "Route incoming SMS"
 msgstr ""
 
-msgid "Route sandbox SMS"
+msgid "Route to user inbox if receiver number matched with user sender ID"
 msgstr ""
 
-msgid "Route sandbox SMS by inserting keyword"
+msgid "Save"
+msgstr ""
+
+msgid "Select users"
 msgstr ""
 
 msgid "keyword"
