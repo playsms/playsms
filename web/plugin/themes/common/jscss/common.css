@@ -308,7 +308,12 @@ table.sortable thead, table.sortable th {
 }
 
 #user_inbox_msg {
+	padding-right: 2px;
 	padding-bottom: 12px;
+	color: #fff;
+	background-color: #34495e;
+	border-radius: 3px;
+	padding: 8px;
 	word-break: break-all;
 	-ms-word-break: break-all;
 	-webkit-hyphens: auto;
@@ -317,7 +322,12 @@ table.sortable thead, table.sortable th {
 }
 
 #user_incoming_msg {
+	padding-right: 2px;
 	padding-bottom: 12px;
+	color: #fff;
+	background-color: #34495e;
+	border-radius: 3px;
+	padding: 8px;
 	word-break: break-all;
 	-ms-word-break: break-all;
 	-webkit-hyphens: auto;
@@ -326,9 +336,12 @@ table.sortable thead, table.sortable th {
 }
 
 #user_outgoing_msg {
-	padding-left: 2px;
 	padding-right: 2px;
 	padding-bottom: 12px;
+	color: #fff;
+	background-color: #34495e;
+	border-radius: 3px;
+	padding: 8px;
 	word-break: break-all;
 	-ms-word-break: break-all;
 	-webkit-hyphens: auto;
@@ -337,7 +350,12 @@ table.sortable thead, table.sortable th {
 }
 
 #all_inbox_msg {
+	padding-right: 2px;
 	padding-bottom: 12px;
+	color: #fff;
+	background-color: #34495e;
+	border-radius: 3px;
+	padding: 8px;
 	word-break: break-all;
 	-ms-word-break: break-all;
 	-webkit-hyphens: auto;
@@ -346,7 +364,12 @@ table.sortable thead, table.sortable th {
 }
 
 #all_incoming_msg {
+	padding-right: 2px;
 	padding-bottom: 12px;
+	color: #fff;
+	background-color: #34495e;
+	border-radius: 3px;
+	padding: 8px;
 	word-break: break-all;
 	-ms-word-break: break-all;
 	-webkit-hyphens: auto;
@@ -355,7 +378,12 @@ table.sortable thead, table.sortable th {
 }
 
 #all_outgoing_msg {
+	padding-right: 2px;
 	padding-bottom: 12px;
+	color: #fff;
+	background-color: #34495e;
+	border-radius: 3px;
+	padding: 8px;
 	word-break: break-all;
 	-ms-word-break: break-all;
 	-webkit-hyphens: auto;
@@ -364,7 +392,12 @@ table.sortable thead, table.sortable th {
 }
 
 #sandbox_msg {
+	padding-right: 2px;
 	padding-bottom: 12px;
+	color: #fff;
+	background-color: #34495e;
+	border-radius: 3px;
+	padding: 8px;
 	word-break: break-all;
 	-ms-word-break: break-all;
 	-webkit-hyphens: auto;
@@ -373,11 +406,12 @@ table.sortable thead, table.sortable th {
 }
 
 #msg_price {
+	padding-top: 6px;
 	padding-right: 2px;
-	padding-bottom: 2px;
 }
 
 #msg_label {
+	padding-top: 4px;
 	padding-right: 2px;
 	padding-bottom: 2px;
 }
