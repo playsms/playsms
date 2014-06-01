@@ -267,10 +267,6 @@ function user_add($data = array()) {
 		
 		$data['sender'] = ($data['sender'] ? core_sanitize_sender($data['sender']) : '');
 		
-		// by default empty SMS footer on new user add or reg
-		// $data['footer'] = ( $data['footer'] ? '@'.$data['footer'] : '@'.$data['username'] );
-		$data['footer'] = '';
-		
 		$dt = core_get_datetime();
 		$data['register_datetime'] = $dt;
 		$data['lastupdate_datetime'] = $dt;
