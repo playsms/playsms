@@ -67,6 +67,7 @@ switch (_OP_) {
 				'ACTION_URL' => _u('index.php?app=main&inc=feature_sender_id&op=sender_id_add_yes') ,
 				'BUTTON_BACK' => _back('index.php?app=main&inc=feature_sender_id&op=sender_id_list') ,
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
+				'input_tag' => 'required',
 				'Sender ID' => _mandatory('Sender ID') ,
 				'Description' => _('Description') ,
 			) ,
@@ -133,6 +134,7 @@ switch (_OP_) {
 				'ACTION_URL' => _u('index.php?app=main&inc=feature_sender_id&op=sender_id_edit_yes') ,
 				'BUTTON_BACK' => _back('index.php?app=main&inc=feature_sender_id&op=sender_id_list') ,
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
+				'input_tag' => 'readonly',
 				'Sender ID' => _mandatory('Sender ID') ,
 				'Description' => _('Description') ,
 			) ,
@@ -145,16 +147,12 @@ switch (_OP_) {
 		break;
 
 	case "sender_id_edit_yes":
-		$sender_id = array(
-			$_REQUEST['sender_id'] => 0
-		);
 		$description = array(
 			$_REQUEST['sender_id'] => $_REQUEST['description']
 		);
-		registry_update($_REQUEST['uid'], 'features', 'sender_id', core_sanitize_sender($sender_id));
 		registry_update($_REQUEST['uid'], 'features', 'sender_id_desc', $description);
 		
-		$_SESSION['error_string'] = _('Sender ID has been updated') . ' (' . _('Sender ID') . ': ' . $_REQUEST['sender_id'] . ')';
+		$_SESSION['error_string'] = _('Sender ID description has been updated') . ' (' . _('Sender ID') . ': ' . $_REQUEST['sender_id'] . ')';
 		header("Location: " . _u('index.php?app=main&inc=feature_sender_id&op=sender_id_list'));
 		exit();
 		break;
