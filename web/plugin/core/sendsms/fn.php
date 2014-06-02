@@ -830,8 +830,10 @@ function sendsms_bc($username, $gpid, $message, $sms_type = 'text', $unicode = 0
 	);
 }
 
-function sendsms_get_sender($username, $sender_id = '') {
+function sendsms_get_sender($username, $default_sender_id = '') {
 	global $core_config, $plugin_config, $user_config;
+	
+	$ret = '';
 	
 	// get configured sender ID
 	if ($username && ($gw = core_gateway_get())) {
@@ -852,20 +854,20 @@ function sendsms_get_sender($username, $sender_id = '') {
 			}
 		}
 	}
+	
+	// configured sender ID
 	$sms_sender = core_sanitize_sender($sms_sender);
 	
-	// get and check supplied sender ID
-	$sender_id = core_sanitize_sender($sender_id);
-	if ($sender_id) {
-		$sender_id = sendsms_sender_isvalid($username, $sender_id);
+	// supplied sender ID as default in case configured sender ID is empty
+	if (!$sms_sender && $default_sender_id) {
+		$sms_sender = core_sanitize_sender($default_sender_id);
 	}
 	
-	// decide
-	if ($sender_id) {
-		$sms_sender = $sender_id;
+	if ($sms_sender && sendsms_sender_isvalid($username, $sms_sender)) {
+		$ret = $sms_sender;
 	}
 	
-	return $sms_sender;
+	return $ret;
 }
 
 function sendsms_get_template() {
