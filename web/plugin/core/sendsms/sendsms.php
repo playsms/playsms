@@ -40,7 +40,7 @@ switch (_OP_) {
 		}
 		$sms_sender_id = "<select name=sms_sender style='width: 100%'>" . $option_values . "</select>";
 		if (!$core_config['main']['allow_custom_sender']) {
-			$sms_sender_id = "<input type='text' style='width: 100%' name='sms_sender' " . $allow_custom_sender . " value='" . $sms_from . "''>";
+			$sms_sender_id = "<input type='text' style='width: 100%' name='sms_sender' value='" . $sms_from . "' disabled>";
 		}
 		
 		// SMS footer
