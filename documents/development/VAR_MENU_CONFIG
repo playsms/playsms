@@ -3,202 +3,281 @@ MENU CONFIG
 
 Example of $menu_config
 
+
 Array
 (
-    [My Account] => Array
+    [My account] => Array
         (
             [0] => Array
                 (
-                    [0] => index.php?app=menu&inc=send_sms&op=send_sms
+                    [0] => index.php?app=main&inc=core_sendsms&op=sendsms
                     [1] => Send message
                     [2] => 1
                 )
 
             [1] => Array
                 (
-                    [0] => index.php?app=menu&inc=user_inbox&op=user_inbox
-                    [1] => Inbox
-                    [2] => 1
+                    [0] => #
+                    [1] => -
+                    [2] => 99
                 )
 
             [2] => Array
                 (
-                    [0] => index.php?app=menu&inc=user_incoming&op=user_incoming
-                    [1] => Incoming messages
-                    [2] => 1
+                    [0] => index.php?app=main&inc=core_user&route=user_config&op=user_config
+                    [1] => User configuration
+                    [2] => 99
                 )
 
             [3] => Array
                 (
-                    [0] => index.php?app=menu&inc=user_outgoing&op=user_outgoing
-                    [1] => Outgoing messages
-                    [2] => 1
+                    [0] => index.php?app=main&inc=core_user&route=user_pref&op=user_pref
+                    [1] => Preferences
+                    [2] => 99
                 )
 
             [4] => Array
                 (
-                    [0] => index.php?app=menu&inc=tools_msgtemplate&op=list
+                    [0] => index.php?app=main&inc=feature_msgtemplate&op=list
                     [1] => Message template
                 )
 
             [5] => Array
                 (
-                    [0] => index.php?app=menu&inc=tools_phonebook&op=phonebook_list
+                    [0] => index.php?app=main&inc=feature_phonebook&op=phonebook_list
                     [1] => Phonebook
+                    [2] => 2
                 )
 
             [6] => Array
                 (
-                    [0] => index.php?app=menu&inc=tools_queuelog&op=queuelog_list
+                    [0] => index.php?app=main&inc=feature_queuelog&op=queuelog_list
                     [1] => View SMS queue
                 )
 
             [7] => Array
                 (
-                    [0] => index.php?app=menu&inc=tools_report&op=report_user
-                    [1] => My report
+                    [0] => index.php?app=main&inc=feature_report&route=user_inbox&op=user_inbox
+                    [1] => Inbox
+                    [2] => 1
                 )
 
             [8] => Array
                 (
-                    [0] => index.php?app=menu&inc=tools_sendfromfile&op=list
+                    [0] => index.php?app=main&inc=feature_report&route=user_incoming&op=user_incoming
+                    [1] => Incoming messages
+                    [2] => 1
+                )
+
+            [9] => Array
+                (
+                    [0] => index.php?app=main&inc=feature_report&route=user_outgoing&op=user_outgoing
+                    [1] => Outgoing messages
+                    [2] => 1
+                )
+
+            [10] => Array
+                (
+                    [0] => index.php?app=main&inc=feature_sendfromfile&op=list
                     [1] => Send from file
                     [2] => 1
                 )
 
         )
 
-    [Administration] => Array
+    [Settings] => Array
         (
             [0] => Array
                 (
-                    [0] => index.php?app=menu&inc=all_inbox&op=all_inbox
-                    [1] => All inbox
-                    [2] => 1
+                    [0] => index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list
+                    [1] => Manage user
+                    [2] => 3
                 )
 
             [1] => Array
                 (
-                    [0] => index.php?app=menu&inc=all_incoming&op=all_incoming
-                    [1] => All incoming messages
-                    [2] => 1
+                    [0] => index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list
+                    [1] => Manage subusers
+                    [2] => 3
                 )
 
             [2] => Array
                 (
-                    [0] => index.php?app=menu&inc=all_outgoing&op=all_outgoing
-                    [1] => All outgoing messages
-                    [2] => 1
+                    [0] => index.php?app=main&inc=core_main_config&op=main_config
+                    [1] => Main configuration
+                    [2] => 3
                 )
 
             [3] => Array
                 (
-                    [0] => index.php?app=menu&inc=sandbox&op=sandbox
-                    [1] => Sandbox
-                    [2] => 1
+                    [0] => index.php?app=main&inc=feature_credit&op=credit_list
+                    [1] => Manage credit
                 )
 
             [4] => Array
                 (
-                    [0] => index.php?app=menu&inc=user_mgmnt&op=user_list
-                    [1] => Manage user
-                    [2] => 2
+                    [0] => index.php?app=main&inc=feature_email2sms&op=email2sms
+                    [1] => Manage email to SMS
                 )
 
             [5] => Array
                 (
-                    [0] => index.php?app=menu&inc=main_config&op=main_config
-                    [1] => Main configuration
-                    [2] => 2
+                    [0] => index.php?app=main&inc=feature_gatewaymanager&op=gatewaymanager_list
+                    [1] => Manage gateway
                 )
 
             [6] => Array
                 (
-                    [0] => index.php?app=menu&inc=tools_gatewaymanager&op=gatewaymanager_list
-                    [1] => Manage gateway
+                    [0] => index.php?app=main&inc=feature_incoming&op=incoming
+                    [1] => Route incoming SMS
+                    [2] => 1
                 )
 
             [7] => Array
                 (
-                    [0] => index.php?app=menu&inc=tools_playsmslog&op=playsmslog_list
-                    [1] => View log
+                    [0] => index.php?app=main&inc=feature_pluginmanager&op=pluginmanager_list
+                    [1] => Manage plugin
                 )
 
             [8] => Array
                 (
-                    [0] => index.php?app=menu&inc=tools_pluginmanager&op=pluginmanager_list
-                    [1] => Manage plugin
+                    [0] => index.php?app=main&inc=feature_sender_id&op=sender_id_list
+                    [1] => Manage sender ID
                 )
 
             [9] => Array
                 (
-                    [0] => index.php?app=menu&inc=tools_report&op=report_admin
-                    [1] => All reports
-                    [2] => 1
-                )
-
-            [10] => Array
-                (
-                    [0] => index.php?app=menu&inc=tools_simplerate&op=simplerate_list
+                    [0] => index.php?app=main&inc=feature_simplerate&op=simplerate_list
                     [1] => Manage SMS rate
                 )
 
         )
 
-    [Feature] => Array
+    [Features] => Array
         (
             [0] => Array
                 (
-                    [0] => index.php?app=menu&inc=feature_inboxgroup&op=list
+                    [0] => index.php?app=main&inc=feature_inboxgroup&op=list
                     [1] => Group inbox
                 )
 
             [1] => Array
                 (
-                    [0] => index.php?app=menu&inc=feature_sms_autoreply&op=sms_autoreply_list
+                    [0] => index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list
                     [1] => Manage autoreply
                 )
 
             [2] => Array
                 (
-                    [0] => index.php?app=menu&inc=feature_sms_board&op=sms_board_list
+                    [0] => index.php?app=main&inc=feature_sms_board&op=sms_board_list
                     [1] => Manage board
                 )
 
             [3] => Array
                 (
-                    [0] => index.php?app=menu&inc=feature_sms_command&op=sms_command_list
+                    [0] => index.php?app=main&inc=feature_sms_command&op=sms_command_list
                     [1] => Manage command
                 )
 
             [4] => Array
                 (
-                    [0] => index.php?app=menu&inc=feature_sms_custom&op=sms_custom_list
+                    [0] => index.php?app=main&inc=feature_sms_custom&op=sms_custom_list
                     [1] => Manage custom
                 )
 
             [5] => Array
                 (
-                    [0] => index.php?app=menu&inc=feature_sms_poll&op=sms_poll_list
+                    [0] => index.php?app=main&inc=feature_sms_poll&op=sms_poll_list
                     [1] => Manage poll
                 )
 
             [6] => Array
                 (
-                    [0] => index.php?app=menu&inc=feature_sms_quiz&op=sms_quiz_list
+                    [0] => index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_list
                     [1] => Manage quiz
                 )
 
             [7] => Array
                 (
-                    [0] => index.php?app=menu&inc=feature_sms_subscribe&op=sms_subscribe_list
+                    [0] => index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_list
                     [1] => Manage subscribe
                 )
 
             [8] => Array
                 (
-                    [0] => index.php?app=menu&inc=feature_sms_sync&op=sms_sync_list
+                    [0] => index.php?app=main&inc=feature_sms_sync&op=sms_sync_list
                     [1] => Manage sync
+                )
+
+        )
+
+    [Reports] => Array
+        (
+            [0] => Array
+                (
+                    [0] => index.php?app=main&inc=feature_playsmslog&op=playsmslog_list
+                    [1] => View log
+                )
+
+            [1] => Array
+                (
+                    [0] => index.php?app=main&inc=feature_report&route=all_inbox&op=all_inbox
+                    [1] => All inbox
+                    [2] => 3
+                )
+
+            [2] => Array
+                (
+                    [0] => index.php?app=main&inc=feature_report&route=all_incoming&op=all_incoming
+                    [1] => All incoming messages
+                    [2] => 3
+                )
+
+            [3] => Array
+                (
+                    [0] => index.php?app=main&inc=feature_report&route=all_outgoing&op=all_outgoing
+                    [1] => All outgoing messages
+                    [2] => 3
+                )
+
+            [4] => Array
+                (
+                    [0] => index.php?app=main&inc=feature_report&route=sandbox&op=sandbox
+                    [1] => Sandbox
+                    [2] => 3
+                )
+
+            [5] => Array
+                (
+                    [0] => index.php?app=main&inc=feature_report&route=admin
+                    [1] => Report all users
+                    [2] => 10
+                )
+
+            [6] => Array
+                (
+                    [0] => index.php?app=main&inc=feature_report&route=online
+                    [1] => Report whose online
+                    [2] => 10
+                )
+
+            [7] => Array
+                (
+                    [0] => index.php?app=main&inc=feature_report&route=banned
+                    [1] => Report banned users
+                    [2] => 10
+                )
+
+            [8] => Array
+                (
+                    [0] => index.php?app=main&inc=feature_report&route=user
+                    [1] => My report
+                )
+
+            [9] => Array
+                (
+                    [0] => index.php?app=main&inc=feature_report&route=credit&op=credit_list
+                    [1] => My credit transactions
                 )
 
         )
