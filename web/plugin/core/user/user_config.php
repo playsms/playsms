@@ -53,7 +53,7 @@ switch (_OP_) {
 			$webservices_ip = $c_user[0]['webservices_ip'];
 			$enable_webservices = $c_user[0]['enable_webservices'];
 			$sender = core_sanitize_sender($c_user[0]['sender']);
-			$footer = $c_user[0]['footer'];
+			$footer = core_sanitize_footer($c_user[0]['footer']);
 			$datetime_timezone = core_get_timezone($c_username);
 			$fwd_to_inbox = $c_user[0]['fwd_to_inbox'];
 			$fwd_to_email = $c_user[0]['fwd_to_email'];
@@ -308,6 +308,8 @@ switch (_OP_) {
 			$up[$fields[$i]] = trim($_POST['up_' . $fields[$i]]);
 		}
 		$up['lastupdate_datetime'] = core_adjust_datetime(core_get_datetime());
+		$up['sender'] = core_sanitize_sender($up['sender']);
+		$up['footer'] = core_sanitize_footer($up['footer']);
 		if ($up['username'] = $c_username) {
 			$continue = true;
 			if ($up['new_token']) {

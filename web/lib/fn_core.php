@@ -455,6 +455,18 @@ function core_sanitize_sender($text) {
 }
 
 /**
+ * Sanitize SMS footer
+ *
+ */
+function core_sanitize_footer($text) {
+	if (strlen($text) > 30) {
+		$text = substr($text, 0, 30);
+	}
+	
+	return $text;
+}
+
+/**
  * Function: core_net_match()
  * ref: http://stackoverflow.com/a/10422605 (Volomike)
  *
@@ -914,23 +926,23 @@ function core_print($content) {
  *     // do below commands every 40 seconds
  *     ...
  *     ...
- * 
+ *
  * @param  integer $period Period between last event and now (in second)
  * @return boolean         TRUE for period passed
  */
 function core_playsmsd_timer($period = 60) {
-
+	
 	// default period is 60 seconds
 	$period = ((int)$period <= 0 ? 60 : (int)$period);
 	
 	$now = mktime();
 	$next = floor(($now / $period)) * $period + $period;
 	if (($now + 1) < $next) {
-
+		
 		// it is not the time yet
 		return FALSE;
 	} else {
-
+		
 		// its passed the timer period
 		return TRUE;
 	}
