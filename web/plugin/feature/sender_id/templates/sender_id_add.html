@@ -1,0 +1,19 @@
+{{ ERROR }}
+<h2>{{ FORM_TITLE }}</h2>
+<form action="{{ ACTION_URL }}" method=post>
+	{{ CSRF_FORM }}
+	<table class=playsms-table>
+		<tbody>
+			<tr>
+				<td class=label-sizer>{{ Sender ID }}</td>
+				<td><input type="text" size=30 name="sender_id" value="{{ $items['sender_id'] }}" required><input type="hidden" name="uid" value="{{ $items['uid']}}"></td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ Description }}</td>
+				<td><input type="text" size=30 name="description" value="{{ $items['description'] }}"></td>
+			</tr>
+		</tbody>
+	</table>
+	<p><input type=submit class=button value='{{ Save }}'></p>
+</form>
+{{ BUTTON_BACK }}

@@ -1,0 +1,17 @@
+msgid "Action"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Manage gateway"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "You have enabled gateway plugin"
+msgstr ""

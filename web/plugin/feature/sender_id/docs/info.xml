@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+	<name>sender_id</name>
+	<alias>sender_id</alias>
+	<description>Sender ID Manager</description>
+	<release>1.0</release>
+	<date>2014-05-18</date>
+	<author>Y Rahman</author>
+	<language_file>1</language_file>
+	<php_file>1</php_file>
+</plugin>

@@ -1,0 +1,37 @@
+{{ ERROR }}
+<h2>{{ FORM_TITLE }}</h2>
+<div class="actions_box">
+	<div class=pull-left>
+		<a href="{{ ADD_URL }}">{{ $icon_config['add'] }}</a>
+	</div>
+	<div class=pull-right>
+	</div>
+</div>
+<div class=table-responsive>
+	<table class=playsms-table-list id='gatewaymanager_view'>
+		<thead><tr>
+			<if.isadmin>
+			<th width=15%>{{ Username }}</th>
+			</if.isadmin>
+			<th width=15%>{{ Sender ID }}</th>
+			<th width=30%>{{ Description }}</th>
+			<th width=20%>{{ Created }}</th>
+			<th width=10%>{{ Status }} {{ HINT_STATUS }}</th>
+			<th width=10%>{{ Action }}</th>
+		</tr></thead>
+		<tbody>
+			<loop.sender_id_list>
+			<tr>
+				<if.isadmin>
+				<td>{{ sender_id_list.username }}</td>
+				</if.isadmin>
+				<td>{{ sender_id_list.sender_id }}</td>
+				<td>{{ sender_id_list.sender_id_description }}</td>
+				<td>{{ sender_id_list.created }}</td>
+				<td>{{ sender_id_list.status }}</td>
+				<td>{{ sender_id_list.action }}</td>
+			</tr>
+			</loop.sender_id_list>
+		</tbody>
+	</table>
+</div>
