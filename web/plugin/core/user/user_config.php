@@ -176,6 +176,16 @@ switch (_OP_) {
 			}
 		}
 		
+		// get sender ID
+		$c_sms_from = sendsms_get_sender($user_config['username']);
+		foreach (sendsms_get_sender_all($user_config['username']) as $sender_id) {
+			$selected = '';
+			if (strtoupper($c_sms_from) == $sender_id) {
+				$selected = 'selected';
+			}
+			$option_sender_id.= "<option value=\"" . $sender_id . "\" title=\"" . $sender_id . "\" " . $selected . ">" . $sender_id . "</option>";
+		}
+
 		// admin or normal users
 		if ($uname && (auth_isadmin() || $is_parent)) {
 			$form_title = _('Manage user');
@@ -251,6 +261,7 @@ switch (_OP_) {
 				'option_plus_sign_remove' => $option_plus_sign_remove,
 				'option_plus_sign_add' => $option_plus_sign_add,
 				'option_send_as_unicode' => $option_send_as_unicode,
+				'option_sender_id' => $option_sender_id,
 				'c_username' => $c_username,
 				'effective_sender_id' => sendsms_get_sender($c_username) ,
 				'sender' => $sender,

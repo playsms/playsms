@@ -16,7 +16,8 @@
 		</tr>
 		<tr>
 			<td>{{ SMS sender ID }}</td>
-			<td><input type=text size=30 maxlength=16 name=up_sender value='{{ sender }}'> {{ HINT_MAX_CHARS }}</td>
+			<!-- <td><input type=text size=30 maxlength=16 name=up_sender value='{{ sender }}'> {{ HINT_MAX_CHARS }}</td> -->
+			<td><select name='up_sender'>{{ option_sender_id }}</select></td>
 		</tr>
 		<tr>
 			<td>{{ SMS footer }}</td>

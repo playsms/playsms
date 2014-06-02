@@ -560,8 +560,8 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	$all_sms_to = array();
 	for ($i = 0; $i < count($array_sms_to); $i++) {
 		if ($c_sms_to = sendsms_getvalidnumber(trim($array_sms_to[$i]))) {
-			$c_sms_to = sendsms_manipulate_prefix(trim($c_sms_to), $user);
-			$all_sms_to[] = $c_sms_to;	
+			$c_sms_to = sendsms_manipulate_prefix(trim($c_sms_to) , $user);
+			$all_sms_to[] = $c_sms_to;
 		}
 	}
 	
@@ -830,8 +830,10 @@ function sendsms_bc($username, $gpid, $message, $sms_type = 'text', $unicode = 0
 	);
 }
 
-function sendsms_get_sender($username) {
+function sendsms_get_sender($username, $sender_id = '') {
 	global $core_config, $plugin_config, $user_config;
+	
+	// get configured sender ID
 	if ($username && ($gw = core_gateway_get())) {
 		if ($core_config['main']['gateway_number']) {
 			
@@ -851,6 +853,18 @@ function sendsms_get_sender($username) {
 		}
 	}
 	$sms_sender = core_sanitize_sender($sms_sender);
+	
+	// get and check supplied sender ID
+	$sender_id = core_sanitize_sender($sender_id);
+	if ($sender_id) {
+		$sender_id = sendsms_get_valid_sender($username, $sender_id);
+	}
+	
+	// decide
+	if ($sender_id) {
+		$sms_sender = $sender_id;
+	}
+	
 	return $sms_sender;
 }
 
@@ -863,6 +877,38 @@ function sendsms_get_template() {
 		}
 	}
 	return $templates;
+}
+
+function sendsms_get_sender_all($username) {
+	global $core_config;
+	
+	$ret = array();
+	
+	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
+		if ($ret = core_hook($core_config['featurelist'][$c], 'sendsms_get_sender_all', array(
+			$username
+		))) {
+			break;
+		}
+	}
+	
+	return $ret;
+}
+
+function sendsms_get_valid_sender($username, $sender_id) {
+	global $core_config;
+	
+	$ret = FALSE;
+	
+	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
+		if ($ret = core_hook($core_config['featurelist'][$c], 'sendsms_get_valid_sender', array(
+			$username,
+			$sender_id
+		))) {
+			break;
+		}
+	}
+	return $ret;
 }
 
 /**

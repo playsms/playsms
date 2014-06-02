@@ -134,9 +134,12 @@ switch (_OP_) {
 				'Default user status on registration' => _('Default user status on registration') ,
 				'Layout footer' => _('Layout footer') ,
 				'Save' => _('Save') ,
+				'HINT_SENDER_ID' => _hint('Empty default sender ID to allow users setting their own sender ID') ,
 				'HINT_TIMEZONE' => _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')) ,
 				'HINT_ENABLE_LOGO' => _hint(_('Logo by default will be displayed at login, register and forgot password page')) ,
 				'HINT_WEBSITE_URL' => _hint(_('Access to unknown domain mapped to this server IP address will be redirected to this website URL. This website URL should be the primary address for the service.')) ,
+				'HINT_CUSTOM_SENDER_ID' => _hint('Allow users to select sender ID while on Send SMS page') ,
+				'HINT_CUSTOM_FOOTER' => _hint('Allow users to select SMS footer while on Send SMS page') ,
 				'web_url' => $main_config['web_url'],
 				'web_title' => $main_config['web_title'],
 				'email_service' => $main_config['email_service'],
@@ -164,13 +167,13 @@ switch (_OP_) {
 				'option_gateway_module' => $option_gateway_module,
 				'option_themes_module' => $option_themes_module,
 				'option_language_module' => $option_language_module
-			),
+			) ,
 			'ifs' => array(
-				'display_web_url' => ( function_exists('site_config_getbydomain') && function_exists('site_config_get') ? TRUE : FALSE ),
-			),
+				'display_web_url' => (function_exists('site_config_getbydomain') && function_exists('site_config_get') ? TRUE : FALSE) ,
+			) ,
 			'injects' => array(
 				'core_config',
-			),
+			) ,
 		);
 		_p(tpl_apply($tpl));
 		break;

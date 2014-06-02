@@ -24,7 +24,7 @@ tinymce.init({
 				<tbody>
 					<tr>
 						<td class=label-sizer>{{ Default sender ID }}</td>
-						<td><input type="text" size="30" name="edit_gateway_number" value="{{ gateway_number }}"></td>
+						<td><input type="text" size="30" name="edit_gateway_number" value="{{ gateway_number }}"> {{ HINT_SENDER_ID }}</td>
 					</tr>
 					<tr>
 						<td>{{ Default timezone }}</td>
@@ -32,11 +32,11 @@ tinymce.init({
 					</tr>
 					<tr>
 						<td>{{ Default SMS rate }}</td>
-						<td><input type="text" size="30" name="edit_default_rate" value="{{ default_rate }}"></td>
+						<td><input type="text" size="5" maxlength="10" name="edit_default_rate" value="{{ default_rate }}"></td>
 					</tr>
 					<tr>
 						<td>{{ Maximum SMS count }}</td>
-						<td><input type="text" size="2" maxlength="2" name="edit_sms_max_count" value="{{ sms_max_count }}"></td>
+						<td><input type="text" size="5" maxlength="2" name="edit_sms_max_count" value="{{ sms_max_count }}"></td>
 					</tr>
 					<!--
 					<tr>
@@ -46,11 +46,11 @@ tinymce.init({
 					-->
 					<tr>
 						<td>{{ Allow custom sender ID }}</td>
-						<td><select name="edit_allow_custom_sender">{{ option_allow_custom_sender }}</select></td>
+						<td><select name="edit_allow_custom_sender">{{ option_allow_custom_sender }}</select> {{ HINT_CUSTOM_SENDER_ID }}</td>
 					</tr>
 					<tr>
 						<td>{{ Allow custom SMS footer }}</td>
-						<td><select name="edit_allow_custom_footer">{{ option_allow_custom_footer }}</select></td>
+						<td><select name="edit_allow_custom_footer">{{ option_allow_custom_footer }}</select> {{ HINT_CUSTOM_FOOTER }}</td>
 					</tr>
 					<tr>
 						<td>{{ Active gateway module }}</td>

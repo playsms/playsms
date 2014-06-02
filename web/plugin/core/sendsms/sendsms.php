@@ -31,8 +31,16 @@ switch (_OP_) {
 		
 		// sender ID
 		$sms_from = sendsms_get_sender($user_config['username']);
+		foreach (sendsms_get_sender_all($user_config['username']) as $sender_id) {
+			$selected = '';
+			if (strtoupper($sms_from) == $sender_id) {
+				$selected = 'selected';
+			}
+			$option_values.= "<option value=\"" . $sender_id . "\" title=\"" . $sender_id . "\" " . $selected . ">" . $sender_id . "</option>";
+		}
+		$sms_sender_id = "<select name=sms_sender style='width: 100%'>" . $option_values . "</select>";
 		if (!$core_config['main']['allow_custom_sender']) {
-			$allow_custom_sender = 'readonly';
+			$sms_sender_id = "<input type='text' style='width: 100%' name='sms_sender' " . $allow_custom_sender . " value='" . $sms_from . "''>";
 		}
 		
 		// SMS footer
@@ -84,9 +92,9 @@ switch (_OP_) {
 				'HINT_SCHEDULE' => _hint(_('format YYYY-MM-DD hh:mm')) ,
 				'sms_from' => $sms_from,
 				'sms_footer' => $sms_footer,
-				'allow_custom_sender' => $allow_custom_sender,
 				'allow_custom_footer' => $allow_custom_footer,
 				'to' => $to,
+				'sms_sender_id' => $sms_sender_id,
 				'sms_template' => $sms_template,
 				
 				// 'sms_schedule' => core_display_datetime(core_get_datetime()),
@@ -154,16 +162,16 @@ switch (_OP_) {
 		
 		// save it in session for next form
 		$_SESSION['tmp']['message'] = $message;
-
-		// destination numbers		
+		
+		// destination numbers
 		if ($sms_to = trim($_REQUEST['p_num_text'])) {
 			$sms_to = explode(',', $sms_to);
 		}
-
+		
 		if ($sms_to[0] && $message) {
 			
 			list($ok, $to, $smslog_id, $queue, $counts, $sms_count, $sms_failed) = sendsms_helper($user_config['username'], $sms_to, $message, $sms_type, $unicode, $nofooter, $sms_footer, $sms_sender, $sms_schedule);
-
+			
 			$_SESSION['error_string'] = _('Your message has been delivered to queue') . " (" . _('queued') . ": " . $sms_count . " " . _('failed') . ": " . $sms_failed . ")";
 		} else {
 			$_SESSION['error_string'] = _('You must select receiver and your message should not be empty');
@@ -171,5 +179,4 @@ switch (_OP_) {
 		header("Location: " . _u('index.php?app=main&inc=core_sendsms&op=sendsms'));
 		exit();
 		break;
-	}
-	
+}
