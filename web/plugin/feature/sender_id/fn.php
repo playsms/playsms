@@ -104,7 +104,7 @@ function sender_id_search($uid) {
 	return $ret;
 }
 
-function sender_id_hook_sendsms_get_sender_all($username) {
+function sender_id_hook_sendsms_getall_sender($username) {
 	$ret = array();
 	
 	$uid = user_username2uid($username);

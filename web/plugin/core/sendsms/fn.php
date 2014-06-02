@@ -879,13 +879,13 @@ function sendsms_get_template() {
 	return $templates;
 }
 
-function sendsms_get_sender_all($username) {
+function sendsms_getall_sender($username) {
 	global $core_config;
 	
 	$ret = array();
 	
 	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
-		if ($ret = core_hook($core_config['featurelist'][$c], 'sendsms_get_sender_all', array(
+		if ($ret = core_hook($core_config['featurelist'][$c], 'sendsms_getall_sender', array(
 			$username
 		))) {
 			break;
