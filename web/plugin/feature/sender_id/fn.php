@@ -116,7 +116,7 @@ function sender_id_hook_sendsms_get_sender_all($username) {
 	return $ret;
 }
 
-function sender_id_hook_sendsms_get_valid_sender($username, $sender_id) {
+function sender_id_hook_sendsms_sender_isvalid($username, $sender_id) {
 	$uid = user_username2uid($username);
 	
 	foreach (sender_id_search($uid) as $value) {

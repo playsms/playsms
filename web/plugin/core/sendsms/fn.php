@@ -857,7 +857,7 @@ function sendsms_get_sender($username, $sender_id = '') {
 	// get and check supplied sender ID
 	$sender_id = core_sanitize_sender($sender_id);
 	if ($sender_id) {
-		$sender_id = sendsms_get_valid_sender($username, $sender_id);
+		$sender_id = sendsms_sender_isvalid($username, $sender_id);
 	}
 	
 	// decide
@@ -895,13 +895,13 @@ function sendsms_get_sender_all($username) {
 	return $ret;
 }
 
-function sendsms_get_valid_sender($username, $sender_id) {
+function sendsms_sender_isvalid($username, $sender_id) {
 	global $core_config;
 	
 	$ret = FALSE;
 	
 	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
-		if ($ret = core_hook($core_config['featurelist'][$c], 'sendsms_get_valid_sender', array(
+		if ($ret = core_hook($core_config['featurelist'][$c], 'sendsms_sender_isvalid', array(
 			$username,
 			$sender_id
 		))) {
