@@ -350,3 +350,19 @@ INSERT INTO `playsms_tblCountry` (`c_timestamp`, `country_id`, `country_name`, `
 (0, 203, 'Yemen', 'ye', '967'),
 (0, 204, 'Zambia', 'zm', '260'),
 (0, 205, 'Zimbabwe', 'zw', '263');
+
+
+-- 1.0-rc1
+
+ALTER TABLE `playsms_featureSimplerate` CHANGE `rate` `rate` DECIMAL(10,3) NOT NULL DEFAULT '0.000';
+
+ALTER TABLE `playsms_tblUser` CHANGE `credit` `credit` DECIMAL(10,3) NOT NULL DEFAULT '0.000';
+
+ALTER TABLE `playsms_tblBilling` CHANGE `rate` `rate` DECIMAL(10,3) NOT NULL DEFAULT '0.000', 
+CHANGE `credit` `credit` DECIMAL(10,3) NOT NULL DEFAULT '0.000', 
+CHANGE `charge` `charge` DECIMAL(10,3) NOT NULL DEFAULT '0.000';
+
+ALTER TABLE `playsms_featureCredit` CHANGE `amount` `amount` DECIMAL(10,3) NOT NULL DEFAULT '0.000', 
+CHANGE `balance` `balance` DECIMAL(10,3) NOT NULL DEFAULT '0.000';
+
+ALTER TABLE `playsms_tblSMSOutgoing` CHANGE `p_credit` `p_credit` DECIMAL(10,3) NOT NULL DEFAULT '0.000';
