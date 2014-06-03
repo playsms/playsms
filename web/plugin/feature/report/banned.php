@@ -62,7 +62,7 @@ foreach ($users as $user) {
 	$tpl['loops']['data'][] = array(
 		'tr_class' => $tr_class,
 		'username' => $user['username'],
-		'is_admin' => $user['icon_is_admin'],
+		'isadmin' => $user['icon_isadmin'],
 		'email' => $user['email'],
 		'bantime' => $user['bantime'],
 		'action' => $user['action_link'],
@@ -76,7 +76,7 @@ foreach ($users as $user) {
 	$tpl['loops']['data'][] = array(
 		'tr_class' => $tr_class,
 		'username' => $user['username'],
-		'is_admin' => $user['icon_is_admin'],
+		'isadmin' => $user['icon_isadmin'],
 		'email' => $user['email'],
 		'bantime' => $user['bantime'],
 		'action' => $user['action_link'],
@@ -90,7 +90,7 @@ foreach ($users as $user) {
 	$tpl['loops']['data'][] = array(
 		'tr_class' => $tr_class,
 		'username' => $user['username'],
-		'is_admin' => $user['icon_is_admin'],
+		'isadmin' => $user['icon_isadmin'],
 		'email' => $user['email'],
 		'bantime' => $user['bantime'],
 		'action' => $user['action_link'],

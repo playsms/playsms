@@ -124,9 +124,9 @@ function report_whoseonline($status = 0, $online_only = FALSE, $idle_only = FALS
 			continue;
 		}
 		
-		$c_is_admin = '';
+		$c_isadmin = '';
 		if ($c_status == '2') {
-			$c_is_admin = $icon_config['admin'];
+			$c_isadmin = $icon_config['admin'];
 		}
 		
 		$is_idle = FALSE;
@@ -154,7 +154,7 @@ function report_whoseonline($status = 0, $online_only = FALSE, $idle_only = FALS
 			'uid' => $c_user['uid'],
 			'username' => $c_username,
 			'status' => $c_status,
-			'icon_is_admin' => $c_is_admin,
+			'icon_isadmin' => $c_isadmin,
 			'ip' => $val['ip'],
 			'http_user_agent' => $val['http_user_agent'],
 			'sid' => $val['sid'],
@@ -220,14 +220,14 @@ function report_banned_list($status = 0) {
 			continue;
 		}
 		
-		$c_is_admin = '';
+		$c_isadmin = '';
 		if ($c_status == '2') {
-			$c_is_admin = $icon_config['admin'];
+			$c_isadmin = $icon_config['admin'];
 		}
 		
 		$ret[] = array(
 			'username' => $c_username,
-			'icon_is_admin' => $c_is_admin,
+			'icon_isadmin' => $c_isadmin,
 			'email' => $c_email,
 			'bantime' => core_display_datetime($user['bantime']) ,
 			'action_link' => _a('index.php?app=main&inc=feature_report&route=banned&op=unban&uid=' . $user['uid'], $icon_config['unban']) ,

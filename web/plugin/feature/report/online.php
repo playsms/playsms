@@ -55,7 +55,7 @@ foreach ($users as $user) {
 		$tpl['loops']['data'][] = array(
 			'tr_class' => $tr_class,
 			'c_username' => $hash['username'],
-			'c_is_admin' => $hash['icon_is_admin'],
+			'c_isadmin' => $hash['icon_isadmin'],
 			'last_update' => $hash['last_update'],
 			'current_ip' => $hash['ip'],
 			'user_agent' => $hash['http_user_agent'],
@@ -73,7 +73,7 @@ foreach ($users as $user) {
 		$tpl['loops']['data'][] = array(
 			'tr_class' => $tr_class,
 			'c_username' => $hash['username'],
-			'c_is_admin' => $hash['icon_is_admin'],
+			'c_isadmin' => $hash['icon_isadmin'],
 			'last_update' => $hash['last_update'],
 			'current_ip' => $hash['ip'],
 			'user_agent' => $hash['http_user_agent'],
@@ -91,7 +91,7 @@ foreach ($users as $user) {
 		$tpl['loops']['data'][] = array(
 			'tr_class' => $tr_class,
 			'c_username' => $hash['username'],
-			'c_is_admin' => $hash['icon_is_admin'],
+			'c_isadmin' => $hash['icon_isadmin'],
 			'last_update' => $hash['last_update'],
 			'current_ip' => $hash['ip'],
 			'user_agent' => $hash['http_user_agent'],

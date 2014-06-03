@@ -122,8 +122,8 @@ switch (_OP_) {
 			
 			// subuser shows parent column
 			if ($list[$i]['status'] == 4) {
-				$is_admin = ( user_getfieldbyuid($list[$i]['parent_uid'], 'status') == 2 ? $icon_config['admin'] : '' );
-				$parent_column_row = "<td>" . user_uid2username($list[$i]['parent_uid']) . " ".$is_admin."</td>";
+				$isadmin = ( user_getfieldbyuid($list[$i]['parent_uid'], 'status') == 2 ? $icon_config['admin'] : '' );
+				$parent_column_row = "<td>" . user_uid2username($list[$i]['parent_uid']) . " ".$isadmin."</td>";
 			}
 
 			$j--;

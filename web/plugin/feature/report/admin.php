@@ -76,15 +76,15 @@ foreach ($rows as $row) {
 	$sum_billing+= $c_billing;
 	$sum_credit+= $c_credit;
 	
-	$c_is_admin = '';
+	$c_isadmin = '';
 	if ($c_status == '2') {
-		$c_is_admin = $icon_config['admin'];
+		$c_isadmin = $icon_config['admin'];
 	}
 	
 	$tpl['loops']['data'][] = array(
 		'tr_class' => $tr_class,
 		'c_username' => $c_username,
-		'c_is_admin' => $c_is_admin,
+		'c_isadmin' => $c_isadmin,
 		'num_rows_pending' => $num_rows_pending,
 		'num_rows_sent' => $num_rows_sent,
 		'num_rows_delivered' => $num_rows_delivered,

@@ -71,6 +71,9 @@ switch (_OP_) {
 				'Sender ID' => _mandatory('Sender ID') ,
 				'Description' => _('Description') ,
 			) ,
+			'ifs' => array(
+				'isadmin' => auth_isadmin() ,
+			) ,
 			'injects' => array(
 				'icon_config'
 			) ,
