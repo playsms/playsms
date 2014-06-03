@@ -1,17 +1,50 @@
-msgid "Action"
+msgid "Add sender ID"
+msgstr ""
+
+msgid "Are you sure you want to delete sender ID"
 msgstr ""
 
 msgid "Description"
 msgstr ""
 
-msgid "Manage gateway"
+msgid "Edit sender ID"
 msgstr ""
 
-msgid "Name"
+msgid "Last update"
 msgstr ""
 
-msgid "Status"
+msgid "Manage sender ID"
 msgstr ""
 
-msgid "You have enabled gateway plugin"
+msgid "Sender ID"
+msgstr ""
+
+msgid "Sender ID description has been added"
+msgstr ""
+
+msgid "Sender ID description has been updated"
+msgstr ""
+
+msgid "Sender ID has been added and waiting for approval"
+msgstr ""
+
+msgid "Sender ID has been removed"
+msgstr ""
+
+msgid "Sender ID is enabled"
+msgstr ""
+
+msgid "Sender ID is not available"
+msgstr ""
+
+msgid "Sender ID is now disabled"
+msgstr ""
+
+msgid "Sender ID is now enabled"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "Username"
 msgstr ""
