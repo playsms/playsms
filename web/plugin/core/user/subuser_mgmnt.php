@@ -163,9 +163,6 @@ switch (_OP_) {
 			<td>" . _('Mobile') . "</td><td><input type='text' size='16' maxlength='16' name='add_mobile' value=\"$add_mobile\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric characters')) . "</td>
 		</tr>
 		<tr>
-			<td>" . _('SMS sender ID') . "</td><td><input type='text' size='16' maxlength='16' name='add_sender' value=\"$add_sender\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric characters')) . "</td>
-		</tr>
-		<tr>
 			<td>" . _('SMS footer') . "</td><td><input type='text' size=30 maxlength='30' name='add_footer' value=\"$add_footer\"> " . _hint(_('Max. 30 alphanumeric characters')) . "</td>
 		</tr>	    	    	    
 		<tr>
@@ -188,7 +185,6 @@ switch (_OP_) {
 		$add['password'] = $_POST['add_password'];
 		$add['mobile'] = $_POST['add_mobile'];
 		$add['name'] = $_POST['add_name'];
-		$add['sender'] = $_POST['add_sender'];
 		$add['footer'] = $_POST['add_footer'];
 		$add['datetime_timezone'] = $_POST['add_datetime_timezone'];
 		$add['language_module'] = $_POST['add_language_module'];
