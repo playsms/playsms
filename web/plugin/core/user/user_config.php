@@ -191,7 +191,7 @@ switch (_OP_) {
 			$form_title = _('Manage user');
 			
 			// fixme anton - now disabled since plugin/feature/credit exists
-			// $option_credit = "<tr><td>" . _('Credit') . "</td><td><input type=text size=10 maxlength=10 name=up_credit value=\"$credit\"></td></tr>";
+			// $option_credit = "<tr><td>" . _('Credit') . "</td><td><input type=text size=30 maxlength=14 name=up_credit value=\"$credit\"></td></tr>";
 			
 			if ($is_parent) {
 				$button_delete = "<input type=button class=button value='" . _('Delete') . "' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete subuser ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_del" . $url_uname . "')\">";

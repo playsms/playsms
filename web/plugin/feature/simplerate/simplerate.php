@@ -71,10 +71,10 @@ switch (_OP_) {
 				<td class=label-sizer>"._('Destination')."</td><td><input type='text' size=30 maxlength='30' name='up_dst' value=\"$dst\"></td>
 			</tr>
 			<tr>
-				<td>"._('Prefix')."</td><td><input type='text' size='10' maxlength='10' name='up_prefix' value=\"$prefix\"></td>
+				<td>"._('Prefix')."</td><td><input type='text' size=30 maxlength=10 name='up_prefix' value=\"$prefix\"></td>
 			</tr>
 			<tr>
-				<td>"._('Rate')."</td><td><input type='text' size='10' maxlength='10' name='up_rate' value=\"$rate\"></td>
+				<td>"._('Rate')."</td><td><input type='text' size=30 maxlength=14 name='up_rate' value=\"$rate\"></td>
 			</tr>
 			</table>
 			<p><input type='submit' class='button' value='"._('Save')."'></p>
@@ -116,10 +116,10 @@ switch (_OP_) {
 				<td class=label-sizer>"._('Destination')."</td><td><input type='text' size=30 maxlength='30' name='add_dst' value=\"$add_dst\"></td>
 			</tr>
 			<tr>
-				<td>"._('Prefix')."</td><td><input type='text' size='10' maxlength='10' name='add_prefix' value=\"$add_prefix\"></td>
+				<td>"._('Prefix')."</td><td><input type='text' size=30 maxlength=10 name='add_prefix' value=\"$add_prefix\"></td>
 			</tr>
 			<tr>
-				<td>"._('Rate')."</td><td><input type='text' size='10' maxlength='10' name='add_rate' value=\"$add_rate\"></td>
+				<td>"._('Rate')."</td><td><input type='text' size=30 maxlength=14 name='add_rate' value=\"$add_rate\"></td>
 			</tr>
 			</table>	
 			<input type='submit' class='button' value='"._('Save')."'>
