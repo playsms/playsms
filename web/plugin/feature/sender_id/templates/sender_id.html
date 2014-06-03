@@ -15,7 +15,7 @@
 			</if.isadmin>
 			<th width=15%>{{ Sender ID }}</th>
 			<th width=30%>{{ Description }}</th>
-			<th width=20%>{{ Created }}</th>
+			<th width=20%>{{ Last update }}</th>
 			<th width=10%>{{ Status }} <if.isadmin>{{ HINT_STATUS }}</if.isadmin></th>
 			<th width=10%>{{ Action }}</th>
 		</tr></thead>
@@ -27,7 +27,7 @@
 				</if.isadmin>
 				<td>{{ sender_id_list.sender_id }}</td>
 				<td>{{ sender_id_list.sender_id_description }}</td>
-				<td>{{ sender_id_list.created }}</td>
+				<td>{{ sender_id_list.lastupdate }}</td>
 				<td>{{ sender_id_list.status }}</td>
 				<td>{{ sender_id_list.action }}</td>
 			</tr>

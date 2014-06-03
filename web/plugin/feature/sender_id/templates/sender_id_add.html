@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ $core_config['http_path']['themes'] }}/common/jscss/combobox/select2.css" />
+<script type="text/javascript" src="{{ $core_config['http_path']['themes'] }}/common/jscss/combobox/select2.min.js"></script>
 {{ ERROR }}
 <h2>{{ FORM_TITLE }}</h2>
 <form action="{{ ACTION_URL }}" method=post>
@@ -13,6 +15,16 @@
 				<td class=label-sizer>{{ Description }}</td>
 				<td><input type="text" size=30 name="description" value="{{ $items['description'] }}"></td>
 			</tr>
+			<if.isadmin>
+			<tr>
+				<td class=label-sizer>{{ User }}</td>
+				<td>{{ $select_users }}</td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ Sender ID is enabled }}</td>
+				<td>{{ $select_yesno }}</td>
+			</tr>
+			</if.isadmin>
 		</tbody>
 	</table>
 	<p><input type=submit class=button value='{{ Save }}'></p>

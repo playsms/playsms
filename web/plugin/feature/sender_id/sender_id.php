@@ -26,19 +26,17 @@ if ($_REQUEST['sender_id']) {
 switch (_OP_) {
 	case 'sender_id_list':
 		
-		if ($err = $_SESSION['error_string']) {
-			$error_content = "<div class=error_string>$err</div>";
-		}
 		$tpl = array(
 			'name' => 'sender_id',
 			'vars' => array(
-				'ERROR' => $error_content,
+				'ERROR' => _err_display() ,
 				'FORM_TITLE' => _('Manage sender ID') ,
 				'ADD_URL' => _u('index.php?app=main&inc=feature_sender_id&op=sender_id_add') ,
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
 				'HINT_STATUS' => _hint('Click the status button to enable or disable status') ,
 				'Sender ID' => _('Sender ID') ,
 				'Username' => _('Username') ,
+				'Last update' => _('Last update') ,
 			) ,
 			'ifs' => array(
 				'isadmin' => auth_isadmin() ,
@@ -54,14 +52,16 @@ switch (_OP_) {
 		break;
 
 	case "sender_id_add":
-		if ($err = $_SESSION['error_string']) {
-			$error_content = "<div class=error_string>$err</div>";
+		
+		if (auth_isadmin()) {
+			$select_yesno = _yesno('enabled', 0);
+			$select_users = themes_select_users_single('uid', $user_config['uid']);
 		}
-		unset($tpl);
+		
 		$tpl = array(
 			'name' => 'sender_id_add',
 			'vars' => array(
-				'ERROR' => $error_content,
+				'ERROR' => _err_display() ,
 				'FORM_TITLE' => _('Manage sender ID') ,
 				'FORM_SUBTITLE' => _('Add sender ID') ,
 				'ACTION_URL' => _u('index.php?app=main&inc=feature_sender_id&op=sender_id_add_yes') ,
@@ -70,12 +70,17 @@ switch (_OP_) {
 				'input_tag' => 'required',
 				'Sender ID' => _mandatory('Sender ID') ,
 				'Description' => _('Description') ,
+				'User' => _('User') ,
+				'Sender ID is enabled' => _('Sender ID is enabled') ,
 			) ,
 			'ifs' => array(
 				'isadmin' => auth_isadmin() ,
 			) ,
 			'injects' => array(
-				'icon_config'
+				'select_yesno',
+				'select_users',
+				'icon_config',
+				'core_config',
 			) ,
 		);
 		_p(tpl_apply($tpl));
@@ -88,23 +93,31 @@ switch (_OP_) {
 			exit();
 			break;
 		}
+		$enabled = (auth_isadmin() ? (int)$_REQUEST['enabled'] : 0);
 		$sender_id = array(
-			$_REQUEST['sender_id'] => 0
+			$_REQUEST['sender_id'] => $enabled,
 		);
 		$description = array(
 			$_REQUEST['sender_id'] => $_REQUEST['description']
 		);
-		registry_update($user_config['uid'], 'features', 'sender_id', $sender_id);
-		registry_update($user_config['uid'], 'features', 'sender_id_desc', $description);
+		$uid = ((auth_isadmin() && $_REQUEST['uid']) ? $_REQUEST['uid'] : $user_config['uid']);
+		registry_update($uid, 'features', 'sender_id', $sender_id);
+		registry_update($uid, 'features', 'sender_id_desc', $description);
 		
-		$_SESSION['error_string'] = _('Sender ID has been save and waiting for approval') . ' (' . _('Sender ID') . ': ' . $_REQUEST['sender_id'] . ')';
+		if (auth_isadmin()) {
+			$_SESSION['error_string'] = _('Sender ID description has been added') . ' (' . _('Sender ID') . ': ' . $_REQUEST['sender_id'] . ')';
+		} else {
+			$_SESSION['error_string'] = _('Sender ID has been added and waiting for approval') . ' (' . _('Sender ID') . ': ' . $_REQUEST['sender_id'] . ')';
+		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sender_id&op=sender_id_list'));
 		exit();
 		break;
 
 	case "sender_id_edit":
-		if ($err = $_SESSION['error_string']) {
-			$error_content = "<div class=error_string>$err</div>";
+		
+		if (auth_isadmin()) {
+			$select_yesno = _yesno('enabled', 0);
+			$select_users = themes_select_users_single('uid', $user_config['uid']);
 		}
 		
 		$search_sender_id = array(
@@ -131,7 +144,7 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'sender_id_add',
 			'vars' => array(
-				'ERROR' => $error_content,
+				'ERROR' => _err_display() ,
 				'FORM_TITLE' => _('Manage sender ID') ,
 				'FORM_SUBTITLE' => _('Edit sender ID') ,
 				'ACTION_URL' => _u('index.php?app=main&inc=feature_sender_id&op=sender_id_edit_yes') ,
@@ -140,20 +153,35 @@ switch (_OP_) {
 				'input_tag' => 'readonly',
 				'Sender ID' => _mandatory('Sender ID') ,
 				'Description' => _('Description') ,
+				'User' => _('User') ,
+				'Sender ID is enabled' => _('Sender ID is enabled') ,
+			) ,
+			'ifs' => array(
+				'isadmin' => auth_isadmin() ,
 			) ,
 			'injects' => array(
+				'select_yesno',
+				'select_users',
 				'items',
-				'icon_config'
+				'icon_config',
+				'core_config',
 			) ,
 		);
 		_p(tpl_apply($tpl));
 		break;
 
 	case "sender_id_edit_yes":
+		
+		$enabled = (auth_isadmin() ? (int)$_REQUEST['enabled'] : 0);
+		$sender_id = array(
+			$_REQUEST['sender_id'] => $enabled,
+		);
 		$description = array(
 			$_REQUEST['sender_id'] => $_REQUEST['description']
 		);
-		registry_update($_REQUEST['uid'], 'features', 'sender_id_desc', $description);
+		$uid = ((auth_isadmin() && $_REQUEST['uid']) ? $_REQUEST['uid'] : $user_config['uid']);
+		registry_update($uid, 'features', 'sender_id', $sender_id);
+		registry_update($uid, 'features', 'sender_id_desc', $description);
 		
 		$_SESSION['error_string'] = _('Sender ID description has been updated') . ' (' . _('Sender ID') . ': ' . $_REQUEST['sender_id'] . ')';
 		header("Location: " . _u('index.php?app=main&inc=feature_sender_id&op=sender_id_list'));

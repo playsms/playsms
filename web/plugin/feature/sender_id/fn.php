@@ -45,7 +45,7 @@ function sender_id_list() {
 			'username' => $username,
 			'sender_id' => core_sanitize_sender($sender_id['registry_key']) ,
 			'sender_id_description' => sender_id_description($sender_id['registry_key']) ,
-			'created' => core_convert_datetime($sender_id['c_timestamp']) ,
+			'lastupdate' => core_display_datetime(core_convert_datetime($sender_id['c_timestamp'])) ,
 			'status' => $toggle_status,
 			'action' => $action,
 		);
@@ -94,7 +94,7 @@ function sender_id_search($uid) {
 	foreach (registry_search_record($sender_search, '', array(
 		'ORDER BY' => 'c_timestamp DESC, uid'
 	)) as $sender_id) {
-
+		
 		//show only approved sender_id
 		if ($sender_id['registry_value'] == 1) {
 			$ret[] = core_sanitize_sender($sender_id['registry_key']);
