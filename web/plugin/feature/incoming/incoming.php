@@ -24,34 +24,30 @@ if (!auth_isadmin()) {
 
 switch (_OP_) {
 	case "incoming":
-
+		
 		// form post rules
 		
+		$post_rules = incoming_post_rules_get();
+		
 		// sandbox match receiver number and sender ID
-		$data = registry_search(1, 'feature', 'incoming', 'sandbox_match_sender_id');
-		$sandbox_match_sender_id = (int)$data['feature']['incoming']['sandbox_match_sender_id'];
-		$select_match_sender_id = _yesno('sandbox_match_sender_id', $sandbox_match_sender_id, '', '', '', 'playsms-sandbox-match-sender-id', 'form-control');
+		$select_match_sender_id = _yesno('sandbox_match_sender_id', $post_rules['match_sender_id'], '', '', '', 'playsms-sandbox-match-sender-id', 'form-control');
 		
 		// sandbox prefix
-		$data = registry_search(1, 'feature', 'incoming', 'sandbox_prefix');
-		$sandbox_prefix = trim(strtoupper(core_sanitize_alphanumeric($data['feature']['incoming']['sandbox_prefix'])));
 		unset($params);
 		$params = array(
 			'size' => '100%',
 			'maxlength' => 30,
 			'placeholder' => _('Insert keyword') ,
 		);
-		$input_prefix = _input('text', 'sandbox_prefix', $sandbox_prefix, $params, 'playsms-sandbox-prefix', 'form-control');
+		$input_prefix = _input('text', 'sandbox_prefix', $post_rules['insert_prefix'], $params, 'playsms-sandbox-prefix', 'form-control');
 		
 		// sandbox forward to users
-		$data = registry_search(1, 'feature', 'incoming', 'sandbox_forward_to');
-		$sandbox_forward_to = array_unique(unserialize($data['feature']['incoming']['sandbox_forward_to']));
 		unset($params);
 		$params = array(
 			'width' => '100%',
 			'placeholder' => _('Select users')
 		);
-		$select_users = themes_select_users_multi('uids', $sandbox_forward_to, $params, 'playsms-route-to-users');
+		$select_users = themes_select_users_multi('uids', $post_rules['forward_to'], $params, 'playsms-route-to-users');
 		
 		$form_post_rules = array(
 			array(
@@ -77,13 +73,11 @@ switch (_OP_) {
 		// form settings
 		
 		$settings = incoming_settings_get();
-
+		
 		// settings to leave copy on sandbox
-		$data = registry_search(1, 'feature', 'incoming', 'settings_leave_copy_sandbox');
 		$settings_leave_copy_sandbox = _yesno('settings_leave_copy_sandbox', $settings['leave_copy_sandbox'], '', '', '', 'settings_leave_copy_sandbox', 'form-control');
 		
 		// settings to match with all approved sender ID
-		$data = registry_search(1, 'feature', 'incoming', 'settings_match_all_sender_id');
 		$settings_match_all_sender_id = _yesno('settings_match_all_sender_id', $settings['match_all_sender_id'], '', '', '', 'settings_match_all_sender_id', 'form-control');
 		
 		$form_settings = array(
@@ -129,23 +123,23 @@ switch (_OP_) {
 	case "incoming_save":
 		
 		// form post rules
-
+		
 		// sandbox match receiver number and sender ID
-		$sandbox_match_sender_id = (int)$_REQUEST['sandbox_match_sender_id'];
-		$items['sandbox_match_sender_id'] = $sandbox_match_sender_id;
+		$post_rules['match_sender_id'] = (int)$_REQUEST['sandbox_match_sender_id'];
+		$items['sandbox_match_sender_id'] = $post_rules['match_sender_id'];
 		
 		// sandbox prefix
-		$sandbox_prefix = trim(strtoupper(core_sanitize_alphanumeric($_REQUEST['sandbox_prefix'])));
-		if ($sandbox_prefix && checkavailablekeyword($sandbox_prefix)) {
-			$_SESSION['error_string'][] = _('Fail to insert keyword') . ' (' . _('keyword') . ': ' . $sandbox_prefix . ')';
-			$sandbox_prefix = '';
+		$post_rules['insert_prefix'] = trim(strtoupper(core_sanitize_alphanumeric($_REQUEST['sandbox_prefix'])));
+		if ($post_rules['insert_prefix'] && checkavailablekeyword($post_rules['insert_prefix'])) {
+			$_SESSION['error_string'][] = _('Fail to insert keyword') . ' (' . _('keyword') . ': ' . $post_rules['insert_prefix'] . ')';
+			$post_rules['insert_prefix'] = '';
 		}
-		$items['sandbox_prefix'] = $sandbox_prefix;
+		$items['sandbox_prefix'] = $post_rules['insert_prefix'];
 		
 		// sandbox forward to users
-		$sandbox_forward_to = serialize(array_unique($_REQUEST['uids']));
-		$items['sandbox_forward_to'] = $sandbox_forward_to;
-
+		$post_rules['forward_to'] = serialize(array_unique($_REQUEST['uids']));
+		$items['sandbox_forward_to'] = $post_rules['forward_to'];
+		
 		// form settings
 		
 		// settings to leave copy on sandbox
