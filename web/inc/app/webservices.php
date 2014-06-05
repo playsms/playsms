@@ -27,7 +27,7 @@ $p		= trim($_REQUEST['p']);
 // output format
 $format		= strtoupper(trim($_REQUEST['format']));
 
-// PV, BC
+// PV
 $from		= trim($_REQUEST['from']);
 $to		= trim($_REQUEST['to']);
 $msg		= trim($_REQUEST['msg']);
@@ -76,15 +76,6 @@ if (_OP_) {
 		case "PV":
 			if ($u = webservices_validate($h,$u)) {
 				$json = webservices_pv($u,$to,$msg,$type,$unicode,$nofooter,$footer,$from,$schedule);
-			} else {
-				$json['status'] = 'ERR';
-				$json['error'] = '100';
-			}
-			$log_this = TRUE;
-			break;
-		case "BC":
-			if ($u = webservices_validate($h,$u)) {
-				$json = webservices_bc($u,$to,$msg,$type,$unicode,$nofooter,$footer,$from,$schedule);
 			} else {
 				$json['status'] = 'ERR';
 				$json['error'] = '100';

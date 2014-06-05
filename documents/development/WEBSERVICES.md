@@ -25,9 +25,9 @@ u              | username
 p              | password, supplied for op=get_token
 op             | operation or type of action
 format	       | output format selection
-from	       | SMS sender ID (for op=pv or op=bc)
+from	       | SMS sender ID (for op=pv)
 to             | destination numbers or group codes (international format)
-footer	       | SMS footer (for op=pv pr op=bc)
+footer	       | SMS footer (for op=pv)
 nofooter       | remove SMS footer
 msg            | message (+ or %20 for spaces, urlencode for non ascii chars)
 schedule       | schedule message delivery, format: YYYY-MM-DD hh:mm:ss
@@ -74,7 +74,6 @@ Error code | Description
 ---------- | -----------
 ERR 1xx    | authentication or parameter erorrs
 ERR 2xx    | specific pv errors
-ERR 3xx    | specific bc errors
 ERR 4xx    | delivery status errors
 ERR 5xx    | others
 
@@ -92,20 +91,7 @@ Mandatory  | `u` `h` `to` `msg`
 Optional   | `type` `unicode` `from` `footer` `nofooter` `format`
 Returns    | return codes
 
-Parameter `to` is an international formatted mobile number. Separate by commas for multiple value.
-
-### Send broadcast SMS
-
-Send broadcast or bulk SMS to single or multiple phonebook group codes.
-
-Parameters | Name or description
----------- | --------------------
-Operation  | `bc`
-Mandatory  | `u` `h` `to` `msg`
-Optional   | `type` `unicode` `from` `footer` `nofooter` `format`
-Returns    | return codes
-
-Parameter `to` is a group code. Separate by commas for multiple value.
+Parameter `to` can be international formatted mobile number, #groupcode or @username, or a mix of them. Separate by commas for multiple value.
 
 ### Outgoing SMS and delivery status
 
