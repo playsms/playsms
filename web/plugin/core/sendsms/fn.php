@@ -478,7 +478,7 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
  * Send SMS
  * @global array $core_config, $user_config
  * @param string $username
- * @param string $sms_to
+ * @param mixed $sms_to
  * @param string $message
  * @param string $sms_type
  * @param integer $unicode
@@ -495,6 +495,10 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	$user = $user_config;
 	if ($username && ($user['username'] != $username)) {
 		$user = user_getdatabyusername($username);
+	}
+	
+	if (!is_array($sms_to)) {
+		$sms_to = explode(',', $sms_to);
 	}
 	
 	$uid = $user['uid'];
