@@ -25,6 +25,8 @@ if (!auth_isadmin()) {
 switch (_OP_) {
 	case "incoming":
 
+		// form post rules
+		
 		// sandbox match receiver number and sender ID
 		$data = registry_search(1, 'feature', 'incoming', 'sandbox_match_sender_id');
 		$sandbox_match_sender_id = (int)$data['feature']['incoming']['sandbox_match_sender_id'];
@@ -51,7 +53,7 @@ switch (_OP_) {
 		);
 		$select_users = themes_select_users_multi('uids', $sandbox_forward_to, $params, 'playsms-route-to-users');
 		
-		$form_data = array(
+		$form_post_rules = array(
 			array(
 				'id' => 'playsms-sandbox-match-sender-id',
 				'label' => _('Route all sandbox SMS with matched sender ID') ,
@@ -72,6 +74,33 @@ switch (_OP_) {
 			) ,
 		);
 		
+		// form settings
+		
+		$settings = incoming_settings_get();
+
+		// settings to leave copy on sandbox
+		$data = registry_search(1, 'feature', 'incoming', 'settings_leave_copy_sandbox');
+		$settings_leave_copy_sandbox = _yesno('settings_leave_copy_sandbox', $settings['leave_copy_sandbox'], '', '', '', 'settings_leave_copy_sandbox', 'form-control');
+		
+		// settings to match with all approved sender ID
+		$data = registry_search(1, 'feature', 'incoming', 'settings_match_all_sender_id');
+		$settings_match_all_sender_id = _yesno('settings_match_all_sender_id', $settings['match_all_sender_id'], '', '', '', 'settings_match_all_sender_id', 'form-control');
+		
+		$form_settings = array(
+			array(
+				'id' => 'playsms-settings-leave-copy',
+				'label' => _('Leave a copy in sandbox SMS page') ,
+				'input' => $settings_leave_copy_sandbox,
+				'help' => _('Leaving a copy in sandbox SMS page may be useful for audit or reviews') ,
+			) ,
+			array(
+				'id' => 'playsms-settings-match-all',
+				'label' => _('Match with all approved sender ID') ,
+				'input' => $settings_match_all_sender_id,
+				'help' => _('Receiver number can be matched with default sender ID or with all approved sender ID') ,
+			) ,
+		);
+		
 		$tpl = array(
 			'name' => 'incoming',
 			'vars' => array(
@@ -79,10 +108,19 @@ switch (_OP_) {
 				'PAGE_TITLE' => _('Route incoming SMS') ,
 				'ACTION_URL' => _u('index.php?app=main&inc=feature_incoming&op=incoming_save') ,
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
+				'HINT_PRE_RULES' => _hint('Rules applied before incoming SMS processed') ,
+				'HINT_POST_RULES' => _hint('Rules applied after incoming SMS processed') ,
+				'Pre rules' => _('Pre rules') ,
+				'Post rules' => _('Post rules') ,
+				'Settings' => _('Settings') ,
 				'Save' => _('Save') ,
 			) ,
 			'loops' => array(
-				'form' => $form_data,
+				'form_post_rules' => $form_post_rules,
+				'form_settings' => $form_settings,
+			) ,
+			'injects' => array(
+				'core_config',
 			) ,
 		);
 		_p(tpl_apply($tpl));
@@ -90,6 +128,8 @@ switch (_OP_) {
 
 	case "incoming_save":
 		
+		// form post rules
+
 		// sandbox match receiver number and sender ID
 		$sandbox_match_sender_id = (int)$_REQUEST['sandbox_match_sender_id'];
 		$items['sandbox_match_sender_id'] = $sandbox_match_sender_id;
@@ -105,6 +145,14 @@ switch (_OP_) {
 		// sandbox forward to users
 		$sandbox_forward_to = serialize(array_unique($_REQUEST['uids']));
 		$items['sandbox_forward_to'] = $sandbox_forward_to;
+
+		// form settings
+		
+		// settings to leave copy on sandbox
+		$items['settings_leave_copy_sandbox'] = (int)$_REQUEST['settings_leave_copy_sandbox'];
+		
+		// settings to match with all approved sender ID
+		$items['settings_match_all_sender_id'] = (int)$_REQUEST['settings_match_all_sender_id'];
 		
 		// save to registry
 		if (count($items)) {

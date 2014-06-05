@@ -3,3 +3,4 @@ Category	: feature
 Author		: Anton Raharja
 Release		: 140527
 License		: GPLv3
+Dependency      : sender_id

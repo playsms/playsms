@@ -4,12 +4,57 @@
 <h2>{{ PAGE_TITLE }}</h2>
 <form role="form" action="{{ ACTION_URL }}" method=post>
 	{{ CSRF_FORM }}
-	<loop.form>
-	<div class="form-group">
-		<label for="{{ form.id }}">{{ form.label }}</label>
-		{{ form.input }}
-		<p class="help-block">{{ form.help }}</p>
+	<ul class='nav nav-tabs nav-justified' id='playsms-tab'>
+		<li class=active><a href='#tabs-pre-rules' data-toggle=tab>{{ Pre rules }}</a></li>
+		<li><a href='#tabs-post-rules' data-toggle=tab>{{ Post rules }}</a></li>
+		<li><a href='#tabs-settings' data-toggle=tab>{{ Settings }}</a></li>
+	</ul>
+	<div class=tab-content>
+		<div id='tabs-pre-rules' class='tab-pane fade in active'>
+			<h4>{{ Pre rules }} {{ HINT_PRE_RULES }}</h4>
+			<br />
+		</div>
+		<div id='tabs-post-rules' class='tab-pane fade'>
+			<h4>{{ Post rules }} {{ HINT_POST_RULES }}</h4>
+			<br />
+			<loop.form_post_rules>
+			<div class="form-group">
+				<label for="{{ form_post_rules.id }}">{{ form_post_rules.label }}</label>
+				{{ form_post_rules.input }}
+				<p class="help-block">{{ form_post_rules.help }}</p>
+			</div>
+			</loop.form_post_rules>
+			<p><input type=submit class=button value='{{ Save }}'></p>
+		</div>
+		<div id='tabs-settings' class='tab-pane fade'>
+			<h4>{{ Settings }}</h4>
+			<br />
+			<loop.form_settings>
+			<div class="form-group">
+				<label for="{{ form_settings.id }}">{{ form_settings.label }}</label>
+				{{ form_settings.input }}
+				<p class="help-block">{{ form_settings.help }}</p>
+			</div>
+			</loop.form_settings>
+			<p><input type=submit class=button value='{{ Save }}'></p>
+		</div>
 	</div>
-	</loop.form>
-	<p><input type=submit class=button value='{{ Save }}'></p>
 </form>
+<script type="text/javascript" src="{{ $core_config['http_path']['plug'] }}/themes/common/jscss/jquery.cookie.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
+		//save the latest tab using a cookie:
+		$.cookie('incoming_last_tab', $(e.target).attr('href'));
+	});
+	
+	//activate latest tab, if it exists:
+	var lastTab = $.cookie('incoming_last_tab');
+	if (lastTab) {
+		$('ul.nav-tabs').children().removeClass('active');
+		$('a[href='+ lastTab +']').parents('li:first').addClass('active');
+		$('div.tab-content').children().removeClass('in active');
+		$(lastTab).addClass('in active');
+	}
+});
+</script>
