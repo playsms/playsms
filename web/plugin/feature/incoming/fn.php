@@ -37,14 +37,14 @@ function incoming_settings_get() {
 	return $settings;
 }
 
-/*
- * intercept on after-process stage for incoming sms and forward it to selected user's inbox
+/**
+ * Intercept on after-process stage for incoming SMS and forward it to selected user's inbox
  *
  * @param $sms_datetime
  *   incoming SMS date/time
  * @param $sms_sender
  *   incoming SMS sender
- * @message
+ * @param $message
  *   incoming SMS message before interepted
  * @param $sms_receiver
  *   receiver number that is receiving incoming SMS
@@ -178,6 +178,20 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 	return $ret;
 }
 
+/**
+ * Intercept on before-process stage for incoming SMS
+ *
+ * @param $sms_datetime
+ *   incoming SMS date/time
+ * @param $sms_sender
+ *   incoming SMS sender
+ * @param $message
+ *   incoming SMS message before interepted
+ * @param $sms_receiver
+ *   receiver number that is receiving incoming SMS
+ * @return
+ *   array $ret
+*/
 function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver) {
 	$ret = array();
 	
@@ -206,7 +220,7 @@ function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $
 			}
 		}
 	}
-
+	
 	if ($found_bc || $found_pv) {
 		_log("recvsms_intercept dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept');
 	}
