@@ -27,7 +27,7 @@ defined('_SECURE_') or die('Forbidden');
  *     Username
  * @return boolean FALSE if invalid, string username if valid
  */
-function webservices_validate($h,$u) {
+function webservices_validate($h, $u) {
 	global $core_config;
 	$ret = false;
 	if ($c_uid = auth_validate_token($h)) {
@@ -43,15 +43,16 @@ function webservices_validate($h,$u) {
 	return $ret;
 }
 
-function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0,$nofooter=FALSE,$footer='',$from='',$schedule='') {
+function webservices_pv($c_username, $to, $msg, $type = 'text', $unicode = 0, $nofooter = FALSE, $footer = '', $from = '', $schedule = '') {
 	$ret = '';
 	if ($c_username && $to && $msg) {
-		list($ok,$to,$smslog_id,$queue_code,$counts,$sms_count,$sms_failed) = sendsms_helper($c_username,$to,$msg,$type,$unicode,$nofooter,$footer,$from,$schedule);
-		for ($i=0;$i<count($to);$i++) {
-			if (($ok[$i]==1 || $ok[$i]==true) && $to[$i] && ($queue_code[$i] || $smslog_id[$i])) {
+		list($ok, $to, $smslog_id, $queue_code, $counts, $sms_count, $sms_failed) = sendsms_helper($c_username, $to, $msg, $type, $unicode, $nofooter, $footer, $from, $schedule);
+		for ($i = 0; $i < count($to); $i++) {
+			if (($ok[$i] == 1 || $ok[$i] == true) && $to[$i] && ($queue_code[$i] || $smslog_id[$i])) {
 				$json['data'][$i]['status'] = 'OK';
 				$json['data'][$i]['error'] = '0';
-			} elseif ($ok[$i]==2) { // this doesn't work, but not much an issue now
+			} elseif ($ok[$i] == 2) {
+				 // this doesn't work, but not much an issue now
 				$json['data'][$i]['status'] = 'ERR';
 				$json['data'][$i]['error'] = '103';
 			} else {
@@ -69,7 +70,7 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0,$nofooter=F
 	return $json;
 }
 
-function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',$smslog_id=0,$c=100,$last=false) {
+function webservices_ds($c_username, $queue_code = '', $src = '', $dst = '', $datetime = '', $smslog_id = 0, $c = 100, $last = false) {
 	$json['status'] = 'ERR';
 	$json['error'] = '501';
 	if ($uid = user_username2uid($c_username)) {
@@ -86,18 +87,18 @@ function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',
 		$conditions['p_src'] = $src;
 	}
 	if ($dst) {
-		if ($dst[0]=='0') {
+		if ($dst[0] == '0') {
 			$c_dst = substr($dst, 1);
 		} else {
 			$c_dst = substr($dst, 3);
 		}
-		$keywords['p_dst'] = '%'.$c_dst;
+		$keywords['p_dst'] = '%' . $c_dst;
 	}
 	if ($datetime) {
-		$keywords['p_datetime'] = '%'.$datetime.'%';
+		$keywords['p_datetime'] = '%' . $datetime . '%';
 	}
 	if ($last) {
-		$extras['AND smslog_id'] = '>'.$last;
+		$extras['AND smslog_id'] = '>' . $last;
 	}
 	$extras['ORDER BY'] = 'p_datetime DESC';
 	if ($c) {
@@ -107,7 +108,7 @@ function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',
 	}
 	if ($uid) {
 		$j = 0;
-		$list = dba_search(_DB_PREF_.'_tblSMSOutgoing', '*', $conditions, $keywords, $extras);
+		$list = dba_search(_DB_PREF_ . '_tblSMSOutgoing', '*', $conditions, $keywords, $extras);
 		foreach ($list as $db_row) {
 			$smslog_id = $db_row['smslog_id'];
 			$p_src = $db_row['p_src'];
@@ -129,15 +130,24 @@ function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',
 			unset($json['status']);
 			unset($json['error']);
 		} else {
-			if (dba_search(_DB_PREF_.'_tblSMSOutgoing_queue', 'id', array('queue_code' => $queue_code, 'flag' => 0))) {
+			if (dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'id', array(
+				'queue_code' => $queue_code,
+				'flag' => 0
+			))) {
+				
 				// exists in queue but not yet processed
 				$json['status'] = 'ERR';
 				$json['error'] = '401';
-			} else if (dba_search(_DB_PREF_.'_tblSMSOutgoing_queue', 'id', array('queue_code' => $queue_code, 'flag' => 1))) {
+			} else if (dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'id', array(
+				'queue_code' => $queue_code,
+				'flag' => 1
+			))) {
+				
 				// exists in queue and have been processed
 				$json['status'] = 'ERR';
 				$json['error'] = '402';
 			} else {
+				
 				// not exists anywhere, wrong query
 				$json['status'] = 'ERR';
 				$json['error'] = '400';
@@ -147,20 +157,23 @@ function webservices_ds($c_username,$queue_code='',$src='',$dst='',$datetime='',
 	return $json;
 }
 
-function webservices_in($c_username,$src='',$dst='',$kwd='',$datetime='',$c=100,$last=false) {
+function webservices_in($c_username, $src = '', $dst = '', $kwd = '', $datetime = '', $c = 100, $last = false) {
 	$json['status'] = 'ERR';
 	$json['error'] = '501';
-	$conditions = array('flag_deleted' => 0, 'in_status' => 1);
+	$conditions = array(
+		'flag_deleted' => 0,
+		'in_status' => 1
+	);
 	if ($uid = user_username2uid($c_username)) {
 		$conditions['in_uid'] = $uid;
 	}
 	if ($src) {
-		if ($src[0]=='0') {
+		if ($src[0] == '0') {
 			$c_src = substr($src, 1);
 		} else {
 			$c_src = substr($src, 3);
 		}
-		$keywords['in_sender'] = '%'.$c_src;
+		$keywords['in_sender'] = '%' . $c_src;
 	}
 	if ($dst) {
 		$conditions['in_receiver'] = $dst;
@@ -169,10 +182,10 @@ function webservices_in($c_username,$src='',$dst='',$kwd='',$datetime='',$c=100,
 		$conditions['in_keyword'] = $kwd;
 	}
 	if ($datetime) {
-		$keywords['in_datetime'] = '%'.$datetime.'%';
+		$keywords['in_datetime'] = '%' . $datetime . '%';
 	}
 	if ($last) {
-		$extras['AND in_id'] = '>'.$last;
+		$extras['AND in_id'] = '>' . $last;
 	}
 	$extras['AND in_keyword'] = '!= ""';
 	$extras['ORDER BY'] = 'in_datetime DESC';
@@ -183,7 +196,7 @@ function webservices_in($c_username,$src='',$dst='',$kwd='',$datetime='',$c=100,
 	}
 	if ($uid) {
 		$j = 0;
-		$list = dba_search(_DB_PREF_.'_tblSMSIncoming', '*', $conditions, $keywords, $extras);
+		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', '*', $conditions, $keywords, $extras);
 		foreach ($list as $db_row) {
 			$id = $db_row['in_id'];
 			$src = $db_row['in_sender'];
@@ -209,7 +222,7 @@ function webservices_in($c_username,$src='',$dst='',$kwd='',$datetime='',$c=100,
 	return $json;
 }
 
-function webservices_sx($c_username,$src='',$dst='',$datetime='',$c=100,$last=false) {
+function webservices_sx($c_username, $src = '', $dst = '', $datetime = '', $c = 100, $last = false) {
 	$json['status'] = 'ERR';
 	$json['error'] = '501';
 	$u = user_getdatabyusername($c_username);
@@ -217,23 +230,26 @@ function webservices_sx($c_username,$src='',$dst='',$datetime='',$c=100,$last=fa
 		return $json;
 	}
 	$uid = $u['uid'];
-	$conditions = array('flag_deleted' => 0, 'in_status' => 0);
+	$conditions = array(
+		'flag_deleted' => 0,
+		'in_status' => 0
+	);
 	if ($src) {
-		if ($src[0]=='0') {
+		if ($src[0] == '0') {
 			$c_src = substr($src, 1);
 		} else {
 			$c_src = substr($src, 3);
 		}
-		$keywords['in_sender'] = '%'.$c_src;
+		$keywords['in_sender'] = '%' . $c_src;
 	}
 	if ($dst) {
 		$conditions['in_receiver'] = $dst;
 	}
 	if ($datetime) {
-		$keywords['in_datetime'] = '%'.$datetime.'%';
+		$keywords['in_datetime'] = '%' . $datetime . '%';
 	}
 	if ($last) {
-		$extras['AND in_id'] = '>'.$last;
+		$extras['AND in_id'] = '>' . $last;
 	}
 	$extras['ORDER BY'] = 'in_datetime DESC';
 	if ($c) {
@@ -243,7 +259,7 @@ function webservices_sx($c_username,$src='',$dst='',$datetime='',$c=100,$last=fa
 	}
 	if ($uid) {
 		$j = 0;
-		$list = dba_search(_DB_PREF_.'_tblSMSIncoming', '*', $conditions, $keywords, $extras);
+		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', '*', $conditions, $keywords, $extras);
 		foreach ($list as $db_row) {
 			$id = $db_row['in_id'];
 			$src = $db_row['in_sender'];
@@ -266,7 +282,7 @@ function webservices_sx($c_username,$src='',$dst='',$datetime='',$c=100,$last=fa
 	return $json;
 }
 
-function webservices_ix($c_username,$src='',$dst='',$datetime='',$c=100,$last=false) {
+function webservices_ix($c_username, $src = '', $dst = '', $datetime = '', $c = 100, $last = false) {
 	$json['status'] = 'ERR';
 	$json['error'] = '501';
 	$conditions['flag_deleted'] = 0;
@@ -274,21 +290,21 @@ function webservices_ix($c_username,$src='',$dst='',$datetime='',$c=100,$last=fa
 		$conditions['in_uid'] = $uid;
 	}
 	if ($src) {
-		if ($src[0]=='0') {
+		if ($src[0] == '0') {
 			$c_src = substr($src, 1);
 		} else {
 			$c_src = substr($src, 3);
 		}
-		$keywords['in_sender'] = '%'.$c_src;
+		$keywords['in_sender'] = '%' . $c_src;
 	}
 	if ($dst) {
 		$conditions['in_receiver'] = $dst;
 	}
 	if ($datetime) {
-		$keywords['in_datetime'] = '%'.$datetime.'%';
+		$keywords['in_datetime'] = '%' . $datetime . '%';
 	}
 	if ($last) {
-		$extras['AND in_id'] = '>'.$last;
+		$extras['AND in_id'] = '>' . $last;
 	}
 	$extras['ORDER BY'] = 'in_datetime DESC';
 	if ($c) {
@@ -298,7 +314,7 @@ function webservices_ix($c_username,$src='',$dst='',$datetime='',$c=100,$last=fa
 	}
 	if ($uid) {
 		$j = 0;
-		$list = dba_search(_DB_PREF_.'_tblUser_inbox', '*', $conditions, $keywords, $extras);
+		$list = dba_search(_DB_PREF_ . '_tblUser_inbox', '*', $conditions, $keywords, $extras);
 		foreach ($list as $db_row) {
 			$id = $db_row['in_id'];
 			$src = $db_row['in_sender'];
@@ -322,7 +338,7 @@ function webservices_ix($c_username,$src='',$dst='',$datetime='',$c=100,$last=fa
 
 function webservices_cr($c_username) {
 	$credit = rate_getusercredit($c_username);
-	$credit = ( $credit ? $credit : '0' );
+	$credit = ($credit ? $credit : '0');
 	$json['status'] = 'OK';
 	$json['error'] = '0';
 	$json['credit'] = $credit;
@@ -347,6 +363,9 @@ function webservices_get_contact_group($c_uid, $name, $count) {
 
 function webservices_output($operation, $requests) {
 	$operation = strtolower($operation);
-	$ret = core_hook($operation, 'webservices_output', array($operation, $requests));
+	$ret = core_hook($operation, 'webservices_output', array(
+		$operation,
+		$requests
+	));
 	return $ret;
 }

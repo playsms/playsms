@@ -405,7 +405,7 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 	if ($username && ($user_config['username'] != $username)) {
 		$user_config = user_getdatabyusername($username);
 	}
-
+	
 	if (!is_array($sms_to)) {
 		$sms_to = explode(',', $sms_to);
 	}
