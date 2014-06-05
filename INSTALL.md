@@ -1,6 +1,6 @@
 # INSTALL
 
-This document explains about how to install and setup playSMS version 1.0.0
+This document explains about how to install and setup playSMS version 1.0-rc1
 
 
 ## Requirements

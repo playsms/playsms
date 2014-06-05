@@ -354,6 +354,10 @@ INSERT INTO `playsms_tblCountry` (`c_timestamp`, `country_id`, `country_name`, `
 
 -- 1.0-rc1
 
+-- version
+UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-rc1' WHERE `registry_group` = 'core' AND `registry_family` = 'config' AND `registry_key` = 'playsms_version' ;
+
+-- saving money/credit in database
 ALTER TABLE `playsms_featureSimplerate` CHANGE `rate` `rate` DECIMAL(13,3) NOT NULL DEFAULT '0.000';
 
 ALTER TABLE `playsms_tblUser` CHANGE `credit` `credit` DECIMAL(13,3) NOT NULL DEFAULT '0.000';

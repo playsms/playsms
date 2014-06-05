@@ -1,8 +1,8 @@
 # README
 
-playSMS version **1.0-beta5**
+playSMS version **1.0-rc1**
 
-Release date **140519**
+Release date **140606**
 
 Official project website:
 
@@ -31,6 +31,7 @@ playSMS is a free and open source SMS management software. A flexible Web-based 
 * Capable of handling large amount of SMS (user reports 500k SMS monthly)
 * Receive private SMS to Inbox and forward it to email (mobile2web)
 * Forward single SMS from mobile to a group of mobile phones 
+* Provides SMS to email and email to SMS by polling mailbox
 * SMS autoreply, for easy autoreplying formatted incoming SMS
 * SMS board, forward received SMS to email, export output in JSON and a
   few other formats
@@ -78,9 +79,14 @@ The GPLv3 full text is included in file [LICENSE.md](LICENSE.md)
 Please read [INSTALL](documents/INSTALL.md "playSMS installation document") and then [FAQ](documents/FAQ.md "Frequently Asked Questions").
 
 
-## Project Founder
+## Project Founder and Maintainer
 
 [Anton Raharja (anton)](http://antonraharja.com "Anton Raharja")
+
+
+## Donation
+
+Donation for this project may be sent to PayPal account: `antonrd@gmail.com`
 
 
 ## Contributors
