@@ -45,10 +45,8 @@ function webservices_validate($h,$u) {
 
 function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0,$nofooter=FALSE,$footer='',$from='',$schedule='') {
 	$ret = '';
-	$arr_to = explode(',', $to);
-	if ($c_username && $arr_to[1] && $msg) {
-		// multiple destination
-		list($ok,$to,$smslog_id,$queue_code) = sendsms($c_username,$arr_to,$msg,$type,$unicode,$nofooter,$footer,$from,$schedule);
+	if ($c_username && $to && $msg) {
+		list($ok,$to,$smslog_id,$queue_code,$counts,$sms_count,$sms_failed) = sendsms_helper($c_username,$to,$msg,$type,$unicode,$nofooter,$footer,$from,$schedule);
 		for ($i=0;$i<count($to);$i++) {
 			if (($ok[$i]==1 || $ok[$i]==true) && $to[$i] && ($queue_code[$i] || $smslog_id[$i])) {
 				$json['data'][$i]['status'] = 'OK';
@@ -64,46 +62,9 @@ function webservices_pv($c_username,$to,$msg,$type='text',$unicode=0,$nofooter=F
 			$json['data'][$i]['queue'] = $queue_code[$i];
 			$json['data'][$i]['to'] = $to[$i];
 		}
-	} elseif ($c_username && $to && $msg) {
-		// single destination
-		list($ok,$to,$smslog_id,$queue_code) = sendsms($c_username,$to,$msg,$type,$unicode,$nofooter,$footer,$from,$schedule);
-		if ($ok[0]==1) {
-			$json['status'] = 'OK';
-			$json['error'] = '0';
-		} elseif ($ok[0]==2) {
-			$json['status'] = 'ERR';
-			$json['error'] = '103';
-		} else {
-			$json['status'] = 'ERR';
-			$json['error'] = '200';
-		}
-		$json['smslog_id'] = $smslog_id[0];
-		$json['queue'] = $queue_code[0];
-		$json['to'] = $to[0];
-		logger_print("returns:".$ret." to:".$to[0]." smslog_id:".$smslog_id[0]." queue_code:".$queue_code[0], 2, "webservices_pv");
 	} else {
 		$json['status'] = 'ERR';
 		$json['error'] = '201';
-	}
-	return $json;
-}
-
-function webservices_bc($c_username,$c_gcode,$msg,$type='text',$unicode=0,$nofooter=FALSE,$footer='',$from='',$schedule) {
-	if (($c_uid = user_username2uid($c_username)) && $c_gcode && $msg) {
-		$c_gpid = phonebook_groupcode2id($c_uid,$c_gcode);
-		// sendsms_bc($c_username,$c_gpid,$message,$sms_type='text',$unicode=0)
-		list($ok,$to,$smslog_id,$queue_code) = sendsms_bc($c_username,$c_gpid,$msg,$type,$unicode,$nofooter,$footer,$from,$schedule);
-		if ($ok[0]) {
-			$json['status'] = 'OK';
-			$json['error'] = '0';
-		} else {
-			$json['status'] = 'ERR';
-			$json['error'] = '300';
-		}
-		$json['queue'] = $queue_code[0];
-	} else {
-		$json['status'] = 'ERR';
-		$json['error'] = '301';
 	}
 	return $json;
 }
