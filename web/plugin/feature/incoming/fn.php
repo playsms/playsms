@@ -177,3 +177,105 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 	
 	return $ret;
 }
+
+function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver) {
+	$ret = array();
+	
+	// continue only when keyword does not exists
+	$m = explode(' ', $message);
+	if (!checkavailablekeyword($m[0])) {
+		return $ret;
+	}
+	
+	// scan for #<sender's phonebook group code> and @<username>
+	$found_bc = FALSE;
+	$found_pv = FALSE;
+	$msg = explode(' ', $message);
+	if (count($msg) > 1) {
+		$bc = array();
+		$pv = array();
+		for ($i = 0; $i < count($msg); $i++) {
+			$c_text = trim($msg[$i]);
+			if (substr($c_text, 0, 1) === '#') {
+				$bc[] = strtoupper(substr($c_text, 1));
+				$found_bc = TRUE;
+			}
+			if (substr($c_text, 0, 1) === '@') {
+				$pv[] = strtolower(substr($c_text, 1));
+				$found_pv = TRUE;
+			}
+		}
+	}
+
+	if ($found_bc || $found_pv) {
+		_log("recvsms_intercept dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming');
+	}
+	
+	if ($found_bc) {
+		$groups = array_unique($bc);
+		foreach ($groups as $key => $c_group_code) {
+			$c_group_code = strtoupper($c_group_code);
+			$c_group_code = core_sanitize_alphanumeric($c_group_code);
+			$c_uid = user_mobile2uid($sms_sender);
+			if ($c_uid && ($c_gpid = phonebook_groupcode2id($c_uid, $c_group_code))) {
+				$c_username = user_uid2username($c_uid);
+				_log("bc g:" . $c_group_code . " gpid:" . $c_gpid . " uid:" . $c_uid . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming');
+				sendsms_bc($c_username, $c_gpid, $message);
+				_log("bc end", 3, 'incoming');
+				$ret['uid'] = $c_uid;
+				$ret['hooked'] = true;
+			} else {
+				
+				// check the group_code for flag_sender<>0
+				$db_query = "SELECT id,uid,flag_sender FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE code='$c_group_code' AND flag_sender<>0";
+				$db_result = dba_query($db_query);
+				if ($db_row = dba_fetch_array($db_result)) {
+					$c_gpid = $db_row['id'];
+					$c_uid = $db_row['uid'];
+					$c_flag_sender = $db_row['flag_sender'];
+					if ($c_flag_sender == 2) {
+						$c_username = user_uid2username($c_uid);
+						_log("bc mobile flag_sender:" . $c_flag_sender . " username:" . $c_username . " uid:" . $c_uid . " g:" . $c_group_code . " gpid:" . $c_gpid . " uid:" . $c_uid . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming');
+						$sender = trim(phonebook_number2name($sms_sender, $c_username));
+						$sender = ($sender ? $sender : $sms_sender);
+						sendsms_bc($c_username, $c_gpid, $sender . ":" . $message);
+						_log("bc mobile end", 3, 'incoming');
+						$ret['uid'] = $c_uid;
+						$ret['hooked'] = true;
+					} else if ($c_flag_sender == 1) {
+						
+						// check whether sms_sender belongs to c_group_code
+						$sms_sender = substr($sms_sender, 3);
+						$members = phonebook_search($c_uid, $sms_sender);
+						if (count($members) > 0) {
+							$c_username = user_uid2username($c_uid);
+							_log("bc mobile flag_sender:" . $c_flag_sender . " username:" . $c_username . " uid:" . $c_uid . " g:" . $c_group_code . " gpid:" . $c_gpid . " uid:" . $c_uid . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming');
+							$sender = trim(phonebook_number2name($sms_sender, $c_username));
+							$sender = ($sender ? $sender : $sms_sender);
+							sendsms_bc($c_username, $c_gpid, $sender . ":" . $message);
+							_log("bc mobile end", 3, 'incoming');
+							$ret['uid'] = $c_uid;
+							$ret['hooked'] = true;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	if ($found_pv) {
+		$users = array_unique($pv);
+		foreach ($users as $key => $c_username) {
+			$c_username = core_sanitize_username($c_username);
+			if ($c_uid = user_username2uid($c_username)) {
+				_log("pv u:" . $c_username . " uid:" . $c_uid . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming');
+				recvsms_inbox_add($sms_datetime, $sms_sender, $c_username, $message, $sms_receiver);
+				_log("pv end", 3, 'incoming');
+				$ret['uid'] = $c_uid;
+				$ret['hooked'] = true;
+			}
+		}
+	}
+	
+	return $ret;
+}

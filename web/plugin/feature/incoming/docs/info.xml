@@ -9,5 +9,5 @@
 	<language_file>1</language_file>
 	<sql_file>0</sql_file>
 	<php_file>1</php_file>
-	<dependency>sender_id</dependency>
+	<dependency>sender_id, phonebook</dependency>
 </plugin>
