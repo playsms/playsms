@@ -111,9 +111,9 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 						}
 						
 						if ($username) {
-							_log("sandbox match sender start u:" . $username . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, "incoming");
+							_log("sandbox match sender start u:" . $username . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept_after');
 							recvsms_inbox_add($sms_datetime, $sms_sender, $username, $message, $sms_receiver);
-							_log("sandbox match sender end u:" . $username, 3, "incoming");
+							_log("sandbox match sender end u:" . $username, 3, 'incoming recvsms_intercept_after');
 							$is_routed = TRUE;
 							
 							// single match only
@@ -132,9 +132,9 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 			// route sandbox by adding a prefix to message and re-enter it to recvsms()
 			if ($sandbox_prefix && trim($message)) {
 				$message = $sandbox_prefix . ' ' . trim($message);
-				_log("sandbox add prefix start keyword:" . $sandbox_prefix . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, "incoming");
+				_log("sandbox add prefix start keyword:" . $sandbox_prefix . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept_after');
 				recvsms($sms_datetime, $sms_sender, $message, $sms_receiver);
-				_log("sandbox add prefix end keyword:" . $sandbox_prefix, 3, "incoming");
+				_log("sandbox add prefix end keyword:" . $sandbox_prefix, 3, 'incoming recvsms_intercept_after');
 				$is_routed = TRUE;
 			}
 		}
@@ -153,9 +153,9 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 			
 			// route sandbox to users inbox
 			foreach ($users as $username) {
-				_log("sandbox to user start u:" . $username . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, "incoming");
+				_log("sandbox to user start u:" . $username . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept_after');
 				recvsms_inbox_add($sms_datetime, $sms_sender, $username, $message, $sms_receiver);
-				_log("sandbox to user end u:" . $username, 3, "incoming");
+				_log("sandbox to user end u:" . $username, 3, 'incoming recvsms_intercept_after');
 				$is_routed = TRUE;
 			}
 		}
@@ -208,7 +208,7 @@ function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $
 	}
 
 	if ($found_bc || $found_pv) {
-		_log("recvsms_intercept dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming');
+		_log("recvsms_intercept dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept');
 	}
 	
 	if ($found_bc) {
@@ -219,9 +219,9 @@ function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $
 			$c_uid = user_mobile2uid($sms_sender);
 			if ($c_uid && ($c_gpid = phonebook_groupcode2id($c_uid, $c_group_code))) {
 				$c_username = user_uid2username($c_uid);
-				_log("bc g:" . $c_group_code . " gpid:" . $c_gpid . " uid:" . $c_uid . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming');
+				_log("bc g:" . $c_group_code . " gpid:" . $c_gpid . " uid:" . $c_uid . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept');
 				sendsms_bc($c_username, $c_gpid, $message);
-				_log("bc end", 3, 'incoming');
+				_log("bc end", 3, 'incoming recvsms_intercept');
 				$ret['uid'] = $c_uid;
 				$ret['hooked'] = true;
 			} else {
@@ -235,11 +235,11 @@ function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $
 					$c_flag_sender = $db_row['flag_sender'];
 					if ($c_flag_sender == 2) {
 						$c_username = user_uid2username($c_uid);
-						_log("bc mobile flag_sender:" . $c_flag_sender . " username:" . $c_username . " uid:" . $c_uid . " g:" . $c_group_code . " gpid:" . $c_gpid . " uid:" . $c_uid . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming');
+						_log("bc mobile flag_sender:" . $c_flag_sender . " username:" . $c_username . " uid:" . $c_uid . " g:" . $c_group_code . " gpid:" . $c_gpid . " uid:" . $c_uid . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept');
 						$sender = trim(phonebook_number2name($sms_sender, $c_username));
 						$sender = ($sender ? $sender : $sms_sender);
 						sendsms_bc($c_username, $c_gpid, $sender . ":" . $message);
-						_log("bc mobile end", 3, 'incoming');
+						_log("bc mobile end", 3, 'incoming recvsms_intercept');
 						$ret['uid'] = $c_uid;
 						$ret['hooked'] = true;
 					} else if ($c_flag_sender == 1) {
@@ -249,11 +249,11 @@ function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $
 						$members = phonebook_search($c_uid, $sms_sender);
 						if (count($members) > 0) {
 							$c_username = user_uid2username($c_uid);
-							_log("bc mobile flag_sender:" . $c_flag_sender . " username:" . $c_username . " uid:" . $c_uid . " g:" . $c_group_code . " gpid:" . $c_gpid . " uid:" . $c_uid . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming');
+							_log("bc mobile flag_sender:" . $c_flag_sender . " username:" . $c_username . " uid:" . $c_uid . " g:" . $c_group_code . " gpid:" . $c_gpid . " uid:" . $c_uid . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept');
 							$sender = trim(phonebook_number2name($sms_sender, $c_username));
 							$sender = ($sender ? $sender : $sms_sender);
 							sendsms_bc($c_username, $c_gpid, $sender . ":" . $message);
-							_log("bc mobile end", 3, 'incoming');
+							_log("bc mobile end", 3, 'incoming recvsms_intercept');
 							$ret['uid'] = $c_uid;
 							$ret['hooked'] = true;
 						}
@@ -268,9 +268,9 @@ function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $
 		foreach ($users as $key => $c_username) {
 			$c_username = core_sanitize_username($c_username);
 			if ($c_uid = user_username2uid($c_username)) {
-				_log("pv u:" . $c_username . " uid:" . $c_uid . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming');
+				_log("pv u:" . $c_username . " uid:" . $c_uid . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept');
 				recvsms_inbox_add($sms_datetime, $sms_sender, $c_username, $message, $sms_receiver);
-				_log("pv end", 3, 'incoming');
+				_log("pv end", 3, 'incoming recvsms_intercept');
 				$ret['uid'] = $c_uid;
 				$ret['hooked'] = true;
 			}
