@@ -86,11 +86,34 @@ function sender_id_check($sender_id) {
 	return $ret;
 }
 
-function sender_id_search($uid) {
-	$sender_search = array(
-		'uid' => $uid,
-		'registry_family' => 'sender_id'
+/**
+ * Get owner of sender ID
+ * @param  string  $sender_id Sender ID
+ * @return integer            User ID
+ */
+function sender_id_owner($sender_id) {
+	$ret = 0;
+
+	$condition = array(
+		'registry_family' => 'sender_id',
+		'registry_key' => core_sanitize_sender($sender_id) ,
 	);
+	if ($data = registry_search_record($condition)) {
+		if ($data[0]['uid']) {
+			$ret = $data[0]['uid'];
+		}
+	}
+	
+	return $ret;
+}
+
+function sender_id_search($uid=0) {
+	$sender_search['registry_family'] = 'sender_id';
+
+	if ((int)$uid) {
+		$sender_search['uid'] = (int)$uid;
+	}
+
 	foreach (registry_search_record($sender_search, '', array(
 		'ORDER BY' => 'c_timestamp DESC, uid'
 	)) as $sender_id) {
@@ -104,11 +127,15 @@ function sender_id_search($uid) {
 	return $ret;
 }
 
-function sender_id_hook_sendsms_getall_sender($username) {
+function sender_id_hook_sendsms_getall_sender($username='') {
 	$ret = array();
 	
-	$uid = user_username2uid($username);
-	
+	if ($username) {
+		$uid = user_username2uid($username);
+	} else {
+		$uid = 0;
+	}
+
 	foreach (sender_id_search($uid) as $value) {
 		$ret[] = $value;
 	}
