@@ -63,6 +63,26 @@ function incoming_post_rules_get() {
 }
 
 /**
+ * Get pre rules
+ * @return array Pre rules
+ *               Available pre rules keys:
+ *               - match_username
+ *               - match_groupcode
+ */
+function incoming_pre_rules_get() {
+	
+	// scan message for @username
+	$data = registry_search(1, 'feature', 'incoming', 'incoming_match_username');
+	$pre_rules['match_username'] = (int)$data['feature']['incoming']['incoming_match_username'];
+	
+	// scan message for #groupcode
+	$data = registry_search(1, 'feature', 'incoming', 'incoming_match_groupcode');
+	$pre_rules['match_groupcode'] = (int)$data['feature']['incoming']['incoming_match_groupcode'];
+	
+	return $pre_rules;
+}
+
+/**
  * Intercept on after-process stage for incoming SMS and forward it to selected user's inbox
  *
  * @param $sms_datetime
@@ -216,6 +236,8 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
  */
 function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver) {
 	$ret = array();
+	$found_bc = FALSE;
+	$found_pv = FALSE;
 	
 	// continue only when keyword does not exists
 	$m = explode(' ', $message);
@@ -223,22 +245,34 @@ function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $
 		return $ret;
 	}
 	
-	// scan for #<sender's phonebook group code> and @<username>
-	$found_bc = FALSE;
-	$found_pv = FALSE;
+	// get settings
+	$settings = incoming_settings_get();
+	
+	// get post rules
+	$pre_rules = incoming_pre_rules_get();
+	
+	// scan for #<sender's phonebook group code> and @<username> according to pre rules
 	$msg = explode(' ', $message);
 	if (count($msg) > 1) {
 		$bc = array();
 		$pv = array();
 		for ($i = 0; $i < count($msg); $i++) {
 			$c_text = trim($msg[$i]);
-			if (substr($c_text, 0, 1) === '#') {
-				$bc[] = strtoupper(substr($c_text, 1));
-				$found_bc = TRUE;
+
+			// scan message for @username			
+			if ($pre_rules['match_username']) {
+				if (substr($c_text, 0, 1) === '@') {
+					$pv[] = strtolower(substr($c_text, 1));
+					$found_pv = TRUE;
+				}
 			}
-			if (substr($c_text, 0, 1) === '@') {
-				$pv[] = strtolower(substr($c_text, 1));
-				$found_pv = TRUE;
+			
+			// scan message for #groupcode
+			if ($pre_rules['match_groupcode']) {
+				if (substr($c_text, 0, 1) === '#') {
+					$bc[] = strtoupper(substr($c_text, 1));
+					$found_bc = TRUE;
+				}
 			}
 		}
 	}

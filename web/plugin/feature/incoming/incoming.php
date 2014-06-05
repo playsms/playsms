@@ -25,6 +25,31 @@ if (!auth_isadmin()) {
 switch (_OP_) {
 	case "incoming":
 		
+		// form pre rules
+		
+		$pre_rules = incoming_pre_rules_get();
+		
+		// scan message for @username
+		$select_match_username = _yesno('incoming_match_username', $pre_rules['match_username'], '', '', '', 'playsms-incoming-match-username', 'form-control');
+		
+		// scan message for #groupcode
+		$select_match_groupcode = _yesno('incoming_match_groupcode', $pre_rules['match_groupcode'], '', '', '', 'playsms-incoming-match-groupcode', 'form-control');
+		
+		$form_pre_rules = array(
+			array(
+				'id' => 'playsms-incoming-match-username',
+				'label' => _('Scan incoming SMS for @username') ,
+				'input' => $select_match_username,
+				'help' => _('Copy the message to user inbox when incoming SMS contains @username') ,
+			) ,
+			array(
+				'id' => 'playsms-incoming-match-groupcode',
+				'label' => _('Scan incoming SMS for #groupcode') ,
+				'input' => $select_match_groupcode,
+				'help' => _('Send SMS to groups with found group codes in the incoming SMS') ,
+			) ,
+		);
+		
 		// form post rules
 		
 		$post_rules = incoming_post_rules_get();
@@ -110,6 +135,7 @@ switch (_OP_) {
 				'Save' => _('Save') ,
 			) ,
 			'loops' => array(
+				'form_pre_rules' => $form_pre_rules,
 				'form_post_rules' => $form_post_rules,
 				'form_settings' => $form_settings,
 			) ,
@@ -122,6 +148,16 @@ switch (_OP_) {
 
 	case "incoming_save":
 		
+		// form pre rules
+		
+		// scan message for @username
+		$pre_rules['match_username'] = (int)$_REQUEST['incoming_match_username'];
+		$items['incoming_match_username'] = $pre_rules['match_username'];
+
+		// scan message for #groupcode
+		$pre_rules['match_groupcode'] = (int)$_REQUEST['incoming_match_groupcode'];
+		$items['incoming_match_groupcode'] = $pre_rules['match_groupcode'];
+
 		// form post rules
 		
 		// sandbox match receiver number and sender ID
