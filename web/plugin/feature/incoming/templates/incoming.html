@@ -13,6 +13,14 @@
 		<div id='tabs-pre-rules' class='tab-pane fade in active'>
 			<h4>{{ Pre rules }} {{ HINT_PRE_RULES }}</h4>
 			<br />
+			<loop.form_pre_rules>
+			<div class="form-group">
+				<label for="{{ form_pre_rules.id }}">{{ form_pre_rules.label }}</label>
+				{{ form_pre_rules.input }}
+				<p class="help-block">{{ form_pre_rules.help }}</p>
+			</div>
+			</loop.form_pre_rules>
+			<p><input type=submit class=button value='{{ Save }}'></p>
 		</div>
 		<div id='tabs-post-rules' class='tab-pane fade'>
 			<h4>{{ Post rules }} {{ HINT_POST_RULES }}</h4>
