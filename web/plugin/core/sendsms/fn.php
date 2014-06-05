@@ -437,17 +437,6 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 	$sms_queued = 0;
 	$sms_failed = 0;
 	
-	// sendsms_im
-	if (is_array($array_username) && $array_username[0]) {
-		$im_sender = '@' . $user_config['username'];
-		foreach ($array_username as $target_user) {
-			$im_sender = '@' . $user_config['username'];
-			if (recvsms_inbox_add(core_get_datetime() , $im_sender, $target_user, $message)) {
-				$ok_im[] = $target_user;
-			}
-		}
-	}
-	
 	// sendsms
 	if (is_array($array_sms_to) && $array_sms_to[0]) {
 		list($ok, $to, $smslog_id, $queue, $counts) = sendsms($user_config['username'], $array_sms_to, $message, $sms_type, $unicode, $nofooter, $sms_footer, $sms_sender, $sms_schedule);
@@ -460,6 +449,20 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 			$sms_count+= $counts[$i];
 		} else {
 			$sms_failed+= $counts[$i];
+		}
+	}
+	
+	// sendsms_im
+	if (is_array($array_username) && $array_username[0]) {
+		$im_sender = '@' . $user_config['username'];
+		foreach ($array_username as $target_user) {
+			$im_sender = '@' . $user_config['username'];
+			if (recvsms_inbox_add(core_get_datetime() , $im_sender, $target_user, $message)) {
+				$ok[] = '1';
+				$to[] = '@'.$target_user;
+				$queue[] = md5($target_user.microtime());
+				$sms_count++;
+			}
 		}
 	}
 	
@@ -556,7 +559,8 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 			FALSE,
 			'',
 			'',
-			''
+			'',
+			'',
 		);
 	}
 	
@@ -664,7 +668,8 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 			FALSE,
 			'',
 			'',
-			$queue_code
+			$queue_code,
+			'',
 		);
 	}
 	
