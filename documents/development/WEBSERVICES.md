@@ -94,6 +94,7 @@ Returns    | return codes
 
 Parameter `to` can be international formatted mobile number, #groupcode or @username, or a mix of them. Separate by commas for multiple value.
 
+
 ### Outgoing SMS and delivery status
 
 List outgoing SMS and delivery status.
@@ -106,6 +107,7 @@ Optional   | `queue` `src` `dst` `dt` `smslog_id` `c` `last` `format`
 Returns    | data or return codes
 
 Parameter `c` will retrieve as many as `c` value, `last` will retrieves data from last SMS log ID.
+
 
 ### Incoming SMS
 
@@ -120,6 +122,7 @@ Returns    | data or return codes
 
 Parameter `c` will retrieve as many as `c` value, `last` will retrieves data from last SMS log ID.
 
+
 ### Inbox SMS
 
 List SMS on user's inbox.
@@ -132,6 +135,7 @@ Optional   | `queue` `src` `dst` `dt` `smslog_id` `c` `last` `format`
 Returns    | data or return codes
 
 Parameter `c` will retrieve as many as `c` value, `last` will retrieves data from last SMS log ID.
+
 
 ### Sandbox
 
@@ -146,6 +150,7 @@ Returns    | data or return codes
 
 Parameter `c` will retrieve as many as `c` value, `last` will retrieves data from last SMS log ID.
 
+
 ### User credit
 
 Get user's credit information.
@@ -156,6 +161,7 @@ Operation  | `cr`
 Mandatory  | `u` `h`
 Optional   | `format`
 Returns    | user's credit or return codes
+
 
 ### Get token
 
@@ -168,6 +174,7 @@ Mandatory  | `u` `p`
 Optional   | `format`
 Returns    | webservices token or return codes
 
+
 ### Set token
 
 Set user's webservices token. This can be used as a change password mechanism.
@@ -179,6 +186,7 @@ Mandatory  | `u` `h`
 Optional   | `format`
 Returns    | new webservices token or return codes
 
+
 ### Get contact list
 
 Get contact list by name, mobile or email
@@ -189,6 +197,7 @@ Operation  | `get_contact`
 Mandatory  | `u` `h` `kwd`
 Optional   | `c` `format`
 Returns    | list of contacts similar or the same as `kwd` or return codes
+
 
 ### Get group contact list
 
@@ -224,6 +233,7 @@ When succeeded playSMS will returns OK status message in JSON format:
 ```
 When error occurred playSMS will returns one of the return code, also in JSON format.
 
+
 ### List of incoming SMS
 
 Example webservice URL:
@@ -255,6 +265,7 @@ When succeeded playSMS will returns OK status message in XML format:
 ```
 
 When error occurred playSMS will returns one of the return code, also in XML format.
+
 
 ### List of contacts on phonebook
 
