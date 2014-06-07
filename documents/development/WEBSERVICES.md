@@ -26,7 +26,7 @@ p              | password, supplied for op=get_token
 op             | operation or type of action
 format	       | output format selection
 from	       | SMS sender ID (for op=pv)
-to             | destination numbers or group codes (international format)
+to             | destination numbers, @username or #groupcode, may use commas
 footer	       | SMS footer (for op=pv)
 nofooter       | remove SMS footer
 msg            | message (+ or %20 for spaces, urlencode for non ascii chars)
@@ -41,6 +41,8 @@ smslog_id      | SMS Log ID
 last           | last SMS log ID (this number not included on result)
 c              | number of delivery status that will be retrieved
 kwd            | keyword
+
+Please note that all values should be URL encoded.
 
 
 ## Return Codes
@@ -60,8 +62,6 @@ ERR 105    | webservice token not enable for this user
 ERR 106    | webservice token not allowed from this IP address
 ERR 200    | send private failed
 ERR 201    | destination number or message is empty
-ERR 300    | send broadcast failed
-ERR 301    | destination group or message is empty
 ERR 400    | no delivery status available
 ERR 401    | no delivery status retrieved and SMS still in queue
 ERR 402    | no delivery status retrieved and SMS has been processed from queue
@@ -79,6 +79,7 @@ ERR 5xx    | others
 
 
 ## Protocol
+
 
 ### Send SMS
 
@@ -203,6 +204,7 @@ Returns    | list of contact groups similar or the same as `kwd` or return codes
 
 ## Examples
 
+
 ### Send SMS
 
 Example webservice URL:
@@ -218,7 +220,7 @@ playSMS webservices in x.dom with operation `op` pv (send SMS) was accessed by a
 When succeeded playSMS will returns OK status message in JSON format:
 
 ```
-{"status":"OK","error":"0","smslog_id":0,"queue":"afb5f34575e30ec4efe4471cf5d1bee4","to":"0987654321"}
+{"data":[{"status":"OK","error":"0","smslog_id":"30","queue":"afb5f34575e30ec4efe4471cf5d1bee4","to":"0987654321"}],"error_string":null}
 ```
 When error occurred playSMS will returns one of the return code, also in JSON format.
 
