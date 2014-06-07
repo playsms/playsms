@@ -27,6 +27,7 @@ op             | operation or type of action
 format	       | output format selection
 from	       | SMS sender ID (for op=pv)
 to             | destination numbers, @username or #groupcode, may use commas
+recvnum        | receiver number (for op=inject)
 footer	       | SMS footer (for op=pv)
 nofooter       | remove SMS footer
 msg            | message (+ or %20 for spaces, urlencode for non ascii chars)
@@ -60,15 +61,17 @@ ERR 103    | not enough credit for this operation
 ERR 104    | webservice token is not available
 ERR 105    | webservice token not enable for this user
 ERR 106    | webservice token not allowed from this IP address
-ERR 200    | send private failed
+ERR 200    | send message failed
 ERR 201    | destination number or message is empty
 ERR 400    | no delivery status available
 ERR 401    | no delivery status retrieved and SMS still in queue
 ERR 402    | no delivery status retrieved and SMS has been processed from queue
 ERR 501    | no data returned or result is empty
+ERR 600    | admin level authentication failed
+ERR 601    | inject message failed
+ERR 602    | sender id or message is empty
 
-There might appear new error codes in the future, you should be aware that new
-codes might appear with this syntax
+There might appear new error codes in the future, you should be aware that new codes might appear in this syntax:
 
 Error code | Description
 ---------- | -----------
@@ -76,14 +79,15 @@ ERR 1xx    | authentication or parameter erorrs
 ERR 2xx    | specific pv errors
 ERR 4xx    | delivery status errors
 ERR 5xx    | others
+ERR 6xx    | administrative tasks
 
 
 ## Protocol
 
 
-### Send SMS
+### Send message
 
-Send SMS to a single or multiple mobile numbers.
+Send message to a single or multiple mobile numbers, @username or #groupcode
 
 Parameters | Name or description
 ---------- | --------------------
@@ -93,6 +97,20 @@ Optional   | `type` `unicode` `from` `footer` `nofooter` `format`
 Returns    | return codes
 
 Parameter `to` can be international formatted mobile number, #groupcode or @username, or a mix of them. Separate by commas for multiple value.
+
+
+### Inject message
+
+Inject message to the system
+
+Parameters | Name or description
+---------- | --------------------
+Operation  | `inject`
+Mandatory  | `u` `h` `from` `msg` `recvnum`
+Optional   | `format`
+Returns    | return codes
+
+Injected message will be treated as a valid incoming SMS.
 
 
 ### Outgoing SMS and delivery status
@@ -123,7 +141,7 @@ Returns    | data or return codes
 Parameter `c` will retrieve as many as `c` value, `last` will retrieves data from last SMS log ID.
 
 
-### Inbox SMS
+### Inbox
 
 List SMS on user's inbox.
 

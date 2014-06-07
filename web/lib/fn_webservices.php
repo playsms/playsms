@@ -43,6 +43,28 @@ function webservices_validate($h, $u) {
 	return $ret;
 }
 
+/**
+ * Validate admin level webservices token, with or without username
+ * @param $h
+ *     Webservices token (admin users only)
+ * @param $u
+ *     Username (admin users only)
+ * @return boolean FALSE if invalid, string username if valid
+ */
+function webservices_validate_admin($h, $u) {
+	$ret = false;
+	
+	$c_u = webservices_validate($h, $u);
+	if ($u) {
+		$status = user_getfieldbyusername($c_u, 'status');
+		if ($status == 2) {
+			$ret = $c_u;
+		}
+	}
+	
+	return $ret;
+}
+
 function webservices_pv($c_username, $to, $msg, $type = 'text', $unicode = 0, $nofooter = FALSE, $footer = '', $from = '', $schedule = '') {
 	$ret = '';
 	if ($c_username && $to && $msg) {
@@ -52,7 +74,8 @@ function webservices_pv($c_username, $to, $msg, $type = 'text', $unicode = 0, $n
 				$json['data'][$i]['status'] = 'OK';
 				$json['data'][$i]['error'] = '0';
 			} elseif ($ok[$i] == 2) {
-				 // this doesn't work, but not much an issue now
+				
+				// this doesn't work, but not much an issue now
 				$json['data'][$i]['status'] = 'ERR';
 				$json['data'][$i]['error'] = '103';
 			} else {
@@ -66,6 +89,28 @@ function webservices_pv($c_username, $to, $msg, $type = 'text', $unicode = 0, $n
 	} else {
 		$json['status'] = 'ERR';
 		$json['error'] = '201';
+	}
+	return $json;
+}
+
+function webservices_inject($c_username, $from, $msg, $recvnum = '') {
+	$ret = '';
+	if ($from && $msg) {
+		if ($c_username) {
+			
+			// inject message
+			$sms_datetime = core_display_datetime(core_get_datetime());
+			recvsms($sms_datetime, $from, $msg, $recvnum);
+			
+			$json['status'] = 'OK';
+			$json['error'] = '0';
+		} else {
+			$json['status'] = 'ERR';
+			$json['error'] = '601';
+		}
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '602';
 	}
 	return $json;
 }
