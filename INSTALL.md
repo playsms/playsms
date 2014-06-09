@@ -1,6 +1,6 @@
 # INSTALL
 
-This document explains about how to install and setup playSMS version 1.0-rc1
+This document explains about how to install and setup playSMS version **1.0-rc2**
 
 
 ## Requirements
@@ -14,12 +14,9 @@ part before starting the installation.
 
 Optional hardware or infrastructure:
 
-* GSM modem, single/modem pool (only when you plan to use Kannel, Gammu, Gnokii
-  or smstools gateway plugins)
-* Internet connection (only when you plan to use Clickatell, Nexmo, Twilio,
-  Infobip gateway plugins)
-* LAN (only when you plan to link 2 playSMS on different server in the same
-  network using Uplink gateway plugin)
+* GSM modem, single/modem pool (only when you plan to use Kannel, Gammu, Gnokii or smstools gateway plugins)
+* Internet connection (only when you plan to use Clickatell, Nexmo, Twilio, Infobip gateway plugins)
+* LAN (only when you plan to link 2 playSMS on different server in the same network using Uplink gateway plugin)
 
 **Minimum required softwares:**
 
@@ -34,15 +31,13 @@ Optional hardware or infrastructure:
 * PHP GD extension (to draw graphs)
 * Access to SMTP server (playSMS will use this to send email)
 * Console browser such as lynx, wget or curl
-* Downloaded playSMS package from SF.net or latest source code from
-  Github
+* Downloaded playSMS package from SF.net or latest source code from Github
 * Properly installed composer from https://getcomposer.org
 
 **Minimum required server administrator (or developer):**
 
 * Understand howto make sure required softwares are installed
-* Understand howto make sure installed PHP has MySQL module
-  enabled/loaded
+* Understand howto make sure installed PHP has MySQL module enabled/loaded
 * Understand howto create/drop MySQL database
 * Understand howto insert SQL statements into created database
 * Basic knowledges to manage Linux (skill to navigate in console mode)
@@ -55,14 +50,14 @@ There are 2 methods explained in this document to install playSMS:
 1. Installation on Linux using install-script
 2. Installation on Linux step by step
 
-You should pick only one method, do not do both methods.
+You should pick **only one** method, do not do both methods.
 
 
 ### Method 1: Installation on Linux using install-script
 
 Install playSMS using install script `install-playsms.sh`
 
-1.  Extract playSMS package somewhere (For example in /usr/local/src).
+1.  Extract playSMS package and go there (For example in /usr/local/src)
 
     ```
     tar -zxf playsms-1.0.0.tar.gz -C /usr/local/src
@@ -70,8 +65,9 @@ Install playSMS using install script `install-playsms.sh`
     cd /usr/local/src/playsms-1.0.0/
     ```
 
-2.  Copy install.conf.dist to install.conf and edit install.conf. 
-    Then read install.conf and make changes to suit your system configuration
+2.  Copy install.conf.dist to install.conf and edit install.conf
+
+    Read install.conf and make changes to suit your system configuration
 
     ```
     cp install.conf.dist install.conf
@@ -98,8 +94,7 @@ Install playSMS using install script `install-playsms.sh`
 
 Note:
    
-* After successful installation, please run command `ps ax` and see if
-  playsmsd is running
+* After successful installation, please run command `ps ax` and see if playsmsd is running
 
   ```
   ps ax | grep playsms
@@ -118,13 +113,12 @@ Note:
 
 * Stop here and review your installation steps when playsmsd is not running
 * Consider to ask question in playSMS forum when you encountered a problem
-* If all seems to be correctly installed you may try to login from web by
-  browsing `http://<your web server IP>/playsms/` and login using default
-  administrator user
+* If all seems to be correctly installed you may try to login from web browser
 
   ```
-  username: admin
-  password: admin
+  URL                    : http://[your web server IP]/playsms/
+  Default admin username : admin
+  Default admin password : admin
   ```
 
 
@@ -132,36 +126,37 @@ Note:
 
 Install playSMS by following step-by-step:
 
-1.  Extract playSMS package somewhere (For example in /usr/local/src).
+1.  Extract playSMS package and go there (For example in /usr/local/src)
 
     ```
     tar -zxf playsms-1.0.0.tar.gz -C /usr/local/src
-    ls -l /usr/local/src
+    ls -l /usr/local/src/
+    cd /usr/local/src/playsms-1.0.0/
     ```
 
 2.  Run getcomposer.sh
 
     ```
-    cd /usr/local/src/playsms-1.0.0
     ./getcomposer.sh
     ```
 
-3.  Create playSMS web root, log, lib and set ownership to user www-data or
-    web server user
+3.  Create playSMS web root, log, lib and set ownership to user www-data or web server user
+
+    Assumed that your web root is `/var/www` and your web server user is `www-data`
 
     ```
     mkdir -p /var/www/playsms /var/log/playsms /var/lib/playsms
     chown -R www-data /var/www/playsms /var/log/playsms /var/lib/playsms
     ```
    
-    There are Linux distributions using 'apache' as web server user instead of 'www-data'.
+    Please note that there are Linux distributions using `apache` as web server user instead of `www-data`
+    
+    Also note that there are Linux distributions set `/var/www/html` as web root instead of `/var/www`
 
-4.  Copy files and directories inside 'web' directory to playSMS web root
-    and set ownership again to user www-data or web server user, just to
-    make sure
+4.  Copy files and directories inside `web` directory to playSMS web root and set ownership to web server user
 
     ```
-    cp -rR /usr/local/src/playsms-1.0.0/web/* /var/www/playsms
+    cp -rR web/* /var/www/playsms
     chown -R www-data /var/www/playsms
     ```
 
@@ -169,14 +164,8 @@ Install playSMS by following step-by-step:
 
     ```
     mysqladmin -u root -p create playsms
-    mysql -u root -p playsms < /usr/local/src/playsms-1.0.0/db/playsms.sql
+    cat db/playsms.sql | mysql -u root -p playsms
     ```
-
-    You don't need to use MySQL root access nor this method to setup playSMS
-    database, but this is beyond our scope.
- 
-    You should read MySQL manual for custom installation method or howto insert
-    SQL statements into existing database.
 
 6.  Copy config-dist.php to config.php and then edit config.php
 
@@ -190,9 +179,8 @@ Install playSMS by following step-by-step:
 7.  Enter daemon/linux directory, copy files and folder inside
 
     ```
-    cd /usr/local/src/playsms-1.0.0/daemon/linux
-    cp etc/playsmsd.conf /etc/playsmsd.conf
-    cp bin/playsmsd /usr/local/bin/playsmsd
+    cp daemon/linux/etc/playsmsd.conf /etc/playsmsd.conf
+    cp daemon/linux/bin/playsmsd /usr/local/bin/playsmsd
     ```
 
 8.  Just to make sure every paths are correct, please edit /etc/playsmsd.conf
@@ -201,10 +189,9 @@ Install playSMS by following step-by-step:
     vi /etc/playsmsd.conf
     ```
 
-    Make sure that PLAYSMS_PATH is pointing to a correct playSMS installation
-    path (in this example to /var/www/playsms), and make sure that PLAYSMS_BIN
-    is pointing to a correct playSMS daemon scripts path (in this example to
-    /usr/local/bin)
+    Make sure that `PLAYSMS_PATH` is pointing to a correct playSMS installation path (in this example to /var/www/playsms)
+
+    Also Make sure that `PLAYSMS_BIN` is pointing to a correct playSMS daemon scripts path (in this example to /usr/local/bin)
 
 9.  Start playsmsd now from Linux console, no need to reboot
 
@@ -226,8 +213,7 @@ Install playSMS by following step-by-step:
 
 Note:
    
-* After successful installation, please run command `ps ax` and see if
-  playsmsd is running
+* After successful installation, please run command `ps ax` and see if playsmsd is running
 
   ```
   ps ax | grep playsms
@@ -246,13 +232,12 @@ Note:
 
 * Stop here and review your installation steps when playsmsd is not running
 * Consider to ask question in playSMS forum when you encountered a problem
-* If all seems to be correctly installed you may try to login from web by
-  browsing `http://<your web server IP>/playsms/` and login using default
-  administrator user
+* If all seems to be correctly installed you may try to login from web browser
 
   ```
-  username: admin
-  password: admin
+  URL                    : http://[your web server IP]/playsms/
+  Default admin username : admin
+  Default admin password : admin
   ```
 
 

@@ -22,15 +22,18 @@ DBHOST="localhost"
 DBPORT="3306"
 
 # Web server's user, for example apache2 user by default is www-data
+# note: please make sure your web server user
 WEBSERVERUSER="www-data"
 
 # Web server's group, for example apache2 group by default is www-data
+# note: please make sure your web server group
 WEBSERVERGROUP="www-data"
 
 # Path to playSMS extracted source files
 PATHSRC="$(pwd)"
 
 # Path to playSMS web files
+# note: please make sure your web root path, in this example its /var/www/html
 PATHWEB="/var/www/html/playsms"
 
 # Path to playSMS additional files

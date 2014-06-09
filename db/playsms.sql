@@ -1389,7 +1389,7 @@ CREATE TABLE IF NOT EXISTS `playsms_tblRegistry` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) VALUES
-(1, 'core', 'config', 'playsms_version', '1.0-beta5'),
+(1, 'core', 'config', 'playsms_version', '1.0-rc2'),
 (1, 'core', 'main_config', 'web_title', 'playSMS'),
 (1, 'core', 'main_config', 'email_service', 'noreply@playsms.org'),
 (1, 'core', 'main_config', 'email_footer', 'Powered by playSMS'),

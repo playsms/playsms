@@ -370,3 +370,9 @@ ALTER TABLE `playsms_featureCredit` CHANGE `amount` `amount` DECIMAL(13,3) NOT N
 CHANGE `balance` `balance` DECIMAL(13,3) NOT NULL DEFAULT '0.000';
 
 ALTER TABLE `playsms_tblSMSOutgoing` CHANGE `p_credit` `p_credit` DECIMAL(13,3) NOT NULL DEFAULT '0.000';
+
+
+-- 1.0-rc2
+
+-- version
+UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-rc2' WHERE `registry_group` = 'core' AND `registry_family` = 'config' AND `registry_key` = 'playsms_version' ;
