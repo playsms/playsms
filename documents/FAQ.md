@@ -1,6 +1,6 @@
 # FAQ
 
-Frequently Asked Questions.
+Frequently Asked Questions for playSMS version **1.0-rc2**.
 
 Question:
 
@@ -8,8 +8,11 @@ Why is playSMS licensed as GPL version 3?
 
 Answer:
 
-GPLv3 is one of the open source license, choosing this will force anyone that
-distributing this software to contribute back when they modify it.
+GPLv3 is one of the open source distribution license, choosing this will force 
+anyone that distributing this software to contribute back when they modify it.
+
+playSMS users, open source community in general, will gain benefit from applying
+this distrubution license.
 
 
 ## Login
@@ -18,16 +21,20 @@ distributing this software to contribute back when they modify it.
 
     Answer:
 
-    Browse playSMS URL and login with username admin and password admin
+    Browse playSMS URL and login with default username password
+
+    Username | password
+    -------- | --------
+    admin    | admin
 
 2.  What should I do next after I logged in as Administrator?
 
     Answer:
 
-    Change your default password, add new normal users, setup main
-    configuration, create group and add mobile phone number.
+    Change your default password, add new users, setup main configuration, 
+    create group and add mobile phone number.
 
-3.  What should I do for the first time as Normal User?
+3.  What should I do for the first time as User?
 
     Answer:
 
@@ -49,23 +56,25 @@ distributing this software to contribute back when they modify it.
 
     Use Send SMS page.
 
+    Groups in phonebook can be addressed with prefix # followed by group code.
+
 3.  Is there any delivery status reported?
 
     Answer:
 
     Yes. Go to Outgoing SMS page.
 
-    * Status "Failed" is for failed attempt.
-    * Status "Pending" is for queued SMS (on server).
-    * Status "Sent" is for SMS sent (SMS sent to gateway).
-    * Status "Delivered" is for SMS delivered to phone.
+    * Red dot represent status "Failed" for failed attempt
+    * Yellow dot represent status "Pending" for queued SMS (on server)
+    * Green dot represent status "Sent" for SMS sent (SMS sent to gateway)
+    * Blue dot represent status "Delivered" for SMS delivered to phone
 
 4.  Can we delete Outgoing SMS?
 
     Answer:
 
     Yes, but its not really deleted, its just permanently hidden from
-    everyone's Outgoing SMS page (including from administrator's).
+    everyone's Outgoing SMS page (including from administrators).
 
 5.  Can we retrieve deleted Outgoing SMS?
 
@@ -77,7 +86,7 @@ distributing this software to contribute back when they modify it.
 
     Answer:
 
-    No, playSMS will keep trying to send the SMS.
+    No, playSMS is already send the message.
 
 7.  How do my sent SMS look like at the recipient mobile phones?
 
@@ -96,6 +105,9 @@ distributing this software to contribute back when they modify it.
     2. Module sender ID on active gateway configuration (in case it exists)
     3. SMS sender ID on User preferences
 
+    Sender ID is managed from Manage sender ID menu and is required to be 
+    approved by administrator.
+
 
 ## Receive SMS
 
@@ -103,19 +115,13 @@ distributing this software to contribute back when they modify it.
 
     Answer:
 
-    Yes, your incoming SMS are stored on your Inbox. Current version
-    have new feature to forward incoming SMS to your email and to your
-    mobile phone.
+    Yes. If it came to Inbox, it can also be forwarded to email or mobile.
 
-2.  How do I receive SMS?
+2.  How do I receive SMS in my Inbox?
 
     Answer:
 
     Tell people to send SMS to your playSMS number with format:
-
-    `PV [your_username] [their message]`
-
-    or this format (since playSMS 0.9.5.2):
 
     `@[your username] [their message]`
 
@@ -123,8 +129,6 @@ distributing this software to contribute back when they modify it.
 
     Examples:
 
-    * PV devteam your application works!
-    * pv devteam i want to help you developing this application :)
     * @devteam your application rocks!
     * @devteam I want to help but dunno wht todo, any idea?
     * @admin bro, please set me as admin too !!
@@ -153,12 +157,16 @@ distributing this software to contribute back when they modify it.
     playSMS will use Mobile number sets in user's Preferences menu to
     authenticate this feature
 
-4.  What happened to the received/incoming SMS without keyword PV
-    or keyword (or messages) with @ sign ?
+    In current release group in phonebook can also be set to allows forwards from
+    senders other than the group owner.
+
+4.  What happened to the received/incoming SMS without keyword?
 
     Answer:
 
     They will only be shown in Sandbox menu, only administrators can view them.
+
+    In current release these messages may be routed to several users or a feature.
 
 
 ## Webservices
@@ -168,8 +176,8 @@ distributing this software to contribute back when they modify it.
 
     Answer:
 
-    Yes, more information how to use this feature can be read in
-    docs/WEBSERVICES
+    Yes, more information how to use this feature can be read in `WEBSERVICES.md`
+    located in `documents/development/`.
 
 2.  Can I retrieve delivery status remotely so I can process it from
     other application?
