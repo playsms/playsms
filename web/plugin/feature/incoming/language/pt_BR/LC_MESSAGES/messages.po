@@ -1,4 +1,14 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-10 22:21+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 msgid "A valid keyword will be inserted and prefixed to the message"
+msgstr ""
+
+msgid "Copy the message to user inbox when incoming SMS contains @username"
 msgstr ""
 
 msgid "Fail to insert keyword"
@@ -10,7 +20,27 @@ msgstr ""
 msgid "Insert keyword"
 msgstr ""
 
+msgid "Leave a copy in sandbox SMS page"
+msgstr ""
+
+msgid "Leaving a copy in sandbox SMS page may be useful for audit or reviews"
+msgstr ""
+
+msgid "Match with all approved sender ID"
+msgstr ""
+
 msgid "No route has been saved"
+msgstr ""
+
+msgid "Post rules"
+msgstr ""
+
+msgid "Pre rules"
+msgstr ""
+
+msgid ""
+"Receiver number can be matched with default sender ID or with all approved "
+"sender ID"
 msgstr ""
 
 msgid "Route all sandbox SMS to keyword"
@@ -31,7 +61,19 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
+msgid "Scan incoming SMS for #groupcode"
+msgstr ""
+
+msgid "Scan incoming SMS for @username"
+msgstr ""
+
 msgid "Select users"
+msgstr ""
+
+msgid "Send SMS to groups with found group codes in the incoming SMS"
+msgstr ""
+
+msgid "Settings"
 msgstr ""
 
 msgid "keyword"
