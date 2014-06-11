@@ -136,7 +136,12 @@ function gammu_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = 
 	$time = date('Gis', time());
 	
 	// OUT<priority><date>_<time>_<serialno>_<phone_number>_<anything>.<ext><options>
-	$sms_id = 'A' . $date . '_' . $time . '_00_' . $sms_to . '_' . $smslog_id . '10001' . $uid . '10001' . $gpid . '.txtd';
+	if ($plugin_config['gammu']['dlr']) {
+		$option_dlr = 'd';
+	} else {
+		$option_dlr = '';
+	}
+	$sms_id = 'A' . $date . '_' . $time . '_00_' . $sms_to . '_' . $smslog_id . '10001' . $uid . '10001' . $gpid . '.txt'.$option_dlr;
 	if ($sms_type == 'flash') {
 		$sms_id.= 'f';
 	}

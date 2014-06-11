@@ -3,6 +3,7 @@ defined('_SECURE_') or die('Forbidden');
 
 $plugin_config['gammu']['name'] = "gammu";
 $plugin_config['gammu']['path'] = "/var/spool/gammu";
+$plugin_config['gammu']['dlr'] = FALSE;
 
 // insert to left menu array
 //if (isadmin()) {
