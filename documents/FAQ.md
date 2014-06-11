@@ -2,17 +2,21 @@
 
 Frequently Asked Questions for playSMS version **1.0-rc2**.
 
-Question:
+1. Who wrote this FAQ?
 
-Why is playSMS licensed as GPL version 3?
+   Answer:
 
-Answer:
+   Mostly me, anton.
 
-GPLv3 is one of the open source distribution license, choosing this will force 
-anyone that distributing this software to contribute back when they modify it.
+2. Why is playSMS licensed as GPL version 3?
 
-playSMS users, open source community in general, will gain benefit from applying
-this distrubution license.
+   Answer:
+
+   GPLv3 is one of the open source distribution license, choosing this will force 
+   anyone that distributing this software to contribute back when they modify it.
+
+   I believe playSMS users, open source community in general, will gain benefit 
+   from applying this distrubution license.
 
 
 ## Login
@@ -21,7 +25,7 @@ this distrubution license.
 
     Answer:
 
-    Browse playSMS URL and login with default username password
+    Browse playSMS URL and login with default username and password:
 
     Username | password
     -------- | --------
@@ -178,6 +182,8 @@ this distrubution license.
 
     Yes, more information how to use this feature can be read in `WEBSERVICES.md`
     located in `documents/development/`.
+
+    Also available here: http://bit.ly/playsmsws
 
 2.  Can I retrieve delivery status remotely so I can process it from
     other application?
@@ -582,11 +588,11 @@ this distrubution license.
 
     http://www.playsms.org
 
-3.  Should I tell you guys when I install playSMS on my site?
+3.  Should I tell you when I install playSMS on my site?
 
     Answer:
 
-    No, its not mandatory, but it would be a great info for the rest.
+    Yes, you should.
 
 4.  If I have wishes, what should I do?
 
