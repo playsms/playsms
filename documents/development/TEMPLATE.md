@@ -46,7 +46,7 @@ $tpl = array(
 		'HTTP_PATH_BASE' => $core_config['http_path']['base'],
 		'Home' => _('Home'),
 	),
-	'if' => array(
+	'ifs' => array(
 		'valid' => auth_isvalid(),
 	),
 );
