@@ -1,8 +1,10 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
-if(!auth_isadmin()){auth_block();};
+if (!auth_isadmin()) {
+	auth_block();
+};
 
-include $core_config['apps_path']['plug']."/gateway/gammu/config.php";
+include $core_config['apps_path']['plug'] . "/gateway/gammu/config.php";
 
 $gw = core_gateway_get();
 
@@ -17,16 +19,16 @@ switch (_OP_) {
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
-		$content .= "
-			<h2>"._('Manage gammu')."</h2>
+		$content.= "
+			<h2>" . _('Manage gammu') . "</h2>
 			<table class=playsms-table>
 				<tbody>
 				<tr>
-					<td class=label-sizer>"._('Gateway name')."</td><td>gammu $status_active</td>
+					<td class=label-sizer>" . _('Gateway name') . "</td><td>gammu $status_active</td>
 				</tr>
 				</tbody>
 			</table>";
-		$content .= _back('index.php?app=main&inc=feature_gatewaymanager&op=gatewaymanager_list');
+		$content.= _back('index.php?app=main&inc=feature_gatewaymanager&op=gatewaymanager_list');
 		_p($content);
 		break;
 }
