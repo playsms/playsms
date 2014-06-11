@@ -250,28 +250,10 @@ if (auth_isvalid()) {
 }
 
 // override main config with site config for branding purposes distinguished by domain name
-if (!$core_config['daemon_process']) {
+if ((!$core_config['daemon_process']) && $_SERVER['HTTP_HOST']) {
 	$s = site_config_getbydomain($_SERVER['HTTP_HOST']);
-	$site_config = site_config_get($s[0]['uid']);
-
-	// if not accessing webservices
-	if (!((_APP_ == 'ws') || (_APP_ == 'webservices'))) {
-		
-		// if site domain does not exists
-		if (!$site_config['domain']) {
-			
-			// if no site domain found and main web_url is exists
-			if ($core_config['main']['web_url']) {
-				
-				// if HTTP_HOST NOT equal to web_url, localhost or 127.0.0.1 then redirect
-				$url = parse_url($core_config['main']['web_url']);
-				if (!(($_SERVER['HTTP_HOST'] == $url['host']) || ($_SERVER['HTTP_HOST'] == 'localhost') || ($_SERVER['HTTP_HOST'] == '127.0.0.1'))) {
-					_log('access to unknown domain:' . $_SERVER['HTTP_HOST'] . ' redirected to web_url:' . $core_config['main']['web_url'], 2, 'init');
-					header('Location: ' . $core_config['main']['web_url']);
-					exit();
-				}
-			}
-		}
+	if ((int)$s[0]['uid']) {
+		$site_config = site_config_get((int)$s[0]['uid']);
 	}
 }
 

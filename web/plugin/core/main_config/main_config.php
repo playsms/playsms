@@ -140,7 +140,6 @@ switch (_OP_) {
 				'HINT_WEBSITE_URL' => _hint(_('Access to unknown domain mapped to this server IP address will be redirected to this website URL. This website URL should be the primary address for the service.')) ,
 				'HINT_CUSTOM_SENDER_ID' => _hint('Allow users to select sender ID while on Send SMS page') ,
 				'HINT_CUSTOM_FOOTER' => _hint('Allow users to select SMS footer while on Send SMS page') ,
-				'web_url' => $main_config['web_url'],
 				'web_title' => $main_config['web_title'],
 				'email_service' => $main_config['email_service'],
 				'email_footer' => $main_config['email_footer'],
@@ -167,9 +166,6 @@ switch (_OP_) {
 				'option_gateway_module' => $option_gateway_module,
 				'option_themes_module' => $option_themes_module,
 				'option_language_module' => $option_language_module
-			) ,
-			'ifs' => array(
-				'display_web_url' => (function_exists('site_config_getbydomain') && function_exists('site_config_get') ? TRUE : FALSE) ,
 			) ,
 			'injects' => array(
 				'core_config',
@@ -222,7 +218,6 @@ switch (_OP_) {
 		}
 		
 		$items = array(
-			'web_url' => $post['edit_web_url'],
 			'web_title' => $post['edit_web_title'],
 			'email_service' => $post['edit_email_service'],
 			'email_footer' => $post['edit_email_footer'],
