@@ -258,8 +258,8 @@ function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $
 		$pv = array();
 		for ($i = 0; $i < count($msg); $i++) {
 			$c_text = trim($msg[$i]);
-
-			// scan message for @username			
+			
+			// scan message for @username
 			if ($pre_rules['match_username']) {
 				if (substr($c_text, 0, 1) === '@') {
 					$pv[] = strtolower(substr($c_text, 1));
