@@ -31,10 +31,7 @@ if ($board_id = $_REQUEST['board_id']) {
 
 switch (_OP_) {
 	case "sms_board_list":
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
-		}
-		$content.= "
+		$content = _err_display() . "
 			<h2>" . _('Manage board') . "</h2>
 			<p>" . _button('index.php?app=main&inc=feature_sms_board&op=sms_board_add', _('Add SMS board')) . "
 			<div class=table-responsive>
@@ -95,10 +92,8 @@ switch (_OP_) {
 		$edit_email = $db_row['board_forward_email'];
 		$edit_css = $db_row['board_css'];
 		$edit_template = $db_row['board_pref_template'];
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
-		}
-		$content.= "
+		
+		$content = _err_display() . "
 			<h2>" . _('Manage board') . "</h2>
 			<h3>" . _('Edit SMS board') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_board&op=sms_board_edit_yes method=post>
@@ -173,10 +168,7 @@ switch (_OP_) {
 		break;
 
 	case "sms_board_add":
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
-		}
-		$content.= "
+		$content = _err_display() . "
 			<h2>" . _('Manage board') . "</h2>
 			<h3>" . _('Add SMS board') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_board&op=sms_board_add_yes method=post>
