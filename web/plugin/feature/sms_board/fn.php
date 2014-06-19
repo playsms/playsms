@@ -93,16 +93,25 @@ function sms_board_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $bo
 				$c_name = phonebook_number2name($sms_sender, $c_username);
 				$sms_sender = ($c_name ? $c_name . ' <' . $sms_sender . '>' : $sms_sender);
 				$sms_datetime = core_display_datetime($sms_datetime);
-				$subject = "[SMSGW-" . $board_keyword . "] " . _('from') . " $sms_sender";
-				$body = _('Forward WebSMS') . " ($web_title)\n\n";
+				$subject = "[" . $board_keyword . "] " . _('SMS board from') . " $sms_sender";
+				$body = $core_config['main']['web_title'] . "\n";
+				$body.= $core_config['http_path']['base'] . "\n\n";
 				$body.= _('Date and time') . ": $sms_datetime\n";
 				$body.= _('Sender') . ": $sms_sender\n";
 				$body.= _('Receiver') . ": $sms_receiver\n";
-				$body.= _('Keyword') . ": $board_keyword\n\n";
+				$body.= _('SMS board keyword') . ": $board_keyword\n\n";
 				$body.= _('Message') . ":\n$board_param\n\n";
-				$body.= $email_footer . "\n\n";
+				$body.= $core_config['main']['email_footer'] . "\n\n";
 				$body = stripslashes($body);
-				sendmail($email_service, $email, $subject, $body);
+				
+				$email_data = array(
+					'mail_from_name' => $core_config['main']['web_title'],
+					'mail_from' => $core_config['main']['email_service'],
+					'mail_to' => $email,
+					'mail_subject' => $subject,
+					'mail_body' => $body
+				);
+				sendmail($email_data);
 			}
 			$ok = true;
 		}
