@@ -2,6 +2,7 @@
 <script type="text/javascript" src="{{ $core_config['http_path']['themes'] }}/common/jscss/combobox/select2.min.js"></script>
 {{ ERROR }}
 <h2>{{ FORM_TITLE }}</h2>
+<h3>{{ FORM_SUBTITLE }}</h3>
 <form action="{{ ACTION_URL }}" method=post>
 	{{ CSRF_FORM }}
 	<input type="hidden" name="uid" value="{{ $items['uid']}}">
@@ -21,8 +22,12 @@
 				<td>{{ $select_users }}</td>
 			</tr>
 			<tr>
-				<td class=label-sizer>{{ Sender ID is enabled }}</td>
-				<td>{{ $select_yesno }}</td>
+				<td class=label-sizer>{{ Approve sender ID }}</td>
+				<td>{{ $select_approve }}</td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ Set as default }}</td>
+				<td>{{ $select_default }} {{ HINT_DEFAULT }}</td>
 			</tr>
 			</if.isadmin>
 		</tbody>

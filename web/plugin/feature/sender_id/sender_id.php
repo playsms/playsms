@@ -54,9 +54,10 @@ switch (_OP_) {
 	case "sender_id_add":
 		
 		if (auth_isadmin()) {
-			$select_yesno = _yesno('enabled', 0);
+			$select_approve = _yesno('approved', 0);
 			$select_users = themes_select_users_single('uid', $user_config['uid']);
 		}
+		$select_default = _yesno('default', 0);
 		
 		$tpl = array(
 			'name' => 'sender_id_add',
@@ -67,17 +68,20 @@ switch (_OP_) {
 				'ACTION_URL' => _u('index.php?app=main&inc=feature_sender_id&op=sender_id_add_yes') ,
 				'BUTTON_BACK' => _back('index.php?app=main&inc=feature_sender_id&op=sender_id_list') ,
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
+				'HINT_DEFAULT' => _hint('Only when the sender ID is approved') ,
 				'input_tag' => 'required',
 				'Sender ID' => _mandatory('Sender ID') ,
 				'Description' => _('Description') ,
 				'User' => _('User') ,
-				'Sender ID is enabled' => _('Sender ID is enabled') ,
+				'Approve sender ID' => _('Approve sender ID') ,
+				'Set as default' => _('Set as default') ,
 			) ,
 			'ifs' => array(
 				'isadmin' => auth_isadmin() ,
 			) ,
 			'injects' => array(
-				'select_yesno',
+				'select_default',
+				'select_approve',
 				'select_users',
 				'icon_config',
 				'core_config',
@@ -93,16 +97,22 @@ switch (_OP_) {
 			exit();
 			break;
 		}
-		$enabled = (auth_isadmin() ? (int)$_REQUEST['enabled'] : 0);
+		$default = (auth_isadmin() ? (int)$_REQUEST['default'] : 0);
+		$approved = (auth_isadmin() ? (int)$_REQUEST['approved'] : 0);
 		$sender_id = array(
-			$_REQUEST['sender_id'] => $enabled,
+			$_REQUEST['sender_id'] => $approved,
 		);
 		$description = array(
 			$_REQUEST['sender_id'] => $_REQUEST['description']
 		);
 		$uid = ((auth_isadmin() && $_REQUEST['uid']) ? $_REQUEST['uid'] : $user_config['uid']);
-		registry_update($uid, 'features', 'sender_id', $sender_id);
+		$ret = registry_update($uid, 'features', 'sender_id', $sender_id);
 		registry_update($uid, 'features', 'sender_id_desc', $description);
+		
+		// if default and approved and data saved
+		if ($default && $approved && $ret[$_REQUEST['sender_id']]) {
+			sender_id_default_set($uid, $_REQUEST['sender_id']);
+		}
 		
 		if (auth_isadmin()) {
 			$_SESSION['error_string'] = _('Sender ID description has been added') . ' (' . _('Sender ID') . ': ' . $_REQUEST['sender_id'] . ')';
@@ -114,11 +124,6 @@ switch (_OP_) {
 		break;
 
 	case "sender_id_edit":
-		
-		if (auth_isadmin()) {
-			$select_yesno = _yesno('enabled', 0);
-			$select_users = themes_select_users_single('uid', $user_config['uid']);
-		}
 		
 		$search_sender_id = array(
 			'registry_family' => 'sender_id',
@@ -140,7 +145,13 @@ switch (_OP_) {
 		$description = registry_search_record($search_description);
 		$items['description'] = $description[0]['registry_value'];
 		
-		unset($tpl);
+		if (auth_isadmin()) {
+			$select_approve = _yesno('approved', $sender_id[0]['registry_value']);
+			$select_users = themes_select_users_single('uid', $user_config['uid']);
+		}
+		$default_sender_id = sender_id_default_get($sender_id[0]['uid']);
+		$select_default = _yesno('default', (strtoupper($sender_id[0]['registry_key']) == strtoupper($default_sender_id) ? 1 : 0));
+		
 		$tpl = array(
 			'name' => 'sender_id_add',
 			'vars' => array(
@@ -150,17 +161,20 @@ switch (_OP_) {
 				'ACTION_URL' => _u('index.php?app=main&inc=feature_sender_id&op=sender_id_edit_yes') ,
 				'BUTTON_BACK' => _back('index.php?app=main&inc=feature_sender_id&op=sender_id_list') ,
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
+				'HINT_DEFAULT' => _hint('Only when the sender ID is approved') ,
 				'input_tag' => 'readonly',
 				'Sender ID' => _mandatory('Sender ID') ,
 				'Description' => _('Description') ,
 				'User' => _('User') ,
-				'Sender ID is enabled' => _('Sender ID is enabled') ,
+				'Approve sender ID' => _('Approve sender ID') ,
+				'Set as default' => _('Set as default') ,
 			) ,
 			'ifs' => array(
 				'isadmin' => auth_isadmin() ,
 			) ,
 			'injects' => array(
-				'select_yesno',
+				'select_default',
+				'select_approve',
 				'select_users',
 				'items',
 				'icon_config',
@@ -172,15 +186,18 @@ switch (_OP_) {
 
 	case "sender_id_edit_yes":
 		
-		$enabled = (auth_isadmin() ? (int)$_REQUEST['enabled'] : 0);
-		$sender_id = array(
-			$_REQUEST['sender_id'] => $enabled,
-		);
+		$default = ((int)$_REQUEST['default'] ? 1 : 0);
+		if (auth_isadmin()) {
+			$approved = ((int)$_REQUEST['approved'] ? 1 : 0);
+			$sender_id = array(
+				$_REQUEST['sender_id'] => $approved,
+			);
+		}
 		$description = array(
 			$_REQUEST['sender_id'] => $_REQUEST['description']
 		);
 		$uid = ((auth_isadmin() && $_REQUEST['uid']) ? $_REQUEST['uid'] : $user_config['uid']);
-		registry_update($uid, 'features', 'sender_id', $sender_id);
+		$ret = registry_update($uid, 'features', 'sender_id', $sender_id);
 		registry_update($uid, 'features', 'sender_id_desc', $description);
 		
 		$_SESSION['error_string'] = _('Sender ID description has been updated') . ' (' . _('Sender ID') . ': ' . $_REQUEST['sender_id'] . ')';
@@ -203,7 +220,7 @@ switch (_OP_) {
 			registry_update($row['uid'], 'features', 'sender_id', $items);
 		}
 		
-		$_SESSION['error_string'] = (($status == 1) ? _('Sender ID is now enabled') : _('Sender ID is now disabled')) . ' (' . _('Sender ID') . ': ' . $row['registry_key'] . ')';
+		$_SESSION['error_string'] = (($status == 1) ? _('Sender ID is now approved') : _('Sender ID is now disabled')) . ' (' . _('Sender ID') . ': ' . $row['registry_key'] . ')';
 		
 		header("Location: " . _u('index.php?app=main&inc=feature_sender_id&op=sender_id_list'));
 		exit();
@@ -219,6 +236,11 @@ switch (_OP_) {
 			auth_block();
 		};
 		registry_remove($sender_id[0]['uid'], 'features', 'sender_id', $sender_id[0]['registry_key']);
+		
+		$default_sender_id = sender_id_default_get($sender_id[0]['uid']);
+		if (strtoupper($sender_id[0]['registry_key']) == strtoupper($default_sender_id)) {
+			sender_id_default_set($sender_id[0]['uid'], '');
+		}
 		
 		$_SESSION['error_string'] = _('Sender ID has been removed') . ' (' . _('Sender ID') . ': ' . $sender_id[0]['registry_key'] . ')';
 		header("Location: " . _u('index.php?app=main&inc=feature_sender_id&op=sender_id_list'));

@@ -93,7 +93,7 @@ function sender_id_check($sender_id) {
  */
 function sender_id_owner($sender_id) {
 	$ret = 0;
-
+	
 	$condition = array(
 		'registry_family' => 'sender_id',
 		'registry_key' => core_sanitize_sender($sender_id) ,
@@ -107,13 +107,13 @@ function sender_id_owner($sender_id) {
 	return $ret;
 }
 
-function sender_id_search($uid=0) {
+function sender_id_search($uid = 0) {
 	$sender_search['registry_family'] = 'sender_id';
-
+	
 	if ((int)$uid) {
 		$sender_search['uid'] = (int)$uid;
 	}
-
+	
 	foreach (registry_search_record($sender_search, '', array(
 		'ORDER BY' => 'c_timestamp DESC, uid'
 	)) as $sender_id) {
@@ -127,7 +127,7 @@ function sender_id_search($uid=0) {
 	return $ret;
 }
 
-function sender_id_hook_sendsms_getall_sender($username='') {
+function sender_id_hook_sendsms_getall_sender($username = '') {
 	$ret = array();
 	
 	if ($username) {
@@ -135,7 +135,7 @@ function sender_id_hook_sendsms_getall_sender($username='') {
 	} else {
 		$uid = 0;
 	}
-
+	
 	foreach (sender_id_search($uid) as $value) {
 		$ret[] = $value;
 	}
@@ -153,4 +153,28 @@ function sender_id_hook_sendsms_sender_isvalid($username, $sender_id) {
 	}
 	
 	return FALSE;
+}
+
+function sender_id_default_set($uid, $sender_id) {
+	$db_table = _DB_PREF_ . '_tblUser';
+	$items = array(
+		'sender' => $sender_id
+	);
+	$conditions = array(
+		'uid' => $uid
+	);
+	$ret = dba_update($db_table, $items, $conditions);
+	
+	return $ret;
+}
+
+function sender_id_default_get($uid) {
+	$db_table = _DB_PREF_ . '_tblUser';
+	$conditions = array(
+		'uid' => $uid
+	);
+	$data = dba_search($db_table, 'sender', $conditions);
+	$sender_id = $data[0]['sender'];
+	
+	return $sender_id;
 }
