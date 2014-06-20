@@ -418,7 +418,7 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 						break;
 					}
 				}
-				$option_user.= '<option value="' . $subuser['uid'] . '"' . $selectcted . '>' . $subuser['name'] . ' (' . $subuser['username'] . ') - ' . _('Subuser') . '</option>';
+				$option_user.= '<option value="' . $subuser['uid'] . '"' . $selected . '>' . $subuser['name'] . ' (' . $subuser['username'] . ') - ' . _('Subuser') . '</option>';
 			}
 			$option_user.= '</optgroup>';
 		}
