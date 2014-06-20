@@ -19,9 +19,14 @@
 
 defined('_SECURE_') or die('Forbidden');
 
-if ($_REQUEST['sender_id']) {
-	$_REQUEST['sender_id'] = core_sanitize_sender($_REQUEST['sender_id']);
+// sender ID
+$c_sender_id = $_REQUEST['sender_id'];
+if ($c_sender_id) {
+	$c_sender_id = core_sanitize_sender($c_sender_id);
 }
+
+// sender ID description
+$c_sender_id_description = (trim($_REQUEST['description']) ? trim($_REQUEST['description']) : $c_sender_id);
 
 switch (_OP_) {
 	case 'sender_id_list':
@@ -52,7 +57,6 @@ switch (_OP_) {
 		break;
 
 	case "sender_id_add":
-		
 		if (auth_isadmin()) {
 			$select_approve = _yesno('approved', 0);
 			$select_users = themes_select_users_single('uid', $user_config['uid']);
@@ -91,66 +95,79 @@ switch (_OP_) {
 		break;
 
 	case "sender_id_add_yes":
-		if (sender_id_check($_REQUEST['sender_id'])) {
-			$_SESSION['error_string'] = _('Sender ID is not available') . ' (' . _('Sender ID') . ': ' . core_sanitize_sender($_REQUEST['sender_id']) . ')';
-			header("Location: " . _u('index.php?app=main&inc=feature_sender_id&op=sender_id_list'));
-			exit();
-			break;
-		}
-		$default = (auth_isadmin() ? (int)$_REQUEST['default'] : 0);
-		$approved = (auth_isadmin() ? (int)$_REQUEST['approved'] : 0);
-		$sender_id = array(
-			$_REQUEST['sender_id'] => $approved,
-		);
-		$description = array(
-			$_REQUEST['sender_id'] => $_REQUEST['description']
-		);
-		$uid = ((auth_isadmin() && $_REQUEST['uid']) ? $_REQUEST['uid'] : $user_config['uid']);
-		$ret = registry_update($uid, 'features', 'sender_id', $sender_id);
-		registry_update($uid, 'features', 'sender_id_desc', $description);
+		if (!auth_isadmin() && $user_config['uid'] != $_REQUEST['uid']) {
+			auth_block();
+		};
 		
-		// if default and approved and data saved
-		if ($default && $approved && $ret[$_REQUEST['sender_id']]) {
-			sender_id_default_set($uid, $_REQUEST['sender_id']);
-		}
-		
-		if (auth_isadmin()) {
-			$_SESSION['error_string'] = _('Sender ID description has been added') . ' (' . _('Sender ID') . ': ' . $_REQUEST['sender_id'] . ')';
+		if (sender_id_check($c_sender_id)) {
+			$_SESSION['error_string'] = _('Sender ID is not available') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
 		} else {
-			$_SESSION['error_string'] = _('Sender ID has been added and waiting for approval') . ' (' . _('Sender ID') . ': ' . $_REQUEST['sender_id'] . ')';
+			$default = (auth_isadmin() ? (int)$_REQUEST['default'] : 0);
+			
+			$approved = (auth_isadmin() ? (int)$_REQUEST['approved'] : 0);
+			
+			$data_sender_id = array(
+				$c_sender_id => $approved,
+			);
+			
+			$data_description = array(
+				$c_sender_id => $c_sender_id_description
+			);
+			
+			$uid = ((auth_isadmin() && $_REQUEST['uid']) ? $_REQUEST['uid'] : $user_config['uid']);
+			
+			registry_update($uid, 'features', 'sender_id', $data_sender_id);
+			$ret = registry_update($uid, 'features', 'sender_id_desc', $data_description);
+			
+			// if default and approved and data saved
+			if (auth_isadmin() && $default && $approved && $ret[$c_sender_id]) {
+				sender_id_default_set($uid, $c_sender_id);
+			}
+			
+			if (auth_isadmin()) {
+				$_SESSION['error_string'] = _('Sender ID description has been added') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
+			} else {
+				$_SESSION['error_string'] = _('Sender ID has been added and waiting for approval') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
+			}
 		}
-		header("Location: " . _u('index.php?app=main&inc=feature_sender_id&op=sender_id_list'));
+		
+		header("Location: " . _u('index.php?app=main&inc=feature_sender_id&op=sender_id_add'));
 		exit();
 		break;
 
 	case "sender_id_edit":
 		
+		// sender ID
 		$search_sender_id = array(
+			'id' => $_REQUEST['id'],
 			'registry_family' => 'sender_id',
-			'id' => $_REQUEST['id']
 		);
-		$sender_id = registry_search_record($search_sender_id);
+		$data_sender_id = registry_search_record($search_sender_id);
+		$uid = $data_sender_id[0]['uid'];
 		
-		$items['sender_id'] = core_sanitize_sender($sender_id[0]['registry_key']);
-		$items['uid'] = $sender_id[0]['uid'];
-		
-		if (!auth_isadmin() && $user_config['uid'] != $sender_id[0]['uid']) {
+		if (!auth_isadmin() && $user_config['uid'] != $uid) {
 			auth_block();
 		};
 		
+		// sender ID description
 		$search_description = array(
+			'id' => $_REQUEST['id'],
 			'registry_family' => 'sender_id_desc',
-			'registry_key' => $sender_id[0]['registry_key'],
+			'registry_key' => $data_sender_id[0]['registry_key'],
 		);
-		$description = registry_search_record($search_description);
-		$items['description'] = $description[0]['registry_value'];
+		$data_description = registry_search_record($search_description);
+		
+		$items['id'] = $_REQUEST['id'];
+		$items['uid'] = $uid;
+		$items['sender_id'] = $data_sender_id[0]['registry_key'];
+		$items['description'] = $data_description[0]['registry_value'];
 		
 		if (auth_isadmin()) {
-			$select_approve = _yesno('approved', $sender_id[0]['registry_value']);
-			$select_users = themes_select_users_single('uid', $user_config['uid']);
+			$select_approve = _yesno('approved', $data_sender_id[0]['registry_value']);
+			$select_users = user_getfieldbyuid($uid, 'name') . ' (' . user_uid2username($uid) . ')';
 		}
-		$default_sender_id = sender_id_default_get($sender_id[0]['uid']);
-		$select_default = _yesno('default', (strtoupper($sender_id[0]['registry_key']) == strtoupper($default_sender_id) ? 1 : 0));
+		$default_sender_id = sender_id_default_get($uid);
+		$select_default = _yesno('default', (strtoupper($data_sender_id[0]['registry_key']) == strtoupper($default_sender_id) ? 1 : 0));
 		
 		$tpl = array(
 			'name' => 'sender_id_add',
@@ -185,23 +202,30 @@ switch (_OP_) {
 		break;
 
 	case "sender_id_edit_yes":
+		if (!auth_isadmin() && $user_config['uid'] != $_REQUEST['uid']) {
+			auth_block();
+		};
 		
 		$default = ((int)$_REQUEST['default'] ? 1 : 0);
+		
 		if (auth_isadmin()) {
 			$approved = ((int)$_REQUEST['approved'] ? 1 : 0);
-			$sender_id = array(
-				$_REQUEST['sender_id'] => $approved,
+			$data_sender_id = array(
+				$c_sender_id => $approved,
 			);
 		}
-		$description = array(
-			$_REQUEST['sender_id'] => $_REQUEST['description']
-		);
-		$uid = ((auth_isadmin() && $_REQUEST['uid']) ? $_REQUEST['uid'] : $user_config['uid']);
-		$ret = registry_update($uid, 'features', 'sender_id', $sender_id);
-		registry_update($uid, 'features', 'sender_id_desc', $description);
 		
-		$_SESSION['error_string'] = _('Sender ID description has been updated') . ' (' . _('Sender ID') . ': ' . $_REQUEST['sender_id'] . ')';
-		header("Location: " . _u('index.php?app=main&inc=feature_sender_id&op=sender_id_list'));
+		$data_description = array(
+			$c_sender_id => $c_sender_id_description
+		);
+		
+		$uid = ((auth_isadmin() && $_REQUEST['uid']) ? $_REQUEST['uid'] : $user_config['uid']);
+		
+		registry_update($uid, 'features', 'sender_id', $data_sender_id);
+		$ret = registry_update($uid, 'features', 'sender_id_desc', $data_description);
+		
+		$_SESSION['error_string'] = _('Sender ID description has been updated') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
+		header("Location: " . _u('index.php?app=main&inc=feature_sender_id&op=sender_id_edit&id=' . $_REQUEST['id']));
 		exit();
 		break;
 
@@ -231,18 +255,22 @@ switch (_OP_) {
 			'id' => $_REQUEST['id'],
 			'registry_family' => 'sender_id',
 		);
-		$sender_id = registry_search_record($search);
-		if (!auth_isadmin() && $user_config['uid'] != $sender_id[0]['uid']) {
+		$data_sender_id = registry_search_record($search);
+		if (!auth_isadmin() && $user_config['uid'] != $data_sender_id[0]['uid']) {
 			auth_block();
 		};
-		registry_remove($sender_id[0]['uid'], 'features', 'sender_id', $sender_id[0]['registry_key']);
 		
-		$default_sender_id = sender_id_default_get($sender_id[0]['uid']);
-		if (strtoupper($sender_id[0]['registry_key']) == strtoupper($default_sender_id)) {
-			sender_id_default_set($sender_id[0]['uid'], '');
+		$uid = ((auth_isadmin() && $data_sender_id[0]['uid']) ? $data_sender_id[0]['uid'] : $user_config['uid']);
+		
+		registry_remove($uid, 'features', 'sender_id', $data_sender_id[0]['registry_key']);
+		registry_remove($uid, 'features', 'sender_id_description', $data_sender_id[0]['registry_key']);
+		
+		$default_sender_id = sender_id_default_get($uid);
+		if (strtoupper($data_sender_id[0]['registry_key']) == strtoupper($default_sender_id)) {
+			sender_id_default_set($data_sender_id[0]['uid'], '');
 		}
 		
-		$_SESSION['error_string'] = _('Sender ID has been removed') . ' (' . _('Sender ID') . ': ' . $sender_id[0]['registry_key'] . ')';
+		$_SESSION['error_string'] = _('Sender ID has been removed') . ' (' . _('Sender ID') . ': ' . $data_sender_id[0]['registry_key'] . ')';
 		header("Location: " . _u('index.php?app=main&inc=feature_sender_id&op=sender_id_list'));
 		exit();
 		break;

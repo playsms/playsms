@@ -5,9 +5,16 @@
 <h3>{{ FORM_SUBTITLE }}</h3>
 <form action="{{ ACTION_URL }}" method=post>
 	{{ CSRF_FORM }}
+	<input type="hidden" name="id" value="{{ $items['id']}}">
 	<input type="hidden" name="uid" value="{{ $items['uid']}}">
 	<table class=playsms-table>
 		<tbody>
+			<if.isadmin>
+			<tr>
+				<td class=label-sizer>{{ User }}</td>
+				<td>{{ $select_users }}</td>
+			</tr>
+			</if.isadmin>
 			<tr>
 				<td class=label-sizer>{{ Sender ID }}</td>
 				<td><input type="text" size=30 name="sender_id" value="{{ $items['sender_id'] }}" {{ input_tag }}></td>
@@ -17,10 +24,6 @@
 				<td><input type="text" size=30 name="description" value="{{ $items['description'] }}"></td>
 			</tr>
 			<if.isadmin>
-			<tr>
-				<td class=label-sizer>{{ User }}</td>
-				<td>{{ $select_users }}</td>
-			</tr>
 			<tr>
 				<td class=label-sizer>{{ Approve sender ID }}</td>
 				<td>{{ $select_approve }}</td>
