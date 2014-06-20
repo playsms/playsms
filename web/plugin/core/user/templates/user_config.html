@@ -11,16 +11,11 @@
 			<td>{{ c_username }}</td>
 		</tr>
 		<tr>
-			<td>{{ Effective SMS sender ID }}</td>
-			<td>{{ effective_sender_id }}</td>
-		</tr>
-		<tr>
-			<td>{{ SMS sender ID }}</td>
-			<!-- <td><input type=text size=30 maxlength=16 name=up_sender value='{{ sender }}'> {{ HINT_MAX_CHARS }}</td> -->
+			<td>{{ Default sender ID }}</td>
 			<td><select name='up_sender'>{{ option_sender_id }}</select></td>
 		</tr>
 		<tr>
-			<td>{{ SMS footer }}</td>
+			<td>{{ Default message footer }}</td>
 			<td><input type=text size=30 maxlength=30 name=up_footer value='{{ footer }}'> {{ HINT_MAX_ALPHANUMERIC }}</td>
 		</tr>
 		<tr>

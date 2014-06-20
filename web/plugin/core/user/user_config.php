@@ -177,10 +177,10 @@ switch (_OP_) {
 		}
 		
 		// get sender ID
-		$c_sms_from = sendsms_get_sender($user_config['username']);
+		$c_sms_from = sender_id_default_get($user_config['uid']);
 		foreach (sendsms_getall_sender($user_config['username']) as $sender_id) {
 			$selected = '';
-			if (strtoupper($c_sms_from) == $sender_id) {
+			if (strtoupper($c_sms_from) == strtoupper($sender_id)) {
 				$selected = 'selected';
 			}
 			$option_sender_id.= "<option value=\"" . $sender_id . "\" title=\"" . $sender_id . "\" " . $selected . ">" . $sender_id . "</option>";
@@ -220,8 +220,8 @@ switch (_OP_) {
 				'Application options' => _('Application options') ,
 				'Username' => _('Username') ,
 				'Effective SMS sender ID' => _('Effective SMS sender ID') ,
-				'SMS sender ID' => _('SMS sender ID') ,
-				'SMS footer' => _('SMS footer') ,
+				'Default sender ID' => _('Default sender ID') ,
+				'Default message footer' => _('Default message footer') ,
 				'Webservices username' => _('Webservices username') ,
 				'Webservices token' => _('Webservices token') ,
 				'New webservices token' => _('New webservices token') ,
