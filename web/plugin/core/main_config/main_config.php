@@ -53,19 +53,7 @@ switch (_OP_) {
 			_('yes') => 1,
 			_('no') => 0,
 		) , $main_config['logo_replace_title']);
-		
-		// allow edit sender yes-no option
-		$option_allow_custom_sender = _options(array(
-			_('yes') => 1,
-			_('no') => 0,
-		) , $main_config['allow_custom_sender']);
-		
-		// allow edit footer yes-no option
-		$option_allow_custom_footer = _options(array(
-			_('yes') => 1,
-			_('no') => 0,
-		) , $main_config['allow_custom_footer']);
-		
+				
 		// option default user status on user registration
 		$option_default_user_status = _options(array(
 			_('Normal user') => 3,
@@ -126,8 +114,6 @@ switch (_OP_) {
 				'Enable logo' => _('Enable logo') ,
 				'Logo URL' => _('Logo URL') ,
 				'Replace website title with logo' => _('Replace website title with logo') ,
-				'Allow custom sender ID' => _('Allow custom sender ID') ,
-				'Allow custom SMS footer' => _('Allow custom SMS footer') ,
 				'Active gateway module' => _('Active gateway module') ,
 				'Active themes' => _('Active themes') ,
 				'Default language' => _('Default language') ,
@@ -161,8 +147,6 @@ switch (_OP_) {
 				'option_logo_replace_title' => $option_logo_replace_title,
 				'option_enable_register' => $option_enable_register,
 				'option_enable_forgot' => $option_enable_forgot,
-				'option_allow_custom_sender' => $option_allow_custom_sender,
-				'option_allow_custom_footer' => $option_allow_custom_footer,
 				'option_gateway_module' => $option_gateway_module,
 				'option_themes_module' => $option_themes_module,
 				'option_language_module' => $option_language_module
@@ -237,8 +221,6 @@ switch (_OP_) {
 			'enable_logo' => (int)$enable_logo,
 			'logo_url' => $logo_url,
 			'logo_replace_title' => (int)$logo_replace_title,
-			'allow_custom_sender' => (int)$post['edit_allow_custom_sender'],
-			'allow_custom_footer' => (int)$post['edit_allow_custom_footer'],
 			'layout_footer' => ($post['edit_layout_footer'] ? $post['edit_layout_footer'] : _('Application footer here. Go to main configuration or manage site to edit this footer.')) ,
 			'buy_credit_page_title' => ($post['edit_buy_credit_page_title'] ? $post['edit_buy_credit_page_title'] : _('Buy credit')) ,
 			'buy_credit_page_content' => ($post['edit_buy_credit_page_content'] ? $post['edit_buy_credit_page_content'] : _('Go to main configuration or manage site to edit this page')) ,
