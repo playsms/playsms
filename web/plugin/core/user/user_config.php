@@ -178,6 +178,7 @@ switch (_OP_) {
 		
 		// get sender ID
 		$c_sms_from = sender_id_default_get($user_config['uid']);
+		$option_sender_id = "<option value=\"\">--- " . _('Select default sender ID') . " ---</option>";
 		foreach (sendsms_getall_sender($user_config['username']) as $sender_id) {
 			$selected = '';
 			if (strtoupper($c_sms_from) == strtoupper($sender_id)) {
@@ -185,7 +186,7 @@ switch (_OP_) {
 			}
 			$option_sender_id.= "<option value=\"" . $sender_id . "\" title=\"" . $sender_id . "\" " . $selected . ">" . $sender_id . "</option>";
 		}
-
+		
 		// admin or normal users
 		if ($uname && (auth_isadmin() || $is_parent)) {
 			$form_title = _('Manage user');
@@ -229,7 +230,7 @@ switch (_OP_) {
 				'Webservices IP range' => _('Webservices IP range') ,
 				'Active language' => _('Active language') ,
 				'Timezone' => _('Timezone') ,
-				'Credit' => _('Credit'),
+				'Credit' => _('Credit') ,
 				'Forward message to inbox' => _('Forward message to inbox') ,
 				'Forward message to email' => _('Forward message to email') ,
 				'Forward message to mobile' => _('Forward message to mobile') ,
@@ -251,7 +252,7 @@ switch (_OP_) {
 				'HINT_TIMEZONE' => _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')) ,
 				'HINT_LOCAL_LENGTH' => _hint(_('Min length to detect missing country code')) ,
 				'HINT_REPLACE_ZERO' => _hint(_('Replace prefix 0 or padding local numbers')) ,
-				'HINT_MANAGE_CREDIT' => _hint('Add or reduce credit from manage credit menu'),
+				'HINT_MANAGE_CREDIT' => _hint('Add or reduce credit from manage credit menu') ,
 				'option_new_token' => $option_new_token,
 				'option_enable_webservices' => $option_enable_webservices,
 				'option_language_module' => $option_language_module,
