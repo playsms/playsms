@@ -31,23 +31,23 @@ switch (_OP_) {
 		
 		// sender ID
 		$sms_from = sendsms_get_sender($user_config['username']);
+		$ismatched = FALSE;
 		foreach (sendsms_getall_sender($user_config['username']) as $sender_id) {
 			$selected = '';
-			if (strtoupper($sms_from) == $sender_id) {
+			if (strtoupper($sms_from) == strtoupper($sender_id)) {
 				$selected = 'selected';
+				$ismatched = TRUE;
 			}
 			$option_values.= "<option value=\"" . $sender_id . "\" title=\"" . $sender_id . "\" " . $selected . ">" . $sender_id . "</option>";
 		}
 		$sms_sender_id = "<select name=sms_sender style='width: 100%'>" . $option_values . "</select>";
-		if (!$core_config['main']['allow_custom_sender']) {
-			$sms_sender_id = "<input type='text' style='width: 100%' name='sms_sender' value='" . $sms_from . "' disabled>";
+
+		if (!$ismatched) {
+			$sms_sender_id = "<input type='text' style='width: 100%' name='sms_sender' value='" . $sms_from . "' readonly>";
 		}
 		
 		// SMS footer
 		$sms_footer = $user_config['footer'];
-		if (!$core_config['main']['allow_custom_footer']) {
-			$allow_custom_footer = 'readonly';
-		}
 		
 		// message template
 		$option_values = "<option value=\"\" default>--" . _('Please select template') . "--</option>";
@@ -76,8 +76,8 @@ switch (_OP_) {
 			'name' => 'sendsms',
 			'vars' => array(
 				'Send message' => _('Send message') ,
-				'SMS sender ID' => _('SMS sender ID') ,
-				'SMS footer' => _('SMS footer') ,
+				'Sender ID' => _('Sender ID') ,
+				'Message footer' => _('Message footer') ,
 				'Send to' => _('Send to') ,
 				'Message' => _('Message') ,
 				'Flash message' => _('Flash message') ,
@@ -88,8 +88,8 @@ switch (_OP_) {
 				'ERROR' => $error_content,
 				'HTTP_PATH_BASE' => _HTTP_PATH_BASE_,
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
-				'HINT_SEND_TO' => _hint(_('prefix with # for groups and @ for users')) ,
-				'HINT_SCHEDULE' => _hint(_('format YYYY-MM-DD hh:mm')) ,
+				'HINT_SEND_TO' => _('Prefix with # for groups and @ for users') ,
+				'HINT_SCHEDULE' => _('Format YYYY-MM-DD hh:mm') ,
 				'sms_from' => $sms_from,
 				'sms_footer' => $sms_footer,
 				'allow_custom_footer' => $allow_custom_footer,

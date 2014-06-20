@@ -459,8 +459,8 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 			$im_sender = '@' . $user_config['username'];
 			if (recvsms_inbox_add(core_get_datetime() , $im_sender, $target_user, $message)) {
 				$ok[] = '1';
-				$to[] = '@'.$target_user;
-				$queue[] = md5($target_user.microtime());
+				$to[] = '@' . $target_user;
+				$queue[] = md5($target_user . microtime());
 				$sms_count++;
 			}
 		}
@@ -850,8 +850,6 @@ function sendsms_bc($username, $gpid, $message, $sms_type = 'text', $unicode = 0
 function sendsms_get_sender($username, $default_sender_id = '') {
 	global $core_config, $plugin_config, $user_config;
 	
-	$ret = '';
-	
 	// get configured sender ID
 	if ($username && ($gw = core_gateway_get())) {
 		if ($core_config['main']['gateway_number']) {
@@ -867,7 +865,12 @@ function sendsms_get_sender($username, $default_sender_id = '') {
 			// 3rd priority is "SMS sender ID" from user preferences
 			$sms_sender = $user_config['sender'];
 			if ($user_config['username'] != $username) {
-				$sms_sender = user_getfieldbyusername($username, 'sender');
+				$c_sms_sender = user_getfieldbyusername($username, 'sender');
+				
+				// validate if $username is supplied
+				if (sendsms_sender_isvalid($username, $c_sms_sender)) {
+					$sms_sender = $c_sms_sender;
+				}
 			}
 		}
 	}
@@ -880,11 +883,7 @@ function sendsms_get_sender($username, $default_sender_id = '') {
 		$sms_sender = core_sanitize_sender($default_sender_id);
 	}
 	
-	if ($sms_sender && sendsms_sender_isvalid($username, $sms_sender)) {
-		$ret = $sms_sender;
-	}
-	
-	return $ret;
+	return $sms_sender;
 }
 
 function sendsms_get_template() {
