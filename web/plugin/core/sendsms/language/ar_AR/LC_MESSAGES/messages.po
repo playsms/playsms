@@ -1,0 +1,68 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: nesma hamdy <nesma.cis2010@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Flash message"
+msgstr "رسالة فلاش"
+
+msgid "Message"
+msgstr "رسالة"
+
+msgid "Options"
+msgstr "خيارات"
+
+msgid "Please select template"
+msgstr "الرجاء اختيار قالب"
+
+msgid "SMS"
+msgstr "الرسائلة القصيرة"
+
+msgid "SMS footer"
+msgstr "تذييل الرسالة"
+
+msgid "SMS sender ID"
+msgstr "هوية المرسل"
+
+msgid "Schedule"
+msgstr "جدول زمني"
+
+msgid "Send"
+msgstr "إرسال"
+
+msgid "Send message"
+msgstr "إرسال رسالة"
+
+msgid "Send to"
+msgstr "إرسال الى"
+
+msgid "Unicode message"
+msgstr "تشفير الرسالة"
+
+msgid "You must select receiver and your message should not be empty"
+msgstr "يجب عليك تحديد المتلقي، وينبغي ألا تكون رسالتك فارغة."
+
+msgid "Your message has been delivered to queue"
+msgstr "قد تم تسليم الرسالة إلى قائمة الانتظار"
+
+msgid "chars"
+msgstr "حروف"
+
+msgid "failed"
+msgstr "فشل"
+
+msgid "format YYYY-MM-DD hh:mm"
+msgstr "تنسيق YYYY-MM-DD HH: MM"
+
+msgid "prefix with # for groups and @ for users"
+msgstr "البادئة بـ # للمجموعات و @ للمستخدمين"
+
+msgid "queued"
+msgstr "وضع قائمة الانتظار"
+

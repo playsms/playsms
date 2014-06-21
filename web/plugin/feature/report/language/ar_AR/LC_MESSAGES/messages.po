@@ -1,0 +1,183 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: nesma hamdy <nesma.cis2010@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+
+msgid "All inbox"
+msgstr "كل البريد"
+
+msgid "All incoming messages"
+msgstr "جميع الرسائل الواردة"
+
+msgid "All outgoing messages"
+msgstr "جميع الرسائل الصادرة"
+
+msgid "All reports"
+msgstr "جميع التقارير"
+
+msgid "Amount"
+msgstr "الكمية"
+
+msgid "Are you sure you want to delete these items ?"
+msgstr "هل أنت متأكد أنك تريد حذف هذه العناصر؟"
+
+msgid "Are you sure you want to delete these transactions ?"
+msgstr "هل أنت متأكد أنك تريد حذف هذه المعاملات؟"
+
+msgid "Balance"
+msgstr "الرصيد"
+
+msgid "Ban date/time"
+msgstr "تاريخ/وقت الحظر"
+
+msgid "Banned users list"
+msgstr "قائمة المستخدمين المحظورين"
+
+msgid "Billing"
+msgstr "الفواتير"
+
+msgid "Content"
+msgstr "المحتوى"
+
+msgid "Credit"
+msgstr "ائتمان"
+
+msgid "Current IP address"
+msgstr ""
+
+msgid "Deleted"
+msgstr "تم الحذف"
+
+msgid "Delivered"
+msgstr "تم اﻹرسال"
+
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+msgid "Failed"
+msgstr "فشل"
+
+msgid "Feature"
+msgstr "خاصية"
+
+msgid "Footer"
+msgstr "التذييل"
+
+msgid "From"
+msgstr "من"
+
+msgid "Gateway"
+msgstr ""
+
+msgid "Inbox"
+msgstr "البريد"
+
+msgid "Incoming messages"
+msgstr "الرسائل الواردة"
+
+msgid "Keyword"
+msgstr "الكلمة الرئيسية"
+
+msgid "Last update"
+msgstr "آخر تحديث"
+
+msgid "List of my credit transactions"
+msgstr "قائمة معاملات الائتمان الخاصة بي"
+
+msgid "Message"
+msgstr "رسالة"
+
+msgid "My credit transactions"
+msgstr "معاملات الائتمان الخاصة بي"
+
+msgid "My report"
+msgstr "تقريري"
+
+msgid "Outgoing messages"
+msgstr "الرسائل الصادرة"
+
+msgid "Pending"
+msgstr "معلق"
+
+msgid "Report"
+msgstr "تقرير"
+
+msgid "Report all users"
+msgstr "تقرير جميع المستخدمين"
+
+msgid "Report banned users"
+msgstr "تقرير المستخدمين المحظورين"
+
+msgid "Report whose online"
+msgstr "تقرير الموجودين حاليا"
+
+msgid "Sandbox"
+msgstr ""
+
+msgid "Selected incoming message has been deleted"
+msgstr "تم حذف الرسالة الواردة المحددة"
+
+msgid "Selected outgoing message has been deleted"
+msgstr "تم حذف الرسالة الصادرة المحددة"
+
+msgid "Selected transactions has been deleted"
+msgstr "المعاملات المحددة قد تم حذفها"
+
+msgid "Sent"
+msgstr "أرسلت"
+
+msgid "Status"
+msgstr "الحالة"
+
+msgid "Time"
+msgstr "الوقت"
+
+msgid "To"
+msgstr "إلى"
+
+msgid "Total"
+msgstr "الإجمالي"
+
+msgid "Transaction datetime"
+msgstr "تاريخ ووقت المعاملة"
+
+msgid "Unable to unban user"
+msgstr "غير قادر على رفع الحظر عن المستخدم"
+
+msgid "User"
+msgstr "المستخدم"
+
+msgid "User agent"
+msgstr "وكيل المستخدم"
+
+msgid "User has been unbanned"
+msgstr "تم إزال الحظر على المستخدم"
+
+msgid "Whose online"
+msgstr "الموجودين حاليا"
+
+msgid "cost"
+msgstr "تكلفة"
+
+msgid "count"
+msgstr "العدد الإجمالي"
+
+msgid "handled"
+msgstr "تم التعامل معها"
+
+msgid "rate"
+msgstr "نسبة"
+
+msgid "unhandled"
+msgstr "لم تتم معالجته"
+
+msgid "username"
+msgstr "اسم المستخدم"
+

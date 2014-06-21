@@ -1,0 +1,153 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: nesma hamdy <nesma.cis2010@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+
+msgid "Action"
+msgstr "إجراء"
+
+msgid "Add contact"
+msgstr "إضافة اسم"
+
+msgid "Add group"
+msgstr "إضافة مجموعة"
+
+msgid "Allow broadcast from mobile"
+msgstr "تفعيل انتشار الرسالة من الجوال"
+
+msgid "Anyone"
+msgstr "اى شخص"
+
+msgid "Contact has been added"
+msgstr "تم إضافة اسم جديد"
+
+msgid "Contact has been edited"
+msgstr "تم حفظ التغييرات"
+
+msgid "Contacts has been imported"
+msgstr "تم استيراد الاسماء"
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Edit contact"
+msgstr "تعديل اسم"
+
+msgid "Edit group"
+msgstr "تعديل مجموعة"
+
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+msgid "Fail to delete group"
+msgstr "فشل حذف المجموعة"
+
+msgid "Fail to upload CSV file for phonebook"
+msgstr "فشل تحميل ملف CSV لدليل الهاتف"
+
+msgid "Group"
+msgstr "مجموعة"
+
+msgid "Group code"
+msgstr "كود المجموعة"
+
+msgid "Group code has been added"
+msgstr "تم إضافة كود المجموعة"
+
+msgid "Group code is already exists"
+msgstr "كود المجموعة موجود بالفعل"
+
+msgid "Group code may be used to broadcast SMS to this group"
+msgstr "يمكن استخدام كود المجموعة ﻹرسال الرسائل الى الأعضاء الموجودين بها"
+
+msgid "Group has been edited"
+msgstr "تم تعديل المجموعة"
+
+msgid "Group has been edited but unable to set broadcast from members or anyone"
+msgstr ""
+
+msgid "Group name"
+msgstr "اسم المجموعة"
+
+msgid "Import"
+msgstr "استيراد"
+
+msgid "Import above phonebook entries ?"
+msgstr "استيراد مدخلات دفتر الهاتف أعلاه؟"
+
+msgid "Import confirmation"
+msgstr "تأكيد الاستيراد"
+
+msgid "Me only"
+msgstr "انا فقط"
+
+msgid "Members"
+msgstr "الأعضاء"
+
+msgid "Mobile"
+msgstr "الجوال"
+
+msgid "Move to"
+msgstr "الذهاب إلى"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "No changes has been made"
+msgstr "لم تحدث أية تغييرات"
+
+msgid "Phonebook"
+msgstr "دليل الهاتف"
+
+msgid "Please select CSV file for phonebook entries"
+msgstr "يرجى تحديد ملف CSV للإدخالات الى دليل الهاتف"
+
+msgid "Please use alphanumeric only and make it short"
+msgstr "الرجاء استخدام أبجدية رقمية فقط وجعلها قصيرة"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Select"
+msgstr "اختار"
+
+msgid "Selected contact has been deleted"
+msgstr "الاسم المحدد تم حذفه"
+
+msgid "Selected contact moved to new group"
+msgstr "الاسم المحدد تم نقله إلى مجموعة جديدة"
+
+msgid "Selected group has been deleted"
+msgstr "المجموعة المختارة تم حذفها"
+
+msgid "Unable to delete group until the group is empty"
+msgstr "ﻻ يمكن حذف المجموعة إلا إذا كانت فارغة"
+
+msgid "You must fill all field"
+msgstr "يجب ملء جميع الحقول"
+
+msgid "You must fill mandatory fields"
+msgstr "يجب ملء الحقول الضرورية"
+
+msgid "You must fill required fields"
+msgstr "يجب ملء الحقول المطلوبة"
+
+msgid "code"
+msgstr "كود"
+
+msgid "format"
+msgstr "تنسيق"
+
+msgid "group"
+msgstr "مجموعة"
+
+msgid "please use uppercase and make it short"
+msgstr "الرجاء استخدام الأحرف الكبيرة وجعلها قصيرة"
+

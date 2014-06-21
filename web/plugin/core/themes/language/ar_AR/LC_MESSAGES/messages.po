@@ -1,0 +1,48 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-10 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: nesma hamdy <nesma.cis2010@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+
+msgid "Administrator"
+msgstr "المدير"
+
+msgid "Administrators"
+msgstr "المدراء"
+
+msgid "Back"
+msgstr "رجوع"
+
+msgid "Normal user"
+msgstr "مستخدم عادى"
+
+msgid "Normal users"
+msgstr "مستخدمين عاديين"
+
+msgid "Search"
+msgstr "بحث"
+
+msgid "Select users"
+msgstr "حدد المستخدمين"
+
+msgid "Subuser"
+msgstr "مستخدم فرعي"
+
+msgid "Subusers"
+msgstr "مستخدمين فرعيين"
+
+msgid "This field is required"
+msgstr "هذا الحقل مطلوب"
+
+msgid "no"
+msgstr "ﻻ"
+
+msgid "yes"
+msgstr "نعم"
+

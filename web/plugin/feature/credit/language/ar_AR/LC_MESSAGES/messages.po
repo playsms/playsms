@@ -1,0 +1,104 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: nesma hamdy <nesma.cis2010@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Add credit"
+msgstr "إضافة رصيد"
+
+msgid "Add credit to users"
+msgstr "إضافة رصيد إلى المستخدمين"
+
+msgid "Administrator"
+msgstr "المدير"
+
+msgid "Administrators"
+msgstr "المدراء"
+
+msgid "Amount"
+msgstr "مبلغ"
+
+msgid "Are you sure you want to delete these transactions ?"
+msgstr "هل أنت متأكد أنك تريد حذف هذه المعاملات؟"
+
+msgid "Balance"
+msgstr "رصيد الحساب"
+
+msgid "Credit has been added"
+msgstr "تم إضافة الائتمان"
+
+msgid "Credit has been reduced"
+msgstr "قد تم تخفيض الائتمان"
+
+msgid "Fail to add credit"
+msgstr "فشل إضافة الائتمان"
+
+msgid "Fail to reduce credit"
+msgstr "فشل خفض الائتمان"
+
+msgid "List of transactions"
+msgstr "قائمة المعاملات"
+
+msgid "Manage credit"
+msgstr "إدارة الائتمان"
+
+msgid "Normal user"
+msgstr "المستخدم"
+
+msgid "Normal users"
+msgstr "المستخدمين"
+
+msgid "Reduce credit"
+msgstr "خفض الائتمان"
+
+msgid "Reduce credit from users"
+msgstr "خفض الائتمان من المستخدمين"
+
+msgid "Select users"
+msgstr "حدد مستخدمين"
+
+msgid "Selected transactions has been deleted"
+msgstr "المعاملات المحددة تم حذفها"
+
+msgid "Subuser"
+msgstr "المستخدم الفرعي"
+
+msgid "Subusers"
+msgstr "المستخدمين الفرعيين"
+
+msgid "Transaction datetime"
+msgstr "تاريخ وتوقيت المعاملة"
+
+msgid "User"
+msgstr "المستخدم"
+
+msgid "User ID"
+msgstr "هوية المستخدم"
+
+msgid "Username"
+msgstr "اسم المستخدم"
+
+msgid "Wrong amount or user does not exists"
+msgstr "ﻻ توجد كمية كافية او المستخدم غير موجود"
+
+msgid "amount"
+msgstr "مبلغ"
+
+msgid "balance"
+msgstr "رصيد الحساب"
+
+msgid "index.php?app=main&inc=feature_credit&op=actions&go=add"
+msgstr ""
+
+msgid "index.php?app=main&inc=feature_credit&op=actions&go=reduce"
+msgstr ""
+
+msgid "user"
+msgstr "مستخدم"
+

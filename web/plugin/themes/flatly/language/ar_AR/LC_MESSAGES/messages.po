@@ -1,0 +1,27 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: nesma hamdy <nesma.cis2010@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+
+msgid "Home"
+msgstr "الرئيسية"
+
+msgid "Logged in as"
+msgstr "تم الدخول بإسم"
+
+msgid "Logout"
+msgstr "خروج"
+
+msgid "Your credit"
+msgstr "رصيدك"
+
+msgid "return"
+msgstr "عودة"
+

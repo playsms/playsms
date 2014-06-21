@@ -1,0 +1,140 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: nesma hamdy <nesma.cis2010@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Access to unknown domain mapped to this server IP address will be redirected to this website URL. This website URL should be the primary address for the service."
+msgstr "سيتم إعادة توجيه الوصول من نطاق غير معروف له نفس عنوان IP هذا الملقم لهذا الموقع . وينبغي أن يكون عنوان الموقع هو العنوان الأساسي لهذه الخدمة."
+
+msgid "Active gateway module"
+msgstr "فعل وحدة البوابة"
+
+msgid "Active themes"
+msgstr "الثيمات النشطة"
+
+msgid "Allow custom SMS footer"
+msgstr "السماح بتذييل مخصص للرسالة"
+
+msgid "Allow custom sender ID"
+msgstr "السماح بإضافة هوية المرسل"
+
+msgid "Application footer here. Go to main configuration or manage site to edit this footer."
+msgstr "تطبيق التذييل هنا. انتقل إلى الإعدادات الرئيسية أو إدارة الموقع لتحرير هذا التذييل."
+
+msgid "Buy credit"
+msgstr "شراء رصيد"
+
+msgid "Buy credit page"
+msgstr "الصفحة شراء الرصيد"
+
+msgid "Default SMS rate"
+msgstr "معدل الرسائل الافتراضي"
+
+msgid "Default credit for user"
+msgstr "الرصيد الافتراضي للمستخدم"
+
+msgid "Default language"
+msgstr "اللغة الافتراضية"
+
+msgid "Default sender ID"
+msgstr "هوية المرسل الافتراضية"
+
+msgid "Default settings"
+msgstr "الإعدادات الافتراضية"
+
+msgid "Default site configuration"
+msgstr "إعدادات الموقع الافتراضية"
+
+msgid "Default timezone"
+msgstr "التوقيت الافتراضي"
+
+msgid "Default user status on registration"
+msgstr "حالة المستخدم الافتراضية عند التسجيل"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "على سبيل المثال: توقيت +0700 لجاكرتا / بانكوك "
+
+msgid "Enable forgot password"
+msgstr "تفعيل نسيت كلمة السر"
+
+msgid "Enable logo"
+msgstr "تفعيل الشعار"
+
+msgid "Enable public registration"
+msgstr "تفعيل التسجيل للزوار"
+
+msgid "Forwarded email footer"
+msgstr "إعادة توجيه تذييل البريد الإلكتروني"
+
+msgid "Go to main configuration or manage site to edit this page"
+msgstr "انتقل إلى الإعدادات الرئيسية أو إدارة الموقع لتعديل هذه الصفحة."
+
+msgid "Information"
+msgstr "معلومات"
+
+msgid "Information page"
+msgstr "صفحة المعلومات"
+
+msgid "Layout footer"
+msgstr "تذييل التصميم"
+
+msgid "Logo URL"
+msgstr "رابط الشعار"
+
+msgid "Logo by default will be displayed at login, register and forgot password page"
+msgstr "سيتم عرض الشعار افتراضيا فى صفحات الدخول , التسجيل ونسيت كلمة السر."
+
+msgid "Main configuration"
+msgstr "الإعدادات الرئيسية"
+
+msgid "Main configuration changes has been saved"
+msgstr "تم حفظ التغييرات فى الإعدادات الرئيسية."
+
+msgid "Main website URL"
+msgstr "الرابط الرئيسي للموقع"
+
+msgid "Main website name"
+msgstr "إسم الموقع"
+
+msgid "Maximum SMS count"
+msgstr "العد الأقصى للرسائل"
+
+msgid "Normal user"
+msgstr "مستخدم عادي"
+
+msgid "Page content"
+msgstr "محتوى الصفحة"
+
+msgid "Page title"
+msgstr "عنوان الصفحة"
+
+msgid "Replace website title with logo"
+msgstr "استبدل عنوان الموقع بالشعار"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Subuser"
+msgstr "مستخدم فرعي"
+
+msgid "Website URL"
+msgstr "رابط الموقع"
+
+msgid "Website email"
+msgstr "البريد الإليكتروني للموقع"
+
+msgid "Website title"
+msgstr "عنوان الموقع"
+
+msgid "no"
+msgstr "ﻻ"
+
+msgid "yes"
+msgstr "نعم"
+

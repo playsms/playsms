@@ -1,0 +1,84 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-11 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: nesma hamdy <nesma.cis2010@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+msgid "Fail to recover password"
+msgstr "فشلت محاولة إعادة كلمة السر"
+
+msgid "Fail to send email"
+msgstr "لم يتم إرسال الرسالة"
+
+msgid "Home"
+msgstr "الرئيسية"
+
+msgid "Invalid username or password"
+msgstr "الاسم المستخدم أو كلمة السر غير صحيح"
+
+msgid "Login"
+msgstr "دخول"
+
+msgid "Mobile"
+msgstr "الجوال"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "Password"
+msgstr "كلمة السر"
+
+msgid "Password has been emailed"
+msgstr "لقد تم إرسال كلمة السر الى بريدك الإلكتروني"
+
+msgid "Password recovery"
+msgstr "إستعادة كلمة السر"
+
+msgid "Please type the displayed captcha phrase correctly"
+msgstr "من فضللك أعد كتابة الحروف بطريقة صحيحة"
+
+msgid "Recover password"
+msgstr "إستعادة كلمة السر"
+
+msgid "Recover password disabled"
+msgstr "ﻻ يسمح بإستعادة كلمة السر"
+
+msgid "Register an account"
+msgstr "تسجيل حساب جديد"
+
+msgid "Submit"
+msgstr "إرسال"
+
+msgid "This temporary password will be removed once you have logged in successfully"
+msgstr "كلمة السر هذة مؤقتة سيتم إزالتها بمجرد الإنتهاء من تسجيل الدخول بنجاح."
+
+msgid "Unable to login"
+msgstr "عدم التمكن من الدخول"
+
+msgid "Username"
+msgstr "اسم المستخدم"
+
+msgid "Username or email"
+msgstr "اسم المستخدم أو البريد الإلكتروني"
+
+msgid "Verify captcha"
+msgstr "تأكيد الكود"
+
+msgid "You have been logged out"
+msgstr "لقد قمت بالخروج"
+
+msgid "You have no access to this page"
+msgstr "ليس لديك صلاحية الدخول لهذه الصفحة"
+
+msgid "You or someone else have requested a password recovery"
+msgstr "لقد تم طلب إستعادة كلمة السر بواسطتك أو بواسطة شخص آخر."
+

@@ -1,0 +1,29 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: nesma hamdy <nesma.cis2010@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Message"
+msgstr "الرسالة"
+
+msgid "Message from"
+msgstr "الرسالة من"
+
+msgid "New inbox from"
+msgstr "البريد الوارد الجديد من"
+
+msgid "Received"
+msgstr "تم استلامه"
+
+msgid "Receiver"
+msgstr "المرسل اليه"
+
+msgid "Sender"
+msgstr "المرسل"
+

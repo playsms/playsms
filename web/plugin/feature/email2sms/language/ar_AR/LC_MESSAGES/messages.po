@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: nesma hamdy <nesma.cis2010@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+
+msgid "Email protocol"
+msgstr ""
+
+msgid "Email to SMS configuration has been saved and enabled"
+msgstr "إعدادات إرسال البريد اﻹلكتروني الى الرسائل القصيرة تم حفظها وتم تفعيلها"
+
+msgid "Email to SMS configuration has been saved but disabled"
+msgstr "إعدادات إرسال البريد اﻹلكتروني الى الرسائل القصيرة تم حفظها ولكنها غير مفعلة"
+
+msgid "Enable email to SMS"
+msgstr "تفعيل البريد الإلكتروني إلى الرسائل القصيرة"
+
+msgid "Fail to save email to SMS configuration"
+msgstr "فشل حفظ البريد الإلكتروني إلى إعدادات الرسائل القصيرة"
+
+msgid "Mail server address"
+msgstr ""
+
+msgid "Mail server port"
+msgstr ""
+
+msgid "Mailbox password"
+msgstr "كلمة السر لصندوق البريد"
+
+msgid "Mailbox username"
+msgstr "اسم المستخدم لصندوق البريد"
+
+msgid "Manage email to SMS"
+msgstr "إدارة البريد الإلكتروني إلى الرسائل القصيرة"
+
+msgid "No validate cert option"
+msgstr ""
+
+msgid "PIN is empty"
+msgstr ""
+
+msgid "Use SSL"
+msgstr ""
+
+msgid "no"
+msgstr "ﻻ"
+
+msgid "yes"
+msgstr "نعم"
+
