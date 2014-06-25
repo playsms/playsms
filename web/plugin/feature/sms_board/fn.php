@@ -129,7 +129,7 @@ function sms_board_output_serialize($keyword, $line = "10") {
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret['item'][$i]['sender'] = $db_row['in_masked'];
 		$ret['item'][$i]['message'] = $db_row['in_msg'];
-		$ret['item'][$i]['datetime'] = $db_row['in_datetime'];
+		$ret['item'][$i]['datetime'] = core_display_datetime($db_row['in_datetime']);
 		$i++;
 	}
 	return serialize($ret);
@@ -150,7 +150,7 @@ function sms_board_output_xml($keyword, $line = "10") {
 	while ($db_row = dba_fetch_array($db_result)) {
 		$sender = $db_row['in_masked'];
 		$message = $db_row['in_msg'];
-		$datetime = $db_row['in_datetime'];
+		$datetime = core_display_datetime($db_row['in_datetime']);
 		$xml.= '<item>' . "\n";
 		$xml.= '<title>' . $sender . '</title>' . "\n";
 		$xml.= '<message>' . $message . '</message>' . "\n";
@@ -175,7 +175,7 @@ function sms_board_output_rss($keyword, $line = "10", $format = "RSS0.91") {
 	while ($db_row1 = dba_fetch_array($db_result1)) {
 		$title = $db_row1['in_masked'];
 		$description = $db_row1['in_msg'];
-		$datetime = $db_row1['in_datetime'];
+		$datetime = core_display_datetime($db_row1['in_datetime']);
 		$items = new FeedItem();
 		$items->title = $title;
 		$items->description = $description;
@@ -216,7 +216,7 @@ function sms_board_output_html($keyword, $line = "10") {
 		while ($db_row1 = dba_fetch_array($db_result1)) {
 			$i++;
 			$sender = $db_row1['in_masked'];
-			$datetime = $db_row1['in_datetime'];
+			$datetime = core_display_datetime($db_row1['in_datetime']);
 			$message = $db_row1['in_msg'];
 			$tmp_template = $template;
 			$tmp_template = str_replace("{SENDER}", $sender, $tmp_template);
