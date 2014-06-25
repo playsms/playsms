@@ -19,6 +19,10 @@ input, select, option, textarea {
 	width: 400px;
 }
 
+input[type="checkbox"] {
+	width: auto;
+}
+
 input[type="button"], input[type="submit"], .button, .submit {
 	width: 100px;
 }
