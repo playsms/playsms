@@ -111,10 +111,7 @@ switch (_OP_) {
 				<td>" . _('CSS URL') . "</td><td><input type=text size=30 name=edit_css value=\"" . $edit_css . "\"></td>
 			</tr>
 			<tr>
-				<td colspan=2>
-					" . _('Row template') . "<br />
-					<textarea name=edit_template style='width: 35em; height: 8em;'>" . $edit_template . "</textarea>
-				</td>
+				<td>" . _('Row template') . "</td><td><textarea style='height: 10em' name=edit_template>" . $edit_template . "</textarea></td>
 			</tr>
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
