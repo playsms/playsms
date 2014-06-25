@@ -1,24 +1,24 @@
 {{ ERROR }}
 <h2>{{ Manage sync }}</h2>
 <form action="index.php?app=main&inc=feature_sms_sync&op=sms_sync_save" method=POST>
-{{ CSRF_FORM }}
-<table class=playsms-table>
-	<tbody>
-		<tr>
-			<td class=label-sizer>{{ Enable SMS Sync }}</td>
-			<td><input type=checkbox name=sms_sync_enable value=1 {{ CHECKED }}> {{ HINT_ENABLE }}</td>
-		</tr>
-		<tr>
-			<td>{{ Secret key }}</td>
-			<td><input type=text name=sms_sync_secret size=30 maxlength=30 value="{{ SECRET }}"> {{ HINT_SECRET }}</td>
-		</tr>
-		<tr>
-			<td>{{ Sync URL }}</td>
-			<td><textarea style="width: 19em; height: 5em; resize: none" disabled>{{ SYNC_URL }}</textarea></td>
-		</tr>
-	</tbody>
-</table>
-<p><input type=submit class=button value="{{ Save }}">
+	{{ CSRF_FORM }}
+	<table class=playsms-table>
+		<tbody>
+			<tr>
+				<td class=label-sizer>{{ Enable SMS Sync }}</td>
+				<td><input type=checkbox name=sms_sync_enable value=1 {{ CHECKED }}> {{ HINT_ENABLE }}</td>
+			</tr>
+			<tr>
+				<td>{{ Secret key }}</td>
+				<td><input type=text name=sms_sync_secret size=30 maxlength=30 value="{{ SECRET }}"> {{ HINT_SECRET }}</td>
+			</tr>
+			<tr>
+				<td>{{ Sync URL }}</td>
+				<td><textarea style="width: 15em; height: 5em; resize: none" disabled>{{ SYNC_URL }}</textarea></td>
+			</tr>
+		</tbody>
+	</table>
+	<p><input type=submit class=button value="{{ Save }}">
 </form>
 <p>{{ Notes }}:
 <ul>
