@@ -1,7 +1,7 @@
 .navbar-right { float: right !important; }
 
 @media (max-width: 768px) {
-	input[size="30"], select, textarea {
+	.playsms-responsive, input[size="30"], select, textarea {
 		width: 335px;
 	}
 	.label-sizer {
@@ -13,7 +13,7 @@
 }
 
 @media (max-width: 600px) {
-	input[size="30"], select, textarea {
+	.playsms-responsive, input[size="30"], select, textarea {
 		width: 251px;
 	}
 	.label-sizer {
@@ -32,7 +32,7 @@
 }
 
 @media (max-width: 480px) {
-	input[size="30"], select, textarea {
+	.playsms-responsive, input[size="30"], select, textarea {
 		width: 200px;
 	}
 	.label-sizer {
@@ -44,7 +44,7 @@
 }
 
 @media (max-width: 320px) {
-	input[size="30"], select, textarea {
+	.playsms-responsive, input[size="30"], select, textarea {
 		width: 120px;
 	}
 	.label-sizer {
@@ -56,7 +56,7 @@
 }
 
 @media (max-width: 240px) {
-	input[size="30"], select, textarea {
+	.playsms-responsive, input[size="30"], select, textarea {
 		width: 75px;
 	}
 	.label-sizer {

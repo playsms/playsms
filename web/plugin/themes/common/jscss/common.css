@@ -6,7 +6,7 @@ body {
 	height: 100%;
 }
 
-input, select, option {
+input, select, option, textarea {
 	font-size: 12pt;
 	font-weight: normal;
 	color: #738384;
@@ -16,10 +16,6 @@ input, select, option {
 	margin-right: 2px;
 	margin-bottom: 2px;
 	border-radius: 3px;
-}
-
-input[size="30"], select {
-	width: 400px;
 }
 
 textarea {
@@ -35,6 +31,10 @@ textarea {
 	width: 100%;
 	resize: none;
 	outline: none;
+}
+
+input[size="30"], select, option, textarea {
+	width: 400px;
 }
 
 table.sortable thead, table.sortable th {
@@ -247,6 +247,10 @@ table.sortable thead, table.sortable th {
 	padding-top: 30px;
 	padding-bottom: 20px;
 	max-width: 220px;
+}
+
+.playsms-responsive {
+	width: 400px;
 }
 
 /* IDs */
