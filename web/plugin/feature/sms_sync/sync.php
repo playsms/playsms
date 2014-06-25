@@ -21,6 +21,10 @@ error_reporting(0);
 
 if (!$called_from_hook_call) {
 	chdir("../../../");
+	
+	// ignore CSRF
+	$core_config['init']['ignore_csrf'] = TRUE;
+	
 	include "init.php";
 	include $core_config['apps_path']['libs'] . "/function.php";
 	chdir("plugin/feature/sms_sync/");
@@ -58,7 +62,7 @@ if ($sms_sync_enable && $c_uid && ($r['secret'] == $sms_sync_secret) && $message
 			_log("forwarded to inbox uid:" . $c_uid . " message_id:" . $message_id, 3, "sms_sync sync");
 			$message = "@" . user_uid2username($c_uid) . " " . $message;
 		}
-
+		
 		// route it
 		if ($recvsms_id = recvsms($sms_datetime, $sms_sender, $message, $sms_receiver)) {
 			$items = array(
