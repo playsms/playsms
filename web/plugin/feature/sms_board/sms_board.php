@@ -105,10 +105,10 @@ switch (_OP_) {
 				<td class=label-sizer>" . _('SMS board keyword') . "</td><td>" . $edit_board_keyword . "</td>
 			</tr>
 			<tr>
-				<td>" . _('Forward to email') . "</td><td><input type=text size=30 name=edit_email value=\"" . $edit_email . "\"></td>
+				<td>" . _('Forward to email') . "</td><td><input type=text name=edit_email value=\"" . $edit_email . "\"></td>
 			</tr>
 			<tr>
-				<td>" . _('CSS URL') . "</td><td><input type=text size=30 name=edit_css value=\"" . $edit_css . "\"></td>
+				<td>" . _('CSS URL') . "</td><td><input type=text name=edit_css value=\"" . $edit_css . "\"></td>
 			</tr>
 			<tr>
 				<td>" . _('Row template') . "</td><td><textarea style='height: 10em' name=edit_template>" . $edit_template . "</textarea></td>
@@ -172,13 +172,13 @@ switch (_OP_) {
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td class=label-sizer>" . _('SMS board keyword') . "</td><td><input type=text size=30 maxlength=30 name=add_board_keyword value=\"$add_board_keyword\"></td>
+				<td class=label-sizer>" . _('SMS board keyword') . "</td><td><input type=text maxlength=30 name=add_board_keyword value=\"$add_board_keyword\"></td>
 			</tr>
 			<tr>
-				<td>" . _('Forward to email') . "</td><td><input type=text size=30 name=add_email value=\"$add_email\"></td>
+				<td>" . _('Forward to email') . "</td><td><input type=text name=add_email value=\"$add_email\"></td>
 			</tr>
 			<tr>
-				<td>" . _('CSS URL') . "</td><td><input type=text size=30 name=add_css value=\"$add_css\"></td>
+				<td>" . _('CSS URL') . "</td><td><input type=text name=add_css value=\"$add_css\"></td>
 			</tr>
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">

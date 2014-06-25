@@ -28,18 +28,18 @@ switch (_OP_) {
 					<td class=label-sizer>"._('Gateway name')."</td><td>msgtoolbox $status_active</td>
 				</tr>
 				<tr>
-					<td>"._('msgtoolbox URL')."</td><td><input type=text size=30 maxlength=250 name=up_url value=\"".$plugin_config['msgtoolbox']['url']."\"></td>
+					<td>"._('msgtoolbox URL')."</td><td><input type=text maxlength=250 name=up_url value=\"".$plugin_config['msgtoolbox']['url']."\"></td>
 				</tr>
 				<tr>
 					<td>"._('Route')."</td><td><input type=text size=5 maxlength=5 name=up_route value=\"".$plugin_config['msgtoolbox']['route']."\"></td>
 				</tr>
-				<td>"._('Username')."</td><td><input type=text size=30 maxlength=30 name=up_username value=\"".$plugin_config['msgtoolbox']['username']."\"></td>
+				<td>"._('Username')."</td><td><input type=text maxlength=30 name=up_username value=\"".$plugin_config['msgtoolbox']['username']."\"></td>
 				</tr>
 				<tr>
-					<td>"._('Password')."</td><td><input type=password size=30 maxlength=30 name=up_password value=\"\"> "._hint(_('Fill to change the password'))."</td>
+					<td>"._('Password')."</td><td><input type=password maxlength=30 name=up_password value=\"\"> "._hint(_('Fill to change the password'))."</td>
 				</tr>
 				<tr>
-					<td>"._('Module sender ID')."</td><td><input type=text size=30 maxlength=16 name=up_global_sender value=\"".$plugin_config['msgtoolbox']['global_sender']."\"> "._hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable'))."</td>
+					<td>"._('Module sender ID')."</td><td><input type=text maxlength=16 name=up_global_sender value=\"".$plugin_config['msgtoolbox']['global_sender']."\"> "._hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable'))."</td>
 				</tr>
 				<tr>
 					<td>"._('Module timezone')."</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"".$plugin_config['msgtoolbox']['datetime_timezone']."\"> "._hint(_('Eg: +0700 for Jakarta/Bangkok timezone'))."</td>

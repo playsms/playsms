@@ -18,7 +18,7 @@ switch (_OP_) {
 							<form action=\"index.php?app=main&inc=feature_sendfromfile&op=upload_confirm\" enctype=\"multipart/form-data\" method=\"post\">
 							"._CSRF_FORM_."
 							<p>"._('Please select CSV file')."</p>
-							<p><input type=\"file\" size=30 name=\"fncsv\"></p>
+							<p><input type=\"file\" name=\"fncsv\"></p>
 							<p class=text-info>".$info_format."</p>
 							<p><input type=\"submit\" value=\""._('Upload file')."\" class=\"button\"></p>
 							</form>

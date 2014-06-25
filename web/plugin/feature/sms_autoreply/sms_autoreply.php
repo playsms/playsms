@@ -211,12 +211,12 @@ switch (_OP_) {
 		for ($i=1;$i<=7;$i++) {
 			$content .= "
 				<tr>
-					<td>"._('SMS autoreply scenario parameter')." $i</td><td><input type=text size=30 maxlength=20 name=\"add_autoreply_scenario_param".$i."\" value=\"".${"add_autoreply_scenario_param".$i}."\">\n</td>
+					<td>"._('SMS autoreply scenario parameter')." $i</td><td><input type=text maxlength=20 name=\"add_autoreply_scenario_param".$i."\" value=\"".${"add_autoreply_scenario_param".$i}."\">\n</td>
 				</tr>";
 		}
 		$content .= "
 			<tr>
-				<td>"._('SMS autoreply scenario replies with')."</td><td><input type=text size=30 name=add_autoreply_scenario_result value=\"$add_autoreply_scenario_result\"></td>
+				<td>"._('SMS autoreply scenario replies with')."</td><td><input type=text name=add_autoreply_scenario_result value=\"$add_autoreply_scenario_result\"></td>
 			</tr>
 			</table>
 			<p><input type=submit class=button value='"._('Save')."'>
@@ -280,13 +280,13 @@ switch (_OP_) {
 		for ($i=1;$i<=7;$i++) {
 			$content .= "
 				<tr>
-					<td>"._('SMS autoreply scenario parameter')." $i</td><td><input type=text size=30 maxlength=20 name=edit_autoreply_scenario_param$i value=\"".${"edit_autoreply_scenario_param".$i}."\">\n</td>
+					<td>"._('SMS autoreply scenario parameter')." $i</td><td><input type=text maxlength=20 name=edit_autoreply_scenario_param$i value=\"".${"edit_autoreply_scenario_param".$i}."\">\n</td>
 				</tr>";
 		}
 		$edit_autoreply_scenario_result = $db_row['autoreply_scenario_result'];
 		$content .= "
 			<tr>
-				<td>"._('SMS autoreply scenario replies with')."</td><td><input type=text size=30 name=edit_autoreply_scenario_result value=\"$edit_autoreply_scenario_result\"></td>
+				<td>"._('SMS autoreply scenario replies with')."</td><td><input type=text name=edit_autoreply_scenario_result value=\"$edit_autoreply_scenario_result\"></td>
 			</tr>
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\"></p>

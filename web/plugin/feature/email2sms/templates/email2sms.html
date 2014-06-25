@@ -47,7 +47,7 @@
 		<tbody>
 			<tr>
 				<td class=label-sizer>{{ PIN for email to SMS }}</td>
-				<td><input type="password" size=30 maxlength="40" name="pin" value="{{ $items['features']['email2sms']['pin'] }}" required> <i id="email2sms-show-pin" class="glyphicon glyphicon-eye-open"></i></td>
+				<td><input type="password" maxlength="40" name="pin" value="{{ $items['features']['email2sms']['pin'] }}" required> <i id="email2sms-show-pin" class="glyphicon glyphicon-eye-open"></i></td>
 			</tr>
 			<tr>
 				<td class=label-sizer>{{ Enable email to SMS }}</td>
@@ -67,20 +67,20 @@
 			</tr>
 			<tr>
 				<td class=label-sizer>{{ Mail server address }}</td>
-				<td><input type="text" size=30 name="server" value="{{ $items['features']['email2sms']['server'] }}"></td>
+				<td><input type="text" name="server" value="{{ $items['features']['email2sms']['server'] }}"></td>
 			</tr>
 			<tr>
 				<td class=label-sizer>{{ Mail server port }}</td>
-				<td><input type="text" size=30 name="port" value="{{ $items['features']['email2sms']['port'] }}"></td>
+				<td><input type="text" name="port" value="{{ $items['features']['email2sms']['port'] }}"></td>
 			</tr>
 			<tr>
 				<td class=label-sizer>{{ Mailbox username }}</td>
-				<td><input type="text" size=30 name="username" value="{{ $items['features']['email2sms']['username'] }}"></td>
+				<td><input type="text" name="username" value="{{ $items['features']['email2sms']['username'] }}"></td>
 			</tr>
 			<tr>
 				<td class=label-sizer>{{ Mailbox password }}</td>
 				<td>
-					<input type="password" size=30 name="password" value=""> {{ HINT_PASSWORD }}
+					<input type="password" name="password" value=""> {{ HINT_PASSWORD }}
 				</td>
 			</tr>
 		</tbody>

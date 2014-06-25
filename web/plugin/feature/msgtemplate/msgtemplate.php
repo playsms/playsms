@@ -80,10 +80,10 @@ switch (_OP_) {
 			"._CSRF_FORM_."
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>"._('Message template name')."</td><td><input type=text size=30 maxlength=100 name=t_title></td>
+				<td class=label-sizer>"._('Message template name')."</td><td><input type=text maxlength=100 name=t_title></td>
 			</tr>
 			<tr>
-				<td>"._('Message template content')."</td><td><input type=text name=t_text size=30></td>
+				<td>"._('Message template content')."</td><td><input type=text name=t_text></td>
 			</tr>	
 			</table>	
 			<p><input type='submit' class='button' value='"._('Save')."'></p>
@@ -107,10 +107,10 @@ switch (_OP_) {
 			<input type=hidden name=tid value='".$tid."'>
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>"._('Message template name')."</td><td><input type=text size=30 maxlength=100 name=t_title value='".$db_row['t_title']."'></td>
+				<td class=label-sizer>"._('Message template name')."</td><td><input type=text maxlength=100 name=t_title value='".$db_row['t_title']."'></td>
 			</tr>
 			<tr>
-				<td>"._('Message template content')."</td><td><input type=text name=t_text size=30 value='".$db_row['t_text']."'></td>
+				<td>"._('Message template content')."</td><td><input type=text name=t_text value='".$db_row['t_text']."'></td>
 			</tr>
 			</table>
 			<input type='hidden' name='item_count' value='$i'>

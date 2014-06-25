@@ -17,11 +17,11 @@
 			</if.isadmin>
 			<tr>
 				<td class=label-sizer>{{ Sender ID }}</td>
-				<td><input type="text" size=30 name="sender_id" value="{{ $items['sender_id'] }}" {{ input_tag }}></td>
+				<td><input type="text" name="sender_id" value="{{ $items['sender_id'] }}" {{ input_tag }}></td>
 			</tr>
 			<tr>
 				<td class=label-sizer>{{ Description }}</td>
-				<td><input type="text" size=30 name="description" value="{{ $items['description'] }}"></td>
+				<td><input type="text" name="description" value="{{ $items['description'] }}"></td>
 			</tr>
 			<if.isadmin>
 			<tr>

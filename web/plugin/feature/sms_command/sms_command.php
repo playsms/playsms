@@ -116,7 +116,7 @@ switch (_OP_) {
 					</td>
 				</tr>
 				<tr>
-					<td>"._('SMS command exec')."</td><td><input type=text size=30 maxlength=200 name=edit_command_exec value=\"$edit_command_exec\"></td>
+					<td>"._('SMS command exec')."</td><td><input type=text maxlength=200 name=edit_command_exec value=\"$edit_command_exec\"></td>
 				</tr>
 				<tr>
 					<td>"._('Make return as reply')."</td><td><input type=checkbox name=edit_command_return_as_reply $edit_command_return_as_reply></td>
@@ -200,7 +200,7 @@ switch (_OP_) {
 					</td>
 				</tr>
 				<tr>
-					<td>"._('SMS command exec')."</td><td><input type=text size=30 maxlength=200 name=add_command_exec value=\"$add_command_exec\"></td>
+					<td>"._('SMS command exec')."</td><td><input type=text maxlength=200 name=add_command_exec value=\"$add_command_exec\"></td>
 				</tr>
 				<tr>
 					<td>"._('Make return as reply')."</td><td><input type=checkbox name=add_command_return_as_reply></td>

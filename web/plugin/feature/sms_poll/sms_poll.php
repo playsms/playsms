@@ -104,13 +104,13 @@ switch (_OP_) {
 				<td class=label-sizer>"._('SMS poll keyword')."</td><td>$edit_poll_keyword</td>
 			</tr>
 			<tr>
-				<td>"._('SMS poll title')."</td><td><input type=text size=30 maxlength=100 name=edit_poll_title value=\"$edit_poll_title\"></td>
+				<td>"._('SMS poll title')."</td><td><input type=text maxlength=100 name=edit_poll_title value=\"$edit_poll_title\"></td>
 			</tr>
 			<tr>
-				<td>"._('Reply message on valid answer')."</td><td><input type=text size=30 maxlength=100 name=\"edit_poll_message_valid\" value=\"$edit_poll_message_valid\"></td>
+				<td>"._('Reply message on valid answer')."</td><td><input type=text maxlength=100 name=\"edit_poll_message_valid\" value=\"$edit_poll_message_valid\"></td>
 			</tr>
 			<tr>
-				<td>"._('Reply message on invalid answer')."</td><td><input type=text size=30 maxlength=100 name=\"edit_poll_message_invalid\" value=\"$edit_poll_message_invalid\"></td>
+				<td>"._('Reply message on invalid answer')."</td><td><input type=text maxlength=100 name=\"edit_poll_message_invalid\" value=\"$edit_poll_message_invalid\"></td>
 			</tr>
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
@@ -155,7 +155,7 @@ switch (_OP_) {
 				<td class=label-sizer>"._('Choice keyword')."</td><td><input type=text size=3 maxlength=10 name=add_choice_keyword></td>
 			</tr>
 			<tr>
-				<td>"._('Choice title')."</td><td><input type=text size=30 maxlength=250 name=add_choice_title></td>
+				<td>"._('Choice title')."</td><td><input type=text maxlength=250 name=add_choice_title></td>
 			</tr>
 			</table>
 			<p><input type=submit class=button value=\""._('Add')."\">
@@ -260,13 +260,13 @@ switch (_OP_) {
 				<td class=label-sizer>"._('SMS poll keyword')."</td><td><input type=text size=10 maxlength=10 name=add_poll_keyword value=\"$add_poll_keyword\"></td>
 			</tr>
 			<tr>
-				<td>"._('SMS poll title')."</td><td><input type=text size=30 maxlength=100 name=add_poll_title value=\"$add_poll_title\"></td>
+				<td>"._('SMS poll title')."</td><td><input type=text maxlength=100 name=add_poll_title value=\"$add_poll_title\"></td>
 			</tr>	 
 			<tr>
-				<td>"._('Reply message on valid answer')."</td><td><input type=text size=30 maxlength=100 name=\"add_poll_message_valid\" value=\"$add_poll_message_valid\"></td>
+				<td>"._('Reply message on valid answer')."</td><td><input type=text maxlength=100 name=\"add_poll_message_valid\" value=\"$add_poll_message_valid\"></td>
 			</tr>	
 			<tr>
-				<td>"._('Reply message when invalid answer')."</td><td><input type=text size=30 maxlength=100 name=\"add_poll_message_invalid\" value=\"$add_poll_message_invalid\"></td>
+				<td>"._('Reply message when invalid answer')."</td><td><input type=text maxlength=100 name=\"add_poll_message_invalid\" value=\"$add_poll_message_invalid\"></td>
 			</tr>	   
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">

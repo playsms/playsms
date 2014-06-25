@@ -27,7 +27,7 @@ switch (_OP_) {
 					<td class=label-sizer>"._('Gateway name')."</td><td>gnokii $status_active</td>
 				</tr>
 				<tr>
-					<td>"._('Gnokii installation path')."</td><td><input type=text size=30 maxlength=250 name=up_path value=\"".$plugin_config['gnokii']['path']."\"> "._hint(_('No trailing slash')." \"/\"")."</td>
+					<td>"._('Gnokii installation path')."</td><td><input type=text maxlength=250 name=up_path value=\"".$plugin_config['gnokii']['path']."\"> "._hint(_('No trailing slash')." \"/\"")."</td>
 				</tr>
 				</tbody>
 			</table>

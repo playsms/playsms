@@ -16,7 +16,7 @@ switch (_OP_) {
 							<form action=\"index.php?app=main&inc=feature_phonebook&route=import&op=import\" enctype=\"multipart/form-data\" method=POST>
 							"._CSRF_FORM_."
 							<p>"._('Please select CSV file for phonebook entries')."</p>
-							<p><input type=\"file\" size=30 name=\"fnpb\"></p>
+							<p><input type=\"file\" name=\"fnpb\"></p>
 							<p class=text-info>"._('format')." : "._('Name').", "._('Mobile').", "._('Email').", "._('Group code')."</p>
 							<p><input type=\"submit\" value=\""._('Import')."\" class=\"button\"></p>
 							</form>

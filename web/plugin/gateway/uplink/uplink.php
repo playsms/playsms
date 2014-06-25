@@ -39,19 +39,19 @@ switch (_OP_) {
 					<td class=label-sizer>" . _('Gateway name') . "</td><td>uplink $status_active</td>
 				</tr>
 				<tr>
-					<td>" . _('Master URL') . "</td><td><input type=text size=30 maxlength=250 name=up_master value=\"" . $plugin_config['uplink']['master'] . "\"></td>
+					<td>" . _('Master URL') . "</td><td><input type=text maxlength=250 name=up_master value=\"" . $plugin_config['uplink']['master'] . "\"></td>
 				</tr>
 				<tr>
-					<td>" . _('Additional URL parameter') . "</td><td><input type=text size=30 maxlength=250 name=up_additional_param value=\"" . $plugin_config['uplink']['additional_param'] . "\"></td>
+					<td>" . _('Additional URL parameter') . "</td><td><input type=text maxlength=250 name=up_additional_param value=\"" . $plugin_config['uplink']['additional_param'] . "\"></td>
 				</tr>
 				<tr>
-					<td>" . _('Webservice username') . "</td><td><input type=text size=30 maxlength=30 name=up_username value=\"" . $plugin_config['uplink']['username'] . "\"></td>
+					<td>" . _('Webservice username') . "</td><td><input type=text maxlength=30 name=up_username value=\"" . $plugin_config['uplink']['username'] . "\"></td>
 				</tr>
 				<tr>
-					<td>" . _('Webservice token') . "</td><td><input type=text size=30 maxlength=32 name=up_token value=\"\"></td>
+					<td>" . _('Webservice token') . "</td><td><input type=text maxlength=32 name=up_token value=\"\"></td>
 				</tr>
 				<tr>
-					<td>" . _('Module sender ID') . "</td><td><input type=text size=30 maxlength=16 name=up_global_sender value=\"" . $plugin_config['uplink']['global_sender'] . "\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable')) . "</td>
+					<td>" . _('Module sender ID') . "</td><td><input type=text maxlength=16 name=up_global_sender value=\"" . $plugin_config['uplink']['global_sender'] . "\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable')) . "</td>
 				</tr>
 				<tr>
 					<td>" . _('Try to disable SMS footer on master') . "</td><td><select name=up_try_disable_footer>" . $option_try_disable_footer . "</select></td>

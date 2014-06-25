@@ -151,7 +151,7 @@ switch (_OP_) {
 					</tr>
 					<tr>
 						<td>" . _('Amount') . "</td>
-						<td><input type='text' size=30 maxlength=14 name=amount value=\"0.0\"></td>
+						<td><input type='text' maxlength=14 name=amount value=\"0.0\"></td>
 					</tr>
 				</tbody>
 			</table>
@@ -197,7 +197,7 @@ switch (_OP_) {
 					</tr>
 					<tr>
 						<td>" . _('Amount') . "</td>
-						<td><input type='text' size=30 maxlength=14 name=amount value=\"0.0\"></td>
+						<td><input type='text' maxlength=14 name=amount value=\"0.0\"></td>
 					</tr>
 				</tbody>
 			</table>

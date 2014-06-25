@@ -142,7 +142,7 @@ function themes_search($search_category = array() , $url = '', $keyword_converte
 		" . _CSRF_FORM_ . "
 		<div class=search_box>
 			<div class=search_box_select><select name='search_category' class=search_input_category>" . $option_search_category . "</select></div>
-			<div class=search_box_input><input type='text' name='search_keyword' class=search_input_keyword value='" . $ret['keyword'] . "' size=30 maxlength='30' onEnter='document.searchbar.submit();'></div>
+			<div class=search_box_input><input type='text' name='search_keyword' class=search_input_keyword value='" . $ret['keyword'] . "' maxlength='30' onEnter='document.searchbar.submit();'></div>
 		</div>
 		</form>";
 	$ret['form'] = $content;

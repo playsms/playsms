@@ -148,22 +148,22 @@ switch (_OP_) {
 		<table class=playsms-table>
 		<tbody>
 		<tr>
-			<td>" . _mandatory('Username') . "</td><td><input type='text' size=30 maxlength='30' name='add_username' value=\"$add_username\"></td>
+			<td>" . _mandatory('Username') . "</td><td><input type='text' maxlength='30' name='add_username' value=\"$add_username\"></td>
 		</tr>
 		<tr>
-			<td>" . _mandatory('Password') . "</td><td><input type='password' size=30 maxlength='30' name='add_password' value=\"$add_password\"></td>
+			<td>" . _mandatory('Password') . "</td><td><input type='password' maxlength='30' name='add_password' value=\"$add_password\"></td>
 		</tr>
 		<tr>
-			<td>" . _mandatory('Full name') . "</td><td><input type='text' size=30 maxlength='100' name='add_name' value=\"$add_name\"></td>
+			<td>" . _mandatory('Full name') . "</td><td><input type='text' maxlength='100' name='add_name' value=\"$add_name\"></td>
 		</tr>
 		<tr>
-			<td>" . _mandatory('Email') . "</td><td><input type='text' size=30 maxlength='250' name='add_email' value=\"$add_email\"></td>
+			<td>" . _mandatory('Email') . "</td><td><input type='text' maxlength='250' name='add_email' value=\"$add_email\"></td>
 		</tr>
 		<tr>
 			<td>" . _('Mobile') . "</td><td><input type='text' size='16' maxlength='16' name='add_mobile' value=\"$add_mobile\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric characters')) . "</td>
 		</tr>
 		<tr>
-			<td>" . _('SMS footer') . "</td><td><input type='text' size=30 maxlength='30' name='add_footer' value=\"$add_footer\"> " . _hint(_('Max. 30 alphanumeric characters')) . "</td>
+			<td>" . _('SMS footer') . "</td><td><input type='text' maxlength='30' name='add_footer' value=\"$add_footer\"> " . _hint(_('Max. 30 alphanumeric characters')) . "</td>
 		</tr>	    	    	    
 		<tr>
 			<td>" . _('Timezone') . "</td><td><input type='text' size='5' maxlength='5' name='add_datetime_timezone' value=\"$add_datetime_timezone\"> " . _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')) . "</td>

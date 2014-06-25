@@ -125,9 +125,9 @@ switch (_OP_) {
 			<table class=playsms-table>
 			<tbody>
 			<tr><td class=label-sizer>"._('Group')."</td><td><select name=gpids[] multiple>$list_of_group</select></td></tr>
-			<tr><td>"._('Name')."</td><td><input type=text name=name size=30></td></tr>
-			<tr><td>"._('Mobile')."</td><td><input type=text name=mobile value=\"".$phone."\" size=30></td></tr>
-			<tr><td>"._('Email')."</td><td><input type=text name=email size=30></td></tr>
+			<tr><td>"._('Name')."</td><td><input type=text name=name></td></tr>
+			<tr><td>"._('Mobile')."</td><td><input type=text name=mobile value=\"".$phone."\"></td></tr>
+			<tr><td>"._('Email')."</td><td><input type=text name=email></td></tr>
 			</tbody>
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\"></p>
@@ -161,9 +161,9 @@ switch (_OP_) {
 			<table class=playsms-table>
 			<tbody>
 			<tr><td width=100>"._('Group')."</td><td><select name=gpids[] multiple>$list_of_group</select></td></tr>
-			<tr><td>"._('Name')."</td><td><input type=text name=name value=\"".$list[0]['name']."\" size=30></td></tr>
-			<tr><td>"._('Mobile')."</td><td><input type=text name=mobile value=\"".$list[0]['mobile']."\" size=30></td></tr>
-			<tr><td>"._('Email')."</td><td><input type=text name=email value=\"".$list[0]['email']."\" size=30></td></tr>
+			<tr><td>"._('Name')."</td><td><input type=text name=name value=\"".$list[0]['name']."\"></td></tr>
+			<tr><td>"._('Mobile')."</td><td><input type=text name=mobile value=\"".$list[0]['mobile']."\"></td></tr>
+			<tr><td>"._('Email')."</td><td><input type=text name=email value=\"".$list[0]['email']."\"></td></tr>
 			</tbody>
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\"></p>
