@@ -29,6 +29,9 @@ msgstr ""
 msgid "Fail to save email to SMS configuration"
 msgstr ""
 
+msgid "Fill the password field to change password"
+msgstr ""
+
 msgid "Mail server address"
 msgstr ""
 

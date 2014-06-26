@@ -35,6 +35,9 @@ msgstr ""
 msgid "Balance"
 msgstr ""
 
+msgid "Balance recorded on transaction"
+msgstr ""
+
 msgid "Ban date/time"
 msgstr ""
 

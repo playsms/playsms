@@ -91,7 +91,7 @@ switch (_OP_) {
 				</tr>
 				<tr>
 					<td>"._('Allow broadcast from mobile')."</td>
-					<td><select name=flag_sender>".$option_flag_sender."</select> "._hint('Set permission for broadcasting SMS to this group from mobile phone')."</td>
+					<td><select name=flag_sender>".$option_flag_sender."</select> "._hint(_('Set permission for broadcasting SMS to this group from mobile phone'))."</td>
 				</tr>
 			</tbody>
 			</table>

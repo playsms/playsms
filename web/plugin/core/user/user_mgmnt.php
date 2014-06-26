@@ -115,7 +115,7 @@ switch (_OP_) {
 			// remove user except those who still have subusers
 			$subusers = user_getsubuserbyuid($list[$i]['uid']);
 			if (count($subusers) > 0) {
-				$action .= _hint('Please remove all subusers from this user to delete');
+				$action .= _hint(_('Please remove all subusers from this user to delete'));
 			} else {
 				$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','"._u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_del&uname='.$list[$i]['username'])."&view=".$view."')\">".$icon_config['user_delete']."</a>";
 			}

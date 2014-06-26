@@ -32,9 +32,6 @@ msgstr "Gagal mengubah layanan papan SMS"
 msgid "Forward"
 msgstr "Teruskan"
 
-msgid "Forward WebSMS"
-msgstr "Teruskan WebSMS"
-
 msgid "Forward to email"
 msgstr "Teruskan ke email"
 
@@ -80,6 +77,10 @@ msgstr "Template baris"
 msgid "SMS Board"
 msgstr "Layanan papan SMS"
 
+#, fuzzy
+msgid "SMS board from"
+msgstr "Kata kunci papan SMS"
+
 msgid "SMS board has been added"
 msgstr "Layanan papan SMS telah ditambahkan"
 
@@ -112,9 +113,6 @@ msgstr "Keluaran XML"
 
 msgid "You must fill all fields"
 msgstr "Anda harus mengisi semua kolom"
-
-msgid "from"
-msgstr "Dari"
 
 msgid "keyword"
 msgstr "kata kunci"

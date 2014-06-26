@@ -34,9 +34,6 @@ msgstr "Impossible d'ajouter un service de redirection"
 msgid "Forward"
 msgstr "Rédirection"
 
-msgid "Forward WebSMS"
-msgstr "Rédirection WebSMS"
-
 msgid "Forward to email"
 msgstr "Transmettre à l'adresse email"
 
@@ -84,6 +81,10 @@ msgstr "Modèle"
 msgid "SMS Board"
 msgstr "Ajouter un service de redirection"
 
+#, fuzzy
+msgid "SMS board from"
+msgstr "Mot-clé du service de redirection"
+
 msgid "SMS board has been added"
 msgstr "Le service de redirection a été ajouté"
 
@@ -117,9 +118,6 @@ msgstr ""
 
 msgid "You must fill all fields"
 msgstr "Vous devez remplir tous les champs"
-
-msgid "from"
-msgstr "de"
 
 msgid "keyword"
 msgstr "mot-clé"

@@ -178,7 +178,7 @@ switch (_OP_) {
 			'Country' => _('Country'),
 			'Zipcode' => _('Zipcode'),
 			'Save' => _('Save'),
-			'HINT_STATUS' => _hint('Cannot change status when normal user have subusers'),
+			'HINT_STATUS' => _hint(_('Cannot change status when normal user have subusers')),
 			'HINT_PARENT' => _hint(_('Parent user is mandatory for subusers only. If no value is given then the subuser will be automatically assigned to user admin')),
 			'STATUS' => _('Normal user'),
 			'ERROR' => $error_content,

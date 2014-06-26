@@ -32,9 +32,6 @@ msgstr "Falha ao adicionar o quadro SMS"
 msgid "Forward"
 msgstr "Encaminhar"
 
-msgid "Forward WebSMS"
-msgstr "Encaminhar WebSMS"
-
 msgid "Forward to email"
 msgstr "Encaminhar pro e-mail"
 
@@ -80,6 +77,10 @@ msgstr "Linha Modelo"
 msgid "SMS Board"
 msgstr "Quadro SMS"
 
+#, fuzzy
+msgid "SMS board from"
+msgstr "Palavra-chave do quadro SMS"
+
 msgid "SMS board has been added"
 msgstr "O quadro SMS foi adicionado"
 
@@ -112,9 +113,6 @@ msgstr "Saída XML"
 
 msgid "You must fill all fields"
 msgstr "Preencha todos os campos"
-
-msgid "from"
-msgstr "de"
 
 msgid "keyword"
 msgstr "palavra-chave"

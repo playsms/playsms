@@ -67,7 +67,7 @@ switch (_OP_) {
 			<tr>
 				<th width=35%>" . _('Transaction datetime') . "</th>
 				<th width=30%>" . _('Amount') . "</th>
-				<th width=30%>" . _('Balance') . " " . _hint('Balance recorded on transaction') . "</th>
+				<th width=30%>" . _('Balance') . " " . _hint(_('Balance recorded on transaction')) . "</th>
 				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_feature_credit)></th>
 			</tr>
 			</thead>

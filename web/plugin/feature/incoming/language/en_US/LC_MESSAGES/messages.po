@@ -58,6 +58,12 @@ msgstr ""
 msgid "Route to user inbox if receiver number matched with user sender ID"
 msgstr ""
 
+msgid "Rules applied after incoming SMS processed"
+msgstr ""
+
+msgid "Rules applied before incoming SMS processed"
+msgstr ""
+
 msgid "Save"
 msgstr ""
 

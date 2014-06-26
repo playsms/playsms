@@ -74,7 +74,7 @@ if (_OP_ == 'register') {
 			'URL_FORGOT' => _u('index.php?app=main&inc=core_auth&route=forgot') ,
 			'URL_LOGIN' => _u('index.php?app=main&inc=core_auth&route=login') ,
 			'CAPTCHA_IMAGE' => $captcha->inline() ,
-			'HINT_CAPTCHA' => _hint('Read and type the captcha phrase on verify captcha field. If you cannot read them please contact administrator.') ,
+			'HINT_CAPTCHA' => _hint(_('Read and type the captcha phrase on verify captcha field. If you cannot read them please contact administrator.')) ,
 			'Name' => _('Name') ,
 			'Username' => _('Username') ,
 			'Mobile' => _('Mobile') ,

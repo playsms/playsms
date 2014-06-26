@@ -130,6 +130,9 @@ msgstr "Выбранные контакты перемещены в новую �
 msgid "Selected group has been deleted"
 msgstr "Выбранные группы удалены"
 
+msgid "Set permission for broadcasting SMS to this group from mobile phone"
+msgstr ""
+
 msgid "Unable to delete group until the group is empty"
 msgstr "Невозможно удалить группу, пока она не пуста"
 

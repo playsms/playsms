@@ -8,7 +8,13 @@ msgstr ""
 msgid "Add sender ID"
 msgstr ""
 
+msgid "Approve sender ID"
+msgstr ""
+
 msgid "Are you sure you want to delete sender ID"
+msgstr ""
+
+msgid "Click the status button to enable or disable status"
 msgstr ""
 
 msgid "Description"
@@ -21,6 +27,9 @@ msgid "Last update"
 msgstr ""
 
 msgid "Manage sender ID"
+msgstr ""
+
+msgid "Only when the sender ID is approved"
 msgstr ""
 
 msgid "Sender ID"
@@ -38,16 +47,16 @@ msgstr ""
 msgid "Sender ID has been removed"
 msgstr ""
 
-msgid "Sender ID is enabled"
+msgid "Sender ID is not available"
 msgstr ""
 
-msgid "Sender ID is not available"
+msgid "Sender ID is now approved"
 msgstr ""
 
 msgid "Sender ID is now disabled"
 msgstr ""
 
-msgid "Sender ID is now enabled"
+msgid "Set as default"
 msgstr ""
 
 msgid "User"

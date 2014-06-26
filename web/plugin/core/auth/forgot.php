@@ -100,7 +100,7 @@ if (_OP_ == 'forgot') {
 			'URL_REGISTER' => _u('index.php?app=main&inc=core_auth&route=register') ,
 			'URL_LOGIN' => _u('index.php?app=main&inc=core_auth&route=login') ,
 			'CAPTCHA_IMAGE' => $captcha->inline() ,
-			'HINT_CAPTCHA' => _hint('Read and type the captcha phrase on verify captcha field. If you cannot read them please contact administrator.') ,
+			'HINT_CAPTCHA' => _hint(_('Read and type the captcha phrase on verify captcha field. If you cannot read them please contact administrator.')) ,
 			'Username' => _('Username') ,
 			'Email' => _('Email') ,
 			'Recover password' => _('Recover password') ,

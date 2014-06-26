@@ -11,6 +11,9 @@ msgstr ""
 msgid "Active language"
 msgstr ""
 
+msgid "Add or reduce credit from manage credit menu"
+msgstr ""
+
 msgid "Add subuser"
 msgstr "Add subuser"
 
@@ -62,6 +65,9 @@ msgstr ""
 msgid "Auto remove plus sign"
 msgstr ""
 
+msgid "Cannot change status when normal user have subusers"
+msgstr ""
+
 msgid "City"
 msgstr ""
 
@@ -78,6 +84,12 @@ msgid "Currently logged in user is immune to deletion"
 msgstr ""
 
 msgid "Default"
+msgstr ""
+
+msgid "Default message footer"
+msgstr ""
+
+msgid "Default sender ID"
 msgstr ""
 
 msgid "Delete"
@@ -192,6 +204,9 @@ msgstr ""
 msgid "Personal information"
 msgstr ""
 
+msgid "Please remove all subusers from this user to delete"
+msgstr ""
+
 msgid "Please select"
 msgstr ""
 
@@ -222,10 +237,10 @@ msgstr ""
 msgid "SMS footer"
 msgstr ""
 
-msgid "SMS sender ID"
+msgid "Save"
 msgstr ""
 
-msgid "Save"
+msgid "Select default sender ID"
 msgstr ""
 
 msgid "Select parent user for subuser"

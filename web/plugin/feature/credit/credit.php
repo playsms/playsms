@@ -80,7 +80,7 @@ switch (_OP_) {
 				<th width=25%>" . _('User') . "</th>
 				<th width=30%>" . _('Transaction datetime') . "</th>
 				<th width=20%>" . _('Amount') . "</th>
-				<th width=20%>" . _('Balance') . " " . _hint('Balance recorded on transaction') . "</th>
+				<th width=20%>" . _('Balance') . " " . _hint(_('Balance recorded on transaction')) . "</th>
 				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_feature_credit)></th>
 			</tr>
 			</thead>

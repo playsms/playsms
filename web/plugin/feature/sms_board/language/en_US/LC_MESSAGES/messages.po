@@ -32,9 +32,6 @@ msgstr ""
 msgid "Forward"
 msgstr ""
 
-msgid "Forward WebSMS"
-msgstr ""
-
 msgid "Forward to email"
 msgstr ""
 
@@ -80,6 +77,9 @@ msgstr ""
 msgid "SMS Board"
 msgstr ""
 
+msgid "SMS board from"
+msgstr ""
+
 msgid "SMS board has been added"
 msgstr ""
 
@@ -111,9 +111,6 @@ msgid "XML output"
 msgstr ""
 
 msgid "You must fill all fields"
-msgstr ""
-
-msgid "from"
 msgstr ""
 
 msgid "keyword"

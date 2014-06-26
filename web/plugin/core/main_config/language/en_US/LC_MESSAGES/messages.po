@@ -10,10 +10,10 @@ msgstr ""
 msgid "Active themes"
 msgstr ""
 
-msgid "Allow custom SMS footer"
+msgid "Allow users to select SMS footer while on Send SMS page"
 msgstr ""
 
-msgid "Allow custom sender ID"
+msgid "Allow users to select sender ID while on Send SMS page"
 msgstr ""
 
 msgid ""
@@ -52,6 +52,9 @@ msgid "Default user status on registration"
 msgstr ""
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
 
 msgid "Enable forgot password"

@@ -252,7 +252,7 @@ switch (_OP_) {
 				'HINT_TIMEZONE' => _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')) ,
 				'HINT_LOCAL_LENGTH' => _hint(_('Min length to detect missing country code')) ,
 				'HINT_REPLACE_ZERO' => _hint(_('Replace prefix 0 or padding local numbers')) ,
-				'HINT_MANAGE_CREDIT' => _hint('Add or reduce credit from manage credit menu') ,
+				'HINT_MANAGE_CREDIT' => _hint(_('Add or reduce credit from manage credit menu')) ,
 				'option_new_token' => $option_new_token,
 				'option_enable_webservices' => $option_enable_webservices,
 				'option_language_module' => $option_language_module,

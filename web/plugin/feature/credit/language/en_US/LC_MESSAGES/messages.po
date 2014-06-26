@@ -19,6 +19,9 @@ msgstr ""
 msgid "Balance"
 msgstr ""
 
+msgid "Balance recorded on transaction"
+msgstr ""
+
 msgid "Credit has been added"
 msgstr ""
 

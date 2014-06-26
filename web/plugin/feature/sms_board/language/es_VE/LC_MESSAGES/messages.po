@@ -34,9 +34,6 @@ msgstr "Fallo al añadir la pizarra SMS"
 msgid "Forward"
 msgstr "Reenvio"
 
-msgid "Forward WebSMS"
-msgstr "Redirección SMS Web"
-
 msgid "Forward to email"
 msgstr "Reenviar a un correo electrónico"
 
@@ -84,6 +81,10 @@ msgstr "Plantilla"
 msgid "SMS Board"
 msgstr "Añadir pizarra SMS"
 
+#, fuzzy
+msgid "SMS board from"
+msgstr "Clave de pizarra SMS"
+
 msgid "SMS board has been added"
 msgstr "La pizarra SMS ha sido añadida"
 
@@ -117,9 +118,6 @@ msgstr ""
 
 msgid "You must fill all fields"
 msgstr "Ud. debe rellenar todos los campos"
-
-msgid "from"
-msgstr "de"
 
 msgid "keyword"
 msgstr "Clave"

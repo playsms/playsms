@@ -33,9 +33,6 @@ msgstr "增加短信面板失败"
 msgid "Forward"
 msgstr "发送"
 
-msgid "Forward WebSMS"
-msgstr "发送网页短信"
-
 msgid "Forward to email"
 msgstr "发送到电子邮件"
 
@@ -83,6 +80,10 @@ msgstr "模板"
 msgid "SMS Board"
 msgstr "增加短信面板"
 
+#, fuzzy
+msgid "SMS board from"
+msgstr "短信面板关键字"
+
 msgid "SMS board has been added"
 msgstr "短信面板已增加"
 
@@ -116,9 +117,6 @@ msgstr ""
 
 msgid "You must fill all fields"
 msgstr "你必须填满全部空白"
-
-msgid "from"
-msgstr "来自"
 
 msgid "keyword"
 msgstr "关键字"

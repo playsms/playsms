@@ -1,7 +1,13 @@
 msgid "Flash message"
 msgstr ""
 
+msgid "Format YYYY-MM-DD hh:mm"
+msgstr ""
+
 msgid "Message"
+msgstr ""
+
+msgid "Message footer"
 msgstr ""
 
 msgid "Options"
@@ -10,13 +16,10 @@ msgstr ""
 msgid "Please select template"
 msgstr ""
 
+msgid "Prefix with # for groups and @ for users"
+msgstr ""
+
 msgid "SMS"
-msgstr ""
-
-msgid "SMS footer"
-msgstr ""
-
-msgid "SMS sender ID"
 msgstr ""
 
 msgid "Schedule"
@@ -29,6 +32,9 @@ msgid "Send message"
 msgstr ""
 
 msgid "Send to"
+msgstr ""
+
+msgid "Sender ID"
 msgstr ""
 
 msgid "Unicode message"
@@ -44,12 +50,6 @@ msgid "chars"
 msgstr ""
 
 msgid "failed"
-msgstr ""
-
-msgid "format YYYY-MM-DD hh:mm"
-msgstr ""
-
-msgid "prefix with # for groups and @ for users"
 msgstr ""
 
 msgid "queued"

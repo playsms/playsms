@@ -59,7 +59,7 @@ switch (_OP_) {
 				'FORM_TITLE' => _('Manage email to SMS') ,
 				'ACTION_URL' => _u('index.php?app=main&inc=feature_email2sms&op=email2sms_save') ,
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
-				'HINT_PASSWORD' => _hint('Fill the password field to change password') ,
+				'HINT_PASSWORD' => _hint(_('Fill the password field to change password')) ,
 				'PIN for email to SMS' => _mandatory('PIN for email to SMS') ,
 				'Enable email to SMS' => _('Enable email to SMS') ,
 				'Email protocol' => _('Email protocol') ,

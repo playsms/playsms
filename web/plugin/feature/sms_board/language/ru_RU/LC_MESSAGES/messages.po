@@ -40,9 +40,6 @@ msgstr "Не удалось изменить доску объявлений"
 msgid "Forward"
 msgstr "Переадресация"
 
-msgid "Forward WebSMS"
-msgstr "Переадресация на WebSMS"
-
 msgid "Forward to email"
 msgstr "Переадресация на email"
 
@@ -88,6 +85,10 @@ msgstr "Шаблон строки"
 msgid "SMS Board"
 msgstr "Доска объявлений"
 
+#, fuzzy
+msgid "SMS board from"
+msgstr "Ключевое слово"
+
 msgid "SMS board has been added"
 msgstr "Доска объявлений добавлена"
 
@@ -122,9 +123,6 @@ msgstr "XML формат"
 
 msgid "You must fill all fields"
 msgstr "Необходимо заполнить все поля"
-
-msgid "from"
-msgstr "от"
 
 msgid "keyword"
 msgstr "ключевое слово"

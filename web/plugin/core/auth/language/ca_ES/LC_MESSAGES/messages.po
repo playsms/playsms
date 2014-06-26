@@ -50,6 +50,11 @@ msgstr ""
 msgid "Please type the displayed captcha phrase correctly"
 msgstr ""
 
+msgid ""
+"Read and type the captcha phrase on verify captcha field. If you cannot read "
+"them please contact administrator."
+msgstr ""
+
 msgid "Recover password"
 msgstr ""
 
