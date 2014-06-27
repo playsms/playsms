@@ -36,10 +36,10 @@ function sender_id_list() {
 	)) as $sender_id) {
 		$username = (auth_isadmin() ? user_uid2username($sender_id['uid']) : '');
 		$status = (($sender_id['registry_value'] == 1) ? "<span class=status_enabled></span>" : "<span class=status_disabled></span>");
-		$toggle_status = ((auth_isadmin()) ? "<a href='" . _u('index.php?app=main&inc=feature_sender_id&op=toggle_status&id=' . $sender_id['id']) . "'>" . $status . "</a>" : $status);
+		$toggle_status = ((auth_isadmin()) ? "<a href='" . _u('index.php?app=main&inc=core_sender_id&op=toggle_status&id=' . $sender_id['id']) . "'>" . $status . "</a>" : $status);
 		$action = "
-			<a href='" . _u('index.php?app=main&inc=feature_sender_id&op=sender_id_edit&id=' . $sender_id['id']) . "'>" . $icon_config['edit'] . "</a>
-			<a href=\"javascript: ConfirmURL('" . addslashes(_('Are you sure you want to delete sender ID') . ' ? (' . _('Sender ID') . ': ' . $sender_id['registry_key'] . ')') . "','" . _u('index.php?app=main&inc=feature_sender_id&op=sender_id_delete&id=' . $sender_id['id']) . "')\">" . $icon_config['delete'] . "</a>
+			<a href='" . _u('index.php?app=main&inc=core_sender_id&op=sender_id_edit&id=' . $sender_id['id']) . "'>" . $icon_config['edit'] . "</a>
+			<a href=\"javascript: ConfirmURL('" . addslashes(_('Are you sure you want to delete sender ID') . ' ? (' . _('Sender ID') . ': ' . $sender_id['registry_key'] . ')') . "','" . _u('index.php?app=main&inc=core_sender_id&op=sender_id_delete&id=' . $sender_id['id']) . "')\">" . $icon_config['delete'] . "</a>
 		";
 		$ret[] = array(
 			'username' => $username,
@@ -127,7 +127,7 @@ function sender_id_search($uid = 0) {
 	return $ret;
 }
 
-function sender_id_hook_sendsms_getall_sender($username = '') {
+function sender_id_getall($username = '') {
 	$ret = array();
 	
 	if ($username) {
@@ -143,7 +143,7 @@ function sender_id_hook_sendsms_getall_sender($username = '') {
 	return $ret;
 }
 
-function sender_id_hook_sendsms_sender_isvalid($username, $sender_id) {
+function sender_id_isvalid($username, $sender_id) {
 	$uid = user_username2uid($username);
 	
 	foreach (sender_id_search($uid) as $value) {

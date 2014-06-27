@@ -91,6 +91,11 @@ if (auth_isadmin()) {
 		3
 	);
 	$menu_config[$menutab][] = array(
+		'index.php?app=main&inc=core_sender_id&op=sender_id_list',
+		_('Manage sender ID') ,
+		3
+	);
+	$menu_config[$menutab][] = array(
 		'index.php?app=main&inc=core_main_config&op=main_config',
 		_('Main configuration') ,
 		3

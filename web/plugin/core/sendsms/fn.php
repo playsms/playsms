@@ -511,7 +511,7 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 		$sms_sender = '';
 	}
 	$sms_sender = core_sanitize_sender($sms_sender);
-	$sms_sender = (($sms_sender && sendsms_sender_isvalid($username, $sms_sender)) ? $sms_sender : sendsms_get_sender($username));
+	$sms_sender = (($sms_sender && sender_id_isvalid($username, $sms_sender)) ? $sms_sender : sendsms_get_sender($username));
 	
 	// SMS footer
 	if (!$core_config['main']['allow_custom_footer']) {
@@ -719,7 +719,7 @@ function sendsms_bc($username, $gpid, $message, $sms_type = 'text', $unicode = 0
 		$sms_sender = '';
 	}
 	$sms_sender = core_sanitize_sender($sms_sender);
-	$sms_sender = (($sms_sender && sendsms_sender_isvalid($username, $sms_sender)) ? $sms_sender : sendsms_get_sender($username));
+	$sms_sender = (($sms_sender && sender_id_isvalid($username, $sms_sender)) ? $sms_sender : sendsms_get_sender($username));
 	
 	// SMS footer
 	if (!$core_config['main']['allow_custom_footer']) {
@@ -868,7 +868,7 @@ function sendsms_get_sender($username, $default_sender_id = '') {
 				$c_sms_sender = user_getfieldbyusername($username, 'sender');
 				
 				// validate if $username is supplied
-				if (sendsms_sender_isvalid($username, $c_sms_sender)) {
+				if (sender_id_isvalid($username, $c_sms_sender)) {
 					$sms_sender = $c_sms_sender;
 				}
 			}
@@ -895,38 +895,6 @@ function sendsms_get_template() {
 		}
 	}
 	return $templates;
-}
-
-function sendsms_getall_sender($username) {
-	global $core_config;
-	
-	$ret = array();
-	
-	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
-		if ($ret = core_hook($core_config['featurelist'][$c], 'sendsms_getall_sender', array(
-			$username
-		))) {
-			break;
-		}
-	}
-	
-	return $ret;
-}
-
-function sendsms_sender_isvalid($username, $sender_id) {
-	global $core_config;
-	
-	$ret = FALSE;
-	
-	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
-		if ($ret = core_hook($core_config['featurelist'][$c], 'sendsms_sender_isvalid', array(
-			$username,
-			$sender_id
-		))) {
-			break;
-		}
-	}
-	return $ret;
 }
 
 /**

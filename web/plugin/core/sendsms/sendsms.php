@@ -32,7 +32,7 @@ switch (_OP_) {
 		// sender ID
 		$sms_from = sendsms_get_sender($user_config['username']);
 		$ismatched = FALSE;
-		foreach (sendsms_getall_sender($user_config['username']) as $sender_id) {
+		foreach (sender_id_getall($user_config['username']) as $sender_id) {
 			$selected = '';
 			if (strtoupper($sms_from) == strtoupper($sender_id)) {
 				$selected = 'selected';

@@ -3,9 +3,9 @@
 	<name>sender_id</name>
 	<alias>sender_id</alias>
 	<description>Sender ID Manager</description>
-	<release>1.0</release>
+	<release>1.1</release>
 	<date>2014-05-18</date>
-	<author>Y Rahman</author>
+	<author>Y Rahman, Anton Raharja</author>
 	<language_file>1</language_file>
 	<php_file>1</php_file>
 </plugin>

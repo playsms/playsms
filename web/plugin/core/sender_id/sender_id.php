@@ -10,14 +10,39 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
+
+// check permission when $uid supplied
+if ($_REQUEST['uid']) {
+	if (! auth_isadmin() && $user_config['uid'] != $_REQUEST['uid']) {
+		auth_block();
+	}
+}
+
+// check permission when $id supplied
+if ($_REQUEST['id']) {
+	$search = array(
+		'id' => $_REQUEST['id'],
+		'registry_family' => 'sender_id' 
+	);
+	$data_sender_id = registry_search_record($search);
+	if (! auth_isadmin() && $user_config['uid'] != $data_sender_id[0]['uid']) {
+		auth_block();
+	}
+}
+
+// check permission if _OP_ == toggle_status
+if (_OP_ == 'toggle_status') {
+	if (! auth_isadmin()) {
+		auth_block();
+	}
+}
 
 // sender ID
 $c_sender_id = $_REQUEST['sender_id'];
@@ -34,28 +59,28 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'sender_id',
 			'vars' => array(
-				'ERROR' => _err_display() ,
-				'FORM_TITLE' => _('Manage sender ID') ,
-				'ADD_URL' => _u('index.php?app=main&inc=feature_sender_id&op=sender_id_add') ,
+				'ERROR' => _err_display(),
+				'FORM_TITLE' => _('Manage sender ID'),
+				'ADD_URL' => _u('index.php?app=main&inc=core_sender_id&op=sender_id_add'),
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
-				'HINT_STATUS' => _hint(_('Click the status button to enable or disable status')) ,
-				'Sender ID' => _('Sender ID') ,
-				'Username' => _('Username') ,
-				'Last update' => _('Last update') ,
-			) ,
+				'HINT_STATUS' => _hint(_('Click the status button to enable or disable status')),
+				'Sender ID' => _('Sender ID'),
+				'Username' => _('Username'),
+				'Last update' => _('Last update') 
+			),
 			'ifs' => array(
-				'isadmin' => auth_isadmin() ,
-			) ,
+				'isadmin' => auth_isadmin() 
+			),
 			'loops' => array(
-				'sender_id_list' => sender_id_list() ,
-			) ,
+				'sender_id_list' => sender_id_list() 
+			),
 			'injects' => array(
-				'icon_config',
-			) ,
+				'icon_config' 
+			) 
 		);
 		_p(tpl_apply($tpl));
 		break;
-
+	
 	case "sender_id_add":
 		if (auth_isadmin()) {
 			$select_approve = _yesno('approved', 0);
@@ -66,39 +91,35 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'sender_id_add',
 			'vars' => array(
-				'ERROR' => _err_display() ,
-				'FORM_TITLE' => _('Manage sender ID') ,
-				'FORM_SUBTITLE' => _('Add sender ID') ,
-				'ACTION_URL' => _u('index.php?app=main&inc=feature_sender_id&op=sender_id_add_yes') ,
-				'BUTTON_BACK' => _back('index.php?app=main&inc=feature_sender_id&op=sender_id_list') ,
+				'ERROR' => _err_display(),
+				'FORM_TITLE' => _('Manage sender ID'),
+				'FORM_SUBTITLE' => _('Add sender ID'),
+				'ACTION_URL' => _u('index.php?app=main&inc=core_sender_id&op=sender_id_add_yes'),
+				'BUTTON_BACK' => _back('index.php?app=main&inc=core_sender_id&op=sender_id_list'),
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
-				'HINT_DEFAULT' => _hint(_('Only when the sender ID is approved')) ,
+				'HINT_DEFAULT' => _hint(_('Only when the sender ID is approved')),
 				'input_tag' => 'required',
-				'Sender ID' => _mandatory('Sender ID') ,
-				'Description' => _('Description') ,
-				'User' => _('User') ,
-				'Approve sender ID' => _('Approve sender ID') ,
-				'Set as default' => _('Set as default') ,
-			) ,
+				'Sender ID' => _mandatory('Sender ID'),
+				'Description' => _('Description'),
+				'User' => _('User'),
+				'Approve sender ID' => _('Approve sender ID'),
+				'Set as default' => _('Set as default') 
+			),
 			'ifs' => array(
-				'isadmin' => auth_isadmin() ,
-			) ,
+				'isadmin' => auth_isadmin() 
+			),
 			'injects' => array(
 				'select_default',
 				'select_approve',
 				'select_users',
 				'icon_config',
-				'core_config',
-			) ,
+				'core_config' 
+			) 
 		);
 		_p(tpl_apply($tpl));
 		break;
-
+	
 	case "sender_id_add_yes":
-		if (!auth_isadmin() && $user_config['uid'] != $_REQUEST['uid']) {
-			auth_block();
-		};
-		
 		if (sender_id_check($c_sender_id)) {
 			$_SESSION['error_string'] = _('Sender ID is not available') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
 		} else {
@@ -107,11 +128,11 @@ switch (_OP_) {
 			$approved = (auth_isadmin() ? (int)$_REQUEST['approved'] : 0);
 			
 			$data_sender_id = array(
-				$c_sender_id => $approved,
+				$c_sender_id => $approved 
 			);
 			
 			$data_description = array(
-				$c_sender_id => $c_sender_id_description
+				$c_sender_id => $c_sender_id_description 
 			);
 			
 			$uid = ((auth_isadmin() && $_REQUEST['uid']) ? $_REQUEST['uid'] : $user_config['uid']);
@@ -131,29 +152,16 @@ switch (_OP_) {
 			}
 		}
 		
-		header("Location: " . _u('index.php?app=main&inc=feature_sender_id&op=sender_id_add'));
+		header("Location: " . _u('index.php?app=main&inc=core_sender_id&op=sender_id_add'));
 		exit();
 		break;
-
+	
 	case "sender_id_edit":
-		
-		// sender ID
-		$search_sender_id = array(
-			'id' => $_REQUEST['id'],
-			'registry_family' => 'sender_id',
-		);
-		$data_sender_id = registry_search_record($search_sender_id);
-		$uid = $data_sender_id[0]['uid'];
-		
-		if (!auth_isadmin() && $user_config['uid'] != $uid) {
-			auth_block();
-		};
-		
 		// sender ID description
 		$search_description = array(
 			'id' => $_REQUEST['id'],
 			'registry_family' => 'sender_id_desc',
-			'registry_key' => $data_sender_id[0]['registry_key'],
+			'registry_key' => $data_sender_id[0]['registry_key'] 
 		);
 		$data_description = registry_search_record($search_description);
 		
@@ -172,51 +180,47 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'sender_id_add',
 			'vars' => array(
-				'ERROR' => _err_display() ,
-				'FORM_TITLE' => _('Manage sender ID') ,
-				'FORM_SUBTITLE' => _('Edit sender ID') ,
-				'ACTION_URL' => _u('index.php?app=main&inc=feature_sender_id&op=sender_id_edit_yes') ,
-				'BUTTON_BACK' => _back('index.php?app=main&inc=feature_sender_id&op=sender_id_list') ,
+				'ERROR' => _err_display(),
+				'FORM_TITLE' => _('Manage sender ID'),
+				'FORM_SUBTITLE' => _('Edit sender ID'),
+				'ACTION_URL' => _u('index.php?app=main&inc=core_sender_id&op=sender_id_edit_yes'),
+				'BUTTON_BACK' => _back('index.php?app=main&inc=core_sender_id&op=sender_id_list'),
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
-				'HINT_DEFAULT' => _hint(_('Only when the sender ID is approved')) ,
+				'HINT_DEFAULT' => _hint(_('Only when the sender ID is approved')),
 				'input_tag' => 'readonly',
-				'Sender ID' => _mandatory('Sender ID') ,
-				'Description' => _('Description') ,
-				'User' => _('User') ,
-				'Approve sender ID' => _('Approve sender ID') ,
-				'Set as default' => _('Set as default') ,
-			) ,
+				'Sender ID' => _mandatory('Sender ID'),
+				'Description' => _('Description'),
+				'User' => _('User'),
+				'Approve sender ID' => _('Approve sender ID'),
+				'Set as default' => _('Set as default') 
+			),
 			'ifs' => array(
-				'isadmin' => auth_isadmin() ,
-			) ,
+				'isadmin' => auth_isadmin() 
+			),
 			'injects' => array(
 				'select_default',
 				'select_approve',
 				'select_users',
 				'items',
 				'icon_config',
-				'core_config',
-			) ,
+				'core_config' 
+			) 
 		);
 		_p(tpl_apply($tpl));
 		break;
-
+	
 	case "sender_id_edit_yes":
-		if (!auth_isadmin() && $user_config['uid'] != $_REQUEST['uid']) {
-			auth_block();
-		};
-		
 		$default = ((int)$_REQUEST['default'] ? 1 : 0);
 		
 		if (auth_isadmin()) {
 			$approved = ((int)$_REQUEST['approved'] ? 1 : 0);
 			$data_sender_id = array(
-				$c_sender_id => $approved,
+				$c_sender_id => $approved 
 			);
 		}
 		
 		$data_description = array(
-			$c_sender_id => $c_sender_id_description
+			$c_sender_id => $c_sender_id_description 
 		);
 		
 		$uid = ((auth_isadmin() && $_REQUEST['uid']) ? $_REQUEST['uid'] : $user_config['uid']);
@@ -225,18 +229,14 @@ switch (_OP_) {
 		$ret = registry_update($uid, 'features', 'sender_id_desc', $data_description);
 		
 		$_SESSION['error_string'] = _('Sender ID description has been updated') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
-		header("Location: " . _u('index.php?app=main&inc=feature_sender_id&op=sender_id_edit&id=' . $_REQUEST['id']));
+		header("Location: " . _u('index.php?app=main&inc=core_sender_id&op=sender_id_edit&id=' . $_REQUEST['id']));
 		exit();
 		break;
-
+	
 	case "toggle_status":
-		if (!auth_isadmin()) {
-			auth_block();
-		};
-		
 		$search = array(
 			'id' => $_REQUEST['id'],
-			'registry_family' => 'sender_id'
+			'registry_family' => 'sender_id' 
 		);
 		foreach (registry_search_record($search) as $row) {
 			$status = ($row['registry_value'] == 0) ? 1 : 0;
@@ -246,20 +246,11 @@ switch (_OP_) {
 		
 		$_SESSION['error_string'] = (($status == 1) ? _('Sender ID is now approved') : _('Sender ID is now disabled')) . ' (' . _('Sender ID') . ': ' . $row['registry_key'] . ')';
 		
-		header("Location: " . _u('index.php?app=main&inc=feature_sender_id&op=sender_id_list'));
+		header("Location: " . _u('index.php?app=main&inc=core_sender_id&op=sender_id_list'));
 		exit();
 		break;
-
+	
 	case "sender_id_delete":
-		$search = array(
-			'id' => $_REQUEST['id'],
-			'registry_family' => 'sender_id',
-		);
-		$data_sender_id = registry_search_record($search);
-		if (!auth_isadmin() && $user_config['uid'] != $data_sender_id[0]['uid']) {
-			auth_block();
-		};
-		
 		$uid = ((auth_isadmin() && $data_sender_id[0]['uid']) ? $data_sender_id[0]['uid'] : $user_config['uid']);
 		
 		registry_remove($uid, 'features', 'sender_id', $data_sender_id[0]['registry_key']);
@@ -271,7 +262,7 @@ switch (_OP_) {
 		}
 		
 		$_SESSION['error_string'] = _('Sender ID has been removed') . ' (' . _('Sender ID') . ': ' . $data_sender_id[0]['registry_key'] . ')';
-		header("Location: " . _u('index.php?app=main&inc=feature_sender_id&op=sender_id_list'));
+		header("Location: " . _u('index.php?app=main&inc=core_sender_id&op=sender_id_list'));
 		exit();
 		break;
 }
