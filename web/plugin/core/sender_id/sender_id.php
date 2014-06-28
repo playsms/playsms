@@ -23,6 +23,7 @@ if ($_REQUEST['uid']) {
 	if (! auth_isadmin() && $user_config['uid'] != $_REQUEST['uid']) {
 		auth_block();
 	}
+	$uid = $_REQUEST['uid'];
 }
 
 // check permission when $id supplied
@@ -35,6 +36,7 @@ if ($_REQUEST['id']) {
 	if (! auth_isadmin() && $user_config['uid'] != $data_sender_id[0]['uid']) {
 		auth_block();
 	}
+	$uid = $data_sender_id[0]['uid'];
 }
 
 // check permission if _OP_ == toggle_status
@@ -42,6 +44,11 @@ if (_OP_ == 'toggle_status') {
 	if (! auth_isadmin()) {
 		auth_block();
 	}
+}
+
+// default uid
+if (! $uid) {
+	$uid = $user_config['uid'];
 }
 
 // sender ID
@@ -55,11 +62,59 @@ $c_sender_id_description = (trim($_REQUEST['description']) ? trim($_REQUEST['des
 
 switch (_OP_) {
 	case 'sender_id_list':
+		$search_category = array(
+			_('Username') => 'uid',
+			_('Sender ID') => 'registry_key' 
+		);
+		$keyword_converter = array(
+			'uid' => 'user_username2uid' 
+		);
+		$base_url = 'index.php?app=main&inc=core_sender_id&op=sender_id_list';
+		$search = themes_search($search_category, $base_url, $keyword_converter);
+		$conditions = array(
+			'uid' => $user_config['uid'],
+			'registry_family' => 'sender_id' 
+		);
+		if (auth_isadmin()) {
+			unset($conditions['uid']);
+		}
+		$keywords = $search['dba_keywords'];
+		$count = dba_count(_DB_PREF_ . '_tblRegistry', $conditions, $keywords);
+		$nav = themes_nav($count, $search['url']);
+		$extras = array(
+			'ORDER BY' => 'uid',
+			'LIMIT' => $nav['limit'],
+			'OFFSET' => $nav['offset'] 
+		);
+		$list = dba_search(_DB_PREF_ . '_tblRegistry', '*', $conditions, $keywords, $extras);
+		
+		$sender_id_list = array();
+		$i = $nav['top'];
+		$j = 0;
+		for ($j = 0; $j < count($list); $j++) {
+			$username = (auth_isadmin() ? user_uid2username($list[$j]['uid']) : '');
+			$status = (($list[$j]['registry_value'] == 1) ? "<span class=status_enabled></span>" : "<span class=status_disabled></span>");
+			$toggle_status = ((auth_isadmin()) ? "<a href='" . _u('index.php?app=main&inc=core_sender_id&op=toggle_status&id=' . $list[$j]['id']) . "'>" . $status . "</a>" : $status);
+			$action = "
+				<a href='" . _u('index.php?app=main&inc=core_sender_id&op=sender_id_edit&id=' . $list[$j]['id']) . "'>" . $icon_config['edit'] . "</a>
+				<a href=\"javascript: ConfirmURL('" . addslashes(_('Are you sure you want to delete sender ID') . ' ? (' . _('Sender ID') . ': ' . $list[$j]['registry_key'] . ')') . "','" . _u('index.php?app=main&inc=core_sender_id&op=sender_id_delete&id=' . $list[$j]['id']) . "')\">" . $icon_config['delete'] . "</a>
+			";
+			$sender_id_list[] = array(
+				'username' => $username,
+				'sender_id' => core_sanitize_sender($list[$j]['registry_key']),
+				'sender_id_description' => sender_id_description($list[$j]['uid'], $list[$j]['registry_key']),
+				'lastupdate' => core_display_datetime(core_convert_datetime($list[$j]['c_timestamp'])),
+				'status' => $toggle_status,
+				'action' => $action 
+			);
+		}
 		
 		$tpl = array(
 			'name' => 'sender_id',
 			'vars' => array(
 				'ERROR' => _err_display(),
+				'SEARCH_FORM' => $search['form'],
+				'NAV_FORM' => $nav['form'],
 				'FORM_TITLE' => _('Manage sender ID'),
 				'ADD_URL' => _u('index.php?app=main&inc=core_sender_id&op=sender_id_add'),
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
@@ -72,7 +127,7 @@ switch (_OP_) {
 				'isadmin' => auth_isadmin() 
 			),
 			'loops' => array(
-				'sender_id_list' => sender_id_list() 
+				'sender_id_list' => $sender_id_list 
 			),
 			'injects' => array(
 				'icon_config' 
@@ -82,6 +137,10 @@ switch (_OP_) {
 		break;
 	
 	case "sender_id_add":
+		$nav = themes_nav_session();
+		$search = themes_search_session();
+		$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
+		
 		if (auth_isadmin()) {
 			$select_approve = _yesno('approved', 0);
 			$select_users = themes_select_users_single('uid', $user_config['uid']);
@@ -95,7 +154,7 @@ switch (_OP_) {
 				'FORM_TITLE' => _('Manage sender ID'),
 				'FORM_SUBTITLE' => _('Add sender ID'),
 				'ACTION_URL' => _u('index.php?app=main&inc=core_sender_id&op=sender_id_add_yes'),
-				'BUTTON_BACK' => _back('index.php?app=main&inc=core_sender_id&op=sender_id_list'),
+				'BUTTON_BACK' => _back($ref),
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
 				'HINT_DEFAULT' => _hint(_('Only when the sender ID is approved')),
 				'input_tag' => 'required',
@@ -120,7 +179,7 @@ switch (_OP_) {
 		break;
 	
 	case "sender_id_add_yes":
-		if (sender_id_check($c_sender_id)) {
+		if (sender_id_check($uid, $c_sender_id)) {
 			$_SESSION['error_string'] = _('Sender ID is not available') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
 		} else {
 			$default = (auth_isadmin() ? (int)$_REQUEST['default'] : 0);
@@ -157,18 +216,14 @@ switch (_OP_) {
 		break;
 	
 	case "sender_id_edit":
-		// sender ID description
-		$search_description = array(
-			'id' => $_REQUEST['id'],
-			'registry_family' => 'sender_id_desc',
-			'registry_key' => $data_sender_id[0]['registry_key'] 
-		);
-		$data_description = registry_search_record($search_description);
+		$nav = themes_nav_session();
+		$search = themes_search_session();
+		$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
 		
 		$items['id'] = $_REQUEST['id'];
 		$items['uid'] = $uid;
 		$items['sender_id'] = $data_sender_id[0]['registry_key'];
-		$items['description'] = $data_description[0]['registry_value'];
+		$items['description'] = sender_id_description($uid, $data_sender_id[0]['registry_key']);
 		
 		if (auth_isadmin()) {
 			$select_approve = _yesno('approved', $data_sender_id[0]['registry_value']);
@@ -184,7 +239,7 @@ switch (_OP_) {
 				'FORM_TITLE' => _('Manage sender ID'),
 				'FORM_SUBTITLE' => _('Edit sender ID'),
 				'ACTION_URL' => _u('index.php?app=main&inc=core_sender_id&op=sender_id_edit_yes'),
-				'BUTTON_BACK' => _back('index.php?app=main&inc=core_sender_id&op=sender_id_list'),
+				'BUTTON_BACK' => _back($ref),
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
 				'HINT_DEFAULT' => _hint(_('Only when the sender ID is approved')),
 				'input_tag' => 'readonly',
@@ -223,8 +278,6 @@ switch (_OP_) {
 			$c_sender_id => $c_sender_id_description 
 		);
 		
-		$uid = ((auth_isadmin() && $_REQUEST['uid']) ? $_REQUEST['uid'] : $user_config['uid']);
-		
 		registry_update($uid, 'features', 'sender_id', $data_sender_id);
 		$ret = registry_update($uid, 'features', 'sender_id_desc', $data_description);
 		
@@ -251,6 +304,10 @@ switch (_OP_) {
 		break;
 	
 	case "sender_id_delete":
+		$nav = themes_nav_session();
+		$search = themes_search_session();
+		$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
+		
 		$uid = ((auth_isadmin() && $data_sender_id[0]['uid']) ? $data_sender_id[0]['uid'] : $user_config['uid']);
 		
 		registry_remove($uid, 'features', 'sender_id', $data_sender_id[0]['registry_key']);
@@ -262,7 +319,7 @@ switch (_OP_) {
 		}
 		
 		$_SESSION['error_string'] = _('Sender ID has been removed') . ' (' . _('Sender ID') . ': ' . $data_sender_id[0]['registry_key'] . ')';
-		header("Location: " . _u('index.php?app=main&inc=core_sender_id&op=sender_id_list'));
+		header("Location: " . _u($ref));
 		exit();
 		break;
 }
