@@ -138,8 +138,6 @@ switch (_OP_) {
 				'default_credit' => $main_config['default_credit'],
 				'logo_url' => $main_config['logo_url'],
 				'layout_footer' => $main_config['layout_footer'],
-				'buy_credit_page_title' => $main_config['buy_credit_page_title'],
-				'buy_credit_page_content' => $main_config['buy_credit_page_content'],
 				'information_title' => $main_config['information_title'],
 				'information_content' => $main_config['information_content'],
 				'option_default_user_status' => $option_default_user_status,
@@ -222,8 +220,6 @@ switch (_OP_) {
 			'logo_url' => $logo_url,
 			'logo_replace_title' => (int)$logo_replace_title,
 			'layout_footer' => ($post['edit_layout_footer'] ? $post['edit_layout_footer'] : _('Application footer here. Go to main configuration or manage site to edit this footer.')) ,
-			'buy_credit_page_title' => ($post['edit_buy_credit_page_title'] ? $post['edit_buy_credit_page_title'] : _('Buy credit')) ,
-			'buy_credit_page_content' => ($post['edit_buy_credit_page_content'] ? $post['edit_buy_credit_page_content'] : _('Go to main configuration or manage site to edit this page')) ,
 			'information_title' => ($post['edit_information_title'] ? $post['edit_information_title'] : _('Information')) ,
 			'information_content' => ($post['edit_information_content'] ? $post['edit_information_content'] : _('Go to main configuration or manage site to edit this page')) ,
 		);

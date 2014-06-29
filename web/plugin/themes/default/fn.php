@@ -43,7 +43,6 @@ function default_hook_themes_submenu($content='') {
 	$ret = '<div>';
 	$ret .= '<span class="playsms-icon glyphicon glyphicon-user" alt="'.$tooltips_logged_in.'" title="'.$tooltips_logged_in.'"></span>'.$logged_in;
 	$ret .= $separator.'<span class="playsms-icon glyphicon glyphicon-usd" alt="'.$tooltips_credit.'" title="'.$tooltips_credit.'"></span><div id="submenu-credit-show">'.$credit.'</div>';
-	//$ret .= $separator._a('index.php?app=main&inc=feature_sitemanager&route=buy_credit', _('Buy credit'));
 
 	if (auth_login_as_check()) {
 		$ret .= $separator._a('index.php?app=main&inc=core_auth&route=logout', _('return'));

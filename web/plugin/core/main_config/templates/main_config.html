@@ -15,7 +15,6 @@ tinymce.init({
 		<li class=active><a href='#tabs-default-settings' data-toggle=tab>{{ Default settings }}</a></li>
 		<li><a href='#tabs-site-configuration' data-toggle=tab>{{ Default site configuration }}</a></li>
 		<li><a href='#tabs-information-page' data-toggle=tab>{{ Information page }}</a></li>
-		<li><a href='#tabs-buy-credit-page' data-toggle=tab>{{ Buy credit page }}</a></li>
 	</ul>
 	<div class=tab-content>
 		<div id='tabs-default-settings' class='tab-pane fade in active'>
@@ -125,21 +124,6 @@ tinymce.init({
 					<tr>
 						<td>{{ Page content }}</td>
 						<td><textarea name=edit_information_content class=playsms-htmleditor rows=20>{{ information_content }}</textarea></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<div id='tabs-buy-credit-page' class='tab-pane fade'>
-			<h4>{{ Buy credit page }}</h4>
-			<table class=playsms-table>
-				<tbody>
-					<tr>
-						<td class=label-sizer>{{ Page title }}</td>
-						<td><input type="text" maxlength=255 name=edit_buy_credit_page_title value="{{ buy_credit_page_title }}"></td>
-					</tr>
-					<tr>
-						<td>{{ Page content }}</td>
-						<td><textarea name=edit_buy_credit_page_content class=playsms-htmleditor rows=20>{{ buy_credit_page_content }}</textarea></td>
 					</tr>
 				</tbody>
 			</table>
