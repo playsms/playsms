@@ -156,7 +156,7 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 							$usernames[] = $user['username'];
 						}
 						
-						foreach ($usernames[] as $username) {
+						foreach ($usernames as $username) {
 							if ($username) {
 								_log("sandbox match sender start u:" . $username . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept_after');
 								recvsms_inbox_add($sms_datetime, $sms_sender, $username, $message, $sms_receiver);
