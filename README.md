@@ -2,7 +2,7 @@
 
 playSMS version **1.0-rc2**
 
-Release date **140611**
+Release date **140629**
 
 Official project website:
 
