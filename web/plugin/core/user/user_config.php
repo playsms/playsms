@@ -175,7 +175,7 @@ switch (_OP_) {
 			$option_sender_id.= "<option value=\"" . $sender_id . "\" title=\"" . $sender_id . "\" " . $selected . ">" . $sender_id . "</option>";
 		}
 		
-		// admin or normal users
+		// admin or users
 		if ($uname && (auth_isadmin() || $is_parent)) {
 			$form_title = _('Manage user');
 			

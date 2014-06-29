@@ -56,7 +56,7 @@ switch (_OP_) {
 				
 		// option default user status on user registration
 		$option_default_user_status = _options(array(
-			_('Normal user') => 3,
+			_('User') => 3,
 			_('Subuser') => 4,
 		) , $main_config['default_user_status']);
 		

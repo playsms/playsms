@@ -39,10 +39,6 @@ msgstr "Administrador"
 msgid "Add message template"
 msgstr "Adicionar modelo de mensagem"
 
-#, fuzzy
-msgid "Add normal user"
-msgstr "Visualizar usuários"
-
 msgid "Add user"
 msgstr "Adicionar usuário"
 
@@ -465,7 +461,7 @@ msgid "List of administrators"
 msgstr "Visualizar Administrador"
 
 #, fuzzy
-msgid "List of normal users"
+msgid "List of users"
 msgstr "Visualizar usuários"
 
 msgid "Local number length"
@@ -504,6 +500,10 @@ msgstr ""
 
 msgid "Manage"
 msgstr "Administrar"
+
+#, fuzzy
+msgid "Manage sender ID"
+msgstr "SMS Sender ID"
 
 #, fuzzy
 msgid "Manage site"
@@ -589,13 +589,6 @@ msgstr "Novo token de webservice"
 
 msgid "No changes made"
 msgstr "Sem mudanças"
-
-msgid "Normal user"
-msgstr "Usuário normal"
-
-#, fuzzy
-msgid "Normal users"
-msgstr "Usuário normal"
 
 msgid "Offline"
 msgstr ""
@@ -999,6 +992,10 @@ msgstr "Usuário"
 msgid "Username should be at least 3 characters"
 msgstr "Nome de usuário deve ter pelo menos 3 caracteres"
 
+#, fuzzy
+msgid "Users"
+msgstr "Usuário"
+
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
 msgstr ""
 "Caracteres válidos para nome de usuário são letras, números, ponto ou traço"
@@ -1016,14 +1013,15 @@ msgstr "Visualizar Administrador"
 msgid "View groups"
 msgstr "Visualizar grupos"
 
-msgid "View normal user"
-msgstr "Visualizar usuários"
+msgid "View numbers"
+msgstr "Visualizar números"
 
 #, fuzzy
-msgid "View normal users"
-msgstr "Visualizar usuários"
+msgid "View user"
+msgstr "Visualizar números"
 
-msgid "View numbers"
+#, fuzzy
+msgid "View users"
 msgstr "Visualizar números"
 
 msgid "Webapp Token"

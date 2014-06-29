@@ -21,9 +21,6 @@ msgid ""
 "this footer."
 msgstr ""
 
-msgid "Buy credit"
-msgstr ""
-
 msgid "Buy credit page"
 msgstr ""
 
@@ -103,9 +100,6 @@ msgstr ""
 msgid "Maximum SMS count"
 msgstr ""
 
-msgid "Normal user"
-msgstr ""
-
 msgid "Page content"
 msgstr ""
 
@@ -119,6 +113,9 @@ msgid "Save"
 msgstr ""
 
 msgid "Subuser"
+msgstr ""
+
+msgid "User"
 msgstr ""
 
 msgid "Website URL"

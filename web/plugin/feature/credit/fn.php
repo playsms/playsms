@@ -116,10 +116,10 @@ function credit_html_select_user() {
 	}
 	
 	if (count($users) > 0) {
-		$option_user.= '<optgroup label="' . _('Normal users') . '">';
+		$option_user.= '<optgroup label="' . _('Users') . '">';
 		
 		foreach ($users as $user) {
-			$option_user.= '<option value="' . $user['uid'] . '">' . $user['name'] . ' (' . $user['username'] . ') - ' . _('Normal user') . '</option>';
+			$option_user.= '<option value="' . $user['uid'] . '">' . $user['name'] . ' (' . $user['username'] . ') - ' . _('User') . '</option>';
 		}
 		$option_user.= '</optgroup>';
 	}

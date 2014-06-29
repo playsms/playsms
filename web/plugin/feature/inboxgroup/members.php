@@ -123,7 +123,7 @@ switch (_OP_) {
 		for ($i=0;$i<count($users);$i++) {
 			$list_of_users .= "<option value='".$users[$i]['uid']."'>".$users[$i]['name']." ".$users[$i]['mobile']."</option>";
 		}
-		// get normal users
+		// get users
 		$users = user_getallwithstatus(3);
 		for ($i=0;$i<count($users);$i++) {
 			$list_of_users .= "<option value='".$users[$i]['uid']."'>".$users[$i]['name']." ".$users[$i]['mobile']."</option>";

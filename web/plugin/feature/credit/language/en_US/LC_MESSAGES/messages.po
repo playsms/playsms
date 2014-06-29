@@ -40,12 +40,6 @@ msgstr ""
 msgid "Manage credit"
 msgstr ""
 
-msgid "Normal user"
-msgstr "User"
-
-msgid "Normal users"
-msgstr "Users"
-
 msgid "Reduce credit"
 msgstr ""
 
@@ -76,6 +70,10 @@ msgstr ""
 
 msgid "Username"
 msgstr ""
+
+#, fuzzy
+msgid "Users"
+msgstr "Subusers"
 
 msgid "Wrong amount or user does not exists"
 msgstr ""

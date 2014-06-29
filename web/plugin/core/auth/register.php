@@ -15,7 +15,7 @@ if (_OP_ == 'register') {
 			$data['mobile'] = $_REQUEST['mobile'];
 			$data['email'] = $_REQUEST['email'];
 			
-			// force non-admin, status=3 is normal user and status=4 is subuser
+			// force non-admin, status=3 is user and status=4 is subuser
 			$data['status'] = ($core_config['main']['default_user_status'] == 3 ? $core_config['main']['default_user_status'] : 4);
 			
 			// if subuser and no site config then parent uid is 0

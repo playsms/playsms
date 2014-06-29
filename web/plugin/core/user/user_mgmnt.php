@@ -30,7 +30,7 @@ switch (_OP_) {
 			$disabled_on_admin = 'disabled';
 		} else if ($view == 'users') {
 			$conditions = array('status' => 3);
-			$form_sub_title = "<h3>" . _('List of normal users') . "</h3>";
+			$form_sub_title = "<h3>" . _('List of users') . "</h3>";
 			$disabled_on_users = 'disabled';
 		} else if ($view == 'subusers') {
 			$conditions = array('status' => 4);
@@ -61,7 +61,7 @@ switch (_OP_) {
 		$content .= "
 			<h2>" . _('Manage user') . "</h2>
 			<input type='button' ".$disabled_on_admin." value='" . _('Administrators') . "' onClick=\"javascript:linkto('"._u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=admin')."')\" class=\"button\" />
-			<input type='button' ".$disabled_on_users." value='" . _('Normal users') . "' onClick=\"javascript:linkto('"._u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=users')."')\" class=\"button\" />
+			<input type='button' ".$disabled_on_users." value='" . _('Users') . "' onClick=\"javascript:linkto('"._u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=users')."')\" class=\"button\" />
 			<input type='button' ".$disabled_on_subusers." value='" . _('Subusers') . "' onClick=\"javascript:linkto('"._u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=subusers')."')\" class=\"button\" />
 			".$form_sub_title."
 			<p>".$search['form']."</p>			
@@ -169,7 +169,7 @@ switch (_OP_) {
 			}
 		}
 
-		// get list of normal users as parents
+		// get list of users as parents
 		$option_parents = '<option value="0">--' . _('Select parent user for subuser') . '--</option>';
 
 		// get admins
@@ -182,7 +182,7 @@ switch (_OP_) {
 			$selected = '';
 		}
 
-		// get normal users
+		// get users
 		$list = user_getallwithstatus(3);
 		foreach ($list as $parent) {
 			if ($parent['uid'] == $user_edited['parent_uid']) {
@@ -203,7 +203,7 @@ switch (_OP_) {
 
 		$option_status = "
 			<option value='2' ".$selected_admin.">" . _('Administrator') . "</option>
-			<option value='3' ".$selected_users.">" . _('Normal user') . "</option>
+			<option value='3' ".$selected_users.">" . _('User') . "</option>
 			<option value='4' ".$selected_subusers.">" . _('Subuser') . "</option>
 		";
 

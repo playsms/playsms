@@ -22,7 +22,7 @@ if (!auth_isvalid()) {
 	auth_block();
 };
 
-// admin and normal users allowed to use this plugin
+// admin and users allowed to use this plugin
 if (!(($user_config['status'] == 2) || ($user_config['status'] == 3))) {
 	auth_block();
 }
@@ -40,7 +40,7 @@ switch (_OP_) {
 			'flag_deleted' => 0,
 		);
 		
-		// only if normal users
+		// only if users
 		if ($user_config['status'] == 3) {
 			$conditions['parent_uid'] = $user_config['uid'];
 			$conditions['status'] = 4;
@@ -219,7 +219,7 @@ switch (_OP_) {
 					'flag_deleted' => 0,
 				);
 				
-				// only if normal users
+				// only if users
 				if ($user_config['status'] == 3) {
 					$conditions['parent_uid'] = $user_config['uid'];
 					$conditions['status'] = 4;
@@ -257,7 +257,7 @@ switch (_OP_) {
 							'flag_deleted' => '1'
 						);
 						
-						// only if normal users
+						// only if users
 						if ($user_config['status'] == 3) {
 							$up['parent_uid'] = $user_config['uid'];
 							$up['status'] = 4;

@@ -21,12 +21,6 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-msgid "Normal user"
-msgstr ""
-
-msgid "Normal users"
-msgstr ""
-
 msgid "Search"
 msgstr ""
 
@@ -40,6 +34,12 @@ msgid "Subusers"
 msgstr ""
 
 msgid "This field is required"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "Users"
 msgstr ""
 
 msgid "no"

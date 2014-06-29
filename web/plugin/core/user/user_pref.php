@@ -94,7 +94,7 @@ switch (_OP_) {
 				$selected_subusers = 'selected';
 			}
 			$option_status = "
-				<option value='3' ".$selected_users.">" . _('Normal user') . "</option>
+				<option value='3' ".$selected_users.">" . _('User') . "</option>
 				<option value='4' ".$selected_subusers.">" . _('Subuser') . "</option>
 			";			
 			$select_status = '<select name="up_status">'.$option_status.'</select>';
@@ -102,7 +102,7 @@ switch (_OP_) {
 
 		// when allowed to edit parents of subusers
 		if ($allow_edit_parent) {
-			// get list of normal users as parents
+			// get list of users as parents
 			$option_parents = '<option value="0">--' . _('Select parent user for subuser') . '--</option>';
 
 			// get admins
@@ -115,7 +115,7 @@ switch (_OP_) {
 				$selected = '';
 			}
 
-			// get normal users
+			// get users
 			$list = user_getallwithstatus(3);
 			foreach ($list as $parent) {
 				if ($parent['uid'] == $user_edited['parent_uid']) {
@@ -140,7 +140,7 @@ switch (_OP_) {
 			$option_country .= "<option value=\"$country_id\" $selected>$country_name</option>\n";
 		}
 
-		// admin or normal users
+		// admin or users
 		if ($uname && (auth_isadmin() || $is_parent)) {
 			$form_title = _('Manage user');
 			if ($is_parent) {
@@ -178,9 +178,9 @@ switch (_OP_) {
 			'Country' => _('Country'),
 			'Zipcode' => _('Zipcode'),
 			'Save' => _('Save'),
-			'HINT_STATUS' => _hint(_('Cannot change status when normal user have subusers')),
+			'HINT_STATUS' => _hint(_('Cannot change status when user have subusers')),
 			'HINT_PARENT' => _hint(_('Parent user is mandatory for subusers only. If no value is given then the subuser will be automatically assigned to user admin')),
-			'STATUS' => _('Normal user'),
+			'STATUS' => _('User'),
 			'ERROR' => $error_content,
 			'FORM_TITLE' => $form_title,
 			'BUTTON_DELETE' => $button_delete,

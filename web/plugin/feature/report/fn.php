@@ -246,7 +246,7 @@ function report_banned_admin() {
 }
 
 /**
- * Get banned normal users list
+ * Get banned users list
  * @return array Banned users
  */
 function report_banned_user() {

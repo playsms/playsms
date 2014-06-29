@@ -45,10 +45,6 @@ msgstr "Administrateur"
 msgid "Add message template"
 msgstr "Ajouter un modèle de SMS"
 
-#, fuzzy
-msgid "Add normal user"
-msgstr "Utilisateur"
-
 msgid "Add user"
 msgstr "Ajout utilisateur"
 
@@ -477,7 +473,7 @@ msgid "List of administrators"
 msgstr "Administrateur"
 
 #, fuzzy
-msgid "List of normal users"
+msgid "List of users"
 msgstr "Utilisateur"
 
 msgid "Local number length"
@@ -516,6 +512,10 @@ msgstr ""
 
 msgid "Manage"
 msgstr "Gérer"
+
+#, fuzzy
+msgid "Manage sender ID"
+msgstr "ID Émetteur SMS"
 
 #, fuzzy
 msgid "Manage site"
@@ -601,13 +601,6 @@ msgstr ""
 
 msgid "No changes made"
 msgstr "Aucun changement éffectué"
-
-msgid "Normal user"
-msgstr "Utilisateur"
-
-#, fuzzy
-msgid "Normal users"
-msgstr "Utilisateur"
 
 msgid "Offline"
 msgstr ""
@@ -1016,6 +1009,10 @@ msgstr "Nom utilisateur"
 msgid "Username should be at least 3 characters"
 msgstr ""
 
+#, fuzzy
+msgid "Users"
+msgstr "Utilisateur"
+
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
 msgstr ""
 
@@ -1034,15 +1031,15 @@ msgid "View groups"
 msgstr ""
 
 #, fuzzy
-msgid "View normal user"
-msgstr "Utilisateur"
-
-#, fuzzy
-msgid "View normal users"
-msgstr "Utilisateur"
-
-#, fuzzy
 msgid "View numbers"
+msgstr "Numéro(s)"
+
+#, fuzzy
+msgid "View user"
+msgstr "Numéro(s)"
+
+#, fuzzy
+msgid "View users"
 msgstr "Numéro(s)"
 
 msgid "Webapp Token"

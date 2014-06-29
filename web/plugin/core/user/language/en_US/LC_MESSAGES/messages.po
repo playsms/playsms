@@ -65,7 +65,7 @@ msgstr ""
 msgid "Auto remove plus sign"
 msgstr ""
 
-msgid "Cannot change status when normal user have subusers"
+msgid "Cannot change status when user have subusers"
 msgstr ""
 
 msgid "City"
@@ -128,10 +128,11 @@ msgstr ""
 msgid "List of administrators"
 msgstr ""
 
-msgid "List of normal users"
-msgstr "List of users"
-
 msgid "List of subusers"
+msgstr "List of subusers"
+
+#, fuzzy
+msgid "List of users"
 msgstr "List of subusers"
 
 msgid "Local number length"
@@ -172,12 +173,6 @@ msgstr ""
 
 msgid "No changes made"
 msgstr ""
-
-msgid "Normal user"
-msgstr "User"
-
-msgid "Normal users"
-msgstr "Users"
 
 msgid "Parent"
 msgstr ""
@@ -286,6 +281,9 @@ msgstr ""
 msgid "Unknown error has occurred"
 msgstr ""
 
+msgid "User"
+msgstr ""
+
 msgid "User admin or currently logged in administrator cannot be banned"
 msgstr ""
 
@@ -360,6 +358,10 @@ msgstr ""
 
 msgid "Username should be at least 3 characters"
 msgstr ""
+
+#, fuzzy
+msgid "Users"
+msgstr "Subusers"
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
 msgstr ""

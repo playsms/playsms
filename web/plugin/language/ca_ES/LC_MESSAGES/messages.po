@@ -48,10 +48,6 @@ msgstr "Administrador"
 msgid "Add message template"
 msgstr "Afegir Plantilla de Missatge"
 
-#, fuzzy
-msgid "Add normal user"
-msgstr "Vista usuari normal"
-
 msgid "Add user"
 msgstr "Afegir usuari"
 
@@ -459,7 +455,7 @@ msgid "List of administrators"
 msgstr "Vista administrador"
 
 #, fuzzy
-msgid "List of normal users"
+msgid "List of users"
 msgstr "Vista usuari normal"
 
 msgid "Local number length"
@@ -499,6 +495,10 @@ msgstr "Nom principal de la web"
 
 msgid "Manage"
 msgstr "Administrar"
+
+#, fuzzy
+msgid "Manage sender ID"
+msgstr "ID Remitent del SMS"
 
 #, fuzzy
 msgid "Manage site"
@@ -583,13 +583,6 @@ msgstr "Nou token de webservices"
 
 msgid "No changes made"
 msgstr "No s'han realitzat canvis"
-
-msgid "Normal user"
-msgstr "Usuari normal"
-
-#, fuzzy
-msgid "Normal users"
-msgstr "Usuari normal"
 
 msgid "Offline"
 msgstr ""
@@ -970,6 +963,10 @@ msgstr "El nom d'usuari està buit"
 msgid "Username should be at least 3 characters"
 msgstr "L'usuari ha de ser de com a mínim 3 caràcters"
 
+#, fuzzy
+msgid "Users"
+msgstr "Usuari"
+
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
 msgstr "Els caràcters vàlids per l'usuari són alfabètics, números, punt o guió"
 
@@ -986,14 +983,15 @@ msgstr "Vista administrador"
 msgid "View groups"
 msgstr "Veure grups"
 
-msgid "View normal user"
-msgstr "Vista usuari normal"
+msgid "View numbers"
+msgstr "Veure números"
 
 #, fuzzy
-msgid "View normal users"
-msgstr "Vista usuari normal"
+msgid "View user"
+msgstr "Veure números"
 
-msgid "View numbers"
+#, fuzzy
+msgid "View users"
 msgstr "Veure números"
 
 msgid "Webapp Token"

@@ -39,10 +39,6 @@ msgstr "Administrator"
 msgid "Add message template"
 msgstr "Tambah pola pesan"
 
-#, fuzzy
-msgid "Add normal user"
-msgstr "Pengguna normal"
-
 msgid "Add user"
 msgstr "Tambah pengguna"
 
@@ -465,7 +461,7 @@ msgid "List of administrators"
 msgstr "Administrator"
 
 #, fuzzy
-msgid "List of normal users"
+msgid "List of users"
 msgstr "Pengguna normal"
 
 msgid "Local number length"
@@ -504,6 +500,10 @@ msgstr ""
 
 msgid "Manage"
 msgstr "Atur"
+
+#, fuzzy
+msgid "Manage sender ID"
+msgstr "ID pengirim SMS"
 
 #, fuzzy
 msgid "Manage site"
@@ -589,13 +589,6 @@ msgstr "Token webservices baru"
 
 msgid "No changes made"
 msgstr "Tidak ada perubahan yang dilakukan"
-
-msgid "Normal user"
-msgstr "Pengguna normal"
-
-#, fuzzy
-msgid "Normal users"
-msgstr "Pengguna normal"
 
 msgid "Offline"
 msgstr ""
@@ -998,6 +991,10 @@ msgstr "Nama pengguna"
 msgid "Username should be at least 3 characters"
 msgstr "Nama pengguna minimal 3 karakter"
 
+#, fuzzy
+msgid "Users"
+msgstr "Pengguna"
+
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
 msgstr ""
 "Karakter valid untuk nama pengguna adalah huruf, angka, titik dan garis bawah"
@@ -1015,14 +1012,15 @@ msgstr "Administrator"
 msgid "View groups"
 msgstr "Lihat group"
 
-msgid "View normal user"
-msgstr "Pengguna normal"
+msgid "View numbers"
+msgstr "Lihat nomor"
 
 #, fuzzy
-msgid "View normal users"
-msgstr "Pengguna normal"
+msgid "View user"
+msgstr "Lihat nomor"
 
-msgid "View numbers"
+#, fuzzy
+msgid "View users"
 msgstr "Lihat nomor"
 
 msgid "Webapp Token"

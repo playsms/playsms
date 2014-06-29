@@ -102,7 +102,7 @@ if (auth_isadmin()) {
 	);
 } else if ($user_config['status'] == 3) {
 	
-	// normal user menus
+	// user menus
 	$menutab = $core_config['menutab']['settings'];
 	$menu_config[$menutab][] = array(
 		'index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list',

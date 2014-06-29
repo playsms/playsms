@@ -39,10 +39,6 @@ msgstr "管理员"
 msgid "Add message template"
 msgstr "增加信息模版"
 
-#, fuzzy
-msgid "Add normal user"
-msgstr "一般用户"
-
 msgid "Add user"
 msgstr "添加用户"
 
@@ -470,7 +466,7 @@ msgid "List of administrators"
 msgstr "管理员"
 
 #, fuzzy
-msgid "List of normal users"
+msgid "List of users"
 msgstr "一般用户"
 
 msgid "Local number length"
@@ -509,6 +505,10 @@ msgstr ""
 
 msgid "Manage"
 msgstr "管理"
+
+#, fuzzy
+msgid "Manage sender ID"
+msgstr "短信发件人"
 
 #, fuzzy
 msgid "Manage site"
@@ -593,13 +593,6 @@ msgstr ""
 
 msgid "No changes made"
 msgstr "没有作出改变"
-
-msgid "Normal user"
-msgstr "一般用户"
-
-#, fuzzy
-msgid "Normal users"
-msgstr "一般用户"
 
 msgid "Offline"
 msgstr ""
@@ -1006,6 +999,10 @@ msgstr "用户名"
 msgid "Username should be at least 3 characters"
 msgstr ""
 
+#, fuzzy
+msgid "Users"
+msgstr "用户"
+
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
 msgstr ""
 
@@ -1024,15 +1021,15 @@ msgid "View groups"
 msgstr ""
 
 #, fuzzy
-msgid "View normal user"
-msgstr "一般用户"
-
-#, fuzzy
-msgid "View normal users"
-msgstr "一般用户"
-
-#, fuzzy
 msgid "View numbers"
+msgstr "电话号码"
+
+#, fuzzy
+msgid "View user"
+msgstr "电话号码"
+
+#, fuzzy
+msgid "View users"
 msgstr "电话号码"
 
 msgid "Webapp Token"

@@ -69,7 +69,7 @@ foreach ($users as $user) {
 	);
 }
 
-// display normal users
+// display users
 
 $users = report_banned_user();
 foreach ($users as $user) {
@@ -83,7 +83,7 @@ foreach ($users as $user) {
 	);
 }
 
-// display normal users
+// display users
 
 $users = report_banned_subuser();
 foreach ($users as $user) {

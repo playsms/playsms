@@ -65,7 +65,7 @@ foreach ($users as $user) {
 	}
 }
 
-// display normal users
+// display users
 
 $users = report_whoseonline_user();
 foreach ($users as $user) {

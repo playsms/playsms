@@ -38,9 +38,6 @@ msgstr ""
 msgid "Add message template"
 msgstr ""
 
-msgid "Add normal user"
-msgstr "Add user"
-
 msgid "Add user"
 msgstr ""
 
@@ -430,7 +427,8 @@ msgstr ""
 msgid "List of administrators"
 msgstr ""
 
-msgid "List of normal users"
+#, fuzzy
+msgid "List of users"
 msgstr "List of users"
 
 msgid "Local number length"
@@ -469,6 +467,10 @@ msgstr ""
 
 msgid "Manage"
 msgstr ""
+
+#, fuzzy
+msgid "Manage sender ID"
+msgstr "Manage subusers"
 
 msgid "Manage site"
 msgstr ""
@@ -551,12 +553,6 @@ msgstr ""
 
 msgid "No changes made"
 msgstr ""
-
-msgid "Normal user"
-msgstr "User"
-
-msgid "Normal users"
-msgstr "Users"
 
 msgid "Offline"
 msgstr ""
@@ -925,6 +921,9 @@ msgstr ""
 msgid "Username should be at least 3 characters"
 msgstr ""
 
+msgid "Users"
+msgstr ""
+
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
 msgstr ""
 
@@ -940,14 +939,16 @@ msgstr ""
 msgid "View groups"
 msgstr ""
 
-msgid "View normal user"
-msgstr "View user"
-
-msgid "View normal users"
-msgstr "View users"
-
 msgid "View numbers"
 msgstr ""
+
+#, fuzzy
+msgid "View user"
+msgstr "View user"
+
+#, fuzzy
+msgid "View users"
+msgstr "View users"
 
 msgid "Webapp Token"
 msgstr ""

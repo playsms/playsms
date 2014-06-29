@@ -391,7 +391,7 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 		
 		if (count($users) > 0) {
 			
-			$option_user.= '<optgroup label="' . _('Normal users') . '">';
+			$option_user.= '<optgroup label="' . _('Users') . '">';
 			
 			foreach ($users as $user) {
 				$selected = '';
@@ -401,7 +401,7 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 						break;
 					}
 				}
-				$option_user.= '<option value="' . $user['uid'] . '" ' . $selected . '>' . $user['name'] . ' (' . $user['username'] . ') - ' . _('Normal user') . '</option>';
+				$option_user.= '<option value="' . $user['uid'] . '" ' . $selected . '>' . $user['name'] . ' (' . $user['username'] . ') - ' . _('User') . '</option>';
 			}
 			$option_user.= '</optgroup>';
 		}

@@ -46,10 +46,6 @@ msgstr "Администратор"
 msgid "Add message template"
 msgstr "Добавить шаблон"
 
-#, fuzzy
-msgid "Add normal user"
-msgstr "Показать пользователей"
-
 msgid "Add user"
 msgstr "Добавить пользователя"
 
@@ -459,7 +455,7 @@ msgid "List of administrators"
 msgstr "Показать администраторов"
 
 #, fuzzy
-msgid "List of normal users"
+msgid "List of users"
 msgstr "Показать пользователей"
 
 msgid "Local number length"
@@ -498,6 +494,10 @@ msgstr "Название сайта"
 
 msgid "Manage"
 msgstr "Редактировать"
+
+#, fuzzy
+msgid "Manage sender ID"
+msgstr "Имя отправителя СМС"
 
 #, fuzzy
 msgid "Manage site"
@@ -583,13 +583,6 @@ msgstr "Новый токен для веб-сервисов"
 
 msgid "No changes made"
 msgstr "Нет изменений"
-
-msgid "Normal user"
-msgstr "Обычный пользователь"
-
-#, fuzzy
-msgid "Normal users"
-msgstr "Обычный пользователь"
 
 msgid "Offline"
 msgstr ""
@@ -977,6 +970,10 @@ msgstr "Имя пользователя"
 msgid "Username should be at least 3 characters"
 msgstr "Имя пользователя должно состоять минимум из 3х знаков"
 
+#, fuzzy
+msgid "Users"
+msgstr "Пользователь"
+
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
 msgstr "Имя пользователя может содержать буквы, цифры, точки и тире"
 
@@ -993,14 +990,15 @@ msgstr "Показать администраторов"
 msgid "View groups"
 msgstr "Показать группы"
 
-msgid "View normal user"
-msgstr "Показать пользователей"
+msgid "View numbers"
+msgstr "Показать номера"
 
 #, fuzzy
-msgid "View normal users"
-msgstr "Показать пользователей"
+msgid "View user"
+msgstr "Показать номера"
 
-msgid "View numbers"
+#, fuzzy
+msgid "View users"
 msgstr "Показать номера"
 
 msgid "Webapp Token"
