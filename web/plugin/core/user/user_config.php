@@ -62,7 +62,6 @@ switch (_OP_) {
 			$replace_zero = $c_user[0]['replace_zero'];
 			$plus_sign_remove = $c_user[0]['plus_sign_remove'];
 			$plus_sign_add = $c_user[0]['plus_sign_add'];
-			$send_as_unicode = $c_user[0]['send_as_unicode'];
 			$credit = rate_getusercredit($c_username);
 		} else {
 			$_SESSION['error_string'] = _('User does not exists') . ' (' . _('username') . ': ' . $uname . ')';
@@ -146,17 +145,6 @@ switch (_OP_) {
 		}
 		$option_plus_sign_add = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
 		$option_plus_sign_add.= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
-		
-		// select send_as_unicode
-		if ($send_as_unicode) {
-			$selected_1 = 'selected';
-			$selected_0 = '';
-		} else {
-			$selected_1 = '';
-			$selected_0 = 'selected';
-		}
-		$option_send_as_unicode = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
-		$option_send_as_unicode.= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
 		
 		// get language options
 		$lang_list = '';
@@ -261,7 +249,6 @@ switch (_OP_) {
 				'option_fwd_to_mobile' => $option_fwd_to_mobile,
 				'option_plus_sign_remove' => $option_plus_sign_remove,
 				'option_plus_sign_add' => $option_plus_sign_add,
-				'option_send_as_unicode' => $option_send_as_unicode,
 				'option_sender_id' => $option_sender_id,
 				'c_username' => $c_username,
 				'effective_sender_id' => sendsms_get_sender($c_username) ,
@@ -291,7 +278,6 @@ switch (_OP_) {
 			'replace_zero',
 			'plus_sign_remove',
 			'plus_sign_add',
-			'send_as_unicode',
 			'new_token',
 			'enable_webservices',
 			'webservices_ip',

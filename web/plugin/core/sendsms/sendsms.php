@@ -60,11 +60,6 @@ switch (_OP_) {
 			$sms_template = "<div id=msg_template><select name=smstemplate id=msg_template_select style='width: 100%' onClick=\"SetSmsTemplate();\">$option_values</select></div>";
 		}
 		
-		// unicode option
-		if ($user_config['send_as_unicode']) {
-			$option_msg_unicode = 'checked';
-		}
-		
 		$content = '';
 		if ($err = $_SESSION['error_string']) {
 			$error_content = "<div class=error_string>$err</div>";
@@ -105,7 +100,6 @@ switch (_OP_) {
 				'per_sms_length_unicode' => $user_config['opt']['per_sms_length_unicode'],
 				'max_sms_length' => $user_config['opt']['max_sms_length'],
 				'max_sms_length_unicode' => $user_config['opt']['max_sms_length_unicode'],
-				'option_msg_unicode' => $option_msg_unicode,
 				'lang' => substr($user_config['language_module'], 0, 2) ,
 				'chars' => _('chars') ,
 				'SMS' => _('SMS')
