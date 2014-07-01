@@ -36,9 +36,6 @@ msgstr ""
 msgid "Administrators"
 msgstr ""
 
-msgid "Always add plus sign"
-msgstr ""
-
 msgid "Always choose to send as unicode"
 msgstr ""
 
@@ -67,9 +64,6 @@ msgid "Are you sure you want to unban subuser"
 msgstr ""
 
 msgid "Are you sure you want to unban user"
-msgstr ""
-
-msgid "Auto remove plus sign"
 msgstr ""
 
 msgid "Cannot change status when user have subusers"

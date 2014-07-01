@@ -16,6 +16,12 @@ msgstr ""
 msgid "Allow users to select sender ID while on Send SMS page"
 msgstr ""
 
+msgid "Always add plus sign"
+msgstr ""
+
+msgid "Always remove plus sign"
+msgstr ""
+
 msgid ""
 "Application footer here. Go to main configuration or manage site to edit "
 "this footer."

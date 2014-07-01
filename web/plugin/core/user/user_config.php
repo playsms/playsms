@@ -60,8 +60,6 @@ switch (_OP_) {
 			$fwd_to_mobile = $c_user[0]['fwd_to_mobile'];
 			$local_length = $c_user[0]['local_length'];
 			$replace_zero = $c_user[0]['replace_zero'];
-			$plus_sign_remove = $c_user[0]['plus_sign_remove'];
-			$plus_sign_add = $c_user[0]['plus_sign_add'];
 			$credit = rate_getusercredit($c_username);
 		} else {
 			$_SESSION['error_string'] = _('User does not exists') . ' (' . _('username') . ': ' . $uname . ')';
@@ -123,29 +121,7 @@ switch (_OP_) {
 		}
 		$option_fwd_to_mobile = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
 		$option_fwd_to_mobile.= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
-		
-		// select plus_sign_remove
-		if ($plus_sign_remove) {
-			$selected_1 = 'selected';
-			$selected_0 = '';
-		} else {
-			$selected_1 = '';
-			$selected_0 = 'selected';
-		}
-		$option_plus_sign_remove = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
-		$option_plus_sign_remove.= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
-		
-		// select plus_sign_add
-		if ($plus_sign_add) {
-			$selected_1 = 'selected';
-			$selected_0 = '';
-		} else {
-			$selected_1 = '';
-			$selected_0 = 'selected';
-		}
-		$option_plus_sign_add = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
-		$option_plus_sign_add.= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
-		
+				
 		// get language options
 		$lang_list = '';
 		for ($i = 0; $i < count($core_config['languagelist']); $i++) {
@@ -224,8 +200,6 @@ switch (_OP_) {
 				'Forward message to mobile' => _('Forward message to mobile') ,
 				'Local number length' => _('Local number length') ,
 				'Prefix or country code' => _('Prefix or country code') ,
-				'Auto remove plus sign' => _('Auto remove plus sign') ,
-				'Always add plus sign' => _('Always add plus sign') ,
 				'Always choose to send as unicode' => _('Always choose to send as unicode') ,
 				'Save' => _('Save') ,
 				'ERROR' => $error_content,
@@ -247,8 +221,6 @@ switch (_OP_) {
 				'option_fwd_to_inbox' => $option_fwd_to_inbox,
 				'option_fwd_to_email' => $option_fwd_to_email,
 				'option_fwd_to_mobile' => $option_fwd_to_mobile,
-				'option_plus_sign_remove' => $option_plus_sign_remove,
-				'option_plus_sign_add' => $option_plus_sign_add,
 				'option_sender_id' => $option_sender_id,
 				'c_username' => $c_username,
 				'effective_sender_id' => sendsms_get_sender($c_username) ,
@@ -276,8 +248,6 @@ switch (_OP_) {
 			'fwd_to_mobile',
 			'local_length',
 			'replace_zero',
-			'plus_sign_remove',
-			'plus_sign_add',
 			'new_token',
 			'enable_webservices',
 			'webservices_ip',

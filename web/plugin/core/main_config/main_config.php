@@ -80,6 +80,18 @@ switch (_OP_) {
 		if (is_array($lang_list)) {
 			$option_language_module = _options($lang_list, $main_config['language_module']);
 		}
+
+		// select plus_sign_remove
+		$option_plus_sign_remove = _options(array(
+			_('yes') => 1,
+			_('no') => 0,
+		) , $main_config['plus_sign_remove']);
+		
+		// select plus_sign_add
+		$option_plus_sign_add = _options(array(
+			_('yes') => 1,
+			_('no') => 0,
+		) , $main_config['plus_sign_add']);
 		
 		// display
 		
@@ -109,6 +121,8 @@ switch (_OP_) {
 				'Default SMS rate' => _('Default SMS rate') ,
 				'Maximum SMS count' => _('Maximum SMS count') ,
 				'Default credit for user' => _('Default credit for user') ,
+				'Always remove plus sign' => _('Always remove plus sign') ,
+				'Always add plus sign' => _('Always add plus sign') ,
 				'Enable public registration' => _('Enable public registration') ,
 				'Enable forgot password' => _('Enable forgot password') ,
 				'Enable logo' => _('Enable logo') ,
@@ -147,7 +161,9 @@ switch (_OP_) {
 				'option_enable_forgot' => $option_enable_forgot,
 				'option_gateway_module' => $option_gateway_module,
 				'option_themes_module' => $option_themes_module,
-				'option_language_module' => $option_language_module
+				'option_language_module' => $option_language_module,
+				'option_plus_sign_remove' => $option_plus_sign_remove,
+				'option_plus_sign_add' => $option_plus_sign_add
 			) ,
 			'injects' => array(
 				'core_config',
@@ -212,6 +228,8 @@ switch (_OP_) {
 			'themes_module' => ($post['edit_themes_module'] ? $post['edit_themes_module'] : 'default') ,
 			'language_module' => ($post['edit_language_module'] ? $post['edit_language_module'] : 'en_US') ,
 			'sms_max_count' => (int)($post['edit_sms_max_count'] > 1 ? $post['edit_sms_max_count'] : 1) ,
+			'plus_sign_remove' => (int)$post['edit_plus_sign_remove'],
+			'plus_sign_add' => (int)$post['edit_plus_sign_add'],
 			'default_credit' => (float)$post['edit_default_credit'],
 			'default_user_status' => $edit_default_user_status,
 			'enable_register' => (int)$post['edit_enable_register'],

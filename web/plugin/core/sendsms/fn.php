@@ -28,7 +28,9 @@ function sendsms_getvalidnumber($number) {
 }
 
 function sendsms_manipulate_prefix($number, $user) {
-	logger_print("dest number before manipulation: '$number'", 3, "sendsms");
+	global $core_config;
+	
+	_log('before prefix manipulation:['.$number.']', 3, 'sendsms_manipulate_prefix');
 	if (is_array($user)) {
 		if (isset($user['local_length']) && !empty($user['local_length']) && is_numeric($user['local_length'])) {
 			if (strlen($number) == $user['local_length']) {
@@ -39,14 +41,16 @@ function sendsms_manipulate_prefix($number, $user) {
 		if ($user['replace_zero']) {
 			$number = preg_replace('/^0/', $user['replace_zero'], $number);
 		}
-		if ($user['plus_sign_remove']) {
-			$number = preg_replace('/^\+/', '', $number);
+		if ($core_config['main']['plus_sign_remove']) {
+			$number = str_replace('+', '', $number);
 		}
-		if ($user['plus_sign_add']) {
+		if ($core_config['main']['plus_sign_add']) {
+			$number = str_replace('+', '', $number);
 			$number = '+' . $number;
 		}
 	}
-	logger_print("dest number after manipulation '$number'", 3, "sendsms");
+	_log('after prefix manipulation:['.$number.']', 3, 'sendsms_manipulate_prefix');
+	
 	return $number;
 }
 
