@@ -80,6 +80,7 @@ if (auth_isadmin()) {
 	
 	// admin settings
 	$menutab = $core_config['menutab']['settings'];
+
 	$menu_config[$menutab][] = array(
 		'index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list',
 		_('Manage user') ,
@@ -104,9 +105,26 @@ if (auth_isadmin()) {
 	
 	// user menus
 	$menutab = $core_config['menutab']['settings'];
+	
 	$menu_config[$menutab][] = array(
 		'index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list',
 		_('Manage subusers') ,
 		3
 	);
+	$menu_config[$menutab][] = array(
+		'index.php?app=main&inc=core_sender_id&op=sender_id_list',
+		_('Manage sender ID') ,
+		3
+	);
+} else if ($user_config['status'] == 4) {
+
+	// subuser menus
+	$menutab = $core_config['menutab']['settings'];
+	
+	$menu_config[$menutab][] = array(
+		'index.php?app=main&inc=core_sender_id&op=sender_id_list',
+		_('Manage sender ID') ,
+		3
+	);
+	
 }
