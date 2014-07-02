@@ -81,9 +81,9 @@ function sms_poll_handle($list,$sms_datetime,$sms_sender,$poll_keyword,$poll_par
 						$poll_message_valid = addslashes($poll_message_valid);
 						list($ok, $to, $smslog_id, $queue_code) = sendsms($c_username, $sms_sender, $poll_message_valid, 'text', $unicode);
 					}
-					$ok = true;
 				}
 			}
+			$ok = true;
 		} else {
 			if (($poll_message_invalid = $list['poll_message_invalid']) && ($c_username = user_uid2username($list['uid']))) {
 				$unicode = core_detect_unicode($poll_message_invalid);
