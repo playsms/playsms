@@ -205,7 +205,7 @@ switch (_OP_) {
 		} else {
 			$ref = 'index.php?app=main&inc=core_sender_id&op=sender_id_list';
 		}
-				
+		
 		$items['id'] = $_REQUEST['id'];
 		$items['uid'] = $uid;
 		$items['sender_id'] = $data_sender_id[0]['registry_key'];
@@ -256,7 +256,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Fail to update due to invalid sender ID') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
 		}
-				
+		
 		header("Location: " . _u('index.php?app=main&inc=core_sender_id&op=sender_id_edit&id=' . $_REQUEST['id']));
 		exit();
 		break;

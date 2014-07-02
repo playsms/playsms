@@ -50,7 +50,7 @@ function sender_id_check($uid, $sender_id) {
 
 /**
  * Get owner of sender ID
- * 
+ *
  * @param string $sender_id Sender ID
  * @return array User IDs
  */
@@ -143,7 +143,7 @@ function sender_id_default_get($uid) {
 
 /**
  * Add sender ID
- * 
+ *
  * @param integer $uid User ID
  * @param string $sender_id Sender ID
  * @param string $sender_id_description Sender ID description
@@ -151,7 +151,7 @@ function sender_id_default_get($uid) {
  * @param integer $isapproved Flag 1 for approved sender ID
  * @return boolean TRUE when new sender ID has been added
  */
-function sender_id_add($uid, $sender_id, $sender_id_description='', $isdefault=1, $isapproved=1) {
+function sender_id_add($uid, $sender_id, $sender_id_description = '', $isdefault = 1, $isapproved = 1) {
 	global $user_config;
 	
 	if (sender_id_check($uid, $sender_id)) {
@@ -161,18 +161,18 @@ function sender_id_add($uid, $sender_id, $sender_id_description='', $isdefault=1
 	} else {
 		$default = (auth_isadmin() ? (int)$isdefault : 0);
 		$approved = (auth_isadmin() ? (int)$isapproved : 0);
-			
+		
 		$data_sender_id = array(
-			$sender_id => $approved
+			$sender_id => $approved 
 		);
-
-		$sender_id_description = ( trim($sender_id_description) ? trim($sender_id_description) : $sender_id );
+		
+		$sender_id_description = (trim($sender_id_description) ? trim($sender_id_description) : $sender_id);
 		$data_description = array(
-			$sender_id => $sender_id_description
+			$sender_id => $sender_id_description 
 		);
-			
+		
 		$uid = ((auth_isadmin() && $uid) ? $uid : $user_config['uid']);
-			
+		
 		if ($uid) {
 			registry_update($uid, 'features', 'sender_id', $data_sender_id);
 			$ret = registry_update($uid, 'features', 'sender_id_desc', $data_description);
@@ -181,7 +181,7 @@ function sender_id_add($uid, $sender_id, $sender_id_description='', $isdefault=1
 			// unknown error
 			return FALSE;
 		}
-			
+		
 		// if default and approved and data saved
 		if (auth_isadmin() && $default && $approved && $ret[$sender_id]) {
 			sender_id_default_set($uid, $sender_id);
@@ -194,7 +194,7 @@ function sender_id_add($uid, $sender_id, $sender_id_description='', $isdefault=1
 
 /**
  * Update sender ID
- * 
+ *
  * @param integer $uid User ID
  * @param string $sender_id Sender ID
  * @param string $sender_id_description Sender ID description
@@ -202,7 +202,7 @@ function sender_id_add($uid, $sender_id, $sender_id_description='', $isdefault=1
  * @param integer $isapproved Flag 1 for approved sender ID
  * @return boolean TRUE when new sender ID has been updated
  */
-function sender_id_update($uid, $sender_id, $sender_id_description='', $isdefault='_', $isapproved='_') {
+function sender_id_update($uid, $sender_id, $sender_id_description = '', $isdefault = '_', $isapproved = '_') {
 	global $user_config;
 	
 	if (sender_id_check($uid, $sender_id)) {
@@ -215,22 +215,22 @@ function sender_id_update($uid, $sender_id, $sender_id_description='', $isdefaul
 			if (auth_isadmin()) {
 				$approved = ((int)$isapproved ? 1 : 0);
 				$data_sender_id = array(
-					$sender_id => $approved
+					$sender_id => $approved 
 				);
 			}
 		}
 		
-		$sender_id_description = ( trim($sender_id_description) ? trim($sender_id_description) : $sender_id );
+		$sender_id_description = (trim($sender_id_description) ? trim($sender_id_description) : $sender_id);
 		$data_description = array(
-			$sender_id => $sender_id_description
+			$sender_id => $sender_id_description 
 		);
 		
 		$uid = ((auth_isadmin() && $uid) ? $uid : $user_config['uid']);
-			
+		
 		if ($uid) {
 			if ($data_sender_id) {
 				registry_update($uid, 'features', 'sender_id', $data_sender_id);
-			}			
+			}
 			registry_update($uid, 'features', 'sender_id_desc', $data_description);
 		} else {
 			
