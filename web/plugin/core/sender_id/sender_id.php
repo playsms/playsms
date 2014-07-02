@@ -139,7 +139,11 @@ switch (_OP_) {
 	case "sender_id_add":
 		$nav = themes_nav_session();
 		$search = themes_search_session();
-		$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
+		if ($nav['url']) {
+			$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
+		} else {
+			$ref = 'index.php?app=main&inc=core_sender_id&op=sender_id_list';
+		}
 		
 		if (auth_isadmin()) {
 			$select_approve = _yesno('approved', 0);
@@ -218,8 +222,12 @@ switch (_OP_) {
 	case "sender_id_edit":
 		$nav = themes_nav_session();
 		$search = themes_search_session();
-		$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
-		
+		if ($nav['url']) {
+			$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
+		} else {
+			$ref = 'index.php?app=main&inc=core_sender_id&op=sender_id_list';
+		}
+				
 		$items['id'] = $_REQUEST['id'];
 		$items['uid'] = $uid;
 		$items['sender_id'] = $data_sender_id[0]['registry_key'];
