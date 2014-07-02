@@ -10,17 +10,17 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
-if (!auth_isvalid()) {
+
+if (! auth_isvalid()) {
 	auth_block();
-};
+}
 
 switch (_OP_) {
 	case "sendsms":
@@ -38,11 +38,11 @@ switch (_OP_) {
 				$selected = 'selected';
 				$ismatched = TRUE;
 			}
-			$option_values.= "<option value=\"" . $sender_id . "\" title=\"" . $sender_id . "\" " . $selected . ">" . $sender_id . "</option>";
+			$option_values .= "<option value=\"" . $sender_id . "\" title=\"" . $sender_id . "\" " . $selected . ">" . $sender_id . "</option>";
 		}
 		$sms_sender_id = "<select name=sms_sender style='width: 100%'>" . $option_values . "</select>";
-
-		if (!$ismatched) {
+		
+		if (! $ismatched) {
 			$sms_sender_id = "<input type='text' style='width: 100%' name='sms_sender' value='" . $sms_from . "' readonly>";
 		}
 		
@@ -53,8 +53,8 @@ switch (_OP_) {
 		$option_values = "<option value=\"\" default>--" . _('Please select template') . "--</option>";
 		$c_templates = sendsms_get_template();
 		for ($i = 0; $i < count($c_templates); $i++) {
-			$option_values.= "<option value=\"" . $c_templates[$i]['text'] . "\" title=\"" . $c_templates[$i]['text'] . "\">" . $c_templates[$i]['title'] . "</option>";
-			$input_values.= "<input type=\"hidden\" name=\"content_" . $i . "\" value=\"" . $c_templates[$i]['text'] . "\">";
+			$option_values .= "<option value=\"" . $c_templates[$i]['text'] . "\" title=\"" . $c_templates[$i]['text'] . "\">" . $c_templates[$i]['title'] . "</option>";
+			$input_values .= "<input type=\"hidden\" name=\"content_" . $i . "\" value=\"" . $c_templates[$i]['text'] . "\">";
 		}
 		if ($c_templates[0]) {
 			$sms_template = "<div id=msg_template><select name=smstemplate id=msg_template_select style='width: 100%' onClick=\"SetSmsTemplate();\">$option_values</select></div>";
@@ -70,21 +70,21 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'sendsms',
 			'vars' => array(
-				'Send message' => _('Send message') ,
-				'Sender ID' => _('Sender ID') ,
-				'Message footer' => _('Message footer') ,
-				'Send to' => _('Send to') ,
-				'Message' => _('Message') ,
-				'Flash message' => _('Flash message') ,
-				'Unicode message' => _('Unicode message') ,
-				'Send' => _('Send') ,
-				'Schedule' => _('Schedule') ,
-				'Options' => _('Options') ,
+				'Send message' => _('Send message'),
+				'Sender ID' => _('Sender ID'),
+				'Message footer' => _('Message footer'),
+				'Send to' => _('Send to'),
+				'Message' => _('Message'),
+				'Flash message' => _('Flash message'),
+				'Unicode message' => _('Unicode message'),
+				'Send' => _('Send'),
+				'Schedule' => _('Schedule'),
+				'Options' => _('Options'),
 				'ERROR' => $error_content,
 				'HTTP_PATH_BASE' => _HTTP_PATH_BASE_,
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
-				'HINT_SEND_TO' => _('Prefix with # for groups and @ for users') ,
-				'HINT_SCHEDULE' => _('Format YYYY-MM-DD hh:mm') ,
+				'HINT_SEND_TO' => _('Prefix with # for groups and @ for users'),
+				'HINT_SCHEDULE' => _('Format YYYY-MM-DD hh:mm'),
 				'sms_from' => $sms_from,
 				'sms_footer' => $sms_footer,
 				'allow_custom_footer' => $allow_custom_footer,
@@ -100,18 +100,18 @@ switch (_OP_) {
 				'per_sms_length_unicode' => $user_config['opt']['per_sms_length_unicode'],
 				'max_sms_length' => $user_config['opt']['max_sms_length'],
 				'max_sms_length_unicode' => $user_config['opt']['max_sms_length_unicode'],
-				'lang' => substr($user_config['language_module'], 0, 2) ,
-				'chars' => _('chars') ,
-				'SMS' => _('SMS')
-			) ,
+				'lang' => substr($user_config['language_module'], 0, 2),
+				'chars' => _('chars'),
+				'SMS' => _('SMS') 
+			),
 			'ifs' => array(
-				'calendar' => file_exists($core_config['apps_path']['themes'] . '/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.' . substr($user_config['language_module'], 0, 2) . '.js') ,
-				'combobox' => file_exists($core_config['apps_path']['themes'] . '/common/jscss/combobox/select2_locale_' . substr($user_config['language_module'], 0, 2) . '.js')
-			)
+				'calendar' => file_exists($core_config['apps_path']['themes'] . '/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.' . substr($user_config['language_module'], 0, 2) . '.js'),
+				'combobox' => file_exists($core_config['apps_path']['themes'] . '/common/jscss/combobox/select2_locale_' . substr($user_config['language_module'], 0, 2) . '.js') 
+			) 
 		);
 		_p(tpl_apply($tpl));
 		break;
-
+	
 	case "sendsms_yes":
 		
 		// sender ID
