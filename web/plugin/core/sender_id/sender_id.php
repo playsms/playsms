@@ -183,36 +183,14 @@ switch (_OP_) {
 		break;
 	
 	case "sender_id_add_yes":
-		if (sender_id_check($uid, $c_sender_id)) {
-			$_SESSION['error_string'] = _('Sender ID is not available') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
-		} else {
-			$default = (auth_isadmin() ? (int)$_REQUEST['default'] : 0);
-			
-			$approved = (auth_isadmin() ? (int)$_REQUEST['approved'] : 0);
-			
-			$data_sender_id = array(
-				$c_sender_id => $approved 
-			);
-			
-			$data_description = array(
-				$c_sender_id => $c_sender_id_description 
-			);
-			
-			$uid = ((auth_isadmin() && $_REQUEST['uid']) ? $_REQUEST['uid'] : $user_config['uid']);
-			
-			registry_update($uid, 'features', 'sender_id', $data_sender_id);
-			$ret = registry_update($uid, 'features', 'sender_id_desc', $data_description);
-			
-			// if default and approved and data saved
-			if (auth_isadmin() && $default && $approved && $ret[$c_sender_id]) {
-				sender_id_default_set($uid, $c_sender_id);
-			}
-			
+		if (sender_id_add($uid, $c_sender_id, $c_sender_id_description, $_REQUEST['default'], $_REQUEST['approved'])) {
 			if (auth_isadmin()) {
 				$_SESSION['error_string'] = _('Sender ID description has been added') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
 			} else {
 				$_SESSION['error_string'] = _('Sender ID has been added and waiting for approval') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
 			}
+		} else {
+			$_SESSION['error_string'] = _('Sender ID is not available') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
 		}
 		
 		header("Location: " . _u('index.php?app=main&inc=core_sender_id&op=sender_id_add'));
@@ -273,23 +251,12 @@ switch (_OP_) {
 		break;
 	
 	case "sender_id_edit_yes":
-		$default = ((int)$_REQUEST['default'] ? 1 : 0);
-		
-		if (auth_isadmin()) {
-			$approved = ((int)$_REQUEST['approved'] ? 1 : 0);
-			$data_sender_id = array(
-				$c_sender_id => $approved 
-			);
+		if (sender_id_update($uid, $c_sender_id, $c_sender_id_description, $_REQUEST['default'], $_REQUEST['approved'])) {
+			$_SESSION['error_string'] = _('Sender ID description has been updated') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
+		} else {
+			$_SESSION['error_string'] = _('Fail to update due to invalid sender ID') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
 		}
-		
-		$data_description = array(
-			$c_sender_id => $c_sender_id_description 
-		);
-		
-		registry_update($uid, 'features', 'sender_id', $data_sender_id);
-		$ret = registry_update($uid, 'features', 'sender_id_desc', $data_description);
-		
-		$_SESSION['error_string'] = _('Sender ID description has been updated') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
+				
 		header("Location: " . _u('index.php?app=main&inc=core_sender_id&op=sender_id_edit&id=' . $_REQUEST['id']));
 		exit();
 		break;

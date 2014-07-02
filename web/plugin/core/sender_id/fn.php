@@ -140,3 +140,121 @@ function sender_id_default_get($uid) {
 	
 	return $sender_id;
 }
+
+/**
+ * Add sender ID
+ * 
+ * @param integer $uid User ID
+ * @param string $sender_id Sender ID
+ * @param string $sender_id_description Sender ID description
+ * @param integer $isdefault Flag 1 for default sender ID
+ * @param integer $isapproved Flag 1 for approved sender ID
+ * @return boolean TRUE when new sender ID has been added
+ */
+function sender_id_add($uid, $sender_id, $sender_id_description='', $isdefault=1, $isapproved=1) {
+	global $user_config;
+	
+	if (sender_id_check($uid, $sender_id)) {
+		
+		// not available
+		return FALSE;
+	} else {
+		$default = (auth_isadmin() ? (int)$isdefault : 0);
+		$approved = (auth_isadmin() ? (int)$isapproved : 0);
+			
+		$data_sender_id = array(
+			$sender_id => $approved
+		);
+
+		$sender_id_description = ( trim($sender_id_description) ? trim($sender_id_description) : $sender_id );
+		$data_description = array(
+			$sender_id => $sender_id_description
+		);
+			
+		$uid = ((auth_isadmin() && $uid) ? $uid : $user_config['uid']);
+			
+		if ($uid) {
+			registry_update($uid, 'features', 'sender_id', $data_sender_id);
+			$ret = registry_update($uid, 'features', 'sender_id_desc', $data_description);
+		} else {
+			
+			// unknown error
+			return FALSE;
+		}
+			
+		// if default and approved and data saved
+		if (auth_isadmin() && $default && $approved && $ret[$sender_id]) {
+			sender_id_default_set($uid, $sender_id);
+		}
+		
+		// added
+		return TRUE;
+	}
+}
+
+/**
+ * Update sender ID
+ * 
+ * @param integer $uid User ID
+ * @param string $sender_id Sender ID
+ * @param string $sender_id_description Sender ID description
+ * @param integer $isdefault Flag 1 for default sender ID
+ * @param integer $isapproved Flag 1 for approved sender ID
+ * @return boolean TRUE when new sender ID has been updated
+ */
+function sender_id_update($uid, $sender_id, $sender_id_description='', $isdefault='_', $isapproved='_') {
+	global $user_config;
+	
+	if (sender_id_check($uid, $sender_id)) {
+		$default = '_';
+		if ($isdefault !== '_') {
+			$default = ((int)$isdefault ? 1 : 0);
+		}
+		
+		if ($isapproved !== '_') {
+			if (auth_isadmin()) {
+				$approved = ((int)$isapproved ? 1 : 0);
+				$data_sender_id = array(
+					$sender_id => $approved
+				);
+			}
+		}
+		
+		$sender_id_description = ( trim($sender_id_description) ? trim($sender_id_description) : $sender_id );
+		$data_description = array(
+			$sender_id => $sender_id_description
+		);
+		
+		$uid = ((auth_isadmin() && $uid) ? $uid : $user_config['uid']);
+			
+		if ($uid) {
+			if ($data_sender_id) {
+				registry_update($uid, 'features', 'sender_id', $data_sender_id);
+			}			
+			registry_update($uid, 'features', 'sender_id_desc', $data_description);
+		} else {
+			
+			// unknown error
+			return FALSE;
+		}
+		
+		// set default
+		if ($default !== '_') {
+			if (auth_isadmin() && $default && $approved) {
+				
+				// set default if isadmin, default and approved
+				sender_id_default_set($uid, $sender_id);
+			} else {
+				
+				// set to empty (remove default)
+				sender_id_default_set($uid, '');
+			}
+		}
+		
+		return TRUE;
+	} else {
+		
+		// not found
+		return FALSE;
+	}
+}
