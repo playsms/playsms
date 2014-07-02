@@ -24,7 +24,7 @@ input[type="checkbox"] {
 }
 
 input[type="button"], input[type="submit"], .button, .submit {
-	width: 100px;
+	width: auto;
 }
 
 textarea {
