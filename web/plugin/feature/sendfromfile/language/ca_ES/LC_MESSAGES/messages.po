@@ -17,6 +17,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.4\n"
 
+msgid "CSV file format"
+msgstr ""
+
 msgid "Cancel send from file"
 msgstr "Cancel·lar l'enviament del fitxer"
 
@@ -77,10 +80,12 @@ msgstr "Entrades vàlides"
 msgid "Your choice"
 msgstr "La vostra tria"
 
-msgid "format : destination number, message"
+#, fuzzy
+msgid "destination number, message"
 msgstr "format: núm. destí, missatge"
 
-msgid "format : destination number, message, username"
+#, fuzzy
+msgid "destination number, message, username"
 msgstr "format: núm. destí, missatge, usuari"
 
 msgid "invalid entries"

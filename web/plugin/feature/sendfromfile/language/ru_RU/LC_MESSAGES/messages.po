@@ -12,6 +12,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
+msgid "CSV file format"
+msgstr ""
+
 msgid "Cancel send from file"
 msgstr "Отменить отправку из файла"
 
@@ -72,10 +75,12 @@ msgstr "Действительные записи"
 msgid "Your choice"
 msgstr "Ваш выбор"
 
-msgid "format : destination number, message"
+#, fuzzy
+msgid "destination number, message"
 msgstr "формат: номер получателя, сообщение"
 
-msgid "format : destination number, message, username"
+#, fuzzy
+msgid "destination number, message, username"
 msgstr "формат: номер получателя, сообщение, имя пользователя"
 
 msgid "invalid entries"

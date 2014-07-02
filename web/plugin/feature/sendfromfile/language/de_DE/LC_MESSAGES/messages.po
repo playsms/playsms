@@ -5,6 +5,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "CSV file format"
+msgstr ""
+
 msgid "Cancel send from file"
 msgstr "Aus Datei senden abbrechen"
 
@@ -65,10 +68,12 @@ msgstr "Gültige Eintrgäe"
 msgid "Your choice"
 msgstr "Ihre Auswahl"
 
-msgid "format : destination number, message"
+#, fuzzy
+msgid "destination number, message"
 msgstr "Format: Zielrufnummer, Nachricht"
 
-msgid "format : destination number, message, username"
+#, fuzzy
+msgid "destination number, message, username"
 msgstr "Format: Zielrufnummer, Nachricht, Benutzername"
 
 msgid "invalid entries"
