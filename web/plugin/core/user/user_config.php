@@ -10,23 +10,23 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
-if (!auth_isvalid()) {
+
+if (! auth_isvalid()) {
 	auth_block();
-};
+}
 
 $view = $_REQUEST['view'];
 
 $uname = $_REQUEST['uname'];
 
-if ((!$uname) || ($uname && $uname == $user_config['username'])) {
+if ((! $uname) || ($uname && $uname == $user_config['username'])) {
 	$user_edited = $user_config;
 	$c_username = $user_config['username'];
 } else if (auth_isadmin()) {
@@ -47,7 +47,7 @@ if ((!$uname) || ($uname && $uname == $user_config['username'])) {
 switch (_OP_) {
 	case "user_config":
 		if ($c_user = dba_search(_DB_PREF_ . '_tblUser', '*', array(
-			'username' => $c_username
+			'username' => $c_username 
 		))) {
 			$token = $c_user[0]['token'];
 			$webservices_ip = $c_user[0]['webservices_ip'];
@@ -76,7 +76,7 @@ switch (_OP_) {
 			$selected_0 = 'selected';
 		}
 		$option_enable_webservices = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
-		$option_enable_webservices.= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
+		$option_enable_webservices .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
 		
 		// select token
 		if ($new_token) {
@@ -87,7 +87,7 @@ switch (_OP_) {
 			$selected_0 = 'selected';
 		}
 		$option_new_token = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
-		$option_new_token.= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
+		$option_new_token .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
 		
 		// select fwd_to_inbox
 		if ($fwd_to_inbox) {
@@ -98,7 +98,7 @@ switch (_OP_) {
 			$selected_0 = 'selected';
 		}
 		$option_fwd_to_inbox = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
-		$option_fwd_to_inbox.= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
+		$option_fwd_to_inbox .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
 		
 		// select fwd_to_email
 		if ($fwd_to_email) {
@@ -109,7 +109,7 @@ switch (_OP_) {
 			$selected_0 = 'selected';
 		}
 		$option_fwd_to_email = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
-		$option_fwd_to_email.= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
+		$option_fwd_to_email .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
 		
 		// select fwd_to_mobile
 		if ($fwd_to_mobile) {
@@ -120,8 +120,8 @@ switch (_OP_) {
 			$selected_0 = 'selected';
 		}
 		$option_fwd_to_mobile = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
-		$option_fwd_to_mobile.= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
-				
+		$option_fwd_to_mobile .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
+		
 		// get language options
 		$lang_list = '';
 		for ($i = 0; $i < count($core_config['languagelist']); $i++) {
@@ -131,11 +131,11 @@ switch (_OP_) {
 				$lang_list[$c_language_title] = $language;
 			}
 		}
-		$option_language_module.= "<option value=\"\">" . _('Default') . "</option>";
+		$option_language_module .= "<option value=\"\">" . _('Default') . "</option>";
 		if (is_array($lang_list)) {
 			foreach ($lang_list as $key => $val) {
 				if ($val == core_lang_get()) $selected = "selected";
-				$option_language_module.= "<option value=\"" . $val . "\" $selected>" . $key . "</option>";
+				$option_language_module .= "<option value=\"" . $val . "\" $selected>" . $key . "</option>";
 				$selected = "";
 			}
 		}
@@ -148,7 +148,7 @@ switch (_OP_) {
 			if (strtoupper($c_sms_from) == strtoupper($sender_id)) {
 				$selected = 'selected';
 			}
-			$option_sender_id.= "<option value=\"" . $sender_id . "\" title=\"" . $sender_id . "\" " . $selected . ">" . $sender_id . "</option>";
+			$option_sender_id .= "<option value=\"" . $sender_id . "\" title=\"" . $sender_id . "\" " . $selected . ">" . $sender_id . "</option>";
 		}
 		
 		// admin or users
@@ -169,9 +169,7 @@ switch (_OP_) {
 			$form_title = _('User configuration');
 			
 			// fixme anton - now disabled since plugin/feature/credit exists
-			//$option_credit = "<tr><td>" . _('Credit') . "</td><td>$credit</td></tr>";
-			
-			
+			// $option_credit = "<tr><td>" . _('Credit') . "</td><td>$credit</td></tr>";
 		}
 		
 		// error string
@@ -182,39 +180,39 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'user_config',
 			'vars' => array(
-				'Application options' => _('Application options') ,
-				'Username' => _('Username') ,
-				'Effective SMS sender ID' => _('Effective SMS sender ID') ,
-				'Default sender ID' => _('Default sender ID') ,
-				'Default message footer' => _('Default message footer') ,
-				'Webservices username' => _('Webservices username') ,
-				'Webservices token' => _('Webservices token') ,
-				'New webservices token' => _('New webservices token') ,
-				'Enable webservices' => _('Enable webservices') ,
-				'Webservices IP range' => _('Webservices IP range') ,
-				'Active language' => _('Active language') ,
-				'Timezone' => _('Timezone') ,
-				'Credit' => _('Credit') ,
-				'Forward message to inbox' => _('Forward message to inbox') ,
-				'Forward message to email' => _('Forward message to email') ,
-				'Forward message to mobile' => _('Forward message to mobile') ,
-				'Local number length' => _('Local number length') ,
-				'Prefix or country code' => _('Prefix or country code') ,
-				'Always choose to send as unicode' => _('Always choose to send as unicode') ,
-				'Save' => _('Save') ,
+				'Application options' => _('Application options'),
+				'Username' => _('Username'),
+				'Effective SMS sender ID' => _('Effective SMS sender ID'),
+				'Default sender ID' => _('Default sender ID'),
+				'Default message footer' => _('Default message footer'),
+				'Webservices username' => _('Webservices username'),
+				'Webservices token' => _('Webservices token'),
+				'New webservices token' => _('New webservices token'),
+				'Enable webservices' => _('Enable webservices'),
+				'Webservices IP range' => _('Webservices IP range'),
+				'Active language' => _('Active language'),
+				'Timezone' => _('Timezone'),
+				'Credit' => _('Credit'),
+				'Forward message to inbox' => _('Forward message to inbox'),
+				'Forward message to email' => _('Forward message to email'),
+				'Forward message to mobile' => _('Forward message to mobile'),
+				'Local number length' => _('Local number length'),
+				'Prefix or country code' => _('Prefix or country code'),
+				'Always choose to send as unicode' => _('Always choose to send as unicode'),
+				'Save' => _('Save'),
 				'ERROR' => $error_content,
 				'FORM_TITLE' => $form_title,
 				'BUTTON_DELETE' => $button_delete,
 				'BUTTON_BACK' => $button_back,
 				'URL_UNAME' => $url_uname,
 				'VIEW' => $view,
-				'HINT_MAX_CHARS' => _hint(_('Max. 16 numeric or 11 alphanumeric characters')) ,
-				'HINT_MAX_ALPHANUMERIC' => _hint(_('Max. 30 alphanumeric characters')) ,
-				'HINT_COMMA_SEPARATED' => _hint(_('Comma separated')) ,
-				'HINT_TIMEZONE' => _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')) ,
-				'HINT_LOCAL_LENGTH' => _hint(_('Min length to detect missing country code')) ,
-				'HINT_REPLACE_ZERO' => _hint(_('Replace prefix 0 or padding local numbers')) ,
-				'HINT_MANAGE_CREDIT' => _hint(_('Add or reduce credit from manage credit menu')) ,
+				'HINT_MAX_CHARS' => _hint(_('Max. 16 numeric or 11 alphanumeric characters')),
+				'HINT_MAX_ALPHANUMERIC' => _hint(_('Max. 30 alphanumeric characters')),
+				'HINT_COMMA_SEPARATED' => _hint(_('Comma separated')),
+				'HINT_TIMEZONE' => _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')),
+				'HINT_LOCAL_LENGTH' => _hint(_('Min length to detect missing country code')),
+				'HINT_REPLACE_ZERO' => _hint(_('Replace prefix 0 or padding local numbers')),
+				'HINT_MANAGE_CREDIT' => _hint(_('Add or reduce credit from manage credit menu')),
 				'option_new_token' => $option_new_token,
 				'option_enable_webservices' => $option_enable_webservices,
 				'option_language_module' => $option_language_module,
@@ -223,7 +221,7 @@ switch (_OP_) {
 				'option_fwd_to_mobile' => $option_fwd_to_mobile,
 				'option_sender_id' => $option_sender_id,
 				'c_username' => $c_username,
-				'effective_sender_id' => sendsms_get_sender($c_username) ,
+				'effective_sender_id' => sendsms_get_sender($c_username),
 				'sender' => $sender,
 				'footer' => $footer,
 				'token' => $token,
@@ -231,12 +229,12 @@ switch (_OP_) {
 				'datetime_timezone' => $datetime_timezone,
 				'local_length' => $local_length,
 				'replace_zero' => $replace_zero,
-				'credit' => $credit,
-			)
+				'credit' => $credit 
+			) 
 		);
 		_p(tpl_apply($tpl));
 		break;
-
+	
 	case "user_config_save":
 		$_SESSION['error_string'] = _('No changes made');
 		$fields = array(
@@ -251,15 +249,12 @@ switch (_OP_) {
 			'new_token',
 			'enable_webservices',
 			'webservices_ip',
-			'sender'
+			'sender' 
 		);
 		
-		/* fixme anton - now disabled since plugin/feature/credit exists
-		if ($uname && (auth_isadmin() || $is_parent)) {
-			_log('saving username:' . $c_username . ' credit:' . $_POST['up_credit'], 3, 'user_config');
-			$fields[] = 'credit';
-		}
-		*/
+		/*
+		 * fixme anton - now disabled since plugin/feature/credit exists if ($uname && (auth_isadmin() || $is_parent)) { _log('saving username:' . $c_username . ' credit:' . $_POST['up_credit'], 3, 'user_config'); $fields[] = 'credit'; }
+		 */
 		
 		for ($i = 0; $i < count($fields); $i++) {
 			$up[$fields[$i]] = trim($_POST['up_' . $fields[$i]]);
@@ -275,7 +270,7 @@ switch (_OP_) {
 			unset($up['new_token']);
 			if ($continue) {
 				if (dba_update(_DB_PREF_ . '_tblUser', $up, array(
-					'username' => $c_username
+					'username' => $c_username 
 				))) {
 					if ($up['password']) {
 						$_SESSION['error_string'] = _('User configuration has been saved and password updated');
@@ -295,5 +290,5 @@ switch (_OP_) {
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=user_config&op=user_config' . $url_uname . '&view=' . $view));
 		exit();
 		break;
-	}
+}
 	
