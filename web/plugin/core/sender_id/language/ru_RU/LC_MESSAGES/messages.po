@@ -29,6 +29,9 @@ msgstr "Описание"
 msgid "Edit sender ID"
 msgstr ""
 
+msgid "Fail to update due to invalid sender ID"
+msgstr ""
+
 msgid "Last update"
 msgstr ""
 
