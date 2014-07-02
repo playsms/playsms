@@ -1,56 +1,76 @@
 <?php
+
+/**
+ * This file is part of playSMS.
+ *
+ * playSMS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * playSMS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
+ */
 defined('_SECURE_') or die('Forbidden');
-if(!auth_isvalid()){auth_block();};
+
+if (! auth_isvalid()) {
+	auth_block();
+}
 
 $poll_id = $_REQUEST['poll_id'];
 
 switch (_OP_) {
-	case 'list':	
+	case 'list':
 		$conditions['poll_id'] = $poll_id;
-		$list = dba_search(_DB_PREF_.'_featurePoll', '*', $conditions);
+		$list = dba_search(_DB_PREF_ . '_featurePoll', '*', $conditions);
 		$poll_keyword = $list[0]['poll_keyword'];
-		$output_serialize = $core_config['http_path']['base']."/index.php?app=webservices&op=sms_poll&keyword=".urlencode($poll_keyword)."&type=serialize";
-		$output_json = $core_config['http_path']['base']."/index.php?app=webservices&op=sms_poll&keyword=".urlencode($poll_keyword)."&type=json";
-		$output_xml = $core_config['http_path']['base']."/index.php?app=webservices&op=sms_poll&keyword=".urlencode($poll_keyword)."&type=xml";
-		$output_graph = $core_config['http_path']['base']."/index.php?app=webservices&op=sms_poll&keyword=".urlencode($poll_keyword)."&type=graph";
+		$output_serialize = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&type=serialize";
+		$output_json = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&type=json";
+		$output_xml = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&type=xml";
+		$output_graph = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&type=graph";
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
-			<h2>"._('Manage poll')."</h2>
-			<h3>"._('View poll')." : ".$poll_keyword."</h3>
+			<h2>" . _('Manage poll') . "</h2>
+			<h3>" . _('View poll') . " : " . $poll_keyword . "</h3>
 			<table class=playsms-table>
-				<tr><td class=label-sizer>"._('PHP serialize output')."</td><td>:</td><td><a href=\""._u($output_serialize)."\" target=_blank>"._u($output_serialize)."</a></td></tr>
-				<tr><td>"._('JSON output')."</td><td>:</td><td><a href=\""._u($output_json)."\" target=_blank>"._u($output_json)."</a></td></tr>
-				<tr><td>"._('XML output')."</td><td>:</td><td><a href=\""._u($output_xml)."\" target=_blank>"._u($output_xml)."</a></td></tr>
-				<tr><td>"._('Graph output')."</td><td>:</td><td><a href=\""._u($output_graph)."\" target=_blank>"._u($output_graph)."</a></td></tr>
+				<tr><td class=label-sizer>" . _('PHP serialize output') . "</td><td>:</td><td><a href=\"" . _u($output_serialize) . "\" target=_blank>" . _u($output_serialize) . "</a></td></tr>
+				<tr><td>" . _('JSON output') . "</td><td>:</td><td><a href=\"" . _u($output_json) . "\" target=_blank>" . _u($output_json) . "</a></td></tr>
+				<tr><td>" . _('XML output') . "</td><td>:</td><td><a href=\"" . _u($output_xml) . "\" target=_blank>" . _u($output_xml) . "</a></td></tr>
+				<tr><td>" . _('Graph output') . "</td><td>:</td><td><a href=\"" . _u($output_graph) . "\" target=_blank>" . _u($output_graph) . "</a></td></tr>
 			</table>
 			<br />
-			<h3>"._('SMS poll graph')."</h3>";
-		$db_query = "SELECT * FROM "._DB_PREF_."_featurePoll_choice WHERE poll_id='$poll_id' ORDER BY choice_keyword";
+			<h3>" . _('SMS poll graph') . "</h3>";
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePoll_choice WHERE poll_id='$poll_id' ORDER BY choice_keyword";
 		$db_result = dba_query($db_query);
-		$results= "";
+		$results = "";
 		$answers = "";
-		$no_results="";
+		$no_results = "";
 		while ($db_row = dba_fetch_array($db_result)) {
 			$choice_id = $db_row['choice_id'];
 			$choice_title = $db_row['choice_title'];
 			$answers .= $choice_title . ",";
 			$choice_keyword = $db_row['choice_keyword'];
-			$db_query1 = "SELECT result_id FROM "._DB_PREF_."_featurePoll_log WHERE poll_id='$poll_id' AND choice_id='$choice_id'";
+			$db_query1 = "SELECT result_id FROM " . _DB_PREF_ . "_featurePoll_log WHERE poll_id='$poll_id' AND choice_id='$choice_id'";
 			$choice_voted = @dba_num_rows($db_query1);
 			$results .= $choice_voted . ",";
 			$no_results .= "0,";
 		}
-		$answers = substr_replace($answers,"",-1);
-		$results = substr_replace($results,"",-1);
-		$no_results = substr_replace($no_results,"",-1);
+		$answers = substr_replace($answers, "", - 1);
+		$results = substr_replace($results, "", - 1);
+		$no_results = substr_replace($no_results, "", - 1);
 		if ($results == $no_results) {
-			$content .= "<p>"._('This poll has 0 votes!');
+			$content .= "<p>" . _('This poll has 0 votes!');
 		} else {
-			$content .= "<img src=\"".$output_graph."\">";
+			$content .= "<img src=\"" . $output_graph . "\">";
 		}
-		$content .= '<p>'._back('index.php?app=main&inc=feature_sms_poll&op=sms_poll_list');
+		$content .= '<p>' . _back('index.php?app=main&inc=feature_sms_poll&op=sms_poll_list');
 		_p($content);
 		break;
 }
