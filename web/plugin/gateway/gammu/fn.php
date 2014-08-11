@@ -84,21 +84,10 @@ function gammu_hook_getsmsinbox() {
 		if ($sms_in_file != "." && $sms_in_file != "..") {
 			$fn = $plugin_config['gammu']['path'] . "/inbox/$sms_in_file";
 			
-			// logger_print("infile:".$fn, 2, "gammu incoming");
-			$the_fn = str_replace('IN', '', basename($fn));
-			$arr_fn = explode('_', $the_fn);
-			
-			// let me know if you got better way :)
-			$year = substr($arr_fn[0], 0, 4);
-			$month = substr($arr_fn[0], 4, 2);
-			$date = substr($arr_fn[0], 6, 2);
-			$hour = substr($arr_fn[1], 0, 2);
-			$minute = substr($arr_fn[1], 2, 2);
-			$second = substr($arr_fn[1], 4, 2);
+			$matches = array();
+			preg_match('/IN(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})(\d{2})_(\d+)_(\d+)_(\d+)/', basename($fn), $matches);
+			list($s, $year, $month, $date, $hour, $minute, $second, $serial, $sms_sender, $seq) = $matches;
 			$sms_datetime = $year . "-" . $month . "-" . $date . " " . $hour . ":" . $minute . ":" . $second;
-			
-			// sender
-			$sms_sender = $arr_fn[3];
 			
 			// message is in UTF-16, need to convert it to UTF-8
 			$message = file_get_contents($fn);
