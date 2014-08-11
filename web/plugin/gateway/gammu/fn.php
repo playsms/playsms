@@ -85,7 +85,7 @@ function gammu_hook_getsmsinbox() {
 			$fn = $plugin_config['gammu']['path'] . "/inbox/$sms_in_file";
 			
 			$matches = array();
-			preg_match('/IN(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})(\d{2})_(\d+)_(\d+)_(\d+)/', basename($fn), $matches);
+			preg_match('/IN(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})(\d{2})_(\d+)_([+]*\d+)_(\d+)/', basename($fn), $matches);
 			list($s, $year, $month, $date, $hour, $minute, $second, $serial, $sms_sender, $seq) = $matches;
 			$sms_datetime = $year . "-" . $month . "-" . $date . " " . $hour . ":" . $minute . ":" . $second;
 			
