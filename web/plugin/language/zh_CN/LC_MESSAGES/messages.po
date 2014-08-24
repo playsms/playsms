@@ -284,6 +284,9 @@ msgstr ""
 msgid "Fail sent SMS, no credit"
 msgstr "发送短信失败"
 
+msgid "Fail to connect to database"
+msgstr ""
+
 msgid "Fail to delete SMS"
 msgstr "删除短信失败"
 
@@ -295,6 +298,21 @@ msgstr "删除用户失败"
 
 msgid "Fail to edit message template"
 msgstr "无法编辑信息模版"
+
+#, fuzzy
+msgid "Fail to load gateway"
+msgstr "删除短信失败"
+
+#, fuzzy
+msgid "Fail to load language"
+msgstr "活跃的语言"
+
+msgid "Fail to load main config from registry"
+msgstr ""
+
+#, fuzzy
+msgid "Fail to load themes"
+msgstr "发送短信失败"
 
 msgid "Fail to recover password"
 msgstr "无效用户名或密码"

@@ -285,6 +285,9 @@ msgstr ""
 msgid "Fail sent SMS, no credit"
 msgstr "Falha ao enviar SMS, sem créditos"
 
+msgid "Fail to connect to database"
+msgstr ""
+
 msgid "Fail to delete SMS"
 msgstr "Falha ao remover SMS"
 
@@ -296,6 +299,21 @@ msgstr "Falha ao remover o usuário"
 
 msgid "Fail to edit message template"
 msgstr "Falha ao editar modelo de mensagem"
+
+#, fuzzy
+msgid "Fail to load gateway"
+msgstr "Preencha para atualizar"
+
+#, fuzzy
+msgid "Fail to load language"
+msgstr "Idioma padrão"
+
+msgid "Fail to load main config from registry"
+msgstr ""
+
+#, fuzzy
+msgid "Fail to load themes"
+msgstr "Falha ao enviar e-mail"
 
 msgid "Fail to recover password"
 msgstr "Falha ao recuperar senha"
