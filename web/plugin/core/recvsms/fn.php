@@ -43,7 +43,7 @@ function recvsms($sms_datetime, $sms_sender, $message, $sms_receiver = "") {
 			'message' => $message,
 			'sms_receiver' => $sms_receiver
 		));
-		setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receiver);
+		setsmsincomingaction(core_display_datetime($sms_datetime), $sms_sender, $message, $sms_receiver);
 	}
 	logger_print("isrecvsmsd:" . $c_isrecvsmsd . " dt:" . $sms_datetime . " sender:" . $sms_sender . " m:" . $message . " receiver:" . $sms_receiver, 3, "recvsms");
 	return $ret;
