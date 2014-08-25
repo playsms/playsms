@@ -101,107 +101,6 @@ switch (_OP_) {
 		header("Location: " . _u('index.php?app=webservices&op=sms_poll&keyword=' . $poll_keyword));
 		exit();
 		break;
-	case "sms_poll_edit" :
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePoll WHERE poll_id='$poll_id'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$edit_poll_title = $db_row['poll_title'];
-		$edit_poll_keyword = $db_row['poll_keyword'];
-		$edit_poll_message_valid = $db_row['poll_message_valid'];
-		$edit_poll_message_invalid = $db_row['poll_message_invalid'];
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
-		}
-		$content .= "
-			<h2>" . _('Manage poll') . "</h2>
-			<h3>" . _('Edit SMS poll') . "</h3>
-			<form action=index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit_yes method=post>
-			" . _CSRF_FORM_ . "
-			<input type=hidden name=poll_id value=\"$poll_id\">
-			<input type=hidden name=edit_poll_keyword value=\"$edit_poll_keyword\">
-			<table class=playsms-table>
-			<tr>
-				<td class=label-sizer>" . _('SMS poll keyword') . "</td><td>$edit_poll_keyword</td>
-			</tr>
-			<tr>
-				<td>" . _('SMS poll title') . "</td><td><input type=text maxlength=100 name=edit_poll_title value=\"$edit_poll_title\"></td>
-			</tr>
-			<tr>
-				<td>" . _('Reply message on valid answer') . "</td><td><input type=text maxlength=100 name=\"edit_poll_message_valid\" value=\"$edit_poll_message_valid\"></td>
-			</tr>
-			<tr>
-				<td>" . _('Reply message on invalid answer') . "</td><td><input type=text maxlength=100 name=\"edit_poll_message_invalid\" value=\"$edit_poll_message_invalid\"></td>
-			</tr>
-			</table>
-			<p><input type=submit class=button value=\"" . _('Save') . "\">
-			</form>
-			<br />
-			<h3>" . _('Edit SMS poll choices') . "</h3>";
-		$db_query = "SELECT choice_id,choice_title,choice_keyword FROM " . _DB_PREF_ . "_featurePoll_choice WHERE poll_id='$poll_id' ORDER BY choice_keyword";
-		$db_result = dba_query($db_query);
-		$content .= "
-			<div class=table-responsive>
-			<table class=playsms-table-list>
-			<thead><tr>
-				<th width=20%>" . _('Choice keyword') . "</th>
-				<th width=70%>" . _('Title') . "</th>
-				<th width=10%>" . _('Action') . "</th>
-			</tr></thead>
-			<tbody>";
-		$i = 0;
-		while ($db_row = dba_fetch_array($db_result)) {
-			$choice_id = $db_row['choice_id'];
-			$choice_keyword = $db_row['choice_keyword'];
-			$choice_title = $db_row['choice_title'];
-			$i++;
-			$content .= "
-				<tr>
-					<td>$choice_keyword</td>
-					<td>$choice_title</td>
-					<td><a href=\"javascript:ConfirmURL('" . _('Are you sure you want to delete choice ?') . " (" . _('title') . ": " . addslashes($choice_title) . ", " . _('keyword') . ": " . $choice_keyword . ")','" . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_choice_del&poll_id=' . $poll_id . '&choice_id=' . $choice_id) . "');\">" . $icon_config['delete'] . "</a></td>
-				</tr>";
-		}
-		$content .= "
-			</tbody>
-			</table>
-			</div>
-			<br />
-			<p>" . _('Add choice to this poll') . "
-			<form action=\"index.php?app=main&inc=feature_sms_poll&op=sms_poll_choice_add\" method=post>
-			" . _CSRF_FORM_ . "
-			<input type=hidden name=poll_id value=\"$poll_id\">
-			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
-			<tr>
-				<td class=label-sizer>" . _('Choice keyword') . "</td><td><input type=text size=3 maxlength=10 name=add_choice_keyword></td>
-			</tr>
-			<tr>
-				<td>" . _('Choice title') . "</td><td><input type=text maxlength=250 name=add_choice_title></td>
-			</tr>
-			</table>
-			<p><input type=submit class=button value=\"" . _('Add') . "\">
-			</form>
-			" . _back('index.php?app=main&inc=feature_sms_poll&op=sms_poll_list');
-		_p($content);
-		break;
-	case "sms_poll_edit_yes" :
-		$edit_poll_keyword = strtoupper($_POST['edit_poll_keyword']);
-		$edit_poll_title = $_POST['edit_poll_title'];
-		$edit_poll_message_valid = $_POST['edit_poll_message_valid'];
-		$edit_poll_message_invalid = $_POST['edit_poll_message_invalid'];
-		if ($poll_id && $edit_poll_title && $edit_poll_keyword && $edit_poll_message_valid && $edit_poll_message_invalid) {
-			$db_query = "
-				UPDATE " . _DB_PREF_ . "_featurePoll
-				SET c_timestamp='" . mktime() . "',poll_title='$edit_poll_title',poll_keyword='$edit_poll_keyword', poll_message_valid='$edit_poll_message_valid', poll_message_invalid='$edit_poll_message_invalid'
-				WHERE poll_id='$poll_id'";
-			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('SMS poll with has been saved') . " (" . _('keyword') . ": $edit_poll_keyword)";
-			}
-		} else {
-			$_SESSION['error_string'] = _('You must fill all fields');
-		}
-		header("Location: " . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit&poll_id=' . $poll_id));
-		exit();
-		break;
 	case "sms_poll_status" :
 		$ps = $_REQUEST['ps'];
 		$db_query = "UPDATE " . _DB_PREF_ . "_featurePoll SET c_timestamp='" . mktime() . "',poll_enable='$ps' WHERE poll_id='$poll_id'";
@@ -266,7 +165,14 @@ switch (_OP_) {
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit&poll_id=' . $poll_id));
 		exit();
 		break;
+	
 	case "sms_poll_add" :
+		$option_period = array(
+				_('anytime') => 0,
+				_('every 24 hours') => 1,
+				_('every week') => 2,
+				_('every month') => 3 
+		);
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -281,12 +187,21 @@ switch (_OP_) {
 			</tr>
 			<tr>
 				<td>" . _('SMS poll title') . "</td><td><input type=text maxlength=100 name=add_poll_title value=\"$add_poll_title\"></td>
-			</tr>	 
+			</tr>
 			<tr>
-				<td>" . _('Reply message on valid answer') . "</td><td><input type=text maxlength=100 name=\"add_poll_message_valid\" value=\"$add_poll_message_valid\"></td>
+				<td>" . _('Option to allow single vote only') . "</td><td>" . _yesno('add_poll_option_single') . "</td>
+			</tr>
+			<tr>
+				<td>" . _('Option for vote period') . "</td><td>" . _select('add_poll_option_period', $option_period) . "</td>
+			</tr>
+			<tr>
+				<td>" . _('Reply message on out of option') . "</td><td><textarea maxlength=160 name=\"add_poll_message_option\">$add_poll_message_option</textarea></td>
+			</tr>	   
+			<tr>
+				<td>" . _('Reply message on valid vote') . "</td><td><textarea maxlength=160 name=\"add_poll_message_valid\">$add_poll_message_valid</textarea></td>
 			</tr>	
 			<tr>
-				<td>" . _('Reply message when invalid answer') . "</td><td><input type=text maxlength=100 name=\"add_poll_message_invalid\" value=\"$add_poll_message_invalid\"></td>
+				<td>" . _('Reply message on invalid vote') . "</td><td><textarea maxlength=160 name=\"add_poll_message_invalid\">$add_poll_message_invalid</textarea></td>
 			</tr>	   
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
@@ -294,16 +209,20 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_sms_poll&op=sms_poll_list');
 		_p($content);
 		break;
+	
 	case "sms_poll_add_yes" :
 		$add_poll_keyword = strtoupper($_POST['add_poll_keyword']);
 		$add_poll_title = $_POST['add_poll_title'];
+		$add_poll_option_single = $_POST['add_poll_option_single'];
+		$add_poll_option_period = $_POST['add_poll_option_period'];
+		$add_poll_message_option = $_POST['add_poll_message_option'];
 		$add_poll_message_valid = $_POST['add_poll_message_valid'];
 		$add_poll_message_invalid = $_POST['add_poll_message_invalid'];
 		if ($add_poll_title && $add_poll_keyword && $add_poll_message_valid && $add_poll_message_invalid) {
 			if (checkavailablekeyword($add_poll_keyword)) {
 				$db_query = "
-					INSERT INTO " . _DB_PREF_ . "_featurePoll (uid,poll_keyword,poll_title,poll_message_valid,poll_message_invalid)
-					VALUES ('" . $user_config['uid'] . "','$add_poll_keyword','$add_poll_title','$add_poll_message_valid','$add_poll_message_invalid')";
+					INSERT INTO " . _DB_PREF_ . "_featurePoll (uid,poll_keyword,poll_title,poll_option_single,poll_option_period,poll_message_option,poll_message_valid,poll_message_invalid)
+					VALUES ('" . $user_config['uid'] . "','$add_poll_keyword','$add_poll_title','$add_poll_option_single','$add_poll_option_period','$add_poll_message_option','$add_poll_message_valid','$add_poll_message_invalid')";
 				if ($new_poll_id = @dba_insert_id($db_query)) {
 					$_SESSION['error_string'] = _('SMS poll has been added') . " (" . _('keyword') . ": $add_poll_keyword)";
 				} else {
@@ -320,6 +239,130 @@ switch (_OP_) {
 		} else {
 			header("Location: " . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_add'));
 		}
+		exit();
+		break;
+	
+	case "sms_poll_edit" :
+		$option_period = array(
+				_('anytime') => 0,
+				_('every 24 hours') => 1,
+				_('every week') => 2,
+				_('every month') => 3 
+		);
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePoll WHERE poll_id='$poll_id'";
+		$db_result = dba_query($db_query);
+		$db_row = dba_fetch_array($db_result);
+		$edit_poll_title = $db_row['poll_title'];
+		$edit_poll_keyword = $db_row['poll_keyword'];
+		$edit_poll_option_single = (int) $db_row['poll_option_single'];
+		$edit_poll_option_period = (int) $db_row['poll_option_period'];
+		$edit_poll_message_option = $db_row['poll_message_option'];
+		$edit_poll_message_valid = $db_row['poll_message_valid'];
+		$edit_poll_message_invalid = $db_row['poll_message_invalid'];
+		if ($err = $_SESSION['error_string']) {
+			$content = "<div class=error_string>$err</div>";
+		}
+		$content .= "
+			<h2>" . _('Manage poll') . "</h2>
+			<h3>" . _('Edit SMS poll') . "</h3>
+			<form action=index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit_yes method=post>
+			" . _CSRF_FORM_ . "
+			<input type=hidden name=poll_id value=\"$poll_id\">
+			<input type=hidden name=edit_poll_keyword value=\"$edit_poll_keyword\">
+			<table class=playsms-table>
+			<tr>
+				<td class=label-sizer>" . _('SMS poll keyword') . "</td><td>$edit_poll_keyword</td>
+			</tr>
+			<tr>
+				<td>" . _('SMS poll title') . "</td><td><input type=text maxlength=100 name=edit_poll_title value=\"$edit_poll_title\"></td>
+			</tr>
+			<tr>
+				<td>" . _('Option to allow single vote only') . "</td><td>" . _yesno('edit_poll_option_single', $edit_poll_option_single) . "</td>
+			</tr>
+			<tr>
+				<td>" . _('Option for vote period') . "</td><td>" . _select('edit_poll_option_period', $option_period, $edit_poll_option_period) . "</td>
+			</tr>
+			<tr>
+				<td>" . _('Reply message on out of option') . "</td><td><textarea maxlength=160 name=\"edit_poll_message_option\">$edit_poll_message_option</textarea></td>
+			</tr>
+			<tr>
+				<td>" . _('Reply message on valid vote') . "</td><td><textarea maxlength=160 name=\"edit_poll_message_valid\">$edit_poll_message_valid</textarea></td>
+			</tr>
+			<tr>
+				<td>" . _('Reply message on invalid vote') . "</td><td><textarea maxlength=160 name=\"edit_poll_message_invalid\">$edit_poll_message_invalid</textarea></td>
+			</tr>
+			</table>
+			<p><input type=submit class=button value=\"" . _('Save') . "\">
+			</form>
+			<br />
+			<h3>" . _('Edit SMS poll choices') . "</h3>";
+		$db_query = "SELECT choice_id,choice_title,choice_keyword FROM " . _DB_PREF_ . "_featurePoll_choice WHERE poll_id='$poll_id' ORDER BY choice_keyword";
+		$db_result = dba_query($db_query);
+		$content .= "
+			<div class=table-responsive>
+			<table class=playsms-table-list>
+			<thead><tr>
+				<th width=20%>" . _('Choice keyword') . "</th>
+				<th width=70%>" . _('Title') . "</th>
+				<th width=10%>" . _('Action') . "</th>
+			</tr></thead>
+			<tbody>";
+		$i = 0;
+		while ($db_row = dba_fetch_array($db_result)) {
+			$choice_id = $db_row['choice_id'];
+			$choice_keyword = $db_row['choice_keyword'];
+			$choice_title = $db_row['choice_title'];
+			$i++;
+			$content .= "
+				<tr>
+					<td>$choice_keyword</td>
+					<td>$choice_title</td>
+					<td><a href=\"javascript:ConfirmURL('" . _('Are you sure you want to delete choice ?') . " (" . _('title') . ": " . addslashes($choice_title) . ", " . _('keyword') . ": " . $choice_keyword . ")','" . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_choice_del&poll_id=' . $poll_id . '&choice_id=' . $choice_id) . "');\">" . $icon_config['delete'] . "</a></td>
+				</tr>";
+		}
+		$content .= "
+			</tbody>
+			</table>
+			</div>
+			<br />
+			<p>" . _('Add choice to this poll') . "
+			<form action=\"index.php?app=main&inc=feature_sms_poll&op=sms_poll_choice_add\" method=post>
+			" . _CSRF_FORM_ . "
+			<input type=hidden name=poll_id value=\"$poll_id\">
+			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
+			<tr>
+				<td class=label-sizer>" . _('Choice keyword') . "</td><td><input type=text size=3 maxlength=10 name=add_choice_keyword></td>
+			</tr>
+			<tr>
+				<td>" . _('Choice title') . "</td><td><input type=text maxlength=250 name=add_choice_title></td>
+			</tr>
+			</table>
+			<p><input type=submit class=button value=\"" . _('Add') . "\">
+			</form>
+			" . _back('index.php?app=main&inc=feature_sms_poll&op=sms_poll_list');
+		_p($content);
+		break;
+	
+	case "sms_poll_edit_yes" :
+		$edit_poll_keyword = strtoupper($_POST['edit_poll_keyword']);
+		$edit_poll_title = $_POST['edit_poll_title'];
+		$edit_poll_option_single = (int) $_POST['edit_poll_option_single'];
+		$edit_poll_option_period = (int) $_POST['edit_poll_option_period'];
+		$edit_poll_message_option = $_POST['edit_poll_message_option'];
+		$edit_poll_message_valid = $_POST['edit_poll_message_valid'];
+		$edit_poll_message_invalid = $_POST['edit_poll_message_invalid'];
+		if ($poll_id && $edit_poll_title && $edit_poll_keyword && $edit_poll_message_valid && $edit_poll_message_invalid) {
+			$db_query = "
+				UPDATE " . _DB_PREF_ . "_featurePoll
+				SET c_timestamp='" . mktime() . "',poll_title='$edit_poll_title',poll_keyword='$edit_poll_keyword', poll_option_single='$edit_poll_option_single', poll_option_period='$edit_poll_option_period', poll_message_option='$edit_poll_message_option', poll_message_valid='$edit_poll_message_valid', poll_message_invalid='$edit_poll_message_invalid'
+				WHERE poll_id='$poll_id'";
+			if (@dba_affected_rows($db_query)) {
+				$_SESSION['error_string'] = _('SMS poll with has been saved') . " (" . _('keyword') . ": $edit_poll_keyword)";
+			}
+		} else {
+			$_SESSION['error_string'] = _('You must fill all fields');
+		}
+		header("Location: " . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit&poll_id=' . $poll_id));
 		exit();
 		break;
 }
