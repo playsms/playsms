@@ -18,14 +18,14 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-if (! auth_isvalid()) {
+if (!auth_isvalid()) {
 	auth_block();
 }
 
 $poll_id = $_REQUEST['poll_id'];
 
 switch (_OP_) {
-	case 'list':
+	case 'list' :
 		$conditions['poll_id'] = $poll_id;
 		$list = dba_search(_DB_PREF_ . '_featurePoll', '*', $conditions);
 		$poll_keyword = $list[0]['poll_keyword'];
@@ -62,9 +62,9 @@ switch (_OP_) {
 			$results .= $choice_voted . ",";
 			$no_results .= "0,";
 		}
-		$answers = substr_replace($answers, "", - 1);
-		$results = substr_replace($results, "", - 1);
-		$no_results = substr_replace($no_results, "", - 1);
+		$answers = substr_replace($answers, "", -1);
+		$results = substr_replace($results, "", -1);
+		$no_results = substr_replace($no_results, "", -1);
 		if ($results == $no_results) {
 			$content .= "<p>" . _('This poll has 0 votes!');
 		} else {

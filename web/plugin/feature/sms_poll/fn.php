@@ -21,7 +21,8 @@ defined('_SECURE_') or die('Forbidden');
 /**
  * Implementations of hook checkavailablekeyword()
  *
- * @param $keyword checkavailablekeyword() will insert keyword for checking to the hook here
+ * @param $keyword checkavailablekeyword()
+ *        	will insert keyword for checking to the hook here
  * @return TRUE if keyword is available
  */
 function sms_poll_hook_checkavailablekeyword($keyword) {
@@ -36,11 +37,16 @@ function sms_poll_hook_checkavailablekeyword($keyword) {
 /**
  * Implementations of hook setsmsincomingaction()
  *
- * @param $sms_datetime date and time when incoming sms inserted to playsms
- * @param $sms_sender sender on incoming sms
- * @param $poll_keyword check if keyword is for sms_poll
- * @param $poll_param get parameters from incoming sms
- * @param $sms_receiver receiver number that is receiving incoming sms
+ * @param $sms_datetime date
+ *        	and time when incoming sms inserted to playsms
+ * @param $sms_sender sender
+ *        	on incoming sms
+ * @param $poll_keyword check
+ *        	if keyword is for sms_poll
+ * @param $poll_param get
+ *        	parameters from incoming sms
+ * @param $sms_receiver receiver
+ *        	number that is receiving incoming sms
  * @return $ret array of keyword owner uid and status, TRUE if incoming sms handled
  */
 function sms_poll_hook_setsmsincomingaction($sms_datetime, $sms_sender, $poll_keyword, $poll_param = '', $sms_receiver = '', $raw_message = '') {
@@ -79,7 +85,7 @@ function sms_poll_handle($list, $sms_datetime, $sms_sender, $poll_keyword, $poll
 			$vote = @dba_num_rows($db_query);
 			$poll_enable = $list['poll_enable'];
 			logger_print('vote k:' . $poll_keyword . ' c:' . $choice_keyword . ' already:' . $vote . ' enable:' . $poll_enable, 2, 'sms_poll');
-			if ((! $vote) && $poll_enable) {
+			if ((!$vote) && $poll_enable) {
 				$db_query = "
 					INSERT INTO " . _DB_PREF_ . "_featurePoll_log 
 					(poll_id,choice_id,poll_sender,in_datetime) 
@@ -107,10 +113,10 @@ function sms_poll_handle($list, $sms_datetime, $sms_sender, $poll_keyword, $poll
 function sms_poll_output_serialize($poll_keyword, $list) {
 	$poll_id = $list[0]['poll_id'];
 	$list2 = dba_search(_DB_PREF_ . '_featurePoll_choice', '*', array(
-		'poll_id' => $poll_id 
+			'poll_id' => $poll_id 
 	));
 	$poll_choices = array();
-	for ($i = 0; $i < count($list2); $i++) {
+	for($i = 0; $i < count($list2); $i++) {
 		$c_keyword = $list2[$i]['choice_keyword'];
 		$c_title = $list2[$i]['choice_title'];
 		$poll_choices[$c_keyword] = $c_title;
@@ -118,12 +124,12 @@ function sms_poll_output_serialize($poll_keyword, $list) {
 	}
 	$poll_results = array();
 	$votes = 0;
-	foreach ($choice_ids as $key => $val) {
+	foreach ($choice_ids as $key => $val ) {
 		$c_num = dba_count(_DB_PREF_ . '_featurePoll_log', array(
-			'poll_id' => $poll_id,
-			'choice_id' => $val 
+				'poll_id' => $poll_id,
+				'choice_id' => $val 
 		));
-		$poll_results[$key] = ((int)$c_num ? $c_num : 0);
+		$poll_results[$key] = ((int) $c_num ? $c_num : 0);
 		$votes += $c_num;
 	}
 	$ret['keyword'] = $poll_keyword;
@@ -146,11 +152,11 @@ function sms_poll_output_xml($keyword, $list) {
 	$ret .= "<poll>\n";
 	$ret .= "<keyword>" . $keyword . "</keyword>\n";
 	$ret .= "<votes>" . $data['votes'] . "</votes>\n";
-	foreach ($data['choices'] as $key => $val) {
+	foreach ($data['choices'] as $key => $val ) {
 		$poll_choices .= "<item key=\"" . $key . "\">" . $val . "</item>\n";
 	}
 	$ret .= "<choices>" . $poll_choices . "</choices>\n";
-	foreach ($data['results'] as $key => $val) {
+	foreach ($data['results'] as $key => $val ) {
 		$poll_results .= "<item key=\"" . $key . "\">" . $val . "</item>\n";
 	}
 	$ret .= "<results>" . $poll_results . "</results>\n";
@@ -172,25 +178,25 @@ function sms_poll_hook_webservices_output($operation, $requests) {
 	$ret = '';
 	if ($keyword = $requests['keyword']) {
 		$list = dba_search(_DB_PREF_ . '_featurePoll', 'poll_id', array(
-			'poll_keyword' => $keyword 
+				'poll_keyword' => $keyword 
 		));
 		$poll_id = $list[0]['poll_id'];
 	}
 	if ($poll_id) {
 		$type = $requests['type'];
 		switch ($type) {
-			case 'serialize':
+			case 'serialize' :
 				$ret = sms_poll_output_serialize($keyword, $list);
 				break;
-			case 'json':
+			case 'json' :
 				$ret = sms_poll_output_json($keyword, $list);
 				break;
-			case 'xml':
+			case 'xml' :
 				ob_end_clean();
 				header('Content-type: text/xml');
 				$ret = sms_poll_output_xml($keyword, $list);
 				break;
-			case 'graph':
+			case 'graph' :
 				$ret = sms_poll_output_graph($keyword, $list);
 				break;
 		}
