@@ -122,7 +122,7 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 				if ($settings['match_all_sender_id']) {
 					
 					// get all approved sender ID
-					$s = sendsms_getall_sender();
+					$s = sender_id_getall();
 				} else {
 					$data = user_search($sms_receiver, 'sender');
 					foreach ($data as $user) {
@@ -156,6 +156,8 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 							$usernames[] = $user['username'];
 						}
 						
+						array_unique($usernames);
+						
 						foreach ($usernames as $username) {
 							if ($username) {
 								_log("sandbox match sender start u:" . $username . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept_after');
@@ -164,7 +166,7 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 								$is_routed = TRUE;
 								
 								// single match only
-								break;
+								//break;
 							}
 						}
 					}

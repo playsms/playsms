@@ -55,7 +55,7 @@ function sender_id_check($uid, $sender_id) {
  * @return array User IDs
  */
 function sender_id_owner($sender_id) {
-	$ret = 0;
+	$ret = array();
 	
 	$condition = array(
 		'registry_family' => 'sender_id',
