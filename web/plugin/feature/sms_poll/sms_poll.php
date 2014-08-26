@@ -44,11 +44,11 @@ switch (_OP_) {
 			$content .= "
 				<th width=15%>" . _('Keyword') . "</th>
 				<th width=25%>" . _('Title') . "</th>
-				<th width=5% nowrap>" . _('Once') . " "._hint(_('Sender sent once'))."</th>
-				<th width=5% nowrap>" . _('Multi') . " "._hint(_('Sender sent multi votes'))."</th>
-				<th width=5% nowrap>" . _('Valid') . " "._hint(_('Valid SMS'))."</th>
-				<th width=5% nowrap>" . _('Invalid') . " "._hint(_('Invalid SMS'))."</th>
-				<th width=5% nowrap>" . _('All') . " "._hint(_('All SMS'))."</th>
+				<th width=5% nowrap>" . _('Once') . " "._hint(_('Senders sent once'))."</th>
+				<th width=5% nowrap>" . _('Multi') . " "._hint(_('Senders sent multi votes'))."</th>
+				<th width=5% nowrap>" . _('Valid') . " "._hint(_('Total valid SMS'))."</th>
+				<th width=5% nowrap>" . _('Invalid') . " "._hint(_('Total invalid SMS'))."</th>
+				<th width=5% nowrap>" . _('All') . " "._hint(_('Grand total SMS'))."</th>
 				<th width=15%>" . _('User') . "</th>
 				<th width=10%>" . _('Status') . "</th>
 				<th width=10%>" . _('Action') . "</th>";
@@ -56,11 +56,11 @@ switch (_OP_) {
 			$content .= "
 				<th width=15%>" . _('Keyword') . "</th>
 				<th width=40%>" . _('Title') . "</th>
-				<th width=5% nowrap>" . _('Once') . " "._hint(_('Sender sent once'))."</th>
-				<th width=5% nowrap>" . _('Multi') . " "._hint(_('Sender sent multi votes'))."</th>
-				<th width=5% nowrap>" . _('Valid') . " "._hint(_('Valid SMS'))."</th>
-				<th width=5% nowrap>" . _('Invalid') . " "._hint(_('Invalid SMS'))."</th>
-				<th width=5% nowrap>" . _('All') . " "._hint(_('All SMS'))."</th>
+				<th width=5% nowrap>" . _('Once') . " "._hint(_('Senders sent once'))."</th>
+				<th width=5% nowrap>" . _('Multi') . " "._hint(_('Senders sent multi votes'))."</th>
+				<th width=5% nowrap>" . _('Valid') . " "._hint(_('Total valid SMS'))."</th>
+				<th width=5% nowrap>" . _('Invalid') . " "._hint(_('Total invalid SMS'))."</th>
+				<th width=5% nowrap>" . _('All') . " "._hint(_('Grand total SMS'))."</th>
 				<th width=10%>" . _('Status') . "</th>
 				<th width=10%>" . _('Action') . "</th>";
 			}
@@ -313,7 +313,7 @@ switch (_OP_) {
 			<table class=playsms-table-list>
 			<thead><tr>
 				<th width=20%>" . _('Choice keyword') . "</th>
-				<th width=70%>" . _('Title') . "</th>
+				<th width=70%>" . _('Description') . "</th>
 				<th width=10%>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
@@ -344,7 +344,7 @@ switch (_OP_) {
 				<td class=label-sizer>" . _('Choice keyword') . "</td><td><input type=text size=3 maxlength=10 name=add_choice_keyword></td>
 			</tr>
 			<tr>
-				<td>" . _('Choice title') . "</td><td><input type=text maxlength=250 name=add_choice_title></td>
+				<td>" . _('Choice description') . "</td><td><input type=text maxlength=250 name=add_choice_title></td>
 			</tr>
 			</table>
 			<p><input type=submit class=button value=\"" . _('Add') . "\">

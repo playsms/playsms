@@ -32,22 +32,44 @@ switch (_OP_) {
 		$output_serialize = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&type=serialize";
 		$output_json = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&type=json";
 		$output_xml = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&type=xml";
+		$output_html = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&type=html";
 		$output_graph = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&type=graph";
+		
+		$stat = sms_poll_statistics($poll_id);
+		
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
 			<h2>" . _('Manage poll') . "</h2>
-			<h3>" . _('View poll') . " : " . $poll_keyword . "</h3>
+			<h3>" . _('Keyword') . " : " . $poll_keyword . "</h3>
+			
+			<h3>" . _('Statistics') . "</h3>
 			<table class=playsms-table>
-				<tr><td class=label-sizer>" . _('PHP serialize output') . "</td><td>:</td><td><a href=\"" . _u($output_serialize) . "\" target=_blank>" . _u($output_serialize) . "</a></td></tr>
+				<tr><td class=label-sizer>" . _('Senders sent once') . "</td><td width=5>:</td><td>" . $stat['once'] . "</td></tr>
+				<tr><td>" . _('Senders sent multiple votes') . "</td><td>:</td><td>" . $stat['multi'] . "</td></tr>
+				<tr><td>" . _('Grand total senders') . "</td><td>:</td><td>" . $stat['sender'] . "</td></tr>
+				<tr><td>" . _('Total one time vote SMS') . "</td><td>:</td><td>" . $stat['once_sms'] . "</td></tr>
+				<tr><td>" . _('Total multiple votes SMS') . "</td><td>:</td><td>" . $stat['multi_sms'] . "</td></tr>
+				<tr><td>" . _('Total valid SMS') . "</td><td>:</td><td>" . $stat['valid'] . "</td></tr>
+				<tr><td>" . _('Total invalid SMS') . "</td><td>:</td><td>" . $stat['invalid'] . "</td></tr>
+				<tr><td>" . _('Grand total SMS') . "</td><td>:</td><td>" . $stat['all'] . "</td></tr>
+			</table>
+
+			<h3>" . _('Result table') . "</h3>
+			".file_get_contents($output_html)."
+			
+			<h3>" . _('Result graph') . "</h3>
+			<img src=\"" . $output_graph . "\">
+					
+			<h3>" . _('Webservices links') . "</h3>
+			<table class=playsms-table>
+				<tr><td class=label-sizer>" . _('PHP serialize output') . "</td><td width=5>:</td><td><a href=\"" . _u($output_serialize) . "\" target=_blank>" . _u($output_serialize) . "</a></td></tr>
 				<tr><td>" . _('JSON output') . "</td><td>:</td><td><a href=\"" . _u($output_json) . "\" target=_blank>" . _u($output_json) . "</a></td></tr>
 				<tr><td>" . _('XML output') . "</td><td>:</td><td><a href=\"" . _u($output_xml) . "\" target=_blank>" . _u($output_xml) . "</a></td></tr>
+				<tr><td>" . _('HTML output') . "</td><td>:</td><td><a href=\"" . _u($output_html) . "\" target=_blank>" . _u($output_html) . "</a></td></tr>
 				<tr><td>" . _('Graph output') . "</td><td>:</td><td><a href=\"" . _u($output_graph) . "\" target=_blank>" . _u($output_graph) . "</a></td></tr>
-			</table>
-			<br />
-			<h3>" . _('SMS poll graph') . "</h3>";
-		$content .= "<img src=\"" . $output_graph . "\">";
+			</table>";
 		$content .= '<p>' . _back('index.php?app=main&inc=feature_sms_poll&op=sms_poll_list');
 		_p($content);
 		break;

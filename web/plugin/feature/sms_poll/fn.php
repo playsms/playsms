@@ -234,46 +234,53 @@ function sms_poll_statistics($poll_id) {
 	$ret = array(
 			'once' => 0,
 			'multi' => 0,
+			'sender' => 0,
 			'valid' => 0,
 			'invalid' => 0,
-			'all' => 0
+			'all' => 0 
 	);
 	
 	$db_table = _DB_PREF_ . '_featurePoll_log';
-
-	// once, multi, valid
+	
+	// once, once_sms, multi, multi_sms, sender, valid
 	$once = 0;
+	$once_sms = 0;
 	$multi = 0;
+	$multi_sms = 0;
+	$sender = 0;
 	$valid = 0;
 	$db_query = "
-			SELECT poll_sender,count(*) AS count FROM ".$db_table."
-			WHERE poll_id='".$poll_id."' AND status='1'
+			SELECT poll_sender,count(*) AS count FROM " . $db_table . "
+			WHERE poll_id='" . $poll_id . "' AND status='1'
 			GROUP BY poll_sender";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		if ($db_row['count'] == 1) {
 			$once++;
-			$valid++;
+			$once_sms++;
 		} else if ($db_row['count'] > 1) {
 			$multi++;
-			$valid += $db_row['count'];
+			$multi_sms += $db_row['count'];
 		}
 	}
 	$ret['once'] = $once;
+	$ret['once_sms'] = $once_sms;
 	$ret['multi'] = $multi;
-	$ret['valid'] = $valid;
+	$ret['multi_sms'] = $multi_sms;
+	$ret['sender'] = $once + $multi;
+	$ret['valid'] = $once_sms + $multi_sms;
 	
 	// invalid
 	$db_query = "
-			SELECT count(*) AS count FROM ".$db_table." 
-			WHERE poll_id='".$poll_id."' AND (status='2' OR status='3')";
+			SELECT count(*) AS count FROM " . $db_table . " 
+			WHERE poll_id='" . $poll_id . "' AND (status='2' OR status='3')";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$ret['invalid'] = (int) $db_row['count'];
-
+	
 	// total
 	$ret['all'] = $ret['valid'] + $ret['invalid'];
-
+	
 	return $ret;
 }
 
@@ -332,6 +339,30 @@ function sms_poll_output_xml($keyword, $list) {
 	return $ret;
 }
 
+function sms_poll_output_html($keyword, $list) {
+	$data = unserialize(sms_poll_output_serialize($keyword, $list));
+	$ret = "
+			<table class=playsms-table>
+			<thead>
+			<tr>
+				<th class=label-sizer>" . _('Choice keyword') . "</th>
+				<th>" . _('Description') . "</th>
+				<th>" . _('Number of votes') . "</th>
+			</tr>
+			</thead>
+			<tbody>";
+	foreach ($data['choices'] as $key => $val ) {
+		$ret .= "
+				<tr>
+					<td>" . $key . "</td>
+					<td>" . $val . "</td>
+					<td>" . $data['results'][$key] . "</td>
+				</tr>";
+	}
+	$ret .= "</tbody></table>";
+	return $ret;
+}
+
 function sms_poll_output_graph($keyword, $list) {
 	global $core_config;
 	$ret = unserialize(sms_poll_output_serialize($keyword, $list));
@@ -363,6 +394,11 @@ function sms_poll_hook_webservices_output($operation, $requests) {
 				ob_end_clean();
 				header('Content-type: text/xml');
 				$ret = sms_poll_output_xml($keyword, $list);
+				break;
+			case 'html' :
+				ob_end_clean();
+				header('Content-type: text/html');
+				$ret = sms_poll_output_html($keyword, $list);
 				break;
 			case 'graph' :
 				$ret = sms_poll_output_graph($keyword, $list);
