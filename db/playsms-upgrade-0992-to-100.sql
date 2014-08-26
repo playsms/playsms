@@ -388,7 +388,11 @@ ALTER TABLE `playsms_featurePoll`
   CHANGE `poll_message_valid` `poll_message_valid` TEXT NOT NULL DEFAULT '', 
   CHANGE `poll_message_invalid` `poll_message_invalid` TEXT NOT NULL DEFAULT '';
 
-ALTER TABLE `playsms_featurePoll` ADD `poll_option_vote` INT NOT NULL AFTER `poll_enable`;
+ALTER TABLE `playsms_featurePoll` ADD `poll_option_vote` int(11) NOT NULL DEFAULT '0' AFTER `poll_enable`;
 
 ALTER TABLE `playsms_featurePoll` ADD `poll_message_option` TEXT NOT NULL DEFAULT '';
+
+ALTER TABLE `playsms_featurePoll_log` ADD `status` int(11) NOT NULL DEFAULT '0';
+
+ALTER TABLE `playsms_featurePoll_log` CHANGE `result_id` `log_id` INT(11) NOT NULL AUTO_INCREMENT;
 

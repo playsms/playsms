@@ -75,9 +75,9 @@ function sms_poll_handle($list, $sms_datetime, $sms_sender, $poll_keyword, $poll
 	$choice_keyword = $poll_param;
 	if ($sms_sender && $poll_keyword && $choice_keyword) {
 		$poll_id = $list['poll_id'];
-
+		
 		// if poll disabled then immediately return, just ignore the vote
-		if (! $list['poll_enable']) {
+		if (!$list['poll_enable']) {
 			logger_print('vote s:' . $sms_sender . ' k:' . $poll_keyword . ' c:' . $choice_keyword . ' poll disabled', 2, 'sms_poll');
 			return TRUE;
 		}
@@ -85,18 +85,35 @@ function sms_poll_handle($list, $sms_datetime, $sms_sender, $poll_keyword, $poll
 		$db_query = "SELECT choice_id FROM " . _DB_PREF_ . "_featurePoll_choice WHERE choice_keyword='$choice_keyword' AND poll_id='$poll_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$choice_id = $db_row['choice_id'];
+		$choice_id = (int) $db_row['choice_id'];
+		
+		$db_table = _DB_PREF_ . "_featurePoll_log";
+		$items = array(
+				'poll_id' => $poll_id,
+				'choice_id' => $choice_id,
+				'poll_sender' => $sms_sender,
+				'in_datetime' => core_get_datetime(),
+				'status' => 0 
+		);
+		// status 0 = failed/unknown
+		// status 1 = valid
+		// status 2 = out of vote option
+		// status 3 = invalid
+		$log_id = dba_add($db_table, $items);
 		
 		if ($poll_id && $choice_id) {
+			
 			$continue = sms_poll_check_option_vote($list, $sms_sender, $poll_keyword, $choice_keyword);
+			
 			if ($continue) {
-				$db_query = "
-					INSERT INTO " . _DB_PREF_ . "_featurePoll_log 
-					(poll_id,choice_id,poll_sender,in_datetime) 
-					VALUES ('$poll_id','$choice_id','$sms_sender','" . core_get_datetime() . "')";
-				if ($new_id = @dba_insert_id($db_query)) {
-					// send message valid
-					if ($poll_message_valid = trim($list['poll_message_valid']) && ($c_username = user_uid2username($list['uid']))) {
+				// send message valid
+				if (dba_update($db_table, array(
+						'status' => 1 
+				), array(
+						'log_id' => $log_id 
+				))) {
+					logger_print('vote s:' . $sms_sender . ' k:' . $poll_keyword . ' c:' . $choice_keyword . ' log_id:'.$log_id.' valid vote', 2, 'sms_poll');
+					if (($poll_message_valid = trim($list['poll_message_valid'])) && ($c_username = user_uid2username($list['uid']))) {
 						$unicode = core_detect_unicode($poll_message_valid);
 						$poll_message_valid = addslashes($poll_message_valid);
 						list($ok, $to, $smslog_id, $queue_code) = sendsms($c_username, $sms_sender, $poll_message_valid, 'text', $unicode);
@@ -104,22 +121,37 @@ function sms_poll_handle($list, $sms_datetime, $sms_sender, $poll_keyword, $poll
 				}
 			} else {
 				// send message out of vote option
-				if (($poll_message_option = trim($list['poll_message_option'])) && ($c_username = user_uid2username($list['uid']))) {
-					$unicode = core_detect_unicode($poll_message_option);
-					$poll_message_option = addslashes($poll_message_option);
-					list($ok, $to, $smslog_id, $queue_code) = sendsms($c_username, $sms_sender, $poll_message_option, 'text', $unicode);
+				if (dba_update($db_table, array(
+						'status' => 2 
+				), array(
+						'log_id' => $log_id 
+				))) {
+					logger_print('vote s:' . $sms_sender . ' k:' . $poll_keyword . ' c:' . $choice_keyword . ' log_id:'.$log_id.' out of vote option', 2, 'sms_poll');
+					if (($poll_message_option = trim($list['poll_message_option'])) && ($c_username = user_uid2username($list['uid']))) {
+						$unicode = core_detect_unicode($poll_message_option);
+						$poll_message_option = addslashes($poll_message_option);
+						list($ok, $to, $smslog_id, $queue_code) = sendsms($c_username, $sms_sender, $poll_message_option, 'text', $unicode);
+					}
 				}
 			}
 			$ok = true;
 		} else {
 			// send message invalid
-			if (($poll_message_invalid = trim($list['poll_message_invalid'])) && ($c_username = user_uid2username($list['uid']))) {
-				$unicode = core_detect_unicode($poll_message_invalid);
-				$poll_message_invalid = addslashes($poll_message_invalid);
-				list($ok, $to, $smslog_id, $queue_code) = sendsms($c_username, $sms_sender, $poll_message_invalid, 'text', $unicode);
+			if (dba_update($db_table, array(
+					'status' => 3 
+			), array(
+					'log_id' => $log_id 
+			))) {
+				logger_print('vote s:' . $sms_sender . ' k:' . $poll_keyword . ' c:' . $choice_keyword . ' log_id:'.$log_id.' invalid vote', 2, 'sms_poll');
+				if (($poll_message_invalid = trim($list['poll_message_invalid'])) && ($c_username = user_uid2username($list['uid']))) {
+					$unicode = core_detect_unicode($poll_message_invalid);
+					$poll_message_invalid = addslashes($poll_message_invalid);
+					list($ok, $to, $smslog_id, $queue_code) = sendsms($c_username, $sms_sender, $poll_message_invalid, 'text', $unicode);
+				}
 			}
 		}
 	}
+	
 	return $ok;
 }
 
@@ -129,7 +161,7 @@ function sms_poll_check_option_vote($list, $sms_sender, $poll_keyword, $choice_k
 	$c_sms_sender = substr($sms_sender, 3);
 	
 	// check already vote
-	$db_query = "SELECT in_datetime FROM " . _DB_PREF_ . "_featurePoll_log WHERE poll_sender LIKE '%$c_sms_sender' AND poll_id='$poll_id' ORDER BY result_id DESC LIMIT 1";
+	$db_query = "SELECT in_datetime FROM " . _DB_PREF_ . "_featurePoll_log WHERE poll_sender LIKE '%$c_sms_sender' AND poll_id='$poll_id' AND status!=0 ORDER BY log_id DESC LIMIT 1";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		// yup, voted
@@ -201,7 +233,7 @@ function sms_poll_check_option_vote($list, $sms_sender, $poll_keyword, $choice_k
 function sms_poll_output_serialize($poll_keyword, $list) {
 	$poll_id = $list[0]['poll_id'];
 	$list2 = dba_search(_DB_PREF_ . '_featurePoll_choice', '*', array(
-			'poll_id' => $poll_id 
+			'poll_id' => $poll_id
 	));
 	$poll_choices = array();
 	for($i = 0; $i < count($list2); $i++) {
@@ -215,7 +247,8 @@ function sms_poll_output_serialize($poll_keyword, $list) {
 	foreach ($choice_ids as $key => $val ) {
 		$c_num = dba_count(_DB_PREF_ . '_featurePoll_log', array(
 				'poll_id' => $poll_id,
-				'choice_id' => $val 
+				'choice_id' => $val,
+				'status' => 1
 		));
 		$poll_results[$key] = ((int) $c_num ? $c_num : 0);
 		$votes += $c_num;
