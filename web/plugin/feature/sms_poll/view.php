@@ -58,7 +58,7 @@ switch (_OP_) {
 			</table>
 
 			<h3>" . _('Result table') . "</h3>
-			" . file_get_contents($output_html) . "
+			" . sms_poll_output_html($poll_id, $poll_keyword) . "
 			
 			<h3>" . _('Result graph') . "</h3>
 			<img src=\"" . $output_graph . "\">

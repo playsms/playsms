@@ -284,8 +284,7 @@ function sms_poll_statistics($poll_id) {
 	return $ret;
 }
 
-function sms_poll_output_serialize($poll_keyword, $list) {
-	$poll_id = $list[0]['poll_id'];
+function sms_poll_output_serialize($poll_id, $poll_keyword) {
 	$list2 = dba_search(_DB_PREF_ . '_featurePoll_choice', '*', array(
 			'poll_id' => $poll_id 
 	));
@@ -315,17 +314,17 @@ function sms_poll_output_serialize($poll_keyword, $list) {
 	return $ret;
 }
 
-function sms_poll_output_json($keyword, $list) {
-	$ret = unserialize(sms_poll_output_serialize($keyword, $list));
+function sms_poll_output_json($poll_id, $poll_keyword) {
+	$ret = unserialize(sms_poll_output_serialize($poll_id, $poll_keyword));
 	$ret = json_encode($ret);
 	return $ret;
 }
 
-function sms_poll_output_xml($keyword, $list) {
-	$data = unserialize(sms_poll_output_serialize($keyword, $list));
+function sms_poll_output_xml($poll_id, $poll_keyword) {
+	$data = unserialize(sms_poll_output_serialize($poll_id, $poll_keyword));
 	$ret = "<?xml version=\"1.0\"?>\n";
 	$ret .= "<poll>\n";
-	$ret .= "<keyword>" . $keyword . "</keyword>\n";
+	$ret .= "<keyword>" . $poll_keyword . "</keyword>\n";
 	$ret .= "<votes>" . $data['votes'] . "</votes>\n";
 	foreach ($data['choices'] as $key => $val ) {
 		$poll_choices .= "<item key=\"" . $key . "\">" . $val . "</item>\n";
@@ -339,8 +338,8 @@ function sms_poll_output_xml($keyword, $list) {
 	return $ret;
 }
 
-function sms_poll_output_html($keyword, $list) {
-	$data = unserialize(sms_poll_output_serialize($keyword, $list));
+function sms_poll_output_html($poll_id, $poll_keyword) {
+	$data = unserialize(sms_poll_output_serialize($poll_id, $poll_keyword));
 	$ret = "
 			<table class=playsms-table>
 			<thead>
@@ -363,9 +362,9 @@ function sms_poll_output_html($keyword, $list) {
 	return $ret;
 }
 
-function sms_poll_output_graph($keyword, $list) {
+function sms_poll_output_graph($poll_id, $poll_keyword) {
 	global $core_config;
-	$ret = unserialize(sms_poll_output_serialize($keyword, $list));
+	$ret = unserialize(sms_poll_output_serialize($poll_id, $poll_keyword));
 	$choices = $ret['choices'];
 	$results = $ret['results'];
 	include $core_config['apps_path']['plug'] . '/feature/sms_poll/graph_poll.php';
@@ -375,9 +374,9 @@ function sms_poll_output_graph($keyword, $list) {
 function sms_poll_hook_webservices_output($operation, $requests) {
 	global $core_config;
 	$ret = '';
-	if ($keyword = $requests['keyword']) {
+	if ($poll_keyword = $requests['keyword']) {
 		$list = dba_search(_DB_PREF_ . '_featurePoll', 'poll_id,poll_access_code', array(
-				'poll_keyword' => $keyword 
+				'poll_keyword' => $poll_keyword 
 		));
 		$poll_id = $list[0]['poll_id'];
 		$poll_access_code = $list[0]['poll_access_code'];
@@ -387,23 +386,23 @@ function sms_poll_hook_webservices_output($operation, $requests) {
 		$type = $requests['type'];
 		switch ($type) {
 			case 'serialize' :
-				$ret = sms_poll_output_serialize($keyword, $list);
+				$ret = sms_poll_output_serialize($poll_id, $poll_keyword);
 				break;
 			case 'json' :
-				$ret = sms_poll_output_json($keyword, $list);
+				$ret = sms_poll_output_json($poll_id, $poll_keyword);
 				break;
 			case 'xml' :
 				ob_end_clean();
 				header('Content-type: text/xml');
-				$ret = sms_poll_output_xml($keyword, $list);
+				$ret = sms_poll_output_xml($poll_id, $poll_keyword);
 				break;
 			case 'html' :
 				ob_end_clean();
 				header('Content-type: text/html');
-				$ret = sms_poll_output_html($keyword, $list);
+				$ret = sms_poll_output_html($poll_id, $poll_keyword);
 				break;
 			case 'graph' :
-				$ret = sms_poll_output_graph($keyword, $list);
+				$ret = sms_poll_output_graph($poll_id, $poll_keyword);
 				break;
 		}
 	}
