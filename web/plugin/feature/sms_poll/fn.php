@@ -408,3 +408,80 @@ function sms_poll_hook_webservices_output($operation, $requests) {
 	}
 	return $ret;
 }
+
+function sms_poll_export_csv($poll_id, $poll_keyword) {
+	$ret = '';
+	
+	// header
+	$items = array(
+			array(
+					_('SMS poll keyword'),
+					$poll_keyword 
+			)
+	);
+	$ret .= core_csv_format($items);
+	unset($items);
+	$ret .= "\n";
+
+	// statistics
+	$stat = sms_poll_statistics($poll_id);	
+	$items = array(
+			array(
+					_('Senders sent once'),
+					$stat['once'] 
+			),
+			array(
+					_('Senders sent multiple votes'),
+					$stat['multi'] 
+			),
+			array(
+					_('Grand total senders'),
+					$stat['sender'] 
+			),
+			array(
+					_('Total one time vote SMS'),
+					$stat['once_sms'] 
+			),
+			array(
+					_('Total multiple votes SMS'),
+					$stat['multi_sms'] 
+			),
+			array(
+					_('Total valid SMS'),
+					$stat['valid'] 
+			),
+			array(
+					_('Total invalid SMS'),
+					$stat['invalid'] 
+			),
+			array(
+					_('Grand total SMS'),
+					$stat['all'] 
+			) 
+	);
+	$ret .= core_csv_format($items);
+	unset($items);
+	$ret .= "\n";
+	
+	// choices
+	$data = unserialize(sms_poll_output_serialize($poll_id, $poll_keyword));
+	$items[0] = array(
+			_('Choice keyword'),
+			_('Description'),
+			_('Number of votes') 
+	);
+	$i = 1;
+	foreach ($data['choices'] as $key => $val ) {
+		$items[$i] = array(
+				$key,
+				$val,
+				$data['results'][$key] 
+		);
+		$i++;
+	}
+	$ret .= core_csv_format($items);
+	unset($items);
+	$ret .= "\n";
+	
+	return $ret;
+}
