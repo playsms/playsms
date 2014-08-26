@@ -388,9 +388,7 @@ ALTER TABLE `playsms_featurePoll`
   CHANGE `poll_message_valid` `poll_message_valid` TEXT NOT NULL DEFAULT '', 
   CHANGE `poll_message_invalid` `poll_message_invalid` TEXT NOT NULL DEFAULT '';
 
-ALTER TABLE `playsms_featurePoll` 
-  ADD `poll_option_single` INT NOT NULL AFTER `poll_enable`, 
-  ADD `poll_option_period` INT NOT NULL AFTER `poll_option_single`;
+ALTER TABLE `playsms_featurePoll` ADD `poll_option_vote` INT NOT NULL AFTER `poll_enable`;
 
 ALTER TABLE `playsms_featurePoll` ADD `poll_message_option` TEXT NOT NULL DEFAULT '';
 
