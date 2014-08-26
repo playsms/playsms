@@ -396,3 +396,5 @@ ALTER TABLE `playsms_featurePoll_log` CHANGE `result_id` `log_id` INT(11) NOT NU
 
 ALTER TABLE `playsms_featurePoll_log` ADD `status` int(11) NOT NULL DEFAULT '0';
 UPDATE `playsms_featurePoll_log` SET `status` = '1';
+
+ALTER TABLE `playsms_featurePoll` ADD `poll_access_code` VARCHAR(40) NOT NULL DEFAULT '';

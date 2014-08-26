@@ -29,11 +29,12 @@ switch (_OP_) {
 		$conditions['poll_id'] = $poll_id;
 		$list = dba_search(_DB_PREF_ . '_featurePoll', '*', $conditions);
 		$poll_keyword = $list[0]['poll_keyword'];
-		$output_serialize = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&type=serialize";
-		$output_json = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&type=json";
-		$output_xml = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&type=xml";
-		$output_html = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&type=html";
-		$output_graph = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&type=graph";
+		$poll_access_code = $list[0]['poll_access_code'];
+		$output_serialize = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&code=" . $poll_access_code . "&type=serialize";
+		$output_json = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&code=" . $poll_access_code . "&type=json";
+		$output_xml = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&code=" . $poll_access_code . "&type=xml";
+		$output_html = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&code=" . $poll_access_code . "&type=html";
+		$output_graph = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&code=" . $poll_access_code . "&type=graph";
 		
 		$stat = sms_poll_statistics($poll_id);
 		
@@ -57,7 +58,7 @@ switch (_OP_) {
 			</table>
 
 			<h3>" . _('Result table') . "</h3>
-			".file_get_contents($output_html)."
+			" . file_get_contents($output_html) . "
 			
 			<h3>" . _('Result graph') . "</h3>
 			<img src=\"" . $output_graph . "\">

@@ -43,27 +43,27 @@ switch (_OP_) {
 		if (auth_isadmin()) {
 			$content .= "
 				<th width=15%>" . _('Keyword') . "</th>
-				<th width=25%>" . _('Title') . "</th>
-				<th width=5% nowrap>" . _('Once') . " "._hint(_('Senders sent once'))."</th>
-				<th width=5% nowrap>" . _('Multi') . " "._hint(_('Senders sent multi votes'))."</th>
-				<th width=5% nowrap>" . _('Valid') . " "._hint(_('Total valid SMS'))."</th>
-				<th width=5% nowrap>" . _('Invalid') . " "._hint(_('Total invalid SMS'))."</th>
-				<th width=5% nowrap>" . _('All') . " "._hint(_('Grand total SMS'))."</th>
+				<th width=20%>" . _('Title') . "</th>
+				<th width=5% nowrap>" . _('Once') . " " . _hint(_('Senders sent once')) . "</th>
+				<th width=5% nowrap>" . _('Multi') . " " . _hint(_('Senders sent multi votes')) . "</th>
+				<th width=5% nowrap>" . _('Valid') . " " . _hint(_('Total valid SMS')) . "</th>
+				<th width=5% nowrap>" . _('Invalid') . " " . _hint(_('Total invalid SMS')) . "</th>
+				<th width=5% nowrap>" . _('All') . " " . _hint(_('Grand total SMS')) . "</th>
 				<th width=15%>" . _('User') . "</th>
 				<th width=10%>" . _('Status') . "</th>
-				<th width=10%>" . _('Action') . "</th>";
+				<th width=15%>" . _('Action') . "</th>";
 		} else {
 			$content .= "
 				<th width=15%>" . _('Keyword') . "</th>
-				<th width=40%>" . _('Title') . "</th>
-				<th width=5% nowrap>" . _('Once') . " "._hint(_('Senders sent once'))."</th>
-				<th width=5% nowrap>" . _('Multi') . " "._hint(_('Senders sent multi votes'))."</th>
-				<th width=5% nowrap>" . _('Valid') . " "._hint(_('Total valid SMS'))."</th>
-				<th width=5% nowrap>" . _('Invalid') . " "._hint(_('Total invalid SMS'))."</th>
-				<th width=5% nowrap>" . _('All') . " "._hint(_('Grand total SMS'))."</th>
+				<th width=35%>" . _('Title') . "</th>
+				<th width=5% nowrap>" . _('Once') . " " . _hint(_('Senders sent once')) . "</th>
+				<th width=5% nowrap>" . _('Multi') . " " . _hint(_('Senders sent multi votes')) . "</th>
+				<th width=5% nowrap>" . _('Valid') . " " . _hint(_('Total valid SMS')) . "</th>
+				<th width=5% nowrap>" . _('Invalid') . " " . _hint(_('Total invalid SMS')) . "</th>
+				<th width=5% nowrap>" . _('All') . " " . _hint(_('Grand total SMS')) . "</th>
 				<th width=10%>" . _('Status') . "</th>
-				<th width=10%>" . _('Action') . "</th>";
-			}
+				<th width=15%>" . _('Action') . "</th>";
+		}
 		$content .= "
 			</tr></thead>
 			<tbody>";
@@ -80,6 +80,7 @@ switch (_OP_) {
 					$poll_status = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_status&poll_id=' . $db_row['poll_id'] . '&ps=0') . "\"><span class=status_enabled /></a>";
 				}
 				$action = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_poll&route=view&op=list&poll_id=' . $db_row['poll_id']) . "\">" . $icon_config['view'] . "</a>&nbsp;";
+				$action .= "<a href=\"" . _u('index.php?app=main&inc=feature_sms_poll&route=export&op=list&poll_id=' . $db_row['poll_id']) . "\">" . $icon_config['export'] . "</a>&nbsp;";
 				$action .= "<a href=\"" . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit&poll_id=' . $db_row['poll_id']) . "\">" . $icon_config['edit'] . "</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS poll with all its choices and votes ?') . " (" . _('keyword') . ": " . $db_row['poll_keyword'] . ")','" . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_del&poll_id=' . $db_row['poll_id']) . "')\">" . $icon_config['delete'] . "</a>";
 				if (auth_isadmin()) {
@@ -187,9 +188,10 @@ switch (_OP_) {
 				_('one time') => 0,
 				_('one time every 24 hours') => 1,
 				_('one time every week') => 2,
-				_('one time every month') => 3, 
-				_('multiple times') => 4
+				_('one time every month') => 3,
+				_('multiple times') => 4 
 		);
+		$add_poll_access_code = md5(_PID_);
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -204,6 +206,9 @@ switch (_OP_) {
 			</tr>
 			<tr>
 				<td>" . _('SMS poll title') . "</td><td><input type=text maxlength=100 name=add_poll_title value=\"$add_poll_title\"></td>
+			</tr>
+			<tr>
+				<td>" . _('SMS poll access code') . "</td><td><input type=text maxlength=40 name=add_poll_access_code value=\"$add_poll_access_code\"> " . _hint(_('SMS poll access code used mainly by webservices')) . "</td>
 			</tr>
 			<tr>
 				<td>" . _('Vote option') . "</td><td>" . _select('add_poll_option_vote', $option_vote) . "</td>
@@ -227,6 +232,7 @@ switch (_OP_) {
 	case "sms_poll_add_yes" :
 		$add_poll_keyword = strtoupper($_POST['add_poll_keyword']);
 		$add_poll_title = $_POST['add_poll_title'];
+		$add_poll_access_code = $_POST['add_poll_access_code'];
 		$add_poll_option_vote = (int) $_POST['add_poll_option_vote'];
 		$add_poll_message_option = $_POST['add_poll_message_option'];
 		$add_poll_message_valid = $_POST['add_poll_message_valid'];
@@ -234,8 +240,8 @@ switch (_OP_) {
 		if ($add_poll_title && $add_poll_keyword && $add_poll_message_valid && $add_poll_message_invalid) {
 			if (checkavailablekeyword($add_poll_keyword)) {
 				$db_query = "
-					INSERT INTO " . _DB_PREF_ . "_featurePoll (uid,poll_keyword,poll_title,poll_option_vote,poll_message_option,poll_message_valid,poll_message_invalid)
-					VALUES ('" . $user_config['uid'] . "','$add_poll_keyword','$add_poll_title','$add_poll_option_vote','$add_poll_message_option','$add_poll_message_valid','$add_poll_message_invalid')";
+					INSERT INTO " . _DB_PREF_ . "_featurePoll (uid,poll_keyword,poll_title,poll_access_code,poll_option_vote,poll_message_option,poll_message_valid,poll_message_invalid)
+					VALUES ('" . $user_config['uid'] . "','$add_poll_keyword','$add_poll_title','$add_poll_access_code','$add_poll_option_vote','$add_poll_message_option','$add_poll_message_valid','$add_poll_message_invalid')";
 				if ($new_poll_id = @dba_insert_id($db_query)) {
 					$_SESSION['error_string'] = _('SMS poll has been added') . " (" . _('keyword') . ": $add_poll_keyword)";
 				} else {
@@ -260,14 +266,15 @@ switch (_OP_) {
 				_('one time') => 0,
 				_('one time every 24 hours') => 1,
 				_('one time every week') => 2,
-				_('one time every month') => 3, 
-				_('multiple times') => 4
+				_('one time every month') => 3,
+				_('multiple times') => 4 
 		);
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePoll WHERE poll_id='$poll_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$edit_poll_title = $db_row['poll_title'];
 		$edit_poll_keyword = $db_row['poll_keyword'];
+		$edit_poll_access_code = $db_row['poll_access_code'];
 		$edit_poll_option_vote = (int) $db_row['poll_option_vote'];
 		$edit_poll_message_option = $db_row['poll_message_option'];
 		$edit_poll_message_valid = $db_row['poll_message_valid'];
@@ -288,6 +295,9 @@ switch (_OP_) {
 			</tr>
 			<tr>
 				<td>" . _('SMS poll title') . "</td><td><input type=text maxlength=100 name=edit_poll_title value=\"$edit_poll_title\"></td>
+			</tr>
+			<tr>
+				<td>" . _('SMS poll access code') . "</td><td><input type=text maxlength=100 name=edit_poll_access_code value=\"$edit_poll_access_code\"> " . _hint(_('SMS poll access code used mainly by webservices')) . "</td>
 			</tr>
 			<tr>
 				<td>" . _('Vote option') . "</td><td>" . _select('edit_poll_option_vote', $option_vote, $edit_poll_option_vote) . "</td>
@@ -356,6 +366,7 @@ switch (_OP_) {
 	case "sms_poll_edit_yes" :
 		$edit_poll_keyword = strtoupper($_POST['edit_poll_keyword']);
 		$edit_poll_title = $_POST['edit_poll_title'];
+		$edit_poll_access_code = $_POST['edit_poll_access_code'];
 		$edit_poll_option_vote = (int) $_POST['edit_poll_option_vote'];
 		$edit_poll_message_option = $_POST['edit_poll_message_option'];
 		$edit_poll_message_valid = $_POST['edit_poll_message_valid'];
@@ -363,7 +374,7 @@ switch (_OP_) {
 		if ($poll_id && $edit_poll_title && $edit_poll_keyword && $edit_poll_message_valid && $edit_poll_message_invalid) {
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_featurePoll
-				SET c_timestamp='" . mktime() . "',poll_title='$edit_poll_title',poll_keyword='$edit_poll_keyword', poll_option_vote='$edit_poll_option_vote', poll_message_option='$edit_poll_message_option', poll_message_valid='$edit_poll_message_valid', poll_message_invalid='$edit_poll_message_invalid'
+				SET c_timestamp='" . mktime() . "',poll_title='$edit_poll_title',poll_access_code='$edit_poll_access_code',poll_keyword='$edit_poll_keyword', poll_option_vote='$edit_poll_option_vote', poll_message_option='$edit_poll_message_option', poll_message_valid='$edit_poll_message_valid', poll_message_invalid='$edit_poll_message_invalid'
 				WHERE poll_id='$poll_id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('SMS poll with has been saved') . " (" . _('keyword') . ": $edit_poll_keyword)";

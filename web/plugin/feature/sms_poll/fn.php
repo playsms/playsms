@@ -376,12 +376,14 @@ function sms_poll_hook_webservices_output($operation, $requests) {
 	global $core_config;
 	$ret = '';
 	if ($keyword = $requests['keyword']) {
-		$list = dba_search(_DB_PREF_ . '_featurePoll', 'poll_id', array(
+		$list = dba_search(_DB_PREF_ . '_featurePoll', 'poll_id,poll_access_code', array(
 				'poll_keyword' => $keyword 
 		));
 		$poll_id = $list[0]['poll_id'];
+		$poll_access_code = $list[0]['poll_access_code'];
 	}
-	if ($poll_id) {
+	$code = $requests['code'];
+	if ($poll_id && ($code == $poll_access_code)) {
 		$type = $requests['type'];
 		switch ($type) {
 			case 'serialize' :
