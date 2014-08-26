@@ -47,29 +47,7 @@ switch (_OP_) {
 			</table>
 			<br />
 			<h3>" . _('SMS poll graph') . "</h3>";
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePoll_choice WHERE poll_id='$poll_id' ORDER BY choice_keyword";
-		$db_result = dba_query($db_query);
-		$results = "";
-		$answers = "";
-		$no_results = "";
-		while ($db_row = dba_fetch_array($db_result)) {
-			$choice_id = $db_row['choice_id'];
-			$choice_title = $db_row['choice_title'];
-			$answers .= $choice_title . ",";
-			$choice_keyword = $db_row['choice_keyword'];
-			$db_query1 = "SELECT result_id FROM " . _DB_PREF_ . "_featurePoll_log WHERE poll_id='$poll_id' AND choice_id='$choice_id'";
-			$choice_voted = @dba_num_rows($db_query1);
-			$results .= $choice_voted . ",";
-			$no_results .= "0,";
-		}
-		$answers = substr_replace($answers, "", -1);
-		$results = substr_replace($results, "", -1);
-		$no_results = substr_replace($no_results, "", -1);
-		if ($results == $no_results) {
-			$content .= "<p>" . _('This poll has 0 votes!');
-		} else {
-			$content .= "<img src=\"" . $output_graph . "\">";
-		}
+		$content .= "<img src=\"" . $output_graph . "\">";
 		$content .= '<p>' . _back('index.php?app=main&inc=feature_sms_poll&op=sms_poll_list');
 		_p($content);
 		break;
