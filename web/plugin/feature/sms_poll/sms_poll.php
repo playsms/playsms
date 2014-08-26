@@ -42,18 +42,28 @@ switch (_OP_) {
 			<thead><tr>";
 		if (auth_isadmin()) {
 			$content .= "
-				<th width=20%>" . _('Keyword') . "</th>
-				<th width=40%>" . _('Title') . "</th>
-				<th width=20%>" . _('User') . "</th>
+				<th width=15%>" . _('Keyword') . "</th>
+				<th width=25%>" . _('Title') . "</th>
+				<th width=5% nowrap>" . _('Once') . " "._hint(_('Sender sent once'))."</th>
+				<th width=5% nowrap>" . _('Multi') . " "._hint(_('Sender sent multi votes'))."</th>
+				<th width=5% nowrap>" . _('Valid') . " "._hint(_('Valid SMS'))."</th>
+				<th width=5% nowrap>" . _('Invalid') . " "._hint(_('Invalid SMS'))."</th>
+				<th width=5% nowrap>" . _('All') . " "._hint(_('All SMS'))."</th>
+				<th width=15%>" . _('User') . "</th>
 				<th width=10%>" . _('Status') . "</th>
 				<th width=10%>" . _('Action') . "</th>";
 		} else {
 			$content .= "
-				<th width=20%>" . _('Keyword') . "</th>
-				<th width=60%>" . _('Title') . "</th>
+				<th width=15%>" . _('Keyword') . "</th>
+				<th width=40%>" . _('Title') . "</th>
+				<th width=5% nowrap>" . _('Once') . " "._hint(_('Sender sent once'))."</th>
+				<th width=5% nowrap>" . _('Multi') . " "._hint(_('Sender sent multi votes'))."</th>
+				<th width=5% nowrap>" . _('Valid') . " "._hint(_('Valid SMS'))."</th>
+				<th width=5% nowrap>" . _('Invalid') . " "._hint(_('Invalid SMS'))."</th>
+				<th width=5% nowrap>" . _('All') . " "._hint(_('All SMS'))."</th>
 				<th width=10%>" . _('Status') . "</th>
 				<th width=10%>" . _('Action') . "</th>";
-		}
+			}
 		$content .= "
 			</tr></thead>
 			<tbody>";
@@ -75,11 +85,17 @@ switch (_OP_) {
 				if (auth_isadmin()) {
 					$option_owner = "<td>$owner</td>";
 				}
+				$stat = sms_poll_statistics($db_row['poll_id']);
 				$i++;
 				$content .= "
 					<tr>
 						<td>" . $db_row['poll_keyword'] . "</td>
 						<td>" . $db_row['poll_title'] . "</td>
+						<td>" . $stat['once'] . "</td>
+						<td>" . $stat['multi'] . "</td>
+						<td>" . $stat['valid'] . "</td>
+						<td>" . $stat['invalid'] . "</td>
+						<td>" . $stat['all'] . "</td>
 						" . $option_owner . "
 						<td>$poll_status</td>
 						<td>$action</td>
