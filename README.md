@@ -69,7 +69,7 @@ The GPLv3 full text is included in file [LICENSE.md](LICENSE.md)
 
 ## Installation
 
-Please read [INSTALL](documents/INSTALL.md "playSMS installation document") and then [FAQ](documents/FAQ.md "Frequently Asked Questions").
+Please read [INSTALL](INSTALL.md "playSMS installation document") and then [FAQ](documents/FAQ.md "Frequently Asked Questions").
 
 
 ## Project Founder and Maintainer
