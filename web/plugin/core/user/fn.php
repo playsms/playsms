@@ -246,8 +246,11 @@ function user_add($data = array()) {
 			$data[$key] = trim($val);
 		}
 		
-		// set valid status, if not status=3 then status=4
-		$data['status'] = (((int)$data['status'] == 3) ? 3 : 4);
+		// set valid status
+		$data['status'] = (int) $data['status'];
+		if (! (($data['status'] == 2) || ($data['status'] == 3))) {
+			$data['status'] = 4;
+		}
 		
 		// logic for parent_uid, parent uid by default is 0
 		if ($data['status'] == 4) {
