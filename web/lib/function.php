@@ -137,6 +137,19 @@ if (is_array($icons)) {
 	}
 }
 
+// themes menus overrides
+$menus = $themes_config[core_themes_get()]['menu'];
+if (is_array($menus)) {
+	foreach ($menus as $menu_menutab => $menu_item) {
+		unset($menu_config[$menu_menutab]);
+	}
+	foreach ($menus as $menu_menutab => $menu_item) {
+		if ($menu_menutab && $menu_item) {
+			$menu_config[$menu_menutab] = $menu_item;
+		}
+	}
+}
+
 // load active gateway libs
 $dir = $core_config['apps_path']['plug'].'/';
 $pc = 'gateway';
