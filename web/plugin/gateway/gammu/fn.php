@@ -115,9 +115,9 @@ function gammu_hook_getsmsinbox() {
                                 } else if (!array_key_exists($sms_sender, $messages) || (array_key_exists($sms_sender, $messages) && (int) $seq == 0)) {
                                         if (count($messages) > 0) {
                                                 //saving concatenated message parts
-                                                $parts_message = "";
                                                 $parts_sender = 0;
                                                 foreach($messages as $sender => $message_parts) {
+                                                	$parts_message = "";
                                                         $parts_sender = $sender;
                                                         foreach ($message_parts as $part) {
                                                                 $parts_message .= $part['message'];
@@ -138,9 +138,9 @@ function gammu_hook_getsmsinbox() {
         }
         if (count($messages) > 0) {
                 //saving last concatenated message parts
-                $parts_message = "";
                 $parts_sender = 0;
                 foreach($messages as $sender => $message_parts) {
+                	$parts_message = "";
                         $parts_sender = $sender;
                         foreach ($message_parts as $part) {
                                 $parts_message .= $part['message'];
