@@ -202,24 +202,12 @@ function phonebook_hook_phonebook_search_group($uid, $keyword = "", $count = 0) 
 }
 
 function phonebook_hook_phonebook_search_user($uid = 0, $keyword = "", $count = 0) {
-	$ret = array();
-	if ($uid > 0) {
-		$conditions = array(
-			'uid' => $uid
-		);
+	$keywords = $keyword;
+	$fields = 'name, username';
+	if ((int) $count) {
+		$extras = 'LIMIT '.(int) $count;
 	}
-	if ($keyword) {
-		$keywords = array(
-			'name' => '%' . $keyword . '%',
-			'username' => '%' . $keyword . '%'
-		);
-	}
-	if ($count > 0) {
-		$extras = array(
-			'LIMIT' => $count
-		);
-	}
-	$ret = dba_search(_DB_PREF_ . '_tblUser', '*', $conditions, $keywords, $extras);
+	$ret = user_search($keywords, $fields, $extras);
 	return $ret;
 }
 

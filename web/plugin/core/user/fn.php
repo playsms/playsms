@@ -625,10 +625,14 @@ function user_search($keywords = '', $fields = '', $extras = '') {
 		$fields = explode(',', $fields);
 	}
 	
+	$search = '';
 	foreach ($fields as $field) {
 		foreach ($keywords as $keyword) {
-			$search .= ' ' . $field . ' LIKE \'%' . $keyword . '%\'';
+			$search .= $field . ' LIKE \'%' . $keyword . '%\' OR ';
 		}
+	}
+	if ($search) {
+		$search = substr($search, 0, -4);
 	}
 	
 	if (is_array($extras)) {
