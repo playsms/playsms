@@ -171,9 +171,6 @@ msgstr "Cidade"
 msgid "Comma separated"
 msgstr "Separado por vírgula"
 
-msgid "Comma seperated"
-msgstr "Separado por vírgula"
-
 msgid "Content"
 msgstr "Conteúdo"
 

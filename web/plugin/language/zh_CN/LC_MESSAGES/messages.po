@@ -170,9 +170,6 @@ msgstr "城市"
 msgid "Comma separated"
 msgstr ""
 
-msgid "Comma seperated"
-msgstr ""
-
 msgid "Content"
 msgstr "内容"
 

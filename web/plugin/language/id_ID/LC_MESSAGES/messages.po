@@ -171,9 +171,6 @@ msgstr "Kota"
 msgid "Comma separated"
 msgstr "Dipisahkan koma"
 
-msgid "Comma seperated"
-msgstr "Dipisahkan koma"
-
 msgid "Content"
 msgstr "Isi"
 

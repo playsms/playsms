@@ -168,9 +168,6 @@ msgstr "Ville"
 msgid "Comma separated"
 msgstr "Séparé par des virgules"
 
-msgid "Comma seperated"
-msgstr "Séparé par des virgules"
-
 msgid "Content"
 msgstr "Contenu"
 

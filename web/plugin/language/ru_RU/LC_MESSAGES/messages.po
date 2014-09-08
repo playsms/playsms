@@ -173,9 +173,6 @@ msgstr "Город"
 msgid "Comma separated"
 msgstr "Разделённый запятыми"
 
-msgid "Comma seperated"
-msgstr "Разделённый запятыми"
-
 msgid "Content"
 msgstr "Содержимое"
 

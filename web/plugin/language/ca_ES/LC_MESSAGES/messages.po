@@ -174,9 +174,6 @@ msgstr "Ciutat"
 msgid "Comma separated"
 msgstr "Separat per comes"
 
-msgid "Comma seperated"
-msgstr "Separat per comes"
-
 msgid "Content"
 msgstr "Contingut"
 
