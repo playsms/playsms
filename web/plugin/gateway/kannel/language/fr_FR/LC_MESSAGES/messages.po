@@ -25,7 +25,7 @@ msgid "Delivery Report"
 msgstr "Rapport de livraison"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Exemple: +2000 pour le fuseau horaire de Paris (heure d'été)"
+msgstr "Exemple: +0200 pour le fuseau horaire de Paris (heure d'été)"
 
 msgid "Fill to change the password"
 msgstr "Veuillez saisir pour changer le mot de passe"

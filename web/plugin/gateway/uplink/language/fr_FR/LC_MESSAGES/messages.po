@@ -9,7 +9,7 @@ msgid "Additional URL parameter"
 msgstr "Paramètre additionnel d'URL"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Exemple: +2000 pour le fuseau horaire de Paris (heure d'été)"
+msgstr "Exemple: +0200 pour le fuseau horaire de Paris (heure d'été)"
 
 msgid "Gateway module configurations has been saved"
 msgstr "La configuration du module de passerelle a été enregistrée"

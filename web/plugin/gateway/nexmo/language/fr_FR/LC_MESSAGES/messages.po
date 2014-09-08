@@ -20,7 +20,7 @@ msgid "API secret"
 msgstr "Secret de l'API"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Exemple: +2000 pour le fuseau horaire de Paris (heure d'été)"
+msgstr "Exemple: +0200 pour le fuseau horaire de Paris (heure d'été)"
 
 msgid "Fill to change the API secret"
 msgstr "Veuillez saisir pour changer le secret de l'API"

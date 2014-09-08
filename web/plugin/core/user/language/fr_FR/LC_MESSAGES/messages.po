@@ -95,7 +95,7 @@ msgid "Effective SMS sender ID"
 msgstr "Sender ID effectif du SMS"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Exemple: +2000 pour le fuseau horaire de Paris (heure d'été)"
+msgstr "Exemple: +0200 pour le fuseau horaire de Paris (heure d'été)"
 
 msgid "Email"
 msgstr "Email"

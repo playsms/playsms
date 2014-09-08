@@ -23,7 +23,7 @@ msgid "Callback URL"
 msgstr "URL de callback"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Exemple: +2000 pour le fuseau horaire de Paris (heure d'été)"
+msgstr "Exemple: +0200 pour le fuseau horaire de Paris (heure d'été)"
 
 msgid "Fill to change the Auth Token"
 msgstr "Veuillez saisir pour changer le Auth Token"
