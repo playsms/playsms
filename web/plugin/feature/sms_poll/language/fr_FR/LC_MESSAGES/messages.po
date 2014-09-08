@@ -18,6 +18,9 @@ msgstr "Ajouter un sondage"
 msgid "Add choice to this poll"
 msgstr "Ajouter une réponse à ce sondage"
 
+msgid "All"
+msgstr ""
+
 msgid ""
 "Are you sure you want to delete SMS poll with all its choices and votes ?"
 msgstr ""
@@ -29,6 +32,10 @@ msgstr "Etes-vous certain de vouloir supprimer cette réponse ?"
 msgid "Choice already exists"
 msgstr "Cette réponse existe déjà"
 
+#, fuzzy
+msgid "Choice description"
+msgstr "Titre réponse"
+
 msgid "Choice has been added"
 msgstr "La réponse a été ajoutée"
 
@@ -36,8 +43,8 @@ msgstr "La réponse a été ajoutée"
 msgid "Choice keyword"
 msgstr "Mot-clé réponse"
 
-msgid "Choice title"
-msgstr "Titre réponse"
+msgid "Description"
+msgstr ""
 
 msgid "Edit SMS poll"
 msgstr "Édition du sondage"
@@ -51,7 +58,19 @@ msgstr "Impossible de supprimer les réponses de ce sondage"
 msgid "Fail to delete SMS poll choice"
 msgstr "Impossible de supprimer les réponses de ce sondage"
 
+msgid "Grand total SMS"
+msgstr ""
+
+msgid "Grand total senders"
+msgstr ""
+
 msgid "Graph output"
+msgstr ""
+
+msgid "HTML output"
+msgstr ""
+
+msgid "Invalid"
 msgstr ""
 
 msgid "JSON output"
@@ -63,16 +82,38 @@ msgstr "Mot-clé"
 msgid "Manage poll"
 msgstr "Service sondage"
 
+msgid "Multi"
+msgstr ""
+
+msgid "Number of votes"
+msgstr ""
+
+msgid "Once"
+msgstr ""
+
 msgid "PHP serialize output"
 msgstr ""
 
-msgid "Reply message on invalid answer"
+msgid "Reply message on invalid vote"
 msgstr ""
 
-msgid "Reply message on valid answer"
+msgid "Reply message on out of vote option"
 msgstr ""
 
-msgid "Reply message when invalid answer"
+msgid "Reply message on valid vote"
+msgstr ""
+
+msgid "Result graph"
+msgstr ""
+
+msgid "Result table"
+msgstr ""
+
+#, fuzzy
+msgid "SMS poll access code"
+msgstr "Mot-clé du sondage"
+
+msgid "SMS poll access code used mainly by webservices"
 msgstr ""
 
 msgid "SMS poll already exists, reserved or use by other feature"
@@ -80,10 +121,6 @@ msgstr "Ce sondage existe déjà, est réservé ou utilisé par un autre service
 
 msgid "SMS poll choice and all its voters has been deleted"
 msgstr "Les réponses et tous les votes de ce sondage ont été supprimés"
-
-#, fuzzy
-msgid "SMS poll graph"
-msgstr "Mot-clé du sondage"
 
 msgid "SMS poll has been added"
 msgstr "Le sondage a été ajouté"
@@ -106,21 +143,48 @@ msgstr "Le sondage a été sauvegardé"
 msgid "Save"
 msgstr "Sauvegarder"
 
-msgid "Status"
+msgid "Senders sent multi votes"
+msgstr ""
+
+msgid "Senders sent multiple votes"
+msgstr ""
+
+msgid "Senders sent once"
+msgstr ""
+
+#, fuzzy
+msgid "Statistics"
 msgstr "Statut"
 
-msgid "This poll has 0 votes!"
-msgstr ""
+msgid "Status"
+msgstr "Statut"
 
 msgid "Title"
 msgstr "Titre"
 
+msgid "Total invalid SMS"
+msgstr ""
+
+msgid "Total multiple votes SMS"
+msgstr ""
+
+msgid "Total one time vote SMS"
+msgstr ""
+
+msgid "Total valid SMS"
+msgstr ""
+
 msgid "User"
 msgstr "Compte"
 
-#, fuzzy
-msgid "View poll"
-msgstr "Service sondage"
+msgid "Valid"
+msgstr ""
+
+msgid "Vote option"
+msgstr ""
+
+msgid "Webservices links"
+msgstr ""
 
 msgid "XML output"
 msgstr ""
@@ -130,6 +194,22 @@ msgstr "Vous devez remplir tous les champs"
 
 msgid "keyword"
 msgstr "mot-clé"
+
+msgid "multiple times"
+msgstr ""
+
+#, fuzzy
+msgid "one time"
+msgstr "Titre réponse"
+
+msgid "one time every 24 hours"
+msgstr ""
+
+msgid "one time every month"
+msgstr ""
+
+msgid "one time every week"
+msgstr ""
 
 msgid "title"
 msgstr "titre"

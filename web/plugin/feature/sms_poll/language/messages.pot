@@ -10,6 +10,9 @@ msgstr ""
 msgid "Add choice to this poll"
 msgstr ""
 
+msgid "All"
+msgstr ""
+
 msgid ""
 "Are you sure you want to delete SMS poll with all its choices and votes ?"
 msgstr ""
@@ -20,13 +23,16 @@ msgstr ""
 msgid "Choice already exists"
 msgstr ""
 
+msgid "Choice description"
+msgstr ""
+
 msgid "Choice has been added"
 msgstr ""
 
 msgid "Choice keyword"
 msgstr ""
 
-msgid "Choice title"
+msgid "Description"
 msgstr ""
 
 msgid "Edit SMS poll"
@@ -41,7 +47,19 @@ msgstr ""
 msgid "Fail to delete SMS poll choice"
 msgstr ""
 
+msgid "Grand total SMS"
+msgstr ""
+
+msgid "Grand total senders"
+msgstr ""
+
 msgid "Graph output"
+msgstr ""
+
+msgid "HTML output"
+msgstr ""
+
+msgid "Invalid"
 msgstr ""
 
 msgid "JSON output"
@@ -53,25 +71,43 @@ msgstr ""
 msgid "Manage poll"
 msgstr ""
 
+msgid "Multi"
+msgstr ""
+
+msgid "Number of votes"
+msgstr ""
+
+msgid "Once"
+msgstr ""
+
 msgid "PHP serialize output"
 msgstr ""
 
-msgid "Reply message on invalid answer"
+msgid "Reply message on invalid vote"
 msgstr ""
 
-msgid "Reply message on valid answer"
+msgid "Reply message on out of vote option"
 msgstr ""
 
-msgid "Reply message when invalid answer"
+msgid "Reply message on valid vote"
+msgstr ""
+
+msgid "Result graph"
+msgstr ""
+
+msgid "Result table"
+msgstr ""
+
+msgid "SMS poll access code"
+msgstr ""
+
+msgid "SMS poll access code used mainly by webservices"
 msgstr ""
 
 msgid "SMS poll already exists, reserved or use by other feature"
 msgstr ""
 
 msgid "SMS poll choice and all its voters has been deleted"
-msgstr ""
-
-msgid "SMS poll graph"
 msgstr ""
 
 msgid "SMS poll has been added"
@@ -95,19 +131,46 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-msgid "Status"
+msgid "Senders sent multi votes"
 msgstr ""
 
-msgid "This poll has 0 votes!"
+msgid "Senders sent multiple votes"
+msgstr ""
+
+msgid "Senders sent once"
+msgstr ""
+
+msgid "Statistics"
+msgstr ""
+
+msgid "Status"
 msgstr ""
 
 msgid "Title"
 msgstr ""
 
+msgid "Total invalid SMS"
+msgstr ""
+
+msgid "Total multiple votes SMS"
+msgstr ""
+
+msgid "Total one time vote SMS"
+msgstr ""
+
+msgid "Total valid SMS"
+msgstr ""
+
 msgid "User"
 msgstr ""
 
-msgid "View poll"
+msgid "Valid"
+msgstr ""
+
+msgid "Vote option"
+msgstr ""
+
+msgid "Webservices links"
 msgstr ""
 
 msgid "XML output"
@@ -117,6 +180,21 @@ msgid "You must fill all fields"
 msgstr ""
 
 msgid "keyword"
+msgstr ""
+
+msgid "multiple times"
+msgstr ""
+
+msgid "one time"
+msgstr ""
+
+msgid "one time every 24 hours"
+msgstr ""
+
+msgid "one time every month"
+msgstr ""
+
+msgid "one time every week"
 msgstr ""
 
 msgid "title"

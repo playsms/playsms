@@ -17,6 +17,9 @@ msgstr "Tambah layanan poling SMS"
 msgid "Add choice to this poll"
 msgstr "Tambah pilihan ke dalam poling SMS ini"
 
+msgid "All"
+msgstr ""
+
 msgid ""
 "Are you sure you want to delete SMS poll with all its choices and votes ?"
 msgstr ""
@@ -29,14 +32,18 @@ msgstr "Anda yakin ingin menghapus pilihan?"
 msgid "Choice already exists"
 msgstr "Pilihan sudah ada"
 
+#, fuzzy
+msgid "Choice description"
+msgstr "Judul pilihan"
+
 msgid "Choice has been added"
 msgstr "Pilihan telah ditambahkan"
 
 msgid "Choice keyword"
 msgstr "Kata kunci pilihan"
 
-msgid "Choice title"
-msgstr "Judul pilihan"
+msgid "Description"
+msgstr ""
 
 msgid "Edit SMS poll"
 msgstr "Ubah layanan poling SMS"
@@ -50,8 +57,21 @@ msgstr "Gagal menghapus pilihan poling SMS"
 msgid "Fail to delete SMS poll choice"
 msgstr "Gagal menghapus pilihan poling SMS"
 
+msgid "Grand total SMS"
+msgstr ""
+
+msgid "Grand total senders"
+msgstr ""
+
 msgid "Graph output"
 msgstr "Keluaran grafik"
+
+#, fuzzy
+msgid "HTML output"
+msgstr "Keluaran XML"
+
+msgid "Invalid"
+msgstr ""
 
 msgid "JSON output"
 msgstr "Keluaran JSON"
@@ -62,26 +82,48 @@ msgstr "Kata kunci"
 msgid "Manage poll"
 msgstr "Pengaturan layanan poling SMS"
 
+msgid "Multi"
+msgstr ""
+
+msgid "Number of votes"
+msgstr ""
+
+msgid "Once"
+msgstr ""
+
 msgid "PHP serialize output"
 msgstr "Keluaran PHO serialize"
 
-msgid "Reply message on invalid answer"
+#, fuzzy
+msgid "Reply message on invalid vote"
 msgstr "Pesan balasan untuk jawaban salah"
 
-msgid "Reply message on valid answer"
+#, fuzzy
+msgid "Reply message on out of vote option"
 msgstr "Pesan balasan untuk jawaban benar"
 
-msgid "Reply message when invalid answer"
-msgstr "Pesan balasan ketika jawaban salah"
+#, fuzzy
+msgid "Reply message on valid vote"
+msgstr "Pesan balasan untuk jawaban benar"
+
+msgid "Result graph"
+msgstr ""
+
+msgid "Result table"
+msgstr ""
+
+#, fuzzy
+msgid "SMS poll access code"
+msgstr "Kata kunci poling SMS"
+
+msgid "SMS poll access code used mainly by webservices"
+msgstr ""
 
 msgid "SMS poll already exists, reserved or use by other feature"
 msgstr "Poling SMS sudah ada, dipesan, atau digunakan oleh fitur lain."
 
 msgid "SMS poll choice and all its voters has been deleted"
 msgstr "Pilihan poling SMS beserta semua pemilihnya telah dihapus"
-
-msgid "SMS poll graph"
-msgstr "Grafik poling SMS"
 
 msgid "SMS poll has been added"
 msgstr "Poling SMS telah ditambahkan"
@@ -104,20 +146,48 @@ msgstr "Poling SMS telah disimpan"
 msgid "Save"
 msgstr "Simpan"
 
-msgid "Status"
+msgid "Senders sent multi votes"
+msgstr ""
+
+msgid "Senders sent multiple votes"
+msgstr ""
+
+msgid "Senders sent once"
+msgstr ""
+
+#, fuzzy
+msgid "Statistics"
 msgstr "Status"
 
-msgid "This poll has 0 votes!"
-msgstr "SMS polling ini kosong!"
+msgid "Status"
+msgstr "Status"
 
 msgid "Title"
 msgstr "Judul"
 
+msgid "Total invalid SMS"
+msgstr ""
+
+msgid "Total multiple votes SMS"
+msgstr ""
+
+msgid "Total one time vote SMS"
+msgstr ""
+
+msgid "Total valid SMS"
+msgstr ""
+
 msgid "User"
 msgstr "Pengguna"
 
-msgid "View poll"
-msgstr "Lihat polling"
+msgid "Valid"
+msgstr ""
+
+msgid "Vote option"
+msgstr ""
+
+msgid "Webservices links"
+msgstr ""
 
 msgid "XML output"
 msgstr "Keluaran XML"
@@ -127,6 +197,22 @@ msgstr "Anda harus mengisi semua kolom"
 
 msgid "keyword"
 msgstr "kata kunci"
+
+msgid "multiple times"
+msgstr ""
+
+#, fuzzy
+msgid "one time"
+msgstr "Judul pilihan"
+
+msgid "one time every 24 hours"
+msgstr ""
+
+msgid "one time every month"
+msgstr ""
+
+msgid "one time every week"
+msgstr ""
 
 msgid "title"
 msgstr "judul"

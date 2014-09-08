@@ -24,6 +24,9 @@ msgstr "Добавить голосование"
 msgid "Add choice to this poll"
 msgstr "Добавить варианты"
 
+msgid "All"
+msgstr ""
+
 msgid ""
 "Are you sure you want to delete SMS poll with all its choices and votes ?"
 msgstr "Вы уверены, что хотите удалить голосование со всеми его резуьтатами?"
@@ -34,14 +37,18 @@ msgstr "Вы уверены, что хотите удалить вариант?"
 msgid "Choice already exists"
 msgstr "Вариант уже существует"
 
+#, fuzzy
+msgid "Choice description"
+msgstr "Заголовок"
+
 msgid "Choice has been added"
 msgstr "Вариант добавлен"
 
 msgid "Choice keyword"
 msgstr "Ключевое слово"
 
-msgid "Choice title"
-msgstr "Заголовок"
+msgid "Description"
+msgstr ""
 
 msgid "Edit SMS poll"
 msgstr "Изменить голосование"
@@ -55,8 +62,21 @@ msgstr "Не удалось добавить голосование"
 msgid "Fail to delete SMS poll choice"
 msgstr "Не удалось удалить вариант"
 
+msgid "Grand total SMS"
+msgstr ""
+
+msgid "Grand total senders"
+msgstr ""
+
 msgid "Graph output"
 msgstr "График"
+
+#, fuzzy
+msgid "HTML output"
+msgstr "XML формат"
+
+msgid "Invalid"
+msgstr ""
 
 msgid "JSON output"
 msgstr "JSON формат"
@@ -67,17 +87,42 @@ msgstr "Ключевое слово"
 msgid "Manage poll"
 msgstr "Голосования"
 
+msgid "Multi"
+msgstr ""
+
+msgid "Number of votes"
+msgstr ""
+
+msgid "Once"
+msgstr ""
+
 msgid "PHP serialize output"
 msgstr "PHP serialize формат"
 
-msgid "Reply message on invalid answer"
+#, fuzzy
+msgid "Reply message on invalid vote"
 msgstr "Ответ при невалидном выборе"
 
-msgid "Reply message on valid answer"
+#, fuzzy
+msgid "Reply message on out of vote option"
 msgstr "Ответ при валидном выборе"
 
-msgid "Reply message when invalid answer"
-msgstr "Ответ при невалидном выборе"
+#, fuzzy
+msgid "Reply message on valid vote"
+msgstr "Ответ при валидном выборе"
+
+msgid "Result graph"
+msgstr ""
+
+msgid "Result table"
+msgstr ""
+
+#, fuzzy
+msgid "SMS poll access code"
+msgstr "Ключевое слово"
+
+msgid "SMS poll access code used mainly by webservices"
+msgstr ""
 
 msgid "SMS poll already exists, reserved or use by other feature"
 msgstr ""
@@ -85,9 +130,6 @@ msgstr ""
 
 msgid "SMS poll choice and all its voters has been deleted"
 msgstr "Вариант со всемии его выбравшими удалён"
-
-msgid "SMS poll graph"
-msgstr "График голосования"
 
 msgid "SMS poll has been added"
 msgstr "Голосование добавлено"
@@ -110,20 +152,48 @@ msgstr "Голосование сохранено"
 msgid "Save"
 msgstr "Сохранить"
 
-msgid "Status"
+msgid "Senders sent multi votes"
+msgstr ""
+
+msgid "Senders sent multiple votes"
+msgstr ""
+
+msgid "Senders sent once"
+msgstr ""
+
+#, fuzzy
+msgid "Statistics"
 msgstr "Состояние"
 
-msgid "This poll has 0 votes!"
-msgstr "Никто не проголосовал!"
+msgid "Status"
+msgstr "Состояние"
 
 msgid "Title"
 msgstr "Название"
 
+msgid "Total invalid SMS"
+msgstr ""
+
+msgid "Total multiple votes SMS"
+msgstr ""
+
+msgid "Total one time vote SMS"
+msgstr ""
+
+msgid "Total valid SMS"
+msgstr ""
+
 msgid "User"
 msgstr "Пользователь"
 
-msgid "View poll"
-msgstr "Посмотреть результаты"
+msgid "Valid"
+msgstr ""
+
+msgid "Vote option"
+msgstr ""
+
+msgid "Webservices links"
+msgstr ""
 
 msgid "XML output"
 msgstr "XML формат"
@@ -133,6 +203,22 @@ msgstr "Необходимо заполнить все поля"
 
 msgid "keyword"
 msgstr "ключевое слово"
+
+msgid "multiple times"
+msgstr ""
+
+#, fuzzy
+msgid "one time"
+msgstr "Заголовок"
+
+msgid "one time every 24 hours"
+msgstr ""
+
+msgid "one time every month"
+msgstr ""
+
+msgid "one time every week"
+msgstr ""
 
 msgid "title"
 msgstr "название"
