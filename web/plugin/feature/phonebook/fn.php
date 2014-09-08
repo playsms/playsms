@@ -201,7 +201,7 @@ function phonebook_hook_phonebook_search_group($uid, $keyword = "", $count = 0) 
 	return $ret;
 }
 
-function phonebook_hook_phonebook_search_user($uid = 0, $keyword = "", $count = 0) {
+function phonebook_hook_phonebook_search_user($keyword = "", $count = 0) {
 	$keywords = $keyword;
 	$fields = 'name, username';
 	if ((int) $count) {
@@ -223,7 +223,7 @@ function phonebook_hook_webservices_output($operation, $requests) {
 	if ($keyword && $user_config['uid']) {
 		if (substr($keyword, 0, 1) == '@') {
 			$keyword = substr($keyword, 1);
-			$list = phonebook_search_user(0, $keyword);
+			$list = phonebook_search_user($keyword);
 			foreach ($list as $data) {
 				$item[] = array(
 					'id' => '@' . $data['username'],
