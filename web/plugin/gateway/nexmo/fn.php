@@ -36,7 +36,13 @@ function nexmo_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gp
 		$url = $plugin_config['nexmo']['url']."?".$query_string;
 
 		logger_print($url, 3, "nexmo outgoing");
+		
 		$resp = json_decode(file_get_contents($url), true);
+		
+		// fixme anton
+		// rate limit to 1 second per submit - nexmo rule
+		sleep(1);
+		
 		if ($resp['message-count']) {
 			$c_status = $resp['messages'][0]['status'];
 			$c_message_id = $resp['messages'][0]['message-id'];
