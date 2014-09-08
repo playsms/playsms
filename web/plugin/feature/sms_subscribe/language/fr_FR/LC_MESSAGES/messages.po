@@ -10,61 +10,55 @@ msgid "Action"
 msgstr "Action"
 
 msgid "Add SMS subscribe"
-msgstr "Ajouter un service"
+msgstr "Ajouter un abonnement SMS"
 
 msgid "Add message"
 msgstr "Ajouter un message"
 
-#, fuzzy
 msgid "Already a member reply"
-msgstr "Vous êtes déjà membres"
+msgstr "Réponse Déjà membre"
 
 msgid "Are you sure you want to delete SMS subscribe ?"
-msgstr "Êtes-vous certain de vouloir supprimer ce service SMS ?"
+msgstr "Êtes-vous sûr de vouloir supprimer cet abonnement SMS ?"
 
 msgid "Are you sure you want to delete this member ?"
-msgstr "Êtes-vous certain de vouloir supprimer ce membre ?"
+msgstr "Êtes-vous sûr de vouloir supprimer ce membre ?"
 
 msgid "Are you sure you want to delete this message?"
-msgstr "Êtes-vous certain de vouloir supprimer ce message"
+msgstr "Êtes-vous sûr de vouloir supprimer ce message ?"
 
 msgid "Created"
-msgstr ""
+msgstr "Créé"
 
 msgid "Edit SMS subscribe"
-msgstr "Éditer le service"
+msgstr "Éditer abonnement SMS"
 
-#, fuzzy
 msgid "Edit message"
-msgstr "Ajouter un message"
+msgstr "Éditer message"
 
-#, fuzzy
 msgid "Fail to add SMS subscribe"
-msgstr "Ajouter un service"
+msgstr "Échec de l'ajout de l'abonnement SMS"
 
-#, fuzzy
 msgid "Fail to add message"
-msgstr "Ajouter un message"
+msgstr "Échec de l'ajout du message"
 
-#, fuzzy
 msgid "Fail to edit SMS subscribe"
-msgstr "Éditer le service"
+msgstr "Échec de l'édition de l'abonnement SMS"
 
-#, fuzzy
 msgid "Fail to edit message"
-msgstr "Impossible d'envoyer le SMS"
+msgstr "Échec de l'édition du message"
 
 msgid "Fail to send SMS"
-msgstr "Impossible d'envoyer le SMS"
+msgstr "Échec de l'envoi du SMS"
 
 msgid "Keyword"
 msgstr "Mot-clé"
 
 msgid "Last update"
-msgstr ""
+msgstr "Dernière mise à jour"
 
 msgid "Manage subscribe"
-msgstr "Service inscription"
+msgstr "Gérer abonnement"
 
 msgid "Member has been deleted"
 msgstr "Le membre a été supprimé"
@@ -73,18 +67,16 @@ msgid "Member join datetime"
 msgstr "Date d'inscription du membre"
 
 msgid "Member list for keyword"
-msgstr "Liste des membres pour le mot-clé"
+msgstr "Liste des membres pour ce mot-clé"
 
-#, fuzzy
 msgid "Members"
-msgstr "Afficher les membres"
+msgstr "Membres"
 
 msgid "Message"
 msgstr "Message"
 
-#, fuzzy
 msgid "Message ID"
-msgstr "Message"
+msgstr "ID du message"
 
 msgid "Message body"
 msgstr "Corps du message"
@@ -92,61 +84,60 @@ msgstr "Corps du message"
 msgid "Message detail"
 msgstr "Détail du message"
 
-#, fuzzy
 msgid "Message has been added"
-msgstr "Le message a été édite"
+msgstr "Le message a été ajouté"
 
 msgid "Message has been deleted"
 msgstr "Le message a été supprimé"
 
 msgid "Message has been edited"
-msgstr "Le message a été édite"
+msgstr "Le message a été édité"
 
-#, fuzzy
 msgid "Messages"
-msgstr "Message"
+msgstr "Messages"
 
 msgid "Phone number"
-msgstr "Numero de telephone"
+msgstr "Numéro de téléphone"
 
 msgid "SMS forward parameter"
-msgstr ""
+msgstr "Paramètre de transfert SMS"
 
 msgid "SMS messages list for keyword"
 msgstr "Liste des messages SMS pour ce mot-clé"
 
 msgid "SMS subscribe already exists, reserved or use by other feature"
-msgstr "Ce mot-clé existe déjà, est réservé ou utilisé par un autre service"
+msgstr ""
+"L'abonnement SMS existe déjà, est réservé ou utilisé par une autre fonction"
 
 msgid "SMS subscribe has been added"
-msgstr "Le service a été ajouté"
+msgstr "L'abonnement SMS a été ajouté"
 
 msgid "SMS subscribe has been saved"
-msgstr "Le service a été sauvegardé"
+msgstr "L'abonnement SMS a été enregistré"
 
 msgid "SMS subscribe keyword"
-msgstr "Mot-clé du service d'inscription"
+msgstr "Mot-clé d'abonnement SMS"
 
 msgid "SMS subscribe parameter"
-msgstr "Réponse SMS d'inscription"
+msgstr "Paramètre d'abonnement SMS"
 
 msgid "SMS subscribe reply"
-msgstr "Réponse SMS d'inscription"
+msgstr "Réponse d'abonnement SMS"
 
 msgid "SMS subscribe status has been changed"
-msgstr "Le statut du service a été modifié"
+msgstr "Le statut de l'abonnement SMS a été modifié"
 
 msgid "SMS subscribe with all its messages and members has been deleted"
-msgstr "Le service avec tous ses messages et ses membres a été supprimé"
+msgstr "L'abonnement SMS avec tous ses messages et ses membres a été supprimé"
 
 msgid "SMS unsubscribe parameter"
-msgstr "Réponse SMS de désinscription"
+msgstr "Paramètre de désabonnement SMS"
 
 msgid "SMS unsubscribe reply"
-msgstr "Réponse SMS de désinscription"
+msgstr "Réponse de désabonnement SMS"
 
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Enregistrer"
 
 msgid "Send"
 msgstr "Envoyer"
@@ -155,17 +146,16 @@ msgid "Send this message to all members"
 msgstr "Envoyer ce message à tous les membres"
 
 msgid "Sent"
-msgstr ""
+msgstr "Envoyé"
 
 msgid "Status"
 msgstr "Statut"
 
-#, fuzzy
 msgid "Unknown format reply"
-msgstr "Format de SMS inconnu"
+msgstr "Réponse avec un format inconnu"
 
 msgid "User"
-msgstr "Compte"
+msgstr "Utilisateur"
 
 msgid "View members"
 msgstr "Afficher les membres"
@@ -173,15 +163,14 @@ msgstr "Afficher les membres"
 msgid "View messages"
 msgstr "Afficher les messages"
 
-#, fuzzy
 msgid "You have no member"
-msgstr "Vous n'êtes pas membre"
+msgstr "Vous n'avez pas de membre"
 
 msgid "You must fill all fields"
-msgstr "Vous devez remplir tous les champs"
+msgstr "Vous devez saisir tous les champs"
 
 msgid "Your SMS has been delivered to queue"
-msgstr "Votre SMS a été delivré à la queue"
+msgstr "Votre SMS a été mis dans la file d'attente"
 
 msgid "keyword"
 msgstr "mot-clé"

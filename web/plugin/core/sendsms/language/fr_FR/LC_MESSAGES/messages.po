@@ -1,56 +1,58 @@
 msgid "Flash message"
-msgstr ""
+msgstr "Message flash"
 
 msgid "Format YYYY-MM-DD hh:mm"
-msgstr ""
+msgstr "Format AAAA-MM-JJ hh:mm"
 
 msgid "Message"
-msgstr ""
+msgstr "Message"
 
 msgid "Message footer"
-msgstr ""
+msgstr "Pied de page du message"
 
 msgid "Options"
-msgstr ""
+msgstr "Options"
 
 msgid "Please select template"
-msgstr ""
+msgstr "Veuillez sélectionner un modèle"
 
 msgid "Prefix with # for groups and @ for users"
-msgstr ""
+msgstr "Préfixer avec # pour les groupes et avec @ pour les utilisateurs"
 
 msgid "SMS"
-msgstr ""
+msgstr "SMS"
 
 msgid "Schedule"
-msgstr ""
+msgstr "Planification"
 
 msgid "Send"
-msgstr ""
+msgstr "Envoyer"
 
 msgid "Send message"
-msgstr ""
+msgstr "Envoyer le message"
 
 msgid "Send to"
-msgstr ""
+msgstr "Envoyer à"
 
 msgid "Sender ID"
-msgstr ""
+msgstr "Sender ID"
 
 msgid "Unicode message"
-msgstr ""
+msgstr "Message Unicode"
 
 msgid "You must select receiver and your message should not be empty"
 msgstr ""
+"Vous devez sélectionner un destinataire et votre message ne doit pas être vide"
 
 msgid "Your message has been delivered to queue"
 msgstr ""
+msgstr "Votre message a été mis dans la file d'attente"
 
 msgid "chars"
-msgstr ""
+msgstr "caractères"
 
 msgid "failed"
-msgstr ""
+msgstr "échec"
 
 msgid "queued"
-msgstr ""
+msgstr "dans la file d'attente"

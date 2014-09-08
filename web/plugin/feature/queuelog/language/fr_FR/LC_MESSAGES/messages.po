@@ -6,28 +6,28 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Action"
-msgstr ""
+msgstr "Action"
 
 msgid "Are you sure you want to delete queue"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer la file d'attente"
 
 msgid "Count"
-msgstr ""
+msgstr "Quantité"
 
 msgid "Message"
-msgstr ""
+msgstr "Message"
 
 msgid "Queue Code"
-msgstr ""
+msgstr "Code de file d'attente"
 
 msgid "Queue has been remove"
-msgstr ""
+msgstr "La file d'attente a été supprimée"
 
 msgid "Scheduled"
-msgstr ""
+msgstr "Planifié"
 
 msgid "User"
-msgstr ""
+msgstr "Utilisateur"
 
 msgid "View SMS queue"
-msgstr ""
+msgstr "Afficher la file d'attente des SMS"

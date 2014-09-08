@@ -17,80 +17,82 @@ msgid "Action"
 msgstr "Action"
 
 msgid "Add SMS custom"
-msgstr "Ajouter script URL"
+msgstr "Ajouter URL script personnalisé"
 
-#, fuzzy
 msgid "Are you sure you want to delete SMS custom ?"
-msgstr "Voulez-vous supprimer le Mot clé du script URL ?"
+msgstr "Êtes-vous sûr de vouloir supprimer l'URL script personnalisé ?"
 
 msgid "Edit SMS custom"
-msgstr "Éditer script URL"
+msgstr "Éditer URL script personnalisé"
 
 msgid "Fail to add SMS custom"
-msgstr "Echec ajout script URL"
+msgstr "Échec de l'ajout de l'URL script personnalisé"
 
 msgid "Fail to delete SMS custom"
-msgstr "Echec suppressin script URL"
+msgstr "Échec de la suppression de l'URL script personnalisé"
 
 msgid "Fail to save SMS custom"
-msgstr "Echec sauvegarde script URL"
+msgstr "Échec de l'enregistrement de l'URL script personnalisé"
 
 msgid "Keyword"
 msgstr "Mot-clé"
 
 msgid "Make return as reply"
-msgstr "Activer le renvoi du résultat "
+msgstr "Envoyer le résultat du script comme réponse"
 
 msgid "Manage custom"
-msgstr "Service script URL"
+msgstr "Gérer URL script personnalisé"
 
 msgid "Pass these parameter to custom URL field"
-msgstr "Passez ces paramètres aux champs du scrip URL"
+msgstr "Passez ces paramètres dans le champ 'URL du script personnalisé'"
 
 msgid "SMS custom URL"
-msgstr "URL du script"
+msgstr "URL du script personnalisé"
 
 msgid "SMS custom already exists, reserved or use by other feature"
-msgstr "Script URL existant, reservé ou utilisé par un autre module"
+msgstr ""
+"L'URL script personnalisé existe déjà, est réservée ou utilisée par une autre "
+"fonction"
 
 msgid "SMS custom has been added"
-msgstr "Script URL ajouté"
+msgstr "L'URL script personnalisé a été ajoutée"
 
 msgid "SMS custom has been deleted"
-msgstr "Script URL supprimé"
+msgstr "L'URL script personnalisé a été supprimée"
 
 msgid "SMS custom has been saved"
-msgstr "Script URL sauvegardé"
+msgstr "L'URL script personnalisé a été enregistrée"
 
 msgid "SMS custom keyword"
-msgstr "Mot-clé script URL"
+msgstr "Mot-clé de l'URL script personnalisé"
 
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Enregistrer"
 
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 msgid "User"
 msgstr "Utilisateur"
 
 msgid "You must fill all fields"
-msgstr "Vous devez remplir tous les champs"
+msgstr "Vous devez saisir tous les champs"
 
 msgid "keyword"
 msgstr "mot-clé"
 
 msgid "will be replaced by SMS incoming date/time"
-msgstr "sera remplacé par la date/heure du SMS reçu"
+msgstr "sera remplacé par la date/heure d'arrivée du SMS"
 
 msgid "will be replaced by SMS raw message"
-msgstr "Sera remplacé par le message complet"
+msgstr "sera remplacé par le message brut"
 
 msgid "will be replaced by custom keyword"
-msgstr "sera remplacé par le mot-clé du service"
+msgstr "sera remplacé par le mot-clé de l'URL script personnalisé"
 
 msgid "will be replaced by custom parameter passed to server from SMS"
-msgstr "sera remplacé par le paramètre additionnel du SMS passe au serveur"
+msgstr ""
+"sera remplacé par le paramètre additionnel passé au SMS depuis le serveur"
 
 msgid "will be replaced by sender number"
-msgstr "sera remplacé par le numéro de l'émetteur"
+msgstr "sera remplacé par le numéro de l'expéditeur"
