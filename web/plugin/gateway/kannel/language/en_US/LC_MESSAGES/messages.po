@@ -12,7 +12,7 @@ msgid "Bearerbox hostname or IP"
 msgstr ""
 
 msgid "Changes has been made"
-msgstr ""
+msgstr "Changes have been made"
 
 msgid "Delivered to SMSC"
 msgstr ""

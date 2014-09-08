@@ -48,7 +48,7 @@ msgid "Rate has been saved"
 msgstr ""
 
 msgid "Rate is already exists"
-msgstr ""
+msgstr "Rate already exists"
 
 msgid "Save"
 msgstr ""

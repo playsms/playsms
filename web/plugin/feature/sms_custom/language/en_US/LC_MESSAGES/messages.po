@@ -36,7 +36,7 @@ msgid "Manage custom"
 msgstr "Manage custom"
 
 msgid "Pass these parameter to custom URL field"
-msgstr ""
+msgstr "Pass these parameters to custom URL field"
 
 msgid "SMS custom URL"
 msgstr ""

@@ -76,7 +76,7 @@ msgid "Users"
 msgstr "Subusers"
 
 msgid "Wrong amount or user does not exists"
-msgstr ""
+msgstr "Wrong amount or user does not exist"
 
 msgid "amount"
 msgstr ""
