@@ -37,7 +37,7 @@ switch (_OP_) {
 			'uid' => $user_config['uid'],
 			'flag_deleted' => 0
 		);
-		$keywords = $search['dba_keywords'];
+		$keywords = htmlspecialchars($search['dba_keywords']);
 		$count = dba_count(_DB_PREF_ . '_tblSMSOutgoing', $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
@@ -207,7 +207,7 @@ switch (_OP_) {
 						));
 					}
 				}
-				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
+				$ref = $nav['url'] . '&search_keyword=' . htmlspecialchars($search['keyword']) . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
 				$_SESSION['error_string'] = _('Selected outgoing message has been deleted');
 				header("Location: " . _u($ref));
 		}
