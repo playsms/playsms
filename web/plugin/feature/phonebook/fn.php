@@ -10,13 +10,12 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
 
 function phonebook_hook_phonebook_groupid2name($gpid) {
@@ -106,7 +105,7 @@ function phonebook_hook_phonebook_getdatabyid($gpid, $orderby = "") {
 		INNER JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid
 		WHERE B.id='$gpid'";
 	if ($orderby) {
-		$db_query.= " ORDER BY " . $orderby;
+		$db_query .= " ORDER BY " . $orderby;
 	}
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
@@ -124,7 +123,7 @@ function phonebook_hook_phonebook_getdatabyuid($uid, $orderby = "") {
 		INNER JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid
 		WHERE B.uid='$uid'";
 	if ($orderby) {
-		$db_query.= " ORDER BY " . $orderby;
+		$db_query .= " ORDER BY " . $orderby;
 	}
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
@@ -147,7 +146,7 @@ function phonebook_hook_phonebook_getgroupbyuid($uid, $orderby = "") {
 	$ret = array();
 	$db_query = "SELECT id AS gpid, name AS gp_name, code AS gp_code, flag_sender FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid'";
 	if ($orderby) {
-		$db_query.= " ORDER BY " . $orderby;
+		$db_query .= " ORDER BY " . $orderby;
 	}
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
@@ -161,18 +160,18 @@ function phonebook_hook_phonebook_search($uid, $keyword = "", $count = 0) {
 	if ($keyword) {
 		$fields = 'DISTINCT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email';
 		$join = "INNER JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON A.uid=B.uid ";
-		$join.= "INNER JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid";
+		$join .= "INNER JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid";
 		$conditions = array(
-			'A.uid' => $uid
+			'A.uid' => $uid 
 		);
 		$keywords = array(
 			'A.name' => '%' . $keyword . '%',
 			'A.mobile' => '%' . $keyword . '%',
-			'A.email' => '%' . $keyword . '%'
+			'A.email' => '%' . $keyword . '%' 
 		);
 		if ($count > 0) {
 			$extras = array(
-				'LIMIT' => $count
+				'LIMIT' => $count 
 			);
 		}
 		$ret = dba_search(_DB_PREF_ . '_featurePhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
@@ -184,17 +183,17 @@ function phonebook_hook_phonebook_search_group($uid, $keyword = "", $count = 0) 
 	$ret = array();
 	$fields = 'id AS gpid, name AS group_name, code, flag_sender';
 	$conditions = array(
-		'uid' => $uid
+		'uid' => $uid 
 	);
 	if ($keyword) {
 		$keywords = array(
 			'name' => '%' . $keyword . '%',
-			'code' => '%' . $keyword . '%'
+			'code' => '%' . $keyword . '%' 
 		);
 	}
 	if ($count > 0) {
 		$extras = array(
-			'LIMIT' => $count
+			'LIMIT' => $count 
 		);
 	}
 	$ret = dba_search(_DB_PREF_ . '_featurePhonebook_group', $fields, $conditions, $keywords, $extras);
@@ -205,7 +204,7 @@ function phonebook_hook_phonebook_search_user($keyword = "", $count = 0) {
 	$keywords = $keyword;
 	$fields = 'name, username';
 	if ((int) $count) {
-		$extras = 'LIMIT '.(int) $count;
+		$extras = 'LIMIT ' . (int) $count;
 	}
 	$ret = user_search($keywords, $fields, $extras);
 	return $ret;
@@ -224,27 +223,27 @@ function phonebook_hook_webservices_output($operation, $requests) {
 		if (substr($keyword, 0, 1) == '@') {
 			$keyword = substr($keyword, 1);
 			$list = phonebook_search_user($keyword);
-			foreach ($list as $data) {
+			foreach ($list as $data ) {
 				$item[] = array(
 					'id' => '@' . $data['username'],
-					'text' => '@' . $data['name']
+					'text' => '@' . $data['name'] 
 				);
 			}
 		} else if (substr($keyword, 0, 1) == '#') {
 			$keyword = substr($keyword, 1);
 			$list = phonebook_search_group($user_config['uid'], $keyword);
-			foreach ($list as $data) {
+			foreach ($list as $data ) {
 				$item[] = array(
 					'id' => '#' . $data['code'],
-					'text' => _('Group') . ': ' . $data['group_name'] . ' (' . $data['code'] . ')'
+					'text' => _('Group') . ': ' . $data['group_name'] . ' (' . $data['code'] . ')' 
 				);
 			}
 		} else {
 			$list = phonebook_search($user_config['uid'], $keyword);
-			foreach ($list as $data) {
+			foreach ($list as $data ) {
 				$item[] = array(
 					'id' => $data['p_num'],
-					'text' => $data['p_desc'] . ' (' . $data['p_num'] . ')'
+					'text' => $data['p_desc'] . ' (' . $data['p_num'] . ')' 
 				);
 			}
 		}
@@ -252,7 +251,7 @@ function phonebook_hook_webservices_output($operation, $requests) {
 	if (count($item) == 0) {
 		$item[] = array(
 			'id' => $keyword,
-			'text' => $keyword
+			'text' => $keyword 
 		);
 	}
 	$content = json_encode($item);
