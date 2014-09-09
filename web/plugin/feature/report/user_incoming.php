@@ -39,7 +39,7 @@ switch (_OP_) {
 			'flag_deleted' => 0,
 			'in_status' => 1
 		);
-		$keywords = $search['dba_keywords'];
+		$keywords = htmlspecialchars($search['dba_keywords']);
 		$count = dba_count(_DB_PREF_ . '_tblSMSIncoming', $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
