@@ -12,7 +12,7 @@ switch (_OP_) {
 		$join = 'INNER JOIN '._DB_PREF_.'_featurePhonebook_group AS B ON A.uid=B.uid ';
 		$join .= 'INNER JOIN '._DB_PREF_.'_featurePhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid';
 		$conditions = array('B.uid' => $user_config['uid']);
-		$keywords = $search['dba_keywords'];
+		$keywords = htmlspecialchars($search['dba_keywords']);
 		$count = dba_count(_DB_PREF_.'_featurePhonebook AS A', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array('ORDER BY' => 'A.name, mobile', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']);
@@ -202,7 +202,7 @@ switch (_OP_) {
 				break;
 			case 'add':
 				$uid = $user_config['uid'];
-				$gpids = $_POST['gpids'];
+				$gpids = intval($_POST['gpids']);
 				if (is_array($gpids)) {
 					foreach ($gpids as $gpid) {
 						$save_to_group = FALSE;
