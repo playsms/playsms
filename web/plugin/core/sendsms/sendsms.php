@@ -18,12 +18,12 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-if (! auth_isvalid()) {
+if (!auth_isvalid()) {
 	auth_block();
 }
 
 switch (_OP_) {
-	case "sendsms":
+	case "sendsms" :
 		
 		// get $to and $message from session or query string
 		$to = stripslashes($_REQUEST['to']);
@@ -32,7 +32,7 @@ switch (_OP_) {
 		// sender ID
 		$sms_from = sendsms_get_sender($user_config['username']);
 		$ismatched = FALSE;
-		foreach (sender_id_getall($user_config['username']) as $sender_id) {
+		foreach (sender_id_getall($user_config['username']) as $sender_id ) {
 			$selected = '';
 			if (strtoupper($sms_from) == strtoupper($sender_id)) {
 				$selected = 'selected';
@@ -42,7 +42,7 @@ switch (_OP_) {
 		}
 		$sms_sender_id = "<select name=sms_sender style='width: 100%'>" . $option_values . "</select>";
 		
-		if (! $ismatched) {
+		if (!$ismatched) {
 			$sms_sender_id = "<input type='text' style='width: 100%' name='sms_sender' value='" . $sms_from . "' readonly>";
 		}
 		
@@ -52,7 +52,7 @@ switch (_OP_) {
 		// message template
 		$option_values = "<option value=\"\" default>--" . _('Please select template') . "--</option>";
 		$c_templates = sendsms_get_template();
-		for ($i = 0; $i < count($c_templates); $i++) {
+		for($i = 0; $i < count($c_templates); $i++) {
 			$option_values .= "<option value=\"" . $c_templates[$i]['text'] . "\" title=\"" . $c_templates[$i]['text'] . "\">" . $c_templates[$i]['title'] . "</option>";
 			$input_values .= "<input type=\"hidden\" name=\"content_" . $i . "\" value=\"" . $c_templates[$i]['text'] . "\">";
 		}
@@ -112,7 +112,7 @@ switch (_OP_) {
 		_p(tpl_apply($tpl));
 		break;
 	
-	case "sendsms_yes":
+	case "sendsms_yes" :
 		
 		// sender ID
 		if ($core_config['main']['allow_custom_sender']) {
@@ -166,7 +166,7 @@ switch (_OP_) {
 			
 			list($ok, $to, $smslog_id, $queue, $counts, $sms_count, $sms_failed) = sendsms_helper($user_config['username'], $sms_to, $message, $sms_type, $unicode, $nofooter, $sms_footer, $sms_sender, $sms_schedule);
 			
-			$_SESSION['error_string'] = _('Your message has been delivered to queue') . " (" . _('queued') . ":" . (int)$sms_count . " " . _('failed') . ":" . (int)$sms_failed . ")";
+			$_SESSION['error_string'] = _('Your message has been delivered to queue') . " (" . _('queued') . ":" . (int) $sms_count . " " . _('failed') . ":" . (int) $sms_failed . ")";
 		} else {
 			$_SESSION['error_string'] = _('You must select receiver and your message should not be empty');
 		}
