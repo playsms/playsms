@@ -10,20 +10,20 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
+
 if (!auth_isadmin()) {
 	auth_block();
-};
+}
 
 switch (_OP_) {
-	case "incoming":
+	case "incoming" :
 		
 		// form pre rules
 		
@@ -38,16 +38,16 @@ switch (_OP_) {
 		$form_pre_rules = array(
 			array(
 				'id' => 'playsms-incoming-match-username',
-				'label' => _('Scan incoming SMS for @username') ,
+				'label' => _('Scan incoming SMS for @username'),
 				'input' => $select_match_username,
-				'help' => _('Copy the message to user inbox when incoming SMS contains @username') ,
-			) ,
+				'help' => _('Copy the message to user inbox when incoming SMS contains @username') 
+			),
 			array(
 				'id' => 'playsms-incoming-match-groupcode',
-				'label' => _('Scan incoming SMS for #groupcode') ,
+				'label' => _('Scan incoming SMS for #groupcode'),
 				'input' => $select_match_groupcode,
-				'help' => _('Send SMS to groups with found group codes in the incoming SMS') ,
-			) ,
+				'help' => _('Send SMS to groups with found group codes in the incoming SMS') 
+			) 
 		);
 		
 		// form post rules
@@ -62,7 +62,7 @@ switch (_OP_) {
 		$params = array(
 			'size' => '100%',
 			'maxlength' => 30,
-			'placeholder' => _('Insert keyword') ,
+			'placeholder' => _('Insert keyword') 
 		);
 		$input_prefix = _input('text', 'sandbox_prefix', $post_rules['insert_prefix'], $params, 'playsms-sandbox-prefix', 'form-control');
 		
@@ -70,29 +70,29 @@ switch (_OP_) {
 		unset($params);
 		$params = array(
 			'width' => '100%',
-			'placeholder' => _('Select users')
+			'placeholder' => _('Select users') 
 		);
 		$select_users = themes_select_users_multi('uids', $post_rules['forward_to'], $params, 'playsms-route-to-users');
 		
 		$form_post_rules = array(
 			array(
 				'id' => 'playsms-sandbox-match-sender-id',
-				'label' => _('Route all sandbox SMS with matched sender ID') ,
+				'label' => _('Route all sandbox SMS with matched sender ID'),
 				'input' => $select_match_sender_id,
-				'help' => _('Route to user inbox if receiver number matched with user sender ID') ,
-			) ,
+				'help' => _('Route to user inbox if receiver number matched with user sender ID') 
+			),
 			array(
 				'id' => 'playsms-sandbox-prefix',
-				'label' => _('Route all sandbox SMS to keyword') ,
+				'label' => _('Route all sandbox SMS to keyword'),
 				'input' => $input_prefix,
-				'help' => _('A valid keyword will be inserted and prefixed to the message') ,
-			) ,
+				'help' => _('A valid keyword will be inserted and prefixed to the message') 
+			),
 			array(
 				'id' => 'playsms-route-to-users',
-				'label' => _('Route all sandbox SMS to users') ,
+				'label' => _('Route all sandbox SMS to users'),
 				'input' => $select_users,
-				'help' => '',
-			) ,
+				'help' => '' 
+			) 
 		);
 		
 		// form settings
@@ -108,60 +108,60 @@ switch (_OP_) {
 		$form_settings = array(
 			array(
 				'id' => 'playsms-settings-leave-copy',
-				'label' => _('Leave a copy in sandbox SMS page') ,
+				'label' => _('Leave a copy in sandbox SMS page'),
 				'input' => $settings_leave_copy_sandbox,
-				'help' => _('Leaving a copy in sandbox SMS page may be useful for audit or reviews') ,
-			) ,
+				'help' => _('Leaving a copy in sandbox SMS page may be useful for audit or reviews') 
+			),
 			array(
 				'id' => 'playsms-settings-match-all',
-				'label' => _('Match with all approved sender ID') ,
+				'label' => _('Match with all approved sender ID'),
 				'input' => $settings_match_all_sender_id,
-				'help' => _('Receiver number can be matched with default sender ID or with all approved sender ID') ,
-			) ,
+				'help' => _('Receiver number can be matched with default sender ID or with all approved sender ID') 
+			) 
 		);
 		
 		$tpl = array(
 			'name' => 'incoming',
 			'vars' => array(
-				'ERROR' => _err_display() ,
-				'PAGE_TITLE' => _('Route incoming SMS') ,
-				'ACTION_URL' => _u('index.php?app=main&inc=feature_incoming&op=incoming_save') ,
+				'ERROR' => _err_display(),
+				'PAGE_TITLE' => _('Route incoming SMS'),
+				'ACTION_URL' => _u('index.php?app=main&inc=feature_incoming&op=incoming_save'),
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
-				'HINT_PRE_RULES' => _hint(_('Rules applied before incoming SMS processed')) ,
-				'HINT_POST_RULES' => _hint(_('Rules applied after incoming SMS processed')) ,
-				'Pre rules' => _('Pre rules') ,
-				'Post rules' => _('Post rules') ,
-				'Settings' => _('Settings') ,
-				'Save' => _('Save') ,
-			) ,
+				'HINT_PRE_RULES' => _hint(_('Rules applied before incoming SMS processed')),
+				'HINT_POST_RULES' => _hint(_('Rules applied after incoming SMS processed')),
+				'Pre rules' => _('Pre rules'),
+				'Post rules' => _('Post rules'),
+				'Settings' => _('Settings'),
+				'Save' => _('Save') 
+			),
 			'loops' => array(
 				'form_pre_rules' => $form_pre_rules,
 				'form_post_rules' => $form_post_rules,
-				'form_settings' => $form_settings,
-			) ,
+				'form_settings' => $form_settings 
+			),
 			'injects' => array(
-				'core_config',
-			) ,
+				'core_config' 
+			) 
 		);
 		_p(tpl_apply($tpl));
 		break;
-
-	case "incoming_save":
+	
+	case "incoming_save" :
 		
 		// form pre rules
 		
 		// scan message for @username
-		$pre_rules['match_username'] = (int)$_REQUEST['incoming_match_username'];
+		$pre_rules['match_username'] = (int) $_REQUEST['incoming_match_username'];
 		$items['incoming_match_username'] = $pre_rules['match_username'];
-
+		
 		// scan message for #groupcode
-		$pre_rules['match_groupcode'] = (int)$_REQUEST['incoming_match_groupcode'];
+		$pre_rules['match_groupcode'] = (int) $_REQUEST['incoming_match_groupcode'];
 		$items['incoming_match_groupcode'] = $pre_rules['match_groupcode'];
-
+		
 		// form post rules
 		
 		// sandbox match receiver number and sender ID
-		$post_rules['match_sender_id'] = (int)$_REQUEST['sandbox_match_sender_id'];
+		$post_rules['match_sender_id'] = (int) $_REQUEST['sandbox_match_sender_id'];
 		$items['sandbox_match_sender_id'] = $post_rules['match_sender_id'];
 		
 		// sandbox prefix
@@ -179,10 +179,10 @@ switch (_OP_) {
 		// form settings
 		
 		// settings to leave copy on sandbox
-		$items['settings_leave_copy_sandbox'] = (int)$_REQUEST['settings_leave_copy_sandbox'];
+		$items['settings_leave_copy_sandbox'] = (int) $_REQUEST['settings_leave_copy_sandbox'];
 		
 		// settings to match with all approved sender ID
-		$items['settings_match_all_sender_id'] = (int)$_REQUEST['settings_match_all_sender_id'];
+		$items['settings_match_all_sender_id'] = (int) $_REQUEST['settings_match_all_sender_id'];
 		
 		// save to registry
 		if (count($items)) {

@@ -19,7 +19,7 @@
 
 /**
  * Get settings
- * 
+ *
  * @return array Settings
  *         Available setting keys:
  *         - leave_copy_sandbox
@@ -29,18 +29,18 @@ function incoming_settings_get() {
 	
 	// settings to leave copy on sandbox
 	$data = registry_search(1, 'feature', 'incoming', 'settings_leave_copy_sandbox');
-	$settings['leave_copy_sandbox'] = (int)$data['feature']['incoming']['settings_leave_copy_sandbox'];
+	$settings['leave_copy_sandbox'] = (int) $data['feature']['incoming']['settings_leave_copy_sandbox'];
 	
 	// settings to match with all approved sender ID
 	$data = registry_search(1, 'feature', 'incoming', 'settings_match_all_sender_id');
-	$settings['match_all_sender_id'] = (int)$data['feature']['incoming']['settings_match_all_sender_id'];
+	$settings['match_all_sender_id'] = (int) $data['feature']['incoming']['settings_match_all_sender_id'];
 	
 	return $settings;
 }
 
 /**
  * Get post rules
- * 
+ *
  * @return array Post rules
  *         Available post rules keys:
  *         - match_sender_id
@@ -51,7 +51,7 @@ function incoming_post_rules_get() {
 	
 	// sandbox match receiver number and sender ID
 	$data = registry_search(1, 'feature', 'incoming', 'sandbox_match_sender_id');
-	$post_rules['match_sender_id'] = (int)$data['feature']['incoming']['sandbox_match_sender_id'];
+	$post_rules['match_sender_id'] = (int) $data['feature']['incoming']['sandbox_match_sender_id'];
 	
 	// sandbox prefix
 	$data = registry_search(1, 'feature', 'incoming', 'sandbox_prefix');
@@ -66,7 +66,7 @@ function incoming_post_rules_get() {
 
 /**
  * Get pre rules
- * 
+ *
  * @return array Pre rules
  *         Available pre rules keys:
  *         - match_username
@@ -76,11 +76,11 @@ function incoming_pre_rules_get() {
 	
 	// scan message for @username
 	$data = registry_search(1, 'feature', 'incoming', 'incoming_match_username');
-	$pre_rules['match_username'] = (int)$data['feature']['incoming']['incoming_match_username'];
+	$pre_rules['match_username'] = (int) $data['feature']['incoming']['incoming_match_username'];
 	
 	// scan message for #groupcode
 	$data = registry_search(1, 'feature', 'incoming', 'incoming_match_groupcode');
-	$pre_rules['match_groupcode'] = (int)$data['feature']['incoming']['incoming_match_groupcode'];
+	$pre_rules['match_groupcode'] = (int) $data['feature']['incoming']['incoming_match_groupcode'];
 	
 	return $pre_rules;
 }
@@ -88,13 +88,20 @@ function incoming_pre_rules_get() {
 /**
  * Intercept on after-process stage for incoming SMS and forward it to selected user's inbox
  *
- * @param $sms_datetime incoming SMS date/time
- * @param $sms_sender incoming SMS sender
- * @param $message incoming SMS message before interepted
- * @param $sms_receiver receiver number that is receiving incoming SMS
- * @param $feature feature managed to hook current incoming SMS
- * @param $status recvsms() status, 0 or FALSE for unhandled
- * @param $uid keyword owner
+ * @param $sms_datetime incoming
+ *        	SMS date/time
+ * @param $sms_sender incoming
+ *        	SMS sender
+ * @param $message incoming
+ *        	SMS message before interepted
+ * @param $sms_receiver receiver
+ *        	number that is receiving incoming SMS
+ * @param $feature feature
+ *        	managed to hook current incoming SMS
+ * @param $status recvsms()
+ *        	status, 0 or FALSE for unhandled
+ * @param $uid keyword
+ *        	owner
  * @return array $ret
  */
 function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $message, $sms_receiver, $feature, $status, $uid) {
@@ -104,7 +111,7 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 	$users = array();
 	$is_routed = FALSE;
 	
-	if (! $status) {
+	if (!$status) {
 		
 		// get settings
 		$settings = incoming_settings_get();
@@ -113,7 +120,7 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 		$post_rules = incoming_post_rules_get();
 		
 		// sandbox match receiver number and sender ID
-		if (! $is_routed) {
+		if (!$is_routed) {
 			
 			// route sandbox if receiver number matched with default sender ID of users
 			if ($post_rules['match_sender_id']) {
@@ -125,7 +132,7 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 					$s = sender_id_getall();
 				} else {
 					$data = user_search($sms_receiver, 'sender');
-					foreach ($data as $user) {
+					foreach ($data as $user ) {
 						
 						// get default sender ID
 						if ($user['sender']) {
@@ -138,17 +145,17 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 				}
 				
 				// start matching
-				foreach ($s as $sender_id) {
+				foreach ($s as $sender_id ) {
 					if ($sender_id && $sms_receiver && ($sender_id == $sms_receiver)) {
-
+						
 						unset($usernames);
 						unset($username);
-
+						
 						if ($settings['match_all_sender_id']) {
 							
 							// get $username who owns $sender_id
 							$uids = sender_id_owner($sender_id);
-							foreach ($uids as $uid) {
+							foreach ($uids as $uid ) {
 								$usernames[] = user_uid2username($uid);
 							}
 						} else {
@@ -158,7 +165,7 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 						
 						array_unique($usernames);
 						
-						foreach ($usernames as $username) {
+						foreach ($usernames as $username ) {
 							if ($username) {
 								_log("sandbox match sender start u:" . $username . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept_after');
 								recvsms_inbox_add($sms_datetime, $sms_sender, $username, $message, $sms_receiver);
@@ -166,7 +173,7 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 								$is_routed = TRUE;
 								
 								// single match only
-								//break;
+								// break;
 							}
 						}
 					}
@@ -175,7 +182,7 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 		}
 		
 		// sandbox prefix
-		if (! $is_routed) {
+		if (!$is_routed) {
 			
 			// route sandbox by adding a prefix to message and re-enter it to recvsms()
 			if ($post_rules['insert_prefix'] && trim($message)) {
@@ -188,9 +195,9 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 		}
 		
 		// sandbox forward to users
-		if (! $is_routed) {
+		if (!$is_routed) {
 			
-			foreach ($post_rules['forward_to'] as $uid) {
+			foreach ($post_rules['forward_to'] as $uid ) {
 				$c_username = user_uid2username($uid);
 				if ($c_username) {
 					$users[] = $c_username;
@@ -198,7 +205,7 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 			}
 			
 			// route sandbox to users inbox
-			foreach ($users as $username) {
+			foreach ($users as $username ) {
 				_log("sandbox to user start u:" . $username . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept_after');
 				recvsms_inbox_add($sms_datetime, $sms_sender, $username, $message, $sms_receiver);
 				_log("sandbox to user end u:" . $username, 3, 'incoming recvsms_intercept_after');
@@ -227,10 +234,14 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 /**
  * Intercept on before-process stage for incoming SMS
  *
- * @param $sms_datetime incoming SMS date/time
- * @param $sms_sender incoming SMS sender
- * @param $message incoming SMS message before interepted
- * @param $sms_receiver receiver number that is receiving incoming SMS
+ * @param $sms_datetime incoming
+ *        	SMS date/time
+ * @param $sms_sender incoming
+ *        	SMS sender
+ * @param $message incoming
+ *        	SMS message before interepted
+ * @param $sms_receiver receiver
+ *        	number that is receiving incoming SMS
  * @return array $ret
  */
 function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver) {
@@ -240,7 +251,9 @@ function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $
 	
 	// continue only when keyword does not exists
 	$m = explode(' ', $message);
-	if (! checkavailablekeyword($m[0])) {return $ret;}
+	if (!checkavailablekeyword($m[0])) {
+		return $ret;
+	}
 	
 	// get settings
 	$settings = incoming_settings_get();
@@ -253,7 +266,7 @@ function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $
 	if (count($msg) > 1) {
 		$bc = array();
 		$pv = array();
-		for ($i = 0; $i < count($msg); $i++) {
+		for($i = 0; $i < count($msg); $i++) {
 			$c_text = trim($msg[$i]);
 			
 			// scan message for @username
@@ -280,7 +293,7 @@ function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $
 	
 	if ($found_bc) {
 		$groups = array_unique($bc);
-		foreach ($groups as $key => $c_group_code) {
+		foreach ($groups as $key => $c_group_code ) {
 			$c_group_code = strtoupper($c_group_code);
 			$c_group_code = core_sanitize_alphanumeric($c_group_code);
 			$c_uid = user_mobile2uid($sms_sender);
@@ -332,7 +345,7 @@ function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $
 	
 	if ($found_pv) {
 		$users = array_unique($pv);
-		foreach ($users as $key => $c_username) {
+		foreach ($users as $key => $c_username ) {
 			$c_username = core_sanitize_username($c_username);
 			if ($c_uid = user_username2uid($c_username)) {
 				_log("pv u:" . $c_username . " uid:" . $c_uid . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept');
