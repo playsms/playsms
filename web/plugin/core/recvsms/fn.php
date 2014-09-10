@@ -406,17 +406,19 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 			if ($fwd_to_mobile = $user['fwd_to_mobile']) {
 				if ($mobile = $user['mobile']) {
 					$unicode = core_detect_unicode($message);
+					$nofooter = TRUE;
 					
-					// fixme pb
-					// $message = $sender . ' ' . $message;
+					// fixme anton
+					$c_message = $sender . ' ' . $message;
 					if ($sender_uid = user_mobile2uid($sms_sender)) {
 						if ($sender_username = user_uid2username($sender_uid)) {
-							$message = '@' . $sender_username . ' ' . $message;
+							$c_message = '@' . $sender_username . ' ' . $message;
 						}
 					}
+					$message = $c_message;
 					
 					logger_print("send to mobile:" . $mobile . " from:" . $sms_sender . " user:" . $target_user . " message:" . $message, 3, "recvsms_inbox_add");
-					list($ok, $to, $smslog_id, $queue) = sendsms($target_user, $mobile, $message, 'text', $unicode);
+					list($ok, $to, $smslog_id, $queue) = sendsms($target_user, $mobile, $message, 'text', $unicode, $nofooter);
 					if ($ok[0] == 1) {
 						logger_print("sent to mobile:" . $mobile . " from:" . $sms_sender . " user:" . $target_user, 2, "recvsms_inbox_add");
 					}
