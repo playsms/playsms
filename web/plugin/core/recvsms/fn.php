@@ -132,14 +132,15 @@ function recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver =
 			$ret_final['param']['sms_receiver'] = $ret['param']['sms_receiver'];
 			$ret_final['modified'] = TRUE;
 		}
-		if ($ret['cancel']) {
-			$ret_final['cancel'] = TRUE;
-		}
 		if ($ret['uid']) {
 			$ret_final['uid'] = $ret['uid'];
 		}
 		if ($ret['hooked']) {
 			$ret_final['hooked'] = $ret['hooked'];
+		}
+		if ($ret['cancel']) {
+			$ret_final['cancel'] = TRUE;
+			return $ret_final;
 		}
 	}
 	return $ret_final;
@@ -175,14 +176,15 @@ function recvsms_intercept_after($sms_datetime, $sms_sender, $message, $sms_rece
 			$ret_final['param']['uid'] = $ret['param']['uid'];
 			$ret_final['modified'] = TRUE;
 		}
-		if ($ret['cancel']) {
-			$ret_final['cancel'] = TRUE;
-		}
 		if ($ret['uid']) {
 			$ret_final['uid'] = $ret['uid'];
 		}
 		if ($ret['hooked']) {
 			$ret_final['hooked'] = $ret['hooked'];
+		}
+		if ($ret['cancel']) {
+			$ret_final['cancel'] = TRUE;
+			return $ret_final;
 		}
 	}
 	return $ret_final;
