@@ -41,6 +41,18 @@ switch (_OP_) {
 			_('yes') => 1,
 			_('no') => 0,
 		) , $main_config['enable_forgot']);
+
+		// disable login as subuser yes-no option
+		$option_disable_login_as = _options(array(
+			_('yes') => 1,
+			_('no') => 0,
+		) , $main_config['disable_login_as']);
+
+		// enhance privacy for subusers
+		$option_enhance_privacy_subuser = _options(array(
+			_('yes') => 1,
+			_('no') => 0,
+		) , $main_config['enhance_privacy_subuser']);
 		
 		// enable logo yes-no option
 		$option_enable_logo = _options(array(
@@ -125,6 +137,8 @@ switch (_OP_) {
 				'Always add plus sign' => _('Always add plus sign') ,
 				'Enable public registration' => _('Enable public registration') ,
 				'Enable forgot password' => _('Enable forgot password') ,
+				'Disable login as subuser' => _('Disable login as subuser') ,
+				'Enhance privacy for subusers' => _('Enhance privacy for subusers') ,
 				'Enable logo' => _('Enable logo') ,
 				'Logo URL' => _('Logo URL') ,
 				'Replace website title with logo' => _('Replace website title with logo') ,
@@ -159,6 +173,8 @@ switch (_OP_) {
 				'option_logo_replace_title' => $option_logo_replace_title,
 				'option_enable_register' => $option_enable_register,
 				'option_enable_forgot' => $option_enable_forgot,
+				'option_disable_login_as' => $option_disable_login_as,
+				'option_enhance_privacy_subuser' => $option_enhance_privacy_subuser,
 				'option_gateway_module' => $option_gateway_module,
 				'option_themes_module' => $option_themes_module,
 				'option_language_module' => $option_language_module,
@@ -234,6 +250,8 @@ switch (_OP_) {
 			'default_user_status' => $edit_default_user_status,
 			'enable_register' => (int)$post['edit_enable_register'],
 			'enable_forgot' => (int)$post['edit_enable_forgot'],
+			'disable_login_as' => (int)$post['edit_disable_login_as'],
+			'enhance_privacy_subuser' => (int)$post['edit_enhance_privacy_subuser'],
 			'enable_logo' => (int)$enable_logo,
 			'logo_url' => $logo_url,
 			'logo_replace_title' => (int)$logo_replace_title,
