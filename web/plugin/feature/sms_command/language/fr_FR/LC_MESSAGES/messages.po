@@ -16,82 +16,84 @@ msgid "Action"
 msgstr "Action"
 
 msgid "Add SMS command"
-msgstr "Ajouter une commande SMS"
+msgstr "Ajouter commande SMS"
 
 msgid "Are you sure you want to delete SMS command ?"
-msgstr "Voulez-vous supprimer la commande SMS ?"
+msgstr "Êtes-vous sûr de vouloir supprimer la commande SMS ?"
 
 msgid "Edit SMS command"
 msgstr "Éditer commande SMS"
 
 msgid "Exec"
-msgstr "Script exécuté"
+msgstr "Exécuté"
 
 msgid "Fail to add SMS command"
-msgstr "Echec ajout commande SMS"
+msgstr "Échec de l'ajout de la commande SMS"
 
 msgid "Fail to delete SMS command"
-msgstr "Echec suppression commande SMS"
+msgstr "Échec de la suppression de la commande SMS"
 
 msgid "Fail to save SMS command"
-msgstr "Echec sauvegarde commande SMS"
+msgstr "Échec de l'enregistrement de la commande SMS"
 
 msgid "Keyword"
 msgstr "Mot-clé"
 
 msgid "Make return as reply"
-msgstr "Activer le renvoi du résultat"
+msgstr "Envoyer le résultat de la commande comme réponse"
 
 msgid "Manage command"
-msgstr "Service commande"
+msgstr "Gérer commande shell"
 
 msgid "Pass these parameter to command exec field"
-msgstr "Passez ces paramètres au champs du script"
+msgstr "Passez ces paramètres dans le champ 'Commande à exécuter'"
 
 msgid "SMS command already exists, reserved or use by other feature"
-msgstr "Commane SMS existante, réservée ou utilisée par un autre module"
+msgstr "La commande SMS existe déjà, est réservée ou utilisée par une autre "
+"fonction"
 
 msgid "SMS command exec"
-msgstr "Script à exécuter"
+msgstr "Commande à exécuter"
 
 msgid "SMS command exec path"
-msgstr "Répertoire d'exécution des scripts"
+msgstr "Répertoire d'exécution de la commande"
 
 msgid "SMS command has been added"
-msgstr "Commande SMS ajoutée"
+msgstr "La commande SMS a été ajoutée"
 
 msgid "SMS command has been deleted"
-msgstr "Commande SMS supprimée"
+msgstr "La commande SMS a été supprimée"
 
 msgid "SMS command has been saved"
-msgstr "Commande SMS sauvegardée"
+msgstr "La commande SMS a été enregistrée"
 
 msgid "SMS command keyword"
-msgstr "Mot-clé commande SMS"
+msgstr "Mot-clé de la commande SMS"
 
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Enregistrer"
 
 msgid "User"
 msgstr "Utilisateur"
 
 msgid "You must fill all fields"
-msgstr "Vous devez remplir tous les champs"
+msgstr "Vous devez saisir tous les champs"
 
 msgid "keyword"
-msgstr "Mot-cle"
+msgstr "Mot-clé"
 
 msgid "will be replaced by SMS incoming date/time"
-msgstr "sera remplacé par la date/heure du SMS reçu"
+msgstr "sera remplacé par la date/heure d'arrivée du SMS"
 
 msgid "will be replaced by SMS raw message"
-msgstr "Sera remplacé par le message complet"
+msgstr "sera remplacé par le message brut"
 
 msgid "will be replaced by command keyword"
-msgstr "sera remplacé par le mot-clé du service"
+msgstr "sera remplacé par le mot-clé de la commande"
 
 msgid "will be replaced by command parameter passed to server from SMS"
-msgstr "sera remplacé par les paramètres additionnels du SMS passés au serveur"
+msgstr ""
+"sera remplacé par le paramètre de commande passé au SMS depuis le serveur"
 
 msgid "will be replaced by sender number"
-msgstr "sera remplacé par le numéro de l'émetteur"
+msgstr "sera remplacé par le numéro de l'expéditeur"

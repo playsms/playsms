@@ -14,28 +14,29 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Exemple: +0200 pour le fuseau horaire de Paris (heure d'été)"
 
 msgid "Fill to change the password"
-msgstr ""
+msgstr "Veuillez saisir pour changer le mot de passe"
 
 msgid "Gateway module configurations has been saved"
-msgstr "Configurations de la passerelle sauvergardées"
+msgstr "La configuration du module de passerelle a été enregistrée"
 
 msgid "Gateway name"
-msgstr "Nom passerelle"
+msgstr "Nom de la passerelle"
 
 msgid "Manage msgtoolbox"
 msgstr "Gérer msgtoolbox"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
+"Max. 16 caractères numériques ou 11 alphanumériques. vide pour désactiver"
 
 msgid "Module sender ID"
-msgstr "ID module émetteur"
+msgstr "Sender ID du module"
 
 msgid "Module timezone"
-msgstr "Zone de temps"
+msgstr "Fuseau horaire du module"
 
 msgid "No changes has been made"
 msgstr "Aucun changement apporté"
@@ -47,10 +48,10 @@ msgid "Route"
 msgstr "Route"
 
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Enregistrer"
 
 msgid "Username"
-msgstr "Not utilisateur"
+msgstr "Nom d'utilisateur"
 
 msgid "msgtoolbox URL"
-msgstr "URL msgtoolbox"
+msgstr "URL de msgtoolbox"

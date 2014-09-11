@@ -6,49 +6,49 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Email protocol"
-msgstr ""
+msgstr "Protocole email"
 
 msgid "Email to SMS configuration has been saved and enabled"
-msgstr ""
+msgstr "La configuration email vers SMS a été enregistrée et activée"
 
 msgid "Email to SMS configuration has been saved but disabled"
-msgstr ""
+msgstr "La configuration email vers SMS a été enregistrée mais désactivée"
 
 msgid "Enable email to SMS"
-msgstr ""
+msgstr "Activer email vers SMS"
 
 msgid "Fail to save email to SMS configuration"
-msgstr ""
+msgstr "Échec de l'enregistrement de la configuration email vers SMS"
 
 msgid "Fill the password field to change password"
-msgstr ""
+msgstr "Veuillez saisir le champ du mot de passe pour le changer"
 
 msgid "Mail server address"
-msgstr ""
+msgstr "Adresse du serveur email"
 
 msgid "Mail server port"
-msgstr ""
+msgstr "Port du serveur email"
 
 msgid "Mailbox password"
-msgstr ""
+msgstr "Mot de passe de la boîte aux lettres"
 
 msgid "Mailbox username"
-msgstr ""
+msgstr "Nom d'utilisateur de la boîte aux lettres"
 
 msgid "Manage email to SMS"
-msgstr ""
+msgstr "Gérer email vers SMS"
 
 msgid "No validate cert option"
-msgstr ""
+msgstr "Option ne pas valider le cert"
 
 msgid "PIN is empty"
-msgstr ""
+msgstr "Le PIN est vide"
 
 msgid "Use SSL"
-msgstr ""
+msgstr "Utiliser SSL"
 
 msgid "no"
-msgstr ""
+msgstr "non"
 
 msgid "yes"
-msgstr ""
+msgstr "oui"

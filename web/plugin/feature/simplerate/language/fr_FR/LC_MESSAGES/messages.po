@@ -13,25 +13,25 @@ msgid "Add rate"
 msgstr "Ajouter un tarif"
 
 msgid "Are you sure you want to delete rate ?"
-msgstr "Voulez-vous supprimer cette règle ?"
+msgstr "Êtes-vous sûr de vouloir supprimer ce tarif ?"
 
 msgid "Destination"
 msgstr "Destination"
 
 msgid "Edit rate"
-msgstr "Editer tarif"
+msgstr "Éditer tarif"
 
 msgid "Fail to delete rate"
-msgstr "Echec suppression tarif"
+msgstr "Échec de la suppression du tarif"
 
 msgid "Fail to save rate"
-msgstr "Echec sauvegarde tarif"
+msgstr "Échec de l'enregistrement du tarif"
 
 msgid "Manage SMS rate"
 msgstr "Gérer tarif SMS"
 
 msgid "No changes made!"
-msgstr "Aucune modification éffectuée"
+msgstr "Aucune modification apportée!"
 
 msgid "Prefix"
 msgstr "Préfixe"
@@ -40,22 +40,22 @@ msgid "Rate"
 msgstr "Tarif"
 
 msgid "Rate has been added"
-msgstr "Tarif ajouté"
+msgstr "Le tarif a été ajouté"
 
 msgid "Rate has been deleted"
-msgstr "Tarif supprimé"
+msgstr "Le tarif a été supprimé"
 
 msgid "Rate has been saved"
-msgstr "Tarif sauvegardé"
+msgstr "Le tarif a été enregistré"
 
 msgid "Rate is already exists"
-msgstr "Cette règle existe déjà"
+msgstr "Ce tarif existe déjà"
 
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Enregistrer"
 
 msgid "You must fill all fields"
-msgstr "Vous devez remplir tous les champs"
+msgstr "Vous devez saisir tous les champs"
 
 msgid "destination"
 msgstr "destination"

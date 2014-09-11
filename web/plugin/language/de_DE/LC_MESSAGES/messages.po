@@ -167,9 +167,6 @@ msgstr "Stadt"
 msgid "Comma separated"
 msgstr "Komma-separiert"
 
-msgid "Comma seperated"
-msgstr "Komma-separiert"
-
 msgid "Content"
 msgstr "Inhalt"
 

@@ -6,16 +6,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Home"
-msgstr ""
+msgstr "Accueil"
 
 msgid "Logged in as"
-msgstr ""
+msgstr "Connecté en tant que"
 
 msgid "Logout"
-msgstr ""
+msgstr "Déconnexion"
 
 msgid "Your credit"
-msgstr ""
+msgstr "Votre crédit"
 
 msgid "return"
-msgstr ""
+msgstr "retour"

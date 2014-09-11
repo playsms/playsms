@@ -15,7 +15,7 @@ msgid "Manage template"
 msgstr "Manage template"
 
 msgid "No changes has been made"
-msgstr ""
+msgstr "No changes have been made"
 
 msgid "No trailing slash"
 msgstr ""

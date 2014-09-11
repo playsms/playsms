@@ -9,7 +9,7 @@ msgid "Author"
 msgstr "Auteur"
 
 msgid "Core"
-msgstr ""
+msgstr "Core"
 
 msgid "Date"
 msgstr "Date"
@@ -18,7 +18,7 @@ msgid "Description"
 msgstr "Description"
 
 msgid "Features"
-msgstr "Services"
+msgstr "Fonctions"
 
 msgid "Gateways"
 msgstr "Passerelles"
@@ -26,9 +26,8 @@ msgstr "Passerelles"
 msgid "Languages"
 msgstr "Langues"
 
-#, fuzzy
 msgid "Manage plugin"
-msgstr "Gestion des Plugins"
+msgstr "Gérer plugin"
 
 msgid "Name"
 msgstr "Nom"
@@ -37,7 +36,7 @@ msgid "Status"
 msgstr "Statut"
 
 msgid "Themes"
-msgstr "Thmes"
+msgstr "Thèmes"
 
 msgid "Version"
 msgstr "Version"

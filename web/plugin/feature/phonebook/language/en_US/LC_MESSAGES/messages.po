@@ -27,7 +27,7 @@ msgid "Contact has been edited"
 msgstr ""
 
 msgid "Contacts has been imported"
-msgstr ""
+msgstr "Contacts have been imported"
 
 msgid "Delete"
 msgstr ""
@@ -57,7 +57,7 @@ msgid "Group code has been added"
 msgstr ""
 
 msgid "Group code is already exists"
-msgstr ""
+msgstr "Group code already exists"
 
 msgid "Group code may be used to broadcast SMS to this group"
 msgstr ""
@@ -97,7 +97,7 @@ msgid "Name"
 msgstr ""
 
 msgid "No changes has been made"
-msgstr ""
+msgstr "No changes have been made"
 
 msgid "Phonebook"
 msgstr ""

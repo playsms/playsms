@@ -157,9 +157,6 @@ msgstr ""
 msgid "Comma separated"
 msgstr ""
 
-msgid "Comma seperated"
-msgstr ""
-
 msgid "Content"
 msgstr ""
 
@@ -880,7 +877,7 @@ msgid "User configuration has been saved and webservices token updated"
 msgstr ""
 
 msgid "User does not exists"
-msgstr ""
+msgstr "User does not exist"
 
 msgid "User has been added"
 msgstr ""
@@ -904,7 +901,7 @@ msgid "User has been unbanned"
 msgstr ""
 
 msgid "User is already exists"
-msgstr ""
+msgstr "User already exists"
 
 msgid "User is already on banned users list"
 msgstr ""
@@ -922,10 +919,10 @@ msgid "User preference"
 msgstr ""
 
 msgid "User with this email is already exists"
-msgstr ""
+msgstr "User with this email already exists"
 
 msgid "User with this mobile is already exists"
-msgstr ""
+msgstr "User with this mobile already exists"
 
 msgid "Username"
 msgstr ""

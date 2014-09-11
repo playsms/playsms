@@ -33,7 +33,7 @@ msgid "Module timezone"
 msgstr ""
 
 msgid "No changes has been made"
-msgstr ""
+msgstr "No changes have been made"
 
 msgid "Save"
 msgstr ""

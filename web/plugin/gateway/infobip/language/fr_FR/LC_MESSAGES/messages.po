@@ -10,70 +10,68 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Additional URL parameter"
-msgstr "Autres paramètres URL"
+msgstr "Paramètre additionnel d'URL"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Ex: +0700 pour Jakarta/Bangkok"
+msgstr "Exemple: +0200 pour le fuseau horaire de Paris (heure d'été)"
 
 msgid "Fill to change the password"
-msgstr "Remplir pour changer le mot de passe"
+msgstr "Veuillez saisir pour changer le mot de passe"
 
 msgid "Gateway module configurations has been saved"
-msgstr "Configurations passerelle sauvegardées"
+msgstr "La configuration du module de passerelle a été enregistrée"
 
 msgid "Gateway name"
-msgstr "Nom passerelle"
+msgstr "Nom de la passerelle"
 
 msgid "Infobip API URL"
-msgstr "URL API infobip"
+msgstr "URL de l'API infobip"
 
 msgid "Infobip is a bulk SMS provider"
-msgstr "Infobip est un fournisseur Bulk SMS"
+msgstr "Infobip est un fournisseur de SMS en gros"
 
 msgid "Infobip will push DLR and incoming SMS to above URL"
-msgstr ""
+msgstr "Infobip va faire un push du DLR et du SMS entrant vers l'URL ci-dessus"
 
 msgid "Manage infobip"
 msgstr "Gérer infobip"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
-"Max : 16 caractères numériques ou 11 alphanumériques. vide pour désactiver"
+"Max. 16 caractères numériques ou 11 alphanumériques. vide pour désactiver"
 
 msgid "Module sender ID"
-msgstr "ID module émetteur"
+msgstr "Sender ID du module"
 
 msgid "Module timezone"
-msgstr "Zone de temps"
+msgstr "Fuseau horaire du module"
 
 msgid "No changes has been made"
-msgstr "Aucun changement effectué"
+msgstr "Aucun changement apporté"
 
 msgid "No trailing slash"
 msgstr "Pas de slash final"
 
-#, fuzzy
 msgid "Notes"
-msgstr "Note"
+msgstr "Remarques"
 
 msgid "Password"
 msgstr "Mot de passe"
 
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Enregistrer"
 
 msgid "Username"
-msgstr "Nom utilisateur"
+msgstr "Nom d'utilisateur"
 
-#, fuzzy
 msgid "Your DLR URL is"
-msgstr "Votre URL callback est"
+msgstr "Votre URL de DLR est"
 
 msgid "Your callback URL is"
-msgstr "Votre URL callback est"
+msgstr "Votre URL de callback est"
 
 msgid "Your callback URL should be accessible from Infobip"
-msgstr ""
+msgstr "Votre URL de callback doit être accessible par Infobip"
 
 msgid "create an account to send SMS"
-msgstr ""
+msgstr "créer un compte pour envoyer des SMS"

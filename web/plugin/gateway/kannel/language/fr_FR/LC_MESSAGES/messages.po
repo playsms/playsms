@@ -7,117 +7,113 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Additional URL parameter"
-msgstr "Autres paramètres URL"
+msgstr "Paramètre additionnel d'URL"
 
 msgid "Bearerbox hostname or IP"
-msgstr "Hostname ou IP du Bearerbox"
+msgstr "Hostname ou IP du bearerbox"
 
-#, fuzzy
 msgid "Changes has been made"
-msgstr "Aucune modification éffectuée"
+msgstr "Modifications effectuées"
 
 msgid "Delivered to SMSC"
-msgstr "Délivré au SMSC"
+msgstr "Remis au SMSC"
 
 msgid "Delivered to phone"
-msgstr "Délivré au téléphone"
+msgstr "Remis au téléphone"
 
 msgid "Delivery Report"
-msgstr ""
+msgstr "Rapport de livraison"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Exemple: +0200 pour le fuseau horaire de Paris (heure d'été)"
 
 msgid "Fill to change the password"
-msgstr ""
+msgstr "Veuillez saisir pour changer le mot de passe"
 
 msgid "Gateway name"
-msgstr "Nom passerelle"
+msgstr "Nom de la passerelle"
 
-#, fuzzy
 msgid "HTTP Kannel admin host"
-msgstr "Kannel port admin"
+msgstr "Host HTTP de l'admin Kannel"
 
-#, fuzzy
 msgid "HTTP Kannel admin password"
-msgstr "Kannel mot de passe admin"
+msgstr "Mot de passe HTTP de l'admin Kannel"
 
-#, fuzzy
 msgid "HTTP Kannel admin port"
-msgstr "Kannel port admin"
+msgstr "Port HTTP de l'admin Kannel"
 
 msgid "Incoming SMS time is in local time"
-msgstr ""
+msgstr "L'heure des SMS entrants est en heure locale"
 
-#, fuzzy
 msgid "Kannel admin host"
-msgstr "Kannel port admin"
+msgstr "Host de l'admin Kannel"
 
 msgid "Kannel admin password"
-msgstr "Kannel mot de passe admin"
+msgstr "Mot de passe de l'admin Kannel"
 
 msgid "Kannel admin port"
-msgstr "Kannel port admin"
+msgstr "Port de l'admin Kannel"
 
 msgid "Kannel specific"
-msgstr ""
+msgstr "Spécifique à Kannel"
 
 msgid "Kannel status"
-msgstr "Kannel port admin"
+msgstr "Statut de Kannel"
 
 msgid "Manage kannel"
 msgstr "Gérer kannel"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
+"Max. 16 caractères numériques ou 11 alphanumériques. vide pour désactiver"
 
 msgid "Module sender ID"
-msgstr "ID module émetteur"
+msgstr "Sender ID du module"
 
 msgid "Module timezone"
-msgstr "Zone de temps"
+msgstr "Fuseau horaire du module"
 
 msgid "No"
-msgstr ""
+msgstr "Non"
 
 msgid "Non-Delivered to SMSC"
-msgstr "Non délivré au SMSC"
+msgstr "Non remis au SMSC"
 
 msgid "Non-Delivered to phone"
-msgstr "Non délivré au téléphone"
+msgstr "Non remis au téléphone"
 
 msgid "Password"
 msgstr "Mot de passe"
 
 msgid "Queued on SMSC"
-msgstr "Dans la queue du SMSC"
+msgstr "Dans la file d'attente du SMSC"
 
 msgid "Restart Kannel"
 msgstr "Redémarrer Kannel"
 
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Enregistrer"
 
 msgid "Select no if the incoming SMS time is in UTC"
-msgstr ""
+msgstr "Sélectionnez non si l'heure du SMS entrant est en UTC"
 
 msgid "Send SMS hostname or IP"
 msgstr "Hostname ou IP du Send SMS"
 
 msgid "Send SMS port"
-msgstr "Port d'envoi des SMS"
+msgstr "Port du Send SMS"
 
 msgid "Status"
-msgstr ""
+msgstr "Statut"
 
 msgid "URL to playSMS, empty it to set it to base URL"
-msgstr ""
+msgstr "URL vers playSMS, ou vide pour réutiliser l'URL de base"
 
 msgid "Username"
-msgstr "Nom utilisateur"
+msgstr "Nom d'utilisateur"
 
 msgid "Yes"
-msgstr ""
+msgstr "Oui"
 
 msgid "playSMS web URL"
-msgstr "URL de playSMS"
+msgstr "URL web de playSMS"

@@ -133,7 +133,7 @@ msgid "SMS poll with all its messages has been deleted"
 msgstr ""
 
 msgid "SMS poll with has been saved"
-msgstr ""
+msgstr "SMS poll has been saved"
 
 msgid "Save"
 msgstr ""
