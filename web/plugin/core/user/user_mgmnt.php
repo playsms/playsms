@@ -18,14 +18,14 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-if (! auth_isadmin()) {
+if (!auth_isadmin()) {
 	auth_block();
 }
 
 $view = ($_REQUEST['view'] ? $_REQUEST['view'] : 'admin');
 
 switch (_OP_) {
-	case "user_list":
+	case "user_list" :
 		if ($view == 'admin') {
 			$conditions = array(
 				'status' => 2 
@@ -99,7 +99,7 @@ switch (_OP_) {
 			</tr></thead>
 			<tbody>";
 		$j = $nav['top'];
-		for ($i = 0; $i < count($list); $i++) {
+		for($i = 0; $i < count($list); $i++) {
 			
 			$action = "";
 			
@@ -159,7 +159,7 @@ switch (_OP_) {
 		_p($content);
 		break;
 	
-	case "user_add":
+	case "user_add" :
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -168,7 +168,7 @@ switch (_OP_) {
 		
 		// get language options
 		$lang_list = '';
-		for ($i = 0; $i < count($core_config['languagelist']); $i++) {
+		for($i = 0; $i < count($core_config['languagelist']); $i++) {
 			$language = $core_config['languagelist'][$i];
 			$c_language_title = $plugin_config[$language]['title'];
 			if ($c_language_title) {
@@ -176,7 +176,7 @@ switch (_OP_) {
 			}
 		}
 		if (is_array($lang_list)) {
-			foreach ($lang_list as $key => $val) {
+			foreach ($lang_list as $key => $val ) {
 				if ($val == core_lang_get()) $selected = "selected";
 				$option_language_module .= "<option value=\"" . $val . "\" $selected>" . $key . "</option>";
 				$selected = "";
@@ -188,7 +188,7 @@ switch (_OP_) {
 		
 		// get admins
 		$list = user_getallwithstatus(2);
-		foreach ($list as $parent) {
+		foreach ($list as $parent ) {
 			if ($parent['uid'] == $user_edited['parent_uid']) {
 				$selected = 'selected';
 			}
@@ -198,7 +198,7 @@ switch (_OP_) {
 		
 		// get users
 		$list = user_getallwithstatus(3);
-		foreach ($list as $parent) {
+		foreach ($list as $parent ) {
 			if ($parent['uid'] == $user_edited['parent_uid']) {
 				$selected = 'selected';
 			}
@@ -266,7 +266,7 @@ switch (_OP_) {
 		_p($content);
 		break;
 	
-	case "user_add_yes":
+	case "user_add_yes" :
 		$add['email'] = $_POST['add_email'];
 		$add['status'] = $_POST['add_status'];
 		$add['username'] = $_POST['add_username'];
@@ -300,7 +300,7 @@ switch (_OP_) {
 		exit();
 		break;
 	
-	case "user_del":
+	case "user_del" :
 		$up['username'] = $_REQUEST['uname'];
 		$del_uid = user_username2uid($up['username']);
 		
@@ -317,7 +317,7 @@ switch (_OP_) {
 		exit();
 		break;
 	
-	case "user_unban":
+	case "user_unban" :
 		$uid = user_username2uid($_REQUEST['uname']);
 		if (user_banned_get($uid)) {
 			if (user_banned_remove($uid)) {
@@ -332,7 +332,7 @@ switch (_OP_) {
 		exit();
 		break;
 	
-	case "user_ban":
+	case "user_ban" :
 		$uid = user_username2uid($_REQUEST['uname']);
 		if ($uid && ($uid == 1 || $uid == $user_config['uid'])) {
 			$_SESSION['error_string'] = _('User admin or currently logged in administrator cannot be banned');
@@ -349,7 +349,7 @@ switch (_OP_) {
 		exit();
 		break;
 	
-	case "login_as":
+	case "login_as" :
 		user_session_remove($_SESSION['uid'], $_SESSION['sid']);
 		$uid = user_username2uid($_REQUEST['uname']);
 		auth_login_as($uid);

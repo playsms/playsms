@@ -18,7 +18,7 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-if (! auth_isvalid()) {
+if (!auth_isvalid()) {
 	auth_block();
 }
 
@@ -30,7 +30,7 @@ if ($_REQUEST['uname']) {
 }
 
 switch (_OP_) {
-	case "subuser_list":
+	case "subuser_list" :
 		$search_var = array(
 			_('Registered') => 'register_datetime',
 			_('Username') => 'username',
@@ -77,7 +77,7 @@ switch (_OP_) {
 			</tr></thead>
 			<tbody>";
 		$j = $nav['top'];
-		for ($i = 0; $i < count($list); $i++) {
+		for($i = 0; $i < count($list); $i++) {
 			
 			$action = "";
 			
@@ -128,7 +128,7 @@ switch (_OP_) {
 		_p($content);
 		break;
 	
-	case "subuser_add":
+	case "subuser_add" :
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -137,7 +137,7 @@ switch (_OP_) {
 		
 		// get language options
 		$lang_list = '';
-		for ($i = 0; $i < count($core_config['languagelist']); $i++) {
+		for($i = 0; $i < count($core_config['languagelist']); $i++) {
 			$language = $core_config['languagelist'][$i];
 			$c_language_title = $plugin_config[$language]['title'];
 			if ($c_language_title) {
@@ -145,7 +145,7 @@ switch (_OP_) {
 			}
 		}
 		if (is_array($lang_list)) {
-			foreach ($lang_list as $key => $val) {
+			foreach ($lang_list as $key => $val ) {
 				if ($val == core_lang_get()) $selected = "selected";
 				$option_language_module .= "<option value=\"" . $val . "\" $selected>" . $key . "</option>";
 				$selected = "";
@@ -191,7 +191,7 @@ switch (_OP_) {
 		_p($content);
 		break;
 	
-	case "subuser_add_yes":
+	case "subuser_add_yes" :
 		$add['email'] = $_POST['add_email'];
 		$add['username'] = $_POST['add_username'];
 		$add['password'] = $_POST['add_password'];
@@ -221,7 +221,7 @@ switch (_OP_) {
 		exit();
 		break;
 	
-	case "subuser_del":
+	case "subuser_del" :
 		$up['username'] = $subuser_edited['username'];
 		$del_uid = user_username2uid($up['username']);
 		$ret = user_remove($del_uid);
@@ -230,7 +230,7 @@ switch (_OP_) {
 		exit();
 		break;
 	
-	case "subuser_unban":
+	case "subuser_unban" :
 		$uid = $subuser_edited['uid'];
 		if ($uid && ($uid == 1 || $uid == $user_config['uid'])) {
 			$_SESSION['error_string'] = _('User admin or currently logged in administrator cannot be unbanned');
@@ -247,7 +247,7 @@ switch (_OP_) {
 		exit();
 		break;
 	
-	case "subuser_ban":
+	case "subuser_ban" :
 		$uid = $subuser_edited['uid'];
 		if ($uid && ($uid == 1 || $uid == $user_config['uid'])) {
 			$_SESSION['error_string'] = _('User admin or currently logged in administrator cannot be unbanned');
@@ -264,7 +264,7 @@ switch (_OP_) {
 		exit();
 		break;
 	
-	case "login_as":
+	case "login_as" :
 		user_session_remove($_SESSION['uid'], $_SESSION['sid']);
 		$uid = user_username2uid($_REQUEST['uname']);
 		auth_login_as($uid);

@@ -36,65 +36,65 @@ $MyData->setAbscissa("Labels");
 $myPicture = new pImage(400, 200, $MyData, TRUE);
 /* Set the default font properties */
 $myPicture->setFontProperties(array(
-		"FontName" => $c_path . "/lib/pChart/fonts/pf_arma_five.ttf",
-		"FontSize" => 8,
-		"R" => 80,
-		"G" => 80,
-		"B" => 80 
+	"FontName" => $c_path . "/lib/pChart/fonts/pf_arma_five.ttf",
+	"FontSize" => 8,
+	"R" => 80,
+	"G" => 80,
+	"B" => 80 
 ));
 /* Create the pPie object */
 $PieChart = new pPie($myPicture, $MyData);
 /* Define the slice color */
 $PieChart->setSliceColor(0, array(
-		"R" => 97,
-		"G" => 77,
-		"B" => 63 
+	"R" => 97,
+	"G" => 77,
+	"B" => 63 
 ));
 $PieChart->setSliceColor(2, array(
-		"R" => 97,
-		"G" => 113,
-		"B" => 63 
+	"R" => 97,
+	"G" => 113,
+	"B" => 63 
 ));
 /* Enable shadow computing */
 $myPicture->setShadow(TRUE, array(
-		"X" => 3,
-		"Y" => 3,
-		"R" => 0,
-		"G" => 0,
-		"B" => 0,
-		"Alpha" => 10 
+	"X" => 3,
+	"Y" => 3,
+	"R" => 0,
+	"G" => 0,
+	"B" => 0,
+	"Alpha" => 10 
 ));
 /* Draw a splitted pie chart */
 $PieChart->draw3DPie(150, 120, array(
-		"WriteValues" => TRUE,
-		"DataGapAngle" => 4,
-		"DataGapRadius" => 5,
-		"Border" => TRUE 
+	"WriteValues" => TRUE,
+	"DataGapAngle" => 4,
+	"DataGapRadius" => 5,
+	"Border" => TRUE 
 ));
 /* Write the legend */
 $myPicture->setFontProperties(array(
-		"FontName" => $c_path . "/lib/pChart/fonts/pf_arma_five.ttf",
-		"FontSize" => 8 
+	"FontName" => $c_path . "/lib/pChart/fonts/pf_arma_five.ttf",
+	"FontSize" => 8 
 ));
 $myPicture->setShadow(TRUE, array(
-		"X" => 1,
-		"Y" => 1,
-		"R" => 0,
-		"G" => 0,
-		"B" => 0,
-		"Alpha" => 20 
+	"X" => 1,
+	"Y" => 1,
+	"R" => 0,
+	"G" => 0,
+	"B" => 0,
+	"Alpha" => 20 
 ));
 /* Write the legend box */
 $myPicture->setFontProperties(array(
-		"FontName" => $c_path . "/lib/pChart/fonts/calibri.ttf",
-		"FontSize" => 10,
-		"R" => 100,
-		"G" => 100,
-		"B" => 100 
+	"FontName" => $c_path . "/lib/pChart/fonts/calibri.ttf",
+	"FontSize" => 10,
+	"R" => 100,
+	"G" => 100,
+	"B" => 100 
 ));
 $PieChart->drawPieLegend(3, 8, array(
-		"Style" => LEGEND_NOBORDER,
-		"Mode" => LEGEND_HORIZONTAL 
+	"Style" => LEGEND_NOBORDER,
+	"Mode" => LEGEND_HORIZONTAL 
 ));
 
 /* Render the picture (choose the best way) */

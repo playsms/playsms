@@ -89,11 +89,11 @@ function sms_poll_handle($list, $sms_datetime, $sms_sender, $poll_keyword, $poll
 		
 		$db_table = _DB_PREF_ . "_featurePoll_log";
 		$items = array(
-				'poll_id' => $poll_id,
-				'choice_id' => $choice_id,
-				'poll_sender' => $sms_sender,
-				'in_datetime' => core_get_datetime(),
-				'status' => 0 
+			'poll_id' => $poll_id,
+			'choice_id' => $choice_id,
+			'poll_sender' => $sms_sender,
+			'in_datetime' => core_get_datetime(),
+			'status' => 0 
 		);
 		// status 0 = failed/unknown
 		// status 1 = valid
@@ -108,9 +108,9 @@ function sms_poll_handle($list, $sms_datetime, $sms_sender, $poll_keyword, $poll
 			if ($continue) {
 				// send message valid
 				if (dba_update($db_table, array(
-						'status' => 1 
+					'status' => 1 
 				), array(
-						'log_id' => $log_id 
+					'log_id' => $log_id 
 				))) {
 					logger_print('vote s:' . $sms_sender . ' k:' . $poll_keyword . ' c:' . $choice_keyword . ' log_id:' . $log_id . ' valid vote', 2, 'sms_poll');
 					if (($poll_message_valid = trim($list['poll_message_valid'])) && ($c_username = user_uid2username($list['uid']))) {
@@ -122,9 +122,9 @@ function sms_poll_handle($list, $sms_datetime, $sms_sender, $poll_keyword, $poll
 			} else {
 				// send message out of vote option
 				if (dba_update($db_table, array(
-						'status' => 2 
+					'status' => 2 
 				), array(
-						'log_id' => $log_id 
+					'log_id' => $log_id 
 				))) {
 					logger_print('vote s:' . $sms_sender . ' k:' . $poll_keyword . ' c:' . $choice_keyword . ' log_id:' . $log_id . ' out of vote option', 2, 'sms_poll');
 					if (($poll_message_option = trim($list['poll_message_option'])) && ($c_username = user_uid2username($list['uid']))) {
@@ -138,9 +138,9 @@ function sms_poll_handle($list, $sms_datetime, $sms_sender, $poll_keyword, $poll
 		} else {
 			// send message invalid
 			if (dba_update($db_table, array(
-					'status' => 3 
+				'status' => 3 
 			), array(
-					'log_id' => $log_id 
+				'log_id' => $log_id 
 			))) {
 				logger_print('vote s:' . $sms_sender . ' k:' . $poll_keyword . ' c:' . $choice_keyword . ' log_id:' . $log_id . ' invalid vote', 2, 'sms_poll');
 				if (($poll_message_invalid = trim($list['poll_message_invalid'])) && ($c_username = user_uid2username($list['uid']))) {
@@ -232,12 +232,12 @@ function sms_poll_check_option_vote($list, $sms_sender, $poll_keyword, $choice_k
 
 function sms_poll_statistics($poll_id) {
 	$ret = array(
-			'once' => 0,
-			'multi' => 0,
-			'sender' => 0,
-			'valid' => 0,
-			'invalid' => 0,
-			'all' => 0 
+		'once' => 0,
+		'multi' => 0,
+		'sender' => 0,
+		'valid' => 0,
+		'invalid' => 0,
+		'all' => 0 
 	);
 	
 	$db_table = _DB_PREF_ . '_featurePoll_log';
@@ -286,7 +286,7 @@ function sms_poll_statistics($poll_id) {
 
 function sms_poll_output_serialize($poll_id, $poll_keyword) {
 	$list2 = dba_search(_DB_PREF_ . '_featurePoll_choice', '*', array(
-			'poll_id' => $poll_id 
+		'poll_id' => $poll_id 
 	));
 	$poll_choices = array();
 	for($i = 0; $i < count($list2); $i++) {
@@ -299,9 +299,9 @@ function sms_poll_output_serialize($poll_id, $poll_keyword) {
 	$votes = 0;
 	foreach ($choice_ids as $key => $val ) {
 		$c_num = dba_count(_DB_PREF_ . '_featurePoll_log', array(
-				'poll_id' => $poll_id,
-				'choice_id' => $val,
-				'status' => 1 
+			'poll_id' => $poll_id,
+			'choice_id' => $val,
+			'status' => 1 
 		));
 		$poll_results[$key] = ((int) $c_num ? $c_num : 0);
 		$votes += $c_num;
@@ -376,7 +376,7 @@ function sms_poll_hook_webservices_output($operation, $requests) {
 	$ret = '';
 	if ($poll_keyword = $requests['keyword']) {
 		$list = dba_search(_DB_PREF_ . '_featurePoll', 'poll_id,poll_access_code', array(
-				'poll_keyword' => $poll_keyword 
+			'poll_keyword' => $poll_keyword 
 		));
 		$poll_id = $list[0]['poll_id'];
 		$poll_access_code = $list[0]['poll_access_code'];
@@ -414,50 +414,50 @@ function sms_poll_export_csv($poll_id, $poll_keyword) {
 	
 	// header
 	$items = array(
-			array(
-					_('SMS poll keyword'),
-					$poll_keyword 
-			)
+		array(
+			_('SMS poll keyword'),
+			$poll_keyword 
+		) 
 	);
 	$ret .= core_csv_format($items);
 	unset($items);
 	$ret .= "\n";
-
+	
 	// statistics
-	$stat = sms_poll_statistics($poll_id);	
+	$stat = sms_poll_statistics($poll_id);
 	$items = array(
-			array(
-					_('Senders sent once'),
-					$stat['once'] 
-			),
-			array(
-					_('Senders sent multiple votes'),
-					$stat['multi'] 
-			),
-			array(
-					_('Grand total senders'),
-					$stat['sender'] 
-			),
-			array(
-					_('Total one time vote SMS'),
-					$stat['once_sms'] 
-			),
-			array(
-					_('Total multiple votes SMS'),
-					$stat['multi_sms'] 
-			),
-			array(
-					_('Total valid SMS'),
-					$stat['valid'] 
-			),
-			array(
-					_('Total invalid SMS'),
-					$stat['invalid'] 
-			),
-			array(
-					_('Grand total SMS'),
-					$stat['all'] 
-			) 
+		array(
+			_('Senders sent once'),
+			$stat['once'] 
+		),
+		array(
+			_('Senders sent multiple votes'),
+			$stat['multi'] 
+		),
+		array(
+			_('Grand total senders'),
+			$stat['sender'] 
+		),
+		array(
+			_('Total one time vote SMS'),
+			$stat['once_sms'] 
+		),
+		array(
+			_('Total multiple votes SMS'),
+			$stat['multi_sms'] 
+		),
+		array(
+			_('Total valid SMS'),
+			$stat['valid'] 
+		),
+		array(
+			_('Total invalid SMS'),
+			$stat['invalid'] 
+		),
+		array(
+			_('Grand total SMS'),
+			$stat['all'] 
+		) 
 	);
 	$ret .= core_csv_format($items);
 	unset($items);
@@ -466,16 +466,16 @@ function sms_poll_export_csv($poll_id, $poll_keyword) {
 	// choices
 	$data = unserialize(sms_poll_output_serialize($poll_id, $poll_keyword));
 	$items[0] = array(
-			_('Choice keyword'),
-			_('Description'),
-			_('Number of votes') 
+		_('Choice keyword'),
+		_('Description'),
+		_('Number of votes') 
 	);
 	$i = 1;
 	foreach ($data['choices'] as $key => $val ) {
 		$items[$i] = array(
-				$key,
-				$val,
-				$data['results'][$key] 
+			$key,
+			$val,
+			$data['results'][$key] 
 		);
 		$i++;
 	}
