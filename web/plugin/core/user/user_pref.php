@@ -132,11 +132,11 @@ switch (_OP_) {
 		}
 
 		// enhance privacy for subusers
-		$show_enhance_privacy = TRUE;
-		if(!auth_isadmin()){
-			$data = registry_search(1, 'core', 'main_config');
-			$main_config = $data['core']['main_config'];
-			$show_enhance_privacy = $main_config['enhance_privacy_subuser'];
+		$enhance_privacy = FALSE;
+		$data = registry_search(1, 'core', 'main_config');
+		$main_config = $data['core']['main_config'];
+		if(!auth_isadmin() && !$main_config['enhance_privacy_subuser']){
+			$enhance_privacy = TRUE;
 		}
 		
 		// get country option
@@ -182,7 +182,7 @@ switch (_OP_) {
 				'Re-type password' => _('Re-type password'),
 				'Personal information' => _('Personal information'),
 				'Name' => _mandatory(_('Name')),
-				'Email' => _mandatory(_('Email')),
+				'Email' => _('Email'),
 				'Mobile' => _('Mobile'),
 				'Address' => _('Address'),
 				'City' => _('City'),
@@ -215,7 +215,7 @@ switch (_OP_) {
 				'edit_status' => $allow_edit_status,
 				'edit_parent' => $allow_edit_parent,
 				'edit_status_hint' => $show_status_hint,
-				'enhance_privacy' => $show_enhance_privacy
+				'enhance_privacy' => $enhance_privacy
 			) 
 		);
 		_p(tpl_apply($tpl));
