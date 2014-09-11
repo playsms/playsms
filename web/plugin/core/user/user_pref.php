@@ -130,6 +130,14 @@ switch (_OP_) {
 			}
 			$select_parents = '<select name="up_parent_uid">' . $option_parents . '</select>';
 		}
+
+		// enhance privacy for subusers
+		$show_enhance_privacy = TRUE;
+		if(!auth_isadmin()){
+			$data = registry_search(1, 'core', 'main_config');
+			$main_config = $data['core']['main_config'];
+			$show_enhance_privacy = $main_config['enhance_privacy_subuser'];
+		}
 		
 		// get country option
 		$option_country = "<option value=\"0\">--" . _('Please select') . "--</option>\n";
@@ -206,7 +214,8 @@ switch (_OP_) {
 			'ifs' => array(
 				'edit_status' => $allow_edit_status,
 				'edit_parent' => $allow_edit_parent,
-				'edit_status_hint' => $show_status_hint 
+				'edit_status_hint' => $show_status_hint,
+				'enhance_privacy' => $show_enhance_privacy
 			) 
 		);
 		_p(tpl_apply($tpl));

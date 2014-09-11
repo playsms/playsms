@@ -83,7 +83,11 @@ switch (_OP_) {
 			
 			// login as
 			if ($list[$i]['uid'] != $user_config['uid']) {
-				$action = "<a href=\"" . _u('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=login_as&uname=' . $list[$i]['username']) . "\">" . $icon_config['login_as'] . "</a>";
+				$data = registry_search(1, 'core', 'main_config');
+				$main_config = $data['core']['main_config'];
+				if(!$main_config['disable_login_as'] || auth_isadmin()){
+					$action = "<a href=\"" . _u('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=login_as&uname=' . $list[$i]['username']) . "\">" . $icon_config['login_as'] . "</a>";
+				}
 			}
 			
 			// subuser preferences
