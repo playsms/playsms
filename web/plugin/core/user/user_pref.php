@@ -18,7 +18,7 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-if (! auth_isvalid()) {
+if (!auth_isvalid()) {
 	auth_block();
 }
 
@@ -26,7 +26,7 @@ $view = $_REQUEST['view'];
 
 $uname = $_REQUEST['uname'];
 
-if ((! $uname) || ($uname && $uname == $user_config['username'])) {
+if ((!$uname) || ($uname && $uname == $user_config['username'])) {
 	$user_edited = $user_config;
 	$c_username = $user_config['username'];
 } else if (auth_isadmin()) {
@@ -50,7 +50,7 @@ $allow_edit_parent = FALSE;
 
 if (auth_isadmin()) {
 	// if edited user IS NOT currently logged in admin or admin with user ID 1 (username: admin) or status is admin
-	if (! (($user_edited['uid'] == $user_config['uid']) || ($user_edited['uid'] == 1) || ($user_edited['status'] == 2))) {
+	if (!(($user_edited['uid'] == $user_config['uid']) || ($user_edited['uid'] == 1) || ($user_edited['status'] == 2))) {
 		$allow_edit_status = TRUE;
 	}
 	
@@ -66,7 +66,7 @@ if (auth_isadmin()) {
 }
 
 switch (_OP_) {
-	case "user_pref":
+	case "user_pref" :
 		if ($c_user = dba_search(_DB_PREF_ . '_tblUser', '*', array(
 			'username' => $c_username 
 		))) {
@@ -111,7 +111,7 @@ switch (_OP_) {
 			
 			// get admins
 			$list = user_getallwithstatus(2);
-			foreach ($list as $parent) {
+			foreach ($list as $parent ) {
 				if ($parent['uid'] == $user_edited['parent_uid']) {
 					$selected = 'selected';
 				}
@@ -121,7 +121,7 @@ switch (_OP_) {
 			
 			// get users
 			$list = user_getallwithstatus(3);
-			foreach ($list as $parent) {
+			foreach ($list as $parent ) {
 				if ($parent['uid'] == $user_edited['parent_uid']) {
 					$selected = 'selected';
 				}
@@ -130,10 +130,10 @@ switch (_OP_) {
 			}
 			$select_parents = '<select name="up_parent_uid">' . $option_parents . '</select>';
 		}
-
+		
 		// enhance privacy for subusers
 		$show_enhance_privacy = TRUE;
-		if(!auth_isadmin()){
+		if (!auth_isadmin()) {
 			$data = registry_search(1, 'core', 'main_config');
 			$main_config = $data['core']['main_config'];
 			$show_enhance_privacy = $main_config['enhance_privacy_subuser'];
@@ -142,7 +142,7 @@ switch (_OP_) {
 		// get country option
 		$option_country = "<option value=\"0\">--" . _('Please select') . "--</option>\n";
 		$result = country_search();
-		for ($i = 0; $i < count($result); $i++) {
+		for($i = 0; $i < count($result); $i++) {
 			$country_id = $result[$i]['country_id'];
 			$country_name = $result[$i]['country_name'];
 			$selected = "";
@@ -215,12 +215,12 @@ switch (_OP_) {
 				'edit_status' => $allow_edit_status,
 				'edit_parent' => $allow_edit_parent,
 				'edit_status_hint' => $show_status_hint,
-				'enhance_privacy' => $show_enhance_privacy
+				'enhance_privacy' => $show_enhance_privacy 
 			) 
 		);
 		_p(tpl_apply($tpl));
 		break;
-	case "user_pref_save":
+	case "user_pref_save" :
 		$_SESSION['error_string'] = _('No changes made');
 		$fields = array(
 			'name',
@@ -244,7 +244,7 @@ switch (_OP_) {
 			$fields[] = 'parent_uid';
 		}
 		
-		for ($i = 0; $i < count($fields); $i++) {
+		for($i = 0; $i < count($fields); $i++) {
 			$up[$fields[$i]] = trim($_POST['up_' . $fields[$i]]);
 		}
 		

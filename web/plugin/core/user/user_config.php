@@ -18,7 +18,7 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-if (! auth_isvalid()) {
+if (!auth_isvalid()) {
 	auth_block();
 }
 
@@ -26,7 +26,7 @@ $view = $_REQUEST['view'];
 
 $uname = $_REQUEST['uname'];
 
-if ((! $uname) || ($uname && $uname == $user_config['username'])) {
+if ((!$uname) || ($uname && $uname == $user_config['username'])) {
 	$user_edited = $user_config;
 	$c_username = $user_config['username'];
 } else if (auth_isadmin()) {
@@ -45,7 +45,7 @@ if ((! $uname) || ($uname && $uname == $user_config['username'])) {
 }
 
 switch (_OP_) {
-	case "user_config":
+	case "user_config" :
 		if ($c_user = dba_search(_DB_PREF_ . '_tblUser', '*', array(
 			'username' => $c_username 
 		))) {
@@ -124,7 +124,7 @@ switch (_OP_) {
 		
 		// get language options
 		$lang_list = '';
-		for ($i = 0; $i < count($core_config['languagelist']); $i++) {
+		for($i = 0; $i < count($core_config['languagelist']); $i++) {
 			$language = $core_config['languagelist'][$i];
 			$c_language_title = $plugin_config[$language]['title'];
 			if ($c_language_title) {
@@ -133,7 +133,7 @@ switch (_OP_) {
 		}
 		$option_language_module .= "<option value=\"\">" . _('Default') . "</option>";
 		if (is_array($lang_list)) {
-			foreach ($lang_list as $key => $val) {
+			foreach ($lang_list as $key => $val ) {
 				if ($val == core_lang_get()) $selected = "selected";
 				$option_language_module .= "<option value=\"" . $val . "\" $selected>" . $key . "</option>";
 				$selected = "";
@@ -143,7 +143,7 @@ switch (_OP_) {
 		// get sender ID
 		$c_sms_from = sender_id_default_get($user_config['uid']);
 		$option_sender_id = "<option value=\"\">--- " . _('Select default sender ID') . " ---</option>";
-		foreach (sender_id_getall($user_config['username']) as $sender_id) {
+		foreach (sender_id_getall($user_config['username']) as $sender_id ) {
 			$selected = '';
 			if (strtoupper($c_sms_from) == strtoupper($sender_id)) {
 				$selected = 'selected';
@@ -235,7 +235,7 @@ switch (_OP_) {
 		_p(tpl_apply($tpl));
 		break;
 	
-	case "user_config_save":
+	case "user_config_save" :
 		$_SESSION['error_string'] = _('No changes made');
 		$fields = array(
 			'footer',
@@ -256,7 +256,7 @@ switch (_OP_) {
 		 * fixme anton - now disabled since plugin/feature/credit exists if ($uname && (auth_isadmin() || $is_parent)) { _log('saving username:' . $c_username . ' credit:' . $_POST['up_credit'], 3, 'user_config'); $fields[] = 'credit'; }
 		 */
 		
-		for ($i = 0; $i < count($fields); $i++) {
+		for($i = 0; $i < count($fields); $i++) {
 			$up[$fields[$i]] = trim($_POST['up_' . $fields[$i]]);
 		}
 		$up['lastupdate_datetime'] = core_adjust_datetime(core_get_datetime());

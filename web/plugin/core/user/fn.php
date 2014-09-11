@@ -106,10 +106,19 @@ function user_mobile2uid($mobile) {
 	return $uid;
 }
 
+function user_mobile2username($mobile) {
+	if ($uid = user_mobile2uid($mobile)) {
+		$username = user_uid2username($uid);
+	}
+	
+	return $username;
+}
+
 /**
  * Get uid from email
- * 
- * @param string $email Email
+ *
+ * @param string $email
+ *        	Email
  * @return integer User ID
  */
 function user_email2uid($email) {
@@ -121,8 +130,9 @@ function user_email2uid($email) {
 
 /**
  * Get username from email
- * 
- * @param string $email Email
+ *
+ * @param string $email
+ *        	Email
  * @return string username
  */
 function user_email2username($email) {
@@ -134,16 +144,18 @@ function user_email2username($email) {
 
 /**
  * Validate data for user registration
- * 
- * @param array $data User data
- * @param boolean $flag_edit TRUE when edit action (currently not inuse)
+ *
+ * @param array $data
+ *        	User data
+ * @param boolean $flag_edit
+ *        	TRUE when edit action (currently not inuse)
  * @return array $ret('error_string', 'status')
  */
 function user_add_validate($data = array(), $flag_edit = FALSE) {
 	$ret['status'] = true;
 	
 	if (is_array($data)) {
-		foreach ($data as $key => $val) {
+		foreach ($data as $key => $val ) {
 			$data[$key] = trim($val);
 		}
 		
@@ -160,13 +172,13 @@ function user_add_validate($data = array(), $flag_edit = FALSE) {
 		}
 		
 		// username only can contain alphanumeric, dot and dash
-		if ($ret['status'] && $data['username'] && (! preg_match('/([A-Za-z0-9\.\-])/', $data['username']))) {
+		if ($ret['status'] && $data['username'] && (!preg_match('/([A-Za-z0-9\.\-])/', $data['username']))) {
 			$ret['error_string'] = _('Valid characters for username are alphabets, numbers, dot or dash') . " (" . $data['username'] . ")";
 			$ret['status'] = false;
 		}
 		
 		// email must be in valid format
-		if ($ret['status'] && (! preg_match('/^(.+)@(.+)\.(.+)$/', $data['email']))) {
+		if ($ret['status'] && (!preg_match('/^(.+)@(.+)\.(.+)$/', $data['email']))) {
 			if ($data['email']) {
 				$ret['error_string'] = _('Your email format is invalid') . " (" . $data['email'] . ")";
 			} else {
@@ -176,7 +188,7 @@ function user_add_validate($data = array(), $flag_edit = FALSE) {
 		}
 		
 		// mobile must be in valid format, but check this only when filled
-		if ($ret['status'] && $data['mobile'] && (! preg_match('/([0-9\+\- ])/', $data['mobile']))) {
+		if ($ret['status'] && $data['mobile'] && (!preg_match('/([0-9\+\- ])/', $data['mobile']))) {
 			$ret['error_string'] = _('Your mobile format is invalid') . " (" . $data['mobile'] . ")";
 			$ret['status'] = false;
 		}
@@ -185,7 +197,7 @@ function user_add_validate($data = array(), $flag_edit = FALSE) {
 		if ($ret['status'] && $data['username'] && dba_isexists(_DB_PREF_ . '_tblUser', array(
 			'username' => $data['username'] 
 		))) {
-			if (! $flag_edit) {
+			if (!$flag_edit) {
 				$ret['error_string'] = _('User is already exists') . " (" . _('username') . ": " . $data['username'] . ")";
 				$ret['status'] = false;
 			}
@@ -221,8 +233,9 @@ function user_add_validate($data = array(), $flag_edit = FALSE) {
 
 /**
  * Validate data for user preferences or configuration edit
- * 
- * @param array $data User data
+ *
+ * @param array $data
+ *        	User data
  * @return array $ret('error_string', 'status')
  */
 function user_edit_validate($data = array()) {
@@ -231,8 +244,9 @@ function user_edit_validate($data = array()) {
 
 /**
  * Add new user
- * 
- * @param array $data User data
+ *
+ * @param array $data
+ *        	User data
  * @return array $ret('error_string', 'status', 'uid')
  */
 function user_add($data = array()) {
@@ -241,21 +255,21 @@ function user_add($data = array()) {
 	$ret['status'] = FALSE;
 	$ret['uid'] = 0;
 	$data = (trim($data['username']) ? $data : $_REQUEST);
-	if (auth_isadmin() || ($user_config['status'] == 3) || (! auth_isvalid() && $core_config['main']['enable_register'])) {
-		foreach ($data as $key => $val) {
+	if (auth_isadmin() || ($user_config['status'] == 3) || (!auth_isvalid() && $core_config['main']['enable_register'])) {
+		foreach ($data as $key => $val ) {
 			$data[$key] = trim($val);
 		}
 		
 		// set valid status
 		$data['status'] = (int) $data['status'];
-		if (! (($data['status'] == 2) || ($data['status'] == 3))) {
+		if (!(($data['status'] == 2) || ($data['status'] == 3))) {
 			$data['status'] = 4;
 		}
 		
 		// logic for parent_uid, parent uid by default is 0
 		if ($data['status'] == 4) {
 			$parent_status = user_getfieldbyuid($data['parent_uid'], 'status');
-			if (! (($parent_status == 2) || ($parent_status == 3))) {
+			if (!(($parent_status == 2) || ($parent_status == 3))) {
 				$data['parent_uid'] = 0;
 			}
 		} else {
@@ -307,7 +321,7 @@ function user_add($data = array()) {
 						'mail_subject' => $subject,
 						'mail_body' => $body 
 					);
-					if (! sendmail($mail_data)) {
+					if (!sendmail($mail_data)) {
 						$ret['error_string'] = _('User has been added but failed to send email') . " (" . _('username') . ": " . $data['username'] . ")";
 					}
 				}
@@ -325,8 +339,9 @@ function user_add($data = array()) {
 
 /**
  * Delete existing user
- * 
- * @param integer $uid User ID
+ *
+ * @param integer $uid
+ *        	User ID
  * @return array $ret('error_string', 'status')
  */
 function user_remove($uid) {
@@ -334,7 +349,7 @@ function user_remove($uid) {
 	$ret['error_string'] = _('Unknown error has occurred');
 	$ret['status'] = FALSE;
 	if ($username = user_uid2username($uid)) {
-		if (! ($uid == 1)) {
+		if (!($uid == 1)) {
 			if ($uid == $user_config['uid']) {
 				$ret['error_string'] = _('Currently logged in user is immune to deletion');
 			} else {
@@ -358,12 +373,13 @@ function user_remove($uid) {
 
 /**
  * Save user's login session information
- * 
- * @param integer $uid User ID
+ *
+ * @param integer $uid
+ *        	User ID
  */
 function user_session_set($uid = '') {
 	global $core_config, $user_config;
-	if (! $core_config['daemon_process']) {
+	if (!$core_config['daemon_process']) {
 		$uid = ($uid ? $uid : $user_config['uid']);
 		
 		// fixme anton - do not make this based on IP, not working properly when clients assigned ranged dynamic IPs
@@ -384,9 +400,11 @@ function user_session_set($uid = '') {
 
 /**
  * Get user's login session information
- * 
- * @param integer $uid User ID
- * @param string $sid Session ID
+ *
+ * @param integer $uid
+ *        	User ID
+ * @param string $sid
+ *        	Session ID
  * @return array login sessions
  */
 function user_session_get($uid = '', $sid = '') {
@@ -394,7 +412,7 @@ function user_session_get($uid = '', $sid = '') {
 	$ret = array();
 	$h = registry_search(1, 'auth', 'login_session');
 	$hashes = $h['auth']['login_session'];
-	foreach ($hashes as $key => $val) {
+	foreach ($hashes as $key => $val ) {
 		$d = core_object_to_array(json_decode($val));
 		if ($d['ip'] && $d['last_update'] && $d['http_user_agent'] && $d['sid'] && $d['uid']) {
 			if ($uid || $sid) {
@@ -417,18 +435,24 @@ function user_session_get($uid = '', $sid = '') {
 
 /**
  * Remove user's login session information
- * 
- * @param integer $uid User ID
- * @param string $sid Session ID
+ *
+ * @param integer $uid
+ *        	User ID
+ * @param string $sid
+ *        	Session ID
  * @return boolean
  */
 function user_session_remove($uid = '', $sid = '', $hash = '') {
 	$ret = FALSE;
 	if ($hash) {
-		if (registry_remove(1, 'auth', 'login_session', $hash)) {return TRUE;}
+		if (registry_remove(1, 'auth', 'login_session', $hash)) {
+			return TRUE;
+		}
 	} else if ($sid) {
 		$hash = user_session_get('', $sid);
-		if (registry_remove(1, 'auth', 'login_session', key($hash))) {return TRUE;}
+		if (registry_remove(1, 'auth', 'login_session', key($hash))) {
+			return TRUE;
+		}
 	} else if ($uid) {
 		$hash = user_session_get($uid);
 		if (registry_remove(1, 'auth', 'login_session', key($hash))) {
@@ -440,14 +464,17 @@ function user_session_remove($uid = '', $sid = '', $hash = '') {
 
 /**
  * Add user to banned user list
- * 
- * @param integer $uid User ID
+ *
+ * @param integer $uid
+ *        	User ID
  * @return boolean TRUE if user successfully added to banned user list
  */
 function user_banned_add($uid) {
 	$bantime = core_get_datetime();
 	if (user_session_get($uid)) {
-		if (! user_session_remove($uid)) {return FALSE;}
+		if (!user_session_remove($uid)) {
+			return FALSE;
+		}
 	}
 	$item = array(
 		$uid => $bantime 
@@ -462,8 +489,9 @@ function user_banned_add($uid) {
 
 /**
  * Remove user from banned user list
- * 
- * @param integer $uid User ID
+ *
+ * @param integer $uid
+ *        	User ID
  * @return boolean TRUE if user successfully removed from banned user list
  */
 function user_banned_remove($uid) {
@@ -477,8 +505,9 @@ function user_banned_remove($uid) {
 
 /**
  * Get user ban status
- * 
- * @param integer $uid User ID
+ *
+ * @param integer $uid
+ *        	User ID
  * @return mixed Ban date/time or FALSE for non-banned user
  */
 function user_banned_get($uid) {
@@ -500,14 +529,14 @@ function user_banned_get($uid) {
 
 /**
  * List all banned users
- * 
+ *
  * @return array banned users
  */
 function user_banned_list() {
 	$ret = array();
 	$list = registry_search(1, 'auth', 'banned_users');
-	foreach ($list['auth']['banned_users'] as $key => $val) {
-		$uid = (int)$key;
+	foreach ($list['auth']['banned_users'] as $key => $val ) {
+		$uid = (int) $key;
 		$username = user_uid2username($uid);
 		$bantime = $val;
 		if ($uid && $username && $bantime) {
@@ -523,17 +552,21 @@ function user_banned_list() {
 
 /**
  * Set user data by uid
- * 
- * @param integer $uid User ID
- * @param array $data User data
+ *
+ * @param integer $uid
+ *        	User ID
+ * @param array $data
+ *        	User data
  * @return boolean TRUE when user data updated
  */
 function user_setdatabyuid($uid, $data) {
-	if ((int)$uid && is_array($data)) {
+	if ((int) $uid && is_array($data)) {
 		$conditions = array(
 			'uid' => $uid 
 		);
-		if (dba_update(_DB_PREF_ . '_tblUser', $data, $conditions)) {return TRUE;}
+		if (dba_update(_DB_PREF_ . '_tblUser', $data, $conditions)) {
+			return TRUE;
+		}
 	}
 	
 	return FALSE;
@@ -541,21 +574,25 @@ function user_setdatabyuid($uid, $data) {
 
 /**
  * Set parent for a subuser by uid
- * 
- * @param integer $uid User ID
- * @param integer $parent_uid Parent user ID
+ *
+ * @param integer $uid
+ *        	User ID
+ * @param integer $parent_uid
+ *        	Parent user ID
  * @return boolean TRUE when parent sets
  */
 function user_setparentbyuid($uid, $parent_uid) {
-	$uid = (int)$uid;
-	$parent_uid = (int)$parent_uid;
+	$uid = (int) $uid;
+	$parent_uid = (int) $parent_uid;
 	if ($uid && $parent_uid) {
 		$parent_status = user_getfieldbyuid($parent_uid, 'status');
 		if ($parent_status == 3) {
 			if (user_setdatabyuid($uid, array(
 				'parent_uid' => $parent_uid,
 				'status' => 4 
-			))) {return TRUE;}
+			))) {
+				return TRUE;
+			}
 		}
 	}
 	
@@ -564,21 +601,24 @@ function user_setparentbyuid($uid, $parent_uid) {
 
 /**
  * Get parent of a subuser by uid
- * 
- * @param integer $uid User ID
+ *
+ * @param integer $uid
+ *        	User ID
  * @return mixed Parent user ID or FALSE on error
  */
 function user_getparentbyuid($uid) {
-	$uid = (int)$uid;
+	$uid = (int) $uid;
 	if ($uid) {
 		$conditions = array(
 			'uid' => $uid,
 			'status' => 4 
 		);
 		$list = dba_search(_DB_PREF_ . '_tblUser', 'parent_uid', $conditions);
-		$parent_uid = (int)$list[0]['parent_uid'];
+		$parent_uid = (int) $list[0]['parent_uid'];
 		$parent_status = user_getfieldbyuid($parent_uid, 'status');
-		if (($parent_status == 2) || ($parent_status == 3)) {return $parent_uid;}
+		if (($parent_status == 2) || ($parent_status == 3)) {
+			return $parent_uid;
+		}
 	}
 	
 	return FALSE;
@@ -586,12 +626,13 @@ function user_getparentbyuid($uid) {
 
 /**
  * Get list of subusers under a user by uid
- * 
- * @param integer $uid User ID
+ *
+ * @param integer $uid
+ *        	User ID
  * @return array Array of subusers
  */
 function user_getsubuserbyuid($uid) {
-	$uid = (int)$uid;
+	$uid = (int) $uid;
 	if ($uid) {
 		$parent_status = user_getfieldbyuid($uid, 'status');
 		if (($parent_status == 2) || ($parent_status == 3)) {
@@ -608,26 +649,29 @@ function user_getsubuserbyuid($uid) {
 
 /**
  * Search user records
- * 
- * @param mixed $keywords Array or string of keywords
- * @param mixed $fields Array or string of record fields
- * @param mixed $extras Array or string of record fields
+ *
+ * @param mixed $keywords
+ *        	Array or string of keywords
+ * @param mixed $fields
+ *        	Array or string of record fields
+ * @param mixed $extras
+ *        	Array or string of record fields
  * @return array Array of users
  */
 function user_search($keywords = '', $fields = '', $extras = '') {
 	$ret = array();
 	
-	if (! is_array($keywords)) {
+	if (!is_array($keywords)) {
 		$keywords = explode(',', $keywords);
 	}
 	
-	if (! is_array($fields)) {
+	if (!is_array($fields)) {
 		$fields = explode(',', $fields);
 	}
 	
 	$search = '';
-	foreach ($fields as $field) {
-		foreach ($keywords as $keyword) {
+	foreach ($fields as $field ) {
+		foreach ($keywords as $keyword ) {
 			$search .= $field . ' LIKE \'%' . $keyword . '%\' OR ';
 		}
 	}
@@ -636,7 +680,7 @@ function user_search($keywords = '', $fields = '', $extras = '') {
 	}
 	
 	if (is_array($extras)) {
-		foreach ($extras as $key => $val) {
+		foreach ($extras as $key => $val ) {
 			$extra_sql .= ' ' . $key . ' ' . $val;
 		}
 		$extra_sql = trim($extra_sql);
