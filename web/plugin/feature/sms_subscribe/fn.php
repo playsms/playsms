@@ -10,23 +10,22 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
 
-/*
+/**
  * Implementations of hook checkavailablekeyword()
  *
- * @param $keyword
- *   checkavailablekeyword() will insert keyword for checking to the hook here
- * @return
- *   TRUE if keyword is available
-*/
+ * @param $keyword checkavailablekeyword()
+ *        	will insert keyword for checking to the hook here
+ * @return TRUE if keyword is available
+ *        
+ */
 function sms_subscribe_hook_checkavailablekeyword($keyword) {
 	$ok = true;
 	$db_query = "SELECT subscribe_id FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_keyword='$keyword'";
@@ -37,21 +36,8 @@ function sms_subscribe_hook_checkavailablekeyword($keyword) {
 }
 
 /*
- * Implementations of hook setsmsincomingaction()
- *
- * @param $sms_datetime
- *   date and time when incoming sms inserted to playsms
- * @param $sms_sender
- *   sender on incoming sms
- * @param $subscribe_keyword
- *   check if keyword is for sms_subscribe
- * @param $subscribe_param
- *   get parameters from incoming sms
- * @param $sms_receiver
- *   receiver number that is receiving incoming sms
- * @return $ret
- *   array of keyword owner uid and status, TRUE if incoming sms handled
-*/
+ * Implementations of hook setsmsincomingaction() @param $sms_datetime date and time when incoming sms inserted to playsms @param $sms_sender sender on incoming sms @param $subscribe_keyword check if keyword is for sms_subscribe @param $subscribe_param get parameters from incoming sms @param $sms_receiver receiver number that is receiving incoming sms @return $ret array of keyword owner uid and status, TRUE if incoming sms handled
+ */
 function sms_subscribe_hook_setsmsincomingaction($sms_datetime, $sms_sender, $subscribe_keyword, $subscribe_param = '', $sms_receiver = '', $raw_message = '') {
 	$ok = false;
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_keyword='$subscribe_keyword'";
@@ -85,8 +71,8 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 	// for later use
 	$subscribe_param_array = explode(" ", $subscribe_param);
 	$forward_sms = '';
-	for ($i = 1; $i < sizeof($subscribe_param_array); $i++) {
-		$forward_sms.= $subscribe_param_array[$i] . ' ';
+	for($i = 1; $i < sizeof($subscribe_param_array); $i++) {
+		$forward_sms .= $subscribe_param_array[$i] . ' ';
 	}
 	$forward_sms = substr($forward_sms, 0, -1);
 	
@@ -97,8 +83,8 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 	// check for BC/forward param
 	$bc = trim(strtoupper($c_arr[0]));
 	if ((($bc == 'BC') || ($forward_param && ($bc == $forward_param))) && ($c_uid == user_mobile2uid($sms_sender))) {
-		for ($i = 1; $i < count($c_arr); $i++) {
-			$msg0.= $c_arr[$i] . ' ';
+		for($i = 1; $i < count($c_arr); $i++) {
+			$msg0 .= $c_arr[$i] . ' ';
 		}
 		$message = trim($msg0);
 		$bc_to = '';
@@ -133,27 +119,27 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 		if ($num_rows == 0) {
 			$member = false;
 			switch ($subscribe_param) {
-				case "ON":
-				case "IN":
-				case "REG":
-				case $subscribe_accept_param:
+				case "ON" :
+				case "IN" :
+				case "REG" :
+				case $subscribe_accept_param :
 					$message = $msg1;
 					$db_query = "INSERT INTO " . _DB_PREF_ . "_featureSubscribe_member (subscribe_id,member_number,member_since) VALUES ('$subscribe_id','$sms_to','" . core_get_datetime() . "')";
 					$logged = dba_query($db_query);
 					logger_print('REG SUCCESS sender:' . $sms_sender . ' keyword:' . $subscribe_keyword . ' mobile:' . $sms_to, 2, "sms_subscribe");
 					$ok = true;
 					break;
-
-				default:
+				
+				default :
 					$message = '';
 			}
 		} else {
 			$member = true;
 			switch ($subscribe_param) {
-				case "OFF":
-				case "OUT":
-				case "UNREG":
-				case $subscribe_reject_param:
+				case "OFF" :
+				case "OUT" :
+				case "UNREG" :
+				case $subscribe_reject_param :
 					$message = $msg2;
 					$success = 'fail to delete member';
 					$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE member_number='$sms_to' AND subscribe_id='$subscribe_id'";
@@ -165,17 +151,17 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 					}
 					logger_print('UNREG ' . $success . ' sender:' . $sms_sender . ' keyword:' . $subscribe_keyword . ' mobile:' . $sms_to, 2, "sms_subscribe");
 					break;
-
-				case "ON":
-				case "IN":
-				case "REG":
-				case $subscribe_accept_param:
+				
+				case "ON" :
+				case "IN" :
+				case "REG" :
+				case $subscribe_accept_param :
 					$message = $already_member_msg;
 					logger_print('REG fail already a member sender:' . $sms_sender . ' keyword:' . $subscribe_keyword . ' mobile:' . $sms_to, 2, "sms_subscribe");
 					$ok = true;
 					break;
-
-				default:
+				
+				default :
 					$message = $unknown_format_msg;
 					logger_print('Unknown format sender:' . $sms_sender . ' keyword:' . $subscribe_keyword . ' mobile:' . $sms_to, 2, "sms_subscribe");
 					$ok = true;
@@ -192,24 +178,8 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 }
 
 /*
- * intercept incoming sms and look for keyword BC followed by subscribe keyword
- * this feature will do BC but for subscribe keyword
- *
- * sms format:
- *   BC <sms_subscribe_keyword> <message>
- *   #<sms_subscribe_keyword> <message>
- *
- * @param $sms_datetime
- *   incoming SMS date/time
- * @param $sms_sender
- *   incoming SMS sender
- * @message
- *   incoming SMS message before intercepted
- * @param $sms_receiver
- *   receiver number that is receiving incoming SMS
- * @return
- *   array $ret
-*/
+ * intercept incoming sms and look for keyword BC followed by subscribe keyword this feature will do BC but for subscribe keyword sms format: BC <sms_subscribe_keyword> <message> #<sms_subscribe_keyword> <message> @param $sms_datetime incoming SMS date/time @param $sms_sender incoming SMS sender @message incoming SMS message before intercepted @param $sms_receiver receiver number that is receiving incoming SMS @return array $ret
+ */
 function sms_subscribe_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver) {
 	$msg = explode(" ", $message);
 	$bc = strtoupper($msg[0]);
@@ -217,13 +187,13 @@ function sms_subscribe_hook_recvsms_intercept($sms_datetime, $sms_sender, $messa
 	$message = '';
 	if ($bc == 'BC') {
 		$keyword = strtoupper($msg[1]);
-		for ($i = 2; $i < count($msg); $i++) {
-			$message.= $msg[$i] . ' ';
+		for($i = 2; $i < count($msg); $i++) {
+			$message .= $msg[$i] . ' ';
 		}
 	} else if (substr($bc, 0, 1) == '#') {
 		$keyword = str_replace('#', '', $bc);
-		for ($i = 1; $i < count($msg); $i++) {
-			$message.= $msg[$i] . ' ';
+		for($i = 1; $i < count($msg); $i++) {
+			$message .= $msg[$i] . ' ';
 		}
 	}
 	$keyword = trim($keyword);
@@ -239,7 +209,7 @@ function sms_subscribe_hook_recvsms_intercept($sms_datetime, $sms_sender, $messa
 			if ($c_uid && $c_username) {
 				$list = dba_search(_DB_PREF_ . '_featureSubscribe', 'subscribe_id, forward_param', array(
 					'uid' => $c_uid,
-					'subscribe_keyword' => $keyword
+					'subscribe_keyword' => $keyword 
 				));
 				if ($list[0]['subscribe_id']) {
 					$forward_param = ($list[0]['forward_param'] ? $list[0]['forward_param'] : 'BC');

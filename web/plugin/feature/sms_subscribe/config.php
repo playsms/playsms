@@ -10,20 +10,19 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
 
 // insert to left menu array
 $menutab = $core_config['menutab']['features'];
 $menu_config[$menutab][] = array(
 	"index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_list",
-	_('Manage subscribe')
+	_('Manage subscribe') 
 );
 
 $subscribe_icon_add_message = "<img src=\"" . $core_config['http_path']['themes'] . "/" . core_themes_get() . "/images/edit_action.gif\" alt=\"" . _('Add message') . "\" title=\"" . _('Add message') . "\" border=0>";

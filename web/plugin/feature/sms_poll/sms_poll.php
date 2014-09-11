@@ -185,11 +185,11 @@ switch (_OP_) {
 	
 	case "sms_poll_add" :
 		$option_vote = array(
-				_('one time') => 0,
-				_('one time every 24 hours') => 1,
-				_('one time every week') => 2,
-				_('one time every month') => 3,
-				_('multiple times') => 4 
+			_('one time') => 0,
+			_('one time every 24 hours') => 1,
+			_('one time every week') => 2,
+			_('one time every month') => 3,
+			_('multiple times') => 4 
 		);
 		$add_poll_access_code = md5(_PID_);
 		if ($err = $_SESSION['error_string']) {
@@ -263,11 +263,11 @@ switch (_OP_) {
 	
 	case "sms_poll_edit" :
 		$option_vote = array(
-				_('one time') => 0,
-				_('one time every 24 hours') => 1,
-				_('one time every week') => 2,
-				_('one time every month') => 3,
-				_('multiple times') => 4 
+			_('one time') => 0,
+			_('one time every 24 hours') => 1,
+			_('one time every week') => 2,
+			_('one time every month') => 3,
+			_('multiple times') => 4 
 		);
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePoll WHERE poll_id='$poll_id'";
 		$db_result = dba_query($db_query);
