@@ -132,11 +132,10 @@ switch (_OP_) {
 		}
 		
 		// enhance privacy for subusers
-		$show_enhance_privacy = TRUE;
-		if (!auth_isadmin()) {
-			$data = registry_search(1, 'core', 'main_config');
-			$main_config = $data['core']['main_config'];
-			$show_enhance_privacy = $main_config['enhance_privacy_subuser'];
+		$enhance_privacy = TRUE;
+		$main_config = $core_config['main'];
+		if(!auth_isadmin() && $main_config['enhance_privacy_subuser']){
+			$enhance_privacy = FALSE;
 		}
 		
 		// get country option
@@ -215,7 +214,7 @@ switch (_OP_) {
 				'edit_status' => $allow_edit_status,
 				'edit_parent' => $allow_edit_parent,
 				'edit_status_hint' => $show_status_hint,
-				'enhance_privacy' => $show_enhance_privacy 
+				'enhance_privacy' => $enhance_privacy
 			) 
 		);
 		_p(tpl_apply($tpl));
@@ -257,7 +256,7 @@ switch (_OP_) {
 		
 		$up['username'] = $c_username;
 		$up['lastupdate_datetime'] = core_adjust_datetime(core_get_datetime());
-		if ($up['name'] && $up['email']) {
+		if ($up['name']) {
 			$v = user_edit_validate($up);
 			if ($v['status']) {
 				$continue = true;

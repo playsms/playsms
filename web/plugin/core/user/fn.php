@@ -152,6 +152,7 @@ function user_email2username($email) {
  * @return array $ret('error_string', 'status')
  */
 function user_add_validate($data = array(), $flag_edit = FALSE) {
+	global $core_config;
 	$ret['status'] = true;
 	
 	if (is_array($data)) {
@@ -178,7 +179,7 @@ function user_add_validate($data = array(), $flag_edit = FALSE) {
 		}
 		
 		// email must be in valid format
-		if ($ret['status'] && (!preg_match('/^(.+)@(.+)\.(.+)$/', $data['email']))) {
+		if ($ret['status'] && (! preg_match('/^(.+)@(.+)\.(.+)$/', $data['email'])) && !$core_config['main']['enhance_privacy_subuser']) {
 			if ($data['email']) {
 				$ret['error_string'] = _('Your email format is invalid') . " (" . $data['email'] . ")";
 			} else {
