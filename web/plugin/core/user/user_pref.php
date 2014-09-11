@@ -132,11 +132,10 @@ switch (_OP_) {
 		}
 
 		// enhance privacy for subusers
-		$enhance_privacy = FALSE;
-		$data = registry_search(1, 'core', 'main_config');
-		$main_config = $data['core']['main_config'];
-		if(!auth_isadmin() && !$main_config['enhance_privacy_subuser']){
-			$enhance_privacy = TRUE;
+		$enhance_privacy = TRUE;
+		$main_config = $core_config['main'];
+		if(!auth_isadmin() && $main_config['enhance_privacy_subuser']){
+			$enhance_privacy = FALSE;
 		}
 		
 		// get country option
@@ -182,7 +181,7 @@ switch (_OP_) {
 				'Re-type password' => _('Re-type password'),
 				'Personal information' => _('Personal information'),
 				'Name' => _mandatory(_('Name')),
-				'Email' => _('Email'),
+				'Email' => _mandatory(_('Email')),
 				'Mobile' => _('Mobile'),
 				'Address' => _('Address'),
 				'City' => _('City'),
@@ -257,7 +256,7 @@ switch (_OP_) {
 		
 		$up['username'] = $c_username;
 		$up['lastupdate_datetime'] = core_adjust_datetime(core_get_datetime());
-		if ($up['name'] && $up['email']) {
+		if ($up['name']) {
 			$v = user_edit_validate($up);
 			if ($v['status']) {
 				$continue = true;
