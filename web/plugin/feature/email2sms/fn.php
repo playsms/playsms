@@ -116,13 +116,21 @@ function email2sms_hook_playsmsd_once($param) {
 				$email_sender = trim($overview[0]->from);
 				$email_body = trim(imap_fetchbody($inbox, $email_number, 1));
 				
-				//_log('email from:[' . $email_sender . '] subject:[' . $email_subject . '] body:[' . $email_body . ']', 3, 'email2sms_hook_playsmsd');
+				_log('email from:[' . $email_sender . '] subject:[' . $email_subject . '] body:[' . $email_body . ']', 3, 'email2sms_hook_playsmsd');
 				
 				// destination numbers is in array and retrieved from email body
 				// remove email footer/signiture
 				$sms_to = preg_replace('/--[\r\n]+.*/s', '', $email_body);
 				$sms_to = explode(',', $sms_to);
 				
+				// Check "from" email before checking PIN if option "Check email sender" is TRUE
+				if($items['features']['email2sms']['check_sender']){
+					preg_match('#\<(.*?)\>#', $email_sender, $match);
+					if(user_email2uid($match[1])==""){
+						continue;
+					}
+				}
+
 				// message is from email subject
 				//$message = trim($email_subject);
 				$message = trim(preg_replace('/' . $items['features']['email2sms']['pin'] . '/', '', $email_subject, -1, $count));

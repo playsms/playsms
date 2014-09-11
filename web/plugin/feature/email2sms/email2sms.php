@@ -34,6 +34,12 @@ switch (_OP_) {
 			_('no') => 0,
 		) , $items['features']['email2sms']['enable']);
 		
+		// option check email sender
+		$option_check_sender = _options(array(
+			_('yes') => 1,
+			_('no') => 0,
+		) , $items['features']['email2sms']['check_sender']);
+		
 		// option protocol
 		$option_protocol = _options(array(
 			'IMAP' => 'imap',
@@ -62,6 +68,7 @@ switch (_OP_) {
 				'HINT_PASSWORD' => _hint(_('Fill the password field to change password')) ,
 				'PIN for email to SMS' => _mandatory('PIN for email to SMS') ,
 				'Enable email to SMS' => _('Enable email to SMS') ,
+				'Check email sender' => _('Check email sender') ,
 				'Email protocol' => _('Email protocol') ,
 				'Use SSL' => _('Use SSL') ,
 				'No validate cert option' => _('No validate cert option') ,
@@ -75,6 +82,7 @@ switch (_OP_) {
 			'injects' => array(
 				'select_users',
 				'option_enable',
+				'option_check_sender',
 				'option_protocol',
 				'option_ssl',
 				'option_novalidate_cert',
@@ -99,6 +107,7 @@ switch (_OP_) {
 			$items = array(
 				'pin' => $pin,
 				'enable' => $_REQUEST['enable'],
+				'check_sender' => $_REQUEST['check_sender'],
 				'protocol' => $_REQUEST['protocol'],
 				'ssl' => $_REQUEST['ssl'],
 				'novalidate_cert' => $_REQUEST['novalidate_cert'],
