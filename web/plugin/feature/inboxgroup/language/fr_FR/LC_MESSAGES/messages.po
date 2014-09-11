@@ -172,7 +172,7 @@ msgstr "Appuye valider pour supprimer les membres sélectionnés de la liste"
 msgid "Receiver number"
 msgstr "Numéro récepteur"
 
-msgid "Receiver number does not exists"
+msgid "Receiver number does not exist"
 msgstr "Numéro de récepteur non existant"
 
 msgid "Restrict sender to regular members or catch-all members only"
@@ -190,7 +190,7 @@ msgstr "Membres sélectionnés"
 msgid "Selected users"
 msgstr "Utilisateurs Sélectionnés"
 
-msgid "Seperate with comma for multiple items"
+msgid "Separate with comma for multiple items"
 msgstr ""
 
 msgid "Status"

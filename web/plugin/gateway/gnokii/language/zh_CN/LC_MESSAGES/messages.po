@@ -17,7 +17,7 @@ msgstr "Gnokii安装路径"
 msgid "Manage gnokii"
 msgstr "管理gnokii"
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr ""
 
 msgid "No trailing slash"

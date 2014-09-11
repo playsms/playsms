@@ -134,6 +134,9 @@ msgstr "Вариант со всемии его выбравшими удалё�
 msgid "SMS poll has been added"
 msgstr "Голосование добавлено"
 
+msgid "SMS poll has been saved"
+msgstr "Голосование добавлено"
+
 msgid "SMS poll keyword"
 msgstr "Ключевое слово"
 
@@ -145,9 +148,6 @@ msgstr "Название голосования"
 
 msgid "SMS poll with all its messages has been deleted"
 msgstr "Голосование со всеми результатами удалено"
-
-msgid "SMS poll with has been saved"
-msgstr "Голосование сохранено"
 
 msgid "Save"
 msgstr "Сохранить"

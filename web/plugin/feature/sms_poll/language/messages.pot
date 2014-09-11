@@ -113,6 +113,9 @@ msgstr ""
 msgid "SMS poll has been added"
 msgstr ""
 
+msgid "SMS poll has been saved"
+msgstr ""
+
 msgid "SMS poll keyword"
 msgstr ""
 
@@ -123,9 +126,6 @@ msgid "SMS poll title"
 msgstr ""
 
 msgid "SMS poll with all its messages has been deleted"
-msgstr ""
-
-msgid "SMS poll with has been saved"
 msgstr ""
 
 msgid "Save"

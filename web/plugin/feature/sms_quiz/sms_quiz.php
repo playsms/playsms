@@ -250,7 +250,7 @@ switch (_OP_) {
 		if ($answer_id = $db_row['answer_id']) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureQuiz_log WHERE answer_id='$answer_id'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('SMS quiz answer messages has been deleted');
+				$_SESSION['error_string'] = _('SMS quiz answer messages have been deleted');
 			}
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_quiz&op=sms_answer_view&quiz_id=' . $quiz_id));

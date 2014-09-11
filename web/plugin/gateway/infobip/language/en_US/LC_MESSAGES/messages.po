@@ -30,7 +30,7 @@ msgid "Infobip will push DLR and incoming SMS to above URL"
 msgstr ""
 
 msgid "Manage infobip"
-msgstr "Manage infobip"
+msgstr ""
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
@@ -41,7 +41,7 @@ msgstr ""
 msgid "Module timezone"
 msgstr ""
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr ""
 
 msgid "No trailing slash"

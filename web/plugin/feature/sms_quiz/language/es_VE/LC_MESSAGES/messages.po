@@ -64,7 +64,7 @@ msgstr ""
 msgid "SMS quiz answer"
 msgstr "Respuesta de Exámen corto (quiz) SMS"
 
-msgid "SMS quiz answer messages has been deleted"
+msgid "SMS quiz answer messages have been deleted"
 msgstr "Repuesta de Exámen corto (quiz) SMS ha sido borrada"
 
 msgid "SMS quiz has been added"

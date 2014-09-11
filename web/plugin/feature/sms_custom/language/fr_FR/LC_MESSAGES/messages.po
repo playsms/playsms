@@ -44,7 +44,7 @@ msgstr "Activer le renvoi du résultat "
 msgid "Manage custom"
 msgstr "Service script URL"
 
-msgid "Pass these parameter to custom URL field"
+msgid "Pass these parameters to custom URL field"
 msgstr "Passez ces paramètres aux champs du scrip URL"
 
 msgid "SMS custom URL"

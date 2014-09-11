@@ -23,7 +23,7 @@ msgstr "Nom de la sortida"
 msgid "Manage template"
 msgstr "Manage template"
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr "No s'han fet canvis"
 
 msgid "No trailing slash"

@@ -15,7 +15,7 @@ msgid "Add or reduce credit from manage credit menu"
 msgstr ""
 
 msgid "Add subuser"
-msgstr "Add subuser"
+msgstr ""
 
 msgid "Add user"
 msgstr ""
@@ -36,16 +36,16 @@ msgid "Application options"
 msgstr ""
 
 msgid "Are you sure you want to ban subuser"
-msgstr "Are you sure you want to ban subuser"
+msgstr ""
 
 msgid "Are you sure you want to ban user"
 msgstr ""
 
 msgid "Are you sure you want to delete subuser"
-msgstr "Are you sure you want to delete subuser"
+msgstr ""
 
 msgid "Are you sure you want to delete subuser ?"
-msgstr "Are you sure you want to delete subuser ?"
+msgstr ""
 
 msgid "Are you sure you want to delete user"
 msgstr ""
@@ -54,7 +54,7 @@ msgid "Are you sure you want to delete user ?"
 msgstr ""
 
 msgid "Are you sure you want to unban subuser"
-msgstr "Are you sure you want to unban subuser"
+msgstr ""
 
 msgid "Are you sure you want to unban user"
 msgstr ""
@@ -123,11 +123,10 @@ msgid "List of administrators"
 msgstr ""
 
 msgid "List of subusers"
-msgstr "List of subusers"
+msgstr ""
 
-#, fuzzy
 msgid "List of users"
-msgstr "List of subusers"
+msgstr ""
 
 msgid "Local number length"
 msgstr ""
@@ -136,10 +135,10 @@ msgid "Login information"
 msgstr ""
 
 msgid "Manage subuser"
-msgstr "Manage subuser"
+msgstr ""
 
 msgid "Manage subusers"
-msgstr "Manage subusers"
+msgstr ""
 
 msgid "Manage user"
 msgstr ""
@@ -178,8 +177,6 @@ msgid ""
 "Parent user is mandatory for subusers only. If no value is given then the "
 "subuser will be automatically assigned to user admin"
 msgstr ""
-"Parent user is mandatory for subuser only. If no value is given then the "
-"subuser will be automatically assigned to user admin"
 
 msgid "Password"
 msgstr ""
@@ -233,41 +230,39 @@ msgid "Select default sender ID"
 msgstr ""
 
 msgid "Select parent user for subuser"
-msgstr "Select parent user for subuser"
+msgstr ""
 
 msgid "State or Province"
 msgstr ""
 
 msgid "Subuser"
-msgstr "Subuser"
+msgstr ""
 
 msgid "Subusers"
-msgstr "Subusers"
+msgstr ""
 
 msgid "Timezone"
 msgstr ""
 
 msgid "Unable to ban subuser"
-msgstr "Unable to ban subuser"
+msgstr ""
 
 msgid "Unable to ban user"
 msgstr ""
 
 msgid ""
-"Unable to delete this user until all subusers under this user has been "
+"Unable to delete this user until all subusers under this user have been "
 "removed"
 msgstr ""
-"Unable to delete this user until all subusers under this user has been "
-"removed"
 
 msgid "Unable to process subuser addition"
-msgstr "Unable to process subuser addition"
+msgstr ""
 
 msgid "Unable to process user addition"
 msgstr ""
 
 msgid "Unable to unban subuser"
-msgstr "Unable to unban subuser"
+msgstr ""
 
 msgid "Unable to unban user"
 msgstr ""
@@ -284,6 +279,9 @@ msgstr ""
 msgid "User admin or currently logged in administrator cannot be unbanned"
 msgstr ""
 
+msgid "User already exists"
+msgstr ""
+
 msgid "User configuration"
 msgstr ""
 
@@ -296,7 +294,7 @@ msgstr ""
 msgid "User configuration has been saved and webservices token updated"
 msgstr ""
 
-msgid "User does not exists"
+msgid "User does not exist"
 msgstr ""
 
 msgid "User has been added and password has been emailed"
@@ -314,11 +312,8 @@ msgstr ""
 msgid "User has been unbanned"
 msgstr ""
 
-msgid "User is already exists"
-msgstr ""
-
 msgid "User is already on banned subusers list"
-msgstr "User is already on banned subuser list"
+msgstr ""
 
 msgid "User is already on banned users list"
 msgstr ""
@@ -327,7 +322,7 @@ msgid "User is immune to deletion"
 msgstr ""
 
 msgid "User is not on banned subusers list"
-msgstr "User is not on banned subuser list"
+msgstr ""
 
 msgid "User is not on banned users list"
 msgstr ""
@@ -338,10 +333,10 @@ msgstr ""
 msgid "User status"
 msgstr ""
 
-msgid "User with this email is already exists"
+msgid "User with this email already exists"
 msgstr ""
 
-msgid "User with this mobile is already exists"
+msgid "User with this mobile already exists"
 msgstr ""
 
 msgid "Username"
@@ -353,9 +348,8 @@ msgstr ""
 msgid "Username should be at least 3 characters"
 msgstr ""
 
-#, fuzzy
 msgid "Users"
-msgstr "Subusers"
+msgstr ""
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
 msgstr ""
@@ -388,7 +382,7 @@ msgid "email"
 msgstr ""
 
 msgid "for subuser only"
-msgstr "for subuser only"
+msgstr ""
 
 msgid "mobile"
 msgstr ""

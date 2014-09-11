@@ -260,7 +260,7 @@ msgid "Unable to ban user"
 msgstr ""
 
 msgid ""
-"Unable to delete this user until all subusers under this user has been "
+"Unable to delete this user until all subusers under this user have been "
 "removed"
 msgstr ""
 
@@ -288,6 +288,9 @@ msgstr ""
 msgid "User admin or currently logged in administrator cannot be unbanned"
 msgstr ""
 
+msgid "User already exists"
+msgstr ""
+
 msgid "User configuration"
 msgstr ""
 
@@ -300,7 +303,7 @@ msgstr ""
 msgid "User configuration has been saved and webservices token updated"
 msgstr ""
 
-msgid "User does not exists"
+msgid "User does not exist"
 msgstr ""
 
 msgid "User has been added and password has been emailed"
@@ -316,9 +319,6 @@ msgid "User has been removed"
 msgstr ""
 
 msgid "User has been unbanned"
-msgstr ""
-
-msgid "User is already exists"
 msgstr ""
 
 msgid "User is already on banned subusers list"
@@ -342,10 +342,10 @@ msgstr ""
 msgid "User status"
 msgstr ""
 
-msgid "User with this email is already exists"
+msgid "User with this email already exists"
 msgstr ""
 
-msgid "User with this mobile is already exists"
+msgid "User with this mobile already exists"
 msgstr ""
 
 msgid "Username"

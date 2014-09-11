@@ -42,7 +42,7 @@ msgid "Keyword"
 msgstr ""
 
 msgid "Manage autoreply"
-msgstr "Manage autoreply"
+msgstr ""
 
 msgid "Param"
 msgstr ""

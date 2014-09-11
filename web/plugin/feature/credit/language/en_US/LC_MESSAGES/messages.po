@@ -46,18 +46,17 @@ msgstr ""
 msgid "Reduce credit from users"
 msgstr ""
 
-#, fuzzy
 msgid "Select users"
-msgstr "Subusers"
+msgstr ""
 
 msgid "Selected transactions has been deleted"
 msgstr ""
 
 msgid "Subuser"
-msgstr "Subuser"
+msgstr ""
 
 msgid "Subusers"
-msgstr "Subusers"
+msgstr ""
 
 msgid "Transaction datetime"
 msgstr ""
@@ -71,11 +70,10 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#, fuzzy
 msgid "Users"
-msgstr "Subusers"
+msgstr ""
 
-msgid "Wrong amount or user does not exists"
+msgid "Wrong amount or user does not exist"
 msgstr ""
 
 msgid "amount"
@@ -90,6 +88,5 @@ msgstr ""
 msgid "index.php?app=main&inc=feature_credit&op=actions&go=reduce"
 msgstr ""
 
-#, fuzzy
 msgid "user"
-msgstr "Subuser"
+msgstr ""

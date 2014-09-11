@@ -125,6 +125,9 @@ msgstr "Les réponses et tous les votes de ce sondage ont été supprimés"
 msgid "SMS poll has been added"
 msgstr "Le sondage a été ajouté"
 
+msgid "SMS poll has been saved"
+msgstr "Le sondage a été ajouté"
+
 msgid "SMS poll keyword"
 msgstr "Mot-clé du sondage"
 
@@ -136,9 +139,6 @@ msgstr "Titre du sondage"
 
 msgid "SMS poll with all its messages has been deleted"
 msgstr "Ce sondage avec tous ses messages a été supprimé"
-
-msgid "SMS poll with has been saved"
-msgstr "Le sondage a été sauvegardé"
 
 msgid "Save"
 msgstr "Sauvegarder"

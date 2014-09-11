@@ -46,6 +46,9 @@ msgstr "Prefix"
 msgid "Rate"
 msgstr "Tarifa"
 
+msgid "Rate already exists"
+msgstr "La tarifa ja existeix"
+
 msgid "Rate has been added"
 msgstr "La tarifa s'ha afegit"
 
@@ -54,9 +57,6 @@ msgstr "La tarifa s'ha el·liminat"
 
 msgid "Rate has been saved"
 msgstr "La tarifa s'ha guardat"
-
-msgid "Rate is already exists"
-msgstr "La tarifa ja existeix"
 
 msgid "Save"
 msgstr "Guardar"

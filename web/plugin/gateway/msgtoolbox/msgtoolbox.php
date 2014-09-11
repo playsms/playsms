@@ -58,13 +58,13 @@ switch (_OP_) {
 		$up_password = $_POST['up_password'];
 		$up_global_sender = $_POST['up_global_sender'];
 		$up_global_timezone = $_POST['up_global_timezone'];
-		$_SESSION['error_string'] = _('No changes has been made');
+		$_SESSION['error_string'] = _('No changes have been made');
 		if ($up_url && $up_username) {
 			if ($up_password) {
 				$password_change = "cfg_password='$up_password',";
 			}
 			$db_query = "
-				UPDATE "._DB_PREF_."_gatewayMsgtoolbox_config 
+				UPDATE "._DB_PREF_."_gatewayMsgtoolbox_config
 				SET c_timestamp='".mktime()."',
 				cfg_url='$up_url',
 				cfg_route='$up_route',

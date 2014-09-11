@@ -9,4 +9,4 @@ msgid "Gateway name"
 msgstr ""
 
 msgid "Manage gammu"
-msgstr "Manage gammu"
+msgstr ""

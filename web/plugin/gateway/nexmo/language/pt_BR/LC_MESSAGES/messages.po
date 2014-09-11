@@ -44,7 +44,7 @@ msgstr "Nexmo é um provedor de SMS em massa"
 msgid "Nexmo will push DLR and incoming SMS to your callback URL"
 msgstr "Nexmo irá enviar DLR e SMS para sua URL de callback"
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr "Nenhuma mudança feita"
 
 msgid "Notes"

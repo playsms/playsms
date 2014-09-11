@@ -38,6 +38,9 @@ msgstr "前缀"
 msgid "Rate"
 msgstr "等级"
 
+msgid "Rate already exists"
+msgstr "等级已存在"
+
 msgid "Rate has been added"
 msgstr "等级已添加"
 
@@ -46,9 +49,6 @@ msgstr "等级已删除"
 
 msgid "Rate has been saved"
 msgstr "等级已保存"
-
-msgid "Rate is already exists"
-msgstr "等级已存在"
 
 msgid "Save"
 msgstr "保存"

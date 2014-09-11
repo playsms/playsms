@@ -58,7 +58,7 @@ msgstr "O quiz SMS já existe, está reservado ou em uso por outro recurso"
 msgid "SMS quiz answer"
 msgstr "Resposta do quiz SMS"
 
-msgid "SMS quiz answer messages has been deleted"
+msgid "SMS quiz answer messages have been deleted"
 msgstr "Mensagens de resposta ao quiz foram removidas"
 
 msgid "SMS quiz has been added"

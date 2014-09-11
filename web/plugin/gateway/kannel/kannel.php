@@ -109,7 +109,7 @@ switch (_OP_) {
 					<td><input type='button' value=\""._('Restart Kannel')."\" class='button' onClick=\"parent.location.href='index.php?app=main&inc=gateway_kannel&op=manage_restart'\"></td>
 				</tr>
 				</tbody>
-				<!-- End Of Fixme Edward Added Kanel HTTP Admin Parameter--> 
+				<!-- End Of Fixme Edward Added Kanel HTTP Admin Parameter-->
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>";
@@ -117,7 +117,7 @@ switch (_OP_) {
 		_p($content);
 		break;
 	case "manage_save":
-		$_SESSION['error_string'] = _('Changes has been made');
+		$_SESSION['error_string'] = _('Changes have been made');
 		// Handle DLR config (emmanuel)
 		if (isset($_POST['dlr_box'])) {
 			for ($i = 0, $c = count($_POST['dlr_box']); $i < $c; $i++) {

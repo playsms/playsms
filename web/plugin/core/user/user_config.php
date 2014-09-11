@@ -47,7 +47,7 @@ if ((!$uname) || ($uname && $uname == $user_config['username'])) {
 switch (_OP_) {
 	case "user_config" :
 		if ($c_user = dba_search(_DB_PREF_ . '_tblUser', '*', array(
-			'username' => $c_username 
+			'username' => $c_username
 		))) {
 			$token = $c_user[0]['token'];
 			$webservices_ip = $c_user[0]['webservices_ip'];
@@ -62,11 +62,11 @@ switch (_OP_) {
 			$replace_zero = $c_user[0]['replace_zero'];
 			$credit = rate_getusercredit($c_username);
 		} else {
-			$_SESSION['error_string'] = _('User does not exists') . ' (' . _('username') . ': ' . $uname . ')';
+			$_SESSION['error_string'] = _('User does not exist') . ' (' . _('username') . ': ' . $uname . ')';
 			header("Location: " . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=' . $view));
 			exit();
 		}
-		
+
 		// select enable_webservices
 		if ($enable_webservices) {
 			$selected_1 = 'selected';
@@ -77,7 +77,7 @@ switch (_OP_) {
 		}
 		$option_enable_webservices = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
 		$option_enable_webservices .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
-		
+
 		// select token
 		if ($new_token) {
 			$selected_1 = 'selected';
@@ -88,7 +88,7 @@ switch (_OP_) {
 		}
 		$option_new_token = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
 		$option_new_token .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
-		
+
 		// select fwd_to_inbox
 		if ($fwd_to_inbox) {
 			$selected_1 = 'selected';
@@ -99,7 +99,7 @@ switch (_OP_) {
 		}
 		$option_fwd_to_inbox = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
 		$option_fwd_to_inbox .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
-		
+
 		// select fwd_to_email
 		if ($fwd_to_email) {
 			$selected_1 = 'selected';
@@ -110,7 +110,7 @@ switch (_OP_) {
 		}
 		$option_fwd_to_email = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
 		$option_fwd_to_email .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
-		
+
 		// select fwd_to_mobile
 		if ($fwd_to_mobile) {
 			$selected_1 = 'selected';
@@ -121,7 +121,7 @@ switch (_OP_) {
 		}
 		$option_fwd_to_mobile = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
 		$option_fwd_to_mobile .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
-		
+
 		// get language options
 		$lang_list = '';
 		for($i = 0; $i < count($core_config['languagelist']); $i++) {
@@ -139,7 +139,7 @@ switch (_OP_) {
 				$selected = "";
 			}
 		}
-		
+
 		// get sender ID
 		$c_sms_from = sender_id_default_get($user_config['uid']);
 		$option_sender_id = "<option value=\"\">--- " . _('Select default sender ID') . " ---</option>";
@@ -150,14 +150,14 @@ switch (_OP_) {
 			}
 			$option_sender_id .= "<option value=\"" . $sender_id . "\" title=\"" . $sender_id . "\" " . $selected . ">" . $sender_id . "</option>";
 		}
-		
+
 		// admin or users
 		if ($uname && (auth_isadmin() || $is_parent)) {
 			$form_title = _('Manage user');
-			
+
 			// fixme anton - now disabled since plugin/feature/credit exists
 			// $option_credit = "<tr><td>" . _('Credit') . "</td><td><input type=text maxlength=14 name=up_credit value=\"$credit\"></td></tr>";
-			
+
 			if ($is_parent) {
 				$button_delete = "<input type=button class=button value='" . _('Delete') . "' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete subuser ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_del" . $url_uname . "')\">";
 				$button_back = _back('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list');
@@ -167,16 +167,16 @@ switch (_OP_) {
 			}
 		} else {
 			$form_title = _('User configuration');
-			
+
 			// fixme anton - now disabled since plugin/feature/credit exists
 			// $option_credit = "<tr><td>" . _('Credit') . "</td><td>$credit</td></tr>";
 		}
-		
+
 		// error string
 		if ($err = $_SESSION['error_string']) {
 			$error_content = "<div class=error_string>$err</div>";
 		}
-		
+
 		$tpl = array(
 			'name' => 'user_config',
 			'vars' => array(
@@ -229,12 +229,12 @@ switch (_OP_) {
 				'datetime_timezone' => $datetime_timezone,
 				'local_length' => $local_length,
 				'replace_zero' => $replace_zero,
-				'credit' => $credit 
-			) 
+				'credit' => $credit
+			)
 		);
 		_p(tpl_apply($tpl));
 		break;
-	
+
 	case "user_config_save" :
 		$_SESSION['error_string'] = _('No changes made');
 		$fields = array(
@@ -249,13 +249,13 @@ switch (_OP_) {
 			'new_token',
 			'enable_webservices',
 			'webservices_ip',
-			'sender' 
+			'sender'
 		);
-		
+
 		/*
 		 * fixme anton - now disabled since plugin/feature/credit exists if ($uname && (auth_isadmin() || $is_parent)) { _log('saving username:' . $c_username . ' credit:' . $_POST['up_credit'], 3, 'user_config'); $fields[] = 'credit'; }
 		 */
-		
+
 		for($i = 0; $i < count($fields); $i++) {
 			$up[$fields[$i]] = trim($_POST['up_' . $fields[$i]]);
 		}
@@ -270,7 +270,7 @@ switch (_OP_) {
 			unset($up['new_token']);
 			if ($continue) {
 				if (dba_update(_DB_PREF_ . '_tblUser', $up, array(
-					'username' => $c_username 
+					'username' => $c_username
 				))) {
 					if ($up['password']) {
 						$_SESSION['error_string'] = _('User configuration has been saved and password updated');
@@ -291,4 +291,3 @@ switch (_OP_) {
 		exit();
 		break;
 }
-	

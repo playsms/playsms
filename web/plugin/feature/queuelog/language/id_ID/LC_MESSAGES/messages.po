@@ -20,7 +20,7 @@ msgstr "Pesan"
 msgid "Queue Code"
 msgstr "Kode antrian"
 
-msgid "Queue has been remove"
+msgid "Queue has been removed"
 msgstr ""
 
 msgid "Scheduled"

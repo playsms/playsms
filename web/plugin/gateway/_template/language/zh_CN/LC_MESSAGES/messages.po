@@ -14,7 +14,7 @@ msgstr "网关名"
 msgid "Manage template"
 msgstr "管理模板"
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr "未做改变"
 
 msgid "No trailing slash"

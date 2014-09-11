@@ -36,14 +36,14 @@ msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
 "Maks. 16 numerik atau 11 karakter alfanumerik. kosongkan untuk menonaktifkan"
 
-#, fuzzy
 msgid "Module sender ID"
 msgstr "Pengirim global"
 
 msgid "Module timezone"
 msgstr ""
 
-msgid "No changes has been made"
+#, fuzzy
+msgid "No changes have been made"
 msgstr "Tidak ada perubahan yang terjadi"
 
 msgid "No trailing slash"

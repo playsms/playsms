@@ -18,7 +18,7 @@ msgid "Gateway name"
 msgstr ""
 
 msgid "Manage uplink"
-msgstr "Manage uplink"
+msgstr ""
 
 msgid "Master URL"
 msgstr ""
@@ -32,7 +32,7 @@ msgstr ""
 msgid "Module timezone"
 msgstr ""
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr ""
 
 msgid "Save"

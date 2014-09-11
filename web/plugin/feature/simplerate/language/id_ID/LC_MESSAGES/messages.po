@@ -38,6 +38,9 @@ msgstr "Awalan"
 msgid "Rate"
 msgstr "Tarif"
 
+msgid "Rate already exists"
+msgstr "Tarif telah ada sebelumnya"
+
 msgid "Rate has been added"
 msgstr "Tarif telah ditambahkan"
 
@@ -46,9 +49,6 @@ msgstr "Tarif telah dihapus"
 
 msgid "Rate has been saved"
 msgstr "Tarif telah disimpan"
-
-msgid "Rate is already exists"
-msgstr "Tarif telah ada sebelumnya"
 
 msgid "Save"
 msgstr "Simpan"

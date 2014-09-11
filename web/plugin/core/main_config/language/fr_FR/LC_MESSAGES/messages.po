@@ -54,6 +54,9 @@ msgstr ""
 msgid "Default user status on registration"
 msgstr ""
 
+msgid "Disable login as subuser"
+msgstr ""
+
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
@@ -67,6 +70,9 @@ msgid "Enable logo"
 msgstr ""
 
 msgid "Enable public registration"
+msgstr ""
+
+msgid "Enhance privacy for subusers"
 msgstr ""
 
 msgid "Forwarded email footer"

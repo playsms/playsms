@@ -39,13 +39,13 @@ switch (_OP_) {
 		$conditions = array(
 			'flag_deleted' => 0,
 		);
-		
+
 		// only if users
 		if ($user_config['status'] == 3) {
 			$conditions['parent_uid'] = $user_config['uid'];
 			$conditions['status'] = 4;
 		}
-		
+
 		$keywords = $search['dba_keywords'];
 		$count = dba_count($db_table, $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
@@ -55,7 +55,7 @@ switch (_OP_) {
 			'OFFSET' => $nav['offset']
 		);
 		$list = dba_search($db_table, '*', $conditions, $keywords, $extras);
-		
+
 		$content = "
 			<h2>" . _('Manage credit') . "</h2>
 			<h3>" . _('List of transactions') . "</h3>
@@ -85,7 +85,7 @@ switch (_OP_) {
 			</tr>
 			</thead>
 			<tbody>";
-		
+
 		$j = 0;
 		foreach ($list as $row) {
 			$row = core_display_data($row);
@@ -102,14 +102,14 @@ switch (_OP_) {
 				</tr>";
 			$j++;
 		}
-		
+
 		$content.= "
 			</tbody>
 			</table>
 			</div>
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>";
-		
+
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}
@@ -117,15 +117,15 @@ switch (_OP_) {
 		break;
 
 	case "credit_add":
-		
+
 		$select_user = credit_html_select_user();
-		
+
 		if (count($_SESSION['error_string']) > 0) {
 			foreach ($_SESSION['error_string'] as $err) {
 				$error_content.= "<div class=error_string>$err</div>";
 			}
 		}
-		
+
 		$content = $error_content . "
 			<link rel=\"stylesheet\" href=\"" . _HTTP_PATH_THEMES_ . "/common/jscss/combobox/select2.css\" />
 			<script type=\"text/javascript\" src=\"" . _HTTP_PATH_THEMES_ . "/common/jscss/combobox/select2.min.js\"></script>
@@ -158,20 +158,20 @@ switch (_OP_) {
 			<p><input type='submit' class='button' value='" . _('Add credit') . "'>
 			</form>
 			" . _back('index.php?app=main&inc=feature_credit&op=credit_list');
-		
+
 		_p($content);
 		break;
 
 	case "credit_reduce":
-		
+
 		$select_user = credit_html_select_user();
-		
+
 		if (count($_SESSION['error_string']) > 0) {
 			foreach ($_SESSION['error_string'] as $err) {
 				$error_content.= "<div class=error_string>$err</div>";
 			}
 		}
-		
+
 		$content = $error_content . "
 			<link rel=\"stylesheet\" href=\"" . _HTTP_PATH_THEMES_ . "/common/jscss/combobox/select2.css\" />
 			<script type=\"text/javascript\" src=\"" . _HTTP_PATH_THEMES_ . "/common/jscss/combobox/select2.min.js\"></script>
@@ -204,7 +204,7 @@ switch (_OP_) {
 			<p><input type='submit' class='button' value='" . _('Reduce credit') . "'>
 			</form>
 			" . _back('index.php?app=main&inc=feature_credit&op=credit_list');
-		
+
 		_p($content);
 		break;
 
@@ -218,13 +218,13 @@ switch (_OP_) {
 				$conditions = array(
 					'flag_deleted' => 0,
 				);
-				
+
 				// only if users
 				if ($user_config['status'] == 3) {
 					$conditions['parent_uid'] = $user_config['uid'];
 					$conditions['status'] = 4;
 				}
-				
+
 				$list = dba_search($db_table, '*', $conditions, $search['dba_keywords']);
 				$data[0] = array(
 					_('User') ,
@@ -256,13 +256,13 @@ switch (_OP_) {
 							'delete_datetime' => core_get_datetime() ,
 							'flag_deleted' => '1'
 						);
-						
+
 						// only if users
 						if ($user_config['status'] == 3) {
 							$up['parent_uid'] = $user_config['uid'];
 							$up['status'] = 4;
 						}
-						
+
 						dba_update($db_table, $up, array(
 							'id' => $itemid
 						));
@@ -276,9 +276,9 @@ switch (_OP_) {
 
 			case "add":
 				$continue = FALSE;
-				
+
 				$uids = $_POST['uids'];
-				
+
 				if (is_array($uids)) {
 					foreach ($uids as $uid) {
 						if ($user_config['status'] == 3) {
@@ -287,11 +287,11 @@ switch (_OP_) {
 								$continue = TRUE;
 							}
 						}
-						
+
 						if (auth_isadmin()) {
 							$continue = TRUE;
 						}
-						
+
 						$amount = abs($_POST['amount']);
 						if ($continue && ($amount > 0) && ($username = user_uid2username($uid))) {
 							if (credit_add($uid, $amount)) {
@@ -301,20 +301,20 @@ switch (_OP_) {
 								$_SESSION['error_string'][].= _('Fail to add credit') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
 							}
 						} else {
-							$_SESSION['error_string'][].= _('Wrong amount or user does not exists') . ' (' . _('User ID') . ':' . $uid . ')';
+							$_SESSION['error_string'][].= _('Wrong amount or user does not exist') . ' (' . _('User ID') . ':' . $uid . ')';
 						}
 					}
 				}
-				
+
 				header("Location: " . _u('index.php?app=main&inc=feature_credit&op=credit_add'));
 				exit();
 				break;
 
 			case "reduce":
 				$continue = FALSE;
-				
+
 				$uids = $_POST['uids'];
-				
+
 				if (is_array($uids)) {
 					foreach ($uids as $uid) {
 						if ($user_config['status'] == 3) {
@@ -323,11 +323,11 @@ switch (_OP_) {
 								$continue = TRUE;
 							}
 						}
-						
+
 						if (auth_isadmin()) {
 							$continue = TRUE;
 						}
-						
+
 						$amount = -1 * abs($_POST['amount']);
 						if ($continue && ($amount < 0) && ($username = user_uid2username($uid))) {
 							if (credit_add($uid, $amount)) {
@@ -337,11 +337,11 @@ switch (_OP_) {
 								$_SESSION['error_string'][].= _('Fail to reduce credit') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
 							}
 						} else {
-							$_SESSION['error_string'][].= _('Wrong amount or user does not exists') . ' (' . _('User ID') . ':' . $uid . ')';
+							$_SESSION['error_string'][].= _('Wrong amount or user does not exist') . ' (' . _('User ID') . ':' . $uid . ')';
 						}
 					}
 				}
-				
+
 				header("Location: " . _u('index.php?app=main&inc=feature_credit&op=credit_reduce'));
 				exit();
 				break;

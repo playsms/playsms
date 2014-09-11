@@ -20,7 +20,7 @@ msgstr "Mensagem"
 msgid "Queue Code"
 msgstr "Código na fila"
 
-msgid "Queue has been remove"
+msgid "Queue has been removed"
 msgstr ""
 
 msgid "Scheduled"

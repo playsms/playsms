@@ -21,7 +21,7 @@ msgstr "Название шлюза"
 msgid "Manage template"
 msgstr "Шаблонный"
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr "нет изменений"
 
 msgid "No trailing slash"

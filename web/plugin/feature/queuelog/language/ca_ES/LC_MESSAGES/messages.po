@@ -32,7 +32,7 @@ msgstr "Missatge"
 msgid "Queue Code"
 msgstr "Codi cua"
 
-msgid "Queue has been remove"
+msgid "Queue has been removed"
 msgstr "S'ha esborrat la cua"
 
 msgid "Scheduled"

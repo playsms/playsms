@@ -13,7 +13,7 @@ msgstr ""
 msgid "Queue Code"
 msgstr ""
 
-msgid "Queue has been remove"
+msgid "Queue has been removed"
 msgstr ""
 
 msgid "Scheduled"

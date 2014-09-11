@@ -71,13 +71,13 @@ switch (_OP_) {
 		$up_send_url = $_POST['up_send_url'];
 		$up_incoming_path = $_POST['up_incoming_path'];
 		$up_additional_param = ($_POST['up_additional_param'] ? $_POST['up_additional_param'] : "deliv_ack=1&callback=3");
-		$_SESSION['error_string'] = _ ( 'No changes has been made' );
+		$_SESSION['error_string'] = _ ( 'No changes have been made' );
 		if ($up_api_id && $up_username && $up_send_url) {
 			if ($up_password) {
 				$password_change = "cfg_password='$up_password',";
 			}
 			$db_query = "
-				UPDATE " . _DB_PREF_ . "_gatewayClickatell_config 
+				UPDATE " . _DB_PREF_ . "_gatewayClickatell_config
 				SET c_timestamp='" . mktime () . "',
 				cfg_api_id='$up_api_id',
 				cfg_username='$up_username',

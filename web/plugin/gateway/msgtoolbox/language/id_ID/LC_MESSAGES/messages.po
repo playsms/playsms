@@ -29,7 +29,7 @@ msgstr "ID pengirim modul"
 msgid "Module timezone"
 msgstr "Zona waktu modul"
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr "Tidak ada perubahan yang dilakukan"
 
 msgid "Password"

@@ -150,7 +150,7 @@ msgstr ""
 msgid "Receiver number"
 msgstr "Empfängernummer"
 
-msgid "Receiver number does not exists"
+msgid "Receiver number does not exist"
 msgstr "Empfängernummer existiert nicht"
 
 msgid "Restrict sender to regular members or catch-all members only"
@@ -168,7 +168,7 @@ msgstr "Ausgewählte Mitglieder"
 msgid "Selected users"
 msgstr "Ausgewählte Benutzer"
 
-msgid "Seperate with comma for multiple items"
+msgid "Separate with comma for multiple items"
 msgstr "Mit Komma trennen für mehrere Objekte"
 
 msgid "Status"

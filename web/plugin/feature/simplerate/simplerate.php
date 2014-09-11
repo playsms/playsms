@@ -26,8 +26,8 @@ switch (_OP_) {
 			$content .= "
 				<tr>
 					<td>".$db_row['dst']."</td>
-					<td>".$db_row['prefix']."</td>	
-					<td>".$db_row['rate']."</td>	
+					<td>".$db_row['prefix']."</td>
+					<td>".$db_row['rate']."</td>
 					<td>$action</td>
 				</tr>";
 		}
@@ -121,7 +121,7 @@ switch (_OP_) {
 			<tr>
 				<td>"._('Rate')."</td><td><input type='text' maxlength=14 name='add_rate' value=\"$add_rate\"></td>
 			</tr>
-			</table>	
+			</table>
 			<input type='submit' class='button' value='"._('Save')."'>
 			</form>
 			"._back('index.php?app=main&inc=feature_simplerate&op=simplerate_list');
@@ -136,7 +136,7 @@ switch (_OP_) {
 			$db_query = "SELECT * FROM "._DB_PREF_."_featureSimplerate WHERE prefix='$add_prefix'";
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result)) {
-				$_SESSION['error_string'] = _('Rate is already exists')." ("._('destination').": ".$db_row['dst'].", "._('prefix').": ".$db_row['prefix'].")";
+				$_SESSION['error_string'] = _('Rate already exists')." ("._('destination').": ".$db_row['dst'].", "._('prefix').": ".$db_row['prefix'].")";
 			} else {
 				$db_query = "
 					INSERT INTO "._DB_PREF_."_featureSimplerate (dst,prefix,rate)

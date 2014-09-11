@@ -60,13 +60,13 @@ switch (_OP_) {
 		$up_api_secret = $_POST['up_api_secret'];
 		$up_global_sender = $_POST['up_global_sender'];
 		$up_global_timezone = $_POST['up_global_timezone'];
-		$_SESSION['error_string'] = _('No changes has been made');
+		$_SESSION['error_string'] = _('No changes have been made');
 		if ($up_url && $up_api_key) {
 			if ($up_api_secret) {
 				$api_secret_change = "cfg_api_secret='$up_api_secret',";
 			}
 			$db_query = "
-				UPDATE "._DB_PREF_."_gatewayNexmo_config 
+				UPDATE "._DB_PREF_."_gatewayNexmo_config
 				SET c_timestamp='".mktime()."',
 				cfg_url='$up_url',
 				cfg_api_key='$up_api_key',

@@ -72,13 +72,13 @@ switch (_OP_) {
 		$up_send_url = $_POST['up_send_url'];
 		$up_additional_param = $_POST['up_additional_param'];
 		$up_nopush = '0';
-		$_SESSION['error_string'] = _ ( 'No changes has been made' );
+		$_SESSION['error_string'] = _ ( 'No changes have been made' );
 		if ($up_username && $up_send_url) {
 			if ($up_password) {
 				$password_change = "cfg_password='$up_password',";
 			}
 			$db_query = "
-				UPDATE " . _DB_PREF_ . "_gatewayInfobip_config 
+				UPDATE " . _DB_PREF_ . "_gatewayInfobip_config
 				SET c_timestamp='" . mktime () . "',
 				cfg_username='$up_username',
 				" . $password_change . "

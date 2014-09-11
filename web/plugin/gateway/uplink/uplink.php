@@ -76,7 +76,7 @@ switch (_OP_) {
 		$up_global_sender = $_POST['up_global_sender'];
 		$up_global_timezone = $_POST['up_global_timezone'];
 		$up_try_disable_footer = $_POST['up_try_disable_footer'];
-		$_SESSION['error_string'] = _('No changes has been made');
+		$_SESSION['error_string'] = _('No changes have been made');
 		if ($up_master && $up_username) {
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_gatewayUplink_config

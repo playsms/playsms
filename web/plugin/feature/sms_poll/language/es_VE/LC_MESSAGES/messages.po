@@ -124,6 +124,9 @@ msgstr "Opciones de encuesta SMS y sus votantes ha sido borrada"
 msgid "SMS poll has been added"
 msgstr "Encuesta SMS ha sido añadida"
 
+msgid "SMS poll has been saved"
+msgstr "Encuesta SMS ha sido añadida"
+
 msgid "SMS poll keyword"
 msgstr "Clave de encuesta SMS"
 
@@ -135,9 +138,6 @@ msgstr "Título de la encuesta SMS"
 
 msgid "SMS poll with all its messages has been deleted"
 msgstr "La encuesta SMS y todos sus mensajes ha sido borrada"
-
-msgid "SMS poll with has been saved"
-msgstr "Encuesta SMS ha sido guardada"
 
 msgid "Save"
 msgstr "Guardar"

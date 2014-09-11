@@ -19,7 +19,7 @@ msgid "Bearerbox hostname or IP"
 msgstr "IP адрес или имя сервера bearerbox"
 
 #, fuzzy
-msgid "Changes has been made"
+msgid "Changes have been made"
 msgstr "Нет изменений"
 
 msgid "Delivered to SMSC"

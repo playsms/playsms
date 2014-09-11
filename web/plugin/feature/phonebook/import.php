@@ -115,7 +115,7 @@ switch (_OP_) {
 			if ($name && $mobile && $gpid) {
 				$list = dba_search(_DB_PREF_ . '_featurePhonebook', 'id', array(
 					'uid' => $uid,
-					'mobile' => $mobile 
+					'mobile' => $mobile
 				));
 				if ($c_pid = $list[0]['id']) {
 					$save_to_group = TRUE;
@@ -124,7 +124,7 @@ switch (_OP_) {
 						'uid' => $uid,
 						'name' => $name,
 						'mobile' => $mobile,
-						'email' => $email 
+						'email' => $email
 					);
 					if ($c_pid = dba_add(_DB_PREF_ . '_featurePhonebook', $items)) {
 						$save_to_group = TRUE;
@@ -135,7 +135,7 @@ switch (_OP_) {
 				if ($save_to_group) {
 					$items = array(
 						'gpid' => $gpid,
-						'pid' => $c_pid 
+						'pid' => $c_pid
 					);
 					if (dba_isavail(_DB_PREF_ . '_featurePhonebook_group_contacts', $items, 'AND')) {
 						if (dba_add(_DB_PREF_ . '_featurePhonebook_group_contacts', $items)) {
@@ -150,7 +150,7 @@ switch (_OP_) {
 			}
 			unset($gpid);
 		}
-		$_SESSION['error_string'] = _('Contacts has been imported');
+		$_SESSION['error_string'] = _('Contacts have been imported');
 		header("Location: " . _u('index.php?app=main&inc=feature_phonebook&route=import&op=list'));
 		exit();
 		break;

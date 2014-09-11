@@ -26,7 +26,7 @@ msgstr "Сообщения"
 msgid "Queue Code"
 msgstr "Номер очереди"
 
-msgid "Queue has been remove"
+msgid "Queue has been removed"
 msgstr "Очередь удалена"
 
 msgid "Scheduled"

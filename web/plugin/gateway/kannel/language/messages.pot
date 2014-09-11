@@ -4,7 +4,7 @@ msgstr ""
 msgid "Bearerbox hostname or IP"
 msgstr ""
 
-msgid "Changes has been made"
+msgid "Changes have been made"
 msgstr ""
 
 msgid "Delivered to SMSC"

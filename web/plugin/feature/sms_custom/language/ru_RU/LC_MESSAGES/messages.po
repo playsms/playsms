@@ -42,7 +42,7 @@ msgstr "Отправить результат в ответе"
 msgid "Manage custom"
 msgstr "Запрос URL"
 
-msgid "Pass these parameter to custom URL field"
+msgid "Pass these parameters to custom URL field"
 msgstr "Эти параметры могут быть переданы странице в строке вызова"
 
 msgid "SMS custom URL"

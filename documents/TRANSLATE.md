@@ -1,13 +1,13 @@
 # Translate
 
-playsms is using a layered structure for the translations, so for each module there is it's own translation.
+playsms is using a layered structure for the translations, so for each module there is its own translation.
 
 
 ## Create new translation
 
 To create a NEW tranlation of playsms, you will have copy the translation template to your destination language.
 
-For example, to translate from english (en_US) to catalan (ca_ES) you should do the following for every component you want to translate.
+For example, to translate from English (en_US) to catalan (ca_ES) you should do the following for every component you want to translate.
 
 For common strings
 
@@ -29,14 +29,14 @@ IMPORTANT:
 
 If you want, there are scripts to help you with the translation:
 
-- `backup-language-files.sh` creates a backup of existant language files
+- `backup-language-files.sh` creates a backup of existing language files
 - `create-new-language.sh` creates a tgz that contains all the files to translate the whole playsms interface
 - `restore-language-files.sh` restores the language files (po) from the backup or newly created files
 
 
 ## Update the translation
 
-To improve/finish the translations into your language, you will have to go into every folder of the program to get the .po files  to be translated.
+To improve/finish the translations into your language, you will have to go into every folder of the program to get the .po files to be translated.
 
 Once you've translated the .po files with poedit, lokalize or any other tool you just have to replace them into the destination folder.
 
@@ -60,19 +60,19 @@ Update .pot files in your playSMS web root:
 
 ## Merge .pot files with .po files
 
-Once we have updated the pot files, we can merge them with the translations files or .po files so the translators have only to worry about translating. 
+Once we have updated the pot files, we can merge them with the translations files or .po files so the translators have only to worry about translating.
 
 There's a contrib script in `contrib/tools/language/` for this.
 
 Update .po files in your playSMS web root:
 
 ```
-./2-merge-existing-po-files.sh  /var/www/playsms
+./2-merge-existing-po-files.sh /var/www/playsms
 ```
 
 ## Regenerate .mo files
 
-Until you regenerate the mo files, the translations won't be visible in  the web interfaces.
+Until you regenerate the mo files, the translations won't be visible in the web interfaces.
 
 To accomplish that, you will have to use `msgfmt`
 

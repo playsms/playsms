@@ -37,7 +37,7 @@ msgid "Keyword"
 msgstr ""
 
 msgid "Manage quiz"
-msgstr "Manage quiz"
+msgstr ""
 
 msgid "Question"
 msgstr ""
@@ -57,7 +57,7 @@ msgstr ""
 msgid "SMS quiz answer"
 msgstr ""
 
-msgid "SMS quiz answer messages has been deleted"
+msgid "SMS quiz answer messages have been deleted"
 msgstr ""
 
 msgid "SMS quiz has been added"

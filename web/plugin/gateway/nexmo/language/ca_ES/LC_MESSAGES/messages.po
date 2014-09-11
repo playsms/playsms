@@ -44,7 +44,7 @@ msgstr ""
 msgid "Nexmo will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr ""
 
 msgid "Notes"

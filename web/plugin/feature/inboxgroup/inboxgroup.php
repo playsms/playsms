@@ -63,7 +63,7 @@ switch (_OP_) {
 			'Receiver number' => _('Receiver number'),
 			'Keywords' => _('Keywords'),
 			'Description' => _('Description'),
-			'HINT_KEYWORDS' => _hint(_('Seperate with comma for multiple items')),
+			'HINT_KEYWORDS' => _hint(_('Separate with comma for multiple items')),
 			'HINT_RECEIVER_NUMBER' => _hint(_('For example a short code')),
 			'Save' => _('Save'),
 			'BACK' => _back('index.php?app=main&inc=feature_inboxgroup&op=list')
@@ -115,7 +115,7 @@ switch (_OP_) {
 			'KEYWORDS' => $keywords,
 			'DESCRIPTION' => $description,
 			'OPTION_EXCLUSIVE' => $option_exclusive,
-			'HINT_KEYWORDS' => _hint(_('Seperate with comma for multiple items')),
+			'HINT_KEYWORDS' => _hint(_('Separate with comma for multiple items')),
 			'HINT_EXCLUSIVE' => _hint(_('Restrict sender to regular members or catch-all members only')),
 			'Save' => _('Save'),
 			'BACK' => _back('index.php?app=main&inc=feature_inboxgroup&op=list')
@@ -194,7 +194,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('Fail to delete group inbox')." ("._('Number').": ".$in_receiver.")";
 			}
 		} else {
-			$_SESSION['error_string'] = _('Receiver number does not exists');
+			$_SESSION['error_string'] = _('Receiver number does not exist');
 		}
 		header("Location: "._u('index.php?app=main&inc=feature_inboxgroup&op=list&rid='.$rid));
 		exit();
@@ -210,7 +210,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('Fail to enable group inbox')." ("._('Number').": ".$in_receiver.")";
 			}
 		} else {
-			$_SESSION['error_string'] = _('Receiver number does not exists');
+			$_SESSION['error_string'] = _('Receiver number does not exist');
 		}
 		header("Location: "._u('index.php?app=main&inc=feature_inboxgroup&op=list&rid='.$rid));
 		exit();
@@ -226,7 +226,7 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('Fail to disable group inbox')." ("._('Number').": ".$in_receiver.")";
 			}
 		} else {
-			$_SESSION['error_string'] = _('Receiver number does not exists');
+			$_SESSION['error_string'] = _('Receiver number does not exist');
 		}
 		header("Location: "._u('index.php?app=main&inc=feature_inboxgroup&op=list&rid='.$rid));
 		exit();

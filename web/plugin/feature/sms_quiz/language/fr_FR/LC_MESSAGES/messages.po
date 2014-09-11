@@ -63,7 +63,7 @@ msgstr "Ce mot-clé existe déjà, est réservé ou utilisé par un autre servic
 msgid "SMS quiz answer"
 msgstr "Réponse au quiz"
 
-msgid "SMS quiz answer messages has been deleted"
+msgid "SMS quiz answer messages have been deleted"
 msgstr "Les SMS de réponses au quiz ont été supprimés"
 
 msgid "SMS quiz has been added"

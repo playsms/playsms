@@ -73,7 +73,7 @@ msgstr ""
 msgid "Users"
 msgstr ""
 
-msgid "Wrong amount or user does not exists"
+msgid "Wrong amount or user does not exist"
 msgstr ""
 
 msgid "amount"

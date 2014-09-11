@@ -11,7 +11,7 @@ msgstr ""
 msgid "Bearerbox hostname or IP"
 msgstr ""
 
-msgid "Changes has been made"
+msgid "Changes have been made"
 msgstr ""
 
 msgid "Delivered to SMSC"
@@ -60,7 +60,7 @@ msgid "Kannel status"
 msgstr ""
 
 msgid "Manage kannel"
-msgstr "Manage kannel"
+msgstr ""
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
