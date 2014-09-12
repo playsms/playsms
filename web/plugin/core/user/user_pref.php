@@ -53,13 +53,13 @@ if (auth_isadmin()) {
 	if (!(($user_edited['uid'] == $user_config['uid']) || ($user_edited['uid'] == 1) || ($user_edited['status'] == 2))) {
 		$allow_edit_status = TRUE;
 	}
-
+	
 	$list = user_getsubuserbyuid($user_edited['uid']);
 	if (count($list) > 0) {
 		$show_status_hint = TRUE;
 		$allow_edit_status = FALSE;
 	}
-
+	
 	if ($user_edited['status'] == 4) {
 		$allow_edit_parent = TRUE;
 	}
@@ -68,7 +68,7 @@ if (auth_isadmin()) {
 switch (_OP_) {
 	case "user_pref" :
 		if ($c_user = dba_search(_DB_PREF_ . '_tblUser', '*', array(
-			'username' => $c_username
+			'username' => $c_username 
 		))) {
 			if ($allow_edit_status) {
 				$status = $c_user[0]['status'];
@@ -86,11 +86,11 @@ switch (_OP_) {
 			$zipcode = $c_user[0]['zipcode'];
 			$sender = core_sanitize_sender($c_user[0]['sender']);
 		} else {
-			$_SESSION['error_string'] = _('User does not exist') . ' (' . _('username') . ': ' . $uname . ')';
+			$_SESSION['error_string'] = _('User does not exists') . ' (' . _('username') . ': ' . $uname . ')';
 			header("Location: " . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=' . $view));
 			exit();
 		}
-
+		
 		if ($allow_edit_status) {
 			if ($user_edited['status'] == 3) {
 				$selected_users = 'selected';
@@ -103,12 +103,12 @@ switch (_OP_) {
 			";
 			$select_status = '<select name="up_status">' . $option_status . '</select>';
 		}
-
+		
 		// when allowed to edit parents of subusers
 		if ($allow_edit_parent) {
 			// get list of users as parents
 			$option_parents = '<option value="0">--' . _('Select parent user for subuser') . '--</option>';
-
+			
 			// get admins
 			$list = user_getallwithstatus(2);
 			foreach ($list as $parent ) {
@@ -118,7 +118,7 @@ switch (_OP_) {
 				$option_parents .= '<option value="' . $parent['uid'] . '" ' . $selected . '>' . $parent['username'] . ' - ' . _('Administrator') . '</option>';
 				$selected = '';
 			}
-
+			
 			// get users
 			$list = user_getallwithstatus(3);
 			foreach ($list as $parent ) {
@@ -130,14 +130,14 @@ switch (_OP_) {
 			}
 			$select_parents = '<select name="up_parent_uid">' . $option_parents . '</select>';
 		}
-
+		
 		// enhance privacy for subusers
 		$enhance_privacy = TRUE;
 		$main_config = $core_config['main'];
 		if(!auth_isadmin() && $main_config['enhance_privacy_subuser']){
 			$enhance_privacy = FALSE;
 		}
-
+		
 		// get country option
 		$option_country = "<option value=\"0\">--" . _('Please select') . "--</option>\n";
 		$result = country_search();
@@ -150,7 +150,7 @@ switch (_OP_) {
 			}
 			$option_country .= "<option value=\"$country_id\" $selected>$country_name</option>\n";
 		}
-
+		
 		// admin or users
 		if ($uname && (auth_isadmin() || $is_parent)) {
 			$form_title = _('Manage user');
@@ -164,12 +164,12 @@ switch (_OP_) {
 		} else {
 			$form_title = _('Preferences');
 		}
-
+		
 		// error string
 		if ($err = $_SESSION['error_string']) {
 			$error_content = "<div class=error_string>$err</div>";
 		}
-
+		
 		$tpl = array(
 			'name' => 'user_pref',
 			'vars' => array(
@@ -208,14 +208,14 @@ switch (_OP_) {
 				'city' => $city,
 				'state' => $state,
 				'option_country' => $option_country,
-				'zipcode' => $zipcode
+				'zipcode' => $zipcode 
 			),
 			'ifs' => array(
 				'edit_status' => $allow_edit_status,
 				'edit_parent' => $allow_edit_parent,
 				'edit_status_hint' => $show_status_hint,
 				'enhance_privacy' => $enhance_privacy
-			)
+			) 
 		);
 		_p(tpl_apply($tpl));
 		break;
@@ -230,30 +230,30 @@ switch (_OP_) {
 			'state',
 			'country',
 			'password',
-			'zipcode'
+			'zipcode' 
 		);
-
+		
 		if ($allow_edit_status) {
 			_log('saving username:' . $c_username . ' status:' . $_POST['up_status'], 3, 'user_pref');
 			$fields[] = 'status';
 		}
-
+		
 		if ($allow_edit_parent) {
 			_log('saving username:' . $c_username . ' parent_uid:' . $_POST['up_parent_uid'], 3, 'user_pref');
 			$fields[] = 'parent_uid';
 		}
-
+		
 		for($i = 0; $i < count($fields); $i++) {
 			$up[$fields[$i]] = trim($_POST['up_' . $fields[$i]]);
 		}
-
+		
 		// subuser's parent uid, by default its uid=1
 		if ($_POST['up_parent_uid']) {
 			$up['parent_uid'] = ($user_edited['status'] == 4 ? $_POST['up_parent_uid'] : 1);
 		} else {
 			$up['parent_uid'] = 1;
 		}
-
+		
 		$up['username'] = $c_username;
 		$up['lastupdate_datetime'] = core_adjust_datetime(core_get_datetime());
 		if ($up['name']) {
@@ -272,7 +272,7 @@ switch (_OP_) {
 				}
 				if ($continue) {
 					if (dba_update(_DB_PREF_ . '_tblUser', $up, array(
-						'username' => $c_username
+						'username' => $c_username 
 					))) {
 						if ($up['password']) {
 							$_SESSION['error_string'] = _('Preferences has been saved and password updated');
