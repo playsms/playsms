@@ -30,19 +30,19 @@ switch (_OP_) {
 		</tr>
 		<tr>
 		    <td>"._('Template installation path')."</td><td><input type=text maxlength=250 name=up_path value=\"".$template_param['path']."\"> ("._('No trailing slash')." \"/\")</td>
-		</tr>	    
-	    </table>	    
+		</tr>
+	    </table>
 	    <p><input type=submit class=button value=\""._('Save')."\">
 	    </form>";
 		_p($content);
 		break;
 	case "manage_save":
 		$up_path = $_POST['up_path'];
-		$_SESSION['error_string'] = _('No changes has been made');
+		$_SESSION['error_string'] = _('No changes have been made');
 		if ($up_path)
 		{
 			$db_query = "
-		UPDATE "._DB_PREF_."_gatewayTemplate_config 
+		UPDATE "._DB_PREF_."_gatewayTemplate_config
 		SET c_timestamp='".mktime()."',cfg_path='$up_path'
 	    ";
 			if (@dba_affected_rows($db_query))

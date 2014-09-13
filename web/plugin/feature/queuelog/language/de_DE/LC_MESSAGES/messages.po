@@ -20,7 +20,7 @@ msgstr "Nachricht"
 msgid "Queue Code"
 msgstr "Queue Code"
 
-msgid "Queue has been remove"
+msgid "Queue has been removed"
 msgstr "Queue wurde gelscht"
 
 msgid "Scheduled"

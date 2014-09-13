@@ -5,141 +5,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "About"
-msgstr "Sobre"
-
-msgid "About playSMS"
-msgstr "Sobre o playSMS"
-
-msgid ""
-"Access to unknown domain mapped to this server IP address will be redirected "
-"to this website URL. This website URL should be the primary address for the "
-"service."
-msgstr ""
-
-msgid "Action"
-msgstr "Ação"
-
-msgid "Active gateway module"
-msgstr "Módulo de gateway ativo"
-
-msgid "Active language"
-msgstr "Idioma ativo"
-
-msgid "Active themes"
-msgstr "Temas ativos"
-
 msgid "Add"
 msgstr "Adicionar"
 
-#, fuzzy
-msgid "Add administrator"
-msgstr "Administrador"
-
-msgid "Add message template"
-msgstr "Adicionar modelo de mensagem"
-
-msgid "Add user"
-msgstr "Adicionar usuário"
-
-msgid "Address"
-msgstr "Endereço"
-
-msgid "Administration"
-msgstr "Administração"
-
 msgid "Administrator"
 msgstr "Administrador"
-
-#, fuzzy
-msgid "Administrators"
-msgstr "Administrador"
-
-msgid "All"
-msgstr "Todos"
-
-msgid "All Inbox"
-msgstr "Todas as caixas de entrada"
-
-msgid "All inbox"
-msgstr "Todas as caixas de entrada"
-
-msgid "All incoming SMS"
-msgstr "Todos os SMS's recebidos"
-
-#, fuzzy
-msgid "All incoming messages"
-msgstr "Todos os SMS's recebidos"
-
-msgid "All outgoing SMS"
-msgstr "Todas os SMS's enviados"
-
-#, fuzzy
-msgid "All outgoing messages"
-msgstr "Todas os SMS's enviados"
-
-#, fuzzy
-msgid "Allow custom SMS footer"
-msgstr "Assinatura do SMS"
-
-#, fuzzy
-msgid "Allow custom sender ID"
-msgstr "ID padrão de remetente"
-
-msgid "Always add plus sign"
-msgstr "Sempre adicionar o sinal de +"
-
-msgid "Always choose to send as unicode"
-msgstr "Sempre enviar como unicode"
-
-#, fuzzy
-msgid "Application footer here"
-msgstr "Opçãoes da aplicação"
-
-#, fuzzy
-msgid ""
-"Application footer here. Go to main configuration or manage site to edit "
-"this footer."
-msgstr "As mudanças nas configurações principais foram salvas"
-
-msgid "Application information"
-msgstr "Informações da aplicação"
-
-msgid "Application options"
-msgstr "Opçãoes da aplicação"
-
-#, fuzzy
-msgid "Are you sure you want to ban user"
-msgstr "Tem certeza que deseja remover o usuário"
-
-msgid "Are you sure you want to delete outgoing SMS ?"
-msgstr "Tem certeza que deseja remover os SMS's enviados?"
-
-#, fuzzy
-msgid "Are you sure you want to delete these items ?"
-msgstr "Tem certeza que deseja remover esse SMS?"
-
-msgid "Are you sure you want to delete this SMS ?"
-msgstr "Tem certeza que deseja remover esse SMS?"
-
-msgid "Are you sure you want to delete user"
-msgstr "Tem certeza que deseja remover o usuário"
-
-msgid "Are you sure you want to delete user ?"
-msgstr "Tem certeza que deseja remover o usuário?"
-
-#, fuzzy
-msgid "Are you sure you want to unban user"
-msgstr "Tem certeza que deseja remover o usuário"
-
-msgid "Auto remove plus sign"
-msgstr "Autoremover o sinal de +"
-
-msgid "Auto replace prefix 0"
-msgstr "Substituir o prefixo 0 automaticamente"
-
-msgid "Back"
-msgstr "Voltar"
 
 msgid "Ban"
 msgstr ""
@@ -147,158 +17,24 @@ msgstr ""
 msgid "Buy"
 msgstr ""
 
-#, fuzzy
-msgid "Buy credit"
-msgstr "Crédito"
-
-#, fuzzy
-msgid "Buy credit page"
-msgstr "Crédito"
-
-msgid "Buy credit page content"
-msgstr ""
-
-msgid "Buy credit page title"
-msgstr ""
-
-msgid "Changelog"
-msgstr ""
-
-msgid "City"
-msgstr "Cidade"
-
-#, fuzzy
-msgid "Comma separated"
-msgstr "Separado por vírgula"
-
-msgid "Comma seperated"
-msgstr "Separado por vírgula"
-
-msgid "Content"
-msgstr "Conteúdo"
-
-msgid "Country"
-msgstr "País"
-
-msgid "Created"
-msgstr "Criado"
-
-msgid "Credit"
-msgstr "Crédito"
-
-msgid "Currently logged in user is immune to deletion"
-msgstr "O usuário atualmente conectado é imunie a remoção"
-
-msgid "Date time"
-msgstr "Data & hora"
-
-msgid "Default"
-msgstr "Padrão"
-
-msgid "Default SMS rate"
-msgstr "Taxa padrão de SMS"
-
-msgid "Default credit for user"
-msgstr "Crédito padrão para usuário"
-
-msgid "Default language"
-msgstr "Idioma padrão"
-
-msgid "Default sender ID"
-msgstr "ID padrão de remetente"
-
-#, fuzzy
-msgid "Default settings"
-msgstr "Fuso horário padrão"
-
-#, fuzzy
-msgid "Default site configuration"
-msgstr "Configurações principais"
-
-msgid "Default timezone"
-msgstr "Fuso horário padrão"
-
-#, fuzzy
-msgid "Default user status on registration"
-msgstr "Registro de nova conta"
-
 msgid "Delete"
 msgstr "Remover"
-
-msgid "Delete all templates ?"
-msgstr "Remover todos os modelos?"
-
-msgid "Delete message template"
-msgstr "Remover modelo de mensagem"
-
-msgid "Delete selection"
-msgstr "Remover seleção"
 
 #, fuzzy
 msgid "Delete user"
 msgstr "Remover"
 
-msgid "Delivered"
-msgstr "Entregue"
-
 msgid "Edit"
 msgstr "Editar"
-
-msgid "Edit message template"
-msgstr "Editar modelo de mensagem"
-
-#, fuzzy
-msgid "Effective SMS sender ID"
-msgstr "SMS Sender ID"
-
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Ex: +0300 para o fuso horário de Brasília"
-
-msgid "Email"
-msgstr "E-mail"
-
-msgid "Email is already in use by other username"
-msgstr "Esse e-mail já é usado por outro usuário"
-
-msgid "Enable forgot password"
-msgstr "Habilitar recuperação de senha"
-
-#, fuzzy
-msgid "Enable logo"
-msgstr "Habilitar recuperação de senha"
-
-msgid "Enable public registration"
-msgstr "Habilitar registro público"
-
-msgid "Enable webservices"
-msgstr "Habilitar webservices"
 
 msgid "Export"
 msgstr "Exportar"
 
-msgid "F.A.Q"
-msgstr ""
-
 msgid "FATAL ERROR"
 msgstr ""
 
-msgid "Fail sent SMS, no credit"
-msgstr "Falha ao enviar SMS, sem créditos"
-
 msgid "Fail to connect to database"
 msgstr ""
-
-msgid "Fail to delete SMS"
-msgstr "Falha ao remover SMS"
-
-msgid "Fail to delete incoming SMS"
-msgstr "Falha ao remover mensagem de entrada"
-
-msgid "Fail to delete user"
-msgstr "Falha ao remover o usuário"
-
-msgid "Fail to edit message template"
-msgstr "Falha ao editar modelo de mensagem"
 
 #, fuzzy
 msgid "Fail to load gateway"
@@ -315,114 +51,19 @@ msgstr ""
 msgid "Fail to load themes"
 msgstr "Falha ao enviar e-mail"
 
-msgid "Fail to recover password"
-msgstr "Falha ao recuperar senha"
-
-msgid "Fail to register an account"
-msgstr "Falha ao registrar uma conta"
-
-msgid "Fail to save preferences"
-msgstr "Falha ao salvar preferências"
-
-msgid "Fail to send email"
-msgstr "Falha ao enviar e-mail"
-
-msgid "Fail to sent SMS"
-msgstr "Falha ao enviar SMS"
-
-msgid "Failed"
-msgstr "Falha"
-
-msgid "Feature"
-msgstr "Recurso"
-
 #, fuzzy
 msgid "Features"
 msgstr "Recurso"
-
-msgid "Fill to change password for username"
-msgstr "Preencha pra mudar a senha do usuário"
-
-msgid "Fill to update"
-msgstr "Preencha para atualizar"
-
-msgid "Flash message"
-msgstr "Enviar como mensagem flash"
-
-msgid "Footer"
-msgstr "Assinatura"
-
-#, fuzzy
-msgid "Forgot password"
-msgstr "Habilitar recuperação de senha"
 
 #, fuzzy
 msgid "Forward"
 msgstr "encaminhar"
 
-msgid "Forward PV to email"
-msgstr "Encaminhar PV para o e-mail"
-
-msgid "Forward PV to inbox"
-msgstr "Encaminhar PV para caixa de entrada"
-
-msgid "Forward PV to mobile"
-msgstr "Encaminhar PV para o celular"
-
-msgid "Forward Private WebSMS"
-msgstr "WebSMS Privada Encaminhada"
-
-msgid "Forward SMS to email"
-msgstr "Encaminhar SMS para o e-mail"
-
-msgid "Forward SMS to inbox"
-msgstr "Encaminhar SMS para caixa de entrada"
-
-msgid "Forward SMS to mobile"
-msgstr "Encaminhar SMS para o celular"
-
-msgid "Forward from"
-msgstr "Encaminhar de"
-
-#, fuzzy
-msgid "Forward message to email"
-msgstr "Encaminhar PV para o e-mail"
-
-#, fuzzy
-msgid "Forward message to inbox"
-msgstr "Encaminhar PV para caixa de entrada"
-
-#, fuzzy
-msgid "Forward message to mobile"
-msgstr "Encaminhar PV para o celular"
-
-msgid "Forwarded email footer"
-msgstr "Assinatura do e-mail encaminhado"
-
-msgid "From"
-msgstr "De"
-
-msgid "Full name"
-msgstr "Nome completo"
-
-msgid "Gateway"
-msgstr ""
-
 msgid "Go"
 msgstr "Ir"
 
-#, fuzzy
-msgid "Go to main configuration or manage site to edit this page"
-msgstr "As mudanças nas configurações principais foram salvas"
-
 msgid "Group"
 msgstr "Grupo"
-
-msgid "Group code"
-msgstr "Código do grupo"
-
-msgid "HTTP API"
-msgstr ""
 
 msgid "Home"
 msgstr "Início"
@@ -434,71 +75,7 @@ msgstr ""
 msgid "Import"
 msgstr "Exportar"
 
-msgid "Inbox"
-msgstr "Caixa de entrada"
-
-msgid "Incoming SMS"
-msgstr "SMS's recebídos"
-
-#, fuzzy
-msgid "Incoming messages"
-msgstr "Mensagem unicode"
-
-#, fuzzy
-msgid "Information"
-msgstr "Informações de login"
-
-#, fuzzy
-msgid "Information page"
-msgstr "Informações de login"
-
-msgid "Installation Guide"
-msgstr "Guia de Instalação"
-
-msgid "International format"
-msgstr "Formato internacional"
-
-msgid "Invalid username or password"
-msgstr "Nome de usuário ou senha inválido"
-
-msgid "Keyword"
-msgstr "Palavra-chave"
-
-msgid "Last update"
-msgstr "Última atualização"
-
-#, fuzzy
-msgid "Layout footer"
-msgstr "Assinatura do SMS"
-
-msgid "License"
-msgstr "Licença"
-
-#, fuzzy
-msgid "List of administrators"
-msgstr "Visualizar Administrador"
-
-#, fuzzy
-msgid "List of users"
-msgstr "Visualizar usuários"
-
-msgid "Local number length"
-msgstr "Tamanho dos números locais"
-
-msgid "Login"
-msgstr ""
-
 msgid "Login as"
-msgstr ""
-
-msgid "Login information"
-msgstr "Informações de login"
-
-msgid "Logo URL"
-msgstr ""
-
-msgid ""
-"Logo by default will be displayed at login, register and forgot password page"
 msgstr ""
 
 msgid "Logout"
@@ -506,15 +83,6 @@ msgstr "Sair"
 
 msgid "Main configuration"
 msgstr "Configurações principais"
-
-msgid "Main configuration changes has been saved"
-msgstr "As mudanças nas configurações principais foram salvas"
-
-msgid "Main website URL"
-msgstr ""
-
-msgid "Main website name"
-msgstr ""
 
 msgid "Manage"
 msgstr "Administrar"
@@ -524,89 +92,18 @@ msgid "Manage sender ID"
 msgstr "SMS Sender ID"
 
 #, fuzzy
-msgid "Manage site"
-msgstr "Administrar usuário"
-
-#, fuzzy
 msgid "Manage subusers"
 msgstr "Administrar usuário"
 
 msgid "Manage user"
 msgstr "Administrar usuário"
 
-msgid "Max. 16 numeric or 11 alphanumeric characters"
-msgstr "Máx de 16 dígitos ou 11 letras e dígitos"
-
-msgid "Max. 20 digits mobile phone number"
-msgstr ""
-
-msgid "Max. 30 alphanumeric characters"
-msgstr "Máx. de 30 letras e dígitos"
-
-msgid "Maximum SMS count"
-msgstr "Contagem máxima de SMS"
-
-msgid "Message"
-msgstr "Mensagem"
-
-#, fuzzy
-msgid "Message from"
-msgstr "Mensagem"
-
-msgid "Message template"
-msgstr "Modelo de mensagem"
-
-msgid "Message template content"
-msgstr "Conteúdo do modelo de mensagem"
-
-msgid "Message template has been edited"
-msgstr "Modelo de mensagem foi editado"
-
-msgid "Message template has been saved"
-msgstr "Modelo de mensagem foi salvo"
-
-msgid "Message template name"
-msgstr "Nome do modelo de mensagem"
-
-msgid "Min length to detect missing country code"
-msgstr "Tamanho mínimo para detectar a falta do código do país"
-
-msgid "Mobile"
-msgstr "Celular"
-
-msgid "Mobile is already in use by other username"
-msgstr "Esse e-mail já é usado por outro usuário"
-
-msgid "Mobile number"
-msgstr "Número(s) de telefone"
-
 msgid "Move"
 msgstr ""
-
-msgid "Move to"
-msgstr ""
-
-msgid "My Account"
-msgstr "Minha conta"
 
 #, fuzzy
 msgid "My account"
 msgstr "Minha conta"
-
-msgid "Name"
-msgstr "Nome"
-
-msgid "New account registration"
-msgstr "Registro de nova conta"
-
-msgid "New inbox from"
-msgstr ""
-
-msgid "New webservices token"
-msgstr "Novo token de webservice"
-
-msgid "No changes made"
-msgstr "Sem mudanças"
 
 msgid "Offline"
 msgstr ""
@@ -614,140 +111,13 @@ msgstr ""
 msgid "Online"
 msgstr ""
 
-#, fuzzy
-msgid "Options"
-msgstr "Ação"
-
-msgid "Or"
-msgstr "Ou"
-
-msgid "Outgoing SMS"
-msgstr "SMS's enviados"
-
-#, fuzzy
-msgid "Outgoing messages"
-msgstr "SMS's enviados"
-
-#, fuzzy
-msgid "Page content"
-msgstr "Conteúdo"
-
-#, fuzzy
-msgid "Page title"
-msgstr "Administrar usuário"
-
-msgid "Password"
-msgstr "Senha"
-
-msgid "Password does not match"
-msgstr "As senhas não conferem"
-
-#, fuzzy
-msgid "Password has been emailed"
-msgstr "A senha foi enviada para seu email"
-
-msgid "Password has been sent to your email"
-msgstr "A senha foi enviada para seu email"
-
-msgid "Password recovery"
-msgstr "Recuperação de senha"
-
-msgid "Password should be at least 4 characters"
-msgstr "A senha deve ter no mínimo 4 caracteres"
-
-msgid "Pending"
-msgstr "Pendente"
-
-msgid "Personal information"
-msgstr "Informações pessoais"
-
-msgid "Phone number(s)"
-msgstr "Número(s) de telefone"
-
-msgid "Phonebook"
-msgstr "Contatos"
-
-msgid "Phonebook groups"
-msgstr "Grupos de Contatos"
-
-msgid "Phonebook numbers"
-msgstr "Número(s) de telefone"
-
-msgid "Pick Date & Time"
-msgstr "Escolher data & hora"
-
-#, fuzzy
-msgid "Pick date & time"
-msgstr "Escolher data & hora"
-
 msgid "Please run composer.phar update"
 msgstr ""
-
-msgid "Please select"
-msgstr "Selecione"
-
-msgid "Please select template"
-msgstr "Selecione modelo"
 
 msgid "Preferences"
 msgstr "Preferências"
 
-msgid "Preferences has been saved"
-msgstr "Preferências foram salvas"
-
-msgid "Preferences has been saved and password updated"
-msgstr "Preferências foram salvas e senhas atualizadas"
-
-msgid "Preferences has been saved and webservices token updated"
-msgstr "Preferências foram salvas e tokens de webservice atualizados"
-
-msgid "Prefix or country code"
-msgstr "Prefixo ou código do país"
-
-msgid "Public registration disabled"
-msgstr "Registro público desativado"
-
-#, fuzzy
-msgid "Public registration is disabled"
-msgstr "Registro público desativado"
-
-msgid "Publish"
-msgstr ""
-
-msgid "Re-Type Password"
-msgstr "Re-digite a senha"
-
-msgid "Re-type password"
-msgstr "Re-digite a senha"
-
-#, fuzzy
-msgid "Received"
-msgstr "Destinatário"
-
-msgid "Receiver"
-msgstr "Destinatário"
-
-#, fuzzy
-msgid "Recover password"
-msgstr "Recuperação de senha desativada"
-
-msgid "Recover password disabled"
-msgstr "Recuperação de senha desativada"
-
 msgid "Reduce"
-msgstr ""
-
-#, fuzzy
-msgid "Register an account"
-msgstr "Falha ao registrar uma conta"
-
-msgid "Registered"
-msgstr "Entregue"
-
-msgid "Replace prefix 0 or padding local numbers"
-msgstr "Substituir prefixo 0 ou número local"
-
-msgid "Replace website title with logo"
 msgstr ""
 
 msgid "Reply"
@@ -761,446 +131,27 @@ msgstr "Exportar"
 msgid "Resend"
 msgstr "reenviar"
 
-msgid "SMS"
-msgstr ""
-
-msgid "SMS character"
-msgstr "Caractere SMS"
-
-msgid "SMS footer"
-msgstr "Assinatura do SMS"
-
-#, fuzzy
-msgid "SMS from"
-msgstr "Assinatura do SMS"
-
-msgid "SMS sender ID"
-msgstr "SMS Sender ID"
-
-#, fuzzy
-msgid "SMS to email"
-msgstr "Encaminhar SMS para o e-mail"
-
-msgid "Sandbox"
-msgstr ""
-
-msgid "Save"
-msgstr "Salvar"
-
-msgid "Save template"
-msgstr "Salvar modelo"
-
-msgid "Schedule"
-msgstr ""
-
-msgid "Search"
-msgstr "Pesquisar"
-
-#, fuzzy
-msgid "Select"
-msgstr "Selecionar ação"
-
-msgid "Select action"
-msgstr "Selecionar ação"
-
-msgid "Selected incoming SMS has been deleted"
-msgstr "O SMS recebido selecionado foi removido"
-
-#, fuzzy
-msgid "Selected incoming message has been deleted"
-msgstr "O SMS recebido selecionado foi removido"
-
-msgid "Selected message template has been deleted"
-msgstr "O modelo de mensagem selecionado foi removido"
-
-msgid "Selected outgoing SMS has been deleted"
-msgstr "O SMS enviado selecionado foi removido"
-
-#, fuzzy
-msgid "Selected outgoing message has been deleted"
-msgstr "O SMS enviado selecionado foi removido"
-
-msgid "Send"
-msgstr "Enviar"
-
-msgid "Send SMS"
-msgstr "Enviar SMS"
-
-msgid "Send as flash message"
-msgstr "Enviar como mensagem flash"
-
-msgid "Send as unicode message"
-msgstr "Enviar como mensagem unicode"
-
-msgid "Send broadcast SMS"
-msgstr "Enviar SMS broadcast"
-
 #, fuzzy
 msgid "Send message"
 msgstr "Mensagem unicode"
 
-msgid "Send to"
-msgstr "Enviar para"
-
-msgid "Send to group"
-msgstr "Enviar pra grupo"
-
-msgid "Sender"
-msgstr "Remetente"
-
-msgid "Sent"
-msgstr "Enviado"
-
 msgid "Settings"
 msgstr ""
-
-msgid "State or Province"
-msgstr "Estado ou província"
-
-msgid "Status"
-msgstr ""
-
-msgid "Submit"
-msgstr ""
-
-msgid "Subuser"
-msgstr ""
-
-msgid "This field is required"
-msgstr ""
-
-msgid ""
-"This temporary password will be removed once you have logged in successfully"
-msgstr ""
-
-msgid "Time"
-msgstr "Hora"
-
-msgid "Timezone"
-msgstr "Fuso horário"
-
-msgid "To"
-msgstr "Para"
-
-msgid "Tools"
-msgstr "Ferramentas"
-
-#, fuzzy
-msgid "Unable to ban user"
-msgstr "Incapaz de atualizar a sessão de login"
 
 #, fuzzy
 msgid "Unable to find composer files"
 msgstr "Incapaz de atualizar a sessão de login"
 
-#, fuzzy
-msgid "Unable to unban user"
-msgstr "Incapaz de atualizar a sessão de login"
-
-msgid "Unable to update login session"
-msgstr "Incapaz de atualizar a sessão de login"
-
 msgid "Unban"
 msgstr ""
-
-msgid "Unicode message"
-msgstr "Mensagem unicode"
-
-msgid "Unknown error has occurred"
-msgstr ""
-
-msgid "Unpublish"
-msgstr ""
-
-msgid "Use"
-msgstr "Usar"
-
-msgid "Use template"
-msgstr "Usar modelo"
-
-msgid "User"
-msgstr "Usuário"
-
-msgid "User admin or currently logged in administrator cannot be unbanned"
-msgstr ""
-
-msgid "User already exists"
-msgstr "O usuário já existe"
 
 #, fuzzy
 msgid "User configuration"
 msgstr "Configurações principais"
 
 #, fuzzy
-msgid "User configuration has been saved"
-msgstr "As mudanças nas configurações principais foram salvas"
-
-#, fuzzy
-msgid "User configuration has been saved and password updated"
-msgstr "Preferências foram salvas e senhas atualizadas"
-
-#, fuzzy
-msgid "User configuration has been saved and webservices token updated"
-msgstr "Preferências foram salvas e tokens de webservice atualizados"
-
-msgid "User does not exists"
-msgstr "O usuário não existe"
-
-msgid "User has been added"
-msgstr "O usuário foi adicionado"
-
-#, fuzzy
-msgid "User has been added and password has been emailed"
-msgstr "O usuário foi removido"
-
-#, fuzzy
-msgid "User has been added but failed to send email"
-msgstr "O usuário foi removido"
-
-#, fuzzy
-msgid "User has been banned"
-msgstr "O usuário foi adicionado"
-
-msgid "User has been deleted"
-msgstr "O usuário foi removido"
-
-#, fuzzy
-msgid "User has been removed"
-msgstr "O usuário foi removido"
-
-#, fuzzy
-msgid "User has been unbanned"
-msgstr "O usuário foi adicionado"
-
-msgid "User is already exists"
-msgstr "O usuário já existe"
-
-#, fuzzy
-msgid "User is already on banned users list"
-msgstr "O usuário já existe"
-
-msgid "User is immune to deletion"
-msgstr "O usuário é imune a remoção"
-
-msgid "User is not on banned users list"
-msgstr ""
-
-msgid "User level"
-msgstr "Nível de usuário"
-
-#, fuzzy
 msgid "User preference"
 msgstr "Preferências"
 
-#, fuzzy
-msgid "User with this email is already exists"
-msgstr "O usuário já existe"
-
-#, fuzzy
-msgid "User with this mobile is already exists"
-msgstr "O usuário já existe"
-
-msgid "Username"
-msgstr "Usuário"
-
-#, fuzzy
-msgid "Username is empty"
-msgstr "Usuário"
-
-msgid "Username should be at least 3 characters"
-msgstr "Nome de usuário deve ter pelo menos 3 caracteres"
-
-#, fuzzy
-msgid "Users"
-msgstr "Usuário"
-
-msgid "Valid characters for username are alphabets, numbers, dot or dash"
-msgstr ""
-"Caracteres válidos para nome de usuário são letras, números, ponto ou traço"
-
 msgid "View"
 msgstr "Visualizar"
-
-msgid "View administrator"
-msgstr "Visualizar Administrador"
-
-#, fuzzy
-msgid "View administrators"
-msgstr "Visualizar Administrador"
-
-msgid "View groups"
-msgstr "Visualizar grupos"
-
-msgid "View numbers"
-msgstr "Visualizar números"
-
-#, fuzzy
-msgid "View user"
-msgstr "Visualizar números"
-
-#, fuzzy
-msgid "View users"
-msgstr "Visualizar números"
-
-msgid "Webapp Token"
-msgstr "Token de webapp"
-
-msgid "Webapp token"
-msgstr "Token de webapp"
-
-msgid "Webservices"
-msgstr ""
-
-msgid "Webservices IP range"
-msgstr "Range de IP para webservices"
-
-msgid "Webservices token"
-msgstr "Token de webservices"
-
-msgid "Webservices username"
-msgstr "Usuário de webservices"
-
-#, fuzzy
-msgid "Website URL"
-msgstr "E-mail do website"
-
-msgid "Website email"
-msgstr "E-mail do website"
-
-msgid "Website title"
-msgstr "Título do website"
-
-#, fuzzy
-msgid "Welcome information content"
-msgstr "Informações da aplicação"
-
-#, fuzzy
-msgid "Welcome information title"
-msgstr "Informações da aplicação"
-
-msgid "Welcome to playSMS"
-msgstr "Bem vindo ao playSMS"
-
-msgid "You have been logged out"
-msgstr "Você desconectou"
-
-msgid "You have no access to this page"
-msgstr "Você não tem acesso a essa página"
-
-msgid "You must fill all field"
-msgstr "Preencha todos os campos"
-
-msgid "You must fill all fields"
-msgstr "Preencha todos os campos"
-
-#, fuzzy
-msgid "You must fill all required fields"
-msgstr "Preencha todos os campos"
-
-msgid "You must select receiver and your message should not be empty"
-msgstr "Você deve escolher um destinatário e sua mensagem não pode estar vazia"
-
-msgid "You must select receiver group and your message should not be empty"
-msgstr ""
-"Você deve escolher um grupo destinatário e sua mensagem não pode estar vazia"
-
-msgid "You or someone else have requested a password recovery"
-msgstr ""
-
-msgid "Your SMS has been delivered to queue"
-msgstr "Seu SMS foi enviado para a fila"
-
-msgid "Your email format is invalid"
-msgstr "Seu formato de e-mail é inválido"
-
-msgid "Your message"
-msgstr "Sua mensagem"
-
-#, fuzzy
-msgid "Your message has been delivered to queue"
-msgstr "Seu SMS foi enviado para a fila"
-
-msgid "Your mobile format is invalid"
-msgstr "Seu número de celular é inválido"
-
-msgid "Zipcode"
-msgstr "CEP"
-
-msgid "chars"
-msgstr ""
-
-msgid "cost"
-msgstr ""
-
-#, fuzzy
-msgid "count"
-msgstr "Minha conta"
-
-msgid "email"
-msgstr "e-mail"
-
-msgid "failed"
-msgstr "falha"
-
-msgid "format YYYY-MM-DD hh:mm"
-msgstr ""
-
-msgid "forward"
-msgstr "encaminhar"
-
-msgid "from"
-msgstr "de"
-
-msgid "generated on user creation"
-msgstr "gerado durante a criação do usuário"
-
-msgid "handled"
-msgstr "tratadas"
-
-msgid "mobile"
-msgstr "Celular"
-
-msgid "no"
-msgstr "não"
-
-msgid "not set"
-msgstr "não configurado"
-
-msgid "number"
-msgstr "número"
-
-msgid "prefix with # for groups and @ for users"
-msgstr ""
-
-msgid "queued"
-msgstr "em fila"
-
-msgid "rate"
-msgstr ""
-
-msgid "reply"
-msgstr "responder"
-
-msgid "resend"
-msgstr "reenviar"
-
-msgid "row"
-msgstr "linha"
-
-msgid "shared by"
-msgstr "compartilhado por"
-
-msgid "to"
-msgstr "para"
-
-msgid "unhandled"
-msgstr "não tratadas"
-
-msgid "username"
-msgstr "usuário"
-
-msgid "version"
-msgstr ""
-
-msgid "yes"
-msgstr "sim"

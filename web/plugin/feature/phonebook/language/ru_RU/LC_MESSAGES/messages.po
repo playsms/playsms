@@ -32,7 +32,7 @@ msgstr "Контакт добавлен"
 msgid "Contact has been edited"
 msgstr "Контакт изменён"
 
-msgid "Contacts has been imported"
+msgid "Contacts have been imported"
 msgstr "Контакты импортированы"
 
 msgid "Delete"
@@ -59,11 +59,11 @@ msgstr "Группы"
 msgid "Group code"
 msgstr "Код группы"
 
+msgid "Group code already exists"
+msgstr "Код группы уже существует"
+
 msgid "Group code has been added"
 msgstr "Код группы добавлен"
-
-msgid "Group code is already exists"
-msgstr "Код группы уже существует"
 
 msgid "Group code may be used to broadcast SMS to this group"
 msgstr ""
@@ -102,7 +102,7 @@ msgstr ""
 msgid "Name"
 msgstr "Имя"
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr "Нет изменений"
 
 msgid "Phonebook"

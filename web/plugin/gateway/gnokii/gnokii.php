@@ -38,10 +38,10 @@ switch (_OP_) {
 		break;
 	case "manage_save":
 		$up_path = $_POST['up_path'];
-		$_SESSION['error_string'] = _('No changes has been made');
+		$_SESSION['error_string'] = _('No changes have been made');
 		if ($up_path) {
 			$db_query = "
-				UPDATE "._DB_PREF_."_gatewayGnokii_config 
+				UPDATE "._DB_PREF_."_gatewayGnokii_config
 				SET c_timestamp='".mktime()."',cfg_path='$up_path'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('Gateway module configurations has been saved');

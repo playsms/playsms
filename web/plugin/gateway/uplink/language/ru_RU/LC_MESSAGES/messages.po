@@ -39,7 +39,7 @@ msgstr "Имя отправителя"
 msgid "Module timezone"
 msgstr "Часовой пояс"
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr "Нет изменений"
 
 msgid "Save"

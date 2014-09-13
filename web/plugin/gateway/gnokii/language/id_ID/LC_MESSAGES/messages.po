@@ -17,7 +17,7 @@ msgstr "Jalur instalasi Gnokii"
 msgid "Manage gnokii"
 msgstr "Pengaturan gnokii"
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr "Tidak ada perubahan telah dibuat"
 
 msgid "No trailing slash"

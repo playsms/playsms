@@ -57,7 +57,7 @@ msgid "Last update"
 msgstr ""
 
 msgid "Manage subscribe"
-msgstr "Manage subscribe"
+msgstr ""
 
 msgid "Member has been deleted"
 msgstr ""

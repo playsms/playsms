@@ -48,7 +48,7 @@ msgstr "ID module émetteur"
 msgid "Module timezone"
 msgstr "Zone de temps"
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr "Aucun changement effectué"
 
 msgid "No trailing slash"

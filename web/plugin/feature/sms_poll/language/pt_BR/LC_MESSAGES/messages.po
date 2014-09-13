@@ -127,6 +127,9 @@ msgstr "A opção da votação SMS foi removida com todos os seus votos"
 msgid "SMS poll has been added"
 msgstr "A votação SMS foi adicionada"
 
+msgid "SMS poll has been saved"
+msgstr "A votação SMS foi adicionada"
+
 msgid "SMS poll keyword"
 msgstr "Palavra-chave da votação SMS"
 
@@ -138,9 +141,6 @@ msgstr "Título da votação SMS"
 
 msgid "SMS poll with all its messages has been deleted"
 msgstr "A votação SMS foi removida com todas as suas mensagens"
-
-msgid "SMS poll with has been saved"
-msgstr "A votação SMS foi salva"
 
 msgid "Save"
 msgstr "Salvar"

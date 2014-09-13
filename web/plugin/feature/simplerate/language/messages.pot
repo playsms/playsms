@@ -31,6 +31,9 @@ msgstr ""
 msgid "Rate"
 msgstr ""
 
+msgid "Rate already exists"
+msgstr ""
+
 msgid "Rate has been added"
 msgstr ""
 
@@ -38,9 +41,6 @@ msgid "Rate has been deleted"
 msgstr ""
 
 msgid "Rate has been saved"
-msgstr ""
-
-msgid "Rate is already exists"
 msgstr ""
 
 msgid "Save"

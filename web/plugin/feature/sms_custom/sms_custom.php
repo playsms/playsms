@@ -91,7 +91,7 @@ switch (_OP_) {
 					<td class=label-sizer>"._('SMS custom keyword') . "</td><td>".$edit_custom_keyword."</td>
 				</tr>
 				<tr>
-					<td colspan=2>"._('Pass these parameter to custom URL field')."</td>
+					<td colspan=2>"._('Pass these parameters to custom URL field')."</td>
 				</tr>
 				<tr>
 					<td colspan=2>
@@ -165,7 +165,7 @@ switch (_OP_) {
 					<td class=label-sizer>"._('SMS custom keyword') . "</td><td><input type=text size=10 maxlength=10 name=add_custom_keyword value=\"$add_custom_keyword\"></td>
 				</tr>
 				<tr>
-					<td colspan=2>"._('Pass these parameter to custom URL field')."</td>
+					<td colspan=2>"._('Pass these parameters to custom URL field')."</td>
 				</tr>
 				<tr>
 					<td colspan=2>

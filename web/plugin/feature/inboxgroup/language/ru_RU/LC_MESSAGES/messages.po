@@ -155,7 +155,7 @@ msgstr "Нажмите подтвердить, чтобы удалить выб�
 msgid "Receiver number"
 msgstr "Номер получателя"
 
-msgid "Receiver number does not exists"
+msgid "Receiver number does not exist"
 msgstr "Номер получателя не существует"
 
 msgid "Restrict sender to regular members or catch-all members only"
@@ -173,7 +173,7 @@ msgstr "Выбранные участники"
 msgid "Selected users"
 msgstr "Выбранные пользователи"
 
-msgid "Seperate with comma for multiple items"
+msgid "Separate with comma for multiple items"
 msgstr "Для ввода нескольких значений разделяйте запятыми"
 
 msgid "Status"

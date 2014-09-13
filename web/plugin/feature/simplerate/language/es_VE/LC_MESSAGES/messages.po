@@ -38,6 +38,9 @@ msgstr "Prefijo"
 msgid "Rate"
 msgstr "Tarifa"
 
+msgid "Rate already exists"
+msgstr "Tarifa ya existe "
+
 msgid "Rate has been added"
 msgstr "La tarifa ha sido añadida"
 
@@ -46,9 +49,6 @@ msgstr "La tarifa ha sido eliminada"
 
 msgid "Rate has been saved"
 msgstr "La tarifa se ha guardado"
-
-msgid "Rate is already exists"
-msgstr "Tarifa ya existe "
 
 msgid "Save"
 msgstr "Guardar"

@@ -58,7 +58,7 @@ msgstr "Kuis SMS sudah ada, dipesan, atau digunakan oleh fitur lain"
 msgid "SMS quiz answer"
 msgstr "Jawaban kuis SMS"
 
-msgid "SMS quiz answer messages has been deleted"
+msgid "SMS quiz answer messages have been deleted"
 msgstr "Pesan jawaban kuis SMS telah dihapus"
 
 msgid "SMS quiz has been added"

@@ -173,7 +173,7 @@ switch (_OP_) {
 				}
 			}
 		} else {
-			$_SESSION['error_string'] = _('Receiver number does not exists');
+			$_SESSION['error_string'] = _('Receiver number does not exist');
 		}
 		header("Location: "._u('index.php?app=main&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid));
 		exit();
@@ -230,7 +230,7 @@ switch (_OP_) {
 						<br />
 						<p><input type=\"button\" class=\"button\" value=\"&gt;\" onclick=\"moveSelectedOptions(this.form['uids_dump[]'],this.form['uids[]'])\"></p>
 						<p><input type=\"button\" class=\"button\" value=\"&lt;\" onclick=\"moveSelectedOptions(this.form['uids[]'],this.form['uids_dump[]'])\"></p>
-					</td>		
+					</td>
 					<td nowrap>
 					    "._('Selected catchall').":<br>
 					    <select name=\"uids[]\" id=\"msg_combo_sendto\" size=\"10\" multiple=\"multiple\" onDblClick=\"moveSelectedOptions(this.form['uids[]'],this.form['uids_dump[]'])\"></select>
@@ -261,7 +261,7 @@ switch (_OP_) {
 				}
 			}
 		} else {
-			$_SESSION['error_string'] = _('Receiver number does not exists');
+			$_SESSION['error_string'] = _('Receiver number does not exist');
 		}
 		header("Location: "._u('index.php?app=main&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid));
 		exit();

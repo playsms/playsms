@@ -45,6 +45,9 @@ msgstr "Префикс"
 msgid "Rate"
 msgstr "Тариф"
 
+msgid "Rate already exists"
+msgstr "Тариф уже существует"
+
 msgid "Rate has been added"
 msgstr "Тариф добавлен"
 
@@ -53,9 +56,6 @@ msgstr "Тариф удалён"
 
 msgid "Rate has been saved"
 msgstr "Тариф сохранён"
-
-msgid "Rate is already exists"
-msgstr "Тариф уже существует"
 
 msgid "Save"
 msgstr "Сохранить"

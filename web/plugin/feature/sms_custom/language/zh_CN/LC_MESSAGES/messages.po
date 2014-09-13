@@ -36,7 +36,7 @@ msgstr ""
 msgid "Manage custom"
 msgstr "管理自定义"
 
-msgid "Pass these parameter to custom URL field"
+msgid "Pass these parameters to custom URL field"
 msgstr "通过这些参数自定义链接域"
 
 msgid "SMS custom URL"

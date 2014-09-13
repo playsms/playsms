@@ -8,12 +8,12 @@ switch (_OP_) {
 	case "list" :
 		$search_category = array(
 			_('Name') => 'name',
-			_('Group code') => 'code' 
+			_('Group code') => 'code'
 		);
 		$base_url = 'index.php?app=main&inc=feature_phonebook&route=group&op=list';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array(
-			'uid' => $user_config['uid'] 
+			'uid' => $user_config['uid']
 		);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_featurePhonebook_group', $conditions, $keywords);
@@ -21,11 +21,11 @@ switch (_OP_) {
 		$extras = array(
 			'ORDER BY' => 'name',
 			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
+			'OFFSET' => $nav['offset']
 		);
 		$fields = 'id, name, code, flag_sender';
 		$list = dba_search(_DB_PREF_ . '_featurePhonebook_group', $fields, $conditions, $keywords, $extras);
-		
+
 		$content = "
 			<h2>" . _('Phonebook') . "</h2>
 			<h3>" . _('Group') . "</h3>
@@ -49,7 +49,7 @@ switch (_OP_) {
 			</tr>
 			</thead>
 			<tbody>";
-		
+
 		$j = 0;
 		for($j = 0; $j < count($list); $j++) {
 			$gpid = $list[$j]['id'];
@@ -66,14 +66,14 @@ switch (_OP_) {
 					</td>
 				</tr>";
 		}
-		
+
 		$content .= "
 			</tbody>
 			</table>
 			</div>
 			</form>
 			" . _back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
-		
+
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}
@@ -158,11 +158,11 @@ switch (_OP_) {
 			case 'delete' :
 				if ($gpid = $_REQUEST['gpid']) {
 					if (!dba_count(_DB_PREF_ . '_featurePhonebook_group_contacts', array(
-						'gpid' => $gpid 
+						'gpid' => $gpid
 					))) {
 						if (dba_remove(_DB_PREF_ . '_featurePhonebook_group', array(
 							'uid' => $user_config['uid'],
-							'id' => $gpid 
+							'id' => $gpid
 						))) {
 							$_SESSION['error_string'] = _('Selected group has been deleted');
 						} else {
@@ -187,7 +187,7 @@ switch (_OP_) {
 					$db_query = "SELECT code FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid' AND code='$group_code'";
 					$db_result = dba_query($db_query);
 					if ($db_row = dba_fetch_array($db_result)) {
-						$_SESSION['error_string'] = _('Group code is already exists') . " (" . _('code') . ": $group_code)";
+						$_SESSION['error_string'] = _('Group code already exists') . " (" . _('code') . ": $group_code)";
 					} else {
 						$db_query = "SELECT flag_sender FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE code='$group_code' AND flag_sender<>0";
 						$db_result = dba_query($db_query);
@@ -214,10 +214,10 @@ switch (_OP_) {
 					$db_query = "SELECT code FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid' AND code='$group_code' AND NOT id='$gpid'";
 					$db_result = dba_query($db_query);
 					if ($db_row = dba_fetch_array($db_result)) {
-						$_SESSION['error_string'] = _('No changes has been made');
+						$_SESSION['error_string'] = _('No changes have been made');
 					} else {
 						$string_group_edit = _('Group has been edited');
-						
+
 						// check whether or not theres a group code with the same name and flag_sender <> 0
 						if ($flag_sender > 0) {
 							$db_query = "SELECT flag_sender FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE code='$group_code' AND flag_sender<>0";
@@ -227,11 +227,11 @@ switch (_OP_) {
 								$string_group_edit = _('Group has been edited but unable to set broadcast from members or anyone');
 							}
 						}
-						
+
 						// update data
 						$db_query = "UPDATE " . _DB_PREF_ . "_featurePhonebook_group SET c_timestamp='" . mktime() . "',name='$group_name',code='$group_code',flag_sender='$flag_sender' WHERE uid='$uid' AND id='$gpid'";
 						$db_result = dba_query($db_query);
-						
+
 						$_SESSION['error_string'] = $string_group_edit . " (" . _('group') . ": $group_name, " . _('code') . ": $group_code)";
 					}
 				}

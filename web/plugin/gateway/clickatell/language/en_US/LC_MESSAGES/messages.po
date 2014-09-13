@@ -33,7 +33,7 @@ msgid "Gateway name"
 msgstr ""
 
 msgid "Manage clickatell"
-msgstr "Manage clickatell"
+msgstr ""
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
@@ -44,7 +44,7 @@ msgstr ""
 msgid "Module timezone"
 msgstr ""
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr ""
 
 msgid "No trailing slash"

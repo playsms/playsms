@@ -38,6 +38,9 @@ msgstr "Prefixo"
 msgid "Rate"
 msgstr "Taxa"
 
+msgid "Rate already exists"
+msgstr "A taxa já existe"
+
 msgid "Rate has been added"
 msgstr "A taxa foi adicionada"
 
@@ -46,9 +49,6 @@ msgstr "A taxa foi removida"
 
 msgid "Rate has been saved"
 msgstr "A taxa foi salva"
-
-msgid "Rate is already exists"
-msgstr "A taxa já existe"
 
 msgid "Save"
 msgstr "Salvar"

@@ -128,6 +128,9 @@ msgstr "Pilihan poling SMS beserta semua pemilihnya telah dihapus"
 msgid "SMS poll has been added"
 msgstr "Poling SMS telah ditambahkan"
 
+msgid "SMS poll has been saved"
+msgstr "Poling SMS telah ditambahkan"
+
 msgid "SMS poll keyword"
 msgstr "Kata kunci poling SMS"
 
@@ -139,9 +142,6 @@ msgstr "Judul poling SMS"
 
 msgid "SMS poll with all its messages has been deleted"
 msgstr "Poling SMS telah dihapus beserta semua pesannya"
-
-msgid "SMS poll with has been saved"
-msgstr "Poling SMS telah disimpan"
 
 msgid "Save"
 msgstr "Simpan"

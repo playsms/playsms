@@ -35,7 +35,7 @@ msgstr "Membuat kembalian menjadi balasan"
 msgid "Manage custom"
 msgstr "Pengaturan SMS kustom"
 
-msgid "Pass these parameter to custom URL field"
+msgid "Pass these parameters to custom URL field"
 msgstr "Masukkan parameter-parameter ini ke kolom penyesuaian URL"
 
 msgid "SMS custom URL"

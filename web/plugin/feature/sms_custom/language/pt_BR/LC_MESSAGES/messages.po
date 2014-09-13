@@ -35,7 +35,7 @@ msgstr "Enviar return como resposta"
 msgid "Manage custom"
 msgstr "Administrar personalizado"
 
-msgid "Pass these parameter to custom URL field"
+msgid "Pass these parameters to custom URL field"
 msgstr "Use esses parâmetros no campo de URL"
 
 msgid "SMS custom URL"

@@ -44,7 +44,7 @@ msgstr "Nexmo adalah penyedia SMS bulk"
 msgid "Nexmo will push DLR and incoming SMS to your callback URL"
 msgstr "Nexmo akan mengirim DLR dan SMS yang masuk ke URL callback anda"
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr "Tidak ada perubahan yang dilakukan"
 
 msgid "Notes"

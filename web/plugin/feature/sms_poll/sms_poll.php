@@ -149,7 +149,7 @@ switch (_OP_) {
 			$db_result = @dba_num_rows($db_query);
 			if (!$db_result) {
 				$db_query = "
-					INSERT INTO " . _DB_PREF_ . "_featurePoll_choice 
+					INSERT INTO " . _DB_PREF_ . "_featurePoll_choice
 					(poll_id,choice_title,choice_keyword)
 					VALUES ('$poll_id','$add_choice_title','$add_choice_keyword')";
 				if ($db_result = @dba_insert_id($db_query)) {
@@ -182,14 +182,14 @@ switch (_OP_) {
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit&poll_id=' . $poll_id));
 		exit();
 		break;
-	
+
 	case "sms_poll_add" :
 		$option_vote = array(
 			_('one time') => 0,
 			_('one time every 24 hours') => 1,
 			_('one time every week') => 2,
 			_('one time every month') => 3,
-			_('multiple times') => 4 
+			_('multiple times') => 4
 		);
 		$add_poll_access_code = md5(_PID_);
 		if ($err = $_SESSION['error_string']) {
@@ -215,20 +215,20 @@ switch (_OP_) {
 			</tr>
 			<tr>
 				<td>" . _('Reply message on out of vote option') . "</td><td><textarea maxlength=160 name=\"add_poll_message_option\">$add_poll_message_option</textarea></td>
-			</tr>	   
+			</tr>
 			<tr>
 				<td>" . _('Reply message on valid vote') . "</td><td><textarea maxlength=160 name=\"add_poll_message_valid\">$add_poll_message_valid</textarea></td>
-			</tr>	
+			</tr>
 			<tr>
 				<td>" . _('Reply message on invalid vote') . "</td><td><textarea maxlength=160 name=\"add_poll_message_invalid\">$add_poll_message_invalid</textarea></td>
-			</tr>	   
+			</tr>
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
 			" . _back('index.php?app=main&inc=feature_sms_poll&op=sms_poll_list');
 		_p($content);
 		break;
-	
+
 	case "sms_poll_add_yes" :
 		$add_poll_keyword = strtoupper($_POST['add_poll_keyword']);
 		$add_poll_title = $_POST['add_poll_title'];
@@ -260,14 +260,14 @@ switch (_OP_) {
 		}
 		exit();
 		break;
-	
+
 	case "sms_poll_edit" :
 		$option_vote = array(
 			_('one time') => 0,
 			_('one time every 24 hours') => 1,
 			_('one time every week') => 2,
 			_('one time every month') => 3,
-			_('multiple times') => 4 
+			_('multiple times') => 4
 		);
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePoll WHERE poll_id='$poll_id'";
 		$db_result = dba_query($db_query);
@@ -362,7 +362,7 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_sms_poll&op=sms_poll_list');
 		_p($content);
 		break;
-	
+
 	case "sms_poll_edit_yes" :
 		$edit_poll_keyword = strtoupper($_POST['edit_poll_keyword']);
 		$edit_poll_title = $_POST['edit_poll_title'];
@@ -377,7 +377,7 @@ switch (_OP_) {
 				SET c_timestamp='" . mktime() . "',poll_title='$edit_poll_title',poll_access_code='$edit_poll_access_code',poll_keyword='$edit_poll_keyword', poll_option_vote='$edit_poll_option_vote', poll_message_option='$edit_poll_message_option', poll_message_valid='$edit_poll_message_valid', poll_message_invalid='$edit_poll_message_invalid'
 				WHERE poll_id='$poll_id'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('SMS poll with has been saved') . " (" . _('keyword') . ": $edit_poll_keyword)";
+				$_SESSION['error_string'] = _('SMS poll has been saved') . " (" . _('keyword') . ": $edit_poll_keyword)";
 			}
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');

@@ -19,7 +19,7 @@ msgstr ""
 msgid "Contact has been edited"
 msgstr ""
 
-msgid "Contacts has been imported"
+msgid "Contacts have been imported"
 msgstr ""
 
 msgid "Delete"
@@ -46,10 +46,10 @@ msgstr ""
 msgid "Group code"
 msgstr ""
 
-msgid "Group code has been added"
+msgid "Group code already exists"
 msgstr ""
 
-msgid "Group code is already exists"
+msgid "Group code has been added"
 msgstr ""
 
 msgid "Group code may be used to broadcast SMS to this group"
@@ -89,7 +89,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr ""
 
 msgid "Phonebook"

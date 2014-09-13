@@ -48,7 +48,7 @@ msgid "MBOX output"
 msgstr ""
 
 msgid "Manage board"
-msgstr "Manage board"
+msgstr ""
 
 msgid "Message"
 msgstr ""

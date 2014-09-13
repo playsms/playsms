@@ -12,7 +12,7 @@ msgid "Bearerbox hostname or IP"
 msgstr "Nama alamat Bearerbox atau IP"
 
 #, fuzzy
-msgid "Changes has been made"
+msgid "Changes have been made"
 msgstr "Tidak ada perubahan yang terjadi"
 
 msgid "Delivered to SMSC"

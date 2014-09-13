@@ -35,7 +35,7 @@ msgstr "El contacte s'ha afegit"
 msgid "Contact has been edited"
 msgstr "El contacte s'ha editat"
 
-msgid "Contacts has been imported"
+msgid "Contacts have been imported"
 msgstr "Els contactes s'han importat"
 
 msgid "Delete"
@@ -62,11 +62,11 @@ msgstr "Grup"
 msgid "Group code"
 msgstr "Codi grup"
 
+msgid "Group code already exists"
+msgstr "El codi de grup ja existeix"
+
 msgid "Group code has been added"
 msgstr "S'ha afegit el codi de grup"
-
-msgid "Group code is already exists"
-msgstr "El codi de grup ja existeix"
 
 msgid "Group code may be used to broadcast SMS to this group"
 msgstr ""
@@ -105,7 +105,7 @@ msgstr "Moure a"
 msgid "Name"
 msgstr "Nom"
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr "No s'han fet canvis"
 
 msgid "Phonebook"

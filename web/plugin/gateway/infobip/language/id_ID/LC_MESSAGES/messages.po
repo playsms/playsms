@@ -43,7 +43,7 @@ msgstr "Pengirim global"
 msgid "Module timezone"
 msgstr ""
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr "Tidak ada perubahan yang terjadi"
 
 msgid "No trailing slash"

@@ -42,7 +42,7 @@ msgstr ""
 msgid "Module timezone"
 msgstr ""
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr "Nenhuma mudança feita"
 
 msgid "No trailing slash"

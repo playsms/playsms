@@ -47,7 +47,7 @@ msgstr "Mòdul ID enviador"
 msgid "Module timezone"
 msgstr "Mòdul zona horaria"
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr "No s'han fet canvis"
 
 msgid "Notes"

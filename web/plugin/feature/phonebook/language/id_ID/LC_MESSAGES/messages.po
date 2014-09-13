@@ -27,7 +27,7 @@ msgstr "Kontak telah ditambah"
 msgid "Contact has been edited"
 msgstr "Kontak telah diubah"
 
-msgid "Contacts has been imported"
+msgid "Contacts have been imported"
 msgstr "Kontak telah di-impor"
 
 msgid "Delete"
@@ -54,11 +54,11 @@ msgstr "Grup"
 msgid "Group code"
 msgstr "Kode grup"
 
+msgid "Group code already exists"
+msgstr "Kode grup sudah ada"
+
 msgid "Group code has been added"
 msgstr "Kode grup telah ditambah"
-
-msgid "Group code is already exists"
-msgstr "Kode grup sudah ada"
 
 msgid "Group code may be used to broadcast SMS to this group"
 msgstr ""
@@ -97,7 +97,7 @@ msgstr ""
 msgid "Name"
 msgstr "Nama"
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr "Tidak ada perubahan"
 
 msgid "Phonebook"

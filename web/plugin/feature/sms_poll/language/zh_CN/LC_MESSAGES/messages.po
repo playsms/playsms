@@ -123,6 +123,9 @@ msgstr "短信投票选项和它的全部选民已删除"
 msgid "SMS poll has been added"
 msgstr "短信投票已增加"
 
+msgid "SMS poll has been saved"
+msgstr "短信投票已增加"
+
 msgid "SMS poll keyword"
 msgstr "短信投票关键字"
 
@@ -134,9 +137,6 @@ msgstr "短信投票标题"
 
 msgid "SMS poll with all its messages has been deleted"
 msgstr "短信投票和它的全部信息已删除"
-
-msgid "SMS poll with has been saved"
-msgstr "短信投票已保存"
 
 msgid "Save"
 msgstr "保存"

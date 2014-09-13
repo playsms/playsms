@@ -61,7 +61,7 @@ msgstr "短信测试已存在, 保留或其他功能的使用"
 msgid "SMS quiz answer"
 msgstr "短信测试答案"
 
-msgid "SMS quiz answer messages has been deleted"
+msgid "SMS quiz answer messages have been deleted"
 msgstr "短信测试答案信息已删除"
 
 msgid "SMS quiz has been added"

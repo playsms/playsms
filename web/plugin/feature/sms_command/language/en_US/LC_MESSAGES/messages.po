@@ -36,7 +36,7 @@ msgid "Make return as reply"
 msgstr ""
 
 msgid "Manage command"
-msgstr "Manage command"
+msgstr ""
 
 msgid "Pass these parameter to command exec field"
 msgstr ""

@@ -1,126 +1,7 @@
-msgid "About"
-msgstr ""
-
-msgid "About playSMS"
-msgstr ""
-
-msgid ""
-"Access to unknown domain mapped to this server IP address will be redirected "
-"to this website URL. This website URL should be the primary address for the "
-"service."
-msgstr ""
-
-msgid "Action"
-msgstr ""
-
-msgid "Active gateway module"
-msgstr ""
-
-msgid "Active language"
-msgstr ""
-
-msgid "Active themes"
-msgstr ""
-
 msgid "Add"
 msgstr ""
 
-msgid "Add administrator"
-msgstr ""
-
-msgid "Add message template"
-msgstr ""
-
-msgid "Add user"
-msgstr ""
-
-msgid "Address"
-msgstr ""
-
-msgid "Administration"
-msgstr ""
-
 msgid "Administrator"
-msgstr ""
-
-msgid "Administrators"
-msgstr ""
-
-msgid "All"
-msgstr ""
-
-msgid "All Inbox"
-msgstr ""
-
-msgid "All inbox"
-msgstr ""
-
-msgid "All incoming SMS"
-msgstr ""
-
-msgid "All incoming messages"
-msgstr ""
-
-msgid "All outgoing SMS"
-msgstr ""
-
-msgid "All outgoing messages"
-msgstr ""
-
-msgid "Allow custom SMS footer"
-msgstr ""
-
-msgid "Allow custom sender ID"
-msgstr ""
-
-msgid "Always add plus sign"
-msgstr ""
-
-msgid "Always choose to send as unicode"
-msgstr ""
-
-msgid "Application footer here"
-msgstr ""
-
-msgid ""
-"Application footer here. Go to main configuration or manage site to edit "
-"this footer."
-msgstr ""
-
-msgid "Application information"
-msgstr ""
-
-msgid "Application options"
-msgstr ""
-
-msgid "Are you sure you want to ban user"
-msgstr ""
-
-msgid "Are you sure you want to delete outgoing SMS ?"
-msgstr ""
-
-msgid "Are you sure you want to delete these items ?"
-msgstr ""
-
-msgid "Are you sure you want to delete this SMS ?"
-msgstr ""
-
-msgid "Are you sure you want to delete user"
-msgstr ""
-
-msgid "Are you sure you want to delete user ?"
-msgstr ""
-
-msgid "Are you sure you want to unban user"
-msgstr ""
-
-msgid "Auto remove plus sign"
-msgstr ""
-
-msgid "Auto replace prefix 0"
-msgstr ""
-
-msgid "Back"
 msgstr ""
 
 msgid "Ban"
@@ -129,148 +10,22 @@ msgstr ""
 msgid "Buy"
 msgstr ""
 
-msgid "Buy credit"
-msgstr ""
-
-msgid "Buy credit page"
-msgstr ""
-
-msgid "Buy credit page content"
-msgstr ""
-
-msgid "Buy credit page title"
-msgstr ""
-
-msgid "Changelog"
-msgstr ""
-
-msgid "City"
-msgstr ""
-
-msgid "Comma separated"
-msgstr ""
-
-msgid "Comma seperated"
-msgstr ""
-
-msgid "Content"
-msgstr ""
-
-msgid "Country"
-msgstr ""
-
-msgid "Created"
-msgstr ""
-
-msgid "Credit"
-msgstr ""
-
-msgid "Currently logged in user is immune to deletion"
-msgstr ""
-
-msgid "Date time"
-msgstr ""
-
-msgid "Default"
-msgstr ""
-
-msgid "Default SMS rate"
-msgstr ""
-
-msgid "Default credit for user"
-msgstr ""
-
-msgid "Default language"
-msgstr ""
-
-msgid "Default sender ID"
-msgstr ""
-
-msgid "Default settings"
-msgstr ""
-
-msgid "Default site configuration"
-msgstr ""
-
-msgid "Default timezone"
-msgstr ""
-
-msgid "Default user status on registration"
-msgstr ""
-
 msgid "Delete"
-msgstr ""
-
-msgid "Delete all templates ?"
-msgstr ""
-
-msgid "Delete message template"
-msgstr ""
-
-msgid "Delete selection"
 msgstr ""
 
 msgid "Delete user"
 msgstr ""
 
-msgid "Delivered"
-msgstr ""
-
 msgid "Edit"
-msgstr ""
-
-msgid "Edit message template"
-msgstr ""
-
-msgid "Effective SMS sender ID"
-msgstr ""
-
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
-
-msgid "Email"
-msgstr ""
-
-msgid "Email is already in use by other username"
-msgstr ""
-
-msgid "Enable forgot password"
-msgstr ""
-
-msgid "Enable logo"
-msgstr ""
-
-msgid "Enable public registration"
-msgstr ""
-
-msgid "Enable webservices"
 msgstr ""
 
 msgid "Export"
 msgstr ""
 
-msgid "F.A.Q"
-msgstr ""
-
 msgid "FATAL ERROR"
 msgstr ""
 
-msgid "Fail sent SMS, no credit"
-msgstr ""
-
 msgid "Fail to connect to database"
-msgstr ""
-
-msgid "Fail to delete SMS"
-msgstr ""
-
-msgid "Fail to delete incoming SMS"
-msgstr ""
-
-msgid "Fail to delete user"
-msgstr ""
-
-msgid "Fail to edit message template"
 msgstr ""
 
 msgid "Fail to load gateway"
@@ -285,106 +40,16 @@ msgstr ""
 msgid "Fail to load themes"
 msgstr ""
 
-msgid "Fail to recover password"
-msgstr ""
-
-msgid "Fail to register an account"
-msgstr ""
-
-msgid "Fail to save preferences"
-msgstr ""
-
-msgid "Fail to send email"
-msgstr ""
-
-msgid "Fail to sent SMS"
-msgstr ""
-
-msgid "Failed"
-msgstr ""
-
-msgid "Feature"
-msgstr ""
-
 msgid "Features"
-msgstr ""
-
-msgid "Fill to change password for username"
-msgstr ""
-
-msgid "Fill to update"
-msgstr ""
-
-msgid "Flash message"
-msgstr ""
-
-msgid "Footer"
-msgstr ""
-
-msgid "Forgot password"
 msgstr ""
 
 msgid "Forward"
 msgstr ""
 
-msgid "Forward PV to email"
-msgstr ""
-
-msgid "Forward PV to inbox"
-msgstr ""
-
-msgid "Forward PV to mobile"
-msgstr ""
-
-msgid "Forward Private WebSMS"
-msgstr ""
-
-msgid "Forward SMS to email"
-msgstr ""
-
-msgid "Forward SMS to inbox"
-msgstr ""
-
-msgid "Forward SMS to mobile"
-msgstr ""
-
-msgid "Forward from"
-msgstr ""
-
-msgid "Forward message to email"
-msgstr ""
-
-msgid "Forward message to inbox"
-msgstr ""
-
-msgid "Forward message to mobile"
-msgstr ""
-
-msgid "Forwarded email footer"
-msgstr ""
-
-msgid "From"
-msgstr ""
-
-msgid "Full name"
-msgstr ""
-
-msgid "Gateway"
-msgstr ""
-
 msgid "Go"
 msgstr ""
 
-msgid "Go to main configuration or manage site to edit this page"
-msgstr ""
-
 msgid "Group"
-msgstr ""
-
-msgid "Group code"
-msgstr ""
-
-msgid "HTTP API"
 msgstr ""
 
 msgid "Home"
@@ -396,65 +61,7 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
-msgid "Inbox"
-msgstr ""
-
-msgid "Incoming SMS"
-msgstr ""
-
-msgid "Incoming messages"
-msgstr ""
-
-msgid "Information"
-msgstr ""
-
-msgid "Information page"
-msgstr ""
-
-msgid "Installation Guide"
-msgstr ""
-
-msgid "International format"
-msgstr ""
-
-msgid "Invalid username or password"
-msgstr ""
-
-msgid "Keyword"
-msgstr ""
-
-msgid "Last update"
-msgstr ""
-
-msgid "Layout footer"
-msgstr ""
-
-msgid "License"
-msgstr ""
-
-msgid "List of administrators"
-msgstr ""
-
-msgid "List of users"
-msgstr ""
-
-msgid "Local number length"
-msgstr ""
-
-msgid "Login"
-msgstr ""
-
 msgid "Login as"
-msgstr ""
-
-msgid "Login information"
-msgstr ""
-
-msgid "Logo URL"
-msgstr ""
-
-msgid ""
-"Logo by default will be displayed at login, register and forgot password page"
 msgstr ""
 
 msgid "Logout"
@@ -463,22 +70,10 @@ msgstr ""
 msgid "Main configuration"
 msgstr ""
 
-msgid "Main configuration changes has been saved"
-msgstr ""
-
-msgid "Main website URL"
-msgstr ""
-
-msgid "Main website name"
-msgstr ""
-
 msgid "Manage"
 msgstr ""
 
 msgid "Manage sender ID"
-msgstr ""
-
-msgid "Manage site"
 msgstr ""
 
 msgid "Manage subusers"
@@ -487,76 +82,10 @@ msgstr ""
 msgid "Manage user"
 msgstr ""
 
-msgid "Max. 16 numeric or 11 alphanumeric characters"
-msgstr ""
-
-msgid "Max. 20 digits mobile phone number"
-msgstr ""
-
-msgid "Max. 30 alphanumeric characters"
-msgstr ""
-
-msgid "Maximum SMS count"
-msgstr ""
-
-msgid "Message"
-msgstr ""
-
-msgid "Message from"
-msgstr ""
-
-msgid "Message template"
-msgstr ""
-
-msgid "Message template content"
-msgstr ""
-
-msgid "Message template has been edited"
-msgstr ""
-
-msgid "Message template has been saved"
-msgstr ""
-
-msgid "Message template name"
-msgstr ""
-
-msgid "Min length to detect missing country code"
-msgstr ""
-
-msgid "Mobile"
-msgstr ""
-
-msgid "Mobile is already in use by other username"
-msgstr ""
-
-msgid "Mobile number"
-msgstr ""
-
 msgid "Move"
 msgstr ""
 
-msgid "Move to"
-msgstr ""
-
-msgid "My Account"
-msgstr ""
-
 msgid "My account"
-msgstr ""
-
-msgid "Name"
-msgstr ""
-
-msgid "New account registration"
-msgstr ""
-
-msgid "New inbox from"
-msgstr ""
-
-msgid "New webservices token"
-msgstr ""
-
-msgid "No changes made"
 msgstr ""
 
 msgid "Offline"
@@ -565,130 +94,13 @@ msgstr ""
 msgid "Online"
 msgstr ""
 
-msgid "Options"
-msgstr ""
-
-msgid "Or"
-msgstr ""
-
-msgid "Outgoing SMS"
-msgstr ""
-
-msgid "Outgoing messages"
-msgstr ""
-
-msgid "Page content"
-msgstr ""
-
-msgid "Page title"
-msgstr ""
-
-msgid "Password"
-msgstr ""
-
-msgid "Password does not match"
-msgstr ""
-
-msgid "Password has been emailed"
-msgstr ""
-
-msgid "Password has been sent to your email"
-msgstr ""
-
-msgid "Password recovery"
-msgstr ""
-
-msgid "Password should be at least 4 characters"
-msgstr ""
-
-msgid "Pending"
-msgstr ""
-
-msgid "Personal information"
-msgstr ""
-
-msgid "Phone number(s)"
-msgstr ""
-
-msgid "Phonebook"
-msgstr ""
-
-msgid "Phonebook groups"
-msgstr ""
-
-msgid "Phonebook numbers"
-msgstr ""
-
-msgid "Pick Date & Time"
-msgstr ""
-
-msgid "Pick date & time"
-msgstr ""
-
 msgid "Please run composer.phar update"
-msgstr ""
-
-msgid "Please select"
-msgstr ""
-
-msgid "Please select template"
 msgstr ""
 
 msgid "Preferences"
 msgstr ""
 
-msgid "Preferences has been saved"
-msgstr ""
-
-msgid "Preferences has been saved and password updated"
-msgstr ""
-
-msgid "Preferences has been saved and webservices token updated"
-msgstr ""
-
-msgid "Prefix or country code"
-msgstr ""
-
-msgid "Public registration disabled"
-msgstr ""
-
-msgid "Public registration is disabled"
-msgstr ""
-
-msgid "Publish"
-msgstr ""
-
-msgid "Re-Type Password"
-msgstr ""
-
-msgid "Re-type password"
-msgstr ""
-
-msgid "Received"
-msgstr ""
-
-msgid "Receiver"
-msgstr ""
-
-msgid "Recover password"
-msgstr ""
-
-msgid "Recover password disabled"
-msgstr ""
-
 msgid "Reduce"
-msgstr ""
-
-msgid "Register an account"
-msgstr ""
-
-msgid "Registered"
-msgstr ""
-
-msgid "Replace prefix 0 or padding local numbers"
-msgstr ""
-
-msgid "Replace website title with logo"
 msgstr ""
 
 msgid "Reply"
@@ -700,411 +112,23 @@ msgstr ""
 msgid "Resend"
 msgstr ""
 
-msgid "SMS"
-msgstr ""
-
-msgid "SMS character"
-msgstr ""
-
-msgid "SMS footer"
-msgstr ""
-
-msgid "SMS from"
-msgstr ""
-
-msgid "SMS sender ID"
-msgstr ""
-
-msgid "SMS to email"
-msgstr ""
-
-msgid "Sandbox"
-msgstr ""
-
-msgid "Save"
-msgstr ""
-
-msgid "Save template"
-msgstr ""
-
-msgid "Schedule"
-msgstr ""
-
-msgid "Search"
-msgstr ""
-
-msgid "Select"
-msgstr ""
-
-msgid "Select action"
-msgstr ""
-
-msgid "Selected incoming SMS has been deleted"
-msgstr ""
-
-msgid "Selected incoming message has been deleted"
-msgstr ""
-
-msgid "Selected message template has been deleted"
-msgstr ""
-
-msgid "Selected outgoing SMS has been deleted"
-msgstr ""
-
-msgid "Selected outgoing message has been deleted"
-msgstr ""
-
-msgid "Send"
-msgstr ""
-
-msgid "Send SMS"
-msgstr ""
-
-msgid "Send as flash message"
-msgstr ""
-
-msgid "Send as unicode message"
-msgstr ""
-
-msgid "Send broadcast SMS"
-msgstr ""
-
 msgid "Send message"
-msgstr ""
-
-msgid "Send to"
-msgstr ""
-
-msgid "Send to group"
-msgstr ""
-
-msgid "Sender"
-msgstr ""
-
-msgid "Sent"
 msgstr ""
 
 msgid "Settings"
 msgstr ""
 
-msgid "State or Province"
-msgstr ""
-
-msgid "Status"
-msgstr ""
-
-msgid "Submit"
-msgstr ""
-
-msgid "Subuser"
-msgstr ""
-
-msgid "This field is required"
-msgstr ""
-
-msgid ""
-"This temporary password will be removed once you have logged in successfully"
-msgstr ""
-
-msgid "Time"
-msgstr ""
-
-msgid "Timezone"
-msgstr ""
-
-msgid "To"
-msgstr ""
-
-msgid "Tools"
-msgstr ""
-
-msgid "Unable to ban user"
-msgstr ""
-
 msgid "Unable to find composer files"
-msgstr ""
-
-msgid "Unable to unban user"
-msgstr ""
-
-msgid "Unable to update login session"
 msgstr ""
 
 msgid "Unban"
 msgstr ""
 
-msgid "Unicode message"
-msgstr ""
-
-msgid "Unknown error has occurred"
-msgstr ""
-
-msgid "Unpublish"
-msgstr ""
-
-msgid "Use"
-msgstr ""
-
-msgid "Use template"
-msgstr ""
-
-msgid "User"
-msgstr ""
-
-msgid "User admin or currently logged in administrator cannot be unbanned"
-msgstr ""
-
-msgid "User already exists"
-msgstr ""
-
 msgid "User configuration"
-msgstr ""
-
-msgid "User configuration has been saved"
-msgstr ""
-
-msgid "User configuration has been saved and password updated"
-msgstr ""
-
-msgid "User configuration has been saved and webservices token updated"
-msgstr ""
-
-msgid "User does not exists"
-msgstr ""
-
-msgid "User has been added"
-msgstr ""
-
-msgid "User has been added and password has been emailed"
-msgstr ""
-
-msgid "User has been added but failed to send email"
-msgstr ""
-
-msgid "User has been banned"
-msgstr ""
-
-msgid "User has been deleted"
-msgstr ""
-
-msgid "User has been removed"
-msgstr ""
-
-msgid "User has been unbanned"
-msgstr ""
-
-msgid "User is already exists"
-msgstr ""
-
-msgid "User is already on banned users list"
-msgstr ""
-
-msgid "User is immune to deletion"
-msgstr ""
-
-msgid "User is not on banned users list"
-msgstr ""
-
-msgid "User level"
 msgstr ""
 
 msgid "User preference"
 msgstr ""
 
-msgid "User with this email is already exists"
-msgstr ""
-
-msgid "User with this mobile is already exists"
-msgstr ""
-
-msgid "Username"
-msgstr ""
-
-msgid "Username is empty"
-msgstr ""
-
-msgid "Username should be at least 3 characters"
-msgstr ""
-
-msgid "Users"
-msgstr ""
-
-msgid "Valid characters for username are alphabets, numbers, dot or dash"
-msgstr ""
-
 msgid "View"
-msgstr ""
-
-msgid "View administrator"
-msgstr ""
-
-msgid "View administrators"
-msgstr ""
-
-msgid "View groups"
-msgstr ""
-
-msgid "View numbers"
-msgstr ""
-
-msgid "View user"
-msgstr ""
-
-msgid "View users"
-msgstr ""
-
-msgid "Webapp Token"
-msgstr ""
-
-msgid "Webapp token"
-msgstr ""
-
-msgid "Webservices"
-msgstr ""
-
-msgid "Webservices IP range"
-msgstr ""
-
-msgid "Webservices token"
-msgstr ""
-
-msgid "Webservices username"
-msgstr ""
-
-msgid "Website URL"
-msgstr ""
-
-msgid "Website email"
-msgstr ""
-
-msgid "Website title"
-msgstr ""
-
-msgid "Welcome information content"
-msgstr ""
-
-msgid "Welcome information title"
-msgstr ""
-
-msgid "Welcome to playSMS"
-msgstr ""
-
-msgid "You have been logged out"
-msgstr ""
-
-msgid "You have no access to this page"
-msgstr ""
-
-msgid "You must fill all field"
-msgstr ""
-
-msgid "You must fill all fields"
-msgstr ""
-
-msgid "You must fill all required fields"
-msgstr ""
-
-msgid "You must select receiver and your message should not be empty"
-msgstr ""
-
-msgid "You must select receiver group and your message should not be empty"
-msgstr ""
-
-msgid "You or someone else have requested a password recovery"
-msgstr ""
-
-msgid "Your SMS has been delivered to queue"
-msgstr ""
-
-msgid "Your email format is invalid"
-msgstr ""
-
-msgid "Your message"
-msgstr ""
-
-msgid "Your message has been delivered to queue"
-msgstr ""
-
-msgid "Your mobile format is invalid"
-msgstr ""
-
-msgid "Zipcode"
-msgstr ""
-
-msgid "chars"
-msgstr ""
-
-msgid "cost"
-msgstr ""
-
-msgid "count"
-msgstr ""
-
-msgid "email"
-msgstr ""
-
-msgid "failed"
-msgstr ""
-
-msgid "format YYYY-MM-DD hh:mm"
-msgstr ""
-
-msgid "forward"
-msgstr ""
-
-msgid "from"
-msgstr ""
-
-msgid "generated on user creation"
-msgstr ""
-
-msgid "handled"
-msgstr ""
-
-msgid "mobile"
-msgstr ""
-
-msgid "no"
-msgstr ""
-
-msgid "not set"
-msgstr ""
-
-msgid "number"
-msgstr ""
-
-msgid "prefix with # for groups and @ for users"
-msgstr ""
-
-msgid "queued"
-msgstr ""
-
-msgid "rate"
-msgstr ""
-
-msgid "reply"
-msgstr ""
-
-msgid "resend"
-msgstr ""
-
-msgid "row"
-msgstr ""
-
-msgid "shared by"
-msgstr ""
-
-msgid "to"
-msgstr ""
-
-msgid "unhandled"
-msgstr ""
-
-msgid "username"
-msgstr ""
-
-msgid "version"
-msgstr ""
-
-msgid "yes"
 msgstr ""

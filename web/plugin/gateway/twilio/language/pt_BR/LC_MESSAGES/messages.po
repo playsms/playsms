@@ -38,7 +38,7 @@ msgstr "Módulo ID Remetente"
 msgid "Module timezone"
 msgstr "Módulo de Fuso horário"
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr "Nenhuma mudança feita"
 
 msgid "Notes"

@@ -14,7 +14,7 @@ msgstr "Nome do gateway"
 msgid "Manage template"
 msgstr "Administrar template"
 
-msgid "No changes has been made"
+msgid "No changes have been made"
 msgstr "Nenhuma mudança feita"
 
 msgid "No trailing slash"

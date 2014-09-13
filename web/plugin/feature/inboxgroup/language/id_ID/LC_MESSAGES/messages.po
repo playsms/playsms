@@ -152,7 +152,7 @@ msgstr ""
 msgid "Receiver number"
 msgstr "Penerima nomor"
 
-msgid "Receiver number does not exists"
+msgid "Receiver number does not exist"
 msgstr "Nomor penerima tidak ada"
 
 msgid "Restrict sender to regular members or catch-all members only"
@@ -170,7 +170,7 @@ msgstr "Anggota yang dipilih"
 msgid "Selected users"
 msgstr "Pengguna yang dipilih"
 
-msgid "Seperate with comma for multiple items"
+msgid "Separate with comma for multiple items"
 msgstr ""
 
 msgid "Status"
