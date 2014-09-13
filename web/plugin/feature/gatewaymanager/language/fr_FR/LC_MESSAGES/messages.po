@@ -6,20 +6,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Action"
-msgstr ""
+msgstr "Action"
 
 msgid "Description"
 msgstr "Description"
 
-#, fuzzy
 msgid "Manage gateway"
-msgstr "Gestion des gateways"
+msgstr "Gérer passerelle"
 
 msgid "Name"
 msgstr "Nom"
 
 msgid "Status"
-msgstr ""
+msgstr "Statut"
 
 msgid "You have enabled gateway plugin"
-msgstr ""
+msgstr "Vous avez activé le plugin de passerelle"

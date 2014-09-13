@@ -6,4 +6,4 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "unable to translate"
-msgstr ""
+msgstr "échec de la traduction"

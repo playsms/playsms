@@ -6,146 +6,152 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Action"
-msgstr ""
+msgstr "Action"
 
 msgid "Add contact"
-msgstr ""
+msgstr "Ajouter contact"
 
 msgid "Add group"
-msgstr ""
+msgstr "Ajouter groupe"
 
 msgid "Allow broadcast from mobile"
-msgstr ""
+msgstr "Autoriser broadcast depuis mobile"
 
 msgid "Anyone"
-msgstr ""
+msgstr "Tous"
 
 msgid "Contact has been added"
-msgstr ""
+msgstr "Le contact a été ajouté."
 
 msgid "Contact has been edited"
-msgstr ""
+msgstr "Le contact a été éditié."
 
 msgid "Contacts have been imported"
-msgstr ""
+msgstr "Les contacts ont été importés."
 
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer"
 
 msgid "Edit contact"
-msgstr ""
+msgstr "Éditer contact"
 
 msgid "Edit group"
-msgstr ""
+msgstr "Éditer groupe"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "Fail to delete group"
-msgstr ""
+msgstr "Échec de la suppression du groupe"
 
 msgid "Fail to upload CSV file for phonebook"
-msgstr ""
+msgstr "Échec du chargement du fichier CSV pour le carnet d'adresses"
 
 msgid "Group"
-msgstr ""
+msgstr "Groupe"
 
 msgid "Group code"
-msgstr ""
+msgstr "Code du groupe"
 
 msgid "Group code already exists"
-msgstr ""
+msgstr "Le code de groupe existe déjà"
 
 msgid "Group code has been added"
-msgstr ""
+msgstr "Le code de groupe a été ajouté"
 
 msgid "Group code may be used to broadcast SMS to this group"
 msgstr ""
+"Le code de groupe peut être utilisé pour faire un broadcast vers ce groupe"
 
 msgid "Group has been edited"
-msgstr ""
+msgstr "Le groupe a été modifié"
 
 msgid ""
 "Group has been edited but unable to set broadcast from members or anyone"
 msgstr ""
+"Le groupe a été modifié, mais impossible de régler le broadcast depuis les "
+"membres ou n'importe qui"
 
 msgid "Group name"
-msgstr ""
+msgstr "Nom du groupe"
 
 msgid "Import"
-msgstr ""
+msgstr "Importer"
 
 msgid "Import above phonebook entries ?"
-msgstr ""
+msgstr "Importer les entrées de carnet d'adresses ci-dessus ?"
 
 msgid "Import confirmation"
-msgstr ""
+msgstr "Confirmation de l'importation"
 
 msgid "Me only"
-msgstr ""
+msgstr "Seulement moi"
 
 msgid "Members"
-msgstr ""
+msgstr "Membres"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Mobile"
 
 msgid "Move to"
-msgstr ""
+msgstr "Déplacer vers"
 
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 msgid "No changes have been made"
-msgstr ""
+msgstr "Aucune modification apportée"
 
 msgid "Phonebook"
-msgstr ""
+msgstr "Carnet d'adresses"
 
 msgid "Please select CSV file for phonebook entries"
 msgstr ""
+"Veuillez sélectionner un fichier CSV pour les entrées du carnet d'adresses"
 
 msgid "Please use alphanumeric only and make it short"
-msgstr ""
+msgstr "Veuillez utiliser uniquement alphanumérique et soyez bref"
 
 msgid "Save"
-msgstr ""
+msgstr "Enregistrer"
 
 msgid "Select"
-msgstr ""
+msgstr "Sélectionner"
 
 msgid "Selected contact has been deleted"
-msgstr ""
+msgstr "Le contact sélectionné a été supprimé"
 
 msgid "Selected contact moved to new group"
-msgstr ""
+msgstr "Le contact sélectionné a été déplacé dans le nouveau groupe"
 
 msgid "Selected group has been deleted"
-msgstr ""
+msgstr "Le groupe sélectionné a été supprimé"
 
 msgid "Set permission for broadcasting SMS to this group from mobile phone"
 msgstr ""
+"Régler l'autorisation de faire un broadcast SMS vers ce groupe depuis un "
+"téléphone portable"
 
 msgid "Unable to delete group until the group is empty"
-msgstr ""
+msgstr "Le groupe ne peut pas être supprimé tant qu'il n'est pas vide."
 
 msgid "You must fill all field"
-msgstr ""
+msgstr "Vous devez saisir tous les champs"
 
 msgid "You must fill mandatory fields"
-msgstr ""
+msgstr "Vous devez saisir tous les champs obligatoires"
 
 msgid "You must fill required fields"
-msgstr ""
+msgstr "Vous devez saisir tous les champs obligatoires"
 
 msgid "code"
-msgstr ""
+msgstr "code"
 
 msgid "format"
-msgstr ""
+msgstr "format"
 
 msgid "group"
-msgstr ""
+msgstr "group"
 
 msgid "please use uppercase and make it short"
-msgstr ""
+msgstr "Veuillez utiliser des majuscules et soyez bref"
