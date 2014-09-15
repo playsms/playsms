@@ -1,0 +1,24 @@
+{{ ERROR }}
+<h2>{{ Route outgoing SMS }}</h2>
+<p>{{ Add route }}
+<div class=table-responsive>
+	<table class=playsms-table-list>
+		<thead><tr>
+			<th width='50%'>{{ Destination }}</th>
+			<th width='20%'>{{ Prefix }}</th>
+			<th width='20%'>{{ Gateway }}</th>
+			<th width='10%'>{{ Action }}</th>
+		</tr></thead>
+		<tbody>
+			<loop.data>
+			<tr class={{ data.tr_class }}>
+				<td>{{ data.dst }}</td>
+				<td>{{ data.prefix }}</td>
+				<td>{{ data.gateway }}</td>
+				<td>{{ data.action }}</td>
+			</tr>
+			</loop.data>
+		</tbody>
+	</table>
+</div>
+<p>{{ Add route }}
