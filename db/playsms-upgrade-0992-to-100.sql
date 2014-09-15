@@ -401,3 +401,13 @@ UPDATE `playsms_featurePoll_log` SET `status` = '1';
 ALTER TABLE `playsms_featurePoll` ADD `poll_access_code` VARCHAR(40) NOT NULL DEFAULT '';
 
 ALTER TABLE `playsms_tblUser_inbox` ADD `reference_id` VARCHAR(40) NOT NULL DEFAULT '' ;
+
+CREATE TABLE IF NOT EXISTS `playsms_featureOutgoing` (
+  `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dst` varchar(100) NOT NULL DEFAULT '',
+  `prefix` varchar(10) NOT NULL DEFAULT '',
+  `gateway` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `prefix` (`prefix`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;

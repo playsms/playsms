@@ -1603,3 +1603,14 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2014-06-29 22:25:31
+
+
+CREATE TABLE IF NOT EXISTS `playsms_featureOutgoing` (
+  `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dst` varchar(100) NOT NULL DEFAULT '',
+  `prefix` varchar(10) NOT NULL DEFAULT '',
+  `gateway` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `prefix` (`prefix`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
