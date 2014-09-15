@@ -461,7 +461,7 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 		$im_sender = '@' . $user_config['username'];
 		foreach ($array_username as $target_user ) {
 			$im_sender = '@' . $user_config['username'];
-			if (recvsms_inbox_add(core_get_datetime(), $im_sender, $target_user, $message, $reference_id)) {
+			if (recvsms_inbox_add(core_get_datetime(), $im_sender, $target_user, $message, '', $reference_id)) {
 				$ok[] = '1';
 				$to[] = '@' . $target_user;
 				$queue[] = md5($target_user . microtime());
