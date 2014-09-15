@@ -412,3 +412,5 @@ CREATE TABLE `playsms_featureOutgoing` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `prefix` (`prefix`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
+
+ALTER TABLE `playsms_tblRecvSMS` ADD `gw` VARCHAR(100) NOT NULL DEFAULT '' ;

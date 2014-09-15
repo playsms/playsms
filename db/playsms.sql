@@ -1306,6 +1306,7 @@ CREATE TABLE `playsms_tblRecvSMS` (
   `sms_sender` varchar(20) NOT NULL DEFAULT '',
   `message` text NOT NULL,
   `sms_receiver` varchar(20) NOT NULL DEFAULT '',
+  `gw` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
