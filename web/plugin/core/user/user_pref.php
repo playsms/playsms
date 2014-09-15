@@ -251,7 +251,7 @@ switch (_OP_) {
 		if ($_POST['up_parent_uid']) {
 			$up['parent_uid'] = ($user_edited['status'] == 4 ? $_POST['up_parent_uid'] : 1);
 		} else {
-			$up['parent_uid'] = 1;
+			$up['parent_uid'] = user_getparentbyuid(user_username2uid($c_username));
 		}
 		
 		$up['username'] = $c_username;
