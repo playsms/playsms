@@ -83,14 +83,29 @@ function outgoing_mobile2gateway($mobile) {
 		$prefix = substr($mobile, 0, 8);
 	}
 	
-	for($i = strlen($prefix); $i < 0; $i--) {
+	for($i = strlen($prefix); $i > 0; $i--) {
 		$c_prefix = substr($mobile, 0, $i);
 		if ($gateway = outgoing_prefix2gateway($c_prefix)) {
 			$ret = $gateway;
 			break;
 		}
-		
 	}
 	
+	return $ret;
+}
+
+function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $gw) {
+	$ret = array();
+	
+	if ($gw) {
+		_log('using supplied gateway gw:' . $gw, 3, 'outgoing');
+	} else if ($gw = outgoing_mobile2gateway($sms_to)) {
+		_log('using prefix based gateway gw:' . $gw, 3, 'outgoing');
+	}
+	
+	if ($gw) {
+		$ret['modified'] = TRUE;
+		$ret['param']['gw'] = $gw;
+	}
 	return $ret;
 }

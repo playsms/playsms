@@ -265,9 +265,6 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	global $user_config;
 	$ok = false;
 	
-	// get active gateway module
-	$gw = core_gateway_get();
-	
 	$user = $user_config;
 	if ($uid && ($user['uid'] != $uid)) {
 		$user = user_getdatabyuid($uid);
@@ -301,6 +298,11 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		logger_print("end with cancelled smslog_id:" . $smslog_id . " uid:" . $uid . " gpid:" . $gpid . " gw:" . $gw . " s:" . $sms_sender . " to:" . $sms_to . " type:" . $sms_type . " unicode:" . $unicode, 2, "sendsms_process");
 		$ret['status'] = false;
 		return $ret;
+	}
+	
+	// get active gateway module as default gateway
+	if (!$gw) {
+		$gw = core_gateway_get();
 	}
 	
 	// a hack to remove \r from \r\n
