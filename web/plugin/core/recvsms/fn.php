@@ -65,13 +65,14 @@ function recvsmsd() {
 			$sms_sender = $list[$j]['sms_sender'];
 			$message = $list[$j]['message'];
 			$sms_receiver = $list[$j]['sms_receiver'];
+			$gw = $list[$j]['gw'];
 			if (dba_update(_DB_PREF_ . '_tblRecvSMS', array(
 				'flag_processed' => 2 
 			), array(
 				'id' => $id 
 			))) {
-				logger_print("id:" . $id . " dt:" . core_display_datetime($sms_datetime) . " sender:" . $sms_sender . " m:" . $message . " receiver:" . $sms_receiver, 3, "recvsmsd");
-				setsmsincomingaction(core_display_datetime($sms_datetime), $sms_sender, $message, $sms_receiver);
+				logger_print("id:" . $id . " dt:" . core_display_datetime($sms_datetime) . " sender:" . $sms_sender . " m:" . $message . " receiver:" . $sms_receiver . " gw:" . $gw, 3, "recvsmsd");
+				setsmsincomingaction(core_display_datetime($sms_datetime), $sms_sender, $message, $sms_receiver, $gw);
 			}
 		}
 	}
