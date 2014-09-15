@@ -53,7 +53,7 @@ function sendsms_manipulate_prefix($number, $user) {
 	return $number;
 }
 
-function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid = 0, $sms_type = 'text', $unicode = 0) {
+function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid = 0, $sms_type = 'text', $unicode = 0, $gw = '') {
 	global $core_config;
 	$ret = array();
 	$ret_final = array();
@@ -68,7 +68,8 @@ function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $g
 			$uid,
 			$gpid,
 			$sms_type,
-			$unicode 
+			$unicode,
+			$gw 
 		));
 		if ($ret['modified']) {
 			$sms_sender = ($ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender);
@@ -79,6 +80,7 @@ function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $g
 			$gpid = ($ret['param']['gpid'] ? $ret['param']['gpid'] : $gpid);
 			$sms_type = ($ret['param']['sms_type'] ? $ret['param']['sms_type'] : $sms_type);
 			$unicode = ($ret['param']['unicode'] ? $ret['param']['unicode'] : $unicode);
+			$gw = ($ret['param']['gw'] ? $ret['param']['gw'] : $gw);
 			$ret_final['modified'] = $ret['modified'];
 			$ret_final['cancel'] = $ret['cancel'];
 			$ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
@@ -89,6 +91,7 @@ function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $g
 			$ret_final['param']['gpid'] = $ret['param']['gpid'];
 			$ret_final['param']['sms_type'] = $ret['param']['sms_type'];
 			$ret_final['param']['unicode'] = $ret['param']['unicode'];
+			$ret_final['param']['gw'] = $ret['param']['gw'];
 		}
 	}
 	return $ret_final;
@@ -280,7 +283,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	$sms_datetime = core_get_datetime();
 	
 	// sent sms will be handled by plugins first
-	$ret_intercept = sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode);
+	$ret_intercept = sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $gw);
 	if ($ret_intercept['modified']) {
 		$sms_sender = ($ret_intercept['param']['sms_sender'] ? $ret_intercept['param']['sms_sender'] : $sms_sender);
 		$sms_footer = ($ret_intercept['param']['sms_footer'] ? $ret_intercept['param']['sms_footer'] : $sms_footer);
@@ -290,6 +293,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		$gpid = ($ret_intercept['param']['gpid'] ? $ret_intercept['param']['gpid'] : $gpid);
 		$sms_type = ($ret_intercept['param']['sms_type'] ? $ret_intercept['param']['sms_type'] : $sms_type);
 		$unicode = ($ret_intercept['param']['unicode'] ? $ret_intercept['param']['unicode'] : $unicode);
+		$gw = ($ret_intercept['param']['gw'] ? $ret_intercept['param']['gw'] : $gw);
 	}
 	
 	// if hooked function returns cancel=true then stop the sending, return false
@@ -399,7 +403,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
  * @param string $sms_footer        	
  * @param string $sms_sender        	
  * @param string $sms_schedule        	
- * @param string $reference_id
+ * @param string $reference_id        	
  * @return array array($status, $sms_to, $smslog_id, $queue, $counts, $sms_count, $sms_failed)
  */
 function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unicode = 0, $nofooter = false, $sms_footer = '', $sms_sender = '', $sms_schedule = '', $reference_id = '') {
