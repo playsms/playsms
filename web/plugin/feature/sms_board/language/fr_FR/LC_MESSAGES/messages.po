@@ -13,111 +13,106 @@ msgid "Add SMS board"
 msgstr "Ajouter un service de redirection"
 
 msgid "Are you sure you want to delete SMS board with all its messages ?"
-msgstr "Voulez-vous supprimer ce service avec tous ses messages ?"
+msgstr "Êtes-vous sûr de vouloir supprimer ce service avec tous ses messages ?"
 
 msgid "CSS URL"
-msgstr ""
+msgstr "URL CSS"
 
 msgid "Date and time"
-msgstr "Date & Heure"
+msgstr "Date et heure"
 
 msgid "Edit SMS board"
 msgstr "Éditer le service de redirection"
 
 msgid "Fail to add SMS board"
-msgstr "Impossible d'ajouter un service de redirection"
+msgstr "Échec de l'ajout du service de redirection"
 
-#, fuzzy
 msgid "Fail to edit SMS board"
-msgstr "Impossible d'ajouter un service de redirection"
+msgstr "Échec de l'édition du service de redirection"
 
 msgid "Forward"
-msgstr "Rédirection"
+msgstr "Transfert"
 
 msgid "Forward to email"
-msgstr "Transmettre à l'adresse email"
+msgstr "Transmettre à l'email"
 
 msgid "HTML output"
-msgstr ""
+msgstr "Output HTML"
 
 msgid "JSON output"
-msgstr ""
+msgstr "Output JSON"
 
 msgid "Keyword"
 msgstr "Mot-clé"
 
 msgid "MBOX output"
-msgstr ""
+msgstr "Output MBOX"
 
 msgid "Manage board"
-msgstr "Service redirection"
+msgstr "Gérer service de redirection"
 
 msgid "Message"
 msgstr "Message"
 
 msgid "PHP serialize output"
-msgstr ""
+msgstr "Output PHP serialize"
 
 msgid "RSS 0.91 output"
-msgstr ""
+msgstr "Output RSS 0.91"
 
 msgid "RSS 1.0 output"
-msgstr ""
+msgstr "Output RSS 1.0"
 
 msgid "RSS 2.0 output"
-msgstr ""
+msgstr "Output RSS 2.0"
 
 msgid "RSS ATOM output"
-msgstr ""
+msgstr "Output RSS ATOM"
 
 msgid "Receiver"
-msgstr ""
+msgstr "Destinataire"
 
-#, fuzzy
 msgid "Row template"
-msgstr "Modèle"
+msgstr "Modèle de ligne"
 
-#, fuzzy
 msgid "SMS Board"
-msgstr "Ajouter un service de redirection"
+msgstr "Service de redirection"
 
-#, fuzzy
 msgid "SMS board from"
-msgstr "Mot-clé du service de redirection"
+msgstr "Service de redirection depuis"
 
 msgid "SMS board has been added"
 msgstr "Le service de redirection a été ajouté"
 
 msgid "SMS board has been saved"
-msgstr "Le service de redirection a été sauvegardé"
+msgstr "Le service de redirection a été enregistré"
 
 msgid "SMS board keyword"
 msgstr "Mot-clé du service de redirection"
 
 msgid "SMS board with all its messages has been deleted"
-msgstr "Le service avec tous ses messages ont été supprimés"
+msgstr "Le service de redirection avec tous ses messages a été supprimé"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
-msgstr "Le mot-clé existe déjà, est réservé ou utilisé par un autre service"
+msgstr "Le mot-clé existe déjà, est réservé ou utilisé par une autre fonction"
 
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Enregistrer"
 
 msgid "Sender"
-msgstr "Émetteur"
+msgstr "Expéditeur"
 
 msgid "User"
-msgstr "Compte"
+msgstr "Utilisateur"
 
-#, fuzzy
 msgid "View board"
-msgstr "Service redirection"
+msgstr "Afficher le service de redirection"
 
 msgid "XML output"
-msgstr ""
+msgstr "Output XML"
 
 msgid "You must fill all fields"
-msgstr "Vous devez remplir tous les champs"
+msgstr "Vous devez saisir tous les champs"
 
 msgid "keyword"
 msgstr "mot-clé"

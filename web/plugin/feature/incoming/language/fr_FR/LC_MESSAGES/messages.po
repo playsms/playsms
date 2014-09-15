@@ -6,81 +6,92 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "A valid keyword will be inserted and prefixed to the message"
-msgstr ""
+msgstr "Un mot-clé valable sera inséré et ajouté en préfixe au message"
 
 msgid "Copy the message to user inbox when incoming SMS contains @username"
 msgstr ""
+"Faire une copie du message dans la boîte de réception de l'utilisateur "
+"lorsque un SMS entrant contient @nomutilisateur"
 
 msgid "Fail to insert keyword"
-msgstr ""
+msgstr "Échec de l'insertion du mot-clé"
 
 msgid "Incoming SMS route changes has been saved"
 msgstr ""
+"Les modifications de l'acheminement des SMS entrants ont été sauvegardées"
 
 msgid "Insert keyword"
-msgstr ""
+msgstr "Insérer un mot-clé"
 
 msgid "Leave a copy in sandbox SMS page"
-msgstr ""
+msgstr "Laisser une copie dans la page bac à sable SMS"
 
 msgid "Leaving a copy in sandbox SMS page may be useful for audit or reviews"
 msgstr ""
+"Laisser une copie dans la page bac à sable SMS peut s'avérer utile pour un "
+"audit ou des revues"
 
 msgid "Match with all approved sender ID"
-msgstr ""
+msgstr "Associer avec tous les sender ID approuvés"
 
 msgid "No route has been saved"
-msgstr ""
+msgstr "Aucun acheminement n'a été enregistré"
 
 msgid "Post rules"
-msgstr ""
+msgstr "Règles post"
 
 msgid "Pre rules"
-msgstr ""
+msgstr "Règles pre"
 
 msgid ""
 "Receiver number can be matched with default sender ID or with all approved "
 "sender ID"
 msgstr ""
+"Le numéro de destinataire peut être associé avec le sender ID par défaut ou "
+"avec tous les sender ID approuvés"
 
 msgid "Route all sandbox SMS to keyword"
-msgstr ""
+msgstr "Acheminer tous les SMS du bac à sable vers le mot-clé"
 
 msgid "Route all sandbox SMS to users"
-msgstr ""
+msgstr "Acheminer tous les SMS du bac à sable vers les utilisateurs"
 
 msgid "Route all sandbox SMS with matched sender ID"
-msgstr ""
+msgstr "Acheminer tous les SMS du bac à sable vers le sender ID correspondant"
 
 msgid "Route incoming SMS"
-msgstr ""
+msgstr "Acheminement des SMS entrant"
 
 msgid "Route to user inbox if receiver number matched with user sender ID"
 msgstr ""
+"Acheminer vers la boîte de réception de l'utilisateur si le destinataire "
+"correspond au sender ID de l'utilisateur"
 
 msgid "Rules applied after incoming SMS processed"
-msgstr ""
+msgstr "Règles appliquées après qu'un SMS entrant soit traité"
 
 msgid "Rules applied before incoming SMS processed"
-msgstr ""
+msgstr "Règles appliquées avant qu'un SMS entrant soit traité"
 
 msgid "Save"
-msgstr ""
+msgstr "Enregistrer"
 
 msgid "Scan incoming SMS for #groupcode"
-msgstr ""
+msgstr "Rechercher #codegroupe dans les SMS entrant"
 
 msgid "Scan incoming SMS for @username"
-msgstr ""
+msgstr "Rechercher @nomutilisateur dans les SMS entrant"
 
 msgid "Select users"
-msgstr ""
+msgstr "Sélectionner les utilisateurs"
 
 msgid "Send SMS to groups with found group codes in the incoming SMS"
 msgstr ""
+"Envoyer un SMS aux groupes dont on trouve le code de groupe dans un SMS "
+"entrant"
 
 msgid "Settings"
-msgstr ""
+msgstr "Réglages"
 
 msgid "keyword"
-msgstr ""
+msgstr "mot-clé"

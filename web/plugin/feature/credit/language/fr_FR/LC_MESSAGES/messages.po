@@ -1,92 +1,97 @@
-msgid "Add credit"
+msgid ""
 msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Add credit"
+msgstr "Ajouter du crédit"
 
 msgid "Add credit to users"
-msgstr ""
+msgstr "Ajouter du crédit aux utilisateurs"
 
 msgid "Administrator"
-msgstr ""
+msgstr "Administrateur"
 
 msgid "Administrators"
-msgstr ""
+msgstr "Administrateurs"
 
 msgid "Amount"
-msgstr ""
+msgstr "Montant"
 
 msgid "Are you sure you want to delete these transactions ?"
-msgstr ""
+msgstr "Êtes-vous certain de vouloir supprimer ces transactions ?"
 
 msgid "Balance"
-msgstr ""
+msgstr "Solde"
 
 msgid "Balance recorded on transaction"
-msgstr ""
+msgstr "Solde enregistré lors de la transaction"
 
 msgid "Credit has been added"
-msgstr ""
+msgstr "Le crédit a été ajouté."
 
 msgid "Credit has been reduced"
-msgstr ""
+msgstr "Le crédit a été réduit."
 
 msgid "Fail to add credit"
-msgstr ""
+msgstr "Échec de l'ajout du crédit"
 
 msgid "Fail to reduce credit"
-msgstr ""
+msgstr "Échec de la réduction du crédit"
 
 msgid "List of transactions"
-msgstr ""
+msgstr "Liste des transactions"
 
 msgid "Manage credit"
-msgstr ""
+msgstr "Gérer crédit"
 
 msgid "Reduce credit"
-msgstr ""
+msgstr "Réduire le crédit"
 
 msgid "Reduce credit from users"
-msgstr ""
+msgstr "Réduire le crédit des utilisateurs"
 
 msgid "Select users"
-msgstr ""
+msgstr "Sélectionner les utilisateurs"
 
 msgid "Selected transactions has been deleted"
-msgstr ""
+msgstr "La transaction sélectionnée a été supprimée"
 
 msgid "Subuser"
-msgstr ""
+msgstr "Sous-utilisateur"
 
 msgid "Subusers"
-msgstr ""
+msgstr "Sous-utilisateurs"
 
 msgid "Transaction datetime"
-msgstr ""
+msgstr "Date de transaction"
 
 msgid "User"
-msgstr ""
+msgstr "Utilisateur"
 
 msgid "User ID"
-msgstr ""
+msgstr "ID d'utilisateur"
 
 msgid "Username"
-msgstr ""
+msgstr "Nom d'utilisateur"
 
 msgid "Users"
-msgstr ""
+msgstr "Utilisateurs"
 
 msgid "Wrong amount or user does not exist"
-msgstr ""
+msgstr "Le montant est erroné ou l'utilisateur n'existe pas"
 
 msgid "amount"
-msgstr ""
+msgstr "montant"
 
 msgid "balance"
-msgstr ""
+msgstr "solde"
 
 msgid "index.php?app=main&inc=feature_credit&op=actions&go=add"
-msgstr ""
+msgstr "index.php?app=main&inc=feature_credit&op=actions&go=add"
 
 msgid "index.php?app=main&inc=feature_credit&op=actions&go=reduce"
-msgstr ""
+msgstr "index.php?app=main&inc=feature_credit&op=actions&go=reduce"
 
 msgid "user"
-msgstr ""
+msgstr "utilisateur"

@@ -10,67 +10,70 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "API ID"
-msgstr "ID API"
+msgstr "ID de l'API"
 
 msgid "Additional URL parameter"
-msgstr "Autres paramètres URL"
+msgstr "Paramètre additionnel d'URL"
 
 msgid "Clickatell API URL"
-msgstr "URL API clickatell"
+msgstr "URL de l'API clickatell"
 
 msgid "Clickatell is a bulk SMS provider"
-msgstr "Clickatell est un fournisseur Bulk SMS"
+msgstr "Clickatell est un fournisseur de SMS en gros"
 
 msgid "Clickatell will push DLR and incoming SMS to your callback URL"
 msgstr ""
+"Clickatell va faire un push du DLR et du SMS entrant vers votre URL de "
+"callback"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Exemple: +0200 pour le fuseau horaire de Paris (heure d'été)"
 
 msgid "Fill to change the password"
-msgstr ""
+msgstr "Veuillez saisir pour changer le mot de passe"
 
 msgid "Gateway module configurations has been saved"
-msgstr "Configurations passerelle sauvegardées"
+msgstr "La configuration du module de passerelle a été enregistrée"
 
 msgid "Gateway name"
-msgstr "Nom passerelle"
+msgstr "Nom de la passerelle"
 
 msgid "Manage clickatell"
 msgstr "Gérer clickatell"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
+"Max. 16 caractères numériques ou 11 alphanumériques. vide pour désactiver"
 
 msgid "Module sender ID"
-msgstr "ID module émetteur"
+msgstr "Sender ID du module"
 
 msgid "Module timezone"
-msgstr "Zone de temps"
+msgstr "Fuseau horaire du module"
 
 msgid "No changes have been made"
-msgstr "Aucun changement effectué"
+msgstr "Aucun changement apporté"
 
 msgid "No trailing slash"
 msgstr "Pas de slash final"
 
 msgid "Notes"
-msgstr ""
+msgstr "Remarques"
 
 msgid "Password"
 msgstr "Mot de passe"
 
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Enregistrer"
 
 msgid "Username"
-msgstr "Nom utilisateur"
+msgstr "Nom d'utilisateur"
 
 msgid "Your callback URL is"
-msgstr "Votre URL callback est"
+msgstr "Votre URL de callback est"
 
 msgid "Your callback URL should be accessible from Clickatell"
-msgstr ""
+msgstr "Votre URL de callback doit être accessible par Clickatell"
 
 msgid "free credits are available for testing purposes"
-msgstr "crédits gratuits disponible pour des tests"
+msgstr "des crédits gratuits sont disponibles à des fins de test"

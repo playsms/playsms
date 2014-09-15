@@ -12,61 +12,55 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Add"
-msgstr "Ajout"
+msgstr "Ajouter"
 
 msgid "Administrator"
 msgstr "Administrateur"
 
 msgid "Ban"
-msgstr ""
+msgstr "Bannir"
 
 msgid "Buy"
-msgstr ""
+msgstr "Acheter"
 
 msgid "Delete"
 msgstr "Supprimer"
 
-#, fuzzy
 msgid "Delete user"
-msgstr "Supprimer"
+msgstr "Supprimer l'utilisateur"
 
 msgid "Edit"
-msgstr "Editer"
+msgstr "Éditer"
 
 msgid "Export"
-msgstr ""
+msgstr "Exporter"
 
 msgid "FATAL ERROR"
-msgstr ""
+msgstr "ERREUR FATALE"
 
 msgid "Fail to connect to database"
-msgstr ""
+msgstr "Échec de la connexion à la base de données"
 
-#, fuzzy
 msgid "Fail to load gateway"
-msgstr "Echec de suppression"
+msgstr "Échec du chargement de la passerelle"
 
-#, fuzzy
 msgid "Fail to load language"
-msgstr "Langue par défaut"
+msgstr "Échec du chargement de la langue"
 
 msgid "Fail to load main config from registry"
-msgstr ""
+msgstr "Échec du chargement de la configuration principale depuis le registry"
 
-#, fuzzy
 msgid "Fail to load themes"
-msgstr "Echec d'envoi de mot de passe par mail"
+msgstr "Échec du chargement des thèmes"
 
-#, fuzzy
 msgid "Features"
-msgstr "Services"
+msgstr "Fonctions"
 
-#, fuzzy
 msgid "Forward"
-msgstr "Transfert PV à email"
+msgstr "Transférer"
 
 msgid "Go"
-msgstr "GO"
+msgstr "Aller"
 
 msgid "Group"
 msgstr "Groupe"
@@ -75,86 +69,79 @@ msgid "Home"
 msgstr "Accueil"
 
 msgid "Idle"
-msgstr ""
+msgstr "Au repos"
 
 msgid "Import"
-msgstr ""
+msgstr "Importer"
 
 msgid "Login as"
-msgstr ""
+msgstr "Connecté en tant que"
 
 msgid "Logout"
-msgstr "Sortie"
+msgstr "Déconnexion"
 
 msgid "Main configuration"
-msgstr "Configuration Principale"
+msgstr "Configuration principale"
 
 msgid "Manage"
 msgstr "Gérer"
 
-#, fuzzy
 msgid "Manage sender ID"
-msgstr "ID Émetteur SMS"
+msgstr "Gérer sender ID"
 
-#, fuzzy
 msgid "Manage subusers"
-msgstr "Gestion des Utilisateurs"
+msgstr "Gérer sous-utilisateurs"
 
 msgid "Manage user"
-msgstr "Gestion des Utilisateurs"
+msgstr "Gérer utilisateur"
 
 msgid "Move"
-msgstr ""
+msgstr "Déplacer"
 
-#, fuzzy
 msgid "My account"
 msgstr "Mon Compte"
 
 msgid "Offline"
-msgstr ""
+msgstr "Déconnecté"
 
 msgid "Online"
-msgstr ""
+msgstr "Connecté"
 
 msgid "Please run composer.phar update"
-msgstr ""
+msgstr "Veuillez exécuter une mise à jour composer.phar"
 
 msgid "Preferences"
 msgstr "Préférences"
 
 msgid "Reduce"
-msgstr ""
+msgstr "Réduire"
 
 msgid "Reply"
-msgstr "Reéssayer"
+msgstr "Répondre"
 
 msgid "Reports"
-msgstr ""
+msgstr "Rapports"
 
 msgid "Resend"
-msgstr ""
+msgstr "Envoyer à nouveau"
 
-#, fuzzy
 msgid "Send message"
-msgstr "Envoyer un message unicode"
+msgstr "Envoyer message"
 
 msgid "Settings"
-msgstr ""
+msgstr "Réglages"
 
-#, fuzzy
 msgid "Unable to find composer files"
-msgstr "Impossible de mettre à jour la session"
+msgstr "Impossible de trouver les fichiers du composer"
 
 msgid "Unban"
-msgstr ""
+msgstr "Réintégrer"
 
-#, fuzzy
 msgid "User configuration"
-msgstr "Configuration Principale"
+msgstr "Configuration de l'utilisateur"
 
-#, fuzzy
 msgid "User preference"
-msgstr "Préférences"
+msgstr "Préférence de l'utilisateur"
 
 msgid "View"
-msgstr "Voir"
+msgstr "Afficher"

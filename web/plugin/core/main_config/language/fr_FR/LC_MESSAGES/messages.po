@@ -1,146 +1,166 @@
 msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid ""
 "Access to unknown domain mapped to this server IP address will be redirected "
 "to this website URL. This website URL should be the primary address for the "
 "service."
 msgstr ""
+"L'accès à un domaine inconnu associé à l'adresse IP de ce serveur va être "
+"redirigé vers l'URL de ce serveur. L'URL de ce serveur doit être l'adresse "
+"primaire pour le service."
 
 msgid "Active gateway module"
-msgstr ""
+msgstr "Module de passerelle activé"
 
 msgid "Active themes"
-msgstr ""
+msgstr "Thèmes activés"
 
 msgid "Allow users to select SMS footer while on Send SMS page"
 msgstr ""
+"Autoriser les utilisateurs à sélectionner un pied de page SMS lorsque sur la "
+"page Envoi de SMS"
 
 msgid "Allow users to select sender ID while on Send SMS page"
 msgstr ""
+"Autoriser les utilisateurs à sélectionner un sender ID lorsque sur la page "
+"Envoi de SMS"
 
 msgid "Always add plus sign"
-msgstr ""
+msgstr "Toujours ajouter le signe plus"
 
 msgid "Always remove plus sign"
-msgstr ""
+msgstr "Toujours supprimer le signe plus"
 
 msgid ""
 "Application footer here. Go to main configuration or manage site to edit "
 "this footer."
 msgstr ""
+"Pied de page de l'application ici. Aller vers configuration principale ou "
+"gérer site pour éditer ce pied de page."
 
 msgid "Buy credit page"
-msgstr ""
+msgstr "Page Ajouter du crédit"
 
 msgid "Default SMS rate"
-msgstr ""
+msgstr "Tarif SMS par défaut"
 
 msgid "Default credit for user"
-msgstr ""
+msgstr "Crédit par défaut pour l'utilisateur"
 
 msgid "Default language"
-msgstr ""
+msgstr "Langue par défaut"
 
 msgid "Default sender ID"
-msgstr ""
+msgstr "Sender ID par défaut"
 
 msgid "Default settings"
-msgstr ""
+msgstr "Réglages par défaut"
 
 msgid "Default site configuration"
-msgstr ""
+msgstr "Configuration du site par défaut"
 
 msgid "Default timezone"
-msgstr ""
+msgstr "Fuseau horaire par défaut"
 
 msgid "Default user status on registration"
-msgstr ""
+msgstr "Statut par défaut de l'utilisateur lors de l'inscription"
 
 msgid "Disable login as subuser"
-msgstr ""
+msgstr "Désactiver la connexion en tant que sous-utilisateur"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Exemple: +0200 pour le fuseau horaire de Paris (heure d'été)"
 
 msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
+"Sender ID vide par défaut pour permettre aux utilisateurs de définir leur "
+"propre sender ID"
 
 msgid "Enable forgot password"
-msgstr ""
+msgstr "Activer la récupération du mot de passe"
 
 msgid "Enable logo"
-msgstr ""
+msgstr "Activer le logo"
 
 msgid "Enable public registration"
-msgstr ""
+msgstr "Activer l'inscription publique"
 
 msgid "Enhance privacy for subusers"
-msgstr ""
+msgstr "Améliorer la confidentialité pour les sous-utilisateurs"
 
 msgid "Forwarded email footer"
-msgstr ""
+msgstr "Pied de page des emails transférés"
 
 msgid "Go to main configuration or manage site to edit this page"
 msgstr ""
+"Aller vers configuration principale ou gérer site pour éditer cette page"
 
 msgid "Information"
-msgstr ""
+msgstr "Informations"
 
 msgid "Information page"
-msgstr ""
+msgstr "Page d'information"
 
 msgid "Layout footer"
-msgstr ""
+msgstr "Disposition du pied de page"
 
 msgid "Logo URL"
-msgstr ""
+msgstr "URL du logo"
 
 msgid ""
 "Logo by default will be displayed at login, register and forgot password page"
 msgstr ""
+"Le logo par défaut est affiché sur la page de connexion, d'inscription et "
+"d'oubli du mot de passe"
 
 msgid "Main configuration"
-msgstr ""
+msgstr "Configuration principale"
 
 msgid "Main configuration changes has been saved"
 msgstr ""
+"Les changements apportés à la configuration principale ont été enregistrés."
 
 msgid "Main website URL"
-msgstr ""
+msgstr "URL du site web principal"
 
 msgid "Main website name"
-msgstr ""
+msgstr "Nom du site web principal"
 
 msgid "Maximum SMS count"
-msgstr ""
+msgstr "Nombre maximum de SMS"
 
 msgid "Page content"
-msgstr ""
+msgstr "Contenu de la page"
 
 msgid "Page title"
-msgstr ""
+msgstr "Titre de la page"
 
 msgid "Replace website title with logo"
-msgstr ""
+msgstr "Remplacer le titre du site web par le logo"
 
 msgid "Save"
-msgstr ""
+msgstr "Enregistrer"
 
 msgid "Subuser"
-msgstr ""
+msgstr "Sous-utilisateur"
 
 msgid "User"
-msgstr ""
+msgstr "Utilisateur"
 
 msgid "Website URL"
-msgstr ""
+msgstr "URL du site web"
 
 msgid "Website email"
-msgstr ""
+msgstr "Email du site web"
 
 msgid "Website title"
-msgstr ""
+msgstr "Titre du site web"
 
 msgid "no"
-msgstr ""
+msgstr "non"
 
 msgid "yes"
-msgstr ""
+msgstr "oui"

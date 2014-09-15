@@ -1,17 +1,22 @@
-msgid "Message"
+msgid ""
 msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Message"
+msgstr "Message"
 
 msgid "Message from"
-msgstr ""
+msgstr "Message de"
 
 msgid "New inbox from"
-msgstr ""
+msgstr "Nouvelle boîte de réception de"
 
 msgid "Received"
-msgstr ""
+msgstr "Reçu"
 
 msgid "Receiver"
-msgstr ""
+msgstr "Destinataire"
 
 msgid "Sender"
-msgstr ""
+msgstr "Expéditeur"

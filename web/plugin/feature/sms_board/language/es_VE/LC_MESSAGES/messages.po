@@ -13,7 +13,6 @@ msgstr "Añadir pizarra SMS"
 
 msgid "Are you sure you want to delete SMS board with all its messages ?"
 msgstr ""
-"Etes-vous certain de vouloir supprimer ce service avec tous ses messages ?"
 
 msgid "CSS URL"
 msgstr ""

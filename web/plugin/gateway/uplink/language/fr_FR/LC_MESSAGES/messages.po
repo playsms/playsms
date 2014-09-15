@@ -6,49 +6,50 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Additional URL parameter"
-msgstr "Autres paramètres URL"
+msgstr "Paramètre additionnel d'URL"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Exemple: +0200 pour le fuseau horaire de Paris (heure d'été)"
 
 msgid "Gateway module configurations has been saved"
-msgstr "Configurations passerelles sauvegardées"
+msgstr "La configuration du module de passerelle a été enregistrée"
 
 msgid "Gateway name"
-msgstr "Nom passerelle"
+msgstr "Nom de la passerelle"
 
 msgid "Manage uplink"
-msgstr "Gérer uplink"
+msgstr "Gérer l'uplink"
 
 msgid "Master URL"
-msgstr "URL maitre"
+msgstr "Master URL"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
+"Max. 16 caractères numériques ou 11 alphanumériques. vide pour désactiver"
 
 msgid "Module sender ID"
-msgstr "Émetteur global"
+msgstr "Sender ID du module"
 
 msgid "Module timezone"
-msgstr "Zone de temps"
+msgstr "Fuseau horaire du module"
 
 msgid "No changes have been made"
 msgstr "Aucun changement apporté"
 
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Enregistrer"
 
 msgid "Try to disable SMS footer on master"
-msgstr ""
+msgstr "Essayer de désactiver le pied de page auprès du master"
 
 msgid "Webservice token"
-msgstr ""
+msgstr "Token du webservice"
 
 msgid "Webservice username"
-msgstr ""
+msgstr "Nom d'utilisateur du webservice"
 
 msgid "no"
-msgstr ""
+msgstr "non"
 
 msgid "yes"
-msgstr ""
+msgstr "oui"

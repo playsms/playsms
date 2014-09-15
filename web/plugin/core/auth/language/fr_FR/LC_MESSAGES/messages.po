@@ -6,79 +6,84 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "Fail to recover password"
-msgstr ""
+msgstr "Échec de la récupération du mot de passe"
 
 msgid "Fail to send email"
-msgstr ""
+msgstr "Échec de l'envoi de l'email"
 
 msgid "Home"
-msgstr ""
+msgstr "Accueil"
 
 msgid "Invalid username or password"
-msgstr ""
+msgstr "Nom d'utilisateur ou mot de passe erroné"
 
 msgid "Login"
-msgstr ""
+msgstr "Connexion"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Mobile"
 
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 msgid "Password"
-msgstr ""
+msgstr "Mot de passe"
 
 msgid "Password has been emailed"
-msgstr ""
+msgstr "Le mot de passe a été envoyé par e-mail"
 
 msgid "Password recovery"
-msgstr ""
+msgstr "Récupération du mot de passe"
 
 msgid "Please type the displayed captcha phrase correctly"
-msgstr ""
+msgstr "Veuillez recopier correctement le CAPTCHA affiché"
 
 msgid ""
 "Read and type the captcha phrase on verify captcha field. If you cannot read "
 "them please contact administrator."
 msgstr ""
+"Veuillez lire et recopier le CAPTCHA du champ Vérification CAPTCHA. Si vous "
+"ne parvenez pas à le lire, veuillez contacter l'administrateur."
 
 msgid "Recover password"
-msgstr ""
+msgstr "Récupérer le mot de passe"
 
 msgid "Recover password disabled"
-msgstr ""
+msgstr "Récupération du mot de passe désactivée"
 
 msgid "Register an account"
-msgstr ""
+msgstr "Inscrire un nouveau compte"
 
 msgid "Submit"
-msgstr ""
+msgstr "Envoyer"
 
 msgid ""
 "This temporary password will be removed once you have logged in successfully"
 msgstr ""
+"Ce mot de passe temporaire sera supprimé lorsque vous vous serez connecté "
+"avec succès"
 
 msgid "Unable to login"
-msgstr ""
+msgstr "Impossible de se connecter"
 
 msgid "Username"
-msgstr ""
+msgstr "Nom d'utilisateur"
 
 msgid "Username or email"
-msgstr ""
+msgstr "Nom d'utilisateur ou email"
 
 msgid "Verify captcha"
-msgstr ""
+msgstr "Vérification CAPTCHA"
 
 msgid "You have been logged out"
-msgstr ""
+msgstr "Vous êtes déconnecté"
 
 msgid "You have no access to this page"
-msgstr ""
+msgstr "Vous n'avez pas accès à cette page"
 
 msgid "You or someone else have requested a password recovery"
 msgstr ""
+"Vous ou quelqu'un d'autre avez demandé une récupération du mot de passe"

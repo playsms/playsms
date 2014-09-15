@@ -6,55 +6,56 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Add message template"
-msgstr ""
+msgstr "Ajouter un modèle de message"
 
 msgid "Are you sure you want to delete these items ?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer ces éléments ?"
 
 msgid "Content"
-msgstr ""
+msgstr "Contenu"
 
 msgid "Edit message template"
-msgstr ""
+msgstr "Éditer modèle de message"
 
 msgid "Fail to add message template"
-msgstr ""
+msgstr "Échec de l'ajout du modèle de message"
 
 msgid "Fail to edit message template"
-msgstr ""
+msgstr "Échec de l'édition du modèle de message"
 
 msgid "Message template"
-msgstr ""
+msgstr "Modèle de message"
 
 msgid "Message template content"
-msgstr ""
+msgstr "Contenu du modèle de message"
 
 msgid "Message template has been edited"
-msgstr ""
+msgstr "Le modèle de message a été modifié"
 
 msgid "Message template has been saved"
-msgstr ""
+msgstr "Le modèle de message a été enregistré"
 
 msgid "Message template name"
-msgstr ""
+msgstr "Nom du modèle de message"
 
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 msgid "Notes"
-msgstr ""
+msgstr "Remarques"
 
 msgid "Save"
-msgstr ""
+msgstr "Enregistrer"
 
 msgid "Selected message template has been deleted"
-msgstr ""
+msgstr "Le modèle de message sélectionné a été supprimé"
 
 msgid "You must fill all fields"
-msgstr ""
+msgstr "Vous devez saisir tous les champs"
 
 msgid "will be replaced with the name listed in phonebook"
-msgstr ""
+msgstr "sera remplacé par le nom tel que dans le carnet d'adresses"
 
 msgid "will be replaced with the phone number listed in phonebook"
 msgstr ""
+"sera remplacé par le numéro de téléphone tel que dans le carnet d'adresses"
