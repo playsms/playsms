@@ -290,9 +290,6 @@ msgstr ""
 msgid "User does not exist"
 msgstr ""
 
-msgid "User does not exists"
-msgstr ""
-
 msgid "User has been added and password has been emailed"
 msgstr ""
 
