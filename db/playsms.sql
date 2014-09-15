@@ -1592,6 +1592,19 @@ LOCK TABLES `playsms_tblUser_inbox` WRITE;
 /*!40000 ALTER TABLE `playsms_tblUser_inbox` DISABLE KEYS */;
 /*!40000 ALTER TABLE `playsms_tblUser_inbox` ENABLE KEYS */;
 UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `playsms_featureOutgoing` ;
+CREATE TABLE `playsms_featureOutgoing` (
+  `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dst` varchar(100) NOT NULL DEFAULT '',
+  `prefix` varchar(10) NOT NULL DEFAULT '',
+  `gateway` varchar(20) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `prefix` (`prefix`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
+
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -1603,14 +1616,3 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2014-06-29 22:25:31
-
-
-CREATE TABLE IF NOT EXISTS `playsms_featureOutgoing` (
-  `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `dst` varchar(100) NOT NULL DEFAULT '',
-  `prefix` varchar(10) NOT NULL DEFAULT '',
-  `gateway` varchar(20) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `prefix` (`prefix`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;

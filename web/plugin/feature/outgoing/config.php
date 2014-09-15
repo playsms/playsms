@@ -6,6 +6,6 @@ if (auth_isadmin()) {
 	$menu_config[$menutab][] = array(
 		'index.php?app=main&inc=feature_outgoing&op=outgoing_list',
 		_('Route outgoing SMS'),
-		2
+		2 
 	);
 }
