@@ -6,64 +6,64 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Add sender ID"
-msgstr ""
+msgstr "Ajouter sender ID"
 
 msgid "Approve sender ID"
-msgstr ""
+msgstr "Approuver sender ID"
 
 msgid "Are you sure you want to delete sender ID"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer ce sender ID"
 
 msgid "Click the status button to enable or disable status"
-msgstr ""
+msgstr "Cliquez le bouton de statut pour activer ou désactiver le statut"
 
 msgid "Description"
 msgstr "Description"
 
 msgid "Edit sender ID"
-msgstr ""
+msgstr "Éditer sender ID"
 
 msgid "Fail to update due to invalid sender ID"
-msgstr ""
+msgstr "Échec de la mise à jour à cause d'un sender ID erroné"
 
 msgid "Last update"
-msgstr ""
+msgstr "Dernière mise à jour"
 
 msgid "Manage sender ID"
-msgstr ""
+msgstr "Gérer sender ID"
 
 msgid "Only when the sender ID is approved"
-msgstr ""
+msgstr "Uniquement lorsque le sender ID est approuvé"
 
 msgid "Sender ID"
-msgstr ""
+msgstr "Sender ID"
 
 msgid "Sender ID description has been added"
-msgstr ""
+msgstr "La description du sender ID a été ajoutée"
 
 msgid "Sender ID description has been updated"
-msgstr ""
+msgstr "La description du sender ID a été mise à jour"
 
 msgid "Sender ID has been added and waiting for approval"
-msgstr ""
+msgstr "Le sender ID a été ajouté, et est en attente d'approbation"
 
 msgid "Sender ID has been removed"
-msgstr ""
+msgstr "Le sender ID a été supprimé"
 
 msgid "Sender ID is not available"
-msgstr ""
+msgstr "Le sender ID n'est pas disponible"
 
 msgid "Sender ID is now approved"
-msgstr ""
+msgstr "Le sender ID est maintenant approuvé"
 
 msgid "Sender ID is now disabled"
-msgstr ""
+msgstr "Le sender ID est maintenant désactivé"
 
 msgid "Set as default"
-msgstr ""
+msgstr "Utiliser par défaut"
 
 msgid "User"
-msgstr ""
+msgstr "Utilisateur"
 
 msgid "Username"
-msgstr ""
+msgstr "Nom d'utilisateur"

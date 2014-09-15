@@ -6,31 +6,31 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Date/Time"
-msgstr ""
+msgstr "Date/Heure"
 
 msgid "Fail to simulate incoming SMS"
-msgstr ""
+msgstr "Échec de la simulation d'un SMS entrant"
 
 msgid "Gateway name"
-msgstr "Nom passerelle"
+msgstr "Nom de la passerelle"
 
 msgid "Manage dev"
 msgstr "Gérer dev"
 
 msgid "Message"
-msgstr ""
+msgstr "Message"
 
 msgid "Receiver"
-msgstr ""
+msgstr "Destinataire"
 
 msgid "Sender"
-msgstr ""
+msgstr "Expéditeur"
 
 msgid "Simulate incoming SMS"
-msgstr ""
+msgstr "Simuler un SMS entrant"
 
 msgid "Submit"
-msgstr ""
+msgstr "Envoyer"
 
 msgid "This is a test incoming SMS message"
-msgstr ""
+msgstr "Ceci est un test de SMS entrant"
