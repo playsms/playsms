@@ -1579,6 +1579,7 @@ CREATE TABLE `playsms_tblUser_inbox` (
   `in_uid` int(11) NOT NULL DEFAULT '0',
   `in_msg` varchar(200) NOT NULL DEFAULT '',
   `in_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `reference_id` varchar(40) NOT NULL DEFAULT '',
   PRIMARY KEY (`in_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

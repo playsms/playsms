@@ -399,9 +399,10 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
  * @param string $sms_footer        	
  * @param string $sms_sender        	
  * @param string $sms_schedule        	
+ * @param string $reference_id
  * @return array array($status, $sms_to, $smslog_id, $queue, $counts, $sms_count, $sms_failed)
  */
-function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unicode = 0, $nofooter = false, $sms_footer = '', $sms_sender = '', $sms_schedule = '') {
+function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unicode = 0, $nofooter = false, $sms_footer = '', $sms_sender = '', $sms_schedule = '', $reference_id = '') {
 	global $core_config, $user_config;
 	
 	// get user data
@@ -460,7 +461,7 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 		$im_sender = '@' . $user_config['username'];
 		foreach ($array_username as $target_user ) {
 			$im_sender = '@' . $user_config['username'];
-			if (recvsms_inbox_add(core_get_datetime(), $im_sender, $target_user, $message)) {
+			if (recvsms_inbox_add(core_get_datetime(), $im_sender, $target_user, $message, $reference_id)) {
 				$ok[] = '1';
 				$to[] = '@' . $target_user;
 				$queue[] = md5($target_user . microtime());

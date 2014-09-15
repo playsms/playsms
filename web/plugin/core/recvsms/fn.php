@@ -302,7 +302,7 @@ function setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receive
 	return $ok;
 }
 
-function recvsms_inbox_add_intercept($sms_datetime, $sms_sender, $target_user, $message, $sms_receiver = "") {
+function recvsms_inbox_add_intercept($sms_datetime, $sms_sender, $target_user, $message, $sms_receiver = "", $reference_id = '') {
 	global $core_config;
 	$ret = array();
 	$ret_final = array();
@@ -314,7 +314,8 @@ function recvsms_inbox_add_intercept($sms_datetime, $sms_sender, $target_user, $
 			$sms_sender,
 			$target_user,
 			$message,
-			$sms_receiver 
+			$sms_receiver,
+			$reference_id 
 		));
 		if ($ret['modified']) {
 			$ret_final['modified'] = $ret['modified'];
@@ -323,35 +324,36 @@ function recvsms_inbox_add_intercept($sms_datetime, $sms_sender, $target_user, $
 			$ret_final['param']['target_user'] = $ret['param']['target_user'];
 			$ret_final['param']['message'] = $ret['param']['message'];
 			$ret_final['param']['sms_receiver'] = $ret['param']['sms_receiver'];
+			$ret_final['param']['reference_id'] = $ret['param']['reference_id'];
 			$sms_datetime = ($ret['param']['sms_datetime'] ? $ret['param']['sms_datetime'] : $sms_datetime);
 			$sms_sender = ($ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender);
 			$target_user = ($ret['param']['target_user'] ? $ret['param']['target_user'] : $target_user);
 			$message = ($ret['param']['message'] ? $ret['param']['message'] : $message);
 			$sms_receiver = ($ret['param']['sms_receiver'] ? $ret['param']['sms_receiver'] : $sms_receiver);
+			$reference_id = ($ret['param']['reference_id'] ? $ret['param']['reference_id'] : $reference_id);
 		}
 		if ($ret['uid']) {
 			$ret_final['uid'] = $ret['uid'];
 		}
-		;
 		if ($ret['hooked']) {
 			$ret_final['hooked'] = $ret['hooked'];
 		}
-		;
 	}
 	return $ret_final;
 }
 
-function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $sms_receiver = "") {
+function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $sms_receiver = "", $reference_id = '') {
 	global $core_config, $web_title, $email_service, $email_footer;
 	
 	// sms to inbox will be handled by plugins first
-	$ret_intercept = recvsms_inbox_add_intercept($sms_datetime, $sms_sender, $target_user, $message, $sms_receiver);
+	$ret_intercept = recvsms_inbox_add_intercept($sms_datetime, $sms_sender, $target_user, $message, $sms_receiver, $reference_id);
 	if ($ret_intercept['param_modified']) {
 		$sms_datetime = ($ret_intercept['param']['sms_datetime'] ? $ret_intercept['param']['sms_datetime'] : $sms_datetime);
 		$sms_sender = ($ret_intercept['param']['sms_sender'] ? $ret_intercept['param']['sms_sender'] : $sms_sender);
 		$target_user = ($ret_intercept['param']['target_user'] ? $ret_intercept['param']['target_user'] : $target_user);
 		$message = ($ret_intercept['param']['message'] ? $ret_intercept['param']['message'] : $message);
 		$sms_receiver = ($ret_intercept['param']['sms_receiver'] ? $ret_intercept['param']['sms_receiver'] : $sms_receiver);
+		$reference_id = ($ret_intercept['param']['reference_id'] ? $ret_intercept['param']['reference_id'] : $reference_id);
 	}
 	
 	$ok = FALSE;
@@ -367,10 +369,10 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 			if ($fwd_to_inbox = $user['fwd_to_inbox']) {
 				$db_query = "
 					INSERT INTO " . _DB_PREF_ . "_tblUser_inbox
-					(in_sender,in_receiver,in_uid,in_msg,in_datetime) 
-					VALUES ('$sms_sender','$sms_receiver','$uid','$message','" . core_adjust_datetime($sms_datetime) . "')
+					(in_sender,in_receiver,in_uid,in_msg,in_datetime,reference_id) 
+					VALUES ('$sms_sender','$sms_receiver','$uid','$message','" . core_adjust_datetime($sms_datetime) . "','$reference_id')
 				";
-				logger_print("saving sender:" . $sms_sender . " receiver:" . $sms_receiver . " target:" . $target_user, 2, "recvsms_inbox_add");
+				logger_print("saving sender:" . $sms_sender . " receiver:" . $sms_receiver . " target:" . $target_user . " reference_id:" . $reference_id, 2, "recvsms_inbox_add");
 				if ($inbox_id = @dba_insert_id($db_query)) {
 					logger_print("saved id:" . $inbox_id . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " target:" . $target_user, 2, "recvsms_inbox_add");
 					notif_add($uid, 'recvsms_inbox_add', _('New inbox from') . ' ' . $sms_sender, $message, array(

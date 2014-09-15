@@ -377,6 +377,7 @@ ALTER TABLE `playsms_tblSMSOutgoing` CHANGE `p_credit` `p_credit` DECIMAL(13,3) 
 -- version
 UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-rc2' WHERE `registry_group` = 'core' AND `registry_family` = 'config' AND `registry_key` = 'playsms_version' ;
 
+
 -- 1.0
 
 -- SMS poll
@@ -398,3 +399,5 @@ ALTER TABLE `playsms_featurePoll_log` ADD `status` int(11) NOT NULL DEFAULT '0';
 UPDATE `playsms_featurePoll_log` SET `status` = '1';
 
 ALTER TABLE `playsms_featurePoll` ADD `poll_access_code` VARCHAR(40) NOT NULL DEFAULT '';
+
+ALTER TABLE `playsms_tblUser_inbox` ADD `reference_id` VARCHAR(40) NOT NULL DEFAULT '' ;

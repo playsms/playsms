@@ -141,7 +141,7 @@ function email2sms_hook_playsmsd_once($param) {
 				// sendsms
 				if ($username && count($sms_to) && $message && $count > 0) {
 					_log('email2sms username:' . $username, 3, 'email2sms_hook_playsmsd_once');
-					sendsms_helper($username, $sms_to, $message);
+					list($ok, $to, $smslog_id, $queue, $counts, $sms_count, $sms_failed) = sendsms_helper($username, $sms_to, $message, '', '', '', '', '', '', $reference_id);
 				}
 			}
 		}
