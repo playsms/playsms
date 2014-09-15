@@ -315,12 +315,8 @@ msgstr ""
 msgid "User does not exist"
 msgstr "L'utilisateur n'existe pas"
 
-#, fuzzy
 msgid "User does not exists"
 msgstr "L'utilisateur n'existe pas"
-
-msgid "User does not exists"
-msgstr ""
 
 msgid "User has been added and password has been emailed"
 msgstr "L'utilisateur a été ajouté et le mot de passe envoyé par e-mail"
