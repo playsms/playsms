@@ -16,25 +16,34 @@ msgstr ""
 msgid "Action"
 msgstr "Acció"
 
-msgid "Add rate"
+#, fuzzy
+msgid "Add gateway"
 msgstr "Afegir tarifa"
 
-msgid "Are you sure you want to delete rate ?"
-msgstr "Esteu segur que voleu esborrar la tarifa?"
+#, fuzzy
+msgid "Add route"
+msgstr "Afegir tarifa"
 
 msgid "Destination"
 msgstr "Destí"
 
-msgid "Edit rate"
+#, fuzzy
+msgid "Edit route"
 msgstr "Editar tarifa"
 
-msgid "Fail to delete rate"
+#, fuzzy
+msgid "Fail to delete route"
 msgstr "Error esborrant tarifa"
 
-msgid "Fail to save rate"
+#, fuzzy
+msgid "Fail to save route"
 msgstr "Error guardant tarifa"
 
-msgid "Manage SMS rate"
+msgid "Gateway"
+msgstr ""
+
+#, fuzzy
+msgid "Manage SMS gateway"
 msgstr "Gestionar tarifes SMS"
 
 msgid "No changes made!"
@@ -43,20 +52,11 @@ msgstr "No s'han fet canvis!"
 msgid "Prefix"
 msgstr "Prefix"
 
-msgid "Rate"
-msgstr "Tarifa"
+msgid "Route SMS outgoing"
+msgstr ""
 
-msgid "Rate already exists"
-msgstr "La tarifa ja existeix"
-
-msgid "Rate has been added"
-msgstr "La tarifa s'ha afegit"
-
-msgid "Rate has been deleted"
-msgstr "La tarifa s'ha el·liminat"
-
-msgid "Rate has been saved"
-msgstr "La tarifa s'ha guardat"
+msgid "Route outgoing SMS"
+msgstr ""
 
 msgid "Save"
 msgstr "Guardar"
@@ -67,5 +67,21 @@ msgstr "Heu d'omplir tots els camps"
 msgid "destination"
 msgstr "destí"
 
+#, fuzzy
+msgid "gateway already exists"
+msgstr "La tarifa ja existeix"
+
+#, fuzzy
+msgid "gateway has been added"
+msgstr "La tarifa s'ha afegit"
+
+#, fuzzy
+msgid "gateway has been deleted"
+msgstr "La tarifa s'ha el·liminat"
+
 msgid "prefix"
 msgstr "prefix"
+
+#, fuzzy
+msgid "route has been saved"
+msgstr "La tarifa s'ha guardat"

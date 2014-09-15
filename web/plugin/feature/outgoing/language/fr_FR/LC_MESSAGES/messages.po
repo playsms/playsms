@@ -9,25 +9,34 @@ msgstr ""
 msgid "Action"
 msgstr "Action"
 
-msgid "Add rate"
+#, fuzzy
+msgid "Add gateway"
 msgstr "Ajouter un tarif"
 
-msgid "Are you sure you want to delete rate ?"
-msgstr "Voulez-vous supprimer cette règle ?"
+#, fuzzy
+msgid "Add route"
+msgstr "Ajouter un tarif"
 
 msgid "Destination"
 msgstr "Destination"
 
-msgid "Edit rate"
+#, fuzzy
+msgid "Edit route"
 msgstr "Editer tarif"
 
-msgid "Fail to delete rate"
+#, fuzzy
+msgid "Fail to delete route"
 msgstr "Echec suppression tarif"
 
-msgid "Fail to save rate"
+#, fuzzy
+msgid "Fail to save route"
 msgstr "Echec sauvegarde tarif"
 
-msgid "Manage SMS rate"
+msgid "Gateway"
+msgstr ""
+
+#, fuzzy
+msgid "Manage SMS gateway"
 msgstr "Gérer tarif SMS"
 
 msgid "No changes made!"
@@ -36,20 +45,11 @@ msgstr "Aucune modification éffectuée"
 msgid "Prefix"
 msgstr "Préfixe"
 
-msgid "Rate"
-msgstr "Tarif"
+msgid "Route SMS outgoing"
+msgstr ""
 
-msgid "Rate already exists"
-msgstr "Cette règle existe déjà"
-
-msgid "Rate has been added"
-msgstr "Tarif ajouté"
-
-msgid "Rate has been deleted"
-msgstr "Tarif supprimé"
-
-msgid "Rate has been saved"
-msgstr "Tarif sauvegardé"
+msgid "Route outgoing SMS"
+msgstr ""
 
 msgid "Save"
 msgstr "Sauvegarder"
@@ -60,5 +60,21 @@ msgstr "Vous devez remplir tous les champs"
 msgid "destination"
 msgstr "destination"
 
+#, fuzzy
+msgid "gateway already exists"
+msgstr "Cette règle existe déjà"
+
+#, fuzzy
+msgid "gateway has been added"
+msgstr "Tarif ajouté"
+
+#, fuzzy
+msgid "gateway has been deleted"
+msgstr "Tarif supprimé"
+
 msgid "prefix"
 msgstr "préfixe"
+
+#, fuzzy
+msgid "route has been saved"
+msgstr "Tarif sauvegardé"

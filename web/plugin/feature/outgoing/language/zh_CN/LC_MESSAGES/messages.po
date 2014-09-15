@@ -8,25 +8,34 @@ msgstr ""
 msgid "Action"
 msgstr "行为"
 
-msgid "Add rate"
+#, fuzzy
+msgid "Add gateway"
 msgstr "增加等级"
 
-msgid "Are you sure you want to delete rate ?"
-msgstr "确定删除等级 ?"
+#, fuzzy
+msgid "Add route"
+msgstr "增加等级"
 
 msgid "Destination"
 msgstr "目标"
 
-msgid "Edit rate"
+#, fuzzy
+msgid "Edit route"
 msgstr "编辑等级"
 
-msgid "Fail to delete rate"
+#, fuzzy
+msgid "Fail to delete route"
 msgstr "删除等级失败"
 
-msgid "Fail to save rate"
+#, fuzzy
+msgid "Fail to save route"
 msgstr "保存等级失败"
 
-msgid "Manage SMS rate"
+msgid "Gateway"
+msgstr ""
+
+#, fuzzy
+msgid "Manage SMS gateway"
 msgstr "管理短信等级"
 
 msgid "No changes made!"
@@ -35,20 +44,11 @@ msgstr "没有做出改变"
 msgid "Prefix"
 msgstr "前缀"
 
-msgid "Rate"
-msgstr "等级"
+msgid "Route SMS outgoing"
+msgstr ""
 
-msgid "Rate already exists"
-msgstr "等级已存在"
-
-msgid "Rate has been added"
-msgstr "等级已添加"
-
-msgid "Rate has been deleted"
-msgstr "等级已删除"
-
-msgid "Rate has been saved"
-msgstr "等级已保存"
+msgid "Route outgoing SMS"
+msgstr ""
 
 msgid "Save"
 msgstr "保存"
@@ -59,5 +59,21 @@ msgstr "你必须填满全部空白"
 msgid "destination"
 msgstr "目标"
 
+#, fuzzy
+msgid "gateway already exists"
+msgstr "等级已存在"
+
+#, fuzzy
+msgid "gateway has been added"
+msgstr "等级已添加"
+
+#, fuzzy
+msgid "gateway has been deleted"
+msgstr "等级已删除"
+
 msgid "prefix"
 msgstr "前缀"
+
+#, fuzzy
+msgid "route has been saved"
+msgstr "等级已保存"

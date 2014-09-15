@@ -8,25 +8,34 @@ msgstr ""
 msgid "Action"
 msgstr "Acción"
 
-msgid "Add rate"
+#, fuzzy
+msgid "Add gateway"
 msgstr "Añadir tarifa"
 
-msgid "Are you sure you want to delete rate ?"
-msgstr "Esta Ud. seguro de querer borrar esta tarifa ?"
+#, fuzzy
+msgid "Add route"
+msgstr "Añadir tarifa"
 
 msgid "Destination"
 msgstr "Destino"
 
-msgid "Edit rate"
+#, fuzzy
+msgid "Edit route"
 msgstr "Editar tarifa"
 
-msgid "Fail to delete rate"
+#, fuzzy
+msgid "Fail to delete route"
 msgstr "Fallo al borrar la tarifa"
 
-msgid "Fail to save rate"
+#, fuzzy
+msgid "Fail to save route"
 msgstr "Fallo al eliminar la tarifa"
 
-msgid "Manage SMS rate"
+msgid "Gateway"
+msgstr ""
+
+#, fuzzy
+msgid "Manage SMS gateway"
 msgstr "Administración de tarifas deSMS"
 
 msgid "No changes made!"
@@ -35,20 +44,11 @@ msgstr "No se efectuaron cambios!"
 msgid "Prefix"
 msgstr "Prefijo"
 
-msgid "Rate"
-msgstr "Tarifa"
+msgid "Route SMS outgoing"
+msgstr ""
 
-msgid "Rate already exists"
-msgstr "Tarifa ya existe "
-
-msgid "Rate has been added"
-msgstr "La tarifa ha sido añadida"
-
-msgid "Rate has been deleted"
-msgstr "La tarifa ha sido eliminada"
-
-msgid "Rate has been saved"
-msgstr "La tarifa se ha guardado"
+msgid "Route outgoing SMS"
+msgstr ""
 
 msgid "Save"
 msgstr "Guardar"
@@ -59,5 +59,21 @@ msgstr "Ud. debe rellenar todos los campos"
 msgid "destination"
 msgstr "destino"
 
+#, fuzzy
+msgid "gateway already exists"
+msgstr "Tarifa ya existe "
+
+#, fuzzy
+msgid "gateway has been added"
+msgstr "La tarifa ha sido añadida"
+
+#, fuzzy
+msgid "gateway has been deleted"
+msgstr "La tarifa ha sido eliminada"
+
 msgid "prefix"
 msgstr "prefijo"
+
+#, fuzzy
+msgid "route has been saved"
+msgstr "La tarifa se ha guardado"

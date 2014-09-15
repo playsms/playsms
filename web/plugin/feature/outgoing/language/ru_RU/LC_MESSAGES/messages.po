@@ -15,25 +15,34 @@ msgstr ""
 msgid "Action"
 msgstr "Действие"
 
-msgid "Add rate"
+#, fuzzy
+msgid "Add gateway"
 msgstr "Добавить тариф"
 
-msgid "Are you sure you want to delete rate ?"
-msgstr "Вы уверены, что хотите удалить тариф?"
+#, fuzzy
+msgid "Add route"
+msgstr "Добавить тариф"
 
 msgid "Destination"
 msgstr "Назначение"
 
-msgid "Edit rate"
+#, fuzzy
+msgid "Edit route"
 msgstr "Редактировать тариф"
 
-msgid "Fail to delete rate"
+#, fuzzy
+msgid "Fail to delete route"
 msgstr "Не удалось удалить тариф"
 
-msgid "Fail to save rate"
+#, fuzzy
+msgid "Fail to save route"
 msgstr "Не удалось сохранить тариф"
 
-msgid "Manage SMS rate"
+msgid "Gateway"
+msgstr ""
+
+#, fuzzy
+msgid "Manage SMS gateway"
 msgstr "Тарификация"
 
 msgid "No changes made!"
@@ -42,20 +51,11 @@ msgstr "Нет изменений"
 msgid "Prefix"
 msgstr "Префикс"
 
-msgid "Rate"
-msgstr "Тариф"
+msgid "Route SMS outgoing"
+msgstr ""
 
-msgid "Rate already exists"
-msgstr "Тариф уже существует"
-
-msgid "Rate has been added"
-msgstr "Тариф добавлен"
-
-msgid "Rate has been deleted"
-msgstr "Тариф удалён"
-
-msgid "Rate has been saved"
-msgstr "Тариф сохранён"
+msgid "Route outgoing SMS"
+msgstr ""
 
 msgid "Save"
 msgstr "Сохранить"
@@ -66,5 +66,21 @@ msgstr "Необходимо заполнить все поля"
 msgid "destination"
 msgstr "назначение"
 
+#, fuzzy
+msgid "gateway already exists"
+msgstr "Тариф уже существует"
+
+#, fuzzy
+msgid "gateway has been added"
+msgstr "Тариф добавлен"
+
+#, fuzzy
+msgid "gateway has been deleted"
+msgstr "Тариф удалён"
+
 msgid "prefix"
 msgstr "префикс"
+
+#, fuzzy
+msgid "route has been saved"
+msgstr "Тариф сохранён"

@@ -8,25 +8,28 @@ msgstr ""
 msgid "Action"
 msgstr ""
 
-msgid "Add rate"
+msgid "Add gateway"
 msgstr ""
 
-msgid "Are you sure you want to delete rate ?"
+msgid "Add route"
 msgstr ""
 
 msgid "Destination"
 msgstr ""
 
-msgid "Edit rate"
+msgid "Edit route"
 msgstr ""
 
-msgid "Fail to delete rate"
+msgid "Fail to delete route"
 msgstr ""
 
-msgid "Fail to save rate"
+msgid "Fail to save route"
 msgstr ""
 
-msgid "Manage SMS rate"
+msgid "Gateway"
+msgstr ""
+
+msgid "Manage SMS gateway"
 msgstr ""
 
 msgid "No changes made!"
@@ -35,19 +38,10 @@ msgstr ""
 msgid "Prefix"
 msgstr ""
 
-msgid "Rate"
+msgid "Route SMS outgoing"
 msgstr ""
 
-msgid "Rate already exists"
-msgstr ""
-
-msgid "Rate has been added"
-msgstr ""
-
-msgid "Rate has been deleted"
-msgstr ""
-
-msgid "Rate has been saved"
+msgid "Route outgoing SMS"
 msgstr ""
 
 msgid "Save"
@@ -59,5 +53,17 @@ msgstr ""
 msgid "destination"
 msgstr ""
 
+msgid "gateway already exists"
+msgstr ""
+
+msgid "gateway has been added"
+msgstr ""
+
+msgid "gateway has been deleted"
+msgstr ""
+
 msgid "prefix"
+msgstr ""
+
+msgid "route has been saved"
 msgstr ""
