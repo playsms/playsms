@@ -434,7 +434,11 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 			}
 		} else if (substr(trim($sms_to[$i]), 0, 1) == '@') {
 			if ($c_username = substr(trim($sms_to[$i]), 1)) {
-				$array_username[] = $c_username;
+				
+				// reference self will be ignored
+				if ($c_username != $user_config['username']) {
+					$array_username[] = $c_username;
+				}
 			}
 		} else {
 			$array_sms_to[] = trim($sms_to[$i]);
