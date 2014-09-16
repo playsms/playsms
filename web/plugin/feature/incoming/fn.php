@@ -265,7 +265,7 @@ function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $
 	
 	// scan for #<sender's phonebook group code> and @<username> according to pre rules
 	$msg = explode(' ', $message);
-	if (count($msg) > 1) {
+	if (count($msg) > 0) {
 		$bc = array();
 		$pv = array();
 		for($i = 0; $i < count($msg); $i++) {
