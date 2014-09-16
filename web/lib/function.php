@@ -85,7 +85,7 @@ foreach ($pcs as $pc) {
 
 // load each plugin's libs
 $dir = $core_config['apps_path']['plug'].'/';
-$pcs = array('feature');
+$pcs = array('feature', 'gateway');
 foreach ($pcs as $pc) {
 	for ($i=0;$i<count($core_config[$pc.'list']);$i++) {
 		$pl = $core_config[$pc.'list'][$i];
@@ -151,6 +151,7 @@ if (is_array($menus)) {
 }
 
 // load active gateway libs
+/*
 $dir = $core_config['apps_path']['plug'].'/';
 $pc = 'gateway';
 $pl = core_gateway_get();
@@ -164,6 +165,7 @@ if (file_exists($c_fn1)) {
 	}
 	include $c_fn1;
 }
+*/
 
 if (function_exists('bindtextdomain')) {
 	bindtextdomain('messages', $core_config['apps_path']['plug'].'/language/');
