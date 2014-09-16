@@ -59,7 +59,7 @@ function outgoing_getgateway($id) {
 		$gateway = $db_row['gateway'];
 	}
 	
-	return $rate;
+	return $gateway;
 }
 
 function outgoing_prefix2gateway($prefix) {

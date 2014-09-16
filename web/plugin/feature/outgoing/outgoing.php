@@ -72,7 +72,7 @@ switch (_OP_) {
 		$rid = $_REQUEST['rid'];
 		$dst = outgoing_getdst($rid);
 		$prefix = outgoing_getprefix($rid);
-		$gateway = outgoing_getbyid($rid);
+		$gateway = outgoing_getgateway($rid);
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
