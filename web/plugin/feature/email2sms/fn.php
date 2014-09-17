@@ -10,13 +10,12 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
 
 function email2sms_hook_playsmsd() {
@@ -27,12 +26,12 @@ function email2sms_hook_playsmsd() {
 		return;
 	}
 	
-	//_log('fetch now:'.$now, 2, 'email2sms_hook_playsmsd');
+	// _log('fetch now:'.$now, 2, 'email2sms_hook_playsmsd');
 	
 	// get all users
 	$users = dba_search(_DB_PREF_ . '_tblUser', 'uid');
 	
-	foreach ($users as $user) {
+	foreach ($users as $user ) {
 		$uid = $user['uid'];
 		
 		// get email2sms registry data for $uid
@@ -49,32 +48,31 @@ function email2sms_hook_playsmsd() {
 			continue;
 		}
 		
-		//_log('fetch uid:' . $uid, 3, 'email2sms_hook_playsmsd');
+		// _log('fetch uid:' . $uid, 3, 'email2sms_hook_playsmsd');
 		
 		$param = 'email2sms_uid_' . $uid;
 		$is_fetching = (playsmsd_pid_get($param) ? TRUE : FALSE);
 		if (!$is_fetching) {
 			$RUN_THIS = "nohup " . $core_config['daemon']['PLAYSMS_BIN'] . "/playsmsd playsmsd once " . $param . " >/dev/null 2>&1 &";
 			
-			//_log('execute:' . $RUN_THIS, 3, 'email2sms_hook_playsmsd');
+			// _log('execute:' . $RUN_THIS, 3, 'email2sms_hook_playsmsd');
 			shell_exec($RUN_THIS);
 		}
 	}
 }
 
 function email2sms_hook_playsmsd_once($param) {
-	
 	$c_param = explode('_', $param);
 	if ($c_param[0] == 'email2sms') {
 		if ($c_param[1] == 'uid') {
-			$uid = (int)$c_param[2];
+			$uid = (int) $c_param[2];
 		}
 	}
 	
 	// get username
 	$username = user_uid2username($uid);
 	
-	//_log('fetch uid:' . $uid . ' username:' . $username, 3, 'email2sms_hook_playsmsd_once');
+	// _log('fetch uid:' . $uid . ' username:' . $username, 3, 'email2sms_hook_playsmsd_once');
 	
 	if ($uid && $username) {
 		
@@ -91,18 +89,16 @@ function email2sms_hook_playsmsd_once($param) {
 		$email_username = $items['features']['email2sms']['username'];
 		$email_password = $items['features']['email2sms']['password'];
 		
-		//_log('fetch ' . $email_username . ' at ' . $email_hostname, 3, 'email2sms_hook_playsmsd_once');
+		// _log('fetch ' . $email_username . ' at ' . $email_hostname, 3, 'email2sms_hook_playsmsd_once');
 		
 		// open mailbox
 		$inbox = imap_open($email_hostname, $email_username, $email_password);
 		
 		if (!$inbox) {
 			$errors = imap_errors();
-			foreach ($errors as $error) {
+			foreach ($errors as $error ) {
 				
-				//_log('error:' . $error, 3, 'email2sms_hook_playsmsd_once');
-				
-				
+				// _log('error:' . $error, 3, 'email2sms_hook_playsmsd_once');
 			}
 			return;
 		}
@@ -110,7 +106,7 @@ function email2sms_hook_playsmsd_once($param) {
 		$emails = imap_search($inbox, 'UNSEEN');
 		if (count($emails)) {
 			rsort($emails);
-			foreach ($emails as $email_number) {
+			foreach ($emails as $email_number ) {
 				$overview = imap_fetch_overview($inbox, $email_number, 0);
 				$email_subject = trim($overview[0]->subject);
 				$email_sender = trim($overview[0]->from);
@@ -124,15 +120,15 @@ function email2sms_hook_playsmsd_once($param) {
 				$sms_to = explode(',', $sms_to);
 				
 				// Check "from" email before checking PIN if option "Check email sender" is TRUE
-				if($items['features']['email2sms']['check_sender']){
+				if ($items['features']['email2sms']['check_sender']) {
 					preg_match('#\<(.*?)\>#', $email_sender, $match);
-					if(user_email2uid($match[1])==""){
+					if (user_email2uid($match[1]) == "") {
 						continue;
 					}
 				}
-
+				
 				// message is from email subject
-				//$message = trim($email_subject);
+				// $message = trim($email_subject);
 				$message = trim(preg_replace('/' . $items['features']['email2sms']['pin'] . '/', '', $email_subject, -1, $count));
 				if ($count <= 0) {
 					_log('PIN does not match. Subject: ' . $email_subject, 2, 'email2sms_hook_playsmsd');
