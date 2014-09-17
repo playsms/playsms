@@ -1,19 +1,31 @@
 <?php
 
+/**
+ * This file is part of playSMS.
+ *
+ * playSMS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * playSMS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
+ */
+defined('_SECURE_') or die('Forbidden');
+
 function pluginmanager_get_status($plugin_category, $name) {
-	if ($plugin_category == "gateway") {
-		if (core_gateway_get() == $name) {
-			$ret = TRUE;
-		} else {
-			$ret = FALSE;
-		}
-	} else	if ($plugin_category == "themes") {
+	if ($plugin_category == "themes") {
 		if (core_themes_get() == $name) {
 			$ret = TRUE;
 		} else {
 			$ret = FALSE;
 		}
-	} else	if ($plugin_category == "language") {
+	} else if ($plugin_category == "language") {
 		if (core_lang_get() == $name) {
 			$ret = TRUE;
 		} else {
@@ -62,9 +74,9 @@ function pluginmanager_display($plugin_category) {
 			</tr></thead>
 			<tbody>";
 	$subdir_tab = pluginmanager_list($plugin_category);
-	for ($l = 0; $l < sizeof($subdir_tab); $l++) {
+	for($l = 0; $l < sizeof($subdir_tab); $l++) {
 		unset($plugin_info);
-		$xml_file = $core_config['apps_path']['plug'] . "/". $plugin_category . "/" . $subdir_tab[$l]['name'] . "/docs/info.xml";
+		$xml_file = $core_config['apps_path']['plug'] . "/" . $plugin_category . "/" . $subdir_tab[$l]['name'] . "/docs/info.xml";
 		if ($fc = file_get_contents($xml_file)) {
 			$plugin_info = core_xml_to_array($fc);
 			$plugin_info['status'] = $subdir_tab[$l]['status'];
@@ -84,5 +96,3 @@ function pluginmanager_display($plugin_category) {
 	$content .= "</tbody></table></div>";
 	return $content;
 }
-
-?>
