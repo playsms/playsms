@@ -25,7 +25,7 @@ if (!auth_isvalid()) {
 switch (_OP_) {
 	case "mailsms_user" :
 		
-		$items_global = registry_search(1, 'features', 'mailsms');
+		$items_global = registry_search(0, 'features', 'mailsms');
 		$items = registry_search($user_config['uid'], 'features', 'mailsms_user');
 		
 		// option enable
@@ -67,11 +67,10 @@ switch (_OP_) {
 		
 		if ($continue) {
 			$items = array(
-				'pin' => $pin,
-				'hash' => md5($_REQUEST['username'] . $_REQUEST['server'] . $_REQUEST['port']) 
+				'pin' => $pin 
 			);
 			registry_update($user_config['uid'], 'features', 'mailsms_user', $items);
-
+			
 			$items_global = registry_search(0, 'features', 'mailsms');
 			if ($items_global['features']['mailsms']['enable_fetch']) {
 				$enabled = 'enabled';
@@ -80,7 +79,7 @@ switch (_OP_) {
 				$enabled = 'disabled';
 				$_SESSION['error_string'] = _('Email to SMS PIN has been saved but service is disabled');
 			}
-			_log($enabled . ' uid:' . $user_config['uid'] . ' u:' . $_REQUEST['username'] . ' server:' . $_REQUEST['server'], 2, 'mailsms_user');
+			_log($enabled . ' uid:' . $user_config['uid'] . ' u:' . $user_config['username'], 2, 'mailsms_user');
 		}
 		
 		header("Location: " . _u('index.php?app=main&inc=feature_mailsms&route=mailsms_user&op=mailsms_user'));
