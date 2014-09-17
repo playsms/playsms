@@ -262,6 +262,7 @@ if ((! $core_config ['daemon_process']) && $_SERVER ['HTTP_HOST'] && $site_confi
 }
 
 // verify selected gateway_module exists
+/*
 $continue = FALSE;
 $fn1 = _APPS_PATH_PLUG_ . '/gateway/' . core_gateway_get () . '/config.php';
 $fn2 = _APPS_PATH_PLUG_ . '/gateway/' . core_gateway_get () . '/fn.php';
@@ -270,6 +271,7 @@ if (! (file_exists ( $fn1 ) && file_exists ( $fn2 ))) {
 	ob_end_clean ();
 	die ( _ ( 'FATAL ERROR' ) . ' : ' . _ ( 'Fail to load gateway' ) . ' ' . core_gateway_get () );
 }
+*/
 
 // verify selected themes_module exists
 $fn1 = _APPS_PATH_PLUG_ . '/themes/' . core_themes_get () . '/config.php';
