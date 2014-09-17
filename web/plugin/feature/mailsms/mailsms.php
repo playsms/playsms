@@ -18,44 +18,44 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-if (!auth_isvalid()) {
+if (!auth_isadmin()) {
 	auth_block();
 }
 
 switch (_OP_) {
 	case "mailsms" :
 		
-		$items = registry_search($user_config['uid'], 'features', 'mailsms');
+		$items_global = registry_search(0, 'features', 'mailsms');
 		
-		// option enable
-		$option_enable = _options(array(
+		// option enable fetch
+		$option_enable_fetch = _options(array(
 			_('yes') => 1,
 			_('no') => 0 
-		), $items['features']['mailsms']['enable']);
+		), $items_global['features']['mailsms']['enable_fetch']);
 		
 		// option check email sender
 		$option_check_sender = _options(array(
 			_('yes') => 1,
 			_('no') => 0 
-		), $items['features']['mailsms']['check_sender']);
+		), $items_global['features']['mailsms']['check_sender']);
 		
 		// option protocol
 		$option_protocol = _options(array(
 			'IMAP' => 'imap',
 			'POP3' => 'pop3' 
-		), $items['features']['mailsms']['protocol']);
+		), $items_global['features']['mailsms']['protocol']);
 		
 		// option ssl
 		$option_ssl = _options(array(
 			_('yes') => 1,
 			_('no') => 0 
-		), $items['features']['mailsms']['ssl']);
+		), $items_global['features']['mailsms']['ssl']);
 		
 		// option cert
 		$option_novalidate_cert = _options(array(
 			_('yes') => 1,
 			_('no') => 0 
-		), $items['features']['mailsms']['novalidate_cert']);
+		), $items_global['features']['mailsms']['novalidate_cert']);
 		
 		$tpl = array(
 			'name' => 'mailsms',
@@ -65,8 +65,8 @@ switch (_OP_) {
 				'ACTION_URL' => _u('index.php?app=main&inc=feature_mailsms&op=mailsms_save'),
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
 				'HINT_PASSWORD' => _hint(_('Fill the password field to change password')),
-				'PIN for email to SMS' => _mandatory('PIN for email to SMS'),
-				'Enable email to SMS' => _('Enable email to SMS'),
+				'Email to SMS address' => _('Email to SMS address'),
+				'Enable fetch new emails' => _('Enable fetch new emails'),
 				'Check email sender' => _('Check email sender'),
 				'Email protocol' => _('Email protocol'),
 				'Use SSL' => _('Use SSL'),
@@ -79,56 +79,43 @@ switch (_OP_) {
 				'PORT_DEFAULT_SSL' => '993' 
 			),
 			'injects' => array(
-				'select_users',
-				'option_enable',
+				'option_enable_fetch',
 				'option_check_sender',
 				'option_protocol',
 				'option_ssl',
 				'option_novalidate_cert',
-				'items' 
+				'items_global' 
 			) 
 		);
 		_p(tpl_apply($tpl));
 		break;
 	
 	case "mailsms_save" :
-		$continue = FALSE;
+		$items_global = array(
+			'email' => $_REQUEST['email'],
+			'enable_fetch' => $_REQUEST['enable_fetch'],
+			'check_sender' => $_REQUEST['check_sender'],
+			'protocol' => $_REQUEST['protocol'],
+			'ssl' => $_REQUEST['ssl'],
+			'novalidate_cert' => $_REQUEST['novalidate_cert'],
+			'port' => $_REQUEST['port'],
+			'server' => $_REQUEST['server'],
+			'username' => $_REQUEST['username'],
+			'hash' => md5($_REQUEST['username'] . $_REQUEST['server'] . $_REQUEST['port']) 
+		);
+		if ($_REQUEST['password']) {
+			$items_global['password'] = $_REQUEST['password'];
+		}
+		registry_update(0, 'features', 'mailsms', $items_global);
 		
-		$pin = core_sanitize_alphanumeric(substr($_REQUEST['pin'], 0, 40));
-		if ($pin) {
-			$continue = TRUE;
+		if ($_REQUEST['enable_fetch']) {
+			$enabled = 'enabled';
+			$_SESSION['error_string'] = _('Email to SMS configuration has been saved and service enabled');
 		} else {
-			$_SESSION['error_string'][] = _('PIN is empty');
-			$_SESSION['error_string'][] = _('Fail to save email to SMS configuration');
+			$enabled = 'disabled';
+			$_SESSION['error_string'] = _('Email to SMS configuration has been saved and service disabled');
 		}
-		
-		if ($continue) {
-			$items = array(
-				'pin' => $pin,
-				'enable' => $_REQUEST['enable'],
-				'check_sender' => $_REQUEST['check_sender'],
-				'protocol' => $_REQUEST['protocol'],
-				'ssl' => $_REQUEST['ssl'],
-				'novalidate_cert' => $_REQUEST['novalidate_cert'],
-				'port' => $_REQUEST['port'],
-				'server' => $_REQUEST['server'],
-				'username' => $_REQUEST['username'],
-				'hash' => md5($_REQUEST['username'] . $_REQUEST['server'] . $_REQUEST['port']) 
-			);
-			if ($_REQUEST['password']) {
-				$items['password'] = $_REQUEST['password'];
-			}
-			registry_update($user_config['uid'], 'features', 'mailsms', $items);
-			
-			if ($_REQUEST['enable']) {
-				$enabled = 'enabled';
-				$_SESSION['error_string'] = _('Email to SMS configuration has been saved and enabled');
-			} else {
-				$enabled = 'disabled';
-				$_SESSION['error_string'] = _('Email to SMS configuration has been saved but disabled');
-			}
-			_log($enabled . ' uid:' . $user_config['uid'] . ' u:' . $_REQUEST['username'] . ' server:' . $_REQUEST['server'], 2, 'mailsms');
-		}
+		_log($enabled . ' server:' . $_REQUEST['server'], 2, 'mailsms');
 		
 		header("Location: " . _u('index.php?app=main&inc=feature_mailsms&op=mailsms'));
 		exit();

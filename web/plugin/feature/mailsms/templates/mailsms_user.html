@@ -1,0 +1,35 @@
+<script language="javascript" type="text/javascript">
+	$(document).ready(function() {
+		$("#mailsms-show-pin").mouseover(function() {
+			$(this).prev().attr('type', 'text');
+		});
+		$("#mailsms-show-pin").mouseout(function() {
+			$(this).prev().attr('type', 'password');
+		});
+	});
+</script>
+{{ ERROR }}
+<h2>{{ FORM_TITLE }}</h2>
+<form action="{{ ACTION_URL }}" method=post
+	enctype="multipart/form-data">
+	{{ CSRF_FORM }}
+	<table class=playsms-table>
+		<tbody>
+			<tr>
+				<td class=label-sizer>{{ Email to SMS address }}</td>
+				<td><input type="text"
+					value="{{ $items_global['features']['mailsms']['email'] }}"
+					readonly></td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ PIN for email to SMS }}</td>
+				<td><input type="password" maxlength="40" name="pin"
+					value="{{ $items['features']['mailsms_user']['pin'] }}" required>
+					<i id="mailsms-show-pin" class="glyphicon glyphicon-eye-open"></i></td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		<input type=submit class=button value='{{ Save }}'>
+	</p>
+</form>
