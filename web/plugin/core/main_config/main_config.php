@@ -142,7 +142,7 @@ switch (_OP_) {
 				'Enable logo' => _('Enable logo') ,
 				'Logo URL' => _('Logo URL') ,
 				'Replace website title with logo' => _('Replace website title with logo') ,
-				'Active gateway module' => _('Active gateway module') ,
+				'Default gateway module' => _('Default gateway module') ,
 				'Active themes' => _('Active themes') ,
 				'Default language' => _('Default language') ,
 				'Default user status on registration' => _('Default user status on registration') ,
