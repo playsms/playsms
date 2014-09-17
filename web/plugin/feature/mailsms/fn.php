@@ -104,7 +104,7 @@ function mailsms_hook_playsmsd_once($param) {
 			
 			$e = preg_replace('/\s+/', ' ', trim($email_subject));
 			$f = preg_split('/ +/', $e);
-			$sender_username = $f[0];
+			$sender_username = str_replace('@', '', $f[0]); // in case user use @username
 			$sender_pin = $f[1];
 			$message = str_replace($sender_username . ' ' . $sender_pin . ' ', '', $email_subject);
 			
