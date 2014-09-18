@@ -78,8 +78,11 @@ function recvsmsd() {
 	}
 }
 
-/*
- * Check available keyword or keyword that hasn't been added @param $keyword keyword @return TRUE if available, FALSE if already exists or not available
+/**
+ * Check available keyword or keyword that hasn't been added
+ *
+ * @param $keyword keyword        	
+ * @return TRUE if available, FALSE if already exists or not available
  */
 function checkavailablekeyword($keyword) {
 	global $reserved_keywords, $core_config;
