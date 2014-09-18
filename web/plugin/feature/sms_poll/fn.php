@@ -116,7 +116,7 @@ function sms_poll_handle($list, $sms_datetime, $sms_sender, $poll_keyword, $poll
 					if (($poll_message_valid = trim($list['poll_message_valid'])) && ($c_username = user_uid2username($list['uid']))) {
 						$unicode = core_detect_unicode($poll_message_valid);
 						$poll_message_valid = addslashes($poll_message_valid);
-						list($ok, $to, $smslog_id, $queue_code) = sendsms($c_username, $sms_sender, $poll_message_valid, 'text', $unicode);
+						list($ok, $to, $smslog_id, $queue_code) = sendsms_helper($c_username, $sms_sender, $poll_message_valid, 'text', $unicode, $gw);
 					}
 				}
 			} else {
@@ -130,7 +130,7 @@ function sms_poll_handle($list, $sms_datetime, $sms_sender, $poll_keyword, $poll
 					if (($poll_message_option = trim($list['poll_message_option'])) && ($c_username = user_uid2username($list['uid']))) {
 						$unicode = core_detect_unicode($poll_message_option);
 						$poll_message_option = addslashes($poll_message_option);
-						list($ok, $to, $smslog_id, $queue_code) = sendsms($c_username, $sms_sender, $poll_message_option, 'text', $unicode);
+						list($ok, $to, $smslog_id, $queue_code) = sendsms_helper($c_username, $sms_sender, $poll_message_option, 'text', $unicode, $gw);
 					}
 				}
 			}
@@ -146,7 +146,7 @@ function sms_poll_handle($list, $sms_datetime, $sms_sender, $poll_keyword, $poll
 				if (($poll_message_invalid = trim($list['poll_message_invalid'])) && ($c_username = user_uid2username($list['uid']))) {
 					$unicode = core_detect_unicode($poll_message_invalid);
 					$poll_message_invalid = addslashes($poll_message_invalid);
-					list($ok, $to, $smslog_id, $queue_code) = sendsms($c_username, $sms_sender, $poll_message_invalid, 'text', $unicode);
+					list($ok, $to, $smslog_id, $queue_code) = sendsms_helper($c_username, $sms_sender, $poll_message_invalid, 'text', $unicode, $gw);
 				}
 			}
 		}

@@ -58,7 +58,7 @@ function sms_quiz_handle($list, $sms_datetime, $sms_sender, $quiz_keyword, $quiz
 			if ($message && ($username = user_uid2username($list['uid']))) {
 				$unicode = core_detect_unicode($message);
 				$message = addslashes($message);
-				list($ok, $to, $smslog_id, $queue) = sendsms($username, $sms_to, $message, 'text', $unicode);
+				list($ok, $to, $smslog_id, $queue) = sendsms_helper($username, $sms_to, $message, 'text', $unicode, $gw);
 			}
 			$ok = true;
 		}

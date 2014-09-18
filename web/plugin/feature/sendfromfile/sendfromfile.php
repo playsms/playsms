@@ -197,7 +197,7 @@ switch (_OP_) {
 					$type = 'text';
 					$unicode = '0';
 					$c_sms_msg = addslashes($c_sms_msg);
-					list($ok, $to, $smslog_id, $queue) = sendsms($c_username, $c_sms_to, $c_sms_msg, $type, $unicode);
+					list($ok, $to, $smslog_id, $queue) = sendsms_helper($c_username, $c_sms_to, $c_sms_msg, $type, $unicode);
 				}
 			}
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSendfromfile WHERE sid='$sid'";

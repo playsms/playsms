@@ -1444,6 +1444,7 @@ CREATE TABLE `playsms_tblSMSOutgoing_queue` (
   `message` text NOT NULL,
   `sms_type` varchar(100) NOT NULL DEFAULT '',
   `unicode` int(11) NOT NULL DEFAULT '0',
+  `gw` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `queue_code` (`queue_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -57,7 +57,7 @@ function xlate_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $sms
 					// usualy we inspect the result of sendsms, but not this time
 					logger_print("send reply encoding:".$encoding, 2, "xlate");
 					$reply = addslashes($reply);
-					list($ok, $to, $smslog_id, $queue) = sendsms('admin', $sms_sender, $reply, 'text', $unicode);
+					list($ok, $to, $smslog_id, $queue) = sendsms_helper('admin', $sms_sender, $reply, 'text', $unicode);
 					// do not forget to tell parent that this SMS has been hooked
 					$ret['hooked'] = true;
 				} else {

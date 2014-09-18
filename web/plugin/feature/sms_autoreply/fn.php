@@ -74,7 +74,7 @@ function sms_autoreply_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$au
 		$c_username = user_uid2username($c_uid);
 		$unicode = core_detect_unicode($autoreply_scenario_result);
 		$autoreply_scenario_result = addslashes($autoreply_scenario_result);
-		list($ok, $to, $smslog_id, $queue) = sendsms($c_username, $sms_sender, $autoreply_scenario_result, 'text', $unicode);
+		list($ok, $to, $smslog_id, $queue) = sendsms_helper($c_username, $sms_sender, $autoreply_scenario_result, 'text', $unicode, $gw);
 		$ok = $ok[0];
 	}
 	return $ok;

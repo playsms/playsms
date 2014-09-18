@@ -441,7 +441,7 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 					$message = $c_message;
 					
 					logger_print("send to mobile:" . $mobile . " from:" . $sms_sender . " user:" . $target_user . " message:" . $message, 3, "recvsms_inbox_add");
-					list($ok, $to, $smslog_id, $queue) = sendsms($target_user, $mobile, $message, 'text', $unicode, $nofooter);
+					list($ok, $to, $smslog_id, $queue) = sendsms($target_user, $mobile, $message, 'text', $unicode, '', $nofooter);
 					if ($ok[0] == 1) {
 						logger_print("sent to mobile:" . $mobile . " from:" . $sms_sender . " user:" . $target_user, 2, "recvsms_inbox_add");
 					}

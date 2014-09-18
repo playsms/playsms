@@ -414,3 +414,6 @@ CREATE TABLE `playsms_featureOutgoing` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 ALTER TABLE `playsms_tblRecvSMS` ADD `gw` VARCHAR(100) NOT NULL DEFAULT '' ;
+
+ALTER TABLE `playsms_tblSMSOutgoing_queue` ADD `gw` VARCHAR(100) NOT NULL DEFAULT '' ;
+
