@@ -32,17 +32,25 @@ function sendsms_manipulate_prefix($number, $user) {
 	_log('before prefix manipulation:[' . $number . ']', 3, 'sendsms_manipulate_prefix');
 	if (is_array($user)) {
 		
+		$prefix = core_sanitize_numeric($user['replace_zero']);
 		$local_length = (int) $user['local_length'];
-		if (trim($user['replace_zero']) && ($local_length > 0) && (strlen($number) == $local_length)) {
-			$number = trim($user['replace_zero']) . $number;
-		} elseif (trim($user['replace_zero'])) {
-			$number = preg_replace('/^0/', trim($user['replace_zero']), $number);
+		
+		// if prefix exists then replace prefix 0 with supplied prefix
+		if ($prefix) {
+			$number = preg_replace('/^0/', $prefix, $number);
 		}
 		
+		// if length of number is equal to $local_length then add supplied prefix
+		if (($local_length > 0) && (strlen(core_sanitize_numeric($number)) == $local_length)) {
+			$number = $prefix . $number;
+		}
+		
+		// remove plus sign
 		if ($core_config['main']['plus_sign_remove']) {
 			$number = str_replace('+', '', $number);
 		}
 		
+		// remove plus sign then add single plus sign
 		if ($core_config['main']['plus_sign_add']) {
 			$number = str_replace('+', '', $number);
 			$number = '+' . $number;
