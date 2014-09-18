@@ -6,7 +6,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "A valid keyword will be inserted and prefixed to the message"
-msgstr "Un mot-clé valable sera inséré et ajouté en préfixe au message"
+msgstr "Un mot-clé valable sera inséré et ajouté au message en préfixe"
 
 msgid "Copy the message to user inbox when incoming SMS contains @username"
 msgstr ""

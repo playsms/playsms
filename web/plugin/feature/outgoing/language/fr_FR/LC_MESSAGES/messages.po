@@ -9,72 +9,62 @@ msgstr ""
 msgid "Action"
 msgstr "Action"
 
-#, fuzzy
 msgid "Add gateway"
-msgstr "Ajouter un tarif"
+msgstr "Ajouter une passerelle"
 
-#, fuzzy
 msgid "Add route"
-msgstr "Ajouter un tarif"
+msgstr "Ajouter une route"
 
 msgid "Destination"
 msgstr "Destination"
 
-#, fuzzy
 msgid "Edit route"
-msgstr "Editer tarif"
+msgstr "Éditer la route"
 
-#, fuzzy
 msgid "Fail to delete route"
-msgstr "Echec suppression tarif"
+msgstr "Échec de la suppression de la route"
 
-#, fuzzy
 msgid "Fail to save route"
-msgstr "Echec sauvegarde tarif"
+msgstr "Échec de l'enregistrement de la route"
 
 msgid "Gateway"
-msgstr ""
+msgstr "Passerelle"
 
-#, fuzzy
 msgid "Manage SMS gateway"
-msgstr "Gérer tarif SMS"
+msgstr "Gérer passerelle SMS"
 
 msgid "No changes made!"
-msgstr "Aucune modification éffectuée"
+msgstr "Aucune modification apportée!"
 
 msgid "Prefix"
 msgstr "Préfixe"
 
 msgid "Route SMS outgoing"
-msgstr ""
+msgstr "Route SMS sortant"
 
 msgid "Route outgoing SMS"
-msgstr ""
+msgstr "Route SMS sortant"
 
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Enregistrer"
 
 msgid "You must fill all fields"
-msgstr "Vous devez remplir tous les champs"
+msgstr "Vous devez saisir tous les champs"
 
 msgid "destination"
 msgstr "destination"
 
-#, fuzzy
 msgid "gateway already exists"
-msgstr "Cette règle existe déjà"
+msgstr "cette passerelle existe déjà"
 
-#, fuzzy
 msgid "gateway has been added"
-msgstr "Tarif ajouté"
+msgstr "la passerelle a été ajoutée"
 
-#, fuzzy
 msgid "gateway has been deleted"
-msgstr "Tarif supprimé"
+msgstr "la passerelle a été supprimée"
 
 msgid "prefix"
 msgstr "préfixe"
 
-#, fuzzy
 msgid "route has been saved"
-msgstr "Tarif sauvegardé"
+msgstr "la route a été sauvegardée"
