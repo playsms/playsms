@@ -48,7 +48,7 @@ switch (_OP_) {
 		$sms_datetime = ( $_REQUEST['datetime'] ? $_REQUEST['datetime'] : core_get_datetime() );
 		$message = ( $_REQUEST['message'] ? $_REQUEST['message'] : _('This is a test incoming SMS message') );
 		if (trim($sms_sender) && trim($sms_receiver) && trim($sms_datetime) && trim($message)) {
-			recvsms($sms_datetime,$sms_sender,$message,$sms_receiver);
+			recvsms($sms_datetime,$sms_sender,$message,$sms_receiver,'dev');
 			$err = "sender:".$sms_sender." receiver:".$sms_receiver." dt:".$sms_datetime." msg:".stripslashes($message);
 			logger_print($err, 3, "dev incoming");
 			$_SESSION['error_string'] = $err;

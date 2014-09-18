@@ -124,7 +124,7 @@ function gammu_hook_getsmsinbox() {
                                                         }
                                                 }
                                                 $parts_datetime = $messages[$parts_sender][0]['msg_datetime'];
-                                                recvsms($parts_datetime, $parts_sender, $parts_message, $sms_receiver);
+                                                recvsms($parts_datetime, $parts_sender, $parts_message, $sms_receiver, 'gammu');
                                                 logger_print("sender:" . $parts_sender . " receiver:" . $sms_receiver . " dt:" . $parts_datetime . " msg:" . $parts_message, 3, "gammu incoming");
 
                                                 unset($messages);
@@ -147,7 +147,7 @@ function gammu_hook_getsmsinbox() {
                         }
                 }
                 $parts_datetime = $messages[$parts_sender][0]['msg_datetime'];
-                recvsms($parts_datetime, $parts_sender, $parts_message, $sms_receiver);
+                recvsms($parts_datetime, $parts_sender, $parts_message, $sms_receiver, 'gammu');
                 logger_print("sender:" . $parts_sender . " receiver:" . $sms_receiver . " dt:" . $parts_datetime . " msg:" . $_parts_message, 3, "gammu incoming");
                 unset($messages);
         }

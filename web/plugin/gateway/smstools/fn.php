@@ -148,7 +148,7 @@ function smstools_hook_getsmsinbox() {
 					logger_print("sender:".$sms_sender." receiver:".$sms_receiver." dt:".$sms_datetime." msg:".$message, 3, "smstools incoming");
 					$sms_sender = addslashes($sms_sender);
 					$message = addslashes($message);
-					recvsms($sms_datetime,$sms_sender,$message,$sms_receiver);
+					recvsms($sms_datetime,$sms_sender,$message,$sms_receiver,'smstools');
 				}
 			}
 		}

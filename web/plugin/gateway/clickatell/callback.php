@@ -32,7 +32,7 @@ if ($cb_timestamp && $cb_from && $cb_text) {
 
 	// collected:
 	// $sms_datetime, $sms_sender, $message, $sms_receiver
-	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver);
+	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, 'clickatell');
 }
 
 if ($cb_status && $cb_apimsgid) {

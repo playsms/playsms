@@ -34,14 +34,14 @@ function sms_autoreply_hook_checkavailablekeyword($keyword) {
  * @return $ret
  *   array of keyword owner uid and status, TRUE if incoming sms handled
  */
-function sms_autoreply_hook_setsmsincomingaction($sms_datetime,$sms_sender,$autoreply_keyword,$autoreply_param='',$sms_receiver='',$raw_message='') {
+function sms_autoreply_hook_setsmsincomingaction($sms_datetime,$sms_sender,$autoreply_keyword,$autoreply_param='',$sms_receiver='',$gw='',$raw_message='') {
 	$ok = false;
 	$db_query = "SELECT uid,autoreply_id FROM "._DB_PREF_."_featureAutoreply WHERE autoreply_keyword='$autoreply_keyword'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$c_uid = $db_row['uid'];
 		$autoreply_id = $db_row['autoreply_id'];
-		if (sms_autoreply_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$autoreply_id,$autoreply_keyword,$autoreply_param,$raw_message)) {
+		if (sms_autoreply_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$autoreply_id,$autoreply_keyword,$autoreply_param,$gw,$raw_message)) {
 			$ok = true;
 		}
 	}
@@ -50,7 +50,7 @@ function sms_autoreply_hook_setsmsincomingaction($sms_datetime,$sms_sender,$auto
 	return $ret;
 }
 
-function sms_autoreply_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$autoreply_id,$autoreply_keyword,$autoreply_param='',$raw_message) {
+function sms_autoreply_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$autoreply_id,$autoreply_keyword,$autoreply_param='',$gw='',$raw_message='') {
 	$ok = false;
 	$autoreply_keyword = strtoupper(trim($autoreply_keyword));
 	$autoreply_param = strtoupper(trim($autoreply_param));

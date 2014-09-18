@@ -68,7 +68,7 @@ function gnokii_hook_getsmsinbox() {
 				// $sms_datetime, $sms_sender, $message, $sms_receiver
 				$sms_sender = addslashes($sms_sender);
 				$message = addslashes($message);
-				recvsms($sms_datetime,$sms_sender,$message,$sms_receiver);
+				recvsms($sms_datetime,$sms_sender,$message,$sms_receiver,'gnokii');
 				logger_print("sender:".$sms_sender." receiver:".$sms_receiver." dt:".$sms_datetime." msg:".$message, 3, "gnokii incoming");
 			}
 		}

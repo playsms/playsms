@@ -59,7 +59,7 @@ $message = urldecode($requests['text']);
 $sms_receiver = $requests['to'];
 if ($remote_smslog_id && $message) {
 	logger_print("incoming message_id:".$remote_smslog_id." s:".$sms_sender." d:".$sms_receiver, 2, "nexmo callback");
-	recvsms($sms_datetime,$sms_sender,$message,$sms_receiver);
+	recvsms($sms_datetime,$sms_sender,$message,$sms_receiver,'nexmo');
 }
 
 ?>

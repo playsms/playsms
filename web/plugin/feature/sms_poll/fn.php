@@ -49,14 +49,14 @@ function sms_poll_hook_checkavailablekeyword($keyword) {
  *        	number that is receiving incoming sms
  * @return $ret array of keyword owner uid and status, TRUE if incoming sms handled
  */
-function sms_poll_hook_setsmsincomingaction($sms_datetime, $sms_sender, $poll_keyword, $poll_param = '', $sms_receiver = '', $raw_message = '') {
+function sms_poll_hook_setsmsincomingaction($sms_datetime, $sms_sender, $poll_keyword, $poll_param = '', $sms_receiver = '', $gw = '', $raw_message = '') {
 	$ok = false;
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePoll WHERE poll_keyword='$poll_keyword'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		if ($db_row['uid'] && $db_row['poll_enable']) {
 			logger_print('begin k:' . $poll_keyword . ' c:' . $poll_param, 2, 'sms_poll');
-			if (sms_poll_handle($db_row, $sms_datetime, $sms_sender, $poll_keyword, $poll_param, $sms_receiver, $raw_message)) {
+			if (sms_poll_handle($db_row, $sms_datetime, $sms_sender, $poll_keyword, $poll_param, $sms_receiver, $gw, $raw_message)) {
 				$ok = true;
 			}
 			$status = ($ok ? 'handled' : 'unhandled');
@@ -68,7 +68,7 @@ function sms_poll_hook_setsmsincomingaction($sms_datetime, $sms_sender, $poll_ke
 	return $ret;
 }
 
-function sms_poll_handle($list, $sms_datetime, $sms_sender, $poll_keyword, $poll_param = '', $sms_receiver = '', $raw_message = '') {
+function sms_poll_handle($list, $sms_datetime, $sms_sender, $poll_keyword, $poll_param = '', $sms_receiver = '', $gw = '', $raw_message = '') {
 	$ok = false;
 	$poll_keyword = strtoupper(trim($poll_keyword));
 	$poll_param = strtoupper(trim($poll_param));

@@ -55,7 +55,7 @@ function template_hook_getsmsinbox() {
 	// if $sms_sender and $message are not coming from $_REQUEST then you need to addslashes it
 	// $sms_sender = addslashes($sms_sender);
 	// $message = addslashes($message);
-	// recvsms($sms_datetime,$sms_sender,$message,$sms_receiver)
+	// recvsms($sms_datetime,$sms_sender,$message,$sms_receiver,'template')
 	// you must retrieve all informations needed by recvsms()
 	// from incoming sms, have a look gnokii gateway module
 }
