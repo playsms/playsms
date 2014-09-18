@@ -12,9 +12,6 @@ msgstr ""
 "redirigé vers l'URL de ce serveur. L'URL de ce serveur doit être l'adresse "
 "primaire pour le service."
 
-msgid "Active gateway module"
-msgstr "Module de passerelle activé"
-
 msgid "Active themes"
 msgstr "Thèmes activés"
 
@@ -49,6 +46,10 @@ msgstr "Tarif SMS par défaut"
 
 msgid "Default credit for user"
 msgstr "Crédit par défaut pour l'utilisateur"
+
+#, fuzzy
+msgid "Default gateway module"
+msgstr "Module de passerelle activé"
 
 msgid "Default language"
 msgstr "Langue par défaut"

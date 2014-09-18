@@ -47,6 +47,18 @@ msgstr "Prefixo"
 msgid "Route SMS outgoing"
 msgstr ""
 
+#, fuzzy
+msgid "Route has been added"
+msgstr "A taxa foi salva"
+
+#, fuzzy
+msgid "Route has been saved"
+msgstr "A taxa foi salva"
+
+#, fuzzy
+msgid "Route is already exists"
+msgstr "A taxa já existe"
+
 msgid "Route outgoing SMS"
 msgstr ""
 
@@ -56,16 +68,15 @@ msgstr "Salvar"
 msgid "You must fill all fields"
 msgstr "Preencha todos os campos"
 
+#, fuzzy
+msgid "You must fill all mandatory fields"
+msgstr "Preencha todos os campos"
+
+msgid "blocked"
+msgstr ""
+
 msgid "destination"
 msgstr "destino"
-
-#, fuzzy
-msgid "gateway already exists"
-msgstr "A taxa já existe"
-
-#, fuzzy
-msgid "gateway has been added"
-msgstr "A taxa foi adicionada"
 
 #, fuzzy
 msgid "gateway has been deleted"
@@ -73,7 +84,3 @@ msgstr "A taxa foi removida"
 
 msgid "prefix"
 msgstr "prefixo"
-
-#, fuzzy
-msgid "route has been saved"
-msgstr "A taxa foi salva"

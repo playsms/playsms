@@ -16,6 +16,9 @@ msgstr ""
 msgid "Action"
 msgstr "Acció"
 
+msgid "Default"
+msgstr ""
+
 msgid "Description"
 msgstr "Descripció"
 
@@ -25,8 +28,8 @@ msgstr "Gestionar sortida"
 msgid "Name"
 msgstr "Nom"
 
-msgid "Status"
-msgstr "Estat"
+msgid "Selected gateway is an active and default gateway"
+msgstr ""
 
 msgid "You have enabled gateway plugin"
 msgstr "Heu activat el plugin de sortides"

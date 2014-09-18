@@ -5,32 +5,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Date/Time"
-msgstr "Tanggal/Jam"
-
-msgid "Fail to simulate incoming SMS"
-msgstr "Gagal simulasikan SMS masuk"
-
 msgid "Gateway name"
 msgstr "Nama gateway"
 
-msgid "Manage dev"
+#, fuzzy
+msgid "Manage blocked"
 msgstr "Pengaturan dev"
-
-msgid "Message"
-msgstr "Pesan"
-
-msgid "Receiver"
-msgstr "Penerima"
-
-msgid "Sender"
-msgstr "Pengirim"
-
-msgid "Simulate incoming SMS"
-msgstr "Simulasikan SMS masuk"
-
-msgid "Submit"
-msgstr "Kirim"
-
-msgid "This is a test incoming SMS message"
-msgstr "Ini adalah pesan SMS masuk percobaan"

@@ -5,32 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Date/Time"
-msgstr ""
-
-msgid "Fail to simulate incoming SMS"
-msgstr ""
-
 msgid "Gateway name"
 msgstr ""
 
-msgid "Manage dev"
-msgstr ""
-
-msgid "Message"
-msgstr ""
-
-msgid "Receiver"
-msgstr ""
-
-msgid "Sender"
-msgstr ""
-
-msgid "Simulate incoming SMS"
-msgstr ""
-
-msgid "Submit"
-msgstr ""
-
-msgid "This is a test incoming SMS message"
+msgid "Manage blocked"
 msgstr ""

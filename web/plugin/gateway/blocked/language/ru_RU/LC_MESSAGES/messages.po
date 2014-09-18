@@ -12,32 +12,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
-msgid "Date/Time"
-msgstr "Дата/Время"
-
-msgid "Fail to simulate incoming SMS"
-msgstr "Не удалось симулировать входящее СМС"
-
 msgid "Gateway name"
 msgstr "Название шлюза"
 
-msgid "Manage dev"
+#, fuzzy
+msgid "Manage blocked"
 msgstr "Тестовый"
-
-msgid "Message"
-msgstr "Сообщение"
-
-msgid "Receiver"
-msgstr "Получатель"
-
-msgid "Sender"
-msgstr "Отправитель"
-
-msgid "Simulate incoming SMS"
-msgstr "Симулировать входящее СМС"
-
-msgid "Submit"
-msgstr "Принять"
-
-msgid "This is a test incoming SMS message"
-msgstr "Это тестовое входящее сообщение"

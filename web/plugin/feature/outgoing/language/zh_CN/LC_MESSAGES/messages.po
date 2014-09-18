@@ -47,6 +47,18 @@ msgstr "前缀"
 msgid "Route SMS outgoing"
 msgstr ""
 
+#, fuzzy
+msgid "Route has been added"
+msgstr "等级已保存"
+
+#, fuzzy
+msgid "Route has been saved"
+msgstr "等级已保存"
+
+#, fuzzy
+msgid "Route is already exists"
+msgstr "等级已存在"
+
 msgid "Route outgoing SMS"
 msgstr ""
 
@@ -56,16 +68,15 @@ msgstr "保存"
 msgid "You must fill all fields"
 msgstr "你必须填满全部空白"
 
+#, fuzzy
+msgid "You must fill all mandatory fields"
+msgstr "你必须填满全部空白"
+
+msgid "blocked"
+msgstr ""
+
 msgid "destination"
 msgstr "目标"
-
-#, fuzzy
-msgid "gateway already exists"
-msgstr "等级已存在"
-
-#, fuzzy
-msgid "gateway has been added"
-msgstr "等级已添加"
 
 #, fuzzy
 msgid "gateway has been deleted"
@@ -73,7 +84,3 @@ msgstr "等级已删除"
 
 msgid "prefix"
 msgstr "前缀"
-
-#, fuzzy
-msgid "route has been saved"
-msgstr "等级已保存"

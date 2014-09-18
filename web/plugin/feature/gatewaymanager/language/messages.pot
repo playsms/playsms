@@ -1,6 +1,9 @@
 msgid "Action"
 msgstr ""
 
+msgid "Default"
+msgstr ""
+
 msgid "Description"
 msgstr ""
 
@@ -10,7 +13,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-msgid "Status"
+msgid "Selected gateway is an active and default gateway"
 msgstr ""
 
 msgid "You have enabled gateway plugin"

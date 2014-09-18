@@ -54,6 +54,18 @@ msgstr "Префикс"
 msgid "Route SMS outgoing"
 msgstr ""
 
+#, fuzzy
+msgid "Route has been added"
+msgstr "Тариф сохранён"
+
+#, fuzzy
+msgid "Route has been saved"
+msgstr "Тариф сохранён"
+
+#, fuzzy
+msgid "Route is already exists"
+msgstr "Тариф уже существует"
+
 msgid "Route outgoing SMS"
 msgstr ""
 
@@ -63,16 +75,15 @@ msgstr "Сохранить"
 msgid "You must fill all fields"
 msgstr "Необходимо заполнить все поля"
 
+#, fuzzy
+msgid "You must fill all mandatory fields"
+msgstr "Необходимо заполнить все поля"
+
+msgid "blocked"
+msgstr ""
+
 msgid "destination"
 msgstr "назначение"
-
-#, fuzzy
-msgid "gateway already exists"
-msgstr "Тариф уже существует"
-
-#, fuzzy
-msgid "gateway has been added"
-msgstr "Тариф добавлен"
 
 #, fuzzy
 msgid "gateway has been deleted"
@@ -80,7 +91,3 @@ msgstr "Тариф удалён"
 
 msgid "prefix"
 msgstr "префикс"
-
-#, fuzzy
-msgid "route has been saved"
-msgstr "Тариф сохранён"

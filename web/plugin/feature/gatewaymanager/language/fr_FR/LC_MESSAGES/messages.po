@@ -8,6 +8,9 @@ msgstr ""
 msgid "Action"
 msgstr "Action"
 
+msgid "Default"
+msgstr ""
+
 msgid "Description"
 msgstr "Description"
 
@@ -17,8 +20,8 @@ msgstr "Gérer passerelle"
 msgid "Name"
 msgstr "Nom"
 
-msgid "Status"
-msgstr "Statut"
+msgid "Selected gateway is an active and default gateway"
+msgstr ""
 
 msgid "You have enabled gateway plugin"
 msgstr "Vous avez activé le plugin de passerelle"

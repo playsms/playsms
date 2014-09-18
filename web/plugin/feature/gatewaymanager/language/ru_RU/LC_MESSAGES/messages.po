@@ -14,6 +14,9 @@ msgstr ""
 msgid "Action"
 msgstr "Действие"
 
+msgid "Default"
+msgstr ""
+
 msgid "Description"
 msgstr "Описание"
 
@@ -23,8 +26,8 @@ msgstr "Управление шлюзами"
 msgid "Name"
 msgstr "Имя"
 
-msgid "Status"
-msgstr "Состяние"
+msgid "Selected gateway is an active and default gateway"
+msgstr ""
 
 msgid "You have enabled gateway plugin"
 msgstr "Вы включили шлюз"

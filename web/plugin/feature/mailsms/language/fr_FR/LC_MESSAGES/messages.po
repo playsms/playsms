@@ -11,16 +11,31 @@ msgstr "Vérifiez l'expéditeur de l'email"
 msgid "Email protocol"
 msgstr "Protocole email"
 
-msgid "Email to SMS configuration has been saved and enabled"
+#, fuzzy
+msgid "Email to SMS PIN has been saved"
 msgstr "La configuration email vers SMS a été enregistrée et activée"
 
-msgid "Email to SMS configuration has been saved but disabled"
+#, fuzzy
+msgid "Email to SMS PIN has been saved but service is disabled"
 msgstr "La configuration email vers SMS a été enregistrée mais désactivée"
 
-msgid "Enable email to SMS"
+#, fuzzy
+msgid "Email to SMS address"
 msgstr "Activer email vers SMS"
 
-msgid "Fail to save email to SMS configuration"
+#, fuzzy
+msgid "Email to SMS configuration has been saved and service disabled"
+msgstr "La configuration email vers SMS a été enregistrée et activée"
+
+#, fuzzy
+msgid "Email to SMS configuration has been saved and service enabled"
+msgstr "La configuration email vers SMS a été enregistrée et activée"
+
+msgid "Enable fetch new emails"
+msgstr ""
+
+#, fuzzy
+msgid "Fail to save email to SMS PIN"
 msgstr "Échec de l'enregistrement de la configuration email vers SMS"
 
 msgid "Fill the password field to change password"
@@ -39,6 +54,10 @@ msgid "Mailbox username"
 msgstr "Nom d'utilisateur de la boîte aux lettres"
 
 msgid "Manage email to SMS"
+msgstr "Gérer email vers SMS"
+
+#, fuzzy
+msgid "My email to SMS"
 msgstr "Gérer email vers SMS"
 
 msgid "No validate cert option"

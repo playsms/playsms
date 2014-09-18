@@ -42,6 +42,18 @@ msgstr "Préfixe"
 msgid "Route SMS outgoing"
 msgstr "Route SMS sortant"
 
+#, fuzzy
+msgid "Route has been added"
+msgstr "la route a été sauvegardée"
+
+#, fuzzy
+msgid "Route has been saved"
+msgstr "la route a été sauvegardée"
+
+#, fuzzy
+msgid "Route is already exists"
+msgstr "cette passerelle existe déjà"
+
 msgid "Route outgoing SMS"
 msgstr "Route SMS sortant"
 
@@ -51,20 +63,18 @@ msgstr "Enregistrer"
 msgid "You must fill all fields"
 msgstr "Vous devez saisir tous les champs"
 
+#, fuzzy
+msgid "You must fill all mandatory fields"
+msgstr "Vous devez saisir tous les champs"
+
+msgid "blocked"
+msgstr ""
+
 msgid "destination"
 msgstr "destination"
-
-msgid "gateway already exists"
-msgstr "cette passerelle existe déjà"
-
-msgid "gateway has been added"
-msgstr "la passerelle a été ajoutée"
 
 msgid "gateway has been deleted"
 msgstr "la passerelle a été supprimée"
 
 msgid "prefix"
 msgstr "préfixe"
-
-msgid "route has been saved"
-msgstr "la route a été sauvegardée"

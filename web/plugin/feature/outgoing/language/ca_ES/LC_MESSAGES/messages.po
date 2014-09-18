@@ -55,6 +55,18 @@ msgstr "Prefix"
 msgid "Route SMS outgoing"
 msgstr ""
 
+#, fuzzy
+msgid "Route has been added"
+msgstr "La tarifa s'ha guardat"
+
+#, fuzzy
+msgid "Route has been saved"
+msgstr "La tarifa s'ha guardat"
+
+#, fuzzy
+msgid "Route is already exists"
+msgstr "La tarifa ja existeix"
+
 msgid "Route outgoing SMS"
 msgstr ""
 
@@ -64,16 +76,15 @@ msgstr "Guardar"
 msgid "You must fill all fields"
 msgstr "Heu d'omplir tots els camps"
 
+#, fuzzy
+msgid "You must fill all mandatory fields"
+msgstr "Heu d'omplir tots els camps"
+
+msgid "blocked"
+msgstr ""
+
 msgid "destination"
 msgstr "destí"
-
-#, fuzzy
-msgid "gateway already exists"
-msgstr "La tarifa ja existeix"
-
-#, fuzzy
-msgid "gateway has been added"
-msgstr "La tarifa s'ha afegit"
 
 #, fuzzy
 msgid "gateway has been deleted"
@@ -81,7 +92,3 @@ msgstr "La tarifa s'ha el·liminat"
 
 msgid "prefix"
 msgstr "prefix"
-
-#, fuzzy
-msgid "route has been saved"
-msgstr "La tarifa s'ha guardat"

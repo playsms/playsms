@@ -9,9 +9,6 @@ msgid ""
 "service."
 msgstr ""
 
-msgid "Active gateway module"
-msgstr ""
-
 msgid "Active themes"
 msgstr ""
 
@@ -39,6 +36,9 @@ msgid "Default SMS rate"
 msgstr ""
 
 msgid "Default credit for user"
+msgstr ""
+
+msgid "Default gateway module"
 msgstr ""
 
 msgid "Default language"
