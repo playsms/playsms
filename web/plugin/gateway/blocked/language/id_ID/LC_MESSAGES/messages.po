@@ -1,0 +1,36 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Date/Time"
+msgstr "Tanggal/Jam"
+
+msgid "Fail to simulate incoming SMS"
+msgstr "Gagal simulasikan SMS masuk"
+
+msgid "Gateway name"
+msgstr "Nama gateway"
+
+msgid "Manage dev"
+msgstr "Pengaturan dev"
+
+msgid "Message"
+msgstr "Pesan"
+
+msgid "Receiver"
+msgstr "Penerima"
+
+msgid "Sender"
+msgstr "Pengirim"
+
+msgid "Simulate incoming SMS"
+msgstr "Simulasikan SMS masuk"
+
+msgid "Submit"
+msgstr "Kirim"
+
+msgid "This is a test incoming SMS message"
+msgstr "Ini adalah pesan SMS masuk percobaan"

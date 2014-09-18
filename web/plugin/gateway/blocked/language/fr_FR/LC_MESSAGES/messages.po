@@ -1,0 +1,36 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Date/Time"
+msgstr "Date/Heure"
+
+msgid "Fail to simulate incoming SMS"
+msgstr "Échec de la simulation d'un SMS entrant"
+
+msgid "Gateway name"
+msgstr "Nom de la passerelle"
+
+msgid "Manage dev"
+msgstr "Gérer dev"
+
+msgid "Message"
+msgstr "Message"
+
+msgid "Receiver"
+msgstr "Destinataire"
+
+msgid "Sender"
+msgstr "Expéditeur"
+
+msgid "Simulate incoming SMS"
+msgstr "Simuler un SMS entrant"
+
+msgid "Submit"
+msgstr "Envoyer"
+
+msgid "This is a test incoming SMS message"
+msgstr "Ceci est un test de SMS entrant"
