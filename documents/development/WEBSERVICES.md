@@ -2,7 +2,7 @@
 
 This document explains about playSMS webservices protocol.
 
-Minimum playSMS version **1.0-rc2**
+Minimum playSMS version **1.0-rc3**
 
 
 ## Access
