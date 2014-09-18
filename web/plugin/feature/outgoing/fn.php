@@ -98,9 +98,11 @@ function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms
 	$ret = array();
 	
 	if ($gw) {
-		_log('using supplied gateway gw:' . $gw, 3, 'outgoing');
+		_log('using supplied gateway gw:[' . $gw . ']', 3, 'outgoing_hook_sendsms_intercept');
 	} else if ($gw = outgoing_mobile2gateway($sms_to)) {
-		_log('using prefix based gateway gw:' . $gw, 3, 'outgoing');
+		_log('using prefix based gateway gw:[' . $gw . ']', 3, 'outgoing_hook_sendsms_intercept');
+	} else {
+		_log('no route found', 3, 'outgoing_hook_sendsms_intercept');
 	}
 	
 	if ($gw) {

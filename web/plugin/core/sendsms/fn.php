@@ -117,7 +117,7 @@ function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $g
  * @param string $sms_type        	
  * @param integer $unicode        	
  * @param string $sms_schedule        	
- * @param string $gw
+ * @param string $gw        	
  * @return string Queue code
  */
 function sendsms_queue_create($sms_sender, $sms_footer, $sms_msg, $uid, $gpid = 0, $sms_type = 'text', $unicode = 0, $sms_schedule = '', $gw = '') {
@@ -136,8 +136,8 @@ function sendsms_queue_create($sms_sender, $sms_footer, $sms_msg, $uid, $gpid = 
 	
 	$db_query = "INSERT INTO " . _DB_PREF_ . "_tblSMSOutgoing_queue ";
 	$db_query .= "(queue_code,datetime_entry,datetime_scheduled,uid,gpid,sender_id,footer,message,sms_type,unicode,gw,flag) ";
-	$db_query .= "VALUES ('$queue_code','" . $dt . "','" . $sms_schedule . "','$uid','$gpid','$sms_sender','$sms_footer','$sms_msg','$sms_type','$unicode','$gw',2')";
-	if ($id = @dba_insert_id($db_query)) {
+	$db_query .= "VALUES ('$queue_code','" . $dt . "','" . $sms_schedule . "','$uid','$gpid','$sms_sender','$sms_footer','$sms_msg','$sms_type','$unicode','$gw','2')";
+	if ($id = dba_insert_id($db_query)) {
 		logger_print("saved queue_code:" . $queue_code . " id:" . $id, 2, "sendsms_queue_create");
 		$ret = $queue_code;
 	}
@@ -416,7 +416,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
  * @param string $message        	
  * @param string $sms_type        	
  * @param integer $unicode        	
- * @param string $gw
+ * @param string $gw        	
  * @param boolean $nofooter        	
  * @param string $sms_footer        	
  * @param string $sms_sender        	
@@ -516,7 +516,7 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
  * @param string $message        	
  * @param string $sms_type        	
  * @param integer $unicode        	
- * @param string $gw
+ * @param string $gw        	
  * @param boolean $nofooter        	
  * @param string $sms_footer        	
  * @param string $sms_sender        	
@@ -575,7 +575,7 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	}
 	$sms_msg = $message;
 	
-	logger_print("start uid:" . $uid . " sender:" . $sms_sender, 2, "sendsms");
+	logger_print("start uid:" . $uid . " sender_id:[" . $sms_sender . "] gw:[" . $gw . "]", 2, "sendsms");
 	
 	// add a space infront of footer if exists
 	$c_sms_footer = (trim($sms_footer) ? ' ' . trim($sms_footer) : '');
@@ -732,7 +732,7 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
  * @param string $message        	
  * @param string $sms_type        	
  * @param integer $unicode        	
- * @param string $gw
+ * @param string $gw        	
  * @param boolean $nofooter        	
  * @param string $sms_footer        	
  * @param string $sms_sender        	
