@@ -182,14 +182,14 @@ switch (_OP_) {
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit&poll_id=' . $poll_id));
 		exit();
 		break;
-
+	
 	case "sms_poll_add" :
 		$option_vote = array(
 			_('one time') => 0,
 			_('one time every 24 hours') => 1,
 			_('one time every week') => 2,
 			_('one time every month') => 3,
-			_('multiple times') => 4
+			_('multiple times') => 4 
 		);
 		$add_poll_access_code = md5(_PID_);
 		if ($err = $_SESSION['error_string']) {
@@ -228,7 +228,7 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_sms_poll&op=sms_poll_list');
 		_p($content);
 		break;
-
+	
 	case "sms_poll_add_yes" :
 		$add_poll_keyword = strtoupper($_POST['add_poll_keyword']);
 		$add_poll_title = $_POST['add_poll_title'];
@@ -260,14 +260,14 @@ switch (_OP_) {
 		}
 		exit();
 		break;
-
+	
 	case "sms_poll_edit" :
 		$option_vote = array(
 			_('one time') => 0,
 			_('one time every 24 hours') => 1,
 			_('one time every week') => 2,
 			_('one time every month') => 3,
-			_('multiple times') => 4
+			_('multiple times') => 4 
 		);
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePoll WHERE poll_id='$poll_id'";
 		$db_result = dba_query($db_query);
@@ -362,7 +362,7 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_sms_poll&op=sms_poll_list');
 		_p($content);
 		break;
-
+	
 	case "sms_poll_edit_yes" :
 		$edit_poll_keyword = strtoupper($_POST['edit_poll_keyword']);
 		$edit_poll_title = $_POST['edit_poll_title'];
