@@ -48,7 +48,7 @@ switch (_OP_) {
 				'tr_class' => $tr_class,
 				'dst' => $row['dst'],
 				'prefix' => $row['prefix'],
-				'gateway' => $row['gateway'],
+				'gateway' => ( $row['gateway'] ? $row['gateway'] : _('blocked') ),
 				'action' => $c_action 
 			);
 		}
@@ -77,6 +77,7 @@ switch (_OP_) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$select_gateway = "<select name=up_gateway>";
+		$select_gateway .= "<option value=''>" . _('blocked') . "</option>";
 		foreach ($core_config['gatewaylist'] as $list ) {
 			$selected = $list == $gateway ? "selected" : "";
 			$select_gateway .= "<option " . $selected . ">" . $list . "</option>";
@@ -90,10 +91,10 @@ switch (_OP_) {
 			<input type='hidden' name='rid' value=\"$rid\">
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _('Destination') . "</td><td><input type='text' maxlength='30' name='up_dst' value=\"$dst\"></td>
+				<td class=label-sizer>" . _mandatory('Destination') . "</td><td><input type='text' maxlength='30' name='up_dst' value=\"$dst\" required></td>
 			</tr>
 			<tr>
-				<td>" . _('Prefix') . "</td><td><input type='text' maxlength=10 name='up_prefix' value=\"$prefix\"></td>
+				<td>" . _mandatory('Prefix') . "</td><td><input type='text' maxlength=10 name='up_prefix' value=\"$prefix\" required></td>
 			</tr>
 			<tr>
 				<td>" . _('Gateway') . "</td><td>" . $select_gateway . "</td>
@@ -112,15 +113,15 @@ switch (_OP_) {
 		$up_prefix = substr($up_prefix, 0, 8);
 		$up_gateway = $_POST['up_gateway'];
 		$_SESSION['error_string'] = _('No changes made!');
-		if ($rid && $up_dst && ($up_prefix >= 0) && ($up_gateway >= 0)) {
+		if ($rid && $up_dst && $up_prefix) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureOutgoing SET c_timestamp='" . mktime() . "',dst='$up_dst',prefix='$up_prefix',gateway='$up_gateway' WHERE id='$rid'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('route has been saved') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": $up_prefix)";
+				$_SESSION['error_string'] = _('Route has been saved') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": $up_prefix)";
 			} else {
 				$_SESSION['error_string'] = _('Fail to save route') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": $up_prefix)";
 			}
 		} else {
-			$_SESSION['error_string'] = _('You must fill all fields');
+			$_SESSION['error_string'] = _('You must fill all mandatory fields');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_outgoing&op=outgoing_edit&rid=' . $rid));
 		exit();
@@ -130,6 +131,7 @@ switch (_OP_) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$select_gateway = "<select name=add_gateway>";
+		$select_gateway .= "<option value=''>" . _('blocked') . "</option>";
 		foreach ($core_config['gatewaylist'] as $list ) {
 			$select_gateway .= "<option>" . $list . "</option>";
 		}
@@ -141,10 +143,10 @@ switch (_OP_) {
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _('Destination') . "</td><td><input type='text' maxlength='30' name='add_dst' value=\"$add_dst\"></td>
+				<td class=label-sizer>" . _mandatory('Destination') . "</td><td><input type='text' maxlength='30' name='add_dst' value=\"$add_dst\" required></td>
 			</tr>
 			<tr>
-				<td>" . _('Prefix') . "</td><td><input type='text' maxlength=10 name='add_prefix' value=\"$add_prefix\"></td>
+				<td>" . _mandatory('Prefix') . "</td><td><input type='text' maxlength=10 name='add_prefix' value=\"$add_prefix\" required></td>
 			</tr>
 			<tr>
 				<td>" . _('Gateway') . "</td><td>" . $select_gateway . "</td>
@@ -161,17 +163,17 @@ switch (_OP_) {
 		$add_prefix = core_sanitize_numeric($add_prefix);
 		$add_prefix = substr($add_prefix, 0, 8);
 		$add_gateway = $_POST['add_gateway'];
-		if ($add_dst && ($add_prefix >= 0) && ($add_gateway >= 0)) {
+		if ($add_dst && $add_prefix) {
 			$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix='$add_prefix'";
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result)) {
-				$_SESSION['error_string'] = _('gateway already exists') . " (" . _('destination') . ": " . $db_row['dst'] . ", " . _('prefix') . ": " . $db_row['prefix'] . ")";
+				$_SESSION['error_string'] = _('Route is already exists') . " (" . _('destination') . ": " . $db_row['dst'] . ", " . _('prefix') . ": " . $db_row['prefix'] . ")";
 			} else {
 				$db_query = "
 					INSERT INTO " . _DB_PREF_ . "_featureOutgoing (dst,prefix,gateway)
 					VALUES ('$add_dst','$add_prefix','$add_gateway')";
 				if ($new_uid = @dba_insert_id($db_query)) {
-					$_SESSION['error_string'] = _('gateway has been added') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": $add_prefix)";
+					$_SESSION['error_string'] = _('Route has been added') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": $add_prefix)";
 				}
 			}
 		} else {
