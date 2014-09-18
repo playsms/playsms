@@ -313,6 +313,11 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		$gw = core_gateway_get();
 	}
 	
+	// set no gateway if no default gateway selected
+	if (!$gw) {
+		$gw = '_gateway_none_';
+	}
+	
 	// a hack to remove \r from \r\n
 	// the issue begins with ENTER being \r\n and detected as 2 chars
 	// and since the javascript message counter can't detect it as 2 chars

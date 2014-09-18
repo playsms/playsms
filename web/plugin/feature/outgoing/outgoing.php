@@ -77,7 +77,6 @@ switch (_OP_) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$select_gateway = "<select name=up_gateway>";
-		$select_gateway .= "<option value=''>" . _('blocked') . "</option>";
 		foreach ($core_config['gatewaylist'] as $list ) {
 			$selected = $list == $gateway ? "selected" : "";
 			$select_gateway .= "<option " . $selected . ">" . $list . "</option>";
@@ -111,7 +110,7 @@ switch (_OP_) {
 		$up_prefix = $_POST['up_prefix'];
 		$up_prefix = core_sanitize_numeric($up_prefix);
 		$up_prefix = substr($up_prefix, 0, 8);
-		$up_gateway = $_POST['up_gateway'];
+		$up_gateway = ( $_POST['up_gateway'] ? $_POST['up_gateway'] : '_gateway_none_' );
 		$_SESSION['error_string'] = _('No changes made!');
 		if ($rid && $up_dst && $up_prefix) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureOutgoing SET c_timestamp='" . mktime() . "',dst='$up_dst',prefix='$up_prefix',gateway='$up_gateway' WHERE id='$rid'";
@@ -131,7 +130,6 @@ switch (_OP_) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$select_gateway = "<select name=add_gateway>";
-		$select_gateway .= "<option value=''>" . _('blocked') . "</option>";
 		foreach ($core_config['gatewaylist'] as $list ) {
 			$select_gateway .= "<option>" . $list . "</option>";
 		}
@@ -162,7 +160,7 @@ switch (_OP_) {
 		$add_prefix = $_POST['add_prefix'];
 		$add_prefix = core_sanitize_numeric($add_prefix);
 		$add_prefix = substr($add_prefix, 0, 8);
-		$add_gateway = $_POST['add_gateway'];
+		$add_gateway = ( $_POST['add_gateway'] ? $_POST['up_gateway'] : '_gateway_none_' );
 		if ($add_dst && $add_prefix) {
 			$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix='$add_prefix'";
 			$db_result = dba_query($db_query);
