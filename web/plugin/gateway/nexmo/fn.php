@@ -1,29 +1,46 @@
 <?php
+
+/**
+ * This file is part of playSMS.
+ *
+ * playSMS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * playSMS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
+ */
 defined('_SECURE_') or die('Forbidden');
 
 // hook_sendsms
 // called by main sms sender
 // return true for success delivery
-// $sms_sender	: sender mobile number
-// $sms_footer	: sender sms footer or sms sender ID
-// $sms_to	: destination sms number
-// $sms_msg	: sms message tobe delivered
-// $gpid	: group phonebook id (optional)
-// $uid		: sender User ID
-// $smslog_id	: sms ID
-function nexmo_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
+// $sms_sender : sender mobile number
+// $sms_footer : sender sms footer or sms sender ID
+// $sms_to : destination sms number
+// $sms_msg : sms message tobe delivered
+// $gpid : group phonebook id (optional)
+// $uid : sender User ID
+// $smslog_id : sms ID
+function nexmo_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
 	global $plugin_config;
 	$sms_sender = stripslashes($sms_sender);
 	$sms_footer = stripslashes($sms_footer);
 	$sms_msg = stripslashes($sms_msg);
 	$ok = false;
-
+	
 	if ($sms_footer) {
-		$sms_msg = $sms_msg.$sms_footer;
+		$sms_msg = $sms_msg . $sms_footer;
 	}
 	
 	if ($sms_sender && $sms_to && $sms_msg) {
-
+		
 		$unicode = "";
 		if ($unicode) {
 			if (function_exists('mb_convert_encoding')) {
@@ -32,9 +49,9 @@ function nexmo_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gp
 				$unicode = "&type=unicode"; // added at the of query string if unicode
 			}
 		}
-		$query_string = "api_key=".$plugin_config['nexmo']['api_key']."&api_secret=".$plugin_config['nexmo']['api_secret']."&to=".urlencode($sms_to)."&from=".urlencode($sms_sender)."&text=".urlencode($sms_msg).$unicode."&status-report-req=1&client-ref=".$smslog_id;
-		$url = $plugin_config['nexmo']['url']."?".$query_string;
-
+		$query_string = "api_key=" . $plugin_config['nexmo']['api_key'] . "&api_secret=" . $plugin_config['nexmo']['api_secret'] . "&to=" . urlencode($sms_to) . "&from=" . urlencode($sms_sender) . "&text=" . urlencode($sms_msg) . $unicode . "&status-report-req=1&client-ref=" . $smslog_id;
+		$url = $plugin_config['nexmo']['url'] . "?" . $query_string;
+		
 		logger_print($url, 3, "nexmo outgoing");
 		
 		// fixme anton
@@ -48,28 +65,26 @@ function nexmo_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gp
 			$c_message_id = $resp['messages'][0]['message-id'];
 			$c_network = $resp['messages'][0]['network'];
 			$c_error_text = $resp['messages'][0]['error-text'];
-			logger_print("sent smslog_id:".$smslog_id." message_id:".$c_message_id." status:".$c_status." error:".$c_error_text, 2, "nexmo outgoing");
+			logger_print("sent smslog_id:" . $smslog_id . " message_id:" . $c_message_id . " status:" . $c_status . " error:" . $c_error_text, 2, "nexmo outgoing");
 			$db_query = "
-				INSERT INTO "._DB_PREF_."_gatewayNexmo (local_smslog_id,remote_smslog_id,status,network,error_text)
+				INSERT INTO " . _DB_PREF_ . "_gatewayNexmo (local_smslog_id,remote_smslog_id,status,network,error_text)
 				VALUES ('$smslog_id','$c_message_id','$c_status','$c_network','$c_error_text')";
 			$id = @dba_insert_id($db_query);
 			if ($id && ($c_status == 0)) {
 				$ok = true;
 				$p_status = 1;
-				dlr($smslog_id,$uid,$p_status);
+				dlr($smslog_id, $uid, $p_status);
 			}
 		} else {
 			// even when the response is not what we expected we still print it out for debug purposes
 			$resp = str_replace("\n", " ", $resp);
 			$resp = str_replace("\r", " ", $resp);
-			logger_print("failed smslog_id:".$smslog_id." resp:".$resp, 2, "nexmo outgoing");
+			logger_print("failed smslog_id:" . $smslog_id . " resp:" . $resp, 2, "nexmo outgoing");
 		}
 	}
 	if (!$ok) {
 		$p_status = 2;
-		dlr($smslog_id,$uid,$p_status);
+		dlr($smslog_id, $uid, $p_status);
 	}
 	return $ok;
 }
-
-?>
