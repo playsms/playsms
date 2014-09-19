@@ -123,7 +123,7 @@ function gatewaymanager_display() {
 			<thead><tr>
 				<th width=30%>" . _('Name') . "</th>
 				<th width=50%>" . _('Description') . "</th>
-				<th width=10%>" . _('Default') . " "._hint(_('Selected gateway is an active and default gateway'))."</th>
+				<th width=10%>" . _('Default') . " " . _hint(_('Selected gateway is an active and default gateway')) . "</th>
 				<th width=10%>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
