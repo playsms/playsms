@@ -77,9 +77,14 @@ switch (_OP_) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$select_gateway = "<select name=up_gateway>";
-		foreach ($core_config['gatewaylist'] as $list ) {
-			$selected = $list == $gateway ? "selected" : "";
-			$select_gateway .= "<option " . $selected . ">" . $list . "</option>";
+		unset($vgw_list);
+		$list = gateway_getall_virtual();
+		foreach ($list as $vgw) {
+			$vgw_list[] = $vgw['name'];
+		}
+		foreach ($vgw_list as $vgw) {
+			$selected = $vgw == $gateway ? "selected" : "";
+			$select_gateway .= "<option " . $selected . ">" . $vgw . "</option>";
 		}
 		$select_gateway .= "</select>";
 		$content .= "
@@ -130,8 +135,13 @@ switch (_OP_) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$select_gateway = "<select name=add_gateway>";
-		foreach ($core_config['gatewaylist'] as $list ) {
-			$select_gateway .= "<option>" . $list . "</option>";
+		unset($vgw_list);
+		$list = gateway_getall_virtual();
+		foreach ($list as $vgw) {
+			$vgw_list[] = $vgw['name'];
+		}
+		foreach ($vgw_list as $vgw) {
+			$select_gateway .= "<option>" . $vgw . "</option>";
 		}
 		$select_gateway .= "</select>";
 		$content .= "

@@ -74,7 +74,12 @@ switch (_OP_) {
 		
 		// get gateway options
 		$main_gateway = $main_config['gateway_module'];
-		$option_gateway_module = _options($core_config['gatewaylist'], $main_gateway);
+		unset($vgw_list);
+		$list = gateway_getall_virtual();
+		foreach ($list as $vgw) {
+			$vgw_list[] = $vgw['name'];
+		}
+		$option_gateway_module = _options($vgw_list, $main_gateway);
 		
 		// get themes options
 		$main_themes = $main_config['themes_module'];
