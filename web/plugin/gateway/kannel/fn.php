@@ -21,6 +21,7 @@ defined('_SECURE_') or die('Forbidden');
 // hook_sendsms
 // called by main sms sender
 // return true for success delivery
+// $vgw : virtual gateway
 // $sms_sender : sender mobile number
 // $sms_footer : sender sms footer or sms sender ID
 // $sms_to : destination sms number
@@ -30,7 +31,7 @@ defined('_SECURE_') or die('Forbidden');
 // $smslog_id : sms ID
 // $sms_type : type of the message (defaults to text)
 // $unicode : send as unicode (boolean)
-function kannel_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
+function kannel_hook_sendsms($vgw, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
 	global $core_config, $plugin_config;
 	logger_print("start smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "kannel outgoing");
 	$sms_sender = stripslashes($sms_sender);
