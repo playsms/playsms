@@ -97,7 +97,7 @@ switch (_OP_) {
 	case 'edit_virtual' :
 		$c_id = $_REQUEST['id'];
 		
-		$vgw = gateway_get_virtual($c_id);
+		$vgw = gateway_get_virtualbyid($c_id);
 		
 		$c_name = $vgw['name'];
 		$c_gateway = gateway_valid_name($vgw['gateway']);
@@ -134,7 +134,7 @@ switch (_OP_) {
 	
 	case 'edit_virtual_save' :
 		$c_id = (int) $_REQUEST['id'];
-		$vgw = gateway_get_virtual($c_id);
+		$vgw = gateway_get_virtualbyid($c_id);
 		
 		$c_gateway = gateway_valid_name($_REQUEST['gateway']);
 		

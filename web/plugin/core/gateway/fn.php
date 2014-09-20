@@ -42,7 +42,7 @@ function gateway_get_status($name) {
  * @param integer $id        	
  * @return array
  */
-function gateway_get_virtual($id) {
+function gateway_get_virtualbyid($id) {
 	$ret = array();
 	
 	$db_table = _DB_PREF_ . "_tblGateway";
