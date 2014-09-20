@@ -210,4 +210,14 @@ if ($plugin_config['kannel']['dlr'] == 0) {
 	$checked[2] = "checked";
 	$checked[3] = "checked";
 	$checked[4] = "checked";
-} 
+}
+
+// this is temporary hack to provide router function
+// format:
+// $plugin_config[GATEWAYNAME]['_dynamic_variables_'] = array(
+// VARIABLE => INPUT_QUESTION
+// );
+$plugin_config['kannel']['_dynamic_variables_'] = array(
+	'additional_param' => _('Additional URL parameter') 
+);
+

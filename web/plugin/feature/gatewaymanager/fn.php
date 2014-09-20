@@ -37,6 +37,44 @@ function gatewaymanager_get_status($name) {
 }
 
 /**
+ * Get virtual gateway data by ID
+ *
+ * @param integer $id        	
+ * @return array
+ */
+function gatewaymanager_get_virtual($id) {
+	$ret = array();
+	
+	$db_table = _DB_PREF_ . "_tblGateway";
+	$conditions = array(
+		'id' => $id 
+	);
+	$ret = dba_search($db_table, '*', $conditions);
+	
+	return $ret;
+}
+
+/**
+ * Get valid name for supplied gateway
+ * 
+ * @param string $name
+ * @return mixed
+ */
+function gatewaymanager_valid_name($name) {
+	global $core_config;
+	
+	if (trim($name)) {
+		foreach ($core_config['gatewaylist'] as $gw ) {
+			if ($name && $gw && $name == $gw) {
+				return $name;
+			}
+		}
+	}
+	
+	return FALSE;
+}
+
+/**
  * Activate selected gateway plugin
  *
  * @global array $core_config
@@ -96,7 +134,8 @@ function gatewaymanager_list() {
  * @return string
  */
 function gatewaymanager_display() {
-	global $core_config;
+	global $core_config, $icon_config, $plugin_config;
+	
 	$subdir_tab = gatewaymanager_list();
 	for($l = 0; $l < sizeof($subdir_tab); $l++) {
 		unset($gateway_info);
@@ -107,8 +146,13 @@ function gatewaymanager_display() {
 			$gateway_info['status'] = $subdir_tab[$l]['status'];
 		}
 		if ($gateway_info['name']) {
+			$c_link_add = '';
+			if ($plugin_config[$c_gateway]['_dynamic_variables_']) {
+				$c_link_add = "index.php?app=main&inc=feature_gatewaymanager&op=add_virtual&gateway=" . $c_gateway;
+			}
 			$gw_list[$gateway_info['name']] = array(
-				'link' => "index.php?app=main&inc=gateway_" . $c_gateway . "&op=manage",
+				'link_edit' => "index.php?app=main&inc=gateway_" . $c_gateway . "&op=manage",
+				'link_add' => $c_link_add,
 				'name' => $gateway_info['name'],
 				'description' => $gateway_info['description'],
 				'release' => $gateway_info['release'],
@@ -121,21 +165,77 @@ function gatewaymanager_display() {
 		<div class=table-responsive>
 		<table class=playsms-table-list id='gatewaymanager_view'>
 			<thead><tr>
-				<th width=30%>" . _('Name') . "</th>
+				<th width=40%>" . _('Name') . "</th>
 				<th width=50%>" . _('Description') . "</th>
-				<th width=10%>" . _('Default') . " " . _hint(_('Selected gateway is an active and default gateway')) . "</th>
 				<th width=10%>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
 	foreach ($gw_list as $gw ) {
+		$c_link_edit = '';
+		if ($gw['link_edit']) {
+			$c_link_edit = "<a href='" . _u($gw['link_edit']) . "'>" . $icon_config['edit'] . "</a>";
+		}
+		$c_link_add = '';
+		if ($gw['link_add']) {
+			$c_link_add = "<a href='" . _u($gw['link_add']) . "'>" . $icon_config['add'] . "</span></a>";
+		}
 		$content .= "
 			<tr>
 				<td>" . $gw['name'] . "</td>
 				<td>" . $gw['description'] . "</td>
-				<td><a href='" . _u('index.php?app=main&inc=feature_gatewaymanager&op=toggle_status&name=' . $gw['name']) . "'>" . $gw['status'] . "</a></td>
-				<td><a href='" . _u($gw['link']) . "'><span class='glyphicon glyphicon-wrench'></span></a></td>
+				<td>
+					" . $c_link_edit . "
+					" . $c_link_add . "
+				</td>
 			</tr>";
 	}
 	$content .= "</tbody></table></div>";
+	
+	return $content;
+}
+
+/**
+ * Display virtual gateways on UI
+ *
+ * @global array $core_config
+ * @return string
+ */
+function gatewaymanager_display_virtual() {
+	global $core_config, $icon_config;
+	
+	$db_table = _DB_PREF_ . '_tblGateway';
+	$extras = array(
+		'ORDER BY' => 'gateway' 
+	);
+	$vgw_list = dba_search($db_table, '*', '', '', $extras);
+	
+	$content = "
+		<div class=table-responsive>
+		<table class=playsms-table-list id='gatewaymanager_view_virtual'>
+			<thead><tr>
+				<th width=40%>" . _('Name') . "</th>
+				<th width=50%>" . _('Gateway') . "</th>
+				<th width=10%>" . _('Action') . "</th>
+			</tr></thead>
+			<tbody>";
+	foreach ($vgw_list as $vgw ) {
+		$vgw['link_edit'] = "index.php?app=main&inc=feature_gatewaymanager&op=edit_virtual&id=" . $vgw['id'];
+		$c_link_edit = "<a href='" . _u($vgw['link_edit']) . "'>" . $icon_config['edit'] . "</a>";
+		
+		$vgw['link_del'] = "index.php?app=main&inc=feature_gatewaymanager&op=del_virtual&id=" . $vgw['id'];
+		$c_link_del = "<a href=\"javascript: ConfirmURL('" . _('Are you sure ?') . "', '" . _u($vgw['link_del']) . "')\">" . $icon_config['delete'] . "</span></a>";
+		
+		$content .= "
+			<tr>
+				<td>" . $vgw['name'] . "</td>
+				<td>" . $vgw['gateway'] . "</td>
+				<td>
+					" . $c_link_edit . "
+					" . $c_link_del . "
+				</td>
+			</tr>";
+	}
+	$content .= "</tbody></table></div>";
+	
 	return $content;
 }
