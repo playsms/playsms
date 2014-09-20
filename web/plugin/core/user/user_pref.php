@@ -71,10 +71,10 @@ switch (_OP_) {
 			'username' => $c_username
 		))) {
 			if ($allow_edit_status) {
-				$status = $c_user[0]['status'];
+				$status = (int) $c_user[0]['status'];
 			}
 			if ($allow_edit_parent) {
-				$parent_uid = $c_user[0]['parent_uid'];
+				$parent_uid = (int) $c_user[0]['parent_uid'];
 			}
 			$name = $c_user[0]['name'];
 			$email = $c_user[0]['email'];
@@ -249,9 +249,9 @@ switch (_OP_) {
 		
 		// subuser's parent uid, by default its uid=1
 		if ($_POST['up_parent_uid']) {
-			$up['parent_uid'] = ($user_edited['status'] == 4 ? $_POST['up_parent_uid'] : 1);
+			$up['parent_uid'] = (int) ($user_edited['status'] == 4 ? $_POST['up_parent_uid'] : 1);
 		} else {
-			$up['parent_uid'] = user_getparentbyuid(user_username2uid($c_username));
+			$up['parent_uid'] = (int) user_getparentbyuid(user_username2uid($c_username));
 		}
 		
 		$up['username'] = $c_username;

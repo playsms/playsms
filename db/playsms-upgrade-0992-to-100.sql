@@ -101,7 +101,7 @@ UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-beta4' WHERE `registry_
 -- core config
 UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-beta5' WHERE `registry_group` = 'core' AND `registry_family` = 'config' AND `registry_key` = 'playsms_version' ;
 
-ALTER TABLE `playsms_tblUser` ADD `parent_uid` INT NOT NULL AFTER `c_timestamp`;
+ALTER TABLE `playsms_tblUser` ADD `parent_uid` INT(11) NOT NULL DEFAULT '0' AFTER `c_timestamp`;
 
 --
 -- Table structure for table `playsms_featureCredit`
