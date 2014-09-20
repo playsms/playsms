@@ -150,23 +150,6 @@ if (is_array($menus)) {
 	}
 }
 
-// load active gateway libs
-/*
-$dir = $core_config['apps_path']['plug'].'/';
-$pc = 'gateway';
-$pl = core_gateway_get();
-$pl_dir = $dir.$pc.'/'.$pl;
-$c_fn1 = $pl_dir.'/fn.php';
-if (file_exists($c_fn1)) {
-	if (function_exists('bindtextdomain') && file_exists($pl_dir.'/language/')) {
-		bindtextdomain('messages', $plugin_dir.'/language/');
-		bind_textdomain_codeset('messages', 'UTF-8');
-		textdomain('messages');
-	}
-	include $c_fn1;
-}
-*/
-
 if (function_exists('bindtextdomain')) {
 	bindtextdomain('messages', $core_config['apps_path']['plug'].'/language/');
 	bind_textdomain_codeset('messages', 'UTF-8');
