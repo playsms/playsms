@@ -194,13 +194,9 @@ function _gateway_display() {
 			$gateway_info['status'] = $subdir_tab[$l]['status'];
 		}
 		if ($gateway_info['name']) {
-			$c_link_add = '';
-			if ($plugin_config[$c_gateway]['_dynamic_variables_']) {
-				$c_link_add = "index.php?app=main&inc=core_gateway&op=add_virtual&gateway=" . $c_gateway;
-			}
 			$gw_list[$gateway_info['name']] = array(
 				'link_edit' => "index.php?app=main&inc=gateway_" . $c_gateway . "&op=manage",
-				'link_add' => $c_link_add,
+				'link_add' => "index.php?app=main&inc=core_gateway&op=add_virtual&gateway=" . $c_gateway,
 				'name' => $gateway_info['name'],
 				'description' => $gateway_info['description'],
 				'release' => $gateway_info['release'],
