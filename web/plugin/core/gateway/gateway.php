@@ -54,13 +54,20 @@ switch (_OP_) {
 	
 	case 'add_virtual_save' :
 		$c_gateway = gateway_valid_name($_REQUEST['gateway']);
+		
+		// do not add dev and blocked
+		$continue = FALSE;
+		if (!(($c_gateway == 'dev') || ($c_gateway == 'blocked'))) {
+			$continue = TRUE;
+		}
+		
 		$c_name = core_sanitize_alphanumeric($_REQUEST['name']);
 		if (!$c_name) {
 			$c_name = mktime();
 		}
 		
 		$vgw = gateway_get_virtualbyname($c_name);
-		
+
 		if ($vgw['name']) {
 			$_SESSION['error_string'] = _('Virtual gateway already exists');
 		} else {
@@ -136,9 +143,15 @@ switch (_OP_) {
 		$c_id = (int) $_REQUEST['id'];
 		$vgw = gateway_get_virtualbyid($c_id);
 		
+		// do not edit dev and blocked
+		$continue = FALSE;
+		if (!(($vgw['gateway'] == 'dev') || ($vgw['gateway'] == 'blocked'))) {
+			$continue = TRUE;
+		}
+		
 		$c_gateway = gateway_valid_name($_REQUEST['gateway']);
 		
-		if ($c_id && $c_gateway && ($c_gateway == $vgw['gateway'])) {
+		if ($continue && $c_id && $c_gateway && ($c_gateway == $vgw['gateway'])) {
 			$dv = ($plugin_config[$c_gateway]['_dynamic_variables_'] ? $plugin_config[$c_gateway]['_dynamic_variables_'] : array());
 			$dynamic_variables = array();
 			foreach ($dv as $key => $val ) {

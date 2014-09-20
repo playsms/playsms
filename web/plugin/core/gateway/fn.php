@@ -114,6 +114,9 @@ function gateway_valid_name($name) {
 	if (trim($name)) {
 		foreach ($core_config['gatewaylist'] as $gw ) {
 			if ($name && $gw && $name == $gw) {
+				if ((strtolower($name) == 'blocked') || (strtolower($name) == 'dev')) {
+					$name = '';
+				}
 				return $name;
 			}
 		}
@@ -187,16 +190,21 @@ function _gateway_display() {
 	$subdir_tab = gateway_list();
 	for($l = 0; $l < sizeof($subdir_tab); $l++) {
 		unset($gateway_info);
-		$c_gateway = $subdir_tab[$l]['name'];
+		$c_gateway = strtolower($subdir_tab[$l]['name']);
 		$xml_file = $core_config['apps_path']['plug'] . '/gateway/' . $c_gateway . '/docs/info.xml';
 		if ($fc = file_get_contents($xml_file)) {
 			$gateway_info = core_xml_to_array($fc);
 			$gateway_info['status'] = $subdir_tab[$l]['status'];
 		}
 		if ($gateway_info['name']) {
+			$c_link_edit = "index.php?app=main&inc=gateway_" . $c_gateway . "&op=manage";
+			$c_link_add = '';
+			if (!(($c_gateway == 'dev') || ($c_gateway == 'blocked'))) {
+				$c_link_add = "index.php?app=main&inc=core_gateway&op=add_virtual&gateway=" . $c_gateway;
+			}
 			$gw_list[$gateway_info['name']] = array(
-				'link_edit' => "index.php?app=main&inc=gateway_" . $c_gateway . "&op=manage",
-				'link_add' => "index.php?app=main&inc=core_gateway&op=add_virtual&gateway=" . $c_gateway,
+				'link_edit' => $c_link_edit,
+				'link_add' => $c_link_add,
 				'name' => $gateway_info['name'],
 				'description' => $gateway_info['description'],
 				'release' => $gateway_info['release'],
@@ -263,11 +271,16 @@ function _gateway_display_virtual() {
 			</tr></thead>
 			<tbody>";
 	foreach ($vgw_list as $vgw ) {
-		$vgw['link_edit'] = "index.php?app=main&inc=core_gateway&op=edit_virtual&id=" . $vgw['id'];
-		$c_link_edit = "<a href='" . _u($vgw['link_edit']) . "'>" . $icon_config['edit'] . "</a>";
 		
-		$vgw['link_del'] = "index.php?app=main&inc=core_gateway&op=del_virtual&id=" . $vgw['id'];
-		$c_link_del = "<a href=\"javascript: ConfirmURL('" . _('Are you sure ?') . "', '" . _u($vgw['link_del']) . "')\">" . $icon_config['delete'] . "</span></a>";
+		$c_link_edit = '';
+		$c_link_del = '';
+		if (!(($vgw['gateway'] == 'dev') || ($vgw['gateway'] == 'blocked'))) {
+			$vgw['link_edit'] = "index.php?app=main&inc=core_gateway&op=edit_virtual&id=" . $vgw['id'];
+			$c_link_edit = "<a href='" . _u($vgw['link_edit']) . "'>" . $icon_config['edit'] . "</a>";
+			
+			$vgw['link_del'] = "index.php?app=main&inc=core_gateway&op=del_virtual&id=" . $vgw['id'];
+			$c_link_del = "<a href=\"javascript: ConfirmURL('" . _('Are you sure ?') . "', '" . _u($vgw['link_del']) . "')\">" . $icon_config['delete'] . "</span></a>";
+		}
 		
 		$content .= "
 			<tr>
