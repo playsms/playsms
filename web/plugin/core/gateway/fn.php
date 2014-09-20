@@ -26,7 +26,7 @@ defined('_SECURE_') or die('Forbidden');
  *        	gateway name
  * @return boolean
  */
-function gatewaymanager_get_status($name) {
+function gateway_get_status($name) {
 	global $core_config;
 	if (core_gateway_get() == $name) {
 		$ret = TRUE;
@@ -42,7 +42,7 @@ function gatewaymanager_get_status($name) {
  * @param integer $id        	
  * @return array
  */
-function gatewaymanager_get_virtual($id) {
+function gateway_get_virtual($id) {
 	$ret = array();
 	
 	$db_table = _DB_PREF_ . "_tblGateway";
@@ -60,7 +60,7 @@ function gatewaymanager_get_virtual($id) {
  * @param string $name
  * @return mixed
  */
-function gatewaymanager_valid_name($name) {
+function gateway_valid_name($name) {
 	global $core_config;
 	
 	if (trim($name)) {
@@ -82,7 +82,7 @@ function gatewaymanager_valid_name($name) {
  *        	gateway name
  * @return boolean
  */
-function gatewaymanager_set_active($name) {
+function gateway_set_active($name) {
 	global $core_config;
 	$ret = FALSE;
 	$fn1 = $core_config['apps_path']['plug'] . '/gateway/' . $name . '/config.php';
@@ -105,7 +105,7 @@ function gatewaymanager_set_active($name) {
  * @global array $core_config
  * @return string gateway plugins configuration
  */
-function gatewaymanager_list() {
+function gateway_list() {
 	global $core_config;
 	$upload_path = $core_config['apps_path']['plug'] . '/gateway/';
 	$dir = opendir($upload_path);
@@ -116,7 +116,7 @@ function gatewaymanager_list() {
 			$subdir_tab[$z]['name'] .= $fn;
 			$subdir_tab[$z]['version'] .= trim(file_get_contents($core_config['apps_path']['plug'] . '/gateway/' . $f . '/docs/VERSION'));
 			$subdir_tab[$z]['date'] .= date($core_config['datetime']['format'], filemtime($upload_path . $f));
-			if (gatewaymanager_get_status($fn)) {
+			if (gateway_get_status($fn)) {
 				$subdir_tab[$z][status] .= '<span class=status_enabled></span>';
 			} else {
 				$subdir_tab[$z][status] .= '<span class=status_disabled></span>';
@@ -133,10 +133,10 @@ function gatewaymanager_list() {
  * @global array $core_config
  * @return string
  */
-function gatewaymanager_display() {
+function _gateway_display() {
 	global $core_config, $icon_config, $plugin_config;
 	
-	$subdir_tab = gatewaymanager_list();
+	$subdir_tab = gateway_list();
 	for($l = 0; $l < sizeof($subdir_tab); $l++) {
 		unset($gateway_info);
 		$c_gateway = $subdir_tab[$l]['name'];
@@ -148,7 +148,7 @@ function gatewaymanager_display() {
 		if ($gateway_info['name']) {
 			$c_link_add = '';
 			if ($plugin_config[$c_gateway]['_dynamic_variables_']) {
-				$c_link_add = "index.php?app=main&inc=feature_gatewaymanager&op=add_virtual&gateway=" . $c_gateway;
+				$c_link_add = "index.php?app=main&inc=core_gateway&op=add_virtual&gateway=" . $c_gateway;
 			}
 			$gw_list[$gateway_info['name']] = array(
 				'link_edit' => "index.php?app=main&inc=gateway_" . $c_gateway . "&op=manage",
@@ -163,7 +163,7 @@ function gatewaymanager_display() {
 	ksort($gw_list);
 	$content = "
 		<div class=table-responsive>
-		<table class=playsms-table-list id='gatewaymanager_view'>
+		<table class=playsms-table-list id='gateway_view'>
 			<thead><tr>
 				<th width=40%>" . _('Name') . "</th>
 				<th width=50%>" . _('Description') . "</th>
@@ -200,7 +200,7 @@ function gatewaymanager_display() {
  * @global array $core_config
  * @return string
  */
-function gatewaymanager_display_virtual() {
+function _gateway_display_virtual() {
 	global $core_config, $icon_config;
 	
 	$db_table = _DB_PREF_ . '_tblGateway';
@@ -211,7 +211,7 @@ function gatewaymanager_display_virtual() {
 	
 	$content = "
 		<div class=table-responsive>
-		<table class=playsms-table-list id='gatewaymanager_view_virtual'>
+		<table class=playsms-table-list id='gateway_view_virtual'>
 			<thead><tr>
 				<th width=40%>" . _('Name') . "</th>
 				<th width=50%>" . _('Gateway') . "</th>
@@ -219,10 +219,10 @@ function gatewaymanager_display_virtual() {
 			</tr></thead>
 			<tbody>";
 	foreach ($vgw_list as $vgw ) {
-		$vgw['link_edit'] = "index.php?app=main&inc=feature_gatewaymanager&op=edit_virtual&id=" . $vgw['id'];
+		$vgw['link_edit'] = "index.php?app=main&inc=core_gateway&op=edit_virtual&id=" . $vgw['id'];
 		$c_link_edit = "<a href='" . _u($vgw['link_edit']) . "'>" . $icon_config['edit'] . "</a>";
 		
-		$vgw['link_del'] = "index.php?app=main&inc=feature_gatewaymanager&op=del_virtual&id=" . $vgw['id'];
+		$vgw['link_del'] = "index.php?app=main&inc=core_gateway&op=del_virtual&id=" . $vgw['id'];
 		$c_link_del = "<a href=\"javascript: ConfirmURL('" . _('Are you sure ?') . "', '" . _u($vgw['link_del']) . "')\">" . $icon_config['delete'] . "</span></a>";
 		
 		$content .= "

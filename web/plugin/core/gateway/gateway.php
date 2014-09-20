@@ -35,12 +35,12 @@ switch (_OP_) {
 		}
 		
 		$tpl = array(
-			'name' => 'gatewaymanager_add_virtual',
+			'name' => 'gateway_add_virtual',
 			'vars' => array(
 				'FORM_TITLE' => _('Add virtual gateway'),
-				'ACTION_URL' => 'index.php?app=main&inc=feature_gatewaymanager&op=add_virtual_save',
+				'ACTION_URL' => 'index.php?app=main&inc=core_gateway&op=add_virtual_save',
 				'GATEWAY' => $c_gateway,
-				'BACK' => _back('index.php?app=main&inc=feature_gatewaymanager&op=gatewaymanager_list'),
+				'BACK' => _back('index.php?app=main&inc=core_gateway&op=gateway_list'),
 				'Gateway' => _('Gateway'),
 				'Virtual gateway name' => _mandatory(_('Virtual gateway name')),
 				'Save' => _('Save') 
@@ -57,7 +57,7 @@ switch (_OP_) {
 		if (!$c_name) {
 			$c_name = mktime();
 		}
-		$c_gateway = gatewaymanager_valid_name($_REQUEST['gateway']);
+		$c_gateway = gateway_valid_name($_REQUEST['gateway']);
 		
 		if ($c_name && $c_gateway) {
 			$dv = ($plugin_config[$c_gateway]['_dynamic_variables_'] ? $plugin_config[$c_gateway]['_dynamic_variables_'] : array());
@@ -79,25 +79,25 @@ switch (_OP_) {
 			}
 		} else {
 			$_SESSION['error_string'] = _('Unknown error');
-			header('Location: ' . _u('index.php?app=main&inc=feature_gatewaymanager&op=gatewaymanager_list'));
+			header('Location: ' . _u('index.php?app=main&inc=core_gateway&op=gateway_list'));
 			exit();
 		}
 		
-		header('Location: ' . _u('index.php?app=main&inc=feature_gatewaymanager&op=add_virtual&gateway=' . $c_gateway));
+		header('Location: ' . _u('index.php?app=main&inc=core_gateway&op=add_virtual&gateway=' . $c_gateway));
 		exit();
 		break;
 	
 	case 'edit_virtual' :
 		$c_id = $_REQUEST['id'];
 		
-		$vg = gatewaymanager_get_virtual($c_id);
+		$vg = gateway_get_virtual($c_id);
 		
 		$c_name = $vg[0]['name'];
 		$c_name = core_sanitize_alphanumeric($c_name);
 		if (!$c_name) {
 			$c_name = mktime();
 		}
-		$c_gateway = gatewaymanager_valid_name($vg[0]['gateway']);		
+		$c_gateway = gateway_valid_name($vg[0]['gateway']);		
 		$c_data = json_decode($vg[0]['data']);
 		
 		$dv = ($plugin_config[$c_gateway]['_dynamic_variables_'] ? $plugin_config[$c_gateway]['_dynamic_variables_'] : array());
@@ -110,14 +110,14 @@ switch (_OP_) {
 		}
 		
 		$tpl = array(
-			'name' => 'gatewaymanager_edit_virtual',
+			'name' => 'gateway_edit_virtual',
 			'vars' => array(
 				'FORM_TITLE' => _('Edit virtual gateway'),
-				'ACTION_URL' => 'index.php?app=main&inc=feature_gatewaymanager&op=edit_virtual_save',
+				'ACTION_URL' => 'index.php?app=main&inc=core_gateway&op=edit_virtual_save',
 				'ID' => $c_id,
 				'NAME' => $c_name,
 				'GATEWAY' => $c_gateway,
-				'BACK' => _back('index.php?app=main&inc=feature_gatewaymanager&op=gatewaymanager_list'),
+				'BACK' => _back('index.php?app=main&inc=core_gateway&op=gateway_list'),
 				'Gateway' => _('Gateway'),
 				'Virtual gateway name' => _mandatory(_('Virtual gateway name')),
 				'Save' => _('Save') 
@@ -136,7 +136,7 @@ switch (_OP_) {
 		if (!$c_name) {
 			$c_name = mktime();
 		}
-		$c_gateway = gatewaymanager_valid_name($_REQUEST['gateway']);		
+		$c_gateway = gateway_valid_name($_REQUEST['gateway']);		
 		
 		if ($c_id && $c_name && $c_gateway) {
 			$dv = ($plugin_config[$c_gateway]['_dynamic_variables_'] ? $plugin_config[$c_gateway]['_dynamic_variables_'] : array());
@@ -161,11 +161,11 @@ switch (_OP_) {
 			}
 		} else {
 			$_SESSION['error_string'] = _('Unknown error');
-			header('Location: ' . _u('index.php?app=main&inc=feature_gatewaymanager&op=gatewaymanager_list'));
+			header('Location: ' . _u('index.php?app=main&inc=core_gateway&op=gateway_list'));
 			exit();
 		}
 		
-		header('Location: ' . _u('index.php?app=main&inc=feature_gatewaymanager&op=edit_virtual&id=' . $c_id));
+		header('Location: ' . _u('index.php?app=main&inc=core_gateway&op=edit_virtual&id=' . $c_id));
 		exit();
 		break;
 	
@@ -183,7 +183,7 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('Unknown error');
 		}
-		header('Location: ' . _u('index.php?app=main&inc=feature_gatewaymanager&op=gatewaymanager_list'));
+		header('Location: ' . _u('index.php?app=main&inc=core_gateway&op=gateway_list'));
 		exit();
 		break;
 	
@@ -196,10 +196,10 @@ switch (_OP_) {
 			</ul>
 			<div class=tab-content>
 				<div id='tabs-gateway' class='tab-pane fade in active'>
-					" . gatewaymanager_display() . "
+					" . _gateway_display() . "
 				</div>
 				<div id='tabs-virtual' class='tab-pane fade'>
-					" . gatewaymanager_display_virtual() . "
+					" . _gateway_display_virtual() . "
 				</div>
 			</div>
 			<script type=\"text/javascript\" src=\"" . $core_config['http_path']['plug'] . "/themes/common/jscss/jquery.cookie.js\"></script>
@@ -207,11 +207,11 @@ switch (_OP_) {
 				$(document).ready(function() {
 					$('a[data-toggle=\"tab\"]').on('shown.bs.tab', function(e){
 						//save the latest tab using a cookie:
-						$.cookie('gatewaymanager_last_tab', $(e.target).attr('href'));
+						$.cookie('gateway_last_tab', $(e.target).attr('href'));
 					});
 					
 					//activate latest tab, if it exists:
-					var lastTab = $.cookie('gatewaymanager_last_tab');
+					var lastTab = $.cookie('gateway_last_tab');
 					if (lastTab) {
 						$('ul.nav-tabs').children().removeClass('active');
 						$('a[href='+ lastTab +']').parents('li:first').addClass('active');

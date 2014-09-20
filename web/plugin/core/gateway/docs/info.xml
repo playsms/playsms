@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin>
-	<name>gatewaymanager</name>
+	<name>gateway</name>
 	<alias>Gateway Manager</alias>
 	<description>Gateway management module</description>
 	<release>1.0</release>
