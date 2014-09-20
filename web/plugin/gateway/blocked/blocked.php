@@ -43,6 +43,7 @@ switch (_OP_) {
 				<tbody><tr><td class=label-sizer>" . _('Gateway name') . "</td><td>blocked $status_active</td></tr></tbody>
 			</table>
 		";
+		$content.= _back('index.php?app=main&inc=core_gateway&op=gateway_list');
 		_p($content);
 		break;
 }

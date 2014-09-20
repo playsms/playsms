@@ -48,7 +48,7 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value=\""._('Save')."\">
 			</form>";
-		$content .= _back('index.php?app=main&inc=feature_gatewaymanager&op=gatewaymanager_list');
+		$content .= _back('index.php?app=main&inc=core_gateway&op=gateway_list');
 		_p($content);
 		break;
 	case "manage_save":

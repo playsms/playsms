@@ -42,7 +42,6 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value=\"" . _('Submit') . "\">
 			</form>";
-		$content .= _back('index.php?app=main&inc=feature_gatewaymanager&op=gatewaymanager_list');
 		_p($content);
 		break;
 	case "simulate_yes" :

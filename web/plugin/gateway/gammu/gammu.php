@@ -28,7 +28,7 @@ switch (_OP_) {
 				</tr>
 				</tbody>
 			</table>";
-		$content.= _back('index.php?app=main&inc=feature_gatewaymanager&op=gatewaymanager_list');
+		$content.= _back('index.php?app=main&inc=core_gateway&op=gateway_list');
 		_p($content);
 		break;
 }
