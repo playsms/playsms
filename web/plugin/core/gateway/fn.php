@@ -51,7 +51,25 @@ function gateway_get_virtual($id) {
 	);
 	$ret = dba_search($db_table, '*', $conditions);
 	
-	return $ret;
+	return $ret[0];
+}
+
+/**
+ * Get virtual gateway data by name
+ *
+ * @param string $name
+ * @return array
+ */
+function gateway_get_virtualbyname($name) {
+	$ret = array();
+	
+	$db_table = _DB_PREF_ . "_tblGateway";
+	$conditions = array(
+		'name' => $name 
+	);
+	$ret = dba_search($db_table, '*', $conditions);
+	
+	return $ret[0];
 }
 
 /**

@@ -53,34 +53,41 @@ switch (_OP_) {
 		break;
 	
 	case 'add_virtual_save' :
+		$c_gateway = gateway_valid_name($_REQUEST['gateway']);
 		$c_name = core_sanitize_alphanumeric($_REQUEST['name']);
 		if (!$c_name) {
 			$c_name = mktime();
 		}
-		$c_gateway = gateway_valid_name($_REQUEST['gateway']);
 		
-		if ($c_name && $c_gateway) {
-			$dv = ($plugin_config[$c_gateway]['_dynamic_variables_'] ? $plugin_config[$c_gateway]['_dynamic_variables_'] : array());
-			$dynamic_variables = array();
-			foreach ($dv as $key => $val ) {
-				$dynamic_variables[$key] = $_REQUEST[$key];
-			}
-			$items = array(
-				'created' => core_get_datetime(),
-				'name' => $c_name,
-				'gateway' => $c_gateway,
-				'data' => json_encode($dynamic_variables) 
-			);
-			$db_table = _DB_PREF_ . '_tblGateway';
-			if ($new_id = dba_add($db_table, $items)) {
-				$_SESSION['error_string'] = _('New virtual gateway has been added');
-			} else {
-				$_SESSION['error_string'] = _('Fail to add new virtual gateway');
-			}
+		$vgw = gateway_get_virtualbyname($c_name);
+		
+		if ($vgw['name']) {
+			$_SESSION['error_string'] = _('Virtual gateway already exists');
 		} else {
-			$_SESSION['error_string'] = _('Unknown error');
-			header('Location: ' . _u('index.php?app=main&inc=core_gateway&op=gateway_list'));
-			exit();
+			
+			if ($c_name && $c_gateway) {
+				$dv = ($plugin_config[$c_gateway]['_dynamic_variables_'] ? $plugin_config[$c_gateway]['_dynamic_variables_'] : array());
+				$dynamic_variables = array();
+				foreach ($dv as $key => $val ) {
+					$dynamic_variables[$key] = $_REQUEST[$key];
+				}
+				$items = array(
+					'created' => core_get_datetime(),
+					'name' => $c_name,
+					'gateway' => $c_gateway,
+					'data' => json_encode($dynamic_variables) 
+				);
+				$db_table = _DB_PREF_ . '_tblGateway';
+				if ($new_id = dba_add($db_table, $items)) {
+					$_SESSION['error_string'] = _('New virtual gateway has been added');
+				} else {
+					$_SESSION['error_string'] = _('Fail to add new virtual gateway');
+				}
+			} else {
+				$_SESSION['error_string'] = _('Unknown error');
+				header('Location: ' . _u('index.php?app=main&inc=core_gateway&op=gateway_list'));
+				exit();
+			}
 		}
 		
 		header('Location: ' . _u('index.php?app=main&inc=core_gateway&op=add_virtual&gateway=' . $c_gateway));
@@ -90,15 +97,11 @@ switch (_OP_) {
 	case 'edit_virtual' :
 		$c_id = $_REQUEST['id'];
 		
-		$vg = gateway_get_virtual($c_id);
+		$vgw = gateway_get_virtual($c_id);
 		
-		$c_name = $vg[0]['name'];
-		$c_name = core_sanitize_alphanumeric($c_name);
-		if (!$c_name) {
-			$c_name = mktime();
-		}
-		$c_gateway = gateway_valid_name($vg[0]['gateway']);		
-		$c_data = json_decode($vg[0]['data']);
+		$c_name = $vgw['name'];
+		$c_gateway = gateway_valid_name($vgw['gateway']);
+		$c_data = json_decode($vgw['data']);
 		
 		$dv = ($plugin_config[$c_gateway]['_dynamic_variables_'] ? $plugin_config[$c_gateway]['_dynamic_variables_'] : array());
 		foreach ($dv as $key => $val ) {
@@ -119,7 +122,7 @@ switch (_OP_) {
 				'GATEWAY' => $c_gateway,
 				'BACK' => _back('index.php?app=main&inc=core_gateway&op=gateway_list'),
 				'Gateway' => _('Gateway'),
-				'Virtual gateway name' => _mandatory(_('Virtual gateway name')),
+				'Virtual gateway name' => _('Virtual gateway name'),
 				'Save' => _('Save') 
 			),
 			'loops' => array(
@@ -131,14 +134,11 @@ switch (_OP_) {
 	
 	case 'edit_virtual_save' :
 		$c_id = (int) $_REQUEST['id'];
-		$c_name = (trim($_REQUEST['name']) ? trim($_REQUEST['name']) : mktime());
-		$c_name = core_sanitize_alphanumeric($c_name);
-		if (!$c_name) {
-			$c_name = mktime();
-		}
-		$c_gateway = gateway_valid_name($_REQUEST['gateway']);		
+		$vgw = gateway_get_virtual($c_id);
 		
-		if ($c_id && $c_name && $c_gateway) {
+		$c_gateway = gateway_valid_name($_REQUEST['gateway']);
+		
+		if ($c_id && $c_gateway && ($c_gateway == $vgw['gateway'])) {
 			$dv = ($plugin_config[$c_gateway]['_dynamic_variables_'] ? $plugin_config[$c_gateway]['_dynamic_variables_'] : array());
 			$dynamic_variables = array();
 			foreach ($dv as $key => $val ) {
@@ -146,8 +146,6 @@ switch (_OP_) {
 			}
 			$items = array(
 				'last_update' => core_get_datetime(),
-				'name' => $c_name,
-				'gateway' => $c_gateway,
 				'data' => json_encode($dynamic_variables) 
 			);
 			$condition = array(

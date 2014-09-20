@@ -7,12 +7,11 @@
 		<tbody>
 			<tr>
 				<td class=label-sizer>{{ Gateway }}</td>
-				<td><input type="text" name='gateway' value='{{ GATEWAY }}'
-					readonly></td>
+				<td><input type="text" name='gateway' value='{{ GATEWAY }}'	readonly></td>
 			</tr>
 			<tr>
 				<td class=label-sizer>{{ Virtual gateway name }}</td>
-				<td><input type="text" maxlength="100" name="name" value="{{ NAME }}" required></td>
+				<td><input type="text" value="{{ NAME }}" readonly></td>
 			</tr>
 			<loop.dynamic_variables>
 			<tr>
