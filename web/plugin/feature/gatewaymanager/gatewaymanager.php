@@ -145,7 +145,7 @@ switch (_OP_) {
 				$dynamic_variables[$key] = $_REQUEST[$key];
 			}
 			$items = array(
-				'created' => core_get_datetime(),
+				'last_update' => core_get_datetime(),
 				'name' => $c_name,
 				'gateway' => $c_gateway,
 				'data' => json_encode($dynamic_variables) 
