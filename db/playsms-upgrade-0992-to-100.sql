@@ -419,3 +419,30 @@ ALTER TABLE `playsms_tblSMSOutgoing_queue` ADD `gw` VARCHAR(100) NOT NULL DEFAUL
 
 -- version
 UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-rc3' WHERE `registry_group` = 'core' AND `registry_family` = 'config' AND `registry_key` = 'playsms_version' ;
+
+
+-- 1.0-rc4
+
+--
+-- Table structure for table `playsms_tblGateway`
+--
+
+DROP TABLE IF EXISTS `playsms_tblGateway`;
+CREATE TABLE `playsms_tblGateway` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `last_update` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `name` varchar(100) NOT NULL DEFAULT '',
+  `gateway` varchar(100) NOT NULL DEFAULT '',
+  `data` text NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `playsms_tblGateway`
+--
+
+INSERT INTO `playsms_tblGateway` (`id`, `created`, `last_update`, `name`, `gateway`, `data`) VALUES
+(1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'blocked', 'blocked', '[]'),
+(2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'dev', 'dev', '[]');
