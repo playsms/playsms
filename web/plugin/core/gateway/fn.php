@@ -37,6 +37,36 @@ function gateway_get_status($name) {
 }
 
 /**
+ * Get all gateway data
+ *
+ * @return array
+ */
+function gateway_getall() {
+	global $core_config, $plugin_config;
+	
+	$ret = array();
+	foreach ($core_config['gatewaylist'] as $gw ) {
+		$ret[] = $plugin_config[$gw];
+	}
+	
+	return $ret;
+}
+
+/**
+ * Get all virtual gateway data
+ *
+ * @return array
+ */
+function gateway_getall_virtual() {
+	$ret = array();
+	
+	$db_table = _DB_PREF_ . "_tblGateway";
+	$ret = dba_search($db_table, '*', $conditions);
+	
+	return $ret;
+}
+
+/**
  * Get virtual gateway data by ID
  *
  * @param integer $id        	
@@ -57,7 +87,7 @@ function gateway_get_virtualbyid($id) {
 /**
  * Get virtual gateway data by name
  *
- * @param string $name
+ * @param string $name        	
  * @return array
  */
 function gateway_get_virtualbyname($name) {
@@ -74,8 +104,8 @@ function gateway_get_virtualbyname($name) {
 
 /**
  * Get valid name for supplied gateway
- * 
- * @param string $name
+ *
+ * @param string $name        	
  * @return mixed
  */
 function gateway_valid_name($name) {
