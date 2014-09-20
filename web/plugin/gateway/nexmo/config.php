@@ -4,7 +4,7 @@ defined('_SECURE_') or die('Forbidden');
 $db_query = "SELECT * FROM " . _DB_PREF_ . "_gatewayNexmo_config";
 $db_result = dba_query($db_query);
 if ($db_row = dba_fetch_array($db_result)) {
-	$plugin_config['nexmo']['name'] = $db_row['cfg_name'];
+	$plugin_config['nexmo']['name'] = 'nexmo';
 	$plugin_config['nexmo']['url'] = ($db_row['cfg_url'] ? $db_row['cfg_url'] : 'https://rest.nexmo.com/sms/json');
 	$plugin_config['nexmo']['api_key'] = $db_row['cfg_api_key'];
 	$plugin_config['nexmo']['api_secret'] = $db_row['cfg_api_secret'];
@@ -12,11 +12,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 	$plugin_config['nexmo']['datetime_timezone'] = $db_row['cfg_datetime_timezone'];
 }
 
-// this is temporary hack to provide router function
-// format:
-// $plugin_config[GATEWAYNAME]['_dynamic_variables_'] = array(
-// VARIABLE => INPUT_QUESTION
-// );
+// virtual gateway configuration
 $plugin_config['nexmo']['_dynamic_variables_'] = array(
 	'api_key' => _('API key'),
 	'api_secret' => _('API secret'),

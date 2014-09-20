@@ -5,6 +5,9 @@ $plugin_config['gammu']['name'] = "gammu";
 $plugin_config['gammu']['path'] = "/var/spool/gammu";
 $plugin_config['gammu']['dlr'] = FALSE;
 
+// virtual gateway configuration
+$plugin_config['gammu']['_dynamic_variables_'] = array();
+
 // insert to left menu array
 //if (isadmin()) {
 //	$menutab_gateway = $core_config['menutab']['gateway'];

@@ -1,17 +1,20 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
-$db_query = "SELECT * FROM "._DB_PREF_."_gatewayMsgtoolbox_config";
+$db_query = "SELECT * FROM " . _DB_PREF_ . "_gatewayMsgtoolbox_config";
 $db_result = dba_query($db_query);
 if ($db_row = dba_fetch_array($db_result)) {
-	$plugin_config['msgtoolbox']['name']				= $db_row['cfg_name'];
-	$plugin_config['msgtoolbox']['url']				= $db_row['cfg_url'];
-	$plugin_config['msgtoolbox']['route']				= $db_row['cfg_route'];
-	$plugin_config['msgtoolbox']['username']			= $db_row['cfg_username'];
-	$plugin_config['msgtoolbox']['password']			= $db_row['cfg_password'];
-	$plugin_config['msgtoolbox']['global_sender']		= $db_row['cfg_global_sender'];
-	$plugin_config['msgtoolbox']['datetime_timezone']	= $db_row['cfg_datetime_timezone'];
+	$plugin_config['msgtoolbox']['name'] = 'msgtoolbox';
+	$plugin_config['msgtoolbox']['url'] = $db_row['cfg_url'];
+	$plugin_config['msgtoolbox']['route'] = $db_row['cfg_route'];
+	$plugin_config['msgtoolbox']['username'] = $db_row['cfg_username'];
+	$plugin_config['msgtoolbox']['password'] = $db_row['cfg_password'];
+	$plugin_config['msgtoolbox']['global_sender'] = $db_row['cfg_global_sender'];
+	$plugin_config['msgtoolbox']['datetime_timezone'] = $db_row['cfg_datetime_timezone'];
 }
+
+// virtual gateway configuration
+$plugin_config['msgtoolbox']['_dynamic_variables_'] = array();
 
 //$gateway_number = $plugin_config['msgtoolbox']['global_sender'];
 

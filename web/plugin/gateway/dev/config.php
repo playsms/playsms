@@ -5,6 +5,9 @@ $plugin_config['dev']['name'] = 'dev';
 $plugin_config['dev']['enable_incoming'] = true;
 $plugin_config['dev']['enable_outgoing'] = true;
 
+// virtual gateway configuration
+$plugin_config['dev']['_dynamic_variables_'] = array();
+
 if (auth_isadmin()) {
 	$menutab = $core_config['menutab']['settings'];
 	$menu_config[$menutab][] = array(
