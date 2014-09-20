@@ -3,6 +3,9 @@ defined('_SECURE_') or die('Forbidden');
 
 function smstools_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="") {
 	global $plugin_config;
+	
+	_log("enter vgw:" . $vgw . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "smstools_hook_outgoing");
+	
 	// p_status :
 	// 0 = pending
 	// 1 = sent/delivered

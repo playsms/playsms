@@ -35,6 +35,9 @@ function clickatell_hook_playsmsd() {
 
 function clickatell_hook_sendsms($vgw, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
 	global $plugin_config;
+	
+	_log("enter vgw:" . $vgw . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "clickatell_hook_outgoing");
+	
 	$sms_sender = stripslashes ( $sms_sender );
 	$sms_footer = stripslashes ( $sms_footer );
 	$sms_msg = stripslashes ( $sms_msg );

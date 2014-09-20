@@ -3,6 +3,9 @@ defined ( '_SECURE_' ) or die ( 'Forbidden' );
 
 function infobip_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datetime = "", $p_update = "") {
 	global $plugin_config;
+	
+	_log("enter vgw:" . $vgw . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "infobip_hook_outgoing");
+	
 	list ( $c_sms_credit, $c_sms_status ) = infobip_getsmsstatus ( $smslog_id );
 	// pending
 	$p_status = 0;

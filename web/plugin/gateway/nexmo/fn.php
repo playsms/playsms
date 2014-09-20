@@ -31,6 +31,20 @@ defined('_SECURE_') or die('Forbidden');
 // $smslog_id : sms ID
 function nexmo_hook_sendsms($vgw, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
 	global $plugin_config;
+	
+	_log("enter vgw:" . $vgw . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "nexmo_hook_outgoing");
+
+	// override gateway configuration by virtual gateway configuration
+	$vgw = gateway_get_virtualbyname($vgw);
+	if ($vgw['name'] && $vgw['gateway'] && $vgw['data']) {
+		$vgw_data = core_object_to_array(json_decode($vgw['data']));
+		foreach ($vgw_data as $key => $val) {
+			if ($val) {
+				$plugin_config[$vgw['name']][$key] = $val;
+			}
+		}
+	}
+	
 	$sms_sender = stripslashes($sms_sender);
 	$sms_footer = stripslashes($sms_footer);
 	$sms_msg = stripslashes($sms_msg);

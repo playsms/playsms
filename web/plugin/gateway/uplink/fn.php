@@ -21,6 +21,8 @@ function uplink_hook_sendsms($vgw, $sms_sender, $sms_footer, $sms_to, $sms_msg, 
 	// return $ok;
 	global $plugin_config;
 	
+	_log("enter vgw:" . $vgw . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "uplink_hook_outgoing");
+	
 	$sms_sender = stripslashes($sms_sender);
 	$sms_footer = ($sms_footer ? $sms_footer : stripslashes($sms_footer));
 	$sms_msg = stripslashes($sms_msg) . $sms_footer;

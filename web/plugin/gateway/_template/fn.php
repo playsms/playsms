@@ -16,6 +16,9 @@ defined('_SECURE_') or die('Forbidden');
 // $unicode		: send unicode character (16 bit)
 function template_hook_sendsms($vgw, $sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
 	// global $tmpl_param;   // global all variables needed, eg: varibles from config.php
+
+	_log("enter vgw:" . $vgw . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "template_hook_outgoing");
+	
 	//$sms_sender = stripslashes($sms_sender);
 	//$sms_footer = stripslashes($sms_footer);
 	//$sms_msg = stripslashes($sms_msg);

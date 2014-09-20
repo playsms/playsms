@@ -170,7 +170,7 @@ switch (_OP_) {
 		$add_prefix = $_POST['add_prefix'];
 		$add_prefix = core_sanitize_numeric($add_prefix);
 		$add_prefix = substr($add_prefix, 0, 8);
-		$add_gateway = ( $_POST['add_gateway'] ? $_POST['up_gateway'] : '_gateway_none_' );
+		$add_gateway = ( $_POST['add_gateway'] ? $_POST['add_gateway'] : 'blocked' );
 		if ($add_dst && $add_prefix) {
 			$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix='$add_prefix'";
 			$db_result = dba_query($db_query);
