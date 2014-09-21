@@ -23,6 +23,9 @@ function uplink_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	
 	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "uplink_hook_sendsms");
 	
+	// override plugin gateway configuration by smsc configuration
+	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
+	
 	$sms_sender = stripslashes($sms_sender);
 	if ($plugin_config['uplink']['module_sender']) {
 		$sms_sender = $plugin_config['uplink']['module_sender'];

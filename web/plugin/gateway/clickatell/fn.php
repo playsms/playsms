@@ -38,6 +38,9 @@ function clickatell_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_
 	
 	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "clickatell_hook_sendsms");
 	
+	// override plugin gateway configuration by smsc configuration
+	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
+	
 	$sms_sender = stripslashes($sms_sender);
 	if ($plugin_config['clickatell']['module_sender']) {
 		$sms_sender = $plugin_config['clickatell']['module_sender'];
