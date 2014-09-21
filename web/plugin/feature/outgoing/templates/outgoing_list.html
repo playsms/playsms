@@ -5,7 +5,8 @@
 	<table class=playsms-table-list>
 		<thead>
 			<tr>
-				<th width='50%'>{{ Destination name }}</th>
+				<th width='20%'>{{ User }}</th>
+				<th width='30%'>{{ Destination name }}</th>
 				<th width='20%'>{{ Prefix }}</th>
 				<th width='20%'>{{ SMSC }}</th>
 				<th width='10%'>{{ Action }}</th>
@@ -14,6 +15,7 @@
 		<tbody>
 			<loop.data>
 			<tr class={{data.tr_class }}>
+				<td>{{ data.username }}</td>
 				<td>{{ data.dst }}</td>
 				<td>{{ data.prefix }}</td>
 				<td>{{ data.smsc }}</td>

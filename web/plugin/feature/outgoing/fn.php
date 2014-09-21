@@ -22,10 +22,22 @@ function outgoing_getdata() {
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureOutgoing ORDER BY dst";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
+		$db_row['username'] = user_uid2username($db_row['uid']);
 		$ret[] = $db_row;
 	}
 	
 	return $ret;
+}
+
+function outgoing_getuid($id) {
+	if ($id) {
+		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_featureOutgoing WHERE id='$id'";
+		$db_result = dba_query($db_query);
+		$db_row = dba_fetch_array($db_result);
+		$dst = $db_row['uid'];
+	}
+	
+	return $dst;
 }
 
 function outgoing_getdst($id) {
@@ -62,19 +74,20 @@ function outgoing_getsmsc($id) {
 	return $smsc;
 }
 
-function outgoing_prefix2smsc($prefix) {
+function outgoing_prefix2smsc($prefix, $uid = 0) {
 	$prefix = (string) substr($prefix, 0, 8);
-	$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix='$prefix'";
+	$uid = ((int) $uid ? (int) $uid : 0);
+	$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix='$prefix' AND uid='$uid'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$smsc[] = $db_row['smsc'];
 	}
-	// _log('prefix: ' . $prefix . ' debug:' . print_r($smsc, 1), 3, 'outgoing_hook_sendsms_intercept');
+	_log('prefix: ' . $prefix . ' uid:' . $uid . ' debug:' . print_r($smsc, 1), 3, 'outgoing_hook_sendsms_intercept');
 	
 	return $smsc;
 }
 
-function outgoing_mobile2smsc($mobile) {
+function outgoing_mobile2smsc($mobile, $uid = 0) {
 	$mobile = core_sanitize_numeric($mobile);
 	
 	if (strlen($mobile) < 8) {
@@ -85,7 +98,10 @@ function outgoing_mobile2smsc($mobile) {
 	
 	for($i = 8; $i > 0; $i--) {
 		$c_prefix = substr($mobile, 0, $i);
-		if ($smsc = outgoing_prefix2smsc($c_prefix)) {
+		if ($smsc = outgoing_prefix2smsc($c_prefix, $uid)) {
+			$ret = $smsc;
+			break;
+		} else if ($smsc = outgoing_prefix2smsc($c_prefix)) {
 			$ret = $smsc;
 			break;
 		}
@@ -96,15 +112,16 @@ function outgoing_mobile2smsc($mobile) {
 
 function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $smsc) {
 	$ret = array();
-	$continue = TRUE;
+	$next = TRUE;
 	
+	// supplied smsc will be priority
 	if ($smsc) {
 		_log('using supplied smsc smsc:[' . $smsc . ']', 3, 'outgoing_hook_sendsms_intercept');
-		$continue = FALSE;
+		$next = FALSE;
 	}
 	
-	if ($continue) {
-		$smsc_list = outgoing_mobile2smsc($sms_to);
+	if ($next) {
+		$smsc_list = outgoing_mobile2smsc($sms_to, $uid);
 		$found = FALSE;
 		$smsc_all = '';
 		$smsc_found = array();
@@ -118,11 +135,11 @@ function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms
 			_log('found SMSCs:' . $smsc_all, 3, 'outgoing_hook_sendsms_intercept');
 			_log('using prefix based smsc smsc:[' . $smsc_found[0] . ']', 3, 'outgoing_hook_sendsms_intercept');
 			$smsc = $smsc_found[0];
-			$continue = FALSE;
+			$next = FALSE;
 		}
 	}
 	
-	if ($continue) {
+	if ($next) {
 		_log('no route found', 3, 'outgoing_hook_sendsms_intercept');
 	}
 	

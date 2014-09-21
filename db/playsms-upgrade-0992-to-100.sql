@@ -467,3 +467,4 @@ ALTER TABLE `playsms_gatewayInfobip_config` CHANGE `cfg_sender` `cfg_module_send
 
 ALTER TABLE playsms_featureOutgoing DROP INDEX prefix;
 
+ALTER TABLE `playsms_featureOutgoing` ADD `uid` INT(11) NOT NULL DEFAULT '0' AFTER `id`;

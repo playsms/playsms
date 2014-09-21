@@ -31,6 +31,7 @@ switch (_OP_) {
 				'ERROR' => $error_content,
 				'Route outgoing SMS' => _('Route outgoing SMS'),
 				'Add route' => _button('index.php?app=main&inc=feature_outgoing&op=outgoing_add', _('Add route')),
+				'User' => _('User'),
 				'Destination name' => _('Destination name'),
 				'Prefix' => _('Prefix'),
 				'SMSC' => _('SMSC'),
@@ -46,6 +47,7 @@ switch (_OP_) {
 			$c_action .= "<a href='javascript: ConfirmURL(\"" . _('Are you sure ?') . "\", \"" . _u('index.php?app=main&inc=feature_outgoing&op=outgoing_del&rid=' . $c_rid) . "\")'>" . $icon_config['delete'] . "</a> ";
 			$tpl['loops']['data'][] = array(
 				'tr_class' => $tr_class,
+				'username' => ($row['username'] ? $row['username'] : '*'),
 				'dst' => $row['dst'],
 				'prefix' => $row['prefix'],
 				'smsc' => ($row['smsc'] ? $row['smsc'] : _('blocked')),
@@ -70,6 +72,8 @@ switch (_OP_) {
 		break;
 	case "outgoing_edit" :
 		$rid = $_REQUEST['rid'];
+		$uid = outgoing_getuid($rid);
+		$select_users = themes_select_users_single('up_uid', $uid);
 		$dst = outgoing_getdst($rid);
 		$prefix = outgoing_getprefix($rid);
 		$smsc = outgoing_getsmsc($rid);
@@ -95,13 +99,16 @@ switch (_OP_) {
 			<input type='hidden' name='rid' value=\"$rid\">
 			<table class=playsms-table>
 			<tr>
+				<td class=label-sizer>" . _('User') . "</td><td>" . $select_users . "</td>
+			</tr>
+			<tr>
 				<td class=label-sizer>" . _mandatory('Destination name') . "</td><td><input type='text' maxlength='30' name='up_dst' value=\"$dst\" required></td>
 			</tr>
 			<tr>
-				<td>" . _mandatory('Prefix') . "</td><td><input type='text' maxlength=8 name='up_prefix' value=\"$prefix\" required> " . _hint('Maximum 8 digits numeric only') . "</td>
+				<td class=label-sizer>" . _mandatory('Prefix') . "</td><td><input type='text' maxlength=8 name='up_prefix' value=\"$prefix\" required> " . _hint('Maximum 8 digits numeric only') . "</td>
 			</tr>
 			<tr>
-				<td>" . _('SMSC') . "</td><td>" . $select_smsc . "</td>
+				<td class=label-sizer>" . _('SMSC') . "</td><td>" . $select_smsc . "</td>
 			</tr>
 			</table>
 			<p><input type='submit' class='button' value='" . _('Save') . "'></p>
@@ -111,14 +118,22 @@ switch (_OP_) {
 		break;
 	case "outgoing_edit_save" :
 		$rid = $_POST['rid'];
+
+		$up_uid = $_REQUEST['up_uid'];
+		if ($up_uid) {
+			$up_username = user_uid2username($up_uid);
+			if (! $up_username) {
+				$up_uid = 0;
+			}
+		}
 		$up_dst = $_POST['up_dst'];
 		$up_prefix = $_POST['up_prefix'];
 		$up_prefix = core_sanitize_numeric($up_prefix);
-		$up_prefix = (int) substr($up_prefix, 0, 8);
+		$up_prefix = (string) substr($up_prefix, 0, 8);
 		$up_smsc = ($_POST['up_smsc'] ? $_POST['up_smsc'] : 'blocked');
 		$_SESSION['error_string'] = _('No changes made!');
 		if ($rid && $up_dst) {
-			$db_query = "UPDATE " . _DB_PREF_ . "_featureOutgoing SET c_timestamp='" . mktime() . "',dst='$up_dst',prefix='$up_prefix',smsc='$up_smsc' WHERE id='$rid'";
+			$db_query = "UPDATE " . _DB_PREF_ . "_featureOutgoing SET c_timestamp='" . mktime() . "',uid='$up_uid',dst='$up_dst',prefix='$up_prefix',smsc='$up_smsc' WHERE id='$rid'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('Route has been saved') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": $up_prefix)";
 			} else {
@@ -134,6 +149,7 @@ switch (_OP_) {
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
+		$select_users = themes_select_users_single('add_uid');
 		$select_smsc = "<select name=add_smsc>";
 		unset($smsc_list);
 		$list = gateway_getall_smsc();
@@ -151,13 +167,16 @@ switch (_OP_) {
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
 			<tr>
+				<td class=label-sizer>" . _('User') . "</td><td>" . $select_users . "</td>
+			</tr>
+			<tr>
 				<td class=label-sizer>" . _mandatory('Destination name') . "</td><td><input type='text' maxlength='30' name='add_dst' value=\"$add_dst\" required></td>
 			</tr>
 			<tr>
-				<td>" . _mandatory('Prefix') . "</td><td><input type='text' maxlength=8 name='add_prefix' value=\"$add_prefix\" required> " . _hint('Maximum 8 digits numeric only') . "</td>
+				<td class=label-sizer>" . _mandatory('Prefix') . "</td><td><input type='text' maxlength=8 name='add_prefix' value=\"$add_prefix\" required> " . _hint('Maximum 8 digits numeric only') . "</td>
 			</tr>
 			<tr>
-				<td>" . _('SMSC') . "</td><td>" . $select_smsc . "</td>
+				<td class=label-sizer>" . _('SMSC') . "</td><td>" . $select_smsc . "</td>
 			</tr>
 			</table>
 			<input type='submit' class='button' value='" . _('Save') . "'>
@@ -166,15 +185,23 @@ switch (_OP_) {
 		_p($content);
 		break;
 	case "outgoing_add_yes" :
+		$add_uid = $_REQUEST['add_uid'];		
+		if ($add_uid) {
+			$add_username = user_uid2username($add_uid);
+			if (! $add_username) {
+				$add_uid = 0;
+			}
+		}
+		
 		$add_dst = $_POST['add_dst'];
 		$add_prefix = $_POST['add_prefix'];
 		$add_prefix = core_sanitize_numeric($add_prefix);
-		$add_prefix = (int) substr($add_prefix, 0, 8);
+		$add_prefix = (string) substr($add_prefix, 0, 8);
 		$add_smsc = ($_POST['add_smsc'] ? $_POST['add_smsc'] : 'blocked');
 		if ($add_dst) {
 			$db_query = "
-					INSERT INTO " . _DB_PREF_ . "_featureOutgoing (dst,prefix,smsc)
-					VALUES ('$add_dst','$add_prefix','$add_smsc')";
+					INSERT INTO " . _DB_PREF_ . "_featureOutgoing (uid,dst,prefix,smsc)
+					VALUES ('$add_uid','$add_dst','$add_prefix','$add_smsc')";
 			if ($new_uid = @dba_insert_id($db_query)) {
 				$_SESSION['error_string'] = _('Route has been added') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": $add_prefix)";
 			}

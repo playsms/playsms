@@ -1599,6 +1599,7 @@ DROP TABLE IF EXISTS `playsms_featureOutgoing` ;
 CREATE TABLE `playsms_featureOutgoing` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL DEFAULT '0',
   `dst` varchar(100) NOT NULL DEFAULT '',
   `prefix` varchar(10) NOT NULL DEFAULT '',
   `smsc` varchar(100) NOT NULL DEFAULT '',
