@@ -19,24 +19,6 @@
 defined('_SECURE_') or die('Forbidden');
 
 /**
- * Get gateway plugin status
- *
- * @global array $core_config
- * @param string $name
- *        	gateway name
- * @return boolean
- */
-function gateway_get_status($name) {
-	global $core_config;
-	if (core_gateway_get() == $name) {
-		$ret = TRUE;
-	} else {
-		$ret = FALSE;
-	}
-	return $ret;
-}
-
-/**
  * Get all gateway data
  *
  * @return array
@@ -53,7 +35,7 @@ function gateway_getall() {
 }
 
 /**
- * Get all smsc data
+ * Get all SMSC data
  *
  * @return array
  */
@@ -67,7 +49,7 @@ function gateway_getall_smsc() {
 }
 
 /**
- * Get smsc data by ID
+ * Get SMSC data by ID
  *
  * @param integer $id        	
  * @return array
@@ -85,7 +67,7 @@ function gateway_get_smscbyid($id) {
 }
 
 /**
- * Get smsc data by name
+ * Get SMSC data by name
  *
  * @param string $name        	
  * @return array
@@ -126,31 +108,6 @@ function gateway_valid_name($name) {
 }
 
 /**
- * Activate selected gateway plugin
- *
- * @global array $core_config
- * @param string $name
- *        	gateway name
- * @return boolean
- */
-function gateway_set_active($name) {
-	global $core_config;
-	$ret = FALSE;
-	$fn1 = $core_config['apps_path']['plug'] . '/gateway/' . $name . '/config.php';
-	$fn2 = $core_config['apps_path']['plug'] . '/gateway/' . $name . '/config.php';
-	if (file_exists($fn1) && file_exists($fn2) && (core_gateway_get() != $name)) {
-		$items = array(
-			'gateway_module' => $name 
-		);
-		if (registry_update(1, 'core', 'main_config', $items)) {
-			$core_config['main']['gateway_module'] = $name;
-			$ret = TRUE;
-		}
-	}
-	return $ret;
-}
-
-/**
  * List gateway plugins and load its configuration
  *
  * @global array $core_config
@@ -167,11 +124,6 @@ function gateway_list() {
 			$subdir_tab[$z]['name'] .= $fn;
 			$subdir_tab[$z]['version'] .= trim(file_get_contents($core_config['apps_path']['plug'] . '/gateway/' . $f . '/docs/VERSION'));
 			$subdir_tab[$z]['date'] .= date($core_config['datetime']['format'], filemtime($upload_path . $f));
-			if (gateway_get_status($fn)) {
-				$subdir_tab[$z][status] .= '<span class=status_enabled></span>';
-			} else {
-				$subdir_tab[$z][status] .= '<span class=status_disabled></span>';
-			}
 			$z++;
 		}
 	}
@@ -247,7 +199,7 @@ function _gateway_display() {
 }
 
 /**
- * Display smscs on UI
+ * Display SMSCs on UI
  *
  * @global array $core_config
  * @return string

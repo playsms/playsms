@@ -67,16 +67,20 @@ function setsmsdeliverystatus($smslog_id,$uid,$p_status) {
 			for ($c=0;$c<count($core_config['featurelist']);$c++) {
 				core_hook($core_config['featurelist'][$c],'setsmsdeliverystatus',array($smslog_id,$uid,$p_status));
 			}
-			$gw = core_gateway_get();
-			core_hook($gw,'setsmsdeliverystatus',array($smslog_id,$uid,$p_status));
+			$smsc = core_smsc_get();
+			$smsc_data = gateway_get_smscbyname($smsc);
+			$gateway = $smsc_data['gateway'];
+			core_hook($gateway,'setsmsdeliverystatus',array($smslog_id,$uid,$p_status));
 		}
 	}
 	return $ok;
 }
 
 function getsmsstatus() {
-	$gw = core_gateway_get();
-	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status='0' AND p_gateway='$gw'";
+	$smsc = core_smsc_get();
+	$smsc_data = gateway_get_smscbyname($smsc);
+	$gateway = $smsc_data['gateway'];
+	$db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status='0' AND p_gateway='$smsc'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$uid = $db_row['uid'];
@@ -84,6 +88,6 @@ function getsmsstatus() {
 		$p_datetime = $db_row['p_datetime'];
 		$p_update = $db_row['p_update'];
 		$gpid = $db_row['p_gpid'];
-		core_hook($gw,'getsmsstatus',array($gpid,$uid,$smslog_id,$p_datetime,$p_update));
+		core_hook($gateway,'getsmsstatus',array($gpid,$uid,$smslog_id,$p_datetime,$p_update));
 	}
 }

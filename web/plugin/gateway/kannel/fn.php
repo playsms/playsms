@@ -34,7 +34,7 @@ defined('_SECURE_') or die('Forbidden');
 function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
 	global $core_config, $plugin_config;
 
-	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "kannel_hook_outgoing");
+	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "kannel_hook_sendsms");
 	
 	// override gateway configuration by smsc configuration
 	$smsc = gateway_get_smscbyname($smsc);
@@ -104,7 +104,7 @@ function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	$URL .= $additional_param;
 	$URL = str_replace("&&", "&", $URL);
 	
-	logger_print("http://" . $plugin_config['kannel']['sendsms_host'] . ":" . $plugin_config['kannel']['sendsms_port'] . $URL, 3, "kannel outgoing");
+	logger_print("URL: http://" . $plugin_config['kannel']['sendsms_host'] . ":" . $plugin_config['kannel']['sendsms_port'] . $URL, 3, "kannel_hook_sendsms");
 	
 	// srosa 20100531: Due to improper http response from Kannel, file_get_contents cannot be used.
 	// One issue is that Kannel responds with HTTP 202 whereas file_get_contents expect HTTP 200

@@ -5,7 +5,7 @@ function dev_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $u
 	global $plugin_config;
 	$ok = false;
 	
-	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "dev_hook_outgoing");
+	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "dev_hook_sendsms");
 	
 	if ($plugin_config['dev']['enable_outgoing']) {
 		$p_status = 3;

@@ -718,7 +718,23 @@ function core_download($content, $fn = '', $content_type = '') {
 }
 
 /**
- * Get active gateway plugin
+ * Get default SMSC
+ * @global array $core_config
+ * @return string
+ */
+function core_smsc_get() {
+	global $core_config;
+	
+	$ret = core_call_hook();
+	if (!$ret) {
+		return $core_config['main']['gateway_module'];
+	}
+	
+	return $ret;
+}
+
+/**
+ * Get default gateway based on default SMSC
  * @global array $core_config
  * @return string
  */
@@ -727,7 +743,10 @@ function core_gateway_get() {
 	
 	$ret = core_call_hook();
 	if (!$ret) {
-		return $core_config['main']['gateway_module'];
+		$smsc = core_smsc_get();
+		$smsc_data = gateway_get_smscbyname($smsc);
+		$gateway = $smsc_data['gateway'];
+		return $gateway;
 	}
 	
 	return $ret;

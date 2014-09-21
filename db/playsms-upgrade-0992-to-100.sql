@@ -446,3 +446,9 @@ CREATE TABLE `playsms_tblGateway` (
 INSERT INTO `playsms_tblGateway` (`id`, `created`, `last_update`, `name`, `gateway`, `data`) VALUES
 (1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'blocked', 'blocked', '[]'),
 (2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'dev', 'dev', '[]');
+
+ALTER TABLE `playsms_tblRecvSMS` CHANGE `gw` `smsc` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';
+
+ALTER TABLE `playsms_tblSMSOutgoing_queue` CHANGE `gw` `smsc` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT ''
+
+ALTER TABLE `playsms_featureOutgoing` CHANGE `gateway` `smsc` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';

@@ -20,6 +20,7 @@ $cb_text = $_REQUEST['text'];
 $cb_status = $_REQUEST['status'];
 $cb_charge = $_REQUEST['charge'];
 $cb_apimsgid = $_REQUEST['apiMsgId'];
+$cb_smsc = ( trim($_REQUEST['smsc']) ? trim($_REQUEST['smsc']) : 'clickatell' );
 
 if ($cb_timestamp && $cb_from && $cb_text) {
 	$cb_datetime = date($datetime_format, $cb_timestamp);
@@ -32,7 +33,7 @@ if ($cb_timestamp && $cb_from && $cb_text) {
 
 	// collected:
 	// $sms_datetime, $sms_sender, $message, $sms_receiver
-	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, 'clickatell');
+	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $cb_smsc);
 }
 
 if ($cb_status && $cb_apimsgid) {

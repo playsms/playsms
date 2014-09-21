@@ -31,7 +31,7 @@ switch (_OP_) {
 				'ERROR' => $error_content,
 				'Route outgoing SMS' => _('Route outgoing SMS'),
 				'Add route' => _button('index.php?app=main&inc=feature_outgoing&op=outgoing_add', _('Add route')),
-				'Destination' => _('Destination'),
+				'Destination name' => _('Destination name'),
 				'Prefix' => _('Prefix'),
 				'SMSC' => _('SMSC'),
 				'Action' => _('Action'),
@@ -43,12 +43,12 @@ switch (_OP_) {
 		foreach ($data as $row ) {
 			$c_rid = $row['id'];
 			$c_action = "<a href='" . _u('index.php?app=main&inc=feature_outgoing&op=outgoing_edit&rid=' . $c_rid) . "'>" . $icon_config['edit'] . "</a> ";
-			$c_action .= "<a href='" . _u('index.php?app=main&inc=feature_outgoing&op=outgoing_del&rid=' . $c_rid) . "'>" . $icon_config['delete'] . "</a> ";
+			$c_action .= "<a href='javascript: ConfirmURL(\"" . _('Are you sure ?') . "\", \"" . _u('index.php?app=main&inc=feature_outgoing&op=outgoing_del&rid=' . $c_rid) . "\")'>" . $icon_config['delete'] . "</a> ";
 			$tpl['loops']['data'][] = array(
 				'tr_class' => $tr_class,
 				'dst' => $row['dst'],
 				'prefix' => $row['prefix'],
-				'gateway' => ( $row['gateway'] ? $row['gateway'] : _('blocked') ),
+				'smsc' => ($row['smsc'] ? $row['smsc'] : _('blocked')),
 				'action' => $c_action 
 			);
 		}
@@ -63,7 +63,7 @@ switch (_OP_) {
 		$_SESSION['error_string'] = _('Fail to delete route') . " (" . _('destination') . ": $dst, " . _('prefix') . ": $prefix)";
 		$db_query = "DELETE FROM " . _DB_PREF_ . "_featureOutgoing WHERE id='$rid'";
 		if (@dba_affected_rows($db_query)) {
-			$_SESSION['error_string'] = _('gateway has been deleted') . " (" . _('destination') . ": $dst, " . _('prefix') . ": $prefix)";
+			$_SESSION['error_string'] = _('Route has been deleted') . " (" . _('destination') . ": $dst, " . _('prefix') . ": $prefix)";
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_outgoing&op=outgoing_list'));
 		exit();
@@ -72,21 +72,21 @@ switch (_OP_) {
 		$rid = $_REQUEST['rid'];
 		$dst = outgoing_getdst($rid);
 		$prefix = outgoing_getprefix($rid);
-		$gateway = outgoing_getgateway($rid);
+		$smsc = outgoing_getsmsc($rid);
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
-		$select_gateway = "<select name=up_gateway>";
+		$select_smsc = "<select name=up_smsc>";
 		unset($smsc_list);
 		$list = gateway_getall_smsc();
-		foreach ($list as $smsc) {
-			$smsc_list[] = $smsc['name'];
+		foreach ($list as $c_smsc ) {
+			$smsc_list[] = $c_smsc['name'];
 		}
-		foreach ($smsc_list as $smsc) {
-			$selected = $smsc == $gateway ? "selected" : "";
-			$select_gateway .= "<option " . $selected . ">" . $smsc . "</option>";
+		foreach ($smsc_list as $smsc_name ) {
+			$selected = $smsc_name == $smsc ? "selected" : "";
+			$select_smsc .= "<option " . $selected . ">" . $smsc_name . "</option>";
 		}
-		$select_gateway .= "</select>";
+		$select_smsc .= "</select>";
 		$content .= "
 			<h2>" . _('Route SMS outgoing') . "</h2>
 			<h3>" . _('Edit route') . "</h3>
@@ -95,13 +95,13 @@ switch (_OP_) {
 			<input type='hidden' name='rid' value=\"$rid\">
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _mandatory('Destination') . "</td><td><input type='text' maxlength='30' name='up_dst' value=\"$dst\" required></td>
+				<td class=label-sizer>" . _mandatory('Destination name') . "</td><td><input type='text' maxlength='30' name='up_dst' value=\"$dst\" required></td>
 			</tr>
 			<tr>
 				<td>" . _mandatory('Prefix') . "</td><td><input type='text' maxlength=10 name='up_prefix' value=\"$prefix\" required></td>
 			</tr>
 			<tr>
-				<td>" . _('SMSC') . "</td><td>" . $select_gateway . "</td>
+				<td>" . _('SMSC') . "</td><td>" . $select_smsc . "</td>
 			</tr>
 			</table>
 			<p><input type='submit' class='button' value='" . _('Save') . "'></p>
@@ -115,10 +115,10 @@ switch (_OP_) {
 		$up_prefix = $_POST['up_prefix'];
 		$up_prefix = core_sanitize_numeric($up_prefix);
 		$up_prefix = substr($up_prefix, 0, 8);
-		$up_gateway = ( $_POST['up_gateway'] ? $_POST['up_gateway'] : '_gateway_none_' );
+		$up_smsc = ($_POST['up_smsc'] ? $_POST['up_smsc'] : 'blocked');
 		$_SESSION['error_string'] = _('No changes made!');
 		if ($rid && $up_dst && $up_prefix) {
-			$db_query = "UPDATE " . _DB_PREF_ . "_featureOutgoing SET c_timestamp='" . mktime() . "',dst='$up_dst',prefix='$up_prefix',gateway='$up_gateway' WHERE id='$rid'";
+			$db_query = "UPDATE " . _DB_PREF_ . "_featureOutgoing SET c_timestamp='" . mktime() . "',dst='$up_dst',prefix='$up_prefix',smsc='$up_smsc' WHERE id='$rid'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('Route has been saved') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": $up_prefix)";
 			} else {
@@ -134,30 +134,30 @@ switch (_OP_) {
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
-		$select_gateway = "<select name=add_gateway>";
+		$select_smsc = "<select name=add_smsc>";
 		unset($smsc_list);
 		$list = gateway_getall_smsc();
-		foreach ($list as $smsc) {
-			$smsc_list[] = $smsc['name'];
+		foreach ($list as $c_smsc ) {
+			$smsc_list[] = $c_smsc['name'];
 		}
-		foreach ($smsc_list as $smsc) {
-			$select_gateway .= "<option>" . $smsc . "</option>";
+		foreach ($smsc_list as $smsc_name ) {
+			$select_smsc .= "<option>" . $smsc_name . "</option>";
 		}
-		$select_gateway .= "</select>";
+		$select_smsc .= "</select>";
 		$content .= "
-			<h2>" . _('Manage SMS gateway') . "</h2>
-			<h3>" . _('Add gateway') . "</h3>
+			<h2>" . _('Route outgoing SMS') . "</h2>
+			<h3>" . _('Add route') . "</h3>
 			<form action='index.php?app=main&inc=feature_outgoing&op=outgoing_add_yes' method='post'>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _mandatory('Destination') . "</td><td><input type='text' maxlength='30' name='add_dst' value=\"$add_dst\" required></td>
+				<td class=label-sizer>" . _mandatory('Destination name') . "</td><td><input type='text' maxlength='30' name='add_dst' value=\"$add_dst\" required></td>
 			</tr>
 			<tr>
 				<td>" . _mandatory('Prefix') . "</td><td><input type='text' maxlength=10 name='add_prefix' value=\"$add_prefix\" required></td>
 			</tr>
 			<tr>
-				<td>" . _('SMSC') . "</td><td>" . $select_gateway . "</td>
+				<td>" . _('SMSC') . "</td><td>" . $select_smsc . "</td>
 			</tr>
 			</table>
 			<input type='submit' class='button' value='" . _('Save') . "'>
@@ -170,7 +170,7 @@ switch (_OP_) {
 		$add_prefix = $_POST['add_prefix'];
 		$add_prefix = core_sanitize_numeric($add_prefix);
 		$add_prefix = substr($add_prefix, 0, 8);
-		$add_gateway = ( $_POST['add_gateway'] ? $_POST['add_gateway'] : 'blocked' );
+		$add_smsc = ($_POST['add_smsc'] ? $_POST['add_smsc'] : 'blocked');
 		if ($add_dst && $add_prefix) {
 			$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix='$add_prefix'";
 			$db_result = dba_query($db_query);
@@ -178,8 +178,8 @@ switch (_OP_) {
 				$_SESSION['error_string'] = _('Route is already exists') . " (" . _('destination') . ": " . $db_row['dst'] . ", " . _('prefix') . ": " . $db_row['prefix'] . ")";
 			} else {
 				$db_query = "
-					INSERT INTO " . _DB_PREF_ . "_featureOutgoing (dst,prefix,gateway)
-					VALUES ('$add_dst','$add_prefix','$add_gateway')";
+					INSERT INTO " . _DB_PREF_ . "_featureOutgoing (dst,prefix,smsc)
+					VALUES ('$add_dst','$add_prefix','$add_smsc')";
 				if ($new_uid = @dba_insert_id($db_query)) {
 					$_SESSION['error_string'] = _('Route has been added') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": $add_prefix)";
 				}

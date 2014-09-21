@@ -51,30 +51,30 @@ function outgoing_getprefix($id) {
 	return $prefix;
 }
 
-function outgoing_getgateway($id) {
+function outgoing_getsmsc($id) {
 	if ($id) {
-		$db_query = "SELECT gateway FROM " . _DB_PREF_ . "_featureOutgoing WHERE id='$id'";
+		$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE id='$id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$gateway = $db_row['gateway'];
+		$smsc = $db_row['smsc'];
 	}
 	
-	return $gateway;
+	return $smsc;
 }
 
-function outgoing_prefix2gateway($prefix) {
+function outgoing_prefix2smsc($prefix) {
 	if ($prefix) {
 		$prefix = substr($prefix, 0, 8);
-		$db_query = "SELECT gateway FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix='$prefix'";
+		$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix='$prefix'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$gateway = $db_row['gateway'];
+		$smsc = $db_row['smsc'];
 	}
 	
-	return $gateway;
+	return $smsc;
 }
 
-function outgoing_mobile2gateway($mobile) {
+function outgoing_mobile2smsc($mobile) {
 	$mobile = core_sanitize_numeric($mobile);
 	
 	if (strlen($mobile) < 8) {
@@ -85,8 +85,8 @@ function outgoing_mobile2gateway($mobile) {
 	
 	for($i = strlen($prefix); $i > 0; $i--) {
 		$c_prefix = substr($mobile, 0, $i);
-		if ($gateway = outgoing_prefix2gateway($c_prefix)) {
-			$ret = $gateway;
+		if ($smsc = outgoing_prefix2smsc($c_prefix)) {
+			$ret = $smsc;
 			break;
 		}
 	}
@@ -94,20 +94,20 @@ function outgoing_mobile2gateway($mobile) {
 	return $ret;
 }
 
-function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $gw) {
+function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $smsc) {
 	$ret = array();
 	
-	if ($gw) {
-		_log('using supplied gateway gw:[' . $gw . ']', 3, 'outgoing_hook_sendsms_intercept');
-	} else if ($gw = outgoing_mobile2gateway($sms_to)) {
-		_log('using prefix based gateway gw:[' . $gw . ']', 3, 'outgoing_hook_sendsms_intercept');
+	if ($smsc) {
+		_log('using supplied smsc smsc:[' . $smsc . ']', 3, 'outgoing_hook_sendsms_intercept');
+	} else if ($smsc = outgoing_mobile2smsc($sms_to)) {
+		_log('using prefix based smsc smsc:[' . $smsc . ']', 3, 'outgoing_hook_sendsms_intercept');
 	} else {
 		_log('no route found', 3, 'outgoing_hook_sendsms_intercept');
 	}
 	
-	if ($gw) {
+	if ($smsc) {
 		$ret['modified'] = TRUE;
-		$ret['param']['gw'] = $gw;
+		$ret['param']['smsc'] = $smsc;
 	}
 	return $ret;
 }

@@ -20,12 +20,12 @@ defined('_SECURE_') or die('Forbidden');
  *   Type of SMS
  * @param $unicode
  *   Whether or not a unicode message
- * @param $gw
+ * @param $smsc
  *   Gateway
  * @return
  *   array $ret
  */
-function msgtemplate_hook_sendsms_intercept($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode,$gw) {
+function msgtemplate_hook_sendsms_intercept($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid,$sms_type,$unicode,$smsc) {
 	// parameters modified
 	$ret['modified'] = true;
 

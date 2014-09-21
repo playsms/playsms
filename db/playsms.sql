@@ -1306,7 +1306,7 @@ CREATE TABLE `playsms_tblRecvSMS` (
   `sms_sender` varchar(20) NOT NULL DEFAULT '',
   `message` text NOT NULL,
   `sms_receiver` varchar(20) NOT NULL DEFAULT '',
-  `gw` varchar(100) NOT NULL DEFAULT '',
+  `smsc` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1444,7 +1444,7 @@ CREATE TABLE `playsms_tblSMSOutgoing_queue` (
   `message` text NOT NULL,
   `sms_type` varchar(100) NOT NULL DEFAULT '',
   `unicode` int(11) NOT NULL DEFAULT '0',
-  `gw` varchar(100) NOT NULL DEFAULT '',
+  `smsc` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `queue_code` (`queue_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1601,7 +1601,7 @@ CREATE TABLE `playsms_featureOutgoing` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `dst` varchar(100) NOT NULL DEFAULT '',
   `prefix` varchar(10) NOT NULL DEFAULT '',
-  `gateway` varchar(20) NOT NULL DEFAULT '',
+  `smsc` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `prefix` (`prefix`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;

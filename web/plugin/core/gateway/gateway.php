@@ -37,7 +37,7 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'gateway_add_smsc',
 			'vars' => array(
-				'FORM_TITLE' => _('Add smsc'),
+				'FORM_TITLE' => _('Add SMSC'),
 				'ACTION_URL' => 'index.php?app=main&inc=core_gateway&op=add_smsc_save',
 				'GATEWAY' => $c_gateway,
 				'BACK' => _back('index.php?app=main&inc=core_gateway&op=gateway_list'),
@@ -61,7 +61,7 @@ switch (_OP_) {
 			$continue = TRUE;
 		}
 		
-		$c_name = core_sanitize_alphanumeric($_REQUEST['name']);
+		$c_name = core_sanitize_alphanumeric(strtolower($_REQUEST['name']));
 		if (!$c_name) {
 			$c_name = mktime();
 		}
@@ -86,9 +86,9 @@ switch (_OP_) {
 				);
 				$db_table = _DB_PREF_ . '_tblGateway';
 				if ($new_id = dba_add($db_table, $items)) {
-					$_SESSION['error_string'] = _('New smsc has been added');
+					$_SESSION['error_string'] = _('New SMSC has been added');
 				} else {
-					$_SESSION['error_string'] = _('Fail to add new smsc');
+					$_SESSION['error_string'] = _('Fail to add new SMSC');
 				}
 			} else {
 				$_SESSION['error_string'] = _('Unknown error');
@@ -122,7 +122,7 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'gateway_edit_smsc',
 			'vars' => array(
-				'FORM_TITLE' => _('Edit smsc'),
+				'FORM_TITLE' => _('Edit SMSC'),
 				'ACTION_URL' => 'index.php?app=main&inc=core_gateway&op=edit_smsc_save',
 				'ID' => $c_id,
 				'NAME' => $c_name,
@@ -168,7 +168,7 @@ switch (_OP_) {
 			if ($new_id = dba_update($db_table, $items, $condition)) {
 				$_SESSION['error_string'] = _('SMSC has been edited');
 			} else {
-				$_SESSION['error_string'] = _('Fail to edit smsc');
+				$_SESSION['error_string'] = _('Fail to edit SMSC');
 			}
 		} else {
 			$_SESSION['error_string'] = _('Unknown error');
@@ -189,7 +189,7 @@ switch (_OP_) {
 			if (dba_remove($db_table, $condition)) {
 				$_SESSION['error_string'] = _('SMSC has been removed');
 			} else {
-				$_SESSION['error_string'] = _('Fail to remove smsc');
+				$_SESSION['error_string'] = _('Fail to remove SMSC');
 			}
 		} else {
 			$_SESSION['error_string'] = _('Unknown error');

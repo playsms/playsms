@@ -5,7 +5,7 @@
 	<table class=playsms-table-list>
 		<thead>
 			<tr>
-				<th width='50%'>{{ Destination }}</th>
+				<th width='50%'>{{ Destination name }}</th>
 				<th width='20%'>{{ Prefix }}</th>
 				<th width='20%'>{{ SMSC }}</th>
 				<th width='10%'>{{ Action }}</th>
@@ -16,7 +16,7 @@
 			<tr class={{data.tr_class }}>
 				<td>{{ data.dst }}</td>
 				<td>{{ data.prefix }}</td>
-				<td>{{ data.gateway }}</td>
+				<td>{{ data.smsc }}</td>
 				<td>{{ data.action }}</td>
 			</tr>
 			</loop.data>
