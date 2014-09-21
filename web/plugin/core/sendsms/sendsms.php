@@ -164,7 +164,7 @@ switch (_OP_) {
 		
 		if ($sms_to[0] && $message) {
 			
-			list($ok, $to, $smslog_id, $queue, $counts, $sms_count, $sms_failed) = sendsms_helper($user_config['username'], $sms_to, $message, $sms_type, $unicode, $nofooter, $sms_footer, $sms_sender, $sms_schedule, $reference_id);
+			list($ok, $to, $smslog_id, $queue, $counts, $sms_count, $sms_failed) = sendsms_helper($user_config['username'], $sms_to, $message, $sms_type, $unicode, '', $nofooter, $sms_footer, $sms_sender, $sms_schedule, $reference_id);
 			
 			$_SESSION['error_string'] = _('Your message has been delivered to queue') . " (" . _('queued') . ":" . (int) $sms_count . " " . _('failed') . ":" . (int) $sms_failed . ")";
 		} else {
