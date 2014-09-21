@@ -32,16 +32,16 @@ switch (_OP_) {
 				'Route outgoing SMS' => _('Route outgoing SMS'),
 				'Add route' => _button('index.php?app=main&inc=feature_outgoing&op=outgoing_add', _('Add route')),
 				'User' => _('User'),
-				'Destination name' => _('Destination name'),
 				'Prefix' => _('Prefix'),
 				'SMSC' => _('SMSC'),
+				'Destination name' => _('Destination name'),
 				'Action' => _('Action'),
 				'option' 
 			) 
 		);
 		
 		$extras = array(
-			'ORDER BY' => 'username' 
+			'ORDER BY' => 'username, smsc, prefix' 
 		);
 		$data = outgoing_getdata($extras);
 		foreach ($data as $row ) {
@@ -51,9 +51,9 @@ switch (_OP_) {
 			$tpl['loops']['data'][] = array(
 				'tr_class' => $tr_class,
 				'username' => ($row['username'] ? $row['username'] : '*'),
-				'dst' => $row['dst'],
 				'prefix' => $row['prefix'],
 				'smsc' => ($row['smsc'] ? $row['smsc'] : _('blocked')),
+				'dst' => $row['dst'],
 				'action' => $c_action 
 			);
 		}
