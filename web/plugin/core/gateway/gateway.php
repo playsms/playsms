@@ -200,7 +200,7 @@ switch (_OP_) {
 	
 	default :
 		$content = "
-			<h3>" . _('List of gateways and smscs') . "</h3>
+			<h3>" . _('List of gateways and SMSCs') . "</h3>
 			<ul class='nav nav-tabs nav-justified' id='playsms-tab'>
 				<li class=active><a href='#tabs-gateway' data-toggle=tab>" . _('Gateways') . "</a></li>
 				<li><a href='#tabs-virtual' data-toggle=tab>" . _('SMSCs') . "</a></li>

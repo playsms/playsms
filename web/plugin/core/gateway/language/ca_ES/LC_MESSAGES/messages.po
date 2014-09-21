@@ -43,8 +43,9 @@ msgstr ""
 msgid "Gateways"
 msgstr ""
 
-msgid "List of gateways and smscs"
-msgstr ""
+#, fuzzy
+msgid "List of gateways and SMSCs"
+msgstr "Gestionar sortida"
 
 #, fuzzy
 msgid "Manage gateway and SMSC"

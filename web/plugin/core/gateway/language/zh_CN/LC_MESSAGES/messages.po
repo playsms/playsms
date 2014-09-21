@@ -35,7 +35,7 @@ msgstr ""
 msgid "Gateways"
 msgstr ""
 
-msgid "List of gateways and smscs"
+msgid "List of gateways and SMSCs"
 msgstr ""
 
 msgid "Manage gateway and SMSC"
