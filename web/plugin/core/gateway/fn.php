@@ -85,6 +85,29 @@ function gateway_get_smscbyname($name) {
 }
 
 /**
+ * Apply SMSC config to $plugin_config
+ *
+ * @param string $smsc        	
+ * @param array $plugin_config        	
+ * @return array
+ */
+function gateway_apply_smsc_config($smsc, $plugin_config) {
+	if (is_array($plugin_config) && $plugin_config) {
+		$smsc_data = gateway_get_smscbyname($smsc);
+		if ($smsc_data['name'] && $smsc_data['gateway'] && $smsc_data['data']) {
+			$smsc_config = json_decode($smsc_data['data'], TRUE);
+			foreach ($smsc_config as $key => $val ) {
+				if ($val) {
+					$plugin_config[$smsc_data['gateway']][$key] = $val;
+				}
+			}
+		}
+	}
+	
+	return $plugin_config;
+}
+
+/**
  * Get valid name for supplied gateway
  *
  * @param string $name        	
