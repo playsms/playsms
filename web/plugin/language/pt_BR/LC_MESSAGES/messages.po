@@ -92,6 +92,10 @@ msgid "Manage gateway"
 msgstr "Administrar usuário"
 
 #, fuzzy
+msgid "Manage gateway and SMSC"
+msgstr "Administrar usuário"
+
+#, fuzzy
 msgid "Manage sender ID"
 msgstr "SMS Sender ID"
 

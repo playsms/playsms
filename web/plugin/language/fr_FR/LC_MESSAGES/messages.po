@@ -90,6 +90,10 @@ msgstr "Gérer"
 msgid "Manage gateway"
 msgstr "Gérer utilisateur"
 
+#, fuzzy
+msgid "Manage gateway and SMSC"
+msgstr "Gérer utilisateur"
+
 msgid "Manage sender ID"
 msgstr "Gérer sender ID"
 

@@ -83,6 +83,9 @@ msgstr ""
 msgid "Manage gateway"
 msgstr ""
 
+msgid "Manage gateway and SMSC"
+msgstr ""
+
 msgid "Manage sender ID"
 msgstr ""
 

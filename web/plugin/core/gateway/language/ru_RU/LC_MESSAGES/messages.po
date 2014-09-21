@@ -44,7 +44,8 @@ msgstr ""
 msgid "List of gateways and smscs"
 msgstr ""
 
-msgid "Manage gateway"
+#, fuzzy
+msgid "Manage gateway and SMSC"
 msgstr "Управление шлюзами"
 
 msgid "Name"

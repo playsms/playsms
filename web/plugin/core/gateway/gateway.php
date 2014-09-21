@@ -234,7 +234,7 @@ switch (_OP_) {
 		";
 }
 $final_content = _err_display() . "
-	<h2>" . _('Manage gateway') . "</h2>
+	<h2>" . _('Manage gateway and SMSC') . "</h2>
 	" . $content;
 
 _p($final_content);

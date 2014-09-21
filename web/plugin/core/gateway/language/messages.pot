@@ -31,7 +31,7 @@ msgstr ""
 msgid "List of gateways and smscs"
 msgstr ""
 
-msgid "Manage gateway"
+msgid "Manage gateway and SMSC"
 msgstr ""
 
 msgid "Name"
