@@ -452,3 +452,15 @@ ALTER TABLE `playsms_tblRecvSMS` CHANGE `gw` `smsc` VARCHAR(100) CHARACTER SET u
 ALTER TABLE `playsms_tblSMSOutgoing_queue` CHANGE `gw` `smsc` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT ''
 
 ALTER TABLE `playsms_featureOutgoing` CHANGE `gateway` `smsc` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';
+
+ALTER TABLE `playsms_gatewayMsgtoolbox_config` CHANGE `cfg_global_sender` `cfg_module_sender` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+
+ALTER TABLE `playsms_gatewayNexmo_config` CHANGE `cfg_global_sender` `cfg_module_sender` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+
+ALTER TABLE `playsms_gatewayTwilio_config` CHANGE `cfg_global_sender` `cfg_module_sender` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+
+ALTER TABLE `playsms_gatewayUplink_config` CHANGE `cfg_global_sender` `cfg_module_sender` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+
+ALTER TABLE `playsms_gatewayClickatell_config` CHANGE `cfg_sender` `cfg_module_sender` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+
+ALTER TABLE `playsms_gatewayInfobip_config` CHANGE `cfg_sender` `cfg_module_sender` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';

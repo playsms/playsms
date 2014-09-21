@@ -799,7 +799,7 @@ CREATE TABLE `playsms_gatewayClickatell_config` (
   `cfg_api_id` varchar(20) DEFAULT NULL,
   `cfg_username` varchar(100) DEFAULT NULL,
   `cfg_password` varchar(100) DEFAULT NULL,
-  `cfg_sender` varchar(20) DEFAULT NULL,
+  `cfg_module_sender` varchar(20) DEFAULT NULL,
   `cfg_send_url` varchar(250) DEFAULT NULL,
   `cfg_incoming_path` varchar(250) DEFAULT NULL,
   `cfg_credit` int(11) NOT NULL DEFAULT '0',
@@ -880,7 +880,7 @@ CREATE TABLE `playsms_gatewayInfobip_config` (
   `cfg_name` varchar(20) NOT NULL DEFAULT 'infobip',
   `cfg_username` varchar(100) NOT NULL DEFAULT '',
   `cfg_password` varchar(100) NOT NULL DEFAULT '',
-  `cfg_sender` varchar(20) NOT NULL DEFAULT '',
+  `cfg_module_sender` varchar(20) NOT NULL DEFAULT '',
   `cfg_send_url` varchar(250) NOT NULL DEFAULT '',
   `cfg_credit` int(11) NOT NULL DEFAULT '0',
   `cfg_additional_param` varchar(250) NOT NULL DEFAULT '',
@@ -939,7 +939,7 @@ CREATE TABLE `playsms_gatewayMsgtoolbox_config` (
   `cfg_route` varchar(5) DEFAULT NULL,
   `cfg_username` varchar(100) DEFAULT NULL,
   `cfg_password` varchar(100) DEFAULT NULL,
-  `cfg_global_sender` varchar(20) DEFAULT NULL,
+  `cfg_module_sender` varchar(20) DEFAULT NULL,
   `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -995,7 +995,7 @@ CREATE TABLE `playsms_gatewayNexmo_config` (
   `cfg_url` varchar(250) DEFAULT NULL,
   `cfg_api_key` varchar(100) DEFAULT NULL,
   `cfg_api_secret` varchar(100) DEFAULT NULL,
-  `cfg_global_sender` varchar(20) DEFAULT NULL,
+  `cfg_module_sender` varchar(20) DEFAULT NULL,
   `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1103,7 +1103,7 @@ CREATE TABLE `playsms_gatewayTwilio_config` (
   `cfg_callback_url` varchar(250) DEFAULT NULL,
   `cfg_account_sid` varchar(100) DEFAULT NULL,
   `cfg_auth_token` varchar(100) DEFAULT NULL,
-  `cfg_global_sender` varchar(20) DEFAULT NULL,
+  `cfg_module_sender` varchar(20) DEFAULT NULL,
   `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1160,7 +1160,7 @@ CREATE TABLE `playsms_gatewayUplink_config` (
   `cfg_username` varchar(100) DEFAULT NULL,
   `cfg_password` varchar(100) DEFAULT NULL,
   `cfg_token` varchar(32) DEFAULT NULL,
-  `cfg_global_sender` varchar(20) DEFAULT NULL,
+  `cfg_module_sender` varchar(20) DEFAULT NULL,
   `cfg_incoming_path` varchar(250) DEFAULT NULL,
   `cfg_additional_param` varchar(250) DEFAULT NULL,
   `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '',

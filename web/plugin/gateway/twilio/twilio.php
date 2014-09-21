@@ -20,7 +20,7 @@ switch (_OP_) {
 				<tr><td>"._('Callback URL')."</td><td><input type=text maxlength=250 name=up_callback_url value=\"".$plugin_config['twilio']['callback_url']."\"></td></tr>
 				<tr><td>"._('Account SID')."</td><td><input type=text maxlength=40 name=up_account_sid value=\"".$plugin_config['twilio']['account_sid']."\"></td></tr>
 				<tr><td>"._('Auth Token')."</td><td><input type=password maxlength=40 name=up_auth_token value=\"\"> "._hint(_('Fill to change the Auth Token'))."</td></tr>
-				<tr><td>"._('Module sender ID')."</td><td><input type=text maxlength=16 name=up_global_sender value=\"".$plugin_config['twilio']['global_sender']."\"> "._hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable'))."</td></tr>
+				<tr><td>"._('Module sender ID')."</td><td><input type=text maxlength=16 name=up_module_sender value=\"".$plugin_config['twilio']['module_sender']."\"> "._hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable'))."</td></tr>
 				<tr><td>"._('Module timezone')."</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"".$plugin_config['twilio']['datetime_timezone']."\"> "._hint(_('Eg: +0700 for Jakarta/Bangkok timezone'))."</td></tr>
 				</tbody>
 			</table>
@@ -38,7 +38,7 @@ switch (_OP_) {
 		$up_callback_url = $_POST['up_callback_url'];
 		$up_account_sid = $_POST['up_account_sid'];
 		$up_auth_token = $_POST['up_auth_token'];
-		$up_global_sender = $_POST['up_global_sender'];
+		$up_module_sender = $_POST['up_module_sender'];
 		$up_global_timezone = $_POST['up_global_timezone'];
 		$_SESSION['error_string'] = _('No changes have been made');
 		if ($up_account_sid) {
@@ -51,7 +51,7 @@ switch (_OP_) {
 				cfg_callback_url='$up_callback_url',
 				cfg_account_sid='$up_account_sid',
 				".$auth_token_change."
-				cfg_global_sender='$up_global_sender',
+				cfg_module_sender='$up_module_sender',
 				cfg_datetime_timezone='$up_global_timezone'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('Gateway module configurations has been saved');

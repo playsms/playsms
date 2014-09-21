@@ -9,14 +9,14 @@ if ($db_row = dba_fetch_array($db_result)) {
 	$plugin_config['twilio']['callback_url'] = ($db_row['cfg_callback_url'] ? $db_row['cfg_callback_url'] : $core_config['http_path']['base'] . 'plugin/gateway/twilio/callback.php');
 	$plugin_config['twilio']['account_sid'] = $db_row['cfg_account_sid'];
 	$plugin_config['twilio']['auth_token'] = $db_row['cfg_auth_token'];
-	$plugin_config['twilio']['global_sender'] = $db_row['cfg_global_sender'];
+	$plugin_config['twilio']['module_sender'] = $db_row['cfg_module_sender'];
 	$plugin_config['twilio']['datetime_timezone'] = $db_row['cfg_datetime_timezone'];
 }
 
 // smsc configuration
 $plugin_config['twilio']['_smsc_config_'] = array();
 
-//$gateway_number = $plugin_config['twilio']['global_sender'];
+//$gateway_number = $plugin_config['twilio']['module_sender'];
 
 // insert to left menu array
 //if (isadmin()) {

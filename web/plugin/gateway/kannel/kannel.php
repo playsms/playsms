@@ -71,7 +71,7 @@ switch (_OP_) {
 					<td>" . _('Password') . "</td><td><input type=password maxlength=30 name=up_password value=\"\"> " . _hint(_('Fill to change the password')) . "</td>
 				</tr>
 				<tr>
-					<td>" . _('Module sender ID') . "</td><td><input type=text maxlength=16 name=up_global_sender value=\"" . $plugin_config['kannel']['global_sender'] . "\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable')) . "</td>
+					<td>" . _('Module sender ID') . "</td><td><input type=text maxlength=16 name=up_module_sender value=\"" . $plugin_config['kannel']['module_sender'] . "\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable')) . "</td>
 				</tr>
 				<tr>
 					<td>" . _('Module timezone') . "</td><td><input type=text size=5 maxlength=5 name=up_module_timezone value=\"" . $plugin_config['kannel']['module_timezone'] . "\"> " . _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')) . "</td>
@@ -135,7 +135,7 @@ switch (_OP_) {
 		// end of Handle DLR config (emmanuel)
 		$items = array(
 			'username' => $_POST['up_username'],
-			'global_sender' => $_POST['up_global_sender'],
+			'module_sender' => $_POST['up_module_sender'],
 			'module_timezone' => $_POST['up_module_timezone'],
 			'bearerbox_host' => $_POST['up_bearerbox_host'],
 			'sendsms_host' => $_POST['up_sendsms_host'],

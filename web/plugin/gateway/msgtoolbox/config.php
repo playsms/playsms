@@ -9,14 +9,14 @@ if ($db_row = dba_fetch_array($db_result)) {
 	$plugin_config['msgtoolbox']['route'] = $db_row['cfg_route'];
 	$plugin_config['msgtoolbox']['username'] = $db_row['cfg_username'];
 	$plugin_config['msgtoolbox']['password'] = $db_row['cfg_password'];
-	$plugin_config['msgtoolbox']['global_sender'] = $db_row['cfg_global_sender'];
+	$plugin_config['msgtoolbox']['module_sender'] = $db_row['cfg_module_sender'];
 	$plugin_config['msgtoolbox']['datetime_timezone'] = $db_row['cfg_datetime_timezone'];
 }
 
 // smsc configuration
 $plugin_config['msgtoolbox']['_smsc_config_'] = array();
 
-//$gateway_number = $plugin_config['msgtoolbox']['global_sender'];
+//$gateway_number = $plugin_config['msgtoolbox']['module_sender'];
 
 // insert to left menu array
 //if (isadmin()) {

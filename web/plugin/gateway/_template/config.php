@@ -6,13 +6,13 @@ $db_result = dba_query($db_query);
 if ($db_row = dba_fetch_array($db_result)) {
 	$template_param['name'] = $db_row['cfg_name'];
 	$template_param['path'] = $db_row['cfg_path'];
-	$template_param['global_sender'] = $db_row['cfg_global_sender'];
+	$template_param['module_sender'] = $db_row['cfg_module_sender'];
 }
 
 // smsc configuration
 $plugin_config['template']['_smsc_config_'] = array();
 
-//$gateway_number = $template_param['global_sender'];
+//$gateway_number = $template_param['module_sender'];
 
 // insert to left menu array
 //if (isadmin()) {

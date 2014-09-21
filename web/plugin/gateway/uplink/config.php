@@ -8,7 +8,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 	$plugin_config['uplink']['master'] = $db_row['cfg_master'];
 	$plugin_config['uplink']['username'] = $db_row['cfg_username'];
 	$plugin_config['uplink']['token'] = $db_row['cfg_token'];
-	$plugin_config['uplink']['global_sender'] = $db_row['cfg_global_sender'];
+	$plugin_config['uplink']['module_sender'] = $db_row['cfg_module_sender'];
 	$plugin_config['uplink']['path'] = $db_row['cfg_incoming_path'];
 	$plugin_config['uplink']['additional_param'] = $db_row['cfg_additional_param'];
 	$plugin_config['uplink']['datetime_timezone'] = $db_row['cfg_datetime_timezone'];
@@ -18,7 +18,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 // smsc configuration
 $plugin_config['uplink']['_smsc_config_'] = array();
 
-//$gateway_number = $plugin_config['uplink']['global_sender'];
+//$gateway_number = $plugin_config['uplink']['module_sender'];
 // insert to left menu array
 //if (isadmin()) {
 //	$menutab_gateway = $core_config['menutab']['gateway'];

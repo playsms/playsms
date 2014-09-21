@@ -34,17 +34,9 @@ function nexmo_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, 
 	
 	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "nexmo_hook_sendsms");
 	
-	// override gateway configuration by smsc configuration
-	$smsc = gateway_get_smscbyname($smsc);
-	if ($smsc['name'] && $smsc['gateway'] && $smsc['data']) {
-		$smsc_data = core_object_to_array(json_decode($smsc['data']));
-		foreach ($smsc_data as $key => $val ) {
-			if ($val) {
-				$plugin_config[$smsc['name']][$key] = $val;
-			}
-		}
-	}
-	
+	// override plugin gateway configuration by smsc configuration
+	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
+
 	$sms_sender = stripslashes($sms_sender);
 	$sms_footer = stripslashes($sms_footer);
 	$sms_msg = stripslashes($sms_msg);

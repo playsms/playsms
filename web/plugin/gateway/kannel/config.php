@@ -215,7 +215,7 @@ if ($plugin_config['kannel']['dlr'] == 0) {
 // smsc configuration
 $plugin_config['kannel']['_smsc_config_'] = array(
 	'additional_param' => _('Additional URL parameter'),
-	'global_sender' => _('Module sender ID'),
+	'module_sender' => _('Module sender ID'),
 	'datetime_timezone' => _('Module timezone') 
 );
 

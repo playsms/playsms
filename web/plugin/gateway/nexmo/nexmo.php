@@ -59,7 +59,7 @@ switch (_OP_) {
 				'status_active' => $status_active,
 				'nexmo_param_url' => $plugin_config['nexmo']['url'],
 				'nexmo_param_api_key' => $plugin_config['nexmo']['api_key'],
-				'nexmo_param_global_sender' => $plugin_config['nexmo']['global_sender'],
+				'nexmo_param_module_sender' => $plugin_config['nexmo']['module_sender'],
 				'nexmo_param_datetime_timezone' => $plugin_config['nexmo']['datetime_timezone'],
 				'callback_url' => $callback_url 
 			) 
@@ -70,7 +70,7 @@ switch (_OP_) {
 		$up_url = $_POST['up_url'];
 		$up_api_key = $_POST['up_api_key'];
 		$up_api_secret = $_POST['up_api_secret'];
-		$up_global_sender = $_POST['up_global_sender'];
+		$up_module_sender = $_POST['up_module_sender'];
 		$up_global_timezone = $_POST['up_global_timezone'];
 		$_SESSION['error_string'] = _('No changes have been made');
 		if ($up_url && $up_api_key) {
@@ -83,7 +83,7 @@ switch (_OP_) {
 				cfg_url='$up_url',
 				cfg_api_key='$up_api_key',
 				" . $api_secret_change . "
-				cfg_global_sender='$up_global_sender',
+				cfg_module_sender='$up_module_sender',
 				cfg_datetime_timezone='$up_global_timezone'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('Gateway module configurations has been saved');

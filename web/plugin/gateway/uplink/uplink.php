@@ -42,7 +42,7 @@ switch (_OP_) {
 					<td>" . _('Webservice token') . "</td><td><input type=text maxlength=32 name=up_token value=\"\"></td>
 				</tr>
 				<tr>
-					<td>" . _('Module sender ID') . "</td><td><input type=text maxlength=16 name=up_global_sender value=\"" . $plugin_config['uplink']['global_sender'] . "\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable')) . "</td>
+					<td>" . _('Module sender ID') . "</td><td><input type=text maxlength=16 name=up_module_sender value=\"" . $plugin_config['uplink']['module_sender'] . "\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable')) . "</td>
 				</tr>
 				<tr>
 					<td>" . _('Try to disable SMS footer on master') . "</td><td><select name=up_try_disable_footer>" . $option_try_disable_footer . "</select></td>
@@ -64,7 +64,7 @@ switch (_OP_) {
 		if ($up_token = $_POST['up_token']) {
 			$update_token = "cfg_token='" . $up_token . "',";
 		}
-		$up_global_sender = $_POST['up_global_sender'];
+		$up_module_sender = $_POST['up_module_sender'];
 		$up_global_timezone = $_POST['up_global_timezone'];
 		$up_try_disable_footer = $_POST['up_try_disable_footer'];
 		$_SESSION['error_string'] = _('No changes have been made');
@@ -76,7 +76,7 @@ switch (_OP_) {
 				cfg_additional_param='$up_additional_param',
 				cfg_username='$up_username',
 				" . $update_token . "
-				cfg_global_sender='$up_global_sender',
+				cfg_module_sender='$up_module_sender',
 				cfg_datetime_timezone='$up_global_timezone',
 				cfg_try_disable_footer='$up_try_disable_footer'";
 			if (@dba_affected_rows($db_query)) {

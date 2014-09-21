@@ -33,20 +33,12 @@ defined('_SECURE_') or die('Forbidden');
 // $unicode : send as unicode (boolean)
 function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
 	global $core_config, $plugin_config;
-
+	
 	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "kannel_hook_sendsms");
 	
-	// override gateway configuration by smsc configuration
-	$smsc = gateway_get_smscbyname($smsc);
-	if ($smsc['name'] && $smsc['gateway'] && $smsc['data']) {
-		$smsc_data = core_object_to_array(json_decode($smsc['data']));
-		foreach ($smsc_data as $key => $val) {
-			if ($val) {
-				$plugin_config[$smsc['name']][$key] = $val;
-			}
-		}
-	}
-		
+	// override plugin gateway configuration by smsc configuration
+	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
+	
 	$sms_sender = stripslashes($sms_sender);
 	$sms_footer = stripslashes($sms_footer);
 	$sms_msg = stripslashes($sms_msg);
@@ -133,6 +125,7 @@ function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	if (!$ok) {
 		// set failed
 		$p_status = 2;
+		$ok = true; // return true eventhough failed
 	}
 	dlr($smslog_id, $uid, $p_status);
 	logger_print("end smslog_id:" . $smslog_id . " p_status:" . $p_status, 3, "kannel outgoing");

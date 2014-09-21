@@ -884,7 +884,7 @@ function sendsms_bc($username, $gpid, $message, $sms_type = 'text', $unicode = 0
 }
 
 function sendsms_get_sender($username, $default_sender_id = '') {
-	global $core_config, $plugin_config, $user_config;
+	global $core_config, $user_config;
 	
 	// get configured sender ID
 	if ($username) {
@@ -892,13 +892,9 @@ function sendsms_get_sender($username, $default_sender_id = '') {
 			
 			// 1st priority is "Default sender ID" from main configuration
 			$sms_sender = $core_config['main']['gateway_number'];
-		} else if ($plugin_config[$smsc]['global_sender']) {
-			
-			// 2nd priority is "Module sender ID" from gateway module setting
-			$sms_sender = $plugin_config[$smsc]['global_sender'];
 		} else {
 			
-			// 3rd priority is "SMS sender ID" from user preferences
+			// 2nd priority is "SMS sender ID" from user preferences
 			$sms_sender = $user_config['sender'];
 			if ($user_config['username'] != $username) {
 				$c_sms_sender = user_getfieldbyusername($username, 'sender');
