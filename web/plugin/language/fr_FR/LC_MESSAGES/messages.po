@@ -86,6 +86,10 @@ msgstr "Configuration principale"
 msgid "Manage"
 msgstr "Gérer"
 
+#, fuzzy
+msgid "Manage gateway"
+msgstr "Gérer utilisateur"
+
 msgid "Manage sender ID"
 msgstr "Gérer sender ID"
 

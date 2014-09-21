@@ -38,9 +38,6 @@ msgstr "Не удалось удалить тариф"
 msgid "Fail to save route"
 msgstr "Не удалось сохранить тариф"
 
-msgid "Gateway"
-msgstr ""
-
 #, fuzzy
 msgid "Manage SMS gateway"
 msgstr "Тарификация"
@@ -67,6 +64,9 @@ msgid "Route is already exists"
 msgstr "Тариф уже существует"
 
 msgid "Route outgoing SMS"
+msgstr ""
+
+msgid "SMSC"
 msgstr ""
 
 msgid "Save"

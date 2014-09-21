@@ -88,6 +88,10 @@ msgid "Manage"
 msgstr "Atur"
 
 #, fuzzy
+msgid "Manage gateway"
+msgstr "Pengaturan pengguna"
+
+#, fuzzy
 msgid "Manage sender ID"
 msgstr "ID pengirim SMS"
 

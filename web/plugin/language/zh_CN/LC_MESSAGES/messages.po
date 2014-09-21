@@ -87,6 +87,10 @@ msgid "Manage"
 msgstr "管理"
 
 #, fuzzy
+msgid "Manage gateway"
+msgstr "管理用户"
+
+#, fuzzy
 msgid "Manage sender ID"
 msgstr "短信发件人"
 

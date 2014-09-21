@@ -8,11 +8,35 @@ msgstr ""
 msgid "Action"
 msgstr "Action"
 
-msgid "Default"
+msgid "Add smsc"
+msgstr ""
+
+msgid "Are you sure ?"
 msgstr ""
 
 msgid "Description"
 msgstr "Description"
+
+msgid "Edit smsc"
+msgstr ""
+
+msgid "Fail to add new smsc"
+msgstr ""
+
+msgid "Fail to edit smsc"
+msgstr ""
+
+msgid "Fail to remove smsc"
+msgstr ""
+
+msgid "Gateway"
+msgstr ""
+
+msgid "Gateways"
+msgstr ""
+
+msgid "List of gateways and smscs"
+msgstr ""
 
 msgid "Manage gateway"
 msgstr "Gérer passerelle"
@@ -20,8 +44,26 @@ msgstr "Gérer passerelle"
 msgid "Name"
 msgstr "Nom"
 
-msgid "Selected gateway is an active and default gateway"
+msgid "New smsc has been added"
 msgstr ""
 
-msgid "You have enabled gateway plugin"
-msgstr "Vous avez activé le plugin de passerelle"
+msgid "SMSC already exists"
+msgstr ""
+
+msgid "SMSC has been edited"
+msgstr ""
+
+msgid "SMSC has been removed"
+msgstr ""
+
+msgid "SMSC name"
+msgstr ""
+
+msgid "SMSCs"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Unknown error"
+msgstr ""

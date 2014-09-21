@@ -15,7 +15,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 	$plugin_config['infobip']['dlr_nopush'] = 1;
 }
 
-// virtual gateway configuration
+// smsc configuration
 $plugin_config['infobip']['_dynamic_variables_'] = array();
 
 // $gateway_number = $plugin_config['infobip']['sender'];

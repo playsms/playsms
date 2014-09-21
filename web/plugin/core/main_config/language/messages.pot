@@ -30,10 +30,10 @@ msgstr ""
 msgid "Default SMS rate"
 msgstr ""
 
-msgid "Default credit for user"
+msgid "Default SMSC"
 msgstr ""
 
-msgid "Default gateway module"
+msgid "Default credit for user"
 msgstr ""
 
 msgid "Default language"

@@ -13,7 +13,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 	$plugin_config['twilio']['datetime_timezone'] = $db_row['cfg_datetime_timezone'];
 }
 
-// virtual gateway configuration
+// smsc configuration
 $plugin_config['twilio']['_dynamic_variables_'] = array();
 
 //$gateway_number = $plugin_config['twilio']['global_sender'];

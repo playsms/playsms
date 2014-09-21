@@ -23,7 +23,7 @@ if (!auth_isadmin()) {
 }
 
 switch (_OP_) {
-	case 'add_virtual' :
+	case 'add_smsc' :
 		$c_gateway = $_REQUEST['gateway'];
 		
 		$dv = ($plugin_config[$c_gateway]['_dynamic_variables_'] ? $plugin_config[$c_gateway]['_dynamic_variables_'] : array());
@@ -35,14 +35,14 @@ switch (_OP_) {
 		}
 		
 		$tpl = array(
-			'name' => 'gateway_add_virtual',
+			'name' => 'gateway_add_smsc',
 			'vars' => array(
-				'FORM_TITLE' => _('Add virtual gateway'),
-				'ACTION_URL' => 'index.php?app=main&inc=core_gateway&op=add_virtual_save',
+				'FORM_TITLE' => _('Add smsc'),
+				'ACTION_URL' => 'index.php?app=main&inc=core_gateway&op=add_smsc_save',
 				'GATEWAY' => $c_gateway,
 				'BACK' => _back('index.php?app=main&inc=core_gateway&op=gateway_list'),
 				'Gateway' => _('Gateway'),
-				'Virtual gateway name' => _mandatory(_('Virtual gateway name')),
+				'SMSC name' => _mandatory(_('SMSC name')),
 				'Save' => _('Save') 
 			),
 			'loops' => array(
@@ -52,7 +52,7 @@ switch (_OP_) {
 		$content = tpl_apply($tpl);
 		break;
 	
-	case 'add_virtual_save' :
+	case 'add_smsc_save' :
 		$c_gateway = gateway_valid_name($_REQUEST['gateway']);
 		
 		// do not add dev and blocked
@@ -66,10 +66,10 @@ switch (_OP_) {
 			$c_name = mktime();
 		}
 		
-		$vgw = gateway_get_virtualbyname($c_name);
+		$smsc = gateway_get_smscbyname($c_name);
 
-		if ($vgw['name']) {
-			$_SESSION['error_string'] = _('Virtual gateway already exists');
+		if ($smsc['name']) {
+			$_SESSION['error_string'] = _('SMSC already exists');
 		} else {
 			
 			if ($c_name && $c_gateway) {
@@ -86,9 +86,9 @@ switch (_OP_) {
 				);
 				$db_table = _DB_PREF_ . '_tblGateway';
 				if ($new_id = dba_add($db_table, $items)) {
-					$_SESSION['error_string'] = _('New virtual gateway has been added');
+					$_SESSION['error_string'] = _('New smsc has been added');
 				} else {
-					$_SESSION['error_string'] = _('Fail to add new virtual gateway');
+					$_SESSION['error_string'] = _('Fail to add new smsc');
 				}
 			} else {
 				$_SESSION['error_string'] = _('Unknown error');
@@ -97,18 +97,18 @@ switch (_OP_) {
 			}
 		}
 		
-		header('Location: ' . _u('index.php?app=main&inc=core_gateway&op=add_virtual&gateway=' . $c_gateway));
+		header('Location: ' . _u('index.php?app=main&inc=core_gateway&op=add_smsc&gateway=' . $c_gateway));
 		exit();
 		break;
 	
-	case 'edit_virtual' :
+	case 'edit_smsc' :
 		$c_id = $_REQUEST['id'];
 		
-		$vgw = gateway_get_virtualbyid($c_id);
+		$smsc = gateway_get_smscbyid($c_id);
 		
-		$c_name = $vgw['name'];
-		$c_gateway = gateway_valid_name($vgw['gateway']);
-		$c_data = json_decode($vgw['data']);
+		$c_name = $smsc['name'];
+		$c_gateway = gateway_valid_name($smsc['gateway']);
+		$c_data = json_decode($smsc['data']);
 		
 		$dv = ($plugin_config[$c_gateway]['_dynamic_variables_'] ? $plugin_config[$c_gateway]['_dynamic_variables_'] : array());
 		foreach ($dv as $key => $val ) {
@@ -120,16 +120,16 @@ switch (_OP_) {
 		}
 		
 		$tpl = array(
-			'name' => 'gateway_edit_virtual',
+			'name' => 'gateway_edit_smsc',
 			'vars' => array(
-				'FORM_TITLE' => _('Edit virtual gateway'),
-				'ACTION_URL' => 'index.php?app=main&inc=core_gateway&op=edit_virtual_save',
+				'FORM_TITLE' => _('Edit smsc'),
+				'ACTION_URL' => 'index.php?app=main&inc=core_gateway&op=edit_smsc_save',
 				'ID' => $c_id,
 				'NAME' => $c_name,
 				'GATEWAY' => $c_gateway,
 				'BACK' => _back('index.php?app=main&inc=core_gateway&op=gateway_list'),
 				'Gateway' => _('Gateway'),
-				'Virtual gateway name' => _('Virtual gateway name'),
+				'SMSC name' => _('SMSC name'),
 				'Save' => _('Save') 
 			),
 			'loops' => array(
@@ -139,19 +139,19 @@ switch (_OP_) {
 		$content = tpl_apply($tpl);
 		break;
 	
-	case 'edit_virtual_save' :
+	case 'edit_smsc_save' :
 		$c_id = (int) $_REQUEST['id'];
-		$vgw = gateway_get_virtualbyid($c_id);
+		$smsc = gateway_get_smscbyid($c_id);
 		
 		// do not edit dev and blocked
 		$continue = FALSE;
-		if (!(($vgw['gateway'] == 'dev') || ($vgw['gateway'] == 'blocked'))) {
+		if (!(($smsc['gateway'] == 'dev') || ($smsc['gateway'] == 'blocked'))) {
 			$continue = TRUE;
 		}
 		
 		$c_gateway = gateway_valid_name($_REQUEST['gateway']);
 		
-		if ($continue && $c_id && $c_gateway && ($c_gateway == $vgw['gateway'])) {
+		if ($continue && $c_id && $c_gateway && ($c_gateway == $smsc['gateway'])) {
 			$dv = ($plugin_config[$c_gateway]['_dynamic_variables_'] ? $plugin_config[$c_gateway]['_dynamic_variables_'] : array());
 			$dynamic_variables = array();
 			foreach ($dv as $key => $val ) {
@@ -166,9 +166,9 @@ switch (_OP_) {
 			);
 			$db_table = _DB_PREF_ . '_tblGateway';
 			if ($new_id = dba_update($db_table, $items, $condition)) {
-				$_SESSION['error_string'] = _('Virtual gateway has been edited');
+				$_SESSION['error_string'] = _('SMSC has been edited');
 			} else {
-				$_SESSION['error_string'] = _('Fail to edit virtual gateway');
+				$_SESSION['error_string'] = _('Fail to edit smsc');
 			}
 		} else {
 			$_SESSION['error_string'] = _('Unknown error');
@@ -176,20 +176,20 @@ switch (_OP_) {
 			exit();
 		}
 		
-		header('Location: ' . _u('index.php?app=main&inc=core_gateway&op=edit_virtual&id=' . $c_id));
+		header('Location: ' . _u('index.php?app=main&inc=core_gateway&op=edit_smsc&id=' . $c_id));
 		exit();
 		break;
 	
-	case 'del_virtual' :
+	case 'del_smsc' :
 		if ($c_id = $_REQUEST['id']) {
 			$db_table = _DB_PREF_ . '_tblGateway';
 			$condition = array(
 				'id' => $c_id 
 			);
 			if (dba_remove($db_table, $condition)) {
-				$_SESSION['error_string'] = _('Virtual gateway has been removed');
+				$_SESSION['error_string'] = _('SMSC has been removed');
 			} else {
-				$_SESSION['error_string'] = _('Fail to remove virtual gateway');
+				$_SESSION['error_string'] = _('Fail to remove smsc');
 			}
 		} else {
 			$_SESSION['error_string'] = _('Unknown error');
@@ -200,17 +200,17 @@ switch (_OP_) {
 	
 	default :
 		$content = "
-			<h3>" . _('List of gateways and virtual gateways') . "</h3>
+			<h3>" . _('List of gateways and smscs') . "</h3>
 			<ul class='nav nav-tabs nav-justified' id='playsms-tab'>
 				<li class=active><a href='#tabs-gateway' data-toggle=tab>" . _('Gateways') . "</a></li>
-				<li><a href='#tabs-virtual' data-toggle=tab>" . _('Virtual gateways') . "</a></li>
+				<li><a href='#tabs-virtual' data-toggle=tab>" . _('SMSCs') . "</a></li>
 			</ul>
 			<div class=tab-content>
 				<div id='tabs-gateway' class='tab-pane fade in active'>
 					" . _gateway_display() . "
 				</div>
 				<div id='tabs-virtual' class='tab-pane fade'>
-					" . _gateway_display_virtual() . "
+					" . _gateway_display_smsc() . "
 				</div>
 			</div>
 			<script type=\"text/javascript\" src=\"" . $core_config['http_path']['plug'] . "/themes/common/jscss/jquery.cookie.js\"></script>

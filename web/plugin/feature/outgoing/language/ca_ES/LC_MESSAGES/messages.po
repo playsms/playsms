@@ -39,9 +39,6 @@ msgstr "Error esborrant tarifa"
 msgid "Fail to save route"
 msgstr "Error guardant tarifa"
 
-msgid "Gateway"
-msgstr ""
-
 #, fuzzy
 msgid "Manage SMS gateway"
 msgstr "Gestionar tarifes SMS"
@@ -68,6 +65,9 @@ msgid "Route is already exists"
 msgstr "La tarifa ja existeix"
 
 msgid "Route outgoing SMS"
+msgstr ""
+
+msgid "SMSC"
 msgstr ""
 
 msgid "Save"

@@ -374,10 +374,10 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	if ($id = @dba_insert_id($db_query)) {
 		logger_print("saved smslog_id:" . $smslog_id . " id:" . $id, 2, "sendsms_process");
 		if ($p_status == 0) {
-			$vgw = gateway_get_virtualbyname($gw);
-			logger_print("final smslog_id:" . $smslog_id . " gw:" . $vgw['gateway'] . " vgw:" . $vgw['name'] . " message:" . $sms_msg . $sms_footer . " len:" . strlen($sms_msg . $sms_footer), 3, "sendsms");
-			if (core_hook($vgw['gateway'], 'sendsms', array(
-				$vgw['name'],
+			$smsc = gateway_get_smscbyname($gw);
+			logger_print("final smslog_id:" . $smslog_id . " gw:" . $smsc['gateway'] . " smsc:" . $smsc['name'] . " message:" . $sms_msg . $sms_footer . " len:" . strlen($sms_msg . $sms_footer), 3, "sendsms");
+			if (core_hook($smsc['gateway'], 'sendsms', array(
+				$smsc['name'],
 				$sms_sender,
 				$sms_footer,
 				$sms_to,

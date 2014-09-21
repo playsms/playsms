@@ -27,9 +27,6 @@ msgstr "Échec de la suppression de la route"
 msgid "Fail to save route"
 msgstr "Échec de l'enregistrement de la route"
 
-msgid "Gateway"
-msgstr "Passerelle"
-
 msgid "Manage SMS gateway"
 msgstr "Gérer passerelle SMS"
 
@@ -56,6 +53,9 @@ msgstr "cette passerelle existe déjà"
 
 msgid "Route outgoing SMS"
 msgstr "Route SMS sortant"
+
+msgid "SMSC"
+msgstr ""
 
 msgid "Save"
 msgstr "Enregistrer"

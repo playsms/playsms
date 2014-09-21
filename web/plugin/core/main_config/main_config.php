@@ -74,12 +74,12 @@ switch (_OP_) {
 		
 		// get gateway options
 		$main_gateway = $main_config['gateway_module'];
-		unset($vgw_list);
-		$list = gateway_getall_virtual();
-		foreach ($list as $vgw) {
-			$vgw_list[] = $vgw['name'];
+		unset($smsc_list);
+		$list = gateway_getall_smsc();
+		foreach ($list as $smsc) {
+			$smsc_list[] = $smsc['name'];
 		}
-		$option_gateway_module = _options($vgw_list, $main_gateway);
+		$option_gateway_module = _options($smsc_list, $main_gateway);
 		
 		// get themes options
 		$main_themes = $main_config['themes_module'];
@@ -147,7 +147,7 @@ switch (_OP_) {
 				'Enable logo' => _('Enable logo') ,
 				'Logo URL' => _('Logo URL') ,
 				'Replace website title with logo' => _('Replace website title with logo') ,
-				'Default gateway module' => _('Default gateway module') ,
+				'Default SMSC' => _('Default SMSC') ,
 				'Active themes' => _('Active themes') ,
 				'Default language' => _('Default language') ,
 				'Default user status on registration' => _('Default user status on registration') ,

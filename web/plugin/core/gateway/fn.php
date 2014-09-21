@@ -53,11 +53,11 @@ function gateway_getall() {
 }
 
 /**
- * Get all virtual gateway data
+ * Get all smsc data
  *
  * @return array
  */
-function gateway_getall_virtual() {
+function gateway_getall_smsc() {
 	$ret = array();
 	
 	$db_table = _DB_PREF_ . "_tblGateway";
@@ -67,12 +67,12 @@ function gateway_getall_virtual() {
 }
 
 /**
- * Get virtual gateway data by ID
+ * Get smsc data by ID
  *
  * @param integer $id        	
  * @return array
  */
-function gateway_get_virtualbyid($id) {
+function gateway_get_smscbyid($id) {
 	$ret = array();
 	
 	$db_table = _DB_PREF_ . "_tblGateway";
@@ -85,12 +85,12 @@ function gateway_get_virtualbyid($id) {
 }
 
 /**
- * Get virtual gateway data by name
+ * Get smsc data by name
  *
  * @param string $name        	
  * @return array
  */
-function gateway_get_virtualbyname($name) {
+function gateway_get_smscbyname($name) {
 	$ret = array();
 	
 	$db_table = _DB_PREF_ . "_tblGateway";
@@ -200,7 +200,7 @@ function _gateway_display() {
 			$c_link_edit = "index.php?app=main&inc=gateway_" . $c_gateway . "&op=manage";
 			$c_link_add = '';
 			if (!(($c_gateway == 'dev') || ($c_gateway == 'blocked'))) {
-				$c_link_add = "index.php?app=main&inc=core_gateway&op=add_virtual&gateway=" . $c_gateway;
+				$c_link_add = "index.php?app=main&inc=core_gateway&op=add_smsc&gateway=" . $c_gateway;
 			}
 			$gw_list[$gateway_info['name']] = array(
 				'link_edit' => $c_link_edit,
@@ -247,45 +247,45 @@ function _gateway_display() {
 }
 
 /**
- * Display virtual gateways on UI
+ * Display smscs on UI
  *
  * @global array $core_config
  * @return string
  */
-function _gateway_display_virtual() {
+function _gateway_display_smsc() {
 	global $core_config, $icon_config;
 	
 	$db_table = _DB_PREF_ . '_tblGateway';
 	$extras = array(
 		'ORDER BY' => 'gateway' 
 	);
-	$vgw_list = dba_search($db_table, '*', '', '', $extras);
+	$smsc_list = dba_search($db_table, '*', '', '', $extras);
 	
 	$content = "
 		<div class=table-responsive>
-		<table class=playsms-table-list id='gateway_view_virtual'>
+		<table class=playsms-table-list id='gateway_view_smsc'>
 			<thead><tr>
 				<th width=40%>" . _('Name') . "</th>
 				<th width=50%>" . _('Gateway') . "</th>
 				<th width=10%>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
-	foreach ($vgw_list as $vgw ) {
+	foreach ($smsc_list as $smsc ) {
 		
 		$c_link_edit = '';
 		$c_link_del = '';
-		if (!(($vgw['gateway'] == 'dev') || ($vgw['gateway'] == 'blocked'))) {
-			$vgw['link_edit'] = "index.php?app=main&inc=core_gateway&op=edit_virtual&id=" . $vgw['id'];
-			$c_link_edit = "<a href='" . _u($vgw['link_edit']) . "'>" . $icon_config['edit'] . "</a>";
+		if (!(($smsc['gateway'] == 'dev') || ($smsc['gateway'] == 'blocked'))) {
+			$smsc['link_edit'] = "index.php?app=main&inc=core_gateway&op=edit_smsc&id=" . $smsc['id'];
+			$c_link_edit = "<a href='" . _u($smsc['link_edit']) . "'>" . $icon_config['edit'] . "</a>";
 			
-			$vgw['link_del'] = "index.php?app=main&inc=core_gateway&op=del_virtual&id=" . $vgw['id'];
-			$c_link_del = "<a href=\"javascript: ConfirmURL('" . _('Are you sure ?') . "', '" . _u($vgw['link_del']) . "')\">" . $icon_config['delete'] . "</span></a>";
+			$smsc['link_del'] = "index.php?app=main&inc=core_gateway&op=del_smsc&id=" . $smsc['id'];
+			$c_link_del = "<a href=\"javascript: ConfirmURL('" . _('Are you sure ?') . "', '" . _u($smsc['link_del']) . "')\">" . $icon_config['delete'] . "</span></a>";
 		}
 		
 		$content .= "
 			<tr>
-				<td>" . $vgw['name'] . "</td>
-				<td>" . $vgw['gateway'] . "</td>
+				<td>" . $smsc['name'] . "</td>
+				<td>" . $smsc['gateway'] . "</td>
 				<td>
 					" . $c_link_edit . "
 					" . $c_link_del . "

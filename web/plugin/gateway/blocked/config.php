@@ -3,7 +3,7 @@ defined('_SECURE_') or die('Forbidden');
 
 $plugin_config['blocked']['name'] = 'blocked';
 
-// virtual gateway configuration
+// smsc configuration
 $plugin_config['blocked']['_dynamic_variables_'] = array();
 
 // insert to left menu array

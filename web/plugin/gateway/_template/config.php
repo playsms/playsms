@@ -9,7 +9,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 	$template_param['global_sender'] = $db_row['cfg_global_sender'];
 }
 
-// virtual gateway configuration
+// smsc configuration
 $plugin_config['template']['_dynamic_variables_'] = array();
 
 //$gateway_number = $template_param['global_sender'];

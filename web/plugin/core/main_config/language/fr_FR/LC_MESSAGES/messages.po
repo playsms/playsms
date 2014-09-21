@@ -44,12 +44,12 @@ msgstr "Page Ajouter du crédit"
 msgid "Default SMS rate"
 msgstr "Tarif SMS par défaut"
 
+#, fuzzy
+msgid "Default SMSC"
+msgstr "Tarif SMS par défaut"
+
 msgid "Default credit for user"
 msgstr "Crédit par défaut pour l'utilisateur"
-
-#, fuzzy
-msgid "Default gateway module"
-msgstr "Module de passerelle activé"
 
 msgid "Default language"
 msgstr "Langue par défaut"

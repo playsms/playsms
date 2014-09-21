@@ -212,7 +212,10 @@ if ($plugin_config['kannel']['dlr'] == 0) {
 	$checked[4] = "checked";
 }
 
-// virtual gateway configuration
+// smsc configuration
 $plugin_config['kannel']['_dynamic_variables_'] = array(
-	'additional_param' => _('Additional URL parameter') 
+	'additional_param' => _('Additional URL parameter'),
+	'global_sender' => _('Module sender ID'),
+	'datetime_timezone' => _('Module timezone') 
 );
+

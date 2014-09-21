@@ -4,7 +4,7 @@ defined('_SECURE_') or die('Forbidden');
 // hook_sendsms
 // called by main sms sender
 // return true for success delivery
-// $vgw : virtual gateway
+// $smsc : smsc
 // $sms_sender : sender mobile number
 // $sms_footer : sender sms footer or sms sender ID
 // $sms_to : destination sms number
@@ -12,10 +12,10 @@ defined('_SECURE_') or die('Forbidden');
 // $gpid : group phonebook id (optional)
 // $uid : sender User ID
 // $smslog_id : sms ID
-function twilio_hook_sendsms($vgw, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
+function twilio_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
 	global $plugin_config;
 	
-	_log("enter vgw:" . $vgw . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "twilio_hook_outgoing");
+	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "twilio_hook_outgoing");
 	
 	$sms_sender = stripslashes($sms_sender);
 	$sms_footer = stripslashes($sms_footer);

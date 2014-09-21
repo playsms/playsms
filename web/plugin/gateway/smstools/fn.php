@@ -4,7 +4,7 @@ defined('_SECURE_') or die('Forbidden');
 function smstools_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="") {
 	global $plugin_config;
 	
-	_log("enter vgw:" . $vgw . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "smstools_hook_outgoing");
+	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "smstools_hook_outgoing");
 	
 	// p_status :
 	// 0 = pending
@@ -159,7 +159,7 @@ function smstools_hook_getsmsinbox() {
 	}
 }
 
-function smstools_hook_sendsms($vgw, $sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
+function smstools_hook_sendsms($smsc, $sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
 	global $plugin_config;
 	$sms_sender = stripslashes($sms_sender);
 	$sms_footer = stripslashes($sms_footer);

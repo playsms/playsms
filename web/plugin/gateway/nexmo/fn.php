@@ -21,7 +21,7 @@ defined('_SECURE_') or die('Forbidden');
 // hook_sendsms
 // called by main sms sender
 // return true for success delivery
-// $vgw : virtual gateway
+// $smsc : smsc
 // $sms_sender : sender mobile number
 // $sms_footer : sender sms footer or sms sender ID
 // $sms_to : destination sms number
@@ -29,18 +29,18 @@ defined('_SECURE_') or die('Forbidden');
 // $gpid : group phonebook id (optional)
 // $uid : sender User ID
 // $smslog_id : sms ID
-function nexmo_hook_sendsms($vgw, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
+function nexmo_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
 	global $plugin_config;
 	
-	_log("enter vgw:" . $vgw . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "nexmo_hook_outgoing");
-
-	// override gateway configuration by virtual gateway configuration
-	$vgw = gateway_get_virtualbyname($vgw);
-	if ($vgw['name'] && $vgw['gateway'] && $vgw['data']) {
-		$vgw_data = core_object_to_array(json_decode($vgw['data']));
-		foreach ($vgw_data as $key => $val) {
+	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "nexmo_hook_outgoing");
+	
+	// override gateway configuration by smsc configuration
+	$smsc = gateway_get_smscbyname($smsc);
+	if ($smsc['name'] && $smsc['gateway'] && $smsc['data']) {
+		$smsc_data = core_object_to_array(json_decode($smsc['data']));
+		foreach ($smsc_data as $key => $val ) {
 			if ($val) {
-				$plugin_config[$vgw['name']][$key] = $val;
+				$plugin_config[$smsc['name']][$key] = $val;
 			}
 		}
 	}
@@ -67,7 +67,7 @@ function nexmo_hook_sendsms($vgw, $sms_sender, $sms_footer, $sms_to, $sms_msg, $
 		$query_string = "api_key=" . $plugin_config['nexmo']['api_key'] . "&api_secret=" . $plugin_config['nexmo']['api_secret'] . "&to=" . urlencode($sms_to) . "&from=" . urlencode($sms_sender) . "&text=" . urlencode($sms_msg) . $unicode . "&status-report-req=1&client-ref=" . $smslog_id;
 		$url = $plugin_config['nexmo']['url'] . "?" . $query_string;
 		
-		logger_print($url, 3, "nexmo outgoing");
+		_log("url:[" . $url . "]", 3, "nexmo outgoing");
 		
 		// fixme anton
 		// rate limit to 1 second per submit - nexmo rule
@@ -80,7 +80,7 @@ function nexmo_hook_sendsms($vgw, $sms_sender, $sms_footer, $sms_to, $sms_msg, $
 			$c_message_id = $resp['messages'][0]['message-id'];
 			$c_network = $resp['messages'][0]['network'];
 			$c_error_text = $resp['messages'][0]['error-text'];
-			logger_print("sent smslog_id:" . $smslog_id . " message_id:" . $c_message_id . " status:" . $c_status . " error:" . $c_error_text, 2, "nexmo outgoing");
+			_log("sent smslog_id:" . $smslog_id . " message_id:" . $c_message_id . " status:" . $c_status . " error:" . $c_error_text, 2, "nexmo outgoing");
 			$db_query = "
 				INSERT INTO " . _DB_PREF_ . "_gatewayNexmo (local_smslog_id,remote_smslog_id,status,network,error_text)
 				VALUES ('$smslog_id','$c_message_id','$c_status','$c_network','$c_error_text')";
@@ -94,7 +94,7 @@ function nexmo_hook_sendsms($vgw, $sms_sender, $sms_footer, $sms_to, $sms_msg, $
 			// even when the response is not what we expected we still print it out for debug purposes
 			$resp = str_replace("\n", " ", $resp);
 			$resp = str_replace("\r", " ", $resp);
-			logger_print("failed smslog_id:" . $smslog_id . " resp:" . $resp, 2, "nexmo outgoing");
+			_log("failed smslog_id:" . $smslog_id . " resp:" . $resp, 2, "nexmo outgoing");
 		}
 	}
 	if (!$ok) {

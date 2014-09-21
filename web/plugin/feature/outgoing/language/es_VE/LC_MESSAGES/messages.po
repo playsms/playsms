@@ -31,9 +31,6 @@ msgstr "Fallo al borrar la tarifa"
 msgid "Fail to save route"
 msgstr "Fallo al eliminar la tarifa"
 
-msgid "Gateway"
-msgstr ""
-
 #, fuzzy
 msgid "Manage SMS gateway"
 msgstr "Administración de tarifas deSMS"
@@ -60,6 +57,9 @@ msgid "Route is already exists"
 msgstr "Tarifa ya existe "
 
 msgid "Route outgoing SMS"
+msgstr ""
+
+msgid "SMSC"
 msgstr ""
 
 msgid "Save"

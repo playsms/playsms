@@ -12,11 +12,12 @@ if ($db_row = dba_fetch_array($db_result)) {
 	$plugin_config['nexmo']['datetime_timezone'] = $db_row['cfg_datetime_timezone'];
 }
 
-// virtual gateway configuration
+// smsc configuration
 $plugin_config['nexmo']['_dynamic_variables_'] = array(
 	'api_key' => _('API key'),
 	'api_secret' => _('API secret'),
-	'global_sender' => _('Module sender ID') 
+	'global_sender' => _('Module sender ID'),
+	'datetime_timezone' => _('Module timezone') 
 );
 
 //$gateway_number = $plugin_config['nexmo']['global_sender'];

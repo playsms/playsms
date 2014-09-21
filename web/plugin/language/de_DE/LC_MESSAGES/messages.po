@@ -86,6 +86,10 @@ msgid "Manage"
 msgstr "Verwalten"
 
 #, fuzzy
+msgid "Manage gateway"
+msgstr "Benutzer verwalten"
+
+#, fuzzy
 msgid "Manage sender ID"
 msgstr "SMS Absender-ID"
 

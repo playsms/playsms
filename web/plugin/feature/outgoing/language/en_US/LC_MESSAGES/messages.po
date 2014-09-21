@@ -26,9 +26,6 @@ msgstr ""
 msgid "Fail to save route"
 msgstr ""
 
-msgid "Gateway"
-msgstr ""
-
 msgid "Manage SMS gateway"
 msgstr ""
 
@@ -51,6 +48,9 @@ msgid "Route is already exists"
 msgstr ""
 
 msgid "Route outgoing SMS"
+msgstr ""
+
+msgid "SMSC"
 msgstr ""
 
 msgid "Save"

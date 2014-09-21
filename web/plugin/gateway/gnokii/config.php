@@ -8,7 +8,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 	$plugin_config['gnokii']['path'] = $db_row['cfg_path'];
 }
 
-// virtual gateway configuration
+// smsc configuration
 $plugin_config['gnokii']['_dynamic_variables_'] = array();
 
 // insert to left menu array

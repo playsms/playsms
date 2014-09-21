@@ -92,6 +92,10 @@ msgid "Manage"
 msgstr "Редактировать"
 
 #, fuzzy
+msgid "Manage gateway"
+msgstr "Управление пользователями"
+
+#, fuzzy
 msgid "Manage sender ID"
 msgstr "Имя отправителя СМС"
 

@@ -5,7 +5,7 @@ $plugin_config['smstools']['name'] = "smstools";
 $plugin_config['smstools']['spool_dir'] = "/var/spool/sms";
 $plugin_config['smstools']['spool_bak'] = "/var/spool/smsbackup";
 
-// virtual gateway configuration
+// smsc configuration
 $plugin_config['smstools']['_dynamic_variables_'] = array();
 
 // insert to left menu array

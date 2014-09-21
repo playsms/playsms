@@ -15,7 +15,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 	$plugin_config['uplink']['try_disable_footer'] = $db_row['cfg_try_disable_footer'];
 }
 
-// virtual gateway configuration
+// smsc configuration
 $plugin_config['uplink']['_dynamic_variables_'] = array();
 
 //$gateway_number = $plugin_config['uplink']['global_sender'];

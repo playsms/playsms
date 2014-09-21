@@ -33,7 +33,7 @@ switch (_OP_) {
 				'Add route' => _button('index.php?app=main&inc=feature_outgoing&op=outgoing_add', _('Add route')),
 				'Destination' => _('Destination'),
 				'Prefix' => _('Prefix'),
-				'Gateway' => _('Gateway'),
+				'SMSC' => _('SMSC'),
 				'Action' => _('Action'),
 				'option' 
 			) 
@@ -77,14 +77,14 @@ switch (_OP_) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$select_gateway = "<select name=up_gateway>";
-		unset($vgw_list);
-		$list = gateway_getall_virtual();
-		foreach ($list as $vgw) {
-			$vgw_list[] = $vgw['name'];
+		unset($smsc_list);
+		$list = gateway_getall_smsc();
+		foreach ($list as $smsc) {
+			$smsc_list[] = $smsc['name'];
 		}
-		foreach ($vgw_list as $vgw) {
-			$selected = $vgw == $gateway ? "selected" : "";
-			$select_gateway .= "<option " . $selected . ">" . $vgw . "</option>";
+		foreach ($smsc_list as $smsc) {
+			$selected = $smsc == $gateway ? "selected" : "";
+			$select_gateway .= "<option " . $selected . ">" . $smsc . "</option>";
 		}
 		$select_gateway .= "</select>";
 		$content .= "
@@ -101,7 +101,7 @@ switch (_OP_) {
 				<td>" . _mandatory('Prefix') . "</td><td><input type='text' maxlength=10 name='up_prefix' value=\"$prefix\" required></td>
 			</tr>
 			<tr>
-				<td>" . _('Gateway') . "</td><td>" . $select_gateway . "</td>
+				<td>" . _('SMSC') . "</td><td>" . $select_gateway . "</td>
 			</tr>
 			</table>
 			<p><input type='submit' class='button' value='" . _('Save') . "'></p>
@@ -135,13 +135,13 @@ switch (_OP_) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$select_gateway = "<select name=add_gateway>";
-		unset($vgw_list);
-		$list = gateway_getall_virtual();
-		foreach ($list as $vgw) {
-			$vgw_list[] = $vgw['name'];
+		unset($smsc_list);
+		$list = gateway_getall_smsc();
+		foreach ($list as $smsc) {
+			$smsc_list[] = $smsc['name'];
 		}
-		foreach ($vgw_list as $vgw) {
-			$select_gateway .= "<option>" . $vgw . "</option>";
+		foreach ($smsc_list as $smsc) {
+			$select_gateway .= "<option>" . $smsc . "</option>";
 		}
 		$select_gateway .= "</select>";
 		$content .= "
@@ -157,7 +157,7 @@ switch (_OP_) {
 				<td>" . _mandatory('Prefix') . "</td><td><input type='text' maxlength=10 name='add_prefix' value=\"$add_prefix\" required></td>
 			</tr>
 			<tr>
-				<td>" . _('Gateway') . "</td><td>" . $select_gateway . "</td>
+				<td>" . _('SMSC') . "</td><td>" . $select_gateway . "</td>
 			</tr>
 			</table>
 			<input type='submit' class='button' value='" . _('Save') . "'>

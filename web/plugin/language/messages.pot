@@ -73,6 +73,9 @@ msgstr ""
 msgid "Manage"
 msgstr ""
 
+msgid "Manage gateway"
+msgstr ""
+
 msgid "Manage sender ID"
 msgstr ""
 

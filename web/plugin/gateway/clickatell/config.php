@@ -18,7 +18,7 @@ if (!$plugin_config['clickatell']['additional_param']) {
 	$plugin_config['clickatell']['additional_param'] = "deliv_ack=1&callback=3";
 }
 
-// virtual gateway configuration
+// smsc configuration
 $plugin_config['clickatell']['_dynamic_variables_'] = array();
 
 // $gateway_number = $plugin_config['clickatell']['sender'];
