@@ -24,6 +24,10 @@ function uplink_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "uplink_hook_sendsms");
 	
 	$sms_sender = stripslashes($sms_sender);
+	if ($plugin_config['uplink']['module_sender']) {
+		$sms_sender = $plugin_config['uplink']['module_sender'];
+	}
+	
 	$sms_footer = ($sms_footer ? $sms_footer : stripslashes($sms_footer));
 	$sms_msg = stripslashes($sms_msg) . $sms_footer;
 	

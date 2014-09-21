@@ -36,8 +36,12 @@ function nexmo_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, 
 	
 	// override plugin gateway configuration by smsc configuration
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
-
+	
 	$sms_sender = stripslashes($sms_sender);
+	if ($plugin_config['nexmo']['module_sender']) {
+		$sms_sender = $plugin_config['nexmo']['module_sender'];
+	}
+	
 	$sms_footer = stripslashes($sms_footer);
 	$sms_msg = stripslashes($sms_msg);
 	$ok = false;
