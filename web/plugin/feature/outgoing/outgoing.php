@@ -40,7 +40,10 @@ switch (_OP_) {
 			) 
 		);
 		
-		$data = outgoing_getdata();
+		$extras = array(
+			'ORDER BY' => 'username' 
+		);
+		$data = outgoing_getdata($extras);
 		foreach ($data as $row ) {
 			$c_rid = $row['id'];
 			$c_action = "<a href='" . _u('index.php?app=main&inc=feature_outgoing&op=outgoing_edit&rid=' . $c_rid) . "'>" . $icon_config['edit'] . "</a> ";
@@ -118,11 +121,11 @@ switch (_OP_) {
 		break;
 	case "outgoing_edit_save" :
 		$rid = $_POST['rid'];
-
+		
 		$up_uid = $_REQUEST['up_uid'];
 		if ($up_uid) {
 			$up_username = user_uid2username($up_uid);
-			if (! $up_username) {
+			if (!$up_username) {
 				$up_uid = 0;
 			}
 		}
@@ -185,10 +188,10 @@ switch (_OP_) {
 		_p($content);
 		break;
 	case "outgoing_add_yes" :
-		$add_uid = $_REQUEST['add_uid'];		
+		$add_uid = $_REQUEST['add_uid'];
 		if ($add_uid) {
 			$add_username = user_uid2username($add_uid);
-			if (! $add_username) {
+			if (!$add_username) {
 				$add_uid = 0;
 			}
 		}

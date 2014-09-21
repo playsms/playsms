@@ -18,11 +18,13 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-function outgoing_getdata() {
-	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureOutgoing ORDER BY dst";
+function outgoing_getdata($extras = array()) {
+	foreach ($extras as $key => $val ) {
+		$extra_sql .= $key . " " . $val . " ";
+	}
+	$db_query = "SELECT A.*, B.username FROM " . _DB_PREF_ . "_featureOutgoing AS A LEFT JOIN " . _DB_PREF_ . "_tblUser AS B ON A.uid=B.uid " . $extra_sql;
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
-		$db_row['username'] = user_uid2username($db_row['uid']);
 		$ret[] = $db_row;
 	}
 	
