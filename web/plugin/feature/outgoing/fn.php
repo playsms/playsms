@@ -63,13 +63,13 @@ function outgoing_getsmsc($id) {
 }
 
 function outgoing_prefix2smsc($prefix) {
-	if ($prefix) {
-		$prefix = substr($prefix, 0, 8);
-		$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix='$prefix'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$smsc = $db_row['smsc'];
+	$prefix = (string) substr($prefix, 0, 8);
+	$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix='$prefix'";
+	$db_result = dba_query($db_query);
+	while ($db_row = dba_fetch_array($db_result)) {
+		$smsc[] = $db_row['smsc'];
 	}
+	// _log('prefix: ' . $prefix . ' debug:' . print_r($smsc, 1), 3, 'outgoing_hook_sendsms_intercept');
 	
 	return $smsc;
 }
@@ -83,7 +83,7 @@ function outgoing_mobile2smsc($mobile) {
 		$prefix = substr($mobile, 0, 8);
 	}
 	
-	for($i = strlen($prefix); $i > 0; $i--) {
+	for($i = 8; $i > 0; $i--) {
 		$c_prefix = substr($mobile, 0, $i);
 		if ($smsc = outgoing_prefix2smsc($c_prefix)) {
 			$ret = $smsc;
@@ -96,12 +96,33 @@ function outgoing_mobile2smsc($mobile) {
 
 function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $smsc) {
 	$ret = array();
+	$continue = TRUE;
 	
 	if ($smsc) {
 		_log('using supplied smsc smsc:[' . $smsc . ']', 3, 'outgoing_hook_sendsms_intercept');
-	} else if ($smsc = outgoing_mobile2smsc($sms_to)) {
-		_log('using prefix based smsc smsc:[' . $smsc . ']', 3, 'outgoing_hook_sendsms_intercept');
-	} else {
+		$continue = FALSE;
+	}
+	
+	if ($continue) {
+		$smsc_list = outgoing_mobile2smsc($sms_to);
+		$found = FALSE;
+		$smsc_all = '';
+		$smsc_found = array();
+		foreach ($smsc_list as $item_smsc ) {
+			$smsc_all .= '[' . $item_smsc . '] ';
+			$smsc_found[] = $item_smsc;
+		}
+		if (count($smsc_found) > 0) {
+			$smsc_all = trim($smsc_all);
+			shuffle($smsc_found);
+			_log('found SMSCs:' . $smsc_all, 3, 'outgoing_hook_sendsms_intercept');
+			_log('using prefix based smsc smsc:[' . $smsc_found[0] . ']', 3, 'outgoing_hook_sendsms_intercept');
+			$smsc = $smsc_found[0];
+			$continue = FALSE;
+		}
+	}
+	
+	if ($continue) {
 		_log('no route found', 3, 'outgoing_hook_sendsms_intercept');
 	}
 	
