@@ -4,14 +4,6 @@ if (! auth_isadmin ()) {
 	auth_block ();
 };
 
-$gw = core_gateway_get ();
-
-if ($gw == $plugin_config['infobip']['name']) {
-	$status_active = "<span class=status_active />";
-} else {
-	$status_active = "<span class=status_inactive />";
-}
-
 $callback_url = $_SERVER['HTTP_HOST'] . dirname ( $_SERVER['PHP_SELF'] ) . "/plugin/gateway/infobip/callback.php";
 $callback_url = str_replace ( "//", "/", $callback_url );
 $callback_url = "http://" . $callback_url;
@@ -31,7 +23,7 @@ switch (_OP_) {
 			"._CSRF_FORM_."
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _ ( 'Gateway name' ) . "</td><td>infobip $status_active</td>
+				<td class=label-sizer>" . _ ( 'Gateway name' ) . "</td><td>infobip</td>
 			</tr>
 			<tr>
 				<td>" . _ ( 'Username' ) . "</td><td><input type=text maxlength=30 name=up_username value=\"" . $plugin_config['infobip']['username'] . "\"></td>

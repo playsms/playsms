@@ -7,15 +7,6 @@ if (!auth_isadmin()) {
 
 include $core_config['apps_path']['plug'] . "/gateway/uplink/config.php";
 
-$gw = core_gateway_get();
-
-if ($gw == $plugin_config['uplink']['name']) {
-	$status_active = "<span class=status_active />";
-} else {
-	$status_active = "<span class=status_inactive />";
-}
-
-
 switch (_OP_) {
 	case "manage":
 		if ($plugin_config['uplink']['try_disable_footer']) {
@@ -36,7 +27,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 				<tbody>
 				<tr>
-					<td class=label-sizer>" . _('Gateway name') . "</td><td>uplink $status_active</td>
+					<td class=label-sizer>" . _('Gateway name') . "</td><td>uplink</td>
 				</tr>
 				<tr>
 					<td>" . _('Master URL') . "</td><td><input type=text maxlength=250 name=up_master value=\"" . $plugin_config['uplink']['master'] . "\"></td>

@@ -4,14 +4,6 @@ if(!auth_isadmin()){auth_block();};
 
 include $core_config['apps_path']['plug']."/gateway/gnokii/config.php";
 
-$gw = core_gateway_get();
-
-if ($gw == $plugin_config['gnokii']['name']) {
-	$status_active = "<span class=status_active />";
-} else {
-	$status_active = "<span class=status_inactive />";
-}
-
 switch (_OP_) {
 	case "manage":
 		if ($err = $_SESSION['error_string']) {
@@ -24,7 +16,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 				<tbody>
 				<tr>
-					<td class=label-sizer>"._('Gateway name')."</td><td>gnokii $status_active</td>
+					<td class=label-sizer>"._('Gateway name')."</td><td>gnokii</td>
 				</tr>
 				<tr>
 					<td>"._('Gnokii installation path')."</td><td><input type=text maxlength=250 name=up_path value=\"".$plugin_config['gnokii']['path']."\"> "._hint(_('No trailing slash')." \"/\"")."</td>

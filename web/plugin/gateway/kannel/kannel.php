@@ -24,14 +24,6 @@ if (!auth_isadmin()) {
 
 include $core_config['apps_path']['plug'] . "/gateway/kannel/config.php";
 
-$gw = core_gateway_get();
-
-if ($gw == $plugin_config['kannel']['name']) {
-	$status_active = "<span class=status_active />";
-} else {
-	$status_active = "<span class=status_inactive />";
-}
-
 switch (_OP_) {
 	case "manage" :
 		if ($err = $_SESSION['error_string']) {
@@ -70,7 +62,7 @@ switch (_OP_) {
 			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 				<tbody>
 				<tr>
-					<td class=label-sizer>" . _('Gateway name') . "</td><td>kannel $status_active</td>
+					<td class=label-sizer>" . _('Gateway name') . "</td><td>kannel</td>
 				</tr>
 				<tr>
 					<td>" . _('Username') . "</td><td><input type=text maxlength=30 name=up_username value=\"" . $plugin_config['kannel']['username'] . "\"></td>

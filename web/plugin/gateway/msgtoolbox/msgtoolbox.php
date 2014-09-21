@@ -4,15 +4,6 @@ if(!auth_isadmin()){auth_block();};
 
 include $core_config['apps_path']['plug']."/gateway/msgtoolbox/config.php";
 
-$gw = core_gateway_get();
-
-if ($gw == $plugin_config['msgtoolbox']['name']) {
-	$status_active = "<span class=status_active />";
-} else {
-	$status_active = "<span class=status_inactive />";
-}
-
-
 switch (_OP_) {
 	case "manage":
 		if ($err = $_SESSION['error_string']) {
@@ -25,7 +16,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 				<tbody>
 				<tr>
-					<td class=label-sizer>"._('Gateway name')."</td><td>msgtoolbox $status_active</td>
+					<td class=label-sizer>"._('Gateway name')."</td><td>msgtoolbox</td>
 				</tr>
 				<tr>
 					<td>"._('msgtoolbox URL')."</td><td><input type=text maxlength=250 name=up_url value=\"".$plugin_config['msgtoolbox']['url']."\"></td>

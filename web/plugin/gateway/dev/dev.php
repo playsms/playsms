@@ -24,14 +24,6 @@ if (!auth_isadmin()) {
 
 include $core_config['apps_path']['plug'] . "/gateway/dev/config.php";
 
-$gw = core_gateway_get();
-
-if ($gw == $plugin_config['dev']['name']) {
-	$status_active = "<span class=status_active />";
-} else {
-	$status_active = "<span class=status_inactive />";
-}
-
 switch (_OP_) {
 	case "manage" :
 		if ($err = $_SESSION['error_string']) {
@@ -40,7 +32,7 @@ switch (_OP_) {
 		$content .= "
 			<h2>" . _('Manage dev') . "</h2>
 			<table class=playsms-table>
-				<tbody><tr><td class=label-sizer>" . _('Gateway name') . "</td><td>dev $status_active</td></tr></tbody>
+				<tbody><tr><td class=label-sizer>" . _('Gateway name') . "</td><td>dev</td></tr></tbody>
 			</table>
 		";
 		$content.= _back('index.php?app=main&inc=core_gateway&op=gateway_list');

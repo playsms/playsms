@@ -4,15 +4,6 @@ if(!auth_isadmin()){auth_block();};
 
 include $core_config['apps_path']['plug']."/gateway/template/config.php";
 
-$gw = core_gateway_get();
-
-if ($gw == $template_param['name']) {
-	$status_active = "<span class=status_active />";
-} else {
-	$status_active = "<span class=status_inactive />";
-}
-
-
 switch (_OP_) {
 	case "manage":
 		if ($err = $_SESSION['error_string'])
@@ -26,7 +17,7 @@ switch (_OP_) {
 	    "._CSRF_FORM_."
 	    <table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 		<tr>
-		    <td class=label-sizer>"._('Gateway name')."</td><td>template $status_active</td>
+		    <td class=label-sizer>"._('Gateway name')."</td><td>template</td>
 		</tr>
 		<tr>
 		    <td>"._('Template installation path')."</td><td><input type=text maxlength=250 name=up_path value=\"".$template_param['path']."\"> ("._('No trailing slash')." \"/\")</td>

@@ -24,14 +24,6 @@ if (!auth_isadmin()) {
 
 include $core_config['apps_path']['plug'] . "/gateway/nexmo/config.php";
 
-$gw = core_gateway_get();
-
-if ($gw == $plugin_config['nexmo']['name']) {
-	$status_active = "<span class=status_active />";
-} else {
-	$status_active = "<span class=status_inactive />";
-}
-
 $callback_url = $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/plugin/gateway/nexmo/callback.php";
 $callback_url = str_replace("//", "/", $callback_url);
 $callback_url = "http://" . $callback_url;

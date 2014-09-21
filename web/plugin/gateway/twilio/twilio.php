@@ -4,14 +4,6 @@ if(!auth_isadmin()){auth_block();};
 
 include $core_config['apps_path']['plug']."/gateway/twilio/config.php";
 
-$gw = core_gateway_get();
-
-if ($gw == $plugin_config['twilio']['name']) {
-	$status_active = "<span class=status_active />";
-} else {
-	$status_active = "<span class=status_inactive />";
-}
-
 switch (_OP_) {
 	case "manage":
 		if ($err = $_SESSION['error_string']) {
@@ -23,7 +15,7 @@ switch (_OP_) {
 			"._CSRF_FORM_."
 			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 				<tbody>
-				<tr><td class=label-sizer>"._('Gateway name')."</td><td>twilio $status_active</td></tr>
+				<tr><td class=label-sizer>"._('Gateway name')."</td><td>twilio</td></tr>
 				<tr><td>"._('Twilio URL')."</td><td>".$plugin_config['twilio']['url']."</td></tr>
 				<tr><td>"._('Callback URL')."</td><td><input type=text maxlength=250 name=up_callback_url value=\"".$plugin_config['twilio']['callback_url']."\"></td></tr>
 				<tr><td>"._('Account SID')."</td><td><input type=text maxlength=40 name=up_account_sid value=\"".$plugin_config['twilio']['account_sid']."\"></td></tr>
