@@ -217,9 +217,9 @@ function setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receive
 	}
 	
 	// set active gateway module as default gateway
-	if (!$smsc) {
-		$smsc = core_smsc_get();
-	}
+	//if (!$smsc) {
+	//	$smsc = core_smsc_get();
+	//}
 	
 	// log it
 	logger_print("dt:" . $sms_datetime . " sender:" . $sms_sender . " m:" . $message . " receiver:" . $sms_receiver . ' smsc:' . $smsc, 3, "setsmsincomingaction");
