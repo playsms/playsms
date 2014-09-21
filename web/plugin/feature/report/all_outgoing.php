@@ -27,7 +27,7 @@ switch (_OP_) {
 	case "all_outgoing":
 		$search_category = array(
 			_('User') => 'username',
-			_('Gateway') => 'p_gateway',
+			_('SMSC') => 'p_gateway',
 			_('Time') => 'p_datetime',
 			_('To') => 'p_dst',
 			_('Message') => 'p_msg',
@@ -69,7 +69,7 @@ switch (_OP_) {
 			<thead>
 			<tr>
 				<th width=20%>" . _('User') . "</th>
-				<th width=15%>" . _('Gateway') . "</th>
+				<th width=15%>" . _('SMSC') . "</th>
 				<th width=20%>" . _('To') . "</th>
 				<th width=40%>" . _('Message') . "</th>
 				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_all_outgoing)></th>
@@ -182,7 +182,7 @@ switch (_OP_) {
 				$list = dba_search($table . ' AS A', '*', $conditions, $search['dba_keywords'], '', $join);
 				$data[0] = array(
 					_('User') ,
-					_('Gateway') ,
+					_('SMSC') ,
 					_('Time') ,
 					_('To') ,
 					_('Message') ,
