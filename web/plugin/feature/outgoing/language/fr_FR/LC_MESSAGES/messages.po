@@ -9,13 +9,14 @@ msgstr ""
 msgid "Action"
 msgstr "Action"
 
-msgid "Add gateway"
-msgstr "Ajouter une passerelle"
-
 msgid "Add route"
 msgstr "Ajouter une route"
 
-msgid "Destination"
+msgid "Are you sure ?"
+msgstr ""
+
+#, fuzzy
+msgid "Destination name"
 msgstr "Destination"
 
 msgid "Edit route"
@@ -26,9 +27,6 @@ msgstr "Échec de la suppression de la route"
 
 msgid "Fail to save route"
 msgstr "Échec de l'enregistrement de la route"
-
-msgid "Manage SMS gateway"
-msgstr "Gérer passerelle SMS"
 
 msgid "No changes made!"
 msgstr "Aucune modification apportée!"
@@ -44,12 +42,12 @@ msgid "Route has been added"
 msgstr "la route a été sauvegardée"
 
 #, fuzzy
-msgid "Route has been saved"
+msgid "Route has been deleted"
 msgstr "la route a été sauvegardée"
 
 #, fuzzy
-msgid "Route is already exists"
-msgstr "cette passerelle existe déjà"
+msgid "Route has been saved"
+msgstr "la route a été sauvegardée"
 
 msgid "Route outgoing SMS"
 msgstr "Route SMS sortant"
@@ -72,9 +70,6 @@ msgstr ""
 
 msgid "destination"
 msgstr "destination"
-
-msgid "gateway has been deleted"
-msgstr "la passerelle a été supprimée"
 
 msgid "prefix"
 msgstr "préfixe"

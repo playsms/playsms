@@ -9,14 +9,14 @@ msgid "Action"
 msgstr "Ação"
 
 #, fuzzy
-msgid "Add gateway"
-msgstr "Adicionar taxa"
-
-#, fuzzy
 msgid "Add route"
 msgstr "Adicionar taxa"
 
-msgid "Destination"
+msgid "Are you sure ?"
+msgstr ""
+
+#, fuzzy
+msgid "Destination name"
 msgstr "Destino"
 
 #, fuzzy
@@ -30,10 +30,6 @@ msgstr "Falha ao remover a taxa"
 #, fuzzy
 msgid "Fail to save route"
 msgstr "Falha ao salvar a taxa"
-
-#, fuzzy
-msgid "Manage SMS gateway"
-msgstr "Administrar taxa de SMS"
 
 msgid "No changes made!"
 msgstr "Nenhuma mudança feita!"
@@ -49,12 +45,12 @@ msgid "Route has been added"
 msgstr "A taxa foi salva"
 
 #, fuzzy
-msgid "Route has been saved"
+msgid "Route has been deleted"
 msgstr "A taxa foi salva"
 
 #, fuzzy
-msgid "Route is already exists"
-msgstr "A taxa já existe"
+msgid "Route has been saved"
+msgstr "A taxa foi salva"
 
 msgid "Route outgoing SMS"
 msgstr ""
@@ -77,10 +73,6 @@ msgstr ""
 
 msgid "destination"
 msgstr "destino"
-
-#, fuzzy
-msgid "gateway has been deleted"
-msgstr "A taxa foi removida"
 
 msgid "prefix"
 msgstr "prefixo"

@@ -8,13 +8,13 @@ msgstr ""
 msgid "Action"
 msgstr ""
 
-msgid "Add gateway"
-msgstr ""
-
 msgid "Add route"
 msgstr ""
 
-msgid "Destination"
+msgid "Are you sure ?"
+msgstr ""
+
+msgid "Destination name"
 msgstr ""
 
 msgid "Edit route"
@@ -24,9 +24,6 @@ msgid "Fail to delete route"
 msgstr ""
 
 msgid "Fail to save route"
-msgstr ""
-
-msgid "Manage SMS gateway"
 msgstr ""
 
 msgid "No changes made!"
@@ -41,10 +38,10 @@ msgstr ""
 msgid "Route has been added"
 msgstr ""
 
-msgid "Route has been saved"
+msgid "Route has been deleted"
 msgstr ""
 
-msgid "Route is already exists"
+msgid "Route has been saved"
 msgstr ""
 
 msgid "Route outgoing SMS"
@@ -66,9 +63,6 @@ msgid "blocked"
 msgstr ""
 
 msgid "destination"
-msgstr ""
-
-msgid "gateway has been deleted"
 msgstr ""
 
 msgid "prefix"

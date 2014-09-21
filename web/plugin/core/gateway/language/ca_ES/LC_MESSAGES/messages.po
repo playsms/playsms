@@ -16,7 +16,7 @@ msgstr ""
 msgid "Action"
 msgstr "Acció"
 
-msgid "Add smsc"
+msgid "Add SMSC"
 msgstr ""
 
 msgid "Are you sure ?"
@@ -25,16 +25,16 @@ msgstr ""
 msgid "Description"
 msgstr "Descripció"
 
-msgid "Edit smsc"
+msgid "Edit SMSC"
 msgstr ""
 
-msgid "Fail to add new smsc"
+msgid "Fail to add new SMSC"
 msgstr ""
 
-msgid "Fail to edit smsc"
+msgid "Fail to edit SMSC"
 msgstr ""
 
-msgid "Fail to remove smsc"
+msgid "Fail to remove SMSC"
 msgstr ""
 
 msgid "Gateway"
@@ -54,7 +54,7 @@ msgstr "Gestionar sortida"
 msgid "Name"
 msgstr "Nom"
 
-msgid "New smsc has been added"
+msgid "New SMSC has been added"
 msgstr ""
 
 msgid "SMSC already exists"

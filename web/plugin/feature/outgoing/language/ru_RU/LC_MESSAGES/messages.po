@@ -16,14 +16,14 @@ msgid "Action"
 msgstr "Действие"
 
 #, fuzzy
-msgid "Add gateway"
-msgstr "Добавить тариф"
-
-#, fuzzy
 msgid "Add route"
 msgstr "Добавить тариф"
 
-msgid "Destination"
+msgid "Are you sure ?"
+msgstr ""
+
+#, fuzzy
+msgid "Destination name"
 msgstr "Назначение"
 
 #, fuzzy
@@ -37,10 +37,6 @@ msgstr "Не удалось удалить тариф"
 #, fuzzy
 msgid "Fail to save route"
 msgstr "Не удалось сохранить тариф"
-
-#, fuzzy
-msgid "Manage SMS gateway"
-msgstr "Тарификация"
 
 msgid "No changes made!"
 msgstr "Нет изменений"
@@ -56,12 +52,12 @@ msgid "Route has been added"
 msgstr "Тариф сохранён"
 
 #, fuzzy
-msgid "Route has been saved"
+msgid "Route has been deleted"
 msgstr "Тариф сохранён"
 
 #, fuzzy
-msgid "Route is already exists"
-msgstr "Тариф уже существует"
+msgid "Route has been saved"
+msgstr "Тариф сохранён"
 
 msgid "Route outgoing SMS"
 msgstr ""
@@ -84,10 +80,6 @@ msgstr ""
 
 msgid "destination"
 msgstr "назначение"
-
-#, fuzzy
-msgid "gateway has been deleted"
-msgstr "Тариф удалён"
 
 msgid "prefix"
 msgstr "префикс"

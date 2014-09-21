@@ -9,14 +9,14 @@ msgid "Action"
 msgstr "Tindakan"
 
 #, fuzzy
-msgid "Add gateway"
-msgstr "Tambah tarif"
-
-#, fuzzy
 msgid "Add route"
 msgstr "Tambah tarif"
 
-msgid "Destination"
+msgid "Are you sure ?"
+msgstr ""
+
+#, fuzzy
+msgid "Destination name"
 msgstr "Tujuan"
 
 #, fuzzy
@@ -30,10 +30,6 @@ msgstr "Gagal menghapus tarif"
 #, fuzzy
 msgid "Fail to save route"
 msgstr "Gagal menyimpan tarif"
-
-#, fuzzy
-msgid "Manage SMS gateway"
-msgstr "Pengaturan tarif SMS"
 
 msgid "No changes made!"
 msgstr "Tidak ada perubahan yang dilakukan!"
@@ -49,12 +45,12 @@ msgid "Route has been added"
 msgstr "Tarif telah disimpan"
 
 #, fuzzy
-msgid "Route has been saved"
+msgid "Route has been deleted"
 msgstr "Tarif telah disimpan"
 
 #, fuzzy
-msgid "Route is already exists"
-msgstr "Tarif telah ada sebelumnya"
+msgid "Route has been saved"
+msgstr "Tarif telah disimpan"
 
 msgid "Route outgoing SMS"
 msgstr ""
@@ -77,10 +73,6 @@ msgstr ""
 
 msgid "destination"
 msgstr "tujuan"
-
-#, fuzzy
-msgid "gateway has been deleted"
-msgstr "Tarif telah dihapus"
 
 msgid "prefix"
 msgstr "awalan"
