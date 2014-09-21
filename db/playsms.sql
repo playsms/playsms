@@ -1602,8 +1602,7 @@ CREATE TABLE `playsms_featureOutgoing` (
   `dst` varchar(100) NOT NULL DEFAULT '',
   `prefix` varchar(10) NOT NULL DEFAULT '',
   `smsc` varchar(100) NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `prefix` (`prefix`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
 
 --

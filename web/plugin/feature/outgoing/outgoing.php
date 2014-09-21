@@ -98,7 +98,7 @@ switch (_OP_) {
 				<td class=label-sizer>" . _mandatory('Destination name') . "</td><td><input type='text' maxlength='30' name='up_dst' value=\"$dst\" required></td>
 			</tr>
 			<tr>
-				<td>" . _mandatory('Prefix') . "</td><td><input type='text' maxlength=10 name='up_prefix' value=\"$prefix\" required></td>
+				<td>" . _mandatory('Prefix') . "</td><td><input type='text' maxlength=8 name='up_prefix' value=\"$prefix\" required> " . _hint('Maximum 8 digits numeric only') . "</td>
 			</tr>
 			<tr>
 				<td>" . _('SMSC') . "</td><td>" . $select_smsc . "</td>
@@ -114,10 +114,10 @@ switch (_OP_) {
 		$up_dst = $_POST['up_dst'];
 		$up_prefix = $_POST['up_prefix'];
 		$up_prefix = core_sanitize_numeric($up_prefix);
-		$up_prefix = substr($up_prefix, 0, 8);
+		$up_prefix = (int) substr($up_prefix, 0, 8);
 		$up_smsc = ($_POST['up_smsc'] ? $_POST['up_smsc'] : 'blocked');
 		$_SESSION['error_string'] = _('No changes made!');
-		if ($rid && $up_dst && $up_prefix) {
+		if ($rid && $up_dst) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureOutgoing SET c_timestamp='" . mktime() . "',dst='$up_dst',prefix='$up_prefix',smsc='$up_smsc' WHERE id='$rid'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('Route has been saved') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": $up_prefix)";
@@ -154,7 +154,7 @@ switch (_OP_) {
 				<td class=label-sizer>" . _mandatory('Destination name') . "</td><td><input type='text' maxlength='30' name='add_dst' value=\"$add_dst\" required></td>
 			</tr>
 			<tr>
-				<td>" . _mandatory('Prefix') . "</td><td><input type='text' maxlength=10 name='add_prefix' value=\"$add_prefix\" required></td>
+				<td>" . _mandatory('Prefix') . "</td><td><input type='text' maxlength=8 name='add_prefix' value=\"$add_prefix\" required> " . _hint('Maximum 8 digits numeric only') . "</td>
 			</tr>
 			<tr>
 				<td>" . _('SMSC') . "</td><td>" . $select_smsc . "</td>
@@ -169,20 +169,14 @@ switch (_OP_) {
 		$add_dst = $_POST['add_dst'];
 		$add_prefix = $_POST['add_prefix'];
 		$add_prefix = core_sanitize_numeric($add_prefix);
-		$add_prefix = substr($add_prefix, 0, 8);
+		$add_prefix = (int) substr($add_prefix, 0, 8);
 		$add_smsc = ($_POST['add_smsc'] ? $_POST['add_smsc'] : 'blocked');
-		if ($add_dst && $add_prefix) {
-			$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix='$add_prefix'";
-			$db_result = dba_query($db_query);
-			if ($db_row = dba_fetch_array($db_result)) {
-				$_SESSION['error_string'] = _('Route is already exists') . " (" . _('destination') . ": " . $db_row['dst'] . ", " . _('prefix') . ": " . $db_row['prefix'] . ")";
-			} else {
-				$db_query = "
+		if ($add_dst) {
+			$db_query = "
 					INSERT INTO " . _DB_PREF_ . "_featureOutgoing (dst,prefix,smsc)
 					VALUES ('$add_dst','$add_prefix','$add_smsc')";
-				if ($new_uid = @dba_insert_id($db_query)) {
-					$_SESSION['error_string'] = _('Route has been added') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": $add_prefix)";
-				}
+			if ($new_uid = @dba_insert_id($db_query)) {
+				$_SESSION['error_string'] = _('Route has been added') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": $add_prefix)";
 			}
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
