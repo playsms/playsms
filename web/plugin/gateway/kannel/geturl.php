@@ -48,11 +48,12 @@ if ($plugin_config['kannel']['local_time']) {
 $q = trim($_REQUEST['q']); // sms_sender
 $a = trim($_REQUEST['a']); // message
 $Q = trim($_REQUEST['Q']); // sms_receiver
+$smsc = trim($_REQUEST['smsc']); // SMSC
 
 logger_print("addr:" . $remote_addr . " host:" . $remote_host . " t:" . $t . " q:" . $q . " a:" . $a . " Q:" . $Q, 3, "kannel incoming");
 
 if ($t && $q && $a) {
 	// collected:
 	// $sms_datetime, $sms_sender, $message, $sms_receiver
-	recvsms($t, $q, $a, $Q, 'kannel');
+	recvsms($t, $q, $a, $Q, $smsc);
 }

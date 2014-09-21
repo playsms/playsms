@@ -15,21 +15,16 @@ if (!$called_from_hook_call) {
 
 $cb_from = $_REQUEST['sender'];
 $cb_to = $_REQUEST['receiver'];
-$cb_timestamp = ( $_REQUEST['datetime'] ? strtotime($_REQUEST['datetime']) : mktime() );
+$cb_timestamp = ($_REQUEST['datetime'] ? strtotime($_REQUEST['datetime']) : mktime());
 $cb_text = $_REQUEST['text'];
 $cb_status = $_REQUEST['status'];
 $cb_charge = $_REQUEST['charge'];
 $cb_apimsgid = $_REQUEST['apiMsgId'];
+$cb_smsc = $_REQUEST['smsc'];
 
 /*
- $fc = "from: $cb_from - to: $cb_to - timestamp: $cb_timestamp - text: $cb_text - status: $cb_status - charge: $cb_charge - apimsgid: $cb_apimsgid\n";
- $fn = "/tmp/infobip_callback";
- umask(0);
- $fd = fopen($fn,"a+");
- fputs($fd,$fc);
- fclose($fd);
- die();
-*/
+ * $fc = "from: $cb_from - to: $cb_to - timestamp: $cb_timestamp - text: $cb_text - status: $cb_status - charge: $cb_charge - apimsgid: $cb_apimsgid\n"; $fn = "/tmp/infobip_callback"; umask(0); $fd = fopen($fn,"a+"); fputs($fd,$fc); fclose($fd); die();
+ */
 
 if ($cb_timestamp && $cb_from && $cb_text) {
 	$cb_datetime = date($datetime_format, $cb_timestamp);
@@ -42,7 +37,7 @@ if ($cb_timestamp && $cb_from && $cb_text) {
 	
 	// collected:
 	// $sms_datetime, $sms_sender, $message, $sms_receiver
-	setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receiver, 'infobip');
+	setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receiver, $cb_smsc);
 }
 
 if ($cb_status && $cb_apimsgid) {
@@ -60,34 +55,33 @@ if ($cb_status && $cb_apimsgid) {
 	if ($uid && $smslog_id) {
 		$c_sms_status = 0;
 		switch ($cb_status) {
-			case "001":
-			case "002":
-			case "011":
+			case "001" :
+			case "002" :
+			case "011" :
 				$c_sms_status = 0;
 				break;
-				 // pending
-				
-			case "003":
-			case "008":
+			// pending
+			
+			case "003" :
+			case "008" :
 				$c_sms_status = 1;
 				break;
-				 // sent
-				
-			case "005":
-			case "006":
-			case "007":
-			case "009":
-			case "010":
-			case "012":
+			// sent
+			
+			case "005" :
+			case "006" :
+			case "007" :
+			case "009" :
+			case "010" :
+			case "012" :
 				$c_sms_status = 2;
 				break;
-				 // failed
-				
-			case "004":
+			// failed
+			
+			case "004" :
 				$c_sms_status = 3;
 				break;
-				 // delivered
-				
+			// delivered
 		}
 		$c_sms_credit = ceil($cb_charge);
 		

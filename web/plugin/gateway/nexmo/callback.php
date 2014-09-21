@@ -78,7 +78,8 @@ $sms_datetime = urldecode($requests['message-timestamp']);
 $sms_sender = $requests['msisdn'];
 $message = urldecode($requests['text']);
 $sms_receiver = $requests['to'];
+$smsc = $requests['smsc'];
 if ($remote_smslog_id && $message) {
-	logger_print("incoming message_id:" . $remote_smslog_id . " s:" . $sms_sender . " d:" . $sms_receiver, 2, "nexmo callback");
-	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, 'nexmo');
+	logger_print("incoming smsc:" . $smsc . " message_id:" . $remote_smslog_id . " s:" . $sms_sender . " d:" . $sms_receiver, 2, "nexmo callback");
+	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);
 }
