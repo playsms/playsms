@@ -13,7 +13,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 }
 
 // smsc configuration
-$plugin_config['nexmo']['_dynamic_variables_'] = array(
+$plugin_config['nexmo']['_smsc_config_'] = array(
 	'api_key' => _('API key'),
 	'api_secret' => _('API secret'),
 	'global_sender' => _('Module sender ID'),

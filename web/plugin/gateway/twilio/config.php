@@ -14,7 +14,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 }
 
 // smsc configuration
-$plugin_config['twilio']['_dynamic_variables_'] = array();
+$plugin_config['twilio']['_smsc_config_'] = array();
 
 //$gateway_number = $plugin_config['twilio']['global_sender'];
 

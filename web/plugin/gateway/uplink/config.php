@@ -16,7 +16,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 }
 
 // smsc configuration
-$plugin_config['uplink']['_dynamic_variables_'] = array();
+$plugin_config['uplink']['_smsc_config_'] = array();
 
 //$gateway_number = $plugin_config['uplink']['global_sender'];
 // insert to left menu array

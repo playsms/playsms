@@ -6,7 +6,7 @@ $plugin_config['dev']['enable_incoming'] = true;
 $plugin_config['dev']['enable_outgoing'] = true;
 
 // smsc configuration
-$plugin_config['dev']['_dynamic_variables_'] = array();
+$plugin_config['dev']['_smsc_config_'] = array();
 
 if (auth_isadmin()) {
 	$menutab = $core_config['menutab']['settings'];

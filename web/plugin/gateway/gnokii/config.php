@@ -9,7 +9,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 }
 
 // smsc configuration
-$plugin_config['gnokii']['_dynamic_variables_'] = array();
+$plugin_config['gnokii']['_smsc_config_'] = array();
 
 // insert to left menu array
 //if (isadmin()) {

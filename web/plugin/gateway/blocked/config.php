@@ -4,7 +4,7 @@ defined('_SECURE_') or die('Forbidden');
 $plugin_config['blocked']['name'] = 'blocked';
 
 // smsc configuration
-$plugin_config['blocked']['_dynamic_variables_'] = array();
+$plugin_config['blocked']['_smsc_config_'] = array();
 
 // insert to left menu array
 //if (isadmin()) {

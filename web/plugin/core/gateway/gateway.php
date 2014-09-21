@@ -26,7 +26,7 @@ switch (_OP_) {
 	case 'add_smsc' :
 		$c_gateway = $_REQUEST['gateway'];
 		
-		$dv = ($plugin_config[$c_gateway]['_dynamic_variables_'] ? $plugin_config[$c_gateway]['_dynamic_variables_'] : array());
+		$dv = ($plugin_config[$c_gateway]['_smsc_config_'] ? $plugin_config[$c_gateway]['_smsc_config_'] : array());
 		foreach ($dv as $key => $val ) {
 			$dynamic_variables[] = array(
 				'key' => $key,
@@ -73,7 +73,7 @@ switch (_OP_) {
 		} else {
 			
 			if ($c_name && $c_gateway) {
-				$dv = ($plugin_config[$c_gateway]['_dynamic_variables_'] ? $plugin_config[$c_gateway]['_dynamic_variables_'] : array());
+				$dv = ($plugin_config[$c_gateway]['_smsc_config_'] ? $plugin_config[$c_gateway]['_smsc_config_'] : array());
 				$dynamic_variables = array();
 				foreach ($dv as $key => $val ) {
 					$dynamic_variables[$key] = $_REQUEST[$key];
@@ -110,7 +110,7 @@ switch (_OP_) {
 		$c_gateway = gateway_valid_name($smsc['gateway']);
 		$c_data = json_decode($smsc['data']);
 		
-		$dv = ($plugin_config[$c_gateway]['_dynamic_variables_'] ? $plugin_config[$c_gateway]['_dynamic_variables_'] : array());
+		$dv = ($plugin_config[$c_gateway]['_smsc_config_'] ? $plugin_config[$c_gateway]['_smsc_config_'] : array());
 		foreach ($dv as $key => $val ) {
 			$dynamic_variables[] = array(
 				'key' => $key,
@@ -152,7 +152,7 @@ switch (_OP_) {
 		$c_gateway = gateway_valid_name($_REQUEST['gateway']);
 		
 		if ($continue && $c_id && $c_gateway && ($c_gateway == $smsc['gateway'])) {
-			$dv = ($plugin_config[$c_gateway]['_dynamic_variables_'] ? $plugin_config[$c_gateway]['_dynamic_variables_'] : array());
+			$dv = ($plugin_config[$c_gateway]['_smsc_config_'] ? $plugin_config[$c_gateway]['_smsc_config_'] : array());
 			$dynamic_variables = array();
 			foreach ($dv as $key => $val ) {
 				$dynamic_variables[$key] = $_REQUEST[$key];

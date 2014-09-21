@@ -14,7 +14,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 }
 
 // smsc configuration
-$plugin_config['msgtoolbox']['_dynamic_variables_'] = array();
+$plugin_config['msgtoolbox']['_smsc_config_'] = array();
 
 //$gateway_number = $plugin_config['msgtoolbox']['global_sender'];
 

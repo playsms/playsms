@@ -19,7 +19,7 @@ if (!$plugin_config['clickatell']['additional_param']) {
 }
 
 // smsc configuration
-$plugin_config['clickatell']['_dynamic_variables_'] = array();
+$plugin_config['clickatell']['_smsc_config_'] = array();
 
 // $gateway_number = $plugin_config['clickatell']['sender'];
 
