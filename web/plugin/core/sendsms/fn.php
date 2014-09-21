@@ -317,7 +317,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	
 	// set no gateway if no default gateway selected
 	if (!$smsc) {
-		$smsc = '_gateway_none_';
+		$smsc = 'blocked';
 	}
 	
 	// a hack to remove \r from \r\n
