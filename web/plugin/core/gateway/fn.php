@@ -49,6 +49,22 @@ function gateway_getall_smsc() {
 }
 
 /**
+ * Get all SMSC names
+ *
+ * @return array
+ */
+function gateway_getall_smsc_names() {
+	$ret = array();
+	
+	$data = gateway_getall_smsc();
+	foreach ($data as $smsc ) {
+		$ret[] = $smsc['name'];
+	}
+	
+	return $ret;
+}
+
+/**
  * Get SMSC data by ID
  *
  * @param integer $id        	
@@ -270,4 +286,28 @@ function _gateway_display_smsc() {
 	$content .= "</tbody></table></div>";
 	
 	return $content;
+}
+
+function gateway_select_smsc($select_name, $default_smsc) {
+	$c_options = array(
+		_('Supplied SMSC') => '_smsc_supplied_',
+		_('Routed SMSC') => '_smsc_routed_' 
+	) + gateway_getall_smsc_names();
+	$ret = _select($select_name, $c_options, $default_smsc);
+	return $ret;
+}
+
+function gateway_decide_smsc($smsc_supplied, $smsc_configured) {
+	$smsc = $smsc_supplied;
+	
+	// use configured SMSC instead of supplied from incoming
+	if ($smsc_configured != '_smsc_supplied_') {
+		if ($smsc_configured == '_smsc_routed_') {
+			$smsc = '';
+		} else {
+			$smsc = $smsc_configured;
+		}
+	}
+	
+	return $smsc;
 }

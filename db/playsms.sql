@@ -470,6 +470,7 @@ CREATE TABLE `playsms_featurePoll` (
   `poll_message_invalid` text NOT NULL,
   `poll_message_option` text NOT NULL,
   `poll_access_code` varchar(40) NOT NULL DEFAULT '',
+  `smsc` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`poll_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 /*!40101 SET character_set_client = @saved_cs_client */;

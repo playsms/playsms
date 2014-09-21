@@ -70,6 +70,7 @@ function sms_poll_hook_setsmsincomingaction($sms_datetime, $sms_sender, $poll_ke
 
 function sms_poll_handle($list, $sms_datetime, $sms_sender, $poll_keyword, $poll_param = '', $sms_receiver = '', $smsc = '', $raw_message = '') {
 	$ok = false;
+	$smsc = gateway_decide_smsc($smsc, $list['smsc']);
 	$poll_keyword = strtoupper(trim($poll_keyword));
 	$poll_param = strtoupper(trim($poll_param));
 	$choice_keyword = $poll_param;
