@@ -53,6 +53,9 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
+msgid "User"
+msgstr ""
+
 msgid "You must fill all fields"
 msgstr ""
 

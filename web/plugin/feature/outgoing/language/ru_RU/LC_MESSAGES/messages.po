@@ -68,6 +68,9 @@ msgstr ""
 msgid "Save"
 msgstr "Сохранить"
 
+msgid "User"
+msgstr ""
+
 msgid "You must fill all fields"
 msgstr "Необходимо заполнить все поля"
 

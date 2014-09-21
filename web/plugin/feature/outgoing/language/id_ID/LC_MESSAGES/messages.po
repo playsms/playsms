@@ -61,6 +61,9 @@ msgstr ""
 msgid "Save"
 msgstr "Simpan"
 
+msgid "User"
+msgstr ""
+
 msgid "You must fill all fields"
 msgstr "Anda harus mengisi semua kolom"
 
