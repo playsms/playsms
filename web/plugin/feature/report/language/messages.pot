@@ -64,9 +64,6 @@ msgstr ""
 msgid "From"
 msgstr ""
 
-msgid "Gateway"
-msgstr ""
-
 msgid "Inbox"
 msgstr ""
 
@@ -107,6 +104,9 @@ msgid "Report banned users"
 msgstr ""
 
 msgid "Report whose online"
+msgstr ""
+
+msgid "SMSC"
 msgstr ""
 
 msgid "Sandbox"

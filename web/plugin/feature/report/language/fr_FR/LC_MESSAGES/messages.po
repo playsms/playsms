@@ -71,9 +71,6 @@ msgstr "Pied de page"
 msgid "From"
 msgstr "De"
 
-msgid "Gateway"
-msgstr "Passerelle"
-
 msgid "Inbox"
 msgstr "Boîte de réception"
 
@@ -115,6 +112,9 @@ msgstr "Rapport pour les utilisateurs bannis"
 
 msgid "Report whose online"
 msgstr "Rapport pour les utilisateurs connectés"
+
+msgid "SMSC"
+msgstr ""
 
 msgid "Sandbox"
 msgstr "Bac à sable"
