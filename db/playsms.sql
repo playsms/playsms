@@ -458,8 +458,6 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `playsms_featurePoll`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_featurePoll` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
   `poll_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -467,12 +465,13 @@ CREATE TABLE `playsms_featurePoll` (
   `poll_title` varchar(250) NOT NULL DEFAULT '',
   `poll_keyword` varchar(10) NOT NULL DEFAULT '',
   `poll_enable` int(11) NOT NULL DEFAULT '0',
-  `poll_msg_valid` varchar(100) NOT NULL DEFAULT '',
-  `poll_msg_invalid` varchar(100) NOT NULL DEFAULT '',
-  `poll_message_valid` varchar(100) NOT NULL DEFAULT '',
-  `poll_message_invalid` varchar(100) NOT NULL DEFAULT '',
+  `poll_option_vote` int(11) NOT NULL DEFAULT '0',
+  `poll_message_valid` text NOT NULL,
+  `poll_message_invalid` text NOT NULL,
+  `poll_message_option` text NOT NULL,
+  `poll_access_code` varchar(40) NOT NULL DEFAULT '',
   PRIMARY KEY (`poll_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
