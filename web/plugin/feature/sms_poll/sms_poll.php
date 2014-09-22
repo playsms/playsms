@@ -300,7 +300,7 @@ switch (_OP_) {
 		$edit_poll_message_invalid = $db_row['poll_message_invalid'];
 		
 		if (auth_isadmin()) {
-			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('add_smsc', $db_row['smsc']) . "</td></tr>";
+			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('edit_smsc', $db_row['smsc']) . "</td></tr>";
 		}
 		
 		if ($err = $_SESSION['error_string']) {
