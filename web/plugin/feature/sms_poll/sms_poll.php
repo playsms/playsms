@@ -200,6 +200,11 @@ switch (_OP_) {
 			_('multiple times') => 4 
 		);
 		$add_poll_access_code = md5(_PID_);
+		
+		if (auth_isadmin()) {
+			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('add_smsc') . "</td></tr>";
+		}
+		
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -230,6 +235,7 @@ switch (_OP_) {
 			<tr>
 				<td>" . _('Reply message on invalid vote') . "</td><td><textarea maxlength=160 name=\"add_poll_message_invalid\">$add_poll_message_invalid</textarea></td>
 			</tr>
+			" . $select_reply_smsc . "
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
@@ -245,11 +251,16 @@ switch (_OP_) {
 		$add_poll_message_option = $_POST['add_poll_message_option'];
 		$add_poll_message_valid = $_POST['add_poll_message_valid'];
 		$add_poll_message_invalid = $_POST['add_poll_message_invalid'];
+		
+		if (auth_isadmin()) {
+			$add_smsc = $_POST['add_smsc'];
+		}
+		
 		if ($add_poll_title && $add_poll_keyword && $add_poll_message_valid && $add_poll_message_invalid) {
 			if (checkavailablekeyword($add_poll_keyword)) {
 				$db_query = "
-					INSERT INTO " . _DB_PREF_ . "_featurePoll (uid,poll_keyword,poll_title,poll_access_code,poll_option_vote,poll_message_option,poll_message_valid,poll_message_invalid)
-					VALUES ('" . $user_config['uid'] . "','$add_poll_keyword','$add_poll_title','$add_poll_access_code','$add_poll_option_vote','$add_poll_message_option','$add_poll_message_valid','$add_poll_message_invalid')";
+					INSERT INTO " . _DB_PREF_ . "_featurePoll (uid,poll_keyword,poll_title,poll_access_code,poll_option_vote,poll_message_option,poll_message_valid,poll_message_invalid,smsc)
+					VALUES ('" . $user_config['uid'] . "','$add_poll_keyword','$add_poll_title','$add_poll_access_code','$add_poll_option_vote','$add_poll_message_option','$add_poll_message_valid','$add_poll_message_invalid','$add_smsc')";
 				if ($new_poll_id = @dba_insert_id($db_query)) {
 					$_SESSION['error_string'] = _('SMS poll has been added') . " (" . _('keyword') . ": $add_poll_keyword)";
 				} else {
@@ -287,6 +298,11 @@ switch (_OP_) {
 		$edit_poll_message_option = $db_row['poll_message_option'];
 		$edit_poll_message_valid = $db_row['poll_message_valid'];
 		$edit_poll_message_invalid = $db_row['poll_message_invalid'];
+		
+		if (auth_isadmin()) {
+			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('add_smsc', $db_row['smsc']) . "</td></tr>";
+		}
+		
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -319,9 +335,7 @@ switch (_OP_) {
 			<tr>
 				<td>" . _('Reply message on invalid vote') . "</td><td><textarea maxlength=160 name=\"edit_poll_message_invalid\">$edit_poll_message_invalid</textarea></td>
 			</tr>
-			<tr>
-				<td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('edit_smsc', $db_row['smsc']) . "</td>
-			</tr>
+			" . $select_reply_smsc . "
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
@@ -382,11 +396,16 @@ switch (_OP_) {
 		$edit_poll_message_option = $_POST['edit_poll_message_option'];
 		$edit_poll_message_valid = $_POST['edit_poll_message_valid'];
 		$edit_poll_message_invalid = $_POST['edit_poll_message_invalid'];
-		$edit_smsc = $_POST['edit_smsc'];
+		
+		if (auth_isadmin()) {
+			$edit_smsc = $_POST['edit_smsc'];
+			$query_smsc = ",smsc='$edit_smsc'";
+		}
+		
 		if ($poll_id && $edit_poll_title && $edit_poll_keyword && $edit_poll_message_valid && $edit_poll_message_invalid) {
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_featurePoll
-				SET c_timestamp='" . mktime() . "',poll_title='$edit_poll_title',poll_access_code='$edit_poll_access_code',poll_keyword='$edit_poll_keyword', poll_option_vote='$edit_poll_option_vote', poll_message_option='$edit_poll_message_option', poll_message_valid='$edit_poll_message_valid', poll_message_invalid='$edit_poll_message_invalid',smsc='$edit_smsc'
+				SET c_timestamp='" . mktime() . "',poll_title='$edit_poll_title',poll_access_code='$edit_poll_access_code',poll_keyword='$edit_poll_keyword', poll_option_vote='$edit_poll_option_vote', poll_message_option='$edit_poll_message_option', poll_message_valid='$edit_poll_message_valid', poll_message_invalid='$edit_poll_message_invalid'" . $query_smsc . "
 				WHERE poll_id='$poll_id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('SMS poll has been saved') . " (" . _('keyword') . ": $edit_poll_keyword)";
