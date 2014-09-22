@@ -84,7 +84,7 @@ function outgoing_prefix2smsc($prefix, $uid = 0) {
 	while ($db_row = dba_fetch_array($db_result)) {
 		$smsc[] = $db_row['smsc'];
 	}
-	_log('prefix: ' . $prefix . ' uid:' . $uid . ' debug:' . print_r($smsc, 1), 3, 'outgoing_hook_sendsms_intercept');
+	//_log('prefix: ' . $prefix . ' uid:' . $uid . ' debug:' . print_r($smsc, 1), 3, 'outgoing_hook_sendsms_intercept');
 	
 	return $smsc;
 }
