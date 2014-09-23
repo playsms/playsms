@@ -298,15 +298,21 @@ function gateway_select_smsc($select_name, $default_smsc) {
 }
 
 function gateway_decide_smsc($smsc_supplied, $smsc_configured) {
-	$smsc = $smsc_supplied;
-	
-	// use configured SMSC instead of supplied from incoming
-	if ($smsc_configured != '_smsc_supplied_') {
+	// decision logic
+	if ($smsc_configured) {
 		if ($smsc_configured == '_smsc_routed_') {
 			$smsc = '';
+		} else if ($smsc_configured == '_smsc_supplied_') {
+			$smsc = $smsc_supplied;
 		} else {
 			$smsc = $smsc_configured;
 		}
+	}
+	
+	// validate
+	if ($smsc) {
+		$smsc_data = gateway_get_smscbyname($smsc);
+		$smsc = ($smsc['name'] ? $smsc['name'] : 'blocked');
 	}
 	
 	return $smsc;
