@@ -298,6 +298,9 @@ function gateway_select_smsc($select_name, $default_smsc) {
 }
 
 function gateway_decide_smsc($smsc_supplied, $smsc_configured) {
+	// default is the supplied
+	$smsc = $smsc_supplied;
+	
 	// decision logic
 	if ($smsc_configured) {
 		if ($smsc_configured == '_smsc_routed_') {
