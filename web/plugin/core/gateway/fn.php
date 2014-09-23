@@ -315,7 +315,7 @@ function gateway_decide_smsc($smsc_supplied, $smsc_configured) {
 	// validate
 	if ($smsc) {
 		$smsc_data = gateway_get_smscbyname($smsc);
-		$smsc = ($smsc['name'] ? $smsc['name'] : 'blocked');
+		$smsc = ($smsc_data['name'] ? $smsc_data['name'] : 'blocked');
 	}
 	
 	// log it
