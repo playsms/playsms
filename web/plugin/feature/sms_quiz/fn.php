@@ -26,6 +26,7 @@ function sms_quiz_hook_setsmsincomingaction($sms_datetime, $sms_sender, $quiz_ke
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		if ($db_row['uid'] && $db_row['quiz_enable']) {
+			$smsc = gateway_decide_smsc($smsc, $db_row['smsc']);
 			logger_print('begin k:' . $quiz_keyword . ' c:' . $quiz_param, 2, 'sms_quiz');
 			if (sms_quiz_handle($db_row, $sms_datetime, $sms_sender, $quiz_keyword, $quiz_param, $sms_receiver, $smsc, $raw_message)) {
 				$ok = true;

@@ -474,3 +474,6 @@ ALTER TABLE `playsms_featurePoll` ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' ;
 ALTER TABLE `playsms_featureAutoreply` ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' ;
 
 ALTER TABLE `playsms_featureSubscribe` ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' ;
+
+ALTER TABLE `playsms_featureQuiz` ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' ;
+

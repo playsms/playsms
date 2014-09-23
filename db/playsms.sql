@@ -555,6 +555,7 @@ CREATE TABLE `playsms_featureQuiz` (
   `quiz_msg_correct` varchar(100) NOT NULL DEFAULT '',
   `quiz_msg_incorrect` varchar(100) NOT NULL DEFAULT '',
   `quiz_enable` int(11) NOT NULL DEFAULT '0',
+  `smsc` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`quiz_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

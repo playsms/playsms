@@ -5,8 +5,16 @@ if (!auth_isvalid()) {
 	auth_block();
 }
 
-if ($quiz_id = $_REQUEST['quiz_id']) {
-	if (!($quiz_id = dba_valid(_DB_PREF_ . '_featureQuiz', 'quiz_id', $quiz_id))) {
+if ($quiz_id = (int) $_REQUEST['quiz_id']) {
+	$db_table = _DB_PREF_ . '_featureQuiz';
+	$conditions = array(
+		'quiz_id' => $quiz_id 
+	);
+	if (!auth_isadmin()) {
+		$conditions['uid'] = $user_config['uid'];
+	}
+	$list = dba_search($db_table, 'quiz_id', $conditions);
+	if (!($list[0]['quiz_id'] == $quiz_id)) {
 		auth_block();
 	}
 }
@@ -77,6 +85,9 @@ switch (_OP_) {
 		_p($content);
 		break;
 	case "sms_quiz_add" :
+		if (auth_isadmin()) {
+			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc') . "</td></tr>";
+		}
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -101,6 +112,7 @@ switch (_OP_) {
 			<tr>
 				<td>" . _('Reply message on incorrect') . "</td><td><input type=text maxlength=100 name=add_quiz_msg_incorrect value=\"$add_quiz_msg_incorrect\"></td>
 			</tr>
+			" . $select_reply_smsc . "
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
@@ -113,11 +125,14 @@ switch (_OP_) {
 		$add_quiz_answer = strtoupper($_POST['add_quiz_answer']);
 		$add_quiz_msg_correct = $_POST['add_quiz_msg_correct'];
 		$add_quiz_msg_incorrect = $_POST['add_quiz_msg_incorrect'];
+		if (auth_isadmin()) {
+			$smsc = $_REQUEST['smsc'];
+		}
 		if ($add_quiz_keyword && $add_quiz_answer) {
 			if (checkavailablekeyword($add_quiz_keyword)) {
 				$db_query = "
-					INSERT INTO " . _DB_PREF_ . "_featureQuiz (uid,quiz_keyword,quiz_question,quiz_answer,quiz_msg_correct,quiz_msg_incorrect)
-					VALUES ('" . $user_config['uid'] . "','$add_quiz_keyword','$add_quiz_question','$add_quiz_answer','$add_quiz_msg_correct','$add_quiz_msg_incorrect')";
+					INSERT INTO " . _DB_PREF_ . "_featureQuiz (uid,quiz_keyword,quiz_question,quiz_answer,quiz_msg_correct,quiz_msg_incorrect,smsc)
+					VALUES ('" . $user_config['uid'] . "','$add_quiz_keyword','$add_quiz_question','$add_quiz_answer','$add_quiz_msg_correct','$add_quiz_msg_incorrect','$smsc')";
 				if ($new_uid = @ dba_insert_id($db_query)) {
 					$_SESSION['error_string'] = _('SMS quiz has been added') . " (" . _('keyword') . ": $add_quiz_keyword)";
 				} else {
@@ -141,6 +156,9 @@ switch (_OP_) {
 		$edit_quiz_answer = $db_row['quiz_answer'];
 		$edit_quiz_msg_correct = $db_row['quiz_msg_correct'];
 		$edit_quiz_msg_incorrect = $db_row['quiz_msg_incorrect'];
+		if (auth_isadmin()) {
+			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc', $db_row['smsc']) . "</td></tr>";
+		}
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -167,6 +185,7 @@ switch (_OP_) {
 			<tr>
 				<td>" . _('Reply message on incorrect') . "</td><td><input type=text maxlength=100 name=edit_quiz_msg_incorrect value=\"$edit_quiz_msg_incorrect\"></td>
 			</tr>
+			" . $select_reply_smsc . "
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
@@ -179,10 +198,14 @@ switch (_OP_) {
 		$edit_quiz_answer = $_POST['edit_quiz_answer'];
 		$edit_quiz_msg_correct = $_POST['edit_quiz_msg_correct'];
 		$edit_quiz_msg_incorrect = $_POST['edit_quiz_msg_incorrect'];
+		if (auth_isadmin()) {
+			$smsc = $_REQUEST['smsc'];
+			$smsc_sql = ",smsc='$smsc'";
+		}
 		if ($quiz_id && $edit_quiz_answer && $edit_quiz_question && $edit_quiz_keyword && $edit_quiz_msg_correct && $edit_quiz_msg_incorrect) {
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_featureQuiz
-				SET c_timestamp='" . mktime() . "',quiz_keyword='$edit_quiz_keyword',quiz_question='$edit_quiz_question',quiz_answer='$edit_quiz_answer',quiz_msg_correct='$edit_quiz_msg_correct',quiz_msg_incorrect='$edit_quiz_msg_incorrect'
+				SET c_timestamp='" . mktime() . "',quiz_keyword='$edit_quiz_keyword',quiz_question='$edit_quiz_question',quiz_answer='$edit_quiz_answer',quiz_msg_correct='$edit_quiz_msg_correct',quiz_msg_incorrect='$edit_quiz_msg_incorrect'" . $smsc_sql . "
 				WHERE quiz_id='$quiz_id'";
 			if (@ dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('SMS quiz has been saved') . " (" . _('keyword') . ": $edit_quiz_keyword)";
