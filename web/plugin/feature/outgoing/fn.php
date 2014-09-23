@@ -84,7 +84,7 @@ function outgoing_prefix2smsc($prefix, $uid = 0) {
 	while ($db_row = dba_fetch_array($db_result)) {
 		$smsc[] = $db_row['smsc'];
 	}
-	//_log('prefix: ' . $prefix . ' uid:' . $uid . ' debug:' . print_r($smsc, 1), 3, 'outgoing_hook_sendsms_intercept');
+	// _log('prefix: ' . $prefix . ' uid:' . $uid . ' debug:' . print_r($smsc, 1), 3, 'outgoing_hook_sendsms_intercept');
 	
 	return $smsc;
 }
@@ -118,7 +118,7 @@ function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms
 	
 	// supplied smsc will be priority
 	if ($smsc) {
-		_log('using supplied smsc smsc:[' . $smsc . ']', 3, 'outgoing_hook_sendsms_intercept');
+		_log('using supplied smsc smsc:[' . $smsc . '] uid:' . $uid . ' from:' . $sms_sender . ' to:' . $sms_to, 3, 'outgoing_hook_sendsms_intercept');
 		$next = FALSE;
 	}
 	
@@ -135,14 +135,14 @@ function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms
 			$smsc_all = trim($smsc_all);
 			shuffle($smsc_found);
 			_log('found SMSCs:' . $smsc_all, 3, 'outgoing_hook_sendsms_intercept');
-			_log('using prefix based smsc smsc:[' . $smsc_found[0] . ']', 3, 'outgoing_hook_sendsms_intercept');
+			_log('using prefix based smsc smsc:[' . $smsc_found[0] . '] uid:' . $uid . ' from:' . $sms_sender . ' to:' . $sms_to, 3, 'outgoing_hook_sendsms_intercept');
 			$smsc = $smsc_found[0];
 			$next = FALSE;
 		}
 	}
 	
 	if ($next) {
-		_log('no route found', 3, 'outgoing_hook_sendsms_intercept');
+		_log('no SMSC found uid:' . $uid . ' from:' . $sms_sender . ' to:' . $sms_to, 3, 'outgoing_hook_sendsms_intercept');
 	}
 	
 	if ($smsc) {
