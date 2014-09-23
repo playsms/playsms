@@ -400,14 +400,14 @@ switch (_OP_) {
 		$edit_already_member_msg = $_POST['edit_already_member_msg'];
 		if (auth_isadmin()) {
 			$smsc = $_REQUEST['smsc'];
+			$smsc_sql = ",smsc='$smsc'";
 		}
 		if ($subscribe_id && $edit_subscribe_keyword && $edit_subscribe_msg && $edit_unsubscribe_msg && $edit_forward_param && $edit_unknown_format_msg && $edit_already_member_msg) {
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_featureSubscribe
 				SET c_timestamp='" . mktime() . "', subscribe_keyword='$edit_subscribe_keyword', subscribe_msg='$edit_subscribe_msg',
 					unsubscribe_msg='$edit_unsubscribe_msg', subscribe_param='$edit_subscribe_param', unsubscribe_param='$edit_unsubscribe_param',
-					forward_param='$edit_forward_param', unknown_format_msg='$edit_unknown_format_msg', already_member_msg='$edit_already_member_msg',
-					smsc='$smsc'
+					forward_param='$edit_forward_param', unknown_format_msg='$edit_unknown_format_msg', already_member_msg='$edit_already_member_msg'" . $smsc_sql . "
 				WHERE subscribe_id='$subscribe_id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('SMS subscribe has been saved') . " (" . _('keyword') . ": $edit_subscribe_keyword)";
