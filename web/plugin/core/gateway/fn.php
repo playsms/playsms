@@ -315,5 +315,8 @@ function gateway_decide_smsc($smsc_supplied, $smsc_configured) {
 		$smsc = ($smsc['name'] ? $smsc['name'] : 'blocked');
 	}
 	
+	// log it
+	_log('SMSC supplied:[' . $smsc_supplied . '] configured:[' . $smsc_configured . '] decided smsc:[' . $smsc . ']', 3, 'gateway_decide_smsc');
+	
 	return $smsc;
 }
