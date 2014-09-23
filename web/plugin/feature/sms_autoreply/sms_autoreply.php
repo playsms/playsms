@@ -22,8 +22,16 @@ if (!auth_isvalid()) {
 	auth_block();
 }
 
-if ($autoreply_id = $_REQUEST['autoreply_id']) {
-	if (!($autoreply_id = dba_valid(_DB_PREF_ . '_featureAutoreply', 'autoreply_id', $autoreply_id))) {
+if ($autoreply_id = (int) $_REQUEST['autoreply_id']) {
+	$db_table = _DB_PREF_ . '_featureAutoreply';
+	$conditions = array(
+		'autoreply_id' => $autoreply_id 
+	);
+	if (!auth_isadmin()) {
+		$conditions['uid'] = $user_config['uid'];
+	}
+	$list = dba_search($db_table, 'autoreply_id', $conditions);
+	if (!($list[0]['autoreply_id'] == $autoreply_id)) {
 		auth_block();
 	}
 }
@@ -57,6 +65,7 @@ switch (_OP_) {
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = user_uid2username($db_row['uid'])) {
 				$action = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=' . $db_row['autoreply_id']) . "\">" . $icon_config['manage'] . "</a>&nbsp;";
+				$action .= "<a href=\"" . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_edit&autoreply_id=' . $db_row['autoreply_id']) . "\">" . $icon_config['edit'] . "</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS autoreply ?') . " (" . _('keyword') . ": " . $db_row['autoreply_keyword'] . ")','" . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_del&autoreply_id=' . $db_row['autoreply_id']) . "')\">" . $icon_config['delete'] . "</a>";
 				if (auth_isadmin()) {
 					$option_owner = "<td>$owner</td>";
@@ -74,7 +83,7 @@ switch (_OP_) {
 			</tbody>
 			</table>
 			</div>
-			" . _button('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_add', _('Add SMS autoreply'));
+			<p>" . _button('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_add', _('Add SMS autoreply'));
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}
@@ -135,8 +144,8 @@ switch (_OP_) {
 			</table>
 			</div>
 			</form>
-			" . _button('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=' . $autoreply_id, _('Add SMS autoreply scenario')) . "
-			" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list');
+			<p>" . _button('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=' . $autoreply_id, _('Add SMS autoreply scenario')) . "
+			<p>" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list');
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}
@@ -175,7 +184,7 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value='" . _('Save') . "'></p>
 			</form>
-			" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list');
+			<p>" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list');
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}
@@ -200,6 +209,62 @@ switch (_OP_) {
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_add'));
 		exit();
 		break;
+	
+	case "sms_autoreply_edit" :
+		$db_table = _DB_PREF_ . "_featureAutoreply";
+		$conditions = array(
+			'autoreply_id' => $autoreply_id 
+		);
+		$list = dba_search($db_table, '*', $conditions);
+		$edit_autoreply_keyword = strtoupper($list[0]['autoreply_keyword']);
+		if (auth_isadmin()) {
+			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc', $list[0]['smsc']) . "</td></tr>";
+		}
+		$content .= "
+			<h2>" . _('Manage autoreply') . "</h2>
+			<h3>" . _('Edit SMS autoreply') . "</h3>
+			<form action=index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_edit_yes method=post>
+			" . _CSRF_FORM_ . "
+			<input type=hidden name=autoreply_id value=\"$autoreply_id\"> 
+			<table class=playsms-table>
+				<tbody>
+				<tr>
+					<td class=label-sizer>" . _('SMS autoreply keyword') . "</td>
+					<td><input type=text value=\"$edit_autoreply_keyword\" readonly></td>					
+				</tr>
+				" . $select_reply_smsc . "
+				</tbody>
+			</table>
+			<p><input type=submit class=button value='" . _('Save') . "'></p>
+			</form>
+			<p>" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list');
+		if ($err = $_SESSION['error_string']) {
+			_p("<div class=error_string>$err</div>");
+		}
+		_p($content);
+		break;
+	
+	case "sms_autoreply_edit_yes" :
+		if (auth_isadmin()) {
+			$smsc = $_REQUEST['smsc'];
+		}
+		if ((int) $autoreply_id && $smsc) {
+			$db_table = _DB_PREF_ . "_featureAutoreply";
+			$items = array(
+				'smsc' => $smsc 
+			);
+			$conditions = array(
+				'autoreply_id' => (int) $autoreply_id 
+			);
+			dba_update($db_table, $items, $conditions);
+			$_SESSION['error_string'] = _('SMS autoreply has been updated');
+		} else {
+			$_SESSION['error_string'] = _('Fail to update SMS autoreply');
+		}
+		header("Location: " . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_edit&autoreply_id=' . $autoreply_id));
+		exit();
+		break;
+	
 	// scenario
 	case "sms_autoreply_scenario_del" :
 		$_SESSION['error_string'] = _('Fail to delete SMS autoreply scenario');
@@ -241,7 +306,7 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value='" . _('Save') . "'>
 			</form>
-			" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=' . $autoreply_id);
+			<p>" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=' . $autoreply_id);
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}
@@ -311,7 +376,7 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\"></p>
 			</form>
-			" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=' . $autoreply_id);
+			<p>" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=' . $autoreply_id);
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}

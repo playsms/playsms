@@ -51,11 +51,12 @@ function sms_autoreply_hook_checkavailablekeyword($keyword) {
  */
 function sms_autoreply_hook_setsmsincomingaction($sms_datetime, $sms_sender, $autoreply_keyword, $autoreply_param = '', $sms_receiver = '', $smsc = '', $raw_message = '') {
 	$ok = false;
-	$db_query = "SELECT uid,autoreply_id FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_keyword='$autoreply_keyword'";
+	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_keyword='$autoreply_keyword'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$c_uid = $db_row['uid'];
 		$autoreply_id = $db_row['autoreply_id'];
+		$smsc = gateway_decide_smsc($smsc, $db_row['smsc']);
 		if (sms_autoreply_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $autoreply_id, $autoreply_keyword, $autoreply_param, $smsc, $raw_message)) {
 			$ok = true;
 		}

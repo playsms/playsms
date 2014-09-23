@@ -27,6 +27,7 @@ CREATE TABLE `playsms_featureAutoreply` (
   `autoreply_id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL DEFAULT '0',
   `autoreply_keyword` varchar(10) NOT NULL DEFAULT '',
+  `smsc` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`autoreply_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
