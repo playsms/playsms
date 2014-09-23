@@ -472,3 +472,5 @@ ALTER TABLE `playsms_featureOutgoing` ADD `uid` INT(11) NOT NULL DEFAULT '0' AFT
 ALTER TABLE `playsms_featurePoll` ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' ;
 
 ALTER TABLE `playsms_featureAutoreply` ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' ;
+
+ALTER TABLE `playsms_featureSubscribe` ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' ;

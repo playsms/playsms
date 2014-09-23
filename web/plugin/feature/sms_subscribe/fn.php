@@ -67,6 +67,7 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 	$subscribe_accept_param = $list['subscribe_param'];
 	$subscribe_reject_param = $list['unsubscribe_param'];
 	$forward_param = $list['forward_param'];
+	$smsc = gateway_decide_smsc($smsc, $list['smsc']);
 	
 	// for later use
 	$subscribe_param_array = explode(" ", $subscribe_param);
