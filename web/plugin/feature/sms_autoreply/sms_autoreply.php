@@ -169,6 +169,10 @@ switch (_OP_) {
 		exit();
 		break;
 	case "sms_autoreply_add" :
+		if (auth_isadmin()) {
+			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc') . "</td></tr>";
+		}
+		
 		$content .= "
 			<h2>" . _('Manage autoreply') . "</h2>
 			<h3>" . _('Add SMS autoreply') . "</h3>
@@ -180,6 +184,7 @@ switch (_OP_) {
 					<td class=label-sizer>" . _('SMS autoreply keyword') . "</td>
 					<td><input type=text size=10 maxlength=10 name=add_autoreply_keyword value=\"$add_autoreply_keyword\"></td>
 				</tr>
+				" . $select_reply_smsc . "
 				</tbody>
 			</table>
 			<p><input type=submit class=button value='" . _('Save') . "'></p>
@@ -192,9 +197,14 @@ switch (_OP_) {
 		break;
 	case "sms_autoreply_add_yes" :
 		$add_autoreply_keyword = trim(strtoupper($_POST['add_autoreply_keyword']));
+		
+		if (auth_isadmin()) {
+			$smsc = $_POST['smsc'];
+		}
+		
 		if ($add_autoreply_keyword) {
 			if (checkavailablekeyword($add_autoreply_keyword)) {
-				$db_query = "INSERT INTO " . _DB_PREF_ . "_featureAutoreply (uid,autoreply_keyword) VALUES ('" . $user_config['uid'] . "','$add_autoreply_keyword')";
+				$db_query = "INSERT INTO " . _DB_PREF_ . "_featureAutoreply (uid,autoreply_keyword,smsc) VALUES ('" . $user_config['uid'] . "','$add_autoreply_keyword','$smsc')";
 				if ($new_uid = @dba_insert_id($db_query)) {
 					$_SESSION['error_string'] = _('SMS autoreply keyword has been added') . " (" . _('keyword') . ": $add_autoreply_keyword)";
 				} else {
