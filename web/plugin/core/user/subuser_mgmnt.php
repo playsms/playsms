@@ -22,6 +22,10 @@ if (!auth_isvalid()) {
 	auth_block();
 }
 
+if (!(($user_config['status'] == 2) || ($user_config['status'] == 3))) {
+	auth_block();
+}
+
 if ($_REQUEST['uname']) {
 	$subuser_edited = user_getdatabyusername($_REQUEST['uname']);
 	if (($subuser_edited['status'] != 4) || ($subuser_edited['parent_uid'] != $user_config['uid'])) {
