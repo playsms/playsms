@@ -193,11 +193,11 @@ switch (_OP_) {
 				</td>
 			</tr>
 			<tr>
-				<td>" . _('Duration') . "</td>				
+				<td>" . _('Subscribe duration') . "</td>				
 				<td>" . $select_durations . "</td>
 			</tr>
 			<tr>
-				<td>" . _('Expired reply') . "</td>
+				<td>" . _('Subscription expired reply') . "</td>
 				<td>
 					<textarea maxlength=\"140\" name=\"add_expire_msg\" id=\"add_expire_msg\" value=\"\" cols=\"35\" rows=\"3\" 
 						onClick=\"SmsSetCounter_Abstract('add_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\" 
@@ -372,11 +372,11 @@ switch (_OP_) {
 				</td>
 			</tr>
 			<tr>
-				<td>" . _('Duration') . "</td>				
+				<td>" . _('Subscribe duration') . "</td>				
 				<td>" . $select_durations . "</td>
 			</tr>
 			<tr>
-				<td>" . _('Expired reply') . "</td>
+				<td>" . _('Subscription expired reply') . "</td>
 				<td>
 					<textarea maxlength=\"140\" name=\"edit_expire_msg\" id=\"edit_expire_msg\" value=\"\" cols=\"35\" rows=\"3\" 
 						onClick=\"SmsSetCounter_Abstract('edit_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\" 
