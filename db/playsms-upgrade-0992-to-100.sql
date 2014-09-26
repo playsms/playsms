@@ -478,3 +478,5 @@ ALTER TABLE `playsms_featureSubscribe` ADD `smsc` VARCHAR(100) NOT NULL DEFAULT 
 ALTER TABLE `playsms_featureQuiz` ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' ;
 
 ALTER TABLE `playsms_featureSubscribe` ADD `duration` INT(11) NOT NULL DEFAULT '0' ;
+
+ALTER TABLE `playsms_featureSubscribe` ADD `expire_msg` VARCHAR(140) NOT NULL DEFAULT '' ;
