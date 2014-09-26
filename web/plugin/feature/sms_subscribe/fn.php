@@ -234,7 +234,7 @@ function sms_subscribe_hook_playsmsd() {
 	global $core_config;
 	
 	// fetch every 60 seconds
-	if (!core_playsmsd_timer(60)) {
+	if (!core_playsmsd_timer(3600)) {
 		return;
 	}
 	
@@ -262,6 +262,7 @@ function sms_subscribe_hook_playsmsd() {
 				// days
 				$c_interval = $c_duration - 1000;
 				if ($c_interval && $d && ($c_interval > $d)) {
+					_log('expired duration:' . $d . ' day k:' . $subscribe['subscribe_keyword'] . ' member_id:' . $member['member_id'] . ' number:' . $member['member_number'], 3, 'sms_subscribe_hook_playsmsd');
 					$is_expired = TRUE;
 				}
 			} else if ($c_duration > 100) {
@@ -269,6 +270,7 @@ function sms_subscribe_hook_playsmsd() {
 				$c_interval = $c_duration - 100;
 				$w = floor($d / 7);
 				if ($c_interval && $w && ($c_interval > $w)) {
+					_log('expired duration:' . $w . ' week k:' . $subscribe['subscribe_keyword'] . ' member_id:' . $member['member_id'] . ' number:' . $member['member_number'], 3, 'sms_subscribe_hook_playsmsd');
 					$is_expired = TRUE;
 				}
 			} else if ($c_duration > 0) {
@@ -276,6 +278,7 @@ function sms_subscribe_hook_playsmsd() {
 				$c_interval = $c_duration;
 				$m = floor($d / 30);
 				if ($c_interval && $m && ($c_interval > $m)) {
+					_log('expired duration:' . $m . ' month k:' . $subscribe['subscribe_keyword'] . ' member_id:' . $member['member_id'] . ' number:' . $member['member_number'], 3, 'sms_subscribe_hook_playsmsd');
 					$is_expired = TRUE;
 				}
 			}
@@ -290,7 +293,9 @@ function _sms_subscribe_member_expired($subscribe, $member) {
 	$c_username = user_uid2username($subscribe['uid']);
 	if ($c_username && $member['member_id']) {
 		if (sms_subscribe_member_remove($member['member_id'])) {
+			_log('removed k:' . $subscribe['subscribe_keyword'] . ' member_id:' . $member['member_id'] . ' number:' . $member['member_number'], 3, '_sms_subscribe_member_expired');
 			if ($subscribe['expire_msg']) {
+				_log('SMS k:' . $subscribe['subscribe_keyword'] . ' member_id:' . $member['member_id'] . ' number:' . $member['member_number'] . ' message:[' . $subscribe['expire_msg'] . ']', 3, '_sms_subscribe_member_expired');
 				sendsms_helper($c_username, $member['member_number'], $subscribe['expire_msg'], 'text', '', $subscribe['smsc']);
 			}
 		}
