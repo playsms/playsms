@@ -133,6 +133,7 @@ switch (_OP_) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$add_forward_param = 'BC';
+		$select_durations = _select('add_duration', $plugin_config['sms_subscribe']['durations']);
 		$content .= "
 			<link rel='stylesheet' type='text/css' href=" . _HTTP_PATH_THEMES_ . "/common/jscss/sms_subscribe.css />
 			<h2>" . _('Manage subscribe') . "</h2>
@@ -186,10 +187,29 @@ switch (_OP_) {
 				</td>
 			</tr>
 			<tr>
-				<td>" . _('SMS forward parameter') . "</td>
-				
+				<td>" . _('SMS forward parameter') . "</td>				
 				<td>
 					<input type=text size=10 maxlength=20 name=add_forward_param value=\"$add_forward_param\">
+				</td>
+			</tr>
+			<tr>
+				<td>" . _('Duration') . "</td>				
+				<td>" . $select_durations . "</td>
+			</tr>
+			<tr>
+				<td>" . _('Expired reply') . "</td>
+				<td>
+					<textarea maxlength=\"140\" name=\"add_expire_msg\" id=\"add_expire_msg\" value=\"\" cols=\"35\" rows=\"3\" 
+						onClick=\"SmsSetCounter_Abstract('add_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\" 
+						onkeypress=\"SmsSetCounter_Abstract('add_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\" 
+						onblur=\"SmsSetCounter_Abstract('add_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\" 
+						onKeyUp=\"SmsSetCounter_Abstract('add_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\"	
+						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'add_expire_msg');\" 
+						onKeyDown=\"SmsCountKeyDown_Abstract($max_length, 'form_subscribe_add');\"></textarea>
+					<br>
+					<input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount_ex\" id=\"txtcount_ex\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.form_subscribe_add.add_expire_msg.focus();\" readonly>
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount_ex\" id=\"hiddcount_ex\"> 
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_ex\" id=\"hiddcount_unicode_ex\"> 
 				</td>
 			</tr>
 			<tr>
@@ -241,14 +261,16 @@ switch (_OP_) {
 		$add_forward_param = strtoupper(($_POST['add_forward_param'] ? $_POST['add_forward_param'] : 'BC'));
 		$add_unknown_format_msg = $_POST['add_unknown_format_msg'];
 		$add_already_member_msg = $_POST['add_already_member_msg'];
+		$add_expire_msg = $_POST['add_expire_msg'];
+		$add_duration = (int) $_POST['add_duration'];
 		if (auth_isadmin()) {
 			$smsc = $_REQUEST['smsc'];
 		}
 		if ($add_subscribe_keyword && $add_subscribe_msg && $add_unsubscribe_msg && $add_forward_param && $add_unknown_format_msg && $add_already_member_msg) {
 			if (checkavailablekeyword($add_subscribe_keyword)) {
 				$db_query = "
-					INSERT INTO " . _DB_PREF_ . "_featureSubscribe (uid,subscribe_keyword,subscribe_msg,unsubscribe_msg, subscribe_param, unsubscribe_param, forward_param, unknown_format_msg, already_member_msg,smsc)
-					VALUES ('" . $user_config['uid'] . "','$add_subscribe_keyword','$add_subscribe_msg','$add_unsubscribe_msg','$add_subscribe_param','$add_unsubscribe_param','$add_forward_param','$add_unknown_format_msg','$add_already_member_msg','$smsc')";
+					INSERT INTO " . _DB_PREF_ . "_featureSubscribe (uid,subscribe_keyword,subscribe_msg,unsubscribe_msg, subscribe_param, unsubscribe_param, forward_param, unknown_format_msg, already_member_msg,smsc,duration,expire_msg)
+					VALUES ('" . $user_config['uid'] . "','$add_subscribe_keyword','$add_subscribe_msg','$add_unsubscribe_msg','$add_subscribe_param','$add_unsubscribe_param','$add_forward_param','$add_unknown_format_msg','$add_already_member_msg','$smsc','$add_duration','$add_expire_msg')";
 				if ($new_uid = @dba_insert_id($db_query)) {
 					$_SESSION['error_string'] = _('SMS subscribe has been added') . " (" . _('keyword') . ": $add_subscribe_keyword)";
 				} else {
@@ -277,6 +299,8 @@ switch (_OP_) {
 		$max_length = $core_config['main']['max_sms_length'];
 		$edit_unknown_format_msg = $db_row['unknown_format_msg'];
 		$edit_already_member_msg = $db_row['already_member_msg'];
+		$edit_expire_msg = $db_row['expire_msg'];
+		$select_durations = _select('edit_duration', $plugin_config['sms_subscribe']['durations'], $db_row['duration']);
 		if (auth_isadmin()) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc', $db_row['smsc']) . "</td></tr>";
 		}
@@ -342,10 +366,29 @@ switch (_OP_) {
 				</td>
 			</tr>
 			<tr>
-				<td class=label-sizer>" . _('SMS forward parameter') . "</td>
-				
+				<td class=label-sizer>" . _('SMS forward parameter') . "</td>				
 				<td>
 					<input type=text size=10 maxlength=20 name=edit_forward_param value=\"$edit_forward_param\">
+				</td>
+			</tr>
+			<tr>
+				<td>" . _('Duration') . "</td>				
+				<td>" . $select_durations . "</td>
+			</tr>
+			<tr>
+				<td>" . _('Expired reply') . "</td>
+				<td>
+					<textarea maxlength=\"140\" name=\"edit_expire_msg\" id=\"edit_expire_msg\" value=\"\" cols=\"35\" rows=\"3\" 
+						onClick=\"SmsSetCounter_Abstract('edit_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\" 
+						onkeypress=\"SmsSetCounter_Abstract('edit_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\" 
+						onblur=\"SmsSetCounter_Abstract('edit_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\" 
+						onKeyUp=\"SmsSetCounter_Abstract('edit_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\"	
+						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'edit_expire_msg');\" 
+						onKeyDown=\"SmsCountKeyDown_Abstract($max_length, 'form_subscribe_add');\">$edit_expire_msg</textarea>
+					<br>
+					<input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount_ex\" id=\"txtcount_ex\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.form_subscribe_add.edit_expire_msg.focus();\" readonly>
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount_ex\" id=\"hiddcount_ex\"> 
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_ex\" id=\"hiddcount_unicode_ex\"> 
 				</td>
 			</tr>
 			<tr>
@@ -398,6 +441,8 @@ switch (_OP_) {
 		$edit_forward_param = strtoupper($_POST['edit_forward_param']);
 		$edit_unknown_format_msg = $_POST['edit_unknown_format_msg'];
 		$edit_already_member_msg = $_POST['edit_already_member_msg'];
+		$edit_expire_msg = $_POST['edit_expire_msg'];
+		$edit_duration = (int) $_POST['edit_duration'];
 		if (auth_isadmin()) {
 			$smsc = $_REQUEST['smsc'];
 			$smsc_sql = ",smsc='$smsc'";
@@ -407,7 +452,9 @@ switch (_OP_) {
 				UPDATE " . _DB_PREF_ . "_featureSubscribe
 				SET c_timestamp='" . mktime() . "', subscribe_keyword='$edit_subscribe_keyword', subscribe_msg='$edit_subscribe_msg',
 					unsubscribe_msg='$edit_unsubscribe_msg', subscribe_param='$edit_subscribe_param', unsubscribe_param='$edit_unsubscribe_param',
-					forward_param='$edit_forward_param', unknown_format_msg='$edit_unknown_format_msg', already_member_msg='$edit_already_member_msg'" . $smsc_sql . "
+					forward_param='$edit_forward_param', unknown_format_msg='$edit_unknown_format_msg', already_member_msg='$edit_already_member_msg',
+					duration='$edit_duration',expire_msg='$edit_expire_msg'
+					" . $smsc_sql . "
 				WHERE subscribe_id='$subscribe_id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('SMS subscribe has been saved') . " (" . _('keyword') . ": $edit_subscribe_keyword)";

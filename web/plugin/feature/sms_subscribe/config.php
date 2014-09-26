@@ -28,3 +28,14 @@ $menu_config[$menutab][] = array(
 $subscribe_icon_add_message = "<img src=\"" . $core_config['http_path']['themes'] . "/" . core_themes_get() . "/images/edit_action.gif\" alt=\"" . _('Add message') . "\" title=\"" . _('Add message') . "\" border=0>";
 $subscribe_icon_view_members = "<img src=\"" . $core_config['http_path']['themes'] . "/" . core_themes_get() . "/images/view_action.gif\" alt=\"" . _('View members') . "\" title=\"" . _('View members') . "\" border=0>";
 $subscribe_icon_view_messages = "<img src=\"" . $core_config['http_path']['themes'] . "/" . core_themes_get() . "/images/view_action.gif\" alt=\"" . _('View messages') . "\" title=\"" . _('View messages') . "\" border=0>";
+
+$plugin_config['sms_subscribe']['durations'] = array(
+	_('Unlimited') => 0,
+	_('1 Day') => 1001,
+	_('2 Days') => 1002,
+	_('1 Week') => 1,
+	_('2 Weeks') => 2,
+	_('1 Month') => 101,
+	_('6 Months') => 106,
+	_('5 Minutes') => 99 
+);
