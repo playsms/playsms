@@ -72,7 +72,7 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 	// for later use
 	$subscribe_param_array = explode(" ", $subscribe_param);
 	$forward_sms = '';
-	for($i = 1; $i < sizeof($subscribe_param_array); $i++) {
+	for ($i = 1; $i < sizeof($subscribe_param_array); $i++) {
 		$forward_sms .= $subscribe_param_array[$i] . ' ';
 	}
 	$forward_sms = substr($forward_sms, 0, -1);
@@ -84,7 +84,7 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 	// check for BC/forward param
 	$bc = trim(strtoupper($c_arr[0]));
 	if ((($bc == 'BC') || ($forward_param && ($bc == $forward_param))) && ($c_uid == user_mobile2uid($sms_sender))) {
-		for($i = 1; $i < count($c_arr); $i++) {
+		for ($i = 1; $i < count($c_arr); $i++) {
 			$msg0 .= $c_arr[$i] . ' ';
 		}
 		$message = trim($msg0);
@@ -120,10 +120,10 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 		if ($num_rows == 0) {
 			$member = false;
 			switch ($subscribe_param) {
-				case "ON" :
-				case "IN" :
-				case "REG" :
-				case $subscribe_accept_param :
+				case "ON":
+				case "IN":
+				case "REG":
+				case $subscribe_accept_param:
 					$message = $msg1;
 					$db_query = "INSERT INTO " . _DB_PREF_ . "_featureSubscribe_member (subscribe_id,member_number,member_since) VALUES ('$subscribe_id','$sms_to','" . core_get_datetime() . "')";
 					$logged = dba_query($db_query);
@@ -137,10 +137,10 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 		} else {
 			$member = true;
 			switch ($subscribe_param) {
-				case "OFF" :
-				case "OUT" :
-				case "UNREG" :
-				case $subscribe_reject_param :
+				case "OFF":
+				case "OUT":
+				case "UNREG":
+				case $subscribe_reject_param:
 					$message = $msg2;
 					$success = 'fail to delete member';
 					$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE member_number='$sms_to' AND subscribe_id='$subscribe_id'";
@@ -153,10 +153,10 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 					logger_print('UNREG ' . $success . ' sender:' . $sms_sender . ' keyword:' . $subscribe_keyword . ' mobile:' . $sms_to, 2, "sms_subscribe");
 					break;
 				
-				case "ON" :
-				case "IN" :
-				case "REG" :
-				case $subscribe_accept_param :
+				case "ON":
+				case "IN":
+				case "REG":
+				case $subscribe_accept_param:
 					$message = $already_member_msg;
 					logger_print('REG fail already a member sender:' . $sms_sender . ' keyword:' . $subscribe_keyword . ' mobile:' . $sms_to, 2, "sms_subscribe");
 					$ok = true;
@@ -188,12 +188,12 @@ function sms_subscribe_hook_recvsms_intercept($sms_datetime, $sms_sender, $messa
 	$message = '';
 	if ($bc == 'BC') {
 		$keyword = strtoupper($msg[1]);
-		for($i = 2; $i < count($msg); $i++) {
+		for ($i = 2; $i < count($msg); $i++) {
 			$message .= $msg[$i] . ' ';
 		}
 	} else if (substr($bc, 0, 1) == '#') {
 		$keyword = str_replace('#', '', $bc);
-		for($i = 1; $i < count($msg); $i++) {
+		for ($i = 1; $i < count($msg); $i++) {
 			$message .= $msg[$i] . ' ';
 		}
 	}
@@ -228,4 +228,79 @@ function sms_subscribe_hook_recvsms_intercept($sms_datetime, $sms_sender, $messa
 		$ret['param']['message'] = $keyword . ' ' . $forward_param . ' ' . $message;
 	}
 	return $ret;
+}
+
+function sms_subscribe_hook_playsmsd() {
+	global $core_config;
+	
+	// fetch every 60 seconds
+	if (!core_playsmsd_timer(60)) {
+		return;
+	}
+	
+	$db_table = _DB_PREF_ . "_featureSubscribe";
+	$conditions = array(
+		'subscribe_enable' => 1 
+	);
+	$extras = array(
+		'duration' => '>0' 
+	);
+	$list_subscribe = dba_search($db_table, '*', $conditions, '', $extras);
+	foreach ($list_subscribe as $subcribe) {
+		$c_id = $subcribe['subscribe_id'];
+		$c_duration = $subcribe['duration'];
+		$date_now = new DateTime(core_get_date());
+		$list_member = dba_search($db_table, '*', array(
+			'subscribe_id' => $c_id 
+		));
+		foreach ($list_member as $member) {
+			$is_expired = FALSE;
+			$date_since = new DateTime($member['member_since']);
+			$diff = $date_since->diff($date_now);
+			$d = (int) $diff->format('%R%a');
+			if ($c_duration > 1000) {
+				// days
+				$c_interval = $c_duration - 1000;
+				if ($c_interval && $d && ($c_interval > $d)) {
+					$is_expired = TRUE;
+				}
+			} else if ($c_duration > 100) {
+				// weeks
+				$c_interval = $c_duration - 100;
+				$w = floor($d / 7);
+				if ($c_interval && $w && ($c_interval > $w)) {
+					$is_expired = TRUE;
+				}
+			} else if ($c_duration > 0) {
+				// months
+				$c_interval = $c_duration;
+				$m = floor($d / 30);
+				if ($c_interval && $m && ($c_interval > $m)) {
+					$is_expired = TRUE;
+				}
+			}
+			if ($is_expired) {
+				_sms_subscribe_member_expired($subscribe, $member);
+			}
+		}
+	}
+}
+
+function _sms_subscribe_member_expired($subscribe, $member) {
+	$c_username = user_uid2username($subscribe['uid']);
+	if ($c_username && $member['member_id']) {
+		if (sms_subscribe_member_remove($member['member_id'])) {
+			if ($subscribe['expire_msg']) {
+				sendsms_helper($c_username, $member['member_number'], $subscribe['expire_msg'], 'text', '', $subscribe['smsc']);
+			}
+		}
+	}
+}
+
+function sms_subscribe_member_remove($member_id) {
+	$db_table = _DB_PREF_ . "_featureSubscribe";
+	$conditions = array(
+		'member_id' => $member_id 
+	);
+	return dba_remove($db_table, $conditions);
 }

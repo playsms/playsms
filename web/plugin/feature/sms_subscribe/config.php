@@ -33,9 +33,8 @@ $plugin_config['sms_subscribe']['durations'] = array(
 	_('Unlimited') => 0,
 	_('1 Day') => 1001,
 	_('2 Days') => 1002,
-	_('1 Week') => 1,
-	_('2 Weeks') => 2,
-	_('1 Month') => 101,
-	_('6 Months') => 106,
-	_('5 Minutes') => 99 
+	_('1 Week') => 101,
+	_('2 Weeks') => 102,
+	_('1 Month') => 1,
+	_('6 Months') => 6 
 );
