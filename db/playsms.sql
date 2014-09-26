@@ -697,6 +697,7 @@ CREATE TABLE `playsms_featureSubscribe` (
   `unknown_format_msg` varchar(140) NOT NULL DEFAULT '',
   `already_member_msg` varchar(140) NOT NULL DEFAULT '',
   `smsc` varchar(100) NOT NULL DEFAULT '',
+  `duration` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`subscribe_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
