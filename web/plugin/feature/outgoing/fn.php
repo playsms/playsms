@@ -19,7 +19,7 @@
 defined('_SECURE_') or die('Forbidden');
 
 function outgoing_getdata($extras = array()) {
-	foreach ($extras as $key => $val ) {
+	foreach ($extras as $key => $val) {
 		$extra_sql .= $key . " " . $val . " ";
 	}
 	$db_query = "SELECT A.*, B.username FROM " . _DB_PREF_ . "_featureOutgoing AS A LEFT JOIN " . _DB_PREF_ . "_tblUser AS B ON A.uid=B.uid " . $extra_sql;
@@ -98,7 +98,7 @@ function outgoing_mobile2smsc($mobile, $uid = 0) {
 		$prefix = substr($mobile, 0, 8);
 	}
 	
-	for($i = 8; $i > 0; $i--) {
+	for ($i = 8; $i > 0; $i--) {
 		$c_prefix = substr($mobile, 0, $i);
 		if ($smsc = outgoing_prefix2smsc($c_prefix, $uid)) {
 			$ret = $smsc;
@@ -117,7 +117,7 @@ function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms
 	$next = TRUE;
 	
 	// supplied smsc will be priority
-	if ($smsc) {
+	if ($smsc && (!($smsc == '_smsc_routed_' || $smsc == '_smsc_supplied_'))) {
 		_log('using supplied smsc smsc:[' . $smsc . '] uid:' . $uid . ' from:' . $sms_sender . ' to:' . $sms_to, 3, 'outgoing_hook_sendsms_intercept');
 		$next = FALSE;
 	}
@@ -127,7 +127,7 @@ function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms
 		$found = FALSE;
 		$smsc_all = '';
 		$smsc_found = array();
-		foreach ($smsc_list as $item_smsc ) {
+		foreach ($smsc_list as $item_smsc) {
 			$smsc_all .= '[' . $item_smsc . '] ';
 			$smsc_found[] = $item_smsc;
 		}
