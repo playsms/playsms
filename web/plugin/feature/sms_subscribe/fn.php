@@ -233,7 +233,7 @@ function sms_subscribe_hook_recvsms_intercept($sms_datetime, $sms_sender, $messa
 function sms_subscribe_hook_playsmsd() {
 	global $core_config;
 	
-	// fetch every 60 seconds
+	// fetch hourly
 	if (!core_playsmsd_timer(3600)) {
 		return;
 	}
@@ -243,14 +243,14 @@ function sms_subscribe_hook_playsmsd() {
 		'subscribe_enable' => 1 
 	);
 	$extras = array(
-		'duration' => '>0' 
+		'AND duration' => '>0' 
 	);
 	$list_subscribe = dba_search($db_table, '*', $conditions, '', $extras);
-	foreach ($list_subscribe as $subcribe) {
-		$c_id = $subcribe['subscribe_id'];
-		$c_duration = $subcribe['duration'];
-		$date_now = new DateTime(core_get_date());
-		$list_member = dba_search($db_table, '*', array(
+	foreach ($list_subscribe as $subscribe) {
+		$c_id = $subscribe['subscribe_id'];
+		$c_duration = $subscribe['duration'];
+		$date_now = new DateTime(core_get_datetime());
+		$list_member = dba_search(_DB_PREF_ . '_featureSubscribe_member', '*', array(
 			'subscribe_id' => $c_id 
 		));
 		foreach ($list_member as $member) {
@@ -258,10 +258,11 @@ function sms_subscribe_hook_playsmsd() {
 			$date_since = new DateTime($member['member_since']);
 			$diff = $date_since->diff($date_now);
 			$d = (int) $diff->format('%R%a');
+			// _log('check duration:' . $d . ' day set duration:' . $c_duration . ' date_now:' . core_get_datetime() . ' date_since:' . $member['member_since'] . ' k:' . $subscribe['subscribe_keyword'] . ' member_id:' . $member['member_id'] . ' number:' . $member['member_number'], 3, 'sms_subscribe_hook_playsmsd');
 			if ($c_duration > 1000) {
 				// days
 				$c_interval = $c_duration - 1000;
-				if ($c_interval && $d && ($c_interval > $d)) {
+				if ($c_interval && $d && ($d >= $c_interval)) {
 					_log('expired duration:' . $d . ' day k:' . $subscribe['subscribe_keyword'] . ' member_id:' . $member['member_id'] . ' number:' . $member['member_number'], 3, 'sms_subscribe_hook_playsmsd');
 					$is_expired = TRUE;
 				}
@@ -269,7 +270,8 @@ function sms_subscribe_hook_playsmsd() {
 				// weeks
 				$c_interval = $c_duration - 100;
 				$w = floor($d / 7);
-				if ($c_interval && $w && ($c_interval > $w)) {
+				// _log('interval:' . $c_interval . ' d:' . $d . ' w:' . $w, 3, 'sms_subscribe_hook_playsmsd');
+				if ($c_interval && $w && ($w >= $c_interval)) {
 					_log('expired duration:' . $w . ' week k:' . $subscribe['subscribe_keyword'] . ' member_id:' . $member['member_id'] . ' number:' . $member['member_number'], 3, 'sms_subscribe_hook_playsmsd');
 					$is_expired = TRUE;
 				}
@@ -277,7 +279,8 @@ function sms_subscribe_hook_playsmsd() {
 				// months
 				$c_interval = $c_duration;
 				$m = floor($d / 30);
-				if ($c_interval && $m && ($c_interval > $m)) {
+				// _log('interval:' . $c_interval . ' d:' . $d . ' m:' . $m, 3, 'sms_subscribe_hook_playsmsd');
+				if ($c_interval && $m && ($m >= $c_interval)) {
 					_log('expired duration:' . $m . ' month k:' . $subscribe['subscribe_keyword'] . ' member_id:' . $member['member_id'] . ' number:' . $member['member_number'], 3, 'sms_subscribe_hook_playsmsd');
 					$is_expired = TRUE;
 				}
@@ -303,7 +306,7 @@ function _sms_subscribe_member_expired($subscribe, $member) {
 }
 
 function sms_subscribe_member_remove($member_id) {
-	$db_table = _DB_PREF_ . "_featureSubscribe";
+	$db_table = _DB_PREF_ . "_featureSubscribe_member";
 	$conditions = array(
 		'member_id' => $member_id 
 	);
