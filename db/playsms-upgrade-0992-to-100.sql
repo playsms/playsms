@@ -465,7 +465,7 @@ ALTER TABLE `playsms_gatewayClickatell_config` CHANGE `cfg_sender` `cfg_module_s
 
 ALTER TABLE `playsms_gatewayInfobip_config` CHANGE `cfg_sender` `cfg_module_sender` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';
 
-ALTER TABLE playsms_featureOutgoing DROP INDEX prefix;
+ALTER TABLE `playsms_featureOutgoing` DROP INDEX `prefix`;
 
 ALTER TABLE `playsms_featureOutgoing` ADD `uid` INT(11) NOT NULL DEFAULT '0' AFTER `id`;
 
@@ -480,3 +480,8 @@ ALTER TABLE `playsms_featureQuiz` ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' ;
 ALTER TABLE `playsms_featureSubscribe` ADD `duration` INT(11) NOT NULL DEFAULT '0' ;
 
 ALTER TABLE `playsms_featureSubscribe` ADD `expire_msg` VARCHAR(140) NOT NULL DEFAULT '' ;
+
+ALTER TABLE `playsms_featureBoard` 
+ADD `board_access_code` VARCHAR(40) NOT NULL DEFAULT '' , 
+ADD `board_reply_msg` VARCHAR(140) NOT NULL DEFAULT '' , 
+ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' ;

@@ -88,6 +88,9 @@ CREATE TABLE `playsms_featureBoard` (
   `board_forward_email` varchar(250) NOT NULL DEFAULT '',
   `board_css` varchar(250) NOT NULL DEFAULT '',
   `board_pref_template` text NOT NULL,
+  `board_access_code` VARCHAR(40) NOT NULL DEFAULT '' , 
+  `board_reply_msg` VARCHAR(140) NOT NULL DEFAULT '' , 
+  `smsc` VARCHAR(100) NOT NULL DEFAULT '' ,
   PRIMARY KEY (`board_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
