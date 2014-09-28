@@ -1,6 +1,6 @@
 # FAQ
 
-Frequently Asked Questions for playSMS version **1.0-rc3**.
+Frequently Asked Questions for playSMS version **1.0-rc4**.
 
 1. Who wrote this FAQ?
 

@@ -1,8 +1,8 @@
 # README
 
-playSMS version **1.0-rc2**
+playSMS version **1.0-rc4**
 
-Release date **140629**
+Release date **140929**
 
 Official project website:
 
@@ -19,17 +19,21 @@ Official playSMS Facebook page:
 
 ## Description
 
-playSMS is a free and open source SMS management software. A flexible Web-based mobile portal system that it can be made to fit to various services such as an SMS gateway, bulk SMS provider, personal messaging system, corporate and group communication tools
+playSMS is a free and open source SMS management software.
+
+A flexible Web-based mobile portal system that it can be made to fit to various services 
+such as an SMS gateway, bulk SMS provider, personal messaging system, corporate and group 
+communication tools
 
 
 ## Feature Highlights
 
-* Multiple database engine supported (using PHP PEAR DB)
+* Multiple database engine supported (through PHP PEAR DB)
 * Send SMS to single mobile phone
 * Send SMS broadcasted to a group of mobile phones, or SMS bulk
-* Support sending text, flash and unicode message
-* Capable of handling large amount of SMS (user reports 500k SMS monthly)
-* Receive private SMS to Inbox and forward it to email (mobile2web)
+* Support sending text, flash and unicode messages
+* Capable of handling large amount of SMS (user reported 500k SMS monthly)
+* Receive private SMS to Inbox and forward it to email (mobile2web) and user's mobile phone
 * Forward single SMS from mobile to a group of mobile phones 
 * Provides SMS to email and email to SMS by polling mailbox
 * SMS autoreply, for easy autoreplying formatted incoming SMS
@@ -42,11 +46,15 @@ playSMS is a free and open source SMS management software. A flexible Web-based 
 * SMS sync to utilize SMSSync app from http://smssync.ushahidi.com
 * Create your own features, tools, themes and gateway modules as a plugin
 * Supports Gammu, Gnokii, Kannel, SMS Server Tools, Msgtoolbox, Uplink, Nexmo, Twilio, Infobip and Clickatell
+* Supports multiple active SMSC
 * Supports simulation gateway for testing incoming and outgoing SMS
+* Route outgoing SMS by prefix
+* Route outgoing SMS per user
 * Webservices for sending SMS, retrieving delivery reports, checking credits and more
 * Long SMS support, length of text is configurable
 * Rate SMS by destination prefix
 * SMS credit system per user
+* Multiple SMSC activated and routable
 * Timezone settings
 * Multi-language user interface (English, French, Bahasa Indonesia, Russian and a few others)
 * Easily add new language for user interface
@@ -55,11 +63,16 @@ playSMS is a free and open source SMS management software. A flexible Web-based 
 
 ## License
 
-playSMS is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+playSMS is free software: you can redistribute it and/or modify it under the terms of the 
+GNU General Public License as published by the Free Software Foundation, either version 3 
+of the License, or (at your option) any later version.
 
-playSMS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+playSMS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without 
+even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with playSMS. If not, see <http://www.gnu.org/licenses/>.
+You should have received a copy of the GNU General Public License along with playSMS. 
+If not, see <http://www.gnu.org/licenses/>.
 
 You may find detail information about GPLv3 here:
 http://www.gnu.org/licenses/gpl-3.0.html
