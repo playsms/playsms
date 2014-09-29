@@ -59,7 +59,7 @@ function recvsmsd() {
 		'LIMIT' => $core_config['recvsmsd_limit'] 
 	));
 	$j = 0;
-	for($j = 0; $j < count($list); $j++) {
+	for ($j = 0; $j < count($list); $j++) {
 		if ($id = $list[$j]['id']) {
 			$sms_datetime = $list[$j]['sms_datetime'];
 			$sms_sender = $list[$j]['sms_sender'];
@@ -89,7 +89,7 @@ function checkavailablekeyword($keyword) {
 	$ok = true;
 	$reserved = false;
 	$keyword = trim(strtoupper($keyword));
-	for($i = 0; $i < count($reserved_keywords); $i++) {
+	for ($i = 0; $i < count($reserved_keywords); $i++) {
 		if ($keyword == trim(strtoupper($reserved_keywords[$i]))) {
 			$reserved = true;
 		}
@@ -99,7 +99,7 @@ function checkavailablekeyword($keyword) {
 	if ($reserved) {
 		$ok = false;
 	} else {
-		for($c = 0; $c < count($core_config['featurelist']); $c++) {
+		for ($c = 0; $c < count($core_config['featurelist']); $c++) {
 			
 			// checkavailablekeyword() on hooks will return TRUE as well if keyword is available
 			// so we're looking for FALSE value
@@ -120,7 +120,7 @@ function recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver =
 	$ret_final = array();
 	
 	// feature list
-	for($c = 0; $c < count($core_config['featurelist']); $c++) {
+	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
 		$ret = core_hook($core_config['featurelist'][$c], 'recvsms_intercept', array(
 			$sms_datetime,
 			$sms_sender,
@@ -161,7 +161,7 @@ function recvsms_intercept_after($sms_datetime, $sms_sender, $message, $sms_rece
 	$ret_final = array();
 	
 	// feature list
-	for($c = 0; $c < count($core_config['featurelist']); $c++) {
+	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
 		$ret = core_hook($core_config['featurelist'][$c], 'recvsms_intercept_after', array(
 			$sms_datetime,
 			$sms_sender,
@@ -217,9 +217,9 @@ function setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receive
 	}
 	
 	// set active gateway module as default gateway
-	//if (!$smsc) {
-	//	$smsc = core_smsc_get();
-	//}
+	// if (!$smsc) {
+	// $smsc = core_smsc_get();
+	// }
 	
 	// log it
 	logger_print("dt:" . $sms_datetime . " sender:" . $sms_sender . " m:" . $message . " receiver:" . $sms_receiver . ' smsc:' . $smsc, 3, "setsmsincomingaction");
@@ -237,11 +237,11 @@ function setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receive
 	$target_keyword = strtoupper(trim($array_target_keyword[0]));
 	$raw_message = $message;
 	$message = $array_target_keyword[1];
-	for($i = 2; $i < count($array_target_keyword); $i++) {
+	for ($i = 2; $i < count($array_target_keyword); $i++) {
 		$message .= " " . $array_target_keyword[$i];
 	}
 	switch ($target_keyword) {
-		case "BC" :
+		case "BC":
 			$c_uid = user_mobile2uid($sms_sender);
 			$c_username = user_uid2username($c_uid);
 			$c_feature = 'core';
@@ -249,7 +249,7 @@ function setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receive
 			$target_group = strtoupper(trim($array_target_group[0]));
 			$c_gpid = phonebook_groupcode2id($c_uid, $target_group);
 			$message = $array_target_group[1];
-			for($i = 2; $i < count($array_target_group); $i++) {
+			for ($i = 2; $i < count($array_target_group); $i++) {
 				$message .= " " . $array_target_group[$i];
 			}
 			logger_print("username:" . $c_username . " gpid:" . $c_gpid . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " message:" . $message . " raw:" . $raw_message, 3, "setsmsincomingaction bc");
@@ -258,7 +258,7 @@ function setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receive
 			break;
 		
 		default :
-			for($c = 0; $c < count($core_config['featurelist']); $c++) {
+			for ($c = 0; $c < count($core_config['featurelist']); $c++) {
 				$c_feature = $core_config['featurelist'][$c];
 				$ret = core_hook($c_feature, 'setsmsincomingaction', array(
 					$sms_datetime,
@@ -327,7 +327,7 @@ function recvsms_inbox_add_intercept($sms_datetime, $sms_sender, $target_user, $
 	$ret_final = array();
 	
 	// feature list
-	for($c = 0; $c < count($core_config['featurelist']); $c++) {
+	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
 		$ret = core_hook($core_config['featurelist'][$c], 'recvsms_inbox_add_intercept', array(
 			$sms_datetime,
 			$sms_sender,
@@ -379,6 +379,12 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 	if ($sms_sender && $target_user && $message) {
 		$user = user_getdatabyusername($target_user);
 		if ($uid = $user['uid']) {
+			
+			// discard if banned
+			if (user_banned_get($uid)) {
+				logger_print("user banned, message ignored uid:" . $uid, 2, "recvsms_inbox_add");
+				return FALSE;
+			}
 			
 			// get name from target_user's phonebook
 			$c_name = phonebook_number2name($sms_sender, $target_user);

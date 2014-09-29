@@ -67,7 +67,7 @@ function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $g
 	$ret_final = array();
 	
 	// feature list
-	for($c = 0; $c < count($core_config['featurelist']); $c++) {
+	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
 		$ret = core_hook($core_config['featurelist'][$c], 'sendsms_intercept', array(
 			$sms_sender,
 			$sms_footer,
@@ -439,12 +439,12 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 	}
 	
 	// get destinations
-	for($i = 0; $i < count($sms_to); $i++) {
+	for ($i = 0; $i < count($sms_to); $i++) {
 		if (substr(trim($sms_to[$i]), 0, 1) == '#') {
 			if ($c_group_code = substr(trim($sms_to[$i]), 1)) {
 				$c_gpid = phonebook_groupcode2id($user_config['uid'], $c_group_code);
 				$members = phonebook_getdatabyid($c_gpid);
-				foreach ($members as $member ) {
+				foreach ($members as $member) {
 					if (trim($member['p_num'])) {
 						$array_sms_to[] = trim($member['p_num']);
 					}
@@ -476,7 +476,7 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 	
 	// fixme anton - IMs doesn't count
 	// count SMSes only
-	for($i = 0; $i < count($ok); $i++) {
+	for ($i = 0; $i < count($ok); $i++) {
 		if ($ok[$i]) {
 			$sms_count += $counts[$i];
 		} else {
@@ -487,7 +487,7 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 	// sendsms_im
 	if (is_array($array_username) && $array_username[0]) {
 		$im_sender = '@' . $user_config['username'];
-		foreach ($array_username as $target_user ) {
+		foreach ($array_username as $target_user) {
 			$im_sender = '@' . $user_config['username'];
 			if (recvsms_inbox_add(core_get_datetime(), $im_sender, $target_user, $message, '', $reference_id)) {
 				$ok[] = '1';
@@ -540,6 +540,18 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	
 	$uid = $user['uid'];
 	
+	// discard if banned
+	if (user_banned_get($uid)) {
+		logger_print("user banned, exit immediately uid:" . $uid, 2, "sendsms");
+		return array(
+			FALSE,
+			'',
+			'',
+			'',
+			'' 
+		);
+	}
+	
 	// SMS sender ID
 	if (!$core_config['main']['allow_custom_sender']) {
 		$sms_sender = '';
@@ -551,6 +563,7 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	if (!$core_config['main']['allow_custom_footer']) {
 		$sms_footer = '';
 	}
+	
 	$sms_footer = core_sanitize_footer($sms_footer);
 	$sms_footer = ($sms_footer ? $sms_footer : $user['footer']);
 	if ($nofooter) {
@@ -606,7 +619,7 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	
 	// get manipulated and valid destination numbers
 	$all_sms_to = array();
-	for($i = 0; $i < count($array_sms_to); $i++) {
+	for ($i = 0; $i < count($array_sms_to); $i++) {
 		if ($c_sms_to = sendsms_getvalidnumber(trim($array_sms_to[$i]))) {
 			$c_sms_to = sendsms_manipulate_prefix(trim($c_sms_to), $user);
 			$all_sms_to[] = $c_sms_to;
@@ -619,7 +632,7 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	// calculate total sms and charges
 	$total_count = 0;
 	$total_charges = 0;
-	foreach ($all_sms_to as $c_sms_to ) {
+	foreach ($all_sms_to as $c_sms_to) {
 		list($count, $rate, $charge) = rate_getcharges(strlen($message . $c_sms_footer), $unicode, $c_sms_to);
 		$total_count += $count;
 		$total_charges += $charge;
@@ -639,7 +652,7 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	}
 	
 	// default returns
-	for($i = 0; $i < count($all_sms_to); $i++) {
+	for ($i = 0; $i < count($all_sms_to); $i++) {
 		$ok[$i] = FALSE;
 		$to[$i] = $all_sms_to[$i];
 		$smslog_id[$i] = 0;
@@ -675,7 +688,7 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	$sms_count = 0;
 	$failed_queue_count = 0;
 	$failed_sms_count = 0;
-	for($i = 0; $i < count($all_sms_to); $i++) {
+	for ($i = 0; $i < count($all_sms_to); $i++) {
 		$c_sms_to = $all_sms_to[$i];
 		if ($smslog_id[$i] = sendsms_queue_push($queue_code, $c_sms_to)) {
 			$ok[$i] = TRUE;
@@ -750,6 +763,18 @@ function sendsms_bc($username, $gpid, $message, $sms_type = 'text', $unicode = 0
 	
 	$uid = $user['uid'];
 	
+	// discard if banned
+	if (user_banned_get($uid)) {
+		logger_print("user banned, exit immediately uid:" . $uid, 2, "sendsms_bc");
+		return array(
+			FALSE,
+			'',
+			'',
+			'',
+			'' 
+		);
+	}
+	
 	// SMS sender ID
 	if (!$core_config['main']['allow_custom_sender']) {
 		$sms_sender = '';
@@ -801,7 +826,7 @@ function sendsms_bc($username, $gpid, $message, $sms_type = 'text', $unicode = 0
 	}
 	
 	$j = 0;
-	for($i = 0; $i < count($array_gpid); $i++) {
+	for ($i = 0; $i < count($array_gpid); $i++) {
 		if ($c_gpid = trim($array_gpid[$i])) {
 			logger_print("start gpid:" . $c_gpid . " uid:" . $uid . " sender:" . $sms_sender, 2, "sendsms_bc");
 			
@@ -826,7 +851,7 @@ function sendsms_bc($username, $gpid, $message, $sms_type = 'text', $unicode = 0
 			$failed_sms_count = 0;
 			$rows = phonebook_getdatabyid($c_gpid);
 			if (is_array($rows)) {
-				foreach ($rows as $key => $db_row ) {
+				foreach ($rows as $key => $db_row) {
 					$p_num = trim($db_row['p_num']);
 					if ($sms_to = sendsms_getvalidnumber($p_num)) {
 						$sms_to = sendsms_manipulate_prefix($sms_to, $user);
@@ -921,7 +946,7 @@ function sendsms_get_sender($username, $default_sender_id = '') {
 function sendsms_get_template() {
 	global $core_config;
 	$templates = array();
-	for($c = 0; $c < count($core_config['featurelist']); $c++) {
+	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
 		if ($templates = core_hook($core_config['featurelist'][$c], 'sendsms_get_template')) {
 			break;
 		}
