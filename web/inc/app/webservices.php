@@ -10,13 +10,12 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
 
 // parameters
@@ -41,6 +40,7 @@ $msg = trim($_REQUEST['msg']);
 
 // INJECT
 $recvnum = trim($_REQUEST['recvnum']);
+$smsc = trim($_REQUEST['smsc']);
 
 // DS, IN, SX, IX, GET_CONTACT, GET_CONTACT_GROUP
 $src = trim($_REQUEST['src']);
@@ -74,7 +74,7 @@ $ws_error_string = array(
 	'501' => 'no data returned or result is empty',
 	'600' => 'admin level authentication failed',
 	'601' => 'inject message failed',
-	'602' => 'sender id or message is empty',
+	'602' => 'sender id or message is empty' 
 );
 
 if (_OP_) {
@@ -88,17 +88,17 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-
+		
 		case "INJECT":
 			if ($u = webservices_validate_admin($h, $u)) {
-				$json = webservices_inject($u, $from, $msg, $recvnum);
+				$json = webservices_inject($u, $from, $msg, $recvnum, $smsc);
 			} else {
 				$json['status'] = 'ERR';
 				$json['error'] = '600';
 			}
 			$log_this = TRUE;
 			break;
-
+		
 		case "DS":
 			if ($u = webservices_validate($h, $u)) {
 				$json = webservices_ds($u, $queue, $src, $dst, $dt, $smslog_id, $c, $last);
@@ -108,7 +108,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-
+		
 		case "IN":
 			if ($u = webservices_validate($h, $u)) {
 				$json = webservices_in($u, $src, $dst, $kwd, $dt, $c, $last);
@@ -118,7 +118,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-
+		
 		case "SX":
 			if ($u = webservices_validate($h, $u)) {
 				$json = webservices_sx($u, $src, $dst, $dt, $c, $last);
@@ -128,7 +128,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-
+		
 		case "IX":
 			if ($u = webservices_validate($h, $u)) {
 				$json = webservices_ix($u, $src, $dst, $dt, $c, $last);
@@ -138,7 +138,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-
+		
 		case "CR":
 			if ($u = webservices_validate($h, $u)) {
 				$json = webservices_cr($u);
@@ -148,7 +148,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-
+		
 		case "GET_CONTACT":
 			if ($u = webservices_validate($h, $u)) {
 				$c_uid = user_username2uid($u);
@@ -159,7 +159,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-
+		
 		case "GET_CONTACT_GROUP":
 			if ($u = webservices_validate($h, $u)) {
 				$c_uid = user_username2uid($u);
@@ -170,7 +170,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-
+		
 		case "GET_TOKEN":
 			if (auth_validate_login($u, $p)) {
 				$user = user_getdatabyusername($u);
@@ -215,17 +215,17 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-
+		
 		case "SET_TOKEN":
 			if ($u = webservices_validate($h, $u)) {
 				$user = user_getdatabyusername($u);
 				if ($c_uid = $user['uid']) {
 					$token = md5($c_uid . _PID_);
 					$items = array(
-						'token' => $token
+						'token' => $token 
 					);
 					$conditions = array(
-						'uid' => $c_uid
+						'uid' => $c_uid 
 					);
 					if (dba_update(_DB_PREF_ . '_tblUser', $items, $conditions)) {
 						$json['status'] = 'OK';
@@ -245,8 +245,8 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-
-		default:
+		
+		default :
 			if (_OP_) {
 				
 				// output do not require valid login

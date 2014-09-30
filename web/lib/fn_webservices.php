@@ -10,21 +10,20 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
 
 /**
  * Validate webservices token, with or without username
- * @param $h
- *     Webservices token
- * @param $u
- *     Username
+ * 
+ * @param $h Webservices
+ *        	token
+ * @param $u Username        	
  * @return boolean FALSE if invalid, string username if valid
  */
 function webservices_validate($h, $u) {
@@ -45,10 +44,11 @@ function webservices_validate($h, $u) {
 
 /**
  * Validate admin level webservices token, with or without username
- * @param $h
- *     Webservices token (admin users only)
- * @param $u
- *     Username (admin users only)
+ * 
+ * @param $h Webservices
+ *        	token (admin users only)
+ * @param $u Username
+ *        	(admin users only)
  * @return boolean FALSE if invalid, string username if valid
  */
 function webservices_validate_admin($h, $u) {
@@ -93,14 +93,14 @@ function webservices_pv($c_username, $to, $msg, $type = 'text', $unicode = 0, $n
 	return $json;
 }
 
-function webservices_inject($c_username, $from, $msg, $recvnum = '') {
+function webservices_inject($c_username, $from, $msg, $recvnum = '', $smsc = '') {
 	$ret = '';
 	if ($from && $msg) {
 		if ($c_username) {
 			
 			// inject message
 			$sms_datetime = core_display_datetime(core_get_datetime());
-			recvsms($sms_datetime, $from, $msg, $recvnum);
+			recvsms($sms_datetime, $from, $msg, $recvnum, $smsc);
 			
 			$json['status'] = 'OK';
 			$json['error'] = '0';
@@ -177,7 +177,7 @@ function webservices_ds($c_username, $queue_code = '', $src = '', $dst = '', $da
 		} else {
 			if (dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'id', array(
 				'queue_code' => $queue_code,
-				'flag' => 0
+				'flag' => 0 
 			))) {
 				
 				// exists in queue but not yet processed
@@ -185,7 +185,7 @@ function webservices_ds($c_username, $queue_code = '', $src = '', $dst = '', $da
 				$json['error'] = '401';
 			} else if (dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'id', array(
 				'queue_code' => $queue_code,
-				'flag' => 1
+				'flag' => 1 
 			))) {
 				
 				// exists in queue and have been processed
@@ -207,7 +207,7 @@ function webservices_in($c_username, $src = '', $dst = '', $kwd = '', $datetime 
 	$json['error'] = '501';
 	$conditions = array(
 		'flag_deleted' => 0,
-		'in_status' => 1
+		'in_status' => 1 
 	);
 	if ($uid = user_username2uid($c_username)) {
 		$conditions['in_uid'] = $uid;
@@ -277,7 +277,7 @@ function webservices_sx($c_username, $src = '', $dst = '', $datetime = '', $c = 
 	$uid = $u['uid'];
 	$conditions = array(
 		'flag_deleted' => 0,
-		'in_status' => 0
+		'in_status' => 0 
 	);
 	if ($src) {
 		if ($src[0] == '0') {
@@ -410,7 +410,7 @@ function webservices_output($operation, $requests) {
 	$operation = strtolower($operation);
 	$ret = core_hook($operation, 'webservices_output', array(
 		$operation,
-		$requests
+		$requests 
 	));
 	return $ret;
 }

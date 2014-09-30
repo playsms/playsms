@@ -2,7 +2,7 @@
 
 This document explains about playSMS webservices protocol.
 
-Minimum playSMS version **1.0-rc3**
+Minimum playSMS version **1.0-rc4**
 
 
 ## Access
@@ -28,6 +28,7 @@ format	       | output format selection
 from	       | SMS sender ID (for op=pv)
 to             | destination numbers, @username or #groupcode, may use commas
 recvnum        | receiver number (for op=inject)
+smsc           | SMSC (for op=inject)
 footer	       | SMS footer (for op=pv)
 nofooter       | remove SMS footer
 msg            | message (+ or %20 for spaces, urlencode for non ascii chars)
@@ -106,7 +107,7 @@ Inject message to the system
 Parameters | Name or description
 ---------- | --------------------
 Operation  | `inject`
-Mandatory  | `u` `h` `from` `msg` `recvnum`
+Mandatory  | `u` `h` `from` `msg` `recvnum` `smsc`
 Optional   | `format`
 Returns    | return codes
 
