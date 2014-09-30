@@ -16,7 +16,7 @@ Example:
 
 ## Parameters
 
-Below table listed playSMS webservices paramaters.
+Listed in the below table are webservices parameters for individual tasks.
 
 Name           | Description
 -------------- | --------------
@@ -27,8 +27,6 @@ op             | operation or type of action
 format	       | output format selection
 from	       | SMS sender ID (for op=pv)
 to             | destination numbers, @username or #groupcode, may use commas
-recvnum        | receiver number (for op=inject)
-smsc           | SMSC (for op=inject)
 footer	       | SMS footer (for op=pv)
 nofooter       | remove SMS footer
 msg            | message (+ or %20 for spaces, urlencode for non ascii chars)
@@ -43,6 +41,13 @@ smslog_id      | SMS Log ID
 last           | last SMS log ID (this number not included on result)
 c              | number of delivery status that will be retrieved
 kwd            | keyword
+
+Listed in the below table are webservices parameters for admin tasks.
+
+Name           | Description
+-------------- | --------------
+recvnum        | receiver number (for op=inject)
+smsc           | SMSC (for op=inject)
 
 Please note that all values should be URL encoded.
 
@@ -98,20 +103,6 @@ Optional   | `type` `unicode` `from` `footer` `nofooter` `format`
 Returns    | return codes
 
 Parameter `to` can be international formatted mobile number, #groupcode or @username, or a mix of them. Separate by commas for multiple value.
-
-
-### Inject message
-
-Inject message to the system
-
-Parameters | Name or description
----------- | --------------------
-Operation  | `inject`
-Mandatory  | `u` `h` `from` `msg` `recvnum` `smsc`
-Optional   | `format`
-Returns    | return codes
-
-Injected message will be treated as a valid incoming SMS.
 
 
 ### Outgoing SMS and delivery status
@@ -228,6 +219,20 @@ Operation  | `get_contact_group`
 Mandatory  | `u` `h` `kwd`
 Optional   | `c` `format`
 Returns    | list of contact groups similar or the same as `kwd` or return codes
+
+
+### Inject message (admin task)
+
+Inject message to the system
+
+Parameters | Name or description
+---------- | --------------------
+Operation  | `inject`
+Mandatory  | `u` `h` `from` `msg` `recvnum` `smsc`
+Optional   | `format`
+Returns    | return codes
+
+Injected message will be treated as a valid incoming SMS.
 
 
 ## Examples

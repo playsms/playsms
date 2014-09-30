@@ -79,22 +79,25 @@ $ws_error_string = array(
 
 if (_OP_) {
 	switch (strtoupper(_OP_)) {
-		case "PV":
-			if ($u = webservices_validate($h, $u)) {
-				$json = webservices_pv($u, $to, $msg, $type, $unicode, $nofooter, $footer, $from, $schedule);
-			} else {
-				$json['status'] = 'ERR';
-				$json['error'] = '100';
-			}
-			$log_this = TRUE;
-			break;
 		
+		// ---------------------- ADMIN TASKS ---------------------- //
 		case "INJECT":
 			if ($u = webservices_validate_admin($h, $u)) {
 				$json = webservices_inject($u, $from, $msg, $recvnum, $smsc);
 			} else {
 				$json['status'] = 'ERR';
 				$json['error'] = '600';
+			}
+			$log_this = TRUE;
+			break;
+		
+		// ------------------- INDIVIDUAL TASKS ------------------- //
+		case "PV":
+			if ($u = webservices_validate($h, $u)) {
+				$json = webservices_pv($u, $to, $msg, $type, $unicode, $nofooter, $footer, $from, $schedule);
+			} else {
+				$json['status'] = 'ERR';
+				$json['error'] = '100';
 			}
 			$log_this = TRUE;
 			break;

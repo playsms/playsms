@@ -20,7 +20,7 @@ defined('_SECURE_') or die('Forbidden');
 
 /**
  * Validate webservices token, with or without username
- * 
+ *
  * @param $h Webservices
  *        	token
  * @param $u Username        	
@@ -44,7 +44,7 @@ function webservices_validate($h, $u) {
 
 /**
  * Validate admin level webservices token, with or without username
- * 
+ *
  * @param $h Webservices
  *        	token (admin users only)
  * @param $u Username
@@ -89,28 +89,6 @@ function webservices_pv($c_username, $to, $msg, $type = 'text', $unicode = 0, $n
 	} else {
 		$json['status'] = 'ERR';
 		$json['error'] = '201';
-	}
-	return $json;
-}
-
-function webservices_inject($c_username, $from, $msg, $recvnum = '', $smsc = '') {
-	$ret = '';
-	if ($from && $msg) {
-		if ($c_username) {
-			
-			// inject message
-			$sms_datetime = core_display_datetime(core_get_datetime());
-			recvsms($sms_datetime, $from, $msg, $recvnum, $smsc);
-			
-			$json['status'] = 'OK';
-			$json['error'] = '0';
-		} else {
-			$json['status'] = 'ERR';
-			$json['error'] = '601';
-		}
-	} else {
-		$json['status'] = 'ERR';
-		$json['error'] = '602';
 	}
 	return $json;
 }
@@ -414,3 +392,27 @@ function webservices_output($operation, $requests) {
 	));
 	return $ret;
 }
+
+// ---------------------- ADMIN TASKS ---------------------- //
+function webservices_inject($c_username, $from, $msg, $recvnum = '', $smsc = '') {
+	$ret = '';
+	if ($from && $msg) {
+		if ($c_username) {
+			
+			// inject message
+			$sms_datetime = core_display_datetime(core_get_datetime());
+			recvsms($sms_datetime, $from, $msg, $recvnum, $smsc);
+			
+			$json['status'] = 'OK';
+			$json['error'] = '0';
+		} else {
+			$json['status'] = 'ERR';
+			$json['error'] = '601';
+		}
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '602';
+	}
+	return $json;
+}
+
