@@ -416,3 +416,32 @@ function webservices_inject($c_username, $from, $msg, $recvnum = '', $smsc = '')
 	return $json;
 }
 
+function webservices_account_add($data = array()) {
+	$ret = user_add($data, TRUE);
+	if ($ret['status']) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+		$json['info'] = $ret['error_string'];
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '604';
+		$json['info'] = $ret['error_string'];
+	}
+	
+	return $json;
+}
+
+function webservices_account_remove($uid) {
+	$ret = user_remove($uid);
+	if ($ret['status']) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+		$json['info'] = $ret['error_string'];
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '606';
+		$json['info'] = $ret['error_string'];
+	}
+	
+	return $json;
+}

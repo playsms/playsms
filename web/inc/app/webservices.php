@@ -74,7 +74,11 @@ $ws_error_string = array(
 	'501' => 'no data returned or result is empty',
 	'600' => 'admin level authentication failed',
 	'601' => 'inject message failed',
-	'602' => 'sender id or message is empty' 
+	'602' => 'sender id or message is empty',
+	'603' => 'account addition failed due to missing data',
+	'604' => 'fail to add account',
+	'605' => 'account removal failed due to unknown username or uid',
+	'606' => 'fail to remove account' 
 );
 
 if (_OP_) {
@@ -84,6 +88,60 @@ if (_OP_) {
 		case "INJECT":
 			if ($u = webservices_validate_admin($h, $u)) {
 				$json = webservices_inject($u, $from, $msg, $recvnum, $smsc);
+			} else {
+				$json['status'] = 'ERR';
+				$json['error'] = '600';
+			}
+			$log_this = TRUE;
+			break;
+		
+		case "ACCOUNTADD":
+			if ($u = webservices_validate_admin($h, $u)) {
+				$data = array();
+				foreach ($_REQUEST as $key => $value) {
+					switch ($key) {
+						case 'data_status':
+						case 'data_parent':
+						case 'data_parent_uid':
+						case 'data_username':
+						case 'data_password':
+						case 'data_name':
+						case 'data_email':
+						case 'data_mobile':
+						case 'data_footer':
+						case 'data_datetime_timezone':
+						case 'data_language_module':
+							$key_name = str_replace('data_', '', $key);
+							$data[$key_name] = $value;
+							break;
+					}
+				}
+				if ($data['parent']) {
+					$data['parent_uid'] = (int) user_username2uid($data['parent']);
+					unset($data['parent']);
+				}
+				if ($data['status'] && $data['username'] && $data['password'] && $data['name'] && $data['email']) {
+					$json = webservices_account_add($data);
+				} else {
+					$json['status'] = 'ERR';
+					$json['error'] = '603';
+				}
+			} else {
+				$json['status'] = 'ERR';
+				$json['error'] = '600';
+			}
+			$log_this = TRUE;
+			break;
+		
+		case "ACCOUNTREMOVE":
+			if ($u = webservices_validate_admin($h, $u)) {
+				$data_uid = (int) ($_REQUEST['data_username'] ? user_username2uid($_REQUEST['data_username']) : $_REQUEST['data_uid']);
+				if ($data_uid) {
+					$json = webservices_account_remove($data_uid);
+				} else {
+					$json['status'] = 'ERR';
+					$json['error'] = '605';
+				}
 			} else {
 				$json['status'] = 'ERR';
 				$json['error'] = '600';

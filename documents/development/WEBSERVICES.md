@@ -235,6 +235,39 @@ Returns    | return codes
 Injected message will be treated as a valid incoming SMS.
 
 
+### Add account (admin task)
+
+Add an account
+
+Parameters | Name or description
+---------- | --------------------
+Operation  | `accountadd`
+Mandatory  | `u` `h` `data_status` `data_username` `data_password` `data_name` `data_email`
+Optional   | `format` `data_parent` `data_parent_uid` `data_mobile` `data_datetime_timezone` `data_language_module`
+Returns    | return codes
+
+Notes:
+* data_status 2 is for admin level account
+* data_status 3 is for user level account
+* data_status 4 is for subuser level account
+* data_parent may need to be set when adding subuser level account
+
+
+### Remove account (admin task)
+
+Remove an account
+
+Parameters | Name or description
+---------- | --------------------
+Operation  | `accountremove`
+Mandatory  | `u` `h` `data_username` `data_uid`
+Optional   | `format`
+Returns    | return codes
+
+Notes:
+* data_uid will take precedence over data_username
+
+
 ## Examples
 
 
