@@ -78,7 +78,9 @@ $ws_error_string = array(
 	'603' => 'account addition failed due to missing data',
 	'604' => 'fail to add account',
 	'605' => 'account removal failed due to unknown username or uid',
-	'606' => 'fail to remove account' 
+	'606' => 'fail to remove account',
+	'607' => 'set parent failed due to unknown username or uid',
+	'608' => 'fail to set parent' 
 );
 
 if (_OP_) {
@@ -141,6 +143,23 @@ if (_OP_) {
 				} else {
 					$json['status'] = 'ERR';
 					$json['error'] = '605';
+				}
+			} else {
+				$json['status'] = 'ERR';
+				$json['error'] = '600';
+			}
+			$log_this = TRUE;
+			break;
+		
+		case "PARENTSET":
+			if ($u = webservices_validate_admin($h, $u)) {
+				$data_uid = (int) ($_REQUEST['data_username'] ? user_username2uid($_REQUEST['data_username']) : $_REQUEST['data_uid']);
+				$data_parent_uid = (int) ($_REQUEST['data_parent'] ? user_username2uid($_REQUEST['data_parent']) : $_REQUEST['data_parent_uid']);
+				if ($data_uid && $data_parent_uid) {
+					$json = webservices_parent_set($data_uid, $data_parent_uid);
+				} else {
+					$json['status'] = 'ERR';
+					$json['error'] = '607';
 				}
 			} else {
 				$json['status'] = 'ERR';

@@ -445,3 +445,15 @@ function webservices_account_remove($uid) {
 	
 	return $json;
 }
+
+function webservices_parent_set($uid, $parent_uid) {
+	if (user_setparentbyuid($uid, $parent_uid)) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '608';
+	}
+	
+	return $json;
+}
