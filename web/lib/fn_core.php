@@ -459,6 +459,7 @@ function core_sanitize_sender($text) {
  *
  */
 function core_sanitize_footer($text) {
+	$text = str_replace('"', "'", $text);
 	if (strlen($text) > 30) {
 		$text = substr($text, 0, 30);
 	}
