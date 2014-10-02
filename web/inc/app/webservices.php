@@ -104,7 +104,6 @@ if (_OP_) {
 					switch ($key) {
 						case 'data_status':
 						case 'data_parent':
-						case 'data_parent_uid':
 						case 'data_username':
 						case 'data_password':
 						case 'data_name':
@@ -137,7 +136,7 @@ if (_OP_) {
 		
 		case "ACCOUNTREMOVE":
 			if ($u = webservices_validate_admin($h, $u)) {
-				$data_uid = (int) ($_REQUEST['data_username'] ? user_username2uid($_REQUEST['data_username']) : $_REQUEST['data_uid']);
+				$data_uid = (int) user_username2uid($_REQUEST['data_username']);
 				if ($data_uid) {
 					$json = webservices_account_remove($data_uid);
 				} else {
@@ -153,8 +152,8 @@ if (_OP_) {
 		
 		case "PARENTSET":
 			if ($u = webservices_validate_admin($h, $u)) {
-				$data_uid = (int) ($_REQUEST['data_username'] ? user_username2uid($_REQUEST['data_username']) : $_REQUEST['data_uid']);
-				$data_parent_uid = (int) ($_REQUEST['data_parent'] ? user_username2uid($_REQUEST['data_parent']) : $_REQUEST['data_parent_uid']);
+				$data_uid = (int) user_username2uid($_REQUEST['data_username']);
+				$data_parent_uid = (int) user_username2uid($_REQUEST['data_parent']);
 				if ($data_uid && $data_parent_uid) {
 					$json = webservices_parent_set($data_uid, $data_parent_uid);
 				} else {

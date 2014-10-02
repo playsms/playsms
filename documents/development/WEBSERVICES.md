@@ -243,8 +243,8 @@ Parameters | Name or description
 ---------- | --------------------
 Operation  | `accountadd`
 Mandatory  | `u` `h` `data_status` `data_username` `data_password` `data_name` `data_email`
-Optional   | `format` `data_parent` `data_parent_uid` `data_mobile` `data_datetime_timezone` `data_language_module`
-Returns    | return codes
+Optional   | `format` `data_parent` `data_mobile` `data_datetime_timezone` `data_language_module`
+Returns    | return codes and info
 
 Notes:
 * data_status 2 is for admin level account
@@ -260,12 +260,21 @@ Remove an account
 Parameters | Name or description
 ---------- | --------------------
 Operation  | `accountremove`
-Mandatory  | `u` `h` `data_username` `data_uid`
+Mandatory  | `u` `h` `data_username`
+Optional   | `format`
+Returns    | return codes and info
+
+
+### Set parent for subuser (admin task)
+
+Set parent for subuser level account
+
+Parameters | Name or description
+---------- | --------------------
+Operation  | `parentset`
+Mandatory  | `u` `h` `data_username` `data_parent`
 Optional   | `format`
 Returns    | return codes
-
-Notes:
-* data_uid will take precedence over data_username
 
 
 ## Examples
