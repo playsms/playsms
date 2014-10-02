@@ -457,3 +457,17 @@ function webservices_parent_set($uid, $parent_uid) {
 	
 	return $json;
 }
+
+function webservices_parent_get($uid) {
+	if ($parent_uid = user_getparentbyuid($uid)) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+		$json['parent_uid'] = $parent_uid;
+		$json['parent'] = user_uid2username($parent_uid);
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '610';
+	}
+
+	return $json;
+}

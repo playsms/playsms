@@ -277,6 +277,18 @@ Optional   | `format`
 Returns    | return codes
 
 
+### Get parent from subuser (admin task)
+
+Get parent from subuser level account
+
+Parameters | Name or description
+---------- | --------------------
+Operation  | `parentget`
+Mandatory  | `u` `h` `data_username`
+Optional   | `format`
+Returns    | return codes and data parent
+
+
 ## Examples
 
 
