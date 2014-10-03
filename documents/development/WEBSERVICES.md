@@ -289,6 +289,30 @@ Optional   | `format`
 Returns    | return codes and data parent
 
 
+### Ban an account (admin task)
+
+Ban an account
+
+Parameters | Name or description
+---------- | --------------------
+Operation  | `accountban`
+Mandatory  | `u` `h` `data_username`
+Optional   | `format`
+Returns    | return codes
+
+
+### Unban an account (admin task)
+
+Unban an account
+
+Parameters | Name or description
+---------- | --------------------
+Operation  | `accountunban`
+Mandatory  | `u` `h` `data_username`
+Optional   | `format`
+Returns    | return codes
+
+
 ## Examples
 
 
