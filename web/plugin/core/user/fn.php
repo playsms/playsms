@@ -494,6 +494,14 @@ function user_session_remove($uid = '', $sid = '', $hash = '') {
  * @return boolean TRUE if user successfully added to banned user list
  */
 function user_banned_add($uid) {
+	global $user_config;
+
+	// account admin and currently logged in user/admin cannot be ban
+	if ($uid && (($uid == 1) || ($uid == $user_config['uid']))) {
+		_log('unable to ban uid:' . $uid, 2, 'user_banned_add');
+		return FALSE;
+	}
+	
 	$bantime = core_get_datetime();
 	if (user_session_get($uid)) {
 		if (!user_session_remove($uid)) {

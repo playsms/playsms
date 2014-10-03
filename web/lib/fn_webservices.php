@@ -468,6 +468,30 @@ function webservices_parent_get($uid) {
 		$json['status'] = 'ERR';
 		$json['error'] = '610';
 	}
+	
+	return $json;
+}
 
+function webservices_account_ban($uid) {
+	if ($parent_uid = user_banned_add($uid)) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '612';
+	}
+	
+	return $json;
+}
+
+function webservices_account_unban($uid) {
+	if ($parent_uid = user_banned_remove($uid)) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '614';
+	}
+	
 	return $json;
 }

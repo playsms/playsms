@@ -82,7 +82,11 @@ $ws_error_string = array(
 	'607' => 'set parent failed due to unknown username',
 	'608' => 'fail to set parent',
 	'609' => 'get parent failed due to unknown username',
-	'610' => 'fail to get parent' 
+	'610' => 'fail to get parent',
+	'611' => 'account ban failed due to unknown username',
+	'612' => 'fail to ban account',
+	'613' => 'account unban failed due to unknown username',
+	'614' => 'fail to unban account' 
 );
 
 if (_OP_) {
@@ -177,6 +181,38 @@ if (_OP_) {
 				} else {
 					$json['status'] = 'ERR';
 					$json['error'] = '609';
+				}
+			} else {
+				$json['status'] = 'ERR';
+				$json['error'] = '600';
+			}
+			$log_this = TRUE;
+			break;
+		
+		case "ACCOUNTBAN":
+			if ($u = webservices_validate_admin($h, $u)) {
+				$data_uid = (int) user_username2uid($_REQUEST['data_username']);
+				if ($data_uid) {
+					$json = webservices_account_ban($data_uid);
+				} else {
+					$json['status'] = 'ERR';
+					$json['error'] = '611';
+				}
+			} else {
+				$json['status'] = 'ERR';
+				$json['error'] = '600';
+			}
+			$log_this = TRUE;
+			break;
+		
+		case "ACCOUNTUNBAN":
+			if ($u = webservices_validate_admin($h, $u)) {
+				$data_uid = (int) user_username2uid($_REQUEST['data_username']);
+				if ($data_uid) {
+					$json = webservices_account_unban($data_uid);
+				} else {
+					$json['status'] = 'ERR';
+					$json['error'] = '613';
 				}
 			} else {
 				$json['status'] = 'ERR';
