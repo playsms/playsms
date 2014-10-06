@@ -470,6 +470,66 @@ function user_remove($uid, $forced = FALSE) {
 	return $ret;
 }
 
+function user_edit_conf($uid, $data = array()) {
+	$ret['status'] = FALSE;
+	$ret['error_string'] = _('No changes made');
+	
+	$fields = array(
+		'footer',
+		'datetime_timezone',
+		'language_module',
+		'fwd_to_inbox',
+		'fwd_to_email',
+		'fwd_to_mobile',
+		'local_length',
+		'replace_zero',
+		'new_token',
+		'enable_webservices',
+		'webservices_ip',
+		'sender' 
+	);
+	
+	$up = array();
+	foreach ($fields as $field) {
+		if (strlen($data[$field])) {
+			$up[$field] = trim($data[$field]);
+		}
+	}
+	
+	$c_sender = core_sanitize_sender($up['sender']);
+	$up['sender'] = (sender_id_check($uid, $c_sender) ? $c_sender : '');
+	
+	$c_footer = core_sanitize_footer($up['footer']);
+	$up['footer'] = (strlen($c_footer) > 30 ? substr($c_footer, 0, 30) : $c_footer);
+	
+	$up['lastupdate_datetime'] = core_adjust_datetime(core_get_datetime());
+	if ($uid) {
+		if ($up['new_token']) {
+			$up['token'] = md5(mktime() . $uid . _PID_);
+		}
+		unset($up['new_token']);
+		
+		if (dba_update(_DB_PREF_ . '_tblUser', $up, array(
+			'uid' => $uid 
+		))) {
+			if ($up['password']) {
+				$ret['error_string'] = _('User configuration has been saved and password updated');
+			} else if ($up['token']) {
+				$ret['error_string'] = _('User configuration has been saved and webservices token updated');
+			} else {
+				$ret['error_string'] = _('User configuration has been saved');
+			}
+			$ret['status'] = TRUE;
+		} else {
+			$ret['error_string'] = _('Fail to save preferences');
+		}
+	} else {
+		$ret['error_string'] = _('Unknown error');
+	}
+	
+	return $ret;
+}
+
 /**
  * Save user's login session information
  *

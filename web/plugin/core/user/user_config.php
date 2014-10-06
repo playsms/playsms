@@ -238,7 +238,6 @@ switch (_OP_) {
 		break;
 	
 	case "user_config_save":
-		$_SESSION['error_string'] = _('No changes made');
 		$fields = array(
 			'footer',
 			'datetime_timezone',
@@ -254,45 +253,16 @@ switch (_OP_) {
 			'sender' 
 		);
 		
-		for ($i = 0; $i < count($fields); $i++) {
-			if (strlen($_POST['up_' . $fields[$i]])) {
-				$up[$fields[$i]] = trim($_POST['up_' . $fields[$i]]);
+		$up = array();
+		foreach ($fields as $field) {
+			if (strlen($_POST['up_' . $field])) {
+				$up[$field] = trim($_POST['up_' . $field]);
 			}
 		}
 		
-		$up['username'] = $c_username;
+		$ret = user_edit_conf($c_uid, $up);
+		$_SESSION['error_string'] = $ret['error_string'];
 		
-		$c_sender = core_sanitize_sender($up['sender']);
-		$up['sender'] = (sender_id_check($c_uid, $c_sender) ? $c_sender : '');
-		
-		$c_footer = core_sanitize_footer($up['footer']);
-		$up['footer'] = (strlen($c_footer) > 30 ? substr($c_footer, 0, 30) : $c_footer);
-		
-		$up['lastupdate_datetime'] = core_adjust_datetime(core_get_datetime());
-		if ($c_uid) {
-			$continue = true;
-			if ($up['new_token']) {
-				$up['token'] = md5(mktime() . $c_username . $up['email']);
-			}
-			unset($up['new_token']);
-			if ($continue) {
-				if (dba_update(_DB_PREF_ . '_tblUser', $up, array(
-					'uid' => $c_uid 
-				))) {
-					if ($up['password']) {
-						$_SESSION['error_string'] = _('User configuration has been saved and password updated');
-					} else if ($up['token']) {
-						$_SESSION['error_string'] = _('User configuration has been saved and webservices token updated');
-					} else {
-						$_SESSION['error_string'] = _('User configuration has been saved');
-					}
-				} else {
-					$_SESSION['error_string'] = _('Fail to save preferences');
-				}
-			}
-		} else {
-			$_SESSION['error_string'] = _('Username is empty');
-		}
 		_log('saving username:' . $c_username . ' error_string:' . $_SESSION['error_string'], 2, 'user_config');
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=user_config&op=user_config' . $url_uname . '&view=' . $view));
 		exit();
