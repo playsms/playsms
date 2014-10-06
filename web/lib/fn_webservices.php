@@ -516,3 +516,18 @@ function webservices_account_pref($uid, $data = array()) {
 	
 	return $json;
 }
+
+function webservices_account_conf($uid, $data = array()) {
+	$ret = user_edit_conf($uid, $data);
+	if ($ret['status']) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+		$json['info'] = $ret['error_string'];
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '618';
+		$json['info'] = $ret['error_string'];
+	}
+	
+	return $json;
+}

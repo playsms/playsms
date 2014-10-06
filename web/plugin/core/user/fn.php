@@ -496,12 +496,6 @@ function user_edit_conf($uid, $data = array()) {
 		}
 	}
 	
-	$c_sender = core_sanitize_sender($up['sender']);
-	$up['sender'] = (sender_id_check($uid, $c_sender) ? $c_sender : '');
-	
-	$c_footer = core_sanitize_footer($up['footer']);
-	$up['footer'] = (strlen($c_footer) > 30 ? substr($c_footer, 0, 30) : $c_footer);
-	
 	$up['lastupdate_datetime'] = core_adjust_datetime(core_get_datetime());
 	if ($uid) {
 		if ($up['new_token']) {
@@ -509,19 +503,27 @@ function user_edit_conf($uid, $data = array()) {
 		}
 		unset($up['new_token']);
 		
-		if (dba_update(_DB_PREF_ . '_tblUser', $up, array(
-			'uid' => $uid 
-		))) {
-			if ($up['password']) {
-				$ret['error_string'] = _('User configuration has been saved and password updated');
-			} else if ($up['token']) {
-				$ret['error_string'] = _('User configuration has been saved and webservices token updated');
+		$c_sender = core_sanitize_sender($up['sender']);
+		if (sender_id_check($uid, $c_sender)) {
+			$up['sender'] = $c_sender;
+			
+			$c_footer = core_sanitize_footer($up['footer']);
+			$up['footer'] = (strlen($c_footer) > 30 ? substr($c_footer, 0, 30) : $c_footer);
+			
+			if (dba_update(_DB_PREF_ . '_tblUser', $up, array(
+				'uid' => $uid 
+			))) {
+				if ($up['token']) {
+					$ret['error_string'] = _('User configuration has been saved and webservices token updated');
+				} else {
+					$ret['error_string'] = _('User configuration has been saved');
+				}
+				$ret['status'] = TRUE;
 			} else {
-				$ret['error_string'] = _('User configuration has been saved');
+				$ret['error_string'] = _('Fail to save configuration');
 			}
-			$ret['status'] = TRUE;
 		} else {
-			$ret['error_string'] = _('Fail to save preferences');
+			$ret['error_string'] = _('Invalid sender ID');
 		}
 	} else {
 		$ret['error_string'] = _('Unknown error');
