@@ -495,3 +495,24 @@ function webservices_account_unban($uid) {
 	
 	return $json;
 }
+
+function webservices_account_pref($uid, $data = array()) {
+	if (!$data['name']) {
+		$data['name'] = user_getfieldbyuid($uid, 'name');
+	}
+	if (!$data['email']) {
+		$data['email'] = user_getfieldbyuid($uid, 'email');
+	}
+	$ret = user_edit($uid, $data);
+	if ($ret['status']) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+		$json['info'] = $ret['error_string'];
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '616';
+		$json['info'] = $ret['error_string'];
+	}
+	
+	return $json;
+}

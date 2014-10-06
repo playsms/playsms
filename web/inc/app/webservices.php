@@ -86,7 +86,9 @@ $ws_error_string = array(
 	'611' => 'account ban failed due to unknown username',
 	'612' => 'fail to ban account',
 	'613' => 'account unban failed due to unknown username',
-	'614' => 'fail to unban account' 
+	'614' => 'fail to unban account',
+	'615' => 'editing account preferences failed due to missing data',
+	'616' => 'fail to edit account preferences' 
 );
 
 if (_OP_) {
@@ -213,6 +215,39 @@ if (_OP_) {
 				} else {
 					$json['status'] = 'ERR';
 					$json['error'] = '613';
+				}
+			} else {
+				$json['status'] = 'ERR';
+				$json['error'] = '600';
+			}
+			$log_this = TRUE;
+			break;
+		
+		case "ACCOUNTPREF":
+			if ($u = webservices_validate_admin($h, $u)) {
+				$data_uid = (int) user_username2uid($_REQUEST['data_username']);
+				$fields = array(
+					'name',
+					'email',
+					'mobile',
+					'address',
+					'city',
+					'state',
+					'country',
+					'password',
+					'zipcode' 
+				);
+				$data = array();
+				foreach ($fields as $field) {
+					if ($c_data = trim($_REQUEST['data_' . $field])) {
+						$data[$field] = $c_data;
+					}
+				}
+				if ($data_uid && count($data)) {
+					$json = webservices_account_pref($data_uid, $data);
+				} else {
+					$json['status'] = 'ERR';
+					$json['error'] = '615';
 				}
 			} else {
 				$json['status'] = 'ERR';
