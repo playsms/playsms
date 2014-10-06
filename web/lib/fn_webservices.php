@@ -531,3 +531,16 @@ function webservices_account_conf($uid, $data = array()) {
 	
 	return $json;
 }
+
+function webservices_credit_view($username) {
+	if ($credit = rate_getusercredit($username)) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+		$json['credit'] = $credit;
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '620';
+	}
+	
+	return $json;
+}

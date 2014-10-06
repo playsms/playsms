@@ -90,7 +90,9 @@ $ws_error_string = array(
 	'615' => 'editing account preferences failed due to missing data',
 	'616' => 'fail to edit account preferences',
 	'617' => 'editing account configuration failed due to missing data',
-	'618' => 'fail to edit account configuration' 
+	'618' => 'fail to edit account configuration',
+	'619' => 'viewing credit failed due to missing data',
+	'620' => 'fail to view credit' 
 );
 
 if (_OP_) {
@@ -283,6 +285,21 @@ if (_OP_) {
 				} else {
 					$json['status'] = 'ERR';
 					$json['error'] = '617';
+				}
+			} else {
+				$json['status'] = 'ERR';
+				$json['error'] = '600';
+			}
+			$log_this = TRUE;
+			break;
+		
+		case "CREDITVIEW":
+			if ($u = webservices_validate_admin($h, $u)) {
+				if ($data_username = $_REQUEST['data_username']) {
+					$json = webservices_credit_view($data_username);
+				} else {
+					$json['status'] = 'ERR';
+					$json['error'] = '619';
 				}
 			} else {
 				$json['status'] = 'ERR';
