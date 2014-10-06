@@ -178,6 +178,12 @@ function user_add_validate($data = array(), $flag_edit = FALSE) {
 			$ret['status'] = false;
 		}
 		
+		// name must be exists
+		if ($ret['status'] && !$data['name']) {
+			$ret['error_string'] = _('Account name is mandatory');
+			$ret['status'] = false;
+		}
+		
 		// email must be in valid format
 		if ($ret['status'] && (!preg_match('/^(.+)@(.+)\.(.+)$/', $data['email'])) && !$core_config['main']['enhance_privacy_subuser']) {
 			if ($data['email']) {
@@ -374,7 +380,7 @@ function user_edit($uid, $data = array()) {
 	}
 	$up['lastupdate_datetime'] = core_adjust_datetime(core_get_datetime());
 	
-	if ($up['name']) {
+	if ($up['name'] && $up['email']) {
 		$v = user_edit_validate($up);
 		if ($v['status']) {
 			$continue = true;
@@ -410,7 +416,7 @@ function user_edit($uid, $data = array()) {
 			$ret['error_string'] = $v['error_string'];
 		}
 	} else {
-		$ret['error_string'] = _('You must fill all field');
+		$ret['error_string'] = _('You must fill all mandatory fields');
 	}
 	
 	return $ret;
