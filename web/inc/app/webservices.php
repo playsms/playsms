@@ -270,9 +270,6 @@ if (_OP_) {
 					'fwd_to_mobile',
 					'local_length',
 					'replace_zero',
-					'new_token',
-					'enable_webservices',
-					'webservices_ip',
 					'sender' 
 				);
 				$data = array();
