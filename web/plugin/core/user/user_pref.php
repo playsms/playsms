@@ -220,6 +220,7 @@ switch (_OP_) {
 		_p(tpl_apply($tpl));
 		break;
 	case "user_pref_save":
+		$continue = TRUE;
 		$_SESSION['error_string'] = _('No changes made');
 		$fields = array(
 			'name',
@@ -254,8 +255,17 @@ switch (_OP_) {
 			$up['parent_uid'] = (int) user_getparentbyuid(user_username2uid($c_username));
 		}
 		
-		$uid = user_username2uid($c_username);
-		$ret = user_edit($uid, $up);
+		if ($up['password'] && ($up['password'] != $_POST['up_password_conf'])) {
+			$ret['error_string'] = _('Password does not match');
+			$continue = false;
+		} else {
+			unset($up['password']);
+		}
+		
+		if ($continue) {
+			$uid = user_username2uid($c_username);
+			$ret = user_edit($uid, $up);
+		}
 		$_SESSION['error_string'] = $ret['error_string'];
 		
 		_log('saving username:' . $c_username . ' error_string:' . $_SESSION['error_string'], 2, 'user_pref');

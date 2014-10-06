@@ -385,13 +385,8 @@ function user_edit($uid, $data = array()) {
 		if ($v['status']) {
 			$continue = true;
 			
-			if ($up['password'] && $_POST['up_password_conf']) {
-				if ($up['password'] == $_POST['up_password_conf']) {
-					$up['password'] = md5($up['password']);
-				} else {
-					$ret['error_string'] = _('Password does not match');
-					$continue = false;
-				}
+			if ($up['password']) {
+				$up['password'] = md5($up['password']);
 			} else {
 				unset($up['password']);
 			}
