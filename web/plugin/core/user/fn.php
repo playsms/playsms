@@ -342,6 +342,80 @@ function user_add($data = array(), $forced = FALSE) {
 	return $ret;
 }
 
+function user_edit($uid, $data = array()) {
+	$up = array();
+	$ret = array();
+	
+	$ret['status'] = FALSE;
+	
+	$user_edited = user_getdatabyuid($uid);
+	if ($user_edited['status'] != 4) {
+		unset($data['parent_uid']);
+	}
+	$data['username'] = $user_edited['username'];
+	
+	$fields = array(
+		'username',
+		'parent_uid',
+		'name',
+		'email',
+		'mobile',
+		'address',
+		'city',
+		'state',
+		'country',
+		'password',
+		'zipcode' 
+	);
+	foreach ($fields as $field) {
+		if ($c_data = trim($data[$field])) {
+			$up[$field] = $c_data;
+		}
+	}
+	$up['lastupdate_datetime'] = core_adjust_datetime(core_get_datetime());
+	
+	if ($up['name']) {
+		$v = user_edit_validate($up);
+		if ($v['status']) {
+			$continue = true;
+			
+			if ($up['password'] && $_POST['up_password_conf']) {
+				if ($up['password'] == $_POST['up_password_conf']) {
+					$up['password'] = md5($up['password']);
+				} else {
+					$ret['error_string'] = _('Password does not match');
+					$continue = false;
+				}
+			} else {
+				unset($up['password']);
+			}
+			
+			if ($continue) {
+				if (dba_update(_DB_PREF_ . '_tblUser', $up, array(
+					'uid' => $uid 
+				))) {
+					$ret['status'] = TRUE;
+					if ($up['password']) {
+						$ret['error_string'] = _('Preferences has been saved and password updated');
+					} else if ($up['token']) {
+						$ret['error_string'] = _('Preferences has been saved and webservices token updated');
+					} else {
+						$ret['error_string'] = _('Preferences has been saved');
+					}
+				} else {
+					$ret['error_string'] = _('Fail to save preferences');
+				}
+			}
+		} else {
+			$ret['error_string'] = $v['error_string'];
+		}
+	} else {
+		$ret['error_string'] = _('You must fill all field');
+	}
+	
+	return $ret;
+}
+
 /**
  * Delete existing user
  *
@@ -495,7 +569,7 @@ function user_session_remove($uid = '', $sid = '', $hash = '') {
  */
 function user_banned_add($uid) {
 	global $user_config;
-
+	
 	// account admin and currently logged in user/admin cannot be ban
 	if ($uid && (($uid == 1) || ($uid == $user_config['uid']))) {
 		_log('unable to ban uid:' . $uid, 2, 'user_banned_add');
