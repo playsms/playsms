@@ -112,7 +112,7 @@ ERR 5xx    | others
 ERR 6xx    | administrative tasks
 
 
-## Protocol
+## Protocol for non-admin tasks
 
 
 ### Send message
@@ -245,7 +245,7 @@ Optional   | `c` `format`
 Returns    | list of contact groups similar or the same as `kwd` or return codes
 
 
-## Admin tasks
+## Protocol for admin tasks
 
 
 ### Inject message
