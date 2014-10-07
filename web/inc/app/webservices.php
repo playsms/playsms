@@ -92,7 +92,11 @@ $ws_error_string = array(
 	'617' => 'editing account configuration failed due to missing data',
 	'618' => 'fail to edit account configuration',
 	'619' => 'viewing credit failed due to missing data',
-	'620' => 'fail to view credit' 
+	'620' => 'fail to view credit',
+	'621' => 'adding credit failed due to missing data',
+	'622' => 'fail to add credit',
+	'623' => 'deducting credit failed due to missing data',
+	'624' => 'fail to deduct credit' 
 );
 
 if (_OP_) {
@@ -300,6 +304,38 @@ if (_OP_) {
 				} else {
 					$json['status'] = 'ERR';
 					$json['error'] = '619';
+				}
+			} else {
+				$json['status'] = 'ERR';
+				$json['error'] = '600';
+			}
+			$log_this = TRUE;
+			break;
+		
+		case "CREDITADD":
+			if ($u = webservices_validate_admin($h, $u)) {
+				if ($data_username = $_REQUEST['data_username']) {
+					$data_amount = (float) $_REQUEST['data_amount'];
+					$json = webservices_credit_add($data_username, $data_amount);
+				} else {
+					$json['status'] = 'ERR';
+					$json['error'] = '621';
+				}
+			} else {
+				$json['status'] = 'ERR';
+				$json['error'] = '600';
+			}
+			$log_this = TRUE;
+			break;
+		
+		case "CREDITDEDUCT":
+			if ($u = webservices_validate_admin($h, $u)) {
+				if ($data_username = $_REQUEST['data_username']) {
+					$data_amount = (float) $_REQUEST['data_amount'];
+					$json = webservices_credit_deduct($data_username, $data_amount);
+				} else {
+					$json['status'] = 'ERR';
+					$json['error'] = '623';
 				}
 			} else {
 				$json['status'] = 'ERR';

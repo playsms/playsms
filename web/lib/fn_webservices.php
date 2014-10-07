@@ -536,11 +536,43 @@ function webservices_credit_view($username) {
 	if ($credit = rate_getusercredit($username)) {
 		$json['status'] = 'OK';
 		$json['error'] = '0';
-		$json['credit'] = $credit;
+		$json['balance'] = (float) $credit;
 	} else {
 		$json['status'] = 'ERR';
 		$json['error'] = '620';
 	}
 	
+	return $json;
+}
+
+function webservices_credit_add($username, $amount) {
+	$uid = user_username2uid($username);
+	$amount = (float) $amount;
+	if (rate_addusercredit($uid, $amount)) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+		$json['amount'] = $amount;
+		$json['balance'] = rate_getusercredit($username);
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '622';
+	}
+	
+	return $json;
+}
+
+function webservices_credit_deduct($username, $amount) {
+	$uid = user_username2uid($username);
+	$amount = (float) $amount;
+	if (rate_deductusercredit($uid, $amount)) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+		$json['amount'] = $amount;
+		$json['balance'] = rate_getusercredit($username);
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '624';
+	}
+		
 	return $json;
 }
