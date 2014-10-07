@@ -76,6 +76,29 @@ ERR 501    | no data returned or result is empty
 ERR 600    | admin level authentication failed
 ERR 601    | inject message failed
 ERR 602    | sender id or message is empty
+ERR 603    | account addition failed due to missing data
+ERR 604    | fail to add account
+ERR 605    | account removal failed due to unknown username
+ERR 606    | fail to remove account
+ERR 607    | set parent failed due to unknown username
+ERR 608    | fail to set parent
+ERR 609    | get parent failed due to unknown username
+ERR 610    | fail to get parent
+ERR 611    | account ban failed due to unknown username
+ERR 612    | fail to ban account
+ERR 613    | account unban failed due to unknown username
+ERR 614    | fail to unban account
+ERR 615    | editing account preferences failed due to missing data
+ERR 616    | fail to edit account preferences
+ERR 617    | editing account configuration failed due to missing data
+ERR 618    | fail to edit account configuration
+ERR 619    | viewing credit failed due to missing data
+ERR 620    | fail to view credit
+ERR 621    | adding credit failed due to missing data
+ERR 622    | fail to add credit
+ERR 623    | deducting credit failed due to missing data
+ERR 624    | fail to deduct credit
+
 
 There might appear new error codes in the future, you should be aware that new codes might appear in this syntax:
 
@@ -235,7 +258,10 @@ Returns    | return codes
 Injected message will be treated as a valid incoming SMS.
 
 
-### Add account (admin task)
+## Admin tasks
+
+
+### Add account
 
 Add an account
 
@@ -253,7 +279,7 @@ Notes:
 * data_parent may need to be set when adding subuser level account
 
 
-### Remove account (admin task)
+### Remove account
 
 Remove an account
 
@@ -265,7 +291,7 @@ Optional   | `format`
 Returns    | return codes and info
 
 
-### Set parent for subuser (admin task)
+### Set parent for subuser
 
 Set parent for subuser level account
 
@@ -277,7 +303,7 @@ Optional   | `format`
 Returns    | return codes
 
 
-### Get parent from subuser (admin task)
+### Get parent from subuser
 
 Get parent from subuser level account
 
@@ -289,7 +315,7 @@ Optional   | `format`
 Returns    | return codes and data parent
 
 
-### Ban an account (admin task)
+### Ban an account
 
 Ban an account
 
@@ -301,7 +327,7 @@ Optional   | `format`
 Returns    | return codes
 
 
-### Unban an account (admin task)
+### Unban an account
 
 Unban an account
 
@@ -311,6 +337,76 @@ Operation  | `accountunban`
 Mandatory  | `u` `h` `data_username`
 Optional   | `format`
 Returns    | return codes
+
+
+### Update account preferences
+
+Update account preferences
+
+Parameters | Name or description
+---------- | --------------------
+Operation  | `accountpref`
+Mandatory  | `u` `h` `data_username`
+Optional   | `format` `data_name` `data_email` `data_mobile` `data_address` `data_city` `data_state` `data_country` `data_zipcode` `data_password`
+Returns    | return codes and info
+
+Notes:
+* This command may be used to update account's password
+
+
+### Update account configuration
+
+Update account configuration
+
+Parameters | Name or description
+---------- | --------------------
+Operation  | `accountconf`
+Mandatory  | `u` `h` `data_username`
+Optional   | `format` `data_footer` `datetime_timezone` `language_module` `fwd_to_inbox` `fwd_to_email` `fwd_to_mobile` `local_length` `replace_zero` `sender` 
+Returns    | return codes and info
+
+Notes:
+* This command may be used to update account's default sender ID
+* Only valid sender ID may be selected
+* `fwd_to_inbox` `fwd_to_email` `fwd_to_mobile` are boolean variables, fill with 0 to disable and 1 to enable
+* `local_length` used to detect local destination number by its length
+* `replace_zero` is a numeric only prefix number to replace prefix 0
+
+
+### View account credit
+
+View an account credit or balance
+
+Parameters | Name or description
+---------- | --------------------
+Operation  | `creditview`
+Mandatory  | `u` `h` `data_username`
+Optional   | `format`
+Returns    | return codes and balance
+
+
+### Add account credit
+
+Add credit to an account
+
+Parameters | Name or description
+---------- | --------------------
+Operation  | `creditadd`
+Mandatory  | `u` `h` `data_username` `data_amount`
+Optional   | `format`
+Returns    | return codes, updated balance and amount
+
+
+### Deduct account credit
+
+Deduct credit to an account
+
+Parameters | Name or description
+---------- | --------------------
+Operation  | `creditdeduct`
+Mandatory  | `u` `h` `data_username` `data_amount`
+Optional   | `format`
+Returns    | return codes, updated balance and amount
 
 
 ## Examples
