@@ -10,24 +10,31 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
 
 function rate_getbyprefix($sms_to) {
 	return core_call_hook();
 }
 
-function rate_setusercredit($uid, $balance=0) {
+function rate_setusercredit($uid, $balance = 0) {
 	return core_call_hook();
 }
 
 function rate_getusercredit($username) {
+	return core_call_hook();
+}
+
+function rate_addusercredit($uid, $amount = 0) {
+	return core_call_hook();
+}
+
+function rate_deductusercredit($uid, $amount = 0) {
 	return core_call_hook();
 }
 
