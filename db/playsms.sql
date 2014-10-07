@@ -523,12 +523,13 @@ DROP TABLE IF EXISTS `playsms_featurePoll_log`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `playsms_featurePoll_log` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
-  `result_id` int(11) NOT NULL AUTO_INCREMENT,
+  `log_id` int(11) NOT NULL AUTO_INCREMENT,
   `poll_id` int(11) NOT NULL DEFAULT '0',
   `choice_id` int(11) NOT NULL DEFAULT '0',
   `poll_sender` varchar(20) NOT NULL DEFAULT '',
   `in_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`result_id`)
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`log_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
