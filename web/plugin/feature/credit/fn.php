@@ -31,7 +31,11 @@ function credit_getbalance($uid) {
 	if ($username = user_uid2username($uid)) {
 		$balance = rate_getusercredit($username);
 	}
-	return (float) $balance;
+	
+	$balance = (float) $balance;
+	$balance = number_format($balance, 3);
+	
+	return $balance;
 }
 
 /**
@@ -197,12 +201,16 @@ function credit_hook_rate_setusercredit($uid, $balance = 0) {
 }
 
 function credit_hook_rate_getusercredit($username) {
+	$balance = 0;
+	
 	if ($username) {
 		$db_query = "SELECT credit FROM " . _DB_PREF_ . "_tblUser WHERE username='$username'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$credit = $db_row['credit'];
+		$balance = $db_row['credit'];
 	}
-	$credit = (float) ($credit ? $credit : 0);
-	return $credit;
+	$balance = (float) ($balance ? $balance : 0);
+	$balance = number_format($balance, 3);
+	
+	return $balance;
 }
