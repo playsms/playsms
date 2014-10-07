@@ -61,28 +61,6 @@ function simplerate_hook_rate_getbyprefix($sms_to) {
 	return $rate;
 }
 
-function simplerate_hook_rate_setusercredit($uid, $balance=0) {
-	$ok = false;
-	logger_print("saving uid:".$uid." balance:".$balance, 2, "simplerate setusercredit");
-	$db_query = "UPDATE "._DB_PREF_."_tblUser SET c_timestamp='".mktime()."',credit='$balance' WHERE uid='$uid'";
-	if ($db_result = @dba_affected_rows($db_query)) {
-		logger_print("saved uid:".$uid." balance:".$balance, 2, "simplerate setusercredit");
-		$ok = true;
-	}
-	return $ok;
-}
-
-function simplerate_hook_rate_getusercredit($username) {
-	if ($username) {
-		$db_query = "SELECT credit FROM "._DB_PREF_."_tblUser WHERE username='$username'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$credit = $db_row['credit'];
-	}
-	$credit = ( $credit ? $credit : 0 );
-	return $credit;
-}
-
 function simplerate_hook_rate_getcharges($sms_len, $unicode, $sms_to) {
 	global $core_config;
 
