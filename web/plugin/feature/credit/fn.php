@@ -33,7 +33,7 @@ function credit_getbalance($uid) {
 	}
 	
 	$balance = (float) $balance;
-	$balance = number_format($balance, 3);
+	$balance = number_format($balance, 3, '.', '');
 	
 	return $balance;
 }
@@ -121,7 +121,7 @@ function credit_hook_webservices_output($operation, $requests) {
 	
 	if ($operation == 'credit') {
 		$balance = (float) credit_getbalance($user_config['uid']);
-		$balance = number_format($balance, 3);
+		$balance = number_format($balance, 3, '.', '');
 		
 		ob_end_clean();
 		header('Content-Type: text/plain');
@@ -210,7 +210,7 @@ function credit_hook_rate_getusercredit($username) {
 		$balance = $db_row['credit'];
 	}
 	$balance = (float) ($balance ? $balance : 0);
-	$balance = number_format($balance, 3);
+	$balance = number_format($balance, 3, '.', '');
 	
 	return $balance;
 }
