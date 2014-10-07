@@ -48,6 +48,7 @@ Name           | Description
 -------------- | --------------
 recvnum        | receiver number (for op=inject)
 smsc           | SMSC (for op=inject)
+data_*	       | admin tasks related supplied data
 
 Please note that all values should be URL encoded.
 
@@ -244,7 +245,10 @@ Optional   | `c` `format`
 Returns    | list of contact groups similar or the same as `kwd` or return codes
 
 
-### Inject message (admin task)
+## Admin tasks
+
+
+### Inject message
 
 Inject message to the system
 
@@ -256,9 +260,6 @@ Optional   | `format`
 Returns    | return codes
 
 Injected message will be treated as a valid incoming SMS.
-
-
-## Admin tasks
 
 
 ### Add account
