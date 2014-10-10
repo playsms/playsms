@@ -172,8 +172,7 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 		if ($message) {
 			$message = addslashes($message);
 			_log('sending reply u:' . $username . ' to:' . $sms_to . ' m:[' . $message . '] smsc:[' . $smsc . ']', 3, 'sms_subscribe_handle');
-			list($ok, $to, $smslog_id, $queue) = sendsms_helper($username, $sms_to, $message, 'text', '', $smsc);
-			$ok = $ok[0];
+			sendsms_helper($username, $sms_to, $message, 'text', '', $smsc);
 		}
 	}
 	return $ok;
