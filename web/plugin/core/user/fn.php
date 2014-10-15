@@ -503,8 +503,14 @@ function user_edit_conf($uid, $data = array()) {
 		}
 		unset($up['new_token']);
 		
-		$c_sender = core_sanitize_sender($up['sender']);
-		if (sender_id_check($uid, $c_sender)) {
+		// if sender ID is sent then validate it
+		if ($c_sender = core_sanitize_sender($up['sender'])) {
+			$check_sender = (sender_id_check($uid, $c_sender) ? TRUE : FALSE);
+		} else {
+			$check_sender = TRUE;
+		}
+		
+		if ($check_sender) {
 			$up['sender'] = $c_sender;
 			
 			$c_footer = core_sanitize_footer($up['footer']);
