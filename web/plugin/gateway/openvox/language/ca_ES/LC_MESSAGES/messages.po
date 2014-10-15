@@ -1,0 +1,48 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Changes have been made"
+msgstr ""
+
+msgid "Fill to change the password"
+msgstr ""
+
+msgid "Gateway host"
+msgstr ""
+
+msgid "Gateway name"
+msgstr ""
+
+msgid "Gateway port"
+msgstr ""
+
+msgid "Manage OpenVox"
+msgstr ""
+
+msgid "Module sender ID"
+msgstr ""
+
+msgid "Module timezone"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "Your callback URL is"
+msgstr ""
+
+msgid "Your callback URL should be accessible from OpenVox"
+msgstr ""

@@ -1,0 +1,20 @@
+{{ ERROR }}
+<h2>{{ Manage OpenVox }}</h2>
+<form action=index.php?app=main&inc=gateway_openvox&op=manage_save method=post>
+{{ CSRF_FORM }}
+<table class=playsms-table>
+	<tbody>
+		<tr><td class=label-sizer>{{ Gateway name }}</td><td>openvox</td></tr>
+		<tr><td>{{ Gateway host }}</td><td><input type=text maxlength=250 name=up_gateway_host value="{{ openvox_param_gateway_host }}"></td></tr>
+		<tr><td>{{ Gateway port }}</td><td><input type=text maxlength=250 name=up_gateway_port value="{{ openvox_param_gateway_port }}"></td></tr>
+		<tr><td>{{ Username }}</td><td><input type=text maxlength=30 name=up_username value="{{ openvox_param_username }}"></td></tr>
+		<tr><td>{{ Password }}</td><td><input type=password maxlength=30 name=up_password value=""> {{ HINT_FILL_SECRET }}</td></tr>
+	</tbody>
+</table>
+<p><input type=submit class=button value="{{ Save }}">
+</form>
+<br />
+{{ Notes }}:<br />
+- {{ CALLBACK_URL_IS }} {{ callback_url }}<br />
+- {{ CALLBACK_URL_ACCESSIBLE }}<br />
+{{ BUTTON_BACK }}
