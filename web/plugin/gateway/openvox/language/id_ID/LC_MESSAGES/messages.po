@@ -1,0 +1,53 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, fuzzy
+msgid "Changes have been made"
+msgstr "Tidak ada perubahan yang dilakukan"
+
+msgid "Fill to change the password"
+msgstr ""
+
+#, fuzzy
+msgid "Gateway host"
+msgstr "Nama gateway"
+
+msgid "Gateway name"
+msgstr "Nama gateway"
+
+#, fuzzy
+msgid "Gateway port"
+msgstr "Nama gateway"
+
+#, fuzzy
+msgid "Manage OpenVox"
+msgstr "Pengaturan nexmo"
+
+msgid "Module sender ID"
+msgstr "ID pengirim modul"
+
+msgid "Module timezone"
+msgstr "Zona waktu modul"
+
+msgid "Notes"
+msgstr "Catatan"
+
+msgid "Password"
+msgstr ""
+
+msgid "Save"
+msgstr "Simpan"
+
+msgid "Username"
+msgstr ""
+
+msgid "Your callback URL is"
+msgstr "URL callback anda adalah"
+
+#, fuzzy
+msgid "Your callback URL should be accessible from OpenVox"
+msgstr "Callback URL seharusnya dapat diakses oleh Nexmo"
