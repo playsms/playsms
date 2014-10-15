@@ -39,10 +39,10 @@ if (is_array($requests)) {
 }
 
 // incoming message
-$sms_datetime = urldecode($requests['time']);
+$sms_datetime = core_get_datetime();
 $sms_sender = $requests['phonenumber'];
 $message = urldecode($requests['message']);
-$sms_receiver = $requests['port'];
+$sms_receiver = core_sanitize_sender($requests['port']);
 $smsc = $requests['smsc'];
 if ($message) {
 	logger_print("incoming smsc:" . $smsc . " from:" . $sms_sender . " port:" . $sms_receiver . " m:[" . $message . "] smsc:[" . $smsc . "]", 2, "openvox callback");
