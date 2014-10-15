@@ -79,6 +79,9 @@ msgstr "O status do quiz SMS foi alterado"
 msgid "SMS quiz with all its messages has been deleted"
 msgstr "O quiz SMS foi removido com todas as suas mensagens"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "Salvar"
 

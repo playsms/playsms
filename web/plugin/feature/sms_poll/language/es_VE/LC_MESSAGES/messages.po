@@ -139,6 +139,9 @@ msgstr "Título de la encuesta SMS"
 msgid "SMS poll with all its messages has been deleted"
 msgstr "La encuesta SMS y todos sus mensajes ha sido borrada"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "Guardar"
 

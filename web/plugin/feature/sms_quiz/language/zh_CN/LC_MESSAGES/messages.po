@@ -82,6 +82,9 @@ msgstr "短信测试状态已改变"
 msgid "SMS quiz with all its messages has been deleted"
 msgstr "短信测试和它的全部信息已删除"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "保存"
 

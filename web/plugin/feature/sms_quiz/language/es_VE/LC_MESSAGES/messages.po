@@ -85,6 +85,9 @@ msgstr "El estado del Exámen corto (quiz) ha cambiado"
 msgid "SMS quiz with all its messages has been deleted"
 msgstr "El Exámen corto con todos sus mensajes ha sido eliminado"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "Guardar"
 

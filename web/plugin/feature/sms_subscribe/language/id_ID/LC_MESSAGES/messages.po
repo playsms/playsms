@@ -5,6 +5,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "1 Day"
+msgstr ""
+
+msgid "1 Month"
+msgstr ""
+
+msgid "1 Week"
+msgstr ""
+
+msgid "2 Days"
+msgstr ""
+
+msgid "2 Weeks"
+msgstr ""
+
+msgid "6 Months"
+msgstr ""
+
 msgid "Action"
 msgstr "Tindakan"
 
@@ -135,6 +153,9 @@ msgstr "Balasan SMS tidak berlangganan"
 msgid "SMS unsubscribe reply"
 msgstr "Balasan SMS tidak berlangganan"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "Simpan"
 
@@ -150,8 +171,19 @@ msgstr "Terkirim"
 msgid "Status"
 msgstr "Status"
 
+#, fuzzy
+msgid "Subscribe duration"
+msgstr "Balasan SMS berlangganan"
+
+#, fuzzy
+msgid "Subscription expired reply"
+msgstr "Balasan SMS berlangganan"
+
 msgid "Unknown format reply"
 msgstr "Balasan format SMS tidak dikenal"
+
+msgid "Unlimited"
+msgstr ""
 
 msgid "User"
 msgstr "Pengguna"

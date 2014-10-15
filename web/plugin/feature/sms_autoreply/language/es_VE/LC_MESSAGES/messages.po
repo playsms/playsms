@@ -20,6 +20,10 @@ msgstr "Esta Ud. seguro de querer borrar auto-respuesta ?"
 msgid "Are you sure you want to delete this SMS autoreply scenario ?"
 msgstr "Está Ud. seguro de querer borrar este SMS de auto-respuesta ?"
 
+#, fuzzy
+msgid "Edit SMS autoreply"
+msgstr "Añadir auto-respuesta de SMS"
+
 msgid "Edit SMS autoreply scenario"
 msgstr "Editar escenario de auto-respuesta de SMS"
 
@@ -38,6 +42,10 @@ msgstr "Imposible eliminar el servicio de auto-respuesta de SMS"
 msgid "Fail to edit SMS autoreply scenario"
 msgstr "Imposible editar escenario de auto-respuesta de SMS"
 
+#, fuzzy
+msgid "Fail to update SMS autoreply"
+msgstr "Imposible eliminar el servicio de auto-respuesta"
+
 msgid "Keyword"
 msgstr "Clave"
 
@@ -51,6 +59,10 @@ msgid "Return"
 msgstr "Regresar"
 
 msgid "SMS autoreply has been deleted"
+msgstr "El servicio de SMS de auto-respuesta ha sido borrado"
+
+#, fuzzy
+msgid "SMS autoreply has been updated"
 msgstr "El servicio de SMS de auto-respuesta ha sido borrado"
 
 msgid "SMS autoreply keyword"
@@ -78,6 +90,9 @@ msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr ""
 "La Clave de SMS de auto-respuesta ya existe, está reservada o está utilizada "
 "por otro servicio"
+
+msgid "SMSC"
+msgstr ""
 
 msgid "Save"
 msgstr "Guardar"

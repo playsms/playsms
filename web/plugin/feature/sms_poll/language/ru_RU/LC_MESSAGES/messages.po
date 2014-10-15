@@ -149,6 +149,9 @@ msgstr "Название голосования"
 msgid "SMS poll with all its messages has been deleted"
 msgstr "Голосование со всеми результатами удалено"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "Сохранить"
 

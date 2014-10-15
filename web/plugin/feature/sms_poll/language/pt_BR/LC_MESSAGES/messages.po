@@ -142,6 +142,9 @@ msgstr "Título da votação SMS"
 msgid "SMS poll with all its messages has been deleted"
 msgstr "A votação SMS foi removida com todas as suas mensagens"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "Salvar"
 

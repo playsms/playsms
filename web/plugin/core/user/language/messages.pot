@@ -1,3 +1,6 @@
+msgid "Account name is mandatory"
+msgstr ""
+
 msgid "Action"
 msgstr ""
 
@@ -100,6 +103,9 @@ msgstr ""
 msgid "Fail to register an account"
 msgstr ""
 
+msgid "Fail to save configuration"
+msgstr ""
+
 msgid "Fail to save preferences"
 msgstr ""
 
@@ -110,6 +116,9 @@ msgid "Forward message to inbox"
 msgstr ""
 
 msgid "Forward message to mobile"
+msgstr ""
+
+msgid "Invalid sender ID"
 msgstr ""
 
 msgid "List of administrators"
@@ -152,9 +161,6 @@ msgid "Name"
 msgstr ""
 
 msgid "New account registration"
-msgstr ""
-
-msgid "New webservices token"
 msgstr ""
 
 msgid "No changes made"
@@ -210,6 +216,9 @@ msgstr ""
 msgid "Registered"
 msgstr ""
 
+msgid "Renew webservices token"
+msgstr ""
+
 msgid "Replace prefix 0 or padding local numbers"
 msgstr ""
 
@@ -243,6 +252,9 @@ msgstr ""
 msgid "Unable to ban user"
 msgstr ""
 
+msgid "Unable to delete other users"
+msgstr ""
+
 msgid ""
 "Unable to delete this user until all subusers under this user have been "
 "removed"
@@ -258,6 +270,9 @@ msgid "Unable to unban subuser"
 msgstr ""
 
 msgid "Unable to unban user"
+msgstr ""
+
+msgid "Unknown error"
 msgstr ""
 
 msgid "Unknown error has occurred"
@@ -281,10 +296,10 @@ msgstr ""
 msgid "User configuration has been saved"
 msgstr ""
 
-msgid "User configuration has been saved and password updated"
+msgid "User configuration has been saved and webservices token updated"
 msgstr ""
 
-msgid "User configuration has been saved and webservices token updated"
+msgid "User deletion unavailable"
 msgstr ""
 
 msgid "User does not exist"
@@ -335,9 +350,6 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-msgid "Username is empty"
-msgstr ""
-
 msgid "Username should be at least 3 characters"
 msgstr ""
 
@@ -356,7 +368,7 @@ msgstr ""
 msgid "Webservices username"
 msgstr ""
 
-msgid "You must fill all field"
+msgid "You must fill all mandatory fields"
 msgstr ""
 
 msgid "You must fill all required fields"

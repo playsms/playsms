@@ -47,6 +47,9 @@ msgstr ""
 msgid "New SMSC has been added"
 msgstr ""
 
+msgid "Routed SMSC"
+msgstr ""
+
 msgid "SMSC already exists"
 msgstr ""
 
@@ -63,6 +66,9 @@ msgid "SMSCs"
 msgstr ""
 
 msgid "Save"
+msgstr ""
+
+msgid "Supplied SMSC"
 msgstr ""
 
 msgid "Unknown error"

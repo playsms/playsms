@@ -79,6 +79,9 @@ msgstr "Status kuis SMS telah diganti"
 msgid "SMS quiz with all its messages has been deleted"
 msgstr "Kuis SMS beserta semua pesannya telah dihapus"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "Simpan"
 

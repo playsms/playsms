@@ -5,6 +5,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#, fuzzy
+msgid "Account name is mandatory"
+msgstr "L'adresse email est obligatoire"
+
 msgid "Action"
 msgstr "Action"
 
@@ -109,6 +113,10 @@ msgstr "Activer les webservices"
 msgid "Fail to register an account"
 msgstr "Échec de l'inscription d'un compte"
 
+#, fuzzy
+msgid "Fail to save configuration"
+msgstr "Configuration de l'utilisateur"
+
 msgid "Fail to save preferences"
 msgstr "Échec de l'enregistrement des préférences"
 
@@ -120,6 +128,10 @@ msgstr "Échec du transfert du message vers la boîte de réception"
 
 msgid "Forward message to mobile"
 msgstr "Échec du transfert du message vers le mobile"
+
+#, fuzzy
+msgid "Invalid sender ID"
+msgstr "Sender ID par défaut"
 
 msgid "List of administrators"
 msgstr "Liste des administrateurs"
@@ -162,9 +174,6 @@ msgstr "Nom"
 
 msgid "New account registration"
 msgstr "Inscription d'un nouveau compte"
-
-msgid "New webservices token"
-msgstr "Nouveau token de webservices"
 
 msgid "No changes made"
 msgstr "Aucun changement apporté"
@@ -225,6 +234,10 @@ msgstr "Saisir à nouveau le mot de passe"
 msgid "Registered"
 msgstr "Inscrit"
 
+#, fuzzy
+msgid "Renew webservices token"
+msgstr "Nouveau token de webservices"
+
 msgid "Replace prefix 0 or padding local numbers"
 msgstr "Remplacer le préfix 0, ou allonger les numéros locaux"
 
@@ -258,6 +271,10 @@ msgstr "Impossible de bannir le sous-utilisateur"
 msgid "Unable to ban user"
 msgstr "Impossible de bannir l'utilisateur"
 
+#, fuzzy
+msgid "Unable to delete other users"
+msgstr "Impossible de bannir l'utilisateur"
+
 msgid ""
 "Unable to delete this user until all subusers under this user have been "
 "removed"
@@ -276,6 +293,10 @@ msgstr "Impossible de réintégrer le sous-utilisateur"
 
 msgid "Unable to unban user"
 msgstr "Impossible de réintégrer l'utilisateur"
+
+#, fuzzy
+msgid "Unknown error"
+msgstr "Une erreur inconnue est survenue"
 
 msgid "Unknown error has occurred"
 msgstr "Une erreur inconnue est survenue"
@@ -302,15 +323,14 @@ msgstr "Configuration de l'utilisateur"
 msgid "User configuration has been saved"
 msgstr "La configuration de l'utilisateur a été enregistrée"
 
-msgid "User configuration has been saved and password updated"
-msgstr ""
-"La configuration de l'utilisateur a été enregistrée et le mot de passe mis à "
-"jour"
-
 msgid "User configuration has been saved and webservices token updated"
 msgstr ""
 "La configuration de l'utilisateur a été enregistrée et le token de "
 "webservices mis à jour"
+
+#, fuzzy
+msgid "User deletion unavailable"
+msgstr "L'inscription d'utilisateur n'est pas disponible"
 
 msgid "User does not exist"
 msgstr "L'utilisateur n'existe pas"
@@ -361,9 +381,6 @@ msgstr "L'utilisateur avec ce mobile existe déjà"
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
-msgid "Username is empty"
-msgstr "Le nom d'utilisateur est vide"
-
 msgid "Username should be at least 3 characters"
 msgstr "Le nom d'utilisateur doit comporter au moins 3 caractères"
 
@@ -384,7 +401,8 @@ msgstr "Token des webservices"
 msgid "Webservices username"
 msgstr "Nom d'utilisateur des webservices"
 
-msgid "You must fill all field"
+#, fuzzy
+msgid "You must fill all mandatory fields"
 msgstr "Vous devez saisir tous les champs"
 
 msgid "You must fill all required fields"

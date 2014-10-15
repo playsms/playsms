@@ -1,3 +1,21 @@
+msgid "1 Day"
+msgstr ""
+
+msgid "1 Month"
+msgstr ""
+
+msgid "1 Week"
+msgstr ""
+
+msgid "2 Days"
+msgstr ""
+
+msgid "2 Weeks"
+msgstr ""
+
+msgid "6 Months"
+msgstr ""
+
 msgid "Action"
 msgstr ""
 
@@ -127,6 +145,9 @@ msgstr ""
 msgid "SMS unsubscribe reply"
 msgstr ""
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr ""
 
@@ -142,7 +163,16 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
+msgid "Subscribe duration"
+msgstr ""
+
+msgid "Subscription expired reply"
+msgstr ""
+
 msgid "Unknown format reply"
+msgstr ""
+
+msgid "Unlimited"
 msgstr ""
 
 msgid "User"

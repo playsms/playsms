@@ -12,6 +12,24 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
+msgid "1 Day"
+msgstr ""
+
+msgid "1 Month"
+msgstr ""
+
+msgid "1 Week"
+msgstr ""
+
+msgid "2 Days"
+msgstr ""
+
+msgid "2 Weeks"
+msgstr ""
+
+msgid "6 Months"
+msgstr ""
+
 msgid "Action"
 msgstr "Действие"
 
@@ -142,6 +160,9 @@ msgstr "Параметр отмены подписки"
 msgid "SMS unsubscribe reply"
 msgstr "Ответ об успешной отмене подписки"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "Сохранить"
 
@@ -157,8 +178,19 @@ msgstr "Отправлено"
 msgid "Status"
 msgstr "Состояние"
 
+#, fuzzy
+msgid "Subscribe duration"
+msgstr "Параметр подписки"
+
+#, fuzzy
+msgid "Subscription expired reply"
+msgstr "Ответ об успешной подписке"
+
 msgid "Unknown format reply"
 msgstr "Ответ о неизвестном формате"
+
+msgid "Unlimited"
+msgstr ""
 
 msgid "User"
 msgstr "Пользователь"

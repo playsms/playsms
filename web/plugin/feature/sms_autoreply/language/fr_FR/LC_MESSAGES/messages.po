@@ -21,6 +21,10 @@ msgstr "Êtes-vous sûr de vouloir supprimer cette réponse auto ?"
 msgid "Are you sure you want to delete this SMS autoreply scenario ?"
 msgstr "Êtes-vous sûr de vouloir supprimer ce scénario de réponse auto ?"
 
+#, fuzzy
+msgid "Edit SMS autoreply"
+msgstr "Ajouter une réponse auto"
+
 msgid "Edit SMS autoreply scenario"
 msgstr "Éditer le scénario de réponse auto"
 
@@ -39,6 +43,10 @@ msgstr "Échec de la suppression du scénario de réponse auto"
 msgid "Fail to edit SMS autoreply scenario"
 msgstr "Échec de l'édition du scénario de réponse auto"
 
+#, fuzzy
+msgid "Fail to update SMS autoreply"
+msgstr "Échec de la suppression de la réponse auto"
+
 msgid "Keyword"
 msgstr "Mot-clé"
 
@@ -52,6 +60,10 @@ msgid "Return"
 msgstr "Retour"
 
 msgid "SMS autoreply has been deleted"
+msgstr "La réponse auto a été supprimée"
+
+#, fuzzy
+msgid "SMS autoreply has been updated"
 msgstr "La réponse auto a été supprimée"
 
 msgid "SMS autoreply keyword"
@@ -77,6 +89,9 @@ msgstr "Réponses du scénario de réponse auto avec"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr "Le mot-clé existe déjà, est réservé ou utilisé par une autre fonction"
+
+msgid "SMSC"
+msgstr ""
 
 msgid "Save"
 msgstr "Enregistrer"
