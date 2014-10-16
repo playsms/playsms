@@ -10,39 +10,39 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
 
 if (!auth_isadmin()) {
 	auth_block();
-};
+}
+;
 
 $tpl = array(
 	'name' => 'report_admin',
 	'vars' => array(
-		'Report' => _('Report') ,
-		'All reports' => _('All reports') ,
-		'User' => _('User') ,
-		'Pending' => _('Pending') ,
-		'Sent' => _('Sent') ,
-		'Delivered' => _('Delivered') ,
-		'Failed' => _('Failed') ,
-		'Billing' => _('Billing') ,
-		'Credit' => _('Credit') ,
-	)
+		'Report' => _('Report'),
+		'All reports' => _('All reports'),
+		'User' => _('User'),
+		'Pending' => _('Pending'),
+		'Sent' => _('Sent'),
+		'Delivered' => _('Delivered'),
+		'Failed' => _('Failed'),
+		'Billing' => _('Billing'),
+		'Credit' => _('Credit') 
+	) 
 );
 
 $l = 0;
 
 // USER LIST RESTRIVAL
 $rows = dba_search(_DB_PREF_ . '_tblUser', 'username, uid, credit, status', '', '', array(
-	'ORDER BY' => 'status'
+	'ORDER BY' => 'status' 
 ));
 foreach ($rows as $row) {
 	$c_username = $row['username'];
@@ -54,27 +54,27 @@ foreach ($rows as $row) {
 	$num_rows_pending = report_count_pending($c_uid);
 	$sum_num_rows_pending = ($sum_num_rows_pending + $num_rows_pending);
 	
-	// SMS SENT
-	$num_rows_sent = report_count_sent($c_uid);
-	$sum_num_rows_sent = ($sum_num_rows_sent + $num_rows_sent);
-	
 	// SMS DELIVERED
 	$num_rows_delivered = report_count_delivered($c_uid);
-	$sum_num_rows_delivered = ($sum_num_rows_delivered + $num_rows_delivered);
+	$sum_num_rows_delivered += $num_rows_delivered;
+	
+	// SMS SENT
+	$num_rows_sent = report_count_sent($c_uid);
+	$sum_num_rows_sent += $num_rows_sent;
 	
 	// SMS FAILED
 	$num_rows_failed = report_count_failed($c_uid);
-	$sum_num_rows_failed = ($sum_num_rows_failed + $num_rows_failed);
+	$sum_num_rows_failed += $num_rows_failed;
 	
 	// BILLING
 	$c_billing = 0;
 	$c_data = billing_getdata_by_uid($c_uid);
-	foreach ($c_data AS $a) {
-		$c_billing+= $a['count'] * $a['rate'];
+	foreach ($c_data as $a) {
+		$c_billing += $a['count'] * $a['rate'];
 	}
 	
-	$sum_billing+= $c_billing;
-	$sum_credit+= $c_credit;
+	$sum_billing += $c_billing;
+	$sum_credit += $c_credit;
 	
 	$c_isadmin = '';
 	if ($c_status == '2') {
@@ -90,7 +90,7 @@ foreach ($rows as $row) {
 		'num_rows_delivered' => $num_rows_delivered,
 		'num_rows_failed' => $num_rows_failed,
 		'c_billing' => $c_billing,
-		'c_credit' => $c_credit
+		'c_credit' => $c_credit 
 	);
 }
 
@@ -103,6 +103,6 @@ $tpl['vars']['sum_num_rows_sent'] = $sum_num_rows_sent;
 $tpl['vars']['sum_num_rows_delivered'] = $sum_num_rows_delivered;
 $tpl['vars']['sum_num_rows_failed'] = $sum_num_rows_failed;
 $tpl['vars']['sum_billing'] = $sum_billing;
-$tpl['vars']['sum_credit'] = $sum_credit;
+$tpl['vars']['sum_credit'] = number_format($sum_credit, 3, '.', '');
 
 _p(tpl_apply($tpl));
