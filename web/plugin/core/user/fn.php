@@ -380,7 +380,7 @@ function user_edit($uid, $data = array()) {
 	}
 	$up['lastupdate_datetime'] = core_adjust_datetime(core_get_datetime());
 	
-	if ($up['name'] && $up['email']) {
+	if ($up['name']) {
 		$v = user_edit_validate($up);
 		if ($v['status']) {
 			$continue = true;

@@ -132,10 +132,10 @@ switch (_OP_) {
 		}
 		
 		// enhance privacy for subusers
-		$enhance_privacy = TRUE;
+		$show_personal_information = TRUE;
 		$main_config = $core_config['main'];
-		if (!auth_isadmin() && $main_config['enhance_privacy_subuser']) {
-			$enhance_privacy = FALSE;
+		if (!auth_isadmin() && $user_edited['status'] == 4 && $main_config['enhance_privacy_subuser']) {
+			$show_personal_information = FALSE;
 		}
 		
 		// get country option
@@ -214,7 +214,7 @@ switch (_OP_) {
 				'edit_status' => $allow_edit_status,
 				'edit_parent' => $allow_edit_parent,
 				'edit_status_hint' => $show_status_hint,
-				'enhance_privacy' => $enhance_privacy 
+				'show_personal_information' => $show_personal_information 
 			) 
 		);
 		_p(tpl_apply($tpl));
@@ -245,7 +245,9 @@ switch (_OP_) {
 		}
 		
 		for ($i = 0; $i < count($fields); $i++) {
-			$up[$fields[$i]] = trim($_POST['up_' . $fields[$i]]);
+			if ($c_data = trim($_POST['up_' . $fields[$i]])) {
+				$up[$fields[$i]] = $c_data;
+			}
 		}
 		
 		// subuser's parent uid, by default its uid=1
@@ -258,8 +260,6 @@ switch (_OP_) {
 		if ($up['password'] && ($up['password'] != $_POST['up_password_conf'])) {
 			$ret['error_string'] = _('Password does not match');
 			$continue = false;
-		} else {
-			unset($up['password']);
 		}
 		
 		if ($continue) {
