@@ -245,7 +245,9 @@ switch (_OP_) {
 		}
 		
 		for ($i = 0; $i < count($fields); $i++) {
-			$up[$fields[$i]] = trim($_POST['up_' . $fields[$i]]);
+			if ($c_data = trim($_POST['up_' . $fields[$i]])) {
+				$up[$fields[$i]] = $c_data;
+			}
 		}
 		
 		// subuser's parent uid, by default its uid=1
@@ -258,8 +260,6 @@ switch (_OP_) {
 		if ($up['password'] && ($up['password'] != $_POST['up_password_conf'])) {
 			$ret['error_string'] = _('Password does not match');
 			$continue = false;
-		} else {
-			unset($up['password']);
 		}
 		
 		if ($continue) {
