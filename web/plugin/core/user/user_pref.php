@@ -132,10 +132,10 @@ switch (_OP_) {
 		}
 		
 		// enhance privacy for subusers
-		$enhance_privacy = TRUE;
+		$show_personal_information = TRUE;
 		$main_config = $core_config['main'];
-		if (!auth_isadmin() && $main_config['enhance_privacy_subuser']) {
-			$enhance_privacy = FALSE;
+		if (!auth_isadmin() && $user_edited['status'] == 4 && $main_config['enhance_privacy_subuser']) {
+			$show_personal_information = FALSE;
 		}
 		
 		// get country option
@@ -214,7 +214,7 @@ switch (_OP_) {
 				'edit_status' => $allow_edit_status,
 				'edit_parent' => $allow_edit_parent,
 				'edit_status_hint' => $show_status_hint,
-				'enhance_privacy' => $enhance_privacy 
+				'show_personal_information' => $show_personal_information 
 			) 
 		);
 		_p(tpl_apply($tpl));
