@@ -10,50 +10,55 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
 
 /**
  * Count number of SMS for report
- * @param  integer $uid          User ID or 0 for all users
- * @param  integer $dlr_status   Delivery report status
- * @param  integer $flag_deleted Deleted SMS flagged with 1
- * @return integer                Number of SMS
+ *
+ * @param integer $uid
+ *        	User ID or 0 for all users
+ * @param integer $dlr_status
+ *        	Delivery report status
+ * @param integer $flag_deleted
+ *        	Deleted SMS flagged with 1
+ * @return integer Number of SMS
  */
 function report_count($uid = 0, $dlr_status = 0, $flag_deleted = 0) {
 	$sms_count = 0;
 	
 	$db_table = _DB_PREF_ . '_tblSMSOutgoing';
 	$conditions = array(
-		'p_status' => $dlr_status,
-		'flag_deleted' => $flag_deleted
+		'p_status' => (int) $dlr_status,
+		'flag_deleted' => (int) $flag_deleted 
 	);
 	if ($uid) {
 		$conditions['uid'] = $uid;
 	}
 	$list = dba_search($db_table, 'queue_code', $conditions, '', array(
-		'GROUP BY' => 'queue_code'
+		'GROUP BY' => 'queue_code' 
 	));
 	foreach ($list as $row) {
 		$db_table = _DB_PREF_ . '_tblSMSOutgoing_queue';
 		$data = dba_search($db_table, 'sms_count', array(
-			'queue_code' => $row['queue_code']
+			'queue_code' => $row['queue_code'] 
 		));
-		$sms_count+= $data[0]['sms_count'];
+		$sms_count += $data[0]['sms_count'];
 	}
 	
-	return (int)$sms_count;
+	return (int) $sms_count;
 }
 
 /**
  * Report count of pending SMS
- * @param integer $uid User ID
+ *
+ * @param integer $uid
+ *        	User ID
  * @return integer Count of pending SMS
  */
 function report_count_pending($uid = 0) {
@@ -62,7 +67,9 @@ function report_count_pending($uid = 0) {
 
 /**
  * Report count of sent SMS
- * @param integer $uid User ID
+ *
+ * @param integer $uid
+ *        	User ID
  * @return integer Count of sent SMS
  */
 function report_count_sent($uid = 0) {
@@ -71,7 +78,9 @@ function report_count_sent($uid = 0) {
 
 /**
  * Report count of failed SMS
- * @param integer $uid User ID
+ *
+ * @param integer $uid
+ *        	User ID
  * @return integer Count of failed SMS
  */
 function report_count_failed($uid = 0) {
@@ -80,7 +89,9 @@ function report_count_failed($uid = 0) {
 
 /**
  * Report count of delivered SMS
- * @param integer $uid User ID
+ *
+ * @param integer $uid
+ *        	User ID
  * @return integer Count of delivered SMS
  */
 function report_count_delivered($uid = 0) {
@@ -89,7 +100,9 @@ function report_count_delivered($uid = 0) {
 
 /**
  * Report count of deleted SMS
- * @param integer $uid User ID
+ *
+ * @param integer $uid
+ *        	User ID
  * @return integer Count of deleted SMS
  */
 function report_count_deleted($uid = 0) {
@@ -104,9 +117,13 @@ function report_count_deleted($uid = 0) {
 
 /**
  * Get whose online
- * @param integer $status User status
- * @param boolean $online_only Report whose online only
- * @param boolean $idle_only Report whose online with login status idle only
+ *
+ * @param integer $status
+ *        	User status
+ * @param boolean $online_only
+ *        	Report whose online only
+ * @param boolean $idle_only
+ *        	Report whose online with login status idle only
  * @return array Whose online data
  */
 function report_whoseonline($status = 0, $online_only = FALSE, $idle_only = FALSE) {
@@ -120,7 +137,7 @@ function report_whoseonline($status = 0, $online_only = FALSE, $idle_only = FALS
 		$c_username = $c_user['username'];
 		$c_status = $c_user['status'];
 		
-		if ($status && $c_status <> $status) {
+		if ($status && $c_status != $status) {
 			continue;
 		}
 		
@@ -131,7 +148,7 @@ function report_whoseonline($status = 0, $online_only = FALSE, $idle_only = FALS
 		
 		$is_idle = FALSE;
 		$is_online = FALSE;
-		$c_idle = (int)(strtotime(core_get_datetime()) - strtotime($val['last_update']));
+		$c_idle = (int) (strtotime(core_get_datetime()) - strtotime($val['last_update']));
 		
 		// last update more than 15 minutes will be considered as idle
 		if ($c_idle > 15 * 60) {
@@ -160,8 +177,8 @@ function report_whoseonline($status = 0, $online_only = FALSE, $idle_only = FALS
 			'sid' => $val['sid'],
 			'hash' => $key,
 			'login_status' => $c_login_status,
-			'last_update' => core_display_datetime($val['last_update']) ,
-			'action_link' => _a('index.php?app=main&inc=feature_report&route=online&op=kick&hash=' . $key, $icon_config['delete']) ,
+			'last_update' => core_display_datetime($val['last_update']),
+			'action_link' => _a('index.php?app=main&inc=feature_report&route=online&op=kick&hash=' . $key, $icon_config['delete']) 
 		);
 	}
 	
@@ -172,8 +189,11 @@ function report_whoseonline($status = 0, $online_only = FALSE, $idle_only = FALS
 
 /**
  * Get admin whose online
- * @param boolean $online_only Report whose online only
- * @param boolean $idle_only Report whose online with login status idle only
+ *
+ * @param boolean $online_only
+ *        	Report whose online only
+ * @param boolean $idle_only
+ *        	Report whose online with login status idle only
  * @return array Whose online data
  */
 function report_whoseonline_admin($online_only = FALSE, $idle_only = FALSE) {
@@ -182,8 +202,11 @@ function report_whoseonline_admin($online_only = FALSE, $idle_only = FALSE) {
 
 /**
  * Get user whose online
- * @param boolean $online_only Report whose online only
- * @param boolean $idle_only Report whose online with login status idle only
+ *
+ * @param boolean $online_only
+ *        	Report whose online only
+ * @param boolean $idle_only
+ *        	Report whose online with login status idle only
  * @return array Whose online data
  */
 function report_whoseonline_user($online_only = FALSE, $idle_only = FALSE) {
@@ -192,8 +215,11 @@ function report_whoseonline_user($online_only = FALSE, $idle_only = FALSE) {
 
 /**
  * Get subuser whose online
- * @param boolean $online_only Report whose online only
- * @param boolean $idle_only Report whose online with login status idle only
+ *
+ * @param boolean $online_only
+ *        	Report whose online only
+ * @param boolean $idle_only
+ *        	Report whose online with login status idle only
  * @return array Whose online data
  */
 function report_whoseonline_subuser($online_only = FALSE, $idle_only = FALSE) {
@@ -202,7 +228,9 @@ function report_whoseonline_subuser($online_only = FALSE, $idle_only = FALSE) {
 
 /**
  * Get banned users list
- * @param  integer $status User status
+ *
+ * @param integer $status
+ *        	User status
  * @return array Banned users
  */
 function report_banned_list($status = 0) {
@@ -216,7 +244,7 @@ function report_banned_list($status = 0) {
 		$c_email = $c_user['email'];
 		$c_status = $c_user['status'];
 		
-		if ($status && $c_status <> $status) {
+		if ($status && $c_status != $status) {
 			continue;
 		}
 		
@@ -229,8 +257,8 @@ function report_banned_list($status = 0) {
 			'username' => $c_username,
 			'icon_isadmin' => $c_isadmin,
 			'email' => $c_email,
-			'bantime' => core_display_datetime($user['bantime']) ,
-			'action_link' => _a('index.php?app=main&inc=feature_report&route=banned&op=unban&uid=' . $user['uid'], $icon_config['unban']) ,
+			'bantime' => core_display_datetime($user['bantime']),
+			'action_link' => _a('index.php?app=main&inc=feature_report&route=banned&op=unban&uid=' . $user['uid'], $icon_config['unban']) 
 		);
 	}
 	
@@ -239,6 +267,7 @@ function report_banned_list($status = 0) {
 
 /**
  * Get banned admin users list
+ *
  * @return array Banned users
  */
 function report_banned_admin() {
@@ -247,6 +276,7 @@ function report_banned_admin() {
 
 /**
  * Get banned users list
+ *
  * @return array Banned users
  */
 function report_banned_user() {
@@ -255,6 +285,7 @@ function report_banned_user() {
 
 /**
  * Get banned subusers list
+ *
  * @return array Banned subusers
  */
 function report_banned_subuser() {
@@ -266,7 +297,7 @@ function report_banned_subuser() {
  */
 function report_hook_playsmsd() {
 	global $plugin_config;
-	$plugin_config['report']['current_tick'] = (int)strtotime(core_get_datetime());
+	$plugin_config['report']['current_tick'] = (int) strtotime(core_get_datetime());
 	$period = $plugin_config['report']['current_tick'] - $plugin_config['report']['last_tick'];
 	
 	// login session older than 1 hour will be removed

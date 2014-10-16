@@ -68,7 +68,8 @@ function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $g
 	
 	// feature list
 	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
-		$ret = core_hook($core_config['featurelist'][$c], 'sendsms_intercept', array(
+		$c_feature = $core_config['featurelist'][$c];
+		$ret = core_hook($c_feature, 'sendsms_intercept', array(
 			$sms_sender,
 			$sms_footer,
 			$sms_to,
@@ -91,15 +92,16 @@ function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $g
 			$smsc = ($ret['param']['smsc'] ? $ret['param']['smsc'] : $smsc);
 			$ret_final['modified'] = $ret['modified'];
 			$ret_final['cancel'] = $ret['cancel'];
-			$ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
-			$ret_final['param']['sms_footer'] = $ret['param']['sms_footer'];
-			$ret_final['param']['sms_to'] = $ret['param']['sms_to'];
-			$ret_final['param']['sms_msg'] = $ret['param']['sms_msg'];
-			$ret_final['param']['uid'] = $ret['param']['uid'];
-			$ret_final['param']['gpid'] = $ret['param']['gpid'];
-			$ret_final['param']['sms_type'] = $ret['param']['sms_type'];
-			$ret_final['param']['unicode'] = $ret['param']['unicode'];
-			$ret_final['param']['smsc'] = $ret['param']['smsc'];
+			$ret_final['param']['sms_sender'] = $sms_sender;
+			$ret_final['param']['sms_footer'] = $sms_footer;
+			$ret_final['param']['sms_to'] = $sms_to;
+			$ret_final['param']['sms_msg'] = $sms_msg;
+			$ret_final['param']['uid'] = $uid;
+			$ret_final['param']['gpid'] = $gpid;
+			$ret_final['param']['sms_type'] = $sms_type;
+			$ret_final['param']['unicode'] = $unicode;
+			$ret_final['param']['smsc'] = $smsc;
+			_log($c_feature . ' modified sms_sender:[' . $sms_sender . '] sms_footer:[' . $sms_footer . '] sms_to:[' . $sms_to . '] sms_msg:[' . $sms_msg . '] uid:[' . $uid . '] gpid:[' . $gpid . '] sms_type:[' . $sms_type . '] unicode:[' . $unicode . '] smsc:[' . $smsc . ']', 3, 'sendsms_intercept');
 		}
 	}
 	return $ret_final;
