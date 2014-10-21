@@ -66,7 +66,7 @@ switch (_OP_) {
 			_('no') => 0,
 		) , $main_config['logo_replace_title']);
 				
-		// option default user status on user registration
+		// option default account status on user registration
 		$option_default_user_status = _options(array(
 			_('User') => 3,
 			_('Subuser') => 4,
@@ -150,7 +150,7 @@ switch (_OP_) {
 				'Default SMSC' => _('Default SMSC') ,
 				'Active themes' => _('Active themes') ,
 				'Default language' => _('Default language') ,
-				'Default user status on registration' => _('Default user status on registration') ,
+				'Default account status on registration' => _('Default account status on registration') ,
 				'Layout footer' => _('Layout footer') ,
 				'Save' => _('Save') ,
 				'HINT_SENDER_ID' => _hint(_('Empty default sender ID to allow users setting their own sender ID')) ,
@@ -222,7 +222,7 @@ switch (_OP_) {
 			$logo_replace_title = 0;
 		}
 		
-		// allow default user status 3 and 4 only
+		// allow default account status 3 and 4 only
 		$edit_default_user_status = (int)$_POST['edit_default_user_status'];
 		if (!(($edit_default_user_status == 3) || ($edit_default_user_status == 4))) {
 			$edit_default_user_status == 4;

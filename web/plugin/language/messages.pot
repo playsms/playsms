@@ -73,6 +73,9 @@ msgstr ""
 msgid "Manage"
 msgstr ""
 
+msgid "Manage account"
+msgstr ""
+
 msgid "Manage gateway"
 msgstr ""
 
@@ -80,6 +83,15 @@ msgid "Manage gateway and SMSC"
 msgstr ""
 
 msgid "Manage sender ID"
+msgstr ""
+
+msgid "Manage sub-account"
+msgstr ""
+
+msgid "Manage sub-accounts"
+msgstr ""
+
+msgid "Manage subuser"
 msgstr ""
 
 msgid "Manage subusers"

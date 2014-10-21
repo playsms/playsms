@@ -11,6 +11,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
+msgid "Account has been unbanned"
+msgstr ""
+
 msgid "All inbox"
 msgstr ""
 
@@ -152,16 +155,13 @@ msgstr "Всего"
 msgid "Transaction datetime"
 msgstr ""
 
-msgid "Unable to unban user"
+msgid "Unable to unban account"
 msgstr ""
 
 msgid "User"
 msgstr "Пользователь"
 
 msgid "User agent"
-msgstr ""
-
-msgid "User has been unbanned"
 msgstr ""
 
 msgid "Whose online"

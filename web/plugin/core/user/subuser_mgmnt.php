@@ -59,7 +59,7 @@ switch (_OP_) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
-			<h2>" . _('Manage subusers') . "</h2>
+			<h2>" . _('Manage subuser') . "</h2>
 			<h3>" . _('List of subusers') . "</h3>
 			<p>" . $search['form'] . "</p>			
 			<div class=actions_box>
@@ -237,10 +237,10 @@ switch (_OP_) {
 	case "subuser_unban" :
 		$uid = $subuser_edited['uid'];
 		if ($uid && ($uid == 1 || $uid == $user_config['uid'])) {
-			$_SESSION['error_string'] = _('User admin or currently logged in administrator cannot be unbanned');
+			$_SESSION['error_string'] = _('Account admin or currently logged in administrator cannot be unbanned');
 		} else if (user_banned_get($uid)) {
 			if (user_banned_remove($uid)) {
-				$_SESSION['error_string'] = _('User has been unbanned') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
+				$_SESSION['error_string'] = _('Account has been unbanned') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
 			} else {
 				$_SESSION['error_string'] = _('Unable to unban subuser') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
 			}
@@ -254,12 +254,12 @@ switch (_OP_) {
 	case "subuser_ban" :
 		$uid = $subuser_edited['uid'];
 		if ($uid && ($uid == 1 || $uid == $user_config['uid'])) {
-			$_SESSION['error_string'] = _('User admin or currently logged in administrator cannot be unbanned');
+			$_SESSION['error_string'] = _('Account admin or currently logged in administrator cannot be unbanned');
 		} else if (user_banned_get($uid)) {
 			$_SESSION['error_string'] = _('User is already on banned subusers list') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
 		} else {
 			if (user_banned_add($uid)) {
-				$_SESSION['error_string'] = _('User has been banned') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
+				$_SESSION['error_string'] = _('Account has been banned') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
 			} else {
 				$_SESSION['error_string'] = _('Unable to ban subuser') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
 			}

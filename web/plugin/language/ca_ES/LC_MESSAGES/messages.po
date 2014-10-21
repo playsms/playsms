@@ -95,6 +95,10 @@ msgid "Manage"
 msgstr "Administrar"
 
 #, fuzzy
+msgid "Manage account"
+msgstr "El meu compte"
+
+#, fuzzy
 msgid "Manage gateway"
 msgstr "Administrar usuari"
 
@@ -105,6 +109,18 @@ msgstr "Administrar usuari"
 #, fuzzy
 msgid "Manage sender ID"
 msgstr "ID Remitent del SMS"
+
+#, fuzzy
+msgid "Manage sub-account"
+msgstr "Administrar usuari"
+
+#, fuzzy
+msgid "Manage sub-accounts"
+msgstr "Administrar usuari"
+
+#, fuzzy
+msgid "Manage subuser"
+msgstr "Administrar usuari"
 
 #, fuzzy
 msgid "Manage subusers"

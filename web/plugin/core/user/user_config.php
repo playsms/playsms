@@ -155,7 +155,7 @@ switch (_OP_) {
 		
 		// admin or users
 		if ($uname && (auth_isadmin() || $is_parent)) {
-			$form_title = _('Manage user');
+			$form_title = _('Manage account');
 			
 			// fixme anton - now disabled since plugin/feature/credit exists
 			// $option_credit = "<tr><td>" . _('Credit') . "</td><td><input type=text maxlength=14 name=up_credit value=\"$credit\"></td></tr>";

@@ -54,7 +54,7 @@ switch (_OP_) {
 			_('Mobile') => 'mobile'
 		);
 		if ($view == 'subusers') {
-			$search_var[_('Parent user')] = 'parent_uid';
+			$search_var[_('Parent account')] = 'parent_uid';
 		}
 
 		$search = themes_search($search_var, '', array(
@@ -73,7 +73,7 @@ switch (_OP_) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
-			<h2>" . _('Manage user') . "</h2>
+			<h2>" . _('Manage account') . "</h2>
 			<input type='button' " . $disabled_on_admin . " value='" . _('Administrators') . "' onClick=\"javascript:linkto('" . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=admin') . "')\" class=\"button\" />
 			<input type='button' " . $disabled_on_users . " value='" . _('Users') . "' onClick=\"javascript:linkto('" . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=users') . "')\" class=\"button\" />
 			<input type='button' " . $disabled_on_subusers . " value='" . _('Subusers') . "' onClick=\"javascript:linkto('" . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=subusers') . "')\" class=\"button\" />
@@ -117,11 +117,11 @@ switch (_OP_) {
 			if ($list[$i]['uid'] != '1' || $list[$i]['uid'] != $user_config['uid']) {
 				if (user_banned_get($list[$i]['uid'])) {
 					// unban
-					$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to unban user")) . " " . $list[$i]['username'] . " ?','" . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_unban&uname=' . $list[$i]['username']) . "&view=" . $view . "')\">" . $icon_config['unban'] . "</a>";
+					$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to unban account")) . " " . $list[$i]['username'] . " ?','" . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_unban&uname=' . $list[$i]['username']) . "&view=" . $view . "')\">" . $icon_config['unban'] . "</a>";
 					$banned_icon = $icon_config['ban'];
 				} else {
 					// ban
-					$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to ban user")) . " " . $list[$i]['username'] . " ?','" . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_ban&uname=' . $list[$i]['username']) . "&view=" . $view . "')\">" . $icon_config['ban'] . "</a>";
+					$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to ban account")) . " " . $list[$i]['username'] . " ?','" . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_ban&uname=' . $list[$i]['username']) . "&view=" . $view . "')\">" . $icon_config['ban'] . "</a>";
 					$banned_icon = '';
 				}
 			}
@@ -184,7 +184,7 @@ switch (_OP_) {
 		}
 
 		// get list of users as parents
-		$option_parents = '<option value="0">--' . _('Select parent user for subuser') . '--</option>';
+		$option_parents = '<option value="0">--' . _('Select parent account for subuser') . '--</option>';
 
 		// get admins
 		$list = user_getallwithstatus(2);
@@ -222,17 +222,17 @@ switch (_OP_) {
 		";
 
 		$content .= "
-		<h2>" . _('Manage user') . "</h2>
-		<h3>" . _('Add user') . "</h3>
+		<h2>" . _('Manage account') . "</h2>
+		<h3>" . _('Add account') . "</h3>
 		<form action='index.php?app=main&inc=core_user&route=user_mgmnt&op=user_add_yes&view=" . $view . "' method=POST>
 		" . _CSRF_FORM_ . "
 		<table class=playsms-table>
 		<tbody>
 		<tr>
-			<td class=label-sizer>" . _('User status') . "</td><td><select name='add_status'>$option_status</select></td>
+			<td class=label-sizer>" . _('Account status') . "</td><td><select name='add_status'>$option_status</select></td>
 		</tr>
 		<tr>
-			<td>" . _('Parent user') . " (" . _('for subuser only') . ") </td><td>" . $select_parents . " " . _hint(_('Parent user is mandatory for subusers only. If no value is given then the subuser will be automatically assigned to user admin')) . "</td>
+			<td>" . _('Parent account') . " (" . _('for subuser only') . ") </td><td>" . $select_parents . " " . _hint(_('Parent account is mandatory for subusers only. If no value is given then the subuser will be automatically assigned to user admin')) . "</td>
 		</tr>
 		<tr>
 			<td>" . _mandatory('Username') . "</td><td><input type='text' maxlength='30' name='add_username' value=\"$add_username\"></td>
@@ -321,9 +321,9 @@ switch (_OP_) {
 		$uid = user_username2uid($_REQUEST['uname']);
 		if (user_banned_get($uid)) {
 			if (user_banned_remove($uid)) {
-				$_SESSION['error_string'] = _('User has been unbanned') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
+				$_SESSION['error_string'] = _('Account has been unbanned') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
 			} else {
-				$_SESSION['error_string'] = _('Unable to unban user') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
+				$_SESSION['error_string'] = _('Unable to unban account') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
 			}
 		} else {
 			$_SESSION['error_string'] = _('User is not on banned users list') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
@@ -335,14 +335,14 @@ switch (_OP_) {
 	case "user_ban" :
 		$uid = user_username2uid($_REQUEST['uname']);
 		if ($uid && ($uid == 1 || $uid == $user_config['uid'])) {
-			$_SESSION['error_string'] = _('User admin or currently logged in administrator cannot be banned');
+			$_SESSION['error_string'] = _('Account admin or currently logged in administrator cannot be banned');
 		} else if (user_banned_get($uid)) {
 			$_SESSION['error_string'] = _('User is already on banned users list') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
 		} else {
 			if (user_banned_add($uid)) {
-				$_SESSION['error_string'] = _('User has been banned') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
+				$_SESSION['error_string'] = _('Account has been banned') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
 			} else {
-				$_SESSION['error_string'] = _('Unable to ban user') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
+				$_SESSION['error_string'] = _('Unable to ban account') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
 			}
 		}
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=' . $view));

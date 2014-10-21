@@ -6,8 +6,47 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #, fuzzy
+msgid "Account admin or currently logged in administrator cannot be banned"
+msgstr ""
+"L'utilisateur admin ou l'administrateur actuellement connecté ne peut pas "
+"être banni"
+
+#, fuzzy
+msgid "Account admin or currently logged in administrator cannot be unbanned"
+msgstr ""
+"L'utilisateur admin ou l'administrateur actuellement connecté ne peut pas "
+"être réintégré"
+
+#, fuzzy
+msgid "Account has been added and password has been emailed"
+msgstr "L'utilisateur a été ajouté et le mot de passe envoyé par e-mail"
+
+#, fuzzy
+msgid "Account has been added but failed to send email"
+msgstr "L'utilisateur a été ajouté mais l'envoi par e-mail a échoué"
+
+#, fuzzy
+msgid "Account has been banned"
+msgstr "L'utilisateur a été banni"
+
+#, fuzzy
+msgid "Account has been removed"
+msgstr "L'utilisateur a été supprimé"
+
+#, fuzzy
+msgid "Account has been unbanned"
+msgstr "L'utilisateur a été réintégré"
+
+#, fuzzy
 msgid "Account name is mandatory"
 msgstr "L'adresse email est obligatoire"
+
+#, fuzzy
+msgid "Account registration is not available"
+msgstr "L'inscription d'utilisateur n'est pas disponible"
+
+msgid "Account status"
+msgstr ""
 
 msgid "Action"
 msgstr "Action"
@@ -15,14 +54,15 @@ msgstr "Action"
 msgid "Active language"
 msgstr "Langue active"
 
+#, fuzzy
+msgid "Add account"
+msgstr "Gérer utilisateur"
+
 msgid "Add or reduce credit from manage credit menu"
 msgstr "Ajouter ou réduire le crédit depuis le menu gérer crédit"
 
 msgid "Add subuser"
 msgstr "Ajouter sous-utilisateur"
-
-msgid "Add user"
-msgstr "Ajouter utilisateur"
 
 msgid "Address"
 msgstr "Adresse"
@@ -39,11 +79,12 @@ msgstr "Toujours choisir d'envoyer en tant qu'unicode"
 msgid "Application options"
 msgstr "Options d'application"
 
+#, fuzzy
+msgid "Are you sure you want to ban account"
+msgstr "Êtes-vous sûr de vouloir bannir l'utilisateur"
+
 msgid "Are you sure you want to ban subuser"
 msgstr "Êtes-vous sûr de vouloir bannir le sous-utilisateur"
-
-msgid "Are you sure you want to ban user"
-msgstr "Êtes-vous sûr de vouloir bannir l'utilisateur"
 
 msgid "Are you sure you want to delete subuser"
 msgstr "Êtes-vous sûr de vouloir supprimer le sous-utilisateur"
@@ -57,11 +98,12 @@ msgstr "Êtes-vous sûr de vouloir supprimer l'utilisateur"
 msgid "Are you sure you want to delete user ?"
 msgstr "Êtes-vous sûr de vouloir supprimer l'utilisateur ?"
 
+#, fuzzy
+msgid "Are you sure you want to unban account"
+msgstr "Êtes-vous sûr de vouloir réintégrer l'utilisateur"
+
 msgid "Are you sure you want to unban subuser"
 msgstr "Êtes-vous sûr de vouloir réintégrer le sous-utilisateur"
-
-msgid "Are you sure you want to unban user"
-msgstr "Êtes-vous sûr de vouloir réintégrer l'utilisateur"
 
 msgid "Cannot change status when user have subusers"
 msgstr ""
@@ -148,14 +190,13 @@ msgstr "Longueur d'un numéro local"
 msgid "Login information"
 msgstr "Informations de connexion"
 
+#, fuzzy
+msgid "Manage account"
+msgstr "Gérer utilisateur"
+
+#, fuzzy
 msgid "Manage subuser"
 msgstr "Gérer sous-utilisateur"
-
-msgid "Manage subusers"
-msgstr "Gérer sous-utilisateurs"
-
-msgid "Manage user"
-msgstr "Gérer utilisateur"
 
 msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "Max. 16 caractères numériques ou 11 alphanumériques"
@@ -181,11 +222,13 @@ msgstr "Aucun changement apporté"
 msgid "Parent"
 msgstr "Parent"
 
-msgid "Parent user"
-msgstr "Utilisateur parent"
+#, fuzzy
+msgid "Parent account"
+msgstr "Gérer utilisateur"
 
+#, fuzzy
 msgid ""
-"Parent user is mandatory for subusers only. If no value is given then the "
+"Parent account is mandatory for subusers only. If no value is given then the "
 "subuser will be automatically assigned to user admin"
 msgstr ""
 "L'utilisateur parent est obligatoire uniquement pour les sous-utilisateurs. "
@@ -250,7 +293,8 @@ msgstr "Enregistrer"
 msgid "Select default sender ID"
 msgstr "Veuillez sélectionner le sender ID par défaut"
 
-msgid "Select parent user for subuser"
+#, fuzzy
+msgid "Select parent account for subuser"
 msgstr "Veuillez sélectionner le parent pour le sous-utilisateur"
 
 msgid "State or Province"
@@ -265,11 +309,12 @@ msgstr "Sous-utilisateurs"
 msgid "Timezone"
 msgstr "Fuseau horaire"
 
+#, fuzzy
+msgid "Unable to ban account"
+msgstr "Impossible de bannir l'utilisateur"
+
 msgid "Unable to ban subuser"
 msgstr "Impossible de bannir le sous-utilisateur"
-
-msgid "Unable to ban user"
-msgstr "Impossible de bannir l'utilisateur"
 
 #, fuzzy
 msgid "Unable to delete other users"
@@ -288,11 +333,12 @@ msgstr "Échec du traitement de l'ajout du sous-utilisateur"
 msgid "Unable to process user addition"
 msgstr "Échec du traitement de l'ajout de l'utilisateur"
 
+#, fuzzy
+msgid "Unable to unban account"
+msgstr "Impossible de réintégrer l'utilisateur"
+
 msgid "Unable to unban subuser"
 msgstr "Impossible de réintégrer le sous-utilisateur"
-
-msgid "Unable to unban user"
-msgstr "Impossible de réintégrer l'utilisateur"
 
 #, fuzzy
 msgid "Unknown error"
@@ -303,16 +349,6 @@ msgstr "Une erreur inconnue est survenue"
 
 msgid "User"
 msgstr "Utilisateur"
-
-msgid "User admin or currently logged in administrator cannot be banned"
-msgstr ""
-"L'utilisateur admin ou l'administrateur actuellement connecté ne peut pas "
-"être banni"
-
-msgid "User admin or currently logged in administrator cannot be unbanned"
-msgstr ""
-"L'utilisateur admin ou l'administrateur actuellement connecté ne peut pas "
-"être réintégré"
 
 msgid "User already exists"
 msgstr "L'utilisateur existe déjà"
@@ -335,21 +371,6 @@ msgstr "L'inscription d'utilisateur n'est pas disponible"
 msgid "User does not exist"
 msgstr "L'utilisateur n'existe pas"
 
-msgid "User has been added and password has been emailed"
-msgstr "L'utilisateur a été ajouté et le mot de passe envoyé par e-mail"
-
-msgid "User has been added but failed to send email"
-msgstr "L'utilisateur a été ajouté mais l'envoi par e-mail a échoué"
-
-msgid "User has been banned"
-msgstr "L'utilisateur a été banni"
-
-msgid "User has been removed"
-msgstr "L'utilisateur a été supprimé"
-
-msgid "User has been unbanned"
-msgstr "L'utilisateur a été réintégré"
-
 msgid "User is already on banned subusers list"
 msgstr ""
 "L'utilisateur fait déjà partie de la liste des sous-utilisateurs bannis"
@@ -365,12 +386,6 @@ msgstr "L'utilisateur ne fait partie de la liste des sous-utilisateurs bannis"
 
 msgid "User is not on banned users list"
 msgstr "L'utilisateur ne fait partie de la liste des utilisateurs bannis"
-
-msgid "User registration is not available"
-msgstr "L'inscription d'utilisateur n'est pas disponible"
-
-msgid "User status"
-msgstr "Statut de l'utilisateur"
 
 msgid "User with this email already exists"
 msgstr "L'utilisateur avec cet email existe déjà"

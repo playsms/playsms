@@ -87,6 +87,10 @@ msgid "Manage"
 msgstr "Gérer"
 
 #, fuzzy
+msgid "Manage account"
+msgstr "Mon Compte"
+
+#, fuzzy
 msgid "Manage gateway"
 msgstr "Gérer utilisateur"
 
@@ -96,6 +100,18 @@ msgstr "Gérer utilisateur"
 
 msgid "Manage sender ID"
 msgstr "Gérer sender ID"
+
+#, fuzzy
+msgid "Manage sub-account"
+msgstr "Gérer sous-utilisateurs"
+
+#, fuzzy
+msgid "Manage sub-accounts"
+msgstr "Gérer sous-utilisateurs"
+
+#, fuzzy
+msgid "Manage subuser"
+msgstr "Gérer sous-utilisateurs"
 
 msgid "Manage subusers"
 msgstr "Gérer sous-utilisateurs"

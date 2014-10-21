@@ -33,6 +33,9 @@ msgstr ""
 msgid "Default SMSC"
 msgstr ""
 
+msgid "Default account status on registration"
+msgstr ""
+
 msgid "Default credit for user"
 msgstr ""
 
@@ -49,9 +52,6 @@ msgid "Default site configuration"
 msgstr ""
 
 msgid "Default timezone"
-msgstr ""
-
-msgid "Default user status on registration"
 msgstr ""
 
 msgid "Disable login as subuser"
