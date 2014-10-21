@@ -107,7 +107,7 @@ switch (_OP_) {
 		// when allowed to edit parents of subusers
 		if ($allow_edit_parent) {
 			// get list of users as parents
-			$option_parents = '<option value="0">--' . _('Select parent user for subuser') . '--</option>';
+			$option_parents = '<option value="0">--' . _('Select parent account for subuser') . '--</option>';
 			
 			// get admins
 			$list = user_getallwithstatus(2);
@@ -153,7 +153,7 @@ switch (_OP_) {
 		
 		// admin or users
 		if ($uname && (auth_isadmin() || $is_parent)) {
-			$form_title = _('Manage user');
+			$form_title = _('Manage account');
 			if ($is_parent) {
 				$button_delete = "<input type=button class=button value='" . _('Delete') . "' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete subuser ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_del" . $url_uname . "')\">";
 				$button_back = _back('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list');
@@ -173,8 +173,8 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'user_pref',
 			'vars' => array(
-				'User status' => _('User status'),
-				'Parent user' => _('Parent user') . " (" . _('for subuser only') . ")",
+				'Account status' => _('Account status'),
+				'Parent account' => _('Parent account') . " (" . _('for subuser only') . ")",
 				'Login information' => _('Login information'),
 				'Username' => _('Username'),
 				'Password' => _('Password'),
@@ -190,7 +190,7 @@ switch (_OP_) {
 				'Zipcode' => _('Zipcode'),
 				'Save' => _('Save'),
 				'HINT_STATUS' => _hint(_('Cannot change status when user have subusers')),
-				'HINT_PARENT' => _hint(_('Parent user is mandatory for subusers only. If no value is given then the subuser will be automatically assigned to user admin')),
+				'HINT_PARENT' => _hint(_('Parent account is mandatory for subusers only. If no value is given then the subuser will be automatically assigned to user admin')),
 				'STATUS' => _('User'),
 				'ERROR' => $error_content,
 				'FORM_TITLE' => $form_title,

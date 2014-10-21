@@ -119,7 +119,7 @@ function report_count_deleted($uid = 0) {
  * Get whose online
  *
  * @param integer $status
- *        	User status
+ *        	Account status
  * @param boolean $online_only
  *        	Report whose online only
  * @param boolean $idle_only
@@ -230,7 +230,7 @@ function report_whoseonline_subuser($online_only = FALSE, $idle_only = FALSE) {
  * Get banned users list
  *
  * @param integer $status
- *        	User status
+ *        	Account status
  * @return array Banned users
  */
 function report_banned_list($status = 0) {

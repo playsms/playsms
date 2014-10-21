@@ -1,3 +1,6 @@
+msgid "Account has been unbanned"
+msgstr ""
+
 msgid "All inbox"
 msgstr ""
 
@@ -139,16 +142,13 @@ msgstr ""
 msgid "Transaction datetime"
 msgstr ""
 
-msgid "Unable to unban user"
+msgid "Unable to unban account"
 msgstr ""
 
 msgid "User"
 msgstr ""
 
 msgid "User agent"
-msgstr ""
-
-msgid "User has been unbanned"
 msgstr ""
 
 msgid "Whose online"

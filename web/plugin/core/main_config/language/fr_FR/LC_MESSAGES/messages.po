@@ -48,6 +48,10 @@ msgstr "Tarif SMS par défaut"
 msgid "Default SMSC"
 msgstr "Tarif SMS par défaut"
 
+#, fuzzy
+msgid "Default account status on registration"
+msgstr "Statut par défaut de l'utilisateur lors de l'inscription"
+
 msgid "Default credit for user"
 msgstr "Crédit par défaut pour l'utilisateur"
 
@@ -65,9 +69,6 @@ msgstr "Configuration du site par défaut"
 
 msgid "Default timezone"
 msgstr "Fuseau horaire par défaut"
-
-msgid "Default user status on registration"
-msgstr "Statut par défaut de l'utilisateur lors de l'inscription"
 
 msgid "Disable login as subuser"
 msgstr "Désactiver la connexion en tant que sous-utilisateur"

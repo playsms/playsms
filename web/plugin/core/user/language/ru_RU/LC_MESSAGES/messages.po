@@ -12,7 +12,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
+msgid "Account admin or currently logged in administrator cannot be banned"
+msgstr ""
+
+msgid "Account admin or currently logged in administrator cannot be unbanned"
+msgstr ""
+
+msgid "Account has been added and password has been emailed"
+msgstr ""
+
+msgid "Account has been added but failed to send email"
+msgstr ""
+
+msgid "Account has been banned"
+msgstr ""
+
+msgid "Account has been removed"
+msgstr ""
+
+msgid "Account has been unbanned"
+msgstr ""
+
 msgid "Account name is mandatory"
+msgstr ""
+
+msgid "Account registration is not available"
+msgstr ""
+
+msgid "Account status"
 msgstr ""
 
 msgid "Action"
@@ -21,13 +48,13 @@ msgstr ""
 msgid "Active language"
 msgstr ""
 
+msgid "Add account"
+msgstr ""
+
 msgid "Add or reduce credit from manage credit menu"
 msgstr ""
 
 msgid "Add subuser"
-msgstr ""
-
-msgid "Add user"
 msgstr ""
 
 msgid "Address"
@@ -45,10 +72,10 @@ msgstr ""
 msgid "Application options"
 msgstr ""
 
-msgid "Are you sure you want to ban subuser"
+msgid "Are you sure you want to ban account"
 msgstr ""
 
-msgid "Are you sure you want to ban user"
+msgid "Are you sure you want to ban subuser"
 msgstr ""
 
 msgid "Are you sure you want to delete subuser"
@@ -63,10 +90,10 @@ msgstr ""
 msgid "Are you sure you want to delete user ?"
 msgstr ""
 
-msgid "Are you sure you want to unban subuser"
+msgid "Are you sure you want to unban account"
 msgstr ""
 
-msgid "Are you sure you want to unban user"
+msgid "Are you sure you want to unban subuser"
 msgstr ""
 
 msgid "Cannot change status when user have subusers"
@@ -150,13 +177,10 @@ msgstr ""
 msgid "Login information"
 msgstr ""
 
+msgid "Manage account"
+msgstr ""
+
 msgid "Manage subuser"
-msgstr ""
-
-msgid "Manage subusers"
-msgstr ""
-
-msgid "Manage user"
 msgstr ""
 
 msgid "Max. 16 numeric or 11 alphanumeric characters"
@@ -183,11 +207,11 @@ msgstr ""
 msgid "Parent"
 msgstr ""
 
-msgid "Parent user"
+msgid "Parent account"
 msgstr ""
 
 msgid ""
-"Parent user is mandatory for subusers only. If no value is given then the "
+"Parent account is mandatory for subusers only. If no value is given then the "
 "subuser will be automatically assigned to user admin"
 msgstr ""
 
@@ -245,7 +269,7 @@ msgstr ""
 msgid "Select default sender ID"
 msgstr ""
 
-msgid "Select parent user for subuser"
+msgid "Select parent account for subuser"
 msgstr ""
 
 msgid "State or Province"
@@ -260,10 +284,10 @@ msgstr ""
 msgid "Timezone"
 msgstr ""
 
-msgid "Unable to ban subuser"
+msgid "Unable to ban account"
 msgstr ""
 
-msgid "Unable to ban user"
+msgid "Unable to ban subuser"
 msgstr ""
 
 msgid "Unable to delete other users"
@@ -280,10 +304,10 @@ msgstr ""
 msgid "Unable to process user addition"
 msgstr ""
 
-msgid "Unable to unban subuser"
+msgid "Unable to unban account"
 msgstr ""
 
-msgid "Unable to unban user"
+msgid "Unable to unban subuser"
 msgstr ""
 
 msgid "Unknown error"
@@ -293,12 +317,6 @@ msgid "Unknown error has occurred"
 msgstr ""
 
 msgid "User"
-msgstr ""
-
-msgid "User admin or currently logged in administrator cannot be banned"
-msgstr ""
-
-msgid "User admin or currently logged in administrator cannot be unbanned"
 msgstr ""
 
 msgid "User already exists"
@@ -319,21 +337,6 @@ msgstr ""
 msgid "User does not exist"
 msgstr ""
 
-msgid "User has been added and password has been emailed"
-msgstr ""
-
-msgid "User has been added but failed to send email"
-msgstr ""
-
-msgid "User has been banned"
-msgstr ""
-
-msgid "User has been removed"
-msgstr ""
-
-msgid "User has been unbanned"
-msgstr ""
-
 msgid "User is already on banned subusers list"
 msgstr ""
 
@@ -347,12 +350,6 @@ msgid "User is not on banned subusers list"
 msgstr ""
 
 msgid "User is not on banned users list"
-msgstr ""
-
-msgid "User registration is not available"
-msgstr ""
-
-msgid "User status"
 msgstr ""
 
 msgid "User with this email already exists"

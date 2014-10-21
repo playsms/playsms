@@ -92,6 +92,10 @@ msgid "Manage"
 msgstr "Редактировать"
 
 #, fuzzy
+msgid "Manage account"
+msgstr "Мой профиль"
+
+#, fuzzy
 msgid "Manage gateway"
 msgstr "Управление пользователями"
 
@@ -102,6 +106,18 @@ msgstr "Управление пользователями"
 #, fuzzy
 msgid "Manage sender ID"
 msgstr "Имя отправителя СМС"
+
+#, fuzzy
+msgid "Manage sub-account"
+msgstr "Управление пользователями"
+
+#, fuzzy
+msgid "Manage sub-accounts"
+msgstr "Управление пользователями"
+
+#, fuzzy
+msgid "Manage subuser"
+msgstr "Управление пользователями"
 
 #, fuzzy
 msgid "Manage subusers"

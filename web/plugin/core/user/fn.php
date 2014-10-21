@@ -324,7 +324,7 @@ function user_add($data = array(), $forced = FALSE) {
 					$body .= _('Mobile') . ": " . $data['mobile'] . "\n";
 					$body .= _('Credit') . ": " . $data['credit'] . "\n\n";
 					$body .= $core_config['main']['email_footer'] . "\n\n";
-					$ret['error_string'] = _('User has been added and password has been emailed') . " (" . _('username') . ": " . $data['username'] . ")";
+					$ret['error_string'] = _('Account has been added and password has been emailed') . " (" . _('username') . ": " . $data['username'] . ")";
 					$mail_data = array(
 						'mail_from_name' => $core_config['main']['web_title'],
 						'mail_from' => $core_config['main']['email_service'],
@@ -333,7 +333,7 @@ function user_add($data = array(), $forced = FALSE) {
 						'mail_body' => $body 
 					);
 					if (!sendmail($mail_data)) {
-						$ret['error_string'] = _('User has been added but failed to send email') . " (" . _('username') . ": " . $data['username'] . ")";
+						$ret['error_string'] = _('Account has been added but failed to send email') . " (" . _('username') . ": " . $data['username'] . ")";
 					}
 				}
 			} else {
@@ -343,7 +343,7 @@ function user_add($data = array(), $forced = FALSE) {
 			$ret['error_string'] = $v['error_string'];
 		}
 	} else {
-		$ret['error_string'] = _('User registration is not available');
+		$ret['error_string'] = _('Account registration is not available');
 	}
 	return $ret;
 }
@@ -454,7 +454,7 @@ function user_remove($uid, $forced = FALSE) {
 					))) {
 						user_banned_remove($uid);
 						_log('user removed u:' . $username . ' uid:' . $uid, 2, 'user_remove');
-						$ret['error_string'] = _('User has been removed') . " (" . _('username') . ": " . $username . ")";
+						$ret['error_string'] = _('Account has been removed') . " (" . _('username') . ": " . $username . ")";
 						$ret['status'] = TRUE;
 					}
 				}
@@ -630,7 +630,7 @@ function user_session_remove($uid = '', $sid = '', $hash = '') {
 }
 
 /**
- * Add user to banned user list
+ * Add account to banned account list
  *
  * @param integer $uid
  *        	User ID
@@ -663,7 +663,7 @@ function user_banned_add($uid) {
 }
 
 /**
- * Remove user from banned user list
+ * Remove account from banned account list
  *
  * @param integer $uid
  *        	User ID
@@ -753,7 +753,7 @@ function user_setdatabyuid($uid, $data) {
  * @param integer $uid
  *        	User ID
  * @param integer $parent_uid
- *        	Parent user ID
+ *        	Parent account ID
  * @return boolean TRUE when parent sets
  */
 function user_setparentbyuid($uid, $parent_uid) {
@@ -779,7 +779,7 @@ function user_setparentbyuid($uid, $parent_uid) {
  *
  * @param integer $uid
  *        	User ID
- * @return mixed Parent user ID or FALSE on error
+ * @return mixed Parent account ID or FALSE on error
  */
 function user_getparentbyuid($uid) {
 	$uid = (int) $uid;

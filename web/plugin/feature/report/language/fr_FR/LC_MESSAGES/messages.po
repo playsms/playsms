@@ -5,6 +5,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#, fuzzy
+msgid "Account has been unbanned"
+msgstr "L'utilisateur a été réintégré"
+
 msgid "All inbox"
 msgstr "Toutes les boîtes de réception"
 
@@ -146,7 +150,8 @@ msgstr "Total"
 msgid "Transaction datetime"
 msgstr "Date de transaction"
 
-msgid "Unable to unban user"
+#, fuzzy
+msgid "Unable to unban account"
 msgstr "Échec de la réintégration de l'utilisateur"
 
 msgid "User"
@@ -154,9 +159,6 @@ msgstr "Utilisateur"
 
 msgid "User agent"
 msgstr "User agent"
-
-msgid "User has been unbanned"
-msgstr "L'utilisateur a été réintégré"
 
 msgid "Whose online"
 msgstr "Dont connecté"

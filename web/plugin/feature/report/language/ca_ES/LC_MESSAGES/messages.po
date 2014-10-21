@@ -14,6 +14,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.5\n"
 
+msgid "Account has been unbanned"
+msgstr ""
+
 msgid "All inbox"
 msgstr ""
 
@@ -155,16 +158,13 @@ msgstr "Total"
 msgid "Transaction datetime"
 msgstr ""
 
-msgid "Unable to unban user"
+msgid "Unable to unban account"
 msgstr ""
 
 msgid "User"
 msgstr "Usuari"
 
 msgid "User agent"
-msgstr ""
-
-msgid "User has been unbanned"
 msgstr ""
 
 msgid "Whose online"
