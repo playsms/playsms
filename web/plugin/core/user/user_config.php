@@ -143,9 +143,9 @@ switch (_OP_) {
 		}
 		
 		// get sender ID
-		$c_sms_from = sender_id_default_get($user_config['uid']);
+		$c_sms_from = sender_id_default_get($user_edited['uid']);
 		$option_sender_id = "<option value=\"\">--- " . _('Select default sender ID') . " ---</option>";
-		foreach (sender_id_getall($user_config['username']) as $sender_id) {
+		foreach (sender_id_getall($user_edited['username']) as $sender_id) {
 			$selected = '';
 			if (strtoupper($c_sms_from) == strtoupper($sender_id)) {
 				$selected = 'selected';
