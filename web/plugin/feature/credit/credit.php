@@ -10,21 +10,18 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
-if (!auth_isvalid()) {
-	auth_block();
-};
 
-// admin and users allowed to use this plugin
-if (!(($user_config['status'] == 2) || ($user_config['status'] == 3))) {
-	auth_block();
+if (!auth_isuser()) {
+	if (!auth_isadmin()) {
+		auth_block();
+	}
 }
 
 switch (_OP_) {
@@ -32,30 +29,30 @@ switch (_OP_) {
 		$db_table = $plugin_config['credit']['db_table'];
 		$search_category = array(
 			_('Username') => 'username',
-			_('Transaction datetime') => 'create_datetime',
+			_('Transaction datetime') => 'create_datetime' 
 		);
 		$base_url = 'index.php?app=main&inc=feature_credit&op=credit_list';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array(
-			'flag_deleted' => 0,
+			'flag_deleted' => 0 
 		);
-
+		
 		// only if users
 		if ($user_config['status'] == 3) {
 			$conditions['parent_uid'] = $user_config['uid'];
 			$conditions['status'] = 4;
 		}
-
+		
 		$keywords = $search['dba_keywords'];
 		$count = dba_count($db_table, $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
 			'ORDER BY' => 'id DESC',
 			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset']
+			'OFFSET' => $nav['offset'] 
 		);
 		$list = dba_search($db_table, '*', $conditions, $keywords, $extras);
-
+		
 		$content = "
 			<h2>" . _('Manage credit') . "</h2>
 			<h3>" . _('List of transactions') . "</h3>
@@ -85,11 +82,11 @@ switch (_OP_) {
 			</tr>
 			</thead>
 			<tbody>";
-
+		
 		$j = 0;
 		foreach ($list as $row) {
 			$row = core_display_data($row);
-			$content.= "
+			$content .= "
 				<tr>
 					<td>" . $row['username'] . "</td>
 					<td>" . core_display_datetime($row['create_datetime']) . "</td>
@@ -102,30 +99,30 @@ switch (_OP_) {
 				</tr>";
 			$j++;
 		}
-
-		$content.= "
+		
+		$content .= "
 			</tbody>
 			</table>
 			</div>
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>";
-
+		
 		if ($err = $_SESSION['error_string']) {
 			_p("<div class=error_string>$err</div>");
 		}
 		_p($content);
 		break;
-
+	
 	case "credit_add":
-
+		
 		$select_user = credit_html_select_user();
-
+		
 		if (count($_SESSION['error_string']) > 0) {
 			foreach ($_SESSION['error_string'] as $err) {
-				$error_content.= "<div class=error_string>$err</div>";
+				$error_content .= "<div class=error_string>$err</div>";
 			}
 		}
-
+		
 		$content = $error_content . "
 			<link rel=\"stylesheet\" href=\"" . _HTTP_PATH_THEMES_ . "/common/jscss/combobox/select2.css\" />
 			<script type=\"text/javascript\" src=\"" . _HTTP_PATH_THEMES_ . "/common/jscss/combobox/select2.min.js\"></script>
@@ -158,20 +155,20 @@ switch (_OP_) {
 			<p><input type='submit' class='button' value='" . _('Add credit') . "'>
 			</form>
 			" . _back('index.php?app=main&inc=feature_credit&op=credit_list');
-
+		
 		_p($content);
 		break;
-
+	
 	case "credit_reduce":
-
+		
 		$select_user = credit_html_select_user();
-
+		
 		if (count($_SESSION['error_string']) > 0) {
 			foreach ($_SESSION['error_string'] as $err) {
-				$error_content.= "<div class=error_string>$err</div>";
+				$error_content .= "<div class=error_string>$err</div>";
 			}
 		}
-
+		
 		$content = $error_content . "
 			<link rel=\"stylesheet\" href=\"" . _HTTP_PATH_THEMES_ . "/common/jscss/combobox/select2.css\" />
 			<script type=\"text/javascript\" src=\"" . _HTTP_PATH_THEMES_ . "/common/jscss/combobox/select2.min.js\"></script>
@@ -204,10 +201,10 @@ switch (_OP_) {
 			<p><input type='submit' class='button' value='" . _('Reduce credit') . "'>
 			</form>
 			" . _back('index.php?app=main&inc=feature_credit&op=credit_list');
-
+		
 		_p($content);
 		break;
-
+	
 	case "actions":
 		$db_table = $plugin_config['credit']['db_table'];
 		$nav = themes_nav_session();
@@ -216,55 +213,55 @@ switch (_OP_) {
 		switch ($go) {
 			case 'export':
 				$conditions = array(
-					'flag_deleted' => 0,
+					'flag_deleted' => 0 
 				);
-
+				
 				// only if users
 				if ($user_config['status'] == 3) {
 					$conditions['parent_uid'] = $user_config['uid'];
 					$conditions['status'] = 4;
 				}
-
+				
 				$list = dba_search($db_table, '*', $conditions, $search['dba_keywords']);
 				$data[0] = array(
-					_('User') ,
-					_('Transaction datetime') ,
-					_('Amount') ,
-					_('Balance')
+					_('User'),
+					_('Transaction datetime'),
+					_('Amount'),
+					_('Balance') 
 				);
 				for ($i = 0; $i < count($list); $i++) {
 					$j = $i + 1;
 					$data[$j] = array(
 						$list[$i]['username'],
-						core_display_datetime($list[$i]['create_datetime']) ,
+						core_display_datetime($list[$i]['create_datetime']),
 						$list[$i]['amount'],
-						$list[$i]['balance']
+						$list[$i]['balance'] 
 					);
 				}
 				$content = core_csv_format($data);
 				$fn = 'credit-' . $core_config['datetime']['now_stamp'] . '.csv';
 				core_download($content, $fn, 'text/csv');
 				break;
-
+			
 			case 'delete':
 				for ($i = 0; $i < $nav['limit']; $i++) {
 					$checkid = $_POST['checkid' . $i];
 					$itemid = $_POST['itemid' . $i];
 					if (($checkid == "on") && $itemid) {
 						$up = array(
-							'c_timestamp' => mktime() ,
-							'delete_datetime' => core_get_datetime() ,
-							'flag_deleted' => '1'
+							'c_timestamp' => mktime(),
+							'delete_datetime' => core_get_datetime(),
+							'flag_deleted' => '1' 
 						);
-
+						
 						// only if users
 						if ($user_config['status'] == 3) {
 							$up['parent_uid'] = $user_config['uid'];
 							$up['status'] = 4;
 						}
-
+						
 						dba_update($db_table, $up, array(
-							'id' => $itemid
+							'id' => $itemid 
 						));
 					}
 				}
@@ -273,12 +270,12 @@ switch (_OP_) {
 				header("Location: " . _u($ref));
 				exit();
 				break;
-
+			
 			case "add":
 				$continue = FALSE;
-
+				
 				$uids = $_POST['uids'];
-
+				
 				if (is_array($uids)) {
 					foreach ($uids as $uid) {
 						if ($user_config['status'] == 3) {
@@ -287,34 +284,34 @@ switch (_OP_) {
 								$continue = TRUE;
 							}
 						}
-
+						
 						if (auth_isadmin()) {
 							$continue = TRUE;
 						}
-
+						
 						$amount = abs($_POST['amount']);
 						if ($continue && ($amount > 0) && ($username = user_uid2username($uid))) {
 							if (credit_add($uid, $amount)) {
 								$current_balance = credit_getbalance($uid);
-								$_SESSION['error_string'][].= _('Credit has been added') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ' ' . _('balance') . ':' . $current_balance . ')';
+								$_SESSION['error_string'][] .= _('Credit has been added') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ' ' . _('balance') . ':' . $current_balance . ')';
 							} else {
-								$_SESSION['error_string'][].= _('Fail to add credit') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
+								$_SESSION['error_string'][] .= _('Fail to add credit') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
 							}
 						} else {
-							$_SESSION['error_string'][].= _('Wrong amount or user does not exist') . ' (' . _('User ID') . ':' . $uid . ')';
+							$_SESSION['error_string'][] .= _('Wrong amount or user does not exist') . ' (' . _('User ID') . ':' . $uid . ')';
 						}
 					}
 				}
-
+				
 				header("Location: " . _u('index.php?app=main&inc=feature_credit&op=credit_add'));
 				exit();
 				break;
-
+			
 			case "reduce":
 				$continue = FALSE;
-
+				
 				$uids = $_POST['uids'];
-
+				
 				if (is_array($uids)) {
 					foreach ($uids as $uid) {
 						if ($user_config['status'] == 3) {
@@ -323,25 +320,25 @@ switch (_OP_) {
 								$continue = TRUE;
 							}
 						}
-
+						
 						if (auth_isadmin()) {
 							$continue = TRUE;
 						}
-
+						
 						$amount = -1 * abs($_POST['amount']);
 						if ($continue && ($amount < 0) && ($username = user_uid2username($uid))) {
 							if (credit_add($uid, $amount)) {
 								$current_balance = credit_getbalance($uid);
-								$_SESSION['error_string'][].= _('Credit has been reduced') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ' ' . _('balance') . ':' . $current_balance . ')';
+								$_SESSION['error_string'][] .= _('Credit has been reduced') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ' ' . _('balance') . ':' . $current_balance . ')';
 							} else {
-								$_SESSION['error_string'][].= _('Fail to reduce credit') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
+								$_SESSION['error_string'][] .= _('Fail to reduce credit') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
 							}
 						} else {
-							$_SESSION['error_string'][].= _('Wrong amount or user does not exist') . ' (' . _('User ID') . ':' . $uid . ')';
+							$_SESSION['error_string'][] .= _('Wrong amount or user does not exist') . ' (' . _('User ID') . ':' . $uid . ')';
 						}
 					}
 				}
-
+				
 				header("Location: " . _u('index.php?app=main&inc=feature_credit&op=credit_reduce'));
 				exit();
 				break;
