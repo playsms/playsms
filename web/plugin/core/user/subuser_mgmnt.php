@@ -18,12 +18,10 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-if (!auth_isvalid()) {
-	auth_block();
-}
-
-if (!(($user_config['status'] == 2) || ($user_config['status'] == 3))) {
-	auth_block();
+if (!auth_isuser()) {
+	if (!auth_isadmin()) {
+		auth_block();
+	}
 }
 
 if ($_REQUEST['uname']) {
