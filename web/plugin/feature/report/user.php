@@ -44,22 +44,12 @@ $map_values = array(
     '3' => 'num_rows_delivered'
 );
 
-//mysqli connection parameters
-$mysqli = new mysqli(_DB_HOST_, _DB_USER_, _DB_PASS_, _DB_NAME_);
+//populate array with the values from the mysql query        
+$db_query = "SELECT flag_deleted, p_status, COUNT(*) AS count from " . _DB_PREF_ . "_tblSMSOutgoing where uid ='$c_uid' group by flag_deleted, p_status";
+$db_result = dba_query($db_query);
+for ($set = array (); $row = dba_fetch_array($db_result); $set[] = $row);
 
-//check connection
-if (mysqli_connect_errno()) {
-    printf("Connect failed: %s\n", mysqli_connect_error());
-    exit();
-}
-
-//populate array result with the values from the mysql query        
-$result = mysqli_query($mysqli, 'SELECT flag_deleted, p_status, COUNT(*) AS count from ' . _DB_PREF_ . '_tblSMSOutgoing where uid =' . $c_uid . ' group by flag_deleted, p_status');
-
-for ($set = array(); $row = $result->fetch_assoc(); $set[] = $row);
-
-
-//define tpl before updating it with array result values
+//define tpl before updating it with array set values
 $tpl = array(
 	'name' => 'report_user',
 	'vars' => array(
@@ -82,7 +72,7 @@ $tpl = array(
 	)
 );
 
-//update tpl array with values from the result array
+//update tpl array with values from the set array
 
 for ($i = 0; $i < count($set); $i++) {
     $c = 0;
