@@ -52,25 +52,12 @@ $rows = dba_search(_DB_PREF_ . '_tblUser', 'username, uid, credit, status, 0 as 
     'ORDER BY' => 'status'
 ));
 
+//populate array with the values from the mysql query        
+$db_query = "SELECT uid, flag_deleted, p_status, COUNT(*) AS count from ". _DB_PREF_ ."_tblSMSOutgoing group by uid,flag_deleted, p_status";
+$db_result = dba_query($db_query);
+for ($iset = array (); $irow = dba_fetch_array($db_result); $iset[] = $irow);
 
-
-//mysqli connection parameters
-$mysqli = new mysqli(_DB_HOST_, _DB_USER_, _DB_PASS_, _DB_NAME_);
-
-//check connection
-if (mysqli_connect_errno()) {
-    printf("Connect failed: %s\n", mysqli_connect_error());
-    exit();
-}
-
-//populate array iresult with the values from the mysql query        
-$iresult = mysqli_query($mysqli, 'SELECT uid, flag_deleted, p_status, COUNT(*) AS count from ' . _DB_PREF_ . '_tblSMSOutgoing group by uid,flag_deleted, p_status');
-
-for ($iset = array(); $irow = $iresult->fetch_assoc(); $iset[] = $irow);
-
-
-//update the rows array with values from the iresult array
-
+//update the rows array with values from the iset array
 for ($i = 0; $i < count($iset); $i++) {
     $c = 0;
     
