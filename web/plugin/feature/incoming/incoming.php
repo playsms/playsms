@@ -23,7 +23,7 @@ if (!auth_isadmin()) {
 }
 
 switch (_OP_) {
-	case "incoming" :
+	case "incoming":
 		
 		// form pre rules
 		
@@ -81,12 +81,14 @@ switch (_OP_) {
 				'input' => $select_match_sender_id,
 				'help' => _('Route to user inbox if receiver number matched with user sender ID') 
 			),
-			array(
-				'id' => 'playsms-sandbox-prefix',
-				'label' => _('Route all sandbox SMS to keyword'),
-				'input' => $input_prefix,
-				'help' => _('A valid keyword will be inserted and prefixed to the message') 
-			),
+			/**
+			 * array(
+			 * 'id' => 'playsms-sandbox-prefix',
+			 * 'label' => _('Route all sandbox SMS to keyword'),
+			 * 'input' => $input_prefix,
+			 * 'help' => _('A valid keyword will be inserted and prefixed to the message')
+			 * ),
+			 */
 			array(
 				'id' => 'playsms-route-to-users',
 				'label' => _('Route all sandbox SMS to users'),
@@ -146,7 +148,7 @@ switch (_OP_) {
 		_p(tpl_apply($tpl));
 		break;
 	
-	case "incoming_save" :
+	case "incoming_save":
 		
 		// form pre rules
 		
