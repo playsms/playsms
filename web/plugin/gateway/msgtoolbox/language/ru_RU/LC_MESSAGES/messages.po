@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Например +0400 для Москвы"
+msgstr "Например +0300 для Москвы"
 
 msgid "Fill to change the password"
 msgstr "Заполните для изменени пароля"
@@ -53,3 +53,4 @@ msgstr "Имя пользователя"
 
 msgid "msgtoolbox URL"
 msgstr "msgtoolbox URL"
+

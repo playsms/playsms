@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -12,28 +12,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#, fuzzy
 msgid "Changes have been made"
-msgstr "нет изменений"
+msgstr "Изменения сохранены"
 
-#, fuzzy
 msgid "Fill to change the password"
-msgstr "Заполните для изменения API secret"
+msgstr "Заполните для изменения пароля"
 
-#, fuzzy
 msgid "Gateway host"
-msgstr "Название шлюза"
+msgstr "Адрес шлюза"
 
 msgid "Gateway name"
 msgstr "Название шлюза"
 
-#, fuzzy
 msgid "Gateway port"
-msgstr "Название шлюза"
+msgstr "Порт шлюза"
 
-#, fuzzy
 msgid "Manage OpenVox"
-msgstr "Управление nexmo"
+msgstr "Управление OpenVox"
 
 msgid "Module sender ID"
 msgstr "Имя отправителя"
@@ -45,17 +40,17 @@ msgid "Notes"
 msgstr "Примечания"
 
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 msgid "Save"
 msgstr "Сохранить"
 
 msgid "Username"
-msgstr ""
+msgstr "Имя пользователя"
 
 msgid "Your callback URL is"
 msgstr "Ваш callback URL"
 
-#, fuzzy
 msgid "Your callback URL should be accessible from OpenVox"
-msgstr "Ваш callback URL должен быть доступен с стороны Nexmo"
+msgstr "Ваш callback URL должен быть доступен с стороны OpenVox"
+

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -12,52 +12,52 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 msgid "Account has been unbanned"
-msgstr ""
+msgstr "Пользователь разблокирован"
 
 msgid "All inbox"
-msgstr ""
+msgstr "Все входящие"
 
 msgid "All incoming messages"
-msgstr ""
+msgstr "Все принятые сообщения"
 
 msgid "All outgoing messages"
-msgstr ""
+msgstr "Все исходящие сообщения"
 
 msgid "All reports"
 msgstr "Все отчёты"
 
 msgid "Amount"
-msgstr ""
+msgstr "Количество"
 
 msgid "Are you sure you want to delete these items ?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить эти элементы?"
 
 msgid "Are you sure you want to delete these transactions ?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить записи об этих транзакциях?"
 
 msgid "Balance"
-msgstr ""
+msgstr "Баланс"
 
 msgid "Balance recorded on transaction"
-msgstr ""
+msgstr "Баланс после перевода"
 
 msgid "Ban date/time"
-msgstr ""
+msgstr "Время блокировки"
 
 msgid "Banned users list"
-msgstr ""
+msgstr "Список заблокированных пользователей"
 
 msgid "Billing"
 msgstr "Потрачено"
 
 msgid "Content"
-msgstr ""
+msgstr "Текст"
 
 msgid "Credit"
 msgstr "Баланс"
 
 msgid "Current IP address"
-msgstr ""
+msgstr "Текущий IP адрес"
 
 msgid "Deleted"
 msgstr "Удалено"
@@ -66,46 +66,46 @@ msgid "Delivered"
 msgstr "Доставлено"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "Failed"
 msgstr "Ошибок"
 
 msgid "Feature"
-msgstr ""
+msgstr "Функции"
 
 msgid "Footer"
-msgstr ""
+msgstr "Подпись"
 
 msgid "From"
-msgstr ""
+msgstr "От"
 
 msgid "Inbox"
-msgstr ""
+msgstr "Входящие"
 
 msgid "Incoming messages"
-msgstr ""
+msgstr "Принятые сообщения"
 
 msgid "Keyword"
-msgstr ""
+msgstr "Ключевое слово"
 
 msgid "Last update"
-msgstr ""
+msgstr "Последнее обновление"
 
 msgid "List of my credit transactions"
-msgstr ""
+msgstr "Список моих переводов"
 
 msgid "Message"
-msgstr ""
+msgstr "Сообщение"
 
 msgid "My credit transactions"
-msgstr ""
+msgstr "Мои переводы"
 
 msgid "My report"
 msgstr "Мой отчёт"
 
 msgid "Outgoing messages"
-msgstr ""
+msgstr "Исходящие сообщения"
 
 msgid "Pending"
 msgstr "Ожидает"
@@ -114,73 +114,74 @@ msgid "Report"
 msgstr "Отчёт"
 
 msgid "Report all users"
-msgstr ""
+msgstr "Отчёт по пользователям"
 
 msgid "Report banned users"
-msgstr ""
+msgstr "Заблокированные пользователи"
 
 msgid "Report whose online"
-msgstr ""
+msgstr "Пользователи в системе"
 
 msgid "SMSC"
-msgstr ""
+msgstr "SMSC"
 
 msgid "Sandbox"
-msgstr ""
+msgstr "Необработанные"
 
 msgid "Selected incoming message has been deleted"
-msgstr ""
+msgstr "Выбранное входящее сообщение было удалено"
 
 msgid "Selected outgoing message has been deleted"
-msgstr ""
+msgstr "Выбранное исходящее сообщение было удалено"
 
 msgid "Selected transactions has been deleted"
-msgstr ""
+msgstr "Выбранные записи были удалены"
 
 msgid "Sent"
 msgstr "Отправлено"
 
 msgid "Status"
-msgstr ""
+msgstr "Состояние"
 
 msgid "Time"
-msgstr ""
+msgstr "Время"
 
 msgid "To"
-msgstr ""
+msgstr "Получатель"
 
 msgid "Total"
 msgstr "Всего"
 
 msgid "Transaction datetime"
-msgstr ""
+msgstr "Время транзакции"
 
 msgid "Unable to unban account"
-msgstr ""
+msgstr "Не удалось разблокировать пользователя"
 
 msgid "User"
 msgstr "Пользователь"
 
 msgid "User agent"
-msgstr ""
+msgstr "User agent пользователя"
 
 msgid "Whose online"
-msgstr ""
+msgstr "Пользователи в системе"
 
 msgid "cost"
-msgstr ""
+msgstr "стоимость"
 
 msgid "count"
-msgstr ""
+msgstr "количество"
 
 msgid "handled"
-msgstr ""
+msgstr "обработано"
 
 msgid "rate"
-msgstr ""
+msgstr "цена"
 
 msgid "unhandled"
-msgstr ""
+msgstr "не обработано"
 
 msgid "username"
-msgstr ""
+msgstr "имя пользователя"
+

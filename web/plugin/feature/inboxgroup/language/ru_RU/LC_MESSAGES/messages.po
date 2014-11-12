@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -139,12 +139,10 @@ msgid "Number"
 msgstr "Номер"
 
 msgid "Press submit button to add selected users to catch-all list"
-msgstr ""
-"Нажмите подтвердить, чтобы добавить выбранных пользователей к перехватывающим"
+msgstr "Нажмите подтвердить, чтобы добавить выбранных пользователей к перехватывающим"
 
 msgid "Press submit button to add selected users to member list"
-msgstr ""
-"Нажмите подтвердить, чтобы добавить выбранных пользователей к участникам"
+msgstr "Нажмите подтвердить, чтобы добавить выбранных пользователей к участникам"
 
 msgid "Press submit button to remove selected catchall from catch-all list"
 msgstr "Нажмите подтвердить, чтобы удалить выбранных перехватывающих из списка"
@@ -193,3 +191,4 @@ msgstr "нет"
 
 msgid "yes"
 msgstr "да"
+

@@ -3,24 +3,26 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
 
 msgid "Refresh"
-msgstr ""
+msgstr "Обновить"
 
 msgid "View log"
 msgstr "Просмотр журнала"
 
 msgid "playSMS daemon is NOT running"
-msgstr ""
+msgstr "Сервис playSMS не запущен"
 
 msgid "playSMS daemon is running"
-msgstr ""
+msgstr "Сервис playSMS запущен"
 
 msgid "playSMS daemon status"
-msgstr ""
+msgstr "Состояние службы playSMS"
+

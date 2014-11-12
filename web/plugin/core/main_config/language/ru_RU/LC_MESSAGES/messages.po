@@ -2,150 +2,152 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
 
-msgid ""
-"Access to unknown domain mapped to this server IP address will be redirected "
-"to this website URL. This website URL should be the primary address for the "
-"service."
-msgstr ""
+msgid "Access to unknown domain mapped to this server IP address will be redirected to this website URL. This website URL should be the primary address for the service."
+msgstr "Обращение к неизвестному домену, ссылающемуся на IP этого сервера, будет перенаправлено на этот URL. ССылка должна содержать главный адрес этого сервера. "
 
 msgid "Active themes"
-msgstr ""
+msgstr "Тема оформления"
 
 msgid "Allow users to select SMS footer while on Send SMS page"
-msgstr ""
+msgstr "Разрешить пользователям устанавливать подпись сообщения на странице отправки"
 
 msgid "Allow users to select sender ID while on Send SMS page"
-msgstr ""
+msgstr "Разрешить пользователям выбирать имя отправителя на странице отправки"
 
 msgid "Always add plus sign"
-msgstr ""
+msgstr "Всегда добавлять знак +"
 
 msgid "Always remove plus sign"
-msgstr ""
+msgstr "Всегда отрезать знак +"
 
-msgid ""
-"Application footer here. Go to main configuration or manage site to edit "
-"this footer."
-msgstr ""
+msgid "Application footer here. Go to main configuration or manage site to edit this footer."
+msgstr "Нижний колонтитул. Измените на странице конфигурации."
 
 msgid "Buy credit page"
-msgstr ""
+msgstr "Страница покупки"
 
 msgid "Default SMS rate"
-msgstr ""
+msgstr "Тариф за СМС по умолчанию"
 
 msgid "Default SMSC"
-msgstr ""
+msgstr "SMSC по умолчанию"
 
 msgid "Default account status on registration"
-msgstr ""
+msgstr "Тип пользователя при регистрации"
 
 msgid "Default credit for user"
-msgstr ""
+msgstr "Баланс по умолчанию для новых пользователей"
 
 msgid "Default language"
-msgstr ""
+msgstr "Язык по умолчанию"
 
 msgid "Default sender ID"
-msgstr ""
+msgstr "Имя отправителя по умолчанию"
 
 msgid "Default settings"
-msgstr ""
+msgstr "Настройки по умолчанию"
 
 msgid "Default site configuration"
-msgstr ""
+msgstr "Настройки сайта по умолчанию"
 
 msgid "Default timezone"
-msgstr ""
+msgstr "Часовой пояс по умолчанию"
 
 msgid "Disable login as subuser"
-msgstr ""
+msgstr "Отключить вход от имени другого пользователя"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Например, +0300 для Москвы"
 
 msgid "Empty default sender ID to allow users setting their own sender ID"
-msgstr ""
+msgstr "Оставьте пустым чтобы разрешить пользователям задавать собственное имя отправителя"
 
 msgid "Enable forgot password"
-msgstr ""
+msgstr "Разрешить восстановление пароля"
 
 msgid "Enable logo"
-msgstr ""
+msgstr "Разрешить логотип"
 
 msgid "Enable public registration"
-msgstr ""
+msgstr "Разрешить открытую регистрацию"
 
 msgid "Enhance privacy for subusers"
-msgstr ""
+msgstr "Повысить кофиденциальность дочерних пользователей"
 
 msgid "Forwarded email footer"
-msgstr ""
+msgstr "Подпись пересылаемого письма"
 
 msgid "Go to main configuration or manage site to edit this page"
-msgstr ""
+msgstr "Измените этот текст на странице конфигурации"
 
 msgid "Information"
-msgstr ""
+msgstr "Информация"
 
 msgid "Information page"
-msgstr ""
+msgstr "Главная страница"
 
 msgid "Layout footer"
-msgstr ""
+msgstr "Нижний колонтитул"
 
 msgid "Logo URL"
-msgstr ""
+msgstr "Ссылка на логотип"
 
-msgid ""
-"Logo by default will be displayed at login, register and forgot password page"
-msgstr ""
+msgid "Logo by default will be displayed at login, register and forgot password page"
+msgstr "Логотип по умолчанию отображается на странице входа, регистрации и восстановления пароля"
 
 msgid "Main configuration"
-msgstr ""
+msgstr "Основная конфигурация"
 
 msgid "Main configuration changes has been saved"
-msgstr ""
+msgstr "Настройки сохранены"
 
 msgid "Main website URL"
-msgstr ""
+msgstr "Ссылка на основной сайт"
 
 msgid "Main website name"
-msgstr ""
+msgstr "Название основного сайта"
 
 msgid "Maximum SMS count"
-msgstr ""
+msgstr "Максимальное количество сегментов"
 
 msgid "Page content"
-msgstr ""
+msgstr "Текст страницы"
 
 msgid "Page title"
-msgstr ""
+msgstr "Заголовок страницы"
 
 msgid "Replace website title with logo"
-msgstr ""
+msgstr "Заменить название основного сайта логотипом"
 
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
 msgid "Subuser"
-msgstr ""
+msgstr "Дочерний пользователь"
 
 msgid "User"
-msgstr ""
+msgstr "Пользователь"
 
 msgid "Website URL"
-msgstr ""
+msgstr "ССылка на сайт"
 
 msgid "Website email"
-msgstr ""
+msgstr "Email сайта"
 
 msgid "Website title"
-msgstr ""
+msgstr "Заголовок сайта"
 
 msgid "no"
-msgstr ""
+msgstr "нет"
 
 msgid "yes"
-msgstr ""
+msgstr "да"
+

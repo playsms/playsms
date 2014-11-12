@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -15,28 +15,23 @@ msgstr ""
 msgid "Action"
 msgstr "Действие"
 
-#, fuzzy
 msgid "Add route"
-msgstr "Добавить тариф"
+msgstr "Добавить маршрут"
 
 msgid "Are you sure ?"
-msgstr ""
+msgstr "Вы уверены?"
 
-#, fuzzy
 msgid "Destination name"
 msgstr "Назначение"
 
-#, fuzzy
 msgid "Edit route"
-msgstr "Редактировать тариф"
+msgstr "Редактировать маршрут"
 
-#, fuzzy
 msgid "Fail to delete route"
-msgstr "Не удалось удалить тариф"
+msgstr "Не удалось удалить маршрут"
 
-#, fuzzy
 msgid "Fail to save route"
-msgstr "Не удалось сохранить тариф"
+msgstr "Не удалось сохранить маршрут"
 
 msgid "No changes made!"
 msgstr "Нет изменений"
@@ -45,44 +40,41 @@ msgid "Prefix"
 msgstr "Префикс"
 
 msgid "Route SMS outgoing"
-msgstr ""
+msgstr "Маршрутизация исходящих СМС"
 
-#, fuzzy
 msgid "Route has been added"
-msgstr "Тариф сохранён"
+msgstr "Маршрут добавлен"
 
-#, fuzzy
 msgid "Route has been deleted"
-msgstr "Тариф сохранён"
+msgstr "Маршрут удалён"
 
-#, fuzzy
 msgid "Route has been saved"
-msgstr "Тариф сохранён"
+msgstr "Маршрут сохранён"
 
 msgid "Route outgoing SMS"
-msgstr ""
+msgstr "Маршрутизация исходящих СМС"
 
 msgid "SMSC"
-msgstr ""
+msgstr "SMSC"
 
 msgid "Save"
 msgstr "Сохранить"
 
 msgid "User"
-msgstr ""
+msgstr "Пользователь"
 
 msgid "You must fill all fields"
 msgstr "Необходимо заполнить все поля"
 
-#, fuzzy
 msgid "You must fill all mandatory fields"
-msgstr "Необходимо заполнить все поля"
+msgstr "Необходимо заполнить обязательные поля"
 
 msgid "blocked"
-msgstr ""
+msgstr "заблокировано"
 
 msgid "destination"
 msgstr "назначение"
 
 msgid "prefix"
 msgstr "префикс"
+

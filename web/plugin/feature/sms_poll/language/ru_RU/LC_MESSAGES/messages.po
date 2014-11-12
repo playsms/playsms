@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -25,10 +25,9 @@ msgid "Add choice to this poll"
 msgstr "Добавить варианты"
 
 msgid "All"
-msgstr ""
+msgstr "Все"
 
-msgid ""
-"Are you sure you want to delete SMS poll with all its choices and votes ?"
+msgid "Are you sure you want to delete SMS poll with all its choices and votes ?"
 msgstr "Вы уверены, что хотите удалить голосование со всеми его резуьтатами?"
 
 msgid "Are you sure you want to delete choice ?"
@@ -37,9 +36,8 @@ msgstr "Вы уверены, что хотите удалить вариант?"
 msgid "Choice already exists"
 msgstr "Вариант уже существует"
 
-#, fuzzy
 msgid "Choice description"
-msgstr "Заголовок"
+msgstr "Описание выбора"
 
 msgid "Choice has been added"
 msgstr "Вариант добавлен"
@@ -48,7 +46,7 @@ msgid "Choice keyword"
 msgstr "Ключевое слово"
 
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 msgid "Edit SMS poll"
 msgstr "Изменить голосование"
@@ -63,20 +61,19 @@ msgid "Fail to delete SMS poll choice"
 msgstr "Не удалось удалить вариант"
 
 msgid "Grand total SMS"
-msgstr ""
+msgstr "Общее количество СМС"
 
 msgid "Grand total senders"
-msgstr ""
+msgstr "Общее количество отправителей"
 
 msgid "Graph output"
 msgstr "График"
 
-#, fuzzy
 msgid "HTML output"
-msgstr "XML формат"
+msgstr "HTML формат"
 
 msgid "Invalid"
-msgstr ""
+msgstr "Невалидные"
 
 msgid "JSON output"
 msgstr "JSON формат"
@@ -88,45 +85,40 @@ msgid "Manage poll"
 msgstr "Голосования"
 
 msgid "Multi"
-msgstr ""
+msgstr "Множественные"
 
 msgid "Number of votes"
-msgstr ""
+msgstr "Количество голосов"
 
 msgid "Once"
-msgstr ""
+msgstr "Единичные"
 
 msgid "PHP serialize output"
 msgstr "PHP serialize формат"
 
-#, fuzzy
 msgid "Reply message on invalid vote"
 msgstr "Ответ при невалидном выборе"
 
-#, fuzzy
 msgid "Reply message on out of vote option"
-msgstr "Ответ при валидном выборе"
+msgstr "Ответ при превышении количества голосов"
 
-#, fuzzy
 msgid "Reply message on valid vote"
 msgstr "Ответ при валидном выборе"
 
 msgid "Result graph"
-msgstr ""
+msgstr "График результатов"
 
 msgid "Result table"
-msgstr ""
+msgstr "Таблица результатов"
 
-#, fuzzy
 msgid "SMS poll access code"
-msgstr "Ключевое слово"
+msgstr "Код доступа голосования"
 
 msgid "SMS poll access code used mainly by webservices"
-msgstr ""
+msgstr "Код доступа к голосованию используется webservices"
 
 msgid "SMS poll already exists, reserved or use by other feature"
-msgstr ""
-"Голосование уже существует, зарезервировано или используется другими модулями"
+msgstr "Голосование уже существует, зарезервировано или используется другими модулями"
 
 msgid "SMS poll choice and all its voters has been deleted"
 msgstr "Вариант со всемии его выбравшими удалён"
@@ -150,23 +142,22 @@ msgid "SMS poll with all its messages has been deleted"
 msgstr "Голосование со всеми результатами удалено"
 
 msgid "SMSC"
-msgstr ""
+msgstr "SMSC"
 
 msgid "Save"
 msgstr "Сохранить"
 
 msgid "Senders sent multi votes"
-msgstr ""
+msgstr "Проголосовавших несколько раз"
 
 msgid "Senders sent multiple votes"
-msgstr ""
+msgstr "Проголосовавших несколько раз"
 
 msgid "Senders sent once"
-msgstr ""
+msgstr "Проголосовавших один раз"
 
-#, fuzzy
 msgid "Statistics"
-msgstr "Состояние"
+msgstr "СтатистикаСостояние"
 
 msgid "Status"
 msgstr "Состояние"
@@ -175,28 +166,28 @@ msgid "Title"
 msgstr "Название"
 
 msgid "Total invalid SMS"
-msgstr ""
+msgstr "Всего невалидных СМС"
 
 msgid "Total multiple votes SMS"
-msgstr ""
+msgstr "Всего СМС с несколькими вариантами"
 
 msgid "Total one time vote SMS"
-msgstr ""
+msgstr "Всего проголосовавших 1 раз"
 
 msgid "Total valid SMS"
-msgstr ""
+msgstr "Всего валидных СМС"
 
 msgid "User"
 msgstr "Пользователь"
 
 msgid "Valid"
-msgstr ""
+msgstr "Правильно"
 
 msgid "Vote option"
-msgstr ""
+msgstr "Варианты голосования"
 
 msgid "Webservices links"
-msgstr ""
+msgstr "Ссылки webservices"
 
 msgid "XML output"
 msgstr "XML формат"
@@ -208,20 +199,20 @@ msgid "keyword"
 msgstr "ключевое слово"
 
 msgid "multiple times"
-msgstr ""
+msgstr "несколько раз"
 
-#, fuzzy
 msgid "one time"
-msgstr "Заголовок"
+msgstr "один раз"
 
 msgid "one time every 24 hours"
-msgstr ""
+msgstr "раз в 24 часа"
 
 msgid "one time every month"
-msgstr ""
+msgstr "раз в месяц"
 
 msgid "one time every week"
-msgstr ""
+msgstr "раз в неделю"
 
 msgid "title"
 msgstr "название"
+
