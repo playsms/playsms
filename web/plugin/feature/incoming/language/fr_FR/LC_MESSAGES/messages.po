@@ -5,9 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "A valid keyword will be inserted and prefixed to the message"
-msgstr "Un mot-clé valable sera inséré et ajouté au message en préfixe"
-
 msgid "Copy the message to user inbox when incoming SMS contains @username"
 msgstr ""
 "Faire une copie du message dans la boîte de réception de l'utilisateur "
@@ -49,9 +46,6 @@ msgid ""
 msgstr ""
 "Le numéro de destinataire peut être associé avec le sender ID par défaut ou "
 "avec tous les sender ID approuvés"
-
-msgid "Route all sandbox SMS to keyword"
-msgstr "Acheminer tous les SMS du bac à sable vers le mot-clé"
 
 msgid "Route all sandbox SMS to users"
 msgstr "Acheminer tous les SMS du bac à sable vers les utilisateurs"

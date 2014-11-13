@@ -27,7 +27,8 @@ msgstr "Добавить варианты"
 msgid "All"
 msgstr "Все"
 
-msgid "Are you sure you want to delete SMS poll with all its choices and votes ?"
+msgid ""
+"Are you sure you want to delete SMS poll with all its choices and votes ?"
 msgstr "Вы уверены, что хотите удалить голосование со всеми его резуьтатами?"
 
 msgid "Are you sure you want to delete choice ?"
@@ -118,7 +119,8 @@ msgid "SMS poll access code used mainly by webservices"
 msgstr "Код доступа к голосованию используется webservices"
 
 msgid "SMS poll already exists, reserved or use by other feature"
-msgstr "Голосование уже существует, зарезервировано или используется другими модулями"
+msgstr ""
+"Голосование уже существует, зарезервировано или используется другими модулями"
 
 msgid "SMS poll choice and all its voters has been deleted"
 msgstr "Вариант со всемии его выбравшими удалён"
@@ -215,4 +217,3 @@ msgstr "раз в неделю"
 
 msgid "title"
 msgstr "название"
-

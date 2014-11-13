@@ -49,7 +49,8 @@ msgid "SMS custom URL"
 msgstr "URL адрес"
 
 msgid "SMS custom already exists, reserved or use by other feature"
-msgstr "URL адрес уже существует, зарезервирован или используется другими модулями"
+msgstr ""
+"URL адрес уже существует, зарезервирован или используется другими модулями"
 
 msgid "SMS custom has been added"
 msgstr "Запрос URL добавлен"
@@ -92,4 +93,3 @@ msgstr "будет заменён на параметр, переданный в
 
 msgid "will be replaced by sender number"
 msgstr "будет заменён на номер отправителя"
-

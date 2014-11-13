@@ -48,8 +48,12 @@ msgstr "Восстановление пароля"
 msgid "Please type the displayed captcha phrase correctly"
 msgstr "Пожалуйста, введите символы с картинки"
 
-msgid "Read and type the captcha phrase on verify captcha field. If you cannot read them please contact administrator."
-msgstr "Прочтите и введите символы с картинки. Если Вы не можете прочитать их, свяжитесь с администратором."
+msgid ""
+"Read and type the captcha phrase on verify captcha field. If you cannot read "
+"them please contact administrator."
+msgstr ""
+"Прочтите и введите символы с картинки. Если Вы не можете прочитать их, "
+"свяжитесь с администратором."
 
 msgid "Recover password"
 msgstr "Восстановление пароля"
@@ -63,7 +67,8 @@ msgstr "Регистрация пользователя"
 msgid "Submit"
 msgstr "Принять"
 
-msgid "This temporary password will be removed once you have logged in successfully"
+msgid ""
+"This temporary password will be removed once you have logged in successfully"
 msgstr "Этот временный пароль будет удалён как только вы воспользуетесь им"
 
 msgid "Unable to login"
@@ -86,4 +91,3 @@ msgstr "У Вас нет доступа к этой странице"
 
 msgid "You or someone else have requested a password recovery"
 msgstr "Вы или кто-то другой запросил восстановление пароля"
-

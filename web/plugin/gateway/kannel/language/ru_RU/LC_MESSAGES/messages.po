@@ -122,4 +122,3 @@ msgstr "Да"
 
 msgid "playSMS web URL"
 msgstr "URL playSMS сервера"
-

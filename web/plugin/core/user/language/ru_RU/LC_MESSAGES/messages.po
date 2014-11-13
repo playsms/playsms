@@ -13,10 +13,14 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 msgid "Account admin or currently logged in administrator cannot be banned"
-msgstr "Пользователь admin или вошедший в систему администратор не может быть заблокирован"
+msgstr ""
+"Пользователь admin или вошедший в систему администратор не может быть "
+"заблокирован"
 
 msgid "Account admin or currently logged in administrator cannot be unbanned"
-msgstr "Пользователь admin или вошедший в систему администратор не может быть заблокирован"
+msgstr ""
+"Пользователь admin или вошедший в систему администратор не может быть "
+"заблокирован"
 
 msgid "Account has been added and password has been emailed"
 msgstr "Пользователь добавлен, пароль отправлен по почте"
@@ -97,7 +101,9 @@ msgid "Are you sure you want to unban subuser"
 msgstr "Вы уверены, что хотите разблокировать дочернего пользователя"
 
 msgid "Cannot change status when user have subusers"
-msgstr "Невозможно изменить состояние, когда у пользователя есть дочерние пользователи"
+msgstr ""
+"Невозможно изменить состояние, когда у пользователя есть дочерние "
+"пользователи"
 
 msgid "City"
 msgstr "Город"
@@ -210,8 +216,12 @@ msgstr "Родительский"
 msgid "Parent account"
 msgstr "Родительский пользователь"
 
-msgid "Parent account is mandatory for subusers only. If no value is given then the subuser will be automatically assigned to user admin"
-msgstr "Родительский пользователь необходим только для дочерних пользователей. Если пусто, дочерний пользователь автоматически назначается пользователю admin"
+msgid ""
+"Parent account is mandatory for subusers only. If no value is given then the "
+"subuser will be automatically assigned to user admin"
+msgstr ""
+"Родительский пользователь необходим только для дочерних пользователей. Если "
+"пусто, дочерний пользователь автоматически назначается пользователю admin"
 
 msgid "Password"
 msgstr "Пароль"
@@ -226,7 +236,9 @@ msgid "Personal information"
 msgstr "Персональная информация"
 
 msgid "Please remove all subusers from this user to delete"
-msgstr "Пожалуйста, снимите всех дочерних пользователей с этого пользователя, чтобы удалить"
+msgstr ""
+"Пожалуйста, снимите всех дочерних пользователей с этого пользователя, чтобы "
+"удалить"
 
 msgid "Please select"
 msgstr "Выберите"
@@ -291,8 +303,11 @@ msgstr "Невозможно разблокировать пользовател
 msgid "Unable to delete other users"
 msgstr "Невозможно удалить других пользователей"
 
-msgid "Unable to delete this user until all subusers under this user have been removed"
-msgstr "Невозможно удалить этого пользователя пока у него есть дочерние пользователи"
+msgid ""
+"Unable to delete this user until all subusers under this user have been "
+"removed"
+msgstr ""
+"Невозможно удалить этого пользователя пока у него есть дочерние пользователи"
 
 msgid "Unable to process subuser addition"
 msgstr "Невозможно произвести добавление дочернего пользователя"
@@ -407,4 +422,3 @@ msgstr "имя пользователя"
 
 msgid "yes"
 msgstr "да"
-

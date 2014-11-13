@@ -71,4 +71,3 @@ msgstr "Ваш callback URL должен быть доступен с сторо
 
 msgid "free credits are available for testing purposes"
 msgstr "бесплатный лимит доступен для целей тестирования"
-

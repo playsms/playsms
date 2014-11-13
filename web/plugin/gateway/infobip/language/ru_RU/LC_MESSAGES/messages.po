@@ -40,7 +40,8 @@ msgid "Manage infobip"
 msgstr "Manage infobip"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "Максимум 16 цифр или 11 латинских символов, оставьте пустым, чтобы отключить"
+msgstr ""
+"Максимум 16 цифр или 11 латинских символов, оставьте пустым, чтобы отключить"
 
 msgid "Module sender ID"
 msgstr "Имя отправителя"
@@ -77,4 +78,3 @@ msgstr "Ваш callback URL джен быть доступен со сторон
 
 msgid "create an account to send SMS"
 msgstr "Создать учётную запись для отправки СМС"
-

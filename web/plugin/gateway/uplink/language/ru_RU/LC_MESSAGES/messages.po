@@ -59,4 +59,3 @@ msgstr "нет"
 
 msgid "yes"
 msgstr "да"
-

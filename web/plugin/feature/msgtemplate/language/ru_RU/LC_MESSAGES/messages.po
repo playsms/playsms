@@ -64,4 +64,3 @@ msgstr "будет заменён на имя из записной книжки
 
 msgid "will be replaced with the phone number listed in phonebook"
 msgstr "будет заменён на номер из записной книжки"
-

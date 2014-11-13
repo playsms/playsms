@@ -68,4 +68,3 @@ msgstr "twilio это массовый СМС провайдер"
 
 msgid "twilio will push DLR and incoming SMS to your callback URL"
 msgstr "twilio тправит DLR и входящие СМС на Ваш callback URL"
-

@@ -19,7 +19,8 @@ msgid "Add SMS board"
 msgstr "Добавить доску объявлений"
 
 msgid "Are you sure you want to delete SMS board with all its messages ?"
-msgstr "Вы уверены, что хотите удалить доску объявлений со всеми её сообщениями?"
+msgstr ""
+"Вы уверены, что хотите удалить доску объявлений со всеми её сообщениями?"
 
 msgid "CSS URL"
 msgstr "CSS URL"
@@ -100,7 +101,9 @@ msgid "SMS board with all its messages has been deleted"
 msgstr "Доска объявлений со всеми её сообщениями удалена"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
-msgstr "Ключевое слово уже существует, зарезервировано или используется другими модулями"
+msgstr ""
+"Ключевое слово уже существует, зарезервировано или используется другими "
+"модулями"
 
 msgid "Save"
 msgstr "Сохранить"
@@ -122,4 +125,3 @@ msgstr "Необходимо заполнить все поля"
 
 msgid "keyword"
 msgstr "ключевое слово"
-

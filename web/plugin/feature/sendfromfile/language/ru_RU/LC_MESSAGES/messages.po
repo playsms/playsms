@@ -89,4 +89,3 @@ msgstr "из"
 
 msgid "valid entries"
 msgstr "действительные записи"
-

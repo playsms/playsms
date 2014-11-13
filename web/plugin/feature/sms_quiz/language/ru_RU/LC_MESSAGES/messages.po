@@ -21,8 +21,10 @@ msgstr "Добавить викторину"
 msgid "Answer"
 msgstr "Ответ"
 
-msgid "Are you sure you want to delete SMS quiz with all its choices and answers ?"
-msgstr "Вы уверены, что хотите удаить викторину со всеми вариантами и ответами?"
+msgid ""
+"Are you sure you want to delete SMS quiz with all its choices and answers ?"
+msgstr ""
+"Вы уверены, что хотите удаить викторину со всеми вариантами и ответами?"
 
 msgid "Are you sure you want to delete this answer ?"
 msgstr "Вы уверены, что хотите удалить этот ответ?"
@@ -58,7 +60,8 @@ msgid "Reply message on incorrect"
 msgstr "Текст сообщения при неправиьном ответе"
 
 msgid "SMS quiz already exists, reserved or use by other feature"
-msgstr "Викторина уже существует, зарезервирована или используется другими модулями"
+msgstr ""
+"Викторина уже существует, зарезервирована или используется другими модулями"
 
 msgid "SMS quiz answer"
 msgstr "Ответ"
@@ -110,4 +113,3 @@ msgstr "неправиьно"
 
 msgid "keyword"
 msgstr "ключевое слово"
-

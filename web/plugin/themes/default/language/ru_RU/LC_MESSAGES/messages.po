@@ -26,4 +26,3 @@ msgstr "Ваш баланс"
 
 msgid "return"
 msgstr "вернуться"
-

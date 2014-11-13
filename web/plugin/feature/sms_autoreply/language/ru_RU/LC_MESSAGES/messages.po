@@ -91,7 +91,9 @@ msgid "SMS autoreply scenario replies with"
 msgstr "Отвечать"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
-msgstr "Ключевое слово уже существует, зарезервировано или используется другими модулями"
+msgstr ""
+"Ключевое слово уже существует, зарезервировано или используется другими "
+"модулями"
 
 msgid "SMSC"
 msgstr "SMSC"
@@ -107,4 +109,3 @@ msgstr "Необходимо заполнить все поля"
 
 msgid "keyword"
 msgstr "ключевое слово"
-

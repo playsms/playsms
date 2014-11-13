@@ -79,4 +79,3 @@ msgstr "Данный SMSC"
 
 msgid "Unknown error"
 msgstr "Неизвестная ошибка"
-

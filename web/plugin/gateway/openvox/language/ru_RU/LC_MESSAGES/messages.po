@@ -53,4 +53,3 @@ msgstr "Ваш callback URL"
 
 msgid "Your callback URL should be accessible from OpenVox"
 msgstr "Ваш callback URL должен быть доступен с стороны OpenVox"
-

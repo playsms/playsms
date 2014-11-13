@@ -66,12 +66,14 @@ msgid "Group code has been added"
 msgstr "Код группы добавлен"
 
 msgid "Group code may be used to broadcast SMS to this group"
-msgstr "Код группы может быть использован для рассылки по входящим в неё контактам"
+msgstr ""
+"Код группы может быть использован для рассылки по входящим в неё контактам"
 
 msgid "Group has been edited"
 msgstr "Группа изменена"
 
-msgid "Group has been edited but unable to set broadcast from members or anyone"
+msgid ""
+"Group has been edited but unable to set broadcast from members or anyone"
 msgstr "Группа была отредактирована, но не удалось поменять уровень видимости"
 
 msgid "Group name"
@@ -154,4 +156,3 @@ msgstr "группа"
 
 msgid "please use uppercase and make it short"
 msgstr "придумайте короткое слово в верхнем регистре"
-

@@ -68,4 +68,3 @@ msgstr "назначение"
 
 msgid "prefix"
 msgstr "префикс"
-

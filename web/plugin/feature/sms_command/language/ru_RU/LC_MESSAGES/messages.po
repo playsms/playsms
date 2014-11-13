@@ -49,7 +49,8 @@ msgid "Pass these parameter to command exec field"
 msgstr "Эти параметры можно передать исполняемому файлу в строке вызова"
 
 msgid "SMS command already exists, reserved or use by other feature"
-msgstr "Команда уже существует, зарезервирована или используется другими модулями"
+msgstr ""
+"Команда уже существует, зарезервирована или используется другими модулями"
 
 msgid "SMS command exec"
 msgstr "Исполняемый файл команды"
@@ -95,4 +96,3 @@ msgstr "будет заменён на параметр, переданный в
 
 msgid "will be replaced by sender number"
 msgstr "будет заменён на номер отправителя"
-

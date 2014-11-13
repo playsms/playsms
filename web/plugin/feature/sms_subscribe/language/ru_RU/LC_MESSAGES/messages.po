@@ -130,7 +130,8 @@ msgid "SMS messages list for keyword"
 msgstr "Список сообщений по ключевому слову"
 
 msgid "SMS subscribe already exists, reserved or use by other feature"
-msgstr "Рассылка уже существует, зарезервирована или используется другими модулями"
+msgstr ""
+"Рассылка уже существует, зарезервирована или используется другими модулями"
 
 msgid "SMS subscribe has been added"
 msgstr "Рассылка добавлена"
@@ -209,4 +210,3 @@ msgstr "Ваше СМС поставлено в очередь"
 
 msgid "keyword"
 msgstr "ключевое слово"
-

@@ -5,9 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "A valid keyword will be inserted and prefixed to the message"
-msgstr ""
-
 msgid "Copy the message to user inbox when incoming SMS contains @username"
 msgstr ""
 
@@ -41,9 +38,6 @@ msgstr ""
 msgid ""
 "Receiver number can be matched with default sender ID or with all approved "
 "sender ID"
-msgstr ""
-
-msgid "Route all sandbox SMS to keyword"
 msgstr ""
 
 msgid "Route all sandbox SMS to users"

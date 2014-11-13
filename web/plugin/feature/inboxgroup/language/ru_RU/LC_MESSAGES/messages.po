@@ -139,10 +139,12 @@ msgid "Number"
 msgstr "Номер"
 
 msgid "Press submit button to add selected users to catch-all list"
-msgstr "Нажмите подтвердить, чтобы добавить выбранных пользователей к перехватывающим"
+msgstr ""
+"Нажмите подтвердить, чтобы добавить выбранных пользователей к перехватывающим"
 
 msgid "Press submit button to add selected users to member list"
-msgstr "Нажмите подтвердить, чтобы добавить выбранных пользователей к участникам"
+msgstr ""
+"Нажмите подтвердить, чтобы добавить выбранных пользователей к участникам"
 
 msgid "Press submit button to remove selected catchall from catch-all list"
 msgstr "Нажмите подтвердить, чтобы удалить выбранных перехватывающих из списка"
@@ -191,4 +193,3 @@ msgstr "нет"
 
 msgid "yes"
 msgstr "да"
-

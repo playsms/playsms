@@ -41,4 +41,3 @@ msgstr "Принять"
 
 msgid "This is a test incoming SMS message"
 msgstr "Это тестовое входящее сообщение"
-

@@ -37,4 +37,3 @@ msgstr "Пользователь"
 
 msgid "View SMS queue"
 msgstr "Просмотр очереди"
-

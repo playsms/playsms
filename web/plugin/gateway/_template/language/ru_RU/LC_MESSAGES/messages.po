@@ -32,4 +32,3 @@ msgstr "Сохранить"
 
 msgid "Template installation path"
 msgstr "Установочный путь шаблона"
-

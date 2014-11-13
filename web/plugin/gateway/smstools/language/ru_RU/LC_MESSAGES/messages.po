@@ -17,4 +17,3 @@ msgstr "Название шлюза"
 
 msgid "Manage smstools"
 msgstr "Управление smstools"
-

@@ -46,4 +46,3 @@ msgstr "Темы"
 
 msgid "Version"
 msgstr "Версия"
-

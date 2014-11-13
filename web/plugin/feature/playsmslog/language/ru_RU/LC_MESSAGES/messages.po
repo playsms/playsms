@@ -25,4 +25,3 @@ msgstr "Сервис playSMS запущен"
 
 msgid "playSMS daemon status"
 msgstr "Состояние службы playSMS"
-

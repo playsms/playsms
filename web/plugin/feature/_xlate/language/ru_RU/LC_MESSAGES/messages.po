@@ -14,4 +14,3 @@ msgstr ""
 
 msgid "unable to translate"
 msgstr "не удалось перевести"
-
