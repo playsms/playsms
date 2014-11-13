@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -13,37 +13,38 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 msgid "Administrator"
-msgstr ""
+msgstr "Администратор"
 
 msgid "Administrators"
-msgstr ""
+msgstr "Администраторы"
 
 msgid "Back"
-msgstr ""
+msgstr "Назад"
 
 msgid "Search"
-msgstr ""
+msgstr "Поиск"
 
 msgid "Select users"
-msgstr ""
+msgstr "Выберите пользователей"
 
 msgid "Subuser"
-msgstr ""
+msgstr "Дочерний пользователь"
 
 msgid "Subusers"
-msgstr ""
+msgstr "Дочерние пользователи"
 
 msgid "This field is required"
-msgstr ""
+msgstr "Обязательное поле"
 
 msgid "User"
-msgstr ""
+msgstr "Пользователь"
 
 msgid "Users"
-msgstr ""
+msgstr "Пользователи"
 
 msgid "no"
-msgstr ""
+msgstr "нет"
 
 msgid "yes"
-msgstr ""
+msgstr "да"
+

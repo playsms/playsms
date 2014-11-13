@@ -19,10 +19,10 @@ msgid "Administrator"
 msgstr "Администратор"
 
 msgid "Ban"
-msgstr ""
+msgstr "Заблокировать"
 
 msgid "Buy"
-msgstr ""
+msgstr "Купить"
 
 msgid "Delete"
 msgstr "Удалить"
@@ -37,27 +37,23 @@ msgid "Export"
 msgstr "Экспорт"
 
 msgid "FATAL ERROR"
-msgstr ""
+msgstr "КРИТИЧЕСКАЯ ОШИБКА"
 
 msgid "Fail to connect to database"
-msgstr ""
+msgstr "Не удалось подключиться к БД"
 
-#, fuzzy
 msgid "Fail to load gateway"
-msgstr "Заполните для обновления"
+msgstr "Не удалось загрузить шлюз"
 
-#, fuzzy
 msgid "Fail to load language"
-msgstr "Язык по умолчанию"
+msgstr "Не удалось загрузить язык"
 
 msgid "Fail to load main config from registry"
-msgstr ""
+msgstr "Не удалось загрузить конфигурацию из реестра"
 
-#, fuzzy
 msgid "Fail to load themes"
-msgstr "Не удалось отправить email"
+msgstr "Не удалось загрузить темы"
 
-#, fuzzy
 msgid "Features"
 msgstr "Функции"
 
@@ -74,13 +70,13 @@ msgid "Home"
 msgstr "Главная"
 
 msgid "Idle"
-msgstr ""
+msgstr "Простаивает"
 
 msgid "Import"
 msgstr "Импортировать"
 
 msgid "Login as"
-msgstr ""
+msgstr "Войти как"
 
 msgid "Logout"
 msgstr "Выйти"
@@ -91,70 +87,59 @@ msgstr "Конфигурация"
 msgid "Manage"
 msgstr "Редактировать"
 
-#, fuzzy
 msgid "Manage account"
-msgstr "Мой профиль"
+msgstr "Управление пользователями"
 
-#, fuzzy
 msgid "Manage gateway"
-msgstr "Управление пользователями"
+msgstr "Управление шлюзами"
 
-#, fuzzy
 msgid "Manage gateway and SMSC"
-msgstr "Управление пользователями"
+msgstr "Управление шлюзами и SMS-центрами"
 
-#, fuzzy
 msgid "Manage sender ID"
-msgstr "Имя отправителя СМС"
+msgstr "Управление именами отправителей"
 
-#, fuzzy
 msgid "Manage sub-account"
-msgstr "Управление пользователями"
+msgstr "Управление дочерним пользователем"
 
-#, fuzzy
 msgid "Manage sub-accounts"
-msgstr "Управление пользователями"
+msgstr "Управление дочерними пользователями"
 
-#, fuzzy
 msgid "Manage subuser"
-msgstr "Управление пользователями"
+msgstr "Управление дочерними пользователями"
 
-#, fuzzy
 msgid "Manage subusers"
-msgstr "Управление пользователями"
+msgstr "Управление дочерними пользователями"
 
 msgid "Manage user"
 msgstr "Управление пользователями"
 
-#, fuzzy
 msgid "Move"
 msgstr "Переместить в"
 
-#, fuzzy
 msgid "My account"
 msgstr "Мой профиль"
 
 msgid "Offline"
-msgstr ""
+msgstr "Автономный"
 
 msgid "Online"
-msgstr ""
+msgstr "Онлайн"
 
 msgid "Please run composer.phar update"
-msgstr ""
+msgstr "Пожалуйста, выполните composer.phar update"
 
 msgid "Preferences"
 msgstr "Профиль"
 
 msgid "Reduce"
-msgstr ""
+msgstr "Уменьшить"
 
 msgid "Reply"
 msgstr "Ответить"
 
-#, fuzzy
 msgid "Reports"
-msgstr "Экспорт"
+msgstr "Отчёты"
 
 msgid "Resend"
 msgstr "Повторить"
@@ -163,14 +148,13 @@ msgid "Send message"
 msgstr "Отправить сообщение"
 
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
-#, fuzzy
 msgid "Unable to find composer files"
-msgstr "Не удалось обновить сеанс"
+msgstr "Не удалось нати файлы composer"
 
 msgid "Unban"
-msgstr ""
+msgstr "Разблокировать"
 
 msgid "User configuration"
 msgstr "Настройки"
@@ -180,3 +164,4 @@ msgstr "Пользовательские настройки"
 
 msgid "View"
 msgstr "Показать"
+

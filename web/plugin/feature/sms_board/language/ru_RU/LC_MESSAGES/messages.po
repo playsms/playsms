@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -19,8 +19,7 @@ msgid "Add SMS board"
 msgstr "Добавить доску объявлений"
 
 msgid "Are you sure you want to delete SMS board with all its messages ?"
-msgstr ""
-"Вы уверены, что хотите удалить доску объявлений со всеми её сообщениями?"
+msgstr "Вы уверены, что хотите удалить доску объявлений со всеми её сообщениями?"
 
 msgid "CSS URL"
 msgstr "CSS URL"
@@ -85,9 +84,8 @@ msgstr "Шаблон строки"
 msgid "SMS Board"
 msgstr "Доска объявлений"
 
-#, fuzzy
 msgid "SMS board from"
-msgstr "Ключевое слово"
+msgstr "Объявления"
 
 msgid "SMS board has been added"
 msgstr "Доска объявлений добавлена"
@@ -102,9 +100,7 @@ msgid "SMS board with all its messages has been deleted"
 msgstr "Доска объявлений со всеми её сообщениями удалена"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
-msgstr ""
-"Ключевое слово уже существует, зарезервировано или используется другими "
-"модулями"
+msgstr "Ключевое слово уже существует, зарезервировано или используется другими модулями"
 
 msgid "Save"
 msgstr "Сохранить"
@@ -126,3 +122,4 @@ msgstr "Необходимо заполнить все поля"
 
 msgid "keyword"
 msgstr "ключевое слово"
+

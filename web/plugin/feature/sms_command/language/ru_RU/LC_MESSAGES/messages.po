@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -49,8 +49,7 @@ msgid "Pass these parameter to command exec field"
 msgstr "Эти параметры можно передать исполняемому файлу в строке вызова"
 
 msgid "SMS command already exists, reserved or use by other feature"
-msgstr ""
-"Команда уже существует, зарезервирована или используется другими модулями"
+msgstr "Команда уже существует, зарезервирована или используется другими модулями"
 
 msgid "SMS command exec"
 msgstr "Исполняемый файл команды"
@@ -96,3 +95,4 @@ msgstr "будет заменён на параметр, переданный в
 
 msgid "will be replaced by sender number"
 msgstr "будет заменён на номер отправителя"
+

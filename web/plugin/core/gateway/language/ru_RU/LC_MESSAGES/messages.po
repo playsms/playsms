@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -15,69 +15,68 @@ msgid "Action"
 msgstr "Действие"
 
 msgid "Add SMSC"
-msgstr ""
+msgstr "Добавить SMSC"
 
 msgid "Are you sure ?"
-msgstr ""
+msgstr "Вы уверены?"
 
 msgid "Description"
 msgstr "Описание"
 
 msgid "Edit SMSC"
-msgstr ""
+msgstr "Редактирование SMSC"
 
 msgid "Fail to add new SMSC"
-msgstr ""
+msgstr "Не удалось добавить SMSC"
 
 msgid "Fail to edit SMSC"
-msgstr ""
+msgstr "Не удалось изменить SMSC"
 
 msgid "Fail to remove SMSC"
-msgstr ""
+msgstr "Не удалось удалить SMSC"
 
 msgid "Gateway"
-msgstr ""
+msgstr "Шлюз"
 
 msgid "Gateways"
-msgstr ""
+msgstr "Шлюзы"
 
-#, fuzzy
 msgid "List of gateways and SMSCs"
-msgstr "Управление шлюзами"
+msgstr "Список шлюзов и SMSC"
 
-#, fuzzy
 msgid "Manage gateway and SMSC"
-msgstr "Управление шлюзами"
+msgstr "Управление шлюзами и СМС-центрами"
 
 msgid "Name"
 msgstr "Имя"
 
 msgid "New SMSC has been added"
-msgstr ""
+msgstr "Новый SMSC добавлен"
 
 msgid "Routed SMSC"
-msgstr ""
+msgstr "Направить в SMSC"
 
 msgid "SMSC already exists"
-msgstr ""
+msgstr "SMSC уже существует"
 
 msgid "SMSC has been edited"
-msgstr ""
+msgstr "SMSC отредактирован"
 
 msgid "SMSC has been removed"
-msgstr ""
+msgstr "SMSC удалён"
 
 msgid "SMSC name"
-msgstr ""
+msgstr "Имя SMSC"
 
 msgid "SMSCs"
-msgstr ""
+msgstr "SMS центры"
 
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
 msgid "Supplied SMSC"
-msgstr ""
+msgstr "Данный SMSC"
 
 msgid "Unknown error"
-msgstr ""
+msgstr "Неизвестная ошибка"
+

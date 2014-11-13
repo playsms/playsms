@@ -4,83 +4,89 @@ msgstr ""
 "POT-Creation-Date: 2014-06-10 22:21+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.5.4\n"
 
 msgid "A valid keyword will be inserted and prefixed to the message"
-msgstr ""
+msgstr "Ключевое слово будет вставлено в начало сообщения"
 
 msgid "Copy the message to user inbox when incoming SMS contains @username"
-msgstr ""
+msgstr "Копировать сообщение во Входящие пользователя если СМС содержит @имяпользователя"
 
 msgid "Fail to insert keyword"
-msgstr ""
+msgstr "Не удалось вставить ключевое слово"
 
 msgid "Incoming SMS route changes has been saved"
-msgstr ""
+msgstr "Правила для входящих сообщений были сохранены"
 
 msgid "Insert keyword"
-msgstr ""
+msgstr "Вставить ключевое слово"
 
 msgid "Leave a copy in sandbox SMS page"
-msgstr ""
+msgstr "Оставлять копию в Необработанных сообщениях"
 
 msgid "Leaving a copy in sandbox SMS page may be useful for audit or reviews"
-msgstr ""
+msgstr "Оставлять копию в Необработанных сообщениях может быть полезно для ревизии или контроля"
 
 msgid "Match with all approved sender ID"
-msgstr ""
+msgstr "Проверять совпадение с проверенными именами отправителя"
 
 msgid "No route has been saved"
-msgstr ""
+msgstr "Правила не были сохранены"
 
 msgid "Post rules"
-msgstr ""
+msgstr "Постобработка"
 
 msgid "Pre rules"
-msgstr ""
+msgstr "Предобработка"
 
-msgid ""
-"Receiver number can be matched with default sender ID or with all approved "
-"sender ID"
-msgstr ""
+msgid "Receiver number can be matched with default sender ID or with all approved sender ID"
+msgstr "Номер получателя может проверяться с именем отправителя по умолчанию или со всеми проверенными именами отправителей пользователей"
 
 msgid "Route all sandbox SMS to keyword"
-msgstr ""
+msgstr "Перенаправлять все необработанные сообщения на ключевое слово"
 
 msgid "Route all sandbox SMS to users"
-msgstr ""
+msgstr "Перенаправлять все необработанные сообщения пользователям"
 
 msgid "Route all sandbox SMS with matched sender ID"
-msgstr ""
+msgstr "Перенаправлять все необработанные сообщения по имени отправителя"
 
 msgid "Route incoming SMS"
-msgstr ""
+msgstr "Маршрутизация входящих СМС"
 
 msgid "Route to user inbox if receiver number matched with user sender ID"
-msgstr ""
+msgstr "Перенаправлять во Входящие пользователя, если номер получателя совпадает с именем отправителя у пользователя"
 
 msgid "Rules applied after incoming SMS processed"
-msgstr ""
+msgstr "Правила, применяемые после обработки входящих сообщени"
 
 msgid "Rules applied before incoming SMS processed"
-msgstr ""
+msgstr "Правила, применяемые до обработки входящих сообщений"
 
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
 msgid "Scan incoming SMS for #groupcode"
-msgstr ""
+msgstr "Искать #кодгруппы во входящих СМС"
 
 msgid "Scan incoming SMS for @username"
-msgstr ""
+msgstr "Искать @имяпользователя во входящих СМС"
 
 msgid "Select users"
-msgstr ""
+msgstr "Выберите пользователей"
 
 msgid "Send SMS to groups with found group codes in the incoming SMS"
-msgstr ""
+msgstr "Пересылать СМС группам контактов с кодами, найденными во входящих СМС"
 
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 msgid "keyword"
-msgstr ""
+msgstr "ключевое слово"
+

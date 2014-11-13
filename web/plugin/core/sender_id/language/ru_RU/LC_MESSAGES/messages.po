@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -12,64 +12,65 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 msgid "Add sender ID"
-msgstr ""
+msgstr "Добавить имя отправителя"
 
 msgid "Approve sender ID"
-msgstr ""
+msgstr "Утвердить имя отправителя"
 
 msgid "Are you sure you want to delete sender ID"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить имя отправителя?"
 
 msgid "Click the status button to enable or disable status"
-msgstr ""
+msgstr "Нажмите для включения или отключения"
 
 msgid "Description"
 msgstr "Описание"
 
 msgid "Edit sender ID"
-msgstr ""
+msgstr "Редактировать имя отправителя"
 
 msgid "Fail to update due to invalid sender ID"
-msgstr ""
+msgstr "Не удалось обновить"
 
 msgid "Last update"
-msgstr ""
+msgstr "Последнее обновление"
 
 msgid "Manage sender ID"
-msgstr ""
+msgstr "Управление именами отправителей"
 
 msgid "Only when the sender ID is approved"
-msgstr ""
+msgstr "Только для утверждённых имён отправителей"
 
 msgid "Sender ID"
-msgstr ""
+msgstr "Имя отправителя"
 
 msgid "Sender ID description has been added"
-msgstr ""
+msgstr "Описание добавлено"
 
 msgid "Sender ID description has been updated"
-msgstr ""
+msgstr "Описание обновлено"
 
 msgid "Sender ID has been added and waiting for approval"
-msgstr ""
+msgstr "Имя отправителя добавлено и ожидает утверждения"
 
 msgid "Sender ID has been removed"
-msgstr ""
+msgstr "Имя отправителя удалено"
 
 msgid "Sender ID is not available"
-msgstr ""
+msgstr "Имя отправителя недоступно"
 
 msgid "Sender ID is now approved"
-msgstr ""
+msgstr "Имя отправителя утверждено"
 
 msgid "Sender ID is now disabled"
-msgstr ""
+msgstr "Имя отправителя отключено"
 
 msgid "Set as default"
-msgstr ""
+msgstr "Установить по умолчанию"
 
 msgid "User"
-msgstr ""
+msgstr "Пользователь"
 
 msgid "Username"
-msgstr ""
+msgstr "Имя пользователя"
+

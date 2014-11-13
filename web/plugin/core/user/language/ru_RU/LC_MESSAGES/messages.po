@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -13,401 +13,398 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 msgid "Account admin or currently logged in administrator cannot be banned"
-msgstr ""
+msgstr "Пользователь admin или вошедший в систему администратор не может быть заблокирован"
 
 msgid "Account admin or currently logged in administrator cannot be unbanned"
-msgstr ""
+msgstr "Пользователь admin или вошедший в систему администратор не может быть заблокирован"
 
 msgid "Account has been added and password has been emailed"
-msgstr ""
+msgstr "Пользователь добавлен, пароль отправлен по почте"
 
 msgid "Account has been added but failed to send email"
-msgstr ""
+msgstr "Пользователь добавлен, но письмо отправить не удалось"
 
 msgid "Account has been banned"
-msgstr ""
+msgstr "Пользователь заблокирован"
 
 msgid "Account has been removed"
-msgstr ""
+msgstr "Пользователь удалён"
 
 msgid "Account has been unbanned"
-msgstr ""
+msgstr "Пользователь разблокирован"
 
 msgid "Account name is mandatory"
-msgstr ""
+msgstr "Имя пользователя обязательно"
 
 msgid "Account registration is not available"
-msgstr ""
+msgstr "Регистрация не доступна"
 
 msgid "Account status"
-msgstr ""
+msgstr "Состояние пользователя"
 
 msgid "Action"
-msgstr ""
+msgstr "Действие"
 
 msgid "Active language"
-msgstr ""
+msgstr "Язык"
 
 msgid "Add account"
-msgstr ""
+msgstr "Добавить пользователя"
 
 msgid "Add or reduce credit from manage credit menu"
-msgstr ""
+msgstr "Добавьте или уменьшите средства на странице управления счетами"
 
 msgid "Add subuser"
-msgstr ""
+msgstr "Добавить дочернего пользователя"
 
 msgid "Address"
-msgstr ""
+msgstr "Адрес"
 
 msgid "Administrator"
-msgstr ""
+msgstr "Администратор"
 
 msgid "Administrators"
-msgstr ""
+msgstr "Администраторы"
 
 msgid "Always choose to send as unicode"
-msgstr ""
+msgstr "Всегда отправлять как Юникод"
 
 msgid "Application options"
-msgstr ""
+msgstr "Настройки приложения"
 
 msgid "Are you sure you want to ban account"
-msgstr ""
+msgstr "Вы уверены, что хотите заблокировать пользователя"
 
 msgid "Are you sure you want to ban subuser"
-msgstr ""
+msgstr "Вы уверены, что хотите заблокировать дочернего пользователя"
 
 msgid "Are you sure you want to delete subuser"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить дочернего пользователя"
 
 msgid "Are you sure you want to delete subuser ?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить дочернего пользователя?"
 
 msgid "Are you sure you want to delete user"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить пользователя"
 
 msgid "Are you sure you want to delete user ?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить пользователя?"
 
 msgid "Are you sure you want to unban account"
-msgstr ""
+msgstr "Вы уверены, что хотите разблокировать пользователя"
 
 msgid "Are you sure you want to unban subuser"
-msgstr ""
+msgstr "Вы уверены, что хотите разблокировать дочернего пользователя"
 
 msgid "Cannot change status when user have subusers"
-msgstr ""
+msgstr "Невозможно изменить состояние, когда у пользователя есть дочерние пользователи"
 
 msgid "City"
-msgstr ""
+msgstr "Город"
 
 msgid "Comma separated"
-msgstr ""
+msgstr "Разделённый запятыми"
 
 msgid "Country"
-msgstr ""
+msgstr "Страна"
 
 msgid "Credit"
-msgstr ""
+msgstr "Средства"
 
 msgid "Currently logged in user is immune to deletion"
-msgstr ""
+msgstr "Вошедшего в систему пользователя невозможно удалить"
 
 msgid "Default"
-msgstr ""
+msgstr "По умолчанию"
 
 msgid "Default message footer"
-msgstr ""
+msgstr "Подпись по умолчанию"
 
 msgid "Default sender ID"
-msgstr ""
+msgstr "Имя отправителя по умолчанию"
 
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
 msgid "Effective SMS sender ID"
-msgstr ""
+msgstr "Действующее имя отправителя"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Например, +0300 для Москвы"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "Email address is mandatory"
-msgstr ""
+msgstr "Email адрес обязателен"
 
 msgid "Enable webservices"
-msgstr ""
+msgstr "Включить webservices"
 
 msgid "Fail to register an account"
-msgstr ""
+msgstr "Не удалось зарегистрировать пользователя"
 
 msgid "Fail to save configuration"
-msgstr ""
+msgstr "Не удалось сохранить конфигурацию"
 
 msgid "Fail to save preferences"
-msgstr ""
+msgstr "Не удалось сохранить настройки"
 
 msgid "Forward message to email"
-msgstr ""
+msgstr "Отправлять принятые на email"
 
 msgid "Forward message to inbox"
-msgstr ""
+msgstr "Отправлять принятые во Входящие"
 
 msgid "Forward message to mobile"
-msgstr ""
+msgstr "Отправлять принятые на мобильный"
 
 msgid "Invalid sender ID"
-msgstr ""
+msgstr "Неправильное имя отправителя"
 
 msgid "List of administrators"
-msgstr ""
+msgstr "Список администраторов"
 
 msgid "List of subusers"
-msgstr ""
+msgstr "Список дочерних пользователей"
 
 msgid "List of users"
-msgstr ""
+msgstr "Список пользователей"
 
 msgid "Local number length"
-msgstr ""
+msgstr "Длина местного номера"
 
 msgid "Login information"
-msgstr ""
+msgstr "Регистрационная информация"
 
 msgid "Manage account"
-msgstr ""
+msgstr "Управление пользователями"
 
 msgid "Manage subuser"
-msgstr ""
+msgstr "Управление дочерними пользователями"
 
 msgid "Max. 16 numeric or 11 alphanumeric characters"
-msgstr ""
+msgstr "Макс. 16 цифр или 11 символов"
 
 msgid "Max. 30 alphanumeric characters"
-msgstr ""
+msgstr "Макс. 30 символов"
 
 msgid "Min length to detect missing country code"
-msgstr ""
+msgstr "Мин. длина для определения отсутствующего кода страны"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Мобильный"
 
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 msgid "New account registration"
-msgstr ""
+msgstr "Регистрация нового пользователя"
 
 msgid "No changes made"
-msgstr ""
+msgstr "Нет изменений"
 
 msgid "Parent"
-msgstr ""
+msgstr "Родительский"
 
 msgid "Parent account"
-msgstr ""
+msgstr "Родительский пользователь"
 
-msgid ""
-"Parent account is mandatory for subusers only. If no value is given then the "
-"subuser will be automatically assigned to user admin"
-msgstr ""
+msgid "Parent account is mandatory for subusers only. If no value is given then the subuser will be automatically assigned to user admin"
+msgstr "Родительский пользователь необходим только для дочерних пользователей. Если пусто, дочерний пользователь автоматически назначается пользователю admin"
 
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 msgid "Password does not match"
-msgstr ""
+msgstr "Пароли не совпадают"
 
 msgid "Password should be at least 4 characters"
-msgstr ""
+msgstr "Минимальная длина пароля 4 знака"
 
 msgid "Personal information"
-msgstr ""
+msgstr "Персональная информация"
 
 msgid "Please remove all subusers from this user to delete"
-msgstr ""
+msgstr "Пожалуйста, снимите всех дочерних пользователей с этого пользователя, чтобы удалить"
 
 msgid "Please select"
-msgstr ""
+msgstr "Выберите"
 
 msgid "Preferences"
-msgstr ""
+msgstr "Профиль"
 
 msgid "Preferences has been saved"
-msgstr ""
+msgstr "Профиль сохранён"
 
 msgid "Preferences has been saved and password updated"
-msgstr ""
+msgstr "Профиль сохранён, пароль изменён"
 
 msgid "Preferences has been saved and webservices token updated"
-msgstr ""
+msgstr "Профиль сохранён, токен для webservices изменён"
 
 msgid "Prefix or country code"
-msgstr ""
+msgstr "Префикс или код страны"
 
 msgid "Re-type password"
-msgstr ""
+msgstr "Повторите пароль"
 
 msgid "Registered"
-msgstr ""
+msgstr "Зарегистрирован"
 
 msgid "Renew webservices token"
-msgstr ""
+msgstr "Обновить токен для webservices"
 
 msgid "Replace prefix 0 or padding local numbers"
-msgstr ""
+msgstr "Заменяет префикс 0 или добавляется к локальным номерам"
 
 msgid "SMS footer"
-msgstr ""
+msgstr "Подпись сообщения"
 
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
 msgid "Select default sender ID"
-msgstr ""
+msgstr "Выберите имя отправителя по умолчанию"
 
 msgid "Select parent account for subuser"
-msgstr ""
+msgstr "выберите родительского пользователя для дочернего"
 
 msgid "State or Province"
-msgstr ""
+msgstr "Область или Штат"
 
 msgid "Subuser"
-msgstr ""
+msgstr "Дочерний пользователь"
 
 msgid "Subusers"
-msgstr ""
+msgstr "Дочерние пользователи"
 
 msgid "Timezone"
-msgstr ""
+msgstr "Часовой пояс"
 
 msgid "Unable to ban account"
-msgstr ""
+msgstr "Невозможно заблокировать пользователя"
 
 msgid "Unable to ban subuser"
-msgstr ""
+msgstr "Невозможно разблокировать пользователя"
 
 msgid "Unable to delete other users"
-msgstr ""
+msgstr "Невозможно удалить других пользователей"
 
-msgid ""
-"Unable to delete this user until all subusers under this user have been "
-"removed"
-msgstr ""
+msgid "Unable to delete this user until all subusers under this user have been removed"
+msgstr "Невозможно удалить этого пользователя пока у него есть дочерние пользователи"
 
 msgid "Unable to process subuser addition"
-msgstr ""
+msgstr "Невозможно произвести добавление дочернего пользователя"
 
 msgid "Unable to process user addition"
-msgstr ""
+msgstr "Невозможно произвести добавление пользователя"
 
 msgid "Unable to unban account"
-msgstr ""
+msgstr "Невозможно разблокировать пользователя"
 
 msgid "Unable to unban subuser"
-msgstr ""
+msgstr "Невозможно разблокировать дочернего пользователя"
 
 msgid "Unknown error"
-msgstr ""
+msgstr "Неизвестная ошибка"
 
 msgid "Unknown error has occurred"
-msgstr ""
+msgstr "Произошла неизвестная ошибка"
 
 msgid "User"
-msgstr ""
+msgstr "Пользователь"
 
 msgid "User already exists"
-msgstr ""
+msgstr "Пользователь уже существует"
 
 msgid "User configuration"
-msgstr ""
+msgstr "Пользовательские настройки"
 
 msgid "User configuration has been saved"
-msgstr ""
+msgstr "Пользовательские настройки сохранены"
 
 msgid "User configuration has been saved and webservices token updated"
-msgstr ""
+msgstr "Пользовательские настройки сохранены, токен для webservices изменён"
 
 msgid "User deletion unavailable"
-msgstr ""
+msgstr "Удаление пользователей недоступно"
 
 msgid "User does not exist"
-msgstr ""
+msgstr "Пользователь не существует"
 
 msgid "User is already on banned subusers list"
-msgstr ""
+msgstr "Дочерний пользователь уже заблокирован"
 
 msgid "User is already on banned users list"
-msgstr ""
+msgstr "Пользователь уже заблокирован"
 
 msgid "User is immune to deletion"
-msgstr ""
+msgstr "Пользователь застрахован от удаления"
 
 msgid "User is not on banned subusers list"
-msgstr ""
+msgstr "Дочерний пользователь не заблокирован"
 
 msgid "User is not on banned users list"
-msgstr ""
+msgstr "Пользователь не заблокирован"
 
 msgid "User with this email already exists"
-msgstr ""
+msgstr "Пользователь с таким email уже существует"
 
 msgid "User with this mobile already exists"
-msgstr ""
+msgstr "Мользователь с таким номером телефона уже существует"
 
 msgid "Username"
-msgstr ""
+msgstr "Имя пользователя"
 
 msgid "Username should be at least 3 characters"
-msgstr ""
+msgstr "Минимальная длина имени 3 знака"
 
 msgid "Users"
-msgstr ""
+msgstr "Пользователи"
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
-msgstr ""
+msgstr "Имя может состоять из букв, цифр, точек и тире"
 
 msgid "Webservices IP range"
-msgstr ""
+msgstr "Диапазон IP для webservices"
 
 msgid "Webservices token"
-msgstr ""
+msgstr "Токен для webservices"
 
 msgid "Webservices username"
-msgstr ""
+msgstr "Имя пользователя для webservices"
 
 msgid "You must fill all mandatory fields"
-msgstr ""
+msgstr "Необходимо заполнить все обязательные поля"
 
 msgid "You must fill all required fields"
-msgstr ""
+msgstr "Необходимо заполнить все требуемые поля"
 
 msgid "Your email format is invalid"
-msgstr ""
+msgstr "Неправильный формат email адреса"
 
 msgid "Your mobile format is invalid"
-msgstr ""
+msgstr "Неправильный формат номера телефона"
 
 msgid "Zipcode"
-msgstr ""
+msgstr "Индекс"
 
 msgid "email"
-msgstr ""
+msgstr "email"
 
 msgid "for subuser only"
-msgstr ""
+msgstr "только для дочерних пользователей"
 
 msgid "mobile"
-msgstr ""
+msgstr "мобильный"
 
 msgid "no"
-msgstr ""
+msgstr "нет"
 
 msgid "username"
-msgstr ""
+msgstr "имя пользователя"
 
 msgid "yes"
-msgstr ""
+msgstr "да"
+

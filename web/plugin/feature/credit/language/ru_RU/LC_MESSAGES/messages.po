@@ -2,96 +2,104 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
 
 msgid "Add credit"
-msgstr ""
+msgstr "Добавить средства"
 
 msgid "Add credit to users"
-msgstr ""
+msgstr "Добавление средств пользователям"
 
 msgid "Administrator"
-msgstr ""
+msgstr "Администратор"
 
 msgid "Administrators"
-msgstr ""
+msgstr "Администраторы"
 
 msgid "Amount"
-msgstr ""
+msgstr "Сумма"
 
 msgid "Are you sure you want to delete these transactions ?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить записи об этих транзакциях?"
 
 msgid "Balance"
-msgstr ""
+msgstr "Баланс"
 
 msgid "Balance recorded on transaction"
-msgstr ""
+msgstr "Баланс после транзакции"
 
 msgid "Credit has been added"
-msgstr ""
+msgstr "Средства добавлены"
 
 msgid "Credit has been reduced"
-msgstr ""
+msgstr "Средства уменьшены"
 
 msgid "Fail to add credit"
-msgstr ""
+msgstr "Не удалось добавить средства"
 
 msgid "Fail to reduce credit"
-msgstr ""
+msgstr "Не удалось уменьшить средства"
 
 msgid "List of transactions"
-msgstr ""
+msgstr "Список транзакций"
 
 msgid "Manage credit"
-msgstr ""
+msgstr "Управление счетами"
 
 msgid "Reduce credit"
-msgstr ""
+msgstr "Уменьшить средства"
 
 msgid "Reduce credit from users"
-msgstr ""
+msgstr "Уменьшение средств пользователям"
 
 msgid "Select users"
-msgstr ""
+msgstr "Выберите пользователей"
 
 msgid "Selected transactions has been deleted"
-msgstr ""
+msgstr "Выбранные транзакции были удалены"
 
 msgid "Subuser"
-msgstr ""
+msgstr "Дочерний пользователь"
 
 msgid "Subusers"
-msgstr ""
+msgstr "Дочерние пользователи"
 
 msgid "Transaction datetime"
-msgstr ""
+msgstr "Время транзакции"
 
 msgid "User"
-msgstr ""
+msgstr "Пользователь"
 
 msgid "User ID"
-msgstr ""
+msgstr "ID пользователя"
 
 msgid "Username"
-msgstr ""
+msgstr "Имя пользователя"
 
 msgid "Users"
-msgstr ""
+msgstr "Пользователи"
 
 msgid "Wrong amount or user does not exist"
-msgstr ""
+msgstr "Неправильная сумма или пользователь не существует"
 
 msgid "amount"
-msgstr ""
+msgstr "сумма"
 
 msgid "balance"
-msgstr ""
+msgstr "баланс"
 
 msgid "index.php?app=main&inc=feature_credit&op=actions&go=add"
-msgstr ""
+msgstr "index.php?app=main&inc=feature_credit&op=actions&go=add"
 
 msgid "index.php?app=main&inc=feature_credit&op=actions&go=reduce"
-msgstr ""
+msgstr "index.php?app=main&inc=feature_credit&op=actions&go=reduce"
 
 msgid "user"
-msgstr ""
+msgstr "пользователь"
+

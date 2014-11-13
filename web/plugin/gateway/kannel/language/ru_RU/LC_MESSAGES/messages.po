@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -18,9 +18,8 @@ msgstr "Дополнительный параметр URL"
 msgid "Bearerbox hostname or IP"
 msgstr "IP адрес или имя сервера bearerbox"
 
-#, fuzzy
 msgid "Changes have been made"
-msgstr "Нет изменений"
+msgstr "Изменения сохранены"
 
 msgid "Delivered to SMSC"
 msgstr "Доставлено на SMSC"
@@ -32,7 +31,7 @@ msgid "Delivery Report"
 msgstr "Отчёты о доставке"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Например, +0400 для Москвы"
+msgstr "Например, +0300 для Москвы"
 
 msgid "Fill to change the password"
 msgstr "Заполните для изменения пароля"
@@ -40,9 +39,8 @@ msgstr "Заполните для изменения пароля"
 msgid "Gateway name"
 msgstr "Название шлюза"
 
-#, fuzzy
 msgid "HTTP Kannel admin host"
-msgstr "Порт для администрирования Kannel"
+msgstr "HTTP сервер администрирования Kannel"
 
 msgid "HTTP Kannel admin password"
 msgstr "Пароль администратора Kannel"
@@ -51,11 +49,10 @@ msgid "HTTP Kannel admin port"
 msgstr "Порт для администрирования Kannel"
 
 msgid "Incoming SMS time is in local time"
-msgstr ""
+msgstr "Входящие СМС по местному времени"
 
-#, fuzzy
 msgid "Kannel admin host"
-msgstr "Порт для администрирования Kannel"
+msgstr "Cервер администрирования Kannel"
 
 msgid "Kannel admin password"
 msgstr "Пароль администратора Kannel"
@@ -82,7 +79,7 @@ msgid "Module timezone"
 msgstr "часовой пояс"
 
 msgid "No"
-msgstr ""
+msgstr "Нет"
 
 msgid "Non-Delivered to SMSC"
 msgstr "Не доставлено на SMSC"
@@ -103,7 +100,7 @@ msgid "Save"
 msgstr "Сохранить"
 
 msgid "Select no if the incoming SMS time is in UTC"
-msgstr ""
+msgstr "Нет если время входящих СМС по гринвичу"
 
 msgid "Send SMS hostname or IP"
 msgstr "IP адрес или имя сервера sendsms"
@@ -121,7 +118,8 @@ msgid "Username"
 msgstr "Имя пользователя"
 
 msgid "Yes"
-msgstr ""
+msgstr "Да"
 
 msgid "playSMS web URL"
 msgstr "URL playSMS сервера"
+
