@@ -59,7 +59,7 @@ function msgtoolbox_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_
 		logger_print($url, 3, "msgtoolbox outgoing");
 		$fd = @implode('', file($url));
 		if ($fd) {
-			$response = split(",", $fd);
+			$response = explode(",", $fd);
 			if (trim($response[0]) == "1") {
 				$remote_smslog_id = trim($response[1]);
 				if ($remote_smslog_id) {

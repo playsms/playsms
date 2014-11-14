@@ -164,7 +164,7 @@ function infobip_getsmsstatus($smslog_id) {
 			$fd = @implode('', file($url));
 			logger_print("fd: " . $fd, 3, "infobip debug");
 			if ($fd != "NO_DATA") {
-				// $response = split (" ", $fd);
+				// $response = explode(" ", $fd);
 				// $err_code = trim ($response[1]);
 				$credit = 0;
 				// if ((strtoupper(trim($response[2])) == "CHARGE:")) {

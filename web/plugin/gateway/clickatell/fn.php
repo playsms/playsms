@@ -104,7 +104,7 @@ function clickatell_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_
 	// failed
 	$p_status = 2;
 	if ($fd) {
-		$response = split(":", $fd);
+		$response = explode(":", $fd);
 		$err_code = trim($response[1]);
 		if ((strtoupper($response[0]) == "ID")) {
 			if ($apimsgid = trim($response[1])) {
@@ -145,7 +145,7 @@ function clickatell_getsmsstatus($smslog_id) {
 		logger_print("smslog_id:" . $smslog_id . " apimsgid:" . $apimsgid . " url:" . $url, 3, "clickatell getsmsstatus");
 		$fd = @implode('', file($url));
 		if ($fd) {
-			$response = split(" ", $fd);
+			$response = explode(" ", $fd);
 			$err_code = trim($response[1]);
 			$credit = 0;
 			if ((strtoupper(trim($response[2])) == "CHARGE:")) {
