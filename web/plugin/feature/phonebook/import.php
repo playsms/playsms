@@ -112,7 +112,7 @@ switch (_OP_) {
 			if ($group_code = trim($d[3])) {
 				$gpid = phonebook_groupcode2id($uid, $group_code);
 			}
-			if ($name && $mobile && $gpid) {
+			if ($name && $mobile) {
 				$list = dba_search(_DB_PREF_ . '_featurePhonebook', 'id', array(
 					'uid' => $uid,
 					'mobile' => $mobile
@@ -129,10 +129,10 @@ switch (_OP_) {
 					if ($c_pid = dba_add(_DB_PREF_ . '_featurePhonebook', $items)) {
 						$save_to_group = TRUE;
 					} else {
-						logger_print('fail to add contact gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
+						logger_print('fail to add contact pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
 					}
 				}
-				if ($save_to_group) {
+				if ($save_to_group && $gpid) {
 					$items = array(
 						'gpid' => $gpid,
 						'pid' => $c_pid
