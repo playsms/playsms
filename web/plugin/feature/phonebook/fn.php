@@ -76,9 +76,9 @@ function phonebook_hook_phonebook_number2name($mobile, $c_username = '') {
 		}
 		$db_query = "
 			SELECT A.name AS name FROM " . _DB_PREF_ . "_featurePhonebook AS A
-			INNER JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON A.uid=B.uid
-			INNER JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid
-			WHERE A.mobile LIKE '%" . $mobile . "' AND B.uid='$uid'";
+			LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid
+			LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON B.id=C.gpid
+			WHERE ( A.mobile LIKE '%" . $mobile . "' AND A.uid='$uid' ) OR ( A.mobile LIKE '%" . $mobile . "' AND A.uid<>'$uid' AND B.flag_sender<>'0' ) LIMIT 1";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$name = $db_row['name'];
@@ -117,11 +117,11 @@ function phonebook_hook_phonebook_getdatabyid($gpid, $orderby = "") {
 function phonebook_hook_phonebook_getdatabyuid($uid, $orderby = "") {
 	$ret = array();
 	$db_query = "
-		SELECT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email
+		SELECT DISTINCT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email
 		FROM " . _DB_PREF_ . "_featurePhonebook AS A
-		INNER JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON A.uid=B.uid
-		INNER JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid
-		WHERE B.uid='$uid'";
+		LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON A.uid=B.uid
+		LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid
+		WHERE A.uid='$uid'";
 	if ($orderby) {
 		$db_query .= " ORDER BY " . $orderby;
 	}
@@ -159,10 +159,10 @@ function phonebook_hook_phonebook_search($uid, $keyword = "", $count = 0) {
 	$ret = array();
 	if ($keyword) {
 		$fields = 'DISTINCT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email';
-		$join = "INNER JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON A.uid=B.uid ";
-		$join .= "INNER JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid";
+		$join = "LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid ";
+		$join .= "LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON B.id=C.gpid";
 		$conditions = array(
-			'A.uid' => $uid 
+			'( A.uid' => $uid."' OR B.flag_sender<>'0' ) AND '1'='1" 
 		);
 		$keywords = array(
 			'A.name' => '%' . $keyword . '%',
@@ -181,9 +181,9 @@ function phonebook_hook_phonebook_search($uid, $keyword = "", $count = 0) {
 
 function phonebook_hook_phonebook_search_group($uid, $keyword = "", $count = 0) {
 	$ret = array();
-	$fields = 'id AS gpid, name AS group_name, code, flag_sender';
+	$fields = 'DISTINCT id AS gpid, name AS group_name, code, flag_sender';
 	$conditions = array(
-		'uid' => $uid 
+		'( uid' => $uid."' OR flag_sender<>'0' ) AND '1'='1" 
 	);
 	if ($keyword) {
 		$keywords = array(
