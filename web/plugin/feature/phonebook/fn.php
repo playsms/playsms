@@ -181,9 +181,9 @@ function phonebook_hook_phonebook_search($uid, $keyword = "", $count = 0) {
 
 function phonebook_hook_phonebook_search_group($uid, $keyword = "", $count = 0) {
 	$ret = array();
-	$fields = 'id AS gpid, name AS group_name, code, flag_sender';
+	$fields = 'DISTINCT id AS gpid, name AS group_name, code, flag_sender';
 	$conditions = array(
-		'uid' => $uid 
+		'( uid' => $uid."' OR flag_sender<>'0' ) AND '1'='1" 
 	);
 	if ($keyword) {
 		$keywords = array(
