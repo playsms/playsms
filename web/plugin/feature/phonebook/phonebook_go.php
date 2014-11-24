@@ -42,7 +42,7 @@ if ($gpid && (dba_valid(_DB_PREF_ . '_featurePhonebook_group', 'id', $gpid))) {
 	foreach ($items as $item ) {
 		if (dba_remove(_DB_PREF_ . '_featurePhonebook_group_contacts', array(
 			'pid' => $item 
-		))) {
+		)) or !dba_valid(_DB_PREF_ . '_featurePhonebook_group_contacts', 'pid', $item )) {
 			$data = array(
 				'pid' => $item,
 				'gpid' => $gpid 

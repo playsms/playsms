@@ -20,7 +20,12 @@ switch (_OP_) {
 		$join = 'LEFT JOIN ' . _DB_PREF_ . '_featurePhonebook_group_contacts AS C ON A.id=C.pid ';
 		$join .= 'LEFT JOIN ' . _DB_PREF_ . '_featurePhonebook_group AS B ON B.id=C.gpid';
 		$conditions = array(
-			'( A.uid' => $user_config['uid']."' OR B.flag_sender<>'0' ) AND '1'='1"
+			'( A.uid' => $user_config['uid'] . "' OR B.id in (
+									SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
+									" . $join . "
+									WHERE A.mobile='" . $user_config['mobile'] . "'
+									AND B.flag_sender='1'
+									) OR ( A.uid <>'" . $user_config['uid'] . "' AND B.flag_sender>'1' ) ) AND '1'='1"
 		);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_featurePhonebook AS A', $conditions, $keywords, '', $join);
@@ -32,9 +37,9 @@ switch (_OP_) {
 		);
 		$list = dba_search(_DB_PREF_ . '_featurePhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
 		
-		$phonebook_groups = phonebook_search_group($user_config['uid']);
+		$phonebook_groups = phonebook_getgroupbyuid($user_config['uid']);
 		foreach ($phonebook_groups as $group ) {
-			$action_move_options .= '<option value=move_' . $group['gpid'] . '>' . _('Move to') . ' ' . $group['group_name'] . ' (' . $group['code'] . ')</option>';
+			$action_move_options .= '<option value=move_' . $group['gpid'] . '>' . _('Move to') . ' ' . $group['gp_name'] . ' (' . $group['gp_code'] . ')</option>';
 		}
 		
 		$content = "
@@ -90,8 +95,13 @@ switch (_OP_) {
 			$group_code = "";
 			$groupfields = 'B.id AS id, B.uid AS uid, B.code AS code, B.flag_sender AS flag_sender';
 			$groupconditions = array(
-				'B.uid' => $user_config['uid'],
-				'C.pid' => $list[$j]['pid']."' OR ( B.uid<>'".$user_config['uid']."' AND C.pid='".$list[$j]['pid']."' AND B.flag_sender<>'0' ) AND '1'='1" 
+				'C.pid' => $list[$j]['pid'],
+				'( B.uid' => $user_config['uid'] . "' OR B.id in (
+										SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
+										" . $join . "
+										WHERE A.mobile='" . $user_config['mobile'] . "'
+										AND B.flag_sender='1'
+										) OR ( B.uid<>'" . $user_config['uid'] . "' AND B.flag_sender>'1' ) ) AND '1'='1" 
 			);
 			$groupextras = array(
 				'ORDER BY' => 'B.code ASC',
@@ -217,7 +227,12 @@ switch (_OP_) {
 				$join = 'LEFT JOIN ' . _DB_PREF_ . '_featurePhonebook_group_contacts AS C ON A.id = C.pid ';
 				$join .= 'LEFT JOIN ' . _DB_PREF_ . '_featurePhonebook_group AS B ON B.id = C.gpid';
 				$conditions = array(
-					'( A.uid' => $user_config['uid']."' OR B.flag_sender<>'0' ) AND '1'='1"
+					'( A.uid' => $user_config['uid'] . "' OR B.id in (
+											SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
+											" . $join . "
+											WHERE A.mobile='" . $user_config['mobile'] . "'
+											AND B.flag_sender='1'
+											) OR ( A.uid <>'" . $user_config['uid'] . "' AND B.flag_sender>'1' ) ) AND '1'='1"
 				);
 				$keywords = $search['dba_keywords'];
 				$extras = array(
