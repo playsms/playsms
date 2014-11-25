@@ -286,6 +286,7 @@ Optional   | `format` `data_parent` `data_mobile` `data_datetime_timezone` `data
 Returns    | return codes and info
 
 Notes:
+* most mandatory and optional query parameters are prefixed with `data_`
 * data_status 2 is for admin level account
 * data_status 3 is for user level account
 * data_status 4 is for subuser level account
@@ -364,7 +365,8 @@ Optional   | `format` `data_name` `data_email` `data_mobile` `data_address` `dat
 Returns    | return codes and info
 
 Notes:
-* This command may be used to update account's password
+* most mandatory and optional query parameters are prefixed with `data_`
+* this command may be used to update account's password
 
 
 ### Update account configuration
@@ -375,15 +377,16 @@ Parameters | Name or description
 ---------- | --------------------
 Operation  | `accountconf`
 Mandatory  | `u` `h` `data_username`
-Optional   | `format` `data_footer` `datetime_timezone` `language_module` `fwd_to_inbox` `fwd_to_email` `fwd_to_mobile` `local_length` `replace_zero` `sender` 
+Optional   | `format` `data_footer` `datetime_timezone` `data_language_module` `data_fwd_to_inbox` `data_fwd_to_email` `data_fwd_to_mobile` `data_local_length` `data_replace_zero` `data_sender` 
 Returns    | return codes and info
 
 Notes:
-* This command may be used to update account's default sender ID
-* Only valid sender ID may be selected
-* `fwd_to_inbox` `fwd_to_email` `fwd_to_mobile` are boolean variables, fill with 0 to disable and 1 to enable
-* `local_length` used to detect local destination number by its length
-* `replace_zero` is a numeric only prefix number to replace prefix 0
+* most mandatory and optional query parameters are prefixed with `data_`
+* this command may be used to update account's default sender ID
+* only valid sender ID may be selected
+* `data_fwd_to_inbox` `data_fwd_to_email` `data_fwd_to_mobile` are boolean variables, fill with 0 to disable and 1 to enable
+* `data_local_length` used to detect local destination number by its length
+* `data_replace_zero` is a numeric only prefix number to replace prefix 0
 
 
 ### View account credit
