@@ -119,8 +119,8 @@ switch (_OP_) {
 					<td><input type=text name=group_code size=10> " . _hint(_('Group code may be used to broadcast SMS to this group') . ". " . _('Please use alphanumeric only and make it short')) . "</td>
 				</tr>
 				<tr>
-					<td>" . _('Allow broadcast from mobile') . "</td>
-					<td><select name=flag_sender>" . $option_flag_sender . "</select> " . _hint(_('Set permission for broadcasting SMS to this group from mobile phone')) . "</td>
+					<td>" . _('Share phonebook and allow broadcast') . "</td>
+					<td><select name=flag_sender>" . $option_flag_sender . "</select> " . _hint(_('Share this phonebook group and set permission for broadcasting SMS to this group from mobile phone')) . "</td>
 				</tr>
 			</tbody>
 			</table>
