@@ -58,15 +58,18 @@ if (($ops[0] == 'move') && $ops[1]) {
 
 if ($gpid && (dba_valid(_DB_PREF_ . '_featurePhonebook_group', 'id', $gpid))) {
 	foreach ($items as $item) {
-		if (dba_remove(_DB_PREF_ . '_featurePhonebook_group_contacts', array(
-			'pid' => $item 
-		)) or !dba_valid(_DB_PREF_ . '_featurePhonebook_group_contacts', 'pid', $item)) {
-			$data = array(
-				'pid' => $item,
-				'gpid' => $gpid 
-			);
-			if (dba_add(_DB_PREF_ . '_featurePhonebook_group_contacts', $data)) {
-				$_SESSION['error_string'] = _('Selected contact moved to new group');
+		if (dba_valid(_DB_PREF_ . '_featurePhonebook', 'id', $item)) {
+			if (dba_remove(_DB_PREF_ . '_featurePhonebook_group_contacts', array(
+				'pid' => $item 
+			)) or dba_isavail(_DB_PREF_ . '_featurePhonebook_group_contacts', array(
+				'pid' => $item ))) {
+				$data = array(
+					'pid' => $item,
+					'gpid' => $gpid 
+				);
+				if (dba_add(_DB_PREF_ . '_featurePhonebook_group_contacts', $data)) {
+					$_SESSION['error_string'] = _('Selected contact moved to new group');
+				}
 			}
 		}
 	}
