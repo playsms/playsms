@@ -14,9 +14,6 @@ msgstr "Kontakt hinzufügen"
 msgid "Add group"
 msgstr "Gruppe hinzufügen"
 
-msgid "Allow broadcast from mobile"
-msgstr "Erlaube Sammel-SMS aus einfacher SMS"
-
 msgid "Anyone"
 msgstr "Jeder"
 

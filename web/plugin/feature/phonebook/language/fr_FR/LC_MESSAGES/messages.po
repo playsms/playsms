@@ -14,9 +14,6 @@ msgstr "Ajouter contact"
 msgid "Add group"
 msgstr "Ajouter groupe"
 
-msgid "Allow broadcast from mobile"
-msgstr "Autoriser broadcast depuis mobile"
-
 msgid "Anyone"
 msgstr "Tous"
 

@@ -14,10 +14,6 @@ msgstr "Adicionar contato"
 msgid "Add group"
 msgstr "Adicionar grupo"
 
-#, fuzzy
-msgid "Allow broadcast from mobile"
-msgstr "distribuir SMS de outro SMS"
-
 msgid "Anyone"
 msgstr ""
 

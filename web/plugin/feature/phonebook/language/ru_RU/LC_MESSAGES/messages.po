@@ -20,9 +20,6 @@ msgstr "Добавить контакт"
 msgid "Add group"
 msgstr "Добавить групу"
 
-msgid "Allow broadcast from mobile"
-msgstr "Рассылка с мобильного"
-
 msgid "Anyone"
 msgstr "Кому угодно"
 

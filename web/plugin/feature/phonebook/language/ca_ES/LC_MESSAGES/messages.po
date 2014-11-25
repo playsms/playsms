@@ -23,9 +23,6 @@ msgstr "Afegir contacte"
 msgid "Add group"
 msgstr "Afegir grup"
 
-msgid "Allow broadcast from mobile"
-msgstr "Permetre difusió des de mòbil"
-
 msgid "Anyone"
 msgstr "Qualsevol"
 

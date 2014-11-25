@@ -155,8 +155,8 @@ switch (_OP_) {
 				<td><input type=text name=group_code value=\"" . phonebook_groupid2code($gpid) . "\" size=10> " . _hint(_('please use uppercase and make it short')) . "</td>
 			</tr>
 			<tr>
-				<td>" . _('Allow broadcast from mobile') . "</td>
-				<td><select name=flag_sender>" . $option_flag_sender . "</select></td>
+				<td>" . _('Share phonebook and allow broadcast') . "</td>
+				<td><select name=flag_sender>" . $option_flag_sender . "</select> " . _hint(_('Share this phonebook group and set permission for broadcasting SMS to this group from mobile phone')) . "</td>
 			</tr>
 			</tbody>
 			</table>

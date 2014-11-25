@@ -14,9 +14,6 @@ msgstr ""
 msgid "Add group"
 msgstr ""
 
-msgid "Allow broadcast from mobile"
-msgstr ""
-
 msgid "Anyone"
 msgstr ""
 
