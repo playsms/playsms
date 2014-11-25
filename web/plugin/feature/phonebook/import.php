@@ -1,5 +1,23 @@
 <?php
+
+/**
+ * This file is part of playSMS.
+ *
+ * playSMS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * playSMS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
+ */
 defined('_SECURE_') or die('Forbidden');
+
 if (!auth_isvalid()) {
 	auth_block();
 }
@@ -7,7 +25,7 @@ if (!auth_isvalid()) {
 $uid = $user_config['uid'];
 
 switch (_OP_) {
-	case "list" :
+	case "list":
 		$content .= "
 			<h2>" . _('Phonebook') . "</h2>
 			<h3>" . _('Import') . "</h3>
@@ -32,7 +50,7 @@ switch (_OP_) {
 		}
 		_p($content);
 		break;
-	case "import" :
+	case "import":
 		$fnpb = $_FILES['fnpb'];
 		$fnpb_tmpname = $_FILES['fnpb']['tmp_name'];
 		$content = "
@@ -63,7 +81,7 @@ switch (_OP_) {
 					$i++;
 				}
 				$i = 0;
-				foreach ($contacts as $contact ) {
+				foreach ($contacts as $contact) {
 					$c_gid = phonebook_groupcode2id($uid, $contact[3]);
 					if ($contact[0] && $contact[1] && $c_gid) {
 						$i++;
@@ -99,13 +117,13 @@ switch (_OP_) {
 			exit();
 		}
 		break;
-	case "import_yes" :
+	case "import_yes":
 		set_time_limit(600);
 		$num = $_POST['number_of_row'];
 		$session_import = $_POST['session_import'];
 		$data = $_SESSION['tmp'][$session_import];
 		// $i = 0;
-		foreach ($data as $d ) {
+		foreach ($data as $d) {
 			$name = trim($d[0]);
 			$mobile = trim($d[1]);
 			$email = trim($d[2]);
@@ -115,7 +133,7 @@ switch (_OP_) {
 			if ($name && $mobile) {
 				$list = dba_search(_DB_PREF_ . '_featurePhonebook', 'id', array(
 					'uid' => $uid,
-					'mobile' => $mobile
+					'mobile' => $mobile 
 				));
 				if ($c_pid = $list[0]['id']) {
 					$save_to_group = TRUE;
@@ -124,7 +142,7 @@ switch (_OP_) {
 						'uid' => $uid,
 						'name' => $name,
 						'mobile' => $mobile,
-						'email' => $email
+						'email' => $email 
 					);
 					if ($c_pid = dba_add(_DB_PREF_ . '_featurePhonebook', $items)) {
 						$save_to_group = TRUE;
@@ -135,7 +153,7 @@ switch (_OP_) {
 				if ($save_to_group && $gpid) {
 					$items = array(
 						'gpid' => $gpid,
-						'pid' => $c_pid
+						'pid' => $c_pid 
 					);
 					if (dba_isavail(_DB_PREF_ . '_featurePhonebook_group_contacts', $items, 'AND')) {
 						if (dba_add(_DB_PREF_ . '_featurePhonebook_group_contacts', $items)) {
