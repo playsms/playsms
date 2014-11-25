@@ -502,6 +502,31 @@ if (_OP_) {
 			$log_this = TRUE;
 			break;
 		
+		case "WS_LOGIN":
+			if ($u = webservices_validate($h, $u)) {
+				$user = user_getdatabyusername($u);
+				if ($c_uid = $user['uid']) {
+					
+					// setup login session
+					auth_session_setup($c_uid);
+					
+					// log it
+					_log("webservices login u:" . $u . " ip:" . $_SERVER['REMOTE_ADDR'] . " op:" . _OP_, 3, "webservices");
+					
+					// redirect to index.php
+					header('Location: index.php');
+					exit();
+				} else {
+					$json['status'] = 'ERR';
+					$json['error'] = '100';
+				}
+			} else {
+				$json['status'] = 'ERR';
+				$json['error'] = '100';
+			}
+			$log_this = TRUE;
+			break;
+		
 		default :
 			if (_OP_) {
 				
