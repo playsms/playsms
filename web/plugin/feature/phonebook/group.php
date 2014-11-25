@@ -238,7 +238,7 @@ switch (_OP_) {
 						
 						// check whether or not theres a group code with the same name and flag_sender <> 0
 						if ($flag_sender > 0) {
-							$db_query = "SELECT flag_sender FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE code='$group_code' AND flag_sender<>0";
+							$db_query = "SELECT flag_sender FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE code='$group_code' AND flag_sender<>0 AND NOT id='$gpid'";
 							$db_result = dba_query($db_query);
 							if ($db_row = dba_fetch_array($db_result)) {
 								$flag_sender = 0;
