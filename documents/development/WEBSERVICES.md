@@ -245,6 +245,18 @@ Optional   | `c` `format`
 Returns    | list of contact groups similar or the same as `kwd` or return codes
 
 
+### Webservices login
+
+Authenticate user via webservices and redirect to index.php upon successful authentication.
+
+Parameters | Name or description
+---------- | ---------------------
+Operation  | `ws_login`
+Mandatory  | `u` `h`
+Optional   | none
+Returns    | web redirect to index.php
+
+
 ## Protocol for admin tasks
 
 
