@@ -8,7 +8,7 @@ $checkid = $_REQUEST['checkid'];
 $itemid = $_REQUEST['itemid'];
 
 $items = array();
-foreach ($checkid as $key => $val ) {
+foreach ($checkid as $key => $val) {
 	if (strtoupper($val) == 'ON') {
 		if ($itemid[$key]) {
 			$items[] = $itemid[$key];
@@ -17,8 +17,8 @@ foreach ($checkid as $key => $val ) {
 }
 
 switch (_OP_) {
-	case 'delete' :
-		foreach ($items as $item ) {
+	case 'delete':
+		foreach ($items as $item) {
 			if (dba_remove(_DB_PREF_ . '_featurePhonebook', array(
 				'uid' => $user_config['uid'],
 				'id' => $item 
@@ -39,10 +39,10 @@ if (($ops[0] == 'move') && $ops[1]) {
 }
 
 if ($gpid && (dba_valid(_DB_PREF_ . '_featurePhonebook_group', 'id', $gpid))) {
-	foreach ($items as $item ) {
+	foreach ($items as $item) {
 		if (dba_remove(_DB_PREF_ . '_featurePhonebook_group_contacts', array(
 			'pid' => $item 
-		)) or !dba_valid(_DB_PREF_ . '_featurePhonebook_group_contacts', 'pid', $item )) {
+		)) or !dba_valid(_DB_PREF_ . '_featurePhonebook_group_contacts', 'pid', $item)) {
 			$data = array(
 				'pid' => $item,
 				'gpid' => $gpid 

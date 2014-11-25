@@ -185,16 +185,17 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 		if (!$is_routed) {
 			
 			// route sandbox by adding a prefix to message and re-enter it to recvsms()
-			/**
-			 * if ($post_rules['insert_prefix'] && trim($message)) {
-			 * $message = $post_rules['insert_prefix'] .
-			 * ' ' . trim($message);
-			 * _log("sandbox add prefix start keyword:" . $post_rules['insert_prefix'] . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept_after');
-			 * recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);
-			 * _log("sandbox add prefix end keyword:" . $post_rules['insert_prefix'], 3, 'incoming recvsms_intercept_after');
-			 * $is_routed = TRUE;
-			 * }
-			 */
+		/**
+		 * if ($post_rules['insert_prefix'] && trim($message)) {
+		 * $message = $post_rules['insert_prefix'] .
+		 *
+		 * ' ' . trim($message);
+		 * _log("sandbox add prefix start keyword:" . $post_rules['insert_prefix'] . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept_after');
+		 * recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);
+		 * _log("sandbox add prefix end keyword:" . $post_rules['insert_prefix'], 3, 'incoming recvsms_intercept_after');
+		 * $is_routed = TRUE;
+		 * }
+		 */
 		}
 		
 		// sandbox forward to users

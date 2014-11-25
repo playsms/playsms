@@ -194,7 +194,7 @@ function phonebook_hook_phonebook_search($uid, $keyword = "", $count = 0) {
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
 			$ret[] = $db_row;
-        	}
+		}
 	}
 	return $ret;
 }
@@ -254,7 +254,7 @@ function phonebook_hook_webservices_output($operation, $requests) {
 		if (substr($keyword, 0, 1) == '@') {
 			$keyword = substr($keyword, 1);
 			$list = phonebook_search_user($keyword);
-			foreach ($list as $data ) {
+			foreach ($list as $data) {
 				$item[] = array(
 					'id' => '@' . $data['username'],
 					'text' => '@' . $data['name'] 
@@ -263,7 +263,7 @@ function phonebook_hook_webservices_output($operation, $requests) {
 		} else if (substr($keyword, 0, 1) == '#') {
 			$keyword = substr($keyword, 1);
 			$list = phonebook_search_group($user_config['uid'], $keyword);
-			foreach ($list as $data ) {
+			foreach ($list as $data) {
 				$item[] = array(
 					'id' => '#' . $data['code'],
 					'text' => _('Group') . ': ' . $data['group_name'] . ' (' . $data['code'] . ')' 
@@ -271,7 +271,7 @@ function phonebook_hook_webservices_output($operation, $requests) {
 			}
 		} else {
 			$list = phonebook_search($user_config['uid'], $keyword);
-			foreach ($list as $data ) {
+			foreach ($list as $data) {
 				$item[] = array(
 					'id' => $data['p_num'],
 					'text' => $data['p_desc'] . ' (' . $data['p_num'] . ')' 
