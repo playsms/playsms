@@ -126,7 +126,12 @@ msgstr "Os contatos selecionados foram removidos"
 msgid "Selected group has been deleted"
 msgstr "O grupo selecionado foi removido"
 
-msgid "Set permission for broadcasting SMS to this group from mobile phone"
+msgid "Share phonebook and allow broadcast"
+msgstr ""
+
+msgid ""
+"Share this phonebook group and set permission for broadcasting SMS to this "
+"group from mobile phone"
 msgstr ""
 
 msgid "Unable to delete group until the group is empty"
