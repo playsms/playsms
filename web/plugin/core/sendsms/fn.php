@@ -555,17 +555,10 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	}
 	
 	// SMS sender ID
-	if (!$core_config['main']['allow_custom_sender']) {
-		$sms_sender = '';
-	}
 	$sms_sender = core_sanitize_sender($sms_sender);
 	$sms_sender = (($sms_sender && sender_id_isvalid($username, $sms_sender)) ? $sms_sender : sendsms_get_sender($username));
 	
 	// SMS footer
-	if (!$core_config['main']['allow_custom_footer']) {
-		$sms_footer = '';
-	}
-	
 	$sms_footer = core_sanitize_footer($sms_footer);
 	$sms_footer = ($sms_footer ? $sms_footer : $user['footer']);
 	if ($nofooter) {
@@ -778,16 +771,10 @@ function sendsms_bc($username, $gpid, $message, $sms_type = 'text', $unicode = 0
 	}
 	
 	// SMS sender ID
-	if (!$core_config['main']['allow_custom_sender']) {
-		$sms_sender = '';
-	}
 	$sms_sender = core_sanitize_sender($sms_sender);
 	$sms_sender = (($sms_sender && sender_id_isvalid($username, $sms_sender)) ? $sms_sender : sendsms_get_sender($username));
 	
 	// SMS footer
-	if (!$core_config['main']['allow_custom_footer']) {
-		$sms_footer = '';
-	}
 	$sms_footer = core_sanitize_footer($sms_footer);
 	$sms_footer = ($sms_footer ? $sms_footer : $user['footer']);
 	if ($nofooter) {

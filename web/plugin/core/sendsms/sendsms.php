@@ -87,7 +87,6 @@ switch (_OP_) {
 				'HINT_SCHEDULE' => _('Format YYYY-MM-DD hh:mm'),
 				'sms_from' => $sms_from,
 				'sms_footer' => $sms_footer,
-				'allow_custom_footer' => $allow_custom_footer,
 				'to' => $to,
 				'sms_sender_id' => $sms_sender_id,
 				'sms_template' => $sms_template,
@@ -115,18 +114,10 @@ switch (_OP_) {
 	case "sendsms_yes" :
 		
 		// sender ID
-		if ($core_config['main']['allow_custom_sender']) {
-			$sms_sender = trim($_REQUEST['sms_sender']);
-		} else {
-			$sms_sender = sendsms_get_sender($user_config['username']);
-		}
+		$sms_sender = trim($_REQUEST['sms_sender']);
 		
 		// SMS footer
-		if ($core_config['main']['allow_custom_footer']) {
-			$sms_footer = trim($_REQUEST['sms_footer']);
-		} else {
-			$sms_footer = $user_config['footer'];
-		}
+		$sms_footer = trim($_REQUEST['sms_footer']);
 		
 		// nofooter option
 		$nofooter = true;
