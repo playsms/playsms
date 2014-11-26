@@ -573,6 +573,23 @@ function webservices_credit_deduct($username, $amount) {
 		$json['status'] = 'ERR';
 		$json['error'] = '624';
 	}
-		
+	
+	return $json;
+}
+
+function webservices_login_key_set($username) {
+	$uid = user_username2uid($username);
+	$login_key = md5(core_get_random_string(32));
+	if (registry_update($uid, 'core', 'webservices', array(
+		'login_key' => $login_key 
+	))) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+		$json['login_key'] = $login_key;
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '626';
+	}
+	
 	return $json;
 }

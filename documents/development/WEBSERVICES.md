@@ -99,6 +99,8 @@ ERR 621    | adding credit failed due to missing data
 ERR 622    | fail to add credit
 ERR 623    | deducting credit failed due to missing data
 ERR 624    | fail to deduct credit
+ERR 625    | setting login key failed due to missing data
+ERR 626    | fail to set login key
 
 
 There might appear new error codes in the future, you should be aware that new codes might appear in this syntax:
@@ -252,9 +254,11 @@ Authenticate user via webservices and redirect to index.php upon successful auth
 Parameters | Name or description
 ---------- | ---------------------
 Operation  | `ws_login`
-Mandatory  | `u` `h`
+Mandatory  | `u` `login_key`
 Optional   | none
 Returns    | web redirect to index.php
+
+Parameter `login_key` is set by admin accounts through webservices call using operation `loginkeyset`
 
 
 ## Protocol for admin tasks

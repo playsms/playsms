@@ -96,7 +96,9 @@ $ws_error_string = array(
 	'621' => 'adding credit failed due to missing data',
 	'622' => 'fail to add credit',
 	'623' => 'deducting credit failed due to missing data',
-	'624' => 'fail to deduct credit' 
+	'624' => 'fail to deduct credit',
+	'625' => 'setting login key failed due to missing data',
+	'626' => 'fail to set login key' 
 );
 
 if (_OP_) {
@@ -344,6 +346,21 @@ if (_OP_) {
 			$log_this = TRUE;
 			break;
 		
+		case "LOGINKEYSET":
+			if ($u = webservices_validate_admin($h, $u)) {
+				if ($data_username = trim($_REQUEST['data_username'])) {
+					$json = webservices_login_key_set($data_username);
+				} else {
+					$json['status'] = 'ERR';
+					$json['error'] = '625';
+				}
+			} else {
+				$json['status'] = 'ERR';
+				$json['error'] = '600';
+			}
+			$log_this = TRUE;
+			break;
+		
 		// ------------------- INDIVIDUAL TASKS ------------------- //
 		case "PV":
 			if ($u = webservices_validate($h, $u)) {
@@ -503,19 +520,36 @@ if (_OP_) {
 			break;
 		
 		case "WS_LOGIN":
-			if ($u = webservices_validate($h, $u)) {
-				$user = user_getdatabyusername($u);
-				if ($c_uid = $user['uid']) {
+			$user = user_getdatabyusername($u);
+			if ($c_uid = $user['uid']) {
+				
+				// supplied login key
+				$login_key = trim($_REQUEST['login_key']);
+				
+				// saved login key
+				$reg = registry_search($c_uid, 'core', 'webservices', 'login_key');
+				$c_login_key = trim($reg['core']['webservices']['login_key']);
+				
+				// immediately remove saved login key, only proceed upon successful removal
+				if (registry_remove($c_uid, 'core', 'webservices', 'login_key')) {
 					
-					// setup login session
-					auth_session_setup($c_uid);
+					// auth by comparing login keys
 					
-					// log it
-					_log("webservices login u:" . $u . " ip:" . $_SERVER['REMOTE_ADDR'] . " op:" . _OP_, 3, "webservices");
-					
-					// redirect to index.php
-					header('Location: index.php');
-					exit();
+					if ($login_key && $c_login_key && ($login_key == $c_login_key)) {
+						
+						// setup login session
+						auth_session_setup($c_uid);
+						
+						// log it
+						_log("webservices login u:" . $u . " ip:" . $_SERVER['REMOTE_ADDR'] . " op:" . _OP_, 3, "webservices");
+						
+						// redirect to index.php
+						header('Location: index.php');
+						exit();
+					} else {
+						$json['status'] = 'ERR';
+						$json['error'] = '100';
+					}
 				} else {
 					$json['status'] = 'ERR';
 					$json['error'] = '100';
