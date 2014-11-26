@@ -534,31 +534,25 @@ if (_OP_) {
 				if (registry_remove($c_uid, 'core', 'webservices', 'login_key')) {
 					
 					// auth by comparing login keys
-					
 					if ($login_key && $c_login_key && ($login_key == $c_login_key)) {
 						
 						// setup login session
 						auth_session_setup($c_uid);
 						
-						// log it
-						_log("webservices login u:" . $u . " ip:" . $_SERVER['REMOTE_ADDR'] . " op:" . _OP_, 3, "webservices");
-						
-						// redirect to index.php
-						header('Location: index.php');
-						exit();
+						_log("webservices logged in u:" . $u . " ip:" . $_SERVER['REMOTE_ADDR'] . " op:" . _OP_, 3, "webservices");
 					} else {
-						$json['status'] = 'ERR';
-						$json['error'] = '100';
+						_log("webservices invalid login u:" . $u . " ip:" . $_SERVER['REMOTE_ADDR'] . " op:" . _OP_, 3, "webservices");
 					}
 				} else {
-					$json['status'] = 'ERR';
-					$json['error'] = '100';
+					_log("webservices error unable to remove registry u:" . $u . " ip:" . $_SERVER['REMOTE_ADDR'] . " op:" . _OP_, 3, "webservices");
 				}
 			} else {
-				$json['status'] = 'ERR';
-				$json['error'] = '100';
+				_log("webservices invalid user u:" . $u . " ip:" . $_SERVER['REMOTE_ADDR'] . " op:" . _OP_, 3, "webservices");
 			}
-			$log_this = TRUE;
+			
+			// redirect to index.php no matter what
+			header('Location: index.php');
+			exit();
 			break;
 		
 		default :

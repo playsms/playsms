@@ -41,6 +41,7 @@ smslog_id      | SMS Log ID
 last           | last SMS log ID (this number not included on result)
 c              | number of delivery status that will be retrieved
 kwd            | keyword
+login_key      | login key sets by admin through webservices call op=loginkeyset
 
 Listed in the below table are webservices parameters for admin tasks.
 
@@ -249,14 +250,14 @@ Returns    | list of contact groups similar or the same as `kwd` or return codes
 
 ### Webservices login
 
-Authenticate user via webservices and redirect to index.php upon successful authentication.
+Authenticate user via webservices and redirect to index.php upon authentication, successful or failed or invalid.
 
 Parameters | Name or description
 ---------- | ---------------------
 Operation  | `ws_login`
 Mandatory  | `u` `login_key`
 Optional   | none
-Returns    | web redirect to index.php
+Returns    | none, web redirect to index.php
 
 Parameter `login_key` is set by admin accounts through webservices call using operation `loginkeyset`
 
@@ -427,6 +428,18 @@ Operation  | `creditdeduct`
 Mandatory  | `u` `h` `data_username` `data_amount`
 Optional   | `format`
 Returns    | return codes, updated balance and amount
+
+
+### Set login key
+
+Set login key for an account
+
+Parameters | Name or description
+---------- | --------------------
+Operation  | `loginkeyset`
+Mandatory  | `u` `h` `data_username`
+Optional   | `format`
+Returns    | return codes and login key
 
 
 ## Examples
