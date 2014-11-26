@@ -432,7 +432,7 @@ function webservices_account_add($data = array()) {
 }
 
 function webservices_account_remove($uid) {
-	$ret = user_remove($uid);
+	$ret = user_remove($uid, TRUE);
 	if ($ret['status']) {
 		$json['status'] = 'OK';
 		$json['error'] = '0';
