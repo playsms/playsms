@@ -31,6 +31,9 @@ msgstr "Fallo al borrar la tarifa"
 msgid "Fail to save route"
 msgstr "Fallo al eliminar la tarifa"
 
+msgid "Maximum 8 digits numeric only"
+msgstr ""
+
 msgid "No changes made!"
 msgstr "No se efectuaron cambios!"
 

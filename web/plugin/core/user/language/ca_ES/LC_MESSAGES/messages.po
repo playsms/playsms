@@ -161,6 +161,9 @@ msgstr ""
 msgid "Forward message to mobile"
 msgstr ""
 
+msgid "Full name"
+msgstr ""
+
 msgid "Invalid sender ID"
 msgstr ""
 

@@ -171,6 +171,9 @@ msgstr "Échec du transfert du message vers la boîte de réception"
 msgid "Forward message to mobile"
 msgstr "Échec du transfert du message vers le mobile"
 
+msgid "Full name"
+msgstr ""
+
 #, fuzzy
 msgid "Invalid sender ID"
 msgstr "Sender ID par défaut"

@@ -63,6 +63,10 @@ msgstr "Настройки Email to SMS"
 msgid "No validate cert option"
 msgstr "Не проверять сертификат"
 
+#, fuzzy
+msgid "PIN for email to SMS"
+msgstr "Настройки Email to SMS"
+
 msgid "PIN is empty"
 msgstr "Персональны код пустой"
 
