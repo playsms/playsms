@@ -105,10 +105,10 @@ switch (_OP_) {
 				<td class=label-sizer>" . _('User') . "</td><td>" . $select_users . "</td>
 			</tr>
 			<tr>
-				<td class=label-sizer>" . _mandatory('Destination name') . "</td><td><input type='text' maxlength='30' name='up_dst' value=\"$dst\" required></td>
+				<td class=label-sizer>" . _mandatory(_('Destination name')) . "</td><td><input type='text' maxlength='30' name='up_dst' value=\"$dst\" required></td>
 			</tr>
 			<tr>
-				<td class=label-sizer>" . _mandatory('Prefix') . "</td><td><input type='text' maxlength=8 name='up_prefix' value=\"$prefix\" required> " . _hint('Maximum 8 digits numeric only') . "</td>
+				<td class=label-sizer>" . _mandatory(_('Prefix')) . "</td><td><input type='text' maxlength=8 name='up_prefix' value=\"$prefix\" required> " . _hint(_('Maximum 8 digits numeric only')) . "</td>
 			</tr>
 			<tr>
 				<td class=label-sizer>" . _('SMSC') . "</td><td>" . $select_smsc . "</td>
@@ -173,10 +173,10 @@ switch (_OP_) {
 				<td class=label-sizer>" . _('User') . "</td><td>" . $select_users . "</td>
 			</tr>
 			<tr>
-				<td class=label-sizer>" . _mandatory('Destination name') . "</td><td><input type='text' maxlength='30' name='add_dst' value=\"$add_dst\" required></td>
+				<td class=label-sizer>" . _mandatory(_('Destination name')) . "</td><td><input type='text' maxlength='30' name='add_dst' value=\"$add_dst\" required></td>
 			</tr>
 			<tr>
-				<td class=label-sizer>" . _mandatory('Prefix') . "</td><td><input type='text' maxlength=8 name='add_prefix' value=\"$add_prefix\" required> " . _hint('Maximum 8 digits numeric only') . "</td>
+				<td class=label-sizer>" . _mandatory(_('Prefix')) . "</td><td><input type='text' maxlength=8 name='add_prefix' value=\"$add_prefix\" required> " . _hint(_('Maximum 8 digits numeric only')) . "</td>
 			</tr>
 			<tr>
 				<td class=label-sizer>" . _('SMSC') . "</td><td>" . $select_smsc . "</td>
