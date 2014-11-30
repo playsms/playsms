@@ -82,3 +82,6 @@ msgstr ""
 
 msgid "valid entries"
 msgstr ""
+
+msgid " Prevent duplicates"
+msgstr ""
