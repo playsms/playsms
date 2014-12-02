@@ -96,16 +96,16 @@ switch (_OP_) {
 			// 1 = sent
 			// 2 = failed
 			// 3 = delivered
-			if ($p_status == "1") {
-				$p_status = "<span class=status_sent />";
-			} else if ($p_status == "2") {
-				$p_status = "<span class=status_failed />";
-			} else if ($p_status == "3") {
-				$p_status = "<span class=status_delivered />";
-			} else {
-				$p_status = "<span class=status_pending />";
-			}
-			$p_status = strtolower($p_status);
+                        if ($p_status == "1") {
+                                $p_status = "<span class=status_sent title='". _('Sent') ."'/>";
+                        } else if ($p_status == "2") {
+                                $p_status = "<span class=status_failed title='". _('Failed') ."'/>";
+                        } else if ($p_status == "3") {
+                                $p_status = "<span class=status_delivered title='". _('Delivered') ."'/>";
+                        } else {
+                                $p_status = "<span class=status_pending title='". _('Pending') ."'/>";
+                        }
+                        $p_status = strtolower($p_status);
 			
 			// get billing info
 			$billing = billing_getdata($smslog_id);
