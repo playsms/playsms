@@ -8,10 +8,19 @@ msgstr ""
 msgid "Action"
 msgstr ""
 
+msgid "All queues have been removed"
+msgstr ""
+
+msgid "Are you sure you want to delete ALL queues"
+msgstr ""
+
 msgid "Are you sure you want to delete queue"
 msgstr ""
 
 msgid "Count"
+msgstr ""
+
+msgid "Delete ALL queues"
 msgstr ""
 
 msgid "Message"

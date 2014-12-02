@@ -14,11 +14,22 @@ msgstr ""
 msgid "Action"
 msgstr "Действие"
 
+#, fuzzy
+msgid "All queues have been removed"
+msgstr "Очередь удалена"
+
+#, fuzzy
+msgid "Are you sure you want to delete ALL queues"
+msgstr "Вы уверены, что хотите удалить очередь?"
+
 msgid "Are you sure you want to delete queue"
 msgstr "Вы уверены, что хотите удалить очередь?"
 
 msgid "Count"
 msgstr "Кол-во"
+
+msgid "Delete ALL queues"
+msgstr ""
 
 msgid "Message"
 msgstr "Сообщения"

@@ -8,11 +8,22 @@ msgstr ""
 msgid "Action"
 msgstr "Action"
 
+#, fuzzy
+msgid "All queues have been removed"
+msgstr "La file d'attente a été supprimée"
+
+#, fuzzy
+msgid "Are you sure you want to delete ALL queues"
+msgstr "Êtes-vous sûr de vouloir supprimer la file d'attente"
+
 msgid "Are you sure you want to delete queue"
 msgstr "Êtes-vous sûr de vouloir supprimer la file d'attente"
 
 msgid "Count"
 msgstr "Quantité"
+
+msgid "Delete ALL queues"
+msgstr ""
 
 msgid "Message"
 msgstr "Message"
