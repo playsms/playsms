@@ -10,8 +10,11 @@ switch (_OP_) {
 			$error_content = "<div class=error_string>$err</div>";
 		}
 		$content = $error_content."
-			<h2>"._('View SMS queue')."</h2>
-			<div align=center>".$nav['form']."</div>
+			<h2>"._('View SMS queue')."</h2>";
+		if ($count) {
+		$content .= "<p><a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete ALL queues")) . " ?','"._u('index.php?app=main&inc=feature_queuelog&op=queuelog_delete_all')."')\">".$icon_config['delete']._("Delete ALL queues")." ($count)</a></p>";
+		}
+		$content .= "<div align=center>".$nav['form']."</div>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead>
@@ -84,4 +87,14 @@ switch (_OP_) {
 		header("Location: "._u('index.php?app=main&inc=feature_queuelog&op=queuelog_list'));
 		exit();
 		break;
-}
+        case "queuelog_delete_all":
+
+                if (queuelog_delete_all($queue)) {
+                        $_SESSION['error_string'] = _('all queues have been removed');
+                }
+
+                header("Location: "._u('index.php?app=main&inc=feature_queuelog&op=queuelog_list'));
+                exit();
+                break;
+
+		}

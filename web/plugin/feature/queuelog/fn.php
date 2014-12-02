@@ -49,3 +49,16 @@ function queuelog_delete($queue) {
 	}
 	return $ret;
 }
+
+function queuelog_delete_all($queue) {
+        global $user_config;
+        $ret = FALSE;
+        if ($user_config['status'] != 2) {
+                $user_query = "AND uid='".$user_config['uid']."'";
+        }
+        $db_query = "DELETE FROM "._DB_PREF_."_tblSMSOutgoing_queue WHERE flag='0' ".$user_query;
+        if ($db_result = dba_affected_rows($db_query)) {
+                $ret = TRUE;
+        }
+        return $ret;
+}

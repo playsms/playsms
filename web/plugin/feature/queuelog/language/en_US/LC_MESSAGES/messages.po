@@ -11,6 +11,12 @@ msgstr ""
 msgid "Are you sure you want to delete queue"
 msgstr ""
 
+msgid "Are you sure you want to delete ALL queues"
+msgstr ""
+
+msgid "Delete ALL queues"
+msgstr ""
+
 msgid "Count"
 msgstr ""
 
@@ -22,6 +28,11 @@ msgstr ""
 
 msgid "Queue has been removed"
 msgstr ""
+
+msgid "All queues have been removed"
+msgstr ""
+
+
 
 msgid "Scheduled"
 msgstr ""
