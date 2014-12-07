@@ -82,3 +82,24 @@ msgstr ""
 
 msgid "valid entries"
 msgstr ""
+
+msgid "Select Layout"
+msgstr ""
+
+msgid "Schedule to"
+msgstr ""
+
+msgid "Send by volume"
+msgstr ""
+
+msgid "Leave blank for delivery now"
+msgstr ""
+
+msgid "Limit at"
+msgstr ""
+
+msgid "Each"
+msgstr ""
+
+msgid "Leave zero in fields for send all now"
+msgstr ""

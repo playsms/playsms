@@ -1,3 +1,18 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playsms_eng\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Marcos PLS <mpls.silva@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
 msgid "CSV file format"
 msgstr ""
 
@@ -74,4 +89,25 @@ msgid "of"
 msgstr ""
 
 msgid "valid entries"
+msgstr ""
+
+msgid "Select Layout"
+msgstr ""
+
+msgid "Schedule to"
+msgstr ""
+
+msgid "Send by volume"
+msgstr ""
+
+msgid "Leave blank for delivery now"
+msgstr ""
+
+msgid "Limit at"
+msgstr ""
+
+msgid "Each"
+msgstr ""
+
+msgid "Leave zero in fields for send all now"
 msgstr ""

@@ -4,9 +4,17 @@ msgstr ""
 "POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: playsms_sendfromfile_pt-br\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Marcos PLS <mpls.silva@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: pt_BR\n"
+"X-Generator: Poedit 1.6.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
 msgid "CSV file format"
-msgstr ""
+msgstr "Formato do arquivo CSV"
 
 msgid "Cancel send from file"
 msgstr "Cancelar envio de arquivo"
@@ -68,13 +76,11 @@ msgstr "Entradas válidas"
 msgid "Your choice"
 msgstr "Sua escolha"
 
-#, fuzzy
 msgid "destination number, message"
-msgstr "formato: número do destinatário, mensagem"
+msgstr "número do destinatário, mensagem"
 
-#, fuzzy
 msgid "destination number, message, username"
-msgstr "formato: número do destinatário, mensagem, usuário"
+msgstr "número do destinatário, mensagem, usuário"
 
 msgid "invalid entries"
 msgstr "entradas inválidas"
@@ -84,3 +90,24 @@ msgstr "de"
 
 msgid "valid entries"
 msgstr "entradas válidas"
+
+msgid "Select Layout"
+msgstr "Selecione o formato desejado"
+
+msgid "Schedule to"
+msgstr "Agendar para"
+
+msgid "Send by volume"
+msgstr "Envio fracionado"
+
+msgid "Leave blank for delivery now"
+msgstr "Deixar vazio para envio imediato"
+
+msgid "Limit at"
+msgstr "Limitar em"
+
+msgid "Each"
+msgstr "A cada"
+
+msgid "Leave zero in fields for send all now"
+msgstr "Deixar os valores zerados para enviar todos"
