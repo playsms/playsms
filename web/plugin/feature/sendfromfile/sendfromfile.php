@@ -139,8 +139,8 @@ switch (_OP_) {
           if($qtd++ >= $lot_limit)
           {
             // Calc for new schedule
-            $horaNova = strtotime("$lot_schedule + $lot_interval minutes");
-            $lot_schedule = date("Y-m-d H:i:s",$horaNova);
+            $hourNew = strtotime("$lot_schedule + $lot_interval minutes");
+            $lot_schedule = date("Y-m-d H:i:s",$hourNew);
             $qtd = 1;
           }
         }
@@ -286,9 +286,9 @@ function import_default()
       </tr></thead>
       <tbody>";
       $j = 0;
-      $maximo = count( $item_valid );
-      $maximo = ( $maximo < $show_limit ) ? $maximo : $show_limit;
-      for ($i = 0; $i < $maximo; $i++) {
+      $maxshow = count( $item_valid );
+      $maxshow = ( $maxshow < $show_limit ) ? $maxshow : $show_limit;
+      for ($i = 0; $i < $maxshow; $i++) {
         if ($item_valid[$i][0] && $item_valid[$i][1] && $item_valid[$i][2]) {
           $j++;
           $content .= "
@@ -316,9 +316,9 @@ function import_default()
       <th width='20%'>" . _('Username') . "</th>
       </tr></thead>";
       $j = 0;
-      $maximo = count( $item_invalid );
-      $maximo = ( $maximo < $show_limit ) ? $maximo : $show_limit;
-      for ($i = 0; $i < $maximo; $i++) {
+      $maxshow = count( $item_invalid );
+      $maxshow = ( $maxshow < $show_limit ) ? $maxshow : $show_limit;
+      for ($i = 0; $i < $maxshow; $i++) {
         if ($item_invalid[$i][0] || $item_invalid[$i][1] || $item_invalid[$i][2]) {
           $j++;
           $content .= "
@@ -356,9 +356,9 @@ function import_layout_01()
     global $sendfromfile_row_limit;
 
     // Layout positions
-    $col_fone = 0;
-    $col_mensagem = 1;
-    $col_contrato = 2;
+    $col_phone = 0;
+    $col_message = 1;
+    $col_contract = 2;
     $col_username = 3;
 
     $delimiter = ';';
@@ -380,10 +380,10 @@ function import_layout_01()
             continue;
           }
 
-          $sms_to = trim($data[$col_fone]);
-          $sms_msg = trim($data[$col_mensagem]);
+          $sms_to = trim($data[$col_phone]);
+          $sms_msg = trim($data[$col_message]);
           $sms_msg = toUTF8( $sms_msg );
-          $data[$col_mensagem] = $sms_msg;
+          $data[$col_message] = $sms_msg;
 
           if (auth_isadmin()) {
             $sms_username = trim($data[$col_username]);
@@ -449,10 +449,10 @@ function import_layout_01()
       </tr></thead>
       <tbody>";
       $j = 0;
-      $maximo = count( $item_valid );
-      $maximo = ( $maximo < $show_limit ) ? $maximo : $show_limit;
+      $maxshow = count( $item_valid );
+      $maxshow = ( $maxshow < $show_limit ) ? $maxshow : $show_limit;
 
-      for ($i = 0; $i < $maximo; $i++) {
+      for ($i = 0; $i < $maxshow; $i++) {
         if ($item_valid[$i][0] && $item_valid[$i][1] && $item_valid[$i][2]) {
           $j++;
           $content .= "
@@ -480,10 +480,10 @@ function import_layout_01()
       <th width='20%'>" . _('Username') . "</th>
       </tr></thead>";
       $j = 0;
-      $maximo = count( $item_invalid );
-      $maximo = ( $maximo < $show_limit ) ? $maximo : $show_limit;
+      $maxshow = count( $item_invalid );
+      $maxshow = ( $maxshow < $show_limit ) ? $maxshow : $show_limit;
 
-      for ($i = 0; $i < $maximo; $i++) {
+      for ($i = 0; $i < $maxshow; $i++) {
         if ($item_invalid[$i][0] || $item_invalid[$i][1] || $item_invalid[$i][2]) {
           $j++;
           $content .= "
@@ -513,7 +513,7 @@ function import_layout_02()
   {
     // Layout Sample
     //120140409CLIENT ROW ID
-    //2$PRIMNOME$ Remember about this date and inform. code: $CODCLI$.
+    //2$PRIMNAME$ Remember about this date and inform. code: $CODCLI$.
     //31166666666 PAULO ROBERTO DINIZ           08vvgfdgdgf
     //311666666666PAULO ROBERTO DINIZ           08fdcefefeg
 
@@ -527,8 +527,8 @@ function import_layout_02()
     $valid = 0;
     $invalid = 0;
 
-    $mensagem = "";
-    $contrato = "";
+    $message = "";
+    $contract = "";
     if (($fs == filesize($fn)) && file_exists($fn)) {
       if (($fd = fopen($fn, 'r')) !== FALSE) {
         $sid = uniqid('SID', true);
@@ -548,7 +548,7 @@ function import_layout_02()
           if($tipo_linha=="2")
           {
             // Line 2 message
-            $mensagem  = substr($buffer, 1);
+            $message  = substr($buffer, 1);
             continue;
           }
 
@@ -558,16 +558,16 @@ function import_layout_02()
             continue;
           }
 
-          $nome_cli = trim(substr($buffer, 12, 30));
-          $contrato = trim(substr($buffer, 42));
+          $name_cli = trim(substr($buffer, 12, 30));
+          $contract = trim(substr($buffer, 42));
           $sms_to = "55".trim(substr($buffer,1,11));
 
           // Build a message with variables, if have
-          $sms_msg = $mensagem;
-          $v_variaveis   = array('$PRIMNOME$', '$CODCLI$');
-          $v_nomecli = explode(" ",$nome_cli);
-          $v_substituir  = array(trim($v_nomecli[0]),$contrato);
-          $sms_msg = str_replace($v_variaveis, $v_substituir, $sms_msg);
+          $sms_msg = $message;
+          $v_variables   = array('$PRIMNAME$', '$CODCLI$');
+          $v_namecli = explode(" ",$name_cli);
+          $v_replace  = array(trim($v_namecli[0]),$contract);
+          $sms_msg = str_replace($v_variables, $v_replace, $sms_msg);
           $sms_msg = toUTF8( $sms_msg );
           // Build a array data for compatibility
           $data = array(
@@ -641,9 +641,9 @@ function import_layout_02()
       </tr></thead>
       <tbody>";
       $j = 0;
-      $maximo = count( $item_valid );
-      $maximo = ( $maximo < $show_limit ) ? $maximo : $show_limit;
-      for ($i = 0; $i < $maximo; $i++) {
+      $maxshow = count( $item_valid );
+      $maxshow = ( $maxshow < $show_limit ) ? $maxshow : $show_limit;
+      for ($i = 0; $i < $maxshow; $i++) {
         if ($item_valid[$i][0] && $item_valid[$i][1] && $item_valid[$i][2]) {
           $j++;
           $content .= "
@@ -672,9 +672,9 @@ function import_layout_02()
       </tr></thead>";
       $j = 0;
 
-      $maximo = count( $item_invalid );
-      $maximo = ( $maximo < $show_limit ) ? $maximo : $show_limit;
-      for ($i = 0; $i < $maximo; $i++) {
+      $maxshow = count( $item_invalid );
+      $maxshow = ( $maxshow < $show_limit ) ? $maxshow : $show_limit;
+      for ($i = 0; $i < $maxshow; $i++) {
         if ($item_invalid[$i][0] || $item_invalid[$i][1] || $item_invalid[$i][2]) {
           $j++;
           $content .= "
@@ -705,12 +705,12 @@ function import_layout_03()
     //Layout sample
     //0       1    2        3         4
     //PHONE;NAME;ACCOUNT;MESSAGEM;USERNAME(ADMIN)
-    //1166666666;ZULMAR A RIBEIRO;195768512;#PNOME#, Pedimos especial atenção ao acordo formalizado para pagamento. Informar contrato #CONTRATO
+    //1166666666;ZULMAR A RIBEIRO;195768512;#PNAME#, Take care about payment. Inform contract #CONTRACT
     // Define positions
-    $col_fone = 0;
-    $col_nome = 1;
-    $col_contrato = 2;
-    $col_mensagem = 3;
+    $col_phone = 0;
+    $col_name = 1;
+    $col_contract = 2;
+    $col_message = 3;
     $col_username = 4;
 
     global $user_config;
@@ -736,15 +736,15 @@ function import_layout_03()
           }
 
           $sms_country = "55";
-          $sms_fone = $sms_country . trim($data[$col_fone]);
-          $sms_to = $sms_fone;
-          $sms_msg = trim($data[$col_mensagem]);
+          $sms_phone = $sms_country . trim($data[$col_phone]);
+          $sms_to = $sms_phone;
+          $sms_msg = trim($data[$col_message]);
 
           // Build message with variables, if have
-          $v_variaveis   = array('#PNOME#', '#CONTRATO#','$PRIMNOME$');
-          $v_nome = explode(" ",$data[$col_nome]);
-          $v_substituir  = array(trim($v_nome[0]),trim($data[$col_contrato]),$v_nome[0]);
-          $sms_msg = str_replace($v_variaveis, $v_substituir, $sms_msg);
+          $v_variables   = array('#PNAME#', '#CONTRACT#','$PRIMNAME$');
+          $v_name = explode(" ",$data[$col_name]);
+          $v_replace  = array(trim($v_name[0]),trim($data[$col_contract]),$v_name[0]);
+          $sms_msg = str_replace($v_variables, $v_replace, $sms_msg);
           $sms_msg = toUTF8( $sms_msg );
 
           if (auth_isadmin()) {
@@ -820,9 +820,9 @@ function import_layout_03()
       <tbody>";
       $j = 0;
 
-      $maximo = count( $item_valid );
-      $maximo = ( $maximo < $show_limit ) ? $maximo : $show_limit;
-      for ($i = 0; $i < $maximo; $i++) {
+      $maxshow = count( $item_valid );
+      $maxshow = ( $maxshow < $show_limit ) ? $maxshow : $show_limit;
+      for ($i = 0; $i < $maxshow; $i++) {
         if ($item_valid[$i][0] && $item_valid[$i][1] && $item_valid[$i][2]) {
           $j++;
           $content .= "
@@ -850,9 +850,9 @@ function import_layout_03()
       <th width='20%'>" . _('Username') . "</th>
       </tr></thead>";
       $j = 0;
-      $maximo = count( $item_invalid );
-      $maximo = ( $maximo < $show_limit ) ? $maximo : $show_limit;
-      for ($i = 0; $i < $maximo; $i++) {
+      $maxshow = count( $item_invalid );
+      $maxshow = ( $maxshow < $show_limit ) ? $maxshow : $show_limit;
+      for ($i = 0; $i < $maxshow; $i++) {
         if ($item_invalid[$i][0] || $item_invalid[$i][1] || $item_invalid[$i][2]) {
           $j++;
           $content .= "
