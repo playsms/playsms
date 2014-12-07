@@ -235,16 +235,16 @@ switch (_OP_) {
 			<td>" . _('Parent account') . " (" . _('for subuser only') . ") </td><td>" . $select_parents . " " . _hint(_('Parent account is mandatory for subusers only. If no value is given then the subuser will be automatically assigned to user admin')) . "</td>
 		</tr>
 		<tr>
-			<td>" . _mandatory('Username') . "</td><td><input type='text' maxlength='30' name='add_username' value=\"$add_username\"></td>
+			<td>" . _mandatory(_('Username')) . "</td><td><input type='text' maxlength='30' name='add_username' value=\"$add_username\"></td>
 		</tr>
 		<tr>
-			<td>" . _mandatory('Password') . "</td><td><input type='password' maxlength='30' name='add_password' value=\"$add_password\"></td>
+			<td>" . _mandatory(_('Password')) . "</td><td><input type='password' maxlength='30' name='add_password' value=\"$add_password\"></td>
 		</tr>
 		<tr>
-			<td>" . _mandatory('Full name') . "</td><td><input type='text' maxlength='100' name='add_name' value=\"$add_name\"></td>
+			<td>" . _mandatory(_('Full name')) . "</td><td><input type='text' maxlength='100' name='add_name' value=\"$add_name\"></td>
 		</tr>
 		<tr>
-			<td>" . _mandatory('Email') . "</td><td><input type='text' maxlength='250' name='add_email' value=\"$add_email\"></td>
+			<td>" . _mandatory(_('Email')) . "</td><td><input type='text' maxlength='250' name='add_email' value=\"$add_email\"></td>
 		</tr>
 		<tr>
 			<td>" . _('Mobile') . "</td><td><input type='text' size='16' maxlength='16' name='add_mobile' value=\"$add_mobile\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric characters')) . "</td>

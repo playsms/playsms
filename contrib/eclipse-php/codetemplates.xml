@@ -50,9 +50,9 @@
 <setting id="org.eclipse.php.formatter.core.formatter.comment.format_header" value="true"/>
 <setting id="org.eclipse.php.formatter.core.formatter.comment.format_html" value="true"/>
 <setting id="org.eclipse.php.formatter.core.formatter.comment.format_javadoc_comments" value="true"/>
-<setting id="org.eclipse.php.formatter.core.formatter.comment.format_line_comments" value="true"/>
+<setting id="org.eclipse.php.formatter.core.formatter.comment.format_line_comments" value="false"/>
 <setting id="org.eclipse.php.formatter.core.formatter.comment.format_source_code" value="true"/>
-<setting id="org.eclipse.php.formatter.core.formatter.comment.indent_parameter_description" value="true"/>
+<setting id="org.eclipse.php.formatter.core.formatter.comment.indent_parameter_description" value="false"/>
 <setting id="org.eclipse.php.formatter.core.formatter.comment.indent_root_tags" value="true"/>
 <setting id="org.eclipse.php.formatter.core.formatter.comment.insert_new_line_before_root_tags" value="true"/>
 <setting id="org.eclipse.php.formatter.core.formatter.comment.insert_new_line_for_parameter" value="true"/>

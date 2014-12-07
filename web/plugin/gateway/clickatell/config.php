@@ -28,6 +28,6 @@ $plugin_config['clickatell']['_smsc_config_'] = array();
 //	$menutab_gateway = $core_config['menutab']['gateway'];
 //	$menu_config[$menutab_gateway][] = array (
 //			"index.php?app=main&inc=gateway_clickatell&op=manage",
-//			_ ( 'Manage clickatell' ) 
+//			_( 'Manage clickatell' ) 
 //	);
 //}

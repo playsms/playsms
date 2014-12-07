@@ -41,6 +41,7 @@ smslog_id      | SMS Log ID
 last           | last SMS log ID (this number not included on result)
 c              | number of delivery status that will be retrieved
 kwd            | keyword
+login_key      | login key sets by admin through webservices call op=loginkeyset
 
 Listed in the below table are webservices parameters for admin tasks.
 
@@ -99,6 +100,8 @@ ERR 621    | adding credit failed due to missing data
 ERR 622    | fail to add credit
 ERR 623    | deducting credit failed due to missing data
 ERR 624    | fail to deduct credit
+ERR 625    | setting login key failed due to missing data
+ERR 626    | fail to set login key
 
 
 There might appear new error codes in the future, you should be aware that new codes might appear in this syntax:
@@ -245,6 +248,20 @@ Optional   | `c` `format`
 Returns    | list of contact groups similar or the same as `kwd` or return codes
 
 
+### Webservices login
+
+Authenticate user via webservices and redirect to index.php upon authentication, successful or failed or invalid.
+
+Parameters | Name or description
+---------- | ---------------------
+Operation  | `ws_login`
+Mandatory  | `u` `login_key`
+Optional   | none
+Returns    | none, web redirect to index.php
+
+Parameter `login_key` is set by admin accounts through webservices call using operation `loginkeyset`
+
+
 ## Protocol for admin tasks
 
 
@@ -274,6 +291,7 @@ Optional   | `format` `data_parent` `data_mobile` `data_datetime_timezone` `data
 Returns    | return codes and info
 
 Notes:
+* most mandatory and optional query parameters are prefixed with `data_`
 * data_status 2 is for admin level account
 * data_status 3 is for user level account
 * data_status 4 is for subuser level account
@@ -352,7 +370,8 @@ Optional   | `format` `data_name` `data_email` `data_mobile` `data_address` `dat
 Returns    | return codes and info
 
 Notes:
-* This command may be used to update account's password
+* most mandatory and optional query parameters are prefixed with `data_`
+* this command may be used to update account's password
 
 
 ### Update account configuration
@@ -363,15 +382,16 @@ Parameters | Name or description
 ---------- | --------------------
 Operation  | `accountconf`
 Mandatory  | `u` `h` `data_username`
-Optional   | `format` `data_footer` `datetime_timezone` `language_module` `fwd_to_inbox` `fwd_to_email` `fwd_to_mobile` `local_length` `replace_zero` `sender` 
+Optional   | `format` `data_footer` `datetime_timezone` `data_language_module` `data_fwd_to_inbox` `data_fwd_to_email` `data_fwd_to_mobile` `data_local_length` `data_replace_zero` `data_sender` 
 Returns    | return codes and info
 
 Notes:
-* This command may be used to update account's default sender ID
-* Only valid sender ID may be selected
-* `fwd_to_inbox` `fwd_to_email` `fwd_to_mobile` are boolean variables, fill with 0 to disable and 1 to enable
-* `local_length` used to detect local destination number by its length
-* `replace_zero` is a numeric only prefix number to replace prefix 0
+* most mandatory and optional query parameters are prefixed with `data_`
+* this command may be used to update account's default sender ID
+* only valid sender ID may be selected
+* `data_fwd_to_inbox` `data_fwd_to_email` `data_fwd_to_mobile` are boolean variables, fill with 0 to disable and 1 to enable
+* `data_local_length` used to detect local destination number by its length
+* `data_replace_zero` is a numeric only prefix number to replace prefix 0
 
 
 ### View account credit
@@ -408,6 +428,18 @@ Operation  | `creditdeduct`
 Mandatory  | `u` `h` `data_username` `data_amount`
 Optional   | `format`
 Returns    | return codes, updated balance and amount
+
+
+### Set login key
+
+Set login key for an account
+
+Parameters | Name or description
+---------- | --------------------
+Operation  | `loginkeyset`
+Mandatory  | `u` `h` `data_username`
+Optional   | `format`
+Returns    | return codes and login key
 
 
 ## Examples

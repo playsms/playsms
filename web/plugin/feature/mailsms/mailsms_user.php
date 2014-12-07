@@ -43,7 +43,7 @@ switch (_OP_) {
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
 				'HINT_PASSWORD' => _hint(_('Fill the password field to change password')),
 				'Email to SMS address' => _('Email to SMS address'),
-				'PIN for email to SMS' => _mandatory('PIN for email to SMS') 
+				'PIN for email to SMS' => _mandatory(_('PIN for email to SMS')) 
 			),
 			'injects' => array(
 				'option_enable',

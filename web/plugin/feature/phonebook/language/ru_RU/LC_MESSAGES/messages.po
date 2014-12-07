@@ -20,9 +20,6 @@ msgstr "Добавить контакт"
 msgid "Add group"
 msgstr "Добавить групу"
 
-msgid "Allow broadcast from mobile"
-msgstr "Рассылка с мобильного"
-
 msgid "Anyone"
 msgstr "Кому угодно"
 
@@ -130,7 +127,13 @@ msgstr "Выбранные контакты перемещены в новую �
 msgid "Selected group has been deleted"
 msgstr "Выбранные группы удалены"
 
-msgid "Set permission for broadcasting SMS to this group from mobile phone"
+msgid "Share phonebook and allow broadcast"
+msgstr ""
+
+#, fuzzy
+msgid ""
+"Share this phonebook group and set permission for broadcasting SMS to this "
+"group from mobile phone"
 msgstr "Разрешить рассылку группе с мобильного телефона"
 
 msgid "Unable to delete group until the group is empty"

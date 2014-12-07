@@ -13,6 +13,9 @@ msgstr ""
 "X-Generator: Poedit 1.6.7\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
+msgid " Prevent duplicates"
+msgstr ""
+
 msgid "CSV file format"
 msgstr "Formato do arquivo CSV"
 

@@ -33,6 +33,9 @@ msgstr "Не удалось удалить маршрут"
 msgid "Fail to save route"
 msgstr "Не удалось сохранить маршрут"
 
+msgid "Maximum 8 digits numeric only"
+msgstr ""
+
 msgid "No changes made!"
 msgstr "Нет изменений"
 

@@ -8,11 +8,22 @@ msgstr ""
 msgid "Action"
 msgstr "Aktion"
 
+#, fuzzy
+msgid "All queues have been removed"
+msgstr "Queue wurde gelscht"
+
+#, fuzzy
+msgid "Are you sure you want to delete ALL queues"
+msgstr "Mchten Sie wirklich die Warteschlange lschen?"
+
 msgid "Are you sure you want to delete queue"
 msgstr "Mchten Sie wirklich die Warteschlange lschen?"
 
 msgid "Count"
 msgstr "Anzahl"
+
+msgid "Delete ALL queues"
+msgstr ""
 
 msgid "Message"
 msgstr "Nachricht"

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 msgid ""
 msgstr ""
 "Project-Id-Version: playsms_eng\n"
@@ -12,6 +13,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: en\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+=======
+msgid " Prevent duplicates"
+msgstr ""
+>>>>>>> antonraharja/master
 
 msgid "CSV file format"
 msgstr ""

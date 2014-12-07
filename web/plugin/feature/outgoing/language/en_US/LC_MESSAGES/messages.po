@@ -26,6 +26,9 @@ msgstr ""
 msgid "Fail to save route"
 msgstr ""
 
+msgid "Maximum 8 digits numeric only"
+msgstr ""
+
 msgid "No changes made!"
 msgstr ""
 

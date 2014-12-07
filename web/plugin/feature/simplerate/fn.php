@@ -99,7 +99,7 @@ function simplerate_hook_rate_cansend($username, $sms_len, $unicode, $sms_to) {
 	}
 
 	if ($parent_uid) {
-		if ($balance_parent >= 0) {
+		if (($balance_parent >= 0) && ($balance >= 0)) {
 			logger_print("allowed subuser uid:".$uid." parent_uid:".$parent_uid." sms_to:".$sms_to." credit:".$credit." count:".$count." rate:".$rate." charge:".$charge." balance:".$balance." balance_parent:".$balance_parent, 2, "simplerate cansend");
 			return TRUE;
 		} else {

@@ -25,6 +25,6 @@ $plugin_config['infobip']['_smsc_config_'] = array();
 //	$menutab_gateway = $core_config['menutab']['gateway'];
 //	$menu_config[$menutab_gateway][] = array (
 //			"index.php?app=main&inc=gateway_infobip&op=manage",
-//			_ ( 'Manage infobip' ) 
+//			_( 'Manage infobip' ) 
 //	);
 //}

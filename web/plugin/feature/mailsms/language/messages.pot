@@ -49,6 +49,9 @@ msgstr ""
 msgid "No validate cert option"
 msgstr ""
 
+msgid "PIN for email to SMS"
+msgstr ""
+
 msgid "PIN is empty"
 msgstr ""
 

@@ -22,8 +22,8 @@ defined('_SECURE_') or die('Forbidden');
  * Validate webservices token, with or without username
  *
  * @param $h Webservices
- *        	token
- * @param $u Username        	
+ *        token
+ * @param $u Username        
  * @return boolean FALSE if invalid, string username if valid
  */
 function webservices_validate($h, $u) {
@@ -46,9 +46,9 @@ function webservices_validate($h, $u) {
  * Validate admin level webservices token, with or without username
  *
  * @param $h Webservices
- *        	token (admin users only)
+ *        token (admin users only)
  * @param $u Username
- *        	(admin users only)
+ *        (admin users only)
  * @return boolean FALSE if invalid, string username if valid
  */
 function webservices_validate_admin($h, $u) {
@@ -68,7 +68,9 @@ function webservices_validate_admin($h, $u) {
 function webservices_pv($c_username, $to, $msg, $type = 'text', $unicode = 0, $nofooter = FALSE, $footer = '', $from = '', $schedule = '') {
 	$ret = '';
 	if ($c_username && $to && $msg) {
-		list($ok, $to, $smslog_id, $queue_code, $counts, $sms_count, $sms_failed) = sendsms_helper($c_username, $to, $msg, $type, $unicode, $nofooter, $footer, $from, $schedule);
+		
+		// send SMS, note that we can't let user to define SMSC for now
+		list($ok, $to, $smslog_id, $queue_code, $counts, $sms_count, $sms_failed) = sendsms_helper($c_username, $to, $msg, $type, $unicode, '', $nofooter, $footer, $from, $schedule);
 		for ($i = 0; $i < count($to); $i++) {
 			if (($ok[$i] == 1 || $ok[$i] == true) && $to[$i] && ($queue_code[$i] || $smslog_id[$i])) {
 				$json['data'][$i]['status'] = 'OK';
@@ -432,7 +434,7 @@ function webservices_account_add($data = array()) {
 }
 
 function webservices_account_remove($uid) {
-	$ret = user_remove($uid);
+	$ret = user_remove($uid, TRUE);
 	if ($ret['status']) {
 		$json['status'] = 'OK';
 		$json['error'] = '0';
@@ -573,6 +575,23 @@ function webservices_credit_deduct($username, $amount) {
 		$json['status'] = 'ERR';
 		$json['error'] = '624';
 	}
-		
+	
+	return $json;
+}
+
+function webservices_login_key_set($username) {
+	$uid = user_username2uid($username);
+	$login_key = md5(core_get_random_string(32));
+	if (registry_update($uid, 'core', 'webservices', array(
+		'login_key' => $login_key 
+	))) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+		$json['login_key'] = $login_key;
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '626';
+	}
+	
 	return $json;
 }
