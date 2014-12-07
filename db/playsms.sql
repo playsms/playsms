@@ -88,8 +88,8 @@ CREATE TABLE `playsms_featureBoard` (
   `board_forward_email` varchar(250) NOT NULL DEFAULT '',
   `board_css` varchar(250) NOT NULL DEFAULT '',
   `board_pref_template` text NOT NULL,
-  `board_access_code` VARCHAR(40) NOT NULL DEFAULT '' , 
-  `board_reply_msg` VARCHAR(140) NOT NULL DEFAULT '' , 
+  `board_access_code` VARCHAR(40) NOT NULL DEFAULT '' ,
+  `board_reply_msg` VARCHAR(140) NOT NULL DEFAULT '' ,
   `smsc` VARCHAR(100) NOT NULL DEFAULT '' ,
   PRIMARY KEY (`board_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1638,6 +1638,34 @@ CREATE TABLE `playsms_tblGateway` (
 INSERT INTO `playsms_tblGateway` (`id`, `created`, `last_update`, `name`, `gateway`, `data`) VALUES
 (1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'blocked', 'blocked', '[]'),
 (2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'dev', 'dev', '[]');
+
+--
+-- Table structure for table `playsms_blacklist`
+--
+
+DROP TABLE IF EXISTS `playsms_blacklist`;
+CREATE TABLE `playsms_blacklist` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `phone` varchar(16) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `description` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `playsms_blacklist` WRITE;
+/*!40000 ALTER TABLE `playsms_blacklist` DISABLE KEYS */;
+
+--
+-- Dumping data for table `playsms_blacklist`
+--
+
+INSERT INTO `playsms_blacklist` (`id`, `phone`, `uid`, `date`, `description`) VALUES
+(1,'9999999999999',1,'2014-05-16 08:00:00','teste blacklist value 1'),
+(2,'6666666666666',2,'2014-05-16 08:00:00','test blacklist value 2'),
+
+/*!40000 ALTER TABLE `playsms_blacklist` ENABLE KEYS */;
+UNLOCK TABLES;
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
