@@ -220,18 +220,19 @@ function import_default()
           $row++;
           $sms_to = "55".trim($data[0]);
           $sms_msg = trim($data[1]);
-          $sms_msg = toUTF8( $sms_msg );
+          $sms_msg = sendfromfile_convert_toUTF8( $sms_msg );
 
           if (auth_isadmin()) {
-            $sms_username = trim($data[2]);
+            $sms_username = trim($data[2]); // Verify alternative
             $uid = user_username2uid($sms_username);
           } else {
             $sms_username = $user_config['username'];
             $uid = $user_config['uid'];
             $data[2] = $sms_username;
           }
+
           // Check if exist number on Blacklist
-          if(!blacklist_check($sms_to))
+          if(!sendfromfile_blacklist($sms_to))
           {
             if ($sms_to && $sms_msg && $uid) {
               $db_query = "INSERT INTO " . _DB_PREF_ . "_featureSendfromfile (uid,sid,sms_datetime,sms_to,sms_msg,sms_username) ";
@@ -382,19 +383,20 @@ function import_layout_01()
 
           $sms_to = trim($data[$col_phone]);
           $sms_msg = trim($data[$col_message]);
-          $sms_msg = toUTF8( $sms_msg );
+          $sms_msg = sendfromfile_convert_toUTF8( $sms_msg );
           $data[$col_message] = $sms_msg;
 
           if (auth_isadmin()) {
-            $sms_username = trim($data[$col_username]);
+            $sms_username = trim($data[$col_username]); // Verify alternative
             $uid = user_username2uid($sms_username);
           } else {
             $sms_username = $user_config['username'];
             $uid = $user_config['uid'];
             $data[2] = $sms_username;
           }
+
           // Check if exist number on Blacklist
-          if(!blacklist_check($sms_to))
+          if(!sendfromfile_blacklist($sms_to))
           {
             if ($sms_to && $sms_msg && $uid) {
               $db_query = "INSERT INTO " . _DB_PREF_ . "_featureSendfromfile (uid,sid,sms_datetime,sms_to,sms_msg,sms_username) ";
@@ -568,7 +570,7 @@ function import_layout_02()
           $v_namecli = explode(" ",$name_cli);
           $v_replace  = array(trim($v_namecli[0]),$contract);
           $sms_msg = str_replace($v_variables, $v_replace, $sms_msg);
-          $sms_msg = toUTF8( $sms_msg );
+          $sms_msg = sendfromfile_convert_toUTF8( $sms_msg );
           // Build a array data for compatibility
           $data = array(
             $sms_to,        //phone
@@ -577,7 +579,7 @@ function import_layout_02()
           );
 
           if (auth_isadmin()) {
-            $sms_username = trim($data[2]); // Verificar alternativa
+            $sms_username = trim($data[2]); // Verify alternative
             $uid = user_username2uid($sms_username);
           } else {
             $sms_username = $user_config['username'];
@@ -586,7 +588,7 @@ function import_layout_02()
           }
 
           // Check if exist number on Blacklist
-          if(!blacklist_check($sms_to))
+          if(!sendfromfile_blacklist($sms_to))
           {
             if ($sms_to && $sms_msg && $uid) {
               $db_query = "INSERT INTO " . _DB_PREF_ . "_featureSendfromfile (uid,sid,sms_datetime,sms_to,sms_msg,sms_username) ";
@@ -735,7 +737,7 @@ function import_layout_03()
             continue;
           }
 
-          $sms_country = "55";
+          $sms_country = "55";  // Include Country Code on phone number change for your
           $sms_phone = $sms_country . trim($data[$col_phone]);
           $sms_to = $sms_phone;
           $sms_msg = trim($data[$col_message]);
@@ -745,10 +747,10 @@ function import_layout_03()
           $v_name = explode(" ",$data[$col_name]);
           $v_replace  = array(trim($v_name[0]),trim($data[$col_contract]),$v_name[0]);
           $sms_msg = str_replace($v_variables, $v_replace, $sms_msg);
-          $sms_msg = toUTF8( $sms_msg );
+          $sms_msg = sendfromfile_convert_toUTF8( $sms_msg );
 
           if (auth_isadmin()) {
-            $sms_username = trim($data[$col_username]);
+            $sms_username = trim($data[$col_username]); // Verify alternative
             $uid = user_username2uid($sms_username);
           } else {
             $sms_username = $user_config['username'];
@@ -764,7 +766,7 @@ function import_layout_03()
           );
 
           // Check if exist number on Blacklist
-          if(!blacklist_check($sms_to))
+          if(!sendfromfile_blacklist($sms_to))
           {
             if ($sms_to && $sms_msg && $uid) {
               $db_query = "INSERT INTO " . _DB_PREF_ . "_featureSendfromfile (uid,sid,sms_datetime,sms_to,sms_msg,sms_username) ";
@@ -878,10 +880,10 @@ function import_layout_03()
     _p($content);
   }
 
-function blacklist_check($phone)
+function sendfromfile_blacklist($phone)
   {
     $phone = trim($phone);
-    $db_query = "SELECT IFNULL(COUNT(*),0) qtd FROM playsms_blacklist WHERE phone = '$phone'";
+    $db_query = "SELECT IFNULL(COUNT(*),0) qtd FROM playsms_featureBlacklist WHERE phone = '$phone'";
     $db_result = dba_query($db_query);
     while ( $db_row = dba_fetch_array($db_result) ) {
       return ( $db_row["qtd"] > 0 );
@@ -889,7 +891,7 @@ function blacklist_check($phone)
     return FALSE;
   }
 
-function toUTF8($text)
+function sendfromfile_convert_toUTF8($text)
   {
     // convert the string to the target encoding
     $result = mb_convert_encoding($text, "UTF-8", "ISO-8859-1, ISO-8859-2, WINDOWS-1252, ASCII");

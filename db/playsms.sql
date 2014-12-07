@@ -1640,11 +1640,11 @@ INSERT INTO `playsms_tblGateway` (`id`, `created`, `last_update`, `name`, `gatew
 (2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'dev', 'dev', '[]');
 
 --
--- Table structure for table `playsms_blacklist`
+-- Table structure for table `playsms_featureBlacklist`
 --
 
-DROP TABLE IF EXISTS `playsms_blacklist`;
-CREATE TABLE `playsms_blacklist` (
+DROP TABLE IF EXISTS `playsms_featureBlacklist`;
+CREATE TABLE `playsms_featureBlacklist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `phone` varchar(16) NOT NULL,
   `uid` int(11) NOT NULL,
@@ -1657,14 +1657,14 @@ LOCK TABLES `playsms_blacklist` WRITE;
 /*!40000 ALTER TABLE `playsms_blacklist` DISABLE KEYS */;
 
 --
--- Dumping data for table `playsms_blacklist`
+-- Dumping data for table `playsms_featureBlacklist`
 --
 
-INSERT INTO `playsms_blacklist` (`id`, `phone`, `uid`, `date`, `description`) VALUES
+INSERT INTO `playsms_featureBlacklist` (`id`, `phone`, `uid`, `date`, `description`) VALUES
 (1,'9999999999999',1,'2014-05-16 08:00:00','teste blacklist value 1'),
 (2,'6666666666666',2,'2014-05-16 08:00:00','test blacklist value 2'),
 
-/*!40000 ALTER TABLE `playsms_blacklist` ENABLE KEYS */;
+/*!40000 ALTER TABLE `playsms_featureBlacklist` ENABLE KEYS */;
 UNLOCK TABLES;
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
