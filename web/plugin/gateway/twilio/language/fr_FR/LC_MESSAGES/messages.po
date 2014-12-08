@@ -14,58 +14,60 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Account SID"
-msgstr ""
+msgstr "SID du compte"
 
 msgid "Auth Token"
-msgstr ""
+msgstr "Auth Token"
 
 msgid "Callback URL"
-msgstr ""
+msgstr "URL de callback"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Exemple: +0200 pour le fuseau horaire de Paris (heure d'été)"
 
 msgid "Fill to change the Auth Token"
-msgstr ""
+msgstr "Veuillez saisir pour changer le Auth Token"
 
 msgid "Gateway module configurations has been saved"
-msgstr "Configurations de la passerelle sauvergardées"
+msgstr "La configuration du module de passerelle a été enregistrée"
 
 msgid "Gateway name"
-msgstr "Nom passerelle"
+msgstr "Nom de la passerelle"
 
 msgid "Manage twilio"
 msgstr "Gérer twilio"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
+"Max. 16 caractères numériques ou 11 alphanumériques. vide pour désactiver"
 
 msgid "Module sender ID"
-msgstr "ID module émetteur"
+msgstr "Sender ID du module"
 
 msgid "Module timezone"
-msgstr "Zone de temps"
+msgstr "Fuseau horaire du module"
 
 msgid "No changes have been made"
 msgstr "Aucun changement apporté"
 
 msgid "Notes"
-msgstr ""
+msgstr "Remarques"
 
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Enregistrer"
 
 msgid "Twilio URL"
-msgstr "URL twilio"
+msgstr "URL de twilio"
 
 msgid "Your callback URL should be accessible from twilio"
-msgstr ""
+msgstr "Votre URL de callback doit être accessible par twilio"
 
 msgid "free credits are available for testing purposes"
-msgstr ""
+msgstr "des crédits gratuits sont disponibles à des fins de test"
 
 msgid "twilio is a bulk SMS provider"
-msgstr ""
+msgstr "twilio est un fournisseur de SMS en gros"
 
 msgid "twilio will push DLR and incoming SMS to your callback URL"
 msgstr ""
+"twilio va faire un push du DLR et du SMS entrant vers votre URL de callback"

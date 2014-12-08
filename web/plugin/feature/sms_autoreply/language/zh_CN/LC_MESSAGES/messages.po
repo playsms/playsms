@@ -20,6 +20,10 @@ msgstr "确定删除短信自动回复 ?"
 msgid "Are you sure you want to delete this SMS autoreply scenario ?"
 msgstr "确定删除此条短信自动回复情景 ?"
 
+#, fuzzy
+msgid "Edit SMS autoreply"
+msgstr "增加短信自动回复"
+
 msgid "Edit SMS autoreply scenario"
 msgstr "编辑短信自动回复情景"
 
@@ -38,6 +42,10 @@ msgstr "删除短信自动回复情景失败"
 msgid "Fail to edit SMS autoreply scenario"
 msgstr "编辑短信自动回复情景失败"
 
+#, fuzzy
+msgid "Fail to update SMS autoreply"
+msgstr "删除短信自动回复失败"
+
 msgid "Keyword"
 msgstr "关键字"
 
@@ -51,6 +59,10 @@ msgid "Return"
 msgstr "返回"
 
 msgid "SMS autoreply has been deleted"
+msgstr "短信自动回复已删除"
+
+#, fuzzy
+msgid "SMS autoreply has been updated"
 msgstr "短信自动回复已删除"
 
 msgid "SMS autoreply keyword"
@@ -76,6 +88,9 @@ msgstr "短信自动回复情景回复"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr "短信关键字已存在, 保留或其他功能的使用"
+
+msgid "SMSC"
+msgstr ""
 
 msgid "Save"
 msgstr "保存"

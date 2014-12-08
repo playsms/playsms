@@ -16,8 +16,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "CSV file format"
+msgid " Prevent duplicates"
 msgstr ""
+
+msgid "CSV file format"
+msgstr "Format du fichier CSV"
 
 msgid "Cancel send from file"
 msgstr "Annuler l'envoi depuis fichier"
@@ -26,72 +29,70 @@ msgid "Confirmation"
 msgstr "Confirmation"
 
 msgid "Destination number"
-msgstr ""
+msgstr "Numéro du destinataire"
 
 msgid "Fail to remove cancelled entries from database"
-msgstr "Echec de suppression des entrées enlevées dans la basse de données"
+msgstr "Échec de la suppression dans la base de données des entrées à annuler"
 
 msgid "Found invalid entries in uploaded file"
-msgstr "Entrées valides trouvées dans le fichier CSV"
+msgstr "Entrées erronées trouvées dans le fichier CSV"
 
 msgid "Found valid entries in uploaded file"
-msgstr "Entrées valides trouvées dans le fichier CSV"
+msgstr "Entrées valables trouvées dans le fichier CSV"
 
 msgid "Invalid CSV file"
-msgstr "Fichier CSV invalide"
+msgstr "Fichier CSV erroné"
 
 msgid "Invalid entries"
-msgstr "Entrées invalides"
+msgstr "Entrées erronées"
 
 msgid "Invalid session ID"
-msgstr "Identifiant de session invalide"
+msgstr "Session ID erroné"
 
 msgid "Message"
-msgstr ""
+msgstr "Message"
 
 msgid "Please select CSV file"
-msgstr "Sélectionner un fichier CSV"
+msgstr "Sélectionnez un fichier CSV"
 
 msgid "SMS has been sent to valid numbers in uploaded file"
-msgstr "SMS envoi aux destinataires du fichier importé"
+msgstr "Un SMS a été envoyé aux destinataires valables dans le fichier importé"
 
 msgid "Send SMS to valid entries"
-msgstr "Envoi de SMS aux entrées valides"
+msgstr "Envoyer un SMS vers les entrées valables"
 
 msgid "Send from file"
-msgstr "Envoi depuis fichier"
+msgstr "Envoyer depuis un fichier"
 
 msgid "Send from file has been cancelled"
-msgstr "Envoi depuis fichier annulé"
+msgstr "L'envoi depuis un fichier a été annulé"
 
 msgid "Upload file"
-msgstr "Importer"
+msgstr "Importer le fichier"
 
 msgid "Uploaded file"
-msgstr "Importer"
+msgstr "Fichier importé"
 
 msgid "Username"
-msgstr ""
+msgstr "Nom d'utilisateur"
 
 msgid "Valid entries"
-msgstr "Entrées valides"
+msgstr "Entrées valables"
 
 msgid "Your choice"
 msgstr "Votre choix"
 
-#, fuzzy
 msgid "destination number, message"
-msgstr "Format : numéro destinataire, méssage, nom utilisateur"
+msgstr "numéro du destinataire,message"
 
-#, fuzzy
 msgid "destination number, message, username"
-msgstr "Format : numéro destinataire, méssage, nom utilisateur"
+msgstr "numéro du destinataire,message,nom d'utilisateur"
 
 msgid "invalid entries"
-msgstr "Entrées invalides"
+msgstr "entrées erronées"
 
 msgid "of"
-msgstr ""
+msgstr "sur"
 
 msgid "valid entries"
-msgstr "Entrées valides"
+msgstr "entrées valables"

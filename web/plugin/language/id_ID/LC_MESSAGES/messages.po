@@ -88,8 +88,32 @@ msgid "Manage"
 msgstr "Atur"
 
 #, fuzzy
+msgid "Manage account"
+msgstr "Akun saya"
+
+#, fuzzy
+msgid "Manage gateway"
+msgstr "Pengaturan pengguna"
+
+#, fuzzy
+msgid "Manage gateway and SMSC"
+msgstr "Pengaturan pengguna"
+
+#, fuzzy
 msgid "Manage sender ID"
 msgstr "ID pengirim SMS"
+
+#, fuzzy
+msgid "Manage sub-account"
+msgstr "Pengaturan pengguna"
+
+#, fuzzy
+msgid "Manage sub-accounts"
+msgstr "Pengaturan pengguna"
+
+#, fuzzy
+msgid "Manage subuser"
+msgstr "Pengaturan pengguna"
 
 #, fuzzy
 msgid "Manage subusers"

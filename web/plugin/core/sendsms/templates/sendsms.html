@@ -1,7 +1,5 @@
 <script type="text/javascript"
-	src="{{ HTTP_PATH_THEMES }}/common/jscss/jquery/jquery-2.0.3.min.js"></script>
-<script type="text/javascript"
-	src="{{ HTTP_PATH_THEMES }}/common/jscss/moment/moment.min.js"></script>
+	src="{{ HTTP_PATH_THEMES }}/common/jscss/moment/moment-with-langs.min.js"></script>
 
 <link rel="stylesheet"
 	href="{{ HTTP_PATH_THEMES }}/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css" />
@@ -25,6 +23,7 @@
 			multiple: true,
 			/* placeholder: "{{ Send to }}", */
 			allowClear: true,
+			selectOnBlur: true,
 			minimumInputLength: 2,
 			separator: ",",
 			tokenSeparators: [","],
@@ -122,24 +121,20 @@
 			<div class="form-group">
 				<label for="msg_footer">{{ Message footer }}</label>
 				<p>
-					<input type="text" name="sms_footer" id="msg_footer"
-						style="width: 100%"
-						{{ allow_custom_footer }} value="{{ sms_footer }}">
+					<input type="text" name="sms_footer" id="msg_footer" style="width: 100%" value="{{ sms_footer }}">
 				</p>
 			</div>
 			<div class="form-group">
 				<label for="msg_options">{{ Options }}</label>
 				<div id="msg_options">
 					<div class="checkbox">
-						<label> <input type=checkbox name=msg_flash id="msg_flash">{{
-							Flash message }}
+						<label> <input type=checkbox name=msg_flash id="msg_flash">{{ Flash message }}
 						</label>
 					</div>
 					<div class="checkbox">
 						<label> <input type=checkbox name=msg_unicode
 							id="msg_unicode" onClick="SmsSetCounter();"
-							onkeypress="SmsSetCounter();" onblur="SmsSetCounter();">{{
-							Unicode message }}
+							onkeypress="SmsSetCounter();" onblur="SmsSetCounter();">{{ Unicode message }}
 						</label>
 					</div>
 				</div>

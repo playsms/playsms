@@ -16,7 +16,7 @@
 		</tr>
 		<tr>
 			<td>{{ Default message footer }}</td>
-			<td><input type=text maxlength=30 name=up_footer value='{{ footer }}'> {{ HINT_MAX_ALPHANUMERIC }}</td>
+			<td><input type=text maxlength=30 name=up_footer value="{{ footer }}"> {{ HINT_MAX_ALPHANUMERIC }}</td>
 		</tr>
 		<tr>
 			<td>{{ Credit }}</td>
@@ -28,10 +28,10 @@
 		</tr>
 		<tr>
 			<td>{{ Webservices token }}</td>
-			<td><input type=text value='{{ token }}' disabled></td>
+			<td><input type=text value='{{ token }}' readonly></td>
 		</tr>
 		<tr>
-			<td>{{ New webservices token }}</td>
+			<td>{{ Renew webservices token }}</td>
 			<td><select name='up_new_token'>{{ option_new_token }}</select></td>
 		</tr>
 		<tr>

@@ -6,22 +6,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Gateway module configurations has been saved"
-msgstr ""
+msgstr "La configuration du module de passerelle a été enregistrée"
 
 msgid "Gateway name"
-msgstr ""
+msgstr "Nom de la passerelle"
 
 msgid "Manage template"
-msgstr "Manage template"
+msgstr "Gérer modèle"
 
 msgid "No changes have been made"
-msgstr ""
+msgstr "Aucun changement apporté"
 
 msgid "No trailing slash"
-msgstr ""
+msgstr "Pas de slash final"
 
 msgid "Save"
-msgstr ""
+msgstr "Enregistrer"
 
 msgid "Template installation path"
-msgstr ""
+msgstr "Chemin d'installation du modèle"

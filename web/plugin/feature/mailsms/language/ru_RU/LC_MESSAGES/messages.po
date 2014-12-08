@@ -1,0 +1,80 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "Check email sender"
+msgstr "Проверять отправителя"
+
+msgid "Email protocol"
+msgstr "Протокол"
+
+msgid "Email to SMS PIN has been saved"
+msgstr "Персональный код сохранён"
+
+msgid "Email to SMS PIN has been saved but service is disabled"
+msgstr "Персональный код сохранён, но служба отключена"
+
+msgid "Email to SMS address"
+msgstr "Email to SMS адрес"
+
+msgid "Email to SMS configuration has been saved and service disabled"
+msgstr "Конфигурация сохранена, служба отключена"
+
+msgid "Email to SMS configuration has been saved and service enabled"
+msgstr "Конфигурация сохранена, служба включена"
+
+msgid "Enable fetch new emails"
+msgstr "Включить сбор писем"
+
+msgid "Fail to save email to SMS PIN"
+msgstr "Не удалось сохранить персональный код"
+
+msgid "Fill the password field to change password"
+msgstr "Заполните поле чтобы изменить пароль"
+
+msgid "Mail server address"
+msgstr "Адрес почтового сервера"
+
+msgid "Mail server port"
+msgstr "Порт почтового сервера"
+
+msgid "Mailbox password"
+msgstr "Пароль почтового ящика"
+
+msgid "Mailbox username"
+msgstr "Имя пользователя ящика"
+
+msgid "Manage email to SMS"
+msgstr "Управление email to SMS"
+
+msgid "My email to SMS"
+msgstr "Настройки Email to SMS"
+
+msgid "No validate cert option"
+msgstr "Не проверять сертификат"
+
+#, fuzzy
+msgid "PIN for email to SMS"
+msgstr "Настройки Email to SMS"
+
+msgid "PIN is empty"
+msgstr "Персональны код пустой"
+
+msgid "Use SSL"
+msgstr "Использовать SSL"
+
+msgid "no"
+msgstr "нет"
+
+msgid "yes"
+msgstr "да"

@@ -4,13 +4,31 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
+
+msgid "1 Day"
+msgstr "1 день"
+
+msgid "1 Month"
+msgstr "1 месяц"
+
+msgid "1 Week"
+msgstr "1 неделя"
+
+msgid "2 Days"
+msgstr "2 дня"
+
+msgid "2 Weeks"
+msgstr "2 недели"
+
+msgid "6 Months"
+msgstr "6 месяцев"
 
 msgid "Action"
 msgstr "Действие"
@@ -142,6 +160,9 @@ msgstr "Параметр отмены подписки"
 msgid "SMS unsubscribe reply"
 msgstr "Ответ об успешной отмене подписки"
 
+msgid "SMSC"
+msgstr "SMSC"
+
 msgid "Save"
 msgstr "Сохранить"
 
@@ -157,8 +178,17 @@ msgstr "Отправлено"
 msgid "Status"
 msgstr "Состояние"
 
+msgid "Subscribe duration"
+msgstr "Продолжительность подписки"
+
+msgid "Subscription expired reply"
+msgstr "Ответ об истечении подписки"
+
 msgid "Unknown format reply"
 msgstr "Ответ о неизвестном формате"
+
+msgid "Unlimited"
+msgstr "Неограниченно"
 
 msgid "User"
 msgstr "Пользователь"

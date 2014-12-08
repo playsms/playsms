@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin>
 	<name>outgoing</name>
-	<alias>Route SMS outgoing</alias>
-	<description>Route SMS outgoing</description>
+	<alias>Outgoing</alias>
+	<description>Route outgoing SMS</description>
 	<release>1.0</release>
 	<date>2014-09-15</date>
 	<author>Rahman</author>

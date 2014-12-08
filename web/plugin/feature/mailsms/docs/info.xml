@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+	<name>mailsms</name>
+	<alias>mailsms</alias>
+	<description>Email to SMS with global address</description>
+	<release>1.0</release>
+	<date>2014-09-17</date>
+	<author>Rahman and Anton Raharja</author>
+	<language_file>1</language_file>
+	<sql_file>0</sql_file>
+	<php_file>1</php_file>
+</plugin>

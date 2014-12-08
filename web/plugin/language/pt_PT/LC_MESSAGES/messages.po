@@ -1,0 +1,166 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-11 22:14+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jonadabe <jonadabe@hotmail.com>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+
+msgid "Add"
+msgstr "Adicionar"
+
+msgid "Administrator"
+msgstr "Administrador"
+
+msgid "Ban"
+msgstr "Banir"
+
+msgid "Buy"
+msgstr "Comprar"
+
+msgid "Delete"
+msgstr "Remover"
+
+msgid "Delete user"
+msgstr "Eliminar utilizador"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Export"
+msgstr "Exportar"
+
+msgid "FATAL ERROR"
+msgstr "ERRO FATAL"
+
+msgid "Fail to connect to database"
+msgstr "Falha na ligação à base de dados"
+
+msgid "Fail to load gateway"
+msgstr "Falha ao carregar o gateway"
+
+msgid "Fail to load language"
+msgstr "Falha ao carregar o idioma"
+
+msgid "Fail to load main config from registry"
+msgstr "Falha ao carregar a configuração a partir do registo"
+
+msgid "Fail to load themes"
+msgstr "Falha ao carregar tema"
+
+msgid "Features"
+msgstr "Características"
+
+msgid "Forward"
+msgstr "Reencaminhar"
+
+msgid "Go"
+msgstr "Ir"
+
+msgid "Group"
+msgstr "Grupo"
+
+msgid "Home"
+msgstr "Início"
+
+msgid "Idle"
+msgstr "Em espera"
+
+msgid "Import"
+msgstr "Importar"
+
+msgid "Login as"
+msgstr "Login como"
+
+msgid "Logout"
+msgstr "Sair"
+
+msgid "Main configuration"
+msgstr "Configurações principais"
+
+msgid "Manage"
+msgstr "Administrar"
+
+msgid "Manage account"
+msgstr "Gerir conta"
+
+msgid "Manage gateway"
+msgstr "Gerir gateway"
+
+msgid "Manage gateway and SMSC"
+msgstr "Gerir gateway e SMSC"
+
+msgid "Manage sender ID"
+msgstr "Gerir identificação de envio"
+
+msgid "Manage sub-account"
+msgstr "Gerir subconta"
+
+msgid "Manage sub-accounts"
+msgstr "Gerir subcontas"
+
+msgid "Manage subuser"
+msgstr "Gerir subutilizador"
+
+msgid "Manage subusers"
+msgstr "Gerir subutilizador"
+
+msgid "Manage user"
+msgstr "Administrar usuário"
+
+msgid "Move"
+msgstr "Mover"
+
+msgid "My account"
+msgstr "Minha conta"
+
+msgid "Offline"
+msgstr ""
+
+msgid "Online"
+msgstr ""
+
+msgid "Please run composer.phar update"
+msgstr "Por favor execute a atualização do composer.phar"
+
+msgid "Preferences"
+msgstr "Preferências"
+
+msgid "Reduce"
+msgstr "Reduzir"
+
+msgid "Reply"
+msgstr "Responder"
+
+msgid "Reports"
+msgstr "Relatórios"
+
+msgid "Resend"
+msgstr "Reenviar"
+
+msgid "Send message"
+msgstr "Enviar mensagem"
+
+msgid "Settings"
+msgstr "Definições"
+
+msgid "Unable to find composer files"
+msgstr "Incapaz de encontrar ficheiros composer"
+
+msgid "Unban"
+msgstr "Anular Banimento"
+
+msgid "User configuration"
+msgstr "Configurações de utilizador"
+
+msgid "User preference"
+msgstr "Preferências de utilizador"
+
+msgid "View"
+msgstr "Visualizar"

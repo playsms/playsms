@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Alexey Dvoryachikov <gdemoyinternet@ya.ru>\n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -15,26 +15,26 @@ msgstr ""
 msgid "Action"
 msgstr "Действие"
 
-msgid "Add rate"
-msgstr "Добавить тариф"
+msgid "Add route"
+msgstr "Добавить маршрут"
 
-msgid "Are you sure you want to delete rate ?"
-msgstr "Вы уверены, что хотите удалить тариф?"
+msgid "Are you sure ?"
+msgstr "Вы уверены?"
 
-msgid "Destination"
+msgid "Destination name"
 msgstr "Назначение"
 
-msgid "Edit rate"
-msgstr "Редактировать тариф"
+msgid "Edit route"
+msgstr "Редактировать маршрут"
 
-msgid "Fail to delete rate"
-msgstr "Не удалось удалить тариф"
+msgid "Fail to delete route"
+msgstr "Не удалось удалить маршрут"
 
-msgid "Fail to save rate"
-msgstr "Не удалось сохранить тариф"
+msgid "Fail to save route"
+msgstr "Не удалось сохранить маршрут"
 
-msgid "Manage SMS rate"
-msgstr "Тарификация"
+msgid "Maximum 8 digits numeric only"
+msgstr ""
 
 msgid "No changes made!"
 msgstr "Нет изменений"
@@ -42,26 +42,38 @@ msgstr "Нет изменений"
 msgid "Prefix"
 msgstr "Префикс"
 
-msgid "Rate"
-msgstr "Тариф"
+msgid "Route SMS outgoing"
+msgstr "Маршрутизация исходящих СМС"
 
-msgid "Rate already exists"
-msgstr "Тариф уже существует"
+msgid "Route has been added"
+msgstr "Маршрут добавлен"
 
-msgid "Rate has been added"
-msgstr "Тариф добавлен"
+msgid "Route has been deleted"
+msgstr "Маршрут удалён"
 
-msgid "Rate has been deleted"
-msgstr "Тариф удалён"
+msgid "Route has been saved"
+msgstr "Маршрут сохранён"
 
-msgid "Rate has been saved"
-msgstr "Тариф сохранён"
+msgid "Route outgoing SMS"
+msgstr "Маршрутизация исходящих СМС"
+
+msgid "SMSC"
+msgstr "SMSC"
 
 msgid "Save"
 msgstr "Сохранить"
 
+msgid "User"
+msgstr "Пользователь"
+
 msgid "You must fill all fields"
 msgstr "Необходимо заполнить все поля"
+
+msgid "You must fill all mandatory fields"
+msgstr "Необходимо заполнить обязательные поля"
+
+msgid "blocked"
+msgstr "заблокировано"
 
 msgid "destination"
 msgstr "назначение"

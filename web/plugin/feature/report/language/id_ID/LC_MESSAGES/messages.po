@@ -5,6 +5,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Account has been unbanned"
+msgstr ""
+
 msgid "All inbox"
 msgstr ""
 
@@ -71,9 +74,6 @@ msgstr ""
 msgid "From"
 msgstr ""
 
-msgid "Gateway"
-msgstr ""
-
 msgid "Inbox"
 msgstr ""
 
@@ -116,6 +116,9 @@ msgstr ""
 msgid "Report whose online"
 msgstr ""
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Sandbox"
 msgstr ""
 
@@ -146,16 +149,13 @@ msgstr ""
 msgid "Transaction datetime"
 msgstr ""
 
-msgid "Unable to unban user"
+msgid "Unable to unban account"
 msgstr ""
 
 msgid "User"
 msgstr ""
 
 msgid "User agent"
-msgstr ""
-
-msgid "User has been unbanned"
 msgstr ""
 
 msgid "Whose online"

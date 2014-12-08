@@ -6,7 +6,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Gateway name"
-msgstr "Nom passerelle"
+msgstr "Nom de la passerelle"
 
 msgid "Manage gammu"
 msgstr "Gérer gammu"

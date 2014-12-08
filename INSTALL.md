@@ -1,6 +1,6 @@
 # INSTALL
 
-This document explains about how to install and setup playSMS version **1.0-rc2**
+This document explains about how to install and setup playSMS version **1.0-rc4**
 
 
 ## Requirements
@@ -20,17 +20,18 @@ Optional hardware or infrastructure:
 
 **Minimum required softwares:**
 
-* Operating System Linux
+* Operating System Linux (distro such as Ubuntu, Debian, CentOS etc)
 * Web server software (for example Apache2, nginx or lighttpd)
 * Database Server MySQL 5.x.x or latest stable release
-* PHP 5.3 or latest stable release with mysql module enabled
-* PHP CLI (very important, do not forget this)
-* PHP PEAR and PHP PEAR-DB (very important, do not forget this)
-* PHP gettext extension (for text translation)
-* PHP mbstring extension (for unicode detection)
-* PHP GD extension (to draw graphs)
-* Access to SMTP server (playSMS will use this to send email)
-* Console browser such as lynx, wget or curl
+* PHP 5.3 or latest stable release (must be at least version 5.3)
+* PHP MySQL module must be installed and enabled
+* PHP CLI must be installed
+* PHP PEAR and PHP PEAR-DB must be installed correctly
+* PHP gettext extension must be installed and enabled for text translation
+* PHP mbstring extension must be installed and enabled for unicode detection
+* PHP GD extension must be installed and enabled to draw graphs
+* Access to SMTP server to send Email
+* At least one console browser such as lynx, wget or curl should be installed
 * Downloaded playSMS package from SF.net or latest source code from Github
 * Properly installed composer from https://getcomposer.org
 

@@ -1,0 +1,61 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Check email sender"
+msgstr "Vérifiez l'expéditeur de l'email"
+
+msgid "Email protocol"
+msgstr "Protocole email"
+
+msgid "Email to SMS configuration has been saved and enabled"
+msgstr "La configuration email vers SMS a été enregistrée et activée"
+
+msgid "Email to SMS configuration has been saved but disabled"
+msgstr "La configuration email vers SMS a été enregistrée mais désactivée"
+
+msgid "Enable email to SMS"
+msgstr "Activer email vers SMS"
+
+msgid "Fail to save email to SMS configuration"
+msgstr "Échec de l'enregistrement de la configuration email vers SMS"
+
+msgid "Fill the password field to change password"
+msgstr "Veuillez saisir le champ du mot de passe pour le changer"
+
+msgid "Mail server address"
+msgstr "Adresse du serveur email"
+
+msgid "Mail server port"
+msgstr "Port du serveur email"
+
+msgid "Mailbox password"
+msgstr "Mot de passe de la boîte aux lettres"
+
+msgid "Mailbox username"
+msgstr "Nom d'utilisateur de la boîte aux lettres"
+
+msgid "Manage email to SMS"
+msgstr "Gérer email vers SMS"
+
+msgid "No validate cert option"
+msgstr "Option ne pas valider le cert"
+
+#, fuzzy
+msgid "PIN for email to SMS"
+msgstr "Activer email vers SMS"
+
+msgid "PIN is empty"
+msgstr "Le PIN est vide"
+
+msgid "Use SSL"
+msgstr "Utiliser SSL"
+
+msgid "no"
+msgstr "non"
+
+msgid "yes"
+msgstr "oui"

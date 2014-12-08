@@ -83,12 +83,12 @@ if (auth_isadmin()) {
 
 	$menu_config[$menutab][] = array(
 		'index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list',
-		_('Manage user') ,
+		_('Manage account') ,
 		3
 	);
 	$menu_config[$menutab][] = array(
 		'index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list',
-		_('Manage subusers') ,
+		_('Manage subuser') ,
 		3
 	);
 	$menu_config[$menutab][] = array(
@@ -101,6 +101,11 @@ if (auth_isadmin()) {
 		_('Main configuration') ,
 		3
 	);
+	$menu_config[$menutab][] = array(
+		'index.php?app=main&inc=core_gateway&op=gateway_list',
+		_('Manage gateway and SMSC') ,
+		3
+	);
 } else if ($user_config['status'] == 3) {
 	
 	// user menus
@@ -108,7 +113,7 @@ if (auth_isadmin()) {
 	
 	$menu_config[$menutab][] = array(
 		'index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list',
-		_('Manage subusers') ,
+		_('Manage subuser') ,
 		3
 	);
 	$menu_config[$menutab][] = array(

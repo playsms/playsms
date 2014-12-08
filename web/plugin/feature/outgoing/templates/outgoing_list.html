@@ -3,18 +3,22 @@
 <p>{{ Add route }}
 <div class=table-responsive>
 	<table class=playsms-table-list>
-		<thead><tr>
-			<th width='50%'>{{ Destination }}</th>
-			<th width='20%'>{{ Prefix }}</th>
-			<th width='20%'>{{ Gateway }}</th>
-			<th width='10%'>{{ Action }}</th>
-		</tr></thead>
+		<thead>
+			<tr>
+				<th width='20%'>{{ User }}</th>
+				<th width='20%'>{{ Prefix }}</th>
+				<th width='20%'>{{ SMSC }}</th>
+				<th width='30%'>{{ Destination name }}</th>
+				<th width='10%'>{{ Action }}</th>
+			</tr>
+		</thead>
 		<tbody>
 			<loop.data>
-			<tr class={{ data.tr_class }}>
-				<td>{{ data.dst }}</td>
+			<tr class={{data.tr_class }}>
+				<td>{{ data.username }}</td>
 				<td>{{ data.prefix }}</td>
-				<td>{{ data.gateway }}</td>
+				<td>{{ data.smsc }}</td>
+				<td>{{ data.dst }}</td>
 				<td>{{ data.action }}</td>
 			</tr>
 			</loop.data>

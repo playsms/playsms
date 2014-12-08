@@ -1,56 +1,69 @@
-msgid "Flash message"
+msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "Flash message"
+msgstr "Всплывающее СМС"
 
 msgid "Format YYYY-MM-DD hh:mm"
-msgstr ""
+msgstr "Формат ГГГГ-ММ-ДД чч:мм"
 
 msgid "Message"
-msgstr ""
+msgstr "Сообщение"
 
 msgid "Message footer"
-msgstr ""
+msgstr "Подпись сообщения"
 
 msgid "Options"
-msgstr ""
+msgstr "Параметры"
 
 msgid "Please select template"
-msgstr ""
+msgstr "Выберите шаблон"
 
 msgid "Prefix with # for groups and @ for users"
-msgstr ""
+msgstr "# для поиска групп, @ для поиска пользователей"
 
 msgid "SMS"
-msgstr ""
+msgstr "СМС"
 
 msgid "Schedule"
-msgstr ""
+msgstr "Запланировать"
 
 msgid "Send"
-msgstr ""
+msgstr "Отправить"
 
 msgid "Send message"
-msgstr ""
+msgstr "Отправка сообщения"
 
 msgid "Send to"
-msgstr ""
+msgstr "Получатели"
 
 msgid "Sender ID"
-msgstr ""
+msgstr "Имя отправителя"
 
 msgid "Unicode message"
-msgstr ""
+msgstr "содержит русские символы"
 
 msgid "You must select receiver and your message should not be empty"
-msgstr ""
+msgstr "Необходимо выбрать получателей и сообщение не должно быть пустым"
 
 msgid "Your message has been delivered to queue"
-msgstr ""
+msgstr "Сообщение успешно принято к отправке"
 
 msgid "chars"
-msgstr ""
+msgstr "симв"
 
 msgid "failed"
-msgstr ""
+msgstr "ошибок"
 
 msgid "queued"
-msgstr ""
+msgstr "в очереди"

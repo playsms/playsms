@@ -20,7 +20,7 @@ function gammu_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datet
 	
 	// list all files in sent and error dir
 	$fn = array();
-	for ($i = 0; $i < count($dir); $i++) {
+	for($i = 0; $i < count($dir); $i++) {
 		$j = 0;
 		if ($handle = @opendir($dir[$i])) {
 			while ($file = @readdir($handle)) {
@@ -35,8 +35,8 @@ function gammu_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datet
 	
 	// check listed files above againts sms_id
 	$the_fn = '';
-	for ($i = 0; $i < count($dir); $i++) {
-		for ($j = 0; $j < count($fn[$i]); $j++) {
+	for($i = 0; $i < count($dir); $i++) {
+		for($j = 0; $j < count($fn[$i]); $j++) {
 			if (preg_match("/" . $sms_id . "/", $fn[$i][$j])) {
 				$the_fn = $dir[$i] . $fn[$i][$j];
 				if ($i === 0) {
@@ -76,86 +76,101 @@ function gammu_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datet
 }
 
 function gammu_hook_getsmsinbox() {
-        // filename
-        // IN20101017_091747_00_+628123423141312345_00.txt
-        global $plugin_config;
-        $handle = @opendir($plugin_config['gammu']['path'] . "/inbox");
-        $messages = array();
-        $files = array();
-        while ($sms_in_file = @readdir($handle)) {
-                if ($sms_in_file != "." && $sms_in_file != "..") {
-                        $files[] = $sms_in_file;
-                }
-        }
-        sort($files);
-        foreach ($files as $sms_in_file) {
-                $fn = $plugin_config['gammu']['path'] . "/inbox/$sms_in_file";
-
-                $matches = array();
-                preg_match('/IN(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})(\d{2})_(\d+)_([+]*\w+)_(\d+)/', basename($fn), $matches);
-                list($s, $year, $month, $date, $hour, $minute, $second, $serial, $sms_sender, $seq) = $matches;
-                $sms_datetime = $year . "-" . $month . "-" . $date . " " . $hour . ":" . $minute . ":" . $second;
-
-                // message is in UTF-16, need to convert it to UTF-8
-                $message = file_get_contents($fn);
-
-                // if the message is unicode then convert it to UTF-8
-                if (core_detect_unicode($message)) {
-                        $message = mb_convert_encoding($message, "UTF-8", "UTF-16");
-                }
-
-                @unlink($fn);
-
-                // continue process only when incoming sms file can be deleted
-                if (!file_exists($fn)) {
-                        if ($sms_sender && $sms_datetime) {
-                                //adding message parts to existing array
-                                if (array_key_exists($sms_sender, $messages) && (int) $seq > 0) {
-                                        $messages[$sms_sender][] = array("fn" => $fn, "message" => $message, "msg_datetime" => $sms_datetime);
-                                } else if (!array_key_exists($sms_sender, $messages) || (array_key_exists($sms_sender, $messages) && (int) $seq == 0)) {
-                                        if (count($messages) > 0) {
-                                                //saving concatenated message parts
-                                                $parts_sender = 0;
-                                                foreach($messages as $sender => $message_parts) {
-                                                	$parts_message = "";
-                                                        $parts_sender = $sender;
-                                                        foreach ($message_parts as $part) {
-                                                                $parts_message .= $part['message'];
-                                                        }
-                                                }
-                                                $parts_datetime = $messages[$parts_sender][0]['msg_datetime'];
-                                                recvsms($parts_datetime, $parts_sender, $parts_message, $sms_receiver);
-                                                logger_print("sender:" . $parts_sender . " receiver:" . $sms_receiver . " dt:" . $parts_datetime . " msg:" . $parts_message, 3, "gammu incoming");
-
-                                                unset($messages);
-                                        }
-                                        //new message parts array
-                                        $messages[$sms_sender] = array(array("fn" => $fn, "message" => $message, "msg_datetime" => $sms_datetime));
-                                }
-                        }
-
-                }
-        }
-        if (count($messages) > 0) {
-                //saving last concatenated message parts
-                $parts_sender = 0;
-                foreach($messages as $sender => $message_parts) {
-                	$parts_message = "";
-                        $parts_sender = $sender;
-                        foreach ($message_parts as $part) {
-                                $parts_message .= $part['message'];
-                        }
-                }
-                $parts_datetime = $messages[$parts_sender][0]['msg_datetime'];
-                recvsms($parts_datetime, $parts_sender, $parts_message, $sms_receiver);
-                logger_print("sender:" . $parts_sender . " receiver:" . $sms_receiver . " dt:" . $parts_datetime . " msg:" . $_parts_message, 3, "gammu incoming");
-                unset($messages);
-        }
-        @closedir($handle);
+	// filename
+	// IN20101017_091747_00_+628123423141312345_00.txt
+	global $plugin_config;
+	$handle = @opendir($plugin_config['gammu']['path'] . "/inbox");
+	$messages = array();
+	$files = array();
+	while ($sms_in_file = @readdir($handle)) {
+		if ($sms_in_file != "." && $sms_in_file != "..") {
+			$files[] = $sms_in_file;
+		}
+	}
+	sort($files);
+	foreach ($files as $sms_in_file ) {
+		$fn = $plugin_config['gammu']['path'] . "/inbox/$sms_in_file";
+		
+		$matches = array();
+		preg_match('/IN(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})(\d{2})_(\d+)_([+]*\w+)_(\d+)/', basename($fn), $matches);
+		list($s, $year, $month, $date, $hour, $minute, $second, $serial, $sms_sender, $seq) = $matches;
+		$sms_datetime = $year . "-" . $month . "-" . $date . " " . $hour . ":" . $minute . ":" . $second;
+		
+		// message is in UTF-16, need to convert it to UTF-8
+		$message = file_get_contents($fn);
+		
+		// if the message is unicode then convert it to UTF-8
+		if (core_detect_unicode($message)) {
+			$message = mb_convert_encoding($message, "UTF-8", "UTF-16");
+		}
+		
+		@unlink($fn);
+		
+		// continue process only when incoming sms file can be deleted
+		if (!file_exists($fn)) {
+			if ($sms_sender && $sms_datetime) {
+				// adding message parts to existing array
+				if (array_key_exists($sms_sender, $messages) && (int) $seq > 0) {
+					$messages[$sms_sender][] = array(
+						"fn" => $fn,
+						"message" => $message,
+						"msg_datetime" => $sms_datetime 
+					);
+				} else if (!array_key_exists($sms_sender, $messages) || (array_key_exists($sms_sender, $messages) && (int) $seq == 0)) {
+					if (count($messages) > 0) {
+						// saving concatenated message parts
+						$parts_sender = 0;
+						foreach ($messages as $sender => $message_parts ) {
+							$parts_message = "";
+							$parts_sender = $sender;
+							foreach ($message_parts as $part ) {
+								$parts_message .= $part['message'];
+							}
+						}
+						$parts_datetime = $messages[$parts_sender][0]['msg_datetime'];
+						recvsms($parts_datetime, $parts_sender, $parts_message, $sms_receiver, 'gammu');
+						logger_print("sender:" . $parts_sender . " receiver:" . $sms_receiver . " dt:" . $parts_datetime . " msg:" . $parts_message, 3, "gammu incoming");
+						
+						unset($messages);
+					}
+					// new message parts array
+					$messages[$sms_sender] = array(
+						array(
+							"fn" => $fn,
+							"message" => $message,
+							"msg_datetime" => $sms_datetime 
+						) 
+					);
+				}
+			}
+		}
+	}
+	if (count($messages) > 0) {
+		// saving last concatenated message parts
+		$parts_sender = 0;
+		foreach ($messages as $sender => $message_parts ) {
+			$parts_message = "";
+			$parts_sender = $sender;
+			foreach ($message_parts as $part ) {
+				$parts_message .= $part['message'];
+			}
+		}
+		$parts_datetime = $messages[$parts_sender][0]['msg_datetime'];
+		recvsms($parts_datetime, $parts_sender, $parts_message, $sms_receiver, $smsc);
+		logger_print("sender:" . $parts_sender . " receiver:" . $sms_receiver . " dt:" . $parts_datetime . " msg:" . $_parts_message, 3, "gammu incoming");
+		unset($messages);
+	}
+	@closedir($handle);
 }
 
-function gammu_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
+function gammu_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
 	global $plugin_config;
+	
+	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "gammu_hook_sendsms");
+	
+	// override plugin gateway configuration by smsc configuration
+	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
+	
 	$sms_sender = stripslashes($sms_sender);
 	$sms_footer = stripslashes($sms_footer);
 	$sms_msg = stripslashes($sms_msg);
@@ -172,7 +187,7 @@ function gammu_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = 
 	$sms_id = 'A' . $date . '_' . $time . '_00_' . $sms_to . '_' . $smslog_id . '10001' . $uid . '10001' . $gpid . '.txt' . $option_dlr;
 	
 	if ($sms_type == 'flash') {
-		$sms_id.= 'f';
+		$sms_id .= 'f';
 	}
 	
 	if ($sms_footer) {
@@ -182,12 +197,8 @@ function gammu_hook_sendsms($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = 
 	// no need to do anything on unicoded messages since InboxFormat and OutboxFormat is already set to unicode
 	// meaning gammu will take care of it
 	/*
-	if ($unicode) {
-	if (function_exists('mb_convert_encoding')) {
-	$sms_msg = mb_convert_encoding($sms_msg, "UCS-2BE", "auto");
-	}
-	}
-	*/
+	 * if ($unicode) { if (function_exists('mb_convert_encoding')) { $sms_msg = mb_convert_encoding($sms_msg, "UCS-2BE", "auto"); } }
+	 */
 	$fn = $plugin_config['gammu']['path'] . "/outbox/OUT" . $sms_id;
 	logger_print("saving outfile:" . $fn, 2, "gammu outgoing");
 	umask(0);

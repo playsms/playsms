@@ -22,14 +22,22 @@ if (!auth_isvalid()) {
 	auth_block();
 }
 
-if ($subscribe_id = $_REQUEST['subscribe_id']) {
-	if (!($subscribe_id = dba_valid(_DB_PREF_ . '_featureSubscribe', 'subscribe_id', $subscribe_id))) {
+if ($subscribe_id = (int) $_REQUEST['subscribe_id']) {
+	$db_table = _DB_PREF_ . '_featureSubscribe';
+	$conditions = array(
+		'subscribe_id' => $subscribe_id 
+	);
+	if (!auth_isadmin()) {
+		$conditions['uid'] = $user_config['uid'];
+	}
+	$list = dba_search($db_table, 'subscribe_id', $conditions);
+	if (!($list[0]['subscribe_id'] == $subscribe_id)) {
 		auth_block();
 	}
 }
 
 switch (_OP_) {
-	case "sms_subscribe_list" :
+	case "sms_subscribe_list":
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -105,7 +113,7 @@ switch (_OP_) {
 		_p($content);
 		break;
 	
-	case "sms_subscribe_status" :
+	case "sms_subscribe_status":
 		$ps = $_REQUEST['ps'];
 		$db_query = "UPDATE " . _DB_PREF_ . "_featureSubscribe SET c_timestamp='" . mktime() . "',subscribe_enable='$ps' WHERE subscribe_id='$subscribe_id'";
 		$db_result = @dba_affected_rows($db_query);
@@ -116,12 +124,16 @@ switch (_OP_) {
 		exit();
 		break;
 	
-	case "sms_subscribe_add" :
+	case "sms_subscribe_add":
 		$max_length = $core_config['main']['max_sms_length'];
+		if (auth_isadmin()) {
+			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc') . "</td></tr>";
+		}
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$add_forward_param = 'BC';
+		$select_durations = _select('add_duration', $plugin_config['sms_subscribe']['durations']);
 		$content .= "
 			<link rel='stylesheet' type='text/css' href=" . _HTTP_PATH_THEMES_ . "/common/jscss/sms_subscribe.css />
 			<h2>" . _('Manage subscribe') . "</h2>
@@ -175,10 +187,29 @@ switch (_OP_) {
 				</td>
 			</tr>
 			<tr>
-				<td>" . _('SMS forward parameter') . "</td>
-				
+				<td>" . _('SMS forward parameter') . "</td>				
 				<td>
 					<input type=text size=10 maxlength=20 name=add_forward_param value=\"$add_forward_param\">
+				</td>
+			</tr>
+			<tr>
+				<td>" . _('Subscribe duration') . "</td>				
+				<td>" . $select_durations . "</td>
+			</tr>
+			<tr>
+				<td>" . _('Subscription expired reply') . "</td>
+				<td>
+					<textarea maxlength=\"140\" name=\"add_expire_msg\" id=\"add_expire_msg\" value=\"\" cols=\"35\" rows=\"3\" 
+						onClick=\"SmsSetCounter_Abstract('add_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\" 
+						onkeypress=\"SmsSetCounter_Abstract('add_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\" 
+						onblur=\"SmsSetCounter_Abstract('add_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\" 
+						onKeyUp=\"SmsSetCounter_Abstract('add_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\"	
+						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'add_expire_msg');\" 
+						onKeyDown=\"SmsCountKeyDown_Abstract($max_length, 'form_subscribe_add');\"></textarea>
+					<br>
+					<input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount_ex\" id=\"txtcount_ex\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.form_subscribe_add.add_expire_msg.focus();\" readonly>
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount_ex\" id=\"hiddcount_ex\"> 
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_ex\" id=\"hiddcount_unicode_ex\"> 
 				</td>
 			</tr>
 			<tr>
@@ -213,6 +244,7 @@ switch (_OP_) {
 					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_am\" id=\"hiddcount_unicode_am\"> 
 				</td>
 			</tr>
+			" . $select_reply_smsc . "
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
@@ -220,24 +252,25 @@ switch (_OP_) {
 		_p($content);
 		break;
 	
-	case "sms_subscribe_add_yes" :
+	case "sms_subscribe_add_yes":
 		$add_subscribe_keyword = strtoupper($_POST['add_subscribe_keyword']);
 		$add_subscribe_msg = $_POST['add_subscribe_msg'];
 		$add_unsubscribe_msg = $_POST['add_unsubscribe_msg'];
 		$add_subscribe_param = strtoupper($_POST['add_subscribe_param']);
 		$add_unsubscribe_param = strtoupper($_POST['add_unsubscribe_param']);
-		$add_forward_param = strtoupper($_POST['add_forward_param']);
+		$add_forward_param = strtoupper(($_POST['add_forward_param'] ? $_POST['add_forward_param'] : 'BC'));
 		$add_unknown_format_msg = $_POST['add_unknown_format_msg'];
 		$add_already_member_msg = $_POST['add_already_member_msg'];
-		if (!$add_forward_param) {
-			$add_forward_param = 'BC';
+		$add_expire_msg = $_POST['add_expire_msg'];
+		$add_duration = (int) $_POST['add_duration'];
+		if (auth_isadmin()) {
+			$smsc = $_REQUEST['smsc'];
 		}
-		;
 		if ($add_subscribe_keyword && $add_subscribe_msg && $add_unsubscribe_msg && $add_forward_param && $add_unknown_format_msg && $add_already_member_msg) {
 			if (checkavailablekeyword($add_subscribe_keyword)) {
 				$db_query = "
-					INSERT INTO " . _DB_PREF_ . "_featureSubscribe (uid,subscribe_keyword,subscribe_msg,unsubscribe_msg, subscribe_param, unsubscribe_param, forward_param, unknown_format_msg, already_member_msg)
-					VALUES ('" . $user_config['uid'] . "','$add_subscribe_keyword','$add_subscribe_msg','$add_unsubscribe_msg','$add_subscribe_param','$add_unsubscribe_param','$add_forward_param','$add_unknown_format_msg','$add_already_member_msg')";
+					INSERT INTO " . _DB_PREF_ . "_featureSubscribe (uid,subscribe_keyword,subscribe_msg,unsubscribe_msg, subscribe_param, unsubscribe_param, forward_param, unknown_format_msg, already_member_msg,smsc,duration,expire_msg)
+					VALUES ('" . $user_config['uid'] . "','$add_subscribe_keyword','$add_subscribe_msg','$add_unsubscribe_msg','$add_subscribe_param','$add_unsubscribe_param','$add_forward_param','$add_unknown_format_msg','$add_already_member_msg','$smsc','$add_duration','$add_expire_msg')";
 				if ($new_uid = @dba_insert_id($db_query)) {
 					$_SESSION['error_string'] = _('SMS subscribe has been added') . " (" . _('keyword') . ": $add_subscribe_keyword)";
 				} else {
@@ -253,7 +286,7 @@ switch (_OP_) {
 		exit();
 		break;
 	
-	case "sms_subscribe_edit" :
+	case "sms_subscribe_edit":
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id='$subscribe_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
@@ -266,6 +299,11 @@ switch (_OP_) {
 		$max_length = $core_config['main']['max_sms_length'];
 		$edit_unknown_format_msg = $db_row['unknown_format_msg'];
 		$edit_already_member_msg = $db_row['already_member_msg'];
+		$edit_expire_msg = $db_row['expire_msg'];
+		$select_durations = _select('edit_duration', $plugin_config['sms_subscribe']['durations'], $db_row['duration']);
+		if (auth_isadmin()) {
+			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc', $db_row['smsc']) . "</td></tr>";
+		}
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -328,10 +366,29 @@ switch (_OP_) {
 				</td>
 			</tr>
 			<tr>
-				<td class=label-sizer>" . _('SMS forward parameter') . "</td>
-				
+				<td class=label-sizer>" . _('SMS forward parameter') . "</td>				
 				<td>
 					<input type=text size=10 maxlength=20 name=edit_forward_param value=\"$edit_forward_param\">
+				</td>
+			</tr>
+			<tr>
+				<td>" . _('Subscribe duration') . "</td>				
+				<td>" . $select_durations . "</td>
+			</tr>
+			<tr>
+				<td>" . _('Subscription expired reply') . "</td>
+				<td>
+					<textarea maxlength=\"140\" name=\"edit_expire_msg\" id=\"edit_expire_msg\" value=\"\" cols=\"35\" rows=\"3\" 
+						onClick=\"SmsSetCounter_Abstract('edit_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\" 
+						onkeypress=\"SmsSetCounter_Abstract('edit_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\" 
+						onblur=\"SmsSetCounter_Abstract('edit_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\" 
+						onKeyUp=\"SmsSetCounter_Abstract('edit_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\"	
+						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'edit_expire_msg');\" 
+						onKeyDown=\"SmsCountKeyDown_Abstract($max_length, 'form_subscribe_add');\">$edit_expire_msg</textarea>
+					<br>
+					<input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount_ex\" id=\"txtcount_ex\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.form_subscribe_add.edit_expire_msg.focus();\" readonly>
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount_ex\" id=\"hiddcount_ex\"> 
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_ex\" id=\"hiddcount_unicode_ex\"> 
 				</td>
 			</tr>
 			<tr>
@@ -366,6 +423,7 @@ switch (_OP_) {
 					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_am\" id=\"hiddcount_unicode_am\"> 
 				</td>
 			</tr>
+			" . $select_reply_smsc . "
 		</table>
 		<p><input type=submit class=button value=\"" . _('Save') . "\">
 		</form>
@@ -373,25 +431,30 @@ switch (_OP_) {
 		_p($content);
 		break;
 	
-	case "sms_subscribe_edit_yes" :
+	case "sms_subscribe_edit_yes":
 		$edit_subscribe_keyword = strtoupper($_POST['edit_subscribe_keyword']);
 		$edit_subscribe_msg = $_POST['edit_subscribe_msg'];
 		$edit_unsubscribe_msg = $_POST['edit_unsubscribe_msg'];
 		$edit_subscribe_param = strtoupper($_POST['edit_subscribe_param']);
 		$edit_unsubscribe_param = strtoupper($_POST['edit_unsubscribe_param']);
+		$edit_forward_param = strtoupper(($_POST['edit_forward_param'] ? $_POST['edit_forward_param'] : 'BC'));
 		$edit_forward_param = strtoupper($_POST['edit_forward_param']);
 		$edit_unknown_format_msg = $_POST['edit_unknown_format_msg'];
 		$edit_already_member_msg = $_POST['edit_already_member_msg'];
-		if (!$edit_forward_param) {
-			$edit_forward_param = 'BC';
+		$edit_expire_msg = $_POST['edit_expire_msg'];
+		$edit_duration = (int) $_POST['edit_duration'];
+		if (auth_isadmin()) {
+			$smsc = $_REQUEST['smsc'];
+			$smsc_sql = ",smsc='$smsc'";
 		}
-		;
 		if ($subscribe_id && $edit_subscribe_keyword && $edit_subscribe_msg && $edit_unsubscribe_msg && $edit_forward_param && $edit_unknown_format_msg && $edit_already_member_msg) {
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_featureSubscribe
 				SET c_timestamp='" . mktime() . "', subscribe_keyword='$edit_subscribe_keyword', subscribe_msg='$edit_subscribe_msg',
 					unsubscribe_msg='$edit_unsubscribe_msg', subscribe_param='$edit_subscribe_param', unsubscribe_param='$edit_unsubscribe_param',
-					forward_param='$edit_forward_param', unknown_format_msg='$edit_unknown_format_msg', already_member_msg='$edit_already_member_msg'
+					forward_param='$edit_forward_param', unknown_format_msg='$edit_unknown_format_msg', already_member_msg='$edit_already_member_msg',
+					duration='$edit_duration',expire_msg='$edit_expire_msg'
+					" . $smsc_sql . "
 				WHERE subscribe_id='$subscribe_id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('SMS subscribe has been saved') . " (" . _('keyword') . ": $edit_subscribe_keyword)";
@@ -405,7 +468,7 @@ switch (_OP_) {
 		exit();
 		break;
 	
-	case "sms_subscribe_del" :
+	case "sms_subscribe_del":
 		$db_query = "SELECT subscribe_keyword FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id='$subscribe_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
@@ -424,7 +487,7 @@ switch (_OP_) {
 		exit();
 		break;
 	
-	case "mbr_list" :
+	case "mbr_list":
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id = '$subscribe_id' ORDER BY member_since DESC";
 		$db_result = dba_query($db_query);
 		if ($err = $_SESSION['error_string']) {
@@ -460,7 +523,7 @@ switch (_OP_) {
 		_p($content);
 		break;
 	
-	case "mbr_del" :
+	case "mbr_del":
 		if ($subscribe_id && ($mbr_id = $_REQUEST['mbr_id'])) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id='$subscribe_id' AND member_id='$mbr_id'";
 			if (@dba_affected_rows($db_query)) {
@@ -471,7 +534,7 @@ switch (_OP_) {
 		exit();
 		break;
 	
-	case "msg_list" :
+	case "msg_list":
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -515,7 +578,7 @@ switch (_OP_) {
 		_p($content);
 		break;
 	
-	case "msg_edit" :
+	case "msg_edit":
 		$msg_id = $_REQUEST['msg_id'];
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id='$subscribe_id' AND msg_id = '$msg_id'";
 		$db_result = dba_query($db_query);
@@ -548,7 +611,7 @@ switch (_OP_) {
 		_p($content);
 		break;
 	
-	case "msg_edit_yes" :
+	case "msg_edit_yes":
 		$edit_mbr_msg = $_POST['edit_mbr_msg'];
 		$msg_id = $_POST['msg_id'];
 		if ($subscribe_id && $edit_mbr_msg && $msg_id) {
@@ -567,7 +630,7 @@ switch (_OP_) {
 		exit();
 		break;
 	
-	case "msg_add" :
+	case "msg_add":
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -598,7 +661,7 @@ switch (_OP_) {
 		_p($content);
 		break;
 	
-	case "msg_add_yes" :
+	case "msg_add_yes":
 		$add_mbr_message = $_POST['add_mbr_message'];
 		if ($subscribe_id && $add_mbr_message) {
 			$dt = core_get_datetime();
@@ -617,7 +680,7 @@ switch (_OP_) {
 		exit();
 		break;
 	
-	case "msg_del" :
+	case "msg_del":
 		$msg_id = $_REQUEST['msg_id'];
 		if ($msg_id) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id='$subscribe_id' AND msg_id='$msg_id'";
@@ -629,7 +692,7 @@ switch (_OP_) {
 		exit();
 		break;
 	
-	case "msg_view" :
+	case "msg_view":
 		$list = dba_search(_DB_PREF_ . '_featureSubscribe', 'subscribe_keyword', array(
 			'subscribe_id' => $subscribe_id 
 		));
@@ -665,10 +728,11 @@ switch (_OP_) {
 		_p($content);
 		break;
 	
-	case "msg_send" :
+	case "msg_send":
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id='$subscribe_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
+		$smsc = $db_row['smsc'];
 		$c_uid = $db_row['uid'];
 		$username = user_uid2username($c_uid);
 		$msg_id = $_POST['msg_id'];
@@ -689,7 +753,7 @@ switch (_OP_) {
 			if ($sms_to[0]) {
 				$unicode = core_detect_unicode($message);
 				$message = addslashes($message);
-				list($ok, $to, $smslog_id, $queue) = sendsms($username, $sms_to, $message, 'text', $unicode);
+				list($ok, $to, $smslog_id, $queue) = sendsms_helper($username, $sms_to, $message, 'text', $unicode, $smsc);
 				if ($ok[0]) {
 					$counter++;
 					dba_update(_DB_PREF_ . '_featureSubscribe_msg', array(

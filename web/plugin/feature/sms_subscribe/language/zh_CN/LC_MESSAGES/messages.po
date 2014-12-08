@@ -5,6 +5,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "1 Day"
+msgstr ""
+
+msgid "1 Month"
+msgstr ""
+
+msgid "1 Week"
+msgstr ""
+
+msgid "2 Days"
+msgstr ""
+
+msgid "2 Weeks"
+msgstr ""
+
+msgid "6 Months"
+msgstr ""
+
 msgid "Action"
 msgstr "行动"
 
@@ -144,6 +162,9 @@ msgstr "短信未订阅回复"
 msgid "SMS unsubscribe reply"
 msgstr "短信未订阅回复"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "保存"
 
@@ -160,8 +181,19 @@ msgid "Status"
 msgstr "状态"
 
 #, fuzzy
+msgid "Subscribe duration"
+msgstr "短信订阅回复"
+
+#, fuzzy
+msgid "Subscription expired reply"
+msgstr "短信订阅回复"
+
+#, fuzzy
 msgid "Unknown format reply"
 msgstr "未知短信格式"
+
+msgid "Unlimited"
+msgstr ""
 
 msgid "User"
 msgstr "用户"

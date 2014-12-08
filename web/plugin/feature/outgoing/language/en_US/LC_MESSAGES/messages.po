@@ -8,25 +8,25 @@ msgstr ""
 msgid "Action"
 msgstr ""
 
-msgid "Add rate"
+msgid "Add route"
 msgstr ""
 
-msgid "Are you sure you want to delete rate ?"
+msgid "Are you sure ?"
 msgstr ""
 
-msgid "Destination"
+msgid "Destination name"
 msgstr ""
 
-msgid "Edit rate"
+msgid "Edit route"
 msgstr ""
 
-msgid "Fail to delete rate"
+msgid "Fail to delete route"
 msgstr ""
 
-msgid "Fail to save rate"
+msgid "Fail to save route"
 msgstr ""
 
-msgid "Manage SMS rate"
+msgid "Maximum 8 digits numeric only"
 msgstr ""
 
 msgid "No changes made!"
@@ -35,25 +35,37 @@ msgstr ""
 msgid "Prefix"
 msgstr ""
 
-msgid "Rate"
+msgid "Route SMS outgoing"
 msgstr ""
 
-msgid "Rate already exists"
+msgid "Route has been added"
 msgstr ""
 
-msgid "Rate has been added"
+msgid "Route has been deleted"
 msgstr ""
 
-msgid "Rate has been deleted"
+msgid "Route has been saved"
 msgstr ""
 
-msgid "Rate has been saved"
+msgid "Route outgoing SMS"
+msgstr ""
+
+msgid "SMSC"
 msgstr ""
 
 msgid "Save"
 msgstr ""
 
+msgid "User"
+msgstr ""
+
 msgid "You must fill all fields"
+msgstr ""
+
+msgid "You must fill all mandatory fields"
+msgstr ""
+
+msgid "blocked"
 msgstr ""
 
 msgid "destination"

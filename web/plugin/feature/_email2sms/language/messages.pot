@@ -1,0 +1,53 @@
+msgid "Check email sender"
+msgstr ""
+
+msgid "Email protocol"
+msgstr ""
+
+msgid "Email to SMS configuration has been saved and enabled"
+msgstr ""
+
+msgid "Email to SMS configuration has been saved but disabled"
+msgstr ""
+
+msgid "Enable email to SMS"
+msgstr ""
+
+msgid "Fail to save email to SMS configuration"
+msgstr ""
+
+msgid "Fill the password field to change password"
+msgstr ""
+
+msgid "Mail server address"
+msgstr ""
+
+msgid "Mail server port"
+msgstr ""
+
+msgid "Mailbox password"
+msgstr ""
+
+msgid "Mailbox username"
+msgstr ""
+
+msgid "Manage email to SMS"
+msgstr ""
+
+msgid "No validate cert option"
+msgstr ""
+
+msgid "PIN for email to SMS"
+msgstr ""
+
+msgid "PIN is empty"
+msgstr ""
+
+msgid "Use SSL"
+msgstr ""
+
+msgid "no"
+msgstr ""
+
+msgid "yes"
+msgstr ""

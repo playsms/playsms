@@ -14,19 +14,49 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.4\n"
 
+msgid "Account admin or currently logged in administrator cannot be banned"
+msgstr ""
+
+msgid "Account admin or currently logged in administrator cannot be unbanned"
+msgstr ""
+
+msgid "Account has been added and password has been emailed"
+msgstr ""
+
+msgid "Account has been added but failed to send email"
+msgstr ""
+
+msgid "Account has been banned"
+msgstr ""
+
+msgid "Account has been removed"
+msgstr ""
+
+msgid "Account has been unbanned"
+msgstr ""
+
+msgid "Account name is mandatory"
+msgstr ""
+
+msgid "Account registration is not available"
+msgstr ""
+
+msgid "Account status"
+msgstr ""
+
 msgid "Action"
 msgstr ""
 
 msgid "Active language"
 msgstr ""
 
+msgid "Add account"
+msgstr ""
+
 msgid "Add or reduce credit from manage credit menu"
 msgstr ""
 
 msgid "Add subuser"
-msgstr ""
-
-msgid "Add user"
 msgstr ""
 
 msgid "Address"
@@ -44,10 +74,10 @@ msgstr ""
 msgid "Application options"
 msgstr ""
 
-msgid "Are you sure you want to ban subuser"
+msgid "Are you sure you want to ban account"
 msgstr ""
 
-msgid "Are you sure you want to ban user"
+msgid "Are you sure you want to ban subuser"
 msgstr ""
 
 msgid "Are you sure you want to delete subuser"
@@ -62,10 +92,10 @@ msgstr ""
 msgid "Are you sure you want to delete user ?"
 msgstr ""
 
-msgid "Are you sure you want to unban subuser"
+msgid "Are you sure you want to unban account"
 msgstr ""
 
-msgid "Are you sure you want to unban user"
+msgid "Are you sure you want to unban subuser"
 msgstr ""
 
 msgid "Cannot change status when user have subusers"
@@ -116,6 +146,9 @@ msgstr ""
 msgid "Fail to register an account"
 msgstr ""
 
+msgid "Fail to save configuration"
+msgstr ""
+
 msgid "Fail to save preferences"
 msgstr ""
 
@@ -126,6 +159,12 @@ msgid "Forward message to inbox"
 msgstr ""
 
 msgid "Forward message to mobile"
+msgstr ""
+
+msgid "Full name"
+msgstr ""
+
+msgid "Invalid sender ID"
 msgstr ""
 
 msgid "List of administrators"
@@ -143,13 +182,10 @@ msgstr ""
 msgid "Login information"
 msgstr ""
 
+msgid "Manage account"
+msgstr ""
+
 msgid "Manage subuser"
-msgstr ""
-
-msgid "Manage subusers"
-msgstr ""
-
-msgid "Manage user"
 msgstr ""
 
 msgid "Max. 16 numeric or 11 alphanumeric characters"
@@ -170,20 +206,17 @@ msgstr ""
 msgid "New account registration"
 msgstr ""
 
-msgid "New webservices token"
-msgstr ""
-
 msgid "No changes made"
 msgstr ""
 
 msgid "Parent"
 msgstr ""
 
-msgid "Parent user"
+msgid "Parent account"
 msgstr ""
 
 msgid ""
-"Parent user is mandatory for subusers only. If no value is given then the "
+"Parent account is mandatory for subusers only. If no value is given then the "
 "subuser will be automatically assigned to user admin"
 msgstr ""
 
@@ -226,6 +259,9 @@ msgstr ""
 msgid "Registered"
 msgstr ""
 
+msgid "Renew webservices token"
+msgstr ""
+
 msgid "Replace prefix 0 or padding local numbers"
 msgstr ""
 
@@ -238,7 +274,7 @@ msgstr ""
 msgid "Select default sender ID"
 msgstr ""
 
-msgid "Select parent user for subuser"
+msgid "Select parent account for subuser"
 msgstr ""
 
 msgid "State or Province"
@@ -253,10 +289,13 @@ msgstr ""
 msgid "Timezone"
 msgstr ""
 
+msgid "Unable to ban account"
+msgstr ""
+
 msgid "Unable to ban subuser"
 msgstr ""
 
-msgid "Unable to ban user"
+msgid "Unable to delete other users"
 msgstr ""
 
 msgid ""
@@ -270,22 +309,19 @@ msgstr ""
 msgid "Unable to process user addition"
 msgstr ""
 
+msgid "Unable to unban account"
+msgstr ""
+
 msgid "Unable to unban subuser"
 msgstr ""
 
-msgid "Unable to unban user"
+msgid "Unknown error"
 msgstr ""
 
 msgid "Unknown error has occurred"
 msgstr ""
 
 msgid "User"
-msgstr ""
-
-msgid "User admin or currently logged in administrator cannot be banned"
-msgstr ""
-
-msgid "User admin or currently logged in administrator cannot be unbanned"
 msgstr ""
 
 msgid "User already exists"
@@ -297,28 +333,13 @@ msgstr ""
 msgid "User configuration has been saved"
 msgstr ""
 
-msgid "User configuration has been saved and password updated"
-msgstr ""
-
 msgid "User configuration has been saved and webservices token updated"
 msgstr ""
 
+msgid "User deletion unavailable"
+msgstr ""
+
 msgid "User does not exist"
-msgstr ""
-
-msgid "User has been added and password has been emailed"
-msgstr ""
-
-msgid "User has been added but failed to send email"
-msgstr ""
-
-msgid "User has been banned"
-msgstr ""
-
-msgid "User has been removed"
-msgstr ""
-
-msgid "User has been unbanned"
 msgstr ""
 
 msgid "User is already on banned subusers list"
@@ -336,12 +357,6 @@ msgstr ""
 msgid "User is not on banned users list"
 msgstr ""
 
-msgid "User registration is not available"
-msgstr ""
-
-msgid "User status"
-msgstr ""
-
 msgid "User with this email already exists"
 msgstr ""
 
@@ -349,9 +364,6 @@ msgid "User with this mobile already exists"
 msgstr ""
 
 msgid "Username"
-msgstr ""
-
-msgid "Username is empty"
 msgstr ""
 
 msgid "Username should be at least 3 characters"
@@ -372,7 +384,7 @@ msgstr ""
 msgid "Webservices username"
 msgstr ""
 
-msgid "You must fill all field"
+msgid "You must fill all mandatory fields"
 msgstr ""
 
 msgid "You must fill all required fields"

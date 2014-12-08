@@ -4,17 +4,21 @@ defined('_SECURE_') or die('Forbidden');
 // hook_sendsms
 // called by main sms sender
 // return true for success delivery
+// $smsc			: smsc 
 // $sms_sender	: sender mobile number
-// $sms_footer		: sender sms footer or sms sender ID
+// $sms_footer	: sender sms footer or sms sender ID
 // $sms_to		: destination sms number
 // $sms_msg		: sms message tobe delivered
 // $uid			: sender User ID
 // $gpid		: group phonebook id (optional)
-// $smslog_id		: sms ID
-// $sms_type		: send flash message when the value is "flash"
+// $smslog_id	: sms ID
+// $sms_type	: send flash message when the value is "flash"
 // $unicode		: send unicode character (16 bit)
-function template_hook_sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
+function template_hook_sendsms($smsc, $sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
 	// global $tmpl_param;   // global all variables needed, eg: varibles from config.php
+
+	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "template_hook_sendsms");
+	
 	//$sms_sender = stripslashes($sms_sender);
 	//$sms_footer = stripslashes($sms_footer);
 	//$sms_msg = stripslashes($sms_msg);
@@ -55,7 +59,7 @@ function template_hook_getsmsinbox() {
 	// if $sms_sender and $message are not coming from $_REQUEST then you need to addslashes it
 	// $sms_sender = addslashes($sms_sender);
 	// $message = addslashes($message);
-	// recvsms($sms_datetime,$sms_sender,$message,$sms_receiver)
+	// recvsms($sms_datetime,$sms_sender,$message,$sms_receiver,'template')
 	// you must retrieve all informations needed by recvsms()
 	// from incoming sms, have a look gnokii gateway module
 }

@@ -34,13 +34,13 @@ function sms_custom_hook_checkavailablekeyword($keyword) {
  * @return $ret
  *   array of keyword owner uid and status, TRUE if incoming sms handled
  */
-function sms_custom_hook_setsmsincomingaction($sms_datetime,$sms_sender,$custom_keyword,$custom_param='',$sms_receiver='',$raw_message='') {
+function sms_custom_hook_setsmsincomingaction($sms_datetime,$sms_sender,$custom_keyword,$custom_param='',$sms_receiver='',$smsc='',$raw_message='') {
 	$ok = false;
 	$db_query = "SELECT uid,custom_id FROM "._DB_PREF_."_featureCustom WHERE custom_keyword='$custom_keyword'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$c_uid = $db_row['uid'];
-		if (sms_custom_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$custom_keyword,$custom_param,$raw_message)) {
+		if (sms_custom_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$custom_keyword,$custom_param,$smsc,$raw_message)) {
 			$ok = true;
 		}
 	}
@@ -49,7 +49,7 @@ function sms_custom_hook_setsmsincomingaction($sms_datetime,$sms_sender,$custom_
 	return $ret;
 }
 
-function sms_custom_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$custom_keyword,$custom_param='',$raw_message='') {
+function sms_custom_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$custom_keyword,$custom_param='',$smsc='',$raw_message='') {
 	$ok = false;
 	$custom_keyword = strtoupper(trim($custom_keyword));
 	$custom_param = trim($custom_param);
@@ -88,7 +88,7 @@ function sms_custom_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$custo
 				$unicode = core_detect_unicode($returns);
 				$returns = addslashes($returns);
 				logger_print("returns:".$returns, 3, "sms custom");
-				sendsms($username, $sms_sender, $returns, 'text', $unicode);
+				sendsms_helper($username, $sms_sender, $returns, 'text', $unicode, $smsc);
 			} else {
 				logger_print("returns empty", 3, "sms custom");
 			}

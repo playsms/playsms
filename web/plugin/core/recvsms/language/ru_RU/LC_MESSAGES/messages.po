@@ -1,17 +1,29 @@
-msgid "Message"
+msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Message"
+msgstr "Сообщение"
 
 msgid "Message from"
-msgstr ""
+msgstr "Сообщение от"
 
 msgid "New inbox from"
-msgstr ""
+msgstr "Новое входящее от"
 
 msgid "Received"
-msgstr ""
+msgstr "Получено"
 
 msgid "Receiver"
-msgstr ""
+msgstr "Получатель"
 
 msgid "Sender"
-msgstr ""
+msgstr "Отправитель"

@@ -8,26 +8,31 @@ msgstr ""
 msgid "Action"
 msgstr "Ação"
 
-msgid "Add rate"
+#, fuzzy
+msgid "Add route"
 msgstr "Adicionar taxa"
 
-msgid "Are you sure you want to delete rate ?"
-msgstr "Tem certeza que quer remover a taxa?"
+msgid "Are you sure ?"
+msgstr ""
 
-msgid "Destination"
+#, fuzzy
+msgid "Destination name"
 msgstr "Destino"
 
-msgid "Edit rate"
+#, fuzzy
+msgid "Edit route"
 msgstr "Editar taxa"
 
-msgid "Fail to delete rate"
+#, fuzzy
+msgid "Fail to delete route"
 msgstr "Falha ao remover a taxa"
 
-msgid "Fail to save rate"
+#, fuzzy
+msgid "Fail to save route"
 msgstr "Falha ao salvar a taxa"
 
-msgid "Manage SMS rate"
-msgstr "Administrar taxa de SMS"
+msgid "Maximum 8 digits numeric only"
+msgstr ""
 
 msgid "No changes made!"
 msgstr "Nenhuma mudança feita!"
@@ -35,26 +40,42 @@ msgstr "Nenhuma mudança feita!"
 msgid "Prefix"
 msgstr "Prefixo"
 
-msgid "Rate"
-msgstr "Taxa"
+msgid "Route SMS outgoing"
+msgstr ""
 
-msgid "Rate already exists"
-msgstr "A taxa já existe"
-
-msgid "Rate has been added"
-msgstr "A taxa foi adicionada"
-
-msgid "Rate has been deleted"
-msgstr "A taxa foi removida"
-
-msgid "Rate has been saved"
+#, fuzzy
+msgid "Route has been added"
 msgstr "A taxa foi salva"
+
+#, fuzzy
+msgid "Route has been deleted"
+msgstr "A taxa foi salva"
+
+#, fuzzy
+msgid "Route has been saved"
+msgstr "A taxa foi salva"
+
+msgid "Route outgoing SMS"
+msgstr ""
+
+msgid "SMSC"
+msgstr ""
 
 msgid "Save"
 msgstr "Salvar"
 
+msgid "User"
+msgstr ""
+
 msgid "You must fill all fields"
 msgstr "Preencha todos os campos"
+
+#, fuzzy
+msgid "You must fill all mandatory fields"
+msgstr "Preencha todos os campos"
+
+msgid "blocked"
+msgstr ""
 
 msgid "destination"
 msgstr "destino"

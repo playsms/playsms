@@ -10,18 +10,18 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
 
 if (!auth_isadmin()) {
 	auth_block();
-};
+}
+;
 
 switch (_OP_) {
 	case "all_incoming":
@@ -31,23 +31,23 @@ switch (_OP_) {
 			_('From') => 'in_sender',
 			_('Keyword') => 'in_keyword',
 			_('Content') => 'in_message',
-			_('Feature') => 'in_feature'
+			_('Feature') => 'in_feature' 
 		);
 		$base_url = 'index.php?app=main&inc=feature_report&route=all_incoming&op=all_incoming';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array(
 			'flag_deleted' => 0,
-			'in_status' => 1
+			'in_status' => 1 
 		);
 		$keywords = $search['dba_keywords'];
 		$join = 'INNER JOIN ' . _DB_PREF_ . '_tblUser AS B ON in_uid=B.uid';
 		$count = dba_count(_DB_PREF_ . '_tblSMSIncoming', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
-			'AND in_keyword' => '!= ""',
+			'AND in_feature' => '!= ""',
 			'ORDER BY' => 'in_id DESC',
 			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset']
+			'OFFSET' => $nav['offset'] 
 		);
 		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', '*', $conditions, $keywords, $extras, $join);
 		
@@ -95,23 +95,23 @@ switch (_OP_) {
 			if ($c_feature = $list[$j]['in_feature']) {
 				$c_feature = "<br />" . $c_feature;
 			}
-			//$in_status = ($list[$j]['in_status'] == 1 ? '<span class=status_handled />' : '<span class=status_unhandled />');
-			//$in_status = strtolower($in_status);
+			// $in_status = ($list[$j]['in_status'] == 1 ? '<span class=status_handled />' : '<span class=status_unhandled />');
+			// $in_status = strtolower($in_status);
 			$msg = $list[$j]['in_message'];
 			$in_message = core_display_text($msg);
 			$reply = '';
 			$forward = '';
 			if ($msg && $in_sender) {
-				$reply = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=reply&message=' . urlencode($msg) . '&to=' . urlencode($in_sender) , $icon_config['reply']);
-				$forward = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=forward&message=' . urlencode($msg) , $icon_config['forward']);
+				$reply = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=reply&message=' . urlencode($msg) . '&to=' . urlencode($in_sender), $icon_config['reply']);
+				$forward = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=forward&message=' . urlencode($msg), $icon_config['forward']);
 			}
 			$c_message = "<div id=\"all_incoming_msg\">" . $in_message . "</div><div id=\"msg_label\">" . $in_datetime . "&nbsp;" . $in_status . "</div><div id=\"msg_option\">" . $reply . $forward . "</div>";
 			$i--;
-			$content.= "
+			$content .= "
 				<tr>
 					<td>$in_username</td>
 					<td>$current_sender</td>
-					<td>$in_keyword $c_feature</td>
+					<td>" . $in_keyword . $c_feature . "</td>
 					<td>$c_message</td>
 					<td>
 						<input type=hidden name=itemid" . $j . " value=\"$in_id\">
@@ -120,7 +120,7 @@ switch (_OP_) {
 				</tr>";
 		}
 		
-		$content.= "
+		$content .= "
 			</tbody>
 			</table>
 			</div>
@@ -132,7 +132,7 @@ switch (_OP_) {
 		}
 		_p($content);
 		break;
-
+	
 	case "actions":
 		$nav = themes_nav_session();
 		$search = themes_search_session();
@@ -141,50 +141,50 @@ switch (_OP_) {
 			case 'export':
 				$conditions = array(
 					'flag_deleted' => 0,
-					'in_status' => 1
+					'in_status' => 1 
 				);
 				$join = 'INNER JOIN ' . _DB_PREF_ . '_tblUser AS B ON in_uid=B.uid';
 				$extras = array(
-					'AND in_keyword' => '!= ""'
+					'AND in_keyword' => '!= ""' 
 				);
 				$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', '*', $conditions, $search['dba_keywords'], $extras, $join);
 				$data[0] = array(
-					_('User') ,
-					_('Time') ,
-					_('From') ,
-					_('Keyword') ,
-					_('Content') ,
-					_('Feature') ,
-					_('Status')
+					_('User'),
+					_('Time'),
+					_('From'),
+					_('Keyword'),
+					_('Content'),
+					_('Feature'),
+					_('Status') 
 				);
 				for ($i = 0; $i < count($list); $i++) {
 					$j = $i + 1;
 					$data[$j] = array(
 						$list[$i]['username'],
-						core_display_datetime($list[$i]['in_datetime']) ,
+						core_display_datetime($list[$i]['in_datetime']),
 						$list[$i]['in_sender'],
 						$list[$i]['in_keyword'],
 						$list[$i]['in_message'],
 						$list[$i]['in_feature'],
-						($list[$i]['in_status'] == 1 ? _('handled') : _('unhandled'))
+						($list[$i]['in_status'] == 1 ? _('handled') : _('unhandled')) 
 					);
 				}
 				$content = core_csv_format($data);
 				$fn = 'all_incoming-' . $core_config['datetime']['now_stamp'] . '.csv';
 				core_download($content, $fn, 'text/csv');
 				break;
-
+			
 			case 'delete':
 				for ($i = 0; $i < $nav['limit']; $i++) {
 					$checkid = $_POST['checkid' . $i];
 					$itemid = $_POST['itemid' . $i];
 					if (($checkid == "on") && $itemid) {
 						$up = array(
-							'c_timestamp' => mktime() ,
-							'flag_deleted' => '1'
+							'c_timestamp' => mktime(),
+							'flag_deleted' => '1' 
 						);
 						dba_update(_DB_PREF_ . '_tblSMSIncoming', $up, array(
-							'in_id' => $itemid
+							'in_id' => $itemid 
 						));
 					}
 				}

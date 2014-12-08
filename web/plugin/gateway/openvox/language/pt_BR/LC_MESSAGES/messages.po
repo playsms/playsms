@@ -1,0 +1,54 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, fuzzy
+msgid "Changes have been made"
+msgstr "Nenhuma mudança feita"
+
+#, fuzzy
+msgid "Fill to change the password"
+msgstr "Preencha para alterar o segredo API"
+
+#, fuzzy
+msgid "Gateway host"
+msgstr "Nome do gateway"
+
+msgid "Gateway name"
+msgstr "Nome do gateway"
+
+#, fuzzy
+msgid "Gateway port"
+msgstr "Nome do gateway"
+
+#, fuzzy
+msgid "Manage OpenVox"
+msgstr "Administrar nexmo"
+
+msgid "Module sender ID"
+msgstr "Módulo ID remetente"
+
+msgid "Module timezone"
+msgstr "Módulo fuso horário"
+
+msgid "Notes"
+msgstr "Observações"
+
+msgid "Password"
+msgstr ""
+
+msgid "Save"
+msgstr "Salvar"
+
+msgid "Username"
+msgstr ""
+
+msgid "Your callback URL is"
+msgstr "Sua URL callback é"
+
+#, fuzzy
+msgid "Your callback URL should be accessible from OpenVox"
+msgstr "Sua URL callback deve estar acessível pelo Nexmo"

@@ -1,0 +1,87 @@
+<script language="javascript" type="text/javascript">
+	$(document).ready(function() {
+		$("#mailsms-protocol").change(function(){
+			change_port();
+		});
+		$("#mailsms-ssl").change(function(e){
+			if(e.target.value==0) {
+				$("#mailsms-novalidate-cert").attr('disabled',true);
+				$("#mailsms-novalidate-cert").val(0);
+			}else{
+				$("#mailsms-novalidate-cert").attr('disabled',false);
+			}
+			change_port();
+		});
+		if($("input[name='port']").val()==""){
+			var port = ($("#mailsms-ssl").val()==1)?'{{ PORT_DEFAULT_SSL }}':'{{ PORT_DEFAULT }}';
+			$("input[name='port']").val(port);
+		}
+	});
+	function change_port(){
+		switch($("select[name='protocol']").val()){
+			case 'imap':
+				var nossl = '143';
+				break;
+			case 'pop3':
+				var nossl = '110';
+				break;
+			case 'nntp':
+				var nossl = '119';
+				break;
+		}
+		var port = ($("#mailsms-ssl").val()==1)?'993':nossl;
+		$("input[name='port']").val(port);
+	}
+</script>
+{{ ERROR }}
+<h2>{{ FORM_TITLE }}</h2>
+<form action="{{ ACTION_URL }}" method=post enctype="multipart/form-data">
+	{{ CSRF_FORM }}
+	<table class=playsms-table>
+		<tbody>
+			<tr>
+				<td class=label-sizer>{{ Email to SMS address }}</td>
+				<td><input type="text" maxlength="250" name="email" value="{{ $items_global['features']['mailsms']['email'] }}" required></td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ Enable fetch new emails }}</td>
+				<td><select id="mailsms-enable" name="enable_fetch">{{ $option_enable_fetch }}</select></td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ Check email sender }}</td>
+				<td><select id="mailsms-check-sender" name="check_sender">{{ $option_check_sender }}</select></td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ Email protocol }}</td>
+				<td><select id="mailsms-protocol" name="protocol">{{ $option_protocol }}</select></td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ Use SSL }}</td>
+				<td><select id="mailsms-ssl" name="ssl">{{ $option_ssl }}</select></td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ No validate cert option }}</td>
+				<td><select id="mailsms-novalidate-cert" name="novalidate_cert">{{ $option_novalidate_cert }}</select></td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ Mail server address }}</td>
+				<td><input type="text" name="server" value="{{ $items_global['features']['mailsms']['server'] }}"></td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ Mail server port }}</td>
+				<td><input type="text" name="port" value="{{ $items_global['features']['mailsms']['port'] }}"></td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ Mailbox username }}</td>
+				<td><input type="text" name="username" value="{{ $items_global['features']['mailsms']['username'] }}"></td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ Mailbox password }}</td>
+				<td>
+					<input type="password" name="password" value=""> {{ HINT_PASSWORD }}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<p><input type=submit class=button value='{{ Save }}'></p>
+</form>

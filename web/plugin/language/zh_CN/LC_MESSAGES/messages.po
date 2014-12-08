@@ -87,8 +87,32 @@ msgid "Manage"
 msgstr "管理"
 
 #, fuzzy
+msgid "Manage account"
+msgstr "管理用户"
+
+#, fuzzy
+msgid "Manage gateway"
+msgstr "管理用户"
+
+#, fuzzy
+msgid "Manage gateway and SMSC"
+msgstr "管理用户"
+
+#, fuzzy
 msgid "Manage sender ID"
 msgstr "短信发件人"
+
+#, fuzzy
+msgid "Manage sub-account"
+msgstr "管理用户"
+
+#, fuzzy
+msgid "Manage sub-accounts"
+msgstr "管理用户"
+
+#, fuzzy
+msgid "Manage subuser"
+msgstr "管理用户"
 
 #, fuzzy
 msgid "Manage subusers"

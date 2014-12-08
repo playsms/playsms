@@ -20,6 +20,10 @@ msgstr "Anda yakin ingin menghapus layanan balas SMS otomatis?"
 msgid "Are you sure you want to delete this SMS autoreply scenario ?"
 msgstr "Anda yakin ingin menghapus skenario layanan balas SMS otomatis ini?"
 
+#, fuzzy
+msgid "Edit SMS autoreply"
+msgstr "Tambah layanan balas SMS otomatis"
+
 msgid "Edit SMS autoreply scenario"
 msgstr "Ubah skenario layanan balas SMS otomatis"
 
@@ -38,6 +42,10 @@ msgstr "Gagal menghapus skenario layanan balas SMS otomatis"
 msgid "Fail to edit SMS autoreply scenario"
 msgstr "Gagal mengubah skenario layanan balas SMS otomatis"
 
+#, fuzzy
+msgid "Fail to update SMS autoreply"
+msgstr "Gagal menghapus layanan balas SMS otomatis"
+
 msgid "Keyword"
 msgstr "Kata kunci"
 
@@ -51,6 +59,10 @@ msgid "Return"
 msgstr "Kembali"
 
 msgid "SMS autoreply has been deleted"
+msgstr "Layanan balas SMS otomatis telah terhapus"
+
+#, fuzzy
+msgid "SMS autoreply has been updated"
 msgstr "Layanan balas SMS otomatis telah terhapus"
 
 msgid "SMS autoreply keyword"
@@ -76,6 +88,9 @@ msgstr "Balasan dengan skenario layanan balas SMS otomatis"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr "Kata kunci SMS sudah dipesan atau digunakan oleh fitur lain"
+
+msgid "SMSC"
+msgstr ""
 
 msgid "Save"
 msgstr "Simpan"

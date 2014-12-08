@@ -10,7 +10,7 @@ msgid "Action"
 msgstr "Action"
 
 msgid "Add SMS quiz"
-msgstr "Ajouter une question quiz"
+msgstr "Ajouter un quiz SMS"
 
 msgid "Answer"
 msgstr "Réponse"
@@ -18,94 +18,92 @@ msgstr "Réponse"
 msgid ""
 "Are you sure you want to delete SMS quiz with all its choices and answers ?"
 msgstr ""
-"Êtes-vous certain de vouloir supprimer ce quiz avec toutes ces réponses ?"
+"Êtes-vous sûr de vouloir supprimer ce quiz SMS avec tous ses choix et "
+"réponses ?"
 
 msgid "Are you sure you want to delete this answer ?"
-msgstr "Êtes-vous certain de vouloir supprimer cette réponse ?"
+msgstr "Êtes-vous sûr de vouloir supprimer cette réponse ?"
 
 msgid "Datetime"
 msgstr "Date"
 
 msgid "Edit SMS quiz"
-msgstr "Édition du service"
+msgstr "Éditer quiz SMS"
 
-#, fuzzy
 msgid "Fail to add SMS quiz"
-msgstr "Ajouter une question quiz"
+msgstr "Échec de l'ajout du quiz SMS"
 
-#, fuzzy
 msgid "Fail to edit SMS quiz"
-msgstr "Édition du service"
+msgstr "Échec de l'édition du quiz SMS"
 
 msgid "Keyword"
 msgstr "Mot-clé"
 
 msgid "Manage quiz"
-msgstr "Service quiz"
+msgstr "Gérer quiz"
 
 msgid "Question"
 msgstr "Question"
 
 msgid "Received answer list for keyword"
-msgstr "Liste de réponses reçues pour le mot-clé"
+msgstr "Liste des réponses reçues pour ce mot-clé"
 
-#, fuzzy
 msgid "Reply message on correct"
-msgstr "Message de réponse si succès"
+msgstr "Message de réponse si correct"
 
-#, fuzzy
 msgid "Reply message on incorrect"
-msgstr "Message de réponse si echec"
+msgstr "Message de réponse si erroné"
 
 msgid "SMS quiz already exists, reserved or use by other feature"
-msgstr "Ce mot-clé existe déjà, est réservé ou utilisé par un autre service"
+msgstr "Le quiz SMS existe déjà, est réservé ou utilisé par une autre fonction"
 
 msgid "SMS quiz answer"
-msgstr "Réponse au quiz"
+msgstr "Réponse de quiz SMS"
 
 msgid "SMS quiz answer messages have been deleted"
-msgstr "Les SMS de réponses au quiz ont été supprimés"
+msgstr "Les messages de réponse du quiz SMS ont été supprimés"
 
 msgid "SMS quiz has been added"
-msgstr "Le service a été ajouté"
+msgstr "Le quiz SMS a été ajouté"
 
 msgid "SMS quiz has been saved"
-msgstr "Le service a été sauvegardé"
+msgstr "Le quiz SMS a été enregistré"
 
 msgid "SMS quiz keyword"
-msgstr "Mot-clé du service"
+msgstr "Mot-clé de quiz SMS"
 
 msgid "SMS quiz question"
-msgstr "Question quiz"
+msgstr "Question de quiz SMS"
 
 msgid "SMS quiz status has been changed"
-msgstr "Le statut du service a été modifié"
+msgstr "Le statut du quiz SMS a été modifié"
 
 msgid "SMS quiz with all its messages has been deleted"
-msgstr "Le service avec tous ses messages a été supprimé"
+msgstr "Le quiz SMS avec tous ses messages a été supprimé"
+
+msgid "SMSC"
+msgstr ""
 
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Enregistrer"
 
 msgid "Sender"
-msgstr "Emetteur"
+msgstr "Expéditeur"
 
 msgid "Status"
 msgstr "Statut"
 
 msgid "User"
-msgstr "Compte"
+msgstr "Utilisateur"
 
 msgid "You must fill all field"
-msgstr "Vous devez remplir tous les champs"
+msgstr "Vous devez saisir tous les champs"
 
-#, fuzzy
 msgid "correct"
-msgstr "Incorrecte"
+msgstr "correct"
 
-#, fuzzy
 msgid "incorrect"
-msgstr "Incorrecte"
+msgstr "erroné"
 
 msgid "keyword"
 msgstr "mot-clé"

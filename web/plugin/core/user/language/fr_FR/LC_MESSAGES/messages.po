@@ -5,393 +5,450 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Action"
+#, fuzzy
+msgid "Account admin or currently logged in administrator cannot be banned"
 msgstr ""
+"L'utilisateur admin ou l'administrateur actuellement connecté ne peut pas "
+"être banni"
+
+#, fuzzy
+msgid "Account admin or currently logged in administrator cannot be unbanned"
+msgstr ""
+"L'utilisateur admin ou l'administrateur actuellement connecté ne peut pas "
+"être réintégré"
+
+#, fuzzy
+msgid "Account has been added and password has been emailed"
+msgstr "L'utilisateur a été ajouté et le mot de passe envoyé par e-mail"
+
+#, fuzzy
+msgid "Account has been added but failed to send email"
+msgstr "L'utilisateur a été ajouté mais l'envoi par e-mail a échoué"
+
+#, fuzzy
+msgid "Account has been banned"
+msgstr "L'utilisateur a été banni"
+
+#, fuzzy
+msgid "Account has been removed"
+msgstr "L'utilisateur a été supprimé"
+
+#, fuzzy
+msgid "Account has been unbanned"
+msgstr "L'utilisateur a été réintégré"
+
+#, fuzzy
+msgid "Account name is mandatory"
+msgstr "L'adresse email est obligatoire"
+
+#, fuzzy
+msgid "Account registration is not available"
+msgstr "L'inscription d'utilisateur n'est pas disponible"
+
+msgid "Account status"
+msgstr ""
+
+msgid "Action"
+msgstr "Action"
 
 msgid "Active language"
-msgstr ""
+msgstr "Langue active"
+
+#, fuzzy
+msgid "Add account"
+msgstr "Gérer utilisateur"
 
 msgid "Add or reduce credit from manage credit menu"
-msgstr ""
+msgstr "Ajouter ou réduire le crédit depuis le menu gérer crédit"
 
 msgid "Add subuser"
-msgstr ""
-
-msgid "Add user"
-msgstr ""
+msgstr "Ajouter sous-utilisateur"
 
 msgid "Address"
-msgstr ""
+msgstr "Adresse"
 
 msgid "Administrator"
-msgstr ""
+msgstr "Administrateur"
 
 msgid "Administrators"
-msgstr ""
+msgstr "Administrateurs"
 
 msgid "Always choose to send as unicode"
-msgstr ""
+msgstr "Toujours choisir d'envoyer en tant qu'unicode"
 
 msgid "Application options"
-msgstr ""
+msgstr "Options d'application"
+
+#, fuzzy
+msgid "Are you sure you want to ban account"
+msgstr "Êtes-vous sûr de vouloir bannir l'utilisateur"
 
 msgid "Are you sure you want to ban subuser"
-msgstr ""
-
-msgid "Are you sure you want to ban user"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir bannir le sous-utilisateur"
 
 msgid "Are you sure you want to delete subuser"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer le sous-utilisateur"
 
 msgid "Are you sure you want to delete subuser ?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer le sous-utilisateur ?"
 
 msgid "Are you sure you want to delete user"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer l'utilisateur"
 
 msgid "Are you sure you want to delete user ?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer l'utilisateur ?"
+
+#, fuzzy
+msgid "Are you sure you want to unban account"
+msgstr "Êtes-vous sûr de vouloir réintégrer l'utilisateur"
 
 msgid "Are you sure you want to unban subuser"
-msgstr ""
-
-msgid "Are you sure you want to unban user"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir réintégrer le sous-utilisateur"
 
 msgid "Cannot change status when user have subusers"
 msgstr ""
+"Impossible de modifier le statut lorsque l'utilisateur possède des sous-"
+"utilisateurs"
 
 msgid "City"
-msgstr ""
+msgstr "Ville"
 
 msgid "Comma separated"
-msgstr ""
+msgstr "Séparé par des virgules"
 
 msgid "Country"
-msgstr ""
+msgstr "Pays"
 
 msgid "Credit"
-msgstr ""
+msgstr "Crédit"
 
 msgid "Currently logged in user is immune to deletion"
-msgstr ""
+msgstr "L'utilisateur actuellement connecté est immunisé contre la suppression"
 
 msgid "Default"
-msgstr ""
+msgstr "Par défaut"
 
 msgid "Default message footer"
-msgstr ""
+msgstr "Pied de page par défaut"
 
 msgid "Default sender ID"
-msgstr ""
+msgstr "Sender ID par défaut"
 
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer"
 
 msgid "Effective SMS sender ID"
-msgstr ""
+msgstr "Sender ID effectif du SMS"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Exemple: +0200 pour le fuseau horaire de Paris (heure d'été)"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "Email address is mandatory"
-msgstr ""
+msgstr "L'adresse email est obligatoire"
 
 msgid "Enable webservices"
-msgstr ""
+msgstr "Activer les webservices"
 
 msgid "Fail to register an account"
-msgstr ""
+msgstr "Échec de l'inscription d'un compte"
+
+#, fuzzy
+msgid "Fail to save configuration"
+msgstr "Configuration de l'utilisateur"
 
 msgid "Fail to save preferences"
-msgstr ""
+msgstr "Échec de l'enregistrement des préférences"
 
 msgid "Forward message to email"
-msgstr ""
+msgstr "Échec du transfert du message vers l'email"
 
 msgid "Forward message to inbox"
-msgstr ""
+msgstr "Échec du transfert du message vers la boîte de réception"
 
 msgid "Forward message to mobile"
+msgstr "Échec du transfert du message vers le mobile"
+
+msgid "Full name"
 msgstr ""
+
+#, fuzzy
+msgid "Invalid sender ID"
+msgstr "Sender ID par défaut"
 
 msgid "List of administrators"
-msgstr ""
+msgstr "Liste des administrateurs"
 
 msgid "List of subusers"
-msgstr ""
+msgstr "Liste des sous-utilisateurs"
 
 msgid "List of users"
-msgstr ""
+msgstr "Liste des utilisateurs"
 
 msgid "Local number length"
-msgstr ""
+msgstr "Longueur d'un numéro local"
 
 msgid "Login information"
-msgstr ""
+msgstr "Informations de connexion"
 
+#, fuzzy
+msgid "Manage account"
+msgstr "Gérer utilisateur"
+
+#, fuzzy
 msgid "Manage subuser"
-msgstr ""
-
-msgid "Manage subusers"
-msgstr ""
-
-msgid "Manage user"
-msgstr ""
+msgstr "Gérer sous-utilisateur"
 
 msgid "Max. 16 numeric or 11 alphanumeric characters"
-msgstr ""
+msgstr "Max. 16 caractères numériques ou 11 alphanumériques"
 
 msgid "Max. 30 alphanumeric characters"
-msgstr ""
+msgstr "Max. 30 caractères alphanumériques"
 
 msgid "Min length to detect missing country code"
-msgstr ""
+msgstr "Longueur min pour détecter un code de pays manquant"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Mobile"
 
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 msgid "New account registration"
-msgstr ""
-
-msgid "New webservices token"
-msgstr ""
+msgstr "Inscription d'un nouveau compte"
 
 msgid "No changes made"
-msgstr ""
+msgstr "Aucun changement apporté"
 
 msgid "Parent"
-msgstr ""
+msgstr "Parent"
 
-msgid "Parent user"
-msgstr ""
+#, fuzzy
+msgid "Parent account"
+msgstr "Gérer utilisateur"
 
+#, fuzzy
 msgid ""
-"Parent user is mandatory for subusers only. If no value is given then the "
+"Parent account is mandatory for subusers only. If no value is given then the "
 "subuser will be automatically assigned to user admin"
 msgstr ""
+"L'utilisateur parent est obligatoire uniquement pour les sous-utilisateurs. "
+"Si aucune valeur n'est renseignée, le sous-utilisateur sera alors "
+"automatiquement attribué à l'admin de l'utilisateur."
 
 msgid "Password"
-msgstr ""
+msgstr "Mot de passe"
 
 msgid "Password does not match"
-msgstr ""
+msgstr "Le mot de passe ne correspond pas"
 
 msgid "Password should be at least 4 characters"
-msgstr ""
+msgstr "Le mot de passe doit contenir au moins 4 caractères"
 
 msgid "Personal information"
-msgstr ""
+msgstr "Informations personnelles"
 
 msgid "Please remove all subusers from this user to delete"
 msgstr ""
+"Veuillez supprimer tous les sous-utilisateurs de cet utilisateur pour le "
+"supprimer"
 
 msgid "Please select"
-msgstr ""
+msgstr "Veuillez sélectionner"
 
 msgid "Preferences"
-msgstr ""
+msgstr "Préférences"
 
 msgid "Preferences has been saved"
-msgstr ""
+msgstr "Les préférences ont été enregistrées"
 
 msgid "Preferences has been saved and password updated"
-msgstr ""
+msgstr "Les préférences ont été enregistrées et le mot de passe mis à jour"
 
 msgid "Preferences has been saved and webservices token updated"
 msgstr ""
+"Les préférences ont été enregistrées et le token de webservices mis à jour"
 
 msgid "Prefix or country code"
-msgstr ""
+msgstr "Préfixe ou code de pays"
 
 msgid "Re-type password"
-msgstr ""
+msgstr "Saisir à nouveau le mot de passe"
 
 msgid "Registered"
-msgstr ""
+msgstr "Inscrit"
+
+#, fuzzy
+msgid "Renew webservices token"
+msgstr "Nouveau token de webservices"
 
 msgid "Replace prefix 0 or padding local numbers"
-msgstr ""
+msgstr "Remplacer le préfix 0, ou allonger les numéros locaux"
 
 msgid "SMS footer"
-msgstr ""
+msgstr "Pied de page SMS"
 
 msgid "Save"
-msgstr ""
+msgstr "Enregistrer"
 
 msgid "Select default sender ID"
-msgstr ""
+msgstr "Veuillez sélectionner le sender ID par défaut"
 
-msgid "Select parent user for subuser"
-msgstr ""
+#, fuzzy
+msgid "Select parent account for subuser"
+msgstr "Veuillez sélectionner le parent pour le sous-utilisateur"
 
 msgid "State or Province"
-msgstr ""
+msgstr "État ou Province"
 
 msgid "Subuser"
-msgstr ""
+msgstr "Sous-utilisateur"
 
 msgid "Subusers"
-msgstr ""
+msgstr "Sous-utilisateurs"
 
 msgid "Timezone"
-msgstr ""
+msgstr "Fuseau horaire"
+
+#, fuzzy
+msgid "Unable to ban account"
+msgstr "Impossible de bannir l'utilisateur"
 
 msgid "Unable to ban subuser"
-msgstr ""
+msgstr "Impossible de bannir le sous-utilisateur"
 
-msgid "Unable to ban user"
-msgstr ""
+#, fuzzy
+msgid "Unable to delete other users"
+msgstr "Impossible de bannir l'utilisateur"
 
 msgid ""
 "Unable to delete this user until all subusers under this user have been "
 "removed"
 msgstr ""
+"Impossible de supprimer cet utilisateur tant que tous ses sous-utilisateurs "
+"n'ont pas été supprimés"
 
 msgid "Unable to process subuser addition"
-msgstr ""
+msgstr "Échec du traitement de l'ajout du sous-utilisateur"
 
 msgid "Unable to process user addition"
-msgstr ""
+msgstr "Échec du traitement de l'ajout de l'utilisateur"
+
+#, fuzzy
+msgid "Unable to unban account"
+msgstr "Impossible de réintégrer l'utilisateur"
 
 msgid "Unable to unban subuser"
-msgstr ""
+msgstr "Impossible de réintégrer le sous-utilisateur"
 
-msgid "Unable to unban user"
-msgstr ""
+#, fuzzy
+msgid "Unknown error"
+msgstr "Une erreur inconnue est survenue"
 
 msgid "Unknown error has occurred"
-msgstr ""
+msgstr "Une erreur inconnue est survenue"
 
 msgid "User"
-msgstr ""
-
-msgid "User admin or currently logged in administrator cannot be banned"
-msgstr ""
-
-msgid "User admin or currently logged in administrator cannot be unbanned"
-msgstr ""
+msgstr "Utilisateur"
 
 msgid "User already exists"
-msgstr ""
+msgstr "L'utilisateur existe déjà"
 
 msgid "User configuration"
-msgstr ""
+msgstr "Configuration de l'utilisateur"
 
 msgid "User configuration has been saved"
-msgstr ""
-
-msgid "User configuration has been saved and password updated"
-msgstr ""
+msgstr "La configuration de l'utilisateur a été enregistrée"
 
 msgid "User configuration has been saved and webservices token updated"
 msgstr ""
+"La configuration de l'utilisateur a été enregistrée et le token de "
+"webservices mis à jour"
+
+#, fuzzy
+msgid "User deletion unavailable"
+msgstr "L'inscription d'utilisateur n'est pas disponible"
 
 msgid "User does not exist"
-msgstr ""
-
-msgid "User has been added and password has been emailed"
-msgstr ""
-
-msgid "User has been added but failed to send email"
-msgstr ""
-
-msgid "User has been banned"
-msgstr ""
-
-msgid "User has been removed"
-msgstr ""
-
-msgid "User has been unbanned"
-msgstr ""
+msgstr "L'utilisateur n'existe pas"
 
 msgid "User is already on banned subusers list"
 msgstr ""
+"L'utilisateur fait déjà partie de la liste des sous-utilisateurs bannis"
 
 msgid "User is already on banned users list"
-msgstr ""
+msgstr "L'utilisateur ne fait partie de la liste des utilisateurs bannis"
 
 msgid "User is immune to deletion"
-msgstr ""
+msgstr "L'utilisateur est immunisé contre la suppression"
 
 msgid "User is not on banned subusers list"
-msgstr ""
+msgstr "L'utilisateur ne fait partie de la liste des sous-utilisateurs bannis"
 
 msgid "User is not on banned users list"
-msgstr ""
-
-msgid "User registration is not available"
-msgstr ""
-
-msgid "User status"
-msgstr ""
+msgstr "L'utilisateur ne fait partie de la liste des utilisateurs bannis"
 
 msgid "User with this email already exists"
-msgstr ""
+msgstr "L'utilisateur avec cet email existe déjà"
 
 msgid "User with this mobile already exists"
-msgstr ""
+msgstr "L'utilisateur avec ce mobile existe déjà"
 
 msgid "Username"
-msgstr ""
-
-msgid "Username is empty"
-msgstr ""
+msgstr "Nom d'utilisateur"
 
 msgid "Username should be at least 3 characters"
-msgstr ""
+msgstr "Le nom d'utilisateur doit comporter au moins 3 caractères"
 
 msgid "Users"
-msgstr ""
+msgstr "Utilisateurs"
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
 msgstr ""
+"Les caractères valables pour le nom d'utilisateur sont alphabétiques, "
+"chiffres, point ou trait d'union"
 
 msgid "Webservices IP range"
-msgstr ""
+msgstr "Plage IP des webservices"
 
 msgid "Webservices token"
-msgstr ""
+msgstr "Token des webservices"
 
 msgid "Webservices username"
-msgstr ""
+msgstr "Nom d'utilisateur des webservices"
 
-msgid "You must fill all field"
-msgstr ""
+#, fuzzy
+msgid "You must fill all mandatory fields"
+msgstr "Vous devez saisir tous les champs"
 
 msgid "You must fill all required fields"
-msgstr ""
+msgstr "Vous devez saisir tous les champs obligatoires"
 
 msgid "Your email format is invalid"
-msgstr ""
+msgstr "Votre format d'email est erroné"
 
 msgid "Your mobile format is invalid"
-msgstr ""
+msgstr "Votre format de mobile est erroné"
 
 msgid "Zipcode"
-msgstr ""
+msgstr "Code postal"
 
 msgid "email"
-msgstr ""
+msgstr "email"
 
 msgid "for subuser only"
-msgstr ""
+msgstr "seulement pour sous-utilisateur"
 
 msgid "mobile"
-msgstr ""
+msgstr "mobile"
 
 msgid "no"
-msgstr ""
+msgstr "non"
 
 msgid "username"
-msgstr ""
+msgstr "nom d'utilisateur"
 
 msgid "yes"
-msgstr ""
+msgstr "oui"

@@ -13,148 +13,153 @@ msgid "Add"
 msgstr "Ajouter"
 
 msgid "Add SMS poll"
-msgstr "Ajouter un sondage"
+msgstr "Ajouter sondage SMS"
 
 msgid "Add choice to this poll"
 msgstr "Ajouter une réponse à ce sondage"
 
 msgid "All"
-msgstr ""
+msgstr "Tous"
 
 msgid ""
 "Are you sure you want to delete SMS poll with all its choices and votes ?"
 msgstr ""
-"Etes-vous certain de vouloir supprimer ce sondage avec tous ses resultats ?"
+"Êtes-vous sûr de vouloir supprimer ce sondage SMS avec toutes ses réponses "
+"et votes ?"
 
 msgid "Are you sure you want to delete choice ?"
-msgstr "Etes-vous certain de vouloir supprimer cette réponse ?"
+msgstr "Êtes-vous sûr de vouloir supprimer cette réponse ?"
 
 msgid "Choice already exists"
 msgstr "Cette réponse existe déjà"
 
-#, fuzzy
 msgid "Choice description"
-msgstr "Titre réponse"
+msgstr "Description de la réponse"
 
 msgid "Choice has been added"
 msgstr "La réponse a été ajoutée"
 
-#, fuzzy
 msgid "Choice keyword"
-msgstr "Mot-clé réponse"
+msgstr "Mot-clé de réponse"
 
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 msgid "Edit SMS poll"
-msgstr "Édition du sondage"
+msgstr "Éditer le sondage SMS"
 
 msgid "Edit SMS poll choices"
-msgstr "Édition des réponses du sondage"
+msgstr "Éditer les réponses du sondage SMS"
 
 msgid "Fail to add SMS poll"
-msgstr "Impossible de supprimer les réponses de ce sondage"
+msgstr "Échec de l'ajout du sondage SMS"
 
 msgid "Fail to delete SMS poll choice"
-msgstr "Impossible de supprimer les réponses de ce sondage"
+msgstr "Échec de la suppression de la réponse de sondage SMS"
 
 msgid "Grand total SMS"
-msgstr ""
+msgstr "Total général de SMS"
 
 msgid "Grand total senders"
-msgstr ""
+msgstr "Total général d'expéditeurs"
 
 msgid "Graph output"
-msgstr ""
+msgstr "Output graphique"
 
 msgid "HTML output"
-msgstr ""
+msgstr "Output HTML"
 
 msgid "Invalid"
-msgstr ""
+msgstr "Erroné"
 
 msgid "JSON output"
-msgstr ""
+msgstr "Output JSON"
 
 msgid "Keyword"
 msgstr "Mot-clé"
 
 msgid "Manage poll"
-msgstr "Service sondage"
+msgstr "Gérer sondage"
 
 msgid "Multi"
-msgstr ""
+msgstr "Multi"
 
 msgid "Number of votes"
-msgstr ""
+msgstr "Nombre de votes"
 
 msgid "Once"
-msgstr ""
+msgstr "Une fois"
 
 msgid "PHP serialize output"
-msgstr ""
+msgstr "Output PHP serialize"
 
 msgid "Reply message on invalid vote"
-msgstr ""
+msgstr "Message de réponse si vote erroné"
 
 msgid "Reply message on out of vote option"
-msgstr ""
+msgstr "Message de réponse si pas parmi les options de vote"
 
 msgid "Reply message on valid vote"
-msgstr ""
+msgstr "Message de réponse si vote valable"
 
 msgid "Result graph"
-msgstr ""
+msgstr "Graphique du résultat"
 
 msgid "Result table"
-msgstr ""
+msgstr "Tableau du résultat"
 
-#, fuzzy
 msgid "SMS poll access code"
-msgstr "Mot-clé du sondage"
+msgstr "Code d'accès du sondage SMS"
 
 msgid "SMS poll access code used mainly by webservices"
 msgstr ""
+"Le code d'accès du sondage SMS est utilisé principalement par les "
+"webservices."
 
 msgid "SMS poll already exists, reserved or use by other feature"
-msgstr "Ce sondage existe déjà, est réservé ou utilisé par un autre service"
+msgstr ""
+"Le sondage SMS existe déjà, est réservé ou utilisé par une autre fonction"
 
 msgid "SMS poll choice and all its voters has been deleted"
-msgstr "Les réponses et tous les votes de ce sondage ont été supprimés"
+msgstr ""
+"La réponse de sondage SMS et tous les votes pour cette réponses ont été "
+"supprimés"
 
 msgid "SMS poll has been added"
-msgstr "Le sondage a été ajouté"
+msgstr "Le sondage SMS a été ajouté"
 
 msgid "SMS poll has been saved"
-msgstr "Le sondage a été ajouté"
+msgstr "Le sondage SMS a été enregistré"
 
 msgid "SMS poll keyword"
-msgstr "Mot-clé du sondage"
+msgstr "Mot-clé du sondage SMS"
 
 msgid "SMS poll status has been changed"
-msgstr "Le statut de ce sondage a été modifié"
+msgstr "Le statut du sondage SMS a été modifié"
 
 msgid "SMS poll title"
-msgstr "Titre du sondage"
+msgstr "Titre du sondage SMS"
 
 msgid "SMS poll with all its messages has been deleted"
-msgstr "Ce sondage avec tous ses messages a été supprimé"
+msgstr "Le sondage SMS avec tous ses messages a été supprimé"
+
+msgid "SMSC"
+msgstr ""
 
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Enregistrer"
 
 msgid "Senders sent multi votes"
-msgstr ""
+msgstr "Expéditeurs envoyé votes multi"
 
 msgid "Senders sent multiple votes"
-msgstr ""
+msgstr "Expéditeurs envoyé plusieurs votes"
 
 msgid "Senders sent once"
-msgstr ""
+msgstr "Expéditeurs envoyé une fois"
 
-#, fuzzy
 msgid "Statistics"
-msgstr "Statut"
+msgstr "Statistiques"
 
 msgid "Status"
 msgstr "Statut"
@@ -163,53 +168,52 @@ msgid "Title"
 msgstr "Titre"
 
 msgid "Total invalid SMS"
-msgstr ""
+msgstr "Total de SMS erronés"
 
 msgid "Total multiple votes SMS"
-msgstr ""
+msgstr "Total de votes SMS multiples"
 
 msgid "Total one time vote SMS"
-msgstr ""
+msgstr "Total de vote SMS unique"
 
 msgid "Total valid SMS"
-msgstr ""
+msgstr "Total de SMS valables"
 
 msgid "User"
-msgstr "Compte"
+msgstr "Utilisateur"
 
 msgid "Valid"
-msgstr ""
+msgstr "Valable"
 
 msgid "Vote option"
-msgstr ""
+msgstr "Option de vote"
 
 msgid "Webservices links"
-msgstr ""
+msgstr "Liens webservices"
 
 msgid "XML output"
-msgstr ""
+msgstr "Output XML"
 
 msgid "You must fill all fields"
-msgstr "Vous devez remplir tous les champs"
+msgstr "Vous devez saisir tous les champs"
 
 msgid "keyword"
 msgstr "mot-clé"
 
 msgid "multiple times"
-msgstr ""
+msgstr "plusieurs fois"
 
-#, fuzzy
 msgid "one time"
-msgstr "Titre réponse"
+msgstr "une fois"
 
 msgid "one time every 24 hours"
-msgstr ""
+msgstr "une fois toutes les 24 heures"
 
 msgid "one time every month"
-msgstr ""
+msgstr "une fois chaque mois"
 
 msgid "one time every week"
-msgstr ""
+msgstr "une fois chaque semaine"
 
 msgid "title"
 msgstr "titre"

@@ -1,0 +1,28 @@
+<h3>{{ FORM_TITLE }}</h3>
+<form action="{{ ACTION_URL }}" method=post
+	enctype="multipart/form-data">
+	{{ CSRF_FORM }}
+	<table class=playsms-table>
+		<tbody>
+			<tr>
+				<td class=label-sizer>{{ Gateway }}</td>
+				<td><input type="text" name='gateway' value='{{ GATEWAY }}'
+					readonly></td>
+			</tr>
+			<tr>
+				<td class=label-sizer>{{ SMSC name }}</td>
+				<td><input type="text" maxlength="100" name="name" value="{{ GATEWAY }}" required></td>
+			</tr>
+			<loop.dynamic_variables>
+			<tr>
+				<td class=label-sizer>{{ dynamic_variables.title }}</td>
+				<td><input type="text" name="{{ dynamic_variables.key }}"></td>
+			</tr>
+			</loop.dynamic_variables>
+		</tbody>
+	</table>
+	<p>
+		<input type=submit class=button value='{{ Save }}'>
+	</p>
+</form>
+<p>{{ BACK }}</p>

@@ -20,14 +20,15 @@ function sms_quiz_hook_checkavailablekeyword($keyword) {
 /*
  * Implementations of hook setsmsincomingaction() @param $sms_datetime date and time when incoming sms inserted to playsms @param $sms_sender sender on incoming sms @param $quiz_keyword check if keyword is for sms_quiz @param $quiz_param get parameters from incoming sms @param $sms_receiver receiver number that is receiving incoming sms @return $ret array of keyword owner uid and status, TRUE if incoming sms handled
  */
-function sms_quiz_hook_setsmsincomingaction($sms_datetime, $sms_sender, $quiz_keyword, $quiz_param = '', $sms_receiver = '', $raw_message = '') {
+function sms_quiz_hook_setsmsincomingaction($sms_datetime, $sms_sender, $quiz_keyword, $quiz_param = '', $sms_receiver = '', $smsc = '', $raw_message = '') {
 	$ok = false;
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_keyword='$quiz_keyword'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		if ($db_row['uid'] && $db_row['quiz_enable']) {
+			$smsc = gateway_decide_smsc($smsc, $db_row['smsc']);
 			logger_print('begin k:' . $quiz_keyword . ' c:' . $quiz_param, 2, 'sms_quiz');
-			if (sms_quiz_handle($db_row, $sms_datetime, $sms_sender, $quiz_keyword, $quiz_param, $sms_receiver, $raw_message)) {
+			if (sms_quiz_handle($db_row, $sms_datetime, $sms_sender, $quiz_keyword, $quiz_param, $sms_receiver, $smsc, $raw_message)) {
 				$ok = true;
 			}
 			$status = ($ok ? 'handled' : 'unhandled');
@@ -39,7 +40,7 @@ function sms_quiz_hook_setsmsincomingaction($sms_datetime, $sms_sender, $quiz_ke
 	return $ret;
 }
 
-function sms_quiz_handle($list, $sms_datetime, $sms_sender, $quiz_keyword, $quiz_param = '', $sms_receiver = '', $raw_message = '') {
+function sms_quiz_handle($list, $sms_datetime, $sms_sender, $quiz_keyword, $quiz_param = '', $sms_receiver = '', $smsc = '', $raw_message = '') {
 	global $core_config;
 	$ok = false;
 	$sms_to = $sms_sender; // we are replying to this sender
@@ -58,7 +59,7 @@ function sms_quiz_handle($list, $sms_datetime, $sms_sender, $quiz_keyword, $quiz
 			if ($message && ($username = user_uid2username($list['uid']))) {
 				$unicode = core_detect_unicode($message);
 				$message = addslashes($message);
-				list($ok, $to, $smslog_id, $queue) = sendsms($username, $sms_to, $message, 'text', $unicode);
+				list($ok, $to, $smslog_id, $queue) = sendsms_helper($username, $sms_to, $message, 'text', $unicode, $smsc);
 			}
 			$ok = true;
 		}

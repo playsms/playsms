@@ -14,61 +14,63 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "API key"
-msgstr ""
+msgstr "Clé de l'API"
 
 msgid "API secret"
-msgstr ""
+msgstr "Secret de l'API"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Exemple: +0200 pour le fuseau horaire de Paris (heure d'été)"
 
 msgid "Fill to change the API secret"
-msgstr ""
+msgstr "Veuillez saisir pour changer le secret de l'API"
 
 msgid "Gateway module configurations has been saved"
-msgstr "Configurations de la passerelle sauvergardées"
+msgstr "La configuration du module de passerelle a été enregistrée"
 
 msgid "Gateway name"
-msgstr "Nom passerelle"
+msgstr "Nom de la passerelle"
 
 msgid "Manage nexmo"
 msgstr "Gérer nexmo"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
+"Max. 16 caractères numériques ou 11 alphanumériques. vide pour désactiver"
 
 msgid "Module sender ID"
-msgstr "ID module émetteur"
+msgstr "Sender ID du module"
 
 msgid "Module timezone"
-msgstr "Zone de temps"
+msgstr "Fuseau horaire du module"
 
 msgid "Nexmo URL"
-msgstr "URL nexmo"
+msgstr "URL de nexmo"
 
 msgid "Nexmo is a bulk SMS provider"
-msgstr ""
+msgstr "Nexmo est un fournisseur de SMS en gros"
 
 msgid "Nexmo will push DLR and incoming SMS to your callback URL"
 msgstr ""
+"Nexmo va faire un push du DLR et du SMS entrant vers votre URL de callback"
 
 msgid "No changes have been made"
 msgstr "Aucun changement apporté"
 
 msgid "Notes"
-msgstr ""
+msgstr "Remarques"
 
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Enregistrer"
 
 msgid "Use JSON format URL"
-msgstr ""
+msgstr "Utiliser l'URL au format JSON"
 
 msgid "Your callback URL is"
-msgstr ""
+msgstr "Votre URL de callback est"
 
 msgid "Your callback URL should be accessible from Nexmo"
-msgstr ""
+msgstr "Votre URL de callback doit être accessible par Nexmo"
 
 msgid "free credits are available for testing purposes"
-msgstr ""
+msgstr "des crédits gratuits sont disponibles à des fins de test"

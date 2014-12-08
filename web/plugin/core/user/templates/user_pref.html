@@ -8,19 +8,19 @@
 	<tbody>
 		<if.edit_status>
 		<tr>
-			<td class=label-sizer>{{ User status }}</td>
+			<td class=label-sizer>{{ Account status }}</td>
 			<td>{{ select_status }}</td>
 		</tr>
 		</if.edit_status>
 		<if.edit_status_hint>
 		<tr>
-			<td class=label-sizer>{{ User status }}</td>
+			<td class=label-sizer>{{ Account status }}</td>
 			<td>{{ STATUS }} {{ HINT_STATUS }}</td>
 		</tr>
 		</if.edit_status_hint>
 		<if.edit_parent>
 		<tr>
-			<td class=label-sizer>{{ Parent user }}</td>
+			<td class=label-sizer>{{ Parent account }}</td>
 			<td>{{ select_parents }} {{ HINT_PARENT }}</td>
 		</tr>
 		</if.edit_parent>
@@ -40,7 +40,7 @@
 			<td>{{ Name }}</td>
 			<td><input type=text maxlength=100 name=up_name value="{{ name }}"></td>
 		</tr>
-		<if.enhance_privacy>
+		<if.show_personal_information>
 		<tr>
 			<td>{{ Email }}</td>
 			<td><input type=text maxlength=250 name=up_email value="{{ email }}"></td>
@@ -49,11 +49,11 @@
 			<td>{{ Mobile }}</td>
 			<td><input type=text maxlength=20 name=up_mobile value="{{ mobile }}"></td>
 		</tr>
-		</if.enhance_privacy>
+		</if.show_personal_information>
 	</tbody>
 </table>
 
-<if.enhance_privacy>
+<if.show_personal_information>
 <h3>{{ Personal information }}</h3>
 <table class=playsms-table>
 	<tbody>
@@ -79,7 +79,7 @@
 		</tr>
 	</tbody>
 </table>
-</if.enhance_privacy>
+</if.show_personal_information>
 
 <p><input type=submit class=button value='{{ Save }}'> {{ BUTTON_DELETE }}</p>
 </form>

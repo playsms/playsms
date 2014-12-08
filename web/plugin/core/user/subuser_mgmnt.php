@@ -18,8 +18,10 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-if (!auth_isvalid()) {
-	auth_block();
+if (!auth_isuser()) {
+	if (!auth_isadmin()) {
+		auth_block();
+	}
 }
 
 if ($_REQUEST['uname']) {
@@ -55,7 +57,7 @@ switch (_OP_) {
 			$content = "<div class=error_string>$err</div>";
 		}
 		$content .= "
-			<h2>" . _('Manage subusers') . "</h2>
+			<h2>" . _('Manage subuser') . "</h2>
 			<h3>" . _('List of subusers') . "</h3>
 			<p>" . $search['form'] . "</p>			
 			<div class=actions_box>
@@ -160,16 +162,16 @@ switch (_OP_) {
 		<table class=playsms-table>
 		<tbody>
 		<tr>
-			<td>" . _mandatory('Username') . "</td><td><input type='text' maxlength='30' name='add_username' value=\"$add_username\"></td>
+			<td>" . _mandatory(_('Username')) . "</td><td><input type='text' maxlength='30' name='add_username' value=\"$add_username\"></td>
 		</tr>
 		<tr>
-			<td>" . _mandatory('Password') . "</td><td><input type='password' maxlength='30' name='add_password' value=\"$add_password\"></td>
+			<td>" . _mandatory(_('Password')) . "</td><td><input type='password' maxlength='30' name='add_password' value=\"$add_password\"></td>
 		</tr>
 		<tr>
-			<td>" . _mandatory('Full name') . "</td><td><input type='text' maxlength='100' name='add_name' value=\"$add_name\"></td>
+			<td>" . _mandatory(_('Full name')) . "</td><td><input type='text' maxlength='100' name='add_name' value=\"$add_name\"></td>
 		</tr>
 		<tr>
-			<td>" . _mandatory('Email') . "</td><td><input type='text' maxlength='250' name='add_email' value=\"$add_email\"></td>
+			<td>" . _mandatory(_('Email')) . "</td><td><input type='text' maxlength='250' name='add_email' value=\"$add_email\"></td>
 		</tr>
 		<tr>
 			<td>" . _('Mobile') . "</td><td><input type='text' size='16' maxlength='16' name='add_mobile' value=\"$add_mobile\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric characters')) . "</td>
@@ -233,10 +235,10 @@ switch (_OP_) {
 	case "subuser_unban" :
 		$uid = $subuser_edited['uid'];
 		if ($uid && ($uid == 1 || $uid == $user_config['uid'])) {
-			$_SESSION['error_string'] = _('User admin or currently logged in administrator cannot be unbanned');
+			$_SESSION['error_string'] = _('Account admin or currently logged in administrator cannot be unbanned');
 		} else if (user_banned_get($uid)) {
 			if (user_banned_remove($uid)) {
-				$_SESSION['error_string'] = _('User has been unbanned') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
+				$_SESSION['error_string'] = _('Account has been unbanned') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
 			} else {
 				$_SESSION['error_string'] = _('Unable to unban subuser') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
 			}
@@ -250,12 +252,12 @@ switch (_OP_) {
 	case "subuser_ban" :
 		$uid = $subuser_edited['uid'];
 		if ($uid && ($uid == 1 || $uid == $user_config['uid'])) {
-			$_SESSION['error_string'] = _('User admin or currently logged in administrator cannot be unbanned');
+			$_SESSION['error_string'] = _('Account admin or currently logged in administrator cannot be unbanned');
 		} else if (user_banned_get($uid)) {
 			$_SESSION['error_string'] = _('User is already on banned subusers list') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
 		} else {
 			if (user_banned_add($uid)) {
-				$_SESSION['error_string'] = _('User has been banned') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
+				$_SESSION['error_string'] = _('Account has been banned') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
 			} else {
 				$_SESSION['error_string'] = _('Unable to ban subuser') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
 			}

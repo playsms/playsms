@@ -78,6 +78,9 @@ msgstr ""
 msgid "SMS quiz with all its messages has been deleted"
 msgstr ""
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr ""
 

@@ -101,7 +101,7 @@ UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-beta4' WHERE `registry_
 -- core config
 UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-beta5' WHERE `registry_group` = 'core' AND `registry_family` = 'config' AND `registry_key` = 'playsms_version' ;
 
-ALTER TABLE `playsms_tblUser` ADD `parent_uid` INT NOT NULL AFTER `c_timestamp`;
+ALTER TABLE `playsms_tblUser` ADD `parent_uid` INT(11) NOT NULL DEFAULT '0' AFTER `c_timestamp`;
 
 --
 -- Table structure for table `playsms_featureCredit`
@@ -378,7 +378,7 @@ ALTER TABLE `playsms_tblSMSOutgoing` CHANGE `p_credit` `p_credit` DECIMAL(13,3) 
 UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-rc2' WHERE `registry_group` = 'core' AND `registry_family` = 'config' AND `registry_key` = 'playsms_version' ;
 
 
--- 1.0
+-- 1.0-rc3
 
 -- SMS poll
 ALTER TABLE `playsms_featurePoll`
@@ -402,12 +402,86 @@ ALTER TABLE `playsms_featurePoll` ADD `poll_access_code` VARCHAR(40) NOT NULL DE
 
 ALTER TABLE `playsms_tblUser_inbox` ADD `reference_id` VARCHAR(40) NOT NULL DEFAULT '' ;
 
-CREATE TABLE IF NOT EXISTS `playsms_featureOutgoing` (
+DROP TABLE IF EXISTS `playsms_featureOutgoing` ;
+CREATE TABLE `playsms_featureOutgoing` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `dst` varchar(100) NOT NULL DEFAULT '',
   `prefix` varchar(10) NOT NULL DEFAULT '',
-  `gateway` varchar(20) NOT NULL,
+  `gateway` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `prefix` (`prefix`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
+
+ALTER TABLE `playsms_tblRecvSMS` ADD `gw` VARCHAR(100) NOT NULL DEFAULT '' ;
+
+ALTER TABLE `playsms_tblSMSOutgoing_queue` ADD `gw` VARCHAR(100) NOT NULL DEFAULT '' ;
+
+-- version
+UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-rc3' WHERE `registry_group` = 'core' AND `registry_family` = 'config' AND `registry_key` = 'playsms_version' ;
+
+
+-- 1.0-rc4
+
+--
+-- Table structure for table `playsms_tblGateway`
+--
+
+DROP TABLE IF EXISTS `playsms_tblGateway`;
+CREATE TABLE `playsms_tblGateway` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `last_update` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `name` varchar(100) NOT NULL DEFAULT '',
+  `gateway` varchar(100) NOT NULL DEFAULT '',
+  `data` text NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `playsms_tblGateway`
+--
+
+INSERT INTO `playsms_tblGateway` (`id`, `created`, `last_update`, `name`, `gateway`, `data`) VALUES
+(1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'blocked', 'blocked', '[]'),
+(2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'dev', 'dev', '[]');
+
+ALTER TABLE `playsms_tblRecvSMS` CHANGE `gw` `smsc` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';
+
+ALTER TABLE `playsms_tblSMSOutgoing_queue` CHANGE `gw` `smsc` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';
+
+ALTER TABLE `playsms_featureOutgoing` CHANGE `gateway` `smsc` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';
+
+ALTER TABLE `playsms_gatewayMsgtoolbox_config` CHANGE `cfg_global_sender` `cfg_module_sender` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+
+ALTER TABLE `playsms_gatewayNexmo_config` CHANGE `cfg_global_sender` `cfg_module_sender` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+
+ALTER TABLE `playsms_gatewayTwilio_config` CHANGE `cfg_global_sender` `cfg_module_sender` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+
+ALTER TABLE `playsms_gatewayUplink_config` CHANGE `cfg_global_sender` `cfg_module_sender` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+
+ALTER TABLE `playsms_gatewayClickatell_config` CHANGE `cfg_sender` `cfg_module_sender` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+
+ALTER TABLE `playsms_gatewayInfobip_config` CHANGE `cfg_sender` `cfg_module_sender` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';
+
+ALTER TABLE `playsms_featureOutgoing` DROP INDEX `prefix`;
+
+ALTER TABLE `playsms_featureOutgoing` ADD `uid` INT(11) NOT NULL DEFAULT '0' AFTER `id`;
+
+ALTER TABLE `playsms_featurePoll` ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' ;
+
+ALTER TABLE `playsms_featureAutoreply` ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' ;
+
+ALTER TABLE `playsms_featureSubscribe` ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' ;
+
+ALTER TABLE `playsms_featureQuiz` ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' ;
+
+ALTER TABLE `playsms_featureSubscribe` ADD `duration` INT(11) NOT NULL DEFAULT '0' ;
+
+ALTER TABLE `playsms_featureSubscribe` ADD `expire_msg` VARCHAR(140) NOT NULL DEFAULT '' ;
+
+ALTER TABLE `playsms_featureBoard` 
+ADD `board_access_code` VARCHAR(40) NOT NULL DEFAULT '' , 
+ADD `board_reply_msg` VARCHAR(140) NOT NULL DEFAULT '' , 
+ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' ;

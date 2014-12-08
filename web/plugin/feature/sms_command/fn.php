@@ -34,13 +34,13 @@ function sms_command_hook_checkavailablekeyword($keyword) {
  * @return $ret
  *   array of keyword owner uid and status, TRUE if incoming sms handled
  */
-function sms_command_hook_setsmsincomingaction($sms_datetime,$sms_sender,$command_keyword,$command_param='',$sms_receiver='',$raw_message='') {
+function sms_command_hook_setsmsincomingaction($sms_datetime,$sms_sender,$command_keyword,$command_param='',$sms_receiver='',$smsc='',$raw_message='') {
 	$ok = false;
 	$db_query = "SELECT uid,command_id FROM "._DB_PREF_."_featureCommand WHERE command_keyword='$command_keyword'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$c_uid = $db_row['uid'];
-		if (sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$command_keyword,$command_param,$raw_message)) {
+		if (sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$command_keyword,$command_param,$smsc,$raw_message)) {
 			$ok = true;
 		}
 	}
@@ -49,7 +49,7 @@ function sms_command_hook_setsmsincomingaction($sms_datetime,$sms_sender,$comman
 	return $ret;
 }
 
-function sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$command_keyword,$command_param='',$raw_message='') {
+function sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$command_keyword,$command_param='',$smsc='',$raw_message='') {
 	global $plugin_config;
 	$ok = false;
 	$command_keyword = strtoupper(trim($command_keyword));
@@ -76,7 +76,7 @@ function sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$comm
 			$unicode = core_detect_unicode($command_output);
 			if ($command_output = addslashes(trim($command_output))) {
 				logger_print("command_output:".$command_output, 3, "sms command");
-				sendsms($username, $sms_sender, $command_output, 'text', $unicode);
+				sendsms_helper($username, $sms_sender, $command_output, 'text', $unicode, $smsc);
 			} else {
 				logger_print("command_output is empty", 3, "sms command");
 			}

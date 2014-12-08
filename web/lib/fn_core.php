@@ -459,6 +459,7 @@ function core_sanitize_sender($text) {
  *
  */
 function core_sanitize_footer($text) {
+	$text = str_replace('"', "'", $text);
 	if (strlen($text) > 30) {
 		$text = substr($text, 0, 30);
 	}
@@ -703,22 +704,53 @@ function core_csv_format($item) {
  * @param string $content
  * @param string $fn
  * @param string $content_type
+ * @param string $charset
  */
-function core_download($content, $fn = '', $content_type = '') {
+function core_download($content, $fn = '', $content_type = '', $charset = '') {
 	$fn = ($fn ? $fn : 'download.txt');
-	$content_type = ($content_type ? $content_type : 'text/plain');
+	$content_type = (trim($content_type) ? strtolower(trim($content_type)) : 'text/plain');
+	$charset = strtolower(trim($charset));
+
+	// fixme anton
+	// seems to be good for Arabic, Chinese and Hebrew letters
+	// but I'm not sure if this is the right way to do it though
+	if ($content_type == 'text/csv') {
+		// $charset = 'windows-1255';
+		$charset = 'utf-8';
+	}	
+	
 	ob_end_clean();
 	header('Pragma: public');
 	header('Expires: 0');
 	header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-	header('Content-Type: ' . $content_type);
+	if ($charset) {
+		header('Content-Type: ' . $content_type . '; charset=' . $charset);
+	} else {
+		header('Content-Type: ' . $content_type);
+	}
 	header('Content-Disposition: attachment; filename=' . $fn);
 	_p($content);
 	die();
 }
 
 /**
- * Get active gateway plugin
+ * Get default SMSC
+ * @global array $core_config
+ * @return string
+ */
+function core_smsc_get() {
+	global $core_config;
+	
+	$ret = core_call_hook();
+	if (!$ret) {
+		return $core_config['main']['gateway_module'];
+	}
+	
+	return $ret;
+}
+
+/**
+ * Get default gateway based on default SMSC
  * @global array $core_config
  * @return string
  */
@@ -727,7 +759,10 @@ function core_gateway_get() {
 	
 	$ret = core_call_hook();
 	if (!$ret) {
-		return $core_config['main']['gateway_module'];
+		$smsc = core_smsc_get();
+		$smsc_data = gateway_get_smscbyname($smsc);
+		$gateway = $smsc_data['gateway'];
+		return $gateway;
 	}
 	
 	return $ret;

@@ -9,53 +9,70 @@ msgstr ""
 msgid "Action"
 msgstr "Action"
 
-msgid "Add rate"
-msgstr "Ajouter un tarif"
+msgid "Add route"
+msgstr "Ajouter une route"
 
-msgid "Are you sure you want to delete rate ?"
-msgstr "Voulez-vous supprimer cette règle ?"
+msgid "Are you sure ?"
+msgstr ""
 
-msgid "Destination"
+#, fuzzy
+msgid "Destination name"
 msgstr "Destination"
 
-msgid "Edit rate"
-msgstr "Editer tarif"
+msgid "Edit route"
+msgstr "Éditer la route"
 
-msgid "Fail to delete rate"
-msgstr "Echec suppression tarif"
+msgid "Fail to delete route"
+msgstr "Échec de la suppression de la route"
 
-msgid "Fail to save rate"
-msgstr "Echec sauvegarde tarif"
+msgid "Fail to save route"
+msgstr "Échec de l'enregistrement de la route"
 
-msgid "Manage SMS rate"
-msgstr "Gérer tarif SMS"
+msgid "Maximum 8 digits numeric only"
+msgstr ""
 
 msgid "No changes made!"
-msgstr "Aucune modification éffectuée"
+msgstr "Aucune modification apportée!"
 
 msgid "Prefix"
 msgstr "Préfixe"
 
-msgid "Rate"
-msgstr "Tarif"
+msgid "Route SMS outgoing"
+msgstr "Route SMS sortant"
 
-msgid "Rate already exists"
-msgstr "Cette règle existe déjà"
+#, fuzzy
+msgid "Route has been added"
+msgstr "la route a été sauvegardée"
 
-msgid "Rate has been added"
-msgstr "Tarif ajouté"
+#, fuzzy
+msgid "Route has been deleted"
+msgstr "la route a été sauvegardée"
 
-msgid "Rate has been deleted"
-msgstr "Tarif supprimé"
+#, fuzzy
+msgid "Route has been saved"
+msgstr "la route a été sauvegardée"
 
-msgid "Rate has been saved"
-msgstr "Tarif sauvegardé"
+msgid "Route outgoing SMS"
+msgstr "Route SMS sortant"
+
+msgid "SMSC"
+msgstr ""
 
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Enregistrer"
+
+msgid "User"
+msgstr ""
 
 msgid "You must fill all fields"
-msgstr "Vous devez remplir tous les champs"
+msgstr "Vous devez saisir tous les champs"
+
+#, fuzzy
+msgid "You must fill all mandatory fields"
+msgstr "Vous devez saisir tous les champs"
+
+msgid "blocked"
+msgstr ""
 
 msgid "destination"
 msgstr "destination"

@@ -32,17 +32,25 @@ function sendsms_manipulate_prefix($number, $user) {
 	_log('before prefix manipulation:[' . $number . ']', 3, 'sendsms_manipulate_prefix');
 	if (is_array($user)) {
 		
+		$prefix = core_sanitize_numeric($user['replace_zero']);
 		$local_length = (int) $user['local_length'];
-		if (trim($user['replace_zero']) && ($local_length > 0) && (strlen($number) == $local_length)) {
-			$number = trim($user['replace_zero']) . $number;
-		} elseif (trim($user['replace_zero'])) {
-			$number = preg_replace('/^0/', trim($user['replace_zero']), $number);
+		
+		// if prefix exists then replace prefix 0 with supplied prefix
+		if ($prefix) {
+			$number = preg_replace('/^0/', $prefix, $number);
 		}
 		
+		// if length of number is equal to $local_length then add supplied prefix
+		if (($local_length > 0) && (strlen(core_sanitize_numeric($number)) == $local_length)) {
+			$number = $prefix . $number;
+		}
+		
+		// remove plus sign
 		if ($core_config['main']['plus_sign_remove']) {
 			$number = str_replace('+', '', $number);
 		}
 		
+		// remove plus sign then add single plus sign
 		if ($core_config['main']['plus_sign_add']) {
 			$number = str_replace('+', '', $number);
 			$number = '+' . $number;
@@ -53,14 +61,15 @@ function sendsms_manipulate_prefix($number, $user) {
 	return $number;
 }
 
-function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid = 0, $sms_type = 'text', $unicode = 0) {
+function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid = 0, $sms_type = 'text', $unicode = 0, $smsc = '') {
 	global $core_config;
 	$ret = array();
 	$ret_final = array();
 	
 	// feature list
-	for($c = 0; $c < count($core_config['featurelist']); $c++) {
-		$ret = core_hook($core_config['featurelist'][$c], 'sendsms_intercept', array(
+	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
+		$c_feature = $core_config['featurelist'][$c];
+		$ret = core_hook($c_feature, 'sendsms_intercept', array(
 			$sms_sender,
 			$sms_footer,
 			$sms_to,
@@ -68,7 +77,8 @@ function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $g
 			$uid,
 			$gpid,
 			$sms_type,
-			$unicode 
+			$unicode,
+			$smsc 
 		));
 		if ($ret['modified']) {
 			$sms_sender = ($ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender);
@@ -79,16 +89,19 @@ function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $g
 			$gpid = ($ret['param']['gpid'] ? $ret['param']['gpid'] : $gpid);
 			$sms_type = ($ret['param']['sms_type'] ? $ret['param']['sms_type'] : $sms_type);
 			$unicode = ($ret['param']['unicode'] ? $ret['param']['unicode'] : $unicode);
+			$smsc = ($ret['param']['smsc'] ? $ret['param']['smsc'] : $smsc);
 			$ret_final['modified'] = $ret['modified'];
 			$ret_final['cancel'] = $ret['cancel'];
-			$ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
-			$ret_final['param']['sms_footer'] = $ret['param']['sms_footer'];
-			$ret_final['param']['sms_to'] = $ret['param']['sms_to'];
-			$ret_final['param']['sms_msg'] = $ret['param']['sms_msg'];
-			$ret_final['param']['uid'] = $ret['param']['uid'];
-			$ret_final['param']['gpid'] = $ret['param']['gpid'];
-			$ret_final['param']['sms_type'] = $ret['param']['sms_type'];
-			$ret_final['param']['unicode'] = $ret['param']['unicode'];
+			$ret_final['param']['sms_sender'] = $sms_sender;
+			$ret_final['param']['sms_footer'] = $sms_footer;
+			$ret_final['param']['sms_to'] = $sms_to;
+			$ret_final['param']['sms_msg'] = $sms_msg;
+			$ret_final['param']['uid'] = $uid;
+			$ret_final['param']['gpid'] = $gpid;
+			$ret_final['param']['sms_type'] = $sms_type;
+			$ret_final['param']['unicode'] = $unicode;
+			$ret_final['param']['smsc'] = $smsc;
+			_log($c_feature . ' modified sms_sender:[' . $sms_sender . '] sms_footer:[' . $sms_footer . '] sms_to:[' . $sms_to . '] sms_msg:[' . $sms_msg . '] uid:[' . $uid . '] gpid:[' . $gpid . '] sms_type:[' . $sms_type . '] unicode:[' . $unicode . '] smsc:[' . $smsc . ']', 3, 'sendsms_intercept');
 		}
 	}
 	return $ret_final;
@@ -106,9 +119,10 @@ function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $g
  * @param string $sms_type        	
  * @param integer $unicode        	
  * @param string $sms_schedule        	
+ * @param string $smsc        	
  * @return string Queue code
  */
-function sendsms_queue_create($sms_sender, $sms_footer, $sms_msg, $uid, $gpid = 0, $sms_type = 'text', $unicode = 0, $sms_schedule = '') {
+function sendsms_queue_create($sms_sender, $sms_footer, $sms_msg, $uid, $gpid = 0, $sms_type = 'text', $unicode = 0, $sms_schedule = '', $smsc = '') {
 	global $core_config;
 	
 	$ret = FALSE;
@@ -123,9 +137,9 @@ function sendsms_queue_create($sms_sender, $sms_footer, $sms_msg, $uid, $gpid = 
 	$sms_footer = addslashes($sms_footer);
 	
 	$db_query = "INSERT INTO " . _DB_PREF_ . "_tblSMSOutgoing_queue ";
-	$db_query .= "(queue_code,datetime_entry,datetime_scheduled,uid,gpid,sender_id,footer,message,sms_type,unicode,flag) ";
-	$db_query .= "VALUES ('$queue_code','" . $dt . "','" . $sms_schedule . "','$uid','$gpid','$sms_sender','$sms_footer','$sms_msg','$sms_type','$unicode','2')";
-	if ($id = @dba_insert_id($db_query)) {
+	$db_query .= "(queue_code,datetime_entry,datetime_scheduled,uid,gpid,sender_id,footer,message,sms_type,unicode,smsc,flag) ";
+	$db_query .= "VALUES ('$queue_code','" . $dt . "','" . $sms_schedule . "','$uid','$gpid','$sms_sender','$sms_footer','$sms_msg','$sms_type','$unicode','$smsc','2')";
+	if ($id = dba_insert_id($db_query)) {
 		logger_print("saved queue_code:" . $queue_code . " id:" . $id, 2, "sendsms_queue_create");
 		$ret = $queue_code;
 	}
@@ -191,6 +205,7 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 		$c_unicode = $db_row['unicode'];
 		$c_sms_count = $db_row['sms_count'];
 		$c_schedule = $db_row['datetime_scheduled'];
+		$c_smsc = $db_row['smsc'];
 		$c_current = core_get_datetime();
 		
 		// logger_print("delivery datetime qeueue:".$c_queue_code." scheduled:".$c_schedule." current:".$c_current, 3, "sendsmsd");
@@ -209,7 +224,7 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 				$c_flag = 2;
 				$c_ok = false;
 				logger_print("sending queue_code:" . $c_queue_code . " smslog_id:" . $c_smslog_id . " to:" . $c_dst . " sms_count:" . $c_sms_count . " counter:" . $counter, 2, "sendsmsd");
-				$ret = sendsms_process($c_smslog_id, $c_sender_id, $c_footer, $c_dst, $c_message, $c_uid, $c_gpid, $c_sms_type, $c_unicode, $c_queue_code);
+				$ret = sendsms_process($c_smslog_id, $c_sender_id, $c_footer, $c_dst, $c_message, $c_uid, $c_gpid, $c_sms_type, $c_unicode, $c_queue_code, $c_smsc);
 				$c_dst = $ret['to'];
 				if ($ret['status']) {
 					$c_ok = true;
@@ -258,12 +273,9 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 	);
 }
 
-function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid = 0, $sms_type = 'text', $unicode = 0, $queue_code = '') {
+function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid = 0, $sms_type = 'text', $unicode = 0, $queue_code = '', $smsc = '') {
 	global $user_config;
 	$ok = false;
-	
-	// get active gateway module
-	$gw = core_gateway_get();
 	
 	$user = $user_config;
 	if ($uid && ($user['uid'] != $uid)) {
@@ -280,7 +292,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	$sms_datetime = core_get_datetime();
 	
 	// sent sms will be handled by plugins first
-	$ret_intercept = sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode);
+	$ret_intercept = sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $smsc);
 	if ($ret_intercept['modified']) {
 		$sms_sender = ($ret_intercept['param']['sms_sender'] ? $ret_intercept['param']['sms_sender'] : $sms_sender);
 		$sms_footer = ($ret_intercept['param']['sms_footer'] ? $ret_intercept['param']['sms_footer'] : $sms_footer);
@@ -290,13 +302,24 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		$gpid = ($ret_intercept['param']['gpid'] ? $ret_intercept['param']['gpid'] : $gpid);
 		$sms_type = ($ret_intercept['param']['sms_type'] ? $ret_intercept['param']['sms_type'] : $sms_type);
 		$unicode = ($ret_intercept['param']['unicode'] ? $ret_intercept['param']['unicode'] : $unicode);
+		$smsc = ($ret_intercept['param']['smsc'] ? $ret_intercept['param']['smsc'] : $smsc);
 	}
 	
 	// if hooked function returns cancel=true then stop the sending, return false
 	if ($ret_intercept['cancel']) {
-		logger_print("end with cancelled smslog_id:" . $smslog_id . " uid:" . $uid . " gpid:" . $gpid . " gw:" . $gw . " s:" . $sms_sender . " to:" . $sms_to . " type:" . $sms_type . " unicode:" . $unicode, 2, "sendsms_process");
+		logger_print("end with cancelled smslog_id:" . $smslog_id . " uid:" . $uid . " gpid:" . $gpid . " smsc:" . $smsc . " s:" . $sms_sender . " to:" . $sms_to . " type:" . $sms_type . " unicode:" . $unicode, 2, "sendsms_process");
 		$ret['status'] = false;
 		return $ret;
+	}
+	
+	// get active gateway module as default gateway
+	if (!$smsc) {
+		$smsc = core_smsc_get();
+	}
+	
+	// set no gateway if no default gateway selected
+	if (!$smsc) {
+		$smsc = 'blocked';
 	}
 	
 	// a hack to remove \r from \r\n
@@ -346,15 +369,17 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	$db_query = "
 		INSERT INTO " . _DB_PREF_ . "_tblSMSOutgoing 
 		(smslog_id,uid,p_gpid,p_gateway,p_src,p_dst,p_footer,p_msg,p_datetime,p_status,p_sms_type,unicode,queue_code) 
-		VALUES ('$smslog_id','$uid','$gpid','$gw','$sms_sender','$sms_to','$sms_footer','$sms_msg','$sms_datetime','$p_status','$sms_type','$unicode','$queue_code')";
-	logger_print("saving smslog_id:" . $smslog_id . " u:" . $uid . " g:" . $gpid . " gw:" . $gw . " s:" . $sms_sender . " d:" . $sms_to . " type:" . $sms_type . " unicode:" . $unicode . " status:" . $p_status, 2, "sendsms");
+		VALUES ('$smslog_id','$uid','$gpid','$smsc','$sms_sender','$sms_to','$sms_footer','$sms_msg','$sms_datetime','$p_status','$sms_type','$unicode','$queue_code')";
+	logger_print("saving smslog_id:" . $smslog_id . " u:" . $uid . " g:" . $gpid . " smsc:" . $smsc . " s:" . $sms_sender . " d:" . $sms_to . " type:" . $sms_type . " unicode:" . $unicode . " status:" . $p_status, 2, "sendsms");
 	
 	// continue to gateway only when save to db is true
 	if ($id = @dba_insert_id($db_query)) {
 		logger_print("saved smslog_id:" . $smslog_id . " id:" . $id, 2, "sendsms_process");
 		if ($p_status == 0) {
-			logger_print("final smslog_id:" . $smslog_id . " gw:" . $gw . " message:" . $sms_msg . $sms_footer . " len:" . strlen($sms_msg . $sms_footer), 3, "sendsms");
-			if (core_hook($gw, 'sendsms', array(
+			$smsc = gateway_get_smscbyname($smsc);
+			logger_print("final smslog_id:" . $smslog_id . " gw:" . $smsc['gateway'] . " smsc:" . $smsc['name'] . " message:" . $sms_msg . $sms_footer . " len:" . strlen($sms_msg . $sms_footer), 3, "sendsms");
+			if (core_hook($smsc['gateway'], 'sendsms', array(
+				$smsc['name'],
 				$sms_sender,
 				$sms_footer,
 				$sms_to,
@@ -395,14 +420,15 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
  * @param string $message        	
  * @param string $sms_type        	
  * @param integer $unicode        	
+ * @param string $smsc        	
  * @param boolean $nofooter        	
  * @param string $sms_footer        	
  * @param string $sms_sender        	
  * @param string $sms_schedule        	
- * @param string $reference_id
+ * @param string $reference_id        	
  * @return array array($status, $sms_to, $smslog_id, $queue, $counts, $sms_count, $sms_failed)
  */
-function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unicode = 0, $nofooter = false, $sms_footer = '', $sms_sender = '', $sms_schedule = '', $reference_id = '') {
+function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unicode = 0, $smsc = '', $nofooter = false, $sms_footer = '', $sms_sender = '', $sms_schedule = '', $reference_id = '') {
 	global $core_config, $user_config;
 	
 	// get user data
@@ -415,12 +441,12 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 	}
 	
 	// get destinations
-	for($i = 0; $i < count($sms_to); $i++) {
+	for ($i = 0; $i < count($sms_to); $i++) {
 		if (substr(trim($sms_to[$i]), 0, 1) == '#') {
 			if ($c_group_code = substr(trim($sms_to[$i]), 1)) {
 				$c_gpid = phonebook_groupcode2id($user_config['uid'], $c_group_code);
 				$members = phonebook_getdatabyid($c_gpid);
-				foreach ($members as $member ) {
+				foreach ($members as $member) {
 					if (trim($member['p_num'])) {
 						$array_sms_to[] = trim($member['p_num']);
 					}
@@ -428,7 +454,11 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 			}
 		} else if (substr(trim($sms_to[$i]), 0, 1) == '@') {
 			if ($c_username = substr(trim($sms_to[$i]), 1)) {
-				$array_username[] = $c_username;
+				
+				// reference self will be ignored
+				if ($c_username != $user_config['username']) {
+					$array_username[] = $c_username;
+				}
 			}
 		} else {
 			$array_sms_to[] = trim($sms_to[$i]);
@@ -443,12 +473,12 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 	
 	// sendsms
 	if (is_array($array_sms_to) && $array_sms_to[0]) {
-		list($ok, $to, $smslog_id, $queue, $counts) = sendsms($user_config['username'], $array_sms_to, $message, $sms_type, $unicode, $nofooter, $sms_footer, $sms_sender, $sms_schedule);
+		list($ok, $to, $smslog_id, $queue, $counts) = sendsms($user_config['username'], $array_sms_to, $message, $sms_type, $unicode, $smsc, $nofooter, $sms_footer, $sms_sender, $sms_schedule);
 	}
 	
 	// fixme anton - IMs doesn't count
 	// count SMSes only
-	for($i = 0; $i < count($ok); $i++) {
+	for ($i = 0; $i < count($ok); $i++) {
 		if ($ok[$i]) {
 			$sms_count += $counts[$i];
 		} else {
@@ -459,7 +489,7 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 	// sendsms_im
 	if (is_array($array_username) && $array_username[0]) {
 		$im_sender = '@' . $user_config['username'];
-		foreach ($array_username as $target_user ) {
+		foreach ($array_username as $target_user) {
 			$im_sender = '@' . $user_config['username'];
 			if (recvsms_inbox_add(core_get_datetime(), $im_sender, $target_user, $message, '', $reference_id)) {
 				$ok[] = '1';
@@ -490,13 +520,14 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
  * @param string $message        	
  * @param string $sms_type        	
  * @param integer $unicode        	
+ * @param string $smsc        	
  * @param boolean $nofooter        	
  * @param string $sms_footer        	
  * @param string $sms_sender        	
  * @param string $sms_schedule        	
  * @return array array($status, $sms_to, $smslog_id, $queue, $counts)
  */
-function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0, $nofooter = false, $sms_footer = '', $sms_sender = '', $sms_schedule = '') {
+function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0, $smsc = '', $nofooter = false, $sms_footer = '', $sms_sender = '', $sms_schedule = '') {
 	global $core_config, $user_config;
 	
 	// get user data
@@ -511,17 +542,23 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	
 	$uid = $user['uid'];
 	
-	// SMS sender ID
-	if (!$core_config['main']['allow_custom_sender']) {
-		$sms_sender = '';
+	// discard if banned
+	if (user_banned_get($uid)) {
+		logger_print("user banned, exit immediately uid:" . $uid, 2, "sendsms");
+		return array(
+			FALSE,
+			'',
+			'',
+			'',
+			'' 
+		);
 	}
+	
+	// SMS sender ID
 	$sms_sender = core_sanitize_sender($sms_sender);
 	$sms_sender = (($sms_sender && sender_id_isvalid($username, $sms_sender)) ? $sms_sender : sendsms_get_sender($username));
 	
 	// SMS footer
-	if (!$core_config['main']['allow_custom_footer']) {
-		$sms_footer = '';
-	}
 	$sms_footer = core_sanitize_footer($sms_footer);
 	$sms_footer = ($sms_footer ? $sms_footer : $user['footer']);
 	if ($nofooter) {
@@ -548,14 +585,14 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	}
 	$sms_msg = $message;
 	
-	logger_print("start uid:" . $uid . " sender:" . $sms_sender, 2, "sendsms");
+	logger_print("start uid:" . $uid . " sender_id:[" . $sms_sender . "] smsc:[" . $smsc . "]", 2, "sendsms");
 	
 	// add a space infront of footer if exists
 	$c_sms_footer = (trim($sms_footer) ? ' ' . trim($sms_footer) : '');
 	logger_print("maxlen:" . $max_length . " footerlen:" . strlen($c_sms_footer) . " footer:[" . $c_sms_footer . "] msglen:" . strlen($sms_msg) . " message:[" . $sms_msg . "]", 3, "sendsms");
 	
 	// create a queue
-	$queue_code = sendsms_queue_create($sms_sender, $sms_footer, $sms_msg, $uid, 0, $sms_type, $unicode, $sms_schedule);
+	$queue_code = sendsms_queue_create($sms_sender, $sms_footer, $sms_msg, $uid, 0, $sms_type, $unicode, $sms_schedule, $smsc);
 	if (!$queue_code) {
 		
 		// when unable to create a queue then immediately returns FALSE, no point to continue
@@ -577,7 +614,7 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	
 	// get manipulated and valid destination numbers
 	$all_sms_to = array();
-	for($i = 0; $i < count($array_sms_to); $i++) {
+	for ($i = 0; $i < count($array_sms_to); $i++) {
 		if ($c_sms_to = sendsms_getvalidnumber(trim($array_sms_to[$i]))) {
 			$c_sms_to = sendsms_manipulate_prefix(trim($c_sms_to), $user);
 			$all_sms_to[] = $c_sms_to;
@@ -590,7 +627,7 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	// calculate total sms and charges
 	$total_count = 0;
 	$total_charges = 0;
-	foreach ($all_sms_to as $c_sms_to ) {
+	foreach ($all_sms_to as $c_sms_to) {
 		list($count, $rate, $charge) = rate_getcharges(strlen($message . $c_sms_footer), $unicode, $c_sms_to);
 		$total_count += $count;
 		$total_charges += $charge;
@@ -610,7 +647,7 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	}
 	
 	// default returns
-	for($i = 0; $i < count($all_sms_to); $i++) {
+	for ($i = 0; $i < count($all_sms_to); $i++) {
 		$ok[$i] = FALSE;
 		$to[$i] = $all_sms_to[$i];
 		$smslog_id[$i] = 0;
@@ -646,7 +683,7 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	$sms_count = 0;
 	$failed_queue_count = 0;
 	$failed_sms_count = 0;
-	for($i = 0; $i < count($all_sms_to); $i++) {
+	for ($i = 0; $i < count($all_sms_to); $i++) {
 		$c_sms_to = $all_sms_to[$i];
 		if ($smslog_id[$i] = sendsms_queue_push($queue_code, $c_sms_to)) {
 			$ok[$i] = TRUE;
@@ -705,13 +742,14 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
  * @param string $message        	
  * @param string $sms_type        	
  * @param integer $unicode        	
+ * @param string $smsc        	
  * @param boolean $nofooter        	
  * @param string $sms_footer        	
  * @param string $sms_sender        	
  * @param string $sms_schedule        	
  * @return array array($status, $sms_to, $smslog_id, $queue)
  */
-function sendsms_bc($username, $gpid, $message, $sms_type = 'text', $unicode = 0, $nofooter = false, $sms_footer = '', $sms_sender = '', $sms_schedule = '') {
+function sendsms_bc($username, $gpid, $message, $sms_type = 'text', $unicode = 0, $smsc = '', $nofooter = false, $sms_footer = '', $sms_sender = '', $sms_schedule = '') {
 	global $core_config, $user_config;
 	$user = $user_config;
 	if ($username && ($user['username'] != $username)) {
@@ -720,17 +758,23 @@ function sendsms_bc($username, $gpid, $message, $sms_type = 'text', $unicode = 0
 	
 	$uid = $user['uid'];
 	
-	// SMS sender ID
-	if (!$core_config['main']['allow_custom_sender']) {
-		$sms_sender = '';
+	// discard if banned
+	if (user_banned_get($uid)) {
+		logger_print("user banned, exit immediately uid:" . $uid, 2, "sendsms_bc");
+		return array(
+			FALSE,
+			'',
+			'',
+			'',
+			'' 
+		);
 	}
+	
+	// SMS sender ID
 	$sms_sender = core_sanitize_sender($sms_sender);
 	$sms_sender = (($sms_sender && sender_id_isvalid($username, $sms_sender)) ? $sms_sender : sendsms_get_sender($username));
 	
 	// SMS footer
-	if (!$core_config['main']['allow_custom_footer']) {
-		$sms_footer = '';
-	}
 	$sms_footer = core_sanitize_footer($sms_footer);
 	$sms_footer = ($sms_footer ? $sms_footer : $user['footer']);
 	if ($nofooter) {
@@ -771,12 +815,12 @@ function sendsms_bc($username, $gpid, $message, $sms_type = 'text', $unicode = 0
 	}
 	
 	$j = 0;
-	for($i = 0; $i < count($array_gpid); $i++) {
+	for ($i = 0; $i < count($array_gpid); $i++) {
 		if ($c_gpid = trim($array_gpid[$i])) {
 			logger_print("start gpid:" . $c_gpid . " uid:" . $uid . " sender:" . $sms_sender, 2, "sendsms_bc");
 			
 			// create a queue
-			$queue_code = sendsms_queue_create($sms_sender, $sms_footer, $sms_msg, $uid, $c_gpid, $sms_type, $unicode, $sms_schedule);
+			$queue_code = sendsms_queue_create($sms_sender, $sms_footer, $sms_msg, $uid, $c_gpid, $sms_type, $unicode, $sms_schedule, $smsc);
 			if (!$queue_code) {
 				
 				// when unable to create a queue then immediately returns FALSE, no point to continue
@@ -796,7 +840,7 @@ function sendsms_bc($username, $gpid, $message, $sms_type = 'text', $unicode = 0
 			$failed_sms_count = 0;
 			$rows = phonebook_getdatabyid($c_gpid);
 			if (is_array($rows)) {
-				foreach ($rows as $key => $db_row ) {
+				foreach ($rows as $key => $db_row) {
 					$p_num = trim($db_row['p_num']);
 					if ($sms_to = sendsms_getvalidnumber($p_num)) {
 						$sms_to = sendsms_manipulate_prefix($sms_to, $user);
@@ -854,21 +898,17 @@ function sendsms_bc($username, $gpid, $message, $sms_type = 'text', $unicode = 0
 }
 
 function sendsms_get_sender($username, $default_sender_id = '') {
-	global $core_config, $plugin_config, $user_config;
+	global $core_config, $user_config;
 	
 	// get configured sender ID
-	if ($username && ($gw = core_gateway_get())) {
+	if ($username) {
 		if ($core_config['main']['gateway_number']) {
 			
 			// 1st priority is "Default sender ID" from main configuration
 			$sms_sender = $core_config['main']['gateway_number'];
-		} else if ($plugin_config[$gw]['global_sender']) {
-			
-			// 2nd priority is "Module sender ID" from gateway module setting
-			$sms_sender = $plugin_config[$gw]['global_sender'];
 		} else {
 			
-			// 3rd priority is "SMS sender ID" from user preferences
+			// 2nd priority is "SMS sender ID" from user preferences
 			$sms_sender = $user_config['sender'];
 			if ($user_config['username'] != $username) {
 				$c_sms_sender = user_getfieldbyusername($username, 'sender');
@@ -895,7 +935,7 @@ function sendsms_get_sender($username, $default_sender_id = '') {
 function sendsms_get_template() {
 	global $core_config;
 	$templates = array();
-	for($c = 0; $c < count($core_config['featurelist']); $c++) {
+	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
 		if ($templates = core_hook($core_config['featurelist'][$c], 'sendsms_get_template')) {
 			break;
 		}

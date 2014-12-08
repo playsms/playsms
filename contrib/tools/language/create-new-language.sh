@@ -34,7 +34,8 @@ TMPLANG=$(mktemp)
 cd $PLAYSMS
 find . -type d -name "language" | sed -e "s/\/[^\/]*$//" > $TMPLANG
 for i in `cat $TMPLANG` ; do
-	mkdir -p $TMP/$i/language
+	mkdir -p "$i/language/$LANG"
+	mkdir -p "$TMP/$i/language/$LANG"
 	if [ -e $i/language/$LANG ] ; then
 		cp -rR $i/language/$LANG $TMP/$i/language/$LANG
 	else

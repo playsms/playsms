@@ -10,91 +10,65 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
 
 /**
  * Get user credit balance
- * @param  integer $uid User ID
- * @return decimal      User credit balance
+ *
+ * @param integer $uid
+ *        	User ID
+ * @return float User credit balance
  */
 function credit_getbalance($uid) {
-	return user_getfieldbyuid($uid, 'credit');
+	$balance = 0;
+	
+	if ($username = user_uid2username($uid)) {
+		$balance = rate_getusercredit($username);
+	}
+	
+	$balance = (float) $balance;
+	$balance = number_format($balance, 3, '.', '');
+	
+	return $balance;
 }
 
 /**
  * Add credit to user
- * @param  integer $uid    User ID
- * @param  decimal $amount Credit amount to add (positive value)
- * @return boolean         TRUE on success
+ *
+ * @param integer $uid
+ *        	User ID
+ * @param decimal $amount
+ *        	Credit amount to add (positive value)
+ * @return boolean TRUE on success
  */
 function credit_add($uid, $amount) {
-	global $plugin_config;
-	
-	$db_table = $plugin_config['credit']['db_table'];
-	$parent_uid = user_getparentbyuid($uid);
-	$username = user_uid2username($uid);
-	$status = user_getfieldbyuid($uid, 'status');
-	$balance = credit_getbalance($uid);
-	
-	// add to balance
-	$balance = $balance + $amount;
-	
-	// record it
-	$id = dba_add($db_table, array(
-		'parent_uid' => $parent_uid,
-		'uid' => $uid,
-		'username' => $username,
-		'status' => $status,
-		'create_datetime' => core_get_datetime() ,
-		'amount' => $amount,
-		'balance' => $balance,
-		'flag_deleted' => 0,
-	));
-	
-	// update user's credit
-	if ($id) {
-		_log('saved id:' . $id . ' parent_uid:' . $parent_uid . ' uid:' . $uid . ' username:' . $username . ' amount:' . $amount . ' balance:' . $balance, 3, 'credit_add');
-		if (user_setdatabyuid($uid, array(
-			'credit' => $balance
-		))) {
-			_log('updated uid:' . $uid . ' credit:' . $balance, 3, 'credit_add');
-			return TRUE;
-		} else {
-			_log('fail to update uid:' . $uid . ' credit:' . $balance, 3, 'credit_add');
-			dba_remove($db_table, array(
-				'id' => $id
-			));
-			return FALSE;
-		}
-	} else {
-		_log('fail to save parent_uid:' . $parent_uid . ' uid:' . $uid . ' username:' . $username . ' amount:' . $amount . ' balance:' . $balance, 3, 'credit_add');
-		return FALSE;
-	}
+	$amount = (float) $amount;
+	return rate_addusercredit($uid, $amount);
 }
 
 /**
  * Reduce credit from user
- * @param  integer $uid    User ID
- * @param  decimal $amount Credit amount to reduce (positive value)
- * @return boolean         TRUE on success
+ *
+ * @param integer $uid
+ *        	User ID
+ * @param decimal $amount
+ *        	Credit amount to reduce (positive value)
+ * @return boolean TRUE on success
  */
 function credit_reduce($uid, $amount) {
-	
-	// the amount is always negative to reduce balance
-	$amount = - 1 * abs($amount);
-	
-	return credit_add($uid, $amount);
+	$amount = (float) $amount;
+	return rate_deductusercredit($uid, $amount);
 }
 
 /**
  * Get HTML component select all users
+ *
  * @return string HTML component select
  */
 function credit_html_select_user() {
@@ -107,30 +81,30 @@ function credit_html_select_user() {
 	$subusers = user_getsubuserbyuid($user_config['uid']);
 	
 	if (count($admins) > 0) {
-		$option_user.= '<optgroup label="' . _('Administrators') . '">';
+		$option_user .= '<optgroup label="' . _('Administrators') . '">';
 		
 		foreach ($admins as $admin) {
-			$option_user.= '<option value="' . $admin['uid'] . '">' . $admin['name'] . ' (' . $admin['username'] . ') - ' . _('Administrator') . '</option>';
+			$option_user .= '<option value="' . $admin['uid'] . '">' . $admin['name'] . ' (' . $admin['username'] . ') - ' . _('Administrator') . '</option>';
 		}
-		$option_user.= '</optgroup>';
+		$option_user .= '</optgroup>';
 	}
 	
 	if (count($users) > 0) {
-		$option_user.= '<optgroup label="' . _('Users') . '">';
+		$option_user .= '<optgroup label="' . _('Users') . '">';
 		
 		foreach ($users as $user) {
-			$option_user.= '<option value="' . $user['uid'] . '">' . $user['name'] . ' (' . $user['username'] . ') - ' . _('User') . '</option>';
+			$option_user .= '<option value="' . $user['uid'] . '">' . $user['name'] . ' (' . $user['username'] . ') - ' . _('User') . '</option>';
 		}
-		$option_user.= '</optgroup>';
+		$option_user .= '</optgroup>';
 	}
 	
 	if (count($subusers) > 0) {
-		$option_user.= '<optgroup label="' . _('Subusers') . '">';
+		$option_user .= '<optgroup label="' . _('Subusers') . '">';
 		
 		foreach ($subusers as $subuser) {
-			$option_user.= '<option value="' . $subuser['uid'] . '">' . $subuser['name'] . ' (' . $subuser['username'] . ') - ' . _('Subuser') . '</option>';
+			$option_user .= '<option value="' . $subuser['uid'] . '">' . $subuser['name'] . ' (' . $subuser['username'] . ') - ' . _('Subuser') . '</option>';
 		}
-		$option_user.= '</optgroup>';
+		$option_user .= '</optgroup>';
 	}
 	
 	$select_user = '<select multiple name="uids[]" id="playsms-credit-select-user">' . $option_user . '</select>';
@@ -145,12 +119,98 @@ function credit_hook_webservices_output($operation, $requests) {
 		return 0;
 	}
 	
-	$balance = 0;
 	if ($operation == 'credit') {
-		$balance = credit_getbalance($user_config['uid']);
+		$balance = (float) credit_getbalance($user_config['uid']);
+		$balance = number_format($balance, 3, '.', '');
+		
+		ob_end_clean();
+		header('Content-Type: text/plain');
+		return $balance;
+	}
+}
+
+function credit_hook_rate_addusercredit($uid, $amount) {
+	global $plugin_config;
+	
+	$db_table = $plugin_config['credit']['db_table'];
+	$parent_uid = user_getparentbyuid($uid);
+	$username = user_uid2username($uid);
+	$status = user_getfieldbyuid($uid, 'status');
+	$balance = (float) rate_getusercredit($username);
+	$amount = (float) $amount;
+	
+	if (abs($amount) <= 0) {
+		_log('amount cannot be zero. amount:[' . $amount . ']', 2, 'credit_hook_rate_addusercredit');
+		return FALSE;
 	}
 	
-	ob_end_clean();
-	header('Content-Type: text/plain');
+	// add to balance
+	$balance = $balance + $amount;
+	
+	// record it
+	$id = dba_add($db_table, array(
+		'parent_uid' => $parent_uid,
+		'uid' => $uid,
+		'username' => $username,
+		'status' => $status,
+		'create_datetime' => core_get_datetime(),
+		'amount' => $amount,
+		'balance' => $balance,
+		'flag_deleted' => 0 
+	));
+	
+	// update user's credit
+	if ($id) {
+		_log('saved id:' . $id . ' parent_uid:' . $parent_uid . ' uid:' . $uid . ' username:' . $username . ' amount:' . $amount . ' balance:' . $balance, 3, 'credit_add');
+		if (rate_setusercredit($uid, $balance)) {
+			_log('updated uid:' . $uid . ' credit:' . $balance, 3, 'credit_add');
+			return TRUE;
+		} else {
+			_log('fail to update uid:' . $uid . ' credit:' . $balance, 3, 'credit_add');
+			dba_remove($db_table, array(
+				'id' => $id 
+			));
+			return FALSE;
+		}
+	} else {
+		_log('fail to save parent_uid:' . $parent_uid . ' uid:' . $uid . ' username:' . $username . ' amount:' . $amount . ' balance:' . $balance, 3, 'credit_add');
+		return FALSE;
+	}
+}
+
+function credit_hook_rate_deductusercredit($uid, $amount) {
+	
+	// the amount is always negative to reduce balance
+	$amount = -1 * abs($amount);
+	
+	return credit_add($uid, $amount);
+}
+
+function credit_hook_rate_setusercredit($uid, $balance = 0) {
+	$ok = false;
+	$balance = (float) $balance;
+	if ($balance > 0) {
+		_log("saving uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
+		$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET c_timestamp='" . mktime() . "',credit='$balance' WHERE uid='$uid'";
+		if ($db_result = @dba_affected_rows($db_query)) {
+			_log("saved uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
+			$ok = true;
+		}
+	}
+	return $ok;
+}
+
+function credit_hook_rate_getusercredit($username) {
+	$balance = 0;
+	
+	if ($username) {
+		$db_query = "SELECT credit FROM " . _DB_PREF_ . "_tblUser WHERE username='$username'";
+		$db_result = dba_query($db_query);
+		$db_row = dba_fetch_array($db_result);
+		$balance = $db_row['credit'];
+	}
+	$balance = (float) ($balance ? $balance : 0);
+	$balance = number_format($balance, 3, '.', '');
+	
 	return $balance;
 }

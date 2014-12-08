@@ -1,0 +1,85 @@
+# Header entry was created by Lokalize.
+#
+# Joan <aseques@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2013-12-10 15:48+0100\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.4\n"
+
+msgid "Action"
+msgstr "Acció"
+
+msgid "Add SMSC"
+msgstr ""
+
+msgid "Are you sure ?"
+msgstr ""
+
+msgid "Description"
+msgstr "Descripció"
+
+msgid "Edit SMSC"
+msgstr ""
+
+msgid "Fail to add new SMSC"
+msgstr ""
+
+msgid "Fail to edit SMSC"
+msgstr ""
+
+msgid "Fail to remove SMSC"
+msgstr ""
+
+msgid "Gateway"
+msgstr ""
+
+msgid "Gateways"
+msgstr ""
+
+#, fuzzy
+msgid "List of gateways and SMSCs"
+msgstr "Gestionar sortida"
+
+#, fuzzy
+msgid "Manage gateway and SMSC"
+msgstr "Gestionar sortida"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "New SMSC has been added"
+msgstr ""
+
+msgid "Routed SMSC"
+msgstr ""
+
+msgid "SMSC already exists"
+msgstr ""
+
+msgid "SMSC has been edited"
+msgstr ""
+
+msgid "SMSC has been removed"
+msgstr ""
+
+msgid "SMSC name"
+msgstr ""
+
+msgid "SMSCs"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Supplied SMSC"
+msgstr ""
+
+msgid "Unknown error"
+msgstr ""

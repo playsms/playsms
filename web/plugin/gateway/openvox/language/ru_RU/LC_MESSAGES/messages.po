@@ -1,0 +1,55 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "Changes have been made"
+msgstr "Изменения сохранены"
+
+msgid "Fill to change the password"
+msgstr "Заполните для изменения пароля"
+
+msgid "Gateway host"
+msgstr "Адрес шлюза"
+
+msgid "Gateway name"
+msgstr "Название шлюза"
+
+msgid "Gateway port"
+msgstr "Порт шлюза"
+
+msgid "Manage OpenVox"
+msgstr "Управление OpenVox"
+
+msgid "Module sender ID"
+msgstr "Имя отправителя"
+
+msgid "Module timezone"
+msgstr "Часовой пояс"
+
+msgid "Notes"
+msgstr "Примечания"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Username"
+msgstr "Имя пользователя"
+
+msgid "Your callback URL is"
+msgstr "Ваш callback URL"
+
+msgid "Your callback URL should be accessible from OpenVox"
+msgstr "Ваш callback URL должен быть доступен с стороны OpenVox"

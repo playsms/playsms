@@ -16,26 +16,31 @@ msgstr ""
 msgid "Action"
 msgstr "Acció"
 
-msgid "Add rate"
+#, fuzzy
+msgid "Add route"
 msgstr "Afegir tarifa"
 
-msgid "Are you sure you want to delete rate ?"
-msgstr "Esteu segur que voleu esborrar la tarifa?"
+msgid "Are you sure ?"
+msgstr ""
 
-msgid "Destination"
+#, fuzzy
+msgid "Destination name"
 msgstr "Destí"
 
-msgid "Edit rate"
+#, fuzzy
+msgid "Edit route"
 msgstr "Editar tarifa"
 
-msgid "Fail to delete rate"
+#, fuzzy
+msgid "Fail to delete route"
 msgstr "Error esborrant tarifa"
 
-msgid "Fail to save rate"
+#, fuzzy
+msgid "Fail to save route"
 msgstr "Error guardant tarifa"
 
-msgid "Manage SMS rate"
-msgstr "Gestionar tarifes SMS"
+msgid "Maximum 8 digits numeric only"
+msgstr ""
 
 msgid "No changes made!"
 msgstr "No s'han fet canvis!"
@@ -43,26 +48,42 @@ msgstr "No s'han fet canvis!"
 msgid "Prefix"
 msgstr "Prefix"
 
-msgid "Rate"
-msgstr "Tarifa"
+msgid "Route SMS outgoing"
+msgstr ""
 
-msgid "Rate already exists"
-msgstr "La tarifa ja existeix"
-
-msgid "Rate has been added"
-msgstr "La tarifa s'ha afegit"
-
-msgid "Rate has been deleted"
-msgstr "La tarifa s'ha el·liminat"
-
-msgid "Rate has been saved"
+#, fuzzy
+msgid "Route has been added"
 msgstr "La tarifa s'ha guardat"
+
+#, fuzzy
+msgid "Route has been deleted"
+msgstr "La tarifa s'ha guardat"
+
+#, fuzzy
+msgid "Route has been saved"
+msgstr "La tarifa s'ha guardat"
+
+msgid "Route outgoing SMS"
+msgstr ""
+
+msgid "SMSC"
+msgstr ""
 
 msgid "Save"
 msgstr "Guardar"
 
+msgid "User"
+msgstr ""
+
 msgid "You must fill all fields"
 msgstr "Heu d'omplir tots els camps"
+
+#, fuzzy
+msgid "You must fill all mandatory fields"
+msgstr "Heu d'omplir tots els camps"
+
+msgid "blocked"
+msgstr ""
 
 msgid "destination"
 msgstr "destí"

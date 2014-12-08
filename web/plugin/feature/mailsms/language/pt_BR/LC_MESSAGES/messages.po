@@ -1,0 +1,72 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Check email sender"
+msgstr ""
+
+msgid "Email protocol"
+msgstr ""
+
+msgid "Email to SMS PIN has been saved"
+msgstr ""
+
+msgid "Email to SMS PIN has been saved but service is disabled"
+msgstr ""
+
+msgid "Email to SMS address"
+msgstr ""
+
+msgid "Email to SMS configuration has been saved and service disabled"
+msgstr ""
+
+msgid "Email to SMS configuration has been saved and service enabled"
+msgstr ""
+
+msgid "Enable fetch new emails"
+msgstr ""
+
+msgid "Fail to save email to SMS PIN"
+msgstr ""
+
+msgid "Fill the password field to change password"
+msgstr ""
+
+msgid "Mail server address"
+msgstr ""
+
+msgid "Mail server port"
+msgstr ""
+
+msgid "Mailbox password"
+msgstr ""
+
+msgid "Mailbox username"
+msgstr ""
+
+msgid "Manage email to SMS"
+msgstr ""
+
+msgid "My email to SMS"
+msgstr ""
+
+msgid "No validate cert option"
+msgstr ""
+
+msgid "PIN for email to SMS"
+msgstr ""
+
+msgid "PIN is empty"
+msgstr ""
+
+msgid "Use SSL"
+msgstr ""
+
+msgid "no"
+msgstr ""
+
+msgid "yes"
+msgstr ""

@@ -20,11 +20,22 @@ msgstr ""
 msgid "Action"
 msgstr "Acció"
 
+#, fuzzy
+msgid "All queues have been removed"
+msgstr "S'ha esborrat la cua"
+
+#, fuzzy
+msgid "Are you sure you want to delete ALL queues"
+msgstr "Esteu segur que voleu esborrar la cua"
+
 msgid "Are you sure you want to delete queue"
 msgstr "Esteu segur que voleu esborrar la cua"
 
 msgid "Count"
 msgstr "Total"
+
+msgid "Delete ALL queues"
+msgstr ""
 
 msgid "Message"
 msgstr "Missatge"

@@ -2,8 +2,8 @@ TODO
 ----
 
 1. Install scripts, deb or rpm package for playSMS
-2. Virtual SMSC/gateway
-3. Outgoing SMS Route, enable multiple SMSC/gateway
+2. Virtual SMSC/gateway (done)
+3. Outgoing SMS Route, enable multiple SMSC/gateway (done)
 4. Incoming SMS Route, enable multiple SMSC/gateway
 5. Menu ordering from database
 6. Plugins installer

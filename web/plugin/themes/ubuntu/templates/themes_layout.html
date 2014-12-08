@@ -43,16 +43,18 @@
 	</div>
 </div>
 
+<if.valid>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#main-submenu').width( $('#main-content').width() )
 
 		setInterval(function() {
 			$("#submenu-credit-show").load("{{ CREDIT_SHOW_URL }}");
-		}, 3000);
+		}, 10000);
 
 	});
 </script>
+</if.valid>
 
 <!-- kurakura cinta kamu.......sampai mati... -->
 

@@ -7,33 +7,34 @@ msgstr ""
 
 msgid "Check to enable receiving push messages from SMSSync app"
 msgstr ""
+"Cocher pour activer la réception des messages push depuis l'app SMSSync"
 
 msgid "Download SMSSync app for Android from"
-msgstr ""
+msgstr "Télécharger l'app SMSSync pour Android depuis"
 
 msgid "Enable SMS Sync"
-msgstr ""
+msgstr "Activer SMS Sync"
 
 msgid "Fail to save SMS Sync configuration"
-msgstr ""
+msgstr "Échec de l'enregistrement de la configuration de SMS Sync"
 
 msgid "Manage sync"
-msgstr ""
+msgstr "Gérer sync"
 
 msgid "Notes"
-msgstr ""
+msgstr "Remarques"
 
 msgid "SMS Sync configuration has been saved"
-msgstr ""
+msgstr "La configuration de SMS Sync a été enregistrée"
 
 msgid "Save"
-msgstr ""
+msgstr "Enregistrer"
 
 msgid "Secret key"
-msgstr ""
+msgstr "Clé secrète"
 
 msgid "Secret key is used in SMSSync app"
-msgstr ""
+msgstr "La clé secrète est utilisée dans l'app SMSSync"
 
 msgid "Sync URL"
-msgstr ""
+msgstr "URL de Sync"

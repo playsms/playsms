@@ -26,9 +26,9 @@ function logger_print($log, $level='', $label='') {
 	$host = ( trim($_SERVER['HTTP_HOST']) ? trim($_SERVER['HTTP_HOST']) : '-' );
 	$logfile = ( $core_config['logfile'] ? $core_config['logfile'] : 'playsms.log' );
 
-	// max log length is 255
-	if (strlen($log) > 255) {
-		$log = substr(0, 254, $log);
+	// max log length is 1000
+	if (strlen($log) > 1000) {
+		$log = substr($log, 0, 1000);
 	}
 
 	// default level is 2

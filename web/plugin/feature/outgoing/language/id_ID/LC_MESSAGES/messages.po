@@ -8,26 +8,31 @@ msgstr ""
 msgid "Action"
 msgstr "Tindakan"
 
-msgid "Add rate"
+#, fuzzy
+msgid "Add route"
 msgstr "Tambah tarif"
 
-msgid "Are you sure you want to delete rate ?"
-msgstr "Anda yakin ingin menghapus tarif?"
+msgid "Are you sure ?"
+msgstr ""
 
-msgid "Destination"
+#, fuzzy
+msgid "Destination name"
 msgstr "Tujuan"
 
-msgid "Edit rate"
+#, fuzzy
+msgid "Edit route"
 msgstr "Ubah tarif"
 
-msgid "Fail to delete rate"
+#, fuzzy
+msgid "Fail to delete route"
 msgstr "Gagal menghapus tarif"
 
-msgid "Fail to save rate"
+#, fuzzy
+msgid "Fail to save route"
 msgstr "Gagal menyimpan tarif"
 
-msgid "Manage SMS rate"
-msgstr "Pengaturan tarif SMS"
+msgid "Maximum 8 digits numeric only"
+msgstr ""
 
 msgid "No changes made!"
 msgstr "Tidak ada perubahan yang dilakukan!"
@@ -35,26 +40,42 @@ msgstr "Tidak ada perubahan yang dilakukan!"
 msgid "Prefix"
 msgstr "Awalan"
 
-msgid "Rate"
-msgstr "Tarif"
+msgid "Route SMS outgoing"
+msgstr ""
 
-msgid "Rate already exists"
-msgstr "Tarif telah ada sebelumnya"
-
-msgid "Rate has been added"
-msgstr "Tarif telah ditambahkan"
-
-msgid "Rate has been deleted"
-msgstr "Tarif telah dihapus"
-
-msgid "Rate has been saved"
+#, fuzzy
+msgid "Route has been added"
 msgstr "Tarif telah disimpan"
+
+#, fuzzy
+msgid "Route has been deleted"
+msgstr "Tarif telah disimpan"
+
+#, fuzzy
+msgid "Route has been saved"
+msgstr "Tarif telah disimpan"
+
+msgid "Route outgoing SMS"
+msgstr ""
+
+msgid "SMSC"
+msgstr ""
 
 msgid "Save"
 msgstr "Simpan"
 
+msgid "User"
+msgstr ""
+
 msgid "You must fill all fields"
 msgstr "Anda harus mengisi semua kolom"
+
+#, fuzzy
+msgid "You must fill all mandatory fields"
+msgstr "Anda harus mengisi semua kolom"
+
+msgid "blocked"
+msgstr ""
 
 msgid "destination"
 msgstr "tujuan"

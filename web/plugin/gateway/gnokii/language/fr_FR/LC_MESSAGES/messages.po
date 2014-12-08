@@ -6,22 +6,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Gateway module configurations has been saved"
-msgstr "Configurations de la passerelle sauvegardées"
+msgstr "La configuration du module de passerelle a été enregistrée"
 
 msgid "Gateway name"
-msgstr "Nom passerelle"
+msgstr "Nom de la passerelle"
 
 msgid "Gnokii installation path"
-msgstr "Chemin d'installation gnokii"
+msgstr "Chemin de l'installation gnokii"
 
 msgid "Manage gnokii"
 msgstr "Gérer gnokii"
 
 msgid "No changes have been made"
-msgstr ""
+msgstr "Aucun changement apporté"
 
 msgid "No trailing slash"
 msgstr "Pas de slash final"
 
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Enregistrer"

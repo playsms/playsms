@@ -10,21 +10,20 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
 
 /**
  * Validate webservices token, with or without username
- * @param $h
- *     Webservices token
- * @param $u
- *     Username
+ *
+ * @param $h Webservices
+ *        token
+ * @param $u Username        
  * @return boolean FALSE if invalid, string username if valid
  */
 function webservices_validate($h, $u) {
@@ -45,10 +44,11 @@ function webservices_validate($h, $u) {
 
 /**
  * Validate admin level webservices token, with or without username
- * @param $h
- *     Webservices token (admin users only)
- * @param $u
- *     Username (admin users only)
+ *
+ * @param $h Webservices
+ *        token (admin users only)
+ * @param $u Username
+ *        (admin users only)
  * @return boolean FALSE if invalid, string username if valid
  */
 function webservices_validate_admin($h, $u) {
@@ -68,7 +68,9 @@ function webservices_validate_admin($h, $u) {
 function webservices_pv($c_username, $to, $msg, $type = 'text', $unicode = 0, $nofooter = FALSE, $footer = '', $from = '', $schedule = '') {
 	$ret = '';
 	if ($c_username && $to && $msg) {
-		list($ok, $to, $smslog_id, $queue_code, $counts, $sms_count, $sms_failed) = sendsms_helper($c_username, $to, $msg, $type, $unicode, $nofooter, $footer, $from, $schedule);
+		
+		// send SMS, note that we can't let user to define SMSC for now
+		list($ok, $to, $smslog_id, $queue_code, $counts, $sms_count, $sms_failed) = sendsms_helper($c_username, $to, $msg, $type, $unicode, '', $nofooter, $footer, $from, $schedule);
 		for ($i = 0; $i < count($to); $i++) {
 			if (($ok[$i] == 1 || $ok[$i] == true) && $to[$i] && ($queue_code[$i] || $smslog_id[$i])) {
 				$json['data'][$i]['status'] = 'OK';
@@ -89,28 +91,6 @@ function webservices_pv($c_username, $to, $msg, $type = 'text', $unicode = 0, $n
 	} else {
 		$json['status'] = 'ERR';
 		$json['error'] = '201';
-	}
-	return $json;
-}
-
-function webservices_inject($c_username, $from, $msg, $recvnum = '') {
-	$ret = '';
-	if ($from && $msg) {
-		if ($c_username) {
-			
-			// inject message
-			$sms_datetime = core_display_datetime(core_get_datetime());
-			recvsms($sms_datetime, $from, $msg, $recvnum);
-			
-			$json['status'] = 'OK';
-			$json['error'] = '0';
-		} else {
-			$json['status'] = 'ERR';
-			$json['error'] = '601';
-		}
-	} else {
-		$json['status'] = 'ERR';
-		$json['error'] = '602';
 	}
 	return $json;
 }
@@ -177,7 +157,7 @@ function webservices_ds($c_username, $queue_code = '', $src = '', $dst = '', $da
 		} else {
 			if (dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'id', array(
 				'queue_code' => $queue_code,
-				'flag' => 0
+				'flag' => 0 
 			))) {
 				
 				// exists in queue but not yet processed
@@ -185,7 +165,7 @@ function webservices_ds($c_username, $queue_code = '', $src = '', $dst = '', $da
 				$json['error'] = '401';
 			} else if (dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'id', array(
 				'queue_code' => $queue_code,
-				'flag' => 1
+				'flag' => 1 
 			))) {
 				
 				// exists in queue and have been processed
@@ -207,7 +187,7 @@ function webservices_in($c_username, $src = '', $dst = '', $kwd = '', $datetime 
 	$json['error'] = '501';
 	$conditions = array(
 		'flag_deleted' => 0,
-		'in_status' => 1
+		'in_status' => 1 
 	);
 	if ($uid = user_username2uid($c_username)) {
 		$conditions['in_uid'] = $uid;
@@ -277,7 +257,7 @@ function webservices_sx($c_username, $src = '', $dst = '', $datetime = '', $c = 
 	$uid = $u['uid'];
 	$conditions = array(
 		'flag_deleted' => 0,
-		'in_status' => 0
+		'in_status' => 0 
 	);
 	if ($src) {
 		if ($src[0] == '0') {
@@ -410,7 +390,208 @@ function webservices_output($operation, $requests) {
 	$operation = strtolower($operation);
 	$ret = core_hook($operation, 'webservices_output', array(
 		$operation,
-		$requests
+		$requests 
 	));
 	return $ret;
+}
+
+// ---------------------- ADMIN TASKS ---------------------- //
+function webservices_inject($c_username, $from, $msg, $recvnum = '', $smsc = '') {
+	$ret = '';
+	if ($from && $msg) {
+		if ($c_username) {
+			
+			// inject message
+			$sms_datetime = core_display_datetime(core_get_datetime());
+			recvsms($sms_datetime, $from, $msg, $recvnum, $smsc);
+			
+			$json['status'] = 'OK';
+			$json['error'] = '0';
+		} else {
+			$json['status'] = 'ERR';
+			$json['error'] = '601';
+		}
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '602';
+	}
+	return $json;
+}
+
+function webservices_account_add($data = array()) {
+	$ret = user_add($data, TRUE);
+	if ($ret['status']) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+		$json['info'] = $ret['error_string'];
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '604';
+		$json['info'] = $ret['error_string'];
+	}
+	
+	return $json;
+}
+
+function webservices_account_remove($uid) {
+	$ret = user_remove($uid, TRUE);
+	if ($ret['status']) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+		$json['info'] = $ret['error_string'];
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '606';
+		$json['info'] = $ret['error_string'];
+	}
+	
+	return $json;
+}
+
+function webservices_parent_set($uid, $parent_uid) {
+	if (user_setparentbyuid($uid, $parent_uid)) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '608';
+	}
+	
+	return $json;
+}
+
+function webservices_parent_get($uid) {
+	if ($parent_uid = user_getparentbyuid($uid)) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+		$json['parent_uid'] = $parent_uid;
+		$json['parent'] = user_uid2username($parent_uid);
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '610';
+	}
+	
+	return $json;
+}
+
+function webservices_account_ban($uid) {
+	if ($parent_uid = user_banned_add($uid)) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '612';
+	}
+	
+	return $json;
+}
+
+function webservices_account_unban($uid) {
+	if ($parent_uid = user_banned_remove($uid)) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '614';
+	}
+	
+	return $json;
+}
+
+function webservices_account_pref($uid, $data = array()) {
+	if (!$data['name']) {
+		$data['name'] = user_getfieldbyuid($uid, 'name');
+	}
+	if (!$data['email']) {
+		$data['email'] = user_getfieldbyuid($uid, 'email');
+	}
+	$ret = user_edit($uid, $data);
+	if ($ret['status']) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+		$json['info'] = $ret['error_string'];
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '616';
+		$json['info'] = $ret['error_string'];
+	}
+	
+	return $json;
+}
+
+function webservices_account_conf($uid, $data = array()) {
+	$ret = user_edit_conf($uid, $data);
+	if ($ret['status']) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+		$json['info'] = $ret['error_string'];
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '618';
+		$json['info'] = $ret['error_string'];
+	}
+	
+	return $json;
+}
+
+function webservices_credit_view($username) {
+	if ($credit = rate_getusercredit($username)) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+		$json['balance'] = (float) $credit;
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '620';
+	}
+	
+	return $json;
+}
+
+function webservices_credit_add($username, $amount) {
+	$uid = user_username2uid($username);
+	$amount = (float) $amount;
+	if (rate_addusercredit($uid, $amount)) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+		$json['amount'] = $amount;
+		$json['balance'] = rate_getusercredit($username);
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '622';
+	}
+	
+	return $json;
+}
+
+function webservices_credit_deduct($username, $amount) {
+	$uid = user_username2uid($username);
+	$amount = (float) $amount;
+	if (rate_deductusercredit($uid, $amount)) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+		$json['amount'] = $amount;
+		$json['balance'] = rate_getusercredit($username);
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '624';
+	}
+	
+	return $json;
+}
+
+function webservices_login_key_set($username) {
+	$uid = user_username2uid($username);
+	$login_key = md5(core_get_random_string(32));
+	if (registry_update($uid, 'core', 'webservices', array(
+		'login_key' => $login_key 
+	))) {
+		$json['status'] = 'OK';
+		$json['error'] = '0';
+		$json['login_key'] = $login_key;
+	} else {
+		$json['status'] = 'ERR';
+		$json['error'] = '626';
+	}
+	
+	return $json;
 }

@@ -143,6 +143,9 @@ msgstr "Judul poling SMS"
 msgid "SMS poll with all its messages has been deleted"
 msgstr "Poling SMS telah dihapus beserta semua pesannya"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "Simpan"
 

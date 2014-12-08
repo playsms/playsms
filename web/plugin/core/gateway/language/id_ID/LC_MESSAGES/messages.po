@@ -1,0 +1,75 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr ""
+
+msgid "Add SMSC"
+msgstr ""
+
+msgid "Are you sure ?"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Edit SMSC"
+msgstr ""
+
+msgid "Fail to add new SMSC"
+msgstr ""
+
+msgid "Fail to edit SMSC"
+msgstr ""
+
+msgid "Fail to remove SMSC"
+msgstr ""
+
+msgid "Gateway"
+msgstr ""
+
+msgid "Gateways"
+msgstr ""
+
+msgid "List of gateways and SMSCs"
+msgstr ""
+
+msgid "Manage gateway and SMSC"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "New SMSC has been added"
+msgstr ""
+
+msgid "Routed SMSC"
+msgstr ""
+
+msgid "SMSC already exists"
+msgstr ""
+
+msgid "SMSC has been edited"
+msgstr ""
+
+msgid "SMSC has been removed"
+msgstr ""
+
+msgid "SMSC name"
+msgstr ""
+
+msgid "SMSCs"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Supplied SMSC"
+msgstr ""
+
+msgid "Unknown error"
+msgstr ""
