@@ -1,0 +1,84 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr "行为"
+
+#, fuzzy
+msgid "Add route"
+msgstr "增加等级"
+
+msgid "Are you sure ?"
+msgstr ""
+
+#, fuzzy
+msgid "Destination name"
+msgstr "目标"
+
+#, fuzzy
+msgid "Edit route"
+msgstr "编辑等级"
+
+#, fuzzy
+msgid "Fail to delete route"
+msgstr "删除等级失败"
+
+#, fuzzy
+msgid "Fail to save route"
+msgstr "保存等级失败"
+
+msgid "Maximum 8 digits numeric only"
+msgstr ""
+
+msgid "No changes made!"
+msgstr "没有做出改变"
+
+msgid "Prefix"
+msgstr "前缀"
+
+msgid "Route SMS outgoing"
+msgstr ""
+
+#, fuzzy
+msgid "Route has been added"
+msgstr "等级已保存"
+
+#, fuzzy
+msgid "Route has been deleted"
+msgstr "等级已保存"
+
+#, fuzzy
+msgid "Route has been saved"
+msgstr "等级已保存"
+
+msgid "Route outgoing SMS"
+msgstr ""
+
+msgid "SMSC"
+msgstr ""
+
+msgid "Save"
+msgstr "保存"
+
+msgid "User"
+msgstr ""
+
+msgid "You must fill all fields"
+msgstr "你必须填满全部空白"
+
+#, fuzzy
+msgid "You must fill all mandatory fields"
+msgstr "你必须填满全部空白"
+
+msgid "blocked"
+msgstr ""
+
+msgid "destination"
+msgstr "目标"
+
+msgid "prefix"
+msgstr "前缀"

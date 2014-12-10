@@ -1,0 +1,92 @@
+# Header entry was created by Lokalize.
+#
+# Joan <aseques@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2013-01-09 16:29+0100\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.4\n"
+
+msgid "Action"
+msgstr "Acció"
+
+#, fuzzy
+msgid "Add route"
+msgstr "Afegir tarifa"
+
+msgid "Are you sure ?"
+msgstr ""
+
+#, fuzzy
+msgid "Destination name"
+msgstr "Destí"
+
+#, fuzzy
+msgid "Edit route"
+msgstr "Editar tarifa"
+
+#, fuzzy
+msgid "Fail to delete route"
+msgstr "Error esborrant tarifa"
+
+#, fuzzy
+msgid "Fail to save route"
+msgstr "Error guardant tarifa"
+
+msgid "Maximum 8 digits numeric only"
+msgstr ""
+
+msgid "No changes made!"
+msgstr "No s'han fet canvis!"
+
+msgid "Prefix"
+msgstr "Prefix"
+
+msgid "Route SMS outgoing"
+msgstr ""
+
+#, fuzzy
+msgid "Route has been added"
+msgstr "La tarifa s'ha guardat"
+
+#, fuzzy
+msgid "Route has been deleted"
+msgstr "La tarifa s'ha guardat"
+
+#, fuzzy
+msgid "Route has been saved"
+msgstr "La tarifa s'ha guardat"
+
+msgid "Route outgoing SMS"
+msgstr ""
+
+msgid "SMSC"
+msgstr ""
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "User"
+msgstr ""
+
+msgid "You must fill all fields"
+msgstr "Heu d'omplir tots els camps"
+
+#, fuzzy
+msgid "You must fill all mandatory fields"
+msgstr "Heu d'omplir tots els camps"
+
+msgid "blocked"
+msgstr ""
+
+msgid "destination"
+msgstr "destí"
+
+msgid "prefix"
+msgstr "prefix"
