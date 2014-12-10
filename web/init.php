@@ -248,6 +248,9 @@ if (auth_isvalid()) {
 		// save login session information
 		user_session_set();
 	}
+
+	$result = registry_search($user_config['uid'], 'core', 'user_config', 'count_sms_unicode');
+	$user_config['opt']['count_sms_unicode'] = $result['core']['user_config']['count_sms_unicode'];
 }
 
 // override main config with site config for branding purposes distinguished by domain name

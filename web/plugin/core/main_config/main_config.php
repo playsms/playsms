@@ -110,6 +110,18 @@ switch (_OP_) {
 			_('no') => 0,
 		) , $main_config['plus_sign_add']);
 		
+		// count SMS unicode
+		$option_count_sms_unicode = _options(array(
+			_('yes') => 1,
+			_('no') => 0,
+		) , $main_config['count_sms_unicode']);
+
+		// Login brute force detection
+		$option_brute_force_detection = _options(array(
+			_('yes') => 1,
+			_('no') => 0,
+		) , $main_config['login_brute_force_detection']);
+
 		// display
 		
 		if ($err = $_SESSION['error_string']) {
@@ -140,6 +152,9 @@ switch (_OP_) {
 				'Default credit for user' => _('Default credit for user') ,
 				'Always remove plus sign' => _('Always remove plus sign') ,
 				'Always add plus sign' => _('Always add plus sign') ,
+				'Count SMS unicode' => _('Count SMS unicode') ,
+				'Enable login brute force detection' => _('Enable login brute force detection') ,
+				'Number of sent SMS per hour limit' => _('Number of sent SMS per hour limit') ,
 				'Enable public registration' => _('Enable public registration') ,
 				'Enable forgot password' => _('Enable forgot password') ,
 				'Disable login as subuser' => _('Disable login as subuser') ,
@@ -168,6 +183,7 @@ switch (_OP_) {
 				'gateway_timezone' => $main_config['gateway_timezone'],
 				'default_rate' => $main_config['default_rate'],
 				'sms_max_count' => $main_config['sms_max_count'],
+				'sms_per_hour_limit' => $main_config['sms_per_hour_limit'],
 				'default_credit' => $main_config['default_credit'],
 				'logo_url' => $main_config['logo_url'],
 				'layout_footer' => $main_config['layout_footer'],
@@ -184,7 +200,9 @@ switch (_OP_) {
 				'option_themes_module' => $option_themes_module,
 				'option_language_module' => $option_language_module,
 				'option_plus_sign_remove' => $option_plus_sign_remove,
-				'option_plus_sign_add' => $option_plus_sign_add
+				'option_plus_sign_add' => $option_plus_sign_add,
+				'option_count_sms_unicode' => $option_count_sms_unicode,
+				'option_brute_force_detection' => $option_brute_force_detection
 			) ,
 			'injects' => array(
 				'core_config',
@@ -251,6 +269,9 @@ switch (_OP_) {
 			'sms_max_count' => (int)($post['edit_sms_max_count'] > 1 ? $post['edit_sms_max_count'] : 1) ,
 			'plus_sign_remove' => (int)$post['edit_plus_sign_remove'],
 			'plus_sign_add' => (int)$post['edit_plus_sign_add'],
+			'count_sms_unicode' => (int)$post['edit_count_sms_unicode'],
+			'login_brute_force_detection' => (int)$post['edit_brute_force_detection'],
+			'sms_per_hour_limit' => (int)($post['edit_sms_per_hour_limit'] > 1 ? $post['edit_sms_per_hour_limit'] : 1) ,
 			'default_credit' => (float)$post['edit_default_credit'],
 			'default_user_status' => $edit_default_user_status,
 			'enable_register' => (int)$post['edit_enable_register'],
