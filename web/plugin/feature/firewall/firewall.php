@@ -33,14 +33,14 @@ switch (_OP_) {
 		$count = dba_count(_DB_PREF_ . '_featureFirewall', '', $keywords);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
-			'ORDER BY' => 'id',
+			'ORDER BY' => 'ip_address',
 			'LIMIT' => $nav['limit'],
 			'OFFSET' => $nav['offset'] 
 		);
 		$list = dba_search(_DB_PREF_ . '_featureFirewall', '*', '', $keywords, $extras);
 		
-		$content = "
-			<h2>" . _('Firewall') . "</h2>
+		$content = _err_display() . "
+			<h2>" . _('Manage firewall') . "</h2>
 			<p>" . $search['form'] . "</p>
 			<form name=fm_firewall_list id=fm_firewall_list action='index.php?app=main&inc=feature_firewall&op=actions' method=post>
 			" . _CSRF_FORM_ . "
@@ -67,8 +67,7 @@ switch (_OP_) {
 			<table class=playsms-table-list>
 			<thead>
 			<tr>
-				<th width=25%>" . _('IP address') . "</th>
-				<th width=25%>" . _('Reversed lookup') . "</th>
+				<th width=95%>" . _('Blocked IP address') . "</th>
 				<th width=5%><input type=checkbox onclick=CheckUncheckAll(document.fm_firewall_list)></th>
 			</tr>
 			</thead>
@@ -87,7 +86,6 @@ switch (_OP_) {
 			$content .= "
 				<tr>
 					<td>$ip_address</td>
-					<td></td>
 					<td>
 						<input type=hidden name=itemid[" . $j . "] value=\"$pid\">
 						<input type=checkbox name=checkid[" . $j . "]>
@@ -102,22 +100,7 @@ switch (_OP_) {
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>";
 		
-		if ($err = $_SESSION['error_string']) {
-			_p("<div class=error_string>$err</div>");
-		}
 		_p($content);
-		break;
-	
-	case "firewall_del":
-		$rid = $_REQUEST['rid'];
-		$ip_address = firewall_getip($rid);
-		$_SESSION['error_string'] = _('Fail to delete IP address') . " (" . _('IP address') . ": $ip_address)";
-		$db_query = "DELETE FROM " . _DB_PREF_ . "_featureFirewall WHERE id='$rid'";
-		if (@dba_affected_rows($db_query)) {
-			$_SESSION['error_string'] = _('IP address has been deleted') . " (" . _('IP address') . ": $ip_address)";
-		}
-		header("Location: " . _u('index.php?app=main&inc=feature_firewall&op=firewall_list'));
-		exit();
 		break;
 	
 	case "actions":
@@ -141,46 +124,44 @@ switch (_OP_) {
 					);
 					dba_remove(_DB_PREF_ . '_featureFirewall', $conditions);
 				}
-				$search = themes_search_session();
-				$nav = themes_nav_session();
-				
-				$_SESSION['error_string'] = _('IP addreses has been deleted');
-				$ref = $search['url'] . '&search_keyword=' . $search['keyword'] . '&search_category=' . $search['category'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
-				header("Location: " . _u($ref));
 				break;
 		}
+		
+		$search = themes_search_session();
+		$nav = themes_nav_session();
+		
+		$_SESSION['error_string'] = _('IP addreses has been deleted');
+		$ref = $search['url'] . '&search_keyword=' . $search['keyword'] . '&search_category=' . $search['category'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
+		header("Location: " . _u($ref));
+		exit();
 		break;
 	
 	case "firewall_add":
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
-		}
-		$content .= "
-			<h2>" . _('add blocked IPs') . "</h2>
+		$content = _err_display() . "
+			<h2>" . _('Manage firewall') . "</h2>
+			<h3>" . _('Add blocked IP addresses') . " " . _hint(_('Multiple IP addresses must be comma seperated')) . "</h3>
 			<form action='index.php?app=main&inc=feature_firewall&op=firewall_add_yes' method='post'>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _mandatory(_('IP addresses')) . "</td><td><textarea name='add_ip_address' required></textarea></td>
+				<td class=label-sizer>" . _mandatory(_('IP addresses')) . "</td>
+				<td><textarea name='add_ip_address' required></textarea></td>
 			</tr>
 			</table>
-			<input type='submit' class='button' value='" . _('Save') . "'>
+			<p><input type='submit' class='button' value='" . _('Save') . "'></p>
 			</form>
 			" . _back('index.php?app=main&inc=feature_firewall&op=firewall_list');
 		_p($content);
 		break;
 	
 	case "firewall_add_yes":
-		$add_ip_address = $_POST['add_ip_address'];
-		if ($add_ip_address) {
+		if ($add_ip_address = $_POST['add_ip_address']) {
 			foreach (explode(',', str_replace(' ', '', $add_ip_address)) as $ip) {
-				if (blacklist_ifipexists($ip)) {
-					$_SESSION['error_string'] = _('IPs exist');
-				} else {
+				if (!blacklist_ifipexists($ip)) {
 					blacklist_addip($ip);
-					$_SESSION['error_string'] = _('IPs has been added') . " (" . _('IP addresses') . ": $add_ip_address)";
 				}
 			}
+			$_SESSION['error_string'] = _('IP addresses have been blocked');
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}
