@@ -174,16 +174,16 @@ switch (_OP_) {
 			// $option_credit = "<tr><td>" . _('Credit') . "</td><td>$credit</td></tr>";
 		}
 
-		// count SMS unicode
+		// option_enable_credit_unicode
 		$data = registry_search($c_uid, 'core', 'user_config');
-		$option_count_sms_unicode = _options(array(
+		$option_enable_credit_unicode = _options(array(
 			_('yes') => 1,
 			_('no') => 0,
-		) , $data['core']['user_config']['count_sms_unicode']);
+		) , $data['core']['user_config']['enable_credit_unicode']);
 		if(auth_isadmin()){
-			$option_count_sms_unicode = "<select name='edit_count_sms_unicode'>".$option_count_sms_unicode."</select>";
+			$option_enable_credit_unicode = "<select name='edit_enable_credit_unicode'>".$option_enable_credit_unicode."</select>";
 		}else{
-			$option_count_sms_unicode = $user_config['opt']['count_sms_unicode'] ? _('yes') : _('no');
+			$option_enable_credit_unicode = $user_config['opt']['enable_credit_unicode'] ? _('yes') : _('no');
 		}
 
 		// error string
@@ -207,7 +207,7 @@ switch (_OP_) {
 				'Active language' => _('Active language'),
 				'Timezone' => _('Timezone'),
 				'Credit' => _('Credit'),
-				'Count SMS unicode' => _('Count SMS unicode'),
+				'Enable credit unicode SMS as normal SMS' => _('Enable credit unicode SMS as normal SMS'),
 				'Forward message to inbox' => _('Forward message to inbox'),
 				'Forward message to email' => _('Forward message to email'),
 				'Forward message to mobile' => _('Forward message to mobile'),
@@ -245,7 +245,7 @@ switch (_OP_) {
 				'local_length' => $local_length,
 				'replace_zero' => $replace_zero,
 				'credit' => $credit, 
-				'option_count_sms_unicode' => $option_count_sms_unicode 
+				'option_enable_credit_unicode' => $option_enable_credit_unicode 
 			) 
 		);
 		_p(tpl_apply($tpl));
@@ -274,7 +274,7 @@ switch (_OP_) {
 			}
 		}
 		
-		$items['count_sms_unicode'] = (int)$_POST['edit_count_sms_unicode'];
+		$items['enable_credit_unicode'] = (int)$_POST['edit_enable_credit_unicode'];
 		registry_update($c_uid, 'core', 'user_config', $items);
 		$ret = user_edit_conf($c_uid, $up);
 		$_SESSION['error_string'] = $ret['error_string'];
