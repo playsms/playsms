@@ -1,0 +1,82 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "Action"
+msgstr "Действие"
+
+msgid "Add route"
+msgstr "Добавить маршрут"
+
+msgid "Are you sure ?"
+msgstr "Вы уверены?"
+
+msgid "Destination name"
+msgstr "Назначение"
+
+msgid "Edit route"
+msgstr "Редактировать маршрут"
+
+msgid "Fail to delete route"
+msgstr "Не удалось удалить маршрут"
+
+msgid "Fail to save route"
+msgstr "Не удалось сохранить маршрут"
+
+msgid "Maximum 8 digits numeric only"
+msgstr ""
+
+msgid "No changes made!"
+msgstr "Нет изменений"
+
+msgid "Prefix"
+msgstr "Префикс"
+
+msgid "Route SMS outgoing"
+msgstr "Маршрутизация исходящих СМС"
+
+msgid "Route has been added"
+msgstr "Маршрут добавлен"
+
+msgid "Route has been deleted"
+msgstr "Маршрут удалён"
+
+msgid "Route has been saved"
+msgstr "Маршрут сохранён"
+
+msgid "Route outgoing SMS"
+msgstr "Маршрутизация исходящих СМС"
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "User"
+msgstr "Пользователь"
+
+msgid "You must fill all fields"
+msgstr "Необходимо заполнить все поля"
+
+msgid "You must fill all mandatory fields"
+msgstr "Необходимо заполнить обязательные поля"
+
+msgid "blocked"
+msgstr "заблокировано"
+
+msgid "destination"
+msgstr "назначение"
+
+msgid "prefix"
+msgstr "префикс"
