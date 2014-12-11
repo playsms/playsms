@@ -37,6 +37,10 @@ tinymce.init({
 						<td>{{ Maximum SMS count }}</td>
 						<td><input type="text" size="5" maxlength="2" name="edit_sms_max_count" value="{{ sms_max_count }}"></td>
 					</tr>
+					<tr>
+						<td>{{ Number of sent SMS per hour limit }}</td>
+						<td><input type="text" size="5" maxlength="10" name="edit_sms_per_hour_limit" value="{{ sms_per_hour_limit }}"> {{ HINT_SMS_PER_HOUR }}</td>
+					</tr>
 					<!--
 					<tr>
 									<td>{{ Default credit for user }}</td>
@@ -62,10 +66,6 @@ tinymce.init({
 					<tr>
 						<td>{{ Enable login brute force detection }}</td>
 						<td><select name='edit_brute_force_detection'>{{ option_brute_force_detection }}</select></td>
-					</tr>
-					<tr>
-						<td>{{ Number of sent SMS per hour limit }}</td>
-						<td><input type="text" size="5" maxlength="10" name="edit_sms_per_hour_limit" value="{{ sms_per_hour_limit }}"></td>
 					</tr>
 				</tbody>
 			</table>
