@@ -110,13 +110,13 @@ switch (_OP_) {
 			_('no') => 0,
 		) , $main_config['plus_sign_add']);
 		
-		// count SMS unicode
-		$option_count_sms_unicode = _options(array(
+		// select enable_credit_unicode
+		$option_enable_credit_unicode = _options(array(
 			_('yes') => 1,
 			_('no') => 0,
-		) , $main_config['count_sms_unicode']);
+		) , $main_config['enable_credit_unicode']);
 
-		// Brute force detection
+		// select brute_force_detection
 		$option_brute_force_detection = _options(array(
 			_('yes') => 1,
 			_('no') => 0,
@@ -152,7 +152,7 @@ switch (_OP_) {
 				'Default credit for user' => _('Default credit for user') ,
 				'Always remove plus sign' => _('Always remove plus sign') ,
 				'Always add plus sign' => _('Always add plus sign') ,
-				'Count SMS unicode' => _('Count SMS unicode') ,
+				'Enable credit unicode SMS as normal SMS' => _('Enable credit unicode SMS as normal SMS') ,
 				'Enable login brute force detection' => _('Enable login brute force detection') ,
 				'Number of sent SMS per hour limit' => _('Number of sent SMS per hour limit') ,
 				'Enable public registration' => _('Enable public registration') ,
@@ -201,7 +201,7 @@ switch (_OP_) {
 				'option_language_module' => $option_language_module,
 				'option_plus_sign_remove' => $option_plus_sign_remove,
 				'option_plus_sign_add' => $option_plus_sign_add,
-				'option_count_sms_unicode' => $option_count_sms_unicode,
+				'option_enable_credit_unicode' => $option_enable_credit_unicode,
 				'option_brute_force_detection' => $option_brute_force_detection
 			) ,
 			'injects' => array(
@@ -269,7 +269,7 @@ switch (_OP_) {
 			'sms_max_count' => (int)($post['edit_sms_max_count'] > 1 ? $post['edit_sms_max_count'] : 1) ,
 			'plus_sign_remove' => (int)$post['edit_plus_sign_remove'],
 			'plus_sign_add' => (int)$post['edit_plus_sign_add'],
-			'count_sms_unicode' => (int)$post['edit_count_sms_unicode'],
+			'enable_credit_unicode' => (int)$post['edit_enable_credit_unicode'],
 			'brute_force_detection' => (int)$post['edit_brute_force_detection'],
 			'sms_per_hour_limit' => (int)($post['edit_sms_per_hour_limit'] > 1 ? $post['edit_sms_per_hour_limit'] : 1) ,
 			'default_credit' => (float)$post['edit_default_credit'],
