@@ -116,11 +116,11 @@ switch (_OP_) {
 			_('no') => 0,
 		) , $main_config['count_sms_unicode']);
 
-		// Login brute force detection
+		// Brute force detection
 		$option_brute_force_detection = _options(array(
 			_('yes') => 1,
 			_('no') => 0,
-		) , $main_config['login_brute_force_detection']);
+		) , $main_config['brute_force_detection']);
 
 		// display
 		
@@ -270,7 +270,7 @@ switch (_OP_) {
 			'plus_sign_remove' => (int)$post['edit_plus_sign_remove'],
 			'plus_sign_add' => (int)$post['edit_plus_sign_add'],
 			'count_sms_unicode' => (int)$post['edit_count_sms_unicode'],
-			'login_brute_force_detection' => (int)$post['edit_brute_force_detection'],
+			'brute_force_detection' => (int)$post['edit_brute_force_detection'],
 			'sms_per_hour_limit' => (int)($post['edit_sms_per_hour_limit'] > 1 ? $post['edit_sms_per_hour_limit'] : 1) ,
 			'default_credit' => (float)$post['edit_default_credit'],
 			'default_user_status' => $edit_default_user_status,
