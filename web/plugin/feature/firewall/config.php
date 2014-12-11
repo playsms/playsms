@@ -6,6 +6,6 @@ if (auth_isadmin()) {
 	$menu_config[$menutab][] = array(
 		'index.php?app=main&inc=feature_firewall&op=firewall_list',
 		_('Firewall'),
-		3
+		3 
 	);
 }

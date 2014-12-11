@@ -1639,6 +1639,18 @@ INSERT INTO `playsms_tblGateway` (`id`, `created`, `last_update`, `name`, `gatew
 (1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'blocked', 'blocked', '[]'),
 (2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'dev', 'dev', '[]');
 
+--
+-- Table structure for table `playsms_featureFirewall`
+--
+
+DROP TABLE IF EXISTS `playsms_featureFirewall`;
+CREATE TABLE `playsms_featureFirewall` (
+  `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ip_address` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

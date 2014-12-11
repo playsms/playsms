@@ -485,3 +485,15 @@ ALTER TABLE `playsms_featureBoard`
 ADD `board_access_code` VARCHAR(40) NOT NULL DEFAULT '' , 
 ADD `board_reply_msg` VARCHAR(140) NOT NULL DEFAULT '' , 
 ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' ;
+
+--
+-- Table structure for table `playsms_featureFirewall`
+--
+
+DROP TABLE IF EXISTS `playsms_featureFirewall`;
+CREATE TABLE `playsms_featureFirewall` (
+  `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ip_address` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

@@ -23,9 +23,9 @@ if (!auth_isadmin()) {
 }
 
 switch (_OP_) {
-	case "firewall_list" :
+	case "firewall_list":
 		$search_category = array(
-			_('IP address') => 'ip_address'
+			_('IP address') => 'ip_address' 
 		);
 		$base_url = 'index.php?app=main&inc=feature_firewall&op=firewall_list';
 		$search = themes_search($search_category, $base_url);
@@ -107,8 +107,8 @@ switch (_OP_) {
 		}
 		_p($content);
 		break;
-
-	case "firewall_del" :
+	
+	case "firewall_del":
 		$rid = $_REQUEST['rid'];
 		$ip_address = firewall_getip($rid);
 		$_SESSION['error_string'] = _('Fail to delete IP address') . " (" . _('IP address') . ": $ip_address)";
@@ -119,11 +119,11 @@ switch (_OP_) {
 		header("Location: " . _u('index.php?app=main&inc=feature_firewall&op=firewall_list'));
 		exit();
 		break;
-
+	
 	case "actions":
 		$checkid = $_REQUEST['checkid'];
 		$itemid = $_REQUEST['itemid'];
-
+		
 		$items = array();
 		foreach ($checkid as $key => $val) {
 			if (strtoupper($val) == 'ON') {
@@ -136,20 +136,22 @@ switch (_OP_) {
 		switch ($go) {
 			case 'delete':
 				foreach ($items as $item) {
-					$conditions = array('id' => $item);
+					$conditions = array(
+						'id' => $item 
+					);
 					dba_remove(_DB_PREF_ . '_featureFirewall', $conditions);
 				}
 				$search = themes_search_session();
 				$nav = themes_nav_session();
-
+				
 				$_SESSION['error_string'] = _('IP addreses has been deleted');
 				$ref = $search['url'] . '&search_keyword=' . $search['keyword'] . '&search_category=' . $search['category'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
 				header("Location: " . _u($ref));
 				break;
 		}
 		break;
-
-	case "firewall_add" :
+	
+	case "firewall_add":
 		if ($err = $_SESSION['error_string']) {
 			$content = "<div class=error_string>$err</div>";
 		}
@@ -167,19 +169,18 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_firewall&op=firewall_list');
 		_p($content);
 		break;
-
-	case "firewall_add_yes" :
+	
+	case "firewall_add_yes":
 		$add_ip_address = $_POST['add_ip_address'];
 		if ($add_ip_address) {
 			foreach (explode(',', str_replace(' ', '', $add_ip_address)) as $ip) {
-				if(blacklist_ifipexists($ip)){
+				if (blacklist_ifipexists($ip)) {
 					$_SESSION['error_string'] = _('IPs exist');
-				}else{
+				} else {
 					blacklist_addip($ip);
 					$_SESSION['error_string'] = _('IPs has been added') . " (" . _('IP addresses') . ": $add_ip_address)";
 				}
 			}
-			
 		} else {
 			$_SESSION['error_string'] = _('You must fill all fields');
 		}

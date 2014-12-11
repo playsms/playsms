@@ -21,11 +21,13 @@ defined('_SECURE_') or die('Forbidden');
 /**
  * Get ip_address by id
  *
- * @param string $id
+ * @param string $id        
  * @return ip_address
  */
 function firewall_getip($id) {
-	$condition = array('id' => $id);
+	$condition = array(
+		'id' => $id 
+	);
 	$row = dba_search(_DB_PREF_ . '_featureFirewall', 'ip_address', $condition);
 	$ret = $row[0]['ip_address'];
 	return $ret;
@@ -42,11 +44,11 @@ function firewall_hook_blacklist_checkip($ip) {
 	$hash = md5($ip);
 	$data = registry_search(0, 'feature', 'firewall');
 	$login_attempt = $data['feature']['firewall'][$hash];
-
-	if($login_attempt > 10){
+	
+	if ($login_attempt > 10) {
 		blacklist_addip($ip);
 	}
-
+	
 	$items[$hash] = $login_attempt ? $login_attempt + 1 : 1;
 	registry_update(0, 'feature', 'firewall', $items);
 	$ret = TRUE;
@@ -65,9 +67,9 @@ function firewall_hook_blacklist_addip($ip) {
 	$db_query = "
 			INSERT INTO " . _DB_PREF_ . "_featureFirewall (ip_address)
 			VALUES ('$ip')";
-	if(!blacklist_ifipexists($ip)){
+	if (!blacklist_ifipexists($ip)) {
 		$new_ip = @dba_insert_id($db_query);
-		if($new_ip){
+		if ($new_ip) {
 			$ret = TRUE;
 		}
 	}
@@ -83,9 +85,11 @@ function firewall_hook_blacklist_addip($ip) {
  */
 function firewall_hook_blacklist_removeip($ip) {
 	$ret = FALSE;
-	$condition = array('ip_address' => $ip);
-	$removed = dba_remove(_DB_PREF_.'_featureFirewall', $condition);
-	if($removed){
+	$condition = array(
+		'ip_address' => $ip 
+	);
+	$removed = dba_remove(_DB_PREF_ . '_featureFirewall', $condition);
+	if ($removed) {
 		$ret = TRUE;
 	}
 	return $ret;
@@ -97,7 +101,7 @@ function firewall_hook_blacklist_removeip($ip) {
  * @return array IP addresses
  */
 function firewall_hook_blacklist_getips() {
-	$ret = dba_search(_DB_PREF_.'_featureFirewall');
+	$ret = dba_search(_DB_PREF_ . '_featureFirewall');
 	return $ret;
 }
 
@@ -110,9 +114,11 @@ function firewall_hook_blacklist_getips() {
  */
 function firewall_hook_blacklist_ifipexists($ip) {
 	$ret = FALSE;
-	$condition = array('ip_address' => $ip);
-	$row = dba_search(_DB_PREF_.'_featureFirewall', 'ip_address', $condition);
-	if($row){
+	$condition = array(
+		'ip_address' => $ip 
+	);
+	$row = dba_search(_DB_PREF_ . '_featureFirewall', 'ip_address', $condition);
+	if ($row) {
 		$ret = TRUE;
 	}
 	return $ret;
