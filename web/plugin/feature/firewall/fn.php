@@ -30,6 +30,7 @@ function firewall_getip($id) {
 	);
 	$row = dba_search(_DB_PREF_ . '_featureFirewall', 'ip_address', $condition);
 	$ret = $row[0]['ip_address'];
+	
 	return $ret;
 }
 
@@ -41,6 +42,8 @@ function firewall_getip($id) {
  * @return boolean TRUE on checked (not necessarily added)
  */
 function firewall_hook_blacklist_checkip($ip) {
+	$ret = FALSE;
+	
 	$hash = md5($ip);
 	$data = registry_search(0, 'feature', 'firewall');
 	$login_attempt = $data['feature']['firewall'][$hash];
@@ -50,8 +53,10 @@ function firewall_hook_blacklist_checkip($ip) {
 	}
 	
 	$items[$hash] = $login_attempt ? $login_attempt + 1 : 1;
-	registry_update(0, 'feature', 'firewall', $items);
-	$ret = TRUE;
+	if (registry_update(0, 'feature', 'firewall', $items)) {
+		$ret = TRUE;
+	}
+	
 	return $ret;
 }
 
@@ -64,6 +69,7 @@ function firewall_hook_blacklist_checkip($ip) {
  */
 function firewall_hook_blacklist_addip($ip) {
 	$ret = FALSE;
+	
 	$db_query = "
 			INSERT INTO " . _DB_PREF_ . "_featureFirewall (ip_address)
 			VALUES ('$ip')";
@@ -73,6 +79,7 @@ function firewall_hook_blacklist_addip($ip) {
 			$ret = TRUE;
 		}
 	}
+	
 	return $ret;
 }
 
@@ -85,6 +92,7 @@ function firewall_hook_blacklist_addip($ip) {
  */
 function firewall_hook_blacklist_removeip($ip) {
 	$ret = FALSE;
+	
 	$condition = array(
 		'ip_address' => $ip 
 	);
@@ -92,6 +100,7 @@ function firewall_hook_blacklist_removeip($ip) {
 	if ($removed) {
 		$ret = TRUE;
 	}
+	
 	return $ret;
 }
 
@@ -102,6 +111,7 @@ function firewall_hook_blacklist_removeip($ip) {
  */
 function firewall_hook_blacklist_getips() {
 	$ret = dba_search(_DB_PREF_ . '_featureFirewall');
+	
 	return $ret;
 }
 
@@ -114,6 +124,7 @@ function firewall_hook_blacklist_getips() {
  */
 function firewall_hook_blacklist_ifipexists($ip) {
 	$ret = FALSE;
+	
 	$condition = array(
 		'ip_address' => $ip 
 	);
@@ -121,5 +132,6 @@ function firewall_hook_blacklist_ifipexists($ip) {
 	if ($row) {
 		$ret = TRUE;
 	}
+	
 	return $ret;
 }
