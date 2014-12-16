@@ -21,23 +21,27 @@ defined('_SECURE_') or die('Forbidden');
 /**
  * Check if IP address deserved to get listed in blacklist, if deserved then blacklist_addip()
  *
+ * @param string $label
+ *        single label, can be $username or $uid, its up to the implementator
  * @param string $ip
  *        single IP address
  * @return boolean TRUE on checked (not necessarily added)
  */
-function blacklist_checkip($ip) {
+function blacklist_checkip($label, $ip) {
 	$ret = core_call_hook();
 	return $ret;
 }
 
 /**
- * Reset IP address login attempt counter 
+ * Reset IP address login attempt counter
  *
+ * @param string $label
+ *        single label, can be $username or $uid, its up to the implementator
  * @param string $ip
  *        single IP address
  * @return boolean TRUE on resetted counter
  */
-function blacklist_clearip($ip) {
+function blacklist_clearip($label, $ip) {
 	$ret = core_call_hook();
 	return $ret;
 }
@@ -45,11 +49,13 @@ function blacklist_clearip($ip) {
 /**
  * Add IP address to blacklist
  *
+ * @param string $label
+ *        single label, can be $username or $uid, its up to the implementator
  * @param string $ip
  *        single IP address
  * @return boolean TRUE on added
  */
-function blacklist_addip($ip) {
+function blacklist_addip($label, $ip) {
 	$ret = core_call_hook();
 	return $ret;
 }
@@ -57,11 +63,13 @@ function blacklist_addip($ip) {
 /**
  * Remove IP address from blacklist
  *
+ * @param string $label
+ *        single label, can be $username or $uid, its up to the implementator
  * @param string $ip
  *        single IP address
  * @return boolean TRUE on removed
  */
-function blacklist_removeip($ip) {
+function blacklist_removeip($label, $ip) {
 	$ret = core_call_hook();
 	return $ret;
 }
@@ -69,7 +77,8 @@ function blacklist_removeip($ip) {
 /**
  * Get IP addresses from blacklist
  *
- * @return array IP addresses
+ * @return array labels and IP addresses
+ *         array(array('label' => $label, 'ip_address' => $ip_address))
  */
 function blacklist_getips() {
 	$ret = core_call_hook();
@@ -79,11 +88,13 @@ function blacklist_getips() {
 /**
  * Check IP address is exists in blacklist
  *
+ * @param string $label
+ *        single label, can be $username or $uid, its up to the implementator
  * @param string $ip
  *        single IP address
  * @return boolean TRUE when found and FALSE if not found
  */
-function blacklist_ifipexists($ip) {
+function blacklist_ifipexists($label, $ip) {
 	$ret = core_call_hook();
 	return $ret;
 }
