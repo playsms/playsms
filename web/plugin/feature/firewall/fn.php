@@ -44,20 +44,22 @@ function firewall_getip($id) {
  * @return boolean TRUE on checked (not necessarily added)
  */
 function firewall_hook_blacklist_checkip($label, $ip) {
-	global $plugin_config;
+	global $core_config, $plugin_config;
 	$ret = FALSE;
 	
-	$hash = md5($label.$ip);
-	$data = registry_search(0, 'feature', 'firewall');
-	$login_attempt = $data['feature']['firewall'][$hash];
-	
-	if ($login_attempt >= $plugin_config['firewall']['login_attempt_limit']) {
-		blacklist_addip($label, $ip);
-	}
-	
-	$items[$hash] = $login_attempt ? $login_attempt + 1 : 1;
-	if (registry_update(0, 'feature', 'firewall', $items)) {
-		$ret = TRUE;
+	if ((int) $core_config['main']['brute_force_detection']) {
+		$hash = md5($label . $ip);
+		$data = registry_search(0, 'feature', 'firewall');
+		$login_attempt = $data['feature']['firewall'][$hash];
+		
+		if ($login_attempt >= $plugin_config['firewall']['login_attempt_limit']) {
+			blacklist_addip($label, $ip);
+		}
+		
+		$items[$hash] = $login_attempt ? $login_attempt + 1 : 1;
+		if (registry_update(0, 'feature', 'firewall', $items)) {
+			$ret = TRUE;
+		}
 	}
 	
 	return $ret;
@@ -75,7 +77,7 @@ function firewall_hook_blacklist_checkip($label, $ip) {
 function firewall_hook_blacklist_clearip($label, $ip) {
 	$ret = FALSE;
 	
-	$hash = md5($label.$ip);
+	$hash = md5($label . $ip);
 	if (registry_remove(0, 'feature', 'firewall', $hash)) {
 		$ret = TRUE;
 	}
