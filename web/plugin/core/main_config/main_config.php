@@ -10,18 +10,18 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
 
 if (!auth_isadmin()) {
 	auth_block();
-};
+}
+;
 
 switch (_OP_) {
 	case "main_config":
@@ -33,44 +33,44 @@ switch (_OP_) {
 		// enable register yes-no option
 		$option_enable_register = _options(array(
 			_('yes') => 1,
-			_('no') => 0,
-		) , $main_config['enable_register']);
+			_('no') => 0 
+		), $main_config['enable_register']);
 		
 		// enable forgot yes-no option
 		$option_enable_forgot = _options(array(
 			_('yes') => 1,
-			_('no') => 0,
-		) , $main_config['enable_forgot']);
-
+			_('no') => 0 
+		), $main_config['enable_forgot']);
+		
 		// disable login as subuser yes-no option
 		$option_disable_login_as = _options(array(
 			_('yes') => 1,
-			_('no') => 0,
-		) , $main_config['disable_login_as']);
-
+			_('no') => 0 
+		), $main_config['disable_login_as']);
+		
 		// enhance privacy for subusers
 		$option_enhance_privacy_subuser = _options(array(
 			_('yes') => 1,
-			_('no') => 0,
-		) , $main_config['enhance_privacy_subuser']);
+			_('no') => 0 
+		), $main_config['enhance_privacy_subuser']);
 		
 		// enable logo yes-no option
 		$option_enable_logo = _options(array(
 			_('yes') => 1,
-			_('no') => 0,
-		) , $main_config['enable_logo']);
+			_('no') => 0 
+		), $main_config['enable_logo']);
 		
 		// enable logo to replace main website title yes-no option
 		$option_logo_replace_title = _options(array(
 			_('yes') => 1,
-			_('no') => 0,
-		) , $main_config['logo_replace_title']);
-				
+			_('no') => 0 
+		), $main_config['logo_replace_title']);
+		
 		// option default account status on user registration
 		$option_default_user_status = _options(array(
 			_('User') => 3,
-			_('Subuser') => 4,
-		) , $main_config['default_user_status']);
+			_('Subuser') => 4 
+		), $main_config['default_user_status']);
 		
 		// get gateway options
 		$main_gateway = $main_config['gateway_module'];
@@ -97,33 +97,34 @@ switch (_OP_) {
 		if (is_array($lang_list)) {
 			$option_language_module = _options($lang_list, $main_config['language_module']);
 		}
-
+		
 		// select plus_sign_remove
 		$option_plus_sign_remove = _options(array(
 			_('yes') => 1,
-			_('no') => 0,
-		) , $main_config['plus_sign_remove']);
+			_('no') => 0 
+		), $main_config['plus_sign_remove']);
 		
 		// select plus_sign_add
 		$option_plus_sign_add = _options(array(
 			_('yes') => 1,
-			_('no') => 0,
-		) , $main_config['plus_sign_add']);
+			_('no') => 0 
+		), $main_config['plus_sign_add']);
 		
 		// select enable_credit_unicode
 		$option_enable_credit_unicode = _options(array(
 			_('yes') => 1,
-			_('no') => 0,
-		) , $main_config['enable_credit_unicode']);
-
+			_('no') => 0 
+		), $main_config['enable_credit_unicode']);
+		
 		// select brute_force_detection
 		$option_brute_force_detection = _options(array(
 			_('yes') => 1,
-			_('no') => 0,
-		) , $main_config['brute_force_detection']);
-
+			_('no') => 0 
+		), $main_config['brute_force_detection']);
+		
 		// display
 		
+
 		if ($err = $_SESSION['error_string']) {
 			$error_content = "<div class=error_string>$err</div>";
 		}
@@ -131,50 +132,50 @@ switch (_OP_) {
 			'name' => 'main_config',
 			'vars' => array(
 				'ERROR' => $error_content,
-				'ACTION_URL' => _u('index.php?app=main&inc=core_main_config&op=main_config_save') ,
-				'Main configuration' => _('Main configuration') ,
-				'Default settings' => _('Default settings') ,
-				'Default site configuration' => _('Default site configuration') ,
-				'Information page' => _('Information page') ,
-				'Buy credit page' => _('Buy credit page') ,
-				'Page title' => _('Page title') ,
-				'Page content' => _('Page content') ,
-				'Website URL' => _('Website URL') ,
-				'Website title' => _('Website title') ,
-				'Website email' => _('Website email') ,
-				'Forwarded email footer' => _('Forwarded email footer') ,
-				'Main website name' => _('Main website name') ,
-				'Main website URL' => _('Main website URL') ,
-				'Default sender ID' => _('Default sender ID') ,
-				'Default timezone' => _('Default timezone') ,
-				'Default SMS rate' => _('Default SMS rate') ,
-				'Maximum SMS count' => _('Maximum SMS count') ,
-				'Default credit for user' => _('Default credit for user') ,
-				'Always remove plus sign' => _('Always remove plus sign') ,
-				'Always add plus sign' => _('Always add plus sign') ,
-				'Enable credit unicode SMS as normal SMS' => _('Enable credit unicode SMS as normal SMS') ,
-				'Enable login brute force detection' => _('Enable login brute force detection') ,
-				'Number of sent SMS per hour limit' => _('Number of sent SMS per hour limit') ,
-				'Enable public registration' => _('Enable public registration') ,
-				'Enable forgot password' => _('Enable forgot password') ,
-				'Disable login as subuser' => _('Disable login as subuser') ,
-				'Enhance privacy for subusers' => _('Enhance privacy for subusers') ,
-				'Enable logo' => _('Enable logo') ,
-				'Logo URL' => _('Logo URL') ,
-				'Replace website title with logo' => _('Replace website title with logo') ,
-				'Default SMSC' => _('Default SMSC') ,
-				'Active themes' => _('Active themes') ,
-				'Default language' => _('Default language') ,
-				'Default account status on registration' => _('Default account status on registration') ,
-				'Layout footer' => _('Layout footer') ,
-				'Save' => _('Save') ,
-				'HINT_SENDER_ID' => _hint(_('Empty default sender ID to allow users setting their own sender ID')) ,
-				'HINT_TIMEZONE' => _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')) ,
-				'HINT_ENABLE_LOGO' => _hint(_('Logo by default will be displayed at login, register and forgot password page')) ,
-				'HINT_WEBSITE_URL' => _hint(_('Access to unknown domain mapped to this server IP address will be redirected to this website URL. This website URL should be the primary address for the service.')) ,
-				'HINT_CUSTOM_SENDER_ID' => _hint(_('Allow users to select sender ID while on Send SMS page')) ,
-				'HINT_CUSTOM_FOOTER' => _hint(_('Allow users to select SMS footer while on Send SMS page')) ,
-				'HINT_SMS_PER_HOUR' => _hint(_('Fill with zero to disable limit')),
+				'ACTION_URL' => _u('index.php?app=main&inc=core_main_config&op=main_config_save'),
+				'Main configuration' => _('Main configuration'),
+				'Default settings' => _('Default settings'),
+				'Default site configuration' => _('Default site configuration'),
+				'Information page' => _('Information page'),
+				'Buy credit page' => _('Buy credit page'),
+				'Page title' => _('Page title'),
+				'Page content' => _('Page content'),
+				'Website URL' => _('Website URL'),
+				'Website title' => _('Website title'),
+				'Website email' => _('Website email'),
+				'Forwarded email footer' => _('Forwarded email footer'),
+				'Main website name' => _('Main website name'),
+				'Main website URL' => _('Main website URL'),
+				'Default sender ID' => _('Default sender ID'),
+				'Default timezone' => _('Default timezone'),
+				'Default SMS rate' => _('Default SMS rate'),
+				'Maximum SMS count' => _('Maximum SMS count'),
+				'Default credit for user' => _('Default credit for user'),
+				'Always remove plus sign' => _('Always remove plus sign'),
+				'Always add plus sign' => _('Always add plus sign'),
+				'Enable credit unicode SMS as normal SMS' => _('Enable credit unicode SMS as normal SMS'),
+				'Enable login brute force detection' => _('Enable login brute force detection'),
+				'Number of sent SMS per hour limit' => _('Number of sent SMS per hour limit'),
+				'Enable public registration' => _('Enable public registration'),
+				'Enable forgot password' => _('Enable forgot password'),
+				'Disable login as subuser' => _('Disable login as subuser'),
+				'Enhance privacy for subusers' => _('Enhance privacy for subusers'),
+				'Enable logo' => _('Enable logo'),
+				'Logo URL' => _('Logo URL'),
+				'Replace website title with logo' => _('Replace website title with logo'),
+				'Default SMSC' => _('Default SMSC'),
+				'Active themes' => _('Active themes'),
+				'Default language' => _('Default language'),
+				'Default account status on registration' => _('Default account status on registration'),
+				'Layout footer' => _('Layout footer'),
+				'Save' => _('Save'),
+				'HINT_SENDER_ID' => _hint(_('Empty default sender ID to allow users setting their own sender ID')),
+				'HINT_TIMEZONE' => _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')),
+				'HINT_ENABLE_LOGO' => _hint(_('Logo by default will be displayed at login, register and forgot password page')),
+				'HINT_WEBSITE_URL' => _hint(_('Access to unknown domain mapped to this server IP address will be redirected to this website URL. This website URL should be the primary address for the service.')),
+				'HINT_CUSTOM_SENDER_ID' => _hint(_('Allow users to select sender ID while on Send SMS page')),
+				'HINT_CUSTOM_FOOTER' => _hint(_('Allow users to select SMS footer while on Send SMS page')),
+				'HINT_SMS_LIMIT_PER_HOUR' => _hint(_('Fill with zero to disable limit')),
 				'web_title' => $main_config['web_title'],
 				'email_service' => $main_config['email_service'],
 				'email_footer' => $main_config['email_footer'],
@@ -184,7 +185,7 @@ switch (_OP_) {
 				'gateway_timezone' => $main_config['gateway_timezone'],
 				'default_rate' => $main_config['default_rate'],
 				'sms_max_count' => $main_config['sms_max_count'],
-				'sms_per_hour_limit' => $main_config['sms_per_hour_limit'],
+				'sms_limit_per_hour' => (int) $main_config['sms_limit_per_hour'],
 				'default_credit' => $main_config['default_credit'],
 				'logo_url' => $main_config['logo_url'],
 				'layout_footer' => $main_config['layout_footer'],
@@ -203,19 +204,20 @@ switch (_OP_) {
 				'option_plus_sign_remove' => $option_plus_sign_remove,
 				'option_plus_sign_add' => $option_plus_sign_add,
 				'option_enable_credit_unicode' => $option_enable_credit_unicode,
-				'option_brute_force_detection' => $option_brute_force_detection
-			) ,
+				'option_brute_force_detection' => $option_brute_force_detection 
+			),
 			'injects' => array(
-				'core_config',
-			) ,
+				'core_config' 
+			) 
 		);
 		_p(tpl_apply($tpl));
 		break;
-
+	
 	case "main_config_save":
 		
 		// logo
 		
+
 		$enable_logo = $_POST['edit_enable_logo'];
 		$logo_url = trim($_POST['edit_logo_url']);
 		$logo_replace_title = $_POST['edit_logo_replace_title'];
@@ -242,13 +244,14 @@ switch (_OP_) {
 		}
 		
 		// allow default account status 3 and 4 only
-		$edit_default_user_status = (int)$_POST['edit_default_user_status'];
+		$edit_default_user_status = (int) $_POST['edit_default_user_status'];
 		if (!(($edit_default_user_status == 3) || ($edit_default_user_status == 4))) {
 			$edit_default_user_status == 4;
 		}
 		
 		// save
 		
+
 		foreach ($_POST as $key => $val) {
 			if (substr($key, 0, 5) == 'edit_') {
 				$post[$key] = str_replace('"', '\'', $val);
@@ -261,30 +264,30 @@ switch (_OP_) {
 			'email_footer' => $post['edit_email_footer'],
 			'main_website_name' => $post['edit_main_website_name'],
 			'main_website_url' => $post['edit_main_website_url'],
-			'gateway_number' => core_sanitize_sender($post['edit_gateway_number']) ,
+			'gateway_number' => core_sanitize_sender($post['edit_gateway_number']),
 			'gateway_timezone' => $post['edit_gateway_timezone'],
-			'default_rate' => (float)$post['edit_default_rate'],
-			'gateway_module' => ($post['edit_gateway_module'] ? $post['edit_gateway_module'] : 'dev') ,
-			'themes_module' => ($post['edit_themes_module'] ? $post['edit_themes_module'] : 'default') ,
-			'language_module' => ($post['edit_language_module'] ? $post['edit_language_module'] : 'en_US') ,
-			'sms_max_count' => (int)($post['edit_sms_max_count'] > 1 ? $post['edit_sms_max_count'] : 1) ,
-			'plus_sign_remove' => (int)$post['edit_plus_sign_remove'],
-			'plus_sign_add' => (int)$post['edit_plus_sign_add'],
-			'enable_credit_unicode' => (int)$post['edit_enable_credit_unicode'],
-			'brute_force_detection' => (int)$post['edit_brute_force_detection'],
-			'sms_per_hour_limit' => (int)$post['edit_sms_per_hour_limit'],
-			'default_credit' => (float)$post['edit_default_credit'],
+			'default_rate' => (float) $post['edit_default_rate'],
+			'gateway_module' => ($post['edit_gateway_module'] ? $post['edit_gateway_module'] : 'dev'),
+			'themes_module' => ($post['edit_themes_module'] ? $post['edit_themes_module'] : 'default'),
+			'language_module' => ($post['edit_language_module'] ? $post['edit_language_module'] : 'en_US'),
+			'sms_max_count' => (int) ($post['edit_sms_max_count'] > 1 ? $post['edit_sms_max_count'] : 1),
+			'plus_sign_remove' => (int) $post['edit_plus_sign_remove'],
+			'plus_sign_add' => (int) $post['edit_plus_sign_add'],
+			'enable_credit_unicode' => (int) $post['edit_enable_credit_unicode'],
+			'brute_force_detection' => (int) $post['edit_brute_force_detection'],
+			'sms_limit_per_hour' => (int) $post['edit_sms_limit_per_hour'],
+			'default_credit' => (float) $post['edit_default_credit'],
 			'default_user_status' => $edit_default_user_status,
-			'enable_register' => (int)$post['edit_enable_register'],
-			'enable_forgot' => (int)$post['edit_enable_forgot'],
-			'disable_login_as' => (int)$post['edit_disable_login_as'],
-			'enhance_privacy_subuser' => (int)$post['edit_enhance_privacy_subuser'],
-			'enable_logo' => (int)$enable_logo,
+			'enable_register' => (int) $post['edit_enable_register'],
+			'enable_forgot' => (int) $post['edit_enable_forgot'],
+			'disable_login_as' => (int) $post['edit_disable_login_as'],
+			'enhance_privacy_subuser' => (int) $post['edit_enhance_privacy_subuser'],
+			'enable_logo' => (int) $enable_logo,
 			'logo_url' => $logo_url,
-			'logo_replace_title' => (int)$logo_replace_title,
-			'layout_footer' => ($post['edit_layout_footer'] ? $post['edit_layout_footer'] : _('Application footer here. Go to main configuration or manage site to edit this footer.')) ,
-			'information_title' => ($post['edit_information_title'] ? $post['edit_information_title'] : _('Information')) ,
-			'information_content' => ($post['edit_information_content'] ? $post['edit_information_content'] : _('Go to main configuration or manage site to edit this page')) ,
+			'logo_replace_title' => (int) $logo_replace_title,
+			'layout_footer' => ($post['edit_layout_footer'] ? $post['edit_layout_footer'] : _('Application footer here. Go to main configuration or manage site to edit this footer.')),
+			'information_title' => ($post['edit_information_title'] ? $post['edit_information_title'] : _('Information')),
+			'information_content' => ($post['edit_information_content'] ? $post['edit_information_content'] : _('Go to main configuration or manage site to edit this page')) 
 		);
 		$result = registry_update(1, 'core', 'main_config', $items);
 		
