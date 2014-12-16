@@ -51,7 +51,7 @@ function firewall_hook_blacklist_checkip($label, $ip) {
 	$data = registry_search(0, 'feature', 'firewall');
 	$login_attempt = $data['feature']['firewall'][$hash];
 	
-	if ($login_attempt > $plugin_config['firewall']['login_attempt_limit']) {
+	if ($login_attempt >= $plugin_config['firewall']['login_attempt_limit']) {
 		blacklist_addip($label, $ip);
 	}
 	
