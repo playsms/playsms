@@ -37,20 +37,22 @@ function firewall_getip($id) {
 /**
  * Check if IP address deserved to get listed in blacklist, if deserved then blacklist_addip()
  *
+ * @param string $label
+ *        single label, can be $username or $uid, its up to the implementator
  * @param string $ip
  *        single IP address
  * @return boolean TRUE on checked (not necessarily added)
  */
-function firewall_hook_blacklist_checkip($ip) {
+function firewall_hook_blacklist_checkip($label, $ip) {
 	global $plugin_config;
 	$ret = FALSE;
 	
-	$hash = md5($ip);
+	$hash = md5($label.$ip);
 	$data = registry_search(0, 'feature', 'firewall');
 	$login_attempt = $data['feature']['firewall'][$hash];
 	
 	if ($login_attempt > $plugin_config['firewall']['login_attempt_limit']) {
-		blacklist_addip($ip);
+		blacklist_addip($label, $ip);
 	}
 	
 	$items[$hash] = $login_attempt ? $login_attempt + 1 : 1;
@@ -64,14 +66,16 @@ function firewall_hook_blacklist_checkip($ip) {
 /**
  * Reset IP address login attempt counter
  *
+ * @param string $label
+ *        single label, can be $username or $uid, its up to the implementator
  * @param string $ip
  *        single IP address
  * @return boolean TRUE on resetted counter
  */
-function firewall_hook_blacklist_clearip($ip) {
+function firewall_hook_blacklist_clearip($label, $ip) {
 	$ret = FALSE;
 	
-	$hash = md5($ip);
+	$hash = md5($label.$ip);
 	if (registry_remove(0, 'feature', 'firewall', $hash)) {
 		$ret = TRUE;
 	}
@@ -82,17 +86,19 @@ function firewall_hook_blacklist_clearip($ip) {
 /**
  * Add IP address to blacklist
  *
+ * @param string $label
+ *        single label, can be $username or $uid, its up to the implementator
  * @param string $ip
  *        single IP address
  * @return boolean TRUE on added
  */
-function firewall_hook_blacklist_addip($ip) {
+function firewall_hook_blacklist_addip($label, $ip) {
 	$ret = FALSE;
 	
 	$db_query = "
-			INSERT INTO " . _DB_PREF_ . "_featureFirewall (ip_address)
-			VALUES ('$ip')";
-	if (!blacklist_ifipexists($ip)) {
+			INSERT INTO " . _DB_PREF_ . "_featureFirewall (uid, ip_address)
+			VALUES ('$label', '$ip')";
+	if (!blacklist_ifipexists($label, $ip)) {
 		$new_ip = @dba_insert_id($db_query);
 		if ($new_ip) {
 			$ret = TRUE;
@@ -105,14 +111,17 @@ function firewall_hook_blacklist_addip($ip) {
 /**
  * Remove IP address from blacklist
  *
+ * @param string $label
+ *        single label, can be $username or $uid, its up to the implementator
  * @param string $ip
  *        single IP address
  * @return boolean TRUE on removed
  */
-function firewall_hook_blacklist_removeip($ip) {
+function firewall_hook_blacklist_removeip($label, $ip) {
 	$ret = FALSE;
 	
 	$condition = array(
+		'uid' => $label,
 		'ip_address' => $ip 
 	);
 	$removed = dba_remove(_DB_PREF_ . '_featureFirewall', $condition);
@@ -137,14 +146,17 @@ function firewall_hook_blacklist_getips() {
 /**
  * Check IP address is exists in blacklist
  *
+ * @param string $label
+ *        single label, can be $username or $uid, its up to the implementator
  * @param string $ip
  *        single IP address
  * @return boolean TRUE when found and FALSE if not found
  */
-function firewall_hook_blacklist_ifipexists($ip) {
+function firewall_hook_blacklist_ifipexists($label, $ip) {
 	$ret = FALSE;
 	
 	$condition = array(
+		'uid' => $label,
 		'ip_address' => $ip 
 	);
 	$row = dba_search(_DB_PREF_ . '_featureFirewall', 'ip_address', $condition);
