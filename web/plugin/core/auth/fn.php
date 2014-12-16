@@ -30,6 +30,13 @@ defined('_SECURE_') or die('Forbidden');
 function auth_validate_login($username, $password) {
 	$uid = user_username2uid($username);
 	_log('login attempt u:' . $username . ' uid:' . $uid . ' p:' . md5($password) . ' ip:' . $_SERVER['REMOTE_ADDR'], 3, 'auth_validate_login');
+	
+	// check blacklist
+	if (blacklist_ifipexists($_SERVER['REMOTE_ADDR'])) {
+		_log('IP blacklisted u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'auth_validate_login');
+		return FALSE;
+	}
+
 	if (user_banned_get($uid)) {
 		_log('user banned u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'auth_validate_login');
 		return FALSE;
@@ -41,6 +48,10 @@ function auth_validate_login($username, $password) {
 	$password = md5($password);
 	if ($password && $res_password && ($password == $res_password)) {
 		_log('valid login u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'auth_validate_login');
+		
+		// remove IP on successful login
+		blacklist_clearip($_SERVER['REMOTE_ADDR']);
+		
 		return true;
 	} else {
 		$ret = registry_search(1, 'auth', 'tmp_password', $username);
@@ -50,9 +61,17 @@ function auth_validate_login($username, $password) {
 			if (!registry_remove(1, 'auth', 'tmp_password', $username)) {
 				_log('WARNING: unable to remove temporary password after successful login', 3, 'login');
 			}
+		
+			// remove IP on successful login
+			blacklist_clearip($_SERVER['REMOTE_ADDR']);
+		
 			return true;
 		}
 	}
+	
+	// check blacklist
+	blacklist_checkip($_SERVER['REMOTE_ADDR']);
+	
 	_log('invalid login u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'auth_validate_login');
 	return false;
 }
@@ -82,6 +101,13 @@ function auth_validate_email($email, $password) {
 function auth_validate_token($token) {
 	$token = trim($token);
 	_log('login attempt token:' . $token . ' ip:' . $_SERVER['REMOTE_ADDR'], 3, 'auth_validate_token');
+
+	// check blacklist
+	if (blacklist_ifipexists($_SERVER['REMOTE_ADDR'])) {
+		_log('IP blacklisted u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'auth_validate_login');
+		return FALSE;
+	}
+	
 	if ($token) {
 		$db_query = "SELECT uid,username,enable_webservices,webservices_ip FROM " . _DB_PREF_ . "_tblUser WHERE token='$token'";
 		$db_result = dba_query($db_query);
@@ -96,12 +122,20 @@ function auth_validate_token($token) {
 							return FALSE;
 						}
 						_log('valid login u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'auth_validate_token');
+		
+						// remove IP on successful login
+						blacklist_clearip($_SERVER['REMOTE_ADDR']);
+		
 						return $uid;
 					}
 				}
 			}
 		}
 	}
+	
+	// check blacklist
+	blacklist_checkip($_SERVER['REMOTE_ADDR']);
+	
 	logger_print("invalid login t:" . $token . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "login");
 	return false;
 }

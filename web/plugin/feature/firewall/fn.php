@@ -42,18 +42,37 @@ function firewall_getip($id) {
  * @return boolean TRUE on checked (not necessarily added)
  */
 function firewall_hook_blacklist_checkip($ip) {
+	global $plugin_config;
 	$ret = FALSE;
 	
 	$hash = md5($ip);
 	$data = registry_search(0, 'feature', 'firewall');
 	$login_attempt = $data['feature']['firewall'][$hash];
 	
-	if ($login_attempt > 10) {
+	if ($login_attempt > $plugin_config['firewall']['login_attempt_limit']) {
 		blacklist_addip($ip);
 	}
 	
 	$items[$hash] = $login_attempt ? $login_attempt + 1 : 1;
 	if (registry_update(0, 'feature', 'firewall', $items)) {
+		$ret = TRUE;
+	}
+	
+	return $ret;
+}
+
+/**
+ * Reset IP address login attempt counter
+ *
+ * @param string $ip
+ *        single IP address
+ * @return boolean TRUE on resetted counter
+ */
+function firewall_hook_blacklist_clearip($ip) {
+	$ret = FALSE;
+	
+	$hash = md5($ip);
+	if (registry_remove(0, 'feature', 'firewall', $hash)) {
 		$ret = TRUE;
 	}
 	
@@ -129,7 +148,7 @@ function firewall_hook_blacklist_ifipexists($ip) {
 		'ip_address' => $ip 
 	);
 	$row = dba_search(_DB_PREF_ . '_featureFirewall', 'ip_address', $condition);
-	if ($row) {
+	if (count($row) > 0) {
 		$ret = TRUE;
 	}
 	

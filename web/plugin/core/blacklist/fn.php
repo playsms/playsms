@@ -31,6 +31,18 @@ function blacklist_checkip($ip) {
 }
 
 /**
+ * Reset IP address login attempt counter 
+ *
+ * @param string $ip
+ *        single IP address
+ * @return boolean TRUE on resetted counter
+ */
+function blacklist_clearip($ip) {
+	$ret = core_call_hook();
+	return $ret;
+}
+
+/**
  * Add IP address to blacklist
  *
  * @param string $ip
