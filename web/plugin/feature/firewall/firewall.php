@@ -148,7 +148,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 			<tr>
 				<td class=label-sizer>" . _mandatory(_('Select username')) . "</td>
-				<td>".themes_select_users_single('add_uid')."</td>
+				<td>".themes_select_users_single('add_username')."</td>
 			</tr>
 			<tr>
 				<td class=label-sizer>" . _mandatory(_('IP addresses')) . "</td>
@@ -162,11 +162,11 @@ switch (_OP_) {
 		break;
 	
 	case "firewall_add_yes":
-		$add_uid = $_POST['add_uid'];
+		$add_username = user_uid2username($_POST['add_username']);
 		$add_ip_address = $_POST['add_ip_address'];
-		if ($add_uid && $add_ip_address) {
+		if ($add_username && $add_ip_address) {
 			foreach (explode(',', str_replace(' ', '', $add_ip_address)) as $ip) {
-					blacklist_addip($add_uid, $ip);
+					blacklist_addip($add_username, $ip);
 			}
 			$_SESSION['error_string'] = _('IP addresses have been blocked');
 		} else {
