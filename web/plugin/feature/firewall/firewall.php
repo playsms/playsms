@@ -33,7 +33,7 @@ switch (_OP_) {
 		$count = dba_count(_DB_PREF_ . '_featureFirewall', '', $keywords);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
-			'ORDER BY' => 'ip_address',
+			'ORDER BY' => 'uid',
 			'LIMIT' => $nav['limit'],
 			'OFFSET' => $nav['offset'] 
 		);
@@ -67,7 +67,7 @@ switch (_OP_) {
 			<table class=playsms-table-list>
 			<thead>
 			<tr>
-				<th width=45%>" . _('Username') . "</th>
+				<th width=45%>" . _('User') . "</th>
 				<th width=50%>" . _('Blocked IP address') . "</th>
 				<th width=5%><input type=checkbox onclick=CheckUncheckAll(document.fm_firewall_list)></th>
 			</tr>
