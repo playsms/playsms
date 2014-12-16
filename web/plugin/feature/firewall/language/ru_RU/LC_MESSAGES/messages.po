@@ -12,71 +12,45 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
-msgid "Action"
-msgstr "Действие"
-
-msgid "Add route"
-msgstr "Добавить маршрут"
-
-msgid "Are you sure ?"
-msgstr "Вы уверены?"
-
-msgid "Destination name"
-msgstr "Назначение"
-
-msgid "Edit route"
-msgstr "Редактировать маршрут"
-
-msgid "Fail to delete route"
-msgstr "Не удалось удалить маршрут"
-
-msgid "Fail to save route"
-msgstr "Не удалось сохранить маршрут"
-
-msgid "Maximum 8 digits numeric only"
+msgid "Add blocked IP addresses"
 msgstr ""
 
-msgid "No changes made!"
-msgstr "Нет изменений"
+msgid "Blocked IP address"
+msgstr ""
 
-msgid "Prefix"
-msgstr "Префикс"
+msgid "Delete"
+msgstr ""
 
-msgid "Route SMS outgoing"
-msgstr "Маршрутизация исходящих СМС"
-
-msgid "Route has been added"
-msgstr "Маршрут добавлен"
-
-msgid "Route has been deleted"
+#, fuzzy
+msgid "IP addreses has been deleted"
 msgstr "Маршрут удалён"
 
-msgid "Route has been saved"
-msgstr "Маршрут сохранён"
+msgid "IP address"
+msgstr ""
 
-msgid "Route outgoing SMS"
-msgstr "Маршрутизация исходящих СМС"
+msgid "IP addresses"
+msgstr ""
 
-msgid "SMSC"
-msgstr "SMSC"
+msgid "IP addresses have been blocked"
+msgstr ""
+
+msgid "Manage firewall"
+msgstr ""
+
+msgid "Multiple IP addresses must be comma seperated"
+msgstr ""
 
 msgid "Save"
 msgstr "Сохранить"
+
+msgid "Select"
+msgstr ""
+
+msgid "Select username"
+msgstr ""
 
 msgid "User"
 msgstr "Пользователь"
 
 msgid "You must fill all fields"
 msgstr "Необходимо заполнить все поля"
-
-msgid "You must fill all mandatory fields"
-msgstr "Необходимо заполнить обязательные поля"
-
-msgid "blocked"
-msgstr "заблокировано"
-
-msgid "destination"
-msgstr "назначение"
-
-msgid "prefix"
-msgstr "префикс"

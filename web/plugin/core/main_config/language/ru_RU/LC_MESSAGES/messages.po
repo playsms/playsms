@@ -81,8 +81,14 @@ msgstr ""
 "Оставьте пустым чтобы разрешить пользователям задавать собственное имя "
 "отправителя"
 
+msgid "Enable credit unicode SMS as normal SMS"
+msgstr ""
+
 msgid "Enable forgot password"
 msgstr "Разрешить восстановление пароля"
+
+msgid "Enable login brute force detection"
+msgstr ""
 
 msgid "Enable logo"
 msgstr "Разрешить логотип"
@@ -92,6 +98,9 @@ msgstr "Разрешить открытую регистрацию"
 
 msgid "Enhance privacy for subusers"
 msgstr "Повысить кофиденциальность дочерних пользователей"
+
+msgid "Fill with zero to disable limit"
+msgstr ""
 
 msgid "Forwarded email footer"
 msgstr "Подпись пересылаемого письма"
@@ -131,6 +140,9 @@ msgstr "Название основного сайта"
 
 msgid "Maximum SMS count"
 msgstr "Максимальное количество сегментов"
+
+msgid "Number of sent SMS per hour limit"
+msgstr ""
 
 msgid "Page content"
 msgstr "Текст страницы"

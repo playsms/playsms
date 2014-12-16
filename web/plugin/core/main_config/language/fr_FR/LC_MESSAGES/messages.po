@@ -81,8 +81,14 @@ msgstr ""
 "Sender ID vide par défaut pour permettre aux utilisateurs de définir leur "
 "propre sender ID"
 
+msgid "Enable credit unicode SMS as normal SMS"
+msgstr ""
+
 msgid "Enable forgot password"
 msgstr "Activer la récupération du mot de passe"
+
+msgid "Enable login brute force detection"
+msgstr ""
 
 msgid "Enable logo"
 msgstr "Activer le logo"
@@ -92,6 +98,9 @@ msgstr "Activer l'inscription publique"
 
 msgid "Enhance privacy for subusers"
 msgstr "Améliorer la confidentialité pour les sous-utilisateurs"
+
+msgid "Fill with zero to disable limit"
+msgstr ""
 
 msgid "Forwarded email footer"
 msgstr "Pied de page des emails transférés"
@@ -133,6 +142,9 @@ msgstr "Nom du site web principal"
 
 msgid "Maximum SMS count"
 msgstr "Nombre maximum de SMS"
+
+msgid "Number of sent SMS per hour limit"
+msgstr ""
 
 msgid "Page content"
 msgstr "Contenu de la page"

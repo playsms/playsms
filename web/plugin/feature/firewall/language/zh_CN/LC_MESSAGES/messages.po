@@ -5,80 +5,45 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Action"
-msgstr "行为"
+msgid "Add blocked IP addresses"
+msgstr ""
 
-#, fuzzy
-msgid "Add route"
-msgstr "增加等级"
+msgid "Blocked IP address"
+msgstr ""
 
-msgid "Are you sure ?"
+msgid "Delete"
 msgstr ""
 
 #, fuzzy
-msgid "Destination name"
-msgstr "目标"
-
-#, fuzzy
-msgid "Edit route"
-msgstr "编辑等级"
-
-#, fuzzy
-msgid "Fail to delete route"
-msgstr "删除等级失败"
-
-#, fuzzy
-msgid "Fail to save route"
-msgstr "保存等级失败"
-
-msgid "Maximum 8 digits numeric only"
-msgstr ""
-
-msgid "No changes made!"
-msgstr "没有做出改变"
-
-msgid "Prefix"
-msgstr "前缀"
-
-msgid "Route SMS outgoing"
-msgstr ""
-
-#, fuzzy
-msgid "Route has been added"
+msgid "IP addreses has been deleted"
 msgstr "等级已保存"
 
-#, fuzzy
-msgid "Route has been deleted"
-msgstr "等级已保存"
-
-#, fuzzy
-msgid "Route has been saved"
-msgstr "等级已保存"
-
-msgid "Route outgoing SMS"
+msgid "IP address"
 msgstr ""
 
-msgid "SMSC"
+msgid "IP addresses"
+msgstr ""
+
+msgid "IP addresses have been blocked"
+msgstr ""
+
+msgid "Manage firewall"
+msgstr ""
+
+msgid "Multiple IP addresses must be comma seperated"
 msgstr ""
 
 msgid "Save"
 msgstr "保存"
+
+msgid "Select"
+msgstr ""
+
+msgid "Select username"
+msgstr ""
 
 msgid "User"
 msgstr ""
 
 msgid "You must fill all fields"
 msgstr "你必须填满全部空白"
-
-#, fuzzy
-msgid "You must fill all mandatory fields"
-msgstr "你必须填满全部空白"
-
-msgid "blocked"
-msgstr ""
-
-msgid "destination"
-msgstr "目标"
-
-msgid "prefix"
-msgstr "前缀"

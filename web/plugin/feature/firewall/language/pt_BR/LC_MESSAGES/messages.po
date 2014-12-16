@@ -5,80 +5,45 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Action"
-msgstr "Ação"
+msgid "Add blocked IP addresses"
+msgstr ""
 
-#, fuzzy
-msgid "Add route"
-msgstr "Adicionar taxa"
+msgid "Blocked IP address"
+msgstr ""
 
-msgid "Are you sure ?"
+msgid "Delete"
 msgstr ""
 
 #, fuzzy
-msgid "Destination name"
-msgstr "Destino"
-
-#, fuzzy
-msgid "Edit route"
-msgstr "Editar taxa"
-
-#, fuzzy
-msgid "Fail to delete route"
-msgstr "Falha ao remover a taxa"
-
-#, fuzzy
-msgid "Fail to save route"
-msgstr "Falha ao salvar a taxa"
-
-msgid "Maximum 8 digits numeric only"
-msgstr ""
-
-msgid "No changes made!"
-msgstr "Nenhuma mudança feita!"
-
-msgid "Prefix"
-msgstr "Prefixo"
-
-msgid "Route SMS outgoing"
-msgstr ""
-
-#, fuzzy
-msgid "Route has been added"
+msgid "IP addreses has been deleted"
 msgstr "A taxa foi salva"
 
-#, fuzzy
-msgid "Route has been deleted"
-msgstr "A taxa foi salva"
-
-#, fuzzy
-msgid "Route has been saved"
-msgstr "A taxa foi salva"
-
-msgid "Route outgoing SMS"
+msgid "IP address"
 msgstr ""
 
-msgid "SMSC"
+msgid "IP addresses"
+msgstr ""
+
+msgid "IP addresses have been blocked"
+msgstr ""
+
+msgid "Manage firewall"
+msgstr ""
+
+msgid "Multiple IP addresses must be comma seperated"
 msgstr ""
 
 msgid "Save"
 msgstr "Salvar"
+
+msgid "Select"
+msgstr ""
+
+msgid "Select username"
+msgstr ""
 
 msgid "User"
 msgstr ""
 
 msgid "You must fill all fields"
 msgstr "Preencha todos os campos"
-
-#, fuzzy
-msgid "You must fill all mandatory fields"
-msgstr "Preencha todos os campos"
-
-msgid "blocked"
-msgstr ""
-
-msgid "destination"
-msgstr "destino"
-
-msgid "prefix"
-msgstr "prefixo"

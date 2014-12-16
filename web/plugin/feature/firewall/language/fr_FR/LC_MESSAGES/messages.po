@@ -6,76 +6,45 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language : fr_FR\n"
 
-msgid "Action"
-msgstr "Action"
+msgid "Add blocked IP addresses"
+msgstr ""
 
-msgid "Add route"
-msgstr "Ajouter une route"
+msgid "Blocked IP address"
+msgstr ""
 
-msgid "Are you sure ?"
+msgid "Delete"
 msgstr ""
 
 #, fuzzy
-msgid "Destination name"
-msgstr "Destination"
+msgid "IP addreses has been deleted"
+msgstr "la route a été sauvegardée"
 
-msgid "Edit route"
-msgstr "Éditer la route"
-
-msgid "Fail to delete route"
-msgstr "Échec de la suppression de la route"
-
-msgid "Fail to save route"
-msgstr "Échec de l'enregistrement de la route"
-
-msgid "Maximum 8 digits numeric only"
+msgid "IP address"
 msgstr ""
 
-msgid "No changes made!"
-msgstr "Aucune modification apportée!"
+msgid "IP addresses"
+msgstr ""
 
-msgid "Prefix"
-msgstr "Préfixe"
+msgid "IP addresses have been blocked"
+msgstr ""
 
-msgid "Route SMS outgoing"
-msgstr "Route SMS sortant"
+msgid "Manage firewall"
+msgstr ""
 
-#, fuzzy
-msgid "Route has been added"
-msgstr "la route a été sauvegardée"
-
-#, fuzzy
-msgid "Route has been deleted"
-msgstr "la route a été sauvegardée"
-
-#, fuzzy
-msgid "Route has been saved"
-msgstr "la route a été sauvegardée"
-
-msgid "Route outgoing SMS"
-msgstr "Route SMS sortant"
-
-msgid "SMSC"
+msgid "Multiple IP addresses must be comma seperated"
 msgstr ""
 
 msgid "Save"
 msgstr "Enregistrer"
+
+msgid "Select"
+msgstr ""
+
+msgid "Select username"
+msgstr ""
 
 msgid "User"
 msgstr ""
 
 msgid "You must fill all fields"
 msgstr "Vous devez saisir tous les champs"
-
-#, fuzzy
-msgid "You must fill all mandatory fields"
-msgstr "Vous devez saisir tous les champs"
-
-msgid "blocked"
-msgstr ""
-
-msgid "destination"
-msgstr "destination"
-
-msgid "prefix"
-msgstr "préfixe"

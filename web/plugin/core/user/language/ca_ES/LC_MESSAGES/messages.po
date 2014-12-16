@@ -140,6 +140,9 @@ msgstr ""
 msgid "Email address is mandatory"
 msgstr ""
 
+msgid "Enable credit unicode SMS as normal SMS"
+msgstr ""
+
 msgid "Enable webservices"
 msgstr ""
 

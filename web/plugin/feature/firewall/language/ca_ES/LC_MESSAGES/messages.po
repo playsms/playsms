@@ -13,80 +13,45 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.4\n"
 
-msgid "Action"
-msgstr "Acció"
+msgid "Add blocked IP addresses"
+msgstr ""
 
-#, fuzzy
-msgid "Add route"
-msgstr "Afegir tarifa"
+msgid "Blocked IP address"
+msgstr ""
 
-msgid "Are you sure ?"
+msgid "Delete"
 msgstr ""
 
 #, fuzzy
-msgid "Destination name"
-msgstr "Destí"
-
-#, fuzzy
-msgid "Edit route"
-msgstr "Editar tarifa"
-
-#, fuzzy
-msgid "Fail to delete route"
-msgstr "Error esborrant tarifa"
-
-#, fuzzy
-msgid "Fail to save route"
-msgstr "Error guardant tarifa"
-
-msgid "Maximum 8 digits numeric only"
-msgstr ""
-
-msgid "No changes made!"
-msgstr "No s'han fet canvis!"
-
-msgid "Prefix"
-msgstr "Prefix"
-
-msgid "Route SMS outgoing"
-msgstr ""
-
-#, fuzzy
-msgid "Route has been added"
+msgid "IP addreses has been deleted"
 msgstr "La tarifa s'ha guardat"
 
-#, fuzzy
-msgid "Route has been deleted"
-msgstr "La tarifa s'ha guardat"
-
-#, fuzzy
-msgid "Route has been saved"
-msgstr "La tarifa s'ha guardat"
-
-msgid "Route outgoing SMS"
+msgid "IP address"
 msgstr ""
 
-msgid "SMSC"
+msgid "IP addresses"
+msgstr ""
+
+msgid "IP addresses have been blocked"
+msgstr ""
+
+msgid "Manage firewall"
+msgstr ""
+
+msgid "Multiple IP addresses must be comma seperated"
 msgstr ""
 
 msgid "Save"
 msgstr "Guardar"
+
+msgid "Select"
+msgstr ""
+
+msgid "Select username"
+msgstr ""
 
 msgid "User"
 msgstr ""
 
 msgid "You must fill all fields"
 msgstr "Heu d'omplir tots els camps"
-
-#, fuzzy
-msgid "You must fill all mandatory fields"
-msgstr "Heu d'omplir tots els camps"
-
-msgid "blocked"
-msgstr ""
-
-msgid "destination"
-msgstr "destí"
-
-msgid "prefix"
-msgstr "prefix"

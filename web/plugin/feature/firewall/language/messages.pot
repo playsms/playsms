@@ -1,68 +1,41 @@
-msgid "Action"
+msgid "Add blocked IP addresses"
 msgstr ""
 
-msgid "Add route"
+msgid "Blocked IP address"
 msgstr ""
 
-msgid "Are you sure ?"
+msgid "Delete"
 msgstr ""
 
-msgid "Destination name"
+msgid "IP addreses has been deleted"
 msgstr ""
 
-msgid "Edit route"
+msgid "IP address"
 msgstr ""
 
-msgid "Fail to delete route"
+msgid "IP addresses"
 msgstr ""
 
-msgid "Fail to save route"
+msgid "IP addresses have been blocked"
 msgstr ""
 
-msgid "Maximum 8 digits numeric only"
+msgid "Manage firewall"
 msgstr ""
 
-msgid "No changes made!"
-msgstr ""
-
-msgid "Prefix"
-msgstr ""
-
-msgid "Route SMS outgoing"
-msgstr ""
-
-msgid "Route has been added"
-msgstr ""
-
-msgid "Route has been deleted"
-msgstr ""
-
-msgid "Route has been saved"
-msgstr ""
-
-msgid "Route outgoing SMS"
-msgstr ""
-
-msgid "SMSC"
+msgid "Multiple IP addresses must be comma seperated"
 msgstr ""
 
 msgid "Save"
+msgstr ""
+
+msgid "Select"
+msgstr ""
+
+msgid "Select username"
 msgstr ""
 
 msgid "User"
 msgstr ""
 
 msgid "You must fill all fields"
-msgstr ""
-
-msgid "You must fill all mandatory fields"
-msgstr ""
-
-msgid "blocked"
-msgstr ""
-
-msgid "destination"
-msgstr ""
-
-msgid "prefix"
 msgstr ""
