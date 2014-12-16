@@ -62,17 +62,25 @@ function simplerate_hook_rate_getbyprefix($sms_to) {
 }
 
 function simplerate_hook_rate_getcharges($sms_len, $unicode, $sms_to) {
-	global $core_config;
-
-	// get sms count
+	global $user_config;
+	
+	// default length per SMS
 	$length = ( $unicode ? 70 : 160 );
-	$count = 1;
-	if ($core_config['main']['sms_max_count'] > 1) {
-	        if ($sms_len > $length) {
-	                $count = ceil($sms_len / ($length - 7));
-	        }
+	
+	// connector pdu length
+	$minus = ( $unicode ? 3 : 7 );
+	
+	// count unicodes as normal SMS
+	if ($unicode && $user_config['opt']['enable_credit_unicode']) {
+		$length = 140;
 	}
-
+	
+	// get sms count
+	$count = 1;
+	if ($sms_len > $length) {		
+		$count = ceil($sms_len / ($length - $minus));
+	}
+	
 	// calculate charges
 	$rate = rate_getbyprefix($sms_to);
 	$charge = $count * $rate;
