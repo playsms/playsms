@@ -248,9 +248,15 @@ if (auth_isvalid()) {
 		// save login session information
 		user_session_set();
 	}
-
+	
+	// special setting to credit unicode SMS the same as normal SMS length
+	// for example: 2 unicode SMS (140 chars length) will be deducted as 1 credit just like a normal SMS (160 chars length)
 	$result = registry_search($user_config['uid'], 'core', 'user_config', 'enable_credit_unicode');
-	$user_config['opt']['enable_credit_unicode'] = $result['core']['user_config']['enable_credit_unicode'];
+	$user_config['opt']['enable_credit_unicode'] = (int) $result['core']['user_config']['enable_credit_unicode'];
+	if (!$user_config['opt']['enable_credit_unicode']) {
+		// global config overriden by user config
+		$user_config['opt']['enable_credit_unicode'] = (int) $core_config['main']['enable_credit_unicode'];
+	}
 }
 
 // override main config with site config for branding purposes distinguished by domain name
