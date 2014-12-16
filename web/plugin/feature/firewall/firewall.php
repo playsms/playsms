@@ -25,7 +25,7 @@ if (!auth_isadmin()) {
 switch (_OP_) {
 	case "firewall_list":
 		$search_category = array(
-			_('IP address') => 'ip_address' 
+			_('IP address') => 'ip_address'
 		);
 		$base_url = 'index.php?app=main&inc=feature_firewall&op=firewall_list';
 		$search = themes_search($search_category, $base_url);
@@ -67,7 +67,8 @@ switch (_OP_) {
 			<table class=playsms-table-list>
 			<thead>
 			<tr>
-				<th width=95%>" . _('Blocked IP address') . "</th>
+				<th width=45%>" . _('Username') . "</th>
+				<th width=50%>" . _('Blocked IP address') . "</th>
 				<th width=5%><input type=checkbox onclick=CheckUncheckAll(document.fm_firewall_list)></th>
 			</tr>
 			</thead>
@@ -77,6 +78,7 @@ switch (_OP_) {
 		$j = 0;
 		for ($j = 0; $j < count($list); $j++) {
 			$pid = $list[$j]['id'];
+			$username = user_uid2username($list[$j]['uid']);
 			$ip_address = $list[$j]['ip_address'];
 			$i--;
 			$c_i = "<a href=\"" . _u('index.php?app=main&inc=feature_firewall&op=firewall_edit&id=' . $pid) . "\">" . $i . ".</a>";
@@ -85,6 +87,7 @@ switch (_OP_) {
 			}
 			$content .= "
 				<tr>
+					<td>$username</td>
 					<td>$ip_address</td>
 					<td>
 						<input type=hidden name=itemid[" . $j . "] value=\"$pid\">
@@ -144,6 +147,10 @@ switch (_OP_) {
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
 			<tr>
+				<td class=label-sizer>" . _mandatory(_('Select username')) . "</td>
+				<td>".themes_select_users_single('add_uid')."</td>
+			</tr>
+			<tr>
 				<td class=label-sizer>" . _mandatory(_('IP addresses')) . "</td>
 				<td><textarea name='add_ip_address' required></textarea></td>
 			</tr>
@@ -155,11 +162,11 @@ switch (_OP_) {
 		break;
 	
 	case "firewall_add_yes":
-		if ($add_ip_address = $_POST['add_ip_address']) {
+		$add_uid = $_POST['add_uid'];
+		$add_ip_address = $_POST['add_ip_address'];
+		if ($add_uid && $add_ip_address) {
 			foreach (explode(',', str_replace(' ', '', $add_ip_address)) as $ip) {
-				if (!blacklist_ifipexists($ip)) {
-					blacklist_addip($ip);
-				}
+					blacklist_addip($add_uid, $ip);
 			}
 			$_SESSION['error_string'] = _('IP addresses have been blocked');
 		} else {
