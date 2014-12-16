@@ -104,6 +104,7 @@ function firewall_hook_blacklist_addip($label, $ip) {
 	if (!blacklist_ifipexists($label, $ip)) {
 		$new_ip = @dba_insert_id($db_query);
 		if ($new_ip) {
+			_log('add IP to blacklist ip:' . $new_ip . ' uid:' . $uid, 2, 'firewall_hook_blacklist_addip');
 			$ret = TRUE;
 		}
 	}
@@ -123,12 +124,14 @@ function firewall_hook_blacklist_addip($label, $ip) {
 function firewall_hook_blacklist_removeip($label, $ip) {
 	$ret = FALSE;
 	
+	$c_uid = user_username2uid($label);
 	$condition = array(
-		'uid' => user_username2uid($label),
+		'uid' => $c_uid,
 		'ip_address' => $ip 
 	);
 	$removed = dba_remove(_DB_PREF_ . '_featureFirewall', $condition);
 	if ($removed) {
+		_log('remove IP from blacklist ip:' . $ip . ' uid:' . $c_uid, 2, 'firewall_hook_blacklist_removeip');
 		$ret = TRUE;
 	}
 	
