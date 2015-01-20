@@ -101,15 +101,16 @@ function SmsTextCounter() {
 	return result;
 }
 
-function containsNonLatinCodepoints(s) {
-	return /[^\u0000-\u00ff]/.test(s);
+function isGSMAlphabet(text) {
+    var regexp = new RegExp("^[A-Za-z0-9 \\r\\n@£$¥èéùìòÇØøÅå\u0394_\u03A6\u0393\u039B\u03A9\u03A0\u03A8\u03A3\u0398\u039EÆæßÉ!\"#$%&'()*+,\\-./:;<=>?¡ÄÖÑÜ§¿äöñüà^{}\\\\\\[~\\]|\u20AC]*$");
+    return regexp.test(text);
 }
 
 function SmsSetCounter() {
 	var msg = document.fm_sendsms.message;
 	var ftr = document.fm_sendsms.msg_footer;
 	var msg_unicode = document.fm_sendsms.msg_unicode;
-	var detect = containsNonLatinCodepoints(msg.value + ftr.value);
+	var detect = !isGSMAlphabet(msg.value + ftr.value);
 	msg_unicode.checked = detect;
 	if (ftr.value.length > 0) {
 		document.forms.fm_sendsms.footerlen.value = ftr.value.length + 1;
