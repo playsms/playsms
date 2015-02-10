@@ -32,7 +32,7 @@ switch (_OP_) {
                 'Callback Secret' => _('Callback Secret'),
                 'Save' => _('Save'),
                 'HINT_FILL_KEY' => _hint(_('Fill to change the API key')),
-                'BUTTON_BACK' => _back('index.php?app=main&inc=feature_gatewaymanager&op=gatewaymanager_list'),
+                'BUTTON_BACK' => _back('index.php?app=main&inc=core_gateway&op=gateway_list'),
                 'status_active' => $status_active,
                 'telerivet_param_url' => $plugin_config['telerivet']['url'],
                 'telerivet_param_project_id' => $plugin_config['telerivet']['project_id'],
