@@ -7,18 +7,18 @@ include $core_config['apps_path']['plug']."/gateway/telerivet/config.php";
 $gw = core_gateway_get();
 
 if ($gw == $plugin_config['telerivet']['name']) {
-	$status_active = "<span class=status_active />";
+    $status_active = "<span class=status_active />";
 } else {
-	$status_active = "<span class=status_inactive />";
+    $status_active = "<span class=status_inactive />";
 }
 
 
 switch (_OP_) {
-	case "manage":
-		if ($err = $_SESSION['error_string'])
-		{
-			$content = "<div class=error_string>$err</div>";
-		}
+    case "manage":
+        if ($err = $_SESSION['error_string'])
+        {
+            $content = "<div class=error_string>$err</div>";
+        }
         $tpl = array(
             'name' => 'telerivet',
             'vars' => array(
@@ -43,31 +43,31 @@ switch (_OP_) {
             );
             _p(tpl_apply($tpl));
             break;
-	case "manage_save":
-		$up_url = $_POST['up_url'];
-		$up_project_id = $_POST['up_project_id'];
-		$up_api_key = $_POST['up_api_key'];
-		$up_status_url = $_POST['up_status_url'];
-		$up_status_secret = $_POST['up_status_secret'];
-		$_SESSION['error_string'] = _('No changes has been made');
-		if ($up_url && $up_project_id) {
+    case "manage_save":
+        $up_url = $_POST['up_url'];
+        $up_project_id = $_POST['up_project_id'];
+        $up_api_key = $_POST['up_api_key'];
+        $up_status_url = $_POST['up_status_url'];
+        $up_status_secret = $_POST['up_status_secret'];
+        $_SESSION['error_string'] = _('No changes has been made');
+        if ($up_url && $up_project_id) {
             if ($up_api_key) {
                  $api_key_change = "cfg_api_key='$up_api_key',";
             }
-			$db_query = "
+            $db_query = "
                 UPDATE "._DB_PREF_."_gatewayTelerivet_config 
                 SET c_timestamp='".mktime()."',
                 cfg_url='$up_url',
                 ".$api_key_change."
                 cfg_project_id='$up_project_id',
-				cfg_status_url='$up_status_url',
-				cfg_status_secret='$up_status_secret'";
-				_log('query:' . $db_query,2,'config telerivet');
-			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('Gateway module configurations has been saved');
-			}
-		}
-		header("Location: "._u('index.php?app=main&inc=gateway_telerivet&op=manage'));
-		exit();
-		break;
+                cfg_status_url='$up_status_url',
+                cfg_status_secret='$up_status_secret'";
+                _log('query:' . $db_query,2,'config telerivet');
+            if (@dba_affected_rows($db_query)) {
+                $_SESSION['error_string'] = _('Gateway module configurations has been saved');
+            }
+        }
+        header("Location: "._u('index.php?app=main&inc=gateway_telerivet&op=manage'));
+        exit();
+        break;
 }
