@@ -176,6 +176,7 @@ function sendsms_queue_update($queue_code, $updates) {
 
 function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0) {
 	global $core_config;
+	
 	if ($single_queue) {
 		$queue_sql = "AND queue_code='" . $single_queue . "'";
 		
@@ -215,6 +216,11 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 			$continue = TRUE;
 		}
 		
+		// check throttle limit (number of sent SMS per hour)
+		if (!sendsms_throttle_isoverlimit()) {
+			$continue = TRUE;
+		}
+		
 		// process queue
 		if ($continue) {
 			logger_print("start processing queue_code:" . $c_queue_code . " sms_count:" . $c_sms_count . " uid:" . $c_uid . " gpid:" . $c_gpid . " sender_id:" . $c_sender_id, 2, "sendsmsd");
@@ -236,6 +242,9 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 				if ($ret['status']) {
 					$c_ok = true;
 					$c_flag = 1;
+					
+					// add to throttle counter
+					sendsms_throttle_count($c_uid, 1);
 				}
 				logger_print("result queue_code:" . $c_queue_code . " to:" . $c_dst . " flag:" . $c_flag . " smslog_id:" . $c_smslog_id, 2, "sendsmsd");
 				$db_query3 = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst SET flag='$c_flag' WHERE id='$c_smslog_id'";
@@ -245,7 +254,13 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 				$smslog_id[] = $c_smslog_id;
 				$queue[] = $c_queue_code;
 				$counts[] = $c_sms_count;
+				
+				// check throttle limit (number of sent SMS per hour)
+				if (!sendsms_throttle_isoverlimit()) {
+					break;
+				}
 			}
+			
 			$db_query = "SELECT count(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id='$c_queue_id' AND NOT flag ='0'";
 			$db_result = dba_query($db_query);
 			$db_row = dba_fetch_array($db_result);
@@ -271,6 +286,7 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 			}
 		}
 	}
+	
 	return array(
 		$ok,
 		$to,
@@ -868,4 +884,62 @@ function sendsms_get_sms($smslog_id) {
 		$data = $db_row;
 	}
 	return $data;
+}
+
+/**
+ * Check send SMS throttle limit
+ *
+ * @param integer $limit
+ *        Number of SMS sent
+ * @param integer $period
+ *        Throttle period in minute (default is 60)
+ * @return boolean TRUE on overlimit
+ */
+function sendsms_throttle_isoverlimit($limit = 0, $period = 60) {
+	global $core_config;
+
+	$ret = FALSE;
+	
+	$limit = (int) $limit;
+	$limit = ($limit ? $limit : (int) $core_config['main']['sms_limit_per_hour']);
+	$period = (int) $period * 60;
+
+	// fixme
+	$ret = FALSE;	
+	
+	return $ret;
+}
+
+/**
+ * Counter for throttle limit
+ *
+ * @param integer $uid
+ *        User ID
+ * @param integer $count (default is 1)
+ *        Sent SMS
+ * @return boolean TRUE of successful counter
+ */
+function sendsms_throttle_count($uid, $count = 1) {
+	$ret = FALSE;
+	
+	// fixme
+	$ret = TRUE;
+	
+	return $ret;
+}
+
+/**
+ * Reset counter for throttle limit
+ *
+ * @param integer $uid
+ *        User ID
+ * @return boolean TRUE of successful reset
+ */
+function sendsms_throttle_reset($uid) {
+	$ret = FALSE;
+
+	// fixme
+	$ret = TRUE;
+	
+	return $ret;
 }
