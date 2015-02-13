@@ -61,7 +61,7 @@ function telerivet_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_m
         # Catch API errors
         if (isset($res['error'])) {
             _log('api error' . $res['error_message'],2,'telerivet_query');
-        dlr($smslog_id, $uid, 2);
+            dlr($smslog_id, $uid, 2);
         } else {
             _log('api success: id:' . $res['id'] . ' status:' . $res['status'] . ' source:' . $res['source'],2,'telerivet_query');
         }

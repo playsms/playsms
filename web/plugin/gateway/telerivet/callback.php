@@ -105,8 +105,11 @@ if ($_POST['event'] == 'incoming_message') {
     $c_service_id = $_POST['service_id'];
     $c_project_id = $_POST['project_id'];
 
+    # Convert timestamp to datetime
+    $c_time = date('Y-m-d H:i:s',$c_time_sent);
+
     logger_print("incoming smsc:" . $c_smsc . " message_id:" . $c_remote_slid . " s:" . $c_from_number . " d:" . $c_to_number, 2, "telerivet callback");
-    recvsms($c_time_created, $c_from_number, $c_content, $c_to_number, $c_smsc);
+    recvsms($c_time, $c_from_number, $c_content, $c_to_number, $c_smsc);
 
     # Clean buffers and exit
     ob_end_clean();
