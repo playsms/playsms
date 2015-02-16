@@ -498,3 +498,26 @@ CREATE TABLE `playsms_featureFirewall` (
   `ip_address` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `playsms_featurePhonebook`
+--
+ALTER TABLE `playsms_featurePhonebook`
+  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `uid_mobile` (`uid`,`mobile`);
+
+--
+-- Indexes for table `playsms_featurePhonebook_group`
+--
+ALTER TABLE `playsms_featurePhonebook_group`
+  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `uid_code_flag_sender` (`uid`,`code`,`flag_sender`);
+
+--
+-- Indexes for table `playsms_featurePhonebook_group_contacts`
+--
+ALTER TABLE `playsms_featurePhonebook_group_contacts`
+  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `gpid_pid` (`gpid`,`pid`);
