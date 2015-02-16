@@ -1718,19 +1718,19 @@ CREATE TABLE `playsms_featureFirewall` (
 -- Indexes for table `playsms_featurePhonebook`
 --
 ALTER TABLE `playsms_featurePhonebook`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `uid_mobile` (`uid`,`mobile`);
+  ADD UNIQUE KEY `uid_mobile` (`uid`,`mobile`);
 
 --
 -- Indexes for table `playsms_featurePhonebook_group`
 --
 ALTER TABLE `playsms_featurePhonebook_group`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `uid_code_flag_sender` (`uid`,`code`,`flag_sender`);
+  ADD UNIQUE KEY `uid_code_flag_sender` (`uid`,`code`,`flag_sender`);
 
 --
 -- Indexes for table `playsms_featurePhonebook_group_contacts`
 --
 ALTER TABLE `playsms_featurePhonebook_group_contacts`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `gpid_pid` (`gpid`,`pid`);
+  ADD UNIQUE KEY `gpid_pid` (`gpid`,`pid`);
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
