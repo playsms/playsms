@@ -359,6 +359,20 @@ function core_display_datetime($time, $tz = 0) {
 	return $ret;
 }
 
+/**
+ * Format text to proper date/time format
+ * @param string $text
+ * @return string
+ */
+function core_format_datetime($text) {
+	global $core_config;
+	
+	$ts = strtotime($text);
+	$ret = date($core_config['datetime']['format'], $ts);
+	
+	return $ret;
+}
+
 /*
  * Format and adjust date/time to GMT+0 for log or incoming SMS saving purposes
  * @param $time
