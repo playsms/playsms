@@ -15,6 +15,12 @@ function infobip_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_dat
 
 function infobip_hook_playsmsd() {
 	global $plugin_config;
+
+	// fetch every 60 seconds
+	if (!core_playsmsd_timer(60)) {
+		return;
+	}
+
 	if ($plugin_config['infobip']['dlr_nopush'] == '1') {
 		// force to check p_status=1 (sent) as getsmsstatus only check for p_status=0 (pending)
 		// $db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status=0 OR p_status=1";

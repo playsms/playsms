@@ -297,18 +297,19 @@ function report_banned_subuser() {
  */
 function report_hook_playsmsd() {
 	global $plugin_config;
-	$plugin_config['report']['current_tick'] = (int) strtotime(core_get_datetime());
-	$period = $plugin_config['report']['current_tick'] - $plugin_config['report']['last_tick'];
-	
-	// login session older than 1 hour will be removed
-	if ($period >= 60 * 60) {
-		$users = report_whoseonline(0, FALSE, TRUE);
-		foreach ($users as $user) {
-			foreach ($user as $hash) {
-				user_session_remove('', '', $hash['hash']);
-				_log('login session removed uid:' . $hash['uid'] . ' hash:' . $hash['hash'], 3, 'report_hook_playsmsd');
-			}
-		}
-		$plugin_config['report']['last_tick'] = $plugin_config['report']['current_tick'];
+
+	// fetch hourly
+	if (!core_playsmsd_timer(3600)) {
+		return;
 	}
+
+	// login session older than 1 hour will be removed
+	$users = report_whoseonline(0, FALSE, TRUE);
+	foreach ($users as $user) {
+		foreach ($user as $hash) {
+			user_session_remove('', '', $hash['hash']);
+			_log('login session removed uid:' . $hash['uid'] . ' hash:' . $hash['hash'], 3, 'report_hook_playsmsd');
+		}
+	}
+	$plugin_config['report']['last_tick'] = $plugin_config['report']['current_tick'];
 }
