@@ -2,7 +2,7 @@
 
 This document explains about playSMS webservices protocol.
 
-Minimum playSMS version **1.0-rc4**
+Minimum playSMS version **1.0-master**
 
 
 ## Access
@@ -42,6 +42,7 @@ last           | last SMS log ID (this number not included on result)
 c              | number of delivery status that will be retrieved
 kwd            | keyword
 login_key      | login key sets by admin through webservices call op=loginkeyset
+query          | query server for useful information
 
 Listed in the below table are webservices parameters for admin tasks.
 
@@ -250,7 +251,7 @@ Returns    | list of contact groups similar or the same as `kwd` or return codes
 
 ### Webservices login
 
-Authenticate user via webservices and redirect to index.php upon authentication, successful or failed or invalid.
+Authenticate user via webservices and redirect to index.php upon authentication, successful or failed or invalid
 
 Parameters | Name or description
 ---------- | ---------------------
@@ -260,6 +261,18 @@ Optional   | none
 Returns    | none, web redirect to index.php
 
 Parameter `login_key` is set by admin accounts through webservices call using operation `loginkeyset`
+
+
+### Query
+
+Query server for useful information such as user's data, user's credit, last smslog_id for inbox, incoming and outgoing SMS
+
+Parameters | Name or description
+---------- | ---------------------
+Operation  | `query`
+Mandatory  | `u` `h`
+Optional   | `format`
+Returns    | server's information
 
 
 ## Protocol for admin tasks

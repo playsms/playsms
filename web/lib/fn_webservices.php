@@ -386,6 +386,83 @@ function webservices_get_contact_group($c_uid, $name, $count) {
 	return $json;
 }
 
+function webservices_query($username) {
+	$user = user_getdatabyusername($username);
+	
+	// get user's data
+	$status = $user['status'];
+	$uid = $user['uid'];
+	$name = $user['name'];
+	$email = $user['email'];
+	$mobile = $user['mobile'];
+	
+	// get credit
+	$credit = rate_getusercredit($username);
+	$credit = ($credit ? $credit : '0');
+	
+	// get last id on user's inbox table
+	$fields = 'in_id';
+	$conditions = array(
+		'in_uid' => $uid,
+		'flag_deleted' => 0 
+	);
+	$extras = array(
+		'ORDER BY' => 'in_id DESC',
+		'LIMIT' => 1 
+	);
+	$list = dba_search(_DB_PREF_ . '_tblUser_inbox', $fields, $conditions, '', $extras);
+	$last_inbox_id = $list[0]['in_id'];
+	
+	// get last id on incoming table
+	$fields = 'in_id';
+	$conditions = array(
+		'in_uid' => $uid,
+		'flag_deleted' => 0,
+		'in_status' => 1 
+	);
+	$extras = array(
+		'ORDER BY' => 'in_id DESC',
+		'LIMIT' => 1 
+	);
+	$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', $fields, $conditions, '', $extras);
+	$last_incoming_id = $list[0]['in_id'];
+	
+	// get last id on outgoing table
+	$fields = 'smslog_id';
+	$conditions = array(
+		'uid' => $uid,
+		'flag_deleted' => 0 
+	);
+	$extras = array(
+		'ORDER BY' => 'smslog_id DESC',
+		'LIMIT' => 1 
+	);
+	$list = dba_search(_DB_PREF_ . '_tblSMSOutgoing', $fields, $conditions, '', $extras);
+	$last_outgoing_id = $list[0]['smslog_id'];
+	
+	// compile data
+	$data = array(
+		'user' => array(
+			'username' => $username,
+			'uid' => $uid,
+			'status' => $status,
+			'name' => $name,
+			'email' => $mobile,
+			'credit' => $credit 
+		),
+		'last_id' => array(
+			'user_inbox' => $last_inbox_id,
+			'user_incoming' => $last_incoming_id,
+			'user_outgoing' => $last_outgoing_id 
+		) 
+	);
+	$json['status'] = 'OK';
+	$json['error'] = '0';
+	$json['data'] = $data;
+	
+	return $json;
+}
+
 function webservices_output($operation, $requests) {
 	$operation = strtolower($operation);
 	$ret = core_hook($operation, 'webservices_output', array(

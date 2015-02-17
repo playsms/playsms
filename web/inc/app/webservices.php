@@ -56,6 +56,9 @@ $smslog_id = trim($_REQUEST['smslog_id']);
 // IN, GET_CONTACT, GET_CONTACT_GROUP
 $kwd = trim($_REQUEST['kwd']);
 
+// QUERY
+$query = trim($_REQUEST['query']);
+
 $log_this = FALSE;
 
 $ws_error_string = array(
@@ -553,6 +556,16 @@ if (_OP_) {
 			// redirect to index.php no matter what
 			header('Location: index.php');
 			exit();
+			break;
+		
+		case "QUERY":
+			if ($u = webservices_validate($h, $u)) {
+				$json = webservices_query($u);
+			} else {
+				$json['status'] = 'ERR';
+				$json['error'] = '100';
+			}
+			$log_this = TRUE;
 			break;
 		
 		default :
