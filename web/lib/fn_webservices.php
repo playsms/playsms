@@ -444,16 +444,16 @@ function webservices_query($username) {
 	$data = array(
 		'user' => array(
 			'username' => $username,
-			'uid' => $uid,
-			'status' => $status,
+			'uid' => (int) $uid,
+			'status' => (int) $status,
 			'name' => $name,
 			'email' => $mobile,
 			'credit' => $credit 
 		),
 		'last_id' => array(
-			'user_inbox' => $last_inbox_id,
-			'user_incoming' => $last_incoming_id,
-			'user_outgoing' => $last_outgoing_id 
+			'user_inbox' => (int) $last_inbox_id,
+			'user_incoming' => (int) $last_incoming_id,
+			'user_outgoing' => (int) $last_outgoing_id 
 		) 
 	);
 	$json['status'] = 'OK';
