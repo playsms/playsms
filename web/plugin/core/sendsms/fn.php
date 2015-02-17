@@ -256,7 +256,7 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 				$counts[] = $c_sms_count;
 				
 				// check throttle limit (number of sent SMS per hour)
-				if (!sendsms_throttle_isoverlimit()) {
+				if (sendsms_throttle_isoverlimit()) {
 					break;
 				}
 			}
