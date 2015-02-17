@@ -1714,23 +1714,15 @@ CREATE TABLE `playsms_featureFirewall` (
 -- Indexes for dumped tables
 --
 
---
--- Indexes for table `playsms_featurePhonebook`
---
-ALTER TABLE `playsms_featurePhonebook`
-  ADD INDEX `uid_mobile` (`uid`,`mobile`);
+ALTER TABLE `playsms_featurePhonebook` ADD INDEX ( `uid` ) ;
+ALTER TABLE `playsms_featurePhonebook` ADD INDEX ( `mobile` ) ;
 
---
--- Indexes for table `playsms_featurePhonebook_group`
---
-ALTER TABLE `playsms_featurePhonebook_group`
-  ADD INDEX `uid_code_flag_sender` (`uid`,`code`,`flag_sender`);
+ALTER TABLE `playsms_featurePhonebook_group` ADD INDEX ( `uid` ) ;
+ALTER TABLE `playsms_featurePhonebook_group` ADD INDEX ( `flag_sender` ) ;
+ALTER TABLE `playsms_featurePhonebook_group` ADD INDEX ( `code` ) ;
 
---
--- Indexes for table `playsms_featurePhonebook_group_contacts`
---
-ALTER TABLE `playsms_featurePhonebook_group_contacts`
-  ADD INDEX `gpid_pid` (`gpid`,`pid`);
+ALTER TABLE `playsms_featurePhonebook_group_contacts` ADD INDEX ( `gpid` ) ;
+ALTER TABLE `playsms_featurePhonebook_group_contacts` ADD INDEX ( `pid` ) ;
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
