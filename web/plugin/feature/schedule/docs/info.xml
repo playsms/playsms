@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+	<name>schedule</name>
+	<alias>SMS Schedule</alias>
+	<description>SMS Schedule</description>
+	<release>1.0</release>
+	<date>2015-02-14</date>
+	<author>Anton Raharja</author>
+	<language_file>1</language_file>
+	<sql_file>0</sql_file>
+	<php_file>1</php_file>
+</plugin>
