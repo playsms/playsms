@@ -44,7 +44,7 @@ switch (_OP_) {
 			);
 			$form_sub_title = "<h3>" . _('List of subusers') . "</h3>";
 			$disabled_on_subusers = 'disabled';
-			$parent_column_title = "<th width='15%'>" . _('Parent') . "</th>";
+			$parent_column_title = "<th width='12%'>" . _('Parent') . "</th>";
 		}
 
 		$search_var = array(
@@ -89,12 +89,13 @@ switch (_OP_) {
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>
-				<th width='15%'>" . _('Registered') . "</th>
+				<th width='14%'>" . _('Registered') . "</th>
 				" . $parent_column_title . "
-				<th width='15%'>" . _('Username') . "</th>
-				<th width='18%'>" . _('Name') . "</th>
-				<th width='15%'>" . _('Mobile') . "</th>
+				<th width='12%'>" . _('Username') . "</th>
+				<th width='14%'>" . _('Name') . "</th>
+				<th width='14%'>" . _('Mobile') . "</th>
 				<th width='10%'>" . _('Credit') . "</th>
+				<th width='12%'>" . _('ACL') . "</th>										
 				<th width='12%'>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
@@ -149,6 +150,7 @@ switch (_OP_) {
 					<td>" . $list[$i]['name'] . "</td>
 					<td>" . $list[$i]['mobile'] . "</td>
 					<td>" . rate_getusercredit($list[$i]['username']) . "</td>
+					<td>" . auth_acl_get($list[$i]['uid']) . "</td>
 					<td>" . $action . "</td>
 				</tr>";
 		}

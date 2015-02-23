@@ -191,12 +191,7 @@ switch (_OP_) {
 		
 		// get access control list
 		$c_option_acl = array_flip(auth_acl_getall());
-		$option_acl = auth_acl_getname($data['core']['user_config']['acl']);
-		if ($user_edited['status'] == 4) {
-			if ($user_config['uid'] == user_getparentbyuid($user_edited['uid'])) {
-				$option_acl = _select('up_acl', $c_option_acl, $data['core']['user_config']['acl']);
-			}
-		}
+		$option_acl = _input('text', '', auth_acl_getname($data['core']['user_config']['acl']), array('readonly'));
 		if (auth_isadmin()) {
 			$option_acl = _select('up_acl', $c_option_acl, $data['core']['user_config']['acl']);
 		}
@@ -294,8 +289,11 @@ switch (_OP_) {
 		
 		$items['enable_credit_unicode'] = (int) $_POST['edit_enable_credit_unicode'];
 		$items['acl'] = (int) $_POST['up_acl'];
-		if (auth_isadmin()) {
+		if ($user_edited['status'] == 2) {
 			$items['acl'] = 0;
+		}
+		if (! auth_isadmin()) {
+			unset($items['acl']);
 		}
 		registry_update($c_uid, 'core', 'user_config', $items);
 		
