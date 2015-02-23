@@ -1,3 +1,6 @@
+msgid "ACL"
+msgstr ""
+
 msgid "Access Control List"
 msgstr ""
 
