@@ -20,41 +20,67 @@ defined('_SECURE_') or die('Forbidden');
 
 function themes_apply($content) {
 	$ret = '';
+	
 	if (core_themes_get()) {
 		$ret = core_hook(core_themes_get(), 'themes_apply', array(
 			$content 
 		));
 	}
+	
+	if (!$ret) {
+		$ret = core_hook('common', 'themes_apply', array(
+			$content 
+		));
+	}
+	
 	return $ret;
 }
 
 function themes_submenu($content) {
 	$ret = '';
+	
 	if (core_themes_get()) {
 		$ret = core_hook(core_themes_get(), 'themes_submenu', array(
 			$content 
 		));
 	}
+	
+	if (!$ret) {
+		$ret = core_hook('common', 'themes_submenu', array(
+			$content 
+		));
+	}
+	
 	return $ret;
 }
 
 function themes_get_menu_tree($menus = '') {
 	global $menu_config;
+	
 	if ($menus) {
 		$menu_config = $menus;
 	}
-	$menu_tree = themes_buildmenu($menu_config);
-	return $menu_tree;
+	$ret = themes_buildmenu($menu_config);
+	
+	return $ret;
 }
 
 function themes_buildmenu($menu_config) {
-	$menu = '';
+	$ret = '';
+	
 	if (core_themes_get()) {
-		$menu = core_hook(core_themes_get(), 'themes_buildmenu', array(
+		$ret = core_hook(core_themes_get(), 'themes_buildmenu', array(
 			$menu_config 
 		));
 	}
-	return $menu;
+	
+	if (!$ret) {
+		$ret = core_hook('common', 'themes_buildmenu', array(
+			$menu_config 
+		));
+	}
+	
+	return $ret;
 }
 
 function themes_navbar($num, $nav, $max_nav, $url, $page) {
@@ -80,7 +106,8 @@ function themes_navbar($num, $nav, $max_nav, $url, $page) {
 }
 
 function themes_nav($count, $url = '') {
-	$ret = false;
+	$ret = FALSE;
+	
 	$lines_per_page = 20;
 	$max_nav = 5;
 	$num = ceil($count / $lines_per_page);
@@ -96,6 +123,7 @@ function themes_nav($count, $url = '') {
 		$ret['url'] = $url;
 	}
 	$_SESSION['tmp']['themes_nav'] = $ret;
+	
 	return $ret;
 }
 
@@ -105,6 +133,7 @@ function themes_nav_session() {
 
 function themes_search($search_category = array(), $url = '', $keyword_converter = array()) {
 	global $core_config;
+	
 	$ret['keyword'] = $_REQUEST['search_keyword'];
 	$ret['url'] = (trim($url) ? trim($url) : $_SERVER['REQUEST_URI']);
 	$ret['category'] = $_REQUEST['search_category'];
@@ -146,6 +175,7 @@ function themes_search($search_category = array(), $url = '', $keyword_converter
 		</form>";
 	$ret['form'] = $content;
 	$_SESSION['tmp']['themes_search'] = $ret;
+	
 	return $ret;
 }
 
@@ -157,11 +187,13 @@ function themes_button_back($url) {
 	global $core_config;
 	
 	$content = themes_button($url, _('Back'), 'button_back');
+	
 	return $content;
 }
 
 function themes_link($url, $title = '', $css_class = "", $css_id = "") {
 	$ret = '';
+	
 	if (core_themes_get()) {
 		$ret = core_hook(core_themes_get(), 'themes_link', array(
 			$url,
@@ -177,11 +209,13 @@ function themes_link($url, $title = '', $css_class = "", $css_id = "") {
 		$css_id = ($css_id ? " id=\"" . $css_id . "\"" : '');
 		$ret = "<a href=\"" . _u($url) . "\"" . $css_class . $css_id . ">" . $c_title . "</a>";
 	}
+	
 	return $ret;
 }
 
 function themes_url($url) {
 	$ret = '';
+	
 	if (core_themes_get()) {
 		$ret = core_hook(core_themes_get(), 'themes_url', array(
 			$url 
@@ -192,11 +226,13 @@ function themes_url($url) {
 		// we will do clean URL mod here when necessary
 		$ret = $url;
 	}
+	
 	return $ret;
 }
 
 function themes_button($url, $title, $css_class = '', $css_id = '') {
 	$ret = '';
+	
 	if (core_themes_get()) {
 		$ret = core_hook(core_themes_get(), 'themes_button', array(
 			$url,
@@ -205,43 +241,51 @@ function themes_button($url, $title, $css_class = '', $css_id = '') {
 			$css_id 
 		));
 	}
+	
 	if (!$ret) {
 		$css_class = ($css_class ? " " . $css_class : '');
 		$css_id = ($css_id ? " id=\"" . $css_id . "\"" : '');
 		$ret = "<a href=# class=\"button" . $css_class . "\" " . $css_id . "value=\"" . $title . "\" onClick=\"javascript:window.location.href='" . _u($url) . "'\" />" . $title . "</a>";
 	}
+	
 	return $ret;
 }
 
 function themes_hint($text) {
 	$ret = '';
+	
 	if (core_themes_get()) {
 		$ret = core_hook(core_themes_get(), 'themes_hint', array(
 			$text 
 		));
 	}
+	
 	if (!$ret) {
 		$ret = "<i class='glyphicon glyphicon-info-sign playsms-tooltip' data-toggle=tooltip title='" . $text . "' rel=tooltip></i>";
 	}
+	
 	return $ret;
 }
 
 function themes_mandatory($text) {
 	$ret = '';
+	
 	if (core_themes_get()) {
 		$ret = core_hook(core_themes_get(), 'themes_mandatory', array(
 			$text 
 		));
 	}
+	
 	if (!$ret) {
 		$ret = $text . " <i class='glyphicon glyphicon-exclamation-sign playsms-mandatory' data-toggle=tooltip title='" . _('This field is required') . "' rel=tooltip></i>";
 	}
+	
 	return $ret;
 }
 
 /**
  * Generate options for select HTML tag
- * 
+ *
  * @param array $options
  *        Select options
  * @param string $selected
@@ -250,12 +294,14 @@ function themes_mandatory($text) {
  */
 function themes_select_options($options = array(), $selected = '') {
 	$ret = '';
+	
 	if (core_themes_get()) {
 		$ret = core_hook(core_themes_get(), 'themes_select_options', array(
 			$options,
 			$selected 
 		));
 	}
+	
 	if (!$ret) {
 		foreach ($options as $key => $val) {
 			if (is_int($key)) {
@@ -265,12 +311,13 @@ function themes_select_options($options = array(), $selected = '') {
 			$ret .= '<option value="' . $val . '" ' . $c_selected . '>' . $key . '</option>';
 		}
 	}
+	
 	return $ret;
 }
 
 /**
  * Generate select HTML tag
- * 
+ *
  * @param string $name
  *        Tag name
  * @param array $options
@@ -293,12 +340,13 @@ function themes_select($name, $options = array(), $selected = '', $tag_params = 
 		}
 	}
 	$ret = '<select name="' . $name . '" id="' . $css_id . '" class="playsms-select ' . $css_class . '" ' . $params . '>' . $select_options . '</select>';
+	
 	return $ret;
 }
 
 /**
  * Generate select HTML tag for yes-no or enabled-disabled type of options
- * 
+ *
  * @param string $name
  *        Tag name
  * @param boolean $selected
@@ -322,12 +370,13 @@ function themes_select_yesno($name, $selected, $yes = '', $no = '', $tag_params 
 		$yes => 1,
 		$no => 0 
 	);
+	
 	return themes_select($name, $options, $selected, $tag_params, $css_id, $css_class);
 }
 
 /**
  * Display error string from function parameter or session
- * 
+ *
  * @param array $error_string
  *        Array of error strings (optional)
  * @return string HTML string of error strings
@@ -474,6 +523,7 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 
 function themes_select_users_multi($select_field_name, $selected_value = array(), $tag_params = array(), $css_id = '', $css_class = '') {
 	$ret = '';
+	
 	if (core_themes_get()) {
 		$ret = core_hook(core_themes_get(), 'themes_select_users_multi', array(
 			$select_field_name,
@@ -483,16 +533,18 @@ function themes_select_users_multi($select_field_name, $selected_value = array()
 			$css_class 
 		));
 	}
+	
 	if (!$ret) {
 		$tag_params['multiple'] = 'multiple';
 		$ret = themes_select_users_single($select_field_name . '[]', $selected_value, $tag_params, $css_id, $css_class);
-		return $ret;
 	}
+	
+	return $ret;
 }
 
 /**
  * Generate HTML input tag
- * 
+ *
  * @param string $type
  *        Input type
  * @param string $name
@@ -520,6 +572,7 @@ function themes_input($type = 'text', $name = '', $value = '', $tag_params = arr
 			$css_class 
 		));
 	}
+	
 	if (!$ret) {
 		if (is_array($tag_params)) {
 			foreach ($tag_params as $key => $val) {
