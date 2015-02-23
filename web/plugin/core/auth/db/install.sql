@@ -16,7 +16,7 @@ CREATE TABLE `playsms_tblAuth_acl` (
 --
 
 INSERT INTO `playsms_tblAuth_acl` (`c_timestamp`, `id`, `name`, `plugin`, `url`) VALUES
-(0, 1, 'Broadcast Users', '', 'inc=core_sendsms,inc=feature_report,inc=feature_msgtemplate,inc=feature_queuelog,inc=core_user&route=user_pref,inc=core_user&route=subuser_mgmnt,inc=feature_credit,inc=feature_report&route=user');
+(0, 1, 'Broadcast', '', 'inc=core_sendsms,\r\ninc=core_user,\r\ninc=feature_report,\r\ninc=feature_msgtemplate,\r\ninc=feature_queuelog,\r\ninc=feature_credit,\r\ninc=feature_report&route=user\r\n');
 
 --
 -- Indexes for dumped tables
@@ -37,3 +37,4 @@ ALTER TABLE `playsms_tblAuth_acl`
 --
 ALTER TABLE `playsms_tblAuth_acl`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  
