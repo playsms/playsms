@@ -10,20 +10,19 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
 
 function themes_apply($content) {
 	$ret = '';
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get() , 'themes_apply', array(
-			$content
+		$ret = core_hook(core_themes_get(), 'themes_apply', array(
+			$content 
 		));
 	}
 	return $ret;
@@ -32,8 +31,8 @@ function themes_apply($content) {
 function themes_submenu($content) {
 	$ret = '';
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get() , 'themes_submenu', array(
-			$content
+		$ret = core_hook(core_themes_get(), 'themes_submenu', array(
+			$content 
 		));
 	}
 	return $ret;
@@ -51,8 +50,8 @@ function themes_get_menu_tree($menus = '') {
 function themes_buildmenu($menu_config) {
 	$menu = '';
 	if (core_themes_get()) {
-		$menu = core_hook(core_themes_get() , 'themes_buildmenu', array(
-			$menu_config
+		$menu = core_hook(core_themes_get(), 'themes_buildmenu', array(
+			$menu_config 
 		));
 	}
 	return $menu;
@@ -64,7 +63,7 @@ function themes_navbar($num, $nav, $max_nav, $url, $page) {
 		$search_url = '&search_keyword=' . urlencode($search['keyword']);
 	}
 	if ($search['category']) {
-		$search_url.= '&search_category=' . urlencode($search['category']);
+		$search_url .= '&search_category=' . urlencode($search['category']);
 	}
 	$url = $url . $search_url;
 	$nav_pages = '';
@@ -74,7 +73,7 @@ function themes_navbar($num, $nav, $max_nav, $url, $page) {
 			$nav,
 			$max_nav,
 			$url,
-			$page
+			$page 
 		));
 	}
 	return $nav_pages;
@@ -104,7 +103,7 @@ function themes_nav_session() {
 	return $_SESSION['tmp']['themes_nav'];
 }
 
-function themes_search($search_category = array() , $url = '', $keyword_converter = array()) {
+function themes_search($search_category = array(), $url = '', $keyword_converter = array()) {
 	global $core_config;
 	$ret['keyword'] = $_REQUEST['search_keyword'];
 	$ret['url'] = (trim($url) ? trim($url) : $_SERVER['REQUEST_URI']);
@@ -122,11 +121,11 @@ function themes_search($search_category = array() , $url = '', $keyword_converte
 		
 		if ($selected = ($ret['category'] == $val ? 'selected' : '') && $c_keyword) {
 			$ret['dba_keywords'] = array(
-				$val => '%' . $c_keyword . '%'
+				$val => '%' . $c_keyword . '%' 
 			);
 		}
 		
-		$option_search_category.= "<option value=\"" . $val . "\" $selected>" . ucfirst($key) . "</option>";
+		$option_search_category .= "<option value=\"" . $val . "\" $selected>" . ucfirst($key) . "</option>";
 		
 		if ($c_keyword) {
 			$tmp_dba_keywords[$val] = '%' . $c_keyword . '%';
@@ -157,18 +156,18 @@ function themes_search_session() {
 function themes_button_back($url) {
 	global $core_config;
 	
-	$content = themes_button($url, _('Back') , 'button_back');
+	$content = themes_button($url, _('Back'), 'button_back');
 	return $content;
 }
 
 function themes_link($url, $title = '', $css_class = "", $css_id = "") {
 	$ret = '';
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get() , 'themes_link', array(
+		$ret = core_hook(core_themes_get(), 'themes_link', array(
 			$url,
 			$title,
 			$css_class,
-			$css_id
+			$css_id 
 		));
 	}
 	if (!$ret) {
@@ -184,8 +183,8 @@ function themes_link($url, $title = '', $css_class = "", $css_id = "") {
 function themes_url($url) {
 	$ret = '';
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get() , 'themes_url', array(
-			$url
+		$ret = core_hook(core_themes_get(), 'themes_url', array(
+			$url 
 		));
 	}
 	if (!$ret) {
@@ -199,11 +198,11 @@ function themes_url($url) {
 function themes_button($url, $title, $css_class = '', $css_id = '') {
 	$ret = '';
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get() , 'themes_button', array(
+		$ret = core_hook(core_themes_get(), 'themes_button', array(
 			$url,
 			$title,
 			$css_class,
-			$css_id
+			$css_id 
 		));
 	}
 	if (!$ret) {
@@ -217,8 +216,8 @@ function themes_button($url, $title, $css_class = '', $css_id = '') {
 function themes_hint($text) {
 	$ret = '';
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get() , 'themes_hint', array(
-			$text
+		$ret = core_hook(core_themes_get(), 'themes_hint', array(
+			$text 
 		));
 	}
 	if (!$ret) {
@@ -230,8 +229,8 @@ function themes_hint($text) {
 function themes_mandatory($text) {
 	$ret = '';
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get() , 'themes_mandatory', array(
-			$text
+		$ret = core_hook(core_themes_get(), 'themes_mandatory', array(
+			$text 
 		));
 	}
 	if (!$ret) {
@@ -242,16 +241,19 @@ function themes_mandatory($text) {
 
 /**
  * Generate options for select HTML tag
- * @param  array  $options  Select options
- * @param  string $selected Selected option
- * @return string           Options for select HTML tag
+ * 
+ * @param array $options
+ *        Select options
+ * @param string $selected
+ *        Selected option
+ * @return string Options for select HTML tag
  */
-function themes_select_options($options = array() , $selected = '') {
+function themes_select_options($options = array(), $selected = '') {
 	$ret = '';
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get() , 'themes_select_options', array(
+		$ret = core_hook(core_themes_get(), 'themes_select_options', array(
 			$options,
-			$selected,
+			$selected 
 		));
 	}
 	if (!$ret) {
@@ -260,7 +262,7 @@ function themes_select_options($options = array() , $selected = '') {
 				$key = $val;
 			}
 			$c_selected = ($val == $selected ? 'selected' : '');
-			$ret.= '<option value="' . $val . '" ' . $c_selected . '>' . $key . '</option>';
+			$ret .= '<option value="' . $val . '" ' . $c_selected . '>' . $key . '</option>';
 		}
 	}
 	return $ret;
@@ -268,19 +270,26 @@ function themes_select_options($options = array() , $selected = '') {
 
 /**
  * Generate select HTML tag
- * @param  string $name     Tag name
- * @param  array  $options  Select options
- * @param  string $selected Selected option
- * @param  array  $tag_params  Additional input tag parameters
- * @param  string $css_id      CSS ID
- * @param  string $css_class   CSS class name
- * @return string           Select HTML tag
+ * 
+ * @param string $name
+ *        Tag name
+ * @param array $options
+ *        Select options
+ * @param string $selected
+ *        Selected option
+ * @param array $tag_params
+ *        Additional input tag parameters
+ * @param string $css_id
+ *        CSS ID
+ * @param string $css_class
+ *        CSS class name
+ * @return string Select HTML tag
  */
-function themes_select($name, $options = array() , $selected = '', $tag_params = array() , $css_id = '', $css_class = '') {
+function themes_select($name, $options = array(), $selected = '', $tag_params = array(), $css_id = '', $css_class = '') {
 	$select_options = themes_select_options($options, $selected);
 	if (is_array($tag_params)) {
 		foreach ($tag_params as $key => $val) {
-			$params.= ' ' . $key . '="' . $val . '"';
+			$params .= ' ' . $key . '="' . $val . '"';
 		}
 	}
 	$ret = '<select name="' . $name . '" id="' . $css_id . '" class="playsms-select ' . $css_class . '" ' . $params . '>' . $select_options . '</select>';
@@ -289,28 +298,38 @@ function themes_select($name, $options = array() , $selected = '', $tag_params =
 
 /**
  * Generate select HTML tag for yes-no or enabled-disabled type of options
- * @param  string  $name     Tag name
- * @param  boolean $selected TRUE if yes/enabled
- * @param  string  $yes      'Yes' or 'Enabled' option
- * @param  string  $no       'No' or 'Disabled' option
- * @param  array  $tag_params  Additional input tag parameters
- * @param  string $css_id      CSS ID
- * @param  string $css_class   CSS class name
- * @return string            Select HTML tag
+ * 
+ * @param string $name
+ *        Tag name
+ * @param boolean $selected
+ *        TRUE if yes/enabled
+ * @param string $yes
+ *        'Yes' or 'Enabled' option
+ * @param string $no
+ *        'No' or 'Disabled' option
+ * @param array $tag_params
+ *        Additional input tag parameters
+ * @param string $css_id
+ *        CSS ID
+ * @param string $css_class
+ *        CSS class name
+ * @return string Select HTML tag
  */
-function themes_select_yesno($name, $selected, $yes = '', $no = '', $tag_params = array() , $css_id = '', $css_class = '') {
+function themes_select_yesno($name, $selected, $yes = '', $no = '', $tag_params = array(), $css_id = '', $css_class = '') {
 	$yes = ($yes ? $yes : _('yes'));
 	$no = ($no ? $no : _('no'));
 	$options = array(
 		$yes => 1,
-		$no => 0,
+		$no => 0 
 	);
 	return themes_select($name, $options, $selected, $tag_params, $css_id, $css_class);
 }
 
 /**
  * Display error string from function parameter or session
- * @param  array $error_string Array of error strings (optional)
+ * 
+ * @param array $error_string
+ *        Array of error strings (optional)
  * @return string HTML string of error strings
  */
 function themes_display_error_string($error_string = array()) {
@@ -322,13 +341,13 @@ function themes_display_error_string($error_string = array()) {
 	
 	if (!is_array($errors)) {
 		$errors = array(
-			$errors
+			$errors 
 		);
 	}
 	
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get() , 'themes_display_error_string', array(
-			$errors,
+		$ret = core_hook(core_themes_get(), 'themes_display_error_string', array(
+			$errors 
 		));
 	}
 	
@@ -336,7 +355,7 @@ function themes_display_error_string($error_string = array()) {
 		if (count($errors) > 0) {
 			foreach ($errors as $err) {
 				if (trim($err)) {
-					$ret.= '<div class=error_string>' . trim($err) . '</div>';
+					$ret .= '<div class=error_string>' . trim($err) . '</div>';
 				}
 			}
 		}
@@ -345,24 +364,24 @@ function themes_display_error_string($error_string = array()) {
 	return $ret;
 }
 
-function themes_select_users_single($select_field_name, $selected_value = '', $tag_params = array() , $css_id = '', $css_class = '') {
+function themes_select_users_single($select_field_name, $selected_value = '', $tag_params = array(), $css_id = '', $css_class = '') {
 	global $user_config;
 	
 	$ret = '';
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get() , 'themes_select_users_single', array(
+		$ret = core_hook(core_themes_get(), 'themes_select_users_single', array(
 			$select_field_name,
 			$selected_value,
 			$tag_params,
 			$css_id,
-			$css_class,
+			$css_class 
 		));
 	}
 	if (!$ret) {
 		
 		if (!is_array($selected_value)) {
 			$selected_value = array(
-				$selected_value
+				$selected_value 
 			);
 		}
 		
@@ -372,9 +391,9 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 		}
 		$subusers = user_getsubuserbyuid($user_config['uid']);
 		
-		$option_user.= '<option value="0">' . _('Select users') . '</option>';
+		$option_user .= '<option value="0">' . _('Select users') . '</option>';
 		if (count($admins) > 0) {
-			$option_user.= '<optgroup label="' . _('Administrators') . '">';
+			$option_user .= '<optgroup label="' . _('Administrators') . '">';
 			
 			foreach ($admins as $admin) {
 				$selected = '';
@@ -384,14 +403,14 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 						break;
 					}
 				}
-				$option_user.= '<option value="' . $admin['uid'] . '" ' . $selected . '>' . $admin['name'] . ' (' . $admin['username'] . ') - ' . _('Administrator') . '</option>';
+				$option_user .= '<option value="' . $admin['uid'] . '" ' . $selected . '>' . $admin['name'] . ' (' . $admin['username'] . ') - ' . _('Administrator') . '</option>';
 			}
-			$option_user.= '</optgroup>';
+			$option_user .= '</optgroup>';
 		}
 		
 		if (count($users) > 0) {
 			
-			$option_user.= '<optgroup label="' . _('Users') . '">';
+			$option_user .= '<optgroup label="' . _('Users') . '">';
 			
 			foreach ($users as $user) {
 				$selected = '';
@@ -401,14 +420,14 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 						break;
 					}
 				}
-				$option_user.= '<option value="' . $user['uid'] . '" ' . $selected . '>' . $user['name'] . ' (' . $user['username'] . ') - ' . _('User') . '</option>';
+				$option_user .= '<option value="' . $user['uid'] . '" ' . $selected . '>' . $user['name'] . ' (' . $user['username'] . ') - ' . _('User') . '</option>';
 			}
-			$option_user.= '</optgroup>';
+			$option_user .= '</optgroup>';
 		}
 		
 		if (count($subusers) > 0) {
 			
-			$option_user.= '<optgroup label="' . _('Subusers') . '">';
+			$option_user .= '<optgroup label="' . _('Subusers') . '">';
 			
 			foreach ($subusers as $subuser) {
 				$selected = '';
@@ -418,16 +437,16 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 						break;
 					}
 				}
-				$option_user.= '<option value="' . $subuser['uid'] . '"' . $selected . '>' . $subuser['name'] . ' (' . $subuser['username'] . ') - ' . _('Subuser') . '</option>';
+				$option_user .= '<option value="' . $subuser['uid'] . '"' . $selected . '>' . $subuser['name'] . ' (' . $subuser['username'] . ') - ' . _('Subuser') . '</option>';
 			}
-			$option_user.= '</optgroup>';
+			$option_user .= '</optgroup>';
 		}
 		
 		$css_id = (trim($css_id) ? trim($css_id) : 'playsms-select-users-single-' . core_sanitize_alphanumeric($select_field_name));
 		
 		if (is_array($tag_params)) {
 			foreach ($tag_params as $key => $val) {
-				$params.= ' ' . $key . '="' . $val . '"';
+				$params .= ' ' . $key . '="' . $val . '"';
 			}
 		}
 		
@@ -453,15 +472,15 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 	}
 }
 
-function themes_select_users_multi($select_field_name, $selected_value = array() , $tag_params = array() , $css_id = '', $css_class = '') {
+function themes_select_users_multi($select_field_name, $selected_value = array(), $tag_params = array(), $css_id = '', $css_class = '') {
 	$ret = '';
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get() , 'themes_select_users_multi', array(
+		$ret = core_hook(core_themes_get(), 'themes_select_users_multi', array(
 			$select_field_name,
 			$selected_value,
 			$tag_params,
 			$css_id,
-			$css_class,
+			$css_class 
 		));
 	}
 	if (!$ret) {
@@ -473,33 +492,45 @@ function themes_select_users_multi($select_field_name, $selected_value = array()
 
 /**
  * Generate HTML input tag
- * @param  string $type        Input type
- * @param  string $name        Input name
- * @param  string $value       Input default value
- * @param  array  $tag_params  Additional input tag parameters
- * @param  string $css_id      CSS ID
- * @param  string $css_class   CSS class name
- * @return string              HTML input tag
+ * 
+ * @param string $type
+ *        Input type
+ * @param string $name
+ *        Input name
+ * @param string $value
+ *        Input default value
+ * @param array $tag_params
+ *        Additional input tag parameters
+ * @param string $css_id
+ *        CSS ID
+ * @param string $css_class
+ *        CSS class name
+ * @return string HTML input tag
  */
-function themes_input($type = 'text', $name = '', $value = '', $tag_params = array() , $css_id = '', $css_class = '') {
+function themes_input($type = 'text', $name = '', $value = '', $tag_params = array(), $css_id = '', $css_class = '') {
 	$ret = '';
 	
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get() , 'themes_input', array(
+		$ret = core_hook(core_themes_get(), 'themes_input', array(
 			$type,
 			$name,
 			$value,
 			$tag_params,
 			$css_id,
-			$css_class,
+			$css_class 
 		));
 	}
-	
 	if (!$ret) {
 		if (is_array($tag_params)) {
 			foreach ($tag_params as $key => $val) {
-				$params.= ' ' . $key . '="' . $val . '"';
+				if (is_numeric($key)) {
+					$params .= ' ' . $val;
+				} else {
+					$params .= ' ' . $key . '="' . $val . '"';
+				}
 			}
+		} else {
+			$params = $tag_params;
 		}
 		$ret = '<input type="' . $type . '" name="' . $name . '" value="' . $value . '" id="' . $css_id . '" class="playsms-input ' . $css_class . '" ' . $params . '>';
 	}
