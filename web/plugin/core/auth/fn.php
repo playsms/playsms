@@ -316,9 +316,16 @@ function auth_acl_getname($acl) {
 	return $ret;
 }
 
-function auth_acl_get($uid) {
+function auth_acl_uid2name($uid) {
 	$data = registry_search($uid, 'core', 'user_config');
 	$ret = auth_acl_getname($data['core']['user_config']['acl']);
+	
+	return $ret;
+}
+
+function auth_acl_uid2id($uid) {
+	$data = registry_search($uid, 'core', 'user_config');
+	$ret = (int) $data['core']['user_config']['acl'];
 	
 	return $ret;
 }
