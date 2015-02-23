@@ -5,6 +5,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Access Control List"
+msgstr ""
+
 msgid "Account admin or currently logged in administrator cannot be banned"
 msgstr ""
 
@@ -203,6 +206,9 @@ msgstr ""
 msgid "No changes made"
 msgstr ""
 
+msgid "None"
+msgstr ""
+
 msgid "Parent"
 msgstr ""
 
@@ -263,9 +269,6 @@ msgid "SMS footer"
 msgstr ""
 
 msgid "Save"
-msgstr ""
-
-msgid "Select default sender ID"
 msgstr ""
 
 msgid "Select parent account for subuser"

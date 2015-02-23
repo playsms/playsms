@@ -5,6 +5,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Access Control List"
+msgstr ""
+
 #, fuzzy
 msgid "Account admin or currently logged in administrator cannot be banned"
 msgstr ""
@@ -225,6 +228,9 @@ msgstr "Inscription d'un nouveau compte"
 msgid "No changes made"
 msgstr "Aucun changement apporté"
 
+msgid "None"
+msgstr "Veuillez sélectionner le sender ID par défaut"
+
 msgid "Parent"
 msgstr "Parent"
 
@@ -295,9 +301,6 @@ msgstr "Pied de page SMS"
 
 msgid "Save"
 msgstr "Enregistrer"
-
-msgid "Select default sender ID"
-msgstr "Veuillez sélectionner le sender ID par défaut"
 
 #, fuzzy
 msgid "Select parent account for subuser"

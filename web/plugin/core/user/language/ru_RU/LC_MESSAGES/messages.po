@@ -12,6 +12,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
+msgid "Access Control List"
+msgstr ""
+
 msgid "Account admin or currently logged in administrator cannot be banned"
 msgstr ""
 "Пользователь admin или вошедший в систему администратор не может быть "
@@ -216,6 +219,9 @@ msgstr "Регистрация нового пользователя"
 msgid "No changes made"
 msgstr "Нет изменений"
 
+msgid "None"
+msgstr "Выберите имя отправителя по умолчанию"
+
 msgid "Parent"
 msgstr "Родительский"
 
@@ -281,9 +287,6 @@ msgstr "Подпись сообщения"
 
 msgid "Save"
 msgstr "Сохранить"
-
-msgid "Select default sender ID"
-msgstr "Выберите имя отправителя по умолчанию"
 
 msgid "Select parent account for subuser"
 msgstr "выберите родительского пользователя для дочернего"
