@@ -59,8 +59,6 @@ function default_hook_themes_buildmenu($menu_config) {
 	
 	$main_menu = "";
 	foreach ($menu_config as $menu_title => $array_menu) {
-		$main_menu.= "<li class='dropdown'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $menu_title . " <b class='caret'></b></a>";
-		$main_menu.= "<ul class='dropdown-menu'>";
 		foreach ($array_menu as $sub_menu) {
 			$sub_menu_url = $sub_menu[0];
 			$sub_menu_title = $sub_menu[1];
@@ -72,18 +70,25 @@ function default_hook_themes_buildmenu($menu_config) {
 			}  else if ($sub_menu_url == '#') {
 				$m[$sub_menu_index . '.' . $sub_menu_title] = "<li>" . $sub_menu_title . "</li>";
 			} else if ($sub_menu_url && $sub_menu_title) {
-				$m[$sub_menu_index . '.' . $sub_menu_title] = "<li><a href='" . _u($sub_menu_url) . "'>" . $sub_menu_title . "</a></li>";
+				if (auth_acl_checkurl($sub_menu_url)) {
+					$m[$sub_menu_index . '.' . $sub_menu_title] = "<li><a href='" . _u($sub_menu_url) . "'>" . $sub_menu_title . "</a></li>";
+				}
 			}
 		}
 		
-		ksort($m);
-		foreach ($m as $mm) {
-			$main_menu.= $mm;
-		}
-		unset($m);
+		if (count($m)) {
+			$main_menu.= "<li class='dropdown'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $menu_title . " <b class='caret'></b></a>";
+			$main_menu.= "<ul class='dropdown-menu'>";
 		
-		$main_menu.= "</ul>";
-		$main_menu.= "</li>";
+			ksort($m);
+			foreach ($m as $mm) {
+				$main_menu.= $mm;
+			}
+			unset($m);
+		
+			$main_menu.= "</ul>";
+			$main_menu.= "</li>";
+		}
 	}
 	
 	$content = "
