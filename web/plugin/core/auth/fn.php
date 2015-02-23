@@ -22,9 +22,9 @@ defined('_SECURE_') or die('Forbidden');
  * Validate username and password
  *
  * @param string $username
- *        	Username
+ *        Username
  * @param string $password
- *        	Password
+ *        Password
  * @return boolean TRUE when validated or boolean FALSE when validation failed
  */
 function auth_validate_login($username, $password) {
@@ -36,7 +36,7 @@ function auth_validate_login($username, $password) {
 		_log('IP blacklisted u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'auth_validate_login');
 		return FALSE;
 	}
-
+	
 	if (user_banned_get($uid)) {
 		_log('user banned u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'auth_validate_login');
 		return FALSE;
@@ -61,10 +61,10 @@ function auth_validate_login($username, $password) {
 			if (!registry_remove(1, 'auth', 'tmp_password', $username)) {
 				_log('WARNING: unable to remove temporary password after successful login', 3, 'login');
 			}
-		
+			
 			// remove IP on successful login
 			blacklist_clearip($username, $_SERVER['REMOTE_ADDR']);
-		
+			
 			return true;
 		}
 	}
@@ -80,9 +80,9 @@ function auth_validate_login($username, $password) {
  * Validate email and password
  *
  * @param string $email
- *        	Username
+ *        Username
  * @param string $password
- *        	Password
+ *        Password
  * @return boolean TRUE when validated or boolean FALSE when validation failed
  */
 function auth_validate_email($email, $password) {
@@ -95,7 +95,7 @@ function auth_validate_email($email, $password) {
  * Validate token
  *
  * @param string $token
- *        	Token
+ *        Token
  * @return string User ID when validated or boolean FALSE when validation failed
  */
 function auth_validate_token($token) {
@@ -124,10 +124,10 @@ function auth_validate_token($token) {
 							return FALSE;
 						}
 						_log('valid login u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'auth_validate_token');
-		
+						
 						// remove IP on successful login
 						blacklist_clearip($username, $_SERVER['REMOTE_ADDR']);
-		
+						
 						return $uid;
 					}
 				}
@@ -203,7 +203,7 @@ function auth_issubuser() {
  * Check if visitor has certain user status
  *
  * @param string $status
- *        	Account status
+ *        Account status
  * @return boolean TRUE if valid and visitor has certain user status
  */
 function auth_isstatus($status) {
@@ -227,7 +227,7 @@ function auth_block() {
  * Setup user session
  *
  * @param string $username
- *        	Username
+ *        Username
  */
 function auth_session_setup($uid) {
 	global $core_config;
@@ -280,15 +280,45 @@ function auth_login_as_check() {
 
 function auth_acl_getall() {
 	$ret = array(
-		'0' => _('Default ACL')
+		'0' => _('Default ACL') 
 	);
+	
+	$extras = array(
+		'ORDER BY' => 'name' 
+	);
+	$list = dba_search(_DB_PREF_ . '_tblAuth_acl', '*', '', '', $extras);
+	foreach ($list as $item) {
+		if ($item['id'] && $item['name']) {
+			$ret[$item['id']] = $item['name'];
+		}
+	}
 	
 	return $ret;
 }
 
-function auth_acl_getname($acl_id) {
-	$acls = auth_acl_getall();
-	$ret = $acls[$acl_id];
+function auth_acl_getdata($acl) {
+	$conditions = array(
+		'id' => (int) $acl 
+	);
+	$list = dba_search(_DB_PREF_ . '_tblAuth_acl', '*', $conditions);
+	$ret = $list[0];
+	
+	return $ret;
+}
+
+function auth_acl_getname($acl) {
+	$conditions = array(
+		'id' => (int) $acl 
+	);
+	$list = dba_search(_DB_PREF_ . '_tblAuth_acl', 'name', $conditions);
+	$ret = (trim($list[0]['name']) ? trim($list[0]['name']) : _('Default ACL'));
+	
+	return $ret;
+}
+
+function auth_acl_get($uid) {
+	$data = registry_search($uid, 'core', 'user_config');
+	$ret = auth_acl_getname($data['core']['user_config']['acl']);
 	
 	return $ret;
 }
