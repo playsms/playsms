@@ -277,3 +277,18 @@ function auth_login_as_check() {
 		return FALSE;
 	}
 }
+
+function auth_acl_getall() {
+	$ret = array(
+		'0' => _('Default ACL')
+	);
+	
+	return $ret;
+}
+
+function auth_acl_getname($acl_id) {
+	$acls = auth_acl_getall();
+	$ret = $acls[$acl_id];
+	
+	return $ret;
+}

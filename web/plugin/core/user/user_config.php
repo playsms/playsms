@@ -160,6 +160,7 @@ switch (_OP_) {
 			// fixme anton - now disabled since plugin/feature/credit exists
 			// $option_credit = "<tr><td>" . _('Credit') . "</td><td><input type=text maxlength=14 name=up_credit value=\"$credit\"></td></tr>";
 			
+
 			if ($is_parent) {
 				$button_delete = "<input type=button class=button value='" . _('Delete') . "' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete subuser ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_del" . $url_uname . "')\">";
 				$button_back = _back('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list');
@@ -173,19 +174,33 @@ switch (_OP_) {
 			// fixme anton - now disabled since plugin/feature/credit exists
 			// $option_credit = "<tr><td>" . _('Credit') . "</td><td>$credit</td></tr>";
 		}
-
-		// option_enable_credit_unicode
+		
+		// additional user's config available on registry
 		$data = registry_search($c_uid, 'core', 'user_config');
+		
+		// credit unicodes messages as single message
 		$option_enable_credit_unicode = _options(array(
 			_('yes') => 1,
-			_('no') => 0,
-		) , $data['core']['user_config']['enable_credit_unicode']);
-		if(auth_isadmin()){
-			$option_enable_credit_unicode = "<select name='edit_enable_credit_unicode'>".$option_enable_credit_unicode."</select>";
-		}else{
+			_('no') => 0 
+		), $data['core']['user_config']['enable_credit_unicode']);
+		if (auth_isadmin()) {
+			$option_enable_credit_unicode = "<select name='edit_enable_credit_unicode'>" . $option_enable_credit_unicode . "</select>";
+		} else {
 			$option_enable_credit_unicode = $user_config['opt']['enable_credit_unicode'] ? _('yes') : _('no');
 		}
-
+		
+		// get access control list
+		$c_option_acl = array_flip(auth_acl_getall());
+		$option_acl = auth_acl_getname($data['core']['user_config']['acl']);
+		if ($user_edited['status'] == 4) {
+			if ($user_config['uid'] == user_getparentbyuid($user_edited['uid'])) {
+				$option_acl = _select('up_acl', $c_option_acl, $data['core']['user_config']['acl']);
+			}
+		}
+		if (auth_isadmin()) {
+			$option_acl = _select('up_acl', $c_option_acl, $data['core']['user_config']['acl']);
+		}
+		
 		// error string
 		if ($err = $_SESSION['error_string']) {
 			$error_content = "<div class=error_string>$err</div>";
@@ -196,6 +211,7 @@ switch (_OP_) {
 			'vars' => array(
 				'Application options' => _('Application options'),
 				'Username' => _('Username'),
+				'Access Control List' => _('Access Control List'),
 				'Effective SMS sender ID' => _('Effective SMS sender ID'),
 				'Default sender ID' => _('Default sender ID'),
 				'Default message footer' => _('Default message footer'),
@@ -228,12 +244,14 @@ switch (_OP_) {
 				'HINT_LOCAL_LENGTH' => _hint(_('Min length to detect missing country code')),
 				'HINT_REPLACE_ZERO' => _hint(_('Replace prefix 0 or padding local numbers')),
 				'HINT_MANAGE_CREDIT' => _hint(_('Add or reduce credit from manage credit menu')),
+				'HINT_ACL' => _hint('The default ACL will allow access to all user features'),
 				'option_new_token' => $option_new_token,
 				'option_enable_webservices' => $option_enable_webservices,
 				'option_language_module' => $option_language_module,
 				'option_fwd_to_inbox' => $option_fwd_to_inbox,
 				'option_fwd_to_email' => $option_fwd_to_email,
 				'option_fwd_to_mobile' => $option_fwd_to_mobile,
+				'option_acl' => $option_acl,
 				'option_sender_id' => $option_sender_id,
 				'c_username' => $c_username,
 				'effective_sender_id' => sendsms_get_sender($c_username),
@@ -244,7 +262,7 @@ switch (_OP_) {
 				'datetime_timezone' => $datetime_timezone,
 				'local_length' => $local_length,
 				'replace_zero' => $replace_zero,
-				'credit' => $credit, 
+				'credit' => $credit,
 				'option_enable_credit_unicode' => $option_enable_credit_unicode 
 			) 
 		);
@@ -274,8 +292,13 @@ switch (_OP_) {
 			}
 		}
 		
-		$items['enable_credit_unicode'] = (int)$_POST['edit_enable_credit_unicode'];
+		$items['enable_credit_unicode'] = (int) $_POST['edit_enable_credit_unicode'];
+		$items['acl'] = (int) $_POST['up_acl'];
+		if (auth_isadmin()) {
+			$items['acl'] = 0;
+		}
 		registry_update($c_uid, 'core', 'user_config', $items);
+		
 		$ret = user_edit_conf($c_uid, $up);
 		$_SESSION['error_string'] = $ret['error_string'];
 		
