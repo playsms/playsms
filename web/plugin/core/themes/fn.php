@@ -85,6 +85,7 @@ function themes_buildmenu($menu_config) {
 
 function themes_navbar($num, $nav, $max_nav, $url, $page) {
 	$search = themes_search_session();
+	
 	if ($search['keyword']) {
 		$search_url = '&search_keyword=' . urlencode($search['keyword']);
 	}
@@ -93,7 +94,7 @@ function themes_navbar($num, $nav, $max_nav, $url, $page) {
 	}
 	$url = $url . $search_url;
 	$nav_pages = '';
-	if ($theme = core_themes_get()) {
+	if ($theme) {
 		$nav_pages = core_hook($theme, 'themes_navbar', array(
 			$num,
 			$nav,
@@ -102,6 +103,17 @@ function themes_navbar($num, $nav, $max_nav, $url, $page) {
 			$page 
 		));
 	}
+	
+	if (!$nav_pages) {
+		$nav_pages = core_hook('common', 'themes_navbar', array(
+			$num,
+			$nav,
+			$max_nav,
+			$url,
+			$page 
+		));
+	}
+	
 	return $nav_pages;
 }
 
