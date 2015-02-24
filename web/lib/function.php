@@ -25,6 +25,7 @@ include $core_config['apps_path']['libs']."/fn_rate.php";
 include $core_config['apps_path']['libs']."/fn_billing.php";
 include $core_config['apps_path']['libs']."/fn_dlr.php";
 include $core_config['apps_path']['libs']."/fn_webservices.php";
+include $core_config['apps_path']['libs']."/fn_keyword.php";
 
 // load common configurations
 $c_fn1 = $core_config['apps_path']['plug'].'/themes/common/config.php';
