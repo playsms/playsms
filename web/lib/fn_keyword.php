@@ -25,7 +25,7 @@ defined('_SECURE_') or die('Forbidden');
  * @param $keyword keyword        
  * @return TRUE if available, FALSE if already exists or not available
  */
-function keyword_isvail($keyword) {
+function keyword_isavail($keyword) {
 	global $reserved_keywords, $core_config;
 	
 	$ok = true;
