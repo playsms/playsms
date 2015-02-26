@@ -26,6 +26,9 @@ msgstr ""
 msgid "Are you sure you want to delete ACL ?"
 msgstr ""
 
+msgid "Comma separated for multiple entries"
+msgstr ""
+
 msgid "Credit"
 msgstr ""
 
@@ -65,13 +68,13 @@ msgstr ""
 msgid "New ACL been added"
 msgstr ""
 
-msgid "Plugins"
-msgstr ""
-
 msgid "Registered"
 msgstr ""
 
 msgid "Save"
+msgstr ""
+
+msgid "Subuser ACL"
 msgstr ""
 
 msgid "URLs"

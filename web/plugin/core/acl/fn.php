@@ -39,6 +39,24 @@ function acl_getall() {
 	return $ret;
 }
 
+function acl_getallbyuid($uid) {
+	$ret = array(
+		'0' => _('DEFAULT') 
+	);
+	
+	$acl_id = acl_getidbyuid($uid);
+	$acl_subusers = explode(',', acl_getaclsubuser($acl_id));
+	foreach ($acl_subusers as $acl_subuser) {
+		$c_acl_id = acl_getid($acl_subuser);
+		
+		if ($c_acl_id && $acl_subuser) {
+			$ret[$c_acl_id] = $acl_subuser;
+		}
+	}
+	
+	return $ret;
+}
+
 function acl_getdata($acl_id) {
 	$conditions = array(
 		'id' => (int) $acl_id,
@@ -68,6 +86,17 @@ function acl_getid($acl_name) {
 	);
 	$list = dba_search(_DB_PREF_ . '_tblACL', 'id', $conditions);
 	$ret = ((int) $list[0]['id'] ? (int) $list[0]['id'] : 0);
+	
+	return $ret;
+}
+
+function acl_getaclsubuser($acl_id) {
+	$conditions = array(
+		'id' => (int) $acl_id,
+		'flag_deleted' => 0 
+	);
+	$list = dba_search(_DB_PREF_ . '_tblACL', 'acl_subuser', $conditions);
+	$ret = trim(strtoupper($list[0]['acl_subuser']));
 	
 	return $ret;
 }

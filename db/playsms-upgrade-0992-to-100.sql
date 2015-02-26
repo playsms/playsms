@@ -555,7 +555,7 @@ CREATE TABLE `playsms_tblACL` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL DEFAULT '',
-  `plugin` text NOT NULL,
+  `acl_subuser` varchar(250) NOT NULL DEFAULT '',
   `url` text NOT NULL,
   `flag_deleted` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)

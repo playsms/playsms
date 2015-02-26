@@ -31,7 +31,8 @@ switch (_OP_) {
 			<table class=playsms-table-list>
 			<thead><tr>
 				<th width=10%>" . _('ID') . "</th>
-				<th width=80%>" . _('Name') . "</th>
+				<th width=40%>" . _('Name') . "</th>
+				<th width=40%>" . _('Subuser ACL') . "</th>
 				<th width=10%>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
@@ -47,6 +48,7 @@ switch (_OP_) {
 					<tr>
 						<td>" . $db_row['id'] . "</td>
 						<td>" . trim(strtoupper($db_row['name'])) . "</td>
+						<td>" . trim(strtoupper($db_row['acl_subuser'])) . "</td>
 						<td>" . $action . "</td>
 					</tr>";
 		}
@@ -69,10 +71,10 @@ switch (_OP_) {
 				<td class=label-sizer>" . _mandatory(_('Name')) . "</td><td><input type=text maxlength=100 name=name></td>
 			</tr>
 			<tr>
-				<td>" . _('Plugins') . "</td><td><textarea rows=5 name=plugin></textarea></td>
+				<td>" . _('Subuser ACL') . "</td><td><input type=text name=acl_subuser> " . _hint(_('Comma separated for multiple entries')) . "</td>
 			</tr>
 			<tr>
-				<td>" . _('URLs') . "</td><td><textarea rows=5 name=url></textarea></td>
+				<td>" . _('URLs') . "</td><td><textarea rows=5 name=url></textarea><br />" . _hint(_('Comma separated for multiple entries')) . "</td>
 			</tr>
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
@@ -83,12 +85,12 @@ switch (_OP_) {
 	
 	case "add_yes":
 		$name = trim(strtoupper($_POST['name']));
-		$plugin = trim($_POST['plugin']);
+		$acl_subuser = trim(strtoupper($_POST['acl_subuser']));
 		$url = trim($_POST['url']);
 		if ($name) {
 			$db_query = "
-				INSERT INTO " . _DB_PREF_ . "_tblACL (c_timestamp,name,plugin,url,flag_deleted)
-				VALUES ('" . mktime() . "','" . $name . "','" . $plugin . "','" . $url . "','0')";
+				INSERT INTO " . _DB_PREF_ . "_tblACL (c_timestamp,name,acl_subuser,url,flag_deleted)
+				VALUES ('" . mktime() . "','" . $name . "','" . $acl_subuser . "','" . $url . "','0')";
 			if ($new_id = @dba_insert_id($db_query)) {
 				$_SESSION['error_string'] = _('New ACL been added');
 			} else {
@@ -120,10 +122,10 @@ switch (_OP_) {
 				<td>" . _('Name') . "</td><td>" . strtoupper($db_row['name']) . "</td>
 			</tr>
 			<tr>
-				<td>" . _('Plugins') . "</td><td><textarea rows=5 name=plugin>" . $db_row['plugin'] . "</textarea></td>
+				<td>" . _('Subuser ACL') . "</td><td><input type=text name=acl_subuser value='" . strtoupper($db_row['acl_subuser']) . "'> " . _hint(_('Comma separated for multiple entries')) . "</td>
 			</tr>
 			<tr>
-				<td>" . _('URLs') . "</td><td><textarea rows=5 name=url>" . $db_row['url'] . "</textarea></td>
+				<td>" . _('URLs') . "</td><td><textarea rows=5 name=url>" . $db_row['url'] . "</textarea><br />" . _hint(_('Comma separated for multiple entries')) . "</td>
 			</tr>
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
@@ -135,11 +137,11 @@ switch (_OP_) {
 	case "edit_yes":
 		$id = (int) $_POST['id'];
 		$name = trim(strtoupper($_POST['name']));
-		$plugin = trim($_POST['plugin']);
+		$acl_subuser = trim(strtoupper($_POST['acl_subuser']));
 		$url = trim($_POST['url']);
 		if ($id) {
 			$db_query = "
-				UPDATE " . _DB_PREF_ . "_tblACL SET c_timestamp='" . mktime() . "',plugin='" . $plugin . "',url='" . $url . "'
+				UPDATE " . _DB_PREF_ . "_tblACL SET c_timestamp='" . mktime() . "',acl_subuser='" . $acl_subuser . "',url='" . $url . "'
 				WHERE id='" . $id . "'";
 			if ($new_id = @dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('ACL been edited');
