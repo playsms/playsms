@@ -17,4 +17,7 @@ CREATE TABLE `playsms_tblACL` (
 --
 
 INSERT INTO `playsms_tblACL` (`c_timestamp`, `id`, `name`, `plugin`, `url`) VALUES
-(0, 1, 'Broadcast', '', 'inc=core_sendsms,\r\ninc=core_user,\r\ninc=feature_report,\r\ninc=feature_msgtemplate,\r\ninc=feature_queuelog,\r\ninc=feature_credit,\r\ninc=feature_report&route=user\r\n');
+(0, 1, 'Broadcast', '', 'inc=core_sendsms,\r\ninc=core_user,\r\ninc=feature_report,\r\ninc=feature_schedule,\r\ninc=feature_msgtemplate,\r\ninc=feature_queuelog,\r\ninc=feature_credit,\r\ninc=feature_report&route=user\r\n');
+
+
+ALTER TABLE `playsms_tblUser` ADD `acl_id` INT NOT NULL DEFAULT '0' AFTER `status`;

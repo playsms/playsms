@@ -36,9 +36,9 @@ function acl_getall() {
 	return $ret;
 }
 
-function acl_getdata($acl) {
+function acl_getdata($acl_id) {
 	$conditions = array(
-		'id' => (int) $acl 
+		'id' => (int) $acl_id 
 	);
 	$list = dba_search(_DB_PREF_ . '_tblACL', '*', $conditions);
 	$ret = $list[0];
@@ -46,9 +46,9 @@ function acl_getdata($acl) {
 	return $ret;
 }
 
-function acl_getname($acl) {
+function acl_getname($acl_id) {
 	$conditions = array(
-		'id' => (int) $acl 
+		'id' => (int) $acl_id 
 	);
 	$list = dba_search(_DB_PREF_ . '_tblACL', 'name', $conditions);
 	$ret = (trim($list[0]['name']) ? trim($list[0]['name']) : _('Default ACL'));
@@ -56,14 +56,14 @@ function acl_getname($acl) {
 	return $ret;
 }
 
-function acl_geturl($acl) {
+function acl_geturl($acl_id) {
 	$ret = array(
 		'inc=core_auth',
 		'inc=core_welcome' 
 	);
 	
 	$conditions = array(
-		'id' => (int) $acl 
+		'id' => (int) $acl_id 
 	);
 	$list = dba_search(_DB_PREF_ . '_tblACL', 'url', $conditions);
 	$urls = explode(',', $list[0]['url']);
@@ -76,16 +76,33 @@ function acl_geturl($acl) {
 	return $ret;
 }
 
-function acl_uid2name($uid) {
-	$data = registry_search($uid, 'core', 'user_config');
-	$ret = acl_getname($data['core']['user_config']['acl']);
+function acl_getnamebyuid($uid) {
+	$acl_name = acl_getname(acl_getidbyuid($uid));
 	
-	return $ret;
+	return $acl_name;
 }
 
-function acl_uid2id($uid) {
-	$data = registry_search($uid, 'core', 'user_config');
-	$ret = (int) $data['core']['user_config']['acl'];
+function acl_getidbyuid($uid) {
+	$list = dba_search(_DB_PREF_ . '_tblUser', 'acl_id', array(
+		'uid' => $uid 
+	));
+	$acl_id = (int) $list[0]['acl_id'];
+	
+	return $acl_id;
+}
+
+function acl_setbyuid($acl_id, $uid) {
+	$ret = FALSE;
+	
+	if ((int) $uid && $acl_name = acl_getname($acl_id)) {
+		if (dba_update(_DB_PREF_ . '_tblUser', array(
+			'acl_id' => $acl_id 
+		), array(
+			'uid' => $uid 
+		))) {
+			return TRUE;
+		}
+	}
 	
 	return $ret;
 }
@@ -94,8 +111,8 @@ function acl_checkurl($url, $uid = 0) {
 	global $user_config, $core_config;
 	
 	$uid = ((int) $uid ? (int) $uid : $user_config['uid']);
-	if (!$core_config['daemon_process'] && $url && $uid && ($acl = acl_uid2id($uid))) {
-		$acl_urls = acl_geturl($acl);
+	if (!$core_config['daemon_process'] && $url && $uid && ($acl_id = acl_getidbyuid($uid))) {
+		$acl_urls = acl_geturl($acl_id);
 		foreach ($acl_urls as $acl_url) {
 			$pos = strpos($url, $acl_url);
 			if ($pos !== FALSE) {

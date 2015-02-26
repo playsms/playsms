@@ -118,7 +118,7 @@ function user_mobile2username($mobile) {
  * Get uid from email
  *
  * @param string $email
- *        	Email
+ *        Email
  * @return integer User ID
  */
 function user_email2uid($email) {
@@ -132,7 +132,7 @@ function user_email2uid($email) {
  * Get username from email
  *
  * @param string $email
- *        	Email
+ *        Email
  * @return string username
  */
 function user_email2username($email) {
@@ -146,9 +146,9 @@ function user_email2username($email) {
  * Validate data for user registration
  *
  * @param array $data
- *        	User data
+ *        User data
  * @param boolean $flag_edit
- *        	TRUE when edit action (currently not inuse)
+ *        TRUE when edit action (currently not inuse)
  * @return array $ret('error_string', 'status')
  */
 function user_add_validate($data = array(), $flag_edit = FALSE) {
@@ -242,7 +242,7 @@ function user_add_validate($data = array(), $flag_edit = FALSE) {
  * Validate data for user preferences or configuration edit
  *
  * @param array $data
- *        	User data
+ *        User data
  * @return array $ret('error_string', 'status')
  */
 function user_edit_validate($data = array()) {
@@ -253,9 +253,9 @@ function user_edit_validate($data = array()) {
  * Add new user
  *
  * @param array $data
- *        	User data
+ *        User data
  * @param boolean $forced
- *        	Forced addition
+ *        Forced addition
  * @return array $ret('error_string', 'status', 'uid')
  */
 function user_add($data = array(), $forced = FALSE) {
@@ -273,6 +273,12 @@ function user_add($data = array(), $forced = FALSE) {
 		$data['status'] = (int) $data['status'];
 		if (!(($data['status'] == 2) || ($data['status'] == 3))) {
 			$data['status'] = 4;
+		}
+		
+		// ACL exception for admins
+		$data['acl_id'] = (int) $data['acl_id'];
+		if ($data['status'] == 2) {
+			$data['acl_id'] = 0;
 		}
 		
 		// logic for parent_uid, parent uid by default is 0
@@ -421,7 +427,7 @@ function user_edit($uid, $data = array()) {
  * Delete existing user
  *
  * @param integer $uid
- *        	User ID
+ *        User ID
  * @return array $ret('error_string', 'status')
  */
 function user_remove($uid, $forced = FALSE) {
@@ -486,7 +492,8 @@ function user_edit_conf($uid, $data = array()) {
 		'new_token',
 		'enable_webservices',
 		'webservices_ip',
-		'sender' 
+		'sender',
+		'acl_id' 
 	);
 	
 	$up = array();
@@ -516,6 +523,12 @@ function user_edit_conf($uid, $data = array()) {
 			$c_footer = core_sanitize_footer($up['footer']);
 			$up['footer'] = (strlen($c_footer) > 30 ? substr($c_footer, 0, 30) : $c_footer);
 			
+			// acl exception for admins
+			$c_status = (int) user_getfieldbyuid($uid, 'status');
+			if ($c_status == 2) {
+				$up['acl_id'] = 0;
+			}
+			
 			if (dba_update(_DB_PREF_ . '_tblUser', $up, array(
 				'uid' => $uid 
 			))) {
@@ -542,7 +555,7 @@ function user_edit_conf($uid, $data = array()) {
  * Save user's login session information
  *
  * @param integer $uid
- *        	User ID
+ *        User ID
  */
 function user_session_set($uid = '') {
 	global $core_config, $user_config;
@@ -569,9 +582,9 @@ function user_session_set($uid = '') {
  * Get user's login session information
  *
  * @param integer $uid
- *        	User ID
+ *        User ID
  * @param string $sid
- *        	Session ID
+ *        Session ID
  * @return array login sessions
  */
 function user_session_get($uid = '', $sid = '') {
@@ -604,9 +617,9 @@ function user_session_get($uid = '', $sid = '') {
  * Remove user's login session information
  *
  * @param integer $uid
- *        	User ID
+ *        User ID
  * @param string $sid
- *        	Session ID
+ *        Session ID
  * @return boolean
  */
 function user_session_remove($uid = '', $sid = '', $hash = '') {
@@ -633,7 +646,7 @@ function user_session_remove($uid = '', $sid = '', $hash = '') {
  * Add account to banned account list
  *
  * @param integer $uid
- *        	User ID
+ *        User ID
  * @return boolean TRUE if user successfully added to banned user list
  */
 function user_banned_add($uid) {
@@ -666,7 +679,7 @@ function user_banned_add($uid) {
  * Remove account from banned account list
  *
  * @param integer $uid
- *        	User ID
+ *        User ID
  * @return boolean TRUE if user successfully removed from banned user list
  */
 function user_banned_remove($uid) {
@@ -682,7 +695,7 @@ function user_banned_remove($uid) {
  * Get user ban status
  *
  * @param integer $uid
- *        	User ID
+ *        User ID
  * @return mixed Ban date/time or FALSE for non-banned user
  */
 function user_banned_get($uid) {
@@ -729,9 +742,9 @@ function user_banned_list() {
  * Set user data by uid
  *
  * @param integer $uid
- *        	User ID
+ *        User ID
  * @param array $data
- *        	User data
+ *        User data
  * @return boolean TRUE when user data updated
  */
 function user_setdatabyuid($uid, $data) {
@@ -751,9 +764,9 @@ function user_setdatabyuid($uid, $data) {
  * Set parent for a subuser by uid
  *
  * @param integer $uid
- *        	User ID
+ *        User ID
  * @param integer $parent_uid
- *        	Parent account ID
+ *        Parent account ID
  * @return boolean TRUE when parent sets
  */
 function user_setparentbyuid($uid, $parent_uid) {
@@ -778,7 +791,7 @@ function user_setparentbyuid($uid, $parent_uid) {
  * Get parent of a subuser by uid
  *
  * @param integer $uid
- *        	User ID
+ *        User ID
  * @return mixed Parent account ID or FALSE on error
  */
 function user_getparentbyuid($uid) {
@@ -803,7 +816,7 @@ function user_getparentbyuid($uid) {
  * Get list of subusers under a user by uid
  *
  * @param integer $uid
- *        	User ID
+ *        User ID
  * @return array Array of subusers
  */
 function user_getsubuserbyuid($uid) {
@@ -826,11 +839,11 @@ function user_getsubuserbyuid($uid) {
  * Search user records
  *
  * @param mixed $keywords
- *        	Array or string of keywords
+ *        Array or string of keywords
  * @param mixed $fields
- *        	Array or string of record fields
+ *        Array or string of record fields
  * @param mixed $extras
- *        	Array or string of record fields
+ *        Array or string of record fields
  * @return array Array of users
  */
 function user_search($keywords = '', $fields = '', $extras = '') {
