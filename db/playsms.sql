@@ -1777,7 +1777,7 @@ CREATE TABLE `playsms_tblACL` (
 -- Dumping data for table `playsms_tblACL`
 --
 
-INSERT INTO `playsms_tblACL` (`c_timestamp`, `id`, `name`, `plugin`, `url`, `flag_deleted`) VALUES
+INSERT INTO `playsms_tblACL` (`c_timestamp`, `id`, `name`, `acl_subuser`, `url`, `flag_deleted`) VALUES
 (0, 1, 'BROADCAST', '', 'inc=core_sendsms,\r\ninc=core_user,\r\ninc=feature_report,\r\ninc=feature_schedule,\r\ninc=feature_msgtemplate,\r\ninc=feature_queuelog,\r\ninc=feature_credit,\r\ninc=feature_report&route=user\r\n', 0);
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
