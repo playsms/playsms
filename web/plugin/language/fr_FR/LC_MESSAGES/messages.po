@@ -91,6 +91,10 @@ msgid "Manage"
 msgstr "Gérer"
 
 #, fuzzy
+msgid "Manage ACL"
+msgstr "Gérer"
+
+#, fuzzy
 msgid "Manage account"
 msgstr "Mon Compte"
 

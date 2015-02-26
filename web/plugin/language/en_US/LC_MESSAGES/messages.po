@@ -83,6 +83,9 @@ msgstr ""
 msgid "Manage"
 msgstr ""
 
+msgid "Manage ACL"
+msgstr ""
+
 msgid "Manage account"
 msgstr ""
 

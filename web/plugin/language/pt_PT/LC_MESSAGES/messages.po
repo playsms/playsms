@@ -91,6 +91,10 @@ msgstr "Configurações principais"
 msgid "Manage"
 msgstr "Administrar"
 
+#, fuzzy
+msgid "Manage ACL"
+msgstr "Administrar"
+
 msgid "Manage account"
 msgstr "Gerir conta"
 

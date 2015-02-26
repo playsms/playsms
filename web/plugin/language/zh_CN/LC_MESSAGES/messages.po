@@ -90,6 +90,10 @@ msgid "Manage"
 msgstr "管理"
 
 #, fuzzy
+msgid "Manage ACL"
+msgstr "管理"
+
+#, fuzzy
 msgid "Manage account"
 msgstr "管理用户"
 

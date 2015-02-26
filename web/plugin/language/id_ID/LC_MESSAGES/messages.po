@@ -91,6 +91,10 @@ msgid "Manage"
 msgstr "Atur"
 
 #, fuzzy
+msgid "Manage ACL"
+msgstr "Atur"
+
+#, fuzzy
 msgid "Manage account"
 msgstr "Akun saya"
 

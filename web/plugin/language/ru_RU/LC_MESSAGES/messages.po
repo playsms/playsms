@@ -91,6 +91,10 @@ msgstr "Конфигурация"
 msgid "Manage"
 msgstr "Редактировать"
 
+#, fuzzy
+msgid "Manage ACL"
+msgstr "Редактировать"
+
 msgid "Manage account"
 msgstr "Управление пользователями"
 
