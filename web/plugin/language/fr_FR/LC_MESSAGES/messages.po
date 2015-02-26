@@ -74,6 +74,10 @@ msgstr "Au repos"
 msgid "Import"
 msgstr "Importer"
 
+#, fuzzy
+msgid "Logged in as"
+msgstr "Connecté en tant que"
+
 msgid "Login as"
 msgstr "Connecté en tant que"
 
@@ -169,3 +173,9 @@ msgstr "Préférence de l'utilisateur"
 
 msgid "View"
 msgstr "Afficher"
+
+msgid "Your credit"
+msgstr ""
+
+msgid "return"
+msgstr ""

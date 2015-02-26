@@ -73,6 +73,9 @@ msgstr ""
 msgid "Import"
 msgstr "Import"
 
+msgid "Logged in as"
+msgstr ""
+
 msgid "Login as"
 msgstr ""
 
@@ -174,3 +177,9 @@ msgstr "Benutzereinstellungen"
 
 msgid "View"
 msgstr "Anzeigen"
+
+msgid "Your credit"
+msgstr ""
+
+msgid "return"
+msgstr ""
