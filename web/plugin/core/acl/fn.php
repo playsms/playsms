@@ -20,7 +20,7 @@ defined('_SECURE_') or die('Forbidden');
 
 function acl_getall() {
 	$ret = array(
-		'0' => _('Default ACL') 
+		'0' => _('DEFAULT') 
 	);
 	
 	$conditions = array(
@@ -56,7 +56,7 @@ function acl_getname($acl_id) {
 		'flag_deleted' => 0 
 	);
 	$list = dba_search(_DB_PREF_ . '_tblACL', 'name', $conditions);
-	$ret = (trim($list[0]['name']) ? trim($list[0]['name']) : _('Default ACL'));
+	$ret = (trim($list[0]['name']) ? trim($list[0]['name']) : _('DEFAULT'));
 	
 	return $ret;
 }

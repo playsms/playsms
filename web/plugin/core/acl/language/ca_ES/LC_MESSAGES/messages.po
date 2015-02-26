@@ -14,5 +14,5 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.4\n"
 
-msgid "Default ACL"
+msgid "DEFAULT"
 msgstr ""
