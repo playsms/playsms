@@ -40,11 +40,17 @@ function acl_getall() {
 }
 
 function acl_getallbyuid($uid) {
+	$acl_id = acl_getidbyuid($uid);
+	$acl_name = acl_getname($acl_id);
+	
+	if (!$acl_name) {
+		return FALSE;
+	}
+	
 	$ret = array(
-		'0' => _('DEFAULT') 
+		$acl_ud => $acl_name 
 	);
 	
-	$acl_id = acl_getidbyuid($uid);
 	$acl_subusers = explode(',', acl_getaclsubuser($acl_id));
 	foreach ($acl_subusers as $acl_subuser) {
 		$c_acl_id = acl_getid($acl_subuser);
@@ -102,11 +108,6 @@ function acl_getaclsubuser($acl_id) {
 }
 
 function acl_geturl($acl_id) {
-	$ret = array(
-		'inc=core_auth',
-		'inc=core_welcome' 
-	);
-	
 	$conditions = array(
 		'id' => (int) $acl_id,
 		'flag_deleted' => 0 
@@ -171,13 +172,19 @@ function acl_checkurl($url, $uid = 0) {
 	global $user_config, $core_config;
 	
 	$uid = ((int) $uid ? (int) $uid : $user_config['uid']);
-	if (!$core_config['daemon_process'] && $url && $uid && ($acl_id = acl_getidbyuid($uid))) {
-		$acl_urls = acl_geturl($acl_id);
-		foreach ($acl_urls as $acl_url) {
-			$pos = strpos($url, $acl_url);
-			if ($pos !== FALSE) {
-				return TRUE;
+	$acl_id = acl_getidbyuid($uid);
+	if ($acl_urls = acl_geturl($acl_id)) {
+		$acl_urls[] = 'inc=core_auth';
+		$acl_urls[] = 'inc=core_welcome';
+		if (!$core_config['daemon_process'] && $url && $uid && $acl_id) {
+			foreach ($acl_urls as $acl_url) {
+				$pos = strpos($url, $acl_url);
+				if ($pos !== FALSE) {
+					return TRUE;
+				}
 			}
+		} else {
+			return TRUE;
 		}
 	} else {
 		return TRUE;
