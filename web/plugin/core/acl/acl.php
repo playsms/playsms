@@ -142,7 +142,7 @@ switch (_OP_) {
 				UPDATE " . _DB_PREF_ . "_tblACL SET c_timestamp='" . mktime() . "',plugin='" . $plugin . "',url='" . $url . "'
 				WHERE id='" . $id . "'";
 			if ($new_id = @dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('Royalty campaign been edited');
+				$_SESSION['error_string'] = _('ACL been edited');
 			} else {
 				$_SESSION['error_string'] = _('Fail to edit ACL');
 			}
@@ -160,7 +160,7 @@ switch (_OP_) {
 		), 'AND')) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_tblACL SET c_timestamp='" . mktime() . "', flag_deleted='1' WHERE id='$id'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('Royalty campaign has been deleted');
+				$_SESSION['error_string'] = _('ACL has been deleted');
 			} else {
 				$_SESSION['error_string'] = _('Fail to delete ACL');
 			}

@@ -1,6 +1,12 @@
 msgid "ACL ID"
 msgstr ""
 
+msgid "ACL been edited"
+msgstr ""
+
+msgid "ACL has been deleted"
+msgstr ""
+
 msgid "ACL name"
 msgstr ""
 
@@ -56,12 +62,6 @@ msgid "Plugins"
 msgstr ""
 
 msgid "Registered"
-msgstr ""
-
-msgid "Royalty campaign been edited"
-msgstr ""
-
-msgid "Royalty campaign has been deleted"
 msgstr ""
 
 msgid "Save"
