@@ -41,7 +41,7 @@ switch (_OP_) {
 		while ($db_row = dba_fetch_array($db_result)) {
 			$action = "<a href=\"" . _u('index.php?app=main&inc=core_acl&route=view&id=' . $db_row['id']) . "\">" . $icon_config['view'] . "</a>&nbsp;";
 			$action .= "<a href=\"" . _u('index.php?app=main&inc=core_acl&op=edit&id=' . $db_row['id']) . "\">" . $icon_config['edit'] . "</a>&nbsp;";
-			$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete ACL ?') . " (" . _('Royalty campaign ID') . ": " . $db_row['id'] . ")','" . _u('index.php?app=main&inc=core_acl&op=del&id=' . $db_row['id']) . "')\">" . $icon_config['delete'] . "</a>";
+			$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete ACL ?') . " (" . _('ACL ID') . ": " . $db_row['id'] . ")','" . _u('index.php?app=main&inc=core_acl&op=del&id=' . $db_row['id']) . "')\">" . $icon_config['delete'] . "</a>";
 			$i++;
 			$content .= "
 					<tr>
@@ -114,7 +114,7 @@ switch (_OP_) {
 			<input type=hidden name=id value='" . $id . "'>
 			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td class=label-sizer>" . _('Royalty campaign ID') . "</td><td>" . $id . "</td>
+				<td class=label-sizer>" . _('ACL ID') . "</td><td>" . $id . "</td>
 			</tr>
 			<tr>
 				<td>" . _('Name') . "</td><td>" . strtoupper($db_row['name']) . "</td>
