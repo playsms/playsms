@@ -31,8 +31,8 @@ function acl_getall() {
 	);
 	$list = dba_search(_DB_PREF_ . '_tblACL', '*', $conditions, '', $extras);
 	foreach ($list as $item) {
-		if ($item['id'] && $item['name']) {
-			$ret[$item['id']] = $item['name'];
+		if ($item['id'] && trim($item['name'])) {
+			$ret[$item['id']] = trim(strtoupper($item['name']));
 		}
 	}
 	
@@ -53,6 +53,7 @@ function acl_getallbyuid($uid) {
 	
 	$acl_subusers = explode(',', acl_getaclsubuser($acl_id));
 	foreach ($acl_subusers as $acl_subuser) {
+		$acl_subuser = trim($acl_subuser);
 		$c_acl_id = acl_getid($acl_subuser);
 		
 		if ($c_acl_id && $acl_subuser) {
@@ -80,14 +81,14 @@ function acl_getname($acl_id) {
 		'flag_deleted' => 0 
 	);
 	$list = dba_search(_DB_PREF_ . '_tblACL', 'name', $conditions);
-	$ret = (trim($list[0]['name']) ? trim($list[0]['name']) : _('DEFAULT'));
+	$ret = (trim($list[0]['name']) ? trim(strtoupper($list[0]['name'])) : _('DEFAULT'));
 	
 	return $ret;
 }
 
 function acl_getid($acl_name) {
 	$conditions = array(
-		'name' => strtoupper($acl_name),
+		'name' => trim(strtoupper($acl_name)),
 		'flag_deleted' => 0 
 	);
 	$list = dba_search(_DB_PREF_ . '_tblACL', 'id', $conditions);
