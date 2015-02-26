@@ -61,6 +61,17 @@ function acl_getname($acl_id) {
 	return $ret;
 }
 
+function acl_getid($acl_name) {
+	$conditions = array(
+		'name' => strtoupper($acl_name),
+		'flag_deleted' => 0 
+	);
+	$list = dba_search(_DB_PREF_ . '_tblACL', 'id', $conditions);
+	$ret = ((int) $list[0]['id'] ? (int) $list[0]['id'] : 0);
+	
+	return $ret;
+}
+
 function acl_geturl($acl_id) {
 	$ret = array(
 		'inc=core_auth',

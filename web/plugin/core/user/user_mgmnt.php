@@ -51,14 +51,16 @@ switch (_OP_) {
 			_('Registered') => 'register_datetime',
 			_('Username') => 'username',
 			_('Name') => 'name',
-			_('Mobile') => 'mobile' 
+			_('Mobile') => 'mobile',
+			_('ACL') => 'acl_id' 
 		);
 		if ($view == 'subusers') {
 			$search_var[_('Parent account')] = 'parent_uid';
 		}
 		
 		$search = themes_search($search_var, '', array(
-			'parent_uid' => 'user_username2uid' 
+			'parent_uid' => 'user_username2uid',
+			'acl_id' => 'acl_getid' 
 		));
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_tblUser', $conditions, $keywords);
