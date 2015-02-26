@@ -46,7 +46,7 @@ switch (_OP_) {
 			$content .= "
 					<tr>
 						<td>" . $db_row['id'] . "</td>
-						<td>" . $db_row['name'] . "</td>
+						<td>" . trim(strtoupper($db_row['name'])) . "</td>
 						<td>" . $action . "</td>
 					</tr>";
 		}
@@ -139,7 +139,7 @@ switch (_OP_) {
 		$url = trim($_POST['url']);
 		if ($id) {
 			$db_query = "
-				UPDATE " . _DB_PREF_ . "_tblACL SET c_timestamp='" . mktime() . "',name='" . $name . "',plugin='" . $plugin . "',url='" . $url . "'
+				UPDATE " . _DB_PREF_ . "_tblACL SET c_timestamp='" . mktime() . "',plugin='" . $plugin . "',url='" . $url . "'
 				WHERE id='" . $id . "'";
 			if ($new_id = @dba_affected_rows($db_query)) {
 				$_SESSION['error_string'] = _('Royalty campaign been edited');
