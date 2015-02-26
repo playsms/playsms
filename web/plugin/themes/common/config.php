@@ -87,6 +87,11 @@ if (auth_isadmin()) {
 		3
 	);
 	$menu_config[$menutab][] = array(
+		'index.php?app=main&inc=core_acl&op=acl_list',
+		_('Manage ACL') ,
+		3
+	);
+	$menu_config[$menutab][] = array(
 		'index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list',
 		_('Manage subuser') ,
 		3
