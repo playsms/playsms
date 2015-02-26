@@ -190,8 +190,8 @@ switch (_OP_) {
 		}
 		
 		// get access control list
-		$c_option_acl = array_flip(auth_acl_getall());
-		$option_acl = _input('text', '', auth_acl_getname($data['core']['user_config']['acl']), array('readonly'));
+		$c_option_acl = array_flip(acl_getall());
+		$option_acl = _input('text', '', acl_getname($data['core']['user_config']['acl']), array('readonly'));
 		if (auth_isadmin()) {
 			$option_acl = _select('up_acl', $c_option_acl, $data['core']['user_config']['acl']);
 		}

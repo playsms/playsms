@@ -1,6 +1,3 @@
-msgid "Default ACL"
-msgstr ""
-
 msgid "Email"
 msgstr ""
 

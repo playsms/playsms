@@ -150,7 +150,7 @@ switch (_OP_) {
 					<td>" . $list[$i]['name'] . "</td>
 					<td>" . $list[$i]['mobile'] . "</td>
 					<td>" . rate_getusercredit($list[$i]['username']) . "</td>
-					<td>" . auth_acl_uid2name($list[$i]['uid']) . "</td>
+					<td>" . acl_uid2name($list[$i]['uid']) . "</td>
 					<td>" . $action . "</td>
 				</tr>";
 		}
