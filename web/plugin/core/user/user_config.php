@@ -184,6 +184,13 @@ switch (_OP_) {
 		if (auth_isadmin()) {
 			$option_acl = _select('up_acl_id', $c_option_acl, $acl_id);
 		}
+		if ($user_edited['status'] == 4) {
+			$parent_id = user_getparentbyuid($user_edited['uid']);
+			if ($parent_id == $user_config['uid']) {
+				$c_option_acl = array_flip(acl_getallbyuid($user_config['uid']));
+				$option_acl = _select('up_acl_id', $c_option_acl, $acl_id);
+			}
+		}
 		
 		// additional user's config available on registry
 		$data = registry_search($c_uid, 'core', 'user_config');

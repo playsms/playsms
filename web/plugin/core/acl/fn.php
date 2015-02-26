@@ -48,7 +48,7 @@ function acl_getallbyuid($uid) {
 	}
 	
 	$ret = array(
-		$acl_ud => $acl_name 
+		$acl_id => $acl_name 
 	);
 	
 	$acl_subusers = explode(',', acl_getaclsubuser($acl_id));

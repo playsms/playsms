@@ -37,9 +37,12 @@ switch (_OP_) {
 			_('Registered') => 'register_datetime',
 			_('Username') => 'username',
 			_('Name') => 'name',
-			_('Mobile') => 'mobile' 
+			_('Mobile') => 'mobile',
+			_('ACL') => 'acl_id' 
 		);
-		$search = themes_search($search_var);
+		$search = themes_search($search_var, '', array(
+			'acl_id' => 'acl_getid' 
+		));
 		$conditions = array(
 			'status' => 4,
 			'parent_uid' => $user_config['uid'] 
@@ -70,11 +73,12 @@ switch (_OP_) {
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>
-				<th width='20%'>" . _('Registered') . "</th>
+				<th width='15%'>" . _('Registered') . "</th>
 				<th width='15%'>" . _('Username') . "</th>
-				<th width='20%'>" . _('Name') . "</th>
+				<th width='15%'>" . _('Name') . "</th>
 				<th width='15%'>" . _('Mobile') . "</th>
-				<th width='15%'>" . _('Credit') . "</th>
+				<th width='10%'>" . _('Credit') . "</th>
+				<th width='15%'>" . _('ACL') . "</th>
 				<th width='15%'>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
@@ -119,7 +123,8 @@ switch (_OP_) {
 					<td>" . $banned_icon . "" . $list[$i]['username'] . " </td>
 					<td>" . $list[$i]['name'] . "</td>
 					<td>" . $list[$i]['mobile'] . "</td>	
-					<td>" . rate_getusercredit($list[$i]['username']) . "</td>	
+					<td>" . rate_getusercredit($list[$i]['username']) . "</td>
+					<td>" . acl_getnamebyuid($list[$i]['uid']) . "</td>	
 					<td>$action</td>
 				</tr>";
 		}
@@ -200,6 +205,7 @@ switch (_OP_) {
 		break;
 	
 	case "subuser_add_yes":
+		$add['acl_id'] = (int) $_POST['add_acl_id'];
 		$add['email'] = $_POST['add_email'];
 		$add['username'] = $_POST['add_username'];
 		$add['password'] = $_POST['add_password'];
