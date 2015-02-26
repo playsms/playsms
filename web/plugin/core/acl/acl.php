@@ -85,7 +85,11 @@ switch (_OP_) {
 	
 	case "add_yes":
 		$name = trim(strtoupper($_POST['name']));
-		$acl_subuser = trim(strtoupper($_POST['acl_subuser']));
+		$acl_subusers = explode(',', trim(strtoupper($_POST['acl_subuser'])));
+		foreach ($acl_subusers as $item) {
+			$acl_subuser .= ' ' . trim(strtoupper($item)) . ',';
+		}
+		$acl_subuser = trim(substr($acl_subuser, 0, -1));
 		$url = trim($_POST['url']);
 		if ($name) {
 			$db_query = "
@@ -137,7 +141,11 @@ switch (_OP_) {
 	case "edit_yes":
 		$id = (int) $_POST['id'];
 		$name = trim(strtoupper($_POST['name']));
-		$acl_subuser = trim(strtoupper($_POST['acl_subuser']));
+		$acl_subusers = explode(',', trim(strtoupper($_POST['acl_subuser'])));
+		foreach ($acl_subusers as $item) {
+			$acl_subuser .= ' ' . trim(strtoupper($item)) . ',';
+		}
+		$acl_subuser = trim(substr($acl_subuser, 0, -1));
 		$url = trim($_POST['url']);
 		if ($id) {
 			$db_query = "
