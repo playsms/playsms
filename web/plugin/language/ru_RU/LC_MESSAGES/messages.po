@@ -75,6 +75,10 @@ msgstr "Простаивает"
 msgid "Import"
 msgstr "Импортировать"
 
+#, fuzzy
+msgid "Logged in as"
+msgstr "Войти как"
+
 msgid "Login as"
 msgstr "Войти как"
 
@@ -164,3 +168,9 @@ msgstr "Пользовательские настройки"
 
 msgid "View"
 msgstr "Показать"
+
+msgid "Your credit"
+msgstr ""
+
+msgid "return"
+msgstr ""

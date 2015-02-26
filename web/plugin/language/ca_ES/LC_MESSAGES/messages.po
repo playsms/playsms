@@ -82,6 +82,10 @@ msgid "Import"
 msgstr "Importar"
 
 #, fuzzy
+msgid "Logged in as"
+msgstr "Entrar"
+
+#, fuzzy
 msgid "Login as"
 msgstr "Entrar"
 
@@ -182,3 +186,9 @@ msgstr "Preferències d'usuari"
 
 msgid "View"
 msgstr "Veure"
+
+msgid "Your credit"
+msgstr ""
+
+msgid "return"
+msgstr ""

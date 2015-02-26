@@ -151,7 +151,7 @@ function auth_isvalid() {
 	if ($_SESSION['sid'] && $_SESSION['uid'] && $_SESSION['valid']) {
 		$hash = user_session_get('', $_SESSION['sid']);
 		if ($_SESSION['sid'] == $hash[key($hash)]['sid'] && $_SESSION['uid'] == $hash[key($hash)]['uid']) {
-			return auth_acl_checkurl($_SERVER['QUERY_STRING'], $_SESSION['uid']);
+			return acl_checkurl($_SERVER['QUERY_STRING'], $_SESSION['uid']);
 		}
 	}
 	
@@ -277,95 +277,4 @@ function auth_login_as_check() {
 	} else {
 		return FALSE;
 	}
-}
-
-function auth_acl_getall() {
-	$ret = array(
-		'0' => _('Default ACL') 
-	);
-	
-	$extras = array(
-		'ORDER BY' => 'name' 
-	);
-	$list = dba_search(_DB_PREF_ . '_tblAuth_acl', '*', '', '', $extras);
-	foreach ($list as $item) {
-		if ($item['id'] && $item['name']) {
-			$ret[$item['id']] = $item['name'];
-		}
-	}
-	
-	return $ret;
-}
-
-function auth_acl_getdata($acl) {
-	$conditions = array(
-		'id' => (int) $acl 
-	);
-	$list = dba_search(_DB_PREF_ . '_tblAuth_acl', '*', $conditions);
-	$ret = $list[0];
-	
-	return $ret;
-}
-
-function auth_acl_getname($acl) {
-	$conditions = array(
-		'id' => (int) $acl 
-	);
-	$list = dba_search(_DB_PREF_ . '_tblAuth_acl', 'name', $conditions);
-	$ret = (trim($list[0]['name']) ? trim($list[0]['name']) : _('Default ACL'));
-	
-	return $ret;
-}
-
-function auth_acl_geturl($acl) {
-	$ret = array(
-		'inc=core_auth',
-		'inc=core_welcome' 
-	);
-	
-	$conditions = array(
-		'id' => (int) $acl 
-	);
-	$list = dba_search(_DB_PREF_ . '_tblAuth_acl', 'url', $conditions);
-	$urls = explode(',', $list[0]['url']);
-	foreach ($urls as $key => $val) {
-		if (trim($val)) {
-			$ret[] = trim($val);
-		}
-	}
-	
-	return $ret;
-}
-
-function auth_acl_uid2name($uid) {
-	$data = registry_search($uid, 'core', 'user_config');
-	$ret = auth_acl_getname($data['core']['user_config']['acl']);
-	
-	return $ret;
-}
-
-function auth_acl_uid2id($uid) {
-	$data = registry_search($uid, 'core', 'user_config');
-	$ret = (int) $data['core']['user_config']['acl'];
-	
-	return $ret;
-}
-
-function auth_acl_checkurl($url, $uid = 0) {
-	global $user_config, $core_config;
-	
-	$uid = ((int) $uid ? (int) $uid : $user_config['uid']);
-	if (!$core_config['daemon_process'] && $url && $uid && ($acl = auth_acl_uid2id($uid))) {
-		$acl_urls = auth_acl_geturl($acl);
-		foreach ($acl_urls as $acl_url) {
-			$pos = strpos($url, $acl_url);
-			if ($pos !== FALSE) {
-				return TRUE;
-			}
-		}
-	} else {
-		return TRUE;
-	}
-	
-	return FALSE;
 }

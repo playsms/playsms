@@ -5,17 +5,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Home"
-msgstr "Accueil"
+#~ msgid "Home"
+#~ msgstr "Accueil"
 
-msgid "Logged in as"
-msgstr "Connecté en tant que"
+#~ msgid "Logged in as"
+#~ msgstr "Connecté en tant que"
 
-msgid "Logout"
-msgstr "Déconnexion"
+#~ msgid "Logout"
+#~ msgstr "Déconnexion"
 
-msgid "Your credit"
-msgstr "Votre crédit"
+#~ msgid "Your credit"
+#~ msgstr "Votre crédit"
 
-msgid "return"
-msgstr "retour"
+#~ msgid "return"
+#~ msgstr "retour"

@@ -1,0 +1,2 @@
+msgid "Default ACL"
+msgstr ""

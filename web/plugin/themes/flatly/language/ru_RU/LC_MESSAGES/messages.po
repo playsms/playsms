@@ -12,17 +12,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
-msgid "Home"
-msgstr "Главная"
+#~ msgid "Home"
+#~ msgstr "Главная"
 
-msgid "Logged in as"
-msgstr "Вы вошли как"
+#~ msgid "Logged in as"
+#~ msgstr "Вы вошли как"
 
-msgid "Logout"
-msgstr "Выход"
+#~ msgid "Logout"
+#~ msgstr "Выход"
 
-msgid "Your credit"
-msgstr "Ваш баланс"
+#~ msgid "Your credit"
+#~ msgstr "Ваш баланс"
 
-msgid "return"
-msgstr "вернуться"
+#~ msgid "return"
+#~ msgstr "вернуться"

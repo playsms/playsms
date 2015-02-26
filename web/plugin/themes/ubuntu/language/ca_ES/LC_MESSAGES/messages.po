@@ -14,17 +14,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.4\n"
 
-msgid "Home"
-msgstr "Inici"
+#~ msgid "Home"
+#~ msgstr "Inici"
 
-msgid "Logged in as"
-msgstr ""
-
-msgid "Logout"
-msgstr "Sortir"
-
-msgid "Your credit"
-msgstr ""
-
-msgid "return"
-msgstr ""
+#~ msgid "Logout"
+#~ msgstr "Sortir"

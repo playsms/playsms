@@ -62,6 +62,7 @@ switch (_OP_) {
 			$fwd_to_mobile = $c_user[0]['fwd_to_mobile'];
 			$local_length = $c_user[0]['local_length'];
 			$replace_zero = $c_user[0]['replace_zero'];
+			$acl_id = (int) $c_user[0]['acl_id'];
 			$credit = rate_getusercredit($c_username);
 		} else {
 			$_SESSION['error_string'] = _('User does not exist') . ' (' . _('username') . ': ' . $uname . ')';
@@ -175,6 +176,15 @@ switch (_OP_) {
 			// $option_credit = "<tr><td>" . _('Credit') . "</td><td>$credit</td></tr>";
 		}
 		
+		// get access control list
+		$c_option_acl = array_flip(acl_getall());
+		$option_acl = _input('text', '', acl_getname($acl_id), array(
+			'readonly' 
+		));
+		if (auth_isadmin()) {
+			$option_acl = _select('up_acl_id', $c_option_acl, $acl_id);
+		}
+		
 		// additional user's config available on registry
 		$data = registry_search($c_uid, 'core', 'user_config');
 		
@@ -187,13 +197,6 @@ switch (_OP_) {
 			$option_enable_credit_unicode = "<select name='edit_enable_credit_unicode'>" . $option_enable_credit_unicode . "</select>";
 		} else {
 			$option_enable_credit_unicode = $user_config['opt']['enable_credit_unicode'] ? _('yes') : _('no');
-		}
-		
-		// get access control list
-		$c_option_acl = array_flip(auth_acl_getall());
-		$option_acl = _input('text', '', auth_acl_getname($data['core']['user_config']['acl']), array('readonly'));
-		if (auth_isadmin()) {
-			$option_acl = _select('up_acl', $c_option_acl, $data['core']['user_config']['acl']);
 		}
 		
 		// error string
@@ -277,7 +280,8 @@ switch (_OP_) {
 			'new_token',
 			'enable_webservices',
 			'webservices_ip',
-			'sender' 
+			'sender',
+			'acl_id' 
 		);
 		
 		$up = array();
@@ -286,18 +290,11 @@ switch (_OP_) {
 				$up[$field] = trim($_POST['up_' . $field]);
 			}
 		}
+		$ret = user_edit_conf($c_uid, $up);
 		
 		$items['enable_credit_unicode'] = (int) $_POST['edit_enable_credit_unicode'];
-		$items['acl'] = (int) $_POST['up_acl'];
-		if ($user_edited['status'] == 2) {
-			$items['acl'] = 0;
-		}
-		if (! auth_isadmin()) {
-			unset($items['acl']);
-		}
 		registry_update($c_uid, 'core', 'user_config', $items);
 		
-		$ret = user_edit_conf($c_uid, $up);
 		$_SESSION['error_string'] = $ret['error_string'];
 		
 		_log('saving username:' . $c_username . ' error_string:' . $_SESSION['error_string'], 2, 'user_config');

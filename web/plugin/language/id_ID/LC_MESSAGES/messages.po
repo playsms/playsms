@@ -75,6 +75,9 @@ msgstr ""
 msgid "Import"
 msgstr "Ekspor"
 
+msgid "Logged in as"
+msgstr ""
+
 msgid "Login as"
 msgstr ""
 
@@ -178,3 +181,9 @@ msgstr "Preferensi"
 
 msgid "View"
 msgstr "Tampil"
+
+msgid "Your credit"
+msgstr ""
+
+msgid "return"
+msgstr ""

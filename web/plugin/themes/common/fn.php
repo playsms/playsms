@@ -73,7 +73,7 @@ function common_hook_themes_buildmenu($menu_config) {
 			} else if ($sub_menu_url == '#') {
 				$m[$sub_menu_index . '.' . $sub_menu_title] = "<li>" . $sub_menu_title . "</li>";
 			} else if ($sub_menu_url && $sub_menu_title) {
-				if (auth_acl_checkurl($sub_menu_url)) {
+				if (acl_checkurl($sub_menu_url)) {
 					$m[$sub_menu_index . '.' . $sub_menu_title] = "<li><a href='" . _u($sub_menu_url) . "'>" . $sub_menu_title . "</a></li>";
 				}
 			}

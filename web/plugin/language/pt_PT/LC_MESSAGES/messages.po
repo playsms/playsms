@@ -75,6 +75,10 @@ msgstr "Em espera"
 msgid "Import"
 msgstr "Importar"
 
+#, fuzzy
+msgid "Logged in as"
+msgstr "Login como"
+
 msgid "Login as"
 msgstr "Login como"
 
@@ -164,3 +168,9 @@ msgstr "Preferências de utilizador"
 
 msgid "View"
 msgstr "Visualizar"
+
+msgid "Your credit"
+msgstr ""
+
+msgid "return"
+msgstr ""
