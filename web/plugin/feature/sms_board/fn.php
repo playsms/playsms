@@ -68,7 +68,8 @@ function sms_board_hook_setsmsincomingaction($sms_datetime, $sms_sender, $board_
 }
 
 function sms_board_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $board_keyword, $board_param = '', $smsc = '', $raw_message = '') {
-	global $web_title, $email_service, $email_footer;
+	global $core_config;
+	
 	$ok = false;
 	$board_keyword = strtoupper(trim($board_keyword));
 	$board_param = trim($board_param);
@@ -94,7 +95,8 @@ function sms_board_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $bo
 				$sms_datetime = core_display_datetime($sms_datetime);
 				$subject = "[" . $board_keyword . "] " . _('SMS board from') . " $sms_sender";
 				$body = $core_config['main']['web_title'] . "\n";
-				$body.= $core_config['http_path']['base'] . "\n\n";
+				// fixme anton - ran by playsmsd, no http address, disabled for now looking for solution
+				// $body.= $core_config['http_path']['base'] . "\n\n";
 				$body.= _('Date and time') . ": $sms_datetime\n";
 				$body.= _('Sender') . ": $sms_sender\n";
 				$body.= _('Receiver') . ": $sms_receiver\n";
@@ -115,6 +117,7 @@ function sms_board_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $bo
 			$ok = true;
 		}
 	}
+	
 	return $ok;
 }
 
