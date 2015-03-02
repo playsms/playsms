@@ -72,6 +72,9 @@ switch (_OP_) {
 			_('Subuser') => 4 
 		), $main_config['default_user_status']);
 		
+		// option default parent upon registration
+		$option_default_parent = themes_select_account_level_single(3, 'edit_default_parent', $main_config['default_parent']);
+		
 		// get gateway options
 		$main_gateway = $main_config['gateway_module'];
 		unset($smsc_list);
@@ -167,6 +170,7 @@ switch (_OP_) {
 				'Active themes' => _('Active themes'),
 				'Default language' => _('Default language'),
 				'Default account status on registration' => _('Default account status on registration'),
+				'Default parent on registration' => _('Default parent on registration'),
 				'Layout footer' => _('Layout footer'),
 				'Save' => _('Save'),
 				'HINT_SENDER_ID' => _hint(_('Empty default sender ID to allow users setting their own sender ID')),
@@ -176,6 +180,7 @@ switch (_OP_) {
 				'HINT_CUSTOM_SENDER_ID' => _hint(_('Allow users to select sender ID while on Send SMS page')),
 				'HINT_CUSTOM_FOOTER' => _hint(_('Allow users to select SMS footer while on Send SMS page')),
 				'HINT_SMS_LIMIT_PER_HOUR' => _hint(_('Fill with zero to disable limit')),
+				'HINT_DEFAULT_PARENT' => _hint(_('Default parent selected upon registration when the default account status on registration setting set to Subuser')),
 				'web_title' => $main_config['web_title'],
 				'email_service' => $main_config['email_service'],
 				'email_footer' => $main_config['email_footer'],
@@ -192,6 +197,7 @@ switch (_OP_) {
 				'information_title' => $main_config['information_title'],
 				'information_content' => $main_config['information_content'],
 				'option_default_user_status' => $option_default_user_status,
+				'option_default_parent' => $option_default_parent,
 				'option_enable_logo' => $option_enable_logo,
 				'option_logo_replace_title' => $option_logo_replace_title,
 				'option_enable_register' => $option_enable_register,
@@ -278,6 +284,7 @@ switch (_OP_) {
 			'sms_limit_per_hour' => (int) $post['edit_sms_limit_per_hour'],
 			'default_credit' => (float) $post['edit_default_credit'],
 			'default_user_status' => $edit_default_user_status,
+			'default_parent' => (int) $post['edit_default_parent'],
 			'enable_register' => (int) $post['edit_enable_register'],
 			'enable_forgot' => (int) $post['edit_enable_forgot'],
 			'disable_login_as' => (int) $post['edit_disable_login_as'],

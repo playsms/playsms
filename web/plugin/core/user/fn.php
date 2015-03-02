@@ -281,10 +281,15 @@ function user_add($data = array(), $forced = FALSE) {
 			$data['acl_id'] = 0;
 		}
 		
-		// logic for parent_uid, parent uid by default is 0
-		if ($data['status'] == 4) {
-			$parent_status = user_getfieldbyuid($data['parent_uid'], 'status');
-			if (!(($parent_status == 2) || ($parent_status == 3))) {
+		// default parent_id
+		$data['parent_uid'] = ((int) $data['parent_uid'] ? (int) $data['parent_uid'] : $core_config['main']['default_parent']);
+		if ($parent_status = user_getfieldbyuid($data['parent_uid'], 'status')) {
+			// logic for parent_uid, parent uid by default is 0
+			if ($data['status'] == 4) {
+				if (!(($parent_status == 2) || ($parent_status == 3))) {
+					$data['parent_uid'] = 0;
+				}
+			} else {
 				$data['parent_uid'] = 0;
 			}
 		} else {

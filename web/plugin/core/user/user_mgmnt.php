@@ -188,28 +188,8 @@ switch (_OP_) {
 		}
 		
 		// get list of users as parents
-		$option_parents = '<option value="0">--' . _('Select parent account for subuser') . '--</option>';
-		
-		// get admins
-		$list = user_getallwithstatus(2);
-		foreach ($list as $parent) {
-			if ($parent['uid'] == $user_edited['parent_uid']) {
-				$selected = 'selected';
-			}
-			$option_parents .= '<option value="' . $parent['uid'] . '" ' . $selected . '>' . $parent['username'] . ' - ' . _('Administrator') . '</option>';
-			$selected = '';
-		}
-		
-		// get users
-		$list = user_getallwithstatus(3);
-		foreach ($list as $parent) {
-			if ($parent['uid'] == $user_edited['parent_uid']) {
-				$selected = 'selected';
-			}
-			$option_parents .= '<option value="' . $parent['uid'] . '" ' . $selected . '>' . $parent['username'] . '</option>';
-			$selected = '';
-		}
-		$select_parents = '<select name="add_parent_uid">' . $option_parents . '</select>';
+		$default_parent_uid = ($parent_uid && ($parent['uid'] == $user_edited['parent_uid']) ? $parent['uid'] : $core_config['main']['default_parent']);
+		$select_parents = themes_select_account_level_single(3, 'add_parent_uid', $default_parent_uid);
 		
 		if ($view == 'admin') {
 			$selected_admin = 'selected';
