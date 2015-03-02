@@ -50,6 +50,10 @@ tinymce.init({
 						<td><select name="edit_gateway_module">{{ option_gateway_module }}</select></td>
 					</tr>
 					<tr>
+						<td>{{ Default prefix or country code }}</td>
+						<td><input type="text" size="5" maxlength="5" name="edit_default_replace_zero" value="{{ default_replace_zero }}"> {{ HINT_REPLACE_ZERO }}</td>
+					</tr>
+					<tr>
 						<td>{{ Always remove plus sign }}</td>
 						<td><select name='edit_plus_sign_remove'>{{ option_plus_sign_remove }}</select></td>
 					</tr>

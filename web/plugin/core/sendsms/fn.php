@@ -32,7 +32,7 @@ function sendsms_manipulate_prefix($number, $user) {
 	_log('before prefix manipulation:[' . $number . ']', 3, 'sendsms_manipulate_prefix');
 	if (is_array($user)) {
 		
-		$prefix = core_sanitize_numeric($user['replace_zero']);
+		$prefix = ($user['replace_zero'] ? $user['replace_zero'] : $core_config['main']['default_replace_zero']);
 		$local_length = (int) $user['local_length'];
 		
 		// if prefix exists then replace prefix 0 with supplied prefix
