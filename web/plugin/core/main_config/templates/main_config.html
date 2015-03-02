@@ -42,6 +42,10 @@ tinymce.init({
 						<td><input type="text" size="5" maxlength="2" name="edit_sms_max_count" value="{{ sms_max_count }}"></td>
 					</tr>
 					<tr>
+						<td>{{ Lowest credit limit to trigger notification }}</td>
+						<td><input type="text" size="5" maxlength="10" name="edit_credit_lowest_limit" value="{{ credit_lowest_limit }}"> {{ HINT_CREDIT_LOWEST_LIMIT }}</td>
+					</tr>
+					<tr>
 						<td>{{ Number of sent SMS per hour limit }}</td>
 						<td><input type="text" size="5" maxlength="10" name="edit_sms_limit_per_hour" value="{{ sms_limit_per_hour }}"> {{ HINT_SMS_LIMIT_PER_HOUR }}</td>
 					</tr>
