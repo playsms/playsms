@@ -39,12 +39,6 @@ if (_OP_ == 'register') {
 			$parent_uid = ((int) $site_config['uid'] ? (int) $site_config['uid'] : 0);
 			$data['parent_uid'] = ($data['status'] == 4 ? $parent_uid : 0);
 			
-			// empty this and playSMS will generate random password
-			$data['password'] = '';
-			
-			// set credit to 0 by default
-			$data['credit'] = 0;
-			
 			$ret = user_add($data);
 			$ok = ($ret['status'] ? TRUE : FALSE);
 			$_SESSION['error_string'] = $ret['error_string'];

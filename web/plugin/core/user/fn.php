@@ -292,7 +292,7 @@ function user_add($data = array(), $forced = FALSE) {
 		}
 		
 		$data['username'] = core_sanitize_username($data['username']);
-		$data['password'] = ($data['password'] ? $data['password'] : core_get_random_string(10));
+		$data['password'] = (trim($data['password']) ? trim($data['password']) : core_get_random_string(10));
 		$new_password = $data['password'];
 		$data['password'] = md5($new_password);
 		$data['token'] = md5(uniqid($data['username'] . $data['password'], true));
@@ -323,8 +323,7 @@ function user_add($data = array(), $forced = FALSE) {
 				if ($ret['status']) {
 					_log('registered status:' . $data['status'] . ' u:' . $data['username'] . ' uid:' . $ret['uid'] . ' email:' . $data['email'] . ' ip:' . $_SERVER['REMOTE_ADDR'] . ' mobile:' . $data['mobile'] . ' credit:' . $data['credit'], 2, 'user_add');
 					$subject = _('New account registration');
-					$body = $core_config['main']['web_title'] . "\n";
-					$body .= $core_config['http_path']['base'] . "\n\n";
+					$body = $core_config['main']['web_title'] . "\n\n";
 					$body .= _('Username') . ": " . $data['username'] . "\n";
 					$body .= _('Password') . ": " . $new_password . "\n";
 					$body .= _('Mobile') . ": " . $data['mobile'] . "\n";
