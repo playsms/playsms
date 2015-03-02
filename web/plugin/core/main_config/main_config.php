@@ -75,6 +75,10 @@ switch (_OP_) {
 		// option default parent upon registration
 		$option_default_parent = themes_select_account_level_single(3, 'edit_default_parent', $main_config['default_parent']);
 		
+		// get access control list
+		$c_option_default_acl = array_flip(acl_getall());
+		$option_default_acl = _select('edit_default_acl', $c_option_default_acl, $main_config['default_acl']);
+		
 		// get gateway options
 		$main_gateway = $main_config['gateway_module'];
 		unset($smsc_list);
@@ -170,6 +174,7 @@ switch (_OP_) {
 				'Default language' => _('Default language'),
 				'Default account status upon registration' => _('Default account status upon registration'),
 				'Default parent upon registration' => _('Default parent upon registration'),
+				'Default ACL upon registration' => _('Default ACL upon registration'),
 				'Default credit upon registration' => _('Default credit upon registration'),
 				'Layout footer' => _('Layout footer'),
 				'Save' => _('Save'),
@@ -181,6 +186,7 @@ switch (_OP_) {
 				'HINT_CUSTOM_FOOTER' => _hint(_('Allow users to select SMS footer while on Send SMS page')),
 				'HINT_SMS_LIMIT_PER_HOUR' => _hint(_('Fill with zero to disable limit')),
 				'HINT_DEFAULT_PARENT' => _hint(_('Default parent selected upon registration when the default account status on registration setting set to Subuser')),
+				'HINT_DEFAULT_ACL' => _hint('The default ACL will allow access to all user features'),
 				'web_title' => $main_config['web_title'],
 				'email_service' => $main_config['email_service'],
 				'email_footer' => $main_config['email_footer'],
@@ -198,6 +204,7 @@ switch (_OP_) {
 				'information_content' => $main_config['information_content'],
 				'option_default_user_status' => $option_default_user_status,
 				'option_default_parent' => $option_default_parent,
+				'option_default_acl' => $option_default_acl,
 				'option_enable_logo' => $option_enable_logo,
 				'option_logo_replace_title' => $option_logo_replace_title,
 				'option_enable_register' => $option_enable_register,
@@ -285,6 +292,7 @@ switch (_OP_) {
 			'default_credit' => (float) $post['edit_default_credit'],
 			'default_user_status' => $edit_default_user_status,
 			'default_parent' => (int) $post['edit_default_parent'],
+			'default_acl' => (int) $post['edit_default_acl'],
 			'enable_register' => (int) $post['edit_enable_register'],
 			'enable_forgot' => (int) $post['edit_enable_forgot'],
 			'disable_login_as' => (int) $post['edit_disable_login_as'],

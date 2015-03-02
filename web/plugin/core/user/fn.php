@@ -276,7 +276,7 @@ function user_add($data = array(), $forced = FALSE) {
 		}
 		
 		// ACL exception for admins
-		$data['acl_id'] = (int) $data['acl_id'];
+		$data['acl_id'] = ((int) $data['acl_id'] ? (int) $data['acl_id'] : $core_config['main']['default_acl']);
 		if ($data['status'] == 2) {
 			$data['acl_id'] = 0;
 		}
