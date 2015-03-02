@@ -129,7 +129,7 @@ function sendsms_queue_create($sms_sender, $sms_footer, $sms_msg, $uid, $gpid = 
 	$dt = core_get_datetime();
 	$sms_schedule = (trim($sms_schedule) ? core_adjust_datetime($sms_schedule) : $dt);
 	$queue_code = md5(uniqid($uid . $gpid, true));
-	_log("saving queue_code:" . $queue_code . " src:" . $sms_sender . " scheduled:" . $sms_schedule, 2, "sendsms_queue_create");
+	_log("saving queue_code:" . $queue_code . " src:" . $sms_sender . " scheduled:" . core_display_datetime($sms_schedule), 2, "sendsms_queue_create");
 	
 	// message entering this proc already stripslashed, we need to addslashes it before saving to db
 	$sms_sender = addslashes($sms_sender);
@@ -211,7 +211,7 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 		
 		$continue = FALSE;
 		
-		// _log("delivery datetime qeueue:".$c_queue_code." scheduled:".$c_schedule." current:".$c_current, 3, "sendsmsd");
+		_log("delivery datetime qeueue:" . $c_queue_code . " scheduled:" . core_display_datetime($c_schedule) . " current:" . core_display_datetime($c_current), 3, "sendsmsd");
 		if (strtotime($c_current) >= strtotime($c_schedule)) {
 			$continue = TRUE;
 		}
