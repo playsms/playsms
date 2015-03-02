@@ -211,14 +211,15 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 		
 		$continue = FALSE;
 		
-		_log("delivery datetime qeueue:" . $c_queue_code . " scheduled:" . core_display_datetime($c_schedule) . " current:" . core_display_datetime($c_current), 3, "sendsmsd");
+		// check delivery datetime
+		// _log("delivery datetime qeueue:" . $c_queue_code . " scheduled:" . core_display_datetime($c_schedule) . " current:" . core_display_datetime($c_current), 3, "sendsmsd");
 		if (strtotime($c_current) >= strtotime($c_schedule)) {
 			$continue = TRUE;
-		}
-		
-		// check throttle limit (number of sent SMS per hour)
-		if (!sendsms_throttle_isoverlimit()) {
-			$continue = TRUE;
+			
+			// next, check throttle limit (number of sent SMS per hour)
+			if (!sendsms_throttle_isoverlimit()) {
+				$continue = TRUE;
+			}
 		}
 		
 		// process queue
