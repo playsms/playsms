@@ -166,9 +166,10 @@ function user_add_validate($data = array(), $flag_edit = FALSE) {
 			$ret['status'] = false;
 		}
 		
-		// username should be at least 3 characters
-		if ($ret['status'] && $data['username'] && (strlen($data['username']) < 3)) {
-			$ret['error_string'] = _('Username should be at least 3 characters') . " (" . $data['username'] . ")";
+		// username should be at least 3 characters and maximum $username_length
+		$username_length = ($core_config['main']['username_length'] ? $core_config['main']['username_length'] : 30);
+		if ($ret['status'] && $data['username'] && ((strlen($data['username']) < 3) || (strlen($data['username']) > $username_length))) {
+			$ret['error_string'] = sprintf(_('Username must be at least 3 characters and maximum %d characters'), $username_length) . " (" . $data['username'] . ")";
 			$ret['status'] = false;
 		}
 		
