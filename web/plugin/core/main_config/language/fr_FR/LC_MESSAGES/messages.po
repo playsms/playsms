@@ -72,6 +72,13 @@ msgstr ""
 msgid "Default parent upon registration"
 msgstr "Statut par défaut de l'utilisateur lors de l'inscription"
 
+msgid "Default prefix or country code"
+msgstr ""
+
+msgid ""
+"Default prefix or country code to replace prefix 0 on destination number"
+msgstr ""
+
 msgid "Default sender ID"
 msgstr "Sender ID par défaut"
 
@@ -141,6 +148,9 @@ msgstr ""
 "Le logo par défaut est affiché sur la page de connexion, d'inscription et "
 "d'oubli du mot de passe"
 
+msgid "Lowest credit limit to trigger notification"
+msgstr ""
+
 msgid "Main configuration"
 msgstr "Configuration principale"
 
@@ -174,6 +184,11 @@ msgstr "Remplacer le titre du site web par le logo"
 
 msgid "Save"
 msgstr "Enregistrer"
+
+msgid ""
+"Set credit value bigger than 0 to set credit lowest limit that will trigger "
+"notification"
+msgstr ""
 
 msgid "Subuser"
 msgstr "Sous-utilisateur"

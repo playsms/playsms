@@ -53,6 +53,13 @@ msgstr ""
 msgid "Default parent upon registration"
 msgstr ""
 
+msgid "Default prefix or country code"
+msgstr ""
+
+msgid ""
+"Default prefix or country code to replace prefix 0 on destination number"
+msgstr ""
+
 msgid "Default sender ID"
 msgstr ""
 
@@ -117,6 +124,9 @@ msgid ""
 "Logo by default will be displayed at login, register and forgot password page"
 msgstr ""
 
+msgid "Lowest credit limit to trigger notification"
+msgstr ""
+
 msgid "Main configuration"
 msgstr ""
 
@@ -148,6 +158,11 @@ msgid "Replace website title with logo"
 msgstr ""
 
 msgid "Save"
+msgstr ""
+
+msgid ""
+"Set credit value bigger than 0 to set credit lowest limit that will trigger "
+"notification"
 msgstr ""
 
 msgid "Subuser"

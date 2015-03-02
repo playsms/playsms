@@ -73,6 +73,13 @@ msgstr ""
 msgid "Default parent upon registration"
 msgstr "Тип пользователя при регистрации"
 
+msgid "Default prefix or country code"
+msgstr ""
+
+msgid ""
+"Default prefix or country code to replace prefix 0 on destination number"
+msgstr ""
+
 msgid "Default sender ID"
 msgstr "Имя отправителя по умолчанию"
 
@@ -141,6 +148,9 @@ msgstr ""
 "Логотип по умолчанию отображается на странице входа, регистрации и "
 "восстановления пароля"
 
+msgid "Lowest credit limit to trigger notification"
+msgstr ""
+
 msgid "Main configuration"
 msgstr "Основная конфигурация"
 
@@ -173,6 +183,11 @@ msgstr "Заменить название основного сайта лого
 
 msgid "Save"
 msgstr "Сохранить"
+
+msgid ""
+"Set credit value bigger than 0 to set credit lowest limit that will trigger "
+"notification"
+msgstr ""
 
 msgid "Subuser"
 msgstr "Дочерний пользователь"
