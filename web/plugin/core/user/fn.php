@@ -302,8 +302,8 @@ function user_add($data = array(), $forced = FALSE) {
 		$data['password'] = md5($new_password);
 		$data['token'] = md5(uniqid($data['username'] . $data['password'], true));
 		
-		// credit set to 0 by default
-		// $data['credit'] = ( $data['credit'] ? $data['credit'] : $core_config['main']['default_credit'] );
+		// default credit
+		$supplied_credit = (float) $data['credit'];
 		$data['credit'] = 0;
 		
 		// sender set to empty by default
@@ -322,6 +322,10 @@ function user_add($data = array(), $forced = FALSE) {
 				if ($new_uid = dba_add(_DB_PREF_ . '_tblUser', $data)) {
 					$ret['status'] = TRUE;
 					$ret['uid'] = $new_uid;
+					
+					// set credit upon registration
+					$default_credit = ($supplied_credit ? $supplied_credit : (float) $core_config['main']['default_credit']);
+					rate_addusercredit($ret['uid'], $default_credit);
 				} else {
 					$ret['error_string'] = _('Fail to register an account');
 				}

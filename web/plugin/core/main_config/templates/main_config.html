@@ -41,12 +41,6 @@ tinymce.init({
 						<td>{{ Number of sent SMS per hour limit }}</td>
 						<td><input type="text" size="5" maxlength="10" name="edit_sms_limit_per_hour" value="{{ sms_limit_per_hour }}"> {{ HINT_SMS_LIMIT_PER_HOUR }}</td>
 					</tr>
-					<!--
-					<tr>
-									<td>{{ Default credit for user }}</td>
-									<td><input type="text" name="edit_default_credit" value="{{ default_credit }}"></td>
-					</tr>
-					-->
 					<tr>
 						<td>{{ Default SMSC }}</td>
 						<td><select name="edit_gateway_module">{{ option_gateway_module }}</select></td>
@@ -99,12 +93,16 @@ tinymce.init({
 						<td><select name="edit_themes_module">{{ option_themes_module }}</select></td>
 					</tr>
 					<tr>
-						<td>{{ Default account status on registration }}</td>
+						<td>{{ Default account status upon registration }}</td>
 						<td><select name="edit_default_user_status">{{ option_default_user_status }}</select></td>
 					</tr>
 					<tr>
-						<td>{{ Default parent on registration }}</td>
+						<td>{{ Default parent upon registration }}</td>
 						<td>{{ option_default_parent }} {{ HINT_DEFAULT_PARENT }}</td>
+					</tr>
+					<tr>
+						<td>{{ Default credit upon registration }}</td>
+						<td><input type="text" name="edit_default_credit" value="{{ default_credit }}"></td>
 					</tr>
 					<tr>
 						<td>{{ Enable public registration }}</td>
