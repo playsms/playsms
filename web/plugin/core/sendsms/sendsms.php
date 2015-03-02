@@ -23,7 +23,7 @@ if (!auth_isvalid()) {
 }
 
 switch (_OP_) {
-	case "sendsms" :
+	case "sendsms":
 		
 		// get $to and $message from session or query string
 		$to = stripslashes($_REQUEST['to']);
@@ -32,7 +32,7 @@ switch (_OP_) {
 		// sender ID
 		$sms_from = sendsms_get_sender($user_config['username']);
 		$ismatched = FALSE;
-		foreach (sender_id_getall($user_config['username']) as $sender_id ) {
+		foreach (sender_id_getall($user_config['username']) as $sender_id) {
 			$selected = '';
 			if (strtoupper($sms_from) == strtoupper($sender_id)) {
 				$selected = 'selected';
@@ -52,7 +52,7 @@ switch (_OP_) {
 		// message template
 		$option_values = "<option value=\"\" default>--" . _('Please select template') . "--</option>";
 		$c_templates = sendsms_get_template();
-		for($i = 0; $i < count($c_templates); $i++) {
+		for ($i = 0; $i < count($c_templates); $i++) {
 			$option_values .= "<option value=\"" . $c_templates[$i]['text'] . "\" title=\"" . $c_templates[$i]['text'] . "\">" . $c_templates[$i]['title'] . "</option>";
 			$input_values .= "<input type=\"hidden\" name=\"content_" . $i . "\" value=\"" . $c_templates[$i]['text'] . "\">";
 		}
@@ -111,7 +111,7 @@ switch (_OP_) {
 		_p(tpl_apply($tpl));
 		break;
 	
-	case "sendsms_yes" :
+	case "sendsms_yes":
 		
 		// sender ID
 		$sms_sender = trim($_REQUEST['sms_sender']);
