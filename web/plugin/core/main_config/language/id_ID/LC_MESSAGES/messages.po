@@ -32,19 +32,30 @@ msgstr ""
 msgid "Buy credit page"
 msgstr ""
 
+msgid "Default ACL upon registration"
+msgstr ""
+
 msgid "Default SMS rate"
 msgstr ""
 
 msgid "Default SMSC"
 msgstr ""
 
-msgid "Default account status on registration"
+msgid "Default account status upon registration"
 msgstr ""
 
-msgid "Default credit for user"
+msgid "Default credit upon registration"
 msgstr ""
 
 msgid "Default language"
+msgstr ""
+
+msgid ""
+"Default parent selected upon registration when the default account status on "
+"registration setting set to Subuser"
+msgstr ""
+
+msgid "Default parent upon registration"
 msgstr ""
 
 msgid "Default sender ID"
@@ -124,6 +135,9 @@ msgid "Main website name"
 msgstr ""
 
 msgid "Maximum SMS count"
+msgstr ""
+
+msgid "Maximum username length"
 msgstr ""
 
 msgid "Number of sent SMS per hour limit"

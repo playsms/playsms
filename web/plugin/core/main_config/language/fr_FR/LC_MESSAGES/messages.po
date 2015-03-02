@@ -41,6 +41,10 @@ msgstr ""
 msgid "Buy credit page"
 msgstr "Page Ajouter du crédit"
 
+#, fuzzy
+msgid "Default ACL upon registration"
+msgstr "Statut par défaut de l'utilisateur lors de l'inscription"
+
 msgid "Default SMS rate"
 msgstr "Tarif SMS par défaut"
 
@@ -49,14 +53,24 @@ msgid "Default SMSC"
 msgstr "Tarif SMS par défaut"
 
 #, fuzzy
-msgid "Default account status on registration"
+msgid "Default account status upon registration"
 msgstr "Statut par défaut de l'utilisateur lors de l'inscription"
 
-msgid "Default credit for user"
-msgstr "Crédit par défaut pour l'utilisateur"
+#, fuzzy
+msgid "Default credit upon registration"
+msgstr "Statut par défaut de l'utilisateur lors de l'inscription"
 
 msgid "Default language"
 msgstr "Langue par défaut"
+
+msgid ""
+"Default parent selected upon registration when the default account status on "
+"registration setting set to Subuser"
+msgstr ""
+
+#, fuzzy
+msgid "Default parent upon registration"
+msgstr "Statut par défaut de l'utilisateur lors de l'inscription"
 
 msgid "Default sender ID"
 msgstr "Sender ID par défaut"
@@ -142,6 +156,9 @@ msgstr "Nom du site web principal"
 
 msgid "Maximum SMS count"
 msgstr "Nombre maximum de SMS"
+
+msgid "Maximum username length"
+msgstr ""
 
 msgid "Number of sent SMS per hour limit"
 msgstr ""

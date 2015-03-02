@@ -305,10 +305,6 @@ msgstr "Pied de page SMS"
 msgid "Save"
 msgstr "Enregistrer"
 
-#, fuzzy
-msgid "Select parent account for subuser"
-msgstr "Veuillez sélectionner le parent pour le sous-utilisateur"
-
 msgid "State or Province"
 msgstr "État ou Province"
 
@@ -408,7 +404,8 @@ msgstr "L'utilisateur avec ce mobile existe déjà"
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
-msgid "Username should be at least 3 characters"
+#, fuzzy, php-format
+msgid "Username must be at least 3 characters and maximum %d characters"
 msgstr "Le nom d'utilisateur doit comporter au moins 3 caractères"
 
 msgid "Users"

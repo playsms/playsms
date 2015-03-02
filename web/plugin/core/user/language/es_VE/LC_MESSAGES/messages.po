@@ -274,9 +274,6 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-msgid "Select parent account for subuser"
-msgstr ""
-
 msgid "State or Province"
 msgstr ""
 
@@ -366,7 +363,8 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-msgid "Username should be at least 3 characters"
+#, php-format
+msgid "Username must be at least 3 characters and maximum %d characters"
 msgstr ""
 
 msgid "Users"

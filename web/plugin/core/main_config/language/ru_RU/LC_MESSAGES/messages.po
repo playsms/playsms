@@ -43,20 +43,35 @@ msgstr "Нижний колонтитул. Измените на страниц�
 msgid "Buy credit page"
 msgstr "Страница покупки"
 
+#, fuzzy
+msgid "Default ACL upon registration"
+msgstr "Тип пользователя при регистрации"
+
 msgid "Default SMS rate"
 msgstr "Тариф за СМС по умолчанию"
 
 msgid "Default SMSC"
 msgstr "SMSC по умолчанию"
 
-msgid "Default account status on registration"
+#, fuzzy
+msgid "Default account status upon registration"
 msgstr "Тип пользователя при регистрации"
 
-msgid "Default credit for user"
-msgstr "Баланс по умолчанию для новых пользователей"
+#, fuzzy
+msgid "Default credit upon registration"
+msgstr "Тип пользователя при регистрации"
 
 msgid "Default language"
 msgstr "Язык по умолчанию"
+
+msgid ""
+"Default parent selected upon registration when the default account status on "
+"registration setting set to Subuser"
+msgstr ""
+
+#, fuzzy
+msgid "Default parent upon registration"
+msgstr "Тип пользователя при регистрации"
 
 msgid "Default sender ID"
 msgstr "Имя отправителя по умолчанию"
@@ -140,6 +155,9 @@ msgstr "Название основного сайта"
 
 msgid "Maximum SMS count"
 msgstr "Максимальное количество сегментов"
+
+msgid "Maximum username length"
+msgstr ""
 
 msgid "Number of sent SMS per hour limit"
 msgstr ""
