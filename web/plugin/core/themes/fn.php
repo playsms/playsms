@@ -351,7 +351,25 @@ function themes_select($name, $options = array(), $selected = '', $tag_params = 
 			$params .= ' ' . $key . '="' . $val . '"';
 		}
 	}
-	$ret = '<select name="' . $name . '" id="' . $css_id . '" class="playsms-select ' . $css_class . '" ' . $params . '>' . $select_options . '</select>';
+	
+	$css_id = (trim($css_id) ? trim($css_id) : 'playsms-select-' . core_sanitize_alphanumeric($name));
+	$placeholder = ($tag_params['placeholder'] ? $tag_params['placeholder'] : _('Please select'));
+	$width = ($tag_params['width'] ? $tag_params['width'] : 'resolve');
+	
+	$js = '
+			<script language="javascript" type="text/javascript">
+				$(document).ready(function() {
+					$("#' . $css_id . '").select2({
+						placeholder: "' . $placeholder . '",
+						width: "' . $width . '",
+						separator: [\',\'],
+						tokenSeparators: [\',\'],
+					});
+				});
+			</script>
+		';
+	
+	$ret = $js . PHP_EOL . '<select name="' . $name . '" id="' . $css_id . '" class="playsms-select ' . $css_class . '" ' . $params . '>' . $select_options . '</select>';
 	
 	return $ret;
 }
