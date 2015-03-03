@@ -97,6 +97,9 @@ switch ($COMMAND) {
 		// stop playsmsd services
 		playsmsd_stop();
 		
+		// stop playsmsd child scripts
+		playsmsd_stop_childs();
+		
 		exit();
 		break;
 	
@@ -383,6 +386,19 @@ function playsmsd_stop() {
 		playsmsd_pids_show();
 	} else {
 		echo "playsmsd has been stopped\n";
+	}
+}
+
+/**
+ * Stop child scripts
+ */
+function playsmsd_stop_childs() {
+	$pids['sendqueue'] = playsmsd_pid_get('sendqueue');
+	foreach ($pids as $key => $val) {
+		if ($key && $val) {
+			echo $key . " at pid " . $val . " will be killed..\n";
+			shell_exec("kill " . $val . " >/dev/null 2>&1");
+		}
 	}
 }
 
