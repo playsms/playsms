@@ -507,9 +507,7 @@ function user_edit_conf($uid, $data = array()) {
 	
 	$up = array();
 	foreach ($fields as $field) {
-		if (strlen($data[$field])) {
-			$up[$field] = trim($data[$field]);
-		}
+		$up[$field] = trim($data[$field]);
 	}
 	
 	$up['lastupdate_datetime'] = core_adjust_datetime(core_get_datetime());

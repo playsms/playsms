@@ -137,7 +137,7 @@ switch (_OP_) {
 		$option_language_module .= "<option value=\"\">" . _('Default') . "</option>";
 		if (is_array($lang_list)) {
 			foreach ($lang_list as $key => $val) {
-				if ($val == core_lang_get()) $selected = "selected";
+				if ($val == $user_config['language_module']) $selected = "selected";
 				$option_language_module .= "<option value=\"" . $val . "\" $selected>" . $key . "</option>";
 				$selected = "";
 			}
