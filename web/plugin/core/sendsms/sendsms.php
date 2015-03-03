@@ -105,7 +105,6 @@ switch (_OP_) {
 			),
 			'ifs' => array(
 				'calendar' => file_exists($core_config['apps_path']['themes'] . '/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.' . substr($user_config['language_module'], 0, 2) . '.js'),
-				'combobox' => file_exists($core_config['apps_path']['themes'] . '/common/jscss/combobox/select2_locale_' . substr($user_config['language_module'], 0, 2) . '.js') 
 			) 
 		);
 		_p(tpl_apply($tpl));
