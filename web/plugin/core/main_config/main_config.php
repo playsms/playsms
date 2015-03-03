@@ -181,6 +181,8 @@ switch (_OP_) {
 				'Default credit upon registration' => _('Default credit upon registration'),
 				'Layout footer' => _('Layout footer'),
 				'Save' => _('Save'),
+				'HTTP_PATH_THEMES' => $core_config['http_path']['themes'],
+				'lang' => substr($user_config['language_module'], 0, 2),
 				'HINT_SENDER_ID' => _hint(_('Empty default sender ID to allow users setting their own sender ID')),
 				'HINT_TIMEZONE' => _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')),
 				'HINT_ENABLE_LOGO' => _hint(_('Logo by default will be displayed at login, register and forgot password page')),

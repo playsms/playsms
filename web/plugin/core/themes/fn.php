@@ -635,7 +635,7 @@ function themes_select_account_level_single($status = 2, $select_field_name, $se
 			$option_user .= '</optgroup>';
 		}
 		
-		$css_id = (trim($css_id) ? trim($css_id) : 'playsms-select-account-level-single-' . core_sanitize_alphanumeric($select_field_name));
+		$css_id = (trim($css_id) ? trim($css_id) : 'playsms-select-account-level-' . core_sanitize_alphanumeric($select_field_name));
 		
 		if (is_array($tag_params)) {
 			foreach ($tag_params as $key => $val) {
