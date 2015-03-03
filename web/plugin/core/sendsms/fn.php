@@ -217,8 +217,8 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 			$continue = TRUE;
 			
 			// next, check throttle limit (number of sent SMS per hour)
-			if (!sendsms_throttle_isoverlimit()) {
-				$continue = TRUE;
+			if (sendsms_throttle_isoverlimit($c_uid)) {
+				$continue = FALSE;
 			}
 		}
 		
@@ -900,25 +900,42 @@ function sendsms_get_sms($smslog_id) {
 /**
  * Check send SMS throttle limit
  *
+ * @param integer $uid
+ *        User ID
  * @param integer $limit
  *        Number of SMS sent
  * @param integer $period
  *        Throttle period in minute (default is 60)
  * @return boolean TRUE on overlimit
  */
-function sendsms_throttle_isoverlimit($limit = 0, $period = 60) {
+function sendsms_throttle_isoverlimit($uid, $limit = 0, $period = 60) {
 	global $core_config;
 	
-	$ret = FALSE;
+	// get start time, UTC
+	$reg = registry_search($uid, 'core', 'sendsms', 'throttle_start');
+	$start = $reg['core']['sendsms']['throttle_start'];
 	
-	$limit = (int) $limit;
-	$limit = ($limit ? $limit : (int) $core_config['main']['sms_limit_per_hour']);
-	$period = (int) $period * 60;
+	if ($start) {
+		// get sum of sent SMS over the hour
+		$reg = registry_search($uid, 'core', 'sendsms', 'throttle_sum');
+		$sum = $reg['core']['sendsms']['throttle_sum'];
+		
+		//check bucket expired
+		if (strtotime($start) >= (strtotime(core_get_datetime()) - 3600)) {
+			// not expired
+			if ((int) $sum <= $limit) {
+				// not over limit
+				_log('under quota not overlimit sum:' . $sum, 3, 'sendsms_throttle_isoverlimit');
+				return FALSE;
+			}
+		}
+	} else {
+		_log('just started not overlimit', 3, 'sendsms_throttle_isoverlimit');
+		return FALSE;
+	}
 	
-	// fixme
-	$ret = FALSE;
-	
-	return $ret;
+	//_log('overlimit', 3, 'sendsms_throttle_isoverlimit');
+	return TRUE;
 }
 
 /**
@@ -932,26 +949,61 @@ function sendsms_throttle_isoverlimit($limit = 0, $period = 60) {
  * @return boolean TRUE of successful counter
  */
 function sendsms_throttle_count($uid, $count = 1) {
-	$ret = FALSE;
+	global $core_config;
 	
-	// fixme
-	$ret = TRUE;
+	$limit = $core_config['main']['sms_limit_per_hour'];
 	
-	return $ret;
-}
-
-/**
- * Reset counter for throttle limit
- *
- * @param integer $uid
- *        User ID
- * @return boolean TRUE of successful reset
- */
-function sendsms_throttle_reset($uid) {
-	$ret = FALSE;
+	// get start time, UTC
+	$reg = registry_search($uid, 'core', 'sendsms', 'throttle_start');
+	$start = $reg['core']['sendsms']['throttle_start'];
 	
-	// fixme
-	$ret = TRUE;
+	if ($start) {
+		// get sum of sent SMS over the hour
+		$reg = registry_search($uid, 'core', 'sendsms', 'throttle_sum');
+		$sum = $reg['core']['sendsms']['throttle_sum'];
+		_log('throttle bucket exists start:' . $start . ' sum:' . $sum . ' limit:' . $limit, 3, 'sendsms_throttle_count');
+	} else {
+		$start = core_get_datetime();
+		$sum = 0;
+		if (registry_update($uid, 'core', 'sendsms', array(
+			'throttle_start' => $start,
+			'throttle_sum' => $sum 
+		))) {
+			_log('throttle bucket started start:' . $start . ' limit:' . $limit, 3, 'sendsms_throttle_count');
+		} else {
+			_log('fail to start throttle bucket', 3, 'sendsms_throttle_count');
+			
+			return FALSE;
+		}
+	}
 	
-	return $ret;
+	// check bucket expired
+	if (strtotime($start) >= (strtotime(core_get_datetime()) - 3600)) {
+		//_log('not expired', 3, 'sendsms_throttle_count');
+		// not expired
+		if ((int) $sum <= $limit) {
+			// add to bucket
+			$sum += $count;
+			//_log('add to bucket sum:' . $sum, 3, 'sendsms_throttle_count');
+		} else {
+			_log('over limit', 3, 'sendsms_throttle_count');
+			
+			return FALSE;
+		}
+	} else {
+		// expired, create new
+		$start = core_get_datetime();
+		$sum = 0;
+		_log('expired', 3, 'sendsms_throttle_count');
+	}
+	
+	// save in registry
+	if (registry_update($uid, 'core', 'sendsms', array(
+		'throttle_start' => $start,
+		'throttle_sum' => $sum 
+	))) {
+		return TRUE;
+	}
+	
+	return FALSE;
 }
