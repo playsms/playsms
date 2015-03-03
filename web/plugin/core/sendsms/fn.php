@@ -229,6 +229,16 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 			$db_query2 = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id='$c_queue_id' AND flag='0'";
 			$db_result2 = dba_query($db_query2);
 			while ($db_row2 = dba_fetch_array($db_result2)) {
+				
+				// make sure the queue is still there
+				// if the queue_code with flag=0 is not exists then break, stop sendqueue
+				if (!dba_isexists(_DB_PREF_ . "_tblSMSOutgoing_queue", array(
+					'flag' => 0,
+					'queue_code' => $c_queue_code 
+				), 'AND')) {
+					break;
+				}
+				
 				$counter++;
 				
 				// queue_dst ID is SMS Log ID
