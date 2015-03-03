@@ -57,6 +57,12 @@ function acl_getallbyuid($uid) {
 		}
 	}
 	
+	if (!count($ret)) {
+		$ret = array(
+			'0' => _('DEFAULT') 
+		);
+	}
+	
 	return $ret;
 }
 

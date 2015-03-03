@@ -8,6 +8,9 @@ msgstr ""
 msgid "ACL"
 msgstr ""
 
+msgid "ACL DEFAULT will not restrict access to menus"
+msgstr ""
+
 msgid "Access Control List"
 msgstr ""
 

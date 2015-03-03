@@ -3,6 +3,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "ACL DEFAULT will not restrict access to menus"
+msgstr ""
+
 msgid ""
 "Access to unknown domain mapped to this server IP address will be redirected "
 "to this website URL. This website URL should be the primary address for the "
@@ -168,6 +171,9 @@ msgid "Maximum SMS count"
 msgstr "Nombre maximum de SMS"
 
 msgid "Maximum username length"
+msgstr ""
+
+msgid "Maximum username length must be a number between 4 to 100"
 msgstr ""
 
 msgid "Number of sent SMS per hour limit"
