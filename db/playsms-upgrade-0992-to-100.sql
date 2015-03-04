@@ -1,4 +1,6 @@
 -- 1.0-beta1
+---------------------------------------------------------------------------------------
+
 
 -- remove default timezone
 ALTER TABLE  `playsms_tblUser` CHANGE  `datetime_timezone`  `datetime_timezone` VARCHAR( 30 ) NOT NULL DEFAULT  '';
@@ -26,6 +28,8 @@ INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `
 
 
 -- 1.0-beta2
+---------------------------------------------------------------------------------------
+
 
 -- core config
 DELETE FROM `playsms_tblRegistry` WHERE `registry_group` = 'core' AND `registry_family` = 'config' AND `registry_key` = 'playsms_version' ;
@@ -33,9 +37,12 @@ INSERT INTO `playsms_tblRegistry` (`uid`, `registry_group`, `registry_family`, `
 
 
 -- 1.0-beta3
+---------------------------------------------------------------------------------------
 
 
 -- 1.0-beta4
+---------------------------------------------------------------------------------------
+
 
 UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0.0' WHERE `id` = 1 ;
 ALTER TABLE  `playsms_toolsPhonebook_group` ADD  `flag_sender` INT NOT NULL DEFAULT  '0' ;
@@ -97,6 +104,8 @@ UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-beta4' WHERE `registry_
 
 
 -- 1.0-beta5
+---------------------------------------------------------------------------------------
+
 
 -- core config
 UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-beta5' WHERE `registry_group` = 'core' AND `registry_family` = 'config' AND `registry_key` = 'playsms_version' ;
@@ -353,6 +362,8 @@ INSERT INTO `playsms_tblCountry` (`c_timestamp`, `country_id`, `country_name`, `
 
 
 -- 1.0-rc1
+---------------------------------------------------------------------------------------
+
 
 -- version
 UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-rc1' WHERE `registry_group` = 'core' AND `registry_family` = 'config' AND `registry_key` = 'playsms_version' ;
@@ -373,12 +384,16 @@ ALTER TABLE `playsms_tblSMSOutgoing` CHANGE `p_credit` `p_credit` DECIMAL(13,3) 
 
 
 -- 1.0-rc2
+---------------------------------------------------------------------------------------
+
 
 -- version
 UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-rc2' WHERE `registry_group` = 'core' AND `registry_family` = 'config' AND `registry_key` = 'playsms_version' ;
 
 
 -- 1.0-rc3
+---------------------------------------------------------------------------------------
+
 
 -- SMS poll
 ALTER TABLE `playsms_featurePoll`
@@ -422,6 +437,8 @@ UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-rc3' WHERE `registry_gr
 
 
 -- 1.0-rc4
+---------------------------------------------------------------------------------------
+
 
 --
 -- Table structure for table `playsms_tblGateway`
@@ -485,6 +502,12 @@ ALTER TABLE `playsms_featureBoard`
 ADD `board_access_code` VARCHAR(40) NOT NULL DEFAULT '' , 
 ADD `board_reply_msg` VARCHAR(140) NOT NULL DEFAULT '' , 
 ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' ;
+
+
+
+-- 1.0-rc5
+---------------------------------------------------------------------------------------
+
 
 --
 -- Table structure for table `playsms_featureFirewall`
@@ -569,3 +592,6 @@ INSERT INTO `playsms_tblACL` (`c_timestamp`, `id`, `name`, `acl_subuser`, `url`,
 (0, 1, 'BROADCAST', '', 'inc=core_sendsms,\r\ninc=core_user,\r\ninc=feature_report,\r\ninc=feature_schedule,\r\ninc=feature_msgtemplate,\r\ninc=feature_queuelog,\r\ninc=feature_credit,\r\ninc=feature_report&route=user\r\n', 0);
 
 ALTER TABLE `playsms_tblUser` ADD `acl_id` INT NOT NULL DEFAULT '0' AFTER `status`;
+
+-- version
+UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-rc5' WHERE `registry_group` = 'core' AND `registry_family` = 'config' AND `registry_key` = 'playsms_version' ;
