@@ -914,6 +914,16 @@ function sendsms_throttle_isoverlimit($uid, $limit = 0, $period = 60) {
 	$limit = ((int) $limit ? (int) $limit : $core_config['main']['sms_limit_per_hour']);
 	$period = ((int) $period ? (int) $period * 60 : 3600);
 	
+	if (!$limit) {
+		// no limit no over limit
+		return FALSE;
+	}
+	
+	if (!$period) {
+		// no period no over limit
+		return FALSE;
+	}
+	
 	// get start time, UTC
 	$reg = registry_search($uid, 'core', 'sendsms', 'throttle_start');
 	$start = $reg['core']['sendsms']['throttle_start'];
@@ -969,6 +979,11 @@ function sendsms_throttle_count($uid, $count = 1) {
 	global $core_config;
 	
 	$limit = $core_config['main']['sms_limit_per_hour'];
+	
+	if (!$limit) {
+		// no limit no over limit
+		return FALSE;
+	}
 	
 	// get start time, UTC
 	$reg = registry_search($uid, 'core', 'sendsms', 'throttle_start');
