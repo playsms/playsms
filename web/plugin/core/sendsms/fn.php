@@ -664,7 +664,7 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	$total_count = 0;
 	$total_charges = 0;
 	foreach ($all_sms_to as $c_sms_to) {
-		list($count, $rate, $charge) = rate_getcharges(strlen($message . $c_sms_footer), $unicode, $c_sms_to);
+		list($count, $rate, $charge) = rate_getcharges($uid, strlen($message . $c_sms_footer), $unicode, $c_sms_to);
 		$total_count += $count;
 		$total_charges += $charge;
 	}

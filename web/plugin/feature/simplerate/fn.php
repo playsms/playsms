@@ -77,7 +77,7 @@ function simplerate_hook_rate_getbyprefix($sms_to) {
 	return $rate;
 }
 
-function simplerate_hook_rate_getcharges($sms_len, $unicode, $sms_to) {
+function simplerate_hook_rate_getcharges($uid, $sms_len, $unicode, $sms_to) {
 	global $user_config;
 	
 	// default length per SMS
@@ -87,7 +87,8 @@ function simplerate_hook_rate_getcharges($sms_len, $unicode, $sms_to) {
 	$minus = ($unicode ? 3 : 7);
 	
 	// count unicodes as normal SMS
-	if ($unicode && $user_config['opt']['enable_credit_unicode']) {
+	$user = user_getdatabyuid($uid);
+	if ($unicode && $user['opt']['enable_credit_unicode']) {
 		$length = 140;
 	}
 	
@@ -101,6 +102,8 @@ function simplerate_hook_rate_getcharges($sms_len, $unicode, $sms_to) {
 	$rate = rate_getbyprefix($sms_to);
 	$charge = $count * $rate;
 	
+	_log('uid:' . $uid . ' u:' . $user['username'] . ' len:' . $sms_len . ' unicode:' . $unicode . ' to:' . $sms_to . ' enable_credit_unicode:' . (int) $user_config['opt']['enable_credit_unicode'] . ' count:' . $count . ' rate:' . $rate . ' charge:' . $charge, 3, 'simplerate_hook_rate_getcharges');
+	
 	return array(
 		$count,
 		$rate,
@@ -111,14 +114,14 @@ function simplerate_hook_rate_getcharges($sms_len, $unicode, $sms_to) {
 function simplerate_hook_rate_cansend($username, $sms_len, $unicode, $sms_to) {
 	global $core_config;
 	
-	list($count, $rate, $charge) = rate_getcharges($sms_len, $unicode, $sms_to);
+	$uid = user_username2uid($username);
+	list($count, $rate, $charge) = rate_getcharges($uid, $sms_len, $unicode, $sms_to);
 	
 	// sender's
 	$credit = rate_getusercredit($username);
 	$balance = $credit - $charge;
 	
 	// parent's when sender is a subuser
-	$uid = user_username2uid($username);
 	$parent_uid = user_getparentbyuid($uid);
 	if ($parent_uid) {
 		$username_parent = user_uid2username($parent_uid);
@@ -161,7 +164,7 @@ function simplerate_hook_rate_deduct($smslog_id) {
 			
 			// get charge
 			$p_msg_len = strlen($p_msg) + strlen($p_footer);
-			list($count, $rate, $charge) = rate_getcharges($p_msg_len, $unicode, $p_dst);
+			list($count, $rate, $charge) = rate_getcharges($uid, $p_msg_len, $unicode, $p_dst);
 			
 			// sender's
 			$username = user_uid2username($uid);

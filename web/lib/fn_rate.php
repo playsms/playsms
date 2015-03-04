@@ -38,7 +38,7 @@ function rate_deductusercredit($uid, $amount = 0) {
 	return core_call_hook();
 }
 
-function rate_getcharges($sms_len, $unicode, $sms_to) {
+function rate_getcharges($uid, $sms_len, $unicode, $sms_to) {
 	return core_call_hook();
 }
 

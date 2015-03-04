@@ -30,7 +30,9 @@ function user_getallwithstatus($status) {
 
 function user_getdatabyuid($uid) {
 	global $core_config;
+	
 	$ret = array();
+	
 	if ($uid) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE uid='$uid'";
 		$db_result = dba_query($db_query);
@@ -41,8 +43,17 @@ function user_getdatabyuid($uid) {
 			$ret['opt']['per_sms_length_unicode'] = $core_config['main']['per_sms_length_unicode'] - $ret['opt']['sms_footer_length'];
 			$ret['opt']['max_sms_length'] = $core_config['main']['max_sms_length'] - $ret['opt']['sms_footer_length'];
 			$ret['opt']['max_sms_length_unicode'] = $core_config['main']['max_sms_length_unicode'] - $ret['opt']['sms_footer_length'];
+			
+			// special setting to credit unicode SMS the same as normal SMS length
+			$result = registry_search($uid, 'core', 'user_config', 'enable_credit_unicode');
+			$user_config['opt']['enable_credit_unicode'] = (int) $result['core']['user_config']['enable_credit_unicode'];
+			if (!$ret['opt']['enable_credit_unicode']) {
+				// global config overriden by user config
+				$ret['opt']['enable_credit_unicode'] = (int) $core_config['main']['enable_credit_unicode'];
+			}
 		}
 	}
+	
 	return $ret;
 }
 
