@@ -911,6 +911,9 @@ function sendsms_get_sms($smslog_id) {
 function sendsms_throttle_isoverlimit($uid, $limit = 0, $period = 60) {
 	global $core_config;
 	
+	$limit = ((int) $limit ? (int) $limit : $core_config['main']['sms_limit_per_hour']);
+	$period = ((int) $period ? (int) $period * 60 : 3600);
+	
 	// get start time, UTC
 	$reg = registry_search($uid, 'core', 'sendsms', 'throttle_start');
 	$start = $reg['core']['sendsms']['throttle_start'];
@@ -921,20 +924,34 @@ function sendsms_throttle_isoverlimit($uid, $limit = 0, $period = 60) {
 		$sum = $reg['core']['sendsms']['throttle_sum'];
 		
 		//check bucket expired
-		if (strtotime($start) >= (strtotime(core_get_datetime()) - 3600)) {
+		if (strtotime($start) + $period < strtotime(core_get_datetime())) {
+			// is expired
+			// _log('is expired', 3, 'sendsms_throttle_isoverlimit');
+			
+
+			return FALSE;
+		} else {
 			// not expired
-			if ((int) $sum <= $limit) {
+			if ((int) $sum > $limit) {
+				// is over limit
+				// _log('is overlimit', 3, 'sendsms_throttle_isoverlimit');
+				
+
+				return TRUE;
+			} else {
 				// not over limit
 				_log('under quota not overlimit sum:' . $sum, 3, 'sendsms_throttle_isoverlimit');
+				
 				return FALSE;
 			}
 		}
 	} else {
 		_log('just started not overlimit', 3, 'sendsms_throttle_isoverlimit');
+		
 		return FALSE;
 	}
 	
-	//_log('overlimit', 3, 'sendsms_throttle_isoverlimit');
+	// _log('default overlimit', 3, 'sendsms_throttle_isoverlimit');
 	return TRUE;
 }
 
