@@ -46,7 +46,7 @@ function user_getdatabyuid($uid) {
 			
 			// special setting to credit unicode SMS the same as normal SMS length
 			$result = registry_search($uid, 'core', 'user_config', 'enable_credit_unicode');
-			$user_config['opt']['enable_credit_unicode'] = (int) $result['core']['user_config']['enable_credit_unicode'];
+			$ret['opt']['enable_credit_unicode'] = (int) $result['core']['user_config']['enable_credit_unicode'];
 			if (!$ret['opt']['enable_credit_unicode']) {
 				// global config overriden by user config
 				$ret['opt']['enable_credit_unicode'] = (int) $core_config['main']['enable_credit_unicode'];
