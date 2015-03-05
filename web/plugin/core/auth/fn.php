@@ -217,6 +217,24 @@ function auth_isstatus($status) {
 }
 
 /**
+ * Check if visitor has certain ACL
+ *
+ * @param string $acl
+ *        Access Control List
+ * @return boolean TRUE if valid and visitor has certain ACL
+ */
+function auth_isacl($acl) {
+	if (auth_isvalid()) {
+		$user_acl_id = user_getfieldbyuid($_SESSION['uid'], 'acl_id');
+		$user_acl_name = acl_getname($user_acl_id);
+		if ($acl && $user_acl_name && strtoupper($acl) == strtoupper($user_acl_name)) {
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+
+/**
  * Display page for blocked access
  */
 function auth_block() {
