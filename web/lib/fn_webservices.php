@@ -464,11 +464,7 @@ function webservices_query($username) {
 }
 
 function webservices_output($operation, $requests) {
-	$operation = strtolower($operation);
-	$ret = core_hook($operation, 'webservices_output', array(
-		$operation,
-		$requests 
-	));
+	$ret = core_call_hook();
 	return $ret;
 }
 
