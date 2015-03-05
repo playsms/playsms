@@ -243,13 +243,20 @@ function phonebook_hook_phonebook_search_user($keyword = "", $count = 0) {
 
 function phonebook_hook_webservices_output($operation, $requests) {
 	global $user_config;
+	
 	if (!auth_isvalid()) {
 		return FALSE;
 	}
+	
 	$keyword = stripslashes($requests['keyword']);
 	if (!$keyword) {
 		$keyword = $requests['tag'];
 	}
+	
+	if (!($operation == 'phonebook') && $keyword) {
+		return FALSE;
+	}
+	
 	if ($keyword && $user_config['uid']) {
 		if (substr($keyword, 0, 1) == '@') {
 			$keyword = substr($keyword, 1);
@@ -289,5 +296,6 @@ function phonebook_hook_webservices_output($operation, $requests) {
 	ob_end_clean();
 	header('Content-Type: text/json; charset=utf-8');
 	$ret = $content;
+	
 	return $ret;
 }
