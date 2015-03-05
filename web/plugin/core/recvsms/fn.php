@@ -234,7 +234,8 @@ function setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receive
 	$c_uid = 0;
 	$c_feature = "";
 	$ok = false;
-	$array_target_keyword = explode(" ", $message);
+	$keyword_separator = ($core_config['main']['keyword_separator'] ? $core_config['main']['keyword_separator'] : ' ');
+	$array_target_keyword = explode($keyword_separator, $message);
 	$target_keyword = strtoupper(trim($array_target_keyword[0]));
 	$raw_message = $message;
 	$message = $array_target_keyword[1];
