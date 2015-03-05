@@ -497,6 +497,8 @@ function user_remove($uid, $forced = FALSE) {
 }
 
 function user_edit_conf($uid, $data = array()) {
+	global $user_config;
+	
 	$ret['status'] = FALSE;
 	$ret['error_string'] = _('No changes made');
 	
@@ -545,6 +547,11 @@ function user_edit_conf($uid, $data = array()) {
 			$c_status = (int) user_getfieldbyuid($uid, 'status');
 			if ($c_status == 2) {
 				$up['acl_id'] = 0;
+			}
+			
+			// self edit can't save acl
+			if ($uid == $user_config['uid']) {
+				unset($up['acl_id']);
 			}
 			
 			if (dba_update(_DB_PREF_ . '_tblUser', $up, array(
