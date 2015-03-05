@@ -116,17 +116,20 @@ function credit_hook_webservices_output($operation, $requests) {
 	global $user_config;
 	
 	if (!auth_isvalid()) {
-		return 0;
+		return number_format((float) '0', 3, '.', '');
 	}
 	
-	if ($operation == 'credit') {
-		$balance = (float) credit_getbalance($user_config['uid']);
-		$balance = number_format($balance, 3, '.', '');
-		
-		ob_end_clean();
-		header('Content-Type: text/plain');
-		return $balance;
+	if ($operation != 'credit') {
+		return FALSE;
 	}
+		
+	$balance = (float) credit_getbalance($user_config['uid']);
+	$balance = number_format($balance, 3, '.', '');
+		
+	ob_end_clean();
+	header('Content-Type: text/plain');
+
+	return $balance;
 }
 
 function credit_hook_rate_addusercredit($uid, $amount) {
