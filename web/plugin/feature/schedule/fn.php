@@ -44,7 +44,6 @@ function schedule_hook_playsmsd() {
 		$schedule_id = $sch['id'];
 		$uid = $sch['uid'];
 		$schedule_name = $sch['name'];
-		$schedule_message = $sch['message'];
 		$schedule_rule = (int) $sch['schedule_rule'];
 		
 		// collect destinations
@@ -55,7 +54,7 @@ function schedule_hook_playsmsd() {
 		foreach ($destinations as $dst) {
 			$id = $dst['id'];
 			$name = $dst['name'];
-			$schedule_message = str_ireplace('#NAME#', $name, $schedule_message);
+			$schedule_message = str_ireplace('#NAME#', $name, $sch['message']);
 			$destination = $dst['destination'];
 			$schedule = ($dst['schedule'] ? core_display_datetime($dst['schedule']) : '0000-00-00 00:00:00');
 			$scheduled = ($dst['scheduled'] ? core_display_datetime($dst['scheduled']) : '0000-00-00 00:00:00');
