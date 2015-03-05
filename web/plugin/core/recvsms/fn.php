@@ -81,7 +81,7 @@ function recvsmsd() {
 /**
  * Check available keyword or keyword that hasn't been added
  *
- * @param $keyword keyword        	
+ * @param $keyword keyword        
  * @return TRUE if available, FALSE if already exists or not available
  */
 function checkavailablekeyword($keyword) {
@@ -221,6 +221,7 @@ function setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receive
 	// $smsc = core_smsc_get();
 	// }
 	
+
 	// log it
 	logger_print("dt:" . $sms_datetime . " sender:" . $sms_sender . " m:" . $message . " receiver:" . $sms_receiver . ' smsc:' . $smsc, 3, "setsmsincomingaction");
 	
@@ -434,17 +435,17 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 			// forward to mobile
 			if ($fwd_to_mobile = $user['fwd_to_mobile']) {
 				if ($mobile = $user['mobile']) {
-					$unicode = core_detect_unicode($message);
-					$nofooter = TRUE;
 					
 					// fixme anton
-					$c_message = $sender . ' ' . $message;
+					$c_message = $message . ' ' . $sender;
 					if ($sender_uid = user_mobile2uid($sms_sender)) {
 						if ($sender_username = user_uid2username($sender_uid)) {
-							$c_message = '@' . $sender_username . ' ' . $message;
+							$c_message = $message . ' ' . '@' . $sender_username;
 						}
 					}
 					$message = $c_message;
+					$unicode = core_detect_unicode($message);
+					$nofooter = TRUE;
 					
 					logger_print("send to mobile:" . $mobile . " from:" . $sms_sender . " user:" . $target_user . " message:" . $message, 3, "recvsms_inbox_add");
 					list($ok, $to, $smslog_id, $queue) = sendsms($target_user, $mobile, $message, 'text', $unicode, '', $nofooter);
