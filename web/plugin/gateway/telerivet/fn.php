@@ -22,7 +22,7 @@ function telerivet_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_m
     # Pre-process parameters
     $sms_sender = stripslashes($sms_sender);
     $sms_footer = stripslashes($sms_footer);
-    $sms_msg = stripslashes($sms_msg) . ' Reply to ' . $sms_footer;
+    $sms_msg = stripslashes($sms_msg) . $sms_footer;
 
     # Build data array
     $data = array();
