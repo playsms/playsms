@@ -1,0 +1,82 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Add SMSC"
+msgstr "Tilføj SMSC"
+
+msgid "Are you sure ?"
+msgstr "Er du sikker?"
+
+msgid "Description"
+msgstr "Beskrivelse"
+
+msgid "Edit SMSC"
+msgstr "Rediger SMSC"
+
+msgid "Fail to add new SMSC"
+msgstr "Kunne ikke tilføje ny SMSC"
+
+msgid "Fail to edit SMSC"
+msgstr "Kunne ikke redigere SMSC"
+
+msgid "Fail to remove SMSC"
+msgstr "Kunne ikke fjerne SMSC"
+
+msgid "Gateway"
+msgstr "Gateway"
+
+msgid "Gateways"
+msgstr "Gateways"
+
+msgid "List of gateways and SMSCs"
+msgstr "Liste over gateways og SMSC'er"
+
+msgid "Manage gateway and SMSC"
+msgstr "Håndter gateway og SMSC"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "New SMSC has been added"
+msgstr "Ny SMSC er blevet tilføjet"
+
+msgid "Routed SMSC"
+msgstr "Routet SMSC"
+
+msgid "SMSC already exists"
+msgstr "SMSC eksisterer allerede"
+
+msgid "SMSC has been edited"
+msgstr "SMSC er blevet redigeret"
+
+msgid "SMSC has been removed"
+msgstr "SMSC er blevet fjernet"
+
+msgid "SMSC name"
+msgstr "SMSC navn"
+
+msgid "SMSCs"
+msgstr "SMSC'er"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "Supplied SMSC"
+msgstr "Leveret SMSC"
+
+msgid "Unknown error"
+msgstr "Ukendt fejl"

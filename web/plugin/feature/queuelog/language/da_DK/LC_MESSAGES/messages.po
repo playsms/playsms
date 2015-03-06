@@ -1,0 +1,49 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "All queues have been removed"
+msgstr "Alle køer er blevet fjernet"
+
+msgid "Are you sure you want to delete ALL queues"
+msgstr "Er du sikker på at du ønsker at slette ALLE køer"
+
+msgid "Are you sure you want to delete queue"
+msgstr "Er du sikker på at du ønsker at slette køen"
+
+msgid "Count"
+msgstr "Antal"
+
+msgid "Delete ALL queues"
+msgstr "Slet ALLE køer"
+
+msgid "Message"
+msgstr "Besked"
+
+msgid "Queue Code"
+msgstr "Kø-kode"
+
+msgid "Queue has been removed"
+msgstr "Køen er blevet fjernet"
+
+msgid "Scheduled"
+msgstr "Skemalagt"
+
+msgid "User"
+msgstr "Bruger"
+
+msgid "View SMS queue"
+msgstr "Se SMS kø"

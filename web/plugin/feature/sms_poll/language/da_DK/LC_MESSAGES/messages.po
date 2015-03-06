@@ -1,0 +1,222 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Add"
+msgstr "Tilføj"
+
+msgid "Add SMS poll"
+msgstr "Tilføj SMS afstemning"
+
+msgid "Add choice to this poll"
+msgstr "Tilføj valg til denne afstemning"
+
+msgid "All"
+msgstr "Alle"
+
+msgid ""
+"Are you sure you want to delete SMS poll with all its choices and votes ?"
+msgstr ""
+"Er du sikker på at du ønsker at slette SMS afstemningen med alle denne valg "
+"og stemmer?"
+
+msgid "Are you sure you want to delete choice ?"
+msgstr "Er du sikker på at du ønsker at slette valget?"
+
+msgid "Choice already exists"
+msgstr "Valget eksisterer allerede"
+
+msgid "Choice description"
+msgstr "Valg beskrivelse"
+
+msgid "Choice has been added"
+msgstr "Valget er blevet tilføjet"
+
+msgid "Choice keyword"
+msgstr "Valg nøgleord"
+
+msgid "Description"
+msgstr "Beskrivelse"
+
+msgid "Edit SMS poll"
+msgstr "Rediger SMS afstemning"
+
+msgid "Edit SMS poll choices"
+msgstr "Rediger SMS afstemning valg"
+
+msgid "Fail to add SMS poll"
+msgstr "Kunne ikke tilføje SMS afstemning"
+
+msgid "Fail to delete SMS poll choice"
+msgstr "Kunne ikke slette SMS afstemnings-valg"
+
+msgid "Grand total SMS"
+msgstr "Samlet antal SMS"
+
+msgid "Grand total senders"
+msgstr "Samlet antal afsendere"
+
+msgid "Graph output"
+msgstr "Grafisk output"
+
+msgid "HTML output"
+msgstr "HTML output"
+
+msgid "Invalid"
+msgstr "Ugyldig"
+
+msgid "JSON output"
+msgstr "JSON output"
+
+msgid "Keyword"
+msgstr "Nøgleord"
+
+msgid "Manage poll"
+msgstr "Håndter afstemning"
+
+msgid "Multi"
+msgstr "Flere"
+
+msgid "Number of votes"
+msgstr "Antal stemmer"
+
+msgid "Once"
+msgstr "Én gang"
+
+msgid "PHP serialize output"
+msgstr "PHP serialize output"
+
+msgid "Reply message on invalid vote"
+msgstr "Svarbesked ved ugyldig stemme"
+
+msgid "Reply message on out of vote option"
+msgstr "Svarbesked ved ude or afstemning valg"
+
+msgid "Reply message on valid vote"
+msgstr "Svarbesked ved gyldig stemme"
+
+msgid "Result graph"
+msgstr "Resultatgraf"
+
+msgid "Result table"
+msgstr "Resultattabel"
+
+msgid "SMS poll access code"
+msgstr "SMS afstemning adgangskode"
+
+msgid "SMS poll access code used mainly by webservices"
+msgstr "SMS afstemningskode primært brugt af webservices"
+
+msgid "SMS poll already exists, reserved or use by other feature"
+msgstr ""
+"SMS afstemning eksisterer allerede, er reserveret eller bruges af en anden "
+"funktion"
+
+msgid "SMS poll choice and all its voters has been deleted"
+msgstr "SMS afstemingsvalg og alle dets stemmer er blevet slettet"
+
+msgid "SMS poll has been added"
+msgstr "SMS afstemning er blevet tilføjet"
+
+msgid "SMS poll has been saved"
+msgstr "SMS afstemning er blevet gemt"
+
+msgid "SMS poll keyword"
+msgstr "SMS afstemning nøgleord"
+
+msgid "SMS poll status has been changed"
+msgstr "SMS afsteming status er blevet ændret"
+
+msgid "SMS poll title"
+msgstr "SMS afstemningstitel"
+
+msgid "SMS poll with all its messages has been deleted"
+msgstr "SMS afstemning med alle dets beskeder er blevet slettet"
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "Senders sent multi votes"
+msgstr "Afsender sendte flere stemmer"
+
+msgid "Senders sent multiple votes"
+msgstr "Afsender sendte flere stemmer"
+
+msgid "Senders sent once"
+msgstr "Afsender sendte én gang"
+
+msgid "Statistics"
+msgstr "Statistik"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Total invalid SMS"
+msgstr "Total antal ugyldige SMS"
+
+msgid "Total multiple votes SMS"
+msgstr "Total antal flerstemme SMS"
+
+msgid "Total one time vote SMS"
+msgstr "Total antal enkeltstemme SMS"
+
+msgid "Total valid SMS"
+msgstr "Total antal gyldig SMS"
+
+msgid "User"
+msgstr "Bruger"
+
+msgid "Valid"
+msgstr "Gyldig"
+
+msgid "Vote option"
+msgstr "Stemme-valg"
+
+msgid "Webservices links"
+msgstr "Webservicelinks"
+
+msgid "XML output"
+msgstr "XML output"
+
+msgid "You must fill all fields"
+msgstr "Du skal udfylde alle felter"
+
+msgid "keyword"
+msgstr "nøgleord"
+
+msgid "multiple times"
+msgstr "flere gange"
+
+msgid "one time"
+msgstr "én gang"
+
+msgid "one time every 24 hours"
+msgstr "én gang hver 24 timer"
+
+msgid "one time every month"
+msgstr "én gang om måneden"
+
+msgid "one time every week"
+msgstr "én gang om ugen"
+
+msgid "title"
+msgstr "titel"
