@@ -11,6 +11,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.7.4\n"
 
+msgid "Fail to send message to all destination"
+msgstr ""
+
 msgid "Flash message"
 msgstr "Flash besked"
 
@@ -50,6 +53,9 @@ msgstr "Send til"
 msgid "Sender ID"
 msgstr "Afsender ID"
 
+msgid "System error has occured"
+msgstr ""
+
 msgid "Unicode message"
 msgstr "Unicode besked"
 
@@ -57,6 +63,10 @@ msgid "You must select receiver and your message should not be empty"
 msgstr "Du skal vælge en modtager og din besked bør ikke være tom"
 
 msgid "Your message has been delivered to queue"
+msgstr "Din besked er afleveret til køen"
+
+#, fuzzy
+msgid "Your message has been delivered to some of the destination"
 msgstr "Din besked er afleveret til køen"
 
 msgid "chars"

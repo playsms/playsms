@@ -11,6 +11,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
+msgid "Fail to send message to all destination"
+msgstr ""
+
 msgid "Flash message"
 msgstr "Всплывающее СМС"
 
@@ -50,6 +53,9 @@ msgstr "Получатели"
 msgid "Sender ID"
 msgstr "Имя отправителя"
 
+msgid "System error has occured"
+msgstr ""
+
 msgid "Unicode message"
 msgstr "содержит русские символы"
 
@@ -57,6 +63,10 @@ msgid "You must select receiver and your message should not be empty"
 msgstr "Необходимо выбрать получателей и сообщение не должно быть пустым"
 
 msgid "Your message has been delivered to queue"
+msgstr "Сообщение успешно принято к отправке"
+
+#, fuzzy
+msgid "Your message has been delivered to some of the destination"
 msgstr "Сообщение успешно принято к отправке"
 
 msgid "chars"
