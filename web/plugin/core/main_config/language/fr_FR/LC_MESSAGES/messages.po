@@ -94,6 +94,11 @@ msgstr "Configuration du site par défaut"
 msgid "Default timezone"
 msgstr "Fuseau horaire par défaut"
 
+msgid ""
+"Define a single character as keyword separator replacing default keyword "
+"separator a space"
+msgstr ""
+
 msgid "Disable login as subuser"
 msgstr "Désactiver la connexion en tant que sous-utilisateur"
 
@@ -138,6 +143,9 @@ msgstr "Informations"
 
 msgid "Information page"
 msgstr "Page d'information"
+
+msgid "Keyword separator"
+msgstr ""
 
 msgid "Layout footer"
 msgstr "Disposition du pied de page"

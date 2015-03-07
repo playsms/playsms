@@ -162,10 +162,3 @@ msgstr "gruppe"
 
 msgid "please use uppercase and make it short"
 msgstr "brug venligst store bogstaver og gør det kort"
-
-#~ msgid "Allow broadcast from mobile"
-#~ msgstr "Tillad broadcast fra mobil"
-
-#~ msgid "Set permission for broadcasting SMS to this group from mobile phone"
-#~ msgstr ""
-#~ "Indstil rettighed for at broadcaste SMS til denne gruppe fra mobiltelefon"

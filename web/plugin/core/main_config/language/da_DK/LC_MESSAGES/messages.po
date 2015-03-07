@@ -97,6 +97,11 @@ msgstr "Standard webstedskonfiguration"
 msgid "Default timezone"
 msgstr "Standard tidszone"
 
+msgid ""
+"Define a single character as keyword separator replacing default keyword "
+"separator a space"
+msgstr ""
+
 msgid "Disable login as subuser"
 msgstr "Deaktiver login som underbruger"
 
@@ -140,6 +145,9 @@ msgstr "Information"
 
 msgid "Information page"
 msgstr "Informationsside"
+
+msgid "Keyword separator"
+msgstr ""
 
 msgid "Layout footer"
 msgstr "Layout bundtekst"
@@ -219,9 +227,3 @@ msgstr "nej"
 
 msgid "yes"
 msgstr "ja"
-
-#~ msgid "Default credit for user"
-#~ msgstr "Standard kredit for bruger"
-
-#~ msgid "Default user status on registration"
-#~ msgstr "Standard brugerstatus ved registrering"

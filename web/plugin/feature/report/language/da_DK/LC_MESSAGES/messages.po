@@ -185,9 +185,3 @@ msgstr "ej håndteret"
 
 msgid "username"
 msgstr "brugernavn"
-
-#~ msgid "Unable to unban user"
-#~ msgstr "Kan ikke fjerne bandlysning af bruger"
-
-#~ msgid "User has been unbanned"
-#~ msgstr "Brugeren er ikke længere bandlyst"

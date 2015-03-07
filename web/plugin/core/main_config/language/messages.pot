@@ -75,6 +75,11 @@ msgstr ""
 msgid "Default timezone"
 msgstr ""
 
+msgid ""
+"Define a single character as keyword separator replacing default keyword "
+"separator a space"
+msgstr ""
+
 msgid "Disable login as subuser"
 msgstr ""
 
@@ -115,6 +120,9 @@ msgid "Information"
 msgstr ""
 
 msgid "Information page"
+msgstr ""
+
+msgid "Keyword separator"
 msgstr ""
 
 msgid "Layout footer"

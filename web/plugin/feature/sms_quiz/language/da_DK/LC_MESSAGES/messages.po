@@ -21,8 +21,11 @@ msgstr "Tilføj SMS quiz"
 msgid "Answer"
 msgstr "Svar"
 
-msgid "Are you sure you want to delete SMS quiz with all its choices and answers ?"
-msgstr "Er du sikker på at du ønsker at slette SMS quiz med alle dennes valg og stemmer?"
+msgid ""
+"Are you sure you want to delete SMS quiz with all its choices and answers ?"
+msgstr ""
+"Er du sikker på at du ønsker at slette SMS quiz med alle dennes valg og "
+"stemmer?"
 
 msgid "Are you sure you want to delete this answer ?"
 msgstr "Er du sikker på at du ønsker at slette dette svar?"
@@ -58,7 +61,8 @@ msgid "Reply message on incorrect"
 msgstr "Svarbesked ved forkert"
 
 msgid "SMS quiz already exists, reserved or use by other feature"
-msgstr "SMS quiz eksisterer allerede, er reserveret eller bruges af anden funktion"
+msgstr ""
+"SMS quiz eksisterer allerede, er reserveret eller bruges af anden funktion"
 
 msgid "SMS quiz answer"
 msgstr "SMS quiz svar"

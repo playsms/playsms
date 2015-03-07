@@ -92,9 +92,3 @@ msgstr "Indstillinger"
 
 msgid "keyword"
 msgstr "nøgleord"
-
-#~ msgid "A valid keyword will be inserted and prefixed to the message"
-#~ msgstr "Et gyldigt nøgleord vil blive indsat og præfikset til beskeden"
-
-#~ msgid "Route all sandbox SMS to keyword"
-#~ msgstr "Diriger alle sandbox SMS til nøgleord"

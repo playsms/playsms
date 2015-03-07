@@ -95,6 +95,11 @@ msgstr "Настройки сайта по умолчанию"
 msgid "Default timezone"
 msgstr "Часовой пояс по умолчанию"
 
+msgid ""
+"Define a single character as keyword separator replacing default keyword "
+"separator a space"
+msgstr ""
+
 msgid "Disable login as subuser"
 msgstr "Отключить вход от имени другого пользователя"
 
@@ -138,6 +143,9 @@ msgstr "Информация"
 
 msgid "Information page"
 msgstr "Главная страница"
+
+msgid "Keyword separator"
+msgstr ""
 
 msgid "Layout footer"
 msgstr "Нижний колонтитул"
