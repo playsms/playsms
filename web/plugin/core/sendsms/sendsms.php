@@ -104,7 +104,7 @@ switch (_OP_) {
 				'SMS' => _('SMS') 
 			),
 			'ifs' => array(
-				'calendar' => file_exists($core_config['apps_path']['themes'] . '/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.' . substr($user_config['language_module'], 0, 2) . '.js'),
+				'calendar' => file_exists($core_config['apps_path']['themes'] . '/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.' . substr($user_config['language_module'], 0, 2) . '.js') 
 			) 
 		);
 		_p(tpl_apply($tpl));
@@ -156,7 +156,15 @@ switch (_OP_) {
 			
 			list($ok, $to, $smslog_id, $queue, $counts, $sms_count, $sms_failed) = sendsms_helper($user_config['username'], $sms_to, $message, $sms_type, $unicode, '', $nofooter, $sms_footer, $sms_sender, $sms_schedule, $reference_id);
 			
-			$_SESSION['error_string'] = _('Your message has been delivered to queue') . " (" . _('queued') . ":" . (int) $sms_count . " " . _('failed') . ":" . (int) $sms_failed . ")";
+			if (!$sms_count && $sms_failed) {
+				$_SESSION['error_string'] = _('Fail to send message to all destination') . " (" . _('queued') . ":" . (int) $sms_count . " " . _('failed') . ":" . (int) $sms_failed . ")";
+			} else if ($sms_count && $sms_failed) {
+				$_SESSION['error_string'] = _('Your message has been delivered to some of the destination') . " (" . _('queued') . ":" . (int) $sms_count . " " . _('failed') . ":" . (int) $sms_failed . ")";
+			} else if ($sms_count && !$sms_failed) {
+				$_SESSION['error_string'] = _('Your message has been delivered to queue') . " (" . _('queued') . ":" . (int) $sms_count . " " . _('failed') . ":" . (int) $sms_failed . ")";
+			} else {
+				$_SESSION['error_string'] = _('System error has occured') . " (" . _('queued') . ":" . (int) $sms_count . " " . _('failed') . ":" . (int) $sms_failed . ")";
+			}
 		} else {
 			$_SESSION['error_string'] = _('You must select receiver and your message should not be empty');
 		}
