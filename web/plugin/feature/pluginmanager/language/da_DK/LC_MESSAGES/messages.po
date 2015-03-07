@@ -1,0 +1,49 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Author"
+msgstr "Forfatter"
+
+msgid "Core"
+msgstr "Kerne"
+
+msgid "Date"
+msgstr "Dato"
+
+msgid "Description"
+msgstr "Beskrivelse"
+
+msgid "Features"
+msgstr "Funktioner"
+
+msgid "Gateways"
+msgstr "Gateways"
+
+msgid "Languages"
+msgstr "Sprog"
+
+msgid "Manage plugin"
+msgstr "Håndter udvidelse"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Themes"
+msgstr "Temaer"
+
+msgid "Version"
+msgstr "Version"

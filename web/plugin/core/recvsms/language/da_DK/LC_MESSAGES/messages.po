@@ -1,0 +1,30 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Message"
+msgstr "Besked"
+
+msgid "Message from"
+msgstr "Besked fra"
+
+msgid "New inbox from"
+msgstr "Ny indbakke fra"
+
+msgid "Received"
+msgstr "Modtaget"
+
+msgid "Receiver"
+msgstr "Modtager"
+
+msgid "Sender"
+msgstr "Afsender"

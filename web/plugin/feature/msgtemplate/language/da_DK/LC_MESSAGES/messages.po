@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Add message template"
+msgstr "Tilføj beskedskabelon"
+
+msgid "Are you sure you want to delete these items ?"
+msgstr "Er du sikker på at du ønsker at slette disse emner ?"
+
+msgid "Content"
+msgstr "Indhold"
+
+msgid "Edit message template"
+msgstr "Rediger beskedskabelon"
+
+msgid "Fail to add message template"
+msgstr "Kunne ikke tilføje beskedskabelon"
+
+msgid "Fail to edit message template"
+msgstr "Kunne ikke redigere beskedskabelon"
+
+msgid "Message template"
+msgstr "Beskedskabelon"
+
+msgid "Message template content"
+msgstr "Beskedskabelon indhold"
+
+msgid "Message template has been edited"
+msgstr "Beskedskabelon er blevet redigeret"
+
+msgid "Message template has been saved"
+msgstr "Beskedskabelon er blevet gemt"
+
+msgid "Message template name"
+msgstr "Beskedskabelon navn"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "Notes"
+msgstr "Noter"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "Selected message template has been deleted"
+msgstr "Valgt beskedskabelon er blevet slettet"
+
+msgid "You must fill all fields"
+msgstr "Du skal udfylde alle felter"
+
+msgid "will be replaced with the name listed in phonebook"
+msgstr "vil blive erstattet med navnet i telefonbogen"
+
+msgid "will be replaced with the phone number listed in phonebook"
+msgstr "vil blive erstattet med telefonnummeret i telefonbogen"

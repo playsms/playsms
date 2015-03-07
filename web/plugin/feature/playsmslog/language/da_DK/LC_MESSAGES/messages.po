@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Refresh"
+msgstr "Opfrisk"
+
+msgid "View log"
+msgstr "Vis log"
+
+msgid "playSMS daemon is NOT running"
+msgstr "playSMS daemon kører IKKE"
+
+msgid "playSMS daemon is running"
+msgstr "playSMS daemon kører"
+
+msgid "playSMS daemon status"
+msgstr "playSMS daemon status"

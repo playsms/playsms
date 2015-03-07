@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid " Prevent duplicates"
+msgstr "Forhinder dubletter"
+
+msgid "CSV file format"
+msgstr "CSV filformat"
+
+msgid "Cancel send from file"
+msgstr "Anuller send fra fil"
+
+msgid "Confirmation"
+msgstr "Bekræftelse"
+
+msgid "Destination number"
+msgstr "Destinationsnummer"
+
+msgid "Fail to remove cancelled entries from database"
+msgstr "Kunne ikke fjerne anullerede emner fra databasen"
+
+msgid "Found invalid entries in uploaded file"
+msgstr "Fandt ugyldige emner i den uploadede fil"
+
+msgid "Found valid entries in uploaded file"
+msgstr "Fandt gyldige emner i den uploadede fil"
+
+msgid "Invalid CSV file"
+msgstr "Ugyldig CSV fil"
+
+msgid "Invalid entries"
+msgstr "Ugyldige emner"
+
+msgid "Invalid session ID"
+msgstr "Ugyldigt session ID"
+
+msgid "Message"
+msgstr "Besked"
+
+msgid "Please select CSV file"
+msgstr "Vælg venligst en CSV fil"
+
+msgid "SMS has been sent to valid numbers in uploaded file"
+msgstr "SMS er blevet sendt til gyldigt antal i den uploadede fil"
+
+msgid "Send SMS to valid entries"
+msgstr "Send SMS til gyldige emner"
+
+msgid "Send from file"
+msgstr "Send fra fil"
+
+msgid "Send from file has been cancelled"
+msgstr "Send fra fil er blevet anulleret"
+
+msgid "Upload file"
+msgstr "Upload fil"
+
+msgid "Uploaded file"
+msgstr "Uploadet fil"
+
+msgid "Username"
+msgstr "Brugernavn"
+
+msgid "Valid entries"
+msgstr "Gyldige emner"
+
+msgid "Your choice"
+msgstr "Dit valg"
+
+msgid "destination number, message"
+msgstr "destinationsnummer, besked"
+
+msgid "destination number, message, username"
+msgstr "destinationsnummer, besked, brugernavn"
+
+msgid "invalid entries"
+msgstr "ugyldige emner"
+
+msgid "of"
+msgstr "af"
+
+msgid "valid entries"
+msgstr "gyldige emner"

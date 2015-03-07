@@ -1,0 +1,193 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Account has been unbanned"
+msgstr "Konto er ikke længere bandlyst"
+
+msgid "All inbox"
+msgstr "Alle indbakker"
+
+msgid "All incoming messages"
+msgstr "Alle indkommende beskeder"
+
+msgid "All outgoing messages"
+msgstr "Alle udgående beskeder"
+
+msgid "All reports"
+msgstr "Alle rapporter"
+
+msgid "Amount"
+msgstr "Beløb"
+
+msgid "Are you sure you want to delete these items ?"
+msgstr "Er du sikker på at du vil slette disse emner?"
+
+msgid "Are you sure you want to delete these transactions ?"
+msgstr "Er du sikker på at du ønsker at slette disse transaktioner?"
+
+msgid "Balance"
+msgstr "Balance"
+
+msgid "Balance recorded on transaction"
+msgstr "Balance på transaktionen"
+
+msgid "Ban date/time"
+msgstr "Bandlyst dato/tid"
+
+msgid "Banned users list"
+msgstr "Listen over bandlyste brugere"
+
+msgid "Billing"
+msgstr "Afregning"
+
+msgid "Content"
+msgstr "Indhold"
+
+msgid "Credit"
+msgstr "Kredit"
+
+msgid "Current IP address"
+msgstr "Aktuel IP-adresser"
+
+msgid "Deleted"
+msgstr "Slettet"
+
+msgid "Delivered"
+msgstr "Leveret"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Failed"
+msgstr "Mislykket"
+
+msgid "Feature"
+msgstr "Funktion"
+
+msgid "Footer"
+msgstr "Bundtekst"
+
+msgid "From"
+msgstr "Fra"
+
+msgid "Inbox"
+msgstr "Indbakke"
+
+msgid "Incoming messages"
+msgstr "Indkommende beskeder"
+
+msgid "Keyword"
+msgstr "Nøgleord"
+
+msgid "Last update"
+msgstr "Sidst opdateret"
+
+msgid "List of my credit transactions"
+msgstr "Liste over mine kredit transaktioner"
+
+msgid "Message"
+msgstr "Besked"
+
+msgid "My credit transactions"
+msgstr "Mine kredit transaktioner"
+
+msgid "My report"
+msgstr "Min rapport"
+
+msgid "Outgoing messages"
+msgstr "Udgående beskeder"
+
+msgid "Pending"
+msgstr "Afventer"
+
+msgid "Report"
+msgstr "Rapport"
+
+msgid "Report all users"
+msgstr "Rapport alle brugere"
+
+msgid "Report banned users"
+msgstr "Rapport bandlyste brugere"
+
+msgid "Report whose online"
+msgstr "Rapport hvem er online"
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Sandbox"
+msgstr "Sandbox"
+
+msgid "Selected incoming message has been deleted"
+msgstr "Valgte indkommende besked er blevet slettet"
+
+msgid "Selected outgoing message has been deleted"
+msgstr "Valgte udgående besked er blevet slettet"
+
+msgid "Selected transactions has been deleted"
+msgstr "Valgte transaktioner er blevet slettet"
+
+msgid "Sent"
+msgstr "Sendt"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Time"
+msgstr "Tid"
+
+msgid "To"
+msgstr "Til"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Transaction datetime"
+msgstr "Transaktion dato-tid"
+
+msgid "Unable to unban account"
+msgstr "Kunne ikke fjerne bandlysning af konto"
+
+msgid "User"
+msgstr "Bruger"
+
+msgid "User agent"
+msgstr "Brugeragent"
+
+msgid "Whose online"
+msgstr "Hvem er online"
+
+msgid "cost"
+msgstr "pris"
+
+msgid "count"
+msgstr "antal"
+
+msgid "handled"
+msgstr "håndteret"
+
+msgid "rate"
+msgstr "frekvens"
+
+msgid "unhandled"
+msgstr "ej håndteret"
+
+msgid "username"
+msgstr "brugernavn"
+
+#~ msgid "Unable to unban user"
+#~ msgstr "Kan ikke fjerne bandlysning af bruger"
+
+#~ msgid "User has been unbanned"
+#~ msgstr "Brugeren er ikke længere bandlyst"

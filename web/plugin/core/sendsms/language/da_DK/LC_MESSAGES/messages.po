@@ -1,0 +1,69 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Flash message"
+msgstr "Flash besked"
+
+msgid "Format YYYY-MM-DD hh:mm"
+msgstr "Format ÅÅÅÅ-MM-DD tt:mm"
+
+msgid "Message"
+msgstr "Besked"
+
+msgid "Message footer"
+msgstr "Besked bundtekst"
+
+msgid "Options"
+msgstr "Indstillinger"
+
+msgid "Please select template"
+msgstr "Vælg venligst skabelon"
+
+msgid "Prefix with # for groups and @ for users"
+msgstr "Præfiks med # for grupper og @ for brugere"
+
+msgid "SMS"
+msgstr "SMS"
+
+msgid "Schedule"
+msgstr "Skema"
+
+msgid "Send"
+msgstr "Send"
+
+msgid "Send message"
+msgstr "Send besked"
+
+msgid "Send to"
+msgstr "Send til"
+
+msgid "Sender ID"
+msgstr "Afsender ID"
+
+msgid "Unicode message"
+msgstr "Unicode besked"
+
+msgid "You must select receiver and your message should not be empty"
+msgstr "Du skal vælge en modtager og din besked bør ikke være tom"
+
+msgid "Your message has been delivered to queue"
+msgstr "Din besked er afleveret til køen"
+
+msgid "chars"
+msgstr "tegn"
+
+msgid "failed"
+msgstr "mislykket"
+
+msgid "queued"
+msgstr "i kø"

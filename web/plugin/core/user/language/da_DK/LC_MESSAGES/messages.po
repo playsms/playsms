@@ -1,0 +1,515 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "ACL"
+msgstr "ACL"
+
+msgid "ACL DEFAULT will not restrict access to menus"
+msgstr "ACL DEFAULT vil ikke begrænse adgang til menuer"
+
+msgid "Access Control List"
+msgstr "Adgangskontrol liste"
+
+msgid "Account admin or currently logged in administrator cannot be banned"
+msgstr "Kontoadmin eller aktuelt indlogget administrator kan ikke bandlyses"
+
+msgid "Account admin or currently logged in administrator cannot be unbanned"
+msgstr ""
+"Kontoadmin eller aktuelt indlogget administrator kan ikke få fjernet "
+"bandlysning"
+
+msgid "Account has been added and password has been emailed"
+msgstr "Konto er blevet tilføjet og adgangskode er blevet e-mailet"
+
+msgid "Account has been added but failed to send email"
+msgstr "Konto er blevet tilføjet, men e-mail kunne ikke sendes"
+
+msgid "Account has been banned"
+msgstr "Konto er blevet bandlyst"
+
+msgid "Account has been removed"
+msgstr "Konto er blevet fjernet"
+
+msgid "Account has been unbanned"
+msgstr "Konto er ikke længere bandlyst"
+
+msgid "Account name is mandatory"
+msgstr "Kontonavn er krævet"
+
+msgid "Account registration is not available"
+msgstr "Konto registrering er ikke tilgængeligt"
+
+msgid "Account status"
+msgstr "Kontostatus"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Active language"
+msgstr "Aktivt sprog"
+
+msgid "Add account"
+msgstr "Tilføj konto"
+
+msgid "Add or reduce credit from manage credit menu"
+msgstr "Tilføj eller fjern kredit fra håndter kredit menuen"
+
+msgid "Add subuser"
+msgstr "Tilføj underbruger"
+
+msgid "Address"
+msgstr "Adresse"
+
+msgid "Administrator"
+msgstr "Administrator"
+
+msgid "Administrators"
+msgstr "Administratorer"
+
+msgid "Always choose to send as unicode"
+msgstr "Send altid som unicode"
+
+msgid "Application options"
+msgstr "Programindstillinger"
+
+msgid "Are you sure you want to ban account"
+msgstr "Er du sikker på at du ønsker at bandlyse kontoen"
+
+msgid "Are you sure you want to ban subuser"
+msgstr "Er du sikker på at du ønsker at bandlyse underbrugeren"
+
+msgid "Are you sure you want to delete subuser"
+msgstr "Er du sikker på at du ønsker at slette underbrugeren"
+
+msgid "Are you sure you want to delete subuser ?"
+msgstr "Er du sikker på at du ønsker at slette underbrugeren?"
+
+msgid "Are you sure you want to delete user"
+msgstr "Er du sikker på at du ønsker at slette brugeren"
+
+msgid "Are you sure you want to delete user ?"
+msgstr "Er du sikker på at du ønsker at slette brugeren?"
+
+msgid "Are you sure you want to unban account"
+msgstr "Er du sikker på at du ønsker at fjerne bandlysningen af kontoen"
+
+msgid "Are you sure you want to unban subuser"
+msgstr "Er du sikker på at du vil fjerne bandlysningen af underbrugeren"
+
+msgid "Cannot change status when user have subusers"
+msgstr "Kan ikke ændre status når bruger har underbrugere"
+
+msgid "City"
+msgstr "By"
+
+msgid "Comma separated"
+msgstr "Kommasepareret"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Credit"
+msgstr "Kredit"
+
+msgid "Currently logged in user is immune to deletion"
+msgstr "Aktuelt indloggede brugere kan ikke slettes"
+
+msgid "Default"
+msgstr "Standard"
+
+msgid "Default message footer"
+msgstr "Standard besked bundtekst"
+
+msgid "Default sender ID"
+msgstr "Standard afsender ID"
+
+msgid "Delete"
+msgstr "Slet"
+
+msgid "Effective SMS sender ID"
+msgstr "Effektivt SMS afsender ID"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "F.eks: +0700 for Jakarta/Bangkok tidszone"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Email address is mandatory"
+msgstr "E-mailadressen er påkrævet"
+
+msgid "Enable credit unicode SMS as normal SMS"
+msgstr "Aktiver kreditering af unicode SMS som normal SMS"
+
+msgid "Enable webservices"
+msgstr "Aktiver webservices"
+
+msgid "Fail to register an account"
+msgstr "Kunne ikke registrere en konto"
+
+msgid "Fail to save configuration"
+msgstr "Kunne ikke gemme konfigurationen"
+
+msgid "Fail to save preferences"
+msgstr "Kunne ikke gemme indstillingerne"
+
+msgid "Forward message to email"
+msgstr "Videresend besked til e-mail"
+
+msgid "Forward message to inbox"
+msgstr "Videresend besked til en indbakke"
+
+msgid "Forward message to mobile"
+msgstr "Videresend besked til mobil"
+
+msgid "Full name"
+msgstr "Fulde navn"
+
+msgid "Invalid sender ID"
+msgstr "Ugyldig afsender ID"
+
+msgid "List of administrators"
+msgstr "Liste over administratorer"
+
+msgid "List of subusers"
+msgstr "Liste over underbrugere"
+
+msgid "List of users"
+msgstr "Liste over brugere"
+
+msgid "Local number length"
+msgstr "Lokalnummer længde"
+
+msgid "Login information"
+msgstr "Login oplysninger"
+
+msgid "Manage account"
+msgstr "Håndter konto"
+
+msgid "Manage subuser"
+msgstr "Håndter underbruger"
+
+msgid "Max. 16 numeric or 11 alphanumeric characters"
+msgstr "Maks. 16 nummeriske eller 11 alfanummeriske tegn"
+
+msgid "Max. 30 alphanumeric characters"
+msgstr "Maks. 30 alfanummeriske tegn"
+
+msgid "Min length to detect missing country code"
+msgstr "Min. længde til at opdage manglende landekode"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "New account registration"
+msgstr "Registrer ny konto"
+
+msgid "No changes made"
+msgstr "Ingen ændringer foretaget"
+
+msgid "None"
+msgstr "Ingen"
+
+msgid "Parent"
+msgstr "Forælder"
+
+msgid "Parent account"
+msgstr "Forælderkonto"
+
+msgid ""
+"Parent account is mandatory for subusers only. If no value is given then the "
+"subuser will be automatically assigned to user admin"
+msgstr ""
+"Forælderkonto er kun påkrævet for underbrugere. Hvis der ikke er angivet en "
+"værdi vil underbrugeren automatisk tilknyttes til bruger admin"
+
+msgid "Password"
+msgstr "Adgangskode"
+
+msgid "Password does not match"
+msgstr "Adgangskoderne er ikke ens"
+
+msgid "Password should be at least 4 characters"
+msgstr "Adgangskoden skal være mindst 4 tegn"
+
+msgid "Personal information"
+msgstr "Personlige oplysninger"
+
+msgid "Please remove all subusers from this user to delete"
+msgstr "Fjern venligst alle underbrugere fra denne bruger før sletning"
+
+msgid "Please select"
+msgstr "Vælg venligsr"
+
+msgid "Preferences"
+msgstr "Indstillinger"
+
+msgid "Preferences has been saved"
+msgstr "Indstillingerne er blevet gemt"
+
+msgid "Preferences has been saved and password updated"
+msgstr "Indstillingerne er blevet gemt og adgangskoden er opdateret"
+
+msgid "Preferences has been saved and webservices token updated"
+msgstr "Indstillingerne er blevet gemt og webservice token er opdateret"
+
+msgid "Prefix or country code"
+msgstr "Præfiks eller landekode"
+
+msgid "Re-type password"
+msgstr "Gen-indtast adgangskode"
+
+msgid "Registered"
+msgstr "Registreret"
+
+msgid "Renew webservices token"
+msgstr "Forny webservices token"
+
+msgid "Replace prefix 0 or padding local numbers"
+msgstr "Erstat præfiks 0 eller udvid lokale numre"
+
+msgid "SMS footer"
+msgstr "SMS bundtekst"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "State or Province"
+msgstr "Stat eller provis"
+
+msgid "Subuser"
+msgstr "Underbruger"
+
+msgid "Subusers"
+msgstr "Underbrugere"
+
+msgid "Timezone"
+msgstr "Tidszone"
+
+msgid "Unable to ban account"
+msgstr "Kan ikke bandlyse konto"
+
+msgid "Unable to ban subuser"
+msgstr "Kan ikke bandlyse underbruger"
+
+msgid "Unable to delete other users"
+msgstr "Kan ikke slette andre brugere"
+
+msgid ""
+"Unable to delete this user until all subusers under this user have been "
+"removed"
+msgstr ""
+"Kan ikke slette denne bruger før alle underbrugere under denne bruger er "
+"blevet fjernet"
+
+msgid "Unable to process subuser addition"
+msgstr "Kan ikke behandle underbruger tilføjelse"
+
+msgid "Unable to process user addition"
+msgstr "Kan ikke behandle bruger tilføjelse"
+
+msgid "Unable to unban account"
+msgstr "Kan ikke fjerne bandlysning fra konto"
+
+msgid "Unable to unban subuser"
+msgstr "Kan ikke fjerne bandlysning af underbruger"
+
+msgid "Unknown error"
+msgstr "Ukendt fejl"
+
+msgid "Unknown error has occurred"
+msgstr "Der opstod en ukendt fejl"
+
+msgid "User"
+msgstr "Bruger"
+
+msgid "User already exists"
+msgstr "Brugeren eksisterer allerede"
+
+msgid "User configuration"
+msgstr "Brugerkonfiguration"
+
+msgid "User configuration has been saved"
+msgstr "Brugerkonfiguration er blevet gemt"
+
+msgid "User configuration has been saved and webservices token updated"
+msgstr "Brugerkonfiguration er blevet gemt og webservice token er opdateret"
+
+msgid "User deletion unavailable"
+msgstr "Brugersletning ikke tilgængelig"
+
+msgid "User does not exist"
+msgstr "Brugeren eksisterer ikke"
+
+msgid "User is already on banned subusers list"
+msgstr "Brugeren er allerede på listen over bandlyste underbrugere"
+
+msgid "User is already on banned users list"
+msgstr "Brugeren er allerede på listen over bandlyste brugere"
+
+msgid "User is immune to deletion"
+msgstr "Brugeren er imun overfor sletning"
+
+msgid "User is not on banned subusers list"
+msgstr "Brugeren er ikke på listen over bandlyste underbrugere"
+
+msgid "User is not on banned users list"
+msgstr "Brugeren er ikke på listen over bandlyste brugere"
+
+msgid "User with this email already exists"
+msgstr "Bruger med denne e-mail eksisterer allerede"
+
+msgid "User with this mobile already exists"
+msgstr "Bruger med dette mobilnr eksisterer allerede"
+
+msgid "Username"
+msgstr "Brugernavn"
+
+#, php-format
+msgid "Username must be at least 3 characters and maximum %d characters"
+msgstr "Brugernavn skal være mindst 3 tegn maksimum %d tegn"
+
+msgid "Users"
+msgstr "Brugere"
+
+msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr "Gyldige tegn brugernavn er bogstaver, tal, punktum og bindestreg"
+
+msgid "Webservices IP range"
+msgstr "Webservices IP område"
+
+msgid "Webservices token"
+msgstr "Webservice token"
+
+msgid "Webservices username"
+msgstr "Webservices brugernavn"
+
+msgid "You must fill all mandatory fields"
+msgstr "Du skal udfylde alle krævede felter"
+
+msgid "You must fill all required fields"
+msgstr "Du skal udfylde alle påkrævede felter"
+
+msgid "Your email format is invalid"
+msgstr "Dit e-mail format er ugyldigt"
+
+msgid "Your mobile format is invalid"
+msgstr "Dit mobil format er ugyldigt"
+
+msgid "Zipcode"
+msgstr "Postnummer"
+
+msgid "email"
+msgstr "e-mail"
+
+msgid "for subuser only"
+msgstr "kun til underbruger"
+
+msgid "mobile"
+msgstr "mobil"
+
+msgid "no"
+msgstr "nej"
+
+msgid "username"
+msgstr "brugernavn"
+
+msgid "yes"
+msgstr "ja"
+
+#~ msgid "Add user"
+#~ msgstr "Tilføj bruger"
+
+#~ msgid "Are you sure you want to ban user"
+#~ msgstr "Er du sikker på at du ønsker at bandlyse brugeren"
+
+#~ msgid "Are you sure you want to unban user"
+#~ msgstr "Er du sikker på at du vil fjerne bandlysningen af brugeren"
+
+#~ msgid "Manage subusers"
+#~ msgstr "Håndter underbrugere"
+
+#~ msgid "Manage user"
+#~ msgstr "Håndter bruger"
+
+#~ msgid "New webservices token"
+#~ msgstr "Ny webservice token"
+
+#~ msgid "Parent user"
+#~ msgstr "Forælderbruger"
+
+#~ msgid ""
+#~ "Parent user is mandatory for subusers only. If no value is given then the "
+#~ "subuser will be automatically assigned to user admin"
+#~ msgstr ""
+#~ "Forælderbruger er kun påkrævet for underbrugere. Hvis der ikke angives "
+#~ "nogen værdi vil underbrugeren automatisk blive tilknyttet til admin "
+#~ "brugeren"
+
+#~ msgid "Select default sender ID"
+#~ msgstr "Vælg standard adsender ID"
+
+#~ msgid "Select parent user for subuser"
+#~ msgstr "Vælg forælderbruger for underbruger"
+
+#~ msgid "Unable to ban user"
+#~ msgstr "Kan ikke bandlyse bruger"
+
+#~ msgid "Unable to unban user"
+#~ msgstr "Kan ikke fjerne bandlysning af bruger"
+
+#~ msgid "User admin or currently logged in administrator cannot be banned"
+#~ msgstr ""
+#~ "Brugeren admin eller aktuelt indlogget administrator kan ikke bandlyses"
+
+#~ msgid "User admin or currently logged in administrator cannot be unbanned"
+#~ msgstr ""
+#~ "Brugeren admin eller aktuelt indlogget administrator kan ikke få fjernet "
+#~ "bandlysning"
+
+#~ msgid "User configuration has been saved and password updated"
+#~ msgstr "Brugerkonfiguration er blevet gemt og adgangskoden er opdateret"
+
+#~ msgid "User has been added and password has been emailed"
+#~ msgstr "Brugeren er blevet tilføjet og adgangskoden er sendt via e-mail"
+
+#~ msgid "User has been added but failed to send email"
+#~ msgstr "Brugeren er blevet oprettet men e-mail kunne ikke sendes"
+
+#~ msgid "User has been banned"
+#~ msgstr "Brugeren er blevet bandlyst"
+
+#~ msgid "User has been removed"
+#~ msgstr "Brugeren er blevet fjernet"
+
+#~ msgid "User has been unbanned"
+#~ msgstr "Brugeren er ikke længere bandlyst"
+
+#~ msgid "User registration is not available"
+#~ msgstr "Brugerregistrering er ikke tilgængelig"
+
+#~ msgid "User status"
+#~ msgstr "Brugerstatus"
+
+#~ msgid "Username is empty"
+#~ msgstr "Brugernavn er tomt"
+
+#~ msgid "Username should be at least 3 characters"
+#~ msgstr "Brugernavn bør være mindst 3 tegn"
+
+#~ msgid "You must fill all field"
+#~ msgstr "Du skal udfylde alle felter"

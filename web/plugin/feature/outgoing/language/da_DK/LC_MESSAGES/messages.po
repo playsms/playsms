@@ -1,0 +1,82 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Add route"
+msgstr "Tilføj rute"
+
+msgid "Are you sure ?"
+msgstr "Er du sikker?"
+
+msgid "Destination name"
+msgstr "Destinationsnavn"
+
+msgid "Edit route"
+msgstr "Rediger rute"
+
+msgid "Fail to delete route"
+msgstr "Kunne ikke slette rute"
+
+msgid "Fail to save route"
+msgstr "Kunne ikke slette rute"
+
+msgid "Maximum 8 digits numeric only"
+msgstr "Maksimum 8 numeriske tegn"
+
+msgid "No changes made!"
+msgstr "Ingen ændringer foretaget!"
+
+msgid "Prefix"
+msgstr "Præfiks"
+
+msgid "Route SMS outgoing"
+msgstr "Diriger udgående SMS"
+
+msgid "Route has been added"
+msgstr "Rute er blevet tilføjet"
+
+msgid "Route has been deleted"
+msgstr "Rute er blevet slettet"
+
+msgid "Route has been saved"
+msgstr "Rute er blevet slettet"
+
+msgid "Route outgoing SMS"
+msgstr "Diriger udgående SMS"
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "User"
+msgstr "Bruger"
+
+msgid "You must fill all fields"
+msgstr "Du skal udfylde alle felter"
+
+msgid "You must fill all mandatory fields"
+msgstr "Du skal udfylde alle påkrævede felter"
+
+msgid "blocked"
+msgstr "blokeret"
+
+msgid "destination"
+msgstr "destination"
+
+msgid "prefix"
+msgstr "præfiks"

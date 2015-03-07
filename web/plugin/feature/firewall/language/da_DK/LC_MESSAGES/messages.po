@@ -1,0 +1,55 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: da_DK\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Add blocked IP addresses"
+msgstr "Tilføj blokeret IP adresse"
+
+msgid "Blocked IP address"
+msgstr "Blokeret IP adresse"
+
+msgid "Delete"
+msgstr "Slet"
+
+msgid "IP addreses has been deleted"
+msgstr "IP adresse er blevet slettet"
+
+msgid "IP address"
+msgstr "IP adresse"
+
+msgid "IP addresses"
+msgstr "IP adresser"
+
+msgid "IP addresses have been blocked"
+msgstr "IP adresser er blevet blokeret"
+
+msgid "Manage firewall"
+msgstr "Håndter firewall"
+
+msgid "Multiple IP addresses must be comma seperated"
+msgstr "Flere IP adresser skal adskilles med komma"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "Select"
+msgstr "Vælg"
+
+msgid "Select username"
+msgstr "Vælg brugernavn"
+
+msgid "User"
+msgstr "Bruger"
+
+msgid "You must fill all fields"
+msgstr "Du skal udfylde alle felter"

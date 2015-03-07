@@ -1,0 +1,79 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Check email sender"
+msgstr "Tjek e-mail afsender"
+
+msgid "Email protocol"
+msgstr "E-mail protokol"
+
+msgid "Email to SMS PIN has been saved"
+msgstr "E-mail til SMS PIN er blevet gemt"
+
+msgid "Email to SMS PIN has been saved but service is disabled"
+msgstr "E-mail til SMS PIN er blevet gemt men servicen er deaktiveret"
+
+msgid "Email to SMS address"
+msgstr "E-mail til SMS adresse"
+
+msgid "Email to SMS configuration has been saved and service disabled"
+msgstr "E-mail til SMS konfiguration er blevet gemt og servicen er deaktiveret"
+
+msgid "Email to SMS configuration has been saved and service enabled"
+msgstr "E-mail til SMS konfiguration er blevet gemt og servicen er aktiveret"
+
+msgid "Enable fetch new emails"
+msgstr "Aktiver hentning af nye e-mails"
+
+msgid "Fail to save email to SMS PIN"
+msgstr "Kunne ikke gemme email til SMS PIN"
+
+msgid "Fill the password field to change password"
+msgstr "Udfyld adgangskodefeltet for at skifte adgangskode"
+
+msgid "Mail server address"
+msgstr "Postserver adresse"
+
+msgid "Mail server port"
+msgstr "Postserver port"
+
+msgid "Mailbox password"
+msgstr "Postkasse adgangskode"
+
+msgid "Mailbox username"
+msgstr "Postkasse brugernavn"
+
+msgid "Manage email to SMS"
+msgstr "Håndter e-mail til SMS"
+
+msgid "My email to SMS"
+msgstr "Min e-mail til SMS"
+
+msgid "No validate cert option"
+msgstr "Ingen gyldige cert indstillinger"
+
+msgid "PIN for email to SMS"
+msgstr "PIN kode for email til SMS"
+
+msgid "PIN is empty"
+msgstr "PIN er tom"
+
+msgid "Use SSL"
+msgstr "Brug SSL"
+
+msgid "no"
+msgstr "nej"
+
+msgid "yes"
+msgstr "ja"
