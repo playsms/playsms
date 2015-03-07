@@ -22,7 +22,7 @@ defined('_SECURE_') or die('Forbidden');
  * Get user credit balance
  *
  * @param integer $uid
- *        	User ID
+ *        User ID
  * @return float User credit balance
  */
 function credit_getbalance($uid) {
@@ -42,9 +42,9 @@ function credit_getbalance($uid) {
  * Add credit to user
  *
  * @param integer $uid
- *        	User ID
+ *        User ID
  * @param decimal $amount
- *        	Credit amount to add (positive value)
+ *        Credit amount to add (positive value)
  * @return boolean TRUE on success
  */
 function credit_add($uid, $amount) {
@@ -56,9 +56,9 @@ function credit_add($uid, $amount) {
  * Reduce credit from user
  *
  * @param integer $uid
- *        	User ID
+ *        User ID
  * @param decimal $amount
- *        	Credit amount to reduce (positive value)
+ *        Credit amount to reduce (positive value)
  * @return boolean TRUE on success
  */
 function credit_reduce($uid, $amount) {
@@ -122,13 +122,13 @@ function credit_hook_webservices_output($operation, $requests) {
 	if ($operation != 'credit') {
 		return FALSE;
 	}
-		
+	
 	$balance = (float) credit_getbalance($user_config['uid']);
 	$balance = number_format($balance, 3, '.', '');
-		
+	
 	ob_end_clean();
 	header('Content-Type: text/plain');
-
+	
 	return $balance;
 }
 
@@ -190,17 +190,20 @@ function credit_hook_rate_deductusercredit($uid, $amount) {
 }
 
 function credit_hook_rate_setusercredit($uid, $balance = 0) {
-	$ok = false;
 	$balance = (float) $balance;
-	if ($balance > 0) {
-		_log("saving uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
-		$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET c_timestamp='" . mktime() . "',credit='$balance' WHERE uid='$uid'";
-		if ($db_result = @dba_affected_rows($db_query)) {
-			_log("saved uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
-			$ok = true;
-		}
+	
+	_log("saving uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
+	
+	$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET c_timestamp='" . mktime() . "',credit='$balance' WHERE uid='$uid'";
+	if ($db_result = @dba_affected_rows($db_query)) {
+		_log("saved uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
+		
+		return TRUE;
+	} else {
+		_log("unable to save uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
+		
+		return FALSE;
 	}
-	return $ok;
 }
 
 function credit_hook_rate_getusercredit($username) {
