@@ -101,6 +101,8 @@ msgid ""
 "Define a single character as keyword separator replacing default keyword "
 "separator a space"
 msgstr ""
+"Angiv et enkelt tegn der skal bruges som nøgleords separator i stedet for "
+"mellemrum som separator"
 
 msgid "Disable login as subuser"
 msgstr "Deaktiver login som underbruger"
@@ -147,7 +149,7 @@ msgid "Information page"
 msgstr "Informationsside"
 
 msgid "Keyword separator"
-msgstr ""
+msgstr "Nøgleords separator"
 
 msgid "Layout footer"
 msgstr "Layout bundtekst"
