@@ -12,7 +12,7 @@ msgstr ""
 "X-Generator: Poedit 1.7.4\n"
 
 msgid "Fail to send message to all destination"
-msgstr ""
+msgstr "Kunne ikke sende besked til alle destinationer"
 
 msgid "Flash message"
 msgstr "Flash besked"
@@ -54,7 +54,7 @@ msgid "Sender ID"
 msgstr "Afsender ID"
 
 msgid "System error has occured"
-msgstr ""
+msgstr "Der opstod en systemfejl"
 
 msgid "Unicode message"
 msgstr "Unicode besked"
@@ -65,9 +65,8 @@ msgstr "Du skal vælge en modtager og din besked bør ikke være tom"
 msgid "Your message has been delivered to queue"
 msgstr "Din besked er afleveret til køen"
 
-#, fuzzy
 msgid "Your message has been delivered to some of the destination"
-msgstr "Din besked er afleveret til køen"
+msgstr "Din besked er afleveret til nogen af destinationerne"
 
 msgid "chars"
 msgstr "tegn"
