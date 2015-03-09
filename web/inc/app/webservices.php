@@ -573,8 +573,15 @@ if (_OP_) {
 				
 				// output do not require valid login
 				// output must not be empty
-				if ($ret = webservices_output(_OP_, $_REQUEST)) {
-					_p($ret);
+				$returns = array();
+				$ret = webservices_output(_OP_, $_REQUEST, $returns);
+				
+				if ($ret['modified'] && $ret['param']['content']) {
+					ob_end_clean();
+					if ($ret['param']['content-type'] && $ret['param']['charset']) {
+						header('Content-type: ' . $ret['param']['content-type'] . '; charset=' . $ret['param']['charset']);
+					}
+					_p($ret['param']['content']);
 				}
 				exit();
 			} else {

@@ -463,8 +463,27 @@ function webservices_query($username) {
 	return $json;
 }
 
-function webservices_output($operation, $requests) {
-	$ret = core_call_hook();
+function webservices_output($operation, $requests, $returns) {
+	global $core_config;
+	
+	// default returns
+	$returns = array(
+		'modified' => TRUE,
+		'param' => array(
+			'content' => '',
+			'content-type' => 'text/json',
+			'charset' => 'utf-8' 
+		) 
+	);
+	
+	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
+		if ($ret_intercept = core_hook($core_config['featurelist'][$c], $operation, $requests, $returns)) {
+			if ($ret_intercept['modifed']) {
+				$returns['param']['content'] = ($ret_intercept['param']['content'] ? $ret_intercept['param']['content'] : $returns['param']['content']);
+			}
+		}
+	}
+	
 	return $ret;
 }
 
