@@ -115,15 +115,15 @@ function credit_html_select_user() {
 function credit_hook_webservices_output($operation, $requests) {
 	global $user_config;
 	
-	if (!auth_isvalid()) {
-		return number_format((float) '0', 3, '.', '');
-	}
-	
 	if ($operation != 'credit') {
 		return FALSE;
 	}
 	
-	$balance = (float) credit_getbalance($user_config['uid']);
+	if (auth_isvalid()) {
+		$balance = (float) credit_getbalance($user_config['uid']);
+	} else {
+		$balance = (float) 0;
+	}
 	$balance = number_format($balance, 3, '.', '');
 	
 	ob_end_clean();

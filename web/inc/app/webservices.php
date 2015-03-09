@@ -572,8 +572,10 @@ if (_OP_) {
 			if (_OP_) {
 				
 				// output do not require valid login
-				$ret = webservices_output(_OP_, $_REQUEST);
-				_p($ret);
+				// output must not be empty
+				if ($ret = webservices_output(_OP_, $_REQUEST)) {
+					_p($ret);
+				}
 				exit();
 			} else {
 				

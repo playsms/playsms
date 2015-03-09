@@ -244,16 +244,16 @@ function phonebook_hook_phonebook_search_user($keyword = "", $count = 0) {
 function phonebook_hook_webservices_output($operation, $requests) {
 	global $user_config;
 	
-	if (!auth_isvalid()) {
-		return FALSE;
-	}
-	
 	$keyword = stripslashes($requests['keyword']);
 	if (!$keyword) {
 		$keyword = $requests['tag'];
 	}
 	
 	if (!($operation == 'phonebook') && $keyword) {
+		return FALSE;
+	}
+	
+	if (!auth_isvalid()) {
 		return FALSE;
 	}
 	
