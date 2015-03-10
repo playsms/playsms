@@ -470,6 +470,7 @@ function webservices_output($operation, $requests, $returns) {
 	$returns = array(
 		'modified' => TRUE,
 		'param' => array(
+			'operation' => $operation,
 			'content' => '',
 			'content-type' => 'text/json',
 			'charset' => 'utf-8' 
@@ -484,6 +485,7 @@ function webservices_output($operation, $requests, $returns) {
 		))) {
 			if ($ret_intercept['modified']) {
 				$returns['modified'] = TRUE;
+				$returns['param']['operation'] = ($ret_intercept['param']['operation'] ? $ret_intercept['param']['operation'] : $returns['param']['operation']);
 				$returns['param']['content'] = ($ret_intercept['param']['content'] ? $ret_intercept['param']['content'] : $returns['param']['content']);
 				$returns['param']['content-type'] = ($ret_intercept['param']['content-type'] ? $ret_intercept['param']['content-type'] : $returns['param']['content-type']);
 				$returns['param']['charset'] = ($ret_intercept['param']['charset'] ? $ret_intercept['param']['charset'] : $returns['param']['charset']);
