@@ -239,43 +239,39 @@ function sms_board_hook_webservices_output($operation, $requests, $returns) {
 	$format = $requests['format'];
 	switch ($type) {
 		case "serialize":
-			$content = sms_board_output_serialize($keyword, $line);
-			if ($content) {
-				$returns['modifed'] = TRUE;
+			if ($content = sms_board_output_serialize($keyword, $line)) {
+				$returns['modified'] = TRUE;
 				$returns['param']['content'] = $content;
 				$returns['param']['content-type'] = 'text/plain';
-				$returns['param']['content'] = 'utf-8';
 			}
 			break;
 		
 		case "json":
-			$content = sms_board_output_json($keyword, $line);
-			if ($content) {
-				$returns['modifed'] = TRUE;
+			if ($content = sms_board_output_json($keyword, $line)) {
+				$returns['modified'] = TRUE;
 				$returns['param']['content'] = $content;
 				$returns['param']['content-type'] = 'text/json';
-				$returns['param']['content'] = 'utf-8';
 			}
 			break;
 		
 		case "xml":
-			$content = sms_board_output_xml($keyword, $line);
-			if ($content) {
-				$returns['modifed'] = TRUE;
+			if ($content = sms_board_output_xml($keyword, $line)) {
+				$returns['modified'] = TRUE;
 				$returns['param']['content'] = $content;
 				$returns['param']['content-type'] = 'text/xml';
-				$returns['param']['content'] = 'utf-8';
 			}
 			break;
 		
 		case "feed":
 			// before sms_board_output_rss, and dont set content-type
-			$content = sms_board_output_rss($keyword, $line, $format);
-			if ($content) {
-				$returns['modifed'] = TRUE;
+			if ($content = sms_board_output_rss($keyword, $line, $format)) {
+				$returns['modified'] = TRUE;
 				$returns['param']['content'] = $content;
-				$returns['param']['content-type'] = 'text/plain';
-				$returns['param']['content'] = 'utf-8';
+				if ($format == 'mbox') {
+					$returns['param']['content-type'] = 'text/plain';
+				} else {
+					$returns['param']['content-type'] = 'text/xml';
+				}
 			}
 			break;
 		
@@ -284,12 +280,10 @@ function sms_board_hook_webservices_output($operation, $requests, $returns) {
 			$bodybgcolor = $requests['bodybgcolor'];
 			$oddbgcolor = $requests['oddbgcolor'];
 			$evenbgcolor = $requests['evenbgcolor'];
-			$content = sms_board_output_html($keyword, $line, $bodybgcolor, $oddbgcolor, $evenbgcolor);
-			if ($content) {
-				$returns['modifed'] = TRUE;
+			if ($content = sms_board_output_html($keyword, $line, $bodybgcolor, $oddbgcolor, $evenbgcolor)) {
+				$returns['modified'] = TRUE;
 				$returns['param']['content'] = $content;
 				$returns['param']['content-type'] = 'text/html';
-				$returns['param']['content'] = 'utf-8';
 			}
 	}
 	

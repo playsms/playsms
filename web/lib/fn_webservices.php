@@ -477,14 +477,20 @@ function webservices_output($operation, $requests, $returns) {
 	);
 	
 	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
-		if ($ret_intercept = core_hook($core_config['featurelist'][$c], $operation, $requests, $returns)) {
-			if ($ret_intercept['modifed']) {
+		if ($ret_intercept = core_hook($core_config['featurelist'][$c], 'webservices_output', array(
+			$operation,
+			$requests,
+			$returns 
+		))) {
+			if ($ret_intercept['modified']) {
 				$returns['param']['content'] = ($ret_intercept['param']['content'] ? $ret_intercept['param']['content'] : $returns['param']['content']);
+				$returns['param']['content-type'] = ($ret_intercept['param']['content-type'] ? $ret_intercept['param']['content-type'] : $returns['param']['content-type']);
+				$returns['param']['charset'] = ($ret_intercept['param']['charset'] ? $ret_intercept['param']['charset'] : $returns['param']['charset']);
 			}
 		}
 	}
 	
-	return $ret;
+	return $returns;
 }
 
 // ---------------------- ADMIN TASKS ---------------------- //
