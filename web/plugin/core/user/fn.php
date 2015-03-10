@@ -299,13 +299,13 @@ function user_add($data = array(), $forced = FALSE) {
 			// logic for parent_uid, parent uid by default is 0
 			if ($data['status'] == 4) {
 				if (!(($parent_status == 2) || ($parent_status == 3))) {
-					$data['parent_uid'] = 0;
+					$data['parent_uid'] = $core_config['main']['default_parent'];
 				}
 			} else {
-				$data['parent_uid'] = 0;
+				$data['parent_uid'] = $core_config['main']['default_parent'];
 			}
 		} else {
-			$data['parent_uid'] = 0;
+			$data['parent_uid'] = $core_config['main']['default_parent'];
 		}
 		
 		$data['username'] = core_sanitize_username($data['username']);
