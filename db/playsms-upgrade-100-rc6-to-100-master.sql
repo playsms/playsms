@@ -7,3 +7,5 @@ UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-master' WHERE `registry
 RENAME TABLE `playsms_tblUser_inbox` TO `playsms_tblSMSInbox` ;
 
 DROP TABLE `playsms_tblUser_country`;
+
+ALTER TABLE `playsms_tblUser` ADD COLUMN `flag_deleted` INT(11) NOT NULL AFTER `lastupdate_datetime`;

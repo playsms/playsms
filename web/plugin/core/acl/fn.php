@@ -149,6 +149,7 @@ function acl_getnamebyuid($uid) {
 
 function acl_getidbyuid($uid) {
 	$list = dba_search(_DB_PREF_ . '_tblUser', 'acl_id', array(
+		'flag_deleted' => 0,
 		'uid' => $uid 
 	));
 	$acl_id = (int) $list[0]['acl_id'];
@@ -166,6 +167,7 @@ function acl_setbyuid($acl_id, $uid) {
 		if (dba_update(_DB_PREF_ . '_tblUser', array(
 			'acl_id' => $acl_id 
 		), array(
+			'flag_deleted' => 0,
 			'uid' => $uid 
 		))) {
 			return TRUE;

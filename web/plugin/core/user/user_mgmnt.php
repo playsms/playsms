@@ -28,18 +28,21 @@ switch (_OP_) {
 	case "user_list":
 		if ($view == 'admin') {
 			$conditions = array(
+				'flag_deleted' => 0,
 				'status' => 2 
 			);
 			$form_sub_title = "<h3>" . _('List of administrators') . "</h3>";
 			$disabled_on_admin = 'disabled';
 		} else if ($view == 'users') {
 			$conditions = array(
+				'flag_deleted' => 0,
 				'status' => 3 
 			);
 			$form_sub_title = "<h3>" . _('List of users') . "</h3>";
 			$disabled_on_users = 'disabled';
 		} else if ($view == 'subusers') {
 			$conditions = array(
+				'flag_deleted' => 0,
 				'status' => 4 
 			);
 			$form_sub_title = "<h3>" . _('List of subusers') . "</h3>";

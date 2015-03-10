@@ -20,7 +20,7 @@ defined('_SECURE_') or die('Forbidden');
 
 function user_getallwithstatus($status) {
 	$ret = array();
-	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE status='$status'";
+	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND status='$status'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[] = $db_row;
@@ -34,7 +34,7 @@ function user_getdatabyuid($uid) {
 	$ret = array();
 	
 	if ($uid) {
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE uid='$uid'";
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND uid='$uid'";
 		$db_result = dba_query($db_query);
 		if ($db_row = dba_fetch_array($db_result)) {
 			$ret = $db_row;
@@ -65,7 +65,7 @@ function user_getdatabyusername($username) {
 function user_getfieldbyuid($uid, $field) {
 	$field = core_query_sanitize($field);
 	if ($uid && $field) {
-		$db_query = "SELECT $field FROM " . _DB_PREF_ . "_tblUser WHERE uid='$uid'";
+		$db_query = "SELECT $field FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND uid='$uid'";
 		$db_result = dba_query($db_query);
 		if ($db_row = dba_fetch_array($db_result)) {
 			$ret = $db_row[$field];
@@ -81,7 +81,7 @@ function user_getfieldbyusername($username, $field) {
 
 function user_uid2username($uid) {
 	if ($uid) {
-		$db_query = "SELECT username FROM " . _DB_PREF_ . "_tblUser WHERE uid='$uid'";
+		$db_query = "SELECT username FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND uid='$uid'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$username = $db_row['username'];
@@ -91,7 +91,7 @@ function user_uid2username($uid) {
 
 function user_username2uid($username) {
 	if ($username) {
-		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE username='$username'";
+		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username='$username'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$uid = $db_row['uid'];
@@ -109,7 +109,7 @@ function user_mobile2uid($mobile) {
 		if (strlen($mobile) > 7) {
 			$mobile = substr($mobile, 3);
 		}
-		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE mobile LIKE '%$mobile'";
+		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND mobile LIKE '%$mobile'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$uid = $db_row['uid'];
@@ -134,6 +134,7 @@ function user_mobile2username($mobile) {
  */
 function user_email2uid($email) {
 	$list = dba_search(_DB_PREF_ . '_tblUser', 'uid', array(
+		'flag_deleted' => 0,
 		'email' => $email 
 	));
 	return $list[0]['uid'];
@@ -148,6 +149,7 @@ function user_email2uid($email) {
  */
 function user_email2username($email) {
 	$list = dba_search(_DB_PREF_ . '_tblUser', 'username', array(
+		'flag_deleted' => 0,
 		'email' => $email 
 	));
 	return $list[0]['username'];
@@ -214,10 +216,11 @@ function user_add_validate($data = array(), $flag_edit = FALSE) {
 		
 		// check if username is exists
 		if ($ret['status'] && $data['username'] && dba_isexists(_DB_PREF_ . '_tblUser', array(
+			'flag_deleted' => 0,
 			'username' => $data['username'] 
-		))) {
+		), 'AND')) {
 			if (!$flag_edit) {
-				$ret['error_string'] = _('User already exists') . " (" . _('username') . ": " . $data['username'] . ")";
+				$ret['error_string'] = _('Account is already exists') . " (" . _('username') . ": " . $data['username'] . ")";
 				$ret['status'] = false;
 			}
 		}
@@ -226,10 +229,11 @@ function user_add_validate($data = array(), $flag_edit = FALSE) {
 		
 		// check if email is exists
 		if ($ret['status'] && $data['email'] && dba_isexists(_DB_PREF_ . '_tblUser', array(
+			'flag_deleted' => 0,
 			'email' => $data['email'] 
-		))) {
+		), 'AND')) {
 			if ($data['email'] != $existing['email']) {
-				$ret['error_string'] = _('User with this email already exists') . " (" . _('email') . ": " . $data['email'] . ")";
+				$ret['error_string'] = _('Account with this email is already exists') . " (" . _('email') . ": " . $data['email'] . ")";
 				$ret['status'] = false;
 			}
 		}
@@ -237,10 +241,11 @@ function user_add_validate($data = array(), $flag_edit = FALSE) {
 		// check mobile, must check for duplication only when filled
 		if ($ret['status'] && $data['mobile']) {
 			if (dba_isexists(_DB_PREF_ . '_tblUser', array(
+				'flag_deleted' => 0,
 				'mobile' => $data['mobile'] 
-			))) {
+			), 'AND')) {
 				if ($data['mobile'] != $existing['mobile']) {
-					$ret['error_string'] = _('User with this mobile already exists') . " (" . _('mobile') . ": " . $data['mobile'] . ")";
+					$ret['error_string'] = _('Account with this mobile is already exists') . " (" . _('mobile') . ": " . $data['mobile'] . ")";
 					$ret['status'] = false;
 				}
 			}
@@ -419,6 +424,7 @@ function user_edit($uid, $data = array()) {
 			
 			if ($continue) {
 				if (dba_update(_DB_PREF_ . '_tblUser', $up, array(
+					'flag_deleted' => 0,
 					'uid' => $uid 
 				))) {
 					$ret['status'] = TRUE;
@@ -475,7 +481,11 @@ function user_remove($uid, $forced = FALSE) {
 						}
 					}
 					
-					if (dba_remove(_DB_PREF_ . '_tblUser', array(
+					if (dba_update(_DB_PREF_ . '_tblUser', array(
+						'c_timestamp' => mktime(),
+						'flag_deleted' => 1 
+					), array(
+						'flag_deleted' => 0,
 						'uid' => $uid 
 					))) {
 						user_banned_remove($uid);
@@ -555,6 +565,7 @@ function user_edit_conf($uid, $data = array()) {
 			}
 			
 			if (dba_update(_DB_PREF_ . '_tblUser', $up, array(
+				'flag_deleted' => 0,
 				'uid' => $uid 
 			))) {
 				if ($up['token']) {
@@ -775,6 +786,7 @@ function user_banned_list() {
 function user_setdatabyuid($uid, $data) {
 	if ((int) $uid && is_array($data)) {
 		$conditions = array(
+			'flag_deleted' => 0,
 			'uid' => $uid 
 		);
 		if (dba_update(_DB_PREF_ . '_tblUser', $data, $conditions)) {
@@ -823,6 +835,7 @@ function user_getparentbyuid($uid) {
 	$uid = (int) $uid;
 	if ($uid) {
 		$conditions = array(
+			'flag_deleted' => 0,
 			'uid' => $uid,
 			'status' => 4 
 		);
@@ -850,6 +863,7 @@ function user_getsubuserbyuid($uid) {
 		$parent_status = user_getfieldbyuid($uid, 'status');
 		if (($parent_status == 2) || ($parent_status == 3)) {
 			$conditions = array(
+				'flag_deleted' => 0,
 				'parent_uid' => $uid,
 				'status' => 4 
 			);
@@ -901,7 +915,7 @@ function user_search($keywords = '', $fields = '', $extras = '') {
 		$extra_sql = trim($extras);
 	}
 	
-	$db_query = 'SELECT * FROM ' . _DB_PREF_ . '_tblUser WHERE ' . $search . ' ' . $extra_sql;
+	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND " . $search . " " . $extra_sql;
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[] = $db_row;

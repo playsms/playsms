@@ -194,7 +194,7 @@ function credit_hook_rate_setusercredit($uid, $balance = 0) {
 	
 	_log("saving uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
 	
-	$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET c_timestamp='" . mktime() . "',credit='$balance' WHERE uid='$uid'";
+	$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET c_timestamp='" . mktime() . "',credit='$balance' WHERE flag_deleted='0' AND uid='$uid'";
 	if ($db_result = @dba_affected_rows($db_query)) {
 		_log("saved uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
 		
@@ -210,7 +210,7 @@ function credit_hook_rate_getusercredit($username) {
 	$balance = 0;
 	
 	if ($username) {
-		$db_query = "SELECT credit FROM " . _DB_PREF_ . "_tblUser WHERE username='$username'";
+		$db_query = "SELECT credit FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username='$username'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$balance = $db_row['credit'];

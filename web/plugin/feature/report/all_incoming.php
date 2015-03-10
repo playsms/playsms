@@ -21,7 +21,6 @@ defined('_SECURE_') or die('Forbidden');
 if (!auth_isadmin()) {
 	auth_block();
 }
-;
 
 switch (_OP_) {
 	case "all_incoming":
@@ -40,7 +39,7 @@ switch (_OP_) {
 			'in_status' => 1 
 		);
 		$keywords = $search['dba_keywords'];
-		$join = 'INNER JOIN ' . _DB_PREF_ . '_tblUser AS B ON in_uid=B.uid';
+		$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND in_uid=B.uid";
 		$count = dba_count(_DB_PREF_ . '_tblSMSIncoming', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
