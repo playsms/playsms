@@ -44,7 +44,7 @@ switch (_OP_) {
 			'acl_id' => 'acl_getid' 
 		));
 		$conditions = array(
-			'flag_deleted' => 0, 
+			'flag_deleted' => 0,
 			'status' => 4,
 			'parent_uid' => $user_config['uid'] 
 		);

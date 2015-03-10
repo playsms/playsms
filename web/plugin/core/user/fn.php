@@ -134,7 +134,7 @@ function user_mobile2username($mobile) {
  */
 function user_email2uid($email) {
 	$list = dba_search(_DB_PREF_ . '_tblUser', 'uid', array(
-		'flag_deleted' => 0, 
+		'flag_deleted' => 0,
 		'email' => $email 
 	));
 	return $list[0]['uid'];
@@ -149,7 +149,7 @@ function user_email2uid($email) {
  */
 function user_email2username($email) {
 	$list = dba_search(_DB_PREF_ . '_tblUser', 'username', array(
-		'flag_deleted' => 0, 
+		'flag_deleted' => 0,
 		'email' => $email 
 	));
 	return $list[0]['username'];
@@ -216,7 +216,7 @@ function user_add_validate($data = array(), $flag_edit = FALSE) {
 		
 		// check if username is exists
 		if ($ret['status'] && $data['username'] && dba_isexists(_DB_PREF_ . '_tblUser', array(
-			'flag_deleted' => 0, 
+			'flag_deleted' => 0,
 			'username' => $data['username'] 
 		))) {
 			if (!$flag_edit) {
@@ -229,7 +229,7 @@ function user_add_validate($data = array(), $flag_edit = FALSE) {
 		
 		// check if email is exists
 		if ($ret['status'] && $data['email'] && dba_isexists(_DB_PREF_ . '_tblUser', array(
-			'flag_deleted' => 0, 
+			'flag_deleted' => 0,
 			'email' => $data['email'] 
 		))) {
 			if ($data['email'] != $existing['email']) {
@@ -241,7 +241,7 @@ function user_add_validate($data = array(), $flag_edit = FALSE) {
 		// check mobile, must check for duplication only when filled
 		if ($ret['status'] && $data['mobile']) {
 			if (dba_isexists(_DB_PREF_ . '_tblUser', array(
-				'flag_deleted' => 0, 
+				'flag_deleted' => 0,
 				'mobile' => $data['mobile'] 
 			))) {
 				if ($data['mobile'] != $existing['mobile']) {
@@ -424,6 +424,7 @@ function user_edit($uid, $data = array()) {
 			
 			if ($continue) {
 				if (dba_update(_DB_PREF_ . '_tblUser', $up, array(
+					'flag_deleted' => 0,
 					'uid' => $uid 
 				))) {
 					$ret['status'] = TRUE;
@@ -480,7 +481,11 @@ function user_remove($uid, $forced = FALSE) {
 						}
 					}
 					
-					if (dba_remove(_DB_PREF_ . '_tblUser', array(
+					if (dba_update(_DB_PREF_ . '_tblUser', array(
+						'c_timestamp' => mktime(),
+						'flag_deleted' => 1 
+					), array(
+						'flag_deleted' => 0,
 						'uid' => $uid 
 					))) {
 						user_banned_remove($uid);
@@ -560,6 +565,7 @@ function user_edit_conf($uid, $data = array()) {
 			}
 			
 			if (dba_update(_DB_PREF_ . '_tblUser', $up, array(
+				'flag_deleted' => 0,
 				'uid' => $uid 
 			))) {
 				if ($up['token']) {
@@ -780,6 +786,7 @@ function user_banned_list() {
 function user_setdatabyuid($uid, $data) {
 	if ((int) $uid && is_array($data)) {
 		$conditions = array(
+			'flag_deleted' => 0,
 			'uid' => $uid 
 		);
 		if (dba_update(_DB_PREF_ . '_tblUser', $data, $conditions)) {
@@ -828,7 +835,7 @@ function user_getparentbyuid($uid) {
 	$uid = (int) $uid;
 	if ($uid) {
 		$conditions = array(
-			'flag_deleted' => 0, 
+			'flag_deleted' => 0,
 			'uid' => $uid,
 			'status' => 4 
 		);
@@ -856,7 +863,7 @@ function user_getsubuserbyuid($uid) {
 		$parent_status = user_getfieldbyuid($uid, 'status');
 		if (($parent_status == 2) || ($parent_status == 3)) {
 			$conditions = array(
-				'flag_deleted' => 0, 
+				'flag_deleted' => 0,
 				'parent_uid' => $uid,
 				'status' => 4 
 			);

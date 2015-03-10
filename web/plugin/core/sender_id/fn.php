@@ -51,7 +51,8 @@ function sender_id_check($uid, $sender_id) {
 /**
  * Get owner of sender ID
  *
- * @param string $sender_id Sender ID
+ * @param string $sender_id
+ *        Sender ID
  * @return array User IDs
  */
 function sender_id_owner($sender_id) {
@@ -74,8 +75,8 @@ function sender_id_owner($sender_id) {
 function sender_id_search($uid = 0) {
 	$search_items['registry_family'] = 'sender_id';
 	
-	if ((int)$uid) {
-		$search_items['uid'] = (int)$uid;
+	if ((int) $uid) {
+		$search_items['uid'] = (int) $uid;
 	}
 	
 	foreach (registry_search_record($search_items, '', array(
@@ -111,7 +112,9 @@ function sender_id_isvalid($username, $sender_id) {
 	$uid = user_username2uid($username);
 	
 	foreach (sender_id_search($uid) as $value) {
-		if ($sender_id == $value) {return TRUE;}
+		if ($sender_id == $value) {
+			return TRUE;
+		}
 	}
 	
 	return FALSE;
@@ -120,10 +123,10 @@ function sender_id_isvalid($username, $sender_id) {
 function sender_id_default_set($uid, $sender_id) {
 	$db_table = _DB_PREF_ . '_tblUser';
 	$items = array(
-		'flag_deleted' => 0, 
 		'sender' => $sender_id 
 	);
 	$conditions = array(
+		'flag_deleted' => 0,
 		'uid' => $uid 
 	);
 	$ret = dba_update($db_table, $items, $conditions);
@@ -134,7 +137,7 @@ function sender_id_default_set($uid, $sender_id) {
 function sender_id_default_get($uid) {
 	$db_table = _DB_PREF_ . '_tblUser';
 	$conditions = array(
-		'flag_deleted' => 0, 
+		'flag_deleted' => 0,
 		'uid' => $uid 
 	);
 	$data = dba_search($db_table, 'sender', $conditions);
@@ -146,11 +149,16 @@ function sender_id_default_get($uid) {
 /**
  * Add sender ID
  *
- * @param integer $uid User ID
- * @param string $sender_id Sender ID
- * @param string $sender_id_description Sender ID description
- * @param integer $isdefault Flag 1 for default sender ID
- * @param integer $isapproved Flag 1 for approved sender ID
+ * @param integer $uid
+ *        User ID
+ * @param string $sender_id
+ *        Sender ID
+ * @param string $sender_id_description
+ *        Sender ID description
+ * @param integer $isdefault
+ *        Flag 1 for default sender ID
+ * @param integer $isapproved
+ *        Flag 1 for approved sender ID
  * @return boolean TRUE when new sender ID has been added
  */
 function sender_id_add($uid, $sender_id, $sender_id_description = '', $isdefault = 1, $isapproved = 1) {
@@ -161,8 +169,8 @@ function sender_id_add($uid, $sender_id, $sender_id_description = '', $isdefault
 		// not available
 		return FALSE;
 	} else {
-		$default = (auth_isadmin() ? (int)$isdefault : 0);
-		$approved = (auth_isadmin() ? (int)$isapproved : 0);
+		$default = (auth_isadmin() ? (int) $isdefault : 0);
+		$approved = (auth_isadmin() ? (int) $isapproved : 0);
 		
 		$data_sender_id = array(
 			$sender_id => $approved 
@@ -197,11 +205,16 @@ function sender_id_add($uid, $sender_id, $sender_id_description = '', $isdefault
 /**
  * Update sender ID
  *
- * @param integer $uid User ID
- * @param string $sender_id Sender ID
- * @param string $sender_id_description Sender ID description
- * @param integer $isdefault Flag 1 for default sender ID
- * @param integer $isapproved Flag 1 for approved sender ID
+ * @param integer $uid
+ *        User ID
+ * @param string $sender_id
+ *        Sender ID
+ * @param string $sender_id_description
+ *        Sender ID description
+ * @param integer $isdefault
+ *        Flag 1 for default sender ID
+ * @param integer $isapproved
+ *        Flag 1 for approved sender ID
  * @return boolean TRUE when new sender ID has been updated
  */
 function sender_id_update($uid, $sender_id, $sender_id_description = '', $isdefault = '_', $isapproved = '_') {
@@ -210,12 +223,12 @@ function sender_id_update($uid, $sender_id, $sender_id_description = '', $isdefa
 	if (sender_id_check($uid, $sender_id)) {
 		$default = '_';
 		if ($isdefault !== '_') {
-			$default = ((int)$isdefault ? 1 : 0);
+			$default = ((int) $isdefault ? 1 : 0);
 		}
 		
 		if ($isapproved !== '_') {
 			if (auth_isadmin()) {
-				$approved = ((int)$isapproved ? 1 : 0);
+				$approved = ((int) $isapproved ? 1 : 0);
 				$data_sender_id = array(
 					$sender_id => $approved 
 				);

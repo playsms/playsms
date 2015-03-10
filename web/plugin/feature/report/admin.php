@@ -47,7 +47,9 @@ $map_values = array(
 $l = 0;
 
 // USER LIST RESTRIVAL
-$rows = dba_search(_DB_PREF_ . '_tblUser', 'username, uid, credit, status, 0 as num_rows_pending, 0 as num_rows_sent, 0 as num_rows_delivered, 0 as num_rows_failed', array('flag_deleted' => 0), '', array(
+$rows = dba_search(_DB_PREF_ . '_tblUser', 'username, uid, credit, status, 0 as num_rows_pending, 0 as num_rows_sent, 0 as num_rows_delivered, 0 as num_rows_failed', array(
+	'flag_deleted' => 0 
+), '', array(
 	'ORDER BY' => 'status' 
 ));
 

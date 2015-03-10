@@ -22,7 +22,7 @@ function outgoing_getdata($extras = array()) {
 	foreach ($extras as $key => $val) {
 		$extra_sql .= $key . " " . $val . " ";
 	}
-	$db_query = "SELECT A.*, B.username FROM " . _DB_PREF_ . "_featureOutgoing AS A LEFT JOIN " . _DB_PREF_ . "_tblUser AS B ON A.uid=B.uid " . $extra_sql;
+	$db_query = "SELECT A.*, B.username FROM " . _DB_PREF_ . "_featureOutgoing AS A LEFT JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.uid=B.uid " . $extra_sql;
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[] = $db_row;
@@ -86,6 +86,7 @@ function outgoing_prefix2smsc($prefix, $uid = 0) {
 	}
 	// _log('prefix: ' . $prefix . ' uid:' . $uid . ' debug:' . print_r($smsc, 1), 3, 'outgoing_hook_sendsms_intercept');
 	
+
 	return $smsc;
 }
 

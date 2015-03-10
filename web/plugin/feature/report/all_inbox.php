@@ -10,18 +10,17 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
 
 if (!auth_isadmin()) {
 	auth_block();
-};
+}
 
 switch (_OP_) {
 	case "all_inbox":
@@ -29,21 +28,21 @@ switch (_OP_) {
 			_('User') => 'username',
 			_('Time') => 'in_datetime',
 			_('From') => 'in_sender',
-			_('Message') => 'in_msg'
+			_('Message') => 'in_msg' 
 		);
 		$base_url = 'index.php?app=main&inc=feature_report&route=all_inbox&op=all_inbox';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array(
-			'flag_deleted' => 0
+			'flag_deleted' => 0 
 		);
 		$keywords = $search['dba_keywords'];
-		$join = 'INNER JOIN ' . _DB_PREF_ . '_tblUser AS B ON in_uid=B.uid';
+		$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND in_uid=B.uid";
 		$count = dba_count(_DB_PREF_ . '_tblSMSInbox', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
 			'ORDER BY' => 'in_id DESC',
 			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset']
+			'OFFSET' => $nav['offset'] 
 		);
 		$list = dba_search(_DB_PREF_ . '_tblSMSInbox', '*', $conditions, $keywords, $extras, $join);
 		
@@ -91,12 +90,12 @@ switch (_OP_) {
 			$reply = '';
 			$forward = '';
 			if ($msg && $in_sender) {
-				$reply = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=reply&message=' . urlencode($msg) . '&to=' . urlencode($in_sender) , $icon_config['reply']);
-				$forward = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=forward&message=' . urlencode($msg) , $icon_config['forward']);
+				$reply = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=reply&message=' . urlencode($msg) . '&to=' . urlencode($in_sender), $icon_config['reply']);
+				$forward = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=forward&message=' . urlencode($msg), $icon_config['forward']);
 			}
 			$c_message = "<div id=\"all_inbox_msg\">" . $in_msg . "</div><div id=\"msg_label\">" . $in_datetime . "</div><div id=\"msg_option\">" . $reply . $forward . "</div>";
 			$i--;
-			$content.= "
+			$content .= "
 				<tr>
 					<td>$in_username</td>
 					<td>$current_sender</td>
@@ -108,7 +107,7 @@ switch (_OP_) {
 				</tr>";
 		}
 		
-		$content.= "
+		$content .= "
 			</tbody>
 			</table>
 			</div>
@@ -120,7 +119,7 @@ switch (_OP_) {
 		}
 		_p($content);
 		break;
-
+	
 	case "actions":
 		$nav = themes_nav_session();
 		$search = themes_search_session();
@@ -128,41 +127,41 @@ switch (_OP_) {
 		switch ($go) {
 			case 'export':
 				$conditions = array(
-					'flag_deleted' => 0
+					'flag_deleted' => 0 
 				);
 				$join = 'INNER JOIN ' . _DB_PREF_ . '_tblUser AS B ON in_uid=B.uid';
 				$list = dba_search(_DB_PREF_ . '_tblSMSInbox', '*', $conditions, $search['dba_keywords'], '', $join);
 				$data[0] = array(
-					_('User') ,
-					_('Time') ,
-					_('From') ,
-					_('Message')
+					_('User'),
+					_('Time'),
+					_('From'),
+					_('Message') 
 				);
 				for ($i = 0; $i < count($list); $i++) {
 					$j = $i + 1;
 					$data[$j] = array(
 						$list[$i]['username'],
-						core_display_datetime($list[$i]['in_datetime']) ,
+						core_display_datetime($list[$i]['in_datetime']),
 						$list[$i]['in_sender'],
-						$list[$i]['in_msg']
+						$list[$i]['in_msg'] 
 					);
 				}
 				$content = core_csv_format($data);
 				$fn = 'all_inbox-' . $core_config['datetime']['now_stamp'] . '.csv';
 				core_download($content, $fn, 'text/csv');
 				break;
-
+			
 			case 'delete':
 				for ($i = 0; $i < $nav['limit']; $i++) {
 					$checkid = $_POST['checkid' . $i];
 					$itemid = $_POST['itemid' . $i];
 					if (($checkid == "on") && $itemid) {
 						$up = array(
-							'c_timestamp' => mktime() ,
-							'flag_deleted' => '1'
+							'c_timestamp' => mktime(),
+							'flag_deleted' => '1' 
 						);
 						dba_update(_DB_PREF_ . '_tblSMSInbox', $up, array(
-							'in_id' => $itemid
+							'in_id' => $itemid 
 						));
 					}
 				}

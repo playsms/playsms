@@ -35,7 +35,7 @@ switch (_OP_) {
 		);
 		$search = themes_search($search_var, '');
 		$conditions = array(
-			'flag_deleted' => 0, 
+			'flag_deleted' => 0,
 			'acl_id' => $id 
 		);
 		$keywords = $search['dba_keywords'];
@@ -60,7 +60,7 @@ switch (_OP_) {
 					<td>" . $id . "</td>
 				</tr>
 				<tr>
-					<td>"._('ACL name')."</td>
+					<td>" . _('ACL name') . "</td>
 					<td>" . $acl_name . "</td>
 				</tr>
 			</table>			

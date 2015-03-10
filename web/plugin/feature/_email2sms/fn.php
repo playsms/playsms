@@ -28,10 +28,13 @@ function email2sms_hook_playsmsd() {
 	
 	// _log('fetch now:'.$now, 2, 'email2sms_hook_playsmsd');
 	
+
 	// get all users
-	$users = dba_search(_DB_PREF_ . '_tblUser', 'uid', array('flag_deleted' => 0));
+	$users = dba_search(_DB_PREF_ . '_tblUser', 'uid', array(
+		'flag_deleted' => 0 
+	));
 	
-	foreach ($users as $user ) {
+	foreach ($users as $user) {
 		$uid = $user['uid'];
 		
 		// get email2sms registry data for $uid
@@ -50,6 +53,7 @@ function email2sms_hook_playsmsd() {
 		
 		// _log('fetch uid:' . $uid, 3, 'email2sms_hook_playsmsd');
 		
+
 		$param = 'email2sms_uid_' . $uid;
 		$is_fetching = (playsmsd_pid_get($param) ? TRUE : FALSE);
 		if (!$is_fetching) {
@@ -74,6 +78,7 @@ function email2sms_hook_playsmsd_once($param) {
 	
 	// _log('fetch uid:' . $uid . ' username:' . $username, 3, 'email2sms_hook_playsmsd_once');
 	
+
 	if ($uid && $username) {
 		
 		$items = registry_search($uid, 'features', 'email2sms');
@@ -91,12 +96,13 @@ function email2sms_hook_playsmsd_once($param) {
 		
 		// _log('fetch ' . $email_username . ' at ' . $email_hostname, 3, 'email2sms_hook_playsmsd_once');
 		
+
 		// open mailbox
 		$inbox = imap_open($email_hostname, $email_username, $email_password);
 		
 		if (!$inbox) {
 			$errors = imap_errors();
-			foreach ($errors as $error ) {
+			foreach ($errors as $error) {
 				
 				// _log('error:' . $error, 3, 'email2sms_hook_playsmsd_once');
 			}
@@ -106,7 +112,7 @@ function email2sms_hook_playsmsd_once($param) {
 		$emails = imap_search($inbox, 'UNSEEN');
 		if (count($emails)) {
 			rsort($emails);
-			foreach ($emails as $email_number ) {
+			foreach ($emails as $email_number) {
 				$overview = imap_fetch_overview($inbox, $email_number, 0);
 				$email_subject = trim($overview[0]->subject);
 				$email_sender = trim($overview[0]->from);
