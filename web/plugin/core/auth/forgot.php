@@ -15,7 +15,7 @@ if (_OP_ == 'forgot') {
 			if ($core_config['main']['enable_forgot']) {
 				$_SESSION['error_string'] = _('Fail to recover password');
 				if ($username && $email) {
-					$db_query = "SELECT password FROM " . _DB_PREF_ . "_tblUser WHERE username='$username' AND email='$email'";
+					$db_query = "SELECT password FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username='$username' AND email='$email'";
 					$db_result = dba_query($db_query);
 					if ($db_row = dba_fetch_array($db_result)) {
 						if ($password = $db_row['password']) {

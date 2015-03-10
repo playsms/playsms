@@ -20,7 +20,7 @@ defined('_SECURE_') or die('Forbidden');
 
 function user_getallwithstatus($status) {
 	$ret = array();
-	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE status='$status'";
+	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND status='$status'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[] = $db_row;
@@ -34,7 +34,7 @@ function user_getdatabyuid($uid) {
 	$ret = array();
 	
 	if ($uid) {
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE uid='$uid'";
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND uid='$uid'";
 		$db_result = dba_query($db_query);
 		if ($db_row = dba_fetch_array($db_result)) {
 			$ret = $db_row;
@@ -65,7 +65,7 @@ function user_getdatabyusername($username) {
 function user_getfieldbyuid($uid, $field) {
 	$field = core_query_sanitize($field);
 	if ($uid && $field) {
-		$db_query = "SELECT $field FROM " . _DB_PREF_ . "_tblUser WHERE uid='$uid'";
+		$db_query = "SELECT $field FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND uid='$uid'";
 		$db_result = dba_query($db_query);
 		if ($db_row = dba_fetch_array($db_result)) {
 			$ret = $db_row[$field];
@@ -81,7 +81,7 @@ function user_getfieldbyusername($username, $field) {
 
 function user_uid2username($uid) {
 	if ($uid) {
-		$db_query = "SELECT username FROM " . _DB_PREF_ . "_tblUser WHERE uid='$uid'";
+		$db_query = "SELECT username FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND uid='$uid'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$username = $db_row['username'];
@@ -91,7 +91,7 @@ function user_uid2username($uid) {
 
 function user_username2uid($username) {
 	if ($username) {
-		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE username='$username'";
+		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username='$username'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$uid = $db_row['uid'];
@@ -109,7 +109,7 @@ function user_mobile2uid($mobile) {
 		if (strlen($mobile) > 7) {
 			$mobile = substr($mobile, 3);
 		}
-		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE mobile LIKE '%$mobile'";
+		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND mobile LIKE '%$mobile'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$uid = $db_row['uid'];
@@ -901,7 +901,7 @@ function user_search($keywords = '', $fields = '', $extras = '') {
 		$extra_sql = trim($extras);
 	}
 	
-	$db_query = 'SELECT * FROM ' . _DB_PREF_ . '_tblUser WHERE ' . $search . ' ' . $extra_sql;
+	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND " . $search . " " . $extra_sql;
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[] = $db_row;

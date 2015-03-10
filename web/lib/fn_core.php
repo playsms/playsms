@@ -56,7 +56,7 @@ function core_addslashes($data) {
 function core_setuserlang($username = "") {
 	global $core_config;
 	$c_lang_module = core_lang_get();
-	$db_query = "SELECT language_module FROM " . _DB_PREF_ . "_tblUser WHERE username='$username'";
+	$db_query = "SELECT language_module FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	if (trim($db_row['language_module'])) {

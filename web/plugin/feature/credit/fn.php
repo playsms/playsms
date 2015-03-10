@@ -210,7 +210,7 @@ function credit_hook_rate_getusercredit($username) {
 	$balance = 0;
 	
 	if ($username) {
-		$db_query = "SELECT credit FROM " . _DB_PREF_ . "_tblUser WHERE username='$username'";
+		$db_query = "SELECT credit FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username='$username'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$balance = $db_row['credit'];
