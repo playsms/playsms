@@ -249,7 +249,7 @@ function phonebook_hook_webservices_output($operation, $requests) {
 		$keyword = $requests['tag'];
 	}
 	
-	if (!($operation == 'phonebook') && $keyword) {
+	if (!($operation == 'phonebook' && $keyword)) {
 		return FALSE;
 	}
 	

@@ -112,24 +112,24 @@ function credit_html_select_user() {
 	return $select_user;
 }
 
-function credit_hook_webservices_output($operation, $requests) {
+function credit_hook_webservices_output($operation, $requests, $returns) {
 	global $user_config;
 	
 	if ($operation != 'credit') {
 		return FALSE;
 	}
 	
+	$balance = (float) 0;
 	if (auth_isvalid()) {
 		$balance = (float) credit_getbalance($user_config['uid']);
-	} else {
-		$balance = (float) 0;
 	}
 	$balance = number_format($balance, 3, '.', '');
 	
-	ob_end_clean();
-	header('Content-Type: text/plain');
+	$returns['modified'] = TRUE;
+	$returns['param']['content'] = $balance;
+	$returns['param']['content-type'] = 'text/plain';
 	
-	return $balance;
+	return $returns;
 }
 
 function credit_hook_rate_addusercredit($uid, $amount) {

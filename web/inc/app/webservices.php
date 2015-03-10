@@ -573,7 +573,6 @@ if (_OP_) {
 				
 				// output do not require valid login
 				// output must not be empty
-				$returns = array();
 				$ret = webservices_output(_OP_, $_REQUEST, $returns);
 				
 				if ($ret['modified'] && $ret['param']['content']) {
