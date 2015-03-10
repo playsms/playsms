@@ -181,6 +181,9 @@ function acl_checkurl($url, $uid = 0) {
 	$uid = ((int) $uid ? (int) $uid : $user_config['uid']);
 	$acl_id = acl_getidbyuid($uid);
 	if ($acl_urls = acl_geturl($acl_id)) {
+		$acl_urls[] = 'app=ws';
+		$acl_urls[] = 'app=webservice';
+		$acl_urls[] = 'app=webservices';
 		$acl_urls[] = 'inc=core_auth';
 		$acl_urls[] = 'inc=core_welcome';
 		if (!$core_config['daemon_process'] && $url && $uid && $acl_id) {
