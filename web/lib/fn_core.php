@@ -304,7 +304,8 @@ function core_get_timezone($username = '') {
 	$ret = '';
 	if ($username) {
 		$list = dba_search(_DB_PREF_ . '_tblUser', 'datetime_timezone', array(
-			'username' => $username
+			'flag_deleted' => 0, 
+			'username' => $username 
 		));
 		$ret = $list[0]['datetime_timezone'];
 	}

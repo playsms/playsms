@@ -49,6 +49,7 @@ $c_uid = user_username2uid($c_username);
 switch (_OP_) {
 	case "user_config":
 		if ($c_user = dba_search(_DB_PREF_ . '_tblUser', '*', array(
+			'flag_deleted' => 0, 
 			'uid' => $c_uid 
 		))) {
 			$token = $c_user[0]['token'];

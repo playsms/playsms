@@ -35,6 +35,7 @@ switch (_OP_) {
 		);
 		$search = themes_search($search_var, '');
 		$conditions = array(
+			'flag_deleted' => 0, 
 			'acl_id' => $id 
 		);
 		$keywords = $search['dba_keywords'];

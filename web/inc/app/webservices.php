@@ -501,6 +501,7 @@ if (_OP_) {
 						'token' => $token 
 					);
 					$conditions = array(
+						'flag_deleted' => 0, 
 						'uid' => $c_uid 
 					);
 					if (dba_update(_DB_PREF_ . '_tblUser', $items, $conditions)) {

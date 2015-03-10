@@ -120,6 +120,7 @@ function sender_id_isvalid($username, $sender_id) {
 function sender_id_default_set($uid, $sender_id) {
 	$db_table = _DB_PREF_ . '_tblUser';
 	$items = array(
+		'flag_deleted' => 0, 
 		'sender' => $sender_id 
 	);
 	$conditions = array(
@@ -133,6 +134,7 @@ function sender_id_default_set($uid, $sender_id) {
 function sender_id_default_get($uid) {
 	$db_table = _DB_PREF_ . '_tblUser';
 	$conditions = array(
+		'flag_deleted' => 0, 
 		'uid' => $uid 
 	);
 	$data = dba_search($db_table, 'sender', $conditions);

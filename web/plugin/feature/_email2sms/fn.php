@@ -29,7 +29,7 @@ function email2sms_hook_playsmsd() {
 	// _log('fetch now:'.$now, 2, 'email2sms_hook_playsmsd');
 	
 	// get all users
-	$users = dba_search(_DB_PREF_ . '_tblUser', 'uid');
+	$users = dba_search(_DB_PREF_ . '_tblUser', 'uid', array('flag_deleted' => 0));
 	
 	foreach ($users as $user ) {
 		$uid = $user['uid'];
