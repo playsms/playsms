@@ -35,6 +35,9 @@ msgstr ""
 msgid "Account has been unbanned"
 msgstr ""
 
+msgid "Account is already exists"
+msgstr ""
+
 msgid "Account name is mandatory"
 msgstr ""
 
@@ -42,6 +45,12 @@ msgid "Account registration is not available"
 msgstr ""
 
 msgid "Account status"
+msgstr ""
+
+msgid "Account with this email is already exists"
+msgstr ""
+
+msgid "Account with this mobile is already exists"
 msgstr ""
 
 msgid "Action"
@@ -324,9 +333,6 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-msgid "User already exists"
-msgstr ""
-
 msgid "User configuration"
 msgstr ""
 
@@ -355,12 +361,6 @@ msgid "User is not on banned subusers list"
 msgstr ""
 
 msgid "User is not on banned users list"
-msgstr ""
-
-msgid "User with this email already exists"
-msgstr ""
-
-msgid "User with this mobile already exists"
 msgstr ""
 
 msgid "Username"

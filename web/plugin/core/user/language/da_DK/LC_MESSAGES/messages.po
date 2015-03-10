@@ -44,6 +44,10 @@ msgstr "Konto er blevet fjernet"
 msgid "Account has been unbanned"
 msgstr "Konto er ikke længere bandlyst"
 
+#, fuzzy
+msgid "Account is already exists"
+msgstr "Brugeren eksisterer allerede"
+
 msgid "Account name is mandatory"
 msgstr "Kontonavn er krævet"
 
@@ -52,6 +56,14 @@ msgstr "Konto registrering er ikke tilgængeligt"
 
 msgid "Account status"
 msgstr "Kontostatus"
+
+#, fuzzy
+msgid "Account with this email is already exists"
+msgstr "Bruger med denne e-mail eksisterer allerede"
+
+#, fuzzy
+msgid "Account with this mobile is already exists"
+msgstr "Bruger med dette mobilnr eksisterer allerede"
 
 msgid "Action"
 msgstr "Handling"
@@ -337,9 +349,6 @@ msgstr "Der opstod en ukendt fejl"
 msgid "User"
 msgstr "Bruger"
 
-msgid "User already exists"
-msgstr "Brugeren eksisterer allerede"
-
 msgid "User configuration"
 msgstr "Brugerkonfiguration"
 
@@ -369,12 +378,6 @@ msgstr "Brugeren er ikke på listen over bandlyste underbrugere"
 
 msgid "User is not on banned users list"
 msgstr "Brugeren er ikke på listen over bandlyste brugere"
-
-msgid "User with this email already exists"
-msgstr "Bruger med denne e-mail eksisterer allerede"
-
-msgid "User with this mobile already exists"
-msgstr "Bruger med dette mobilnr eksisterer allerede"
 
 msgid "Username"
 msgstr "Brugernavn"

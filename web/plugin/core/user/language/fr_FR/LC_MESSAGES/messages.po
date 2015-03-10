@@ -47,6 +47,10 @@ msgid "Account has been unbanned"
 msgstr "L'utilisateur a été réintégré"
 
 #, fuzzy
+msgid "Account is already exists"
+msgstr "L'utilisateur existe déjà"
+
+#, fuzzy
 msgid "Account name is mandatory"
 msgstr "L'adresse email est obligatoire"
 
@@ -56,6 +60,14 @@ msgstr "L'inscription d'utilisateur n'est pas disponible"
 
 msgid "Account status"
 msgstr ""
+
+#, fuzzy
+msgid "Account with this email is already exists"
+msgstr "L'utilisateur avec cet email existe déjà"
+
+#, fuzzy
+msgid "Account with this mobile is already exists"
+msgstr "L'utilisateur avec ce mobile existe déjà"
 
 msgid "Action"
 msgstr "Action"
@@ -361,9 +373,6 @@ msgstr "Une erreur inconnue est survenue"
 msgid "User"
 msgstr "Utilisateur"
 
-msgid "User already exists"
-msgstr "L'utilisateur existe déjà"
-
 msgid "User configuration"
 msgstr "Configuration de l'utilisateur"
 
@@ -397,12 +406,6 @@ msgstr "L'utilisateur ne fait partie de la liste des sous-utilisateurs bannis"
 
 msgid "User is not on banned users list"
 msgstr "L'utilisateur ne fait partie de la liste des utilisateurs bannis"
-
-msgid "User with this email already exists"
-msgstr "L'utilisateur avec cet email existe déjà"
-
-msgid "User with this mobile already exists"
-msgstr "L'utilisateur avec ce mobile existe déjà"
 
 msgid "Username"
 msgstr "Nom d'utilisateur"
