@@ -37,14 +37,14 @@ switch (_OP_) {
 			'flag_deleted' => 0
 		);
 		$keywords = $search['dba_keywords'];
-		$count = dba_count(_DB_PREF_ . '_tblUser_inbox', $conditions, $keywords);
+		$count = dba_count(_DB_PREF_ . '_tblSMSInbox', $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
 			'ORDER BY' => 'in_id DESC',
 			'LIMIT' => $nav['limit'],
 			'OFFSET' => $nav['offset']
 		);
-		$list = dba_search(_DB_PREF_ . '_tblUser_inbox', '*', $conditions, $keywords, $extras);
+		$list = dba_search(_DB_PREF_ . '_tblSMSInbox', '*', $conditions, $keywords, $extras);
 		unset($tpl);
 		$tpl = array(
 			'vars' => array(
@@ -111,7 +111,7 @@ switch (_OP_) {
 					'in_uid' => $user_config['uid'],
 					'flag_deleted' => 0
 				);
-				$list = dba_search(_DB_PREF_ . '_tblUser_inbox', '*', $conditions, $search['dba_keywords']);
+				$list = dba_search(_DB_PREF_ . '_tblSMSInbox', '*', $conditions, $search['dba_keywords']);
 				$data[0] = array(
 					_('User') ,
 					_('Time') ,
@@ -141,7 +141,7 @@ switch (_OP_) {
 							'c_timestamp' => mktime() ,
 							'flag_deleted' => '1'
 						);
-						dba_update(_DB_PREF_ . '_tblUser_inbox', $up, array(
+						dba_update(_DB_PREF_ . '_tblSMSInbox', $up, array(
 							'in_uid' => $user_config['uid'],
 							'in_id' => $itemid
 						));

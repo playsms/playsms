@@ -395,7 +395,7 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 			// forward to Inbox
 			if ($fwd_to_inbox = $user['fwd_to_inbox']) {
 				$db_query = "
-					INSERT INTO " . _DB_PREF_ . "_tblUser_inbox
+					INSERT INTO " . _DB_PREF_ . "_tblSMSInbox
 					(in_sender,in_receiver,in_uid,in_msg,in_datetime,reference_id) 
 					VALUES ('$sms_sender','$sms_receiver','$uid','$message','" . core_adjust_datetime($sms_datetime) . "','$reference_id')
 				";
