@@ -339,7 +339,7 @@ function webservices_ix($c_username, $src = '', $dst = '', $datetime = '', $c = 
 	}
 	if ($uid) {
 		$j = 0;
-		$list = dba_search(_DB_PREF_ . '_tblUser_inbox', '*', $conditions, $keywords, $extras);
+		$list = dba_search(_DB_PREF_ . '_tblSMSInbox', '*', $conditions, $keywords, $extras);
 		foreach ($list as $db_row) {
 			$id = $db_row['in_id'];
 			$src = $db_row['in_sender'];
@@ -410,7 +410,7 @@ function webservices_query($username) {
 		'ORDER BY' => 'in_id DESC',
 		'LIMIT' => 1 
 	);
-	$list = dba_search(_DB_PREF_ . '_tblUser_inbox', $fields, $conditions, '', $extras);
+	$list = dba_search(_DB_PREF_ . '_tblSMSInbox', $fields, $conditions, '', $extras);
 	$last_inbox_id = $list[0]['in_id'];
 	
 	// get last id on incoming table

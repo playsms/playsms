@@ -1635,13 +1635,13 @@ INSERT INTO `playsms_tblUser_country` VALUES (0,1,'Afghanistan',''),(0,2,'Albani
 UNLOCK TABLES;
 
 --
--- Table structure for table `playsms_tblUser_inbox`
+-- Table structure for table `playsms_tblSMSInbox`
 --
 
-DROP TABLE IF EXISTS `playsms_tblUser_inbox`;
+DROP TABLE IF EXISTS `playsms_tblSMSInbox`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `playsms_tblUser_inbox` (
+CREATE TABLE `playsms_tblSMSInbox` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
   `in_id` int(11) NOT NULL AUTO_INCREMENT,
   `flag_deleted` int(11) NOT NULL DEFAULT '0',
@@ -1656,12 +1656,12 @@ CREATE TABLE `playsms_tblUser_inbox` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `playsms_tblUser_inbox`
+-- Dumping data for table `playsms_tblSMSInbox`
 --
 
-LOCK TABLES `playsms_tblUser_inbox` WRITE;
-/*!40000 ALTER TABLE `playsms_tblUser_inbox` DISABLE KEYS */;
-/*!40000 ALTER TABLE `playsms_tblUser_inbox` ENABLE KEYS */;
+LOCK TABLES `playsms_tblSMSInbox` WRITE;
+/*!40000 ALTER TABLE `playsms_tblSMSInbox` DISABLE KEYS */;
+/*!40000 ALTER TABLE `playsms_tblSMSInbox` ENABLE KEYS */;
 UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `playsms_featureOutgoing` ;

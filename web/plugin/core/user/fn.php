@@ -299,13 +299,13 @@ function user_add($data = array(), $forced = FALSE) {
 			// logic for parent_uid, parent uid by default is 0
 			if ($data['status'] == 4) {
 				if (!(($parent_status == 2) || ($parent_status == 3))) {
-					$data['parent_uid'] = 0;
+					$data['parent_uid'] = $core_config['main']['default_parent'];
 				}
 			} else {
-				$data['parent_uid'] = 0;
+				$data['parent_uid'] = $core_config['main']['default_parent'];
 			}
 		} else {
-			$data['parent_uid'] = 0;
+			$data['parent_uid'] = $core_config['main']['default_parent'];
 		}
 		
 		$data['username'] = core_sanitize_username($data['username']);
@@ -348,7 +348,7 @@ function user_add($data = array(), $forced = FALSE) {
 					$body .= _('Username') . ": " . $data['username'] . "\n";
 					$body .= _('Password') . ": " . $new_password . "\n";
 					$body .= _('Mobile') . ": " . $data['mobile'] . "\n";
-					$body .= _('Credit') . ": " . $data['credit'] . "\n\n";
+					$body .= _('Credit') . ": " . user_getfieldbyuid($new_uid, 'credit') . "\n\n--\n";
 					$body .= $core_config['main']['email_footer'] . "\n\n";
 					$ret['error_string'] = _('Account has been added and password has been emailed') . " (" . _('username') . ": " . $data['username'] . ")";
 					$mail_data = array(

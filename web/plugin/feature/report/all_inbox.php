@@ -38,14 +38,14 @@ switch (_OP_) {
 		);
 		$keywords = $search['dba_keywords'];
 		$join = 'INNER JOIN ' . _DB_PREF_ . '_tblUser AS B ON in_uid=B.uid';
-		$count = dba_count(_DB_PREF_ . '_tblUser_inbox', $conditions, $keywords, '', $join);
+		$count = dba_count(_DB_PREF_ . '_tblSMSInbox', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
 			'ORDER BY' => 'in_id DESC',
 			'LIMIT' => $nav['limit'],
 			'OFFSET' => $nav['offset']
 		);
-		$list = dba_search(_DB_PREF_ . '_tblUser_inbox', '*', $conditions, $keywords, $extras, $join);
+		$list = dba_search(_DB_PREF_ . '_tblSMSInbox', '*', $conditions, $keywords, $extras, $join);
 		
 		$content = "
 			<h2>" . _('All inbox') . "</h2>
@@ -131,7 +131,7 @@ switch (_OP_) {
 					'flag_deleted' => 0
 				);
 				$join = 'INNER JOIN ' . _DB_PREF_ . '_tblUser AS B ON in_uid=B.uid';
-				$list = dba_search(_DB_PREF_ . '_tblUser_inbox', '*', $conditions, $search['dba_keywords'], '', $join);
+				$list = dba_search(_DB_PREF_ . '_tblSMSInbox', '*', $conditions, $search['dba_keywords'], '', $join);
 				$data[0] = array(
 					_('User') ,
 					_('Time') ,
@@ -161,7 +161,7 @@ switch (_OP_) {
 							'c_timestamp' => mktime() ,
 							'flag_deleted' => '1'
 						);
-						dba_update(_DB_PREF_ . '_tblUser_inbox', $up, array(
+						dba_update(_DB_PREF_ . '_tblSMSInbox', $up, array(
 							'in_id' => $itemid
 						));
 					}

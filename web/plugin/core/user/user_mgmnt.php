@@ -270,9 +270,9 @@ switch (_OP_) {
 		
 		// subuser's parent uid, by default its uid=1
 		if ($_POST['add_parent_uid']) {
-			$add['parent_uid'] = ($add['status'] == 4 ? $_POST['add_parent_uid'] : 1);
+			$add['parent_uid'] = ($add['status'] == 4 ? $_POST['add_parent_uid'] : $core_config['main']['default_parent']);
 		} else {
-			$add['parent_uid'] = 1;
+			$add['parent_uid'] = $core_config['main']['default_parent'];
 		}
 		
 		// set credit to 0 by default

@@ -260,10 +260,14 @@ if (auth_isvalid()) {
 }
 
 // override main config with site config for branding purposes distinguished by domain name
+$site_config = array();
 if ((!$core_config['daemon_process']) && $_SERVER['HTTP_HOST']) {
 	$s = site_config_getbydomain($_SERVER['HTTP_HOST']);
 	if ((int) $s[0]['uid']) {
-		$site_config = site_config_get((int) $s[0]['uid']);
+		$c_site_config = site_config_get((int) $s[0]['uid']);
+		if (strtolower($c_site_config['domain']) == strtoloweR($_SERVER['HTTP_HOST'])) {
+			$site_config = array_merge($c_site_config, $s[0]);
+		}
 	}
 }
 
