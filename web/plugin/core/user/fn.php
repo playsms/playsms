@@ -218,7 +218,7 @@ function user_add_validate($data = array(), $flag_edit = FALSE) {
 		if ($ret['status'] && $data['username'] && dba_isexists(_DB_PREF_ . '_tblUser', array(
 			'flag_deleted' => 0,
 			'username' => $data['username'] 
-		))) {
+		), 'AND')) {
 			if (!$flag_edit) {
 				$ret['error_string'] = _('Account is already exists') . " (" . _('username') . ": " . $data['username'] . ")";
 				$ret['status'] = false;
@@ -231,7 +231,7 @@ function user_add_validate($data = array(), $flag_edit = FALSE) {
 		if ($ret['status'] && $data['email'] && dba_isexists(_DB_PREF_ . '_tblUser', array(
 			'flag_deleted' => 0,
 			'email' => $data['email'] 
-		))) {
+		), 'AND')) {
 			if ($data['email'] != $existing['email']) {
 				$ret['error_string'] = _('Account with this email is already exists') . " (" . _('email') . ": " . $data['email'] . ")";
 				$ret['status'] = false;
@@ -243,7 +243,7 @@ function user_add_validate($data = array(), $flag_edit = FALSE) {
 			if (dba_isexists(_DB_PREF_ . '_tblUser', array(
 				'flag_deleted' => 0,
 				'mobile' => $data['mobile'] 
-			))) {
+			), 'AND')) {
 				if ($data['mobile'] != $existing['mobile']) {
 					$ret['error_string'] = _('Account with this mobile is already exists') . " (" . _('mobile') . ": " . $data['mobile'] . ")";
 					$ret['status'] = false;
