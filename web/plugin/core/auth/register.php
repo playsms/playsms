@@ -35,9 +35,15 @@ if (_OP_ == 'register') {
 			// force non-admin, status=3 is user and status=4 is subuser
 			$data['status'] = ($core_config['main']['default_user_status'] == 3 ? $core_config['main']['default_user_status'] : 4);
 			
-			// if subuser and no site config then parent uid is 0
+			// set parent for subuser
 			$parent_uid = ((int) $site_config['uid'] ? (int) $site_config['uid'] : 0);
-			$data['parent_uid'] = ($data['status'] == 4 ? $parent_uid : 0);
+			if ($parent_uid) {
+				// regardless of default user status if register form site config then user status become subuser and parent is site config owner
+				$data['parent_uid'] = $parent_uid;
+				$data['status'] = 4;
+			} else {
+				$data['parent_uid'] = ($data['status'] == 4 ? $core_config['main']['default_parent'] : 0);
+			}
 			
 			$ret = user_add($data);
 			$ok = ($ret['status'] ? TRUE : FALSE);
