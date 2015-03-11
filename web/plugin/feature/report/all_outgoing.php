@@ -35,7 +35,7 @@ switch (_OP_) {
 		$base_url = 'index.php?app=main&inc=feature_report&route=all_outgoing&op=all_outgoing';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array(
-			'flag_deleted' => 0 
+			'A.flag_deleted' => 0 
 		);
 		$keywords = $search['dba_keywords'];
 		$table = _DB_PREF_ . '_tblSMSOutgoing';
@@ -43,14 +43,14 @@ switch (_OP_) {
 		$count = dba_count($table . ' AS A', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
-			'ORDER BY' => 'smslog_id DESC',
+			'ORDER BY' => 'A.smslog_id DESC',
 			'LIMIT' => $nav['limit'],
 			'OFFSET' => $nav['offset'] 
 		);
 		$list = dba_search($table . ' AS A', '*', $conditions, $keywords, $extras, $join);
 		
 		$content = "
-			<h2>" . _('All outgoing messages') . "</h2>
+			<h2>" . _('All sent messages') . "</h2>
 			<p>" . $search['form'] . "</p>
 			<form id=fm_all_outgoing name=fm_all_outgoing action=\"index.php?app=main&inc=feature_report&route=all_outgoing&op=actions\" method=POST>
 			" . _CSRF_FORM_ . "

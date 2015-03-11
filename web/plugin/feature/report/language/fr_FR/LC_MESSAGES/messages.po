@@ -9,17 +9,19 @@ msgstr ""
 msgid "Account has been unbanned"
 msgstr "L'utilisateur a été réintégré"
 
+#, fuzzy
+msgid "All feature messages"
+msgstr "Tous les messages sortant"
+
 msgid "All inbox"
 msgstr "Toutes les boîtes de réception"
 
-msgid "All incoming messages"
-msgstr "Tous les messages entrant"
-
-msgid "All outgoing messages"
-msgstr "Tous les messages sortant"
-
 msgid "All reports"
 msgstr "Tous les rapports"
+
+#, fuzzy
+msgid "All sent messages"
+msgstr "Tous les messages entrant"
 
 msgid "Amount"
 msgstr "Montant"
@@ -78,9 +80,6 @@ msgstr "De"
 msgid "Inbox"
 msgstr "Boîte de réception"
 
-msgid "Incoming messages"
-msgstr "Messages entrant"
-
 msgid "Keyword"
 msgstr "Mot-clé"
 
@@ -96,11 +95,15 @@ msgstr "Message"
 msgid "My credit transactions"
 msgstr "Mes transactions de crédit"
 
+msgid "My feature messages"
+msgstr ""
+
 msgid "My report"
 msgstr "Mon rapport"
 
-msgid "Outgoing messages"
-msgstr "Messages sortant"
+#, fuzzy
+msgid "My sent messages"
+msgstr "Message"
 
 msgid "Pending"
 msgstr "En attente"

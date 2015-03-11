@@ -15,17 +15,19 @@ msgstr ""
 msgid "Account has been unbanned"
 msgstr "Konto er ikke længere bandlyst"
 
+#, fuzzy
+msgid "All feature messages"
+msgstr "Alle udgående beskeder"
+
 msgid "All inbox"
 msgstr "Alle indbakker"
 
-msgid "All incoming messages"
-msgstr "Alle indkommende beskeder"
-
-msgid "All outgoing messages"
-msgstr "Alle udgående beskeder"
-
 msgid "All reports"
 msgstr "Alle rapporter"
+
+#, fuzzy
+msgid "All sent messages"
+msgstr "Alle indkommende beskeder"
 
 msgid "Amount"
 msgstr "Beløb"
@@ -84,9 +86,6 @@ msgstr "Fra"
 msgid "Inbox"
 msgstr "Indbakke"
 
-msgid "Incoming messages"
-msgstr "Indkommende beskeder"
-
 msgid "Keyword"
 msgstr "Nøgleord"
 
@@ -102,11 +101,15 @@ msgstr "Besked"
 msgid "My credit transactions"
 msgstr "Mine kredit transaktioner"
 
+msgid "My feature messages"
+msgstr ""
+
 msgid "My report"
 msgstr "Min rapport"
 
-msgid "Outgoing messages"
-msgstr "Udgående beskeder"
+#, fuzzy
+msgid "My sent messages"
+msgstr "Besked"
 
 msgid "Pending"
 msgstr "Afventer"

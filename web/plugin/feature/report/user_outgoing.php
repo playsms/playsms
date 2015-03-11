@@ -48,7 +48,7 @@ switch (_OP_) {
 		$list = dba_search(_DB_PREF_ . '_tblSMSOutgoing', '*', $conditions, $keywords, $extras);
 		
 		$content = "
-			<h2>" . _('Outgoing messages') . "</h2>
+			<h2>" . _('My sent messages') . "</h2>
 			<p>" . $search['form'] . "</p>
 			<form id=fm_outgoing name=fm_outgoing action=\"index.php?app=main&inc=feature_report&route=user_outgoing&op=actions\" method=POST>
 			" . _CSRF_FORM_ . "

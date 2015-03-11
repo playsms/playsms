@@ -35,23 +35,23 @@ switch (_OP_) {
 		$base_url = 'index.php?app=main&inc=feature_report&route=all_incoming&op=all_incoming';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array(
-			'flag_deleted' => 0,
+			'A.flag_deleted' => 0,
 			'in_status' => 1 
 		);
 		$keywords = $search['dba_keywords'];
-		$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND in_uid=B.uid";
-		$count = dba_count(_DB_PREF_ . '_tblSMSIncoming', $conditions, $keywords, '', $join);
+		$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.in_uid=B.uid";
+		$count = dba_count(_DB_PREF_ . '_tblSMSIncoming as A', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
-			'AND in_feature' => '!= ""',
-			'ORDER BY' => 'in_id DESC',
+			'AND A.in_feature' => '!= ""',
+			'ORDER BY' => 'A.in_id DESC',
 			'LIMIT' => $nav['limit'],
 			'OFFSET' => $nav['offset'] 
 		);
-		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', '*', $conditions, $keywords, $extras, $join);
+		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming AS A', '*', $conditions, $keywords, $extras, $join);
 		
 		$content = "
-			<h2>" . _('All incoming messages') . "</h2>
+			<h2>" . _('All feature messages') . "</h2>
 			<p>" . $search['form'] . "</p>
 			<form id=fm_all_incoming name=fm_all_incoming action=\"index.php?app=main&inc=feature_report&route=all_incoming&op=actions\" method=POST>
 			" . _CSRF_FORM_ . "

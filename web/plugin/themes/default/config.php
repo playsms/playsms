@@ -26,11 +26,6 @@ $themes_config['default']['menu'] = array(
 			2 
 		),
 		array(
-			'index.php?app=main&inc=feature_report&route=user_outgoing&op=user_outgoing',
-			_('Outgoing messages'),
-			3 
-		),
-		array(
 			'index.php?app=main&inc=core_user&route=user_pref&op=user_pref',
 			_('Preferences'),
 			4 
@@ -39,6 +34,11 @@ $themes_config['default']['menu'] = array(
 	$core_config['menutab']['settings'] => array(),
 	$core_config['menutab']['features'] => array(),
 	$core_config['menutab']['reports'] => array(
+		array(
+			'index.php?app=main&inc=feature_report&route=user_outgoing&op=user_outgoing',
+			_('My sent messages'),
+			3 
+		),
 		array(
 			'index.php?app=main&inc=feature_report&route=credit&op=credit_list',
 			_('My credit transactions'),

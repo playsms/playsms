@@ -33,18 +33,18 @@ switch (_OP_) {
 		$base_url = 'index.php?app=main&inc=feature_report&route=all_inbox&op=all_inbox';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array(
-			'flag_deleted' => 0 
+			'A.flag_deleted' => 0 
 		);
 		$keywords = $search['dba_keywords'];
-		$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND in_uid=B.uid";
-		$count = dba_count(_DB_PREF_ . '_tblSMSInbox', $conditions, $keywords, '', $join);
+		$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.in_uid=B.uid";
+		$count = dba_count(_DB_PREF_ . '_tblSMSInbox AS A', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
-			'ORDER BY' => 'in_id DESC',
+			'ORDER BY' => 'A.in_id DESC',
 			'LIMIT' => $nav['limit'],
 			'OFFSET' => $nav['offset'] 
 		);
-		$list = dba_search(_DB_PREF_ . '_tblSMSInbox', '*', $conditions, $keywords, $extras, $join);
+		$list = dba_search(_DB_PREF_ . '_tblSMSInbox AS A', '*', $conditions, $keywords, $extras, $join);
 		
 		$content = "
 			<h2>" . _('All inbox') . "</h2>

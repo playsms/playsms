@@ -29,18 +29,18 @@ if (auth_isadmin()) {
 	);
 	$menu_config[$menutab][] = array(
 		'index.php?app=main&inc=feature_report&route=all_incoming&op=all_incoming',
-		_('All incoming messages') ,
-		3
+		_('All feature messages') ,
+		4
 	);
 	$menu_config[$menutab][] = array(
 		'index.php?app=main&inc=feature_report&route=all_outgoing&op=all_outgoing',
-		_('All outgoing messages') ,
-		3
+		_('All sent messages') ,
+		4
 	);
 	$menu_config[$menutab][] = array(
 		'index.php?app=main&inc=feature_report&route=sandbox&op=sandbox',
 		_('Sandbox') ,
-		3
+		5
 	);
 	$menu_config[$menutab][] = array(
 		"index.php?app=main&inc=feature_report&route=admin",
@@ -66,24 +66,27 @@ $menu_config[$menutab][] = array(
 	_('Inbox') ,
 	1
 );
-$menu_config[$menutab][] = array(
-	'index.php?app=main&inc=feature_report&route=user_incoming&op=user_incoming',
-	_('Incoming messages') ,
-	1
-);
-$menu_config[$menutab][] = array(
-	'index.php?app=main&inc=feature_report&route=user_outgoing&op=user_outgoing',
-	_('Outgoing messages') ,
-	1
-);
 
 $menutab = $core_config['menutab']['reports'];
 
 $menu_config[$menutab][] = array(
+	'index.php?app=main&inc=feature_report&route=user_incoming&op=user_incoming',
+	_('My feature messages'),
+	1
+);
+$menu_config[$menutab][] = array(
+	'index.php?app=main&inc=feature_report&route=user_outgoing&op=user_outgoing',
+	_('My sent messages'),
+	1
+);
+
+$menu_config[$menutab][] = array(
 	"index.php?app=main&inc=feature_report&route=user",
-	_('My report')
+	_('My report'),
+	2
 );
 $menu_config[$menutab][] = array(
 	"index.php?app=main&inc=feature_report&route=credit&op=credit_list",
-	_('My credit transactions')
+	_('My credit transactions'),
+	2
 );
