@@ -975,10 +975,11 @@ function sendsms_throttle_isoverlimit($uid, $limit = 0, $period = 60) {
  *        Sent SMS
  * @return boolean TRUE of successful counter
  */
-function sendsms_throttle_count($uid, $count = 1) {
+function sendsms_throttle_count($uid, $count = 1, $limit = 0, $period = 60) {
 	global $core_config;
 	
-	$limit = $core_config['main']['sms_limit_per_hour'];
+	$limit = ((int) $limit ? (int) $limit : $core_config['main']['sms_limit_per_hour']);
+	$period = ((int) $period ? (int) $period * 60 : 3600);
 	
 	if (!$limit) {
 		// no limit no over limit
@@ -1010,7 +1011,12 @@ function sendsms_throttle_count($uid, $count = 1) {
 	}
 	
 	// check bucket expired
-	if (strtotime($start) >= (strtotime(core_get_datetime()) - 3600)) {
+	if (strtotime($start) + $period < strtotime(core_get_datetime())) {
+		// expired, create new
+		$start = core_get_datetime();
+		$sum = 0;
+		_log('expired', 3, 'sendsms_throttle_count');
+	} else {
 		//_log('not expired', 3, 'sendsms_throttle_count');
 		// not expired
 		if ((int) $sum <= $limit) {
@@ -1022,11 +1028,6 @@ function sendsms_throttle_count($uid, $count = 1) {
 			
 			return FALSE;
 		}
-	} else {
-		// expired, create new
-		$start = core_get_datetime();
-		$sum = 0;
-		_log('expired', 3, 'sendsms_throttle_count');
 	}
 	
 	// save in registry
