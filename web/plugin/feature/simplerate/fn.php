@@ -188,7 +188,6 @@ function simplerate_hook_rate_deduct($smslog_id) {
 			}
 			
 			if (rate_setusercredit($uid, $balance)) {
-				_log('MARK11', 3, 'DEBUG');
 				logger_print("user uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id . " msglen:" . $p_msg_len . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " credit:" . $credit . " balance:" . $balance, 2, "simplerate deduct");
 				if (billing_post($smslog_id, $rate, $credit, $count, $charge)) {
 					logger_print("deduct successful uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");

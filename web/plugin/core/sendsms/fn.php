@@ -956,7 +956,7 @@ function sendsms_throttle_isoverlimit($uid, $limit = 0, $period = 60) {
 			}
 		}
 	} else {
-		_log('just started not overlimit', 3, 'sendsms_throttle_isoverlimit');
+		_log('just started not overlimit start:' . core_display_datetime($start), 3, 'sendsms_throttle_isoverlimit');
 		
 		return FALSE;
 	}
@@ -994,7 +994,7 @@ function sendsms_throttle_count($uid, $count = 1, $limit = 0, $period = 60) {
 		// get sum of sent SMS over the hour
 		$reg = registry_search($uid, 'core', 'sendsms', 'throttle_sum');
 		$sum = $reg['core']['sendsms']['throttle_sum'];
-		_log('throttle bucket exists start:' . $start . ' sum:' . $sum . ' limit:' . $limit, 3, 'sendsms_throttle_count');
+		_log('throttle bucket exists start:' . core_display_datetime($start) . ' sum:' . $sum . ' limit:' . $limit, 3, 'sendsms_throttle_count');
 	} else {
 		$start = core_get_datetime();
 		$sum = 0;
@@ -1002,7 +1002,7 @@ function sendsms_throttle_count($uid, $count = 1, $limit = 0, $period = 60) {
 			'throttle_start' => $start,
 			'throttle_sum' => $sum 
 		))) {
-			_log('throttle bucket started start:' . $start . ' limit:' . $limit, 3, 'sendsms_throttle_count');
+			_log('throttle bucket started start:' . core_display_datetime($start) . ' limit:' . $limit, 3, 'sendsms_throttle_count');
 		} else {
 			_log('fail to start throttle bucket', 3, 'sendsms_throttle_count');
 			
@@ -1015,7 +1015,7 @@ function sendsms_throttle_count($uid, $count = 1, $limit = 0, $period = 60) {
 		// expired, create new
 		$start = core_get_datetime();
 		$sum = 0;
-		_log('expired', 3, 'sendsms_throttle_count');
+		_log('expired start:' . core_display_datetime($start), 3, 'sendsms_throttle_count');
 	} else {
 		//_log('not expired', 3, 'sendsms_throttle_count');
 		// not expired
@@ -1024,7 +1024,7 @@ function sendsms_throttle_count($uid, $count = 1, $limit = 0, $period = 60) {
 			$sum += $count;
 			//_log('add to bucket sum:' . $sum, 3, 'sendsms_throttle_count');
 		} else {
-			_log('over limit', 3, 'sendsms_throttle_count');
+			_log('over limit sum:' . $sum . ' limit:' . $limit, 3, 'sendsms_throttle_count');
 			
 			return FALSE;
 		}
