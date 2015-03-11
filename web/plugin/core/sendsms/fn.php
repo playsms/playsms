@@ -956,7 +956,7 @@ function sendsms_throttle_isoverlimit($uid, $limit = 0, $period = 60) {
 			}
 		}
 	} else {
-		_log('just started not overlimit start:' . core_display_datetime($start), 3, 'sendsms_throttle_isoverlimit');
+		_log('just started not overlimit', 3, 'sendsms_throttle_isoverlimit');
 		
 		return FALSE;
 	}
@@ -1024,7 +1024,7 @@ function sendsms_throttle_count($uid, $count = 1, $limit = 0, $period = 60) {
 			$sum += $count;
 			//_log('add to bucket sum:' . $sum, 3, 'sendsms_throttle_count');
 		} else {
-			_log('over limit sum:' . $sum . ' limit:' . $limit, 3, 'sendsms_throttle_count');
+			_log('overlimit sum:' . $sum . ' limit:' . $limit, 3, 'sendsms_throttle_count');
 			
 			return FALSE;
 		}
