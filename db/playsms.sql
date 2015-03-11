@@ -1609,32 +1609,6 @@ INSERT INTO `playsms_tblUser` VALUES (0,0,1,2,0,'admin','21232f297a57a5a743894a0
 UNLOCK TABLES;
 
 --
--- Table structure for table `playsms_tblUser_country`
---
-
-DROP TABLE IF EXISTS `playsms_tblUser_country`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `playsms_tblUser_country` (
-  `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
-  `country_id` int(11) NOT NULL AUTO_INCREMENT,
-  `country_name` varchar(200) NOT NULL DEFAULT '',
-  `country_code` varchar(10) NOT NULL DEFAULT '',
-  PRIMARY KEY (`country_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=335 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `playsms_tblUser_country`
---
-
-LOCK TABLES `playsms_tblUser_country` WRITE;
-/*!40000 ALTER TABLE `playsms_tblUser_country` DISABLE KEYS */;
-INSERT INTO `playsms_tblUser_country` VALUES (0,1,'Afghanistan',''),(0,2,'Albania',''),(0,3,'Algeria',''),(0,5,'Andorra',''),(0,10,'Argentina',''),(0,11,'Armenia',''),(0,14,'Australia',''),(0,16,'Austria',''),(0,18,'Azerbaijan',''),(0,19,'Bahamas',''),(0,20,'Bahrain',''),(0,21,'Bangladesh',''),(0,24,'Belarus',''),(0,25,'Belgium',''),(0,29,'Bermuda',''),(0,30,'Bhutan',''),(0,31,'Bolivia',''),(0,32,'Bosnia-Herzegovina',''),(0,33,'Botswana',''),(0,35,'Brazil',''),(0,38,'Brunei',''),(0,39,'Bulgaria',''),(0,41,'Burundi',''),(0,42,'Cambodia',''),(0,44,'Cameroon',''),(0,45,'Canada',''),(0,51,'Chile',''),(0,52,'China',''),(0,55,'Columbia',''),(0,58,'Congo',''),(0,60,'Costa Rica',''),(0,61,'Croatia',''),(0,62,'Cuba',''),(0,66,'Czech Republic',''),(0,67,'Denmark',''),(0,74,'East Timor',''),(0,76,'Ecuador',''),(0,77,'Egypt',''),(0,78,'El Salvador',''),(0,81,'Estonia',''),(0,84,'Fiji Islands',''),(0,85,'Finland',''),(0,86,'France',''),(0,93,'Gabon',''),(0,94,'Gambia',''),(0,96,'Germany',''),(0,98,'Ghana',''),(0,100,'Greece',''),(0,105,'Guam',''),(0,107,'Guatemala',''),(0,108,'UK',''),(0,111,'Guyana',''),(0,112,'Haiti',''),(0,113,'Honduras',''),(0,114,'HongKong',''),(0,118,'Hungary',''),(0,120,'Iceland',''),(0,121,'India',''),(0,132,'Indonesia',''),(0,139,'Iran',''),(0,140,'Iraq',''),(0,141,'Ireland',''),(0,143,'Israel',''),(0,144,'Italy',''),(0,146,'Ivory Coast',''),(0,147,'Jamaica',''),(0,148,'Japan',''),(0,150,'Jordan',''),(0,151,'Kazakhstan',''),(0,153,'Kenya',''),(0,155,'Korea (South)',''),(0,156,'Korea (North)',''),(0,157,'Kuwait',''),(0,158,'Kyrgyzstan',''),(0,160,'Latvia',''),(0,161,'Lebanon',''),(0,163,'Liberia',''),(0,164,'Libya',''),(0,166,'Lithuania',''),(0,167,'Luxembourg',''),(0,170,'Macedonia',''),(0,171,'Malawi',''),(0,173,'Malaysia',''),(0,175,'Maldives',''),(0,177,'Mali Republic',''),(0,178,'Malta',''),(0,181,'Mauritania',''),(0,184,'Mexico',''),(0,186,'Moldova',''),(0,188,'Mongolia',''),(0,189,'Montserrat',''),(0,190,'Morocco',''),(0,192,'Mozambique',''),(0,193,'Myanmar',''),(0,194,'Namibia',''),(0,196,'Nepal',''),(0,197,'Netherlands',''),(0,200,'New Caledonia',''),(0,201,'New Zealand',''),(0,202,'Nicaragua',''),(0,203,'Niger',''),(0,204,'Nigeria',''),(0,208,'Norway',''),(0,209,'Oman',''),(0,210,'Pakistan',''),(0,211,'Palau',''),(0,212,'Palestine',''),(0,213,'Panama',''),(0,214,'Papua New Guinea',''),(0,215,'Paraguay',''),(0,216,'Peru',''),(0,217,'Philippines',''),(0,220,'Poland',''),(0,223,'Portugal',''),(0,225,'Puerto Rico',''),(0,226,'Qatar',''),(0,228,'Romania',''),(0,229,'Russia',''),(0,232,'Rwanda',''),(0,238,'Samoa',''),(0,241,'Saudi Arabia',''),(0,242,'Senegal',''),(0,244,'Sierra Leone',''),(0,245,'Singapore',''),(0,248,'Slovakia',''),(0,249,'Slovenia',''),(0,251,'Somalia',''),(0,252,'South Africa',''),(0,253,'Spain',''),(0,256,'Sri Lanka',''),(0,257,'Sudan',''),(0,258,'Suriname',''),(0,259,'Swaziland',''),(0,260,'Sweden',''),(0,262,'Switzerland',''),(0,263,'Syria',''),(0,264,'Taiwan',''),(0,267,'Tajikistan',''),(0,268,'Tanzania',''),(0,269,'Thailand',''),(0,274,'Trinidad and Tobago',''),(0,275,'Tunisia',''),(0,276,'Turkey',''),(0,277,'Turkmenistan',''),(0,279,'Tuvalu',''),(0,280,'Uganda',''),(0,281,'Ukraine',''),(0,284,'USA',''),(0,289,'United Arab Emirates',''),(0,290,'Uruguay',''),(0,291,'Uzbekistan',''),(0,293,'Vatican City State',''),(0,294,'Venezuela',''),(0,295,'Vietnam',''),(0,299,'Yemen',''),(0,300,'Yugoslavia',''),(0,303,'Zambia',''),(0,305,'Zimbabwe',''),(0,312,'Ethiopia',''),(0,314,'South Korea',''),(0,318,'Angola',''),(0,319,'Aruba',''),(0,320,'Laos',''),(0,325,'Serbia & Montenegro (Yugoslavia)',''),(0,332,'Jersey',''),(0,334,'OTHER (unlisted)','');
-/*!40000 ALTER TABLE `playsms_tblUser_country` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `playsms_tblSMSInbox`
 --
 
