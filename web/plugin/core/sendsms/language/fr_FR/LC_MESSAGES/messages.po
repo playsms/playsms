@@ -3,6 +3,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#, fuzzy
+msgid "Compose message"
+msgstr "Message Unicode"
+
 msgid "Fail to send message to all destination"
 msgstr ""
 
@@ -35,9 +39,6 @@ msgstr "Planification"
 
 msgid "Send"
 msgstr "Envoyer"
-
-msgid "Send message"
-msgstr "Envoyer le message"
 
 msgid "Send to"
 msgstr "Envoyer "

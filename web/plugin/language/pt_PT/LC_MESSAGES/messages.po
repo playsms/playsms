@@ -24,6 +24,10 @@ msgstr "Banir"
 msgid "Buy"
 msgstr "Comprar"
 
+#, fuzzy
+msgid "Compose message"
+msgstr "Enviar mensagem"
+
 msgid "Delete"
 msgstr "Remover"
 

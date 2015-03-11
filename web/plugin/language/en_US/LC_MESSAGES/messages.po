@@ -17,6 +17,9 @@ msgstr ""
 msgid "Buy"
 msgstr ""
 
+msgid "Compose message"
+msgstr ""
+
 msgid "Delete"
 msgstr ""
 

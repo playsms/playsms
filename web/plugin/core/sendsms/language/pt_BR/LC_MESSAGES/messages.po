@@ -3,6 +3,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Compose message"
+msgstr ""
+
 msgid "Fail to send message to all destination"
 msgstr ""
 
@@ -34,9 +37,6 @@ msgid "Schedule"
 msgstr ""
 
 msgid "Send"
-msgstr ""
-
-msgid "Send message"
 msgstr ""
 
 msgid "Send to"

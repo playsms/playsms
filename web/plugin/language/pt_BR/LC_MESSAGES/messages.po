@@ -17,6 +17,10 @@ msgstr ""
 msgid "Buy"
 msgstr ""
 
+#, fuzzy
+msgid "Compose message"
+msgstr "Mensagem unicode"
+
 msgid "Delete"
 msgstr "Remover"
 

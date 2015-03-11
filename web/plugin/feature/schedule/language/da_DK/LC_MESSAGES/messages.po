@@ -138,8 +138,9 @@ msgstr "Tidsplan"
 msgid "Schedule ID"
 msgstr "Tidsplan ID"
 
-msgid "Schedule SMS"
-msgstr "Planlæg SMS"
+#, fuzzy
+msgid "Schedule messages"
+msgstr "Planlagt besked"
 
 msgid "Schedule name"
 msgstr "Tidsplan-navn"

@@ -124,7 +124,7 @@ msgstr ""
 msgid "Schedule ID"
 msgstr ""
 
-msgid "Schedule SMS"
+msgid "Schedule messages"
 msgstr ""
 
 msgid "Schedule name"

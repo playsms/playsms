@@ -22,7 +22,7 @@ $themes_config['default']['menu'] = array(
 		),
 		array(
 			'index.php?app=main&inc=core_sendsms&op=sendsms',
-			_('Send message'),
+			_('Compose message'),
 			2 
 		),
 		array(

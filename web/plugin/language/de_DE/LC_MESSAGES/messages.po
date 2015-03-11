@@ -18,6 +18,10 @@ msgstr ""
 msgid "Buy"
 msgstr ""
 
+#, fuzzy
+msgid "Compose message"
+msgstr "Sende SMS"
+
 msgid "Delete"
 msgstr "Löschen"
 

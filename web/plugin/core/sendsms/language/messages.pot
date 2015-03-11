@@ -1,3 +1,6 @@
+msgid "Compose message"
+msgstr ""
+
 msgid "Fail to send message to all destination"
 msgstr ""
 
@@ -29,9 +32,6 @@ msgid "Schedule"
 msgstr ""
 
 msgid "Send"
-msgstr ""
-
-msgid "Send message"
 msgstr ""
 
 msgid "Send to"

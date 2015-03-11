@@ -17,6 +17,10 @@ msgstr ""
 msgid "Buy"
 msgstr ""
 
+#, fuzzy
+msgid "Compose message"
+msgstr "发送为非代码信息"
+
 msgid "Delete"
 msgstr "删除"
 

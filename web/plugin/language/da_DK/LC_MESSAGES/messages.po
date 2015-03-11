@@ -25,6 +25,10 @@ msgstr "Bandlys"
 msgid "Buy"
 msgstr "Køb"
 
+#, fuzzy
+msgid "Compose message"
+msgstr "Send besked"
+
 msgid "Delete"
 msgstr "Slet"
 

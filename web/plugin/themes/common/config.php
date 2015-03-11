@@ -54,7 +54,7 @@ $menutab = $core_config['menutab']['my_account'];
 $menu_config[$menutab] = array(
 	array(
 		'index.php?app=main&inc=core_sendsms&op=sendsms',
-		_('Send message') ,
+		_('Compose message') ,
 		1
 	) ,
 );

@@ -70,7 +70,7 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'sendsms',
 			'vars' => array(
-				'Send message' => _('Send message'),
+				'Compose message' => _('Compose message'),
 				'Sender ID' => _('Sender ID'),
 				'Message footer' => _('Message footer'),
 				'Send to' => _('Send to'),

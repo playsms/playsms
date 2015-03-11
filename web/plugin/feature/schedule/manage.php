@@ -33,7 +33,7 @@ switch (_OP_) {
 		$schedule_rule = $db_row['schedule_rule'];
 		if ($id && $name && $message) {
 			$content = _err_display() . "
-				<h2>" . _('Schedule SMS') . "</h2>
+				<h2>" . _('Schedule messages') . "</h2>
 				<h3>" . _('Manage schedule') . "</h3>
 				" . _CSRF_FORM_ . "
 				<input type=hidden name=id value='$id'>
@@ -129,7 +129,7 @@ switch (_OP_) {
 		$schedule_message = $db_row['message'];
 		if ($schedule_id && $schedule_name && $schedule_message) {
 			$content = _err_display() . "
-				<h2>" . _('Schedule SMS') . "</h2>
+				<h2>" . _('Schedule messages') . "</h2>
 				<h3>" . _('Manage schedule') . "</h3>
 				<h4>" . _('Add destination') . "</h4>
 				<form action=index.php?app=main&inc=feature_schedule&route=manage&op=dst_add_yes method=post>
@@ -230,7 +230,7 @@ switch (_OP_) {
 			$destination = $db_row['destination'];
 			
 			$content = _err_display() . "
-				<h2>" . _('Schedule SMS') . "</h2>
+				<h2>" . _('Schedule messages') . "</h2>
 				<h3>" . _('Manage schedule') . "</h3>
 				<h4>" . _('Edit destination') . "</h4>
 				<form action=index.php?app=main&inc=feature_schedule&route=manage&op=dst_edit_yes method=post>

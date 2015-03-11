@@ -11,6 +11,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.7.4\n"
 
+#, fuzzy
+msgid "Compose message"
+msgstr "Unicode besked"
+
 msgid "Fail to send message to all destination"
 msgstr "Kunne ikke sende besked til alle destinationer"
 
@@ -43,9 +47,6 @@ msgstr "Skema"
 
 msgid "Send"
 msgstr "Send"
-
-msgid "Send message"
-msgstr "Send besked"
 
 msgid "Send to"
 msgstr "Send til"
