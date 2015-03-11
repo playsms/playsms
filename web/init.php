@@ -40,6 +40,7 @@ if (!$core_config['daemon_process']) {
 	} else {
 		header('Pragma: no-cache');
 	}
+	header('X-Frame-Options: SAMEORIGIN');
 	@session_start();
 }
 
