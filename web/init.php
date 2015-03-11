@@ -137,6 +137,16 @@ if (!get_magic_quotes_gpc()) {
 	}
 }
 
+// sanitize user inputs
+if ($_POST['X-CSRF-Token']) {
+	foreach ($_POST as $key => $val) {
+		$_POST[$key] = htmlspecialchars($val);
+	}
+}
+foreach ($_GET as $key => $val) {
+	$_GET[$key] = htmlspecialchars($val);
+}
+
 // too many codes using $_REQUEST, until we revise them all we use this as a workaround
 empty($_REQUEST);
 $_REQUEST = array_merge($_GET, $_POST);
