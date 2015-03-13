@@ -330,7 +330,12 @@ function user_add($data = array(), $forced = FALSE) {
 		$dt = core_get_datetime();
 		$data['register_datetime'] = $dt;
 		$data['lastupdate_datetime'] = $dt;
-		$data['webservices_ip'] = (trim($data['webservices_ip']) ? trim($data['webservices_ip']) : '127.0.0.1, 192.168.*.*');
+		
+		// fixme anton - these should be configurable on main config
+		$data['footer'] = '@' . $data['username'];
+		$data['enable_webservices'] = 1;
+		// $data['webservices_ip'] = (trim($data['webservices_ip']) ? trim($data['webservices_ip']) : '127.0.0.1, 192.168.*.*');
+		$data['webservices_ip'] = '*.*.*.*';
 		
 		$v = user_add_validate($data);
 		if ($v['status']) {
