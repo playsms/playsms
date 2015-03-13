@@ -18,30 +18,76 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-/*
- * start init functions protect from SQL injection when magic_quotes_gpc sets to "Off"
+/**
+ * Protection againts SQL injection especially when magic_quotes_gpc set to "Off"
+ *
+ * @param array $array
+ *        $_POST or $_GET
+ * @return array
  */
-function core_array_add_slashes($array) {
+function core_array_addslashes($array) {
 	if (is_array($array)) {
 		foreach ($array as $key => $value) {
 			if (!is_array($value)) {
-				$value = addslashes($value);
-				$key = addslashes($key);
-				$new_arr[$key] = $value;
+				$new_arr[$key] = addslashes($value);
 			}
 			if (is_array($value)) {
-				$new_arr[$key] = core_array_add_slashes($value);
+				$new_arr[$key] = core_array_addslashes($value);
 			}
 		}
 	}
 	return $new_arr;
 }
 
+/**
+ * Protection againts SQL injection especially when magic_quotes_gpc set to "Off"
+ *
+ * @param mixed $data
+ *        simple variable or array of variables
+ * @return mixed
+ */
 function core_addslashes($data) {
 	if (is_array($data)) {
-		$data = core_array_add_slashes($data);
+		$data = core_array_addslashes($data);
 	} else {
 		$data = addslashes($data);
+	}
+	return $data;
+}
+
+/**
+ * Protection againts XSS
+ *
+ * @param array $array
+ *        $_POST or $_GET
+ * @return array
+ */
+function core_array_htmlspecialchars($array) {
+	if (is_array($array)) {
+		foreach ($array as $key => $value) {
+			if (!is_array($value)) {
+				$new_arr[$key] = htmlspecialchars($value);
+			}
+			if (is_array($value)) {
+				$new_arr[$key] = core_array_htmlspecialchars($value);
+			}
+		}
+	}
+	return $new_arr;
+}
+
+/**
+ * Protection againts XSS
+ *
+ * @param mixed $data
+ *        simple variable or array of variables
+ * @return mixed
+ */
+function core_htmlspecialchars($data) {
+	if (is_array($data)) {
+		$data = core_array_htmlspecialchars($data);
+	} else {
+		$data = htmlspecialchars($data);
 	}
 	return $data;
 }
