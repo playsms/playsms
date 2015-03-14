@@ -223,17 +223,29 @@ function core_str2hex($string) {
 	return $hex;
 }
 
-/*
- * Format HTML for safe display on the web @param mixed $html string or array of original HTML content @return mixed formatted and safe HTML content
+/**
+ * Display untrusted user input, protection againts XSS using HTMLPurifier()
+ *
+ * @param mixed $data
+ *        untrusted inputs
+ * @return array
  */
-function core_display_html($html) {
-	if (is_array($html)) {
-		foreach ($html as $item) {
-			$ret[] = core_display_html((string) $item);
+function core_display_html($data) {
+	$hp = new HTMLPurifier();
+	
+	if (is_array($data)) {
+		foreach ($data as $key => $value) {
+			if (!is_array($data)) {
+				$value = $hp->purify($value);
+				$ret[$key] = htmlspecialchars($value);
+			}
+			if (is_array($value)) {
+				$ret[$key] = core_array_display_html($value);
+			}
 		}
 	} else {
-		$hp = new HTMLPurifier();
-		$ret = $hp->purify($html);
+		$value = $hp->purify($data);
+		$ret = htmlspecialchars($value);
 	}
 	
 	return $ret;
