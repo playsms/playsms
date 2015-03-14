@@ -228,7 +228,7 @@ function core_str2hex($string) {
  *
  * @param mixed $data
  *        untrusted inputs
- * @return array
+ * @return mixed
  */
 function core_display_html($data) {
 	$hp = new HTMLPurifier();
@@ -239,13 +239,11 @@ function core_display_html($data) {
 				$ret[$key] = core_display_html($value);
 			} else {
 				$value = $hp->purify($value);
-				//$ret[$key] = htmlspecialchars($value);
 				$ret[$key] = $value;
 			}
 		}
 	} else {
 		$value = $hp->purify($data);
-		//$ret = htmlspecialchars($value);
 		$ret = $value;
 	}
 	
