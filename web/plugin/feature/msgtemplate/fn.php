@@ -9,9 +9,8 @@ function msgtemplate_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $
 	$ret['modified'] = true;
 	
 	// the modification to $sms_msg, case insensitive
-	$c_username = user_uid2username($uid);
 	$text = $sms_msg;
-	$text = str_ireplace('#NAME#', phonebook_number2name($sms_to, $c_username), $text);
+	$text = str_ireplace('#NAME#', phonebook_number2name($uid, $sms_to), $text);
 	$text = str_ireplace('#NUM#', $sms_to, $text);
 	$ret['param']['sms_msg'] = $text;
 	

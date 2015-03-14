@@ -148,11 +148,11 @@ switch (_OP_) {
 			<tbody>
 			<tr>
 				<td class=label-sizer>" . _('Group name') . "</td>
-				<td><input type=text name=group_name value=\"" . phonebook_groupid2name($gpid) . "\"></td>
+				<td><input type=text name=group_name value=\"" . phonebook_groupid2name($user_config['uid'], $gpid) . "\"></td>
 			</tr>
 			<tr>
 				<td>" . _('Group code') . "</td>
-				<td><input type=text name=group_code value=\"" . phonebook_groupid2code($gpid) . "\" size=10> " . _hint(_('please use uppercase and make it short')) . "</td>
+				<td><input type=text name=group_code value=\"" . phonebook_groupid2code($user_config['uid'], $gpid) . "\" size=10> " . _hint(_('Please use uppercase and make it short')) . "</td>
 			</tr>
 			<tr>
 				<td>" . _('Share phonebook and allow broadcast') . "</td>

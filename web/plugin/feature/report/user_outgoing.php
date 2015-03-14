@@ -78,7 +78,7 @@ switch (_OP_) {
 			$list[$j] = core_display_data($list[$j]);
 			$smslog_id = $list[$j]['smslog_id'];
 			$p_dst = $list[$j]['p_dst'];
-			$p_desc = phonebook_number2name($p_dst);
+			$p_desc = phonebook_number2name($user_config['uid'], $p_dst);
 			$current_p_dst = $p_dst;
 			if ($p_desc) {
 				$current_p_dst = "$p_dst<br />$p_desc";
@@ -118,7 +118,7 @@ switch (_OP_) {
 			}
 			
 			if ($p_gpid) {
-				$p_gpcode = strtoupper(phonebook_groupid2code($p_gpid));
+				$p_gpcode = strtoupper(phonebook_groupid2code($user_config['uid'], $p_gpid));
 			} else {
 				$p_gpcode = "&nbsp;";
 			}

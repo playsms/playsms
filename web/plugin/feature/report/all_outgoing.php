@@ -83,8 +83,9 @@ switch (_OP_) {
 			$p_username = $list[$j]['username'];
 			$p_gateway = $list[$j]['p_gateway'];
 			$smslog_id = $list[$j]['smslog_id'];
+			$p_uid = $list[$j]['uid'];
 			$p_dst = $list[$j]['p_dst'];
-			$p_desc = phonebook_number2name($p_dst);
+			$p_desc = phonebook_number2name($p_uid, $p_dst);
 			$current_p_dst = $p_dst;
 			if ($p_desc) {
 				$current_p_dst = "$p_dst<br />$p_desc";
@@ -97,6 +98,7 @@ switch (_OP_) {
 			$p_update = $list[$j]['p_update'];
 			$p_status = $list[$j]['p_status'];
 			$p_gpid = $list[$j]['p_gpid'];
+			$c_uid = $list[$j]['uid'];
 			
 			// 0 = pending
 			// 1 = sent
@@ -124,7 +126,7 @@ switch (_OP_) {
 			}
 			
 			if ($p_gpid) {
-				$p_gpcode = strtoupper(phonebook_groupid2code($p_gpid));
+				$p_gpcode = strtoupper(phonebook_groupid2code($c_uid, $p_gpid));
 			} else {
 				$p_gpcode = "&nbsp;";
 			}

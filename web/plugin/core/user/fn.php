@@ -101,15 +101,7 @@ function user_username2uid($username) {
 
 function user_mobile2uid($mobile) {
 	if ($mobile) {
-		
-		// remove +
-		$mobile = str_replace('+', '', $mobile);
-		
-		// remove first 3 digits if phone number length more than 7
-		if (strlen($mobile) > 7) {
-			$mobile = substr($mobile, 3);
-		}
-		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND mobile LIKE '%$mobile'";
+		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND mobile LIKE '%" . core_mobile_matcher_format($mobile) . "'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$uid = $db_row['uid'];

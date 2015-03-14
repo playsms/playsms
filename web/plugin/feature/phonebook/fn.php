@@ -18,9 +18,9 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-function phonebook_hook_phonebook_groupid2name($gpid) {
-	if ($gpid) {
-		$db_query = "SELECT name FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE id='$gpid'";
+function phonebook_hook_phonebook_groupid2name($uid, $gpid) {
+	if ($uid && $gpid) {
+		$db_query = "SELECT name FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid' AND id='$gpid'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$name = $db_row['name'];
@@ -30,7 +30,7 @@ function phonebook_hook_phonebook_groupid2name($gpid) {
 
 function phonebook_hook_phonebook_groupname2id($uid, $name) {
 	if ($uid && $name) {
-		$db_query = "SELECT id FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid' AND code='$code'";
+		$db_query = "SELECT id FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid' AND name='$name'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$id = $db_row['id'];
@@ -38,9 +38,9 @@ function phonebook_hook_phonebook_groupname2id($uid, $name) {
 	return $id;
 }
 
-function phonebook_hook_phonebook_groupid2code($gpid) {
-	if ($gpid) {
-		$db_query = "SELECT code FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE id='$gpid'";
+function phonebook_hook_phonebook_groupid2code($uid, $gpid) {
+	if ($uid && $gpid) {
+		$db_query = "SELECT code FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid' AND id='$gpid'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$code = $db_row['code'];
@@ -58,34 +58,24 @@ function phonebook_hook_phonebook_groupcode2id($uid, $code) {
 	return $id;
 }
 
-function phonebook_hook_phonebook_number2name($mobile, $c_username = '') {
+function phonebook_hook_phonebook_number2name($uid, $mobile) {
 	global $user_config;
-	$name = '';
-	if ($mobile) {
+	
+	if ($uid && $mobile) {
+		$user_mobile = user_getfieldbyuid($uid, 'mobile');
 		
-		// if username supplied use it, else use global username
-		$c_uid = user_username2uid($c_username);
-		$uid = $c_uid ? $c_uid : $user_config['uid'];
-		
-		// remove +
-		$mobile = str_replace('+', '', $mobile);
-		
-		// remove first 3 digits if phone number length more than 7
-		if (strlen($mobile) > 7) {
-			$mobile = substr($mobile, 3);
-		}
 		$db_query = "
 			SELECT A.name AS name FROM " . _DB_PREF_ . "_featurePhonebook AS A
 			LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid
 			LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON B.id=C.gpid
-			WHERE A.mobile LIKE '%" . $mobile . "' AND (
+			WHERE A.mobile LIKE '%" . core_mobile_matcher_format($mobile) . "' AND (
 				A.uid='$uid'
 				OR B.id in
 					(
 					SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
 					LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid
 					LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON B.id=C.gpid
-					WHERE A.mobile='" . user_getfieldbyuid($uid, 'mobile') . "' AND B.flag_sender='1' 
+					WHERE A.mobile LIKE '%" . core_mobile_matcher_format($user_mobile) . "' AND B.flag_sender='1' 
 					)
 				OR ( A.uid<>'$uid' AND B.flag_sender>'1' ) )
 			LIMIT 1";
@@ -93,6 +83,7 @@ function phonebook_hook_phonebook_number2name($mobile, $c_username = '') {
 		$db_row = dba_fetch_array($db_result);
 		$name = $db_row['name'];
 	}
+	
 	return $name;
 }
 

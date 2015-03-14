@@ -322,7 +322,7 @@ function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $
 					if ($c_flag_sender == 2) {
 						$c_username = user_uid2username($c_uid);
 						_log("bc mobile flag_sender:" . $c_flag_sender . " username:" . $c_username . " uid:" . $c_uid . " g:" . $c_group_code . " gpid:" . $c_gpid . " uid:" . $c_uid . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept');
-						$sender = trim(phonebook_number2name($sms_sender, $c_username));
+						$sender = trim(phonebook_number2name($c_uid, $sms_sender));
 						$sender = ($sender ? $sender : $sms_sender);
 						sendsms_bc($c_username, $c_gpid, $sender . ":" . $message);
 						_log("bc mobile end", 3, 'incoming recvsms_intercept');
@@ -339,7 +339,7 @@ function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $
 						if ($db_row = dba_fetch_array($db_result)) {
 							$c_username = user_uid2username($c_uid);
 							_log("bc mobile flag_sender:" . $c_flag_sender . " username:" . $c_username . " uid:" . $c_uid . " g:" . $c_group_code . " gpid:" . $c_gpid . " uid:" . $c_uid . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept');
-							$sender = trim(phonebook_number2name($sms_sender, $c_username));
+							$sender = trim(phonebook_number2name($c_uid, $sms_sender));
 							$sender = ($sender ? $sender : $sms_sender);
 							sendsms_bc($c_username, $c_gpid, $sender . ":" . $message);
 							_log("bc mobile end", 3, 'incoming recvsms_intercept');

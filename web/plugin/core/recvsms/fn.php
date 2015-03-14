@@ -389,7 +389,7 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 			}
 			
 			// get name from target_user's phonebook
-			$c_name = phonebook_number2name($sms_sender, $target_user);
+			$c_name = phonebook_number2name($uid, $sms_sender);
 			$sender = $c_name ? $c_name . ' (' . $sms_sender . ')' : $sms_sender;
 			
 			// forward to Inbox

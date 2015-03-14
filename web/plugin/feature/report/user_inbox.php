@@ -64,7 +64,7 @@ switch (_OP_) {
 			$list[$j] = core_display_data($list[$j]);
 			$in_id = $list[$j]['in_id'];
 			$in_sender = $list[$j]['in_sender'];
-			$p_desc = phonebook_number2name($in_sender);
+			$p_desc = phonebook_number2name($user_config['uid'], $in_sender);
 			$current_sender = $in_sender;
 			if ($p_desc) {
 				$current_sender = "$in_sender<br />$p_desc";

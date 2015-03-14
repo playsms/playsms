@@ -19,27 +19,27 @@
 
 defined('_SECURE_') or die('Forbidden');
 
-function phonebook_groupid2name($gpid) {
+function phonebook_groupid2name($uid, $gpid) {
 	$ret = core_call_hook();
 	return $ret;
 }
 
-function phonebook_groupname2id($uid,$gp_name) {
+function phonebook_groupname2id($uid, $name) {
 	$ret = core_call_hook();
 	return $ret;
 }
 
-function phonebook_groupid2code($gpid) {
+function phonebook_groupid2code($uid, $gpid) {
 	$ret = core_call_hook();
 	return $ret;
 }
 
-function phonebook_groupcode2id($uid,$gp_code) {
+function phonebook_groupcode2id($uid, $code) {
 	$ret = core_call_hook();
 	return $ret;
 }
 
-function phonebook_number2name($p_num, $c_username="") {
+function phonebook_number2name($uid, $p_num) {
 	$ret = core_call_hook();
 	return $ret;
 }

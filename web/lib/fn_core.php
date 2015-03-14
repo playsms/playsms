@@ -1045,6 +1045,31 @@ function core_playsmsd_timer($period = 60) {
 }
 
 /**
+ * Get mobile format for matching purposes
+ *
+ * @param string $mobile        
+ * @return mixed
+ */
+function core_mobile_matcher_format($mobile) {
+	// sanitize for mobile numbers only
+	$mobile = sendsms_getvalidnumber($mobile);
+	
+	if (strlen($mobile) >= 6) {
+		// remove +
+		$mobile = str_replace('+', '', $mobile);
+		
+		// remove first 3 digits if phone number length more than 7
+		if (strlen($mobile) > 7) {
+			$mobile = substr($mobile, 3);
+		}
+	} else {
+		$mobile = FALSE;
+	}
+	
+	return $mobile;
+}
+
+/**
  * Include composer based packages
  */
 if (file_exists(_APPS_PATH_LIBS_ . '/composer/vendor/autoload.php')) {
