@@ -159,6 +159,8 @@ function phonebook_hook_phonebook_getgroupbyuid($uid, $orderby = "") {
 function phonebook_hook_phonebook_search($uid, $keyword = "", $count = 0) {
 	$ret = array();
 	if ($keyword) {
+		$user_mobile = user_getfieldbyuid($uid, 'mobile');
+		
 		$db_query = "
 			SELECT DISTINCT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email, A.username AS username
 			FROM " . _DB_PREF_ . "_featurePhonebook AS A
@@ -170,7 +172,7 @@ function phonebook_hook_phonebook_search($uid, $keyword = "", $count = 0) {
 					SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
 					LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid
 					LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON B.id=C.gpid
-					WHERE A.mobile='" . user_getfieldbyuid($uid, 'mobile') . "' AND B.flag_sender='1'
+					WHERE A.mobile LIKE '%" . core_mobile_matcher_format($user_mobile) . "' AND B.flag_sender='1'
 				) OR (
 				A.uid <>'$uid' AND B.flag_sender>'1'
 				)
