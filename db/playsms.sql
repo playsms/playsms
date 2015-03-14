@@ -393,6 +393,7 @@ CREATE TABLE `playsms_featurePhonebook` (
   `mobile` varchar(100) NOT NULL DEFAULT '',
   `name` varchar(250) NOT NULL DEFAULT '',
   `email` varchar(250) NOT NULL DEFAULT '',
+  `username` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

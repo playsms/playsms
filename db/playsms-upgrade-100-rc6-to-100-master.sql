@@ -9,3 +9,5 @@ RENAME TABLE `playsms_tblUser_inbox` TO `playsms_tblSMSInbox` ;
 DROP TABLE `playsms_tblUser_country`;
 
 ALTER TABLE `playsms_tblUser` ADD COLUMN `flag_deleted` INT(11) NOT NULL AFTER `lastupdate_datetime`;
+
+ALTER TABLE `playsms_featurePhonebook` ADD `username` VARCHAR( 100 ) NOT NULL DEFAULT '';
