@@ -304,5 +304,9 @@ function phonebook_hook_webservices_output($operation, $requests, $returns) {
 	$returns['modified'] = TRUE;
 	$returns['param']['content'] = json_encode($item);
 	
+	if ($requests['debug'] == '1') {
+		$returns['param']['content-type'] = "text/plain";
+	}
+	
 	return $returns;
 }
