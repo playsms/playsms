@@ -97,7 +97,7 @@ function phonebook_getgroupbyuid($uid, $orderby="") {
  * @param integer $uid User ID
  * @param string $keyword Keyword
  * @param integer $count Search limit
- * @return array array(pid, p_desc, p_num, email)
+ * @return array array(pid, p_desc, p_num, email, username)
  */
 function phonebook_search($uid, $keyword="", $count=0) {
 	$ret = core_call_hook();

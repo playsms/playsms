@@ -169,7 +169,7 @@ function phonebook_hook_phonebook_search($uid, $keyword = "", $count = 0) {
 	$ret = array();
 	if ($keyword) {
 		$db_query = "
-			SELECT DISTINCT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email
+			SELECT DISTINCT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email, A.username AS username
 			FROM " . _DB_PREF_ . "_featurePhonebook AS A
                         LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid
                         LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON B.id=C.gpid
@@ -186,7 +186,8 @@ function phonebook_hook_phonebook_search($uid, $keyword = "", $count = 0) {
 			) AND (
 				A.name LIKE '%" . $keyword . "%' OR
 				A.mobile LIKE '%" . $keyword . "%' OR
-				A.email LIKE '%" . $keyword . "%'
+				A.email LIKE '%" . $keyword . "%' OR
+				A.username LIKE '%" . $keyword . "%'
 			)";
 		if ($count > 0) {
 			$db_query .= " LIMIT " . $count;
