@@ -26,6 +26,9 @@ msgstr "Afegir grup"
 msgid "Anyone"
 msgstr "Qualsevol"
 
+msgid "CSV file format"
+msgstr ""
+
 msgid "Contact has been added"
 msgstr "El contacte s'ha afegit"
 
@@ -112,6 +115,10 @@ msgid "Please select CSV file for phonebook entries"
 msgstr "Si us plau trieu el fitxer CSV per les entrades de l'agenda"
 
 #, fuzzy
+msgid "Please select groups"
+msgstr "Error esborrant grup"
+
+#, fuzzy
 msgid "Please use alphanumeric only and make it short"
 msgstr "si us plau feu servir majúscules i un nom curt"
 
@@ -141,6 +148,12 @@ msgstr ""
 msgid "Unable to delete group until the group is empty"
 msgstr "No es pot esborrar el grup fins que sigui buit"
 
+msgid "User"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
 msgid "You must fill all field"
 msgstr "Heu d'omplir tots els camps"
 
@@ -152,9 +165,6 @@ msgstr "Heu d'omplir tots els camps requerits"
 
 msgid "code"
 msgstr "codi"
-
-msgid "format"
-msgstr "format"
 
 msgid "group"
 msgstr "grup"

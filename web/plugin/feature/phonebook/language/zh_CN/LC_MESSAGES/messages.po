@@ -17,6 +17,9 @@ msgstr ""
 msgid "Anyone"
 msgstr ""
 
+msgid "CSV file format"
+msgstr ""
+
 msgid "Contact has been added"
 msgstr ""
 
@@ -102,6 +105,9 @@ msgstr ""
 msgid "Please select CSV file for phonebook entries"
 msgstr ""
 
+msgid "Please select groups"
+msgstr ""
+
 msgid "Please use alphanumeric only and make it short"
 msgstr ""
 
@@ -131,6 +137,12 @@ msgstr ""
 msgid "Unable to delete group until the group is empty"
 msgstr ""
 
+msgid "User"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
 msgid "You must fill all field"
 msgstr ""
 
@@ -141,9 +153,6 @@ msgid "You must fill required fields"
 msgstr ""
 
 msgid "code"
-msgstr ""
-
-msgid "format"
 msgstr ""
 
 msgid "group"

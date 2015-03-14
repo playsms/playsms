@@ -17,6 +17,9 @@ msgstr "Gruppe hinzufügen"
 msgid "Anyone"
 msgstr "Jeder"
 
+msgid "CSV file format"
+msgstr ""
+
 msgid "Contact has been added"
 msgstr "Kontakt wurde hinzugefügt"
 
@@ -103,6 +106,10 @@ msgid "Please select CSV file for phonebook entries"
 msgstr "Bitte CSV-Datei für Telefonbuch-Einträge auswählen"
 
 #, fuzzy
+msgid "Please select groups"
+msgstr "Fehler beim Löschen der Gruppe"
+
+#, fuzzy
 msgid "Please use alphanumeric only and make it short"
 msgstr "Bitte in Großbuchstaben und kurz"
 
@@ -132,6 +139,12 @@ msgstr ""
 msgid "Unable to delete group until the group is empty"
 msgstr "Gruppe kann nicht gelöscht werden bevor sie nicht leer ist"
 
+msgid "User"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
 msgid "You must fill all field"
 msgstr "Es müssen alle Felder ausgefüllt werden"
 
@@ -143,9 +156,6 @@ msgstr "Es müssen die Pflichtfelder ausgefüllt werden"
 
 msgid "code"
 msgstr "Kürzel"
-
-msgid "format"
-msgstr "Format"
 
 msgid "group"
 msgstr "Gruppe"
