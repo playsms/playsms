@@ -141,11 +141,11 @@ if (!get_magic_quotes_gpc()) {
 // sanitize user inputs
 if ($_POST['X-CSRF-Token']) {
 	foreach ($_POST as $key => $val) {
-		$_POST[$key] = core_display_html($val);
+		$_POST[$key] = core_sanitize_inputs($val);
 	}
 }
 foreach ($_GET as $key => $val) {
-	$_GET[$key] = core_display_html($val);
+	$_GET[$key] = core_sanitize_inputs($val);
 }
 
 // too many codes using $_REQUEST, until we revise them all we use this as a workaround

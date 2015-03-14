@@ -93,6 +93,35 @@ function core_htmlspecialchars($data) {
 }
 
 /**
+ * Display untrusted user input, protection againts XSS using HTMLPurifier()
+ *
+ * @param mixed $data
+ *        untrusted inputs
+ * @return mixed
+ */
+function core_sanitize_inputs($data) {
+	$hp = new HTMLPurifier();
+	
+	if (is_array($data)) {
+		foreach ($data as $key => $value) {
+			if (is_array($value)) {
+				$ret[$key] = core_display_html($value);
+			} else {
+				$value = stripslashes($value);
+				$value = $hp->purify($value);
+				$ret[$key] = $value;
+			}
+		}
+	} else {
+		$value = stripslashes($data);
+		$value = $hp->purify($value);
+		$ret = $value;
+	}
+	
+	return $ret;
+}
+
+/**
  * Set the language for the user, if it's no defined just leave it with the default
  *
  * @param string $var_username
@@ -224,7 +253,7 @@ function core_str2hex($string) {
 }
 
 /**
- * Display untrusted user input, protection againts XSS using HTMLPurifier()
+ * Display untrusted HTML data, protection againts XSS using HTMLPurifier()
  *
  * @param mixed $data
  *        untrusted inputs
