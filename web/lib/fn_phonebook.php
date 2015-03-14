@@ -118,11 +118,12 @@ function phonebook_search_group($uid, $keyword="", $count=0) {
 
 /**
  * Search users, search by User ID and/or a keyword
+ * @param integer $uid User ID
  * @param string $keyword Keyword
  * @param integer $count Search limit
  * @return array Array of user's data
  */
-function phonebook_search_user($keyword="", $count=0) {
+function phonebook_search_user($uid, $keyword="", $count=0) {
 	$ret = core_call_hook();
 	return $ret;
 }
