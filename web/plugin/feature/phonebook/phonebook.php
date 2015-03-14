@@ -39,11 +39,11 @@ switch (_OP_) {
 		$join .= 'LEFT JOIN ' . _DB_PREF_ . '_featurePhonebook_group AS B ON B.id=C.gpid';
 		$conditions = array(
 			'( A.uid' => $user_config['uid'] . "' OR B.id in (
-									SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
-									" . $join . "
-									WHERE A.mobile='" . $user_config['mobile'] . "'
-									AND B.flag_sender='1'
-									) OR ( A.uid <>'" . $user_config['uid'] . "' AND B.flag_sender>'1' ) ) AND '1'='1" 
+				SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
+				" . $join . "
+				WHERE A.mobile LIKE '%" . core_mobile_matcher_format($user_config['mobile']) . "'
+				AND B.flag_sender='1'
+				) OR ( A.uid <>'" . $user_config['uid'] . "' AND B.flag_sender>'1' ) ) AND '1'='1" 
 		);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_featurePhonebook AS A', $conditions, $keywords, '', $join);
@@ -121,11 +121,11 @@ switch (_OP_) {
 			$groupconditions = array(
 				'C.pid' => $list[$j]['pid'],
 				'( B.uid' => $user_config['uid'] . "' OR B.id in (
-										SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
-										" . $join . "
-										WHERE A.mobile='" . $user_config['mobile'] . "'
-										AND B.flag_sender='1'
-										) OR ( B.uid<>'" . $user_config['uid'] . "' AND B.flag_sender>'1' ) ) AND '1'='1" 
+					SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
+					" . $join . "
+					WHERE A.mobile LIKE '%" . core_mobile_matcher_format($user_config['mobile']) . "'
+					AND B.flag_sender='1'
+					) OR ( B.uid<>'" . $user_config['uid'] . "' AND B.flag_sender>'1' ) ) AND '1'='1" 
 			);
 			$groupextras = array(
 				'ORDER BY' => 'B.code ASC',
@@ -253,11 +253,11 @@ switch (_OP_) {
 				$join .= 'LEFT JOIN ' . _DB_PREF_ . '_featurePhonebook_group AS B ON B.id=C.gpid';
 				$conditions = array(
 					'( A.uid' => $user_config['uid'] . "' OR B.id in (
-									SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
-									" . $join . "
-									WHERE A.mobile='" . $user_config['mobile'] . "'
-									AND B.flag_sender='1'
-									) OR ( A.uid <>'" . $user_config['uid'] . "' AND B.flag_sender>'1' ) ) AND '1'='1" 
+						SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
+						" . $join . "
+						WHERE A.mobile LIKE '%" . core_mobile_matcher_format($user_config['mobile']) . "'
+						AND B.flag_sender='1'
+						) OR ( A.uid <>'" . $user_config['uid'] . "' AND B.flag_sender>'1' ) ) AND '1'='1" 
 				);
 				$keywords = $search['dba_keywords'];
 				$extras = array(
