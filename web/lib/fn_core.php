@@ -235,17 +235,18 @@ function core_display_html($data) {
 	
 	if (is_array($data)) {
 		foreach ($data as $key => $value) {
-			if (!is_array($data)) {
-				$value = $hp->purify($value);
-				$ret[$key] = htmlspecialchars($value);
-			}
 			if (is_array($value)) {
-				$ret[$key] = core_array_display_html($value);
+				$ret[$key] = core_display_html($value);
+			} else {
+				$value = $hp->purify($value);
+				//$ret[$key] = htmlspecialchars($value);
+				$ret[$key] = $value;
 			}
 		}
 	} else {
 		$value = $hp->purify($data);
-		$ret = htmlspecialchars($value);
+		//$ret = htmlspecialchars($value);
+		$ret = $value;
 	}
 	
 	return $ret;
