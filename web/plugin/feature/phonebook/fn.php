@@ -105,7 +105,7 @@ function phonebook_hook_phonebook_number2tags($uid, $mobile) {
 function phonebook_hook_phonebook_getdatabynumber($uid, $mobile) {
 	global $user_config;
 	
-	if ($uid && $mobile) {
+	if ($uid && core_mobile_matcher_format($mobile)) {
 		$user_mobile = user_getfieldbyuid($uid, 'mobile');
 		
 		$db_query = "
