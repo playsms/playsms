@@ -1,0 +1,95 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: pt_PT\n"
+"X-Generator: Poedit 1.7.5\n"
+
+msgid " Prevent duplicates"
+msgstr "Evitar duplicados"
+
+msgid "CSV file format"
+msgstr "Formato do ficheiro CSV"
+
+msgid "Cancel send from file"
+msgstr "Cancelar envio do ficheiro"
+
+msgid "Confirmation"
+msgstr "Confirmação"
+
+msgid "Destination number"
+msgstr "Número de destino"
+
+msgid "Fail to remove cancelled entries from database"
+msgstr "Erro ao remover as entradas canceladas da base de dados"
+
+msgid "Found invalid entries in uploaded file"
+msgstr "Encontradas entradas inválidas no arquivo enviado"
+
+msgid "Found valid entries in uploaded file"
+msgstr "Encontradas entradas válidas no arquivo enviado"
+
+msgid "Invalid CSV file"
+msgstr "Ficheiro CSV inválido"
+
+msgid "Invalid entries"
+msgstr "Entradas inválidas"
+
+msgid "Invalid session ID"
+msgstr "ID de sessão inválido"
+
+msgid "Message"
+msgstr "Mensagem"
+
+msgid "Please select CSV file"
+msgstr "Por favor selecione o ficheiro CSV"
+
+msgid "SMS has been sent to valid numbers in uploaded file"
+msgstr "O SMS foi enviado para os números válidos no arquivo enviado"
+
+msgid "Send SMS to valid entries"
+msgstr "Enviar SMS para entradas válidas"
+
+msgid "Send from file"
+msgstr "Enviar de arquivo"
+
+msgid "Send from file has been cancelled"
+msgstr "Enviar de arquivo foi cancelado"
+
+msgid "Upload file"
+msgstr "Enviar arquivo"
+
+msgid "Uploaded file"
+msgstr "Arquivo enviado"
+
+msgid "Username"
+msgstr "Nome de Utilizador"
+
+msgid "Valid entries"
+msgstr "Entradas válidas"
+
+msgid "Your choice"
+msgstr "Sua escolha"
+
+#, fuzzy
+msgid "destination number, message"
+msgstr "formato: número do destinatário, mensagem"
+
+msgid "destination number, message, username"
+msgstr "formato: número do destinatário, mensagem, utilizador"
+
+msgid "invalid entries"
+msgstr "entradas inválidas"
+
+msgid "of"
+msgstr "de"
+
+msgid "valid entries"
+msgstr "entradas válidas"

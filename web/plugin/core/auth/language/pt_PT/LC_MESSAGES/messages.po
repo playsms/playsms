@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: pt_PT\n"
+"X-Generator: Poedit 1.7.5\n"
+
+msgid "Email"
+msgstr ""
+
+msgid "Fail to recover password"
+msgstr "Falha ao recuperar a palavra-passe"
+
+msgid "Fail to send email"
+msgstr "Erro ao enviar email"
+
+msgid "Home"
+msgstr "Início"
+
+msgid "Invalid username or password"
+msgstr "Nome de Utilizador ou password incorrecta"
+
+msgid "Login"
+msgstr "Login como"
+
+msgid "Mobile"
+msgstr "Telemóvel"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Password"
+msgstr "Palavra-passe"
+
+msgid "Password has been emailed"
+msgstr "Palava-passe foi enviada para o email"
+
+msgid "Password recovery"
+msgstr "Recuperação da Palavra-passe"
+
+msgid "Please type the displayed captcha phrase correctly"
+msgstr "Por favor escreva a frase \"captcha\" corretamente"
+
+msgid ""
+"Read and type the captcha phrase on verify captcha field. If you cannot read "
+"them please contact administrator."
+msgstr ""
+"Escreva a frase \"captcha\" em verificar campo \"captcha\". Se você não "
+"conseguir visualizar por favor, contate o administrador."
+
+msgid "Recover password"
+msgstr "Recuperar Palavra-passe"
+
+msgid "Recover password disabled"
+msgstr "Recuperação de palavra-passe desactivada"
+
+msgid "Register an account"
+msgstr "Registar uma conta"
+
+msgid "Submit"
+msgstr "Submeter"
+
+msgid ""
+"This temporary password will be removed once you have logged in successfully"
+msgstr ""
+"Esta senha temporária será removida depois de fazer o login com sucesso"
+
+msgid "Unable to login"
+msgstr "Impossível fazer login"
+
+msgid "Username"
+msgstr "Nome de Utilizador"
+
+msgid "Username or email"
+msgstr "Nome de Utilizador ou email"
+
+msgid "Verify captcha"
+msgstr "Verificar captcha"
+
+msgid "You have been logged out"
+msgstr "Foi desconectador"
+
+msgid "You have no access to this page"
+msgstr "Não tem acesso a esta página"
+
+msgid "You or someone else have requested a password recovery"
+msgstr "Você ou alguém fez um pedido de recuperação de palavra-passe"

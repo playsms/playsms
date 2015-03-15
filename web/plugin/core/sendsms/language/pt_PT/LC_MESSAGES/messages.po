@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: pt_PT\n"
+"X-Generator: Poedit 1.7.5\n"
+
+msgid "Compose message"
+msgstr "Enviar mensagem"
+
+msgid "Fail to send message to all destination"
+msgstr "Falha ao enviar mensagem para todos os destinatários"
+
+msgid "Flash message"
+msgstr "Mensagem Flash"
+
+msgid "Format YYYY-MM-DD hh:mm"
+msgstr "Formato YYYY-MM-DD hh:mm"
+
+msgid "Message"
+msgstr "Mensagem"
+
+msgid "Message footer"
+msgstr "Mensagem Rodapé"
+
+msgid "Options"
+msgstr "Opções"
+
+msgid "Please select template"
+msgstr "Selecione o modelo"
+
+msgid "Prefix with # for groups and @ for users"
+msgstr "Prefixo com # para grupos e @ para utilizadores"
+
+msgid "SMS"
+msgstr "SMS"
+
+msgid "Schedule"
+msgstr "Horário"
+
+msgid "Send"
+msgstr "Enviar"
+
+msgid "Send to"
+msgstr "Enviar para"
+
+msgid "Sender ID"
+msgstr "Identificação de envio"
+
+msgid "System error has occured"
+msgstr "Ocorreu um erro de sistema"
+
+msgid "Unicode message"
+msgstr "Mensagem Unicode"
+
+msgid "You must select receiver and your message should not be empty"
+msgstr "Tem que selecionar um destinatário e a mensagem não pode estar vazia"
+
+msgid "Your message has been delivered to queue"
+msgstr "Sua mensagem foi entregue para a fila"
+
+msgid "Your message has been delivered to some of the destination"
+msgstr "A sua mensagem foi entregue alguns destinatários "
+
+msgid "chars"
+msgstr ""
+
+msgid "failed"
+msgstr "Falhou"
+
+msgid "queued"
+msgstr "Em Espera"

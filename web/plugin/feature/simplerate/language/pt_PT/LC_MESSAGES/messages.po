@@ -1,0 +1,88 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: pt_PT\n"
+"X-Generator: Poedit 1.7.5\n"
+
+msgid "Action"
+msgstr "Ação"
+
+msgid "Add rate"
+msgstr "Adicionar taxa"
+
+msgid "Are you sure you want to delete rate ?"
+msgstr "Tem certeza que quer remover a taxa?"
+
+msgid "Destination"
+msgstr "Destino"
+
+msgid "Edit rate"
+msgstr "Editar taxa"
+
+msgid "Fail to delete rate"
+msgstr "Erro ao remover a taxa"
+
+msgid "Fail to save rate"
+msgstr "Erro ao guardar a taxa"
+
+msgid "Manage SMS rate"
+msgstr "Gerir taxa de SMS"
+
+msgid "No changes made!"
+msgstr "Nenhuma alteração efectuada!"
+
+msgid "Prefix"
+msgstr "Prefixo"
+
+msgid "Rate"
+msgstr "Taxa"
+
+msgid "Rate already exists"
+msgstr "A taxa já existe"
+
+msgid "Rate has been added"
+msgstr "A taxa foi adicionada"
+
+msgid "Rate has been deleted"
+msgstr "A taxa foi eliminada"
+
+msgid "Rate has been saved"
+msgstr "A taxa foi guardada"
+
+msgid "Save"
+msgstr "Guardar"
+
+#, php-format
+msgid "Username %s with account ID %d has reached lowest credit limit of %s"
+msgstr ""
+"Nome de Utilizador %s com numero de conta %d é inferior ao limite de "
+"crédito de %s"
+
+#, php-format
+msgid "You have reached lowest credit limit of %s"
+msgstr "O seu crédito é inferior a %s"
+
+msgid "You must fill all fields"
+msgstr "Preencha todos os campos"
+
+#, php-format
+msgid ""
+"Your subuser with username %s and account ID %d have reached lowest credit "
+"limit of %s"
+msgstr ""
+"O sub-utilizador com Nome de Utilizador %s com numero de conta %d é "
+"inferior ao limite de crédito de %s"
+
+msgid "destination"
+msgstr "destino"
+
+msgid "prefix"
+msgstr "prefixo"
