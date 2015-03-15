@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-19 17:59+0700\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Project-Id-Version: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"MIME-Version: 1.0\n"
 "Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.7.5\n"
 
 msgid "Action"
@@ -23,6 +23,9 @@ msgstr "Adicionar Grupo"
 
 msgid "Anyone"
 msgstr "Qualquer um"
+
+msgid "CSV file format"
+msgstr ""
 
 msgid "Contact has been added"
 msgstr "Contacto adicionado com sucesso"
@@ -98,11 +101,18 @@ msgstr "Telemóvel"
 msgid "Move to"
 msgstr "Mover para"
 
+msgid "Multiple entries separated by space"
+msgstr ""
+
 msgid "Name"
 msgstr "Nome"
 
 msgid "No changes have been made"
 msgstr "Não foi efectuado qualquer alteração"
+
+#, fuzzy
+msgid "No group"
+msgstr "Grupo"
 
 msgid "Phonebook"
 msgstr "Agenda"
@@ -112,6 +122,10 @@ msgstr "Por favor, selecione o arquivo CSV para entradas da agenda"
 
 msgid "Please use alphanumeric only and make it short"
 msgstr "Por favor use alfanuméricos só"
+
+#, fuzzy
+msgid "Please use uppercase and make it short"
+msgstr "por favor, use letras maiúsculas"
 
 msgid "Save"
 msgstr "Guardar"
@@ -135,8 +149,11 @@ msgid ""
 "Share this phonebook group and set permission for broadcasting SMS to this "
 "group from mobile phone"
 msgstr ""
-"Partilhar este grupo de agenda e conjunto de permissões para transmissão "
-"de  SMS com esse grupo de telemóvel"
+"Partilhar este grupo de agenda e conjunto de permissões para transmissão de  "
+"SMS com esse grupo de telemóvel"
+
+msgid "Tags"
+msgstr ""
 
 msgid "Unable to delete group until the group is empty"
 msgstr "Impossível apagar grupo não está vazio"
@@ -153,11 +170,5 @@ msgstr "Campos de preenchimento obrigatório"
 msgid "code"
 msgstr "Código"
 
-msgid "format"
-msgstr "Formato"
-
 msgid "group"
 msgstr "Grupo"
-
-msgid "please use uppercase and make it short"
-msgstr "por favor, use letras maiúsculas"

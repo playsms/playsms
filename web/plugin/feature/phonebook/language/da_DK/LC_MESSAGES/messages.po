@@ -102,11 +102,18 @@ msgstr "Mobil"
 msgid "Move to"
 msgstr "Flyt til"
 
+msgid "Multiple entries separated by space"
+msgstr ""
+
 msgid "Name"
 msgstr "Navn"
 
 msgid "No changes have been made"
 msgstr "Ingen ændringer foretaget"
+
+#, fuzzy
+msgid "No group"
+msgstr "gruppe"
 
 msgid "Phonebook"
 msgstr "Telefonbog"
@@ -114,12 +121,12 @@ msgstr "Telefonbog"
 msgid "Please select CSV file for phonebook entries"
 msgstr "Vælg CSV fil med telefonbogsemner"
 
-#, fuzzy
-msgid "Please select groups"
-msgstr "Kunne ikke slette gruppe"
-
 msgid "Please use alphanumeric only and make it short"
 msgstr "Brug venligst kun alfanumeriske tegn og gør det kort"
+
+#, fuzzy
+msgid "Please use uppercase and make it short"
+msgstr "brug venligst store bogstaver og gør det kort"
 
 msgid "Save"
 msgstr "Gem"
@@ -146,14 +153,11 @@ msgstr ""
 "Del denne telefonbogsgruppe og giv adgang til at broadcaste SMS til denne "
 "gruppe fra mobiltelefoner"
 
+msgid "Tags"
+msgstr ""
+
 msgid "Unable to delete group until the group is empty"
 msgstr "Kan ikke slette gruppen før den er tom"
-
-msgid "User"
-msgstr ""
-
-msgid "Username"
-msgstr ""
 
 msgid "You must fill all field"
 msgstr "Du skal udfylde alle felter"
@@ -169,6 +173,3 @@ msgstr "kode"
 
 msgid "group"
 msgstr "gruppe"
-
-msgid "please use uppercase and make it short"
-msgstr "brug venligst store bogstaver og gør det kort"

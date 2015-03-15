@@ -100,11 +100,18 @@ msgstr "Мобильный"
 msgid "Move to"
 msgstr "Переместить в"
 
+msgid "Multiple entries separated by space"
+msgstr ""
+
 msgid "Name"
 msgstr "Имя"
 
 msgid "No changes have been made"
 msgstr "Нет изменений"
+
+#, fuzzy
+msgid "No group"
+msgstr "группа"
 
 msgid "Phonebook"
 msgstr "Контакты"
@@ -112,11 +119,11 @@ msgstr "Контакты"
 msgid "Please select CSV file for phonebook entries"
 msgstr "Выберите CSV файл контактов"
 
-#, fuzzy
-msgid "Please select groups"
-msgstr "Не удалось удалить группу"
-
 msgid "Please use alphanumeric only and make it short"
+msgstr "придумайте короткое слово в верхнем регистре"
+
+#, fuzzy
+msgid "Please use uppercase and make it short"
 msgstr "придумайте короткое слово в верхнем регистре"
 
 msgid "Save"
@@ -143,14 +150,11 @@ msgid ""
 "group from mobile phone"
 msgstr "Разрешить рассылку группе с мобильного телефона"
 
+msgid "Tags"
+msgstr ""
+
 msgid "Unable to delete group until the group is empty"
 msgstr "Невозможно удалить группу, пока она не пуста"
-
-msgid "User"
-msgstr ""
-
-msgid "Username"
-msgstr ""
 
 msgid "You must fill all field"
 msgstr "Необходимо заполнить все поля"
@@ -166,6 +170,3 @@ msgstr "код"
 
 msgid "group"
 msgstr "группа"
-
-msgid "please use uppercase and make it short"
-msgstr "придумайте короткое слово в верхнем регистре"
