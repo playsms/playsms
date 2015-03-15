@@ -87,6 +87,7 @@ switch (_OP_) {
 					if (!$c_gid) {
 						$contact[3] = '';
 					}
+					$contact[1] = sendsms_getvalidnumber($contact[1]);
 					if ($contact[0] && $contact[1]) {
 						$i++;
 						$content .= "
@@ -137,17 +138,13 @@ switch (_OP_) {
 			}
 			$username = trim($d[4]);
 			if ($name && $mobile) {
-				$list = dba_search(_DB_PREF_ . '_featurePhonebook', 'id', array(
-					'uid' => $uid,
-					'mobile' => $mobile 
-				));
-				if ($c_pid = $list[0]['id']) {
+				if ($c_pid = phonebook_number2id($uid, $mobile)) {
 					$save_to_group = TRUE;
 				} else {
 					$items = array(
 						'uid' => $uid,
 						'name' => $name,
-						'mobile' => $mobile,
+						'mobile' => sendsms_getvalidnumber($mobile),
 						'email' => $email,
 						'username' => $username 
 					);

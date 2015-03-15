@@ -189,7 +189,7 @@ switch (_OP_) {
 			<tbody>
 			<tr><td class=label-sizer>" . _('Group') . "</td><td><select name=gpids[] multiple>$list_of_group</select></td></tr>
 			<tr><td>" . _mandatory(_('Name')) . "</td><td><input type=text name=name></td></tr>
-			<tr><td>" . _mandatory(_('Mobile')) . "</td><td><input type=text name=mobile value=\"" . $phone . "\"></td></tr>
+			<tr><td>" . _mandatory(_('Mobile')) . "</td><td><input type=text name=mobile maxlength=20 value=\"" . $phone . "\"></td></tr>
 			<tr><td>" . _('Email') . "</td><td><input type=text name=email></td></tr>
 			<tr><td>" . _('User') . "</td><td><input type=text name=username></td></tr>
 			</tbody>
@@ -227,9 +227,9 @@ switch (_OP_) {
 			<input type=hidden name=pid value=\"" . $pid . "\">
 			<table class=playsms-table>
 			<tbody>
-			<tr><td width=100>" . _('Group') . "</td><td><select name=gpids[] multiple>$list_of_group</select></td></tr>
-			<tr><td>" . _('Name') . "</td><td><input type=text name=name value=\"" . $list[0]['name'] . "\"></td></tr>
-			<tr><td>" . _('Mobile') . "</td><td><input type=text name=mobile value=\"" . $list[0]['mobile'] . "\"></td></tr>
+			<tr><td class=label-sizer>" . _('Group') . "</td><td><select name=gpids[] multiple>$list_of_group</select></td></tr>
+			<tr><td>" . _mandatory(_('Name')) . "</td><td><input type=text name=name value=\"" . $list[0]['name'] . "\"></td></tr>
+			<tr><td>" . _mandatory(_('Mobile')) . "</td><td><input type=text name=mobile maxlength=20 value=\"" . $list[0]['mobile'] . "\"></td></tr>
 			<tr><td>" . _('Email') . "</td><td><input type=text name=email value=\"" . $list[0]['email'] . "\"></td></tr>
 			<tr><td>" . _('User') . "</td><td><input type=text name=username value=\"" . $list[0]['username'] . "\"></td></tr>
 			</tbody>
@@ -276,7 +276,7 @@ switch (_OP_) {
 					$j = $i + 1;
 					$data[$j] = array(
 						$list[$i]['name'],
-						$list[$i]['mobile'],
+						sendsms_getvalidnumber($list[$i]['mobile']),
 						$list[$i]['email'],
 						$list[$i]['code'],
 						$list[$i]['username'] 
@@ -293,7 +293,7 @@ switch (_OP_) {
 				$name = str_replace("\'", "", $_POST['name']);
 				$name = str_replace("\"", "", $name);
 				$mobile = str_replace("\'", "", $_POST['mobile']);
-				$mobile = str_replace("\"", "", $mobile);
+				$mobile = sendsms_getvalidnumber(str_replace("\"", "", $mobile));
 				$email = str_replace("\'", "", $_POST['email']);
 				$email = str_replace("\"", "", $email);
 				$username = str_replace("\'", "", $_POST['username']);
@@ -348,7 +348,7 @@ switch (_OP_) {
 				$maps = '';
 				$save_to_group = FALSE;
 				$mobile = str_replace("\'", "", $_POST['mobile']);
-				$mobile = str_replace("\"", "", $mobile);
+				$mobile = sendsms_getvalidnumber(str_replace("\"", "", $mobile));
 				$name = str_replace("\'", "", $_POST['name']);
 				$name = str_replace("\"", "", $name);
 				$email = str_replace("\'", "", $_POST['email']);

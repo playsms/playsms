@@ -58,14 +58,32 @@ function phonebook_hook_phonebook_groupcode2id($uid, $code) {
 	return $id;
 }
 
+function phonebook_hook_phonebook_number2id($uid, $mobile) {
+	$data = phonebook_getdatabynumber($uid, $mobile);
+	
+	return $data['id'];
+}
+
 function phonebook_hook_phonebook_number2name($uid, $mobile) {
+	$data = phonebook_getdatabynumber($uid, $mobile);
+	
+	return $data['name'];
+}
+
+function phonebook_hook_phonebook_number2email($uid, $mobile) {
+	$data = phonebook_getdatabynumber($uid, $mobile);
+	
+	return $data['email'];
+}
+
+function phonebook_hook_phonebook_getdatabynumber($uid, $mobile) {
 	global $user_config;
 	
 	if ($uid && $mobile) {
 		$user_mobile = user_getfieldbyuid($uid, 'mobile');
 		
 		$db_query = "
-			SELECT A.name AS name FROM " . _DB_PREF_ . "_featurePhonebook AS A
+			SELECT A.id AS id, A.name AS name, A.mobile AS mobile, A.email AS email, A.username AS username FROM " . _DB_PREF_ . "_featurePhonebook AS A
 			LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid
 			LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON B.id=C.gpid
 			WHERE A.mobile LIKE '%" . core_mobile_matcher_format($mobile) . "' AND (
@@ -81,10 +99,10 @@ function phonebook_hook_phonebook_number2name($uid, $mobile) {
 			LIMIT 1";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$name = $db_row['name'];
+		$ret = $db_row;
 	}
 	
-	return $name;
+	return $ret;
 }
 
 function phonebook_hook_phonebook_getmembercountbyid($gpid) {
