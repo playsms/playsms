@@ -1,0 +1,55 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: pt_PT\n"
+"X-Generator: Poedit 1.7.5\n"
+
+msgid "Add blocked IP addresses"
+msgstr "Adicionar endereços IP bloqueados"
+
+msgid "Blocked IP address"
+msgstr "Endereço IP bloqueado"
+
+msgid "Delete"
+msgstr "Apagar"
+
+msgid "IP addreses has been deleted"
+msgstr "Endereço de IP foi apagado"
+
+msgid "IP address"
+msgstr "Endereço IP"
+
+msgid "IP addresses"
+msgstr "Endereços IP"
+
+msgid "IP addresses have been blocked"
+msgstr "Endereço IP foi bloqueado"
+
+msgid "Manage firewall"
+msgstr "Gerir Firewall"
+
+msgid "Multiple IP addresses must be comma seperated"
+msgstr "Multi endereços IP devem ser separados por vírgula"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Select"
+msgstr "Selecionar"
+
+msgid "Select username"
+msgstr "Selecionar Nome de Utilizador"
+
+msgid "User"
+msgstr "Utilizador"
+
+msgid "You must fill all fields"
+msgstr "Preencha todos os campos"

@@ -1,0 +1,82 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: pt_PT\n"
+"X-Generator: Poedit 1.7.5\n"
+
+msgid "Action"
+msgstr "Ação"
+
+msgid "Add route"
+msgstr "Adicionar rota"
+
+msgid "Are you sure ?"
+msgstr "Tem a certeza?"
+
+msgid "Destination name"
+msgstr "Nome de destino"
+
+msgid "Edit route"
+msgstr "Editar rota"
+
+msgid "Fail to delete route"
+msgstr "Erro ao remover a rota"
+
+msgid "Fail to save route"
+msgstr "Erro ao guardar a rota"
+
+msgid "Maximum 8 digits numeric only"
+msgstr "Máximo 8 dígitos apenas numérico"
+
+msgid "No changes made!"
+msgstr "Nenhuma mudança feita!"
+
+msgid "Prefix"
+msgstr "Prefixo"
+
+msgid "Route SMS outgoing"
+msgstr "Rota de saída de SMS"
+
+msgid "Route has been added"
+msgstr "A rota foi adicionada"
+
+msgid "Route has been deleted"
+msgstr "A rota foi eliminada"
+
+msgid "Route has been saved"
+msgstr "A rota foi guardada"
+
+msgid "Route outgoing SMS"
+msgstr "Roteamento de Mensagens Enviadas"
+
+msgid "SMSC"
+msgstr ""
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "User"
+msgstr "Utilizador"
+
+msgid "You must fill all fields"
+msgstr "Preencha todos os campos"
+
+msgid "You must fill all mandatory fields"
+msgstr "Deve preencher todos os campos obrigatórios"
+
+msgid "blocked"
+msgstr "Bloqueado"
+
+msgid "destination"
+msgstr "destino"
+
+msgid "prefix"
+msgstr "prefixo"

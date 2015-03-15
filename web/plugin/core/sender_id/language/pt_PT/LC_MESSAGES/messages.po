@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: pt_PT\n"
+"X-Generator: Poedit 1.7.5\n"
+
+msgid "Add sender ID"
+msgstr "Adicione a ID de remetente"
+
+msgid "Approve sender ID"
+msgstr "Aprovar a ID de remetente"
+
+msgid "Are you sure you want to delete sender ID"
+msgstr "Tem certeza que deseja eliminar o ID do remetente"
+
+msgid "Click the status button to enable or disable status"
+msgstr "Clique no botão para ativar ou desativar o status"
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid "Edit sender ID"
+msgstr "Editar o ID de remetente"
+
+msgid "Fail to update due to invalid sender ID"
+msgstr "Falha ao atualizar o ID do remetente é inválido"
+
+msgid "Last update"
+msgstr "Última atualização"
+
+msgid "Manage sender ID"
+msgstr "Gerir identificação de envio"
+
+msgid "Only when the sender ID is approved"
+msgstr "Só quando a ID de remetente é aprovado"
+
+msgid "Sender ID"
+msgstr "Identificação de envio"
+
+msgid "Sender ID description has been added"
+msgstr "Descrição da Identificação de envio adicionada"
+
+msgid "Sender ID description has been updated"
+msgstr "Descrição da Identificação de envio atualizada"
+
+msgid "Sender ID has been added and waiting for approval"
+msgstr "Identificação de envio foi adicionada e aguarda aprovação"
+
+msgid "Sender ID has been removed"
+msgstr "Identificação de envio removida"
+
+msgid "Sender ID is not available"
+msgstr "Identificação de envio não disponível"
+
+msgid "Sender ID is now approved"
+msgstr "Identificação de envio aprovada"
+
+msgid "Sender ID is now disabled"
+msgstr "Identificação de envio desactivada"
+
+msgid "Set as default"
+msgstr "Definir como padrão"
+
+msgid "User"
+msgstr "Utilizador"
+
+msgid "Username"
+msgstr "Nome de Utilizador"

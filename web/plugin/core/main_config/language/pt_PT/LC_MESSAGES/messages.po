@@ -1,0 +1,231 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: pt_PT\n"
+"X-Generator: Poedit 1.7.5\n"
+
+msgid "ACL DEFAULT will not restrict access to menus"
+msgstr "ACL PADRÃO não vai restringir o acesso aos menus"
+
+msgid ""
+"Access to unknown domain mapped to this server IP address will be redirected "
+"to this website URL. This website URL should be the primary address for the "
+"service."
+msgstr ""
+"O acesso ao domínio desconhecido mapeado para este endereço IP do servidor "
+"será redirecionado para esta URL do site. Este URL do site deve ser o "
+"endereço primário para o serviço."
+
+msgid "Active themes"
+msgstr "Temas ativos"
+
+msgid "Allow users to select SMS footer while on Send SMS page"
+msgstr "Permitir os utilizadores selecionar o rodapé da SMS quando enviam SMS"
+
+msgid "Allow users to select sender ID while on Send SMS page"
+msgstr ""
+"Permitir os utilizadores selecionar o ID de identificação quando enviam SMS"
+
+msgid "Always add plus sign"
+msgstr "Adicionar sempre o sinal +"
+
+msgid "Always remove plus sign"
+msgstr "Remover sempre o sinal +"
+
+msgid ""
+"Application footer here. Go to main configuration or manage site to edit "
+"this footer."
+msgstr ""
+"Aplicação rodapé aqui. Ir para a configuração principal ou gerir site para "
+"editar este rodapé."
+
+msgid "Buy credit page"
+msgstr "Página para Compra de Créditos"
+
+msgid "Default ACL upon registration"
+msgstr "Padrão ACL no ato do registo"
+
+msgid "Default SMS rate"
+msgstr "Taxa de SMS padrão"
+
+msgid "Default SMSC"
+msgstr "Padrão SMSC"
+
+msgid "Default account status upon registration"
+msgstr "Status da conta padrão no ato do registro"
+
+msgid "Default credit upon registration"
+msgstr "Crédito padrão no ato do registo"
+
+msgid "Default language"
+msgstr "Idioma padrão"
+
+msgid ""
+"Default parent selected upon registration when the default account status on "
+"registration setting set to Subuser"
+msgstr ""
+"Conta padrão no ato de registo quando o status padrão da conta esta definido "
+"para subutilizador"
+
+msgid "Default parent upon registration"
+msgstr "Conta padrão no ato do registro"
+
+msgid "Default prefix or country code"
+msgstr "Prefixo ou código do país padrão"
+
+msgid ""
+"Default prefix or country code to replace prefix 0 on destination number"
+msgstr ""
+"Prefixo padrão ou código do país para substituir prefixo 0 no número de "
+"destino"
+
+msgid "Default sender ID"
+msgstr "Identificação de envio padrão"
+
+msgid "Default settings"
+msgstr "Definições Padrão"
+
+msgid "Default site configuration"
+msgstr "Configurações padrões para o site"
+
+msgid "Default timezone"
+msgstr "Fuso Horário Padrão"
+
+msgid ""
+"Define a single character as keyword separator replacing default keyword "
+"separator a space"
+msgstr ""
+
+msgid "Disable login as subuser"
+msgstr "Desativar login de subutilizadores"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Ex: +0000 para Europe/Lisbon Fuso Horário"
+
+msgid "Empty default sender ID to allow users setting their own sender ID"
+msgstr ""
+"Identificação do remetente padrão vazio permiti que os usuários definem a "
+"sua própria identificação do remetente"
+
+msgid "Enable credit unicode SMS as normal SMS"
+msgstr "Ativar créditos Unicode SMS como SMS normais"
+
+msgid "Enable forgot password"
+msgstr "Ativar recuperação de palavra-passe"
+
+msgid "Enable login brute force detection"
+msgstr "Ativar login brute force  deteção "
+
+msgid "Enable logo"
+msgstr "Ativar logotipo"
+
+msgid "Enable public registration"
+msgstr "Ativar registros públicos"
+
+msgid "Enhance privacy for subusers"
+msgstr "Reforçar a privacidade para subutlizador"
+
+msgid "Fill with zero to disable limit"
+msgstr "Preencha com zero para desativar limite"
+
+msgid "Forwarded email footer"
+msgstr "Rodapé do e-mail"
+
+msgid "Go to main configuration or manage site to edit this page"
+msgstr ""
+"Ir para a configuração principal ou gerir o site para editar esta página"
+
+msgid "Information"
+msgstr "Informações"
+
+msgid "Information page"
+msgstr "Informações da página"
+
+msgid "Keyword separator"
+msgstr ""
+
+msgid "Layout footer"
+msgstr "Rodapé de layout"
+
+msgid "Logo URL"
+msgstr "URL do Logótipo"
+
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
+"Logotipo, por padrão, será exibido no início da sessão, registo e na "
+"recuperação da palavra-passe"
+
+msgid "Lowest credit limit to trigger notification"
+msgstr "O limite mais baixo de crédito para ser notificado"
+
+msgid "Main configuration"
+msgstr "Configurações principais"
+
+msgid "Main configuration changes has been saved"
+msgstr "Configurações principais foram guardadas"
+
+msgid "Main website URL"
+msgstr "URL Principal do site "
+
+msgid "Main website name"
+msgstr "Nome do principal "
+
+msgid "Maximum SMS count"
+msgstr "Máximo de SMS por mensagem"
+
+msgid "Maximum username length"
+msgstr "Máximo de caracteres de utilizador"
+
+msgid "Maximum username length must be a number between 4 to 100"
+msgstr "Máximo de caracteres de utilizador tem que ser entre 4 a 100"
+
+msgid "Number of sent SMS per hour limit"
+msgstr "Numero máximo de SMS por hora"
+
+msgid "Page content"
+msgstr "O conteúdo da página"
+
+msgid "Page title"
+msgstr "Título da Página"
+
+msgid "Replace website title with logo"
+msgstr "Substitua título do site pelo logotipo"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid ""
+"Set credit value bigger than 0 to set credit lowest limit that will trigger "
+"notification"
+msgstr ""
+"Defina o valor de crédito maior do que 0 para ser notificado quando o limite "
+"de crédito for inferior ao definido"
+
+msgid "Subuser"
+msgstr "Sub-Utilizador"
+
+msgid "User"
+msgstr "Utilizador"
+
+msgid "Website URL"
+msgstr "Url do site"
+
+msgid "Website email"
+msgstr "Email do site"
+
+msgid "Website title"
+msgstr "Titulo do Site"
+
+msgid "no"
+msgstr "Não"
+
+msgid "yes"
+msgstr "Sim"

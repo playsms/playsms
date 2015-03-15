@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: pt_PT\n"
+"X-Generator: Poedit 1.7.5\n"
+
+msgid "Refresh"
+msgstr "Recarregar"
+
+msgid "View log"
+msgstr "Visualizar log"
+
+msgid "playSMS daemon is NOT running"
+msgstr "O processo do playsms não está em execução"
+
+msgid "playSMS daemon is running"
+msgstr "O processo do playsms está em execução"
+
+msgid "playSMS daemon status"
+msgstr "Estado do processo do playsms "
