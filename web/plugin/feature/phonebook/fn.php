@@ -273,18 +273,19 @@ function phonebook_hook_phonebook_search_user($uid, $keyword = "", $count = 0) {
 	$ret = array();
 	
 	$keywords = $keyword;
-	$fields = 'name, mobile, email, tags';
+	$fields = 'username, name, mobile, email';
 	if ((int) $count) {
 		$extras = 'LIMIT ' . (int) $count;
 	}
 	$users = user_search($keywords, $fields, $extras);
-	if (auth_isadmin()) {
-		$ret = $users;
-	} else {
-		foreach ($users as $user) {
-			if (phonebook_number2name($uid, $user['mobile'])) {
-				$ret[] = $user;
-			}
+	foreach ($users as $user) {
+		if ($name = phonebook_number2name($uid, $user['mobile'])) {
+			$user['name'] = $name . '/' . $user['name'];
+		}
+		if (auth_isadmin()) {
+			$ret[] = $user;
+		} else if ($name) {
+			$ret[] = $user;
 		}
 	}
 	
