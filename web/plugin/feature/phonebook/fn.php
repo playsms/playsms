@@ -226,12 +226,24 @@ function phonebook_hook_phonebook_search_group($uid, $keyword = "", $count = 0) 
 }
 
 function phonebook_hook_phonebook_search_user($uid, $keyword = "", $count = 0) {
+	$ret = array();
+	
 	$keywords = $keyword;
 	$fields = 'name, username, email, mobile';
 	if ((int) $count) {
 		$extras = 'LIMIT ' . (int) $count;
 	}
-	$ret = user_search($keywords, $fields, $extras);
+	$users = user_search($keywords, $fields, $extras);
+	if (auth_isadmin()) {
+		$ret = $users;
+	} else {
+		foreach ($users as $user) {
+			if (phonebook_number2name($uid, $user['mobile'])) {
+				$ret[] = $user;
+			}
+		}
+	}
+	
 	return $ret;
 }
 
