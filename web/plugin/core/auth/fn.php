@@ -225,10 +225,14 @@ function auth_isstatus($status) {
  */
 function auth_isacl($acl) {
 	if (auth_isvalid()) {
-		$user_acl_id = user_getfieldbyuid($_SESSION['uid'], 'acl_id');
-		$user_acl_name = acl_getname($user_acl_id);
-		if ($acl && $user_acl_name && strtoupper($acl) == strtoupper($user_acl_name)) {
+		if (auth_isadmin()) {
 			return TRUE;
+		} else {
+			$user_acl_id = user_getfieldbyuid($_SESSION['uid'], 'acl_id');
+			$user_acl_name = acl_getname($user_acl_id);
+			if ($acl && $user_acl_name && strtoupper($acl) == strtoupper($user_acl_name)) {
+				return TRUE;
+			}
 		}
 	}
 	return FALSE;
