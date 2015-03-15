@@ -28,13 +28,13 @@ switch (_OP_) {
 			_('Name') => 'A.name',
 			_('Mobile') => 'mobile',
 			_('Email') => 'email',
-			_('Username') => 'username',
+			_('Tags') => 'tags',
 			_('Group code') => 'code' 
 		);
 		$base_url = 'index.php?app=main&inc=feature_phonebook&op=phonebook_list';
 		$search = themes_search($search_category, $base_url);
 		
-		$fields = 'DISTINCT A.id AS pid, A.uid AS uid, A.name AS name, A.mobile AS mobile, A.email AS email, A.username AS username';
+		$fields = 'DISTINCT A.id AS pid, A.uid AS uid, A.name AS name, A.mobile AS mobile, A.email AS email, A.tags AS tags';
 		$join = 'LEFT JOIN ' . _DB_PREF_ . '_featurePhonebook_group_contacts AS C ON A.id=C.pid ';
 		$join .= 'LEFT JOIN ' . _DB_PREF_ . '_featurePhonebook_group AS B ON B.id=C.gpid';
 		$conditions = array(
@@ -102,7 +102,7 @@ switch (_OP_) {
 				<th width=20%>" . _('Mobile') . "</th>
 				<th width=25%>" . _('Email') . "</th>
 				<th width=15%>" . _('Group code') . "</th>
-				<th width=15%>" . _('User') . "</th>
+				<th width=15%>" . _('Tags') . "</th>
 				<th width=5%><input type=checkbox onclick=CheckUncheckAll(document.fm_phonebook_list)></th>
 			</tr>
 			</thead>
@@ -115,7 +115,7 @@ switch (_OP_) {
 			$name = $list[$j]['name'];
 			$mobile = $list[$j]['mobile'];
 			$email = $list[$j]['email'];
-			$username = $list[$j]['username'];
+			$tags = $list[$j]['tags'];
 			$group_code = "";
 			$groupfields = 'B.id AS id, B.uid AS uid, B.code AS code, B.flag_sender AS flag_sender';
 			$groupconditions = array(
@@ -151,7 +151,7 @@ switch (_OP_) {
 					<td>$mobile</td>
 					<td>$email</td>
 					<td>$group_code</td>
-					<td>$username</td>
+					<td>$tags</td>
 					<td>
 						<input type=hidden name=itemid[" . $j . "] value=\"$pid\">
 						<input type=checkbox name=checkid[" . $j . "]>
@@ -176,7 +176,7 @@ switch (_OP_) {
 		$uid = $user_config['uid'];
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid'";
 		$db_result = dba_query($db_query);
-		$list_of_group = "<option value=0 selected>-- " . _('Please select groups') . " --</option>";
+		$list_of_group = "<option value=0 selected>-- " . _('No group') . " --</option>";
 		while ($db_row = dba_fetch_array($db_result)) {
 			$list_of_group .= "<option value=" . $db_row['id'] . ">" . $db_row['name'] . " - " . _('code') . ": " . $db_row['code'] . "</option>";
 		}
@@ -191,7 +191,7 @@ switch (_OP_) {
 			<tr><td>" . _mandatory(_('Name')) . "</td><td><input type=text name=name></td></tr>
 			<tr><td>" . _mandatory(_('Mobile')) . "</td><td><input type=text name=mobile maxlength=20 value=\"" . $phone . "\"></td></tr>
 			<tr><td>" . _('Email') . "</td><td><input type=text name=email></td></tr>
-			<tr><td>" . _('User') . "</td><td><input type=text name=username></td></tr>
+			<tr><td>" . _('Tags') . "</td><td><input type=text name=tags> " . _hint(_('Multiple entries separated by space')) . "</td></tr>
 			</tbody>
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\"></p>
@@ -208,6 +208,7 @@ switch (_OP_) {
 		));
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid'";
 		$db_result = dba_query($db_query);
+		$list_of_group = "<option value=0>-- " . _('No group') . " --</option>";
 		while ($db_row = dba_fetch_array($db_result)) {
 			$selected = '';
 			$conditions = array(
@@ -231,7 +232,7 @@ switch (_OP_) {
 			<tr><td>" . _mandatory(_('Name')) . "</td><td><input type=text name=name value=\"" . $list[0]['name'] . "\"></td></tr>
 			<tr><td>" . _mandatory(_('Mobile')) . "</td><td><input type=text name=mobile maxlength=20 value=\"" . $list[0]['mobile'] . "\"></td></tr>
 			<tr><td>" . _('Email') . "</td><td><input type=text name=email value=\"" . $list[0]['email'] . "\"></td></tr>
-			<tr><td>" . _('User') . "</td><td><input type=text name=username value=\"" . $list[0]['username'] . "\"></td></tr>
+			<tr><td>" . _('Tags') . "</td><td><input type=text name=tags value=\"" . $list[0]['tags'] . "\"> " . _hint(_('Multiple entries separated by space')) . "</td></tr>
 			</tbody>
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\"></p>
@@ -248,7 +249,7 @@ switch (_OP_) {
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case 'export':
-				$fields = 'DISTINCT A.id AS pid, A.uid AS uid, A.name AS name, A.mobile AS mobile, A.email AS email, B.code AS code, A.username AS username';
+				$fields = 'DISTINCT A.id AS pid, A.uid AS uid, A.name AS name, A.mobile AS mobile, A.email AS email, B.code AS code, A.tags AS tags';
 				$join = 'LEFT JOIN ' . _DB_PREF_ . '_featurePhonebook_group_contacts AS C ON A.id=C.pid ';
 				$join .= 'LEFT JOIN ' . _DB_PREF_ . '_featurePhonebook_group AS B ON B.id=C.gpid';
 				$conditions = array(
@@ -270,7 +271,7 @@ switch (_OP_) {
 					_('Mobile'),
 					_('Email'),
 					_('Group code'),
-					_('User') 
+					_('Tags') 
 				);
 				for ($i = 0; $i < count($list); $i++) {
 					$j = $i + 1;
@@ -279,7 +280,7 @@ switch (_OP_) {
 						sendsms_getvalidnumber($list[$i]['mobile']),
 						$list[$i]['email'],
 						$list[$i]['code'],
-						$list[$i]['username'] 
+						phonebook_tags_clean($list[$i]['tags']) 
 					);
 				}
 				$content = core_csv_format($data);
@@ -296,8 +297,7 @@ switch (_OP_) {
 				$mobile = sendsms_getvalidnumber(str_replace("\"", "", $mobile));
 				$email = str_replace("\'", "", $_POST['email']);
 				$email = str_replace("\"", "", $email);
-				$username = str_replace("\'", "", $_POST['username']);
-				$username = str_replace("\"", "", $username);
+				$tags = phonebook_tags_clean($_POST['tags']);
 				if ($mobile && $name) {
 					$list = dba_search(_DB_PREF_ . '_featurePhonebook', 'id', array(
 						'uid' => $uid,
@@ -311,12 +311,12 @@ switch (_OP_) {
 							'name' => $name,
 							'mobile' => $mobile,
 							'email' => $email,
-							'username' => $username 
+							'tags' => $tags 
 						);
 						if ($c_pid = dba_add(_DB_PREF_ . '_featurePhonebook', $items)) {
 							$save_to_group = TRUE;
 						} else {
-							logger_print('fail to add contact pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email . ' u:' . $username, 3, 'phonebook_add');
+							logger_print('fail to add contact pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email . ' tags:[' . $tags . ']', 3, 'phonebook_add');
 						}
 					}
 					foreach ($gpids as $gpid) {
@@ -353,14 +353,13 @@ switch (_OP_) {
 				$name = str_replace("\"", "", $name);
 				$email = str_replace("\'", "", $_POST['email']);
 				$email = str_replace("\"", "", $email);
-				$username = str_replace("\'", "", $_POST['username']);
-				$username = str_replace("\"", "", $username);
+				$tags = phonebook_tags_clean($_POST['tags']);
 				if ($c_pid && $mobile && $name) {
 					$items = array(
 						'name' => $name,
 						'mobile' => $mobile,
 						'email' => $email,
-						'username' => $username 
+						'tags' => $tags 
 					);
 					$conditions = array(
 						'id' => $c_pid,

@@ -18,6 +18,25 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
+function phonebook_tags_clean($tags) {
+	$arr_tags = explode(' ', $tags);
+	$arr_tags = array_unique($arr_tags);
+	$tags = '';
+	foreach ($arr_tags as $tag) {
+		if ($tag) {
+			$tag = strtolower(core_sanitize_alphanumeric($tag));
+			if (strlen($tags) + strlen($tag) + 1 <= 250) {
+				$tags .= $tag . ' ';
+			} else {
+				break;
+			}
+		}
+	}
+	$tags = trim($tags);
+	
+	return $tags;
+}
+
 function phonebook_hook_phonebook_groupid2name($uid, $gpid) {
 	if ($uid && $gpid) {
 		$db_query = "SELECT name FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid' AND id='$gpid'";
@@ -76,6 +95,13 @@ function phonebook_hook_phonebook_number2email($uid, $mobile) {
 	return $data['email'];
 }
 
+function phonebook_hook_phonebook_number2tags($uid, $mobile) {
+	$data = phonebook_getdatabynumber($uid, $mobile);
+	$tags = phonebook_tags_clean($data['tags']);
+	
+	return $tags;
+}
+
 function phonebook_hook_phonebook_getdatabynumber($uid, $mobile) {
 	global $user_config;
 	
@@ -83,7 +109,7 @@ function phonebook_hook_phonebook_getdatabynumber($uid, $mobile) {
 		$user_mobile = user_getfieldbyuid($uid, 'mobile');
 		
 		$db_query = "
-			SELECT A.id AS id, A.name AS name, A.mobile AS mobile, A.email AS email, A.username AS username FROM " . _DB_PREF_ . "_featurePhonebook AS A
+			SELECT A.id AS id, A.name AS name, A.mobile AS mobile, A.email AS email, A.tags AS tags FROM " . _DB_PREF_ . "_featurePhonebook AS A
 			LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid
 			LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON B.id=C.gpid
 			WHERE A.mobile LIKE '%" . core_mobile_matcher_format($mobile) . "' AND (
@@ -180,7 +206,7 @@ function phonebook_hook_phonebook_search($uid, $keyword = "", $count = 0) {
 		$user_mobile = user_getfieldbyuid($uid, 'mobile');
 		
 		$db_query = "
-			SELECT DISTINCT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email, A.username AS username
+			SELECT DISTINCT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email, A.tags AS tags
 			FROM " . _DB_PREF_ . "_featurePhonebook AS A
                         LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid
                         LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON B.id=C.gpid
@@ -198,7 +224,7 @@ function phonebook_hook_phonebook_search($uid, $keyword = "", $count = 0) {
 				A.name LIKE '%" . $keyword . "%' OR
 				A.mobile LIKE '%" . $keyword . "%' OR
 				A.email LIKE '%" . $keyword . "%' OR
-				A.username LIKE '%" . $keyword . "%'
+				A.tags LIKE '%" . $keyword . "%'
 			)";
 		if ($count > 0) {
 			$db_query .= " LIMIT " . $count;
@@ -247,7 +273,7 @@ function phonebook_hook_phonebook_search_user($uid, $keyword = "", $count = 0) {
 	$ret = array();
 	
 	$keywords = $keyword;
-	$fields = 'name, username, email, mobile';
+	$fields = 'name, mobile, email, tags';
 	if ((int) $count) {
 		$extras = 'LIMIT ' . (int) $count;
 	}

@@ -58,6 +58,11 @@ function phonebook_number2email($uid, $p_num) {
 	return $ret;
 }
 
+function phonebook_number2tags($uid, $p_num) {
+	$ret = core_call_hook();
+	return $ret;
+}
+
 function phonebook_getmembercountbyid($gpid) {
 	$ret = core_call_hook();
 	return $ret;
@@ -123,7 +128,7 @@ function phonebook_getgroupbyuid($uid, $orderby = "") {
  *        Keyword
  * @param integer $count
  *        Search limit
- * @return array array(pid, p_desc, p_num, email, username)
+ * @return array array(pid, p_desc, p_num, email, tags)
  */
 function phonebook_search($uid, $keyword = "", $count = 0) {
 	$ret = core_call_hook();
