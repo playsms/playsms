@@ -82,11 +82,7 @@ switch (_OP_) {
 			$list[$j] = core_display_data($list[$j]);
 			$in_id = $list[$j]['in_id'];
 			$in_sender = $list[$j]['in_sender'];
-			$p_desc = phonebook_number2name($user_config['uid'], $in_sender);
-			$current_sender = $in_sender;
-			if ($p_desc) {
-				$current_sender = "$in_sender<br />$p_desc";
-			}
+			$current_sender = report_resolve_sender($user_config['uid'], $in_sender);
 			$in_keyword = $list[$j]['in_keyword'];
 			$in_datetime = core_display_datetime($list[$j]['in_datetime']);
 			$in_feature = $list[$j]['in_feature'];

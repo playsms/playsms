@@ -85,11 +85,7 @@ switch (_OP_) {
 			$smslog_id = $list[$j]['smslog_id'];
 			$p_uid = $list[$j]['uid'];
 			$p_dst = $list[$j]['p_dst'];
-			$p_desc = phonebook_number2name($p_uid, $p_dst);
-			$current_p_dst = $p_dst;
-			if ($p_desc) {
-				$current_p_dst = "$p_dst<br />$p_desc";
-			}
+			$current_p_dst = report_resolve_sender($p_uid, $p_dst);
 			$p_sms_type = $list[$j]['p_sms_type'];
 			if (($p_footer = $list[$j]['p_footer']) && (($p_sms_type == "text") || ($p_sms_type == "flash"))) {
 				$p_msg = $p_msg . ' ' . $p_footer;
