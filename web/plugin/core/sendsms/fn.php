@@ -480,7 +480,9 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 	for ($i = 0; $i < count($sms_to); $i++) {
 		if (substr(trim($sms_to[$i]), 0, 1) == '#') {
 			if ($c_group_code = substr(trim($sms_to[$i]), 1)) {
-				$c_gpid = phonebook_groupcode2id($user_config['uid'], $c_group_code);
+				
+				$list = phonebook_search_group($user_config['uid'], $c_group_code, '', TRUE);
+				$c_gpid = $list[0]['gpid'];
 				$members = phonebook_getdatabyid($c_gpid);
 				foreach ($members as $member) {
 					if (trim($member['p_num'])) {
