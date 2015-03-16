@@ -22,7 +22,7 @@ defined('_SECURE_') or die('Forbidden');
  * Implementations of hook checkavailablekeyword()
  *
  * @param $keyword checkavailablekeyword()
- *        	will insert keyword for checking to the hook here
+ *        will insert keyword for checking to the hook here
  * @return TRUE if keyword is available
  *        
  */
@@ -132,7 +132,10 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 					break;
 				
 				default :
-					$message = '';
+					$message = $unknown_format_msg;
+					_log('Unknown format sender:' . $sms_sender . ' keyword:' . $subscribe_keyword . ' mobile:' . $sms_to, 2, "sms_subscribe");
+					$ok = true;
+					break;
 			}
 		} else {
 			$member = true;
