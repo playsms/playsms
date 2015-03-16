@@ -912,7 +912,11 @@ function user_search($keywords = '', $fields = '', $extras = '') {
 		$extra_sql = trim($extras);
 	}
 	
-	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND " . $search . " " . $extra_sql;
+	if ($search || $extra_sql) {
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND (" . $search . " " . $extra_sql . ")";
+	} else {
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0'";
+	}
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[] = $db_row;
