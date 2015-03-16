@@ -192,15 +192,30 @@ function credit_hook_rate_deductusercredit($uid, $amount) {
 function credit_hook_rate_setusercredit($uid, $balance = 0) {
 	$balance = (float) $balance;
 	
-	_log("saving uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
-	
-	$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET c_timestamp='" . mktime() . "',credit='$balance' WHERE flag_deleted='0' AND uid='$uid'";
-	if ($db_result = @dba_affected_rows($db_query)) {
-		_log("saved uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
+	$user = user_getdatabyuid($uid);
+	if ($user['uid']) {
 		
-		return TRUE;
+		if ($user['credit'] != $balance) {
+			
+			_log("saving uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
+			
+			$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET c_timestamp='" . mktime() . "',credit='$balance' WHERE flag_deleted='0' AND uid='$uid'";
+			if ($db_result = @dba_affected_rows($db_query)) {
+				_log("saved uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
+				
+				return TRUE;
+			} else {
+				_log("unable to save uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
+				
+				return FALSE;
+			}
+		} else {
+			_log("no changes uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
+			
+			return TRUE;
+		}
 	} else {
-		_log("unable to save uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
+		_log("user does not exists uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
 		
 		return FALSE;
 	}
