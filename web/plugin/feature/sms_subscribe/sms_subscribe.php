@@ -753,7 +753,7 @@ switch (_OP_) {
 			if ($sms_to[0]) {
 				$unicode = core_detect_unicode($message);
 				$message = addslashes($message);
-				list($ok, $to, $smslog_id, $queue) = sendsms_helper($username, $sms_to, $message, 'text', $unicode, $smsc);
+				list($ok, $to, $smslog_id, $queue) = sendsms_helper($username, $sms_to, $message, 'text', $unicode, $smsc, TRUE);
 				if ($ok[0]) {
 					$counter++;
 					dba_update(_DB_PREF_ . '_featureSubscribe_msg', array(
