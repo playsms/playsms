@@ -98,7 +98,7 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 			$unicode = core_detect_unicode($message);
 			_log('BC sender:' . $sms_sender . ' keyword:' . $subscribe_keyword . ' count:' . count($bc_to) . ' m:' . $message, 3, "sms_subscribe");
 			$message = addslashes($message);
-			list($ok, $to, $smslog_id, $queue) = sendsms_helper($username, $bc_to, $message, 'text', $unicode, $smsc);
+			list($ok, $to, $smslog_id, $queue) = sendsms_helper($username, $bc_to, $message, 'text', $unicode, $smsc, TRUE);
 			return true;
 		} else {
 			return false;
@@ -175,7 +175,7 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 		if ($message) {
 			$message = addslashes($message);
 			_log('sending reply u:' . $username . ' to:' . $sms_to . ' m:[' . $message . '] smsc:[' . $smsc . ']', 3, 'sms_subscribe_handle');
-			sendsms_helper($username, $sms_to, $message, 'text', '', $smsc);
+			sendsms_helper($username, $sms_to, $message, 'text', '', $smsc, TRUE);
 		}
 	}
 	return $ok;
@@ -302,7 +302,7 @@ function _sms_subscribe_member_expired($subscribe, $member) {
 			_log('removed k:' . $subscribe['subscribe_keyword'] . ' member_id:' . $member['member_id'] . ' number:' . $member['member_number'], 3, '_sms_subscribe_member_expired');
 			if ($subscribe['expire_msg']) {
 				_log('SMS k:' . $subscribe['subscribe_keyword'] . ' member_id:' . $member['member_id'] . ' number:' . $member['member_number'] . ' message:[' . $subscribe['expire_msg'] . ']', 3, '_sms_subscribe_member_expired');
-				sendsms_helper($c_username, $member['member_number'], $subscribe['expire_msg'], 'text', '', $subscribe['smsc']);
+				sendsms_helper($c_username, $member['member_number'], $subscribe['expire_msg'], 'text', '', $subscribe['smsc'], TRUE);
 			}
 		}
 	}
