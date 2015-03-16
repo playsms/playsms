@@ -144,7 +144,7 @@ function phonebook_hook_phonebook_getmembercountbyid($gpid) {
 function phonebook_hook_phonebook_getdatabyid($gpid, $orderby = "") {
 	$ret = array();
 	$db_query = "
-		SELECT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email
+		SELECT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email, A.tags AS tags
 		FROM " . _DB_PREF_ . "_featurePhonebook AS A
 		INNER JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON A.uid=B.uid
 		INNER JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid
@@ -162,7 +162,7 @@ function phonebook_hook_phonebook_getdatabyid($gpid, $orderby = "") {
 function phonebook_hook_phonebook_getdatabyuid($uid, $orderby = "") {
 	$ret = array();
 	$db_query = "
-		SELECT DISTINCT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email
+		SELECT DISTINCT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email, A.tags AS tags
 		FROM " . _DB_PREF_ . "_featurePhonebook AS A
 		LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON A.uid=B.uid
 		LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid AND B.id=C.gpid
@@ -200,10 +200,25 @@ function phonebook_hook_phonebook_getgroupbyuid($uid, $orderby = "") {
 	return $ret;
 }
 
-function phonebook_hook_phonebook_search($uid, $keyword = "", $count = 0) {
+function phonebook_hook_phonebook_search($uid, $keyword = "", $count = 0, $exact = FALSE) {
 	$ret = array();
+	
 	if ($keyword) {
 		$user_mobile = user_getfieldbyuid($uid, 'mobile');
+		
+		if ($exact) {
+			$keyword_sql = "
+				A.name='" . $keyword . "' OR
+				A.mobile='" . $keyword . "' OR
+				A.email='" . $keyword . "' OR
+				A.tags='" . $keyword . "'";
+		} else {
+			$keyword_sql = "
+				A.name LIKE '%" . $keyword . "%' OR
+				A.mobile LIKE '%" . $keyword . "%' OR
+				A.email LIKE '%" . $keyword . "%' OR
+				A.tags LIKE '%" . $keyword . "%'";
+		}
 		
 		$db_query = "
 			SELECT DISTINCT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email, A.tags AS tags
@@ -220,12 +235,7 @@ function phonebook_hook_phonebook_search($uid, $keyword = "", $count = 0) {
 				) OR (
 				A.uid <>'$uid' AND B.flag_sender>'1'
 				)
-			) AND (
-				A.name LIKE '%" . $keyword . "%' OR
-				A.mobile LIKE '%" . $keyword . "%' OR
-				A.email LIKE '%" . $keyword . "%' OR
-				A.tags LIKE '%" . $keyword . "%'
-			)";
+			) AND (" . $keyword_sql . ")";
 		if ($count > 0) {
 			$db_query .= " LIMIT " . $count;
 		}
@@ -234,42 +244,53 @@ function phonebook_hook_phonebook_search($uid, $keyword = "", $count = 0) {
 			$ret[] = $db_row;
 		}
 	}
+	
 	return $ret;
 }
 
-function phonebook_hook_phonebook_search_group($uid, $keyword = "", $count = 0) {
+function phonebook_hook_phonebook_search_group($uid, $keyword = "", $count = 0, $exact = FALSE) {
 	$ret = array();
-	$db_query = "
-		SELECT DISTINCT id AS gpid, name AS group_name, code, flag_sender
-		FROM " . _DB_PREF_ . "_featurePhonebook_group
-		WHERE (
-			uid='$uid' OR
-			id in (
-				SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
-				LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid
-				LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON B.id=C.gpid
-				WHERE A.mobile='" . user_getfieldbyuid($uid, 'mobile') . "' AND B.flag_sender='1'
-			) OR (
-			uid <>'$uid' AND flag_sender>'1'
-			)
-		)";
+	
 	if ($keyword) {
-		$db_query .= " AND (
-					name LIKE '%" . $keyword . "%' OR
-					code LIKE '%" . $keyword . "%'
-					)";
+		$user_mobile = user_getfieldbyuid($uid, 'mobile');
+		
+		if ($exact) {
+			$keyword_sql = "
+				name='" . $keyword . "' OR
+				code='" . $keyword . "'";
+		} else {
+			$keyword_sql = "
+				name LIKE '%" . $keyword . "%' OR
+				code LIKE '%" . $keyword . "%'";
+		}
+		
+		$db_query = "
+			SELECT DISTINCT id AS gpid, name AS group_name, code, flag_sender
+			FROM " . _DB_PREF_ . "_featurePhonebook_group
+			WHERE (
+				uid='$uid' OR
+				id in (
+					SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
+					LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid
+					LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON B.id=C.gpid
+					WHERE A.mobile LIKE '%" . core_mobile_matcher_format($user_mobile) . "' AND B.flag_sender='1'
+				) OR (
+				uid <>'$uid' AND flag_sender>'1'
+				)
+			) AND (" . $keyword_sql . ")";
+		if ($count > 0) {
+			$db_query .= " LIMIT " . $count;
+		}
+		$db_result = dba_query($db_query);
+		while ($db_row = dba_fetch_array($db_result)) {
+			$ret[] = $db_row;
+		}
 	}
-	if ($count > 0) {
-		$db_query .= " LIMIT " . $count;
-	}
-	$db_result = dba_query($db_query);
-	while ($db_row = dba_fetch_array($db_result)) {
-		$ret[] = $db_row;
-	}
+	
 	return $ret;
 }
 
-function phonebook_hook_phonebook_search_user($uid, $keyword = "", $count = 0) {
+function phonebook_hook_phonebook_search_user($uid, $keyword = "", $count = 0, $exact = FALSE) {
 	$ret = array();
 	
 	$keywords = $keyword;
@@ -277,7 +298,7 @@ function phonebook_hook_phonebook_search_user($uid, $keyword = "", $count = 0) {
 	if ((int) $count) {
 		$extras = 'LIMIT ' . (int) $count;
 	}
-	$users = user_search($keywords, $fields, $extras);
+	$users = user_search($keywords, $fields, $extras, $exact);
 	foreach ($users as $user) {
 		if ($name = phonebook_number2name($uid, $user['mobile'])) {
 			$user['name'] = $name . '/' . $user['name'];

@@ -882,7 +882,7 @@ function user_getsubuserbyuid($uid) {
  *        Array or string of record fields
  * @return array Array of users
  */
-function user_search($keywords = '', $fields = '', $extras = '') {
+function user_search($keywords = '', $fields = '', $extras = '', $exact = FALSE) {
 	$ret = array();
 	
 	if (!is_array($keywords)) {
@@ -896,7 +896,12 @@ function user_search($keywords = '', $fields = '', $extras = '') {
 	$search = '';
 	foreach ($fields as $field) {
 		foreach ($keywords as $keyword) {
-			$search .= $field . ' LIKE \'%' . $keyword . '%\' OR ';
+			
+			if ($exact) {
+				$search .= $field . '=\'' . $keyword . '\' OR ';
+			} else {
+				$search .= $field . ' LIKE \'%' . $keyword . '%\' OR ';
+			}
 		}
 	}
 	if ($search) {
