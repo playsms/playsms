@@ -57,6 +57,7 @@ function incoming_post_rules_get() {
 	// $data = registry_search(1, 'feature', 'incoming', 'sandbox_prefix');
 	// $post_rules['insert_prefix'] = trim(strtoupper(core_sanitize_alphanumeric($data['feature']['incoming']['sandbox_prefix'])));
 	
+
 	// sandbox forward to users
 	$data = registry_search(1, 'feature', 'incoming', 'sandbox_forward_to');
 	$post_rules['forward_to'] = array_unique(unserialize($data['feature']['incoming']['sandbox_forward_to']));
@@ -89,19 +90,19 @@ function incoming_pre_rules_get() {
  * Intercept on after-process stage for incoming SMS and forward it to selected user's inbox
  *
  * @param $sms_datetime incoming
- *        	SMS date/time
+ *        SMS date/time
  * @param $sms_sender incoming
- *        	SMS sender
+ *        SMS sender
  * @param $message incoming
- *        	SMS message before interepted
+ *        SMS message before interepted
  * @param $sms_receiver receiver
- *        	number that is receiving incoming SMS
+ *        number that is receiving incoming SMS
  * @param $feature feature
- *        	managed to hook current incoming SMS
+ *        managed to hook current incoming SMS
  * @param $status recvsms()
- *        	status, 0 or FALSE for unhandled
+ *        status, 0 or FALSE for unhandled
  * @param $uid keyword
- *        	owner
+ *        owner
  * @return array $ret
  */
 function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $message, $sms_receiver, $feature, $status, $uid, $smsc) {
@@ -189,6 +190,7 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 		 * if ($post_rules['insert_prefix'] && trim($message)) {
 		 * $message = $post_rules['insert_prefix'] .
 		 *
+		 *
 		 * ' ' . trim($message);
 		 * _log("sandbox add prefix start keyword:" . $post_rules['insert_prefix'] . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept_after');
 		 * recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);
@@ -239,15 +241,15 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
  * Intercept on before-process stage for incoming SMS
  *
  * @param $sms_datetime incoming
- *        	SMS date/time
+ *        SMS date/time
  * @param $sms_sender incoming
- *        	SMS sender
+ *        SMS sender
  * @param $message incoming
- *        	SMS message before interepted
+ *        SMS message before interepted
  * @param $sms_receiver receiver
- *        	number that is receiving incoming SMS
+ *        number that is receiving incoming SMS
  * @param $reference_id reference_id
- *        	data
+ *        data
  * @return array $ret
  */
 function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver, $reference_id) {
@@ -303,51 +305,15 @@ function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $
 			$c_group_code = strtoupper($c_group_code);
 			$c_group_code = core_sanitize_alphanumeric($c_group_code);
 			$c_uid = user_mobile2uid($sms_sender);
-			if ($c_uid && ($c_gpid = phonebook_groupcode2id($c_uid, $c_group_code))) {
+			$list = phonebook_search_group($c_uid, $c_group_code, '', TRUE);
+			$c_gpid = $list[0]['gpid'];
+			if ($c_uid && $c_gpid) {
 				$c_username = user_uid2username($c_uid);
 				_log("bc g:" . $c_group_code . " gpid:" . $c_gpid . " uid:" . $c_uid . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept');
 				sendsms_bc($c_username, $c_gpid, $message);
 				_log("bc end", 3, 'incoming recvsms_intercept');
 				$ret['uid'] = $c_uid;
 				$ret['hooked'] = true;
-			} else {
-				
-				// check the group_code for flag_sender<>0
-				$db_query = "SELECT id,uid,flag_sender FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE code='$c_group_code' AND flag_sender<>0";
-				$db_result = dba_query($db_query);
-				if ($db_row = dba_fetch_array($db_result)) {
-					$c_gpid = $db_row['id'];
-					$c_uid = $db_row['uid'];
-					$c_flag_sender = $db_row['flag_sender'];
-					if ($c_flag_sender == 2) {
-						$c_username = user_uid2username($c_uid);
-						_log("bc mobile flag_sender:" . $c_flag_sender . " username:" . $c_username . " uid:" . $c_uid . " g:" . $c_group_code . " gpid:" . $c_gpid . " uid:" . $c_uid . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept');
-						$sender = trim(phonebook_number2name($c_uid, $sms_sender));
-						$sender = ($sender ? $sender : $sms_sender);
-						sendsms_bc($c_username, $c_gpid, $sender . ":" . $message);
-						_log("bc mobile end", 3, 'incoming recvsms_intercept');
-						$ret['uid'] = $c_uid;
-						$ret['hooked'] = true;
-					} else if ($c_flag_sender == 1) {
-						
-						// check whether sms_sender belongs to c_group_code
-						$db_query = "SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
-								LEFT JOIN playsms.playsms_featurePhonebook_group_contacts AS C ON A.id=C.pid
-								LEFT JOIN playsms.playsms_featurePhonebook_group AS B ON B.id=C.gpid
-								WHERE A.mobile LIKE '%" . substr($sms_sender, 3) . "' AND B.code='" . $c_group_code . "'";
-						$db_result = dba_query($db_query);
-						if ($db_row = dba_fetch_array($db_result)) {
-							$c_username = user_uid2username($c_uid);
-							_log("bc mobile flag_sender:" . $c_flag_sender . " username:" . $c_username . " uid:" . $c_uid . " g:" . $c_group_code . " gpid:" . $c_gpid . " uid:" . $c_uid . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept');
-							$sender = trim(phonebook_number2name($c_uid, $sms_sender));
-							$sender = ($sender ? $sender : $sms_sender);
-							sendsms_bc($c_username, $c_gpid, $sender . ":" . $message);
-							_log("bc mobile end", 3, 'incoming recvsms_intercept');
-							$ret['uid'] = $c_uid;
-							$ret['hooked'] = true;
-						}
-					}
-				}
 			}
 		}
 	}
