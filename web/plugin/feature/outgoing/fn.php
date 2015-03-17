@@ -113,7 +113,7 @@ function outgoing_mobile2smsc($mobile, $uid = 0) {
 	return $ret;
 }
 
-function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $smsc) {
+function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $queue_code, $smsc) {
 	$ret = array();
 	$next = TRUE;
 	
