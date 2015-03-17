@@ -41,7 +41,7 @@ function auth_validate_login($username, $password) {
 		_log('user banned u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'auth_validate_login');
 		return FALSE;
 	}
-	$db_query = "SELECT password FROM " . _DB_PREF_ . "_tblUser WHERE username='$username'";
+	$db_query = "SELECT password FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$res_password = trim($db_row['password']);
@@ -103,7 +103,7 @@ function auth_validate_token($token) {
 	_log('login attempt token:' . $token . ' ip:' . $_SERVER['REMOTE_ADDR'], 3, 'auth_validate_token');
 	
 	if ($token) {
-		$db_query = "SELECT uid,username,enable_webservices,webservices_ip FROM " . _DB_PREF_ . "_tblUser WHERE token='$token'";
+		$db_query = "SELECT uid,username,enable_webservices,webservices_ip FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND token='$token'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$username = trim($db_row['username']);
@@ -211,6 +211,28 @@ function auth_isstatus($status) {
 	if ($_SESSION['status'] == (int) $status) {
 		if (auth_isvalid()) {
 			return TRUE;
+		}
+	}
+	return FALSE;
+}
+
+/**
+ * Check if visitor has certain ACL
+ *
+ * @param string $acl
+ *        Access Control List
+ * @return boolean TRUE if valid and visitor has certain ACL
+ */
+function auth_isacl($acl) {
+	if (auth_isvalid()) {
+		if (auth_isadmin()) {
+			return TRUE;
+		} else {
+			$user_acl_id = user_getfieldbyuid($_SESSION['uid'], 'acl_id');
+			$user_acl_name = acl_getname($user_acl_id);
+			if ($acl && $user_acl_name && strtoupper($acl) == strtoupper($user_acl_name)) {
+				return TRUE;
+			}
 		}
 	}
 	return FALSE;

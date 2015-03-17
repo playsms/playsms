@@ -1,0 +1,162 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.5\n"
+
+msgid "Action"
+msgstr "Ação"
+
+msgid "Add SMS schedule"
+msgstr "Adicionar SMS programado"
+
+msgid "Add destination"
+msgstr "Adicionar destinatário"
+
+msgid "Annually"
+msgstr "Anualmente"
+
+msgid "Are you sure you want to delete SMS schedule ?"
+msgstr "Tem certeza de que deseja eliminar este SMS programado?"
+
+msgid "Are you sure you want to remove this number from SMS schedule ?"
+msgstr "Tem certeza de que deseja remover este número do SMS programado?"
+
+msgid "Daily"
+msgstr "Diariamente"
+
+msgid "Destination"
+msgstr "Destino"
+
+msgid "Destination has been deleted"
+msgstr "Destinatário foi eliminado"
+
+msgid "Destination has been edited"
+msgstr "Destinatário foi editado"
+
+msgid "Edit destination"
+msgstr "Editar destinatário"
+
+msgid "Edit schedule"
+msgstr "Editar Horário"
+
+msgid "Entries in CSV file have been imported"
+msgstr "Entradas do ficheiro CSV foram importados"
+
+msgid "Fail to add new SMS schedule"
+msgstr "Erro ao adicionar o novo SMS programado"
+
+msgid "Fail to add new destination"
+msgstr "Erro ao adicionar novo destinatário"
+
+msgid "Fail to delete SMS schedule"
+msgstr "Erro ao eliminar o SMS programado"
+
+msgid "Fail to delete destination"
+msgstr "Erro ao eliminar destinatário"
+
+msgid "Fail to edit SMS schedule"
+msgstr "Erro ao editar o SMS programado"
+
+msgid "Fail to edit destination"
+msgstr "Erro ao editar destinatário"
+
+msgid "Fail to upload CSV file"
+msgstr "Erro ao enviar o ficheiro CSV"
+
+msgid "Format YYYY-MM-DD hh:mm"
+msgstr "Formato YYYY-MM-DD hh:mm"
+
+msgid "ID"
+msgstr ""
+
+msgid "Import"
+msgstr "Importar"
+
+msgid "Import above destination entries ?"
+msgstr "Importar acima entradas do destinatário?"
+
+msgid "Import confirmation"
+msgstr "Importação de confirmação"
+
+msgid "List of destinations"
+msgstr "Lista de destinatários"
+
+msgid "Manage schedule"
+msgstr "Gerir SMS Programado"
+
+msgid "Mandatory fields must not be empty"
+msgstr "Os campos obrigatórios não devem estar vazio"
+
+msgid "Message"
+msgstr "Mensagem"
+
+msgid "Monthly"
+msgstr "Mensal"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "New SMS schedule been added"
+msgstr "Novo SMS programado foi adicionado"
+
+msgid "New destination has been added"
+msgstr "Novo destinatário foi adicionado"
+
+msgid "Once"
+msgstr "Uma vez"
+
+msgid "Please select CSV file"
+msgstr "Por favor selecione o ficheiro CSV"
+
+msgid "SMS schedule been saved"
+msgstr "SMS programado foi guardado"
+
+msgid "SMS schedule has been deleted"
+msgstr "SMS programado foi eliminado"
+
+msgid "SMS schedule has been disabled"
+msgstr "SMS programado foi desativado"
+
+msgid "SMS schedule has been enabled"
+msgstr "SMS programado foi ativado"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Schedule"
+msgstr "Horário"
+
+msgid "Schedule ID"
+msgstr "ID do Horário"
+
+msgid "Schedule messages"
+msgstr "Mensagens programadas"
+
+msgid "Schedule name"
+msgstr "Nome do Horário"
+
+msgid "Schedule rule"
+msgstr "Regra do Horário"
+
+msgid "Scheduled message"
+msgstr "Mensagem programada"
+
+msgid "Separate by comma for multiple destinations"
+msgstr "Separar por vírgula os destinatários"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Weekly"
+msgstr "Semanal"
+
+msgid "format"
+msgstr "Formato"

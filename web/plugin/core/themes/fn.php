@@ -351,7 +351,25 @@ function themes_select($name, $options = array(), $selected = '', $tag_params = 
 			$params .= ' ' . $key . '="' . $val . '"';
 		}
 	}
-	$ret = '<select name="' . $name . '" id="' . $css_id . '" class="playsms-select ' . $css_class . '" ' . $params . '>' . $select_options . '</select>';
+	
+	$css_id = (trim($css_id) ? trim($css_id) : 'playsms-select-' . core_sanitize_alphanumeric($name));
+	$placeholder = ($tag_params['placeholder'] ? $tag_params['placeholder'] : _('Please select'));
+	$width = ($tag_params['width'] ? $tag_params['width'] : 'resolve');
+	
+	$js = '
+			<script language="javascript" type="text/javascript">
+				$(document).ready(function() {
+					$("#' . $css_id . '").select2({
+						placeholder: "' . $placeholder . '",
+						width: "' . $width . '",
+						separator: [\',\'],
+						tokenSeparators: [\',\'],
+					});
+				});
+			</script>
+		';
+	
+	$ret = $js . PHP_EOL . '<select name="' . $name . '" id="' . $css_id . '" class="playsms-select ' . $css_class . '" ' . $params . '>' . $select_options . '</select>';
 	
 	return $ret;
 }
@@ -549,6 +567,139 @@ function themes_select_users_multi($select_field_name, $selected_value = array()
 	if (!$ret) {
 		$tag_params['multiple'] = 'multiple';
 		$ret = themes_select_users_single($select_field_name . '[]', $selected_value, $tag_params, $css_id, $css_class);
+	}
+	
+	return $ret;
+}
+
+function themes_select_account_level_single($status = 2, $select_field_name, $selected_value = '', $tag_params = array(), $css_id = '', $css_class = '') {
+	global $user_config;
+	
+	$ret = '';
+	if (core_themes_get()) {
+		$ret = core_hook(core_themes_get(), 'themes_select_account_level_single', array(
+			$status,
+			$select_field_name,
+			$selected_value,
+			$tag_params,
+			$css_id,
+			$css_class 
+		));
+	}
+	if (!$ret) {
+		
+		if (!is_array($selected_value)) {
+			$selected_value = array(
+				$selected_value 
+			);
+		}
+		
+		if ($status == 2) {
+			$admins = user_getallwithstatus(2);
+		} else if ($status == 3) {
+			$users = user_getallwithstatus(3);
+		} else {
+			$subusers = user_getsubuserbyuid($user_config['uid']);
+		}
+		
+		$option_user .= '<option value="0">' . _('Select users') . '</option>';
+		if (count($admins) > 0) {
+			$option_user .= '<optgroup label="' . _('Administrators') . '">';
+			
+			foreach ($admins as $admin) {
+				$selected = '';
+				foreach ($selected_value as $sv) {
+					if ($admin['uid'] == $sv) {
+						$selected = 'selected';
+						break;
+					}
+				}
+				$option_user .= '<option value="' . $admin['uid'] . '" ' . $selected . '>' . $admin['name'] . ' (' . $admin['username'] . ') - ' . _('Administrator') . '</option>';
+			}
+			$option_user .= '</optgroup>';
+		}
+		
+		if (count($users) > 0) {
+			
+			$option_user .= '<optgroup label="' . _('Users') . '">';
+			
+			foreach ($users as $user) {
+				$selected = '';
+				foreach ($selected_value as $sv) {
+					if ($user['uid'] == $sv) {
+						$selected = 'selected';
+						break;
+					}
+				}
+				$option_user .= '<option value="' . $user['uid'] . '" ' . $selected . '>' . $user['name'] . ' (' . $user['username'] . ') - ' . _('User') . '</option>';
+			}
+			$option_user .= '</optgroup>';
+		}
+		
+		if (count($subusers) > 0) {
+			
+			$option_user .= '<optgroup label="' . _('Subusers') . '">';
+			
+			foreach ($subusers as $subuser) {
+				$selected = '';
+				foreach ($selected_value as $sv) {
+					if ($subuser['uid'] == $sv) {
+						$selected = 'selected';
+						break;
+					}
+				}
+				$option_user .= '<option value="' . $subuser['uid'] . '"' . $selected . '>' . $subuser['name'] . ' (' . $subuser['username'] . ') - ' . _('Subuser') . '</option>';
+			}
+			$option_user .= '</optgroup>';
+		}
+		
+		$css_id = (trim($css_id) ? trim($css_id) : 'playsms-select-account-level-' . core_sanitize_alphanumeric($select_field_name));
+		
+		if (is_array($tag_params)) {
+			foreach ($tag_params as $key => $val) {
+				$params .= ' ' . $key . '="' . $val . '"';
+			}
+		}
+		
+		$placeholder = ($tag_params['placeholder'] ? $tag_params['placeholder'] : _('Select users'));
+		$width = ($tag_params['width'] ? $tag_params['width'] : 'resolve');
+		
+		$js = '
+			<script language="javascript" type="text/javascript">
+				$(document).ready(function() {
+					$("#' . $css_id . '").select2({
+						placeholder: "' . $placeholder . '",
+						width: "' . $width . '",
+						separator: [\',\'],
+						tokenSeparators: [\',\'],
+					});
+				});
+			</script>
+		';
+		
+		$ret = $js . PHP_EOL . '<select name="' . $select_field_name . '" id="' . $css_id . '" class="playsms-select ' . $css_class . '" ' . $params . '>' . $option_user . '</select>';
+		
+		return $ret;
+	}
+}
+
+function themes_select_account_level_multi($status = 2, $select_field_name, $selected_value = array(), $tag_params = array(), $css_id = '', $css_class = '') {
+	$ret = '';
+	
+	if (core_themes_get()) {
+		$ret = core_hook(core_themes_get(), 'themes_select_account_level_multi', array(
+			$status,
+			$select_field_name,
+			$selected_value,
+			$tag_params,
+			$css_id,
+			$css_class 
+		));
+	}
+	
+	if (!$ret) {
+		$tag_params['multiple'] = 'multiple';
+		$ret = themes_select_account_level_single($status, $select_field_name . '[]', $selected_value, $tag_params, $css_id, $css_class);
 	}
 	
 	return $ret;

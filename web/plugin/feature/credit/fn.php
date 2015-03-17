@@ -22,7 +22,7 @@ defined('_SECURE_') or die('Forbidden');
  * Get user credit balance
  *
  * @param integer $uid
- *        	User ID
+ *        User ID
  * @return float User credit balance
  */
 function credit_getbalance($uid) {
@@ -42,9 +42,9 @@ function credit_getbalance($uid) {
  * Add credit to user
  *
  * @param integer $uid
- *        	User ID
+ *        User ID
  * @param decimal $amount
- *        	Credit amount to add (positive value)
+ *        Credit amount to add (positive value)
  * @return boolean TRUE on success
  */
 function credit_add($uid, $amount) {
@@ -56,9 +56,9 @@ function credit_add($uid, $amount) {
  * Reduce credit from user
  *
  * @param integer $uid
- *        	User ID
+ *        User ID
  * @param decimal $amount
- *        	Credit amount to reduce (positive value)
+ *        Credit amount to reduce (positive value)
  * @return boolean TRUE on success
  */
 function credit_reduce($uid, $amount) {
@@ -112,21 +112,24 @@ function credit_html_select_user() {
 	return $select_user;
 }
 
-function credit_hook_webservices_output($operation, $requests) {
+function credit_hook_webservices_output($operation, $requests, $returns) {
 	global $user_config;
 	
-	if (!auth_isvalid()) {
-		return 0;
+	if ($operation != 'credit') {
+		return FALSE;
 	}
 	
-	if ($operation == 'credit') {
+	$balance = (float) 0;
+	if (auth_isvalid()) {
 		$balance = (float) credit_getbalance($user_config['uid']);
-		$balance = number_format($balance, 3, '.', '');
-		
-		ob_end_clean();
-		header('Content-Type: text/plain');
-		return $balance;
 	}
+	$balance = number_format($balance, 3, '.', '');
+	
+	$returns['modified'] = TRUE;
+	$returns['param']['content'] = $balance;
+	$returns['param']['content-type'] = 'text/plain';
+	
+	return $returns;
 }
 
 function credit_hook_rate_addusercredit($uid, $amount) {
@@ -187,24 +190,42 @@ function credit_hook_rate_deductusercredit($uid, $amount) {
 }
 
 function credit_hook_rate_setusercredit($uid, $balance = 0) {
-	$ok = false;
 	$balance = (float) $balance;
-	if ($balance > 0) {
-		_log("saving uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
-		$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET c_timestamp='" . mktime() . "',credit='$balance' WHERE uid='$uid'";
-		if ($db_result = @dba_affected_rows($db_query)) {
-			_log("saved uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
-			$ok = true;
+	
+	$user = user_getdatabyuid($uid);
+	if ($user['uid']) {
+		
+		if ($user['credit'] != $balance) {
+			
+			_log("saving uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
+			
+			$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET c_timestamp='" . mktime() . "',credit='$balance' WHERE flag_deleted='0' AND uid='$uid'";
+			if ($db_result = @dba_affected_rows($db_query)) {
+				_log("saved uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
+				
+				return TRUE;
+			} else {
+				_log("unable to save uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
+				
+				return FALSE;
+			}
+		} else {
+			_log("no changes uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
+			
+			return TRUE;
 		}
+	} else {
+		_log("user does not exists uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
+		
+		return FALSE;
 	}
-	return $ok;
 }
 
 function credit_hook_rate_getusercredit($username) {
 	$balance = 0;
 	
 	if ($username) {
-		$db_query = "SELECT credit FROM " . _DB_PREF_ . "_tblUser WHERE username='$username'";
+		$db_query = "SELECT credit FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username='$username'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$balance = $db_row['credit'];

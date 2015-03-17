@@ -68,6 +68,7 @@ if (auth_isadmin()) {
 switch (_OP_) {
 	case "user_pref":
 		if ($c_user = dba_search(_DB_PREF_ . '_tblUser', '*', array(
+			'flag_deleted' => 0,
 			'username' => $c_username 
 		))) {
 			if ($allow_edit_status) {
@@ -107,28 +108,8 @@ switch (_OP_) {
 		// when allowed to edit parents of subusers
 		if ($allow_edit_parent) {
 			// get list of users as parents
-			$option_parents = '<option value="0">--' . _('Select parent account for subuser') . '--</option>';
-			
-			// get admins
-			$list = user_getallwithstatus(2);
-			foreach ($list as $parent) {
-				if ($parent['uid'] == $user_edited['parent_uid']) {
-					$selected = 'selected';
-				}
-				$option_parents .= '<option value="' . $parent['uid'] . '" ' . $selected . '>' . $parent['username'] . ' - ' . _('Administrator') . '</option>';
-				$selected = '';
-			}
-			
-			// get users
-			$list = user_getallwithstatus(3);
-			foreach ($list as $parent) {
-				if ($parent['uid'] == $user_edited['parent_uid']) {
-					$selected = 'selected';
-				}
-				$option_parents .= '<option value="' . $parent['uid'] . '" ' . $selected . '>' . $parent['username'] . '</option>';
-				$selected = '';
-			}
-			$select_parents = '<select name="up_parent_uid">' . $option_parents . '</select>';
+			$default_parent_uid = ($parent_uid && ($parent['uid'] == $user_edited['parent_uid']) ? $parent['uid'] : $core_config['main']['default_parent']);
+			$select_parents = themes_select_account_level_single(3, 'up_parent_uid', $default_parent_uid);
 		}
 		
 		// enhance privacy for subusers
@@ -252,7 +233,7 @@ switch (_OP_) {
 		
 		// subuser's parent uid, by default its uid=1
 		if ($_POST['up_parent_uid']) {
-			$up['parent_uid'] = (int) ($user_edited['status'] == 4 ? $_POST['up_parent_uid'] : 1);
+			$up['parent_uid'] = (int) ($user_edited['status'] == 4 ? $_POST['up_parent_uid'] : $core_config['main']['default_parent']);
 		} else {
 			$up['parent_uid'] = (int) user_getparentbyuid(user_username2uid($c_username));
 		}

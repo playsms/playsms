@@ -1,11 +1,11 @@
 # Translate
 
-playsms is using a layered structure for the translations, so for each module there is its own translation.
+playSMS is using a layered structure for the language translations. For each plugins there is its own translation files and folders.
 
 
 ## Create new translation
 
-To create a NEW tranlation of playsms, you will have copy the translation template to your destination language.
+To create a NEW translation of playSMS, you will have to copy the translation template into your destination language.
 
 For example, to translate from English (en_US) to catalan (ca_ES) you should do the following for every component you want to translate.
 
@@ -27,7 +27,7 @@ You will have to translate the .po file, you can use poedit, lokalize or any oth
 
 IMPORTANT:
 
-If you want, there are scripts to help you with the translation:
+To ease you up there are scripts to help you with the translation:
 
 - `backup-language-files.sh` creates a backup of existing language files
 - `create-new-language.sh` creates a tgz that contains all the files to translate the whole playsms interface
@@ -40,7 +40,7 @@ To improve/finish the translations into your language, you will have to go into 
 
 Once you've translated the .po files with poedit, lokalize or any other tool you just have to replace them into the destination folder.
 
-Go to the section REGENERATING THE MO FILES for the rest...
+Go to the section REGENERATING THE MO FILES for the rest.
 
 
 ## Update .pot files
@@ -91,10 +91,12 @@ Regenerate .mo files in your playSMS web root:
 Language | Maintainer
 -------- | ----------
 ca_ES    | Joan (aseques)
+da_DK    | Jens Hyllegaard (Hyllegaard)
 de_DE    | Andre Gronwald (andre)
 es_VE    | Alfredo Hernandez (alfredo)
 fr_FR    | Emmanuel Chanson (emmanuel), Elingui P. Uriel (elinguiuriel)
 id_ID    | Anton Raharja (anton), Andry Rachmadany (hangsbreaker)
 pt_BR    | Lucas Teixeira (lucastx), Gabriel Schanuel (gschanuel)
+pt_PT    | Delio Gois (dmtg)
 ru_RU    | Alexey Dvoryanchikov (dvoryanchikov)
 zh_CN    | Frank Van Caenegem (fvancaen)

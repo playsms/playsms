@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Add sender ID"
+msgstr "Tilføj afsender ID"
+
+msgid "Approve sender ID"
+msgstr "Godkend afsender ID"
+
+msgid "Are you sure you want to delete sender ID"
+msgstr "Er du sikker på at du ønsker at slette afsender ID"
+
+msgid "Click the status button to enable or disable status"
+msgstr "Klik på statusknappen for at aktivere eller deaktivere status"
+
+msgid "Description"
+msgstr "Beskrivelse"
+
+msgid "Edit sender ID"
+msgstr "Rediger afsender ID"
+
+msgid "Fail to update due to invalid sender ID"
+msgstr "Kunne ikke opdatere grundet ugyldigt afsender ID"
+
+msgid "Last update"
+msgstr "Sidst opdateret"
+
+msgid "Manage sender ID"
+msgstr "Håndter afsender ID"
+
+msgid "Only when the sender ID is approved"
+msgstr "Kun når afsender ID er godkendt"
+
+msgid "Sender ID"
+msgstr "Afsender ID"
+
+msgid "Sender ID description has been added"
+msgstr "Afsender ID beskrivelse er blevet tilføjet"
+
+msgid "Sender ID description has been updated"
+msgstr "Afsender ID beskrivelse er blevet opdateret"
+
+msgid "Sender ID has been added and waiting for approval"
+msgstr "Afsender ID er blevet tilføjet og afventer godkendelse"
+
+msgid "Sender ID has been removed"
+msgstr "Afsender ID er blevet fjernet"
+
+msgid "Sender ID is not available"
+msgstr "Afsender ID er ikke tilgængeligt"
+
+msgid "Sender ID is now approved"
+msgstr "Afsender ID er nu godkendt"
+
+msgid "Sender ID is now disabled"
+msgstr "Afsender ID er nu deaktiveret"
+
+msgid "Set as default"
+msgstr "Sæt som standard"
+
+msgid "User"
+msgstr "Bruger"
+
+msgid "Username"
+msgstr "Brugernavn"

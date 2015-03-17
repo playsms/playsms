@@ -8,7 +8,7 @@ $plugin_config['site'] = array(
 		'enable_forgot' => 1,
 		'enable_logo' => 1,
 		'logo_replace_title' => 1,
-		'logo_url' => '',
+		'logo_url' => 'plugin/themes/common/images/playSMS_logo_full.png',
 	) ,
 	'site_config' => array() ,
 );

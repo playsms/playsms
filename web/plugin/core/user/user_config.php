@@ -49,6 +49,7 @@ $c_uid = user_username2uid($c_username);
 switch (_OP_) {
 	case "user_config":
 		if ($c_user = dba_search(_DB_PREF_ . '_tblUser', '*', array(
+			'flag_deleted' => 0,
 			'uid' => $c_uid 
 		))) {
 			$token = $c_user[0]['token'];
@@ -137,7 +138,7 @@ switch (_OP_) {
 		$option_language_module .= "<option value=\"\">" . _('Default') . "</option>";
 		if (is_array($lang_list)) {
 			foreach ($lang_list as $key => $val) {
-				if ($val == core_lang_get()) $selected = "selected";
+				if ($val == $user_config['language_module']) $selected = "selected";
 				$option_language_module .= "<option value=\"" . $val . "\" $selected>" . $key . "</option>";
 				$selected = "";
 			}
@@ -249,7 +250,7 @@ switch (_OP_) {
 				'HINT_LOCAL_LENGTH' => _hint(_('Min length to detect missing country code')),
 				'HINT_REPLACE_ZERO' => _hint(_('Replace prefix 0 or padding local numbers')),
 				'HINT_MANAGE_CREDIT' => _hint(_('Add or reduce credit from manage credit menu')),
-				'HINT_ACL' => _hint('The default ACL will allow access to all user features'),
+				'HINT_ACL' => _hint(_('ACL DEFAULT will not restrict access to menus')),
 				'option_new_token' => $option_new_token,
 				'option_enable_webservices' => $option_enable_webservices,
 				'option_language_module' => $option_language_module,

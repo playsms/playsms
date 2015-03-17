@@ -124,8 +124,6 @@ switch (_OP_) {
 		}
 		
 		$content = $error_content . "
-			<link rel=\"stylesheet\" href=\"" . _HTTP_PATH_THEMES_ . "/common/jscss/combobox/select2.css\" />
-			<script type=\"text/javascript\" src=\"" . _HTTP_PATH_THEMES_ . "/common/jscss/combobox/select2.min.js\"></script>
 			<script language=\"javascript\" type=\"text/javascript\">
 				$(document).ready(function() {
 					$(\"#playsms-credit-select-user\").select2({
@@ -170,8 +168,6 @@ switch (_OP_) {
 		}
 		
 		$content = $error_content . "
-			<link rel=\"stylesheet\" href=\"" . _HTTP_PATH_THEMES_ . "/common/jscss/combobox/select2.css\" />
-			<script type=\"text/javascript\" src=\"" . _HTTP_PATH_THEMES_ . "/common/jscss/combobox/select2.min.js\"></script>
 			<script language=\"javascript\" type=\"text/javascript\">
 				$(document).ready(function() {
 					$(\"#playsms-credit-select-user\").select2({

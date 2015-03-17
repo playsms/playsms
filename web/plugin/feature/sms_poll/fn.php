@@ -22,7 +22,7 @@ defined('_SECURE_') or die('Forbidden');
  * Implementations of hook checkavailablekeyword()
  *
  * @param $keyword checkavailablekeyword()
- *        	will insert keyword for checking to the hook here
+ *        will insert keyword for checking to the hook here
  * @return TRUE if keyword is available
  */
 function sms_poll_hook_checkavailablekeyword($keyword) {
@@ -38,15 +38,15 @@ function sms_poll_hook_checkavailablekeyword($keyword) {
  * Implementations of hook setsmsincomingaction()
  *
  * @param $sms_datetime date
- *        	and time when incoming sms inserted to playsms
+ *        and time when incoming sms inserted to playsms
  * @param $sms_sender sender
- *        	on incoming sms
+ *        on incoming sms
  * @param $poll_keyword check
- *        	if keyword is for sms_poll
+ *        if keyword is for sms_poll
  * @param $poll_param get
- *        	parameters from incoming sms
+ *        parameters from incoming sms
  * @param $sms_receiver receiver
- *        	number that is receiving incoming sms
+ *        number that is receiving incoming sms
  * @return $ret array of keyword owner uid and status, TRUE if incoming sms handled
  */
 function sms_poll_hook_setsmsincomingaction($sms_datetime, $sms_sender, $poll_keyword, $poll_param = '', $sms_receiver = '', $smsc = '', $raw_message = '') {
@@ -181,14 +181,14 @@ function sms_poll_check_option_vote($list, $sms_sender, $poll_keyword, $choice_k
 	$continue = TRUE;
 	
 	switch ($poll_option_vote) {
-		case 0 : // one time
+		case 0: // one time
 			if ($votes) {
 				logger_print('vote s:' . $sms_sender . 'k:' . $poll_keyword . ' c:' . $choice_keyword . ' option_vote:' . $poll_option_vote . ' vote_count:' . $votes . ' already vote one time', 2, 'sms_poll');
 				$continue = FALSE;
 			}
 			break;
 		
-		case 1 : // one time every 24 hours
+		case 1: // one time every 24 hours
 			if ($votes) {
 				$d = new DateTime($in_datetime);
 				$day_in = $d->format("Ymd");
@@ -201,7 +201,7 @@ function sms_poll_check_option_vote($list, $sms_sender, $poll_keyword, $choice_k
 			}
 			break;
 		
-		case 2 : // one time every week
+		case 2: // one time every week
 			if ($votes) {
 				$d = new DateTime($in_datetime);
 				$week_in = $d->format("YmW");
@@ -214,7 +214,7 @@ function sms_poll_check_option_vote($list, $sms_sender, $poll_keyword, $choice_k
 			}
 			break;
 		
-		case 3 : // one time every month
+		case 3: // one time every month
 			if ($votes) {
 				$d = new DateTime($in_datetime);
 				$month_in = $d->format("Ym");
@@ -290,7 +290,7 @@ function sms_poll_output_serialize($poll_id, $poll_keyword) {
 		'poll_id' => $poll_id 
 	));
 	$poll_choices = array();
-	for($i = 0; $i < count($list2); $i++) {
+	for ($i = 0; $i < count($list2); $i++) {
 		$c_keyword = $list2[$i]['choice_keyword'];
 		$c_title = $list2[$i]['choice_title'];
 		$poll_choices[$c_keyword] = $c_title;
@@ -298,7 +298,7 @@ function sms_poll_output_serialize($poll_id, $poll_keyword) {
 	}
 	$poll_results = array();
 	$votes = 0;
-	foreach ($choice_ids as $key => $val ) {
+	foreach ($choice_ids as $key => $val) {
 		$c_num = dba_count(_DB_PREF_ . '_featurePoll_log', array(
 			'poll_id' => $poll_id,
 			'choice_id' => $val,
@@ -312,6 +312,7 @@ function sms_poll_output_serialize($poll_id, $poll_keyword) {
 	$ret['choices'] = $poll_choices;
 	$ret['results'] = $poll_results;
 	$ret = serialize($ret);
+	
 	return $ret;
 }
 
@@ -327,11 +328,11 @@ function sms_poll_output_xml($poll_id, $poll_keyword) {
 	$ret .= "<poll>\n";
 	$ret .= "<keyword>" . $poll_keyword . "</keyword>\n";
 	$ret .= "<votes>" . $data['votes'] . "</votes>\n";
-	foreach ($data['choices'] as $key => $val ) {
+	foreach ($data['choices'] as $key => $val) {
 		$poll_choices .= "<item key=\"" . $key . "\">" . $val . "</item>\n";
 	}
 	$ret .= "<choices>" . $poll_choices . "</choices>\n";
-	foreach ($data['results'] as $key => $val ) {
+	foreach ($data['results'] as $key => $val) {
 		$poll_results .= "<item key=\"" . $key . "\">" . $val . "</item>\n";
 	}
 	$ret .= "<results>" . $poll_results . "</results>\n";
@@ -351,7 +352,7 @@ function sms_poll_output_html($poll_id, $poll_keyword) {
 			</tr>
 			</thead>
 			<tbody>";
-	foreach ($data['choices'] as $key => $val ) {
+	foreach ($data['choices'] as $key => $val) {
 		$ret .= "
 				<tr>
 					<td>" . $key . "</td>
@@ -372,42 +373,70 @@ function sms_poll_output_graph($poll_id, $poll_keyword) {
 	exit();
 }
 
-function sms_poll_hook_webservices_output($operation, $requests) {
+function sms_poll_hook_webservices_output($operation, $requests, $returns) {
 	global $core_config;
+	
 	$ret = '';
-	if ($poll_keyword = $requests['keyword']) {
+	
+	$keyword = $requests['keyword'];
+	if (!$keyword) {
+		$keyword = $requests['tag'];
+	}
+	
+	if (!($operation == 'sms_poll' && $keyword)) {
+		return FALSE;
+	}
+	
+	$code = $requests['code'];
+	
+	if ($operation == 'sms_poll' && $poll_keyword = $keyword) {
 		$list = dba_search(_DB_PREF_ . '_featurePoll', 'poll_id,poll_access_code', array(
 			'poll_keyword' => $poll_keyword 
 		));
 		$poll_id = $list[0]['poll_id'];
 		$poll_access_code = $list[0]['poll_access_code'];
 	}
-	$code = $requests['code'];
-	if ($poll_id && ($code == $poll_access_code)) {
-		$type = $requests['type'];
+	
+	if ($poll_id && $code && ($code == $poll_access_code) && ($type = $requests['type'])) {
 		switch ($type) {
-			case 'serialize' :
-				$ret = sms_poll_output_serialize($poll_id, $poll_keyword);
+			case 'serialize':
+				if ($content = sms_poll_output_serialize($poll_id, $poll_keyword)) {
+					$returns['modified'] = TRUE;
+					$returns['param']['content'] = $content;
+					$returns['param']['content-type'] = 'text/plain';
+				}
 				break;
-			case 'json' :
-				$ret = sms_poll_output_json($poll_id, $poll_keyword);
+			case 'json':
+				if ($content = sms_poll_output_json($poll_id, $poll_keyword)) {
+					$returns['modified'] = TRUE;
+					$returns['param']['content'] = $content;
+				}
 				break;
-			case 'xml' :
-				ob_end_clean();
-				header('Content-type: text/xml');
-				$ret = sms_poll_output_xml($poll_id, $poll_keyword);
+			case 'xml':
+				if ($content = sms_poll_output_xml($poll_id, $poll_keyword)) {
+					$returns['modified'] = TRUE;
+					$returns['param']['content'] = $content;
+					$returns['param']['content-type'] = 'text/xml';
+				}
 				break;
-			case 'html' :
-				ob_end_clean();
-				header('Content-type: text/html');
-				$ret = sms_poll_output_html($poll_id, $poll_keyword);
+			case 'html':
+				if ($content = sms_poll_output_html($poll_id, $poll_keyword)) {
+					$returns['modified'] = TRUE;
+					$returns['param']['content'] = $content;
+					$returns['param']['content-type'] = 'text/html';
+				}
 				break;
-			case 'graph' :
-				$ret = sms_poll_output_graph($poll_id, $poll_keyword);
+			case 'graph':
+				if ($content = sms_poll_output_graph($poll_id, $poll_keyword)) {
+					$returns['modified'] = TRUE;
+					$returns['param']['content'] = $content;
+					$returns['param']['content-type'] = 'image/png';
+				}
 				break;
 		}
 	}
-	return $ret;
+	
+	return $returns;
 }
 
 function sms_poll_export_csv($poll_id, $poll_keyword) {
@@ -472,7 +501,7 @@ function sms_poll_export_csv($poll_id, $poll_keyword) {
 		_('Number of votes') 
 	);
 	$i = 1;
-	foreach ($data['choices'] as $key => $val ) {
+	foreach ($data['choices'] as $key => $val) {
 		$items[$i] = array(
 			$key,
 			$val,

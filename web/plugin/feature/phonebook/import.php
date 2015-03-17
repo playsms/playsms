@@ -37,7 +37,7 @@ switch (_OP_) {
 							" . _CSRF_FORM_ . "
 							<p>" . _('Please select CSV file for phonebook entries') . "</p>
 							<p><input type=\"file\" name=\"fnpb\"></p>
-							<p class=text-info>" . _('format') . " : " . _('Name') . ", " . _('Mobile') . ", " . _('Email') . ", " . _('Group code') . "</p>
+							<p class=text-info>" . _('CSV file format') . " : " . _('Name') . ", " . _('Mobile') . ", " . _('Email') . ", " . _('Group code') . ", " . _('Tags') . "</p>
 							<p><input type=\"submit\" value=\"" . _('Import') . "\" class=\"button\"></p>
 							</form>
 						</td>
@@ -60,10 +60,11 @@ switch (_OP_) {
 			<table class=playsms-table-list>
 			<thead><tr>
 				<th width=\"5%\">*</th>
-				<th width=\"25%\">" . _('Name') . "</th>
-				<th width=\"25%\">" . _('Mobile') . "</th>
-				<th width=\"30%\">" . _('Email') . "</th>
+				<th width=\"20%\">" . _('Name') . "</th>
+				<th width=\"20%\">" . _('Mobile') . "</th>
+				<th width=\"25%\">" . _('Email') . "</th>
 				<th width=\"15%\">" . _('Group code') . "</th>
+				<th width=\"15%\">" . _('Tags') . "</th>
 			</tr></thead><tbody>";
 		if (file_exists($fnpb_tmpname)) {
 			$session_import = 'phonebook_' . _PID_;
@@ -83,7 +84,12 @@ switch (_OP_) {
 				$i = 0;
 				foreach ($contacts as $contact) {
 					$c_gid = phonebook_groupcode2id($uid, $contact[3]);
-					if ($contact[0] && $contact[1] && $c_gid) {
+					if (!$c_gid) {
+						$contact[3] = '';
+					}
+					$contact[1] = sendsms_getvalidnumber($contact[1]);
+					$contact[4] = phonebook_tags_clean($contact[4]);
+					if ($contact[0] && $contact[1]) {
 						$i++;
 						$content .= "
 							<tr>
@@ -92,6 +98,7 @@ switch (_OP_) {
 							<td>$contact[1]</td>
 							<td>$contact[2]</td>
 							<td>$contact[3]</td>
+							<td>$contact[4]</td>
 							</tr>";
 						$k = $i - 1;
 						$_SESSION['tmp'][$session_import][$k] = $contact;
@@ -130,24 +137,22 @@ switch (_OP_) {
 			if ($group_code = trim($d[3])) {
 				$gpid = phonebook_groupcode2id($uid, $group_code);
 			}
+			$tags = phonebook_tags_clean($d[4]);
 			if ($name && $mobile) {
-				$list = dba_search(_DB_PREF_ . '_featurePhonebook', 'id', array(
-					'uid' => $uid,
-					'mobile' => $mobile 
-				));
-				if ($c_pid = $list[0]['id']) {
+				if ($c_pid = phonebook_number2id($uid, $mobile)) {
 					$save_to_group = TRUE;
 				} else {
 					$items = array(
 						'uid' => $uid,
 						'name' => $name,
-						'mobile' => $mobile,
-						'email' => $email 
+						'mobile' => sendsms_getvalidnumber($mobile),
+						'email' => $email,
+						'tags' => $tags 
 					);
 					if ($c_pid = dba_add(_DB_PREF_ . '_featurePhonebook', $items)) {
 						$save_to_group = TRUE;
 					} else {
-						logger_print('fail to add contact pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
+						logger_print('fail to add contact pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email . ' tags:[' . $tags . ']', 3, 'phonebook_add');
 					}
 				}
 				if ($save_to_group && $gpid) {

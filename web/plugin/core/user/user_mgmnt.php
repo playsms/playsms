@@ -28,18 +28,21 @@ switch (_OP_) {
 	case "user_list":
 		if ($view == 'admin') {
 			$conditions = array(
+				'flag_deleted' => 0,
 				'status' => 2 
 			);
 			$form_sub_title = "<h3>" . _('List of administrators') . "</h3>";
 			$disabled_on_admin = 'disabled';
 		} else if ($view == 'users') {
 			$conditions = array(
+				'flag_deleted' => 0,
 				'status' => 3 
 			);
 			$form_sub_title = "<h3>" . _('List of users') . "</h3>";
 			$disabled_on_users = 'disabled';
 		} else if ($view == 'subusers') {
 			$conditions = array(
+				'flag_deleted' => 0,
 				'status' => 4 
 			);
 			$form_sub_title = "<h3>" . _('List of subusers') . "</h3>";
@@ -188,28 +191,8 @@ switch (_OP_) {
 		}
 		
 		// get list of users as parents
-		$option_parents = '<option value="0">--' . _('Select parent account for subuser') . '--</option>';
-		
-		// get admins
-		$list = user_getallwithstatus(2);
-		foreach ($list as $parent) {
-			if ($parent['uid'] == $user_edited['parent_uid']) {
-				$selected = 'selected';
-			}
-			$option_parents .= '<option value="' . $parent['uid'] . '" ' . $selected . '>' . $parent['username'] . ' - ' . _('Administrator') . '</option>';
-			$selected = '';
-		}
-		
-		// get users
-		$list = user_getallwithstatus(3);
-		foreach ($list as $parent) {
-			if ($parent['uid'] == $user_edited['parent_uid']) {
-				$selected = 'selected';
-			}
-			$option_parents .= '<option value="' . $parent['uid'] . '" ' . $selected . '>' . $parent['username'] . '</option>';
-			$selected = '';
-		}
-		$select_parents = '<select name="add_parent_uid">' . $option_parents . '</select>';
+		$default_parent_uid = ($parent_uid && ($parent['uid'] == $user_edited['parent_uid']) ? $parent['uid'] : $core_config['main']['default_parent']);
+		$select_parents = themes_select_account_level_single(3, 'add_parent_uid', $default_parent_uid);
 		
 		if ($view == 'admin') {
 			$selected_admin = 'selected';
@@ -290,9 +273,9 @@ switch (_OP_) {
 		
 		// subuser's parent uid, by default its uid=1
 		if ($_POST['add_parent_uid']) {
-			$add['parent_uid'] = ($add['status'] == 4 ? $_POST['add_parent_uid'] : 1);
+			$add['parent_uid'] = ($add['status'] == 4 ? $_POST['add_parent_uid'] : $core_config['main']['default_parent']);
 		} else {
-			$add['parent_uid'] = 1;
+			$add['parent_uid'] = $core_config['main']['default_parent'];
 		}
 		
 		// set credit to 0 by default

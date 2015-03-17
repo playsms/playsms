@@ -735,12 +735,14 @@ switch (_OP_) {
 		$smsc = $db_row['smsc'];
 		$c_uid = $db_row['uid'];
 		$username = user_uid2username($c_uid);
+		
 		$msg_id = $_POST['msg_id'];
-		$db_query = "SELECT msg FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id='$subscribe_id' AND msg_id='$msg_id'";
+		$db_query = "SELECT msg, counter FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id='$subscribe_id' AND msg_id='$msg_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$message = addslashes($db_row['msg']);
 		$counter = $db_row['counter'];
+		
 		$db_query = "SELECT member_number FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id='$subscribe_id'";
 		$db_result = dba_query($db_query);
 		$sms_to = '';
@@ -753,7 +755,7 @@ switch (_OP_) {
 			if ($sms_to[0]) {
 				$unicode = core_detect_unicode($message);
 				$message = addslashes($message);
-				list($ok, $to, $smslog_id, $queue) = sendsms_helper($username, $sms_to, $message, 'text', $unicode, $smsc);
+				list($ok, $to, $smslog_id, $queue) = sendsms_helper($username, $sms_to, $message, 'text', $unicode, $smsc, TRUE);
 				if ($ok[0]) {
 					$counter++;
 					dba_update(_DB_PREF_ . '_featureSubscribe_msg', array(

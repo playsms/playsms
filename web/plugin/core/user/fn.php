@@ -20,7 +20,7 @@ defined('_SECURE_') or die('Forbidden');
 
 function user_getallwithstatus($status) {
 	$ret = array();
-	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE status='$status'";
+	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND status='$status'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[] = $db_row;
@@ -30,9 +30,11 @@ function user_getallwithstatus($status) {
 
 function user_getdatabyuid($uid) {
 	global $core_config;
+	
 	$ret = array();
+	
 	if ($uid) {
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE uid='$uid'";
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND uid='$uid'";
 		$db_result = dba_query($db_query);
 		if ($db_row = dba_fetch_array($db_result)) {
 			$ret = $db_row;
@@ -41,8 +43,17 @@ function user_getdatabyuid($uid) {
 			$ret['opt']['per_sms_length_unicode'] = $core_config['main']['per_sms_length_unicode'] - $ret['opt']['sms_footer_length'];
 			$ret['opt']['max_sms_length'] = $core_config['main']['max_sms_length'] - $ret['opt']['sms_footer_length'];
 			$ret['opt']['max_sms_length_unicode'] = $core_config['main']['max_sms_length_unicode'] - $ret['opt']['sms_footer_length'];
+			
+			// special setting to credit unicode SMS the same as normal SMS length
+			$result = registry_search($uid, 'core', 'user_config', 'enable_credit_unicode');
+			$ret['opt']['enable_credit_unicode'] = (int) $result['core']['user_config']['enable_credit_unicode'];
+			if (!$ret['opt']['enable_credit_unicode']) {
+				// global config overriden by user config
+				$ret['opt']['enable_credit_unicode'] = (int) $core_config['main']['enable_credit_unicode'];
+			}
 		}
 	}
+	
 	return $ret;
 }
 
@@ -54,7 +65,7 @@ function user_getdatabyusername($username) {
 function user_getfieldbyuid($uid, $field) {
 	$field = core_query_sanitize($field);
 	if ($uid && $field) {
-		$db_query = "SELECT $field FROM " . _DB_PREF_ . "_tblUser WHERE uid='$uid'";
+		$db_query = "SELECT $field FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND uid='$uid'";
 		$db_result = dba_query($db_query);
 		if ($db_row = dba_fetch_array($db_result)) {
 			$ret = $db_row[$field];
@@ -70,7 +81,7 @@ function user_getfieldbyusername($username, $field) {
 
 function user_uid2username($uid) {
 	if ($uid) {
-		$db_query = "SELECT username FROM " . _DB_PREF_ . "_tblUser WHERE uid='$uid'";
+		$db_query = "SELECT username FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND uid='$uid'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$username = $db_row['username'];
@@ -80,7 +91,7 @@ function user_uid2username($uid) {
 
 function user_username2uid($username) {
 	if ($username) {
-		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE username='$username'";
+		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username='$username'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$uid = $db_row['uid'];
@@ -90,15 +101,7 @@ function user_username2uid($username) {
 
 function user_mobile2uid($mobile) {
 	if ($mobile) {
-		
-		// remove +
-		$mobile = str_replace('+', '', $mobile);
-		
-		// remove first 3 digits if phone number length more than 7
-		if (strlen($mobile) > 7) {
-			$mobile = substr($mobile, 3);
-		}
-		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE mobile LIKE '%$mobile'";
+		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND mobile LIKE '%" . core_mobile_matcher_format($mobile) . "'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$uid = $db_row['uid'];
@@ -123,6 +126,7 @@ function user_mobile2username($mobile) {
  */
 function user_email2uid($email) {
 	$list = dba_search(_DB_PREF_ . '_tblUser', 'uid', array(
+		'flag_deleted' => 0,
 		'email' => $email 
 	));
 	return $list[0]['uid'];
@@ -137,6 +141,7 @@ function user_email2uid($email) {
  */
 function user_email2username($email) {
 	$list = dba_search(_DB_PREF_ . '_tblUser', 'username', array(
+		'flag_deleted' => 0,
 		'email' => $email 
 	));
 	return $list[0]['username'];
@@ -166,9 +171,10 @@ function user_add_validate($data = array(), $flag_edit = FALSE) {
 			$ret['status'] = false;
 		}
 		
-		// username should be at least 3 characters
-		if ($ret['status'] && $data['username'] && (strlen($data['username']) < 3)) {
-			$ret['error_string'] = _('Username should be at least 3 characters') . " (" . $data['username'] . ")";
+		// username should be at least 3 characters and maximum $username_length
+		$username_length = ($core_config['main']['username_length'] ? $core_config['main']['username_length'] : 30);
+		if ($ret['status'] && $data['username'] && ((strlen($data['username']) < 3) || (strlen($data['username']) > $username_length))) {
+			$ret['error_string'] = sprintf(_('Username must be at least 3 characters and maximum %d characters'), $username_length) . " (" . $data['username'] . ")";
 			$ret['status'] = false;
 		}
 		
@@ -202,10 +208,11 @@ function user_add_validate($data = array(), $flag_edit = FALSE) {
 		
 		// check if username is exists
 		if ($ret['status'] && $data['username'] && dba_isexists(_DB_PREF_ . '_tblUser', array(
+			'flag_deleted' => 0,
 			'username' => $data['username'] 
-		))) {
+		), 'AND')) {
 			if (!$flag_edit) {
-				$ret['error_string'] = _('User already exists') . " (" . _('username') . ": " . $data['username'] . ")";
+				$ret['error_string'] = _('Account is already exists') . " (" . _('username') . ": " . $data['username'] . ")";
 				$ret['status'] = false;
 			}
 		}
@@ -214,10 +221,11 @@ function user_add_validate($data = array(), $flag_edit = FALSE) {
 		
 		// check if email is exists
 		if ($ret['status'] && $data['email'] && dba_isexists(_DB_PREF_ . '_tblUser', array(
+			'flag_deleted' => 0,
 			'email' => $data['email'] 
-		))) {
+		), 'AND')) {
 			if ($data['email'] != $existing['email']) {
-				$ret['error_string'] = _('User with this email already exists') . " (" . _('email') . ": " . $data['email'] . ")";
+				$ret['error_string'] = _('Account with this email is already exists') . " (" . _('email') . ": " . $data['email'] . ")";
 				$ret['status'] = false;
 			}
 		}
@@ -225,10 +233,11 @@ function user_add_validate($data = array(), $flag_edit = FALSE) {
 		// check mobile, must check for duplication only when filled
 		if ($ret['status'] && $data['mobile']) {
 			if (dba_isexists(_DB_PREF_ . '_tblUser', array(
+				'flag_deleted' => 0,
 				'mobile' => $data['mobile'] 
-			))) {
+			), 'AND')) {
 				if ($data['mobile'] != $existing['mobile']) {
-					$ret['error_string'] = _('User with this mobile already exists') . " (" . _('mobile') . ": " . $data['mobile'] . ")";
+					$ret['error_string'] = _('Account with this mobile is already exists') . " (" . _('mobile') . ": " . $data['mobile'] . ")";
 					$ret['status'] = false;
 				}
 			}
@@ -276,19 +285,24 @@ function user_add($data = array(), $forced = FALSE) {
 		}
 		
 		// ACL exception for admins
-		$data['acl_id'] = (int) $data['acl_id'];
+		$data['acl_id'] = ((int) $data['acl_id'] ? (int) $data['acl_id'] : $core_config['main']['default_acl']);
 		if ($data['status'] == 2) {
 			$data['acl_id'] = 0;
 		}
 		
-		// logic for parent_uid, parent uid by default is 0
-		if ($data['status'] == 4) {
-			$parent_status = user_getfieldbyuid($data['parent_uid'], 'status');
-			if (!(($parent_status == 2) || ($parent_status == 3))) {
-				$data['parent_uid'] = 0;
+		// default parent_id
+		$data['parent_uid'] = ((int) $data['parent_uid'] ? (int) $data['parent_uid'] : $core_config['main']['default_parent']);
+		if ($parent_status = user_getfieldbyuid($data['parent_uid'], 'status')) {
+			// logic for parent_uid, parent uid by default is 0
+			if ($data['status'] == 4) {
+				if (!(($parent_status == 2) || ($parent_status == 3))) {
+					$data['parent_uid'] = $core_config['main']['default_parent'];
+				}
+			} else {
+				$data['parent_uid'] = $core_config['main']['default_parent'];
 			}
 		} else {
-			$data['parent_uid'] = 0;
+			$data['parent_uid'] = $core_config['main']['default_parent'];
 		}
 		
 		$data['username'] = core_sanitize_username($data['username']);
@@ -297,8 +311,8 @@ function user_add($data = array(), $forced = FALSE) {
 		$data['password'] = md5($new_password);
 		$data['token'] = md5(uniqid($data['username'] . $data['password'], true));
 		
-		// credit set to 0 by default
-		// $data['credit'] = ( $data['credit'] ? $data['credit'] : $core_config['main']['default_credit'] );
+		// default credit
+		$supplied_credit = (float) $data['credit'];
 		$data['credit'] = 0;
 		
 		// sender set to empty by default
@@ -308,7 +322,12 @@ function user_add($data = array(), $forced = FALSE) {
 		$dt = core_get_datetime();
 		$data['register_datetime'] = $dt;
 		$data['lastupdate_datetime'] = $dt;
-		$data['webservices_ip'] = (trim($data['webservices_ip']) ? trim($data['webservices_ip']) : '127.0.0.1, 192.168.*.*');
+		
+		// fixme anton - these should be configurable on main config
+		$data['footer'] = '@' . $data['username'];
+		$data['enable_webservices'] = 1;
+		// $data['webservices_ip'] = (trim($data['webservices_ip']) ? trim($data['webservices_ip']) : '127.0.0.1, 192.168.*.*');
+		$data['webservices_ip'] = '*.*.*.*';
 		
 		$v = user_add_validate($data);
 		if ($v['status']) {
@@ -317,6 +336,10 @@ function user_add($data = array(), $forced = FALSE) {
 				if ($new_uid = dba_add(_DB_PREF_ . '_tblUser', $data)) {
 					$ret['status'] = TRUE;
 					$ret['uid'] = $new_uid;
+					
+					// set credit upon registration
+					$default_credit = ($supplied_credit ? $supplied_credit : (float) $core_config['main']['default_credit']);
+					rate_addusercredit($ret['uid'], $default_credit);
 				} else {
 					$ret['error_string'] = _('Fail to register an account');
 				}
@@ -327,7 +350,7 @@ function user_add($data = array(), $forced = FALSE) {
 					$body .= _('Username') . ": " . $data['username'] . "\n";
 					$body .= _('Password') . ": " . $new_password . "\n";
 					$body .= _('Mobile') . ": " . $data['mobile'] . "\n";
-					$body .= _('Credit') . ": " . $data['credit'] . "\n\n";
+					$body .= _('Credit') . ": " . user_getfieldbyuid($new_uid, 'credit') . "\n\n--\n";
 					$body .= $core_config['main']['email_footer'] . "\n\n";
 					$ret['error_string'] = _('Account has been added and password has been emailed') . " (" . _('username') . ": " . $data['username'] . ")";
 					$mail_data = array(
@@ -398,6 +421,7 @@ function user_edit($uid, $data = array()) {
 			
 			if ($continue) {
 				if (dba_update(_DB_PREF_ . '_tblUser', $up, array(
+					'flag_deleted' => 0,
 					'uid' => $uid 
 				))) {
 					$ret['status'] = TRUE;
@@ -454,7 +478,11 @@ function user_remove($uid, $forced = FALSE) {
 						}
 					}
 					
-					if (dba_remove(_DB_PREF_ . '_tblUser', array(
+					if (dba_update(_DB_PREF_ . '_tblUser', array(
+						'c_timestamp' => mktime(),
+						'flag_deleted' => 1 
+					), array(
+						'flag_deleted' => 0,
 						'uid' => $uid 
 					))) {
 						user_banned_remove($uid);
@@ -476,6 +504,8 @@ function user_remove($uid, $forced = FALSE) {
 }
 
 function user_edit_conf($uid, $data = array()) {
+	global $user_config;
+	
 	$ret['status'] = FALSE;
 	$ret['error_string'] = _('No changes made');
 	
@@ -497,9 +527,7 @@ function user_edit_conf($uid, $data = array()) {
 	
 	$up = array();
 	foreach ($fields as $field) {
-		if (strlen($data[$field])) {
-			$up[$field] = trim($data[$field]);
-		}
+		$up[$field] = trim($data[$field]);
 	}
 	
 	$up['lastupdate_datetime'] = core_adjust_datetime(core_get_datetime());
@@ -528,7 +556,13 @@ function user_edit_conf($uid, $data = array()) {
 				$up['acl_id'] = 0;
 			}
 			
+			// self edit can't save acl
+			if ($uid == $user_config['uid']) {
+				unset($up['acl_id']);
+			}
+			
 			if (dba_update(_DB_PREF_ . '_tblUser', $up, array(
+				'flag_deleted' => 0,
 				'uid' => $uid 
 			))) {
 				if ($up['token']) {
@@ -749,6 +783,7 @@ function user_banned_list() {
 function user_setdatabyuid($uid, $data) {
 	if ((int) $uid && is_array($data)) {
 		$conditions = array(
+			'flag_deleted' => 0,
 			'uid' => $uid 
 		);
 		if (dba_update(_DB_PREF_ . '_tblUser', $data, $conditions)) {
@@ -797,6 +832,7 @@ function user_getparentbyuid($uid) {
 	$uid = (int) $uid;
 	if ($uid) {
 		$conditions = array(
+			'flag_deleted' => 0,
 			'uid' => $uid,
 			'status' => 4 
 		);
@@ -824,6 +860,7 @@ function user_getsubuserbyuid($uid) {
 		$parent_status = user_getfieldbyuid($uid, 'status');
 		if (($parent_status == 2) || ($parent_status == 3)) {
 			$conditions = array(
+				'flag_deleted' => 0,
 				'parent_uid' => $uid,
 				'status' => 4 
 			);
@@ -845,7 +882,7 @@ function user_getsubuserbyuid($uid) {
  *        Array or string of record fields
  * @return array Array of users
  */
-function user_search($keywords = '', $fields = '', $extras = '') {
+function user_search($keywords = '', $fields = '', $extras = '', $exact = FALSE) {
 	$ret = array();
 	
 	if (!is_array($keywords)) {
@@ -859,7 +896,12 @@ function user_search($keywords = '', $fields = '', $extras = '') {
 	$search = '';
 	foreach ($fields as $field) {
 		foreach ($keywords as $keyword) {
-			$search .= $field . ' LIKE \'%' . $keyword . '%\' OR ';
+			
+			if ($exact) {
+				$search .= $field . '=\'' . $keyword . '\' OR ';
+			} else {
+				$search .= $field . ' LIKE \'%' . $keyword . '%\' OR ';
+			}
 		}
 	}
 	if ($search) {
@@ -875,7 +917,11 @@ function user_search($keywords = '', $fields = '', $extras = '') {
 		$extra_sql = trim($extras);
 	}
 	
-	$db_query = 'SELECT * FROM ' . _DB_PREF_ . '_tblUser WHERE ' . $search . ' ' . $extra_sql;
+	if ($search || $extra_sql) {
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND (" . $search . " " . $extra_sql . ")";
+	} else {
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0'";
+	}
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[] = $db_row;

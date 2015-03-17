@@ -48,7 +48,7 @@ switch (_OP_) {
 		$list = dba_search(_DB_PREF_ . '_tblSMSOutgoing', '*', $conditions, $keywords, $extras);
 		
 		$content = "
-			<h2>" . _('Outgoing messages') . "</h2>
+			<h2>" . _('My sent messages') . "</h2>
 			<p>" . $search['form'] . "</p>
 			<form id=fm_outgoing name=fm_outgoing action=\"index.php?app=main&inc=feature_report&route=user_outgoing&op=actions\" method=POST>
 			" . _CSRF_FORM_ . "
@@ -78,11 +78,7 @@ switch (_OP_) {
 			$list[$j] = core_display_data($list[$j]);
 			$smslog_id = $list[$j]['smslog_id'];
 			$p_dst = $list[$j]['p_dst'];
-			$p_desc = phonebook_number2name($p_dst);
-			$current_p_dst = $p_dst;
-			if ($p_desc) {
-				$current_p_dst = "$p_dst<br />$p_desc";
-			}
+			$current_p_dst = report_resolve_sender($user_config['uid'], $p_dst);
 			$p_sms_type = $list[$j]['p_sms_type'];
 			if (($p_footer = $list[$j]['p_footer']) && (($p_sms_type == "text") || ($p_sms_type == "flash"))) {
 				$p_msg = $p_msg . ' ' . $p_footer;
@@ -118,7 +114,7 @@ switch (_OP_) {
 			}
 			
 			if ($p_gpid) {
-				$p_gpcode = strtoupper(phonebook_groupid2code($p_gpid));
+				$p_gpcode = strtoupper(phonebook_groupid2code($user_config['uid'], $p_gpid));
 			} else {
 				$p_gpcode = "&nbsp;";
 			}

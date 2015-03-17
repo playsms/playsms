@@ -36,10 +36,11 @@ $core_config['daemon_process'] = $DAEMON_PROCESS;
 // do these when this script wasn't called from daemon script
 if (!$core_config['daemon_process']) {
 	if (trim($_SERVER['SERVER_PROTOCOL']) == 'HTTP/1.1') {
-		header('Cache-Control: no-cache, must-revalidate');
+		header('Cache-Control: max-age=0, no-cache, no-store, must-revalidate');
 	} else {
 		header('Pragma: no-cache');
 	}
+	header('X-Frame-Options: SAMEORIGIN');
 	@session_start();
 }
 
@@ -135,6 +136,16 @@ if (!get_magic_quotes_gpc()) {
 	foreach ($_POST as $key => $val) {
 		$_POST[$key] = core_addslashes($val);
 	}
+}
+
+// sanitize user inputs
+if ($_POST['X-CSRF-Token']) {
+	foreach ($_POST as $key => $val) {
+		$_POST[$key] = core_sanitize_inputs($val);
+	}
+}
+foreach ($_GET as $key => $val) {
+	$_GET[$key] = core_sanitize_inputs($val);
 }
 
 // too many codes using $_REQUEST, until we revise them all we use this as a workaround
@@ -260,10 +271,14 @@ if (auth_isvalid()) {
 }
 
 // override main config with site config for branding purposes distinguished by domain name
+$site_config = array();
 if ((!$core_config['daemon_process']) && $_SERVER['HTTP_HOST']) {
 	$s = site_config_getbydomain($_SERVER['HTTP_HOST']);
 	if ((int) $s[0]['uid']) {
-		$site_config = site_config_get((int) $s[0]['uid']);
+		$c_site_config = site_config_get((int) $s[0]['uid']);
+		if (strtolower($c_site_config['domain']) == strtoloweR($_SERVER['HTTP_HOST'])) {
+			$site_config = array_merge($c_site_config, $s[0]);
+		}
 	}
 }
 

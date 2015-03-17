@@ -1,16 +1,16 @@
 msgid "Account has been unbanned"
 msgstr ""
 
+msgid "All feature messages"
+msgstr ""
+
 msgid "All inbox"
 msgstr ""
 
-msgid "All incoming messages"
-msgstr ""
-
-msgid "All outgoing messages"
-msgstr ""
-
 msgid "All reports"
+msgstr ""
+
+msgid "All sent messages"
 msgstr ""
 
 msgid "Amount"
@@ -70,9 +70,6 @@ msgstr ""
 msgid "Inbox"
 msgstr ""
 
-msgid "Incoming messages"
-msgstr ""
-
 msgid "Keyword"
 msgstr ""
 
@@ -88,10 +85,13 @@ msgstr ""
 msgid "My credit transactions"
 msgstr ""
 
+msgid "My feature messages"
+msgstr ""
+
 msgid "My report"
 msgstr ""
 
-msgid "Outgoing messages"
+msgid "My sent messages"
 msgstr ""
 
 msgid "Pending"

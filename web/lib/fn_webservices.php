@@ -339,7 +339,7 @@ function webservices_ix($c_username, $src = '', $dst = '', $datetime = '', $c = 
 	}
 	if ($uid) {
 		$j = 0;
-		$list = dba_search(_DB_PREF_ . '_tblUser_inbox', '*', $conditions, $keywords, $extras);
+		$list = dba_search(_DB_PREF_ . '_tblSMSInbox', '*', $conditions, $keywords, $extras);
 		foreach ($list as $db_row) {
 			$id = $db_row['in_id'];
 			$src = $db_row['in_sender'];
@@ -410,7 +410,7 @@ function webservices_query($username) {
 		'ORDER BY' => 'in_id DESC',
 		'LIMIT' => 1 
 	);
-	$list = dba_search(_DB_PREF_ . '_tblUser_inbox', $fields, $conditions, '', $extras);
+	$list = dba_search(_DB_PREF_ . '_tblSMSInbox', $fields, $conditions, '', $extras);
 	$last_inbox_id = $list[0]['in_id'];
 	
 	// get last id on incoming table
@@ -463,13 +463,37 @@ function webservices_query($username) {
 	return $json;
 }
 
-function webservices_output($operation, $requests) {
-	$operation = strtolower($operation);
-	$ret = core_hook($operation, 'webservices_output', array(
-		$operation,
-		$requests 
-	));
-	return $ret;
+function webservices_output($operation, $requests, $returns) {
+	global $core_config;
+	
+	// default returns
+	$returns = array(
+		'modified' => TRUE,
+		'param' => array(
+			'operation' => $operation,
+			'content' => '',
+			'content-type' => 'text/json',
+			'charset' => 'utf-8' 
+		) 
+	);
+	
+	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
+		if ($ret_intercept = core_hook($core_config['featurelist'][$c], 'webservices_output', array(
+			$operation,
+			$requests,
+			$returns 
+		))) {
+			if ($ret_intercept['modified']) {
+				$returns['modified'] = TRUE;
+				$returns['param']['operation'] = ($ret_intercept['param']['operation'] ? $ret_intercept['param']['operation'] : $returns['param']['operation']);
+				$returns['param']['content'] = ($ret_intercept['param']['content'] ? $ret_intercept['param']['content'] : $returns['param']['content']);
+				$returns['param']['content-type'] = ($ret_intercept['param']['content-type'] ? $ret_intercept['param']['content-type'] : $returns['param']['content-type']);
+				$returns['param']['charset'] = ($ret_intercept['param']['charset'] ? $ret_intercept['param']['charset'] : $returns['param']['charset']);
+			}
+		}
+	}
+	
+	return $returns;
 }
 
 // ---------------------- ADMIN TASKS ---------------------- //

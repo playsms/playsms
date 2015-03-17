@@ -24,6 +24,10 @@ msgstr "Заблокировать"
 msgid "Buy"
 msgstr "Купить"
 
+#, fuzzy
+msgid "Compose message"
+msgstr "Отправить сообщение"
+
 msgid "Delete"
 msgstr "Удалить"
 

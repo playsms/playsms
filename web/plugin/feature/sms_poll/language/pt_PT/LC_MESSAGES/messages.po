@@ -1,0 +1,224 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.5\n"
+
+msgid "Action"
+msgstr "Ação"
+
+msgid "Add"
+msgstr "Adicionar"
+
+msgid "Add SMS poll"
+msgstr "Adicionar votação SMS"
+
+msgid "Add choice to this poll"
+msgstr "Adicionar opção para essa votação"
+
+msgid "All"
+msgstr "Todos"
+
+msgid ""
+"Are you sure you want to delete SMS poll with all its choices and votes ?"
+msgstr ""
+"Tem certeza que quer eliminar a votação SMS com todas as opções e votos?"
+
+msgid "Are you sure you want to delete choice ?"
+msgstr "Tem certeza que quer eliminar essa opção?"
+
+msgid "Choice already exists"
+msgstr "A opção já existe"
+
+#, fuzzy
+msgid "Choice description"
+msgstr "Título da opção"
+
+msgid "Choice has been added"
+msgstr "A opção foi adicionada"
+
+msgid "Choice keyword"
+msgstr "Palavra-chave da opção"
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid "Edit SMS poll"
+msgstr "Editar votação SMS"
+
+msgid "Edit SMS poll choices"
+msgstr "Editar opções da votação SMS"
+
+msgid "Fail to add SMS poll"
+msgstr "Erro ao adicionar a opção da votação SMS"
+
+msgid "Fail to delete SMS poll choice"
+msgstr "Erro ao eliminar a opçao da votação SMS"
+
+msgid "Grand total SMS"
+msgstr "SMS Total"
+
+msgid "Grand total senders"
+msgstr "Total de Remetentes"
+
+msgid "Graph output"
+msgstr "Saída Graph"
+
+#, fuzzy
+msgid "HTML output"
+msgstr "Saída XML"
+
+msgid "Invalid"
+msgstr "inválido"
+
+msgid "JSON output"
+msgstr "Saída JSON"
+
+msgid "Keyword"
+msgstr "Palavra-chave"
+
+msgid "Manage poll"
+msgstr "Gerir votação"
+
+msgid "Multi"
+msgstr ""
+
+msgid "Number of votes"
+msgstr "Numero de votos"
+
+msgid "Once"
+msgstr "Uma vez"
+
+msgid "PHP serialize output"
+msgstr "Saída PHP serialize"
+
+#, fuzzy
+msgid "Reply message on invalid vote"
+msgstr "Mensagem de retorno caso resposta inválida"
+
+msgid "Reply message on out of vote option"
+msgstr "Mensagem de retorno caso mensagem seja fora de opção de voto"
+
+#, fuzzy
+msgid "Reply message on valid vote"
+msgstr "Mensagem de retorno caso mensagem válida"
+
+msgid "Result graph"
+msgstr "Resultado Gráfico"
+
+msgid "Result table"
+msgstr "Tabela de Resultados"
+
+#, fuzzy
+msgid "SMS poll access code"
+msgstr "Palavra-chave da votação SMS"
+
+msgid "SMS poll access code used mainly by webservices"
+msgstr "Código de acesso SMS usado principalmente por webservices"
+
+msgid "SMS poll already exists, reserved or use by other feature"
+msgstr "A votação SMS já existe, está reservada ou em uso por outro recurso"
+
+msgid "SMS poll choice and all its voters has been deleted"
+msgstr "A opção da votação SMS foi eliminada com todos os seus votos"
+
+msgid "SMS poll has been added"
+msgstr "A votação SMS foi adicionada"
+
+msgid "SMS poll has been saved"
+msgstr "A votação SMS foi guardada"
+
+msgid "SMS poll keyword"
+msgstr "Palavra-chave da votação SMS"
+
+msgid "SMS poll status has been changed"
+msgstr "O estado da votações SMS foi alterado"
+
+msgid "SMS poll title"
+msgstr "Título da votação SMS"
+
+msgid "SMS poll with all its messages has been deleted"
+msgstr "A votação SMS foi eliminada com todas as suas mensagens"
+
+msgid "SMSC"
+msgstr ""
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Senders sent multi votes"
+msgstr "Remetente enviou múlti votos"
+
+msgid "Senders sent multiple votes"
+msgstr "Remetente enviou múltiplos votos"
+
+msgid "Senders sent once"
+msgstr "Remetente só envia uma única vez"
+
+msgid "Statistics"
+msgstr "Estatistica"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Title"
+msgstr "Título"
+
+msgid "Total invalid SMS"
+msgstr "Total SMS inválidos "
+
+msgid "Total multiple votes SMS"
+msgstr "Total de múltiplos votos "
+
+msgid "Total one time vote SMS"
+msgstr "Total de votos únicos"
+
+msgid "Total valid SMS"
+msgstr "Total de SMS válidos"
+
+msgid "User"
+msgstr "Utilizador"
+
+msgid "Valid"
+msgstr "Válidos"
+
+msgid "Vote option"
+msgstr "Opções de Votos"
+
+msgid "Webservices links"
+msgstr ""
+
+msgid "XML output"
+msgstr "Saída XML"
+
+msgid "You must fill all fields"
+msgstr "Preencha todos os campos"
+
+msgid "keyword"
+msgstr "palavra-chave"
+
+msgid "multiple times"
+msgstr "Vária vezes"
+
+msgid "one time"
+msgstr "Somente uma vez"
+
+msgid "one time every 24 hours"
+msgstr "Um vez em cada 24 horas"
+
+msgid "one time every month"
+msgstr "Uma vez em cada mês"
+
+msgid "one time every week"
+msgstr "Uma vez em cada semana"
+
+msgid "title"
+msgstr "título"

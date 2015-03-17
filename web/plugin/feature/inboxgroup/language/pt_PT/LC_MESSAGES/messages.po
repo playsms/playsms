@@ -1,0 +1,198 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.5\n"
+
+msgid "Action"
+msgstr "Acção"
+
+msgid "Add catch-all"
+msgstr "Adicionar catch-all"
+
+msgid "Add group inbox"
+msgstr "Adicionar Grupo de caixa de entrada"
+
+msgid "Add member"
+msgstr "Adicionar membro"
+
+msgid "All users"
+msgstr "Todos os utilizadores"
+
+msgid "Are you sure you want to delete this group inbox ?"
+msgstr "Tem certeza que deseja apagar este grupo de caixa de entrada?"
+
+msgid "Catch-all"
+msgstr "catch-all"
+
+msgid "Catch-all has been added"
+msgstr "catch-all foi adicionado"
+
+msgid "Catch-all has been deleted"
+msgstr "catch-all foi removido"
+
+msgid "Catch-all list"
+msgstr "Lista de catch-all"
+
+msgid "Current catchall"
+msgstr "catch-all atuais"
+
+msgid "Current members"
+msgstr "Membros atuais"
+
+msgid "Delete catch-all"
+msgstr "Remover catch-all"
+
+msgid "Delete group inbox"
+msgstr "Remover grupo de caixa de entrada"
+
+msgid "Delete member"
+msgstr "Remover membro"
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid "Edit group inbox"
+msgstr "Editar grupo de caixa de entrada"
+
+msgid "Exclusive"
+msgstr "Exclusivo"
+
+msgid "Fail to add catch-all"
+msgstr "Erro ao adicionar catch-all"
+
+msgid "Fail to add group inbox"
+msgstr "Erro ao adicionar grupo de caixa de entrada"
+
+msgid "Fail to add member"
+msgstr "Erro ao adicionar membro"
+
+msgid "Fail to delete catch-all"
+msgstr "Erro ao remover catch-all"
+
+msgid "Fail to delete group inbox"
+msgstr "Erro ao remover grupo de caixa de entrada"
+
+msgid "Fail to delete member"
+msgstr "Erro ao remover membro"
+
+msgid "Fail to disable group inbox"
+msgstr "Erro ao desabilitar grupo de caixa de entrada"
+
+msgid "Fail to edit group inbox"
+msgstr "Erro ao editar grupo de caixa de entrada"
+
+msgid "Fail to enable group inbox"
+msgstr "Erro  ao habilitar grupo de caixa de entrada"
+
+msgid "For example a short code"
+msgstr "Um código curto, por exemplo"
+
+msgid "Group inbox"
+msgstr "Grupo de caixa de entrada"
+
+msgid "Group inbox has been added"
+msgstr "Grupo de caixa de entrada foi adicionado"
+
+msgid "Group inbox has been deleted"
+msgstr "Grupo de caixa de entrada foi removido"
+
+msgid "Group inbox has been disabled"
+msgstr "Grupo de caixa de entrada foi desativado"
+
+msgid "Group inbox has been edited"
+msgstr "Grupo de caixa de entrada foi atualizado"
+
+msgid "Group inbox has been enabled"
+msgstr "Grupo de caixa de entrada foi ativado"
+
+msgid "Keywords"
+msgstr "Palavras-chave"
+
+msgid "Member has been added"
+msgstr "Membro foi adicionado"
+
+msgid "Member has been deleted"
+msgstr "Membro foi removido"
+
+msgid "Member list"
+msgstr "Lista de membros"
+
+msgid "Members"
+msgstr "Membros"
+
+msgid "Mobile"
+msgstr "Telemóvel"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Number"
+msgstr "Número"
+
+msgid "Press submit button to add selected users to catch-all list"
+msgstr ""
+"Prima o botão enviar para adicionar o utilizadores selecionados à lista "
+"catch-all"
+
+msgid "Press submit button to add selected users to member list"
+msgstr ""
+"Prima o botão enviar para adicionar os utilizadores selecionados para uma "
+"lista de membros"
+
+msgid "Press submit button to remove selected catchall from catch-all list"
+msgstr "Prima o botão enviar para remover os catch-all da lista de catch-all"
+
+msgid "Press submit button to remove selected members from member list"
+msgstr ""
+"Prima o botão enviar para remover os membros selecionados da lista de membros"
+
+msgid "Receiver number"
+msgstr "Número do destinatário"
+
+msgid "Receiver number does not exist"
+msgstr "Número do destinatário não existe"
+
+msgid "Restrict sender to regular members or catch-all members only"
+msgstr ""
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Selected catchall"
+msgstr "catch-all selecionados"
+
+msgid "Selected members"
+msgstr "Membros selecionados"
+
+msgid "Selected users"
+msgstr "Utilizadores selecionados"
+
+msgid "Separate with comma for multiple items"
+msgstr "Separado por vírgula para múltiplos ítens"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Username"
+msgstr "Nome de Utilizador"
+
+msgid "Yes"
+msgstr "Sim"
+
+msgid "You must fill all fields"
+msgstr "Você deve preencher todos os campos"
+
+msgid "no"
+msgstr "não"
+
+msgid "yes"
+msgstr "sim"

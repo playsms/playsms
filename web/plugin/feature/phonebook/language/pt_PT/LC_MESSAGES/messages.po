@@ -1,0 +1,174 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.5\n"
+
+msgid "Action"
+msgstr "Ação"
+
+msgid "Add contact"
+msgstr "Adicionar Contacto"
+
+msgid "Add group"
+msgstr "Adicionar Grupo"
+
+msgid "Anyone"
+msgstr "Qualquer um"
+
+msgid "CSV file format"
+msgstr ""
+
+msgid "Contact has been added"
+msgstr "Contacto adicionado com sucesso"
+
+msgid "Contact has been edited"
+msgstr "Contacto editado com sucesso"
+
+msgid "Contacts have been imported"
+msgstr "Contacto foi importado com sucesso"
+
+msgid "Delete"
+msgstr "Apagar"
+
+msgid "Edit contact"
+msgstr "Editar Contacto"
+
+msgid "Edit group"
+msgstr "Editar Grupo"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Fail to delete group"
+msgstr "Erro ao eliminar o grupo"
+
+msgid "Fail to upload CSV file for phonebook"
+msgstr "Erro ao fazer enviar ficheiro CSV"
+
+msgid "Group"
+msgstr "Grupo"
+
+msgid "Group code"
+msgstr "Código Grupo"
+
+msgid "Group code already exists"
+msgstr "Código de Grupo já existe"
+
+msgid "Group code has been added"
+msgstr "Código de Grupo adicionado"
+
+msgid "Group code may be used to broadcast SMS to this group"
+msgstr "Código de grupo para ser usado para envio de SMS para este grupo"
+
+msgid "Group has been edited"
+msgstr "Grupo foi editado"
+
+msgid ""
+"Group has been edited but unable to set broadcast from members or anyone"
+msgstr ""
+"Grupo foi editado, mas não é possível definir o envio dos membros ou pessoa"
+
+msgid "Group name"
+msgstr "Nome do Grupo"
+
+msgid "Import"
+msgstr "Importar"
+
+msgid "Import above phonebook entries ?"
+msgstr "Importar acima de entradas da agenda?"
+
+msgid "Import confirmation"
+msgstr "Confirmação da importação"
+
+msgid "Me only"
+msgstr "Somente para mim"
+
+msgid "Members"
+msgstr "Membros"
+
+msgid "Mobile"
+msgstr "Telemóvel"
+
+msgid "Move to"
+msgstr "Mover para"
+
+msgid "Multiple entries separated by space"
+msgstr ""
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "No changes have been made"
+msgstr "Não foi efectuado qualquer alteração"
+
+#, fuzzy
+msgid "No group"
+msgstr "Grupo"
+
+msgid "Phonebook"
+msgstr "Agenda"
+
+msgid "Please select CSV file for phonebook entries"
+msgstr "Por favor, selecione o arquivo CSV para entradas da agenda"
+
+msgid "Please use alphanumeric only and make it short"
+msgstr "Por favor use alfanuméricos só"
+
+#, fuzzy
+msgid "Please use uppercase and make it short"
+msgstr "por favor, use letras maiúsculas"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Select"
+msgstr "Selecionar"
+
+msgid "Selected contact has been deleted"
+msgstr "Contato selecionado foi eliminado"
+
+msgid "Selected contact moved to new group"
+msgstr "Contato selecionado foi movido para o novo grupo"
+
+msgid "Selected group has been deleted"
+msgstr "O grupo selecionado foi eliminado "
+
+msgid "Share phonebook and allow broadcast"
+msgstr "Partilhar Agenda com todos os membros"
+
+msgid ""
+"Share this phonebook group and set permission for broadcasting SMS to this "
+"group from mobile phone"
+msgstr ""
+"Partilhar este grupo de agenda e conjunto de permissões para transmissão de  "
+"SMS com esse grupo de telemóvel"
+
+msgid "Tags"
+msgstr ""
+
+msgid "Unable to delete group until the group is empty"
+msgstr "Impossível apagar grupo não está vazio"
+
+msgid "You must fill all field"
+msgstr "Você deve preencher todos os campos"
+
+msgid "You must fill mandatory fields"
+msgstr "Deve preencher todos os campos obrigatórios"
+
+msgid "You must fill required fields"
+msgstr "Campos de preenchimento obrigatório"
+
+msgid "code"
+msgstr "Código"
+
+msgid "group"
+msgstr "Grupo"

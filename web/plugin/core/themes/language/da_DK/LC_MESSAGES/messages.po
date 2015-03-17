@@ -1,0 +1,52 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Administrator"
+msgstr "Administrator"
+
+msgid "Administrators"
+msgstr "Administratorer"
+
+msgid "Back"
+msgstr "Tilbage"
+
+msgid "Please select"
+msgstr "Vælg venligst"
+
+msgid "Search"
+msgstr "Søg"
+
+msgid "Select users"
+msgstr "Vælg brugere"
+
+msgid "Subuser"
+msgstr "Underbruger"
+
+msgid "Subusers"
+msgstr "Underbrugere"
+
+msgid "This field is required"
+msgstr "Dette felt er påkrævet"
+
+msgid "User"
+msgstr "Bruger"
+
+msgid "Users"
+msgstr "Brugere"
+
+msgid "no"
+msgstr "nej"
+
+msgid "yes"
+msgstr "ja"

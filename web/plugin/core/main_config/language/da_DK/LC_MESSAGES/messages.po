@@ -1,0 +1,231 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "ACL DEFAULT will not restrict access to menus"
+msgstr "ACL DEFAULT vil ikke begrænse adgang til menuer"
+
+msgid ""
+"Access to unknown domain mapped to this server IP address will be redirected "
+"to this website URL. This website URL should be the primary address for the "
+"service."
+msgstr ""
+"Adgang til ukendt domæne som er mappet til denne servers IP adresse, vil "
+"blive omdirigeret til denne websteds-URL. Dette websteds-URL bør være den "
+"primære adresse for servicen."
+
+msgid "Active themes"
+msgstr "Aktive temaer"
+
+msgid "Allow users to select SMS footer while on Send SMS page"
+msgstr "Tillad brugere at vælge SMS bundtekst på Send SMS siden"
+
+msgid "Allow users to select sender ID while on Send SMS page"
+msgstr "Tillad brugere at vælge afsender ID på Send SMS siden"
+
+msgid "Always add plus sign"
+msgstr "Tilføj altid plustegn"
+
+msgid "Always remove plus sign"
+msgstr "Fjern altid plustegn"
+
+msgid ""
+"Application footer here. Go to main configuration or manage site to edit "
+"this footer."
+msgstr ""
+"Programbundtekst skal være ger. Gå til primær konfiguration eller håndter "
+"websted for at redigere denne bundtekst."
+
+msgid "Buy credit page"
+msgstr "Køb kredit side"
+
+msgid "Default ACL upon registration"
+msgstr "Standard ACL ved registrering"
+
+msgid "Default SMS rate"
+msgstr "Standard SMS takst"
+
+msgid "Default SMSC"
+msgstr "Standard SMSC"
+
+msgid "Default account status upon registration"
+msgstr "Standard kontostatus ved registrering"
+
+msgid "Default credit upon registration"
+msgstr "Standard kredit ved registrering"
+
+msgid "Default language"
+msgstr "Standard sprog"
+
+msgid ""
+"Default parent selected upon registration when the default account status on "
+"registration setting set to Subuser"
+msgstr ""
+"Standard forælder valgt ved registrering, når standard kontostatus er sat "
+"til underbruger"
+
+msgid "Default parent upon registration"
+msgstr "Standatd forælder ved registrering"
+
+msgid "Default prefix or country code"
+msgstr "Standard præfiks eller landekode"
+
+msgid ""
+"Default prefix or country code to replace prefix 0 on destination number"
+msgstr ""
+"Standard præfiks eller landekode der skal erstatte præfiks 0 på "
+"destinationsnummer"
+
+msgid "Default sender ID"
+msgstr "Standard afsender ID"
+
+msgid "Default settings"
+msgstr "Standardindstillinger"
+
+msgid "Default site configuration"
+msgstr "Standard webstedskonfiguration"
+
+msgid "Default timezone"
+msgstr "Standard tidszone"
+
+msgid ""
+"Define a single character as keyword separator replacing default keyword "
+"separator a space"
+msgstr ""
+"Angiv et enkelt tegn der skal bruges som nøgleords separator i stedet for "
+"mellemrum som separator"
+
+msgid "Disable login as subuser"
+msgstr "Deaktiver login som underbruger"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "F.eks: +0700 for Jakarta/Bangkok tidszone"
+
+msgid "Empty default sender ID to allow users setting their own sender ID"
+msgstr ""
+"Nulstil standard afsender ID for at lade brugere vælge deres eget afsender ID"
+
+msgid "Enable credit unicode SMS as normal SMS"
+msgstr "Aktiver kreditering af unicode SMS som normal SMS"
+
+msgid "Enable forgot password"
+msgstr "Aktiver glemt adgangskode"
+
+msgid "Enable login brute force detection"
+msgstr "Aktiver opdagelse af brute force login"
+
+msgid "Enable logo"
+msgstr "Aktiver logo"
+
+msgid "Enable public registration"
+msgstr "Aktiver offentlig registrering"
+
+msgid "Enhance privacy for subusers"
+msgstr "Forbedr privatliv for underbrugere"
+
+msgid "Fill with zero to disable limit"
+msgstr "Udfyld med nul for at deaktivere begrænsning"
+
+msgid "Forwarded email footer"
+msgstr "Videresendt e-mail bundtekst"
+
+msgid "Go to main configuration or manage site to edit this page"
+msgstr ""
+"Gå til primær konfiguration eller håndter sted for at redigere denne side"
+
+msgid "Information"
+msgstr "Information"
+
+msgid "Information page"
+msgstr "Informationsside"
+
+msgid "Keyword separator"
+msgstr "Nøgleords separator"
+
+msgid "Layout footer"
+msgstr "Layout bundtekst"
+
+msgid "Logo URL"
+msgstr "Logo URL"
+
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
+"Logo vil vises som standard ved login-, registrerings- og glemt adgangskode-"
+"sider"
+
+msgid "Lowest credit limit to trigger notification"
+msgstr "Laveste kredritgrænse der aktiverer besked"
+
+msgid "Main configuration"
+msgstr "Primær konfiguration"
+
+msgid "Main configuration changes has been saved"
+msgstr "Ændringer i primær konfiguration er blevet gemt"
+
+msgid "Main website URL"
+msgstr "Primær websted URL"
+
+msgid "Main website name"
+msgstr "Primær webstedsnavn"
+
+msgid "Maximum SMS count"
+msgstr "Maksimum antal SMS"
+
+msgid "Maximum username length"
+msgstr "Maksimum brugernavns længde"
+
+msgid "Maximum username length must be a number between 4 to 100"
+msgstr "Maksimum brugernavns længde skal være et tal mellem 4 og 100"
+
+msgid "Number of sent SMS per hour limit"
+msgstr "Grænse for antal sendte SMS per time"
+
+msgid "Page content"
+msgstr "Sideindhold"
+
+msgid "Page title"
+msgstr "Sidetitel"
+
+msgid "Replace website title with logo"
+msgstr "Erstat websidetitel med logo"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid ""
+"Set credit value bigger than 0 to set credit lowest limit that will trigger "
+"notification"
+msgstr ""
+"Sæt kredit værdien større end 0 for at indstille den midste grænse der vil "
+"aktivere en besked"
+
+msgid "Subuser"
+msgstr "Underbruger"
+
+msgid "User"
+msgstr "Bruger"
+
+msgid "Website URL"
+msgstr "Webside URL"
+
+msgid "Website email"
+msgstr "Webside e-mail"
+
+msgid "Website title"
+msgstr "Websidetitel"
+
+msgid "no"
+msgstr "nej"
+
+msgid "yes"
+msgstr "ja"

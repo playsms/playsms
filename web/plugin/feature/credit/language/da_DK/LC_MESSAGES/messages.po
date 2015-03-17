@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Add credit"
+msgstr "Tilføj kredit"
+
+msgid "Add credit to users"
+msgstr "Tilføj kredit til brugere"
+
+msgid "Administrator"
+msgstr "Administrator"
+
+msgid "Administrators"
+msgstr "Administratorer"
+
+msgid "Amount"
+msgstr "Beløb"
+
+msgid "Are you sure you want to delete these transactions ?"
+msgstr "Er du sikker på at du ønsker at slette disse transaktioner ?"
+
+msgid "Balance"
+msgstr "Balance"
+
+msgid "Balance recorded on transaction"
+msgstr "Balance på transaktionen"
+
+msgid "Credit has been added"
+msgstr "Der er tilføjet kredit"
+
+msgid "Credit has been reduced"
+msgstr "Der er reduceret kredit"
+
+msgid "Fail to add credit"
+msgstr "Kunne ikke tilføje kredit"
+
+msgid "Fail to reduce credit"
+msgstr "Kunne ikke reducere kredit"
+
+msgid "List of transactions"
+msgstr "Liste over transaktioner"
+
+msgid "Manage credit"
+msgstr "Håndter kredit"
+
+msgid "Reduce credit"
+msgstr "Reducer kredit"
+
+msgid "Reduce credit from users"
+msgstr "Reducer kredit fra brugere"
+
+msgid "Select users"
+msgstr "Vælg brugere"
+
+msgid "Selected transactions has been deleted"
+msgstr "Valgte transaktioner er blevet slettet"
+
+msgid "Subuser"
+msgstr "Underbruger"
+
+msgid "Subusers"
+msgstr "Underbrugere"
+
+msgid "Transaction datetime"
+msgstr "Transaktion dato-tid"
+
+msgid "User"
+msgstr "Bruger"
+
+msgid "User ID"
+msgstr "Bruger ID"
+
+msgid "Username"
+msgstr "Brugernavn"
+
+msgid "Users"
+msgstr "Brugere"
+
+msgid "Wrong amount or user does not exist"
+msgstr "Forkert beløb eller brugeren eksisterer ikke"
+
+msgid "amount"
+msgstr "beløb"
+
+msgid "balance"
+msgstr "balance"
+
+msgid "index.php?app=main&inc=feature_credit&op=actions&go=add"
+msgstr "index.php?app=main&inc=feature_credit&op=actions&go=add"
+
+msgid "index.php?app=main&inc=feature_credit&op=actions&go=reduce"
+msgstr "index.php?app=main&inc=feature_credit&op=actions&go=reduce"
+
+msgid "user"
+msgstr "bruger"

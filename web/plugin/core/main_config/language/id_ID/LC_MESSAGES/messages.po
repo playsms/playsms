@@ -3,6 +3,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "ACL DEFAULT will not restrict access to menus"
+msgstr ""
+
 msgid ""
 "Access to unknown domain mapped to this server IP address will be redirected "
 "to this website URL. This website URL should be the primary address for the "
@@ -32,19 +35,37 @@ msgstr ""
 msgid "Buy credit page"
 msgstr ""
 
+msgid "Default ACL upon registration"
+msgstr ""
+
 msgid "Default SMS rate"
 msgstr ""
 
 msgid "Default SMSC"
 msgstr ""
 
-msgid "Default account status on registration"
+msgid "Default account status upon registration"
 msgstr ""
 
-msgid "Default credit for user"
+msgid "Default credit upon registration"
 msgstr ""
 
 msgid "Default language"
+msgstr ""
+
+msgid ""
+"Default parent selected upon registration when the default account status on "
+"registration setting set to Subuser"
+msgstr ""
+
+msgid "Default parent upon registration"
+msgstr ""
+
+msgid "Default prefix or country code"
+msgstr ""
+
+msgid ""
+"Default prefix or country code to replace prefix 0 on destination number"
 msgstr ""
 
 msgid "Default sender ID"
@@ -57,6 +78,11 @@ msgid "Default site configuration"
 msgstr ""
 
 msgid "Default timezone"
+msgstr ""
+
+msgid ""
+"Define a single character as keyword separator replacing default keyword "
+"separator a space"
 msgstr ""
 
 msgid "Disable login as subuser"
@@ -101,6 +127,9 @@ msgstr ""
 msgid "Information page"
 msgstr ""
 
+msgid "Keyword separator"
+msgstr ""
+
 msgid "Layout footer"
 msgstr ""
 
@@ -109,6 +138,9 @@ msgstr ""
 
 msgid ""
 "Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
+
+msgid "Lowest credit limit to trigger notification"
 msgstr ""
 
 msgid "Main configuration"
@@ -126,6 +158,12 @@ msgstr ""
 msgid "Maximum SMS count"
 msgstr ""
 
+msgid "Maximum username length"
+msgstr ""
+
+msgid "Maximum username length must be a number between 4 to 100"
+msgstr ""
+
 msgid "Number of sent SMS per hour limit"
 msgstr ""
 
@@ -139,6 +177,11 @@ msgid "Replace website title with logo"
 msgstr ""
 
 msgid "Save"
+msgstr ""
+
+msgid ""
+"Set credit value bigger than 0 to set credit lowest limit that will trigger "
+"notification"
 msgstr ""
 
 msgid "Subuser"

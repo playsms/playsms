@@ -40,16 +40,14 @@ function acl_getall() {
 }
 
 function acl_getallbyuid($uid) {
+	global $core_config;
+	
 	$acl_id = acl_getidbyuid($uid);
 	$acl_name = acl_getname($acl_id);
 	
 	if (!$acl_name) {
 		return FALSE;
 	}
-	
-	$ret = array(
-		$acl_id => $acl_name 
-	);
 	
 	$acl_subusers = explode(',', acl_getaclsubuser($acl_id));
 	foreach ($acl_subusers as $acl_subuser) {
@@ -59,6 +57,14 @@ function acl_getallbyuid($uid) {
 		if ($c_acl_id && $acl_subuser) {
 			$ret[$c_acl_id] = $acl_subuser;
 		}
+	}
+	
+	if (!count($ret)) {
+		$default_acl_id = ($core_config['main']['default_acl'] ? $core_config['main']['default_acl'] : 0);
+		$default_acl_name = acl_getname($default_acl_id);
+		$ret = array(
+			$default_acl_id => $default_acl_name 
+		);
 	}
 	
 	return $ret;
@@ -143,6 +149,7 @@ function acl_getnamebyuid($uid) {
 
 function acl_getidbyuid($uid) {
 	$list = dba_search(_DB_PREF_ . '_tblUser', 'acl_id', array(
+		'flag_deleted' => 0,
 		'uid' => $uid 
 	));
 	$acl_id = (int) $list[0]['acl_id'];
@@ -160,6 +167,7 @@ function acl_setbyuid($acl_id, $uid) {
 		if (dba_update(_DB_PREF_ . '_tblUser', array(
 			'acl_id' => $acl_id 
 		), array(
+			'flag_deleted' => 0,
 			'uid' => $uid 
 		))) {
 			return TRUE;
@@ -175,6 +183,9 @@ function acl_checkurl($url, $uid = 0) {
 	$uid = ((int) $uid ? (int) $uid : $user_config['uid']);
 	$acl_id = acl_getidbyuid($uid);
 	if ($acl_urls = acl_geturl($acl_id)) {
+		$acl_urls[] = 'app=ws';
+		$acl_urls[] = 'app=webservice';
+		$acl_urls[] = 'app=webservices';
 		$acl_urls[] = 'inc=core_auth';
 		$acl_urls[] = 'inc=core_welcome';
 		if (!$core_config['daemon_process'] && $url && $uid && $acl_id) {

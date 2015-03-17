@@ -6,11 +6,11 @@ msgstr ""
 "PO-Revision-Date: \n"
 "Last-Translator: Jonadabe <jonadabe@hotmail.com>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.7.5\n"
 
 msgid "Add"
 msgstr "Adicionar"
@@ -24,8 +24,11 @@ msgstr "Banir"
 msgid "Buy"
 msgstr "Comprar"
 
+msgid "Compose message"
+msgstr "Enviar mensagem"
+
 msgid "Delete"
-msgstr "Remover"
+msgstr "Eliminar"
 
 msgid "Delete user"
 msgstr "Eliminar utilizador"
@@ -40,19 +43,19 @@ msgid "FATAL ERROR"
 msgstr "ERRO FATAL"
 
 msgid "Fail to connect to database"
-msgstr "Falha na ligação à base de dados"
+msgstr "Erro na ligação à base de dados"
 
 msgid "Fail to load gateway"
-msgstr "Falha ao carregar o gateway"
+msgstr "Erro ao carregar o gateway"
 
 msgid "Fail to load language"
-msgstr "Falha ao carregar o idioma"
+msgstr "Erro ao carregar o idioma"
 
 msgid "Fail to load main config from registry"
-msgstr "Falha ao carregar a configuração a partir do registo"
+msgstr "Erro ao carregar a configuração a partir do registo"
 
 msgid "Fail to load themes"
-msgstr "Falha ao carregar tema"
+msgstr "Erro ao carregar tema"
 
 msgid "Features"
 msgstr "Características"
@@ -75,9 +78,8 @@ msgstr "Em espera"
 msgid "Import"
 msgstr "Importar"
 
-#, fuzzy
 msgid "Logged in as"
-msgstr "Login como"
+msgstr "Logado como"
 
 msgid "Login as"
 msgstr "Login como"
@@ -91,9 +93,8 @@ msgstr "Configurações principais"
 msgid "Manage"
 msgstr "Administrar"
 
-#, fuzzy
 msgid "Manage ACL"
-msgstr "Administrar"
+msgstr "Gerir ACL"
 
 msgid "Manage account"
 msgstr "Gerir conta"
@@ -120,7 +121,7 @@ msgid "Manage subusers"
 msgstr "Gerir subutilizador"
 
 msgid "Manage user"
-msgstr "Administrar usuário"
+msgstr "Gerir Utilizadores"
 
 msgid "Move"
 msgstr "Mover"
@@ -174,7 +175,7 @@ msgid "View"
 msgstr "Visualizar"
 
 msgid "Your credit"
-msgstr ""
+msgstr "Meus Créditos"
 
 msgid "return"
-msgstr ""
+msgstr "Voltar"

@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Copy the message to user inbox when incoming SMS contains @username"
+msgstr ""
+"Kopier beskeden til brugers indbakke når indkommende SMS indeholder @username"
+
+msgid "Fail to insert keyword"
+msgstr "Kunne ikke indsætte nøgleord"
+
+msgid "Incoming SMS route changes has been saved"
+msgstr "Indkommende SMS rute ændringer er blevet gemt"
+
+msgid "Insert keyword"
+msgstr "Indsæt nøgleord"
+
+msgid "Leave a copy in sandbox SMS page"
+msgstr "Læg en kopi i sandbox SMS siden"
+
+msgid "Leaving a copy in sandbox SMS page may be useful for audit or reviews"
+msgstr ""
+"At lægge en kopi i sandbox SMS siden kan være godt til auditering eller "
+"gennemgange"
+
+msgid "Match with all approved sender ID"
+msgstr "Sammenlign med alle godkendte afsender ID'er"
+
+msgid "No route has been saved"
+msgstr "Ingen rute er blevet gemt"
+
+msgid "Post rules"
+msgstr "Efter regler"
+
+msgid "Pre rules"
+msgstr "Før regler"
+
+msgid ""
+"Receiver number can be matched with default sender ID or with all approved "
+"sender ID"
+msgstr ""
+"Modtagernummer kan sammenlignes med standard afsender ID eller med alle "
+"godkendte afsender ID'er"
+
+msgid "Route all sandbox SMS to users"
+msgstr "Diriger alle sandbox SMS til brugere"
+
+msgid "Route all sandbox SMS with matched sender ID"
+msgstr "Diriger alle sandbox SMS med sammenlignet afsender ID"
+
+msgid "Route incoming SMS"
+msgstr "Diriger indkommende SMS"
+
+msgid "Route to user inbox if receiver number matched with user sender ID"
+msgstr ""
+"Diriger til brugerindbakke hvis modtager nummer passer med brugers afsender "
+"ID"
+
+msgid "Rules applied after incoming SMS processed"
+msgstr "Regler der anvendes efter behandling af indkommende SMS"
+
+msgid "Rules applied before incoming SMS processed"
+msgstr "Regler der anvendes før behandling af indkommende SMS"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "Scan incoming SMS for #groupcode"
+msgstr "Søg i indkommende SMS efter #gruppekode"
+
+msgid "Scan incoming SMS for @username"
+msgstr "Søg i indkommende SMS efter @brugernavn"
+
+msgid "Select users"
+msgstr "Vælg brugere"
+
+msgid "Send SMS to groups with found group codes in the incoming SMS"
+msgstr "Send SMS til grupper når gruppekode findes i indkommende SMS"
+
+msgid "Settings"
+msgstr "Indstillinger"
+
+msgid "keyword"
+msgstr "nøgleord"

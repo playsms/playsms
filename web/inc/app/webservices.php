@@ -501,6 +501,7 @@ if (_OP_) {
 						'token' => $token 
 					);
 					$conditions = array(
+						'flag_deleted' => 0,
 						'uid' => $c_uid 
 					);
 					if (dba_update(_DB_PREF_ . '_tblUser', $items, $conditions)) {
@@ -572,8 +573,16 @@ if (_OP_) {
 			if (_OP_) {
 				
 				// output do not require valid login
-				$ret = webservices_output(_OP_, $_REQUEST);
-				_p($ret);
+				// output must not be empty
+				$ret = webservices_output(_OP_, $_REQUEST, $returns);
+				
+				if ($ret['modified'] && $ret['param']['content']) {
+					ob_end_clean();
+					if ($ret['param']['content-type'] && $ret['param']['charset']) {
+						header('Content-type: ' . $ret['param']['content-type'] . '; charset=' . $ret['param']['charset']);
+					}
+					_p($ret['param']['content']);
+				}
 				exit();
 			} else {
 				

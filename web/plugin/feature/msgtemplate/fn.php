@@ -4,14 +4,13 @@ defined('_SECURE_') or die('Forbidden');
 /*
  * intercept sendsms and replace certain word templates in $sms_msg @param $sms_sender sender number @param $sms_footer sender signiture/footer @param $sms_to destination number @param $sms_msg SMS message @param $uid User ID @param $gpid Group phonebook ID @param $sms_type Type of SMS @param $unicode Whether or not a unicode message @param $smsc Gateway @return array $ret
  */
-function msgtemplate_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $smsc) {
+function msgtemplate_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $queue_code, $smsc) {
 	// parameters modified
 	$ret['modified'] = true;
 	
 	// the modification to $sms_msg, case insensitive
-	$c_username = user_uid2username($uid);
 	$text = $sms_msg;
-	$text = str_ireplace('#NAME#', phonebook_number2name($sms_to, $c_username), $text);
+	$text = str_ireplace('#NAME#', phonebook_number2name($uid, $sms_to), $text);
 	$text = str_ireplace('#NUM#', $sms_to, $text);
 	$ret['param']['sms_msg'] = $text;
 	

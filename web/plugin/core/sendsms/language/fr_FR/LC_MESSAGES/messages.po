@@ -3,6 +3,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#, fuzzy
+msgid "Compose message"
+msgstr "Message Unicode"
+
+msgid "Fail to send message to all destination"
+msgstr ""
+
 msgid "Flash message"
 msgstr "Message flash"
 
@@ -33,14 +40,14 @@ msgstr "Planification"
 msgid "Send"
 msgstr "Envoyer"
 
-msgid "Send message"
-msgstr "Envoyer le message"
-
 msgid "Send to"
 msgstr "Envoyer "
 
 msgid "Sender ID"
 msgstr "Sender ID"
+
+msgid "System error has occured"
+msgstr ""
 
 msgid "Unicode message"
 msgstr "Message Unicode"
@@ -51,6 +58,10 @@ msgstr ""
 "vide"
 
 msgid "Your message has been delivered to queue"
+msgstr "Votre message a été mis dans la file d'attente"
+
+#, fuzzy
+msgid "Your message has been delivered to some of the destination"
 msgstr "Votre message a été mis dans la file d'attente"
 
 msgid "chars"

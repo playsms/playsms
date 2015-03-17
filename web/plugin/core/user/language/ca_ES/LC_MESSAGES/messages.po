@@ -17,6 +17,9 @@ msgstr ""
 msgid "ACL"
 msgstr ""
 
+msgid "ACL DEFAULT will not restrict access to menus"
+msgstr ""
+
 msgid "Access Control List"
 msgstr ""
 
@@ -41,6 +44,9 @@ msgstr ""
 msgid "Account has been unbanned"
 msgstr ""
 
+msgid "Account is already exists"
+msgstr ""
+
 msgid "Account name is mandatory"
 msgstr ""
 
@@ -48,6 +54,12 @@ msgid "Account registration is not available"
 msgstr ""
 
 msgid "Account status"
+msgstr ""
+
+msgid "Account with this email is already exists"
+msgstr ""
+
+msgid "Account with this mobile is already exists"
 msgstr ""
 
 msgid "Action"
@@ -283,9 +295,6 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-msgid "Select parent account for subuser"
-msgstr ""
-
 msgid "State or Province"
 msgstr ""
 
@@ -333,9 +342,6 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-msgid "User already exists"
-msgstr ""
-
 msgid "User configuration"
 msgstr ""
 
@@ -366,16 +372,11 @@ msgstr ""
 msgid "User is not on banned users list"
 msgstr ""
 
-msgid "User with this email already exists"
-msgstr ""
-
-msgid "User with this mobile already exists"
-msgstr ""
-
 msgid "Username"
 msgstr ""
 
-msgid "Username should be at least 3 characters"
+#, php-format
+msgid "Username must be at least 3 characters and maximum %d characters"
 msgstr ""
 
 msgid "Users"

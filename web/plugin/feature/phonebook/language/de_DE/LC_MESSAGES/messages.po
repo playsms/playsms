@@ -17,6 +17,9 @@ msgstr "Gruppe hinzufügen"
 msgid "Anyone"
 msgstr "Jeder"
 
+msgid "CSV file format"
+msgstr ""
+
 msgid "Contact has been added"
 msgstr "Kontakt wurde hinzugefügt"
 
@@ -90,11 +93,18 @@ msgstr "Mobil"
 msgid "Move to"
 msgstr "Verschieben nach"
 
+msgid "Multiple entries separated by space"
+msgstr ""
+
 msgid "Name"
 msgstr "Name"
 
 msgid "No changes have been made"
 msgstr "Es wurden KEINE Änderungen vorgenommen"
+
+#, fuzzy
+msgid "No group"
+msgstr "Gruppe"
 
 msgid "Phonebook"
 msgstr "Telefonbuch"
@@ -104,6 +114,10 @@ msgstr "Bitte CSV-Datei für Telefonbuch-Einträge auswählen"
 
 #, fuzzy
 msgid "Please use alphanumeric only and make it short"
+msgstr "Bitte in Großbuchstaben und kurz"
+
+#, fuzzy
+msgid "Please use uppercase and make it short"
 msgstr "Bitte in Großbuchstaben und kurz"
 
 msgid "Save"
@@ -129,6 +143,9 @@ msgid ""
 "group from mobile phone"
 msgstr ""
 
+msgid "Tags"
+msgstr ""
+
 msgid "Unable to delete group until the group is empty"
 msgstr "Gruppe kann nicht gelöscht werden bevor sie nicht leer ist"
 
@@ -144,11 +161,5 @@ msgstr "Es müssen die Pflichtfelder ausgefüllt werden"
 msgid "code"
 msgstr "Kürzel"
 
-msgid "format"
-msgstr "Format"
-
 msgid "group"
 msgstr "Gruppe"
-
-msgid "please use uppercase and make it short"
-msgstr "Bitte in Großbuchstaben und kurz"

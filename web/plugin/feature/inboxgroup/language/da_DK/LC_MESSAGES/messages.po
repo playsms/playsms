@@ -1,0 +1,196 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Add catch-all"
+msgstr "Tilføj catch-all"
+
+msgid "Add group inbox"
+msgstr "Tilføj gruppe-indbakke"
+
+msgid "Add member"
+msgstr "Tilføj medlem"
+
+msgid "All users"
+msgstr "Alle brugere"
+
+msgid "Are you sure you want to delete this group inbox ?"
+msgstr "Er du sikker på at du ønsker at slette denne gruppe-indbakke?"
+
+msgid "Catch-all"
+msgstr "Catch-all"
+
+msgid "Catch-all has been added"
+msgstr "Catch-all er blevet tilføjet"
+
+msgid "Catch-all has been deleted"
+msgstr "Catch-all er blevet slettet"
+
+msgid "Catch-all list"
+msgstr "Catch-all liste"
+
+msgid "Current catchall"
+msgstr "Aktuel catch-all"
+
+msgid "Current members"
+msgstr "Aktuelle medlemmer"
+
+msgid "Delete catch-all"
+msgstr "Slet catch-all"
+
+msgid "Delete group inbox"
+msgstr "Slet gruppe-indbakke"
+
+msgid "Delete member"
+msgstr "Slet medlem"
+
+msgid "Description"
+msgstr "Beskrivelse"
+
+msgid "Edit group inbox"
+msgstr "Rediger grupper-indbakke"
+
+msgid "Exclusive"
+msgstr "Eksklusiv"
+
+msgid "Fail to add catch-all"
+msgstr "Kunne ikke tilføje catch-all"
+
+msgid "Fail to add group inbox"
+msgstr "Kunne ikke tilføje gruppe-indbakke"
+
+msgid "Fail to add member"
+msgstr "Kunne ikke tilføje medlem"
+
+msgid "Fail to delete catch-all"
+msgstr "Kunne ikke slette catch-all"
+
+msgid "Fail to delete group inbox"
+msgstr "Kunne ikke slette gruppe-indbakke"
+
+msgid "Fail to delete member"
+msgstr "Kunne ikke slette medlem"
+
+msgid "Fail to disable group inbox"
+msgstr "Kunne ikke deaktivere gruppe-indbakke"
+
+msgid "Fail to edit group inbox"
+msgstr "Kunne ikke redigere gruppe-indbakke"
+
+msgid "Fail to enable group inbox"
+msgstr "Kunne ikke aktivere gruppe-indbakke"
+
+msgid "For example a short code"
+msgstr "En kort kode for eksempel"
+
+msgid "Group inbox"
+msgstr "Gruppe-indbakke"
+
+msgid "Group inbox has been added"
+msgstr "Gruppe-indbakke er blevet tilføjet"
+
+msgid "Group inbox has been deleted"
+msgstr "Gruppe-indbakke er blevet slettet"
+
+msgid "Group inbox has been disabled"
+msgstr "Gruppe-indbakke er blevet deaktiveret"
+
+msgid "Group inbox has been edited"
+msgstr "Gruppe-indbakke er blevet redigeret"
+
+msgid "Group inbox has been enabled"
+msgstr "Gruppe-indbakke er blevet aktiveret"
+
+msgid "Keywords"
+msgstr "Nøgleord"
+
+msgid "Member has been added"
+msgstr "Medlem er blevet tilføjet"
+
+msgid "Member has been deleted"
+msgstr "Medlem er blevet slettet"
+
+msgid "Member list"
+msgstr "Medlemsliste"
+
+msgid "Members"
+msgstr "Medlemmer"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "Number"
+msgstr "Nummer"
+
+msgid "Press submit button to add selected users to catch-all list"
+msgstr ""
+"Tryk på knappen indsend for at tilføje valgte brugere til catch-all listen"
+
+msgid "Press submit button to add selected users to member list"
+msgstr ""
+"Tryk på knappen indsend for at tilføje valgte brugere til medlemslisten"
+
+msgid "Press submit button to remove selected catchall from catch-all list"
+msgstr ""
+"Tryk på knappen indsend for at fjerne valgte brugere fra catch-all listen"
+
+msgid "Press submit button to remove selected members from member list"
+msgstr "Tryk på knappen indsend for at fjerne valgte brugere fra medlemslisten"
+
+msgid "Receiver number"
+msgstr "Modtagernummer"
+
+msgid "Receiver number does not exist"
+msgstr "Modtagernummer eksisterer ikke"
+
+msgid "Restrict sender to regular members or catch-all members only"
+msgstr "Begræns afsender til normale medlemmer eller catch-all medlemmer"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "Selected catchall"
+msgstr "Valgte catch-all"
+
+msgid "Selected members"
+msgstr "Valgte medlemmer"
+
+msgid "Selected users"
+msgstr "Valgte brugere"
+
+msgid "Separate with comma for multiple items"
+msgstr "Flere emner adskilles med komma"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Username"
+msgstr "Brugernavn"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "You must fill all fields"
+msgstr "Du skal udfylde alle felter"
+
+msgid "no"
+msgstr "nej"
+
+msgid "yes"
+msgstr "ja"

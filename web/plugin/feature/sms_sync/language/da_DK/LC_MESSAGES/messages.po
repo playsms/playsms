@@ -1,0 +1,46 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Check to enable receiving push messages from SMSSync app"
+msgstr "Marker for at aktivere modtagelse af push beskeder fra SMSSync app"
+
+msgid "Download SMSSync app for Android from"
+msgstr "Download SMSSync app til Android fra"
+
+msgid "Enable SMS Sync"
+msgstr "Aktiver SMS Sync"
+
+msgid "Fail to save SMS Sync configuration"
+msgstr "Kunne ikke gemme SMS Sync konfiguration"
+
+msgid "Manage sync"
+msgstr "Håndter sync"
+
+msgid "Notes"
+msgstr "Noter"
+
+msgid "SMS Sync configuration has been saved"
+msgstr "SMS Sync konfiguration er blevet gemt"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "Secret key"
+msgstr "Hemmelig nøgle"
+
+msgid "Secret key is used in SMSSync app"
+msgstr "Hemmelig nøgle bruges i SMSSync app"
+
+msgid "Sync URL"
+msgstr "Sync URL"

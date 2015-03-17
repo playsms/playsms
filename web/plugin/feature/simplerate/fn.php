@@ -77,7 +77,7 @@ function simplerate_hook_rate_getbyprefix($sms_to) {
 	return $rate;
 }
 
-function simplerate_hook_rate_getcharges($sms_len, $unicode, $sms_to) {
+function simplerate_hook_rate_getcharges($uid, $sms_len, $unicode, $sms_to) {
 	global $user_config;
 	
 	// default length per SMS
@@ -87,7 +87,8 @@ function simplerate_hook_rate_getcharges($sms_len, $unicode, $sms_to) {
 	$minus = ($unicode ? 3 : 7);
 	
 	// count unicodes as normal SMS
-	if ($unicode && $user_config['opt']['enable_credit_unicode']) {
+	$user = user_getdatabyuid($uid);
+	if ($unicode && $user['opt']['enable_credit_unicode']) {
 		$length = 140;
 	}
 	
@@ -101,6 +102,8 @@ function simplerate_hook_rate_getcharges($sms_len, $unicode, $sms_to) {
 	$rate = rate_getbyprefix($sms_to);
 	$charge = $count * $rate;
 	
+	_log('uid:' . $uid . ' u:' . $user['username'] . ' len:' . $sms_len . ' unicode:' . $unicode . ' to:' . $sms_to . ' enable_credit_unicode:' . (int) $user['opt']['enable_credit_unicode'] . ' count:' . $count . ' rate:' . $rate . ' charge:' . $charge, 3, 'simplerate_hook_rate_getcharges');
+	
 	return array(
 		$count,
 		$rate,
@@ -111,14 +114,14 @@ function simplerate_hook_rate_getcharges($sms_len, $unicode, $sms_to) {
 function simplerate_hook_rate_cansend($username, $sms_len, $unicode, $sms_to) {
 	global $core_config;
 	
-	list($count, $rate, $charge) = rate_getcharges($sms_len, $unicode, $sms_to);
+	$uid = user_username2uid($username);
+	list($count, $rate, $charge) = rate_getcharges($uid, $sms_len, $unicode, $sms_to);
 	
 	// sender's
 	$credit = rate_getusercredit($username);
 	$balance = $credit - $charge;
 	
 	// parent's when sender is a subuser
-	$uid = user_username2uid($username);
 	$parent_uid = user_getparentbyuid($uid);
 	if ($parent_uid) {
 		$username_parent = user_uid2username($parent_uid);
@@ -161,7 +164,7 @@ function simplerate_hook_rate_deduct($smslog_id) {
 			
 			// get charge
 			$p_msg_len = strlen($p_msg) + strlen($p_footer);
-			list($count, $rate, $charge) = rate_getcharges($p_msg_len, $unicode, $p_dst);
+			list($count, $rate, $charge) = rate_getcharges($uid, $p_msg_len, $unicode, $p_dst);
 			
 			// sender's
 			$username = user_uid2username($uid);
@@ -188,13 +191,42 @@ function simplerate_hook_rate_deduct($smslog_id) {
 				logger_print("user uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id . " msglen:" . $p_msg_len . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " credit:" . $credit . " balance:" . $balance, 2, "simplerate deduct");
 				if (billing_post($smslog_id, $rate, $credit, $count, $charge)) {
 					logger_print("deduct successful uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
+					
+					// if balance under credit lowest limit but higher than 80% of credit lowest limit and charge > 0 then notify admins, parent_uid and uid
+					$credit_lowest_limit = (float) $core_config['main']['credit_lowest_limit'];
+					_log('credit_lowest_limit:' . $credit_lowest_limit . ' balance:' . $balance . ' charge:' . $charge, 3, 'simplerate deduct');
+					if (($balance <= $credit_lowest_limit) && (($credit_lowest_limit * 0.8) >= $balance) && ($charge > 0)) {
+						// notif admins
+						$admins = user_getallwithstatus(2);
+						foreach ($admins as $admin) {
+							$credit_message_to_admins = sprintf(_('Username %s with account ID %d has reached lowest credit limit of %s'), $username, $uid, $credit_lowest_limit);
+							recvsms_inbox_add(core_get_datetime(), 'admin', $admin['username'], $credit_message_to_admins);
+						}
+						// notif parent_uid if exists
+						if ($parent_uid && $username_parent) {
+							$credit_message_to_parent = sprintf(_('Your subuser with username %s and account ID %d have reached lowest credit limit of %s'), $username, $uid, $credit_lowest_limit);
+							recvsms_inbox_add(core_get_datetime(), 'admin', $username_parent, $credit_message_to_parent);
+						}
+						// notif uid
+						$credit_message_to_self = sprintf(_('You have reached lowest credit limit of %s'), $credit_lowest_limit);
+						recvsms_inbox_add(core_get_datetime(), 'admin', $username, $credit_message_to_self);
+						
+						_log('sent notification credit_lowest_limit:' . $credit_lowest_limit, 3, 'simplerate deduct');
+					}
+					
 					return TRUE;
 				} else {
 					logger_print("deduct failed uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
 					return FALSE;
 				}
+			} else {
+				logger_print("rate deduct failed due to unable to save to db uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
 			}
+		} else {
+			logger_print("rate deduct failed due to empty data uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
 		}
+	} else {
+		logger_print("rate deduct failed due to missing data uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
 	}
 	
 	return FALSE;

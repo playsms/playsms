@@ -7,6 +7,9 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
+msgid "Please select"
+msgstr ""
+
 msgid "Search"
 msgstr ""
 

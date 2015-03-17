@@ -1,0 +1,79 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.5\n"
+
+msgid "Check email sender"
+msgstr "Verifique o remetente do email"
+
+msgid "Email protocol"
+msgstr "Protocolo de Email"
+
+msgid "Email to SMS PIN has been saved"
+msgstr "Email para SMS PIN foi guardado"
+
+msgid "Email to SMS PIN has been saved but service is disabled"
+msgstr "Email para SMS PIN foi guardado mas serviço é desactivado"
+
+msgid "Email to SMS address"
+msgstr "E-mail para o endereço SMS"
+
+msgid "Email to SMS configuration has been saved and service disabled"
+msgstr "Configuração do E-mail para SMS foi guardado e serviço desactivado"
+
+msgid "Email to SMS configuration has been saved and service enabled"
+msgstr "Configuração do E-mail para SMS foi guardado e serviço activado"
+
+msgid "Enable fetch new emails"
+msgstr "Permitir verificar novos e-mails"
+
+msgid "Fail to save email to SMS PIN"
+msgstr "Erro ao guardar configurações e-mail para SMS"
+
+msgid "Fill the password field to change password"
+msgstr "Preencher o campo palavra-passe para alterar a palavra-passe"
+
+msgid "Mail server address"
+msgstr "Servidor de email"
+
+msgid "Mail server port"
+msgstr "Porta servidor Email"
+
+msgid "Mailbox password"
+msgstr "Palavra-passe da caixa de correio"
+
+msgid "Mailbox username"
+msgstr "Nome de Utilizador da caixa de correio"
+
+msgid "Manage email to SMS"
+msgstr "Gerir Email para SMS"
+
+msgid "My email to SMS"
+msgstr "Meu email para sms"
+
+msgid "No validate cert option"
+msgstr "Sem opção de validação"
+
+msgid "PIN for email to SMS"
+msgstr "PIN - email para SMS"
+
+msgid "PIN is empty"
+msgstr "PIN não está introduzido"
+
+msgid "Use SSL"
+msgstr "Usar SSL"
+
+msgid "no"
+msgstr "não"
+
+msgid "yes"
+msgstr "sim"

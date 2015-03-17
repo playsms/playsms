@@ -1,0 +1,100 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Add SMS command"
+msgstr "Tilføj SMS kommando"
+
+msgid "Are you sure you want to delete SMS command ?"
+msgstr "Er du sikker på at du ønsker at slettet SMS kommandoen?"
+
+msgid "Edit SMS command"
+msgstr "Rediger SMS kommando"
+
+msgid "Exec"
+msgstr "Kør"
+
+msgid "Fail to add SMS command"
+msgstr "Kunne ikke sende SMS kommando"
+
+msgid "Fail to delete SMS command"
+msgstr "Kunne ikke slettte SMS kommando"
+
+msgid "Fail to save SMS command"
+msgstr "Kunne ikke gemme SMS kommando"
+
+msgid "Keyword"
+msgstr "Nøgleord"
+
+msgid "Make return as reply"
+msgstr "Gør returværdi til svar"
+
+msgid "Manage command"
+msgstr "Håndter kommando"
+
+msgid "Pass these parameter to command exec field"
+msgstr "Brug disse parametre til kommandoen"
+
+msgid "SMS command already exists, reserved or use by other feature"
+msgstr ""
+"SMS kommandoen eksisterer allerede, er reserveret eller bruges af en anden "
+"funtion"
+
+msgid "SMS command exec"
+msgstr "SMS kommando"
+
+msgid "SMS command exec path"
+msgstr "SMS kommando sti"
+
+msgid "SMS command has been added"
+msgstr "SMS kommando er blevet tilføjet"
+
+msgid "SMS command has been deleted"
+msgstr "SMS kommando er blevet slettet"
+
+msgid "SMS command has been saved"
+msgstr "SMS kommando er blevet gemt"
+
+msgid "SMS command keyword"
+msgstr "SMS kommando nøgleord"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "User"
+msgstr "Bruger"
+
+msgid "You must fill all fields"
+msgstr "Du skal udfylde alle felter"
+
+msgid "keyword"
+msgstr "nøgleord"
+
+msgid "will be replaced by SMS incoming date/time"
+msgstr "vil blive erstattet med SMS indkommende dato/tid"
+
+msgid "will be replaced by SMS raw message"
+msgstr "vil blive erstattet med rå SMS besked"
+
+msgid "will be replaced by command keyword"
+msgstr "vil blive erstattet med kommando nøgleord"
+
+msgid "will be replaced by command parameter passed to server from SMS"
+msgstr ""
+"vil blive erstattet med kommando parameter videreført fra server til SMS"
+
+msgid "will be replaced by sender number"
+msgstr "vil blive erstattet med afsendernummer"

@@ -21,7 +21,6 @@ defined('_SECURE_') or die('Forbidden');
 if (!auth_isadmin()) {
 	auth_block();
 }
-;
 
 switch (_OP_) {
 	case "all_outgoing":
@@ -36,22 +35,22 @@ switch (_OP_) {
 		$base_url = 'index.php?app=main&inc=feature_report&route=all_outgoing&op=all_outgoing';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array(
-			'flag_deleted' => 0 
+			'A.flag_deleted' => 0 
 		);
 		$keywords = $search['dba_keywords'];
 		$table = _DB_PREF_ . '_tblSMSOutgoing';
-		$join = 'INNER JOIN ' . _DB_PREF_ . '_tblUser AS B ON A.uid=B.uid';
+		$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.uid=B.uid";
 		$count = dba_count($table . ' AS A', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
-			'ORDER BY' => 'smslog_id DESC',
+			'ORDER BY' => 'A.smslog_id DESC',
 			'LIMIT' => $nav['limit'],
 			'OFFSET' => $nav['offset'] 
 		);
 		$list = dba_search($table . ' AS A', '*', $conditions, $keywords, $extras, $join);
 		
 		$content = "
-			<h2>" . _('All outgoing messages') . "</h2>
+			<h2>" . _('All sent messages') . "</h2>
 			<p>" . $search['form'] . "</p>
 			<form id=fm_all_outgoing name=fm_all_outgoing action=\"index.php?app=main&inc=feature_report&route=all_outgoing&op=actions\" method=POST>
 			" . _CSRF_FORM_ . "
@@ -84,12 +83,9 @@ switch (_OP_) {
 			$p_username = $list[$j]['username'];
 			$p_gateway = $list[$j]['p_gateway'];
 			$smslog_id = $list[$j]['smslog_id'];
+			$p_uid = $list[$j]['uid'];
 			$p_dst = $list[$j]['p_dst'];
-			$p_desc = phonebook_number2name($p_dst);
-			$current_p_dst = $p_dst;
-			if ($p_desc) {
-				$current_p_dst = "$p_dst<br />$p_desc";
-			}
+			$current_p_dst = report_resolve_sender($p_uid, $p_dst);
 			$p_sms_type = $list[$j]['p_sms_type'];
 			if (($p_footer = $list[$j]['p_footer']) && (($p_sms_type == "text") || ($p_sms_type == "flash"))) {
 				$p_msg = $p_msg . ' ' . $p_footer;
@@ -98,6 +94,7 @@ switch (_OP_) {
 			$p_update = $list[$j]['p_update'];
 			$p_status = $list[$j]['p_status'];
 			$p_gpid = $list[$j]['p_gpid'];
+			$c_uid = $list[$j]['uid'];
 			
 			// 0 = pending
 			// 1 = sent
@@ -125,7 +122,7 @@ switch (_OP_) {
 			}
 			
 			if ($p_gpid) {
-				$p_gpcode = strtoupper(phonebook_groupid2code($p_gpid));
+				$p_gpcode = strtoupper(phonebook_groupid2code($c_uid, $p_gpid));
 			} else {
 				$p_gpcode = "&nbsp;";
 			}

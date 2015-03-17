@@ -1,0 +1,124 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Additional URL parameter"
+msgstr "Yderligere URL parametre"
+
+msgid "Bearerbox hostname or IP"
+msgstr "Bearerbox værtsnavn eller IP"
+
+msgid "Changes have been made"
+msgstr "Ændringer er blevet foretaget"
+
+msgid "Delivered to SMSC"
+msgstr "Leveret til SMSC"
+
+msgid "Delivered to phone"
+msgstr "Leveret til telefon"
+
+msgid "Delivery Report"
+msgstr "Afleveringsrapport"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "F.eks: +0700 til Jakarta/Bangkok tidszone"
+
+msgid "Fill to change the password"
+msgstr "Udfyld for at ændre adgangskoden"
+
+msgid "Gateway name"
+msgstr "Gateway navn"
+
+msgid "HTTP Kannel admin host"
+msgstr "HTTP Kannel admin vært"
+
+msgid "HTTP Kannel admin password"
+msgstr "HTTP Kannel admin adgangskode"
+
+msgid "HTTP Kannel admin port"
+msgstr "HTTP Kannel admin port"
+
+msgid "Incoming SMS time is in local time"
+msgstr "Indkommende SMS tid er i lokal tid"
+
+msgid "Kannel admin host"
+msgstr "Kannel admin vært"
+
+msgid "Kannel admin password"
+msgstr "Kannel admin adgangskode"
+
+msgid "Kannel admin port"
+msgstr "Kannel admin port"
+
+msgid "Kannel specific"
+msgstr "Kannel specifikt"
+
+msgid "Kannel status"
+msgstr "Kannel status"
+
+msgid "Manage kannel"
+msgstr "Håndter kannel"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Maks. 16 nummeriske eller 11 alfanumeriske tegn, tom for at deaktivere"
+
+msgid "Module sender ID"
+msgstr "Modul afsenderID"
+
+msgid "Module timezone"
+msgstr "Modul tidszone"
+
+msgid "No"
+msgstr "Nej"
+
+msgid "Non-Delivered to SMSC"
+msgstr "Ikke-leveret til SMSC"
+
+msgid "Non-Delivered to phone"
+msgstr "Ikke-leveret til telefon"
+
+msgid "Password"
+msgstr "Adgangskode"
+
+msgid "Queued on SMSC"
+msgstr "I kø på SMSC"
+
+msgid "Restart Kannel"
+msgstr "Genstart Kannel"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "Select no if the incoming SMS time is in UTC"
+msgstr "Vælg nej, hvis de indkommende SMS tider er i UTC"
+
+msgid "Send SMS hostname or IP"
+msgstr "SMS afsender værtsnavn eller IP"
+
+msgid "Send SMS port"
+msgstr "SMS afsender port"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "URL to playSMS, empty it to set it to base URL"
+msgstr "URL til playSMS, hvis tom sættes den til basis URL"
+
+msgid "Username"
+msgstr "Brugernavn"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "playSMS web URL"
+msgstr "playSMS web URL"

@@ -33,7 +33,7 @@ switch (_OP_) {
 		$schedule_rule = $db_row['schedule_rule'];
 		if ($id && $name && $message) {
 			$content = _err_display() . "
-			<h2>" . _('Schedule SMS') . "</h2>
+			<h2>" . _('Schedule messages') . "</h2>
 			<h3>" . _('Edit schedule') . "</h3>
 			<form action=index.php?app=main&inc=feature_schedule&route=edit&op=edit_yes method=post>
 			" . _CSRF_FORM_ . "

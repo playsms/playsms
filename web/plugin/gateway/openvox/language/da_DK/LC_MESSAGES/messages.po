@@ -1,0 +1,55 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Changes have been made"
+msgstr "Ændringer er blevet foretaget"
+
+msgid "Fill to change the password"
+msgstr "Udfyld for at ændre adgangskoden"
+
+msgid "Gateway host"
+msgstr "Gateway vært:"
+
+msgid "Gateway name"
+msgstr "Gateway navn"
+
+msgid "Gateway port"
+msgstr "Gateway port"
+
+msgid "Manage OpenVox"
+msgstr "Håndter OpenVox"
+
+msgid "Module sender ID"
+msgstr "Modul afsenderID"
+
+msgid "Module timezone"
+msgstr "Modul tidszone"
+
+msgid "Notes"
+msgstr "Noter"
+
+msgid "Password"
+msgstr "Adgangskode"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "Username"
+msgstr "Brugernavn"
+
+msgid "Your callback URL is"
+msgstr "Din callback URL er"
+
+msgid "Your callback URL should be accessible from OpenVox"
+msgstr "Din callback URL skal være tilgængelig fra OpenVox"

@@ -81,7 +81,7 @@ function recvsmsd() {
 /**
  * Check available keyword or keyword that hasn't been added
  *
- * @param $keyword keyword        	
+ * @param $keyword keyword        
  * @return TRUE if available, FALSE if already exists or not available
  */
 function checkavailablekeyword($keyword) {
@@ -221,6 +221,7 @@ function setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receive
 	// $smsc = core_smsc_get();
 	// }
 	
+
 	// log it
 	logger_print("dt:" . $sms_datetime . " sender:" . $sms_sender . " m:" . $message . " receiver:" . $sms_receiver . ' smsc:' . $smsc, 3, "setsmsincomingaction");
 	
@@ -233,7 +234,8 @@ function setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receive
 	$c_uid = 0;
 	$c_feature = "";
 	$ok = false;
-	$array_target_keyword = explode(" ", $message);
+	$keyword_separator = ($core_config['main']['keyword_separator'] ? $core_config['main']['keyword_separator'] : ' ');
+	$array_target_keyword = explode($keyword_separator, $message);
 	$target_keyword = strtoupper(trim($array_target_keyword[0]));
 	$raw_message = $message;
 	$message = $array_target_keyword[1];
@@ -247,14 +249,19 @@ function setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receive
 			$c_feature = 'core';
 			$array_target_group = explode(" ", $message);
 			$target_group = strtoupper(trim($array_target_group[0]));
-			$c_gpid = phonebook_groupcode2id($c_uid, $target_group);
+			$list = phonebook_search_group($c_uid, $target_group, '', TRUE);
+			$c_gpid = $list[0]['gpid'];
 			$message = $array_target_group[1];
 			for ($i = 2; $i < count($array_target_group); $i++) {
 				$message .= " " . $array_target_group[$i];
 			}
-			logger_print("username:" . $c_username . " gpid:" . $c_gpid . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " message:" . $message . " raw:" . $raw_message, 3, "setsmsincomingaction bc");
-			list($ok, $to, $smslog_id, $queue) = sendsms_bc($c_username, $c_gpid, $message);
-			$ok = true;
+			logger_print("bc username:" . $c_username . " gpid:" . $c_gpid . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " message:" . $message . " raw:" . $raw_message, 3, "setsmsincomingaction");
+			if ($c_username && $c_gpid && $message) {
+				list($ok, $to, $smslog_id, $queue) = sendsms_bc($c_username, $c_gpid, $message);
+				$ok = true;
+			} else {
+				_log('bc has failed due to missing option u:' . $c_username . ' gpid:' . $c_gpid . ' m:[' . $message . ']', 3, 'setsmsincomingaction');
+			}
 			break;
 		
 		default :
@@ -387,13 +394,13 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 			}
 			
 			// get name from target_user's phonebook
-			$c_name = phonebook_number2name($sms_sender, $target_user);
+			$c_name = phonebook_number2name($uid, $sms_sender);
 			$sender = $c_name ? $c_name . ' (' . $sms_sender . ')' : $sms_sender;
 			
 			// forward to Inbox
 			if ($fwd_to_inbox = $user['fwd_to_inbox']) {
 				$db_query = "
-					INSERT INTO " . _DB_PREF_ . "_tblUser_inbox
+					INSERT INTO " . _DB_PREF_ . "_tblSMSInbox
 					(in_sender,in_receiver,in_uid,in_msg,in_datetime,reference_id) 
 					VALUES ('$sms_sender','$sms_receiver','$uid','$message','" . core_adjust_datetime($sms_datetime) . "','$reference_id')
 				";
@@ -434,17 +441,17 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 			// forward to mobile
 			if ($fwd_to_mobile = $user['fwd_to_mobile']) {
 				if ($mobile = $user['mobile']) {
-					$unicode = core_detect_unicode($message);
-					$nofooter = TRUE;
 					
 					// fixme anton
-					$c_message = $sender . ' ' . $message;
+					$c_message = $message . ' ' . $sender;
 					if ($sender_uid = user_mobile2uid($sms_sender)) {
 						if ($sender_username = user_uid2username($sender_uid)) {
-							$c_message = '@' . $sender_username . ' ' . $message;
+							$c_message = $message . ' ' . '@' . $sender_username;
 						}
 					}
 					$message = $c_message;
+					$unicode = core_detect_unicode($message);
+					$nofooter = TRUE;
 					
 					logger_print("send to mobile:" . $mobile . " from:" . $sms_sender . " user:" . $target_user . " message:" . $message, 3, "recvsms_inbox_add");
 					list($ok, $to, $smslog_id, $queue) = sendsms($target_user, $mobile, $message, 'text', $unicode, '', $nofooter);

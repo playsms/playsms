@@ -21,6 +21,9 @@ msgstr "Администраторы"
 msgid "Back"
 msgstr "Назад"
 
+msgid "Please select"
+msgstr ""
+
 msgid "Search"
 msgstr "Поиск"
 

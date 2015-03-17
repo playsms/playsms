@@ -4,6 +4,8 @@ defined('_SECURE_') or die('Forbidden');
 function common_hook_themes_apply($content) {
 	global $core_config, $user_config;
 	
+	$themes_lang = strtolower(substr($user_config['language_module'], 0, 2));
+	
 	$tpl = array(
 		'name' => 'themes_layout',
 		'vars' => array(
@@ -13,6 +15,7 @@ function common_hook_themes_apply($content) {
 			'THEMES_MODULE' => core_themes_get(),
 			'THEMES_MENU_TREE' => themes_get_menu_tree(),
 			'THEMES_SUBMENU' => themes_submenu(),
+			'THEMES_LANG' => ($themes_lang ? $themes_lang : 'en'),
 			'CREDIT_SHOW_URL' => _u('index.php?app=ws&op=credit'),
 			'NAME' => $user_config['name'],
 			'USERNAME' => $user_config['username'],
@@ -45,7 +48,7 @@ function common_hook_themes_submenu($content = '') {
 	
 	$ret = '<div>';
 	$ret .= '<span class="playsms-icon glyphicon glyphicon-user" alt="' . $tooltips_logged_in . '" title="' . $tooltips_logged_in . '"></span>' . $logged_in;
-	$ret .= $separator . '<span class="playsms-icon glyphicon glyphicon-usd" alt="' . $tooltips_credit . '" title="' . $tooltips_credit . '"></span><div id="submenu-credit-show">' . $credit . '</div>';
+	$ret .= $separator . '<span class="playsms-icon glyphicon glyphicon-credit-card" alt="' . $tooltips_credit . '" title="' . $tooltips_credit . '"></span><div id="submenu-credit-show">' . $credit . '</div>';
 	
 	if (auth_login_as_check()) {
 		$ret .= $separator . _a('index.php?app=main&inc=core_auth&route=logout', _('return'));

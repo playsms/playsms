@@ -26,6 +26,9 @@ msgstr "Afegir grup"
 msgid "Anyone"
 msgstr "Qualsevol"
 
+msgid "CSV file format"
+msgstr ""
+
 msgid "Contact has been added"
 msgstr "El contacte s'ha afegit"
 
@@ -99,11 +102,18 @@ msgstr "Mòbil"
 msgid "Move to"
 msgstr "Moure a"
 
+msgid "Multiple entries separated by space"
+msgstr ""
+
 msgid "Name"
 msgstr "Nom"
 
 msgid "No changes have been made"
 msgstr "No s'han fet canvis"
+
+#, fuzzy
+msgid "No group"
+msgstr "grup"
 
 msgid "Phonebook"
 msgstr "Agenda"
@@ -113,6 +123,10 @@ msgstr "Si us plau trieu el fitxer CSV per les entrades de l'agenda"
 
 #, fuzzy
 msgid "Please use alphanumeric only and make it short"
+msgstr "si us plau feu servir majúscules i un nom curt"
+
+#, fuzzy
+msgid "Please use uppercase and make it short"
 msgstr "si us plau feu servir majúscules i un nom curt"
 
 msgid "Save"
@@ -138,6 +152,9 @@ msgid ""
 "group from mobile phone"
 msgstr ""
 
+msgid "Tags"
+msgstr ""
+
 msgid "Unable to delete group until the group is empty"
 msgstr "No es pot esborrar el grup fins que sigui buit"
 
@@ -153,11 +170,5 @@ msgstr "Heu d'omplir tots els camps requerits"
 msgid "code"
 msgstr "codi"
 
-msgid "format"
-msgstr "format"
-
 msgid "group"
 msgstr "grup"
-
-msgid "please use uppercase and make it short"
-msgstr "si us plau feu servir majúscules i un nom curt"

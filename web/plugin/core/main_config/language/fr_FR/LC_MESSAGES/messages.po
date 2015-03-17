@@ -3,6 +3,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "ACL DEFAULT will not restrict access to menus"
+msgstr ""
+
 msgid ""
 "Access to unknown domain mapped to this server IP address will be redirected "
 "to this website URL. This website URL should be the primary address for the "
@@ -41,6 +44,10 @@ msgstr ""
 msgid "Buy credit page"
 msgstr "Page Ajouter du crédit"
 
+#, fuzzy
+msgid "Default ACL upon registration"
+msgstr "Statut par défaut de l'utilisateur lors de l'inscription"
+
 msgid "Default SMS rate"
 msgstr "Tarif SMS par défaut"
 
@@ -49,14 +56,31 @@ msgid "Default SMSC"
 msgstr "Tarif SMS par défaut"
 
 #, fuzzy
-msgid "Default account status on registration"
+msgid "Default account status upon registration"
 msgstr "Statut par défaut de l'utilisateur lors de l'inscription"
 
-msgid "Default credit for user"
-msgstr "Crédit par défaut pour l'utilisateur"
+#, fuzzy
+msgid "Default credit upon registration"
+msgstr "Statut par défaut de l'utilisateur lors de l'inscription"
 
 msgid "Default language"
 msgstr "Langue par défaut"
+
+msgid ""
+"Default parent selected upon registration when the default account status on "
+"registration setting set to Subuser"
+msgstr ""
+
+#, fuzzy
+msgid "Default parent upon registration"
+msgstr "Statut par défaut de l'utilisateur lors de l'inscription"
+
+msgid "Default prefix or country code"
+msgstr ""
+
+msgid ""
+"Default prefix or country code to replace prefix 0 on destination number"
+msgstr ""
 
 msgid "Default sender ID"
 msgstr "Sender ID par défaut"
@@ -69,6 +93,11 @@ msgstr "Configuration du site par défaut"
 
 msgid "Default timezone"
 msgstr "Fuseau horaire par défaut"
+
+msgid ""
+"Define a single character as keyword separator replacing default keyword "
+"separator a space"
+msgstr ""
 
 msgid "Disable login as subuser"
 msgstr "Désactiver la connexion en tant que sous-utilisateur"
@@ -115,6 +144,9 @@ msgstr "Informations"
 msgid "Information page"
 msgstr "Page d'information"
 
+msgid "Keyword separator"
+msgstr ""
+
 msgid "Layout footer"
 msgstr "Disposition du pied de page"
 
@@ -126,6 +158,9 @@ msgid ""
 msgstr ""
 "Le logo par défaut est affiché sur la page de connexion, d'inscription et "
 "d'oubli du mot de passe"
+
+msgid "Lowest credit limit to trigger notification"
+msgstr ""
 
 msgid "Main configuration"
 msgstr "Configuration principale"
@@ -143,6 +178,12 @@ msgstr "Nom du site web principal"
 msgid "Maximum SMS count"
 msgstr "Nombre maximum de SMS"
 
+msgid "Maximum username length"
+msgstr ""
+
+msgid "Maximum username length must be a number between 4 to 100"
+msgstr ""
+
 msgid "Number of sent SMS per hour limit"
 msgstr ""
 
@@ -157,6 +198,11 @@ msgstr "Remplacer le titre du site web par le logo"
 
 msgid "Save"
 msgstr "Enregistrer"
+
+msgid ""
+"Set credit value bigger than 0 to set credit lowest limit that will trigger "
+"notification"
+msgstr ""
 
 msgid "Subuser"
 msgstr "Sous-utilisateur"

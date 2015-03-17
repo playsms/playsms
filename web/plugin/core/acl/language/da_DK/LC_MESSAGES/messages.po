@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "ACL ID"
+msgstr "ACL ID"
+
+msgid "ACL been edited"
+msgstr "ACL er blevet redigeret"
+
+msgid "ACL has been deleted"
+msgstr "ACL er blevet slettet"
+
+msgid "ACL name"
+msgstr "ACL navn"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Add ACL"
+msgstr "Tilføj ACL"
+
+msgid "Are you sure you want to delete ACL ?"
+msgstr "Er du sikker på at du ønsker at slette ACL?"
+
+msgid "Comma separated for multiple entries"
+msgstr "Kommasepareret ved flere emner"
+
+msgid "Credit"
+msgstr "Kredit"
+
+msgid "DEFAULT"
+msgstr "STANDARD"
+
+msgid "Edit ACL"
+msgstr "Rediger ACL"
+
+msgid "Fail to add new ACL"
+msgstr "Kunne ikke tilføje ny ACL"
+
+msgid "Fail to delete ACL"
+msgstr "Kunne ikke slette ACL"
+
+msgid "Fail to edit ACL"
+msgstr "Kunne ikke redigere ACL"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "List of accounts"
+msgstr "Liste over konti"
+
+msgid "Manage ACL"
+msgstr "Håndter ACL"
+
+msgid "Mandatory fields must not be empty"
+msgstr "Krævede felter må ikke være tomme"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "New ACL been added"
+msgstr "Ny ACL er blevet tilføjet"
+
+msgid "Registered"
+msgstr "Registreret"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "Subuser ACL"
+msgstr "Underbruger ACL"
+
+msgid "URLs"
+msgstr "URLer"
+
+msgid "Username"
+msgstr "Brugernavn"
+
+msgid "View report"
+msgstr "Vis rapport"

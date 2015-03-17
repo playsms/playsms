@@ -51,7 +51,7 @@ switch (_OP_) {
 		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', '*', $conditions, $keywords, $extras);
 		
 		$content = "
-			<h2>" . _('Incoming messages') . "</h2>
+			<h2>" . _('My feature messages') . "</h2>
 			<p>" . $search['form'] . "</p>
 			<form id=fm_incoming name=fm_incoming action=\"index.php?app=main&inc=feature_report&route=user_incoming&op=actions\" method=POST>
 			" . _CSRF_FORM_ . "
@@ -82,11 +82,7 @@ switch (_OP_) {
 			$list[$j] = core_display_data($list[$j]);
 			$in_id = $list[$j]['in_id'];
 			$in_sender = $list[$j]['in_sender'];
-			$p_desc = phonebook_number2name($in_sender);
-			$current_sender = $in_sender;
-			if ($p_desc) {
-				$current_sender = "$in_sender<br />$p_desc";
-			}
+			$current_sender = report_resolve_sender($user_config['uid'], $in_sender);
 			$in_keyword = $list[$j]['in_keyword'];
 			$in_datetime = core_display_datetime($list[$j]['in_datetime']);
 			$in_feature = $list[$j]['in_feature'];

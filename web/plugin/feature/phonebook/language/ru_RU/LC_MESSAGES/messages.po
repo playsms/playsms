@@ -23,6 +23,9 @@ msgstr "Добавить групу"
 msgid "Anyone"
 msgstr "Кому угодно"
 
+msgid "CSV file format"
+msgstr ""
+
 msgid "Contact has been added"
 msgstr "Контакт добавлен"
 
@@ -97,11 +100,18 @@ msgstr "Мобильный"
 msgid "Move to"
 msgstr "Переместить в"
 
+msgid "Multiple entries separated by space"
+msgstr ""
+
 msgid "Name"
 msgstr "Имя"
 
 msgid "No changes have been made"
 msgstr "Нет изменений"
+
+#, fuzzy
+msgid "No group"
+msgstr "группа"
 
 msgid "Phonebook"
 msgstr "Контакты"
@@ -110,6 +120,10 @@ msgid "Please select CSV file for phonebook entries"
 msgstr "Выберите CSV файл контактов"
 
 msgid "Please use alphanumeric only and make it short"
+msgstr "придумайте короткое слово в верхнем регистре"
+
+#, fuzzy
+msgid "Please use uppercase and make it short"
 msgstr "придумайте короткое слово в верхнем регистре"
 
 msgid "Save"
@@ -136,6 +150,9 @@ msgid ""
 "group from mobile phone"
 msgstr "Разрешить рассылку группе с мобильного телефона"
 
+msgid "Tags"
+msgstr ""
+
 msgid "Unable to delete group until the group is empty"
 msgstr "Невозможно удалить группу, пока она не пуста"
 
@@ -151,11 +168,5 @@ msgstr "Необходимо заполнить обязательные пол�
 msgid "code"
 msgstr "код"
 
-msgid "format"
-msgstr "формат"
-
 msgid "group"
 msgstr "группа"
-
-msgid "please use uppercase and make it short"
-msgstr "придумайте короткое слово в верхнем регистре"

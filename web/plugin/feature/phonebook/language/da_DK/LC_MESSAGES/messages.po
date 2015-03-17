@@ -1,0 +1,175 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playSMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Add contact"
+msgstr "Tilføj kontakt"
+
+msgid "Add group"
+msgstr "Tilføj gruppe"
+
+msgid "Anyone"
+msgstr "Alle"
+
+msgid "CSV file format"
+msgstr ""
+
+msgid "Contact has been added"
+msgstr "Kontakt er blevet tilføjet"
+
+msgid "Contact has been edited"
+msgstr "Kontakt er blevet redigeret"
+
+msgid "Contacts have been imported"
+msgstr "Kontakter er blevet importeret"
+
+msgid "Delete"
+msgstr "Slet"
+
+msgid "Edit contact"
+msgstr "Rediger kontakt"
+
+msgid "Edit group"
+msgstr "Rediger gruppe"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Fail to delete group"
+msgstr "Kunne ikke slette gruppe"
+
+msgid "Fail to upload CSV file for phonebook"
+msgstr "Kunne ikke uploade CSV fil til telefonbog"
+
+msgid "Group"
+msgstr "Gruppe"
+
+msgid "Group code"
+msgstr "Gruppekode"
+
+msgid "Group code already exists"
+msgstr "Gruppekode eksisterer allerede"
+
+msgid "Group code has been added"
+msgstr "Gruppekode er blevet tilføjet"
+
+msgid "Group code may be used to broadcast SMS to this group"
+msgstr "Gruppekode kan bruges til at broadcaste SMS til denne gruppe"
+
+msgid "Group has been edited"
+msgstr "Gruppe er blevet redigeret"
+
+msgid ""
+"Group has been edited but unable to set broadcast from members or anyone"
+msgstr ""
+"Grippen er blevet redigeret men kunne ikke indstille broadcast fra medlemmer "
+"eller andre"
+
+msgid "Group name"
+msgstr "Gruppenavn"
+
+msgid "Import"
+msgstr "Importer"
+
+msgid "Import above phonebook entries ?"
+msgstr "Importer ovenstående telefonbogsemner?"
+
+msgid "Import confirmation"
+msgstr "Bekræft import"
+
+msgid "Me only"
+msgstr "Kun mig"
+
+msgid "Members"
+msgstr "Medlemmer"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Move to"
+msgstr "Flyt til"
+
+msgid "Multiple entries separated by space"
+msgstr ""
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "No changes have been made"
+msgstr "Ingen ændringer foretaget"
+
+#, fuzzy
+msgid "No group"
+msgstr "gruppe"
+
+msgid "Phonebook"
+msgstr "Telefonbog"
+
+msgid "Please select CSV file for phonebook entries"
+msgstr "Vælg CSV fil med telefonbogsemner"
+
+msgid "Please use alphanumeric only and make it short"
+msgstr "Brug venligst kun alfanumeriske tegn og gør det kort"
+
+#, fuzzy
+msgid "Please use uppercase and make it short"
+msgstr "brug venligst store bogstaver og gør det kort"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "Select"
+msgstr "Vælg"
+
+msgid "Selected contact has been deleted"
+msgstr "Valgt kontakt er blevet slettet"
+
+msgid "Selected contact moved to new group"
+msgstr "Valgt kontakt er flyttet til ny gruppe"
+
+msgid "Selected group has been deleted"
+msgstr "Valgt gruppe er blevet slettet"
+
+msgid "Share phonebook and allow broadcast"
+msgstr "Del telefonbog og tillad broadcast"
+
+msgid ""
+"Share this phonebook group and set permission for broadcasting SMS to this "
+"group from mobile phone"
+msgstr ""
+"Del denne telefonbogsgruppe og giv adgang til at broadcaste SMS til denne "
+"gruppe fra mobiltelefoner"
+
+msgid "Tags"
+msgstr ""
+
+msgid "Unable to delete group until the group is empty"
+msgstr "Kan ikke slette gruppen før den er tom"
+
+msgid "You must fill all field"
+msgstr "Du skal udfylde alle felter"
+
+msgid "You must fill mandatory fields"
+msgstr "Du skal udfylde alle påkrævede felter"
+
+msgid "You must fill required fields"
+msgstr "Du skal udfylde alle påkrævede felter"
+
+msgid "code"
+msgstr "kode"
+
+msgid "group"
+msgstr "gruppe"

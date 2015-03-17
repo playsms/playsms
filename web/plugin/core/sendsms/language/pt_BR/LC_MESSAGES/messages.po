@@ -3,6 +3,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Compose message"
+msgstr ""
+
+msgid "Fail to send message to all destination"
+msgstr ""
+
 msgid "Flash message"
 msgstr ""
 
@@ -33,13 +39,13 @@ msgstr ""
 msgid "Send"
 msgstr ""
 
-msgid "Send message"
-msgstr ""
-
 msgid "Send to"
 msgstr ""
 
 msgid "Sender ID"
+msgstr ""
+
+msgid "System error has occured"
 msgstr ""
 
 msgid "Unicode message"
@@ -49,6 +55,9 @@ msgid "You must select receiver and your message should not be empty"
 msgstr ""
 
 msgid "Your message has been delivered to queue"
+msgstr ""
+
+msgid "Your message has been delivered to some of the destination"
 msgstr ""
 
 msgid "chars"

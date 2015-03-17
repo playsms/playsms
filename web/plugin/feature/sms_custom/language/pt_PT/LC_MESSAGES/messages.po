@@ -1,0 +1,95 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.5\n"
+
+msgid "Action"
+msgstr "Ação"
+
+msgid "Add SMS custom"
+msgstr "Adicionar SMS personalizado"
+
+msgid "Are you sure you want to delete SMS custom ?"
+msgstr "Tem certeza que quer eliminar o SMS personalizado?"
+
+msgid "Edit SMS custom"
+msgstr "Editar SMS personalizado"
+
+msgid "Fail to add SMS custom"
+msgstr "Erro ao adicionar o SMS personalizado"
+
+msgid "Fail to delete SMS custom"
+msgstr "Erro ao eliminar o SMS personalizado"
+
+msgid "Fail to save SMS custom"
+msgstr "Erro ao guardar o SMS personalizado"
+
+msgid "Keyword"
+msgstr "Palavra-chave"
+
+msgid "Make return as reply"
+msgstr "Enviar retorno como resposta"
+
+msgid "Manage custom"
+msgstr "Gerir SMS personalizado"
+
+msgid "Pass these parameters to custom URL field"
+msgstr "Use esses parâmetros no campo de URL"
+
+msgid "SMS custom URL"
+msgstr "URL do SMS personalizado"
+
+msgid "SMS custom already exists, reserved or use by other feature"
+msgstr ""
+"O SMS personalizado já existe, está reservado ou em uso por outro recurso"
+
+msgid "SMS custom has been added"
+msgstr "O SMS personalizado foi adicionado"
+
+msgid "SMS custom has been deleted"
+msgstr "O SMS personalizado foi eliminado"
+
+msgid "SMS custom has been saved"
+msgstr "SMS personalizado foi guardado"
+
+msgid "SMS custom keyword"
+msgstr "Palavra-chave do SMS personalizado"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "URL"
+msgstr ""
+
+msgid "User"
+msgstr "Utilizador"
+
+msgid "You must fill all fields"
+msgstr "Preencha todos os campos"
+
+msgid "keyword"
+msgstr "palavra-chave"
+
+msgid "will be replaced by SMS incoming date/time"
+msgstr "será substituído pela data/hora de chegada do SMS"
+
+msgid "will be replaced by SMS raw message"
+msgstr "será substituído pela mensagem SMS pura"
+
+msgid "will be replaced by custom keyword"
+msgstr "será substituído pela palavra-chave do personalizado"
+
+msgid "will be replaced by custom parameter passed to server from SMS"
+msgstr "será substituído pelo parâmetro passado pro servidor por SMS"
+
+msgid "will be replaced by sender number"
+msgstr "será substituído pelo número do remetente"

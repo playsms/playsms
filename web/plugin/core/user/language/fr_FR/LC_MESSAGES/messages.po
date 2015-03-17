@@ -8,6 +8,9 @@ msgstr ""
 msgid "ACL"
 msgstr ""
 
+msgid "ACL DEFAULT will not restrict access to menus"
+msgstr ""
+
 msgid "Access Control List"
 msgstr ""
 
@@ -44,6 +47,10 @@ msgid "Account has been unbanned"
 msgstr "L'utilisateur a été réintégré"
 
 #, fuzzy
+msgid "Account is already exists"
+msgstr "L'utilisateur existe déjà"
+
+#, fuzzy
 msgid "Account name is mandatory"
 msgstr "L'adresse email est obligatoire"
 
@@ -53,6 +60,14 @@ msgstr "L'inscription d'utilisateur n'est pas disponible"
 
 msgid "Account status"
 msgstr ""
+
+#, fuzzy
+msgid "Account with this email is already exists"
+msgstr "L'utilisateur avec cet email existe déjà"
+
+#, fuzzy
+msgid "Account with this mobile is already exists"
+msgstr "L'utilisateur avec ce mobile existe déjà"
 
 msgid "Action"
 msgstr "Action"
@@ -305,10 +320,6 @@ msgstr "Pied de page SMS"
 msgid "Save"
 msgstr "Enregistrer"
 
-#, fuzzy
-msgid "Select parent account for subuser"
-msgstr "Veuillez sélectionner le parent pour le sous-utilisateur"
-
 msgid "State or Province"
 msgstr "État ou Province"
 
@@ -362,9 +373,6 @@ msgstr "Une erreur inconnue est survenue"
 msgid "User"
 msgstr "Utilisateur"
 
-msgid "User already exists"
-msgstr "L'utilisateur existe déjà"
-
 msgid "User configuration"
 msgstr "Configuration de l'utilisateur"
 
@@ -399,16 +407,11 @@ msgstr "L'utilisateur ne fait partie de la liste des sous-utilisateurs bannis"
 msgid "User is not on banned users list"
 msgstr "L'utilisateur ne fait partie de la liste des utilisateurs bannis"
 
-msgid "User with this email already exists"
-msgstr "L'utilisateur avec cet email existe déjà"
-
-msgid "User with this mobile already exists"
-msgstr "L'utilisateur avec ce mobile existe déjà"
-
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
-msgid "Username should be at least 3 characters"
+#, fuzzy, php-format
+msgid "Username must be at least 3 characters and maximum %d characters"
 msgstr "Le nom d'utilisateur doit comporter au moins 3 caractères"
 
 msgid "Users"

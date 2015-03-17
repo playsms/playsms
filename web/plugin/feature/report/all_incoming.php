@@ -21,7 +21,6 @@ defined('_SECURE_') or die('Forbidden');
 if (!auth_isadmin()) {
 	auth_block();
 }
-;
 
 switch (_OP_) {
 	case "all_incoming":
@@ -36,23 +35,23 @@ switch (_OP_) {
 		$base_url = 'index.php?app=main&inc=feature_report&route=all_incoming&op=all_incoming';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array(
-			'flag_deleted' => 0,
+			'A.flag_deleted' => 0,
 			'in_status' => 1 
 		);
 		$keywords = $search['dba_keywords'];
-		$join = 'INNER JOIN ' . _DB_PREF_ . '_tblUser AS B ON in_uid=B.uid';
-		$count = dba_count(_DB_PREF_ . '_tblSMSIncoming', $conditions, $keywords, '', $join);
+		$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.in_uid=B.uid";
+		$count = dba_count(_DB_PREF_ . '_tblSMSIncoming as A', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
-			'AND in_feature' => '!= ""',
-			'ORDER BY' => 'in_id DESC',
+			'AND A.in_feature' => '!= ""',
+			'ORDER BY' => 'A.in_id DESC',
 			'LIMIT' => $nav['limit'],
 			'OFFSET' => $nav['offset'] 
 		);
-		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', '*', $conditions, $keywords, $extras, $join);
+		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming AS A', '*', $conditions, $keywords, $extras, $join);
 		
 		$content = "
-			<h2>" . _('All incoming messages') . "</h2>
+			<h2>" . _('All feature messages') . "</h2>
 			<p>" . $search['form'] . "</p>
 			<form id=fm_all_incoming name=fm_all_incoming action=\"index.php?app=main&inc=feature_report&route=all_incoming&op=actions\" method=POST>
 			" . _CSRF_FORM_ . "
@@ -84,12 +83,9 @@ switch (_OP_) {
 			$list[$j] = core_display_data($list[$j]);
 			$in_username = $list[$j]['username'];
 			$in_id = $list[$j]['in_id'];
+			$in_uid = $list[$j]['in_uid'];
 			$in_sender = $list[$j]['in_sender'];
-			$p_desc = phonebook_number2name($in_sender);
-			$current_sender = $in_sender;
-			if ($p_desc) {
-				$current_sender = "$in_sender<br />$p_desc";
-			}
+			$current_sender = report_resolve_sender($in_uid, $in_sender);
 			$in_keyword = $list[$j]['in_keyword'];
 			$in_datetime = core_display_datetime($list[$j]['in_datetime']);
 			if ($c_feature = $list[$j]['in_feature']) {

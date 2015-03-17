@@ -10,36 +10,55 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
 
-function phonebook_groupid2name($gpid) {
+function phonebook_groupid2name($uid, $gpid) {
 	$ret = core_call_hook();
 	return $ret;
 }
 
-function phonebook_groupname2id($uid,$gp_name) {
+function phonebook_groupname2id($uid, $name) {
 	$ret = core_call_hook();
 	return $ret;
 }
 
-function phonebook_groupid2code($gpid) {
+function phonebook_groupid2code($uid, $gpid) {
 	$ret = core_call_hook();
 	return $ret;
 }
 
-function phonebook_groupcode2id($uid,$gp_code) {
+function phonebook_groupcode2id($uid, $code) {
 	$ret = core_call_hook();
 	return $ret;
 }
 
-function phonebook_number2name($p_num, $c_username="") {
+function phonebook_getdatabynumber($uid, $mobile) {
+	$ret = core_call_hook();
+	return $ret;
+}
+
+function phonebook_number2id($uid, $p_num) {
+	$ret = core_call_hook();
+	return $ret;
+}
+
+function phonebook_number2name($uid, $p_num) {
+	$ret = core_call_hook();
+	return $ret;
+}
+
+function phonebook_number2email($uid, $p_num) {
+	$ret = core_call_hook();
+	return $ret;
+}
+
+function phonebook_number2tags($uid, $p_num) {
 	$ret = core_call_hook();
 	return $ret;
 }
@@ -51,29 +70,35 @@ function phonebook_getmembercountbyid($gpid) {
 
 /**
  * Get members of a group, search by group ID
- * @param integer $gpid Group ID
- * @param string $orderby
+ *
+ * @param integer $gpid
+ *        Group ID
+ * @param string $orderby        
  * @return array array(pid, p_desc, p_num, email)
  */
-function phonebook_getdatabyid($gpid, $orderby="") {
+function phonebook_getdatabyid($gpid, $orderby = "") {
 	$ret = core_call_hook();
 	return $ret;
 }
 
 /**
  * Get members of a group, search by User ID
- * @param integer $uid User ID
- * @param string $orderby
+ *
+ * @param integer $uid
+ *        User ID
+ * @param string $orderby        
  * @return array array(pid, p_desc, p_num, email)
  */
-function phonebook_getdatabyuid($uid, $orderby="") {
+function phonebook_getdatabyuid($uid, $orderby = "") {
 	$ret = core_call_hook();
 	return $ret;
 }
 
 /**
  * Get data of a group, search by group ID
- * @param integer $gpid Group ID
+ *
+ * @param integer $gpid
+ *        Group ID
  * @return array array(gpid, group_name, code, flag_sender)
  */
 function phonebook_getgroupbyid($gpid) {
@@ -83,46 +108,61 @@ function phonebook_getgroupbyid($gpid) {
 
 /**
  * Get data of a group, search by User ID
- * @param integer $uid User ID
- * @param string $orderby
+ *
+ * @param integer $uid
+ *        User ID
+ * @param string $orderby        
  * @return array array(gpid, group_name, code, flag_sender)
  */
-function phonebook_getgroupbyuid($uid, $orderby="") {
+function phonebook_getgroupbyuid($uid, $orderby = "") {
 	$ret = core_call_hook();
 	return $ret;
 }
 
 /**
  * Search members, search by User ID and/or a keyword
- * @param integer $uid User ID
- * @param string $keyword Keyword
- * @param integer $count Search limit
- * @return array array(pid, p_desc, p_num, email)
+ *
+ * @param integer $uid
+ *        User ID
+ * @param string $keyword
+ *        Keyword
+ * @param integer $count
+ *        Search limit
+ * @return array array(pid, p_desc, p_num, email, tags)
  */
-function phonebook_search($uid, $keyword="", $count=0) {
+function phonebook_search($uid, $keyword = "", $count = 0) {
 	$ret = core_call_hook();
 	return $ret;
 }
 
 /**
  * Search groups, search by User ID and/or a keyword
- * @param integer $uid User ID
- * @param string $keyword Keyword
- * @param integer $count Search limit
+ *
+ * @param integer $uid
+ *        User ID
+ * @param string $keyword
+ *        Keyword
+ * @param integer $count
+ *        Search limit
  * @return array array(gpid, group_name, code, flag_sender)
  */
-function phonebook_search_group($uid, $keyword="", $count=0) {
+function phonebook_search_group($uid, $keyword = "", $count = 0) {
 	$ret = core_call_hook();
 	return $ret;
 }
 
 /**
  * Search users, search by User ID and/or a keyword
- * @param string $keyword Keyword
- * @param integer $count Search limit
+ *
+ * @param integer $uid
+ *        User ID
+ * @param string $keyword
+ *        Keyword
+ * @param integer $count
+ *        Search limit
  * @return array Array of user's data
  */
-function phonebook_search_user($keyword="", $count=0) {
+function phonebook_search_user($uid, $keyword = "", $count = 0) {
 	$ret = core_call_hook();
 	return $ret;
 }

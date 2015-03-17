@@ -37,14 +37,14 @@ switch (_OP_) {
 			'flag_deleted' => 0
 		);
 		$keywords = $search['dba_keywords'];
-		$count = dba_count(_DB_PREF_ . '_tblUser_inbox', $conditions, $keywords);
+		$count = dba_count(_DB_PREF_ . '_tblSMSInbox', $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
 			'ORDER BY' => 'in_id DESC',
 			'LIMIT' => $nav['limit'],
 			'OFFSET' => $nav['offset']
 		);
-		$list = dba_search(_DB_PREF_ . '_tblUser_inbox', '*', $conditions, $keywords, $extras);
+		$list = dba_search(_DB_PREF_ . '_tblSMSInbox', '*', $conditions, $keywords, $extras);
 		unset($tpl);
 		$tpl = array(
 			'vars' => array(
@@ -64,11 +64,7 @@ switch (_OP_) {
 			$list[$j] = core_display_data($list[$j]);
 			$in_id = $list[$j]['in_id'];
 			$in_sender = $list[$j]['in_sender'];
-			$p_desc = phonebook_number2name($in_sender);
-			$current_sender = $in_sender;
-			if ($p_desc) {
-				$current_sender = "$in_sender<br />$p_desc";
-			}
+			$current_sender = report_resolve_sender($user_config['uid'], $in_sender);
 			$in_datetime = core_display_datetime($list[$j]['in_datetime']);
 			$msg = $list[$j]['in_msg'];
 			$in_msg = core_display_text($msg);
@@ -111,7 +107,7 @@ switch (_OP_) {
 					'in_uid' => $user_config['uid'],
 					'flag_deleted' => 0
 				);
-				$list = dba_search(_DB_PREF_ . '_tblUser_inbox', '*', $conditions, $search['dba_keywords']);
+				$list = dba_search(_DB_PREF_ . '_tblSMSInbox', '*', $conditions, $search['dba_keywords']);
 				$data[0] = array(
 					_('User') ,
 					_('Time') ,
@@ -141,7 +137,7 @@ switch (_OP_) {
 							'c_timestamp' => mktime() ,
 							'flag_deleted' => '1'
 						);
-						dba_update(_DB_PREF_ . '_tblUser_inbox', $up, array(
+						dba_update(_DB_PREF_ . '_tblSMSInbox', $up, array(
 							'in_uid' => $user_config['uid'],
 							'in_id' => $itemid
 						));

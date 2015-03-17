@@ -1,0 +1,34 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Gateway-modul konfigurationen er blevet gemt"
+
+msgid "Gateway name"
+msgstr "Gateway navn"
+
+msgid "Gnokii installation path"
+msgstr "Gnokii installationssti"
+
+msgid "Manage gnokii"
+msgstr "Håndter gnokii"
+
+msgid "No changes have been made"
+msgstr "Ingen ændringer er foretaget"
+
+msgid "No trailing slash"
+msgstr "Ingen efterfølgende skråstreg"
+
+msgid "Save"
+msgstr "Gem"

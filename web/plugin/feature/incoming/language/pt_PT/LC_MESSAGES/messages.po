@@ -1,0 +1,100 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-10 22:21+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.5\n"
+
+msgid "Copy the message to user inbox when incoming SMS contains @username"
+msgstr ""
+"Copiar a mensagem para caixa de entrada do utilizador quando SMS contém "
+"@username"
+
+msgid "Fail to insert keyword"
+msgstr "erro ao inserir palavra-chave"
+
+msgid "Incoming SMS route changes has been saved"
+msgstr "Configurações de roteamento de sms recebidas foram guardadas  "
+
+msgid "Insert keyword"
+msgstr "Inserir palavra-chave"
+
+msgid "Leave a copy in sandbox SMS page"
+msgstr "Deixar uma copia na página sandbox "
+
+msgid "Leaving a copy in sandbox SMS page may be useful for audit or reviews"
+msgstr ""
+"Deixando uma cópia na página SMS sandbox pode ser útil para uma auditoria ou "
+"comentários"
+
+msgid "Match with all approved sender ID"
+msgstr "Combine com todos ID dos remetentes  aprovados"
+
+msgid "No route has been saved"
+msgstr "Roteamento não foi guardado"
+
+msgid "Post rules"
+msgstr "Regras Posteriores"
+
+msgid "Pre rules"
+msgstr "Pré Regras"
+
+msgid ""
+"Receiver number can be matched with default sender ID or with all approved "
+"sender ID"
+msgstr ""
+"Número do remetente pode ser combinado com remetente padrão ID ou com toda a "
+"identificação do remetente aprovado"
+
+msgid "Route all sandbox SMS to users"
+msgstr "Roteamento de todas as mensagens sandbox para todos os utilizadores "
+
+msgid "Route all sandbox SMS with matched sender ID"
+msgstr ""
+"Roteamento de todas as mensagens sandbox SMS com a mesma identificação do "
+"remetente"
+
+msgid "Route incoming SMS"
+msgstr "Roteamento de Mensagens recebidas"
+
+msgid "Route to user inbox if receiver number matched with user sender ID"
+msgstr ""
+"Roteamento para caixa de entrada do utilizador se o número remetente for "
+"igual ao do utilizador"
+
+msgid "Rules applied after incoming SMS processed"
+msgstr ""
+"Regras serão aplicadas depois de todas as mensagens recebidas serem "
+"processadas"
+
+msgid "Rules applied before incoming SMS processed"
+msgstr "Regras serão aplicadas antes das mensagens recebidas serem processadas"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Scan incoming SMS for #groupcode"
+msgstr "Verificar mensagens recebidas para #groupcode"
+
+msgid "Scan incoming SMS for @username"
+msgstr "Verificar mensagens recebidas para @username"
+
+msgid "Select users"
+msgstr "Selecionar utilizadores"
+
+msgid "Send SMS to groups with found group codes in the incoming SMS"
+msgstr ""
+"Enviar SMS para grupos com códigos de grupo encontrado nas SMS recebidas"
+
+msgid "Settings"
+msgstr "Definições"
+
+msgid "keyword"
+msgstr "palavra-chave"

@@ -5,7 +5,7 @@ defined('_SECURE_') or die('Forbidden');
 $menutab = $core_config['menutab']['my_account'];
 $menu_config[$menutab][] = array(
 	"index.php?app=main&inc=feature_schedule&op=list",
-	_('Schedule SMS'),
+	_('Schedule messages'),
 	1 
 );
 

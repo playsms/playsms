@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.5\n"
+
+msgid "Add credit"
+msgstr "Adicionar crédito"
+
+msgid "Add credit to users"
+msgstr "Adicionar crédito aos utilizadores"
+
+msgid "Administrator"
+msgstr "Administrador"
+
+msgid "Administrators"
+msgstr "Administradores"
+
+msgid "Amount"
+msgstr "Montante"
+
+msgid "Are you sure you want to delete these transactions ?"
+msgstr "Tem certeza que deseja apagar estas transações?"
+
+msgid "Balance"
+msgstr "Saldo"
+
+msgid "Balance recorded on transaction"
+msgstr "Saldo registrado em transação"
+
+msgid "Credit has been added"
+msgstr "Crédito foi adicionado"
+
+msgid "Credit has been reduced"
+msgstr "Crédito foi reduzido"
+
+msgid "Fail to add credit"
+msgstr "Erro ao adicionar o crédito"
+
+msgid "Fail to reduce credit"
+msgstr "Erro ao reduzir o crédito"
+
+msgid "List of transactions"
+msgstr "Lista de Transações"
+
+msgid "Manage credit"
+msgstr "Gerir Crédito"
+
+msgid "Reduce credit"
+msgstr "Reduzir Crédito"
+
+msgid "Reduce credit from users"
+msgstr "Reduzir crédito de utilizadores"
+
+msgid "Select users"
+msgstr "Selecionar utilizadores"
+
+msgid "Selected transactions has been deleted"
+msgstr "Transações selecionadas foram apagadas"
+
+msgid "Subuser"
+msgstr "Sub-Utilizador"
+
+msgid "Subusers"
+msgstr "Sub-utilizadores"
+
+msgid "Transaction datetime"
+msgstr "Data e hora da Transação"
+
+msgid "User"
+msgstr "Utilizador"
+
+msgid "User ID"
+msgstr "Utilizador ID"
+
+msgid "Username"
+msgstr "Nome de Utilizador"
+
+msgid "Users"
+msgstr "Utilizadores"
+
+msgid "Wrong amount or user does not exist"
+msgstr "Montante incorreto ou Utilizador não existe"
+
+msgid "amount"
+msgstr "Montante"
+
+msgid "balance"
+msgstr "Saldo"
+
+msgid "index.php?app=main&inc=feature_credit&op=actions&go=add"
+msgstr ""
+
+msgid "index.php?app=main&inc=feature_credit&op=actions&go=reduce"
+msgstr ""
+
+msgid "user"
+msgstr "Utilizador"

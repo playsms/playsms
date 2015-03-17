@@ -15,6 +15,9 @@ msgstr ""
 msgid "ACL"
 msgstr ""
 
+msgid "ACL DEFAULT will not restrict access to menus"
+msgstr ""
+
 msgid "Access Control List"
 msgstr ""
 
@@ -43,6 +46,10 @@ msgstr "Пользователь удалён"
 msgid "Account has been unbanned"
 msgstr "Пользователь разблокирован"
 
+#, fuzzy
+msgid "Account is already exists"
+msgstr "Пользователь уже существует"
+
 msgid "Account name is mandatory"
 msgstr "Имя пользователя обязательно"
 
@@ -51,6 +58,14 @@ msgstr "Регистрация не доступна"
 
 msgid "Account status"
 msgstr "Состояние пользователя"
+
+#, fuzzy
+msgid "Account with this email is already exists"
+msgstr "Пользователь с таким email уже существует"
+
+#, fuzzy
+msgid "Account with this mobile is already exists"
+msgstr "Мользователь с таким номером телефона уже существует"
 
 msgid "Action"
 msgstr "Действие"
@@ -291,9 +306,6 @@ msgstr "Подпись сообщения"
 msgid "Save"
 msgstr "Сохранить"
 
-msgid "Select parent account for subuser"
-msgstr "выберите родительского пользователя для дочернего"
-
 msgid "State or Province"
 msgstr "Область или Штат"
 
@@ -342,9 +354,6 @@ msgstr "Произошла неизвестная ошибка"
 msgid "User"
 msgstr "Пользователь"
 
-msgid "User already exists"
-msgstr "Пользователь уже существует"
-
 msgid "User configuration"
 msgstr "Пользовательские настройки"
 
@@ -375,16 +384,11 @@ msgstr "Дочерний пользователь не заблокирован"
 msgid "User is not on banned users list"
 msgstr "Пользователь не заблокирован"
 
-msgid "User with this email already exists"
-msgstr "Пользователь с таким email уже существует"
-
-msgid "User with this mobile already exists"
-msgstr "Мользователь с таким номером телефона уже существует"
-
 msgid "Username"
 msgstr "Имя пользователя"
 
-msgid "Username should be at least 3 characters"
+#, fuzzy, php-format
+msgid "Username must be at least 3 characters and maximum %d characters"
 msgstr "Минимальная длина имени 3 знака"
 
 msgid "Users"

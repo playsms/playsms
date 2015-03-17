@@ -14,17 +14,19 @@ msgstr ""
 msgid "Account has been unbanned"
 msgstr "Пользователь разблокирован"
 
+#, fuzzy
+msgid "All feature messages"
+msgstr "Все исходящие сообщения"
+
 msgid "All inbox"
 msgstr "Все входящие"
 
-msgid "All incoming messages"
-msgstr "Все принятые сообщения"
-
-msgid "All outgoing messages"
-msgstr "Все исходящие сообщения"
-
 msgid "All reports"
 msgstr "Все отчёты"
+
+#, fuzzy
+msgid "All sent messages"
+msgstr "Все принятые сообщения"
 
 msgid "Amount"
 msgstr "Количество"
@@ -83,9 +85,6 @@ msgstr "От"
 msgid "Inbox"
 msgstr "Входящие"
 
-msgid "Incoming messages"
-msgstr "Принятые сообщения"
-
 msgid "Keyword"
 msgstr "Ключевое слово"
 
@@ -101,11 +100,15 @@ msgstr "Сообщение"
 msgid "My credit transactions"
 msgstr "Мои переводы"
 
+msgid "My feature messages"
+msgstr ""
+
 msgid "My report"
 msgstr "Мой отчёт"
 
-msgid "Outgoing messages"
-msgstr "Исходящие сообщения"
+#, fuzzy
+msgid "My sent messages"
+msgstr "Сообщение"
 
 msgid "Pending"
 msgstr "Ожидает"

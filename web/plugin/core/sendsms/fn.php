@@ -32,7 +32,7 @@ function sendsms_manipulate_prefix($number, $user) {
 	_log('before prefix manipulation:[' . $number . ']', 3, 'sendsms_manipulate_prefix');
 	if (is_array($user)) {
 		
-		$prefix = core_sanitize_numeric($user['replace_zero']);
+		$prefix = ($user['replace_zero'] ? $user['replace_zero'] : $core_config['main']['default_replace_zero']);
 		$local_length = (int) $user['local_length'];
 		
 		// if prefix exists then replace prefix 0 with supplied prefix
@@ -61,7 +61,7 @@ function sendsms_manipulate_prefix($number, $user) {
 	return $number;
 }
 
-function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid = 0, $sms_type = 'text', $unicode = 0, $smsc = '') {
+function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid = 0, $sms_type = 'text', $unicode = 0, $queue_code = '', $smsc = '') {
 	global $core_config;
 	$ret = array();
 	$ret_final = array();
@@ -78,6 +78,7 @@ function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $g
 			$gpid,
 			$sms_type,
 			$unicode,
+			$queue_code,
 			$smsc 
 		));
 		if ($ret['modified']) {
@@ -89,6 +90,7 @@ function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $g
 			$gpid = ($ret['param']['gpid'] ? $ret['param']['gpid'] : $gpid);
 			$sms_type = ($ret['param']['sms_type'] ? $ret['param']['sms_type'] : $sms_type);
 			$unicode = ($ret['param']['unicode'] ? $ret['param']['unicode'] : $unicode);
+			$queue_code = ($ret['param']['queue_code'] ? $ret['param']['queue_code'] : $queue_code);
 			$smsc = ($ret['param']['smsc'] ? $ret['param']['smsc'] : $smsc);
 			$ret_final['modified'] = $ret['modified'];
 			$ret_final['cancel'] = $ret['cancel'];
@@ -100,8 +102,67 @@ function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $g
 			$ret_final['param']['gpid'] = $gpid;
 			$ret_final['param']['sms_type'] = $sms_type;
 			$ret_final['param']['unicode'] = $unicode;
+			$ret_final['param']['queue_code'] = $queue_code;
 			$ret_final['param']['smsc'] = $smsc;
-			_log($c_feature . ' modified sms_sender:[' . $sms_sender . '] sms_footer:[' . $sms_footer . '] sms_to:[' . $sms_to . '] sms_msg:[' . $sms_msg . '] uid:[' . $uid . '] gpid:[' . $gpid . '] sms_type:[' . $sms_type . '] unicode:[' . $unicode . '] smsc:[' . $smsc . ']', 3, 'sendsms_intercept');
+			_log($c_feature . ' modified sms_sender:[' . $sms_sender . '] sms_footer:[' . $sms_footer . '] sms_to:[' . $sms_to . '] sms_msg:[' . $sms_msg . '] uid:[' . $uid . '] gpid:[' . $gpid . '] sms_type:[' . $sms_type . '] unicode:[' . $unicode . '] queue_code:[' . $queue_code . '] smsc:[' . $smsc . ']', 3, 'sendsms_intercept');
+		}
+	}
+	return $ret_final;
+}
+
+function sendsms_intercept_after($status, $smslog_id, $p_status, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid = 0, $sms_type = 'text', $unicode = 0, $queue_code = '', $smsc = '') {
+	global $core_config;
+	$ret = array();
+	$ret_final = array();
+	
+	// feature list
+	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
+		$c_feature = $core_config['featurelist'][$c];
+		$ret = core_hook($c_feature, 'sendsms_intercept_after', array(
+			$status,
+			$smslog_id,
+			$p_status,
+			$sms_sender,
+			$sms_footer,
+			$sms_to,
+			$sms_msg,
+			$uid,
+			$gpid,
+			$sms_type,
+			$unicode,
+			$queue_code,
+			$smsc 
+		));
+		if ($ret['modified']) {
+			$status = ($ret['param']['status'] ? $ret['param']['status'] : $status);
+			$smslog_id = ($ret['param']['smslog_id'] ? $ret['param']['smslog_id'] : $smslog_id);
+			$p_status = ($ret['param']['p_status'] ? $ret['param']['p_status'] : $p_status);
+			$sms_sender = ($ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender);
+			$sms_footer = ($ret['param']['sms_footer'] ? $ret['param']['sms_footer'] : $sms_footer);
+			$sms_to = ($ret['param']['sms_to'] ? $ret['param']['sms_to'] : $sms_to);
+			$sms_msg = ($ret['param']['sms_msg'] ? $ret['param']['sms_msg'] : $sms_msg);
+			$uid = ($ret['param']['uid'] ? $ret['param']['uid'] : $uid);
+			$gpid = ($ret['param']['gpid'] ? $ret['param']['gpid'] : $gpid);
+			$sms_type = ($ret['param']['sms_type'] ? $ret['param']['sms_type'] : $sms_type);
+			$unicode = ($ret['param']['unicode'] ? $ret['param']['unicode'] : $unicode);
+			$queue_code = ($ret['param']['queue_code'] ? $ret['param']['queue_code'] : $queue_code);
+			$smsc = ($ret['param']['smsc'] ? $ret['param']['smsc'] : $smsc);
+			$ret_final['modified'] = $ret['modified'];
+			$ret_final['cancel'] = $ret['cancel'];
+			$ret_final['param']['status'] = $status;
+			$ret_final['param']['smslog_id'] = $smslog_id;
+			$ret_final['param']['p_status'] = $p_status;
+			$ret_final['param']['sms_sender'] = $sms_sender;
+			$ret_final['param']['sms_footer'] = $sms_footer;
+			$ret_final['param']['sms_to'] = $sms_to;
+			$ret_final['param']['sms_msg'] = $sms_msg;
+			$ret_final['param']['uid'] = $uid;
+			$ret_final['param']['gpid'] = $gpid;
+			$ret_final['param']['sms_type'] = $sms_type;
+			$ret_final['param']['unicode'] = $unicode;
+			$ret_final['param']['queue_code'] = $queue_code;
+			$ret_final['param']['smsc'] = $smsc;
+			_log($c_feature . ' modified status:[' . (int) $status . ']smslog_id:[' . $smslog_id . '] p_status:[' . (int) $p_status . '] sms_sender:[' . $sms_sender . '] sms_footer:[' . $sms_footer . '] sms_to:[' . $sms_to . '] sms_msg:[' . $sms_msg . '] uid:[' . $uid . '] gpid:[' . $gpid . '] sms_type:[' . $sms_type . '] unicode:[' . $unicode . '] queue_code:[' . $queue_code . '] smsc:[' . $smsc . ']', 3, 'sendsms_intercept_after');
 		}
 	}
 	return $ret_final;
@@ -217,8 +278,8 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 			$continue = TRUE;
 			
 			// next, check throttle limit (number of sent SMS per hour)
-			if (!sendsms_throttle_isoverlimit()) {
-				$continue = TRUE;
+			if (sendsms_throttle_isoverlimit(0)) {
+				$continue = FALSE;
 			}
 		}
 		
@@ -229,6 +290,16 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 			$db_query2 = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id='$c_queue_id' AND flag='0'";
 			$db_result2 = dba_query($db_query2);
 			while ($db_row2 = dba_fetch_array($db_result2)) {
+				
+				// make sure the queue is still there
+				// if the queue_code with flag=0 is not exists then break, stop sendqueue
+				if (!dba_isexists(_DB_PREF_ . "_tblSMSOutgoing_queue", array(
+					'flag' => 0,
+					'queue_code' => $c_queue_code 
+				), 'AND')) {
+					break;
+				}
+				
 				$counter++;
 				
 				// queue_dst ID is SMS Log ID
@@ -245,7 +316,7 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 					$c_flag = 1;
 					
 					// add to throttle counter
-					sendsms_throttle_count($c_uid, 1);
+					sendsms_throttle_count(0, $c_sms_count);
 				}
 				_log("result queue_code:" . $c_queue_code . " to:" . $c_dst . " flag:" . $c_flag . " smslog_id:" . $c_smslog_id, 2, "sendsmsd");
 				$db_query3 = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst SET flag='$c_flag' WHERE id='$c_smslog_id'";
@@ -257,7 +328,7 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 				$counts[] = $c_sms_count;
 				
 				// check throttle limit (number of sent SMS per hour)
-				if (sendsms_throttle_isoverlimit()) {
+				if (sendsms_throttle_isoverlimit(0)) {
 					break;
 				}
 			}
@@ -317,7 +388,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	$sms_datetime = core_get_datetime();
 	
 	// sent sms will be handled by plugins first
-	$ret_intercept = sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $smsc);
+	$ret_intercept = sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $queue_code, $smsc);
 	if ($ret_intercept['modified']) {
 		$sms_sender = ($ret_intercept['param']['sms_sender'] ? $ret_intercept['param']['sms_sender'] : $sms_sender);
 		$sms_footer = ($ret_intercept['param']['sms_footer'] ? $ret_intercept['param']['sms_footer'] : $sms_footer);
@@ -327,6 +398,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		$gpid = ($ret_intercept['param']['gpid'] ? $ret_intercept['param']['gpid'] : $gpid);
 		$sms_type = ($ret_intercept['param']['sms_type'] ? $ret_intercept['param']['sms_type'] : $sms_type);
 		$unicode = ($ret_intercept['param']['unicode'] ? $ret_intercept['param']['unicode'] : $unicode);
+		$queue_code = ($ret_intercept['param']['queue_code'] ? $ret_intercept['param']['queue_code'] : $queue_code);
 		$smsc = ($ret_intercept['param']['smsc'] ? $ret_intercept['param']['smsc'] : $smsc);
 	}
 	
@@ -428,12 +500,31 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		_log("fail to save in db table smslog_id:" . $smslog_id, 2, "sendsms_process");
 	}
 	
+	// sent sms will be handled by plugins first
+	$ret_intercept = sendsms_intercept_after($ok, $smslog_id, $p_status, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $queue_code, $smsc);
+	if ($ret_intercept['modified']) {
+		$ok = ($ret_intercept['param']['status'] ? $ret_intercept['param']['status'] : $ok);
+		$smslog_id = ($ret_intercept['param']['smslog_id'] ? $ret_intercept['param']['smslog_id'] : $smslog_id);
+		$p_status = ($ret_intercept['param']['p_status'] ? $ret_intercept['param']['p_status'] : $p_status);
+		$sms_sender = ($ret_intercept['param']['sms_sender'] ? $ret_intercept['param']['sms_sender'] : $sms_sender);
+		$sms_footer = ($ret_intercept['param']['sms_footer'] ? $ret_intercept['param']['sms_footer'] : $sms_footer);
+		$sms_to = ($ret_intercept['param']['sms_to'] ? $ret_intercept['param']['sms_to'] : $sms_to);
+		$sms_msg = ($ret_intercept['param']['sms_msg'] ? $ret_intercept['param']['sms_msg'] : $sms_msg);
+		$uid = ($ret_intercept['param']['uid'] ? $ret_intercept['param']['uid'] : $uid);
+		$gpid = ($ret_intercept['param']['gpid'] ? $ret_intercept['param']['gpid'] : $gpid);
+		$sms_type = ($ret_intercept['param']['sms_type'] ? $ret_intercept['param']['sms_type'] : $sms_type);
+		$unicode = ($ret_intercept['param']['unicode'] ? $ret_intercept['param']['unicode'] : $unicode);
+		$queue_code = ($ret_intercept['param']['queue_code'] ? $ret_intercept['param']['queue_code'] : $queue_code);
+		$smsc = ($ret_intercept['param']['smsc'] ? $ret_intercept['param']['smsc'] : $smsc);
+	}
+	
 	_log("end", 2, "sendsms_process");
 	
 	$ret['status'] = $ok;
 	$ret['to'] = $sms_to;
 	$ret['smslog_id'] = $smslog_id;
 	$ret['p_status'] = $p_status;
+	
 	return $ret;
 }
 
@@ -470,7 +561,9 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 	for ($i = 0; $i < count($sms_to); $i++) {
 		if (substr(trim($sms_to[$i]), 0, 1) == '#') {
 			if ($c_group_code = substr(trim($sms_to[$i]), 1)) {
-				$c_gpid = phonebook_groupcode2id($user_config['uid'], $c_group_code);
+				
+				$list = phonebook_search_group($user_config['uid'], $c_group_code, '', TRUE);
+				$c_gpid = $list[0]['gpid'];
 				$members = phonebook_getdatabyid($c_gpid);
 				foreach ($members as $member) {
 					if (trim($member['p_num'])) {
@@ -654,7 +747,7 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	$total_count = 0;
 	$total_charges = 0;
 	foreach ($all_sms_to as $c_sms_to) {
-		list($count, $rate, $charge) = rate_getcharges(strlen($message . $c_sms_footer), $unicode, $c_sms_to);
+		list($count, $rate, $charge) = rate_getcharges($uid, strlen($message . $c_sms_footer), $unicode, $c_sms_to);
 		$total_count += $count;
 		$total_charges += $charge;
 	}
@@ -890,25 +983,69 @@ function sendsms_get_sms($smslog_id) {
 /**
  * Check send SMS throttle limit
  *
+ * @param integer $uid
+ *        User ID
  * @param integer $limit
  *        Number of SMS sent
  * @param integer $period
  *        Throttle period in minute (default is 60)
  * @return boolean TRUE on overlimit
  */
-function sendsms_throttle_isoverlimit($limit = 0, $period = 60) {
+function sendsms_throttle_isoverlimit($uid, $limit = 0, $period = 60) {
 	global $core_config;
 	
-	$ret = FALSE;
+	$limit = ((int) $limit ? (int) $limit : $core_config['main']['sms_limit_per_hour']);
+	$period = ((int) $period ? (int) $period * 60 : 3600);
 	
-	$limit = (int) $limit;
-	$limit = ($limit ? $limit : (int) $core_config['main']['sms_limit_per_hour']);
-	$period = (int) $period * 60;
+	if (!$limit) {
+		// no limit no over limit
+		return FALSE;
+	}
 	
-	// fixme
-	$ret = FALSE;
+	if (!$period) {
+		// no period no over limit
+		return FALSE;
+	}
 	
-	return $ret;
+	// get start time, UTC
+	$reg = registry_search($uid, 'core', 'sendsms', 'throttle_start');
+	$start = $reg['core']['sendsms']['throttle_start'];
+	
+	if ($start) {
+		// get sum of sent SMS over the hour
+		$reg = registry_search($uid, 'core', 'sendsms', 'throttle_sum');
+		$sum = $reg['core']['sendsms']['throttle_sum'];
+		
+		//check bucket expired
+		if (strtotime($start) + $period < strtotime(core_get_datetime())) {
+			// is expired
+			// _log('is expired', 3, 'sendsms_throttle_isoverlimit');
+			
+
+			return FALSE;
+		} else {
+			// not expired
+			if ((int) $sum > $limit) {
+				// is over limit
+				// _log('is overlimit', 3, 'sendsms_throttle_isoverlimit');
+				
+
+				return TRUE;
+			} else {
+				// not over limit
+				_log('under quota not overlimit sum:' . $sum, 3, 'sendsms_throttle_isoverlimit');
+				
+				return FALSE;
+			}
+		}
+	} else {
+		_log('just started not overlimit', 3, 'sendsms_throttle_isoverlimit');
+		
+		return FALSE;
+	}
+	
+	// _log('default overlimit', 3, 'sendsms_throttle_isoverlimit');
+	return TRUE;
 }
 
 /**
@@ -921,27 +1058,68 @@ function sendsms_throttle_isoverlimit($limit = 0, $period = 60) {
  *        Sent SMS
  * @return boolean TRUE of successful counter
  */
-function sendsms_throttle_count($uid, $count = 1) {
-	$ret = FALSE;
+function sendsms_throttle_count($uid, $count = 1, $limit = 0, $period = 60) {
+	global $core_config;
 	
-	// fixme
-	$ret = TRUE;
+	$limit = ((int) $limit ? (int) $limit : $core_config['main']['sms_limit_per_hour']);
+	$period = ((int) $period ? (int) $period * 60 : 3600);
 	
-	return $ret;
-}
-
-/**
- * Reset counter for throttle limit
- *
- * @param integer $uid
- *        User ID
- * @return boolean TRUE of successful reset
- */
-function sendsms_throttle_reset($uid) {
-	$ret = FALSE;
+	if (!$limit) {
+		// no limit no over limit
+		return FALSE;
+	}
 	
-	// fixme
-	$ret = TRUE;
+	// get start time, UTC
+	$reg = registry_search($uid, 'core', 'sendsms', 'throttle_start');
+	$start = $reg['core']['sendsms']['throttle_start'];
 	
-	return $ret;
+	if ($start) {
+		// get sum of sent SMS over the hour
+		$reg = registry_search($uid, 'core', 'sendsms', 'throttle_sum');
+		$sum = $reg['core']['sendsms']['throttle_sum'];
+		_log('throttle bucket exists start:' . core_display_datetime($start) . ' sum:' . $sum . ' limit:' . $limit, 3, 'sendsms_throttle_count');
+	} else {
+		$start = core_get_datetime();
+		$sum = 0;
+		if (registry_update($uid, 'core', 'sendsms', array(
+			'throttle_start' => $start,
+			'throttle_sum' => $sum 
+		))) {
+			_log('throttle bucket started start:' . core_display_datetime($start) . ' limit:' . $limit, 3, 'sendsms_throttle_count');
+		} else {
+			_log('fail to start throttle bucket', 3, 'sendsms_throttle_count');
+			
+			return FALSE;
+		}
+	}
+	
+	// check bucket expired
+	if (strtotime($start) + $period < strtotime(core_get_datetime())) {
+		// expired, create new
+		$start = core_get_datetime();
+		$sum = 0;
+		_log('expired start:' . core_display_datetime($start), 3, 'sendsms_throttle_count');
+	} else {
+		//_log('not expired', 3, 'sendsms_throttle_count');
+		// not expired
+		if ((int) $sum <= $limit) {
+			// add to bucket
+			$sum += $count;
+			//_log('add to bucket sum:' . $sum, 3, 'sendsms_throttle_count');
+		} else {
+			_log('overlimit sum:' . $sum . ' limit:' . $limit, 3, 'sendsms_throttle_count');
+			
+			return FALSE;
+		}
+	}
+	
+	// save in registry
+	if (registry_update($uid, 'core', 'sendsms', array(
+		'throttle_start' => $start,
+		'throttle_sum' => $sum 
+	))) {
+		return TRUE;
+	}
+	
+	return FALSE;
 }

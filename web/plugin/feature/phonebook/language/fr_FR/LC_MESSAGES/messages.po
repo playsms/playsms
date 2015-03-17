@@ -17,6 +17,9 @@ msgstr "Ajouter groupe"
 msgid "Anyone"
 msgstr "Tous"
 
+msgid "CSV file format"
+msgstr ""
+
 msgid "Contact has been added"
 msgstr "Le contact a été ajouté."
 
@@ -93,11 +96,18 @@ msgstr "Mobile"
 msgid "Move to"
 msgstr "Déplacer vers"
 
+msgid "Multiple entries separated by space"
+msgstr ""
+
 msgid "Name"
 msgstr "Nom"
 
 msgid "No changes have been made"
 msgstr "Aucune modification apportée"
+
+#, fuzzy
+msgid "No group"
+msgstr "group"
 
 msgid "Phonebook"
 msgstr "Carnet d'adresses"
@@ -108,6 +118,10 @@ msgstr ""
 
 msgid "Please use alphanumeric only and make it short"
 msgstr "Veuillez utiliser uniquement alphanumérique et soyez bref"
+
+#, fuzzy
+msgid "Please use uppercase and make it short"
+msgstr "Veuillez utiliser des majuscules et soyez bref"
 
 msgid "Save"
 msgstr "Enregistrer"
@@ -135,6 +149,9 @@ msgstr ""
 "Régler l'autorisation de faire un broadcast SMS vers ce groupe depuis un "
 "téléphone portable"
 
+msgid "Tags"
+msgstr ""
+
 msgid "Unable to delete group until the group is empty"
 msgstr "Le groupe ne peut pas être supprimé tant qu'il n'est pas vide."
 
@@ -150,11 +167,5 @@ msgstr "Vous devez saisir tous les champs obligatoires"
 msgid "code"
 msgstr "code"
 
-msgid "format"
-msgstr "format"
-
 msgid "group"
 msgstr "group"
-
-msgid "please use uppercase and make it short"
-msgstr "Veuillez utiliser des majuscules et soyez bref"

@@ -19,12 +19,7 @@
 defined('_SECURE_') or die('Forbidden');
 
 /*
- * Implementations of hook checkavailablekeyword()
- *
- * @param $keyword
- * checkavailablekeyword() will insert keyword for checking to the hook here
- * @return
- * TRUE if keyword is available
+ * Implementations of hook checkavailablekeyword() @param $keyword checkavailablekeyword() will insert keyword for checking to the hook here @return TRUE if keyword is available
  */
 function sms_board_hook_checkavailablekeyword($keyword) {
 	$ok = true;
@@ -38,20 +33,7 @@ function sms_board_hook_checkavailablekeyword($keyword) {
 }
 
 /*
- * Implementations of hook setsmsincomingaction()
- *
- * @param $sms_datetime
- * date and time when incoming sms inserted to playsms
- * @param $sms_sender
- * sender on incoming sms
- * @param $board_keyword
- * check if keyword is for sms_board
- * @param $board_param
- * get parameters from incoming sms
- * @param $sms_receiver
- * receiver number that is receiving incoming sms
- * @return $ret
- * array of keyword owner uid and status, TRUE if incoming sms handled
+ * Implementations of hook setsmsincomingaction() @param $sms_datetime date and time when incoming sms inserted to playsms @param $sms_sender sender on incoming sms @param $board_keyword check if keyword is for sms_board @param $board_param get parameters from incoming sms @param $sms_receiver receiver number that is receiving incoming sms @return $ret array of keyword owner uid and status, TRUE if incoming sms handled
  */
 function sms_board_hook_setsmsincomingaction($sms_datetime, $sms_sender, $board_keyword, $board_param = '', $sms_receiver = '', $smsc = '', $raw_message = '') {
 	$ok = false;
@@ -93,8 +75,7 @@ function sms_board_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $bo
 			if ($email) {
 				
 				// get name from c_uid's phonebook
-				$c_username = user_uid2username($c_uid);
-				$c_name = phonebook_number2name($sms_sender, $c_username);
+				$c_name = phonebook_number2name($c_uid, $sms_sender);
 				$sms_sender = ($c_name ? $c_name . ' <' . $sms_sender . '>' : $sms_sender);
 				$sms_datetime = core_display_datetime($sms_datetime);
 				$subject = "[" . $board_keyword . "] " . _('SMS board from') . " $sms_sender";
@@ -241,57 +222,69 @@ function sms_board_output_html($keyword, $line = "10") {
 	}
 }
 
-function sms_board_hook_webservices_output($operation, $requests) {
+function sms_board_hook_webservices_output($operation, $requests, $returns) {
 	$keyword = $requests['keyword'];
 	if (!$keyword) {
 		$keyword = $requests['tag'];
 	}
-	if ($keyword) {
-		$keyword = strtoupper($keyword);
-		$line = $requests['line'];
-		$type = $requests['type'];
-		$format = $requests['format'];
-		switch ($type) {
-			case "serialize":
-				$content = sms_board_output_serialize($keyword, $line);
-				ob_end_clean();
-				header('Content-Type: text/plain; charset=utf-8');
-				$ret = $content;
-				break;
-			
-			case "json":
-				$content = sms_board_output_json($keyword, $line);
-				ob_end_clean();
-				header('Content-Type: text/json; charset=utf-8');
-				$ret = $content;
-				break;
-			
-			case "xml":
-				$content = sms_board_output_xml($keyword, $line);
-				ob_end_clean();
-				header('Content-Type: text/xml; charset=utf-8');
-				$ret = $content;
-				break;
-			
-			case "feed":
-				ob_end_clean();
-				
-				// before sms_board_output_rss, and dont set content-type
-				$content = sms_board_output_rss($keyword, $line, $format);
-				$ret = $content;
-				break;
-			
-			case "html":
-			default :
-				$bodybgcolor = $requests['bodybgcolor'];
-				$oddbgcolor = $requests['oddbgcolor'];
-				$evenbgcolor = $requests['evenbgcolor'];
-				$content = sms_board_output_html($keyword, $line, $bodybgcolor, $oddbgcolor, $evenbgcolor);
-				ob_end_clean();
-				header('Content-Type: text/html; charset=utf-8');
-				$ret = $content;
-		}
+	
+	if (!($operation == 'sms_board' && $keyword)) {
+		return FALSE;
 	}
 	
-	return $ret;
+	$keyword = strtoupper($keyword);
+	$line = $requests['line'];
+	$type = $requests['type'];
+	$format = $requests['format'];
+	switch ($type) {
+		case "serialize":
+			if ($content = sms_board_output_serialize($keyword, $line)) {
+				$returns['modified'] = TRUE;
+				$returns['param']['content'] = $content;
+				$returns['param']['content-type'] = 'text/plain';
+			}
+			break;
+		
+		case "json":
+			if ($content = sms_board_output_json($keyword, $line)) {
+				$returns['modified'] = TRUE;
+				$returns['param']['content'] = $content;
+				$returns['param']['content-type'] = 'text/json';
+			}
+			break;
+		
+		case "xml":
+			if ($content = sms_board_output_xml($keyword, $line)) {
+				$returns['modified'] = TRUE;
+				$returns['param']['content'] = $content;
+				$returns['param']['content-type'] = 'text/xml';
+			}
+			break;
+		
+		case "feed":
+			// before sms_board_output_rss, and dont set content-type
+			if ($content = sms_board_output_rss($keyword, $line, $format)) {
+				$returns['modified'] = TRUE;
+				$returns['param']['content'] = $content;
+				if ($format == 'mbox') {
+					$returns['param']['content-type'] = 'text/plain';
+				} else {
+					$returns['param']['content-type'] = 'text/xml';
+				}
+			}
+			break;
+		
+		case "html":
+		default :
+			$bodybgcolor = $requests['bodybgcolor'];
+			$oddbgcolor = $requests['oddbgcolor'];
+			$evenbgcolor = $requests['evenbgcolor'];
+			if ($content = sms_board_output_html($keyword, $line, $bodybgcolor, $oddbgcolor, $evenbgcolor)) {
+				$returns['modified'] = TRUE;
+				$returns['param']['content'] = $content;
+				$returns['param']['content-type'] = 'text/html';
+			}
+	}
+	
+	return $returns;
 }

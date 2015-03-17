@@ -10,6 +10,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "ACL DEFAULT will not restrict access to menus"
+msgstr ""
+
 msgid ""
 "Access to unknown domain mapped to this server IP address will be redirected "
 "to this website URL. This website URL should be the primary address for the "
@@ -43,20 +46,42 @@ msgstr "Нижний колонтитул. Измените на страниц�
 msgid "Buy credit page"
 msgstr "Страница покупки"
 
+#, fuzzy
+msgid "Default ACL upon registration"
+msgstr "Тип пользователя при регистрации"
+
 msgid "Default SMS rate"
 msgstr "Тариф за СМС по умолчанию"
 
 msgid "Default SMSC"
 msgstr "SMSC по умолчанию"
 
-msgid "Default account status on registration"
+#, fuzzy
+msgid "Default account status upon registration"
 msgstr "Тип пользователя при регистрации"
 
-msgid "Default credit for user"
-msgstr "Баланс по умолчанию для новых пользователей"
+#, fuzzy
+msgid "Default credit upon registration"
+msgstr "Тип пользователя при регистрации"
 
 msgid "Default language"
 msgstr "Язык по умолчанию"
+
+msgid ""
+"Default parent selected upon registration when the default account status on "
+"registration setting set to Subuser"
+msgstr ""
+
+#, fuzzy
+msgid "Default parent upon registration"
+msgstr "Тип пользователя при регистрации"
+
+msgid "Default prefix or country code"
+msgstr ""
+
+msgid ""
+"Default prefix or country code to replace prefix 0 on destination number"
+msgstr ""
 
 msgid "Default sender ID"
 msgstr "Имя отправителя по умолчанию"
@@ -69,6 +94,11 @@ msgstr "Настройки сайта по умолчанию"
 
 msgid "Default timezone"
 msgstr "Часовой пояс по умолчанию"
+
+msgid ""
+"Define a single character as keyword separator replacing default keyword "
+"separator a space"
+msgstr ""
 
 msgid "Disable login as subuser"
 msgstr "Отключить вход от имени другого пользователя"
@@ -114,6 +144,9 @@ msgstr "Информация"
 msgid "Information page"
 msgstr "Главная страница"
 
+msgid "Keyword separator"
+msgstr ""
+
 msgid "Layout footer"
 msgstr "Нижний колонтитул"
 
@@ -125,6 +158,9 @@ msgid ""
 msgstr ""
 "Логотип по умолчанию отображается на странице входа, регистрации и "
 "восстановления пароля"
+
+msgid "Lowest credit limit to trigger notification"
+msgstr ""
 
 msgid "Main configuration"
 msgstr "Основная конфигурация"
@@ -141,6 +177,12 @@ msgstr "Название основного сайта"
 msgid "Maximum SMS count"
 msgstr "Максимальное количество сегментов"
 
+msgid "Maximum username length"
+msgstr ""
+
+msgid "Maximum username length must be a number between 4 to 100"
+msgstr ""
+
 msgid "Number of sent SMS per hour limit"
 msgstr ""
 
@@ -155,6 +197,11 @@ msgstr "Заменить название основного сайта лого
 
 msgid "Save"
 msgstr "Сохранить"
+
+msgid ""
+"Set credit value bigger than 0 to set credit lowest limit that will trigger "
+"notification"
+msgstr ""
 
 msgid "Subuser"
 msgstr "Дочерний пользователь"
