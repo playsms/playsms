@@ -110,6 +110,64 @@ function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $g
 	return $ret_final;
 }
 
+function sendsms_intercept_after($status, $smslog_id, $p_status, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid = 0, $sms_type = 'text', $unicode = 0, $queue_code = '', $smsc = '') {
+	global $core_config;
+	$ret = array();
+	$ret_final = array();
+	
+	// feature list
+	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
+		$c_feature = $core_config['featurelist'][$c];
+		$ret = core_hook($c_feature, 'sendsms_intercept_after', array(
+			$status,
+			$smslog_id,
+			$p_status,
+			$sms_sender,
+			$sms_footer,
+			$sms_to,
+			$sms_msg,
+			$uid,
+			$gpid,
+			$sms_type,
+			$unicode,
+			$queue_code,
+			$smsc 
+		));
+		if ($ret['modified']) {
+			$status = ($ret['param']['status'] ? $ret['param']['status'] : $status);
+			$smslog_id = ($ret['param']['smslog_id'] ? $ret['param']['smslog_id'] : $smslog_id);
+			$p_status = ($ret['param']['p_status'] ? $ret['param']['p_status'] : $p_status);
+			$sms_sender = ($ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender);
+			$sms_footer = ($ret['param']['sms_footer'] ? $ret['param']['sms_footer'] : $sms_footer);
+			$sms_to = ($ret['param']['sms_to'] ? $ret['param']['sms_to'] : $sms_to);
+			$sms_msg = ($ret['param']['sms_msg'] ? $ret['param']['sms_msg'] : $sms_msg);
+			$uid = ($ret['param']['uid'] ? $ret['param']['uid'] : $uid);
+			$gpid = ($ret['param']['gpid'] ? $ret['param']['gpid'] : $gpid);
+			$sms_type = ($ret['param']['sms_type'] ? $ret['param']['sms_type'] : $sms_type);
+			$unicode = ($ret['param']['unicode'] ? $ret['param']['unicode'] : $unicode);
+			$queue_code = ($ret['param']['queue_code'] ? $ret['param']['queue_code'] : $queue_code);
+			$smsc = ($ret['param']['smsc'] ? $ret['param']['smsc'] : $smsc);
+			$ret_final['modified'] = $ret['modified'];
+			$ret_final['cancel'] = $ret['cancel'];
+			$ret_final['param']['status'] = $status;
+			$ret_final['param']['smslog_id'] = $smslog_id;
+			$ret_final['param']['p_status'] = $p_status;
+			$ret_final['param']['sms_sender'] = $sms_sender;
+			$ret_final['param']['sms_footer'] = $sms_footer;
+			$ret_final['param']['sms_to'] = $sms_to;
+			$ret_final['param']['sms_msg'] = $sms_msg;
+			$ret_final['param']['uid'] = $uid;
+			$ret_final['param']['gpid'] = $gpid;
+			$ret_final['param']['sms_type'] = $sms_type;
+			$ret_final['param']['unicode'] = $unicode;
+			$ret_final['param']['queue_code'] = $queue_code;
+			$ret_final['param']['smsc'] = $smsc;
+			_log($c_feature . ' modified status:[' . (int) $status . ']smslog_id:[' . $smslog_id . '] p_status:[' . (int) $p_status . '] sms_sender:[' . $sms_sender . '] sms_footer:[' . $sms_footer . '] sms_to:[' . $sms_to . '] sms_msg:[' . $sms_msg . '] uid:[' . $uid . '] gpid:[' . $gpid . '] sms_type:[' . $sms_type . '] unicode:[' . $unicode . '] queue_code:[' . $queue_code . '] smsc:[' . $smsc . ']', 3, 'sendsms_intercept_after');
+		}
+	}
+	return $ret_final;
+}
+
 /**
  * Create SMS queue
  *
@@ -442,12 +500,31 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		_log("fail to save in db table smslog_id:" . $smslog_id, 2, "sendsms_process");
 	}
 	
+	// sent sms will be handled by plugins first
+	$ret_intercept = sendsms_intercept_after($ok, $smslog_id, $p_status, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $queue_code, $smsc);
+	if ($ret_intercept['modified']) {
+		$ok = ($ret_intercept['param']['status'] ? $ret_intercept['param']['status'] : $ok);
+		$smslog_id = ($ret_intercept['param']['smslog_id'] ? $ret_intercept['param']['smslog_id'] : $smslog_id);
+		$p_status = ($ret_intercept['param']['p_status'] ? $ret_intercept['param']['p_status'] : $p_status);
+		$sms_sender = ($ret_intercept['param']['sms_sender'] ? $ret_intercept['param']['sms_sender'] : $sms_sender);
+		$sms_footer = ($ret_intercept['param']['sms_footer'] ? $ret_intercept['param']['sms_footer'] : $sms_footer);
+		$sms_to = ($ret_intercept['param']['sms_to'] ? $ret_intercept['param']['sms_to'] : $sms_to);
+		$sms_msg = ($ret_intercept['param']['sms_msg'] ? $ret_intercept['param']['sms_msg'] : $sms_msg);
+		$uid = ($ret_intercept['param']['uid'] ? $ret_intercept['param']['uid'] : $uid);
+		$gpid = ($ret_intercept['param']['gpid'] ? $ret_intercept['param']['gpid'] : $gpid);
+		$sms_type = ($ret_intercept['param']['sms_type'] ? $ret_intercept['param']['sms_type'] : $sms_type);
+		$unicode = ($ret_intercept['param']['unicode'] ? $ret_intercept['param']['unicode'] : $unicode);
+		$queue_code = ($ret_intercept['param']['queue_code'] ? $ret_intercept['param']['queue_code'] : $queue_code);
+		$smsc = ($ret_intercept['param']['smsc'] ? $ret_intercept['param']['smsc'] : $smsc);
+	}
+	
 	_log("end", 2, "sendsms_process");
 	
 	$ret['status'] = $ok;
 	$ret['to'] = $sms_to;
 	$ret['smslog_id'] = $smslog_id;
 	$ret['p_status'] = $p_status;
+	
 	return $ret;
 }
 
