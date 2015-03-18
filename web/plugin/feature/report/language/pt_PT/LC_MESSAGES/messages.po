@@ -16,7 +16,7 @@ msgid "Account has been unbanned"
 msgstr "Foi removido o banir da conta"
 
 msgid "All feature messages"
-msgstr "Todas as funcionalidades das Mensagens"
+msgstr "Todas as mensagens das características"
 
 msgid "All inbox"
 msgstr "Todas as Caixas de entrada"
@@ -100,7 +100,7 @@ msgid "My credit transactions"
 msgstr "Transações dos meus créditos"
 
 msgid "My feature messages"
-msgstr "Funcionalidades das minhas mensagens"
+msgstr "Minhas mensagens das características"
 
 msgid "My report"
 msgstr "Meu Relatorio"
