@@ -9,9 +9,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "API ID"
-msgstr "ID de l'API"
-
 msgid "Additional URL parameter"
 msgstr "Paramètre additionnel d'URL"
 
@@ -23,8 +20,7 @@ msgstr "Bulksms est un fournisseur de SMS en gros"
 
 msgid "Bulksms will push DLR and incoming SMS to your callback URL"
 msgstr ""
-"Bulksms va faire un push du DLR et du SMS entrant vers votre URL de "
-"callback"
+"Bulksms va faire un push du DLR et du SMS entrant vers votre URL de callback"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Exemple: +0200 pour le fuseau horaire de Paris (heure d'été)"

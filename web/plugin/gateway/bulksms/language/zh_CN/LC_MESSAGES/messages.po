@@ -5,19 +5,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "API ID"
-msgstr "应用程序界面地址"
-
 msgid "Additional URL parameter"
 msgstr "增加的链接参数"
 
-msgid "Clickatell API URL"
+#, fuzzy
+msgid "Bulksms API URL"
 msgstr "Clickatell应用程序界面链接"
 
-msgid "Clickatell is a bulk SMS provider"
+msgid "Bulksms is a bulk SMS provider"
 msgstr ""
 
-msgid "Clickatell will push DLR and incoming SMS to your callback URL"
+msgid "Bulksms will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
@@ -32,8 +30,8 @@ msgstr "网关模块的配置已保存"
 msgid "Gateway name"
 msgstr "网关名"
 
-msgid "Manage clickatell"
-msgstr "管理 clickatell"
+msgid "Manage bulksms"
+msgstr ""
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
@@ -65,7 +63,7 @@ msgstr "用户名"
 msgid "Your callback URL is"
 msgstr "你的回调链接是"
 
-msgid "Your callback URL should be accessible from Clickatell"
+msgid "Your callback URL should be accessible from Bulksms"
 msgstr ""
 
 msgid "free credits are available for testing purposes"

@@ -1,6 +1,3 @@
-msgid "API ID"
-msgstr ""
-
 msgid "Additional URL parameter"
 msgstr ""
 

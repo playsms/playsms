@@ -5,19 +5,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "API ID"
-msgstr "API ID"
-
 msgid "Additional URL parameter"
 msgstr "Parameter URL tambahan"
 
-msgid "Clickatell API URL"
+#, fuzzy
+msgid "Bulksms API URL"
 msgstr "URL Clickatell API"
 
-msgid "Clickatell is a bulk SMS provider"
+#, fuzzy
+msgid "Bulksms is a bulk SMS provider"
 msgstr "Clickatell adalah penyedia SMS bulk"
 
-msgid "Clickatell will push DLR and incoming SMS to your callback URL"
+msgid "Bulksms will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
@@ -32,8 +31,8 @@ msgstr "Konfigurasi modul gateway telah disimpan"
 msgid "Gateway name"
 msgstr "Nama gateway"
 
-msgid "Manage clickatell"
-msgstr "Pengaturan clickatell"
+msgid "Manage bulksms"
+msgstr ""
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
@@ -65,7 +64,7 @@ msgstr "Nama pengguna"
 msgid "Your callback URL is"
 msgstr "URL balasan anda adalah"
 
-msgid "Your callback URL should be accessible from Clickatell"
+msgid "Your callback URL should be accessible from Bulksms"
 msgstr ""
 
 msgid "free credits are available for testing purposes"
