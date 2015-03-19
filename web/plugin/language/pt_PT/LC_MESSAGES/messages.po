@@ -118,7 +118,7 @@ msgid "Manage subuser"
 msgstr "Gerir subutilizador"
 
 msgid "Manage subusers"
-msgstr "Gerir subutilizador"
+msgstr "Gerir subutilizadores"
 
 msgid "Manage user"
 msgstr "Gerir Utilizadores"
