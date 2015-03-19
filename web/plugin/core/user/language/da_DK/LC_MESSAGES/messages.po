@@ -44,9 +44,8 @@ msgstr "Konto er blevet fjernet"
 msgid "Account has been unbanned"
 msgstr "Konto er ikke længere bandlyst"
 
-#, fuzzy
 msgid "Account is already exists"
-msgstr "Brugeren eksisterer allerede"
+msgstr "Kontoen eksisterer allerede"
 
 msgid "Account name is mandatory"
 msgstr "Kontonavn er krævet"
@@ -57,13 +56,11 @@ msgstr "Konto registrering er ikke tilgængeligt"
 msgid "Account status"
 msgstr "Kontostatus"
 
-#, fuzzy
 msgid "Account with this email is already exists"
-msgstr "Bruger med denne e-mail eksisterer allerede"
+msgstr "Konto med denne e-mail eksisterer allerede"
 
-#, fuzzy
 msgid "Account with this mobile is already exists"
-msgstr "Bruger med dette mobilnr eksisterer allerede"
+msgstr "Konto med dette mobilnr eksisterer allerede"
 
 msgid "Action"
 msgstr "Handling"
