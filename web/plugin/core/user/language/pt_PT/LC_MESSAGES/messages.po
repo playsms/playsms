@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Poedit 1.7.5\n"
 
 msgid "ACL"
-msgstr ""
+msgstr "ACL"
 
 msgid "ACL DEFAULT will not restrict access to menus"
 msgstr "ACL PADRÃO não vai restringir o acesso aos menus"
@@ -147,7 +147,7 @@ msgid "Delete"
 msgstr "Apagar"
 
 msgid "Effective SMS sender ID"
-msgstr ""
+msgstr "Effective SMS sender ID"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Ex: +0000 para Europe/Lisbon Fuso Horário"
