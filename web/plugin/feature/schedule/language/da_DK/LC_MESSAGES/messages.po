@@ -27,7 +27,8 @@ msgid "Are you sure you want to delete SMS schedule ?"
 msgstr "Er du sikker pÃ¥ at du Ã¸nsker at slette SMS tidsplanen?"
 
 msgid "Are you sure you want to remove this number from SMS schedule ?"
-msgstr "Er du sikker pÃ¥ at du Ã¸nsker at fjerne dette nummer fra SMS tidsplanen?"
+msgstr ""
+"Er du sikker pÃ¥ at du Ã¸nsker at fjerne dette nummer fra SMS tidsplanen?"
 
 msgid "Daily"
 msgstr "Dagligt"
