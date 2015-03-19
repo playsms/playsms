@@ -15,9 +15,8 @@ msgstr ""
 msgid "Account has been unbanned"
 msgstr "Konto er ikke længere bandlyst"
 
-#, fuzzy
 msgid "All feature messages"
-msgstr "Alle udgående beskeder"
+msgstr "Alle feature beskeder"
 
 msgid "All inbox"
 msgstr "Alle indbakker"
@@ -25,9 +24,8 @@ msgstr "Alle indbakker"
 msgid "All reports"
 msgstr "Alle rapporter"
 
-#, fuzzy
 msgid "All sent messages"
-msgstr "Alle indkommende beskeder"
+msgstr "Alle sendte beskeder"
 
 msgid "Amount"
 msgstr "Beløb"
@@ -102,14 +100,13 @@ msgid "My credit transactions"
 msgstr "Mine kredit transaktioner"
 
 msgid "My feature messages"
-msgstr ""
+msgstr "Mine feature beskeder"
 
 msgid "My report"
 msgstr "Min rapport"
 
-#, fuzzy
 msgid "My sent messages"
-msgstr "Besked"
+msgstr "Mine sendte beskeder"
 
 msgid "Pending"
 msgstr "Afventer"

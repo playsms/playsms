@@ -15,20 +15,19 @@ msgid "Action"
 msgstr "Handling"
 
 msgid "Add SMS schedule"
-msgstr "Tilføj SMS tidsplan"
+msgstr "TilfÃ¸j SMS tidsplan"
 
 msgid "Add destination"
-msgstr "Tilføj destination"
+msgstr "TilfÃ¸j destination"
 
 msgid "Annually"
-msgstr "Årligt"
+msgstr "Ãrligt"
 
 msgid "Are you sure you want to delete SMS schedule ?"
-msgstr "Er du sikker på at du ønsker at slette SMS tidsplanen?"
+msgstr "Er du sikker pÃ¥ at du Ã¸nsker at slette SMS tidsplanen?"
 
 msgid "Are you sure you want to remove this number from SMS schedule ?"
-msgstr ""
-"Er du sikker på at du ønsker at fjerne dette nummer fra SMS tidsplanen?"
+msgstr "Er du sikker pÃ¥ at du Ã¸nsker at fjerne dette nummer fra SMS tidsplanen?"
 
 msgid "Daily"
 msgstr "Dagligt"
@@ -52,10 +51,10 @@ msgid "Entries in CSV file have been imported"
 msgstr "Emnerne i CSV filen er blevet importeret"
 
 msgid "Fail to add new SMS schedule"
-msgstr "Kunne ikke tilføje ny SMS tidsplan"
+msgstr "Kunne ikke tilfÃ¸je ny SMS tidsplan"
 
 msgid "Fail to add new destination"
-msgstr "Kunne ikke tilføje ny destination"
+msgstr "Kunne ikke tilfÃ¸je ny destination"
 
 msgid "Fail to delete SMS schedule"
 msgstr "Kunne ikke slette SMS tidsplan"
@@ -73,7 +72,7 @@ msgid "Fail to upload CSV file"
 msgstr "Kunne ikke uploade CSV fil"
 
 msgid "Format YYYY-MM-DD hh:mm"
-msgstr "Format ÅÅÅÅ-MM-DD tt:mm"
+msgstr "Format ÃÃÃÃ-MM-DD tt:mm"
 
 msgid "ID"
 msgstr "ID"
@@ -82,40 +81,40 @@ msgid "Import"
 msgstr "Importer"
 
 msgid "Import above destination entries ?"
-msgstr "Importer ovenstående destinations-emner?"
+msgstr "Importer ovenstÃ¥ende destinations-emner?"
 
 msgid "Import confirmation"
-msgstr "Bekræft import"
+msgstr "BekrÃ¦ft import"
 
 msgid "List of destinations"
 msgstr "Liste over destinationer"
 
 msgid "Manage schedule"
-msgstr "Håndter tidsplan"
+msgstr "HÃ¥ndter tidsplan"
 
 msgid "Mandatory fields must not be empty"
-msgstr "Krævede felter må ikke være tomme"
+msgstr "KrÃ¦vede felter mÃ¥ ikke vÃ¦re tomme"
 
 msgid "Message"
 msgstr "Besked"
 
 msgid "Monthly"
-msgstr "Månedlig"
+msgstr "MÃ¥nedlig"
 
 msgid "Name"
 msgstr "Navn"
 
 msgid "New SMS schedule been added"
-msgstr "Ny SMS tidsplan er blevet tilføjet"
+msgstr "Ny SMS tidsplan er blevet tilfÃ¸jet"
 
 msgid "New destination has been added"
-msgstr "Ny destination er blevet tilføjet"
+msgstr "Ny destination er blevet tilfÃ¸jet"
 
 msgid "Once"
-msgstr "Én gang"
+msgstr "Ãn gang"
 
 msgid "Please select CSV file"
-msgstr "Vælg venligst en CSV fil"
+msgstr "VÃ¦lg venligst en CSV fil"
 
 msgid "SMS schedule been saved"
 msgstr "SMS tidsplan er blevet gemt"
@@ -138,9 +137,8 @@ msgstr "Tidsplan"
 msgid "Schedule ID"
 msgstr "Tidsplan ID"
 
-#, fuzzy
 msgid "Schedule messages"
-msgstr "Planlagt besked"
+msgstr "Planlæg beskeder"
 
 msgid "Schedule name"
 msgstr "Tidsplan-navn"

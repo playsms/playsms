@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: da_DK\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Additional URL parameter"
+msgstr "Yderligere URL parametre"
+
+msgid "Bulksms API URL"
+msgstr "Bulksms API URL"
+
+msgid "Bulksms is a bulk SMS provider"
+msgstr "Bulksms er en masse-SMS leverandør"
+
+msgid "Bulksms will push DLR and incoming SMS to your callback URL"
+msgstr "Bulksms vil sende DLR og indkommende SMS til din callback URL"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "F.eks: +0700 for Jakarta/Bangkok tidszone"
+
+msgid "Fill to change the password"
+msgstr "Udfyld for at ændre adgangskoden"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Gateway-modul konfigurationen er blevet gemt"
+
+msgid "Gateway name"
+msgstr "Gateway navn"
+
+msgid "Manage bulksms"
+msgstr "Håndter Bulksms"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Maks. 16 nummeriske eller 11 alfanumeriske tegn, tom for at deaktivere"
+
+msgid "Module sender ID"
+msgstr "Modul afsenderID"
+
+msgid "Module timezone"
+msgstr "Modul tidszone"
+
+msgid "No changes have been made"
+msgstr "Ingen ændringer foretaget"
+
+msgid "No trailing slash"
+msgstr "Ingen efterfølgende skråstreg"
+
+msgid "Notes"
+msgstr "Noter"
+
+msgid "Password"
+msgstr "Adgangskode"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "Username"
+msgstr "Brugernavn"
+
+msgid "Your callback URL is"
+msgstr "Din callback URL er"
+
+msgid "Your callback URL should be accessible from Bulksms"
+msgstr "Din callback URL skal være tilgængelig fra Bulksms"
+
+msgid "free credits are available for testing purposes"
+msgstr "gratis kredit er tilgængelig til testformål"
