@@ -231,7 +231,7 @@ function phonebook_hook_phonebook_search($uid, $keyword = "", $count = 0, $exact
 					SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
 					LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid
 					LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON B.id=C.gpid
-					WHERE A.mobile LIKE '%" . core_mobile_matcher_format($user_mobile) . "' AND B.flag_sender='1'
+					WHERE A.mobile != '' AND A.mobile='" . $user_mobile . "' AND B.flag_sender='1'
 				) OR (
 				A.uid <>'$uid' AND B.flag_sender>'1'
 				)

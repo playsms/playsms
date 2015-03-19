@@ -1052,18 +1052,18 @@ function core_playsmsd_timer($period = 60) {
  */
 function core_mobile_matcher_format($mobile) {
 	// sanitize for mobile numbers only
-	$mobile = sendsms_getvalidnumber($mobile);
+	$c_mobile = sendsms_getvalidnumber($mobile);
 	
-	if (strlen($mobile) >= 6) {
+	if (strlen($c_mobile) >= 6) {
 		// remove +
-		$mobile = str_replace('+', '', $mobile);
+		$c_mobile = str_replace('+', '', $c_mobile);
 		
 		// remove first 3 digits if phone number length more than 7
-		if (strlen($mobile) > 7) {
-			$mobile = substr($mobile, 3);
+		if (strlen($c_mobile) > 7) {
+			$c_mobile = substr($c_mobile, 3);
 		}
-	} else {
-		$mobile = FALSE;
+		
+		$mobile = $c_mobile;
 	}
 	
 	return $mobile;
