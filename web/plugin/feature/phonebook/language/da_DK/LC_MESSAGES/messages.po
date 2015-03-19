@@ -25,7 +25,7 @@ msgid "Anyone"
 msgstr "Alle"
 
 msgid "CSV file format"
-msgstr ""
+msgstr "CSV filformat"
 
 msgid "Contact has been added"
 msgstr "Kontakt er blevet tilføjet"
@@ -103,7 +103,7 @@ msgid "Move to"
 msgstr "Flyt til"
 
 msgid "Multiple entries separated by space"
-msgstr ""
+msgstr "Adskillige emner adskilt med mellemrum"
 
 msgid "Name"
 msgstr "Navn"
@@ -111,9 +111,8 @@ msgstr "Navn"
 msgid "No changes have been made"
 msgstr "Ingen ændringer foretaget"
 
-#, fuzzy
 msgid "No group"
-msgstr "gruppe"
+msgstr "Ingen gruppe"
 
 msgid "Phonebook"
 msgstr "Telefonbog"
@@ -124,9 +123,8 @@ msgstr "Vælg CSV fil med telefonbogsemner"
 msgid "Please use alphanumeric only and make it short"
 msgstr "Brug venligst kun alfanumeriske tegn og gør det kort"
 
-#, fuzzy
 msgid "Please use uppercase and make it short"
-msgstr "brug venligst store bogstaver og gør det kort"
+msgstr "Brug venligst store bogstaver og gør det kort"
 
 msgid "Save"
 msgstr "Gem"
@@ -154,7 +152,7 @@ msgstr ""
 "gruppe fra mobiltelefoner"
 
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 msgid "Unable to delete group until the group is empty"
 msgstr "Kan ikke slette gruppen før den er tom"
