@@ -102,6 +102,8 @@ msgid ""
 "Define a single character as keyword separator replacing default keyword "
 "separator a space"
 msgstr ""
+"Definir um único caractere como separador de palavras-chave substituindo "
+"separador palavra-chave padrão com espaço"
 
 msgid "Disable login as subuser"
 msgstr "Desativar login de subutilizadores"
@@ -149,7 +151,7 @@ msgid "Information page"
 msgstr "Informações da página"
 
 msgid "Keyword separator"
-msgstr ""
+msgstr "Separador de palavras-chave"
 
 msgid "Layout footer"
 msgstr "Rodapé de layout"

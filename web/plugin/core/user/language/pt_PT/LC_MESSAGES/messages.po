@@ -198,7 +198,7 @@ msgid "List of users"
 msgstr "Lista de Utilizadores"
 
 msgid "Local number length"
-msgstr " "
+msgstr "Comprimento número local"
 
 msgid "Login information"
 msgstr "Informação Login"
@@ -210,13 +210,13 @@ msgid "Manage subuser"
 msgstr "Gerir sub-utilizador"
 
 msgid "Max. 16 numeric or 11 alphanumeric characters"
-msgstr ""
+msgstr "Max. 16 numérico ou 11 caracteres alfanuméricos"
 
 msgid "Max. 30 alphanumeric characters"
-msgstr ""
+msgstr "Max. 30 caracteres alfanuméricos"
 
 msgid "Min length to detect missing country code"
-msgstr ""
+msgstr "Comprimento mínimo para detetar a falta do código do país"
 
 msgid "Mobile"
 msgstr "Telemóvel"
@@ -400,7 +400,7 @@ msgid "Webservices IP range"
 msgstr "Webservices Gama de ips"
 
 msgid "Webservices token"
-msgstr ""
+msgstr "Webservices token"
 
 msgid "Webservices username"
 msgstr "Webservices Nome de Utilizador"
@@ -421,7 +421,7 @@ msgid "Zipcode"
 msgstr "Código Postal"
 
 msgid "email"
-msgstr ""
+msgstr "e-mail"
 
 msgid "for subuser only"
 msgstr "Somente para sub-utilizador"
