@@ -27,10 +27,8 @@ msgstr "Adicionar opção para essa votação"
 msgid "All"
 msgstr "Todos"
 
-msgid ""
-"Are you sure you want to delete SMS poll with all its choices and votes ?"
-msgstr ""
-"Tem certeza que quer eliminar a votação SMS com todas as opções e votos?"
+msgid "Are you sure you want to delete SMS poll with all its choices and votes ?"
+msgstr "Tem certeza que quer eliminar a votação SMS com todas as opções e votos?"
 
 msgid "Are you sure you want to delete choice ?"
 msgstr "Tem certeza que quer eliminar essa opção?"
@@ -38,7 +36,6 @@ msgstr "Tem certeza que quer eliminar essa opção?"
 msgid "Choice already exists"
 msgstr "A opção já existe"
 
-#, fuzzy
 msgid "Choice description"
 msgstr "Título da opção"
 
@@ -72,9 +69,8 @@ msgstr "Total de Remetentes"
 msgid "Graph output"
 msgstr "Saída Graph"
 
-#, fuzzy
 msgid "HTML output"
-msgstr "Saída XML"
+msgstr "Saída HTML"
 
 msgid "Invalid"
 msgstr "inválido"
@@ -100,16 +96,14 @@ msgstr "Uma vez"
 msgid "PHP serialize output"
 msgstr "Saída PHP serialize"
 
-#, fuzzy
 msgid "Reply message on invalid vote"
-msgstr "Mensagem de retorno caso resposta inválida"
+msgstr "Mensagem de retorno caso resposta seja inválida"
 
 msgid "Reply message on out of vote option"
 msgstr "Mensagem de retorno caso mensagem seja fora de opção de voto"
 
-#, fuzzy
 msgid "Reply message on valid vote"
-msgstr "Mensagem de retorno caso mensagem válida"
+msgstr "Mensagem de retorno caso mensagem seja válida"
 
 msgid "Result graph"
 msgstr "Resultado Gráfico"
@@ -117,7 +111,6 @@ msgstr "Resultado Gráfico"
 msgid "Result table"
 msgstr "Tabela de Resultados"
 
-#, fuzzy
 msgid "SMS poll access code"
 msgstr "Palavra-chave da votação SMS"
 
