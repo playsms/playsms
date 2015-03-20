@@ -448,8 +448,11 @@ function core_adjust_datetime($time, $tz = 0) {
 /**
  * Generates a new string, for example a new password
  */
-function core_get_random_string($length = 8) {
-	$valid_chars = "abcdefghjkmnpqrstuxyvwzABCDEFGHJKLMNPQRSTUXYVWZ@#$%&";
+function core_get_random_string($length = 8, $valid_chars = '') {
+	$valid_chars = str_replace(' ', '', $valid_chars);
+	if (!$valid_chars) {
+		$valid_chars = "abcdefghjkmnpqrstuxyvwzABCDEFGHJKLMNPQRSTUXYVWZ@#$%&";
+	}
 	
 	$valid_char_len = strlen($valid_chars);
 	$result = "";
