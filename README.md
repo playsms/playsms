@@ -108,3 +108,7 @@ You may also use this URL to make donation:
 Information about code contributors can be found in this URL:
 
 * https://github.com/antonraharja/playSMS/graphs/contributors
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/antonraharja/playsms/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
