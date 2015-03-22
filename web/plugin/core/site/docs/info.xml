@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin>
 	<name>site</name>
-	<alias>Manage site</alias>
+	<alias>site</alias>
 	<description>Core plugin for site manager</description>
 	<release>1.0</release>
 	<date>2014-04-25</date>

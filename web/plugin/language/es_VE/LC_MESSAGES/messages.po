@@ -114,6 +114,10 @@ msgid "Manage sender ID"
 msgstr "ID Remitente del SMS"
 
 #, fuzzy
+msgid "Manage site"
+msgstr "Administrar usuario"
+
+#, fuzzy
 msgid "Manage sub-account"
 msgstr "Administrar usuario"
 

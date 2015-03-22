@@ -111,6 +111,10 @@ msgstr "Управление шлюзами и SMS-центрами"
 msgid "Manage sender ID"
 msgstr "Управление именами отправителей"
 
+#, fuzzy
+msgid "Manage site"
+msgstr "Управление пользователями"
+
 msgid "Manage sub-account"
 msgstr "Управление дочерним пользователем"
 

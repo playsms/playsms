@@ -108,6 +108,10 @@ msgstr "Gerir gateway e SMSC"
 msgid "Manage sender ID"
 msgstr "Gerir identificação de envio"
 
+#, fuzzy
+msgid "Manage site"
+msgstr "Gerir Utilizadores"
+
 msgid "Manage sub-account"
 msgstr "Gerir subconta"
 
