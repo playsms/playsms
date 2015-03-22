@@ -2,9 +2,16 @@
 <script type="text/javascript">
 tinymce.init({
 	selector: "textarea.playsms-htmleditor",
+	themes: "modern",
 	height: 300,
 	menubar: false,
-	statusbar: false,
+	statusbar: true,
+	plugins: [
+         "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+         "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+         "save table contextmenu directionality emoticons template paste code"
+	],
+	toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | print preview fullpage code",
 });
 </script>
 {{ ERROR }}

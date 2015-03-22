@@ -322,6 +322,7 @@ switch (_OP_) {
 			'information_title' => ($post['edit_information_title'] ? $post['edit_information_title'] : _('Information')),
 			'information_content' => ($post['edit_information_content'] ? $post['edit_information_content'] : _('Go to main configuration or manage site to edit this page')) 
 		);
+		
 		$result = registry_update(1, 'core', 'main_config', $items);
 		
 		_log('main configuration saved. uid:' . $user_config['uid'], 3, 'main_config');
