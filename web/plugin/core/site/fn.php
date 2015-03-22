@@ -10,24 +10,25 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
 
 /**
  * Get site configuration
- * @param  integer $uid User ID
- * @return array        Site configuration
+ *
+ * @param integer $uid
+ *        User ID
+ * @return array Site configuration
  */
 function site_config_get($uid = 0) {
 	global $user_config, $plugin_config;
 	
-	$c_uid = ((int)$uid ? (int)$uid : $user_config['uid']);
+	$c_uid = ((int) $uid ? (int) $uid : $user_config['uid']);
 	
 	$reg = registry_search($c_uid, 'core', 'site_config');
 	$plugin_config['site']['site_config'] = $reg['core']['site_config'];
@@ -37,7 +38,10 @@ function site_config_get($uid = 0) {
 
 /**
  * Set option to site configuration
- * @param  array $config Partial or full site configuration
+ *
+ * @param array $config
+ *        Partial or full site configuration
+ * @return array Site configuration
  */
 function site_config_set($config) {
 	global $user_config, $plugin_config;
@@ -53,13 +57,15 @@ function site_config_set($config) {
 	
 	registry_update($user_config['uid'], 'core', 'site_config', $config);
 	
-	site_config_get();
+	return site_config_get();
 }
 
 /**
  * Get site configuration by domain name
- * @param  string $domain Domain name, hostname or IP address
- * @return array          Site configuration matched the domain
+ *
+ * @param string $domain
+ *        Domain name, hostname or IP address
+ * @return array Site configuration matched the domain
  */
 function site_config_getbydomain($domain) {
 	$list = array();
@@ -69,7 +75,7 @@ function site_config_getbydomain($domain) {
 			'registry_group' => 'core',
 			'registry_family' => 'site_config',
 			'registry_key' => 'domain',
-			'registry_value' => $domain,
+			'registry_value' => $domain 
 		));
 	}
 	
@@ -79,9 +85,9 @@ function site_config_getbydomain($domain) {
 // ----- HOOKS -----
 
 
-
 /**
  * Hook to core_themes_get()
+ *
  * @return string Themes name or empty
  */
 function site_hook_core_themes_get() {
@@ -89,7 +95,7 @@ function site_hook_core_themes_get() {
 	
 	$site_config = site_config_get();
 	
-	if (trim($_SERVER['HTTP_HOST']) == $site_config['domain']) {
+	if (strtolower(trim($_SERVER['HTTP_HOST'])) == strtolower(trim($site_config['domain']))) {
 		if ($site_config['themes_module']) {
 			$ret = $site_config['themes_module'];
 		}
