@@ -1,9 +1,6 @@
 msgid "Active themes"
 msgstr ""
 
-msgid "Buy credit"
-msgstr ""
-
 msgid "Buy credit page"
 msgstr ""
 
@@ -23,9 +20,6 @@ msgid "Enable forgot password"
 msgstr ""
 
 msgid "Enable public registration"
-msgstr ""
-
-msgid "Go to manage site menu to edit this page"
 msgstr ""
 
 msgid "Information page"
