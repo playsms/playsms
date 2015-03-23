@@ -1,4 +1,4 @@
--- 1.0-master
+-- 1.0-rc7
 
 
 -- version
@@ -59,3 +59,5 @@ INSERT INTO `playsms_gatewayBulksms_config` VALUES (0,'bulksms','playsms','plays
 /*!40000 ALTER TABLE `playsms_gatewayBulksms_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
+-- version
+UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-rc7' WHERE `registry_group` = 'core' AND `registry_family` = 'config' AND `registry_key` = 'playsms_version' ;
