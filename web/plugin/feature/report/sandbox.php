@@ -10,31 +10,31 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
 
 if (!auth_isadmin()) {
 	auth_block();
-};
+}
+;
 
 switch (_OP_) {
 	case "sandbox":
 		$search_category = array(
 			_('Time') => 'in_datetime',
 			_('From') => 'in_sender',
-			_('Content') => 'in_message'
+			_('Content') => 'in_message' 
 		);
 		$base_url = 'index.php?app=main&inc=feature_report&route=sandbox&op=sandbox';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array(
 			'flag_deleted' => 0,
-			'in_status' => 0
+			'in_status' => 0 
 		);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_tblSMSIncoming', $conditions, $keywords, '', $join);
@@ -42,7 +42,7 @@ switch (_OP_) {
 		$extras = array(
 			'ORDER BY' => 'in_id DESC',
 			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset']
+			'OFFSET' => $nav['offset'] 
 		);
 		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', '*', $conditions, $keywords, $extras, $join);
 		
@@ -93,12 +93,12 @@ switch (_OP_) {
 			$reply = '';
 			$forward = '';
 			if ($msg && $in_sender) {
-				$reply = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=reply&message=' . urlencode($msg) . '&to=' . urlencode($in_sender) , $icon_config['reply']);
-				$forward = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=forward&message=' . urlencode($msg) , $icon_config['forward']);
+				$reply = _sendsms($in_sender, $msg, 'index.php?app=main&inc=feature_report&route=sandbox&op=sandbox', $icon_config['reply']);
+				$forward = _sendsms('', $msg, 'index.php?app=main&inc=feature_report&route=sandbox&op=sandbox', $icon_config['forward']);
 			}
 			$c_message = "<div id=\"sandbox_msg\">" . $in_message . "</div><div id=\"msg_label\">" . $in_datetime . "</div><div id=\"msg_option\">" . $reply . $forward . "</div>";
 			$i--;
-			$content.= "
+			$content .= "
 				<tr>
 					<td>$current_sender</td>
 					<td>$c_message</td>
@@ -109,7 +109,7 @@ switch (_OP_) {
 				</tr>";
 		}
 		
-		$content.= "
+		$content .= "
 			</tbody>
 			</table>
 			</div>
@@ -121,7 +121,7 @@ switch (_OP_) {
 		}
 		_p($content);
 		break;
-
+	
 	case "actions":
 		$nav = themes_nav_session();
 		$search = themes_search_session();
@@ -130,38 +130,38 @@ switch (_OP_) {
 			case 'export':
 				$conditions = array(
 					'flag_deleted' => 0,
-					'in_status' => 0
+					'in_status' => 0 
 				);
 				$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', '*', $conditions, $search['dba_keywords'], '', $join);
 				$data[0] = array(
-					_('Time') ,
-					_('From') ,
-					_('Content')
+					_('Time'),
+					_('From'),
+					_('Content') 
 				);
 				for ($i = 0; $i < count($list); $i++) {
 					$j = $i + 1;
 					$data[$j] = array(
-						core_display_datetime($list[$i]['in_datetime']) ,
+						core_display_datetime($list[$i]['in_datetime']),
 						$list[$i]['in_sender'],
-						$list[$i]['in_message']
+						$list[$i]['in_message'] 
 					);
 				}
 				$content = core_csv_format($data);
 				$fn = 'sandbox-' . $core_config['datetime']['now_stamp'] . '.csv';
 				core_download($content, $fn, 'text/csv');
 				break;
-
+			
 			case 'delete':
 				for ($i = 0; $i < $nav['limit']; $i++) {
 					$checkid = $_POST['checkid' . $i];
 					$itemid = $_POST['itemid' . $i];
 					if (($checkid == "on") && $itemid) {
 						$up = array(
-							'c_timestamp' => mktime() ,
-							'flag_deleted' => '1'
+							'c_timestamp' => mktime(),
+							'flag_deleted' => '1' 
 						);
 						dba_update(_DB_PREF_ . '_tblSMSIncoming', $up, array(
-							'in_id' => $itemid
+							'in_id' => $itemid 
 						));
 					}
 				}

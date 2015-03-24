@@ -6,27 +6,32 @@ function CheckUncheckAll(the_form) {
 	}
 }
 
-function PopupSendSms(ta, tg) {
-	var pv = "PV";
-	if (ta == pv) {
-		var url = "menu.php?inc=core_sendsms&op=sendsms&dst_p_num=" + tg;
-	} else {
-		var url = "menu.php?inc=core_sendsms&op=sendsmstogr&dst_gp_code=" + tg;
-	}
-	newwin = window.open("", "WinSendSms", "scrollbars", "resizable=yes")
-	newwin.moveTo(20, 100)
-	newwin.resizeTo(500, 500)
-	newwin.location = url
+function PopupSendSms(sms_to, sms_message, dialog_title, return_url) {
+	BootstrapDialog.show({
+		type : BootstrapDialog.TYPE_PRIMARY,
+		title : dialog_title,
+		closable : false,
+		closeByBackdrop : false,
+		closeByKeyboard : false,
+		draggable: true,
+		message : function(dialog) {
+			var $message = $('<div></div>');
+			var pageToLoad = dialog.getData('pageToLoad');
+			$message.load(pageToLoad);
+
+			return $message;
+		},
+		data : {
+			'pageToLoad' : 'index.php?app=main&inc=core_sendsms&op=sendsms&to='
+					+ sms_to + '&message=' + sms_message
+					+ '&popup=1&_themes_layout_=contentonly' + '&return_url='
+					+ return_url
+		}
+	});
 }
 
-function PopupReplySms(tg, mssg) {
-	var url = "menu.php?inc=core_sendsms&op=sendsms&dst_p_num=" + tg
-			+ "&message=" + mssg;
-
-	newwin = window.open("", "WinSendSms", "scrollbars", "resizable=yes")
-	newwin.moveTo(20, 100)
-	newwin.resizeTo(500, 500)
-	newwin.location = url
+function PopupReplySms(sms_to, sms_message, dialog_title, return_url) {
+	PopupSendSms(sms_to, sms_message, dialog_title, return_url);
 }
 
 function linkto(url) {
@@ -47,7 +52,7 @@ function ConfirmURL(text, goto_url) {
 				}
 			}, {
 				label : 'Yes',
-				cssClass : 'btn-danger',
+				cssClass : 'btn-success',
 				action : function() {
 					document.location = goto_url;
 				}
@@ -69,7 +74,7 @@ function SureConfirm() {
 			}
 		}, {
 			label : 'Yes',
-			cssClass : 'btn-danger',
+			cssClass : 'btn-success',
 			action : function() {
 				return true;
 			}
@@ -91,7 +96,7 @@ function SubmitConfirm(text, form_name) {
 				}
 			}, {
 				label : 'Yes',
-				cssClass : 'btn-danger',
+				cssClass : 'btn-success',
 				action : function() {
 					document.getElementById(form_name).submit();
 				}

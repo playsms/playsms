@@ -1,59 +1,52 @@
-<script type="text/javascript"
-	src="{{ HTTP_PATH_THEMES }}/common/jscss/moment/moment-with-langs.min.js"></script>
-
-<link rel="stylesheet"
-	href="{{ HTTP_PATH_THEMES }}/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css" />
-<script type="text/javascript"
-	src="{{ HTTP_PATH_THEMES }}/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
-<if.calendar> <script type="text/javascript"
-	src="{{ HTTP_PATH_THEMES }}/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.{{ lang }}.js"></script>
-</if.calendar>
-
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#msg_combo_sendto").select2({
-			multiple: true,
+			multiple : true,
 			/* placeholder: "{{ Send to }}", */
-			allowClear: true,
-			selectOnBlur: true,
-			minimumInputLength: 2,
-			separator: ",",
-			tokenSeparators: [","],
-			initSelection : function (element, callback) {
+			allowClear : true,
+			selectOnBlur : true,
+			minimumInputLength : 2,
+			separator : ",",
+			tokenSeparators : [ "," ],
+			initSelection : function(element, callback) {
 				var data = [];
-				$(element.val().split(",")).each(function () {
-					data.push({id: this, text: this});
+				$(element.val().split(",")).each(function() {
+					data.push({
+						id : this,
+						text : this
+					});
 				});
 				callback(data);
 			},
-			createSearchChoice: function(term, data) {
-				if ($(data).filter(function () {
-					return this.text.localeCompare(term)===0;
-				}).length===0) {
-					return {id:term, text:term};
+			createSearchChoice : function(term, data) {
+				if ($(data).filter(function() {
+					return this.text.localeCompare(term) === 0;
+				}).length === 0) {
+					return {
+						id : term,
+						text : term
+					};
 				}
 			},
-			ajax: {
-				url: "{{ HTTP_PATH_BASE }}",
-				dataType: 'json',
-				quietMillis: 100,
-				data: function (term, page) {
+			ajax : {
+				url : "{{ HTTP_PATH_BASE }}",
+				dataType : 'json',
+				quietMillis : 100,
+				data : function(term, page) {
 					return {
-						app: "webservices",
-						op: "phonebook",
-						keyword: term
+						app : "webservices",
+						op : "phonebook",
+						keyword : term
 					};
 				},
-				results: function (data, page) {
-					return {results: data};
+				results : function(data, page) {
+					return {
+						results : data
+					};
 				}
 			}
 		});
 		$("#message").focus();
-		$("#msg_schedule").datetimepicker({<if.calendar>
-			language: '{{ lang }}',</if.calendar>
-			format: 'YYYY-MM-DD HH:mm'
-		});
 	});
 </script>
 {{ ERROR }}
@@ -74,13 +67,8 @@
 		value="{{ return_url }}" name="return_url">
 
 	<div class="row">
-		<div class="col-sm-12">
-			<h2>{{ Compose message }}</h2>
-		</div>
-	</div>
-	<div class="row">
 
-		<div class="col-sm-4">
+		<div class="col-sm-6">
 			<div class="form-group">
 				<label for="msg_combo_sendto">{{ Send to }}</label>
 				<p>
@@ -106,7 +94,7 @@
 			</div>
 		</div>
 
-		<div class="col-sm-4">
+		<div class="col-sm-6">
 			<div class="form-group">
 				<label for="msg_sender">{{ Sender ID }}</label>
 				<p>{{ sms_sender_id }}</p>
@@ -137,24 +125,12 @@
 			</div>
 		</div>
 
-		<div class="col-sm-4">
-			<div class="form-group">
-				<label for="msg_schedule">{{ Schedule }}</label>
-				<div class="input-group date" id="msg_schedule" style="width: 100%">
-					<input type="text" name="sms_schedule" class="form-control"
-						value="{{ sms_schedule }}" /> <span class="input-group-addon">
-						<span class="glyphicon glyphicon-calendar"></span>
-					</span>
-				</div>
-				<p class="help-block">{{ HINT_SCHEDULE }}</p>
-			</div>
-		</div>
-
 	</div>
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="form-group">
-				<input type=submit class=button value='{{ Send }}'>
+				<input type=submit class="button btn-success" name=submit value='{{ Send }}'>
+				<input type=submit class="button btn-primary" name=submit value='{{ Cancel }}'>
 			</div>
 		</div>
 	</div>

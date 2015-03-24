@@ -23,7 +23,7 @@ defined('_SECURE_') or die('Forbidden');
 
 /**
  * Shortcut to core_print() for printing output to display
- * 
+ *
  * @return string
  */
 function _p($content) {
@@ -58,7 +58,7 @@ function _mandatory($text) {
 /**
  * Generate options for select HTML tag
  * Shortcut to themes_select_options()
- * 
+ *
  * @param array $options
  *        Select options
  * @param string $selected
@@ -72,7 +72,7 @@ function _options($options = array(), $selected = '') {
 /**
  * Generate select HTML tag
  * Shortcut to themes_select()
- * 
+ *
  * @param string $name
  *        Tag name
  * @param array $options
@@ -94,7 +94,7 @@ function _select($name, $options = array(), $selected = '', $tag_params = array(
 /**
  * Generate select HTML tag for yes-no or enabled-disabled type of options
  * Shortcut to themes_select_yesno()
- * 
+ *
  * @param string $name
  *        Tag name
  * @param boolean $selected
@@ -118,7 +118,7 @@ function _yesno($name, $selected = '', $yes = '', $no = '', $tag_params = array(
 /**
  * Display error string from function parameter or session
  * Shortcut to themes_display_error_string()
- * 
+ *
  * @param string $error_string
  *        Array of error strings (optional)
  * @return string HTML string of error strings
@@ -130,7 +130,7 @@ function _err_display($error_string = array()) {
 /**
  * Generate HTML input tag
  * Shortcut to themes_input()
- * 
+ *
  * @param string $type
  *        Input type
  * @param string $name
@@ -152,4 +152,8 @@ function _input($type = 'text', $name = '', $value = '', $tag_params = array(), 
 // lib/fn_logger.php
 function _log($log, $level, $label) {
 	return logger_print($log, $level, $label);
+}
+
+function _sendsms($to, $message, $return_url, $button_icon = "") {
+	return themes_popup_sendsms($to, $message, $return_url, $button_icon);
 }

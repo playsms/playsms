@@ -121,8 +121,8 @@ switch (_OP_) {
 			$msg = $list[$j]['p_msg'];
 			$p_msg = core_display_text($msg);
 			if ($msg && $p_dst) {
-				$resend = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=reply&message=' . urlencode($msg) . '&to=' . urlencode($p_dst), $icon_config['resend']);
-				$forward = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=forward&message=' . urlencode($msg), $icon_config['forward']);
+				$resend = _sendsms($p_dst, $msg, 'index.php?app=main&inc=feature_report&route=user_outgoing&op=user_outgoing', $icon_config['resend']);
+				$forward = _sendsms('', $msg, 'index.php?app=main&inc=feature_report&route=user_outgoing&op=user_outgoing', $icon_config['forward']);
 			}
 			$c_message = "
 				<div id=\"user_outgoing_msg\">" . $p_msg . "</div>

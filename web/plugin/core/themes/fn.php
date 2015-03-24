@@ -774,3 +774,11 @@ function themes_input($type = 'text', $name = '', $value = '', $tag_params = arr
 	
 	return $ret;
 }
+
+function themes_popup_sendsms($to, $message, $return_url, $button_icon = "") {
+	$button_icon = ($button_icon ? $button_icon : $icon_config['reply']);
+	
+	$ret = "<a href=# onClick=\"javascript:PopupSendSms('" . urlencode($to) . "', '" . urlencode($message) . "', '" . _('Compose message') . "', '" . urlencode($return_url) . "');\">" . $button_icon . "</a>";
+	
+	return $ret;
+}

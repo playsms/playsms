@@ -60,10 +60,12 @@ switch (_OP_) {
 			$sms_template = "<div id=msg_template><select name=smstemplate id=msg_template_select style='width: 100%' onClick=\"SetSmsTemplate();\">$option_values</select></div>";
 		}
 		
+		$layout = ($_REQUEST['popup'] == 1 ? 'sendsms_popup' : 'sendsms');
+		
 		// build form
 		unset($tpl);
 		$tpl = array(
-			'name' => 'sendsms',
+			'name' => $layout,
 			'vars' => array(
 				'Compose message' => _('Compose message'),
 				'Sender ID' => _('Sender ID'),
@@ -73,6 +75,7 @@ switch (_OP_) {
 				'Flash message' => _('Flash message'),
 				'Unicode message' => _('Unicode message'),
 				'Send' => _('Send'),
+				'Cancel' => _('Cancel'),
 				'Schedule' => _('Schedule'),
 				'Options' => _('Options'),
 				'ERROR' => _err_display(),
@@ -85,6 +88,7 @@ switch (_OP_) {
 				'to' => $to,
 				'sms_sender_id' => $sms_sender_id,
 				'sms_template' => $sms_template,
+				'return_url' => $_REQUEST['return_url'],
 				
 				// 'sms_schedule' => core_display_datetime(core_get_datetime()),
 				'sms_schedule' => '',
@@ -106,6 +110,13 @@ switch (_OP_) {
 		break;
 	
 	case "sendsms_yes":
+		
+		// popup related
+		$return_url = trim(htmlspecialchars_decode($_REQUEST['return_url']));
+		if ($_REQUEST['submit'] == _('Cancel')) {
+			header("Location: " . $return_url);
+			exit();
+		}
 		
 		// sender ID
 		$sms_sender = trim($_REQUEST['sms_sender']);
@@ -163,7 +174,12 @@ switch (_OP_) {
 		} else {
 			$_SESSION['error_string'] = _('You must select receiver and your message should not be empty');
 		}
-		header("Location: " . _u('index.php?app=main&inc=core_sendsms&op=sendsms'));
+		
+		if ($return_url) {
+			header("Location: " . $return_url);
+		} else {
+			header("Location: " . _u('index.php?app=main&inc=core_sendsms&op=sendsms'));
+		}
 		exit();
 		break;
 }
