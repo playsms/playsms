@@ -6,7 +6,6 @@ function CheckUncheckAll(the_form) {
 	}
 }
 
-
 function PopupSendSms(ta, tg) {
 	var pv = "PV";
 	if (ta == pv) {
@@ -21,7 +20,8 @@ function PopupSendSms(ta, tg) {
 }
 
 function PopupReplySms(tg, mssg) {
-	var url = "menu.php?inc=core_sendsms&op=sendsms&dst_p_num=" + tg + "&message=" + mssg;
+	var url = "menu.php?inc=core_sendsms&op=sendsms&dst_p_num=" + tg
+			+ "&message=" + mssg;
 
 	newwin = window.open("", "WinSendSms", "scrollbars", "resizable=yes")
 	newwin.moveTo(20, 100)
@@ -33,25 +33,70 @@ function linkto(url) {
 	window.location.href = url;
 }
 
-function ConfirmURL(inputText, inputURL) {
-	if (confirm(inputText))
-		document.location = inputURL
-}
-
-function SureConfirm() {
-	if (confirm('Are you sure ?')) {
-		return true;
-	} else {
-		return false;
+function ConfirmURL(text, goto_url) {
+	if (text) {
+		BootstrapDialog.show({
+			type : BootstrapDialog.TYPE_DANGER,
+			title : 'Please confirm',
+			message : text,
+			buttons : [ {
+				label : 'No',
+				cssClass : 'btn-primary',
+				action : function(dialogItself) {
+					dialogItself.close();
+				}
+			}, {
+				label : 'Yes',
+				cssClass : 'btn-danger',
+				action : function() {
+					document.location = goto_url;
+				}
+			} ]
+		});
 	}
 }
 
+function SureConfirm() {
+	BootstrapDialog.show({
+		type : BootstrapDialog.TYPE_DANGER,
+		title : 'Are you sure ?',
+		message : text,
+		buttons : [ {
+			label : 'No',
+			cssClass : 'btn-primary',
+			action : function(dialogItself) {
+				return false;
+			}
+		}, {
+			label : 'Yes',
+			cssClass : 'btn-danger',
+			action : function() {
+				return true;
+			}
+		} ]
+	});
+}
+
 function SubmitConfirm(text, form_name) {
-	if (confirm(text)) {
-		document.getElementById(form_name).submit();
-		return true;
-	} else {
-		return false;
+	if (text) {
+		BootstrapDialog.show({
+			type : BootstrapDialog.TYPE_DANGER,
+			title : 'Please confirm',
+			message : text,
+			buttons : [ {
+				label : 'No',
+				cssClass : 'btn-primary',
+				action : function(dialogItself) {
+					dialogItself.close();
+				}
+			}, {
+				label : 'Yes',
+				cssClass : 'btn-danger',
+				action : function() {
+					document.getElementById(form_name).submit();
+				}
+			} ]
+		});
 	}
 }
 
@@ -102,8 +147,9 @@ function SmsTextCounter() {
 }
 
 function isGSMAlphabet(text) {
-    var regexp = new RegExp("^[A-Za-z0-9 \\r\\n@£$¥èéùìòÇØøÅå\u0394_\u03A6\u0393\u039B\u03A9\u03A0\u03A8\u03A3\u0398\u039EÆæßÉ!\"#$%&'()*+,\\-./:;<=>?¡ÄÖÑÜ§¿äöñüà^{}\\\\\\[~\\]|\u20AC]*$");
-    return regexp.test(text);
+	var regexp = new RegExp(
+			"^[A-Za-z0-9 \\r\\n@£$¥èéùìòÇØøÅå\u0394_\u03A6\u0393\u039B\u03A9\u03A0\u03A8\u03A3\u0398\u039EÆæßÉ!\"#$%&'()*+,\\-./:;<=>?¡ÄÖÑÜ§¿äöñüà^{}\\\\\\[~\\]|\u20AC]*$");
+	return regexp.test(text);
 }
 
 function SmsSetCounter() {
@@ -121,13 +167,16 @@ function SmsSetCounter() {
 	document.fm_sendsms.txtcount.value = ilen;
 }
 
-/* ############################
- New functions with more abstraction! Don't delete all of the old because some features
- like the counter of sendsms form isn't prepared for the abstract functions yet.
- ############################ */
+/*
+ * ############################ New functions with more abstraction! Don't
+ * delete all of the old because some features like the counter of sendsms form
+ * isn't prepared for the abstract functions yet. ############################
+ */
 
-function SmsSetCounter_Abstract(field, returnField, hiddcountField, hiddcount_unicodeField) {
-	var ilen = SmsTextCounter_Abstract(field, hiddcountField, hiddcount_unicodeField);
+function SmsSetCounter_Abstract(field, returnField, hiddcountField,
+		hiddcount_unicodeField) {
+	var ilen = SmsTextCounter_Abstract(field, hiddcountField,
+			hiddcount_unicodeField);
 	document.getElementById(returnField).value = ilen;
 }
 
@@ -155,7 +204,7 @@ function SmsTextCounter_Abstract(field, hiddcountField, hiddcount_unicodeField) 
 }
 
 function SmsCountKeyDown_Abstract(maxChar, formName) {
-	//alert('olá');
+	// alert('olá');
 	var msg = document.getElementById(formName).field;
 	var left = document.getElementById(formName).charNumberLeftOutput;
 	var smsLenLeft = maxChar - msg.value.length;
@@ -170,7 +219,7 @@ function SmsCountKeyDown_Abstract(maxChar, formName) {
 }
 
 function SmsCountKeyUp_Abstract(maxChar, formName, fieldName) {
-	//alert('olá');
+	// alert('olá');
 	var msg = document.getElementById(fieldName)
 	var left = document.getElementById(formName).charNumberLeftOutput;
 
