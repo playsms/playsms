@@ -204,8 +204,8 @@ function simplerate_hook_rate_deduct($smslog_id) {
 					if ($charge && $balance && $credit_lowest_limit && ($balance <= $credit_lowest_limit) && !$notified) {
 						
 						// set notified
-						registry_update($uid, 'feature', 'simplerate', array(
-							'credit_lowest_limit_notif' => TRUE 
+						registry_update($uid, 'feature', 'credit', array(
+							'lowest_limit_notif' => TRUE 
 						));
 						
 						// notif admins
