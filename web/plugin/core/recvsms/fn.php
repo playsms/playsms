@@ -430,13 +430,13 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 					$body .= _('Received') . ": " . core_display_datetime($sms_datetime) . "\n";
 					$body .= _('Receiver') . ": " . $sms_receiver . "\n";
 					$body .= _('Sender') . ": " . $sender . "\n\n";
-					$body .= _('Message') . ":\n" . $message . "\n\n";
+					$body .= _('Message') . ":\n" . $message . "\n\n--\n";
 					$body .= $email_footer . "\n\n";
 					$body = stripslashes($body);
 					logger_print("send email from:" . $email_service . " to:" . $email . " message:[" . $message . "]", 3, "recvsms_inbox_add");
 					$data = array(
-						'mail_from_name' => $core_config['main']['web_title'],
-						'mail_from' => $core_config['main']['email_service'],
+						'mail_from_name' => $web_title,
+						'mail_from' => $email_service,
 						'mail_to' => $email,
 						'mail_subject' => $subject,
 						'mail_body' => $body 
