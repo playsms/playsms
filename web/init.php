@@ -125,6 +125,9 @@ define('_HTTP_PATH_TPL_', $core_config['http_path']['tpl']);
 define('_APPS_PATH_STORAGE_', $core_config['apps_path']['storage']);
 define('_HTTP_PATH_STORAGE_', $core_config['http_path']['storage']);
 
+// system sender ID
+define('_SYSTEM_SENDER_ID_', '@admin');
+
 // load init functions
 include_once _APPS_PATH_LIBS_ . '/fn_core.php';
 

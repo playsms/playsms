@@ -212,17 +212,17 @@ function simplerate_hook_rate_deduct($smslog_id) {
 						$admins = user_getallwithstatus(2);
 						foreach ($admins as $admin) {
 							$credit_message_to_admins = sprintf(_('Username %s with account ID %d has reached lowest credit limit of %s'), $username, $uid, $credit_lowest_limit);
-							recvsms_inbox_add(core_get_datetime(), 'admin', $admin['username'], $credit_message_to_admins);
+							recvsms_inbox_add(core_get_datetime(), _SYSTEM_SENDER_ID_, $admin['username'], $credit_message_to_admins);
 						}
 						
 						// notif parent_uid if exists
 						if ($parent_uid && $username_parent) {
 							$credit_message_to_parent = sprintf(_('Your subuser with username %s and account ID %d have reached lowest credit limit of %s'), $username, $uid, $credit_lowest_limit);
-							recvsms_inbox_add(core_get_datetime(), 'admin', $username_parent, $credit_message_to_parent);
+							recvsms_inbox_add(core_get_datetime(), _SYSTEM_SENDER_ID_, $username_parent, $credit_message_to_parent);
 						}
 						
 						// notif uid
-						$sender_username = ($username_parent ? $username_parent : 'admin');
+						$sender_username = ($username_parent ? $username_parent : _SYSTEM_SENDER_ID_);
 						$credit_message_to_self = sprintf(_('You have reached lowest credit limit of %s'), $credit_lowest_limit);
 						recvsms_inbox_add(core_get_datetime(), $sender_username, $username, $credit_message_to_self);
 						
