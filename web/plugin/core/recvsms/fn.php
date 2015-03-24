@@ -414,18 +414,26 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 				}
 			}
 			
-			// forward to email
+			// forward to email, consider site config too
+			if ($parent_uid = user_getparentbyuid($uid)) {
+				$site_config = site_config_get($parent_uid);
+			}
+			
+			$web_title = ($site_config['web_title'] ? $site_config['web_title'] : $core_config['main']['web_title']);
+			$email_service = ($site_config['email_service'] ? $site_config['email_service'] : $core_config['main']['email_service']);
+			$email_footer = ($site_config['email_footer'] ? $site_config['email_footer'] : $core_config['main']['email_footer']);
+			
 			if ($fwd_to_email = $user['fwd_to_email']) {
 				if ($email = $user['email']) {
 					$subject = _('Message from') . " " . $sender;
-					$body = $core_config['main']['web_title'] . "\n\n";
+					$body = $web_title . "\n\n";
 					$body .= _('Received') . ": " . core_display_datetime($sms_datetime) . "\n";
 					$body .= _('Receiver') . ": " . $sms_receiver . "\n";
 					$body .= _('Sender') . ": " . $sender . "\n\n";
 					$body .= _('Message') . ":\n" . $message . "\n\n";
-					$body .= $core_config['main']['email_footer'] . "\n\n";
+					$body .= $email_footer . "\n\n";
 					$body = stripslashes($body);
-					logger_print("send email from:" . $core_config['main']['email_service'] . " to:" . $email . " message:[" . $message . "]", 3, "recvsms_inbox_add");
+					logger_print("send email from:" . $email_service . " to:" . $email . " message:[" . $message . "]", 3, "recvsms_inbox_add");
 					$data = array(
 						'mail_from_name' => $core_config['main']['web_title'],
 						'mail_from' => $core_config['main']['email_service'],
@@ -434,7 +442,7 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 						'mail_body' => $body 
 					);
 					sendmail($data);
-					logger_print("sent email from:" . $core_config['main']['email_service'] . " to:" . $email, 3, "recvsms_inbox_add");
+					logger_print("sent email from:" . $email_service . " to:" . $email, 3, "recvsms_inbox_add");
 				}
 			}
 			
