@@ -114,6 +114,10 @@ msgid "Manage sender ID"
 msgstr "短信发件人"
 
 #, fuzzy
+msgid "Manage site"
+msgstr "管理用户"
+
+#, fuzzy
 msgid "Manage sub-account"
 msgstr "管理用户"
 

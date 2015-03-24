@@ -100,7 +100,15 @@ function core_htmlspecialchars($data) {
  * @return mixed
  */
 function core_sanitize_inputs($data) {
-	$hp = new HTMLPurifier();
+	$config = HTMLPurifier_Config::createDefault();
+	$config->set('Attr.EnableID', TRUE);
+	$config->set('HTML.SafeObject', TRUE);
+	$config->set('HTML.SafeEmbed', TRUE);
+	$config->set('Output.FlashCompat', TRUE);
+	$config->set('HTML.SafeIframe', TRUE);
+	$config->set('URI.SafeIframeRegexp', '%^https://(www.youtube.com/embed/|player.vimeo.com/video/)%');
+	$config->set('HTML.Allowed', '*[style|class],p,ol,li,ul,b,u,strike,strong,blockquote,em,br,span,div,a[href|title|target|rel],img[src|alt|title|width|height|hspace|vspace],hr,font,pre,table[cellpadding|cellspacing],tr,td,th,tbody,thead,h1,h2,h3,h4,h5,iframe[src|width|height]');
+	$hp = new HTMLPurifier($config);
 	
 	if (is_array($data)) {
 		foreach ($data as $key => $value) {
@@ -109,13 +117,15 @@ function core_sanitize_inputs($data) {
 			} else {
 				$value = stripslashes($value);
 				$value = $hp->purify($value);
+				$value = addslashes($value);
 				$ret[$key] = $value;
 			}
 		}
 	} else {
-		$value = stripslashes($data);
-		$value = $hp->purify($value);
-		$ret = $value;
+		$data = stripslashes($data);
+		$data = $hp->purify($data);
+		$data = addslashes($data);
+		$ret = $data;
 	}
 	
 	return $ret;
@@ -260,7 +270,15 @@ function core_str2hex($string) {
  * @return mixed
  */
 function core_display_html($data) {
-	$hp = new HTMLPurifier();
+	$config = HTMLPurifier_Config::createDefault();
+	$config->set('Attr.EnableID', TRUE);
+	$config->set('HTML.SafeObject', TRUE);
+	$config->set('HTML.SafeEmbed', TRUE);
+	$config->set('Output.FlashCompat', TRUE);
+	$config->set('HTML.SafeIframe', TRUE);
+	$config->set('URI.SafeIframeRegexp', '%^https://(www.youtube.com/embed/|player.vimeo.com/video/)%');
+	$config->set('HTML.Allowed', '*[style|class],p,ol,li,ul,b,u,strike,strong,blockquote,em,br,span,div,a[href|title|target|rel],img[src|alt|title|width|height|hspace|vspace],hr,font,pre,table[cellpadding|cellspacing],tr,td,th,tbody,thead,h1,h2,h3,h4,h5,iframe[src|width|height]');
+	$hp = new HTMLPurifier($config);
 	
 	if (is_array($data)) {
 		foreach ($data as $key => $value) {
@@ -279,16 +297,17 @@ function core_display_html($data) {
 	return $ret;
 }
 
-/*
+/**
  * Format text for safe display on the web @param $text original text @param $len length of text @return formatted text
  */
 function core_display_text($text, $len = 0) {
+	$hp = new HTMLPurifier();
+	
 	if (is_array($text)) {
 		foreach ($text as $item) {
 			$ret[] = core_display_text((string) $item, $len);
 		}
 	} else {
-		$hp = new HTMLPurifier();
 		$text = $hp->purify($text);
 		$text = strip_tags($text);
 		$text = ($len > 0 ? substr($text, 0, $len) . '..' : $text);

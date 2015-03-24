@@ -282,8 +282,12 @@ if ((!$core_config['daemon_process']) && $_SERVER['HTTP_HOST']) {
 	}
 }
 
-if ((!$core_config['daemon_process']) && $_SERVER['HTTP_HOST'] && $site_config['domain'] && ($_SERVER['HTTP_HOST'] == $site_config['domain'])) {
+if ((!$core_config['daemon_process']) && trim($_SERVER['HTTP_HOST']) && trim($site_config['domain']) && (strtolower(trim($_SERVER['HTTP_HOST'])) == strtolower(trim($site_config['domain'])))) {
 	$core_config['main'] = array_merge($core_config['main'], $site_config);
+	
+	if (_APP_ == 'main' || _APP_ == 'menu') {
+		_log('apply site config domain:[' . $site_config['domain'] . '] uid:' . $site_config['uid'], 3, 'init');
+	}
 }
 
 // verify selected themes_module exists

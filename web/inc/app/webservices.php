@@ -566,7 +566,7 @@ if (_OP_) {
 				$json['status'] = 'ERR';
 				$json['error'] = '100';
 			}
-			$log_this = TRUE;
+			$log_this = FALSE;
 			break;
 		
 		default :

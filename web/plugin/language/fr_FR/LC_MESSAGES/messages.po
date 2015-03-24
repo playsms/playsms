@@ -114,6 +114,10 @@ msgid "Manage sender ID"
 msgstr "Gérer sender ID"
 
 #, fuzzy
+msgid "Manage site"
+msgstr "Gérer utilisateur"
+
+#, fuzzy
 msgid "Manage sub-account"
 msgstr "Gérer sous-utilisateurs"
 

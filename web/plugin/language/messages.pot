@@ -94,6 +94,9 @@ msgstr ""
 msgid "Manage sender ID"
 msgstr ""
 
+msgid "Manage site"
+msgstr ""
+
 msgid "Manage sub-account"
 msgstr ""
 

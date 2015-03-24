@@ -126,6 +126,11 @@ if (auth_isadmin()) {
 		_('Manage sender ID') ,
 		3
 	);
+	$menu_config[$menutab][] = array(
+		'index.php?app=main&inc=core_site&op=site_config',
+		_('Manage site') ,
+		3
+	);
 } else if ($user_config['status'] == 4) {
 
 	// subuser menus

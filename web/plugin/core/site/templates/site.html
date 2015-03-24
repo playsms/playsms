@@ -1,0 +1,111 @@
+<script type="text/javascript" src="{{ $core_config['http_path']['plug'] }}/themes/common/jscss/tinymce/tinymce.min.js"></script>
+<script type="text/javascript">
+tinymce.init({
+	selector: "textarea.playsms-htmleditor",
+	height: 300,
+	menubar: false,
+	statusbar: true,
+	plugins: [
+         "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+         "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+         "save table contextmenu directionality emoticons template paste code"
+	],
+	toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | print preview fullpage code",
+});
+</script>
+{{ $error_content }}
+<h2>{{ Manage site }}</h2>
+<form id=fm_core_site name=id_core_site action="{{ ACTION_URL }}" method=POST>
+	{{ CSRF_FORM }}
+	<ul class='nav nav-tabs nav-justified'>
+		<li class=active><a href='#tabs-site-configuration' data-toggle=tab>{{ Site configuration }}</a></li>
+		<li><a href='#tabs-information-page' data-toggle=tab>{{ Information page }}</a></li>
+	</ul>
+	<div class=tab-content>
+		<div id='tabs-site-configuration' class='tab-pane fade in active'>
+			<h4>{{ Site configuration }}</h4>
+			<table class=playsms-table>
+				<tbody>
+					<tr>
+						<td class=label-sizer>{{ Domain }}</td>
+						<td><input type="text" size=30 maxlength=255 name=up[domain] value="{{ $site_config['domain'] }}"> {{ HINT_DOMAIN }}</td>
+					</tr>
+					<tr>
+						<td>{{ Website title }}</td>
+						<td><input type="text" size=30 maxlength=255 name=up[web_title] value="{{ $site_config['web_title'] }}"></td>
+					</tr>
+					<tr>
+						<td>{{ Email service }}</td>
+						<td><input type="text" size=30 maxlength=255 name=up[email_service] value="{{ $site_config['email_service'] }}"></td>
+					</tr>
+					<tr>
+						<td>{{ Email footer }}</td>
+						<td><input type="text" size=30 maxlength=255 name=up[email_footer] value="{{ $site_config['email_footer'] }}"></td>
+					</tr>
+					<tr>
+						<td>{{ Main website name }}</td>
+						<td><input type="text" size=30 maxlength=255 name=up[main_website_name] value="{{ $site_config['main_website_name'] }}"></td>
+					</tr>
+					<tr>
+						<td>{{ Main website URL }}</td>
+						<td><input type="text" size=30 maxlength=255 name=up[main_website_url] value="{{ $site_config['main_website_url'] }}"></td>
+					</tr>
+					<tr>
+						<td>{{ Active themes }}</td>
+						<td><select name=up[themes_module]>{{ $options['themes_module'] }}</select></td>
+					</tr>
+					<tr>
+						<td>{{ Enable public registration }}</td>
+						<td><select name=up[enable_register]>{{ $options['enable_register'] }}</select></td>
+					</tr>
+					<tr>
+						<td>{{ Enable forgot password }}</td>
+						<td><select name=up[enable_forgot]>{{ $options['enable_forgot'] }}</select></td>
+					</tr>
+					<tr>
+						<td>{{ Logo URL }}</td>
+						<td><input type="text" size=30 maxlength=255 name=up[logo_url] value="{{ $site_config['logo_url'] }}"></td>
+					</tr>
+					<tr>
+						<td>{{ Layout footer }}</td>
+						<td><textarea name=up[layout_footer] row=2>{{ str_replace("\"", '\'', $site_config['layout_footer']) }}</textarea></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id='tabs-information-page' class='tab-pane fade'>
+			<h4>{{ Information page }}</h4>
+			<table class=playsms-table>
+				<tbody>
+					<tr>
+						<td class=label-sizer>{{ Page title }}</td>
+						<td><input type="text" size=30 maxlength=255 name=up[information_title] value="{{ $site_config['information_title'] }}"></td>
+					</tr>
+					<tr>
+						<td>{{ Page content }}</td>
+						<td><textarea name=up[information_content] class=playsms-htmleditor rows=20>{{ $site_config['information_content'] }}</textarea></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<p><input type="submit" class="button" value="{{ Save }}">
+</form>
+<script type="text/javascript" src="{{ $core_config['http_path']['plug'] }}/themes/common/jscss/jquery.cookie.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
+		//save the latest tab using a cookie:
+		$.cookie('site_config_last_tab', $(e.target).attr('href'));
+	});
+	
+	//activate latest tab, if it exists:
+	var lastTab = $.cookie('site_config_last_tab');
+	if (lastTab) {
+		$('ul.nav-tabs').children().removeClass('active');
+		$('a[href='+ lastTab +']').parents('li:first').addClass('active');
+		$('div.tab-content').children().removeClass('in active');
+		$(lastTab).addClass('in active');
+	}
+});
+</script>
