@@ -222,9 +222,9 @@ function simplerate_hook_rate_deduct($smslog_id) {
 						}
 						
 						// notif uid
-						$sender_username = ($username_parent ? $username_parent : $username);
+						$sender_username = ($username_parent ? $username_parent : 'admin');
 						$credit_message_to_self = sprintf(_('You have reached lowest credit limit of %s'), $credit_lowest_limit);
-						recvsms_inbox_add(core_get_datetime(), 'admin', $sender_username, $credit_message_to_self);
+						recvsms_inbox_add(core_get_datetime(), $sender_username, $username, $credit_message_to_self);
 						
 						_log('sent notification credit_lowest_limit:' . $credit_lowest_limit, 3, 'simplerate deduct');
 					}
