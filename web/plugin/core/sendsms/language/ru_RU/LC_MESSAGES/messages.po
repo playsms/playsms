@@ -11,6 +11,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
+msgid "Cancel"
+msgstr ""
+
 #, fuzzy
 msgid "Compose message"
 msgstr "содержит русские символы"

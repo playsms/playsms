@@ -1,3 +1,6 @@
+msgid "Cancel"
+msgstr ""
+
 msgid "Compose message"
 msgstr ""
 

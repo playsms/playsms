@@ -11,20 +11,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.7.5\n"
 
-msgid "Message"
-msgstr "Mensagem"
+msgid "From"
+msgstr ""
 
 msgid "Message from"
 msgstr "Mensagem de"
 
+msgid "Message received at"
+msgstr ""
+
 msgid "New inbox from"
 msgstr "Nova caixa de entrada de"
 
-msgid "Received"
-msgstr "Recebido"
-
-msgid "Receiver"
-msgstr "Destinatário"
-
-msgid "Sender"
-msgstr "Remetente"
+msgid "on"
+msgstr ""

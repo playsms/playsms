@@ -11,6 +11,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.7.4\n"
 
+msgid "Cancel"
+msgstr ""
+
 msgid "Compose message"
 msgstr "Lav besked"
 

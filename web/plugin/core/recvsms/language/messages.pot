@@ -1,17 +1,14 @@
-msgid "Message"
+msgid "From"
 msgstr ""
 
 msgid "Message from"
 msgstr ""
 
+msgid "Message received at"
+msgstr ""
+
 msgid "New inbox from"
 msgstr ""
 
-msgid "Received"
-msgstr ""
-
-msgid "Receiver"
-msgstr ""
-
-msgid "Sender"
+msgid "on"
 msgstr ""
